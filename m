@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D547BC624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DD2C624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9waQiWmGIRreL2pS/vRF0HC/WvchDTgVV64118m7PDE=; b=Q8pC8B9gETDKlmHHIESpF2NquN
-	AeRCpeWu2AX5L3+iSGmjmWiH6EB2ZoZHmRSPJ/L5aSa+ttoM0XSPujJF41ssgRBa7m7qVYj0LVMxv
-	H8KGGkr6QbyXo/FzGb7bG2/OzWFdmmEuCtdkb4Y6oe90h5WE2SqwkdV58hDvFr4bk8bfMY62N3WZR
-	2H6RiB5S1mfWkLiT8oltMlhg5qAFdqS8v7HbSMQoz9eufz2N5JXqKZQ6Dhh0whinOEsECjQR7N9w7
-	g2fqJyMzbfcUoQFithw0LKjbgqo2SgBCuOeEU7hZec0RVc/rH49yNEvvQxGvGyXU6gXKqxDNd5WLr
-	s1wuAq6w==;
+	bh=LU1tCjaazAuuI5hKZKyA4j9n1PnyCCpNtt7AusBd1p4=; b=ph236vLF05d2aUkloZbQRWC83i
+	ljtJFCv8BUpdWfgQkWoNOvN2sEJtvHaECbsy8LYM9vowGRer/djrnrqHM9x7NbjZO/GtMAxfNr8T4
+	6GrASSg5DFXS4stJ71IBwVa70OpC2RWhqvTGU70zhhjxZLJ+MF3E/FcJ5Ik4QxKyi496YyWqENXxu
+	irsAgQBPQWjRQ+1xVKRrCReHlwZYF+knPmRErr8Tg+Vk4mg6qnEJsLnsSYpMf/qM91b2BYCurpFog
+	ei7acT+KhWcQckyfqsByYYu6o5+QuODEdEZLdz0sgtSy+UYu1oqeQc6I98OMy8EHbcjInqkWCx4Wi
+	Z1qicqKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Gt-00000009Two-0cMt;
-	Mon, 31 Aug 2026 13:41:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x12H7-00000009U2C-1jxX;
+	Mon, 31 Aug 2026 13:42:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Gr-00000009TwE-2Q6b;
-	Mon, 31 Aug 2026 13:41:57 +0000
+	id 1x12H6-00000009U1S-0rE1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:42:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF6FD60232;
-	Mon, 31 Aug 2026 13:41:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6821F00A3E;
-	Mon, 31 Aug 2026 13:41:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 788AE60204;
+	Mon, 31 Aug 2026 13:42:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A1AC1F000E9;
+	Mon, 31 Aug 2026 13:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183716;
-	bh=9waQiWmGIRreL2pS/vRF0HC/WvchDTgVV64118m7PDE=;
+	s=k20260515; t=1788183731;
+	bh=LU1tCjaazAuuI5hKZKyA4j9n1PnyCCpNtt7AusBd1p4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=W6tjZme/UAej6dvIG6QuzVr1jWsV90B4VaEnkEcq2Tf8qbmXh290HH01n19CFD4A4
-	 ILrLC1BQaZm1YSoiUVRvqMEOXFw32KuUfn2IFK5q6bhkymzIudVBj8owDBd0J3CNAL
-	 /BqmnbFJWSnnTJ3emtUQAar50ff/lU/OhzHt4ZeHEWKlX1TqzlJd94VZDA6a9YvcjY
-	 2GbCwIBi4KQcLLbWUxoqIrdADLbQjluOr7+++7NtJ3KbxYFH/kKbD/McQyeaxJZack
-	 u44/Z7SinV00sioB/5HoiyfHnJp+tKV2aJqGPjGlmA+/Y+Fwa0+drqDIZQ93HDiKn+
-	 hilyNxLhxitMg==
+	b=llwTR3zsWyqyYP+9BDu2JsnlDXClT0N1miM0MtgoSkcnoe2sSlje+C5goQM7T2X9d
+	 gPUTXjc4hdXVtXDaWRd/KwmxI8pupZoQdHXQvUsQVbOAcDzidwWVp0emS35a7cAYyl
+	 leHJP/T1gUcMLSGWL5bceuvL9ZbXNluTlBeEO5SapGerwt3xkAdiUdT3jFKkvDGFyf
+	 TcSrs9b+nMnO8t2vlRS4OVmOf/Tr5TH/CcjNNZObMeFuJ5iuvWwa2kTsY46nE1rVHf
+	 wX8iDLvE1VkeCU6dPoaepsg4ZzdYFIaHZPt5mWQ/ktlB7IM1vtlnzLrSHAaiRzKE9N
+	 negC8O9FLWCpw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+Cc: Ruoyu Wang <ruoyuw560@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	Sasha Levin <sashal@kernel.org>,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] drm/mediatek: dsi: Add compatible for mt8167-dsi
-Date: Mon, 31 Aug 2026 09:24:50 -0400
-Message-ID: <20260831133314.4125787-262-sashal@kernel.org>
+	kaloz@openwrt.org,
+	clabbe@baylibre.com,
+	davem@davemloft.net,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.15] crypto: ixp4xx - fix buffer chain unwind on allocation failure
+Date: Mon, 31 Aug 2026 09:24:58 -0400
+Message-ID: <20260831133314.4125787-270-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -83,391 +81,461 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+From: Ruoyu Wang <ruoyuw560@gmail.com>
 
-[ Upstream commit 6428eaf0c1f39815b08d57054895c1934d5782f3 ]
+[ Upstream commit 25056329384010a8672552b134f609601dc4f80e ]
 
-The mt8167 DSI controller is fully compatible with the one found in
-mt2701. Unfortunately the device tree has a dedicated compatible for
-mt8167 since 2022 and it cannot be changed with a fallback nor removed at
-this point. The only way to get the device to work is to add the
-compatible to the driver.
+chainup_buffers() builds a linked list of buffer descriptors for a
+scatterlist. If dma_pool_alloc() fails while constructing the list, the
+current code sets buf to NULL and later dereferences it unconditionally
+at the end of the function:
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Link: https://patchwork.kernel.org/project/dri-devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
-Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+  buf->next = NULL;
+  buf->phys_next = 0;
+
+This can lead to a null-pointer dereference on allocation failure.
+
+If the failure happens after part of the descriptor chain has already
+been allocated and DMA-mapped, the partially constructed chain also
+needs to be released.
+
+Fix this by terminating the partially constructed chain on allocation
+failure and letting the callers unwind it via their existing cleanup
+paths. Also fix ablk_perform() to preserve the hook pointers before
+checking for failure, so partially built chains can be freed correctly.
+
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+Acked-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: drm/mediatek: dsi: Add compatible for
-mt8167-dsi
+## Phase 1: Commit Message Forensics
 
-**Local tree:** `v6.18.43` (Makefile: 6.18.43)
+**Step 1.1 — Subject line**
 
----
+Record: `[crypto: ixp4xx] [fix] fix buffer chain unwind on allocation
+failure in chainup_buffers()/ablk_perform()`
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+**Step 1.2 — Tags**
 
-### Step 1.1: PARSE THE SUBJECT LINE
-**Record:** `[drm/mediatek: dsi]` `[Add]` — Add `mediatek,mt8167-dsi`
-compatible string to the existing MediaTek DSI platform driver so MT8167
-boards can bind.
+Record:
+- `Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>` — author
+- `Acked-by: Linus Walleij <linusw@kernel.org>` — ARM/platform
+  maintainer ack
+- `Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>` — crypto
+  maintainer merge
+- No `Fixes:` tag (expected for manual review)
+- No `Reported-by:` / `Link:` / `Cc: stable@vger.kernel.org`
+- Notable: maintainer ack from Linus Walleij; Herbert Xu applied v2 per
+  lore
 
-### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
-**Record:**
-- **Signed-off-by:** Luca Leonardo Scorcia `<l.scorcia@gmail.com>`
-  (author)
-- **Reviewed-by:** AngeloGioacchino Del Regno
-  `<angelogioacchino.delregno@collabora.com>`
-- **Reviewed-by:** CK Hu `<ck.hu@mediatek.com>` (MediaTek maintainer)
-- **Link:** https://patchwork.kernel.org/project/dri-
-  devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
-- **Signed-off-by:** Chun-Kuang Hu `<chunkuang.hu@kernel.org>` (applied
-  to mediatek-drm-next)
-- No Fixes:, Reported-by:, Cc: stable, or syzbot tags
-- Notable: two subsystem Reviewed-by tags, including MediaTek maintainer
+**Step 1.3 — Body analysis**
 
-### Step 1.3: ANALYZE THE COMMIT BODY TEXT
-**Record:**
-- **Bug:** MT8167 DSI hardware is register-compatible with MT2701, but
-  the DSI platform driver’s `of_match` table lacks
-  `mediatek,mt8167-dsi`.
-- **Symptom:** DSI platform device does not probe; display pipeline
-  cannot complete on MT8167 boards whose DT uses `mediatek,mt8167-dsi`.
-- **Root cause:** DT binding has listed `mediatek,mt8167-dsi` since
-  2022; that compatible cannot be removed or replaced with a fallback;
-  driver was never updated to match.
-- **Version info:** Binding present since 2022; fix is May 2026.
+Record:
+- **Bug:** `chainup_buffers()` on `dma_pool_alloc()` failure sets `buf =
+  NULL`, breaks, then unconditionally does `buf->next = NULL` → NULL
+  pointer dereference.
+- **Secondary bug:** Partially built descriptor chains are not
+  terminated/freed on failure.
+- **Symptom:** Kernel oops on allocation failure; possible DMA-pool leak
+  if the NULL deref were avoided without proper unwind.
+- **Root cause:** Incorrect error handling in `chainup_buffers()`;
+  `ablk_perform()` checks return value before saving hook pointers, so
+  cleanup cannot free partial chains.
+- **Version info:** None in commit message.
 
-### Step 1.4: DETECT HIDDEN BUG FIXES
-**Record:** Not disguised as cleanup. This is explicit hardware-
-enablement: a missing `of_device_id` entry leaves DSI non-functional on
-affected hardware. Functionally a driver/DT mismatch bug, not a new
-feature API.
+**Step 1.4 — Hidden bug fix?**
+
+Record: No — this is an explicit bug fix (NULL deref + resource leak on
+error path), not disguised cleanup.
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 2: Diff Analysis
 
-### Step 2.1: INVENTORY THE CHANGES
-**Record:**
-- **Files:** `drivers/gpu/drm/mediatek/mtk_dsi.c` (+1 line)
-- **Functions/areas:** `mtk_dsi_of_match[]` static table
-- **Scope:** Single-file, one-line surgical change
+**Step 2.1 — Inventory**
 
-### Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
-**Record:**
-- **Before:** `mtk_dsi_probe()` only runs for `mt2701-dsi`,
-  `mt8173-dsi`, `mt8183-dsi`, `mt8186-dsi`, `mt8188-dsi` compatibles.
-- **After:** Also runs for `mediatek,mt8167-dsi`, using
-  `mt2701_dsi_driver_data` (same register offsets as MT2701).
-- **Path affected:** Platform probe → `of_device_get_match_data()` → DSI
-  host/bridge registration → DRM component bind.
+Record:
+- **File:** `drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c` (+14 / −11,
+  ~25 lines)
+- **Functions:** `chainup_buffers()`, `ablk_perform()`
+- **Scope:** Single-file surgical fix
 
-### Step 2.3: IDENTIFY THE BUG MECHANISM
-**Record:**
-- **Category:** Logic/correctness — missing hardware identification
-  entry (compatible-string quirk).
-- **Mechanism:** `mtk_drm_drv.c` already recognizes
-  `mediatek,mt8167-dsi` in `mtk_ddp_comp_dt_ids[]` and adds a component
-  match, but `mtk_dsi_driver` never probes the device without a matching
-  `of_match` entry. DRM bind stalls or fails for the DSI component.
+**Step 2.2 — Code flow changes**
 
-### Step 2.4: ASSESS THE FIX QUALITY
-**Record:**
-- Obviously correct: reuses existing `mt2701_dsi_driver_data`; author
-  and reviewers confirm hardware identity.
-- Minimal, no unrelated changes.
-- Regression risk: very low — only adds a new match entry pointing at
-  proven driver data.
-- No API, structure, or locking changes.
+Record:
+- **Hunk 1 (`chainup_buffers`):** Before: on alloc failure, `buf = NULL;
+  break;` then fall through to `buf->next = NULL` (crash). After:
+  terminate current `buf` chain (`buf->next = NULL; buf->phys_next = 0`)
+  and `return NULL` immediately.
+- **Hunk 2 (`ablk_perform`):** Before: `if (!chainup_buffers(...)) goto
+  cleanup` before saving `dst_hook`/`src_hook` into `req_ctx` and
+  `crypt`. After: assign return to `buf`, always save hook pointers
+  first, then `if (!buf) goto cleanup` — matching the pattern already
+  used in `aead_perform()`.
 
----
+**Step 2.3 — Bug mechanism**
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+Record:
+- **Category:** NULL pointer dereference + error-path resource leak
+- **Mechanism:** On `dma_pool_alloc()` failure, `buf` becomes NULL but
+  is dereferenced at function end. Even if that were avoided,
+  `ablk_perform()` would jump to cleanup without populating
+  `req_ctx->dst/src` and `crypt->dst_buf/src_buf`, so `free_buf_chain()`
+  would not release partially allocated chains.
 
-### Step 3.1: BLAME THE CHANGED LINES
-**Record:** In this checkout, `git blame` on `mtk_dsi_of_match[]`
-attributes all lines to a single squashed base commit (`a112b91dd6349`);
-per-file history is not useful for dating the omission. The omission is
-the absence of `mt8167-dsi` while other MT8167 compatibles exist
-elsewhere in the same driver tree.
+**Step 2.4 — Fix quality**
 
-### Step 3.2: FOLLOW THE FIXES: TAG
-**Record:** N/A — no `Fixes:` tag in the commit message.
-
-### Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
-**Record:**
-- Patch is **v4, 2/2** of series “Add support for mt8167 display
-  blocks”.
-- **v4, 1/2:** `arm64: dts: mediatek: mt8167: Add DRM nodes` (adds DSI
-  and other display nodes to `mt8167.dtsi`).
-- This driver patch is standalone: it only needs a DT node with
-  `mediatek,mt8167-dsi`, which the binding has documented since 2022 and
-  which `mtk_drm_drv.c` already handles.
-
-### Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
-**Record:** Luca Leonardo Scorcia is an active MT8167 display
-contributor. Maintainer Chun-Kuang Hu applied the patch to `mediatek-
-drm-next`. Git history in this tree is too squashed to enumerate author
-commits locally.
-
-### Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
-**Record:**
-- No kernel-code prerequisites beyond existing `mt2701_dsi_driver_data`
-  and `mtk_dsi` driver (both present in 6.18.43).
-- DTS patch 1/2 is **not** required for the driver fix to apply cleanly;
-  it is required for in-tree `mt8167.dtsi` to expose a DSI node.
-  Vendor/out-of-tree DTS may already use `mediatek,mt8167-dsi`.
-- **Can apply standalone:** PASS for the driver change.
+Record: Fix is minimal, obviously correct, and aligns `ablk_perform()`
+with the existing correct pattern in `aead_perform()`. Low regression
+risk — only affects failure paths.
 
 ---
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+## Phase 3: Git History Investigation
 
-### Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
-**Record:**
-- `b4 dig -c <sha>` failed (commit not in this repo).
-- Patchwork: https://patchwork.kernel.org/project/dri-
-  devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
-- Series: v4, 2/2; v4, 1/2 adds DRM DT nodes.
-- Reviewed-by from AngeloGioacchino Del Regno and CK Hu on list.
-- Chun-Kuang Hu: “Applied to mediatek-drm-next”.
-- No stable nomination or NAK found in thread.
-- lore.kernel.org fetch blocked (bot protection).
+**Step 3.1 — Blame**
 
-### Step 4.2: CHECK WHO REVIEWED THE PATCH
-**Record:** CC list included `linux-mediatek`, `dri-devel`,
-`devicetree`, `chunkuang.hu@kernel.org`, `ck.hu@mediatek.com`, and other
-DRM/DT maintainers. MediaTek maintainer reviewed and applied.
+Record: `git blame` on `chainup_buffers()` lines 872–902 attributes all
+lines to `5d324e5159d9e` (Nov 28, 2025 merge). This checkout’s history
+is shallow around this file; exact introduction commit of the buggy
+pattern could not be determined here. The driver itself dates to 2008
+per file header.
 
-### Step 4.3: SEARCH FOR THE BUG REPORT
-**Record:** No formal bug report or syzbot link. Impact inferred from
-incomplete driver/DT binding alignment and partial MT8167 DRM support
-already in-tree.
+**Step 3.2 — Fixes: tag**
 
-### Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
-**Record:** Companion patch adds DSI node to `mt8167.dtsi`. In **this**
-tree, `mt8167.dtsi` has mmsys/SMI nodes but **no DSI node**;
-`mt8167-pumpkin.dts` also has no display nodes. Driver fix still matters
-for downstream/vendor DTS and for when patch 1/2 lands.
+Record: N/A — no `Fixes:` tag present.
 
-### Step 4.5: CHECK STABLE MAILING LIST HISTORY
-**Record:** Not searched (lore blocked). No stable discussion found on
-Patchwork.
+**Step 3.3 — Related file history**
 
----
+Record: `git log --oneline -20 --
+drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c` shows only the merge commit
+in this tree. Fix commit is **not** present (`git log --grep="buffer
+chain"` returns nothing). Buggy code confirmed at lines 886–900 and
+1028–1040.
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+**Step 3.4 — Author context**
 
-### Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
-**Record:** `mtk_dsi_of_match[]`, `mtk_dsi_probe()`, `mtk_dsi_driver`
-(platform driver registration via `mtk_drm_init()`).
+Record: No prior Ruoyu Wang commits in this tree’s
+`drivers/crypto/intel/ixp4xx/` history. Patch was reviewed by crypto
+maintainer Herbert Xu (v2 incorporated his feedback).
 
-### Step 5.2: TRACE CALLERS
-**Record:**
-- `mtk_dsi_driver` registered in `mtk_drm_init()` →
-  `platform_register_drivers()`.
-- `mtk_drm_probe()` iterates MMSYS children, matches
-  `mediatek,mt8167-dsi` via `mtk_ddp_comp_dt_ids[]`, calls
-  `drm_of_component_match_add()` for DSI nodes.
-- Without `mtk_dsi` probe, component bind cannot succeed.
+**Step 3.5 — Dependencies**
 
-### Step 5.3: TRACE CALLEES
-**Record:** `mtk_dsi_probe()` uses `of_device_get_match_data()`,
-clock/PHY/IRQ setup, `mipi_dsi_host_register()`, DRM bridge setup — all
-standard, unchanged by this patch.
-
-### Step 5.4: FOLLOW THE CALL CHAIN
-**Record:** Boot → DT populates DSI platform device → `mtk_dsi_probe()`
-(needs `of_match`) → component bind in `mtk_drm_bind()` → display
-pipeline. Reachable on any MT8167 board with a DSI DT node; not a
-syscall path, but normal embedded boot/display init.
-
-### Step 5.5: SEARCH FOR SIMILAR PATTERNS
-**Record:** `mtk_drm_drv.c` already lists many `mediatek,mt8167-*`
-compatibles (mmsys, ovl, rdma, **dsi**, etc.) while `mtk_dsi.c` lacked
-the DSI entry — clear inconsistency, same pattern as other SoC-specific
-compat strings in `mtk_dsi_of_match[]`.
+Record: Standalone fix; no series dependencies. `aead_perform()` in the
+same file already uses the post-fix calling convention, confirming the
+API contract.
 
 ---
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE (6.18.43)
+## Phase 4: Mailing List and External Research
 
-### Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
-**Record:** **YES.**
-- `mtk_dsi.c` lines 1303–1309: `mtk_dsi_of_match[]` has no `mt8167-dsi`.
-- `mtk_drm_drv.c` line 813: `mediatek,mt8167-dsi` **is** in
-  `mtk_ddp_comp_dt_ids[]`.
-- `Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml`
-  line 28: `mt8167-dsi` documented.
-- `mt2701_dsi_driver_data` exists at line 1271.
-- Partial MT8167 DRM support is already in 6.18.43; DSI driver match is
-  the missing piece.
+**Step 4.1 — Original discussion**
 
-### Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
-**Record:** **Clean apply** — single line insertion after the
-`mt2701-dsi` entry. No structural conflicts observed; table layout
-matches the upstream diff context.
+Record: Patch v2 submitted Apr 23, 2026 to linux-crypto. Thread:
+https://lists.openwall.net/linux-kernel/2026/04/23/864. v2 changes per
+Herbert Xu: keep unwind in callers, terminate partial chain, save hook
+pointers in `ablk_perform()`. Herbert Xu replied “Patch applied.
+Thanks.” (May 5, 2026).
 
-### Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
-**Record:** No existing commit in this tree adds `mt8167-dsi` to
-`mtk_dsi.c`. `git log --grep="mt8167-dsi"` returned nothing.
+**Step 4.2 — Reviewers**
 
----
+Record: To: Herbert Xu, Corentin Labbe, linux-crypto. Cc: Linus Walleij,
+Imre Kaloz, David S. Miller, linux-arm-kernel, linux-kernel. Appropriate
+maintainers were included.
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+**Step 4.3 — Bug report**
 
-### Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
-**Record:** `drivers/gpu/drm/mediatek` — **IMPORTANT** (embedded/display
-on MediaTek SoCs; not core kernel, but user-visible on affected
-hardware).
+Record: No external bug report or syzbot report. Bug identified by code
+review / author analysis.
 
-### Step 7.2: ASSESS SUBSYSTEM ACTIVITY
-**Record:** MT8167 display support is actively being completed (v4
-series, May 2026). 6.18.43 already carries substantial MT8167 DRM driver
-data, indicating the platform is in scope for this stable series.
+**Step 4.4 — Series context**
+
+Record: v1 used internal `free_buf_chain()` in `chainup_buffers()`; v2
+(committed version) moved unwind to callers per maintainer feedback.
+Committed version is the latest revision.
+
+**Step 4.5 — Stable list discussion**
+
+Record: No stable-list discussion found. Absence of `Cc: stable` is not
+a negative signal per review guidelines.
 
 ---
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+## Phase 5: Code Semantic Analysis
 
-### Step 8.1: DETERMINE WHO IS AFFECTED
-**Record:** Users of MT8167-based devices with DSI panels (tablets,
-embedded boards such as Pumpkin, vendor trees using
-`mediatek,mt8167-dsi`). Config-dependent on `CONFIG_DRM_MEDIATEK` and
-MT8167 DT support.
+**Step 5.1 — Key functions**
 
-### Step 8.2: DETERMINE THE TRIGGER CONDITIONS
-**Record:** Boot on MT8167 hardware with a DSI node using `compatible =
-"mediatek,mt8167-dsi"`. Common on intended display bring-up; not
-userspace-triggered. Likelihood: **certain** on any such board without
-this fix.
+Record: `chainup_buffers()`, `ablk_perform()`, `free_buf_chain()`
 
-### Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
-**Record:** DSI driver does not probe → display does not work (no
-framebuffer/DRM output). **Severity: MEDIUM** — hardware broken for
-display use, but not a crash, security issue, or data corruption.
+**Step 5.2 — Callers**
 
-### Step 8.4: CALCULATE RISK-BENEFIT RATIO
-**Record:**
-- **Benefit:** Enables DSI display on MT8167; fixes inconsistency with
-  binding and `mtk_drm_drv.c`.
-- **Risk:** One line, existing driver data, maintainer-reviewed — **very
-  low**.
-- **Ratio:** Favorable for stable; fits the “compatible / device ID
-  addition to existing driver” exception.
+Record: `chainup_buffers()` called from:
+- `ablk_perform()` (lines 1028, 1038) — **buggy caller pattern**
+- `aead_perform()` (lines 1140, 1160) — **already correct pattern**
+
+`ablk_perform()` called from `ablk_encrypt()`, `ablk_decrypt()`,
+`ablk_rfc3686_crypt()`.
+
+**Step 5.3 — Callees**
+
+Record: `dma_pool_alloc()`, `dma_map_single()`, `sg_virt()`,
+`sg_next()`, `free_buf_chain()` (on error paths)
+
+**Step 5.4 — Reachability**
+
+Record: Reachable from userspace crypto operations (skcipher
+encrypt/decrypt) on systems with `CONFIG_CRYPTO_DEV_IXP4XX` and IXP4xx
+hardware (`ARCH_IXP4XX`). Trigger requires `dma_pool_alloc()` failure
+(memory pressure or pool exhaustion), most likely under `GFP_ATOMIC`
+when `CRYPTO_TFM_REQ_MAY_SLEEP` is unset.
+
+**Step 5.5 — Similar patterns**
+
+Record: `aead_perform()` already implements the correct post-fix
+pattern, demonstrating this is the intended API usage and
+`ablk_perform()` was simply inconsistent.
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 6: Cross-Reference Against Local Tree (6.18.43)
 
-### Step 9.1: COMPILE THE EVIDENCE
+**Step 6.1 — Buggy code present?**
+
+Record: **YES.** Local tree is `6.18.43` (`git describe`:
+`v6.18.43-1-gc7f0dac02d232`). Buggy code at:
+
+```886:901:drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
+                if (!next_buf) {
+                        buf = NULL;
+                        break;
+                }
+                // ...
+        buf->next = NULL;
+        buf->phys_next = 0;
+        return buf;
+```
+
+and buggy `ablk_perform()` caller pattern at lines 1028–1040. Fix is
+**not** yet applied.
+
+**Step 6.2 — Backport complications**
+
+Record: Expected **clean apply** — current source matches the patch’s
+`index fcc0cf4df..5b90cf0fb` base context exactly.
+
+**Step 6.3 — Related fixes already present?**
+
+Record: No equivalent fix found via `git log --grep`. `aead_perform()`
+already has correct hook-pointer handling but does not fix the
+`chainup_buffers()` NULL deref.
+
+---
+
+## Phase 7: Subsystem and Maintainer Context
+
+**Step 7.1 — Subsystem**
+
+Record: `drivers/crypto/intel/ixp4xx/` — crypto hardware driver for
+Intel IXP4xx NPE. **Criticality: PERIPHERAL** (platform-specific
+embedded hardware), but error path is in common crypto request handling.
+
+**Step 7.2 — Activity**
+
+Record: `drivers/crypto/` has active maintenance in this tree (recent
+qat, tegra, cavium fixes). IXP4xx driver file shows limited recent churn
+in this checkout.
+
+---
+
+## Phase 8: Impact and Risk Assessment
+
+**Step 8.1 — Who is affected**
+
+Record: Systems with `CONFIG_CRYPTO_DEV_IXP4XX` (depends on `ARCH_IXP4XX
+|| COMPILE_TEST`, plus `IXP4XX_QMGR` and `IXP4XX_NPE`). Primarily
+embedded IXP4xx/ARM routers and similar devices using hardware crypto
+acceleration.
+
+**Step 8.2 — Trigger conditions**
+
+Record: Skcipher crypto request through `ablk_perform()` when
+`dma_pool_alloc()` fails mid-chain. Uncommon but realistic under memory
+pressure. Userspace can initiate crypto ops; failure is not theoretical
+once pool is exhausted.
+
+**Step 8.3 — Failure mode severity**
+
+Record:
+- **Primary:** NULL pointer dereference → kernel oops (**CRITICAL** when
+  triggered)
+- **Secondary:** Partial buffer-chain leak on alloc failure without
+  proper hook setup (**HIGH** — DMA pool exhaustion)
+
+**Step 8.4 — Risk vs benefit**
+
+Record:
+- **Benefit:** Prevents kernel crash and fixes error-path resource leak
+  in hardware crypto path
+- **Risk:** Very low — ~25 lines, failure-path only, matches existing
+  `aead_perform()` pattern, maintainer-reviewed
+- **Ratio:** Clear benefit outweighs risk for this tree
+
+---
+
+## Phase 9: Final Synthesis
+
+**Step 9.1 — Evidence summary**
 
 **FOR backport:**
-- Fixes real broken display on MT8167 when DT uses `mediatek,mt8167-dsi`
-- One-line, obviously correct; reviewed by MediaTek maintainer
-- Reuses `mt2701_dsi_driver_data` — no new APIs or logic
-- Binding and `mtk_drm_drv.c` already expect this compatible in 6.18.43
-- Classic stable exception: compatible-string addition to existing
-  driver
-- Very low regression risk
+- Real, verifiable NULL deref on error path
+- Secondary resource-leak fix in `ablk_perform()`
+- Small, surgical, single-file change
+- Acked by Linus Walleij; applied by crypto maintainer Herbert Xu after
+  review
+- Buggy code confirmed present in local 6.18.43 tree; fix not yet
+  applied
+- Patch should apply cleanly
+- Same-file `aead_perform()` validates the fix approach
 
 **AGAINST backport:**
-- Could be framed as “new hardware enablement” rather than crash fix
-- In-tree `mt8167.dtsi` in 6.18.43 still lacks DSI nodes (patch 1/2 not
-  merged)
-- No syzbot/user crash reports
-- Display failure is functional, not a kernel oops
+- Niche hardware (IXP4xx only) — smaller user base
+- Requires `dma_pool_alloc()` failure — not everyday, but real under
+  pressure
+- No syzbot/user crash report (found via review)
 
-**UNRESOLVED:**
-- Exact mainline commit SHA not in this repo (`b4 dig` failed)
-- lore.kernel.org thread not readable (403)
-- When `mt8167-dsi` first entered the DT binding in mainline history
-  (squashed git in this checkout)
+**Unresolved:** Exact commit that introduced the buggy `buf = NULL;
+break` pattern could not be determined from this tree’s shallow file
+history.
 
-Neither unresolved item changes the technical conclusion for 6.18.43.
+**Step 9.2 — Stable rules checklist**
 
-### Step 9.2: STABLE RULES CHECKLIST
-| Criterion | Result |
-|-----------|--------|
-| 1. Obviously correct and tested? | **PASS** — maintainer Reviewed-by;
-maps to known-good MT2701 data |
-| 2. Fixes a real bug affecting users? | **PASS** — DSI cannot probe
-without this entry |
-| 3. Important issue? | **PASS (MEDIUM)** — display non-functional on
-affected hardware |
-| 4. Small and contained? | **PASS** — 1 line, 1 file |
-| 5. No new features/APIs? | **PASS** — compatible quirk only; exception
-applies |
-| 6. Can apply to local tree? | **PASS** — clean one-line apply;
-prerequisites present |
+1. Obviously correct and tested? **PASS** — logic is clear; maintainer
+   reviewed and applied v2
+2. Fixes a real bug? **PASS** — NULL deref + leak on alloc failure
+3. Important issue? **PASS** — kernel oops (CRITICAL when triggered);
+   memory leak (HIGH)
+4. Small and contained? **PASS** — 1 file, ~25 lines, failure paths only
+5. No new features/APIs? **PASS** — error-handling fix only
+6. Can apply to local tree? **PASS** — buggy code present; clean apply
+   expected
 
-### Step 9.3: EXCEPTION CATEGORIES
-**Record:** **Hardware quirk / device compatible addition** — adding
-`mediatek,mt8167-dsi` to an existing driver’s `of_match` table, reusing
-established `mt2701_dsi_driver_data`. Explicitly allowed for stable.
+**Step 9.3 — Exception categories**
 
-### Step 9.4: DECISION RATIONALE
+Record: None (not device ID, quirk, DT, build, or docs). Standard bug-
+fix backport.
 
-For **6.18.43**, MT8167 DRM support is already partially merged:
-`mtk_drm_drv.c` recognizes `mediatek,mt8167-dsi` and builds an MT8167
-display pipeline, but `mtk_dsi.c` omits the compatible. That is a clear
-driver bug/oversight, not greenfield feature work. The fix is one line,
-low risk, maintainer-reviewed, and aligns driver behavior with the DT
-binding that has documented `mt8167-dsi` since 2022. Stable trees
-routinely take such compatible-string additions for existing drivers.
+**Step 9.4 — Decision rationale**
+
+For Linux **6.18.43**, this commit fixes a confirmed NULL pointer
+dereference and an associated error-path resource leak in an existing
+driver that is present and buggy in this tree. The fix is small,
+maintainer-reviewed, and follows an established pattern already used in
+the same file. While the hardware is niche, stable trees routinely
+accept driver crash fixes of this nature.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, tags, body from user-provided commit
-  message and Patchwork
-- **[Phase 2]** Confirmed diff: +1 line in `mtk_dsi_of_match[]` pointing
-  to `mt2701_dsi_driver_data`
-- **[Phase 3]** `git describe HEAD` → `v6.18.43`; `git blame` on
-  `mtk_dsi.c:1303-1310` and `mtk_drm_drv.c:813-814`
-- **[Phase 3]** `git log --grep="mt8167-dsi"` → no results in this tree
-- **[Phase 4]** Patchwork fetch: v4 2/2 series, Reviewed-by, applied to
-  mediatek-drm-next
-- **[Phase 4]** `b4 dig -c 2257966bbaa9a` → commit not found in repo
-- **[Phase 4]** lore.kernel.org → 403 Forbidden
-- **[Phase 5]** Read `mtk_dsi_probe()`, `mtk_drm_probe()`,
-  `mtk_drm_init()` registration path
-- **[Phase 5]** `grep mt8167` in `drivers/gpu/drm/mediatek/` → extensive
-  MT8167 support in `mtk_drm_drv.c`, HDMI in `mtk_hdmi.c`
-- **[Phase 6]** `grep mt8167-dsi` → present in `mtk_drm_drv.c` and
-  binding; **absent** in `mtk_dsi.c`
-- **[Phase 6]** Read `mt8167.dtsi`, `mt8167-pumpkin.dts` → no DSI node
-  in-tree yet
-- **[Phase 6]** Confirmed `mt2701_dsi_driver_data` exists at
-  `mtk_dsi.c:1271-1275`
-- **[Phase 7]** Identified subsystem as DRM/MediaTek display driver
-- **[Phase 8]** Assessed failure as non-probing DSI / no display (MEDIUM
-  severity)
+- [Phase 1] Parsed subject, tags, and body from provided commit message
+  and openwall lore thread
+- [Phase 1] Confirmed Acked-by: Linus Walleij; Herbert Xu merge SOB
+- [Phase 2] Read current `chainup_buffers()` at lines 886–901: confirmed
+  `buf = NULL; break` followed by `buf->next = NULL` (NULL deref)
+- [Phase 2] Read current `ablk_perform()` at lines 1028–1040: confirmed
+  hook pointers saved after failure check
+- [Phase 2] Read `aead_perform()` at lines 1140–1166: confirmed correct
+  post-fix pattern already present
+- [Phase 2] Read `free_buf_chain()` at lines 333–347: confirmed cleanup
+  depends on valid hook pointers
+- [Phase 3] `git describe HEAD` → `v6.18.43-1-gc7f0dac02d232`; `make
+  kernelversion` → `6.18.43`
+- [Phase 3] `git blame -L 872,902` → buggy lines present (attrib.
+  limited by tree history)
+- [Phase 3] `git log --grep="buffer chain"` → no fix commit in tree
+- [Phase 4] Fetched https://lists.openwall.net/linux-
+  kernel/2026/04/23/864 — v2 patch content and maintainer apply
+  confirmed
+- [Phase 4] UNVERIFIED: `b4 dig -c <hash>` — fix commit hash not in
+  local tree
+- [Phase 5] `grep chainup_buffers` — 3 call sites: 2 in `ablk_perform`,
+  2 in `aead_perform`
+- [Phase 6] Confirmed driver exists:
+  `drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c`
+- [Phase 6] Read Kconfig: `CONFIG_CRYPTO_DEV_IXP4XX` depends on
+  `ARCH_IXP4XX || COMPILE_TEST`
+- [Phase 6] Patch base context matches current file (lines 886–889,
+  1028–1040 identical to diff)
+- [Phase 8] Failure mode: NULL deref → kernel oops; partial chain leak
+  without `ablk_perform()` fix
 
 **YES**
 
- drivers/gpu/drm/mediatek/mtk_dsi.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c | 25 ++++++++++++---------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index acee2227275b7..6845bb8043254 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -1302,6 +1302,7 @@ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
- 
- static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8173-dsi", .data = &mt8173_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+diff --git a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
+index fcc0cf4df637d..5b90cf0fb0e41 100644
+--- a/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
++++ b/drivers/crypto/intel/ixp4xx/ixp4xx_crypto.c
+@@ -884,8 +884,9 @@ static struct buffer_desc *chainup_buffers(struct device *dev,
+ 		ptr = sg_virt(sg);
+ 		next_buf = dma_pool_alloc(buffer_pool, flags, &next_buf_phys);
+ 		if (!next_buf) {
+-			buf = NULL;
+-			break;
++			buf->next = NULL;
++			buf->phys_next = 0;
++			return NULL;
+ 		}
+ 		sg_dma_address(sg) = dma_map_single(dev, ptr, len, dir);
+ 		buf->next = next_buf;
+@@ -983,7 +984,7 @@ static int ablk_perform(struct skcipher_request *req, int encrypt)
+ 	unsigned int nbytes = req->cryptlen;
+ 	enum dma_data_direction src_direction = DMA_BIDIRECTIONAL;
+ 	struct ablk_ctx *req_ctx = skcipher_request_ctx(req);
+-	struct buffer_desc src_hook;
++	struct buffer_desc *buf, src_hook;
+ 	struct device *dev = &pdev->dev;
+ 	unsigned int offset;
+ 	gfp_t flags = req->base.flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
+@@ -1025,22 +1026,24 @@ static int ablk_perform(struct skcipher_request *req, int encrypt)
+ 		/* This was never tested by Intel
+ 		 * for more than one dst buffer, I think. */
+ 		req_ctx->dst = NULL;
+-		if (!chainup_buffers(dev, req->dst, nbytes, &dst_hook,
+-				     flags, DMA_FROM_DEVICE))
+-			goto free_buf_dest;
+-		src_direction = DMA_TO_DEVICE;
++		buf = chainup_buffers(dev, req->dst, nbytes, &dst_hook,
++				      flags, DMA_FROM_DEVICE);
+ 		req_ctx->dst = dst_hook.next;
+ 		crypt->dst_buf = dst_hook.phys_next;
++		if (!buf)
++			goto free_buf_dest;
++		src_direction = DMA_TO_DEVICE;
+ 	} else {
+ 		req_ctx->dst = NULL;
+ 	}
+ 	req_ctx->src = NULL;
+-	if (!chainup_buffers(dev, req->src, nbytes, &src_hook, flags,
+-			     src_direction))
+-		goto free_buf_src;
+-
++	buf = chainup_buffers(dev, req->src, nbytes, &src_hook, flags,
++			      src_direction);
+ 	req_ctx->src = src_hook.next;
+ 	crypt->src_buf = src_hook.phys_next;
++	if (!buf)
++		goto free_buf_src;
++
+ 	crypt->ctl_flags |= CTL_FLAG_PERFORM_ABLK;
+ 	qmgr_put_entry(send_qid, crypt_virt2phys(crypt));
+ 	BUG_ON(qmgr_stat_overflow(send_qid));
 -- 
 2.53.0
 
