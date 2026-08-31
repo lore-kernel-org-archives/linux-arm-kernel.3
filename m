@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F80BC61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58B1C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juuyW3Kt/fpD/0ZCK+TZEpPZ+AIKb80yrzD5yjL1arI=; b=Kg9NIv2qt6C4OPylEfonyyXYwb
-	y1rbrVQDjioBKwclNAFhVaylWHncprhtmNRVazy9MtRyU0a7/cFcI7CoM2h9vCR/vo6U/aUPdpnws
-	Jxi3p0zXO3eVp38e934VkX8fN5pfri+UwD/PXfqITndtKzlRF7HbB/rz+aXPEF5Owz7WOL8dTgmb1
-	QJdQGRs/LMi5b4A7iMoQhMZGwreoFuf8flnIq1RxFUCp13EkyTAQrc/kiSdm0X0qEOfbiPjN8ABU8
-	YBifxL531l2myIy2yrc6rF+9B/19be89Jrpwo6y2+hqYVwzUKCTsn6+a6Y+InV1tqt51N0jT2PWVx
-	5ylj9IBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=Dgb1ngpCR4vwZb6TG7VDqdD3XYLGgbrQsP5sDw19djY=; b=YUbuEAdHKbJ2m7
+	XpPRn2Ph13mHqH6ksrRdHeFx93T6phpKdjMSIXqH5fRLCdSLyb7x+WPpRpjaEer/mBCwurg3Z2kf7
+	bmY36dLLF2i3Q3kdLPeSpbjV9FYwmBkVDq825TdZD2Pc/RjCMWKrcek44aCoYtRRxLa5SwmjsgqGj
+	M3YHxd8SNekXLvXmguJrL94BPswrNkCg9neRq4g+Qisru1W8hii8DXSpFidG/6Gtbc249KFT4VYbb
+	8eE/LEkWvAlfoH4wemg02BCCVwry9fdgZvhwQ2r+Tn1PG3+edd37Vu5rNUqqIrEcb7yVnkVMX/rUm
+	0MnT16O4Hr93Z77iWAJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0w1i-00000008fnx-1eDx;
-	Mon, 31 Aug 2026 07:01:54 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x0w3r-00000008g7d-32x4;
+	Mon, 31 Aug 2026 07:04:07 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0w1e-00000008fkk-0rFG
+	id 1x0w3l-00000008g6P-0VUx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:01:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9A02B1A18E6;
-	Mon, 31 Aug 2026 07:01:47 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6DA51601E1;
-	Mon, 31 Aug 2026 07:01:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F138611C78A06;
-	Mon, 31 Aug 2026 09:01:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788159706; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=juuyW3Kt/fpD/0ZCK+TZEpPZ+AIKb80yrzD5yjL1arI=;
-	b=QmAmucBeoad7CAsIQV1owfz7t1X9M7w0/cFKZwaq1BWL6Hdp+z7ZgHNRfb958CD4Hwh88m
-	O+gfR+1hGmHA0Um2cxJ2CoBKrhwYzvULC+3lN9NObaKaegXDcGg7tAei7f5ldV4wx8zbCI
-	Fi/Lq5Ft4voh03MRr/orqu7z61Z9aMpQglk6+zEiIwp5GokAcqN5W5C1+OOkDlQIQGX9W0
-	+8enFWGRMAI75thOjv1h7A746SUZo/K2Wt3wIvXq4Ivv23R1Bwg+rYfOPGOuDygzty8hKc
-	jfRyl5F29YAn2TuxpT76YRShohUmEVWbZfZimE38iZxIt7sKGa0OvMKhG1c6bw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 2/2] net: stmmac: dwmac4: Use the full perfect filter ability for UC filter
-Date: Mon, 31 Aug 2026 09:01:20 +0200
-Message-ID: <20260831070121.349778-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
-References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 31 Aug 2026 07:04:06 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260831070352epoutp010c9a7e83cfd31ad8bd923d64dc517c34~Q0eTJ44Xi1312713127epoutp010
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:03:52 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260831070352epoutp010c9a7e83cfd31ad8bd923d64dc517c34~Q0eTJ44Xi1312713127epoutp010
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1788159832;
+	bh=Dgb1ngpCR4vwZb6TG7VDqdD3XYLGgbrQsP5sDw19djY=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=HpEkP/DH2n3xOOnopyTG0qva57RbDbJxtyXz9+oOxmY8Iyh9gDXTw3bAC7n8LAUDg
+	 DAqiynEYOZ3p/3o9xt4zC6d/NleFHw0K9c4qxtESdhu5WwJaCu6qIyOZZj6BxRGyPE
+	 rh2L8c8kc0EvfNz9jnqg5UZp/OCp4ph4RV4lnZAo=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20260831070351epcas5p46018d94a0c2ca993ee8680a5e0628591~Q0eSQ4KUS1551015510epcas5p4m;
+	Mon, 31 Aug 2026 07:03:51 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4hYKj24Kvvz3hhT4; Mon, 31 Aug
+	2026 07:03:50 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0~Q0eQsfTZ_1106911069epcas5p4l;
+	Mon, 31 Aug 2026 07:03:49 +0000 (GMT)
+Received: from vega.samsungds.net (unknown [107.108.73.84]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260831070346epsmtip1c4aeecb2495ffbcfc6ef1ee7dbfb8368~Q0eNxrS9g0914309143epsmtip1D;
+	Mon, 31 Aug 2026 07:03:46 +0000 (GMT)
+From: Selvarasu Ganesan <selvarasu.g@samsung.com>
+To: vkoul@kernel.org, neil.armstrong@linaro.org, krzk@kernel.org,
+	peter.griffin@linaro.org, alim.akhtar@samsung.com, pritam.sutar@samsung.com,
+	andre.draszik@linaro.org, kernel@lvkasz.us, linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
+	muhammed.ali@samsung.com, thiagu.r@samsung.com, Selvarasu Ganesan
+	<selvarasu.g@samsung.com>
+Subject: [PATCH] phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent
+ OOB access
+Date: Mon, 31 Aug 2026 12:33:09 +0530
+Message-Id: <20260831070309.158069-1-selvarasu.g@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-CMS-MailID: 20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0
+References: <CGME20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_000150_392816_F2B0C644 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20260831_000401_843684_E33CD808 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,239 +92,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Contrary to dwmac1000 that gets its number of perfect filter entries
-through the 'snps,perfect-filter-entries' property, dwmac4 allows
-reading the filter size from the HW features registers.
+The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
+creating both UTMI and PIPE3 PHY instances regardless of the SoC
+capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
+and ExynosAutoV920) provide phy_cfg arrays containing only a single
+element.
 
-Perfect filter is used for Unicast filtering, and can contain up to 128
-entries, each having its own set of registers to access it.
+On these SoCs, when the loop reaches index 1, the driver reads past the
+end of the rodata array, populating the second PHY instance with garbage
+data. Since the configuration structure contains critical function
+pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
+PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
 
-The registers are always at the same location in the map, regardless
-whether or not the entry is implemented in hardware. Accessing a register
-for an un-implemented entry just doesn't do anything.
+Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
+store the actual size of the phy_cfg array for each SoC. Update the
+probe loop and the xlate function to bound their access against this
+value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
 
-The filter is made of one always-available entry, and 3 configurable
-banks :
-
- Entry 0 : Always implemented, stores the primary MAC address
-
- Entry 1  \
-  ...     + -- Can contain between 0 and 31 entries. Number of available
- Entry 31 /    entries in HW_Features0[18:22].
-
- Entry 32 \
-  ...     + -- Additional 32 entries, all or nothing. Availability is
- Entry 63 /    specified by HW_Features0[23]
-
- Entry 64  \
-  ...      + - Additional 64 entries, all or nothing. Availability is
- Entry 127 /   specified by HW_Features0[24].
-
-Each of the 3 configurable banks are independently selectable, meaning
-we can have gaps in the register banks.
-
-For instance, a setup with 50 addresses enabled will have 17 entries in
-the first bank and the additional 32 bank enabled (50 = 32 + 17 + 1).
-
-Another example with 70 addresses : 64 addr bank on, 5 addresses in the
-first bank (70 = 64 + 5 + 1).
-
-While I haven't seen HW with gaps in the banks, Synopsys confirmed this
-is a real possibility.
-
-Let's therefore introduce a dwmac4 helper to get the physical slot
-number of a given entry, allowing to configure the correct bank when
-populating the filter. As we need the HW feature-set to compute the
-index, store the bank info in the mac_device_info struct.
-
-The total number of available entries is computed based on the
-discovered parameters, instead of using the default value of 1.
-
-Results on HW that uses dwmac4 :
-
- - imx8mp   : goes from 1 entry to 64 (1 + 31 + 32)
- - stm32mp1 : goes from 1 entry to 4 (1 + 3)
- - jh7110   : goes from 1 entry to 9 (1 + 8)
- - yt6801   : goes from 1 entry to hum, 1 entry (no extra addresses)
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Assisted-by: Claude:claude-sonnet-5
+Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h  |  3 +
- drivers/net/ethernet/stmicro/stmmac/dwmac4.h  |  2 -
- .../net/ethernet/stmicro/stmmac/dwmac4_core.c | 60 +++++++++++++++----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 +++++++++
- 4 files changed, 80 insertions(+), 12 deletions(-)
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 77bd47a83357..1729fb29ece3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -629,6 +629,7 @@ struct mac_device_info {
- 	void __iomem *pcsr;     /* vpointer to device CSRs */
- 	unsigned int multicast_filter_bins;
- 	unsigned int unicast_filter_entries;
-+	unsigned int multi_addr;
- 	unsigned int mcast_bits_log2;
- 	unsigned int rx_csum;
- 	unsigned int num_vlan;
-@@ -637,6 +638,8 @@ struct mac_device_info {
- 	u8 vlan_fail_q;
- 	bool hw_vlan_en;
- 	bool reverse_sgmii_enable;
-+	bool additional_32_addr;
-+	bool additional_64_addr;
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index 8711a3b62c8e..311d1c25eb3e 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -477,6 +477,7 @@ struct exynos5_usbdrd_phy_config {
  
- 	/* This spinlock protects read-modify-write of the interrupt
- 	 * mask/enable registers.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-index 89368e34a388..696846531229 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
-@@ -75,8 +75,6 @@
- #define GMAC_PACKET_FILTER_IPFE		BIT(20)
- #define GMAC_PACKET_FILTER_RA		BIT(31)
- 
--#define GMAC_MAX_PERFECT_ADDRESSES	128
--
- /* MAC RX Queue Enable */
- #define GMAC_RX_QUEUE_CLEAR(queue)	~(GENMASK(1, 0) << ((queue) * 2))
- #define GMAC_RX_AV_QUEUE_ENABLE(queue)	BIT((queue) * 2)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-index 18b357b257cc..fb5b96a43505 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
-@@ -365,22 +365,63 @@ static void dwmac4_pmt(struct mac_device_info *hw, unsigned long mode)
- 	writel(pmt, ioaddr + GMAC_PMT);
- }
- 
-+/**
-+ * dwmac4_umac_addr_slot - Get the UC filter slot for the Nth MAC address
-+ * @hw: The MAC device info
-+ * @reg_n: The MAC address's index in the UC list
-+ *
-+ * On dwmac4 the slots available for Unicast MAC filtering are configured when
-+ * integrating the IP.
-+ *
-+ *  - Slot 0 is always available, used to store the primary MAC address
-+ *  - From 1 to 31, the number of implemented slots is set in hw->multi_addr
-+ *  - From 32 to 63, the range is available if hw->additional_32_addr
-+ *    is set
-+ *  - From 64 to 127, the range is available if hw->additional_64_addr is set
-+ *
-+ * All the ranges can be configured independently (e.g. 64 -> 127 can be
-+ * available, but not 32 -> 63)
-+ *
-+ * Returns: The physical slot index in the UC filter
-+ */
-+static unsigned int dwmac4_umac_addr_slot(struct mac_device_info *hw,
-+					  unsigned int reg_n)
-+{
-+	unsigned int empty_slots = 0;
-+
-+	/* reg_n is in the 1-31 bank : 1 to 1 mapping */
-+	if (reg_n < (hw->multi_addr + 1))
-+		return reg_n;
-+
-+	/* Gap between the last address in the 1->31 range and the next slot */
-+	if (hw->additional_32_addr)
-+		empty_slots = 32 - (hw->multi_addr + 1);
-+	else if (hw->additional_64_addr)
-+		empty_slots = 64 - (hw->multi_addr + 1);
-+
-+	return reg_n + empty_slots;
-+}
-+
- static void dwmac4_set_umac_addr(struct mac_device_info *hw,
- 				 const unsigned char *addr, unsigned int reg_n)
+ struct exynos5_usbdrd_phy_drvdata {
+ 	const struct exynos5_usbdrd_phy_config *phy_cfg;
++	int n_phy_cfg;
+ 	const struct exynos5_usbdrd_phy_tuning **phy_tunes;
+ 	const struct phy_ops *phy_ops;
+ 	const char * const *clk_names;
+@@ -1164,7 +1165,7 @@ static struct phy *exynos5_usbdrd_phy_xlate(struct device *dev,
  {
- 	void __iomem *ioaddr = hw->pcsr;
-+	unsigned int slot;
+ 	struct exynos5_usbdrd_phy *phy_drd = dev_get_drvdata(dev);
  
--	stmmac_dwmac4_set_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
--				   GMAC_ADDR_LOW(reg_n));
-+	slot = dwmac4_umac_addr_slot(hw, reg_n);
-+	stmmac_dwmac4_set_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(slot),
-+				   GMAC_ADDR_LOW(slot));
- }
+-	if (WARN_ON(args->args[0] >= EXYNOS5_DRDPHYS_NUM))
++	if (WARN_ON(args->args[0] >= phy_drd->drv_data->n_phy_cfg))
+ 		return ERR_PTR(-ENODEV);
  
- static void dwmac4_get_umac_addr(struct mac_device_info *hw,
- 				 unsigned char *addr, unsigned int reg_n)
- {
- 	void __iomem *ioaddr = hw->pcsr;
-+	unsigned int slot;
+ 	return phy_drd->phys[args->args[0]].phy;
+@@ -1993,6 +1994,7 @@ static const char * const exynos5_regulator_names[] = {
  
--	stmmac_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(reg_n),
--			    GMAC_ADDR_LOW(reg_n));
-+	slot = dwmac4_umac_addr_slot(hw, reg_n);
-+	stmmac_get_mac_addr(ioaddr, addr, GMAC_ADDR_HIGH(slot),
-+			    GMAC_ADDR_LOW(slot));
- }
+ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos2200,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos2200),
+ 	.phy_ops		= &exynos2200_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS2200_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2006,6 +2008,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
  
- static int dwmac4_set_lpi_mode(struct mac_device_info *hw,
-@@ -522,9 +563,6 @@ static void dwmac4_set_filter(struct mac_device_info *hw,
+ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.pmu_offset_usbdrd1_phy	= EXYNOS5420_USBDRD1_PHY_CONTROL,
+@@ -2019,6 +2022,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
  
- 	/* Handle multiple unicast addresses */
- 	if (netdev_uc_count(dev) + 1 > hw->unicast_filter_entries) {
--		/* Switch to promiscuous mode if more than 128 addrs
--		 * are required
--		 */
- 		value |= GMAC_PACKET_FILTER_PR;
- 	} else {
- 		struct netdev_hw_addr *ha;
-@@ -535,9 +573,11 @@ static void dwmac4_set_filter(struct mac_device_info *hw,
- 			reg++;
- 		}
+ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2031,6 +2035,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
  
--		while (reg < GMAC_MAX_PERFECT_ADDRESSES) {
--			writel(0, ioaddr + GMAC_ADDR_HIGH(reg));
--			writel(0, ioaddr + GMAC_ADDR_LOW(reg));
-+		while (reg < hw->unicast_filter_entries) {
-+			unsigned int slot = dwmac4_umac_addr_slot(hw, reg);
-+
-+			writel(0, ioaddr + GMAC_ADDR_HIGH(slot));
-+			writel(0, ioaddr + GMAC_ADDR_LOW(slot));
- 			reg++;
- 		}
- 	}
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a885f8cfef21..80413ba8df55 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7492,6 +7492,33 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 		priv->plat->tx_fifo_size = priv->dma_cap.tx_fifo_size;
- 	}
+ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.pmu_offset_usbdrd1_phy	= EXYNOS5433_USBHOST30_PHY_CONTROL,
+@@ -2044,6 +2049,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
  
-+	/* On DWMAC4 we can get the exact number of perfect filter entries from
-+	 * the HW_Features.
-+	 */
-+	if (priv->plat->core_type == DWMAC_CORE_GMAC4) {
-+		priv->hw->multi_addr = priv->dma_cap.multi_addr;
-+		priv->hw->additional_32_addr =
-+			!!priv->dma_cap.additional_32_addr;
-+		priv->hw->additional_64_addr =
-+			!!priv->dma_cap.additional_64_addr;
-+
-+		/* We always have one slot for the primary MAC */
-+		priv->hw->unicast_filter_entries = 1;
-+
-+		/* How many slots in the 1 -> 31 range */
-+		priv->hw->unicast_filter_entries += priv->hw->multi_addr;
-+
-+		/* Additional 32 entries in the 32 -> 63 range */
-+		if (priv->hw->additional_32_addr)
-+			priv->hw->unicast_filter_entries += 32;
-+
-+		/* Additional 64 entries in the 64 -> 127 range, can be enabled
-+		 * independently of the 32 -> 63 range
-+		 */
-+		if (priv->hw->additional_64_addr)
-+			priv->hw->unicast_filter_entries += 64;
-+	}
-+
- 	priv->hw->vlan_fail_q_en =
- 		(priv->plat->flags & STMMAC_FLAG_VLAN_FAIL_Q_EN);
- 	priv->hw->vlan_fail_q = priv->plat->vlan_fail_q;
+ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos5,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
+ 	.phy_ops		= &exynos5_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2056,6 +2062,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos7870,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos7870),
+ 	.phy_tunes		= exynos7870_tunes,
+ 	.phy_ops		= &exynos7870_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+@@ -2069,6 +2076,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos850,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
+ 	.phy_ops		= &exynos850_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2097,6 +2105,7 @@ static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynos850,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
+ 	.phy_ops		= &exynos850_usbdrd_phy_ops,
+ 	.phy_tunes		= exynos990_tunes,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
+@@ -2629,6 +2638,7 @@ static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
+ static const
+ struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
+ 	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(usb31drd_phy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2659,6 +2669,7 @@ exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
+ static const
+ struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
+ 	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(usbdrd_hsphy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2687,6 +2698,7 @@ static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
+ 	.phy_cfg		= phy_cfg_exynosautov920,
++	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynosautov920),
+ 	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
+ 	.clk_names		= exynos5_clk_names,
+@@ -2863,6 +2875,7 @@ static const char * const gs101_regulator_names[] = {
+ 
+ static const struct exynos5_usbdrd_phy_drvdata gs101_usbd31rd_phy = {
+ 	.phy_cfg			= phy_cfg_gs101,
++	.n_phy_cfg			= ARRAY_SIZE(phy_cfg_gs101),
+ 	.phy_tunes			= gs101_tunes,
+ 	.phy_ops			= &gs101_usbdrd_phy_ops,
+ 	.pmu_offset_usbdrd0_phy		= GS101_PHY_CTRL_USB20,
+@@ -3020,7 +3033,7 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
+ 
+ 	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
+ 
+-	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
++	for (i = 0; i < drv_data->n_phy_cfg; i++) {
+ 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
+ 
+ 		if (IS_ERR(phy))
 -- 
-2.55.0
+2.17.1
 
 
