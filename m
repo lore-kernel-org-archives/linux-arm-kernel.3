@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F140BC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3FCC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l45S1FIaD59xQAqPUTAkPZR5Cbk0GE3PNFGvxtQ232o=; b=mDJp7FpCH6Mp6irkG0QXUb6wmT
-	11kwmyzxOkJn1/Emqy7YXxL9fO1iZuOtKtAuAh7mhCRBcMvjMXXLyhzm9GR2tAXHpkfhAySv4rG8k
-	zVL/9OSA9d2DHAC0BOY0HpMi3MhqaoaWdyz/qMJ7fLqc66+givclw7Kok+xdhYhDA9qzfjIx38z+v
-	ZrDd4jnQWuV+HwoOy2D/niQzEdWsg2eTCAR/3KNxH2sqIUTND9xT/EirImPMlMwSkbQ49i3cONqjz
-	CAK5AVIYYeRRxGyjkAcNNPw7mavQCDX68vnmUrCH3sB2tqzCd61dVcc3KKQKuKRNE2zkzdUMr9obh
-	wB7cUH9w==;
+	bh=z9Of6rOS2S30ofLpkaTBjumW08XusXzmos/rCF2QCuw=; b=q0yhfNiRZwDyO2Y3jmjJrlACBn
+	OX7XHJeYIvSMabzYMsZWIS8hqkrgvHwIgWOQflN+yhrFnqNSsmKaI/8bgPhB4LV1M4ZVxJF8QG6H2
+	jqiF+ek0TlCv+Q00cGrqJTP6AwcWO/er2bG7o1TRjsaKuk4WcNxwFq16+7FmYUOo48eqPy3WQzsPH
+	iGncV5sUMGJqyaNMw2Fnn1ykVv78nN1pDQKVf6XwS6e2NnEYAowuzfnyZVQyFVZjroJSSwKzAJNuX
+	dIDfRH9O6tBXeJkU8D3K4HD3x+/gbWPHfdtFpRLw6UFQejJogfliEruzeqDfsiOKdIDsFJRxMoHG1
+	h6rNLBpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14Uc-00000009xXa-2Nuf;
-	Mon, 31 Aug 2026 16:04:18 +0000
+	id 1x14Xw-00000009xz2-3sAw;
+	Mon, 31 Aug 2026 16:07:44 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14Ua-00000009xXF-3wKE;
-	Mon, 31 Aug 2026 16:04:17 +0000
+	id 1x14Xv-00000009xyZ-0F8C;
+	Mon, 31 Aug 2026 16:07:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 217CA602D5;
-	Mon, 31 Aug 2026 16:04:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B7B1F000E9;
-	Mon, 31 Aug 2026 16:04:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B7DB602D5;
+	Mon, 31 Aug 2026 16:07:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E26541F000E9;
+	Mon, 31 Aug 2026 16:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788192255;
-	bh=l45S1FIaD59xQAqPUTAkPZR5Cbk0GE3PNFGvxtQ232o=;
+	s=k20260515; t=1788192462;
+	bh=z9Of6rOS2S30ofLpkaTBjumW08XusXzmos/rCF2QCuw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hGV61OLsRWpOhdP8vNKS35Q75/KPtDnrrucz2L/aO5/LlmPq6tN0JWYps2SOG9gB8
-	 TxEzOqu2R3MvnyC5cptVR4wjlxS9kSBvGF5K6HqYE/4qxgP8cqoxacV0hZ2vzSikn7
-	 ulxgrkuvnL6r3ilgbBVxt0Epd9BcsJcNzXYvQ9pECNqICpfY8oPJ6CGRB+6sId6pvL
-	 EoHLlxTQELR4sjNzvHZaoEs7GZnJ3WZth9lfJbc8cJCXx3E0RPmBXMPU2Y1aduRsI1
-	 k2yrmmhhJPVWpHPHKcqwS/WnKjryPbhyXQvnqALIn/N1w+K0ZsCjy0tk3dZyNA1Nm4
-	 Z+hXLzV+PzT3g==
-Date: Mon, 31 Aug 2026 17:04:11 +0100
+	b=H2vF/MSLKhKOgTCZApK0xU3As7FLpWMirsvvwCrnckbljiG5SWn1TSgywDeS3pcK/
+	 Wq42NxtkRiT8VwY32GLbwbNSBx3GqpAQhxO5bEG9PQKdXfcytR0SbUiWgEXcD9+ejz
+	 CdQP0Vhiw7flrZnnU8RCa2igb1T57g3o91sflK20Y/qsVTSorzezekrzrEQtrJFGz8
+	 ZicESGO9oNCtuMw+NqFpZfjRoIwhNB6pmoTTkwNGG9eEfR1jkO3+blbsLSvMRsYjn0
+	 6a7eNfjdDd3etq3uBxz59jhmji8frYBqry4j56Wk+9w1/6P6UyuLqNRbHhmfF1p9sf
+	 XfD9Yx+Mlidtg==
+Date: Mon, 31 Aug 2026 17:07:36 +0100
 From: Conor Dooley <conor@kernel.org>
-To: zhentao.guo@amlogic.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v8 3/6] media: dt-bindings: Add Amlogic V4L2 video decoder
-Message-ID: <20260831-matrimony-ability-e5fcf150d213@spud>
-References: <20260831-b4-s4-vdec-upstream-v8-0-830195b9bd91@amlogic.com>
- <20260831-b4-s4-vdec-upstream-v8-3-830195b9bd91@amlogic.com>
+To: Hongliang Yang <hongliang.yang@cixtech.com>
+Cc: peter.chen@kernel.org, pawell@cadence.com, vkoul@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	gregkh@linuxfoundation.org, rogerq@kernel.org,
+	neil.armstrong@linaro.org, p.zabel@pengutronix.de,
+	fugang.duan@cixtech.com, cix-kernel-upstream@cixtech.com,
+	linux-usb@vger.kernel.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/4] dt-bindings: Add CIX Sky1 USB bindings
+Message-ID: <20260831-deluxe-capacity-85bf1fb6691a@spud>
+References: <20260831082309.3854507-1-hongliang.yang@cixtech.com>
+ <20260831082309.3854507-2-hongliang.yang@cixtech.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vDuQ2UyDODDws11u"
+	protocol="application/pgp-signature"; boundary="2qEwXy5L5XBLIveE"
 Content-Disposition: inline
-In-Reply-To: <20260831-b4-s4-vdec-upstream-v8-3-830195b9bd91@amlogic.com>
+In-Reply-To: <20260831082309.3854507-2-hongliang.yang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,167 +75,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---vDuQ2UyDODDws11u
+--2qEwXy5L5XBLIveE
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Aug 31, 2026 at 04:32:04PM +0800, Zhentao Guo via B4 Relay wrote:
-> From: Zhentao Guo <zhentao.guo@amlogic.com>
+On Mon, Aug 31, 2026 at 04:23:05PM +0800, Hongliang Yang wrote:
+> Add device tree bindings for CIX Sky1 USB3 PHY and Cadence USBSSP
+> controller glue layer.
 >=20
-> Describe the initial support for the V4L2 stateless video decoder
-> driver used with the Amlogic S4 (S805X2) platform.
->=20
-> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
 > ---
->  .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 106 +++++++++++++++=
-++++++
->  1 file changed, 106 insertions(+)
+>  .../bindings/phy/cix,sky1-usb3-phy.yaml       | 109 +++++++++++++
+>  .../bindings/usb/cix,sky1-usbssp.yaml         | 153 ++++++++++++++++++
+
+Two patches please.
+
+>  MAINTAINERS                                   |   3 +
+>  3 files changed, 265 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-usb3-p=
+hy.yaml
+>  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp=
+=2Eyaml
 >=20
-> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml=
- b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+> diff --git a/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml=
+ b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
 > new file mode 100644
-> index 000000000000..a93a2140801b
+> index 000000000000..76d020df72dd
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
-> @@ -0,0 +1,106 @@
+> +++ b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
+> @@ -0,0 +1,109 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
+> +$id: http://devicetree.org/schemas/phy/cix,sky1-usb3-phy.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Amlogic Video Decode Accelerator
+> +title: CIX Sky1 USB3 PHY
 > +
 > +maintainers:
-> +  - Zhentao Guo <zhentao.guo@amlogic.com>
+> +  - Hongliang Yang <hongliang.yang@cixtech.com>
 > +
 > +description:
-> +  The Video Decoder Accelerator present on Amlogic SOCs.
-> +  It supports stateless h264 decoding.
+> +  The CIX Sky1 USB3 PHY is a multi-port SuperSpeedPlus PHY that
+> +  supports up to two USB3 lanes. Each port is represented as a
+> +  child node of the PHY controller.
 > +
 > +properties:
 > +  compatible:
-> +    const: amlogic,s4-vdec
+> +    const: cix,sky1-usb3-phy
 > +
 > +  reg:
-> +    maxItems: 2
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: APB register interface clock
+> +      - description: PHY reference clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb_clk
+> +      - const: ref_clk
+
+drop "_clk", they're both clocks..
+pw-bot: changes-requested
+
+> +
+> +  resets:
+> +    items:
+> +      - description: PHY reset
+> +      - description: PHY APB preset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: reset
+> +      - const: preset
+
+drop "reset" from here, they're both resets. Call them "core" and "apb"
+or something instead.
+
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +patternProperties:
+> +  "^usb-port@[0-9a-f]+$":
+
+> +    type: object
+> +    description:
+> +      A single USB3 PHY port/lane.
+> +
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+
+> +
+> +      "#phy-cells":
+> +        const: 0
+> +
+> +    required:
+> +      - reg
+> +      - "#phy-cells"
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/cix,sky1.h>
+> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+> +
+> +    usb-phy@9210000 {
+> +        compatible =3D "cix,sky1-usb3-phy";
+> +        reg =3D <0x09210000 0x40000>;
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        resets =3D <&s5_syscon SKY1_USBPHY_SS_RST_N>,
+> +                 <&s5_syscon SKY1_USBPHY_SS_PST_N>;
+> +        reset-names =3D "reset", "preset";
+> +
+> +        clocks =3D <&scmi_clk CLK_TREE_USB3A_PHY3_GATE>,
+> +                 <&scmi_clk CLK_TREE_USB3A_PHY_x2_REF>;
+> +        clock-names =3D "apb_clk", "ref_clk";
+> +
+> +        usb-port@0 {
+> +            reg =3D <0>;
+> +            #phy-cells =3D <0>;
+> +        };
+> +
+> +        usb-port@1 {
+> +            reg =3D <1>;
+> +            #phy-cells =3D <0>;
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml b=
+/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+> new file mode 100644
+> index 000000000000..47202ff5b9e5
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+> @@ -0,0 +1,153 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbssp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: CIX Sky1 Cadence USBSSP Controller
+> +
+> +maintainers:
+> +  - Hongliang Yang <hongliang.yang@cixtech.com>
+> +
+> +description:
+> +  The CIX Sky1 USBSSP controller is based on the Cadence USBSSP DRD
+> +  controller. The integration adds glue registers and mode strap controls
+> +  in the Sky1 S5 system controller. The CIX glue node wraps a Cadence
+> +  USBSSP core as a child node.
+> +
+> +properties:
+> +  compatible:
+> +    const: cix,sky1-usbssp
+> +
+> +  reg:
+> +    items:
+> +      - description: AXI property configuration register
+> +      - description: Controller status register
 > +
 > +  reg-names:
 > +    items:
-> +      - const: dos
-> +      - const: dmc
+> +      - const: axi_property
+> +      - const: controller_status
 > +
+> +  clocks:
+> +    items:
+> +      - description: Start-of-frame clock
+> +      - description: AXI bus clock
+> +      - description: Low-power mode clock
+> +      - description: APB register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sof_clk
+> +      - const: usb_aclk
+> +      - const: lpm_clk
+> +      - const: usb_pclk
 
-> +  interrupts:
-> +    maxItems: 2
+Same stuff here on naming
 
-What are these interrupts? All other properties convey the info via
-mandatory -names, but interrupts don't.
+> +
+> +  resets:
+> +    items:
+> +      - description: APB register reset
+> +      - description: Controller reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usb_preset
+> +      - const: usb_reset
 
-I don't love the lack of items lists on !-names properties, but not a
-big deal to not have them I don't think.
+and here.
 
-On account of the interrupts:
-pw-bot: changes-requested
+> +
+> +  cix,usb_syscon:
+
+No underscores in property names.
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the Sky1 S5 system controller used to program USB mode
+> +      strap controls.
+> +
+> +  axi_bmax_value:
+
+Missing vendor prefix.
+No underscores in property names.
+
+Why is this not a fixed value per SoC?
 
 Cheers,
 Conor.
 
-
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    default: 0x7
+> +    description:
+> +      AXI bus maximum burst length configuration value.
 > +
-> +  clocks:
-> +    maxItems: 3
+> +  "#address-cells":
+> +    const: 2
 > +
-> +  clock-names:
-> +    items:
-> +      - const: dos
-> +      - const: core_vdec
-> +      - const: core_hvdec
+> +  "#size-cells":
+> +    const: 2
 > +
-> +  power-domains:
-> +    maxItems: 2
+> +  ranges: true
 > +
-> +  power-domain-names:
-> +    items:
-> +      - const: dos_vdec
-> +      - const: dos_hvdec
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  amlogic,canvas:
-> +    description: Canvas maintains an index-to-physical-address
-> +     mapping table that allows the 16-bit AMRISC decoder core
-> +     to access 32-bit or 64-bit physical address.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +  amlogic,secure-monitor:
-> +    description: Used to decrypt and load the signed decoder
-> +     firmware through ARM SMC (Secure Monitor Call).
-> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +patternProperties:
+> +  "^usb-controller@[0-9a-f]+$":
+> +    $ref: cdns,usb3.yaml#
+> +    description:
+> +      The Cadence USBSSP core controller node. See cdns,usb3.yaml
+> +      for properties such as dr_mode, maximum-speed, phys, and interrupt=
+s.
+> +    unevaluatedProperties: false
 > +
 > +required:
 > +  - compatible
 > +  - reg
 > +  - reg-names
-> +  - interrupts
 > +  - clocks
 > +  - clock-names
-> +  - power-domains
-> +  - power-domain-names
 > +  - resets
-> +  - amlogic,canvas
-> +  - amlogic,secure-monitor
+> +  - reset-names
+> +  - cix,usb_syscon
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - ranges
 > +
-> +additionalProperties: false
+> +unevaluatedProperties: false
 > +
 > +examples:
 > +  - |
+> +    #include <dt-bindings/clock/cix,sky1.h>
 > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/amlogic,s4-pll-clkc.h>
-> +    #include <dt-bindings/clock/amlogic,s4-peripherals-clkc.h>
-> +    #include <dt-bindings/power/meson-s4-power.h>
-> +    #include <dt-bindings/reset/amlogic,meson-s4-reset.h>
-> +    video-codec@fe320000 {
-> +      compatible =3D "amlogic,s4-vdec";
-> +      reg =3D <0xfe320000 0x10000>,
-> +            <0xfe036000 0x20>;
-> +      reg-names =3D "dos",
-> +                  "dmc";
-> +      interrupts =3D <GIC_SPI 91 IRQ_TYPE_EDGE_RISING>,
-> +                   <GIC_SPI 92 IRQ_TYPE_EDGE_RISING>;
-> +      clocks =3D <&clkc_periphs CLKID_DOS>,
-> +               <&clkc_periphs CLKID_VDEC_SEL>,
-> +               <&clkc_periphs CLKID_HEVCF_SEL>;
-> +      clock-names =3D "dos",
-> +                    "core_vdec",
-> +                    "core_hvdec";
-> +      power-domains =3D <&pwrc PWRC_S4_DOS_VDEC_ID>,
-> +                      <&pwrc PWRC_S4_DOS_HEVC_ID>;
-> +      power-domain-names =3D "dos_vdec",
-> +                           "dos_hvdec";
-> +      resets =3D <&reset RESET_DOS>;
-> +      amlogic,canvas =3D <&canvas>;
-> +      amlogic,secure-monitor =3D <&sm>;
+> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+> +
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        usb@91c0300 {
+> +            compatible =3D "cix,sky1-usbssp";
+> +            #address-cells =3D <2>;
+> +            #size-cells =3D <2>;
+> +            ranges;
+> +
+> +            reg =3D <0x00 0x091c0314 0x00 0x4>,
+> +                  <0x00 0x091c0400 0x00 0x4>;
+> +            reg-names =3D "axi_property", "controller_status";
+> +
+> +            resets =3D <&src SKY1_USBC_SS2_PRST_N>,
+> +                     <&src SKY1_USBC_SS2_RST_N>;
+> +            reset-names =3D "usb_preset", "usb_reset";
+> +
+> +            clocks =3D <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
+> +                     <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
+> +                     <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
+> +                     <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
+> +            clock-names =3D "sof_clk", "usb_aclk", "lpm_clk", "usb_pclk";
+> +
+> +            cix,usb_syscon =3D <&src>;
+> +            axi_bmax_value =3D <0x7>;
+> +
+> +            usb-controller@91d0000 {
+> +                compatible =3D "cdns,usb3";
+> +                reg =3D <0x00 0x91d0000 0x00 0x4000>,
+> +                      <0x00 0x91d8000 0x00 0x8000>,
+> +                      <0x00 0x91d4000 0x00 0x4000>;
+> +                reg-names =3D "otg", "xhci", "dev";
+> +
+> +                interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
+> +                             <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>,
+> +                             <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>,
+> +                             <GIC_SPI 171 IRQ_TYPE_LEVEL_HIGH>;
+> +                interrupt-names =3D "host", "peripheral", "otg", "wakeup=
+";
+> +
+> +                /* Cadence USBSSP core properties - see cdns,usb3.yaml */
+> +                maximum-speed =3D "super-speed-plus";
+> +                dr_mode =3D "otg";
+> +
+> +                phys =3D <&usb3_phy4_0>, <&usb2_phy6>;
+> +                phy-names =3D "cdns3,usb3-phy", "cdns3,usb2-phy";
+> +            };
+> +        };
 > +    };
->=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 15011f5752a9..4c5f6cbe9124 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2775,8 +2775,11 @@ S:	Maintained
+>  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
+>  F:	Documentation/devicetree/bindings/arm/cix.yaml
+>  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
+> +F:	Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
+> +F:	Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+>  F:	arch/arm64/boot/dts/cix/
+>  F:	drivers/mailbox/cix-mailbox.c
+> +F:	drivers/phy/cix/
+>  K:	\bcix\b
+> =20
+>  ARM/CLKDEV SUPPORT
 > --=20
-> 2.42.0
->=20
+> 2.54.0
 >=20
 
---vDuQ2UyDODDws11u
+--2qEwXy5L5XBLIveE
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWl+gAKCRB4tDGHoIJi
-0p1SAQCBt5qF4cDd5+WUBSGCucSvgIOgV7UrxnC4keqbfJkbUQD+N2SKFXRP40rE
-DfkfS3/XekyAhUKyQQMUpSC4VoAF8Aw=
-=YCLQ
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWmyAAKCRB4tDGHoIJi
+0mQDAP0RTp5tYcKsISp4eVDJUi5yZ8J4YDN2ZXztp16aNt5aZQEA6NDwrLFUkCm1
+qjuemHwa7AaHJO6OCYMqBC4Kk04sAg8=
+=m4Cd
 -----END PGP SIGNATURE-----
 
---vDuQ2UyDODDws11u--
+--2qEwXy5L5XBLIveE--
 
