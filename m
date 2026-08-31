@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8E5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D170CC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BryT/5XU0Qq0Xxe8U8c24kWTMu/ZOY26KSC8h14Nglc=; b=sENN/Hj8GoxGx0mFq6MMReVYV7
-	VBu5oesY+EaEqnifBgJiz4SLBOXF/qkNT7F4RNuGXaO6w8u6ptrNISfbosZ9hSiHYKngmcEKyM69a
-	PJqRnSuKoU7iVxrnx01DaDDB/yelOcUD4UuToI8+76eqormxqWfopWJwe2XTp1Gqlu3gW/LyymgSF
-	qnCCstGSBbaMvr0j5p0B89roQdG6HRS0h/BuJhdSxKsutMWTOdBJ/z6l9pfMEjnptcK4iluQHnQKQ
-	g1xANg/NNayMFTIFGpIvLftQ47p+PUGHSsWo+OdgD6pd2Ym1TUrNaE9xdqN2DBF/HohhqqQe1kM+N
-	RJNSIeJg==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PZQLAsc0Bov5dshJTOYP+YiAtZRg8wxfWcQ7P3m9Mg=; b=U2ofCbGvl98myxHP06/NBqzWWD
+	9IPo/Fx/2tjE3uRDErs+U+cSmOBFFYM+FDO288OIoefDqFROqBePORB4nO9Sz8HaRknGcn7f8IrPG
+	XNBc0imLwSK5m+7JYUz8q6XPOFgcsfGiMaKuYcMVfSc4XtOK6fe7b/OZrTjmW7KI4eTfz6shLOvR3
+	YXKSoqMeDgULIxQkmQeV17K9IQA5Bzkjed67ClbNxcL9RfO/OuVsfZBkV2FZ7sZ8QG+A6BWmJFjzy
+	jcTePf2n4FEGrty1KxUCVLbWkl+cGD/m2SdmheB0JHZ2KOY5JhgAJXCJ91X9j6xGRX5vIKiik5KB/
+	ClGXpgvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10SL-00000009EEt-0S4h;
-	Mon, 31 Aug 2026 11:45:41 +0000
-Received: from mx0a-00128a01.pphosted.com ([148.163.135.77] helo=mx0b-00128a01.pphosted.com)
+	id 1x10SS-00000009EGt-0tID;
+	Mon, 31 Aug 2026 11:45:48 +0000
+Received: from mx0b-00128a01.pphosted.com ([148.163.139.77])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10SH-00000009EEC-3cxc
+	id 1x10SP-00000009EFd-1Zyb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 11:45:39 +0000
-Received: from pps.filterd (m0375855.ppops.net [127.0.0.1])
-	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VBDGjv513316;
-	Mon, 31 Aug 2026 07:45:29 -0400
+	Mon, 31 Aug 2026 11:45:46 +0000
+Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VB9oVv305798;
+	Mon, 31 Aug 2026 07:45:40 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=DKIM; bh=BryT/5XU0Qq0Xxe8U8c24kWTMu/
-	ZOY26KSC8h14Nglc=; b=k8u4fHE18LZoRJiG36IZcSQQdsrSnjZaShoLAXfiGhg
-	uPd+qB30ZZmcoX8/+quJtlmCzuvpPo8yVcjFqvJ4ogXcx49nnbxz9Z49hPnmyK/f
-	0599eI+pyaaXHmHayzC28WfouAtF1awaaw2rTMShuNGqFZMexI3hsbCRKMdSHi7U
-	VaolPbs+G22O2OriEYuEWri83buiiXxrHjd0Ma5srDqCueVyQDa8cnpYzfXmBalg
-	MTvpPk3VwTIhkC8WZF+G2dBS78ZHpJLOrI7k44MksvVaoyg4yVG0Cx9WXQzdbMJi
-	pV3qQZDze4mEyuBROi0ToMKrqUlF2YXhF57XV+M1Oyg==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012044.outbound.protection.outlook.com [40.107.209.44])
-	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4gcdrdmhbp-2
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=6PZQL
+	Asc0Bov5dshJTOYP+YiAtZRg8wxfWcQ7P3m9Mg=; b=kFrePB4OvE2KZHYpiLPza
+	Jk9HXUK7I2Dz/o1GbOdXM03cK7AldHICs2WhBgiLVr7UeG7yRuucEZyoyGzjbpL4
+	Ly13lXH2WW9V/FKznt5DHcfgCxDx53hRRjfRGjrThjhayc1QFies07bDThstv+nF
+	zyE/+6GcipRIa0aGeruYM6b3MB7qT++gkngdK+HaOf4w7mliUAYgXc1MvXs8DTw6
+	/YEAuXth/4PjTUCufVosHLpFfSz1xUf9cxRPluCdze/ksjvFFn3AI0pVtNyb1pKH
+	akvegi8CIQvbLN4HqSy6rE/VxNeTHxViXYe2EnhsxnKaPlPQL49J/FNB2FPQ0DHf
+	Q==
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010023.outbound.protection.outlook.com [52.101.201.23])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4gbv24wmav-2
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 07:45:28 -0400 (EDT)
+	Mon, 31 Aug 2026 07:45:39 -0400 (EDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bmvLvuWH74hHyHQF5P2eN2AsnTKtp2oDzidUkPQV0ideTr918KiyTkxS1HwhucnmmV4pJFzukqfkCBrnJEP1hDYtS0Zn1v1cAUwmchd1GDLiqMD4bx0N33K1tND7o+PTsNCZLdxH2Z8YIevB+Jpw/gt1OT/lyOfTKQu9Tc3NFhC2ReVk+qj1RgZWC+bbPJv+nDMqR5iY0AiVJ1WXRNjC3gT/s1b0t1lAQ93jttjnAj/UEgjb6rjXqsSnswgZUOO/u4/ARgw5f6pLZ5TjL9DFJjTaxqwKjgu0EBi9cs3Dm+76Cu9me8zNVsCY540Ux8/+LaCBc2q6mSGU7NKClDBXEA==
+ b=vL7mE8H1SdrPfi5/D+ux9RTHJDUvNDg/5uvEjiMGl94mR1de62q8zLqeSetmAU54TU1CsF2XhmoWJxNhx2W0gjJJtHF4K94tcT19VtYSqZG39C3D1Y0/muce4uQ0j5ZrFwsYsVqgeSeNXNVHgVsNzF/g6vJ2wyrGO+/969DqEap4lZd5bx4jMPUeF62xqeTsASQnuHJ9J3ois2BvmlH0E0fmou4yOgZvyOeRBaQtV/sFnluDgheL7DZcv31f3M5rJirCFOsgcmeqOzOwprx41yHT8PuNnYZcfBW1/K5OqDkQLRIEn+enaKqvfIvWbJ+mOXUs+1xgqhy3Hl5pFMkW3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BryT/5XU0Qq0Xxe8U8c24kWTMu/ZOY26KSC8h14Nglc=;
- b=LVlSTY/Gm3T1HZPnMRbBm/v6rcHIju4IziJHkCs41peRiG5h58FyxXY7DRkTRxeFvHVGUyQBReOCmKSVGfGzsk+ovdZVZwiuEf7rBayZfQrk5U8zK9h1k0LqFHwqAR4maOHeGMW2V4zSN60AW5gZf8lTRRNRzzj/GLF62UE9XhZoYNxwGjkcJrcu6oDaBOEbuPFn1FmAga7y+w7d1kGMCB/QTrPUyddiO6EZyWMo4IFtvjT1SYPEOghoWqbLj1dxWQY74l+SErQFIRwNC/v30hXVMRuZzSskKuK7VqV82P5sHk4lMpLrGaH/+JiMF+gCMttTRV1u8wdZ3KhBjQbmPQ==
+ bh=6PZQLAsc0Bov5dshJTOYP+YiAtZRg8wxfWcQ7P3m9Mg=;
+ b=EJ9jlGlzJohcbIPtiZMlaknsvRtwYrbXWwrGXOdVIwDfDAfk60vxnJR4TFP0eGvRmwPA7bdxhifEhdT/iQKMvJ8E0i9SyGxdA19fC6z7MWeEkiDU9gXWJ6w0FpZZLpvNmM9OVstvoECQWGUYhQdipUY9mk4itL446XNoagbtrDhQkh0y6UJmeWDyxOcHcBijrfVMHB4yqiBbLRF0eubyfVyrS7i77d6SnTNBuJUW32TFXfIIQj3Tk8wHBU1LEYv664WYJ1l0BA5W8115KkQ6PCQnmQ0P3fYoEsLQAMysv74Bt6+ylFf2rTxaWHQ3yf5X/EIz6VsIek7dy+u9BNGCQQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
  dkim=pass header.d=analog.com; arc=none
 Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
- by EA8PPFB3C90C3D5.namprd03.prod.outlook.com (2603:10b6:30f:fff5::855) with
+ by BY5PR03MB5077.namprd03.prod.outlook.com (2603:10b6:a03:1e2::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 11:45:26 +0000
+ 2026 11:45:37 +0000
 Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
  ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
  ([fe80::2a19:76b2:e731:8c5a%6]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 11:45:26 +0000
+ 11:45:37 +0000
 From: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>
-Subject: [PATCH v3 0/9] dmaengine: Support bus widths of 32 bytes and above
-Date: Mon, 31 Aug 2026 12:46:37 +0100
-Message-Id: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+Date: Mon, 31 Aug 2026 12:46:40 +0100
+Subject: [PATCH v3 3/9] dmaengine: dw-axi-dmac: Use bus width capability
+ helpers
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43OTW6DMBAF4KtEXteRfwKGrHKPqIvBHhO3xUY20
- FYRdw8mipLsWL7R6HvvShJGh4kcd1cScXLJBb8E+bEj+gK+RerMkolgomQlL6jpAH3rPNI09n2
- IA/11BmO+0w7Sd6IFgObiUCsUiixOH9G6v7Xj/HnPaWy+UA8Zzh8Xl4YQ/9cRE89/j75yQ9/EK
- aMGhITK6EYV5Qk8/IR2r0OX9ZVSkm2lpJLCclubWsMrlbdP4rmu4ptIsZDcqkbVlWGysG/kPM8
- 3a3ZXcIMBAAA=
-X-Change-ID: 20260615-dmaengine-support-wider-dma-masks-5aac12497e27
+Message-Id: <20260831-dmaengine-support-wider-dma-masks-v3-3-507d97496f2d@analog.com>
+References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+In-Reply-To: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
 To: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
         linux-arm-msm@vger.kernel.org,
         linux-stm32@st-md-mailman.stormreply.com,
@@ -89,113 +87,112 @@ Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
         David Lechner <dlechner@baylibre.com>,
         Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
         Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>,
-        Andy Shevchenko <andriy.shevchenko@intel.com>,
-        Frank Li <Frank.Li@nxp.com>,
-        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+        Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788176799; l=4922;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788176799; l=3057;
  i=nuno.sa@analog.com; s=20231116; h=from:subject:message-id;
- bh=yjzyhSMXBffTRGl7bXQ3k/5z64JFWQnZTOYUvVgmgmY=;
- b=FH1yiL+jyTKASTi4m61jzzdtgu/WygqyF1E8+NVszLLMzdUHTwyHwL8lDlsemXC8P3kCZGDFm
- wz3QaVjxm8NAitTGk+kGzYyx2ZD0mJAFYSA6wB3omBg9yT0odh0Ql4q
+ bh=eVij2aryRxM7Iz/SXGQ1Bo/WIVJo9FcnI+r9ssDc4Qs=;
+ b=JqY6SHm3eOHGJulbftV+Dw/m1ZGn6BnoqpIRCcDaHTLB2FfY0tA3uJ/D6jQl/La5mIJ8JKo8b
+ rbA3pY1iSiUCYaEH9ufkdkQLQbO3KoyiAyaQLt/QD0rMFV9Ng9l4xoB
 X-Developer-Key: i=nuno.sa@analog.com; a=ed25519;
  pk=3NQwYA013OUYZsmDFBf8rmyyr5iQlxV/9H4/Df83o1E=
-X-ClientProxiedBy: MR1P264CA0093.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:3f::21) To SJ0PR03MB5469.namprd03.prod.outlook.com
+X-ClientProxiedBy: MA3P292CA0051.ESPP292.PROD.OUTLOOK.COM
+ (2603:10a6:250:48::19) To SJ0PR03MB5469.namprd03.prod.outlook.com
  (2603:10b6:a03:28a::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|EA8PPFB3C90C3D5:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19cddeaa-e08e-4f47-e020-08df07555969
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|BY5PR03MB5077:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c6364ec-7f3f-45b5-6768-08df07555fab
 X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|10067099003|6133799003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: AunR/RLfKQVNpqUFpb81vOUVWxpCBb/55g18IT0g7WmjY2F50bRXEGDLPv5b4KWtffhu6RzdNHp6Iv7+mzaC9USHt/+PY1I51S0s/XLc/WShPpzGlaFJfuzNDtIp8orIJmMlQxFKPGqddMCyCEot9rHEk76mL2hRXllZNhByed7tUZg0SuR+IT+I29dpBGWysy3auRVP9BI9uhgrO5Pi51X8697KM3jGOHjv3dJQJyiuHclCiKNjKEyCIMnj636ZRlWGVC7/woDsCrtZmGUBaplTgiMEGSfVyLQRJKtG953uvCc5Em7i+dvT2fm6B6ABE3Mm5FMNSNDRWhpS6eeBx17ktee78c7Hs9wt689vlivpBZW0sx7ArlNlMFheisrRVpY/zA8RUXYC3vJDe6iC21wicdQZ82pXcucMC0Vq9O+MkVWyI2MdLdlYi/m1Xgcx9E0UZiaBrXioePG8mhhQT0jYkQv64SN4mvzZEEtrLdckrx9GNs7NbMPlzSXPiZCtSpr8oJ2FgvvZPNKnH3N2uwAkd5Qum4FChsmUFca2kNURlIgacVw4fWFjTbyYmts7A0tpVZL2Lasf8Kj+49f28+ERA84xy/MlqttldNEdlxwHwc7ni72sH+NyDP98o+o7
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(10067099003)(6133799003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: yiUe/ZTg6eTBqy3/G/I6aOZds75uGe5nOcUlsbFYkT0E8xUHfH7eM13Jfh57DGSi28FLSIYWlNJfhsJmbRxcqE8gsR4F//GvDMBR4VSYAdj083+C78EtNQ1MNrQ17DNdSHkIBZnyrEYs/X5Egq8WhecN/w/8Ct+UqmH2UEJKECblyGcZD1zOkztqlDxQRFpsdBf8YY8UeUXaaI7nWLpgp4IEa8FXgTEtZSqvZTHOKt/aXSV8taMSOIK+t4Cit+wH+e8/WNsgRP7HT7/RcpFLCC6HF6E+Trdemqig5I/OZRvRDRjzn9hM5opq1seDKIQ0aruYJa0yxZ5jEkt6p58O8AojVQdafoPReu9Mf2hPCDTg1MeSdirwW6Ymo//O3710Nv/U2DcF6P6ELKIGzl+6dY2OFcbMF4noHy5mzWF1yz0qFNc0a8+5EGbJhw3rqg2h13VSiOwGcHeAkoAf+GGITHK1ygeNgmRhxQ2pIcBOUQ5D1SM8ZwalIyd+hRjDYOy4MUySzm0TaRu9n6DlzdbU8f/jIpDBF0p27X+/+AhWcSwWpMyytQjoGZQUYev0l/d9A4lGeINoTCxuB8VS5xgjPc6nr1+3KQ57avFKFqd9WJcJtap6X6J1RVWi+OFaOaEjJXq1a1rkQkarTydZAtw9KqFtcntO208rroYiOt+wC6Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NjdOTk9kYWRUeStGbXEzYUhQSU43eXgrd2R1b1BESlV1ektSR1FSQTNGUDB6?=
- =?utf-8?B?Q3pmWGh5UkdBSUpuZkRJQTR4Yk40M3lRTHZ4SThxdEtnekIzQUlGdGVOa3JC?=
- =?utf-8?B?SVY2YUJUdkpWeDEySEk2VTNJZmxXS1JMaXZxeDFyYnNITnJpVmxMaWlnVFBI?=
- =?utf-8?B?citzYTNRUStqZlJ2STZMaTRMaTJvSVpwRWphS1FPUUlwSGdDNG1Dak02bDZM?=
- =?utf-8?B?WGwvL04rZVo4UEk1SFJGdnhCeCs2eDI2SHJJRXVvVGRGTTJ1Q04vVElxL0FW?=
- =?utf-8?B?UzV3OTdrSkhIRllBZmhNUUJ4RHZQek05RzhNTWJ3SHY2WDU1U3FpY1lZZFlM?=
- =?utf-8?B?TkxxV0Z5V1U2cXZneTFTOEdpU3ZPSFppMm93OGRSam1tc1Q4ekovVzFTdDdN?=
- =?utf-8?B?UDI5bGd4Umt4OWhuWFJEOUdOQWVQK2g4MTI4OWRQQXZUa3lYL1UyTGY4SFVJ?=
- =?utf-8?B?VlE2MGpPeWJQZ25hTXZ0eVZqTnQvL0hQbGFOWHVHTXd0aVlBWDZFWVhEbVgv?=
- =?utf-8?B?WUpXNXllejFBSVk0YmQyZG12L2FWZHBWcmJNcUE4RU42OVRxRDhqSFBDVnZs?=
- =?utf-8?B?ck00cTJ3eVdZVHU0MDhIUTlXVHB3U0pzeWRRTSs2Z2VsbGZCcDNZdDM4WU03?=
- =?utf-8?B?NkZLZE9meit5Mlo5a1g3NUxjbDdNOENNQUVHTTZOeGlQOWFkSDYvVzA1N2NG?=
- =?utf-8?B?eVpEbnRpMnQ4SU1wRG8veUdKT3MyNjN1WG5zcEVLb2hIQlFmN3J4UTMyUS9a?=
- =?utf-8?B?WTBST1NFOUpJd3Z6aTRpSFpDa0RUazc4NTBzYjhLdVRRUHlDWkZILy8wWXpa?=
- =?utf-8?B?aWllQmFYNm9ING5GVkpGdUMyM1hiSWhlcGc1Sm1EakhnSWdnc2EvYXY2MDRS?=
- =?utf-8?B?SkE3M1pFUkxQZFVRUkJxa2k3V3gzblJhaFlCemlYWHFsdzlzTDk1VlBEVkQ0?=
- =?utf-8?B?cWMwZmJURnJNNHRLb09INE5SVUk0S2dBQ3RzblVaYmFPV3Z6LzlGMHcvQ3g2?=
- =?utf-8?B?cWdGMkVQbUwvOGZ4WmcvWlE4WWdrRklScm9xVVJPNUlZTWllUVFnM2IwNFpM?=
- =?utf-8?B?MmhNU01XWU44Q1k5RkVrWjRGaUJoRFlKTmJYd1FtaHRNMWxGK09wdHN1eHFD?=
- =?utf-8?B?dy9PeWY3ZENHRXhzblJpZEZDeUVFQlMwT0Zxai8zbFVRRjVCRDFidlNjMm1V?=
- =?utf-8?B?bDMxTjlZaUFFbUphejJVenNySWRqNzh1SEQ3MTJJWWIvYUxTZDB3YlV4YS9V?=
- =?utf-8?B?Vm9adlE0TFB2cE9jL3dxMThaczJzeGswVTkyQ1ovQWJQZlQvcEprVmxKTVU5?=
- =?utf-8?B?OGV0U09qU1I2YlFjMTBuUkYvVW85TjVrejFQTTlMTGVvYzgzUGRsQ2FmL09p?=
- =?utf-8?B?bTkvY25YRFBkMlFIMVdLblRaUEo1cU9qOVJ0b2o3c2VGMTZDNk9rV0RjSFBJ?=
- =?utf-8?B?R3VhWE8rS0N0MVdISHJDWlhzQUNBMTFqL255aSsveUVuU3NBaStmRG1YOUl6?=
- =?utf-8?B?OG5kVVlzQ2hHbFBpVlYzclFHQVJSVW1tQ0dQYmRPdXFlcktpMStEaVhkSFZy?=
- =?utf-8?B?YVUyTEhuMndCN002RjZ3aEFENXJIbEVUNDVGYUxCemVRY0QrNHM0a2N4VVJ6?=
- =?utf-8?B?VGxTeVJrem5ObkczWHdydmF1UTVNWjBYNnNsL0hmb3lmR1RyQWNrMU1MQ2xp?=
- =?utf-8?B?OVJneWhqNHBXWE1RUmRNNWJYSmkzendkTEtTaUNBSEkzcWVBUWpmWFEyZU9H?=
- =?utf-8?B?cjFjWkNnNmVBTVlNNHkzQVJmQndqWXNhMVpRallMMEpBTE9IVEJuY25QNmJD?=
- =?utf-8?B?am5TUDVpWlBFUVZxU240VFVqQ0FMbTRPM1Rhc2U2Nmt2aG56RS91TENobUMx?=
- =?utf-8?B?TjBVNlFqeHcxbVAzemdRa0RRcjM3TnluYzd1Wmx3S3VKWDVRUC9XQzEvR0pj?=
- =?utf-8?B?dmwrNHEyNlhQWXBYdnRObC9odHJGRWdwQ094VzlrLy8wNEpuMUk1VERPNWdG?=
- =?utf-8?B?a3pkODN6VW4weXNOOGVUWE1KaGhFRmFNSkUwbmFHNHo4ZDd4eURuQmVsdlEv?=
- =?utf-8?B?Ylh0TVhRL1E4aFE1aHNjL1RPR0dOK1pnQTFkL25DK2R6bi9jNjJYd21IenVX?=
- =?utf-8?B?aVhnZEdWck81QnA0eEUydEdVMTZpUmZCRXZYOERmMjJ4V3dwWFRXcVRqZmt5?=
- =?utf-8?B?SityV0g0Tzd2RTkrcGRjOGREaDNKMnpaZy90MCtKWElaOEdSeTZ6OVBNMWd3?=
- =?utf-8?B?SElFbjhuejU0T21MUDE0N1h2RVlLeTVBVllMNzB2SkwrSDUxQlErMXFKYnVn?=
- =?utf-8?B?V0ZlYzBhem9VMFcrNGtyRmIrWjBUNDR5UERPcnUxZ2pQRW85bE1UZz09?=
-X-Exchange-RoutingPolicyChecked: 1oKPhXZbsTWjxQlPDYzGCcKOVRsvlEsJrYHHOoN8FzecPb6kEKxnfsEnwy1WxRRajplUKjO0wlimQikZt4IO/x9DRuKk5A2OazAA6sy4f3+XEZE4hn9rVMjMU3XuC0cdvDDlsuU7IFZeua447hkJlZdOzWpwmgiKDMQl7G1AwJlgBoeQRLLaRI68KkqfXNOnGVDma5VvwABXuLfA16KhQPsNz8CoTMMQAAFWujrW7mqrKUkMGLJUtnbb18vKYsAZI6wSP0Nf4j+vALTInRRVHCSNJo8zVCRE+zt5sm3q9HBM8VeNsb0nVYYBxOZJmq5QGck1iEieNACLBHgFJkvWmA==
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WEVPQk41M2x2b00yVWcva3FlWVJLQ2tGTnA5REswclBTU2pNTDMrQWRTR0k1?=
+ =?utf-8?B?U1dGZGRDQzlNdzI5NzhVTm04a0pRQ1Y2SEVITnU0N1JWL0JhWHNCOU1qR21P?=
+ =?utf-8?B?Mkx1WFNWQlRnY0V6ODdveVFIY1h3Y2Z0dWs4MlpNcEV3NzNnM255bU9rb1Nr?=
+ =?utf-8?B?RmkrWFYvNW83OTlyZEkvL2pSbURQVnQxYXRTcEEvRHRhbFBhWDNabno5NmxN?=
+ =?utf-8?B?aXFUMDdsV3hNMlozRlVRUHc3b3JvOVVjTytQdVkxS1FjWnJUUkNhLzFFVlBN?=
+ =?utf-8?B?NTNSZ0pBQVU0eVRCWGxxcEx0QU04b3hjYlNaMGZiSzAxVHdCNlQ2Nm1uWG9w?=
+ =?utf-8?B?SWxsS2RPbktta01uTTg3OHltekZpSVJhTFJoVWU0V29oMU01REtZcVJRTmcv?=
+ =?utf-8?B?R0xTNGhBRmxBRDVFenlDdjNrY2JnTGhGN0VFZWRSbGxSL05ucktzdkMrbC9t?=
+ =?utf-8?B?THFYYU1iRnpZcjBUT0dQN015elNLR2NKVW10eUVpZlBJZFI2b0xRQWpSTHlr?=
+ =?utf-8?B?N21lSXFMT1F3M3ZiV1NTQ3VRbjU5NWVHV3N1RzR5a0M0RFNpQnlydE1JWVhX?=
+ =?utf-8?B?WnlscENCeWtRT3dNTnc2TTY1Yk8yZXJZREtEWndlOXdaTmFJUWx1NnB1aHZC?=
+ =?utf-8?B?R0J4MUhNKzVXeW50K3ZEdklUZEU0OXcvSlNHalMwdlN3S3RBMTNOcWZBanFP?=
+ =?utf-8?B?dUc5RFBRTTJIa2xVckRTdHlFeHBRME9jOGo3Z0gxNjBDYnAyNUZYTjR2UTYx?=
+ =?utf-8?B?L2I0UE44YzAxQ2pEZTBCaE8xK09WNTREME1GdlB5V0dkMWJyYS94VFhlUDNY?=
+ =?utf-8?B?YnUrZ0d5ZUFETk5zNWhxZzZyWjY0MTFMY05tZmpjWUVCVEZzUy9TaElTTEo3?=
+ =?utf-8?B?aWJtZWsrS09nTFVIL2oyRGU3Y25nUDRRaU0vWnFqWk92YUUvTHlMLzZDVkMy?=
+ =?utf-8?B?cjB1bUVTZzRLOVRORkg1c0Vtd3hSRGRoczMxZXh4MEZrT0hDVnRDK2RYbGF5?=
+ =?utf-8?B?eHYwTndJc29ySkhHZWR5QjBUdkdaTU5pNDBJMUdyeUZRYTJWUWRuR1piZTBt?=
+ =?utf-8?B?VGlDYyt1czd4VVFMekM4U2NMK3JzRUl4amZvTWN2SDdSQnMvNkJ5dXZnYXRk?=
+ =?utf-8?B?YVV2Y04vOEYwNUJ6c21nVnIvTWpaSk9NUld1NW5PZFBockhsbDI2blh2dWxj?=
+ =?utf-8?B?Rm83SXROb25OZms0K2lobHdNU1pkY2NKblZkU28yckg5WHo3bHhNeHdZcElZ?=
+ =?utf-8?B?OXlCaDJmQ0VWU0N0d2Z3UUdRS0hnb2JQUHZmNitiRFZpNW1KYjgrc3dJUXQv?=
+ =?utf-8?B?em9sSmNvcXFjcVUzdTJtbEc0OTAwcTFMNVFXM2tJSVduR2VmNC9FbXZkcGw4?=
+ =?utf-8?B?RHVXMEppbGZKYlBDT1kyRHhkYllGbXRxcmFTa2FrcVVCOFNWVFhaTWx6TXZH?=
+ =?utf-8?B?MHNHbFQ5YUc1VkQ1TTJ0eUFJdlBPRmp3bDkvSjg1aDBYYUw2UUFNVEMyWXc0?=
+ =?utf-8?B?V2ZUZmt4eVVMc05lNGJ4YW1jL21FYXlLV25HR2ptR2lSZkdsVERVSnFvbDJM?=
+ =?utf-8?B?MGZWK05xM1BqaTcvWVZIRXRXZ0czTzhENjdkTWpscGtZSHQ1SkxTUFFjNWgr?=
+ =?utf-8?B?UG8zaWpFbkxUVnhLbWo1Yk5hbzB3VEQwUkdoUy9UWlhzVDNGSjRFQURZdW9u?=
+ =?utf-8?B?WVpwSTh0T2gwL2Jld0gzNEJRZEsvaUthVnR4dTdMekpob0xzZzlvU084bnBS?=
+ =?utf-8?B?RU5CdlBWN1NyeU9qZDNVc1VDSEQ5bnRXTEp5cit3VlRaZGxQZDE4VzcwMG0x?=
+ =?utf-8?B?RVZjdEtqd05WUU1JODJBY3RqcWxJVEdLaktsT0F1Nm9mcE5kREx3ZktUQi9M?=
+ =?utf-8?B?aGk4RzdzNUozeTVTMlBuKzRUT0x4ZHVKZTNSRmtjcnpWUlA3TWRheUpvZWln?=
+ =?utf-8?B?UVBPbTBudXAyWlk5QjBpcmluWlJaZkFoa3ZROTdSTFpuQnViempURHJNOWpo?=
+ =?utf-8?B?OVlzeWMzNGEyYTdXcVlXcnpWeUQvWEIrTjl5ajM0TG5mdzJjQ0x3K0JqaGQ5?=
+ =?utf-8?B?VjlOV0NXZW1McjQrYXFKc3dXNktZV0JKVS9mVm5JRHJnVDJ6OHVQOE9YK1NN?=
+ =?utf-8?B?Nk1SeURrMks3aFFxTFV5QXR3SjVSSWFBTk54OVNyclE1QnozdHQzWmVJMUEv?=
+ =?utf-8?B?b25HTTZJZ3RHclROZ2J1VHgvNnY3RU5PMW00TXc4M0pkdWxwY2l1VnhOTE9h?=
+ =?utf-8?B?MjVVL0pNdVRUQlFDVEduK2F2RE42Um94aGNlWWQ4dTY1LzQwbTZlemYwUEhl?=
+ =?utf-8?B?UGpnN2g0M1R4YUNzdHp5TUQ3dzduVmdoV0RIZGpPbTZSQXJJWFk4QT09?=
+X-Exchange-RoutingPolicyChecked: ivS4cMXLvY8JdiNmDS86RSB0NbIzXPJ8SRilWK9CdylDthHRj8gy8C5q8Yd4pYFtqe9tNn1V4AkjZESTPK/cq/MnwlNg3lOlqeD9wUwkBF7FrCPKiJu9+t1EuI+VfFrN51lsy5YcXmCBgv+/096+WwEiO3PqewF2OXxDMrP52A+XeaxqGc7FyC98nK12nnG6/UQTLrzpp9LcyLyta7anx3Yn2d7FDXMToNEXMDHswMMCjJmUSY2fLAkmYj9ilqEIxv400Xuna3X8oxEruqdlV1pR0wrz7Am3kzOQJvUcVr8VXQrm5yrK0EAi31Ee9Pu8BKSdvHTkGaaOH9xgqK5axw==
 X-OriginatorOrg: analog.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19cddeaa-e08e-4f47-e020-08df07555969
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c6364ec-7f3f-45b5-6768-08df07555fab
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 11:45:26.4635
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 11:45:36.9492
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OtffQB07ua4FHNOF3MrwzqQhXPAzr3JrEWlRa+asadrZbN/yPNFrKPtLKDz7n32I/qAHZ1BvkBvt9F9x8jARyA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EA8PPFB3C90C3D5
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEwMSBTYWx0ZWRfX4Xx/voBl1OEF
- 70DIdJGCvKIrvbVjRUXA6LVZt8axmzjtEBH6YcFQOmDtfzSRyEm/07vaDJNkWI8P3I961NBtK9Q
- PgLjVKVDL2/jSx2Txx4n+HTLhEtW0FgyyAJJ1mX+DiJeas+STdeU
-X-Authority-Analysis: v=2.4 cv=feSdDUQF c=1 sm=1 tr=0 ts=6a956958 cx=c_pps
- a=rlKp08D5gBKtwCtLUzcdEg==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+X-MS-Exchange-CrossTenant-UserPrincipalName: r558MUTcCzjYajk6CWQd5NbbyG2s/gPZkpzRrdBqJZCEj/4xDR71WS8utMBwIXn37Vd63fyB/3YIBZ/ru41o8w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR03MB5077
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEwMSBTYWx0ZWRfXyVosF4EnD1JP
+ uBInUqHTT3Fw51J4C1O+Zj52jh9cdd+JcsuerGQYI7+qQDBmnUNV60IpjbQ+75KxpjN+U/tncKL
+ 9FvlmN3xsCS5MwZIMKcoTmTSN9olW1VSG0/xdLgVzRclcmvqC/MTAO8Prl/vjhiJlKLe/cdWbDY
+ s9kmISrRy31T0O50RJYm7Z9DOOHtghXp1PYhaaUQB4jL1csM/sBb4ZAEFI+wr3HNxblgVbSHwfh
+ PEJ4F2qwCbvQSxRtNZ2fikFyBSotADS9f7JNKu8kzfIS8cEhCLZ+LqwY+k5hvHWcpX74hiIr+ab
+ mX6zr+lG9a4pJCIAaGFvmIsfksGMyXge0Wb2RtAqkmRsWlYqGC8BPdVtdIz+CY+3BwfeHo47fmp
+ mFCiajfxNa/6G0IqfBDED0lDr29HMpozAZwXxfq6sL7bc5PdPwtLNYW9458JZ9vd7Gm7euvnYwd
+ vTpxMmGUJqvdb3pBMKQ==
+X-Proofpoint-GUID: YL6pFWWl3EiRep9hLVmrkV9b1Ee7awGC
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEwMSBTYWx0ZWRfX0sUbJ8Rn6sud
+ 7yq2WWVkRhU9B38Hp7uor3RfBUB/PJIP1IzuhmEHtqmGYeC2dgL6o+HZTsXtquQa/IJOmLvb3IV
+ PLFl+z9EJogTMyqqdrLE889lke5XO3R+3SwCotU6ZENmQS7NBdYn
+X-Authority-Analysis: v=2.4 cv=etTvCIpX c=1 sm=1 tr=0 ts=6a956963 cx=c_pps
+ a=xBU3AFOX62plvdJ7VrUh9g==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
  a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
  a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=M51BFTxLslgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=N--XFCr6TIEc_64PeIT2:22
- a=VwQbUJbxAAAA:8 a=bC-a23v3AAAA:8 a=gAnH3GRIAAAA:8 a=flkV3W--dmkDsEx6GCEA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-ORIG-GUID: wYPXhrzP90KeEOv3v8PqXwYevWjDffmi
-X-Proofpoint-GUID: wYPXhrzP90KeEOv3v8PqXwYevWjDffmi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEwMSBTYWx0ZWRfXyZqPKCBV6J1M
- 8i9hQnECMsAgc+bGhqhi6ynH0Jt0boPUFJzcAWYyx7Q0ILGgcL5i7MYICc4dHEQUiMyGo4XiWmd
- mWYxbvgkhCcLHwFG2NcIChmACrojU3sn9ppq3Jqy3kHXMh5Du1IkNn8VTHbm4jdi4/HZnchhIZW
- 1zehCxdayq/aSpgJnzhz7tfifUzqKFaF4sPFw/RWwV0rhBuIyJNRVa5ASOltr7aobQvCV9wYX9g
- FpiBaL8ifagTTWsInd9+vkekenna+o5vHqfDdAGEi/aRSHT4aXjX05GeCYbzPZNY/IGPq3oIrow
- P0fIRe/XQdN5sOui7g/MLU6rpav/DfDiCHw2hsq5hFJVLfniWfkfsiYde3arNQknjeOkGH6tlKW
- q7ASBXSusGm0mgwyaflV0RwDxx7WLiZCq/HlGimr5UJPjIiXBZfO0UWlcNGulnjmsX4fpjmWKH5
- FWLsXv722ihBlDDPUUw==
+ a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=_jAD5XSDOtq9-5Nde2OG:22
+ a=8AirrxEcAAAA:8 a=gAnH3GRIAAAA:8 a=y_OmukUNvUlgtTeSwsgA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: YL6pFWWl3EiRep9hLVmrkV9b1Ee7awGC
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_04,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 spamscore=0
- adultscore=0 bulkscore=0 clxscore=1011 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310101
+ suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 lowpriorityscore=0 clxscore=1015
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608310101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_044537_917855_2E87DA0E 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20260831_044545_561824_72DD6A9D 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,98 +207,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DMA engine slave capabilities advertise the supported source and
-destination bus widths through src_addr_widths / dst_addr_widths. These
-are plain u32 bitmasks where a set bit's position equals the
-corresponding enum dma_slave_buswidth value, e.g.
-DMA_SLAVE_BUSWIDTH_4_BYTES sets bit 4.
+Advertise the supported bus widths through dma_set_src_bus_widths()
+and dma_set_dst_bus_widths() instead of assigning the legacy u32 masks
+directly. This keeps the driver using the new bitmap representation
+while preserving legacy fields during the transition.
 
-The consequence is that widths of 32 bytes and above cannot be
-represented at all: DMA_SLAVE_BUSWIDTH_32/64/128_BYTES would need bits
-32, 64 and 128, which do not fit in a u32. Hardware with wider data
-paths is becoming common, so add a representation that can express these
-widths while still using enum dma_slave_buswidth.
-
-This series switches consumers and a small set of producers to the new
-bus width capabilities, represented by a dma_buswidth_mask_t modeled
-after dma_cap_mask_t. The legacy dma_device u32 fields are kept for now
-so the remaining DMA controller drivers can be converted incrementally:
-dma_async_device_register() folds a legacy-only producer's u32 into the
-mask, so consumers only ever have to look at the mask.
-
-The new interface lives in include/linux/dma/engine/{types,widthmask}.h
-rather than in linux/dmaengine.h, so that only its users pay for the
-linux/bitmap.h include. Every accessor takes a dma_buswidth_mask_t,
-which means the interface will not change when the legacy fields are
-eventually dropped.
-
-Once the remaining producers are converted, the legacy dma_device
-src/dst_addr_widths fields can be removed as a final cleanup.
-
-This issue was discussed before here:
-
-https://lore.kernel.org/dmaengine/abkoXXbaxaiqbBuX@vaman/
-
-Changes in v3:
-- Patch 1:
-  - Move the new interface out of linux/dmaengine.h into two new headers,
-    include/linux/dma/engine/types.h (enum dma_slave_buswidth and the new
-    dma_buswidth_mask_t) and include/linux/dma/engine/widthmask.h (the
-    accessors). Only the latter includes linux/bitmap.h and it is not
-    included back into linux/dmaengine.h (Andy).
-  - Replace the raw bitmap with a dma_buswidth_mask_t type modeled after
-    dma_cap_mask_t, so linux/dmaengine.h does not need linux/bitmap.h for
-    the struct members.
-  - Every accessor now takes a dma_buswidth_mask_t instead of a
-    struct dma_device / struct dma_slave_caps, so the interface stays the
-    same once the legacy fields are dropped. Consequently
-    dma_slave_caps_{get,copy,intersect,clear}_*_width() are gone.
-  - Fold the legacy producer masks once in dma_async_device_register()
-    instead of on every dma_get_slave_caps() call. On top of that, only
-    when a device_caps() callback adjusted the masks, derive the legacy
-    dma_slave_caps masks from them, so that a converted controller driver
-    is also seen by the consumers not converted yet, while a driver still
-    adjusting the legacy masks directly keeps working.
-- Patch 5:
-  - Also convert the driver's own read of the legacy capabilities in
-    stm32_dma3_chan_prep_hw(); besides completing the conversion this
-    stops BIT() from being fed an unvalidated device tree bus width.
-  - Drop the stm32_dma3 prefix from the local buswidths[] array and move
-    it below the struct declarations (Amelie).
-- Link to v2: https://patch.msgid.link/20260810-dmaengine-support-wider-dma-masks-v2-0-1f7b798d035f@analog.com
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Nuno Sá <nuno.sa@analog.com>
 ---
-Nuno Sá (9):
-      dmaengine: Support bus widths of 32 bytes and above
-      dmaengine: dma-axi-dmac: Use bus width capability helpers
-      dmaengine: dw-axi-dmac: Use bus width capability helpers
-      dmaengine: qcom: gpi: Use bus width capability helpers
-      dmaengine: stm32-dma3: Use bus width capability helpers
-      iio: buffer-dmaengine: Use dma_slave_caps bus width accessors
-      ALSA: pcm_dmaengine: Use dma_slave_caps bus width helpers
-      spi: dw: Use dma_slave_caps bus width helpers
-      dmaengine: Drop legacy bus width fields from dma_slave_caps
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 38 +++++++++++++++-----------
+ 1 file changed, 22 insertions(+), 16 deletions(-)
 
- MAINTAINERS                                        |   1 +
- drivers/dma/dma-axi-dmac.c                         |  14 +-
- drivers/dma/dmaengine.c                            |  27 +++-
- drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c     |  38 +++--
- drivers/dma/qcom/gpi.c                             |  12 +-
- drivers/dma/stm32/stm32-dma3.c                     |  34 +++--
- drivers/iio/buffer/industrialio-buffer-dmaengine.c |  16 +-
- drivers/spi/spi-dw-dma.c                           |   8 +-
- drivers/spi/spi-dw.h                               |   3 +-
- include/linux/dma/engine/types.h                   |  41 ++++++
- include/linux/dma/engine/widthmask.h               | 164 +++++++++++++++++++++
- include/linux/dmaengine.h                          |  47 +++---
- sound/core/pcm_dmaengine.c                         |  21 ++-
- 13 files changed, 342 insertions(+), 84 deletions(-)
----
-base-commit: 0613e7934ee233d726af8d8c89f251a1c4df738d
-change-id: 20260615-dmaengine-support-wider-dma-masks-5aac12497e27
---
+diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+index eebed2474210..ca0ab8dc5f59 100644
+--- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
++++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
+@@ -10,6 +10,7 @@
+ #include <linux/bitops.h>
+ #include <linux/delay.h>
+ #include <linux/device.h>
++#include <linux/dma/engine/widthmask.h>
+ #include <linux/dmaengine.h>
+ #include <linux/dmapool.h>
+ #include <linux/dma-mapping.h>
+@@ -33,20 +34,6 @@
+ #include "../dmaengine.h"
+ #include "../virt-dma.h"
+ 
+-/*
+- * The set of bus widths supported by the DMA controller. DW AXI DMAC supports
+- * master data bus width up to 512 bits (for both AXI master interfaces), but
+- * it depends on IP block configuration.
+- */
+-#define AXI_DMA_BUSWIDTHS		  \
+-	(DMA_SLAVE_BUSWIDTH_1_BYTE	| \
+-	DMA_SLAVE_BUSWIDTH_2_BYTES	| \
+-	DMA_SLAVE_BUSWIDTH_4_BYTES	| \
+-	DMA_SLAVE_BUSWIDTH_8_BYTES	| \
+-	DMA_SLAVE_BUSWIDTH_16_BYTES	| \
+-	DMA_SLAVE_BUSWIDTH_32_BYTES	| \
+-	DMA_SLAVE_BUSWIDTH_64_BYTES)
+-
+ #define AXI_DMA_FLAG_HAS_APB_REGS	BIT(0)
+ #define AXI_DMA_FLAG_HAS_RESETS		BIT(1)
+ #define AXI_DMA_FLAG_USE_CFG2		BIT(2)
+@@ -1482,6 +1469,20 @@ static int dw_probe(struct platform_device *pdev)
+ 	unsigned int flags;
+ 	u32 i;
+ 	int ret;
++	/*
++	 * The set of bus widths supported by the DMA controller. DW AXI DMAC
++	 * supports master data bus width up to 512 bits (for both AXI master
++	 * interfaces), but it depends on IP block configuration.
++	 */
++	enum dma_slave_buswidth buswidths[] = {
++		DMA_SLAVE_BUSWIDTH_1_BYTE,
++		DMA_SLAVE_BUSWIDTH_2_BYTES,
++		DMA_SLAVE_BUSWIDTH_4_BYTES,
++		DMA_SLAVE_BUSWIDTH_8_BYTES,
++		DMA_SLAVE_BUSWIDTH_16_BYTES,
++		DMA_SLAVE_BUSWIDTH_32_BYTES,
++		DMA_SLAVE_BUSWIDTH_64_BYTES,
++	};
+ 
+ 	chip = devm_kzalloc(&pdev->dev, sizeof(*chip), GFP_KERNEL);
+ 	if (!chip)
+@@ -1565,8 +1566,13 @@ static int dw_probe(struct platform_device *pdev)
+ 
+ 	/* DMA capabilities */
+ 	dw->dma.max_burst = hdata->axi_rw_burst_len;
+-	dw->dma.src_addr_widths = AXI_DMA_BUSWIDTHS;
+-	dw->dma.dst_addr_widths = AXI_DMA_BUSWIDTHS;
++	ret = dma_bus_width_set_many(dw->dma.src_bus_widths, buswidths, ARRAY_SIZE(buswidths));
++	if (ret)
++		return ret;
++
++	ret = dma_bus_width_set_many(dw->dma.dst_bus_widths, buswidths, ARRAY_SIZE(buswidths));
++	if (ret)
++		return ret;
+ 	dw->dma.directions = BIT(DMA_MEM_TO_MEM);
+ 	dw->dma.directions |= BIT(DMA_MEM_TO_DEV) | BIT(DMA_DEV_TO_MEM);
+ 	dw->dma.residue_granularity = DMA_RESIDUE_GRANULARITY_BURST;
 
-Thanks!
-- Nuno Sá
+-- 
+2.55.0
 
 
