@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3701C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE15C624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tilIhcIkJOC76/K2B7WhRWr6blwCJt6RVnQlspgCzn4=; b=OgnroYS8y06EDHXM1+ooq8nz5Q
-	uoKNaYPA/czAMYXMegaqKOd9eb3poYUzOTLuXqoVcAuprPBZmFwRRMifXMO1pypjbKRZAohkVLc5Q
-	4BfhWAvJU1LDBN6QBi5HeJtFA7HpteddBL3Qvjotat+cxFjjxprYFBVhQ4NO4O+vS2gcF69SsB8XS
-	JHUHSTjI2uVJSIT7Q77+DSR269vvZb935SYTjyyqBd8+g7/ZQTtulk4IDBET0/i1yYuCxck0fMqXm
-	VMF9xDnVjIRqxiOAZCkLeWbGcKoEARd9xWrW1kzyLKbk6vbtMNn18wk46j1MFwKBwvup/VJpHL+HR
-	Rkqf+opQ==;
+	bh=2soAF6lmYUnjH69q0xPTWuMHpdk0vhzck1FpAB/Wmqw=; b=M67xLZTxR526WmcUlF2lLHyfuR
+	seWtDEeDxiHBMzbF6o2NHgWlWwzWB4XmGxfg36fMVj7m0FfPfIy22BwIw/YJD3vuJyJdMty6mlxZb
+	B6Jf7366GHnmaqAgLrcIX1jJujLQURVsjztdr7ziQjJ71kec2oHuXNqLPP54aEIKKLL/iBe2lBo3H
+	Lk7vPbhAN14ixiltQ72kRuVJsBQtIbu0pQ4dU9J2ZEO9xP//Hg2jnStBzVIL6EXtxrV3nTHg+XwC2
+	Lb/WkEOPNhRFUFS2XR5Qte8spYCihjUiGR4QxCqcapaYuoY4GLujkNdTokMczUdn4avpbrEqzYAG4
+	z3YaY2hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Qp-00000009YkA-25gE;
-	Mon, 31 Aug 2026 13:52:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x12Qx-00000009Yns-38lL;
+	Mon, 31 Aug 2026 13:52:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Qo-00000009Yjx-0t13
+	id 1x12Qw-00000009YnK-2hUF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:52:14 +0000
+	Mon, 31 Aug 2026 13:52:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EF9060207;
-	Mon, 31 Aug 2026 13:52:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0138C1F000E9;
-	Mon, 31 Aug 2026 13:52:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 657BA41468;
+	Mon, 31 Aug 2026 13:52:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060491F00ACA;
+	Mon, 31 Aug 2026 13:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788184333;
-	bh=tilIhcIkJOC76/K2B7WhRWr6blwCJt6RVnQlspgCzn4=;
+	s=k20260515; t=1788184342;
+	bh=2soAF6lmYUnjH69q0xPTWuMHpdk0vhzck1FpAB/Wmqw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fsGNhhlcuKL3ctem/YccE9THMU00ui4msXC0WySTUb+qg3b2+CygoCe8PqAhGXkFI
-	 7m9mzthJxaNmsqGHq6eNPLi7PgATOU+J02Z2UqOkZgDy+1mpgaHVw0VXUyVC1YoSEq
-	 kiAZzmy1J1n6+4V4z75ZKkcRIemjWmT/VRA4QJVSmpO3RMnXVhLLV/zDoxTxIGlfgM
-	 ozxkMrGg1esQBhg19JxofyLwrrM395gWgBVAPV1aGUPebkB5DPjjH4UjmV0ULT9upE
-	 cvZWMXZj6fok5zWQe2jVflWZeBYd/RocfZpnMqnMppCxq8av7ga3GTpnv1v/TZ1Rab
-	 FIcNTSrwlBO7A==
+	b=CUw3uKc+FqpbJZ6zJ9Z+nQjoZowWDAtRSKSMWa4gCjuItY323BVPe/6pVQNDoeQ/c
+	 qD/GvM/WL5V0SMlvw3GngoqyguiwZ7SX3eSbhsTfuqbMX2K27dOMvnSrZ58F1dCC7k
+	 ONCIUWXSYiCpcFGn4+y/HEV3E/OzSLu5uiO0RR4stZT8+iB8vbrxNTfJTaku6BTI/t
+	 qi+kAtuqv+vP/Ukx8y7qEFkh2QCwXAXSa5kgEaEXEE7uKKuTWTUhu+QQ3cmp+r7Xei
+	 VnZfN2kUmdlrend0cp8EZV1cq8x28n0ePFynFpD71ErOVOcPCpUyDHR6oD9YSJNuQz
+	 DntjNHKyLGMKQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+Cc: Leo Yan <leo.yan@arm.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-crypto@vger.kernel.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] crypto: atmel-ecc - add support for atecc608b
-Date: Mon, 31 Aug 2026 09:30:59 -0400
-Message-ID: <20260831133314.4125787-631-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18] coresight: Disable source helpers in coresight_disable_path()
+Date: Mon, 31 Aug 2026 09:31:05 -0400
+Message-ID: <20260831133314.4125787-637-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -81,384 +81,460 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thorsten Blum <thorsten.blum@linux.dev>
+From: Leo Yan <leo.yan@arm.com>
 
-[ Upstream commit b668edaf8dcc8d09f6f1e71797422b44d4bd22a3 ]
+[ Upstream commit 5cae719943399929b4f9e612d9400017d3e2c1e1 ]
 
-Tested on hardware with an ATECC608B at 0x60. The device binds
-successfully, passes the driver's sanity check, and registers the
-ecdh-nist-p256 KPP algorithm.
+coresight_enable_path() enables helpers attached to every device in
+the path, including those bound to the source. However,
+coresight_disable_path() skips the source node, so source helpers had
+to be disabled separately in coresight_disable_source().
 
-The hardware ECDH path was also exercised using a minimal KPP test
-module, covering private key generation, public key derivation, and
-shared secret computation.
+Move source helper disabling into coresight_disable_path() instead.
+Make coresight_disable_path_from() start from the passed node nd, so
+it can also disable helpers on the source. Update the comments
+accordingly.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+As coresight_disable_path_from() now changes its semantics from
+"start beyond nd" to "start from nd", update the failure handling in
+coresight_enable_path(). If enabling a node fails, iterate to the
+previous node (the last successfully enabled one) and pass it to
+coresight_disable_path_from() for rollback.
+
+Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Link: https://lore.kernel.org/r/20260515-arm_coresight_path_power_management_improvement-v14-15-f88c4a3ecfe9@arm.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: `crypto: atmel-ecc - add support for
-atecc608b`
-
-**Local tree:** Linux **6.18.43** (`v6.18.43-1-gc7f0dac02d232`, detached
-from `stable/linux-6.18.y`)
-
-**Upstream commit:** `b668edaf8dcc8d09f6f1e71797422b44d4bd22a3`
-**Candidate commit:** `beb0043891b43` (not yet in current HEAD)
-
----
-
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Subject Line
-**Record:** `[crypto: atmel-ecc] [add] support for atecc608b` —
-subsystem is the Atmel ECC crypto driver; verb is “add” (hardware
-enablement, not a bug-fix verb).
+### Step 1.1: PARSE THE SUBJECT LINE
+**Record:** `[coresight] [Disable] [source helpers in
+coresight_disable_path()]`
 
-### Step 1.2: Tags
+Subsystem: CoreSight (ARM hardware tracing). Action: disable/fix
+asymmetry in path teardown.
+
+### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 **Record:**
-| Tag | Value |
-|-----|-------|
-| Signed-off-by | Thorsten Blum `<thorsten.blum@linux.dev>` |
-| Signed-off-by | Herbert Xu `<herbert@gondor.apana.org.au>` (crypto
-maintainer) |
-| Fixes: | **Absent** (expected for manual review) |
-| Cc: stable | **Absent** (expected) |
-| Reported-by: | **Absent** |
-| Tested-by: | **Absent** (but commit body describes hardware testing) |
-| Link: | **Absent** |
+- **Fixes:** — absent (expected for manual review)
+- **Reported-by:** — none
+- **Tested-by:** Jie Gan `<jie.gan@oss.qualcomm.com>`, James Clark
+  `<james.clark@linaro.org>`
+- **Reviewed-by:** Yeoreum Yun `<yeoreum.yun@arm.com>`, James Clark
+  `<james.clark@linaro.org>`
+- **Link:** `https://lore.kernel.org/r/20260515-
+  arm_coresight_path_power_management_improvement-v14-15-
+  f88c4a3ecfe9@arm.com`
+- **Cc: stable:** — none
+- **Signed-off-by:** Leo Yan, Suzuki K Poulose (ignore pipeline SOB)
 
-Notable: crypto maintainer Signed-off-by; no syzbot/sanitizer signals.
+Notable: two subsystem reviewers and two testers; no syzbot/user crash
+report.
 
-### Step 1.3: Body Analysis
+### Step 1.3: ANALYZE THE COMMIT BODY TEXT
 **Record:**
-- **Problem:** ATECC608B secure-element chips are not matched by the
-  existing `atmel-ecc` driver; they will not bind/probe.
-- **Symptom:** Device at I2C address 0x60 does not get a driver; ECDH
-  offload unavailable.
-- **Root cause:** Missing OF compatible (`atmel,atecc608b`) and I2C
-  device ID (`atecc608b`) in match tables.
-- **Verification:** Author tested binding, sanity check, and full ECDH
-  KPP path on real hardware.
+- **Bug:** `coresight_enable_path()` enables helpers on every path node
+  (including the source), but `coresight_disable_path()` skipped the
+  source node, so source-attached helpers were only torn down via a
+  separate call in `coresight_disable_source()`.
+- **Symptom:** Error rollback paths that call only
+  `coresight_disable_path()` leave source helpers enabled
+  (hardware/resource leak, inconsistent tracing state).
+- **Root cause:** `coresight_disable_path_from()` used
+  `list_for_each_entry_continue()` starting after the source node;
+  enable/disable were asymmetric.
+- **Fix:** Move source-helper teardown into `coresight_disable_path()`,
+  change `coresight_disable_path_from()` to start *from* `nd`
+  (`list_for_each_entry_from()`), and fix `coresight_enable_path()`
+  rollback to pass the last successfully enabled node.
+- **Version info:** Patch 15/28 of v14 CoreSight path power-management
+  series (May 2026).
 
-### Step 1.4: Hidden Bug Fix?
-**Record:** **No.** This is explicit hardware enablement via device-ID
-tables, not a disguised crash/leak/race fix. The driver logic is
-unchanged; only match tables are extended.
+### Step 1.4: DETECT HIDDEN BUG FIXES
+**Record:** Not disguised cleanup — explicit bug fix for enable/disable
+imbalance. The existing in-tree comment at lines 380–388 already
+documents this as a known problem.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory
+### Step 2.1: INVENTORY THE CHANGES
 **Record:**
-| File | Changes |
-|------|---------|
-| `drivers/crypto/atmel-ecc.c` | +3 lines |
+- **Files:** `drivers/hwtracing/coresight/coresight-core.c` only (+8 /
+  −19 lines)
+- **Functions modified:** `coresight_disable_source()`,
+  `coresight_disable_path_from()`, `coresight_disable_path()` (wrapper
+  unchanged), `coresight_enable_path()`
+- **Scope:** Single-file, surgical fix
 
-**Functions modified:** None (only static data tables
-`atmel_ecc_dt_ids[]`, `atmel_ecc_id[]`).
-**Scope:** Single-file, surgical device-ID addition.
-
-### Step 2.2: Code Flow Change
+### Step 2.2: CODE FLOW CHANGE (per hunk)
 **Record:**
-- **Hunk 1 (OF table):** Before: only `atmel,atecc508a` matched. After:
-  also `atmel,atecc608b`.
-- **Hunk 2 (I2C ID table):** Before: only `"atecc508a"`. After: also
-  `"atecc608b"`.
-- **Affected path:** Device enumeration / driver probe only. No change
-  to ECDH algorithm code, locking, or error handling.
+1. **`coresight_disable_source()`:** Before: disable source ops +
+   `coresight_disable_helpers()`. After: disable source ops only;
+   helpers owned by path disable.
+2. **`coresight_disable_path_from()`:** Before:
+   `list_for_each_entry_continue()` skipped the starting node (source
+   when `nd==NULL`). After: `list_for_each_entry_from()` includes
+   starting node; source case still skips source ops but runs
+   `coresight_disable_helpers()` on source.
+3. **`coresight_enable_path()` rollback:** Before: passed failing node
+   `nd` to `disable_path_from()` with “beyond nd” semantics. After:
+   advances to `list_next_entry(nd)` (last successfully enabled node)
+   before rollback, matching new “from nd” semantics.
 
-### Step 2.3: Bug Mechanism
-**Record:** **Category: Hardware device-ID addition (not a runtime bug
-fix).** ATECC608B is protocol-compatible with the existing driver (same
-sanity check, same NIST P-256 ECDH path) but was excluded from match
-tables. Without these entries, the kernel never calls
-`atmel_ecc_probe()` for this hardware.
+### Step 2.3: BUG MECHANISM
+**Record:** **Category:** Error-path resource / hardware-state leak
+(reference-counting / lifecycle asymmetry). **Mechanism:**
+`coresight_enable_path()` calls `coresight_enable_helpers()` on all
+nodes including source; `coresight_disable_path()` never visited the
+source node, so source helpers stayed enabled unless
+`coresight_disable_source()` was also called.
 
-### Step 2.4: Fix Quality
-**Record:** Obviously correct — standard pattern mirroring the existing
-`atecc508a` entry. Minimal risk; no new APIs, no logic changes.
-Regression risk: **very low**.
+### Step 2.4: FIX QUALITY
+**Record:** Fix is minimal and logically correct. In-tree callers of
+`coresight_disable_source()` (`coresight-sysfs.c:98`, `coresight-etm-
+perf.c:685`) are always followed by `coresight_disable_path()`, so
+removing helper teardown from `disable_source()` is safe for in-tree
+code. Low regression risk; `EXPORT_SYMBOL_GPL` means out-of-tree callers
+that only call `disable_source()` would need updating (none found in-
+tree).
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 3.1: Blame
-**Record:** Device-ID tables introduced in `5d324e5159d9e` (Merge tag
-`usb-6.18-rc8`, Nov 2025) with only `atecc508a`. No “buggy code” — just
-incomplete hardware coverage from initial driver landing.
+### Step 3.1: BLAME THE CHANGED LINES
+**Record:** Shallow tree (50 commits); `git blame` attributes current
+`coresight_disable_source()` body to `a112b91dd6349`. Helper
+infrastructure (`coresight_is_helper`, `coresight_enable_helpers`,
+CATU/CTI/CTCU helpers) is present in this 6.18.43 tree. Related helper
+introduction referenced in series as `6148652807ba` (“Enable and disable
+helper devices adjacent to the path”) — not individually verifiable in
+this shallow history, but helper code is present.
 
-### Step 3.2: Fixes: Tag
-**Record:** **N/A** — no `Fixes:` tag present.
+### Step 3.2: FOLLOW THE FIXES: TAG
+**Record:** No `Fixes:` tag on this commit. N/A.
 
-### Step 3.3: Related File History
-**Record:** Recent `atmel-ecc.c` history in this tree:
-- `9c032781c2b1f` — `crypto: atmel-ecc - Release client on allocation
-  failure` (actual bug fix, already in tree)
-- `5d324e5159d9e` — driver introduction via usb-6.18-rc8 merge
+### Step 3.3: FILE HISTORY FOR RELATED CHANGES
+**Record:** Part of v14 28-patch series (`v14_20260515_leo_yan_coresight
+_refactor_power_management_for_coresight_path.mbx`). Patch 15 is
+standalone in `coresight-core.c`; patch 16 (“Control path with range”)
+builds on it but is not a prerequisite. Related sibling fixes: patch 1
+(idr_alloc failure), patch 2 (helper enable unwind).
 
-No prior atecc608b-related commits in HEAD. On `autosel` branch, later
-cleanup commits exist (`006bbe8db4c35`, etc.) but are not prerequisites
-for this 3-line ID addition.
+### Step 3.4: AUTHOR'S OTHER COMMITS
+**Record:** Leo Yan authored the CoreSight path PM series; Reviewed-by
+includes Arm/Linaro maintainers. Strong subsystem review signal.
 
-### Step 3.4: Author Context
-**Record:** Thorsten Blum submitted a 2-patch series. Herbert Xu replied
-“All applied. Thanks.” Patch 2/2 (`dt-bindings: trivial-devices: add
-atmel,atecc608b`) is a separate DT binding commit, not part of this
-candidate.
-
-### Step 3.5: Dependencies
-**Record:** **Standalone.** No functional dependency on other commits.
-Patch applies cleanly to current HEAD (`git apply --check` succeeded).
-DT binding patch 2/2 is complementary for DT schema validation but not
-required for the driver match tables themselves.
+### Step 3.5: DEPENDENT/PREREQUISITE COMMITS
+**Record:** No hard dependency on later series patches. Applies to
+current tree structure (`coresight_enable_path()` with `sink_data`
+parameter). Standalone.
 
 ---
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 4.1: Original Discussion
-**Record:** `b4 dig -c beb0043891b43` found thread:
-https://patch.msgid.link/20260412095642.120815-3-thorsten.blum@linux.dev
+### Step 4.1: ORIGINAL PATCH DISCUSSION
+**Record:** Lore fetch blocked (Anubis bot protection). Used local mbox:
+`v14_20260515_leo_yan_coresight_refactor_power_management_for_coresight_
+path.mbx`. Patch 15/28 confirmed at lines 2131–2234. Series cover letter
+describes patches 14–23 as path enable/disable refactor. No stable
+nomination found in mbox grep.
 
-Series revisions: v1 (2026-03-30) and RESEND (2026-04-12). Committed
-version matches RESEND.
+### Step 4.2: WHO REVIEWED
+**Record:** `b4 dig -c HEAD` failed (commit not in tree). From commit
+message: Yeoreum Yun (Arm), James Clark (Linaro) reviewed; Jie Gan
+(Qualcomm) and James Clark tested.
 
-### Step 4.2: Reviewers
-**Record:** `b4 dig -w` CC'd Herbert Xu, David S. Miller, Nicolas Ferre
-(Microchip), Alexandre Belloni, Claudiu Beznea, linux-crypto@, linux-
-arm-kernel@, linux-kernel@. Herbert Xu applied the series.
+### Step 4.3: BUG REPORT
+**Record:** No external bug report or syzbot link. Bug inferred from
+code asymmetry and documented in existing kernel comment.
 
-### Step 4.3: Bug Reports
-**Record:** **N/A** — no bug report links. Hardware validation described
-in commit message.
+### Step 4.4: RELATED PATCHES / SERIES
+**Record:** 28-patch series; this is patch 15. Patches 1–2 fix related
+teardown bugs. Patch 15 does not require the CPU-PM refactor patches
+(11–28) for correctness in the current tree.
 
-### Step 4.4: Related Patches
-**Record:** Part of `[PATCH RESEND 1/2]` series. Patch 2/2 adds
-`atmel,atecc608b` to `Documentation/devicetree/bindings/trivial-
-devices.yaml` (Acked-by: Rob Herring). That binding patch is separate;
-this driver patch is self-contained.
-
-### Step 4.5: Stable List History
-**Record:** **Not searched** — no stable-specific discussion found in
-the retrieved thread. Absence of `Cc: stable` is expected and not a
-negative signal.
+### Step 4.5: STABLE MAILING LIST HISTORY
+**Record:** No `Cc: stable` or stable-list discussion found in local
+mbox.
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1: Key Functions
-**Record:** No functions modified. Match tables feed into
-`atmel_ecc_driver` → `atmel_ecc_probe()` → `atmel_i2c_probe()` →
-`device_sanity_check()`.
+### Step 5.1: KEY FUNCTIONS
+**Record:** `coresight_disable_source()`,
+`coresight_disable_path_from()`, `coresight_disable_path()`,
+`coresight_enable_path()`, `coresight_disable_helpers()`
 
-### Step 5.2: Callers
-**Record:** `atmel_ecc_probe()` is invoked by the I2C core during device
-enumeration when OF compatible or I2C device ID matches. Standard probe
-path on embedded boards with secure elements.
+### Step 5.2: TRACE CALLERS
+**Record:**
+- `coresight_enable_path()` ← `coresight_enable_sysfs()` (`coresight-
+  sysfs.c:218`), `etm_event_start()` (`coresight-etm-perf.c:531`)
+- `coresight_disable_path()` ← `coresight_enable_sysfs()` error path
+  (`:262`), `coresight_disable_sysfs()` (`:308`), `etm_event_start()`
+  failure (`:563`), `etm_event_stop()` (`:724`)
 
-### Step 5.3: Callees
-**Record:** `atmel_i2c_probe()` performs I2C functionality check, clock
-validation, and `device_sanity_check()` (verifies config/OTP zones are
-locked). Chip-family-agnostic.
+**Buggy callers (disable_path without prior disable_source):**
+- `coresight-sysfs.c:262` — `enable_path` succeeded,
+  `enable_source_sysfs` failed
+- `coresight-etm-perf.c:563` — `enable_path` succeeded,
+  `source_ops->enable` failed
 
-### Step 5.4: Reachability
-**Record:** Triggered at boot when ATECC608B is present on I2C bus with
-matching DT `compatible` or I2C board info. Common on embedded/IoT
-platforms (similar boards already use `atmel,atecc508a` in this tree’s
-DTS files).
+### Step 5.3: TRACE CALLEES
+**Record:** `coresight_disable_helpers()` → `coresight_disable_helper()`
+→ `helper_ops()->disable()`; affects CATU, CTI, CTCU helper devices
+attached to sources.
 
-### Step 5.5: Similar Patterns
-**Record:** `atmel-sha204a.c` and other Atmel I2C crypto drivers use the
-same pattern of multiple compatible strings in OF/I2C tables. ATECC508A
-and ATECC608B share the same I2C command protocol for ECDH operations
-supported by this driver.
+### Step 5.4: CALL CHAIN / REACHABILITY
+**Record:** Reachable from sysfs writes (`enable_source_store`) and perf
+events (`perf record` with CoreSight/ETM). Requires `CONFIG_CORESIGHT`
+and ARM CoreSight hardware. Admin/capability-gated, not arbitrary
+unprivileged userspace — but real on Qualcomm/Arm platforms.
+
+### Step 5.5: SIMILAR PATTERNS
+**Record:** Existing comment explicitly documents the enable/disable
+imbalance; patch 2 in same series fixes partial helper enable unwind in
+`coresight_enable_helpers()`.
 
 ---
 
 ## PHASE 6: CROSS-REFERENCING AGAINST LOCAL TREE
 
-### Step 6.1: Does Buggy Code Exist?
-**Record:** The **driver exists** in 6.18.43
-(`CONFIG_CRYPTO_DEV_ATMEL_ECC`, `drivers/crypto/atmel-ecc.c`). The
-**missing device IDs** also exist as a gap — only `atecc508a` is listed;
-`atecc608b` is absent. Driver introduced in 6.18 via `5d324e5159d9e`. No
-`atecc608b` references anywhere in the tree.
+### Step 6.1: DOES THE BUGGY CODE EXIST?
+**Record:** **YES.** Local tree is **6.18.43** (`git describe`:
+`v6.18.43-1-gc7f0dac02d232`). Current code at `coresight-core.c:433`
+uses `list_for_each_entry_continue`; `coresight_disable_source()` at
+`:393` still calls `coresight_disable_helpers(csdev, NULL)`. Imbalance
+comment present at `:384–388`.
 
-### Step 6.2: Backport Complications
-**Record:** **Clean apply** — `git apply --check` on the diff against
-current HEAD succeeded with no conflicts.
+### Step 6.2: BACKPORT COMPLICATIONS
+**Record:** **Clean apply expected.** Patch hunks match current file
+structure (verified `err_disable_path` at lines 561–565). Only
+`coresight-core.c` touched.
 
-### Step 6.3: Related Fixes Already Present?
-**Record:** `9c032781c2b1f` (allocation-failure leak fix) is already in
-tree. No duplicate atecc608b support found.
+### Step 6.3: RELATED FIXES ALREADY PRESENT?
+**Record:** Commit not in tree. Patch 1 (idr_alloc) and patch 2 (helper
+enable unwind) also not present — separate issues; patch 15 is
+independently valuable.
 
 ---
 
 ## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-### Step 7.1: Subsystem Criticality
-**Record:** `drivers/crypto/` — **IMPORTANT** (hardware crypto offload
-for embedded secure elements). Config-dependent
-(`CONFIG_CRYPTO_DEV_ATMEL_ECC`).
+### Step 7.1: SUBSYSTEM CRITICALITY
+**Record:** **PERIPHERAL** — `drivers/hwtracing/coresight/`, ARM
+debug/trace infrastructure. Important for Arm/Android/embedded
+developers, not universal.
 
-### Step 7.2: Subsystem Activity
-**Record:** Driver is new to 6.18 (landed Nov 2025). Low churn in this
-tree since introduction (one bug-fix commit).
+### Step 7.2: SUBSYSTEM ACTIVITY
+**Record:** Actively developed; large v14 refactor series in flight.
+Helper support (CATU, CTI, CTCU) present in this tree.
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-### Step 8.1: Who Is Affected
-**Record:** Users of boards with **ATECC608B** secure elements on I2C,
-using `CONFIG_CRYPTO_DEV_ATMEL_ECC=m/y`. Currently zero support for this
-chip variant in 6.18.y.
+### Step 8.1: WHO IS AFFECTED
+**Record:** Users of CoreSight tracing on Arm SoCs (sysfs manual trace,
+perf aux trace). Config-specific: `CONFIG_CORESIGHT`.
 
-### Step 8.2: Trigger Conditions
-**Record:** ATECC608B present on I2C bus at boot. Not a security
-vulnerability or crash trigger — hardware simply does not bind without
-the ID.
+### Step 8.2: TRIGGER CONDITIONS
+**Record:** Error paths during trace session setup — source enable fails
+after path (and source helpers) were enabled. Uncommon but realistic
+during misconfiguration or transient hardware errors. Not every boot;
+not unprivileged.
 
-### Step 8.3: Failure Mode Severity
-**Record:** **LOW** for system stability (no crash/corruption).
-**MEDIUM** for functionality — secure-element ECDH offload is completely
-unavailable for ATECC608B users on 6.18.y without this patch.
+### Step 8.3: FAILURE MODE SEVERITY
+**Record:** Source helper devices (e.g., CATU) left enabled →
+**resource/hardware state leak**, subsequent tracing sessions may fail
+until reboot. **Severity: MEDIUM-HIGH** for affected subsystem (not
+kernel panic, not data corruption, but functional breakage of tracing
+and leaked hardware state).
 
-### Step 8.4: Risk-Benefit
+### Step 8.4: RISK-BENEFIT
 **Record:**
-- **Benefit:** Enables tested hardware on an existing driver; 3-line
-  change.
-- **Risk:** Very low — no logic changes, no API changes.
-- **Ratio:** Favorable for stable under the device-ID exception
-  category.
+- **Benefit:** Fixes real teardown bug on error paths; aligns
+  enable/disable symmetry; improves `enable_path()` rollback
+  correctness.
+- **Risk:** Very low — 27-line single-file change, reviewed by subsystem
+  maintainers, in-tree callers verified safe.
+- **Ratio:** Moderate benefit for Arm tracing users, very low risk →
+  favorable.
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence Summary
+### Step 9.1: EVIDENCE COMPILED
 
 **FOR backport:**
-- Trivial I2C/OF device-ID addition to an **existing** driver (explicit
-  stable exception category)
-- Hardware-tested; crypto maintainer applied and Signed-off-by
-- Applies cleanly to 6.18.43
-- Driver already present in this tree since 6.18
-- Without it, ATECC608B hardware cannot use the driver at all
+- Real, documented bug (in-tree comment acknowledges imbalance)
+- Leaves helper hardware enabled on error paths
+- Small, surgical, single-file fix
+- Reviewed by Arm/Linaro maintainers; tested on Qualcomm/Arm hardware
+- Buggy code confirmed present in 6.18.43
+- Clean apply expected
+- Fixes `enable_path()` rollback semantics bug
 
 **AGAINST backport:**
-- Not a bug fix (crash/leak/race/security)
-- Driver itself is new in 6.18 (limited exposure window)
-- Companion DT binding patch (2/2) is separate — needed for full DT
-  schema compliance but not for driver functionality
-- No user bug reports or syzbot findings
+- Part of larger 28-patch refactor (but patch 15 is standalone)
+- Error-path only, not normal teardown
+- Peripheral subsystem, config-gated
+- No syzbot/crash report
+- No explicit stable nomination
+- Medium severity, not crash/security/corruption
 
-### Step 9.2: Stable Rules Checklist
+**Unresolved:** Full lore thread inaccessible; cannot verify maintainer
+stable discussion.
 
-| Criterion | Result |
-|-----------|--------|
-| 1. Obviously correct and tested? | **PASS** — hardware tested,
-maintainer applied |
-| 2. Fixes a real bug? | **PASS via exception** — device-ID addition
-enabling hardware that cannot bind otherwise |
-| 3. Important issue? | **PASS (moderate)** — hardware non-functional
-without it; not crash/security |
-| 4. Small and contained? | **PASS** — 3 lines, one file |
-| 5. No new features/APIs? | **PASS** — only match table entries; falls
-under device-ID exception |
-| 6. Can apply to local tree? | **PASS** — clean apply verified |
+### Step 9.2: STABLE RULES CHECKLIST
+1. Obviously correct and tested? **PASS** — logic clear; multiple
+   Tested-by/Reviewed-by
+2. Fixes a real bug affecting users? **PASS** — error-path helper leak
+   on Arm CoreSight
+3. Important issue? **PASS (borderline)** — hardware state leak /
+   tracing breakage, not crash/corruption
+4. Small and contained? **PASS** — one file, ~27 lines
+5. No new features/APIs? **PASS** — lifecycle bug fix only
+6. Can apply to local tree? **PASS** — code present, patch matches
 
-### Step 9.3: Exception Category
-**Record:** **NEW DEVICE IDs** — adding OF compatible and I2C device ID
-to an existing driver. The `atmel-ecc` driver is already in 6.18.y; only
-the ID for ATECC608B is new.
+### Step 9.3: EXCEPTION CATEGORIES
+**Record:** None (not device ID, quirk, DT, build, or docs fix).
 
-### Step 9.4: Decision Rationale
+### Step 9.4: DECISION RATIONALE
 
-This commit does not fix a kernel bug, but it is a textbook stable
-exception: a minimal device-ID addition to an existing driver that
-enables real hardware already validated by the author and accepted by
-the crypto maintainer. The driver is present in 6.18.43, the patch
-applies cleanly, and ATECC608B boards cannot use the driver without it.
-Risk is negligible.
+This commit fixes a genuine enable/disable asymmetry in CoreSight path
+management. On error rollback paths in `coresight_enable_sysfs()` and
+`etm_event_start()` that call only `coresight_disable_path()`, source-
+attached helper devices remain enabled because the disable path skipped
+the source node. That can leave tracing hardware in a bad state and
+break subsequent sessions. The fix is small, reviewed, applies cleanly
+to 6.18.43, and does not depend on the rest of the v14 refactor series.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed commit message from `git show beb0043891b43`:
-  subject, tags, body analyzed
-- **[Phase 2]** Diff analysis: 3 lines added to `atmel-ecc.c` device-ID
-  tables only
-- **[Phase 3]** `git blame -L 370,390`: tables from `5d324e5159d9e`
-  (6.18-rc8 merge)
-- **[Phase 3]** `git log -20 -- drivers/crypto/atmel-ecc.c`: driver +
-  one prior bug fix in tree
-- **[Phase 3]** `git merge-base --is-ancestor 5d324e5159d9e HEAD`:
-  driver merge is ancestor — driver exists
-- **[Phase 3]** `git apply --check` on commit diff: **applies cleanly**
-- **[Phase 4]** `b4 dig -c beb0043891b43`: lore URL found
-- **[Phase 4]** `b4 dig -a`: v1 and RESEND revisions found
-- **[Phase 4]** `b4 dig -w`: Herbert Xu, linux-crypto@ CC'd
-- **[Phase 4]** `b4 dig -m /tmp/atecc608b.mbox`: Herbert Xu “All
-  applied. Thanks.”; patch 2/2 identified as DT binding only
-- **[Phase 5]** Read `atmel-i2c.c` `device_sanity_check()`: chip-family-
-  agnostic sanity check
-- **[Phase 5]** Read `atmel_ecc_probe()`: standard probe path, no chip-
-  specific branches
-- **[Phase 6]** `git describe HEAD` + `make kernelversion`: tree is
-  **6.18.43**
-- **[Phase 6]** `grep atecc608`: **no matches** in current tree — IDs
-  absent
-- **[Phase 6]** `grep atecc508`: DTS files and driver present — driver
-  exists, only 508a supported
-- **[Phase 7]** `Kconfig CRYPTO_DEV_ATMEL_ECC`: driver is tristate,
-  depends on I2C
-- **[Phase 8]** No crash/corruption path identified; functional gap for
-  ATECC608B hardware
+- [Phase 1] Parsed subject, tags, body from user-provided commit message
+- [Phase 1] Confirmed no Fixes:/Reported-by/syzbot; found Tested-
+  by/Reviewed-by/Link
+- [Phase 2] Read current `coresight-core.c` lines 352–566; confirmed
+  pre-patch imbalance
+- [Phase 2] Identified bug class: error-path helper/hardware state leak
+- [Phase 3] `git describe HEAD` → v6.18.43; `make kernelversion` →
+  6.18.43
+- [Phase 3] `git rev-list --count HEAD` → 50 (shallow); limited history
+- [Phase 3] `git blame` on `coresight_disable_source()` lines 390–394
+- [Phase 3] Read `v14_20260515_leo_yan_coresight_refactor_power_manageme
+  nt_for_coresight_path.mbx` patch 15 and cover letter
+- [Phase 4] WebFetch lore URL → blocked by Anubis; used local mbox
+  instead
+- [Phase 4] `b4 dig -c HEAD` → wrong commit; `b4 dig` with message-id →
+  unsupported without commit in tree
+- [Phase 4] Grep mbox for “stable” → no matches
+- [Phase 5] `grep coresight_disable_path(` → 4 call sites in coresight
+  subsystem
+- [Phase 5] `grep coresight_disable_source(` → sysfs.c:98, etm-
+  perf.c:685 (both followed by `disable_path`)
+- [Phase 5] `grep coresight_enable_path(` → sysfs.c:218, etm-perf.c:531
+- [Phase 5] Read `coresight_enable_sysfs()` error path at lines 218–266
+- [Phase 5] Read `etm_event_start()` failure path at lines 531–563
+- [Phase 6] Confirmed `list_for_each_entry_continue` at line 433 (buggy
+  code present)
+- [Phase 6] Confirmed helper infrastructure (`coresight_is_helper`,
+  CATU/CTI/CTCU) in tree
+- [Phase 6] Verified patch 16 builds on patch 15 but is not required for
+  standalone apply
+- [Phase 8] Assessed severity as MEDIUM-HIGH for CoreSight users, not
+  system-wide CRITICAL
 
-**YES****Verdict: YES** — backport to this tree (Linux 6.18.43).
+**YES**
 
-This is a 3-line device-ID addition (`atmel,atecc608b` OF compatible +
-I2C ID) to the existing `atmel-ecc` driver. It enables ATECC608B
-hardware that otherwise won't bind; it was hardware-tested and accepted
-by Herbert Xu. The patch applies cleanly to the current tree.
+ drivers/hwtracing/coresight/coresight-core.c | 27 ++++++--------------
+ 1 file changed, 8 insertions(+), 19 deletions(-)
 
-Note: it's patch 1/2 of a series — patch 2/2 adds the DT binding in
-`trivial-devices.yaml` and would be needed separately for full Device
-Tree schema compliance.
-
- drivers/crypto/atmel-ecc.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 9da5a03880807..8988fc3d8b9fd 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -372,6 +372,8 @@ static void atmel_ecc_remove(struct i2c_client *client)
- static const struct of_device_id atmel_ecc_dt_ids[] = {
- 	{
- 		.compatible = "atmel,atecc508a",
-+	}, {
-+		.compatible = "atmel,atecc608b",
- 	}, {
- 		/* sentinel */
- 	}
-@@ -381,6 +383,7 @@ MODULE_DEVICE_TABLE(of, atmel_ecc_dt_ids);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 4cf4a3e92c272..d57000626c060 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -378,19 +378,12 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
+ }
  
- static const struct i2c_device_id atmel_ecc_id[] = {
- 	{ "atecc508a" },
-+	{ "atecc608b" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(i2c, atmel_ecc_id);
+ /*
+- * Helper function to call source_ops(csdev)->disable and also disable the
+- * helpers.
+- *
+- * There is an imbalance between coresight_enable_path() and
+- * coresight_disable_path(). Enabling also enables the source's helpers as part
+- * of the path, but disabling always skips the first item in the path (which is
+- * the source), so sources and their helpers don't get disabled as part of that
+- * function and we need the extra step here.
++ * coresight_disable_source() only disables the source, but do nothing for
++ * the associated helpers, which are controlled as part of the path.
+  */
+ void coresight_disable_source(struct coresight_device *csdev, void *data)
+ {
+ 	source_ops(csdev)->disable(csdev, data);
+-	coresight_disable_helpers(csdev, NULL);
+ }
+ EXPORT_SYMBOL_GPL(coresight_disable_source);
+ 
+@@ -417,9 +410,9 @@ int coresight_resume_source(struct coresight_device *csdev)
+ EXPORT_SYMBOL_GPL(coresight_resume_source);
+ 
+ /*
+- * coresight_disable_path_from : Disable components in the given path beyond
+- * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
+- * disabled.
++ * coresight_disable_path_from : Disable components in the given path starting
++ * from @nd in the list. If @nd is NULL, all the components, except the SOURCE
++ * are disabled.
+  */
+ static void coresight_disable_path_from(struct coresight_path *path,
+ 					struct coresight_node *nd)
+@@ -430,7 +423,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 	if (!nd)
+ 		nd = list_first_entry(&path->path_list, struct coresight_node, link);
+ 
+-	list_for_each_entry_continue(nd, &path->path_list, link) {
++	list_for_each_entry_from(nd, &path->path_list, link) {
+ 		csdev = nd->csdev;
+ 		type = csdev->type;
+ 
+@@ -450,12 +443,6 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 			coresight_disable_sink(csdev);
+ 			break;
+ 		case CORESIGHT_DEV_TYPE_SOURCE:
+-			/*
+-			 * We skip the first node in the path assuming that it
+-			 * is the source. So we don't expect a source device in
+-			 * the middle of a path.
+-			 */
+-			WARN_ON(1);
+ 			break;
+ 		case CORESIGHT_DEV_TYPE_LINK:
+ 			parent = list_prev_entry(nd, link)->csdev;
+@@ -561,6 +548,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ err_disable_helpers:
+ 	coresight_disable_helpers(csdev, path);
+ err_disable_path:
++	/* Fetch the previous node, the last successfully enabled one */
++	nd = list_next_entry(nd, link);
+ 	coresight_disable_path_from(path, nd);
+ 	goto out;
+ }
 -- 
 2.53.0
 
