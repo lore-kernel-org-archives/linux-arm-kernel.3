@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58B1C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7788C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=Dgb1ngpCR4vwZb6TG7VDqdD3XYLGgbrQsP5sDw19djY=; b=YUbuEAdHKbJ2m7
-	XpPRn2Ph13mHqH6ksrRdHeFx93T6phpKdjMSIXqH5fRLCdSLyb7x+WPpRpjaEer/mBCwurg3Z2kf7
-	bmY36dLLF2i3Q3kdLPeSpbjV9FYwmBkVDq825TdZD2Pc/RjCMWKrcek44aCoYtRRxLa5SwmjsgqGj
-	M3YHxd8SNekXLvXmguJrL94BPswrNkCg9neRq4g+Qisru1W8hii8DXSpFidG/6Gtbc249KFT4VYbb
-	8eE/LEkWvAlfoH4wemg02BCCVwry9fdgZvhwQ2r+Tn1PG3+edd37Vu5rNUqqIrEcb7yVnkVMX/rUm
-	0MnT16O4Hr93Z77iWAJg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rlHsLIomUZDuyupnnAtNJaCHYl4a5Rg7e9MyiEzSdUU=; b=wFNn2rX7RrYEPGB1hD4I4oJL8w
+	Sp4KFFYp88IkLLTO0PtsOaC2em1ZN7earMItEbfFmvZD+yH3EyNSzGitmBgcHT72Mi73QoQ3xdkiq
+	Ve1ZKqABQTS5fLMAwKkTFcYKdNVjoycQ92+VK+1JlQx+ilY0FMau9j/CauISAz9i4IExvkHNrP/FA
+	+9jDyklcOy4DGlJAFbMeNyy4PbAcj5ka3VbJKc9kuTKijvRa4VP54efo8zK0ubIWFAnH6LeJ0Ibvv
+	OPEuB5ueywe5xBLEiMjamLFDBIxyxpaiYeEbAtQDL5q7VB6+hf0QpaSM7am9bRVvqGFL6wqZD/Tu0
+	+SpgQnUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0w3r-00000008g7d-32x4;
-	Mon, 31 Aug 2026 07:04:07 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1x0w7K-00000008gQR-23C2;
+	Mon, 31 Aug 2026 07:07:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0w3l-00000008g6P-0VUx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:04:06 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260831070352epoutp010c9a7e83cfd31ad8bd923d64dc517c34~Q0eTJ44Xi1312713127epoutp010
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:03:52 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260831070352epoutp010c9a7e83cfd31ad8bd923d64dc517c34~Q0eTJ44Xi1312713127epoutp010
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788159832;
-	bh=Dgb1ngpCR4vwZb6TG7VDqdD3XYLGgbrQsP5sDw19djY=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=HpEkP/DH2n3xOOnopyTG0qva57RbDbJxtyXz9+oOxmY8Iyh9gDXTw3bAC7n8LAUDg
-	 DAqiynEYOZ3p/3o9xt4zC6d/NleFHw0K9c4qxtESdhu5WwJaCu6qIyOZZj6BxRGyPE
-	 rh2L8c8kc0EvfNz9jnqg5UZp/OCp4ph4RV4lnZAo=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260831070351epcas5p46018d94a0c2ca993ee8680a5e0628591~Q0eSQ4KUS1551015510epcas5p4m;
-	Mon, 31 Aug 2026 07:03:51 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4hYKj24Kvvz3hhT4; Mon, 31 Aug
-	2026 07:03:50 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0~Q0eQsfTZ_1106911069epcas5p4l;
-	Mon, 31 Aug 2026 07:03:49 +0000 (GMT)
-Received: from vega.samsungds.net (unknown [107.108.73.84]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260831070346epsmtip1c4aeecb2495ffbcfc6ef1ee7dbfb8368~Q0eNxrS9g0914309143epsmtip1D;
-	Mon, 31 Aug 2026 07:03:46 +0000 (GMT)
-From: Selvarasu Ganesan <selvarasu.g@samsung.com>
-To: vkoul@kernel.org, neil.armstrong@linaro.org, krzk@kernel.org,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com, pritam.sutar@samsung.com,
-	andre.draszik@linaro.org, kernel@lvkasz.us, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
-	muhammed.ali@samsung.com, thiagu.r@samsung.com, Selvarasu Ganesan
-	<selvarasu.g@samsung.com>
-Subject: [PATCH] phy: exynos5-usbdrd: Use dynamic phy_cfg size to prevent
- OOB access
-Date: Mon, 31 Aug 2026 12:33:09 +0530
-Message-Id: <20260831070309.158069-1-selvarasu.g@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-CMS-MailID: 20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0
-References: <CGME20260831070349epcas5p4c62a4e46592dffe95723ddd51a6068e0@epcas5p4.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_000401_843684_E33CD808 
-X-CRM114-Status: GOOD (  21.91  )
+	id 1x0w7J-00000008gPw-1CpM;
+	Mon, 31 Aug 2026 07:07:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=rlHsLIomUZDuyupnnAtNJaCHYl4a5Rg7e9MyiEzSdUU=; b=a67/WBXciwwfTXKyxpcVqnkgrD
+	AlJwjFjl6pELrCGWf+akgeocN9/XKhybGbgvTSS9Zx5nrvlXfgo2SBaz14PrrOZPS2VukRTfhD/q6
+	Jfr/OkRBqX0gkCPkMqhchghylTHtfrNvF52sQ+iAYXZbgLQaIpyZ/xgqDRNwxVXvgKMeQfd8kuRAF
+	A8SN9TtFhnhAFtadO1lcrnkSC0ny7YBwnc8+GDgsWrgg06hTDeGotwS9qoQdZKgI50gJWin2KZt6a
+	+qD2ksvaqTbKHuXTK4U/3I7+FKvGqy6LrTtZznalbKweNDNmLTET1K6dItlPFsOZHxPKP0vvF9ZXo
+	iSIhEE9A==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x0w7E-00000009b4c-0xtJ;
+	Mon, 31 Aug 2026 07:07:36 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 26E203002D8; Mon, 31 Aug 2026 09:07:33 +0200 (CEST)
+Date: Mon, 31 Aug 2026 09:07:33 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	David Stevens <stevensd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260831070733.GS687043@noisy.programming.kicks-ass.net>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
+ <20260828151018.HnR9xV1N@linutronix.de>
+ <20260828150836.2d5b378c@gandalf.local.home>
+ <20260828151313.5c4a5e4b@gandalf.local.home>
+ <20260828151747.20035d50@gandalf.local.home>
+ <20260831065509.qqEtERDB@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831065509.qqEtERDB@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,156 +102,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe loop currently iterates using EXYNOS5_DRDPHYS_NUM (2),
-creating both UTMI and PIPE3 PHY instances regardless of the SoC
-capability. Several SoCs (Exynos2200, Exynos7870, Exynos850, Exynos990,
-and ExynosAutoV920) provide phy_cfg arrays containing only a single
-element.
+On Mon, Aug 31, 2026 at 08:55:09AM +0200, Sebastian Andrzej Siewior wrote:
+> (stack tracer running)
+>         Depth    Size   Location    (60 entries)
+>         -----    ----   --------
+>   0)     8176      48   __css_rstat_updated+0x9/0x150
+>   1)     8128       8   __cgroup_account_cputime+0x2f/0x50
+>   2)     8120      48   update_se+0x10c/0x1b0
+>   3)     8072      48   update_curr+0x31/0x180
+>   4)     8024      56   put_prev_entity+0x153/0x1f0
+>   5)     7968     136   pick_next_task_fair+0x684/0x8e0
+>   6)     7832     120   __schedule+0x1ca/0x1130
+>   7)     7712       8   preempt_schedule_irq+0x38/0x60
+>   8)     7704      72   irqentry_exit+0x148/0x6b0
+>   9)     7632     136   asm_sysvec_apic_timer_interrupt+0x1a/0x20
+>  10)     7496     240   HUF_compress1X_usingCTable_internal_bmi2+0x12d2/0x1c40
 
-On these SoCs, when the loop reaches index 1, the driver reads past the
-end of the rodata array, populating the second PHY instance with garbage
-data. Since the configuration structure contains critical function
-pointers (phy_isol, phy_init, set_refclk), any subsequent access to this
-PHY instance via exynos5_usbdrd_phy_xlate could result in a kernel oops.
+> 
+> Does this stack tracer distinguish between the kernel-stack and
+> IRQ-stack? I would expect asm_sysvec_apic_timer_interrupt() on the
+> IRQ-stack and not adding weight to the kernel stack.
 
-Fix this by adding 'n_phy_cfg' to struct exynos5_usbdrd_phy_drvdata to
-store the actual size of the phy_cfg array for each SoC. Update the
-probe loop and the xlate function to bound their access against this
-value instead of the hardcoded EXYNOS5_DRDPHYS_NUM.
-
-Assisted-by: Claude:claude-sonnet-5
-Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c | 17 +++++++++++++++--
- 1 file changed, 15 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index 8711a3b62c8e..311d1c25eb3e 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -477,6 +477,7 @@ struct exynos5_usbdrd_phy_config {
- 
- struct exynos5_usbdrd_phy_drvdata {
- 	const struct exynos5_usbdrd_phy_config *phy_cfg;
-+	int n_phy_cfg;
- 	const struct exynos5_usbdrd_phy_tuning **phy_tunes;
- 	const struct phy_ops *phy_ops;
- 	const char * const *clk_names;
-@@ -1164,7 +1165,7 @@ static struct phy *exynos5_usbdrd_phy_xlate(struct device *dev,
- {
- 	struct exynos5_usbdrd_phy *phy_drd = dev_get_drvdata(dev);
- 
--	if (WARN_ON(args->args[0] >= EXYNOS5_DRDPHYS_NUM))
-+	if (WARN_ON(args->args[0] >= phy_drd->drv_data->n_phy_cfg))
- 		return ERR_PTR(-ENODEV);
- 
- 	return phy_drd->phys[args->args[0]].phy;
-@@ -1993,6 +1994,7 @@ static const char * const exynos5_regulator_names[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 	.phy_cfg		= phy_cfg_exynos2200,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos2200),
- 	.phy_ops		= &exynos2200_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS2200_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2006,6 +2008,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos2200_usb32drd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5420_USBDRD1_PHY_CONTROL,
-@@ -2019,6 +2022,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2031,6 +2035,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5250_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.pmu_offset_usbdrd1_phy	= EXYNOS5433_USBHOST30_PHY_CONTROL,
-@@ -2044,6 +2049,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos5433_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos5,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos5),
- 	.phy_ops		= &exynos5_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2056,6 +2062,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos7870,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos7870),
- 	.phy_tunes		= exynos7870_tunes,
- 	.phy_ops		= &exynos7870_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
-@@ -2069,6 +2076,7 @@ static const struct exynos5_usbdrd_phy_drvdata exynos7870_usbdrd_phy = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS5_USBDRD_PHY_CONTROL,
- 	.clk_names		= exynos5_clk_names,
-@@ -2097,6 +2105,7 @@ static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynos850,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynos850),
- 	.phy_ops		= &exynos850_usbdrd_phy_ops,
- 	.phy_tunes		= exynos990_tunes,
- 	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
-@@ -2629,6 +2638,7 @@ static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
- 	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usb31drd_phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
- 	.clk_names		= exynos5_clk_names,
-@@ -2659,6 +2669,7 @@ exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
- static const
- struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_combo_hsphy = {
- 	.phy_cfg		= usbdrd_hsphy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(usbdrd_hsphy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_combo_hsphy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2687,6 +2698,7 @@ static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
- 	.phy_cfg		= phy_cfg_exynosautov920,
-+	.n_phy_cfg		= ARRAY_SIZE(phy_cfg_exynosautov920),
- 	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
- 	.clk_names		= exynos5_clk_names,
-@@ -2863,6 +2875,7 @@ static const char * const gs101_regulator_names[] = {
- 
- static const struct exynos5_usbdrd_phy_drvdata gs101_usbd31rd_phy = {
- 	.phy_cfg			= phy_cfg_gs101,
-+	.n_phy_cfg			= ARRAY_SIZE(phy_cfg_gs101),
- 	.phy_tunes			= gs101_tunes,
- 	.phy_ops			= &gs101_usbdrd_phy_ops,
- 	.pmu_offset_usbdrd0_phy		= GS101_PHY_CTRL_USB20,
-@@ -3020,7 +3033,7 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
- 
- 	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
- 
--	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
-+	for (i = 0; i < drv_data->n_phy_cfg; i++) {
- 		struct phy *phy = devm_phy_create(dev, NULL, drv_data->phy_ops);
- 
- 		if (IS_ERR(phy))
--- 
-2.17.1
-
+This is the return from interrupt path, irqentry_exit() is right after
+we switch back from the IRQ stack and are back on the task stack. We
+have to be, in order to schedule the task and all that.
 
