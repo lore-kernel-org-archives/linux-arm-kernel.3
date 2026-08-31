@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83968C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2410AC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xG2t2y2lKLQXDUfdvcxJHobwIOaB1uVKJu1HoXcWyes=; b=WJBgAioYQ7OdIvDtVBiWxiykBY
-	EqGBnvCnJL8RkqWGgE6yBIS6eLcf8SI8QCiFYTb21lsaVgPkmiL8BUA6vi6NXHnTI7QV66V3T4bCA
-	gjD4FSw5sebfZzEPufeMplaYr29nQStpXu/29S4R9RF1t9/kopdy609SXeZd29E60yHfluqtvZ6oB
-	Jj9RgJ16fbwtkF0rN2nI9deRYv24+E0l8tn6TFPD2kjCgooD54cc/Y01MXNt5pBVIymZsb6FctuW9
-	V/MJZnJH79PBEqJdcJIbniWVD8lsNDjcduJTIJQQ9qaL8lt7EdFUXhbH47YrjrLihL96MLlO9WNPy
-	gvrfMB8g==;
+	bh=q85irKaJ5z/54tGl3R65hQIMxlS1xsWlaoAmw4QkZv8=; b=LeYNbPhUhRT1lkzUf7pcRzwobj
+	o09JQ1fxW2sMfF2YoBHLklRnBUvTOOlnO7njx5HwUvoWWDRBX69/oBbCvCZxOzaGOUTyv7AXGBHUA
+	rOlKWLkWQMxEOWpFg6hbznnFRTbkY2K1tE9Yk3KYf0hmJ2nv7YQJSjarOPwsYFvbLcigptyf32DTz
+	KkkYuGjMOffijEXMJdJg4HftWOnEyeWMVfsAGmnGKf5puiqCWiQHpd8QAYOUO5pLqFEvy8Spa8udw
+	UAsptYRmWSI6a5mQM99kVexUiXEAlT3K/srueIH6WZMAvMr0LWLQNJoyGH41y7vqxc+LYO4st6TQj
+	SUIpbCdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Di-00000009Rps-1hRU;
-	Mon, 31 Aug 2026 13:38:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x12EI-00000009S4f-2DKL;
+	Mon, 31 Aug 2026 13:39:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Dh-00000009RpJ-1Kx3;
-	Mon, 31 Aug 2026 13:38:41 +0000
+	id 1x12EG-00000009S45-383r;
+	Mon, 31 Aug 2026 13:39:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C3B360234;
-	Mon, 31 Aug 2026 13:38:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E40FE1F00A3E;
-	Mon, 31 Aug 2026 13:38:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E53D40D61;
+	Mon, 31 Aug 2026 13:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E6121F00ACA;
+	Mon, 31 Aug 2026 13:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183520;
-	bh=xG2t2y2lKLQXDUfdvcxJHobwIOaB1uVKJu1HoXcWyes=;
+	s=k20260515; t=1788183556;
+	bh=q85irKaJ5z/54tGl3R65hQIMxlS1xsWlaoAmw4QkZv8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=A4Tk7qT/W9BYLhBZAo4JFJUDq9oD4147ZGoZ7tU3TacdSSo3qs6kTsgLTQXh6Xx9x
-	 41FTjliOOiS4As+vtRtfoELJgaUmMtvhd4/0hQ+Nf2uVT8NE7u7U6R950fqXzvkz9I
-	 ZaDlFJrfzqH3RA3S2uvw7NlhqrpKc+0IOypxS2/gxTgCDqmmY49+MzJe6t2E+E3FEG
-	 OPbS3/u14fd1eUQQGxMk47f6+rjQ45KuGXzx+LrPFR3ecAZhvIVj9CE7BeSZO5q4CA
-	 xKAyWVn3maNB/3CG3qMozpEX46xnucMr3iHb3gqf+pvR84n8z3PDywRzqZXZ+frN3B
-	 5ONnXEit+3mjw==
+	b=PU5rtCXXHePct+j6n4P55/bdoDs0wNhbQsubt4ne3FXAAMW50tmAjL2LE27bmipZr
+	 VwzvF4W5R7GZ5ryPpH8zcNMUUQsSonar3SYvG0j9VjA7tzQwu3E3cIJaF51ROZuCq0
+	 EpS1nbC+xsElZfKEvWd57AW/Dgoijgq947GFJm5S6CIlpqQebXCJghZVtPz1Y0pbqw
+	 PVS4pA89AcTvSBIXcNPO+SSK9opHrUAscyOskihswQuQl8bqZL4+9uYiq21PGLKsm5
+	 O95a384vTxzr2SOQOxjtQZtObvmLC8ocCcFHrywVXO7WC7zhKOfO+yopVdQvnFUzAb
+	 f6JpC6PBGN4tA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Simon Xue <xxm@rock-chips.com>,
-	=?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Joerg Roedel <joerg.roedel@amd.com>,
+Cc: bui duc phuc <phucduc.bui@gmail.com>,
+	Sashiko AI Review <sashiko-bot@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	joro@8bytes.org,
-	will@kernel.org,
-	iommu@lists.linux.dev,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	heiko@sntech.de,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] iommu/rockchip: disable fetch dte time limit
-Date: Mon, 31 Aug 2026 09:22:53 -0400
-Message-ID: <20260831133314.4125787-145-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] ASoC: rockchip: rockchip_pdm: Handle runtime PM resume failures in set_fmt
+Date: Mon, 31 Aug 2026 09:23:15 -0400
+Message-ID: <20260831133314.4125787-167-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,445 +82,405 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Simon Xue <xxm@rock-chips.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-[ Upstream commit 8d4346ecd4950ae08cc76a6de327c264e846758c ]
+[ Upstream commit ee7b5f7b39332febf917f9ebf212842cc9379815 ]
 
-Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
-hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
-The RGA3 register description of the TRM already states that the bit
-must be set to 1. The vendor kernel sets the bit unconditionally to
-1 to fix VOP (Video Output Processor) screen black issues. This patch
-squashes the 2 vendor kernel commits with the following commit messages:
+rockchip_pdm_set_fmt() calls pm_runtime_get_sync() before accessing
+hardware registers, but ignores its return value.
+If the runtime resume fails, the function continues to perform register
+accesses while the device state is undefined.
+Replace pm_runtime_get_sync() with pm_runtime_resume_and_get() and
+return early on failure to avoid unpowered register accesses.
 
-Master fetch data and cpu update page table may work in parallel, may
-have the following procedure:
-
-	master                  cpu
-	fetch dte               update page tabl
-	        |                       |
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make dte invalid)  <-  zap iotlb entry
-	        |                       |
-	fetch dte again
-	(make iommu block)  <-  zap iotlb entry
-
-New iommu version has the above bug, if fetch dte consecutively four
-times, then it will be blocked. Fortunately, we can set bit 31 of
-register MMU_AUTO_GATING to 1 to make it work as old version which does
-not have this issue.
-
-This issue only appears on RV1126 so far, so make a workaround dedicated
-to "rockchip,rv1126" machine type.
-
-iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
-
-RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
-dte fetch time limit, So we can set BIT(31) of register 0x24 default
-to 1 as a workaround.
-
-Signed-off-by: Simon Xue <xxm@rock-chips.com>
-Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-Acked-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Joerg Roedel <joerg.roedel@amd.com>
+Reported-by: Sashiko AI Review <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Link: https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Phase 1: Commit Message Forensics
 
-### Step 1.1: PARSE THE SUBJECT LINE
-**Record:** `[iommu/rockchip]` `[disable]` — Disable the fetch-DTE time-
-limit hardware behavior in the Rockchip IOMMU AUTO_GATING register
-(BIT(31)).
+### Step 1.1: Parse Subject Line
+**Record:** `[ASoC: rockchip: rockchip_pdm]` `[Handle]` — Handle runtime
+PM resume failures in the `set_fmt` DAI callback.
 
-### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
+### Step 1.2: Parse All Commit Message Tags
 **Record:**
-- **Fixes:** — not present (expected for manual review)
-- **Reported-by:** — none
-- **Tested-by:** — none
-- **Reviewed-by:** — none
-- **Acked-by:** Heiko Stuebner `<heiko@sntech.de>` (Rockchip maintainer)
-- **Link:** — none in commit (submission thread references vendor
-  commits and RGA3 driver series)
-- **Cc: stable:** — not present (expected)
-- **Signed-off-by:** Simon Xue, Sven Püschel, Joerg Roedel (ignore
-  pipeline-added SOBs)
-- **Notable:** Ack from subsystem maintainer; no syzbot/fuzzer
-  involvement
+| Tag | Value |
+|-----|-------|
+| Reported-by | Sashiko AI Review \<sashiko-bot@kernel.org\> |
+| Closes |
+https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
+|
+| Link |
+https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com |
+| Signed-off-by | bui duc phuc \<phucduc.bui@gmail.com\> |
+| Signed-off-by | Mark Brown \<broonie@kernel.org\> (committer/ASoC
+maintainer) |
 
-### Step 1.3: ANALYZE THE COMMIT BODY TEXT
+Notable patterns: Static-analysis report (Sashiko AI), not syzbot or a
+user crash report. No `Fixes:` tag (expected). No `Cc:
+stable@vger.kernel.org`. Mark Brown merged it.
+
+### Step 1.3: Analyze Commit Body
 **Record:**
-- **Bug description:** Newer Rockchip IOMMU hardware has a DTE-fetch
-  time limit. When a master re-fetches DTE four times while the CPU
-  concurrently zaps IOTLB entries (during page-table updates), the IOMMU
-  enters a blocked state.
-- **Symptom/failure mode:** IOMMU hang/block → RGA3 peripheral hangups,
-  VOP (display) blocked with black screen.
-- **Affected hardware:** RV1126/RV1109, RK3568, RK3588 (commit message
-  also mentions RK356X broadly).
-- **Root cause:** BIT(31) of `RK_MMU_AUTO_GATING` (offset 0x24) defaults
-  to 0 on affected silicon; TRM says it must be 1. Vendor kernel sets it
-  unconditionally.
-- **Version info:** Not tied to a specific kernel version; this is a
-  silicon/hardware behavior issue.
+- **Bug:** `rockchip_pdm_set_fmt()` calls `pm_runtime_get_sync()` but
+  ignores its return value. If runtime resume fails, register writes
+  proceed while the device is not powered/resumed.
+- **Symptom:** Undefined device state; unpowered register accesses
+  (historically documented as system hang in this driver).
+- **Root cause:** Incomplete error handling when runtime PM resume fails
+  (clock enable failure in `rockchip_pdm_runtime_resume()`).
+- **Fix:** Replace `pm_runtime_get_sync()` with
+  `pm_runtime_resume_and_get()` and return the error early.
 
-### Step 1.4: DETECT HIDDEN BUG FIXES
-**Record:** Not disguised — this is an explicit hardware workaround.
-Despite "disable" wording in the subject, the fix **sets** BIT(31) to
-disable the faulty time-limit feature. This is a classic hardware
-quirk/workaround, not a cosmetic cleanup.
+### Step 1.4: Detect Hidden Bug Fixes
+**Record:** Not disguised as cleanup — explicitly a bug fix. It
+completes error handling that was left incomplete when runtime PM was
+added to `set_fmt` in 2019 (commit `c85064435fe7a2`).
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 2: Diff Analysis
 
-### Step 2.1: INVENTORY THE CHANGES
+### Step 2.1: Inventory Changes
 **Record:**
-- **Files:** `drivers/iommu/rockchip-iommu.c` (+8 lines, 0 removed)
-- **Functions modified:** `rk_iommu_enable()` only
-- **Scope:** Single-file, surgical fix
+- **File:** `sound/soc/rockchip/rockchip_pdm.c` (+5 / −1)
+- **Function:** `rockchip_pdm_set_fmt()`
+- **Scope:** Single-file, surgical fix (5 lines)
 
-### Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
+### Step 2.2: Code Flow Change
 **Record:**
-- **Hunk 1 (define):** Adds `#define DISABLE_FETCH_DTE_TIME_LIMIT
-  BIT(31)`.
-- **Hunk 2 (`rk_iommu_enable`):**
-  - **Before:** After writing DTE address, ZAP cache, and IRQ mask,
-    proceeds directly to enable paging.
-  - **After:** Reads `RK_MMU_AUTO_GATING`, ORs in BIT(31), writes it
-    back — for each MMU instance.
-  - **Affected path:** IOMMU enable during device attach and
-    system/runtime resume.
+- **Before:** `pm_runtime_get_sync()` → always `regmap_update_bits()` →
+  `pm_runtime_put()` → return 0, regardless of resume outcome.
+- **After:** `pm_runtime_resume_and_get()` → on failure, return error
+  immediately (no register access, no `pm_runtime_put()`) → on success,
+  same register access path as before.
+- **Path affected:** DAI format configuration during ASoC card setup
+  (`set_fmt` callback).
 
-### Step 2.3: IDENTIFY THE BUG MECHANISM
+### Step 2.3: Bug Mechanism
 **Record:**
-- **Bug category:** Hardware workaround / logic correctness fix
-- **Mechanism:** Without BIT(31)=1, concurrent DTE fetch + IOTLB zap can
-  trigger a silicon bug after four consecutive DTE fetches, permanently
-  blocking the IOMMU. Setting BIT(31) restores legacy (non-buggy)
-  behavior.
+- **Category:** Error-path / logic correctness fix (ignored return value
+  → unsafe hardware access).
+- **Mechanism:** `rockchip_pdm_runtime_resume()` can fail on
+  `clk_prepare_enable()` for `pdm->clk` or `pdm->hclk`. With the old
+  code, `pm_runtime_get_sync()` returns negative but execution continues
+  to `regmap_update_bits()` on an unpowered controller. The 2019 commit
+  that introduced `pm_runtime_get_sync()` here explicitly stated that
+  regmap ops with power domain off "will lead system hang."
 
-### Step 2.4: ASSESS THE FIX QUALITY
+### Step 2.4: Fix Quality
 **Record:**
-- **Quality:** Obviously correct — read-modify-write preserves other
-  AUTO_GATING bits; matches vendor kernel and TRM guidance.
-- **Regression risk:** Very low. Vendor sets unconditionally on all
-  affected platforms; bit is documented as should-be-1.
-- **Red flags:** Commit message still mentions RV1126-only workaround,
-  but code applies unconditionally (intentional per vendor practice and
-  RK3568/RK3588 need).
+- **Quality:** Obviously correct. Matches the pattern already used in
+  `rockchip_pdm_resume()` in the same file (since commit
+  `76a6f4537650e`, 2022).
+- **Regression risk:** Very low. On failure, propagates error to caller
+  instead of proceeding unsafely.
+- **Red flags:** None. No API changes, no refactoring.
 
 ---
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+## Phase 3: Git History Investigation
 
-### Step 3.1: BLAME THE CHANGED LINES
-**Record:** `rk_iommu_enable()` core logic dates to 2014 (Daniel Kurtz).
-`RK_MMU_AUTO_GATING` defined since original driver (2014,
-`c68a292152d32`). The **missing workaround** has been present since the
-driver's introduction — not a recent regression.
-
-### Step 3.2: FOLLOW THE FIXES: TAG
-**Record:** No `Fixes:` tag. Not applicable — this is a hardware silicon
-bug, not a commit-introduced regression.
-
-### Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+### Step 3.1: Blame Changed Lines
 **Record:**
-- Recent related fix already in tree: `62e062a29ad51` — "prevent iommus
-  dead loop when two masters share one IOMMU" (different bug, has `Cc:
-  stable`).
-- `rk3568-iommu` v2 support added in `c55356c534aa6` (2021), present in
-  this tree.
-- This fix is **standalone** — not part of a multi-patch series
-  requiring prerequisites.
-- On `master`, this commit (`8d4346ecd4950`) is ahead of
-  `stable/linux-6.18.y`.
+- `rockchip_pdm_set_fmt()` body: original commit `fc05a5b2225306`
+  (2017).
+- `pm_runtime_get_sync()`/`pm_runtime_put()`: commit `c85064435fe7a2`
+  (2019-04-03) — "fix regmap_ops hang issue."
+- Buggy ignored-return-value pattern present since 2019.
 
-### Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
-**Record:** Simon Xue is an active Rockchip IOMMU contributor (multi-irq
-support, dead-loop fix, ISP reset handling). Sven Püschel (Pengutronix)
-submitted and tested on RK3588 RGA3.
+### Step 3.2: Follow Fixes: Tag
+**Record:** No `Fixes:` tag. N/A.
 
-### Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
-**Record:** No dependencies. Patch applies cleanly (`git apply --check`
-succeeded). No new structures, APIs, or helper functions required.
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-### Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+### Step 3.3: File History for Related Changes
 **Record:**
-- **Lore URL:** https://patch.msgid.link/20251126-spu-
-  iommudtefix-v1-1-f90003dbfcc4@pengutronix.de
-- **Series revisions:** v1 submitted 2025-11-26; author pinged
-  2026-04-28; Heiko Stuebner suggested resend/v2 due to age; committed
-  as-is on mainline 2026-06-02.
-- **Reviewer feedback:** Shawn Lin (Rockchip) noted TRM offset
-  clarification (RGA3-specific offset vs general IOMMU 0x24) — comment-
-  only, no code objection.
-- **Stable nominations:** None found in thread.
-- **NAKs:** None.
-
-### Step 4.2: CHECK WHO REVIEWED THE PATCH
-**Record:** CC'd: Joerg Roedel, Will Deacon, Robin Murphy, Heiko
-Stuebner, iommu@, linux-arm-kernel@, linux-rockchip@. Heiko Stuebner
-Acked-by in final commit.
-
-### Step 4.3: SEARCH FOR THE BUG REPORT
-**Record:** Real-world trigger documented by Pengutronix — sporadic RGA3
-hangs on RK3588 during driver development. Vendor kernel commits [2][3]
-document VOP black-screen issues. No syzbot/bugzilla report.
-
-### Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
-**Record:** Related but independent: RGA3 upstream driver series (v5,
-2026-04-28) depends on this IOMMU fix. The IOMMU fix stands alone and is
-not a "preparation" commit.
-
-### Step 4.5: CHECK STABLE MAILING LIST HISTORY
-**Record:** No stable-list discussion found for this specific fix. (Lore
-direct fetch blocked by bot protection; analysis via `b4 dig -m` mbox
-download.)
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-### Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
-**Record:** `rk_iommu_enable()` — only function modified.
-
-### Step 5.2: TRACE CALLERS
-**Record:**
-- `rk_iommu_attach_device()` → `rk_iommu_enable()` (line 1043) — called
-  when a device attaches to an IOMMU domain (e.g., VOP, RGA, NPU).
-- `rk_iommu_resume()` → `rk_iommu_enable()` (line 1330) — called on PM
+- `76a6f4537650e` (2022): Same `pm_runtime_resume_and_get()` + error
+  check applied to `rockchip_pdm_resume()`.
+- `ef0a098efb366`: Missing `clk_disable_unprepare()` fix in runtime
   resume.
-- Both are common, user-visible paths on Rockchip boards.
+- Part of series "[PATCH v2 0/5] ASoC: rockchip: Reorder clock enable
+  sequence" (patch 5/5), but this hunk is **standalone** — it does not
+  depend on the clock-reorder patches (patches 3–4).
 
-### Step 5.3: TRACE CALLEES
-**Record:** Uses existing `rk_iommu_read()` / `rk_iommu_write()`
-register accessors, plus existing stall/reset/paging enable sequence. No
-new dependencies.
+### Step 3.4: Author's Other Commits
+**Record:** Author phucduc.bui@gmail.com; no prior rockchip ASoC commits
+in this tree. Mark Brown (committer) is ASoC maintainer.
 
-### Step 5.4: FOLLOW THE CALL CHAIN
-**Record:** Device probe → `iommu_attach_device` →
-`rk_iommu_attach_device` → `rk_iommu_enable`. Triggered during normal
-graphics/media driver initialization and suspend/resume. **Reachable
-from userspace** indirectly via device usage (display, GPU, RGA
-workloads causing IOTLB zaps).
-
-### Step 5.5: SEARCH FOR SIMILAR PATTERNS
-**Record:** No similar workaround elsewhere in `rockchip-iommu.c`.
-Vendor kernel sets this bit unconditionally — external confirmation of
-the pattern.
+### Step 3.5: Prerequisites
+**Record:** No prerequisites. `pm_runtime_resume_and_get()` already
+exists and is used in this file at line 685. Patch applies cleanly (`git
+apply --check` passed).
 
 ---
 
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+## Phase 4: Mailing List and External Research
 
-### Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
-**Record:** **YES.** Local tree is **Linux 6.18.44** (`git describe
-HEAD` → `v6.18.44-1-gef4bf62bccf3c`). `rk_iommu_enable()` at lines
-928–960 lacks the BIT(31) workaround. `RK_MMU_AUTO_GATING` is defined at
-line 42. `DISABLE_FETCH_DTE_TIME_LIMIT` is **not** present. Affected DT
-platforms exist: `rv1126.dtsi` (v1 `rockchip,iommu`), `rk356x-base.dtsi`
-and `rk3588-base.dtsi` (v2 `rockchip,rk3568-iommu`).
-
-### Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
-**Record:** **Clean apply** — `git format-patch` + `git apply --check`
-succeeded with no conflicts. No refactoring churn in `rk_iommu_enable()`
-since 6.18 branch.
-
-### Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
-**Record:** The dead-loop fix (`62e062a29ad51`) is present. This DTE
-time-limit workaround (`8d4346ecd4950`) is **not** present on
-`stable/linux-6.18.y`.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-### Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
-**Record:** `drivers/iommu/rockchip-iommu.c` — IOMMU driver for Rockchip
-SoCs. **IMPORTANT** for ARM/ARM64 embedded (display, media, NPU, ISP).
-`CONFIG_ROCKCHIP_IOMMU=y` in `arch/arm64/configs/defconfig`.
-
-### Step 7.2: ASSESS SUBSYSTEM ACTIVITY
-**Record:** Actively maintained — recent fixes in 6.17/6.18 merge window
-(dead-loop fix, iommu-pages migration). Rockchip platforms (RK3568,
-RK3588) are widely deployed.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-### Step 8.1: DETERMINE WHO IS AFFECTED
-**Record:** Users of Rockchip SoCs with IOMMU-enabled peripherals —
-**platform-specific** but covering popular boards (RK3568, RK3588,
-RV1126). Display (VOP), graphics acceleration (RGA3), and other IOMMU-
-backed masters.
-
-### Step 8.2: DETERMINE THE TRIGGER CONDITIONS
-**Record:** Concurrent IOMMU master DTE fetch + CPU IOTLB zap during
-page-table updates. Realistic during graphics/media workloads and driver
-activity. Not every boot, but reproducible under load (Pengutronix
-observed sporadic RGA3 hangs).
-
-### Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
-**Record:** IOMMU permanent block → **CRITICAL** system hang for
-affected peripherals; VOP black screen (display unusable); potential
-soft lockup of dependent subsystems.
-
-### Step 8.4: CALCULATE RISK-BENEFIT RATIO
+### Step 4.1: Original Patch Discussion
 **Record:**
-- **Benefit:** HIGH — prevents hardware IOMMU lockup and
-  display/peripheral hangs on widely used SoCs.
-- **Risk:** VERY LOW — 8-line register write matching vendor kernel and
-  TRM; read-modify-write preserves other bits.
-- **Ratio:** Strongly favors backport.
+- **b4 dig URL:**
+  https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com
+- **Series:** v2, patch 5/5 of "ASoC: rockchip: Reorder clock enable
+  sequence"
+- **Sashiko review:** Flagged the ignored `pm_runtime_get_sync()` return
+  value; also noted a separate pre-existing clock underflow issue in
+  `rockchip_pdm_remove()` (unrelated to this patch).
+- **Stable nominations:** None found in thread.
+- **NAKs:** None found.
+
+### Step 4.2: Reviewers
+**Record:** CC'd Mark Brown, Heiko Stuebner, Liam Girdwood, Takashi
+Iwai, linux-sound@, linux-rockchip@. Rob Herring Acked-by on an earlier
+patch in the series (DT bindings), not specifically this one. Mark Brown
+merged.
+
+### Step 4.3: Bug Report
+**Record:** Sashiko AI static analysis (not a runtime crash report).
+Original Closes link points to the Sashiko review bot email. Patch
+submission notes: **"compile-tested only."**
+
+### Step 4.4: Related Patches / Series
+**Record:** Patches 1–4 cover clock reorder and regcache sync in runtime
+resume for PDM/SPDIF. This patch (5/5) is independent — only touches
+`set_fmt` error handling.
+
+### Step 4.5: Stable Mailing List
+**Record:** Not searched separately; no stable nomination found in the
+patch thread.
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 5: Code Semantic Analysis
 
-### Step 9.1: COMPILE THE EVIDENCE
+### Step 5.1: Key Functions
+**Record:** `rockchip_pdm_set_fmt()` (modified); callers via
+`rockchip_pdm_dai_ops.set_fmt`.
 
-**FOR backporting:**
-- Real hardware bug with documented failure mode (IOMMU block, display
-  black, RGA3 hang)
-- Hardware quirk/workaround — explicitly allowed stable category
-- Small (8 lines), surgical, applies cleanly to 6.18.44
-- Vendor kernel already does this unconditionally
-- TRM documents BIT(31) should be 1
-- Acked-by Rockchip maintainer (Heiko Stuebner)
-- Affected SoC DT support present in this tree
-- Buggy code path exists and has existed since driver introduction
-- No prerequisite commits
+### Step 5.2: Trace Callers
+**Record:**
+- `rockchip_pdm_dai_ops.set_fmt` → registered in `rockchip_pdm_dai`
+- Called via `snd_soc_dai_set_fmt()` in `sound/soc/soc-dai.c`
+- Invoked from `soc-core.c` during machine/DAI link format setup
+- **Context:** Normal audio card initialization/configuration path on
+  Rockchip boards using PDM microphones.
 
-**AGAINST backporting:**
-- No `Cc: stable` or `Fixes:` tag (expected, not disqualifying)
-- Applies to all Rockchip IOMMU instances, not SoC-gated (but vendor
-  does same; low risk)
-- Stale RV1126-only wording in commit message (code is correctly
-  unconditional)
+### Step 5.3: Trace Callees
+**Record:** `pm_runtime_resume_and_get()` → may call
+`rockchip_pdm_runtime_resume()` → `clk_prepare_enable()`. On success:
+`regmap_update_bits()`, `pm_runtime_put()`.
 
-**Unresolved:** None that affect the decision.
+### Step 5.4: Call Chain / Reachability
+**Record:** Reachable during audio subsystem setup when a machine driver
+configures the PDM DAI format. Requires `CONFIG_SND_SOC_ROCKCHIP_PDM`
+(or built-in rockchip audio). Trigger requires runtime resume failure
+(e.g., clock failure), which is an error path but realistic.
 
-### Step 9.2: STABLE RULES CHECKLIST
-1. Obviously correct and tested? **PASS** — TRM + vendor kernel +
-   Pengutronix RK3588 testing
-2. Fixes a real bug affecting users? **PASS** — IOMMU hang, black screen
-   on production hardware
-3. Important issue? **PASS** — CRITICAL (hang, display failure)
-4. Small and contained? **PASS** — 8 lines, one function
-5. No new features or APIs? **PASS** — register workaround only
-6. Can apply to local tree? **PASS** — clean apply verified
+### Step 5.5: Similar Patterns
+**Record:** Same file already uses `pm_runtime_resume_and_get()` with
+error check in `rockchip_pdm_resume()` (lines 685–687). Kernel docs in
+`include/linux/pm_runtime.h` explicitly recommend
+`pm_runtime_resume_and_get()` over `pm_runtime_get_sync()` when the
+return value is checked.
 
-### Step 9.3: EXCEPTION CATEGORIES
-**Record:** **Hardware quirk/workaround** — qualifies under stable
-exception rules.
+---
 
-### Step 9.4: DECISION RATIONALE
+## Phase 6: Cross-Reference Against Local Tree
 
-For **Linux 6.18.44**, Rockchip IOMMU users on RK3568, RK3588, and
-RV1126 platforms are exposed to a silicon bug where the IOMMU can enter
-a blocked state during normal page-table maintenance, causing peripheral
-hangs and display black screens. The fix is a minimal, vendor-validated
-register write that matches TRM documentation. It applies cleanly, has
-maintainer ack, and fixes a serious user-visible failure on hardware
-well-supported in this tree.
+### Step 6.1: Does Buggy Code Exist?
+**Record:** **Yes.** Local tree is **v6.18.44** (`git describe HEAD`:
+`v6.18.44-1-g2736c32da98b9`). At lines 337–339, `rockchip_pdm_set_fmt()`
+still has unchecked `pm_runtime_get_sync()`. Fix commit `ee7b5f7b39332`
+is on master but **not** in this tree.
+
+### Step 6.2: Backport Complications
+**Record:** Clean apply confirmed. No conflicting changes in the hunk
+area. Low difficulty.
+
+### Step 6.3: Related Fixes Already Present?
+**Record:** `76a6f4537650e` (pm_runtime_resume_and_get in
+`rockchip_pdm_resume`) is present. The `set_fmt` path was missed and
+remains unfixed.
+
+---
+
+## Phase 7: Subsystem and Maintainer Context
+
+### Step 7.1: Subsystem Criticality
+**Record:** **ASoC / Rockchip PDM driver** — IMPORTANT for embedded
+Rockchip platforms (rk3229, px30, rk3308, rk3568, rv1126), PERIPHERAL
+globally.
+
+### Step 7.2: Subsystem Activity
+**Record:** Active — recent commits in `sound/soc/rockchip/` include
+SAI, i2s-tdm, and runtime PM cleanups.
+
+---
+
+## Phase 8: Impact and Risk Assessment
+
+### Step 8.1: Who Is Affected
+**Record:** Users of Rockchip SoCs with PDM (digital microphone
+capture). Config/driver-specific, not universal.
+
+### Step 8.2: Trigger Conditions
+**Record:** `set_fmt` called while device is runtime-suspended AND
+`rockchip_pdm_runtime_resume()` fails (clock enable failure).
+Unprivileged users cannot directly trigger `set_fmt`, but audio
+subsystem setup during boot or `modprobe`/card registration can. Failure
+path is uncommon but valid.
+
+### Step 8.3: Failure Mode Severity
+**Record:** **System hang** — explicitly documented in the 2019 commit
+that introduced runtime PM here: "regmap_ops will lead system hang" when
+power domain is off. **Severity: CRITICAL** for affected hardware when
+triggered; **LOW** probability.
+
+### Step 8.4: Risk-Benefit Ratio
+**Record:**
+- **Benefit:** Prevents potential system hang on Rockchip PDM hardware
+  during audio setup error paths; completes incomplete error handling
+  from 2019.
+- **Risk:** Very low — 5-line change, established API, same pattern
+  already in the file.
+- **Ratio:** Favorable for backport.
+
+---
+
+## Phase 9: Final Synthesis
+
+### Step 9.1: Evidence Summary
+
+**FOR backport:**
+- Real bug: ignored runtime PM resume failure return value
+- Documented hang risk from register access without power (2019 commit
+  message)
+- Small (5 lines), surgical, applies cleanly
+- Follows pattern already in same file since 2022
+- Merged by ASoC maintainer Mark Brown
+- `pm_runtime_resume_and_get()` API present in this tree
+
+**AGAINST backport:**
+- Compile-tested only (no hardware Tested-by)
+- Found by AI static analysis, not a user crash report
+- Driver-specific (Rockchip PDM only)
+- Trigger requires runtime resume failure (uncommon)
+- Part of a 5-patch series (though this patch is standalone)
+
+**Unresolved:** No hardware testing confirmation; no explicit stable
+nomination from reviewers.
+
+### Step 9.2: Stable Rules Checklist
+| Criterion | Result |
+|-----------|--------|
+| 1. Obviously correct and tested? | **PASS** — logically correct;
+compile-tested only |
+| 2. Fixes a real bug? | **PASS** — ignored error return on runtime PM
+resume |
+| 3. Important issue? | **PASS** — potential system hang on affected
+hardware |
+| 4. Small and contained? | **PASS** — 5 lines, 1 file |
+| 5. No new features/APIs? | **PASS** — error handling only |
+| 6. Can apply to local tree? | **PASS** — clean apply, buggy code
+present |
+
+### Step 9.3: Exception Categories
+**Record:** None (not device ID, quirk, DT, build, or docs). Standard
+driver bug fix.
+
+### Step 9.4: Problem and Decision Rationale
+
+This commit closes a gap in runtime PM error handling in
+`rockchip_pdm_set_fmt()`. When runtime resume fails (e.g., clock enable
+error in `rockchip_pdm_runtime_resume()`), the driver previously
+proceeded to write hardware registers anyway. The original 2019 fix that
+added `pm_runtime_get_sync()` explicitly documented that regmap access
+without power causes a **system hang** — this patch ensures that failure
+path is handled correctly by returning early, matching the pattern
+already applied to `rockchip_pdm_resume()` in the same file.
+
+For the **v6.18.y** tree checked out here, the buggy code is present,
+the fix applies cleanly, and the change is minimal with negligible
+regression risk. While the trigger is an error path and the patch is
+compile-tested only, preventing a documented system hang on real
+Rockchip hardware meets stable kernel criteria.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed commit `8d4346ecd4950`: subject, body, tags (Acked-by
-  Heiko Stuebner; no Fixes/stable/syzbot)
-- [Phase 2] Diff analysis: +8 lines in `rk_iommu_enable()`, adds BIT(31)
-  write to `RK_MMU_AUTO_GATING`
-- [Phase 3] `git blame`: `rk_iommu_enable()` from 2014;
-  `RK_MMU_AUTO_GATING` from original 2014 driver
-- [Phase 3] No Fixes: tag to follow
-- [Phase 3] Related commit `62e062a29ad51` (different bug) already in
-  tree; this fix is not
-- [Phase 3] `git format-patch` + `git apply --check`: applies cleanly
-- [Phase 3] Commit on `master` but not on current `stable/linux-6.18.y`
-  HEAD
-- [Phase 4] `b4 dig -c 8d4346ecd4950`: lore thread found
-- [Phase 4] `b4 dig -a`: v1 submission 2025-11-26; committed 2026-06-02
-- [Phase 4] `b4 dig -w`: Joerg Roedel, Heiko Stuebner, Robin Murphy CC'd
-- [Phase 4] Mbox: Pengutronix confirmed RK3588 RGA3 hangs; Shawn Lin
-  comment-only TRM note; Heiko suggested resend; no NAKs, no stable
-  nomination
-- [Phase 5] Callers: `rk_iommu_attach_device()` (line 1043),
-  `rk_iommu_resume()` (line 1330)
-- [Phase 5] IOTLB zap path: `rk_iommu_zap_iova()` used from map/unmap —
-  confirms concurrent zap mechanism
-- [Phase 6] `git describe HEAD`: v6.18.44; `make kernelversion`: 6.18.44
-- [Phase 6] Buggy code confirmed present: no
-  `DISABLE_FETCH_DTE_TIME_LIMIT` in tree
-- [Phase 6] DT: `rv1126.dtsi`, `rk356x-base.dtsi`, `rk3588-base.dtsi`
-  have IOMMU nodes
-- [Phase 6] `rk3568-iommu` support since 2021 (`c55356c534aa6`), in tree
-- [Phase 7] `CONFIG_ROCKCHIP_IOMMU=y` in arm64 defconfig
-- [Phase 8] Failure mode: IOMMU block → hang/black screen, severity
-  CRITICAL
+- **[Phase 1]** Parsed commit `ee7b5f7b39332`: tags, body, Sashiko
+  Reported-by
+- **[Phase 2]** Diff: +5/−1 in `rockchip_pdm_set_fmt()`; error-path fix
+  confirmed
+- **[Phase 3]** `git blame -L 319,342`: pm_runtime lines from
+  `c85064435fe7a2` (2019)
+- **[Phase 3]** `git show c85064435fe7a2`: original commit documents
+  system hang without power
+- **[Phase 3]** `git show 76a6f4537650e`: same pattern already in
+  `rockchip_pdm_resume()`
+- **[Phase 3]** `git apply --check`: patch applies cleanly to local tree
+- **[Phase 4]** `b4 dig -c ee7b5f7b39332`: lore URL found; patch 5/5 of
+  v2 series
+- **[Phase 4]** `b4 dig -a`: series context; standalone nature of this
+  hunk verified
+- **[Phase 4]** `b4 dig -w`: maintainers CC'd; Mark Brown merged
+- **[Phase 4]** Mbox: Sashiko review + "compile-tested only" note; no
+  stable nomination
+- **[Phase 5]** `grep set_fmt sound/soc/soc-dai.c soc-core.c`: call
+  chain via ASoC core confirmed
+- **[Phase 5]** Read `rockchip_pdm_runtime_resume()`: clock enable
+  failure returns negative
+- **[Phase 5]** Read `include/linux/pm_runtime.h`: kernel recommends
+  `pm_runtime_resume_and_get()`
+- **[Phase 6]** `git describe HEAD`: v6.18.44; buggy code at line 337
+  confirmed present
+- **[Phase 6]** Fix not in tree; `pm_runtime_resume_and_get` already
+  used at line 685
+- **[Phase 8]** Failure mode: system hang per 2019 commit message;
+  severity CRITICAL when triggered
 
-**YES**The background search on `master` found the commit:
-**`8d4346ecd4950`** — `iommu/rockchip: disable fetch dte time limit`.
+**YES****Verdict: YES** — backport to this tree (v6.18.44).
 
-**Summary:** This is an 8-line hardware workaround for Rockchip IOMMU
-silicon (RK3568, RK3588, RV1126). Without setting BIT(31) of
-`RK_MMU_AUTO_GATING`, the IOMMU can block during concurrent DTE fetch
-and IOTLB zaps, causing peripheral hangs and VOP black screens. The
-patch applies cleanly to the local **6.18.44** tree, where the buggy
-code is still present.
+`rockchip_pdm_set_fmt()` still ignores a failed runtime PM resume and
+can touch registers while the PDM block is off; the 2019 hang fix left
+that gap. The patch is small (5 lines), applies cleanly, and matches the
+pattern already used in `rockchip_pdm_resume()` in the same file. Main
+caveat: compile-tested only, found by static analysis rather than a user
+crash report.
 
-**YES**
+ sound/soc/rockchip/rockchip_pdm.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
- drivers/iommu/rockchip-iommu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0861dd469bd86..2d0dabb0d101a 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -76,6 +76,8 @@
- #define SPAGE_ORDER 12
- #define SPAGE_SIZE (1 << SPAGE_ORDER)
+diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
+index c69cdd6f24994..01292b63bf9d6 100644
+--- a/sound/soc/rockchip/rockchip_pdm.c
++++ b/sound/soc/rockchip/rockchip_pdm.c
+@@ -321,6 +321,7 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
+ {
+ 	struct rk_pdm_dev *pdm = to_info(cpu_dai);
+ 	unsigned int mask = 0, val = 0;
++	int ret;
  
-+#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
-+
-  /*
-   * Support mapping any size that fits in one page table:
-   *   4 KiB to 4 MiB
-@@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
- 	struct iommu_domain *domain = iommu->domain;
- 	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
- 	int ret, i;
-+	u32 auto_gate;
- 
- 	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
- 	if (ret)
-@@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
- 			       rk_ops->mk_dtentries(rk_domain->dt_dma));
- 		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
- 		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
-+
-+		/* Workaround for iommu blocked, BIT(31) default to 1 */
-+		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
-+		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
-+		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
+ 	mask = PDM_CKP_MSK;
+ 	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+@@ -334,7 +335,10 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
+ 		return -EINVAL;
  	}
  
- 	ret = rk_iommu_enable_paging(iommu);
+-	pm_runtime_get_sync(cpu_dai->dev);
++	ret = pm_runtime_resume_and_get(cpu_dai->dev);
++	if (ret)
++		return ret;
++
+ 	regmap_update_bits(pdm->regmap, PDM_CLK_CTRL, mask, val);
+ 	pm_runtime_put(cpu_dai->dev);
+ 
 -- 
 2.53.0
 
