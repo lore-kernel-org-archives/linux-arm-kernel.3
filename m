@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B56C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA31C624A4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8zLEPE5GrOtWg6UFZKE8MKoTklGyzSk0lREwSLdq38=; b=j38ijMoxsH7pFIaHsHkXa5XBQR
-	2Alyn433HgLj+ShWh6Voj5h/WQJ1cgXmFozX8dIaziswdFlvs3ugIXijAb2/ntcMme+VXO/+dpiVO
-	DNxxlI95bFVeUPmnc18FBTkht+D0H9fXauGti9oB81pYi4+KkxoArAwkOb8ofG+laCRCtum1t+YbD
-	QOWMwpp/Zt+GnM8T7R8iY77BXdl8MObCMmNBeF0BY0/zaQsIy1KbkwgalEK5Cys1Et2Ma6yeVPF24
-	hDosR00jCYoTMFmdnIG2IHBqs7996eMPfvUlTQBM6IctSVxXdRWplHspYsHDLygQGbjbY1hN6eE1P
-	nnWw4QCQ==;
+	bh=Y36AHrAP85QtDpw9m/Yu4Q1g0HqAqicneVH+G4tllDk=; b=kD1cq5llm/IJff7pfNBdyrGpB3
+	uRR4wOQZnaKD020AcUm+y0RDf3WKKSUL9x9PLTyE/s+WyempRk1ChY0XJ1f1Va6xS5dWMrIEVJ1JW
+	2qxDNb6uws3D4XR8sDMcTzo4IB0ckeKClq9+GPjeBqYzCJavceM9OHOseODsLrc6pQMgXyx3m/PsR
+	2+kLMnFrcsmtvt/sGv73wcE5Jv2OXXc6CQ0NHD1mzbce1UtlU28Q9PUaXK5yovqP+2WnS0PwMAmSk
+	S+bVftUTlVRDZ/7EqoCjQsUrJqjMvN4dYz5wELQt188L7vF9lhQvKC/5hA31+w0aSQH22c7niZL/r
+	E2EO5s/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14zE-0000000A4e1-2Duk;
+	id 1x14zE-0000000A4eP-3Zwy;
 	Mon, 31 Aug 2026 16:35:56 +0000
-Received: from out-114.mta0.migadu.com ([2001:41d0:1004:224b::72] helo=mta0.migadu.com)
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14yd-0000000A49V-0zQJ
-	for linux-arm-kernel@lists.infradead.org;
+	id 1x14yg-0000000A4EY-2mjH
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 31 Aug 2026 16:35:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Y36AHrAP85QtDpw9m/Yu4Q1g0HqAqicneVH+G4tllDk=; b=ioNLNd9HHcPhkDpihCUbmS6xag
+	XuXiXvMFv5jpSbZWV4qCvUgPxVhw5bJkdLYURjbmgj6wqhOic0VVwWhwK4Sw2UvdI5qfc0c0wKbpL
+	N8TarS1g1evL8jQzqlnitfotyQDFmnuS8Zkc5IMccoFJ/8zXgEAMowJvMb+XwEUpBTZVXqrpC311o
+	iaeARZxRofs9LoBMN4ZNt9dFPYwQ3X+wfuxWCkbPt13pMbm2Mb2nI0oA1s1D4wo47276+4lJ7TR0k
+	XC2872Aq6F45tf3J3zROAJjP+FrU+ojsTyaVklBiyKRT+21iR6TTd+QVv+KzHuXMQwYbdoslChWo9
+	YZVtcfPA==;
+Received: from out-250.mta1.migadu.com ([2001:41d0:203:375::fa] helo=mta1.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x14yd-0000000A3hz-3BGn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 16:35:21 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=VS8GZgRjJ2h0GcotosxCkgRTqdb5O2AjYDV7/AEn/aU=;
+DKIM-Signature: a=rsa-sha256; bh=aEC3gGbsmRPY1vFm8z4e4gHuRufq9N0KewFxzyMR6c0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
  t=1788194117; v=1; x=1788798917;
- b=qNGKroayC9UoNo4dWH0ifzT+wVz6P9xaF8Dl51m5W8JmiSMuK1xuoZLbeQidLza+FYTmMoz2
- Hvz4OtCXS0DaTbVmesljfYMVDLlf7Pv11oHwU9KOhPTXsAEj/eImqHpijDw+CbstUJJtiHtWyKv
- Ijkcr8eGFXAp1pucqtNaiUBI=
+ b=H6Fng3Qd2ZEZaaZhTe316KqCKih86dtXejyfBsnrTZVJV/Oj++5xUGKtmP6ZGJ9kbT6VAb29
+ /26eeZqD1Dy13cYaoRPOwmC3Dp3PH633zSQOU+FuWeKoTGL+c/M2hwrYYaoIGZSdCD9TL0I7bcM
+ Nw5LdGY/nfg6ZjmVz8KoyBbU=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 9236023ace9825dd;
-	Mon, 31 Aug 2026 16:35:16 +0000
-X-Mizu-Trace-ID: 9236023ace9825dd
+Received: by smtp.migadu.com with ESMTPS id d64d18f3558bf44a;
+	Mon, 31 Aug 2026 16:35:17 +0000
+X-Mizu-Trace-ID: d64d18f3558bf44a
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,17 +70,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 15/17] KVM: arm64: Reject host access to protected VM private state
-Date: Mon, 31 Aug 2026 17:34:19 +0100
-Message-Id: <20260831163421.272420-16-fuad.tabba@linux.dev>
+Subject: [PATCH 16/17] KVM: arm64: Reject host power-on of a vCPU that EL2 holds powered off
+Date: Mon, 31 Aug 2026 17:34:20 +0100
+Message-Id: <20260831163421.272420-17-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260831163421.272420-1-fuad.tabba@linux.dev>
 References: <20260831163421.272420-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_093519_450792_85256FAE 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20260831_173519_977106_4EA17196 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,96 +95,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A protected vCPU's register and debug state is no longer exposed to
-the host. Host ioctls that would reach that state now fail rather
-than operate on a copy that is not the guest's:
+A protected vCPU's power state belongs to EL2, which changes it only
+on the guest's own PSCI calls. KVM_SET_MP_STATE(RUNNABLE) on a vCPU
+EL2 holds powered off changes the host's copy alone, and the guest's
+next CPU_ON of that vCPU then fails: mp_state is no longer STOPPED, so
+the host returns ALREADY_ON, which EL2 turns into INTERNAL_FAILURE.
+SUSPENDED has the same effect.
 
-  - KVM_GET_ONE_REG and KVM_SET_ONE_REG return -EPERM once the vCPU has
-    run: the copy then holds reset values plus what the exit handlers
-    marshal out. Pre-run access still builds the guest's boot state.
-  - KVM_ARM_VCPU_INIT returns -EPERM once the vCPU has run: it would
-    reset the host copy alone and rewrite mp_state, which EL2 reads
-    only at hyp vCPU creation, so a vCPU the guest powered off would
-    come back RUNNABLE.
-  - KVM_SET_VCPU_EVENTS rejects external-abort injection with -EPERM;
-    SError injection is forwarded and stays permitted.
-  - KVM_SET_GUEST_DEBUG returns -EPERM: a protected guest's debug state
-    is hypervisor-owned.
+Track at the host whether EL2 holds a protected vCPU powered off and
+return -EPERM for both writes in that state. STOPPED stays permitted,
+so a VMM can pause a vCPU, and RUNNABLE on a vCPU EL2 has powered on,
+so it can resume one.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/arm.c   |  7 +++++++
- arch/arm64/kvm/guest.c | 19 +++++++++++++++++++
- 2 files changed, 26 insertions(+)
+ arch/arm64/include/asm/kvm_host.h |  2 ++
+ arch/arm64/kvm/arm.c              | 20 ++++++++++++++++++++
+ arch/arm64/kvm/pkvm.c             | 21 +++++++++++++++++----
+ arch/arm64/kvm/psci.c             |  3 +++
+ 4 files changed, 42 insertions(+), 4 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 78a4d387f9fd4..39788c4331260 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -922,6 +922,8 @@ struct kvm_vcpu_arch {
+ 	/* vcpu power state */
+ 	struct kvm_mp_state mp_state;
+ 	spinlock_t mp_state_lock;
++	/* EL2 holds the protected vCPU powered off. Under mp_state_lock. */
++	bool pkvm_powered_off;
+ 
+ 	/* Cache some mmu pages needed inside spinlock regions */
+ 	struct kvm_mmu_memory_cache mmu_page_cache;
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 3e00edce23a99..8caacdd4de020 100644
+index 8caacdd4de020..a96d01b2c5e86 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -1750,6 +1750,13 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
- 	bool power_off = false;
- 	int ret;
+@@ -777,9 +777,12 @@ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+ 	kvm_vcpu_kick(vcpu);
+ }
  
-+	/*
-+	 * Re-init would reset the host copy alone and rewrite mp_state
-+	 * after EL2 has read it. Pre-run init stays allowed.
-+	 */
-+	if (kvm_vm_is_protected(vcpu->kvm) && vcpu_has_run_once(vcpu))
-+		return -EPERM;
-+
- 	/*
- 	 * Treat the power-off vCPU feature as ephemeral. Clear the bit to avoid
- 	 * reflecting it in the finalized feature set, thus limiting its scope
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 23f725e2cf745..3a0ea2ae4a307 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -701,6 +701,10 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- 
- int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
++/* The guest's own CPU_OFF: EL2 has already powered the vCPU off. */
+ void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
  {
-+	/* Once the vCPU has run, the host copy is not the guest's state. */
-+	if (kvm_vm_is_protected(vcpu->kvm) && vcpu_has_run_once(vcpu))
-+		return -EPERM;
-+
- 	/* We currently use nothing arch-specific in upper 32 bits */
- 	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
- 		return -EINVAL;
-@@ -718,6 +722,10 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 
- int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
-+	/* Writes build the boot state; once run, EL2 owns the registers. */
-+	if (kvm_vm_is_protected(vcpu->kvm) && vcpu_has_run_once(vcpu))
-+		return -EPERM;
-+
- 	/* We currently use nothing arch-specific in upper 32 bits */
- 	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
- 		return -EINVAL;
-@@ -786,6 +794,13 @@ int __kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
- 	u64 esr = events->exception.serror_esr;
- 	int ret = 0;
- 
-+	/*
-+	 * EL2 injects an external abort only to complete a forwarded abort.
-+	 * SError injection is forwarded.
-+	 */
-+	if (kvm_vm_is_protected(vcpu->kvm) && ext_dabt_pending)
-+		return -EPERM;
-+
- 	/*
- 	 * Immediately commit the pending SEA to the vCPU's architectural
- 	 * state which is necessary since we do not return a pending SEA
-@@ -883,6 +898,10 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
- {
- 	trace_kvm_set_guest_debug(vcpu, dbg->control);
- 
-+	/* A protected guest's debug state is not exposed to the host. */
+ 	spin_lock(&vcpu->arch.mp_state_lock);
 +	if (kvm_vm_is_protected(vcpu->kvm))
-+		return -EPERM;
++		vcpu->arch.pkvm_powered_off = true;
+ 	__kvm_arm_vcpu_power_off(vcpu);
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ }
+@@ -801,6 +804,13 @@ static bool kvm_arm_vcpu_suspended(struct kvm_vcpu *vcpu)
+ 	return READ_ONCE(vcpu->arch.mp_state.mp_state) == KVM_MP_STATE_SUSPENDED;
+ }
+ 
++/* Only the guest's CPU_ON may start a vCPU EL2 holds powered off. */
++static bool kvm_pkvm_vcpu_is_powered_off(struct kvm_vcpu *vcpu)
++{
++	return kvm_vm_is_protected(vcpu->kvm) &&
++	       vcpu->arch.pkvm_powered_off;
++}
 +
- 	if (dbg->control & ~KVM_GUESTDBG_VALID_MASK)
- 		return -EINVAL;
+ int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
+ 				    struct kvm_mp_state *mp_state)
+ {
+@@ -818,12 +828,22 @@ int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
+ 
+ 	switch (mp_state->mp_state) {
+ 	case KVM_MP_STATE_RUNNABLE:
++		if (kvm_pkvm_vcpu_is_powered_off(vcpu)) {
++			ret = -EPERM;
++			break;
++		}
++
+ 		WRITE_ONCE(vcpu->arch.mp_state, *mp_state);
+ 		break;
+ 	case KVM_MP_STATE_STOPPED:
+ 		__kvm_arm_vcpu_power_off(vcpu);
+ 		break;
+ 	case KVM_MP_STATE_SUSPENDED:
++		if (kvm_pkvm_vcpu_is_powered_off(vcpu)) {
++			ret = -EPERM;
++			break;
++		}
++
+ 		kvm_arm_vcpu_suspend(vcpu);
+ 		break;
+ 	default:
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 8e4c6e4bec123..8ae974fec42ba 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -118,12 +118,25 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 		return -ENOMEM;
+ 
+ 	ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, vcpu, hyp_vcpu);
+-	if (!ret)
+-		vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
+-	else
++	if (ret) {
+ 		free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
++		return ret;
++	}
+ 
+-	return ret;
++	/*
++	 * Mirror EL2's seeding of power_state from mp_state. The hyp vCPU is
++	 * published, so take mp_state_lock against kvm_psci_vcpu_on().
++	 */
++	if (kvm_vm_is_protected(vcpu->kvm)) {
++		spin_lock(&vcpu->arch.mp_state_lock);
++		if (kvm_arm_vcpu_stopped(vcpu))
++			vcpu->arch.pkvm_powered_off = true;
++		spin_unlock(&vcpu->arch.mp_state_lock);
++	}
++
++	vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
++
++	return 0;
+ }
+ 
+ /*
+diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+index e3db84400d1f8..208289a08099f 100644
+--- a/arch/arm64/kvm/psci.c
++++ b/arch/arm64/kvm/psci.c
+@@ -94,6 +94,9 @@ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+ 	 */
+ 	smp_wmb();
+ 
++	/* EL2 has committed the protected vCPU to ON_PENDING to get here. */
++	vcpu->arch.pkvm_powered_off = false;
++
+ 	WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_RUNNABLE);
+ 	kvm_vcpu_wake_up(vcpu);
  
 -- 
 2.39.5
