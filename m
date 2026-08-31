@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74647C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6166C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xm7IJp2XIGQfywvQEJWiSm4YcnWVO4DORE2TtOx8jNo=; b=aWAguwFsNRXakT4XWd8q5jYzGR
-	sbS3Iikaem7cZrtGr0SsId19HoXF1P5DeusisSGQBu6iHKopwlkGv6AJxVCwa40plIi9X58sXjqND
-	gJzPwMFGvmyXhBkkMcamlwL9tVuetjvD/m3uazd6LfKVRfeUzL4MnxkQ47zXTlcdcoyAi7Tb1MxQv
-	ABjRi4/C8q1j1ZqU6LeJHmgb9T07v3au96FqLYhSErc9Vo0kVzR4VgMmXSQjyKdEycEktH1F6PIa7
-	7WIeGv39ZCoFDSCO1zTZXI/SmQIVSpN88KUGUuxXvWj3ZST7GQbuqEfoAdCWSV3p5mMOKItzblXNO
-	hvjsJzYQ==;
+	bh=MOSEqx16yAn5Bafqgfej14UnvGnZ0sZeAYdUubBwfXw=; b=L7T+tDOQ2bcD6vEPDyVNKPpLBi
+	KPbOhwh/BAN0UUjLZ78UiphHgnoBs6fJloMJBg7A+hVSugzr6jCrPfDD1MYFiS5eWxvEWDO0cGMBc
+	3d48PW3V09N4MiU8/Eu6SeU8eEAlMZCJE1MZu6pY9d3QFbsmmOX/rBArsafOZ8Cs+Lb7eSNC1MoXm
+	23w47t+lojsVIkmFHhYR0QNqPkPLl8E8sx6ANGSKaJhnLxCqcLIUbUKKDWpCUOVygmEZfemwQ3/tr
+	ZjkaNszhgwmgpnc0PDj0CTMxtMNdRZC3J1OZ3Jiu5PtMQmVsbPthcAtnAOPc8GdGKBxLJ62iLKhzV
+	G2PZGTug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13sy-00000009qsT-3j1L;
-	Mon, 31 Aug 2026 15:25:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x13u4-00000009r2r-0M4H;
+	Mon, 31 Aug 2026 15:26:32 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13sx-00000009qs7-3Lbc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 31 Aug 2026 15:25:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xm7IJp2XIGQfywvQEJWiSm4YcnWVO4DORE2TtOx8jNo=; b=NfUt7PeEHsD5O3FIOfHFoPOm4n
-	QD/7vrxsTUmQiSDxR01c9n/DpUvh2whaeFW8/UR6nzHv3sUXALvHgKCbX2xWDfJMkAtmYP15bpwOz
-	C5hy2WE4AjLdO1+yaiF5goH/Afwt4y54NjTjqT8CvBJGFjJdkgn4+HIMnmBRfT6OD11aglPNbhj3r
-	w3qtQ0qSpivG5898RAS25PC96q2J1Pcwh32B6PfDVeTa/5OeH1gRv0Xh50Q72YK1TE12HEDJq4r8t
-	yoZ+yQVgQQj/v2z3nmdO0QNhcf4J6+abyQqq9CG6bRhIaR2J+9LhXM49hHqoa9bLdYWXG7PJeO8kk
-	mqBL9MOg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x13su-00000009zj2-0f5A
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:25:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13B0814BF;
-	Mon, 31 Aug 2026 08:25:14 -0700 (PDT)
-Received: from [10.57.6.141] (unknown [10.57.6.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09D9D3FAA1;
-	Mon, 31 Aug 2026 08:25:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788189917; bh=eK4lq3SDbX0dW+5hYaKysf1ohyjSSfRIS1hTL0ZfAV0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ERM+z1j/JBwlg2fAxsfL8eZW4gRaVWX/j5qdnj1kgq3pJy6J4eZ8K21f5sScC6ngd
-	 66BaVsUlLVYQU2k0g7DZbCjiISMySQ9GE19fNRsy0Eu1baoXaH+Cp05TisgpJMke/3
-	 R/0L4fm8uy9+eRa96GTQNDL+1cNFc3qZl+uTNaHs=
-Message-ID: <25ca0804-f864-4836-a3ed-58e997f265c8@arm.com>
-Date: Mon, 31 Aug 2026 17:25:09 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
- Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
- <f082aff3-ec63-48fa-94c5-159ca0c5a33e@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <f082aff3-ec63-48fa-94c5-159ca0c5a33e@kernel.org>
+	id 1x13u0-00000009r1q-20pW;
+	Mon, 31 Aug 2026 15:26:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B093E1A18F6;
+	Mon, 31 Aug 2026 15:26:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 78D0260231;
+	Mon, 31 Aug 2026 15:26:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9386C11C78AC8;
+	Mon, 31 Aug 2026 17:26:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788189981; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MOSEqx16yAn5Bafqgfej14UnvGnZ0sZeAYdUubBwfXw=;
+	b=Q2MLXKc/oRyrOrt5bUK/hzX58z7rF6JIiqY6ZUOPOSQIGKtaI5fg9Oeb1RV0NWqutDvaPv
+	gOJ/0FOFFdpkdIwaF/Cvr45Mys4ZncMbplmBKHbMWqg9ZLspZSv8Ep00y2lumGKCRs4v2H
+	6gQdw4/h+YXmx870Cy71EBf+ALZLLpxbk4uMOFlsizSLUt+shIDdx1iVxZi8WokNXjmlMZ
+	G2hBOrntCutZ5ipOcFTONtGS0Tt6ujgIiHJf+jpm5CS7Zm1c7iHAuTxUtyIhKj4cmQW98y
+	EYJDqIQaptAlVZQypV6Iqv5HNYDXKEDHTFaQ7QQ1NGkRvKNt+nqg4xnkotsgig==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Date: Mon, 31 Aug 2026 17:26:12 +0200
+Message-Id: <DL38FWMPAVYW.3H964111WXW4T@bootlin.com>
+Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, "Jitao Shi" <jitao.shi@mediatek.com>,
+ "CK Hu" <ck.hu@mediatek.com>, "Pin-yen Lin" <treapking@chromium.org>,
+ "Enric Balletbo i Serra" <eballetbo@kernel.org>
+To: "Doug Anderson" <dianders@chromium.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 08/12] drm/bridge: parade-ps8640: select
+ DRM_PANEL_BRIDGE
+X-Mailer: aerc 0.22.0
+References: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com> <20260825-drm-bridge-drm_panel-cleanup-v2-8-c6c88ba7ffd2@bootlin.com> <CAD=FV=Xdj_foBqt9A9EVVoCA2BxAV3UZNz3SuVPu2ZoNXgnS=w@mail.gmail.com> <DL308Z0JXJ31.2V3H29DTG4MSM@bootlin.com> <CAD=FV=UOwWdVc8p1js+28C1u7=iRqRpv86PkwWf5g8yL-Uq5kw@mail.gmail.com>
+In-Reply-To: <CAD=FV=UOwWdVc8p1js+28C1u7=iRqRpv86PkwWf5g8yL-Uq5kw@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_162520_629032_141F7FFC 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20260831_082628_657403_305EDB51 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,90 +90,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 20:00, David Hildenbrand (Arm) wrote:
->> [...]
+On Mon Aug 31, 2026 at 4:58 PM CEST, Doug Anderson wrote:
+> Hi,
+>
+> On Mon, Aug 31, 2026 at 2:01=E2=80=AFAM Luca Ceresoli <luca.ceresoli@boot=
+lin.com> wrote:
 >>
->> +/**
->> + * kpkeys_enter_context() - enter a kpkeys context
->> + * @ctx: the context to switch to
->> + *
->> + * Enters the specified kpkeys context. @ctx must be a compile-time constant.
->> + *
->> + * Return: state to be passed to kpkeys_leave_context().
->> + */
->> +static __always_inline
->> +struct kpkeys_state kpkeys_enter_context(enum kpkeys_ctx ctx)
->> +{
->> +	BUILD_BUG_ON_MSG(!__builtin_constant_p(ctx),
->> +			 "kpkeys_enter_context() only takes constant values");
->> +	BUILD_BUG_ON_MSG(ctx < 0 || ctx >= KPKEYS_CTX_COUNT,
->> +			 "Invalid value passed to kpkeys_enter_context()");
->> +
->> +	return arch_kpkeys_enter_context(ctx);
->> +}
->> +
->> +/**
->> + * kpkeys_leave_context() - leave a kpkeys context
->> + * @state: state returned by kpkeys_enter_context()
->> + *
->> + * Restores the state saved when entering a kpkeys context. If no context was
->> + * entered, this function does nothing.
->> + */
->> +static __always_inline
->> +void kpkeys_leave_context(const struct kpkeys_state *state)
->> +{
->> +	if (state->entered_context)
->> +		arch_kpkeys_leave_context(state);
-> state->entered_context is a common code variable, but it's not set by
-> commoncode. Is there a reason?
-
-Not a good one, agreed the asymmetry isn't great.
-
-> IOW, should arch_kpkeys_enter_context() only return the arch parts, and
-> entered_context would be set in common code?
+>> Hi,
+>>
+>> On Thu Aug 27, 2026 at 6:23 PM CEST, Doug Anderson wrote:
+>> > Hi,
+>> >
+>> > On Tue, Aug 25, 2026 at 3:11=E2=80=AFAM Luca Ceresoli <luca.ceresoli@b=
+ootlin.com> wrote:
+>> >>
+>> >> This driver uses the drm_panel_bridge API and not the drm_panel API s=
+o it
+>> >> should select DRM_PANEL_BRIDGE and not DRM_PANEL.
+>> >
+>> > Which exact "drm_panel_bridge" API does it use? I don't see any...
+>>
+>> It calls devm_drm_of_get_bridge() [0], which is in bridge/panel.c [1],
+>> which is enabled by CONFIG_DRM_PANEL_BRIDGE [2].
+>>
+>> [0] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/bridg=
+e/parade-ps8640.c#L636
+>> [1] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/bridg=
+e/panel.c#L483-L515
+>> [2] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/Makef=
+ile#L159
 >
-> Also, should entering bail out if the context was already entered.
+> Ah, indeed! I missed that since it didn't have "panel" in the name.
+> FWIW, then I think for this patch:
 >
-> Last but not least, when would we expect to call kpkeys_leave_context() but the
-> context was not entered?
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+>
+> ...but, ironically, that means that for the other patch I looked at
+> (ti-sn65dsi86.c) we're missing the "select DRM_PANEL_BRIDGE" since it
+> uses the same API call, doesn't it?
 
-It may be worth clarifying that this is not the same situation as lazy
-MMU mode, where the state is thread-global. Here the state is supposed
-to be on the stack and you should never have nesting or unmatched
-enter/leave calls for a given kpkeys_state. (I could certainly add some
-VM_WARN_ON_ONCE() to check these invariants, like in the lazy MMU API.)
+Ouch, indeed! Thanks for noticing.
 
-The other difference is that only arch code can decide whether we need
-to enter that state, as this is based on the value of the
-(arch-specific) pkeys register. 
+I will send v3 with that fixed, can I keep your R-by if there's just that
+change to the sn65dsi86 patch?
 
-> If this is really arch-specific stuff, probably it should go entirely into arch
-> doe. If this is common code stuff, likely it should be maintained entirely in
-> common code.
+I am also going to double check all patches for this mistake.
 
-The decision is made by the arch, but I think all architectures would
-want this behaviour. So we could have:
+Luca
 
-    bool arch_kpkeys_enter_context(enum kpkeys_ctx ctx, struct
-arch_kpkeys_state *arch_state);
-    void arch_kpkeys_leave_context(const struct arch_kpkeys_state
-*arch_state);
-
-It's a little less elegant because the state to be set now needs to be
-passed as an extra argument, but maybe that's better encapsulation. It
-also has the advantage of removing the dependency on struct kpkeys_state
-in <asm/kpkeys.h>, so we could get potentially get rid of the separate
-<linux/kpkeys_types.h>.
-
-The alternative is to make the entire struct kpkeys_state arch-specific
-and move all the handling to the arch helpers. Currently the difference
-is academic, but when other architectures implement the interface this
-could lead to undesirable discrepancies.
-
-> Overall this looks much cleaner to me compared to what I reviewed the last time
-> (was that v8? I don't remember :D )
-
-It was indeed RFC v8, and thanks :D
-
-- Kevin
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
