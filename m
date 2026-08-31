@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE65C624CF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5923C624D1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1F8EhvxRsHNCE/li/Bbp9x+lqTT08lvh1eTHgoUQufc=; b=iGUD09tujulWjx3onuzr0T9NrO
-	axpHGYP1ut6tN2k0krs7g7PsJNmN+C58aQiLUthCcFd7afwS9B/KbEUijs8ECYyQmpky0iPDp13hZ
-	PQuAMA4nJKFm+A2pTc+SY26z6X+TyLE/OyV5UDGWXLIXQ5Kqbl1AlzKRuLetUt/WaeDFqA7OOExUG
-	tRIn2mFhxUYUlFeIuT1ZLGgh2BfkP6sBP3OlIv8X5lNtPbcFwlI+UBxR9AVMOowZYKrY+ApCOPO3A
-	EhlzKnFHJNqog63HP3ZTzr1WRehWj6s8y524LTLdzZksBYKJOYc7X6Px6oqh1/dgNqH/k6DGvDjXo
-	io4srkOg==;
+	bh=NwyJ3iw7ZumnBEMQ/VhKh+qWU9899H1NfwnXdmID5CM=; b=xoFgdBGfogRj5BP1gt1cL+xsqc
+	uXYBklHpP8CQgQpRmpvJZjsqyY9DbEOXwDA9655zC9mZrDncXNRYWWRJC91ndSf0Bo6f+o2lB2LDn
+	VPG79YH3KTZtlcjuN0pVL9CSDFB4V35g3YfULTzKSgfibiMWoH5uSJjPiSvK3I7cqr9HkT4UH8+bb
+	9Wrt4MRkefbBErM2GCuw6WLM89mgOKL/B/ATjJblPKsd6WVzmiMP4S0Fv9sR+9ATse5Y6kLzI9y28
+	KKtHQBRLoNnWebdfCVc0S1tSEg8dEBxkRJSmKIiU7A8nzQhSgHPXdsPTGZ2qJrgZKu2SC6/1vGjGC
+	BJKawAeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15jJ-0000000AAet-0iN4;
-	Mon, 31 Aug 2026 17:23:33 +0000
-Received: from mail-westus3azon11011016.outbound.protection.outlook.com ([40.107.208.16] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x15jK-0000000AAgl-06Bl;
+	Mon, 31 Aug 2026 17:23:34 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15iy-0000000AAIM-39gP
+	id 1x15j3-0000000AAGH-3reZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:23:14 +0000
+	Mon, 31 Aug 2026 17:23:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o09LK9m4zYVqVFGvq5Rt68/kDPgKMD7OC0mMFb/dV16hqHk+9dwr3FZxdT+aQBMn3hJMPRWKReUqsEteel2s00OYq8PgWDxFjLpClK32gzN+NHrzWcobDZdd2Lztr4ax+vrS+yb8Bz5eFkhSDiJdRxHByginJuRBz8Vzmu8TROXoWKFB/nqx7KT2rn4YppiBcXAeiNYjH74LEFeRsKvk8rL5C1pYusNLaxtTLc4xAZsPmKkJM3Ntsk2VKmADb9QshyqMZEcKy+3t0FxJxv6s9Bz5ellUXq+SzLX5X1O4PDok1XM77GgJnCVURDhJxq82Dx31/SzX/nYftPnWMQv/xA==
+ b=dxOZugoK0GNS2dD+R7B6r8lM1Rz2dI9/hUD7TjKME21uXw8RIQZbj51zvdkF2sbqhCodUgiftU3ukGE9S05IPT2kNhHxd08KsO231RJZquh+bxse7tx4WNNlnk7iXwAjaOtzmT8935786dgIBODG4QPUxtW/ldmdtWkxCYdJTey45yj3ERFcD4/OX7o0D4o7cDaMEu0nr4uQCE132Hz/F1I35aiFky8K2Swj5yVehrNORInv02gXdZEYH0ndlPXwBbm04R+35d750xgPP9hgo4RWcoYpZ9YQxBxQnQ51/R9Oj6YP7hC6njubzNjp7gzudjwhBP8mPYqmmU8tHP9a8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1F8EhvxRsHNCE/li/Bbp9x+lqTT08lvh1eTHgoUQufc=;
- b=K9YX9qAaoUMdFblEmqUC5bMOIrdRr6a+tXQtzCWy3iPrmS3hrV4o5NJ/cgGhHY26JzPvPaDQfM1hVgW5mYuFs06EG59ChBudbCb0iVFrqRU2hQrjGnzmwjBtrDN4EYflCcn5xoA+QQs0ZafW5dKGeePk3UfJAGvklteF6vmO9OD5KiNCeP2hk3tBGzcBfQ044tIfc8hzKx00uKf4xnPefaBBjlTOv3+itClXxGABpCaVmz2QOnGQMCkbVUNG9DX/Dt+hIWbbc2cH1aDcqtnGJnmTEuN0zwXP87qqf+Gu196lpSqA5YIv5tWt98Qreu1KfRovM/efbvqFuGBM4Iujdg==
+ bh=NwyJ3iw7ZumnBEMQ/VhKh+qWU9899H1NfwnXdmID5CM=;
+ b=VU5DgKB7PTZegcgq+ZsuwbJ6kpZjHQFfLhURdl0Thqp2/6rSoTPGOxPyW48xgFGcLNRqy39RUAaLDLYbDmsy3b+9YNivJ6QcnhYYlUakfOAKrZZd1ezc0HRbR3QDWigIlNJ2xN2NxmVlX1LZl2TXcOmdf1j98AC0vNHpr229ZfMXVBBvrB87kBGeBHgI5kgN8D4daCvwxgU7QMyZ6qqA58tR2ULuKcojTZCF6QmC1sBdfFcZpMjKgGitZuhIJntFYtijl9J00zQ3MsHsVQFmcolCeYIKRgGfCOLjr3iDaVw43ZlxOr2GjBXx8jzreBCGFVi3OXZLSW/WEZlrBKwxgw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1F8EhvxRsHNCE/li/Bbp9x+lqTT08lvh1eTHgoUQufc=;
- b=HyYvjFS1Zlm8CWFynqlWX6u9tsYoxn26t2VpC/1Aq7Rl6Xx92Jdnvn0IP+KgEjgjIeVX8hNewMxY5osH8NBzir65OsAQGnGWBZylLtK+um9lfKD5RD+BpnqmrTo9uBya/lSX+iRS9Ro3mk0tKbbKio0/jbX1eelwJk9n1rrTtExqFqRonMFNth1DTHoTqrWPO4v23Q3Zas8gYrZVCrlRUtUMRxLG60KRTY08SKnNiLHcDmHwwlixeKCsJmQKaiOfJdN0UHqahrl5VuysoRLSs9MTiNS+3gZij9h5k372lbcU+hayL32iHCw3uJH7UQiSra8O9DxhZaYj0DS/JCtSqg==
+ bh=NwyJ3iw7ZumnBEMQ/VhKh+qWU9899H1NfwnXdmID5CM=;
+ b=eZ9EpstUqa4Or+VeLu7YJZpVUNhld63zSIfLz0YLqeqx0Q+z4Q1waHFCFf4uKZ+42eiGyVIXSOhhzYy6wXw8dSxfykr9h8dVibt2I/jOHCoE95FhG20gFQk1c7Wfs4uXe1vMPq4rl/ArnGpgPoYFznquQbgfKFGEtFrJH7qkqFteFSQbaayDF5dk4WTIUE80mF2ZtTUY/64hcG4Kvcb1Ega2mn8wnyjP+ET2oyuL/hDk7/k1dpGNMWi1QI3x4E37j3DgLN+FfzQOkYEXEZU/rrRzIOYLhCYF86N6vebKTBsacLYLy4BV9cXMN2kEKxUKizyzP2yhuZj19+vv3Mv+Eg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by SJ5PPF0C60B25BF.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98a) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 17:23:07 +0000
+ 2026 17:23:08 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 17:23:07 +0000
+ 17:23:08 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -72,71 +72,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH RFC v2 10/19] arm_mpam: Handle CPU-less numa nodes
-Date: Mon, 31 Aug 2026 10:22:36 -0700
-Message-ID: <20260831172245.42253-11-fenghuay@nvidia.com>
+Subject: [PATCH RFC v2 12/19] arm_mpam: resctrl: Add NUMA node notifier for domain online/offline
+Date: Mon, 31 Aug 2026 10:22:38 -0700
+Message-ID: <20260831172245.42253-13-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
 References: <20260831172245.42253-1-fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: BY3PR05CA0018.namprd05.prod.outlook.com
- (2603:10b6:a03:254::23) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR05CA0125.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::10) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|SJ5PPF0C60B25BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97370465-ddf9-4541-eaaf-08df0784839b
+X-MS-Office365-Filtering-Correlation-Id: e2468446-eb46-4817-b8a5-08df0784850e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|5023799004|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: ZwRXEPZjRBP9RT6IUSZelV10LrIadruZClqfxXAKCf+s77BQr4Z48AkMuSbvZaZ0Kpa06PiLMDdoxLQ4XbgncSyrnwlLSwS389MWEBYjuJ3F5ALRWMgHf27ibpPcrlJR4Q/MPmfMreGRPszJ6A6c47qGlnurrJSy1FnI6tijLRJpE2XL4xqJzLloq4vvU9RUHn5GPO8Y6VC3NzeYOVdFJbWpd8b98ABipDfPK6+Gu52wLF0jwFuw0zmlBk1aLEJwOoejvdT8IOYYA9KUhz3dkXeI831UjGLk04TAlw8WDUX7xlrLq8HtKQ10aXGdB0PI6stTPxUG/f+N3fxfRFJ3txHf8iHunF9wtt8h4HNPzEQopCmQlTGgvTdAIULfY4yWSt9fBXJiUT9YllFXZt0erbhKRJkN4cASgRlhFYO60tg470LafZYU50sLVlAZaXvAy4+nNk2e4TfS6ZkvoB7m7N7OpjRIoGnvF+Mf/STup5qmx3j1Yp4jbc24wtZx0rh4yQPPMRFMXN/dBox7n4QYle3JPP2iqmozSkBet9ILGL5F1i0KQybMJeObDGiyZWgvpnD8tklMhaKP7wLGOSoUloJ3pQXA/sG9bLkp/ehwSxm+XKu2NsjGY7KrL8zpUwMir7I4OgzoTjiOelaqIWqMkS/c6dG1BYLKv1Q9ovdHTyvfssSGhElzNz62W/EEPoCKmUR1SKZI8z/exI+jKj/qtA==
+X-Microsoft-Antispam-Message-Info: ba1cx9DqijSpNKWlZyHZ2qZZUSXpW1tbOA+Fw0iDybNOnG6qIeQ7p+KULEoQbUaFlyXzQMzaUTde+/txiJn4nVK6jgOFThdh6EK0SN49aoGJA7dZdYSMomDnqL+HWBIb1dGelNR1eoM6TrJGVvPNHmqqw/2ZspYbhBIBj6XEw/pKse7yyhh+8Pm4rd3gmMJVgIA92OgLmHF2RHLNSZCGJPFIIHN4rXhS5kzI+3oh7STj9DhRk4vMSrAyPGimg+jMJLSFCkm4ADleTH++vA4+LcTB+H198I6JE+CtliWJq0YA6G/owceKnNdHsK11VHPz8fjxefBkrAJncqJ0qLCELeYnBf7o7JII4YKCYl5XUVRF7F07orPvBpRizwZbDMpZBzeh+PO+ueSP7N/dPfAJTKUKLOX4K+rqjidj1uAlDiAtaSBEuaOR/3dRN3l5cvh4SGp/bIzlbhdp5NghldbmMkfXba0MVhYWY5HaLjSVKZIp2ujeNkXenp7erfvwqGnRW4nWA1EufB4p58hKcld7gJto+JBTvyARBmU8W5rYVPGLd0oT3GWS3cVZvAdB0v0LkYgbDMBXKZmGJug0QOMxcYqeIl2RDSJcPOEf10CiLe3LrTaZtuQMlHpcJP0lLhUzJ6B98tmzjRHsn6EsuK7utZ1DgRwbXCfKim4M6KuebVgIs/Fsu5tqyKNZE6Ib5mk421VsKU6lxSidcKXr1cl2ZQ==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mdZr9gFFYeqHIdfiOZ45+v1dYcp4pvDhxXVok7SszkGwHjyFY8xwe+Y0DMfz?=
- =?us-ascii?Q?MbVkoly7a7ZgtalCeBQzDezsMplN0wwCWTJnnbsBvlw2n987MfAWSXvXH46f?=
- =?us-ascii?Q?Mpa6uTfQzT+SivU+LGfEMOwfpyBN7CDFfUVRF/NH4y+HQMr76Wv7QdSHYB1V?=
- =?us-ascii?Q?kieKjcRjt+d4m4mUIh7wd9bG9gwvKr0jPC5epDhxKeHUtM0TIpJeiL3Zw7rS?=
- =?us-ascii?Q?Z8CNucUFSp9I6AhS70garh106p0neprDmUK8KkFP/cp/gDs0UyoKZxDNkR10?=
- =?us-ascii?Q?yHjhhg4GhsIfWWQboLYwidzClV+ie7YJSIUjq4Q+bWwj/GfmcfT0OaHPfPE6?=
- =?us-ascii?Q?VMx6WT8ayelXtywrDcPr0yDDaSmD8VRlSw5wv2mv6BgLMOLKb7bUZg+giXt7?=
- =?us-ascii?Q?zGpq54XZSaSGLKJRaJkl8rIX/LomqVT3e3Y9+1GA+VGZqikxXrNHub7gHIGD?=
- =?us-ascii?Q?+KdpDhQdwNqifgnFsF0Bm2ej6QoVCd/TYsrCUliYB5p9RFVfnysmPEN+S5N/?=
- =?us-ascii?Q?hBtlas1+0ApLipnlaqb3qAtCif8xC527te9oYWFXLFAEnh5vTItKvfH3go4B?=
- =?us-ascii?Q?2MRkDN6U023EyHXDIzr8tzXK4epP3vK2EemzRZXx3f4z01xHlygH4TPK93EA?=
- =?us-ascii?Q?X6tt6TCYTxbSpA8xqmiT9raiW9KLdc1rm1UgBzKvvEUmc+nrDkFNfsAjoD/a?=
- =?us-ascii?Q?ftCd/hqGgG+8dK8iUEcTHtAdkJDJ9jeV7npUdEfIEez8vytXozXrCFHqAZ82?=
- =?us-ascii?Q?DXfMlj7cd3MkSqv8sckcvd9luffXxUC+3kqz1GxT321tLEq6EUo2UJJMNDv1?=
- =?us-ascii?Q?qj3HGmX7q/TcxH4NuGEndQLxBS53PortUwheQzg3D4kEj5ibua4dbBmcC0Ln?=
- =?us-ascii?Q?jaqsNNSzpjYHdIU/Zzx+/yu0GFHzYcmVG9sVyompN33qeN1lhT4dsQKHJlvN?=
- =?us-ascii?Q?m/e6E5tS57FfmvG7QAb4n/svRLA0LzU2+KBQ+lOiQ5RvvvqjkiLZjIpVKn8L?=
- =?us-ascii?Q?x88EPqQOJt1ubkP8TUop4d7DeuvKYQ64cFzhZRrqk8e8xqDK96jelb/To6Sy?=
- =?us-ascii?Q?7jbzrsQjOgeNoq+UIDn29Bg6/MSGYl/Rytvj2t4ysUOmmR4flQWQypPuZLxv?=
- =?us-ascii?Q?h9KLmhjcnuMh/B3jHYxhEAOjLU+CBOOVPVB24DT62hV99FPGynW7jWcgDnap?=
- =?us-ascii?Q?HVvQX68ffsJqKnigCFCqUC8GCi84zZGqTmm42drpHsuVNO8TtWl3ZGeP6ZZU?=
- =?us-ascii?Q?VbVgvBFJqXwrGb2sR6T7wTAluZSSdEYlPSY+l73WlUUD3J6P7JOCro6XrFhf?=
- =?us-ascii?Q?eAj13fh2zxnIh5+NNjJ9uogj3H0e0kqaKuNg6qSHKnWLbeSTHSQywvrIXpfI?=
- =?us-ascii?Q?PoPP8QeY67Sv45ZZZhOmZ2y2Fs7Rq7keCpfsKVc4OCLH+Ps/OiCjePsXvjXr?=
- =?us-ascii?Q?/KY8ya0BO5JFLFDBoDl6tnjOn8XScRYtuctMWy8kXNUCopIWWVG626uhbXnz?=
- =?us-ascii?Q?jiJaQO/Tfov14JGTJ7XQMAVpg4IYxcNIwux8bfah6ChO+R9K4hd+RxT5uLVU?=
- =?us-ascii?Q?678ydpgmAALxVwDrI8f1WC8D5hpGHTeyorXVEnQXkHqugYh5P7xwkb9ubOlP?=
- =?us-ascii?Q?FesCm7WZw6WG8e7RuKk9PIuLvUQoIxB9905K/wiT7+lez75KeybDmCWVKJ1i?=
- =?us-ascii?Q?P8JamEF+K2AG8UfL+ecn0TtiHnXXZbWlfi3qC2ZoNMPjSxbF4OoKCn3Z9+CF?=
- =?us-ascii?Q?tTtCyVRNCQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/5bTe51MSvaDmGGSDMFcyxGD9uA+EFWimID2IZQm9IRmAqgHJUV3ykXNvYUA?=
+ =?us-ascii?Q?JrkXeuEYAtnaFjiNmtVe7EcO6LiI42Rnu4ym1jImqzF7Zyd/WyXRVtVGSX7r?=
+ =?us-ascii?Q?Yi6jtTsGKv960R/aUQxwyb/uxVqNFrW6sI5KAvnEE9oyK+pCocFgaCLR6okE?=
+ =?us-ascii?Q?LuORHd5nRDPQwhsvEQ8bdDHBtnt3FqocyL0dSzFx6TNsYaa1ptWlRaoLlQoL?=
+ =?us-ascii?Q?NZXENy2XIiVYjjA9sqJzIFV0WpMwckSb/swNkwJlSa3euXdnqgXBnmR3fzNR?=
+ =?us-ascii?Q?QEfH6vHrq05v3mSva+C3r7WhgYV/wH6puZUv9yAaRKmPmrHd9mcx6W92suwS?=
+ =?us-ascii?Q?PFJFMCmpCLaXodfdL6nMy92B/nQsXAnWrhqeLICVtPVDpGwVnM/UepaZC/P4?=
+ =?us-ascii?Q?5gzqu+cbTe20Gef3QzZ0SBjnegOXrXuerNc4blYyMkN7NKd3PhZQU+jg1CSn?=
+ =?us-ascii?Q?8ajIUpYgC4Om/LaWb2S3xKBDBeDzwRQsbbuYXdZcRebXwVGxFa3ZOD06bjcr?=
+ =?us-ascii?Q?hrDqNYSjKnUx0DMDIHfkk+2/D9CiqGgi1b38RWTdnercRA3LD9Q//xnieQHD?=
+ =?us-ascii?Q?3ylbpsVeGHTSMqwEavC6n7Wve1EPhzHnCVNO36ZtxgNXhyMIhX91isvZOCPA?=
+ =?us-ascii?Q?BwqUf+jDR08Xpl8rURjRU7d7Tym/O4HaCObj0w1mKFZfV13aHq8fPyqixM9M?=
+ =?us-ascii?Q?Rjh7Nznj/8HRV3IVOCSMiw07y79q38ENx8Ty2QmahyMN6EzzO3Ar2m3ZvneI?=
+ =?us-ascii?Q?Wengbex0ID9UKnijBRs1URFajDU47caIBjS2WFR7REWQcszKhpAZJc/3ZLhq?=
+ =?us-ascii?Q?ct7OS+GCH6GF2XPvqwz+GjWWlhWYxcgh+uA3ZjQC5D6M95ed42obfeXCnQMb?=
+ =?us-ascii?Q?a2cIK+l4G6CuKzTbLv6UtDbT3mGFwbtUfcrdVfWAbA1lCc0z5/f0JBdrth3Z?=
+ =?us-ascii?Q?5WULcpT8W1VoUT2x1/UHWTcFBLD8sEzrkXNnMpzulf8nLhc3YrA4iil8W0LM?=
+ =?us-ascii?Q?vDYoq82YEYJEGgZarlDY3T7w0/bHzV0Hs6FnpybYIiJ0x4GZ97AHBdXPGyhW?=
+ =?us-ascii?Q?g95Ipu6tqFFT51T8cgKt51nuvP91NyDZpKi+IKuBmSREUEiv7cXFFyTVQuKh?=
+ =?us-ascii?Q?R7mENAuDRx9/i3t61rgEWz2Az2oQM6+zNp+70Dp2ARovMh8SMBN7E/3u0hHd?=
+ =?us-ascii?Q?2+rZ67MZjdpksSRwpxG1FCfdaH3eSAxZKVFZuqMxv/tqC4T649ccXlGeyrMH?=
+ =?us-ascii?Q?sGCrdLU0ySaT3EbWZlGsQg5JDAkQiagkYPEdBHKumRd4IB0xsqP+Jcsq2DTW?=
+ =?us-ascii?Q?Ypy2bSwVrFgMW5ryMWPkSYqx6cR1RG1Jufsi4zcmQGkAhg/p7186ve49/Bal?=
+ =?us-ascii?Q?FRBgvcp33lahGZLTnXqg9L9SrE8/OE9xVJZYKMvXOG8Bj0idJFmZPKU/0mwg?=
+ =?us-ascii?Q?ceYnKrzcBSMw8u9DYyvV+brY3vza+Exr5i3xBenHvdOSlixA2ukdjI0c8P+E?=
+ =?us-ascii?Q?kme9gqvG0gEfS8iq2DKUwYWN6Sy0BvjEAWP24tAmY1Fj7YpNOqGwYDKI2gyN?=
+ =?us-ascii?Q?Q98PyHpERtHas2X57PYvGrbBCPqCMjJxiloVgK93Eg2AHWgJnh3fo1iNS7Q0?=
+ =?us-ascii?Q?qapXOt+8PdvbjaCNQgajbV7TedkHmSP6dhnU0YpXfZtZchAnxXVplIEL1FQC?=
+ =?us-ascii?Q?Y8biTNYDqzwxQ730FvrirOXLL/qBWOsfVsam+gZq51j+L1QM0UnOAzkiix4O?=
+ =?us-ascii?Q?OmkeSgPGEQ=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97370465-ddf9-4541-eaaf-08df0784839b
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2468446-eb46-4817-b8a5-08df0784850e
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:03.6604
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:06.0733
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: INKHqIAKzfHCUNDTCW2xrI6edx8o40h9nf+HrLUi1qEoRibsaQtBr6ga9yM6lRHAyjE8QrxS2oMlkyp/vbwdIw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: jXHCZsxtPFFjjJQCoD4NJftd5hXzB566ECmp94cr07juBRMFEC08SqHA4ztaM67vzgDH+QCqhDNqqXSWbF1vYw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0C60B25BF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_102312_814328_F8CE0429 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20260831_102317_973304_977A2C12 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,150 +151,439 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some ARM servers a NUMA node can expose a memory MPAM MSC without
-any local CPUs (for example, a memory-only node that still participates
-in bandwidth control). mpam_ris_get_affinity() derives affinity from
-the component's NUMA node ID, so these MSCs end up with an empty CPU
-mask and are never registered. Without a fallback, resctrl cannot see
-or control bandwidth on those nodes.
+From: James Morse <james.morse@arm.com>
 
-When the derived cpumask is empty, fall back to cpu_possible_mask so
-the MSC can be managed and traffic from remote CPUs is still accounted
-for. Track the borrowed case with ris->cpu_less and keep that mask out
-of class->affinity on create and destroy: those CPUs already contribute
-through CPU-ful nodes in the class, and subtracting the borrowed mask
-later would remove CPUs other live nodes still depend on. Emit an
-informational message reporting each CPU-less node when this happens.
+To expose resctrl resources that contain CPU-less NUMA domains, resctrl
+needs to be told when a CPU-less NUMA domain comes online. This can't
+be done with the cpuhp callbacks.
 
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+Add a memory hotplug notifier, and use this to create and destroy
+resctrl domains.
+
+Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- drivers/resctrl/mpam_devices.c  | 59 ++++++++++++++++++++++++++++-----
- drivers/resctrl/mpam_internal.h |  8 +++++
- 2 files changed, 59 insertions(+), 8 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 343 ++++++++++++++++++++++++++++++++-
+ include/linux/memory.h         |   1 +
+ 2 files changed, 337 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index b69f99488111..cb6096e9d2cf 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -508,10 +508,13 @@ static void get_cpumask_from_node_id(u32 node_id, cpumask_t *affinity)
- static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
- 				 enum mpam_class_types type,
- 				 struct mpam_class *class,
--				 struct mpam_component *comp)
-+				 struct mpam_component *comp,
-+				 bool *cpu_less)
- {
- 	int err;
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index cd9bebf5f0c2..8bb313efc716 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -11,6 +11,8 @@
+ #include <linux/limits.h>
+ #include <linux/list.h>
+ #include <linux/math.h>
++#include <linux/memory.h>
++#include <linux/node.h>
+ #include <linux/printk.h>
+ #include <linux/rculist.h>
+ #include <linux/resctrl.h>
+@@ -1775,16 +1777,25 @@ void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
+ 	mpam_reset_class_locked(res->class);
+ }
  
-+	*cpu_less = false;
++static void mpam_resctrl_domain_hdr_init_mask(const struct cpumask *cpus,
++					      int id_cpu,
++					      struct mpam_component *comp,
++					      enum resctrl_res_level rid,
++					      struct rdt_domain_hdr *hdr)
++{
++	INIT_LIST_HEAD(&hdr->list);
++	hdr->id = mpam_resctrl_pick_domain_id(id_cpu, comp);
++	hdr->rid = rid;
++	cpumask_copy(&hdr->cpu_mask, cpus);
++}
 +
- 	switch (type) {
- 	case MPAM_CLASS_CACHE:
- 		err = mpam_get_cpumask_from_cache_id(comp->comp_id, class->level,
-@@ -528,7 +531,17 @@ static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
- 		break;
- 	case MPAM_CLASS_MEMORY:
- 		get_cpumask_from_node_id(comp->comp_id, affinity);
--		/* affinity may be empty for CPU-less memory nodes */
-+		/*
-+		 * A CPU-less memory node has no local CPUs. Borrow the CPUs that
-+		 * can reach the MSC so the node still gets a resctrl domain, and
-+		 * flag it so the borrowed mask is kept out of class->affinity.
-+		 */
-+		if (cpumask_empty(affinity)) {
-+			dev_info(&msc->pdev->dev,
-+				 "CPU-less numa node %u\n", comp->comp_id);
-+			cpumask_copy(affinity, cpu_possible_mask);
-+			*cpu_less = true;
+ static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
+ 					 enum resctrl_res_level rid,
+ 					 struct rdt_domain_hdr *hdr)
+ {
+ 	lockdep_assert_cpus_held();
+ 
+-	INIT_LIST_HEAD(&hdr->list);
+-	hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
+-	hdr->rid = rid;
+-	cpumask_set_cpu(cpu, &hdr->cpu_mask);
++	mpam_resctrl_domain_hdr_init_mask(cpumask_of(cpu), cpu, comp, rid, hdr);
+ }
+ 
+ static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+@@ -1805,12 +1816,12 @@ static void mpam_resctrl_online_domain_hdr(unsigned int cpu,
+  * indicating the parent structure can be freed.
+  * If there are other CPUs in the domain, returns false.
+  */
+-static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+-					    struct rdt_domain_hdr *hdr)
++static bool mpam_resctrl_offline_domain_hdr_mask(const struct cpumask *cpus,
++						 struct rdt_domain_hdr *hdr)
+ {
+ 	lockdep_assert_held(&domain_list_lock);
+ 
+-	cpumask_clear_cpu(cpu, &hdr->cpu_mask);
++	cpumask_andnot(&hdr->cpu_mask, &hdr->cpu_mask, cpus);
+ 	if (cpumask_empty(&hdr->cpu_mask)) {
+ 		list_del_rcu(&hdr->list);
+ 		synchronize_rcu();
+@@ -1820,6 +1831,12 @@ static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
+ 	return false;
+ }
+ 
++static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
++					    struct rdt_domain_hdr *hdr)
++{
++	return mpam_resctrl_offline_domain_hdr_mask(cpumask_of(cpu), hdr);
++}
++
+ static void mpam_resctrl_domain_insert(struct list_head *list,
+ 				       struct rdt_domain_hdr *new)
+ {
+@@ -1835,6 +1852,23 @@ static void mpam_resctrl_domain_insert(struct list_head *list,
+ 	list_add_tail_rcu(&new->list, pos);
+ }
+ 
++static struct mpam_component *find_component_nid(struct mpam_class *class, int nid)
++{
++	struct mpam_component *comp;
++
++	if (!class || class->type != MPAM_CLASS_MEMORY)
++		return NULL;
++
++	guard(srcu)(&mpam_srcu);
++	list_for_each_entry_srcu(comp, &class->components, class_list,
++				 srcu_read_lock_held(&mpam_srcu)) {
++		if (comp->comp_id == nid)
++			return comp;
++	}
++
++	return NULL;
++}
++
+ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+ {
+ 	struct mpam_component *comp;
+@@ -2094,6 +2128,297 @@ static void mpam_resctrl_offline_ctrls(unsigned int cpu, struct mpam_resctrl_res
+ 	}
+ }
+ 
++static bool mpam_mba_uses_memory_nid(void)
++{
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
++
++	return res->class && res->class->type == MPAM_CLASS_MEMORY;
++}
++
++static struct mpam_resctrl_dom *
++mpam_get_ctrl_domain_from_nid(int nid, struct mpam_resctrl_res *res,
++			      struct resctrl_ctrl *ctrl)
++{
++	struct mpam_resctrl_dom *dom;
++
++	list_for_each_entry(dom, &ctrl->domains, resctrl_ctrl_dom.hdr.list) {
++		if (!dom->ctrl_comp || !dom->ctrl_comp->class)
++			continue;
++		if (dom->ctrl_comp->class->type != MPAM_CLASS_MEMORY)
++			continue;
++		if (dom->ctrl_comp->comp_id == nid)
++			return dom;
++	}
++
++	return NULL;
++}
++
++static struct mpam_resctrl_dom *
++mpam_get_mon_domain_from_nid(int nid, struct mpam_resctrl_res *res)
++{
++	struct mpam_resctrl_dom *dom;
++	struct rdt_resource *r = &res->resctrl_res;
++
++	if (!r->mon_capable)
++		return NULL;
++
++	list_for_each_entry(dom, &r->mon_domains, resctrl_mon_dom.hdr.list) {
++		if (!dom->ctrl_comp || !dom->ctrl_comp->class)
++			continue;
++		if (dom->ctrl_comp->class->type != MPAM_CLASS_MEMORY)
++			continue;
++		if (dom->ctrl_comp->comp_id == nid)
++			return dom;
++	}
++
++	return NULL;
++}
++
++static struct mpam_resctrl_dom *
++mpam_resctrl_alloc_ctrl_domain_nid(int nid, struct mpam_resctrl_res *res,
++				   struct resctrl_ctrl *ctrl,
++				   struct mpam_component *comp)
++{
++	int err;
++	struct mpam_resctrl_dom *dom;
++	struct rdt_ctrl_domain *ctrl_d;
++	struct rdt_resource *r = &res->resctrl_res;
++	int id_cpu = cpumask_first(cpu_possible_mask);
++
++	if (id_cpu >= nr_cpu_ids)
++		id_cpu = 0;
++
++	lockdep_assert_held(&domain_list_lock);
++
++	if (!r->alloc_capable)
++		return ERR_PTR(-EINVAL);
++
++	if (WARN_ON_ONCE(!comp))
++		return ERR_PTR(-EINVAL);
++
++	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);
++	if (!dom)
++		return ERR_PTR(-ENOMEM);
++
++	dom->ctrl_comp = comp;
++
++	ctrl_d = &dom->resctrl_ctrl_dom;
++	mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, comp,
++					  r->rid, &ctrl_d->hdr);
++	ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
++	err = resctrl_online_ctrl_domain(r, ctrl, ctrl_d);
++	if (err)
++		goto free_domain;
++
++	mpam_resctrl_domain_insert(&ctrl->domains, &ctrl_d->hdr);
++
++	return dom;
++
++free_domain:
++	kfree(dom);
++	return ERR_PTR(err);
++}
++
++static struct mpam_resctrl_dom *
++mpam_resctrl_alloc_mon_domain_nid(int nid, struct mpam_resctrl_res *res,
++				  struct mpam_component *comp)
++{
++	int err;
++	struct mpam_resctrl_dom *dom;
++	struct rdt_l3_mon_domain *mon_d;
++	struct rdt_resource *r = &res->resctrl_res;
++	struct mpam_component *any_mon_comp = NULL;
++	struct mpam_resctrl_mon *mon;
++	enum resctrl_event_id eventid;
++	int id_cpu = cpumask_first(cpu_possible_mask);
++
++	if (id_cpu >= nr_cpu_ids)
++		id_cpu = 0;
++
++	lockdep_assert_held(&domain_list_lock);
++
++	if (!r->mon_capable)
++		return ERR_PTR(-EINVAL);
++
++	if (WARN_ON_ONCE(!comp))
++		return ERR_PTR(-EINVAL);
++
++	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);
++	if (!dom)
++		return ERR_PTR(-ENOMEM);
++
++	dom->ctrl_comp = comp;
++
++	for_each_mpam_resctrl_mon(mon, eventid) {
++		struct mpam_component *mon_comp;
++
++		if (!mon->class)
++			continue;
++
++		mon_comp = find_component_nid(mon->class, nid);
++		dom->mon_comp[eventid] = mon_comp;
++		if (mon_comp)
++			any_mon_comp = mon_comp;
++	}
++	if (!any_mon_comp) {
++		err = -EFAULT;
++		goto free_domain;
++	}
++
++	mon_d = &dom->resctrl_mon_dom;
++	mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, any_mon_comp,
++					  r->rid, &mon_d->hdr);
++	mon_d->hdr.type = RESCTRL_MON_DOMAIN;
++	err = resctrl_online_mon_domain(r, &mon_d->hdr);
++	if (err)
++		goto free_domain;
++
++	mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
++
++	return dom;
++
++free_domain:
++	kfree(dom);
++	return ERR_PTR(err);
++}
++
++static int mpam_resctrl_online_node(unsigned int nid)
++{
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
++	struct rdt_resource *r = &res->resctrl_res;
++	struct mpam_component *comp;
++	struct resctrl_ctrl *ctrl, *em_ctrl;
++	struct mpam_resctrl_dom *dom;
++
++	if (!res->class)
++		return 0;
++
++	comp = find_component_nid(res->class, nid);
++	if (!comp)
++		return 0;
++
++	guard(mutex)(&domain_list_lock);
++
++	if (r->alloc_capable) {
++		for_each_resource_ctrl(ctrl, r) {
++			dom = mpam_get_ctrl_domain_from_nid(nid, res, ctrl);
++			if (!dom) {
++				dom = mpam_resctrl_alloc_ctrl_domain_nid(nid, res,
++									 ctrl, comp);
++				if (IS_ERR(dom))
++					return PTR_ERR(dom);
++			}
++
++			list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
++				dom = mpam_get_ctrl_domain_from_nid(nid, res, em_ctrl);
++				if (!dom) {
++					dom = mpam_resctrl_alloc_ctrl_domain_nid(nid, res,
++										 em_ctrl, comp);
++					if (IS_ERR(dom))
++						return PTR_ERR(dom);
++				}
++			}
 +		}
- 		break;
- 	case MPAM_CLASS_UNKNOWN:
- 		return 0;
-@@ -582,7 +595,8 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
- 		return PTR_ERR(vmsc);
++	}
++
++	if (r->mon_capable) {
++		dom = mpam_get_mon_domain_from_nid(nid, res);
++		if (!dom) {
++			dom = mpam_resctrl_alloc_mon_domain_nid(nid, res, comp);
++			if (IS_ERR(dom))
++				return PTR_ERR(dom);
++		}
++	}
++
++	return 0;
++}
++
++static int mpam_resctrl_offline_node(unsigned int nid)
++{
++	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
++	struct rdt_resource *r = &res->resctrl_res;
++	struct resctrl_ctrl *ctrl, *em_ctrl;
++	struct mpam_resctrl_dom *dom;
++	struct rdt_ctrl_domain *ctrl_d;
++	struct rdt_l3_mon_domain *mon_d;
++
++	if (!res->class)
++		return 0;
++
++	if (!find_component_nid(res->class, nid))
++		return 0;
++
++	guard(mutex)(&domain_list_lock);
++
++	if (r->alloc_capable) {
++		for_each_resource_ctrl(ctrl, r) {
++			list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
++				dom = mpam_get_ctrl_domain_from_nid(nid, res, em_ctrl);
++				if (WARN_ON_ONCE(!dom))
++					continue;
++				ctrl_d = &dom->resctrl_ctrl_dom;
++				if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask,
++									 &ctrl_d->hdr)) {
++					resctrl_offline_ctrl_domain(r, em_ctrl, ctrl_d);
++					kfree(dom);
++				}
++			}
++
++			dom = mpam_get_ctrl_domain_from_nid(nid, res, ctrl);
++			if (WARN_ON_ONCE(!dom))
++				continue;
++			ctrl_d = &dom->resctrl_ctrl_dom;
++			if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask,
++								 &ctrl_d->hdr)) {
++				resctrl_offline_ctrl_domain(r, ctrl, ctrl_d);
++				kfree(dom);
++			}
++		}
++	}
++
++	if (r->mon_capable) {
++		dom = mpam_get_mon_domain_from_nid(nid, res);
++		if (WARN_ON_ONCE(!dom))
++			return 0;
++		mon_d = &dom->resctrl_mon_dom;
++		if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mask, &mon_d->hdr)) {
++			resctrl_offline_mon_domain(r, &mon_d->hdr);
++			kfree(dom);
++		}
++	}
++
++	return 0;
++}
++
++static int mpam_resctrl_node_notifier(struct notifier_block *self,
++				      unsigned long action, void *arg)
++{
++	struct node_notify *nn = arg;
++
++	if (nn->nid < 0 || !mpam_mba_uses_memory_nid())
++		return NOTIFY_OK;
++
++	/*
++	 * Ignore nids that have CPUs. Resctrl needs to see the cpu offline
++	 * call for each CPU to update the CPUs in control groups.
++	 */
++	if (!cpumask_empty(cpumask_of_node(nn->nid)))
++		return NOTIFY_OK;
++
++	switch (action) {
++	case NODE_ADDED_FIRST_MEMORY:
++		mpam_resctrl_online_node(nn->nid);
++		break;
++	case NODE_REMOVED_LAST_MEMORY:
++		mpam_resctrl_offline_node(nn->nid);
++		break;
++	default:
++		break;
++	}
++
++	return NOTIFY_OK;
++}
++
+ int mpam_resctrl_online_cpu(unsigned int cpu)
+ {
+ 	struct mpam_resctrl_res *res;
+@@ -2229,6 +2554,10 @@ int mpam_resctrl_setup(void)
+ 		}
  	}
  
--	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp);
-+	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp,
-+				    &ris->cpu_less);
- 	if (err) {
- 		if (list_empty(&vmsc->ris))
- 			mpam_vmsc_destroy(vmsc);
-@@ -594,8 +608,24 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
- 	INIT_LIST_HEAD_RCU(&ris->vmsc_list);
- 	ris->vmsc = vmsc;
- 
-+	/*
-+	 * comp->affinity must include the borrowed mask for CPU-less nodes:
-+	 * mpam_resctrl_online_cpu() matches CPUs against comp->affinity to
-+	 * create per-component domains. Overlap between CPU-less and CPU-ful
-+	 * components is expected; each match gets its own domain keyed by
-+	 * comp->comp_id, not by first-match lookup.
-+	 *
-+	 * class->affinity is different: it tracks CPUs with a local MSC in
-+	 * this class. A CPU-less node borrows the CPUs that can reach its MSC
-+	 * (see mpam_ris_get_affinity()) only so that it gets a per-component
-+	 * resctrl domain. Those CPUs already contribute to class->affinity
-+	 * through their own CPU-ful node, so folding the borrowed mask in here
-+	 * would let mpam_ris_destroy() later subtract CPUs that other live
-+	 * nodes in the class still depend on.
-+	 */
- 	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
--	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
-+	if (!ris->cpu_less)
-+		cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
- 	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
- 	list_add_rcu(&ris->msc_list, &msc->ris);
- 
-@@ -612,11 +642,24 @@ static void mpam_ris_destroy(struct mpam_msc_ris *ris)
- 	lockdep_assert_held(&mpam_list_lock);
- 
- 	/*
--	 * It is assumed affinities don't overlap. If they do the class becomes
--	 * unusable immediately.
-+	 * A CPU-less node's borrowed affinity was deliberately never folded into
-+	 * class->affinity (see mpam_ris_create_locked()), so it must not be
-+	 * subtracted here: doing so would remove CPUs that other live nodes in
-+	 * the class still rely on.
-+	 *
-+	 * Every RIS of a CPU-less component borrowed cpu_possible_mask masked by
-+	 * its own msc->accessibility (see mpam_ris_get_affinity()), so these
-+	 * borrowed masks overlap across sibling RIS. Such a mask must not be
-+	 * subtracted from comp->affinity either: a component backed by more than
-+	 * one MSC keeps a live sibling RIS after this one is destroyed, and
-+	 * subtracting the overlapping mask would wrongly empty comp->affinity
-+	 * while that sibling still needs it. The borrowed affinity is released
-+	 * when the component itself is torn down.
- 	 */
--	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
--	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
-+	if (!ris->cpu_less) {
-+		cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
-+		cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
-+	}
- 	clear_bit(ris->ris_idx, &msc->ris_idxs);
- 	list_del_rcu(&ris->msc_list);
- 	list_del_rcu(&ris->vmsc_list);
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index dfa3ceb734d4..1c9e0e8b78a9 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -369,6 +369,14 @@ struct mpam_msc_ris {
- 	struct mpam_props	props;
- 	bool			in_reset_state;
- 
-+	/*
-+	 * A CPU-less memory node has no CPUs of its own, so this RIS borrows the
-+	 * CPUs that can reach its MSC (see mpam_ris_get_affinity()) purely so
-+	 * the node still gets a resctrl domain. When set, the borrowed mask in
-+	 * @affinity must not be folded into the owning class's affinity.
-+	 */
-+	bool			cpu_less;
++	if (mpam_mba_uses_memory_nid())
++		hotplug_node_notifier(mpam_resctrl_node_notifier,
++				      RESCTRL_CALLBACK_PRI);
 +
- 	cpumask_t		affinity;
+ 	cpus_read_unlock();
  
- 	/* member of mpam_vmsc:ris */
+ 	if (!resctrl_arch_alloc_capable() && !resctrl_arch_mon_capable()) {
+diff --git a/include/linux/memory.h b/include/linux/memory.h
+index 463dc02f6cff..1497d4be38ee 100644
+--- a/include/linux/memory.h
++++ b/include/linux/memory.h
+@@ -120,6 +120,7 @@ struct mem_section;
+ #define CPUSET_CALLBACK_PRI	10
+ #define MEMTIER_HOTPLUG_PRI	100
+ #define KSM_CALLBACK_PRI	100
++#define RESCTRL_CALLBACK_PRI	100
+ 
+ #ifndef CONFIG_MEMORY_HOTPLUG
+ static inline void memory_dev_init(void)
 -- 
 2.53.0
 
