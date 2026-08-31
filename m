@@ -4,112 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B9FC61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441E3C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kABR3d14T2hX24+Iq8Rghe1MFpuB/gfE4DOUA56gUPI=; b=AN5uK9L4dRbKr6Ruqlt2hyGl11
-	5xWIiZVlWsH5j9n5glFYg1ln4Z6uRXdTfBrm+jT7fHiHqSna2CDPCoKSnsbsCPCTcveKCd8xZxu4Q
-	guhw6+hSKwN6lH0YxBxAq9SL4gzWewL+6ruMX9L1yR6C8EjXXRuf9BckHAvf50W52edU92QCHizHu
-	ZzHRMnEK8+0p5vzgaQEjGvdweLt6Spd6vE22HPAfsSHbRmcMg0rP/KowIAWj2a67DjjAa5ZYqynIw
-	UQ0nvyHcCXXQ9YS28jWuDLBN8/Po74MiMlLHqOAcxOE9wC/wQ9qaN5CXZAMPSNotmnBkvSTbogYwl
-	QSG6MPPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=EB2N8WRVnbLtJekNqeO/ayIWjR
+	Frc67Lusg4fBe20StFG7JbYGDnPsQttZzo1OAE9qu+DwWQ/Xks8AYS6bNhLURELX2uWh9enmp9egd
+	5VAQZVGUhCkv39sxnU5KIMVOHMrbl7gnSFS3UrF51RUs+AyVjhtgcmWUn0xZGONQu/xEVV2StNQXc
+	oZv8424JBqourU5DyoL8/v+3WYPlB0+rS7vLBAfvzRZMnD9YYsraH7CoSKDRoTfJ4rIieqvEke50h
+	Gdalg5WckH2iNv89ZciMAP17UsAPfH2jXswDlBWkIQLdZuBvQDSQbhgPvr7Vl3PpbyDeSzJoOoquu
+	jUWLlPlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xHf-00000008rk4-04Wm;
-	Mon, 31 Aug 2026 08:22:27 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1x0xHl-00000008rqC-1uLN;
+	Mon, 31 Aug 2026 08:22:33 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xHX-00000008ram-0cbt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 08:22:22 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-48433f36a21so1046237f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 01:22:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1788164537; x=1788769337; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kABR3d14T2hX24+Iq8Rghe1MFpuB/gfE4DOUA56gUPI=;
-        b=b9mM6oUGmjpEH3U6O1milE050xhBoT0UV27vm9h+bhdSBXAVm10MXL3mM2yBBLuuGk
-         TezeSKDozO7zW0ncEBUiQnkhMFb0/hxyFNK9GILpRIdQdd55d8ZLqa4N0y3mJKQNWgCa
-         7i1VpzVs7opm5Iag1XSJKayroSVQEe+pYUi6UNSoX7eOHwGSxxSy20gnMM/Q10ITuvSy
-         tS8RKP5yI8H3jHsDEPCiZ4fpmCxRqDiUDatKVS0w0LzYLd/HZp/zvUYMMcxTlYWjQXc8
-         le00LXh9qt6+65DP0eV3+hGW+m2EvcE4NmgYjBzbPjFWHMOKkh47Nz66C5Li+UMAvND2
-         O1qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788164537; x=1788769337;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=kABR3d14T2hX24+Iq8Rghe1MFpuB/gfE4DOUA56gUPI=;
-        b=PPAX9UBe1Wr9/+uW4Q0bsMEhbGoZzokPAxRRUVpIIYnON5vlxtjTHhrvm6FsjsBDWW
-         hKoo19KuEDhYv7QllNGqaqLwJ4YhSIwkrSZVt3BcSj7DRuQMt8thWtMMcTB4j9l1Yqi2
-         K99uvFUZirnK192qhNtH/eMdGcfolCf67N7XK8FwRcLrWa+KeRnAu6U7AKm1/U/t16LZ
-         695bHu0HQ3MMaoZ//KNape/veFF04ByvKojTs3tED7qgKW50lxC5qw5vTcJkF08SohFS
-         YcRG6lwKJepJ3embWtC+7lnHqLjxdlq4YNqgAwxKp8jd47ZQNbue4xHY78vGR9+3t4Zs
-         tXZw==
-X-Forwarded-Encrypted: i=1; AKwUvBwYR85GLG8zr91ucu4P8szezPDdr8OMtYNHvGEy7rb0N7KyS6jRBefMsAEhrlmAf2rNvY6SvQAE4RHFpiNXwYrs@lists.infradead.org
-X-Gm-Message-State: AFuF++nhaiRGE8hW1JTfCksQ1kVCgRsr9RgYAY4n/8jJi5Bv0rD/k21W
-	T0GRJx6VKrB9+jtkTGSVyLk9G44PMS95Eb9Om++fp79a6R3fptl9yoTTwG+2JABHjf44tDV1zpT
-	CqlEUC2E=
-X-Gm-Gg: AYBFou3tJZnISftv6CpoCVIiXRXtANzYh0YFnigYtgdCYlHOccvLaYNlThC5iNZLmWn
-	5v3+DwjYkSLm1R54s9ZJHdIDe/afekopjJGdsMfVcds090qqItr3TjJAXkQOP9Sdc1qRFKtFIRr
-	FnFGe5NPTGlYUYYVHpc/3e1z8MffUCVqoEQICbuKBauU/1xxW/El425mIRdUjMEnGCrWN8pEilX
-	bBPjMyjfRXs4xPRmpdw5bqIgSxhXTsjWvLsiJK+l+VZkRxikbj9BfVU4NWSQ89XXDxgTPQqD+sM
-	geI+5rVRqrST4/1GcZbZ+PCEeXR4u05SvbRorUqcHqIiG8dI5oftbT1/LvHJBNXw1DArW2+IxU8
-	XxRRMHxuTX//2zDmE+Wus7htZJGuzMIsXheC7k3wCX7Il0AVD9hrgQTjcxcsTaa4KTTCMUO+3ft
-	kLoyh+w1iaLMT4pyJBP+Ugc/+vctDTL/D9IoNQ+J3OjkB73xejci6kmYib+Hdb7NarkQASCk95h
-	afwZK2TOA==
-X-Received: by 2002:a05:6000:481b:b0:484:3600:35a9 with SMTP id ffacd0b85a97d-4843978e680mr12223716f8f.3.1788164536876;
-        Mon, 31 Aug 2026 01:22:16 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0e:1007:7be3:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48435b024fbsm12098269f8f.29.2026.08.31.01.22.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 01:22:16 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Mon, 31 Aug 2026 10:22:14 +0200
-Subject: [PATCH v3] arm64: defconfig: enable the necessary drivers for the
- Ayaneo Pocket S2
+	id 1x0xHf-00000008rjn-1D4t;
+	Mon, 31 Aug 2026 08:22:29 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailflow.phl.internal (Postfix) with ESMTP id 7AC0E1380045;
+	Mon, 31 Aug 2026 04:22:26 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Mon, 31 Aug 2026 04:22:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1788164546; x=
+	1788171746; bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=P
+	5vqeOw3ShNwcVBCo0k+wdZQceJK5uqFU/EnL4qZRbrjVznhH5r/SdRUCKEqhIDpP
+	y1h3ZY4Sm1jwrGe7p3Lsabi+MnMnhQ73tiQcRNC3FmJoJCrdADhfikvkLq5gYpZy
+	HG87BJPuMPrHUEPOALX0FOjWhS14GrDssJp6xZPrNuiwA/obU966sk1+zMk08ulF
+	YM7g50Ptv39ILyEs9AREsWIxRlung84TzctmEhAYEi3FGewxS+csk39JRVHdbzaW
+	6M+kj45fhtsDMZ8IBWZam8TvwLMuqE9c/VPSKoItahq630nSb100GJ+TvjxDI10e
+	E/yopNWFLbk+NkYhfdHVw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1788164546; x=1788171746; bh=y
+	yAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=VZ1NMvm9ufm+ap+8t
+	SuJlH6aAjIyhx4gM+mcBuqtMaHkNbpB2nYr+BrYV56iwqCpFB1VUwS3rBezMP3hP
+	1hjUSZEj8B6uqdfdG+TcpgPIzp8RTUp/U+5SBe7QrZDeILnzn6uZteItf2vaZSCH
+	EYG5OxRla/e8bb+AnqDA4yMYHqSxRNm+d6AXbqxgnOb5oG+7aE6Kkkpq+QDAS6c3
+	mP5+2S3h9IYhy2ohBwHQxzsA66zmUyTusjdjzjtPV652oCr22bL25HKVL8w/4myI
+	t4hary/SDcsS2Jcv7bavfTe2BNUJ3CTuStrRAbVnTPfX1Ns3CtJekefeC8mSeqo4
+	4+Hdg==
+X-ME-Sender: <xms:wjmVat0bqC9i3Gc4GDM9cMyiIiw1mRJRyP4ucpYpYZt-lZE_pfm7hA>
+    <xme:wjmVavlxMABW87ynYLKCF9HzH90_l0JdTvD8SrFCMSepAraK1Gggnu8b9lFyqegd2
+    gOevkZ3opUYXpVLMaQk89if2OPw5eifrmB59bDfSXJP1RY6qpeRXYkH>
+X-ME-Received: <xmr:wjmVaj70QoKrX8_AkeGr-LVL5dS68i4zPWrhSlK-xRxjUKikZ4Xu7sCEPMsi2ZgVr63YgKmCaQ>
+X-ME-Proxy-Cause: dmFkZTGO980Yn8uMbt0j2BdcD4QX/iOl9tUTFXCQ903aZIrMv7Tc6fuat3dY7duyg1xULb
+    yz10ob59tw/e4mxHxusC7Au1N4yhmt1yaDLIz0vcL8AJV9F7KQx+2+AsVtAkp8ss8MY4Kn
+    JM/nREETieohMZYv4RIh7Ygrpu4ZhAjUJQvWYoB8T1YSEXSwyUcny6aAbDZsJTqMdR5hRt
+    YbkWmcbdFOkc3c+lkICatwo6JMUCVpLlTOLedKImNWzhQDajBwqfhQjyXd8NbiMRLpQrNO
+    vpYClpYhFWPE/Y0sKG5xjf/eaGk7Zjv8nlP0Vq5z/Uo/jONQQ3T8oIPx3LprFSjLy2zQIk
+    hDBNgVO1mJx4GPGpisLvnD+Rzrr663mMdvMu22MeP6cfBXkMxCEJZNAHoQ/XlY0/PPOs1S
+    JDmj/dMRdpjl/TpDdpzwRbCTSdz8Vq16CRR2y1PCRdCNo20v24Kt9rdjDzTdINn2cB/0dg
+    OxQhrJEJtwez/a31NOTkjaKktqc4zh9EOj1uY0cHFxXLel43FBPKheMPj0xHWxa2nCfkRH
+    TExXjedslOHuXQKdJj0MTUHSw78E5y7IzQdV+VYcO0gqF74uxkEmE8vxl+/DlHyOhlT+EX
+    miAYGYwV+EjxcFrWe1AWjjplN6NrfjBzfiLI6yt/gjvzy1X66z1qKJpW2JYA
+X-ME-Proxy: <xmx:wjmVaomHocHTofk4WSBKAtZXW_qWOCe4y1jDdl2tNHRBmQ1v83YG8Q>
+    <xmx:wjmValQRsqTKowvptCS_erMnfJti375Byf39Og1a-w6BWubEAnb_nA>
+    <xmx:wjmVammUIwsRCv287vwzNlzce58Wg9tAHOixMKwAGGGZMMCOWu1ewA>
+    <xmx:wjmVamMfjf4re-Bgv4zaaoy_gmrlhVwLJo7ejzIgHDrUot5qW-gE4Q>
+    <xmx:wjmVapjs23DSJ9eGdOqiwgdw25xCWfQtfslQzI6LoFvcbMP9P9chJj3_>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 31 Aug 2026 04:22:19 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	u.kleine-koenig@baylibre.com,
+	chaoyi.chen@rock-chips.com,
+	diederik@cknow-tech.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v11 14/14] arm64: dts: rockchip: rk3576-rock-4d: enable NPU
+Date: Mon, 31 Aug 2026 20:19:56 +1200
+Message-ID: <20260831081956.84871-15-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260831081956.84871-1-gahing@gahingwoo.com>
+References: <20260831081956.84871-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-topic-sm8650-ayaneo-pocket-s2-defconfigs-v3-1-bd8ef3322632@linaro.org>
-X-B4-Tracking: v=1; b=H4sIALU5lWoC/52OOw7CMBAFr4Jcs8h2vqbiHojCLOuwfOzIDhERy
- t1JoIESypGeZt5DJIpMSawXDxGp58TBT5AtFwKP1jcEfJhYaKlLWekautAyQrrWZSHBDtZTgDb
- gmTpIGg7kMHjHTYLKyaosTF6XTolJ10ZyfH+ltrs3p9v+RNjN/nlx5NSFOLy+9Gre/ZHtFUjID
- WUWFdbO5ZsLexvDKsRGzN1ef5gz9YNZgwKHuTRUGG0kfpnHcXwCgFqUPU0BAAA=
-X-Change-ID: 20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-7f07659486f1
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>
-X-Mailer: b4 0.15.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1961;
- i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=zy5HflWMSJKpdEDAhcS6LMg6T9VvkVh36wf255mMT/E=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBqlTm3FFYFQlpBKjavnp28Ebf4fBNU8FaZ1HNpDJqn
- K7jLNIaJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCapU5twAKCRB33NvayMhJ0bwDEA
- CbHr4DskqKJW8GD0DR8UWpdnMYQc9PSFTbTOGqq2xy/NfhJAXamcWG+TKLr9aGSMmVVGaruo4G9BqW
- 4+V5G3GqFQudmsRzLQPM/XHNP3XlhhsDl7kvqfQUx8qEbAX/yB1w9tcc0+TmTN/dFkgmE0e+J9RJuX
- 244ApS1ohgDzkyb2JzZTdjyB2qTyBPXF61Fxua1U1sUtkbEsouR2fFS2A7xs/CoO1xblEFCCMvlFXT
- f3LVkldH0AN3E0aQgtMxxPn9W4YTaaIE7nfkQAjjX12Nfyo6IDCity2sAAH//MiYjKCzW+D/ntSpcS
- 4OBxIpQKPwlM7m9lNAMkQniOFkyw09TZbrUn0+stdB92L2s61IWhiriTlyT+TCiojLkUskm8NuXpne
- GEv1CZPSL5ObyPI8ch0WZ0R0ujfTbk602ax6Us/MEVUqpgxb+eD55qPZmz4ScDrF27Pj1+1d9o+lSo
- QfFcz57gxBpOYuES7fxYdHyaQwRXmZlDBDh5EhlaDNJVCHTzmsHciu65z2ou7PAKHAEC/16oPMQqIe
- LzcbyUxLyyZVM6M+rY6gH3wbSCGybYK3CuoU81B8ccFX0insZcqGQPpavJjnxE0cNLETAniqwNHK1Z
- C11Et2aL2WPX8dJaOX+fJEenwCEZsfDxSqflsqZo7apgslRPeEcp+6tPgUHg==
-X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
- fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_012219_237954_990C4E2E 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260831_012227_401934_E6FF0865 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,61 +128,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the SGM3804 regulator, SY7758 backlight and Renesas 63419 panel
-drivers as module since used by the display on the Qualcomm SM8650 based
-Ayaneo Pocket S2 Gaming Console.
+Enable rknn_core_0 and its IOMMU on the Radxa ROCK 4D, and hand
+vdd_npu_s0 to the NPU power domain as its domain-supply, so the rail is
+switched by the domain that gates the block.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+Measured on a ROCK 4D with this in place. The rail's regulator debugfs
+reports open_count 1, so the domain is the consumer that took it. A
+sampler running beside an inference caught use_count at 1, and three
+reads at rest report use_count 0 with the rail disabled, so it follows
+the domain rather than staying on. Over the same run the genpd
+active_time of all four NPU domains rises by roughly 60ms per inference,
+and the inferences either side of that are 128 of 128 channels against
+the CPU reference.
+
+rknn_core_0 keeps npu-supply on the same rail, which the binding
+requires. Only rknn_core_0 is enabled: the driver binds one core per
+node and the second core is left to whoever can test it.
+
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 ---
-Changes in v3:
-- Fix subject
-- Get review tag
-- Rebase on v7.3-rc1
-- Link to v2: https://patch.msgid.link/20260731-topic-sm8650-ayaneo-pocket-s2-defconfigs-v2-1-fc409e59290c@linaro.org
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Changes in v2:
-- squashed into a single patch
-- Link to v1: https://patch.msgid.link/20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-v1-0-49e3ac1c8ff4@linaro.org
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 6ec8d3a69c98..87a6c50bdd14 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -895,6 +895,7 @@ CONFIG_REGULATOR_QCOM_USB_VBUS=m
- CONFIG_REGULATOR_RAA215300=y
- CONFIG_REGULATOR_RK808=y
- CONFIG_REGULATOR_S2MPS11=y
-+CONFIG_REGULATOR_SGM3804=y
- CONFIG_REGULATOR_TPS65132=m
- CONFIG_REGULATOR_TPS65219=y
- CONFIG_REGULATOR_VCTRL=m
-@@ -1026,6 +1027,7 @@ CONFIG_DRM_PANEL_NOVATEK_NT36672E=m
- CONFIG_DRM_PANEL_NOVATEK_NT37801=m
- CONFIG_DRM_PANEL_RAYDIUM_RM67191=m
- CONFIG_DRM_PANEL_RAYDIUM_RM692E5=m
-+CONFIG_DRM_PANEL_RENESAS_R63419=m
- CONFIG_DRM_PANEL_SAMSUNG_ATNA33XC20=m
- CONFIG_DRM_PANEL_SITRONIX_ST7703=m
- CONFIG_DRM_PANEL_STARTEK_KD070FHFID015=m
-@@ -1062,6 +1064,7 @@ CONFIG_DRM_ZYNQMP_DPSUB_AUDIO=y
- CONFIG_FB=y
- CONFIG_FB_EFI=y
- CONFIG_FB_MODE_HELPERS=y
-+CONFIG_BACKLIGHT_SY7758=m
- CONFIG_BACKLIGHT_PWM=m
- CONFIG_BACKLIGHT_APPLE_DWI=m
- CONFIG_BACKLIGHT_QCOM_WLED=m
-
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-7f07659486f1
-
-Best regards,
---  
-Neil Armstrong <neil.armstrong@linaro.org>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 272af1012..79e039bee 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -722,6 +722,10 @@ &pcie0 {
+ 	status = "okay";
+ };
+ 
++&pd_npu {
++	domain-supply = <&vdd_npu_s0>;
++};
++
+ &pinctrl {
+ 	hdmi {
+ 		hdmi_tx_on_h: hdmi-tx-on-h {
+@@ -779,6 +783,15 @@ wifi_en_h: wifi-en-h {
+ 	};
+ };
+ 
++&rknn_core_0 {
++	npu-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
++
++&rknn_mmu_0 {
++	status = "okay";
++};
++
+ &sai6 {
+ 	status = "okay";
+ };
+-- 
+2.43.0
 
 
