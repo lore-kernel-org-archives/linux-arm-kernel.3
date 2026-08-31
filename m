@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0129C61DF0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0B9C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQ1mOUazk5upCwE99RY/bxkx1ogD35Z5ZprZqBWTmPY=; b=UfFAm1ZMxpjV1v0H1xLC7C2T8S
-	AJON0nSFNcy4dSb3wVs6M91UIRJi95+kCE3n8L7Fc5d9DaSzfae1UgicFCrcvDxMujhfgeE+/uCwJ
-	LZeAVgodcgKt4x8bdArQRUmizWcF05/HxGtXi2qEV1f420oR5KyEtKd5Rm88v2ZWGUgYmQGmp+hYd
-	Tar0LvQ8QjrUT7JPxEBfN8CdHY4XRcjRCFQ6zq2bCpWW9hJgLqggNjr9FmvEW6SfkyeYrPBxXARyp
-	SwahoHfaSc7Bd8yLMC2ogn/w1bT9FVsi8yLyeRrWUaS+q2yeSjEpnDHd92iIPHFTqpr6NxZYA/ufC
-	jbzspqYg==;
+	bh=ptsOsHU/6/aB7s/AaOx0+tOkggKvvNrqLs8HPEye82U=; b=yjEZe1FwZv1xz0HGMxK1KhpY5H
+	xWCiA6Mb5+o4WtCyRRd9hs6kOJekrhYrU4Ms7b2lsUAwKfCJCOnl1WArTiclVoSYparrnPK55a/5r
+	8Jnh7VHbvZRmNiXotB/vq5t19IAJqQ/dXxr6+Sku1uz2LvKyhIfSxmvyO1sk/FB13VlsKTSuoS3KS
+	+LELETRYWjR4DiPHIKBsx6Eu6iNgvRnMhsc5DhVAoMOvlM+VpZGE/wH41W6buYZMFw/TNPPEQOCnD
+	+zPshLvpgsPbxtxxG/miE/1hpx85VdtZZf/vLbcWrUZ0tIRs1aqLBM9EyjxSLW5IwygwhrQvrWpG8
+	Qm9KUegQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vJc-00000008b3Q-45pH;
-	Mon, 31 Aug 2026 06:16:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x0vav-00000008cJh-161Z;
+	Mon, 31 Aug 2026 06:34:13 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vJb-00000008b30-317Y
+	id 1x0vaq-00000008cJ0-0XF5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 06:16:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A03E60120;
-	Mon, 31 Aug 2026 06:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66FB81F00A3E;
-	Mon, 31 Aug 2026 06:16:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788156978;
-	bh=nQ1mOUazk5upCwE99RY/bxkx1ogD35Z5ZprZqBWTmPY=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=mknXiB5Wx4PX614tqvlG5yEzEYhGj7zNdApSg1s/xb7+xe1cqik9uWHFoRUttQTN8
-	 GLbG4REFR4A6flpaaTQXrjNUZevMoY6CBXixEt5LvXCIRxJrQfYrcjAlVpjZAWaH0I
-	 DOCSmM/BGDIdrIlnVhwX5xef51ABfjYrQFODHTckOvzxD7JwPV7kIb8pdQhuww32o4
-	 RDwm6xhsn21sGYPg0qO5bEJxfCfpOkpwZKQuq0sf/zSAS/VBd9oT27QLqnkrSlo8pS
-	 O3s9R2/qj4UzfBRiK2EvfDhxWm5nUqEOiDh0fmAIxR5cLV7JkPbUBvR6F+wVEEzGFM
-	 BXkPNPpKyyYVQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id B8903198006B;
-	Mon, 31 Aug 2026 02:16:15 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 31 Aug 2026 02:16:15 -0400
-X-ME-Sender: <xms:LByVamJ7YeNEvsdQ5Y59DrfwXpB_TjwlTyX_bJRfLfv6LDGtGi4wnA>
-    <xme:LByVao9oQvsisq7XdcG8CRYfCvOghSz89z2vpa2siduxQ3YtucXsOwquH4aQ9DR0S
-    ChPkAZO1ur9rdgMRNQLYdXxiEacoYvH6AJv77CWcjRluGg7c8R13BA>
-X-ME-Proxy-Cause: dmFkZTGRWh3uAKJSJ4fzX7rQUTkRM0ok+x/9RVY95O3Kt4edIQPIo1yJqgLo4+wl9GIaUM
-    Wf8bZrzB15C1S53cXh2wjZRLf2q/UgVT1n5TsW7zTfa3WG65q87zeGcgvWR0AgpkKuJ4LY
-    sJ2CIIYGo/xMIC692J/5sSbaE6Zuwi2J0VQpbRvGreXOZ3QyH3CY2i1gFm6e7QbyDW4bdv
-    XpRpoi+TP0awhJOXN0sIHbiLb+aJCUr2C1r9+Awi9h0sSAUAlYyp8zsbKIGINIqe4Cnk8c
-    tsshHKB+sXTCCUw9lgMoozWSOKPArHEJ4wbyK7YGlnZlUf9j/531J8moto0g/EMln/JMQE
-    S7gQiRYEpv5NiofMsAEWSr9F1A3Xaud8jtXNZUlNPNO58ewVHnaXAQkp2enfpiF6zSJ/sp
-    UX/JyD2c6L/lPsj0KTaJvnLbZN3GpZKQYaipS3QwUdez3c3vi44ypBHxlCyy79NwUuDSFF
-    td9jmitMJCFRHcrJQ+0GZH/zSMzj+TuMC6cDUNfaewl1USOVroOxyZB2ESZ1aGvoBXHJd9
-    0sdZmP7D1JxqyNm2WgNcSs4wQF/NFl7NYTKUQjYaWbzGjkKVmJQ1dxKuH4ogl7jmCUVUz0
-    w0FyFcBFGqdfzn6/o4+rB9QoR+z1Dp7h8IS6TjRMgp4kAMWisJx3rZC3suYg
-X-ME-Proxy: <xmx:LxyVaor5sfsREBCEH4eOTypzkAHN3YpRbkQkBFQSsmd-gWb0oJimLg>
-    <xmx:LxyVarMi_T_Ox9-Wj9JcVHmVN8XYFs6gi9lBkCtm8WR-kSQysvQPzA>
-    <xmx:LxyVahrRnlY7Iqvq9CYqmqxxGyXGNtD_U0CwXtRrsqPatamZri7f8w>
-    <xmx:LxyVamtl6REANe3zb3EWJipMSBViE5rmUnWQeQwRmTxcmTR2qTKn5A>
-    <xmx:LxyVao0oQPZc3hQMux2mHrUHAgkSU1cV7x6tNCqtqQWHLBEUiPIlxG7H>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id A90ACF8007B; Mon, 31 Aug 2026 02:16:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 31 Aug 2026 06:34:12 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so3513082a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 23:34:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788158046; x=1788762846; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ptsOsHU/6/aB7s/AaOx0+tOkggKvvNrqLs8HPEye82U=;
+        b=QMKaW18IrwPQC5NcpXMwVQqcxuqLipCkZEfZmA2YHZo8QvKy/9BS0YwVKN7SE31JbZ
+         GQu8oPLRANC6OGWZXnE49OPnAIDHUambfeD/vMiLIPVlR/BYuSTIJg0yEVWtPIrqJ0pm
+         pI6GQnDSgcjtuClUJbIo8twh1UV44Ur1zggjz9f9YsIrFxVunOq/Y4ksxOZ3SfVfqH1S
+         DaFZkDJaVaykYTtkhv1KOD1c/WLjoRJ0Yd9gkl4+ubynKgK4/+d3kVZJRs+jd3XOQMwg
+         qPc1RpeQAKWB6lGcyKj7KZanVudA/u0rlIrHmrkVBt7OI1izY4/MFEfGsmXB4S+AmnNX
+         MiYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788158046; x=1788762846;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ptsOsHU/6/aB7s/AaOx0+tOkggKvvNrqLs8HPEye82U=;
+        b=rWBU+/SloN9TdV59XgXmUpjUUFP7tZwXzStYna/oTx4kNMXsMyzbDApqe7K8c5jygm
+         +MCHemxrfHCEU69b640SC8Awe28p1FJGOXnMQIOVOiBQcQcQjxBaQbJ9AsQ/qAl43hBC
+         9jrXAcEppaOqLBf/HjtFtXhJUQQC1df8KMG5djLN1Ki3NTsZKe9ORR++d1QNCGXdxhcp
+         UFvdLIYFwdaI3ys04f/NK49VU7sVcCLcra7dw+txO1kUyhHIxuG7ehR0KMB5CMv7c0Af
+         4JnUiA+CMm2j/xF+ejYFnWEATvdbRe16QkskgijEZudXZSj0UalJye172eIyWw2M+MTf
+         69gA==
+X-Forwarded-Encrypted: i=1; AKwUvBzHqSPc4FbfkFkmaa9MV7Vw1lK+b44gqmswPT48F3+vO1v57xsr8BgEHUvtLWYUFjHIoUxC+dxMn453Cpc86U4P@lists.infradead.org
+X-Gm-Message-State: AFuF++lcYoz8fkfRyTPT/o9vBiX9iQYYS2ECNo528hPEcfaXOfQhXkhz
+	J9YPVZHtjVSnVluwGN5MhuAHjo4Na/q5VyqTIQ9dEQijZZVbjyOGa6dH
+X-Gm-Gg: AYBFou0rN7iZu1mlKIygMr/DRNBsTxciz/fQoKRpDrcEUydglXZw1xTmQ4ezXSGOfjD
+	sup8dXPrtK8AEMsCD/PSS4EBaQDufX6NGnlEuoOO+2+diVxUQKAH4z3Gvvb9UTLllX8sX1Z+Nna
+	eGXQ2vQ4thrp9SSE3iW9eB8wIKsII6OuR7kVY3A2zhNUHwLtRCVj9ECxcZtGEobBlUpgklBd4JM
+	QCRauvD8wGIROxQ9RxeJIV1i9TkZ3TNUduMcjNipDxgxRP9XKCow6p9NziHtrViNEFZ/5llLQ37
+	lPx/lXvfSCTlVwJy2kuJS77TdgHa8G11ip+qNduxaTD1vUAVo8xlWbzp3AC9mRVVLYrocP0Eu1B
+	0QEvKjuaXGN5PTdmDKNYV5W2/SM0g+mV28ol1WFVbyebYbG465u7D8JYOm68x6Y3+Ik5rJkCNpK
+	ypLIuXFu56mNT5So+4m3ehV8fKTXOdP1ajBkqD1EAAbCVsC5Ybw5CfoPdmgvZaABhGqK4t32Ng8
+	tGHfzMSlyUgSR0=
+X-Received: by 2002:a17:90b:4b92:b0:396:40e6:f631 with SMTP id 98e67ed59e1d1-398f8203c37mr1788304a91.3.1788158046328;
+        Sun, 30 Aug 2026 23:34:06 -0700 (PDT)
+Received: from [10.25.162.18] ([165.85.1.43])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0d18eaasm27743090c88.1.2026.08.30.23.33.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Aug 2026 23:34:05 -0700 (PDT)
+Message-ID: <4dafc090-4e2d-4f05-85ce-cba993e93575@gmail.com>
+Date: Mon, 31 Aug 2026 14:33:57 +0800
 MIME-Version: 1.0
-Date: Mon, 31 Aug 2026 08:15:52 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Karl Mehltretter" <kmehltretter@gmail.com>
-Cc: stable@vger.kernel.org, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <7f744f2a-409b-454f-bdb9-fccb5031640d@app.fastmail.com>
-In-Reply-To: <2026083125-upbeat-series-9565@gregkh>
-References: <20260831054247.33352-1-kmehltretter@gmail.com>
- <2026083125-upbeat-series-9565@gregkh>
-Subject: Re: [PATCH 6.6.y] arm64: mm: clear extra idmap level before use
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: imx8mp-phyboard-pollux-peb-av-10: Fix SAI
+ master assignment
+To: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Yannic Moog <y.moog@phytec.de>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20260831051222.3298730-1-primoz.fiser@norik.com>
+Content-Language: en-US
+From: Chancel Liu <chancel.liu@gmail.com>
+In-Reply-To: <20260831051222.3298730-1-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_233408_178831_DD387AAB 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +111,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> The dailink_master label was placed on the codec sub-node instead of
+> the CPU sub-node, configuring the codec as I2S bitclock/frame master
+> with SAI2 as slave. On this board, BCLK and LRCLK are wired the other
+> way around: SAI2 must be bus master, with the codec as I2S slave.
+> 
+> Move dailink_master to the CPU sub-node so SAI2 drives BCLK and LRCLK,
+> fixing broken audio on the PHYTEC phyBOARD-Pollux-i.MX8MP board with
+> PEB-AV-10 Audio/Video expansion board. Also remove the spurious clocks
+> property from the codec sub-node, which had no effect in this topology.
+> 
+> Fixes: 7012f551081f ("arm64: dts: imx8mp pollux: add expansion board overlay")
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
 
+Reviewed-by: Chancel Liu <chancel.liu@gmail.com>
 
-On Mon, 31 Aug 2026, at 07:54, Greg Kroah-Hartman wrote:
-> On Mon, Aug 31, 2026 at 07:42:47AM +0200, Karl Mehltretter wrote:
->> The 6.6.y adaptation of commit 0e9df1c905d8 ("arm64: mm: Don't remap
->> pgtables for allocate vs populate") removes the clearing performed by
->> early_pgtable_alloc().  Its replacement clears allocations made by the
->> generic page-table walkers, but 6.6's create_idmap() still allocates an
->> extra root level directly when a sub-48-bit VA kernel is loaded
->> sufficiently high in physical memory.
->> 
->> memblock_phys_alloc_range() does not zero the returned memory.  The direct
->> caller therefore publishes an uncleared root page and passes it to
->> __create_pgd_mapping().  A stale nonzero entry can trip the bad-descriptor
->> BUG_ON or be followed as a page-table descriptor, preventing the kernel
->> from booting.
->> 
->> Clear the direct allocation through its linear alias before publishing it.
->> init_clear_pgtable() also supplies the barrier required before the table
->> descriptor becomes visible.
->> 
->> Mainline is not affected because commit e6128a8e523c ("arm64: mm: Use
->> 48-bit virtual addressing for the permanent ID map") removed the dynamic
->> extra level before page-table initialization moved out of the allocator.
->
-> Why can't we take that change instead?
->
+Regards,
+Chancel Liu
 
-Nope. That relies on a massive refactoring of the arm64 startup code.
-
-Can we just revert 0e9df1c905d8 (aka 54322d95309d) instead?
-
+> ---
+> Changes in v2:
+> - reword commit message to avoid topology confusion
+> 
+> Link to v1: https://lore.kernel.org/all/20260827065556.2326079-1-primoz.fiser@norik.com/
+> 
+>  .../boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> index bb740f845855..8957b24a7ad2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> @@ -77,13 +77,12 @@ sound {
+>  			"MIC3R", "Microphone Jack",
+>  			"Microphone Jack", "Mic Bias";
+>  
+> -		simple-audio-card,cpu {
+> +		dailink_master: simple-audio-card,cpu {
+>  			sound-dai = <&sai2>;
+>  		};
+>  
+> -		dailink_master: simple-audio-card,codec {
+> +		simple-audio-card,codec {
+>  			sound-dai = <&codec>;
+> -			clocks = <&clk IMX8MP_CLK_SAI2>;
+>  		};
+>  	};
+>  };
 
