@@ -4,152 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8766C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBC5C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ha5fAnUZVZrjWDFhLPVJNlt0TSWD9lvu+/EaHaGmMUw=; b=rUyXLW1BxID3L6hBcrWFGmbFR5
-	ExHo3DYbMIGJyCkBzqwuboelt/tgTE+cGgNFL44mts6BgTcM1CkY8dEVz4jGu8O3+U9gQq8hgEQyQ
-	oJyUq16zi2fGqYBrFXYlG0JiXDCIqONdyaW2KW4LU+YiFfD1ljLk2Zbg+zLT7+MJ/+oL4YNeLIjwM
-	gHBD+F3Aa2WPiJLx2a666Ud7tPGl1vIzJN378teC++rtVm5zEuj7mOORvqHtMexkTGY5WFO5+AAu4
-	K64doM6feJOsZ6si9ShsKvKhBlsH55vAHDpSbqKQQHCilzXbBdGONmp809nDqThuqIH1oqOJkcsS9
-	Bl6XmPEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yp1Pbph7c7KvDOsfg6NvlV+C+L3xiO1CbhzapsMg1pI=; b=qTH8z+b614HTqDCHuqpKwV62mw
+	cmwZPjZZjnddsTfINomxGE9ShvZSL6RWDsyLyyjJo3Cc3pSGvjlUt1D7tDTov292FFSpOiCESZfy/
+	6g4rOYHBKfQPY8FdlPNp8QliugZ6rtlbB7L20mCpFtGUdb0QkTbqf5SPG5ungh+RKv7bIJYoLhjwr
+	wluqF6wqFDRrlyaysTwZn4z3AtE/Syy13HhvrJrEsFmU3z7SvWBqk6NQo0vIADwRUI+5lahnhQYhH
+	gtGf7hUlQ4qbgjAGG5xgM2jdhaS08L1oqgbg2k9QU/8GhF7JF+bNo9UVY8Js3uZmzQFGlVcba8PnI
+	SKnQb1TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xSj-00000008uI4-0Vs5;
-	Mon, 31 Aug 2026 08:33:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x0xUf-00000008ua2-25Fe;
+	Mon, 31 Aug 2026 08:35:53 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xSg-00000008uHF-2uP0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 08:33:52 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67V7xT3I3018719
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:33:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ha5fAnUZVZrjWDFhLPVJNlt0
-	TSWD9lvu+/EaHaGmMUw=; b=JElyMn5c2DESjvXs/Ccwb2wtyI8fwZYnffxiXzzD
-	J/pnR644em3zP2kL8MwzkRFvoOQi0G7L1fOGQk9vyzd6wt6DEmUuraPip+8A0Aqm
-	yxuYfHsA3BkS53wVB9yAvR4sdp2ploe3e+FZql3i9ZXlUZtIj5aecGZlL50eOEPM
-	+/LoCscGI+3N9fBXOwJ1bV0baa0+AT84qTQ7hoJos+LTlMcYnHegR6+AxACdsfzK
-	NS1KmTYX9Z6ifGAjxB0pOXYKa12WNmXnntF2b7tJbJu4nWjVynM84UV8WQloGfWy
-	pI8ec0M324fZI/B8O0gwHOvR1jNUtLLvfuLdXQG41MyQxw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbqn2nfp0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:33:49 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-398dc3d8f0aso1490330a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 01:33:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788165229; x=1788770029; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ha5fAnUZVZrjWDFhLPVJNlt0TSWD9lvu+/EaHaGmMUw=;
-        b=QIUah0zkn3SbrVlYzANVaqVve+2reFACWg1G6kHc5awj/5mDx633bDQaDDpw+sNEAN
-         chBQSQhB3ADcFS1fUlxW5kTEKUVg3VEeELJXm92IvFpGO8slyi0Ga1euu7Vp+t6X8xqS
-         /O4nRLabySXPzGiD8Cg2bASFIz+msyvOZegSRNh3aTa6bhmbistgu7HFM8mMHDramwoI
-         rbTGDpAjXiUBjWFbo9Bm6M5yaEhI4kWIeYaoTt/ICi5p6DG14wPevmlTM2a4y80wt2O+
-         8nCHiElIfY2usVKmu9IrXNZK/xq4QteV6TmaDcaZamGmHleO5eewd1yGEeW7lJAqIY5w
-         Wdcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788165229; x=1788770029;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ha5fAnUZVZrjWDFhLPVJNlt0TSWD9lvu+/EaHaGmMUw=;
-        b=NMk5iMvuqgOgP/NLmI2Rmo9MvH9mMgz5hXXv6UCH/U8iAV8FZkwIn1zmeOPWbI0Gmc
-         bWtGlG9IeMPAoBUS4/6v4UypdjSjrsOW3SlNv1vYkFvLY8XrCjIE3svldYnWlYfFBlTj
-         7Pdo7xPWdqd22C8h9O+gr3sa4Ui2l9AIWPQ3v6FGz+Zs6xLLrRrBkDwQQJKkIQB548PD
-         cS4lK/Q98DS99JCRNgBTgUp9GGBddrkzs2aiOnzp2lRlwP31bOd/BubK9X3E9CeEHXB+
-         TQame3Cv2PBaG1P1a92o5cyVgv6ianTwjMfRmxeNW5ii4fMMUhk5p1NLGzbXm2bKpw+3
-         Zejg==
-X-Forwarded-Encrypted: i=1; AKwUvBy8+eVW0ILiok4bK1vJNJf3tOO19AhJfgpzra4B817SJ8wHiX9GbJYG/KWptmt1zQdHQqXZoBw95A9JdPFzSBkJ@lists.infradead.org
-X-Gm-Message-State: AFuF++np72E2xWeWGoGu2f8tASesTMQFdG2uJuwsWJ2rRIopWLkAU8gw
-	DZHisV66bAfEjSsU/5OV1CmOLRiUbKISveEjatyT1NUZDrWn9RFb+R5vxoUCi4dMR+2eEdNhfea
-	zx6Pa6br+LIXCzngb4IjoYIp8wRFodUFzypQ7QfKvbgyIBhwE8c9C7AiOEJVpiBGzvrfw+N9ikG
-	PnIg==
-X-Gm-Gg: AYBFou2tFCFySIRuvKy6OovVKdFSLUVuw8OAeC7YIN97RElosQFHgZXZetHV/uP8PYY
-	eMoF3Yq/fuvdiO6HHSwC+/bhEXn8VndQsErXGOLid+Wu3DW3nWEuvZ3xAmLB5eEK1tM89RXREjA
-	YSZpIwbRCjqpzqBBoO3x5FtU8HJnAd/L+CmkKQqyJeat6Ixd9Bf1kjcPd2N6lKvawP38YanwJ1v
-	DKPHpU1ObgRxo92TEzNXu06wK5SCokeIuZOhKNdVYNEx2cY/q1znfFHK5YEswwWMho6roHwFqD2
-	dkYr6TEmcOBKMEAinduclotM+z/evpIuuR3LMEHSC3Nbqo9CHtqPe12sE7Xe47MNQ5LnEU2hqvB
-	p8hL2lz0f5MBJuw==
-X-Received: by 2002:a17:90b:1845:b0:38e:9784:dd47 with SMTP id 98e67ed59e1d1-398da5e8875mr5965749a91.1.1788165228515;
-        Mon, 31 Aug 2026 01:33:48 -0700 (PDT)
-X-Received: by 2002:a17:90b:1845:b0:38e:9784:dd47 with SMTP id 98e67ed59e1d1-398da5e8875mr5965699a91.1.1788165227912;
-        Mon, 31 Aug 2026 01:33:47 -0700 (PDT)
-Received: from oss.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32b58c057bbsm13558506eec.19.2026.08.31.01.33.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 01:33:47 -0700 (PDT)
-Date: Mon, 31 Aug 2026 14:03:39 +0530
-From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Russell King <linux@armlinux.org.uk>, linux-arm-msm@vger.kernel.org,
-        netdev@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 3/9] net: stmmac: qcom-ethqos: fix RGMII_ID mode to
- use DLL bypass
-Message-ID: <apU8Yx08/PJiS9Xw@oss.qualcomm.com>
-References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
- <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
- <42355330-c22a-4fce-98ab-dc22b321ff16@lunn.ch>
- <ai93X/cNWHtEQsDt@oss.qualcomm.com>
- <82705420-771d-41bf-a4d9-ed94dff86ff0@lunn.ch>
- <ajF6q5eKz92ddqVl@oss.qualcomm.com>
+	id 1x0xUc-00000008uYp-3Njm;
+	Mon, 31 Aug 2026 08:35:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1788165346; x=1788770146; i=wahrenst@gmx.net;
+	bh=Yp1Pbph7c7KvDOsfg6NvlV+C+L3xiO1CbhzapsMg1pI=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=dm6sUfjh229YuwEh0eS9nSfRQ85Rr/1jgMqYARqliZVZQjamlI6EG2+I8ggueG5V
+	 ScUc84VY7hV2iEBK+jD4f6jhFyKG7RcXxs17k/cm9ldGKumPA4OjIziMOZnw/zQhZ
+	 e9/8zte9eJE+ScAUE5AzL1IqnuKJ4uw1bD1SkxUnlt5RkcSnJ9BxUiP2/wVk1FgYn
+	 /+Ao3rFVWe0u0Any8FNrG0A+dfagB5oJU/m+grMBMf77EmrSMZpv6AwcSH3XYv6T7
+	 1qzdv77Y8mAUuksM/BKulW83lZh8QGAAK4HFilfq9igJ48PmU/mjwlkrmigfrFpj/
+	 vjQi18iwsL5OJgj9rw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mzyuc-1web1b3VQc-010Y0T; Mon, 31
+ Aug 2026 10:35:46 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aswath Govindraju <a-govindraju@ti.com>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH V2 2/3] dt-bindings: phy: ti,tcan104x-can: Document Microchip MCP2542
+Date: Mon, 31 Aug 2026 10:35:38 +0200
+Message-ID: <20260831083539.8287-3-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260831083539.8287-1-wahrenst@gmx.net>
+References: <20260831083539.8287-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ajF6q5eKz92ddqVl@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: QKpUxQFQz1Bl656KQEhjDdOPLNU8eaWc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDA3MiBTYWx0ZWRfX4Pje6bv2RWIi
- 7X/js+bE5VfU2aPWYP3QpaClugpZ0432qs5m0+9heZtdDnlQH1oolLN5RpqPCwU8S2PQj3n3+tZ
- mLUHYooWQP0wxUwwlsL0PnwHEyyAgo0tAzkDm71aTYCKY9r4g3mEZCeK8ttSPpcyWkHmVDW3bSR
- BuehN6mDEcE1Z6qXNg2FOMAF6TLFYWXGkxLMweU3XEhvPPLUzQ4d8bmEkoRe2BEc3r4BmfRsDov
- zXxO4i+lVyc8Kq6mJ1IhgjNduUZRLfCHDHGbBDGLfZVh55INByXnLJ0+v4oyr88W7YVFvvjHiaI
- /VYmv18bt4i1VTjrzlPuAm2R25Zl0At8icbObHs3vp6+1xD2wLPbc5wEowRIQ0V8y92qGvabhMZ
- 3VUjrq3skd4rTnJTnUK5tJFSMxDQemx62OA8Hmg5CMGsXcjxXCf5SmF/0rs7qmIEzZsDiy4UTtd
- F2FdVhP4FeMBpXFqc7g==
-X-Proofpoint-GUID: QKpUxQFQz1Bl656KQEhjDdOPLNU8eaWc
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDA3MiBTYWx0ZWRfX1AH0FqVF1l/0
- GSsNlMznBzSjvvy6uYfIpCJAzqQ7sf5kFP+myYcrNupotz2bAHEO0d4IV4BGPiNSL5107WPU0qp
- xuJ0YyIkVaGNXmpNjppfmChxK9KvmPo=
-X-Authority-Analysis: v=2.4 cv=a5kAM0SF c=1 sm=1 tr=0 ts=6a953c6d cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=VwQbUJbxAAAA:8 a=ee_2aqc6AAAA:8 a=4fMhwKYZf46Hqd9eeeQA:9 a=CjuIK1q_8ugA:10
- a=rl5im9kqc5Lf4LNbBjHf:22 a=VOpmJXOdbJOWo2YY3GeN:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_03,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 phishscore=0 clxscore=1015
- adultscore=0 priorityscore=1501 spamscore=0 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310072
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:k13nf52dbNUz24/9wurn5hWBE86GBt3oK8I/uxPdOVzrhclsEfS
+ n5hJOfpcBoqYAHUdGs/WPNIP2RA1G+0ksQtUZpvVncYlXFl1aZq8ENUjSH+2biRp944xVe2
+ WIrFKIfxhxOd3XTnWYo+CzY4ZTCgO/Dva/QpYv7D3S9SjQDujTXk2+LPfN0rCogBXwOavm5
+ EYsFm1bQrLiTGkB+V72hg==
+UI-OutboundReport: notjunk:1;M01:P0:tSqQQk3f4IQ=;WSq39aMiJASfbXcxNtycfbx1TZB Dy+X1vqlsvGy/LV0z6WZzXhWshRJPwYoUOPy2uyUTm6iyVvdqS005FHBhb2K5Sft9rnsfO8hR kjj7Lcspmj88q5CbdiL4tgQgFkkTYl3wfQT156CyyaPjse8N52NqjkotOvHH4MOCWy4UgVke3 jnCzQF/cOGH60Bl5hMtkhUpc5XnHnldsh16CgfCqkS2GumLH73nSSRMDeUkckxirMbvR4JhXB VvqLQvanPl2YEoVWdy3LQrdNNTLXeWqt8B+MJUTrTQk6CZNguxhCgW5RbHZ353N5YAL5LdDwj GRqQBnoieT67RfckplCNjxteB58/3uo42dZ6hJpqJHncRcoazah5aUSj57IWkx/OoqVFcLEb1 n30uT90uAiQuzrEXTqWvIKVXGv5k7Cjm1jJJBRGrVM53xy8DO9aTiIO/GCQQZD6QSFQo4uReP f0eNp2OAV2Lp4jpikOFd+9VYuURq0hs1ba+9yRC/RVyfAef/VXpbnepPLWOM0H4Gv+PnZh6VM 5Xkewyx3UmxovvbmykmVOIRWSuf8/UK+ZYLOEAR8rhNc61iZFnU8u1tKdfJ+YfNkSUEdYgopH WpB0X8CHiEUgwXwrU/hNBJwBpR0AeZ+QtFpQE8Q9ZE5rYYoJkYnZwnIdkCoN++a47I3F4RcQb /RyIlKAciOC+aYSgu/XV1R8ZWoCpWsYEJC9yEcFEJweWQGwLDu71jjnVRA6HXbxg74zfcVpeb fHRwTH2092m3B1Jlk49srYu+jqA1OrE6I/+ZfzFPDCTx5YfiVEQQ24P+znIxM/ew1seHhN+8K hGINrOMZ86yTqj/ljeFVaBukm7l+rqIIFk63yyLZNnGkTFOxQujKrZ/2GtrcKhonMYcKfkD3O LNkHr3FBJCnkI/TffpClXS/cAkWjFAeSWKzP8ljVCQ9t/9ynTHcG74YK2YqakO6LhtvzkRru9 mtNq9KB4Nz+xtreKKX2X45kz6QFJEMD0PZnYUrT6KHMXRivnCtOqK9DI4B/2hWWi4woZEhdcC 3qn9+1jIYZOybw7Kx1cbrxlsS+GzmtzD3G6EEVLUsMX2VF02CpAYur6vCimVvNvJSIjp+/0O5 67uPzho6Wc4n1voF9OMrNHr31MT0OkQ7tmNVcm30b4Wf12D1AfMOFpwW+MT2s+yl7StFSRIME 6VPvufDF8LjE2eayKrvkYTKTXPhqyiQCJO12YXzUrX0O1+RuBYrlnadJnYzW+Y1hX0HgFb8vV j6wYUsKwm/VmmDx+SMUYax903y3Cb6mflTtJspxBb3iC98zvJ9Yc7qEwecUcFTQhoCrvKFclJ FCBf5MjAarLsGg7iCzrF53jRcMGuL7QMozAl7y3UAw3jpkH5Mpon5KX2ekpv8otTGUuf+LjLN zwWcS2uSj623wzwxnXDSG7/pZ/nHWlWVe4RHjaDG0VUGcDx9saIedwHndRgb5DRf/1H2tzCIC /zfOBhkcMeHT73FwOFyd/U86ZNWF0nFs/5c2FKouapvO2LAi4ERZX90PB4y9eR+Hm8aaXtaQ1 0mpdrqX9VSQtevHbIw6whNcHu1puU7j41hIFH3J6kfkED5iDt2OusmaJdtt6SwQtWd2jMZ+dC xKgbkL343vJwHzOWmW6b+q8BWmXPxfifjCJHCQldlodHd2FPVrfTObE5+FONpuUV8U7uQ6zDq A0eCGxsUQ70v7eNFLH+Tc7rPUymn76gJZmIbPh/Rlm8lixAteTOzuwFqDzHn/4qoyNQbMuj9S zsg/BJMxGFVBhjrBM6u+yR8zvMIaUvfmmG5dki8lBWMPw8aGSllBCxCQFZLIEhHWgcm+5EIPC lTmRiOiLEKg7CmYUxN9YkPnLgZ1fpOvlP7hjmihVOc03PBDYrJrxcPPAOrsy31oNqsE4DFGlG B9Y8H0N5Ue4z1Y3I+AnWYeyCdVIsBKF1ySc7eg39WpHxkHneHOjX5b6B0vsJ9lMMlvqXwBi+v lpTu+ZiFY9Ns/dqTTHeS214LsKhykcOZfHzDvzCthzRvwdgXFzuMMRJ1Tu/w5OYrT7KG0G/E1 DsKvcNbNlToybUbt+1oFa56lCSKHq+Vl7oN5bC3YLanxCBg0ES+YzhXv4GkuQP/f1SMcYTsQ0 MSAEIXxNZobLfVCBNRKYa+r6+dD0DlMngBwzrUkRE8yIPJx9P6f4X230BuDp4YXdX4c/NOpid xdk+pRdJsZtj3irDiL/7DeM61qjFurey/J0nKRajusBo3wjYnD0uwhR+f/UKxqh6O3i8NsxQX aFvmQFZ+Qeu1DA5NPVtavI+KonPcY4VNGUb7IOEyj8bYR1f0kNGjn4OU58+7AnjRNuyMOMq72 pGf92rutibrJZty2Xk1yelY7BLVvSAs4te5kYwvwwkJXOKw/TFgxB2ZAIFcdEah9bfG+OX9Sr iTZrrqYtkHKHDMs4+j8YJ2RLOVXjJ4ARnsEWwRFEr5YymnZstDTGCJGQIgJV9jeb7kPyz8WFO 2pOVLjx0CZCWnXbitU+yH8rRCe5CiMda7y2jgDGhrbvavOOT1ulpaPAb7zszkPBr/0tHwVwrF 4Fe6yyvtNcn5M8ooVQqSeY70mh3hHf0cEQiT1UliE82xXAwYYIrzih0M7fbftA+PrlKYVRjKG XHW7ZchBSkYDBqwT73dti7ITO/+9jcw4tCjUvnz0nzTRkrSnMBB9cT/vV4FkQqvXXuxbcoExh 2H6ExiGnhkJvEf7IdvsLDys19o+RwKd4pWjImnXeWZvzCwoQLp7KqEBuJULkWMq1H2DJuZFZD S1284YF+02Wj7Tzyx8e9D99ECSNzLOcu6MkWbw6UCzrVt3r6hUi/ZHZWg5ZB3af0Jl2Psg9bd 9uRAaaRY6uF2FXx5CHcrvAsDn4FUb/NJxmqVTRTvjtl1fkxRqhrnCMjmSqCdwg4KavjoSD4ii 5gN2ht6vE5+6nJ+T4BV1YPHjrdB1D5ohUvUCQHrGRzsYE+8+K1PBw0BrEuybqD04JGdJOPJtR TnxNoDC1RE+gSgOb7CZ4Noebp0c0IabvzSla8BdvOZZyyaa7N/NGW3VYh4GJ7dfmr85o0XBJv FpypSPDrxHs45ZtyTisiOrPDwn4tOA7f0OB8Mlq3V44M+skOn6jeky5JHzbQGRXXbDIWdbVCx XGKXezBUANi2znRyOJ7B7Rnj12MDVkSWQ4UW4KGjoJt+QQGLR+GkW2+jEnvx0AVyEW7xEVMZa MIA4sxOwhcCW+9+64YGksMtmKJ6qWFgwQdGq6Yawyocr79cJH+98NZxOOfy6HF/SI/ESPt5PN T+KBXlcv5KtvcI18G9dn/oRJ1l3YiUmbt+PCzXWCuoxEbHkwXJZ+NVZg57cNos6sc/GNM7NRS zIjUkXmL7C8fE50Vk+Tl5WclOrNqoaMfAt0kUK8DRd32d158uuAVkQ/CNTVcXdGBHCqRiTwZ3 pgZ+HsTmuZ9MP8m1cYWfVsTZYgjudUprtlNdK9WXmxVyrn9c+GBlGMB/C8BjWcqNIAmfCJdSl Cmm/oDqWIhzSKzQfEJ68fVjWeVwfJ6rsIC4lXQs6aFSFUJY5Lf8TcfDM+cbr2YAEmkUnu3rRW 4rXR0wsPl3RnI2sgQvtk9nyZ22l6/VHuD7Ip+Otc6KnmsBOY9eKZxIBMMOX883DnqqGc9saAw BaL4W43zzB/9KgspPQ+/Z/HRoecTn89E0QMLvRiwFujeDq/fKnC8TyiUZ+ZEFJ5UdcFlIi4E4 ZwLOGYcjF6tMKrpOC3jvvXbZjig/lid64u9B/41O+n+SvPxeJLzw89mquZD7RcsW+XvXJQBnW SF80tp7oRaDKWLstMcNVO4dKrh7QhF5jZtFqGVUxpbdiydK80p/Pm7dg3uuVqgJ5B8vvGVIBx 0C+CUh/BmnG8n3x0PnqZjs1xwENV1M3JIOxzm6AEgUdulSIRygXxBuD8+R1Q+BSUOYM77gyRm
+ g6fnghInEXV6NwSwwtHBh+Dg8uCLTmf1aJrB2LWn+8vcw8BeCohFkCjKAcImab4qw7VoknSjn 9NGRDzNvVpS9pGOwXEAipCgh3a7m/cBY73/d4hvA/ZPC3z0iB0gXrRigo9jJrVewhtFHxTX8M IjwohhEep35KO1+e75Lj3pShZO3tQMc6sctvnq90ftKBR1GK/xW1P//ofO35FC7C5aWdXgWhL WtijuyjFb7COvLEIFFuAy59Cl5U2QdKITmSrNjMV3RTR4A5hEiV80pDLg0NfU1EU0dUCre6nL tvcViaQDN4QQ8WeYW19T6Dit/wJzXKx2SHzAmIXNtgFtyW74T2Idu63lnmuc4yYbUFGfmVW9D rqs3o4el429kaBI69b9w+YrR/gQTC7YWsg+yQiuUKV+0/O5hc7pG7dhRL8twNzZGtANMXZKnc nbgep/EShqvBzLOM73MFTQz2hOPjhVOl4qIUZ0/ZkMZSYI5g/ZL3mm8xnmoDmPHfrfIY4DGv4 5nUcdaHtZhmyC/Wb4AuUu+WVwrGhTsRyGFWo8Q3UNY6lY4kSoTTzoipvgM9K3MaLwbsPGY70g 8Ynt55VBDApicXW5P7P2pIdNNYTeRE7tJmU4BW2ZmxEaZQj6D016+l9GxTq5rnGIoQK44r/0B XZ0893GbIWQwGC0U9pnrZjMGmtapfhdZkKslhytE9phnGAKaDqrs0/+dJGlHnxZ+NDFJsaLz7 kqj7qAl6Xiq46osnEsHNvFu2ANYRWJd0fnva+fJP5QiPUW3/kKvtRp8lARxYbM+S5y2/8ZwMb Ulq+3bygFLtpqIIaQINj+iCzPgWtfH9tQRmGIgIhe358TwqhjlQYd9u73ry3JMCnGjCTMCX2o eiUCaVRuVaspasDmZp1C+Z/BzNCfUzDEBisLjdqq09gwzb4stO9peUHEZf3zblMpQO6xtOyyq R3UNqzpY9K4ivC9r+wVKjp0G/iiy/cPgXNMuOkqR3NAdLBTAKbMZ6l0R7tbmdiDkfBvMNXmNu qXocdqJEA6+kvE0+ErjRo6jYcZLUJWdYPSoOwBaA9NUGAyRNdnHAi1bR4jJB4OhYVLaAglyt/ +XOj1mMe4va5KsEr9A+6dwHt7mnI/lv0BmBwdADEdG8H82KqKuhHIvkOSN5Gd5IaPKyso40Vo 7dUnzZtu/+WVXVdATXneqOaB1a+eJFEoq4rar36VVlXPOLVmFXbWfAEAX9Ypwb/05+SY7iYcc E2V9mWFuKAvWp4gQaZVOrfWoGsIwSyK9SMDWz/CN6RIrsLlh+HUoiM1QpsEjsfAIC3rAZstkO FHrapFBbdBrO1xXbRUFYc9KVYKmZjYjDadTy/RA5yWEx6KNCezjJm9S8xupCs75kCXZ9af7R8 gGK1CRHkAFutRgL0S1KvRLXch0ldxrqmtBwF80a6NFe+OhGuUSVdSur4kVOx8OfmQTkH0e0WQ veFRahmIy9411lA54PKTyw85RqflGW/X032xIdsYYG1jT88xYtsceBGRbIrWEF/Y9W8cqi/7v BgxrfYlW0Bu9QM297S4JR3g3tSmZXSo2e666wtmaR39Ok0tbsmGxhBx15adTgwV2XLI0uiPWj TQeCgdWfJFwMBBAzyh5lqv71TcA89/hroo5AQOS/fvciFKW7JvDdG1gN83+e4Wt8mH2P6yj+k vJw4cxIoY73tsWIXYO7wj7lqRq0fgs1Dty6+LJF/YEEfacS5H7lx7yDVxBc92V5qPVC2diePx XFlKlceE/DWfPFfCHGyon+niXVgTVkIoVdIz5Iv2FBAq0bEJaQ2XCku90QWx1Zt/drylraR1v EvG5lpuFatiH5YAyJ0MwtmRlGCkB1R6TzP56X3Eh1OZzCiNxMXPcE5Cq77HFGtBodG1mcpiwN KnpGz9iOBlngc9lCrAx1Auszliwi10EBx0xZws7TzMgEYmwamDp8a6E4tx6QfAz5TrWE0Haho Oh81QFhTQ/HpjWFgjvwloZDyoTGDaU5mpgVN+2i9rgjewcNY1cqcwzuvdr13bsQOiiTvJkXof HLldA2BcjBre25AeRaB38UsFdTkf65WQF/s1mcryja00bVX9TIylBx2CdXXMQKoycte8oxHP2 aoUxcf5dQ9vSqY/YhlcgGSvpcNNFDVQfXsSyGpc2LkjGOPNmAj07y/EC8+VZd0iUg46aC+AJk gvTsFTj2K/HDtJg34ZdZlppaK/K8Dx8n1SB/3QtSV4tWQJZecYC4bvbs6oziJFA9sSHJOmlgv cbO3XGmOR+L6XIHZGoDFIB74t8MWkzE/MWiOeFWI4v/keq7WbbuN/E6gJnJQUVj8iVNZDm+T9 RwvQGNFBqz+vROBij9Ce8QIoWySOvNjiflsI6TF8Ni4Wr7vko06p79tTQHclwMDRoP/YUt813 WFEjo1IQJ07ir/h0fl3lY3/9wzG0WYgHfCzUi55teACCCmrVmxrOnpfumCpJwPKD48r2SKwyL tFczEH3IAVscVVJhIYn9nU5/rpj6qkNpDlEeaBylnoO5Z11l0ZGjj7HFBu3BUwudz15O0ab5D 5I7V8ZQdKMmaZDR+QEtRlsoqNGDOLbS9KpE6iZS5LNgyntjc3SBBrB4IB10N8KGwBuvwY6oQZ NhOg+7PF+QHbMmP4fhVvPre7SMM7gYkEaSYMpQ+Q/3PI7K+fF9fFa74mNQc2EQwT5ZxBfXdKM i5SarKp4ZuwY+i6rqPXQINtsulL8mb28pBEJZ6NuKr4X6loM6LVrmwKcDOaSw68X/vW565b3d Zu1ezMoAKnPlp6yzbxh75LXivO4QwS2noU4333v2YWWdVZWU16Cs7JrNP0F0QL1nyL8eC8jkO wf9mlEtO1wY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_013350_745144_90ADA815 
-X-CRM114-Status: GOOD (  40.45  )
+X-CRM114-CacheID: sfid-20260831_013551_215282_7E4B8BD4 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,84 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+The Microchip MCP2542 High-speed CAN transceiver with Sleep mode is a
+pin-compatible alternative for the TI TCAN1042.
 
-On Tue, Jun 16, 2026 at 10:02:51PM +0530, Mohd Ayaan Anwar wrote:
-> On Mon, Jun 15, 2026 at 06:48:55PM +0200, Andrew Lunn wrote:
-> > > > I'm curious how this works at the moment? Do no boards make use of
-> > > > RGMII ID? Are all current boards broken?
-> > > 
-> > > Searching through the DTS, I found that we have two boards using "rgmii"
-> > > (qcs404-evb-4000.dts and sa8155-adp.dts) and another board using
-> > > "rgmii-txid" (sa8540p-ride.dts). No board which uses RGMII ID.
-> > 
-> > So this causes problems. We cannot break existing boards, yet it would
-> > be good to fix the current broken behaviour.
-> 
-> I am trying to track down the sa8155-adp and sa8540p-ride boards. The
-> EMAC on QCS404 is extremely similar to QCS615 Ride [0], and I got that
-> board to work with this series (with RGMII ID mode). So I am fairly
-> confident that QCS404 would not break (if its even booting up with the
-> upstream kernel currently). Also, I think we could change the phy-mode
-> for QCS404 to "rgmii-id" from "rgmii" if these fixes go in.
-> 
-> > It could be the best way forward is that you issue a warning when
-> > "rgmii" is found and pass rgmii-id to the PHY. And you also change the
-> > two boards to use rgmii-id. Lets think about the rgmii-txid case once
-> > we better understand it.
-> > 
-> 
-> As Konrad mentioned, it would be great to know if we can test out these
-> boards. Looking at the different versions of the ETHQOS programming
-> guide, stopping MAC side delay should be as simple as what we are doing
-> in this commit. But whether the two boards work directly with the
-> default PHY delays is unknown.
-> 
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-So I did find the sa8540p-ride board but have so far been unsuccessful
-in getting it to boot. While that goes on, I would like to proceed with
-a series to fix RGMII on qcom-ethqos due to the following reasons:
+diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/=
+Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+index 9f5c37ca6496..3ed4ce219120 100644
+=2D-- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
++++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+@@ -18,6 +18,7 @@ properties:
+       - items:
+           - enum:
+               - microchip,ata6561
++              - microchip,mcp2542
+               - ti,tcan1051
+           - const: ti,tcan1042
+       - items:
+=2D-=20
+2.43.0
 
- 1. All versions of programming guides give a programming sequence for
- MAC-side delay or PHY-side delay. There is no concept of "rgmii-txid".
-
- 2. I also found some downstream code that was using "rgmii" phy-mode to
- program MAC-side delays on the sa8540p-ride board. So it looks like
- "rgmii-txid" was a workaround to enable ethernet while support for
- this board was being upstreamed.
-
- 3. I have been able to test this patch on a variety of boards now,
- including:
-     - Shikra CQ/IQ variants (with the TI DP83867 PHY)
-     - QCS615 Ride (with the Micrel KSZ9031 PHY)
-     - Talos EVK (again with the Micrel KSZ9031 PHY)
-     - Talos Lyra (with the TI DP83867 PHY)
- These platforms cover the two RGMII configurations that Qualcomm has
- typically deployed.
-
-With this in mind, I was thinking of breaking up this patch series into
-separate ones to solve one problem at a time:
-
- 1. Introduce support for "rgmii-id" using PHY-side delays rather than
- MAC-provided delays. Also, issue a warning if any other phy-mode is
- being used.
-
- 2. Fix the DTS of the existing boards to use "rgmii-id".
-
- 3. Once the DTS is fixed, remove the now-unused code handling non
- RGMII-ID cases. This should also allow us to remove the whole
- ethqos_emac_por code since it wouldn't be needed for RGMII-ID.
-
- 4. Add support for regulator voting in the DP83867 driver, mirroring
- what Daniel Thompson/ Alex Elder did for QCA8081 [1]. This will help
- in adding support for the Shikra/Talos Lyra boards which need the
- supply for the PHY to be explicitly enabled.
-
- 5. Support for Shikra can be added once these changes are in.
-
-Does this plan sound reasonable? Thanks.
-
-	Ayaan
----
-[1] https://lore.kernel.org/netdev/20260605010022.968612-3-elder@riscstar.com/
 
