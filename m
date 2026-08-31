@@ -4,135 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75902C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C06C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=; b=P3IkBGLWeNCLErkvoMJNfRWZ66
-	7R03xvsb8scSDMjTX9tEP9qKeA11f9a+F0x2MKOE3sBnc1ISaj5UBs+FlknU8frLqUClh8mKrsnZH
-	rv63vEI0Vd4MRHAziNrIIWgyrJ79dlZFGLvfAgoYNDBvuNmy9ez+QGKw8xlPBxvwxW71LiCL9BhUl
-	BcSMNat3DpJPXgT9/SqLuy3kUf7INFWQ1duSsNE7XMVtshw/p4lRifUeMNNLxfosTIWZx3744lMEQ
-	w3Czll2rfRgpv0D/GTrjrkShfunk9e03KVL1hSOYvjWBhnoErlUDfDHbeeAopUILxTwF20nzKwU5V
-	3uRG12jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MODz/yvQ0Z27mNvvvXpyLpRUHE/JQSAV0LJ+Rig2AKg=; b=Gby1DsA9PPoIY2qBixON4sBKGV
+	LN9WChnzo3mXztDhr89nLRYN/Zd5PkUVDSKku9mzPUhvfCxxZAY13ulMcobY51jpIjkH5DK6Y+Kz2
+	SjBk6Dqy2kWRBcirJ3IwEJQsmY9QiW6DklNKSvQl79WHZQUEZUiX7EpURnONhjGxxbQ1WWW8WkqMe
+	h2nEFYhvBULpodQie2ZnD6RgpXBTUcRYTUlWnRSXbagp/mrh/P8GLpZtcMWyoasPGzPIaNI0nR1Rm
+	24Bp0g6tmw5Tlmb4dHhmeyUCIsuZd6Wc/JdLe7Xn17eqXeKhEzgQt0JSDRlvWVe/t4BEF7S6RVc2N
+	TD39d/Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13wP-00000009rWO-2WRm;
-	Mon, 31 Aug 2026 15:28:57 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x13wV-00000009rZB-3ngs;
+	Mon, 31 Aug 2026 15:29:03 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13wJ-00000009rVD-1cQn
+	id 1x13wP-00000009rWG-23Og
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:28:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H/k5NwJ92IHST745/pkNhUHW8cq4N5SeN8dUsyph/7BXKRcOInOMCAh9SC7z+1R3sJuji9NPjNF0K5m3c/NJPkv9m0WkXdEEOncHYBx29dhPQSDjCcy6pjvc+Nsyq+ZK1qZsmA2r9YwiPJnLDRgncLnOOzu3oyf/TvFcdt2thJwkgoR/BkTpfr4nCFgbJzAuMmTwwzS5sf5ABDpUwy9MPo/8mHv5WwTiPPOzqZGcGWdGaAalzuzRTe5QoGyHAlokg5lWhjRH+1ILnSUtP2hzVLJhzFy/PVQ2XblpBxUG3/urIBSQwhd1itSzlrs4IraCTU55bZ816PHZfLXtQFDJ/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=;
- b=V7tfXRyfluc5ePUjYrgrwlCxpYOYU+gZqk6NslPj/igMSQxmKgXX7Pb6XqNwlkrcd9Nh6RRRWqI08wY0J0YuYHMuZp5JvmC6Xysf65PtAJGEEc6VZwwIghh24wdVbfoh9niJh/STDZS2s7CIsz5fqNe9SJ7nd4R8wVqjcNUixryXXcDIO5JHFxXUIBEFaDKX9xfiRbaeP4khwkY8Iz1OFjXXcoUBROK5XqOZh8W99O+7nLzTLu17YU/IAUrD1O0teCkGgTz55NfuTJP277JCwwOWUMxEKT8YTcVREQvAzQfEGBbCkG2lLNxdGt1bMtPLtrUw1ZgkFVyyxWhblabpFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=;
- b=aQ93cGuR6UR2l9v7WSF0Nxu5HDdBSmxaO9FeKErkZn1OXDzJ8Nxj8L19rHiFRU5za4+EtJiV6TH73xYCKDVvXYLgzN/ww6YwaeRN0sEbEHhbkkLr9ycIVN/G9MeQ/0zeYbYLZAk8LVFjowOcAERhd60PFO2hCLpLCHdZHQQ7f/8dCpWluP45OW0gFaoEHCwt19/zhW51A0i8y1KuXIsWaVMpXqjyLnV51/1RyRCf4rt+CzfZxQsmKbX692gl90GuUQ1nwmX3mTthLNA5LAr3KmKdRv8t4b3ygZ4WSUb8EkfKUG8d7KNYonz7ezP/PY+Phf69BedI0nFFTGq8ZcUvWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8130.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 15:28:48 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 15:28:47 +0000
-Date: Mon, 31 Aug 2026 10:28:37 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 3/6] media: imx8-isi: Remove unused model field from
- platform data
-Message-ID: <apWdpYUfSMY8mBVw@SMW015318>
-References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
- <20260831-isi_imx952-v2-3-fafdb4b446d4@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260831-isi_imx952-v2-3-fafdb4b446d4@oss.nxp.com>
-X-ClientProxiedBy: CYXPR02CA0081.namprd02.prod.outlook.com
- (2603:10b6:930:ce::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 31 Aug 2026 15:28:58 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6a38098734bso6109107a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:28:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1788190135; x=1788794935; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MODz/yvQ0Z27mNvvvXpyLpRUHE/JQSAV0LJ+Rig2AKg=;
+        b=V1haTN5qRqh5evspucHuUfZUauTh+5KGcRGoU7D29aYwZQC2WEZ3FBf/3YGMtre7gi
+         hKnCmFY/CK6Ry3AdW/ZIpVHGXSaiF/Ojf+vVUnzfD8nJfsvP0tCHxo+Q+nj/Qe9Xnd15
+         66NRz7X5NgVpWbZOT0AdXWs2lv1xNc97ngK+8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788190135; x=1788794935;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MODz/yvQ0Z27mNvvvXpyLpRUHE/JQSAV0LJ+Rig2AKg=;
+        b=F3nWcfivoA9wEG+zi2f6bafcjDXeme70Pt5R5MBesop/DvOMkPfinroF3QdW+jHg2d
+         DhaTB1sMEyuJrTwZlPi8Px03KuTw+oGlQODpVYtlJAqqQJBtfp0S+VSBdSWcbFS+H49n
+         2ddF39W0v1qf8uA7HED08HH7DFqvUHiaeBboi43xyfgxf8JH8QXd5WXID5JW1i5pILX3
+         ihJ8XG9SrnppFqrbk13DwacfRslAisIl7KjzeCnQXHJInewOY4udTdFJ2rD5UcyiXoWo
+         m2qNUIXAJhQPkgrocr26kSWHilAEL5HZWklHW8+SQakgRQ6g35sJQvBMNyKGGeUEsycm
+         Zg2w==
+X-Forwarded-Encrypted: i=1; AKwUvBzqgqFgr1LDv0zLSoOyA43l1RaT4Fmg7+pJgG7skosBJgKll4qRRdRwHsOLo14rlH7jX8z8cqGThfGtWfLuE8y3@lists.infradead.org
+X-Gm-Message-State: AFuF++m7s8Uvp3p6yDpzOqd2OhQzkW1UDD6G0fG4UZhC8YAvmUMeQUOI
+	olcAFDkjZRUQP6sndsLYE2hnutA8iJ5qx07xeimy3RKSL2rW49vxuDUJCoa8XsZYZQlbcb03RyR
+	w6znqTQpY
+X-Gm-Gg: AYBFou1XJyfAHFkx8Dgbw21SQnQq+i1FzuLDZ2SyCOnTaFpctKam02xA0U05+Rplw8j
+	ZAHHARmQ28ULM/zcZSRxQPDIkQYVqM2o7AzQq3CTLxwFLQYjZO1nsf5lv0EgCGT8kUeJ5cMKMjh
+	HzolILiXtWBMrnAaRsmwVFpNnfO0YkfTxZVrgrTIekPz/cVvZGUeXdP4WigU/WHQcqOKDu0oPAt
+	tiHNgJpeOI7k2jDOzRFT59iqdNKJH5+a2A5CORvGvfc+20NageNnF9cJbI0aEowVsXBir/XR8LB
+	lz9RWYW3I+YvwUzgQ+zHhSFCcz/ERfA1fNuahNjRNhaWHXCmDVrX9TxGqOanWOYTgAyhdJ9+mv0
+	SEpOrhV96vQbNf1j0H97Vem+a4L1z3zYrHVlAteO/CyItFYh4KPJXUBxOfkWrOTLOUtqHG6ZCBE
+	pxZU2nzoYsqzaxOKDwDwR+CCl7z73JUcSG4X1gzLKvbkenasJWSkuQNZm1Rw9+SwzBQ64Xynpio
+	MBRNi+MUisRoZfkEA6pz3IjRqk=
+X-Received: by 2002:a05:6402:2383:b0:69c:811f:8f5 with SMTP id 4fb4d7f45d1cf-6a663a8d2c6mr1204218a12.6.1788190135400;
+        Mon, 31 Aug 2026 08:28:55 -0700 (PDT)
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com. [209.85.221.41])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a611c64f9fsm3904647a12.27.2026.08.31.08.28.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Aug 2026 08:28:53 -0700 (PDT)
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-47fe89fb333so2133503f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:28:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzQnxXK2HtKRHbxwb+AgUAbL+Z3DnxMg29/ErErHkr0GJzVvaAHDjEDnDbDQ6QJTVLm+T4biwdFlDwGzLcP/x2z@lists.infradead.org
+X-Received: by 2002:a05:6000:46cb:b0:484:3600:35b2 with SMTP id
+ ffacd0b85a97d-48440fcee03mr2458557f8f.5.1788190129893; Mon, 31 Aug 2026
+ 08:28:49 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8130:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9906fcf4-3632-47d1-3a49-08df07748d0b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|19092799006|366016|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: OQdTv/KT3gi5QZDE6m3N1/xrWwZgEaUCy2f6Qwnv/y8WjfERVBDgbg8h/4ZjNTeJnXIyYtoxmJhNCBq1TNHbA0rrXuchw9+47ULUId/Jt9aWuXAGdMKlN2TIF+VI32i6oQQt8V7eRKrD8GKsp8lDS5PpHBOgUeTD+Fr0CQDjeroL9s9VxSHdDYtUurHMlmha0qk2ROC9DWJCVYiuTzGacOQx+3Dek0Z6YXd83UlMNcXaXQwISvLaW/U6p44x29jBq2zHJFX+d8fOe0555F4x5rnjloT1tkZ23HVY342cAu9s1kq/67usGl55z+l26ys3bHkiSxB4NCf6Hz5d3lb9BO+YjB386BioVLoMwUMfiFwGBLGS9nSoVvWIO/Tkq5NYyt79U6Zcj9xkbT1ZWF9Hn25Q3U9JvYvMSMabFK8eLtENaoT/LnqF+Xy8BEFmjVwyG/Q4Qlc/6OcbODkVA5anlS8T/RKZ/c+OuQa0Lkb633Sik+HxlRejAkyjiQZSbtF0jFqfMiMPN5+NLq9FVjjIKPPUB2wPbK1Yov57OITod9ytW3eeMJm0k7jqx5qbxQWLopE1jntdQlPkC3Z9dbkOe0YmP6acVCPf2U/036pLGBAizfc+MrCWswcEtlJZL54QTEQqrEhDe0xGp+xTsaE924ps8FGsXhESJ6Z9I5I5dQ8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(19092799006)(366016)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ODA6V8pB1Pl37skFkmk49r6kuBwNFstfJcp2lN6SJjiIcp3el5GI33xydjuj?=
- =?us-ascii?Q?ODRsxxIfJqGu7a4YIK+miNwjojy2jSO9LP4b7svxNv4xYNBiVAfmYSuFyKmX?=
- =?us-ascii?Q?+cJ1F12RshGspNKDOcMgB4vXgDxcOMbmP19+nAburty5WZ4s3THYIm+2ueu2?=
- =?us-ascii?Q?wmdhyrh0H1963TVtQbVqb1K7f7M+X+ZvgIie+BQY/SAxxM0ePapzvhX3wtN2?=
- =?us-ascii?Q?ArcfzoTBttLSOSKcDkFrsKmkxgYwNQnTjEvhqwqShm6mzA75a42SfIkLrByx?=
- =?us-ascii?Q?c86sqab2bktGcF2dVr59OSeQPGkIFpqnrrbOET+Iy1EQNIhI4yR0w8oXGBRY?=
- =?us-ascii?Q?ZV4kBsu0HECLbwsRnus7hdtFrPkByJQ3DIukMjjTqA7/yewd5j8SboOG8C3X?=
- =?us-ascii?Q?zHOcDPKaTZIYS1r7lk29lBBIiJW12OHUYe4qGMlysCvq8adx8ouKqusruDFo?=
- =?us-ascii?Q?LTjuL1rIAl1Vtucv4s05my5/xP5KadB166U8g//d+rk4WcujT8lYVytUR13C?=
- =?us-ascii?Q?wmXbJqAj5l8h5iHaZvSYaF6xKr6UT8BzYZ8bQ4xEnPrAKmYf+Q3aQsIFZQqY?=
- =?us-ascii?Q?9IDmHPbn3jctOslLFD8PwuBrpo6/LGxpuFs/naSS3U2+XYsAqQIQOQyHXyg1?=
- =?us-ascii?Q?0yVC1QrvmboyAXFRuYkj+Ih/iVmHUfw9u9sIjtEd3GAsHQZh7NLKTwMPh1zZ?=
- =?us-ascii?Q?dVTH87Gk5+54Hb1n3TqarUljTxpb8N3FREEQ0xFCUPssA9ysyTf+xsWHWP8b?=
- =?us-ascii?Q?q3FzXPKB/GPlysjgsS6QjnKpu60dMcP08v7+5XrR728NbpONUI7SJFrcUfS7?=
- =?us-ascii?Q?CdgcLxtq6wCdGFaxrX/bE4Tv6HEkrMPEO4Hu/GRptXDk7axZR1T2j+/u7FPA?=
- =?us-ascii?Q?mja5a5Hd4jIO3XTnxmGZOS0PtANBHwsEPFj+RuaeRhTX0nuSN8+8prcp6yqb?=
- =?us-ascii?Q?dRSTYVkPjQudVowlN8G8wDtNCdWmklLQukZ2HppAp9GdCUmkyIjAFfmDwkzm?=
- =?us-ascii?Q?y0Yknk1o3VSVZARwBouoLBa8OCue01o6wZBafumjW0zXYZoKYDkn2D3G1LwR?=
- =?us-ascii?Q?j3hzrrTyUugTGTalVeuUUAJWpQbw/F0lopCPMRubTzg6NMduEI2qB7Ol1Xjn?=
- =?us-ascii?Q?fS1shIz8h/KzFzwcQ5hu8HLMtAdQQENJO3JonDq8leCofmwXqEN36lUJZG6w?=
- =?us-ascii?Q?JV74pIdOv9lRnq1JY0LlaxyBIqRvFwus2sTGjRPldI6cq+sjPtDkre/l8K8u?=
- =?us-ascii?Q?IpIVCQ7iMo4WhNMobIJtCDM9aC15q6jR8NU3c2ueEfuYYaNrOXk7Jk/9wbdG?=
- =?us-ascii?Q?Q87bpIqLK9GbulSL/cPCVBktbcx6kCV3xgiFz4EETx7rKvA60uOp+UlerRE1?=
- =?us-ascii?Q?WIScj2OpQqWIBtKy41Dnx9cCZJKW2vur9PfbpEXRsJVy0V7tihmfp1K8b1ck?=
- =?us-ascii?Q?uC1gUE4F+yg6t+aiHth93EEhWzIqLo/mjZfityibiRR6ZAZYnuh7d/l8enJn?=
- =?us-ascii?Q?u5xXQi9SxxmwUEbsyli99KALH7VffE4jBfBLQRS2AK+hQMoUekIggtOB21TY?=
- =?us-ascii?Q?aHOFYd4x+k13SEgEn1GXhb2mttUwxwCMa62x4EfE/GFKgdxhEMYM3DZpRcmn?=
- =?us-ascii?Q?3xlAdQ9gW5fkB3iZRpmyB+WsYR1JqYl+8WXlMVYs9b5zITvO8DJKr/uKiHgV?=
- =?us-ascii?Q?9BdZ3lferJOSK5w1y7c6BYffPcSRR9fuksDTtL6ONIZJR18jN5K61hkduIAQ?=
- =?us-ascii?Q?ym9JBe8tqhRSO4fi7226CXeiePI8ylMeutTjwdDO0fiFLAedWOEv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9906fcf4-3632-47d1-3a49-08df07748d0b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:28:47.7035
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TR5Hgc9L4N+95ifIDbRFEjsp1jP3RVESgVnawq3AhSjlsGjoSQSjGWVBWTDRXzEmxoSMztTZIp6rq53QChzfQj5JLw4SDeQWvZZVl31yjXs8cPZGwkt8HZvxuzHgx5c0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8130
+References: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com>
+ <20260825-drm-bridge-drm_panel-cleanup-v2-8-c6c88ba7ffd2@bootlin.com>
+ <CAD=FV=Xdj_foBqt9A9EVVoCA2BxAV3UZNz3SuVPu2ZoNXgnS=w@mail.gmail.com>
+ <DL308Z0JXJ31.2V3H29DTG4MSM@bootlin.com> <CAD=FV=UOwWdVc8p1js+28C1u7=iRqRpv86PkwWf5g8yL-Uq5kw@mail.gmail.com>
+ <DL38FWMPAVYW.3H964111WXW4T@bootlin.com>
+In-Reply-To: <DL38FWMPAVYW.3H964111WXW4T@bootlin.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 31 Aug 2026 08:28:38 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=VPzExBjY6KrNR_cDJTofua1nZtPNOhNciu+Y7awwaCTQ@mail.gmail.com>
+X-Gm-Features: AcwNN1Vw4mO8ILYq4ZDFw7i23F9T4GMkIdNzC_wyAjuyFKPOHb3FlBTxENhm96k
+Message-ID: <CAD=FV=VPzExBjY6KrNR_cDJTofua1nZtPNOhNciu+Y7awwaCTQ@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] drm/bridge: parade-ps8640: select DRM_PANEL_BRIDGE
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
+	Pin-yen Lin <treapking@chromium.org>, Enric Balletbo i Serra <eballetbo@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_082851_456567_90E9EDFA 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20260831_082857_614201_586F84F5 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,118 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 11:36:58AM +0800, Guoniu Zhou wrote:
-> The model field in struct mxc_isi_plat_data and the corresponding
-> enum model are never referenced in any driver logic. Remove them
-> to simplify the platform data structures.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
+Hi,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Mon, Aug 31, 2026 at 8:26=E2=80=AFAM Luca Ceresoli <luca.ceresoli@bootli=
+n.com> wrote:
+>
+> > Ah, indeed! I missed that since it didn't have "panel" in the name.
+> > FWIW, then I think for this patch:
+> >
+> > Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> >
+> > ...but, ironically, that means that for the other patch I looked at
+> > (ti-sn65dsi86.c) we're missing the "select DRM_PANEL_BRIDGE" since it
+> > uses the same API call, doesn't it?
+>
+> Ouch, indeed! Thanks for noticing.
 
-> Changes in v2:
-> - New added in v2 (Frank)
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c |  8 --------
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 12 ------------
->  2 files changed, 20 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index c1c16dbc1539..e627054bbc8e 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -291,7 +291,6 @@ static const struct mxc_isi_set_thd mxc_imx8_isi_thd_v1 = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx8mn_data = {
-> -	.model			= MXC_ISI_IMX8MN,
->  	.num_ports		= 1,
->  	.num_channels		= 1,
->  	.reg_offset		= 0,
-> @@ -304,7 +303,6 @@ static const struct mxc_isi_plat_data mxc_imx8mn_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx8mp_data = {
-> -	.model			= MXC_ISI_IMX8MP,
->  	.num_ports		= 2,
->  	.num_channels		= 2,
->  	.reg_offset		= 0x2000,
-> @@ -317,7 +315,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx8qm_data = {
-> -	.model			= MXC_ISI_IMX8QM,
->  	.num_ports		= 5,
->  	.num_channels		= 8,
->  	.num_vc			= 4,
-> @@ -330,7 +327,6 @@ static const struct mxc_isi_plat_data mxc_imx8qm_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
-> -	.model			= MXC_ISI_IMX8QXP,
->  	.num_ports		= 5,
->  	.num_channels		= 6,
->  	.num_vc			= 4,
-> @@ -343,7 +339,6 @@ static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
-> -	.model			= MXC_ISI_IMX8ULP,
->  	.num_ports		= 1,
->  	.num_channels		= 1,
->  	.reg_offset		= 0x0,
-> @@ -355,7 +350,6 @@ static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx91_data = {
-> -	.model			= MXC_ISI_IMX91,
->  	.num_ports		= 1,
->  	.num_channels		= 1,
->  	.reg_offset		= 0,
-> @@ -367,7 +361,6 @@ static const struct mxc_isi_plat_data mxc_imx91_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx93_data = {
-> -	.model			= MXC_ISI_IMX93,
->  	.num_ports		= 1,
->  	.num_channels		= 1,
->  	.reg_offset		= 0,
-> @@ -380,7 +373,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
->  };
->
->  static const struct mxc_isi_plat_data mxc_imx95_data = {
-> -	.model			= MXC_ISI_IMX95,
->  	.num_ports		= 4,
->  	.num_channels		= 8,
->  	.num_vc			= 8,
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> index 05c21c448b93..73f6ea7b0ea1 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> @@ -155,19 +155,7 @@ struct mxc_gasket_ops {
->  	void (*disable)(struct mxc_isi_dev *isi, const unsigned int port);
->  };
->
-> -enum model {
-> -	MXC_ISI_IMX8MN,
-> -	MXC_ISI_IMX8MP,
-> -	MXC_ISI_IMX8QM,
-> -	MXC_ISI_IMX8QXP,
-> -	MXC_ISI_IMX8ULP,
-> -	MXC_ISI_IMX91,
-> -	MXC_ISI_IMX93,
-> -	MXC_ISI_IMX95,
-> -};
-> -
->  struct mxc_isi_plat_data {
-> -	enum model model;
->  	unsigned int num_ports;
->  	unsigned int num_channels;
->  	unsigned int num_vc;		/* Number of VCs, 0 = no VC support */
->
-> --
-> 2.34.1
->
->
+That was part of what confused me initially. I saw one of the drivers
+selecting DRM_PANEL_BRIDGE and the other one not doing so, even though
+(as far as I could tell) whey were both using the same API calls. ;-)
+
+
+> I will send v3 with that fixed, can I keep your R-by if there's just that
+> change to the sn65dsi86 patch?
+
+Yeah, it's fine to keep my R-b.
+
+
+-Doug
 
