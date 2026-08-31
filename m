@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F768C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CF0C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IH3+ta8Jzlfe9YfifDoY6Fp8kEL/fycLY3rWU7L5qew=; b=NJgRV4gPxpn5nooTvvunY5s08X
-	z/hHS3llRPTh7tMCWvE797ScYfdFq5YAFF6u350S6X6uBcH9UttO1f9O05zQ8zOVunsxzUW3VSfaL
-	szHGbiGIEY4iMDnXSEAHiILgisomnYSyszKxmrMXDLrcVwyK8bsybzRQy88TChcZU30dZTODbzY/X
-	Qso54bYkGP+aEODyF/vyLMjjCHqeKiUHQtmtfkPqnbyY6y6U1cRYoLDTumsleBV7FgY4XXiOtXME8
-	vKxeA7bZMQsnX8XBW5SgH0pT85Rb1I/E/H2U8SZhjwPdziu6kpVEn1YURgiqCJChLN1zChupNiFbx
-	zT/DW7qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u9TcYMvTdqJ2Fw8gCueJbjGL0zNKJuvdL3+TH7MgPr4=; b=tkmkU0YcZo+tMUSolQCPl1sl89
+	TGmsxank0P3INRmGS9RWmQQ/qSzygS+l/yOuqFM6awanq5jBiHE8SZpk9YZzD2zWnf+nPDGVxrZU7
+	pSUShaN21KkcUXvSgO+jC3QrMiGrB8SEG2q0hMvoLoX5I0ob0cYcK9eEyJZAK5O42f3sclQb9UNgb
+	0hzg+KFj+8CHAwXmQDUkv7OrTBa0hB5UEEB77xHh3H4dEsQVIOkDLwoXQSfW1AlcdBolCHpEzaHf9
+	fMF2JuY+hI5XJVqrrJMholmL+4FoAVfjOaP47OsSLLmyIE4bxg/L4t6Xg8XXzhp1xBt0Gd72d5CKZ
+	GbG9KM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xnr-00000008xLO-3R5E;
-	Mon, 31 Aug 2026 08:55:43 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x0xpi-00000008xeo-1Mna;
+	Mon, 31 Aug 2026 08:57:38 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xno-00000008xKO-3Izd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 08:55:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B99A04E41465;
-	Mon, 31 Aug 2026 08:55:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 828D960231;
-	Mon, 31 Aug 2026 08:55:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E612411C78388;
-	Mon, 31 Aug 2026 10:55:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788166531; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IH3+ta8Jzlfe9YfifDoY6Fp8kEL/fycLY3rWU7L5qew=;
-	b=t61caDuSF2irF6DNux1IMZxVTw2aJtxSkCDUvMTvvKIgWTYP/CUgZT90GJDTUMXVxgTA72
-	L0MrzWTPPVI/7As/5c+SAlmYDsATfKkMXUql+Q7ADipsRnCYTkVAUgFma8Lz/IUtx6I+GF
-	CaC4LTGkeq5u+oDyN+BK2ITp6KNabqs9V9u0EMDkMl6MXNPHJShb0c24FMcWer2CLHEHet
-	pMYW5zn5jvAouPnbCJ584CP19xNFM6sQDFl79L1tDP5JgTh8ZODYPMVdGIV0vaQ6pWnKeE
-	1lMTWpUAKULoUNw+OR/4cIEES1WicZhLbhDBbihZ7cwSS7PFd3CbzAckKme4dA==
-Mime-Version: 1.0
+	id 1x0xpf-00000008xdl-0ouQ;
+	Mon, 31 Aug 2026 08:57:37 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 80188201D27;
+	Mon, 31 Aug 2026 10:57:31 +0200 (CEST)
+Message-ID: <0c53abedc1b58a141556627d4d68065638d22376.camel@pengutronix.de>
+Subject: Re: [PATCH v1 3/4] usb: cdns3: Add CIX Sky1 glue driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Hongliang Yang <hongliang.yang@cixtech.com>, peter.chen@kernel.org, 
+	pawell@cadence.com, vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org
+Cc: gregkh@linuxfoundation.org, rogerq@kernel.org,
+ neil.armstrong@linaro.org, 	fugang.duan@cixtech.com,
+ cix-kernel-upstream@cixtech.com, 	linux-usb@vger.kernel.org,
+ linux-phy@lists.infradead.org, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org, Gary
+ Yang <gary.yang@cixtech.com>
+Date: Mon, 31 Aug 2026 10:57:31 +0200
+In-Reply-To: <20260831082309.3854507-4-hongliang.yang@cixtech.com>
+References: <20260831082309.3854507-1-hongliang.yang@cixtech.com>
+	 <20260831082309.3854507-4-hongliang.yang@cixtech.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 31 Aug 2026 10:55:20 +0200
-Message-Id: <DL304N0GO2Z1.34O1XQZZ4HSHK@bootlin.com>
-Subject: Re: [PATCH v2 04/12] drm/bridge: ti-sn65dsi86: don't select unused
- DRM_PANEL
-Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Matthias
- Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
- <angelogioacchino.delregno@collabora.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-mediatek@lists.infradead.org>, "Sandeep Panda"
- <spanda@codeaurora.org>, "Franz Schnyder" <franz.schnyder@toradex.com>,
- "John Ripple" <john.ripple@keysight.com>, "Michael Walle"
- <mwalle@kernel.org>
-To: "Doug Anderson" <dianders@chromium.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.22.0
-References: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com> <20260825-drm-bridge-drm_panel-cleanup-v2-4-c6c88ba7ffd2@bootlin.com> <CAD=FV=VtDHWX5yXDE_CSMEZY9nTAd9372kkUAuti1K09zLywig@mail.gmail.com>
-In-Reply-To: <CAD=FV=VtDHWX5yXDE_CSMEZY9nTAd9372kkUAuti1K09zLywig@mail.gmail.com>
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_015540_960193_414AA749 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260831_015735_388178_98F90996 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +67,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+On Mo, 2026-08-31 at 16:23 +0800, Hongliang Yang wrote:
+> Add glue layer for the Cadence USBSSP DRD controller on CIX Sky1
+> SoCs. The glue driver handles platform-specific initialization
+> including clocks, resets, and PHY configuration.
+>=20
+> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
+> Reviewed-by: Gary Yang <gary.yang@cixtech.com>
+> ---
+>  drivers/usb/cdns3/Kconfig      |  13 +
+>  drivers/usb/cdns3/Makefile     |   1 +
+>  drivers/usb/cdns3/cdnsp-sky1.c | 682 +++++++++++++++++++++++++++++++++
+>  drivers/usb/cdns3/cdnsp-sky1.h | 127 ++++++
+>  4 files changed, 823 insertions(+)
+>  create mode 100644 drivers/usb/cdns3/cdnsp-sky1.c
+>  create mode 100644 drivers/usb/cdns3/cdnsp-sky1.h
+>=20
+[...]
+> diff --git a/drivers/usb/cdns3/cdnsp-sky1.c b/drivers/usb/cdns3/cdnsp-sky=
+1.c
+> new file mode 100644
+> index 000000000000..3dd20451569e
+> --- /dev/null
+> +++ b/drivers/usb/cdns3/cdnsp-sky1.c
+> @@ -0,0 +1,682 @@
+[...]
+> +static int cdnsp_sky1_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct device_node *node =3D dev->of_node;
+> +	struct cdnsp_sky1 *data;
+> +	int ret =3D 0;
+> +	struct cdns3_platform_data *cdns_sky1_pdata;
+> +
+> +	data =3D devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +	data->axi_base =3D devm_platform_ioremap_resource_byname(pdev, "axi_pro=
+perty");
+> +	if (IS_ERR(data->axi_base)) {
+> +		dev_err(dev, "can't map IOMEM resource\n");
+> +		return PTR_ERR(data->axi_base);
+> +	}
+> +	data->ctst_base =3D devm_platform_ioremap_resource_byname(pdev, "contro=
+ller_status");
+> +	if (IS_ERR(data->ctst_base)) {
+> +		dev_err(dev, "can't map IOMEM resource\n");
+> +		return PTR_ERR(data->ctst_base);
+> +	}
+> +	data->reset =3D devm_reset_control_get(&pdev->dev, "usb_reset");
 
-On Thu Aug 27, 2026 at 6:24 PM CEST, Doug Anderson wrote:
-> Hi,
->
-> On Tue, Aug 25, 2026 at 3:11=E2=80=AFAM Luca Ceresoli <luca.ceresoli@boot=
-lin.com> wrote:
->>
->> This driver does not use the drm_panel APIs at all, so no need to select
->> DRM_PANEL.
->>
->> Cc: Douglas Anderson <dianders@chromium.org>
->> Cc: Sandeep Panda <spanda@codeaurora.org>
->> Cc: Franz Schnyder <franz.schnyder@toradex.com>
->> Cc: John Ripple <john.ripple@keysight.com>
->> Cc: Michael Walle <mwalle@kernel.org>
->> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> ---
->>  drivers/gpu/drm/bridge/Kconfig | 1 -
->>  1 file changed, 1 deletion(-)
->>
->> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kco=
-nfig
->> index 043596801a65..d46aa2eb01b5 100644
->> --- a/drivers/gpu/drm/bridge/Kconfig
->> +++ b/drivers/gpu/drm/bridge/Kconfig
->> @@ -474,7 +474,6 @@ config DRM_TI_SN65DSI86
->>         select DRM_BRIDGE_CONNECTOR
->>         select DRM_KMS_HELPER
->>         select REGMAP_I2C
->> -       select DRM_PANEL
->>         select DRM_MIPI_DSI
->>         select AUXILIARY_BUS
->>         select DRM_DISPLAY_DP_AUX_BUS
->
-> Looks right to me. Ages ago it used panel APIs directly, but not today.
->
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+Please use devm_reset_control_get_exclusive() directly.
 
-Thanks!
-
-> I assume you have a plan for landing the series. If you want me to
-> land this patch on its own to drm-misc-next, please yell.
-
-I have commit rights, so I'll apply the series as soon as I have the needed
-R-by/A-bys.
-
-I am also sending a v3, unchanged, but with an additional patch as
-suggested by Sashiko:
-https://lore.kernel.org/all/20260825103234.3F2B71F000E9@smtp.kernel.org/
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+regards
+Philipp
 
