@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545CEC624CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3894AC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2z3sWLPpK2eDFdOqs5emIQ2Y32dheJUIVq6RAjdHB/w=; b=qpXFUpefP5f5FeMkqcYglfAcXA
-	EszfOt24nMK8qfIHbQ4LBqf0tmdqoWLIO/oDTnY+PPM8BzYq16sE2pcbDQMiQS7VbCWVZazK5jJpC
-	8VdD1JA8kOHr50SyVDCbyggjyhxFk28jNHa2usX7hSTgdozDzEi1lAjp+tXcVD11S0UbdGY7BIUy7
-	5OIxqMfyUAC127g2oldfUbBNBjZJzelX8kWP38E+5cwbhee4+uV/UwF+9aSpTitYT7nV4zAVRbaaX
-	JRpFmjkTBWjMB1ffVhBlaVmEdYV7yMF+G8vmpTYTiy2G8HBrV6eT0co1iS9yJM08MY6ImUPKSnvYa
-	ZrP1HEig==;
+	bh=AgOdmKk0HGp2w6txJNQpE2tFc4GPDNhhNoLF19m8si8=; b=AwWZpEUOv99+fHre3vXF+hsV0b
+	ybi61arYkXu9U4sr0iLJny9hfGrrW99BznKvuDcsNa4gPVoyQR6NiAXnOS1x/yFNEzYIsBVskQ3tB
+	ROy4Y86dWltekYURPFgh8+u1kv5s0/3pVl7qOOzN38zFMFvaUMw7VEv9GrjxVeo+7g35A4aPltELr
+	by6dCaIap0IJlOQ962KpIDyPusta23/KM+8eLFSknYJ/ROwVitL9uglEKrKP4IJE/aazoZjYj/77g
+	pB/hgnT9ZgmXbXngFAvwAZA6BvbX/K+s2dqlPUOsVnfvMNTH7aLgNI48ZQAvC/gfhI3Eo5inRWW7W
+	JmWZcb3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RK-00000009jRA-3WR4;
+	id 1x13RK-00000009jQj-2zmd;
 	Mon, 31 Aug 2026 14:56:50 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RI-00000009jOE-2rGs
+	id 1x13RH-00000009jMw-0L9U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:56:49 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZ2N92530185;
-	Mon, 31 Aug 2026 14:55:50 GMT
+	Mon, 31 Aug 2026 14:56:48 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZEvl2414993;
+	Mon, 31 Aug 2026 14:55:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=2z3sWLPpK2eDFdOqs
-	5emIQ2Y32dheJUIVq6RAjdHB/w=; b=FmhrmU9QCAA6qlzw/bTCVodXBHEs7nQss
-	/WGCPp+Nvzh/RNExAwknHK/FS+fu1bVW0GvqjmV9eMNOo9hknj9S4s+8ScbofUsG
-	h825t8nvhkzqgInaLmQhuaqOrZYDv6q0RkGkwLkf8UhivRsp2TOnxalTaNCs2GlA
-	z06PsQHdDp0WKAwTiKofjCPru6RoMS24J1gb5/Jrk1mcfF8ZMjkIguubBgV0T1FX
-	nav4Y+vYYFqgXbgP4sXRqco0mAj4UyIi9gkCy/Kldv7ga4m03k8q/69xPDpEu368
-	zE2gdx3H7S7S/I6XqrAX3tGX8E7RWb5g/LZyFNcVDE2z20/uGn6HQ==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbpx5a1u7-1
+	:mime-version:references:subject:to; s=pp1; bh=AgOdmKk0HGp2w6txJ
+	NQpE2tFc4GPDNhhNoLF19m8si8=; b=aZOW/Z6dT9eqkuf8zgxy8EdUlI8knzwYY
+	uW2ypbNaBCyVikctgWrOrKvIJUWO8sIRoXghKclGA8HbTt1wd/qGIZ+bSO06vljy
+	EvNwXvRTmtL94WQNemm5YrZGa0R9pZ2DchH1hAjzwQmyVZbe+D8yXWsC5hNv9Z5W
+	fg+bICXJbqhU24jbwsk8zcsjlvwOSN7M1Aruvkz1hUIm8q3IUiZ2FDvzu//X1enU
+	GivG7ZFwZ7niZ31Fp/ADIqOHsLG1L/JQQFG5xzT1qGIXNYFALRT4ybVimv29TbZD
+	zO87+NRVGb+nsYb0tuXquHvrqLdzSwhJMfzTK+GyusmlctmOGTvsw==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbmuhj66b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:49 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfiRm000511;
-	Mon, 31 Aug 2026 14:55:48 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gcbyg6a9x-1
+	Mon, 31 Aug 2026 14:55:52 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfbmC029519;
+	Mon, 31 Aug 2026 14:55:51 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gccexx8v4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:48 +0000 (GMT)
+	Mon, 31 Aug 2026 14:55:51 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEte2i48759128
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtjWA31981880
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 14:55:40 GMT
+	Mon, 31 Aug 2026 14:55:45 GMT
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6F81620040;
-	Mon, 31 Aug 2026 14:55:40 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 15E9E20040;
+	Mon, 31 Aug 2026 14:55:45 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EFAC820043;
-	Mon, 31 Aug 2026 14:55:39 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 9694120043;
+	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 31 Aug 2026 14:55:39 +0000 (GMT)
+	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 06/20] KVM: arm64: Prepare sys_regs.c for sharing with s390
-Date: Mon, 31 Aug 2026 16:55:21 +0200
-Message-ID: <20260831145536.913567-7-seiden@linux.ibm.com>
+Subject: [PATCH v2 15/20] KVM: s390: arm64: Use QAAF init save area
+Date: Mon, 31 Aug 2026 16:55:30 +0200
+Message-ID: <20260831145536.913567-16-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831145536.913567-1-seiden@linux.ibm.com>
 References: <20260831145536.913567-1-seiden@linux.ibm.com>
@@ -98,35 +98,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=PPc/P/qC c=1 sm=1 tr=0 ts=6a9595f5 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+X-Proofpoint-GUID: NBzZ3vNIKerg2wA0OsIPkgrhomuar2rM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX9nekivU1Lxuu
+ BbHWp/4tdO+b8ZawBA6/xXovRBsZWLlI493Lp4n41Pt/cUAy1uhctoA7LuQXD/3fpj40xmkj5YM
+ ZOEAbGfhMr7siDEwIO6JeSlZ2noOLLADGGtpLuBZAFaGpuu+io2BknrQEOkwMBkXS1BVuK+Y9Rv
+ /SexI8pLtKpPaJm6OXV69lrAk0iT0pjeph8B1h71SYqzRruU7tD6pbyj1tZQenuEBeDNjFpYKQ7
+ KVavIP62XWxiACsQRb9WZTSSAu1IqtCwo9rjKmoRGZ15l5g3gNQpyXv3hXdOUzhd9USHq3x+iYD
+ J/rVltz1cV3u1xzxtlKA+yhMc1KC77l4+od5JSBIWPoYU049eeMNVtuZOAbNFhqZ/AaLvJeE+7t
+ ZJ4hT+EDO64fFE2LwvmmcG1hgoaRhHatuNuuvKg24+4rVh6Zu8hNFCJs5wrk7cvdvtk6Fbn5wMY
+ wtczudlMVVpbqmOesIA==
+X-Authority-Analysis: v=2.4 cv=Osl/DS/t c=1 sm=1 tr=0 ts=6a9595f9 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=ij1lYihUeJT8dvZHXdMA:9
-X-Proofpoint-GUID: l8CeX09BAcs-5KdSLesq6XqQMWOQcj1r
-X-Proofpoint-ORIG-GUID: 572vbWJLKU_EE3ExR3nIQY2XukXZic_6
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX51eO/bYuMVOJ
- QhApnQqsz9Uya79UwctrOWx4Ob1nDdJI0PK6KmyX3A6u/ycdM5BhwQPd3XZtiNK7J3w5CgqJ726
- GyrIu7nPkfZac6VfDyipXLnhzxgjN6c=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX2VMQon3K1S9s
- 9cHp1gqRzXtiTaeEVdrNgLElUmnPoGddrjZj6HfaoCqZiNaD57r/wyfmKCkmKZYMpYX7jlLG1Av
- /SWj17tGtBPs4QLlqLb7xsJE6EdG6cHATWkYUA6cHIIqYUALqhyXaMiA2y9R42Aoblo/YjnYTbi
- AAJw4hlmB9ssHWSvg7SAyzRqXd0FbvJT1+1j1e9WWVcNyRaz8kj9TwuaCW6bFUxelQBmZJIpf8+
- hDzbwoGUhDTkkbHami2mZ9JiYa1E5zW/MMTdk3V0GiqPufPwufkd80NdZIhnlWpy/38eDgyBuag
- JPPfFX5HyYoaBasD7YqLaHgK6FEZZgjAe8g17VluWvA3aIxVN8HnK4lVOS2voTKcB1HTo3GpvE+
- 2b30pJedslmbmH6FALpiI/gQzxb4JW/ciWPBMPDCrjKSJIm1QOoPQsJ2yOALA2E8e5sgpm40Roh
- FBHlDYXcyD6UhE32mBw==
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=4v_MITeQBDqVJkbHs2kA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX6500rR5VYJKJ
+ iVcLUSoRYPoiu4PxA+WRrYJzq9/KOnvJ84VfSq3+/i5THd+EZbE+Bq0+1jjjNNf/3la8n6RGfVx
+ p9qRg7Yfjyl55JaS/WP/oMVRQz/UVGI=
+X-Proofpoint-ORIG-GUID: PRi0ymHEIIdEKaZWe21iewkiw92C0-he
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 adultscore=0 suspectscore=0 bulkscore=0
- spamscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608310125
+ spamscore=0 malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
+ adultscore=0 impostorscore=0 phishscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075648_733136_615574B5 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260831_075647_236472_DD9F5E43 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,188 +140,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare sharing of sys_regs.c with s390 by moving functions to another
-location inside sys_regs.c. This reduces the number of shared regions.
+Use the (cached) result of QAAF fc2 (Generate Initial
+System-Registers-Save Area) to initialize the Save Area.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/kvm/sys_regs.c | 100 +++++++++++++++++++-------------------
- arch/s390/kvm/arm64/arm.c |   2 +
- 2 files changed, 52 insertions(+), 50 deletions(-)
+ arch/s390/kvm/arm64/arm.c   | 1 -
+ arch/s390/kvm/arm64/reset.c | 5 +++++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 7d0047b542f4..53d096803d9d 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2043,13 +2043,6 @@ static inline bool is_vcpu_ftr_id_reg(u32 id)
- 	return is_feature_id_reg(id) && !is_vm_ftr_id_reg(id);
- }
- 
--static inline bool is_aa32_id_reg(u32 id)
--{
--	return (sys_reg_Op0(id) == 3 && sys_reg_Op1(id) == 0 &&
--		sys_reg_CRn(id) == 0 && sys_reg_CRm(id) >= 1 &&
--		sys_reg_CRm(id) <= 3);
--}
--
- static unsigned int id_visibility(const struct kvm_vcpu *vcpu,
- 				  const struct sys_reg_desc *r)
- {
-@@ -2065,20 +2058,6 @@ static unsigned int id_visibility(const struct kvm_vcpu *vcpu,
- 	return 0;
- }
- 
--static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
--				       const struct sys_reg_desc *r)
--{
--	/*
--	 * AArch32 ID registers are UNKNOWN if AArch32 isn't implemented at any
--	 * EL. Promote to RAZ/WI in order to guarantee consistency between
--	 * systems.
--	 */
--	if (!kvm_supports_32bit_el0())
--		return REG_RAZ | REG_USER_WI;
--
--	return id_visibility(vcpu, r);
--}
--
- static unsigned int raz_visibility(const struct kvm_vcpu *vcpu,
- 				   const struct sys_reg_desc *r)
- {
-@@ -2099,6 +2078,27 @@ static bool access_id_reg(struct kvm_vcpu *vcpu,
- 	return true;
- }
- 
-+static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
-+				       const struct sys_reg_desc *r)
-+{
-+	/*
-+	 * AArch32 ID registers are UNKNOWN if AArch32 isn't implemented at any
-+	 * EL. Promote to RAZ/WI in order to guarantee consistency between
-+	 * systems.
-+	 */
-+	if (!kvm_supports_32bit_el0())
-+		return REG_RAZ | REG_USER_WI;
-+
-+	return id_visibility(vcpu, r);
-+}
-+
-+static inline bool is_aa32_id_reg(u32 id)
-+{
-+	return (sys_reg_Op0(id) == 3 && sys_reg_Op1(id) == 0 &&
-+		sys_reg_CRn(id) == 0 && sys_reg_CRm(id) >= 1 &&
-+		sys_reg_CRm(id) <= 3);
-+}
-+
- /* Visibility overrides for SVE-specific control registers */
- static unsigned int sve_visibility(const struct kvm_vcpu *vcpu,
- 				   const struct sys_reg_desc *rd)
-@@ -2553,29 +2553,6 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 	*p = val;
- }
- 
--static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
--		       u64 *val)
--{
--	*val = 0;
--	return 0;
--}
--
--static int set_wi_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
--		      u64 val)
--{
--	return 0;
--}
--
--static bool access_ctr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
--		       const struct sys_reg_desc *r)
--{
--	if (p->is_write)
--		return write_to_read_only(vcpu, p, r);
--
--	p->regval = kvm_read_vm_id_reg(vcpu->kvm, SYS_CTR_EL0);
--	return true;
--}
--
- static bool access_clidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
- 			 const struct sys_reg_desc *r)
- {
-@@ -2684,6 +2661,29 @@ static bool access_ccsidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
- 	return true;
- }
- 
-+static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-+		       u64 *val)
-+{
-+	*val = 0;
-+	return 0;
-+}
-+
-+static int set_wi_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-+		      u64 val)
-+{
-+	return 0;
-+}
-+
-+static bool access_ctr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-+		       const struct sys_reg_desc *r)
-+{
-+	if (p->is_write)
-+		return write_to_read_only(vcpu, p, r);
-+
-+	p->regval = kvm_read_vm_id_reg(vcpu->kvm, SYS_CTR_EL0);
-+	return true;
-+}
-+
- static unsigned int mte_visibility(const struct kvm_vcpu *vcpu,
- 				   const struct sys_reg_desc *rd)
- {
-@@ -4855,12 +4855,6 @@ static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
- 	return true;
- }
- 
--int kvm_handle_cp14_load_store(struct kvm_vcpu *vcpu)
--{
--	kvm_inject_undefined(vcpu);
--	return 1;
--}
--
- static void perform_access(struct kvm_vcpu *vcpu,
- 			   struct sys_reg_params *params,
- 			   const struct sys_reg_desc *r)
-@@ -4944,6 +4938,12 @@ static void unhandled_cp_access(struct kvm_vcpu *vcpu,
- 	kvm_inject_undefined(vcpu);
- }
- 
-+int kvm_handle_cp14_load_store(struct kvm_vcpu *vcpu)
-+{
-+	kvm_inject_undefined(vcpu);
-+	return 1;
-+}
-+
- /**
-  * kvm_handle_cp_64 -- handles a mrrc/mcrr trap on a guest CP14/CP15 access
-  * @vcpu: The VCPU pointer
 diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-index 3caa72f780a5..2740ee3b703e 100644
+index 3a0bba6e0a06..ab6e7d135435 100644
 --- a/arch/s390/kvm/arm64/arm.c
 +++ b/arch/s390/kvm/arm64/arm.c
-@@ -9,6 +9,7 @@
- #include <linux/kvm_host.h>
- #include <linux/cleanup.h>
- #include <linux/fpu.h>
-+#include <linux/bitfield.h>
+@@ -360,7 +360,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
+ 	int ret;
  
- #include <asm/access-regs.h>
+ 	sae_block->save_area = virt_to_phys(save_area);
+-	save_area->sdo = virt_to_phys(sae_block);
  
-@@ -25,6 +26,7 @@
- #include "trace.h"
+ 	ret = kvm_vcpu_set_target(vcpu, init);
+ 	if (ret)
+diff --git a/arch/s390/kvm/arm64/reset.c b/arch/s390/kvm/arm64/reset.c
+index 74622ba6f081..bc7bcee75779 100644
+--- a/arch/s390/kvm/arm64/reset.c
++++ b/arch/s390/kvm/arm64/reset.c
+@@ -10,6 +10,8 @@
  
- static unsigned long system_supported_vcpu_features(void);
-+#define read_sanitised_ftr_reg(_id) 0
+ #include <clocksource/arm_arch_timer.h>
  
- #define __INCL_GEN_ARM_FILE
- #include "generated/arm.inc"
++#include "qaaf.h"
++
+ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
+ {
+ 	return true;
+@@ -79,6 +81,9 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 	if (loaded)
+ 		vcpu_put(vcpu);
+ 
++	kvm_vcpu_init_save_area(&vcpu->arch.save_area);
++	vcpu->arch.save_area.sdo = virt_to_phys(&vcpu->arch.sae_block);
++
+ 	kvm_reset_vcpu_core(vcpu);
+ 	kvm_reset_sys_regs(vcpu);
+ 
 -- 
 2.53.0
 
