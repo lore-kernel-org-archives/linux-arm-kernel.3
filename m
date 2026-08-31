@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BD6C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC69C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 19:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9h9f4egroVHXOkCH/bF4osumxuil4xiCtT1M5bdwfPw=; b=PRpjZSJyy+FC4P9PPAIwP2Tnwu
-	VOUPioDAYyE/Brh5ohjcRby9E3tdKNSxwZr3xOQSlkipXi7CNv9klWPUHbie3Yz0jSe2TP9L/bqDo
-	aeDwTTDbjE6IOoOJPQj/F/thx0SlK5xiTnoG4rCO2a5LMAqHE11+noK00Figri9W2PCExdZUbevlM
-	NR++pRaR8RZOT625XcRGh68OdtO/p4LsPygtCyhe50CCFSDH5fbNyz6GAkAKibm1aABL2TkE4wwqF
-	CJ4ZYgypglhJaM9DLMmx/d5Yw9JE/gMmvl0EgCWzfu6BWFZISFZEFjl0B7ullTDNrZmWxhM0vNuzB
-	39qD1IKw==;
+	bh=UWf9mkSwfRVXKBbs/ZSrUfZDNaE25SAOAeW1d7fm9pw=; b=OkGc718YHN1kuc3B4/mAGabNr1
+	lOQxCXOtOa7hrwlK2phy/lxpy60NGIWj8QL2z9vM19qvezOzXdF1nsEu94mXsHMv8oYJNb2gYmhIK
+	sWs/tuM4xtpl6Fxplxw6PmEyYwm/U4zWhBhUvmaqoyzdzZuyz0S+wRslJmVWco8ksQS/NcdTf0nFL
+	/E87q/4RCwLnZSjGC3VnxpIdOx0tw3kSgyaIg6ifGCAGRMGzTkyShplo20aDSNbUhsDNpuCMuvi4a
+	BG7C7uNZHkXtAwdnUUZu87SiOrulZpkqL/5rTIHl49Gr3kcAzpyU6VD3V5jvIzNBh6mzQtlugpv8T
+	ebv5ZRjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x17EF-0000000AKel-3Bba;
-	Mon, 31 Aug 2026 18:59:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x17g8-0000000AN4b-2Zv2;
+	Mon, 31 Aug 2026 19:28:24 +0000
+Received: from out-164.mta0.migadu.com ([2001:41d0:1004:224b::a4] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x17EE-0000000AKeZ-2aus
+	id 1x17g5-0000000AN4F-3gRf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:59:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15775601FB;
-	Mon, 31 Aug 2026 18:59:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FD371F000E9;
-	Mon, 31 Aug 2026 18:59:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788202773;
-	bh=9h9f4egroVHXOkCH/bF4osumxuil4xiCtT1M5bdwfPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ndixk7wLCgrS3AfH4roAaSWyjpt6ufvFGCl1XMdBSSX4QPgVizjQANmqjZZy9qBfQ
-	 O76D+5jcGxlF6hqPgJuowvhyVEMK7OXT8uqs3uVVBqtnv1itOgJQbghQsPdJDk8GOW
-	 aRcwtd3BEYCn41BEygTvNM9xOkvC64yit+QYGXy+H5eHhcLtQa8g4G1y0YLa0Sehk3
-	 zi3BVKpPetNI1o+oFq8XyUPfhhHuxgvPnUh0X09rSMJ3+G427abmKAp4Oy+NgV/6KR
-	 xKEBlrwIsWTqOMGlbdLlUba/pXs0TTfYcaqbk5gDD3oR7tm5GtxTuVWWTRD7ZYMGY6
-	 9TQALswYWSgiA==
-Date: Mon, 31 Aug 2026 13:59:33 -0500
-From: Rob Herring <robh@kernel.org>
-To: Bhargav Joshi <j.bhargav.u@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>,
-	Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
-	mfd@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, goledhruva@gmail.com,
-	m-chawdhry@ti.com, daniel.baluta@gmail.com, simona.toaca@nxp.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/2] dt-bindings: mfd: ti,keystone-devctrl: Convert to
- DT schema
-Message-ID: <20260831185933.GA1042786-robh@kernel.org>
-References: <20260831-ti-keystone-devctrl-v3-0-0614fceba0f1@gmail.com>
- <20260831-ti-keystone-devctrl-v3-2-0614fceba0f1@gmail.com>
+	Mon, 31 Aug 2026 19:28:23 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=QL9iDzTYCKrAUBeXvATSPUv4Y1G32BzzX2eraj3q3jQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788204499; v=1; x=1788809299;
+ b=JAczOvTDbQe0ZkqNfTMSrIMx3MSozubSUzRXRoqNYxHlyH0lonUnPke909TM0v/GdScH5i4b
+ nJIVOTwekyBQS7BoE7MH4rKhA/RCjfBSjueyK5AkmMtJEw55rt7g6GgvZtZqRFpCDsEevbLDBst
+ KCYMEDw6EVi968XGgwilgXX8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9652764b27261a71;
+	Mon, 31 Aug 2026 19:28:19 +0000
+X-Mizu-Trace-ID: 9652764b27261a71
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso1632e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 12:28:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxHkWse2xEG3w2SRPjJ7UFTjvV2OJbAthF+1w+b7yCU5DacL414AdlacOZK8JigweEx61lcFVPmKQtDygix6tT6@lists.infradead.org
+X-Gm-Message-State: AFuF++lpTbAbqHIwJ8deqnQqyzTvtQmaCMW8kU7r/luiiMJ4VXtFvTeQ
+	q74btmSOrHaiyU+HCha/76oNTaj2IesxP9XoH+byknxJDjASnPk8VyFYv+3DbbaC0K8yZIlHTZF
+	WQcZd1J1kyGZ3STkUTaKkI8pc7OpsBuOYYxkjQScQ
+X-Received: by 2002:a05:6512:3b0d:b0:5b4:9dba:4ece with SMTP id
+ 2adb3069b0e04-5b5ff2ae0dcmr23112e87.12.1788204494566; Mon, 31 Aug 2026
+ 12:28:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260831-ti-keystone-devctrl-v3-2-0614fceba0f1@gmail.com>
+References: <20260831163421.272420-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260831163421.272420-1-fuad.tabba@linux.dev>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 31 Aug 2026 20:27:38 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTycOnoVv6jCE2M5bVLG5m1MhnaWSNTpS8vJaWVDk1+S3g@mail.gmail.com>
+X-Gm-Features: AcwNN1VeQcT49sFWxBpO5p7UEcrKsOyar9oNS5xestQbF8q3MfimLDxR9Ts3ohk
+Message-ID: <CA+EHjTycOnoVv6jCE2M5bVLG5m1MhnaWSNTpS8vJaWVDk1+S3g@mail.gmail.com>
+Subject: Re: [PATCH 00/17] KVM: arm64: Confine protected VM vCPU state to EL2
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_122822_058690_54208075 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,78 +82,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 08:15:35PM +0530, Bhargav Joshi wrote:
-> Convert the Texas Instruments Keystone Device State Control binding from
-> legacy text format to DT schema.
-> 
-> During the conversion, the following updates were made:
-> - Add "simple-mfd" to compatibles matching existing dts usage.
-> - Add required bus properties #address-cells, #size-cells, and ranges
->   which were missing in text binding.
-> - Document child nodes gpio, interrupt-controller, and reset-controller.
-> 
-> Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
-> ---
->  .../bindings/mfd/ti,keystone-devctrl.yaml          | 84 ++++++++++++++++++++++
->  .../bindings/mfd/ti-keystone-devctrl.txt           | 19 -----
->  2 files changed, 84 insertions(+), 19 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-> new file mode 100644
-> index 000000000000..dd73b62357ca
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-> @@ -0,0 +1,84 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/ti,keystone-devctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Texas Instruments Keystone Device State Control
-> +
-> +maintainers:
-> +  - Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>
-> +
-> +description:
-> +  The Keystone II devices have a set of registers that are used to control the
-> +  status of its peripherals. This node is intended to allow access to this
-> +  functionality.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: ti,keystone-devctrl
-> +      - const: syscon
-> +      - const: simple-mfd
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^gpio@[0-9a-f]+$":
-> +    type: object
-> +    description: Keystone DSP GPIO controller
+On Mon, 31 Aug 2026 at 17:34, Fuad Tabba <fuad.tabba@linux.dev> wrote:
+...
+>
+> The kvmtool changes that go with this will be posted separately, and I
+> will reply here with a link.
 
-       required:
-         - compatible
+... and here they are:
+https://lore.kernel.org/all/20260831192406.1341841-1-fuad.tabba@linux.dev/
 
-And on the other 2 child nodes.
+Cheers,
+/fuad
 
-> +
-> +  "^interrupt-controller@[0-9a-f]+$":
-> +    type: object
-> +    description: Keystone DSP to ARM interrupt controller
-> +
-> +  "^reset-controller@[0-9a-f]+$":
-> +    type: object
-> +    description: Keystone reset controller
+>
+> Patch 1 is the HCR_EL2.VSE fix posted separately [2]. It is not part
+> of this series; it is carried so the series applies as is and Sashiko
+> can run on it.
+>
+> The KVM_ARM_PREFERRED_TARGET documentation fix [3] went out just ahead
+> of this series. Nothing here needs it to apply, but patch 17 documents
+> vCPU feature availability as something the capabilities report, while
+> api.rst 4.83 still points userspace at a bitmap that has always been
+> empty.
+>
+> The series is structured as follows:
+>
+>   01:     The HCR_EL2.VSE fix, posted separately.
+>   02-03:  Capability allowlist and the PVTIME rejection.
+>   04-05:  Per-exception-class entry handlers; EL2 owns a protected
+>           vCPU's trap configuration.
+>   06-08:  Timer state, system register reset and HVC handling at EL2.
+>   09-10:  PSCI at EL2, and the KVM_ARM_VCPU_INIT and PSCI version
+>           restrictions.
+>   11-14:  Host PC adjustments blocked; an UNDEF at EL2 for exit
+>           classes the host does not emulate; per-class state
+>           marshalling; a protected guest's SError pended with
+>           HCR_EL2.VSE.
+>   15-16:  Host access to private state, and host power-on of a vCPU
+>           EL2 holds powered off, rejected.
+>   17:     Documentation.
+>
+> Still to come: selftests, self-hosted debug, SVE for protected guests,
+> and much more, as separate series.
+>
+> Based on v7.3-rc1 (cee9395acd804).
+>
+> Cheers,
+> /fuad
+>
+> P.S. Sashiko, bring it on!
+>
+> [1] https://lore.kernel.org/all/20260729131823.2021516-1-fuad.tabba@linux.dev/
+> [2] https://lore.kernel.org/all/20260829071120.2522788-1-fuad.tabba@linux.dev/
+> [3] https://lore.kernel.org/all/20260831162815.269851-1-fuad.tabba@linux.dev/
+>
+> Fuad Tabba (15):
+>   KVM: arm64: Sync HCR_EL2.VSE back to the host vCPU under pKVM
+>   KVM: arm64: Advertise the capabilities that protected VMs support
+>   KVM: arm64: Reject the PVTIME vCPU attribute for protected VMs
+>   KVM: arm64: Skip fixed-feature state flush for protected vCPUs
+>   KVM: arm64: Add system register reset framework for protected VMs
+>   KVM: arm64: Implement HVC handling for protected guests at EL2
+>   KVM: arm64: Handle PSCI calls for protected VMs at EL2
+>   KVM: arm64: Restrict KVM_ARM_VCPU_INIT and PSCI version for protected
+>     VMs
+>   KVM: arm64: Prevent host PC adjustments for protected vCPUs
+>   KVM: arm64: Inject an UNDEF at EL2 for unhandled protected guest exits
+>   KVM: arm64: Add per-EC entry/exit state marshalling for protected
+>     guests
+>   KVM: arm64: Pend a protected guest's SError with HCR_EL2.VSE only
+>   KVM: arm64: Reject host access to protected VM private state
+>   KVM: arm64: Reject host power-on of a vCPU that EL2 holds powered off
+>   KVM: arm64: Document the protected VM userspace API
+>
+> Marc Zyngier (2):
+>   KVM: arm64: Introduce per-EC entry handlers for pKVM
+>   KVM: arm64: Add {flush,sync}_hyp_timer_state() primitives
+>
+>  Documentation/virt/kvm/api.rst                |  22 +-
+>  .../virt/kvm/arm/fw-pseudo-registers.rst      |   2 +
+>  Documentation/virt/kvm/arm/pkvm.rst           | 141 ++++-
+>  Documentation/virt/kvm/devices/vcpu.rst       |   4 +-
+>  arch/arm64/include/asm/kvm_asm.h              |   1 +
+>  arch/arm64/include/asm/kvm_host.h             |  21 +
+>  arch/arm64/include/asm/kvm_pkvm.h             |  34 +-
+>  arch/arm64/kvm/arm.c                          |  40 ++
+>  arch/arm64/kvm/guest.c                        |  29 +
+>  arch/arm64/kvm/hyp/exception.c                |  27 +-
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  18 +
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 564 +++++++++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                | 401 ++++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/switch.c              |  29 +-
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c            |  91 ++-
+>  arch/arm64/kvm/hypercalls.c                   |   7 +
+>  arch/arm64/kvm/inject_fault.c                 |   5 +-
+>  arch/arm64/kvm/pkvm.c                         |  21 +-
+>  arch/arm64/kvm/psci.c                         |   3 +
+>  19 files changed, 1378 insertions(+), 82 deletions(-)
+>
+>
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> --
+> 2.39.5
+>
 
