@@ -4,67 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DF2C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 10:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ACAC61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 10:13:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ow2ViMeEMGTyK3UySqQVG82oOIdDJas1XKKjGfqN5Q=; b=cdr6rCsJo5FGM6tSvTqLnkCfpK
-	q4fXxI3B1YDAVSz64mD3JAyKwCHwUWa75ui39eSqsIy5wdOblX0k2pRoQN4MRwlg+kLtVrwmc8tX5
-	WC9xJYlt4rDUaY2IEDnOZVtic8WuZICxEwfcRJsdC4SSeQrnJ5p0T2ED3VelelDV73warATtIb9nA
-	wjj6+msi18Sc2TeRGSBbHdofcrHLvm3IT0L5xHYMe6pTK3RPQeb5hQu7qtZ0dnGe/DYuEbRb3X+Qg
-	uv2GN7B9GdGo8lad6ZnEVpcP71LiX0Qrh1EIyspvCR91G3aKq+venfnrQaRfdnGoIR5rQ4JR52Oz6
-	cgEWGcjA==;
+	bh=67t2MAwM/CJHQTc19wvE+OmwIIUNA6nz2MWrmdq+rUg=; b=jOdjNxpOHUdO6D3Jx7Iw45h44g
+	tBzqxvSMQLOQ/bIxuGxJxHd3rgU76pE2qgIaJkPB9qY2dfjjagalQx2XO2oWL9aZCu9Qbmrk62sqk
+	ZxXngDoT9c8buWuJEviwMTTaiXPyU+gKKmRw4aZbIoClsANUlvEPiuvHUYIdu7aE3Rv7wOiWqVuV2
+	xfI2JiJ5Bf+K1EDsVABfBsgUuFvYFU1yO5nYvmal3WT53N2eoUkzfeDlrLSOe2xiJIrHO9p6vs15/
+	JAhDaEGKiIgHtwp8FcEK9JFXR21oiK/Q5LLBhHdNeRJ5B1CkPkwieZEQy5PUgi254D2j+js7mbEt+
+	TMTL5Ttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0yoC-000000094jL-2KU4;
-	Mon, 31 Aug 2026 10:00:08 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x0z0u-000000095jK-1e58;
+	Mon, 31 Aug 2026 10:13:16 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0yo6-000000094g3-2ByP
+	id 1x0z0r-000000095iM-2Ng4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 10:00:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id F037E1A18EF;
-	Mon, 31 Aug 2026 10:00:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C0ABB60231;
-	Mon, 31 Aug 2026 10:00:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A36F11C78ACF;
-	Mon, 31 Aug 2026 11:59:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788170395; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=9ow2ViMeEMGTyK3UySqQVG82oOIdDJas1XKKjGfqN5Q=;
-	b=jGQPAldeFoEaMiTrr6qe/vl94pp7XVReJhbW0eSfVXlZb0ztjBLdtYzJobMxKETVidDkJT
-	fNjlkriHOTCGwtmZu1CTS0/xaJKlU8v9k2+pmGnPpI3kbbbt8c+ZFva7VKd4RcwG2YXTRs
-	U1B3XRuHu9s6KqW8KViqQ1BnD1a8k7VhNhRch9rd5ODKt1tKwEhGy3olfR8NNk53CFkwIW
-	kxaOqa9LoUUcPjGx793DjaWw2mzHrXa6fgjA91sG9wA965N7RoRVFU0MAjUltL1zujbEVq
-	wJL7yjlzX8UHYivLuU3KYakf8bjmnl/pC4UH00uO+ggA9fb3YDo1ghrKkwbRmA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Dennis Gilmore <dennis@ausil.us>, "moderated
- list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..."
- <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: helios4: fix spi1 location
-In-Reply-To: <20260829203720.44633-1-rosenp@gmail.com>
-References: <20260829203720.44633-1-rosenp@gmail.com>
-Date: Mon, 31 Aug 2026 11:59:53 +0200
-Message-ID: <878q5mpq3q.fsf@BLaptop.bootlin.com>
+	Mon, 31 Aug 2026 10:13:14 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c255206b4dfso413252966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 03:13:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788171191; x=1788775991; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=67t2MAwM/CJHQTc19wvE+OmwIIUNA6nz2MWrmdq+rUg=;
+        b=XHMBP8hdIvndN8mjsCVLGy3iWeSKDrwcsJAmLlL8EIfZrFOIxrVLVoWVUEcow0pkSF
+         xDx9FbkP5wqNpbIv1C08DMIKO6gQp7APK9iQoceNfIAlRwG3j1ij9k6XJAtSlYMY8rXR
+         XlsA93s9zwFTHUIpgMna2t4O0OfBF+n6w14tGvGruPRbktcXYTEaMdSBHVW93B5340pR
+         q2n8vhURvW2qqGu/52/TQN/at4NsQfiGxTAMr9tSj5tadKxkqXm8aoSStYszK5a7+Opu
+         3rCnd8DKWIM9JfOntY2gwXAVHgBZGt4Y6qU2sP+vLGzndlLZdholATkohp+DRBo2F1JE
+         K2tA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788171191; x=1788775991;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=67t2MAwM/CJHQTc19wvE+OmwIIUNA6nz2MWrmdq+rUg=;
+        b=lYKCI8+yRTWuA94fcR0Y0KfGhu4Ta9GT5VAK+iTyJgLdp9ZmGYIYtnG1NhyquXtwL1
+         gUHfY2F/xiARrNDOzQynriQZwmEEUTK+zc4Ovtck9qfABWP0xlN2X+TDv6CPbbB1WxfT
+         LSbbBI6ST+OmMuxa7QAgj5qWz/xzisxFiybci46k7GWDYBa3IBIOnyxLY8KV++uqgNM7
+         50VG65YxIE6uzL4qneN7u/yfZW4JFyOyTHhzRc/3S8XKpyc5/OtykMYw/kh/k8Pw/R1V
+         EDpH+bRvgn4T+P+OWz4SlxBAh8rwmvw4NtCe9IJRgeiqwAObhAmUT6oPADigg+ECwUSj
+         Uugg==
+X-Forwarded-Encrypted: i=1; AHgh+RpplVkKfAyvenXn4pRCWzEJQircsjHO/twO7BfLL+SC6lV5RL5ecflZHZ1YgTmReag2FeQMfQYYm84ZhfwbKqyt@lists.infradead.org
+X-Gm-Message-State: AFuF++mDM2RYFkxK0px/VlaMCbBELKQWH2Xv7YUcTYI7FpN/5/5aZ4PJ
+	CSaokPDhHfW3uj+ZpKXR4MaE2lGCkNDP4NjOtfvmKIf+sc5np4IY0nFH
+X-Gm-Gg: AR+sD12nU81jvbODtqDsHr4K34qOA3+qT7Fu2Z89623pSaqFItHQXFjIuYwdksVFYvA
+	x6B+aY7O1Swh8Rwvvb1yE1D+VLvr6Pm6Gsduu/3uKkTmWhhQ78TEq8U3nmtLzAODSUpsC2IARIP
+	mTYufqx3HEXT+oBjtZfyI4TK234eSPf+j8qeecLU9YvcepenC1HbFUSut/zICqUVdc+hLFGSQuv
+	knNd1q5zQaj9CBO+8ctMfnquLiqNcofEw5bCW9p5okXBuFXtb2oxEU1yXH7RfdMUuVkijXSd7vd
+	aFfrx+LNS1n7I75RL96G1LauFGu/FA8GgoKLWLOK7+ouwHvjUdBuXGcFYEmtj6pJ5/Dc2gNmqNh
+	OJTzd4JINNWpU7GV6uzaBXhWTALJX9M3IzL5W9LvHj6HoMC9hdlBcTS5x8O/6fpOZHg/HRbO87X
+	DJvgQVcSHkvVQn9MWYiwgeNf4m9IFyprtsltcICCWTWe/2/FUx4tNVQQe89uYCY+Nkk7MCchuFI
+	w+oe+wvmonbKPi517SneyBP
+X-Received: by 2002:a17:906:1013:10b0:c25:2d27:5652 with SMTP id a640c23a62f3a-c25aee558cfmr69135566b.11.1788171190678;
+        Mon, 31 Aug 2026 03:13:10 -0700 (PDT)
+Received: from [192.168.1.89] (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c255f1b28f6sm385832566b.39.2026.08.31.03.13.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Aug 2026 03:13:10 -0700 (PDT)
+Message-ID: <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
+Date: Mon, 31 Aug 2026 12:13:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+From: Eli Billauer <eli.billauer@gmail.com>
+Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
+ kmalloc()
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michal Simek <michal.simek@amd.com>, Ritu Agarwal <rituagar@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org
+References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
+ <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_030002_711013_FF9543BD 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260831_031313_633969_B94F29E7 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +111,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rosen Penev <rosenp@gmail.com> writes:
+On 30/08/2026 9:47, Mike Rapoport (Microsoft) wrote:
+> fifo_init() allocates the buffers backing the software FIFO and
+> endpoint_alloc() allocates the transfer buffers of a USB endpoint.
+> 
+> These buffers can be allocated with kmalloc() as there's nothing special
+> about them to go directly to the page allocator.
 
-> This spi node is specified in armada-38x.dtsi with proper compatible
-> strings whereas they are not present here. Instead of copy and pasting
-> various lines, just reference the node in the dtsi.
->
-> This dts seems to predate the move of spi from internal-regs to the soc
-> node so this moves it in line there.
->
-> Allows proper probing of SPI at runtime.
->
-> Remove the microsom_spi1_cs_pins pinctrl group and its reference in
-> &spi1. The group only muxed mpp59 to the "spi1" function, but that
-> pin (SPI1 cs0) is already covered by spi1_pins, which selects the
-> same function for mpp56-59 in armada-38x.dtsi.
->
-> Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Except that they are a bit large.
 
-Applied on mvebu/dt
+fifo_init() may be requested to allocate up to 256 MB of buffer memory. 
+This memory resource is split into an array of buffers (fifo->mem[i]), 
+each 64 kiB (or less, if there's trouble obtaining segments of this size).
 
-Thanks,
+Citing Documentation/core-api/memory-allocation.rst:
 
-Gregory
-> ---
->  .../arm/boot/dts/marvell/armada-388-helios4.dts | 17 ++++++-----------
->  1 file changed, 6 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/=
-boot/dts/marvell/armada-388-helios4.dts
-> index 9de9a8a4267c..ae03d42f92a0 100644
-> --- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-> +++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-> @@ -254,13 +254,6 @@ sata3: sata-port@1 {
->  				};
->  			};
->=20=20
-> -			spi@10680 {
-> -				pinctrl-0 =3D <&spi1_pins
-> -					     &microsom_spi1_cs_pins>;
-> -				pinctrl-names =3D "default";
-> -				status =3D "okay";
-> -			};
-> -
->  			sdhci@d8000 {
->  				bus-width =3D <4>;
->  				cd-gpios =3D <&gpio0 20 GPIO_ACTIVE_LOW>;
-> @@ -327,11 +320,13 @@ helios_fan2_pins: helios_fan2_pins {
->  					marvell,pins =3D "mpp48", "mpp55";
->  					marvell,function =3D "gpio";
->  				};
-> -				microsom_spi1_cs_pins: spi1-cs-pins {
-> -					marvell,pins =3D "mpp59";
-> -					marvell,function =3D "spi1";
-> -				};
->  			};
->  		};
->  	};
->  };
-> +
-> +&spi1 {
-> +	pinctrl-0 =3D <&spi1_pins>;
-> +	pinctrl-names =3D "default";
-> +	status =3D "okay";
-> +};
-> --=20
-> 2.55.0
->
+"The maximal size of a chunk that can be allocated with `kmalloc` is 
+limited. The actual limit depends on the hardware and the kernel 
+configuration, but it is a good practice to use `kmalloc` for objects 
+smaller than page size."
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Regards,
+    Eli
 
