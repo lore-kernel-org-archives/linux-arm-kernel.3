@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8DDC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB1EC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdKFc/NctypBRjJC/QVzxU7l+hJdw/r7CHLMgeNoVcA=; b=gDuBUFoWK32DUAdPuILiGT5ADv
-	BZZuFQChCjt+M/oX1FmbDT3oJechkMjOb/ovFrXA8zCQ6rPYbPaPmMXITjcQHfwKUC+vL3k5BFsrm
-	InA7hBq9cDuU4OJuiKho3dmo1TsZrBPe/djas2Zvn5FTS7CgqegGOADtj5iCKdDAXsbwq2QG+Vv7G
-	1DDSTBF/0TyvUGq0UTqTgBLy3flsgonyFPuDCmEDgiq+cwgIsxtY9WRLrEGW1h1uEnpw/9BYv3sSN
-	CcW1JfmHvtaA/upiNvtH2GIm0Q4SwryTn+76QoJ7iehuOUKejqc5o1l6t7SiQclcNJia/cqKkM8hC
-	8vqiMEtg==;
+	bh=7omeuAaScmWAEKQyvgrvSICA5UGv4oMV1eMMTqvJPYY=; b=W+lR95CIkQANr9Py9NWbwhgkzD
+	J9XQ8loyABKsmcdsPl4+L16n5/GYtzYn60P2q3TFPnJaW8xur+rBbm/6F8GYJlJguPQcm8fh+S9RL
+	q7M9fRNkmM71CX8U+7NWeGfiLHqihqPSR2JBxLFmqLWd3Jd4vE/CoA3M0UMoGuc3vFa7j5Bj9mVng
+	BEKlYbzVuf0zIsYYh2cjDDfUxafgOYUrho2ttgg002iA3dNOVn04Y3JXBPTAjVCOtUbt8Z8iugjNq
+	CyQ7edzGuBwiI9cp5b8xSF+9xjkRuUg0tT+leJCv2ucmVsXNjHpBBxRQlYRlNP4zhgWtd4TzI5a/6
+	kXBuXw0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Ae-00000009R4O-3LR8;
-	Mon, 31 Aug 2026 13:35:32 +0000
+	id 1x12D1-00000009RbN-1Lwm;
+	Mon, 31 Aug 2026 13:37:59 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Ae-00000009R3s-0QXT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:35:32 +0000
+	id 1x12Cz-00000009Rb3-2Fbz;
+	Mon, 31 Aug 2026 13:37:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 471876013A;
-	Mon, 31 Aug 2026 13:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC811F000E9;
-	Mon, 31 Aug 2026 13:35:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BEC9260237;
+	Mon, 31 Aug 2026 13:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D91401F000E9;
+	Mon, 31 Aug 2026 13:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183331;
-	bh=WdKFc/NctypBRjJC/QVzxU7l+hJdw/r7CHLMgeNoVcA=;
+	s=k20260515; t=1788183476;
+	bh=7omeuAaScmWAEKQyvgrvSICA5UGv4oMV1eMMTqvJPYY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RIwN6HvL5CgvsfwYn0+BQgZD76wrSpnzmxw8Hm78vykPKCH8nbvwqWV4CSauJXVTX
-	 WabGOfz55xcwC/Wx6wf+NPt1dBwpA7LHz1PsY0Ch8QWHLvUKBpFFpMhNpKJKCoIj5n
-	 avVGCZE1z78qpY6yhGr6CLrkRL0ye5t2papxYBGgmRWfbd8osc/B26mGnTqZN9Iqv0
-	 0N7okhDjbPpkV2aGI+uQYL5zEFHeKRC8dj+L9/uHg8cqic62RvuQyX2qbLBS8+W+6X
-	 jJa5VgrMqkATjU4BAskkxAjo6HpIE8FWMOOVbZ1XFchsGN7XMd7hjteSzJDe+vDXeL
-	 BMkFiumRe5/pw==
+	b=jI+ndjq7u3ZUMSoMFriKK50SK0rT+OqOQG/T58vyVFih+C+S6/B0wpPNops+cc5kX
+	 4L06Yb7ErsT70j9AVo/XIdgejxHoD0n0tCMhk2aDYpOgw91PdJfC0x20z31ywcm06F
+	 RSAW8XlXXfXnkaKVRgVDC1JA7+5KKjqbf3JRiZnTW7o3DMtzkERNxNrSlHqfrWMx3B
+	 /dqqK8oPF7xqi2lk9EvoiCF4KIgfYfHmW6VwONB0CjskAzlklKxEWe7G3zgEayNbci
+	 R2v5l42XXA+DHPE1/DTYV5oUtmRkYs7wuJ1e0iw9UJNN3p+b3apMjKyNVvEJmIw+RR
+	 HUO/HTJWcCJzQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pu Hu <hupu@transsion.com>,
-	Hongyan Xia <hongyan.xia@transsion.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Will Deacon <will@kernel.org>,
+Cc: Hans Zhang <18255117159@163.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
 	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
+	shawn.lin@rock-chips.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	heiko@sntech.de,
+	linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] arm64: kprobes: Allow reentering kprobes while single-stepping
-Date: Mon, 31 Aug 2026 09:21:52 -0400
-Message-ID: <20260831133314.4125787-84-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] PCI: rockchip: Protect root bus removal with rescan lock
+Date: Mon, 31 Aug 2026 09:22:27 -0400
+Message-ID: <20260831133314.4125787-119-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -79,499 +82,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pu Hu <hupu@transsion.com>
+From: Hans Zhang <18255117159@163.com>
 
-[ Upstream commit 23f851ac0078a908bf3422d6467ebc1db5828c46 ]
+[ Upstream commit 0bd9611587bb494c33566d825fe34b2705e4b167 ]
 
-A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
-can happen when tracing or perf code runs from the debug exception path
-while the first kprobe is preparing or executing its out-of-line
-single-step instruction.
+Hold the pci_rescan_remove_lock lock while stopping and removing a root bus
+to avoid racing with concurrent rescan or hotplug operations triggered via
+sysfs.  Such races may lead to use-after-free issues or system crashes.
 
-Currently arm64 treats a kprobe hit in KPROBE_HIT_SS as unrecoverable,
-the same as a hit in KPROBE_REENTER. This is too strict. A hit in
-KPROBE_HIT_SS is still a one-level reentry and can be handled by saving
-the current kprobe state and setting up single-step for the new probe,
-just like reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.
-
-The truly unrecoverable case is hitting another kprobe while already in
-KPROBE_REENTER, because the reentry save area has already been consumed.
-
-Move KPROBE_HIT_SS to the recoverable reentry cases and leave
-KPROBE_REENTER as the unrecoverable nested reentry case.
-
-This change also requires saving saved_irqflag in struct prev_kprobe.
-When a nested kprobe calls kprobes_save_local_irqflag(), it overwrites
-kcb->saved_irqflag with the currently masked DAIF value, losing the
-outer kprobe's original DAIF state. Without this fix, when the outer
-kprobe's single-step finishes, kprobes_restore_local_irqflag() applies
-the wrong DAIF mask and leaves interrupts permanently disabled.
-
-Extend struct prev_kprobe with a saved_irqflag field and save/restore it
-alongside kp and status. This ensures the outer kprobe's original
-interrupt state is preserved across reentry.
-
-This mirrors the x86 fix in commit 6a5022a56ac3
-("kprobes/x86: Allow to handle reentered kprobe on single-stepping").
-
-Signed-off-by: Pu Hu <hupu@transsion.com>
-Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
+[bhelgaas: commit log]
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://patch.msgid.link/20260521161822.132996-8-18255117159@163.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: arm64 kprobes reentry during single-step
+## Phase 1: Commit Message Forensics
 
-**Local tree:** `v6.18.44` (Makefile: 6.18.44)
-**Verdict target:** Should this commit be backported to **this** 6.18.y
-tree?
+### Step 1.1: Parse the Subject Line
+**Record:** `[PCI: rockchip] [Protect] Protect root bus removal with
+rescan lock` — subsystem is Rockchip PCIe host controller; action is
+synchronization/protection (bug fix).
+
+### Step 1.2: Parse All Commit Message Tags
+**Record:**
+- **Fixes:** none
+- **Reported-by:** none
+- **Tested-by:** none
+- **Reviewed-by:** none
+- **Acked-by:** none
+- **Link:**
+  `https://patch.msgid.link/20260521161822.132996-8-18255117159@163.com`
+- **Cc: stable:** none
+- **Signed-off-by:** Hans Zhang, Manivannan Sadhasivam, Bjorn Helgaas
+  (ignore pipeline-added SOBs per instructions)
+
+Notable: Signed-off-by from PCI maintainer Bjorn Helgaas. No syzbot or
+user bug reports.
+
+### Step 1.3: Analyze Commit Body
+**Record:**
+- **Bug:** `rockchip_pcie_remove()` tears down the root bus without
+  holding the global PCI rescan/remove mutex, allowing concurrent sysfs-
+  driven rescan or hotplug to operate on the same bus hierarchy.
+- **Symptom:** Use-after-free or system crash.
+- **Root cause:** Missing `pci_lock_rescan_remove()` /
+  `pci_unlock_rescan_remove()` around `pci_stop_root_bus()` +
+  `pci_remove_root_bus()`.
+- **Version info:** None in commit message.
+
+### Step 1.4: Detect Hidden Bug Fixes
+**Record:** Not disguised — explicitly a race-condition / crash fix, not
+cleanup or optimization.
 
 ---
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Phase 2: Diff Analysis
 
-### Step 1.1: Subject line
-**Record:** `[arm64: kprobes]` `[Allow]` — Allow reentering kprobes
-while single-stepping. Subsystem: arm64 kprobes. Action: correctness fix
-for nested kprobe handling.
-
-### Step 1.2: Tags
+### Step 2.1: Inventory the Changes
 **Record:**
-- **Fixes:** — none
-- **Reported-by:** — none (reproducer described in related series cover
-  letter, not in this commit)
-- **Tested-by:** — none
-- **Reviewed-by:** Masami Hiramatsu (Google) `<mhiramat@kernel.org>` —
-  kprobes maintainer
-- **Signed-off-by:** Pu Hu, Hongyan Xia, Will Deacon `<will@kernel.org>`
-  — arm64 maintainer
-- **Cc: stable:** — none (expected for manual review)
-- **Link:** — none
-- Notable: mirrors x86 fix `6a5022a56ac3`; no syzbot report
+- **Files:** `drivers/pci/controller/pcie-rockchip-host.c` (+2 lines)
+- **Functions:** `rockchip_pcie_remove()`
+- **Scope:** Single-file, surgical fix (2 lines added)
 
-### Step 1.3: Body analysis
+### Step 2.2: Code Flow Change
 **Record:**
-- **Bug:** A kprobe can fire while another is in `KPROBE_HIT_SS`
-  (preparing/executing XOL single-step). arm64 treats this like
-  `KPROBE_REENTER` and calls `BUG()`.
-- **Secondary bug:** On nested reentry, `kprobes_save_local_irqflag()`
-  overwrites `kcb->saved_irqflag`, so the outer probe restores the wrong
-  DAIF mask and can leave interrupts permanently disabled.
-- **Symptom:** Kernel `BUG()` crash; or silent IRQ masking / system
-  hang.
-- **Trigger context:** Tracing/perf code in the debug-exception path
-  while a kprobe is single-stepping.
-- **Root cause:** `KPROBE_HIT_SS` incorrectly classified as
-  unrecoverable; `saved_irqflag` not preserved in `prev_kprobe` across
-  one-level reentry.
+- **Hunk (remove path):** Before — `pci_stop_root_bus()` and
+  `pci_remove_root_bus()` run unlocked. After — same calls wrapped in
+  `pci_lock_rescan_remove()` / `pci_unlock_rescan_remove()`. Affects
+  driver remove / module-unbind path only.
 
-### Step 1.4: Hidden bug fix?
-**Record:** No — this is an explicit bug fix, not disguised cleanup. Two
-distinct failure modes: crash (`BUG()`) and IRQ-state corruption.
+### Step 2.3: Identify Bug Mechanism
+**Record:** **Category:** Synchronization / race condition.
+**Mechanism:** Concurrent sysfs PCI rescan (`/sys/bus/pci/rescan`, per-
+device `rescan`, `remove`) or hotplug can walk/modify the bus device
+list while `rockchip_pcie_remove()` is tearing it down without the
+global mutex that sysfs paths already hold.
+
+### Step 2.4: Assess Fix Quality
+**Record:** Obviously correct — matches the established pattern in
+`pci_host_common_remove()`, `mtk_pcie_remove()`, `mvebu` and `aardvark`
+remove paths. Minimal, no API changes. **Regression risk:** Very low;
+mutex is the same one used everywhere else for this purpose.
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 3: Git History Investigation
 
-### Step 2.1: Inventory
-**Record:**
-| File | Change |
-|------|--------|
-| `arch/arm64/include/asm/kprobes.h` | +6 lines: `saved_irqflag` in
-`struct prev_kprobe` |
-| `arch/arm64/kernel/probes/kprobes.c` | +23/-1 lines |
+### Step 3.1: Blame Changed Lines
+**Record:** `pci_stop_root_bus()` / `pci_remove_root_bus()` in
+`rockchip_pcie_remove()` introduced by Rob Herring (2020-05-22, commit
+`f473182c7524dd`). Remove function itself dates to Shawn Lin
+(2018-05-09). Driver added 2016 (`e77f847df54c6`). Bug has been present
+since the stop/remove calls were added without locking.
 
-**Functions modified:** `save_previous_kprobe()`,
-`restore_previous_kprobe()`, `reenter_kprobe()`
-**Scope:** Single-subsystem, 2-file surgical fix (~29 lines net).
+### Step 3.2: Follow Fixes: Tag
+**Record:** No `Fixes:` tag present — N/A.
 
-### Step 2.2: Code flow per hunk
+### Step 3.3: File History for Related Changes
+**Record:** Part of a 9-patch series "[PATCH 0/9] PCI: controller: Add
+missing rescan lock around root bus removal" (local mbox). Each patch is
+independent per cover letter. `pci_lock_rescan_remove()` infrastructure
+added in 2014 (`9d16947b75831`). `pci_host_common_remove()` has used the
+lock since 2018 (`01fcb7f777a9f`). Fix is **not** yet merged in this
+tree (grep shows no lock in rockchip remove; `git log --grep` for
+subject returned empty).
 
-**Hunk 1 — `struct prev_kprobe`:**
-- Before: only `kp` and `status` saved on reentry.
-- After: also saves outer probe's DAIF state.
-- Path: nested kprobe reentry.
+### Step 3.4: Author's Other Commits
+**Record:** Hans Zhang is an active PCI contributor (cadence, dwc
+capability-search series, etc.). Not the Rockchip driver author; fixing
+a cross-driver synchronization gap.
 
-**Hunk 2 — `save_previous_kprobe()` / `restore_previous_kprobe()`:**
-- Before: nested reentry could clobber `kcb->saved_irqflag`.
-- After: outer `saved_irqflag` preserved and restored when unwinding
-  reentry.
-- Path: `setup_singlestep(..., reenter=1)` → `post_kprobe_handler()`
-  restore path.
-
-**Hunk 3 — `reenter_kprobe()`:**
-- Before: `KPROBE_HIT_SS` → `pr_warn` + `dump_kprobe` + `BUG()`.
-- After: `KPROBE_HIT_SS` handled like `KPROBE_HIT_ACTIVE` /
-  `KPROBE_HIT_SSDONE` (recoverable one-level reentry).
-- `KPROBE_REENTER` remains the only unrecoverable nested case.
-
-### Step 2.3: Bug mechanism
-**Record:**
-- **Category (a):** IRQ-flag resource/state leak on error/nested path.
-- **Category (g):** Logic correctness — wrong classification of
-  recoverable reentry.
-- **Specific mechanism:** One-level reentry from `KPROBE_HIT_SS` is safe
-  (save area unused); only true double-reentry (`KPROBE_REENTER`) is
-  fatal. Without `saved_irqflag` preservation, nested
-  `kprobes_save_local_irqflag()` destroys outer DAIF state.
-
-### Step 2.4: Fix quality
-**Record:** Fix is minimal and mirrors the proven x86 pattern
-(`arch/x86/kernel/kprobes/core.c` already treats `KPROBE_HIT_SS` as
-recoverable and saves flags in `prev_kprobe`). Low regression risk: only
-changes nested-kprobe path; `KPROBE_REENTER` still `BUG()`s. Reviewed by
-kprobes and arm64 maintainers.
+### Step 3.5: Prerequisites
+**Record:** No dependencies. `pci_lock_rescan_remove()` /
+`pci_unlock_rescan_remove()` exist in this tree (since 2014). Driver
+includes `../pci.h` → `<linux/pci.h>`, so no new includes needed.
+Standalone, applies cleanly.
 
 ---
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+## Phase 4: Mailing List and External Research
 
-### Step 3.1: Blame
-**Record:** `git blame` on `reenter_kprobe()` only attributes to merge
-commit `5d324e5159d9e` (history is flattened in this checkout).
-Copyright in `kprobes.h` dates to 2013; arm64 kprobes and
-`KPROBE_HIT_SS` unrecoverable handling have been present for many
-releases. Bug is long-standing, not a recent-mainline-only regression.
-
-### Step 3.2: Fixes: tag
-**Record:** N/A — no `Fixes:` tag. Referenced x86 fix `6a5022a56ac3` is
-already reflected in this tree's x86 kprobes code (lines 943–947 of
-`arch/x86/kernel/kprobes/core.c`).
-
-### Step 3.3: Related file history
-**Record:** `git log -- arch/arm64/kernel/probes/kprobes.c` shows only
-the merge commit in this checkout's history view. Related RFC series
-(`[RFC v2/v3 0/3] arm64: kprobes: Fix single-step fault and reentry
-handling`) has 3 patches; **this commit combines patches 2+3**. Patch 1
-("Only handle faults originating from XOL slot") is a separate fix and
-is **not** in this tree.
-
-### Step 3.4: Author context
-**Record:** Pu Hu / Hongyan Xia (Transsion). Will Deacon (arm64
-maintainer) merged. Masami Hiramatsu (kprobes maintainer) reviewed.
-Author not found in local `git log --author` (commit not yet in this
-tree).
-
-### Step 3.5: Dependencies
-**Record:** Self-contained for the reentry + IRQ-flag bugs. Patch 1 from
-the same series addresses `kprobe_fault_handler()` fault-PC filtering —
-related reproducer scenario but **not a structural prerequisite** for
-this diff. No `noinstr` kprobes rework exists in this tree (later RFC to
-drop this case is future work, not present here).
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-### Step 4.1: Original discussion
-**Record:** Found via openwall.org (lore.kernel.org blocked by bot
-protection):
-- Series cover: https://lists.openwall.net/linux-kernel/2026/07/09/1808
-- RFC v3 patch matching this diff: https://lists.openwall.net/linux-
-  kernel/2026/07/10/390
-- Reproducer documented: `simpleperf record` with `preemptirq`
-  tracepoints + dwarf callgraphs while kprobe active on hot kernel
-  function.
-- Before full 3-patch series: crash reproduced frequently; after all 3
-  patches: no longer reproduced.
-- `b4 dig -c <sha>`: **not run** — upstream commit SHA not available in
-  this checkout.
+### Step 4.1: Original Patch Discussion
+**Record:** `b4 dig` could not be run on an unmerged commit hash. Used
+local mbox `20260522_18255117159_pci_controller_add_missing_rescan_lock_
+around_root_bus_removal.mbx`. Cover letter explains race with sysfs
+rescan/hotplug → UAF/crash. References sashiko-bot review flagging the
+same pattern in cadence code. **No review replies** in the mbox (patches
+only). WebFetch of lore URL blocked by bot protection.
 
 ### Step 4.2: Reviewers
-**Record:** CC list included `mhiramat@kernel.org`, `will@kernel.org`,
-`catalin.marinas@arm.com`, `linux-trace-kernel@`, `linux-arm-kernel@`.
-Appropriate maintainers were included.
+**Record:** Cover letter only; no Reviewed-by/Acked-by in thread. Commit
+has SOB from Manivannan Sadhasivam and Bjorn Helgaas (PCI maintainer).
 
-### Step 4.3: Bug report
-**Record:** No formal bugzilla/syzbot link. Real-world reproducer from
-Transsion team using simpleperf on arm64. Severity from reporter:
-frequent crashes during perf + kprobes workloads.
+### Step 4.3: Bug Report
+**Record:** No external bug report, syzbot, or KASAN trace. Issue
+identified by code review / bot review of the pattern.
 
-### Step 4.4: Related patches
-**Record:** Same series includes:
-1. `arm64: kprobes: Only handle faults originating from XOL slot` —
-   separate fault-handler fix, not in this tree
-2. This commit (reentry + saved_irqflag)
-Later RFC (Jiazi Li, Jul 2026) proposes dropping `KPROBE_HIT_SS` reentry
-handling after making debug paths `noinstr` — **not applicable to this
-6.18.44 tree**, which has no such rework.
+### Step 4.4: Related Patches
+**Record:** 9-patch series for cadence, dwc, altera, brcmstb, iproc,
+mediatek, rockchip, vmd, plda. Each independent. Rockchip is patch 7/9.
 
-### Step 4.5: Stable list
-**Record:** No stable-list discussion found. UNVERIFIED for lore stable
-archive (bot blocked).
+### Step 4.5: Stable Mailing List
+**Record:** No stable-list discussion found in available sources.
 
 ---
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+## Phase 5: Code Semantic Analysis
 
-### Step 5.1: Key functions
-**Record:** `reenter_kprobe()`, `save_previous_kprobe()`,
-`restore_previous_kprobe()`, `setup_singlestep()`,
-`kprobe_brk_handler()`.
+### Step 5.1: Key Functions
+**Record:** `rockchip_pcie_remove()` — only function modified.
 
-### Step 5.2: Callers
-**Record:**
-- `reenter_kprobe()` ← `kprobe_brk_handler()` when `kprobe_running()` is
-  non-NULL
-- `kprobe_brk_handler()` ← `call_el1_break_hook()` in `debug-monitors.c`
-- `call_el1_break_hook()` ← `do_el1_brk64()` ← `entry-common.c` (kernel
-  BRK exception path)
+### Step 5.2: Trace Callers
+**Record:** Called via `.remove = rockchip_pcie_remove` in
+`rockchip_pcie_driver`, registered with `module_platform_driver()`.
+Triggers on platform device removal: module unload (`rmmod` if built as
+module), driver unbind, or platform teardown.
 
-Reachable from kernel debug exceptions during active kprobes — common in
-perf/ftrace workloads.
+### Step 5.3: Trace Callees
+**Record:** `pci_lock_rescan_remove()`, `pci_stop_root_bus()`,
+`pci_remove_root_bus()`, `pci_unlock_rescan_remove()`, then
+`irq_domain_remove()`, clock/regulator cleanup.
 
-### Step 5.3: Callees
-**Record:** `setup_singlestep()` → `kprobes_save_local_irqflag()` (masks
-DAIF, saves to `kcb->saved_irqflag`); `kprobes_restore_local_irqflag()`
-on completion via `kprobe_ss_brk_handler()`.
+### Step 5.4: Call Chain / Reachability
+**Record:** Race is between `rockchip_pcie_remove()` and sysfs paths in
+`pci-sysfs.c` (`rescan_store`, `dev_rescan_store`, `remove_store`,
+`bus_rescan_store`) — all hold `pci_lock_rescan_remove()`. An admin
+writing to `/sys/bus/pci/rescan` (or per-bus/device rescan/remove) while
+the driver is being removed can hit the race. Reachable on any Rockchip
+system with `CONFIG_PCIE_ROCKCHIP_HOST`.
 
-### Step 5.4: Reachability
-**Record:**
-```
-BRK exception → do_el1_brk64() → kprobe_brk_handler()
-  → [kprobe already running] → reenter_kprobe()
-```
-Triggered when perf/trace instrumentation in the debug-exception window
-hits another kprobe while the first is in `KPROBE_HIT_SS`. Not directly
-a syscall path, but reachable from normal perf tracing on arm64 servers
-and Android devices.
-
-### Step 5.5: Similar patterns
-**Record:** x86 `reenter_kprobe()` in `arch/x86/kernel/kprobes/core.c`
-already includes `KPROBE_HIT_SS` in recoverable cases and saves
-`old_flags`/`saved_flags` in `prev_kprobe`. arm64 was missing the
-equivalent fix.
+### Step 5.5: Similar Patterns
+**Record:** Controllers **with** lock: `pci-host-common.c`, `pcie-
+mediatek-gen3.c`, `pci-mvebu.c`, `pci-aardvark.c`, `pci-hyperv.c`.
+Controllers **without** lock (same bug class): rockchip, cadence, dwc,
+altera, brcmstb, iproc, mediatek (non-gen3), vmd, plda, tegra, etc.
+Rockchip is a clear oversight relative to the common pattern.
 
 ---
 
-## PHASE 6: CROSS-REFERENCE AGAINST LOCAL TREE
+## Phase 6: Cross-Reference Against Local Tree
 
-### Step 6.1: Buggy code present?
-**Record:** **YES.** Current tree at `v6.18.44` has:
-- `KPROBE_HIT_SS` in unrecoverable branch with `BUG()` (lines 246–250 of
-  `kprobes.c`)
-- `struct prev_kprobe` without `saved_irqflag` (lines 26–29 of
-  `kprobes.h`)
-- Fix is **not** already applied.
+### Step 6.1: Does Buggy Code Exist?
+**Record:** **Yes.** Tree is **v6.18.44** (`git describe HEAD` →
+`v6.18.44-1-g2736c32da98b9`, `make kernelversion` → `6.18.44`).
+`rockchip_pcie_remove()` at lines 1015–1016 calls `pci_stop_root_bus()`
+/ `pci_remove_root_bus()` **without** the lock. Driver present since
+v4.8 era; bug since ~2020.
 
-### Step 6.2: Backport complications
-**Record:** `git apply --check` on the provided diff: **applies
-cleanly**. No `noinstr` refactor or structural divergence in these
-files. Expected difficulty: **clean apply**.
+### Step 6.2: Backport Complications
+**Record:** **Clean apply** — 2-line addition, no structural changes, no
+conflicts expected.
 
-### Step 6.3: Related fixes already present?
-**Record:** x86 equivalent fix is present. arm64 companion patch 1 (XOL
-fault filtering) is **not** present. No duplicate arm64 fix found via
-`git log --grep`.
+### Step 6.3: Related Fixes Already Present?
+**Record:** No equivalent fix in this tree. `git log --grep="Protect
+root bus removal"` returned empty. Mediatek-gen3, mvebu, aardvark, pci-
+host-common already have the lock; rockchip does not.
 
 ---
 
-## PHASE 7: SUBSYSTEM CONTEXT
+## Phase 7: Subsystem and Maintainer Context
 
-### Step 7.1: Subsystem and criticality
-**Record:** `arch/arm64` / kprobes — **PERIPHERAL** (requires
-`CONFIG_KPROBES`), but **IMPORTANT** for tracing, perf, BPF/kprobe users
-on arm64 (servers, mobile, embedded).
+### Step 7.1: Subsystem Criticality
+**Record:** **drivers/pci/controller** — IMPORTANT. PCI core affects
+device enumeration and all downstream PCI devices on Rockchip SoCs
+(RK3399, RK3568, etc.).
 
-### Step 7.2: Activity
-**Record:** Active development area; this is a correctness gap vs. x86,
-not churn-induced breakage.
-
----
-
-## PHASE 8: IMPACT AND RISK
-
-### Step 8.1: Who is affected
-**Record:** arm64 systems with `CONFIG_KPROBES` running
-perf/ftrace/kprobes concurrently — developers, CI systems, Android
-simpleperf users, server observability stacks.
-
-### Step 8.2: Trigger conditions
-**Record:** Kprobe active on frequently executed function + perf/trace
-events (e.g., `preemptirq:preempt_disable/enable`) in debug-exception
-path. Reproducible per series cover letter. Requires root/capability for
-kprobes/perf, but this is a normal admin/debug workflow, not an obscure
-corner.
-
-### Step 8.3: Failure mode severity
-**Record:**
-| Failure | Severity |
-|---------|----------|
-| `BUG()` in `reenter_kprobe()` | **CRITICAL** — kernel crash |
-| Wrong DAIF restore → IRQs permanently masked | **CRITICAL** — soft
-lockup / hung system |
-
-### Step 8.4: Risk-benefit
-**Record:**
-- **Benefit:** HIGH for kprobes+perf users — prevents crash and IRQ
-  corruption
-- **Risk:** LOW — ~29 lines, mirrors proven x86 fix, only affects
-  nested-kprobe path
-- **Ratio:** Strongly favors backport
+### Step 7.2: Subsystem Activity
+**Record:** Actively maintained; recent rockchip commits in this tree
+(link speed, error logging, reset timing).
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 8: Impact and Risk Assessment
 
-### Step 9.1: Evidence summary
+### Step 8.1: Who Is Affected
+**Record:** Users of Rockchip SoCs with `CONFIG_PCIE_ROCKCHIP_HOST`
+(depends on `ARCH_ROCKCHIP`). Embedded/ARM boards using the legacy
+Rockchip AXI PCIe host controller.
+
+### Step 8.2: Trigger Conditions
+**Record:** Driver remove/unbind concurrent with PCI sysfs rescan or
+remove (typically root). Uncommon in steady state but realistic during
+module reload, driver unbind testing, or admin sysfs operations.
+Requires privileges for sysfs writes; remove path can be triggered by
+module unload or device unbind.
+
+### Step 8.3: Failure Mode Severity
+**Record:** UAF / kernel crash — **HIGH** (potential **CRITICAL**
+depending on exploitability of the freed PCI structures).
+
+### Step 8.4: Risk-Benefit
+**Record:** **Benefit:** HIGH — prevents real crashes on a long-standing
+code path. **Risk:** VERY LOW — 2-line addition using existing, well-
+tested API, matching multiple peer drivers. **Ratio:** Strongly favors
+backport.
+
+---
+
+## Phase 9: Final Synthesis
+
+### Step 9.1: Evidence Summary
 
 **FOR backport:**
-- Fixes real, reproducible `BUG()` crash
-- Fixes IRQ permanently-disabled bug (serious stability issue)
-- Small, surgical, maintainer-reviewed
-- Mirrors x86 fix already in this tree
-- Buggy code confirmed present in v6.18.44
-- Applies cleanly
+- Real synchronization bug with documented crash/UAF consequence
+- Matches PCI core documentation: rescan/remove must run under
+  `pci_rescan_remove_lock` (comment in `probe.c` lines 3536–3538)
+- Peer drivers already use this pattern; rockchip is an outlier
+- 2-line, obviously correct fix
+- Buggy code confirmed present in v6.18.44 tree
+- Driver has been in production kernels for years
+- Signed-off-by PCI maintainer
 
 **AGAINST backport:**
-- Only affects `CONFIG_KPROBES` (not all kernels)
-- Full simpleperf reproducer series also has patch 1 (fault handler) —
-  companion fix, not a blocker for this commit's correctness
-- Future `noinstr` rework may obsolete this path in later mainline —
-  irrelevant to this tree today
+- No user-reported crash or syzbot reproducer (theoretical/code-review
+  finding)
+- Part of a 9-patch series (but each patch is independent)
 
-**Unresolved:** Upstream commit SHA unavailable for `b4 dig`; stable-
-list nomination not verified.
+**Unresolved:** No runtime crash report; lore thread review discussion
+unavailable (bot-blocked).
 
-### Step 9.2: Stable rules checklist
-| Criterion | Result |
-|-----------|--------|
-| 1. Obviously correct and tested? | **PASS** — mirrors x86; maintainer-
-reviewed; reproducer in series |
-| 2. Fixes real user-affecting bug? | **PASS** — crash + IRQ corruption
-with documented reproducer |
-| 3. Important issue? | **PASS** — CRITICAL severity |
-| 4. Small and contained? | **PASS** — 2 files, ~29 lines |
-| 5. No new features/APIs? | **PASS** — internal struct extension for
-bug fix |
-| 6. Applies to local tree? | **PASS** — clean apply verified |
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct and tested? **PASS** — pattern proven across
+   multiple drivers; no Tested-by but change is trivial.
+2. Fixes a real bug? **PASS** — missing mutex on a documented-required
+   code path.
+3. Important issue? **PASS** — UAF/system crash.
+4. Small and contained? **PASS** — 2 lines, one function.
+5. No new features/APIs? **PASS** — synchronization only.
+6. Can apply to local tree? **PASS** — APIs and buggy code both present.
 
-### Step 9.3: Exception categories
+### Step 9.3: Exception Categories
 **Record:** None (not device ID, quirk, DT, build, or docs). Standard
-bug-fix backport.
+bug fix.
 
-### Step 9.4: Decision rationale
+### Step 9.4: Decision Rationale
 
-For **linux 6.18.44**, the buggy `KPROBE_HIT_SS` handling and missing
-`saved_irqflag` preservation are both present. The fix is small, well-
-reviewed, proven on x86, and prevents kernel crashes and interrupt-state
-corruption in a realistic perf+kprobes workload. The companion patch 1
-from the same RFC series may also warrant backport separately, but does
-not invalidate this fix.
+This commit closes a long-standing race in `rockchip_pcie_remove()`
+where root bus teardown was not serialized against sysfs PCI
+rescan/remove operations. The PCI core has required this mutex since
+2014, and the generic host-common remove path has used it since 2018.
+Rockchip was simply missed. The fix is minimal, follows established
+convention, and prevents crashes on Rockchip platforms during driver
+removal concurrent with PCI sysfs operations. For the v6.18.44 tree
+being evaluated, the buggy code is present and the fix applies cleanly.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed commit message and tags from user-provided diff
-- **[Phase 1]** Confirmed Reviewed-by Masami Hiramatsu, Signed-off-by
-  Will Deacon
-- **[Phase 2]** Read current `arch/arm64/kernel/probes/kprobes.c` lines
-  173–371 and `arch/arm64/include/asm/kprobes.h`
-- **[Phase 2]** Confirmed `KPROBE_HIT_SS` triggers `BUG()` at lines
-  246–250 (buggy)
-- **[Phase 2]** Confirmed `struct prev_kprobe` lacks `saved_irqflag`
-  (buggy)
-- **[Phase 3]** `git describe HEAD` → `v6.18.44-2-g1b9e1abadee04`
-- **[Phase 3]** `git blame` on `reenter_kprobe()` — only merge commit
-  visible
-- **[Phase 3]** x86 equivalent: `arch/x86/kernel/kprobes/core.c:943-947`
-  has `KPROBE_HIT_SS` recoverable; `prev_kprobe` saves flags at lines
-  820-823
-- **[Phase 4]** Fetched series cover at lists.openwall.net/linux-
-  kernel/2026/07/09/1808 — reproducer and 3-patch context
-- **[Phase 4]** Fetched RFC v3 patch at lists.openwall.net/linux-
-  kernel/2026/07/10/390 — diff matches analyzed commit
-- **[Phase 4]** UNVERIFIED: `b4 dig` (no commit SHA in tree)
-- **[Phase 4]** UNVERIFIED: lore stable archive (bot blocked)
-- **[Phase 5]** Traced call chain: `entry-common.c` → `do_el1_brk64` →
-  `kprobe_brk_handler` → `reenter_kprobe`
-- **[Phase 5]** `grep` confirmed no `noinstr` kprobes in arm64 tree
-- **[Phase 6]** `git apply --check` on provided diff → **clean apply**
-- **[Phase 6]** Confirmed fix not present; buggy code at HEAD
-- **[Phase 6]** Patch 1 from series not in tree (`kprobe_fault_handler`
-  unchanged)
-- **[Phase 8]** Failure modes verified by reading `reenter_kprobe()`,
-  `setup_singlestep()`, `kprobes_save/restore_local_irqflag()`
+- **[Phase 1]** Parsed subject, tags, body; no Fixes:/Reported-by/syzbot
+- **[Phase 2]** Diff: +2 lines in `rockchip_pcie_remove()` wrapping
+  stop/remove with lock
+- **[Phase 3]** `git describe HEAD` → v6.18.44; `git blame` →
+  stop/remove added f473182c (2020); driver since e77f847df54c6 (2016)
+- **[Phase 3]** `git show 9d16947b75831` → lock API added 2014; `git
+  blame pci-host-common.c` → lock in remove since 01fcb7f777a9f (2018)
+- **[Phase 3]** `git log --grep="Protect root bus removal"` → empty (not
+  merged)
+- **[Phase 4]** Read local mbox cover + patch 7/9; 9 independent
+  patches; sashiko-bot race comment verified
+- **[Phase 4]** WebFetch lore URL → blocked; b4 dig on unmerged commit →
+  N/A
+- **[Phase 5]** `grep pci_lock_rescan_remove drivers/pci/controller/` →
+  rockchip absent; mvebu/aardvark/mediatek-gen3/hyperv present
+- **[Phase 5]** Read `pci-sysfs.c` rescan/remove stores — all hold lock
+- **[Phase 5]** Read `probe.c:3536-3552` — documents lock requirement
+- **[Phase 6]** Read `rockchip_pcie_remove()` lines 1009–1016 — buggy
+  code confirmed in tree
+- **[Phase 6]** `Kconfig` → `PCIE_ROCKCHIP_HOST` tristate,
+  `ARCH_ROCKCHIP`
+- **[Phase 8]** Race between remove and sysfs rescan → UAF/crash per
+  commit message and PCI core design
 
----
+**YES**The background checks finished and match what the analysis
+already assumed:
 
-**YES**
+- **Search for commit in tree:** `b4 dig` on HEAD didn’t match this
+  patch; `git log --grep` for the subject also found nothing. The fix
+  isn’t in this tree yet.
+- **Check if fix already merged:** `git log --grep="rockchip.*rescan
+  lock"` and `--grep="Protect root bus removal"` both returned empty —
+  confirmed not merged in v6.18.44.
 
- arch/arm64/include/asm/kprobes.h   |  6 ++++++
- arch/arm64/kernel/probes/kprobes.c | 23 ++++++++++++++++++++++-
- 2 files changed, 28 insertions(+), 1 deletion(-)
+**Verdict stands: YES** — backport the 2-line `pci_lock_rescan_remove()`
+wrap in `rockchip_pcie_remove()` to close the sysfs rescan/remove race.
 
-diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kprobes.h
-index f2782560647be..35ce2c94040ef 100644
---- a/arch/arm64/include/asm/kprobes.h
-+++ b/arch/arm64/include/asm/kprobes.h
-@@ -26,6 +26,12 @@
- struct prev_kprobe {
- 	struct kprobe *kp;
- 	unsigned int status;
-+
-+	/*
-+	 * The original DAIF state of the outer kprobe, saved here before
-+	 * a nested kprobe overwrites kcb->saved_irqflag during reentry.
-+	 */
-+	unsigned long saved_irqflag;
- };
+ drivers/pci/controller/pcie-rockchip-host.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+index ee1822ca01db3..d203c4876d304 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -1012,8 +1012,10 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
+ 	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
+ 	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(rockchip);
  
- /* per-cpu kprobe control block */
-diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-index 43a0361a8bf04..7133da1653964 100644
---- a/arch/arm64/kernel/probes/kprobes.c
-+++ b/arch/arm64/kernel/probes/kprobes.c
-@@ -174,12 +174,27 @@ static void __kprobes save_previous_kprobe(struct kprobe_ctlblk *kcb)
- {
- 	kcb->prev_kprobe.kp = kprobe_running();
- 	kcb->prev_kprobe.status = kcb->kprobe_status;
-+
-+	/*
-+	 * Save the outer kprobe's original DAIF flags before the nested
-+	 * kprobe calls kprobes_save_local_irqflag() and overwrites
-+	 * kcb->saved_irqflag. Without this, the outer kprobe will restore
-+	 * the wrong DAIF state and leave interrupts permanently masked.
-+	 */
-+	kcb->prev_kprobe.saved_irqflag = kcb->saved_irqflag;
- }
++	pci_lock_rescan_remove();
+ 	pci_stop_root_bus(bridge->bus);
+ 	pci_remove_root_bus(bridge->bus);
++	pci_unlock_rescan_remove();
+ 	irq_domain_remove(rockchip->irq_domain);
  
- static void __kprobes restore_previous_kprobe(struct kprobe_ctlblk *kcb)
- {
- 	__this_cpu_write(current_kprobe, kcb->prev_kprobe.kp);
- 	kcb->kprobe_status = kcb->prev_kprobe.status;
-+
-+	/*
-+	 * Restore the outer kprobe's saved_irqflag so that when its
-+	 * single-step completes, kprobes_restore_local_irqflag() uses
-+	 * the correct original DAIF value.
-+	 */
-+	kcb->saved_irqflag = kcb->prev_kprobe.saved_irqflag;
- }
- 
- static void __kprobes set_current_kprobe(struct kprobe *p)
-@@ -240,10 +255,16 @@ static int __kprobes reenter_kprobe(struct kprobe *p,
- 	switch (kcb->kprobe_status) {
- 	case KPROBE_HIT_SSDONE:
- 	case KPROBE_HIT_ACTIVE:
-+	case KPROBE_HIT_SS:
-+		/*
-+		 * A probe can be hit while another kprobe is preparing or
-+		 * executing its XOL single-step instruction. This is still a
-+		 * recoverable one-level reentry, so handle it in the same way as
-+		 * reentry from KPROBE_HIT_ACTIVE or KPROBE_HIT_SSDONE.
-+		 */
- 		kprobes_inc_nmissed_count(p);
- 		setup_singlestep(p, regs, kcb, 1);
- 		break;
--	case KPROBE_HIT_SS:
- 	case KPROBE_REENTER:
- 		pr_warn("Failed to recover from reentered kprobes.\n");
- 		dump_kprobe(p);
+ 	rockchip_pcie_deinit_phys(rockchip);
 -- 
 2.53.0
 
