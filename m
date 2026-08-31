@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4312EC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A986C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IoIab5cIoM5o/andWQrmzeZTVfKs+JrBkuCBRlHKV8=; b=47MnK6AGRZj23X9GR4z7BxyfJH
-	Cibt03megcXzWILWkDgrT+aJ6fcL5RyayQsrjvU36LNOZTen+SUGXOG1Hlcq6UQTFm1Phb7EeAy/4
-	IOZGBpX3MBOLi0JhXwJcvoJ3irbiW0OKg5Wx62fp3LqI9BnH35M4Mcc+1q/NazvwPeiCoUoGs0Izb
-	+girERHyFNa3KDtLg4X98ssx5j/L3SDlLcLBoAa6bVe4dK4jDrbl2PtcZFUyugIEWJ4/YQKIBH0cm
-	fsQfshUAvrTmxepRkIMfozGilij2+6HRF2LBMmGOh3neO8nt2TEsH0UBaarQL/jXjaOZaGw6R9EyR
-	8OR1HCWw==;
+	bh=kjSmlPzbNn9GLSswmtoFKNUKTOvPNFADmysBpgIskMA=; b=Vnk/WUHe0OTuRFcPpV3aL0RuMx
+	WpGuYDZmadmxIvrcUWE5keu469jFU0F1ddWX5KGexo7uiFj1ZEnJu8YqaTELZwa6gToQ0nV9JQwWM
+	YbteCmaZLRq9lyEWuUESyIlhPy0h9waj2kGe226g98vuByIiRN9OP+M5IOMxZb9Gdsw32YZ24EhAt
+	33to8bCBkh6YO2mP6iXBj0oeH/02zVLyVl+MsY2+4/+g0vDeNqYxr70EYxVuYUTmdoxCsGqjp5XRH
+	rUDYHSAUFi6DXtoH59bGHvd6KLWO+j4n2nvfQ6C+8lPYTbhlzpGE49Ji4bHz7/c59cDE4RP7LZ56j
+	nhCAVjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14xt-0000000A3XX-0mjY;
-	Mon, 31 Aug 2026 16:34:33 +0000
-Received: from out-69.mta0.migadu.com ([91.218.175.69] helo=mta0.migadu.com)
+	id 1x14y5-0000000A3gI-3uJe;
+	Mon, 31 Aug 2026 16:34:45 +0000
+Received: from out-195.mta1.migadu.com ([2001:41d0:203:375::c3] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14xo-0000000A3UR-0QlD
+	id 1x14y2-0000000A3cK-2N99
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 16:34:29 +0000
+	Mon, 31 Aug 2026 16:34:44 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=FNewsXbgZk6ir7Tq/DaFYrMHnt1LVf+kHlt1OXPPVRQ=;
+DKIM-Signature: a=rsa-sha256; bh=2sbto41tBk300tVzgzcERGaOKg9olZAVUAA+XHNTpvk=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788194063; v=1; x=1788798863;
- b=PG9dyAEND8VSa8noM1PtoqkPn7vLScwS6NbOplgGV5p6S5EVBWZn5rbU8XVR7E9xRTPifAWM
- faWo9HN+mpbLgAzLlTuHkJjc+jYmuetKFAl3LoSM5jjfzJvoN7snrAcGWiXKvibiVVpfRwwJRs2
- d80Wpd9nPEG0QMppjXINcERY=
+ t=1788194080; v=1; x=1788798880;
+ b=JnfKgDgOy7sepHNRkXUMQcVjDb6eTxmR/OcA10Gr3plpf7Jo5aCZMFmFEKxJx6UGAm9eHSie
+ 4318OCxDGxN/wiDqgoamY40xpZZud98D0D0FAu7VVKOJrnfquaQvelzwsuowm2NxvCEbu0ojxkm
+ 3TZZ8+TF21WbFQhxJaz8Mm4I=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id b210bfa048418e89;
-	Mon, 31 Aug 2026 16:34:23 +0000
-X-Mizu-Trace-ID: b210bfa048418e89
+Received: by smtp.migadu.com with ESMTPS id a1d3c5d0688f5f6d;
+	Mon, 31 Aug 2026 16:34:40 +0000
+X-Mizu-Trace-ID: a1d3c5d0688f5f6d
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,18 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 02/17] KVM: arm64: Advertise the capabilities that protected VMs support
-Date: Mon, 31 Aug 2026 17:34:06 +0100
-Message-Id: <20260831163421.272420-3-fuad.tabba@linux.dev>
+Subject: [PATCH 06/17] KVM: arm64: Add {flush,sync}_hyp_timer_state() primitives
+Date: Mon, 31 Aug 2026 17:34:10 +0100
+Message-Id: <20260831163421.272420-7-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260831163421.272420-1-fuad.tabba@linux.dev>
 References: <20260831163421.272420-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_093428_337898_A86720E1 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260831_093442_759678_BA4A86A0 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +80,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_pkvm_ext_allowed() denies every capability it does not name, so a
-protected VM reports 0 for interfaces it implements: KVM_CHECK_EXTENSION
-denies KVM_CAP_ONE_REG while KVM_{GET,SET}_ONE_REG stage the guest's
-boot state.
+From: Marc Zyngier <maz@kernel.org>
 
-Allow the capabilities that work for a protected guest, the vGIC and
-the I/O bus being host-managed, subject to the restrictions the rest of
-this series adds.
+A protected guest's virtual timer is programmed from EL2's own copy of
+the state and read back there, so the host cannot change the guest's
+deadline. cntvoff_el2 is zeroed, so the guest's virtual time is the
+physical time.
 
+The flush also preserves the guest's CNTV and CNTP CVAL/CTL across the
+host's full-context copy into the hyp vCPU.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 39 ++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index beea00e693a0a..c4c834d55e503 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -42,6 +42,15 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_VM_IPA_SIZE:
- 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
- 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
-+	case KVM_CAP_ONE_REG:
-+	case KVM_CAP_MP_STATE:
-+	case KVM_CAP_VCPU_EVENTS:
-+	case KVM_CAP_VCPU_ATTRIBUTES:
-+	case KVM_CAP_IMMEDIATE_EXIT:
-+	case KVM_CAP_IOEVENTFD:
-+	case KVM_CAP_IRQFD_RESAMPLE:
-+	case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
-+	case KVM_CAP_ARM_INJECT_SERROR_ESR:
- 		return true;
- 	case KVM_CAP_ARM_MTE:
- 		return false;
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 14e847b122abf..d4b0f69ff130c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -154,6 +154,33 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+ }
+ 
++static void flush_hyp_timer_state(struct pkvm_hyp_vcpu *hyp_vcpu)
++{
++	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		return;
++
++	/* A hyp vcpu has no offset, and sees vtime == ptime. */
++	write_sysreg(0, cntvoff_el2);
++	write_sysreg_el0(__vcpu_sys_reg(&hyp_vcpu->vcpu, CNTV_CVAL_EL0),
++			 SYS_CNTV_CVAL);
++	isb();
++	write_sysreg_el0(__vcpu_sys_reg(&hyp_vcpu->vcpu, CNTV_CTL_EL0),
++			 SYS_CNTV_CTL);
++}
++
++static void sync_hyp_timer_state(struct pkvm_hyp_vcpu *hyp_vcpu)
++{
++	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		return;
++
++	/*
++	 * Preserve the vtimer state so that it is always correct,
++	 * even if the host tries to make a mess.
++	 */
++	__vcpu_assign_sys_reg(&hyp_vcpu->vcpu, CNTV_CVAL_EL0, read_sysreg_el0(SYS_CNTV_CVAL));
++	__vcpu_assign_sys_reg(&hyp_vcpu->vcpu, CNTV_CTL_EL0, read_sysreg_el0(SYS_CNTV_CTL));
++}
++
+ static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
+ 			      struct kvm_vcpu *to_vcpu)
+ {
+@@ -249,7 +276,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 		hyp_vcpu->vcpu.arch.iflags = host_vcpu->arch.iflags;
+ 		flush_debug_state(hyp_vcpu);
+ 	} else {
++		u64 v_cval = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CVAL_EL0];
++		u64 v_ctl = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CTL_EL0];
++		u64 p_cval = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CVAL_EL0];
++		u64 p_ctl = hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CTL_EL0];
++
+ 		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
++
++		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CVAL_EL0] = v_cval;
++		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTV_CTL_EL0] = v_ctl;
++		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CVAL_EL0] = p_cval;
++		hyp_vcpu->vcpu.arch.ctxt.sys_regs[CNTP_CTL_EL0] = p_ctl;
+ 	}
+ 
+ 	/* __hyp_running_vcpu must be NULL in a guest context. */
+@@ -264,6 +301,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	hyp_vcpu->vcpu.arch.vsesr_el2 = host_vcpu->arch.vsesr_el2;
+ 
+ 	flush_hyp_vgic_state(hyp_vcpu);
++	flush_hyp_timer_state(hyp_vcpu);
+ 
+ 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
+ 
+@@ -313,6 +351,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu, u32 exit_reason)
+ 	host_vcpu->arch.hcr_el2 |= hyp_vcpu->vcpu.arch.hcr_el2 & HCR_VSE;
+ 
+ 	sync_hyp_vgic_state(hyp_vcpu);
++	sync_hyp_timer_state(hyp_vcpu);
+ 
+ 	hyp_vcpu->exit_code = exit_reason;
+ }
 -- 
 2.39.5
 
