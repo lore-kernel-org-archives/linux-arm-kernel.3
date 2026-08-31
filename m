@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF744C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAABEC624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgxKhL7A1XKhNVrAX+Ck+KuNZ6TSYMACVM9Vad6BlYI=; b=X3xJY1GQNvq6fIkHNuSKWIr6kO
-	PLP8bEymmlc89s4CeFs5pf0ES73osJg6yBEmfyWH0uS+o1KiyJb7I6H6YUJCusf+L11KV9x3cD66O
-	o9G+9zNMrGtX7OV/o5hb1pp7iA2I0RgjoLHOf6Egf4kQ/CVJSeR87MRgDDY6GOvIeGKUGBbcOZ9bf
-	GxJr8IasvhHG7tFwyVzRgqOsiw+cD7X388JVvnxEDdmMHlwt6uM+IIC4OHwjUYw1GL2klE4FmSghl
-	uarLE3fLI4nguSuLmE8vZJkDypJUQQAvtJGAPXWw7TVJ4riB3r4fq9TyqeuSbYfJaIsa906kpKJhy
-	FoodzjnQ==;
+	bh=Mg0FhLj+v96vUWe+LyIXKQir5MTYCv01Q4cNbefOBGw=; b=YEAbxNURvSoQpJ9VVPpv25pHB8
+	ALiUqIdpImdGAKFqsW1kXvIOjtQftQVR7AGABvTt+IY+ICECHFqIyavzjDdTFahWuij2HGSzuropX
+	gvkgyoscSe0SnB2LZGLpJT/VQS/z7Oh/ug1ssRDBnmwOwPdG43CV1GSgJ+5VZA2fST04eZYWVu5mU
+	WqZHH4dp0aWKgOTBIgmhbg9HpYt22+65G2OwNP6ssVAxq+p7i87++w5vzaECMAGcP1+yTrjSvF5qf
+	4PWWAEteP+RoaBE8pLwfignF4yj8jDCHMLSrFPa30YcS6XTqR8BkGT/NrYe8rfGrkoXmM/tZzGEgs
+	RLktbNyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0x66-00000008nhg-174D;
-	Mon, 31 Aug 2026 08:10:30 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1x0x65-00000008ngo-3j4o;
+	Mon, 31 Aug 2026 08:10:29 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0x63-00000008ngB-20UX
+	id 1x0x5y-00000008neC-2bAE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 08:10:28 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so36102765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 01:10:27 -0700 (PDT)
+	Mon, 31 Aug 2026 08:10:24 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4956869750eso20000265e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 01:10:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788163826; x=1788768626; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788163821; x=1788768621; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zgxKhL7A1XKhNVrAX+Ck+KuNZ6TSYMACVM9Vad6BlYI=;
-        b=Dm3DTq5siDlp7YviF6e8vei2XP6IbDjeKwN3baZSNW+zwsVYfsXxgftlAnHDJrd3cu
-         ayZ/f7g0uKHVHEFYxwzJk5nZl55u/0odAQtUlWRTs1qPvCm+3K170Hi3yuhOc4ZgAyUF
-         n+huSSCikVYzkuyp+naC1FKedEO4rqRHoHjSEKLEZXfigJO4cMzD+3YFEZCRj1VCY2Gk
-         SPVF0iGHaOW5ZFydYonMAJCjBBZ2M3z9aQTFrXsKdzB1Qr3SvpcUO8aflpeVMlE+RMkp
-         dGh/Cs/ErWcrHBNViQ08+rj5mHx2HnoM/PZ3xX7BKEjWFZJ4iu3Dae1kJe9NxXxnWBCG
-         q52g==
+        bh=Mg0FhLj+v96vUWe+LyIXKQir5MTYCv01Q4cNbefOBGw=;
+        b=ZgjI0r34YQuTY4Q65ly+l+0/E/caG3RTCPnmTfbySuQDex/skLEaW8cq/0jAjYCjHd
+         UbVIq9Lh+sOqff87YCAKIzsmbcv0EL8UR4GewTgrfnKjh8nZTfeQ3rUODk45NJqiu31R
+         xN+oTxtAj8fk+tiDUwc29brDYm+ehxO6ialpSKxNt8OZWboQlsxSoCCFzYf5vzmDY5Fb
+         et9hU5Gz5RWXihvt38BvqprzkKXFyC5tpS5gNlyL1+5Vm0uk5zrVqOqBYBz8kUgp6XUj
+         hibaYWdylOAO03FAkxxYP+AcxWiuv7eMb/TEl/gfh4IFYlVA24FEfMRpdeczfuJOGqRI
+         VlQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788163826; x=1788768626;
+        d=1e100.net; s=20251104; t=1788163821; x=1788768621;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zgxKhL7A1XKhNVrAX+Ck+KuNZ6TSYMACVM9Vad6BlYI=;
-        b=OwPQZoTHX6Tgi1SnqeTcfENokI6cEgVVqfVDzcVEwLe0hdMJ57QAhGR593qCzFIXyj
-         vSh1E1zFwtmYU7PqBIz6tAvumTIbzLb3t+pJyaNXwnWux9owu/Nf6sWneLD0JlGP7UrR
-         sTk6S0BbDf5AuP4FeWBfUBXC6koBAXa3+UgtkyYCfhmwLVNwEQLNCIWq26eEp70vaSQr
-         +lHuQgGC4YGK+GXX/L2OcZ/rWJJF5nSfBg7KQnF1Fe1c13f0yKi86+PDMpCBDdllTi9u
-         UEG3WRHi+eoOuUxVjc2FfYV6esW3GzYVz6wDNlN35xWbgvQ/f0kVOPPi1r4KHUsKqmI6
-         LG2w==
-X-Forwarded-Encrypted: i=1; AHgh+RpS4i/6Il78pkUY/GJrDoSlW/17ftyZfeePyIM8vUo/UhVY/Z65r1PdD9t738gcgQS+rWdsvCFySWueJVmJTiGX@lists.infradead.org
-X-Gm-Message-State: AFuF++ngt2xSsELIUX+GT3vZS7XEQksrj8Fz9ej+cQV9qA2dW2Mo24qo
-	XORL+LyAZn7VWaoGPZmKTG/QeLj3BJXCBQmadGOrPWakRm332Ipr8nRi
-X-Gm-Gg: AR+sD112AG1GFQFNJ2r8B19rDvbp+ociVOX3niH/GE6efWBlAJ8LVZSZ8WYFP055Upq
-	rmvOMi1XJQVMPmNx7zwkZizuhttEZEiF7SqcJaV7djnHHTd+nqWHqjFxJmWNmSSFvWybrxpqCMR
-	Yhu9DO4rvm1Rrr+KLLDXbOSPhpEB+ISc5JjHiSUHJJYukCs/IkNzV7PB2UblH/sEe1AKFh65JPM
-	PcRs1Vfu6E/oY5FG6L6y7PVSSY9hwBSu0waTiBqAGTXaW8G1FbK/XBSLi3ZTLdSSC3jvuZ/a55u
-	BiP5y6l/WH5B2FckPjNKtD4ULzFyerW0RCMMvq8TIdvwT2PtQNbOwwhDwPgNpNenKZonsNaN/Kz
-	i8Jsl8NpA9LnYXtD8p5HbEppu+GsL7SF3ZZc0Cra+2rZ+bGC8tTKBPEbp4a8xgmFJJDsy3LPBWD
-	vWOoEsWOvh2oMeCcstziNA/Mbcv5ACMhXvRBx28wuxTciyHqQTnZapY7mNAffNKDSV58tCHoHeb
-	O1nBaJCb+rZ2zSIUOPZNnVHmapurwB6j0kUUaR6prmyqzhhA88i4AARyX/ZbXGlQwSJ/PPjNyJ1
-	ci0gYBvxj8fxWH1WzC6eWWWqz6T1NPpOTSldaZTBp23XDRQZRpeXcsCRqJXoyzEVV0Px1ac=
-X-Received: by 2002:a05:600c:3155:b0:49b:910c:7703 with SMTP id 5b1f17b1804b1-49b91c3dcb4mr350375865e9.9.1788163825607;
-        Mon, 31 Aug 2026 01:10:25 -0700 (PDT)
+        bh=Mg0FhLj+v96vUWe+LyIXKQir5MTYCv01Q4cNbefOBGw=;
+        b=aIKwfvqxJUyuESh6BdKDX288Ku4gmM/i7ekTdVMbAp5dfRUEl1l7iPLu0XGQ8cnCQM
+         5t6qbOiqP1P7T9bhTr+ZGNgpm5rQXA68pBR9fcOp/JGC19pryFw1toeUwho1QqbcV+2T
+         zSmXzonz8YkRfdEZJxeE17mANHePrgduoPxnmuBwxvUw6OfQnCILg8g9BU3dWkzUJZ2P
+         i05EXyzDW/9Iw9zOQoN8zgaMET3HoyJewQMFQN1xqn4tRcobRG8pSsk6M2JGEIseV0KQ
+         B2H0XiF75KUuxW+75GrHgvR5Ek1RbIkGVjONBKkqE87PY3wa933wMlxFmW03mtz7rOJi
+         QI4w==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+47XuDNLQrHngAA72QDmop3ITgve2tq6nesmiiThxh9mdpKuc+UopmTzZD8uLR+O+ybAnpStqc6dcYQf7jZU8@lists.infradead.org
+X-Gm-Message-State: AFuF++lSwo5UGnyd1yuACpAdT6c9owkNrGUzNbgJHi+xoEyYfrsqKmw0
+	+QVJr781YiK8lflHUdBSnr9/YiPmPFQ3zVCZTzT+Fim62eMT9TELf02Y
+X-Gm-Gg: AR+sD111JdiXmCNTRjJ7Mq4pttSXEQI8WHEXLs3PhWsQfZDkSl7uXb0xGcTOj3RAAv5
+	ng5GURxFpSBrBFVmoQ09hChn81x5RN7ZpgNWixJC6HVwGf1qEvbhvWSnBZ3nYZ9sZrs2fWF7YMo
+	c3JwbHU+HFi5U3UBDiSoUl8hPrwtX4OLwHIkLZcwChtvI56Igk2jeBeC91ATgKaRBpb8WebMxV1
+	BdZni+3lQpQaed5s7dpH/I7R8WAaCU5iUpwuXO/n3cPI5twwvL3+y5XZnp5mI6GeeP/M6421dFW
+	IjQAqOKnzCEtxbOisBIyX/AkRyrUsibOVcx8pjYd0L0QVSNdnLca0Vf7Zxf8EWd/LJF+CKzJr6u
+	8ckQVIrIL7Zgu4eW6jp/R96TqYXFGO/FdVP9UvEL9rgVqQMzZy7XT+XnyN8jxW8pm/ejYH1BRIt
+	0qBZHot0+Chja9ufoRY4vTcuetbQkMGpqMwKcQwUaMJ6otnZcLWQQdwjE9Rq/++OT0rK2DYJU1N
+	5qlDKTtosdMYSGZHwsMqqNgA/II14fIAUSQwCam35izYjIODI9MIeG1AaeWImqouRn5RZStbeGU
+	H9ruX+bOfcGNxE/K4Uys/fepEFcVVdjsU2f4p9BWrF5ILg0dTEXjLyCwNiM0+CbZezCiHvs=
+X-Received: by 2002:a05:600c:4f92:b0:49b:90cc:3c87 with SMTP id 5b1f17b1804b1-49b91c487b2mr367309225e9.13.1788163820227;
+        Mon, 31 Aug 2026 01:10:20 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-acb9-0201-68d0-34d2-ad1a-175a.310.pool.telefonica.de. [2a02:3100:acb9:201:68d0:34d2:ad1a:175a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b95013d06sm370393515e9.12.2026.08.31.01.10.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b95013d06sm370393515e9.12.2026.08.31.01.10.18
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 31 Aug 2026 01:10:24 -0700 (PDT)
+        Mon, 31 Aug 2026 01:10:19 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -91,17 +91,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v4 4/4] KVM: arm64: selftests: Test VGICv3 redistributor region retry
-Date: Mon, 31 Aug 2026 10:10:04 +0200
-Message-Id: <20260831081005.41346-5-kmehltretter@gmail.com>
+Subject: [PATCH v4 1/4] KVM: arm64: vgic-v3: Undo assignment on iodev registration failure
+Date: Mon, 31 Aug 2026 10:10:01 +0200
+Message-Id: <20260831081005.41346-2-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260831081005.41346-1-kmehltretter@gmail.com>
 References: <20260831081005.41346-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_011027_553785_38529DC9 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260831_011022_674959_A429CD4D 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,165 +116,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A failed REDIST_REGION write can remove redistributor iodevs without
-clearing their cached vCPU assignments. A retry then skips those
-assignments and leaves the redistributors absent from the MMIO bus.
+vgic_register_redist_iodev() assigns a redistributor region and base
+address to the vCPU before adding its iodev to the MMIO bus. However, the
+region's free_index is advanced only after registration succeeds.
 
-Create two partial regions, reject a third region that overlaps the
-distributor, and retry at a valid address. After initializing the VGIC,
-have the guest read GICR_TYPER from all four redistributors and check their
-processor numbers. This verifies the final configuration without assuming
-that assignments survive the failed write.
+If kvm_io_bus_register_dev() fails, the vCPU retains the assignment while
+free_index still identifies the same slot as free. A later registration can
+therefore reuse a slot that remains assigned to the vCPU.
 
-Keep the redistributor IPAs outside the guest RAM memslot and install only
-the stage-1 mappings needed for the MMIO accesses. If an iodev is missing,
-KVM_RUN therefore exits with KVM_EXIT_MMIO. Without the fix, the first
-redistributor access exits at 0x8030008.
+Reserve the slot before registering its iodev. The caller holds slots_lock,
+so a registration failure cannot race with a later assignment. Undo the
+reservation and clear the cached assignment on failure.
 
+Fixes: dbd9733ab674 ("KVM: arm/arm64: Replace the single rdist region by a list")
+Cc: stable@vger.kernel.org
 Assisted-by: Codex:gpt-5.6-sol
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- tools/testing/selftests/kvm/arm64/vgic_init.c | 92 +++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_init.c b/tools/testing/selftests/kvm/arm64/vgic_init.c
-index 84aa97204b7f..5a30f3cb039b 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_init.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_init.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2020, Red Hat, Inc.
-  */
- #include <linux/kernel.h>
-+#include <linux/sizes.h>
- #include <sys/syscall.h>
- #include <asm/kvm.h>
- #include <asm/kvm_para.h>
-@@ -13,12 +14,21 @@
- 
- #include "test_util.h"
- #include "kvm_util.h"
-+#include "gic.h"
- #include "processor.h"
- #include "vgic.h"
- #include "gic_v3.h"
- 
- #define NR_VCPUS		4
- 
-+#define REDIST_RETRY_REGION0_BASE	GICR_BASE_GPA
-+#define REDIST_RETRY_REGION1_BASE	\
-+	(REDIST_RETRY_REGION0_BASE + 2 * KVM_VGIC_V3_REDIST_SIZE)
-+#define REDIST_RETRY_DIST_BASE		\
-+	(REDIST_RETRY_REGION1_BASE + KVM_VGIC_V3_REDIST_SIZE)
-+#define REDIST_RETRY_REGION2_BASE	\
-+	(REDIST_RETRY_DIST_BASE + KVM_VGIC_V3_DIST_SIZE)
-+
- #define REG_OFFSET(vcpu, offset) (((u64)vcpu << 32) | offset)
- 
- #define VGIC_DEV_IS_V2(_d) ((_d) == KVM_DEV_TYPE_ARM_VGIC_V2)
-@@ -65,6 +75,23 @@ static void guest_code(void)
- 	GUEST_DONE();
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d8301..22897ce64dbf 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -766,6 +766,19 @@ unsigned int vgic_v3_init_dist_iodev(struct vgic_io_device *dev)
+ 	return SZ_64K;
  }
  
-+static void guest_check_redist_retry(void)
++static void vgic_undo_redist_assignment(struct kvm_vcpu *vcpu)
 +{
-+	unsigned int i;
++	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
 +
-+	/* The first three redistributors span adjacent regions 0 and 1. */
-+	for (i = 0; i < NR_VCPUS; i++) {
-+		u64 base = i < 3 ? REDIST_RETRY_REGION0_BASE +
-+				       i * KVM_VGIC_V3_REDIST_SIZE :
-+				       REDIST_RETRY_REGION2_BASE;
-+		u64 typer = readq((void *)(unsigned long)(base + GICR_TYPER));
++	lockdep_assert_held(&vcpu->kvm->slots_lock);
 +
-+		GUEST_ASSERT_EQ(GICR_TYPER_CPU_NUMBER(typer), i);
-+	}
++	guard(mutex)(&vcpu->kvm->arch.config_lock);
 +
-+	GUEST_DONE();
++	vgic_cpu->rdreg->free_index--;
++	vgic_cpu->rdreg = NULL;
++	vgic_cpu->rd_iodev.base_addr = VGIC_ADDR_UNDEF;
 +}
 +
- /* we don't want to assert on run execution, hence that helper */
- static int run_vcpu(struct kvm_vcpu *vcpu)
- {
-@@ -462,6 +489,70 @@ static void test_v3_new_redist_regions(void)
- 	vm_gic_destroy(&v);
- }
+ /**
+  * vgic_register_redist_iodev - register a single redist iodev
+  * @vcpu:    The VCPU to which the redistributor belongs
+@@ -818,16 +831,17 @@ int vgic_register_redist_iodev(struct kvm_vcpu *vcpu)
+ 	rd_dev->nr_regions = ARRAY_SIZE(vgic_v3_rd_registers);
+ 	rd_dev->redist_vcpu = vcpu;
  
-+static void test_v3_redist_region_retry(void)
-+{
-+	struct kvm_vcpu *vcpus[NR_VCPUS];
-+	struct vm_gic v;
-+	struct ucall uc;
-+	u64 addr;
-+	int ret;
++	/* Protected by slots_lock */
++	rdreg->free_index++;
 +
-+	v = vm_gic_create_with_vcpus(KVM_DEV_TYPE_ARM_VGIC_V3, NR_VCPUS,
-+				     guest_check_redist_retry, vcpus);
-+
-+	addr = REDIST_REGION_ATTR_ADDR(2, REDIST_RETRY_REGION0_BASE, 0, 0);
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V3_ADDR_TYPE_REDIST_REGION, &addr);
-+
-+	addr = REDIST_REGION_ATTR_ADDR(1, REDIST_RETRY_REGION1_BASE, 0, 1);
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V3_ADDR_TYPE_REDIST_REGION, &addr);
-+
-+	addr = REDIST_RETRY_DIST_BASE;
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V3_ADDR_TYPE_DIST, &addr);
-+
-+	addr = REDIST_REGION_ATTR_ADDR(1, REDIST_RETRY_DIST_BASE, 0, 2);
-+	ret = __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+				    KVM_VGIC_V3_ADDR_TYPE_REDIST_REGION,
-+				    &addr);
-+	TEST_ASSERT(ret && errno == EINVAL,
-+		    "register redist region colliding with dist");
-+
-+	addr = REDIST_REGION_ATTR_ADDR(1, REDIST_RETRY_REGION2_BASE, 0, 2);
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_ADDR,
-+			    KVM_VGIC_V3_ADDR_TYPE_REDIST_REGION, &addr);
-+
-+	virt_map(v.vm, REDIST_RETRY_REGION0_BASE, REDIST_RETRY_REGION0_BASE,
-+		 vm_calc_num_guest_pages(v.vm->mode,
-+					 3 * KVM_VGIC_V3_REDIST_SIZE));
-+	virt_map(v.vm, REDIST_RETRY_REGION2_BASE, REDIST_RETRY_REGION2_BASE,
-+		 vm_calc_num_guest_pages(v.vm->mode,
-+					 KVM_VGIC_V3_REDIST_SIZE));
-+
-+	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+
-+	vcpu_run(vcpus[0]);
-+	switch (get_ucall(vcpus[0], &uc)) {
-+	case UCALL_DONE:
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	case UCALL_NONE:
-+		if (vcpus[0]->run->exit_reason == KVM_EXIT_MMIO)
-+			TEST_FAIL("Unexpected MMIO exit at 0x%llx",
-+				  vcpus[0]->run->mmio.phys_addr);
-+		fallthrough;
-+	default:
-+		TEST_FAIL("Unexpected ucall %lu, exit_reason %u",
-+			  uc.cmd, vcpus[0]->run->exit_reason);
-+	}
-+
-+	vm_gic_destroy(&v);
-+}
-+
- static void test_v3_typer_accesses(void)
- {
- 	struct vm_gic v;
-@@ -986,6 +1077,7 @@ void run_tests(u32 gic_dev_type)
+ 	mutex_unlock(&kvm->arch.config_lock);
  
- 	if (VGIC_DEV_IS_V3(gic_dev_type)) {
- 		test_v3_new_redist_regions();
-+		test_v3_redist_region_retry();
- 		test_v3_typer_accesses();
- 		test_v3_last_bit_redist_regions();
- 		test_v3_last_bit_single_rdist();
+ 	ret = kvm_io_bus_register_dev(kvm, KVM_MMIO_BUS, rd_base,
+ 				      2 * SZ_64K, &rd_dev->dev);
+ 	if (ret)
+-		return ret;
++		vgic_undo_redist_assignment(vcpu);
+ 
+-	/* Protected by slots_lock */
+-	rdreg->free_index++;
+-	return 0;
++	return ret;
+ 
+ out_unlock:
+ 	mutex_unlock(&kvm->arch.config_lock);
+
+base-commit: cf72cbb39da84b6f02f90c07f33b102fc10b16f0
 -- 
 2.39.5 (Apple Git-154)
 
