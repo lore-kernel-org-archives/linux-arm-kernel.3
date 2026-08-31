@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B55C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B228BC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ilmLay646quhiSaTllAkjbNWVuNYgdU7ga209ABNBWo=; b=qWGuEqcO7BERpSxZSaBmwx800o
-	DY4brXzrtbpWG9ubkC/1h4B8oN92saitjrds1p/isPWSp4B7n6G7HpUqtCD6cR1Y/ECihWvYgnH2U
-	lN+kqTnUvemqbDG6Au8/S0G4RIgk8hFVWk8rmUVFS/SqOQ+JgKiL4T3dyBbSzdEDx54jAUnHfJvgN
-	QztvHcWcBWE9D3tNDFa1jYgXuYAp/n4xXodtq6OaEb0bw1ysHsDz3aCtyNR7O4re1y6i+xVbvxL57
-	yTV/3vF7jrbZVR8VfXkd1Q/BbmqSOzA2eSBAVauDt9ri6s4Td3tRjRTZH8zaRogigcwte2MdkW9Oc
-	sj3Ya/3w==;
+	bh=CUXCA1AVcBmekaYl2KvyNrJjaOnT+ATPgyf3nqmXHi0=; b=uUpP7J7exf/JjJ88PyiJzVXgz0
+	eBM/RPkDSmF0vsk0koIjYaQZDMz3OUYnQKpeCFSyNhGKCfu3em/fe9FjYDaZRVctQCUQ6XTgC+1ah
+	TkH0YtjpWpFULYFTU64Sc1JXgLu5r0R+7LYnNq4Cvs9AUOxGHyU6W3Sgkwzj4BLPdwn1h7dsKTdnQ
+	cdybEI0jJJGh4JF0u5Km8Jj9uKlLc+5eNjxvq/edHcIb78INoLf7YZnaSSTLIzOa6wzLonC1k2at7
+	z4Usw7E4LfasFMeM69NlAFLzZ8GzZNJXzxmdkLx3ezer36WRwr6OaUEmPHY7KIvhRE5taRlvxWKwB
+	gU5FnW8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12PU-00000009Y5s-2TsK;
-	Mon, 31 Aug 2026 13:50:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x12Pb-00000009YB2-1FUd;
+	Mon, 31 Aug 2026 13:50:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12PR-00000009Y41-3tDR;
-	Mon, 31 Aug 2026 13:50:50 +0000
+	id 1x12PX-00000009Y8Y-418U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:50:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CE2E60207;
-	Mon, 31 Aug 2026 13:50:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50131F00A3E;
-	Mon, 31 Aug 2026 13:50:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8336340130
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 13:50:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690DB1F000E9;
+	Mon, 31 Aug 2026 13:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788184248;
-	bh=ilmLay646quhiSaTllAkjbNWVuNYgdU7ga209ABNBWo=;
+	s=k20260515; t=1788184255;
+	bh=CUXCA1AVcBmekaYl2KvyNrJjaOnT+ATPgyf3nqmXHi0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XSziANUUcKR5mKtLByLdVHQKiD14anRaTAIxArztSXzS3oDLxda8Qjer7Zw50+wuE
-	 LKA0DVS7CYmeSpy0YS+Kap2e48KYMtxMWL1VQ4yXICxOlqyEFI+9n8+IIQQn4PzJRT
-	 CUreedX9LSMJ+IKn2eEzKgMAjC339gQ6XzzsaFWfl9Z9DOvSIvfFaZ5fLQXSbi+kA2
-	 isdfZtnW14fwrlUMXlIi/iVxr4Ue6CIhfLtvTsIe7ed1sSr9w/ODt8jDtSmO6u/Yeh
-	 M2W1M7A+MeWe65FF/VcYdiJ/RRPOFXZB+2gWAz48OJXefRDql9204CJSaf0+Nm8CgW
-	 FZxMEbX5KV/kA==
+	b=GBPfp00V5rWO5M7EAInMPU/KB0YhX56sXCHGxyTcbJ36WwBYUfzV4MalYRf/DnBFW
+	 R6tFuto2JFk6JXhRnYvSG2GwoKYnKasH11ufqssRNbGTFtTgPDegaP9xeQFWrTlb95
+	 mqCtxEw8X3xjd4nXC7BG9JajBVzlcrQ0pfpi7G8+5xV1dfQM84hBbL29Iw/45msO/6
+	 5LyYMGLkwP2JwIdbr2OweyxUd60b4CWqu48mTg3xmIi8njrUASW0Jn+mIuf9wUqC37
+	 D5HtxepKr2Yxho68bkvTE3cmlvYtkmKebm+2riTHIsI8O2NTiYedzoZAbWK3ufJOnH
+	 Or6rCQRQXNmew==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: bui duc phuc <phucduc.bui@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	heiko@sntech.de,
-	linux-sound@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] ASoC: rockchip: rockchip_pdm: Reorder clock enable sequence
-Date: Mon, 31 Aug 2026 09:30:08 -0400
-Message-ID: <20260831133314.4125787-580-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
+Date: Mon, 31 Aug 2026 09:30:12 -0400
+Message-ID: <20260831133314.4125787-584-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -81,397 +76,405 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+From: Sudeep Holla <sudeep.holla@kernel.org>
 
-[ Upstream commit 3168721d6ec3b610edf6a3c22ad190722a27d276 ]
+[ Upstream commit 56e7e64cdd0e7209a58c8ec66028d63387402919 ]
 
-Enable the 'hclk' bus clock before the 'clk' controller clock during
-runtime resume.
-The bus clock provides the register access interface, so enable it before
-the controller clock. This also makes the resume sequence the reverse of
-the suspend sequence, which keeps the clock ordering consistent.
+BASE_ERROR_EVENT carries a variable number of message reports,
+with the count encoded in error_status. The notification parser used
+that count without checking whether the received payload contained all
+reported entries.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-Link: https://patch.msgid.link/20260602101608.45137-4-phucduc.bui@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Reject truncated payloads before copying the report array.
+
+Link: https://patch.msgid.link/20260517-scmi_fixes-v1-2-d86daec4defd@kernel.org
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
-(attempt 1)...
-Retry attempt 1...
-Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
-(attempt 2)...
-Retry attempt 2...
-Connection lost, reconnecting to https://agentn.us.api5.cursor.sh
-(attempt 3)...
-Retry attempt 3...
 ## Phase 1: Commit Message Forensics
 
-### Step 1.1: Parse the Subject Line
-**Record:** `[ASoC: rockchip: rockchip_pdm]` `[Reorder]` — Reorder the
-runtime-resume clock enable sequence for the Rockchip PDM driver.
+### Step 1.1: Subject Line
+**Record:** `[firmware: arm_scmi]` `[Validate]` — Validate that
+`BASE_ERROR_EVENT` notification payloads are large enough for the number
+of error reports claimed in `error_status`.
 
-### Step 1.2: Parse All Commit Message Tags
+### Step 1.2: Commit Message Tags
 **Record:**
-- **Fixes:** — not present (expected for manual review)
-- **Reported-by:** — none
-- **Tested-by:** — none
-- **Reviewed-by:** — none
-- **Acked-by:** — none
-- **Link:**
-  https://patch.msgid.link/20260602101608.45137-4-phucduc.bui@gmail.com
-- **Cc: stable@vger.kernel.org:** — not present (expected)
-- **Signed-off-by:** bui duc phuc, Mark Brown (ASoC maintainer)
+- **Link:** `https://patch.msgid.link/20260517-scmi_fixes-v1-2-
+  d86daec4defd@kernel.org`
+- **Signed-off-by:** Sudeep Holla `<sudeep.holla@kernel.org>` (author;
+  SCMI maintainer)
+- **Reviewed-by:** Cristian Marussi `<cristian.marussi@arm.com>` (from
+  mbox; SCMI co-maintainer)
+- **No Fixes:, Reported-by:, Tested-by:, Cc: stable@** on this specific
+  patch
+- **Series context:** Patch 2/4 of `scmi_fixes-v1` (`20260517_sudeep_hol
+  la_firmware_arm_scmi_fix_protocol_parsing_and_validation.mbx`)
 
-Notable: no user report, syzbot, or explicit stable nomination. Mark
-Brown accepted the patch.
-
-### Step 1.3: Analyze the Commit Body
+### Step 1.3: Commit Body Analysis
 **Record:**
-- **Bug:** `rockchip_pdm_runtime_resume()` enables `pdm_clk` (controller
-  clock) before `pdm_hclk` (bus clock).
-- **Symptom/failure mode:** Not explicitly described (no crash, hang, or
-  user report). The commit argues that register access requires the bus
-  clock, so resume ordering is wrong and does not mirror suspend.
-- **Version info:** none in the message.
-- **Root cause:** Bus clock (`hclk`) provides the register interface; it
-  must be enabled before the controller clock (`clk`). Suspend disables
-  `clk` then `hclk`; resume should reverse that.
+- **Bug:** `BASE_ERROR_EVENT` has a variable-length payload;
+  `error_status` encodes how many `msg_reports[]` entries follow, but
+  the parser used that count without verifying the received `payld_sz`
+  covered all entries.
+- **Symptom:** Truncated notifications are parsed anyway; the loop
+  copies `msg_reports[i]` beyond the valid received bytes.
+- **Root cause:** Only an upper-bound check existed (`payld_sz <=
+  sizeof(*p)`); no lower-bound check based on `cmd_count`.
+- **Version info:** None in the commit message.
 
-### Step 1.4: Detect Hidden Bug Fixes
-**Record:** Yes — this is a PM correctness bug disguised as ordering
-cleanup. Resume currently mirrors suspend instead of reversing it, which
-is incorrect for clock domains where the bus clock gates register
-access.
+### Step 1.4: Hidden Bug Fix Detection
+**Record:** Not disguised — this is an explicit validation/hardening fix
+for out-of-bounds reads on a variable-length protocol payload.
 
 ---
 
 ## Phase 2: Diff Analysis
 
-### Step 2.1: Inventory the Changes
+### Step 2.1: Change Inventory
 **Record:**
-- **Files:** `sound/soc/rockchip/rockchip_pdm.c` (+/- ~6 logical lines
-  in one hunk)
-- **Functions modified:** `rockchip_pdm_runtime_resume()`
-- **Scope:** Single-file, surgical PM fix
+- **File:** `drivers/firmware/arm_scmi/base.c` (+13 / -2 per mbox;
+  user's diff is equivalent)
+- **Function modified:** `scmi_base_fill_custom_report()`
+- **Scope:** Single-file, surgical fix (~15 lines)
 
 ### Step 2.2: Code Flow Change
 **Record:**
-- **Hunk (runtime resume):**
-  - **Before:** enable `pdm->clk`, then `pdm->hclk`; on second failure,
-    disable `pdm->clk`
-  - **After:** enable `pdm->hclk`, then `pdm->clk`; on second failure,
-    disable `pdm->hclk`
-- **Path affected:** Runtime PM resume and anything that calls it
-  (system sleep resume via `pm_runtime_resume_and_get()`)
+- **Hunk 1 (before):** After checking `payld_sz` is not larger than the
+  max struct, immediately read `error_status`, derive `cmd_count`, and
+  loop over `p->msg_reports[i]`.
+- **Hunk 1 (after):** Compute minimum size for header fields; reject if
+  `payld_sz` too small; then derive `cmd_count`; compute `expected_sz +=
+  cmd_count * sizeof(msg_reports[0])`; reject truncated payloads; only
+  then copy reports.
+- **Path affected:** Deferred notification worker path for
+  `SCMI_EVENT_BASE_ERROR_EVENT`.
 
 ### Step 2.3: Bug Mechanism
 **Record:**
-- **Category:** Logic / PM correctness fix (clock enable ordering)
-- **Mechanism:** Suspend disables controller clock first, then bus
-  clock. Resume must enable bus clock first, then controller clock.
-  Current code enables both in the same order as suspend, violating
-  standard clock-domain ordering and the driver’s own probe path (probe
-  enables `hclk` first).
+- **Category:** Buffer over-read / out-of-bounds access on variable-
+  length payload (memory safety).
+- **Mechanism:** `ERROR_CMD_COUNT(error_status)` can claim N report
+  entries while `payld_sz` only contains the fixed header (8 bytes) or a
+  partial array. The loop reads `p->msg_reports[i]` past the valid
+  received message boundary.
 
 ### Step 2.4: Fix Quality
 **Record:**
-- Fix is obviously correct and minimal.
-- Matches the pattern used in `rockchip_sai.c` and `rockchip_i2s_tdm.c`
-  (hclk before functional clock on resume).
-- Regression risk is very low: only reorders two existing
-  `clk_prepare_enable()` calls and corresponding error-path cleanup.
+- **Quality:** Obviously correct; mirrors existing SCMI validation style
+  (e.g. `scmi_system_fill_custom_report()`).
+- **Regression risk:** Very low — well-formed firmware messages are
+  unchanged; malformed ones are rejected (return `NULL`, event dropped
+  with existing error logging in `scmi_process_event_payload()`).
+- **Note:** Mbox uses `sizeof(p->agent_id) + sizeof(p->error_status)`;
+  user's diff uses `offsetof(typeof(*p), msg_reports)` — functionally
+  equivalent.
 
 ---
 
 ## Phase 3: Git History Investigation
 
-### Step 3.1: Blame the Changed Lines
+### Step 3.1: Blame
+**Record:** Buggy logic introduced in `585dfab3fb80e` ("firmware:
+arm_scmi: Add base notifications support", 2020-07-01, Cristian
+Marussi). Confirmed ancestor of current HEAD.
+
+### Step 3.2: Fixes: Tag
+**Record:** N/A — no `Fixes:` tag on this commit.
+
+### Step 3.3: Related File History
 **Record:**
-- Buggy ordering introduced in **fc05a5b222530** (“ASoC: rockchip: add
-  support for pdm controller”, June 2017).
-- Error-path cleanup added later in **ef0a098efb366** (Dec 2022).
-- Bug has existed since driver introduction; present in this tree.
+- `3b0041f6e10e5` — "Validate BASE_DISCOVER_LIST_PROTOCOLS response"
+  (same subsystem, same validation pattern; already in this tree)
+- `11daac2817dca` — "Fix OOB in scmi_power_name_get()" (already
+  backported to this 6.18.y tree)
+- `bac3e70c2fb10` — patch 1/4 of the same series (sensor config width
+  fix) is already in this tree; **patch 2/4 (this fix) is not**
 
-### Step 3.2: Follow the Fixes: Tag
-**Record:** No `Fixes:` tag — not applicable.
+### Step 3.4: Author Context
+**Record:** Sudeep Holla is the SCMI subsystem maintainer. Recent SCMI
+commits in this tree include multiple validation and OOB fixes.
 
-### Step 3.3: File History for Related Changes
-**Record:**
-- Related prior fix: **ef0a098efb366** — missing
-  `clk_disable_unprepare()` on error path in the same function (already
-  in this 6.18.y tree).
-- No evidence this is part of a multi-patch dependency series.
-- Standalone fix.
-
-### Step 3.4: Author's Other Commits
-**Record:** Author (bui duc phuc) has other ASoC cleanup/guard patches;
-this is a targeted Rockchip PDM PM fix accepted by maintainer Mark
-Brown.
-
-### Step 3.5: Dependent/Prerequisite Commits
-**Record:** No dependencies. Code structures (`pdm->clk`, `pdm->hclk`,
-runtime PM callbacks) all exist in this tree. Applies standalone.
+### Step 3.5: Dependencies
+**Record:** Standalone — only touches `base.c`. Does not depend on patch
+1/4 (sensors), 3/4, or 4/4. Applies independently.
 
 ---
 
 ## Phase 4: Mailing List and External Research
 
-### Step 4.1: Original Patch Discussion
-**Record:**
-- `b4 dig -c 8f78f7bc1806c` failed — commit not in this checkout.
-- Link fetch blocked (403 / bot protection).
-- Could not retrieve lore thread content.
+### Step 4.1: Original Discussion
+**Record:** `b4 dig` could not be used (commit not in tree).
+Lore/patch.msgid.link fetch blocked (403/bot protection). Used local
+mbox: `20260517_sudeep_holla_firmware_arm_scmi_fix_protocol_parsing_and_
+validation.mbx`. Series v1, patch 2/4.
 
 ### Step 4.2: Reviewers
-**Record:** UNVERIFIED — `b4 dig -w` failed for the same reason. Mark
-Brown’s Signed-off-by confirms maintainer acceptance.
+**Record:** Reviewed-by Cristian Marussi on patch 2/4. Cover letter Cc's
+`arm-scmi@vger.kernel.org`, `linux-arm-kernel@lists.infradead.org`.
 
-### Step 4.3: Bug Report Search
-**Record:** No bug report, syzbot link, or crash description in the
-commit message or accessible lore thread.
+### Step 4.3: Bug Report
+**Record:** No external bug report or syzbot link. Issue found during
+spec-compliance review per cover letter ("checking the driver message
+layouts against the SCMI specification").
 
-### Step 4.4: Related Patches / Series
-**Record:** Message-ID suffix `45137-4` suggests patch 4 of a series,
-but no related mbox files for this patch were found in the workspace.
-Fix itself is self-contained.
+### Step 4.4: Series Context
+**Record:** 4-patch series; each patch is independently valuable. Patch
+1 already present in tree; patches 2–4 are separate fixes.
 
-### Step 4.5: Stable Mailing List History
-**Record:** UNVERIFIED — could not search lore due to access
-restrictions. No `Cc: stable@vger.kernel.org` in the commit message.
+### Step 4.5: Stable List History
+**Record:** Not searched (lore blocked). Cover letter does not
+explicitly request stable, but that is not a negative signal per
+instructions.
 
 ---
 
 ## Phase 5: Code Semantic Analysis
 
 ### Step 5.1: Key Functions
-**Record:** `rockchip_pdm_runtime_resume()` (modified), with callers:
-- `rockchip_pdm_probe()` (when runtime PM disabled)
-- `rockchip_pdm_pm_ops` runtime resume callback
-- `rockchip_pdm_resume()` via `pm_runtime_resume_and_get()`
+**Record:** `scmi_base_fill_custom_report()` (modified); callers via
+`REVT_FILL_REPORT` macro.
 
 ### Step 5.2: Callers
-**Record:**
-- **Runtime PM idle/resume cycle:** common audio power-management path
-- **System sleep resume:** `rockchip_pdm_resume()` →
-  `pm_runtime_resume_and_get()` → `regcache_sync()`
-- **Probe fallback:** only when `CONFIG_PM` disabled
+**Record:** Called from `scmi_process_event_payload()` in `notify.c`
+(line 495), which runs in a workqueue context after `scmi_notify()`
+queues firmware events from interrupt context.
 
 ### Step 5.3: Callees
-**Record:** `clk_prepare_enable()`, `clk_disable_unprepare()`,
-`dev_err()`
+**Record:** `le32_to_cpu()`, `le64_to_cpu()`, `IS_FATAL_ERROR()`,
+`ERROR_CMD_COUNT()`, field access on `payld` and `report` buffers.
 
-### Step 5.4: Call Chain / Reachability
+### Step 5.4: Reachability
 **Record:**
-- Resume path is reachable on Rockchip boards using PDM microphones
-  (RK3328, RK3568, RV1126).
-- Trigger: runtime PM resume after idle, or system suspend/resume.
-- Not directly userspace-triggerable as a security primitive, but
-  reachable during normal audio use and system PM.
+- `scmi_notify()` ← SCMI transport RX path (firmware/platform
+  notifications)
+- Not directly userspace-syscall reachable, but triggered by SCMI
+  platform firmware on ARM systems using SCMI
+- Affects any platform where `BASE_ERROR_EVENT` notifications are
+  enabled
 
 ### Step 5.5: Similar Patterns
-**Record:**
-- **Correct pattern:** `rockchip_sai.c` and `rockchip_i2s_tdm.c` enable
-  `hclk` before functional clock on resume.
-- **Same bug pattern:** `rockchip_spdif.c` also enables mclk before hclk
-  on resume (not fixed by this commit).
-- **PDM probe:** enables `hclk` first at line 614.
+**Record:** `scmi_system_fill_custom_report()` already validates
+`payld_sz == expected_sz`. `3b0041f6e10e5` validates variable-length
+protocol list responses. Same hardening pattern.
 
 ---
 
-## Phase 6: Cross-Referencing Against the Local Tree
+## Phase 6: Cross-Reference Against Local Tree
 
-### Step 6.1: Does the Buggy Code Exist?
-**Record:** **Yes.** Local tree is **v6.18.44** (`6.18.44`). Current
-code at lines 425–435 enables `pdm->clk` before `pdm->hclk`. Bug present
-since v4.13 era (2017 driver addition).
+### Step 6.1: Buggy Code Exists?
+**Record:** **Yes.** Local tree is **v6.18.44** (`git describe HEAD`).
+`scmi_base_fill_custom_report()` at lines 322–350 in `base.c` lacks
+`expected_sz` validation. Bug present since v5.7-era introduction
+(2020).
 
 ### Step 6.2: Backport Complications
-**Record:** Expected **clean apply** — single hunk, no structural
-changes needed. No significant recent churn in this function beyond
-unrelated cleanups.
+**Record:** Expected **clean apply** — current `base.c` matches the
+patch context exactly. No `expected_sz` present. Mbox patch context
+matches current file structure.
 
 ### Step 6.3: Related Fixes Already Present?
-**Record:** **ef0a098efb366** (error-path cleanup in the same function)
-is already in this tree. The clock-ordering fix is **not** present.
+**Record:** Patch 1/4 (`bac3e70c2fb10`) is in tree. This specific
+BASE_ERROR_EVENT validation is **not** present. No duplicate fix found.
 
 ---
 
-## Phase 7: Subsystem and Maintainer Context
+## Phase 7: Subsystem Context
 
-### Step 7.1: Subsystem and Criticality
-**Record:** **ASoC / Rockchip PDM audio driver** — **IMPORTANT** for
-embedded Rockchip platforms using PDM digital microphones; not core-
-kernel, but relevant to production ARM64 boards.
+### Step 7.1: Subsystem Criticality
+**Record:** `drivers/firmware/arm_scmi/` — **IMPORTANT** subsystem for
+ARM/ARM64 platforms (servers, embedded, mobile SoCs using SCMI to talk
+to SCP/EL3 firmware).
 
 ### Step 7.2: Subsystem Activity
-**Record:** Driver is mature but still receives maintenance (runtime PM
-conversion, warning fixes, RK3568/RV1126 support). Active enough that PM
-paths matter.
+**Record:** Actively maintained; recent commits include OOB fixes, NULL
+deref fixes, and validation hardening.
 
 ---
 
 ## Phase 8: Impact and Risk Assessment
 
 ### Step 8.1: Who Is Affected
-**Record:** Users of Rockchip SoCs with PDM enabled in device tree (e.g.
-RK3568, RK3328, RV1126). Config/platform-specific, not universal.
+**Record:** Platforms using SCMI with `BASE_ERROR_EVENT` notifications
+enabled (`CONFIG_ARM_SCMI_PROTOCOL`). Driver-specific / platform-
+specific, but SCMI is widespread on modern ARM hardware.
 
 ### Step 8.2: Trigger Conditions
-**Record:**
-- Runtime PM resume after autosuspend
-- System sleep resume (`rockchip_pdm_resume()`)
-- Common during audio use on battery-powered/embedded devices
-- Not unprivileged attack surface; normal device PM operation
+**Record:** Firmware sends a `BASE_ERROR_EVENT` where `error_status`
+claims more `msg_reports` than the actual payload contains. Can result
+from buggy firmware, transport corruption, or malformed messages. Not
+directly triggerable by unprivileged userspace, but firmware input is
+treated as untrusted in hardening contexts.
 
 ### Step 8.3: Failure Mode Severity
 **Record:**
-- **Potential failure:** clock enable/resume problems, PDM capture
-  failure after suspend/resume, possible hardware misbehavior if
-  controller clock is enabled without bus clock
-- **Observed/reported severity:** **UNVERIFIED** — no crash report in
-  commit message; bug latent since 2017
-- **Classification:** **MEDIUM** — functional PM/resume correctness on
-  real hardware, not demonstrated crash/security/corruption
+- **Without fix:** Reads beyond valid received payload into the pre-
+  allocated scratch buffer (`pd->eh`, sized to max payload). This can
+  return **stale/uninitialized kernel data** as error reports to
+  registered event handlers — information leak and incorrect error
+  reporting.
+- **With fix:** Returns `NULL`; event is dropped with `"report not
+  available"` error (existing path).
+- **Severity:** **HIGH** (out-of-bounds read / info leak pattern); crash
+  is less likely because scratch buffer is pre-allocated to max size,
+  but corrupted reports are a real correctness and security concern.
 
-### Step 8.4: Risk-Benefit Ratio
+### Step 8.4: Risk-Benefit
 **Record:**
-- **Benefit:** Correct PM behavior on resume; aligns with sibling
-  Rockchip drivers and probe ordering; may fix intermittent post-resume
-  audio failures
-- **Risk:** Very low — 6-line reorder, no API changes
-- **Ratio:** Moderate benefit, very low risk; importance is somewhat
-  reduced by lack of demonstrated user impact
+- **Benefit:** HIGH for affected ARM SCMI platforms — prevents parsing
+  truncated firmware notifications and leaking stale data.
+- **Risk:** VERY LOW — small, obviously correct validation; no behavior
+  change for well-formed messages.
+- **Ratio:** Strong benefit, minimal risk.
 
 ---
 
 ## Phase 9: Final Synthesis
 
-### Step 9.1: Evidence Compile
+### Step 9.1: Evidence Summary
 
 **FOR backport:**
-- Real PM bug: resume does not reverse suspend clock order
-- Bus clock must precede controller clock for register access
-- Probe already enables `hclk` first; runtime resume is internally
-  inconsistent
-- Matches correct pattern in `rockchip_sai` and `rockchip_i2s_tdm`
-- Used on system sleep resume before `regcache_sync()`
+- Real memory-safety bug in variable-length notification parsing
+- Long-standing (since 2020), present in v6.18.44
 - Small, surgical, maintainer-reviewed fix
-- Buggy code exists in this 6.18.y tree since 2017
-- Prior fix in same function already accepted into stable tree
+- Matches established SCMI validation pattern already in this tree
+- Precedent: similar SCMI OOB/validation fixes already backported here
+  (`11daac2817dca`, `3b0041f6e10e5`)
+- Standalone — no series dependencies
+- No functional change for correct firmware
 
 **AGAINST backport:**
-- No user report, syzbot, or documented crash/hang
-- Commit does not describe concrete user-visible symptoms
-- Bug latent ~9 years without reported failures
-- Stable “important issue” bar usually wants demonstrated impact (crash,
-  corruption, security, deadlock)
-- Similar wrong ordering exists in `rockchip_spdif.c` and has also
-  persisted
+- Trigger requires malformed firmware notification (not common in
+  production, but possible)
+- Not syzbot-reported or user-reported with crash trace
+- Patch 2/4 lacks the extensive `Tested-by:` list that patch 1/4 has
+  (though it has `Reviewed-by`)
 
-**UNRESOLVED:**
-- Lore review thread content
-- Whether reviewers explicitly nominated for stable
-- Concrete failure reports on any Rockchip board
+**Unresolved:**
+- Could not access lore.kernel.org directly (403/bot protection)
+- `b4 dig` not usable without commit in tree
 
 ### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **PASS** — logically correct;
-   maintainer signed off; no Tested-by
-2. Fixes a real bug affecting users? **PASS** — real PM ordering bug,
-   though user impact unverified
-3. Important issue? **BORDERLINE/PASS** — can break audio after resume
-   on embedded hardware; not proven crash/corruption
-4. Small and contained? **PASS** — one function, ~6 lines
+1. Obviously correct and tested? **PASS** — logic is straightforward;
+   Reviewed-by subsystem co-maintainer
+2. Fixes a real bug affecting users? **PASS** — truncated payload
+   parsing on real ARM SCMI hardware
+3. Important issue? **PASS** — out-of-bounds read / stale data leak
+   (HIGH)
+4. Small and contained? **PASS** — ~15 lines, one file, one function
 5. No new features or APIs? **PASS**
-6. Can apply to local tree? **PASS** — code exists, clean apply expected
+6. Can apply to local tree? **PASS** — buggy code confirmed present;
+   patch is standalone
 
 ### Step 9.3: Exception Categories
-**Record:** Not a device-ID/quirk/DT/build/docs exception. Standard
-driver PM bug fix.
+**Record:** N/A — standard bug fix, not a device-ID/quirk/DT/build/docs
+exception.
 
-### Step 9.4: Decision Rationale
+### Step 9.4: Problem Summary for Stable Users
 
-This is a genuine runtime-PM bug in a driver that exists and is used in
-the local **6.18.y** tree. The fix is minimal, obviously correct, and
-aligns the PDM driver with the established Rockchip pattern (`hclk`
-before functional clock on resume, reverse of suspend). The resume path
-is exercised during normal audio PM and system sleep resume before
-register restore.
+On ARM systems using SCMI, `BASE_ERROR_EVENT` notifications report
+firmware errors with a variable number of 64-bit report words. The
+kernel driver trusted the count in `error_status` without verifying the
+received message was large enough. A truncated notification could cause
+the driver to read beyond the valid payload into scratch-buffer memory
+and forward garbage/stale data to event handlers.
 
-The main weakness is the absence of any reported crash or user failure
-despite the bug being present since 2017. That lowers urgency, but the
-fix is still appropriate for stable because:
-- it corrects objectively wrong PM ordering on a real resume path,
-- it is zero-risk and self-contained,
-- incorrect clock ordering on resume can cause device malfunction after
-  suspend on Rockchip PDM hardware,
-- a related fix in the same function is already in this stable tree.
+The fix adds minimum-size checks before parsing — the same defensive
+pattern already used elsewhere in SCMI (e.g. system power-state
+notifications, protocol list discovery). It is small, maintainer-
+reviewed, and appropriate for the v6.18.y stable tree where the
+vulnerable code is present.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, tags, body; no Reported-by/syzbot/Fixes
-  tags found
-- **[Phase 2]** Diff analysis: swap of two `clk_prepare_enable()` calls
-  and corresponding error cleanup in `rockchip_pdm_runtime_resume()`
-- **[Phase 3]** `git blame`: buggy order from fc05a5b222530 (2017);
-  ef0a098efb366 added error-path cleanup (2022)
+- **[Phase 1]** Parsed subject, tags, body from user-provided commit and
+  local mbox `20260517_sudeep_holla_firmware_arm_scmi_fix_protocol_parsi
+  ng_and_validation.mbx`
+- **[Phase 1]** Found Reviewed-by: Cristian Marussi in mbox patch 2/4
+- **[Phase 2]** Read current `scmi_base_fill_custom_report()` at lines
+  322–350 in `drivers/firmware/arm_scmi/base.c` — missing validation
+- **[Phase 2]** Confirmed `SCMI_BASE_MAX_CMD_ERR_COUNT` = 1024, struct
+  layout with variable reports
+- **[Phase 3]** `git blame -L 322,350`: buggy code from `585dfab3fb80e`
+  (2020-07-01)
+- **[Phase 3]** `git merge-base --is-ancestor 585dfab3fb80e HEAD`:
+  confirmed in tree
 - **[Phase 3]** `git log --oneline -20 --
-  sound/soc/rockchip/rockchip_pdm.c`: confirmed related prior fix in
-  tree
-- **[Phase 3]** `git merge-base --is-ancestor fc05a5b222530 HEAD`:
-  original driver commit is in this tree
-- **[Phase 4]** `b4 dig -c 8f78f7bc1806c`: failed — commit not in
-  checkout
-- **[Phase 4]** WebFetch/curl lore: blocked (403/bot protection) —
-  thread content UNVERIFIED
-- **[Phase 5]** Read callers: probe, PM ops, `rockchip_pdm_resume()` via
-  `pm_runtime_resume_and_get()`
-- **[Phase 5]** Compared patterns in `rockchip_sai.c`,
-  `rockchip_i2s_tdm.c`, `rockchip_spdif.c`
-- **[Phase 6]** `git describe HEAD` + Makefile: tree is v6.18.44
-- **[Phase 6]** Read current `rockchip_pdm.c`: buggy ordering confirmed
-  at lines 425–435
-- **[Phase 6]** DT check: PDM present for rk3568/rk3328 in
-  `arch/arm64/boot/dts/rockchip/`
-- **[Phase 8]** Failure mode assessed as functional PM/resume issue; no
-  verified crash report
+  drivers/firmware/arm_scmi/base.c`: related validation commit
+  `3b0041f6e10e5` present
+- **[Phase 3]** Confirmed `bac3e70c2fb10` (series patch 1/4) in tree;
+  patch 2/4 not in tree
+- **[Phase 4]** `b4 dig -c HEAD`: failed (commit not in tree)
+- **[Phase 4]** WebFetch lore/patch.msgid.link: blocked (403/bot
+  protection)
+- **[Phase 4]** Read local mbox cover letter and patch 2/4 content
+- **[Phase 5]** Traced call chain: `scmi_notify()` → workqueue →
+  `scmi_process_event_payload()` → `REVT_FILL_REPORT()` →
+  `scmi_base_fill_custom_report()`
+- **[Phase 5]** Read `scmi_process_event_payload()` NULL-report handling
+  at lines 498–502 in `notify.c`
+- **[Phase 5]** Read `scmi_system_fill_custom_report()` validation
+  pattern in `system.c`
+- **[Phase 5]** Read scratch buffer allocation in
+  `scmi_allocate_registered_events_desc()` — `eh_sz` = max payload +
+  header
+- **[Phase 6]** `git describe HEAD`: v6.18.44
+- **[Phase 6]** `grep expected_sz drivers/firmware/arm_scmi/base.c`: no
+  matches — fix not applied
+- **[Phase 6]** Patch context in mbox matches current `base.c` structure
+- **[Phase 7]** Confirmed SCMI is active subsystem with recent security
+  fixes in this tree
+- **[Phase 8]** Assessed failure mode: OOB read of stale scratch-buffer
+  data, not typical kmalloc overflow
+- **UNVERIFIED:** Direct lore.kernel.org thread content (blocked)
+- **UNVERIFIED:** Whether this exact commit SHA exists on mainline
+  (evaluated from patch content against local tree)
 
 **YES**
 
- sound/soc/rockchip/rockchip_pdm.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/firmware/arm_scmi/base.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
-index 01292b63bf9d6..115e90d3bbfe0 100644
---- a/sound/soc/rockchip/rockchip_pdm.c
-+++ b/sound/soc/rockchip/rockchip_pdm.c
-@@ -426,16 +426,16 @@ static int rockchip_pdm_runtime_resume(struct device *dev)
- 	struct rk_pdm_dev *pdm = dev_get_drvdata(dev);
- 	int ret;
+diff --git a/drivers/firmware/arm_scmi/base.c b/drivers/firmware/arm_scmi/base.c
+index 86b376c50a13f..25aa52746bd10 100644
+--- a/drivers/firmware/arm_scmi/base.c
++++ b/drivers/firmware/arm_scmi/base.c
+@@ -325,6 +325,8 @@ static void *scmi_base_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 					  void *report, u32 *src_id)
+ {
+ 	int i;
++	u32 error_status;
++	size_t expected_sz;
+ 	const struct scmi_base_error_notify_payld *p = payld;
+ 	struct scmi_base_error_report *r = report;
  
--	ret = clk_prepare_enable(pdm->clk);
-+	ret = clk_prepare_enable(pdm->hclk);
- 	if (ret) {
--		dev_err(pdm->dev, "clock enable failed %d\n", ret);
-+		dev_err(pdm->dev, "hclock enable failed %d\n", ret);
- 		return ret;
- 	}
+@@ -338,10 +340,19 @@ static void *scmi_base_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 	if (evt_id != SCMI_EVENT_BASE_ERROR_EVENT || sizeof(*p) < payld_sz)
+ 		return NULL;
  
--	ret = clk_prepare_enable(pdm->hclk);
-+	ret = clk_prepare_enable(pdm->clk);
- 	if (ret) {
--		clk_disable_unprepare(pdm->clk);
--		dev_err(pdm->dev, "hclock enable failed %d\n", ret);
-+		clk_disable_unprepare(pdm->hclk);
-+		dev_err(pdm->dev, "clock enable failed %d\n", ret);
- 		return ret;
- 	}
- 
++	expected_sz = offsetof(typeof(*p), msg_reports);
++	if (payld_sz < expected_sz)
++		return NULL;
++
+ 	r->timestamp = timestamp;
+ 	r->agent_id = le32_to_cpu(p->agent_id);
+-	r->fatal = IS_FATAL_ERROR(le32_to_cpu(p->error_status));
+-	r->cmd_count = ERROR_CMD_COUNT(le32_to_cpu(p->error_status));
++	error_status = le32_to_cpu(p->error_status);
++	r->fatal = IS_FATAL_ERROR(error_status);
++	r->cmd_count = ERROR_CMD_COUNT(error_status);
++	expected_sz += r->cmd_count * sizeof(p->msg_reports[0]);
++	if (payld_sz < expected_sz)
++		return NULL;
++
+ 	for (i = 0; i < r->cmd_count; i++)
+ 		r->reports[i] = le64_to_cpu(p->msg_reports[i]);
+ 	*src_id = 0;
 -- 
 2.53.0
 
