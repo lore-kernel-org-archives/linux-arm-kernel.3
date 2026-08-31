@@ -4,146 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6F8C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CE8C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pns1MihtwmL9c9kT7PkCbhGsfSXcaatikP6GSVqofzI=; b=skkAGTVJ0/Q2KKEnK2fue+aaWl
-	dCn+KCkH8SoBW5vmO1sK//x6TCVHGneadqZMysXmM6tYMcVVSTKDmx5zT9WAPy7MFUZas7asIT0nu
-	a7yz96NKXneG6G2l5+MgL51gpY0uplAiqAQenmtozu0Y+ITzxxtXR7dB4ZIVuB7MXzB4gidakfhBy
-	9+r8SEjsWyBkwmcxBUslCarQEq6BGkKM+IwBFYkXSvgsZWnJDoALp4RORjtdB76K5CA8uCMRgwduS
-	7qUN59/0iMkPjuwvWItF5Mmwa2azeIRc4TLNheEr6W0YpiMMfwzfEsAB01j4jNb4WVDtrH/xtIYto
-	lNBiGz5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XjMZ72QkIAfvl03zEIDDez0RX8+3bwKHuLZI2jFnFpQ=; b=pD2ShvydeHt42eepMmfVnaF6a0
+	Blz+0KFBIAvoVl7jOySSHJWMwCEDSynk5R+c8gKvTH5FOeH0JCLiKs0unz/9LeQjmIJb/zrceiGHZ
+	1HjV9AzwBdLLDadWnXdYubPqa3i/XXtCqstQMwGQlN2dsp4Se3e6At1mP+6CocHdL7K38a5Rawy/R
+	3iC30eF/GO922yxyd6I0mIfQ23wsQZIIaLUv7/SiSGEOrpygAtmZfKZ3RA7NJWaOTsUmbNlUq7xS/
+	67NHjzRcsL9IlypLpw9fSWa7w6EXib+BvYZE1Sh/9aCEyfmLJmRYbOfv5kuVlTI4YD3OPvkJh2J7a
+	EHzsPtsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13O0-00000009iNC-2kLz;
-	Mon, 31 Aug 2026 14:53:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x13O9-00000009iRp-0GHZ;
+	Mon, 31 Aug 2026 14:53:33 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13Ny-00000009iMl-3sbz
+	id 1x13O3-00000009iOi-26e9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:53:24 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VETLx52719902
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 14:53:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Pns1MihtwmL9c9kT7PkCbhGs
-	fSXcaatikP6GSVqofzI=; b=KnmebIwPGIvQjMQbwb2Ri7O6NXENkpCYU1MPlyg9
-	jJm8lPmH6SY8c3U6eEv+DklfaKhiiOrfrdRwbkhb3u5JeBnVkPXRUZdAeqdOUEmn
-	rrIxBYaUt8LyOcZqDPrImL+VtZkuuEmSnk/k3YmgAIfgSgXIDCIEgCjsT5Lwt1LT
-	vcHYvGF8mB1yV2lMTKO3iQmEaB7uEBcgSU52kzgS56sRjdVrbzSspnkLDV36N9lH
-	jqe7IwXuv+vtS8PBnK0n2kQ3Cn3M6rbTnUouN+RW6vKhcdpepvgcyT4dpGfj29Ct
-	YjRYa+yTwD44mlT+xll+QwE+jUEY4veN5h05MHv7W24Glw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gd6vahb5m-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 14:53:22 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93922c75037so241420185a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:53:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788188001; x=1788792801; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Pns1MihtwmL9c9kT7PkCbhGsfSXcaatikP6GSVqofzI=;
-        b=Tx1tHfUxWzNA5ezB3yRpaBWKj6Yq0cy0iIbO3G/eNswjrFbZ6lR36BN2KGdnG2YkbQ
-         lWAbBXS5bfFskWH/xX6OjpqGEceYcGrNh9/6LHBFefvuKekIfT/Ff7YOLYc45pdEkRVs
-         D+H3XlQ7fDmFYaszUBvox1qRYq+4MgPI6ot2qgGg6l5E/jSsXpeGIk07Xmgj8AvW1mCV
-         SUXz+12B7NsXNifkrrQfOhq2lHA+rNAyIgrVGuifEcHqMii3qPGS1S5cicKFhMdBHYT1
-         vk31teWb2I8Cm1aENnQ2s2EMV7N0fBcKrUydnr0eP2lUIflzQcj1cEYBnbKkMG5pE7GV
-         v+rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788188001; x=1788792801;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Pns1MihtwmL9c9kT7PkCbhGsfSXcaatikP6GSVqofzI=;
-        b=W7bwKezYTIXuu3Yk1Znl/+uuuJODvat/SvWWFSxxUeqmG9fMt0dEJGkSgv49E7Fw65
-         2UCdnyzxiE2cg5J1qiEQ2YAb5RDwQM9Q//35vh251sUBeiNEEbR840VZBXh3Q1tYZ7DJ
-         hBDXllIcspL7tE9cQI6pTNuxmotAtDFiBl/8MX1yBMDjjaSZxy3drYiFG5elv0u6GvZ2
-         Ge8MNWz+Mh4x7lZ7iOu+6ZUl9t1mzVkY7lKMnfXqQQTp2xpQ+vP268RpdJsQc97a9zPr
-         5xMqSNskkfzl5gbUFidmAygiyPMjIGNXUNtnvaqIHp0AlYCjsHbRPdJ9mKD2kQxAOhL8
-         s2pA==
-X-Forwarded-Encrypted: i=1; AHgh+RqQYCfe/n7Jfp1tKzTiG+KsExy2LuBwu5oIQTnGnp90FajvU3Ihh8z+NNlL1PEfhPJ6mBUvan+oEmsKaW8l3TiO@lists.infradead.org
-X-Gm-Message-State: AFuF++nTY+1GUr6Gj9GkhubusRlf69SIT0VkMTYVaKB+pG+fiXnBRUkT
-	akJ0BHbgrgtHEfGMiHboB6Ug5oqskK+lRTZP1qYPz9f9jrZ2vgxL+9+yoD3v7KO3GE0iBWtfAvN
-	YVUQ6QjZZBSmJ33BlnK7Noq4NGUroKsIJi/nri1kacJFVHxnlvCb1DdZR2jQDPgZB0WY3GLWL+6
-	RHlw==
-X-Gm-Gg: AR+sD12iwEp+6y9nwAPDPESU0bCqyoZtP/xxnbAg1UFJPFLRErE6rVCu/f7AKO1zHQJ
-	2O9ylrIYw+qJpmnTbNkSj8iylu/hX9UL+6p64kVavCYn4hyUaANuEGdJXMsXd3ZjhMxmo/H6/1G
-	yrlAjBogDWnNWsaSBuVW7wKkxniqqUgfKmu3wT8ozYmPbVgcIFdiBK/ouaJXT1lqi/cM6gJpSQq
-	dBawVxUZyzLhQnkc4o/6mD2Ce8cesNECot1TKnj/uARadNbD2XQKrhFrT79Vz0o678YqOS6l1a3
-	MNDR03C1IVJ/k5HKlulVBz4wDTr6Cii0clVDaPTayPdhbPP8WZ6Qds0wOKtx90mtfRMSygQryNg
-	xV9ODk27KNkUquA==
-X-Received: by 2002:a05:620a:678c:b0:939:4a47:932b with SMTP id af79cd13be357-9394a47946fmr18915585a.36.1788188000869;
-        Mon, 31 Aug 2026 07:53:20 -0700 (PDT)
-X-Received: by 2002:a05:620a:678c:b0:939:4a47:932b with SMTP id af79cd13be357-9394a47946fmr18907885a.36.1788188000170;
-        Mon, 31 Aug 2026 07:53:20 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb2e6e8sm25248955f8f.32.2026.08.31.07.53.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 07:53:19 -0700 (PDT)
-Date: Mon, 31 Aug 2026 16:53:18 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Rayagond Kokatanur <rayagond@vayavyalabs.com>
-Subject: Re: [PATCH net v2] net: stmmac: re-apply taprio offload in
- __stmmac_open()
-Message-ID: <apWVXj8eGhckxhMD@lore-desk>
-References: <20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com>
+	Mon, 31 Aug 2026 14:53:28 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZ1qK2525384;
+	Mon, 31 Aug 2026 14:48:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=XjMZ72QkIAfvl03zE
+	IDDez0RX8+3bwKHuLZI2jFnFpQ=; b=llVe6qlM8K9W6tijf6Yy+pJSK6qmpTbA5
+	QuErNV03CEDYL2cwGsDlfiBKLPWmW9NLE4V3jCgCHB90gzNUfJf3KvwhA+WUGw1i
+	Lpe6qzbyQCV9U7uljOHHxUFspC+z9OrnQcAdo99Rr51CvGJy1Pj17cinAeldZM+Q
+	JLSBm2wOHpzZ/9Xb7PPgyLuXGglF9XX5ARgUzpSKjkoxAbUU7QK+hdRa1VIFfhKB
+	Fot+g80MNjBCtDap5oRBCFsufqFNcUQZcBQt/QCRjWjValZVJVqsfemJCD0OREqO
+	qp4CE8hF1q4pqWwHhQTwYDo9c3dLECjQ8ijLEt4N9U8Ot0TdqrvlQ==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq54hybb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Aug 2026 14:48:12 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfgVh016964;
+	Mon, 31 Aug 2026 14:48:11 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h6cjj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Aug 2026 14:48:11 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEm7vh49807786
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Aug 2026 14:48:07 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 399EE2004F;
+	Mon, 31 Aug 2026 14:48:07 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C2A102004E;
+	Mon, 31 Aug 2026 14:48:06 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 31 Aug 2026 14:48:06 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v7 09/23] arm64: Prepare sharing arm64 headers with s390
+Date: Mon, 31 Aug 2026 16:47:46 +0200
+Message-ID: <20260831144802.834315-10-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831144802.834315-1-seiden@linux.ibm.com>
+References: <20260831144802.834315-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Uy84GhePRTg6nSKL"
-Content-Disposition: inline
-In-Reply-To: <20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyOCBTYWx0ZWRfXxiQ61GXzJ3HS
- Dw6p6jm5/aY0yDqZWSAW8hm6CH/JKmTt7bkw9/+Ow+B6cZneP5+f/4Cnb61NiaeJZSJIUS5CxuY
- pvW3BxkV2DRoK43ccUITwpqHUaAnt3JwRPJ/oHcvkpvR53xn1f87cSso1+ZgpPjIEw1RN6DbFzl
- 6RipgGAal+GNU9GLcBG5bLDR21hGsw3j4kvc8ojQSQuSVXlSvQxQT58+DPMe12nE5Yp+BhI2fN7
- QDIwgVl54FFXGE3Z9yVh2TiBp6YIilewupOXLScAOZSOkTvviWRoaGbSfcRmRQVf74uCrCkJDVG
- 5AT/QOlsiMKYVHJaMJK1wm8qX7yM9NzfYNgB1lGN41Pn8iiRQAifHP3BcoqV6GKTG7SG8eQsuJw
- 8qR1PWTkG1RfAc0O3qF+crhtkrDLcLrS/oTc4Smej7GZz0Lfia0LPTVWX27BzY9Oo8TBVCvwTPR
- vdvnlFjMec8sXbniPKQ==
-X-Authority-Analysis: v=2.4 cv=YYmNIQRf c=1 sm=1 tr=0 ts=6a959562 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=c92rfblmAAAA:8 a=JpBpa1p7AAAA:8 a=YmQodEPVK1i-oBXoWTAA:9
- a=CjuIK1q_8ugA:10 a=OdBlZyHpQ6Ekdqw2xb0A:9 a=IoWCM6iH3mJn3m4BftBB:22
- a=GvGzcOZaWPEFPQC_NcjD:22 a=YCh05so4W2E6r1tszMC6:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyOCBTYWx0ZWRfX9ZE+dkqew0ES
- Dcs2/gLA8YmXVuWGVu71KEr51fOK8r7p2XCmJgIiKFOrZofi3+nF4KAuK3fGfyil6U71dlbt2wt
- u4yURXdnh3giC9IXER4+RziAUD2mS2U=
-X-Proofpoint-GUID: RicaOnNnLBlqofolOCL6pIk60MywCgRj
-X-Proofpoint-ORIG-GUID: RicaOnNnLBlqofolOCL6pIk60MywCgRj
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX11R8GA3D6GJO
+ tBNdxZkyYO9F+imifcTbrRYR9DvpzyzEVA2mQDaOrazboj43rdoy/HCRe/+NQOLcSkh1QDOLR74
+ gzIFn04gC1PtQewqAkeaPNnSYzMLq98znqetDVFBVKMf2lT7g2OjoFdU9dA12cigLE1jtRmhsH0
+ opWF0JCEBsj0mkVuhKiy0FK4+5c6KgYNS5c1IZxzVADXymF96Os6RFOjO/5KkWYUlpgrH2t1psf
+ F2DIfbo4EtH0fDhgs9eejzJ5RmGrLHrlSR50ScwB83sfLO83oh2Ry8/zRBvyrDUUjQU3/Vhi/Zy
+ /MluULgQ20bTBB46WaYpkEH1ELXRI/KfgWopAFvJoikgEmhEjVglPIxe+/f6BHavDqowbQOPbt0
+ 1kZ+/3CL4TMCMBXFmPi2MAYpf8/kCKS92tZ2KAHVs8VIA1+zb4DUn1g1tyRUeDBkOtNdfjbfLHS
+ 6xjCRCcOoSGUC1K/cQA==
+X-Proofpoint-ORIG-GUID: fgP9tMEL2YHDwYuTD8kpZy8NAA7dQ3LA
+X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a95942d cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=eg9QoaqSYRrbe55da3AA:9
+X-Proofpoint-GUID: yB2PL5ZBn7z_pqZpK3UxM_rOeMqpj7zn
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX1ad0jdUV9oGk
+ yKoCgdfbi8c+dpyb0AvV2mChMfMO+ah6bYgNycnNRLb7A3zhjZvg5LF5uhvziMpn1Z0XRm1keJY
+ OtG1EBQGioUIEejv8KTlw8AaiD5TU0A=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0
- bulkscore=0 impostorscore=0 malwarescore=0 clxscore=1015 suspectscore=0
+ spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
+ priorityscore=1501 clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310128
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075322_981158_7B963851 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20260831_075327_563139_71471F10 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,300 +141,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Uy84GhePRTg6nSKL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Prepare the sharing of arm64 headers with s390 by moving definitions
+inside headers to reduce the number of shared markers. Clean up includes
+to further streamline the sharing of headers.
 
-> The core soft reset issued in stmmac_init_dma_engine() clears the
-> MTL_EST registers, but nothing re-applies the taprio offload after it:
-> priv->est->enable stays true while the hardware EST block is left
-> disabled. The TX/XDP paths then keep dropping frames larger than
-> priv->est->max_sdu[] and taprio is reported as offloaded, although the
-> EST block is not programmed.
->=20
-> Re-apply the taprio offload in __stmmac_open() after PTP is up. The
-> base time is recomputed from the reserved base time and the current PTP
-> time, since the timestamp counter has been re-initialized and the
-> previously programmed base time is stale.
-> Introduce the stmmac_setup_est utility routine.
->=20
-> Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler AP=
-I")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
-> Changes in v2:
-> - Rename stmmac_est_reconfigure() in stmmac_setup_est().
-> - Rely on stmmac_setup_est() in tc_taprio_configure().
-> - Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after=
--open-v1-1-dfa80735e0a1@oss.qualcomm.com
+No functional change.
 
-I will fix the issues reported by the following sashiko's report in v3.
-https://sashiko.dev/#/patchset/20260829-stmmac-est-reapply-after-open-v2-1-=
-5e5ccb185e92%40oss.qualcomm.com
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/arm64/include/asm/esr.h         |   4 +-
+ arch/arm64/include/asm/kvm_arm.h     |   5 +-
+ arch/arm64/include/asm/kvm_emulate.h |   5 +-
+ arch/arm64/include/asm/kvm_host.h    | 102 ++++++++++++++-------------
+ arch/arm64/include/asm/sysreg.h      |   2 +-
+ 5 files changed, 62 insertions(+), 56 deletions(-)
 
-Regards,
-Lorenzo
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index f816f5d77f1a..da085c83b57e 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -7,7 +7,7 @@
+ #ifndef __ASM_ESR_H
+ #define __ASM_ESR_H
+ 
+-#include <asm/memory.h>
++#include <asm/brk-imm.h>
+ #include <asm/sysreg.h>
+ 
+ #define ESR_ELx_EC_UNKNOWN	UL(0x00)
+@@ -435,7 +435,7 @@
+ #define ESR_ELx_IT_GCSPOPX		7
+ 
+ #ifndef __ASSEMBLER__
+-#include <asm/types.h>
++#include <linux/types.h>
+ 
+ static inline unsigned long esr_brk_comment(unsigned long esr)
+ {
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 4bfbd827c5aa..57edd8437200 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -7,10 +7,11 @@
+ #ifndef __ARM64_KVM_ARM_H__
+ #define __ARM64_KVM_ARM_H__
+ 
++#include <linux/const.h>
++#include <linux/bits.h>
++#include <linux/types.h>
+ #include <asm/esr.h>
+-#include <asm/memory.h>
+ #include <asm/sysreg.h>
+-#include <asm/types.h>
+ 
+ /*
+  * Because I'm terribly lazy and that repainting the whole of the KVM
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index b31d50bdf59e..a34a9417ff4d 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -44,11 +44,12 @@ enum exception_type {
+ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
+ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+ 
++int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
++int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
++
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu);
+ void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
+-int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
+-int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
+ void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+ 
+ static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 46c8d7928b3f..5261c21a437c 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -56,6 +56,46 @@
+ #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+ #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+ 
++/* Bit indices for kvm_arch::flags */
++enum {
++	/*
++	 * If we encounter a data abort without valid instruction syndrome
++	 * information, report this to user space.  User space can (and
++	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
++	 * supported.
++	 */
++	KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
++	/* Memory Tagging Extension enabled for the guest */
++	KVM_ARCH_FLAG_MTE_ENABLED,
++	/* At least one vCPU has ran in the VM */
++	KVM_ARCH_FLAG_HAS_RAN_ONCE,
++	/* The vCPU feature set for the VM is configured */
++	KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED,
++	/* PSCI SYSTEM_SUSPEND enabled for the guest */
++	KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED,
++	/* VM counter offset */
++	KVM_ARCH_FLAG_VM_COUNTER_OFFSET,
++	/* Timer PPIs made immutable */
++	KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE,
++	/* Initial ID reg values loaded */
++	KVM_ARCH_FLAG_ID_REGS_INITIALIZED,
++	/* Fine-Grained UNDEF initialised */
++	KVM_ARCH_FLAG_FGU_INITIALIZED,
++	/* SVE exposed to guest */
++	KVM_ARCH_FLAG_GUEST_HAS_SVE,
++	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
++	KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS,
++	/* Unhandled SEAs are taken to userspace */
++	KVM_ARCH_FLAG_EXIT_SEA,
++};
++
++struct vcpu_reset_state {
++	unsigned long	pc;
++	unsigned long	r0;
++	bool		be;
++	bool		reset;
++};
++
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+ 
+@@ -338,35 +378,6 @@ struct kvm_arch {
+ 	/* Protects VM-scoped configuration data */
+ 	struct mutex config_lock;
+ 
+-	/*
+-	 * If we encounter a data abort without valid instruction syndrome
+-	 * information, report this to user space.  User space can (and
+-	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
+-	 * supported.
+-	 */
+-#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
+-	/* Memory Tagging Extension enabled for the guest */
+-#define KVM_ARCH_FLAG_MTE_ENABLED			1
+-	/* At least one vCPU has ran in the VM */
+-#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
+-	/* The vCPU feature set for the VM is configured */
+-#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
+-	/* PSCI SYSTEM_SUSPEND enabled for the guest */
+-#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
+-	/* VM counter offset */
+-#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
+-	/* Timer PPIs made immutable */
+-#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
+-	/* Initial ID reg values loaded */
+-#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
+-	/* Fine-Grained UNDEF initialised */
+-#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
+-	/* SVE exposed to guest */
+-#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+-	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+-#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+-	/* Unhandled SEAs are taken to userspace */
+-#define KVM_ARCH_FLAG_EXIT_SEA				11
+ 	unsigned long flags;
+ 
+ 	/* VM-wide vCPU feature set */
+@@ -835,13 +846,6 @@ extern s64 kvm_nvhe_sym(hyp_physvirt_offset);
+ extern u64 kvm_nvhe_sym(hyp_cpu_logical_map)[NR_CPUS];
+ #define hyp_cpu_logical_map CHOOSE_NVHE_SYM(hyp_cpu_logical_map)
+ 
+-struct vcpu_reset_state {
+-	unsigned long	pc;
+-	unsigned long	r0;
+-	bool		be;
+-	bool		reset;
+-};
+-
+ struct vncr_tlb;
+ 
+ struct kvm_vcpu_arch {
+@@ -1046,6 +1050,11 @@ struct kvm_vcpu_arch {
+ /* pKVM VCPU setup completed */
+ #define VCPU_PKVM_FINALIZED	__vcpu_single_flag(cflags, BIT(2))
+ 
++int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
++bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
++
++#define kvm_arm_vcpu_sve_finalized(vcpu) vcpu_get_flag(vcpu, VCPU_SVE_FINALIZED)
++
+ /* Exception pending */
+ #define PENDING_EXCEPTION	__vcpu_single_flag(iflags, BIT(0))
+ /*
+@@ -1239,14 +1248,6 @@ struct kvm_vcpu_stat {
+ 	u64 exits;
+ };
+ 
+-unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
+-int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
+-int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
+-int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
+-
+-unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu);
+-int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices);
+-
+ int __kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
+ 			      struct kvm_vcpu_events *events);
+ 
+@@ -1325,6 +1326,14 @@ int __init populate_nv_trap_config(void);
+ 
+ void kvm_calculate_traps(struct kvm_vcpu *vcpu);
+ 
++unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
++int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
++int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
++int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
++
++unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu);
++int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices);
++
+ /* MMIO helpers */
+ void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
+ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
+@@ -1508,11 +1517,6 @@ struct kvm *kvm_arch_alloc_vm(void);
+ 
+ #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+ 
+-int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+-bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+-
+-#define kvm_arm_vcpu_sve_finalized(vcpu) vcpu_get_flag(vcpu, VCPU_SVE_FINALIZED)
+-
+ #define kvm_has_mte(kvm)					\
+ 	(system_supports_mte() &&				\
+ 	 test_bit(KVM_ARCH_FLAG_MTE_ENABLED, &(kvm)->arch.flags))
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 1aa601c95188..ab205f9db94a 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -1263,6 +1263,6 @@
+ 		 FIELD_PREP(reg##_##field##_MASK,	\
+ 			    SYS_FIELD_VALUE(reg, field, val))
+ 
+-#endif
++#endif /* __ASSEMBLER__ */
+ 
+ #endif	/* __ASM_SYSREG_H */
+-- 
+2.53.0
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 33 +++++++++++++++++=
-++++++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  2 ++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 16 +++++++++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 26 ++----------------
->  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 27 ++++++-----------=
---
->  5 files changed, 59 insertions(+), 45 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/n=
-et/ethernet/stmicro/stmmac/stmmac_est.c
-> index afc516059b89..bbebd33c8a88 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> @@ -80,6 +80,39 @@ static int est_configure(struct stmmac_priv *priv, str=
-uct stmmac_est *cfg,
->  	return 0;
->  }
-> =20
-> +int stmmac_setup_est(struct stmmac_priv *priv)
-> +{
-> +	struct timespec64 current_time, time;
-> +	ktime_t current_time_ns, basetime;
-> +	u64 cycle_time;
-> +	int err;
-> +
-> +	mutex_lock(&priv->est_lock);
-> +
-> +	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> +	current_time_ns =3D timespec64_to_ktime(current_time);
-> +
-> +	time.tv_nsec =3D priv->est->btr_reserve[0];
-> +	time.tv_sec =3D priv->est->btr_reserve[1];
-> +	basetime =3D timespec64_to_ktime(time);
-> +
-> +	cycle_time =3D (u64)priv->est->ctr[1] * NSEC_PER_SEC + priv->est->ctr[0=
-];
-> +
-> +	time =3D stmmac_calc_tas_basetime(basetime, current_time_ns, cycle_time=
-);
-> +	priv->est->btr[0] =3D (u32)time.tv_nsec;
-> +	priv->est->btr[1] =3D (u32)time.tv_sec;
-> +
-> +	err =3D stmmac_est_configure(priv, priv, priv->est,
-> +				   priv->plat->clk_ptp_rate);
-> +
-> +	mutex_unlock(&priv->est_lock);
-> +
-> +	if (err)
-> +		netdev_err(priv->dev, "failed to re-configure EST\n");
-> +
-> +	return err;
-> +}
-> +
->  static void est_irq_status(struct stmmac_priv *priv, struct net_device *=
-dev,
->  			   struct stmmac_extra_stats *x, u32 txqcnt)
->  {
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/n=
-et/ethernet/stmicro/stmmac/stmmac_est.h
-> index f70221c9c84a..f620d3331c2c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> @@ -65,3 +65,5 @@
->  #define EST_GCL_DATA			0x00000034
-> =20
->  extern const struct stmmac_est_ops dwmac510_est_ops;
-> +
-> +int stmmac_setup_est(struct stmmac_priv *priv);
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index d576059c04df..b30036428188 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -48,6 +48,7 @@
->  #include "stmmac_ptp.h"
->  #include "stmmac_fpe.h"
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
->  #include "stmmac_pcs.h"
->  #include "stmmac_xdp.h"
->  #include <linux/reset.h>
-> @@ -4153,11 +4154,22 @@ static int __stmmac_open(struct net_device *dev,
->  	ret =3D stmmac_hw_setup(dev);
->  	if (ret < 0) {
->  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-> -		goto init_error;
-> +		return ret;
->  	}
-> =20
->  	stmmac_setup_ptp(priv);
-> =20
-> +	/* The core soft reset in stmmac_hw_setup() clears the MTL_EST
-> +	 * registers, so re-apply the taprio offload after PTP is up.
-> +	 */
-> +	if (priv->est && priv->est->enable) {
-> +		ret =3D stmmac_setup_est(priv);
-> +		if (ret < 0) {
-> +			priv->est->enable =3D false;
-> +			return ret;
-> +		}
-> +	}
-> +
->  	stmmac_init_coalesce(priv);
-> =20
->  	phylink_start(priv->phylink);
-> @@ -4181,7 +4193,7 @@ static int __stmmac_open(struct net_device *dev,
->  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
-> =20
->  	stmmac_release_ptp(priv);
-> -init_error:
-> +
->  	return ret;
->  }
-> =20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/n=
-et/ethernet/stmicro/stmmac/stmmac_ptp.c
-> index 960249960004..917ef7ddcae6 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> @@ -8,6 +8,7 @@
->    Author: Rayagond Kokatanur <rayagond@vayavyalabs.com>
->  ************************************************************************=
-*******/
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
->  #include "stmmac_ptp.h"
-> =20
->  #define PTP_SAFE_TIME_OFFSET_NS	500000
-> @@ -55,7 +56,6 @@ static int stmmac_adjust_time(struct ptp_clock_info *pt=
-p, s64 delta)
->  	u32 quotient, reminder;
->  	int neg_adj =3D 0;
->  	bool xmac, est_rst =3D false;
-> -	int ret;
-> =20
->  	xmac =3D dwmac_is_xmac(priv->plat->core_type);
-> =20
-> @@ -84,30 +84,8 @@ static int stmmac_adjust_time(struct ptp_clock_info *p=
-tp, s64 delta)
-> =20
->  	/* Calculate new basetime and re-configured EST after PTP time adjust. =
-*/
->  	if (est_rst) {
-> -		struct timespec64 current_time, time;
-> -		ktime_t current_time_ns, basetime;
-> -		u64 cycle_time;
-> -
-> -		mutex_lock(&priv->est_lock);
-> -		priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> -		current_time_ns =3D timespec64_to_ktime(current_time);
-> -		time.tv_nsec =3D priv->est->btr_reserve[0];
-> -		time.tv_sec =3D priv->est->btr_reserve[1];
-> -		basetime =3D timespec64_to_ktime(time);
-> -		cycle_time =3D (u64)priv->est->ctr[1] * NSEC_PER_SEC +
-> -			     priv->est->ctr[0];
-> -		time =3D stmmac_calc_tas_basetime(basetime,
-> -						current_time_ns,
-> -						cycle_time);
-> -
-> -		priv->est->btr[0] =3D (u32)time.tv_nsec;
-> -		priv->est->btr[1] =3D (u32)time.tv_sec;
->  		priv->est->enable =3D true;
-> -		ret =3D stmmac_est_configure(priv, priv, priv->est,
-> -					   priv->plat->clk_ptp_rate);
-> -		mutex_unlock(&priv->est_lock);
-> -		if (ret)
-> -			netdev_err(priv->dev, "failed to configure EST\n");
-> +		stmmac_setup_est(priv);
->  	}
-> =20
->  	return 0;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/ne=
-t/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 14cabe76e53e..b41df317d73c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> @@ -10,6 +10,7 @@
->  #include "dwmac4.h"
->  #include "dwmac5.h"
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
-> =20
->  static void tc_fill_all_pass_entry(struct stmmac_tc_entry *entry)
->  {
-> @@ -968,8 +969,7 @@ static int tc_taprio_configure(struct stmmac_priv *pr=
-iv,
->  {
->  	u32 size, wid =3D priv->dma_cap.estwid, dep =3D priv->dma_cap.estdep;
->  	struct netlink_ext_ack *extack =3D qopt->mqprio.extack;
-> -	struct timespec64 time, current_time, qopt_time;
-> -	ktime_t current_time_ns;
-> +	struct timespec64 time;
->  	int i, ret =3D 0;
->  	u64 ctr;
-> =20
-> @@ -1069,34 +1069,23 @@ static int tc_taprio_configure(struct stmmac_priv=
- *priv,
->  	}
-> =20
->  	mutex_lock(&priv->est_lock);
-> -	/* Adjust for real system time */
-> -	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> -	current_time_ns =3D timespec64_to_ktime(current_time);
-> -	time =3D stmmac_calc_tas_basetime(qopt->base_time, current_time_ns,
-> -					qopt->cycle_time);
-> -
-> -	priv->est->btr[0] =3D (u32)time.tv_nsec;
-> -	priv->est->btr[1] =3D (u32)time.tv_sec;
-> =20
-> -	qopt_time =3D ktime_to_timespec64(qopt->base_time);
-> -	priv->est->btr_reserve[0] =3D (u32)qopt_time.tv_nsec;
-> -	priv->est->btr_reserve[1] =3D (u32)qopt_time.tv_sec;
-> +	time =3D ktime_to_timespec64(qopt->base_time);
-> +	priv->est->btr_reserve[0] =3D (u32)time.tv_nsec;
-> +	priv->est->btr_reserve[1] =3D (u32)time.tv_sec;
-> =20
->  	ctr =3D qopt->cycle_time;
->  	priv->est->ctr[0] =3D do_div(ctr, NSEC_PER_SEC);
->  	priv->est->ctr[1] =3D (u32)ctr;
-> =20
->  	priv->est->ter =3D qopt->cycle_time_extension;
-> -
->  	tc_taprio_map_maxsdu_txq(priv, qopt);
-> =20
-> -	ret =3D stmmac_est_configure(priv, priv, priv->est,
-> -				   priv->plat->clk_ptp_rate);
->  	mutex_unlock(&priv->est_lock);
-> -	if (ret) {
-> -		netdev_err(priv->dev, "failed to configure EST\n");
-> +
-> +	ret =3D stmmac_setup_est(priv);
-> +	if (ret)
->  		goto disable;
-> -	}
-> =20
->  	ret =3D stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
->  					      qopt->mqprio.preemptible_tcs);
->=20
-> ---
-> base-commit: 2188569e7e1b0bc3f3b557dc97ab7a02befc11c8
-> change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->=20
-
---Uy84GhePRTg6nSKL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapWVXgAKCRA6cBh0uS2t
-rGF0AQCSnwsBWdnSzufaq5R1abu0d2fGGSiKKrl9kADSv+NHNgEA0wYvVZyHdWvj
-MTdgO1rqKsSBHvbiUAeHVXpdJxuDGQA=
-=u2qb
------END PGP SIGNATURE-----
-
---Uy84GhePRTg6nSKL--
 
