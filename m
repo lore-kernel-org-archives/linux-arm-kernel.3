@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4201CC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90723C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PUf6ryr4k5wygbciAqCC4GJMVIQgnWiFUIM3Fc8zmc0=; b=ev9OULEi1sub26WWVatpBAVI88
-	pD5HnPe9I7hOjGnTveaJz25gsa03op7mw87GazcZ3IDHSUIB+s/5A4S4yCn9iNwIKNazMoJZ+sms1
-	A7nD9qLXKdnSOAqIOsTTGjUyRM6jBsujpzV7UEVxNAzzcoeplZfRcRZz6OTw4YBh+O71MobHqiJLe
-	gtdyp7t0FZgEbe6FyfpmCr/ydDBSirQ2fjdCI9EOJhTic0QFEbqNJ+83mCCcuHaa6gLztH1s3Nnsw
-	llWi4wxGO4W0lqHmbhwFL71al2N6e3sWYWGaDmef5R/I2FC60hdJIGr31O+ZvW9iEK0CPVpQ4EI4w
-	ZEYOvrHQ==;
+	bh=7+4+Mj5xMw3iTFchj0PIGWYEqdIBf0ZuxxB5KKCLY+c=; b=Qw8CiW3+uEJkMwQorEBhnbi5f1
+	lyZ9Q/4NwoL2/SjcSkAQ0AJP0/i5L3N23pbZTILIXYRdfGTR82lxZ40ujshg2HId39Hemehqhach5
+	elywMTH9Zg+rMGoUDEQrASGiXHxILc00fQWDFJrJBrOpHQ56YjR+EVpevmlpTBFazX0P9oupbQQb1
+	1+BnYv4RWx1AsXm4IQXsY8o0SJUwg/AvaVz5wGo9QqQpBwG5GcrCy+XuD4fhJ+H5kYihCnMLYmX3t
+	1urst+edvYN/jHLd/a80+56eK9HjWf7XV2rkV5F7ZIB3wmY9SeqTKWL8ZH1Z3xx36KnxR+2N3BRdb
+	REne2uLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Et-00000009SSb-08RW;
-	Mon, 31 Aug 2026 13:39:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x12F3-00000009SaF-1W8I;
+	Mon, 31 Aug 2026 13:40:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Eq-00000009SQd-1F0G
+	id 1x12F2-00000009SZQ-2ucZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:39:52 +0000
+	Mon, 31 Aug 2026 13:40:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD919601FD;
-	Mon, 31 Aug 2026 13:39:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A3101F00ACF;
-	Mon, 31 Aug 2026 13:39:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6362E405A2;
+	Mon, 31 Aug 2026 13:40:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21FBA1F00A3D;
+	Mon, 31 Aug 2026 13:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183591;
-	bh=PUf6ryr4k5wygbciAqCC4GJMVIQgnWiFUIM3Fc8zmc0=;
+	s=k20260515; t=1788183604;
+	bh=7+4+Mj5xMw3iTFchj0PIGWYEqdIBf0ZuxxB5KKCLY+c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Pdc1WjYK/l89/5siC59YAL1Sr7s3V49zW+hckkNRh7rdSjYtnTe9q5LBfPZl68Nae
-	 F4FG334q27j6QqmOluURmITGmJF0oE0oi4P2Qj/tsO4a6wNI8+jlwhq8RTeAUzX2NI
-	 08fmRhb31nfE1RSuEGJ9yVBAL3kh6Xt0NHDf2166aStYCSJEQCaBpW8tBA0KV9xcZ7
-	 3f8saAwGcTDh4KA8ctSibvOP7JBEmUejLvW8rCS7eeNJBW47GZMSEAL7fLugAGOzZk
-	 zISA6xCEXLuXWX//G6JqlOMSn4qzElRiaTSrTyiox7NyvfOItDT4gyk4+7YGJPq09T
-	 s4RABvadMpbAg==
+	b=V5DC9wMM8NLvVvVHeNTHVPi7HwuLd/UBuRBXZzwywSwcDfg27gpJatH/0ZjedaSzI
+	 pUAn1fOTl3SrsTkWR85BmdqwaRt4Jdm+FkyT1uda0zv3sJoft//7M/6V/zbZgeVaiH
+	 Q1N5ASxjwzNKJ2p0NNp/QBuo7vQTbaPiP3J4tSEoBAhEUplSMU9ZTAw2YJSCT7X8Kc
+	 w78/xgTvqJOtwXHYDshia/sVxKZGRkeVQHbXmn2o6QkkvmMTG3mmi/W9NWKdrLAEUF
+	 8hBs+qDI0rEuhByJndK9n954eZaDivAw3BaPwebnDD3YLqGhZnmoSNiZAzJQvnR7Tl
+	 1Vapugt2VA+/g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
 	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] arm64/daifflags: Make local_daif_*() helpers __always_inline
-Date: Mon, 31 Aug 2026 09:23:34 -0400
-Message-ID: <20260831133314.4125787-186-sashal@kernel.org>
+	Frank.Li@nxp.com,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-6.12] mailbox: imx: use devm_of_platform_populate()
+Date: Mon, 31 Aug 2026 09:23:42 -0400
+Message-ID: <20260831133314.4125787-194-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -62,6 +64,7 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,76 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leonardo Bras <leo.bras@arm.com>
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-[ Upstream commit 827ce94e0897a70241abf810b1d3d7d083053a39 ]
+[ Upstream commit dd1b321e8024fb01404fe163076c9010c5df8608 ]
 
-Make sure those helpers are always inlined and instrumentation safe.
+The driver uses of_platform_populate() but does not remove the added
+devices on removal. This can lead to "double devices" on module removal
+followed by adding the module again.
 
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Use devm_of_platform_populate() to remove the populated devices once the
+parent device is removed.
+
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-That check also confirms the fix is **not** in this tree: the latest
-`daifflags`-related commit is `8cb7eff32cc00` (PMR restore operations),
-and the `-S'__always_inline void local_daif'` search found no matches.
-Backport recommendation remains **YES**.
+The analysis is complete for **Linux 6.18.44**.
 
- arch/arm64/include/asm/daifflags.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+**Verdict: YES** — backport `mailbox: imx: use
+devm_of_platform_populate()` (`dd1b321e8024f`).
 
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-index 5fca480090434..795b351284673 100644
---- a/arch/arm64/include/asm/daifflags.h
-+++ b/arch/arm64/include/asm/daifflags.h
-@@ -19,7 +19,7 @@
+The bug is present in this tree: `of_platform_populate()` was added in
+v6.9 (`2a0ac450128bc`) for i.MX95 SCMI SRAM sub-nodes, but
+`imx_mu_remove()` never depopulates them. On module reload or sysfs
+unbind/rebind, child platform devices can be duplicated and break SCMI
+setup.
+
+The fix is a one-line change to `devm_of_platform_populate(dev)` at line
+943 of `drivers/mailbox/imx-mailbox.c`. The mainline patch needs a minor
+context adjustment to apply here, but no functional rework.
+
+ drivers/mailbox/imx-mailbox.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
+index 3e52f70434c97..445cd50c1b667 100644
+--- a/drivers/mailbox/imx-mailbox.c
++++ b/drivers/mailbox/imx-mailbox.c
+@@ -986,7 +986,7 @@ static int imx_mu_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_out;
  
+-	of_platform_populate(dev->of_node, NULL, NULL, dev);
++	devm_of_platform_populate(dev);
  
- /* mask/save/unmask/restore all exceptions, including interrupts. */
--static inline void local_daif_mask(void)
-+static __always_inline void local_daif_mask(void)
- {
- 	WARN_ON(system_has_prio_mask_debugging() &&
- 		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
-@@ -38,7 +38,7 @@ static inline void local_daif_mask(void)
- 	trace_hardirqs_off();
- }
- 
--static inline unsigned long local_daif_save_flags(void)
-+static __always_inline unsigned long local_daif_save_flags(void)
- {
- 	unsigned long flags;
- 
-@@ -53,7 +53,7 @@ static inline unsigned long local_daif_save_flags(void)
- 	return flags;
- }
- 
--static inline unsigned long local_daif_save(void)
-+static __always_inline unsigned long local_daif_save(void)
- {
- 	unsigned long flags;
- 
-@@ -64,7 +64,7 @@ static inline unsigned long local_daif_save(void)
- 	return flags;
- }
- 
--static inline void local_daif_restore(unsigned long flags)
-+static __always_inline void local_daif_restore(unsigned long flags)
- {
- 	bool irq_disabled = flags & PSR_I_BIT;
- 
-@@ -124,7 +124,7 @@ static inline void local_daif_restore(unsigned long flags)
-  * Called by synchronous exception handlers to restore the DAIF bits that were
-  * modified by taking an exception.
-  */
--static inline void local_daif_inherit(struct pt_regs *regs)
-+static __always_inline void local_daif_inherit(struct pt_regs *regs)
- {
- 	unsigned long flags = regs->pstate & DAIF_MASK;
+ 	return 0;
  
 -- 
 2.53.0
