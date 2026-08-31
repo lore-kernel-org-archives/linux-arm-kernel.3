@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1E7C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E06AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=; b=a5KWGZzm2Lbfs7VtAS9W86BXLk
-	KFzq7RePq4UN3dmRBgq4Hq0KZXTO8bjsb+LYqHpkFH8JMi/LPNtjD1GMP5qqUzMxNckYtMyuQVMg0
-	HQEPvBU/RtwayEoxG+YG4J/H/40ufgauUvJ1udb4XjqLa5chuacVk5jLxwquT07I6Eoewq2CdUPOh
-	612PZT+g/fL4dQz24oGtMqEbR6uYokCp7VxuMo+E064kiz0fWqMUnsNfB7XLSVhbMAG+s7Q62AsbR
-	zRK9sx/K029r05Pib6KBJtSwj2WmEqq0v414hT9mHzT49/xvWTnOmscJ1moChz7b3uTYd3ZVTtU6f
-	jJeHfpkg==;
+	bh=jk2ATjwFFzVVeQbSJe0mWqFUVO+QhqxiwsMm4IVD3+M=; b=Tk8yzVFXpE4jTovBvMXGiO3dYO
+	s2euuj3kU3Mw3k4hM61Sbxiu8aoy7Xfhu5TcY5nEwhRLnEwG7S0gcGaXddz18imoIsH+LfVEncXSB
+	RATgVjCKTIf3wuhIC3oiYaypyOqBPig8KWcxdG3K40WZP6DGtN8YueJVb2drpOC5qnIX3xO3JnRBZ
+	l164Xwm+n72F6ndkfj6czmBsVlsVU5RxZufCyOGqUeCR0ljhZ2tc2cPoS9QR5NnpztPlCf3OGRX0E
+	cQQspOW7Cg2WIBGgLBPTAEaPDVMGLHPCcb0sxdu9OyXn8buJBkAIClFzFmCA9XUln31Rr6eYu763i
+	J87qz1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15jJ-0000000AAg0-3T4Y;
-	Mon, 31 Aug 2026 17:23:33 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1x15jK-0000000AAi1-1hdu;
+	Mon, 31 Aug 2026 17:23:34 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15j2-0000000AAGH-2PXl
+	id 1x15j5-0000000AATm-1sQX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:23:17 +0000
+	Mon, 31 Aug 2026 17:23:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QpX7IVwEdaMIy/8MhJ6uzB7Wo8sHFx6e4PaeDWmfiB/10Iw4BBebDRq6jOJhx1lF+v+M/RcUaB6i1JYwGFxd7Q7L+ZF14DWW4UGkJ9HOQ2yexH7YwGkCgiZk36aTy/SRuKtACyO/2BJT9kkr4B+rJLSF6+Ll/kCiZdnlydoOml9rSEZzinpF5FrQhqpXmThR04v578a7qX9PwdoIaMCpLZ2yFgEhhtgzzwOMHTsbwRpSbkQ+WEoE6W72XPOgfFR4YMEwzLDw0AEKQPntGYqROCAApv9QrTPS9VLDDm2Kp8eE6bZbXlC9fV5KYAhlvnFLaSyyL82MGhGi0RgnB8rrXQ==
+ b=BBYO4BRlSMtC70fIR9JVxivn8IzD4Z4yNg4lxUpObQHbs9CoH6cUnL5U32eyDWR3/+W3g968mdoRHFKIidUmig4NorngsE6Mb2t1012RURJPbpautWjKCvvCDl3l1IwcTz7KMjRioPh7KUtHOT5EVKNKoaYY/7FHIHHb714EoZU0U44mjxczFrg7OLVRkSXltw1+Ft4tG9q3WRU1jq6Ok4OyJ/r6+drvuCrEP4jWrRqyrGVW52QVDlr0nSb39JdOnnvjjLMCxBJM9A7QbLPxp7xsmsLV1uzNl6rmp5KnDJHDMB5MDpAdVP/80r9WWK1Ii+w4RgWlUIZMvunIRjGqKg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=;
- b=So6CmVbO8ntXZm9f2RxyQGiH3NvhrOK7kEXL5uLxwul6sQZOgwOqznqZ4d9NhGuP20eU4kTjO55Hs+hj6Xbv4MrUNvsv0O25SSsPJqJdMF3YSk7gOXpdrFaGoaKCRsZcEUEQ8aFi/HlmXlxO2tPd73i5+oWDJpXNKTL2is9HEv64Br2cXrnsdzb6MSnyKfxF4awuItkM1iQRF7ixquDm5+VaJiRv5DbJZYGXKP8RnPInzmcy2gz0iCqJVvbFCauyHhOkftnpNOdHLix4clkcq/4pZKzVblW9LfyTnjHNTqcJiKAcldedIgUAaXogUkkJp1WMVKoxNBau3PdPIp1Tlg==
+ bh=jk2ATjwFFzVVeQbSJe0mWqFUVO+QhqxiwsMm4IVD3+M=;
+ b=g3Rc7Mnp6NZ8MsA5AMZANeuBsjVdEjDY0i/SXdkM/hL09yoN4nzcEBr54Z6QAbi3dWUBdL49GsZv5UCk3MFbAtiuEFTCfNePALx1d1DyxC4o3Ba9+Tq49lVbDijlS+aIO3L9cN6sUPu8OJfNLg5xDTZCqGccAC3skQ1Vp1JatcgzojNPWzUdXiDaD4NskwVmvBACNZ6RfaIghLVqXUxcgbpYb9JXQpaOOxa/YysbHUyf6Wn2wfr95pngN5DY1zYI0BzMGlsgsIbJ2M5RwWqf4xOkeH7ctb0S47fagyVv5REE6a+Nasf5FwMW2r34YWquadtr+S4/6kPhOtUI0bouTQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=;
- b=ejId5aibPHjB35vLANZur9ZEiIBOVTRwKhg4kN97vTtwE/rN5deq0DNhFh44mpwoYYvxpBpcV8e+xqjIk8eioxu2Wtr/AeSKpVMw9ujymk3QBeBh0KsZ4PzWCmjHBdy/0xXFlkEVislPKeDYn8k5KapsxXHN7sU10cgykeo3kkJ/TZU5DVFtkVKj6Ks/Z+GjK0DUmUqJ1mC8Y+bAX26cJSPtxcKcLZYq+1uJLjo8fc1ub69zkYB0DrQkb4qmRjBWWFUILy4pPOA0g58JsnXdIxUY5vBAWwfiR0wPxWFeMDfDEyFubEqWQOZr5nYu+ySCoYgx0in7iQUWcNvHRcC0tw==
+ bh=jk2ATjwFFzVVeQbSJe0mWqFUVO+QhqxiwsMm4IVD3+M=;
+ b=mQRN9ZujKDSBy7HBO9IiroYf/cOh2rm+EGDzMtJiX7Fr5fpFiNVP+hbf2JxDFGha36QrEqo/2Obuj09Ns8byna7jCkV719EKd8Am1oJ3AsWIiArvFtIivOEX1xIuGxY4/UreDmKAcinZzsnlHy1yH42w2xu7GaBG2rO5l57I1pTchkL1+3iHKu5J4OwDK5PjdSlnM89WUMzTjC6NSgJUSreLP2qzoaVlUocPLRfKEAV8SGHTiTBMM0LwPwEiw9l2tYXSVNvwhIn+wTkfBGCyilneEtyar+36HsX3s/sK78TXoPREbqkazm+38Zw2oTvXh2NAbNi5Ik65tyiEMao+Ww==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
- by SJ5PPF0C60B25BF.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98a) with
+ by MN2PR12MB4406.namprd12.prod.outlook.com (2603:10b6:208:268::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 17:23:11 +0000
+ 2026 17:23:12 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
@@ -72,71 +72,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH RFC v2 13/19] resctrl: Add mbm_assign_scope_mode for native assignment file names
-Date: Mon, 31 Aug 2026 10:22:39 -0700
-Message-ID: <20260831172245.42253-14-fenghuay@nvidia.com>
+Subject: [PATCH RFC v2 15/19] Documentation: arm64: mpam: document memory-level MB control and NUMA nodes
+Date: Mon, 31 Aug 2026 10:22:41 -0700
+Message-ID: <20260831172245.42253-16-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
 References: <20260831172245.42253-1-fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0076.namprd03.prod.outlook.com
- (2603:10b6:a03:331::21) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0352.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::27) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|SJ5PPF0C60B25BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16486e49-654c-4584-746e-08df078485b8
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|MN2PR12MB4406:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8576bb7-e65e-47fa-4b3d-08df0784874b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|5023799004|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: OkK0NZxGLHPl9xB6c4dJdva9/IA0awO0wLiQ/u6ZrMBeFLFypmESORypzGD4o1BM+wTEj28rneNuFD0IfknvW/GG4xg2kQVgFZ1tLVeAdFzLdHjZbvfCmyYi0W5q1VFh577eOeOdAmpXxRQyHhzz2D6CCey+q2WBjDfOF8ZtGRj6Hw9KsdntJj7cMa10Zaed7P+i0YwRZx+Q+0BXhI4KYkYg6Oi53rK7pyit5ra0GzDFPZ4JAIxL/XF+F/lNm3Rz6ITUm6IdzK4ZpnIoE7I3EgHn7nJy5DxdFf9dhgyYz8bhnnYy5UsMjCyMb3apX6qniQY39r4326/FlayZu7jS75HeW//ld9wbfGZvR2y1RcVcgrmR1h928HEz5gGoAJmfsTXakrGdg1t7HuNKlkyyTRc08CAqzdf9LTyc0PRI5p0FV+uyz3INa51jjWRYpFb00eLAGcbmf06bkzvV/DWr6BcBfcFl47FBdvMeVK0GcnYBgcxGU49BzfG6eMkMGnt7FNOI0VN8sz5GSRTqzUBFjnKQfZln1YGzunJDwKIbOCZsorsrDMzxcm4MEllasKRKbzHLbCeg0oskyUWQ5KJfzd4i0ClCnI7jQbdW/zTHlzfqRrpuvXK9p7Y5CeDPO1zEJOon8Z80xU2ZC97Qjn0KOHvomoMRPWT45SKr4I37ybY35JXJigEv4BTNQ0i0adKRcFIO10J60b0RaBi7qSEiLw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|1800799024|366016|921020|10067099003|11063799006|22082099003|18002099003|6133799003|3023799007|56012099006;
+X-Microsoft-Antispam-Message-Info: Qo31ME/9Dub6+S/5QLLyQZuwnr/76ngJN76gSAU8x/pCD50r9pQxd21hy5M511u3sMqwUzlx/KYR1GrVdH/OSNzE3X4ocx00OIeBe7qTGUxBru7sTfIIUenfGlvrimw7mNfE7NJ5yZEqJgf0fIT33vwdJ6pcXlFId94MAdU++MhgkWmJy++o9Wsr9oniT09som5pVIMX1zF81BXA6PGpbA0JAwSUwNHvkJoPZ67ZjzG9hDhLx9/oUiuS1bFiyqxXtfdaeATsjVkdVdU3BPMIfCDyzbYKBL4kqUZz7VajdaGiE0vCR78y2K4JvZfXunOl9xzGppVclLXdTSiOx8rBoZcWZRAEciBCI9e574eK+naOiWOvo2QaebiLnPdDwIRY6m83nmyWIyVzI6OYrRonJhYoAtpNrxThmDwv2BOqvVt2+Vl3atDF7DfmsyN3F2PkWwsO7fbzOrr6bvnBquSb8l/N4ltahhwrm8uBQG44yd+758kUYi59Dk9vkl3KJYZnV6jDSps/NyFJdI1dmxSfidSnieEuiyzm+7jV4kqsA8ZqknR8vKQlWZgA5lIvKYjnIPcpcLW2ed9xukG81y6JxVDkQiCRNyBO8XUoitCKH57EPW17doFrxoWPekxMUbV4hZG/R9fyfgornE6D0AZyTYXishK5gvns4cnXMLgr8HcF5BkCX/XiVoqqLpmLovoWwkLU8eRhVIacg1IB1jtcVw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(1800799024)(366016)(921020)(10067099003)(11063799006)(22082099003)(18002099003)(6133799003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U4Ep+lHM1YlaSDEoUI2dtE5GX/aBkVqkf5G2Qi8Vz4Gm91uYLPtIxP31LCCz?=
- =?us-ascii?Q?snxLIT/z8pxOvKzzRxNqUvMGiRhOrCPIKEb7OtLGD7BXzigMouRZOKbVZQt8?=
- =?us-ascii?Q?ADnNowWZD1pkODpxGjY6H4KNY2Jb+TMV4DQu3NqJQAmznwJNbH/g7IGveiy0?=
- =?us-ascii?Q?eaBPisIodxCQDHHaxJUYxxd9DJLgvbaPTs/JzLf6IkyFC6Zc8P94R34+I+53?=
- =?us-ascii?Q?YQx8fHNk8M2PcFx8j6Gsc5ltV38e97i9cSv+XNKPRQ/6nyNiw0ORi27HQ2bg?=
- =?us-ascii?Q?XRAPfSKERLJ8rvkmjjsLyW5vGLLWDoKxp8ywf06RWYgviEu32AJcH5jqmCL3?=
- =?us-ascii?Q?tvv3pKsR4S8FmtT0pHWtgUWzy6o5cNTg/YBE96lizw/mQ3cZpqWRwatyhWT5?=
- =?us-ascii?Q?CtBB01LHR/a2aveBjQ84gHVrQwVT2nXcyNASj6ShWVvgUvx8rpFG9wpNPYyg?=
- =?us-ascii?Q?sV2hP51uods+SV+FTJjHNfwv1NgZ1ilX4zQ67D5b2fnw0e/9frRCE3LRO7fy?=
- =?us-ascii?Q?77bMUZvxyoLwyYugSDM7B3ZDECvkRUu2yERVL25Y3RmvF0vvB1fUn1CiOlvM?=
- =?us-ascii?Q?izwLd+4VQQkmvjTjiCTtOpRQmOLTcKVtYOLF6Y1u+vwUAbJj6A3Ij3NAp01U?=
- =?us-ascii?Q?ugdtsKc5C486xGIKqXnxxUnvUf2RPy4AZyV0KEuGis/P4lONUxZWS9CzNFnU?=
- =?us-ascii?Q?YBImJ8+Gv7RWLd35lDj3+u/cDHZN5kbd4B0N3iBsuOgZhZiZ++G5AHy65Z0u?=
- =?us-ascii?Q?DAc+67vUHJEnEXDVM+TU8fkoAog5w6XWFeHyVQs3kN0NFU7uXrHkmBihHZ2m?=
- =?us-ascii?Q?2FqkpKtdS66T/Ho9dMFbpQ0jXWdkndlBTnLMgSJV+7w4SW1sSbTdIYF0PoEH?=
- =?us-ascii?Q?8nV1XVfiJj2zEgQTrOOnxlcN6NASQQztt7MiPeF7aXn4PAn/RD9VIVDJtV29?=
- =?us-ascii?Q?8Jn4ejCy8WRHV/7ulnrQrTPSFm8kMUhz1PXJJ015TpPJTmieaOFqULq9tHZi?=
- =?us-ascii?Q?NirrLDgn7NojXLRjwteQAZHAKYyya4vGogMM25RfegNDTyfWfGDlAHtFajA0?=
- =?us-ascii?Q?3O37rlB27HfFqnlE0ceNu+4MD85aTIAPW9+xG1hD3Y1J1yIz0qTfLkgsM++Y?=
- =?us-ascii?Q?5G2IoLoQ0dHGebOYp2VVJFWRsdk6bft1xFi4StLcuvbk0qbqqVLw5+vv5OLY?=
- =?us-ascii?Q?dwTmyUEcJdQegpa8PrX1O7eKbimiP6Vf9Ds4SfN30pIK5Bcnh1mgpq/VDDNn?=
- =?us-ascii?Q?8mPRHf3xopeFfJre19zfL7xuoqrq2qfQnaR47i++spSVjIR4JwHrvByiY9C5?=
- =?us-ascii?Q?hnf1e9LIZxkCEfboPs18Nn7qNQ/fGkUmAyXG2O4nuTa48n5rf1fqC4LdgwtZ?=
- =?us-ascii?Q?aDIb1YlWEebrLlC/cQAZVNu4JjiLm5FkUMJxZWmq8qSFmBi9RcowZ98mj77C?=
- =?us-ascii?Q?Ch7P9Hn8DHUfIQJQdG5UbiWkMAR0YyaIxTBblEDQczD4kc4aoGggKl0gXxuC?=
- =?us-ascii?Q?BZJptAYyldrm08lKixtYIEanYS5f+wwoc+p7cDAIEGoDXG6poaOFfsmhf1eF?=
- =?us-ascii?Q?GCwKY+u2iGz+r0moldoM2aIi+Ju1BdEzvJ5LfUGV5K7Dh5oDbQrjanU6txsJ?=
- =?us-ascii?Q?N+bSZYnZbm8CnuN8n13yDFQxicmnVgRELkUedPY4qkoRsqvdO16YbkwIlCOd?=
- =?us-ascii?Q?vLhymjT6M+3aOGLSnb6Ks0uw9T9qPC4/aSwASDeIyTgLL9VxbB7Xn8sAagyQ?=
- =?us-ascii?Q?mxP9ITuyCg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qibJYfZkn6YuCzBMgY6BTQM3pnsfPOd25LWFWbgc88ul/0Qw6w5owulu45ds?=
+ =?us-ascii?Q?LD89cL94M5mvi351HF/ujDES5QZcrnbJtxejJTaxqNdUugvtmiO2jckghr5N?=
+ =?us-ascii?Q?kQ6m+5CRzb78tGwlG3V+5/e9ebdUhj51pGfZyQ7kw0BLoA9PbbPs6/Ya1GdW?=
+ =?us-ascii?Q?Eq3Iz8eTmpb2BFPnicwzCSQFBxMQQhI269pZ2gnIN/2XtJZR/+Zd1o4MPXIh?=
+ =?us-ascii?Q?Dtv0PL/zP+xCUa7ri0DxBuopIdimjcj7eGdwXQuc3rPUuQ45Th4sC0HJf+Nl?=
+ =?us-ascii?Q?u3VewQ35AWvy5iE++Kwx28CbVLBXa6PuHpijiXglioPsFGPNgv8yIn53jxHU?=
+ =?us-ascii?Q?2JqCApF+Z71HoGAbGgCdXXfa1cULXgGlY8+qqHYs7zXrnrQMV3p1EYSBHrM1?=
+ =?us-ascii?Q?wJ1zDNRRiDPnQ6PD1n0A/v7HBut2OBxN68sHA6sQPCBj31t8Z/qIy6f7xFve?=
+ =?us-ascii?Q?ipPjJeQ5iXhqCSmg5u1gQdg7N7MP490i23muflwfw/yhnKCgkZkCaDS2asRf?=
+ =?us-ascii?Q?4e2oV6cCr4wXe13pCLy6cSr36LC6stx9nzWhRzWPjjMNgqxQzT99FPYi5ytw?=
+ =?us-ascii?Q?PLsDxullo9fLKwTUThCbvxFvVrDyO1pAt4dIIruFwIiiBdENoCk+3YhQtYqd?=
+ =?us-ascii?Q?SSWjrLQxP6YhLE9T5j5TTck6047ZGMVnR8tAU7uujTfkQUuw6MhdRGVzDbiz?=
+ =?us-ascii?Q?CeQRWyyUemJhB68YjkYBSI+cj7tAXijoCckvH8aQsdLAxl7pIYPoOjHWBGE6?=
+ =?us-ascii?Q?lL3mqgLax8IU0CLtdFdNyWYGDclXZJ84aVpY2SxiB2S3+DyH7yjAmjmWI/v2?=
+ =?us-ascii?Q?zcN3yVrBbPeIs2/WgXYIjle8uZta7fYL6ee0SwbNlYCcbg+FRdiwcW2gn/lM?=
+ =?us-ascii?Q?GDbrFX099ZbKl8k2Xv/vNv5SmyHEaiV2F9aD6acIxkW4Mds9M6er6Ige+d8Z?=
+ =?us-ascii?Q?S+QS9I+DHI+jhsvl2MW9lLsIqGQdjl5rOzBAL9YpG0u5949xPGtI4QMlpmQ1?=
+ =?us-ascii?Q?kIA9LOGw/Cse0BWzYmv+cDq1tUVSt9KHO0hQro6neo6s3Flxh0+uXsXlX/ku?=
+ =?us-ascii?Q?GazAKk2zmFLwVpSzjQi1uCeA6cwXDn+gufSYD/TO1vdUSm5c4TIAhRkfaGZF?=
+ =?us-ascii?Q?l0RDZe0/CfXotOeNDKzVbzREg/gaKL8XXc86Pk3GOwWPcTVbJ4GQVjuh0ezY?=
+ =?us-ascii?Q?PJ1CvvvU3SMVoHHKwBB2xx1N8IK8ROb3aAc+2iN99SPrn2J4n20G6wMBLv4c?=
+ =?us-ascii?Q?5HBOJa6f8mVvu/D/KhbjIXMhTQBRxXTeLFFiQ0Z6qLMlFKzOA0frDliqxV//?=
+ =?us-ascii?Q?R2W027Sk7E/Rpp67Tid1xjBFRWd8RyoTdcooBDkYwyUBI7Z2Z/4i9LdQF0g0?=
+ =?us-ascii?Q?aab/QJgH+VCFFiNkFVFPX8zTZ2BUGMwlYAEUWe8yu4M1EihlAgI4HbGm6LsP?=
+ =?us-ascii?Q?Trrc+Q0I572cD+qVLMj81MZ4kOtsUO0BV80w7dmd2mhuch+jE+sLun6Fb+Db?=
+ =?us-ascii?Q?gNvZPLCLlOHSjcdf69MiXY6uM3EI28LBTuP9TXHQ6pTEk0hzcClZQ3cnpW0b?=
+ =?us-ascii?Q?dazRU+Zlhqnxzi443ZjNG4d/jUrmbJrO7oBP1XaewDyRNn4uJcIodOk9foMH?=
+ =?us-ascii?Q?TKrmu6KkUS8Csw2khtcyjQ/Mz3aX50hKBAzrGLyfYvH4nRkAE0NqPYK7RfXt?=
+ =?us-ascii?Q?Sz0V8RdFvGgujgBr+ckGtl9M2KO+yeO6bBjxgPHlYj7uLyBJ+E2fRV8gANJZ?=
+ =?us-ascii?Q?qMlpR96h3A=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16486e49-654c-4584-746e-08df078485b8
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8576bb7-e65e-47fa-4b3d-08df0784874b
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:07.1443
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:09.8552
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Jysm+DBB5mr+RKViWiPFT+U4g2E2jvl+HyxgKmkIqJHCh92tUeKu94bEdlDSO9JaX/KXQqbGFUNizr5ln4wg8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0C60B25BF
+X-MS-Exchange-CrossTenant-UserPrincipalName: v+c/qkN8CsnwOI1ApMeu/4Hb8705pG8I72rK54BWk3lH7rwgs+AJsfSHAw2ketC3pNC9L26/wxUAKaedM1to+g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4406
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_102316_620753_50D3693C 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260831_102319_538836_BC7FED57 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,293 +151,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On platforms whose MBM counters are backed by NUMA node MSCs,
-mbm_NODE_assignments is the native assignment file. User space that
-already programs mbm_L3_assignments needs a compatible default.
+The MB control can be backed by a memory-level MSC above L3 rather than
+the L3 cache MSC. In that case resctrl identifies domains by NUMA node id
+instead of L3 cache id, exposes a node-scoped MB_NODE control, and can
+manage CPU-less memory nodes by falling back to cpu_possible_mask.
 
-Add info/MB_MON/mbm_assign_scope_mode. Legacy (default) always exposes
-mbm_L3_assignments; that file still programs node-scoped counters when
-node MSCs provide MBM. Native mode replaces it with
-mbm_NODE_assignments on those platforms.
+Update the arm64 MPAM documentation to describe the L3-cache and memory
+MSC paths for both the MB control and MBWU monitoring, how to tell them
+apart via the control "scope" file, how NUMA node ids map to
+/sys/devices/system/node/node*/, and CPU-less NUMA node handling.
 
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- fs/resctrl/internal.h   |   9 +++
- fs/resctrl/monitor.c    | 147 +++++++++++++++++++++++++++++++++++++---
- fs/resctrl/rdtgroup.c   |   9 +++
- include/linux/resctrl.h |   6 ++
- 4 files changed, 162 insertions(+), 9 deletions(-)
+ Documentation/arch/arm64/mpam.rst | 105 +++++++++++++++++++-----------
+ 1 file changed, 68 insertions(+), 37 deletions(-)
 
-diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
-index 32c7d53790ec..f46d4fb7c624 100644
---- a/fs/resctrl/internal.h
-+++ b/fs/resctrl/internal.h
-@@ -457,6 +457,15 @@ int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, voi
+diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
+index 67fe515ed501..88ddee8705e4 100644
+--- a/Documentation/arch/arm64/mpam.rst
++++ b/Documentation/arch/arm64/mpam.rst
+@@ -44,48 +44,79 @@ The supported features are:
+   placement.
  
- ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf, size_t nbytes,
- 				 loff_t off);
+ * Memory bandwidth maximum controls (MBW_MAX) on or after the L3 cache.
+-  resctrl uses the L3 cache-id to identify where the memory bandwidth
+-  control is applied. For this reason the platform must have an L3 cache
+-  with cache-id's supplied by firmware. (It doesn't need to support MPAM.)
+-
+-  To be exported as the 'MB' schema, the topology of the group of MSC chosen
+-  must match the topology of the L3 cache so that the cache-id's can be
+-  repainted. For example: Platforms with Memory bandwidth maximum controls
+-  on CPU-less NUMA nodes cannot expose the 'MB' schema to resctrl as these
+-  nodes do not have a corresponding L3 cache. If the memory bandwidth
+-  control is on the memory rather than the L3 then there must be a single
+-  global L3 as otherwise it is unknown which L3 the traffic came from. There
+-  must be no caches between the L3 and the memory so that the two ends of
+-  the path have equivalent traffic.
+-
+-  When the MPAM driver finds multiple groups of MSC it can use for the 'MB'
+-  schema, it prefers the group closest to the L3 cache.
++  resctrl exposes these as the ``MB`` resource.  The domain identifiers
++  used in the ``MB:`` schemata line depend on which MSC group backs the
++  resource:
 +
-+int resctrl_mbm_assign_scope_mode_show(struct kernfs_open_file *of, struct seq_file *s,
-+				       void *v);
++  **L3-cache MSC (cache-level MB control).**
++  When the MB control hardware sits on the L3 cache MSC, resctrl uses L3
++  cache-ids to identify where bandwidth is applied.  The topology of the
++  MSC group must match the L3 cache topology so that cache-ids can be
++  repainted.  If the memory bandwidth control is on the memory rather
++  than the L3 then there must be a single global L3 as otherwise it is
++  unknown which L3 the traffic came from.  There must be no caches
++  between the L3 and the memory so that the two ends of the path have
++  equivalent traffic.
 +
-+ssize_t resctrl_mbm_assign_scope_mode_write(struct kernfs_open_file *of, char *buf,
-+					    size_t nbytes, loff_t off);
++  **Memory MSC (memory-level MB control).**
++  When the MB control hardware sits on a memory MSC above L3, resctrl uses
++  NUMA node identifiers instead of L3 cache-ids.  The native node-scoped
++  control is exposed as ``MB_NODE``; the legacy ``MB`` control keeps the
++  ``MB:`` schemata line for backward compatibility and, in the default
++  legacy mode, is emulated by ``MB_NODE`` when it has no hardware of its
++  own.  See the MB control emulation section in
++  Documentation/filesystems/resctrl.rst for the control layout and
++  emulation modes.
 +
-+void resctrl_mbm_assign_files_apply(struct kernfs_node *kn);
++  On either path, read the control ``scope`` file under
++  ``info/MB/resource_schemata/`` (``L3`` or ``NODE``) to learn which
++  identifier space the ``MB:`` line uses.
 +
- int resctrl_io_alloc_show(struct kernfs_open_file *of, struct seq_file *seq, void *v);
++  When ``scope`` reads ``NODE``, each numeric ID ``XX`` in the ``MB:``
++  line is a NUMA node id and corresponds to the standard NUMA node
++  directory ``/sys/devices/system/node/nodeXX/``.  That directory
++  describes the node: ``cpulist``/``cpumap`` (the CPUs local to it, empty
++  for a CPU-less node), ``distance`` (NUMA distances to other nodes),
++  ``meminfo`` (its memory), and its ``memoryX`` symlinks.  Use these
++  files to map an ``MB:`` (or ``MB_NODE:``) entry to a physical NUMA node
++  and its CPUs and memory.
++
++  **CPU-less NUMA nodes.**
++  A memory MSC may be associated with a NUMA node that has no local CPUs
++  (for example a memory-only node that still participates in bandwidth
++  control).  The driver falls back to ``cpu_possible_mask`` for the MSC
++  affinity so that traffic from remote CPUs is still accounted for and
++  the node can appear as an ``MB``/``MB_NODE`` domain.
++
++  When the MPAM driver finds multiple groups of MSC it can use for the
++  ``MB`` resource, it prefers the group closest to the L3 cache.
  
- int rdtgroup_init_cat(struct rdt_resource_final *f, struct resctrl_ctrl *ctrl,
-diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
-index d555f2d19164..074dc2a040dc 100644
---- a/fs/resctrl/monitor.c
-+++ b/fs/resctrl/monitor.c
-@@ -18,6 +18,7 @@
- #define pr_fmt(fmt)	"resctrl: " fmt
+ * Cache Storage Usage (CSU) counters can expose the 'llc_occupancy' provided
+   there is at least one CSU monitor on each MSC that makes up the L3 group.
+   Exposing CSU counters from other caches or devices is not supported.
  
- #include <linux/cpu.h>
-+#include <linux/kernfs.h>
- #include <linux/resctrl.h>
- #include <linux/sizes.h>
- #include <linux/slab.h>
-@@ -1704,6 +1705,130 @@ int resctrl_available_mbm_cntrs_show(struct kernfs_open_file *of,
- 	return ret;
- }
+-* Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
+-  L3 cache-id to identify where the memory bandwidth is measured. For this
+-  reason the platform must have an L3 cache with cache-id's supplied by
+-  firmware. (The platform doesn't need to support MPAM.)
+-
+-  Memory bandwidth monitoring makes use of MBWU monitors in each MSC that
+-  makes up the L3 group. If the memory bandwidth monitoring is on the memory
+-  rather than the L3 then there must be a single global L3 as otherwise it
+-  is unknown which L3 the traffic came from.
+-
+-  To expose 'mbm_total_bytes', the topology of the group of MSC chosen must
+-  match the topology of the L3 cache so that the cache-id's can be
+-  repainted. For example: Platforms with Memory bandwidth monitors on
+-  CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these nodes do not
+-  have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
+-  cannot distinguish local traffic from global traffic.
+-
+-  All these restrictions based on L3 cache are due to resctrl, currently, only
+-  supporting monitoring at the L3 scope. It is expected that going forward more
+-  MBWU monitors can be exposed to the user after support for more monitoring
+-  scopes is added to resctrl.
++* Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl can
++  expose ``mbm_total_bytes`` from either an L3-cache MSC or a memory MSC:
++
++  **L3-cache MSC.**
++  When MBWU monitors sit on the L3 cache MSC, counters are exposed on the
++  ``L3_MON`` resource and use L3 cache-ids.  The MSC group topology must
++  match the L3 cache topology so that cache-ids can be repainted.
++
++  **Memory MSC.**
++  When MBWU monitors sit on a memory MSC above L3, counters are exposed on
++  the ``MB`` resource with node scope.  Monitor directories are named
++  ``mon_NODE_XX`` where ``XX`` is the same NUMA node identifier that appears
++  in the ``MB:`` schemata line.  CPU-less memory nodes are supported the
++  same way as for MB controls above.
++
++  ``mbm_local_bytes`` is not exposed as MPAM cannot distinguish local
++  traffic from global traffic on these paths.
++
++  When only L3-scoped monitoring was supported, platforms with memory
++  bandwidth monitors on CPU-less NUMA nodes could not expose
++  ``mbm_total_bytes``.  Node-scoped monitoring on the ``MB`` resource
++  removes that restriction for memory-class MSCs.
  
-+static bool resctrl_mbm_has_node_mscs(void)
-+{
-+	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
-+
-+	return r->mon_capable && r->mon_scope == RESCTRL_NODE;
-+}
-+
-+static bool resctrl_mbm_show_l3_assignments(void)
-+{
-+	return !resctrl_arch_get_resource(RDT_RESOURCE_MBA)->mon.mbm_assign_scope_native ||
-+	       !resctrl_mbm_has_node_mscs();
-+}
-+
-+static bool resctrl_mbm_show_node_assignments(void)
-+{
-+	return resctrl_arch_get_resource(RDT_RESOURCE_MBA)->mon.mbm_assign_scope_native &&
-+	       resctrl_mbm_has_node_mscs();
-+}
-+
-+static struct rdt_resource *mbm_l3_assignments_resource(void)
-+{
-+	if (resctrl_mbm_has_node_mscs())
-+		return resctrl_arch_get_resource(RDT_RESOURCE_MBA);
-+
-+	return resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+}
-+
-+static void resctrl_mbm_assign_file_show(struct kernfs_node *parent, const char *name,
-+					 bool show)
-+{
-+	struct kernfs_node *kn;
-+
-+	kn = kernfs_find_and_get(parent, name);
-+	if (!kn)
-+		return;
-+
-+	kernfs_show(kn, show);
-+	kernfs_put(kn);
-+}
-+
-+void resctrl_mbm_assign_files_apply(struct kernfs_node *kn)
-+{
-+	if (!kn)
-+		return;
-+
-+	resctrl_mbm_assign_file_show(kn, "mbm_L3_assignments",
-+				     resctrl_mbm_show_l3_assignments());
-+	resctrl_mbm_assign_file_show(kn, "mbm_NODE_assignments",
-+				     resctrl_mbm_show_node_assignments());
-+}
-+
-+static void resctrl_mbm_assign_files_apply_all(void)
-+{
-+	struct rdtgroup *prgrp, *crgrp;
-+
-+	lockdep_assert_held(&rdtgroup_mutex);
-+
-+	list_for_each_entry(prgrp, &rdt_all_groups, rdtgroup_list) {
-+		resctrl_mbm_assign_files_apply(prgrp->kn);
-+		list_for_each_entry(crgrp, &prgrp->mon.crdtgrp_list, mon.crdtgrp_list)
-+			resctrl_mbm_assign_files_apply(crgrp->kn);
-+	}
-+}
-+
-+int resctrl_mbm_assign_scope_mode_show(struct kernfs_open_file *of,
-+				       struct seq_file *s, void *v)
-+{
-+	struct rdt_resource *r = rdt_kn_parent_priv(of->kn);
-+
-+	if (!info_kn_lock(of->kn))
-+		return -ENOENT;
-+
-+	if (r->mon.mbm_assign_scope_native)
-+		seq_puts(s, "legacy [native]\n");
-+	else
-+		seq_puts(s, "[legacy] native\n");
-+
-+	info_kn_unlock(of->kn);
-+
-+	return 0;
-+}
-+
-+ssize_t resctrl_mbm_assign_scope_mode_write(struct kernfs_open_file *of, char *buf,
-+					    size_t nbytes, loff_t off)
-+{
-+	struct rdt_resource *r = rdt_kn_parent_priv(of->kn);
-+	bool native;
-+	int ret = 0;
-+
-+	if (!info_kn_lock(of->kn))
-+		return -ENOENT;
-+
-+	rdt_last_cmd_clear();
-+
-+	/* Valid input requires a trailing newline */
-+	if (nbytes == 0 || buf[nbytes - 1] != '\n') {
-+		rdt_last_cmd_puts("mbm_assign_scope_mode: Invalid input\n");
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
-+
-+	buf[nbytes - 1] = '\0';
-+
-+	if (!strcmp(buf, "legacy")) {
-+		native = false;
-+	} else if (!strcmp(buf, "native")) {
-+		native = true;
-+	} else {
-+		rdt_last_cmd_puts("Unsupported assign scope mode\n");
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
-+
-+	if (r->mon.mbm_assign_scope_native != native) {
-+		r->mon.mbm_assign_scope_native = native;
-+		resctrl_mbm_assign_files_apply_all();
-+	}
-+
-+out_unlock:
-+	info_kn_unlock(of->kn);
-+
-+	return ret ?: nbytes;
-+}
-+
- static int mbm_assignments_show(struct kernfs_open_file *of, struct seq_file *s,
- 				void *v, struct rdt_resource *r)
- {
-@@ -1753,8 +1878,7 @@ static int mbm_assignments_show(struct kernfs_open_file *of, struct seq_file *s,
- 
- int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
- {
--	return mbm_assignments_show(of, s, v,
--				    resctrl_arch_get_resource(RDT_RESOURCE_L3));
-+	return mbm_assignments_show(of, s, v, mbm_l3_assignments_resource());
- }
- 
- int mbm_NODE_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
-@@ -1873,7 +1997,7 @@ static ssize_t mbm_assignments_write(struct kernfs_open_file *of, char *buf,
- 
- 	/* Valid input requires a trailing newline */
- 	if (nbytes == 0 || buf[nbytes - 1] != '\n') {
--		rdt_last_cmd_puts("mbm_L3_assignments: Invalid input\n");
-+		rdt_last_cmd_puts("mbm assignments: Invalid input\n");
- 		ret = -EINVAL;
- 		goto out_unlock;
- 	}
-@@ -1909,14 +2033,14 @@ ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf,
- 				 size_t nbytes, loff_t off)
- {
- 	return mbm_assignments_write(of, buf, nbytes, off,
--			resctrl_arch_get_resource(RDT_RESOURCE_L3));
-+				     mbm_l3_assignments_resource());
- }
- 
- ssize_t mbm_NODE_assignments_write(struct kernfs_open_file *of, char *buf,
- 				   size_t nbytes, loff_t off)
- {
- 	return mbm_assignments_write(of, buf, nbytes, off,
--			resctrl_arch_get_resource(RDT_RESOURCE_MBA));
-+				     resctrl_arch_get_resource(RDT_RESOURCE_MBA));
- }
- 
- static int closid_num_dirty_rmid_alloc(struct rdt_resource *r)
-@@ -2012,10 +2136,15 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
- 			resctrl_file_mode_init("event_filter", 0644);
- 		resctrl_file_fflags_init("mbm_assign_on_mkdir", RFTYPE_MON_INFO |
- 					 fflags);
--		if (r->rid == RDT_RESOURCE_MBA)
--			resctrl_file_fflags_init("mbm_NODE_assignments", RFTYPE_MON_BASE);
--		else
--			resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
-+		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
-+		if (r->rid == RDT_RESOURCE_MBA) {
-+			r->mon.mbm_assign_scope_native = false;
-+			resctrl_file_fflags_init("mbm_assign_scope_mode",
-+						 RFTYPE_MON_INFO | RFTYPE_RES_MB);
-+			if (r->mon_scope == RESCTRL_NODE)
-+				resctrl_file_fflags_init("mbm_NODE_assignments",
-+							 RFTYPE_MON_BASE);
-+		}
- 		resctrl_file_fflags_init("mbm_assign_mode", RFTYPE_MON_INFO |
- 					 fflags);
- 	}
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index a16e35b587c4..1547306dc8d6 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -2316,6 +2316,13 @@ static struct rftype res_common_files[] = {
- 		.seq_show	= mbm_NODE_assignments_show,
- 		.write		= mbm_NODE_assignments_write,
- 	},
-+	{
-+		.name		= "mbm_assign_scope_mode",
-+		.mode		= 0644,
-+		.kf_ops		= &rdtgroup_kf_single_ops,
-+		.seq_show	= resctrl_mbm_assign_scope_mode_show,
-+		.write		= resctrl_mbm_assign_scope_mode_write,
-+	},
- 	{
- 		.name		= "mbm_assign_mode",
- 		.mode		= 0644,
-@@ -2653,6 +2660,8 @@ static int rdtgroup_add_files(struct kernfs_node *kn, unsigned long fflags)
- 		}
- 	}
- 
-+	resctrl_mbm_assign_files_apply(kn);
-+
- 	return 0;
- error:
- 	pr_warn("Failed to add %s, err=%d\n", rft->name, ret);
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index b8df7489539f..141e2ff594f9 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -380,6 +380,11 @@ enum resctrl_ctrl_type {
-  *				events of monitor groups created via mkdir.
-  * @mbm_cntr_configurable:	True if assignable counters are configurable.
-  * @mbm_cntr_assign_fixed:	True if the counter assignment mode is fixed.
-+ * @mbm_assign_scope_native:	True if assignment files use native names.
-+ *				Legacy mode always exposes "mbm_L3_assignments".
-+ *				Native mode exposes "mbm_NODE_assignments" when
-+ *				NUMA node MSCs are present, otherwise
-+ *				"mbm_L3_assignments".
-  */
- struct resctrl_mon {
- 	u32			num_rmid;
-@@ -389,6 +394,7 @@ struct resctrl_mon {
- 	bool			mbm_assign_on_mkdir;
- 	bool			mbm_cntr_configurable;
- 	bool			mbm_cntr_assign_fixed;
-+	bool			mbm_assign_scope_native;
- };
- 
- /**
+ Reporting Bugs
+ ==============
 -- 
 2.53.0
 
