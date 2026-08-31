@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2546AC624D0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62807C61DD6
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7B9k3wEZXCM3vmGvq/Kc6DCDoAFzdN4ot5VSauuQ8Y=; b=teec1b7FJ5GQcaDtUb0RfCkXNG
-	e4hu2Brk+UGKPQA6WiXAJ8NWrlmt9Tk1uU63CPg5wREC97U9fLsSccEwZdDL4KZEh79uSzCEkIX/u
-	a9YrkpIfHb0sJ/BGkATRXxYdiVRmo+1Fjkid/bn4DocNV4hGydwzPiCBjRb8rB5i3Pw/K4BfuAn60
-	R9mATydUci4OVhIIjefWwfhGbsvw+8/nuTYJUxDw2QdrgkEPqnLd/bgZmDj1xr/eXDsRRnQbOmvv7
-	qjUlRcDlzi67Hzp84zhWCSuwgJVqG1dV61QKO4JJ2aLnwybplaBQtjbpy0sqgkB7JD5zhlkSXKoCG
-	XDquWPBA==;
+	bh=LtX7KnnVs9LVBq9yb/c4TC+txGpPRdYZ4CX3PUwsgmE=; b=uY0AcOJUE1acNqlGkB/oTWsA03
+	BfZjsp5Bo7mEr5oPuzhmpE+yIsAs8Gy7B+DH3HmxxZEDHuMvUgB0bnPgqQF9AuuaAuByA8IzdWAt5
+	IwClIQRSSZHx0zqz0L4h4/lBEslbYNoiEi6eC1CeWfQDB7O/zFnMAU+8pn15gGQPVw0/oZEjKXURK
+	tijqoC5e0o9gpDW6x1/1+TSTFjYxCkgK16iOW8dtxHF6D03G3P9GmgxBuOZX3A/wth5dKkjFyGE6Y
+	vAT1H1v0GalkTmZx34c6TTjBIL/rj3HhKS78ws/L1qCX7wOMbUsO1KMhBn8yuiFG/xoBhTQ3wn8eD
+	RKXHO6bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T68-0000000CwQh-23Bg;
+	id 1x1T68-0000000CwQP-14QQ;
 	Tue, 01 Sep 2026 18:20:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T5m-0000000CwLH-2p1M;
-	Tue, 01 Sep 2026 18:20:18 +0000
+	id 1x1T5h-0000000CwJy-0oYb;
+	Tue, 01 Sep 2026 18:20:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B9170600D2;
-	Tue,  1 Sep 2026 18:20:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B2A61F000E9;
-	Tue,  1 Sep 2026 18:20:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C50B402BE;
+	Tue,  1 Sep 2026 18:20:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ED591F000E9;
+	Tue,  1 Sep 2026 18:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788286817;
-	bh=g7B9k3wEZXCM3vmGvq/Kc6DCDoAFzdN4ot5VSauuQ8Y=;
+	s=k20260515; t=1788286812;
+	bh=LtX7KnnVs9LVBq9yb/c4TC+txGpPRdYZ4CX3PUwsgmE=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=KykzVk12EgSORhPtUSsmgXdwRYRebzq/kmagZviEyrJNzcNpGK5VjpK1EReJJWa05
-	 KqDfXrfPrAzKANNPia9UJ99LhAhO0cdVM8lwc3S0WXXLljHHAuV3z9S4pWQywujWUL
-	 A+BotPsJdWRtUsrKlsy+66TbLQ2Szp8lHoolMjNhdHcrcoSoBQt28BSQ/wOkkAjA18
-	 lF2oRKTZaQaeylr3x7ibDE1IdvY+t+0BpgbcpOLmQlxnGx19w6RKvlU/eBGsibG7/y
-	 j32YUgQUYC89rnCSDmYzjKg5DWtV3y02LZtQitKv6dQiVnpYvq3LUJroI5vCjM9WJv
-	 zH9M73+uYesvw==
+	b=j0kZKo445icEly1JveqfpNvFV8P7Bn4wGpW3it7cjdTsujwC8wMFjDYhQN2gc34BI
+	 e7tcHmcU8BNtkfb0//GG4u7l6oWvdP64/Cv992qGy5U5YBCzfj5j6BjCja5FGeGcu6
+	 3gVT09KpEJtW6NRKYIhhbnK6KJNh1Xy1ACLf4Fg44vwW+YufNLYrrQ44GPHcFmTKyb
+	 sZjY7J/38xkpeOOzpY2FNHKruGOwgMKallICE4e3t1rf1IBEbvLEEAC5ZabmAotc8Z
+	 6/nFVeDcSSzpB4Pni+9G7ocw7pE8IE8AJCIUsMaCYEU7EacXNaRD8ZWZqSgX3U0l3Q
+	 3AmoWf4FGbDbA==
 From: Mark Brown <broonie@kernel.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
 Cc: Liam Girdwood <lgirdwood@gmail.com>, 
@@ -48,24 +48,25 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
  linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260818104344.37824-1-phucduc.bui@gmail.com>
-References: <20260818104344.37824-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH 1/3] ASoC: mediatek: mt8173: Fix clock error handling
-Message-Id: <178812843613.13461.17948002666119165762.b4-ty@b4>
-Date: Sun, 30 Aug 2026 23:20:36 +0100
+In-Reply-To: <20260818104526.37904-1-phucduc.bui@gmail.com>
+References: <20260818104526.37904-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt7986: Drop redundant probe error
+ messages
+Message-Id: <178819855760.141190.17148674455255470925.b4-ty@b4>
+Date: Mon, 31 Aug 2026 18:49:17 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1378; i=broonie@kernel.org;
- h=from:subject:message-id; bh=gLozw8UEkRgHLK7htCTa+GJYnej0jU5Yh6Y3hEBgKUs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlxddWk9TwCixp7CzuWovcdrqyIRgJ7LFQmuw1
- nO4Kqci1yiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcXXQAKCRAk1otyXVSH
- 0OxcB/9oKNuP43gqIxpBpXRB/JMT5s/P2iVAn/vYrUzCafWCFtgAm/T0B/3VrcqeWes43zn3uKl
- Ve5nbLXeLSt1X7faIRijS1UT4qq1Jp6OoOAF+aXU2N80pEHx8l02nsRpViXwmuNpDioaBxbfZ84
- 7cYoDmlkAPdWM6eSGg4AiKNnyinJ7gzUGON0HonkqInIoOm8EjVamaQr7L+s9f5cd9AWkhCX2MI
- EhM4kwHsY9OBL9sFYlu5q8RzlkOHLAWuGncpaNybZEn7NPfYTwmey5y7vy/LX6R1rMIZU8v0VUp
- 5YjPsk8si62rOVTZPx7oAlqqKx2A6lMqaWESIMpJHTsbeRhm
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1145; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=nK6KOhe5vnxyWuppPoiY8PgXoR/dG8HvCsleUp652/U=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlxdYOkDxwXiajN7CRGmgpsBTTI/iDdWlnxDHN
+ BnKbToxTt6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcXWAAKCRAk1otyXVSH
+ 0AeWB/9pnqbxX8ONvGcVOlGrctcP7VrncGXYs6sKm0DCcrVGnr+RMfFwQ2XYEXzk5m1ecE2u980
+ 00pFI6GT1t03qIC9PGpCKCpRsHzb+9YwPPVm/doeyn+KAZThAOza/1HEk9YM82n4ErEi7VzWd3V
+ YHX0izX7PhH3YfxnGreSC9ST72z+vt7lJ6h3B7k6j65loPepOu+CqfoNWWOeDyqKejAIf5J+acQ
+ 5jOXP+Q4/g1qRoRjRYB6XQmOkhBqR52LiL2bgBfEUHfJBT7VS44XcBQivn3LLBEBo5oD5FUczwd
+ t2K3VEudWw0/DxzhTyzpiL2dSzFxH6zNaXnTQF4utjjDPVgn
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,8 +83,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Aug 2026 17:43:42 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: mediatek: mt8173: Fix clock error handling
+On Tue, 18 Aug 2026 17:45:26 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mediatek: mt7986: Drop redundant probe error messages
 
 Applied to
 
@@ -91,12 +92,8 @@ Applied to
 
 Thanks!
 
-[1/3] ASoC: mediatek: mt8173: Fix clock error handling
-      https://git.kernel.org/broonie/sound/c/7635a23cd6e7
-[2/3] ASoC: mediatek: mt8173: Use dev_err_probe() for error handling
-      https://git.kernel.org/broonie/sound/c/7bcdd38eb502
-[3/3] ASoC: mediatek: mt8173: Drop redundant probe error messages
-      https://git.kernel.org/broonie/sound/c/15b975f173f1
+[1/1] ASoC: mediatek: mt7986: Drop redundant probe error messages
+      https://git.kernel.org/broonie/sound/c/bf71d5c64cd0
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
