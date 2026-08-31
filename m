@@ -4,144 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1059C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61212C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnWvLBBn7xUt65BlGqeWvijW+ZfSFwRiQOXwLtAjcTE=; b=SCC/szpDllnWmFDm4PlBQ74gpW
-	OtwtEJeM3szHAu3GvkNCXgNVC9QLppIld9jGrlF/6VA15m0Cn5PdD8OAg0aU03D3Z9Tuer5tI78Cb
-	WyFe0tab4mcQ475pJIjbMJfi9xP7Mi9CKR6a7M98tU2bo23qBur6aLUlCVwcvr1FlQm1qG6P9Y4Zn
-	jLeo4YCBKf0assNluJ2VBaFMTHy0XhVw/VRv9L4+EXhq5gDhWdwDZKlyJP0ANtLFJfx6fOIeB3Jjj
-	P9P9uAwt0e6UXJCv7vWRoE37UknImCmKYDOJ7MYtn73H2Se7NS7z9c8ogXe8ov7Clazczk/uNr9jU
-	4PlmfFKw==;
+	bh=zLqTvy52sKSUUsDTZl72qNN+V6zjfC7RltS1uqqFZgU=; b=G383XCphwM8VCdBqRpteFUzHyu
+	5dnxluicpc+jE4f/rDr9RW37bvPmGJyiBaolNdhKmSnwio+BGryFps5+3GWVxJGOiVY2+ZFIw85EK
+	0vkSZSHPBQE9gd6m7+FhTv0OL2lEKyKrsWEgtqt55514sh8Hirvcc/s1/wyrtLCb299BvM8JLHxQq
+	h+706udAT2OeLRuYZ8NGM4TBNBUwlJaeGWoGiQ+J8rauE+6Yw0qUXn+XecO0qqi2Jw+4VZ0s8QjzO
+	M95i119SoQhPjOX7Sc3rFaQowblX688GbrXHhUjbWVhhE//k8LJFn2wt9Mlca05QsMKTSagn5yHuD
+	4xyNMsAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11NT-00000009KAb-1oMF;
-	Mon, 31 Aug 2026 12:44:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x11Pz-00000009KUo-3bHX;
+	Mon, 31 Aug 2026 12:47:19 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11NI-00000009K6Z-25g8
+	id 1x11Px-00000009KUE-28d8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:44:35 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VBATdg3255807
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 12:44:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HnWvLBBn7xUt65BlGqeWvijW+ZfSFwRiQOXwLtAjcTE=; b=Y7ech56XXcnYBjKJ
-	XAfsW9r17NnlDFeItMBw/Hs5A+cBW6miseNOuKkYKnZaJvn8wlVUWpOXeEVApqBP
-	H8rklCW6t83ZhK3Pfxiw/+lhP5HQHio6TxDpDB9ygrRzaMD4r/fsYJevak/Z6xeQ
-	mCrK2+Mq7+PEWla3ZzWQzbUc/h5wmxu0NPGVJ7k0I+rbVsWY8YAijhFW4OBhZiTa
-	S/Fjd3vRND7gln0OjZKQxHR557KXVfF44VGQ+lLWKUhUR+r4VU82YfvGP0bpwiAJ
-	Q/EOV81aNRBMw3WJnPGzqtgQfEIDHZ2bptyKhl48DGCXyvPAqNyuc7zGEqJ9aWYh
-	Tri+aw==
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gd6yarra6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 12:44:30 +0000 (GMT)
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-7e6b59d85dcso6487451a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:44:30 -0700 (PDT)
+	Mon, 31 Aug 2026 12:47:18 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c247f6687dcso562212266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:47:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788180435; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kqhip3lf+lXY9eH/OizlXk7ygQMyj8TLKOrLIMS3/RpzFn30uocU9KWKzX68vIdeWD
+         B2CVJ4UQxZMXv31BW1RM+gKF22hDH/qe9TXKby5yselD0MFdWcXpDs1H0RiYGds24nWZ
+         yar0wQCKosx4CGZE6ofWYbyUPvKE6Qd28ntepK1yVbm5l2byxYN/kb3BV9WvQz91pUjr
+         M6NHkZQNGjVS4uNPIlTPCjJfAGgA6Z7E6lG18Y4AEqmsVVVBZpBmqYTRr73PymfaFe+L
+         ozJ5T9ydfvyoHcq0Ypxpd6uwITVWTYbpfBv3XZ+D0/T5dji1WUPE+mwAW6j9UMl0tHqf
+         8bUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zLqTvy52sKSUUsDTZl72qNN+V6zjfC7RltS1uqqFZgU=;
+        fh=KgLTeDMv8++SNXYIb6rRsNKVVkCnJye+L9GUIprrM9s=;
+        b=cOjiHV0vAnuHJg/18P0AFYnV+51kcL3i1dD2CJWpLQa+gqjJcF/kIr0i/KJl9VvCfA
+         Nuf/keEseqIsSvbeIdOfurdDeUSNcjtxFi7clQMMFpg4GuiBTv+/qO6N4dGmR612wtd9
+         QCZnvx+9hFhFAa/Z+ZVJeUbVqVBk+/hwZsFtDecE5FBmFP1TgnrJZdt7kLgj7QljDsK1
+         hgdYrAeRaOUkhIgDXCmMNSvDnQEZMaG1BHDh1kV1vQ41zNVD0Ac9THMCC3g8ZIBoB1YY
+         YDoXP8YiiB157coRm2cJyHT2Y0zH7jKMObLlrs7cr+1eb0PWufYoBBZ5UOYjCeNW9a0v
+         mq6Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788180270; x=1788785070; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HnWvLBBn7xUt65BlGqeWvijW+ZfSFwRiQOXwLtAjcTE=;
-        b=C0ulKmqBtZhODU870m9MpjGYXqdFwThcR0ML3Cc51BCPL1xiaOqlSC8rcAq/k4UIzw
-         YsQJuou55JSdpSy6KYwAWWwOHR+XvyuE+sejWcjx5XbM7PZkMIeX+8ynbdrNqQU+d+U0
-         XgyZCyy2kOJnhn9wECavgy7C2wN4o88wgrEy+Yht3gwkGUupmirlLCwDXHMBmeVuAko7
-         sxMUYMNVNxj8YeDND8JvggaNExN14I/zyCyZg4OkMiZphnxTna3m0eRAq9ZuRz81AeL0
-         nuFcb7UO1G5TbfK94H3gR1XovCn9pydnQDJAZN7r2a+/5Dh4YUpGCG6V52wYHTlV+Goi
-         +Zdw==
+        d=gmail.com; s=20251104; t=1788180435; x=1788785235; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zLqTvy52sKSUUsDTZl72qNN+V6zjfC7RltS1uqqFZgU=;
+        b=IN0rgaH917D00GPhrg5e5mWayvjTGj3C+EQMJcVnmtUjixNLZT12+RCqp18RgtzM3k
+         9qB6fWMJm2KYM2KITYW8s0wLXyb0qP7SaXCozcXyU6yHmtlOjiFcWJUpNEkf6j1nnt9f
+         mzXRl21G0XmuITeJp5HYeDE2tG565brQ8fIrH2qcJ9OZpgXzbkfgrWRrnmojHyY6nDc6
+         1po4Dmzu3PNBtCR3a6Y9q9aIL4/cY0QYa6q2YLLMic2FTAxxMJtHa/Ef76R6tWz8/pu9
+         y9BJbdGsDqZt4CiAz94LzKNu28o3zCzjjhuUZZgQu1Zyamegh7hEZDxGFneDaucQ86wV
+         oVRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788180270; x=1788785070;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HnWvLBBn7xUt65BlGqeWvijW+ZfSFwRiQOXwLtAjcTE=;
-        b=MC53z9886Kuzstixvkr4PpmL0Z9cuxtx3aIT+8/narLzWOfzEaqMZ6glbJjUzHlf3V
-         NYo5iXMrXZaZsfKb8hXqFpix9vPKswlt8re4xTKXSwbYzyPMkZJVVJNh5/DEaVh3ck5N
-         Vyyd7K8YeQRsXGFnvTe6Bk0VksRIOfUbY+qFuUney1ad3EJM2OzQ1YmHXqljEL1zB87i
-         epCGIguzJea+tsjcxj7L4ShKfz6wPQ2poNfNWPFyTqDF8DmByN5TW9h4yFKrT36n63i1
-         dF10Q72WgJ2j9ljbtvjXsb09TFZoPWdiBTDJ5ixeh7RGqmlgQZd4tAX4ho6eefja6ZHF
-         sGiQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoUZvyw+1Yd19+MxT/7o6PzJr8AFkxQhYPb2tysbJbDsfq9u8vKL3FcSmuvwRF5iGKGN0XkVxC+zBi10fZ/S6wG@lists.infradead.org
-X-Gm-Message-State: AFuF++mKN4kHCqBzxvM2KBSyLmalgXVqY/PFGba779anvKnVZrTPFF89
-	i6NkTpQ4QU34lj2qxikKV8wgpSpDMmYVPuWwO/ahdymZue0LEHnUgtHPeF6nf4x7GiUC2EW0oP8
-	NE6JwRXdtF+ysbYcJmGjybMs6rlwCljL9b8cid2vaSHrVr8P4V1842LRSatR3G8Dg1lbY2B2rYS
-	NWOg==
-X-Gm-Gg: AR+sD11sJHfLDY2hOJB/S9K/+FuSf6buVmRx7SgWKQziZZ6aP342CX5qAsjVXCF35TF
-	i6DIia/eCVmSv97Fqvy0e61OkNmU/rt5szORE/StFMRQ9bfINxzsWbWZyaEx9hWDDBUyB+Pbkik
-	7FtnLSvu5+bJ5Bazejllbj9/24NnjtTpQl8frZvRfUD/1DE5yvObWg2ujyBM23bhl2/BK6/LU/0
-	N4udZWoY60Oz/4mLGHB6l89IhsWUN3F0nwXXTuXY/1vnto0ENslILWHK+meRwkcglqRWTfb4I9L
-	2b3EbGIXJ/16IEqXWinD16i2if00Xgm1j66fuJpfLaC4I+ltpMT1caxv/2Eu8MBuoRmJV5vHLh2
-	P8w7Y5NyqAdbwJiQFDSa+zwrsBCOH
-X-Received: by 2002:a05:6830:7007:b0:7e9:e257:81cb with SMTP id 46e09a7af769-7f6878a21e5mr699794a34.7.1788180269639;
-        Mon, 31 Aug 2026 05:44:29 -0700 (PDT)
-X-Received: by 2002:a05:6830:7007:b0:7e9:e257:81cb with SMTP id 46e09a7af769-7f6878a21e5mr699765a34.7.1788180269258;
-        Mon, 31 Aug 2026 05:44:29 -0700 (PDT)
-Received: from [10.206.96.212] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f4fa7e92c1sm8011113a34.8.2026.08.31.05.44.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 Aug 2026 05:44:28 -0700 (PDT)
-Message-ID: <4f8a2731-4ea4-49d9-924c-ebde9fc58170@oss.qualcomm.com>
-Date: Mon, 31 Aug 2026 18:14:21 +0530
+        d=1e100.net; s=20251104; t=1788180435; x=1788785235;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zLqTvy52sKSUUsDTZl72qNN+V6zjfC7RltS1uqqFZgU=;
+        b=lSykV1bjz7xGA+/tvSzhe2zaCUCOTZPgOdgD4/0AlegZCOcu85+xVbEcfzPDzXXPsu
+         El7m+2MKp7MpEDAQ2VCZkBbaNjmFBmEVVHKrNUy1Zl0AdL5KRLabVZ7/Txw8xJZr0JCF
+         lZ+5dVp1IWqguD/3aq4SRqncLlih+0b/jKT08D+Kx2SSDyDrt6Mo3Zlx+cnfcjET08dY
+         BASirohkyMB+CCXtBkkIABFsQuHZbsqdMxStiZh16/05c8en4bDT4HhEkK1fFFBB0SIq
+         YbmsGLDvtOrvRepObvx/Cpi1ZF+7AIwCnLqyTJ9Dq1jKINAPJZKAABPMsHSoYZDi6Oxk
+         S4RA==
+X-Forwarded-Encrypted: i=1; AHgh+RraG1+zfE1ZNA0R2FTcPR+VjgjlfaEGgCpw4TK7Re1ffSpf/ZmAa/ERn57QwciU47uYNISy3uvdSxBqlQndxFUz@lists.infradead.org
+X-Gm-Message-State: AFuF++mxSRcf2Y/eZuw+hkV8QQ1Qu+CRzi+SKSdWqpeyUWsNVyk3LcOS
+	1aiY3MeS7KEWJGFJ4zInrUw5QmlbLMjVRnU9klc5jwhnZYG+mH/nFSd7kPNf6ZeXAsXUfafWaWM
+	IqlS+cuvpeRXpeuJ6qqDA7hlBhuFtBWyoMVfHvMc=
+X-Gm-Gg: AR+sD10QqFFzmNOW/C2+EZow5Y/wEA3blzqO3fcqU5oJA56bz6lfc+A2wjoKJCD29C8
+	5qbd8O0oodxfAiIhzdD2/xoypmuAR6rntECCpSWqnvrvEPvmIzuTr+Gndr3F9C+b2GtnFKsvC1c
+	soUAw+z7w1OWTH14HRBCrOTiiYLZa7HtOLDeU5tEnGHEpjKVC7KXeUwWXh3Igcyt3sfYc0CLNR/
+	H3ey4scUTItFzYIVb+GY0Si5rFhXEh4aTPi5xHhyjBzykyEsgkNJ2EmBGKtkXgRpots/Ysg/SJk
+	K1sdSOLHRy2eHk9wVaT7HEFEEfNa3LjRChesHnJuq8Oi7A==
+X-Received: by 2002:a17:906:6444:b0:c16:101d:7afa with SMTP id
+ a640c23a62f3a-c25b3cde78emr15785266b.16.1788180435211; Mon, 31 Aug 2026
+ 05:47:15 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Arpit Saini <arpit.saini@oss.qualcomm.com>
-Subject: Re: [PATCH v1] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage
- for panel nt37801
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: konrad.dybcio@linaro.org, robh+dt@kernel.org,
-        krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-        dmitry.baryshkov@linaro.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com,
-        quic_vproddut@quicinc.com,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20260409122110.214680-1-ayushi.makhija@oss.qualcomm.com>
- <ajLbyqELjduwbKC_@baldur>
-Content-Language: en-US
-In-Reply-To: <ajLbyqELjduwbKC_@baldur>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDExMCBTYWx0ZWRfXxTdPB5AbpTsi
- G9wmzOu6GlTXZC0YBVs4pIr6CYm7wC+ScD/Vvz5cNclcLuhsRRxVJn0HoxbgoSepHh0LOcWNWBQ
- s+jS2J1vae53UwOdl05bHXXabkf9HDE=
-X-Authority-Analysis: v=2.4 cv=CpaPtH4D c=1 sm=1 tr=0 ts=6a95772e cx=c_pps
- a=OI0sxtj7PyCX9F1bxD/puw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=1-MWVyHvgWiywHnngEgA:9
- a=QEXdDO2ut3YA:10 a=Z1Yy7GAxqfX1iEi80vsk:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDExMCBTYWx0ZWRfXyu7iYayFDgJ/
- hXVFhEAuXa7lPV9OGxuikSMkJst0BVSB5lA/F7xMVMkD0/SbP9l0jLVHDVCc1cGkD3esLeiUist
- xljRQxLArqaMPKHTNtHwz/9OphSmH3hUHSRIO+pJpRRXvEVwDeXHxdefEYfCrRwVvrbiYoL3bz6
- RK1lbdwr2q//VUh2FMIBN8bQFBWl4kr6IpwADEIkPmCNS4BAZgcOlkcCjqmSsFewpQUTPYcV3Yw
- C8vfHOJV2LJaoof5EjFMAE5FPzaCITWHWCaVp2w/y7ryNDgX9Jf86+9zjsU9ilZ6Yu8CjArvXZB
- fxykOYVFX5VKjSGGUNtcDLu1spgOTClaURLwDGdTJT6KvCfcYG+lJ2YNSnpubo51fXGsfWOlt9w
- BvI4tDMysFe07DNoeb++YkkUhjvWMiUGt3jZcbJuhB5qUvZv9ilDPP1a/mmSWhQ92Az36dxHxPO
- uSYjiecuE8K4sYoivmA==
-X-Proofpoint-ORIG-GUID: qSmip47TYfnHSSB5v27QWYzG2nUPDp6S
-X-Proofpoint-GUID: qSmip47TYfnHSSB5v27QWYzG2nUPDp6S
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_04,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 lowpriorityscore=0 clxscore=1011 priorityscore=1501
- malwarescore=0 phishscore=0 suspectscore=0 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310110
+References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
+ <20260830182036.284736-3-prasanth.padarthi10@gmail.com> <178817979463.20922.10263529532171804189.b4-review@b4>
+In-Reply-To: <178817979463.20922.10263529532171804189.b4-review@b4>
+From: Prasanth <prasanth.padarthi10@gmail.com>
+Date: Mon, 31 Aug 2026 18:17:02 +0530
+X-Gm-Features: AcwNN1XIrIC7I6xOS5BaNQ3PLnAnWSJKPgHogQbkIGatLAVm1UY68sNUIGJAplc
+Message-ID: <CAMFFDGi5eb_+ec5hGz6nE7OXpqYTMg7oZSPAzttXDPZJZw8v2Q@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+To: Tan Siewert <tan.siewert@9elements.com>
+Cc: Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_054432_687702_BA607C3E 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20260831_054717_595925_3AF7BD06 
+X-CRM114-Status: GOOD (  34.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,65 +122,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
+Hi Tan,
 
-Ayushi is no longer with Qualcomm, so I will take ownership of this patch
-going forward and actively address any questions or feedback.
+Thanks, this is very helpful, especially since you have tested the same boa=
+rd.
 
-On the Kaanapali platform, this panel is already in use, 
-and the regulator range is configured as 1.65 V to 1.8 V.
+I will rework the next revision to use the existing ASRock Rack DTS
+patterns, including the I2C7 EEPROM/NVMEM MAC address handling and the
+standard 64 MiB OpenBMC flash layout. I will also investigate the
+GPIOs and video memory reservation you mentioned.
 
-The NT37801 Specification v1.0, Chapter 5.7.1 "Power On Sequence", 
-specifies a VDDI operating range of 1.65 V to 1.95 V. However, ldo12 
-supports an output range of 1.2 V to 1.8 V.
-
-Therefore, the regulator constraints have been updated to 1.65 V to 1.8 V, which is within both the panel's supported range and the regulator's capabilities.
-
-Link : https://lore.kernel.org/all/20260322-knp-pmic-dt-v1-6-70bc40ea4428@oss.qualcomm.com/ 
-
-Please let me know if you have any further queries.
+For MAC0, I will change the PHY mode to rgmii-id and remove the claim
+that the board requires RX-only PHY delay. I will also investigate the
+ASPEED SoC-specific MAC delay configuration and the difference between
+upstream U-Boot and openbmc/u-boot before sending the next revision.
 
 Thanks,
-Arpit
+Prasanth
 
-On 6/17/2026 11:11 PM, Bjorn Andersson wrote:
-> On Thu, Apr 09, 2026 at 05:51:09PM +0530, Ayushi Makhija wrote:
-> 
-> Here's a link to "v1":
-> https://lore.kernel.org/all/20260323102229.1546504-1-quic_amakhija@quicinc.com/
-> Which makes this v2.
-> 
-> You also ignored my feedback.
-> 
-> Thank you,
-> Bjorn
-> 
->> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
->> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
->>
->> Fixes: 4fca6849864d ("drm/panel: Add Novatek NT37801 panel driver")
->> Signed-off-by: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
->> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->> ---
->>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> index 3837f6785320..6ba4e69bf377 100644
->> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
->> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
->>  
->>  		vreg_l12b_1p8: ldo12 {
->>  			regulator-name = "vreg_l12b_1p8";
->> -			regulator-min-microvolt = <1200000>;
->> +			regulator-min-microvolt = <1650000>;
->>  			regulator-max-microvolt = <1800000>;
->>  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->>  			regulator-allow-set-load;
->> -- 
->> 2.34.1
->>
-
+On Mon, Aug 31, 2026 at 6:07=E2=80=AFPM Tan Siewert <tan.siewert@9elements.=
+com> wrote:
+>
+> Hi Prasanth,
+>
+> On 8/30/26 8:20 PM, Prasanth Kumar Padarthi wrote:
+> > Add the device tree for the ASRock Rack B650D4U BMC, which is
+> > based on the ASPEED AST2600 SoC.
+> >
+> > Describe the BMC memory, SPI NOR flash layout, UART console, and
+> > MAC0 connected to an RTL8211F Ethernet PHY.
+>
+> Why no GPIOs? Why no I2C buses? You'd need at least i2c7 with an at24c128=
+ to
+> populate the MAC address on MAC0.
+>
+> >
+> > The MAC0 RGMII RX delay configuration was validated on hardware.
+> > The RTL8211F requires its internal RX delay for reliable operation,
+> > while an additional TX delay is not required.
+>
+> No, it does not. The traces have the same length and don't require specia=
+l
+> delays. If you use u-boot/next, then it might be true because it still mi=
+sses
+> the correct SoC-specific delays. This is, however, fixed in openbmc/u-boo=
+t.
+>
+> I know that this is not optimal. I'm already working on getting this fixe=
+d in
+> upstream U-Boot too.
+>
+> >
+> > Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+> >
+> > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspe=
+ed/Makefile
+> > index 6b68671f9379..b109491d5c8f 100644
+> > --- a/arch/arm/boot/dts/aspeed/Makefile
+> > +++ b/arch/arm/boot/dts/aspeed/Makefile
+> > @@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+> >       aspeed-bmc-ampere-mtmitchell.dtb \
+> >       aspeed-bmc-arm-stardragon4800-rep2.dtb \
+> >       aspeed-bmc-asrock-altrad8.dtb \
+> > +     aspeed-bmc-asrock-b650d4u.dtb \
+> >       aspeed-bmc-asrock-e3c246d4i.dtb \
+> >       aspeed-bmc-asrock-e3c256d4i.dtb \
+> >       aspeed-bmc-asrock-paul-ipmi-card.dtb \
+> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/a=
+rch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+> > new file mode 100644
+> > index 000000000000..aa623f0ca36c
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+> > @@ -0,0 +1,95 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/dts-v1/;
+> > +
+> > +#include "aspeed-g6.dtsi"
+> > +
+> > +/ {
+> > +     model =3D "ASRock Rack B650D4U BMC";
+> > +     compatible =3D "asrock,b650d4u-bmc", "aspeed,ast2600";
+> > +
+> > +     aliases {
+> > +             serial0 =3D &uart5;
+> > +     };
+> > +
+> > +     chosen {
+> > +             stdout-path =3D "serial0:115200n8";
+> > +     };
+> > +
+> > +     memory@80000000 {
+> > +             device_type =3D "memory";
+> > +             reg =3D <0x80000000 0x20000000>;
+> > +     };
+>
+> Where's the reservation for video?
+>
+> > +};
+> > +
+> > +&fmc {
+> > +     status =3D "okay";
+> > +
+> > +     flash@0 {
+> > +             compatible =3D "jedec,spi-nor";
+> > +             reg =3D <0>;
+>
+> That's already defined in aspeed-g6.dtsi
+>
+> > +             label =3D "bmc";
+> > +             m25p,fast-read;
+> > +             spi-max-frequency =3D <50000000>;
+> > +             spi-rx-bus-width =3D <4>;
+> > +             status =3D "okay";
+> > +
+> > +             partitions {
+> > +                     compatible =3D "fixed-partitions";
+> > +                     #address-cells =3D <1>;
+> > +                     #size-cells =3D <1>;
+> > +
+> > +                     u-boot@0 {
+> > +                             reg =3D <0x00000000 0x000e0000>;
+> > +                             label =3D "u-boot";
+> > +                             read-only;
+> > +                     };
+> > +
+> > +                     u-boot-env@e0000 {
+> > +                             reg =3D <0x000e0000 0x00020000>;
+> > +                             label =3D "u-boot-env";
+> > +                     };
+> > +
+> > +                     kernel@200000 {
+> > +                             reg =3D <0x00200000 0x00800000>;
+> > +                             label =3D "kernel";
+> > +                     };
+> > +
+> > +                     rofs@a00000 {
+> > +                             reg =3D <0x00a00000 0x02000000>;
+> > +                             label =3D "rofs";
+> > +                             read-only;
+> > +                     };
+> > +
+> > +                     rwfs@2a00000 {
+> > +                             reg =3D <0x02a00000 0x01600000>;
+> > +                             label =3D "rwfs";
+> > +                     };
+>
+> No. Include the partitions via `#include openbmc-flash-layout-64.dtsi`.
+>
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +&mac0 {
+> > +     status =3D "okay";
+> > +
+> > +     /*
+> > +      * The RTL8211F provides the required RGMII RX delay. No addition=
+al
+> > +      * TX delay is required for this board.
+> > +      */
+>
+> No? I do have this board myself with a custom BMC ROM and I can tell you =
+that
+> you don't have to set delays other than the described SoC-specific delays=
+, but
+> this is, as mentioned, already done in the BSP. (And no, I haven't upstre=
+amed
+> my DTS yet bc I haven't had the time to do it.)
+>
+> > +     phy-mode =3D "rgmii-rxid";
+>
+> `rgmii-id`
+>
+> > +     phy-handle =3D <&ethphy0>;
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&pinctrl_rgmii1_default>;
+>
+> No nvmem cell to set the MAC address? i2c7@57 offset 0x3f80? Please see t=
+he
+> other device-trees for ASRock Rack mainboards.
+>
+> For me, it is a:
+>
+> NACKed-by: Tan Siewert <tan.siewert@9elements.com>
+>
+> Tan
+>
+> --
+> Tan Siewert <tan.siewert@9elements.com>
 
