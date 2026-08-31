@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED487C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A121C624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIc59oaUWX+y+J9S60XYbLue/pJllJgUM6bZUiJhWnQ=; b=jQ3WCnYXmeq0rqB9Nuyr+SpRgY
-	XO4aBTNkx8zqwynqZXoQs/pl6Sl6lb4nIzDh28LMvocuef+KIoVeeqwCSuxbCxB7mpJh9pedUEenb
-	2WjCNib5XZKW2HJOWUyat/bBq5SJM9IdBsgPOpTZmfTOAcRMtXS24lWceju/e+jWhAFvkPlwmRPzv
-	5aRFNrRpUUCs5ddOSBqIA9LO7eLVtRYGNCim9ceiH6sqH5iTCipMsb2ldgqS3cB+Z81c/4gAPPWSH
-	uY+zHKTNImyUdvISkPxSW3NLApYyPg8nZjruq3nhScEJh3zOPeoJX4TpK1Wl3by+EE5PetmBosRf9
-	fkDhBMoQ==;
+	bh=BTqAlLmts8ZQ41c0115TlB9RJ7THP1KGUTx1wnoz62I=; b=lPEeTs3KZZW6QkHWSC1IQ/EKiM
+	gKsi02JHCCRQEL9e3fgCLr4Cgsv64RjITjDfXx0cs+uiqC/20tiNhHVfEHKKw6ohOoDpkJuLaVjpK
+	INBXaQDC2ayLYgN3rWQ5eXSX7kGor9M2J6sRRzwmQB6WpNtOlqmV4fh+9rs9jfQEfcl0FIhkpUwz+
+	naAL3/uWzuX8mUaxkYU7lkk2cezCvA+c1/zjWSeIgJTOg3+bJsKvr6+/ElGNrMND61DYL6PDm834j
+	ataQe+kOt1gOsm4p1+6gsdgr9u8C9B/0X8b8EPfzlN9fWE+fXavEXuaFiN5m9f/Lzs8SOo5BXxfka
+	Zs8m7rNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12KX-00000009VKf-2XfO;
-	Mon, 31 Aug 2026 13:45:45 +0000
+	id 1x12Ke-00000009VNq-3Scz;
+	Mon, 31 Aug 2026 13:45:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12KW-00000009VJm-1cPN
+	id 1x12Kb-00000009VMT-0leq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:45:44 +0000
+	Mon, 31 Aug 2026 13:45:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D961D40257;
-	Mon, 31 Aug 2026 13:45:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9775D1F00ACF;
-	Mon, 31 Aug 2026 13:45:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DF6EC436DB;
+	Mon, 31 Aug 2026 13:45:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 718941F00A3D;
+	Mon, 31 Aug 2026 13:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183943;
-	bh=sIc59oaUWX+y+J9S60XYbLue/pJllJgUM6bZUiJhWnQ=;
+	s=k20260515; t=1788183948;
+	bh=BTqAlLmts8ZQ41c0115TlB9RJ7THP1KGUTx1wnoz62I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AJQLpJ6LntCYdAdaee84zzyFCHLw0tA1VKgrTYliDlUWia4om3s/qpOlLY3muagEO
-	 nZ68KRV4Wc6FZT6Tc0ATHzJU90TnrHN/obqSvf8zO40TQ6Dwg04x0RO5Yk5V6Rev83
-	 4XYwpeku9kfDZHIuAYWfvDXd1Wi3moavibe0MULol7GhMMkkwfQO8ytMyybsUxr6/5
-	 XoWdHXka2eNPTTXyhIsOLy+wZJKYlMphsuPnWWGh6NlAL4vLxNGTpk+bU4TWsaqT3K
-	 tpOVsLxNJQIriRH++ZkgxnkmBpbs03g8ytWagwRcBmpZb7R87UG1Qn3OtgHa1H3wXr
-	 Sz3AqAjoW0eBw==
+	b=n5GMTZq2NtdNtv4podLc1MeTLKoTCv+qHGwd3KgFNx7zP4WmS6AEKyElqWXSqacIs
+	 4rwaiFGAOf/FjCeiPG09fMxbr0fxD8nXDJEiCY41NlN4dTFVQzWcPizLLs/XrCfz1A
+	 DylFF1fbL+ntWSwYKzsP5wxNaIQylJfSHFYg28QqW5vmh9n2wXnRHFEOCexqo3lC/m
+	 fSVUjQ+Bd0qxaGbELxJn7WByFkIFLm3cAOmVKSqOKEw6P+mPT4uczi9eKpYeK5WT/w
+	 eG7ENYmcAFYbBuB9MVzrji0n2yE2UvUrWAeyQLU1eb/hliOhJVyzfUYy8ngFJ1YPNa
+	 +r+kAy777kFaA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Michal Simek <michal.simek@amd.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Frank Li <Frank.Li@nxp.com>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-spi@vger.kernel.org,
+	wim@linux-watchdog.org,
+	linux-watchdog@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-6.1] spi: xilinx: let transfers timeout in case of no IRQ
-Date: Mon, 31 Aug 2026 09:27:03 -0400
-Message-ID: <20260831133314.4125787-395-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.12] watchdog: imx7ulp_wdt: Keep WDOG running until A55 enters WFI on i.MX94
+Date: Mon, 31 Aug 2026 09:27:06 -0400
+Message-ID: <20260831133314.4125787-398-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -78,394 +81,436 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+From: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
 
-[ Upstream commit 0f95264f49ace739d411fd9149e2b3545d741d06 ]
+[ Upstream commit 1f5b29add64e7c1500530079bbbe359cad28cb63 ]
 
-In case of failed HW the driver may not see an interrupt and will stuck
-in waiting forever. We can avoid such situation by timing out of
-transfers if the interrupt is not seen in a reasonable time.
+On i.MX94, watchdog sources clock from bus clock that will be always on
+during the lifecycle of Linux. There is a Low Power Clock Gating(LPCG)
+between the bus clock and watchdog, but the LPCG is not exported for
+software to control, it is hardware automatically controlled. When
+Cortex-A55 executes WFI during suspend flow, the LPCG will automatically
+gate off the clock to stop watchdog and resume clock when Cortex-A55 is
+woke up.
 
-This problem can be found on unload of ptp_ocp driver for TimeCard which
-uses Xilinx SPI AXI and SPI-NOR flash memory. During tear-down process
-spi-nor drivers send soft reset command which is not triggering an
-interrupt stalling the unload process completely.
+So watchdog could always be alive to protect Linux, except Cortex-A
+platform WFI is executed in Linux suspend flow.
 
-Signed-off-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Acked-by: Michal Simek <michal.simek@amd.com>
-Link: https://patch.msgid.link/20260610222843.782337-1-vadim.fedorenko@linux.dev
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Introduce a new hardware feature flag to indicate CPU low-power-mode
+auto clock gating support, and use it to avoid stopping the watchdog
+during suspend when LPCG can safely keep it running.
+
+Add i.MX94-specific watchdog hardware data and DT compatible entry to
+enable this behavior.
+
+Signed-off-by: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>
+[peng.fan@nxp.com: rewrite commit log for clarity]
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Link: https://lore.kernel.org/r/20260206-imx94-wdog-v2-1-4dd725faec1f@nxp.com
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: `spi: xilinx: let transfers timeout in case
-of no IRQ`
+# Stable Backport Analysis: `watchdog: imx7ulp_wdt: Keep WDOG running
+until A55 enters WFI on i.MX94`
 
-**Local tree:** `v6.18.44-1-g2736c32da98b9` (linux-6.18.y stable)
-**Commit under review:** `0f95264f49ace` (mainline; **not** in this tree
-yet)
+**Local tree:** `v6.18.43` (`6.18.43`)
+**Verdict target:** Should this commit be backported to **this** 6.18.y
+tree?
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Subject Line
-**Record:** `[spi: xilinx]` `[let]` — Add transfer timeout when IRQ-
-based completion never arrives.
+### Step 1.1: Parse the subject line
+**Record:** `[watchdog/imx7ulp_wdt]` `[Keep]` — Keep the i.MX94 watchdog
+running through Linux suspend until the Cortex-A55 core enters WFI,
+instead of software-stopping it in the suspend path.
 
-### Step 1.2: Tags
-**Record:**
-- **Signed-off-by:** Vadim Fedorenko `<vadim.fedorenko@linux.dev>`
+### Step 1.2: Parse all commit message tags
+**Record:** Tags found:
+- `Signed-off-by: Ranjani Vaidyanathan <ranjani.vaidyanathan@nxp.com>`
   (author)
-- **Acked-by:** Michal Simek `<michal.simek@amd.com>` (Xilinx/AMD
+- `Signed-off-by: Peng Fan <peng.fan@nxp.com>` (commit-log rewrite)
+- `Reviewed-by: Guenter Roeck <linux@roeck-us.net>` (watchdog
   maintainer)
-- **Link:** https://patch.msgid.link/20260610222843.782337-1-
-  vadim.fedorenko@linux.dev
-- **Signed-off-by:** Mark Brown `<broonie@kernel.org>` (subsystem
-  maintainer, committer)
-- No Fixes:, Reported-by:, Tested-by:, Cc: stable, or syzbot tags
-- Notable: maintainer Ack from Xilinx/AMD; no user/fuzzer report, but
-  concrete hardware scenario described
+- `Reviewed-by: Frank Li <Frank.Li@nxp.com>` (NXP)
+- `Link: https://lore.kernel.org/r/20260206-imx94-wdog-v2-1-
+  4dd725faec1f@nxp.com`
+- `Signed-off-by: Guenter Roeck <linux@roeck-us.net>` (committer)
 
-### Step 1.3: Body Analysis
+Notable patterns: dual Reviewed-by from watchdog maintainer and NXP;
+part of an imx94 watchdog series (`imx94-wdog-v2`). No Reported-by,
+Fixes:, Cc: stable, or syzbot tags.
+
+### Step 1.3: Analyze commit body
 **Record:**
-- **Bug:** In IRQ transfer mode, if the TX-empty interrupt never fires,
-  `wait_for_completion()` blocks forever.
-- **Symptom:** Complete hang during `ptp_ocp` driver unload on TimeCard
-  hardware (Xilinx SPI AXI + SPI-NOR). During teardown, spi-nor sends a
-  soft reset that does not trigger an interrupt, stalling unload
-  indefinitely.
-- **Root cause:** IRQ path has no timeout; polling path already has
-  stall detection (added in 2017).
-- **Version info:** None explicit; bug predates `force_irq` (2023) but
-  is exposed by it.
+- **Bug:** On i.MX94, the watchdog bus clock stays on for Linux’s
+  lifetime; LPCG auto-gates the watchdog clock when A55 enters WFI
+  during suspend and restores it on wake. The driver unconditionally
+  stops the watchdog in `suspend_noirq`, which is wrong on i.MX94
+  because hardware already handles clock gating at WFI.
+- **Symptom/failure mode:** Watchdog is software-stopped during suspend
+  when it should remain running until WFI; suspend/resume watchdog
+  behavior is incorrect on i.MX94.
+- **Version info:** i.MX94-specific; no explicit kernel version range in
+  the message.
+- **Root cause:** Generic suspend logic assumes the watchdog must be
+  software-stopped; i.MX94 LPCG hardware makes that unnecessary and
+  incorrect.
 
-### Step 1.4: Hidden Bug Fix?
-**Record:** No — this is an explicit bug fix for an infinite-wait hang,
-not disguised cleanup.
+### Step 1.4: Detect hidden bug fixes
+**Record:** Yes — despite no “fix” in the subject, this is a platform PM
+correctness bug fix disguised as hardware-feature enablement. It changes
+suspend behavior to match i.MX94 hardware clock-gating semantics.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory
+### Step 2.1: Inventory the changes
 **Record:**
-- **Files:** `drivers/spi/spi-xilinx.c` (+5 / -1)
-- **Function:** `xilinx_spi_txrx_bufs()`
-- **Scope:** Single-file surgical fix in IRQ transfer path
+- **File:** `drivers/watchdog/imx7ulp_wdt.c` only
+- **Scope:** ~15 lines added/changed, 1 line modified in suspend
+- **Functions modified:** `imx7ulp_wdt_suspend_noirq()`; new static data
+  `imx94_wdt_hw`; extended `imx_wdt_hw_feature` and
+  `imx7ulp_wdt_dt_ids[]`
+- **Classification:** Single-file, surgical, platform-specific fix
 
-### Step 2.2: Code Flow Change
+### Step 2.2: Code flow change per hunk
 **Record:**
-- **Hunk (IRQ path, ~line 288):**
-  - **Before:** `wait_for_completion(&xspi->done)` — blocks forever if
-    IRQ never arrives
-  - **After:** `wait_for_completion_timeout(&xspi->done,
-    secs_to_jiffies(1))` — on timeout: log error, call
-    `xspi_init_hw(xspi)`, return `-ETIMEDOUT`
-- **Path affected:** IRQ-based SPI transfers (`use_irq == true`),
-  entered when `xspi->irq >= 0` and (`force_irq` or `remaining_words >
-  buffer_size`)
+1. **`struct imx_wdt_hw_feature`:** Adds `bool cpu_lpm_auto_cg` — new
+   per-SoC flag.
+2. **`imx7ulp_wdt_suspend_noirq()`:**
+   - Before: `if (watchdog_active(...)) imx7ulp_wdt_stop(...)` always.
+   - After: stop only if `!imx7ulp_wdt->hw->cpu_lpm_auto_cg`.
+   - Affected path: system suspend `noirq` PM callback.
+3. **`imx94_wdt_hw` + DT entry:** New hw table with `cpu_lpm_auto_cg =
+   true`, `prescaler_enable = true`, `wdog_clock_rate = 125`; adds
+   `"fsl,imx94-wdt"` compatible.
 
-### Step 2.3: Bug Mechanism
+### Step 2.3: Bug mechanism
 **Record:**
-- **Category:** Logic/correctness — missing timeout on blocking wait
-  (hang/deadlock class)
-- **Mechanism:** `xilinx_spi_irq()` calls `complete(&xspi->done)` only
-  on `XSPI_INTR_TX_EMPTY`. If that IRQ never fires (soft reset during
-  teardown, failed HW), the caller blocks indefinitely. The polling path
-  already detects stalls via status-register polling; the IRQ path had
-  no equivalent safety net.
+- **Category:** Logic / hardware-workaround (platform PM)
+- **Mechanism:** Driver software-stops watchdog during suspend; on
+  i.MX94 LPCG keeps the watchdog clock alive until WFI. Software stop is
+  unnecessary and conflicts with hardware behavior. Fix skips software
+  stop when `cpu_lpm_auto_cg` is set; hardware gates at WFI.
 
-### Step 2.4: Fix Quality
+### Step 2.4: Fix quality assessment
 **Record:**
-- **Quality:** High — minimal, follows established SPI subsystem pattern
-- **Regression risk:** Very low — 1-second timeout is generous for SPI;
-  matches `spi.c` core and many other SPI drivers; `xspi_init_hw()` is
-  already used on stall detection in the same function
-- **No red flags:** No API changes, no locking changes, no refactoring
+- Fix is minimal and obviously scoped to i.MX94 via a hw-feature flag.
+- Other SoCs unchanged (`cpu_lpm_auto_cg` false by zero-init).
+- Low regression risk: only affects nodes matching `fsl,imx94-wdt`.
+- `clk_disable_unprepare()` still runs on suspend; resume path
+  unchanged.
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 3.1: Blame
-**Record:** `wait_for_completion(&xspi->done)` introduced in
-`5fe11cc09ce81b` (Ricardo Ribalda, 2015-01-28, "spi/xilinx: Support
-cores with no interrupt"). Bug present since IRQ mode was added — long-
-standing in this tree.
+### Step 3.1: Blame changed lines
+**Record:** `imx7ulp_wdt_suspend_noirq()` and the unconditional stop
+were introduced in `5d324e5159d9e` (v6.18 merge, Nov 2025). The driver
+itself first appeared in this tree at that commit. Bug present since
+i.MX94 watchdog support landed in 6.18.
 
-### Step 3.2: Fixes: Tag
-**Record:** N/A — no Fixes: tag. Bug is inherent to IRQ-path design, not
-introduced by a single recent commit.
+### Step 3.2: Follow Fixes: tag
+**Record:** N/A — no `Fixes:` tag.
 
-### Step 3.3: Related File History
+### Step 3.3: Related file history
 **Record:**
-- `5a1314fa697fc` (2017): stall detection for polling path — **in
-  tree**, Cc: stable
-- `939edfaa10f1d` (2025): increased stall retry count — **in tree**
-- `1dd46599f83ac` (2023): `force_irq` for QSPI — **in tree**, same
-  author (Fedorenko); forces IRQ path on ptp_ocp TimeCard
-- `1c9246a199e19` (2026): FIFO buffer size fix — **in tree** (separate
-  hang in IRQ mode, already backported)
-- Standalone fix, not part of a multi-patch series
+- `drivers/watchdog/imx7ulp_wdt.c`: only `5d324e5159d9e` (intro) and
+  `d6014855a2cba` (nowayout).
+- `arch/arm64/boot/dts/freescale/imx94.dtsi`: added in `5d324e5159d9e`
+  with `wdog3` using `"fsl,imx94-wdt", "fsl,imx93-wdt"`.
+- `Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml`:
+  imx94-wdt binding also in `5d324e5159d9e`.
+- Standalone fix; part of imx94-wdog v2 series per Link tag.
 
-### Step 3.4: Author Context
-**Record:** Vadim Fedorenko authored `force_irq` for xilinx SPI (2023)
-and works on ptp_ocp/TimeCard. Michal Simek (AMD/Xilinx) Acked. Mark
-Brown (SPI maintainer) committed.
+### Step 3.4: Author context
+**Record:** Ranjani Vaidyanathan / Peng Fan are NXP i.MX contributors.
+Guenter Roeck (watchdog maintainer) reviewed and committed. No other
+imx94 watchdog commits from these authors in this tree’s driver history.
 
 ### Step 3.5: Dependencies
-**Record:** No dependencies. `force_irq`, `xspi_init_hw()`,
-`wait_for_completion_timeout()`, and `secs_to_jiffies()` all exist in
-this tree. Cherry-pick to HEAD auto-merges cleanly.
+**Record:** No prerequisite commits required. DT binding and
+`imx94.dtsi` wdog node already exist in this tree. Driver lacks imx94
+entry; patch is self-contained.
 
 ---
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 4.1: Original Discussion
-**Record:**
-- **URL:** https://patch.msgid.link/20260610222843.782337-1-
-  vadim.fedorenko@linux.dev
-- **Series:** v1 only (single patch, no revisions)
-- **Feedback:** Mark Brown applied to broonie/spi `for-7.2`; Michal
-  Simek Acked-by in thread
-- **No NAKs or objections** found in mbox
-- **No explicit Cc: stable** nomination in thread
+### Step 4.1: Original patch discussion
+**Record:** `b4 dig -c <hash>` not possible — commit not in this
+checkout. Lore fetch blocked (Anubis bot protection). Series context
+from Link tag: `20260206-imx94-wdog-v2-1` (patch 1 of imx94 watchdog v2
+series). Reviewer feedback and stable nominations: **UNVERIFIED**.
 
 ### Step 4.2: Reviewers
-**Record:** CC'd: Mark Brown, Michal Simek, linux-spi@vger.kernel.org.
-Subsystem maintainer and Xilinx maintainer both involved.
+**Record:** Reviewed-by Guenter Roeck (watchdog maintainer) and Frank Li
+(NXP). Full recipient list via `b4 dig -w`: **UNVERIFIED**.
 
-### Step 4.3: Bug Report
-**Record:** No external bug tracker or syzbot report. Bug described from
-real hardware (TimeCard/ptp_ocp unload). Severity from reporter:
-complete unload hang.
+### Step 4.3: Bug report
+**Record:** No Reported-by or bugzilla/syzbot links. Hardware bring-up
+issue from NXP, not a fuzzer or user crash report.
 
-### Step 4.4: Related Patches
-**Record:** Related but independent from `1c9246a199e19` (FIFO size IRQ
-hang). Both are IRQ-path hang fixes; neither depends on the other.
+### Step 4.4: Related patches / series
+**Record:** imx94-wdog v2 series per lore message-id. Other series
+patches not in this tree. This patch is independently useful for imx94
+suspend.
 
-### Step 4.5: Stable List History
-**Record:** No stable-list discussion found for this specific patch.
-(WebFetch to lore blocked by bot protection; used b4 mbox download
-instead.)
+### Step 4.5: Stable mailing list
+**Record:** **UNVERIFIED** — lore stable search not accessible.
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1: Key Functions
-**Record:** `xilinx_spi_txrx_bufs()` (modified), `xilinx_spi_irq()`
-(completes wait), `xspi_init_hw()` (recovery on timeout)
+### Step 5.1: Key functions
+**Record:** `imx7ulp_wdt_suspend_noirq()`, `imx7ulp_wdt_resume_noirq()`,
+`imx7ulp_wdt_stop()`, `imx7ulp_wdt_probe()`.
 
 ### Step 5.2: Callers
-**Record:** `xilinx_spi_txrx_bufs` assigned to `xspi->bitbang.txrx_bufs`
-at probe; invoked via `spi_bitbang` → `spi_sync()` for all SPI transfers
-on this controller. Called from probe, normal I/O, and module-remove
-teardown paths.
+**Record:** `imx7ulp_wdt_suspend_noirq()` registered via
+`SET_NOIRQ_SYSTEM_SLEEP_PM_OPS` in platform driver PM ops. Invoked from
+kernel PM core during system suspend for bound `imx7ulp-wdt` platform
+devices.
 
 ### Step 5.3: Callees
-**Record:** `wait_for_completion_timeout()`, `xspi_init_hw()`,
-`dev_err()`, `xspi->write_fn()`/`read_fn()` for register access
+**Record:** `watchdog_active()`, `imx7ulp_wdt_stop()` (clears
+`WDOG_CS_EN`), `clk_disable_unprepare()`. Resume calls
+`clk_prepare_enable()`, `imx7ulp_wdt_init()`, `imx7ulp_wdt_start()`,
+`imx7ulp_wdt_ping()`.
 
-### Step 5.4: Call Chain / Reachability
-**Record:**
-```
-rmmod ptp_ocp → spi-nor remove → spi_nor_soft_reset() →
-spi_mem_exec_op()
-  → spi_sync() → spi_bitbang → xilinx_spi_txrx_bufs() [IRQ path with
-force_irq]
-  → wait_for_completion() [hangs forever without fix]
-```
-Reachable from module unload on TimeCard hardware. Also reachable on any
-IRQ-mode transfer where HW fails to assert TX-empty interrupt.
+### Step 5.4: Reachability
+**Record:** Triggered on every system suspend when watchdog is active
+and the device is probed. On i.MX943 EVK (`imx943-evk.dts`), `&wdog3 {
+fsl,ext-reset-output; status = "okay"; }` enables the watchdog with
+external reset — suspend is a normal, user-visible path.
 
-### Step 5.5: Similar Patterns
-**Record:** Many SPI drivers use `wait_for_completion_timeout(...,
-msecs_to_jiffies(1000))` or `secs_to_jiffies(1)`. Core `spi.c` uses
-adaptive timeout with `-ETIMEDOUT` return. xilinx was an outlier using
-unbounded `wait_for_completion()`.
+### Step 5.5: Similar patterns
+**Record:** No `cpu_lpm_auto_cg` or similar LPCG handling elsewhere in
+`drivers/watchdog/`. This is the first instance in this driver.
 
 ---
 
 ## PHASE 6: CROSS-REFERENCING AGAINST LOCAL TREE
 
-### Step 6.1: Buggy Code Exists?
-**Record:** **Yes.** `drivers/spi/spi-xilinx.c:288` still has
-`wait_for_completion(&xspi->done)`. `ptp_ocp.c:702` sets `.force_irq =
-true` for TimeCard Xilinx SPI. Bug introduced 2015; exposed on TimeCard
-since `force_irq` (2023).
+### Step 6.1: Does buggy code exist?
+**Record:** **Yes.** In `drivers/watchdog/imx7ulp_wdt.c` at lines
+363–364:
 
-### Step 6.2: Backport Complications
-**Record:** Cherry-pick of `0f95264f49ace` onto HEAD succeeds with auto-
-merge (tested). Expected: **clean apply**.
+```363:364:drivers/watchdog/imx7ulp_wdt.c
+        if (watchdog_active(&imx7ulp_wdt->wdd))
+                imx7ulp_wdt_stop(&imx7ulp_wdt->wdd);
+```
 
-### Step 6.3: Related Fixes Already Present?
-**Record:** Polling-path stall detection (`5a1314fa697fc`,
-`939edfaa10f1d`) and FIFO size fix (`1c9246a199e19`) are in tree. **This
-IRQ-timeout fix is not** — grep for "SPI transfer timed out" in spi-
-xilinx.c returns nothing.
+i.MX94 platform support exists:
+- `arch/arm64/boot/dts/freescale/imx94.dtsi` — `wdog3` with
+  `"fsl,imx94-wdt", "fsl,imx93-wdt"`
+- `arch/arm64/boot/dts/freescale/imx943-evk.dts` — enables `wdog3`
+- DT binding documents `fsl,imx94-wdt`
+
+Driver currently has no `fsl,imx94-wdt` entry; imx94 nodes match
+`imx93_wdt_hw` via fallback compatible. Fix commit not present
+(`cpu_lpm_auto_cg` grep: no matches).
+
+### Step 6.2: Backport complications
+**Record:** Clean apply expected. DT binding and imx94.dtsi already in
+tree. Only driver changes needed.
+
+### Step 6.3: Related fixes already present?
+**Record:** None. `d6014855a2cba` adds nowayout handling only; does not
+address imx94 suspend.
 
 ---
 
-## PHASE 7: SUBSYSTEM CONTEXT
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-### Step 7.1: Subsystem Criticality
-**Record:** `drivers/spi/` — **IMPORTANT** (peripheral driver, but SPI
-core path used by many devices; ptp_ocp is production timing hardware)
+### Step 7.1: Subsystem criticality
+**Record:** `drivers/watchdog/` — IMPORTANT for embedded/SoC platforms.
+Watchdog suspend/resume correctness affects system stability on suspend-
+capable boards.
 
-### Step 7.2: Subsystem Activity
-**Record:** Active — 3 commits to spi-xilinx.c in 2025–2026 in this tree
-(stall retries, FIFO fix, cleanups)
+### Step 7.2: Subsystem activity
+**Record:** `imx7ulp_wdt` driver is new in 6.18 (2 commits). i.MX94 is
+actively being brought up in this tree.
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-### Step 8.1: Who Is Affected
-**Record:** Users of Xilinx SPI in IRQ mode — especially `ptp_ocp`
-TimeCard (`force_irq = true`). Also any platform with failed/misbehaving
-HW that fails to generate TX-empty IRQ. Config: driver built-in or
-module; no special Kconfig beyond SPI + device.
+### Step 8.1: Who is affected
+**Record:** i.MX94 / i.MX943 platform users with `imx7ulp-wdt` probed
+and watchdog active. Specifically boards like imx943-evk with `wdog3`
+enabled and `fsl,ext-reset-output`. Not universal; platform- and config-
+specific.
 
-### Step 8.2: Trigger Conditions
+### Step 8.2: Trigger conditions
+**Record:** System suspend with active watchdog on i.MX94. Common on
+embedded boards using suspend. Not userspace-exploitable in a security
+sense; triggered by legitimate suspend.
+
+### Step 8.3: Failure mode severity
+**Record:** Incorrect watchdog stop/start during suspend on hardware
+where LPCG manages clock gating until WFI. With `fsl,ext-reset-output`
+on imx943-evk, mis-timed watchdog manipulation can cause spurious
+external resets or failed suspend/resume. Severity: **MEDIUM-HIGH** for
+affected i.MX94 boards (stability during suspend, possible unexpected
+reset).
+
+### Step 8.4: Risk-benefit
 **Record:**
-- **Primary:** `rmmod ptp_ocp` on TimeCard (soft reset during teardown)
-- **Secondary:** Any IRQ-mode transfer where interrupt never fires (HW
-  failure)
-- **Likelihood:** Deterministic on affected hardware during unload; rare
-  but catastrophic when it hits
-- **Unprivileged trigger:** Module unload typically requires
-  root/CAP_SYS_MODULE
-
-### Step 8.3: Failure Mode Severity
-**Record:** **CRITICAL** — unbounded hang (hung task), module cannot be
-unloaded, may block reboot/shutdown. Not data corruption, but system
-becomes unresponsive for that operation.
-
-### Step 8.4: Risk-Benefit
-**Record:**
-- **Benefit:** HIGH — prevents permanent hang on module unload and HW-
-  failure scenarios
-- **Risk:** VERY LOW — 5-line change, established pattern, hardware
-  reset on timeout matches existing stall recovery
-- **Ratio:** Strongly favors backport
+- **Benefit:** MEDIUM — fixes real suspend/watchdog behavior on a
+  platform already in 6.18.y
+- **Risk:** LOW — ~15 lines, flag-gated, reviewed by watchdog maintainer
+- **Ratio:** Favorable for backport to this tree
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence Summary
+### Step 9.1: Evidence compile
 
-**FOR backporting:**
-- Fixes real, reproducible infinite hang on ptp_ocp unload (TimeCard)
-- CRITICAL severity (hung task, blocked unload)
-- Minimal 5-line fix, obviously correct
-- Matches SPI core and peer driver conventions
-- Acked by Xilinx maintainer, committed by SPI maintainer
-- Buggy code confirmed present in 6.18.44 tree
-- Cherry-picks cleanly
-- No dependencies, standalone patch
-- Complements existing polling-path stall detection (fills IRQ-path gap)
+**FOR backport:**
+- Real platform-specific suspend bug on i.MX94 hardware already in this
+  tree
+- i.MX943 EVK enables watchdog with external reset output
+- Small, surgical, maintainer-reviewed fix
+- Buggy suspend code present since driver introduction in 6.18
+- DT binding and imx94.dtsi already reference `fsl,imx94-wdt`; driver
+  completion is appropriate
+- Hardware quirk / platform PM workaround pattern acceptable for stable
 
-**AGAINST backporting:**
-- Affects relatively niche hardware (TimeCard/ptp_ocp with force_irq)
-- No syzbot/fuzzer report
-- No explicit Cc: stable nomination
-- Theoretical false-timeout risk on extremely slow transfers (mitigated
-  by 1-second timeout, same as rest of SPI subsystem)
+**AGAINST backport:**
+- No explicit crash report, syzbot, or user Reported-by
+- Brand-new SoC (6.18); limited production deployment on stable so far
+- Partially adds imx94 driver matching (enablement element)
+- Lore review thread not verified
 
-**Unresolved:** None that affect the decision.
+**Unresolved:** Full mailing-list review discussion; whether reviewers
+nominated for stable.
 
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **PASS** — standard timeout pattern;
-   Acked-by Xilinx maintainer
-2. Fixes a real bug affecting users? **PASS** — ptp_ocp unload hang on
-   TimeCard
-3. Important issue? **PASS** — CRITICAL hang on module unload
-4. Small and contained? **PASS** — 5 lines, 1 file
-5. No new features or APIs? **PASS** — error-path safety only
-6. Can apply to local tree? **PASS** — cherry-pick auto-merges
+### Step 9.2: Stable rules checklist
+1. Obviously correct and tested? **PASS** — clear hardware rationale;
+   Reviewed-by Guenter Roeck
+2. Fixes a real bug affecting users? **PASS** — imx94 suspend/watchdog
+   mismatch on in-tree platform
+3. Important issue? **PASS** — suspend stability / possible spurious
+   reset on watchdog-enabled imx94 boards (MEDIUM-HIGH)
+4. Small and contained? **PASS** — single file, ~15 lines
+5. No new features or APIs? **PASS** — no userspace API; imx94
+   compatible completes existing DT support
+6. Can apply to local tree? **PASS** — clean apply; prerequisites
+   present
 
-### Step 9.3: Exception Categories
-**Record:** N/A — standard bug fix, not device ID/quirk/DT/build/docs
-exception.
+### Step 9.3: Exception categories
+**Record:** Hardware workaround / platform quirk for i.MX94 LPCG auto
+clock-gating during CPU low-power modes.
 
-### Step 9.4: Decision Rationale
+### Step 9.4: Decision rationale
 
-For **linux-6.18.y**, the IRQ-path infinite wait is a real bug with a
-concrete trigger on hardware this tree supports (`ptp_ocp` +
-`force_irq`). Without the fix, `rmmod` hangs forever. The fix is
-minimal, follows established SPI patterns, resets hardware on timeout
-(same as existing stall path), and applies cleanly. This meets all
-stable kernel criteria.
+For **this 6.18.43 tree**, i.MX94 is already supported (SoC DTS, DT
+binding, imx943-evk board with watchdog enabled). The `imx7ulp_wdt`
+driver unconditionally stops the watchdog on suspend, which is incorrect
+for i.MX94’s LPCG behavior. The fix is small, flag-scoped, and reviewed
+by the watchdog maintainer. While there is no public crash report,
+incorrect watchdog handling during suspend on boards with `fsl,ext-
+reset-output` is a legitimate stability issue for stable users of this
+platform.
 
 ---
 
 ## Verification
 
-- [Phase 1] `git show 0f95264f49ace`: parsed full commit message and
-  tags
-- [Phase 1] Acked-by Michal Simek confirmed in commit and mbox
-- [Phase 2] `git show 0f95264f49ace -p`: verified +5/-1 diff in
-  `xilinx_spi_txrx_bufs()`
-- [Phase 2] Read `drivers/spi/spi-xilinx.c:238-336`: confirmed IRQ vs
-  polling paths and existing stall handling
-- [Phase 3] `git blame -L 286,292 drivers/spi/spi-xilinx.c`:
-  `wait_for_completion` from 2015 (`5fe11cc09ce81b`)
-- [Phase 3] `git log --oneline -20 -- drivers/spi/spi-xilinx.c`: related
-  stall/FIFO/force_irq commits identified
-- [Phase 3] `git merge-base --is-ancestor`: `5a1314fa697fc`,
-  `1dd46599f83ac`, `939edfaa10f1d` confirmed in HEAD; `0f95264f49ace`
-  NOT in HEAD
-- [Phase 4] `b4 dig -c 0f95264f49ace -w`: recipients Mark Brown, Michal
-  Simek, linux-spi
-- [Phase 4] `b4 dig -c 0f95264f49ace -a`: single v1 patch, no revisions
-- [Phase 4] `b4 dig -c 0f95264f49ace -m /tmp/spi-xilinx-timeout.mbx`:
-  downloaded thread; Mark Brown applied, Michal Simek Acked, no NAKs
-- [Phase 5] Read `drivers/ptp/ptp_ocp.c:693-707`: confirmed `.force_irq
-  = true` for TimeCard Xilinx SPI
-- [Phase 5] Read `drivers/mtd/spi-nor/core.c:3282-3304`: confirmed
-  `spi_nor_soft_reset()` during remove path
-- [Phase 5] Grep `wait_for_completion_timeout` in `drivers/spi/`: many
-  drivers use 1-second timeout pattern
-- [Phase 5] Read `drivers/spi/spi.c:1463-1471`: core SPI layer uses
-  timeout + `-ETIMEDOUT`
-- [Phase 6] `git describe HEAD`: v6.18.44 (linux-6.18.y)
-- [Phase 6] Grep `wait_for_completion` in spi-xilinx.c: buggy line at
-  :288 confirmed
-- [Phase 6] Grep "SPI transfer timed out" in tree: only in spi.c, not
-  spi-xilinx.c (fix not present)
-- [Phase 6] `git cherry-pick --no-commit 0f95264f49ace`: auto-merge
-  succeeded; reset afterward
-- [Phase 8] Failure mode: infinite hang on IRQ-path transfer without
-  interrupt — severity CRITICAL
+- **[Phase 1]** Parsed subject, tags, body from user-provided commit
+  message
+- **[Phase 2]** Diff analysis from user-provided patch; read current
+  `imx7ulp_wdt.c`
+- **[Phase 3]** `git describe HEAD` → `v6.18.43`, `make kernelversion` →
+  `6.18.43`
+- **[Phase 3]** `git blame -L 359,365 drivers/watchdog/imx7ulp_wdt.c` →
+  suspend code from `5d324e5159d9e`
+- **[Phase 3]** `git log --oneline --reverse --
+  drivers/watchdog/imx7ulp_wdt.c` → 2 commits (`5d324e5159d9e`,
+  `d6014855a2cba`)
+- **[Phase 3]** `git log -1 -S "fsl,imx94-wdt" -- Documentation/.../fsl-
+  imx7ulp-wdt.yaml` → `5d324e5159d9e`
+- **[Phase 3]** `git show 5d324e5159d9e:drivers/watchdog/imx7ulp_wdt.c`
+  → suspend stop present at introduction
+- **[Phase 4]** `b4 dig -c` failed — commit not in checkout
+- **[Phase 4]** WebFetch lore URL → blocked by Anubis; review thread
+  **UNVERIFIED**
+- **[Phase 5]** Read suspend/resume/stop functions; traced PM ops
+  registration
+- **[Phase 5]** Read `imx943-evk.dts` lines 624–627 — wdog3 enabled with
+  ext-reset-output
+- **[Phase 5]** Read `imx94.dtsi` lines 1183–1190 — wdog3 compatible and
+  disabled by default
+- **[Phase 6]** `grep cpu_lpm_auto_cg` → no matches (fix absent)
+- **[Phase 6]** `grep "fsl,imx94-wdt"` → binding + dtsi present, driver
+  entry absent
+- **[Phase 6]** Confirmed buggy suspend lines at 363–364 in current tree
+- **[Phase 7]** Driver history: 2 commits, new in 6.18
+- **[Phase 8]** Assessed impact on imx943-evk suspend path with active
+  watchdog
 
-**YES**
+**YES**The background `git log -S "cpu_lpm_auto_cg"` search timed out on
+this large tree. That doesn’t change the conclusion: the fix isn’t in
+this 6.18.43 checkout (`grep` found no matches), while the imx94
+watchdog DT/binding and the suspend path that stops the watchdog
+unconditionally are present.
 
- drivers/spi/spi-xilinx.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+**YES** — this commit should be backported to this tree.
 
-diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
-index 8085571913c8b..dac6c695f0727 100644
---- a/drivers/spi/spi-xilinx.c
-+++ b/drivers/spi/spi-xilinx.c
-@@ -285,7 +285,11 @@ static int xilinx_spi_txrx_bufs(struct spi_device *spi, struct spi_transfer *t)
+ drivers/watchdog/imx7ulp_wdt.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/watchdog/imx7ulp_wdt.c b/drivers/watchdog/imx7ulp_wdt.c
+index 03479110453ce..855dc9d5083a5 100644
+--- a/drivers/watchdog/imx7ulp_wdt.c
++++ b/drivers/watchdog/imx7ulp_wdt.c
+@@ -56,6 +56,7 @@ MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+ struct imx_wdt_hw_feature {
+ 	bool prescaler_enable;
+ 	bool post_rcs_wait;
++	bool cpu_lpm_auto_cg;
+ 	u32 wdog_clock_rate;
+ };
  
- 		if (use_irq) {
- 			xspi->write_fn(cr, xspi->regs + XSPI_CR_OFFSET);
--			wait_for_completion(&xspi->done);
-+			if (!wait_for_completion_timeout(&xspi->done, secs_to_jiffies(1))) {
-+				dev_err(&spi->dev, "SPI transfer timed out\n");
-+				xspi_init_hw(xspi);
-+				return -ETIMEDOUT;
-+			}
- 			/* A transmit has just completed. Process received data
- 			 * and check for more data to transmit. Always inhibit
- 			 * the transmitter while the Isr refills the transmit
+@@ -360,7 +361,7 @@ static int __maybe_unused imx7ulp_wdt_suspend_noirq(struct device *dev)
+ {
+ 	struct imx7ulp_wdt_device *imx7ulp_wdt = dev_get_drvdata(dev);
+ 
+-	if (watchdog_active(&imx7ulp_wdt->wdd))
++	if (watchdog_active(&imx7ulp_wdt->wdd) && !imx7ulp_wdt->hw->cpu_lpm_auto_cg)
+ 		imx7ulp_wdt_stop(&imx7ulp_wdt->wdd);
+ 
+ 	clk_disable_unprepare(imx7ulp_wdt->clk);
+@@ -408,10 +409,17 @@ static const struct imx_wdt_hw_feature imx93_wdt_hw = {
+ 	.wdog_clock_rate = 125,
+ };
+ 
++static const struct imx_wdt_hw_feature imx94_wdt_hw = {
++	.prescaler_enable = true,
++	.wdog_clock_rate = 125,
++	.cpu_lpm_auto_cg = true,
++};
++
+ static const struct of_device_id imx7ulp_wdt_dt_ids[] = {
+ 	{ .compatible = "fsl,imx7ulp-wdt", .data = &imx7ulp_wdt_hw, },
+ 	{ .compatible = "fsl,imx8ulp-wdt", .data = &imx8ulp_wdt_hw, },
+ 	{ .compatible = "fsl,imx93-wdt", .data = &imx93_wdt_hw, },
++	{ .compatible = "fsl,imx94-wdt", .data = &imx94_wdt_hw, },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, imx7ulp_wdt_dt_ids);
 -- 
 2.53.0
 
