@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE6FC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A45C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0oCvf1fmqu014f3i21FkaEwfd+AIiy8ZD6OncmIF9c=; b=cwxPkFBLHJJu9a9e9iPUXcl6An
-	2wo2xtZorZo7g32aRay2rl75Yg91RtgCw7mssJmd04XXWE7+fQuU2BjZYHUMGLcc782+0kHydfM1K
-	c73Ye+ZZ4Hbmgzz6Uw5q4dN8gK47+nsqlzbtSsb5PrzQl5wCp14wHuBRdCNgC2WDIL7SNn6OtIcX/
-	DDK6MwU7176mURMADUbhbQErB8kRPQAw42VkMiOfb36/I9ooe7vPLNMnewwZCzgS38K88B2DREWpM
-	Ch2lE/aDPD37Ij7l180MAw0BU6bBclRq0vHGPKDQdSwWY5Nio50KFtf/ksaiRl1x07N129z2tlsTN
-	YhAQucuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lENhC9l4y00VQAZ3iK23TWepRGyZIbhD/oicMmV6hkU=; b=TyjsfVqDLZsyYx
+	CPaz6CGSEI69E4tUpAIRsxicUH2uaJJejq5GVCfqwqCnbGeLKP73zs13diXGZdaS70YMS10i7dPec
+	Zm+985XSvUEmZEfhpeDd2SZAlY2zDqDbLQZXswPoyFBVzqT0aJIsh6dExU5zIPqpIqqoI2CBj/hfj
+	Si5+yYewWke6+R8zADM43QD9aNiinUWUyeIXBYWtQ8AM6sITx/cqTbSs9DRB8nyWHvMxOrBX8qqM1
+	g2k+M8mFd0bEtHRZHsvOu7T0/AHG0EdqHhzLrWGCed54MhOcTqDheLfhvGRqZjmgREHHV69LbGEVM
+	BzlNnGQPa7ieTrD6x0yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xCv-00000008ohF-1Hkm;
-	Mon, 31 Aug 2026 08:17:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1x0xDW-00000008or2-2WcY;
+	Mon, 31 Aug 2026 08:18:10 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xCs-00000008ogD-2xJB;
-	Mon, 31 Aug 2026 08:17:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=n0oCvf1fmqu014f3i21FkaEwfd+AIiy8ZD6OncmIF9c=; b=yRaPNrA40oj+waTkRbZd89GD0o
-	cvG0YR6TeYkX7+4FfW2Ezf3DW6rE7R4cMPwZznSoqLmfjEfRgAV3q2rQ8ccyoPyGFDRCV4QnHpZ4w
-	7xn6fQ6RcmtGCFmh8LaZCFQpfeZszWx1Weo2wNddolJ/6A5BRbJGypZ4UDSgfGNl2A3JlNrCGxaJW
-	/Q83tn31R+EVlmNmZ4BSkP3oeC/hopDgCUf/9hu68Bd/Lno1vSOwLRXKecKu8ZfhCUGKod+bWPxCw
-	7exQzTwKOpXFbW6BNefw6sEbQDJLDIHm5p8i2kfdwBcnKtRz55qhSbo8vvhsS1c439pPQ33WyXXle
-	WRCvGs5w==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Vladislav Leonov <vlad@zlab.su>, Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Joshua Crofts <joshua.crofts1@gmail.com>, Simon Glass <sjg@chromium.org>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] Fix RV1106 SAR-ADC support
-Date: Mon, 31 Aug 2026 10:17:17 +0200
-Message-ID: <5330090.ejJDZkT8p0@diego>
-In-Reply-To: <20260831025557.6ee7c42e@jic23-huawei>
-References: <20260823122039.20831-1-vlad@zlab.su> <20260831025557.6ee7c42e@jic23-huawei>
+	id 1x0xDT-00000008ooI-0p99
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 08:18:09 +0000
+Received: from ratatoskr.trumtrar.info (unknown [IPv6:2a00:1f:f805:4b01:1e0e:d42d:4ec8:33b2])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 5C7D820098F;
+	Mon, 31 Aug 2026 10:18:02 +0200 (CEST)
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: [PATCH v8 0/5] arm64: dts: imx8mp-skov: add new 7" variant
+Date: Mon, 31 Aug 2026 10:17:37 +0200
+Message-Id: <20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/53QPU/EIBjA8a9yYRYDD6910rg4OrgZB0rhypkrT
+ Wmbmku/u7QOd4ldegsJ5J/fA1xQcl1wCT0dLqhzY0ghNnmjHw7I1qY5OhyqvEdAQBIGAo8KE9z
+ HNlgczpM+tzh9xxFXfcKnoY+DrbEKTV5ZVdqSC2JYYVHm2s75MK2jPtH7y8frG/r6O05DeXK2X
+ 8YsYR1SH7uf9UojXfP900eaQ0pAiAqY5Kx4bl1zHPouNmF6rNw6e4SrzkHt0CGHDkpVeAsZp5s
+ 6u+qK0B06y2GluFeOeQ0F29T5rS536HzRvSVWa1CWwKYubvRdPyNyKJU3RjhHSi83dXmvLnPoj
+ faK5hcI6Td1da++hNZoQziXVErzT5/n+RdQR7A+MgMAAA==
+X-Change-ID: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
+ =?utf-8?q?S=C3=B8ren_Andersen?= <san@skov.dk>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3084;
+ i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
+ bh=Jwaigwxg+oOUl4+0PNzsgeyS37Xy8CqmxzYbZoDBLCM=;
+ b=owGbwMvMwCUmtVehiCsuTInxtFoSQ9ZUi5036zNCPxWuut++8N/umysUfz5ni6mpeb79rNlRC
+ eez4lMvdJSyMIhxMciKKbKoLKzgE/X44Bk5TYQLZg4rE8gQBi5OAZhIZi8jw5qru+5P11gUeq3h
+ A39C/BODTdyz7T+kxO1RZVl773aq6TWG/xV+h86zH62TTJn0RC5r55+Ml92MDq0B943sls94n6L
+ /iwUA
+X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
+ fpr=24A1780E1548F0495996140A1ABD20720A5E5622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_011730_806266_68806816 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20260831_011807_389858_545A47B3 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,53 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Add a new board variant for the Skov i.MX8MP based family of boards.
 
-Am Montag, 31. August 2026, 03:55:57 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Jonathan Cameron:
-> On Sun, 23 Aug 2026 15:20:31 +0300
-> Vladislav Leonov <vlad@zlab.su> wrote:
->=20
-> > This series fixes the support for the RV1106 SAR-ADC in the
-> > rockchip_saradc driver and its device tree bindings.
->=20
-> I debated how to apply this.  Technically patch 3 is a fix, 2 is an enabl=
-er
-> and 1 is also a fix, but one for something that we just effectively patch=
-ed
-> out from running in patch 3.
->=20
-> So in the end I'm thinking take this the slow path for next cycle.  Shout
-> if anyone thinks this should go in during the -RCs and whether all 3
-> should do so or just patches 2 and 3 (leaving us without driver support f=
-or
-> now).
->=20
-> Applied to the testing branch of iio.git
+This variant uses a different 7" panel than the existing ones.
 
-I guess I should shout then ;-) .
+Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+---
+Changes in v8:
+- add #address-cells and #size-cells to i2c2
+- fix touchscreen resolution
+- add missing binding includes
+- Link to v7: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v7-0-ca8a0446166a@pengutronix.de
 
-DT-Binding patches are sort of independent of the driver change and
-are considered API which should not change after the fact.
+Changes in v7:
+- address more of sashikos rightful feedback
+- Link to v6: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v6-0-fa8f71dfc56f@pengutronix.de
 
-Our DTs (but also ones possibly contained in firmware somewhere) are
-validated against the binding and it seems the correct compartible goes
-from=20
-    "rockchip,rv1106-saradc", " rockchip,rk3588-saradc"
-to
-    "rockchip,rv1106-saradc"
+Changes in v6:
+- address sashikos rightful feedback
+- Link to v5: https://patch.msgid.link/20260727-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v5-0-67faa5ee0bf6@pengutronix.de
 
-As the fixed commit is part of 7.3-rc1, I guess it would be nice to
-have patches 2+3 in 7.3 and patch 1 can wait for 7.4 .
+Changes in v5:
+- convert to overlays
+- Link to v4: https://patch.msgid.link/20260706-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v4-0-dfc0c8827c02@pengutronix.de
 
-We don't need the driver support (dt-nodes just doesn't bind to
-anything), but it would be nice to not proliferate the wrong binding in
-an actual release.
+Changes in v4:
+- fix Makefile sort order
+- add touchscreen fallback compatible
+- fix lvds_bridge comment
+- Link to v3: https://patch.msgid.link/20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de
 
+Changes in v3:
+- rebase to v7.2-rc1
+- Link to v2: https://patch.msgid.link/20260427-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v2-0-e2b79fc24391@pengutronix.de
 
-my 2ct :-)
-Heiko
+Changes in v2:
+- rebase to v7.1-rc1
+- Link to v1: https://patch.msgid.link/20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v1-0-10255d236439@pengutronix.de
 
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: Søren Andersen <san@skov.dk>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
 
+---
+Steffen Trumtrar (5):
+      arm64: dts: freescale: imx8mp: skov: fix sort order
+      dt-bindings: arm: fsl: add compatible for Skov i.MX8MP revC Touch
+      arm64: dts: imx8mp-skov-revc: convert to overlays
+      dt-bindings: arm: fsl: add compatible for new Skov i.MX8MP variant
+      arm64: dts: imx8mp-skov: support new 7inch panel board
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |  2 +
+ arch/arm64/boot/dts/freescale/Makefile             | 11 +++-
+ .../imx8mp-skov-revc-jutouch-jt070tm041.dtso       | 58 ++++++++++++++++++++++
+ ...ts => imx8mp-skov-revc-jutouch-jt101tm023.dtso} | 46 +++++------------
+ ...07017.dts => imx8mp-skov-revc-tian-g07017.dtso} | 44 +++++-----------
+ .../boot/dts/freescale/imx8mp-skov-revc-touch.dts  | 45 +++++++++++++++++
+ 6 files changed, 140 insertions(+), 66 deletions(-)
+---
+base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+change-id: 20260325-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-3dbcb450a39c
+
+Best regards,
+--  
+Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
 
