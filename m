@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB1EC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83968C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7omeuAaScmWAEKQyvgrvSICA5UGv4oMV1eMMTqvJPYY=; b=W+lR95CIkQANr9Py9NWbwhgkzD
-	J9XQ8loyABKsmcdsPl4+L16n5/GYtzYn60P2q3TFPnJaW8xur+rBbm/6F8GYJlJguPQcm8fh+S9RL
-	q7M9fRNkmM71CX8U+7NWeGfiLHqihqPSR2JBxLFmqLWd3Jd4vE/CoA3M0UMoGuc3vFa7j5Bj9mVng
-	BEKlYbzVuf0zIsYYh2cjDDfUxafgOYUrho2ttgg002iA3dNOVn04Y3JXBPTAjVCOtUbt8Z8iugjNq
-	CyQ7edzGuBwiI9cp5b8xSF+9xjkRuUg0tT+leJCv2ucmVsXNjHpBBxRQlYRlNP4zhgWtd4TzI5a/6
-	kXBuXw0w==;
+	bh=xG2t2y2lKLQXDUfdvcxJHobwIOaB1uVKJu1HoXcWyes=; b=WJBgAioYQ7OdIvDtVBiWxiykBY
+	EqGBnvCnJL8RkqWGgE6yBIS6eLcf8SI8QCiFYTb21lsaVgPkmiL8BUA6vi6NXHnTI7QV66V3T4bCA
+	gjD4FSw5sebfZzEPufeMplaYr29nQStpXu/29S4R9RF1t9/kopdy609SXeZd29E60yHfluqtvZ6oB
+	Jj9RgJ16fbwtkF0rN2nI9deRYv24+E0l8tn6TFPD2kjCgooD54cc/Y01MXNt5pBVIymZsb6FctuW9
+	V/MJZnJH79PBEqJdcJIbniWVD8lsNDjcduJTIJQQ9qaL8lt7EdFUXhbH47YrjrLihL96MLlO9WNPy
+	gvrfMB8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12D1-00000009RbN-1Lwm;
-	Mon, 31 Aug 2026 13:37:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x12Di-00000009Rps-1hRU;
+	Mon, 31 Aug 2026 13:38:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Cz-00000009Rb3-2Fbz;
-	Mon, 31 Aug 2026 13:37:57 +0000
+	id 1x12Dh-00000009RpJ-1Kx3;
+	Mon, 31 Aug 2026 13:38:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEC9260237;
-	Mon, 31 Aug 2026 13:37:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D91401F000E9;
-	Mon, 31 Aug 2026 13:37:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C3B360234;
+	Mon, 31 Aug 2026 13:38:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E40FE1F00A3E;
+	Mon, 31 Aug 2026 13:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183476;
-	bh=7omeuAaScmWAEKQyvgrvSICA5UGv4oMV1eMMTqvJPYY=;
+	s=k20260515; t=1788183520;
+	bh=xG2t2y2lKLQXDUfdvcxJHobwIOaB1uVKJu1HoXcWyes=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jI+ndjq7u3ZUMSoMFriKK50SK0rT+OqOQG/T58vyVFih+C+S6/B0wpPNops+cc5kX
-	 4L06Yb7ErsT70j9AVo/XIdgejxHoD0n0tCMhk2aDYpOgw91PdJfC0x20z31ywcm06F
-	 RSAW8XlXXfXnkaKVRgVDC1JA7+5KKjqbf3JRiZnTW7o3DMtzkERNxNrSlHqfrWMx3B
-	 /dqqK8oPF7xqi2lk9EvoiCF4KIgfYfHmW6VwONB0CjskAzlklKxEWe7G3zgEayNbci
-	 R2v5l42XXA+DHPE1/DTYV5oUtmRkYs7wuJ1e0iw9UJNN3p+b3apMjKyNVvEJmIw+RR
-	 HUO/HTJWcCJzQ==
+	b=A4Tk7qT/W9BYLhBZAo4JFJUDq9oD4147ZGoZ7tU3TacdSSo3qs6kTsgLTQXh6Xx9x
+	 41FTjliOOiS4As+vtRtfoELJgaUmMtvhd4/0hQ+Nf2uVT8NE7u7U6R950fqXzvkz9I
+	 ZaDlFJrfzqH3RA3S2uvw7NlhqrpKc+0IOypxS2/gxTgCDqmmY49+MzJe6t2E+E3FEG
+	 OPbS3/u14fd1eUQQGxMk47f6+rjQ45KuGXzx+LrPFR3ecAZhvIVj9CE7BeSZO5q4CA
+	 xKAyWVn3maNB/3CG3qMozpEX46xnucMr3iHb3gqf+pvR84n8z3PDywRzqZXZ+frN3B
+	 5ONnXEit+3mjw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Hans Zhang <18255117159@163.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
+Cc: Simon Xue <xxm@rock-chips.com>,
+	=?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Joerg Roedel <joerg.roedel@amd.com>,
 	Sasha Levin <sashal@kernel.org>,
-	shawn.lin@rock-chips.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	heiko@sntech.de,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] PCI: rockchip: Protect root bus removal with rescan lock
-Date: Mon, 31 Aug 2026 09:22:27 -0400
-Message-ID: <20260831133314.4125787-119-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] iommu/rockchip: disable fetch dte time limit
+Date: Mon, 31 Aug 2026 09:22:53 -0400
+Message-ID: <20260831133314.4125787-145-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,353 +81,445 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hans Zhang <18255117159@163.com>
+From: Simon Xue <xxm@rock-chips.com>
 
-[ Upstream commit 0bd9611587bb494c33566d825fe34b2705e4b167 ]
+[ Upstream commit 8d4346ecd4950ae08cc76a6de327c264e846758c ]
 
-Hold the pci_rescan_remove_lock lock while stopping and removing a root bus
-to avoid racing with concurrent rescan or hotplug operations triggered via
-sysfs.  Such races may lead to use-after-free issues or system crashes.
+Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+The RGA3 register description of the TRM already states that the bit
+must be set to 1. The vendor kernel sets the bit unconditionally to
+1 to fix VOP (Video Output Processor) screen black issues. This patch
+squashes the 2 vendor kernel commits with the following commit messages:
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
-Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
-[bhelgaas: commit log]
-Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
-Link: https://patch.msgid.link/20260521161822.132996-8-18255117159@163.com
+Master fetch data and cpu update page table may work in parallel, may
+have the following procedure:
+
+	master                  cpu
+	fetch dte               update page tabl
+	        |                       |
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make dte invalid)  <-  zap iotlb entry
+	        |                       |
+	fetch dte again
+	(make iommu block)  <-  zap iotlb entry
+
+New iommu version has the above bug, if fetch dte consecutively four
+times, then it will be blocked. Fortunately, we can set bit 31 of
+register MMU_AUTO_GATING to 1 to make it work as old version which does
+not have this issue.
+
+This issue only appears on RV1126 so far, so make a workaround dedicated
+to "rockchip,rv1126" machine type.
+
+iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+
+RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+dte fetch time limit, So we can set BIT(31) of register 0x24 default
+to 1 as a workaround.
+
+Signed-off-by: Simon Xue <xxm@rock-chips.com>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Joerg Roedel <joerg.roedel@amd.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit Message Forensics
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Parse the Subject Line
-**Record:** `[PCI: rockchip] [Protect] Protect root bus removal with
-rescan lock` — subsystem is Rockchip PCIe host controller; action is
-synchronization/protection (bug fix).
+### Step 1.1: PARSE THE SUBJECT LINE
+**Record:** `[iommu/rockchip]` `[disable]` — Disable the fetch-DTE time-
+limit hardware behavior in the Rockchip IOMMU AUTO_GATING register
+(BIT(31)).
 
-### Step 1.2: Parse All Commit Message Tags
+### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 **Record:**
-- **Fixes:** none
-- **Reported-by:** none
-- **Tested-by:** none
-- **Reviewed-by:** none
-- **Acked-by:** none
-- **Link:**
-  `https://patch.msgid.link/20260521161822.132996-8-18255117159@163.com`
-- **Cc: stable:** none
-- **Signed-off-by:** Hans Zhang, Manivannan Sadhasivam, Bjorn Helgaas
-  (ignore pipeline-added SOBs per instructions)
+- **Fixes:** — not present (expected for manual review)
+- **Reported-by:** — none
+- **Tested-by:** — none
+- **Reviewed-by:** — none
+- **Acked-by:** Heiko Stuebner `<heiko@sntech.de>` (Rockchip maintainer)
+- **Link:** — none in commit (submission thread references vendor
+  commits and RGA3 driver series)
+- **Cc: stable:** — not present (expected)
+- **Signed-off-by:** Simon Xue, Sven Püschel, Joerg Roedel (ignore
+  pipeline-added SOBs)
+- **Notable:** Ack from subsystem maintainer; no syzbot/fuzzer
+  involvement
 
-Notable: Signed-off-by from PCI maintainer Bjorn Helgaas. No syzbot or
-user bug reports.
-
-### Step 1.3: Analyze Commit Body
+### Step 1.3: ANALYZE THE COMMIT BODY TEXT
 **Record:**
-- **Bug:** `rockchip_pcie_remove()` tears down the root bus without
-  holding the global PCI rescan/remove mutex, allowing concurrent sysfs-
-  driven rescan or hotplug to operate on the same bus hierarchy.
-- **Symptom:** Use-after-free or system crash.
-- **Root cause:** Missing `pci_lock_rescan_remove()` /
-  `pci_unlock_rescan_remove()` around `pci_stop_root_bus()` +
-  `pci_remove_root_bus()`.
-- **Version info:** None in commit message.
+- **Bug description:** Newer Rockchip IOMMU hardware has a DTE-fetch
+  time limit. When a master re-fetches DTE four times while the CPU
+  concurrently zaps IOTLB entries (during page-table updates), the IOMMU
+  enters a blocked state.
+- **Symptom/failure mode:** IOMMU hang/block → RGA3 peripheral hangups,
+  VOP (display) blocked with black screen.
+- **Affected hardware:** RV1126/RV1109, RK3568, RK3588 (commit message
+  also mentions RK356X broadly).
+- **Root cause:** BIT(31) of `RK_MMU_AUTO_GATING` (offset 0x24) defaults
+  to 0 on affected silicon; TRM says it must be 1. Vendor kernel sets it
+  unconditionally.
+- **Version info:** Not tied to a specific kernel version; this is a
+  silicon/hardware behavior issue.
 
-### Step 1.4: Detect Hidden Bug Fixes
-**Record:** Not disguised — explicitly a race-condition / crash fix, not
-cleanup or optimization.
+### Step 1.4: DETECT HIDDEN BUG FIXES
+**Record:** Not disguised — this is an explicit hardware workaround.
+Despite "disable" wording in the subject, the fix **sets** BIT(31) to
+disable the faulty time-limit feature. This is a classic hardware
+quirk/workaround, not a cosmetic cleanup.
 
 ---
 
-## Phase 2: Diff Analysis
+## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory the Changes
+### Step 2.1: INVENTORY THE CHANGES
 **Record:**
-- **Files:** `drivers/pci/controller/pcie-rockchip-host.c` (+2 lines)
-- **Functions:** `rockchip_pcie_remove()`
-- **Scope:** Single-file, surgical fix (2 lines added)
+- **Files:** `drivers/iommu/rockchip-iommu.c` (+8 lines, 0 removed)
+- **Functions modified:** `rk_iommu_enable()` only
+- **Scope:** Single-file, surgical fix
 
-### Step 2.2: Code Flow Change
+### Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
 **Record:**
-- **Hunk (remove path):** Before — `pci_stop_root_bus()` and
-  `pci_remove_root_bus()` run unlocked. After — same calls wrapped in
-  `pci_lock_rescan_remove()` / `pci_unlock_rescan_remove()`. Affects
-  driver remove / module-unbind path only.
+- **Hunk 1 (define):** Adds `#define DISABLE_FETCH_DTE_TIME_LIMIT
+  BIT(31)`.
+- **Hunk 2 (`rk_iommu_enable`):**
+  - **Before:** After writing DTE address, ZAP cache, and IRQ mask,
+    proceeds directly to enable paging.
+  - **After:** Reads `RK_MMU_AUTO_GATING`, ORs in BIT(31), writes it
+    back — for each MMU instance.
+  - **Affected path:** IOMMU enable during device attach and
+    system/runtime resume.
 
-### Step 2.3: Identify Bug Mechanism
-**Record:** **Category:** Synchronization / race condition.
-**Mechanism:** Concurrent sysfs PCI rescan (`/sys/bus/pci/rescan`, per-
-device `rescan`, `remove`) or hotplug can walk/modify the bus device
-list while `rockchip_pcie_remove()` is tearing it down without the
-global mutex that sysfs paths already hold.
+### Step 2.3: IDENTIFY THE BUG MECHANISM
+**Record:**
+- **Bug category:** Hardware workaround / logic correctness fix
+- **Mechanism:** Without BIT(31)=1, concurrent DTE fetch + IOTLB zap can
+  trigger a silicon bug after four consecutive DTE fetches, permanently
+  blocking the IOMMU. Setting BIT(31) restores legacy (non-buggy)
+  behavior.
 
-### Step 2.4: Assess Fix Quality
-**Record:** Obviously correct — matches the established pattern in
-`pci_host_common_remove()`, `mtk_pcie_remove()`, `mvebu` and `aardvark`
-remove paths. Minimal, no API changes. **Regression risk:** Very low;
-mutex is the same one used everywhere else for this purpose.
-
----
-
-## Phase 3: Git History Investigation
-
-### Step 3.1: Blame Changed Lines
-**Record:** `pci_stop_root_bus()` / `pci_remove_root_bus()` in
-`rockchip_pcie_remove()` introduced by Rob Herring (2020-05-22, commit
-`f473182c7524dd`). Remove function itself dates to Shawn Lin
-(2018-05-09). Driver added 2016 (`e77f847df54c6`). Bug has been present
-since the stop/remove calls were added without locking.
-
-### Step 3.2: Follow Fixes: Tag
-**Record:** No `Fixes:` tag present — N/A.
-
-### Step 3.3: File History for Related Changes
-**Record:** Part of a 9-patch series "[PATCH 0/9] PCI: controller: Add
-missing rescan lock around root bus removal" (local mbox). Each patch is
-independent per cover letter. `pci_lock_rescan_remove()` infrastructure
-added in 2014 (`9d16947b75831`). `pci_host_common_remove()` has used the
-lock since 2018 (`01fcb7f777a9f`). Fix is **not** yet merged in this
-tree (grep shows no lock in rockchip remove; `git log --grep` for
-subject returned empty).
-
-### Step 3.4: Author's Other Commits
-**Record:** Hans Zhang is an active PCI contributor (cadence, dwc
-capability-search series, etc.). Not the Rockchip driver author; fixing
-a cross-driver synchronization gap.
-
-### Step 3.5: Prerequisites
-**Record:** No dependencies. `pci_lock_rescan_remove()` /
-`pci_unlock_rescan_remove()` exist in this tree (since 2014). Driver
-includes `../pci.h` → `<linux/pci.h>`, so no new includes needed.
-Standalone, applies cleanly.
+### Step 2.4: ASSESS THE FIX QUALITY
+**Record:**
+- **Quality:** Obviously correct — read-modify-write preserves other
+  AUTO_GATING bits; matches vendor kernel and TRM guidance.
+- **Regression risk:** Very low. Vendor sets unconditionally on all
+  affected platforms; bit is documented as should-be-1.
+- **Red flags:** Commit message still mentions RV1126-only workaround,
+  but code applies unconditionally (intentional per vendor practice and
+  RK3568/RK3588 need).
 
 ---
 
-## Phase 4: Mailing List and External Research
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 4.1: Original Patch Discussion
-**Record:** `b4 dig` could not be run on an unmerged commit hash. Used
-local mbox `20260522_18255117159_pci_controller_add_missing_rescan_lock_
-around_root_bus_removal.mbx`. Cover letter explains race with sysfs
-rescan/hotplug → UAF/crash. References sashiko-bot review flagging the
-same pattern in cadence code. **No review replies** in the mbox (patches
-only). WebFetch of lore URL blocked by bot protection.
+### Step 3.1: BLAME THE CHANGED LINES
+**Record:** `rk_iommu_enable()` core logic dates to 2014 (Daniel Kurtz).
+`RK_MMU_AUTO_GATING` defined since original driver (2014,
+`c68a292152d32`). The **missing workaround** has been present since the
+driver's introduction — not a recent regression.
 
-### Step 4.2: Reviewers
-**Record:** Cover letter only; no Reviewed-by/Acked-by in thread. Commit
-has SOB from Manivannan Sadhasivam and Bjorn Helgaas (PCI maintainer).
+### Step 3.2: FOLLOW THE FIXES: TAG
+**Record:** No `Fixes:` tag. Not applicable — this is a hardware silicon
+bug, not a commit-introduced regression.
 
-### Step 4.3: Bug Report
-**Record:** No external bug report, syzbot, or KASAN trace. Issue
-identified by code review / bot review of the pattern.
+### Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+**Record:**
+- Recent related fix already in tree: `62e062a29ad51` — "prevent iommus
+  dead loop when two masters share one IOMMU" (different bug, has `Cc:
+  stable`).
+- `rk3568-iommu` v2 support added in `c55356c534aa6` (2021), present in
+  this tree.
+- This fix is **standalone** — not part of a multi-patch series
+  requiring prerequisites.
+- On `master`, this commit (`8d4346ecd4950`) is ahead of
+  `stable/linux-6.18.y`.
 
-### Step 4.4: Related Patches
-**Record:** 9-patch series for cadence, dwc, altera, brcmstb, iproc,
-mediatek, rockchip, vmd, plda. Each independent. Rockchip is patch 7/9.
+### Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+**Record:** Simon Xue is an active Rockchip IOMMU contributor (multi-irq
+support, dead-loop fix, ISP reset handling). Sven Püschel (Pengutronix)
+submitted and tested on RK3588 RGA3.
 
-### Step 4.5: Stable Mailing List
-**Record:** No stable-list discussion found in available sources.
-
----
-
-## Phase 5: Code Semantic Analysis
-
-### Step 5.1: Key Functions
-**Record:** `rockchip_pcie_remove()` — only function modified.
-
-### Step 5.2: Trace Callers
-**Record:** Called via `.remove = rockchip_pcie_remove` in
-`rockchip_pcie_driver`, registered with `module_platform_driver()`.
-Triggers on platform device removal: module unload (`rmmod` if built as
-module), driver unbind, or platform teardown.
-
-### Step 5.3: Trace Callees
-**Record:** `pci_lock_rescan_remove()`, `pci_stop_root_bus()`,
-`pci_remove_root_bus()`, `pci_unlock_rescan_remove()`, then
-`irq_domain_remove()`, clock/regulator cleanup.
-
-### Step 5.4: Call Chain / Reachability
-**Record:** Race is between `rockchip_pcie_remove()` and sysfs paths in
-`pci-sysfs.c` (`rescan_store`, `dev_rescan_store`, `remove_store`,
-`bus_rescan_store`) — all hold `pci_lock_rescan_remove()`. An admin
-writing to `/sys/bus/pci/rescan` (or per-bus/device rescan/remove) while
-the driver is being removed can hit the race. Reachable on any Rockchip
-system with `CONFIG_PCIE_ROCKCHIP_HOST`.
-
-### Step 5.5: Similar Patterns
-**Record:** Controllers **with** lock: `pci-host-common.c`, `pcie-
-mediatek-gen3.c`, `pci-mvebu.c`, `pci-aardvark.c`, `pci-hyperv.c`.
-Controllers **without** lock (same bug class): rockchip, cadence, dwc,
-altera, brcmstb, iproc, mediatek (non-gen3), vmd, plda, tegra, etc.
-Rockchip is a clear oversight relative to the common pattern.
+### Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+**Record:** No dependencies. Patch applies cleanly (`git apply --check`
+succeeded). No new structures, APIs, or helper functions required.
 
 ---
 
-## Phase 6: Cross-Reference Against Local Tree
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 6.1: Does Buggy Code Exist?
-**Record:** **Yes.** Tree is **v6.18.44** (`git describe HEAD` →
-`v6.18.44-1-g2736c32da98b9`, `make kernelversion` → `6.18.44`).
-`rockchip_pcie_remove()` at lines 1015–1016 calls `pci_stop_root_bus()`
-/ `pci_remove_root_bus()` **without** the lock. Driver present since
-v4.8 era; bug since ~2020.
+### Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+**Record:**
+- **Lore URL:** https://patch.msgid.link/20251126-spu-
+  iommudtefix-v1-1-f90003dbfcc4@pengutronix.de
+- **Series revisions:** v1 submitted 2025-11-26; author pinged
+  2026-04-28; Heiko Stuebner suggested resend/v2 due to age; committed
+  as-is on mainline 2026-06-02.
+- **Reviewer feedback:** Shawn Lin (Rockchip) noted TRM offset
+  clarification (RGA3-specific offset vs general IOMMU 0x24) — comment-
+  only, no code objection.
+- **Stable nominations:** None found in thread.
+- **NAKs:** None.
 
-### Step 6.2: Backport Complications
-**Record:** **Clean apply** — 2-line addition, no structural changes, no
-conflicts expected.
+### Step 4.2: CHECK WHO REVIEWED THE PATCH
+**Record:** CC'd: Joerg Roedel, Will Deacon, Robin Murphy, Heiko
+Stuebner, iommu@, linux-arm-kernel@, linux-rockchip@. Heiko Stuebner
+Acked-by in final commit.
 
-### Step 6.3: Related Fixes Already Present?
-**Record:** No equivalent fix in this tree. `git log --grep="Protect
-root bus removal"` returned empty. Mediatek-gen3, mvebu, aardvark, pci-
-host-common already have the lock; rockchip does not.
+### Step 4.3: SEARCH FOR THE BUG REPORT
+**Record:** Real-world trigger documented by Pengutronix — sporadic RGA3
+hangs on RK3588 during driver development. Vendor kernel commits [2][3]
+document VOP black-screen issues. No syzbot/bugzilla report.
 
----
+### Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+**Record:** Related but independent: RGA3 upstream driver series (v5,
+2026-04-28) depends on this IOMMU fix. The IOMMU fix stands alone and is
+not a "preparation" commit.
 
-## Phase 7: Subsystem and Maintainer Context
-
-### Step 7.1: Subsystem Criticality
-**Record:** **drivers/pci/controller** — IMPORTANT. PCI core affects
-device enumeration and all downstream PCI devices on Rockchip SoCs
-(RK3399, RK3568, etc.).
-
-### Step 7.2: Subsystem Activity
-**Record:** Actively maintained; recent rockchip commits in this tree
-(link speed, error logging, reset timing).
-
----
-
-## Phase 8: Impact and Risk Assessment
-
-### Step 8.1: Who Is Affected
-**Record:** Users of Rockchip SoCs with `CONFIG_PCIE_ROCKCHIP_HOST`
-(depends on `ARCH_ROCKCHIP`). Embedded/ARM boards using the legacy
-Rockchip AXI PCIe host controller.
-
-### Step 8.2: Trigger Conditions
-**Record:** Driver remove/unbind concurrent with PCI sysfs rescan or
-remove (typically root). Uncommon in steady state but realistic during
-module reload, driver unbind testing, or admin sysfs operations.
-Requires privileges for sysfs writes; remove path can be triggered by
-module unload or device unbind.
-
-### Step 8.3: Failure Mode Severity
-**Record:** UAF / kernel crash — **HIGH** (potential **CRITICAL**
-depending on exploitability of the freed PCI structures).
-
-### Step 8.4: Risk-Benefit
-**Record:** **Benefit:** HIGH — prevents real crashes on a long-standing
-code path. **Risk:** VERY LOW — 2-line addition using existing, well-
-tested API, matching multiple peer drivers. **Ratio:** Strongly favors
-backport.
+### Step 4.5: CHECK STABLE MAILING LIST HISTORY
+**Record:** No stable-list discussion found for this specific fix. (Lore
+direct fetch blocked by bot protection; analysis via `b4 dig -m` mbox
+download.)
 
 ---
 
-## Phase 9: Final Synthesis
+## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 9.1: Evidence Summary
+### Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+**Record:** `rk_iommu_enable()` — only function modified.
 
-**FOR backport:**
-- Real synchronization bug with documented crash/UAF consequence
-- Matches PCI core documentation: rescan/remove must run under
-  `pci_rescan_remove_lock` (comment in `probe.c` lines 3536–3538)
-- Peer drivers already use this pattern; rockchip is an outlier
-- 2-line, obviously correct fix
-- Buggy code confirmed present in v6.18.44 tree
-- Driver has been in production kernels for years
-- Signed-off-by PCI maintainer
+### Step 5.2: TRACE CALLERS
+**Record:**
+- `rk_iommu_attach_device()` → `rk_iommu_enable()` (line 1043) — called
+  when a device attaches to an IOMMU domain (e.g., VOP, RGA, NPU).
+- `rk_iommu_resume()` → `rk_iommu_enable()` (line 1330) — called on PM
+  resume.
+- Both are common, user-visible paths on Rockchip boards.
 
-**AGAINST backport:**
-- No user-reported crash or syzbot reproducer (theoretical/code-review
-  finding)
-- Part of a 9-patch series (but each patch is independent)
+### Step 5.3: TRACE CALLEES
+**Record:** Uses existing `rk_iommu_read()` / `rk_iommu_write()`
+register accessors, plus existing stall/reset/paging enable sequence. No
+new dependencies.
 
-**Unresolved:** No runtime crash report; lore thread review discussion
-unavailable (bot-blocked).
+### Step 5.4: FOLLOW THE CALL CHAIN
+**Record:** Device probe → `iommu_attach_device` →
+`rk_iommu_attach_device` → `rk_iommu_enable`. Triggered during normal
+graphics/media driver initialization and suspend/resume. **Reachable
+from userspace** indirectly via device usage (display, GPU, RGA
+workloads causing IOTLB zaps).
 
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **PASS** — pattern proven across
-   multiple drivers; no Tested-by but change is trivial.
-2. Fixes a real bug? **PASS** — missing mutex on a documented-required
-   code path.
-3. Important issue? **PASS** — UAF/system crash.
-4. Small and contained? **PASS** — 2 lines, one function.
-5. No new features/APIs? **PASS** — synchronization only.
-6. Can apply to local tree? **PASS** — APIs and buggy code both present.
+### Step 5.5: SEARCH FOR SIMILAR PATTERNS
+**Record:** No similar workaround elsewhere in `rockchip-iommu.c`.
+Vendor kernel sets this bit unconditionally — external confirmation of
+the pattern.
 
-### Step 9.3: Exception Categories
-**Record:** None (not device ID, quirk, DT, build, or docs). Standard
-bug fix.
+---
 
-### Step 9.4: Decision Rationale
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
-This commit closes a long-standing race in `rockchip_pcie_remove()`
-where root bus teardown was not serialized against sysfs PCI
-rescan/remove operations. The PCI core has required this mutex since
-2014, and the generic host-common remove path has used it since 2018.
-Rockchip was simply missed. The fix is minimal, follows established
-convention, and prevents crashes on Rockchip platforms during driver
-removal concurrent with PCI sysfs operations. For the v6.18.44 tree
-being evaluated, the buggy code is present and the fix applies cleanly.
+### Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+**Record:** **YES.** Local tree is **Linux 6.18.44** (`git describe
+HEAD` → `v6.18.44-1-gef4bf62bccf3c`). `rk_iommu_enable()` at lines
+928–960 lacks the BIT(31) workaround. `RK_MMU_AUTO_GATING` is defined at
+line 42. `DISABLE_FETCH_DTE_TIME_LIMIT` is **not** present. Affected DT
+platforms exist: `rv1126.dtsi` (v1 `rockchip,iommu`), `rk356x-base.dtsi`
+and `rk3588-base.dtsi` (v2 `rockchip,rk3568-iommu`).
+
+### Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+**Record:** **Clean apply** — `git format-patch` + `git apply --check`
+succeeded with no conflicts. No refactoring churn in `rk_iommu_enable()`
+since 6.18 branch.
+
+### Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+**Record:** The dead-loop fix (`62e062a29ad51`) is present. This DTE
+time-limit workaround (`8d4346ecd4950`) is **not** present on
+`stable/linux-6.18.y`.
+
+---
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+### Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+**Record:** `drivers/iommu/rockchip-iommu.c` — IOMMU driver for Rockchip
+SoCs. **IMPORTANT** for ARM/ARM64 embedded (display, media, NPU, ISP).
+`CONFIG_ROCKCHIP_IOMMU=y` in `arch/arm64/configs/defconfig`.
+
+### Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+**Record:** Actively maintained — recent fixes in 6.17/6.18 merge window
+(dead-loop fix, iommu-pages migration). Rockchip platforms (RK3568,
+RK3588) are widely deployed.
+
+---
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+### Step 8.1: DETERMINE WHO IS AFFECTED
+**Record:** Users of Rockchip SoCs with IOMMU-enabled peripherals —
+**platform-specific** but covering popular boards (RK3568, RK3588,
+RV1126). Display (VOP), graphics acceleration (RGA3), and other IOMMU-
+backed masters.
+
+### Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+**Record:** Concurrent IOMMU master DTE fetch + CPU IOTLB zap during
+page-table updates. Realistic during graphics/media workloads and driver
+activity. Not every boot, but reproducible under load (Pengutronix
+observed sporadic RGA3 hangs).
+
+### Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+**Record:** IOMMU permanent block → **CRITICAL** system hang for
+affected peripherals; VOP black screen (display unusable); potential
+soft lockup of dependent subsystems.
+
+### Step 8.4: CALCULATE RISK-BENEFIT RATIO
+**Record:**
+- **Benefit:** HIGH — prevents hardware IOMMU lockup and
+  display/peripheral hangs on widely used SoCs.
+- **Risk:** VERY LOW — 8-line register write matching vendor kernel and
+  TRM; read-modify-write preserves other bits.
+- **Ratio:** Strongly favors backport.
+
+---
+
+## PHASE 9: FINAL SYNTHESIS
+
+### Step 9.1: COMPILE THE EVIDENCE
+
+**FOR backporting:**
+- Real hardware bug with documented failure mode (IOMMU block, display
+  black, RGA3 hang)
+- Hardware quirk/workaround — explicitly allowed stable category
+- Small (8 lines), surgical, applies cleanly to 6.18.44
+- Vendor kernel already does this unconditionally
+- TRM documents BIT(31) should be 1
+- Acked-by Rockchip maintainer (Heiko Stuebner)
+- Affected SoC DT support present in this tree
+- Buggy code path exists and has existed since driver introduction
+- No prerequisite commits
+
+**AGAINST backporting:**
+- No `Cc: stable` or `Fixes:` tag (expected, not disqualifying)
+- Applies to all Rockchip IOMMU instances, not SoC-gated (but vendor
+  does same; low risk)
+- Stale RV1126-only wording in commit message (code is correctly
+  unconditional)
+
+**Unresolved:** None that affect the decision.
+
+### Step 9.2: STABLE RULES CHECKLIST
+1. Obviously correct and tested? **PASS** — TRM + vendor kernel +
+   Pengutronix RK3588 testing
+2. Fixes a real bug affecting users? **PASS** — IOMMU hang, black screen
+   on production hardware
+3. Important issue? **PASS** — CRITICAL (hang, display failure)
+4. Small and contained? **PASS** — 8 lines, one function
+5. No new features or APIs? **PASS** — register workaround only
+6. Can apply to local tree? **PASS** — clean apply verified
+
+### Step 9.3: EXCEPTION CATEGORIES
+**Record:** **Hardware quirk/workaround** — qualifies under stable
+exception rules.
+
+### Step 9.4: DECISION RATIONALE
+
+For **Linux 6.18.44**, Rockchip IOMMU users on RK3568, RK3588, and
+RV1126 platforms are exposed to a silicon bug where the IOMMU can enter
+a blocked state during normal page-table maintenance, causing peripheral
+hangs and display black screens. The fix is a minimal, vendor-validated
+register write that matches TRM documentation. It applies cleanly, has
+maintainer ack, and fixes a serious user-visible failure on hardware
+well-supported in this tree.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, tags, body; no Fixes:/Reported-by/syzbot
-- **[Phase 2]** Diff: +2 lines in `rockchip_pcie_remove()` wrapping
-  stop/remove with lock
-- **[Phase 3]** `git describe HEAD` → v6.18.44; `git blame` →
-  stop/remove added f473182c (2020); driver since e77f847df54c6 (2016)
-- **[Phase 3]** `git show 9d16947b75831` → lock API added 2014; `git
-  blame pci-host-common.c` → lock in remove since 01fcb7f777a9f (2018)
-- **[Phase 3]** `git log --grep="Protect root bus removal"` → empty (not
-  merged)
-- **[Phase 4]** Read local mbox cover + patch 7/9; 9 independent
-  patches; sashiko-bot race comment verified
-- **[Phase 4]** WebFetch lore URL → blocked; b4 dig on unmerged commit →
-  N/A
-- **[Phase 5]** `grep pci_lock_rescan_remove drivers/pci/controller/` →
-  rockchip absent; mvebu/aardvark/mediatek-gen3/hyperv present
-- **[Phase 5]** Read `pci-sysfs.c` rescan/remove stores — all hold lock
-- **[Phase 5]** Read `probe.c:3536-3552` — documents lock requirement
-- **[Phase 6]** Read `rockchip_pcie_remove()` lines 1009–1016 — buggy
-  code confirmed in tree
-- **[Phase 6]** `Kconfig` → `PCIE_ROCKCHIP_HOST` tristate,
-  `ARCH_ROCKCHIP`
-- **[Phase 8]** Race between remove and sysfs rescan → UAF/crash per
-  commit message and PCI core design
+- [Phase 1] Parsed commit `8d4346ecd4950`: subject, body, tags (Acked-by
+  Heiko Stuebner; no Fixes/stable/syzbot)
+- [Phase 2] Diff analysis: +8 lines in `rk_iommu_enable()`, adds BIT(31)
+  write to `RK_MMU_AUTO_GATING`
+- [Phase 3] `git blame`: `rk_iommu_enable()` from 2014;
+  `RK_MMU_AUTO_GATING` from original 2014 driver
+- [Phase 3] No Fixes: tag to follow
+- [Phase 3] Related commit `62e062a29ad51` (different bug) already in
+  tree; this fix is not
+- [Phase 3] `git format-patch` + `git apply --check`: applies cleanly
+- [Phase 3] Commit on `master` but not on current `stable/linux-6.18.y`
+  HEAD
+- [Phase 4] `b4 dig -c 8d4346ecd4950`: lore thread found
+- [Phase 4] `b4 dig -a`: v1 submission 2025-11-26; committed 2026-06-02
+- [Phase 4] `b4 dig -w`: Joerg Roedel, Heiko Stuebner, Robin Murphy CC'd
+- [Phase 4] Mbox: Pengutronix confirmed RK3588 RGA3 hangs; Shawn Lin
+  comment-only TRM note; Heiko suggested resend; no NAKs, no stable
+  nomination
+- [Phase 5] Callers: `rk_iommu_attach_device()` (line 1043),
+  `rk_iommu_resume()` (line 1330)
+- [Phase 5] IOTLB zap path: `rk_iommu_zap_iova()` used from map/unmap —
+  confirms concurrent zap mechanism
+- [Phase 6] `git describe HEAD`: v6.18.44; `make kernelversion`: 6.18.44
+- [Phase 6] Buggy code confirmed present: no
+  `DISABLE_FETCH_DTE_TIME_LIMIT` in tree
+- [Phase 6] DT: `rv1126.dtsi`, `rk356x-base.dtsi`, `rk3588-base.dtsi`
+  have IOMMU nodes
+- [Phase 6] `rk3568-iommu` support since 2021 (`c55356c534aa6`), in tree
+- [Phase 7] `CONFIG_ROCKCHIP_IOMMU=y` in arm64 defconfig
+- [Phase 8] Failure mode: IOMMU block → hang/black screen, severity
+  CRITICAL
 
-**YES**The background checks finished and match what the analysis
-already assumed:
+**YES**The background search on `master` found the commit:
+**`8d4346ecd4950`** — `iommu/rockchip: disable fetch dte time limit`.
 
-- **Search for commit in tree:** `b4 dig` on HEAD didn’t match this
-  patch; `git log --grep` for the subject also found nothing. The fix
-  isn’t in this tree yet.
-- **Check if fix already merged:** `git log --grep="rockchip.*rescan
-  lock"` and `--grep="Protect root bus removal"` both returned empty —
-  confirmed not merged in v6.18.44.
+**Summary:** This is an 8-line hardware workaround for Rockchip IOMMU
+silicon (RK3568, RK3588, RV1126). Without setting BIT(31) of
+`RK_MMU_AUTO_GATING`, the IOMMU can block during concurrent DTE fetch
+and IOTLB zaps, causing peripheral hangs and VOP black screens. The
+patch applies cleanly to the local **6.18.44** tree, where the buggy
+code is still present.
 
-**Verdict stands: YES** — backport the 2-line `pci_lock_rescan_remove()`
-wrap in `rockchip_pcie_remove()` to close the sysfs rescan/remove race.
+**YES**
 
- drivers/pci/controller/pcie-rockchip-host.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/iommu/rockchip-iommu.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index ee1822ca01db3..d203c4876d304 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -1012,8 +1012,10 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
- 	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
- 	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(rockchip);
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 0861dd469bd86..2d0dabb0d101a 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -76,6 +76,8 @@
+ #define SPAGE_ORDER 12
+ #define SPAGE_SIZE (1 << SPAGE_ORDER)
  
-+	pci_lock_rescan_remove();
- 	pci_stop_root_bus(bridge->bus);
- 	pci_remove_root_bus(bridge->bus);
-+	pci_unlock_rescan_remove();
- 	irq_domain_remove(rockchip->irq_domain);
++#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
++
+  /*
+   * Support mapping any size that fits in one page table:
+   *   4 KiB to 4 MiB
+@@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 	struct iommu_domain *domain = iommu->domain;
+ 	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
+ 	int ret, i;
++	u32 auto_gate;
  
- 	rockchip_pcie_deinit_phys(rockchip);
+ 	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
+ 	if (ret)
+@@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+ 			       rk_ops->mk_dtentries(rk_domain->dt_dma));
+ 		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+ 		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
++
++		/* Workaround for iommu blocked, BIT(31) default to 1 */
++		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
++		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
++		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
+ 	}
+ 
+ 	ret = rk_iommu_enable_paging(iommu);
 -- 
 2.53.0
 
