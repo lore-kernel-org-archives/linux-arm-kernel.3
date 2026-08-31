@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C010BC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D876BC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9NBepZs32jJuyj31qdS12NqahL9gkzrdWlTOwWDa6Zk=; b=vCO2sKUP/PTEPeFQkNGKdbFHwy
-	BG+vrZngAy1FECHUEMUCMyZ5JpvNvl7BYB2EH3oZcv1np3dTWXrIm9X9cPuY45mNz6F5xa6N3am6a
-	3ACyY8Pi27Xa4S04CIT95RlOKbKy/+tQh5k1yRhjo1QxFuPBcLGcujXv9WXKIsCDP6ur9pX6jYl2Q
-	cKHAFjXyJSkhMmVKYo/TO+fC5bJ3TpQaWq4tg5juZ92o2HdSNjiPwaUXluxosqzg/y24lPmLL7E8E
-	s1FqMImYbuAl5c0Q83R8erUNyS5eOL4IuNqDq3CHOFeDMgKfnUHNc8Jh8WFJURktRsmKVP51wSjjM
-	1Hj2UhuQ==;
+	bh=Mg93C/BLYgHh/n0G+OklhbEZ69gCR/bdEIeH7kWAQMQ=; b=I8VEfb1iryMd3uHoCDh2CDFbrB
+	7rn5vByRp9drZAubFUV9Djff0D3Di2U87127j6iOEOWcm5mijuny3H0GalxzJYJj5XGwBh4L1AbRj
+	q/5AasrTkWSSsbSsFjWszJVgbZ/QtVtmYfST89+h4RZzN3HuMWbSaykoPIDgvbsj+rWsNtIe1u3oG
+	gUKvn1vvcgIno+1R+bqYKh0Xv+TUrcTAPYZL+oJTXB7xCr5va6wOF7UEQBOjwykUGCFLjS32y7mQI
+	iERrYfQtE+OoxTBVC/tToNTQh6AQQMqBMMaElteNOI8EwJVFZndV2tPtAbUN+UL2LNz69bXh2U1GR
+	IS/ic/sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15ZG-0000000A96U-1gAz;
-	Mon, 31 Aug 2026 17:13:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x15ae-0000000A9Kx-2ViX;
+	Mon, 31 Aug 2026 17:14:36 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15ZE-0000000A96G-3dcN
+	id 1x15ac-0000000A9K9-1T69
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:13:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2FA760120;
-	Mon, 31 Aug 2026 17:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA9C91F000E9;
-	Mon, 31 Aug 2026 17:13:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788196387;
-	bh=9NBepZs32jJuyj31qdS12NqahL9gkzrdWlTOwWDa6Zk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dOugAfknSWYgpXqCWh5rgXHbGJ32ERGty7oL7RF7QXjEtJoymox+iCZiXcwS64z0J
-	 SkDKOlGs6XAJmR326V35Jrou5sKhsBBvWSfCHEt/azJYFuriPC3rrGsl8688Wh7HLl
-	 tFAFxtA29z+jaizrYQmqG3o3wTEkFfWkCSeGFO3MfZSKeRTabFuwAI6mkzb5tdCSnr
-	 +p895wkSfO5L5zTLhCh2XrZHQxiqFcqz20ty/2eQagWLDcqqK2jUNeKZcAsMBe9UDJ
-	 fynXLcSVQSz4HRVqXCUk7GC2LtSf/fA3LUPibMsi0RKzqzzi8vhPUq3nKa6ZWrGUEs
-	 DSvDAt1VG5Itg==
-Date: Mon, 31 Aug 2026 18:13:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+	Mon, 31 Aug 2026 17:14:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Mg93C/BLYgHh/n0G+OklhbEZ69gCR/bdEIeH7kWAQMQ=; b=ITG0MN6jXzAjEeH42+oh9s8CZ0
+	fqpgRXe8s30hgWWZ2a6Fu05Z1F6PqiA1mP6iNK3XCjSlCpUXy8Wmi4ncnza3+G/jVDeW+qiUeuK9q
+	Xfp1OHPYdvwjJ+SmyOe6bph7E/LSnxpklT04hIkB/Tgqe3PAgEXRC1czEdPAmFLj1l+o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x15aG-002EHW-IU; Mon, 31 Aug 2026 19:14:12 +0200
+Date: Mon, 31 Aug 2026 19:14:12 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	devicetree@vger.kernel.org, kernel@dh-electronics.com,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: stm32: Document
- st,stm32mp23/25-syscfg subnodes and cells
-Message-ID: <20260831-craftily-operative-ac855bdbe897@spud>
-References: <20260828151216.175020-1-marex@nabladev.com>
- <20260828-target-operable-ebc87e0bf30a@spud>
- <0f959651-34d9-4fb2-9e07-238f731c5342@nabladev.com>
- <20260831-clustered-margarine-80bf19005aad@spud>
- <2b09012a-3cae-4589-b42d-f61d33f2f876@nabladev.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 3/9] net: stmmac: qcom-ethqos: fix RGMII_ID mode to
+ use DLL bypass
+Message-ID: <74541d4c-5090-454f-96ad-f6c5baa21b93@lunn.ch>
+References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
+ <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
+ <42355330-c22a-4fce-98ab-dc22b321ff16@lunn.ch>
+ <ai93X/cNWHtEQsDt@oss.qualcomm.com>
+ <82705420-771d-41bf-a4d9-ed94dff86ff0@lunn.ch>
+ <ajF6q5eKz92ddqVl@oss.qualcomm.com>
+ <apU8Yx08/PJiS9Xw@oss.qualcomm.com>
+ <b36109c3-00e5-434e-a9b7-46049b0bff40@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2GKJtW1sIt798CcL"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2b09012a-3cae-4589-b42d-f61d33f2f876@nabladev.com>
+In-Reply-To: <b36109c3-00e5-434e-a9b7-46049b0bff40@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_101434_400108_FD863304 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,102 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---2GKJtW1sIt798CcL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > With this in mind, I was thinking of breaking up this patch series into
+> > separate ones to solve one problem at a time:
+> > 
+> >  1. Introduce support for "rgmii-id" using PHY-side delays rather than
+> >  MAC-provided delays. Also, issue a warning if any other phy-mode is
+> >  being used.
+> > 
+> >  2. Fix the DTS of the existing boards to use "rgmii-id".
+> > 
+> >  3. Once the DTS is fixed, remove the now-unused code handling non
+> >  RGMII-ID cases. This should also allow us to remove the whole
+> >  ethqos_emac_por code since it wouldn't be needed for RGMII-ID.
+> 
+> I'm wondering if we should add some temporary very loud warning for
+> boards that use "rgmii" before changing this, or even just keep the
+> actual "rgmii" behaviour which inserts the delays, as there seems to
+> be lots of such users...
 
-On Mon, Aug 31, 2026 at 06:27:21PM +0200, Marek Vasut wrote:
-> On 8/31/26 5:05 PM, Conor Dooley wrote:
->=20
-> Hello Conor,
->=20
-> > > > Sashiko comment here I believe is valid, the syntax here only works=
- if
-> > > > there's only the listed compatible present. It doesn't work with
-> > > > fallbacks.
-> > >=20
-> > > This syntax is used all over the place ?
-> > >=20
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-allOf:
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-  - $ref:
-> > > ahci-common.yaml#
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-  - if:
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-      proper=
-ties:
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-        comp=
-atible:
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml:          co=
-ntains:
-> >=20
-> >                                                                       ^=
-^^^^^^^
-> > This is the key difference, you need "contains" for partial matches.
->=20
-> Uh ... right ... fixed in V5. Thank you.
->=20
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-            =
-enum:
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-            =
-  -
-> > > qcom,apq8064-ahci
-> > > Documentation/devicetree/bindings/ata/ahci-platform.yaml-            =
-  -
-> > > qcom,ipq806x-ahci
-> > >=20
-> > > > pw-bot: changes-requested
-> > > >=20
-> > > > >        then:
-> > > > >          required:
-> > > > >            - "#clock-cells"
-> > > > > +        - "#address-cells"
-> > > > > +        - "#size-cells"
-> > > >=20
-> > > > else, false? But I'm also not sure what the benefit is of requiring
-> > > > addr/size cells when the child node is not?
-> > > The subnodes of this syscfg node have reg property , see [PATCH v4 0/=
-4]
-> > > arm64: dts: st: Add STM32MP2 USB support .
-> >=20
-> > Right, but I was questioning why the properties describing the reg
-> > property in children is required when the children (and thus the reg
-> > property in them) were not made required.
->=20
-> Do you mean this patternProperties should be made required in here ?
->=20
-> "
-> +patternProperties:
-> +  "^phy@[0-9a-f]+$":
-> "
->=20
-> Could you please give me a hint how to do that ? git grep gives me nothin=
-g.
+We cannot break in tree users, and backwards compatibility with old
+mainline DT blobs is required. So for those, we need 'rgmii' to
+continue to work as is.
 
-I mean, if the phys aren't going to be required I would not make the
-cells properties required. I seem to recall a warning that dtbs_check
-can emit when there are size/addr cells properties in a node where there
-are no children, which is why I questioned this in the first place.
+So steps 1 and 2 are correct. But we cannot do 3. 
 
-Otherwise, if the phys are to be made required (no idea if they should
-be), I can only recall this being done with the non-pattern variant. IOW
-required:
-  - phy@0
-  - phy@1
+We can however issue a warning when 'rgmii' is used, advising users to
+upgrade to a newer DT blob.
 
-Cheers,
-Conor.
-
---2GKJtW1sIt798CcL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapW2HgAKCRB4tDGHoIJi
-0oDsAQCU71FAQQ1ExxLvSXyXK8BWpq+GTE6dd/z9sFMeJkNg/AD9FOwlnBwTzcbA
-Vd/ANfeIW8hrBeqGBGmJLJQit2I7Rw4=
-=T0Jt
------END PGP SIGNATURE-----
-
---2GKJtW1sIt798CcL--
+	Andrew
 
