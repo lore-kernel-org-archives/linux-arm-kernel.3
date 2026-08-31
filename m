@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A88C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1673C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uoiUdB65pL39pRygv8E6gcLlcbqoHjqbhN8SRMJbg6U=; b=yf8692sZ9LtbAA7vc9puRWHQxI
-	uRnrc22djQu7E/9Q8QeazUKacEml+y36/T7wcyrXQkGGIKEZn0HL7iPslEsyoc9B+FsgoXC03py2O
-	MIihdd2HDKtPj8eqgvm2IuXPtK0i9j1gwU0ru+cZUgENm6W5dsry9metz5OwH2RJZ9TcTdpW3x8X3
-	hE8yj+mygYDASQ5zvBNzXSav7x58MnBr8iU9RKIp/xZkznOOnaR7pN+ddLAwuqfvJunl68jt9mFYb
-	msMOOWZLbtCfnTvWtFNkBZBkuLcKggrkc2ROFEquqDdOLC3uvcinbJ6ckrfiw2iTZhVo/VqtqrkYf
-	zf6RSfnQ==;
+	bh=NNeDVYB834eBUK2IVKo137f7ozwOhKTwFFvma5/NENo=; b=DBr5OS3yR47rt5udXH6xI1k9LC
+	aKGRqaDUKqHiPLPL7yNXCOSLVO1ngmyeXYcb4MIBiYGMR/q99dMrNdTu7RR6pXF9yjFYWEoSxfIya
+	1riprLL/hD1CG2JQkPx7dVJCpntdU4rEpndVALCuFa+hXDzXGU2m48fQ9P2T+o4AQVqsTIJaSYX4n
+	QRzq76NEgyo47dV51X0373bWA8r5V5gw1Yj1gtUXy1YN30A2FOh4BZMsE+wpBrpdpmvJmkZ0U1WXb
+	MlJZGyrWeaYGzjaDJ1qGx4gO19y2kINCZnF52rUmzpu8crLfaQqnol7aoMwXswNOP9YaBH+e/gTnR
+	AK3VX5iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12I3-00000009UHL-1DQF;
-	Mon, 31 Aug 2026 13:43:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x12IP-00000009UPG-31kU;
+	Mon, 31 Aug 2026 13:43:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12I2-00000009UH7-0ciO;
-	Mon, 31 Aug 2026 13:43:10 +0000
+	id 1x12IO-00000009UOj-3M4F
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:43:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA69F40445;
-	Mon, 31 Aug 2026 13:43:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 534A91F00A3F;
-	Mon, 31 Aug 2026 13:43:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B6DB6025F;
+	Mon, 31 Aug 2026 13:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A1F41F00A3D;
+	Mon, 31 Aug 2026 13:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183789;
-	bh=uoiUdB65pL39pRygv8E6gcLlcbqoHjqbhN8SRMJbg6U=;
+	s=k20260515; t=1788183811;
+	bh=NNeDVYB834eBUK2IVKo137f7ozwOhKTwFFvma5/NENo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=K6jHC2UpVC49+xxeTISAjHy+FR8tZjbAGcWTH5JB63d9oTgsnCtzSLypuvQ+QeelH
-	 sQWWX/xQzYg3IkiSIibMHN+csJRPndw6MMtr/aqhbjhuh/SgNulgCNvR48iqxcBZmQ
-	 GDh37qCCtShftGM8BsurKjPX9II3BPQ42q0jWbLt4BCmnUNneT2DnSCD27qFXWqAnJ
-	 EjrAmykexD1GPMWbtdn4U6izeol6QgYzk9UW7APBQIz9qC/dg19yb+7eufB4G3b7hq
-	 kHdJT3u5kRHM9rPnduPGPBG14YYLyS6zZzqFQl70pInpUmqO8nkwpYk0tgHi5wnpza
-	 JrSn1QrEEAhyg==
+	b=R58WqMve6aSy3tvmBPPnEBnmRfBHDJ1cIOkUvsPRuf5Uq4vJGi0aEGfSGnbrpsW5c
+	 CR7/D+WblCHsHIGjKuiB4A4GTWiJ7QJB5foWqkhzrg6z9xUR0oda+EP8r3rDYzldgl
+	 eD7liJDRPOGNyw8ATcVVszGnywI+9iVW+1CxSmc3OMZN7tY6RNoIFovl6CQ2Wh3ztF
+	 BVyPA4SSP+8Wu2/0NWjo4Poc0yUalk76qArZtHWaP2sfmYGibVlIjskxroGoed2d4F
+	 tjrZQDzej6X3MLUGRS6SyjbZ0pkaogebxFZGiIhp6DeCBtsT2+IERhET7x+SMEEt4e
+	 vQvbwIJTW8Vsg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Devin Wittmayer <lucid_duck@justthetip.ca>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Leo Yan <leo.yan@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] wifi: mt76: mt7925: add Netgear A8500 USB device ID
-Date: Mon, 31 Aug 2026 09:25:33 -0400
-Message-ID: <20260831133314.4125787-305-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18] coresight: perf: Retrieve path and source from event data
+Date: Mon, 31 Aug 2026 09:25:47 -0400
+Message-ID: <20260831133314.4125787-319-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -81,367 +81,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Devin Wittmayer <lucid_duck@justthetip.ca>
+From: Leo Yan <leo.yan@arm.com>
 
-[ Upstream commit 291b067a02b9c1fd272057ebf47c365260955fd2 ]
+[ Upstream commit f37bc31447c0ddafedb25e3c4a4f4e2284034247 ]
 
-Add USB device ID for the Netgear A8500 (0846:9050) which uses
-the mt7925 chipset.
+ETM perf callbacks currently use the per-CPU csdev_src pointer, which
+can race with updates during device registration and unregistration.
 
-Signed-off-by: Devin Wittmayer <lucid_duck@justthetip.ca>
-Link: https://patch.msgid.link/20260527144735.10254-1-lucid_duck@justthetip.ca
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+The AUX setup already builds and stores the path in the event data.
+Use this path to retrieve the source instead of csdev_src to avoid
+the race.
+
+Export coresight_get_source() and add etm_event_get_ctxt_path() to
+retrieve the context's path and its source with READ_ONCE() /
+WRITE_ONCE() accessors. Give the comments to explain why this
+approach is safe when pause or resume callbacks preempt the disable
+callback (e.g. via NMI).
+
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
+Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Link: https://lore.kernel.org/r/20260515-arm_coresight_path_power_management_improvement-v14-7-f88c4a3ecfe9@arm.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: `wifi: mt76: mt7925: add Netgear A8500 USB
-device ID`
-
-**Local tree:** `v6.18.44` (Linux 6.18.44)
-
----
-
-## PHASE 1: COMMIT MESSAGE FORENSICS
-
-### Step 1.1: Parse the subject line
-**Record:** `[wifi: mt76: mt7925]` `[add]` — Add USB device ID for
-Netgear A8500 (0846:9050) to the existing mt7925u driver.
-
-### Step 1.2: Parse all commit message tags
-**Record:**
-- **Signed-off-by:** Devin Wittmayer `<lucid_duck@justthetip.ca>`
-  (author)
-- **Link:** https://patch.msgid.link/20260527144735.10254-1-
-  lucid_duck@justthetip.ca
-- **Signed-off-by:** Felix Fietkau `<nbd@nbd.name>` (mt76 maintainer)
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
-  by:`, or `Cc: stable@vger.kernel.org`
-- Notable pattern: maintainer (Felix Fietkau) Signed-off-by is a strong
-  quality signal; absence of `Cc: stable` is expected per review
-  pipeline rules.
-
-### Step 1.3: Analyze commit body
-**Record:**
-- **Bug description:** Netgear A8500 USB WiFi adapter (VID:PID
-  0846:9050) uses the mt7925 chipset but is not recognized by the kernel
-  because its USB ID is missing from `mt7925u_device_table[]`.
-- **Symptom:** Device enumerates as USB hardware but does not bind to
-  `mt7925u` driver; WiFi is non-functional.
-- **Root cause:** Missing entry in the USB device ID table.
-- **Version info:** None stated in commit message.
-
-### Step 1.4: Detect hidden bug fixes
-**Record:** Not a hidden bug fix in the traditional sense (no
-crash/UAF/leak). This is an explicit **hardware enablement** fix — a
-device ID addition that allows an existing, fully functional driver to
-bind to real hardware. Falls under the stable exception category for new
-device IDs.
-
----
-
-## PHASE 2: DIFF ANALYSIS
-
-### Step 2.1: Inventory the changes
-**Record:**
-- **Files changed:** `drivers/net/wireless/mediatek/mt76/mt7925/usb.c`
-  (+3 lines)
-- **Functions modified:** None functionally; only
-  `mt7925u_device_table[]` static data
-- **Scope:** Single-file, surgical, 3-line addition
-
-### Step 2.2: Code flow change
-**Record:**
-- **Before:** USB core matches 0846:9050 against
-  `mt7925u_device_table[]` → no match → driver does not probe.
-- **After:** USB core matches 0846:9050 → `mt7925u_probe()` is called
-  with `driver_info = MT7925_FIRMWARE_WM` → normal mt7925u
-  initialization path.
-- **Path affected:** USB device enumeration / driver binding at plug-in
-  time.
-
-### Step 2.3: Bug mechanism
-**Record:**
-- **Category:** Hardware workaround / device ID addition (stable
-  exception)
-- **Mechanism:** Without the VID/PID entry, `usb_driver.id_table`
-  matching fails and the adapter is unusable despite the mt7925 driver
-  being present and functional for other devices.
-
-### Step 2.4: Fix quality assessment
-**Record:**
-- **Obviously correct:** Yes — identical pattern to the existing A9000
-  entry (0846:9072) already in this tree.
-- **Minimal/surgical:** Yes — 3 lines, no logic changes.
-- **Regression risk:** Very low — only adds a new match entry; does not
-  alter behavior for existing devices.
-
----
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-### Step 3.1: Blame the changed lines
-**Record:**
-- `mt7925u_device_table[]` introduced in `c948b5da6bbec` (Sep 2023, "add
-  Mediatek Wi-Fi7 driver for mt7925 chips")
-- A9000 entry added in `f6159b2051e15` (Jul 2025, Nick Morrow) — already
-  present in this tree
-- A8500 entry (0846:9050) is **not yet** in this tree
-
-### Step 3.2: Follow Fixes: tag
-**Record:** No `Fixes:` tag present. N/A.
-
-### Step 3.3: Related file history
-**Record:**
-- Recent commits to `mt7925/usb.c` include functional fixes (crash, NULL
-  deref, deadlock) and the A9000 ID addition `f6159b2051e15`
-- Similar precedent: `fc6627ca8a5f8` added Netgear A7500 (0846:9065) to
-  `mt7921/usb.c` with `Cc: stable@vger.kernel.org`
-- **Standalone:** Yes — single patch, no series dependency
-
-### Step 3.4: Author's other commits
-**Record:** Devin Wittmayer has no other commits in this tree (author is
-new contributor). Felix Fietkau is the mt76 maintainer who applied the
-patch.
-
-### Step 3.5: Prerequisites
-**Record:**
-- Requires `CONFIG_MT7925U` and existing mt7925u driver — both present
-  in v6.18.44
-- Uses `MT7925_FIRMWARE_WM` — already declared via `MODULE_FIRMWARE` in
-  same file
-- **Can apply standalone:** Yes
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-### Step 4.1: Original patch discussion
-**Record:** `b4 dig -c` could not be run (commit not in local tree). `b4
-dig` with message-id failed (incorrect syntax for message-id lookup).
-WebFetch of patch.msgid.link and lore.kernel.org returned bot-protection
-page. **UNVERIFIED:** Full mailing list review thread not accessible.
-
-### Step 4.2: Reviewers from b4 dig -w
-**Record:** UNVERIFIED — could not retrieve recipient list.
-
-### Step 4.3: Bug report search
-**Record:** No `Reported-by:` or bugzilla/syzbot links in commit
-message. Hardware enablement request from contributor.
-
-### Step 4.4: Related patches/series
-**Record:** Part of a well-established pattern of Netgear USB ID
-additions to mt76 drivers (mt7921 A7500, mt7925 A9000). Standalone one-
-patch submission.
-
-### Step 4.5: Stable mailing list history
-**Record:** UNVERIFIED — lore.kernel.org inaccessible. However, the
-nearly identical A9000 commit (`f6159b2051e15`) in this tree included
-`Cc: stable@vger.kernel.org`, establishing subsystem precedent for such
-patches.
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-### Step 5.1: Key functions
-**Record:** No functions modified. Data table `mt7925u_device_table[]`
-consumed by `module_usb_driver(mt7925u_driver)` via `.id_table`.
-
-### Step 5.2: Trace callers
-**Record:** USB core calls `usb_match_device()` against
-`mt7925u_device_table[]` during enumeration → on match, calls
-`mt7925u_probe()` (line 132 of `usb.c`). Triggered when user plugs in
-the USB adapter.
-
-### Step 5.3: Trace callees
-**Record:** On successful match, `mt7925u_probe()` initializes the
-mt7925 chipset using existing driver infrastructure and
-`MT7925_FIRMWARE_WM` firmware.
-
-### Step 5.4: Call chain / reachability
-**Record:** USB hotplug during normal desktop/laptop use. Any user with
-this hardware who plugs in the adapter is affected. No privilege
-required to trigger enumeration.
-
-### Step 5.5: Similar patterns
-**Record:** Identical pattern in same file for A9000 (0846:9072).
-Similar Netgear IDs in `mt7921/usb.c` (0846:9060, 0846:9065). All use
-same `USB_DEVICE_AND_INTERFACE_INFO` + `MT7925_FIRMWARE_WM` / equivalent
-firmware constant.
-
----
-
-## PHASE 6: CROSS-REFERENCING AGAINST LOCAL TREE
-
-### Step 6.1: Does the buggy code exist?
-**Record:** **Yes.** The mt7925u driver and device table exist in
-v6.18.44, but the A8500 entry (0846:9050) is **missing**. Current table
-has only MediaTek reference (0e8d:7925) and Netgear A9000 (0846:9072).
-Driver has been present since `c948b5da6bbec` (confirmed ancestor of
-HEAD).
-
-### Step 6.2: Backport complications
-**Record:** **Clean apply expected.** File exists with identical
-structure. Insertion point is between the MediaTek entry and the A9000
-entry (as shown in the candidate diff). Only minor difference: local
-file uses `ISC` license header vs `BSD-3-Clause-Clear` in candidate diff
-— irrelevant to the 3-line ID addition.
-
-### Step 6.3: Related fixes already present?
-**Record:** A9000 ID (`f6159b2051e15`) is already in this tree. No
-duplicate A8500 entry found. No alternate fix for A8500.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-### Step 7.1: Subsystem criticality
-**Record:** `drivers/net/wireless/mediatek/mt76/` — **IMPORTANT**
-(wireless networking driver). Affects users of specific USB WiFi
-hardware, not universal.
-
-### Step 7.2: Subsystem activity
-**Record:** mt7925 subsystem is actively maintained in this tree —
-numerous bugfix commits in recent history (NULL deref, deadlock, crash
-fixes), indicating mature driver with ongoing stable fixes.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-### Step 8.1: Who is affected
-**Record:** Users of the Netgear A8500 USB WiFi 7 adapter (0846:9050)
-running kernel 6.18.y with `CONFIG_MT7925U` enabled.
-
-### Step 8.2: Trigger conditions
-**Record:** Plugging in the Netgear A8500 USB adapter. Common,
-deterministic, no special conditions. Unprivileged user can trigger via
-USB device insertion.
-
-### Step 8.3: Failure mode severity
-**Record:** Without fix: adapter is completely non-functional (no driver
-binding). **Severity: MEDIUM** for affected hardware users (device
-unusable, but not a crash/corruption). With fix: normal WiFi operation.
-
-### Step 8.4: Risk-benefit ratio
-**Record:**
-- **Benefit:** Enables WiFi on a commercially available Netgear USB
-  adapter for stable kernel users
-- **Risk:** Very low — 3-line ID table entry, zero logic change,
-  identical to already-accepted A9000 entry
-- **Ratio:** Strongly favorable
-
----
-
-## PHASE 9: FINAL SYNTHESIS
-
-### Step 9.1: Evidence compilation
-
-**FOR backporting:**
-- Classic device ID addition to existing driver (explicit stable
-  exception)
-- Driver fully exists in v6.18.44 (`CONFIG_MT7925U`, probe/remove,
-  firmware)
-- Identical pattern to A9000 entry already in this tree
-- Subsystem precedent: similar Netgear ID patches nominated for stable
-  (`Cc: stable` on A9000, A7500)
-- Maintained by Felix Fietkau (Signed-off-by)
-- 3 lines, zero regression risk to existing devices
-- Enables real hardware for stable users
-
-**AGAINST backporting:**
-- Not a crash/security/corruption fix — hardware enablement only
-- No Tested-by or Reported-by in commit message
-- Mailing list discussion unverified
-
-**UNRESOLVED:**
-- Full lore review thread not accessible
-- No explicit Tested-by confirmation
-
-### Step 9.2: Stable rules checklist
-1. Obviously correct and tested? **PASS** — trivial ID entry,
-   maintainer-applied; Tested-by absent but pattern is standard
-2. Fixes a real bug affecting users? **PASS** — device non-functional
-   without ID
-3. Important issue? **PASS** — hardware enablement for real product
-   (stable exception category)
-4. Small and contained? **PASS** — 3 lines, 1 file
-5. No new features or APIs? **PASS** — device ID only
-6. Can apply to local tree? **PASS** — driver and file present, clean
-   apply expected
-
-### Step 9.3: Exception category
-**Record:** **NEW DEVICE ID** — adding PCI/USB ID to existing driver.
-Explicitly listed as a stable exception. The mt7925u driver exists; only
-the ID is new.
-
-### Step 9.4: Decision rationale
-
-This commit adds USB VID/PID `0846:9050` for the Netgear A8500 to the
-existing `mt7925u` driver in the v6.18.44 stable tree. The driver is
-fully present; the A9000 sibling device (0846:9072) is already supported
-in this tree via an identical 3-line patch that was nominated for
-stable. Without this entry, the A8500 adapter cannot bind to any driver
-and is completely unusable. The change is minimal, obviously correct,
-introduces no new APIs, and matches established stable backport practice
-for mt76 Netgear USB adapters.
-
----
-
-## Verification
-
-- [Phase 1] Parsed subject, tags, body from user-provided commit message
-- [Phase 1] Confirmed: no Fixes/Reported-by/Tested-by/Cc:stable tags;
-  Felix Fietkau Signed-off-by present
-- [Phase 2] Diff analysis: 3 lines added to `mt7925u_device_table[]` in
-  `usb.c`
-- [Phase 3] `git describe HEAD`: v6.18.44
-- [Phase 3] `git blame` on usb.c lines 12-18: table from c948b5da6bbec
-  (2023), A9000 from f6159b2051e15 (2025)
-- [Phase 3] `git merge-base --is-ancestor c948b5da6bbec HEAD`: mt7925
-  driver is in tree
-- [Phase 3] `git show f6159b2051e15`: A9000 precedent with Cc:
-  stable@vger.kernel.org
-- [Phase 3] `git show fc6627ca8a5f8`: mt7921 A7500 precedent with Cc:
-  stable
-- [Phase 4] WebFetch patch.msgid.link: blocked by bot protection —
-  UNVERIFIED
-- [Phase 4] WebFetch lore.kernel.org: blocked — UNVERIFIED
-- [Phase 4] b4 dig: commit not in tree, could not dig by hash —
-  UNVERIFIED
-- [Phase 5] Read `mt7925u_probe()` at line 132: standard USB probe path
-- [Phase 5] `grep 0846` in mt76: A9000 (9072) present, A8500 (9050)
-  absent
-- [Phase 6] Read current `usb.c`: A8500 ID missing, driver fully
-  functional
-- [Phase 6] `Kconfig` confirms `CONFIG_MT7925U` exists
-- [Phase 6] `MODULE_FIRMWARE(MT7925_FIRMWARE_WM)` present in usb.c
-- [Phase 7] `git log --oneline -20 -- mt7925/`: active subsystem with
-  many stable-worthy fixes
-- [Phase 8] Failure mode: no driver binding → device unusable (not
-  crash)
-
-**YES**
-
- drivers/net/wireless/mediatek/mt76/mt7925/usb.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/usb.c b/drivers/net/wireless/mediatek/mt76/mt7925/usb.c
-index bf040f34e4b9f..995a7fcc419fd 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/usb.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/usb.c
-@@ -12,6 +12,9 @@
- static const struct usb_device_id mt7925u_device_table[] = {
- 	{ USB_DEVICE_AND_INTERFACE_INFO(0x0e8d, 0x7925, 0xff, 0xff, 0xff),
- 		.driver_info = (kernel_ulong_t)MT7925_FIRMWARE_WM },
-+	/* Netgear, Inc. A8500 */
-+	{ USB_DEVICE_AND_INTERFACE_INFO(0x0846, 0x9050, 0xff, 0xff, 0xff),
-+		.driver_info = (kernel_ulong_t)MT7925_FIRMWARE_WM },
- 	/* Netgear, Inc. A9000 */
- 	{ USB_DEVICE_AND_INTERFACE_INFO(0x0846, 0x9072, 0xff, 0xff, 0xff),
- 		.driver_info = (kernel_ulong_t)MT7925_FIRMWARE_WM },
+The background searches finished:
+
+1. **linux-next lookup** — Subject/`etm_event_get_ctxt_path` searches on
+   `linux-next` didn’t turn up this commit (the `-S` pickaxe run was
+   slow and returned unrelated results).
+
+2. **Branch containment** — The full `git branch -a --contains
+   f37bc31447c0` scan returned nothing after ~2.5 minutes. A quicker
+   check confirms the commit object exists locally but is **not** an
+   ancestor of `linux-next` or `origin/master` in this checkout.
+
+That matches the earlier finding: the fix is present as commit
+`f37bc31447c0` but isn’t merged into mainline or the current 6.18.43
+tree yet. The backport recommendation remains **YES** on technical merit
+once it lands upstream.
+
+ drivers/hwtracing/coresight/coresight-core.c  |   2 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  | 114 +++++++++++-------
+ drivers/hwtracing/coresight/coresight-priv.h  |   1 +
+ 3 files changed, 74 insertions(+), 43 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 911a7b6d4867b..4cf4a3e92c272 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -79,7 +79,7 @@ struct coresight_device *coresight_get_percpu_sink(int cpu)
+ }
+ EXPORT_SYMBOL_GPL(coresight_get_percpu_sink);
+ 
+-static struct coresight_device *coresight_get_source(struct coresight_path *path)
++struct coresight_device *coresight_get_source(struct coresight_path *path)
+ {
+ 	struct coresight_device *csdev;
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index accf101779de8..60f4fde3b398b 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -312,6 +312,35 @@ static bool sinks_compatible(struct coresight_device *a,
+ 	       (sink_ops(a) == sink_ops(b));
+ }
+ 
++/*
++ * This helper is used for fetching the path pointer via the ctxt.
++ *
++ * Perf event callbacks run on the same CPU in atomic context, but AUX pause
++ * and resume may run in NMI context and preempt other callbacks. Since the
++ * event stop callback clears ctxt->event_data before the data is released,
++ * AUX pause/resume will either observe a NULL pointer and stop fetching the
++ * path pointer, or safely access event_data and the path, as the data has
++ * not yet been freed.
++ */
++static struct coresight_path *etm_event_get_ctxt_path(struct etm_ctxt *ctxt)
++{
++	struct etm_event_data *event_data;
++	struct coresight_path *path;
++
++	if (!ctxt)
++		return NULL;
++
++	event_data = READ_ONCE(ctxt->event_data);
++	if (!event_data)
++		return NULL;
++
++	path = etm_event_cpu_path(event_data, smp_processor_id());
++	if (!path)
++		return NULL;
++
++	return path;
++}
++
+ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 			   int nr_pages, bool overwrite)
+ {
+@@ -463,13 +492,23 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 	goto out;
+ }
+ 
+-static int etm_event_resume(struct coresight_device *csdev,
+-			     struct etm_ctxt *ctxt)
++static int etm_event_resume(struct coresight_path *path)
+ {
+-	if (!ctxt->event_data)
++	struct coresight_device *source;
++	int ret;
++
++	if (!path)
+ 		return 0;
+ 
+-	return coresight_resume_source(csdev);
++	source = coresight_get_source(path);
++	if (!source)
++		return 0;
++
++	ret = coresight_resume_source(source);
++	if (ret < 0)
++		dev_err(&source->dev, "Failed to resume ETM event.\n");
++
++	return ret;
+ }
+ 
+ static void etm_event_start(struct perf_event *event, int flags)
+@@ -478,23 +517,19 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	struct etm_event_data *event_data;
+ 	struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
+ 	struct perf_output_handle *handle = &ctxt->handle;
+-	struct coresight_device *sink, *csdev = per_cpu(csdev_src, cpu);
++	struct coresight_device *source, *sink;
+ 	struct coresight_path *path;
+ 	u64 hw_id;
+ 
+-	if (!csdev)
+-		goto fail;
+-
+ 	if (flags & PERF_EF_RESUME) {
+-		if (etm_event_resume(csdev, ctxt) < 0) {
+-			dev_err(&csdev->dev, "Failed to resume ETM event.\n");
++		path = etm_event_get_ctxt_path(ctxt);
++		if (etm_event_resume(path) < 0)
+ 			goto fail;
+-		}
+ 		return;
+ 	}
+ 
+ 	/* Have we messed up our tracking ? */
+-	if (WARN_ON(ctxt->event_data))
++	if (WARN_ON(READ_ONCE(ctxt->event_data)))
+ 		goto fail;
+ 
+ 	/*
+@@ -522,9 +557,10 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 
+ 	path = etm_event_cpu_path(event_data, cpu);
+ 	path->handle = handle;
+-	/* We need a sink, no need to continue without one */
++	/* We need source and sink, no need to continue if any is not set */
++	source = coresight_get_source(path);
+ 	sink = coresight_get_sink(path);
+-	if (WARN_ON_ONCE(!sink))
++	if (WARN_ON_ONCE(!source || !sink))
+ 		goto fail_end_stop;
+ 
+ 	/* Nothing will happen without a path */
+@@ -532,7 +568,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 		goto fail_end_stop;
+ 
+ 	/* Finally enable the tracer */
+-	if (source_ops(csdev)->enable(csdev, event, CS_MODE_PERF, path))
++	if (source_ops(source)->enable(source, event, CS_MODE_PERF, path))
+ 		goto fail_disable_path;
+ 
+ 	/*
+@@ -556,7 +592,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	/* Tell the perf core the event is alive */
+ 	event->hw.state = 0;
+ 	/* Save the event_data for this ETM */
+-	ctxt->event_data = event_data;
++	WRITE_ONCE(ctxt->event_data, event_data);
+ 	return;
+ 
+ fail_disable_path:
+@@ -576,27 +612,26 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	return;
+ }
+ 
+-static void etm_event_pause(struct perf_event *event,
+-			    struct coresight_device *csdev,
++static void etm_event_pause(struct coresight_path *path,
++			    struct perf_event *event,
+ 			    struct etm_ctxt *ctxt)
+ {
+-	int cpu = smp_processor_id();
+-	struct coresight_device *sink;
+ 	struct perf_output_handle *handle = &ctxt->handle;
+-	struct coresight_path *path;
++	struct coresight_device *source, *sink;
++	struct etm_event_data *event_data;
+ 	unsigned long size;
+ 
+-	if (!ctxt->event_data)
++	if (!path)
+ 		return;
+ 
+-	/* Stop tracer */
+-	coresight_pause_source(csdev);
+-
+-	path = etm_event_cpu_path(ctxt->event_data, cpu);
++	source = coresight_get_source(path);
+ 	sink = coresight_get_sink(path);
+-	if (WARN_ON_ONCE(!sink))
++	if (WARN_ON_ONCE(!source || !sink))
+ 		return;
+ 
++	/* Stop tracer */
++	coresight_pause_source(source);
++
+ 	/*
+ 	 * The per CPU sink has own interrupt handling, it might have
+ 	 * race condition with updating buffer on AUX trace pause if
+@@ -612,8 +647,9 @@ static void etm_event_pause(struct perf_event *event,
+ 	if (!sink_ops(sink)->update_buffer)
+ 		return;
+ 
++	event_data = READ_ONCE(ctxt->event_data);
+ 	size = sink_ops(sink)->update_buffer(sink, handle,
+-					     ctxt->event_data->snk_config);
++					     event_data->snk_config);
+ 	if (READ_ONCE(handle->event)) {
+ 		if (!size)
+ 			return;
+@@ -629,14 +665,14 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ {
+ 	int cpu = smp_processor_id();
+ 	unsigned long size;
+-	struct coresight_device *sink, *csdev = per_cpu(csdev_src, cpu);
++	struct coresight_device *source, *sink;
+ 	struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
+ 	struct perf_output_handle *handle = &ctxt->handle;
++	struct coresight_path *path = etm_event_get_ctxt_path(ctxt);
+ 	struct etm_event_data *event_data;
+-	struct coresight_path *path;
+ 
+ 	if (mode & PERF_EF_PAUSE)
+-		return etm_event_pause(event, csdev, ctxt);
++		return etm_event_pause(path, event, ctxt);
+ 
+ 	/*
+ 	 * If we still have access to the event_data via handle,
+@@ -646,9 +682,9 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 	    WARN_ON(perf_get_aux(handle) != ctxt->event_data))
+ 		return;
+ 
+-	event_data = ctxt->event_data;
++	event_data = READ_ONCE(ctxt->event_data);
+ 	/* Clear the event_data as this ETM is stopping the trace. */
+-	ctxt->event_data = NULL;
++	WRITE_ONCE(ctxt->event_data, NULL);
+ 
+ 	if (event->hw.state == PERF_HES_STOPPED)
+ 		return;
+@@ -670,19 +706,13 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 		return;
+ 	}
+ 
+-	if (!csdev)
+-		return;
+-
+-	path = etm_event_cpu_path(event_data, cpu);
+-	if (!path)
+-		return;
+-
++	source = coresight_get_source(path);
+ 	sink = coresight_get_sink(path);
+-	if (!sink)
++	if (!source || !sink)
+ 		return;
+ 
+ 	/* stop tracer */
+-	coresight_disable_source(csdev, event);
++	coresight_disable_source(source, event);
+ 
+ 	/* tell the core */
+ 	event->hw.state = PERF_HES_STOPPED;
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index bcc5db0d9c3c2..7f27ef2ab1619 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -250,6 +250,7 @@ void coresight_add_helper(struct coresight_device *csdev,
+ 
+ void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+ struct coresight_device *coresight_get_percpu_sink(int cpu);
++struct coresight_device *coresight_get_source(struct coresight_path *path);
+ void coresight_disable_source(struct coresight_device *csdev, void *data);
+ void coresight_pause_source(struct coresight_device *csdev);
+ int coresight_resume_source(struct coresight_device *csdev);
 -- 
 2.53.0
 
