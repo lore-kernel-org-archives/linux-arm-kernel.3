@@ -4,96 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294DCC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5967FC61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=; b=iUKPxu+OECFmCD8MeDAhzB25UQ
-	i6s5rW25IwDy+4H54sjJnVYJ/5e33QRe36uBo6JUZwW9bDi1rCDPARbMe8JeBDcLoUYwJ/Cij0LeK
-	xOkoU26sctr4mIOzfXJ/yOLZon3jLXVgC3eGQIxpJUjka1oZprJU9pZWsL257B+/CmgfEK606Eq2g
-	4LZzYagreGqgQxRIsj2wqhhiCzmcI9sLiZjZN4cnBuSfvUAkkVC0h0VCum7U0ZCzvRlKmC2OUYxjd
-	RtAS9iSYCTmxuxb0Ueh458DXgoixcjXHx35tvg3eZZw9uPYjLcbT+2DSptlri9vpsOvPXcKrGus2S
-	QjsuVWXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JWMWw4FwzjGvX2iKfmXe0I6b/+rjNzreNT87o090rWg=; b=zGTvgD+1NFN9Lz1TowUDmKtWFM
+	K9xICatjw3p3j1v1bkVOQgM/etXkSK55pzj0kMUQ61SkP19ygCb+/YfiN1rnoHQkea5+JUd2OMkJz
+	hZKoN0Vrv8J9HhE0Q9zpenBrKQLZJdt9DcZ+rETjjZwhwhTp6Qxhtl0Kk69Re9BUUCXundTInb+6e
+	6L2fjFeeyLcTwh9keWULS7GiXZSGgDrGykju21rBSiMDYtpzk6oyhK/Z5vjC3xsc6Rwk9Kku8RhUc
+	to39hNr7KANLe7uzpgqgwynF9nyFBu/mw8t8pzEIZYL2RDWJW8V4S0MVH94kM2Zs0DEeGlwClfr2Y
+	IHE0g7/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vvL-00000008fFP-2dtc;
-	Mon, 31 Aug 2026 06:55:19 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1x0w1c-00000008fkm-0j74;
+	Mon, 31 Aug 2026 07:01:48 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vvH-00000008fEU-2wu5
+	id 1x0w1Y-00000008fjE-1yHI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 06:55:17 +0000
-Date: Mon, 31 Aug 2026 08:55:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788159311;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=;
-	b=KL+4rUB4zJvHeW/e+ma42rA7ScTJJgxkDvYpwfduRCtSORsiO48NJJ1bSAgiMqM46F+QhT
-	8hD2jIVe603/RMJ1W0VbalsutLGDr/w3TP0Ko77d7E9dfNl8b3OSl9O6AyYfKT2VgsISYM
-	4t72GYfkudKq2kn/0Sj0LwgCgpUrKa3hxfaltxxoGNmAHVlIn5D9BIDftKg9MJEuh4oJGj
-	6jeuOV4ZoQlwbub8qNPBN2X2s4Yj6rqm/XRJmbk36bbLZ7LcNaxBLebRXkLWr0YIV/Le8K
-	uob/C+5/W0jWISxQUXPsoGf4G8tV6Yu1GRkMurlAdsNPkuDAj6cMUeqvRq6XyA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788159311;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=;
-	b=a29XZ2n32W6NbMPFEh5HdOb3M7PYRJuNPQawecuczPwFeSw3z+MDtTiY//DSwIJ7cqkpo7
-	U0+RAJ9BUQKImTAg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	David Stevens <stevensd@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260831065509.qqEtERDB@linutronix.de>
-References: <20260827232948.2520558-1-stevensd@google.com>
- <20260827232948.2520558-7-stevensd@google.com>
- <20260828133620._x2XfJR_@linutronix.de>
- <20260828135947.GU776954@noisy.programming.kicks-ass.net>
- <20260828151018.HnR9xV1N@linutronix.de>
- <20260828150836.2d5b378c@gandalf.local.home>
- <20260828151313.5c4a5e4b@gandalf.local.home>
- <20260828151747.20035d50@gandalf.local.home>
+	Mon, 31 Aug 2026 07:01:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A9DB44E4145B;
+	Mon, 31 Aug 2026 07:01:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7A187601E1;
+	Mon, 31 Aug 2026 07:01:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6740411C78A4C;
+	Mon, 31 Aug 2026 09:01:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788159694; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=JWMWw4FwzjGvX2iKfmXe0I6b/+rjNzreNT87o090rWg=;
+	b=bztAEhcLXhBf7yPrZ53OqQWY5eOwhfChK2LTsEpMAAKE3aW4Ue3q3IdTeBZAef5EpzqJhI
+	3xsdyqW0Vc57YV3l6mEcNbaSqqR+cJFKkO3goduKhFp3FAn0JORT2BD2pfo0tGP5mvGRz/
+	8TFkuddjS5Xylc0ZzYeSR6xnvOBgOSBCrBNV8jg1DQwQgJyDy9nNZv8XHQnlafh8EWBnWU
+	hHPVRdY3pRWmUZzfRgPsyoflMrwDGCrusYzkENAGt6Qx8G8hKovtaacz3iveNI1X8U75cH
+	mY/YT8Ji+9lDO0zTzHLARuce2jX9H02nP0xPUdaHTUonY/FdvXfTUs0lljSmZA==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH net-next 0/2] net: stmmac: dwmac4: Auto-discover UC filter size
+Date: Mon, 31 Aug 2026 09:01:18 +0200
+Message-ID: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260828151747.20035d50@gandalf.local.home>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_235515_910124_716FBEFD 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260831_000144_675571_85A8B810 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,92 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-28 15:17:47 [-0400], Steven Rostedt wrote:
-> On Fri, 28 Aug 2026 15:13:13 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
-> 
-> > If one worries about stack size, they may want to turn off
-> > CONFIG_RANDOMIZE_KSTACK_OFFSET as I see some big numbers for do_syscall_64()
-> 
-> And the scheduler has some heavy stack usage here!
-> 
->   # trace-cmd stack
-> (stack tracer running)
->         Depth    Size   Location    (31 entries)
->         -----    ----   --------
->   0)     8120      48   __msecs_to_jiffies+0x9/0x30
+Following my attempts to get clean ethtool selftests runs on stmmac [1],
+several issues were found with the unicast filtering.
 
-I didn't expect get_user_pages_unlocked() getting that big:
+[1]: https://lore.kernel.org/netdev/20260827134004.45ffb57e@kernel.org/
 
-(stack tracer running)
-        Depth    Size   Location    (60 entries)
-        -----    ----   --------
-  0)     8176      48   __css_rstat_updated+0x9/0x150
-  1)     8128       8   __cgroup_account_cputime+0x2f/0x50
-  2)     8120      48   update_se+0x10c/0x1b0
-  3)     8072      48   update_curr+0x31/0x180
-  4)     8024      56   put_prev_entity+0x153/0x1f0
-  5)     7968     136   pick_next_task_fair+0x684/0x8e0
-  6)     7832     120   __schedule+0x1ca/0x1130
-  7)     7712       8   preempt_schedule_irq+0x38/0x60
-  8)     7704      72   irqentry_exit+0x148/0x6b0
-  9)     7632     136   asm_sysvec_apic_timer_interrupt+0x1a/0x20
- 10)     7496     240   HUF_compress1X_usingCTable_internal_bmi2+0x12d2/0x1c40
- 11)     7256      80   HUF_compress4X_usingCTable_internal+0x192/0x1d0
- 12)     7176      32   HUF_compressCTable_internal+0x61/0x90
- 13)     7144     136   HUF_compress_internal+0x2d2/0x500
- 14)     7008      56   HUF_compress4X_repeat+0x25/0x60
- 15)     6952     176   ZSTD_compressLiterals+0x1ad/0x400
- 16)     6776     224   ZSTD_entropyCompressSeqStore_internal+0xfb/0x320
- 17)     6552     112   ZSTD_compressBlock_internal+0x11b/0x210
- 18)     6440     296   ZSTD_compressContinue_internal+0x232/0xdd0
- 19)     6144      56   ZSTD_compressEnd_public+0x27/0x190
- 20)     6088     112   ZSTD_compressStream2+0x9fc/0xa60
- 21)     5976      80   ZSTD_compress2+0x83/0xd0
- 22)     5896      24   zstd_compress+0x3d/0x70 [zram]
- 23)     5872      72   zcomp_compress+0x62/0x90 [zram]
- 24)     5800     144   zram_submit_bio+0x558/0xb00 [zram]
- 25)     5656     128   __submit_bio+0x164/0x240
- 26)     5528      96   submit_bio_noacct_nocheck+0x134/0x390
- 27)     5432      64   bio_await+0xa7/0xb0
- 28)     5368      16   submit_bio_wait+0x16/0x20
- 29)     5352     184   swap_writepage_bdev_sync.isra.0+0x12e/0x230
- 30)     5168      40   swap_writeout+0x18d/0x2e0
- 31)     5128     176   shmem_writeout+0x286/0x530
- 32)     4952     440   shrink_folio_list+0x588/0xfc0
- 33)     4512     296   evict_folios+0x399/0xac0
- 34)     4216     160   try_to_shrink_lruvec+0x1a4/0x390
- 35)     4056      64   shrink_one+0xc0/0x1a0
- 36)     3992     240   shrink_node+0xa9a/0xcf0
- 37)     3752      88   do_try_to_free_pages+0xb3/0x4d0
- 38)     3664     176   try_to_free_pages+0xce/0x220
- 39)     3488     264   __alloc_pages_slowpath.constprop.0+0x8cc/0x1240
- 40)     3224      96   __alloc_frozen_pages_noprof+0x2f6/0x340
- 41)     3128      64   alloc_pages_mpol+0xb6/0x190
- 42)     3064      56   vma_alloc_folio_noprof+0x6e/0xd0
- 43)     3008      80   do_anonymous_page+0x32e/0x8f0
- 44)     2928     224   __handle_mm_fault+0xb31/0xf60
- 45)     2704      64   handle_mm_fault+0xee/0x2f0
- 46)     2640     152   __get_user_pages+0x1b5/0x1140
- 47)     2488     104   get_user_pages_unlocked+0xf0/0x330
- 48)     2384     128   hva_to_pfn+0x2ea/0x450 [kvm]
- 49)     2256      64   __kvm_faultin_pfn+0x61/0x90 [kvm]
- 50)     2192     120   kvm_mmu_faultin_pfn+0x2cf/0x6f0 [kvm]
- 51)     2072      24   kvm_tdp_page_fault+0x94/0xf0 [kvm]
- 52)     2048     120   kvm_mmu_do_page_fault+0x1d9/0x210 [kvm]
- 53)     1928     200   kvm_mmu_page_fault+0x7e/0x7b0 [kvm]
- 54)     1728      40   npf_interception+0xba/0x240 [kvm_amd]
- 55)     1688     168   kvm_arch_vcpu_ioctl_run+0x931/0x1900 [kvm]
- 56)     1520     200   kvm_vcpu_ioctl+0x2e4/0xa10 [kvm]
- 57)     1320      56   __x64_sys_ioctl+0x97/0xe0
- 58)     1264    1072   do_syscall_64+0xe1/0x640
- 59)      192     192   entry_SYSCALL_64_after_hwframe+0x76/0x7e
+This lead to the discovery that on dwmac4 platforms, the unicast filter
+size is always falling back to the default value of 1 entry. On older
+variants, the size comes from devicetree.
 
-Does this stack tracer distinguish between the kernel-stack and
-IRQ-stack? I would expect asm_sysvec_apic_timer_interrupt() on the
-IRQ-stack and not adding weight to the kernel stack.
-Given how close this is to 8192, I don't think two stack pages will
-happen soon.
+With a single-entry filter, we directly fallback to unicast promisc as
+soon as any entry is added in the dev->uc list.
 
-Sebastian
+dwmac4 exposes through the HW_Features0 register the actual size of the
+unicast filter, which is made of 3 banks (details in patch 2). Let's use
+this feature to grab the filter size.
+
+Results on actual hardware :
+
+ - imx8mp   : goes from 1 entry to 64
+ - stm32mp1 : goes from 1 entry to 4
+ - jh7110   : goes from 1 entry to 9
+ - yt6801   : still 1 single entry, on extra implemented in HW
+
+Maxime Chevallier (2):
+  net: stmmac: dwmac4: Read the UC filter size from hardware
+    capabilities
+  net: stmmac: dwmac4: Use the full perfect filter ability for UC filter
+
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  5 ++
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h  |  6 +-
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c | 60 +++++++++++++++----
+ .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  |  2 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 39 ++++++++++++
+ 5 files changed, 99 insertions(+), 13 deletions(-)
+
+-- 
+2.55.0
+
 
