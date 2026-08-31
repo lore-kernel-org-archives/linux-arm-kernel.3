@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC4FC61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 21:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FF6C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 22:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HR5w4wu2d/AdbodPVdlLXgyYzkKXoBfBxxBtTecxISQ=; b=Lnow3+zB49Yea7BvrhYwCLTtFz
-	n2OFMoZb+7sLOdsuJMQ0hecMHdKy4Hz54MzJyDZWhbHsGOonBi2DKzEKczqw97UJOKhrjqNg4Onfz
-	F0u1eMyy4N0m6pZxjBjh+8KVO30Bk+YPXxB5jZ8bHAuagwl7V2oixCa0Osl7PymoicaLha/ytngIt
-	heSKlTMRMUL9M7E5aFPNUZ6eGj9O7Gq927E6p4TDbA0L5ulm7WnJcH163QzAVZYEZpprkrSkRhQra
-	608lKL79Xc4yNN5zEWAgMkHdGboFoyFjt/bPwGLvLSTCghKVWnXb+jSFMqBFIjnGIPjsidhHrDnPp
-	Zycxu5cA==;
+	bh=mYjFqCL8ZqGwyYOCqcVAuOOzmd5emtsWmoF/dFsSDf8=; b=Lhpk7/ecTY+BKhkTq7M6rJcG7V
+	k51bSgC58oFu+c8wcQkNqPPmb+UbvYqNKywaNzo9O/weIvmwHaKg2iyX/Fzdc742tTksx5tAkQIss
+	NGpG8hNEnpQ3NwfWZGjSv4bz0Gsu+23GFk3+mmyI7qPJr+6Xn5M96XQqcgvdsp/TI35+3LZdCt2dk
+	dkACSdQ6QqL2hhyA0MpFj3iev7L1GQVfM2WNhA9ASO/rArKc5nmCWe9ju4jhKh3iLgTNaMdTriJzG
+	QhvxPUOdUp2qdzLbiYZpOhgSDke5hTuIOFqv4bsyDBle35RiuGxIgJcEpDxgJOpvoir37fi/eZcpc
+	U/rlb1zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x19rD-0000000AYlA-3FSG;
-	Mon, 31 Aug 2026 21:47:59 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1x1AMg-0000000AalK-2Gs2;
+	Mon, 31 Aug 2026 22:20:30 +0000
+Received: from trager.us ([52.5.81.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x19r2-0000000AYeC-3oBv
+	id 1x1AMc-0000000Aakk-1QNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 21:47:49 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-39c9a3acd40so29311291fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 14:47:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788212867; x=1788817667; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HR5w4wu2d/AdbodPVdlLXgyYzkKXoBfBxxBtTecxISQ=;
-        b=gTXC9Rg2ualcIMUFmLFNnflQufjPsqXHr39+VHMMx2XpgLDMSQh2MZBfvUXAhDcskK
-         inIJ9X8ZSirAO1EE0QVzeVs4B1860/MXqYZYAbh2tpb4lIngrqBlTa4zQda7pitrrL6T
-         AM7ChNDZbpGrUFoj4kMcbfhNV5K+dH2EkSwlBf/ilIB0jc9d3yYks2KUt3gQjQJrYr86
-         0Jvkwoj5l6P78No1X+1K0X5cOejMmXasNyFm7eemP4ZPQ6UGcXBCL7puHRLrwHWo01l9
-         V1ZcuEdCgmOZ4v+mSt3JMoLUc2JOpRt9GlegJCQMQWhs9tETKHw2nafeI2ajWMfAlMKV
-         k6TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788212867; x=1788817667;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HR5w4wu2d/AdbodPVdlLXgyYzkKXoBfBxxBtTecxISQ=;
-        b=Y/RRDRmJft+2uX0Rs/ePXWKOPhkUU9hUWKEGyiTe+k6LIB5d7l2r5zAx2JWVQG157t
-         tsTjdMCob0o+Plf+0mZccCf+59KzLHs7KwhroyqNKmMg68CYO9hcEnbwtZzKFdHw3eEA
-         ERV1LzxTXsklJol9Aln34PkRdenQ9j0l3p458W9QuPqk8r2e+SoRJKnlNbhdjGSi7wSo
-         mvnGdb5usBdGFmZ4ec8VPELzPMEADojWnLyjyGPpwu6WmxuUQtmYDqvcpVMrKf6KNNJg
-         SDDPT1q9HM8doYBqhuK6C9ddoIaWWUWUHdNp5jPdKQB2CEDpwdP2secZFcpQ4akaHCFV
-         ZVvw==
-X-Forwarded-Encrypted: i=1; AKwUvByD9LemsJrs02F/1wX/BZsDvh1HzDSMgUsBnr4kLK7PF5tFunxGZvQYczaPU8+DUlrQ7VGnO5jkGCkcExdkNTu2@lists.infradead.org
-X-Gm-Message-State: AFuF++njkickh/7XkzaZLJ6fdniytVHePueJM8ewxgur2A9N6R2/SGB1
-	t5NMtqgAC5sBU6zqXaxA4xoPY0b4SLIjNDmM6yp46CtZ75vs4P8t9iE=
-X-Gm-Gg: AYBFou3ZvMK10nCyARST3DKueDmQl2r7MBt2xW0Y3Ti05qfCffowZXKHCTQ+iWI59NI
-	fRuGj8GuF8Ft5skdXEKdQEPXj3Fmlb2lmkeXKd51e/Do4n68zyg16beA7WRreW+jBvwSlowT7o9
-	pZp35WEkhXd86vCAqMIGz6V5Gvfwbq87IeKLIVDn9Ur5bHBS232aMNlBqmqHpZP2MCqDMJGfRda
-	qvFASD/AwqER9ldVU6RaADV61BEHrr6EW7pDhsU8lL56u0MQKR3D3voZioVV253V05x6fgUBlBk
-	KN6tOR1Xp8Bgqwkfn3E2hxvi/n3/m7DjK+cEqRrZNU2k9MwbCLs73VEwu831AUk9xbGvBeCKmb2
-	utb9SJbOgCPEgYf8w2yfiK2rYLQOvnHxAeG8iAsIUXvj1eT8uybc/oo6mf8huKr2DTwKuVLtpqj
-	R+0ZJUIflG1jqxzaESQzNUTr4d9aM9/EE3HrdNB0cZnaibEFsiIA==
-X-Received: by 2002:a05:651c:30c9:b0:3a1:ab57:ea2c with SMTP id 38308e7fff4ca-3a33948c4e0mr10050771fa.2.1788212866759;
-        Mon, 31 Aug 2026 14:47:46 -0700 (PDT)
-Received: from fedora ([92.36.9.2])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a31550cefbsm18299201fa.9.2026.08.31.14.47.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 14:47:46 -0700 (PDT)
-From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	netdev@vger.kernel.org
-Cc: upstream@airoha.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Subject: [PATCH net v2 3/3] net: airoha: grow the small RX rings
-Date: Tue,  1 Sep 2026 00:47:01 +0100
-Message-ID: <20260831234701.206021-4-sochnev.v.74@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260831234701.206021-1-sochnev.v.74@gmail.com>
-References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
- <20260831234701.206021-1-sochnev.v.74@gmail.com>
+	Mon, 31 Aug 2026 22:20:29 +0000
+Received: from c-73-254-161-40.hsd1.wa.comcast.net ([73.254.161.40] helo=[192.168.1.225])
+	by trager.us with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
+	(Exim 4.92.3)
+	(envelope-from <lee@trager.us>)
+	id 1x1AMJ-0007sZ-6G; Mon, 31 Aug 2026 22:20:07 +0000
+Message-ID: <948381d2-8ba7-458b-b729-d5398e0a8559@trager.us>
+Date: Mon, 31 Aug 2026 15:19:59 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 10/12] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Ritwick Sharma <ritwick.sharma@arm.com>,
+ Gavin Shan <gshan@redhat.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260807105451.3728284-1-andre.przywara@arm.com>
+ <20260807105451.3728284-11-andre.przywara@arm.com>
+Content-Language: en-US
+From: Lee Trager <lee@trager.us>
+In-Reply-To: <20260807105451.3728284-11-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_144748_970831_8B79EFB4 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260831_152026_378588_5B247D06 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,46 +76,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Raise the RX_DSCP_NUM() fallback from 16 to 32, the vendor SDK default,
-and give ring 4 the 128 descriptors already used for rings 2/11/15.
+On 8/7/26 3:54 AM, Andre Przywara wrote:
 
-Ring 4 is the shared "force to CPU" ring that airoha_fe_vip_setup()
-routes BOOTP, PPPoE Discovery, PPP LCP/IPCP/CHAP/PAP/IPv6CP, ISAKMP,
-DHCPv6, SIP and LLDP onto, so it sees the same bursty non-hashed traffic
-as the rings already on 128 while sitting on the smallest allowance.
+> +
+> +static int mpam_fb_send_request(struct mpam_msc *msc, u32 msc_id,
+> +				u16 reg, u32 *result, int mpam_fb_command)
+> +{
+> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
+> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
+> +	struct mpam_pcc_chan *pcc_chan;
+> +	struct pcc_mbox_chan *chan;
+> +	void __iomem *payload_ofs;
+> +	int mpam_fb_err = 0;
+> +	u32 status;
+> +	int ret;
+> +
+> +	pcc_chan = msc->pcc_chan;
+> +	if (!pcc_chan)
+> +		return -ENODEV;
+> +
+> +	chan = pcc_chan->pcc_chan;
+> +
+> +	/* prune token to fit into the 10 bits inside the command register */
+> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
+> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
+> +
+> +	mutex_lock(&pcc_chan->pcc_chan_lock);
+> +
+> +	switch (mpam_fb_command) {
+> +	case MPAM_PROTOCOL_VERSION_CMD:
+> +		mpam_fb_build_version_message(token, chan->shmem);
+> +		break;
+> +	case MPAM_MSC_READ_CMD:
+> +		mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
+> +		break;
+> +	case MPAM_MSC_WRITE_CMD:
+> +		mpam_fb_build_write_message(msc_id, reg, *result,
+> +					    token, chan->shmem);
+> +		break;
+> +	default:
+> +		dev_err(&msc->pdev->dev, "unsupported MPAM-Fb command %d\n",
+> +			mpam_fb_command);
+> +		ret = -EINVAL;
+> +		goto out_err;
+> +	}
+> +
+> +	ret = mbox_send_message(chan->mchan, NULL);
+> +	if (ret < 0)
+> +		goto out_err;
+> +
+While testing this series when building arm64 allnoconfig with 
+CONFIG_ARM4_MPAM=y I got a link failure:
 
-At 16 descriptors the completion stall handled by the previous patch is
-readily reachable: on a Nokia XG-040G-MF the recovery fires roughly every
-35 s under repeated PPPoE dial-up, and negotiation never completes. At
-128 it did not trigger once across 500 forced PPPoE reconnects over 20 h.
+drivers/resctrl/mpam_fb.o: undefined reference to `mbox_send_message`
 
-Ring 4 and the VIP classification feeding it are shared driver-wide, with
-no DT or hardware property distinguishing one variant's ring 4 from
-another's, so this is not scoped to a particular SoC.
+Since the ACPI MPAM-Fb transport also reqiures PCC, wold it make sense 
+for ARM64_MPAM_DRIVER to select both dependencies?
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+     select MAILBOX
+     select PCC if ACPI
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index c195dad5ed58..0b7c90940272 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -41,9 +41,10 @@
- #define TX_DSCP_NUM			1024
- #define RX_DSCP_NUM(_n)			\
- 	((_n) ==  2 ? 128 :		\
-+	 (_n) ==  4 ? 128 :		\
- 	 (_n) == 11 ? 128 :		\
- 	 (_n) == 15 ? 128 :		\
--	 (_n) ==  0 ? 1024 : 16)
-+	 (_n) ==  0 ? 1024 : 32)
- 
- #define PSE_RSV_PAGES			128
- #define PSE_QUEUE_RSV_PAGES		64
--- 
-2.55.0
-
+Lee
 
