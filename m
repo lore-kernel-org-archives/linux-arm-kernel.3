@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B188C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0640DC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLrtm4PjnIPMZjGOBkD2GjpIeV2schSUM6vZ//r0E74=; b=MZUAiXO0KgrA8e5mDpYvLLAO4J
-	ToDshh2Od+VDXGOoW1WiKIR5HTBxsspOFqE9jyfcgCnpOHXkmM/PwEfOVv/n6/IVl0yobLumI/Cwo
-	5XdEgce1RgxmkPVtM8Tt4fhrPXbGzcvjp5V5XoO4iybQtH0hgEzFhyrTbJpjHjKJvzUetEJCDqrfV
-	dl3uyLneTqicg6ERWVgKAFGLGupBlWinyHqP0tVOYVcNJjwAMzmZySuiVYa1E749R7RyxsgHvZ2lL
-	B0nfpPxxw3aHBBFmFVHirXvD8yjusMCf/xChxLhlZeq99Ds515JJmbnDdYufvlnCwSBoc2P9nn+RG
-	LDJ+AxsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vZKWq0mMMGFiL2ra1uyi9+EXSoTSOjxTyuVR5F9+hBQ=; b=i0Sm4eNd2bN7bBg+xN69zMBSHz
+	BpDq+Pu0ZFGgZv3fFXDAY87Zpp1QF4FAiIsEz1Jvhp5F8mbeR8UMr3iqAWIXibETb8BXtVq2e5Mfc
+	MO/u622SeOj5sDRYzLqEEsDN9IZPPrO1eaL7tuYz3H2PXo1BBhLVjlbvntcy/UoYgf8KqSplVA9kT
+	pu2dA05s7mlo7kvZUjnnyWi40LIFRk78G79mvKXJgLeWUachZvNovmEBiNMe/CsRki+aNyCLX/+rb
+	6jH9fFz6VlsIYKnBgn9zm7PtAxyq/vG1eOO2jzSekqR4HDo+QUM6HnQaE/rsPQGeeeFjdB980Ara/
+	F1YmQqfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14fV-0000000A0ju-34LF;
-	Mon, 31 Aug 2026 16:15:33 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x14jg-0000000A1cY-32dZ;
+	Mon, 31 Aug 2026 16:19:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14f9-0000000A0RC-2vqg;
-	Mon, 31 Aug 2026 16:15:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0C7814E4147F;
-	Mon, 31 Aug 2026 16:15:10 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D151360231;
-	Mon, 31 Aug 2026 16:15:09 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 86CCF11C7922B;
-	Mon, 31 Aug 2026 18:15:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788192907; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=QLrtm4PjnIPMZjGOBkD2GjpIeV2schSUM6vZ//r0E74=;
-	b=Ej6u9ZW9pubc1ChmjbF1r7gwKgdbCx8SMZe+c9nMLnjyROr8ln2hFeT8KSNWRnyaGIeCuF
-	hZcu6UjYnhuk63QAB87l4NRBR6LQLOSoLTdOl32t2npOxnMxKkDG1bmbYmbr+HtBXJe+/+
-	2SfVffkTEXLY/dM10s69O7aEImdOsUASybouxPzMUE03CO9jJHjM45FZ99uR3f1U7ZMoDJ
-	fQHl/WJxsX5VDPonJsdgVNtLGKORGy9iBOv8yqC/lJec4mRdIiVU7DzlMHLHNMJqZIE42d
-	/u+MF0gIbk8HKkp8asbNBls6CpIq10blHXkB9t303KwMfqKhoRsH2slyNtNxnw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Mon, 31 Aug 2026 18:13:39 +0200
-Subject: [PATCH v3 13/13] drm/bridge: tc358764: select DRM_PANEL_BRIDGE
+	id 1x14jf-0000000A1bx-1o9Z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 16:19:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F705601FD;
+	Mon, 31 Aug 2026 16:19:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4F961F00A3D;
+	Mon, 31 Aug 2026 16:19:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788193190;
+	bh=vZKWq0mMMGFiL2ra1uyi9+EXSoTSOjxTyuVR5F9+hBQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iZ60x8SCFc4ZXT6oYBS8PqfQ9ivIgeqYgqtDOKvsjCfc+r9Lhc9Rqrlkj0WAxOf3t
+	 SkQzZmxmOukL2Kog/YOdtSL+rOVS8gLs7cPtBhLpVZURcqhopjf0l/4SetcvfKzBHs
+	 5/jY2Hoeme9M4CBbXve+m+pfNwVAuSPPJGLwKxnxiUhH9w9ffevzfTRp05aJM+E4S7
+	 RKxfBSYWdyGLqeH9UG5JlnYR0bwZO8dxuUSuJ89fyQO8vy3JvkDsO6VOnZa/n/6PwY
+	 EE3q42Ff25AjUfb9ZOWcN3RIXTGUbqdTbbORwl6efU7Jk740X+BgeVyVkt/6PV2No4
+	 oid6FK4dqZjgw==
+Date: Mon, 31 Aug 2026 17:19:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Wensheng Wang <wenswang@yeah.net>, Frank Li <Frank.Li@nxp.com>,
+	Cosmo Chou <chou.cosmo@gmail.com>, Colin Huang <u8813345@gmail.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Antoni Pokusinski <apokusinski01@gmail.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Dixit Parmar <dixitparmar19@gmail.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH 1/2] dt-bindings: trivial-devices: add atmel,atecc608a
+Message-ID: <20260831-irritably-bacteria-e3ddad58fd80@spud>
+References: <20260830220151.21469-3-blum@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-drm-bridge-drm_panel-cleanup-v3-13-50efd8168b3e@bootlin.com>
-References: <20260831-drm-bridge-drm_panel-cleanup-v3-0-50efd8168b3e@bootlin.com>
-In-Reply-To: <20260831-drm-bridge-drm_panel-cleanup-v3-0-50efd8168b3e@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
- Sam Ravnborg <sam@ravnborg.org>, Jagan Teki <jagan@amarulasolutions.com>, 
- sashiko-bot@kernel.org
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_091511_912216_5B6507C2 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q3W50SDhGFq7JrQI"
+Content-Disposition: inline
+In-Reply-To: <20260830220151.21469-3-blum@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +85,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver uses devm_drm_of_get_bridge(), which is enabled by
-DRM_PANEL_BRIDGE.
+--q3W50SDhGFq7JrQI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Marek Vasut <marex@denx.de>
-Cc: Sam Ravnborg <sam@ravnborg.org>
-Cc: Jagan Teki <jagan@amarulasolutions.com>
-Suggested-by: sashiko-bot@kernel.org
-Link: https://lore.kernel.org/all/20260825103234.3F2B71F000E9@smtp.kernel.org/
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
----
+--q3W50SDhGFq7JrQI
+Content-Type: application/pgp-signature; name=signature.asc
 
-This patch is new in v3.
----
- drivers/gpu/drm/bridge/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 92938df3b747..f2db7f60d40f 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -389,6 +389,7 @@ config DRM_TOSHIBA_TC358764
- 	depends on OF
- 	select DRM_MIPI_DSI
- 	select DRM_KMS_HELPER
-+	select DRM_PANEL_BRIDGE
- 	help
- 	  Toshiba TC358764 DSI/LVDS bridge driver.
- 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWpnwAKCRB4tDGHoIJi
+0rEXAP9DZvI/dLIfzFA2O0skyTySC0B+tR9xSHtmn7eTU6WSLwD9G4Gk0SC09K3X
+p09sVB7IFk91pO5QeKi3CUK3hik74wU=
+=DzDP
+-----END PGP SIGNATURE-----
 
--- 
-2.55.0
-
+--q3W50SDhGFq7JrQI--
 
