@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2033C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 23:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11674C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 23:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OsrNXzQ4NnwEZq7XsvkuamMCBWqUACDmS63rgtMjAZ4=; b=CvOJWCOTgop/Ppwz8BFD1cR2MH
-	/adep46/wXrUCKhP+iqZPSfnB0PMJdHGrsvenI2sxk97fPRhUWPgKIxfIH3mNRhp8AsC/mvI5a2Rv
-	yBW7cOgLyFYc0A3tCO/ISuylqj5uYT04s8cEi8dRo0xz1O2sTb+0J3ZOY6VFU+JM/qlV5bx0Up9yl
-	y/t7ePIYb1FJTpepjAojSSZehsB3l1zFAqutf3T5AtzhLNXk+YaLveBloXBwZ+4BhrlgGkq6gAV0Q
-	47p8M8pfvw0NdsjA254XNogJ/eqEwDXc3i8m69KpHeVnaFoJfBLgCisabEKnv4NuI/AWTCK6Pmq+/
-	4hFhm7aw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G/4pCNbo+upZ0k4TXQBP77fIXcguXQOHsC6hBkuc0Xw=; b=Ym4MfE6IJyV175KrWlse3YDZbN
+	/QzRMRU+Bmf8r9O8LW/HlJzUEKSYOXrqO1u+RdUV01cZiS3yw9kWvSefXQOHfdtShslj/7YuGlTPh
+	eoQYWIZ/NFuMP+Vdmb/tbJZ91wrurgCvmjox4EQsRVAKceZunC8mSbGpV77ajRHDZq2BrxNhXCC6m
+	yeGj01aepHUjwKTVuaVELq8P6siXuMJq34msCTMtVycR++WeeVTjNHwh4S2Lh/3QHe4D97qU2dKXJ
+	8yuWi4T54NW+SDwemkt6XF/20nFoWUjo7BL7y5qgUSsx8WjXlCRvJYJGrfRQ4E6xjXCwnjM3oYmfk
+	VAbXwd4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1BCf-0000000AdMn-1Xs7;
-	Mon, 31 Aug 2026 23:14:13 +0000
+	id 1x1BCl-0000000AdO9-1vUf;
+	Mon, 31 Aug 2026 23:14:19 +0000
 Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1BCd-0000000AdMQ-1cYg
+	id 1x1BCh-0000000AdMr-0OMI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 23:14:12 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4BB6011C934;
-	Tue, 01 Sep 2026 01:14:02 +0200 (CEST)
+	Mon, 31 Aug 2026 23:14:16 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C8FB711C9C7;
+	Tue, 01 Sep 2026 01:14:08 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788218044; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=OsrNXzQ4NnwEZq7XsvkuamMCBWqUACDmS63rgtMjAZ4=;
-	b=Y17bghFM8t98sSP/sTa7xOdzNYeWRt5954vWueefRkYlx1BCv86jMfmKYTlmNbb9C7eia+
-	ESHplgx1pKMOB4+EB7hwBKM/3KWkUMU9orff4XoAsfuaGkGHq2qfqRUl4AM1xGyLcRXX3b
-	dAr7qMpRI0kMJLB973brvVxJ7VBwFgoabXqUNz04zBBcr9m+Ovskt36egCWYdEMzJbHAT3
-	EC+XCP2NUo+8QYDJ6ZzoS33cMUCwtuTxlh8BWowovwoX+cEWg10r4MOAjBg9i2NZo9BYtL
-	B1/TDnHJxeeIzHV5HIa7M0gqI+i8tSaYfzZCIUvp/GAO6DRAVnJSZDZ4Lt7Kcg==
+	s=dkim; t=1788218049; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=G/4pCNbo+upZ0k4TXQBP77fIXcguXQOHsC6hBkuc0Xw=;
+	b=YgUWpuZGHTshL6IDcQat5bRGu7CykG7AwTpDVquTxx4NpMuWvVnUwXx5+fKTPpjSbUNj65
+	+C2Cz035Fxhmc95azaWcpGb9fQNmFQs34IuVPjNwE8w09xOAY1SkyjledBxBSiu6G6gyow
+	sc+p9lHD6aI72xm0fEhB7eF9LUuLoB9nq3px97u9Zc438OOKiwbi+z7XNcPAzBuNmOpAhz
+	AtLrz5E+ckVhbr3v53sh9QjKsHYdQ5TXsmR4msbNsLiUt9yEh20S7hES5eahy53ic0/kaT
+	6YmGRv30Pqzz+LK7llHNpVz0vyw1VH7pIrKsseFiXtSK/ktazSgOG+wPnb2U0w==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -52,16 +53,18 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	kernel@dh-electronics.com,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v5 1/2] dt-bindings: arm: stm32: Document st,stm32mp23/25-syscfg subnodes and cells
-Date: Tue,  1 Sep 2026 01:13:24 +0200
-Message-ID: <20260831231359.136475-1-marex@nabladev.com>
+Subject: [PATCH v5 2/2] soc: st: Add STM32MP2 SYSCFG driver
+Date: Tue,  1 Sep 2026 01:13:25 +0200
+Message-ID: <20260831231359.136475-2-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831231359.136475-1-marex@nabladev.com>
+References: <20260831231359.136475-1-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_161411_654266_AC357D0D 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20260831_161415_415834_AE43D0E8 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,9 +79,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
-represent the USB 2.0 FEMTO-PHY. Document subnodes pattern properties and
-address/size cells.
+Add trivial SYSCFG driver for ST STM32MP25xx, which binds drivers
+to its subnodes. This is currently used to bind USB PHY drivers to
+subnodes described in the SYSCFG DT node.
 
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
@@ -97,60 +100,107 @@ Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-stm32@st-md-mailman.stormreply.com
 ---
-V2: New patch
-V3: Fix the bindings
-V4: - Undo simple-mfd in favor of dedicated SYSCFG SoC driver
-    - Update commit message to match, this used to be patch
-      dt-bindings: arm: stm32: Switch st,stm32mp23/25-syscfg into simple-mfd
-    - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
-      https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
-V5: - Add missing contains: into conditional
-    - Add phy subnodes into required list for stm32mp23-syscfg/stm32mp25-syscfg
+V4: New patch
+V5: No change
 ---
- .../bindings/arm/stm32/st,stm32-syscon.yaml   | 20 ++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+ drivers/soc/Kconfig              |  1 +
+ drivers/soc/Makefile             |  1 +
+ drivers/soc/st/Kconfig           | 12 ++++++++++++
+ drivers/soc/st/Makefile          |  1 +
+ drivers/soc/st/stm32mp2-syscfg.c | 33 ++++++++++++++++++++++++++++++++
+ 5 files changed, 48 insertions(+)
+ create mode 100644 drivers/soc/st/Kconfig
+ create mode 100644 drivers/soc/st/Makefile
+ create mode 100644 drivers/soc/st/stm32mp2-syscfg.c
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index 95d2319afe235..2cce174004fe0 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -39,6 +39,17 @@ properties:
-   "#clock-cells":
-     const: 0
- 
-+  "#address-cells":
-+    const: 1
+diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+index a2d65adffb805..dfe5cec592626 100644
+--- a/drivers/soc/Kconfig
++++ b/drivers/soc/Kconfig
+@@ -24,6 +24,7 @@ source "drivers/soc/renesas/Kconfig"
+ source "drivers/soc/rockchip/Kconfig"
+ source "drivers/soc/samsung/Kconfig"
+ source "drivers/soc/sophgo/Kconfig"
++source "drivers/soc/st/Kconfig"
+ source "drivers/soc/sunxi/Kconfig"
+ source "drivers/soc/tegra/Kconfig"
+ source "drivers/soc/ti/Kconfig"
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index c9e689080ceb7..894bd6ebaaa4d 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -30,6 +30,7 @@ obj-y				+= renesas/
+ obj-y				+= rockchip/
+ obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+ obj-y				+= sophgo/
++obj-y				+= st/
+ obj-y				+= sunxi/
+ obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+ obj-y				+= ti/
+diff --git a/drivers/soc/st/Kconfig b/drivers/soc/st/Kconfig
+new file mode 100644
+index 0000000000000..2a9d6a77be450
+--- /dev/null
++++ b/drivers/soc/st/Kconfig
+@@ -0,0 +1,12 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "ST SoC drivers"
 +
-+  "#size-cells":
-+    const: 1
++config SOC_STM32MP2
++	tristate "STM32MP2 SoC family support"
++	depends on ARCH_STM32 || COMPILE_TEST
++	default ARCH_STM32 && ARM64
++	select SOC_BUS
++	help
++	  If you say yes here, you get support for the ST STM32MP2 family
 +
-+patternProperties:
-+  "^phy@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/phy/st,stm32-usb2phy.yaml
++endmenu
+diff --git a/drivers/soc/st/Makefile b/drivers/soc/st/Makefile
+new file mode 100644
+index 0000000000000..5ca313476ca93
+--- /dev/null
++++ b/drivers/soc/st/Makefile
+@@ -0,0 +1 @@
++obj-$(CONFIG_SOC_STM32MP2) += stm32mp2-syscfg.o
+diff --git a/drivers/soc/st/stm32mp2-syscfg.c b/drivers/soc/st/stm32mp2-syscfg.c
+new file mode 100644
+index 0000000000000..102430f258606
+--- /dev/null
++++ b/drivers/soc/st/stm32mp2-syscfg.c
+@@ -0,0 +1,33 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright 2026 Marek Vasut
++ */
 +
- required:
-   - compatible
-   - reg
-@@ -57,10 +68,17 @@ allOf:
-   - if:
-       properties:
-         compatible:
--          const: st,stm32mp25-syscfg
-+          contains:
-+            enum:
-+              - st,stm32mp23-syscfg
-+              - st,stm32mp25-syscfg
-     then:
-       required:
-         - "#clock-cells"
-+        - "#address-cells"
-+        - "#size-cells"
-+        - phy@2400
-+        - phy@2800
- 
- additionalProperties: false
- 
++#include <linux/module.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++
++static int stm32mp2_syscfg_probe(struct platform_device *pdev)
++{
++	return devm_of_platform_populate(&pdev->dev);
++}
++
++static const struct of_device_id stm32mp2_syscfg_ids[] = {
++	{ .compatible = "st,stm32mp23-syscfg" },
++	{ .compatible = "st,stm32mp25-syscfg" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, stm32mp2_syscfg_ids);
++
++static struct platform_driver stm32mp2_syscfg_driver = {
++	.driver = {
++		.name	= "stm32mp2_syscfg",
++		.of_match_table = stm32mp2_syscfg_ids,
++	},
++	.probe = stm32mp2_syscfg_probe,
++};
++module_platform_driver(stm32mp2_syscfg_driver);
++
++MODULE_AUTHOR("Marek Vasut <marex@nabladev.com>");
++MODULE_DESCRIPTION("ST STM32MP2 SYSCFG driver");
++MODULE_LICENSE("GPL");
 -- 
 2.53.0
 
