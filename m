@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BAFC624CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F125C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K09q/buokMvn65Vf9LNh4KXDSVO1+zr1vaU2AYgr2xQ=; b=u8yBWCHe5V7hb+EtApr40eML7a
-	HboC+/9WrD4st0HmK3G/Ns3tLd2d8v4iZ1o21w39zN2QK9sjSSVstQ/ek3hU5EFyCMuMFufdVtg8I
-	SUKLBOTUYLbexiHvvtBOWgLLbi9G1nEc3NbjAjemB4FZ3fjgikqybqQCTTkK1MW7cgLWVKu5n7v15
-	+0bmhletds4wPBgSjwrWGXwIYjZ2fk3FkHG8L0AM3QjyZ8dSYgRSsm7Wmj3h78GgNhq6AhrzgXNQs
-	WwXCPflbZe+vXoGhmE8Q2nMxOmXnzoQUWMSD56JOujGhnEWvecipZU3tPm5Z1IFUWaXb/A2agNhBX
-	5CQPSYBw==;
+	bh=cO2mZ5HN8GGzP/R9aMklJrVC6U8lRQNLY/LSuFjXokw=; b=jKr5UNYz7rm1WqmMXR23BG8YM7
+	kdbzq+IvchBD0TsXDEN0XSqLmbAPQ2oQCw90hty8UO1Bn+HA3kaNpvGJQsSNmNW/8HF915LqCEKNZ
+	8PVGZJW5aXvCg8z6ESdnhI8mtZ1BhVyqSNk6s7mDpc6t4F5BOYcoBfLflgjUZyv4qjPi+KrUZ4iDe
+	bmCJ4rjwY5Vy7AUYhaqA0V6zymwXM14DGpPAP/S5s38Yk2OJkQ0H6sViLU0x/8gkCeP1quVDdFZ4V
+	QA8ABPOEp+B5bWOZtRtvmprg6dV1KQr3bsOdnIRDNKl2BKod4VCnbhoyfcPDd3OAw4+drc5awuQor
+	aqZkZETA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x129K-00000009QLa-0gRa;
-	Mon, 31 Aug 2026 13:34:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x129a-00000009QUx-1ou1;
+	Mon, 31 Aug 2026 13:34:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x129D-00000009QIM-3uWx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:34:03 +0000
+	id 1x129Y-00000009QTL-16O8;
+	Mon, 31 Aug 2026 13:34:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A97F34090A;
-	Mon, 31 Aug 2026 13:34:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7071D1F000E9;
-	Mon, 31 Aug 2026 13:34:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A26CF60234;
+	Mon, 31 Aug 2026 13:34:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5587B1F000E9;
+	Mon, 31 Aug 2026 13:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183243;
-	bh=K09q/buokMvn65Vf9LNh4KXDSVO1+zr1vaU2AYgr2xQ=;
+	s=k20260515; t=1788183263;
+	bh=cO2mZ5HN8GGzP/R9aMklJrVC6U8lRQNLY/LSuFjXokw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dToK+IrD/BimSq1uvK+0xrz7UhVutVxwkXeLrrUl+CcCGQNUOgRI+/2/vuu3l3jTp
-	 uiKz5Sa/WPXLnbBfKrYpHOcQetqNoAhBNylxJJMx//AdrcVi2bKaW20HnJr8pJs9xJ
-	 CpR4n1qh43FHxk/fBlWzou3OgvMs+3r4QqbiRnLzP5RTp0q+NugBMJkDC0yaIc1w7/
-	 frLW/CdYobU1ENyo1ekluo7uWWyjj/Zt4Cs6xdsC3qF1igH6H9p2gm5uUV1APUXkHb
-	 9uHKg8LOs1VfOEV4vsDs4Drg0EJHsPzHMJcgemsUfqVOAE6jtsZBBVo9xQ9PUjf6CV
-	 QnXJsWMMWdh7w==
+	b=k5pW9A8m9nDeOrHOD88v8Nr7n2s9oqwvE0MvO2H21VJNX2h9/0fqwTgZafsn3MQl/
+	 cEP/Pzc5Zw9fldQN1IdX9Ft0GTP7cmxF2Pd/rMhscIqIz1kS7Vyzb5gYrKCYD41N8b
+	 BFQVDK1Adzy4mwh3hQYM0RqndmOA7DgIzpQfPetnP4TwwX5Nrbyl1+v3Z0GTp+0y9p
+	 UuXkjVTMrTZ/eXRFBA7Zd9/ylbt4PDzyP2677QiZP4FmryS7dNvy41NXtwxzlnCAAo
+	 uIt7R+bGnO+VXkZwLT2EoKmYRh9ddLid9RLrEu3aZ6kIdULduobIfxmppDFr4ihOqt
+	 d1rjE7HeTlMjw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
-	Will Deacon <will@kernel.org>,
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Xuegang Lu <xuegang.lu@airoha.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	catalin.marinas@arm.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
 	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] arm64: panic from init_IRQ if IRQ handler stacks cannot be allocated
-Date: Mon, 31 Aug 2026 09:20:59 -0400
-Message-ID: <20260831133314.4125787-31-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18] net: airoha: Reserve RX headroom to avoid skb reallocation
+Date: Mon, 31 Aug 2026 09:21:11 -0400
+Message-ID: <20260831133314.4125787-43-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -77,451 +82,499 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
+From: Lorenzo Bianconi <lorenzo@kernel.org>
 
-[ Upstream commit 7dc6922f7fdd3496de4e7d8fb99284fc08f98003 ]
+[ Upstream commit bbfb1983944f2eaa8ee192e0f7b59ecc0fda9981 ]
 
-init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
-or scs_alloc return NULL. Return -ENOMEM from both and call panic() once
-from init_IRQ(), covering per-CPU IRQ stacks and shadow IRQ stacks
-consistently.
+Reserve NET_SKB_PAD + NET_IP_ALIGN bytes of headroom for received packets
+to avoid skb head reallocation when pushing protocol headers into the skb.
 
-Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
-Signed-off-by: Will Deacon <will@kernel.org>
+Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Link: https://patch.msgid.link/20260513-airoha-rx-headroom-v1-1-bd87798e422d@kernel.org
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit Message Forensics
+# Stable Backport Analysis: `net: airoha: Reserve RX headroom to avoid
+skb reallocation`
 
-### Step 1.1: Parse the Subject Line
-**Record:** `[arm64]` `[panic]` — Add explicit panic in `init_IRQ()`
-when per-CPU IRQ handler stacks or shadow call stacks cannot be
-allocated.
-
-### Step 1.2: Parse All Commit Message Tags
-**Record:**
-- `Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>` —
-  author
-- `Signed-off-by: Will Deacon <will@kernel.org>` — arm64 maintainer
-  sign-off
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
-  by:`, `Link:`, or `Cc: stable@vger.kernel.org`
-- Notable: maintainer sign-off (Will Deacon) but no fuzzer/user bug
-  report
-
-### Step 1.3: Analyze Commit Body
-**Record:**
-- **Bug described:** `init_irq_stacks()` and `init_irq_scs()` ignore
-  failures from `arch_alloc_vmap_stack()` and `scs_alloc()`, which can
-  return NULL.
-- **Symptom/failure mode:** Boot continues with NULL per-CPU IRQ stack
-  pointers; first IRQ uses an invalid stack → crash/corruption instead
-  of a clear early panic.
-- **Version info:** None in message.
-- **Root cause:** Missing error checking on allocation return values in
-  early-boot IRQ stack setup.
-
-### Step 1.4: Detect Hidden Bug Fixes
-**Record:** Yes — described as adding panic, but it fixes a real NULL-
-pointer/invalid-stack bug on the IRQ path. Not cosmetic cleanup.
+**Local tree:** Linux **6.18.43** (`git describe HEAD` →
+`v6.18.43-1-gc7f0dac02d232`)
 
 ---
 
-## Phase 2: Diff Analysis — Line by Line
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 2.1: Inventory the Changes
-**Record:**
-- **Files:** `arch/arm64/kernel/irq.c` only (~30 lines changed)
-- **Functions modified:** `init_irq_scs()`, `init_irq_stacks()`,
-  `init_IRQ()`
-- **Scope:** Single-file, surgical early-boot fix
+### Step 1.1: Parse the subject line
+**Record:** `[net: airoha]` `[Reserve]` — Reserve RX headroom in the
+Airoha Ethernet driver to prevent skb head reallocation on received
+packets.
 
-### Step 2.2: Code Flow Change
+### Step 1.2: Parse all commit message tags
 **Record:**
-- **`init_irq_scs()` hunk:** Before — `void`, ignored `scs_alloc()`
-  NULL. After — returns `int`, propagates `-ENOMEM` on failure.
-- **`init_irq_stacks()` hunk:** Before — `void`, ignored
-  `arch_alloc_vmap_stack()` NULL. After — returns `int`, propagates
-  `-ENOMEM` on failure.
-- **`init_IRQ()` hunk:** Before — always continued to `irqchip_init()`.
-  After — `panic("Failed to allocate IRQ stack resources\n")` if either
-  init fails.
-- **Affected path:** Early boot initialization only (`init_IRQ()` during
-  `start_kernel()`).
+| Tag | Value |
+|-----|-------|
+| Tested-by | Xuegang Lu `<xuegang.lu@airoha.com>` (Airoha vendor
+engineer) |
+| Signed-off-by | Lorenzo Bianconi `<lorenzo@kernel.org>` (driver
+author) |
+| Signed-off-by | Jakub Kicinski `<kuba@kernel.org>` (netdev maintainer)
+|
+| Link | https://patch.msgid.link/20260513-airoha-rx-
+headroom-v1-1-bd87798e422d@kernel.org |
+| Fixes: | **Not present** (expected for manual review) |
+| Cc: stable | **Not present** (expected) |
+| Reported-by: | **Not present** |
 
-### Step 2.3: Bug Mechanism
-**Record:**
-- **Category:** Error-path / memory-safety (NULL stack pointer)
-- **Mechanism:** On allocation failure, `per_cpu(irq_stack_ptr, cpu)`
-  stays NULL. `call_on_irq_stack()` loads it and does `add sp, x16,
-  #IRQ_STACK_SIZE` with x16=0, placing SP at `THREAD_SIZE` (16 KiB on
-  4K-page kernels) — not a valid stack. Subsequent `stp`/`blr` corrupt
-  low kernel memory and crash unpredictably.
+**Notable patterns:** Vendor `Tested-by` from Airoha; no
+syzbot/sanitizer reports; no explicit crash description in the commit
+message.
 
-### Step 2.4: Fix Quality Assessment
+### Step 1.3: Analyze commit body text
 **Record:**
-- Obviously correct; mirrors existing `sdei.c` pattern
-  (`_init_sdei_stack()` / `_init_sdei_scs()` check NULL and return
-  `-ENOMEM`).
-- Minimal, no unrelated changes.
-- Regression risk very low — only affects the already-fatal OOM-at-boot
-  path, changing delayed corruption into immediate panic.
+- **Bug described:** RX skbs are built without `NET_SKB_PAD +
+  NET_IP_ALIGN` headroom, so the network stack must reallocate skb heads
+  when pushing protocol headers.
+- **Symptom/failure mode:** skb head reallocation on the RX path
+  (performance/correctness issue for page_pool-based RX, not a
+  documented oops).
+- **Version info:** None in commit message.
+- **Root cause (author):** Driver omitted standard RX headroom
+  reservation that peer drivers (e.g. MediaTek) already use.
+
+### Step 1.4: Detect hidden bug fixes
+**Record:** **Yes, partially.** While framed as avoiding reallocation,
+the final patch also tightens RX length validation (`data_len` now uses
+`AIROHA_RX_LEN()` / `e->dma_len` instead of unadjusted buffer sizes).
+During review of v5, sashiko-bot flagged that without this bounds
+adjustment, `__skb_put()` with `skb_reserve()` could overflow skb bounds
+if hardware returned an oversized length. Lorenzo acknowledged and fixed
+this in v6. The committed version includes both the headroom fix and the
+bounds-check correction.
 
 ---
 
-## Phase 3: Git History Investigation
+## PHASE 2: DIFF ANALYSIS — LINE BY LINE
 
-### Step 3.1: Blame Changed Lines
+### Step 2.1: Inventory the changes
 **Record:**
-- `init_irq_stacks()` core loop: `e3067861ba6650` (Mark Rutland, Jul
-  2017) — arm64 VMAP_STACK IRQ stacks since ~v4.12.
-- `init_irq_scs()`: `ac20ffbb0279aa` (Sami Tolvanen, Nov 2020) — dynamic
-  SCS for IRQ stacks since ~v5.10.
-- Node selection updates: `75b5e0bf90bff`, `7b1a09e44dc64` (2023).
-- Bug present since original introduction; not a recent regression.
+| File | Changes |
+|------|---------|
+| `drivers/net/ethernet/airoha/airoha_eth.c` | +8 / -6 lines |
+| `drivers/net/ethernet/airoha/airoha_eth.h` | +2 lines |
+| **Functions modified:** `airoha_qdma_fill_rx_queue()`,
+`airoha_qdma_rx_process()` |
+| **Scope:** Single-subsystem, two-file surgical driver fix |
 
-### Step 3.2: Follow Fixes Tag
-**Record:** N/A — no `Fixes:` tag in commit message.
+### Step 2.2: Code flow change per hunk
 
-### Step 3.3: File History for Related Changes
+**Hunk 1 — `airoha_qdma_fill_rx_queue()`:**
+- **Before:** DMA buffer starts at page_pool fragment offset; full
+  `SKB_WITH_OVERHEAD(q->buf_size)` used for DMA length.
+- **After:** Offset advanced by `AIROHA_RX_HEADROOM`; DMA length reduced
+  by headroom via `AIROHA_RX_LEN()`.
+- **Path affected:** RX ring refill (initialization/hot path).
+
+**Hunk 2 — `airoha_qdma_rx_process()` DMA sync:**
+- **Before:** Synced `SKB_WITH_OVERHEAD(q->buf_size)` regardless of
+  actual buffer offset.
+- **After:** Syncs `e->dma_len` (actual mapped region).
+- **Path affected:** RX NAPI processing.
+
+**Hunk 3 — `airoha_qdma_rx_process()` length validation:**
+- **Before:** `data_len` used full `q->buf_size` /
+  `SKB_WITH_OVERHEAD(q->buf_size)`.
+- **After:** `data_len` uses `AIROHA_RX_LEN(q->buf_size)` or
+  `e->dma_len`.
+- **Path affected:** RX validation before skb construction.
+
+**Hunk 4 — `airoha_qdma_rx_process()` skb build:**
+- **Before:** `napi_build_skb(e->buf, q->buf_size)` with no headroom.
+- **After:** `napi_build_skb(e->buf - AIROHA_RX_HEADROOM, q->buf_size)`
+  + `skb_reserve(q->skb, AIROHA_RX_HEADROOM)`.
+- **Path affected:** First-buffer skb construction on every received
+  packet.
+
+**Hunk 5 — header defines:**
+- **Before:** No headroom macros.
+- **After:** `AIROHA_RX_HEADROOM = NET_SKB_PAD + NET_IP_ALIGN`,
+  `AIROHA_RX_LEN(_n) = (_n) - AIROHA_RX_HEADROOM`.
+
+### Step 2.3: Bug mechanism classification
 **Record:**
-- Recent `irq.c` changes: `c4a5699d5cefd` (Jul 2025) removed
-  `CONFIG_VMAP_STACK` conditionals; did not add error checking.
-- `sdei.c` (same commit `ac20ffbb0279aa`) already checks allocation
-  failures for SDEI stacks/SCS.
-- Fix is standalone; not part of a multi-patch series in this tree.
-- Fix commit **not present** in local tree (grep/author search found no
-  match).
+- **Category:** Logic/correctness fix + memory-safety hardening
+- **Mechanism:** Driver uses `page_pool` + `napi_build_skb()` +
+  `skb_mark_for_recycle()` but did not reserve the standard `NET_SKB_PAD
+  + NET_IP_ALIGN` (typically 34 bytes) of RX headroom. When the network
+  stack later pushes headers (bridging, VLAN, DSA, GRO, etc.),
+  `skb_cow_head()` / `pskb_expand_head()` forces skb head reallocation,
+  defeating the page_pool zero-copy model. The bounds-check update
+  prevents accepting packet lengths that would overflow the reduced
+  usable buffer after `skb_reserve()`.
 
-### Step 3.4: Author's Other Commits
-**Record:** Osama Abdelkader has other kernel commits in this tree (drm,
-riscv kvm), but not this irq fix. Will Deacon is arm64 maintainer and
-committed the related `ac20ffbb0279aa` SCS work.
-
-### Step 3.5: Prerequisites
-**Record:** No dependencies. Uses only existing APIs
-(`arch_alloc_vmap_stack`, `scs_alloc`, `panic`, `-ENOMEM`). Applies
-cleanly to current `irq.c`.
+### Step 2.4: Fix quality assessment
+**Record:**
+- **Quality:** High. Matches established pattern in `mtk_eth_soc.c`
+  (`skb_reserve(skb, NET_SKB_PAD + NET_IP_ALIGN)`).
+- **Regression risk:** Very low. Only reduces usable DMA buffer by a
+  fixed 34-byte headroom; all length checks and DMA sync updated
+  consistently.
+- **Red flags:** None. No API changes, no cross-subsystem impact.
 
 ---
 
-## Phase 4: Mailing List and External Research
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 4.1: Original Patch Discussion
-**Record:** `b4 dig -c HEAD` did not match this commit (fix not in
-tree). Subject-based `b4 dig` failed (wrong usage). lore.kernel.org
-returned 403 to automated fetch. **UNVERIFIED:** full review thread and
-any stable nominations.
+### Step 3.1: Blame the changed lines
+**Record:** Local tree has shallow history (~50 commits). `git blame`
+attributes all `airoha_eth.c` RX code to a bulk-import commit, so the
+exact introduction commit cannot be determined from this checkout. The
+driver source header shows Copyright 2024, and the buggy RX path is
+**present in 6.18.43** at lines 549–674 of `airoha_eth.c`.
 
-### Step 4.2: Reviewers
-**Record:** **UNVERIFIED** via `b4 dig -w`. Will Deacon sign-off in
-commit message confirms maintainer acceptance.
+### Step 3.2: Follow Fixes: tag
+**Record:** No `Fixes:` tag present. Not applicable.
 
-### Step 4.3: Bug Report
-**Record:** No `Reported-by:` or `Link:` tags. No syzbot report. Bug
-identified by code inspection / consistency with `sdei.c`.
+### Step 3.3: File history for related changes
+**Record:** `git log --oneline -- drivers/net/ethernet/airoha/` returns
+no airoha-specific commits in this shallow stable checkout. The fix is
+**standalone** (not part of a multi-patch dependency chain in the
+committed form). During netdev review it was patch 02/12 of a larger
+series, but this commit is self-contained.
 
-### Step 4.4: Related Patches/Series
-**Record:** Standalone fix. Complements existing error handling in
-`arch/arm64/kernel/sdei.c`.
+### Step 3.4: Author's relationship to subsystem
+**Record:** Lorenzo Bianconi is the Airoha Ethernet driver author (per
+file header and patch submission). Jakub Kicinski (netdev maintainer)
+applied the patch. Strong subsystem ownership.
 
-### Step 4.5: Stable Mailing List
-**Record:** **UNVERIFIED** — could not search lore stable archive (403).
+### Step 3.5: Prerequisite commits
+**Record:** No prerequisite commits referenced. All symbols
+(`napi_build_skb`, `page_pool`, `skb_mark_for_recycle`,
+`SKB_WITH_OVERHEAD`) exist in 6.18.43. Patch applies cleanly with minor
+line-number offset (verified via `git apply --check`).
 
 ---
 
-## Phase 5: Code Semantic Analysis
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 5.1: Key Functions
-**Record:** `init_irq_scs()`, `init_irq_stacks()`, `init_IRQ()`, and
-downstream `call_on_irq_stack()`.
+### Step 4.1: Original patch discussion
+**Record:**
+- **b4 dig URL:** https://patch.msgid.link/20260513-airoha-rx-
+  headroom-v1-1-bd87798e422d@kernel.org
+- **Series revisions:** Only v1 found via `b4 dig -a` (direct
+  submission, applied as-is to net-next)
+- **Key reviewer feedback:** In the v5 series thread (spinics.net),
+  sashiko-bot flagged missing bounds-check adjustment as a potential
+  buffer overflow; Lorenzo replied "ack, I will fix it in v6." The
+  committed version includes that fix.
+- **Stable nominations:** None found in the thread (only patchwork-bot
+  apply notification).
+- **NAKs:** None.
+
+### Step 4.2: Reviewers from b4 dig -w
+**Record:** CC'd: Andrew Lunn, David S. Miller, Eric Dumazet, Jakub
+Kicinski, Paolo Abeni, linux-arm-kernel, linux-mediatek, netdev, Xuegang
+Lu (Airoha). Appropriate netdev maintainer coverage.
+
+### Step 4.3: Bug report details
+**Record:** No formal bug report URL in commit. OpenWrt downstream
+commit `dda777dd4472` describes this as part of "Airoha reported bug for
+ethernet" and backported it to their 6.12 airoha target. Vendor testing
+confirmed via `Tested-by: Xuegang Lu`.
+
+### Step 4.4: Related patches in series
+**Record:** Part of a larger airoha-eth multi-patch series on net-next,
+but this specific commit is independently applicable and functionally
+complete.
+
+### Step 4.5: Stable mailing list history
+**Record:** Not searched exhaustively; no stable-list nomination found
+in available thread data.
+
+---
+
+## PHASE 5: CODE SEMANTIC ANALYSIS
+
+### Step 5.1: Key functions modified
+**Record:** `airoha_qdma_fill_rx_queue()`, `airoha_qdma_rx_process()`
 
 ### Step 5.2: Callers
 **Record:**
-- `init_IRQ()` called from `start_kernel()` in `init/main.c:970` during
-  early boot.
-- `call_on_irq_stack()` called from `entry-common.c:160` on IRQ entry
-  when `on_thread_stack()` is true, and from `do_softirq_own_stack()` in
-  `irq.c:73`.
-- Every hardware interrupt on arm64 can reach this path once IRQs are
-  enabled.
+- `airoha_qdma_fill_rx_queue()` called from `airoha_qdma_rx_process()`
+  (line 716) and `airoha_qdma_init_rx_queue()` (line 802)
+- `airoha_qdma_rx_process()` called from `airoha_qdma_rx_napi_poll()`
+  (line 727)
+- NAPI poll is the standard per-packet RX hot path on every received
+  frame
 
-### Step 5.3: Callees
+### Step 5.3: Key callees
+**Record:** `page_pool_dev_alloc_frag()`, `napi_build_skb()`,
+`skb_reserve()`, `skb_mark_for_recycle()`, `eth_type_trans()`,
+`napi_gro_receive()`, `dma_sync_single_for_cpu()`
+
+### Step 5.4: Call chain / reachability
+**Record:** Hardware interrupt → NAPI poll → `airoha_qdma_rx_process()`
+→ network stack (`napi_gro_receive`). **Every received packet** on
+Airoha hardware traverses this path. Commonly triggered on OpenWrt
+router platforms with DSA switching and bridging.
+
+### Step 5.5: Similar patterns
+**Record:** `drivers/net/ethernet/mediatek/mtk_eth_soc.c:2320` uses
+`skb_reserve(skb, NET_SKB_PAD + NET_IP_ALIGN)` on RX. Many page_pool-
+aware drivers reserve equivalent headroom. The Airoha driver was missing
+this standard practice.
+
+---
+
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
+
+### Step 6.1: Does the buggy code exist?
+**Record:** **Yes.** In 6.18.43:
+- `airoha_eth.c:571-573`: no headroom offset, `e->dma_len =
+  SKB_WITH_OVERHEAD(q->buf_size)`
+- `airoha_eth.c:638-644`: unadjusted length checks
+- `airoha_eth.c:654`: `napi_build_skb(e->buf, q->buf_size)` without
+  `skb_reserve()`
+- `AIROHA_RX_HEADROOM` macro **not defined** in `airoha_eth.h`
+
+### Step 6.2: Backport complications
+**Record:** **Clean apply** with minor line-number offset (functions at
+lines 549/613 vs. 526/594 in upstream diff). No conflicting changes
+detected. `AIROHA_MAX_MTU` differs (9216 local vs 9220 upstream) but is
+unrelated to this patch.
+
+### Step 6.3: Related fixes already present?
+**Record:** `git log --grep="headroom"` and `git log --grep="airoha"`
+return no matches. **Fix is not already in 6.18.43.**
+
+---
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+### Step 7.1: Subsystem criticality
+**Record:** `drivers/net/ethernet/airoha/` — **IMPORTANT** (platform
+primary Ethernet MAC for Airoha SoCs used in routers/embedded). Config:
+`CONFIG_NET_AIROHA` depends on `ARCH_AIROHA || COMPILE_TEST`, selects
+`PAGE_POOL`.
+
+### Step 7.2: Subsystem activity
+**Record:** Driver is actively developed (2024 copyright, recent multi-
+patch series on net-next). Bug present since initial RX implementation.
+
+---
+
+## PHASE 8: IMPACT AND RISK ASSESSMENT
+
+### Step 8.1: Who is affected
+**Record:** Users of Airoha SoC gigabit Ethernet (`CONFIG_NET_AIROHA`) —
+embedded routers (OpenWrt airoha target), MediaTek-related DSA switch
+platforms. Not universal, but **primary network path** for those
+systems.
+
+### Step 8.2: Trigger conditions
 **Record:**
-- `arch_alloc_vmap_stack()` → `__vmalloc_node()` (can return NULL)
-- `scs_alloc()` → `__scs_alloc()` → `__vmalloc_node_range()` (explicitly
-  returns NULL on failure, `kernel/scs.c:58-60`)
-- `panic()` on failure
+- **Trigger:** Any RX traffic where the network stack pushes headers
+  (bridging, VLAN, DSA tag handling, GRO, forwarding). Very common on
+  router workloads.
+- **Likelihood:** High on deployed Airoha router configurations.
+- **Unprivileged trigger:** Yes (incoming network traffic).
 
-### Step 5.4: Call Chain / Reachability
-**Record:** `start_kernel()` → `init_IRQ()` → [allocation] → later
-`irqchip_init()` → timers/IRQs enabled → `handle_arch_irq` →
-`call_on_irq_stack()`. If stacks are NULL, first IRQ after enable hits
-invalid stack. Reachable on all arm64 systems using VMAP stacks (always
-selected in `arch/arm64/Kconfig:285`).
-
-### Step 5.5: Similar Patterns
-**Record:** `arch/arm64/kernel/sdei.c:74-84` and `:129-135` already
-check `arch_alloc_vmap_stack()` / `scs_alloc()` for NULL and return
-`-ENOMEM`. `arch/arm64/kernel/efi.c:218-222` also handles
-`arch_alloc_vmap_stack()` failure. `irq.c` is the inconsistent outlier.
-
----
-
-## Phase 6: Cross-Referencing Against the Local Tree
-
-### Step 6.1: Does Buggy Code Exist?
-**Record:** **Yes.** Local tree is **v6.18.43** (`git describe HEAD` →
-`v6.18.43-1-gc7f0dac02d232`). Current `arch/arm64/kernel/irq.c:54-63`
-and `:42-52` lack NULL checks. Fix not applied.
-
-### Step 6.2: Backport Complications
-**Record:** Clean apply expected. One minor context difference: user's
-diff shows `#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK` but this tree uses
-`#ifndef CONFIG_PREEMPT_RT` at that location — unrelated to the fix
-hunks.
-
-### Step 6.3: Related Fixes Already Present?
-**Record:** SDEI stack allocation error handling present since
-`ac20ffbb0279aa`. No equivalent fix in `irq.c`. `git log -S "Failed to
-allocate IRQ stack"` found nothing (fix absent).
-
----
-
-## Phase 7: Subsystem and Maintainer Context
-
-### Step 7.1: Subsystem Criticality
-**Record:** `arch/arm64` — **CORE/IMPORTANT**. Affects every arm64
-system (servers, mobile, embedded).
-
-### Step 7.2: Subsystem Activity
-**Record:** Actively maintained; recent `irq.c` changes in 2025
-(`c4a5699d5cefd`). Long-standing code with a long-lived oversight.
-
----
-
-## Phase 8: Impact and Risk Assessment
-
-### Step 8.1: Who Is Affected
-**Record:** All arm64 users with `CONFIG_VMAP_STACK` (always selected).
-`CONFIG_SHADOW_CALL_STACK` users additionally affected by `scs_alloc()`
-path.
-
-### Step 8.2: Trigger Conditions
-**Record:** `arch_alloc_vmap_stack()` or `scs_alloc()` returns NULL
-during `init_IRQ()` — early-boot OOM / vmalloc failure. Rare but
-concrete (not theoretical). Once IRQs fire, every CPU is affected.
-Unprivileged users can trigger IRQs after boot proceeds.
-
-### Step 8.3: Failure Mode Severity
-**Record:** Without fix: invalid stack at address `THREAD_SIZE` (16
-KiB), stack operations corrupt kernel memory, then oops/hang with poor
-diagnostics. **Severity: HIGH** when triggered (crash + potential
-corruption). With fix: immediate panic with clear message. **Severity of
-fix: prevents corruption.**
-
-### Step 8.4: Risk-Benefit
+### Step 8.3: Failure mode severity
 **Record:**
-- **Benefit:** Prevents undefined behavior and memory corruption on IRQ;
-  fail-fast with clear message; aligns with `sdei.c` precedent.
-- **Risk:** Very low — ~30 lines, early-boot-only, maintainer-reviewed.
-- **Ratio:** Favorable for backport.
+- **Without fix:** Per-packet skb head reallocation on header push;
+  page_pool recycling defeated; elevated CPU and allocation pressure;
+  potential `rx_dropped` under load; theoretical skb bounds overflow if
+  hardware returns oversized length (bounds-check issue fixed in final
+  version).
+- **Severity:** **MEDIUM-HIGH** for affected hardware — functional
+  networking degradation, not a typical kernel oops, but real user-
+  visible impact on production router platforms.
+
+### Step 8.4: Risk-benefit ratio
+**Record:**
+- **Benefit:** HIGH for Airoha users (correct page_pool RX behavior,
+  reduced per-packet allocations, hardened length validation).
+- **Risk:** VERY LOW (10-line surgical change, vendor-tested,
+  established driver pattern).
+- **Ratio:** Favorable for backport to 6.18.y where the driver and buggy
+  code both exist.
 
 ---
 
-## Phase 9: Final Synthesis
+## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence Compile
+### Step 9.1: Evidence compiled
 
 **FOR backport:**
-- Real bug: NULL IRQ stack pointers used by `call_on_irq_stack()`
-- Can cause memory corruption and oops, not just clean failure
-- Small, surgical, obviously correct
-- Matches existing `sdei.c` error-handling pattern in this tree
-- arm64 maintainer (Will Deacon) signed off
-- Buggy code present since 2017/2020 in this tree
-- VMAP_STACK always enabled on arm64
+- Buggy code confirmed present in 6.18.43
+- Vendor-tested (`Tested-by: Xuegang Lu @airoha.com`)
+- OpenWrt downstream backported as "Airoha reported bug" to 6.12
+- Standard RX headroom pattern used by peer drivers (MediaTek)
+- page_pool + `skb_mark_for_recycle` without headroom is incorrect for
+  header-push workloads
+- Includes bounds-check hardening from review feedback
+- Small, self-contained, applies cleanly
+- Affects every RX packet on Airoha hardware
 
 **AGAINST backport:**
-- Trigger (OOM at early boot) is very rare
-- No user reports, syzbot, or `Fixes:` tag
-- System likely unusable anyway under severe boot-time OOM
-- Mailing list review thread unverified
+- Commit message frames issue as avoiding reallocation (optimization
+  language)
+- No documented kernel crash, oops, or CVE
+- Narrow hardware scope (`ARCH_AIROHA`)
+- No explicit `Cc: stable` or maintainer stable nomination
+- Performance fix rather than crash/corruption fix per strict stable-
+  kernel-rules wording
 
-**UNRESOLVED:**
-- Full lore review discussion and any explicit stable nominations
+**Unresolved:** Exact symptoms Airoha reported to OpenWrt are not
+documented in the upstream commit or lore thread.
 
-### Step 9.2: Stable Rules Checklist
-1. Obviously correct and tested? **PASS** — mirrors proven `sdei.c`
-   pattern; maintainer sign-off; no user test reports.
-2. Fixes a real bug affecting users? **PASS** — NULL stack →
-   corruption/crash on IRQ.
-3. Important issue? **PASS** — oops and potential memory corruption
-   (HIGH when triggered).
-4. Small and contained? **PASS** — one file, ~30 lines.
-5. No new features or APIs? **PASS** — error handling only.
-6. Can apply to local tree? **PASS** — buggy code present; clean apply
-   expected.
+### Step 9.2: Stable rules checklist
+| Criterion | Result |
+|-----------|--------|
+| 1. Obviously correct and tested? | **PASS** — standard pattern, vendor
+Tested-by, netdev maintainer applied |
+| 2. Fixes a real bug? | **PASS** — driver RX headroom omission
+affecting page_pool skb handling |
+| 3. Important issue? | **PASS** — functional RX path degradation on
+deployed hardware; bounds-check hardening |
+| 4. Small and contained? | **PASS** — 10 insertions, 6 deletions, 2
+files |
+| 5. No new features/APIs? | **PASS** — internal driver constants only |
+| 6. Can apply to local tree? | **PASS** — verified clean apply to
+6.18.43 |
 
-### Step 9.3: Exception Categories
-**Record:** Not a device ID, quirk, DT, build fix, or docs fix. Standard
-bug fix.
+### Step 9.3: Exception categories
+**Record:** Not a device ID, quirk, DT, build, or documentation fix.
+Standard driver correctness fix.
 
-### Step 9.4: Decision Rationale
-
-This commit fixes a long-standing oversight where IRQ stack allocation
-failures are silently ignored. When `arch_alloc_vmap_stack()` or
-`scs_alloc()` fails during early boot, the kernel proceeds with NULL
-per-CPU stack pointers. The first IRQ then runs `call_on_irq_stack()`
-with an invalid stack base (`THREAD_SIZE`), causing stack operations to
-corrupt low kernel memory before crashing — worse than a clean panic.
-
-The fix is minimal, follows an established pattern already used in
-`sdei.c` in this same tree, and is signed off by the arm64 maintainer.
-While the trigger is rare (boot-time OOM), the consequence is a serious
-crash with potential corruption, which fits stable kernel criteria for
-"oops" and "oh, that's not good" issues. For v6.18.43, the buggy code is
-present and the fix is not.
+### Step 9.4: Decision rationale
+For **6.18.43**, the Airoha Ethernet driver exists with the buggy RX
+path. This is a vendor-reported, vendor-tested correction to a
+fundamental RX buffer layout error that breaks the page_pool zero-copy
+model on every packet requiring header push — a common case on Airoha
+router platforms with DSA and bridging. The fix is minimal, obviously
+correct, and carries negligible regression risk. While not a crash fix,
+it addresses a real functional defect on production hardware that
+downstream (OpenWrt) has already deemed worth backporting.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, tags, body from user-provided commit
-  message
-- **[Phase 2]** Diff analysis: 1 file, 3 functions, NULL-check + panic
-  pattern
-- **[Phase 3]** `git describe HEAD`: v6.18.43-1-gc7f0dac02d232
-- **[Phase 3]** `git blame -L 42,63 arch/arm64/kernel/irq.c`: bug since
-  e3067861 (2017), ac20ffbb (2020)
-- **[Phase 3]** `git show e3067861ba6650`: introduced
-  `init_irq_stacks()` without error check
-- **[Phase 3]** `git show ac20ffbb0279aa`: introduced `init_irq_scs()`
-  without error check; sdei.c got checks
-- **[Phase 3]** `git log --oneline -20 -- arch/arm64/kernel/irq.c`:
-  recent history reviewed
-- **[Phase 3]** `git log --grep="panic from init_IRQ"`: no match (fix
-  not in tree)
-- **[Phase 3]** `git log -S "Failed to allocate IRQ stack"`: no match
-  (timed out once, then killed; no results)
-- **[Phase 4]** `b4 dig -c HEAD`: no match for this commit
-- **[Phase 4]** lore.kernel.org fetch: 403 Forbidden — **UNVERIFIED**
-  review thread
-- **[Phase 5]** Read `arch/arm64/kernel/irq.c`: confirmed buggy code at
-  lines 42-63, 110-113
-- **[Phase 5]** Read `arch/arm64/kernel/entry.S:874-891`:
-  `call_on_irq_stack` uses `irq_stack_ptr` without NULL check
-- **[Phase 5]** Read `kernel/scs.c:54-60`: `scs_alloc()` returns NULL on
-  failure
-- **[Phase 5]** Read `arch/arm64/include/asm/vmap_stack.h:18-26`:
-  `arch_alloc_vmap_stack()` returns `kasan_reset_tag(p)` which can be
-  NULL
-- **[Phase 5]** Read `arch/arm64/kernel/sdei.c:74-84,129-135,177-181`:
-  precedent for NULL checks
-- **[Phase 5]** Read `init/main.c:970`: `init_IRQ()` called during
-  `start_kernel()`
-- **[Phase 5]** Read `arch/arm64/kernel/entry-common.c:159-160`: IRQ
-  path calls `call_on_irq_stack`
-- **[Phase 6]** `arch/arm64/Kconfig:285`: `select VMAP_STACK` — always
-  enabled on arm64
-- **[Phase 6]** Confirmed fix not present in current `irq.c`
-- **[Phase 8]** `IRQ_STACK_SIZE` = `THREAD_SIZE` = 16 KiB (4K pages) per
-  `arch/arm64/include/asm/memory.h:131,140`
+- **[Phase 1]** Parsed commit message tags: Tested-by (Airoha), Signed-
+  off-by (author + netdev maintainer), Link present; no Fixes:/Cc:
+  stable/Reported-by
+- **[Phase 1]** Identified hidden bounds-check fix from v5→v6 review
+  cycle (spinics.net sashiko-bot thread)
+- **[Phase 2]** Diff analysis: 2 files, functions
+  `airoha_qdma_fill_rx_queue()` and `airoha_qdma_rx_process()` modified
+- **[Phase 2]** Read current buggy code at `airoha_eth.c:549-674` —
+  confirmed no headroom reservation
+- **[Phase 3]** `git describe HEAD`: v6.18.43-1-gc7f0dac02d232; `make
+  kernelversion`: 6.18.43
+- **[Phase 3]** `git blame` on RX functions: shallow history, all
+  attributed to bulk import; buggy code present
+- **[Phase 3]** No Fixes: tag to follow
+- **[Phase 4]** `b4 dig -c bbfb1983944f`: found lore URL
+  https://patch.msgid.link/20260513-airoha-rx-
+  headroom-v1-1-bd87798e422d@kernel.org
+- **[Phase 4]** `b4 dig -a`: only v1 revision
+- **[Phase 4]** `b4 dig -w`: netdev maintainers CC'd including Jakub
+  Kicinski, David S. Miller, Eric Dumazet
+- **[Phase 4]** `b4 dig -m /tmp/airoha_headroom.mbox`: thread saved;
+  only patchwork-bot apply notification, no stable nomination
+- **[Phase 4]** spinics.net v5 review thread: sashiko-bot bounds-check
+  concern, Lorenzo acknowledged fix for v6
+- **[Phase 4]** OpenWrt commit dda777dd4472: "Airoha reported bug for
+  ethernet", backported to 6.12
+- **[Phase 5]** Caller trace: `airoha_qdma_rx_napi_poll()` →
+  `airoha_qdma_rx_process()` → `napi_gro_receive()`
+- **[Phase 5]** `mtk_eth_soc.c:2320`: confirmed peer driver uses
+  `skb_reserve(skb, NET_SKB_PAD + NET_IP_ALIGN)`
+- **[Phase 5]** `include/linux/skbuff.h`: `NET_SKB_PAD = max(32,
+  L1_CACHE_BYTES)`, `NET_IP_ALIGN = 2`
+- **[Phase 5]** `gro.c:100-110`: pp_recycle mismatch prevents GRO
+  merging — page_pool skb handling is sensitive
+- **[Phase 6]** Confirmed `AIROHA_RX_HEADROOM` absent from local
+  `airoha_eth.h`
+- **[Phase 6]** `git apply --check` with line-adjusted patch: **applies
+  cleanly** (exit 0)
+- **[Phase 6]** `git log --grep="headroom"` / `--grep="airoha"`: no
+  existing fix in tree
+- **[Phase 7]** Read `drivers/net/ethernet/airoha/Kconfig`:
+  CONFIG_NET_AIROHA selects PAGE_POOL
+- **[Phase 8]** Assessed impact: Airoha SoC primary Ethernet,
+  router/embedded deployments
 
-**YES**Those background searches are done. They back up the earlier
-analysis:
+**YES**
 
-- **`git log --grep="panic from init_IRQ"`** — no matches; the fix is
-  not in this v6.18.43 tree.
-- **Similar-fix search** — no equivalent error handling in `irq.c`; only
-  unrelated history (e.g. SDEI stack checks in `sdei.c`).
-- **Author/subject search** — no local commit for this IRQ stack panic
-  fix.
-- **`git log -S` for the panic string** — timed out and was stopped;
-  other checks already showed the fix is absent.
+ drivers/net/ethernet/airoha/airoha_eth.c | 14 ++++++++------
+ drivers/net/ethernet/airoha/airoha_eth.h |  2 ++
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-Verdict unchanged: **YES** for backport to this tree.
-
- arch/arm64/kernel/irq.c | 29 ++++++++++++++++++++---------
- 1 file changed, 20 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-index c0065a1d77cf3..00ebbf18b1c18 100644
---- a/arch/arm64/kernel/irq.c
-+++ b/arch/arm64/kernel/irq.c
-@@ -10,6 +10,7 @@
-  * Copyright (C) 2012 ARM Ltd.
-  */
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 64ab34e37c36f..e016f7521af59 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -568,9 +568,10 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
+ 		q->queued++;
+ 		nframes++;
  
-+#include <linux/errno.h>
- #include <linux/hardirq.h>
- #include <linux/init.h>
- #include <linux/irq.h>
-@@ -32,34 +33,43 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
++		offset += AIROHA_RX_HEADROOM;
+ 		e->buf = page_address(page) + offset;
+ 		e->dma_addr = page_pool_get_dma_addr(page) + offset;
+-		e->dma_len = SKB_WITH_OVERHEAD(q->buf_size);
++		e->dma_len = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
  
- DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
+ 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, e->dma_len);
+ 		WRITE_ONCE(desc->ctrl, cpu_to_le32(val));
+@@ -635,13 +636,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		q->tail = (q->tail + 1) % q->ndesc;
+ 		q->queued--;
  
--
- DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+-		dma_sync_single_for_cpu(eth->dev, e->dma_addr,
+-					SKB_WITH_OVERHEAD(q->buf_size), dir);
++		dma_sync_single_for_cpu(eth->dev, e->dma_addr, e->dma_len,
++					dir);
  
- #ifdef CONFIG_SHADOW_CALL_STACK
- DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
- #endif
+ 		page = virt_to_head_page(e->buf);
+ 		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
+-		data_len = q->skb ? q->buf_size
+-				  : SKB_WITH_OVERHEAD(q->buf_size);
++		data_len = q->skb ? AIROHA_RX_LEN(q->buf_size) : e->dma_len;
+ 		if (!len || data_len < len)
+ 			goto free_frag;
  
--static void init_irq_scs(void)
-+static int __init init_irq_scs(void)
- {
- 	int cpu;
-+	void *s;
+@@ -651,10 +651,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
  
- 	if (!scs_is_enabled())
--		return;
-+		return 0;
-+
-+	for_each_possible_cpu(cpu) {
-+		s = scs_alloc(early_cpu_to_node(cpu));
-+		if (!s)
-+			return -ENOMEM;
-+		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
-+	}
+ 		port = eth->ports[p];
+ 		if (!q->skb) { /* first buffer */
+-			q->skb = napi_build_skb(e->buf, q->buf_size);
++			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
++						q->buf_size);
+ 			if (!q->skb)
+ 				goto free_frag;
  
--	for_each_possible_cpu(cpu)
--		per_cpu(irq_shadow_call_stack_ptr, cpu) =
--			scs_alloc(early_cpu_to_node(cpu));
-+	return 0;
- }
- 
--static void __init init_irq_stacks(void)
-+static int __init init_irq_stacks(void)
- {
- 	int cpu;
- 	unsigned long *p;
- 
- 	for_each_possible_cpu(cpu) {
- 		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, early_cpu_to_node(cpu));
-+		if (!p)
-+			return -ENOMEM;
- 		per_cpu(irq_stack_ptr, cpu) = p;
- 	}
-+
-+	return 0;
- }
- 
- #ifndef CONFIG_PREEMPT_RT
-@@ -109,8 +119,9 @@ int __init set_handle_fiq(void (*handle_fiq)(struct pt_regs *))
- 
- void __init init_IRQ(void)
- {
--	init_irq_stacks();
--	init_irq_scs();
-+	if (init_irq_stacks() || init_irq_scs())
-+		panic("Failed to allocate IRQ stack resources\n");
-+
- 	irqchip_init();
- 
- 	if (system_uses_irq_prio_masking()) {
++			skb_reserve(q->skb, AIROHA_RX_HEADROOM);
+ 			__skb_put(q->skb, len);
+ 			skb_mark_for_recycle(q->skb);
+ 			q->skb->dev = port->dev;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 57e8ddb30a9c5..216273595115d 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -32,6 +32,8 @@
+ #define AIROHA_FE_MC_MAX_VLAN_TABLE	64
+ #define AIROHA_FE_MC_MAX_VLAN_PORT	16
+ #define AIROHA_NUM_TX_IRQ		2
++#define AIROHA_RX_HEADROOM		(NET_SKB_PAD + NET_IP_ALIGN)
++#define AIROHA_RX_LEN(_n)		((_n) - AIROHA_RX_HEADROOM)
+ #define HW_DSCP_NUM			2048
+ #define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
+ #define TX_DSCP_NUM			1024
 -- 
 2.53.0
 
