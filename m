@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D889C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCD4C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZirCIc9EB7gtC4ijBO/mp3VXtz/a+lJqEgBTzaSoBGo=; b=z7rsuZSQmZhoczJQLKF0QD1PCI
-	67zG58wlEQX2GedeoyeVkIM7sCl+s7+3rmX7Z5l2rIYSC4Rw92F/YG9d/g3xnCzZxxr17hmxJaVwQ
-	dKfEbkPhfHSIda9vvWrqTL8ed5WtvWB1/7B7KbTm8wa4b95SZnWtA2O65R6IPmallz9rDHyrJg5ca
-	dXKi/7w02VABa9tY3QOl9fMrSyQpZNSmP96XjyAutgrl6pCqlf6QuQs9MJ0kqRrrV3LwLuY88wAIO
-	8uzJtdNqKWXkBAvABjnYodUPsUEWZwdIxuCLrDGUt78cu99tKslnCOHu7QHL1p6er4kp317cZ9rcY
-	YQ0Nnzgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NeMX3TyIVgiWv0EHpllg7BARTZozM1wKfOdY7ITpCSQ=; b=Pq5rzMhpV6HD8fPe+EcVWNfkHF
+	gsGVlxAaF/yi1WoxJCfopFgddO4rQiEHYX+MXDbnuAQHB5nhO17B7gcxvnhzPq23jE8fAcSTRON7l
+	Qzu4VLADLqY5gwuE0WwEpUg9FcghhuO/d2r8WUa73Y+wig2UsmgMQeuec9mL7b9QpAXzyUT5xj4V1
+	lybkhvD/DrJ1VKeCNQKlXVKE3P0axW9B//U0lmGd7B1e1UguYzoEpfupR78cO8YqoVY/gdsg6lhB4
+	VWW0bE17GcG81kSQa4my+YTWMHSF+AhV6Geiy5jXmG4r2KXwKbvLWSuhSQ66/2ppa0tdjz3ETFHn5
+	CPlsoWvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15A9-0000000A6V3-1vPU;
-	Mon, 31 Aug 2026 16:47:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x15Np-0000000A872-0jOk;
+	Mon, 31 Aug 2026 17:01:21 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15A7-0000000A6Us-2rxo
+	id 1x15Nl-0000000A86M-3AOI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 16:47:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DDB8C601DE;
-	Mon, 31 Aug 2026 16:47:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7644F1F000E9;
-	Mon, 31 Aug 2026 16:47:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788194830;
-	bh=ZirCIc9EB7gtC4ijBO/mp3VXtz/a+lJqEgBTzaSoBGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eOA81gsLbzo0G6Gp7gAbct5ooY0TMVh6T3outXooj1QVXbDFGdeVdLoFdKxSFOYbA
-	 +edDxXzPXn6rdIkWDxOgsATtReLQWAQvXgdioNuUkIqAF/v6nwUMJd0/gg76Xvk8cl
-	 6y9yiLsDGNi1cLzu0c8TsrXp4ZrRLlKkXHCL+ehmGe3ZKPobQBiu2UQleLzJb4o+Cs
-	 UhxNS07lRalE3Tw1c2x6xJzf1sEdL7xNQAGmivKPUIWh1PpWEgsuDl5v4HWMQSvwaL
-	 OhX5orc+5pKrEzzZMZz2uHHAZMs05ExxtGGcvUhH0/d0JdQsGR0f4mEZElbULw5pIV
-	 8gleQREfAxHOw==
-Date: Mon, 31 Aug 2026 17:47:05 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Markus Probst <markus.probst@posteo.de>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Michael Langer <michael.brainbug.langer@googlemail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/6] dt-bindings: rtc: Add pinctrl for S35390A
-Message-ID: <20260831-theorize-unnoticed-1e6ac97d5369@spud>
-References: <20260829-rtc_s35390a_int1-v7-0-debcd31143ae@posteo.de>
- <20260829-rtc_s35390a_int1-v7-1-debcd31143ae@posteo.de>
+	Mon, 31 Aug 2026 17:01:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1A88C1A1910;
+	Mon, 31 Aug 2026 17:01:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D938860231;
+	Mon, 31 Aug 2026 17:01:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1D87111C791C9;
+	Mon, 31 Aug 2026 19:01:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788195672; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=NeMX3TyIVgiWv0EHpllg7BARTZozM1wKfOdY7ITpCSQ=;
+	b=CQrF/Ej30jVPaNnk9wov2SvTuyLFk4VzE9ygj76VdqnEPfF1aND5Yvpc0cLjIUPM/cQQnR
+	RsPZ1ctIAyUR4PD/0V+TWEtajDw3WzOECJHmqXVtAa2q9UYL1gYiluTgdODsKbcqxZdy/A
+	uhHxEfUYh624qacTBT1kjC8BBhquwpgSkTdxGO0VqjrEbs2W67rPw1ruG/UwyUwwVfxx6Q
+	iXz5WGtqpbSIBIBg1FE8IogG9bavMTphVYll5Quke4vvzd6MpSMN7ATOG4DOp/X/nv+OMx
+	U801DB1uCIWxhMoSVDFR1lEY1UNWwOlQeh3cmV8HDupzJW2rpZoCzjqr6QLRUw==
+Message-ID: <b36109c3-00e5-434e-a9b7-46049b0bff40@bootlin.com>
+Date: Mon, 31 Aug 2026 19:01:04 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/S+o0lYrnjJZ6O8r"
-Content-Disposition: inline
-In-Reply-To: <20260829-rtc_s35390a_int1-v7-1-debcd31143ae@posteo.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 3/9] net: stmmac: qcom-ethqos: fix RGMII_ID mode to
+ use DLL bypass
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-msm@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
+ <20260612-shikra_ethernet-v1-3-f0f4a1d19929@oss.qualcomm.com>
+ <42355330-c22a-4fce-98ab-dc22b321ff16@lunn.ch>
+ <ai93X/cNWHtEQsDt@oss.qualcomm.com>
+ <82705420-771d-41bf-a4d9-ed94dff86ff0@lunn.ch>
+ <ajF6q5eKz92ddqVl@oss.qualcomm.com> <apU8Yx08/PJiS9Xw@oss.qualcomm.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <apU8Yx08/PJiS9Xw@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_100117_962749_B5124C67 
+X-CRM114-Status: GOOD (  38.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,211 +95,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---/S+o0lYrnjJZ6O8r
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Mohd,
 
-On Sat, Aug 29, 2026 at 02:22:56PM +0000, Markus Probst wrote:
-> Synology NAS devices use the output pin for interrupt signal 1 to wake up
-> the system.
->=20
-> Move devicetree bindings for sii,s35390a into its own file.
-> Add necessary properties to configure the individual pins via pinctrl,
-> which allows the interrupt signal 1 to be used for wakeup alarm.
->=20
-> Signed-off-by: Markus Probst <markus.probst@posteo.de>
+On 8/31/26 10:33, Mohd Ayaan Anwar wrote:
+> Hi Andrew,
+> 
+> On Tue, Jun 16, 2026 at 10:02:51PM +0530, Mohd Ayaan Anwar wrote:
+>> On Mon, Jun 15, 2026 at 06:48:55PM +0200, Andrew Lunn wrote:
+>>>>> I'm curious how this works at the moment? Do no boards make use of
+>>>>> RGMII ID? Are all current boards broken?
+>>>>
+>>>> Searching through the DTS, I found that we have two boards using "rgmii"
+>>>> (qcs404-evb-4000.dts and sa8155-adp.dts) and another board using
+>>>> "rgmii-txid" (sa8540p-ride.dts). No board which uses RGMII ID.
+>>>
+>>> So this causes problems. We cannot break existing boards, yet it would
+>>> be good to fix the current broken behaviour.
+>>
+>> I am trying to track down the sa8155-adp and sa8540p-ride boards. The
+>> EMAC on QCS404 is extremely similar to QCS615 Ride [0], and I got that
+>> board to work with this series (with RGMII ID mode). So I am fairly
+>> confident that QCS404 would not break (if its even booting up with the
+>> upstream kernel currently). Also, I think we could change the phy-mode
+>> for QCS404 to "rgmii-id" from "rgmii" if these fixes go in.
+>>
+>>> It could be the best way forward is that you issue a warning when
+>>> "rgmii" is found and pass rgmii-id to the PHY. And you also change the
+>>> two boards to use rgmii-id. Lets think about the rgmii-txid case once
+>>> we better understand it.
+>>>
+>>
+>> As Konrad mentioned, it would be great to know if we can test out these
+>> boards. Looking at the different versions of the ETHQOS programming
+>> guide, stopping MAC side delay should be as simple as what we are doing
+>> in this commit. But whether the two boards work directly with the
+>> default PHY delays is unknown.
+>>
+> 
+> So I did find the sa8540p-ride board but have so far been unsuccessful
+> in getting it to boot. While that goes on, I would like to proceed with
+> a series to fix RGMII on qcom-ethqos due to the following reasons:
+> 
+>  1. All versions of programming guides give a programming sequence for
+>  MAC-side delay or PHY-side delay. There is no concept of "rgmii-txid".
+> 
+>  2. I also found some downstream code that was using "rgmii" phy-mode to
+>  program MAC-side delays on the sa8540p-ride board. So it looks like
+>  "rgmii-txid" was a workaround to enable ethernet while support for
+>  this board was being upstreamed.
+> 
+>  3. I have been able to test this patch on a variety of boards now,
+>  including:
+>      - Shikra CQ/IQ variants (with the TI DP83867 PHY)
+>      - QCS615 Ride (with the Micrel KSZ9031 PHY)
+>      - Talos EVK (again with the Micrel KSZ9031 PHY)
+>      - Talos Lyra (with the TI DP83867 PHY)
+>  These platforms cover the two RGMII configurations that Qualcomm has
+>  typically deployed.
+
+I've been able to get my hands on a qualcomm devkit for ipq8064 :
+
+Compex WPQ864 6A02, has the IPQ8064 connected to a QCA8337 switch
+through both the ports, one using RGMII (no ID), and one with SGMII.
+
+The DT is downstream, in OpenWRT :
+
+https://git.openwrt.org/openwrt/openwrt/tree/target/linux/ipq806x/dts/qcom-ipq8064-ap148.dts#n198
+
+happy to help in some testing as well if needed, this board is going
+in my CI for stmmac stuff.
+
+> 
+> With this in mind, I was thinking of breaking up this patch series into
+> separate ones to solve one problem at a time:
+> 
+>  1. Introduce support for "rgmii-id" using PHY-side delays rather than
+>  MAC-provided delays. Also, issue a warning if any other phy-mode is
+>  being used.
+> 
+>  2. Fix the DTS of the existing boards to use "rgmii-id".
+> 
+>  3. Once the DTS is fixed, remove the now-unused code handling non
+>  RGMII-ID cases. This should also allow us to remove the whole
+>  ethqos_emac_por code since it wouldn't be needed for RGMII-ID.
+
+I'm wondering if we should add some temporary very loud warning for
+boards that use "rgmii" before changing this, or even just keep the
+actual "rgmii" behaviour which inserts the delays, as there seems to
+be lots of such users...
+
+This is going to be quite the breaking change.
+
+> 
+>  4. Add support for regulator voting in the DP83867 driver, mirroring
+>  what Daniel Thompson/ Alex Elder did for QCA8081 [1]. This will help
+>  in adding support for the Shikra/Talos Lyra boards which need the
+>  supply for the PHY to be explicitly enabled.
+> 
+>  5. Support for Shikra can be added once these changes are in.
+> 
+> Does this plan sound reasonable? Thanks.
+> 
+> 	Ayaan
 > ---
->  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 111 +++++++++++++++=
-++++++
->  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
->  2 files changed, 111 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Doc=
-umentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> new file mode 100644
-> index 000000000000..d9da3abbbd51
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> @@ -0,0 +1,111 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: S-35390A 2-WIRE REAL-TIME CLOCK
-> +
-> +maintainers:
-> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> [1] https://lore.kernel.org/netdev/20260605010022.968612-3-elder@riscstar.com/
+> 
 
-Probably this should be you!
-
-> +
-> +description:
-> +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with t=
-he
-> +  very low current consumption in the wide range of operation voltage.
-> +
-> +allOf:
-> +  - $ref: rtc.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: sii,s35390a
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    minItems: 1
-> +    maxItems: 2
-> +    description: Supports up to 2 interrupt lines via the INT1 and INT2 =
-pins.
-
-I think you need interrupt-names here, so that you know which is which?
-
-> +
-> +  wakeup-parent: true
-> +
-> +  wakeup-source: true
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +patternProperties:
-> +  "^pins":
-> +    type: object
-> +    patternProperties:
-> +      "-pins$":
-> +        type: object
-> +        properties:
-> +          pins:
-> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
-> +            minItems: 1
-
-This construct here seems overly complicated.
-You should be able to do
-    patternProperties:
-      '-pins$':
-        type: object
-        additionalProperties: false
-
-        allOf:
-          - $ref: pincfg-node.yaml#
-
-	properties:
-	  pins:
-	    minItems: 1
-
-cos the additionalProperties: false you have below will exclude the
-parts of pinmux-node you don't want.
-
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
-
-> +            items:
-> +              enum:
-> +                - int1
-> +                - int2
-> +
-> +          function:
-> +            $ref: /schemas/types.yaml#/definitions/string
-> +            description: |
-> +              Pin function:
-> +              - ignore:  Preserve the previous state.
-> +              - disable: Disable pin output.
-> +              - wakeup:  Output wakes up the system.
-> +              - clock:   Output clock pulse.
-> +              - pmin1:   Minute periodical output with 50% duty.
-> +              - pmin2:   Minute periodical output L for 7.81 ms.
-> +                         Can only be used with pin int1.
-> +            enum:
-> +              - ignore
-> +              - disable
-> +              - wakeup
-> +              - clock
-> +              - pmin1
-> +              - pmin2
-> +
-> +        required:
-> +          - pins
-> +          - function
-> +
-> +        additionalProperties: false
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        rtc@30 {
-> +            compatible =3D "sii,s35390a";
-> +            reg =3D <0x30>;
-> +            pinctrl-0 =3D <&rtc_pins_default>;
-> +            pinctrl-names =3D "default";
-> +
-> +            wakeup-parent =3D <&int>;
-> +
-> +            rtc_pins_default: pins {
-> +              int1-pins {
-> +                pins =3D "int1";
-> +                function =3D "wakeup";
-> +              };
-> +              int2-pins {
-> +                pins =3D "int2";
-> +                function =3D "disable";
-> +              };
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Doc=
-umentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> index f4d0eed98a08..7b3f682ef4d5 100644
-> --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> @@ -81,8 +81,6 @@ properties:
->        - ricoh,rv5c386
->        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
->        - ricoh,rv5c387a
-> -      # 2-wire CMOS real-time clock
-> -      - sii,s35390a
->        # ST SPEAr Real-time Clock
->        - st,spear600-rtc
->        # VIA/Wondermedia VT8500 Real-time Clock
-> @@ -105,5 +103,4 @@ required:
->    - reg
-> =20
->  additionalProperties: false
-> -
->  ...
->=20
-> --=20
-> 2.54.0
->=20
-
---/S+o0lYrnjJZ6O8r
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWwCQAKCRB4tDGHoIJi
-0jnVAQDHKr3Ggu9GiXbgWCOZibO91GsY120UnN4mo0ZWOJDTeAD9FYsMrH3OyB7A
-PVZA6zfOGAPBH+3caffWVRLR213OwQQ=
-=4Fr7
------END PGP SIGNATURE-----
-
---/S+o0lYrnjJZ6O8r--
+Maxime
 
