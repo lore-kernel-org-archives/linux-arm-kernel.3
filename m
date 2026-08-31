@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A667C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DECC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iOcXlRKPdGaWyLXZRmYh2gsjN3nZXYDCKL0Pm8ihJIM=; b=KFq+MfVkTamxq7CAyKiXF+/LUg
-	iCNYq+jzdXwFyspeP+/HTC0dN/pqma7cAVIxYa/86G8KSKTXw+uw9SWMqJWNgY3fLgobkWmNWYBLn
-	rpi73wdUDQOvAKwHX97dGnW1mOj3EBuTbWtWAY8usIRNrUX7zQEKy4S5ClklA+vMpwRxoHUaV16F3
-	mcMi5FttTAOJGJccpxAeAOo1vF7c3qCWwBT9wSO3aOPFd5SZtoQCqfRqEXDwAXn0W/x2JVHe2RUFa
-	qfVC4rQ3MaeQ8sK4nTITwhcR62BfMjNRndzVpB0/xkFEjDNoABzHnV5fuQFzXOs1pVJ0ftZ6zOsDD
-	rJpY/CUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TsNs9dlzIsPw1n+dGjUVmTdA3V8aHtepoq7JGw3Pc2Q=; b=EssGBEhq0OtIqWbZklrcVPHbt/
+	R3PK2qt9pMzPFY/pTZrTseBm3EFc0d8JM0F236r3CS+1FH3m58jWUR9PUuk5rjIaeazxx/H+uaiB8
+	xPFVB4tc7a1xu7QJS5YAh+Mkq6iRHXQ7J36z/Xouj3+vH5f9xG3Sz83hJITqo+t//6ei50klcfYDW
+	beg5FADUId891Ri81jPnz6XQPRPncQnDbYv1jTmUUTcuCXveHAApklLWWHjVvZcvRoEHE3fssbsqC
+	oFexLNL/1jNFFmWD/XFtGYwxoLRcCa6jifLMB2E8e4qA6gSWsYI9fgdqvR1fksk+JThJ2k5s0AYJs
+	1Bu2n5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x163z-0000000AEAc-3neJ;
-	Mon, 31 Aug 2026 17:44:55 +0000
-Received: from mail-pj1-f52.google.com ([209.85.216.52])
+	id 1x164A-0000000AEFc-0Hw6;
+	Mon, 31 Aug 2026 17:45:06 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x163v-0000000AE7m-19Tl
+	id 1x1646-0000000AECu-2ojg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:44:54 +0000
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso26921a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 10:44:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788198289; x=1788803089;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iOcXlRKPdGaWyLXZRmYh2gsjN3nZXYDCKL0Pm8ihJIM=;
-        b=KEFmFo/5gwj+g6uo23mSRXggrUVZcszkDaQdXjbb/DH0oynQmAa0BVff5H+wl/iCj0
-         Ad6Qfbk8eMY385CTvW0jzcG4fmUDyw3GJHNRZ5VqzE2ierQbjn1/GVF7ptGhHiW4vSgP
-         RAzY4vj5/OvHK9ISd0OUWk3FeZGJa7apYe9hx77ewIofEIIpipzfUZ8njtlrEuec4GtM
-         F40L5jHYYa2nER4TYgWo/EXJrTBpTomwUDp4OQxM2R2FQm3O14X5RHmunQu6iyqOdeOu
-         WcjojZfbPo2xJfWCnCR0EGiXFVm/h5G4nkansElnJXGjFKiv0cZi6lVhj48YHCPVvfa5
-         73wQ==
-X-Forwarded-Encrypted: i=1; AKwUvBykX3DuItp8XkuE+sWPLstlR/cH2CU6jy/HiSxGnwPlAnFFsOHKUBZ2FazS0S2HVgaEbAMMmpvOftZfOiHtGljE@lists.infradead.org
-X-Gm-Message-State: AFuF++nKvYaPiUBJS2TjT6ConDxhbhU9PHDcgj2qhTN5ufZZuSvIiPeu
-	UfnAgUL+/GnG0EAVxGMOQcCZQo1jC/dQS33foL93jzbtVW2+ZIxCqzrg9lZm3xkjpPM=
-X-Gm-Gg: AYBFou055LPaV5fSJsJ/1yNd8L0YiV3AAslBHkpd1RmQsGtrf3YooqvdCmaTOdO0s2y
-	RMK+F6xato1/cbGylWPMYroXXGhbR/jSOAyFD8DqcgGkDm+PleqgAutDapqNWPw37uRIVo2tHC6
-	NNh7krihJvI1ocn7BfiFydyHtGpf5lhdMXdDH6t/0t03OtHxjrfKDtFtyOfGtDDdghO4f31qqAb
-	GVY4QCpIvINRMqv3nZl7qyTJ3NNULWX9FnIJBrhUNQVIiSP3YJscV8rWyjPALUCJQ91NKbx2WOI
-	PDHmupzGP8nLklndSY1VdTsPRDJBINsahbqcDmXZ2FAVEVv8f5iwYm9YxW1boSIwKPaMNRhq2aV
-	gyeVGKOZ/Sp4tsorjhyE/jmHwghnHK0jjzgBzRhoQpNa8PIhbOOxfTKC9pdFZTM0j8gP4E3Ml2r
-	q+eg9qlhfePLEkqTNC75Rmx7PBMLCsHpPQ1BPiaI8iUS0lelKjx46g/ok29Q==
-X-Received: by 2002:a17:90b:1d83:b0:38e:2e86:ed02 with SMTP id 98e67ed59e1d1-396d1023217mr36121504a91.14.1788198289340;
-        Mon, 31 Aug 2026 10:44:49 -0700 (PDT)
-Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3990d7bb7c5sm664546a91.14.2026.08.31.10.44.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 10:44:48 -0700 (PDT)
-From: Kevin Hilman <khilman@kernel.org>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, "Markus Schneider-Pargmann
- (TI)" <msp@baylibre.com>
-Cc: Andreas Kemnade <andreas@kemnade.info>, Daniel Lezcano
- <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, letux-kernel@openphoenux.org
-Subject: Re: [PATCH] clocksource/drivers/timer-ti-dm: Register
- clocksource/event only for am654
-In-Reply-To: <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
-References: <20260828-v7-3-next-topic-ti-timer-dm-clocksource-omap-fix-v1-1-85f0e4dc6f9f@baylibre.com>
- <20260828230445.3c2510b9@kemnade.info>
- <E27F05E3-DE4F-4C77-95E3-1701B3410E93@goldelico.com>
-Date: Mon, 31 Aug 2026 10:44:48 -0700
-Message-ID: <7hzey26v73.fsf@baylibre.com>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Mon, 31 Aug 2026 17:45:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1788198300;
+ bh=TsNs9dlzIsPw1n+dGjUVmTdA3V8aHtepoq7JGw3Pc2Q=;
+ b=haYskUrSoGOQjabJbHw1CvMIkBJAjGgC3LpJY6TjfLEzyAEVNn/QrLzBji03QT3b7gNUx6Hk3
+ +rTgV+hDoJdPlp9AGvPYd2brwuBHaM6bcUMcWWk0jdUM30XOHWqfrtvr7UrveKv75Hky2VzBF8e
+ IUj2nON2IXY6HNvOo6o6Biq5kB093DEHN+Cs5ZNu9nWG+1Pt2NEg4uoQAXCcei4vtux7ejjgBnY
+ f8ZtcSNJl0WKLDAayBQA27ev4D72eXcrYWQl9kxC5bHxQ32fBnEKUX/jYnN8y+5x9RMPTaeqptn
+ 9+DFX+VUloloNKrUtuDFf8nq216tMfQDj6ctoLLA3Rtg==
+X-Forward-Email-ID: 6a95bd922e35a4d29984247e
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.14.0
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Mon, 31 Aug 2026 13:44:49 -0400
+Message-Id: <DL3BE19I49N4.3AZNJMC0LVG6R@ubuntu.com>
+Cc: "Konrad Dybcio" <konradybcio@kernel.org>, <linux-usb@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 00/19] Initial USB4/Thunderbolt support for Apple
+ M1/M2/M3 SoCs
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sven Peter" <sven@kernel.org>, "Greg Kroah-Hartman"
+ <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heikki Krogerus" <heikki.krogerus@linux.intel.com>, "Janne Grunau"
+ <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Andreas Noever"
+ <andreas.noever@gmail.com>, "Mika Westerberg" <westeri@kernel.org>,
+ "Yehezkel Bernat" <YehezkelShB@gmail.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>
+X-Mailer: aerc 0.21.0
+References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
+In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_104451_342852_241A01CF 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260831_104503_035822_5A1D2CA2 
+X-CRM114-Status: GOOD (  37.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +84,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"H. Nikolaus Schaller" <hns@goldelico.com> writes:
-
->> Am 28.08.2026 um 23:04 schrieb Andreas Kemnade <andreas@kemnade.info>:
->> 
->> On Fri, 28 Aug 2026 20:47:45 +0200
->> "Markus Schneider-Pargmann (TI)" <msp@baylibre.com> wrote:
->> 
->>> Registering clocksource/clockevent for the older platforms breaks
->>> booting them. The older platforms have their own implementation in early
->>> boot that is used to register clocksource/clockevent in
->>> timer-ti-dm-systimer.c.
->>> 
->>> With am654, the timer is much more complex with more dependencies so
->>> doing this in early boot with the other driver is very difficult and
->>> gets ugly. Instead it is implemented in the platform driver for am654.
->>> However the old platforms may not register clocksource/clockevent in
->>> this driver as that would break the boot.
->>> 
->>> Add a system_timer_capable flag that is only set for am654-timer that
->>> gates the clocksource/clockevent registration.
->>> 
->>> Reported-by: H. Nikolaus Schaller <hns@goldelico.com>
->>> Closes: https://lore.kernel.org/r/2013A99A-0502-4128-ACFA-B04886224393@goldelico.com
->>> Fixes: b8eeeca55456 ("clocksource/drivers/timer-ti-dm: Add clocksource support")
->>> Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
->> 
->> Tested-by: Andreas Kemnade <andreas@kemnade.info> # OMAP3 GTA04
+On Sun Aug 30, 2026 at 4:19 PM EDT, Sven Peter wrote:
+> Hi,
 >
-> Tested-by: H. Nikolaus Schaller <hns@goldelico.com> # OMAP3 OpenPandora
+> This series adds initial USB4/Thunderbolt support for Apple Silicon
+> M1, M2 and M3 SoCs. Each USB4 capable Type-C port comes with an ACIO
+> ("Apple Converged I/O") block which contains a Cortex-M3 co-processor
+> and the hardware implementing the USB4 router.
 >
+> The NHI and DART IOMMU are part of this ACIO block as well. Instead of
+> being exposed as independent always-accessible devices the main SoC bus
+> only gets a 16 MiB window into ACIO's MMIO space while its co-processor
+> is running. It is not entirely clear whether this is ACIO's own address
+> space or a window into the co-processor's address space.
+>
+> This is why the device tree represents the NHI and DART as children of
+> ACIO with addresses relative to that window. The driver only populates
+> these children after booting the co-processor and removes them again
+> before powering ACIO down. This setup is slightly unusual but matches
+> both the MMIO layout and the lifetime of the devices.
+>
+> ACIO also has rather strict ordering requirements: it can only be
+> started after the Type-C PHY has been configured for USB4/Thunderbolt
+> and has to be stopped again before the PHY is powered down. It also
+> needs cable details which are only known to the Type-C port controller.
+> The existing Type-C mode switch cannot express the required reverse
+> teardown order, so the first three patches add a separate Thunderbolt
+> switch and hook it up to the CD321x port controller.
+>
+> The next two patches add the bindings for the NHI and ACIO. The
+> following patches then prepare the Thunderbolt core for the slightly
+> different NHI register layout and interrupt handling, read the USB4
+> router DROM from the device tree and add quirks for functionality not
+> implemented by the Apple hardware.
+>
+> The main driver powers up ACIO, boots the co-processor, populates
+> the DART and NHI children once their MMIO regions are accessible and
+> registers the NHI with the software connection manager. The last three
+> patches add the device tree nodes for the M1 and M2. M3 nodes will follow
+> once the rest of the stack is upstream, but the current Thunderbolt/USB4
+> code has already been successfully tested on those.
+>
+> Right now only XDomain connections and USB3-via-USB4 tunnels are
+> supported. Both PCIe and DisplayPort tunnels will come later since those
+> require additional work and reverse engineering that is not done yet.
+> Suspend is also not supported yet and we actually have to prevent
+> suspending whenever an active connection is present because we would
+> otherwise resume into an SError.
+>
+> This series depends on the Apple CIO reset controller [1], the ATCPHY
+> USB3-via-4 pipehandler support [2] and support for specifying the DART DM=
+A
+> aperture in the device tree [3], a fix for CD321x Thunderbolt
+> altmode VDOs [4], and fixes for making the DPTX capabilities read fail
+> gracefully [5]. I couldn't split it any further since the remaining
+> patches now directly depend upon each other.
+> Except for the dts changes the series applies cleanly without these
+> dependencies though.
+>
+> For merging it probably makes most sense if all of this (except for the
+> DTS changes) is taken through the thunderbolt tree once everything's been
+> reviewed.
+>
+> Best,
+>
+> Sven
+>
+> [1] https://patch.msgid.link/20260821-b4-cio-reset-v2-0-2d045f80a424@kern=
+el.org
+> [2] https://patch.msgid.link/20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@ke=
+rnel.org
+> [3] https://patch.msgid.link/20260819-iommu-apple-dart-aperture-v1-0-2527=
+03f381aa@jannau.net
+> [4] https://patch.msgid.link/20260813-b4-tipd-vdo-fix-v1-1-70317f2cd554@k=
+ernel.org
+> [5] https://patch.msgid.link/20260829-b4-tbt-fixes-v3-0-e1fab6ac54fe@kern=
+el.org
+>
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+> Sven Peter (19):
+>       dt-bindings: usb: Add thunderbolt-switch property
+>       usb: typec: Add thunderbolt switch
+>       usb: typec: tipd: Hook up Thunderbolt switch for CD321x
+>       dt-bindings: thunderbolt: Add Apple USB4/Thunderbolt NHI
+>       dt-bindings: thunderbolt: Add Apple USB4/Thunderbolt ACIO block
+>       thunderbolt: Try reading host DROM from device tree first
+>       thunderbolt: Don't read the UID if we already know it
+>       thunderbolt: Allocate ring HopID before requesting the ring interru=
+pt
+>       thunderbolt: Add ring_interrupt_active to tb_nhi_ops
+>       thunderbolt: Make the ring register layout configurable
+>       thunderbolt: Add ring_interrupt_mask to tb_nhi_ops
+>       thunderbolt: Add ring_configure to tb_nhi_ops
+>       thunderbolt: Add QUIRK_NO_DMA_PORT
+>       thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
+>       thunderbolt: Export symbols required by the Apple Silicon driver
+>       thunderbolt: Add Apple Silicon support
+>       arm64: dts: apple: t8103: Add USB4 ACIO and NHI
+>       arm64: dts: apple: t8112: Add USB4 ACIO and NHI
+>       arm64: dts: apple: t60xx: Add USB4 ACIO and NHI
+>
+>  .../thunderbolt/apple,t8103-usb4-acio.yaml         |  218 +++++
+>  .../bindings/thunderbolt/apple,t8103-usb4-nhi.yaml |  151 +++
+>  .../devicetree/bindings/usb/usb-switch.yaml        |    6 +
+>  MAINTAINERS                                        |    4 +
+>  arch/arm64/boot/dts/apple/t6002-j375d.dts          |   67 ++
+>  arch/arm64/boot/dts/apple/t600x-dieX.dtsi          |  384 ++++++++
+>  arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi     |  107 ++
+>  arch/arm64/boot/dts/apple/t600x-j375.dtsi          |  137 +++
+>  arch/arm64/boot/dts/apple/t6022-j180d.dts          |  202 ++++
+>  arch/arm64/boot/dts/apple/t6022-j475d.dts          |   10 +
+>  arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi         |   57 ++
+>  arch/arm64/boot/dts/apple/t602x-dieX.dtsi          |  384 ++++++++
+>  arch/arm64/boot/dts/apple/t8103-jxxx.dtsi          |   61 ++
+>  arch/arm64/boot/dts/apple/t8103.dtsi               |  188 ++++
+>  arch/arm64/boot/dts/apple/t8112-jxxx.dtsi          |   61 ++
+>  arch/arm64/boot/dts/apple/t8112.dtsi               |  190 ++++
+>  drivers/thunderbolt/Kconfig                        |   13 +
+>  drivers/thunderbolt/Makefile                       |    3 +
+>  drivers/thunderbolt/apple.c                        | 1028 ++++++++++++++=
+++++++
+>  drivers/thunderbolt/cap.c                          |    2 +
+>  drivers/thunderbolt/ctl.c                          |    2 +
+>  drivers/thunderbolt/domain.c                       |    2 +
+>  drivers/thunderbolt/eeprom.c                       |   32 +-
+>  drivers/thunderbolt/nhi.c                          |  132 ++-
+>  drivers/thunderbolt/nhi.h                          |   32 +
+>  drivers/thunderbolt/switch.c                       |   19 +-
+>  drivers/thunderbolt/tb.c                           |   18 +
+>  drivers/thunderbolt/tb.h                           |    5 +
+>  drivers/thunderbolt/tunnel.c                       |   59 +-
+>  drivers/usb/typec/mux.c                            |  201 ++++
+>  drivers/usb/typec/mux.h                            |   12 +
+>  drivers/usb/typec/tipd/core.c                      |   37 +
+>  include/linux/thunderbolt.h                        |    3 +
+>  include/linux/usb/typec_mux.h                      |  114 +++
+>  34 files changed, 3872 insertions(+), 69 deletions(-)
+> ---
+> base-commit: 78bb208b99e7d3314f670710fa9ee0a793682bca
+> change-id: 20260829-b4-apple-soc-tbt-a00e873a52db
+>
+> Best regards,
+> -- =20
+> Sven Peter <sven@kernel.org>
 
-Tested-by: Kevin Hilman <khilman@baylibre.com> # OMAP3 Beagle XM
+I unfortunately cannot test (afaik I do not have the devices) but a
+glance over everything seems reasonable :)
 
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
