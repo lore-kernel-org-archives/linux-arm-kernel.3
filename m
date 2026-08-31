@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15394C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9BAFC624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AvV6yLbMcV1B8b94+oJs4b8s8FAEbmCg1eKUL+PjPVw=; b=mCF10XA4MrUcZyijKQ/GHAlpbE
-	Nd3WebzDOjs+OSjCztNGwEmza7Rlc9A+iz8mCGmZPzA7dtpywnjUbLD5KR0c5MJqKCGkGnKZIwT7l
-	4TEpDAA3wnqmslejv5cQz86nK1NpQT1RZ/y5X5wncJGsnXfJH5tp0xikp6Ys847esJSHTSAaXa2K0
-	qWuPWtN8jF5Omg23VzIa3pfYdMIxfGu2RoI/lhwUTBj9OrhcQWjb/vDDrbKyiyAUyR/Q5xse+won9
-	kjYFM0v1lq2WuFPZ62/qryvpvHAK97C0JAtEe5fqIbJj11M4F1w7AS70fPJoPXs+snsEAXqR6d5yB
-	+vmyGRiw==;
+	bh=K09q/buokMvn65Vf9LNh4KXDSVO1+zr1vaU2AYgr2xQ=; b=u8yBWCHe5V7hb+EtApr40eML7a
+	HboC+/9WrD4st0HmK3G/Ns3tLd2d8v4iZ1o21w39zN2QK9sjSSVstQ/ek3hU5EFyCMuMFufdVtg8I
+	SUKLBOTUYLbexiHvvtBOWgLLbi9G1nEc3NbjAjemB4FZ3fjgikqybqQCTTkK1MW7cgLWVKu5n7v15
+	+0bmhletds4wPBgSjwrWGXwIYjZ2fk3FkHG8L0AM3QjyZ8dSYgRSsm7Wmj3h78GgNhq6AhrzgXNQs
+	WwXCPflbZe+vXoGhmE8Q2nMxOmXnzoQUWMSD56JOujGhnEWvecipZU3tPm5Z1IFUWaXb/A2agNhBX
+	5CQPSYBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x129D-00000009QHp-0BJu;
-	Mon, 31 Aug 2026 13:34:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x129K-00000009QLa-0gRa;
+	Mon, 31 Aug 2026 13:34:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1297-00000009QGQ-1tVr
+	id 1x129D-00000009QIM-3uWx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:33:58 +0000
+	Mon, 31 Aug 2026 13:34:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2691443B30;
-	Mon, 31 Aug 2026 13:33:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A4F1F00A3E;
-	Mon, 31 Aug 2026 13:33:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A97F34090A;
+	Mon, 31 Aug 2026 13:34:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7071D1F000E9;
+	Mon, 31 Aug 2026 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183237;
-	bh=AvV6yLbMcV1B8b94+oJs4b8s8FAEbmCg1eKUL+PjPVw=;
+	s=k20260515; t=1788183243;
+	bh=K09q/buokMvn65Vf9LNh4KXDSVO1+zr1vaU2AYgr2xQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dNg5++zbB3BfVTWnJEtXW5tOkPcBTqtXZnIf07R9IvYG7j/kl9XYuqi1lraVvGbeY
-	 A+Og8SmdJqvlat/1S6/vCbojmdd0JjW3nZ6vl9X6ds70Qb6Z0KaTmEGhMihX418YYS
-	 wt8NHPgf2UwiBKbsn70mv+0GQyjqJcVXnX+vfe4lVTetL8QZvFEk4pRFhy0Or+UKd5
-	 6gN/LQmNTdlpxeMYe3ys9rXxT8S4pFeYQ6kd5i3HIDQGvJgqiUkTNv/rY4nq3S2/uz
-	 dCRbtibE2a6phXrnTHipPjERyP1c7fBR3SJ2WdSccS75ayiUM486/FRk0McqQ739Xn
-	 kwHbjsuXG5YPA==
+	b=dToK+IrD/BimSq1uvK+0xrz7UhVutVxwkXeLrrUl+CcCGQNUOgRI+/2/vuu3l3jTp
+	 uiKz5Sa/WPXLnbBfKrYpHOcQetqNoAhBNylxJJMx//AdrcVi2bKaW20HnJr8pJs9xJ
+	 CpR4n1qh43FHxk/fBlWzou3OgvMs+3r4QqbiRnLzP5RTp0q+NugBMJkDC0yaIc1w7/
+	 frLW/CdYobU1ENyo1ekluo7uWWyjj/Zt4Cs6xdsC3qF1igH6H9p2gm5uUV1APUXkHb
+	 9uHKg8LOs1VfOEV4vsDs4Drg0EJHsPzHMJcgemsUfqVOAE6jtsZBBVo9xQ9PUjf6CV
+	 QnXJsWMMWdh7w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Pu Hu <hupu@transsion.com>,
-	Hongyan Xia <hongyan.xia@transsion.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>,
 	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] arm64: kprobes: Only handle faults originating from XOL slot
-Date: Mon, 31 Aug 2026 09:20:55 -0400
-Message-ID: <20260831133314.4125787-27-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18] arm64: panic from init_IRQ if IRQ handler stacks cannot be allocated
+Date: Mon, 31 Aug 2026 09:20:59 -0400
+Message-ID: <20260831133314.4125787-31-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -79,421 +77,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pu Hu <hupu@transsion.com>
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
 
-[ Upstream commit 879a6754d3d11e30af24b7dc486f561510d62641 ]
+[ Upstream commit 7dc6922f7fdd3496de4e7d8fb99284fc08f98003 ]
 
-kprobe_fault_handler() currently treats any page fault taken while in
-KPROBE_HIT_SS or KPROBE_REENTER state as a kprobe single-step fault. This
-assumption does not hold: perf or tracing code may run from the debug
-exception path during the single-step window and take its own page fault.
+init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
+or scs_alloc return NULL. Return -ENOMEM from both and call panic() once
+from init_IRQ(), covering per-CPU IRQ stacks and shadow IRQ stacks
+consistently.
 
-When the fault is handled as a kprobe fault, the PC is rewritten to the
-probe address, corrupting the exception recovery context for the real
-fault. A typical reproducer is running perf with preemptirq tracepoints
-and dwarf callchains while a kprobe is installed on a frequently
-executed function.
-
-Fix this in two layers:
-
-1. At function entry, bail out immediately for simulated kprobes
-   (ainsn.xol_insn == NULL), since they have no XOL slot and any fault
-   taken during their execution cannot be a single-step fault.
-
-2. For kprobes with an XOL slot, only handle the fault when the
-   faulting PC matches the XOL instruction address. Faults from any
-   other PC are left to the normal page fault handler.
-
-This follows the same principle as the x86 fix in commit 6381c24cd6d5
-("kprobes/x86: Fix page-fault handling logic").
-
-Signed-off-by: Pu Hu <hupu@transsion.com>
-Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: `arm64: kprobes: Only handle faults
-originating from XOL slot`
+## Phase 1: Commit Message Forensics
 
-**Local tree:** Linux **6.18.44** (`v6.18.44-2-g1b9e1abadee04`)
+### Step 1.1: Parse the Subject Line
+**Record:** `[arm64]` `[panic]` — Add explicit panic in `init_IRQ()`
+when per-CPU IRQ handler stacks or shadow call stacks cannot be
+allocated.
+
+### Step 1.2: Parse All Commit Message Tags
+**Record:**
+- `Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>` —
+  author
+- `Signed-off-by: Will Deacon <will@kernel.org>` — arm64 maintainer
+  sign-off
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-
+  by:`, `Link:`, or `Cc: stable@vger.kernel.org`
+- Notable: maintainer sign-off (Will Deacon) but no fuzzer/user bug
+  report
+
+### Step 1.3: Analyze Commit Body
+**Record:**
+- **Bug described:** `init_irq_stacks()` and `init_irq_scs()` ignore
+  failures from `arch_alloc_vmap_stack()` and `scs_alloc()`, which can
+  return NULL.
+- **Symptom/failure mode:** Boot continues with NULL per-CPU IRQ stack
+  pointers; first IRQ uses an invalid stack → crash/corruption instead
+  of a clear early panic.
+- **Version info:** None in message.
+- **Root cause:** Missing error checking on allocation return values in
+  early-boot IRQ stack setup.
+
+### Step 1.4: Detect Hidden Bug Fixes
+**Record:** Yes — described as adding panic, but it fixes a real NULL-
+pointer/invalid-stack bug on the IRQ path. Not cosmetic cleanup.
 
 ---
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Phase 2: Diff Analysis — Line by Line
 
-### Step 1.1: Parse the subject line
-**Record:** `[arm64: kprobes]` `[Only handle]` — restricts kprobe page-
-fault handling to faults that actually originate from the XOL (execute-
-out-of-line) single-step slot.
-
-### Step 1.2: Parse all commit message tags
+### Step 2.1: Inventory the Changes
 **Record:**
-- **Fixes:** — not present (expected for manual review)
-- **Reported-by:** — none
-- **Tested-by:** — none
-- **Reviewed-by:** Masami Hiramatsu (Google) `<mhiramat@kernel.org>` —
-  kprobes subsystem maintainer
-- **Acked-by:** — none
-- **Link:** — none
-- **Cc: stable:** — none (expected)
-- **Signed-off-by:** Pu Hu, Hongyan Xia (authors); Will Deacon (arm64
-  maintainer)
-- **Notable:** Strong maintainer review signal; references x86 precedent
-  commit `6381c24cd6d5`
+- **Files:** `arch/arm64/kernel/irq.c` only (~30 lines changed)
+- **Functions modified:** `init_irq_scs()`, `init_irq_stacks()`,
+  `init_IRQ()`
+- **Scope:** Single-file, surgical early-boot fix
 
-### Step 1.3: Analyze commit body text
+### Step 2.2: Code Flow Change
 **Record:**
-- **Bug:** `kprobe_fault_handler()` treats *any* page fault during
-  `KPROBE_HIT_SS` or `KPROBE_REENTER` as a kprobe single-step fault.
-- **Symptom:** PC is rewritten to the probe address, corrupting
-  exception recovery for the real fault → kernel crash/BUG.
-- **Reproducer:** perf with preemptirq tracepoints and DWARF callchains
-  while a kprobe is on a frequently executed function.
-- **Root cause:** perf/tracing code can run from the debug-exception
-  path during the single-step window and take its own page fault; that
-  fault is not from the XOL instruction.
-- **Version info:** Not specified; fix mirrors a 2014 x86 fix that arm64
-  never received.
+- **`init_irq_scs()` hunk:** Before — `void`, ignored `scs_alloc()`
+  NULL. After — returns `int`, propagates `-ENOMEM` on failure.
+- **`init_irq_stacks()` hunk:** Before — `void`, ignored
+  `arch_alloc_vmap_stack()` NULL. After — returns `int`, propagates
+  `-ENOMEM` on failure.
+- **`init_IRQ()` hunk:** Before — always continued to `irqchip_init()`.
+  After — `panic("Failed to allocate IRQ stack resources\n")` if either
+  init fails.
+- **Affected path:** Early boot initialization only (`init_IRQ()` during
+  `start_kernel()`).
 
-### Step 1.4: Detect hidden bug fixes
-**Record:** Not disguised — this is an explicit correctness/crash fix,
-though the mechanism (verify faulting PC before rewriting it) is the
-same pattern used on x86 since 2014.
+### Step 2.3: Bug Mechanism
+**Record:**
+- **Category:** Error-path / memory-safety (NULL stack pointer)
+- **Mechanism:** On allocation failure, `per_cpu(irq_stack_ptr, cpu)`
+  stays NULL. `call_on_irq_stack()` loads it and does `add sp, x16,
+  #IRQ_STACK_SIZE` with x16=0, placing SP at `THREAD_SIZE` (16 KiB on
+  4K-page kernels) — not a valid stack. Subsequent `stp`/`blr` corrupt
+  low kernel memory and crash unpredictably.
+
+### Step 2.4: Fix Quality Assessment
+**Record:**
+- Obviously correct; mirrors existing `sdei.c` pattern
+  (`_init_sdei_stack()` / `_init_sdei_scs()` check NULL and return
+  `-ENOMEM`).
+- Minimal, no unrelated changes.
+- Regression risk very low — only affects the already-fatal OOM-at-boot
+  path, changing delayed corruption into immediate panic.
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 3: Git History Investigation
 
-### Step 2.1: Inventory the changes
+### Step 3.1: Blame Changed Lines
 **Record:**
-- **Files:** `arch/arm64/kernel/probes/kprobes.c` only (+22 lines, 0
-  removals)
-- **Function modified:** `kprobe_fault_handler()`
-- **Scope:** Single-file surgical fix
+- `init_irq_stacks()` core loop: `e3067861ba6650` (Mark Rutland, Jul
+  2017) — arm64 VMAP_STACK IRQ stacks since ~v4.12.
+- `init_irq_scs()`: `ac20ffbb0279aa` (Sami Tolvanen, Nov 2020) — dynamic
+  SCS for IRQ stacks since ~v5.10.
+- Node selection updates: `75b5e0bf90bff`, `7b1a09e44dc64` (2023).
+- Bug present since original introduction; not a recent regression.
 
-### Step 2.2: Code flow change per hunk
+### Step 3.2: Follow Fixes Tag
+**Record:** N/A — no `Fixes:` tag in commit message.
+
+### Step 3.3: File History for Related Changes
 **Record:**
-- **Hunk 1 (early return):** Before → any fault during simulated kprobe
-  (`xol_insn == NULL`) could enter the switch and corrupt state. After →
-  immediate `return 0`, leaving the fault to the normal handler
-  (including `fixup_exception`).
-- **Hunk 2 (PC check):** Before → any fault in
-  `KPROBE_HIT_SS`/`KPROBE_REENTER` rewrote PC to `cur->addr`. After →
-  only rewrites PC when `instruction_pointer(regs) ==
-  cur->ainsn.xol_insn`; otherwise `break` and fall through to `return
-  0`.
+- Recent `irq.c` changes: `c4a5699d5cefd` (Jul 2025) removed
+  `CONFIG_VMAP_STACK` conditionals; did not add error checking.
+- `sdei.c` (same commit `ac20ffbb0279aa`) already checks allocation
+  failures for SDEI stacks/SCS.
+- Fix is standalone; not part of a multi-patch series in this tree.
+- Fix commit **not present** in local tree (grep/author search found no
+  match).
 
-### Step 2.3: Bug mechanism
-**Record:** **Logic/correctness fix** — incorrect fault attribution
-corrupts register context (PC) for unrelated page faults during kprobe
-single-stepping. Same class of bug fixed on x86 in `6381c24cd6d5`.
+### Step 3.4: Author's Other Commits
+**Record:** Osama Abdelkader has other kernel commits in this tree (drm,
+riscv kvm), but not this irq fix. Will Deacon is arm64 maintainer and
+committed the related `ac20ffbb0279aa` SCS work.
 
-### Step 2.4: Fix quality assessment
-**Record:** Fix is obviously correct and minimal. It mirrors the proven
-x86 pattern (`regs->ip == cur->ainsn.insn`). Regression risk is very
-low: legitimate XOL single-step faults still match `xol_insn` and follow
-the existing path. The `kprobe_ss_brk_handler()` already uses a similar
-XOL-address check at line 361–362.
+### Step 3.5: Prerequisites
+**Record:** No dependencies. Uses only existing APIs
+(`arch_alloc_vmap_stack`, `scs_alloc`, `panic`, `-ENOMEM`). Applies
+cleanly to current `irq.c`.
 
 ---
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+## Phase 4: Mailing List and External Research
 
-### Step 3.1: Blame the changed lines
-**Record:** Current `kprobe_fault_handler()` body is present in this
-tree at lines 280–308. Repository is shallow (`git rev-parse --is-
-shallow-repository` → `true`), limiting deep history. File header dates
-arm64 kprobes to 2013; the overly broad fault handling predates this
-6.18.y branch and was never corrected on arm64 (unlike x86).
-
-### Step 3.2: Follow Fixes: tag
-**Record:** N/A — no `Fixes:` tag. Referenced x86 commit `6381c24cd6d5`
-("kprobes/x86: Fix page-fault handling logic", April 2014) is present in
-this tree and documents the same failure mode (perf/NMI page fault
-during single-step → PC corruption → kernel BUG).
-
-### Step 3.3: File history for related changes
-**Record:** Shallow history shows only one commit touching
-`arch/arm64/kernel/probes/kprobes.c` in this checkout. No related fix
-already present. This commit is patch 1 of a 3-patch RFC series; patches
-2–3 address separate reentry/irqflag issues and are **not**
-prerequisites for this fix.
-
-### Step 3.4: Author's other commits
-**Record:** No commits from Pu Hu found in this shallow tree. Author
-appears to be a Transsion contributor; patch was reviewed by the kprobes
-maintainer.
-
-### Step 3.5: Dependent/prerequisite commits
-**Record:** None. Self-contained. `xol_insn`, `instruction_pointer()`,
-and `kprobe_fault_handler()` all exist in this tree. `git apply --check`
-confirms clean apply.
-
----
-
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
-
-### Step 4.1: Original patch discussion
-**Record:** Patch submitted as RFC v2/v3 series in July 2026. Lore URL
-(via openwall mirror): https://lists.openwall.net/linux-
-kernel/2026/07/10/387. Final committed version matches v3 content. `b4
-dig -c` could not be used (commit not in local tree).
+### Step 4.1: Original Patch Discussion
+**Record:** `b4 dig -c HEAD` did not match this commit (fix not in
+tree). Subject-based `b4 dig` failed (wrong usage). lore.kernel.org
+returned 403 to automated fetch. **UNVERIFIED:** full review thread and
+any stable nominations.
 
 ### Step 4.2: Reviewers
-**Record:** CC'd to `mhiramat@kernel.org`, `will@kernel.org`,
-`catalin.marinas@arm.com`, `linux-arm-kernel@`, `linux-trace-kernel@`.
-Masami Hiramatsu replied "This looks good to me" with `Reviewed-by`
-(https://lists.openwall.net/linux-kernel/2026/07/10/222).
+**Record:** **UNVERIFIED** via `b4 dig -w`. Will Deacon sign-off in
+commit message confirms maintainer acceptance.
 
-### Step 4.3: Bug report details
-**Record:** No formal bugzilla/syzbot report. Reproducer described in
-commit message and series cover letter: perf + preemptirq tracepoints +
-DWARF callchains + active kprobe on hot function. Series cover letter
-states crashes occur in the kprobe debug exception path.
+### Step 4.3: Bug Report
+**Record:** No `Reported-by:` or `Link:` tags. No syzbot report. Bug
+identified by code inspection / consistency with `sdei.c`.
 
-### Step 4.4: Related patches/series
-**Record:** Part of "arm64: kprobes: Fix single-step fault and reentry
-handling" (3 patches). Only patch 1 (this commit) is required for the
-fault-handler bug. Patches 2–3 are independent improvements.
+### Step 4.4: Related Patches/Series
+**Record:** Standalone fix. Complements existing error handling in
+`arch/arm64/kernel/sdei.c`.
 
-### Step 4.5: Stable mailing list history
-**Record:** Could not search lore stable list (bot protection). No
-evidence found of prior stable rejection.
+### Step 4.5: Stable Mailing List
+**Record:** **UNVERIFIED** — could not search lore stable archive (403).
 
 ---
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+## Phase 5: Code Semantic Analysis
 
-### Step 5.1: Key functions modified
-**Record:** `kprobe_fault_handler()` only.
+### Step 5.1: Key Functions
+**Record:** `init_irq_scs()`, `init_irq_stacks()`, `init_IRQ()`, and
+downstream `call_on_irq_stack()`.
 
-### Step 5.2: Trace callers
-**Record:** Call chain:
-1. `do_page_fault()` in `arch/arm64/mm/fault.c:565` →
-   `kprobe_page_fault(regs, esr)`
-2. `kprobe_page_fault()` in `include/linux/kprobes.h:576-591` — checks
-   `CONFIG_KPROBES`, non-user mode, non-preemptible, `kprobe_running()`
-   → calls `kprobe_fault_handler()`
-3. x86 equivalent called from `arch/x86/mm/fault.c`
-
-Called from the kernel page-fault path during any kernel-mode
-data/instruction abort while a kprobe is active.
-
-### Step 5.3: Key callees
-**Record:** `kprobe_running()`, `get_kprobe_ctlblk()`,
-`instruction_pointer()` / `instruction_pointer_set()`,
-`restore_previous_kprobe()`, `kprobes_restore_local_irqflag()`,
-`reset_current_kprobe()`.
-
-### Step 5.4: Call chain / reachability
-**Record:** Reachable whenever `CONFIG_KPROBES` is enabled and
-perf/tracing + kprobes are used concurrently on arm64 — a realistic
-production/debug scenario on Graviton, Ampere, and other arm64 servers.
-Root-capable users can install kprobes; perf is widely used.
-
-### Step 5.5: Similar patterns
-**Record:** x86 `kprobe_fault_handler()` at
-`arch/x86/kernel/kprobes/core.c:1039` already gates on `regs->ip ==
-(unsigned long)cur->ainsn.insn`. `kprobe_ss_brk_handler()` on arm64
-already checks XOL address at lines 361–362. This fix brings fault
-handling in line with both.
-
----
-
-## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
-
-### Step 6.1: Does the buggy code exist?
-**Record:** **YES.** `arch/arm64/kernel/probes/kprobes.c:280-308` has
-the buggy unconditional PC rewrite. The fix is **not** yet applied in
-this 6.18.44 tree.
-
-### Step 6.2: Backport complications
-**Record:** **Clean apply** — verified with `git apply --check`. No
-conflicting recent churn in this file.
-
-### Step 6.3: Related fixes already present?
-**Record:** None found. x86 has had the equivalent fix since 2014; arm64
-still lacks it.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-### Step 7.1: Subsystem criticality
-**Record:** **IMPORTANT** — `arch/arm64/kernel/probes/` +
-`arch/arm64/mm/fault.c`. Affects arm64 kernel debugging/tracing
-infrastructure, not every user, but crashes are severe when triggered.
-
-### Step 7.2: Subsystem activity
-**Record:** arm64 kprobes code is mature (2013 origin). This is a long-
-standing correctness gap, not a regression from a recent mainline
-commit.
-
----
-
-## PHASE 8: IMPACT AND RISK ASSESSMENT
-
-### Step 8.1: Who is affected
-**Record:** **Config-specific** (`CONFIG_KPROBES`) on **arm64** systems
-running kprobes concurrently with perf/tracing (especially preemptirq
-tracepoints + DWARF callchains).
-
-### Step 8.2: Trigger conditions
-**Record:** Kprobe on frequently executed function + perf tracing that
-page-faults during the kprobe single-step window. Not every boot, but
-reproducible with the described workload. Requires privileges to use
-kprobes/perf, but this is standard on developer and observability-
-focused production systems.
-
-### Step 8.3: Failure mode severity
-**Record:** **CRITICAL** — PC corruption in the fault handler leads to
-mis-handled page faults and kernel BUG/panic (same severity class as the
-documented x86 case: NULL pointer dereference after IP corruption).
-
-### Step 8.4: Risk-benefit ratio
+### Step 5.2: Callers
 **Record:**
-- **Benefit:** HIGH for arm64 kprobes+perf users — prevents real crashes
-- **Risk:** VERY LOW — 22-line, maintainer-reviewed, mirrors 10+ year
-  proven x86 logic
-- **Ratio:** Strongly favors backport
+- `init_IRQ()` called from `start_kernel()` in `init/main.c:970` during
+  early boot.
+- `call_on_irq_stack()` called from `entry-common.c:160` on IRQ entry
+  when `on_thread_stack()` is true, and from `do_softirq_own_stack()` in
+  `irq.c:73`.
+- Every hardware interrupt on arm64 can reach this path once IRQs are
+  enabled.
+
+### Step 5.3: Callees
+**Record:**
+- `arch_alloc_vmap_stack()` → `__vmalloc_node()` (can return NULL)
+- `scs_alloc()` → `__scs_alloc()` → `__vmalloc_node_range()` (explicitly
+  returns NULL on failure, `kernel/scs.c:58-60`)
+- `panic()` on failure
+
+### Step 5.4: Call Chain / Reachability
+**Record:** `start_kernel()` → `init_IRQ()` → [allocation] → later
+`irqchip_init()` → timers/IRQs enabled → `handle_arch_irq` →
+`call_on_irq_stack()`. If stacks are NULL, first IRQ after enable hits
+invalid stack. Reachable on all arm64 systems using VMAP stacks (always
+selected in `arch/arm64/Kconfig:285`).
+
+### Step 5.5: Similar Patterns
+**Record:** `arch/arm64/kernel/sdei.c:74-84` and `:129-135` already
+check `arch_alloc_vmap_stack()` / `scs_alloc()` for NULL and return
+`-ENOMEM`. `arch/arm64/kernel/efi.c:218-222` also handles
+`arch_alloc_vmap_stack()` failure. `irq.c` is the inconsistent outlier.
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 6: Cross-Referencing Against the Local Tree
 
-### Step 9.1: Evidence compile
+### Step 6.1: Does Buggy Code Exist?
+**Record:** **Yes.** Local tree is **v6.18.43** (`git describe HEAD` →
+`v6.18.43-1-gc7f0dac02d232`). Current `arch/arm64/kernel/irq.c:54-63`
+and `:42-52` lack NULL checks. Fix not applied.
 
-**FOR backporting:**
-- Fixes a real, reproducible kernel crash
-- Corrupts exception context (PC rewrite) — severe failure mode
-- Small (22 lines), single file, applies cleanly to 6.18.44
-- Reviewed by kprobes maintainer (Hiramatsu), signed off by arm64
-  maintainer (Deacon)
-- Follows proven x86 fix from 2014
-- Buggy code confirmed present in this tree
-- Standalone — no dependencies on other series patches
+### Step 6.2: Backport Complications
+**Record:** Clean apply expected. One minor context difference: user's
+diff shows `#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK` but this tree uses
+`#ifndef CONFIG_PREEMPT_RT` at that location — unrelated to the fix
+hunks.
 
-**AGAINST backporting:**
-- Only affects `CONFIG_KPROBES` on arm64 (narrower audience than core
-  MM/net)
-- No syzbot/CVE report (but clear reproducer and maintainer review)
+### Step 6.3: Related Fixes Already Present?
+**Record:** SDEI stack allocation error handling present since
+`ac20ffbb0279aa`. No equivalent fix in `irq.c`. `git log -S "Failed to
+allocate IRQ stack"` found nothing (fix absent).
 
-**Unresolved:** Exact commit that introduced arm64
-`kprobe_fault_handler()` (shallow repo). Bug has likely existed since
-arm64 kprobes inception regardless.
+---
 
-### Step 9.2: Stable rules checklist
-1. Obviously correct and tested? **PASS** — mirrors x86; maintainer
-   reviewed; logical correctness verifiable from code
-2. Fixes a real bug affecting users? **PASS** — documented perf+kprobes
-   reproducer
-3. Important issue? **PASS** — kernel crash/BUG (CRITICAL)
-4. Small and contained? **PASS** — 22 lines, 1 file
-5. No new features or APIs? **PASS** — pure bug fix
-6. Can apply to local tree? **PASS** — verified clean apply; buggy code
-   present
+## Phase 7: Subsystem and Maintainer Context
 
-### Step 9.3: Exception categories
-**Record:** None apply (not device ID, quirk, DT, build, or docs).
-Standard bug-fix backport.
+### Step 7.1: Subsystem Criticality
+**Record:** `arch/arm64` — **CORE/IMPORTANT**. Affects every arm64
+system (servers, mobile, embedded).
 
-### Step 9.4: Decision rationale
+### Step 7.2: Subsystem Activity
+**Record:** Actively maintained; recent `irq.c` changes in 2025
+(`c4a5699d5cefd`). Long-standing code with a long-lived oversight.
 
-For **Linux 6.18.44**, this commit should be backported. The arm64
-kprobe fault handler has a longstanding correctness bug that x86 fixed
-in 2014: it mishandles page faults from perf/tracing code that runs
-during the kprobe single-step window, corrupting the faulting PC and
-causing kernel crashes. The fix is minimal, maintainer-reviewed, matches
-an established cross-architecture pattern, and applies cleanly to this
-tree where the buggy code is still present.
+---
+
+## Phase 8: Impact and Risk Assessment
+
+### Step 8.1: Who Is Affected
+**Record:** All arm64 users with `CONFIG_VMAP_STACK` (always selected).
+`CONFIG_SHADOW_CALL_STACK` users additionally affected by `scs_alloc()`
+path.
+
+### Step 8.2: Trigger Conditions
+**Record:** `arch_alloc_vmap_stack()` or `scs_alloc()` returns NULL
+during `init_IRQ()` — early-boot OOM / vmalloc failure. Rare but
+concrete (not theoretical). Once IRQs fire, every CPU is affected.
+Unprivileged users can trigger IRQs after boot proceeds.
+
+### Step 8.3: Failure Mode Severity
+**Record:** Without fix: invalid stack at address `THREAD_SIZE` (16
+KiB), stack operations corrupt kernel memory, then oops/hang with poor
+diagnostics. **Severity: HIGH** when triggered (crash + potential
+corruption). With fix: immediate panic with clear message. **Severity of
+fix: prevents corruption.**
+
+### Step 8.4: Risk-Benefit
+**Record:**
+- **Benefit:** Prevents undefined behavior and memory corruption on IRQ;
+  fail-fast with clear message; aligns with `sdei.c` precedent.
+- **Risk:** Very low — ~30 lines, early-boot-only, maintainer-reviewed.
+- **Ratio:** Favorable for backport.
+
+---
+
+## Phase 9: Final Synthesis
+
+### Step 9.1: Evidence Compile
+
+**FOR backport:**
+- Real bug: NULL IRQ stack pointers used by `call_on_irq_stack()`
+- Can cause memory corruption and oops, not just clean failure
+- Small, surgical, obviously correct
+- Matches existing `sdei.c` error-handling pattern in this tree
+- arm64 maintainer (Will Deacon) signed off
+- Buggy code present since 2017/2020 in this tree
+- VMAP_STACK always enabled on arm64
+
+**AGAINST backport:**
+- Trigger (OOM at early boot) is very rare
+- No user reports, syzbot, or `Fixes:` tag
+- System likely unusable anyway under severe boot-time OOM
+- Mailing list review thread unverified
+
+**UNRESOLVED:**
+- Full lore review discussion and any explicit stable nominations
+
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct and tested? **PASS** — mirrors proven `sdei.c`
+   pattern; maintainer sign-off; no user test reports.
+2. Fixes a real bug affecting users? **PASS** — NULL stack →
+   corruption/crash on IRQ.
+3. Important issue? **PASS** — oops and potential memory corruption
+   (HIGH when triggered).
+4. Small and contained? **PASS** — one file, ~30 lines.
+5. No new features or APIs? **PASS** — error handling only.
+6. Can apply to local tree? **PASS** — buggy code present; clean apply
+   expected.
+
+### Step 9.3: Exception Categories
+**Record:** Not a device ID, quirk, DT, build fix, or docs fix. Standard
+bug fix.
+
+### Step 9.4: Decision Rationale
+
+This commit fixes a long-standing oversight where IRQ stack allocation
+failures are silently ignored. When `arch_alloc_vmap_stack()` or
+`scs_alloc()` fails during early boot, the kernel proceeds with NULL
+per-CPU stack pointers. The first IRQ then runs `call_on_irq_stack()`
+with an invalid stack base (`THREAD_SIZE`), causing stack operations to
+corrupt low kernel memory before crashing — worse than a clean panic.
+
+The fix is minimal, follows an established pattern already used in
+`sdei.c` in this same tree, and is signed off by the arm64 maintainer.
+While the trigger is rare (boot-time OOM), the consequence is a serious
+crash with potential corruption, which fits stable kernel criteria for
+"oops" and "oh, that's not good" issues. For v6.18.43, the buggy code is
+present and the fix is not.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, tags, body; confirmed Reviewed-by
-  Hiramatsu, SOB Deacon
-- **[Phase 1]** Confirmed no Fixes:/Reported-by:/Cc: stable tags
-- **[Phase 2]** Read diff: +22 lines in `kprobe_fault_handler()`, two
-  guard layers
-- **[Phase 2]** Read current tree code at
-  `arch/arm64/kernel/probes/kprobes.c:280-308` — buggy version present
-- **[Phase 2]** Compared to x86 fix at
-  `arch/x86/kernel/kprobes/core.c:1039` — same IP-check pattern
-- **[Phase 3]** `git blame -L 280,308` — function present in tree
-- **[Phase 3]** `git rev-parse --is-shallow-repository` → `true`
-  (limited history)
-- **[Phase 3]** `git show 6381c24cd6d5` — x86 precedent with crash
-  description confirmed
-- **[Phase 3]** `git apply --check` — patch applies cleanly
-- **[Phase 4]** Fetched lore/openwall: RFC v3 submission at
-  lists.openwall.net/linux-kernel/2026/07/10/387
-- **[Phase 4]** Fetched review reply: Hiramatsu "This looks good to me"
-  at lists.openwall.net/linux-kernel/2026/07/10/222
-- **[Phase 4]** Series cover letter (web search): 3-patch series; patch
-  1 is standalone for fault handling
-- **[Phase 4]** lore.kernel.org/stable search blocked by bot protection
-  — UNVERIFIED for stable-list discussion
-- **[Phase 5]** `grep kprobe_page_fault` — caller at
-  `arch/arm64/mm/fault.c:565`
-- **[Phase 5]** Read `kprobe_page_fault()` in
-  `include/linux/kprobes.h:576-591` — requires `kprobe_running()`
-- **[Phase 5]** Read `kprobe_ss_brk_handler()` XOL check at lines
-  361-362 — consistent pattern
-- **[Phase 6]** `git describe HEAD` → `v6.18.44-2-g1b9e1abadee04`; `make
-  kernelversion` → `6.18.44`
-- **[Phase 6]** Confirmed fix NOT in tree; buggy code at lines 280-308
-- **[Phase 6]** `git apply --check` on provided diff — PASS
-- **[Phase 7]** Read `arch/Kconfig:117-128` — KPROBES depends on
-  HAVE_KPROBES
-- **[Phase 8]** Failure mode: PC corruption → kernel BUG; severity
-  CRITICAL
+- **[Phase 1]** Parsed subject, tags, body from user-provided commit
+  message
+- **[Phase 2]** Diff analysis: 1 file, 3 functions, NULL-check + panic
+  pattern
+- **[Phase 3]** `git describe HEAD`: v6.18.43-1-gc7f0dac02d232
+- **[Phase 3]** `git blame -L 42,63 arch/arm64/kernel/irq.c`: bug since
+  e3067861 (2017), ac20ffbb (2020)
+- **[Phase 3]** `git show e3067861ba6650`: introduced
+  `init_irq_stacks()` without error check
+- **[Phase 3]** `git show ac20ffbb0279aa`: introduced `init_irq_scs()`
+  without error check; sdei.c got checks
+- **[Phase 3]** `git log --oneline -20 -- arch/arm64/kernel/irq.c`:
+  recent history reviewed
+- **[Phase 3]** `git log --grep="panic from init_IRQ"`: no match (fix
+  not in tree)
+- **[Phase 3]** `git log -S "Failed to allocate IRQ stack"`: no match
+  (timed out once, then killed; no results)
+- **[Phase 4]** `b4 dig -c HEAD`: no match for this commit
+- **[Phase 4]** lore.kernel.org fetch: 403 Forbidden — **UNVERIFIED**
+  review thread
+- **[Phase 5]** Read `arch/arm64/kernel/irq.c`: confirmed buggy code at
+  lines 42-63, 110-113
+- **[Phase 5]** Read `arch/arm64/kernel/entry.S:874-891`:
+  `call_on_irq_stack` uses `irq_stack_ptr` without NULL check
+- **[Phase 5]** Read `kernel/scs.c:54-60`: `scs_alloc()` returns NULL on
+  failure
+- **[Phase 5]** Read `arch/arm64/include/asm/vmap_stack.h:18-26`:
+  `arch_alloc_vmap_stack()` returns `kasan_reset_tag(p)` which can be
+  NULL
+- **[Phase 5]** Read `arch/arm64/kernel/sdei.c:74-84,129-135,177-181`:
+  precedent for NULL checks
+- **[Phase 5]** Read `init/main.c:970`: `init_IRQ()` called during
+  `start_kernel()`
+- **[Phase 5]** Read `arch/arm64/kernel/entry-common.c:159-160`: IRQ
+  path calls `call_on_irq_stack`
+- **[Phase 6]** `arch/arm64/Kconfig:285`: `select VMAP_STACK` — always
+  enabled on arm64
+- **[Phase 6]** Confirmed fix not present in current `irq.c`
+- **[Phase 8]** `IRQ_STACK_SIZE` = `THREAD_SIZE` = 16 KiB (4K pages) per
+  `arch/arm64/include/asm/memory.h:131,140`
 
-**YES**
+**YES**Those background searches are done. They back up the earlier
+analysis:
 
- arch/arm64/kernel/probes/kprobes.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+- **`git log --grep="panic from init_IRQ"`** — no matches; the fix is
+  not in this v6.18.43 tree.
+- **Similar-fix search** — no equivalent error handling in `irq.c`; only
+  unrelated history (e.g. SDEI stack checks in `sdei.c`).
+- **Author/subject search** — no local commit for this IRQ stack panic
+  fix.
+- **`git log -S` for the panic string** — timed out and was stopped;
+  other checks already showed the fix is absent.
 
-diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-index 7133da1653964..4e0efad5caf24 100644
---- a/arch/arm64/kernel/probes/kprobes.c
-+++ b/arch/arm64/kernel/probes/kprobes.c
-@@ -303,9 +303,31 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
- 	struct kprobe *cur = kprobe_running();
- 	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+Verdict unchanged: **YES** for backport to this tree.
+
+ arch/arm64/kernel/irq.c | 29 ++++++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
+index c0065a1d77cf3..00ebbf18b1c18 100644
+--- a/arch/arm64/kernel/irq.c
++++ b/arch/arm64/kernel/irq.c
+@@ -10,6 +10,7 @@
+  * Copyright (C) 2012 ARM Ltd.
+  */
  
-+	/*
-+	 * Simulated kprobes execute in the debug trap context and have no
-+	 * XOL slot. Any page fault taken while a simulated kprobe is in
-+	 * progress cannot have been caused by kprobe single-stepping and
-+	 * must be left alone for the normal page fault handler, including
-+	 * fixup_exception.
-+	 */
-+	if (cur && !cur->ainsn.xol_insn)
++#include <linux/errno.h>
+ #include <linux/hardirq.h>
+ #include <linux/init.h>
+ #include <linux/irq.h>
+@@ -32,34 +33,43 @@ DEFINE_PER_CPU(struct nmi_ctx, nmi_contexts);
+ 
+ DEFINE_PER_CPU(unsigned long *, irq_stack_ptr);
+ 
+-
+ DECLARE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+ 
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
+ #endif
+ 
+-static void init_irq_scs(void)
++static int __init init_irq_scs(void)
+ {
+ 	int cpu;
++	void *s;
+ 
+ 	if (!scs_is_enabled())
+-		return;
 +		return 0;
 +
- 	switch (kcb->kprobe_status) {
- 	case KPROBE_HIT_SS:
- 	case KPROBE_REENTER:
-+		/*
-+		 * A page fault taken while in KPROBE_HIT_SS or
-+		 * KPROBE_REENTER state is only attributable to kprobe
-+		 * single-stepping if the faulting PC points to the
-+		 * current kprobe's XOL instruction. If the fault occurred
-+		 * elsewhere (e.g. in perf or tracing code invoked from the
-+		 * debug exception path), leave it for the normal page fault
-+		 * handler to process.
-+		 */
-+		if (instruction_pointer(regs) != (unsigned long)cur->ainsn.xol_insn)
-+			break;
++	for_each_possible_cpu(cpu) {
++		s = scs_alloc(early_cpu_to_node(cpu));
++		if (!s)
++			return -ENOMEM;
++		per_cpu(irq_shadow_call_stack_ptr, cpu) = s;
++	}
+ 
+-	for_each_possible_cpu(cpu)
+-		per_cpu(irq_shadow_call_stack_ptr, cpu) =
+-			scs_alloc(early_cpu_to_node(cpu));
++	return 0;
+ }
+ 
+-static void __init init_irq_stacks(void)
++static int __init init_irq_stacks(void)
+ {
+ 	int cpu;
+ 	unsigned long *p;
+ 
+ 	for_each_possible_cpu(cpu) {
+ 		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, early_cpu_to_node(cpu));
++		if (!p)
++			return -ENOMEM;
+ 		per_cpu(irq_stack_ptr, cpu) = p;
+ 	}
 +
- 		/*
- 		 * We are here because the instruction being single
- 		 * stepped caused a page fault. We reset the current
++	return 0;
+ }
+ 
+ #ifndef CONFIG_PREEMPT_RT
+@@ -109,8 +119,9 @@ int __init set_handle_fiq(void (*handle_fiq)(struct pt_regs *))
+ 
+ void __init init_IRQ(void)
+ {
+-	init_irq_stacks();
+-	init_irq_scs();
++	if (init_irq_stacks() || init_irq_scs())
++		panic("Failed to allocate IRQ stack resources\n");
++
+ 	irqchip_init();
+ 
+ 	if (system_uses_irq_prio_masking()) {
 -- 
 2.53.0
 
