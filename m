@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1262C624CF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4312EC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkG/gGnPR80pF0A5YlY+rbjdL7IF5bVodKxCo6X/X6w=; b=4Da5gzeTh6Ae/ogF8XjA2B2ICw
-	JGt+imoDwUJalAHOKRKUGiu7SqdwBC5xIs17bXokySm0ymnKHDKkTQvnsS5fw3eC4sxglDvmuyHc7
-	MOothIkSPdC3PCJUpAkkf7Vcr+Y5EYomoIrx3Yht+ZruUBfpMAz0WYDw41WMKkebiyZ49Ptulvg5B
-	WKRum99x8WTVWbNDqiIDhRck0rktvnSJarh4g+tUMIkAqMztBWHFVMrF+t5us2lVkCQ7WxoxCT25X
-	q9QNC3hY2pY7iTdGAkeQGXCtWumNzum4DfGhVKx+Nx+EUmO+Zcg+NGBYej8yyHGbk1OywRDevzW5E
-	14BC/GHA==;
+	bh=4IoIab5cIoM5o/andWQrmzeZTVfKs+JrBkuCBRlHKV8=; b=47MnK6AGRZj23X9GR4z7BxyfJH
+	Cibt03megcXzWILWkDgrT+aJ6fcL5RyayQsrjvU36LNOZTen+SUGXOG1Hlcq6UQTFm1Phb7EeAy/4
+	IOZGBpX3MBOLi0JhXwJcvoJ3irbiW0OKg5Wx62fp3LqI9BnH35M4Mcc+1q/NazvwPeiCoUoGs0Izb
+	+girERHyFNa3KDtLg4X98ssx5j/L3SDlLcLBoAa6bVe4dK4jDrbl2PtcZFUyugIEWJ4/YQKIBH0cm
+	fsQfshUAvrTmxepRkIMfozGilij2+6HRF2LBMmGOh3neO8nt2TEsH0UBaarQL/jXjaOZaGw6R9EyR
+	8OR1HCWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14xt-0000000A3Xs-1Dox;
+	id 1x14xt-0000000A3XX-0mjY;
 	Mon, 31 Aug 2026 16:34:33 +0000
-Received: from out-244.mta1.migadu.com ([95.215.58.244] helo=mta1.migadu.com)
+Received: from out-69.mta0.migadu.com ([91.218.175.69] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14xo-0000000A3UT-0i8m
+	id 1x14xo-0000000A3UR-0QlD
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 31 Aug 2026 16:34:29 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=sgYkDTg7Jo0H7v4FhYDLa/xTRbiMg3D/yA5GoKlQeWM=;
+DKIM-Signature: a=rsa-sha256; bh=FNewsXbgZk6ir7Tq/DaFYrMHnt1LVf+kHlt1OXPPVRQ=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788194064; v=1; x=1788798864;
- b=P589rYW8XCb6buL/NhL6HEVW6VG7LSw99wB8N/ch37zJRG16d4tEa9a7PWtJ1BHoN0UQXFsW
- TzqsQ8Dlq4JfyOIaM5yav1lkTsZXsBtjpR6Kd6TAWYWpuv2Gabg2/mTmR4SfjvPmsi1o0J5e98i
- sG3mVtKfcVHIEYi2ZoLFK9jQ=
+ t=1788194063; v=1; x=1788798863;
+ b=PG9dyAEND8VSa8noM1PtoqkPn7vLScwS6NbOplgGV5p6S5EVBWZn5rbU8XVR7E9xRTPifAWM
+ faWo9HN+mpbLgAzLlTuHkJjc+jYmuetKFAl3LoSM5jjfzJvoN7snrAcGWiXKvibiVVpfRwwJRs2
+ d80Wpd9nPEG0QMppjXINcERY=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id d59ffaca8f79d627;
-	Mon, 31 Aug 2026 16:34:24 +0000
-X-Mizu-Trace-ID: d59ffaca8f79d627
+Received: by smtp.migadu.com with ESMTPS id b210bfa048418e89;
+	Mon, 31 Aug 2026 16:34:23 +0000
+X-Mizu-Trace-ID: b210bfa048418e89
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,17 +55,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 04/17] KVM: arm64: Introduce per-EC entry handlers for pKVM
-Date: Mon, 31 Aug 2026 17:34:08 +0100
-Message-Id: <20260831163421.272420-5-fuad.tabba@linux.dev>
+Subject: [PATCH 02/17] KVM: arm64: Advertise the capabilities that protected VMs support
+Date: Mon, 31 Aug 2026 17:34:06 +0100
+Message-Id: <20260831163421.272420-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260831163421.272420-1-fuad.tabba@linux.dev>
 References: <20260831163421.272420-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_093428_423076_AF0D9997 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260831_093428_337898_A86720E1 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,176 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+kvm_pkvm_ext_allowed() denies every capability it does not name, so a
+protected VM reports 0 for interfaces it implements: KVM_CHECK_EXTENSION
+denies KVM_CAP_ONE_REG while KVM_{GET,SET}_ONE_REG stage the guest's
+boot state.
 
-Add an ESR_EL2.EC-indexed handler table, entry_hyp_vm_handlers[],
-consulted from flush_hyp_vcpu() on re-entry when the previous exit was
-a trap: sync_hyp_vcpu() records the exit reason in the hyp vCPU as
-exit_code, and the trap's exception class comes from its ESR_EL2.
+Allow the capabilities that work for a protected guest, the vGIC and
+the I/O bus being host-managed, subject to the restrictions the rest of
+this series adds.
 
-Entry carries the host's requested PC updates to the hyp vCPU: add
-vcpu_copy_flag() to copy a masked set of flags between the two vCPU
-structures, with PC_UPDATE_REQ covering INCREMENT_PC and the
-pending-exception flags. The wholesale iflags copy moves into the
-non-protected branch; a protected vCPU takes only PC_UPDATE_REQ.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_host.h      | 19 +++++++++++++
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  3 ++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c     | 39 +++++++++++++++++++++++---
- 3 files changed, 57 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/kvm_pkvm.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7a..78a4d387f9fd4 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1033,11 +1033,28 @@ struct kvm_vcpu_arch {
- 		set;						\
- 	})
- 
-+#define __vcpu_copy_flag(vt, vs, flagset, f, m)			\
-+	do {							\
-+		typeof(vs->arch.flagset) tmp, val;		\
-+								\
-+		__build_check_flag(vs, flagset, f, m);		\
-+								\
-+		val = READ_ONCE(vs->arch.flagset);		\
-+		val &= (m);					\
-+		__vcpu_flags_preempt_disable();			\
-+		tmp = READ_ONCE(vt->arch.flagset);		\
-+		tmp &= ~(m);					\
-+		tmp |= val;					\
-+		WRITE_ONCE(vt->arch.flagset, tmp);		\
-+		__vcpu_flags_preempt_enable();			\
-+	} while (0)
-+
- #define vcpu_get_flag(v, ...)	__vcpu_get_flag((v), __VA_ARGS__)
- #define vcpu_set_flag(v, ...)	__vcpu_set_flag((v), __VA_ARGS__)
- #define vcpu_clear_flag(v, ...)	__vcpu_clear_flag((v), __VA_ARGS__)
- #define vcpu_test_and_clear_flag(v, ...)			\
- 	__vcpu_test_and_clear_flag((v), __VA_ARGS__)
-+#define vcpu_copy_flag(vt, vs, ...) __vcpu_copy_flag((vt), (vs), __VA_ARGS__)
- 
- /* KVM_ARM_VCPU_INIT completed */
- #define VCPU_INITIALIZED	__vcpu_single_flag(cflags, BIT(0))
-@@ -1055,6 +1072,8 @@ struct kvm_vcpu_arch {
- #define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
- /* Target EL/MODE (not a single flag, but let's abuse the macro) */
- #define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
-+/* Cover both PENDING_EXCEPTION and EXCEPT_MASK for global operations */
-+#define PC_UPDATE_REQ		__vcpu_single_flag(iflags, GENMASK(3, 0))
- /* Host-set: the hyp flushes the non-protected vCPU state in on entry */
- #define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
- 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index c904647d2f760..49a0a992047ba 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -26,6 +26,9 @@ struct pkvm_hyp_vcpu {
- 	 * per-cpu pointer tracking us. Otherwise, NULL if not loaded.
- 	 */
- 	struct pkvm_hyp_vcpu **loaded_hyp_vcpu;
-+
-+	/* The previous exit's ARM_EXCEPTION_* code. */
-+	u32 exit_code;
- };
- 
- /*
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index b6bfe502bcd04..ca7122b0bccdd 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -31,6 +31,17 @@ unsigned int hyp_gicv3_nr_lr;
- 
- void __kvm_hyp_host_forward_smc(struct kvm_cpu_context *host_ctxt);
- 
-+typedef void (*hyp_entry_exit_handler_fn)(struct pkvm_hyp_vcpu *);
-+
-+static void handle_vm_entry_generic(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	vcpu_copy_flag(&hyp_vcpu->vcpu, hyp_vcpu->host_vcpu, PC_UPDATE_REQ);
-+}
-+
-+static const hyp_entry_exit_handler_fn entry_hyp_vm_handlers[] = {
-+	[0 ... ESR_ELx_EC_MAX]		= handle_vm_entry_generic,
-+};
-+
- static void __hyp_sve_save_guest(struct kvm_vcpu *vcpu)
- {
- 	__vcpu_assign_sys_reg(vcpu, ZCR_EL1, read_sysreg_el1(SYS_ZCR));
-@@ -216,6 +227,8 @@ static void sync_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	hyp_entry_exit_handler_fn ec_handler;
-+	u8 esr_ec;
- 
- 	fpsimd_sve_flush();
- 	flush_debug_state(hyp_vcpu);
-@@ -228,6 +241,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
- 		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
- 			flush_hyp_vcpu_state(hyp_vcpu);
-+		hyp_vcpu->vcpu.arch.iflags = host_vcpu->arch.iflags;
- 	} else {
- 		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
- 	}
-@@ -245,16 +259,31 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
- 						 (HCR_TWI | HCR_TWE | HCR_VSE);
- 
--	hyp_vcpu->vcpu.arch.iflags	= host_vcpu->arch.iflags;
--
- 	hyp_vcpu->vcpu.arch.vsesr_el2	= host_vcpu->arch.vsesr_el2;
- 
- 	flush_hyp_vgic_state(hyp_vcpu);
- 
- 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
-+
-+	switch (ARM_EXCEPTION_CODE(hyp_vcpu->exit_code)) {
-+	case ARM_EXCEPTION_IRQ:
-+	case ARM_EXCEPTION_EL1_SERROR:
-+	case ARM_EXCEPTION_IL:
-+		break;
-+	case ARM_EXCEPTION_TRAP:
-+		esr_ec = ESR_ELx_EC(kvm_vcpu_get_esr(&hyp_vcpu->vcpu));
-+		ec_handler = entry_hyp_vm_handlers[esr_ec];
-+		if (ec_handler)
-+			ec_handler(hyp_vcpu);
-+		break;
-+	default:
-+		BUG();
-+	}
-+
-+	hyp_vcpu->exit_code = 0;
- }
- 
--static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
-+static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu, u32 exit_reason)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
- 
-@@ -281,6 +310,8 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	host_vcpu->arch.hcr_el2 |= hyp_vcpu->vcpu.arch.hcr_el2 & HCR_VSE;
- 
- 	sync_hyp_vgic_state(hyp_vcpu);
-+
-+	hyp_vcpu->exit_code = exit_reason;
- }
- 
- static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
-@@ -395,7 +426,7 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
- 
- 		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
- 
--		sync_hyp_vcpu(hyp_vcpu);
-+		sync_hyp_vcpu(hyp_vcpu, ret);
- 	} else {
- 		/* The host is fully trusted, run its vCPU directly. */
- 		fpsimd_lazy_switch_to_guest(host_vcpu);
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index beea00e693a0a..c4c834d55e503 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -42,6 +42,15 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+ 	case KVM_CAP_ARM_VM_IPA_SIZE:
+ 	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+ 	case KVM_CAP_ARM_PTRAUTH_GENERIC:
++	case KVM_CAP_ONE_REG:
++	case KVM_CAP_MP_STATE:
++	case KVM_CAP_VCPU_EVENTS:
++	case KVM_CAP_VCPU_ATTRIBUTES:
++	case KVM_CAP_IMMEDIATE_EXIT:
++	case KVM_CAP_IOEVENTFD:
++	case KVM_CAP_IRQFD_RESAMPLE:
++	case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
++	case KVM_CAP_ARM_INJECT_SERROR_ESR:
+ 		return true;
+ 	case KVM_CAP_ARM_MTE:
+ 		return false;
 -- 
 2.39.5
 
