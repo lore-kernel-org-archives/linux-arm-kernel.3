@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE778C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22F3C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bbLn43OEfzJk6RijiG0hY9eLwY+qM7uVXluXMN+YSs=; b=3K7umT74E8GIiDGf4OMeQJKQt1
-	yGMj+ZiXnYxiiGBcQOdyx/REkOaTn+cWxfpbS+RxfKLrkHZYLYGLMO2W+WVbpYFteOBvQuyCs0o8H
-	R1LKicClZmPuVF9f6sftFAmgRB/MsqbBSpM95YqXEpECBtRsOge3om1MOSuPJTi6VaTggv5dCmu7G
-	LX0DLL9LnEySuTu7laeL3fAvK/LtaP+4FY5w12f2I3qzICR0dqECUm1iBHnRCuAGofM1DvP28ncmz
-	Dq8DzVsG+kMdTuZvIP5hGdV2GzObFaWDmx5fNlfA/hB/UIUj8j0iR7KOLk8QnDfgWXvAEYX0ni47W
-	oNR4UxIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rKqQvcYTnwhaeJBQ2ar7dKiQ42957hc/hTbAjzWCFPM=; b=tWRXUuCiM2ME9SP50Q/U2oKzGR
+	YmgUXx/tiocq6HhDFMhed9P9Y5QF8xiYYJuRf6aZ2kGBaljrehV7VeTmKBWTsHs45xHYY9O86riuR
+	Ek4fyONzhJacNXbRdvd3CPJ6pEJbGCyzl1+wX6mbKIrQjgrbpirbzNTGGOL+/UVPlfRkrizJxNVmg
+	vcSYOC06QaJshX0kaaZS1gdqpQ9spXHSkei2tRiP5e1F8exfJFptRTcHbbnevEYfeKW3kg7t/iS1/
+	CBrlikS+lo+m2hzd0kfRaqi815w7wnqkTGAYLLIKhWb3k4TR9zpchvWRlWYpLqoFbBwbzUsFBJazq
+	q0leRi2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wZB-00000008jwg-43PO;
-	Mon, 31 Aug 2026 07:36:29 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1x0wak-00000008kAL-1qHo;
+	Mon, 31 Aug 2026 07:38:06 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wZ5-00000008jvR-2YXU
+	id 1x0wai-00000008k8t-1CEH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:36:29 +0000
-Date: Mon, 31 Aug 2026 09:36:19 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788161781;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0bbLn43OEfzJk6RijiG0hY9eLwY+qM7uVXluXMN+YSs=;
-	b=nq4JVzso6agIIEJPtT+hA2jj6xB08NNe45cLx3b3da5REQJup3Vb5gX/bgy+epwACYFOwh
-	4dmrOIEwuY26RvfhCQapR4BZRlTBYX8V9rIvVQdNqVZtO9KcX8cY2gPUAvu7eG1IUk4zWI
-	iGQf6n/EHr3gsDVe8aj2pFL/0A65eG2jbRDrih1dS473/GiZE0uyEJDNlC2egaMTnbXRGM
-	I0XJQ4EsLkyrO58e8EV7+vj7II5p+fmDJfFCHdFbMJyuZD3zYw5jR1Vz6jk6oExsjbzlZX
-	KRTFOrv9cQRhCIMu5h9rUFqvjPoLMdr2d2IYVQJDRkrwgFk+D6SvmF+ajLcFWA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788161781;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0bbLn43OEfzJk6RijiG0hY9eLwY+qM7uVXluXMN+YSs=;
-	b=pk91fDTwvh9wOOk+diFwBjcIFfkAtuIAvaITJVIRjHrxu/tDM8ZpStQUYGvAopCfp7Lifw
-	XzuXrIPEv7O0J2AA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	David Stevens <stevensd@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260831073619.Ssq-wt7s@linutronix.de>
-References: <20260827232948.2520558-1-stevensd@google.com>
- <20260827232948.2520558-7-stevensd@google.com>
- <20260828133620._x2XfJR_@linutronix.de>
- <20260828135947.GU776954@noisy.programming.kicks-ass.net>
- <CAOiLmNHrbXeTY7zoNodmaZUoMWf+NgvGvZ_LjfWD-1sKAoiLeQ@mail.gmail.com>
- <20260829084901.GA776954@noisy.programming.kicks-ass.net>
- <apLxcg3Lgy0-nXA4@casper.infradead.org>
+	Mon, 31 Aug 2026 07:38:05 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C97484E41466;
+	Mon, 31 Aug 2026 07:38:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 93467601E1;
+	Mon, 31 Aug 2026 07:38:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F77B11C783E3;
+	Mon, 31 Aug 2026 09:37:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788161881; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=rKqQvcYTnwhaeJBQ2ar7dKiQ42957hc/hTbAjzWCFPM=;
+	b=GPt4V02LsQZNwWDDGo0O6bovgr21NkxPD57nBj3tF/tYpUaC1MSLADXxXq5lemvazZzewf
+	ejQwVvIvyTYZ9eO+8G/nS39rcy+AlML9hDbVyOhvsmnN50PO772iGl4NAY2E2DWx12+dgB
+	QEWpxldZtdFNw88WMVLEkxrYF4IAPtgqEGajxq9XBm/O+aGBbThK8tpoGMnw3VjscxXi2e
+	Qxp/YlI+hxUesRi8RymjGSGD3Fps0qiFFcK2ymzkiY73+gBsPJS9wcoozJqVOZ9A8epeNA
+	zSnHFW5EHAWiTzoT640+idGYhFlyK4FTT06wYPZEZVMaDx+VPqfpeILgqAl2dQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Yao Zi <me@ziyao.cc>,
+	Frank <Frank.Sae@motor-comm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH net-next 1/3] net: phy: motorcomm: Split yt8521_config_init() page management
+Date: Mon, 31 Aug 2026 09:37:43 +0200
+Message-ID: <20260831073747.361482-2-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
+References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <apLxcg3Lgy0-nXA4@casper.infradead.org>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_003628_127632_FAFAE30E 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260831_003804_483206_B2D35731 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-29 15:49:22 [+0100], Matthew Wilcox wrote:
-> On Sat, Aug 29, 2026 at 10:49:01AM +0200, Peter Zijlstra wrote:
-> > > On PREEMPT_RT, it is necessary to skip the call to
-> > > alloc_pages_nolock_noprof() from under pi_lock, since with that
-> > > configuration spin_trylock can end up needing to take pi_lock. But at
-> > > least on !PREEMPT_RT, there is no risk of deadlock.
-> > 
-> > Yeah, which puts the lie to that horrific hack Alexei did. We should
-> > probably teach lockdep about spin_trylock() not being safe and see the
-> > house of cards crumble.
-> 
-> Why is spin_trylock() unsafe on PREEMPT_RT?  It's not intuitive since
-> one can mutex_trylock() in interrupt context or under spinlock.
+In preparation for separate .config_init() implementations for YT8521
+and YT8531S, let's split the yt8521_config_init() into a high-level
+helper that deals with page handling, and another one that implements
+the logic. This will ease splitting the YT8531S-specific logic out.
 
-no, you shouldn't do mutex_trylock() in IRQ. There was something, I
-don't remember but that is the reason people use semaphores because it
-is okay to do down_trylock() in IRQ. It might be unlock path. 
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/phy/motorcomm.c | 38 ++++++++++++++++++++++---------------
+ 1 file changed, 23 insertions(+), 15 deletions(-)
 
-Sebastian
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index c5a2cda8d31b..58e4d67b945f 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -1680,27 +1680,16 @@ static int yt8521_resume(struct phy_device *phydev)
+ 	return yt8521_modify_utp_fiber_bmcr(phydev, BMCR_PDOWN, 0);
+ }
+ 
+-/**
+- * yt8521_config_init() - called to initialize the PHY
+- * @phydev: a pointer to a &struct phy_device
+- *
+- * returns 0 or negative errno code
+- */
+-static int yt8521_config_init(struct phy_device *phydev)
++static int __yt8521_config_init(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+-	int old_page;
+ 	int ret = 0;
+ 
+-	old_page = phy_select_page(phydev, YT8521_RSSR_UTP_SPACE);
+-	if (old_page < 0)
+-		goto err_restore_page;
+-
+ 	/* set rgmii delay mode */
+ 	if (phydev->interface != PHY_INTERFACE_MODE_SGMII) {
+ 		ret = ytphy_rgmii_clk_delay_config(phydev);
+ 		if (ret < 0)
+-			goto err_restore_page;
++			return ret;
+ 	}
+ 
+ 	if (device_property_read_bool(dev, "motorcomm,auto-sleep-disabled")) {
+@@ -1708,7 +1697,7 @@ static int yt8521_config_init(struct phy_device *phydev)
+ 		ret = ytphy_modify_ext(phydev, YT8521_EXTREG_SLEEP_CONTROL1_REG,
+ 				       YT8521_ESC1R_SLEEP_SW, 0);
+ 		if (ret < 0)
+-			goto err_restore_page;
++			return ret;
+ 	}
+ 
+ 	if (device_property_read_bool(dev, "motorcomm,keep-pll-enabled")) {
+@@ -1716,13 +1705,32 @@ static int yt8521_config_init(struct phy_device *phydev)
+ 		ret = ytphy_modify_ext(phydev, YT8521_CLOCK_GATING_REG,
+ 				       YT8521_CGR_RX_CLK_EN, 0);
+ 		if (ret < 0)
+-			goto err_restore_page;
++			return ret;
+ 	}
+ 
+ 	if (phy_interface_is_rgmii(phydev) &&
+ 	    phydev_id_compare(phydev, PHY_ID_YT8531S))
+ 		ret = yt8531_set_ds(phydev);
+ 
++	return ret;
++}
++
++/**
++ * yt8521_config_init() - called to initialize the PHY
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * returns 0 or negative errno code
++ */
++static int yt8521_config_init(struct phy_device *phydev)
++{
++	int old_page, ret = 0;
++
++	old_page = phy_select_page(phydev, YT8521_RSSR_UTP_SPACE);
++	if (old_page < 0)
++		goto err_restore_page;
++
++	ret = __yt8521_config_init(phydev);
++
+ err_restore_page:
+ 	return phy_restore_page(phydev, old_page, ret);
+ }
+-- 
+2.55.0
+
 
