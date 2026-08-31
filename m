@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE15C624CE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10307C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2soAF6lmYUnjH69q0xPTWuMHpdk0vhzck1FpAB/Wmqw=; b=M67xLZTxR526WmcUlF2lLHyfuR
-	seWtDEeDxiHBMzbF6o2NHgWlWwzWB4XmGxfg36fMVj7m0FfPfIy22BwIw/YJD3vuJyJdMty6mlxZb
-	B6Jf7366GHnmaqAgLrcIX1jJujLQURVsjztdr7ziQjJ71kec2oHuXNqLPP54aEIKKLL/iBe2lBo3H
-	Lk7vPbhAN14ixiltQ72kRuVJsBQtIbu0pQ4dU9J2ZEO9xP//Hg2jnStBzVIL6EXtxrV3nTHg+XwC2
-	Lb/WkEOPNhRFUFS2XR5Qte8spYCihjUiGR4QxCqcapaYuoY4GLujkNdTokMczUdn4avpbrEqzYAG4
-	z3YaY2hg==;
+	bh=kdNtiSQAnxOoxykdOmKhKtFC3XRXHyDeV1PknoxHvm0=; b=zsYvh0OznpPbSW0sYTl5RQsMvd
+	8hs4layM5tqogSjAev6gdMNwg5GgyKtIf1an7InO43ZcbaLflKeJcM7yFGZeVx/6R3Apn/TIsNMdO
+	/tHThxUf1EDGLk2rRLgevKgCg42n/KKdT6Ra3mPqyldqhjMHvXEZRK9bqOD+lmdjMcpkOAZIT0aXj
+	6yED21BNqIE9/50IEkIfFELDFKA0Ivq1ontR3vDQA586SfXGRUK/EreAOPhYt4u82gFfb1/SLUL5V
+	BVZpcLIXIrT4+ZqgGH4UrWDvW7XqGr8Q1mK7IakssDQPgQsizT0trcOU5jMKufcQK43ZYi/zCE6Vx
+	msCM35qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Qx-00000009Yns-38lL;
-	Mon, 31 Aug 2026 13:52:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x12R6-00000009Yst-1139;
+	Mon, 31 Aug 2026 13:52:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Qw-00000009YnK-2hUF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:52:22 +0000
+	id 1x12R5-00000009Yrj-0nFj;
+	Mon, 31 Aug 2026 13:52:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 657BA41468;
-	Mon, 31 Aug 2026 13:52:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060491F00ACA;
-	Mon, 31 Aug 2026 13:52:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B904601FD;
+	Mon, 31 Aug 2026 13:52:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6942E1F00A3D;
+	Mon, 31 Aug 2026 13:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788184342;
-	bh=2soAF6lmYUnjH69q0xPTWuMHpdk0vhzck1FpAB/Wmqw=;
+	s=k20260515; t=1788184350;
+	bh=kdNtiSQAnxOoxykdOmKhKtFC3XRXHyDeV1PknoxHvm0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CUw3uKc+FqpbJZ6zJ9Z+nQjoZowWDAtRSKSMWa4gCjuItY323BVPe/6pVQNDoeQ/c
-	 qD/GvM/WL5V0SMlvw3GngoqyguiwZ7SX3eSbhsTfuqbMX2K27dOMvnSrZ58F1dCC7k
-	 ONCIUWXSYiCpcFGn4+y/HEV3E/OzSLu5uiO0RR4stZT8+iB8vbrxNTfJTaku6BTI/t
-	 qi+kAtuqv+vP/Ukx8y7qEFkh2QCwXAXSa5kgEaEXEE7uKKuTWTUhu+QQ3cmp+r7Xei
-	 VnZfN2kUmdlrend0cp8EZV1cq8x28n0ePFynFpD71ErOVOcPCpUyDHR6oD9YSJNuQz
-	 DntjNHKyLGMKQ==
+	b=TORyXIPY2BQKwNT3y6cfYQV5nIvFIYJWKZGhvt/yWSe5cGoZ38x1fSnfaHSIHo7t3
+	 J+qMrfxJuyBT/UhbDxH96pJg+AfbyzO+CkPbbOZNvKP5maGPbMHQZx7099wSg49hqv
+	 RCibPzMdaYpMGAcsctFiSYMqnW1TLy/8JkDaJmmWfPkhY0kD52t2Vzx24F117QY8c9
+	 dcMh6fIcSdowfhOqCG3G2RzemDzJ0gztD0oa+bQqAaECUlNUYlD1WMRk8FpdM3mLFK
+	 qebYL+PskEXeE/orisT7UvFL5tx0IsW03J6vw3L4rdlLTawIzO886446rNgKRpt0A7
+	 q2kCTkjGcbiBw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Leo Yan <leo.yan@arm.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
+Cc: ElXreno <elxreno@gmail.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	alexander.shishkin@linux.intel.com,
-	coresight@lists.linaro.org,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18] coresight: Disable source helpers in coresight_disable_path()
-Date: Mon, 31 Aug 2026 09:31:05 -0400
-Message-ID: <20260831133314.4125787-637-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18] wifi: mt76: route TDLS-peer frames as 3-addr non-DS in HW encap
+Date: Mon, 31 Aug 2026 09:31:09 -0400
+Message-ID: <20260831133314.4125787-641-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -81,460 +81,590 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leo Yan <leo.yan@arm.com>
+From: ElXreno <elxreno@gmail.com>
 
-[ Upstream commit 5cae719943399929b4f9e612d9400017d3e2c1e1 ]
+[ Upstream commit 5b7154f934c4c1b86e0fbfd95ad570a25bd08662 ]
 
-coresight_enable_path() enables helpers attached to every device in
-the path, including those bound to the source. However,
-coresight_disable_path() skips the source node, so source helpers had
-to be disabled separately in coresight_disable_source().
+With HW TX encap offload enabled, the mt76 firmware builds the 802.11
+header for the 802.3 frame using the per-WCID context. For a STATION
+vif the HDR_TRANS TLV currently sets ToDS=1, which makes the firmware
+default to the BSSID as A1 and emit STA->AP-formatted frames
+regardless of which peer the WCID points to.
 
-Move source helper disabling into coresight_disable_path() instead.
-Make coresight_disable_path_from() start from the passed node nd, so
-it can also disable helpers on the source. Update the comments
-accordingly.
+For TDLS-paired peers this is wrong. Data frames go on air addressed
+to the AP, the AP MAC-ACKs and silently drops them per IEEE 802.11z
+(an AP must not forward to a TDLS-paired peer). Management and
+control frames bypass the HW encap path and still reach the peer;
+only user data fails.
 
-As coresight_disable_path_from() now changes its semantics from
-"start beyond nd" to "start from nd", update the failure handling in
-coresight_enable_path(). If enabling a node fails, iterate to the
-previous node (the last successfully enabled one) and pass it to
-coresight_disable_path_from() for rollback.
+Add MT_WCID_FLAG_TDLS_PEER, set it in mt7915, mt7921, mt7925 and
+mt7996 sta-add paths when sta->tdls is true, and override the
+HDR_TRANS TLV in mt76_connac_mcu_wtbl_hdr_trans_tlv() (Connac2 -
+mt7915 / mt7921 / mt7922), mt7925_mcu_sta_hdr_trans_tlv() (mt7925)
+and mt7996_mcu_sta_hdr_trans_tlv() (mt7996) to set ToDS=0, FromDS=0
+when the flag is set. The 3-addr non-DS form matches what 802.11z
+uses for direct links; the firmware then constructs the frame with
+A1=peer rather than A1=BSSID. HW encap offload remains enabled for
+AP and any non-TDLS traffic.
 
-Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Link: https://lore.kernel.org/r/20260515-arm_coresight_path_power_management_improvement-v14-15-f88c4a3ecfe9@arm.com
+Verified on mt7925e + Samsung S938B over a 5 GHz HE 80 MHz channel
+with iperf3 -t 30 to the TDLS peer:
+
+  before fix:  over the TDLS direct link, 7 TDLS Setup action
+               frames and 3 RTS frames reach the peer; 0 QoS
+               Data frames make it through (mgmt/control paths
+               bypass HW encap, the data path does not). iperf3
+               stalls.
+  after fix:   2.90 GBytes transferred at 830 Mbit/s sustained,
+               0 TCP retransmits.
+
+mt7915, mt7921, mt7922 and mt7996 are not regression-tested in this
+change for lack of hardware. Their HDR_TRANS handling mirrors the
+verified mt7925 change; the firmware behavior is shared across these
+chips.
+
+Signed-off-by: ElXreno <elxreno@gmail.com>
+Assisted-by: Claude:claude-opus-4-7 bpftrace tcpdump
+Link: https://patch.msgid.link/20260506-mt7925-tdls-fixes-v2-1-46aa826ba8bb@gmail.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+## Phase 1: Commit Message Forensics
 
-### Step 1.1: PARSE THE SUBJECT LINE
-**Record:** `[coresight] [Disable] [source helpers in
-coresight_disable_path()]`
+**Step 1.1 — Subject line**
 
-Subsystem: CoreSight (ARM hardware tracing). Action: disable/fix
-asymmetry in path teardown.
+Record: `[wifi: mt76]` `[route]` — Route TDLS-peer frames as 3-address
+non-distribution-system (non-DS) frames in hardware TX encapsulation
+offload.
 
-### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
-**Record:**
-- **Fixes:** — absent (expected for manual review)
-- **Reported-by:** — none
-- **Tested-by:** Jie Gan `<jie.gan@oss.qualcomm.com>`, James Clark
-  `<james.clark@linaro.org>`
-- **Reviewed-by:** Yeoreum Yun `<yeoreum.yun@arm.com>`, James Clark
-  `<james.clark@linaro.org>`
-- **Link:** `https://lore.kernel.org/r/20260515-
-  arm_coresight_path_power_management_improvement-v14-15-
-  f88c4a3ecfe9@arm.com`
-- **Cc: stable:** — none
-- **Signed-off-by:** Leo Yan, Suzuki K Poulose (ignore pipeline SOB)
+**Step 1.2 — Tags**
 
-Notable: two subsystem reviewers and two testers; no syzbot/user crash
-report.
+Record:
+- **Signed-off-by:** ElXreno `<elxreno@gmail.com>` (author)
+- **Assisted-by:** Claude:claude-opus-4-7 bpftrace tcpdump
+- **Link:** https://patch.msgid.link/20260506-mt7925-tdls-
+  fixes-v2-1-46aa826ba8bb@gmail.com
+- **Signed-off-by:** Felix Fietkau `<nbd@nbd.name>` (mt76 maintainer)
+- No `Fixes:` tag
+- No `Cc: stable@vger.kernel.org` on the committed version (author
+  dropped it in v2; see Phase 4)
+- No `Reported-by:`, `Tested-by:`, `Reviewed-by:`, or `Acked-by:`
 
-### Step 1.3: ANALYZE THE COMMIT BODY TEXT
-**Record:**
-- **Bug:** `coresight_enable_path()` enables helpers on every path node
-  (including the source), but `coresight_disable_path()` skipped the
-  source node, so source-attached helpers were only torn down via a
-  separate call in `coresight_disable_source()`.
-- **Symptom:** Error rollback paths that call only
-  `coresight_disable_path()` leave source helpers enabled
-  (hardware/resource leak, inconsistent tracing state).
-- **Root cause:** `coresight_disable_path_from()` used
-  `list_for_each_entry_continue()` starting after the source node;
-  enable/disable were asymmetric.
-- **Fix:** Move source-helper teardown into `coresight_disable_path()`,
-  change `coresight_disable_path_from()` to start *from* `nd`
-  (`list_for_each_entry_from()`), and fix `coresight_enable_path()`
-  rollback to pass the last successfully enabled node.
-- **Version info:** Patch 15/28 of v14 CoreSight path power-management
-  series (May 2026).
+**Step 1.3 — Body analysis**
 
-### Step 1.4: DETECT HIDDEN BUG FIXES
-**Record:** Not disguised cleanup — explicit bug fix for enable/disable
-imbalance. The existing in-tree comment at lines 380–388 already
-documents this as a known problem.
+Record:
+- **Bug:** With HW TX encap offload, the HDR_TRANS TLV sets `ToDS=1` for
+  all STATION vif WCIDs. Firmware therefore builds frames with A1=BSSID
+  even for TDLS-peer WCIDs.
+- **Symptom:** TDLS data frames are sent to the AP, MAC-ACKed, and
+  silently dropped per IEEE 802.11z. Management/control frames still
+  work (they bypass HW encap). iperf3 stalls; 0 QoS Data frames reach
+  the peer.
+- **Root cause:** Incorrect 802.11 header format (STA→AP / ToDS) used
+  for TDLS direct-link peers that require 3-addr non-DS (ToDS=0,
+  FromDS=0, A1=peer).
+- **Fix:** Add `MT_WCID_FLAG_TDLS_PEER`, set on `sta->tdls` in sta-add
+  paths, override HDR_TRANS TLV to ToDS=0/FromDS=0 for flagged peers.
+- **Verification:** mt7925e + Samsung S938B, iperf3: before = 0 data
+  frames; after = 2.90 GBytes at 830 Mbit/s, 0 TCP retransmits.
+
+**Step 1.4 — Hidden bug fix?**
+
+Record: **Yes** — despite the subject using "route" rather than "fix",
+this is a clear functional bug fix. TDLS user data is completely non-
+functional under HW encap offload.
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 2: Diff Analysis
 
-### Step 2.1: INVENTORY THE CHANGES
-**Record:**
-- **Files:** `drivers/hwtracing/coresight/coresight-core.c` only (+8 /
-  −19 lines)
-- **Functions modified:** `coresight_disable_source()`,
-  `coresight_disable_path_from()`, `coresight_disable_path()` (wrapper
-  unchanged), `coresight_enable_path()`
-- **Scope:** Single-file, surgical fix
+**Step 2.1 — Inventory**
 
-### Step 2.2: CODE FLOW CHANGE (per hunk)
-**Record:**
-1. **`coresight_disable_source()`:** Before: disable source ops +
-   `coresight_disable_helpers()`. After: disable source ops only;
-   helpers owned by path disable.
-2. **`coresight_disable_path_from()`:** Before:
-   `list_for_each_entry_continue()` skipped the starting node (source
-   when `nd==NULL`). After: `list_for_each_entry_from()` includes
-   starting node; source case still skips source ops but runs
-   `coresight_disable_helpers()` on source.
-3. **`coresight_enable_path()` rollback:** Before: passed failing node
-   `nd` to `disable_path_from()` with “beyond nd” semantics. After:
-   advances to `list_next_entry(nd)` (last successfully enabled node)
-   before rollback, matching new “from nd” semantics.
+Record:
+- **8 files, +28 lines, 0 deletions**
+- `mt76.h`: +1 enum value `MT_WCID_FLAG_TDLS_PEER`
+- `mt76_connac_mcu.c`: +5 lines in
+  `mt76_connac_mcu_wtbl_hdr_trans_tlv()`
+- `mt7915/main.c`, `mt7921/main.c`, `mt7925/main.c`, `mt7996/main.c`: +3
+  lines each in sta-add paths (`set_bit` when `sta->tdls`)
+- `mt7925/mcu.c`, `mt7996/mcu.c`: +5 lines each in per-chip HDR_TRANS
+  TLV helpers
+- **Scope:** Multi-file but surgical; same pattern repeated per chip
+  generation.
 
-### Step 2.3: BUG MECHANISM
-**Record:** **Category:** Error-path resource / hardware-state leak
-(reference-counting / lifecycle asymmetry). **Mechanism:**
-`coresight_enable_path()` calls `coresight_enable_helpers()` on all
-nodes including source; `coresight_disable_path()` never visited the
-source node, so source helpers stayed enabled unless
-`coresight_disable_source()` was also called.
+**Step 2.2 — Code flow per hunk**
 
-### Step 2.4: FIX QUALITY
-**Record:** Fix is minimal and logically correct. In-tree callers of
-`coresight_disable_source()` (`coresight-sysfs.c:98`, `coresight-etm-
-perf.c:685`) are always followed by `coresight_disable_path()`, so
-removing helper teardown from `disable_source()` is safe for in-tree
-code. Low regression risk; `EXPORT_SYMBOL_GPL` means out-of-tree callers
-that only call `disable_source()` would need updating (none found in-
-tree).
+Record:
+- **Before:** STATION vif always gets `to_ds=true` in HDR_TRANS TLV →
+  firmware addresses all frames to BSSID.
+- **After:** TDLS-peer WCIDs get `to_ds=false, from_ds=false` → firmware
+  builds 3-addr non-DS frames with A1=peer MAC.
+- **Execution path:** STA add (sets flag) → MCU WTBL/STA_REC update
+  (programs firmware) → every subsequent HW-encapsulated TX data frame
+  to TDLS peer.
 
----
+**Step 2.3 — Bug mechanism**
 
-## PHASE 3: GIT HISTORY INVESTIGATION
+Record: **Category (g) — Logic/correctness fix.** Wrong 802.11
+addressing mode programmed into firmware for TDLS-peer WCIDs. Not
+UAF/leak/race; a firmware-facing configuration error causing silent
+packet loss.
 
-### Step 3.1: BLAME THE CHANGED LINES
-**Record:** Shallow tree (50 commits); `git blame` attributes current
-`coresight_disable_source()` body to `a112b91dd6349`. Helper
-infrastructure (`coresight_is_helper`, `coresight_enable_helpers`,
-CATU/CTI/CTCU helpers) is present in this 6.18.43 tree. Related helper
-introduction referenced in series as `6148652807ba` (“Enable and disable
-helper devices adjacent to the path”) — not individually verifiable in
-this shallow history, but helper code is present.
+**Step 2.4 — Fix quality**
 
-### Step 3.2: FOLLOW THE FIXES: TAG
-**Record:** No `Fixes:` tag on this commit. N/A.
-
-### Step 3.3: FILE HISTORY FOR RELATED CHANGES
-**Record:** Part of v14 28-patch series (`v14_20260515_leo_yan_coresight
-_refactor_power_management_for_coresight_path.mbx`). Patch 15 is
-standalone in `coresight-core.c`; patch 16 (“Control path with range”)
-builds on it but is not a prerequisite. Related sibling fixes: patch 1
-(idr_alloc failure), patch 2 (helper enable unwind).
-
-### Step 3.4: AUTHOR'S OTHER COMMITS
-**Record:** Leo Yan authored the CoreSight path PM series; Reviewed-by
-includes Arm/Linaro maintainers. Strong subsystem review signal.
-
-### Step 3.5: DEPENDENT/PREREQUISITE COMMITS
-**Record:** No hard dependency on later series patches. Applies to
-current tree structure (`coresight_enable_path()` with `sink_data`
-parameter). Standalone.
+Record: **Obviously correct** — matches IEEE 802.11z TDLS direct-link
+frame format. Minimal, mirrors existing 4-addr override pattern. **Low
+regression risk** — only affects WCIDs with `sta->tdls` set; AP and
+normal STA traffic unchanged. TDLS override runs after 4-addr check, so
+no conflict.
 
 ---
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+## Phase 3: Git History Investigation
 
-### Step 4.1: ORIGINAL PATCH DISCUSSION
-**Record:** Lore fetch blocked (Anubis bot protection). Used local mbox:
-`v14_20260515_leo_yan_coresight_refactor_power_management_for_coresight_
-path.mbx`. Patch 15/28 confirmed at lines 2131–2234. Series cover letter
-describes patches 14–23 as path enable/disable refactor. No stable
-nomination found in mbox grep.
+**Step 3.1 — Blame**
 
-### Step 4.2: WHO REVIEWED
-**Record:** `b4 dig -c HEAD` failed (commit not in tree). From commit
-message: Yeoreum Yun (Arm), James Clark (Linaro) reviewed; Jie Gan
-(Qualcomm) and James Clark tested.
+Record: Buggy `to_ds=true` for STATION vif introduced in `868fe07ee612f`
+("mt76: connac: add missing configuration in
+mt76_connac_mcu_wtbl_hdr_trans_tlv", May 2021). Present in this tree
+since connac2 era. `MT_WCID_FLAG_HDR_TRANS` added Dec 2020
+(`90e3abf07c80a`).
 
-### Step 4.3: BUG REPORT
-**Record:** No external bug report or syzbot link. Bug inferred from
-code asymmetry and documented in existing kernel comment.
+**Step 3.2 — Fixes: tag**
 
-### Step 4.4: RELATED PATCHES / SERIES
-**Record:** 28-patch series; this is patch 15. Patches 1–2 fix related
-teardown bugs. Patch 15 does not require the CPU-PM refactor patches
-(11–28) for correctness in the current tree.
+Record: N/A — no `Fixes:` tag in committed version. v1 referenced
+`5c14a5f944b9`; author dropped it in v2 because the approach changed
+entirely.
 
-### Step 4.5: STABLE MAILING LIST HISTORY
-**Record:** No `Cc: stable` or stable-list discussion found in local
-mbox.
+**Step 3.3 — Related file history**
 
----
+Record:
+- TDLS enabled in mt76 since `dd89a0133c0ce` (May 2020): "mt76: enable
+  TDLS support"
+- Sibling fix from same series already in this tree: `a7cdc384c9c57`
+  ("wifi: mt76: mt7925: don't disable AP BSS when removing TDLS peer") —
+  backported by Greg Kroah-Hartman to 6.18.44
+- Upstream commit: `5b7154f934c4c` (Jun 9, 2026) — **NOT yet in this
+  tree**
+- Part of v2 series "wifi: mt76: fix TDLS direct-link on MediaTek
+  MT7925" (2 patches)
 
-## PHASE 5: CODE SEMANTIC ANALYSIS
+**Step 3.4 — Author context**
 
-### Step 5.1: KEY FUNCTIONS
-**Record:** `coresight_disable_source()`,
-`coresight_disable_path_from()`, `coresight_disable_path()`,
-`coresight_enable_path()`, `coresight_disable_helpers()`
+Record: ElXreno authored both TDLS fixes in the series. Felix Fietkau
+(mt76 maintainer) committed and signed off. MediaTek developers (Sean
+Wang, Shayne Chen, etc.) were CC'd on submission.
 
-### Step 5.2: TRACE CALLERS
-**Record:**
-- `coresight_enable_path()` ← `coresight_enable_sysfs()` (`coresight-
-  sysfs.c:218`), `etm_event_start()` (`coresight-etm-perf.c:531`)
-- `coresight_disable_path()` ← `coresight_enable_sysfs()` error path
-  (`:262`), `coresight_disable_sysfs()` (`:308`), `etm_event_start()`
-  failure (`:563`), `etm_event_stop()` (`:724`)
+**Step 3.5 — Dependencies**
 
-**Buggy callers (disable_path without prior disable_source):**
-- `coresight-sysfs.c:262` — `enable_path` succeeded,
-  `enable_source_sysfs` failed
-- `coresight-etm-perf.c:563` — `enable_path` succeeded,
-  `source_ops->enable` failed
-
-### Step 5.3: TRACE CALLEES
-**Record:** `coresight_disable_helpers()` → `coresight_disable_helper()`
-→ `helper_ops()->disable()`; affects CATU, CTI, CTCU helper devices
-attached to sources.
-
-### Step 5.4: CALL CHAIN / REACHABILITY
-**Record:** Reachable from sysfs writes (`enable_source_store`) and perf
-events (`perf record` with CoreSight/ETM). Requires `CONFIG_CORESIGHT`
-and ARM CoreSight hardware. Admin/capability-gated, not arbitrary
-unprivileged userspace — but real on Qualcomm/Arm platforms.
-
-### Step 5.5: SIMILAR PATTERNS
-**Record:** Existing comment explicitly documents the enable/disable
-imbalance; patch 2 in same series fixes partial helper enable unwind in
-`coresight_enable_helpers()`.
+Record: **Standalone.** No prerequisite commits required. All target
+functions, `sta->tdls` field, and affected drivers exist in 6.18.44.
+Cherry-pick applies cleanly with zero conflicts.
 
 ---
 
-## PHASE 6: CROSS-REFERENCING AGAINST LOCAL TREE
+## Phase 4: Mailing List and External Research
 
-### Step 6.1: DOES THE BUGGY CODE EXIST?
-**Record:** **YES.** Local tree is **6.18.43** (`git describe`:
-`v6.18.43-1-gc7f0dac02d232`). Current code at `coresight-core.c:433`
-uses `list_for_each_entry_continue`; `coresight_disable_source()` at
-`:393` still calls `coresight_disable_helpers(csdev, NULL)`. Imbalance
-comment present at `:384–388`.
+**Step 4.1 — Original discussion**
 
-### Step 6.2: BACKPORT COMPLICATIONS
-**Record:** **Clean apply expected.** Patch hunks match current file
-structure (verified `err_disable_path` at lines 561–565). Only
-`coresight-core.c` touched.
+Record:
+- `b4 dig -c 5b7154f934c4c` →
+  https://patch.msgid.link/20260506-mt7925-tdls-
+  fixes-v2-1-46aa826ba8bb@gmail.com
+- Series: v1 (May 3) disabled all HW encap for TDLS; v2 (May 6) per-peer
+  flag approach after Sean Wang's v1 NACK
+- Cover letter CC'd `stable@vger.kernel.org`; patch 1 explicitly dropped
+  `Cc: stable` in v2 ("not realistic for a clean cherry-pick into older
+  stables")
+- Patch 2 retained `Cc: stable@vger.kernel.org` and was backported to
+  this tree
 
-### Step 6.3: RELATED FIXES ALREADY PRESENT?
-**Record:** Commit not in tree. Patch 1 (idr_alloc) and patch 2 (helper
-enable unwind) also not present — separate issues; patch 15 is
-independently valuable.
+**Step 4.2 — Reviewers**
 
----
+Record: `b4 dig -w` — To: Felix Fietkau, Lorenzo Bianconi, Ryder Lee,
+Shayne Chen, Sean Wang, Matthias Brugger, and others. Appropriate
+maintainers and mailing lists included. No explicit `Reviewed-
+by`/`Acked-by` in committed version; maintainer merge + sign-off is the
+quality gate.
 
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+**Step 4.3 — Bug report**
 
-### Step 7.1: SUBSYSTEM CRITICALITY
-**Record:** **PERIPHERAL** — `drivers/hwtracing/coresight/`, ARM
-debug/trace infrastructure. Important for Arm/Android/embedded
-developers, not universal.
+Record: No syzbot/bugzilla. Hardware reproduction documented in commit
+message and cover letter (Samsung phone auto-TDLS, bpftrace/tcpdump
+evidence).
 
-### Step 7.2: SUBSYSTEM ACTIVITY
-**Record:** Actively developed; large v14 refactor series in flight.
-Helper support (CATU, CTI, CTCU) present in this tree.
+**Step 4.4 — Series context**
 
----
+Record: 2-patch series. Patch 1 (this commit) = TDLS data path broken.
+Patch 2 (`a7cdc384c9c57`) = TDLS teardown collapses AP RX rate. **Patch
+2 already backported to 6.18.44 without patch 1** — users get teardown
+fix but TDLS data still fails on HW encap.
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+**Step 4.5 — Stable list history**
 
-### Step 8.1: WHO IS AFFECTED
-**Record:** Users of CoreSight tracing on Arm SoCs (sysfs manual trace,
-perf aux trace). Config-specific: `CONFIG_CORESIGHT`.
-
-### Step 8.2: TRIGGER CONDITIONS
-**Record:** Error paths during trace session setup — source enable fails
-after path (and source helpers) were enabled. Uncommon but realistic
-during misconfiguration or transient hardware errors. Not every boot;
-not unprivileged.
-
-### Step 8.3: FAILURE MODE SEVERITY
-**Record:** Source helper devices (e.g., CATU) left enabled →
-**resource/hardware state leak**, subsequent tracing sessions may fail
-until reboot. **Severity: MEDIUM-HIGH** for affected subsystem (not
-kernel panic, not data corruption, but functional breakage of tracing
-and leaked hardware state).
-
-### Step 8.4: RISK-BENEFIT
-**Record:**
-- **Benefit:** Fixes real teardown bug on error paths; aligns
-  enable/disable symmetry; improves `enable_path()` rollback
-  correctness.
-- **Risk:** Very low — 27-line single-file change, reviewed by subsystem
-  maintainers, in-tree callers verified safe.
-- **Ratio:** Moderate benefit for Arm tracing users, very low risk →
-  favorable.
+Record: Cover letter and patch 2 explicitly nominated for stable. Patch
+1's stable nomination was deliberately removed in v2, but stable
+maintainers already accepted the series (patch 2 landed). For 6.18.44
+specifically, cherry-pick is clean (unlike "older stables" the author
+was concerned about).
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 5: Code Semantic Analysis
 
-### Step 9.1: EVIDENCE COMPILED
+**Step 5.1 — Key functions**
+
+Record: `mt76_connac_mcu_wtbl_hdr_trans_tlv()`,
+`mt7925_mcu_sta_hdr_trans_tlv()`, `mt7996_mcu_sta_hdr_trans_tlv()`,
+`mt7915_mac_sta_add()`, `mt7921_mac_sta_add()`,
+`mt7925_mac_link_sta_add()`, `mt7996_mac_sta_init_link()`.
+
+**Step 5.2 — Callers**
+
+Record:
+- HDR_TRANS TLV helpers called from MCU STA_REC/WTBL update paths during
+  sta-add and `sta_set_decap_offload()` (when mac80211 toggles HW encap
+  offload via `MT_WCID_FLAG_HDR_TRANS`)
+- Sta-add functions called from mac80211 `sta_state` transitions when
+  TDLS peers are added
+- All affected drivers (mt7915, mt7921, mt7925, mt7996) register
+  `sta_set_decap_offload` callbacks
+
+**Step 5.3 — Callees**
+
+Record: `test_bit()`, `set_bit()` on `wcid->flags`; MCU TLV construction
+sent to firmware via `mt76_mcu_skb_send_msg()` /
+`mt76_connac_mcu_sta_update_hdr_trans()`.
+
+**Step 5.4 — Reachability**
+
+Record: **Userspace-reachable** — TDLS setup via standard
+nl80211/cfg80211 (e.g., Samsung phones auto-initiate TDLS on shared
+BSS). Once TDLS link is up and HW encap is enabled, every data frame to
+the TDLS peer hits the buggy path. Trigger requires TDLS-capable peer +
+HW encap offload (default on mt7921/mt7925 with
+`sta_set_decap_offload`).
+
+**Step 5.5 — Similar patterns**
+
+Record: Existing `MT_WCID_FLAG_4ADDR` override in the same functions
+sets `to_ds=true, from_ds=true`. TDLS fix follows identical pattern with
+opposite values. Consistent with driver conventions.
+
+---
+
+## Phase 6: Cross-Referencing Against Local Tree
+
+**Step 6.1 — Buggy code in tree?**
+
+Record: **YES.** Local tree is **Linux 6.18.44** (`git describe HEAD` →
+`v6.18.44`). Buggy code at `mt76_connac_mcu.c:480-492`,
+`mt7925/mcu.c:1082-1104`, `mt7996/mcu.c:1930-1948`. No
+`MT_WCID_FLAG_TDLS_PEER` anywhere. `sta->tdls` field exists in
+`mac80211.h`. All four affected drivers present (mt7925 since
+`c948b5da6bbec`, confirmed ancestor of HEAD).
+
+**Step 6.2 — Backport complications**
+
+Record: **Clean apply.** `git cherry-pick --no-commit 5b7154f934c4c`
+succeeds with auto-merge on all 8 files, +28 lines, exit 0.
+
+**Step 6.3 — Related fixes already present?**
+
+Record: Sibling fix `a7cdc384c9c57` (patch 2/2) already backported. This
+fix (patch 1/2) is **missing**. No alternate fix for the HDR_TRANS/TDLS
+data path issue.
+
+---
+
+## Phase 7: Subsystem and Maintainer Context
+
+**Step 7.1 — Subsystem criticality**
+
+Record: **IMPORTANT** — `drivers/net/wireless/mediatek/mt76/` WiFi
+drivers. mt7921 is one of the most common laptop WiFi chips; mt7925 is
+newer WiFi 7. Affects connectivity for TDLS users, not core kernel
+paths.
+
+**Step 7.2 — Subsystem activity**
+
+Record: Actively maintained — recent commits in mt7925/mt7996 in this
+tree (NULL deref fixes, MLO work, etc.).
+
+---
+
+## Phase 8: Impact and Risk Assessment
+
+**Step 8.1 — Who is affected**
+
+Record: **Driver-specific, config-specific** — users of
+mt7915/mt7921/mt7922/mt7925/mt7996 with TDLS direct links and HW TX
+encap offload enabled. Not universal, but mt7921/mt7925 have large
+installed base.
+
+**Step 8.2 — Trigger conditions**
+
+Record: TDLS peer established (`sta->tdls=true`) + HW encap offload
+active (`MT_WCID_FLAG_HDR_TRANS` set via `sta_set_decap_offload`).
+Samsung phones and other auto-TDLS peers are documented triggers.
+Unprivileged users on same BSS can initiate TDLS with a vulnerable
+station.
+
+**Step 8.3 — Failure mode severity**
+
+Record: **Complete TDLS data path failure** — 0 user data frames
+delivered; iperf/TCP stalls. Management frames work, so TDLS setup
+appears successful (misleading). Not kernel crash/oops/corruption.
+Severity: **HIGH functional** (not CRITICAL security/crash).
+
+**Step 8.4 — Risk-benefit**
+
+Record:
+- **Benefit: HIGH** for TDLS users — restores entire direct-link data
+  path; verified 830 Mbit/s throughput post-fix
+- **Risk: VERY LOW** — 28 lines, scoped to TDLS-peer WCIDs only,
+  maintainer-reviewed, clean cherry-pick
+- **Ratio: Strongly favorable**
+
+---
+
+## Phase 9: Final Synthesis
+
+**Step 9.1 — Evidence summary**
 
 **FOR backport:**
-- Real, documented bug (in-tree comment acknowledges imbalance)
-- Leaves helper hardware enabled on error paths
-- Small, surgical, single-file fix
-- Reviewed by Arm/Linaro maintainers; tested on Qualcomm/Arm hardware
-- Buggy code confirmed present in 6.18.43
-- Clean apply expected
-- Fixes `enable_path()` rollback semantics bug
+- Real, reproducible bug with hardware verification
+- Complete TDLS data failure (not cosmetic)
+- Small, surgical, obviously correct fix
+- Applies cleanly to 6.18.44
+- Maintainer (Felix Fietkau) signed off and merged
+- Sibling patch from same series already backported to this exact tree
+- Buggy code present since 2021; all prerequisites in tree
+- Follows existing 4-addr override pattern
 
 **AGAINST backport:**
-- Part of larger 28-patch refactor (but patch 15 is standalone)
-- Error-path only, not normal teardown
-- Peripheral subsystem, config-gated
-- No syzbot/crash report
-- No explicit stable nomination
-- Medium severity, not crash/security/corruption
+- Not crash/security/data-corruption
+- TDLS is a niche feature vs. normal STA→AP traffic
+- Author dropped `Cc: stable` from patch 1 (concern about older trees,
+  not 6.18.y)
+- mt7915/mt7921/mt7996 not hardware-regression-tested (only mt7925
+  verified)
 
-**Unresolved:** Full lore thread inaccessible; cannot verify maintainer
-stable discussion.
+**Unresolved:** No independent `Tested-by` beyond author.
+mt7915/7921/7996 correctness inferred from shared firmware behavior.
 
-### Step 9.2: STABLE RULES CHECKLIST
-1. Obviously correct and tested? **PASS** — logic clear; multiple
-   Tested-by/Reviewed-by
-2. Fixes a real bug affecting users? **PASS** — error-path helper leak
-   on Arm CoreSight
-3. Important issue? **PASS (borderline)** — hardware state leak /
-   tracing breakage, not crash/corruption
-4. Small and contained? **PASS** — one file, ~27 lines
-5. No new features/APIs? **PASS** — lifecycle bug fix only
-6. Can apply to local tree? **PASS** — code present, patch matches
+**Step 9.2 — Stable rules checklist**
 
-### Step 9.3: EXCEPTION CATEGORIES
-**Record:** None (not device ID, quirk, DT, build, or docs fix).
+| Criterion | Result |
+|-----------|--------|
+| 1. Obviously correct and tested? | **PASS** — 802.11z-correct;
+hardware-tested on mt7925e |
+| 2. Fixes real bug affecting users? | **PASS** — TDLS data completely
+non-functional |
+| 3. Important issue? | **PASS** — complete feature breakage on common
+hardware (functional HIGH, not crash-level CRITICAL) |
+| 4. Small and contained? | **PASS** — 28 lines, 8 files, no refactoring
+|
+| 5. No new features/APIs? | **PASS** — internal driver flag only |
+| 6. Can apply to local tree? | **PASS** — clean cherry-pick verified |
 
-### Step 9.4: DECISION RATIONALE
+**Step 9.3 — Exception categories**
 
-This commit fixes a genuine enable/disable asymmetry in CoreSight path
-management. On error rollback paths in `coresight_enable_sysfs()` and
-`etm_event_start()` that call only `coresight_disable_path()`, source-
-attached helper devices remain enabled because the disable path skipped
-the source node. That can leave tracing hardware in a bad state and
-break subsequent sessions. The fix is small, reviewed, applies cleanly
-to 6.18.43, and does not depend on the rest of the v14 refactor series.
+Record: N/A — not device ID, quirk, DT, build fix, or docs fix. Standard
+driver bug fix.
+
+**Step 9.4 — Decision rationale**
+
+This fix should be backported to **Linux 6.18.44**. The buggy HDR_TRANS
+configuration exists in this tree, the upstream fix cherry-picks
+cleanly, and the stable tree already carries patch 2/2 from the same
+TDLS series without patch 1/2 — leaving TDLS data broken even after the
+teardown fix. For users with MediaTek WiFi and TDLS peers (including
+auto-TDLS from phones), HW encap offload produces frames addressed to
+the AP instead of the peer; the result is a silent, total loss of TDLS
+data throughput. The fix is minimal, maintainer-approved, and low-risk.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed subject, tags, body from user-provided commit message
-- [Phase 1] Confirmed no Fixes:/Reported-by/syzbot; found Tested-
-  by/Reviewed-by/Link
-- [Phase 2] Read current `coresight-core.c` lines 352–566; confirmed
-  pre-patch imbalance
-- [Phase 2] Identified bug class: error-path helper/hardware state leak
-- [Phase 3] `git describe HEAD` → v6.18.43; `make kernelversion` →
-  6.18.43
-- [Phase 3] `git rev-list --count HEAD` → 50 (shallow); limited history
-- [Phase 3] `git blame` on `coresight_disable_source()` lines 390–394
-- [Phase 3] Read `v14_20260515_leo_yan_coresight_refactor_power_manageme
-  nt_for_coresight_path.mbx` patch 15 and cover letter
-- [Phase 4] WebFetch lore URL → blocked by Anubis; used local mbox
-  instead
-- [Phase 4] `b4 dig -c HEAD` → wrong commit; `b4 dig` with message-id →
-  unsupported without commit in tree
-- [Phase 4] Grep mbox for “stable” → no matches
-- [Phase 5] `grep coresight_disable_path(` → 4 call sites in coresight
-  subsystem
-- [Phase 5] `grep coresight_disable_source(` → sysfs.c:98, etm-
-  perf.c:685 (both followed by `disable_path`)
-- [Phase 5] `grep coresight_enable_path(` → sysfs.c:218, etm-perf.c:531
-- [Phase 5] Read `coresight_enable_sysfs()` error path at lines 218–266
-- [Phase 5] Read `etm_event_start()` failure path at lines 531–563
-- [Phase 6] Confirmed `list_for_each_entry_continue` at line 433 (buggy
-  code present)
-- [Phase 6] Confirmed helper infrastructure (`coresight_is_helper`,
-  CATU/CTI/CTCU) in tree
-- [Phase 6] Verified patch 16 builds on patch 15 but is not required for
-  standalone apply
-- [Phase 8] Assessed severity as MEDIUM-HIGH for CoreSight users, not
-  system-wide CRITICAL
+- [Phase 1] Parsed subject, tags, body; no Fixes/Cc:stable/Reported-by
+  on committed version
+- [Phase 1] Confirmed hidden bug fix — functional TDLS data path failure
+- [Phase 2] Diff inventory: 8 files, +28 lines; logic/correctness bug in
+  HDR_TRANS TLV
+- [Phase 3] `git describe HEAD` → v6.18.44
+- [Phase 3] `git blame` → buggy to_ds logic from 868fe07ee612f (May
+  2021)
+- [Phase 3] `git log --grep=TDLS` → TDLS since dd89a0133c0ce (2020);
+  sibling a7cdc384c9c57 in tree
+- [Phase 3] Upstream commit 5b7154f934c4c confirmed NOT in HEAD
+- [Phase 3] Cherry-pick test → clean apply, exit 0, +28 lines
+- [Phase 4] `b4 dig -c 5b7154f934c4c` → lore URL found
+- [Phase 4] `b4 dig -a` → v1→v2 series; v2 per-peer flag after Sean Wang
+  NACK on v1
+- [Phase 4] `b4 dig -w` → Felix Fietkau, Lorenzo Bianconi, MediaTek devs
+  CC'd
+- [Phase 4] Mbox cover letter → stable CC'd; patch 1 dropped Cc:stable
+  in v2
+- [Phase 4] `a7cdc384c9c57` → patch 2/2 backported to 6.18.44 by Greg
+  K-H
+- [Phase 5] `grep MT_WCID_FLAG_HDR_TRANS` → set via
+  sta_set_decap_offload on all affected drivers
+- [Phase 5] `grep sta->tdls` → used in mt7925/mt7921/mt7615 main.c
+  already
+- [Phase 5] `mac80211.h:2530` → `bool tdls` field confirmed
+- [Phase 6] `grep MT_WCID_FLAG_TDLS_PEER` → 0 matches (fix absent)
+- [Phase 6] Buggy code confirmed at mt76_connac_mcu.c:480-492,
+  mt7925/mcu.c:1082-1104, mt7996/mcu.c:1930-1948
+- [Phase 6] mt7925 driver ancestor check → present in tree
+- [Phase 8] Failure mode: 0 TDLS data frames, iperf stalls — HIGH
+  functional severity
 
-**YES**
+**YES**The background searches finished and matched what the full
+analysis already used:
 
- drivers/hwtracing/coresight/coresight-core.c | 27 ++++++--------------
- 1 file changed, 8 insertions(+), 19 deletions(-)
+- **Upstream commit:** `5b7154f934c4c` on master — "wifi: mt76: route
+  TDLS-peer frames as 3-addr non-DS in HW encap"
+- **In 6.18.44:** that fix is **not** present; sibling patch
+  `a7cdc384c9c57` (TDLS teardown / BSS disable) **is** already
+  backported
+- **Author search:** only ElXreno's patch 2/2 shows up in this stable
+  tree so far
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 4cf4a3e92c272..d57000626c060 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -378,19 +378,12 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
+**Verdict stands: YES** — this should be backported to 6.18.y. It
+cherry-picks cleanly (+28 lines, 8 files) and closes the gap where patch
+2 is in stable but TDLS data over HW encap is still broken.
+
+ drivers/net/wireless/mediatek/mt76/mt76.h            | 1 +
+ drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 5 +++++
+ drivers/net/wireless/mediatek/mt76/mt7915/main.c     | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt7921/main.c     | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt7925/main.c     | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt7925/mcu.c      | 5 +++++
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c     | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c      | 5 +++++
+ 8 files changed, 28 insertions(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 125ac1eb2d541..e4e92b0e7f698 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -348,6 +348,7 @@ enum mt76_wcid_flags {
+ 	MT_WCID_FLAG_PS,
+ 	MT_WCID_FLAG_4ADDR,
+ 	MT_WCID_FLAG_HDR_TRANS,
++	MT_WCID_FLAG_TDLS_PEER,
+ };
+ 
+ #define MT76_N_WCIDS 1088
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+index 2aa7b711c774e..9a81040e19007 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+@@ -490,6 +490,11 @@ void mt76_connac_mcu_wtbl_hdr_trans_tlv(struct sk_buff *skb,
+ 		htr->to_ds = true;
+ 		htr->from_ds = true;
+ 	}
++
++	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
++		htr->to_ds = false;
++		htr->from_ds = false;
++	}
+ }
+ EXPORT_SYMBOL_GPL(mt76_connac_mcu_wtbl_hdr_trans_tlv);
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
+index 6f594677474b0..ebfd5282db2ef 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
+@@ -760,6 +760,9 @@ int mt7915_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
+ 	msta->wcid.phy_idx = ext_phy;
+ 	msta->jiffies = jiffies;
+ 
++	if (sta->tdls)
++		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta->wcid.flags);
++
+ 	ewma_avg_signal_init(&msta->avg_ack_signal);
+ 
+ 	mt7915_mac_wtbl_update(dev, idx,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/main.c b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
+index ce11666a32db9..da49c0ed7d109 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
+@@ -828,6 +828,9 @@ int mt7921_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
+ 	msta->deflink.last_txs = jiffies;
+ 	msta->deflink.sta = msta;
+ 
++	if (sta->tdls)
++		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta->deflink.wcid.flags);
++
+ 	ret = mt76_connac_pm_wake(&dev->mphy, &dev->pm);
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+index 910713e62e14a..e0e4e31a851d9 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
+@@ -870,6 +870,9 @@ static int mt7925_mac_link_sta_add(struct mt76_dev *mdev,
+ 	mlink->wcid.link_valid = !!link_sta->sta->valid_links;
+ 	mlink->sta = msta;
+ 
++	if (link_sta->sta->tdls)
++		set_bit(MT_WCID_FLAG_TDLS_PEER, &mlink->wcid.flags);
++
+ 	wcid = &mlink->wcid;
+ 	ewma_signal_init(&wcid->rssi);
+ 	rcu_assign_pointer(dev->mt76.wcid[wcid->idx], wcid);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+index 647efa963db48..18efcfa614400 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+@@ -1102,6 +1102,11 @@ mt7925_mcu_sta_hdr_trans_tlv(struct sk_buff *skb,
+ 		hdr_trans->to_ds = true;
+ 		hdr_trans->from_ds = true;
+ 	}
++
++	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
++		hdr_trans->to_ds = false;
++		hdr_trans->from_ds = false;
++	}
  }
  
- /*
-- * Helper function to call source_ops(csdev)->disable and also disable the
-- * helpers.
-- *
-- * There is an imbalance between coresight_enable_path() and
-- * coresight_disable_path(). Enabling also enables the source's helpers as part
-- * of the path, but disabling always skips the first item in the path (which is
-- * the source), so sources and their helpers don't get disabled as part of that
-- * function and we need the extra step here.
-+ * coresight_disable_source() only disables the source, but do nothing for
-+ * the associated helpers, which are controlled as part of the path.
-  */
- void coresight_disable_source(struct coresight_device *csdev, void *data)
- {
- 	source_ops(csdev)->disable(csdev, data);
--	coresight_disable_helpers(csdev, NULL);
+ int mt7925_mcu_wtbl_update_hdr_trans(struct mt792x_dev *dev,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 20da0c10669a9..945646f99e5db 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1018,6 +1018,9 @@ mt7996_mac_sta_init_link(struct mt7996_dev *dev,
+ 	msta_link->wcid.link_valid = !!sta->valid_links;
+ 	msta_link->wcid.def_wcid = &msta->deflink.wcid;
+ 
++	if (link_sta->sta->tdls)
++		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta_link->wcid.flags);
++
+ 	ewma_avg_signal_init(&msta_link->avg_ack_signal);
+ 	ewma_signal_init(&msta_link->wcid.rssi);
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+index 72851399575f9..e5ad169dd15fc 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+@@ -1946,6 +1946,11 @@ mt7996_mcu_sta_hdr_trans_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
+ 		hdr_trans->from_ds = true;
+ 		hdr_trans->mesh = true;
+ 	}
++
++	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
++		hdr_trans->to_ds = false;
++		hdr_trans->from_ds = false;
++	}
  }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
  
-@@ -417,9 +410,9 @@ int coresight_resume_source(struct coresight_device *csdev)
- EXPORT_SYMBOL_GPL(coresight_resume_source);
- 
- /*
-- * coresight_disable_path_from : Disable components in the given path beyond
-- * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-- * disabled.
-+ * coresight_disable_path_from : Disable components in the given path starting
-+ * from @nd in the list. If @nd is NULL, all the components, except the SOURCE
-+ * are disabled.
-  */
- static void coresight_disable_path_from(struct coresight_path *path,
- 					struct coresight_node *nd)
-@@ -430,7 +423,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 	if (!nd)
- 		nd = list_first_entry(&path->path_list, struct coresight_node, link);
- 
--	list_for_each_entry_continue(nd, &path->path_list, link) {
-+	list_for_each_entry_from(nd, &path->path_list, link) {
- 		csdev = nd->csdev;
- 		type = csdev->type;
- 
-@@ -450,12 +443,6 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 			coresight_disable_sink(csdev);
- 			break;
- 		case CORESIGHT_DEV_TYPE_SOURCE:
--			/*
--			 * We skip the first node in the path assuming that it
--			 * is the source. So we don't expect a source device in
--			 * the middle of a path.
--			 */
--			WARN_ON(1);
- 			break;
- 		case CORESIGHT_DEV_TYPE_LINK:
- 			parent = list_prev_entry(nd, link)->csdev;
-@@ -561,6 +548,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- err_disable_helpers:
- 	coresight_disable_helpers(csdev, path);
- err_disable_path:
-+	/* Fetch the previous node, the last successfully enabled one */
-+	nd = list_next_entry(nd, link);
- 	coresight_disable_path_from(path, nd);
- 	goto out;
- }
+ static enum mcu_mmps_mode
 -- 
 2.53.0
 
