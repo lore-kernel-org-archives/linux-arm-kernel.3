@@ -4,111 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9367C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4728CC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=; b=cjbSIIau2PRB7zhEOmXuWFasNE
-	xr8fH3K4o7AMxyxGr86lHHYvY09spzdMCVLpC0KWJrFjRga2BiSsrkcKCNowVL52vr4H8EGLYuz1q
-	XKVUkiWycRdUJsB7TlVYzQaer4HcJ94ibX2ZL6L1BpgRDBxCLBLmFa8fYF0O8RjId5XKpHnONIQkG
-	3EGA9RiDJYj1LB9iIn+bw5mlVgP3hg93YPPVTPmEbMtBdMyVZrOpfDC7VLDlOw947SkN5KVnKa/r4
-	AMOA6v+2DN4rFVjDvHngbeqI7w+ML0YTzSojeSF1Dym7gAuOJUNA7zoRM4UMmu2H+y63bXTDKBMUo
-	VlvsToaA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MTylV7csYnLWM1x8O3QnuC/IfF/z4HrLSIT7SMiMU7I=; b=wa3CRU8Bok18OuIRoBRByRqqxD
+	C4uY4rCTvUvCU3ynNEcVERRT5M/t7NSeBQvF2WuxYGdpkNceEItaDZmdbnHyYVjKD81dWslZ3j/5H
+	5kKyZ07u8b9YYb25gjHs3DLwLpgGkhPBLM9TaGgO6vjsUdB9m40uOYUeGISvZgQxWmrsQxnzPxV+p
+	RDkwkd+PTNtSQW2J/RATQQ98Ih2JJw37Pl7elUOw6MQRuQqocXeID7/9o2rRLR9i6iYxb6i2LqkS5
+	nH0mMBxArDQadPeDPLmihyj4GiZo3YpDX0HWTPo6a0nkWAB+PUe/FUl5ra8uE8LNk5Lj3VAO1Y7TR
+	oRLrvF0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11T4-00000009KrD-1mwp;
-	Mon, 31 Aug 2026 12:50:30 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1x11TK-00000009KuI-2HPk;
+	Mon, 31 Aug 2026 12:50:46 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11T2-00000009KqY-38qI
+	id 1x11TI-00000009KtH-1oNF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:50:29 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c250f28f1cdso535663566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:50:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788180627; cv=none;
-        d=google.com; s=arc-20260327;
-        b=S4VLtKAiFHqU1bZ636CR4lvX6AZbWMNVo4VR3YiXrP2jouqrjPcsvShEfFi/AlbcO4
-         4NcP6GzsKSt3PpT0AFBndW0+hAEwZI4NvQLbF6DUFtrXI+7fWLLolVfo71uB2AVZ6Zvc
-         ZyNS80th06ZFGQVZMuz4zNdU8JbFRaXh6+HIeldfcjcBXZBjbcuU9bNedWURziruCorj
-         GICpW2oF7vv6S8+36FMmHGkMvJHh5lAY4tj8HgzrOXlMnJMNYcKwqX7Z2DehJgsvavFc
-         n2Aq82670K2nKwlOlUJ6Wa4E3ty/y1SuJq6XCekN0iaRWuNFu41shFJsnvYKKniMPqp3
-         VH5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
-        fh=t3w9f7TJvwY2sqsE+/MHF4l/XJzk2av+EqqmjnR+xK0=;
-        b=ETvjMpjZyaToze6fhaAByeS03//AlvDoJScUpdE2Uhmnxs69AHWOTIx8gsiuulr41C
-         /FJVMViKVuz/7WFU7SYCAjvioHnmEMOwDvR2bK2X2IS1A5h3ywB/YCohxGq46d7dIaZ2
-         SsNubxLbWPN403PlK8sHmfqA1aBSCQL0UxEnTZxRppBIu2T4SE4Fv2F0pDONAoyB/l6g
-         z2F0x6jqpbgo4FmkrC6B9vnD4g1X2/2wCd+nIxGrCrgwVnrTYtY69bvnhTCE+Fq2DHcS
-         nTFa231CKHF4GHo9wOcOMuX7Kug7uaX5BHtb/iMQgho1ijKxZGRKcD3FHkT/OwTwecnv
-         nwTQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 31 Aug 2026 12:50:45 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b392ccaacso48049735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:50:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788180627; x=1788785427; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
-        b=dVhrj4bdObbnjGo9xhPFyJb56knMwv7k31+THzNYMxTdXia94jMyJj/8JB3Efb8Irb
-         YOjvUPtO517OCmQD0A9RmJH7+5qbsY4Bqhn7LQdE1X8sk2H5ap21VY7b0xgkEMxvk1PY
-         lYsS6C/DdzHt4z1i29YAvKsdV4xmph8kix4N4iekqSH4Qf0GbV2Fn29a6xQ4fiwLdvQv
-         bxRX6TDeFw/pKqlEggJG+7GmZc8fVEqnYZijGUZzLuJf5co1Hym/icMGMhgPevMcBduA
-         Qnm6bknuB/V8h7JOMClu5wWZnrhcNbHcaPDx/oLT4OlqMG1T4yaRidElG60ezbqOs2xs
-         iXoQ==
+        d=gmail.com; s=20251104; t=1788180642; x=1788785442; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MTylV7csYnLWM1x8O3QnuC/IfF/z4HrLSIT7SMiMU7I=;
+        b=hRaHz8XPCvncb6gA/gF/OL80Jgkys2WxTykvi0xmMt3sj7b1kEvWs9GgvK5EXuomTJ
+         ZkV3iDXzZXFy13FmM73lTdWR4mnvfHLl2jJ3fWMosLmUrdgDxInKkzPvgCtDs1D/MMIF
+         KaaKjIYwSBuBAqSBfzFPJmYAyqZue+3rQDaeN4HEZWLyfU6u3WlcirrQyhNteyBxSNRl
+         bDoa0IVQD3x1ZH78yMk7OMyiLfEdq0ymxo71t0irfOkzAyL8cK7Stit4pG3eb5rzXjh8
+         KHNoDc4bPt0LQ2NO8uNtPBbtTSW9w98DFCqYoOqLgdibKtzIgKT/68/aSx7Ld9Ybz4pf
+         cnOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788180627; x=1788785427;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
-        b=sNbq91x/5SrsfohRiAzDKSKYmKMcpzKB4OZFrtcXv2/g7+HES/PToBy4J7vch56jEU
-         +LQ0Oi8nyXH2x5G1T4pcq5pvcURQRSlcXigPqcfJTepmJMn8OhmfSiQfOcnpNvpBv7Fx
-         4M1a7Jv8rSZHSgUq+y9wX8D2C4y0RMkQRZAVWJta/EiHD1CnzfUxeN6rXLyalHwWAJUL
-         WBmoSIAw3dIkyg16QK5CHZJdXkEzIin2fS1jeGhLKwCamaXKywfSGGtRKbhs+qSOcZNz
-         3jn3SZbvtiRXwrDpHs0ZQAfphyqLxkd96aPYSjsHdTCTt2mTUArgY1bssjT1hp3ob/vp
-         GsQg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq7pX/gJJsDPY4Uk7nMtxgBIPW8W5ibCko5zFSf32Y2sXn9ct8uc2tzMm9wEFNhCTkakuYcHojmniTM/49Mn7AZ@lists.infradead.org
-X-Gm-Message-State: AFuF++krTSL2mpiIlr9FIyeDX44+Ld+nucXnht/pyjYvzRA8Vaslx6Xn
-	01Vo0QlXbXRELQ3DuRTivMwBHY7ITycpW27BuB3rW5bnx1HjLm7Z3Q7aGxxHgp2oNVnZLVjsB/3
-	mb0+Q1vv9HvPGRR5CSU7gfT6oBoZRkao=
-X-Gm-Gg: AR+sD12cEqMluToWweYkccGifIdVIlS/XdFZsWngnQenRj0WETxN7S8HxHuDgx2nRRZ
-	F99jLz8CgRbWFaJJotGzD8OfW+k4KnuTORMw4sDCS53DFVNNCZzBHsI6IbsF2TgKLgNB/DqcTsG
-	YSZcw99lZjwY6YeMnibLpJbJhUKXxM+x2yEycdOmwKOOPXNsX5aQhyVhNWnJnfF8zq7WqzzuxrW
-	sKlM/78dzMWg+CjfyiFJgz1VvHEXf+on62ki6WskDkb2CyID1on3C68GrEWA6Qwf8cD1ZcZ5hz+
-	jtDEwDMrpEzbxdC87+Ruk4OJSRaGAEZwHrnhW88r7gDnhA==
-X-Received: by 2002:a17:907:e917:b0:c15:f598:60c0 with SMTP id
- a640c23a62f3a-c2556c61b53mr1648394266b.4.1788180626731; Mon, 31 Aug 2026
- 05:50:26 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788180642; x=1788785442;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MTylV7csYnLWM1x8O3QnuC/IfF/z4HrLSIT7SMiMU7I=;
+        b=NYNvNImGRFVRAWEJiP14fSlt7IsRaVQLiPIwARdxH8lN3vgnvUAP8aYM1hZ51rrzwG
+         eZlzPSQpAgGEiy/ndCQfL7AcBbl6WjxOmokdaA0Rrxc/CjxA5v2Q+DrhFCrmBSCPu5AL
+         MHex4yEDRmjiQFLqqIQRb3D6+4Y1uPrDqWwwUt0GSwrQwCQyG3y8jUrR9Oh8dhwWrfZY
+         37izKfwSnHy69xPZDyz8sb83YehgKfV3vNCGsYNuyxMaYf4fuyOh9zrb2KonMvM0u4So
+         4sVQ/agPa2GY3oPQUzrYBcTvMX/2TibgWANvowh/JYRVNGyzHVU6FSJEB4KnklZ2IIEd
+         mrEQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrnYfR4fCGA3ud61vaL8Sjts1QPFWk+b2CzfVHh6YEVZt4yLtNCWldki0Ruqq/HJZwH1c5t72ELqvCYHWxox/6u@lists.infradead.org
+X-Gm-Message-State: AFuF++kt/LTXnMInMofm/UXIQlYy8rBqu1k6+NW14c95hFmLAdbjZ6hi
+	cxEDzYhZYorDlBpYnuliLNo/Bi2UWTvOAQJGbAiDeWRr7HwKHIjr1G9ZYEPRYIZVziY=
+X-Gm-Gg: AR+sD13AwdZS2yMzij5ryu2Jw5T1sDl5x0/XFhPcFvA5Pz3VJw97BnuCZ3RtOp9qjhY
+	LxjBTp8xlz0EwxQgSJveJ4vNtbfFRgIqCNBq7WLJF4kSmd6ypNk9gis0lXIWa2re3OX0I7C7Oy2
+	sPdWhIQttoV2/biPzprxo8d9M4SI7RJYj5Ie3zvd8d7H2VJ8VC0PIHPZn1l45T0h6j61gxkctFV
+	CpPmGyfe43BxAUpnBIztaJ/tbzIY6BiXO+G/1bogBrubfw4vovc31l5ytTiE6m2erBwwNNA3RBd
+	05hVcbK9Y7BykPq88lzpslNfYdmTv8dTcW+DgpIui8V9BpVgzAqNEMwIqqE+pvqLq6yeoijgH3M
+	yrl8wCZ5Vi+QMATdcZzdLy7OgEShJ9TbeK/R0eZVRtPscJyLUpnGW6GxZ7rMvr/zzdFtDJELG0c
+	B56Bk1VTteC5Ra+SMqk0fScZvWjNkxfhQRhIua1CassW83DcllPeTus7gUq8c/L/9U1YrV5Sxe9
+	9qixr7YsJ8WHPLks9tMvxsBKg==
+X-Received: by 2002:a05:600c:354f:b0:493:c47f:3c55 with SMTP id 5b1f17b1804b1-49b91c1ece1mr452067475e9.5.1788180641698;
+        Mon, 31 Aug 2026 05:50:41 -0700 (PDT)
+Received: from GLaDOS.station ([187.14.102.85])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cd53a4678sm116571225e9.13.2026.08.31.05.50.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 05:50:41 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Marek Vasut <marex@nabladev.com>
+Subject: [PATCH v7 0/3] Add support for Variscite VAR-SOM-MX7 and MX7CustomBoard
+Date: Mon, 31 Aug 2026 14:50:22 +0200
+Message-ID: <cover.1788180142.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
- <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch> <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
- <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
-In-Reply-To: <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Mon, 31 Aug 2026 18:20:13 +0530
-X-Gm-Features: AcwNN1X0boEpGKg5x_16jtNRieTR5nthk-taojlLL5pnPEzmWybbo4sOjQPV9Io
-Message-ID: <CAMFFDGgaEXdCdoi3av+HSLfUCZx-_0p4j7c5bjwiq_F08et2AQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_055028_813594_DADEC867 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20260831_055044_502923_683BF1ED 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,65 +117,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+This patch series adds support for the Variscite VAR-SOM-MX7 system on
+module and the MX7CustomBoard carrier board.
 
-Thanks. As I mentioned earlier, I had already found that the AST2600
-has MAC-side RGMII delay configuration.
+The series includes:
 
-I will now check the actual delay register values on this board after
-U-Boot has initialized the MAC, and compare them with the
-corresponding U-Boot configuration. That should help determine how
-much of the observed behavior is coming from the MAC-side delays left
-configured by the bootloader.
+- DT bindings for the supported VAR-SOM-MX7 board configurations
+- VAR-SOM-MX7 device tree support, including V1 and V2 hardware revisions
+- MX7CustomBoard carrier board support
+- eMMC and NAND storage variants
+- optional WM8731 audio codec support
 
-Tan Siewert has also confirmed that the RGMII traces on the B650D4U do
-not provide the delay, and pointed out the difference between the
-SoC-specific delay handling in upstream U-Boot and openbmc/u-boot.
+The implementation follows the standard SOM + carrier board pattern,
+where the common SOM dtsi contains the on-module peripherals and
+hardware revision differences, while the MX7CustomBoard dtsi contains
+the carrier-specific interfaces.
 
-I will investigate that before preparing the next revision and will
-remove the RX-only delay claim from the current patch.
+The final board device trees combine the supported VAR-SOM-MX7
+configurations with the MX7CustomBoard carrier board.
 
-Thanks,
-Prasanth
+v6->v7:
+ - Added common dtsi for wm8904 codec removing it from base dtsi
+ - Spacing cleanup
 
-On Mon, Aug 31, 2026 at 5:42=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Mon, Aug 31, 2026 at 06:43:46AM +0530, Prasanth wrote:
-> > Hi Andrew,
-> >
-> > I do not currently have the PCB layout or trace-length information, so =
-I cannot
-> > prove that the board provides the TX delay externally.
-> >
-> > What I have validated on hardware is:
-> >
-> > rgmii: fails, with RX CRC errors and no valid RX traffic
-> > rgmii-rxid: passes, 5000/5000 packets, 0% loss, no RX CRC errors
-> > rgmii-id: also passes with the same traffic test
-> >
-> > This shows that the RTL8211F RX internal delay is required, but it does=
- not
-> > establish where the TX delay is provided.
-> >
-> > Given that I cannot provide PCB-level evidence for the TX delay, would =
-you
-> > prefer that I use rgmii-id for the next revision?
->
-> There has been a number of threads about the Aspeed SoC. It typically
-> has delays enabled in its MAC, by the bootloader. The Linux MAC driver
-> does not disable this, nor does it mask the value passed to the
-> PHY. So you see many Aspeed .dts files incorrectly using 'rgmii'. Over
-> the last couple of years i have been pointing out this problem, but
-> nobody has stepped up to fix the issue. Most DT developers just leave
-> the Ethernet node out, in order to get something merged.
->
-> You case is interesting, because you are not suggesting 'rgmii'. So it
-> could be there is more going on.
->
-> If you look in the email archives you should find the information
-> about where to configure the delay in the hardware. You might want to
-> read it out to understand how the bootloader has configured the
-> hardware.
->
->     Andrew
+v5->v6:
+ - Removed unused 100mhz and 200mhz pinctrl
+
+v4->v5:
+ - Removed wrong gpio-hog
+
+v3->v4:
+ - Fixed non-generic names and wrong separators
+ - Fixed ads7846_ts pendown gpio
+
+v2->v3:
+ - Removed wrong header in dtsi
+ - Fixed pinctrl name
+ - Fixed sai clocks
+
+v1->v2:
+ - Fixed commit messages and spacing
+ - Moved ethphy1 reset pin mux
+ - Fixed irq types
+ - Removed duplicate assigned-clock-rates property
+ - fixed wifi child node name
+ - Added color property in gpio led definition
+ - Updated deprecated reset-gpio property
+ - Added disable-over-current property in usb nodes
+ - Fixed model names
+
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX7 boards
+  ARM: dts: imx7d: add Variscite VAR-SOM-MX7 support
+  ARM: dts: imx7d: add Variscite MX7CustomBoard support
+
+ .../devicetree/bindings/arm/fsl.yaml          |  17 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   6 +
+ .../imx/imx7d-var-som-emmc-mx7customboard.dts |  23 +
+ ...x7d-var-som-emmc-wm8731-mx7customboard.dts |  23 +
+ .../boot/dts/nxp/imx/imx7d-var-som-emmc.dtsi  |  56 ++
+ .../nxp/imx/imx7d-var-som-mx7customboard.dtsi | 358 ++++++++++++
+ .../imx/imx7d-var-som-nand-mx7customboard.dts |  23 +
+ ...x7d-var-som-nand-wm8731-mx7customboard.dts |  23 +
+ .../boot/dts/nxp/imx/imx7d-var-som-nand.dtsi  |  73 +++
+ .../imx7d-var-som-v2-emmc-mx7customboard.dts  |  24 +
+ .../imx7d-var-som-v2-nand-mx7customboard.dts  |  24 +
+ .../boot/dts/nxp/imx/imx7d-var-som-v2.dtsi    |  66 +++
+ .../dts/nxp/imx/imx7d-var-som-wm8731.dtsi     | 102 ++++
+ .../dts/nxp/imx/imx7d-var-som-wm8904.dtsi     | 118 ++++
+ arch/arm/boot/dts/nxp/imx/imx7d-var-som.dtsi  | 533 ++++++++++++++++++
+ 15 files changed, 1469 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-mx7customboard.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-wm8731.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-wm8904.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som.dtsi
+
+
+base-commit: 9400c5b6aa357be2379c98ae86a207bc21dc7a48
+-- 
+2.47.3
+
 
