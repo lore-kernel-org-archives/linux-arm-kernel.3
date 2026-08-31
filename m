@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC047C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294DCC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KslAqbfwU+k2/vbq1uOcdO7x5mENJ6NXxXaQYLYI9Jg=; b=U/OWokk6SD4xqT7WSyw60vjvqI
-	126ac/+MAhjLGYyTuOaR+2AsKGh/MWJODG98m6dZUqxgujn0YtyRbac2TfGaDIA0fxd+YgVshC2nO
-	68Ba3Zfvt/3wzR3X8s7+8iignS2iRlUDx5P+UI3RXYfRWbuPqvxqSwd3o66C3DEgcrvu066RkTuiW
-	QL/mzgQ3ZtW5ig9VckKINJlfPxTm6if8UCYsV2bWP7PJyPLwTcfMK+8bNqfgUVRLmsVGcWqTEVIu2
-	47SzXI/afq02sXLrG40dFHkCBrzRLMQhbQXeZcEpLgJ983pLxOYjkw2yhcMi+ewGTx4OqfXGVjOL3
-	UzcYVdLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=; b=iUKPxu+OECFmCD8MeDAhzB25UQ
+	i6s5rW25IwDy+4H54sjJnVYJ/5e33QRe36uBo6JUZwW9bDi1rCDPARbMe8JeBDcLoUYwJ/Cij0LeK
+	xOkoU26sctr4mIOzfXJ/yOLZon3jLXVgC3eGQIxpJUjka1oZprJU9pZWsL257B+/CmgfEK606Eq2g
+	4LZzYagreGqgQxRIsj2wqhhiCzmcI9sLiZjZN4cnBuSfvUAkkVC0h0VCum7U0ZCzvRlKmC2OUYxjd
+	RtAS9iSYCTmxuxb0Ueh458DXgoixcjXHx35tvg3eZZw9uPYjLcbT+2DSptlri9vpsOvPXcKrGus2S
+	QjsuVWXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vsK-00000008egv-3lrH;
-	Mon, 31 Aug 2026 06:52:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x0vvL-00000008fFP-2dtc;
+	Mon, 31 Aug 2026 06:55:19 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vsJ-00000008eg5-2aI7;
-	Mon, 31 Aug 2026 06:52:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BAAC43CB5;
-	Mon, 31 Aug 2026 06:52:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 10165C2BCFD;
-	Mon, 31 Aug 2026 06:52:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788159131;
-	bh=30XfblXiQ8Zqhfg1HJUgZ1c2zN58moikfo/u9eBO1FI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=M/Pl7RtPbHpXUUK5i7a9rNvCUfqayp8/XgWPPCrXIqF1KqVdLOAU9rhYU2dW1ohP0
-	 Kw9eLdevtQ2Qze0s+Ejcezu8vD2RvBRe99ysuuxeXtjqBETaIfcP2TW/W7yBqzlAj+
-	 /3YKc9grU2mzx2w7XpR8fuJzWPh6nuAtv98j+97WaUTSzyvt8bUyhDZHvVHr1slfzQ
-	 6x9+IG7H8yK5RK2nqLX6fPwfr3a12ZWOoX1tFjyWR1ehD5LZBxybljoFs3aEltXR7v
-	 EF9blPVNs1PHXqiCX2lbzq8NHTgUgjL5rVuSIeGcZKyppMn8cVq09quRncoQTPqS1G
-	 udvMopzZqhFGg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E526BC624C2;
-	Mon, 31 Aug 2026 06:52:10 +0000 (UTC)
-From: Congcong Yao via B4 Relay <devnull+congcong.yao.mediatek.com@kernel.org>
-Date: Mon, 31 Aug 2026 14:52:07 +0800
-Subject: [PATCH v4 2/2] memory: mtk-smi: Add MT8189 support
+	id 1x0vvH-00000008fEU-2wu5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 06:55:17 +0000
+Date: Mon, 31 Aug 2026 08:55:09 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788159311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=;
+	b=KL+4rUB4zJvHeW/e+ma42rA7ScTJJgxkDvYpwfduRCtSORsiO48NJJ1bSAgiMqM46F+QhT
+	8hD2jIVe603/RMJ1W0VbalsutLGDr/w3TP0Ko77d7E9dfNl8b3OSl9O6AyYfKT2VgsISYM
+	4t72GYfkudKq2kn/0Sj0LwgCgpUrKa3hxfaltxxoGNmAHVlIn5D9BIDftKg9MJEuh4oJGj
+	6jeuOV4ZoQlwbub8qNPBN2X2s4Yj6rqm/XRJmbk36bbLZ7LcNaxBLebRXkLWr0YIV/Le8K
+	uob/C+5/W0jWISxQUXPsoGf4G8tV6Yu1GRkMurlAdsNPkuDAj6cMUeqvRq6XyA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788159311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nynhrnqtEuo6q3mWnANIEB+FXk5hwnBGAQkgvtuMEts=;
+	b=a29XZ2n32W6NbMPFEh5HdOb3M7PYRJuNPQawecuczPwFeSw3z+MDtTiY//DSwIJ7cqkpo7
+	U0+RAJ9BUQKImTAg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	David Stevens <stevensd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260831065509.qqEtERDB@linutronix.de>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
+ <20260828151018.HnR9xV1N@linutronix.de>
+ <20260828150836.2d5b378c@gandalf.local.home>
+ <20260828151313.5c4a5e4b@gandalf.local.home>
+ <20260828151747.20035d50@gandalf.local.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-8189-smi-support-v4-2-8ae66dd3eeed@mediatek.com>
-References: <20260831-8189-smi-support-v4-0-8ae66dd3eeed@mediatek.com>
-In-Reply-To: <20260831-8189-smi-support-v4-0-8ae66dd3eeed@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Congcong Yao <congcong.yao@mediatek.com>, 
- Zhengnan Chen <zhengnan.chen@mediatek.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788159129; l=4600;
- i=congcong.yao@mediatek.com; s=20260722; h=from:subject:message-id;
- bh=7az4Dgk3CXFVdlAoxr6OTNIBaBixjBIVkNdiyT0OpGA=;
- b=7LVFR45UNQ9UzEL7SqZVZ0eq6zimK7axUTNrz6xTswY9mxWDD6vec7IEIXQuqUyUJKMBnXMWH
- wLzJoC+nF49ACS+Bkzrja75h1kmEDkK6BwbYGc6Si6MxD80YvXPmV2C
-X-Developer-Key: i=congcong.yao@mediatek.com; a=ed25519;
- pk=tIrmGxKQQxnfyb48iCCd19063tppPj89U3nupGYAIxg=
-X-Endpoint-Received: by B4 Relay for congcong.yao@mediatek.com/20260722
- with auth_id=889
-X-Original-From: Congcong Yao <congcong.yao@mediatek.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260828151747.20035d50@gandalf.local.home>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_235515_910124_716FBEFD 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,109 +105,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: congcong.yao@mediatek.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhengnan Chen <zhengnan.chen@mediatek.com>
+On 2026-08-28 15:17:47 [-0400], Steven Rostedt wrote:
+> On Fri, 28 Aug 2026 15:13:13 -0400
+> Steven Rostedt <rostedt@goodmis.org> wrote:
+> 
+> > If one worries about stack size, they may want to turn off
+> > CONFIG_RANDOMIZE_KSTACK_OFFSET as I see some big numbers for do_syscall_64()
+> 
+> And the scheduler has some heavy stack usage here!
+> 
+>   # trace-cmd stack
+> (stack tracer running)
+>         Depth    Size   Location    (31 entries)
+>         -----    ----   --------
+>   0)     8120      48   __msecs_to_jiffies+0x9/0x30
 
-Add the MT8189 SMI common, sub-common and LARB platform data.
+I didn't expect get_user_pages_unlocked() getting that big:
 
-Enable the GALS clock for the MT8189 SMI sub-common.
+(stack tracer running)
+        Depth    Size   Location    (60 entries)
+        -----    ----   --------
+  0)     8176      48   __css_rstat_updated+0x9/0x150
+  1)     8128       8   __cgroup_account_cputime+0x2f/0x50
+  2)     8120      48   update_se+0x10c/0x1b0
+  3)     8072      48   update_curr+0x31/0x180
+  4)     8024      56   put_prev_entity+0x153/0x1f0
+  5)     7968     136   pick_next_task_fair+0x684/0x8e0
+  6)     7832     120   __schedule+0x1ca/0x1130
+  7)     7712       8   preempt_schedule_irq+0x38/0x60
+  8)     7704      72   irqentry_exit+0x148/0x6b0
+  9)     7632     136   asm_sysvec_apic_timer_interrupt+0x1a/0x20
+ 10)     7496     240   HUF_compress1X_usingCTable_internal_bmi2+0x12d2/0x1c40
+ 11)     7256      80   HUF_compress4X_usingCTable_internal+0x192/0x1d0
+ 12)     7176      32   HUF_compressCTable_internal+0x61/0x90
+ 13)     7144     136   HUF_compress_internal+0x2d2/0x500
+ 14)     7008      56   HUF_compress4X_repeat+0x25/0x60
+ 15)     6952     176   ZSTD_compressLiterals+0x1ad/0x400
+ 16)     6776     224   ZSTD_entropyCompressSeqStore_internal+0xfb/0x320
+ 17)     6552     112   ZSTD_compressBlock_internal+0x11b/0x210
+ 18)     6440     296   ZSTD_compressContinue_internal+0x232/0xdd0
+ 19)     6144      56   ZSTD_compressEnd_public+0x27/0x190
+ 20)     6088     112   ZSTD_compressStream2+0x9fc/0xa60
+ 21)     5976      80   ZSTD_compress2+0x83/0xd0
+ 22)     5896      24   zstd_compress+0x3d/0x70 [zram]
+ 23)     5872      72   zcomp_compress+0x62/0x90 [zram]
+ 24)     5800     144   zram_submit_bio+0x558/0xb00 [zram]
+ 25)     5656     128   __submit_bio+0x164/0x240
+ 26)     5528      96   submit_bio_noacct_nocheck+0x134/0x390
+ 27)     5432      64   bio_await+0xa7/0xb0
+ 28)     5368      16   submit_bio_wait+0x16/0x20
+ 29)     5352     184   swap_writepage_bdev_sync.isra.0+0x12e/0x230
+ 30)     5168      40   swap_writeout+0x18d/0x2e0
+ 31)     5128     176   shmem_writeout+0x286/0x530
+ 32)     4952     440   shrink_folio_list+0x588/0xfc0
+ 33)     4512     296   evict_folios+0x399/0xac0
+ 34)     4216     160   try_to_shrink_lruvec+0x1a4/0x390
+ 35)     4056      64   shrink_one+0xc0/0x1a0
+ 36)     3992     240   shrink_node+0xa9a/0xcf0
+ 37)     3752      88   do_try_to_free_pages+0xb3/0x4d0
+ 38)     3664     176   try_to_free_pages+0xce/0x220
+ 39)     3488     264   __alloc_pages_slowpath.constprop.0+0x8cc/0x1240
+ 40)     3224      96   __alloc_frozen_pages_noprof+0x2f6/0x340
+ 41)     3128      64   alloc_pages_mpol+0xb6/0x190
+ 42)     3064      56   vma_alloc_folio_noprof+0x6e/0xd0
+ 43)     3008      80   do_anonymous_page+0x32e/0x8f0
+ 44)     2928     224   __handle_mm_fault+0xb31/0xf60
+ 45)     2704      64   handle_mm_fault+0xee/0x2f0
+ 46)     2640     152   __get_user_pages+0x1b5/0x1140
+ 47)     2488     104   get_user_pages_unlocked+0xf0/0x330
+ 48)     2384     128   hva_to_pfn+0x2ea/0x450 [kvm]
+ 49)     2256      64   __kvm_faultin_pfn+0x61/0x90 [kvm]
+ 50)     2192     120   kvm_mmu_faultin_pfn+0x2cf/0x6f0 [kvm]
+ 51)     2072      24   kvm_tdp_page_fault+0x94/0xf0 [kvm]
+ 52)     2048     120   kvm_mmu_do_page_fault+0x1d9/0x210 [kvm]
+ 53)     1928     200   kvm_mmu_page_fault+0x7e/0x7b0 [kvm]
+ 54)     1728      40   npf_interception+0xba/0x240 [kvm_amd]
+ 55)     1688     168   kvm_arch_vcpu_ioctl_run+0x931/0x1900 [kvm]
+ 56)     1520     200   kvm_vcpu_ioctl+0x2e4/0xa10 [kvm]
+ 57)     1320      56   __x64_sys_ioctl+0x97/0xe0
+ 58)     1264    1072   do_syscall_64+0xe1/0x640
+ 59)      192     192   entry_SYSCALL_64_after_hwframe+0x76/0x7e
 
-Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
-Signed-off-by: Congcong Yao <congcong.yao@mediatek.com>
----
- drivers/memory/mtk-smi.c | 45 +++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+Does this stack tracer distinguish between the kernel-stack and
+IRQ-stack? I would expect asm_sysvec_apic_timer_interrupt() on the
+IRQ-stack and not adding weight to the kernel stack.
+Given how close this is to 8192, I don't think two stack pages will
+happen soon.
 
-diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
-index aaeba8ab211e..8c4606cbd73d 100644
---- a/drivers/memory/mtk-smi.c
-+++ b/drivers/memory/mtk-smi.c
-@@ -401,6 +401,30 @@ static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[25] = {0x01},
- };
- 
-+static const u8 mtk_smi_larb_mt8189_ostd[][SMI_LARB_PORT_NR_MAX] = {
-+	[0] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10,},
-+	[1] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10,},
-+	[2] = {0x7, 0x7, 0x4, 0x4, 0x1, 0x1, 0x2, 0x2, 0x7, 0x7,},
-+	[4] = {0x2f, 0x1e, 0x9, 0x1, 0x1, 0x1, 0x1, 0x2, 0x2, 0x5, 0x1, 0x17,},
-+	[7] = {0x20, 0x2, 0x1, 0x1, 0x1, 0x4, 0x2, 0x1, 0x1, 0x2, 0x3, 0x2,
-+	       0xa, 0xf, 0x4, 0x6, 0x5, 0x1,},
-+	[9] = {0x6, 0x3, 0xc, 0x6, 0x1, 0x4, 0x3, 0x1, 0x2, 0x4, 0x5, 0x2,
-+	       0x4, 0x2, 0x3, 0xb, 0x1, 0x4, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+	       0x1, 0x1,},
-+	[11] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+		0x1, 0x1, 0x1, 0xb, 0x1, 0x4, 0x6, 0x5, 0x6, 0x1, 0x5, 0x2,
-+		0x9, 0x5,},
-+	[13] = {0x2, 0x8, 0x8, 0x8, 0x4, 0x4, 0x4, 0x4, 0x4, 0xe, 0x4, 0x1,
-+		0x6, 0x6, 0x2,},
-+	[14] = {0x1, 0x1, 0x1, 0x20, 0xe, 0x4, 0x8, 0x8, 0x6, 0x4,},
-+	[16] = {0x1e, 0xc, 0x2, 0x8, 0xe, 0x2, 0x1e, 0x10, 0x4, 0x2, 0x2, 0x2,
-+		0x2, 0x2, 0x4, 0x2, 0x4,},
-+	[17] = {0x1e, 0xc, 0x2, 0x8, 0xe, 0x2, 0x1e, 0x10, 0x4, 0x2, 0x2, 0x2,
-+		0x2, 0x2, 0x4, 0x2, 0x4,},
-+	[19] = {0x2, 0x1, 0x3, 0x1,},
-+	[20] = {0x7, 0x7, 0x3, 0x3, 0x1, 0x1,},
-+};
-+
- static const u8 mtk_smi_larb_mt8192_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[0] = {0x2, 0x2, 0x28, 0xa, 0xc, 0x28,},
- 	[1] = {0x2, 0x2, 0x18, 0x18, 0x18, 0xa, 0xc, 0x28,},
-@@ -533,6 +557,13 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
- 	.ostd		            = mtk_smi_larb_mt8188_ostd,
- };
- 
-+static const struct mtk_smi_larb_gen mtk_smi_larb_mt8189 = {
-+	.config_port                = mtk_smi_larb_config_port_gen2_general,
-+	.flags_general	            = MTK_SMI_FLAG_THRT_UPDATE | MTK_SMI_FLAG_SW_FLAG |
-+				      MTK_SMI_FLAG_SLEEP_CTL | MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
-+	.ostd		            = mtk_smi_larb_mt8189_ostd,
-+};
-+
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
- 	.config_port                = mtk_smi_larb_config_port_gen2_general,
- 	.ostd			    = mtk_smi_larb_mt8192_ostd,
-@@ -556,6 +587,7 @@ static const struct of_device_id mtk_smi_larb_of_ids[] = {
- 	{.compatible = "mediatek,mt8183-smi-larb", .data = &mtk_smi_larb_mt8183},
- 	{.compatible = "mediatek,mt8186-smi-larb", .data = &mtk_smi_larb_mt8186},
- 	{.compatible = "mediatek,mt8188-smi-larb", .data = &mtk_smi_larb_mt8188},
-+	{.compatible = "mediatek,mt8189-smi-larb", .data = &mtk_smi_larb_mt8189},
- 	{.compatible = "mediatek,mt8192-smi-larb", .data = &mtk_smi_larb_mt8192},
- 	{.compatible = "mediatek,mt8195-smi-larb", .data = &mtk_smi_larb_mt8195},
- 	{}
-@@ -808,6 +840,17 @@ static const struct mtk_smi_common_plat mtk_smi_common_mt8188_vpp = {
- 	.init     = mtk_smi_common_mt8195_init,
- };
- 
-+static const struct mtk_smi_common_plat mtk_smi_common_mt8189 = {
-+	.type     = MTK_SMI_GEN2,
-+	.bus_sel  = F_MMU1_LARB(1) | F_MMU1_LARB(3) | F_MMU1_LARB(5) |
-+		    F_MMU1_LARB(7),
-+};
-+
-+static const struct mtk_smi_common_plat mtk_smi_sub_common_mt8189 = {
-+	.type     = MTK_SMI_GEN2_SUB_COMM,
-+	.has_gals = true,
-+};
-+
- static const struct mtk_smi_common_plat mtk_smi_common_mt8192 = {
- 	.type     = MTK_SMI_GEN2,
- 	.has_gals = true,
-@@ -852,6 +895,8 @@ static const struct of_device_id mtk_smi_common_of_ids[] = {
- 	{.compatible = "mediatek,mt8186-smi-common", .data = &mtk_smi_common_mt8186},
- 	{.compatible = "mediatek,mt8188-smi-common-vdo", .data = &mtk_smi_common_mt8188_vdo},
- 	{.compatible = "mediatek,mt8188-smi-common-vpp", .data = &mtk_smi_common_mt8188_vpp},
-+	{.compatible = "mediatek,mt8189-smi-common",     .data = &mtk_smi_common_mt8189},
-+	{.compatible = "mediatek,mt8189-smi-sub-common", .data = &mtk_smi_sub_common_mt8189},
- 	{.compatible = "mediatek,mt8192-smi-common", .data = &mtk_smi_common_mt8192},
- 	{.compatible = "mediatek,mt8195-smi-common-vdo", .data = &mtk_smi_common_mt8195_vdo},
- 	{.compatible = "mediatek,mt8195-smi-common-vpp", .data = &mtk_smi_common_mt8195_vpp},
-
--- 
-2.43.0
-
-
+Sebastian
 
