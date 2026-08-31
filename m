@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82607C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BB9C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/IrZMEnYMWz3cHmLNm2dkUh37mtplEA3JG88ye8+6jg=; b=hbut4bTYBuF4jcviDI08pIwKyP
-	nSVBRdhI6PpHSkpPxVV7DIkkiXFLTu5L57z2SE5/q8a2filgojjvhypZ0kU1y6c+2RoMF9MaAv2tP
-	FyhLseS4gMBv0/s3DaFP5pm2qFXETx9yuhJYtc5smc1GS3ZSm0VvGvzULeMTpF9A9XUp+XRBPKyh0
-	hQfM+jFMdGHneGhxwFa3BB0mQ516WzqORAKTBpqxL5KHGzZOwdBeVRAki53lzW/UqVbG9n+9jKdfW
-	PTR1uklGB/T7z9XEcZ1x/c5pQRfLvV1eCVkAX2stPShz59sLncjTvP+FIDiRARCYLE1gbmK3j657N
-	Jq7n7L1A==;
+	bh=fzSUA8jz+o+v6OONQ0mLxZOh2EV6BUjpJKgJbuUiqx8=; b=japtFHp8G9oKhcuB5x9mtzopDZ
+	FLy8AKyV+An3Bcgymd3Om7ejgxnjWxZSrDckh7Ztfb2eypxWWGFq2TrCaoI2vh+Xjl/avjuyUe96g
+	L+VrezeRvijstFwtdPIInB/NWmcaTzl1Hb10elQ1RRqk/cAVccvYYDruUcGHOs77dygaJxEaacOdA
+	TEF9GU+R3ukuIe2CKN2nbYQh8M7zauAZnk1Yi9kq4eQksW5+EKhQpoZLhsa6hZT1hcj7DtDigDRLK
+	Yx2BeSx59rQcCROu2jOXT9PN//lBPeu3vPQqQFYBGlPOD0u5w52o2Lda2S9UEfZpON07AdGx2Ebhm
+	boiL/kmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x161l-0000000ADVX-1ZIS;
-	Mon, 31 Aug 2026 17:42:37 +0000
+	id 1x161l-0000000ADWv-3qsd;
+	Mon, 31 Aug 2026 17:42:38 +0000
 Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x161d-0000000ADQh-1qTH
+	id 1x161h-0000000ADTJ-3g6B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:42:31 +0000
+	Mon, 31 Aug 2026 17:42:35 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 16CDD240027
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 19:42:27 +0200 (CEST)
+	by mout01.posteo.de (Postfix) with ESMTPS id D1752240028
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 19:42:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1788198147;
-	bh=/IrZMEnYMWz3cHmLNm2dkUh37mtplEA3JG88ye8+6jg=;
+	s=1984.8680eb; t=1788198151;
+	bh=fzSUA8jz+o+v6OONQ0mLxZOh2EV6BUjpJKgJbuUiqx8=;
 	h=From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=gMSEYcDzr+5YYsRLfPjkvUm+isbBsA5OCXpAW2haQnBaHWjGs7k+JZG9+7lJI0fkL
-	 mJcJijPOKrb3BOQb8YG6KJ4RhH4dw2KltgzTUH2xSw5My0BQBqTA7yCbZznURFyGiQ
-	 RHyG8+OM0Cx6BDFZxn76RkLvrAmmove5YU+WmC79H/zZR2OMpcHSH2BMUUditebMAe
-	 FNDb3nY4J8TaJ3pcp9DjCn2+ORWpy2zlWt4CLieD6SWk43ZCRo8G0vNUjqszq6og0a
-	 xQbSxo9uSmteoXst47kipvFxnFuW5ZBY0qZiJP61Rd6wzPEnczFrsJWWJJTLZWBbgL
-	 GgKWpWvpKp/qw==
+	b=gRyJSczyeSj+HvBtHLg4gtbWWgdUUsdQqD6a0JpBscdXJlFCo3ce8aNp6fEXjujgk
+	 nmAm8AYkw/OnZj32psL6fV7VBOhWpRfnuP2NX1RDmsGZrWvAm+gSx69d9ZI7V1YOCV
+	 pqPjnSOlYrL65Ufm/C1bUVudl5x6UilorvfY8Vn3dhIIiCM4LIXGxbAgQwVdUi1OLd
+	 vMwUi6jfKiAscRrXhminLa2H0VkM0NY+ScsRKS3hBZOMXDs+HXhJanmgkBTthhtvki
+	 7sYCxXm5P4WWGRFaH2nH3W9vKKc1Rx/Sw9iHMIvy3OshCy+o6Zxzd/TmYA/8wdTB3J
+	 /q34DC0ny8v0A==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hYbsr3qg6z9rxM;
-	Mon, 31 Aug 2026 19:42:24 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hYbsx41R2z9rxK;
+	Mon, 31 Aug 2026 19:42:29 +0200 (CEST)
 From: Markus Probst <markus.probst@posteo.de>
-Date: Mon, 31 Aug 2026 17:42:26 +0000
-Subject: [PATCH v8 3/6] rtc: s35390a: Fix alarm not disabling
+Date: Mon, 31 Aug 2026 17:42:31 +0000
+Subject: [PATCH v8 6/6] rtc: s35390a: Add synology quirk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-rtc_s35390a_int1-v8-3-dac1dc86ce1f@posteo.de>
+Message-Id: <20260831-rtc_s35390a_int1-v8-6-dac1dc86ce1f@posteo.de>
 References: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
 In-Reply-To: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
@@ -65,21 +65,21 @@ To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1828;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1557;
  i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=6wArxx1l8Hm9Dqx4mugbk8wsFGsXoxVI7ksSr89OEeg=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqlbz5sTLuBYf+NIWgiqnEk5XzLpu8/y7rS6eip
- z+qs/Mg4YSJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCapW8+RsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9Jqtw//WmEI6sp8XAyVvXllG1kGWsORWKmjp2a
- Zpw2xMI0O5RrDLb09X/JnryXPyydf8zhrWdekwnKQkU1VQWv+2WQaZwseG2Me+QHWyCzO56FJbQ
- wnKDDVXZsX4/V0asbvyCgySsTKcPUKDY0JfrsRCbYM5YajACYCg/35AxPITlzsqGr6CdVX00gg6
- kJJD+jiezQDFnWAM7AO03qwb6VZaygN0baELfkcYGoMO7lBmGs4wwDYu+KnG+3zguzmd9axPOLN
- w2lx49qQtL6ib1DSKOKZ6nCZsoDfQNQqaA1IyDhsKTbDmxIvisWiCcsRLKpJ2KL+wt7lC/Eg7P0
- U2nMFBFFHH/UXi1VTbH8uw9WS3RTjmyvUo1jv5E2uhW6eEmAq8HkAYE1VrLl2x/U7geiBbHeIQy
- VdEgcveoDmOPl5u2npD4/WPDpk4nEbWUnbGnqqY+dq7vHjE8oZcsbZKzMFrFHfeIB0pRlqbqWJD
- brKlqJq1eEEW1BW0mZpwOfUUyflflkNJoFaSKIE46WRd9FuyRnZnsB556bPifbtbcm1fBzBdUql
- MjMbW4KtIm+7w2ttdfXMHU84w9BR8CYD2yapZAtmc73rtwmG9VKdGAEQIDyIyqXnkJarbM+D8Ur
- jeoVeRO49dFfvIhK9z3q7icCQpU3O7J3osZWq17tR1nbJLdl8ZJY=
+ bh=2SQmS1BEAnLIMbljFkQwkOS3WcPm6gHQujWPW1XjW4I=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqlbz5V5J0ZvNJiT/2zbcSdjPgf7G6vwjwCAyxx
+ hRnegQxoc6JAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCapW8+RsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9LYvRAAoNhAfPowmr/c/5UB1G2hNYc/9sTdc2v
+ 7Hg4isgQffaXAFU1H/9qWEG4O9am9Xi4gRS+2TGw7Dd8lpp4A+ZWJ9bSvFY8dmPN1WW7lmaS4KK
+ JXoVavLr3CxYVOS3D7ZaUvcLtMtPZ1m9y5IituTbZ24cW0vcpgvGJ2NplGkT1BbsynOy0IR9Ox0
+ p1Mi/eXkkBZUoLyD8IJT+X5yJhGxvfYjRTMrXko8CLDKdvBpaxRdlosBA8lqjZxKZfUUTDS/QC4
+ 9QSvRAwTsy3iffFRJsVu2hgKSO8ovUoUNyeKCAu80r16gnfkdTrVjP6FozeGEuUS0eD6d55OmMi
+ qKleQpEKjRXopSymMLvCaF/SsokraVF62XQoFV7w16bAsVAziN3KG4jT4otK2EGAuyI6tIksS8N
+ A0K6XlzG58haxKeJEhEY4ITBsuH7+2n/xPgOS8UZYeLxTS8k6DSvrCGQ8cVBzxwp1Mdu7ODGV0D
+ 2arFG0mVgg4oE+tm1IwsL/9QDJlYpOkwvEsp68SR1Md0BLkMpP/XILZ/PRVmiWC1JqRqKCaIY8D
+ 9bcqZNsN1fccx7tZU/fxnqrqLIWkPdpM4/KgmC8xaXmaFXUlBBF6DJW1cBBWW9QNRqbfJ0SBnf6
+ 3/xwXxyGmNPOfry4/biIxFnbhi8NdXAXG2QKPOejlPtxxbs1jgbI=
 X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
  fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
@@ -125,8 +125,8 @@ Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
   aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_104229_764386_06C6BF7B 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260831_104234_244859_891892E0 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,61 +141,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement alarm_irq_enable callback.
+Synology NAS devices use interrupt signal 1 for wakeup alarms. On ACPI
+it is not possible to configure pinctrl.
 
-Fixes: 542dd33a4925 ("drivers/rtc/rtc-s35390a.c: add wakealarm support for rtc-s35390A rtc chip")
+Use interrupt signal 1 for wakeup if no pinmux function has been
+configured in devicetree and dmi sys vendor matches "Synology Inc.".
+
 Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/rtc/rtc-s35390a.c | 29 ++++++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ drivers/rtc/rtc-s35390a.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index 4cfe7034c516..575bb256eb25 100644
+index 649d36d37f1f..d3e829052927 100644
 --- a/drivers/rtc/rtc-s35390a.c
 +++ b/drivers/rtc/rtc-s35390a.c
-@@ -270,6 +270,24 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 	return 0;
- }
+@@ -5,6 +5,7 @@
+  * Copyright (c) 2007 Byron Bradley
+  */
  
-+static int s35390a_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-+{
-+	struct s35390a *s35390a = dev_get_drvdata(dev);
-+	u8 sts;
-+	int err;
-+
-+	if (enabled)
-+		sts = S35390A_INT2_MODE_ALARM;
-+	else
-+		sts = S35390A_INT2_MODE_NOINTR;
-+
-+	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
-+	if (err < 0)
-+		return err;
-+
-+	return 0;
-+}
-+
- static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- {
- 	struct i2c_client *client = to_i2c_client(dev);
-@@ -410,11 +428,12 @@ static int s35390a_rtc_ioctl(struct device *dev, unsigned int cmd,
- }
++#include <linux/dmi.h>
+ #include <linux/module.h>
+ #include <linux/rtc.h>
+ #include <linux/i2c.h>
+@@ -778,8 +779,18 @@ static int s35390a_probe(struct i2c_client *client)
+ 		return dev_err_probe(dev, err, "pinctrl enable failed\n");
  
- static const struct rtc_class_ops s35390a_rtc_ops = {
--	.read_time	= s35390a_rtc_read_time,
--	.set_time	= s35390a_rtc_set_time,
--	.set_alarm	= s35390a_rtc_set_alarm,
--	.read_alarm	= s35390a_rtc_read_alarm,
--	.ioctl          = s35390a_rtc_ioctl,
-+	.read_time		= s35390a_rtc_read_time,
-+	.set_time		= s35390a_rtc_set_time,
-+	.set_alarm		= s35390a_rtc_set_alarm,
-+	.read_alarm		= s35390a_rtc_read_alarm,
-+	.alarm_irq_enable	= s35390a_rtc_alarm_irq_enable,
-+	.ioctl			= s35390a_rtc_ioctl,
- };
+ 	/* If no pinmux function is defined in DT, fallback to previous behaviour */
+-	fallback[0] = S35390A_FUNC_IGNORE;
+-	fallback[1] = S35390A_FUNC_WAKEUP;
++
++	if (dmi_match(DMI_SYS_VENDOR, "Synology Inc.")) {
++		/*
++		 * Synology uses interrupt signal 1 for wakeup. Since pinctrl cannot be
++		 * configured on ACPI, we check against the dmi sys vendor.
++		 */
++		fallback[0] = S35390A_FUNC_WAKEUP;
++		fallback[1] = S35390A_FUNC_DISABLE;
++	} else {
++		fallback[0] = S35390A_FUNC_IGNORE;
++		fallback[1] = S35390A_FUNC_WAKEUP;
++	}
  
- static int s35390a_nvmem_read(void *priv, unsigned int offset, void *val,
+ 	for (i = 0; i < ARRAY_SIZE(s35390a_pin_groups); i++) {
+ 		if (s35390a->pinfunction[i] == -1) {
 
 -- 
 2.54.0
