@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9124EC624C6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3492C624CF
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UENdJAJyahjHlzGhEf0s0mTLazWGcYweY6sOfP2eFPU=; b=2wQpH0YQgfWhfb
-	YqTYiREiKJCZDpo/ju/cd3ZaWOSpW6cYzrMFDFBjxREyf4sdlyk0f0oquMGdrcR8tEQiKpguAHcb0
-	EHxcbpd9xrGc/0pZFAw6IqF4PXztXrNENFXpaFaj5LXTs4sX+L/W6sZbXqNGRq+yMXAlewDd/GcT2
-	VfNtrU+bpOBGAp3hT5KYYKAHbTQwfZ5NjgIAPEsfGOtbCje721NldLmDmToZlbOA2B/EXiLbYcepA
-	BcFlxOZEeC5jOfTOtDPB6NMhJWjrAkmlfRPqYUqKibfw9a4ncOIVey6DvcJodJ31gLTqep2kyfZlM
-	pCO2bVaoIIvzvW8UVZaQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=; b=czs/tCS6WLeaWDX3bip/U4l+Nl
+	pUDe+1H0PffniF2aM+fGUSo/MLbWhTW0LHO586/w3bfyNYm/0Icm3n2DziAND01v2EzXIq0pt2RUa
+	qGNaVkAT8vL7CAi4WgunOvxQDJViziXPXr0aqYDlIRu9SLmmiUEfsjsGq5EdtDGhUCbBTDjYcyNHG
+	mYwBNCqfJL3WIK5aQ8dKqV1VGyo0RxHzLQeSCCG6PB/DiaS+GtROHVvzrERulh3oElmANK5HoEcWC
+	gnRYSpEOjQ8hxXcECrt+LRhr5+g+PaGUYJfomFOMF8Jcf/eDOWIo0D4qexbHeMRhCBhQ1AMTNFpMd
+	A5IvyD8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x161l-0000000ADVo-239V;
+	id 1x161l-0000000ADVC-15qp;
 	Mon, 31 Aug 2026 17:42:37 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x161c-0000000ADQW-46qm
+	id 1x161c-0000000ADQe-322M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:42:31 +0000
+	Mon, 31 Aug 2026 17:42:30 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id D0AB6240101
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 19:42:21 +0200 (CEST)
+	by mout01.posteo.de (Postfix) with ESMTPS id B2BBB24002B
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 19:42:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1788198141;
-	bh=UENdJAJyahjHlzGhEf0s0mTLazWGcYweY6sOfP2eFPU=;
-	h=From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:To:Cc:Autocrypt:OpenPGP:From;
-	b=cIposwp5YLLhj+dXEINXGjpa6YU+J6ypZzWnvgKqgPi1j90zNeYPsNaYmjtZ9SbLt
-	 d0yz5E67/Ks0E5bIa/bHpgooanLcA+ecH6n5pUswnOO1+AJ3RAz0H+cL9XHJL8Nj3x
-	 cU3homGscKMC9MWNCzcjElrRUe4mguQLD8ctOAglhv/4TWyO4ohhqD8Qd++KPqeDyf
-	 9zf+5HRxdgxAfZ/aio0k/hJvPbAUjTUnApX0LreeufJzimFBUp5ULrF5sp1xgEU3nb
-	 YuIkdy9bGm6MVCh1sYHs4bLqcW9xBC7dVnD2MP1bJRRKXA5bZeYc2R/nZ6Fn/BSHJQ
-	 byx3gVk33qPJg==
+	s=1984.8680eb; t=1788198145;
+	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=UHZCBkUPJsZqIU7hHSuUBA9jxGV+ZTvkf5IDO31eKMXgBHg/eGX4dt+zJEjMz5RDq
+	 0Vqjvqew4ze2S3DOSJ8thfIA7TRbZOvUbQmVP9hELPNDoNKYPQq3D2VQChPTY0BCos
+	 4p9qJxMt5NyUIZoUk4+7F5+Ov2DTLtcsLaQ0ntip5UGsEQiLZyaLSFR1WyUrcQGjnn
+	 wnk2RBTUqSMDVxN6nh68ZaWcMw/rxpF7Q1BUNiDKVNg4J1TDT+OzeUhEU1PhPbJBNB
+	 NLDtA5eSYy18OAUPJweAuA2/4RnG4APnJtRM1w85zNqa4OfkRfH4HfRqBH14ZYmwKH
+	 KMJvYf+tCXz+g==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hYbsk2Q69z9rxF;
-	Mon, 31 Aug 2026 19:42:18 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hYbsp5Vssz9rxQ;
+	Mon, 31 Aug 2026 19:42:22 +0200 (CEST)
 From: Markus Probst <markus.probst@posteo.de>
-Subject: [PATCH v8 0/6] rtc: s35390a: Allow use of output pin for interrupt
- signal 1 for wakealarm
-Date: Mon, 31 Aug 2026 17:42:21 +0000
-Message-Id: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
+Date: Mon, 31 Aug 2026 17:42:24 +0000
+Subject: [PATCH v8 2/6] rtc: s35390a: Add missing newline to dev_err
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XQ0WrDMAwF0F8pfp6LZcVu3Kf9xxjFduTVgyad7
- YaN0n+fmw4WsuzxwtWR0JVlSpEy22+uLNEYcxz6GtqnDfNH278Rj13NTAqphUbBU/GHjAqNsIf
- YF+BKae8dirbDwOrYOVGInxP58vrI+eLeyZe789NI9HGpu8qjxpzNxP1wOsWy34y7LfLkgd2nj
- zGXIX1N940wlf8/ZQQuODgp0RBoR/L5PORCw7ajCRvlL9AKWAFkBQIIb4ztoNN+CeAcUCsAVoB
- a1ME6iyTVEmhmAKwBTQUQEFEYj1qFJaBmgFz7gaqAItdQaJXX1iwBPQeaFUBXoAtGK20IG/jzx
- N0cMCvA7g6Q8x0CNGhpDtxut2/LL1B7dAIAAA==
-X-Change-ID: 20260630-rtc_s35390a_int1-556ccb308d3f
+Message-Id: <20260831-rtc_s35390a_int1-v8-2-dac1dc86ce1f@posteo.de>
+References: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
+In-Reply-To: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -71,21 +65,21 @@ To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5384;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=693;
  i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=GPcWCw34kyfkarzSrLj1Q4kRNMiNXVGbYogVGPPudqU=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqlbz4UKCHNj9pHy7GWorlg5xJLZYQ59i8r4lrx
- a6i49I6YkOJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCapW8+BsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9L8cQ//bNsbVB6gcgCpVuqFjNBCAWSzkhCbS6K
- 4Co8seimzQ9oLnSyo5QOIaoWT2621Bk1CPxxDIJpYEttt4BvQYIpah6RYXA0mM9kT/wrMFF4/u6
- +Guepw5QVZQdLFrhUwAcXSbyAkCebMyObKtef4AVXowYZB/Swwkd4fWu3gs+emY/J8bpt4LVlS1
- gaWLGvsPAJAJOvmQEpQcYIMSKxvriaKM3A67ElaBoAmjdzNEs0K2WNOR3cvKEm/AV3J6H9u2u7e
- KhEtflijA6vfOSgKgh7hG9Jgs9cDkrUtZvUZkikxckLKu1sY9tK6q0FanEehdzC9k5lC6Ir5nJE
- 8QfBh1JSs9/yjGuIKa706yEixDthpJb1GmxdrfvaoGAD0KoSdK5QKqKisKblJPtjMH5x2HM+6km
- 0K4qGmTKABNlCeuSoX43UMkCHA3lRyY4eFJq/DOS7/IoAl9xH/DAuxgNfCBCQtsZv8XgffDpu+d
- pS7SIAQOsTG1BqokRhUGofDpZorvATxayLfJmxHWIebinBJmtvSFDeytZ1xly/i2itqXuUFxT3E
- n2EFdxi/WwTyTi8+G+3gSdhyPMQbvvXiJm+rIoaVHfh2jU4bf1Ft67tqEUfOz9rIaTIgmPU5Qs/
- yx4Mv62LCMh1/dJ7iiZ7fKxG5XURNwzE4aHnQa1vupLjpfMaRoek=
+ bh=QV/D+X9L6iHtWxf2FTb2FsPSMVe+HAIVh5ovcaU9Yq0=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqlbz5yQqno9KoPb1mHw0UOAGQbEpysAgOborkH
+ cK1QtBUtLWJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCapW8+RsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9LKBg//RK/N/elt5XV1VMBX2CW8ac49aFIh9cg
+ EMYGzAAf9y9dgtlI8jsEXkKi36nmqY1gW3UWWgxmeCIeKJvVopecaivDiJmeNsID1LeAfkiRV4X
+ iTCOo7KgrZRfYqThNXnoZRw5r9115+R3ZZP19ErbrPDc1igUh+F9tPYxaAzm2JO7+qZOIulWkGx
+ dZJp0ym61tQQduavHDS2jLtMAdeVkbihHGxQeLQdPIPP0IPL3IjxuYE0cDYyqy/+0jFGToZwNX+
+ RSMu9JH5cUzb7u7xfofL2XMPlYWEz0xrFdPcLrCHWItnwtXr+AUmh23nkFZ9lZP4wC5Fm4eUL+S
+ 9cp0CBFnnXTTIkZYCTYZKnv2gsAwhX8BEhtMAyoJLxpRDZfdBYhy9bqCC5VUv72m8cH6V8FysF3
+ GnFQnm1UupOGXhHfhx6/UUk0z1p4XChHu/hLbCPOA+c40Im1jVLCl1BOq9aTmxfVZ2eYUC36hrb
+ 5BTo+cHWLc1T9AJX1T4n1vNs8O7skRthjz8BKYg3L2aW9ydlBn1LVZqZnR/mkfRN7DyGa5bCnwf
+ eHkIPbp6AUAjb/kUg4vr9vfTg1j4+4VqMjSQ6Rn6ew0fKCLjpqhtLAOWtgcn8uPLfRZd15uSlAH
+ D9Z2Qh5VfGXAC4yLqXzQWZ0d90T9tGDrmq2gygwO4BfemadT8am4=
 X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
  fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
@@ -131,8 +125,8 @@ Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
   aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_104229_333093_66A1857C 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20260831_104229_061178_E5941125 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,132 +141,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl to allow the use of output pin for interrupt signal 1
-for wakealarm. This is needed for wakealarms to work on Synology NAS
-devices.
-
-I could only partially test the pinctrl patch. My testing system runs
-ACPI, which makes it impossible for me to configure pinctrl there. I did
-however verify that with missing pinctrl configuration in the devicetree,
-the register were correctly set. So there should be no regressions.
-Every other function than ignore, disable and wakeup should also be
-considered untested.
-
-Also If I am not mistaken, wake alarms on these systems are currently broken:
-(not tested, judged by looking at the devicetrees).
-
-- arch/arm/boot/dts/marvell/armada-370-synology-ds213j.dts
-- arch/arm/boot/dts/marvell/armada-xp-synology-ds414.dts
-- arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
-- arch/arm/boot/dts/marvell/kirkwood-ds110jv10.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds111.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds112.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds210.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds212.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds212j.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds411.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds411j.dts
-- arch/arm/boot/dts/marvell/kirkwood-ds411slim.dts
-- arch/arm/boot/dts/marvell/kirkwood-rs212.dts
-- arch/arm/boot/dts/marvell/kirkwood-rs411.dts
-
-If thats the case it can be fixed by using this patch series and adding
-the example in the devicetree to the s35390a devicetree.
-
-If somebody still runs one of these systems, please test.
-
-Thanks
-- Markus Probst
-
+Fixes: 3bd32722c827d ("rtc: s35390a: improve irq handling")
 Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
-Changes in v8:
-- fix issues reported by Sashiko
-  - avoid usage of cleanup helper and goto in one function
-- replace dt binding maintainer with self
-- use allOf instead of manually referencing the properties in
-  pinmux-node.yaml in dt binding
-- move additionalProperties up for readability
-- Link to v7: https://patch.msgid.link/20260829-rtc_s35390a_int1-v7-0-debcd31143ae@posteo.de
+ drivers/rtc/rtc-s35390a.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v7:
-- fix issues reported by Sashiko
-  - check return value of `s35390a_read_status` for errors
-  - select PINCTRL instead of depend to avoid silently dropping the
-    driver on platforms without PINCTRL
-- Link to v6: https://patch.msgid.link/20260824-rtc_s35390a_int1-v6-0-df96569e3412@posteo.de
+diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
+index b72eef4fb099..4cfe7034c516 100644
+--- a/drivers/rtc/rtc-s35390a.c
++++ b/drivers/rtc/rtc-s35390a.c
+@@ -494,7 +494,7 @@ static int s35390a_probe(struct i2c_client *client)
+ 		buf = 0;
+ 		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
+ 		if (err < 0) {
+-			dev_err(dev, "error disabling alarm");
++			dev_err(dev, "error disabling alarm\n");
+ 			return err;
+ 		}
+ 	} else {
 
-Changes in v6:
-- instead of forcing 24-hour mode, check on rtc access
-- Link to v5: https://patch.msgid.link/20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de
-
-Changes in v5:
-- fix issues reported by Sashiko
-  - fix time corruption on setting 24-hour mode
-  - fix setting 24-hour even if uninitialized
-- Link to v4: https://patch.msgid.link/20260815-rtc_s35390a_int1-v4-0-3133309c365f@posteo.de
-
-Changes in v4:
-- fix issues reported by Sashiko
-  - require "pins" property in dt
-  - remove maintainers entry for include/dt-bindings/rtc (which only
-    existed in previous iterations)
-  - fix multiple reads to status1, which clears interrupt flags
-  - fix not waiting for Power-On Circuit check
-  - fix missing pinctrl dt callbacks
-- enforce minimum length of "pins" property in dt
-- fix pmin2 on int2 affecting int1
-- force use of 24-hour mode
-- Link to v3: https://patch.msgid.link/20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de
-
-Changes in v3:
-- fix issues reported by Sashiko
-  - fix use of uninitialized time data
-  - remove dependence on `CONFIG_OF`
-  - add missing `pinctrl_enable` call
-  - fix wrong index used in `s35390a_pinconf_set`
-  - fix interrupt not cleared
-  - fix `device_set_wakeup_capable` called to late in probe
-  - fix mode caching even on failure
-  - fix failure on synology quirk mode update ignored
-- only set irq in alarm_irq_enable callback
-- fix alarm time not set if set_alarm is called with alarm disabled
-- use pinmux instead of pinconf
-- move patternProperties below properties in dt
-- remove dt-bindings header
-- add '#clock-cells' dt property
-- merge 32768khz and user frequency mode into "clock"
-- remove alarm mode
-- refer to mode now as function in the code, to match phrasing in pinmux
-- resolve checkpatches --strict warnings
-- remove mode_init bool and instead set initial function to -1
-- remove err_read probe variable and reuse err
-- rebase onto v6.2-rc6
-- Link to v2: https://patch.msgid.link/20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de
-
-Changes in v2:
-- remove sii,wakealarm-output-pin property
-- add pinctrl
-- add fix to allow disabling of wake alarms
-- add synology quirk
-- Link to v1: https://patch.msgid.link/20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de
-
----
-Markus Probst (6):
-      dt-bindings: rtc: Add pinctrl for S35390A
-      rtc: s35390a: Add missing newline to dev_err
-      rtc: s35390a: Fix alarm not disabling
-      rtc: s35390a: Read 24-hour mode on access
-      rtc: s35390a: Add pinctrl
-      rtc: s35390a: Add synology quirk
-
- .../devicetree/bindings/rtc/sii,s35390a.yaml       | 117 +++++
- .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
- drivers/rtc/Kconfig                                |   2 +
- drivers/rtc/rtc-s35390a.c                          | 473 ++++++++++++++++-----
- 4 files changed, 497 insertions(+), 98 deletions(-)
----
-base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
-change-id: 20260630-rtc_s35390a_int1-556ccb308d3f
+-- 
+2.54.0
 
 
