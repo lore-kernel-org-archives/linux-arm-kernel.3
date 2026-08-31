@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A025C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34522C624C6
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xgX4u+d3puUBlvhJSRKZII6yCdJh8gUQDH6RJSdXmq4=; b=PyD9fHp8ACefBSNjeFkWeAvtid
-	QjatKP0FZgEOIy4WvmZtwzuWFmzvdW/CK6QlGuqT7l3A7o9ZfiFd94mF0AEhlA4i+TGP7nTEzyHMr
-	4SapNVIzrSwaV/uGxJzKLbHNG2oWtBh+2opqAnsAbSCYdwl8onb6enoNgpR9hUHUaEpw4ExXxI2zy
-	G4TLItI4IQfXU994Enj1yzZzpNXyQmQC8CDsSVUw7GPIwomcKY6NKx64sodbmHKv8848X4bieGnKg
-	PWB0B2w3ybvU2vF6MEJFD/Y6fKJ/8akOQSaIGHVYDA2G2k6LuTx3IxrxIrETUV5eQD6swYVq/ZiXs
-	MnswyU0w==;
+	bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=; b=MUtDgrY10qkwo9abSpG6RnwCuN
+	kENInNFrti0T0ywqlFKwg6rhCtERIwpaPKyx80Us/BKdMFo7w2zoQiIuUNdk0mRpoOEgwjblmVmkZ
+	fN6VAGHsdzQdAVFetWzpaeBy6wLy43Ohi0eX+Y9LldFUaIqaoGvoUVDl85oNxFGOM1XNyn47bCFc/
+	Ads18BpqQ0t4FFiArlheSs+aHZ7QljsMDH+WW7ECPIPHiIWQCl5LrNU0+Z5bEk6T45TT6hw5bt3nV
+	+fLRqV4ApWmnrLCAAtZZ1TzCwnehIbqUkXwIcbaPprnlJjO5g7uYRml7EEHWGXOkvzZfGTAahnL/9
+	MT7RYbLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15jI-0000000AAcs-05JM;
+	id 1x15jI-0000000AAdO-1UYC;
 	Mon, 31 Aug 2026 17:23:32 +0000
 Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15iv-0000000AAGH-0Mv2
+	id 1x15iw-0000000AAGH-2tBp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:23:10 +0000
+	Mon, 31 Aug 2026 17:23:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HoifSIXByM3aWlbAy8CPB3F9l1XS9gc8amEOxWR1iWCfjsspIBlZ/3seVwJ1Yd0MhVfTMCzXLgofrgiLn10p+mAQ6OPN5PLX2OxTCZ6KuOT3UNkYXWjKbUZltA4XuNHSLntdmll5kXnaCpmTOkSvvMdlEbwaQ5rjBIV0bH0HBi09wUUSgpg2qznVS62PSmcwUTJKlmDpoCJj01FgSMGnk4V82dlY29upaJRYcjzURZoPLa2oz6UwWEHsVaPu40lwMa06MoMOm9gpBdWSbueDm2AboRAPJUYuReHHmM5JIcWntIlO9fQbRAAWMFvHnO/DuuaUxR3yj0JUGRZLG+4t1A==
+ b=Ri8WEQhp3XA2AwQ2sV4BmHB+ZEwfdLY+vyxWlbYLM5JWAf4dRneg1QOsTWs80b+CpvMrdMwSfJTEKZQ+SZxlDhZun0ahxexeABr1CMCy81ydBCXUNRqCER9G7oj3aGv93VLIKibxlA2eZHjoKsdhNsCqFgpWqZeOSLHNzXJ0lk8wmMH7Izup752qfj8s3JFZj7SfQbaG5sltzo5nUxaMx7qzo/vFPXSY+LuVsN8S0a53tWtDTXf+kpnqUjiBnv/M7EfhyXLwlXBDLf/YhlKCiXubeyodRuojWmG5HKMgzoLqi4kKkGkuiYhLbsXUWuvLzBHIPIVZ8cdMp+v/wHlmMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xgX4u+d3puUBlvhJSRKZII6yCdJh8gUQDH6RJSdXmq4=;
- b=zWoRpcwl3XRxlOfuoz2xlbRYmFV1ugN8bbuhaea3t35Q3yv2O58/NRKbLTFjVc+9EY70IitLFrrpe+vke5Wdta4oSygFgzU51Ppnzhy0UmdLsqAqzDwjazwe67j5mVkQPxGg9sR4z7CQv//xHrp/vG6XYUTlOhA161pqqDmzRWixQTnwwi5nzTMCf91me1dJylpq+tAh6Nisa+gSH37pn5w2MAuyRlri6fBZrrWCExv03dKIRY2aZeKvNeryhIDD3AAxwUQ1JaBAA0vM90RCd7QKiRubJ2gQhtVB67ikzdCsRyfTjExDDUnZSYT/MbE39BoojGWUgNDhdVfRgTqXFw==
+ bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=;
+ b=tX8juNKHsajQCGizdvnNdB2HXrekyxMbmGiJrNyvolrmH8zqIk9AebiN70Dmn8yTvXsGh3o8dNOTlhuruyyASchcTO5Fk3bj80OC9ZciP1dsFJWj0v7WhKNWmizLtQ3eWT+jJJX8qb8ckn+e6Nhi/t/ilgzHgy0OiRk6xmEXJml41QaJnAL8bdkwefeGy5ETNRI7ygiCOyZXlUNrHauCoIViiW8DXfcBqOmMUCT+VGmc03/nOSH88XtIQF+7vZYSf5Zj2nQW9MxY8naG70V5OGJpAxlb9HdjtSo/5UJWf2Rp+y9/UKSm66YCb8rxzaAkfnqAyNgYt6cuyknimOys0w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xgX4u+d3puUBlvhJSRKZII6yCdJh8gUQDH6RJSdXmq4=;
- b=lp2RWUfp2eMDJVVyfB2MbE+ChZvVBNxNti8CI+ep27x3xbKLxEZaLk2EV+wa2o/2gksSyZk5hrBTEGKQJdP6EvqBJMN2KYEFH+ex9LUztTkRN60cJBJkM9tE9uiie5P+rgxUfDleUIuqPv1BT5YxMuamPj4q1bD/5A4J7dxB9OPLtEUWGfdFqvSZ2r8LxAq2/7IZ0z1qANddqbxY+9dCM1I0YgqEhvvfPByww5U7ohlJqKjyk8Cyzj+1Cio0nlFQTu0efWpninZA1nCkgpL5oQRaqnc4Ba0EeLgttiXpKcAagsCfASK7zDIfoIxps+YvaD4wpN7KLJRNrota3kOHjQ==
+ bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=;
+ b=SBN7bK2exaARc/1WgqJpD8nVk5E9VxX859IyNjWXCPZL2vfan3urOI81wE2brcblzX3B+pO0haci30etrnslvbCA3NdOzTQdxgI5/FXtGonZyJjLJISZRg4aD0mzsL/yAERuQTZ/aTUs2Rd/JO7hdMBXwXjg+gb6Wl8c9gkG3OZ6H4voNgoxxfJOh0SliiGoLW8v6WQOqnKWgVDSS2GskprjvmPXryCWgZBaDwVj4E/cPdM2G1luupR/NpAHar6MS+hLR0GtoDcAvW1aKcb9pxokomTj7VgIUo8ResHduVx7p49WM26ch1rtTXPH1v7DC8tMbigUXbpsDHMkBmfOUw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by SJ5PPF0C60B25BF.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98a) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 17:22:57 +0000
+ 2026 17:23:00 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 17:22:57 +0000
+ 17:23:00 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -72,71 +72,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH RFC v2 05/19] resctrl: Make MBM paths resource-aware
-Date: Mon, 31 Aug 2026 10:22:31 -0700
-Message-ID: <20260831172245.42253-6-fenghuay@nvidia.com>
+Subject: [PATCH RFC v2 07/19] arm_mpam: Refine L3 topology and class selection
+Date: Mon, 31 Aug 2026 10:22:33 -0700
+Message-ID: <20260831172245.42253-8-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
 References: <20260831172245.42253-1-fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: BY3PR05CA0005.namprd05.prod.outlook.com
- (2603:10b6:a03:254::10) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0340.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::15) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|SJ5PPF0C60B25BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67fe9a73-977f-4b96-95c3-08df0784802b
+X-MS-Office365-Filtering-Correlation-Id: 14a2adde-437c-4941-f45d-08df07848182
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|5023799004|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: b/kxH8p2QHU/sh07qv5KqSwyiJgQET2Vw4R1Wr0jpcyncmJJIqHFT54pBVnjgHCLgMyKWqpnF1YqvgWgC3Sha2fNGEmFl7w3ZMfsDiY225LIiN28DuLqpIJUoangTNI++AgrqVwzu6EQYntavz34qoB0M1IlXQKwIk/NdFcDhFVvW61g6clMwC3a+9jSkli5CQOq1RNBZ5MinFtGQXJ9q9o6lbtr38d/sCqWQw0Lo+DWCJOqAngYnM+OipiZC2ozAfkO2tQIaIBafQQLb+4mDfMEoOAlV5yGhlEXXEB2Km4QICUV8THLwwnyp6K+BinhkbsZ7d95d3lk3isNdnjNccDEDayeAiNbmuv0uWSKSKCyo1QvAv5F/Byh7GHVsTMv74Bg3Ms7WKKyU+ScmIcJfXFFqwLc3PfiN8JFGQt9Sk0d7IjQSn0bA9vZ/G5Ify2ytrob3X/3F7D+hhU7/HXwrRa6AmBMMGjA9EFwTogdEzdbI1c8SdtgPhH9BF0yTWvA8Ls0sRDGpPtmKgOCQw+fslPJbHDmcV8+bN+ZWAM3hT4koU7n1SYAdc+N/YnAyoHB69qCS/Xi2ResNS3d4DG5l5cc9dlPP/NG8vZ2qxeQCHQDm+rcLccI4CAfXUarjd+zPSKrSiKUE1Ez2qqjprnPxDM3YdF54a0lqT/0aYB1wSuhVjvU1lEM0evuwFjM3krxK7UzzWbmkGl98X0JtODZ7Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|18002099003|22082099003|56012099006|11063799006|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: jK+Vi2L96kEOL37rbkDx3rBUNN092b/yO8aLnX2JH/FKEWINAMqurw8v8LP4VZJBn3tCV8bongpLlUeI261Dei6rv7NCZn46T7pwT9OH17eOQXr+kdmHz7XXxDCkWICduqSUIIhr81ohFH8MnnGmC9kgFPwyLUZ/zaFZs5rTx1budZKL6L/iSQPvZNEk/RKtDlisvaNJhXCgZ4UYLbBW8j9leI+65zckoQ96/bz0Q/VA/GsZNZHPfaXm9z1iWJ4IaHFr3MQUiZ2zdb+qf8M1JDWIEHUjy7TA/XSzihVRDE+LcL9ZOi2uBeshHm+TX5bkvOZDgAwbcr1H1y//r+up1VtWMsHL4P2krbG1vrQ4k1M3RKQuHipu0B8bqr7nyLYePYawuV1sKN7z2ShymlVCHkCqMgmvsopoI5lF7Y8AziqSw3z/M5+RmoFnDaO1Zjq6VQvj3vwZsTgjslv6JsprLDaDnF3Ypt9BfhdLHnvr0kG7w37dW0sVzomZ7SdU8bq8H73jRFlb2QyWtLL1i+tZK+3OR2eqPUpSju7U9+rG6yEBgSI/jdK7AxBSYmxaYSzLLYzOZasO7UcjiCBiAeJTfD59POUaTnqDpBepRCH7JTMdryS7GMl2dKBC2DzzYtWbBHZM6zcyUBy4oi5Xxd1AqcMMBWft9G/oYagF5fkwwuAYgtjxtJ5TIHgofB70fx+A33LIOhfPc3JvjN/JqIl0cw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6mc+KbVNu044wXO9pMeR6U5Iq5e6dp4TsNMYo7paapwheFXwkOoiDmsrxgT+?=
- =?us-ascii?Q?LqO/pxRmMjhLg8vNQtYcofB5FXFYRLDW4bxviCGYsHuIKZirhQIRbp6+UJ7t?=
- =?us-ascii?Q?BDcT5RLXGM30/1Gh1PMb8rTpVopKDGxV6L31k9rdnVK2W2vEaCzJH2XWJo0c?=
- =?us-ascii?Q?lJST8wXs4oNXApVl6Lbp5CvdKUDfbw5bIAyJAJPB3ak/X6QsPvZgK/jj2xJK?=
- =?us-ascii?Q?wUuMefJGlA5PTpCv2agZ/VazVYXWPqq04IxxJGha9EtPd4/s1R2TYNusgWk0?=
- =?us-ascii?Q?Aa8XEaM4X9qj6S/FnOIQXxgsD6OsUAcFXaAmJ3y0QpWMRsBgzC6iAmg4rbRW?=
- =?us-ascii?Q?GWhVX1yFYb6mbvu8tpixoUdP7bg5h2RbW+j7cGfiv/4NiatH/rONSb6uoYDa?=
- =?us-ascii?Q?5hlTkQI88jwwvkvzCMEaeIZGVW9uXwHQl1RWww0VESBIYf+nJltJzJhJq99J?=
- =?us-ascii?Q?F74umPLW88Vj3Y3DQ283Xgb3v92rHbtWPdB7oFw3805pFOh6iTtbCnncGV94?=
- =?us-ascii?Q?wCLpf7jKtHpZnlh8Cq1tpzoYTEsACtRZLxd02/ZB9I0VbJsH68hBiyxxMAQM?=
- =?us-ascii?Q?hARnOn8z/TsCdGiAGXRltQzpmZv3Rn/xnwInLUpnbf3fw2zc5XR/CIcKoVwY?=
- =?us-ascii?Q?FCLkRG8hitSlD8PsqFbzbfRXzI9WZY9cIsQLd+xlR8WCW2u+/zrVVH1b8Okk?=
- =?us-ascii?Q?H/2hOWFzKHADRJWipfG54/h2IUZ1psxsgtSYA7PLWpYNj8d5jPhFUq4HRZIk?=
- =?us-ascii?Q?q+hVW+MfZhm3mRf87yJuY0HxGzUJqRjYs/INtXzmppRAA9iBxCfXiXgXf6i3?=
- =?us-ascii?Q?3GlDguIVS+qHGP++KCyYpoAp+ah1VsyE8ZvipM0Z4v85XNXDh2HKo4zhxIO6?=
- =?us-ascii?Q?sloGXX2cJ7+4YMFEbQhm/TyuVAuz1TSFBlL2veh+UFGRsTLfdYo/hF1QevQ5?=
- =?us-ascii?Q?MCxFT0rbQZnfQJwKXmGFxJeCOARV233nsUN5RrSvRNstrBg75n7t30ouX4MK?=
- =?us-ascii?Q?qm/QoBNQU5frdC8kDP9s9CoX+hsNObIyU10ddteS/waj7Vp+w5C5StO/w04K?=
- =?us-ascii?Q?OKj7FCg43zCuyGkn4NRzd0HdIba3rt04w5SxGoo0mWkP48kSbLpd6dAALb2+?=
- =?us-ascii?Q?KgSLurSjD4LzVDnAAxe+5DqXz37kAq/RiC6/gv/sg8S1rHGsbZSOYt11yFV1?=
- =?us-ascii?Q?dy9m+sKkHLMciHpqiBor65ZjG3ZFYTEbWb+1VH9plvBL/gOe4BGrU3p84bwx?=
- =?us-ascii?Q?o8SnSvmt6Q0wXCxKS7yHM804rCQTvzxJRfA6LGstwgPJvyYELkqNgDlupj2m?=
- =?us-ascii?Q?Hc1WQHzRLlN6XpRPk/CQay3tRyS4Y/e0/f58p5uzMLE6qMN6cJMVCWxFDZgx?=
- =?us-ascii?Q?knKj8/CQQ57g3fmrpGaf8O22swG/ZLiZ0IDA9aIN/SEo59m9bABkuu6k/wFd?=
- =?us-ascii?Q?K0x5EELg0DRM6tKr3Cp1coK1JP8jgCAQ6fHRYtwk3TKq6SIfFG0qnhx9F0BO?=
- =?us-ascii?Q?LZG9CeaQwsP85pniJ7RLjEiu1rzUkCMsGelGOJSpaSG0NYLolYhWXSF9PO3/?=
- =?us-ascii?Q?Q1zINqengzqE6xRcQSJudk0yrY0Tgacteilkm6GAZbo/I0IC4ilCc0tpX+DS?=
- =?us-ascii?Q?/f47Btu+4JxCyS8EBVHjoEpImEbmpIz1d59hq3HdnwdcxsjDqNicr82lwZ1I?=
- =?us-ascii?Q?3iVbPWLZX6nV2mfFZf9MXPO4AKJXMFjD5WC3AC0OlJ8fGx8DQxR6Ml0jmWZd?=
- =?us-ascii?Q?rsyIMXlMQQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zjazgEV8erwXLgRDAE+yMRlUXSGeTgW/i7HAM897mItjOma4vN0cuEiR6wDI?=
+ =?us-ascii?Q?qixRJ/JSfzzJ7iY16BrCsKfchBjozJqmlnqXwwY/l77iXJ64xNyjNZtu1Q/c?=
+ =?us-ascii?Q?b6rvGg0K0WIsvnuthAzQIMC4QsPQhJtvnHdH5ivWRx3zAEqTxBWnYDKPI9AD?=
+ =?us-ascii?Q?dHBH4MFyihO7MD3+jb1TaXBHYMxJop6VzDWbzcnnrP/iOzinBh39i6h4V+IQ?=
+ =?us-ascii?Q?bg3MSPE5KjjhRcBCPgKTDri87dfd/F2/GaAvN7qo47NNBxmhmspeNGUrj8Gz?=
+ =?us-ascii?Q?2JkX0H9mC6f9HgY+UdkqsZpMSswJyhKSfzPfQdZtDZuXoeH0/0uV5l7fMScb?=
+ =?us-ascii?Q?b6/mSAyt0YGrDJsK2AGsHbpdkLebrAH+cr3lUoHv82UUiDk7eoACzO/x+7E3?=
+ =?us-ascii?Q?8EIDRFqE4Turs/1DHOzu1Wd8LiImmmu+CP6GfqXNdFZZ60+WzwTfniMPrltL?=
+ =?us-ascii?Q?8ZVji/yNjXbZszREMKk0EtNV8Zbo6McWlaSdbuz77gAGeMzzaKAzzY4jsrts?=
+ =?us-ascii?Q?beDPBS6v3kqcomcd1zhiXSMgzkOpJoREXnFvlfbHnWyLZcj2RO7gQ1eROfft?=
+ =?us-ascii?Q?SPkEpz3GSREW6rkEU2WUdubD8uehtPLqnqUGrJdauIWaBinTH8dtSMMMMB4f?=
+ =?us-ascii?Q?HUY3M114lcpIBRPOi/jt0IurVA1Nn+xZOC2e2hD0BhUAPRHIVd54mUE/RMAP?=
+ =?us-ascii?Q?sp1FvXvGe0uSm/a1lJF+xg2K6ghTzbSDMuZ+Nydy4O3RAudsSfd/yZbYNRy0?=
+ =?us-ascii?Q?L0o/8+DdPjth1HcCIqe1SgkL1oaYwgahrj6XqZy73KwhSMBYZKT95e8OzdNe?=
+ =?us-ascii?Q?p0skc561paEaNCiUEduF/A7hqpxEf2XKi7vKMolmLrkeqOOwRwdz/Jf+oDw6?=
+ =?us-ascii?Q?NUIahMXLkWrh9ZA+UGNqbj6k4QLDVhqWkbMKPnU7yp7OoaODcX6Eu/tkrEnO?=
+ =?us-ascii?Q?wnYS0SAZrAEX3K0iJlnOR/8EgSi8iKPfwF7lplyZ/9+TK/hRJ2B0K7nsGRSk?=
+ =?us-ascii?Q?rKwZPZRYcLX1qsNzy5/MFSHmpNylfJqx9H0PiQ3t9ZpaoczATDpf0NFt0NO0?=
+ =?us-ascii?Q?5RYousKBLNKeNl0XxmEtvugGyPTkVy2dfI6Z3lPRghz18/aYceug0j6xbVkN?=
+ =?us-ascii?Q?lzVu6lL1gD764xiLw5nxGIm5ilu3a7O17crm/FYclJPhEq6cBOC49TEmOnhH?=
+ =?us-ascii?Q?9IIHg1Vp9BNXl5xIUNJE0a5h6SFMLBC8/55QghqVcOfbrgmcxknuiL5AqRVt?=
+ =?us-ascii?Q?947l+NdN64A8SybyWu3dYEJmH87R66ThHFJxsxR4+oTnKsfEGkBWLyRexlyv?=
+ =?us-ascii?Q?6KwQPkP8uYhf5lemw5KN6Aj9JCikbtU0EDMeZ0hmUKszJqrTZ9p8KxmCgSSr?=
+ =?us-ascii?Q?e7yeIA5247KJhpyGgtWpFRdfOujhzSGYHrPNoaatG50V8OKkNo+Y3ujIxcXw?=
+ =?us-ascii?Q?21Y5m4G6F7J87Unz9DOzjzD5JuRlnebBAO6LypKz30qGJM5BNKFrTjn6YZH5?=
+ =?us-ascii?Q?NH2R+cAFs0gIcCr5+SAIru91xGI4Ru+QEOpZlPiiFjS5nyuPvI2X3eoGPN1Y?=
+ =?us-ascii?Q?PeuVv3+eb935lBLCFY+I9Dwx1souo+YTa6EbCBlQRA7QJ0dOVsjuOupmOKAe?=
+ =?us-ascii?Q?lRrXZMOz660kFA1HUIkW9xQgGEKNSQAL/dYrx9kOVx0eRodVdE9oErK2VcX6?=
+ =?us-ascii?Q?IhUCZMnD5LAb3ayZN/kUniE88+SSa7AKHIFc4LGLowOSKva1nHPtKTAEKDNy?=
+ =?us-ascii?Q?i6YDHLmCrQ=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67fe9a73-977f-4b96-95c3-08df0784802b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14a2adde-437c-4941-f45d-08df07848182
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:22:57.8595
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:00.1335
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bZSDmsuuGCQiHeIU6oruB3vYrS6jGxrkjc1SotDOEDgLJQ9yjBzvq9cIfV5EYaxbCOqmVyZdLgSqushD8xatlg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: TITnZ2evMjdzbbfq/Lr8oa+9g/zjJK/rZYhHiW/fJUJxLKcIjJBJ0MiJmQtLOzNsLBl3j/Nk+EU1/3vz/oWgDw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0C60B25BF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_102309_135435_BD13CFFA 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20260831_102310_762968_C8A007E5 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,345 +151,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MBM overflow, counter-assignment and event-configuration paths
-hard-coded RDT_RESOURCE_L3 and the individual L3 MBM event ids. That
-cannot express the node-scoped MBM total event, which is backed by the
-MBA resource.
+After enabling memory-level MSCs, the existing class-picking heuristics
+still treat every candidate like an L3 cache MSC. That rejects valid
+memory classes for MBWU counters and applies L3 egress checks to MBA
+classes on CPU-less or system-wide affinities, leaving no monitor or
+control class selected on affected platforms.
 
-Iterate mon_event_all[] and act on every enabled MBM event whose owning
-resource matches, instead of naming the L3 events explicitly. Derive the
-resource of an overflow work item from the domain's rid, only run mba_sc
-bandwidth feedback for the L3 resource, and initialise event
-configuration for whichever MBM events a resource actually exposes. No
-functional change on L3-only systems.
+Adjust the heuristics so memory classes can back MBWU directly, L3
+topology matching is only required for level-3 MBA candidates, and
+traffic matching is skipped when the class already spans all CPUs.
+Also tolerate components with no online CPUs once at least one
+component has matched.
 
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- fs/resctrl/ctrlmondata.c |   5 +-
- fs/resctrl/monitor.c     | 105 ++++++++++++++++++++++++---------------
- fs/resctrl/rdtgroup.c    |  64 ++++++++++++++----------
- 3 files changed, 109 insertions(+), 65 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 675531009136..4bc7090ad0c7 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -700,7 +700,9 @@ ssize_t rdtgroup_mba_mbps_event_write(struct kernfs_open_file *of,
- 		else
- 			ret = -EINVAL;
- 	} else if (!strcmp(buf, "mbm_total_bytes")) {
--		if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
-+		if (resctrl_is_mon_event_enabled(QOS_NODE_MBM_TOTAL_EVENT_ID))
-+			rdtgrp->mba_mbps_event = QOS_NODE_MBM_TOTAL_EVENT_ID;
-+		else if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
- 			rdtgrp->mba_mbps_event = QOS_L3_MBM_TOTAL_EVENT_ID;
- 		else
- 			ret = -EINVAL;
-@@ -731,6 +733,7 @@ int rdtgroup_mba_mbps_event_show(struct kernfs_open_file *of,
- 			seq_puts(s, "mbm_local_bytes\n");
- 			break;
- 		case QOS_L3_MBM_TOTAL_EVENT_ID:
-+		case QOS_NODE_MBM_TOTAL_EVENT_ID:
- 			seq_puts(s, "mbm_total_bytes\n");
- 			break;
- 		default:
-diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
-index ea9d92b6b581..d555f2d19164 100644
---- a/fs/resctrl/monitor.c
-+++ b/fs/resctrl/monitor.c
-@@ -809,11 +809,15 @@ static void mbm_update(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
- 	 * This is protected from concurrent reads from user as both
- 	 * the user and overflow handler hold the global mutex.
- 	 */
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
--		mbm_update_one_event(r, d, rdtgrp, QOS_L3_MBM_TOTAL_EVENT_ID);
-+	struct mon_evt *mevt;
- 
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
--		mbm_update_one_event(r, d, rdtgrp, QOS_L3_MBM_LOCAL_EVENT_ID);
-+	for_each_mon_event(mevt) {
-+		if (mevt->rid != r->rid || !mevt->enabled ||
-+		    !resctrl_is_mbm_event(mevt->evtid))
-+			continue;
-+
-+		mbm_update_one_event(r, d, rdtgrp, mevt->evtid);
-+	}
- }
- 
- /*
-@@ -910,8 +914,8 @@ void mbm_handle_overflow(struct work_struct *work)
- 	if (!is_percpu_thread())
- 		goto out_unlock;
- 
--	r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
- 	d = container_of(work, struct rdt_l3_mon_domain, mbm_over.work);
-+	r = resctrl_arch_get_resource(d->hdr.rid);
- 
- 	/* Domain is going offline */
- 	if (cpumask_empty(&d->hdr.cpu_mask))
-@@ -924,7 +928,7 @@ void mbm_handle_overflow(struct work_struct *work)
- 		list_for_each_entry(crgrp, head, mon.crdtgrp_list)
- 			mbm_update(r, d, crgrp);
- 
--		if (is_mba_sc(NULL, NULL))
-+		if (is_mba_sc(NULL, NULL) && r->rid == RDT_RESOURCE_L3)
- 			update_mba_bw(prgrp, d);
- 	}
- 
-@@ -1321,19 +1325,20 @@ static int rdtgroup_assign_cntr_event(struct rdt_l3_mon_domain *d, struct rdtgro
-  */
- void rdtgroup_assign_cntrs(struct rdtgroup *rdtgrp)
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 47a7b18d841d..72302f6021d7 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -865,10 +865,12 @@ static bool topology_matches_l3(struct mpam_class *victim)
  {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+	struct rdt_resource *r;
-+	struct mon_evt *mevt;
+ 	int cpu, err;
+ 	struct mpam_component *victim_iter;
++	bool matched_once = false;
  
--	if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r) ||
--	    !r->mon.mbm_assign_on_mkdir)
--		return;
-+	for_each_mon_event(mevt) {
-+		if (!mevt->enabled || !resctrl_is_mbm_event(mevt->evtid))
-+			continue;
+ 	lockdep_assert_cpus_held();
  
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
--		rdtgroup_assign_cntr_event(NULL, rdtgrp,
--					   &mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID]);
-+		r = resctrl_arch_get_resource(mevt->rid);
-+		if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r) ||
-+		    !r->mon.mbm_assign_on_mkdir)
-+			continue;
- 
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
--		rdtgroup_assign_cntr_event(NULL, rdtgrp,
--					   &mon_event_all[QOS_L3_MBM_LOCAL_EVENT_ID]);
-+		rdtgroup_assign_cntr_event(NULL, rdtgrp, mevt);
-+	}
- }
- 
- /*
-@@ -1380,18 +1385,19 @@ static void rdtgroup_unassign_cntr_event(struct rdt_l3_mon_domain *d, struct rdt
-  */
- void rdtgroup_unassign_cntrs(struct rdtgroup *rdtgrp)
- {
--	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
-+	struct rdt_resource *r;
-+	struct mon_evt *mevt;
- 
--	if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r))
--		return;
-+	for_each_mon_event(mevt) {
-+		if (!mevt->enabled || !resctrl_is_mbm_event(mevt->evtid))
-+			continue;
- 
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
--		rdtgroup_unassign_cntr_event(NULL, rdtgrp,
--					     &mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID]);
-+		r = resctrl_arch_get_resource(mevt->rid);
-+		if (!r->mon_capable || !resctrl_arch_mbm_cntr_assign_enabled(r))
-+			continue;
- 
--	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
--		rdtgroup_unassign_cntr_event(NULL, rdtgrp,
--					     &mon_event_all[QOS_L3_MBM_LOCAL_EVENT_ID]);
-+		rdtgroup_unassign_cntr_event(NULL, rdtgrp, mevt);
-+	}
- }
- 
- static int resctrl_parse_mem_transactions(char *tok, u32 *val)
-@@ -1551,6 +1557,7 @@ ssize_t resctrl_mbm_assign_mode_write(struct kernfs_open_file *of, char *buf,
- {
- 	struct rdt_resource *r = rdt_kn_parent_priv(of->kn);
- 	struct rdt_l3_mon_domain *d;
-+	struct mon_evt *mevt;
- 	int ret = 0;
- 	bool enable;
- 
-@@ -1602,13 +1609,19 @@ ssize_t resctrl_mbm_assign_mode_write(struct kernfs_open_file *of, char *buf,
- 		 * Initialize the default memory transaction values for
- 		 * total and local events.
- 		 */
--		if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
--			mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID].evt_cfg = r->mon.mbm_cfg_mask;
--		if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
--			mon_event_all[QOS_L3_MBM_LOCAL_EVENT_ID].evt_cfg = r->mon.mbm_cfg_mask &
--									   (READS_TO_LOCAL_MEM |
--									    READS_TO_LOCAL_S_MEM |
--									    NON_TEMP_WRITE_TO_LOCAL_MEM);
-+		for_each_mon_event(mevt) {
-+			if (mevt->rid != r->rid || !mevt->enabled ||
-+			    !resctrl_is_mbm_event(mevt->evtid))
-+				continue;
+ 	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
 +
-+			if (mevt->evtid == QOS_L3_MBM_LOCAL_EVENT_ID)
-+				mevt->evt_cfg = r->mon.mbm_cfg_mask &
-+						(READS_TO_LOCAL_MEM |
-+						 READS_TO_LOCAL_S_MEM |
-+						 NON_TEMP_WRITE_TO_LOCAL_MEM);
-+			else
-+				mevt->evt_cfg = r->mon.mbm_cfg_mask;
-+		}
- 		/* Enable auto assignment when switching to "mbm_event" mode */
- 		if (enable)
- 			r->mon.mbm_assign_on_mkdir = true;
-@@ -1947,6 +1960,7 @@ static void closid_num_dirty_rmid_free(void)
+ 	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
+ 		return false;
  
- static void resctrl_mon_resource_init(struct rdt_resource *r)
- {
-+	struct mon_evt *mevt;
- 	unsigned long fflags;
- 
- 	fflags = (r->rid == RDT_RESOURCE_MBA) ? RFTYPE_RES_MB : RFTYPE_RES_CACHE;
-@@ -1956,6 +1970,11 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
- 		resctrl_file_fflags_init("mbm_total_bytes_config",
- 					 RFTYPE_MON_INFO | fflags);
- 	}
-+	if (resctrl_arch_is_evt_configurable(QOS_NODE_MBM_TOTAL_EVENT_ID)) {
-+		mon_event_all[QOS_NODE_MBM_TOTAL_EVENT_ID].configurable = true;
-+		resctrl_file_fflags_init("mbm_total_bytes_config",
-+					 RFTYPE_MON_INFO | fflags);
-+	}
- 	if (resctrl_arch_is_evt_configurable(QOS_L3_MBM_LOCAL_EVENT_ID)) {
- 		mon_event_all[QOS_L3_MBM_LOCAL_EVENT_ID].configurable = true;
- 		resctrl_file_fflags_init("mbm_local_bytes_config",
-@@ -1964,17 +1983,25 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
- 
- 	if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
- 		mba_mbps_default_event = QOS_L3_MBM_LOCAL_EVENT_ID;
-+	else if (resctrl_is_mon_event_enabled(QOS_NODE_MBM_TOTAL_EVENT_ID))
-+		mba_mbps_default_event = QOS_NODE_MBM_TOTAL_EVENT_ID;
- 	else if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
- 		mba_mbps_default_event = QOS_L3_MBM_TOTAL_EVENT_ID;
- 
- 	if (r->mon.mbm_cntr_assignable) {
--		if (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID))
--			mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID].evt_cfg = r->mon.mbm_cfg_mask;
--		if (resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID))
--			mon_event_all[QOS_L3_MBM_LOCAL_EVENT_ID].evt_cfg = r->mon.mbm_cfg_mask &
--									   (READS_TO_LOCAL_MEM |
--									    READS_TO_LOCAL_S_MEM |
--									    NON_TEMP_WRITE_TO_LOCAL_MEM);
-+		for_each_mon_event(mevt) {
-+			if (mevt->rid != r->rid || !mevt->enabled ||
-+			    !resctrl_is_mbm_event(mevt->evtid))
-+				continue;
-+
-+			if (mevt->evtid == QOS_L3_MBM_LOCAL_EVENT_ID)
-+				mevt->evt_cfg = r->mon.mbm_cfg_mask &
-+						(READS_TO_LOCAL_MEM |
-+						 READS_TO_LOCAL_S_MEM |
-+						 NON_TEMP_WRITE_TO_LOCAL_MEM);
-+			else
-+				mevt->evt_cfg = r->mon.mbm_cfg_mask;
-+		}
- 		r->mon.mbm_assign_on_mkdir = true;
- 		resctrl_file_fflags_init("num_mbm_cntrs",
- 					 RFTYPE_MON_INFO | fflags);
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 264666e54852..d60868f7d5e7 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -134,7 +134,8 @@ void rdt_staged_configs_clear(void)
- static bool resctrl_is_mbm_enabled(void)
- {
- 	return (resctrl_is_mon_event_enabled(QOS_L3_MBM_TOTAL_EVENT_ID) ||
--		resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID));
-+		resctrl_is_mon_event_enabled(QOS_L3_MBM_LOCAL_EVENT_ID) ||
-+		resctrl_is_mon_event_enabled(QOS_NODE_MBM_TOTAL_EVENT_ID));
- }
- 
- /*
-@@ -1929,7 +1930,7 @@ static int mbm_total_bytes_config_show(struct kernfs_open_file *of,
- 	if (!info_kn_lock(of->kn))
- 		return -ENOENT;
- 
--	mbm_config_show(seq, r, QOS_L3_MBM_TOTAL_EVENT_ID);
-+	mbm_config_show(seq, r, resctrl_mbm_total_event_id());
- 
- 	info_kn_unlock(of->kn);
- 	return 0;
-@@ -2053,7 +2054,7 @@ static ssize_t mbm_total_bytes_config_write(struct kernfs_open_file *of,
- 
- 	buf[nbytes - 1] = '\0';
- 
--	ret = mon_config_write(r, buf, QOS_L3_MBM_TOTAL_EVENT_ID);
-+	ret = mon_config_write(r, buf, resctrl_mbm_total_event_id());
- 
- out_unlock:
- 	info_kn_unlock(of->kn);
-@@ -5317,10 +5318,39 @@ static struct rdt_l3_mon_domain *get_mon_domain_from_cpu(int cpu,
- 	return NULL;
- }
- 
--void resctrl_offline_cpu(unsigned int cpu)
-+/* rdtgroup_mutex must be held when this helper is called. */
-+static void resctrl_migrate_mon_domain_workers(unsigned int cpu,
-+					       struct rdt_resource *r)
- {
--	struct rdt_resource *l3 = resctrl_arch_get_resource(RDT_RESOURCE_L3);
- 	struct rdt_l3_mon_domain *d;
-+
-+	lockdep_assert_held(&rdtgroup_mutex);
-+
-+	if (!r->mon_capable)
-+		return;
-+
-+	d = get_mon_domain_from_cpu(cpu, r);
-+	if (!d)
-+		return;
-+
-+	if (resctrl_is_mbm_enabled() && cpu == d->mbm_work_cpu) {
-+		mutex_unlock(&rdtgroup_mutex);
-+		cancel_delayed_work_sync(&d->mbm_over);
-+		mutex_lock(&rdtgroup_mutex);
-+		mbm_setup_overflow_handler(d, 0, cpu);
-+	}
-+	if (r->rid == RDT_RESOURCE_L3 &&
-+	    resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID) &&
-+	    cpu == d->cqm_work_cpu && has_busy_rmid(d)) {
-+		mutex_unlock(&rdtgroup_mutex);
-+		cancel_delayed_work_sync(&d->cqm_limbo);
-+		mutex_lock(&rdtgroup_mutex);
-+		cqm_setup_limbo_handler(d, 0, cpu);
-+	}
-+}
-+
-+void resctrl_offline_cpu(unsigned int cpu)
-+{
- 	struct rdtgroup *rdtgrp;
- 
- 	mutex_lock(&rdtgroup_mutex);
-@@ -5331,27 +5361,11 @@ void resctrl_offline_cpu(unsigned int cpu)
+@@ -882,8 +884,11 @@ static bool topology_matches_l3(struct mpam_class *victim)
  		}
+ 
+ 		cpu = cpumask_any_and(&victim_iter->affinity, cpu_online_mask);
+-		if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
++		if (WARN_ON_ONCE(cpu >= nr_cpu_ids)) {
++			if (matched_once)
++				continue;
+ 			return false;
++		}
+ 
+ 		cpumask_clear(tmp_cpumask);
+ 		err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
+@@ -903,6 +908,7 @@ static bool topology_matches_l3(struct mpam_class *victim)
+ 
+ 			return false;
+ 		}
++		matched_once = true;
  	}
  
--	if (!l3->mon_capable)
--		goto out_unlock;
-+	resctrl_migrate_mon_domain_workers(cpu,
-+					   resctrl_arch_get_resource(RDT_RESOURCE_L3));
-+	resctrl_migrate_mon_domain_workers(cpu,
-+					   resctrl_arch_get_resource(RDT_RESOURCE_MBA));
+ 	return true;
+@@ -1041,13 +1047,15 @@ static void mpam_resctrl_pick_mba(void)
+ 			continue;
+ 		}
  
--	d = get_mon_domain_from_cpu(cpu, l3);
--	if (d) {
--		if (resctrl_is_mbm_enabled() && cpu == d->mbm_work_cpu) {
--			mutex_unlock(&rdtgroup_mutex);
--			cancel_delayed_work_sync(&d->mbm_over);
--			mutex_lock(&rdtgroup_mutex);
--			mbm_setup_overflow_handler(d, 0, cpu);
--		}
--		if (resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID) &&
--		    cpu == d->cqm_work_cpu && has_busy_rmid(d)) {
--			mutex_unlock(&rdtgroup_mutex);
--			cancel_delayed_work_sync(&d->cqm_limbo);
--			mutex_lock(&rdtgroup_mutex);
--			cqm_setup_limbo_handler(d, 0, cpu);
--		}
--	}
--
--out_unlock:
- 	mutex_unlock(&rdtgroup_mutex);
- }
+-		if (!topology_matches_l3(class)) {
++		if (class->level == 3 && !topology_matches_l3(class)) {
+ 			pr_debug("class %u topology doesn't match L3\n",
+ 				 class->level);
+ 			continue;
+ 		}
  
+-		if (!traffic_matches_l3(class)) {
++		/* Check memory at egress from L3 for MSC with L3 */
++		if (!cpumask_equal(&class->affinity, cpu_possible_mask) &&
++		    !traffic_matches_l3(class)) {
+ 			pr_debug("class %u traffic doesn't match L3 egress\n",
+ 				 class->level);
+ 			continue;
+@@ -1175,8 +1183,9 @@ static void mpam_resctrl_pick_counters(void)
+ 		}
+ 
+ 		if (class_has_usable_mbwu(class) &&
+-		    topology_matches_l3(class) &&
+-		    traffic_matches_l3(class)) {
++		    ((class->type == MPAM_CLASS_MEMORY) ||
++		    (topology_matches_l3(class) &&
++		    traffic_matches_l3(class)))) {
+ 			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
+ 				 class->level);
+ 
+@@ -1314,6 +1323,9 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+ 	if (class->type == MPAM_CLASS_CACHE)
+ 		return comp->comp_id;
+ 
++	if (mpam_class_memory(class))
++		return comp->comp_id;
++
+ 	if (topology_matches_l3(class)) {
+ 		/* Use the corresponding L3 component ID as the domain ID */
+ 		int id = get_cpu_cacheinfo_id(cpu, 3);
 -- 
 2.53.0
 
