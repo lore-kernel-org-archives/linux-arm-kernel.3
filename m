@@ -4,144 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D6FC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C73C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRirk3u9Lgkg4mvt96x9s0nI8fUpFoM850JLTd6I6yQ=; b=3B9TBK8HIp5ubX+ONmObwMIx8B
-	u+dK4IBY2MPJ1WTX0g/2Dx3p0ZJXhPrI/hW9DogFeNMc1FGGcw/n3uoFDQh2lD3XfFcBslz5Bbkve
-	xm8X8NBbCO736BxWtkcsOWIrlTjip/ZJrpKJ/YfoqDdy3teiuVevpKFbPoJ48JBRBA15vOOhumUOq
-	RPmz93ZZGtAoj765PwmNDuxEZI2yurtocpmg6Wf4IGaMJGd2n3RcZkzQG+AoYPYTDWxzM9fH5KNID
-	X8fFpT91EhyD20sK9Y7Rt6fMuXruJ5siBAtB9TTTCe/QUVh/k368wNOCJjiviNvfcW1dNVFjZPQj8
-	YM1/oq0A==;
+	bh=t+e3nkWCWmnCXTSnQisaZ/JcY9969zoxFZBJ4/hDxuA=; b=v9laDs05ocykdSczmzx79ZYP7D
+	2sDQG2xmtgL02658nIeOiLTT5QoKycbHWzGL4qrPgkf/ZAUitdvIyjbKnmNDiui4WZrbe67CIiDQ4
+	+VNpWR2v8wMDgV142HprC8YQWC76I87zimiAMtyMsp3bi3CTDuThC+YYzEc1Grli0vJTK4T1iMKx8
+	c1epANMHGOzb8OV23lSAkMBxulu6CLvkeDiJdyZgE9HMRndLClfjt3Tk6rFStewgyJtGcNPbvKTPD
+	b99JtigqRNv0CCNKSaVxaeqaRypYrRXS2X2zkE8WgVnQY48NzmAq4BzlaPvP23q9yqH/zsgelZH7P
+	4MHiBcDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10Ht-00000009BgY-2neJ;
-	Mon, 31 Aug 2026 11:34:55 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x10MZ-00000009Do6-09dH;
+	Mon, 31 Aug 2026 11:39:43 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10Hl-00000009Bdi-0hUt;
-	Mon, 31 Aug 2026 11:34:46 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VBVmid956691;
-	Mon, 31 Aug 2026 11:34:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=aRirk3
-	u9Lgkg4mvt96x9s0nI8fUpFoM850JLTd6I6yQ=; b=VPqd2baDC3My6bFwl4KZdC
-	++UEg06J2fUvexHWKNc+19olv88u44nM3x/ZaK7i393BK2OSKPkHO1oTjREGNBIa
-	Wlfn+GeaG2EsKRt1YEJRodpy2hvFNwIM5D57rZDo1wJqACky82LSvWsH7F7y6X5r
-	j6hGIRqAHNp3MPAadX5ETu3cQUoZ2pOSveHzzxmpRhzqu+y/FMUmWXDdJSLiX4L3
-	QGWOase4mrH1hwEExNfwGpxmcrQC5UCG0Eo6q8+bd1QdpXpofW8MF68HChP1/roy
-	c6yBb2kbVkB9HQOS1mWV4gOE4TkqTdPwRaVm4MHyeWj2faeh6Agr6k+HbpvCT8pQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbnudgxcx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 11:34:25 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VBQIqR024526;
-	Mon, 31 Aug 2026 11:34:25 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h5gwy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 11:34:24 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VBYKJ348234992
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 11:34:20 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BEDAC2004E;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 63DF92004D;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Received: from p-imbrenda (unknown [9.224.75.30])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Mon, 31 Aug 2026 11:34:20 +0000 (GMT)
-Date: Mon, 31 Aug 2026 13:34:18 +0200
-From: Claudio Imbrenda <imbrenda@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Paolo
- Bonzini <pbonzini@redhat.com>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>,
-        Bibo
- Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-        Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>,
-        Christian
- Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank
- <frankja@linux.ibm.com>,
-        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
- <joey.gouly@arm.com>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Suzuki K
- Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Atish
- Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>,
-        David
- Hildenbrand <david@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
-        Ritesh
- Harjani <ritesh.list@gmail.com>
-Subject: Re: [PATCH 02/20] KVM: selftests: Bump the minimum GPA for page
- tables to 0x200000
-Message-ID: <20260831133418.1594b410@p-imbrenda>
-In-Reply-To: <apHOZouaLKs5CgpI@google.com>
-References: <20260826230511.972824-1-seanjc@google.com>
-	<20260826230511.972824-3-seanjc@google.com>
-	<20260828195848.2d14e9aa@p-imbrenda>
-	<apHOZouaLKs5CgpI@google.com>
-Organization: IBM
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	id 1x10MX-00000009DnW-0yUF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 11:39:42 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-482e067e908so2464301f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 04:39:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788176379; x=1788781179; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=t+e3nkWCWmnCXTSnQisaZ/JcY9969zoxFZBJ4/hDxuA=;
+        b=iLaBfHB1xQqQ7XNIaaaGWKdRnvIc3WY95nh+V6rtf8HG2v5Cp3UdmaXxKsq2YKRmws
+         CCPUSpkG8Y0OkfcS0ZqEX8k7c/e4g1Dz7D7CD4Q+wp76rsinc5QXs0GGIFkxASwn6Gb/
+         9ycLAXrhm1K2PWWoOSUiT0y90UcxJzHQiid3167gx2qN5/wWjrCdyM1fQujRiFZ41s6s
+         EYntDgXeokl7Ofj4Pnuql6xx2C2rpDjsJr84ZL9MtvJGhPG1rPH5vAEWaLgbg4RISome
+         eW9+rMTmuTF6pqMNXs7M3J/WE9iS8+3n9uhH1F3fipS0qwkfdYsozFj4vJSFm4Xbi7XS
+         Gypg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788176379; x=1788781179;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=t+e3nkWCWmnCXTSnQisaZ/JcY9969zoxFZBJ4/hDxuA=;
+        b=duOaXxkCvWYQChe5ZC+eAtJRCM3rLWo1o9bnapxbejV8+IkltKM/OtgPo/bFvjqihj
+         OUNBhnPzBzcKrQYHje5Sh5NeWwcs/M/NZY2yyETVgiF//jSU/qUaw0Yl8TUZwJluPx0I
+         5Swtn+91p3VEBMJzS/jd8ncn2VSEs7dRS+yTIa9XLRfDGtLAg3gElRN+vHaa9aPQRn8g
+         o9iJiDJFbjqBGXOAcC0aSz74zN/KrwfG68sjbqxSo/h2prwU/Njwxwlg7z1UCyXhMcCA
+         LaGT4ztbNOGV0uOxNnYv2YyC3zqjZescr8T3w2ahgBQlgqi6xqKV2q1uC8dIruFljzkn
+         01qg==
+X-Forwarded-Encrypted: i=1; AKwUvByOd8pc6JbkKbAL9C75M1BD9c64u+tTtqLPkkpy9JZAe72ar4oxjHcH+r921v+jC6IqSqACfrNnz1d+LC1fVJEc@lists.infradead.org
+X-Gm-Message-State: AFuF++nEWpygjhZxYMXBPRdBCfXH/vyGNcqK/hRm7KE4a+BlHLaQSIUh
+	oNtUYxS7cXIR7r2x8VJhYJ2g3ihltfz2SfCCikjwUDhOTpPX/LxaIhDPj98DGku9
+X-Gm-Gg: AYBFou2G6p1cURIB6sRzdBZWfYeACi34M89XWkfbL5xE4wBWAufjHB3uz4Yi8pEgbQI
+	vr2BnnhYuu3to+isBpmoM1BS3l2bW7CXah/rQmg70DSq2Feo4KlWqGIQd37HnbyFT51WBbz+KfW
+	Q3dC7g3RYZQap4vsBKXksqdLmr37Cvn6QT22KGvpxhA7whsPdr9UFojidio/Tv4xJwR/rguY9FD
+	gWl6AazTWFdnLfW+MbLt1ErZ95NsK/T7++PDoITo+4DVr3mwlokInszZzX1NoOvaKwPo/ogn9ZP
+	lyqgSbAIsL3xIdtR8yMbP1HDxZ8xctnTSV/TqlMJE/1z/t3VSgIq1+0w8FCXXbjRiJpmwec9xGV
+	1O47n/fl1Te7fUsoObqtbXPGo9aeW/fDcNiiiq3kzK8GU8MObTbHAhyqQzPT5nSkVINvLJlBcDE
+	grFqD9y+Wsw7A32S5siDk6q5sQgDtV7xJuF8cwghfIf0BoLin+Txy2fWp3Fx9V2N4fz0H+nzSrQ
+	EOBvzE5Y/uDSE/RNR/ws2AVXQ==
+X-Received: by 2002:a05:6000:480c:b0:484:3f5d:7dc3 with SMTP id ffacd0b85a97d-4843f5d7de3mr3330798f8f.5.1788176378681;
+        Mon, 31 Aug 2026 04:39:38 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4843310ab29sm14535272f8f.0.2026.08.31.04.39.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 04:39:38 -0700 (PDT)
+Date: Mon, 31 Aug 2026 12:39:37 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Eli Billauer <eli.billauer@gmail.com>
+Cc: "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Arnd Bergmann
+ <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Michal Simek <michal.simek@amd.com>, Ritu
+ Agarwal <rituagar@linux.ibm.com>, Andrew Morton
+ <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Matthew
+ Wilcox <willy@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
+ kmalloc()
+Message-ID: <20260831123937.32255a49@pumpkin>
+In-Reply-To: <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
+References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
+	<20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
+	<f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: G-OCitu2TpWXDgPjgttj0SGbLIz_ECdc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDA5OSBTYWx0ZWRfX4UatEpGoCD6o
- Kv1eA+dS2uJdH+4ManK2w/X6QyFrWWh7jd8KL6kiafdW3x+2ac/P/Zkz8HOZl+1VKLL8mqEiYNp
- +j6gQ5DWRR9ZLjH5RZ9q+jm2WEEvYWuCu+8CFvX4cAC1C9Vs/g74amZ4Oppy73+AeuLdlF2Q5M9
- tsOfQHTNMriNhBvEVpsU79JtekpA4ZZ6QS6aV6eUeLxVIC30m7f33YbB95d+awd7xHIciMoLHKu
- CSHQepUcB+t8wD8vZDWSRFe7dTAa4ibWzxCQlCdtJnbEBPoIp4skROGaDvCDVWJTK1VW/S4arjJ
- LNyvfSyOK9IYT9nFtTGYiRP05LMz259raqhxkHPwODSX0OnkUkV8kq6+RGlekjiIyFSS/0aWF4f
- g7/DukwXB5uHQDPuBbnmCWOHQjU0TbuawaWKzIPhnNWsyqy/wR4Tby3iuPc1P7EkbCvYr/zac9K
- QSdnbH+KYg1/rfkAONQ==
-X-Proofpoint-ORIG-GUID: a8BXvl6k17QNNmEGXkIB4yyp26bklHpk
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDA5OSBTYWx0ZWRfXwtaTiMJOBjFH
- tOMl0H4KERIHO7WfLS9yiOyzMOPcW6L7zLb7QkLf3GIfOSQtGS4DR3ikwAodhcbi8c8V/J48Qkq
- EtaWT5nrB08ZegHOb7IHlDrWnRHtJLc=
-X-Authority-Analysis: v=2.4 cv=B92JFutM c=1 sm=1 tr=0 ts=6a9566c2 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=1XWaLZrsAAAA:8 a=_FYIVZ8AZ4pq6tOtmQUA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_04,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608310099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_043445_334333_658E095B 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260831_043941_301810_9F57022C 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,65 +110,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Aug 2026 11:07:34 -0700
-Sean Christopherson <seanjc@google.com> wrote:
+On Mon, 31 Aug 2026 12:13:08 +0200
+Eli Billauer <eli.billauer@gmail.com> wrote:
 
-> On Fri, Aug 28, 2026, Claudio Imbrenda wrote:
-> > On Wed, 26 Aug 2026 16:04:53 -0700
-> > Sean Christopherson <seanjc@google.com> wrote:
-> >   
-> > > Bump selftests completely arbitrary minimum GPA for page tables from
-> > > 0x180000 to 0x200000 (LoongArch's minimum), so that LoongArch can use
-> > > vm_alloc_page_table() instead of open coding a rough equivalent.
-> > > 
-> > > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > > ---
-> > >  tools/testing/selftests/kvm/include/kvm_util.h | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > 
-> > > diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> > > index 5a7a455b5387..70906a0d1003 100644
-> > > --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> > > +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> > > @@ -175,7 +175,7 @@ static inline struct userspace_mem_region *vm_get_mem_region(struct kvm_vm *vm,
-> > >  
-> > >  /* Minimum allocated guest virtual and physical addresses */
-> > >  #define KVM_UTIL_MIN_VADDR		0x2000
-> > > -#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x180000
-> > > +#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x200000
-> > >  
-> > >  #define DEFAULT_GUEST_STACK_VADDR_MIN	0xab6000
-> > >  #define DEFAULT_STACK_PGS		5  
+> On 30/08/2026 9:47, Mike Rapoport (Microsoft) wrote:
+> > fifo_init() allocates the buffers backing the software FIFO and
+> > endpoint_alloc() allocates the transfer buffers of a USB endpoint.
 > > 
-> > this breaks s390/cmma_test
-> > 
-> > I tried a quick fix, but nope... I will need to actually invest some
-> > time (i.e. next week) to understand why the quick fix is not enough,
-> > and come up with a proper fix
-> > 
-> > the good news is: it seems like cmma_test is the only test that is
-> > negatively affected by this series.  
+> > These buffers can be allocated with kmalloc() as there's nothing special
+> > about them to go directly to the page allocator.  
 > 
-> Is it this change specifically that's problematic?  Because if so, you can probably
-
-yesn't
-
-wihtout this patch everything works for s390, but my quick fix should
-have worked...
-
-so I still need to debug why things don't work the way I expect, but at
-least now my bug chase is independent from this series :)
-
-> just do nothing, because Sashiko (argh, just remembered that Sashiko doesn't Cc
-> everyone) pointed out that this will likely break some arm64 tests as well[*].
+> Except that they are a bit large.
 > 
-> The LoongArch folks confirmed that using KVM_GUEST_PAGE_TABLE_MIN_PADDR as-is
-> should be a-ok, so my plan is to drop this patch and instead have LoongArch use
-> KVM_GUEST_PAGE_TABLE_MIN_PADDR.  I.e. make LoongArch match everyone else, instead
-> of making everyone else match LoongArch.
+> fifo_init() may be requested to allocate up to 256 MB of buffer memory. 
+> This memory resource is split into an array of buffers (fifo->mem[i]), 
+> each 64 kiB (or less, if there's trouble obtaining segments of this size).
+
+Would it really make sense to allocate the four buffers separately?
+And/or use vmalloc().
+
+David
+
 > 
-> [*] https://lore.kernel.org/all/20260826232224.782021F000E9@smtp.kernel.org
+> Citing Documentation/core-api/memory-allocation.rst:
+> 
+> "The maximal size of a chunk that can be allocated with `kmalloc` is 
+> limited. The actual limit depends on the hardware and the kernel 
+> configuration, but it is a good practice to use `kmalloc` for objects 
+> smaller than page size."
+> 
+> Regards,
+>     Eli
 > 
 
-if you respin without this patch I'll Ack
 
