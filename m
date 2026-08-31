@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E69DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA84C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/H8XwUq6/bROzHqqhxbKEvOIJlS9kKt/F3AGQnb3rVI=; b=nd+yAZDTytvAJ7EYk6W6OCSujK
-	eB0qOid5jrlmi8C8QA4i6vm6n+dog9PlC8iclbc5yVnAW1cAN2gVhQ/osp38u5qgM86Ge2X64jHE9
-	B4DLPyQ9rMWJDppTmRfwKrJoLJCVkhHDfSSZK+U1LtwR8Q29cfbxsG/itqd+vMfyVW4xOeVmLCQaV
-	L2kX+quyU5UFGKDkqyp/bHRWf8Cm+8YF9K67CG7UtdJ8e9VRELCGWZS96wfXqy3KIjPcozcySFw3s
-	cR8lt9m0pQIJZ9p5FyGhCSieRT9U54M2JXnsBWkZXSGc6XnBLVeVF3ilcH7ppHHfaBcLElr6a6X72
-	KL6s2Dfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2PM5a+UZWdJ+WhQDBOum09NcVM/9sTxmNiXpKbmfKk=; b=QVWRxzepHMSH+JEk86totqI8Eq
+	nTXJizXAwIScCw+jRssmxGUoOSMwvYmYFRm3rCDk8d83EwFQDh1QgtYkvKr/FxHQXy8eMEfNhVxMt
+	HK8hDNMsVTm0aOuHWrOVcjHlHh41xw+iAn1rJPOOelXDaSosdEEDfowF/bcW6E5yMxLJ43tem+K+O
+	HnW/jB6W8Zey1M86OfhNh+qN98im4MQT2cjS1NWrIXYPbsCTJClKfHyJSNPDI21C7/OCszoIvYYSg
+	iw/fcntIE27qXJI5rrqLSB/YwZJRnITO2IqyDHKbEZQTIX7kWmr5YCawy2tHPGzWWXp1MQSO3WWXn
+	t7UkmlkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vpb-00000008e0q-4A7r;
-	Mon, 31 Aug 2026 06:49:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0vpY-00000008dyE-1KuP;
-	Mon, 31 Aug 2026 06:49:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B591414BF;
-	Sun, 30 Aug 2026 23:49:14 -0700 (PDT)
-Received: from [10.164.18.31] (J09HK2D2RT.blr.arm.com [10.164.18.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D75643F8C6;
-	Sun, 30 Aug 2026 23:49:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788158958; bh=UzZgy0NWc63K+ko4Xr6TdOnwA9EjAL5aleqBNdt6jY4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U7FcIb97JDEewur9Kf4radnvfeDHm6NiB7P5FNYX6eqEzgaSbcLTTz2427bXHEGdQ
-	 uo4OFurjcGsPFnWvC+QS8s3MrHKwugc62Aj4Qy9UerHzl+ldPYjUgyGMq+omakELHp
-	 zDbAViiLJS8zWjabH0UPjbR/p9ivvj9kKzLGGkiE=
-Message-ID: <8ad05b11-5cc3-4682-b921-a0c7820b1f97@arm.com>
-Date: Mon, 31 Aug 2026 12:19:08 +0530
+	id 1x0vs1-00000008ebA-2fzJ;
+	Mon, 31 Aug 2026 06:51:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x0vrz-00000008eau-3k6N;
+	Mon, 31 Aug 2026 06:51:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 02A0060120;
+	Mon, 31 Aug 2026 06:51:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 489971F000E9;
+	Mon, 31 Aug 2026 06:51:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788159110;
+	bh=P2PM5a+UZWdJ+WhQDBOum09NcVM/9sTxmNiXpKbmfKk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GrfCzTmLRK/rsL/k2jvm2HUYovq/c1GNWmqevw5OxuJVfi4pGmIo5FBWfrOTlFlKl
+	 Xiren5WGynHp951w6f7iWfuC0KZMsggLkqQRVsPUgUMdlNC0ArHvw9l5xeXKS36+Q2
+	 xMJ29REWyGB2YcPS4HbYz72EmvnOwR6oMPbNK42XdKKus59mm+g/Gm12DbUGPTNyRl
+	 5YjNPcxL1vhW5lTlisgw19t4o300liF+y2TiRwpiPBFzudIfnC1qz50+0JAtprzAN6
+	 4DeNtWZjBjRkBkkJ4rYlHkd4FixCwX5mkzbnPx25M2WXl/EIh7zJJqMTJCRhCw8Z9U
+	 fplQKdUVjqdJQ==
+Date: Mon, 31 Aug 2026 08:51:46 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: airoha: Document support for
+ AN7583 Gen3 PCIe PHY
+Message-ID: <20260831-elastic-turquoise-puma-f032fc@quoll>
+References: <20260827122127.18874-1-ansuelsmth@gmail.com>
+ <20260827122127.18874-2-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- linux-mm@kvack.org
-Cc: samuel.holland@sifive.com, David Hildenbrand <david@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Yoshinori Sato
- <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260831054331.625505-1-anshuman.khandual@arm.com>
- <d766413f91cd778912f6af372d3d5429bac7765f.camel@physik.fu-berlin.de>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <d766413f91cd778912f6af372d3d5429bac7765f.camel@physik.fu-berlin.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_234920_406932_707F9C7D 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260827122127.18874-2-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +72,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 27, 2026 at 02:21:20PM +0200, Christian Marangi wrote:
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    phy@1fc7f000 {
+> +        compatible = "airoha,an7583-pcie-gen3-phy";
+> +        reg = <0x1fc7f000 0xfff>,
+> +              <0x1fc7e000 0xfff>,
 
+Sashiko has a valid point here.
 
-On 31/08/26 11:38 AM, John Paul Adrian Glaubitz wrote:
-> Hi Anshuman,
-> 
-> On Mon, 2026-08-31 at 11:13 +0530, Anshuman Khandual wrote:
->> pxd_ERROR() macros have been provided by all platforms, which are very much
->> identical and can be dropped off completely if these pgtable printing could
->> be moved to callers in generic MM aka all pxd_clear_bad().
-> 
-> If pxd_ERROR() macros are really all identical, why not provide a common definiton
-> of that macro? I'm always a bit concerned about such changes as there is always
-> a risk to oversee arch-specific peculiarities.
+This should reflect real hardware, not current driver. It is very, very
+unlikely that hardware designers designed a block of 0xfff size or 0x4
 
-We don't those platform macros any more after converting generic MM into using ptval_bytes_to_hex_str()
-which now handles different pgtable entry types.
-> 
-> Adrian
-> 
+> +              <0x1fc30044 0x4>,
+> +              <0x1fc35030 0x4>;
+
+Best regards,
+Krzysztof
 
 
