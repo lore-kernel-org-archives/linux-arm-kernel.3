@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10307C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E89EC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdNtiSQAnxOoxykdOmKhKtFC3XRXHyDeV1PknoxHvm0=; b=zsYvh0OznpPbSW0sYTl5RQsMvd
-	8hs4layM5tqogSjAev6gdMNwg5GgyKtIf1an7InO43ZcbaLflKeJcM7yFGZeVx/6R3Apn/TIsNMdO
-	/tHThxUf1EDGLk2rRLgevKgCg42n/KKdT6Ra3mPqyldqhjMHvXEZRK9bqOD+lmdjMcpkOAZIT0aXj
-	6yED21BNqIE9/50IEkIfFELDFKA0Ivq1ontR3vDQA586SfXGRUK/EreAOPhYt4u82gFfb1/SLUL5V
-	BVZpcLIXIrT4+ZqgGH4UrWDvW7XqGr8Q1mK7IakssDQPgQsizT0trcOU5jMKufcQK43ZYi/zCE6Vx
-	msCM35qg==;
+	bh=DtZxmLvCsMtoIG8f2Rt3cQyCzEDVhJyq6BhHLkq4LkQ=; b=ql1439FHMsqIbB0ZBnNouXU4O3
+	ZMIgmCuV5fUgVg01P5VUXC+UqjBGPvitJePE7ZoeXGpp49cY6uiQKiWJBdOHZTHOciA57PiUNcrRb
+	J2kFKrwImeWrbI5gpl6Ea0d8QDAzBXn5i7VW9Jz2qC/RF5P+RtCoswMgKguYjU/33TWL38dINR2/k
+	wRBpDMyhm1ALLxIt+rWWaE2LzCo7BgKSfAhTC6224MUHd+J1CAkNPZdcoKwmtuvvYXRW2PrGOYyAi
+	ZtiP0+EJIxYWt9jVDsWhkkau9PTAQRWOLEk9+goMz1u96w0HB8hB//g8n59xuFTtX2fYqfj9UF0Kf
+	9VtO5jaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12R6-00000009Yst-1139;
-	Mon, 31 Aug 2026 13:52:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x12RW-00000009Z9c-12GH;
+	Mon, 31 Aug 2026 13:52:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12R5-00000009Yrj-0nFj;
-	Mon, 31 Aug 2026 13:52:31 +0000
+	id 1x12RV-00000009Z99-1S6V
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:52:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B904601FD;
-	Mon, 31 Aug 2026 13:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6942E1F00A3D;
-	Mon, 31 Aug 2026 13:52:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1402240DC1;
+	Mon, 31 Aug 2026 13:52:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36BBE1F000E9;
+	Mon, 31 Aug 2026 13:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788184350;
-	bh=kdNtiSQAnxOoxykdOmKhKtFC3XRXHyDeV1PknoxHvm0=;
+	s=k20260515; t=1788184377;
+	bh=DtZxmLvCsMtoIG8f2Rt3cQyCzEDVhJyq6BhHLkq4LkQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TORyXIPY2BQKwNT3y6cfYQV5nIvFIYJWKZGhvt/yWSe5cGoZ38x1fSnfaHSIHo7t3
-	 J+qMrfxJuyBT/UhbDxH96pJg+AfbyzO+CkPbbOZNvKP5maGPbMHQZx7099wSg49hqv
-	 RCibPzMdaYpMGAcsctFiSYMqnW1TLy/8JkDaJmmWfPkhY0kD52t2Vzx24F117QY8c9
-	 dcMh6fIcSdowfhOqCG3G2RzemDzJ0gztD0oa+bQqAaECUlNUYlD1WMRk8FpdM3mLFK
-	 qebYL+PskEXeE/orisT7UvFL5tx0IsW03J6vw3L4rdlLTawIzO886446rNgKRpt0A7
-	 q2kCTkjGcbiBw==
+	b=fFaniP5ORkDm3qpNhb/I3fYfQWNehDvhlZczoYbg2YWgK0h+SvMVooeW8MF4uQlLu
+	 FC4FqdAUFtGhJTLcTcuUNPUmleGuVEnsKIfEMqcTFKVX7dK6YFH6uzjj9J8k3S/QPE
+	 CXjcq8yrfB9FiRgMrEYaLW2GzmD0slnVVGa1l2vKUGQTNISScLWkPUU5vApamkbs4D
+	 2HTRvo9oddZg8dTEGtUFxEh3K6etm/Bq5WffTkT1rKJUJfczP7fe63V0TYIXH9tbBU
+	 ToMowI2RR3edqneK0znhcDgomwIbhyQnoRIPYbIHg3seAieW9LGTYAIoNTMgAdG0ce
+	 aSwQTNeBvhe5w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: ElXreno <elxreno@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Hans Zhang <18255117159@163.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18] wifi: mt76: route TDLS-peer frames as 3-addr non-DS in HW encap
-Date: Mon, 31 Aug 2026 09:31:09 -0400
-Message-ID: <20260831133314.4125787-641-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] PCI: iproc: Protect root bus removal with rescan lock
+Date: Mon, 31 Aug 2026 09:31:25 -0400
+Message-ID: <20260831133314.4125787-657-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -81,52 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: ElXreno <elxreno@gmail.com>
+From: Hans Zhang <18255117159@163.com>
 
-[ Upstream commit 5b7154f934c4c1b86e0fbfd95ad570a25bd08662 ]
+[ Upstream commit a6a64e150f12ad5391e0a0d60f6a3d119b06ce50 ]
 
-With HW TX encap offload enabled, the mt76 firmware builds the 802.11
-header for the 802.3 frame using the per-WCID context. For a STATION
-vif the HDR_TRANS TLV currently sets ToDS=1, which makes the firmware
-default to the BSSID as A1 and emit STA->AP-formatted frames
-regardless of which peer the WCID points to.
+Hold the pci_rescan_remove_lock lock while stopping and removing a root bus
+to avoid racing with concurrent rescan or hotplug operations triggered via
+sysfs.  Such races may lead to use-after-free issues or system crashes.
 
-For TDLS-paired peers this is wrong. Data frames go on air addressed
-to the AP, the AP MAC-ACKs and silently drops them per IEEE 802.11z
-(an AP must not forward to a TDLS-paired peer). Management and
-control frames bypass the HW encap path and still reach the peer;
-only user data fails.
-
-Add MT_WCID_FLAG_TDLS_PEER, set it in mt7915, mt7921, mt7925 and
-mt7996 sta-add paths when sta->tdls is true, and override the
-HDR_TRANS TLV in mt76_connac_mcu_wtbl_hdr_trans_tlv() (Connac2 -
-mt7915 / mt7921 / mt7922), mt7925_mcu_sta_hdr_trans_tlv() (mt7925)
-and mt7996_mcu_sta_hdr_trans_tlv() (mt7996) to set ToDS=0, FromDS=0
-when the flag is set. The 3-addr non-DS form matches what 802.11z
-uses for direct links; the firmware then constructs the frame with
-A1=peer rather than A1=BSSID. HW encap offload remains enabled for
-AP and any non-TDLS traffic.
-
-Verified on mt7925e + Samsung S938B over a 5 GHz HE 80 MHz channel
-with iperf3 -t 30 to the TDLS peer:
-
-  before fix:  over the TDLS direct link, 7 TDLS Setup action
-               frames and 3 RTS frames reach the peer; 0 QoS
-               Data frames make it through (mgmt/control paths
-               bypass HW encap, the data path does not). iperf3
-               stalls.
-  after fix:   2.90 GBytes transferred at 830 Mbit/s sustained,
-               0 TCP retransmits.
-
-mt7915, mt7921, mt7922 and mt7996 are not regression-tested in this
-change for lack of hardware. Their HDR_TRANS handling mirrors the
-verified mt7925 change; the firmware behavior is shared across these
-chips.
-
-Signed-off-by: ElXreno <elxreno@gmail.com>
-Assisted-by: Claude:claude-opus-4-7 bpftrace tcpdump
-Link: https://patch.msgid.link/20260506-mt7925-tdls-fixes-v2-1-46aa826ba8bb@gmail.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
+[bhelgaas: commit log]
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://patch.msgid.link/20260521161822.132996-6-18255117159@163.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -134,537 +102,331 @@ LLM Generated explanations, may be completely bogus:
 
 ## Phase 1: Commit Message Forensics
 
-**Step 1.1 — Subject line**
+### Step 1.1: Subject Line
+**Record:** `[PCI: iproc]` `[Protect]` — Add missing
+`pci_rescan_remove_lock` protection around root bus teardown in
+`iproc_pcie_remove()`.
 
-Record: `[wifi: mt76]` `[route]` — Route TDLS-peer frames as 3-address
-non-distribution-system (non-DS) frames in hardware TX encapsulation
-offload.
+### Step 1.2: Commit Message Tags
+**Record:**
+- **Link:**
+  `https://patch.msgid.link/20260521161822.132996-6-18255117159@163.com`
+- **Signed-off-by:** Hans Zhang, Manivannan Sadhasivam, Bjorn Helgaas
+- No `Fixes:`, `Reported-by:`, `Cc: stable@vger.kernel.org`, `Tested-
+  by:`, or `Reviewed-by:` tags
+- Notable: absence of `Fixes:`/`Cc: stable` is expected for manual
+  review; not a negative signal
 
-**Step 1.2 — Tags**
+### Step 1.3: Commit Body Analysis
+**Record:**
+- **Bug:** `iproc_pcie_remove()` calls `pci_stop_root_bus()` /
+  `pci_remove_root_bus()` without holding the global PCI rescan/remove
+  mutex
+- **Symptom:** Race with concurrent sysfs-triggered PCI rescan or
+  hotplug → use-after-free or system crash
+- **Root cause:** Driver teardown and sysfs rescan/remove paths can run
+  concurrently on the same bus hierarchy without synchronization
+- **Version info:** None in commit message
 
-Record:
-- **Signed-off-by:** ElXreno `<elxreno@gmail.com>` (author)
-- **Assisted-by:** Claude:claude-opus-4-7 bpftrace tcpdump
-- **Link:** https://patch.msgid.link/20260506-mt7925-tdls-
-  fixes-v2-1-46aa826ba8bb@gmail.com
-- **Signed-off-by:** Felix Fietkau `<nbd@nbd.name>` (mt76 maintainer)
-- No `Fixes:` tag
-- No `Cc: stable@vger.kernel.org` on the committed version (author
-  dropped it in v2; see Phase 4)
-- No `Reported-by:`, `Tested-by:`, `Reviewed-by:`, or `Acked-by:`
-
-**Step 1.3 — Body analysis**
-
-Record:
-- **Bug:** With HW TX encap offload, the HDR_TRANS TLV sets `ToDS=1` for
-  all STATION vif WCIDs. Firmware therefore builds frames with A1=BSSID
-  even for TDLS-peer WCIDs.
-- **Symptom:** TDLS data frames are sent to the AP, MAC-ACKed, and
-  silently dropped per IEEE 802.11z. Management/control frames still
-  work (they bypass HW encap). iperf3 stalls; 0 QoS Data frames reach
-  the peer.
-- **Root cause:** Incorrect 802.11 header format (STA→AP / ToDS) used
-  for TDLS direct-link peers that require 3-addr non-DS (ToDS=0,
-  FromDS=0, A1=peer).
-- **Fix:** Add `MT_WCID_FLAG_TDLS_PEER`, set on `sta->tdls` in sta-add
-  paths, override HDR_TRANS TLV to ToDS=0/FromDS=0 for flagged peers.
-- **Verification:** mt7925e + Samsung S938B, iperf3: before = 0 data
-  frames; after = 2.90 GBytes at 830 Mbit/s, 0 TCP retransmits.
-
-**Step 1.4 — Hidden bug fix?**
-
-Record: **Yes** — despite the subject using "route" rather than "fix",
-this is a clear functional bug fix. TDLS user data is completely non-
-functional under HW encap offload.
+### Step 1.4: Hidden Bug Fix Detection
+**Record:** Not disguised — explicitly a synchronization bug fix.
+Matches a well-established PCI core pattern (`pci_lock_rescan_remove()`
+/ `pci_unlock_rescan_remove()`).
 
 ---
 
 ## Phase 2: Diff Analysis
 
-**Step 2.1 — Inventory**
+### Step 2.1: Change Inventory
+**Record:**
+- **File:** `drivers/pci/controller/pcie-iproc.c` (+2 lines)
+- **Function:** `iproc_pcie_remove()`
+- **Scope:** Single-file, surgical fix (2 insertions)
 
-Record:
-- **8 files, +28 lines, 0 deletions**
-- `mt76.h`: +1 enum value `MT_WCID_FLAG_TDLS_PEER`
-- `mt76_connac_mcu.c`: +5 lines in
-  `mt76_connac_mcu_wtbl_hdr_trans_tlv()`
-- `mt7915/main.c`, `mt7921/main.c`, `mt7925/main.c`, `mt7996/main.c`: +3
-  lines each in sta-add paths (`set_bit` when `sta->tdls`)
-- `mt7925/mcu.c`, `mt7996/mcu.c`: +5 lines each in per-chip HDR_TRANS
-  TLV helpers
-- **Scope:** Multi-file but surgical; same pattern repeated per chip
-  generation.
+### Step 2.2: Code Flow Change
+**Record:**
+- **Before:** `pci_stop_root_bus()` → `pci_remove_root_bus()` with no
+  lock
+- **After:** `pci_lock_rescan_remove()` → stop/remove →
+  `pci_unlock_rescan_remove()`
+- **Path:** Driver remove (platform unbind, BCMA remove, module unload)
 
-**Step 2.2 — Code flow per hunk**
+### Step 2.3: Bug Mechanism
+**Record:**
+- **Category:** Race condition / potential UAF
+- **Mechanism:** `pci-sysfs.c` rescan/remove handlers (`rescan_store`,
+  `dev_rescan_store`, `remove_store`, `bus_rescan_store`) hold
+  `pci_rescan_remove_lock`. `iproc_pcie_remove()` did not. Concurrent
+  sysfs operations and driver removal can corrupt or free PCI bus/device
+  structures still in use.
 
-Record:
-- **Before:** STATION vif always gets `to_ds=true` in HDR_TRANS TLV →
-  firmware addresses all frames to BSSID.
-- **After:** TDLS-peer WCIDs get `to_ds=false, from_ds=false` → firmware
-  builds 3-addr non-DS frames with A1=peer MAC.
-- **Execution path:** STA add (sets flag) → MCU WTBL/STA_REC update
-  (programs firmware) → every subsequent HW-encapsulated TX data frame
-  to TDLS peer.
-
-**Step 2.3 — Bug mechanism**
-
-Record: **Category (g) — Logic/correctness fix.** Wrong 802.11
-addressing mode programmed into firmware for TDLS-peer WCIDs. Not
-UAF/leak/race; a firmware-facing configuration error causing silent
-packet loss.
-
-**Step 2.4 — Fix quality**
-
-Record: **Obviously correct** — matches IEEE 802.11z TDLS direct-link
-frame format. Minimal, mirrors existing 4-addr override pattern. **Low
-regression risk** — only affects WCIDs with `sta->tdls` set; AP and
-normal STA traffic unchanged. TDLS override runs after 4-addr check, so
-no conflict.
+### Step 2.4: Fix Quality
+**Record:**
+- Obviously correct — identical to `pci_host_common_remove()`, `pci-
+  aardvark`, `pci-mvebu`, `pcie-mediatek-gen3`, `pci-hyperv`, and others
+- Minimal, no API changes
+- **Regression risk:** Very low; only serializes an already-required
+  critical section
 
 ---
 
 ## Phase 3: Git History Investigation
 
-**Step 3.1 — Blame**
+### Step 3.1: Blame
+**Record:**
+- `iproc_pcie_remove()` dates to Ray Jui (2015); `pci_stop_root_bus()` /
+  `pci_remove_root_bus()` added in `81ce3cf4a246d` (2020, "PCI: iproc:
+  Use pci_host_probe()")
+- Unprotected removal pattern present since 2020 in this tree
 
-Record: Buggy `to_ds=true` for STATION vif introduced in `868fe07ee612f`
-("mt76: connac: add missing configuration in
-mt76_connac_mcu_wtbl_hdr_trans_tlv", May 2021). Present in this tree
-since connac2 era. `MT_WCID_FLAG_HDR_TRANS` added Dec 2020
-(`90e3abf07c80a`).
+### Step 3.2: Fixes: Tag
+**Record:** N/A — no `Fixes:` tag
 
-**Step 3.2 — Fixes: tag**
+### Step 3.3: Related File History
+**Record:**
+- Part of 9-patch series "[PATCH 0/9] PCI: controller: Add missing
+  rescan lock around root bus removal"
+- Cover letter states each patch is independent
+- Same missing-lock pattern exists in several sibling drivers (cadence,
+  dwc, altera, brcmstb, mediatek, rockchip, vmd, plda) — not yet fixed
+  in this 6.18.44 tree
 
-Record: N/A — no `Fixes:` tag in committed version. v1 referenced
-`5c14a5f944b9`; author dropped it in v2 because the approach changed
-entirely.
+### Step 3.4: Author Context
+**Record:** Hans Zhang is an active PCI contributor (cadence/dwc
+capability search, etc.). Patch signed by PCI maintainer Bjorn Helgaas.
 
-**Step 3.3 — Related file history**
-
-Record:
-- TDLS enabled in mt76 since `dd89a0133c0ce` (May 2020): "mt76: enable
-  TDLS support"
-- Sibling fix from same series already in this tree: `a7cdc384c9c57`
-  ("wifi: mt76: mt7925: don't disable AP BSS when removing TDLS peer") —
-  backported by Greg Kroah-Hartman to 6.18.44
-- Upstream commit: `5b7154f934c4c` (Jun 9, 2026) — **NOT yet in this
-  tree**
-- Part of v2 series "wifi: mt76: fix TDLS direct-link on MediaTek
-  MT7925" (2 patches)
-
-**Step 3.4 — Author context**
-
-Record: ElXreno authored both TDLS fixes in the series. Felix Fietkau
-(mt76 maintainer) committed and signed off. MediaTek developers (Sean
-Wang, Shayne Chen, etc.) were CC'd on submission.
-
-**Step 3.5 — Dependencies**
-
-Record: **Standalone.** No prerequisite commits required. All target
-functions, `sta->tdls` field, and affected drivers exist in 6.18.44.
-Cherry-pick applies cleanly with zero conflicts.
+### Step 3.5: Dependencies
+**Record:** None. `pci_lock_rescan_remove()` /
+`pci_unlock_rescan_remove()` exist in this tree since commit
+`9d16947b75831` (2014). `pcie-iproc.c` already includes `<linux/pci.h>`.
+Standalone backport.
 
 ---
 
 ## Phase 4: Mailing List and External Research
 
-**Step 4.1 — Original discussion**
+### Step 4.1: Original Discussion
+**Record:**
+- Commit not in local tree; `b4 dig -c` could not match it
+- Local mbox/cover files available in workspace
+- Cover letter lore reference: `https://lore.kernel.org/linux-
+  pci/20260519132017.63E1BC2BCB3@smtp.kernel.org/` (sashiko-bot review
+  flagging the missing-lock pattern)
+- Series: v1, 9 independent patches, May 22 2026
+- **UNVERIFIED:** Full lore thread replies (Anubis blocked WebFetch on
+  lore.kernel.org)
 
-Record:
-- `b4 dig -c 5b7154f934c4c` →
-  https://patch.msgid.link/20260506-mt7925-tdls-
-  fixes-v2-1-46aa826ba8bb@gmail.com
-- Series: v1 (May 3) disabled all HW encap for TDLS; v2 (May 6) per-peer
-  flag approach after Sean Wang's v1 NACK
-- Cover letter CC'd `stable@vger.kernel.org`; patch 1 explicitly dropped
-  `Cc: stable` in v2 ("not realistic for a clean cherry-pick into older
-  stables")
-- Patch 2 retained `Cc: stable@vger.kernel.org` and was backported to
-  this tree
+### Step 4.2: Reviewers
+**Record:** Cover letter references automated sashiko-bot review
+identifying the race. Bjorn Helgaas committed. **UNVERIFIED:** Full
+recipient list via `b4 dig -w` (commit not in tree).
 
-**Step 4.2 — Reviewers**
+### Step 4.3: Bug Reports
+**Record:** No syzbot or user bug reports. Issue identified via code
+review / pattern analysis (same class of bug Rafael Wysocki documented
+in `9d16947b75831`).
 
-Record: `b4 dig -w` — To: Felix Fietkau, Lorenzo Bianconi, Ryder Lee,
-Shayne Chen, Sean Wang, Matthias Brugger, and others. Appropriate
-maintainers and mailing lists included. No explicit `Reviewed-
-by`/`Acked-by` in committed version; maintainer merge + sign-off is the
-quality gate.
+### Step 4.4: Related Patches
+**Record:** 8 sibling patches in the same series for other host
+controllers; each independent.
 
-**Step 4.3 — Bug report**
-
-Record: No syzbot/bugzilla. Hardware reproduction documented in commit
-message and cover letter (Samsung phone auto-TDLS, bpftrace/tcpdump
-evidence).
-
-**Step 4.4 — Series context**
-
-Record: 2-patch series. Patch 1 (this commit) = TDLS data path broken.
-Patch 2 (`a7cdc384c9c57`) = TDLS teardown collapses AP RX rate. **Patch
-2 already backported to 6.18.44 without patch 1** — users get teardown
-fix but TDLS data still fails on HW encap.
-
-**Step 4.5 — Stable list history**
-
-Record: Cover letter and patch 2 explicitly nominated for stable. Patch
-1's stable nomination was deliberately removed in v2, but stable
-maintainers already accepted the series (patch 2 landed). For 6.18.44
-specifically, cherry-pick is clean (unlike "older stables" the author
-was concerned about).
+### Step 4.5: Stable List History
+**Record:** **UNVERIFIED** — could not search lore stable list
+(blocked). No stable nomination found in local cover letter.
 
 ---
 
 ## Phase 5: Code Semantic Analysis
 
-**Step 5.1 — Key functions**
+### Step 5.1: Key Functions
+**Record:** `iproc_pcie_remove()` (modified)
 
-Record: `mt76_connac_mcu_wtbl_hdr_trans_tlv()`,
-`mt7925_mcu_sta_hdr_trans_tlv()`, `mt7996_mcu_sta_hdr_trans_tlv()`,
-`mt7915_mac_sta_add()`, `mt7921_mac_sta_add()`,
-`mt7925_mac_link_sta_add()`, `mt7996_mac_sta_init_link()`.
+### Step 5.2: Callers
+**Record:**
+- `iproc_pltfm_pcie_remove()` in `pcie-iproc-platform.c` (platform
+  driver `.remove`)
+- `iproc_bcma_pcie_remove()` in `pcie-iproc-bcma.c` (BCMA driver
+  `.remove`)
+- Triggered on device unbind, module unload, shutdown
 
-**Step 5.2 — Callers**
+### Step 5.3: Callees
+**Record:** `pci_lock_rescan_remove()`, `pci_stop_root_bus()`,
+`pci_remove_root_bus()`, `pci_unlock_rescan_remove()`, then MSI/PHY
+cleanup
 
-Record:
-- HDR_TRANS TLV helpers called from MCU STA_REC/WTBL update paths during
-  sta-add and `sta_set_decap_offload()` (when mac80211 toggles HW encap
-  offload via `MT_WCID_FLAG_HDR_TRANS`)
-- Sta-add functions called from mac80211 `sta_state` transitions when
-  TDLS peers are added
-- All affected drivers (mt7915, mt7921, mt7925, mt7996) register
-  `sta_set_decap_offload` callbacks
+### Step 5.4: Reachability
+**Record:**
+- Driver remove is reachable on Broadcom iProc platforms
+  (`CONFIG_PCIE_IPROC_PLATFORM`, `CONFIG_PCIE_IPROC_BCMA`)
+- Concurrent sysfs PCI rescan/remove requires appropriate privileges
+  (typically root), but is realistic during admin operations, hotplug
+  testing, or scripted teardown
+- Race window is real when both paths run concurrently
 
-**Step 5.3 — Callees**
-
-Record: `test_bit()`, `set_bit()` on `wcid->flags`; MCU TLV construction
-sent to firmware via `mt76_mcu_skb_send_msg()` /
-`mt76_connac_mcu_sta_update_hdr_trans()`.
-
-**Step 5.4 — Reachability**
-
-Record: **Userspace-reachable** — TDLS setup via standard
-nl80211/cfg80211 (e.g., Samsung phones auto-initiate TDLS on shared
-BSS). Once TDLS link is up and HW encap is enabled, every data frame to
-the TDLS peer hits the buggy path. Trigger requires TDLS-capable peer +
-HW encap offload (default on mt7921/mt7925 with
-`sta_set_decap_offload`).
-
-**Step 5.5 — Similar patterns**
-
-Record: Existing `MT_WCID_FLAG_4ADDR` override in the same functions
-sets `to_ds=true, from_ds=true`. TDLS fix follows identical pattern with
-opposite values. Consistent with driver conventions.
+### Step 5.5: Similar Patterns
+**Record:** Multiple controllers already use this lock pattern. `pcie-
+iproc.c` is an outlier. `pci_stop_and_remove_bus_device()` asserts
+`lockdep_assert_held(&pci_rescan_remove_lock)` — sysfs remove uses the
+locked variant; host driver remove did not.
 
 ---
 
-## Phase 6: Cross-Referencing Against Local Tree
+## Phase 6: Cross-Reference Against Local Tree (6.18.44)
 
-**Step 6.1 — Buggy code in tree?**
+### Step 6.1: Buggy Code Exists?
+**Record:** **YES.** At lines 1543–1544 of `drivers/pci/controller/pcie-
+iproc.c`, `iproc_pcie_remove()` calls `pci_stop_root_bus()` /
+`pci_remove_root_bus()` without the lock. Fix is **not** yet applied in
+this tree (`git describe HEAD` → `v6.18.44-1-g2736c32da98b9`).
 
-Record: **YES.** Local tree is **Linux 6.18.44** (`git describe HEAD` →
-`v6.18.44`). Buggy code at `mt76_connac_mcu.c:480-492`,
-`mt7925/mcu.c:1082-1104`, `mt7996/mcu.c:1930-1948`. No
-`MT_WCID_FLAG_TDLS_PEER` anywhere. `sta->tdls` field exists in
-`mac80211.h`. All four affected drivers present (mt7925 since
-`c948b5da6bbec`, confirmed ancestor of HEAD).
+### Step 6.2: Backport Complications
+**Record:** Clean apply expected — 2-line addition, no structural
+conflicts. `pci_lock_rescan_remove` API unchanged.
 
-**Step 6.2 — Backport complications**
-
-Record: **Clean apply.** `git cherry-pick --no-commit 5b7154f934c4c`
-succeeds with auto-merge on all 8 files, +28 lines, exit 0.
-
-**Step 6.3 — Related fixes already present?**
-
-Record: Sibling fix `a7cdc384c9c57` (patch 2/2) already backported. This
-fix (patch 1/2) is **missing**. No alternate fix for the HDR_TRANS/TDLS
-data path issue.
+### Step 6.3: Related Fixes Already Present?
+**Record:** No equivalent fix for iproc in this tree. `pci-host-
+common.c`, `pci-aardvark.c`, `pci-mvebu.c`, `pcie-mediatek-gen3.c`
+already hold the lock.
 
 ---
 
-## Phase 7: Subsystem and Maintainer Context
+## Phase 7: Subsystem Context
 
-**Step 7.1 — Subsystem criticality**
+### Step 7.1: Subsystem and Criticality
+**Record:** `drivers/pci/controller/` — **IMPORTANT** (PCI host
+controller; affects platform-specific hardware but uses core PCI
+infrastructure shared with sysfs paths)
 
-Record: **IMPORTANT** — `drivers/net/wireless/mediatek/mt76/` WiFi
-drivers. mt7921 is one of the most common laptop WiFi chips; mt7925 is
-newer WiFi 7. Affects connectivity for TDLS users, not core kernel
-paths.
-
-**Step 7.2 — Subsystem activity**
-
-Record: Actively maintained — recent commits in mt7925/mt7996 in this
-tree (NULL deref fixes, MLO work, etc.).
+### Step 7.2: Subsystem Activity
+**Record:** Actively maintained; recent iproc commit `f37f2f804796e` in
+this tree.
 
 ---
 
 ## Phase 8: Impact and Risk Assessment
 
-**Step 8.1 — Who is affected**
+### Step 8.1: Who Is Affected
+**Record:** Users of Broadcom iProc PCIe (`ARCH_BCM_IPROC`, BCM5301X
+BCMA). Not universal, but real production embedded/SoC deployments.
 
-Record: **Driver-specific, config-specific** — users of
-mt7915/mt7921/mt7922/mt7925/mt7996 with TDLS direct links and HW TX
-encap offload enabled. Not universal, but mt7921/mt7925 have large
-installed base.
+### Step 8.2: Trigger Conditions
+**Record:** Driver remove/unbind concurrent with sysfs PCI rescan or
+device removal. Uncommon but plausible under admin maintenance, module
+reload, or testing. Requires privileges for sysfs side.
 
-**Step 8.2 — Trigger conditions**
+### Step 8.3: Failure Mode Severity
+**Record:** Use-after-free / kernel crash — **HIGH** (potential
+**CRITICAL** if exploited, though sysfs access limits practical
+exploitability)
 
-Record: TDLS peer established (`sta->tdls=true`) + HW encap offload
-active (`MT_WCID_FLAG_HDR_TRANS` set via `sta_set_decap_offload`).
-Samsung phones and other auto-TDLS peers are documented triggers.
-Unprivileged users on same BSS can initiate TDLS with a vulnerable
-station.
-
-**Step 8.3 — Failure mode severity**
-
-Record: **Complete TDLS data path failure** — 0 user data frames
-delivered; iperf/TCP stalls. Management frames work, so TDLS setup
-appears successful (misleading). Not kernel crash/oops/corruption.
-Severity: **HIGH functional** (not CRITICAL security/crash).
-
-**Step 8.4 — Risk-benefit**
-
-Record:
-- **Benefit: HIGH** for TDLS users — restores entire direct-link data
-  path; verified 830 Mbit/s throughput post-fix
-- **Risk: VERY LOW** — 28 lines, scoped to TDLS-peer WCIDs only,
-  maintainer-reviewed, clean cherry-pick
-- **Ratio: Strongly favorable**
+### Step 8.4: Risk-Benefit
+**Record:**
+- **Benefit:** Prevents real race/UAF during teardown on affected
+  hardware
+- **Risk:** Minimal — 2 lines matching established PCI convention
+- **Ratio:** Strongly favorable
 
 ---
 
 ## Phase 9: Final Synthesis
 
-**Step 9.1 — Evidence summary**
+### Step 9.1: Evidence Summary
 
 **FOR backport:**
-- Real, reproducible bug with hardware verification
-- Complete TDLS data failure (not cosmetic)
-- Small, surgical, obviously correct fix
-- Applies cleanly to 6.18.44
-- Maintainer (Felix Fietkau) signed off and merged
-- Sibling patch from same series already backported to this exact tree
-- Buggy code present since 2021; all prerequisites in tree
-- Follows existing 4-addr override pattern
+- Fixes a real synchronization bug (race with sysfs PCI operations)
+- Failure mode is UAF/system crash
+- Fix is 2 lines, obviously correct, matches multiple existing drivers
+  in this tree
+- Bug has existed since 2020 when iproc adopted `pci_remove_root_bus()`
+- No dependencies; API present since 2014
+- Buggy code confirmed present in 6.18.44
+- PCI maintainer committed the patch
 
 **AGAINST backport:**
-- Not crash/security/data-corruption
-- TDLS is a niche feature vs. normal STA→AP traffic
-- Author dropped `Cc: stable` from patch 1 (concern about older trees,
-  not 6.18.y)
-- mt7915/mt7921/mt7996 not hardware-regression-tested (only mt7925
-  verified)
+- No syzbot/user crash report (theoretical/code-review finding)
+- Affects specific hardware platform only
+- Part of a 9-patch series (but explicitly independent)
 
-**Unresolved:** No independent `Tested-by` beyond author.
-mt7915/7921/7996 correctness inferred from shared firmware behavior.
+**Unresolved:**
+- Full lore review thread and stable-list discussion (WebFetch blocked)
 
-**Step 9.2 — Stable rules checklist**
+### Step 9.2: Stable Rules Checklist
+1. Obviously correct and tested? **PASS** — matches established pattern;
+   no functional change beyond serialization
+2. Fixes a real bug? **PASS** — documented race with sysfs PCI paths
+3. Important issue? **PASS** — UAF/crash severity HIGH
+4. Small and contained? **PASS** — 2 lines, one function
+5. No new features/APIs? **PASS**
+6. Can apply to local tree? **PASS** — buggy code present, clean apply
+   expected
 
-| Criterion | Result |
-|-----------|--------|
-| 1. Obviously correct and tested? | **PASS** — 802.11z-correct;
-hardware-tested on mt7925e |
-| 2. Fixes real bug affecting users? | **PASS** — TDLS data completely
-non-functional |
-| 3. Important issue? | **PASS** — complete feature breakage on common
-hardware (functional HIGH, not crash-level CRITICAL) |
-| 4. Small and contained? | **PASS** — 28 lines, 8 files, no refactoring
-|
-| 5. No new features/APIs? | **PASS** — internal driver flag only |
-| 6. Can apply to local tree? | **PASS** — clean cherry-pick verified |
+### Step 9.3: Exception Categories
+**Record:** None (not device ID, quirk, DT, build, or docs). Standard
+bug fix.
 
-**Step 9.3 — Exception categories**
+### Step 9.4: Decision Rationale
 
-Record: N/A — not device ID, quirk, DT, build fix, or docs fix. Standard
-driver bug fix.
-
-**Step 9.4 — Decision rationale**
-
-This fix should be backported to **Linux 6.18.44**. The buggy HDR_TRANS
-configuration exists in this tree, the upstream fix cherry-picks
-cleanly, and the stable tree already carries patch 2/2 from the same
-TDLS series without patch 1/2 — leaving TDLS data broken even after the
-teardown fix. For users with MediaTek WiFi and TDLS peers (including
-auto-TDLS from phones), HW encap offload produces frames addressed to
-the AP instead of the peer; the result is a silent, total loss of TDLS
-data throughput. The fix is minimal, maintainer-approved, and low-risk.
+For Linux **6.18.44**, `iproc_pcie_remove()` lacks the PCI rescan/remove
+lock that sysfs PCI operations already use. This is a long-standing
+oversight relative to the locking contract introduced in 2014 and
+followed by `pci-host-common` and several other host drivers in this
+tree. The fix is minimal, self-contained, and prevents a realistic race
+during driver teardown that can cause use-after-free or crashes. It
+meets all stable kernel criteria.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed subject, tags, body; no Fixes/Cc:stable/Reported-by
-  on committed version
-- [Phase 1] Confirmed hidden bug fix — functional TDLS data path failure
-- [Phase 2] Diff inventory: 8 files, +28 lines; logic/correctness bug in
-  HDR_TRANS TLV
-- [Phase 3] `git describe HEAD` → v6.18.44
-- [Phase 3] `git blame` → buggy to_ds logic from 868fe07ee612f (May
-  2021)
-- [Phase 3] `git log --grep=TDLS` → TDLS since dd89a0133c0ce (2020);
-  sibling a7cdc384c9c57 in tree
-- [Phase 3] Upstream commit 5b7154f934c4c confirmed NOT in HEAD
-- [Phase 3] Cherry-pick test → clean apply, exit 0, +28 lines
-- [Phase 4] `b4 dig -c 5b7154f934c4c` → lore URL found
-- [Phase 4] `b4 dig -a` → v1→v2 series; v2 per-peer flag after Sean Wang
-  NACK on v1
-- [Phase 4] `b4 dig -w` → Felix Fietkau, Lorenzo Bianconi, MediaTek devs
-  CC'd
-- [Phase 4] Mbox cover letter → stable CC'd; patch 1 dropped Cc:stable
-  in v2
-- [Phase 4] `a7cdc384c9c57` → patch 2/2 backported to 6.18.44 by Greg
-  K-H
-- [Phase 5] `grep MT_WCID_FLAG_HDR_TRANS` → set via
-  sta_set_decap_offload on all affected drivers
-- [Phase 5] `grep sta->tdls` → used in mt7925/mt7921/mt7615 main.c
-  already
-- [Phase 5] `mac80211.h:2530` → `bool tdls` field confirmed
-- [Phase 6] `grep MT_WCID_FLAG_TDLS_PEER` → 0 matches (fix absent)
-- [Phase 6] Buggy code confirmed at mt76_connac_mcu.c:480-492,
-  mt7925/mcu.c:1082-1104, mt7996/mcu.c:1930-1948
-- [Phase 6] mt7925 driver ancestor check → present in tree
-- [Phase 8] Failure mode: 0 TDLS data frames, iperf stalls — HIGH
-  functional severity
+- **[Phase 1]** Parsed subject, tags, body from user-provided commit
+  message and local mbox
+- **[Phase 2]** Confirmed diff: +2 lines in `iproc_pcie_remove()`
+  wrapping stop/remove with lock
+- **[Phase 3]** `git describe HEAD`: v6.18.44; `git blame`: unprotected
+  pattern since `81ce3cf4a246d` (2020)
+- **[Phase 3]** `git show 9d16947b75831`: `pci_lock_rescan_remove()`
+  introduced 2014, present in tree
+- **[Phase 3]** Read local cover letter: 9-patch independent series,
+  sashiko-bot flagged race
+- **[Phase 4]** `b4 dig -c HEAD`: no match (commit not in tree)
+- **[Phase 4]** Read `20260522_...rescan_lock...cover` and `.mbx`:
+  series context and bot review
+- **[Phase 4]** WebFetch lore/patch.msgid.link: blocked by Anubis —
+  **UNVERIFIED** thread replies
+- **[Phase 5]** `grep iproc_pcie_remove`: callers in `pcie-iproc-
+  platform.c`, `pcie-iproc-bcma.c`
+- **[Phase 5]** Read `pci-sysfs.c`: rescan/remove paths hold
+  `pci_lock_rescan_remove()`
+- **[Phase 5]** Read `pci-host-common.c`, `pci-aardvark.c`, `pci-
+  mvebu.c`: established lock pattern
+- **[Phase 5]** Read `remove.c`: `pci_stop_and_remove_bus_device()`
+  asserts lock held
+- **[Phase 6]** Read `pcie-iproc.c` lines 1539–1549: buggy code
+  confirmed, fix absent
+- **[Phase 6]** `grep CONFIG_PCIE_IPROC` in Kconfig: Broadcom iProc
+  platforms
+- **[Phase 8]** Assessed severity: UAF/crash, HIGH
 
-**YES**The background searches finished and matched what the full
-analysis already used:
+**YES**
 
-- **Upstream commit:** `5b7154f934c4c` on master — "wifi: mt76: route
-  TDLS-peer frames as 3-addr non-DS in HW encap"
-- **In 6.18.44:** that fix is **not** present; sibling patch
-  `a7cdc384c9c57` (TDLS teardown / BSS disable) **is** already
-  backported
-- **Author search:** only ElXreno's patch 2/2 shows up in this stable
-  tree so far
+ drivers/pci/controller/pcie-iproc.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-**Verdict stands: YES** — this should be backported to 6.18.y. It
-cherry-picks cleanly (+28 lines, 8 files) and closes the gap where patch
-2 is in stable but TDLS data over HW encap is still broken.
-
- drivers/net/wireless/mediatek/mt76/mt76.h            | 1 +
- drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 5 +++++
- drivers/net/wireless/mediatek/mt76/mt7915/main.c     | 3 +++
- drivers/net/wireless/mediatek/mt76/mt7921/main.c     | 3 +++
- drivers/net/wireless/mediatek/mt76/mt7925/main.c     | 3 +++
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c      | 5 +++++
- drivers/net/wireless/mediatek/mt76/mt7996/main.c     | 3 +++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c      | 5 +++++
- 8 files changed, 28 insertions(+)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index 125ac1eb2d541..e4e92b0e7f698 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -348,6 +348,7 @@ enum mt76_wcid_flags {
- 	MT_WCID_FLAG_PS,
- 	MT_WCID_FLAG_4ADDR,
- 	MT_WCID_FLAG_HDR_TRANS,
-+	MT_WCID_FLAG_TDLS_PEER,
- };
+diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
+index 5aa677f81e4fa..61dcb232757fb 100644
+--- a/drivers/pci/controller/pcie-iproc.c
++++ b/drivers/pci/controller/pcie-iproc.c
+@@ -1540,8 +1540,10 @@ void iproc_pcie_remove(struct iproc_pcie *pcie)
+ {
+ 	struct pci_host_bridge *host = pci_host_bridge_from_priv(pcie);
  
- #define MT76_N_WCIDS 1088
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-index 2aa7b711c774e..9a81040e19007 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-@@ -490,6 +490,11 @@ void mt76_connac_mcu_wtbl_hdr_trans_tlv(struct sk_buff *skb,
- 		htr->to_ds = true;
- 		htr->from_ds = true;
- 	}
-+
-+	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
-+		htr->to_ds = false;
-+		htr->from_ds = false;
-+	}
- }
- EXPORT_SYMBOL_GPL(mt76_connac_mcu_wtbl_hdr_trans_tlv);
++	pci_lock_rescan_remove();
+ 	pci_stop_root_bus(host->bus);
+ 	pci_remove_root_bus(host->bus);
++	pci_unlock_rescan_remove();
  
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-index 6f594677474b0..ebfd5282db2ef 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-@@ -760,6 +760,9 @@ int mt7915_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
- 	msta->wcid.phy_idx = ext_phy;
- 	msta->jiffies = jiffies;
+ 	iproc_pcie_msi_disable(pcie);
  
-+	if (sta->tdls)
-+		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta->wcid.flags);
-+
- 	ewma_avg_signal_init(&msta->avg_ack_signal);
- 
- 	mt7915_mac_wtbl_update(dev, idx,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/main.c b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
-index ce11666a32db9..da49c0ed7d109 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7921/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7921/main.c
-@@ -828,6 +828,9 @@ int mt7921_mac_sta_add(struct mt76_dev *mdev, struct ieee80211_vif *vif,
- 	msta->deflink.last_txs = jiffies;
- 	msta->deflink.sta = msta;
- 
-+	if (sta->tdls)
-+		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta->deflink.wcid.flags);
-+
- 	ret = mt76_connac_pm_wake(&dev->mphy, &dev->pm);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/main.c b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-index 910713e62e14a..e0e4e31a851d9 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/main.c
-@@ -870,6 +870,9 @@ static int mt7925_mac_link_sta_add(struct mt76_dev *mdev,
- 	mlink->wcid.link_valid = !!link_sta->sta->valid_links;
- 	mlink->sta = msta;
- 
-+	if (link_sta->sta->tdls)
-+		set_bit(MT_WCID_FLAG_TDLS_PEER, &mlink->wcid.flags);
-+
- 	wcid = &mlink->wcid;
- 	ewma_signal_init(&wcid->rssi);
- 	rcu_assign_pointer(dev->mt76.wcid[wcid->idx], wcid);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index 647efa963db48..18efcfa614400 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -1102,6 +1102,11 @@ mt7925_mcu_sta_hdr_trans_tlv(struct sk_buff *skb,
- 		hdr_trans->to_ds = true;
- 		hdr_trans->from_ds = true;
- 	}
-+
-+	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
-+		hdr_trans->to_ds = false;
-+		hdr_trans->from_ds = false;
-+	}
- }
- 
- int mt7925_mcu_wtbl_update_hdr_trans(struct mt792x_dev *dev,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 20da0c10669a9..945646f99e5db 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1018,6 +1018,9 @@ mt7996_mac_sta_init_link(struct mt7996_dev *dev,
- 	msta_link->wcid.link_valid = !!sta->valid_links;
- 	msta_link->wcid.def_wcid = &msta->deflink.wcid;
- 
-+	if (link_sta->sta->tdls)
-+		set_bit(MT_WCID_FLAG_TDLS_PEER, &msta_link->wcid.flags);
-+
- 	ewma_avg_signal_init(&msta_link->avg_ack_signal);
- 	ewma_signal_init(&msta_link->wcid.rssi);
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 72851399575f9..e5ad169dd15fc 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -1946,6 +1946,11 @@ mt7996_mcu_sta_hdr_trans_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
- 		hdr_trans->from_ds = true;
- 		hdr_trans->mesh = true;
- 	}
-+
-+	if (test_bit(MT_WCID_FLAG_TDLS_PEER, &wcid->flags)) {
-+		hdr_trans->to_ds = false;
-+		hdr_trans->from_ds = false;
-+	}
- }
- 
- static enum mcu_mmps_mode
 -- 
 2.53.0
 
