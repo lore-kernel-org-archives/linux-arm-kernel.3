@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3894AC624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D667C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgOdmKk0HGp2w6txJNQpE2tFc4GPDNhhNoLF19m8si8=; b=AwWZpEUOv99+fHre3vXF+hsV0b
-	ybi61arYkXu9U4sr0iLJny9hfGrrW99BznKvuDcsNa4gPVoyQR6NiAXnOS1x/yFNEzYIsBVskQ3tB
-	ROy4Y86dWltekYURPFgh8+u1kv5s0/3pVl7qOOzN38zFMFvaUMw7VEv9GrjxVeo+7g35A4aPltELr
-	by6dCaIap0IJlOQ962KpIDyPusta23/KM+8eLFSknYJ/ROwVitL9uglEKrKP4IJE/aazoZjYj/77g
-	pB/hgnT9ZgmXbXngFAvwAZA6BvbX/K+s2dqlPUOsVnfvMNTH7aLgNI48ZQAvC/gfhI3Eo5inRWW7W
-	JmWZcb3g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jqRJhkvqT1GsTrtGqK3664E13XbR/rXj6jqyCh2zYjY=; b=gzdVjP4ILAfHgj4AW7L06sSVyX
+	TNcyGD3yHLchok8mRlXUjGCsMONwL8CokYEJYLxl4klHzKrAB5mWfNqZSstTi5htCZ4YvHuJMc3fe
+	0QiQvH05LwMv0owGXFHNdYULu3M9Kq3sOQHXtd7rtOxiqcaj0GceKmUnYr3JMHSUSSUYEpXQDDEvF
+	ytJwSnSTt2CHGvwoHFElt0s7efKHzvQkSF0xVXEwcteSKE/kL7AsdkJ4Qd5sQY4W6mXMnDaYCoadB
+	R7EKd8bBU+dq2HBGmSfxCtI1qscfgSM8CArgseonm0v/w5Bk+sqaYhWla1VrMG+z1evHO9Ubca8Uc
+	RNnWEkTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RK-00000009jQj-2zmd;
+	id 1x13RK-00000009jQ3-227F;
 	Mon, 31 Aug 2026 14:56:50 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RH-00000009jMw-0L9U
+	id 1x13RA-00000009jID-3LAi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:56:48 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZEvl2414993;
-	Mon, 31 Aug 2026 14:55:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=AgOdmKk0HGp2w6txJ
-	NQpE2tFc4GPDNhhNoLF19m8si8=; b=aZOW/Z6dT9eqkuf8zgxy8EdUlI8knzwYY
-	uW2ypbNaBCyVikctgWrOrKvIJUWO8sIRoXghKclGA8HbTt1wd/qGIZ+bSO06vljy
-	EvNwXvRTmtL94WQNemm5YrZGa0R9pZ2DchH1hAjzwQmyVZbe+D8yXWsC5hNv9Z5W
-	fg+bICXJbqhU24jbwsk8zcsjlvwOSN7M1Aruvkz1hUIm8q3IUiZ2FDvzu//X1enU
-	GivG7ZFwZ7niZ31Fp/ADIqOHsLG1L/JQQFG5xzT1qGIXNYFALRT4ybVimv29TbZD
-	zO87+NRVGb+nsYb0tuXquHvrqLdzSwhJMfzTK+GyusmlctmOGTvsw==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbmuhj66b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:52 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfbmC029519;
-	Mon, 31 Aug 2026 14:55:51 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gccexx8v4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:51 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtjWA31981880
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Aug 2026 14:56:42 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZO9S2583494;
 	Mon, 31 Aug 2026 14:55:45 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 15E9E20040;
-	Mon, 31 Aug 2026 14:55:45 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9694120043;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=jqRJhkvqT1GsTrtGqK3664E13XbR/rXj6jqyCh2zY
+	jY=; b=JVcwVY35n4jwqEA0UWuDiKZ9x3gg+OsGgaDZMwHKCNhCb6ny3l6mRyq4H
+	yQcdFtB779GwIwUGQFvITeZAEMCe7xfyDCYjOokxLkOddE4dU+5ZQ/4xNNXcky6J
+	m4ROX6aEh57yj8j2Zc6hbQZin66hDFmsLIqKf05TF/bDa/EO6xi0MXelPVYFQVw4
+	rcyqfV4UaBPfF7bkAk8f3TiOac4goG+67TjWkA6ACAPiIhEvHifwLFAtTOv9+jPR
+	X5UrSvIibgRoXbokLX0v33YTXJEjaYhLE9zXkfXE7/zLnKtOcPqWIcihV4wgsPyg
+	dzz+PqVAPf6MTyyXT0lmHp3fOH7KA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq2t1u9a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfgY9016964;
+	Mon, 31 Aug 2026 14:55:44 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h6dp5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtbAZ16122264
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Aug 2026 14:55:37 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 623AB20043;
+	Mon, 31 Aug 2026 14:55:37 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DE8FD20040;
+	Mon, 31 Aug 2026 14:55:36 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
+	Mon, 31 Aug 2026 14:55:36 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,44 +88,44 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 15/20] KVM: s390: arm64: Use QAAF init save area
-Date: Mon, 31 Aug 2026 16:55:30 +0200
-Message-ID: <20260831145536.913567-16-seiden@linux.ibm.com>
+Subject: [PATCH v2 00/20] KVM: arm64 on s390 System Register Handling
+Date: Mon, 31 Aug 2026 16:55:15 +0200
+Message-ID: <20260831145536.913567-1-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260831145536.913567-1-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: NBzZ3vNIKerg2wA0OsIPkgrhomuar2rM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX9nekivU1Lxuu
- BbHWp/4tdO+b8ZawBA6/xXovRBsZWLlI493Lp4n41Pt/cUAy1uhctoA7LuQXD/3fpj40xmkj5YM
- ZOEAbGfhMr7siDEwIO6JeSlZ2noOLLADGGtpLuBZAFaGpuu+io2BknrQEOkwMBkXS1BVuK+Y9Rv
- /SexI8pLtKpPaJm6OXV69lrAk0iT0pjeph8B1h71SYqzRruU7tD6pbyj1tZQenuEBeDNjFpYKQ7
- KVavIP62XWxiACsQRb9WZTSSAu1IqtCwo9rjKmoRGZ15l5g3gNQpyXv3hXdOUzhd9USHq3x+iYD
- J/rVltz1cV3u1xzxtlKA+yhMc1KC77l4+od5JSBIWPoYU049eeMNVtuZOAbNFhqZ/AaLvJeE+7t
- ZJ4hT+EDO64fFE2LwvmmcG1hgoaRhHatuNuuvKg24+4rVh6Zu8hNFCJs5wrk7cvdvtk6Fbn5wMY
- wtczudlMVVpbqmOesIA==
-X-Authority-Analysis: v=2.4 cv=Osl/DS/t c=1 sm=1 tr=0 ts=6a9595f9 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+X-Authority-Analysis: v=2.4 cv=bc1bluPB c=1 sm=1 tr=0 ts=6a9595f1 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=4v_MITeQBDqVJkbHs2kA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX6500rR5VYJKJ
- iVcLUSoRYPoiu4PxA+WRrYJzq9/KOnvJ84VfSq3+/i5THd+EZbE+Bq0+1jjjNNf/3la8n6RGfVx
- p9qRg7Yfjyl55JaS/WP/oMVRQz/UVGI=
-X-Proofpoint-ORIG-GUID: PRi0ymHEIIdEKaZWe21iewkiw92C0-he
+ a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=EfswLKZZKe3xjtufmi4A:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX/ptxmNmaUZLq
+ YyLjS+vnjR8bdNRIthOyGpGtPX7R2UOFeXT7drKghjhhmn9SM1sXQ5Hcw/Otfdbv6hG8FfsIzBq
+ +15SXukCbLp5Tf9Pkn2/1nx9Tvq9z9A=
+X-Proofpoint-ORIG-GUID: tJk3lHyBuCvFyK4D4Jm4WJo_l80TsR5g
+X-Proofpoint-GUID: PpKGMHsad5exdoUBflKzHUK-XjjSTErS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX/F0k6ufohfpi
+ sNIX5dnxVHYr97GY/wHpjiYKI48RDKSVfU3P5s1vXw4IF1lIS1URRjA/WN9sZeRfAxD+X7lPJpU
+ HucYtaqXGj4UJmdPGRtR3FrxtbSDGurpIfLFMlEaRX3FyEDLKiS8B4jS+IXnCjsSOdSczdhhLxa
+ S4enEBWnRJ+s+fFvNZqS6nE7gKRpC0m/BM9hmC6SpOomp4fmbsiF4Dyki5A/8ZWZhCoP2qi+pCW
+ H2JH665DnZEJrgziNuP0GPDqZdLTn7rULDyePay9gOhAMGB5D1Ip8KM0PwP/JETzqBMBKnk/to9
+ /V779lnMM+Zg6Yd1EmZufXGMYYovQBX3YrGYR+MDT4zUtUB0Lok/63B1bgasDjvq+bqAenaQdmJ
+ 4VQYy3UTnKT90mA4ZePwjHDJBON3ioIwwaRtOueE+1kyxtQuf5ESM2NdZ+plu4BzXDnC1yofonq
+ C4Yom/xKV4pb/tjQofw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
- adultscore=0 impostorscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310125
+ bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608310125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075647_236472_DD9F5E43 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260831_075640_958873_22FD6CFC 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,50 +140,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the (cached) result of QAAF fc2 (Generate Initial
-System-Registers-Save Area) to initialize the Save Area.
+Add system register handling for KVM/arm64 on s390. Share KVM/arm64 code,
+introduce ARM guest management functions for s390 hosts, and implement host
+sysreg & exception handling.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/arm64/arm.c   | 1 -
- arch/s390/kvm/arm64/reset.c | 5 +++++
- 2 files changed, 5 insertions(+), 1 deletion(-)
+This is a complete rework of v1 using sharing markers and not moving code to a
+shared location.
 
-diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-index 3a0bba6e0a06..ab6e7d135435 100644
---- a/arch/s390/kvm/arm64/arm.c
-+++ b/arch/s390/kvm/arm64/arm.c
-@@ -360,7 +360,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init(struct kvm_vcpu *vcpu,
- 	int ret;
- 
- 	sae_block->save_area = virt_to_phys(save_area);
--	save_area->sdo = virt_to_phys(sae_block);
- 
- 	ret = kvm_vcpu_set_target(vcpu, init);
- 	if (ret)
-diff --git a/arch/s390/kvm/arm64/reset.c b/arch/s390/kvm/arm64/reset.c
-index 74622ba6f081..bc7bcee75779 100644
---- a/arch/s390/kvm/arm64/reset.c
-+++ b/arch/s390/kvm/arm64/reset.c
-@@ -10,6 +10,8 @@
- 
- #include <clocksource/arm_arch_timer.h>
- 
-+#include "qaaf.h"
-+
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu)
- {
- 	return true;
-@@ -79,6 +81,9 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 	if (loaded)
- 		vcpu_put(vcpu);
- 
-+	kvm_vcpu_init_save_area(&vcpu->arch.save_area);
-+	vcpu->arch.save_area.sdo = virt_to_phys(&vcpu->arch.sae_block);
-+
- 	kvm_reset_vcpu_core(vcpu);
- 	kvm_reset_sys_regs(vcpu);
- 
+Changes in detail:
+
+arm64:
+
+Refactor the id register fields in arch_vcpu into a dedicated structure such
+that it can be reused by s390. Refactor detection of the number of sysregs.
+Mark sysreg related code as shared.
+
+s390:
+
+Add s390 instruction support for ARM guest management: easr/sasr for
+system register access, QAAF for feature queries, and ptff extensions
+for guest time handling.
+
+Implement complete sysreg handling for s390 including feature
+sanitisation, register enumeration and access, exception injection,
+and finalized page fault handling.
+
+The series builds upon the foundation established in the first series and
+requires the first series v7[1] as base. A branch at kernel.org is available [2].
+
+Some in-between steps will trigger compile warnings (mostly unused warnings in
+shared code) but of course always compile. After the last commit of this series
+will trigger no compiler warnings.
+
+	Steffen
+
+[1] https://lore.kernel.org/all/20260831144802.834315-1-seiden@linux.ibm.com/
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/kvms390/linux.git/log/?h=sae
+
+Steffen Eiden (20):
+  KVM: arm64: Refactor idreg caching into dedicated structure
+  KVM: arm64: Extract number of sys_reg_desc into a constant
+  arm64: sysreg: Define OSLSR_EL1_OSLK_MASK
+  arm64: Share more arm64 headers with s390
+  KVM: s390: arm64: Prepare for sharing more arm64 code
+  KVM: arm64: Prepare sys_regs.c for sharing with s390
+  KVM: arm64: Share more arm64 code with s390
+  s390: tools: Allow sharing arm64/kvm headers
+  s390: Introduce read/write ARM sysreg instructions
+  s390: Add functions to query arm guest time
+  KVM: s390: arm64: Query Available Arm features
+  KVM: s390: arm64: Implement feature sanitisation
+  KVM: s390: arm64: Implement arm sysreg managing infrastructure
+  KVM: s390: arm64: Integrate sysreg into the host
+  KVM: s390: arm64: Use QAAF init save area
+  KVM: s390: arm64: Implement exception injection
+  KVM: s390: arm64: Finalize page fault handling
+  KVM: s390: arm64: Implement SVE for arm guests
+  KVM: s390: arm64: Promote PTRAUTH capability
+  s390: Report AEF features to sysfs
+
+ arch/arm64/include/asm/cache.h               |   3 +
+ arch/arm64/include/asm/cputype.h             |   3 +
+ arch/arm64/include/asm/kvm_emulate.h         |   5 +-
+ arch/arm64/include/asm/kvm_host.h            |  68 +-
+ arch/arm64/include/asm/spectre.h             |   7 +
+ arch/arm64/include/asm/sysreg.h              |   1 +
+ arch/arm64/kvm/arm.c                         |   3 +
+ arch/arm64/kvm/config.c                      |   2 +-
+ arch/arm64/kvm/guest.c                       |  11 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c               |   7 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c           |   4 +-
+ arch/arm64/kvm/sys_regs.c                    | 164 ++--
+ arch/arm64/kvm/sys_regs.h                    |   1 +
+ arch/s390/include/arm64/kvm_hyp.h            |  18 +
+ arch/s390/include/arm64/kvm_nested.h         |   5 +
+ arch/s390/include/arm64/sys_regs.h           |   9 +
+ arch/s390/include/asm/aef.h                  |  28 +
+ arch/s390/include/asm/kvm_host_arm64.h       | 237 +++++-
+ arch/s390/include/asm/kvm_host_arm64_types.h | 111 +++
+ arch/s390/include/asm/sae-asm.h              |  48 ++
+ arch/s390/include/asm/sae.h                  |  83 ++
+ arch/s390/include/asm/timex.h                |  49 ++
+ arch/s390/kernel/Makefile                    |   2 +-
+ arch/s390/kernel/aef.c                       | 187 +++++
+ arch/s390/kernel/dis.c                       |   1 +
+ arch/s390/kvm/arm64/Makefile                 |   5 +
+ arch/s390/kvm/arm64/Makefile.gen             |   1 +
+ arch/s390/kvm/arm64/arm.c                    |  73 +-
+ arch/s390/kvm/arm64/exception.c              | 105 +++
+ arch/s390/kvm/arm64/feature.c                | 190 +++++
+ arch/s390/kvm/arm64/feature.h                | 102 +++
+ arch/s390/kvm/arm64/guest.c                  | 222 +++++-
+ arch/s390/kvm/arm64/handle_exit.c            |   1 +
+ arch/s390/kvm/arm64/inject_fault.c           |  73 +-
+ arch/s390/kvm/arm64/mmu.c                    |  68 +-
+ arch/s390/kvm/arm64/qaaf.c                   |  74 ++
+ arch/s390/kvm/arm64/qaaf.h                   |  11 +
+ arch/s390/kvm/arm64/reset.c                  |  69 +-
+ arch/s390/kvm/arm64/spectre.c                |  14 +
+ arch/s390/kvm/arm64/sys_regs.c               | 750 +++++++++++++++++++
+ arch/s390/kvm/arm64/trace.h                  |  51 ++
+ arch/s390/tools/Makefile.arm64h              |  11 +-
+ arch/s390/tools/opcodes.txt                  |   3 +
+ 43 files changed, 2724 insertions(+), 156 deletions(-)
+ create mode 100644 arch/s390/include/arm64/kvm_hyp.h
+ create mode 100644 arch/s390/include/arm64/sys_regs.h
+ create mode 100644 arch/s390/include/asm/aef.h
+ create mode 100644 arch/s390/include/asm/sae-asm.h
+ create mode 100644 arch/s390/kernel/aef.c
+ create mode 100644 arch/s390/kvm/arm64/exception.c
+ create mode 100644 arch/s390/kvm/arm64/feature.c
+ create mode 100644 arch/s390/kvm/arm64/feature.h
+ create mode 100644 arch/s390/kvm/arm64/qaaf.c
+ create mode 100644 arch/s390/kvm/arm64/qaaf.h
+ create mode 100644 arch/s390/kvm/arm64/spectre.c
+ create mode 100644 arch/s390/kvm/arm64/sys_regs.c
+
+
+base-commit: ab80750cee6e09e0036ac43f257059122a05a71d
 -- 
 2.53.0
 
