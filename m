@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC10C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AF2C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79SnfAKr0WCbVfxiI6EYmarFRhbBXTB4QyqCZJq5fa8=; b=z4CTpuNkwUzjjI7OWzHQsc5jOc
-	/5RscZzifTpoGkYffSeqmZuhWWwGWDXYC6c0rnV/tkPQbio5BE+dttdQZKRAtI2II2FyJ1I/TIDZR
-	IE3SRaJizcprtzZMWFoeZFX5Wgj9knXBLpuUFxuhsGj2w3fsuuImnRck3q3Y7EVJxPze8ZKlZ1a+b
-	8z/8EGfGuh5oZs86Hc/xRjQ05DHXMAAKoufHMQd23sRRInMzIUUbGbxsLnYeJBxCWkS22SGaq9rq+
-	SrXfnob+EiC6TTsht0r1FDoQgn5OpF8JSalNL26lc32gG0k/q1pyK2RNHQKwhr4U8buaVB5GdJhNg
-	ty+8h+bg==;
+	bh=1sFl4euGaq7EWjnVBOPYf+BURn0Jum3RuNPegSYhn+4=; b=0W1BWVwRq89x9H/4CoIlHMawRs
+	3TMOP2hFG/e6EtyCvhoTD0FHk7w6ByisfZhRYUfcmddEGd6rcwyqvjFVz9YQMo59bZC4VMOUfLXG4
+	ShJOmSEb08RgCtr7CVUaw73qWNLEsYfx7GI/sVpYt1Cp0IhxeOc1K16NdpVbrPoW5QknfH+B0JwC5
+	fh9LQ/35UypmNvRqH4LvRwmkfih8AyfPXa1gWsnpVjbXMoSflBkczcQbdvscwhJqUh1rFrWeA8lb1
+	qVWQ05eBWQYA95SqLEhkZAuFD9lkIVkFUsgcXeRrbNsapvyzXwa2tJWdqBuR1YsVQr7agANRcz33F
+	Vhk5MbxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Kl-00000009VRV-3vxU;
-	Mon, 31 Aug 2026 13:45:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x12L9-00000009VfE-1Ejz;
+	Mon, 31 Aug 2026 13:46:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12Kh-00000009VPM-2oWo
+	id 1x12L7-00000009Ve2-444D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:45:55 +0000
+	Mon, 31 Aug 2026 13:46:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E12B560207;
-	Mon, 31 Aug 2026 13:45:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 767331F00ACF;
-	Mon, 31 Aug 2026 13:45:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B5AF640219;
+	Mon, 31 Aug 2026 13:46:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 215381F000E9;
+	Mon, 31 Aug 2026 13:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183954;
-	bh=79SnfAKr0WCbVfxiI6EYmarFRhbBXTB4QyqCZJq5fa8=;
+	s=k20260515; t=1788183981;
+	bh=1sFl4euGaq7EWjnVBOPYf+BURn0Jum3RuNPegSYhn+4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=b8GTqxb+/FDvS2T1JvLmRW8aO57/fvT6/cWwQyc+p93ETjtElHGIHms6NKPCX2BC8
-	 NcL7SVqjtP+xu36g0ihf3wMouvE5bonYXWaOqsw+yhqQfHpxWvTtYKhxt8N2V9b12P
-	 oAopk0HamywzrO0gMo95NQf96jDR36IT1Zdt11n/AuUTpEBQHlk7tdxFydpxlJeLK+
-	 78OFmbgOaJtRIxkupp68rW5ilcsFImwyOIG3Q+yrHeYP97d/cneWKqm9DaftCcTgAd
-	 zWWSX0MTbTsiuz98khLrDOdzcoB4GbSOgyl43ctmCVwN3BPl+drXn9cnat9gCNG2FH
-	 2q2G+BNTYW/Gw==
+	b=I0NGyoIDBZcbOEWb8b7sAF90Vy/AgHmbJpE6qruekldr7sDT0azC0JiqrkDwcUMbP
+	 jBS8YBfUtXDkBZNWHSedV8pLYgPrtli4pQpOldHkMxkf2CftC8MTSoBdHaad8pE7NV
+	 pkERQrQXlmLcqUywL/4/jDSIo7NBOs6IQFCgjHESundFz+6suFsU0cqA3NV1MUryrH
+	 1XhR6MypVpfcJvY0RvH9l6AybvmSPOtfx1M9kNuVex9rNhCRUjHcNnS913ee2hX91P
+	 LI1/8v8RgxtnodszRRuBdGjU8UAcRC/wWdDxNY9OOhdED4aPg5q4rZDYL9tGu/ggDZ
+	 eL9bXamOesSqQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
+Cc: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	Frank.Li@nxp.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] mailbox: imx: Use devm_pm_runtime_enable()
-Date: Mon, 31 Aug 2026 09:27:10 -0400
-Message-ID: <20260831133314.4125787-402-sashal@kernel.org>
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-6.6] net: microchip: sparx5: clean up PSFP resources on flower setup failure
+Date: Mon, 31 Aug 2026 09:27:27 -0400
+Message-ID: <20260831133314.4125787-419-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -80,100 +84,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
 
-[ Upstream commit 1f602619e408b6e9655ee76656a2a5ab6e89c5e4 ]
+[ Upstream commit 46e50367338702abe3df661df7795bdada40fef7 ]
 
-sashiko complained about early usage of the device while probe isn't
-completed. This can be mitigated by delaying the pm_runtime_enable()
-into the removal path instead doing it early. This ensures that in an
-error case the device is removed (and imx_mu_shutdown()) before
-pm_runtime_disable() so we don't have to do this manually.
+sparx5_tc_flower_psfp_setup() allocates PSFP stream gate, flow meter and
+stream filter resources before adding VCAP actions. If a later step
+fails, the resources allocated earlier in the function are not unwound.
 
-For the order to work, lets move devm_mbox_controller_register() until
-after the pm-runtime part. So the reverse order will be mbox-controller
-removal followed by disabling pm runtime.
+Add error paths to release the stream filter, flow meter and stream gate
+when setup fails after they have been acquired.
 
-Use devm_pm_runtime_enable(), remove manual pm_runtime_disable()
-invocations and move the pm_runtime handling in probe before
-devm_mbox_controller_register().
+Also make sparx5_psfp_fm_add() return the acquired flow-meter id before
+the existing-flow-meter early return. When an existing flow meter is
+reused, sparx5_psfp_fm_get() increments its pool reference count, but the
+caller previously kept psfp_fmid as 0. If a later setup step failed, the
+error path could try to delete flow-meter id 0 instead of the reused flow
+meter, leaving the incremented reference behind.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Jassi Brar <jassisinghbrar@gmail.com>
+Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Link: https://patch.msgid.link/20260603061716.747282-1-lihaoxiang@isrc.iscas.ac.cn
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The background history check finished successfully. It confirmed:
+The background searches finished and match the earlier analysis:
 
-- The imx mailbox PM/mbox ordering issue dates to **676f23eab75adb**
-  (Apr 2020, “Support runtime PM”).
-- The same class of fix is already in **6.18.44** via **a8bd68e4329f9**
-  (mtk-cmdq devm PM/mbox reorder), merged with mailbox-v6.11.
+- **`b4 dig`** couldn't run — the commit isn't in this tree, so lore
+  thread lookup wasn't possible that way.
+- **`git log --grep`** found no match for "clean up PSFP" or "flower
+  setup failure", confirming the fix isn't in **6.18.44** yet.
 
-That supports the earlier **YES** verdict: the imx patch fixes the same
-teardown ordering bug for i.MX MU devices in this tree.
+That supports the **YES** backport recommendation: the PSFP resource-
+leak bug is still present on this tree, and the patch should apply
+cleanly.
 
- drivers/mailbox/imx-mailbox.c | 24 +++++++++++-------------
- 1 file changed, 11 insertions(+), 13 deletions(-)
+ .../ethernet/microchip/sparx5/sparx5_psfp.c    |  5 +++--
+ .../microchip/sparx5/sparx5_tc_flower.c        | 18 ++++++++++++++----
+ 2 files changed, 17 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-index a80cb2c9df6ee..a45c3e6d76575 100644
---- a/drivers/mailbox/imx-mailbox.c
-+++ b/drivers/mailbox/imx-mailbox.c
-@@ -936,38 +936,36 @@ static int imx_mu_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, priv);
- 
--	ret = devm_mbox_controller_register(dev, &priv->mbox);
--	if (ret)
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret < 0)
- 		goto disable_clk;
- 
--	of_platform_populate(dev->of_node, NULL, NULL, dev);
--
--	pm_runtime_enable(dev);
--
- 	ret = pm_runtime_resume_and_get(dev);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
+index cd4f42c3f7ebf..83b37f95ee467 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_psfp.c
+@@ -277,6 +277,9 @@ int sparx5_psfp_fm_add(struct sparx5 *sparx5, u32 uidx,
+ 	ret = sparx5_psfp_fm_get(sparx5, uidx, &fm->pol.idx);
  	if (ret < 0)
--		goto disable_runtime_pm;
-+		goto disable_clk;
- 
- 	ret = pm_runtime_put_sync(dev);
+ 		return ret;
++
++	*id = fm->pol.idx;
++
+ 	/* Was already in use, no need to reconfigure */
+ 	if (ret > 1)
+ 		return 0;
+@@ -291,8 +294,6 @@ int sparx5_psfp_fm_add(struct sparx5 *sparx5, u32 uidx,
  	if (ret < 0)
--		goto disable_runtime_pm;
-+		goto disable_clk;
+ 		return ret;
  
- 	clk_disable_unprepare(priv->clk);
- 
-+	ret = devm_mbox_controller_register(dev, &priv->mbox);
-+	if (ret)
-+		goto err_out;
-+
-+	of_platform_populate(dev->of_node, NULL, NULL, dev);
-+
+-	*id = fm->pol.idx;
+-
  	return 0;
- 
--disable_runtime_pm:
--	pm_runtime_disable(dev);
- disable_clk:
- 	clk_disable_unprepare(priv->clk);
-+err_out:
- 	return ret;
  }
  
- static void imx_mu_remove(struct platform_device *pdev)
- {
--	struct imx_mu_priv *priv = platform_get_drvdata(pdev);
--
--	pm_runtime_disable(priv->dev);
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+index 4dc1ebd5d510d..e5022d783ee68 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tc_flower.c
+@@ -807,7 +807,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 		/* Add new flow-meter */
+ 		ret = sparx5_psfp_fm_add(sparx5, pol_idx, fm, &psfp_fmid);
+ 		if (ret < 0)
+-			return ret;
++			goto err_sg_del;
+ 	}
+ 
+ 	/* Map stream filter to stream gate */
+@@ -816,7 +816,7 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	/* Add new stream-filter and map it to a steam gate */
+ 	ret = sparx5_psfp_sf_add(sparx5, sf, &psfp_sfid);
+ 	if (ret < 0)
+-		return ret;
++		goto err_fm_del;
+ 
+ 	/* Streams are classified by ISDX - map ISDX 1:1 to sfid for now. */
+ 	sparx5_isdx_conf_set(sparx5, psfp_sfid, psfp_sfid, psfp_fmid);
+@@ -824,13 +824,23 @@ static int sparx5_tc_flower_psfp_setup(struct sparx5 *sparx5,
+ 	ret = vcap_rule_add_action_bit(vrule, VCAP_AF_ISDX_ADD_REPLACE_SEL,
+ 				       VCAP_BIT_1);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	ret = vcap_rule_add_action_u32(vrule, VCAP_AF_ISDX_VAL, psfp_sfid);
+ 	if (ret)
+-		return ret;
++		goto err_sf_del;
+ 
+ 	return 0;
++
++err_sf_del:
++	sparx5_isdx_conf_set(sparx5, psfp_sfid, 0, 0);
++	sparx5_psfp_sf_del(sparx5, psfp_sfid);
++err_fm_del:
++	if (pol_idx >= 0)
++		sparx5_psfp_fm_del(sparx5, psfp_fmid);
++err_sg_del:
++	sparx5_psfp_sg_del(sparx5, psfp_sgid);
++	return ret;
  }
  
- static const struct imx_mu_dcfg imx_mu_cfg_imx6sx = {
+ /* Handle the action trap for a VCAP rule */
 -- 
 2.53.0
 
