@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1662DC624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460C5C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CXFWcG0JianI0OmsXKF8tmDfPN490tp7ANFHCsMEJVc=; b=oIsir3WIM66/TRJkDatw5bFlgo
-	nXxnW1Wgw9ZYS1SYQAEuviapfN92pZBziP9hARPG1B320KOHqnq+ZjH/LbGL6QGWU514hUA3+7cdT
-	cgBlG2cwiveFjeUtqHa+2y6sGOF5DnJx1ofJbzhEsQ6KfYt507dgEkC+Lq7qc64/LUfeUOjLBK0wG
-	tud7EE+8oYT3FgncBaBcwBfelb3peC9Dw9vPOKb1LRj22aYRqGXLf5FGTnQieOxmGadw0pk/oNnLp
-	mOf9hJ+TwEruHjOmxa90DRmllrqLEQ/LeBSrsNQvIDXso/8p3U32RV31jnHdRdfqdjfOl4M4R9F5h
-	7he/XTrg==;
+	bh=z177QNjgxQybPqagtGZG+BD4aH+w7sTA7DQzUEw7Lso=; b=vNIR2uWrCUYJXRo/IOGlSNom+7
+	DCnCbCf3mbpPa70Fn3pi4WDlxGZJlBJzlpz9kN40NSy0dTKhM+K+X9DEJCcf/e79vz3XYHjXYerr0
+	umea2CJx7cZhXwyBhUwEHUhn0USFNYVX/Nv9nQgbaTRbT72roNrDcTsiyzMCuOe6mF+MzStKrMsha
+	U2HwKKdv6csgWmvVaJvYp06+NVUTTIpR3WOCZMRctprJKhKC2fb2zdFYiLWUpa2qRefLHElglAX++
+	J9P9rZ/JcnG3VZJIDa3+LyuYGgXBUJ3FTq1pP71+GYXASfa213eFjkM0D2YxnPRfk2JfT5zMUyXMY
+	eA6CTtjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x145N-00000009tQ0-2JyH;
-	Mon, 31 Aug 2026 15:38:13 +0000
+	id 1x145S-00000009tSr-3MWc;
+	Mon, 31 Aug 2026 15:38:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x145L-00000009tOb-1Px0;
-	Mon, 31 Aug 2026 15:38:11 +0000
+	id 1x145R-00000009tSB-2SpD;
+	Mon, 31 Aug 2026 15:38:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CXFWcG0JianI0OmsXKF8tmDfPN490tp7ANFHCsMEJVc=; b=L+CxUXBC/7DHWECFXQaY9+B+T6
-	oT3NmfGuMDvpBo1+6lAvH74TZjjg7nPQiHEJqen6NKkB0RnSCJKiWwv2pZRTlpkik/lVIJhMS0Efr
-	W1WRq5JpuOUkzm5f66cTjCW/ro+IAkwdw7Q72KK8dTpBVAFu1vPmVWA0/daFpzj9BkFkn5dXUPDlH
-	IamBrWPKgLLGmBUEw7YXUr/mZsaZfi4RAXVWP8fqhzNcXbhJvNwmYpiDwH++aUl+bNGHFYP5+bl6N
-	1NEs/nYSP6Xle/c3wG9kzo7YNigTiuGxoi7qwE8WNwbI49DSb6wVLt3NarbEn8mmVyspQKuIxJQOz
-	uUfuDuiA==;
-Received: from [2a07:2ec0:3002::65] (helo=pidgin.makrotopia.org)
+	bh=z177QNjgxQybPqagtGZG+BD4aH+w7sTA7DQzUEw7Lso=; b=q2aj4pQe93RiBMiuaZHexyl0xW
+	JQ1kHeTaYdMh2jucwaLobD2LW9A99K9bqevMgC1mUmOCVspsUFaIxg8ftlAinJqy3VOSwn3U0Omyw
+	ryQivoKnNmDQkC8TG2zO5/qf3l6IJIHytQeqWqHXrLtrZIdsd2goxoCRPd67cV99ZYwBVmcDz2kGW
+	DK0f31qcHvIbGd9ef366hR/4EzQbeBFfs/EqK0ODtl64+z9r6Ce/r5FZ9Po+kHkXLm+rPt86FZRNS
+	VCr0CY9uEKncYEFJgi88GaWk5EUlEeU7FEXWx4iABBaXSv/8NFjQXvnOP/ITd6WLcbmaAtQiMnxhc
+	yKQ3VZEw==;
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x145H-0000000A0Xo-3joa;
-	Mon, 31 Aug 2026 15:38:10 +0000
+	id 1x145O-0000000A0Yk-2vas;
+	Mon, 31 Aug 2026 15:38:16 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1x1458-0000000078x-0tea;
-	Mon, 31 Aug 2026 15:37:58 +0000
-Date: Mon, 31 Aug 2026 16:37:55 +0100
+	id 1x145J-0000000079c-23xo;
+	Mon, 31 Aug 2026 15:38:09 +0000
+Date: Mon, 31 Aug 2026 16:38:06 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
 	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
@@ -59,17 +59,17 @@ To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
 	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v5 1/9] net: dsa: mt7530: move MDIO bus locking into
- regmap
-Message-ID: <6927a774b87238800de5d6c0c717b0afd02d320b.1788190568.git.daniel@makrotopia.org>
+Subject: [PATCH net-next v5 2/9] net: dsa: mt7530: fold mt7530_mii_write/read
+ into mt7530_write/read
+Message-ID: <591c4e7ff5b1b6d39aac7f0f04eb67f36f40d8a2.1788190568.git.daniel@makrotopia.org>
 References: <cover.1788190568.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <cover.1788190568.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_163808_084558_288D437F 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20260831_163814_947911_0AC8AF79 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,396 +84,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The switch register regmap was created with .disable_locking = true,
-relying on callers to manually lock the MDIO bus. Move the locking
-into the regmap using .lock/.unlock callbacks, matching the PCS
-regmaps that already do this. This allows any code path reaching the
-regmap to be automatically protected.
+With the lock wrappers removed in the previous commit, mt7530_write()
+was a trivial wrapper around mt7530_mii_write(), and mt7530_read()
+around mt7530_mii_read() via _mt7530_read(). Fold the function bodies
+and eliminate the intermediate functions.
 
-With regmap handling bus locking, the manual mt7530_mutex_lock/unlock
-calls in mt7530_write(), _mt7530_read(), mt7530_rmw() and
-mt7530_port_change_mtu() become redundant and are removed, as is the
-bus lock held across the ATC/VTCR command poll sequences.
+The _mt7530_read() poll helper for readx_poll_timeout() is renamed to
+mt7530_mii_poll() and calls mt7530_read().
 
-The handle_mask_sync callback added by commit dd52b3df25ed ("net: dsa:
-mt7530: serialize the regmap IRQ chip like every other user") to hold
-mt7530_mutex_lock() around the regmap-irq mask register write is
-likewise removed. With the regmap now self-locking, regmap-irq's
-default unmask_base sync is serialized on its own, and so are the
-status read, ack write and init_ack_masked write that had no hook,
-closing the gaps that commit left open. The per-device copy of the irq
-chip it needed goes away too.
-
-The MT7531 indirect PHY access functions need serialization of their
-multi-step register sequences, but no longer need to hold bus->mdio_lock
-across the whole operation. Switch them to reg_mutex.
-
-core_write()/core_rmw() are the only remaining callers of
-mt7530_mutex_lock(). They access TRGMII core PHY registers via the
-clause 22 MMD indirect protocol -- a separate register space that
-bypasses regmap and needs manual bus->mdio_lock protection.
-
-The lock removals are generated using the following semantic patch:
-
-// Collapse mt7530_write() now that regmap serialises bus access.
-@@
-expression priv, reg, val;
-identifier ret;
-@@
- {
--	int ret;
--
--	mt7530_mutex_lock(priv);
--
--	ret = mt7530_mii_write(priv, reg, val);
--
--	mt7530_mutex_unlock(priv);
--
--	return ret;
-+	return mt7530_mii_write(priv, reg, val);
- }
-
-// Remove mt7530_mutex_lock/unlock around single regmap-based calls.
-@@
-expression priv, reg, mask, set;
-@@
- {
--	mt7530_mutex_lock(priv);
--
- 	regmap_update_bits(priv->regmap, reg, mask, set);
--
--	mt7530_mutex_unlock(priv);
- }
+Callers are updated using the following semantic patch:
 
 @@
-expression p;
-identifier val;
+expression E1, E2, E3;
 @@
- {
--	u32 val;
--	mt7530_mutex_lock(p->priv);
--	val = mt7530_mii_read(p->priv, p->reg);
--	mt7530_mutex_unlock(p->priv);
--	return val;
-+	return mt7530_mii_read(p->priv, p->reg);
- }
+-mt7530_mii_write(E1, E2, E3)
++mt7530_write(E1, E2, E3)
 
 @@
-expression priv;
-identifier val;
+expression E1, E2;
 @@
--	mt7530_mutex_lock(priv);
- 	val = mt7530_mii_read(priv, MT7530_GMACCR);
- 	...
- 	mt7530_mii_write(priv, MT7530_GMACCR, val);
--	mt7530_mutex_unlock(priv);
-
-// The ATC/VTCR command polls no longer need the bus lock held across
-// the poll and the status read-back.
-@@
-expression priv, reg, cond;
-identifier ret, val;
-@@
--	mt7530_mutex_lock(priv);
--
- 	ret = regmap_read_poll_timeout(priv->regmap, reg, val, cond, 20, 20000);
- 	if (!ret)
- 		ret = regmap_read(priv->regmap, reg, &val);
--
--	mt7530_mutex_unlock(priv);
-
-// The MT7531 indirect PHY sequences keep serialising themselves, but
-// against reg_mutex rather than the MDIO bus lock.
-@@
-expression priv;
-identifier ret, val;
-@@
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val, ...);
+-mt7530_mii_read(E1, E2)
++mt7530_read(E1, E2)
 
 @@
-expression priv;
+expression list args;
 @@
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
+-readx_poll_timeout(_mt7530_read, args)
++readx_poll_timeout(mt7530_mii_poll, args)
+
+The two readx_poll_timeout() call sites keep their original line
+wrapping, which spatch reflows for the longer helper name.
 
 Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
-v5: reworked on top of net-next's accessor error handling: mt7530_write()
-    now returns int, so removing its lock collapses it to a direct
-    return, the bus lock around the ATC/VTCR command polls goes too, and
-    _mt7530_unlocked_read() is already gone. Also revert the
-    handle_mask_sync workaround of commit dd52b3df25ed, which regmap's
-    own locking makes redundant and which would otherwise recurse on
-    bus->mdio_lock.
+v5: mt7530_write() keeps returning int, folding in the error
+    propagation from mt7530_mii_write(), instead of becoming void, and
+    _mt7530_read() is the only remaining poll helper to rename
 v4: no changes
 v3: no changes
 v2: no changes
 ---
- drivers/net/dsa/mt7530-mdio.c |  9 ++--
- drivers/net/dsa/mt7530.c      | 78 +++++------------------------------
- 2 files changed, 17 insertions(+), 70 deletions(-)
+ drivers/net/dsa/mt7530.c | 43 +++++++++++++---------------------------
+ 1 file changed, 14 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-index 784dd58a7158..422f785d2143 100644
---- a/drivers/net/dsa/mt7530-mdio.c
-+++ b/drivers/net/dsa/mt7530-mdio.c
-@@ -148,12 +148,14 @@ static const struct regmap_config regmap_config = {
- 	.val_bits = 32,
- 	.reg_stride = 4,
- 	.max_register = MT7530_CREV,
--	.disable_locking = true,
-+	.lock = mt7530_mdio_regmap_lock,
-+	.unlock = mt7530_mdio_regmap_unlock,
- };
- 
- static int
- mt7530_probe(struct mdio_device *mdiodev)
- {
-+	struct regmap_config rc = regmap_config;
- 	struct mt7530_priv *priv;
- 	struct device_node *dn;
- 	int ret;
-@@ -207,8 +209,9 @@ mt7530_probe(struct mdio_device *mdiodev)
- 			return PTR_ERR(priv->io_pwr);
- 	}
- 
--	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus, priv,
--					&regmap_config);
-+	rc.lock_arg = &priv->bus->mdio_lock;
-+	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
-+					priv, &rc);
- 	if (IS_ERR(priv->regmap))
- 		return PTR_ERR(priv->regmap);
- 
 diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 2b7be091c056..dbf70e5dd55f 100644
+index dbf70e5dd55f..3f36a2a9f665 100644
 --- a/drivers/net/dsa/mt7530.c
 +++ b/drivers/net/dsa/mt7530.c
-@@ -188,29 +188,13 @@ mt7530_mii_read(struct mt7530_priv *priv, u32 reg)
+@@ -155,7 +155,7 @@ core_clear(struct mt7530_priv *priv, u32 reg, u32 val)
+ }
+ 
  static int
- mt7530_write(struct mt7530_priv *priv, u32 reg, u32 val)
+-mt7530_mii_write(struct mt7530_priv *priv, u32 reg, u32 val)
++mt7530_write(struct mt7530_priv *priv, u32 reg, u32 val)
  {
--	int ret;
--
--	mt7530_mutex_lock(priv);
--
--	ret = mt7530_mii_write(priv, reg, val);
--
--	mt7530_mutex_unlock(priv);
--
--	return ret;
-+	return mt7530_mii_write(priv, reg, val);
+ 	int ret;
+ 
+@@ -169,7 +169,7 @@ mt7530_mii_write(struct mt7530_priv *priv, u32 reg, u32 val)
  }
  
  static u32
- _mt7530_read(struct mt7530_dummy_poll *p)
+-mt7530_mii_read(struct mt7530_priv *priv, u32 reg)
++mt7530_read(struct mt7530_priv *priv, u32 reg)
  {
--	u32 val;
--
--	mt7530_mutex_lock(p->priv);
--
--	val = mt7530_mii_read(p->priv, p->reg);
--
--	mt7530_mutex_unlock(p->priv);
--
--	return val;
-+	return mt7530_mii_read(p->priv, p->reg);
+ 	int ret;
+ 	u32 val;
+@@ -185,25 +185,10 @@ mt7530_mii_read(struct mt7530_priv *priv, u32 reg)
+ 	return val;
  }
  
+-static int
+-mt7530_write(struct mt7530_priv *priv, u32 reg, u32 val)
+-{
+-	return mt7530_mii_write(priv, reg, val);
+-}
+-
  static u32
-@@ -226,11 +210,7 @@ static void
- mt7530_rmw(struct mt7530_priv *priv, u32 reg,
- 	   u32 mask, u32 set)
+-_mt7530_read(struct mt7530_dummy_poll *p)
++mt7530_mii_poll(struct mt7530_dummy_poll *p)
  {
--	mt7530_mutex_lock(priv);
+-	return mt7530_mii_read(p->priv, p->reg);
+-}
 -
- 	regmap_update_bits(priv->regmap, reg, mask, set);
+-static u32
+-mt7530_read(struct mt7530_priv *priv, u32 reg)
+-{
+-	struct mt7530_dummy_poll p;
 -
--	mt7530_mutex_unlock(priv);
+-	INIT_MT7530_DUMMY_POLL(&p, priv, reg);
+-	return _mt7530_read(&p);
++	return mt7530_read(p->priv, p->reg);
  }
  
  static void
-@@ -257,15 +237,11 @@ mt7530_fdb_cmd(struct mt7530_priv *priv, enum mt7530_fdb_cmd cmd, u32 *rsp)
- 	if (ret)
- 		return ret;
+@@ -547,7 +532,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
  
--	mt7530_mutex_lock(priv);
--
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7530_ATC, val,
- 				       !(val & ATC_BUSY), 20, 20000);
- 	if (!ret)
- 		ret = regmap_read(priv->regmap, MT7530_ATC, &val);
+ 	reg = MT7531_MDIO_CL45_ADDR | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | regnum;
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
--	mt7530_mutex_unlock(priv);
--
- 	if (ret < 0) {
- 		dev_err(priv->dev, "reset timeout\n");
- 		return ret;
-@@ -560,7 +536,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
- 	u32 reg, val;
- 	int ret;
+@@ -560,7 +545,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
  
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
+ 	reg = MT7531_MDIO_CL45_READ | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad);
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
- 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
-@@ -597,7 +573,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
+@@ -596,7 +581,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
  
- 	ret = val & MT7531_MDIO_RW_DATA_MASK;
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
+ 	reg = MT7531_MDIO_CL45_ADDR | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | regnum;
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
- 	return ret;
- }
-@@ -609,7 +585,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
- 	u32 val, reg;
- 	int ret;
+@@ -609,7 +594,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
  
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
+ 	reg = MT7531_MDIO_CL45_WRITE | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_DEV_ADDR(devad) | data;
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
- 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
-@@ -645,7 +621,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
- 	}
+@@ -644,7 +629,7 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
+ 	val = MT7531_MDIO_CL22_READ | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_REG_ADDR(regnum);
  
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, val | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, val | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
- 	return ret;
- }
-@@ -656,7 +632,7 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
- 	int ret;
- 	u32 val;
+@@ -681,7 +666,7 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
+ 	reg = MT7531_MDIO_CL22_WRITE | MT7531_MDIO_PHY_ADDR(port) |
+ 	      MT7531_MDIO_REG_ADDR(regnum) | data;
  
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
+-	ret = mt7530_mii_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
++	ret = mt7530_write(priv, MT7531_PHY_IAC, reg | MT7531_PHY_ACS_ST);
+ 	if (ret < 0)
+ 		goto out;
  
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, val,
- 				       !(val & MT7531_PHY_ACS_ST), 20, 100000);
-@@ -681,7 +657,7 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
- 
- 	ret = val & MT7531_MDIO_RW_DATA_MASK;
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
- 	return ret;
- }
-@@ -693,7 +669,7 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
- 	int ret;
- 	u32 reg;
- 
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
- 
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7531_PHY_IAC, reg,
- 				       !(reg & MT7531_PHY_ACS_ST), 20, 100000);
-@@ -717,7 +693,7 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
- 	}
- 
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
- 	return ret;
- }
-@@ -1452,8 +1428,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+@@ -1428,7 +1413,7 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
  	if (!dsa_is_cpu_port(ds, port))
  		return 0;
  
--	mt7530_mutex_lock(priv);
--
- 	val = mt7530_mii_read(priv, MT7530_GMACCR);
+-	val = mt7530_mii_read(priv, MT7530_GMACCR);
++	val = mt7530_read(priv, MT7530_GMACCR);
  	val &= ~MAX_RX_PKT_LEN_MASK;
  
-@@ -1473,8 +1447,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+ 	/* RX length also includes Ethernet header, MTK tag, and FCS length */
+@@ -1445,7 +1430,7 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+ 		val |= MAX_RX_PKT_LEN_JUMBO;
+ 	}
  
- 	mt7530_mii_write(priv, MT7530_GMACCR, val);
+-	mt7530_mii_write(priv, MT7530_GMACCR, val);
++	mt7530_write(priv, MT7530_GMACCR, val);
  
--	mt7530_mutex_unlock(priv);
--
  	return 0;
  }
+@@ -2467,7 +2452,7 @@ mt7530_setup(struct dsa_switch *ds)
  
-@@ -1642,15 +1614,11 @@ mt7530_vlan_cmd(struct mt7530_priv *priv, enum mt7530_vlan_cmd cmd, u16 vid)
- 	if (ret)
- 		return ret;
- 
--	mt7530_mutex_lock(priv);
--
- 	ret = regmap_read_poll_timeout(priv->regmap, MT7530_VTCR, val,
- 				       !(val & VTCR_BUSY), 20, 20000);
- 	if (!ret)
- 		ret = regmap_read(priv->regmap, MT7530_VTCR, &val);
- 
--	mt7530_mutex_unlock(priv);
--
+ 	/* Waiting for MT7530 got to stable */
+ 	INIT_MT7530_DUMMY_POLL(&p, priv, MT753X_TRAP);
+-	ret = readx_poll_timeout(_mt7530_read, &p, val, val != 0,
++	ret = readx_poll_timeout(mt7530_mii_poll, &p, val, val != 0,
+ 				 20, 1000000);
  	if (ret < 0) {
- 		dev_err(priv->dev, "poll timeout\n");
- 		return ret;
-@@ -2319,21 +2287,6 @@ static const struct regmap_irq mt7530_irqs[] = {
- 	REGMAP_IRQ_REG_LINE(31, 32), /* ACL */
- };
+ 		dev_err(priv->dev, "reset timeout\n");
+@@ -2708,7 +2693,7 @@ mt7531_setup(struct dsa_switch *ds)
  
--/* Serialize regmap-irq's mask sync like every other regmap user */
--static int mt7530_irq_mask_sync(int index, unsigned int mask_buf_def,
--				unsigned int mask_buf, void *irq_drv_data)
--{
--	struct mt7530_priv *priv = irq_drv_data;
--	int ret;
--
--	mt7530_mutex_lock(priv);
--	ret = regmap_update_bits(priv->regmap, MT7530_SYS_INT_EN,
--				 mask_buf_def, ~mask_buf);
--	mt7530_mutex_unlock(priv);
--
--	return ret;
--}
--
- static const struct regmap_irq_chip mt7530_regmap_irq_chip = {
- 	.name = KBUILD_MODNAME,
- 	.status_base = MT7530_SYS_INT_STS,
-@@ -2343,14 +2296,12 @@ static const struct regmap_irq_chip mt7530_regmap_irq_chip = {
- 	.irqs = mt7530_irqs,
- 	.num_irqs = ARRAY_SIZE(mt7530_irqs),
- 	.num_regs = 1,
--	.handle_mask_sync = mt7530_irq_mask_sync,
- };
- 
- static int
- mt7530_setup_irq(struct mt7530_priv *priv)
- {
- 	struct regmap_irq_chip_data *irq_data;
--	struct regmap_irq_chip *chip;
- 	struct device *dev = priv->dev;
- 	struct device_node *np = dev->of_node;
- 	int irq, ret;
-@@ -2370,17 +2321,10 @@ mt7530_setup_irq(struct mt7530_priv *priv)
- 	if (priv->id == ID_MT7530 || priv->id == ID_MT7621)
- 		mt7530_set(priv, MT7530_TOP_SIG_CTRL, TOP_SIG_CTRL_NORMAL);
- 
--	chip = devm_kmemdup(dev, &mt7530_regmap_irq_chip, sizeof(*chip),
--			    GFP_KERNEL);
--	if (!chip)
--		return -ENOMEM;
--
--	chip->irq_drv_data = priv;
--
- 	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
- 					      priv->regmap, irq,
- 					      IRQF_ONESHOT,
--					      0, chip,
-+					      0, &mt7530_regmap_irq_chip,
- 					      &irq_data);
- 	if (ret)
- 		return ret;
+ 	/* Waiting for MT7530 got to stable */
+ 	INIT_MT7530_DUMMY_POLL(&p, priv, MT753X_TRAP);
+-	ret = readx_poll_timeout(_mt7530_read, &p, val, val != 0,
++	ret = readx_poll_timeout(mt7530_mii_poll, &p, val, val != 0,
+ 				 20, 1000000);
+ 	if (ret < 0) {
+ 		dev_err(priv->dev, "reset timeout\n");
 -- 
 2.55.0
 
