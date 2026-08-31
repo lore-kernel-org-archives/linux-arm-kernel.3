@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3FCC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FDAC624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9Of6rOS2S30ofLpkaTBjumW08XusXzmos/rCF2QCuw=; b=q0yhfNiRZwDyO2Y3jmjJrlACBn
-	OX7XHJeYIvSMabzYMsZWIS8hqkrgvHwIgWOQflN+yhrFnqNSsmKaI/8bgPhB4LV1M4ZVxJF8QG6H2
-	jqiF+ek0TlCv+Q00cGrqJTP6AwcWO/er2bG7o1TRjsaKuk4WcNxwFq16+7FmYUOo48eqPy3WQzsPH
-	iGncV5sUMGJqyaNMw2Fnn1ykVv78nN1pDQKVf6XwS6e2NnEYAowuzfnyZVQyFVZjroJSSwKzAJNuX
-	dIDfRH9O6tBXeJkU8D3K4HD3x+/gbWPHfdtFpRLw6UFQejJogfliEruzeqDfsiOKdIDsFJRxMoHG1
-	h6rNLBpw==;
+	bh=3Vynq3eyR9D6otlOg1mCxMi4f6PjR1A45mbH0owAWkk=; b=WmlfTWEbKr1c5K0ArXT4DIbmhZ
+	WI+5QUqvRgR/lUfMCK/3QYGoA7QRaq3m8zxGg/fPdIWv5Ri9/Uivg90ktKg19wZMCUs4XTe8cOHRf
+	6xWXB7bHb0715Xs2+8CXpTkyqzvINSDMyRqEgNgyahxakwSjdIEkmvquJymxZbK8ivPLMES5QLh63
+	5dLF/Qt0CyKhi6dzcrLV04Gr9J8MZtiSZoX5/kDeo0fwgNhT/kFjHZjx1Uvi9ot7FdVd4gzYrXAgb
+	200fISAEM9+S/8B71EvmshXZcPqU4TYi3LDQyRsmJxEq4lMdjwJFcIAi0CUTmiVto0i34dFoeAMC8
+	9Kg8iAZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14Xw-00000009xz2-3sAw;
-	Mon, 31 Aug 2026 16:07:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x14YI-00000009y23-0ZzU;
+	Mon, 31 Aug 2026 16:08:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14Xv-00000009xyZ-0F8C;
-	Mon, 31 Aug 2026 16:07:43 +0000
+	id 1x14YH-00000009y1g-0603
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 16:08:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B7DB602D5;
-	Mon, 31 Aug 2026 16:07:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E26541F000E9;
-	Mon, 31 Aug 2026 16:07:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C549447DB;
+	Mon, 31 Aug 2026 16:08:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EE6E1F00A3E;
+	Mon, 31 Aug 2026 16:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788192462;
-	bh=z9Of6rOS2S30ofLpkaTBjumW08XusXzmos/rCF2QCuw=;
+	s=k20260515; t=1788192484;
+	bh=3Vynq3eyR9D6otlOg1mCxMi4f6PjR1A45mbH0owAWkk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H2vF/MSLKhKOgTCZApK0xU3As7FLpWMirsvvwCrnckbljiG5SWn1TSgywDeS3pcK/
-	 Wq42NxtkRiT8VwY32GLbwbNSBx3GqpAQhxO5bEG9PQKdXfcytR0SbUiWgEXcD9+ejz
-	 CdQP0Vhiw7flrZnnU8RCa2igb1T57g3o91sflK20Y/qsVTSorzezekrzrEQtrJFGz8
-	 ZicESGO9oNCtuMw+NqFpZfjRoIwhNB6pmoTTkwNGG9eEfR1jkO3+blbsLSvMRsYjn0
-	 6a7eNfjdDd3etq3uBxz59jhmji8frYBqry4j56Wk+9w1/6P6UyuLqNRbHhmfF1p9sf
-	 XfD9Yx+Mlidtg==
-Date: Mon, 31 Aug 2026 17:07:36 +0100
+	b=IvJj6/3aqBrI/QT35/fpcVZRyOfWItH0VXOAoZZ6GqV4XsstFm0+dp7If9yxbTH1B
+	 njAzDPqL2TcX7bJ+zRiFgmjX+lhmsbGzeEU2g33IprSQsxpd4IELWiHZqsruYG1iaW
+	 2VW9UHnSw5JQ9tRK/0AKbpJNHXuSYD/9Rfcz9R0OwklldWttlaHk47X6QaxV2Dg+Bb
+	 wvuXilK2kjdTj+gaXRlWttu6hnIzQrZjS6DE9sWAugAwVGTQHpr/qoa2+sUHkHHx2/
+	 QobotARceuOkaJP94FXYGEEcJWVLw1VRe7tsJm8s/A+02Yp9UPfvIqlXx0xMRBRwv1
+	 CPigM4OsfJSZQ==
+Date: Mon, 31 Aug 2026 17:07:59 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Hongliang Yang <hongliang.yang@cixtech.com>
-Cc: peter.chen@kernel.org, pawell@cadence.com, vkoul@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	gregkh@linuxfoundation.org, rogerq@kernel.org,
-	neil.armstrong@linaro.org, p.zabel@pengutronix.de,
-	fugang.duan@cixtech.com, cix-kernel-upstream@cixtech.com,
-	linux-usb@vger.kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/4] dt-bindings: Add CIX Sky1 USB bindings
-Message-ID: <20260831-deluxe-capacity-85bf1fb6691a@spud>
-References: <20260831082309.3854507-1-hongliang.yang@cixtech.com>
- <20260831082309.3854507-2-hongliang.yang@cixtech.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] media: dt-bindings: nxp,imx8-isi: Add i.MX952 ISI
+ compatible string
+Message-ID: <20260831-pushchair-empirical-034396da2f0e@spud>
+References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
+ <20260831-isi_imx952-v2-4-fafdb4b446d4@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2qEwXy5L5XBLIveE"
+	protocol="application/pgp-signature"; boundary="pwXx4DOOFbxIx9RZ"
 Content-Disposition: inline
-In-Reply-To: <20260831082309.3854507-2-hongliang.yang@cixtech.com>
+In-Reply-To: <20260831-isi_imx952-v2-4-fafdb4b446d4@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,365 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---2qEwXy5L5XBLIveE
+--pwXx4DOOFbxIx9RZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Aug 31, 2026 at 04:23:05PM +0800, Hongliang Yang wrote:
-> Add device tree bindings for CIX Sky1 USB3 PHY and Cadence USBSSP
-> controller glue layer.
->=20
-> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
-> ---
->  .../bindings/phy/cix,sky1-usb3-phy.yaml       | 109 +++++++++++++
->  .../bindings/usb/cix,sky1-usbssp.yaml         | 153 ++++++++++++++++++
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Two patches please.
-
->  MAINTAINERS                                   |   3 +
->  3 files changed, 265 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-usb3-p=
-hy.yaml
->  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp=
-=2Eyaml
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml=
- b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
-> new file mode 100644
-> index 000000000000..76d020df72dd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
-> @@ -0,0 +1,109 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/cix,sky1-usb3-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 USB3 PHY
-> +
-> +maintainers:
-> +  - Hongliang Yang <hongliang.yang@cixtech.com>
-> +
-> +description:
-> +  The CIX Sky1 USB3 PHY is a multi-port SuperSpeedPlus PHY that
-> +  supports up to two USB3 lanes. Each port is represented as a
-> +  child node of the PHY controller.
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-usb3-phy
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: APB register interface clock
-> +      - description: PHY reference clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb_clk
-> +      - const: ref_clk
-
-drop "_clk", they're both clocks..
-pw-bot: changes-requested
-
-> +
-> +  resets:
-> +    items:
-> +      - description: PHY reset
-> +      - description: PHY APB preset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: reset
-> +      - const: preset
-
-drop "reset" from here, they're both resets. Call them "core" and "apb"
-or something instead.
-
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  "^usb-port@[0-9a-f]+$":
-
-> +    type: object
-> +    description:
-> +      A single USB3 PHY port/lane.
-> +
-> +    properties:
-> +      reg:
-> +        maxItems: 1
-
-> +
-> +      "#phy-cells":
-> +        const: 0
-> +
-> +    required:
-> +      - reg
-> +      - "#phy-cells"
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    usb-phy@9210000 {
-> +        compatible =3D "cix,sky1-usb3-phy";
-> +        reg =3D <0x09210000 0x40000>;
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        resets =3D <&s5_syscon SKY1_USBPHY_SS_RST_N>,
-> +                 <&s5_syscon SKY1_USBPHY_SS_PST_N>;
-> +        reset-names =3D "reset", "preset";
-> +
-> +        clocks =3D <&scmi_clk CLK_TREE_USB3A_PHY3_GATE>,
-> +                 <&scmi_clk CLK_TREE_USB3A_PHY_x2_REF>;
-> +        clock-names =3D "apb_clk", "ref_clk";
-> +
-> +        usb-port@0 {
-> +            reg =3D <0>;
-> +            #phy-cells =3D <0>;
-> +        };
-> +
-> +        usb-port@1 {
-> +            reg =3D <1>;
-> +            #phy-cells =3D <0>;
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml b=
-/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> new file mode 100644
-> index 000000000000..47202ff5b9e5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> @@ -0,0 +1,153 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbssp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 Cadence USBSSP Controller
-> +
-> +maintainers:
-> +  - Hongliang Yang <hongliang.yang@cixtech.com>
-> +
-> +description:
-> +  The CIX Sky1 USBSSP controller is based on the Cadence USBSSP DRD
-> +  controller. The integration adds glue registers and mode strap controls
-> +  in the Sky1 S5 system controller. The CIX glue node wraps a Cadence
-> +  USBSSP core as a child node.
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-usbssp
-> +
-> +  reg:
-> +    items:
-> +      - description: AXI property configuration register
-> +      - description: Controller status register
-> +
-> +  reg-names:
-> +    items:
-> +      - const: axi_property
-> +      - const: controller_status
-> +
-> +  clocks:
-> +    items:
-> +      - description: Start-of-frame clock
-> +      - description: AXI bus clock
-> +      - description: Low-power mode clock
-> +      - description: APB register interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sof_clk
-> +      - const: usb_aclk
-> +      - const: lpm_clk
-> +      - const: usb_pclk
-
-Same stuff here on naming
-
-> +
-> +  resets:
-> +    items:
-> +      - description: APB register reset
-> +      - description: Controller reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: usb_preset
-> +      - const: usb_reset
-
-and here.
-
-> +
-> +  cix,usb_syscon:
-
-No underscores in property names.
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the Sky1 S5 system controller used to program USB mode
-> +      strap controls.
-> +
-> +  axi_bmax_value:
-
-Missing vendor prefix.
-No underscores in property names.
-
-Why is this not a fixed value per SoC?
-
-Cheers,
-Conor.
-
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    default: 0x7
-> +    description:
-> +      AXI bus maximum burst length configuration value.
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^usb-controller@[0-9a-f]+$":
-> +    $ref: cdns,usb3.yaml#
-> +    description:
-> +      The Cadence USBSSP core controller node. See cdns,usb3.yaml
-> +      for properties such as dr_mode, maximum-speed, phys, and interrupt=
-s.
-> +    unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - cix,usb_syscon
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - ranges
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        usb@91c0300 {
-> +            compatible =3D "cix,sky1-usbssp";
-> +            #address-cells =3D <2>;
-> +            #size-cells =3D <2>;
-> +            ranges;
-> +
-> +            reg =3D <0x00 0x091c0314 0x00 0x4>,
-> +                  <0x00 0x091c0400 0x00 0x4>;
-> +            reg-names =3D "axi_property", "controller_status";
-> +
-> +            resets =3D <&src SKY1_USBC_SS2_PRST_N>,
-> +                     <&src SKY1_USBC_SS2_RST_N>;
-> +            reset-names =3D "usb_preset", "usb_reset";
-> +
-> +            clocks =3D <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
-> +                     <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
-> +                     <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
-> +                     <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
-> +            clock-names =3D "sof_clk", "usb_aclk", "lpm_clk", "usb_pclk";
-> +
-> +            cix,usb_syscon =3D <&src>;
-> +            axi_bmax_value =3D <0x7>;
-> +
-> +            usb-controller@91d0000 {
-> +                compatible =3D "cdns,usb3";
-> +                reg =3D <0x00 0x91d0000 0x00 0x4000>,
-> +                      <0x00 0x91d8000 0x00 0x8000>,
-> +                      <0x00 0x91d4000 0x00 0x4000>;
-> +                reg-names =3D "otg", "xhci", "dev";
-> +
-> +                interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>,
-> +                             <GIC_SPI 171 IRQ_TYPE_LEVEL_HIGH>;
-> +                interrupt-names =3D "host", "peripheral", "otg", "wakeup=
-";
-> +
-> +                /* Cadence USBSSP core properties - see cdns,usb3.yaml */
-> +                maximum-speed =3D "super-speed-plus";
-> +                dr_mode =3D "otg";
-> +
-> +                phys =3D <&usb3_phy4_0>, <&usb2_phy6>;
-> +                phy-names =3D "cdns3,usb3-phy", "cdns3,usb2-phy";
-> +            };
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 15011f5752a9..4c5f6cbe9124 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2775,8 +2775,11 @@ S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
->  F:	Documentation/devicetree/bindings/arm/cix.yaml
->  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
-> +F:	Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
-> +F:	Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
->  F:	arch/arm64/boot/dts/cix/
->  F:	drivers/mailbox/cix-mailbox.c
-> +F:	drivers/phy/cix/
->  K:	\bcix\b
-> =20
->  ARM/CLKDEV SUPPORT
-> --=20
-> 2.54.0
->=20
-
---2qEwXy5L5XBLIveE
+--pwXx4DOOFbxIx9RZ
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWmyAAKCRB4tDGHoIJi
-0mQDAP0RTp5tYcKsISp4eVDJUi5yZ8J4YDN2ZXztp16aNt5aZQEA6NDwrLFUkCm1
-qjuemHwa7AaHJO6OCYMqBC4Kk04sAg8=
-=m4Cd
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapWm3wAKCRB4tDGHoIJi
+0ou7AQCfQdXvM1TibmA0/BN+SjYPRIakJo2dh19uu/ch4xXz/QD9F4AbjzK2IupS
+KOH1B7ezgchdWNPN3EfZ2Jt3qde19wQ=
+=G8I8
 -----END PGP SIGNATURE-----
 
---2qEwXy5L5XBLIveE--
+--pwXx4DOOFbxIx9RZ--
 
