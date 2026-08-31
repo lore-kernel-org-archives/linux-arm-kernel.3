@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 221EEC624D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 20:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA90C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 20:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2JpYiqPXr/ethYzM1+1gzuYbq5aiDfKpOFymITEWkA=; b=DqzLFOkZn/OVxp3mFBp4nE+ICp
-	FrbguzNkT5ChDmssGvjlsdYuH38NXs4D9MXRPV94ribKi/tz8/unX1AYCcPQlj+qYUYayZuJmN5xJ
-	r8KoH8wKe11vgyeYWGnIXgkPuiTHOrOBXplzfN/DXDOtZukaVp26X1/xMV38Xg7e4hxXkbRtC6Gx/
-	QZAqJUE08BguLO0qR9M0+8Ss+fNmOStIIcPrhDUfWJAs916jJdMZOLyFdjqt90jCfCINVSNzLxzRW
-	n5jH8y2Ii5I+qErAHh56Z4hfLO8NVS4i97Sg+tx8otTdbFSVV3CoP5QXAZ5sBwr7GTSJDUgkJnkj0
-	hEMf6WaA==;
+	bh=49Ald9KJwatu8KbCg55GF4r1JrPt/AXEue5I5Kqlbx4=; b=gl16m9zWgGM6X3vRukPQqqiZGV
+	2gxjN+tvGGZBo6ip1PP/sDBxW4kxtvp6Hk0J/Mb85NhOsimSK/cyndw+kIbWZQnBiQvfF1T1j7XY7
+	duTXgFI4+IKn0tB2f0ToEdctJplZxdqeK7EVSEDRHMKqr6kIhwsoQOhp6teKqCFx++Xcc8Jrkax71
+	It9zg8HZdX8YXJVpvfCOOIA4qDDA9HQf5nbIv6tOORP4xlW2yjSo5sFM9Mk3b4tCnlyixY8cnCCzu
+	SF8m+BLrkrp/WHPPNQyCxWLC976ccQT4SV4b9aNNvi+YLnwAM9Py1O0MTdyuog95ves8tl05SWPyr
+	OUUIJTdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x18Vd-0000000AROM-2ZeX;
-	Mon, 31 Aug 2026 20:21:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x18Vs-0000000ARSa-3lnD;
+	Mon, 31 Aug 2026 20:21:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x18Vb-0000000ARO5-1Ubv
+	id 1x18Vr-0000000ARRr-35FE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 20:21:35 +0000
+	Mon, 31 Aug 2026 20:21:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 732AD602CE;
-	Mon, 31 Aug 2026 20:21:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33CF81F00A3D;
-	Mon, 31 Aug 2026 20:21:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 272A34010A;
+	Mon, 31 Aug 2026 20:21:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 773541F00A3D;
+	Mon, 31 Aug 2026 20:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788207694;
-	bh=l2JpYiqPXr/ethYzM1+1gzuYbq5aiDfKpOFymITEWkA=;
+	s=k20260515; t=1788207711;
+	bh=49Ald9KJwatu8KbCg55GF4r1JrPt/AXEue5I5Kqlbx4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Vz0HbuCDz6jTkAyyRbApRPlGU1s/AldD7YaBTRnpX1KQrE0stbO/DlScr6GSjFJgr
-	 U6EhF8VT2vWle8IXFm3LDARun45i1svx/fFdObVYQotH32cxe3ymAbbM6PtKjzLW5h
-	 W+F6y7MM6z+LcproWjYSOOmvNrWVVWO1/uFfW1NLfP1x+roC7dOrM9GWl9KJnyYk1v
-	 q+opEN3dxMXKfhbiAI+J8FpRXZmHmRnZkKCXAq6ZCmZzzL2MbMatowtcYnBphmjzc8
-	 ZjHzaldm0txts3epxaHDsDTi0gL6tB7nUwy7Oq6yaB1C7z7MVjLujX5O/VtuwPuxfD
-	 HNzlWkrRhuxZg==
+	b=NZabFlf+JTz1tv9m8SjNdokfX05IXB3NC9MpHW3Jpo6EtZocUsJ7ui+Jvvbjn7V18
+	 x6fnpzv3mV4JE9JUd+ragcS+f2TNwNSva555nfr28eZRZD4eBvKtVHqf3a4BKxZmET
+	 D2QDoWpLXb8396/+BiCKQL5KnHreWiADM3pzDNSwwWF0Qx9RN13kEnpmkQWnipa7Ll
+	 PBlf0+iJRHrrLSc3ZuEvkqLQtViMacR0j8OKfoZ/ygfmpwArYwcMZRvciMIFNJOBbA
+	 4VbltGVz4vymOAwl4sN8Bm1o9dVpMZ/ARiAsfwuu3Lm+wjt3txvB0ybeQ/CDe8wTCB
+	 cfZOQgGtNipWA==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
 	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+	Imran Shaik <imran.shaik@oss.qualcomm.com>,
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v2 0/9] drm/msm: Support for Eliza GPU
-Date: Mon, 31 Aug 2026 15:21:12 -0500
-Message-ID: <178820768658.1699313.7616803665464814803.b4-ty@kernel.org>
+	Abel Vesa <abel.vesa@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v10 00/10] Add support for Video, Camera, Graphics clock controllers on Eliza
+Date: Mon, 31 Aug 2026 15:21:26 -0500
+Message-ID: <178820768650.1699313.8829513297811537129.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
-References: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
+In-Reply-To: <20260806-eliza-mm-cc-v9-v10-0-6ba52dd14343@oss.qualcomm.com>
+References: <20260806-eliza-mm-cc-v9-v10-0-6ba52dd14343@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -99,26 +92,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 18 Jul 2026 02:11:25 +0530, Akhil P Oommen wrote:
-> Adreno 722 found in Eliza chipset belongs to the A7x Gen1 family. It is
-> derived from A730 and shares the same IP-level configurations: HWCG
-> registers, protected registers, GBIF CX registers and gmu_cgc_mode.
-> Major differences include smaller cache/core counts, 1MB GMEM, no
-> Concurrent Binning & LPAC support. Some of the peripheral blocks like
-> RSCC are from A740 that resulted in updates to RSC layout.
+On Thu, 06 Aug 2026 16:04:05 +0530, Taniya Das wrote:
+> Add driver for Eliza SoC camera, graphics and Video clock controllers.
+> The camera clock controller supports the cambist clock controller and
+> the regular camera clock controller.
+> 
+> Eliza camcc and videocc are on CX and MX rails and doesn't have MMCX
+> and MXC rails dependency. Add explicit power-domain voting for Milos
+> which are required. Hence extended the Milos camcc & videocc
+> documentation bindings for Eliza.
 > 
 > [...]
 
 Applied, thanks!
 
-[6/9] arm64: dts: qcom: eliza: Add GPU SMMU node
-      commit: 0cb81794dea5b236122578bd49e3e6bfdc6adf87
-[7/9] arm64: dts: qcom: eliza: Add GPU nodes
-      commit: 5cc169156d877a4aa947092dd3c9dbd784d62f93
-[8/9] arm64: dts: qcom: eliza: Add GPU cooling
-      commit: c53d30b2814e0f0215cdafe9ccf691eace2949ff
-[9/9] arm64: dts: qcom: eliza-mtp: Enable Adreno A722 GPU
-      commit: 864e8d024df64433f9916c72411c92157dd4ca53
+[07/10] clk: qcom: videocc: Add video clock controller driver for Eliza
+        commit: 223228051cdbdc6c8786b311b431ed162ee2be45
+[08/10] clk: qcom: gpucc: Add GPU Clock Controller driver for Eliza
+        commit: 10089c1832c993a2dcc689f2ddc934440390561f
+[09/10] clk: qcom: camcc: Add support for camera clock controller for Eliza
+        commit: 115631176f8aba9e281a3599c10f2d51263e057c
 
 Best regards,
 -- 
