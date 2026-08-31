@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34522C624C6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34588C624D4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=; b=MUtDgrY10qkwo9abSpG6RnwCuN
-	kENInNFrti0T0ywqlFKwg6rhCtERIwpaPKyx80Us/BKdMFo7w2zoQiIuUNdk0mRpoOEgwjblmVmkZ
-	fN6VAGHsdzQdAVFetWzpaeBy6wLy43Ohi0eX+Y9LldFUaIqaoGvoUVDl85oNxFGOM1XNyn47bCFc/
-	Ads18BpqQ0t4FFiArlheSs+aHZ7QljsMDH+WW7ECPIPHiIWQCl5LrNU0+Z5bEk6T45TT6hw5bt3nV
-	+fLRqV4ApWmnrLCAAtZZ1TzCwnehIbqUkXwIcbaPprnlJjO5g7uYRml7EEHWGXOkvzZfGTAahnL/9
-	MT7RYbLw==;
+	bh=9B8mLJKAa78eticVDQeqdgbhsOyYRLPHh3wbiZWj8Qw=; b=mTUutpqqhn/1fjGN1EXOLiSluD
+	7e4kx651xKapPgrDaFHDnXFSbsN98dPDEkOrwHYTlwDBYhLwE9Q0dOUJZkxyWXsAoOR5E8v1aK8X1
+	36FoPjJtGO6U9guTKB21rMgPGCIdEHyLxcYRoXDZXEf5Pzm+GmWEDR3xHPJz64aD5/ta3yNjloOD7
+	0hjm8ZZCOr0ldphYqo8qmZuvJuKv2GvISVxMR5JBk89nq5QMY7+KDYi0Ajjh5lpAw2c22p3rYtmtN
+	r5zeAiZWZ1j1thOWaS5VzY7HRJvgvwIiWJnjr62Gku1S+McpZgPjqquzh04wB/pJ9950EdbYNY/rv
+	BlC1M/Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15jI-0000000AAdO-1UYC;
-	Mon, 31 Aug 2026 17:23:32 +0000
+	id 1x15jL-0000000AAkm-2vfb;
+	Mon, 31 Aug 2026 17:23:35 +0000
 Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15iw-0000000AAGH-2tBp
+	id 1x15j8-0000000AAUM-1KFM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:23:12 +0000
+	Mon, 31 Aug 2026 17:23:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ri8WEQhp3XA2AwQ2sV4BmHB+ZEwfdLY+vyxWlbYLM5JWAf4dRneg1QOsTWs80b+CpvMrdMwSfJTEKZQ+SZxlDhZun0ahxexeABr1CMCy81ydBCXUNRqCER9G7oj3aGv93VLIKibxlA2eZHjoKsdhNsCqFgpWqZeOSLHNzXJ0lk8wmMH7Izup752qfj8s3JFZj7SfQbaG5sltzo5nUxaMx7qzo/vFPXSY+LuVsN8S0a53tWtDTXf+kpnqUjiBnv/M7EfhyXLwlXBDLf/YhlKCiXubeyodRuojWmG5HKMgzoLqi4kKkGkuiYhLbsXUWuvLzBHIPIVZ8cdMp+v/wHlmMA==
+ b=EkjuPBZH1ckYbP11MmjD+gS1e7YLCnPys8zFze5S/wR+q+EceDZ31bSjbt7RDOFXdUJ0F4BkRCFLH4n+xHa8ps+vIDvVrWpfASHquNw3KJjEsE7k9neI2vwhThi0+KD0aBnxJkJeVhcFiOoFP/JDfYPj335BmTm+2Tt9ZnNydw8P1Gcyw5NqOVOGj0VfTqydOl0rYix+sJiMK/0zznAd57YCChBKXp+69EGxy90UTWrILBwqVqQe9g+9lpTmKLDAj/EHqZyWPUvCcoLHPUVExAKPpa0f430YePdyIMAMLlS0S5bAnYKUzk90kXopojrHlKIhA07f1RWxu+RP8O51JA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=;
- b=tX8juNKHsajQCGizdvnNdB2HXrekyxMbmGiJrNyvolrmH8zqIk9AebiN70Dmn8yTvXsGh3o8dNOTlhuruyyASchcTO5Fk3bj80OC9ZciP1dsFJWj0v7WhKNWmizLtQ3eWT+jJJX8qb8ckn+e6Nhi/t/ilgzHgy0OiRk6xmEXJml41QaJnAL8bdkwefeGy5ETNRI7ygiCOyZXlUNrHauCoIViiW8DXfcBqOmMUCT+VGmc03/nOSH88XtIQF+7vZYSf5Zj2nQW9MxY8naG70V5OGJpAxlb9HdjtSo/5UJWf2Rp+y9/UKSm66YCb8rxzaAkfnqAyNgYt6cuyknimOys0w==
+ bh=9B8mLJKAa78eticVDQeqdgbhsOyYRLPHh3wbiZWj8Qw=;
+ b=MTItfyZFTtZ09qTPPBib24xBpq5Oaifm4HjOvCiNsNuKnZZHH/AFAFvILOBvi0KDeSpAxHUfAu3KBXhslYCt3Bru17N94+cioUExpLRtsj94OVeE1/bQqKNaTVA51NMPtLnc/2ExNMOLC97Of5PQBYPW8sxcR1HphwRBpP/JipKfx2Cr6BQNWtjuUNi5taiHVtgQGq2LM/5ITsIhHJ8ZcwkVdpapKxT+RwhHBM6quQzu7DSecE/nDGMlYngurjP+6freE97CE4DO2MPzsA3URX+rXghwKAYNpbGqp/R/ITJuldNphvywvGUFPXB2CzTYUQGAVvCO889DV5SiqhRCYQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HLQUQrvkB5NlDBFN5FcVzx8KLfF0LKh/icPsqn2UKI4=;
- b=SBN7bK2exaARc/1WgqJpD8nVk5E9VxX859IyNjWXCPZL2vfan3urOI81wE2brcblzX3B+pO0haci30etrnslvbCA3NdOzTQdxgI5/FXtGonZyJjLJISZRg4aD0mzsL/yAERuQTZ/aTUs2Rd/JO7hdMBXwXjg+gb6Wl8c9gkG3OZ6H4voNgoxxfJOh0SliiGoLW8v6WQOqnKWgVDSS2GskprjvmPXryCWgZBaDwVj4E/cPdM2G1luupR/NpAHar6MS+hLR0GtoDcAvW1aKcb9pxokomTj7VgIUo8ResHduVx7p49WM26ch1rtTXPH1v7DC8tMbigUXbpsDHMkBmfOUw==
+ bh=9B8mLJKAa78eticVDQeqdgbhsOyYRLPHh3wbiZWj8Qw=;
+ b=qQdNU+j3TzRee4a9pzKxMIXIMMchg+nqPsGMSvA5yTda651kb7/7OJ1Zp1bQ/hUH9rVTOrfTEAVvvwyAncEejo0pvsbFz7KqwriI0p73Bx15jzTZXKa1MhG7G3ZeU9dGPwR9945Vq0WmjIA7hxSG2J8dE/CX0gKDE75tIXP6vS4cJTY/jiM7SLQ5/V9afoGktp1YRMEHUY8TAuRjZ2C1Z8O0zi7+V3jGVZEI2NXSniDkhNPSjweF7EaK8bjIheebF4+DbJvXuHqCkjI0X2mzYV2lcxVSs9QTOQLh7KyzoRo21lV++NR0oaigRjYahd9eV925JixuGzxfdDSBkC+SSw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
- by SJ5PPF0C60B25BF.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98a) with
+ by PH7PR12MB7306.namprd12.prod.outlook.com (2603:10b6:510:20a::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 17:23:00 +0000
+ 2026 17:23:13 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 17:23:00 +0000
+ 17:23:13 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -72,71 +72,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH RFC v2 07/19] arm_mpam: Refine L3 topology and class selection
-Date: Mon, 31 Aug 2026 10:22:33 -0700
-Message-ID: <20260831172245.42253-8-fenghuay@nvidia.com>
+Subject: [PATCH RFC v2 18/19] arm_mpam: Add KUnit test for CPU-less NUMA node affinity
+Date: Mon, 31 Aug 2026 10:22:44 -0700
+Message-ID: <20260831172245.42253-19-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
 References: <20260831172245.42253-1-fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0340.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::15) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0031.namprd03.prod.outlook.com
+ (2603:10b6:a03:33e::6) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|SJ5PPF0C60B25BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14a2adde-437c-4941-f45d-08df07848182
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|PH7PR12MB7306:EE_
+X-MS-Office365-Filtering-Correlation-Id: 694bfa6c-b4a9-4056-9dfd-08df0784898c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|18002099003|22082099003|56012099006|11063799006|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: jK+Vi2L96kEOL37rbkDx3rBUNN092b/yO8aLnX2JH/FKEWINAMqurw8v8LP4VZJBn3tCV8bongpLlUeI261Dei6rv7NCZn46T7pwT9OH17eOQXr+kdmHz7XXxDCkWICduqSUIIhr81ohFH8MnnGmC9kgFPwyLUZ/zaFZs5rTx1budZKL6L/iSQPvZNEk/RKtDlisvaNJhXCgZ4UYLbBW8j9leI+65zckoQ96/bz0Q/VA/GsZNZHPfaXm9z1iWJ4IaHFr3MQUiZ2zdb+qf8M1JDWIEHUjy7TA/XSzihVRDE+LcL9ZOi2uBeshHm+TX5bkvOZDgAwbcr1H1y//r+up1VtWMsHL4P2krbG1vrQ4k1M3RKQuHipu0B8bqr7nyLYePYawuV1sKN7z2ShymlVCHkCqMgmvsopoI5lF7Y8AziqSw3z/M5+RmoFnDaO1Zjq6VQvj3vwZsTgjslv6JsprLDaDnF3Ypt9BfhdLHnvr0kG7w37dW0sVzomZ7SdU8bq8H73jRFlb2QyWtLL1i+tZK+3OR2eqPUpSju7U9+rG6yEBgSI/jdK7AxBSYmxaYSzLLYzOZasO7UcjiCBiAeJTfD59POUaTnqDpBepRCH7JTMdryS7GMl2dKBC2DzzYtWbBHZM6zcyUBy4oi5Xxd1AqcMMBWft9G/oYagF5fkwwuAYgtjxtJ5TIHgofB70fx+A33LIOhfPc3JvjN/JqIl0cw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|22082099003|18002099003|56012099006|10067099003|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: nr9Oc2pIZcAlxxgX6TOvTwchWTCf7t+r3vCIZekqPkq3oXdXmBKf/k4PhVGiQMdULBPEHESqQp/K61EScY/B5S5Fei+QwC74v8N2B8+pizH9UBuQKI+23Va9ootz3X12/MQ2wNw+aJKVIKO4i848/4QQdEX0pjN/tqUUCLZysOvND/1dAkrncYXQVDA9FgOXhTzxnq/lHBJZcSD7HAEMg8n0IvSAz5ifCnFF1RaEViKJ/gx535D7s1PPYwGoXGnBRSZonEV/rp0WYhQK6t/iY6KvueUwEjPuCFVmV3/1wqiSGtD69HTizND1/i3zsFs0AOYT/0dr0VkYWHrNKx5D/W6MJBhp7tWqZE5teEUZi7OTbXDg9fld7if9LtfsABlYu8B9BoDmreyW0yueAg6RNxyd5BE7I0MxulBdU3Jmf11XDRrrOpYNuqVOyJ8fYLTE8qtKTtbJvl8GHxO04n8U0Y8hsAbR+HoR85ATw5OMCgoZorEJRuBwpKpySakPeENzn8BCibiDoy1snqwGB7a+Fygce4AWECGcXAgTOd3By6oRX88KYtzyAvetmvN1nMtZAM7+3/q46h4Gj7vblLOIPv2DVWPAxJy7/v93QGL09YgiHzmgQE3/ejSqi/UsmKkhBjCC9JCp4U/txP5YXn1V1jDs/sFiNeQ80vC1Gz9slP5bEFrxgRIZvrC8hVZBb5t3VxiyYiDtD8fQ2HwoQW2dDA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zjazgEV8erwXLgRDAE+yMRlUXSGeTgW/i7HAM897mItjOma4vN0cuEiR6wDI?=
- =?us-ascii?Q?qixRJ/JSfzzJ7iY16BrCsKfchBjozJqmlnqXwwY/l77iXJ64xNyjNZtu1Q/c?=
- =?us-ascii?Q?b6rvGg0K0WIsvnuthAzQIMC4QsPQhJtvnHdH5ivWRx3zAEqTxBWnYDKPI9AD?=
- =?us-ascii?Q?dHBH4MFyihO7MD3+jb1TaXBHYMxJop6VzDWbzcnnrP/iOzinBh39i6h4V+IQ?=
- =?us-ascii?Q?bg3MSPE5KjjhRcBCPgKTDri87dfd/F2/GaAvN7qo47NNBxmhmspeNGUrj8Gz?=
- =?us-ascii?Q?2JkX0H9mC6f9HgY+UdkqsZpMSswJyhKSfzPfQdZtDZuXoeH0/0uV5l7fMScb?=
- =?us-ascii?Q?b6/mSAyt0YGrDJsK2AGsHbpdkLebrAH+cr3lUoHv82UUiDk7eoACzO/x+7E3?=
- =?us-ascii?Q?8EIDRFqE4Turs/1DHOzu1Wd8LiImmmu+CP6GfqXNdFZZ60+WzwTfniMPrltL?=
- =?us-ascii?Q?8ZVji/yNjXbZszREMKk0EtNV8Zbo6McWlaSdbuz77gAGeMzzaKAzzY4jsrts?=
- =?us-ascii?Q?beDPBS6v3kqcomcd1zhiXSMgzkOpJoREXnFvlfbHnWyLZcj2RO7gQ1eROfft?=
- =?us-ascii?Q?SPkEpz3GSREW6rkEU2WUdubD8uehtPLqnqUGrJdauIWaBinTH8dtSMMMMB4f?=
- =?us-ascii?Q?HUY3M114lcpIBRPOi/jt0IurVA1Nn+xZOC2e2hD0BhUAPRHIVd54mUE/RMAP?=
- =?us-ascii?Q?sp1FvXvGe0uSm/a1lJF+xg2K6ghTzbSDMuZ+Nydy4O3RAudsSfd/yZbYNRy0?=
- =?us-ascii?Q?L0o/8+DdPjth1HcCIqe1SgkL1oaYwgahrj6XqZy73KwhSMBYZKT95e8OzdNe?=
- =?us-ascii?Q?p0skc561paEaNCiUEduF/A7hqpxEf2XKi7vKMolmLrkeqOOwRwdz/Jf+oDw6?=
- =?us-ascii?Q?NUIahMXLkWrh9ZA+UGNqbj6k4QLDVhqWkbMKPnU7yp7OoaODcX6Eu/tkrEnO?=
- =?us-ascii?Q?wnYS0SAZrAEX3K0iJlnOR/8EgSi8iKPfwF7lplyZ/9+TK/hRJ2B0K7nsGRSk?=
- =?us-ascii?Q?rKwZPZRYcLX1qsNzy5/MFSHmpNylfJqx9H0PiQ3t9ZpaoczATDpf0NFt0NO0?=
- =?us-ascii?Q?5RYousKBLNKeNl0XxmEtvugGyPTkVy2dfI6Z3lPRghz18/aYceug0j6xbVkN?=
- =?us-ascii?Q?lzVu6lL1gD764xiLw5nxGIm5ilu3a7O17crm/FYclJPhEq6cBOC49TEmOnhH?=
- =?us-ascii?Q?9IIHg1Vp9BNXl5xIUNJE0a5h6SFMLBC8/55QghqVcOfbrgmcxknuiL5AqRVt?=
- =?us-ascii?Q?947l+NdN64A8SybyWu3dYEJmH87R66ThHFJxsxR4+oTnKsfEGkBWLyRexlyv?=
- =?us-ascii?Q?6KwQPkP8uYhf5lemw5KN6Aj9JCikbtU0EDMeZ0hmUKszJqrTZ9p8KxmCgSSr?=
- =?us-ascii?Q?e7yeIA5247KJhpyGgtWpFRdfOujhzSGYHrPNoaatG50V8OKkNo+Y3ujIxcXw?=
- =?us-ascii?Q?21Y5m4G6F7J87Unz9DOzjzD5JuRlnebBAO6LypKz30qGJM5BNKFrTjn6YZH5?=
- =?us-ascii?Q?NH2R+cAFs0gIcCr5+SAIru91xGI4Ru+QEOpZlPiiFjS5nyuPvI2X3eoGPN1Y?=
- =?us-ascii?Q?PeuVv3+eb935lBLCFY+I9Dwx1souo+YTa6EbCBlQRA7QJ0dOVsjuOupmOKAe?=
- =?us-ascii?Q?lRrXZMOz660kFA1HUIkW9xQgGEKNSQAL/dYrx9kOVx0eRodVdE9oErK2VcX6?=
- =?us-ascii?Q?IhUCZMnD5LAb3ayZN/kUniE88+SSa7AKHIFc4LGLowOSKva1nHPtKTAEKDNy?=
- =?us-ascii?Q?i6YDHLmCrQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bj1oOljZHseLcDnIVFdE10VPPUeBQw4SIfQbNXmd+5Iee/6EXvEMxtSf7RGa?=
+ =?us-ascii?Q?YI5Dxlz4MFhxZzlw95h6OEDGIFfLZjDmdTUkBZzHhE9+JCXahcmcYleeUFU8?=
+ =?us-ascii?Q?Jd4dR4Coydd3P6zrqW8T9MW8DRLwk7YX1oQ/I6hngQrZT35zQr0Y/j2j+kl4?=
+ =?us-ascii?Q?oeZqnAXBhuNjByNhCi0DupKEmGf9gx4JWqWc5HsBy5Aqv1zddoqijd2T/Gup?=
+ =?us-ascii?Q?NIwky8J2VRyrDnfABRjU4Ckckm1mbSVQT46kMftqsFuzVaVf2zJlMVvpr2+B?=
+ =?us-ascii?Q?qWWi7ouLALOGSMU//HprM+FJrLnomgZP96a0wjp8ewQzrG7E3RK0nH8qeec8?=
+ =?us-ascii?Q?HruEZ4WluWFv/a08CDKwtJx9yu0uSp3A4mI8EcbWKcLW8HnYHwcVPGCIS/Bs?=
+ =?us-ascii?Q?Wida/nCATO9cohN/089bs2jTtoj+WHZk6/0uea/hwgC2fAosoMNhYMZhFaKt?=
+ =?us-ascii?Q?U4r3py/O9uA1SdmHwF+RqAil4DLd3jXR9twuNFfMrkNOx0mBYf27qDNkOVqD?=
+ =?us-ascii?Q?aGuhMRq/VjZaNqyKtsp3VUiEB7zGP6ilWW30Sz7nRFWgHrm1N/YnsZTjCvZE?=
+ =?us-ascii?Q?ElYrYaQlh9CZs/bPUqVu86UDGuCvusz0SFUNnNZaXPan5YaiubKMsEsFX5JP?=
+ =?us-ascii?Q?WVsMa/jvMpwcdRrO6C/FzoU2wk6mjdLk44n/IUmAb2bfGfqsoerZYO7dO16J?=
+ =?us-ascii?Q?j3py4mLLYxmd4Hpq1cy6YZeLIyNZXhiIsbNnpmnUmCMEuZUZHfBnb2XTnduK?=
+ =?us-ascii?Q?yiIftYK25zqfQISddUdKUhVQTYXsElxPHcmvrrpyfPqvkrWsCxYiQtVI0uHi?=
+ =?us-ascii?Q?aLOrM3Apw4If1kuGZOoQnpiNrMF0IU/P8bp8aVV9xwe+AT4QDZQsKVwqoLle?=
+ =?us-ascii?Q?EVk0UJB9Ec4yVYqvMSW7+pLhQQb9MjGXOLStv7KDRJtkvgLgZcRlGfuT34JL?=
+ =?us-ascii?Q?cRqOoOxtt7F2oszEu+Gs2meLw3im4PRtqdXnAzfrsopd1qV6VjxcUxw8JkMf?=
+ =?us-ascii?Q?wo+bhCf2RsKdVUT0+ohvHsZJ2gEMQiON14zj2IGp3qqMpTL3aLZHwdYVXIyZ?=
+ =?us-ascii?Q?JzruJGoai7a79EewL87kH7MVp+e7prBsIIZNwho6G6ELPbdIjtarHxRrWv2f?=
+ =?us-ascii?Q?sDpm7QEHnx34jszAiwperTJ0GoNS/wxDpkJfmhrUmb/TSszcfW1YvhD6vGQG?=
+ =?us-ascii?Q?AxEtut9+DU2rvpLpDbJNDHMFf0Y9GG6BSoG+hm25n+3lVNzcvJ7F9z8oPDZi?=
+ =?us-ascii?Q?vk29viBXdsNbBUCeAZoavlYT2fLJrKicvx/vogWF2+OnVT0Ly2mTIJUmDDeE?=
+ =?us-ascii?Q?/U8kERsjpH89SLSzDMTgdKJnPkCiJgjITxtLymQQkySaqaORvzGSPVgFtydv?=
+ =?us-ascii?Q?PLQzZdAp3ZdxLwHA9jgj46wgD8th8Ap3YPEkuaYFiO9844t3ux5Li4GvUN6P?=
+ =?us-ascii?Q?IqpAVksWDU1TPfbK91AhoSFKAVsXglI/rfLil9IleenolS6uotMtuHzlh7lL?=
+ =?us-ascii?Q?CW9Tq/osEcjA99kODj79dqt5hk+zIFt7T0SoRBB74DqyIeqdgK9/Hmx7k//D?=
+ =?us-ascii?Q?koZqNxLb+V2rAGo0iK4K3yXMahjVbIYBJW/EyV3lUe7zzAXxAfh/rBfYQdwm?=
+ =?us-ascii?Q?NR6cX+llQNH2W7yuOJr74Fc02FJHsGbdj+5jXeJu8oa8mdM+fV1OaAXBkT7g?=
+ =?us-ascii?Q?yNMH87HGL/oGJnLH/0pN+DkQlv1f1kWr+JaQBceDRum3MVgCU2pGdGM+FGdH?=
+ =?us-ascii?Q?WczVLgWvAQ=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14a2adde-437c-4941-f45d-08df07848182
+X-MS-Exchange-CrossTenant-Network-Message-Id: 694bfa6c-b4a9-4056-9dfd-08df0784898c
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:00.1335
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:13.5874
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TITnZ2evMjdzbbfq/Lr8oa+9g/zjJK/rZYhHiW/fJUJxLKcIjJBJ0MiJmQtLOzNsLBl3j/Nk+EU1/3vz/oWgDw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0C60B25BF
+X-MS-Exchange-CrossTenant-UserPrincipalName: T4HYQyNvFjMWw6TiVB2NBmIITtMk/dOury1lfamGpSdHK5AJk5vumFf3EkNpSRyvDgXaEFA5IRjG9whedhMkFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7306
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_102310_762968_C8A007E5 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20260831_102322_388805_A7AE28E6 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,102 +151,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After enabling memory-level MSCs, the existing class-picking heuristics
-still treat every candidate like an L3 cache MSC. That rejects valid
-memory classes for MBWU counters and applies L3 egress checks to MBA
-classes on CPU-less or system-wide affinities, leaving no monitor or
-control class selected on affected platforms.
+Memory MPAM MSCs on CPU-less NUMA nodes rely on mpam_ris_get_affinity()
+falling back to cpu_possible_mask so the RIS can participate in MPAM
+and resctrl control. Add a KUnit test that locates a CPU-less node when
+present, exercises the MPAM_CLASS_MEMORY path, checks the reported
+affinity equals cpu_possible_mask intersected with MSC accessibility,
+and verifies cpu_less is set when the borrowed affinity is used.
 
-Adjust the heuristics so memory classes can back MBWU directly, L3
-topology matching is only required for level-3 MBA candidates, and
-traffic matching is skipped when the class already spans all CPUs.
-Also tolerate components with no online CPUs once at least one
-component has matched.
-
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+ drivers/resctrl/test_mpam_devices.c | 67 +++++++++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 47a7b18d841d..72302f6021d7 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -865,10 +865,12 @@ static bool topology_matches_l3(struct mpam_class *victim)
- {
- 	int cpu, err;
- 	struct mpam_component *victim_iter;
-+	bool matched_once = false;
+diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+index 31871f519729..7054919d4574 100644
+--- a/drivers/resctrl/test_mpam_devices.c
++++ b/drivers/resctrl/test_mpam_devices.c
+@@ -382,9 +382,76 @@ static void test_mpam_reset_msc_bitmap(struct kunit *test)
+ 	mutex_unlock(&fake_msc.part_sel_lock);
+ }
  
- 	lockdep_assert_cpus_held();
- 
- 	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
++static u32 find_cpuless_numa_node(void)
++{
++	int node;
++	cpumask_var_t tmp;
 +
- 	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
- 		return false;
- 
-@@ -882,8 +884,11 @@ static bool topology_matches_l3(struct mpam_class *victim)
- 		}
- 
- 		cpu = cpumask_any_and(&victim_iter->affinity, cpu_online_mask);
--		if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
-+		if (WARN_ON_ONCE(cpu >= nr_cpu_ids)) {
-+			if (matched_once)
-+				continue;
- 			return false;
++	if (!alloc_cpumask_var(&tmp, GFP_KERNEL))
++		return UINT_MAX;
++
++	for (node = 0; node < nr_node_ids; node++) {
++		cpumask_clear(tmp);
++		get_cpumask_from_node_id(node, tmp);
++		if (cpumask_empty(tmp)) {
++			u32 ret = node;
++
++			free_cpumask_var(tmp);
++			return ret;
 +		}
- 
- 		cpumask_clear(tmp_cpumask);
- 		err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
-@@ -903,6 +908,7 @@ static bool topology_matches_l3(struct mpam_class *victim)
- 
- 			return false;
- 		}
-+		matched_once = true;
- 	}
- 
- 	return true;
-@@ -1041,13 +1047,15 @@ static void mpam_resctrl_pick_mba(void)
- 			continue;
- 		}
- 
--		if (!topology_matches_l3(class)) {
-+		if (class->level == 3 && !topology_matches_l3(class)) {
- 			pr_debug("class %u topology doesn't match L3\n",
- 				 class->level);
- 			continue;
- 		}
- 
--		if (!traffic_matches_l3(class)) {
-+		/* Check memory at egress from L3 for MSC with L3 */
-+		if (!cpumask_equal(&class->affinity, cpu_possible_mask) &&
-+		    !traffic_matches_l3(class)) {
- 			pr_debug("class %u traffic doesn't match L3 egress\n",
- 				 class->level);
- 			continue;
-@@ -1175,8 +1183,9 @@ static void mpam_resctrl_pick_counters(void)
- 		}
- 
- 		if (class_has_usable_mbwu(class) &&
--		    topology_matches_l3(class) &&
--		    traffic_matches_l3(class)) {
-+		    ((class->type == MPAM_CLASS_MEMORY) ||
-+		    (topology_matches_l3(class) &&
-+		    traffic_matches_l3(class)))) {
- 			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
- 				 class->level);
- 
-@@ -1314,6 +1323,9 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
- 	if (class->type == MPAM_CLASS_CACHE)
- 		return comp->comp_id;
- 
-+	if (mpam_class_memory(class))
-+		return comp->comp_id;
++	}
 +
- 	if (topology_matches_l3(class)) {
- 		/* Use the corresponding L3 component ID as the domain ID */
- 		int id = get_cpu_cacheinfo_id(cpu, 3);
++	free_cpumask_var(tmp);
++	return UINT_MAX;
++}
++
++static void test_mpam_ris_cpuless_numa_affinity(struct kunit *test)
++{
++	cpumask_var_t affinity, expected;
++	bool cpu_less = false;
++	u32 node;
++	int err;
++
++	node = find_cpuless_numa_node();
++	if (node == UINT_MAX) {
++		kunit_skip(test, "No CPU-less NUMA node on this platform");
++		return;
++	}
++
++	if (!alloc_cpumask_var(&affinity, GFP_KERNEL) ||
++	    !alloc_cpumask_var(&expected, GFP_KERNEL)) {
++		free_cpumask_var(affinity);
++		free_cpumask_var(expected);
++		kunit_skip(test, "Failed to allocate cpumask");
++		return;
++	}
++
++	memset(&fake_msc1, 0, sizeof(fake_msc1));
++	fake_msc1.pdev = &fake_pdev;
++	cpumask_copy(&fake_msc1.accessibility, cpu_possible_mask);
++
++	fake_class.level = 3;
++	fake_class.type = MPAM_CLASS_MEMORY;
++	fake_comp1.comp_id = node;
++
++	cpumask_clear(affinity);
++	err = mpam_ris_get_affinity(&fake_msc1, affinity, MPAM_CLASS_MEMORY,
++				    &fake_class, &fake_comp1, &cpu_less);
++	KUNIT_EXPECT_EQ(test, err, 0);
++	KUNIT_EXPECT_TRUE(test, cpu_less);
++
++	cpumask_copy(expected, cpu_possible_mask);
++	cpumask_and(expected, expected, &fake_msc1.accessibility);
++	KUNIT_EXPECT_TRUE(test, cpumask_equal(affinity, expected));
++
++	free_cpumask_var(affinity);
++	free_cpumask_var(expected);
++}
++
+ static struct kunit_case mpam_devices_test_cases[] = {
+ 	KUNIT_CASE(test_mpam_reset_msc_bitmap),
+ 	KUNIT_CASE(test_mpam_enable_merge_features),
++	KUNIT_CASE(test_mpam_ris_cpuless_numa_affinity),
+ 	KUNIT_CASE(test__props_mismatch),
+ 	{}
+ };
 -- 
 2.53.0
 
