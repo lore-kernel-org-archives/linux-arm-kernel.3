@@ -4,46 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDAE3C61DE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 03:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF40DC61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 03:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NWvQJuqSPHF8KCZzanHrbmAUYIDC8tUyn91hJD3luIM=; b=jcRdTfJL0EgIKz5EmaSJeEKZZ/
-	j1y3X8cfiIOQ9bsn6KNEFPUGhDZ0tKWi7tMV3cpDaadYqqNjg9JCugAE++5WddWUZ8qHwNwHzpg8D
-	SpJTQ0JLAsCZG8FjcMCVWNul1ixvBA+TTnh4vpPu3rhj6xsAB7ggHpXIu0NdaDpP0qui8Mi4MAYI+
-	TCEnt3dzEbrbKlYRFePyJ9lZwsaNftnuihHtAviLbBmXkBpeqvwJVdEmsW3ceVLqkxPkJqEYSErXC
-	KHoveuEUAlKnb0lJnMqLCTIQ9nB0OMqjD1XRX4BienA54Ukkgj1pZ1KReAcU4et37EXyRArP21sQs
-	Qow2bKRA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P6BmoNo0Rm+l7jB3ysJ71dExwkuryFGpv7yramNe9aE=; b=lJCD3WlMxqLUk68njIu0c/66rk
+	lbHU39FBYuPyw44tLJeuXCYF/LsKvvftdsQZK2D9uyzLHP9NdwNb8iduGXc8yfpweFmhwEPXMlnYH
+	pfFCjLC4s7hGmvTupBP/gZJsI74wu2KheK3jhIuAW85zOl7quOFEazkaLYOLWHsL+uPi42xvsTSh/
+	gtvKnrLZ4jKX7jBSqnmPhZ/PyqQhcThbBH+c6kkNfUAA87KhHknmVWXD1j8NVgV3CpCKjBSrf00g/
+	TzPoDpdYlggqRPDX3/fYtu50VocF60GhZzGTbFBy8YRBcQEZQu2yIYYmiqeehuoyqjS2P9cn+C/fl
+	i6RVymtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0sOZ-00000008O3P-0GxD;
-	Mon, 31 Aug 2026 03:09:15 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0sOX-00000008O3C-0TdK;
-	Mon, 31 Aug 2026 03:09:13 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	James Clark <james.clark@arm.com>,
-	Tao Zhang <quic_taozha@quicinc.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Leo Yan <leo.yan@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v4] coresight: coresight.h: add '*' to kernel-doc lines
-Date: Sun, 30 Aug 2026 20:09:12 -0700
-Message-ID: <20260831030912.3399089-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.55.0
+	id 1x0sY3-00000008OYi-3UA0;
+	Mon, 31 Aug 2026 03:19:03 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x0sXz-00000008OY2-2hZ6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 03:19:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=P6BmoNo0Rm+l7jB3ysJ71dExwkuryFGpv7yramNe9aE=;
+	b=ftuH4LUVwe336rRMXuL6pKgvXG2AMhjdewt2FV+0QUzxt/2uZy9D0W+Fb8ZGUgS9FJ/cARaCB
+	yedCJvaeS3hqAChP06R3i01+swTjmedOowvO4MtMBEt1NodK9HNciBhFUbcvPNY91jllJVXHPtg
+	LFAkyUdCESFklNP/1q0mQgo=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hYDSN6gCFz1T4Fq;
+	Mon, 31 Aug 2026 11:07:32 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4D1B94057F;
+	Mon, 31 Aug 2026 11:18:51 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 31 Aug 2026 11:18:48 +0800
+Message-ID: <110d75e9-1580-42d3-b137-89bdad22b80a@huawei.com>
+Date: Mon, 31 Aug 2026 11:18:47 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
+	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
+	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <ajvKkLw5bL-FT5JC@willie-the-truck>
+ <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+ <akvoN5vvQaW3MdmI@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <akvoN5vvQaW3MdmI@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_201900_347867_D55BEDA6 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,63 +97,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel-doc reports 2 (kernel-doc) lines in coresight.h that don't have
-a beginning '*' in them, so fix these lines.
 
-Also convert struct coresight_trace_id_map to kernel-doc format to
-remove another warning.
 
-Warning: include/linux/coresight.h:173 bad line:
-  connected to @src_port. NULL until the device is created
-Warning: include/linux/coresight.h:177 bad line:
-  needs to be filtered.
-Warning: include/linux/coresight.h:236 This comment starts with '/**',
-  but isn't a kernel-doc comment.
+在 2026/7/7 1:39, Will Deacon 写道:
+> Hi Jinjie,
+> 
+> On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
+>> On 6/24/2026 8:16 PM, Will Deacon wrote:
+>>> Please just give me the time I asked for. If you want to help out in the
+>>> meantime, there are plenty of patches that need reviewing...
+>>
+>> It was a mistake on my part, and I sincerely apologize for wasting
+>> community review resources and disrupting your schedule.
+>>
+>> I will absolutely back off now and wait for your official series. Lesson
+>> learned. Thanks for your patience and for calling me out on this.
+> 
+> So I've mostly got the old series back on its feet:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+> 
+> but there are still two issues left to resolve:
+> 
+>   1. The printing that can happen before RCU has started. Although I've
+>      reduced this somewhat, there are still error paths in e.g.
+>      verify_local_cpu_capabilities() that print a message before dying.
+> 
+>   2. check_local_cpu_capabilities() can mutate the system capability
+>      state via update_cpu_capabilities(), so it's really dodgy running
+>      that prior to synchronisation.
 
-Fixes: ec9903d6cc34 ("coresight: Add support for trace filtering by source")
-Fixes: d49c9cf15f89 ("coresight: Rename connection members to make the direction explicit")
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-v2: rebase & resend
-v3: rebase & resend
-v4: rebase & resend; add Andrew to Cc: list
+Hi Will,
 
-Cc: James Clark <james.clark@arm.com>
-Cc: Tao Zhang <quic_taozha@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: coresight@lists.linaro.org
-Cc: Danilo Krummrich <dakr@kernel.org>
-Cc: Mike Leach <mike.leach@arm.com>
-Cc: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Andrew Morton <akpm@linux-foundation.org>
----
- include/linux/coresight.h |    6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Just a gentle ping on this. I replied to the two remaining issues
+earlier — any thoughts on my response? Happy to help test or rebase if
+that helps.
 
---- linux-next-20260828.orig/include/linux/coresight.h
-+++ linux-next-20260828/include/linux/coresight.h
-@@ -177,11 +177,11 @@ struct coresight_desc {
-  * @dest_port:	destination's input port number @src_port is connected to.
-  * @dest_fwnode: destination component's fwnode handle.
-  * @dest_dev:	a @coresight_device representation of the component
--		connected to @src_port. NULL until the device is created
-+ *		connected to @src_port. NULL until the device is created
-  * @link: Representation of the connection as a sysfs link.
-  * @filter_src_fwnode: filter source component's fwnode handle.
-  * @filter_src_dev: a @coresight_device representation of the component that
--		needs to be filtered.
-+ *		needs to be filtered.
-  *
-  * The full connection structure looks like this, where in_conns store
-  * references to same connection as the source device's out_conns.
-@@ -234,7 +234,7 @@ struct coresight_sysfs_link {
- #define CORESIGHT_TRACE_IDS_MAX 128
- 
- /**
-- * Trace ID map.
-+ * struct coresight_trace_id_map - Trace ID map.
-  *
-  * @used_ids:	Bitmap to register available (bit = 0) and in use (bit = 1) IDs.
-  *		Initialised so that the reserved IDs are permanently marked as
+Best regards,
+Jinjie
+
+> 
+> Since you've added patches in this series that try to tackle these
+> problems, I'll reply on those two so we can figure out how we would like
+> to proceed.
+> 
+> Cheers,
+> 
+> Will
+
 
