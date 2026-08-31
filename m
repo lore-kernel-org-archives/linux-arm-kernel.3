@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12658C624C6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3137BC624A5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gT4nkNMlS/dPWW+UPepkc4Yl+dRYGFrp3zHyokX2lQQ=; b=XrPJPYdoqQsg5s7CxnJtBKrmVW
-	NdCHb0i/BmjRQyc+Z3fuqcDxIsd00T1PLTr7ZOrisRfKmt7hwkrfNS9lglh7ag5BX/2oY660KbspA
-	BqBR4EeC2PpRZHrDkrmoaB/28crAp5pYLxd0yOcH2ObqipVVWvZGUl3HJ3AonHhu1NbR9wBuItdJM
-	x2ALGN7HaLK73ZBpDUXFFFnDejlxlTsnrgyqwFaJ6vy37I3RcZS0/hA7dizpxHxMmDkafmGD8UG3u
-	+ETxLZV/c8OVd+qsat7tXKba9PtqSZPgfjNnS/Xg9hWk3hJMkW8fgjHYCrcq1Mj6zL/ZgiOJRBQhE
-	zDNMJjHw==;
+	bh=TmcDYc7H0S6bH9oEkvwHBJoAArjFlGnTjn1pOTdkzQg=; b=NbEqhgLip1ObXCcZQfQldTvkzh
+	598SQ3dMjXCgwmeI/ZHBvQWcHmjbRRkwpTBW6xYraws4eIA9IkNZEWl1JmBo0lY0viqUdHXaw2aeZ
+	Cd6es8reb9duL7oAeWhrWkgHZlfHtmtrGJA6N790NgtbmQl09zh+tTSAI46pnkZkUvuhsldgOHmus
+	7+SP75ui22bQMn7M5+gHi0iUtbZXpLp22WMCXR5MFo1QB20tiIztI5u/g4stSfvowFR3+FMvcWhMN
+	B6Y59hDA2UtnHEK7ez0AtidX3ioZvQK+6luVytCvQEBTRAWl0Z9qOqDRqLtsU3rEMoQ65O7mtv7XC
+	g6oRurGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13dG-00000009oGZ-1FjP;
+	id 1x13dG-00000009oHE-2RVd;
 	Mon, 31 Aug 2026 15:09:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13d9-00000009oCz-2s4A
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 31 Aug 2026 15:09:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gT4nkNMlS/dPWW+UPepkc4Yl+dRYGFrp3zHyokX2lQQ=; b=jt5gAk5HO70rW3X8HbTaSVDFOE
-	0Pj3GvWfhAzd1rn1Aezz7cIgqX7Xim1u0FdigwZESacRXqJf13RzoFxczboiumT/IEAMVc8MUaU9B
-	lznXPQYY/2bb2wjSmz9jJjaxHyKTqGGk4iXrF9eCig7Q1pTvGZGjTaeoNw9geGmOiS/a7BN0VSF7E
-	lQyCZWKRkiZrcJUVx1S2i2zf/jxUOXZls0NJMjg33zEJ06Ccl4Od2YaIrG0sFQDYSDnOvQOUMwlpt
-	kED62qvDiHvlEIgHdhNW48/JsWJdKXhBWbkz0JYd77krmmhXLDgsQ21VfhGFotGEpWSnc+8eERHNl
-	IevQbArA==;
-Received: from mail-westus2azon11012034.outbound.protection.outlook.com ([52.101.48.34] helo=MW6PR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x13d4-00000009yhG-2Tvs
+	id 1x13dD-00000009oE3-0ivk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:09:01 +0000
+	Mon, 31 Aug 2026 15:09:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=axzU6w+mWPNx2ZJYLZmjXGvqnirp4+5cCfBWssW1C2n44MLJoucj+n1/ixIdNpvbfwynD4/VY02ilDNkXH2GIiykyd6hYZZBC4fgNzBZCu5F8pkcGEzibJt9bduANXhDKtbeJp+4Wk3VACqPLkjpyKjn1nXryWjrVd5Ozp4YXe/a7iRUXJ8iNv0f/OnjcK6BejqnCYo7N9Xls2E87bjGuY9qMvvj9OuNjuqGEbQpmPZ7ItrsmhWxtZzH6fo1RIQfj+asiFtYysl3lFfydfzmSCdpquaJyuNaVUAuLR2ow+xx1dKpwiQebvFElvoYlbnlIfi0KkmwXDEFaKVQVWaBsA==
+ b=K33ptnL8bmLWrGGsEyPAKD2FnEsUFf+dcBBURfX17wHTAd33IsgtkwBpbU2b6WN1qykwY0jov2boHqPPIu8znJSNTg2Sn6f01JKqcR8cfRgvSxPKEYDWudNZzwImuB/gOvq4R1sSsNQD888wl7lx+lEAez4XhmRTk+pNLEveiIAgdc9yUzHIrXSMlx5DZYFgJCUiS1jX09ln1hy7k0Ty78+TM0jtbgs8q4dpj5djCQo9Nf8kcGvCl4omAhJKWgOs9F+So6PZ7hAVgEPS2ZPDKTQew67rX63h9wH5whcv/gf4IknNAsxjRzmlseTDXgyCSdNmdtGeC4tdQPdFhqYekQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gT4nkNMlS/dPWW+UPepkc4Yl+dRYGFrp3zHyokX2lQQ=;
- b=hsSq5fM6R3RAhNp9qUmXu/Zr4lzMXCmhxDPuYjUAd96RKs9ChiAQKLWjirViejHOu5T9ctvc/MH3b/PCx8q22wXcKjV1Y8M5kEgqGU9SmyVKxZXbGcE9OId1bsaKgMGoho186Zhg6jA3H7PpQPJ9TrwREASkvVCt3g4bv9bJGH8xk5j1FB15uDd6I6EeYGi2C61nPt/Ru+hN1GVD8o3tCRO1egUkEq4Q0r0tEZGSG31nA+A/3t++3WSGQqyRnlir0Es1Dt7FnVsvLtkA4Jf7/ZnABiPhwS217DFZa2OvDgF1/IMniVdiQUzxKsX9waRAnwjdoXIEncR6x6u5+B8s0w==
+ bh=TmcDYc7H0S6bH9oEkvwHBJoAArjFlGnTjn1pOTdkzQg=;
+ b=GwfiDGNOdASdaugMg+C3mvoFOz36CciJEQxz14Vr1gzECO0CcJDqxYgRvzqNmD3miCV79f8KK4XzRZONodxu3ZtYFsl27dyfCaKA+HlOm2U6dSVncwuQ8c2lIZwv2UaEsD2hbIty3KgSu0q0ANzE9YdLZBHeGBYX7H8wDuC64gVugnj4iUUAzIhoF41FhstLl0huyKqKkAooO/5GDlbN7GMpjP9xuVqEuGGxMi3xbmKsRUXr9BXGYtWBKwsmFT4ZHwh+BXW5g/ftG8OgaoWYEVaXLDIpC7s/BeOXUDG12BUKRTfOwcJAYqVsASziCym+ViSFB6pQ4KQ9fJ5wmS//Ig==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gT4nkNMlS/dPWW+UPepkc4Yl+dRYGFrp3zHyokX2lQQ=;
- b=2KpdFQJcLe3JWkC5AdQu+sWCs8pPkw9hcZCzXPAaqVcN2+OFU8AJasmlm8zcoxwYR6phOxdNCt2rnBd+lpkM7zckKT4/QCk2d7V7vhYT0vpyeEnIGcNe999tuHunYtLF2UVr4DqoGu+7NxjBboDyRw2dUYEPxnGWB0Jp/W9C3PY=
-Received: from SJ0PR13CA0106.namprd13.prod.outlook.com (2603:10b6:a03:2c5::21)
- by BN7PPFA8145BD40.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6de) with
+ bh=TmcDYc7H0S6bH9oEkvwHBJoAArjFlGnTjn1pOTdkzQg=;
+ b=fJPjMhSivhq1tWsdJBzU+0UIpqsPIxHLjsgZusBtnEabF3NgOdNnRI2BcSQ491SpCd9XGWeQWQY+gTdvWgPOEsmJgAWLO9k++aMaqGbwt0Am1a4rH6QPAZVj3KTaxQ83MT2kav6WgUimhryQYE4kz97n+Pb2XBudpbLFIqFFCnQ=
+Received: from BY3PR03CA0020.namprd03.prod.outlook.com (2603:10b6:a03:39a::25)
+ by SA3PR12MB7877.namprd12.prod.outlook.com (2603:10b6:806:31b::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 15:08:49 +0000
-Received: from SJ5PEPF000001EF.namprd05.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::77) by SJ0PR13CA0106.outlook.office365.com
- (2603:10b6:a03:2c5::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Mon,
- 31 Aug 2026 15:08:49 +0000
+ 2026 15:08:56 +0000
+Received: from SJ5PEPF000001EC.namprd05.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::a7) by BY3PR03CA0020.outlook.office365.com
+ (2603:10b6:a03:39a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Mon,
+ 31 Aug 2026 15:08:56 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -74,20 +59,20 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001EF.mail.protection.outlook.com (10.167.242.203) with Microsoft
+ SJ5PEPF000001EC.mail.protection.outlook.com (10.167.242.200) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Mon, 31 Aug 2026 15:08:49 +0000
+ 15.21.382.8 via Frontend Transport; Mon, 31 Aug 2026 15:08:56 +0000
 Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 31 Aug
- 2026 10:08:30 -0500
+ 2026 10:08:43 -0500
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
  (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 31 Aug
- 2026 10:08:31 -0500
+ 2026 10:08:44 -0500
 Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Mon, 31 Aug 2026 10:08:26 -0500
+ Transport; Mon, 31 Aug 2026 10:08:39 -0500
 From: Suraj Gupta <suraj.gupta2@amd.com>
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
 	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
@@ -97,9 +82,9 @@ To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
 	<conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
 CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH net-next v3 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet
-Date: Mon, 31 Aug 2026 20:38:12 +0530
-Message-ID: <20260831150816.1020883-3-suraj.gupta2@amd.com>
+Subject: [PATCH net-next v3 5/6] net: xilinx: axienet: Dispatch statistics through axienet_config ops
+Date: Mon, 31 Aug 2026 20:38:15 +0530
+Message-ID: <20260831150816.1020883-6-suraj.gupta2@amd.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260831150816.1020883-1-suraj.gupta2@amd.com>
 References: <20260831150816.1020883-1-suraj.gupta2@amd.com>
@@ -108,28 +93,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EF:EE_|BN7PPFA8145BD40:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c895dcc-b62f-4778-370a-08df0771c2f4
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EC:EE_|SA3PR12MB7877:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ac8846d-420f-4b7e-8a85-08df0771c754
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|23010399003|36860700016|13003099007|921020|3023799007|56012099006|10067099003|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: alebvt4q02tvjRjNMUoLOBk1hwdRdhg71bteeCb1UMOtaSGgUPfkKfGLhq/UmbgDae8S4iuIAwld2kpjoQDcvG9WDQJyAvFj7EQ7insNo7N1fz/50xbxHOS97iqkDi/stC6gPFaOw+EWe9tS2z/RcLPvuti8leaYLKz1ZTkft/NVRzuXagFRuF8KKeYin71kjXIMTkLNy+ICG65uet25/XeYoJDRiSnPHhx7dV5rGceqY0bUbPfUViCtJ5da8ODHb7zggj8d/zJWz3AuyH/zFEi9VNKCSteGxeRBvHX6jggJoKYKuQfzgq38jF1vFVuGvVjMlekk58NZq/law9DMUwo4LIgEQl0U/WVx5zscU9Ov4xF9WI1fHKcxbMNM6aP5AqAyuk/YPpVph5U4UG6PqCxqadqn1RuMVtZJD4q9EtFKCd6YX/XAxR0a1BduGzjumFPSWyuZKaoMrtb1WRa4vjHSJIHjNJEh5N8FOqmcjoMlQmdu3kekflO7pKntocPX56aWlaL7HxBVEn1RwtDI7a5UAf3nZLd+Cjeqo6a5CSDbsN/ma0oxagTds8qLjcAZwZcKbPoxlXrGn9XKoRZfYyyyb1QKudad28ByQy6XJ3NhZIiqCpFg2+3mBKu8OuiRCEVExrNSCVeMtiqFLy4up0GFzWFdr+KjsQDunJ23vCIYQ6NTV3b8dCvOiPne2+DWto/cPqQ7Absw0w9X0m6q6w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(23010399003)(36860700016)(13003099007)(921020)(3023799007)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|36860700016|376014|82310400026|10067099003|6133799003|18002099003|22082099003|11063799006|56012099006|921020;
+X-Microsoft-Antispam-Message-Info: LEdmGx9nNypp9/bzi2dy7/LoQfzNk/smEj3LrTxOLb/7JoJz9qBZMwTnDO/dZnYdDRZzKJBlpkpjrK+t6/Le8ULxjvVKp5vebytJ7+l6XxN33xkeiTv7tC62vXTApNDe+P2yf0EIRfgURmXgl1Q2/nNLfB5oXUYMn/VuNauhXTBVgBaNs06v3H6aqYsrocUCZQJCDNKDZmSOijzL/HLsgKh39MVX7kiSTPpIILpQgUVWZRVVDr0y+r0mS/SDVdZZ0yZVRnYUB7Fse5CKiGEH5K9Vojc6Q4B6gMclMY1HwlwcxB6Qsm4TmLrHB9jfcS7/2Dqv2d2qkkNjh83vKEpGi4FctVjK5G61I7h8M50webBorZQjHLWq7xepxwLW6Ex1qsRzgX/fTZ43H/qNq0v2ypkHz0LkDZwK/2exfr2MFg//UDBxQOYz42IF+CpCf9N5Lhnylm4l8EFd8xJilWTzOMagLlTcgBMKRn8YHDKqT6G4FkjjFlflUOhpi6eKbOybnzGf2XI3+RyRAmT2dAe4ai9gARApF/eSsSdjZ90HuU2Kh9QJSi/fqg4FUTb09DtxEQIKXvPh4ajieHgBWm4y4N8fnOxtG7jQ7e97Rmpx21E2PyF0NpJhUv13q3rkpehbiHlbyLBPXl0crHvksDLgxtLPq+Pf/6DjpcOLi0G8+MKDV3RSdI1CvE3wcrIUclSDU3BOUPOn1JhdqRmYjPRE1dP6W75v2vFFllR4YtgaZKAjFuzpF+8oCMReZLG0x1aw
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(36860700016)(376014)(82310400026)(10067099003)(6133799003)(18002099003)(22082099003)(11063799006)(56012099006)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: wETLs0F1nPKEH4vTJIz68h8msWCPRjtdgkwH5oXHF4/anp//6ZOFoK9Jf1Ilfow5jaq+hKhrlC4eEGqSZ56g6HZPJ8s1YjEyZH/Ch3rrsaGHniykLsSG8TMO4hIeGCF4dqQhqRvEQAx4QqFtAyiK+E+uylJbu4UmWW7LgZQSorKJVMPgQyNXvWY8YCuCQaSwN7xlQX7KvEWmWR6szexg6e7g4BNeXUndkLuNpemfcXv7MH0kb6OiVzPGBnDcb2SOs4lOXjczkOzTEpGNES7k8EeC+YOS4z6wpyn4ibuTK/0/l7HiTh2NWU1It6j4/fMw2GT0UUiQaoJ5ofWyv+ipu6f72EUvb6mlxYLhwcTJaAJ76zVXgsBgGCsyY58/FCPpZeA1QAMZr+PdrMrYUrpn1G09/mJZ02/vU154kM+CGKQ5QR6yTTssKQmKwKBuFXic
+X-MS-Exchange-AntiSpam-MessageData-0: YetvgdU5XsZ4cIlTX9LdC2GYSpOdgFyvCGjstGloWPXNaTy9Gd0eXUbjnCwq3Mp/d+4f8q4y4EjknTs/XTh5w+IhjBHeb8xiPgURlgiDjhMysehzYuLQnP0T2LH70n/Ny0uDyNvFYxUAJPMm1WPHWOtwNL08Kz+pdTqn7TOn7tH3XZ8QqpImnAsARxdB1RD/IfJjglOS9I4a6ii5Q329kD5fnxzV5mrvzpmzkKyM/KFJElP+wA3BZ6dfGz7XXhioD655x86iSN1eeswJaj1uckUR6rKER03hGxL+geJ/4yoOWMIBIUNaZVGIcngq5K3xjTwm7gWWn1Uskxq04taZQDdU/FjnbQ8yIDjOCSSHcCFkF0yea0NhHh92LG55/F1zzkut2VGr6ACO0bCd5fPsxr4/6j0PHBgZCMvrpLx2d5UXves6gMZHTzLIYrf73nS9
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:08:49.2357
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:08:56.6157
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c895dcc-b62f-4778-370a-08df0771c2f4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ac8846d-420f-4b7e-8a85-08df0771c754
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EC.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPFA8145BD40
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7877
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_160858_907450_55013FF5 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260831_080907_293970_14AB1C9A 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,149 +129,361 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The XXV Ethernet IP integrates a 10G/25G Ethernet MAC with an in-core
-PCS/PMA driving a high-speed serial transceiver. Its payload is moved by
-an external AXI DMA (or multichannel DMA) controller referenced through
-the dmas/dma-names properties. Document the IP in a dedicated schema
-file.
+The ndo_get_stats64() and ethtool statistics callbacks read the 1G MAC
+hardware counters directly. Supporting a second MAC type this way would
+require an "if (mactype == ...)" dispatch branch in each of the eight
+statistics callbacks.
 
-Add the "xlnx,xxv-ethernet-1.0" compatible with the 10gbase-r and
-25gbase-r phy-modes, the rx_core/drp/s_axi clocks and the AXI DMA
-channel properties.
+Add statistics operation function pointers to struct axienet_config and
+route get_stats64, get_ethtool_stats, get_strings, get_sset_count,
+get_pause_stats, get_eth_mac_stats, get_eth_ctrl_stats and
+get_rmon_stats through them. Factor the existing 1G counter reads into
+axienet_1g_*() helpers and populate axienet_1g_config with them.
+
+A NULL op means the MAC does not expose that statistics group, so a MAC
+without control-frame counters simply leaves get_eth_ctrl_stats unset
+instead of open-coding the special case in the callback.
+
+No functional change intended.
 
 Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/net/xlnx,xxv-ethernet.yaml       | 107 ++++++++++++++++++
- MAINTAINERS                                   |   1 +
- 2 files changed, 108 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |  23 +++
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 171 +++++++++++++-----
+ 2 files changed, 146 insertions(+), 48 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-new file mode 100644
-index 000000000000..2be3ade11d46
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/xlnx,xxv-ethernet.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Xilinx XXV 10G/25G Ethernet Subsystem
-+
-+maintainers:
-+  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-+  - Suraj Gupta <suraj.gupta2@amd.com>
-+
-+description:
-+  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
-+  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
-+  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
-+  Ethernet Consortium specification. It has no external MDIO PHY, and its
-+  payload is moved by an external AXI DMA (or multichannel DMA) controller
-+  referenced through the "dmas" property.
-+
-+properties:
-+  compatible:
-+    const: xlnx,xxv-ethernet-1.0
-+
-+  reg:
-+    maxItems: 1
-+    description: MAC control and status register space.
-+
-+  clocks:
-+    items:
-+      - description: RX AXI4-Stream clock.
-+      - description: GT DRP clock.
-+      - description: AXI4-Lite register clock.
-+
-+  clock-names:
-+    items:
-+      - const: rx_core
-+      - const: drp
-+      - const: s_axi
-+
-+  phy-mode:
-+    enum:
-+      - 10gbase-r
-+      - 25gbase-r
-+
-+  xlnx,rxmem:
-+    description:
-+      Size in bytes of the Rx/Tx packet buffer memory built into the IP. It is
-+      fixed by the hardware design and bounds the largest frame (jumbo MTU) the
-+      device can accept.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  dmas:
-+    minItems: 2
-+    maxItems: 32
-+    description: TX and RX DMA channel phandle.
-+
-+  dma-names:
-+    items:
-+      pattern: "^[tr]x_chan([0-9]|1[0-5])$"
-+    description:
-+      Should be "tx_chan0", "tx_chan1" ... "tx_chan15" for DMA Tx channel and
-+      "rx_chan0", "rx_chan1" ... "rx_chan15" for DMA Rx channel.
-+    minItems: 2
-+    maxItems: 32
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - phy-mode
-+  - xlnx,rxmem
-+  - dmas
-+  - dma-names
-+
-+allOf:
-+  - $ref: /schemas/net/ethernet-controller.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  # Single AXI DMA channel pair
-+  - |
-+    ethernet@80000000 {
-+        compatible = "xlnx,xxv-ethernet-1.0";
-+        reg = <0x80000000 0x10000>;
-+        clock-names = "rx_core", "drp", "s_axi";
-+        clocks = <&rx_clk>, <&drp_clk>, <&axi_clk>;
-+        dma-names = "tx_chan0", "rx_chan0";
-+        dmas = <&axi_dma 0>, <&axi_dma 1>;
-+        phy-mode = "25gbase-r";
-+        xlnx,rxmem = <0x8000>;
-+    };
-+  # Multichannel DMA (MCDMA) with multiple Tx/Rx channels
-+  - |
-+    ethernet@80010000 {
-+        compatible = "xlnx,xxv-ethernet-1.0";
-+        reg = <0x80010000 0x10000>;
-+        clock-names = "rx_core", "drp", "s_axi";
-+        clocks = <&rx_clk>, <&drp_clk>, <&axi_clk>;
-+        dma-names = "tx_chan0", "tx_chan1", "rx_chan0", "rx_chan1";
-+        dmas = <&axi_mcdma 0>, <&axi_mcdma 1>,
-+               <&axi_mcdma 16>, <&axi_mcdma 17>;
-+        phy-mode = "10gbase-r";
-+        xlnx,rxmem = <0x8000>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2d420d40782e..8160a8ddec65 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -29557,6 +29557,7 @@ XILINX AXI ETHERNET DRIVER
- M:	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
-+F:	Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
- F:	drivers/net/ethernet/xilinx/xilinx_axienet*
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+index a1d15b4797ce..f286c428343f 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+@@ -658,6 +658,15 @@ struct axienet_local {
+  * @phylink_set_caps: Callback to set phylink MAC capabilities
+  * @pcs_ops: phylink PCS operations for this MAC, or NULL if unused
+  * @stats_update: Callback to latch/accumulate the periodic MAC counters
++ * @get_stats64: Callback to read MAC counters into rtnl_link_stats64
++ * @get_ethtool_stats: Callback to read MAC counters for ethtool -S
++ * @get_strings: Callback to fill the ethtool -S statistic name strings
++ * @get_sset_count: Callback returning the number of ethtool -S statistics
++ * @get_pause_stats: Callback to read MAC pause-frame counters
++ * @get_eth_mac_stats: Callback to read IEEE 802.3 MAC counters
++ * @get_eth_ctrl_stats: Callback to read MAC-control frame counters, or NULL
++ *			if the MAC exposes no control-frame counters
++ * @get_rmon_stats: Callback to read RMON counters and histogram ranges
+  */
+ struct axienet_config {
+ 	bool mdio;
+@@ -683,6 +692,20 @@ struct axienet_config {
+ 				 struct phylink_config *config);
+ 	const struct phylink_pcs_ops *pcs_ops;
+ 	void (*stats_update)(struct axienet_local *lp);
++	void (*get_stats64)(struct axienet_local *lp,
++			    struct rtnl_link_stats64 *stats);
++	void (*get_ethtool_stats)(struct axienet_local *lp, u64 *data);
++	void (*get_strings)(u8 *data);
++	int (*get_sset_count)(void);
++	void (*get_pause_stats)(struct axienet_local *lp,
++				struct ethtool_pause_stats *pause_stats);
++	void (*get_eth_mac_stats)(struct axienet_local *lp,
++				  struct ethtool_eth_mac_stats *mac_stats);
++	void (*get_eth_ctrl_stats)(struct axienet_local *lp,
++				   struct ethtool_eth_ctrl_stats *ctrl_stats);
++	void (*get_rmon_stats)(struct axienet_local *lp,
++			       struct ethtool_rmon_stats *rmon_stats,
++			       const struct ethtool_rmon_hist_range **ranges);
+ };
  
- XILINX CAN DRIVER
+ static inline struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pcs)
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 19fe2fd81f3a..198de353372a 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1874,29 +1874,11 @@ static int axienet_ioctl(struct net_device *dev, struct ifreq *rq, int cmd)
+ 	return phylink_mii_ioctl(lp->phylink, rq, cmd);
+ }
+ 
+-static void
+-axienet_get_stats64(struct net_device *dev, struct rtnl_link_stats64 *stats)
++static void axienet_1g_get_stats64(struct axienet_local *lp,
++				   struct rtnl_link_stats64 *stats)
+ {
+-	struct axienet_local *lp = netdev_priv(dev);
+ 	unsigned int start;
+ 
+-	netdev_stats_to_stats64(stats, &dev->stats);
+-
+-	do {
+-		start = u64_stats_fetch_begin(&lp->rx_stat_sync);
+-		stats->rx_packets = u64_stats_read(&lp->rx_packets);
+-		stats->rx_bytes = u64_stats_read(&lp->rx_bytes);
+-	} while (u64_stats_fetch_retry(&lp->rx_stat_sync, start));
+-
+-	do {
+-		start = u64_stats_fetch_begin(&lp->tx_stat_sync);
+-		stats->tx_packets = u64_stats_read(&lp->tx_packets);
+-		stats->tx_bytes = u64_stats_read(&lp->tx_bytes);
+-	} while (u64_stats_fetch_retry(&lp->tx_stat_sync, start));
+-
+-	if (!(lp->features & XAE_FEATURE_STATS))
+-		return;
+-
+ 	do {
+ 		start = read_seqcount_begin(&lp->hw_stats_seqcount);
+ 		stats->rx_length_errors =
+@@ -1924,6 +1906,33 @@ axienet_get_stats64(struct net_device *dev, struct rtnl_link_stats64 *stats)
+ 	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
+ }
+ 
++static void
++axienet_get_stats64(struct net_device *dev, struct rtnl_link_stats64 *stats)
++{
++	struct axienet_local *lp = netdev_priv(dev);
++	unsigned int start;
++
++	netdev_stats_to_stats64(stats, &dev->stats);
++
++	do {
++		start = u64_stats_fetch_begin(&lp->rx_stat_sync);
++		stats->rx_packets = u64_stats_read(&lp->rx_packets);
++		stats->rx_bytes = u64_stats_read(&lp->rx_bytes);
++	} while (u64_stats_fetch_retry(&lp->rx_stat_sync, start));
++
++	do {
++		start = u64_stats_fetch_begin(&lp->tx_stat_sync);
++		stats->tx_packets = u64_stats_read(&lp->tx_packets);
++		stats->tx_bytes = u64_stats_read(&lp->tx_bytes);
++	} while (u64_stats_fetch_retry(&lp->tx_stat_sync, start));
++
++	if (!(lp->features & XAE_FEATURE_STATS))
++		return;
++
++	if (lp->axienet_config->get_stats64)
++		lp->axienet_config->get_stats64(lp, stats);
++}
++
+ static const struct net_device_ops axienet_netdev_ops = {
+ 	.ndo_open = axienet_open,
+ 	.ndo_stop = axienet_stop,
+@@ -2356,11 +2365,8 @@ static int axienet_ethtools_nway_reset(struct net_device *dev)
+ 	return phylink_ethtool_nway_reset(lp->phylink);
+ }
+ 
+-static void axienet_ethtools_get_ethtool_stats(struct net_device *dev,
+-					       struct ethtool_stats *stats,
+-					       u64 *data)
++static void axienet_1g_get_ethtool_stats(struct axienet_local *lp, u64 *data)
+ {
+-	struct axienet_local *lp = netdev_priv(dev);
+ 	unsigned int start;
+ 
+ 	do {
+@@ -2377,6 +2383,17 @@ static void axienet_ethtools_get_ethtool_stats(struct net_device *dev,
+ 	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
+ }
+ 
++static void axienet_ethtools_get_ethtool_stats(struct net_device *dev,
++					       struct ethtool_stats *stats,
++					       u64 *data)
++{
++	struct axienet_local *lp = netdev_priv(dev);
++
++	if (lp->features & XAE_FEATURE_STATS &&
++	    lp->axienet_config->get_ethtool_stats)
++		lp->axienet_config->get_ethtool_stats(lp, data);
++}
++
+ static const char axienet_ethtool_stats_strings[][ETH_GSTRING_LEN] = {
+ 	"Received bytes",
+ 	"Transmitted bytes",
+@@ -2389,12 +2406,26 @@ static const char axienet_ethtool_stats_strings[][ETH_GSTRING_LEN] = {
+ 	"User Defined Counter 2",
+ };
+ 
++static void axienet_1g_get_strings(u8 *data)
++{
++	memcpy(data, axienet_ethtool_stats_strings,
++	       sizeof(axienet_ethtool_stats_strings));
++}
++
++static int axienet_1g_get_sset_count(void)
++{
++	return ARRAY_SIZE(axienet_ethtool_stats_strings);
++}
++
+ static void axienet_ethtools_get_strings(struct net_device *dev, u32 stringset, u8 *data)
+ {
++	struct axienet_local *lp = netdev_priv(dev);
++
+ 	switch (stringset) {
+ 	case ETH_SS_STATS:
+-		memcpy(data, axienet_ethtool_stats_strings,
+-		       sizeof(axienet_ethtool_stats_strings));
++		if (lp->features & XAE_FEATURE_STATS &&
++		    lp->axienet_config->get_strings)
++			lp->axienet_config->get_strings(data);
+ 		break;
+ 	}
+ }
+@@ -2405,24 +2436,20 @@ static int axienet_ethtools_get_sset_count(struct net_device *dev, int sset)
+ 
+ 	switch (sset) {
+ 	case ETH_SS_STATS:
+-		if (lp->features & XAE_FEATURE_STATS)
+-			return ARRAY_SIZE(axienet_ethtool_stats_strings);
++		if (lp->features & XAE_FEATURE_STATS &&
++		    lp->axienet_config->get_sset_count)
++			return lp->axienet_config->get_sset_count();
+ 		fallthrough;
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
+ }
+ 
+-static void
+-axienet_ethtools_get_pause_stats(struct net_device *dev,
+-				 struct ethtool_pause_stats *pause_stats)
++static void axienet_1g_get_pause_stats(struct axienet_local *lp,
++				       struct ethtool_pause_stats *pause_stats)
+ {
+-	struct axienet_local *lp = netdev_priv(dev);
+ 	unsigned int start;
+ 
+-	if (!(lp->features & XAE_FEATURE_STATS))
+-		return;
+-
+ 	do {
+ 		start = read_seqcount_begin(&lp->hw_stats_seqcount);
+ 		pause_stats->tx_pause_frames =
+@@ -2433,15 +2460,23 @@ axienet_ethtools_get_pause_stats(struct net_device *dev,
+ }
+ 
+ static void
+-axienet_ethtool_get_eth_mac_stats(struct net_device *dev,
+-				  struct ethtool_eth_mac_stats *mac_stats)
++axienet_ethtools_get_pause_stats(struct net_device *dev,
++				 struct ethtool_pause_stats *pause_stats)
+ {
+ 	struct axienet_local *lp = netdev_priv(dev);
+-	unsigned int start;
+ 
+ 	if (!(lp->features & XAE_FEATURE_STATS))
+ 		return;
+ 
++	if (lp->axienet_config->get_pause_stats)
++		lp->axienet_config->get_pause_stats(lp, pause_stats);
++}
++
++static void axienet_1g_get_eth_mac_stats(struct axienet_local *lp,
++					 struct ethtool_eth_mac_stats *mac_stats)
++{
++	unsigned int start;
++
+ 	do {
+ 		start = read_seqcount_begin(&lp->hw_stats_seqcount);
+ 		mac_stats->FramesTransmittedOK =
+@@ -2478,15 +2513,24 @@ axienet_ethtool_get_eth_mac_stats(struct net_device *dev,
+ }
+ 
+ static void
+-axienet_ethtool_get_eth_ctrl_stats(struct net_device *dev,
+-				   struct ethtool_eth_ctrl_stats *ctrl_stats)
++axienet_ethtool_get_eth_mac_stats(struct net_device *dev,
++				  struct ethtool_eth_mac_stats *mac_stats)
+ {
+ 	struct axienet_local *lp = netdev_priv(dev);
+-	unsigned int start;
+ 
+ 	if (!(lp->features & XAE_FEATURE_STATS))
+ 		return;
+ 
++	if (lp->axienet_config->get_eth_mac_stats)
++		lp->axienet_config->get_eth_mac_stats(lp, mac_stats);
++}
++
++static void
++axienet_1g_get_eth_ctrl_stats(struct axienet_local *lp,
++			      struct ethtool_eth_ctrl_stats *ctrl_stats)
++{
++	unsigned int start;
++
+ 	do {
+ 		start = read_seqcount_begin(&lp->hw_stats_seqcount);
+ 		ctrl_stats->MACControlFramesTransmitted =
+@@ -2498,6 +2542,19 @@ axienet_ethtool_get_eth_ctrl_stats(struct net_device *dev,
+ 	} while (read_seqcount_retry(&lp->hw_stats_seqcount, start));
+ }
+ 
++static void
++axienet_ethtool_get_eth_ctrl_stats(struct net_device *dev,
++				   struct ethtool_eth_ctrl_stats *ctrl_stats)
++{
++	struct axienet_local *lp = netdev_priv(dev);
++
++	if (!(lp->features & XAE_FEATURE_STATS))
++		return;
++
++	if (lp->axienet_config->get_eth_ctrl_stats)
++		lp->axienet_config->get_eth_ctrl_stats(lp, ctrl_stats);
++}
++
+ const struct ethtool_rmon_hist_range axienet_rmon_ranges[] = {
+ 	{   64,    64 },
+ 	{   65,   127 },
+@@ -2510,16 +2567,12 @@ const struct ethtool_rmon_hist_range axienet_rmon_ranges[] = {
+ };
+ 
+ static void
+-axienet_ethtool_get_rmon_stats(struct net_device *dev,
+-			       struct ethtool_rmon_stats *rmon_stats,
+-			       const struct ethtool_rmon_hist_range **ranges)
++axienet_1g_get_rmon_stats(struct axienet_local *lp,
++			  struct ethtool_rmon_stats *rmon_stats,
++			  const struct ethtool_rmon_hist_range **ranges)
+ {
+-	struct axienet_local *lp = netdev_priv(dev);
+ 	unsigned int start;
+ 
+-	if (!(lp->features & XAE_FEATURE_STATS))
+-		return;
+-
+ 	do {
+ 		start = read_seqcount_begin(&lp->hw_stats_seqcount);
+ 		rmon_stats->undersize_pkts =
+@@ -2563,6 +2616,20 @@ axienet_ethtool_get_rmon_stats(struct net_device *dev,
+ 	*ranges = axienet_rmon_ranges;
+ }
+ 
++static void
++axienet_ethtool_get_rmon_stats(struct net_device *dev,
++			       struct ethtool_rmon_stats *rmon_stats,
++			       const struct ethtool_rmon_hist_range **ranges)
++{
++	struct axienet_local *lp = netdev_priv(dev);
++
++	if (!(lp->features & XAE_FEATURE_STATS))
++		return;
++
++	if (lp->axienet_config->get_rmon_stats)
++		lp->axienet_config->get_rmon_stats(lp, rmon_stats, ranges);
++}
++
+ static const struct ethtool_ops axienet_ethtool_ops = {
+ 	.supported_coalesce_params = ETHTOOL_COALESCE_MAX_FRAMES |
+ 				     ETHTOOL_COALESCE_USECS |
+@@ -2914,6 +2981,14 @@ static const struct axienet_config axienet_1g_config = {
+ 	.phylink_set_caps = axienet_1g_phylink_set_caps,
+ 	.pcs_ops = &axienet_pcs_ops,
+ 	.stats_update = axienet_1g_stats_update,
++	.get_stats64 = axienet_1g_get_stats64,
++	.get_ethtool_stats = axienet_1g_get_ethtool_stats,
++	.get_strings = axienet_1g_get_strings,
++	.get_sset_count = axienet_1g_get_sset_count,
++	.get_pause_stats = axienet_1g_get_pause_stats,
++	.get_eth_mac_stats = axienet_1g_get_eth_mac_stats,
++	.get_eth_ctrl_stats = axienet_1g_get_eth_ctrl_stats,
++	.get_rmon_stats = axienet_1g_get_rmon_stats,
+ };
+ 
+ /* Match table for of_platform binding */
 -- 
 2.25.1
 
