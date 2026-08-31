@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217C6C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 05:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDE9C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 06:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USN4d79UJ49yqpib476gxNiB1WI2UqXv3xsLWvCnIjw=; b=vvHoLbXjUq1CURKU/vZHYd9Xjm
-	0efW8uOtTXee4ph6gLhXKsuWlCJeuvR4+nZF0Z2i0e8u9eVYsdrcxVOZ9K4WsMZ2Sc8uKHF2xIzHH
-	mOC6M+uJ25E26s/agYPcRNZPhEUXumNo3onuvvvxj91fnf67mZVuw07YPLjN5wgQ0cKPH/tM0MwQC
-	/8inNpFTLdHU+Q05LajeCo27kaSAwF2z5jkYucQTPxAx6CoZK9kMQ2NeY7YVPqSAQGSRbYoh3dPYk
-	kr2FO1dPV9zoqxvGbQvjUjtNdVlDrh1I7LtkRfVWvpmI2Uhvya6WJoBf/uV/e5hqQr1KDn4xsYbRa
-	DVjW81kw==;
+	bh=qoFo7+PxqjttbtK92O/ZZGktuuQcYVg2E/w5Dp6VQ88=; b=B7rfwzZ0pMqrVxks/Oluivdvt3
+	dVFMAHw1WG7MSyfgxEo238L90Sh3dr6S7qK1JWGmgzsA2HcVPVSSer5pSAd9MspS5qOzVXcDztYHT
+	QgG8GC5LWqyydtkB21qx21txt3HpDb15yZOj79c0Ik58I7I9/StD2DADkTQaCmKL5I99ZO4zRnptQ
+	YTT5G3TROr9Abloj/AXrqJLwjt+JRGUubsS+PVxZ52wEu1doXAP5gxjAYqCyTn9ttJLFgvkZmeSrv
+	zkERGi9ls1/hNT06n2gLLnulZjmiy5kPlUOpPz3OTmaUG60+uVlr+A7SEfiaq4W5cOGJ3/vegmBu8
+	fDnc07YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0v0Z-00000008a2I-3huB;
-	Mon, 31 Aug 2026 05:56:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x0vCm-00000008aWK-0Smn;
+	Mon, 31 Aug 2026 06:09:16 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0v0Y-00000008a29-2XGB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 05:56:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70D7F601DB;
-	Mon, 31 Aug 2026 05:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C1A71F000E9;
-	Mon, 31 Aug 2026 05:56:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1788155797;
-	bh=USN4d79UJ49yqpib476gxNiB1WI2UqXv3xsLWvCnIjw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NEvzNMbTQZQ5Z9PWIZ/1dcKiKGFUWwSwk71T1wKJoGGDj+fy3Hk8LCrIITmovC2Lp
-	 yQXubfXW37fNJsD4U2mL46KIc09MBNvfgaifm3uxHopJMVVZRCyF8opS/ZiwY4184p
-	 ZxLZPuWaw7rZEQa1Q04D/b3aQ3GgjPduTrwbaKFU=
-Date: Mon, 31 Aug 2026 07:54:54 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6.6.y] arm64: mm: clear extra idmap level before use
-Message-ID: <2026083125-upbeat-series-9565@gregkh>
-References: <20260831054247.33352-1-kmehltretter@gmail.com>
+	id 1x0vCi-00000008aVB-1unf;
+	Mon, 31 Aug 2026 06:09:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:From:
+	Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
+	References; bh=qoFo7+PxqjttbtK92O/ZZGktuuQcYVg2E/w5Dp6VQ88=; t=1788156552;
+	x=1788761352; b=L1/B/MV6CXC1B8PfK2YOmrlUBJwhsYbgXDPZkIEpjOZWB43/r61Ximv57d5T9
+	KSH6hnm83I1F4oDY7G9IMuvKamDdvYoDcX4B8NZ1Mc3T8XKh2Le4WeJPiKcNDWO7MoBv+3zvMjTUE
+	PT3d77W26lHLpKQ8AVJLNSVtCRvreJaBMzgIraIBX5SbtytPePBomMmHGzQJY6+0TMtQz44b3RteH
+	8RwPb5ysLt8foWO4BY1/kjAV76UFFiLZukqYW6BIvDKevEPSpLGluwxnijFFg0OIzKyiRWGX+cRqE
+	uJrVKV/WPjnug8PW+fzg+7JBIlFZ7MBKAjbuV6LD3mqGGnGrGw==;
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.99)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1x0vCP-00000003S29-3Hzv; Mon, 31 Aug 2026 08:08:53 +0200
+Received: from dynamic-002-242-195-014.2.242.pool.telefonica.de ([2.242.195.14] helo=[192.168.178.50])
+          by inpost2.zedat.fu-berlin.de (Exim 4.99)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1x0vCP-00000000yAZ-2A6t; Mon, 31 Aug 2026 08:08:53 +0200
+Message-ID: <d766413f91cd778912f6af372d3d5429bac7765f.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH 0/8] mm: Drop pxd_ERROR()
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: samuel.holland@sifive.com, David Hildenbrand <david@kernel.org>, Mike
+ Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes	 <ljs@kernel.org>, Yoshinori Sato
+ <ysato@users.sourceforge.jp>, Rich Felker	 <dalias@libc.org>, "James E.J.
+ Bottomley"	 <James.Bottomley@HansenPartnership.com>, Helge Deller
+ <deller@gmx.de>,  Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 31 Aug 2026 08:08:52 +0200
+In-Reply-To: <20260831054331.625505-1-anshuman.khandual@arm.com>
+References: <20260831054331.625505-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260831054247.33352-1-kmehltretter@gmail.com>
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 2.242.195.14
+X-ZEDAT-Hint: PO
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_230912_653986_CB4FD151 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,36 +97,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 07:42:47AM +0200, Karl Mehltretter wrote:
-> The 6.6.y adaptation of commit 0e9df1c905d8 ("arm64: mm: Don't remap
-> pgtables for allocate vs populate") removes the clearing performed by
-> early_pgtable_alloc().  Its replacement clears allocations made by the
-> generic page-table walkers, but 6.6's create_idmap() still allocates an
-> extra root level directly when a sub-48-bit VA kernel is loaded
-> sufficiently high in physical memory.
-> 
-> memblock_phys_alloc_range() does not zero the returned memory.  The direct
-> caller therefore publishes an uncleared root page and passes it to
-> __create_pgd_mapping().  A stale nonzero entry can trip the bad-descriptor
-> BUG_ON or be followed as a page-table descriptor, preventing the kernel
-> from booting.
-> 
-> Clear the direct allocation through its linear alias before publishing it.
-> init_clear_pgtable() also supplies the barrier required before the table
-> descriptor becomes visible.
-> 
-> Mainline is not affected because commit e6128a8e523c ("arm64: mm: Use
-> 48-bit virtual addressing for the permanent ID map") removed the dynamic
-> extra level before page-table initialization moved out of the allocator.
+Hi Anshuman,
 
-Why can't we take that change instead?
+On Mon, 2026-08-31 at 11:13 +0530, Anshuman Khandual wrote:
+> pxd_ERROR() macros have been provided by all platforms, which are very mu=
+ch
+> identical and can be dropped off completely if these pgtable printing cou=
+ld
+> be moved to callers in generic MM aka all pxd_clear_bad().
 
-> 
-> Fixes: 54322d95309d ("arm64: mm: Don't remap pgtables for allocate vs populate")
+If pxd_ERROR() macros are really all identical, why not provide a common de=
+finiton
+of that macro? I'm always a bit concerned about such changes as there is al=
+ways
+a risk to oversee arch-specific peculiarities.
 
-No signed-off-by?
+Adrian
 
-thanks,
-
-greg k-h
+--=20
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
