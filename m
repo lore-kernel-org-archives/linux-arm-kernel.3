@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D117C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA62BC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMDNxhjS6p7m3ikTdxZ2TWzg9kXtx6ojXOERB6s57fk=; b=s//KT7wIxXOpjRdjnVA2BZy7W4
-	/qm5Gd97Znbf+Pt7u6WVryQGVedAOUEdxg5kFyox1XCq9dy2cJtS/n1iecfi7/cPEHEJ4sJkh3bHN
-	9YtU5BWTcQ+t6jW++TJJUxeBBpc8+mX5dlWGPzPHS3Y/FROh/SrRknNsZ38xNjCh3O1xares3Wkqd
-	D5Tm8yvnergBGZnvopxu9jMH1M4HODSVEFh03lC6MPAckqOUTtGPYch1iszIYw5VXkqnyafl1ZN6w
-	pU1Jze7lLw+44RJKg4nZd7N4tKn5nz2t/UjC4dT6RAqXInJM64V01r3soWGRx/RVbZm6liL1sK/JC
-	4oYmHyvQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F9s0YRMgLAPl8YqnVWX6J2cjW6FZhJibaIm074zrDvw=; b=5CL7zwbT12mVXG8z1c3QRZvI76
+	03MUExW0z6BtS70US7v7VQoRc7xc9YsQUazTLrao+CVpY3400yTUioFP7g3xDyNXUeTFDJIabJbVo
+	BX434F0uR0Eu9oQvDraT1Q1l+HkSJSgdMPBHPqfozT5Pte35nDxGEImGw3DtVeobB0z7nd7IzG6Kt
+	ec+Ue2PoIGU0mxwYgndzpeafPokq0X7CRxH9x+jVKay9MpFPytGBXhSmU6AqeMzzO58nB5cfU7fOg
+	gIb/kNmUIVUB+nXlg8DpfhlN1s0/tPKI+RBV5fI/V6xoU443FLz3B+54/J/PpMi8Q7HpYcebHIl5V
+	vabZqtaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0waw-00000008kE8-32Za;
-	Mon, 31 Aug 2026 07:38:18 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x0wvo-00000008mLS-1TsI;
+	Mon, 31 Aug 2026 07:59:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wak-00000008k9g-0slD
+	id 1x0wvm-00000008mL1-41NP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:38:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AE33E4E41467;
-	Mon, 31 Aug 2026 07:38:04 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7C65C601E1;
-	Mon, 31 Aug 2026 07:38:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E40BB11C788FA;
-	Mon, 31 Aug 2026 09:38:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788161883; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=QMDNxhjS6p7m3ikTdxZ2TWzg9kXtx6ojXOERB6s57fk=;
-	b=wCVk8Ng1hsrjwSVgqmJTOIECQsxQPp5bBuzahUP2MBEsmFz4DbbimBqwTcbDE6BdnSf+sp
-	MbxQwSPgUZhFjY+9TtIt/V55rNKG9KR6LKskHE2TfYhrUh3ZqcVOeOAaN+EkL9PYkD+DoE
-	EpS7uRXlaOsXL486oO9y56ZN03F1biMYw8axUZQ90sIGVthMlzJGnJ467YbUSOvxG6HOBH
-	Ce/6tzZoSU5uGpEbPLls0WuY3Xv9moj/2itktGtHLSjGbDAM/RRaQso8j3DemNDW0Fr+Nk
-	yCDnHoI36Rb0hfU8AYPkgtnb+W4ThHOqq0AsPkVnIv13kaL3O7QJgricQMJCmA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Yao Zi <me@ziyao.cc>,
-	Frank <Frank.Sae@motor-comm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 2/3] net: phy: motorcomm: Add a dedicated .config_init for YT8531S
-Date: Mon, 31 Aug 2026 09:37:44 +0200
-Message-ID: <20260831073747.361482-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
-References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_003806_398228_51320767 
-X-CRM114-Status: GOOD (  13.29  )
+	Mon, 31 Aug 2026 07:59:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 63A33438B8;
+	Mon, 31 Aug 2026 07:59:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 455301F000E9;
+	Mon, 31 Aug 2026 07:59:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788163190;
+	bh=F9s0YRMgLAPl8YqnVWX6J2cjW6FZhJibaIm074zrDvw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AVLeuaB5FqfzpnRddFvOgOHbjzf/5VfmFtqbAkxpxb8pKoIyt8x0MIDaLGsIE0wxi
+	 +HvGuFMOg97sD7AHod9RzoZ09b/NlXUSXLiBlFqLikQTOu6rnQ2DoJCpQmK2c0L2SC
+	 qc7d6ifVNZf29IDbPWiVZ75tA7v7VcuRcicx6OjSApDR2E+DLcINQ5H7AX3BTmPHic
+	 WcJhk1yLiJVhZ8lvYl4QnKji8JLXBuOXabU5tXTJ1kcNARed0O8xjzoOxIsoIfGlN1
+	 /EEy3e4COYfuhzniGRT2ZgUf/PVzSLyvGmTPT9B+MYrc/W4kt1msoPQHLiQ+qMDH5h
+	 Qg14pKpu1QTvg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x0wvj-00000002fjB-3i6M;
+	Mon, 31 Aug 2026 07:59:48 +0000
+Date: Mon, 31 Aug 2026 09:02:20 +0100
+Message-ID: <87y0dmn2er.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Khushit Shah <khushit.shah@nutanix.com>
+Cc: Shameer Kolothum
+	<skolothumtho@nvidia.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org"
+	<will@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"cohuck@redhat.com" <cohuck@redhat.com>,
+	"eric.auger@redhat.com"
+	<eric.auger@redhat.com>,
+	"sebott@redhat.com" <sebott@redhat.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"wangzhou1@hisilicon.com"
+	<wangzhou1@hisilicon.com>,
+	"jiangkunkun@huawei.com" <jiangkunkun@huawei.com>,
+	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+	"anthony.jebson@huawei.com" <anthony.jebson@huawei.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"linuxarm@huawei.com"
+	<linuxarm@huawei.com>
+Subject: Re: [PATCH v8 5/6] smccc/kvm_guest: Enable errata based on implementation CPUs
+In-Reply-To: <FA27FD8D-C029-4DED-9930-5903235099C7@nutanix.com>
+References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+	<20250221140229.12588-6-shameerali.kolothum.thodi@huawei.com>
+	<FA27FD8D-C029-4DED-9930-5903235099C7@nutanix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: khushit.shah@nutanix.com, skolothumtho@nvidia.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +103,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The YT8531S PHY configuration logic is similar to the YT8521, but with
-some extra steps for the RGMII configuration. In preparation for
-improvements in the YT8531S configuration for the version found
-integrated with the YT6801 PCIe NIC, let's split the logic out by
-extending the YT8521 configuration sequence.
+On Mon, 31 Aug 2026 05:46:19 +0100,
+Khushit Shah <khushit.shah@nutanix.com> wrote:
+>=20
+>=20
+>=20
+> > On 21 Feb 2025, at 7:32=E2=80=AFPM, Shameer Kolothum <shameerali.koloth=
+um.thodi@huawei.com> wrote:
+> >=20
+> > Retrieve any migration target implementation CPUs using the hypercall
+> > and enable associated errata.
+> >=20
+> > Reviewed-by: Cornelia Huck <cohuck@redhat.com>
+> > Reviewed-by: Sebastian Ott <sebott@redhat.com>
+> > Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> > ---
+> > arch/arm64/include/asm/cputype.h    |  7 ++++
+> > arch/arm64/include/asm/hypervisor.h |  1 +
+> > arch/arm64/kernel/cpu_errata.c      | 45 +++++++++++++++++---
+> > arch/arm64/kernel/cpufeature.c      |  2 +
+> > drivers/firmware/smccc/kvm_guest.c  | 64 +++++++++++++++++++++++++++++
+> > 5 files changed, 114 insertions(+), 5 deletions(-)
+> >=20
+> > diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/=
+cputype.h
+> > index ccb4a155d118..cc2d58141be1 100644
+> > --- a/arch/arm64/include/asm/cputype.h
+> > +++ b/arch/arm64/include/asm/cputype.h
+> > @@ -276,6 +276,13 @@ static inline bool midr_is_cpu_model_range(u32 mid=
+r, u32 model, u32 rv_min,
+> > return _model =3D=3D model && rv >=3D rv_min && rv <=3D rv_max;
+> > }
+> >=20
+> > +struct target_impl_cpu {
+> > + u64 midr;
+> > + u64 revidr;
+> > + u64 aidr;
+> > +};
+> > +
+> > +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
+> > bool is_midr_in_range_list(struct midr_range const *ranges);
+> >=20
+> > static inline u64 __attribute_const__ read_cpuid_mpidr(void)
+> > diff --git a/arch/arm64/include/asm/hypervisor.h b/arch/arm64/include/a=
+sm/hypervisor.h
+> > index 409e239834d1..a12fd897c877 100644
+> > --- a/arch/arm64/include/asm/hypervisor.h
+> > +++ b/arch/arm64/include/asm/hypervisor.h
+> > @@ -6,6 +6,7 @@
+> >=20
+> > void kvm_init_hyp_services(void);
+> > bool kvm_arm_hyp_service_available(u32 func_id);
+> > +void kvm_arm_target_impl_cpu_init(void);
+> >=20
+> > #ifdef CONFIG_ARM_PKVM_GUEST
+> > void pkvm_init_hyp_services(void);
+> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_err=
+ata.c
+> > index 1f51cf6378c5..66869d81c3d5 100644
+> > --- a/arch/arm64/kernel/cpu_errata.c
+> > +++ b/arch/arm64/kernel/cpu_errata.c
+> > @@ -14,10 +14,34 @@
+> > #include <asm/kvm_asm.h>
+> > #include <asm/smp_plat.h>
+> >=20
+> > +static u64 target_impl_cpu_num;
+> > +static struct target_impl_cpu *target_impl_cpus;
+> > +
+> > +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus)
+> > +{
+> > + if (target_impl_cpu_num || !num || !impl_cpus)
+> > + return false;
+> > +
+> > + target_impl_cpu_num =3D num;
+> > + target_impl_cpus =3D impl_cpus;
+> > + return true;
+> > +}
+> > +
+> > static inline bool is_midr_in_range(struct midr_range const *range)
+> > {
+> > - return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> > -       range->rv_min, range->rv_max);
+> > + int i;
+> > +
+> > + if (!target_impl_cpu_num)
+> > + return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> > +       range->rv_min, range->rv_max);
+> > +
+> > + for (i =3D 0; i < target_impl_cpu_num; i++) {
+> > + if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
+> > +    range->model,
+> > +    range->rv_min, range->rv_max))
+> > + return true;
+> > + }
+> > + return false;
+> > }
+> >=20
+> > bool is_midr_in_range_list(struct midr_range const *ranges)
+> > @@ -47,9 +71,20 @@ __is_affected_midr_range(const struct arm64_cpu_capa=
+bilities *entry,
+> > static bool __maybe_unused
+> > is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int =
+scope)
+> > {
+> > - WARN_ON(scope !=3D SCOPE_LOCAL_CPU || preemptible());
+> > - return __is_affected_midr_range(entry, read_cpuid_id(),
+> > - read_cpuid(REVIDR_EL1));
+> > + int i;
+> > +
+> > + if (!target_impl_cpu_num) {
+> > + WARN_ON(scope !=3D SCOPE_LOCAL_CPU || preemptible());
+> > + return __is_affected_midr_range(entry, read_cpuid_id(),
+> > + read_cpuid(REVIDR_EL1));
+> > + }
+> > +
+> > + for (i =3D 0; i < target_impl_cpu_num; i++) {
+> > + if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
+> > +     target_impl_cpus[i].midr))
+> Typo? Shouldn't the second arg be target_impl_cpus[i].revidr?
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/phy/motorcomm.c | 36 ++++++++++++++++++++++++------------
- 1 file changed, 24 insertions(+), 12 deletions(-)
+Most probably. Please send a fix.
 
-diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index 58e4d67b945f..36c229460a77 100644
---- a/drivers/net/phy/motorcomm.c
-+++ b/drivers/net/phy/motorcomm.c
-@@ -1700,19 +1700,12 @@ static int __yt8521_config_init(struct phy_device *phydev)
- 			return ret;
- 	}
- 
--	if (device_property_read_bool(dev, "motorcomm,keep-pll-enabled")) {
-+	if (device_property_read_bool(dev, "motorcomm,keep-pll-enabled"))
- 		/* enable RXC clock when no wire plug */
--		ret = ytphy_modify_ext(phydev, YT8521_CLOCK_GATING_REG,
--				       YT8521_CGR_RX_CLK_EN, 0);
--		if (ret < 0)
--			return ret;
--	}
-+		return ytphy_modify_ext(phydev, YT8521_CLOCK_GATING_REG,
-+					YT8521_CGR_RX_CLK_EN, 0);
- 
--	if (phy_interface_is_rgmii(phydev) &&
--	    phydev_id_compare(phydev, PHY_ID_YT8531S))
--		ret = yt8531_set_ds(phydev);
--
--	return ret;
-+	return 0;
- }
- 
- /**
-@@ -1735,6 +1728,25 @@ static int yt8521_config_init(struct phy_device *phydev)
- 	return phy_restore_page(phydev, old_page, ret);
- }
- 
-+static int yt8531s_config_init(struct phy_device *phydev)
-+{
-+	int old_page, ret = 0;
-+
-+	old_page = phy_select_page(phydev, YT8521_RSSR_UTP_SPACE);
-+	if (old_page < 0)
-+		goto err_restore_page;
-+
-+	ret = __yt8521_config_init(phydev);
-+	if (ret)
-+		goto err_restore_page;
-+
-+	if (phy_interface_is_rgmii(phydev))
-+		ret = yt8531_set_ds(phydev);
-+
-+err_restore_page:
-+	return phy_restore_page(phydev, old_page, ret);
-+}
-+
- static const unsigned long supported_trgs = (BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
- 					     BIT(TRIGGER_NETDEV_HALF_DUPLEX) |
- 					     BIT(TRIGGER_NETDEV_LINK)        |
-@@ -3143,7 +3155,7 @@ static struct phy_driver motorcomm_phy_drvs[] = {
- 		.set_wol	= ytphy_set_wol,
- 		.config_aneg	= yt8521_config_aneg,
- 		.aneg_done	= yt8521_aneg_done,
--		.config_init	= yt8521_config_init,
-+		.config_init	= yt8531s_config_init,
- 		.read_status	= yt8521_read_status,
- 		.soft_reset	= yt8521_soft_reset,
- 		.suspend	= yt8521_suspend,
--- 
-2.55.0
+	M.
 
+--=20
+Jazz isn't dead. It just smells funny.
 
