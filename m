@@ -4,92 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D901C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF3FC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=acq/A4AGzwAJdHPnrCOzGeerCbgW5JVrTLnSuWrfwpU=; b=wbeeH7cpmvTYx1hF5g8BwRLheI
-	87i/Mdka4EUb66JYDZeyQtIOxPOeCcH4+I97zBwkY0WpgI1shVj8U/lPCxFo/ga3hNYkNdzaq/57o
-	pKHYXOvo2UQnhv7MonPIcnOJpPjcmp0doxw3PdLQRjkY9cHacA/mC7pXbF8bGdGH9IIsQr32odjfa
-	190Jhy/JXaeL9j6ID9vTsB9wc6m2IRolbCTHSWj2SGjWSaAFRx1TVc4KiF9w8IXvhY6SPcozsB5UC
-	g93mjNI83oS8LWA01fxwRDz5UR3xtkM5+bJVdpstj3Sx8BvFSAZS+5xKQ2TqgAVc0o424fElNX2Tq
-	nkYz7OEw==;
+	bh=KYKJ5VPlv39onDgpizRA6tuCgoTPGQMQ0bB2xHAAOlw=; b=BPJdvvogswzzyt66ewpp4yzz1N
+	NIPh5nFh5XnqR9CbtJU3q3g9jDp3gRDLVFsTVuyIOb83v1PBIHj/+7YUQ5liPFGvyzyi5DgNuluDF
+	IIoz28SfJ/a03dgBteLo4dZnGJXapiGzlDxdzVlFWN1skzZ76cGrOzNZi5dh9TGpM9ltGB9ooxhu/
+	dWAmp+nm/6wnvjrrnN/8l8bTjchUfdI+NertK4r0wmyoOns6HzK1D7R/Oh3hirXoLXSSLuu4yytfM
+	7sOvRXGZDQZMZwkwL7Zj6IQ2cGNeYJYxfzSTZonpUYbtWgJ0Ue6vmKJTgBI5mL0hdZY8X/VS8f8EL
+	FBnh1awQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16TQ-0000000AFrl-0032;
-	Mon, 31 Aug 2026 18:11:12 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1x16TZ-0000000AFu3-0Q8J;
+	Mon, 31 Aug 2026 18:11:21 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16TN-0000000AFr6-0Ijk
+	id 1x16TX-0000000AFtW-0Z6x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:11:10 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2d8fd3b729dso18189535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:08 -0700 (PDT)
+	Mon, 31 Aug 2026 18:11:20 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-398e9698a70so80718a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788199868; x=1788804668; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788199878; x=1788804678; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
          :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=acq/A4AGzwAJdHPnrCOzGeerCbgW5JVrTLnSuWrfwpU=;
-        b=KZ4KCmuivF4I6hv6z7cNIf4GPN7RcR9yDCyPz5o0szZtjhjJTkzJksGlOJPvD8/USm
-         jM8bK64J+nW1J2UPpPsmiDKMviYs96oeA9q8JDQm5GCTMABw7+3J+fEeGFmOsXhV/pA5
-         QENt2zlUs4F/x/J5lmJT+abS9j2v455q+hKaUTJrgYXdGgkw3LjKoOxM8ABLb5bR9xYM
-         vuUdegOT7SBdawygRU19DxmNZRAPL8k/rXTDl3nn4SZ+T0zePlrgEfB/9JDG6ELpFORE
-         BPruyETHmanSJCC2ciRAp+INeuuX1wjJ4hLD+J2X//HlG6FD5ZldW9NdTJheaZ5rEAPn
-         dlnw==
+        bh=KYKJ5VPlv39onDgpizRA6tuCgoTPGQMQ0bB2xHAAOlw=;
+        b=U+i0LdSUPwa/XQ6xiCbjoaUeaR7wPcSP7nTBRn7eaqE1mE75nIUyPGUj19PUxUW3gM
+         wUuIbmq1IF1nBY0IyOKiG0b+VFzOEkvpyuu3P9N1fZPJ5cTOEMk49hWAJJ7yr9ZkKV34
+         zkuJVTYy5+0ke1rbouWN57x78+8o27FkvOMbmtxRE7h22jFXS34TGr6SCxGdNrRt6lMz
+         cxnHELLIm7P8Yl1NgaqBazWFfF6Syv4qoUhFHoOW9trrtPRpJNMpw1kZwzA0KTGISCjs
+         UdoDu/qpbizBUGj2UhnBx7s/ADlZgr2E/ThykK062Rb/DqOi6ewGHgbF9txzmn7dWtt0
+         Cheg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788199868; x=1788804668;
+        d=1e100.net; s=20251104; t=1788199878; x=1788804678;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
          :subject:references:in-reply-to:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=acq/A4AGzwAJdHPnrCOzGeerCbgW5JVrTLnSuWrfwpU=;
-        b=nHh1Lq6pWm84MPh7XkUizUZ9Pg7Ukk2RGWzfeAjLW9FnB15FwZxgWRZXO1ThDDjKv6
-         vagrjIwky84GVjGUX/kuSPTKXikvITzb2lUuqna61GXbDQx3G2uqvAvvgHgPJzozYmhU
-         GF+X+xEYCpZGFRMEuaYifRn4gyxKK74vPwEVz+NVhLYKCWCB+zPdkkZSSbphgMSHIqtX
-         sfWNHKfHIRM7Xq/kfYnBLPGZ8oHH230adIoPJdGJGWlHsm18ILvajqlB7ERIy+YMBJWw
-         NbB2NO+xRaq9QqT3wBu65JpPczztE2UcOgjmNHKiM7eU6GQeTtOJvQgZ9EufE6+i3rZy
-         OJTg==
-X-Forwarded-Encrypted: i=1; AKwUvBzq2Wrc+fgBnZc1Jwtt3Tje4GIdFdnM7hwTqDvJST7izxKackjzIZ15VSS2S13xWdeWDnLH79Ow8iMuYtaJC5mu@lists.infradead.org
-X-Gm-Message-State: AFuF++m5e/FhAnJgdyetZGO1UYyETlcpp5ahPD+XTb3j1rHv5C26jRCt
-	FE+EPerAIU/+PYII6YWz91QHurYmtqK6LtTllPmX2w/8vr5OrQKdxU0Qt/gjuDauSes=
-X-Gm-Gg: AYBFou0SDdyXmbyVV8grdz1gFttHNgIGfR9AB0MkkiJeVyjka8nFkA6GGS/3jTZHsST
-	5BFVKw4ddIWr/gvqKD3SYq14xA4fSygIkqSetmBsJQTHUMAsHm/gyNkKUqTrN0DPMskmDyqEEUQ
-	8gTX8WeGiJtoDN0gPsOUZXQqjE9EeUOiTWAXfDLfdjljlXE2hkkI1jR4UKnlF2ofuj3MnhMwBet
-	4uxkhJlzD2XSnndq001JlIN2m+jriLetV/9sGbLL1scyqfAgovjaR+Q2GrJ6ScQy6KEG88Zg9p3
-	wchn5vvVPTrcwXVnQ9UEjuAPKSiv2kbdACUgF+k6fuUlbGse3+UIUJotmKZ6fdf11dgksvq9MPc
-	6EsVgS2hLCPXnhS+nMXk8T4ip8yWeIXqIRY5j4XE81w2YZozdBTozGc5sazj82UXbhEeSfkV8g/
-	OhHFLIwvJeMY9/vnoAR6VZMxULiL3vVLR8Po3BhGdMYunu5hdG5DoRBbPbiA==
-X-Received: by 2002:a17:903:2286:b0:2d5:2f49:b3f4 with SMTP id d9443c01a7336-2d94a713d2amr28505335ad.2.1788199867991;
-        Mon, 31 Aug 2026 11:11:07 -0700 (PDT)
+        bh=KYKJ5VPlv39onDgpizRA6tuCgoTPGQMQ0bB2xHAAOlw=;
+        b=buUNJTqGKdVHQKwNCjAT/OFYj+bDbzj3iofIZrSoqSJpXKLJYHDcupXASeCzTnhubi
+         dm5ms8QFSOImfUvQA4/9dq6OZutgt8AtQdLMaXOLoOf4fik18cbyxfb0WfnDDPVWqjHj
+         2t4Z1kySXK8zyUkkeom8OsQ/KrO+w0nUizRcVWn0pP1h1O0pnog6HlIvXxhB6rFdiPjB
+         aIg+lqAS0WOQpvInyTDL9llzHXRpwlAhcCNMkmUZIwhTgPZQdUaPEXQqobT2HwfrbIOm
+         jaDPg+bk6vYKFhj74P2exXGSyqfnSJzz4QTdksoGnnrxUekYTpaVx7AB5uezjJrktUwR
+         fIwg==
+X-Gm-Message-State: AFuF++m5YRJg+mda0bauQGZ11YzaUJ4+mtnYyICPVDCzuJF20ouhbX3I
+	TwYfkZhD747RCBdJme6sfoiMT9EjYoTswe6IZuessCPQWtBbgNxXCCD4qba9CWa0uHc=
+X-Gm-Gg: AYBFou1++2d9IbdpufP3NQughmDits4Q1lzuiupob7rwQxlpIY6KXmRadUZ5MSVxVQO
+	KZaSdNZcijfVK9gRlTYBYuApd2XrO4ZJMTqG5RsIsMWu/Nw3LygNz0Q6bF4VzqnUHWw8cOWGaL0
+	lwLJHs9HfTIBaIg3RqKApD8hJaYmqzFwFKqhd0TqNUUE+MZW8TBSr7E9z1lOPPodDKfv0VuGs1T
+	YMMg4UIca1kmpisZWgQPp/VLYs2G+2pdbGGBYR9N17nMozZPhaKclhFaXFU9T1+FBgz0W4ju8in
+	QqzooKHofGxfc5O9crL4pEmq3Kq/o/yGTn5uJrPf+H+opUGEaKiCjnr6raCvUTAguf7qJb+85Ea
+	vmIo+sVJw4HYX94yvtxZAwzw18Mfca8ANJxLHlka2C8ar3F/TCouF8qWDL118WlwqxEsuDuq3gt
+	6uw4Bnel8QNwMQajUp57iZggUerh73V/8+0tAY7v9hAhmrqimL83ul6ShBKg==
+X-Received: by 2002:a17:90b:4a8c:b0:392:6638:2e6a with SMTP id 98e67ed59e1d1-396d0f69d10mr34762737a91.13.1788199877917;
+        Mon, 31 Aug 2026 11:11:17 -0700 (PDT)
 Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2d90e6e10cdsm24043265ad.14.2026.08.31.11.11.07
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3990baaeec3sm863336a91.0.2026.08.31.11.11.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 11:11:07 -0700 (PDT)
+        Mon, 31 Aug 2026 11:11:17 -0700 (PDT)
 From: Kevin Hilman <khilman@baylibre.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
- Sen Wang <sen@ti.com>
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260708221032.1600089-1-sen@ti.com>
-References: <20260708221032.1600089-1-sen@ti.com>
-Subject: Re: [PATCH] ARM: omap2plus_defconfig: Enable SND_ALOOP
-Message-Id: <178819986708.2869653.1615558663659219045.b4-ty@b4>
-Date: Mon, 31 Aug 2026 11:11:07 -0700
+To: linux-arm-kernel@lists.infradead.org, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Fabio Estevam <festevam@gmail.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Peter Griffin <peter.griffin@linaro.org>, Roger Quadros <rogerq@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
+ imx@lists.linux.dev, linux-omap@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+In-Reply-To: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
+References: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
+Subject: Re: (subset) [PATCH v3 0/7] ARM: dts: Replace clock-frequency in
+ camera sensor nodes
+Message-Id: <178819987707.2869653.6455595386601883422.b4-ty@b4>
+Date: Mon, 31 Aug 2026 11:11:17 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_111109_115650_3CCA2386 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260831_111119_184676_95FACA8F 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,21 +113,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 08 Jul 2026 17:10:31 -0500, Sen Wang wrote:
-> Enable the generic PCM loopback driver on AM335x, AM437x, and AM57x
-> platforms, matching arm64 defconfig (commit 7235cdd9cc52 ("arm64:
-> defconfig: Enable SND_ALOOP")).
+On Mon, 10 Aug 2026 21:05:57 +0300, Laurent Pinchart wrote:
+> This patch series contains the leftovers from "[PATCH v2 00/72] media:
+> i2c: Reduce cargo-cult" ([1]). All driver patches have been merged, but
+> DT changes for ARM platforms were postponed to the next kernel release
+> and ended up being forgotten.
 > 
-> snd-aloop lets a test setup loop audio between capture and playback
-> without external hardware, which is useful for automated audio path
-> validation on these boards.
+> To refresh everybody's memory, a large number of camera sensor drivers
+> directly use the "clock-frequency" property to retrieve the effective or
+> desired external clock rate. This is standard behaviour on ACPI
+> platforms that don't implement MIPI DisCo for Imaging, but usage of the
+> property has leaked to OF-based platforms, due to a combination of
+> historical reasons (using "clock-frequency" was initially considered
+> right until before the introduction of "assigned-clock-rates") and plain
+> cargo-cult.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ARM: omap2plus_defconfig: Enable SND_ALOOP
-      commit: 9d6dc4125c110e19026ae0bfaa891fd357163d41
+[3/7] ARM: dts: ti: omap3-n950: Replace clock-frequency in camera sensor node
+      commit: e74a8fe7c2d85e314ead77064ea671b71de44b14
+[4/7] ARM: dts: ti: omap3-n9: Replace clock-frequency in camera sensor node
+      commit: 3da3c1f84d4f1d14d321ffbec742d4027b503827
+[5/7] ARM: dts: ti: omap3-n900: Replace clock-frequency in camera sensor node
+      commit: e59ab4d7eaed22ba714c57801262a09ac1c32100
 
 Best regards,
 -- 
