@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0314C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD7BC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDMLTGyDExhkLcZpqbxSmWLDuT0h+t2fawHIBti8sLw=; b=RmvCVboRlNYmFx+wKXxbEjKNNE
-	MvlFaXcNZsHc1UsSBeNUpInGwZZAVRL1/uYBUXyVP9ZacI+zx559mPu1BDJtQoxMAiEd4YIeYwP7A
-	M6xJX9iXc1bpbPD4tYif7JmGXIW5L4yj0p8fxP9noL9GsWwJWdcmCqbu1AdNM0hUaDjD3+Ai8sOP8
-	O57uUOsUqHUFYFAIs3krwxRvlC1jO5io+qkk7ZxBxfsbG6zEmQGFFsBr0qoepWEEEd9bkED8dW3u9
-	HY9L67agCi+L9M47MTnkRz49Gey+4Vs6MWRtGZoqKTTjKN3qNtVRVOmnRZtLYogTymb33v6bZy5wW
-	7opYl5gg==;
+	bh=POKu3l4J7SVpxZDF4dEniCQk73PmJkpAFR7IIuhZ9CM=; b=2PEec8KV4ChnXMesnzajj2enk7
+	t//ugQFqTLsesKn8/Zpv8MuPHQ5abG2IYBx3b3/xiiia3H74LvFYEbCRpC5h1WL1d3pPLsgnSLMmq
+	4TNQewz6+qSNTUc0bYDv8NkZcbxIAs7rE6rL+NBVmYbx0Q7I37iNzpY+GcK4fCKxK1YlDNJ6dIW2n
+	Nz7WbWSI86wr/MOvR0EU9qCgprWIGweZcFqyq2LghwUJ/vMX3fbm2o23dskVNCtAbonaozsVJlRpm
+	/jF/JtFXTEuh/aq8mU0/kY6BXUsnnHriwhmAdY8+U2WPfY4LCgmg79B3hDcB5VT7O+ndS6sjH2IDh
+	HIVSf0/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12EZ-00000009SEZ-28DU;
-	Mon, 31 Aug 2026 13:39:35 +0000
+	id 1x12Ef-00000009SK7-2pv7;
+	Mon, 31 Aug 2026 13:39:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12EV-00000009SBp-1dOy;
-	Mon, 31 Aug 2026 13:39:31 +0000
+	id 1x12Ec-00000009SGw-1GW7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:39:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECB6340D61;
-	Mon, 31 Aug 2026 13:39:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6B51F00ACF;
-	Mon, 31 Aug 2026 13:39:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F33E740210;
+	Mon, 31 Aug 2026 13:39:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35C11F00ACA;
+	Mon, 31 Aug 2026 13:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183570;
-	bh=PDMLTGyDExhkLcZpqbxSmWLDuT0h+t2fawHIBti8sLw=;
+	s=k20260515; t=1788183577;
+	bh=POKu3l4J7SVpxZDF4dEniCQk73PmJkpAFR7IIuhZ9CM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NvF0/SXQLFQoOj+m8GxFCBifRM9Xopymz34Xqcs159cJH6pJ/qputhUfZLJriZDnX
-	 JMSSc3dUW0c7CnAqYm2S0TbQCd6OuA4VXKhp1PJLGGNBTPefCivW7AVaea+tC1j6yP
-	 L4vHYKMKJR5waIfpiD8OOwEVb2kEeJQZmim2byJImhaoClFiTTmmmziwRc0MUcbtjQ
-	 zsqNEcEvYDYbQy37znOlwwqsY3ioG17CbiFe4aL3EzYjrzTlDqQLrIV3e+D9LUkAlm
-	 cAA46DvlfqcUw6XSR7Y9nXxS7itXUXB6JB5c7qaDKQfy2l7nTmFzn4HMlROPubkaUz
-	 deorJYyalJFhg==
+	b=YcDWIs45EMJ+xSjVT1oWgKlQ3Eml2bz7tt5ur3xZ9uQKd2CRI+Gh59b7er1BBQ3dB
+	 /6fSRCtW3mDMyZ0gO66avsnGLOttUrEL0mEQ9RNSSDxxQIeHc0uwnBFJm+L6N6XVS/
+	 /HylCMU+I/GGL+GxbvIkC5aOwHlzPJwdob4CmOgpnC68Ihk9qugD34snVD2V9jeiSc
+	 gaRVZDoPPuAvYZg04vojQMD3uzksV3T2qLoXr0SJH3dmG1ubRWrbKSQ7qP0MCFimUZ
+	 TGFqOT/sh9O/fR2gicIa2OSb+CCK4Ue+5eNJUSlBP1CvKAdStjW4GGwdQwHADBG/SF
+	 o+5VGCoGZc2DA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Tuo Li <islituo@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Tommy Huang <tommy_huang@aspeedtech.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	linux-rtc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] ASoC: mediatek: mt8365-afe-pcm: fix possible NULL-pointer dereferences in mt8365_afe_suspend()
-Date: Mon, 31 Aug 2026 09:23:23 -0400
-Message-ID: <20260831133314.4125787-175-sashal@kernel.org>
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] rtc: aspeed: add AST2700 compatible
+Date: Mon, 31 Aug 2026 09:23:27 -0400
+Message-ID: <20260831133314.4125787-179-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -66,7 +64,6 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,78 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tuo Li <islituo@gmail.com>
+From: Tommy Huang <tommy_huang@aspeedtech.com>
 
-[ Upstream commit b8948ac26efc395264a47f9a743889065adb5cff ]
+[ Upstream commit 3319cfeeb8c4047026f84df045c438f7bbd338a6 ]
 
-mt8365_afe_suspend() allocates the register backup buffer with
-devm_kcalloc(), but does not check for allocation failure before using the
-returned pointer. This may lead to a NULL pointer dereference when
-accessing afe->reg_back_up[i].
+Add support for matching the RTC controller on ASPEED AST2700 SoCs.
 
-Add the missing NULL check and return -ENOMEM on allocation failure after
-disabling the main clock.
+The AST2700 RTC controller is compatible with the existing ASPEED
+RTC driver implementation.
 
-Also propagate the return value of mt8365_afe_suspend() in
-mt8365_afe_dev_runtime_suspend() so that the suspended state is not updated
-when suspend fails.
-
-Signed-off-by: Tuo Li <islituo@gmail.com>
-Link: https://patch.msgid.link/20260528064107.470824-1-islituo@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Tommy Huang <tommy_huang@aspeedtech.com>
+Link: https://patch.msgid.link/20260601-ast2700-rtc-v1-2-15d4ca46500a@aspeedtech.com
+Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-The background searches finished with no matches: the fix is not in this
-v6.18.44 tree, and Tuo Li has no prior commits under
-`sound/soc/mediatek/`. That matches the earlier analysis — the buggy
-code is still present and the patch is a valid backport candidate.
+The background searches finished and match what the earlier analysis
+used.
 
-**YES**
+The `b4 dig` lookup on the real commit (`3319cfeeb8c40`) found the lore
+thread and confirmed this is patch 2/2 of the AST2700 RTC series, with
+`5e7f746bc106a` as the companion DT-binding patch.
 
- sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+The stable-branch history search shows 6.18.y already has substantial
+AST2700/G7 bring-up (gpio, mfd, irqchip, reset, mailbox, clock
+bindings), but not the RTC compatible or `ast2700-rtc` binding yet.
 
-diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-index d48252cd96ac4..bf92c8922c236 100644
---- a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-@@ -1975,10 +1975,15 @@ static int mt8365_afe_suspend(struct device *dev)
- 
- 	mt8365_afe_enable_main_clk(afe);
- 
--	if (!afe->reg_back_up)
-+	if (!afe->reg_back_up) {
- 		afe->reg_back_up =
- 			devm_kcalloc(dev, afe->reg_back_up_list_num,
- 				     sizeof(unsigned int), GFP_KERNEL);
-+		if (!afe->reg_back_up) {
-+			mt8365_afe_disable_main_clk(afe);
-+			return -ENOMEM;
-+		}
-+	}
- 
- 	for (i = 0; i < afe->reg_back_up_list_num; i++)
- 		regmap_read(regmap, afe->reg_back_up_list[i],
-@@ -2012,11 +2017,15 @@ static int mt8365_afe_resume(struct device *dev)
- static int mt8365_afe_dev_runtime_suspend(struct device *dev)
- {
- 	struct mtk_base_afe *afe = dev_get_drvdata(dev);
-+	int ret;
- 
- 	if (pm_runtime_status_suspended(dev) || afe->suspended)
- 		return 0;
- 
--	mt8365_afe_suspend(dev);
-+	ret = mt8365_afe_suspend(dev);
-+	if (ret)
-+		return ret;
-+
- 	afe->suspended = true;
- 	return 0;
- }
+Verdict unchanged: **YES** for backport to this 6.18.y tree, ideally
+together with the binding patch.
+
+ drivers/rtc/rtc-aspeed.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/rtc/rtc-aspeed.c b/drivers/rtc/rtc-aspeed.c
+index 0d0053b52f9b9..8f5b440f8c0a9 100644
+--- a/drivers/rtc/rtc-aspeed.c
++++ b/drivers/rtc/rtc-aspeed.c
+@@ -111,6 +111,7 @@ static const struct of_device_id aspeed_rtc_match[] = {
+ 	{ .compatible = "aspeed,ast2400-rtc", },
+ 	{ .compatible = "aspeed,ast2500-rtc", },
+ 	{ .compatible = "aspeed,ast2600-rtc", },
++	{ .compatible = "aspeed,ast2700-rtc", },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, aspeed_rtc_match);
 -- 
 2.53.0
 
