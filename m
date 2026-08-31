@@ -4,109 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD1AC61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 02:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B90EC61DE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 02:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbE6ygLElQTTYS/K7ZqBXF2buqZVjb40e1vBsSRV3Do=; b=NaHffiixsvy0t8Axp2Lcjqes7W
-	fdPO3fMCSo3O2ZSFtMV5fZP8msWkHVcsnNCmo2PXXqR7LugCEmeslOu3aliP7K+j0YSB5qo9sLtC2
-	QrtVZR2MYOtI2LOAPeD788Mooex5QLH7hDJa/ek73oSItEDnZeelS9YOxlU3+xKnjBarcO2WIGTdp
-	QbzUzJ11ze95kFq9juwB/CI1JpBWqSoPZ6SRpssYZUELpwbCj4T3hK1Cr3c/+2cJIaiF9kNFpv0Fg
-	Ufv9j8g2TYGn+q4ecTL9ozQOwPen/WNFxechfnI7vZERxtR6qb/mcjU9Ut/YWAGRjIiybB/vQaq6z
-	kgueB0dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZhT897pRpBM+tJ1kem0SH3LVJgXDEhaNUrTZzsCdCzY=; b=e0Biue9agdJkdUWVOKu4pwaA6H
+	xC4tlFNpjrhSOKd1o3PoQNv6f48pYomAr7cIx2BK0AqOaOyKw43on/T2RfqFtX+m/deXuW4NJJV8a
+	fQ9HiW9i8F9q9day6cs6z2H+LfD62Dxko0y4Fi9bNPbQ1NGCg/Us1uIYoGTTBMeOJaOwhP4EyvOOT
+	Hz5Q4qaWKSLvjKTRg9dJ48/yN0BWJWZKJMRlq8k5jgf7ZehVjoVK7IaPG7rL8U6LcTVyxDrSDfcKj
+	2qiZXT1AgRDD5zOxotDuO7nt613EgKxzHXuw5LZFIsTaf8EN9nc4Nzu9ozS93uJa48j8hItSQCTvf
+	uM4J7T1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0rzi-00000008NBB-1UNW;
-	Mon, 31 Aug 2026 02:43:34 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1x0s0H-00000008NEG-1zJq;
+	Mon, 31 Aug 2026 02:44:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0rzf-00000008NAq-1smI
+	id 1x0s0F-00000008NDp-0ZXZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 02:43:32 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-81e6f0b4610so26772117b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 19:43:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788144210; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BJ7Pa81L31jP0iFLztM2FkZ6937Va8P1VP7OHWmtiiO7G9I57B1yt8pySISBRSxyXa
-         6bK9TiPVIB8s/0fW9fdmVBwtNg0CFHi1VC5brPpe/+sZLO1KmU+LQFFo+QFhT/8Xro6m
-         CRj2cSEI5DeT67fPbM9Rh6Tq86u9U6he+gZ8dTDun1Yxatj6MC4/QQ7NZXIYooziLgGH
-         NVuOCqIvYCW4CjJV+fAPxUriiI87PLHV5jmljSS8rwVyt10NRWkTpux8ZDouq+yqHfPs
-         OZclBFhQKHgvoq1hqipNe2RPm8wdgRa/oIxGGXC7DMNWIB5FM1T/gSWV21XoEZNcfwb9
-         Mv9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NbE6ygLElQTTYS/K7ZqBXF2buqZVjb40e1vBsSRV3Do=;
-        fh=6JR6ssse1weeFf6mEA+bufvc2ytMhEhZURtWOxRT10g=;
-        b=so8UU9R051nSJSCG2Gu+q1oPVlpFCAi11cOMFBF5QLxVAgNeyH+/gETJoZmewBbWrg
-         Clct5poq1mbtFyYb5fwMr2yNpBwchdA4+KukE2xu1mDvryhneeCZ5tFk2LJiFUYBqf6W
-         T6OudErNU9Mrk4dC2yDn8eI3YW7s5DlKQ+xqwipl4a4C7jTdtP7nik7BpG/hfBPZ88wW
-         GVxdnnxZl4yMGMscuoxq2SxZaEc0ag2frBf5q+xTBMz8x9vsT3dH/o4gv6c2slw7RGxW
-         RtO87JFPhNZ9VLfVM2Sat1urIR0KkYJomMY20aczjljJzBu67mwuz03iOSPc0ay28Xvf
-         8Pig==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 31 Aug 2026 02:44:08 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67V1bMkI2179530
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 02:44:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=ZhT897pRpBM+tJ1kem0SH3
+	LVJgXDEhaNUrTZzsCdCzY=; b=fFnrlXPD9K3X/8Mh5DZSOKTSit6U3Mkn2qO8T5
+	mLY0gVCWx/Sc7SAmVg7LezJ4mdTYBXdief200KjLzrRhYhR+kMT2nw2YAJB6upNw
+	89X99tW/Hz+Xi4bbqw4bVhF2s3x8gMwShrnX/yeOkLjKALHOfJq37/YuAVSv1eKT
+	dpvD3Zz5xNZMzG3+U39mrFwQ9qGoha5fGK0eOn3eIuMEXHLLWj5hZt8My4W/CY+M
+	5megf/0LffzvB1a67XIjkifBqWKgeHdxWIpDv+MK8tL5nr7vN2n0G1GYKks38F65
+	dT7LWu1u4cIYEWMJFGqw3EfuRDpnCykIjwokQmQx7MMiuz2A==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbqn2m84k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 02:44:06 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2cc6dd43737so60674325ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 19:44:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788144210; x=1788749010; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NbE6ygLElQTTYS/K7ZqBXF2buqZVjb40e1vBsSRV3Do=;
-        b=FMvkL6M1LO/b990IHJhBGDXzyZfwZwC8Cl1417fExQkpupfEskSMNXQ4WNgiUucftn
-         DiJzrNQjvVN46FwOCJXhfXy2XGg5CuF4pUGZuVMnKFaefJpizuXZ5Wk1NqYTj6fi+FX2
-         wknGzXXcye6/z3cM+BgpPyRd65WagRdRyDrLgw765vAb+wfgy/Q88UEdsK5rem9LPGbS
-         Zc1c5BbP7y/7E1lpHEkcQfe6xVbYe9wicNGkgePzW7tpfCORbWI7MbD6i6K81wFCaPSL
-         ItzD1ms/I57SrdiX5KZpYHeXtX55TvCtp0/YJY38zZc1YFgoqxq0TtcR2N9Cdy3fL15s
-         wrAA==
+        d=oss.qualcomm.com; s=google; t=1788144245; x=1788749045; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ZhT897pRpBM+tJ1kem0SH3LVJgXDEhaNUrTZzsCdCzY=;
+        b=N81qknJ/1swTgk1FwS5bjIv175//erbiEtnCl2O6AF4cpMGllxP8vzteu2SvZN03O5
+         XwKjCXz9CC09X+Z3Sk0yFeF10Y0wXWciolm8LPbyt8wsbB7ZlNaAw74AVfJnfB7+/acn
+         26bxsIRqPyZuvfcNkiqCvB97Btob9iFyaT8SWvEhamLCCTMDpagdEHtc5ZkEuOjkNuOy
+         4ziDrGhjkZ2UNOAZmmR+vo1msmCKmuADaau/vIfqHPY94lpgq3PkjtfwjsZNsEeiwoIP
+         +FJwrG3BOtngaRMtN0mroxgLWvyTd5QPjTOwbuPDcftcnAWX3ToJ2OsKo6VI/gRcYjiC
+         VCWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788144210; x=1788749010;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NbE6ygLElQTTYS/K7ZqBXF2buqZVjb40e1vBsSRV3Do=;
-        b=tAzkcXXdudw6Tq/qR8stvQ/bw37Is8lDS/MLGRzxNPwIht3uky5ouUwHoU0ZnZ+0ex
-         uIHXd/BDBRHT3y/+iIunH9dBK6D0Qvg2YHr42OihQ0cclHUneEocqLM6NhHNJm8RCaIi
-         blvkI7BZ0AyJEnaQ9xa8P1GduRBaimgfv+RmlxKBW9VxlOPNhUxy+ivpnhbvyme/rH2P
-         o+1ZJjKyLjSaTh2RiaQhMjcnSi1qCQnu8cDNnybTeb9acNY7jNuCf2u7eTgmL8PTh+o8
-         K2xUF7vbxZTScrBzmKsMOTmWL1tnHBnt3i0iSfJNocGM3RTPsRyaKPRPsMSXG9i+rXEk
-         2tWA==
-X-Forwarded-Encrypted: i=1; AKwUvByrxau7L/ksfPZuG8OsffURzCSFnvNwPCE5A3yfJcZPxjeLNh9OublelRtLH/Vh6BySt4Fi55u2BDLry3YBB49/@lists.infradead.org
-X-Gm-Message-State: AFuF++ltqp5HdoSGanv6QuBHIwPta2cFSF/mKwRqcgXGCgz0hK0RO0vn
-	VnaeQBuqIWgGdpVn39cAUVI9IhiVu+03OV01UwnH/IuIqIVgrrUT9WjulOOzclDF/st5eID1YJ2
-	bUsxUXEHqDqfeEwzjsptt8pgN0TFzTis=
-X-Gm-Gg: AYBFou37X/pCr3KcaO3vqcXear8p5dP2eDMXhWEPkGjS/vGUMdwtqZpaCHxcm5SgomC
-	2fzWKdreEC2AaTqVeMfnhSAmt0b32Nd2cbucZoCYxyfv5eYCc4XXSNjmt0jsNxUB+AWr1RBm0Oy
-	N00CZb4Ct8h+MY6oYYXBTf6LWdKtGCtBU67CbcvH6lvfP5PSrSMk1bykj8MrkXWmMuaUEjmqjNk
-	OsUJl0HHTxunDaTZVYi8DswPBKgj7hD3XE+xYpQv+nvA4lb8kZT3QABfpoFVd7h/0BdTDDPDTzk
-	EROk5NlhQYv7gd8eXJF3HsWk6SlO4xYy0cdrtM72lPaMjQ==
-X-Received: by 2002:a05:690c:38a:b0:81e:695b:585c with SMTP id
- 00721157ae682-8678f0c3792mr241247b3.4.1788144210009; Sun, 30 Aug 2026
- 19:43:30 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788144245; x=1788749045;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ZhT897pRpBM+tJ1kem0SH3LVJgXDEhaNUrTZzsCdCzY=;
+        b=UpnlZn4Wo3MNh2C6alX1fVgj/i+SfaoKEK0fBVt9iS7XkrnBEronDlGC5H2L9Y05lP
+         DuYyv6HW3iMSUl0i4g2QwzyP6IahHlP/8i5f0n1yp6RuSqHx+JlXt7pSKMeCSKXQcMIu
+         2HkV4nJJFsUGIzeXfRJIjW+7vwOx9sfvZ34DQZV1hBbxSzFCLTQmvs0qxxRGseKZrjsy
+         DxswuidQsLSMqjsesmldsdUi3+aFNfbsa1ZGKVcMhjSPPxE9kqzWqqTFOZ927UMXSkSC
+         Y1GIboBUh0Kd0r8kEq5uuMokXcLshxhxPPMFI/MSDH9DKimKTsBqzNpKSJa6v+uHnJDE
+         rqwA==
+X-Forwarded-Encrypted: i=1; AKwUvBy7wMHLtnlv7yGbBFG/borrR5IuSFv4dN33ewnRNg6yxvWKtIryFY9dOHAjxXQB4xmH96gufnHF0jXYWbMfxmqJ@lists.infradead.org
+X-Gm-Message-State: AFuF++lJ502IOdgBm8QQDnvIN2TDQY3dycokxclAyD6guY87AJHvkO4K
+	KM0rzJlR/gPUiiiE5pjS1pI2rZPSI2/7N5cLVMV5OSiSS2rOUxHAZKQZa95w5QHsDv1eH9Dj1qp
+	ke01fjucHVyU14PXfbqG996TkAHDEWc6A7juQFCbOR0lIliox7NPEnJ8r/I7sKVA1uk5FqH1w44
+	hKEw==
+X-Gm-Gg: AYBFou1hDjVzk5jKVS+DD9S1VTFPTCqES5Hj55LvLDcOfGgqdqBCnDrTJt7U+1rplWL
+	rqG/DeujiFRon52txqxL20d/93O8l/6DtvT0PhzEVtwpJ757aV3+jYsP4xnnIvPeEEBrpThpyqZ
+	fBfBNtJ5X1rpM/PTXJvwvIiumVAd/AJgMLyD13INa93TZc28WVj0BzJJanZk0VsKUh2cwD0S+sE
+	iKMtlzQFefrKb3X2AYA35fljxDcI53RHBFEVWHnCl6BiBxoE/ODKb5n/w25tivg8Em441GP7Sru
+	OP89naviHNnQJ4STJQesWxLiAvsPsHbJFXwWm2ErEa1U0MLQ5apvtQQXqtLrTTeicCYU1pQYM6J
+	bJ/oU9Ty5PNqJ/MOz4TyOzjFZ6TpW7JsHjaEzI+oDxc4g7A1d8yk=
+X-Received: by 2002:a17:902:f685:b0:2d3:716e:e2ae with SMTP id d9443c01a7336-2d93f94ccc6mr3407045ad.6.1788144245459;
+        Sun, 30 Aug 2026 19:44:05 -0700 (PDT)
+X-Received: by 2002:a17:902:f685:b0:2d3:716e:e2ae with SMTP id d9443c01a7336-2d93f94ccc6mr3406595ad.6.1788144244994;
+        Sun, 30 Aug 2026 19:44:04 -0700 (PDT)
+Received: from hu-jingyw-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3286f7bf283sm27982915eec.8.2026.08.30.19.44.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Aug 2026 19:44:04 -0700 (PDT)
+From: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+Date: Sun, 30 Aug 2026 19:44:03 -0700
+Subject: [PATCH] dt-bindings: arm-smmu: Document GPU SMMU on Qualcomm Maili
+ SoC
 MIME-Version: 1.0
-References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com> <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch>
-In-Reply-To: <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch>
-From: Prasanth <prasanth.padarthi10@gmail.com>
-Date: Mon, 31 Aug 2026 08:13:19 +0530
-X-Gm-Features: AcwNN1XmXTP91gt09bDas9PoVw9lX5EEpGOPuilZRVTJETaIpy2y2cTeB3EQiZQ
-Message-ID: <CAMFFDGi161c0a8CX4DAaRzc66xTG2oRZ7DOgsG7pNRo-YP9-cw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260830-maili-gpu-smmu-v1-1-253e1108ce82@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAHLqlGoC/x3MwQqDMAyA4VeRnBeI6dCyVxk71Bo1sHbSoAzEd
+ 1/n8Tv8/wEmRcXg0RxQZFfTT65obw3EJeRZUMdqYOKOvCNMQd+K87qhpbShcyNTbKd71zPUaC0
+ y6fcaPl/VQzDBoYQcl/+GPHs4zx+Fon9wdwAAAA==
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: aiqun.yu@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+        trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-3d134
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788144244; l=1316;
+ i=jingyi.wang@oss.qualcomm.com; s=20250911; h=from:subject:message-id;
+ bh=PUDMY4WLXFBReBbRmBaTP6+PE4Cv4pgZHtjopE2nWgQ=;
+ b=krsN/QHNnWo2ZNh6r/qHqaAjxKhPy5UC4KhZI3frkNdGfG0+mq/11lmoD+0xzxia4RJKXtfT5
+ tlwXFEoOKHzDB4pbzbCndHHGOxah27KU6AAiho5NtqUTMk3egOPuUU9
+X-Developer-Key: i=jingyi.wang@oss.qualcomm.com; a=ed25519;
+ pk=PSoHZ6KbUss3IW8FPRVMHMK0Jkkr/jV347mBYJO3iLo=
+X-Proofpoint-ORIG-GUID: Ko4lk9esz_pT2F5YVBPSJEu_y7jzCzfq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDAyMiBTYWx0ZWRfXwxUU5TKUFyFe
+ G1OOEw7VRRJSoJWVQR61QHhGDFtUB9Ap7OMstVduFEGM7JCiY4M0C8W4xgEBBApLj6FvmxlBeES
+ sZLADHOwgKgvYD57fM2IygeUv6bRm5OPSNP2xMVGwUcxQHnCLLXqPDsahyjkHIo7jL2Q60kJkUb
+ MDA3Zv0AndJa0g6orVmXs3fo6oq+2WNwREM0pPXmiv/904P4zEwt6m6+2NuB2gYo/YiczDoIiMT
+ qXpIoNa3gE4liZlS2ik8dVebJBFUPMwh9dbz4IHjqCjSbrngulHA1PyYUIDOPG3C5ZruhvYCJzJ
+ gGsRm1xxXF27pR2rMvi677ZSCWEy/VL49L6/RnBSF8Fr4TZUtwZc6vA+ZLEurUtednLsAB8/Si6
+ 7Ar5d+BKmov64ybWa09JfkV/+RiM74KJKWTMObWi0idnVd3fxVYllLS28L4p1PHNtIIXtnQcRY4
+ 3rSrtdjbEARq6jdKOJQ==
+X-Proofpoint-GUID: Ko4lk9esz_pT2F5YVBPSJEu_y7jzCzfq
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDAyMiBTYWx0ZWRfX/N0ihnd9YXpA
+ ai+OYX9on5qQn8JBM7R7vVBfrn5Xc82FEXyqdExao6QE2jjYT8LF+t8Qu2kr7QARoK5J5qKEACI
+ R2DrWUhbqWe4elk6w8Pg8BnZqRuNrBQ=
+X-Authority-Analysis: v=2.4 cv=a5kAM0SF c=1 sm=1 tr=0 ts=6a94ea76 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=TpgbzC6p0oeasEHOM3UA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-31_01,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 phishscore=0 clxscore=1011
+ adultscore=0 priorityscore=1501 spamscore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_194331_525225_9BA02317 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20260830_194407_194603_5C7338DC 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,54 +160,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Document GPU SMMU which uses "hlos" vote clock on Qualcomm Maili SoC.
 
-I do not currently have the PCB layout or RGMII trace-length information,
-so I cannot confirm that the PCB provides approximately 2 ns of TX delay
-but no RX delay.
+Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+---
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-My hardware results are:
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index ffa33b7f4a96..187710fcc567 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -101,6 +101,7 @@ properties:
+               - qcom,glymur-smmu-500
+               - qcom,hawi-smmu-500
+               - qcom,kaanapali-smmu-500
++              - qcom,maili-smmu-500
+               - qcom,milos-smmu-500
+               - qcom,qcm2290-smmu-500
+               - qcom,qcs615-smmu-500
+@@ -579,6 +580,7 @@ allOf:
+                 - qcom,glymur-smmu-500
+                 - qcom,hawi-smmu-500
+                 - qcom,kaanapali-smmu-500
++                - qcom,maili-smmu-500
+                 - qcom,sm8750-smmu-500
+             - const: qcom,adreno-smmu
+             - const: qcom,smmu-500
 
-rgmii negotiates 1000baseT/Full, but RX traffic fails with CRC errors.
-rgmii-rxid passes a 5000-packet test with no loss or RX CRC errors.
-rgmii-id also passes the same test.
+---
+base-commit: e30626823a406725ce29bc75cb8ec467d3e1e326
+change-id: 20260830-maili-gpu-smmu-33d20c1f4672
 
-These results indicate that an RX delay is required, but they do not
-establish whether the TX delay is provided by the PCB, MAC, or PHY. I
-therefore agree that the traffic test alone is insufficient to justify
-rgmii-rxid.
+Best regards,
+-- 
+Jingyi Wang <jingyi.wang@oss.qualcomm.com>
 
-I have contacted ASRock Rack requesting confirmation of the RGMII timing
-and PCB trace-delay configuration. I will wait for that information
-before selecting the phy-mode for the next revision or making a claim
-about where the TX delay is implemented.
-
-Thanks,
-Prasanth
-
-On Mon, Aug 31, 2026 at 1:53=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Sun, Aug 30, 2026 at 11:50:34PM +0530, Prasanth Kumar Padarthi wrote:
-> > Add device tree support for the ASRock Rack B650D4U BMC, which is
-> > based on the ASPEED AST2600 SoC.
-> >
-> > The series adds the board compatible and describes the BMC memory,
-> > SPI NOR flash layout, UART console, and MAC0 connected to an
-> > RTL8211F Ethernet PHY.
-> >
-> > The MAC0 RGMII timing configuration was validated on B650D4U
-> > hardware. With plain "rgmii", the PHY negotiated 1000baseT/Full but
-> > received no valid packets and accumulated RX CRC errors. With
-> > "rgmii-rxid", a 5000-packet test completed with 0% packet loss and
-> > no RX CRC errors. "rgmii-id" was also tested successfully, but the
-> > additional TX delay is not required, so "rgmii-rxid" is retained.
->
-> Please take a read of:
->
-> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bi=
-ndings/net/ethernet-controller.yaml#L287
->
-> Does the PCB have 2ns of delay for TX, but notR RX?
->
->      Andrew
 
