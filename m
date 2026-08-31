@@ -4,116 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441E3C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C3AC624C9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=EB2N8WRVnbLtJekNqeO/ayIWjR
-	Frc67Lusg4fBe20StFG7JbYGDnPsQttZzo1OAE9qu+DwWQ/Xks8AYS6bNhLURELX2uWh9enmp9egd
-	5VAQZVGUhCkv39sxnU5KIMVOHMrbl7gnSFS3UrF51RUs+AyVjhtgcmWUn0xZGONQu/xEVV2StNQXc
-	oZv8424JBqourU5DyoL8/v+3WYPlB0+rS7vLBAfvzRZMnD9YYsraH7CoSKDRoTfJ4rIieqvEke50h
-	Gdalg5WckH2iNv89ZciMAP17UsAPfH2jXswDlBWkIQLdZuBvQDSQbhgPvr7Vl3PpbyDeSzJoOoquu
-	jUWLlPlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f15CQ+mxjdjEHSCbKIISZHUTpdx5KtqbUP9sBQrU00I=; b=JHYR+jKvefW5yY7NsghyLyRYTo
+	JCx1kJqt46O7wAa/2/LnRtt/plGeXtDdLwluEB2d2Hv9KawxPx7CGiuLEym0BIoESmlf20fz0LZXw
+	l+L1HHzd3IcvYAhdAbb16MI9onVf+VjjPwazwZyK46/qoyKR0Mzifk/3VMsswQic896XQt5ucv536
+	lrsyzRNR+/jjlbtmi6R3k6FF3KMP61u3gPb6FL+p58715grS7ImiOonViqe3ej44XPCxZu5FjPo6r
+	WdeR3fKaEBd/pvLQNIbq7vhLgZcV4aIqiathgKUp8AhTo6Ad5k4Qf0Nn5+26OHIN4sZ8UhZTACCoG
+	pONSKr+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xHl-00000008rqC-1uLN;
-	Mon, 31 Aug 2026 08:22:33 +0000
-Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	id 1x0xIb-00000008sFY-2JpD;
+	Mon, 31 Aug 2026 08:23:25 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xHf-00000008rjn-1D4t;
-	Mon, 31 Aug 2026 08:22:29 +0000
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailflow.phl.internal (Postfix) with ESMTP id 7AC0E1380045;
-	Mon, 31 Aug 2026 04:22:26 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Mon, 31 Aug 2026 04:22:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1788164546; x=
-	1788171746; bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=P
-	5vqeOw3ShNwcVBCo0k+wdZQceJK5uqFU/EnL4qZRbrjVznhH5r/SdRUCKEqhIDpP
-	y1h3ZY4Sm1jwrGe7p3Lsabi+MnMnhQ73tiQcRNC3FmJoJCrdADhfikvkLq5gYpZy
-	HG87BJPuMPrHUEPOALX0FOjWhS14GrDssJp6xZPrNuiwA/obU966sk1+zMk08ulF
-	YM7g50Ptv39ILyEs9AREsWIxRlung84TzctmEhAYEi3FGewxS+csk39JRVHdbzaW
-	6M+kj45fhtsDMZ8IBWZam8TvwLMuqE9c/VPSKoItahq630nSb100GJ+TvjxDI10e
-	E/yopNWFLbk+NkYhfdHVw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1788164546; x=1788171746; bh=y
-	yAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=VZ1NMvm9ufm+ap+8t
-	SuJlH6aAjIyhx4gM+mcBuqtMaHkNbpB2nYr+BrYV56iwqCpFB1VUwS3rBezMP3hP
-	1hjUSZEj8B6uqdfdG+TcpgPIzp8RTUp/U+5SBe7QrZDeILnzn6uZteItf2vaZSCH
-	EYG5OxRla/e8bb+AnqDA4yMYHqSxRNm+d6AXbqxgnOb5oG+7aE6Kkkpq+QDAS6c3
-	mP5+2S3h9IYhy2ohBwHQxzsA66zmUyTusjdjzjtPV652oCr22bL25HKVL8w/4myI
-	t4hary/SDcsS2Jcv7bavfTe2BNUJ3CTuStrRAbVnTPfX1Ns3CtJekefeC8mSeqo4
-	4+Hdg==
-X-ME-Sender: <xms:wjmVat0bqC9i3Gc4GDM9cMyiIiw1mRJRyP4ucpYpYZt-lZE_pfm7hA>
-    <xme:wjmVavlxMABW87ynYLKCF9HzH90_l0JdTvD8SrFCMSepAraK1Gggnu8b9lFyqegd2
-    gOevkZ3opUYXpVLMaQk89if2OPw5eifrmB59bDfSXJP1RY6qpeRXYkH>
-X-ME-Received: <xmr:wjmVaj70QoKrX8_AkeGr-LVL5dS68i4zPWrhSlK-xRxjUKikZ4Xu7sCEPMsi2ZgVr63YgKmCaQ>
-X-ME-Proxy-Cause: dmFkZTGO980Yn8uMbt0j2BdcD4QX/iOl9tUTFXCQ903aZIrMv7Tc6fuat3dY7duyg1xULb
-    yz10ob59tw/e4mxHxusC7Au1N4yhmt1yaDLIz0vcL8AJV9F7KQx+2+AsVtAkp8ss8MY4Kn
-    JM/nREETieohMZYv4RIh7Ygrpu4ZhAjUJQvWYoB8T1YSEXSwyUcny6aAbDZsJTqMdR5hRt
-    YbkWmcbdFOkc3c+lkICatwo6JMUCVpLlTOLedKImNWzhQDajBwqfhQjyXd8NbiMRLpQrNO
-    vpYClpYhFWPE/Y0sKG5xjf/eaGk7Zjv8nlP0Vq5z/Uo/jONQQ3T8oIPx3LprFSjLy2zQIk
-    hDBNgVO1mJx4GPGpisLvnD+Rzrr663mMdvMu22MeP6cfBXkMxCEJZNAHoQ/XlY0/PPOs1S
-    JDmj/dMRdpjl/TpDdpzwRbCTSdz8Vq16CRR2y1PCRdCNo20v24Kt9rdjDzTdINn2cB/0dg
-    OxQhrJEJtwez/a31NOTkjaKktqc4zh9EOj1uY0cHFxXLel43FBPKheMPj0xHWxa2nCfkRH
-    TExXjedslOHuXQKdJj0MTUHSw78E5y7IzQdV+VYcO0gqF74uxkEmE8vxl+/DlHyOhlT+EX
-    miAYGYwV+EjxcFrWe1AWjjplN6NrfjBzfiLI6yt/gjvzy1X66z1qKJpW2JYA
-X-ME-Proxy: <xmx:wjmVaomHocHTofk4WSBKAtZXW_qWOCe4y1jDdl2tNHRBmQ1v83YG8Q>
-    <xmx:wjmValQRsqTKowvptCS_erMnfJti375Byf39Og1a-w6BWubEAnb_nA>
-    <xmx:wjmVammUIwsRCv287vwzNlzce58Wg9tAHOixMKwAGGGZMMCOWu1ewA>
-    <xmx:wjmVamMfjf4re-Bgv4zaaoy_gmrlhVwLJo7ejzIgHDrUot5qW-gE4Q>
-    <xmx:wjmVapjs23DSJ9eGdOqiwgdw25xCWfQtfslQzI6LoFvcbMP9P9chJj3_>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 31 Aug 2026 04:22:19 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
+	id 1x0xIY-00000008sCa-1r9T;
+	Mon, 31 Aug 2026 08:23:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jmC8puW/JfYBLPObnet/qZF+jags219p0VEOTP/I7JUInr3go0QIpsJnkrQ8ixCPEmfFnbbp579hTguwAPXPINUDmZYPBf8PYynfmywepe6JiKNKgLVM1UBqtCHhWYw13zD2hgnqfB6Tdi9Lf+7rXXJyZ5HyyYS91IMRAilR42HO1TJaCZF2Pwex+jl+XxjI7BazZqdGtleWJ8V+Q/fimamy1rIV4Gfo0ttBFfOZEawvUqXc1wgDVJX27NXpUGSmXG+Vji6YKiKJta106wFkvTB6kziDvHpQVUwBDsBFex3DJssZoqtIpTKjz+qkdnmvcKZeajLy+f8VmnLch2fCXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f15CQ+mxjdjEHSCbKIISZHUTpdx5KtqbUP9sBQrU00I=;
+ b=d0kPqDbN8yNYVbnx1N1GTgxca6KDsDSifDRCY+3n7eHkeDBcsKJAWCyGgofFgdmDoPeXMxESuImIL9IkIlPTRHP9Xjhtiy1Z2MDFI+c784LGABtj93q34w/pysj0D+wt4SD20h3qRROqXQrjZlN2y4sHyBquOXyQUMHmhcWOX8CrRCSg8n3u0EMBhlSQXONh4yq0QyOc6ogx1Evpe3ep4fmDBS988NHUh5E99g4hlpuskxSlmPy8RpviFFkcxYGgsNzTdaayybeq9Aw2Bydu+GxnAUrCc1PElW3vCoiad9SJW7ASyA6Mo+XMY7qHf0vmpe2iuxhvI6f3ohy7XTrXww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2PR04CA0206.apcprd04.prod.outlook.com (2603:1096:4:187::21)
+ by SG2PR06MB5240.apcprd06.prod.outlook.com (2603:1096:4:1da::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 08:23:12 +0000
+Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
+ (2603:1096:4:187:cafe::24) by SG2PR04CA0206.outlook.office365.com
+ (2603:1096:4:187::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Mon,
+ 31 Aug 2026 08:23:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Mon, 31 Aug 2026 08:23:10 +0000
+Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 91EB84092108;
+	Mon, 31 Aug 2026 16:23:09 +0800 (CST)
+From: Hongliang Yang <hongliang.yang@cixtech.com>
+To: peter.chen@kernel.org,
+	pawell@cadence.com,
+	vkoul@kernel.org,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	ulfh@kernel.org,
+	conor+dt@kernel.org
+Cc: gregkh@linuxfoundation.org,
+	rogerq@kernel.org,
+	neil.armstrong@linaro.org,
 	p.zabel@pengutronix.de,
-	ogabbay@kernel.org,
-	zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com,
-	u.kleine-koenig@baylibre.com,
-	chaoyi.chen@rock-chips.com,
-	diederik@cknow-tech.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
+	fugang.duan@cixtech.com,
+	cix-kernel-upstream@cixtech.com,
+	linux-usb@vger.kernel.org,
+	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [PATCH v11 14/14] arm64: dts: rockchip: rk3576-rock-4d: enable NPU
-Date: Mon, 31 Aug 2026 20:19:56 +1200
-Message-ID: <20260831081956.84871-15-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260831081956.84871-1-gahing@gahingwoo.com>
-References: <20260831081956.84871-1-gahing@gahingwoo.com>
+	Hongliang Yang <hongliang.yang@cixtech.com>
+Subject: [PATCH v1 0/4] Add CIX Sky1 USB3/USBSSP support
+Date: Mon, 31 Aug 2026 16:23:04 +0800
+Message-ID: <20260831082309.3854507-1-hongliang.yang@cixtech.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|SG2PR06MB5240:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: fc47fbed-bbcf-4079-0bac-08df07391849
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|7416014|82310400026|10067099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: hctm7wrzbAGQ0h/iNJJpJ0oC3FCpkeSvR4WQX/ImcyLtavpfzP+p5H6eW9QYoSzFQBbV4SksLnEBxw6l4kIn5mFYnNKslTFpRFaJReQEk7AEwkaQtD/+/k7+HZJaRnfTv7l9klCjpK2pDc+PQiwhYMtn3Yu6G92Oyx3xK/dDyblEc32WCi456lJu27Tq5AvJBw1v/e9GymzsWTI+Dujyv5TTl3qhz66i/73LrTJB3JVjwmoamqNx+i2pSMMCmtm0Qj2OyEoR5YtSVl+mRn7T6YLrvwR7d4UFtoVJz8cwT2gSYIU6gAOZnXSd3mFr7rca5wxEjI311PxS7oOaBs2lDjlMDyoYU5fYHZ4ff638mOBetLZXpoXnfmQhIVRHV9m70ekKCv9LJi9vT9agZE3CHnrjj+dYeZYuvcZ8mpQ5LrRHCF4zA5e2SBR5fKSmOI7G1jdti5zcGi+oOQHJnHQiGnqRoRIzAL6dnalz0pYQBt/2XrXumKOe3k6UBMIz955bTK1BMLH5umyJkRqT1mjXL/QqCOxGre9Tc+49ZJMa3iqlEnDKW+jJ+WK0NzvK3KSIY/BDdf+EfBKAl4lMM+xFG3rz2eueYViYbJthdutGKNUpCYL4Uymi5x9Ls3XGWhXnQn0HvGey0dW53l1npXR5e64VwYiQ5komQ5oDXvU4cd+U9ysSUlbbOKAGSNsvYb95G6GiiwfWgcldWBEF0Zfgbw==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(7416014)(82310400026)(10067099003)(18002099003)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jkqjEbYZPxZmVJ0QW8Uarp+zI+QYVbsemqF6V5EsbzC7+rhqr9zLF0R+vfM3gFXxn7cI3jbU+52KWbsBLEaRLLUxRVQuI34pte73Roqr2RokW1WqrxJDUvvppIZe0Y/hFgbdjjCFkX3Gz2iSYIuLmmABRKCtPMD6NZWToe3ZmxWk0HFmRQ4DGI+sDt4WPJKFC97HwPRB1yEySwOVlK3aeMvPv1gXQ7Z93mw0RamrlHZ1I2O2EySIxDfhTvJEbIZNosLVEuzj64aN6h5Ub4pB8UoWcw0/CKaVOrK4biuXqFlje0MV1AlouSHVshlYEJbHNdBnLse7s8Y2d5Gahnm0endNp/PaYNXFtTH1A7QC5ci9E+i+KJsAUCd7P2hjZEQWCxl3WQ+kWN+PvwOEs/kzNwcOrs6+AFuxDGqFQQTv8fzq9zfIyR91EO4nKqIX8Tgx
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 08:23:10.9476
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc47fbed-bbcf-4079-0bac-08df07391849
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C9.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5240
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_012227_401934_E6FF0865 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260831_012322_479461_F82A5239 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,60 +125,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable rknn_core_0 and its IOMMU on the Radxa ROCK 4D, and hand
-vdd_npu_s0 to the NPU power domain as its domain-supply, so the rail is
-switched by the domain that gates the block.
+Add USB3 PHY driver, Cadence USBSSP glue driver, and USB4/USB5
+device tree nodes for the CIX Sky1 SoC.
 
-Measured on a ROCK 4D with this in place. The rail's regulator debugfs
-reports open_count 1, so the domain is the consumer that took it. A
-sampler running beside an inference caught use_count at 1, and three
-reads at rest report use_count 0 with the rail disabled, so it follows
-the domain rather than staying on. Over the same run the genpd
-active_time of all four NPU domains rises by roughly 60ms per inference,
-and the inferences either side of that are 128 of 128 channels against
-the CPU reference.
+This series adds support for the USB4 and USB5 controllers (based on
+Cadence USBSSP DRD) found on the CIX Sky1 SoC, along with their
+associated multi-port USB3 PHY.
 
-rknn_core_0 keeps npu-supply on the same rail, which the binding
-requires. Only rknn_core_0 is enabled: the driver binds one core per
-node and the second core is left to whoever can test it.
+Hongliang Yang (4):
+  dt-bindings: Add CIX Sky1 USB bindings
+  phy: cix: Add CIX Sky1 USB3 PHY driver
+  usb: cdns3: Add CIX Sky1 glue driver
+  arm64: dts: cix: Add USB4/USB5 nodes for Sky1
 
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../bindings/phy/cix,sky1-usb3-phy.yaml       | 109 +++
+ .../bindings/usb/cix,sky1-usbssp.yaml         | 153 ++++
+ MAINTAINERS                                   |   3 +
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  36 +
+ arch/arm64/boot/dts/cix/sky1.dtsi             | 133 ++++
+ drivers/phy/Kconfig                           |   1 +
+ drivers/phy/Makefile                          |   1 +
+ drivers/phy/cix/Kconfig                       |  20 +
+ drivers/phy/cix/Makefile                      |   6 +
+ drivers/phy/cix/phy-cix-usb3.c                | 410 +++++++++++
+ drivers/phy/cix/phy-cix-usbdp.h               | 310 ++++++++
+ drivers/usb/cdns3/Kconfig                     |  13 +
+ drivers/usb/cdns3/Makefile                    |   1 +
+ drivers/usb/cdns3/cdnsp-sky1.c                | 682 ++++++++++++++++++
+ drivers/usb/cdns3/cdnsp-sky1.h                | 127 ++++
+ 15 files changed, 2005 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+ create mode 100644 drivers/phy/cix/Kconfig
+ create mode 100644 drivers/phy/cix/Makefile
+ create mode 100644 drivers/phy/cix/phy-cix-usb3.c
+ create mode 100644 drivers/phy/cix/phy-cix-usbdp.h
+ create mode 100644 drivers/usb/cdns3/cdnsp-sky1.c
+ create mode 100644 drivers/usb/cdns3/cdnsp-sky1.h
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 272af1012..79e039bee 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -722,6 +722,10 @@ &pcie0 {
- 	status = "okay";
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hdmi {
- 		hdmi_tx_on_h: hdmi-tx-on-h {
-@@ -779,6 +783,15 @@ wifi_en_h: wifi-en-h {
- 	};
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
- &sai6 {
- 	status = "okay";
- };
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
 -- 
-2.43.0
+2.54.0
 
 
