@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4E5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97066C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5FZuqvEUAT2/PGcwzm4Qov9gm3yBMDweP9yb9iR+HU=; b=eKapGYOD9052plvzn3/FRsfLMV
-	YM6cix2E1MY6v+tdYj+E7NnBA3MQx50z3uEQ/lX8W/dloBL1yc/SPSzjMm44nic9eivYhZOltZlqD
-	F+G+CTLfD4CwtiW3JpvGuMtTyIYCNxmyEdzrEH4fbPtotZ/IRKflOSKUkljn75ragI9HogTAyq0ak
-	fZOD4vpnoFLB5Jg8WArrEUvS+AKOLz/tNdixaiVKW2WEjsmfCkoNtdU6Rn8nVKwZkpa7cUB3x6poi
-	185JC0VpZoo4qZyBAfKw4Sa/j+wwdDSg8ho71qnH4hvX4HHH6bDZa8cINULs4cUrPGUa1IpisnZSM
-	dBk3/5hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MKHpfG9FXZBRRV2MzUmsKoBDMrVngBIFiVIQAk/+QT4=; b=QwY+fRCXhRpKimH3a499FwuDv8
+	/RS6Hzu/RBwyQnp64mRavwjXgZUTjS2QfzRUYuzq9YgpUsm4oDRObsaEPGjS7nBxLftAKMsC6Oco7
+	cp65u9cTm6BGFnScNUCAGiSlDsr8j9Vglgh+Sczw15IaHeI7kLHijGSIA8wqTNO3s0yarYiwXNgsF
+	nHoB/AppQ/6k9k2Jqla8hRThKpNFDfgDp4xVn5CbI0KKnq4iMJ5nLlPK1k+75Gw05uxBOH9aYGEhy
+	BZXS+Lu+nyvWPg/bnbZwOCOpGSGivkU9a6zp6wll+eiA1uUjOLlMCTB7VuMv2qqqyKeQkiZGC1q0g
+	XJ7hUxfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10sx-00000009GxZ-1kwp;
-	Mon, 31 Aug 2026 12:13:11 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x10v5-00000009HGe-3TdW;
+	Mon, 31 Aug 2026 12:15:23 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10su-00000009Gwv-491F
+	id 1x10v1-00000009HFk-2SPm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:13:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=F5FZuqvEUAT2/PGcwzm4Qov9gm3yBMDweP9yb9iR+HU=; b=ZRFide8oJiPpu9hZmbIkYaN0+4
-	4XtdFgm/EkgzNhTbt5eEEiWaD3+OifNF8lBC/8J/GpnGa+xucYWpnCdPUjyXBZdq4NwjIqUWIeNH5
-	GW6b4s7GJcXVohYd4clgmE47LMQPpdA70XUiyjLed1CKfrRDOU5HcaAQHutx8i5wxhng=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x10se-002Acg-Kj; Mon, 31 Aug 2026 14:12:52 +0200
-Date: Mon, 31 Aug 2026 14:12:52 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Prasanth <prasanth.padarthi10@gmail.com>
-Cc: Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Message-ID: <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
-References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
- <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch>
- <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
+	Mon, 31 Aug 2026 12:15:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 058AB1A191A;
+	Mon, 31 Aug 2026 12:15:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CBC2F60231;
+	Mon, 31 Aug 2026 12:15:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB42B11C78B4C;
+	Mon, 31 Aug 2026 14:15:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788178509; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=MKHpfG9FXZBRRV2MzUmsKoBDMrVngBIFiVIQAk/+QT4=;
+	b=x8s3e4Cn2x+dOCKmc9hckekz+B0vlGLGChkHD95QauWurwh9rKYWr7JDXVdiLJVK4PwPcd
+	3WcNFco7+jtDi3/5GhWMW0/GFw6A6U/BCY4SR2MKIwNypKR/MDZw8DI54tdwiznnuETGWt
+	ldX3FC3niPA4g3xlFrgTkf3mOlYknS2lYYJRyK34uk2+xY+A2uR5uWDmj/Kn9Iq9AP9bRx
+	9hxwqEpIoTsKMHtXlE0vU8rK8/OIcf23jjAoBvJ2zSVzx7SgYn+wTpx6yJ6WzWMdRmSDSJ
+	EXB8hFmiy5SG7KKp6qnIHuqMEW+oTxirjDua4lzhoknscg1f56bmGy3GNAopkA==
+Message-ID: <480f15e2-e045-46b7-89af-1fbcefd3c4eb@bootlin.com>
+Date: Mon, 31 Aug 2026 14:15:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac4: Read the UC filter size
+ from hardware capabilities
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+ <20260831070121.349778-2-maxime.chevallier@bootlin.com>
+ <2631c832d5aebc56e152628132494545@tipi-net.de>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <2631c832d5aebc56e152628132494545@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_051309_035789_1892A96A 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20260831_051519_904153_AE98C5B4 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +87,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 06:43:46AM +0530, Prasanth wrote:
-> Hi Andrew,
-> 
-> I do not currently have the PCB layout or trace-length information, so I cannot
-> prove that the board provides the TX delay externally.
-> 
-> What I have validated on hardware is:
-> 
-> rgmii: fails, with RX CRC errors and no valid RX traffic
-> rgmii-rxid: passes, 5000/5000 packets, 0% loss, no RX CRC errors
-> rgmii-id: also passes with the same traffic test
-> 
-> This shows that the RTL8211F RX internal delay is required, but it does not
-> establish where the TX delay is provided.
-> 
-> Given that I cannot provide PCB-level evidence for the TX delay, would you
-> prefer that I use rgmii-id for the next revision?
 
-There has been a number of threads about the Aspeed SoC. It typically
-has delays enabled in its MAC, by the bootloader. The Linux MAC driver
-does not disable this, nor does it mask the value passed to the
-PHY. So you see many Aspeed .dts files incorrectly using 'rgmii'. Over
-the last couple of years i have been pointing out this problem, but
-nobody has stepped up to fix the issue. Most DT developers just leave
-the Ethernet node out, in order to get something merged.
 
-You case is interesting, because you are not suggesting 'rgmii'. So it
-could be there is more going on.
+On 8/31/26 14:04, Nicolai Buchwitz wrote:
+> Hi Maxime
+> 
+> On 31.8.2026 09:01, Maxime Chevallier wrote:
+>> dwmac4 has multiple banks of perfect filter entries, independently
+>> configurable during IP integration.
+>>
+>> The multi_addr bank reports a number between 0 and 31 corresponding to
+>> the actual number of entries in that bank, while the 32 and 64 banks
+>> are all-or-nothing.
+>>
+>> Expose these caps over debugfs as well.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+> 
+>> [...]
+> 
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+>> index 6382836828ba..89368e34a388 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4.h
+>> @@ -176,7 +176,9 @@ enum power_event {
+>>
+>>  /* MAC HW features0 bitmap */
+>>  #define GMAC_HW_FEAT_SAVLANINS        BIT(27)
+>> -#define GMAC_HW_FEAT_ADDMAC        BIT(18)
+>> +#define GMAC_HW_FEAT_MACADR64SEL    BIT(24)
+>> +#define GMAC_HW_FEAT_MACADR32SEL    BIT(23)
+>> +#define GMAC_HW_FEAT_ADDMAC        GENMASK(22, 18)
+>>  #define GMAC_HW_FEAT_RXCOESEL        BIT(16)
+>>  #define GMAC_HW_FEAT_TXCOSEL        BIT(14)
+>>  #define GMAC_HW_FEAT_EEESEL        BIT(13)
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+>> index 23ffe1adcd0d..14ac3f0e51f7 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+>> @@ -388,6 +388,8 @@ static int dwmac4_get_hw_feature(void __iomem *ioaddr,
+>>      dma_cap->half_duplex = (hw_cap & GMAC_HW_FEAT_HDSEL) >> 2;
+>>      dma_cap->vlhash = (hw_cap & GMAC_HW_FEAT_VLHASH) >> 4;
+>>      dma_cap->multi_addr = (hw_cap & GMAC_HW_FEAT_ADDMAC) >> 18;
+> 
+> Now that ADDMAC has grown from single bit to a mask, the hardcoded 18 has to match
+> dwmac4.h. So IMHO it would make sense to use FIELD_GET() here (like actphyif)?
 
-If you look in the email archives you should find the information
-about where to configure the delay in the hardware. You might want to
-read it out to understand how the bootloader has configured the
-hardware.
+It's hardcoded all over, if you look at how all the other fields from the features
+are read. I can change it if you really think it's worth, however I'd rather
+do a proper cleanup of how all the properties are read at once :)
 
-    Andrew
+> 
+>> +    dma_cap->additional_32_addr = (hw_cap & GMAC_HW_FEAT_MACADR32SEL) >> 23;
+>> +    dma_cap->additional_64_addr = (hw_cap & GMAC_HW_FEAT_MACADR64SEL) >> 24;
+>>      dma_cap->pcs = (hw_cap & GMAC_HW_FEAT_PCSSEL) >> 3;
+>>      dma_cap->sma_mdio = (hw_cap & GMAC_HW_FEAT_SMASEL) >> 5;
+>>      dma_cap->pmt_remote_wake_up = (hw_cap & GMAC_HW_FEAT_RWKSEL) >> 6;
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> index f2fc89176654..a885f8cfef21 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>> @@ -6580,6 +6580,18 @@ static int stmmac_dma_cap_show(struct seq_file *seq, void *v)
+>>          seq_printf(seq,
+>>                 "\tNumber of Additional MAC address registers: %d\n",
+>>                 priv->dma_cap.multi_addr);
+>> +    } else if (priv->plat->core_type == DWMAC_CORE_GMAC4) {
+>> +        seq_printf(seq,
+>> +               "\tNumber of MAC address registers (1-31): %d\n",
+>> +               priv->dma_cap.multi_addr);
+>> +        seq_printf(seq,
+>> +               "\tAdditional 32 MAC address registers (32-63): %s\n",
+>> +               priv->dma_cap.additional_32_addr ? "Y" : "N");
+>> +        seq_printf(seq,
+>> +               "\tAdditional 64 MAC address registers (64-127): %s\n",
+>> +               priv->dma_cap.additional_64_addr ? "Y" : "N");
+>> +        seq_printf(seq, "\tHash Filter: %s\n",
+>> +               (priv->dma_cap.hash_filter) ? "Y" : "N");
+> 
+> hash_filter seems to be only set in dwmac1000_dma.c? So on dwmac4 it would always print N?
+
+Yeah but dwmac4 has a hash filter, but same as the UC filter it's just not plumbed
+in :/
+
+Let's leave this flag here, hash filter addition for MC filtering is coming-up, so let's not
+drop it now only to re-enable it after, one of the other wonderful discoveries found by
+running the selftests...
+
+> 
+>>      } else {
+>>          seq_printf(seq, "\tHash Filter: %s\n",
+>>                 (priv->dma_cap.hash_filter) ? "Y" : "N");
+> 
+> Thanks,
+> Nicolai
+
+Maxime
 
