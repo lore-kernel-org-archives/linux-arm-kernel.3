@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D80C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84535C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mDUeeBxD8CF2aks/Gxvhq5/zZiYV2qas2QSFlH/aLhQ=; b=UmqYUoixHopcUxwon3HcVrb7s5
-	40w5asqZSqMJy0inLr+2ezt8IcmiHDPcg/TckRtFR7CV5Pp1LDoV1AFQPjTiv3HcV5YpTm/ycsewu
-	UutEX99IhX4EluZLG9P50Wl1LsOjERqArzKOS4MB3MvoP40+8gevgulkPPWGmukoYc3bGAHwg4RMF
-	QCzu6soOOtXZJV4rQx7Mgx2YHO5SKEQ5MjrIh8ryR8kNrsXcTXDLGge5YDQfFGAoqlWeLIIHklQ5K
-	qmhobZo0bFrSdmpJB8y0ULZ4Bhz2pwYL25niro0mjEzfkOOw98uJxs/LKI02gQ+Tv6kgLFEygR2dv
-	DGsk1n/A==;
+	bh=9EvpzgjhvcxWJzAemqIAhsf9SNmX9ng1FkRl8Qno2LU=; b=dF2p92Z3e18HQPCo5SfYkIxo6K
+	q3SLa0uBrTvyD0Sa3w31hjie6EcEURQwuzLWgL7MG95356YF6lK2CxX0S8iuYHRU36MCcJIm/1V0i
+	PhOio2wtUOkxPhUlTY9aOJxLMyK2HFaX1vgfAOq7zeyFB/qa4GY5ttyYgzzP1oumowwtgY4jdtx+I
+	vBBvpgXRuVxCw8Il9XSBPIssOPw8sC6JcDiXfi2uq1VGZWMhr4f3c9JwnCXduVKz7Nx/4OE7HV77v
+	sGtYxTIGUatEv8davb09ImQAUQ5jcaRg9OIMmirL37JGCJMHq3tvz6+4lcXTMe4d+uYmZVA+0eGCZ
+	ZwcbTDpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11LQ-00000009Jrq-3BvR;
-	Mon, 31 Aug 2026 12:42:36 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1x11NB-00000009K4O-0XWm;
+	Mon, 31 Aug 2026 12:44:25 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11LM-00000009Jq9-48kC
+	id 1x11N8-00000009K38-3Tgz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:42:35 +0000
-X-UUID: 69d7301ca53911f19a56ed5b684f684d-20260831
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:c9ff823a-94c6-41c5-b850-44eeaaa89722,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:666a4fd82c97b30795e2ef1f5b60e771,BulkI
-	D:nil,BulkQuantity:0,SF:80|81|82|83|102|136|865|898,TC:nil,Content:0|15|52
-	,EDM:-3|-100,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 69d7301ca53911f19a56ed5b684f684d-20260831
-X-User: lilinmao@kylinos.cn
-Received: from [10.0.2.15] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <lilinmao@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 942591670; Mon, 31 Aug 2026 20:42:23 +0800
-Message-ID: <6416cbee-35c7-4fc8-9a80-a25403eb1e6f@kylinos.cn>
-Date: Mon, 31 Aug 2026 20:42:20 +0800
+	Mon, 31 Aug 2026 12:44:24 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49557167508so36267245e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:44:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1788180261; x=1788785061; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9EvpzgjhvcxWJzAemqIAhsf9SNmX9ng1FkRl8Qno2LU=;
+        b=LTbzYnHjJeR+EItGdLFh1wwUTzE4kD7ICotgdMiRtS0jwDKN9wY0wNEisXjQZU8Nyf
+         CttKs2rvjNp+TRbxLhrl+ZKfSpy40t/XlXczjYXEv0NNxe8GFYtLK/lFUeg0hN0pAKMM
+         sKORCtfUdVee4xagwfeNvcFOrQ0vTvymIRF5cS6rmAWI7ageO8vpbi7FEEoji7yZeDJf
+         ciZZO4/L8Mb8TwG3utXpk+fXl10syoo1UsLhUi8ZK6tf+IXO9TN07ETaKtk7Ngi+XXqI
+         ciqoAfmsvSCHRmQfWNmg+do44Db9aWf6mye83VS1eqzafxy1w8KM3HmWk3s00Sl3hok7
+         vffg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788180261; x=1788785061;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9EvpzgjhvcxWJzAemqIAhsf9SNmX9ng1FkRl8Qno2LU=;
+        b=ekj46IrauKOVc9DbntKxktm3kqMqrdwhfl+S9QDqxlI1ngx7VQCCe1Kpd3SbF24hhO
+         +MTTORjzim7PwE0Vf0RfYS3tOHnXPHd/dExlmo/VMexlmEaT2uGipZpD8nLYwvjT2r53
+         RUZ4cKd6/H6U0VoWz2m18z4hQgAA4rt8791wiwAatrGvWEcABuASm1Y1jYnrGL9pnKrz
+         gaNbqSQRHOQFs5MM73uJkmUO/SQvH6LkGAybiQLl1Al6Y2htOoCkOvQZnvz1o8gAF+7b
+         qDTm+1oLFz07okYRZkDBQ8uZKXxmiW1H87DuE0IokOeAJVAapFtcdGg/wogmuciPezbZ
+         C8vQ==
+X-Gm-Message-State: AFuF++kXZeEhUkJqmxiLSn/AUnCATBb1N1uEvBtvkrnRBZHf4szGBfEV
+	jg7oSS6wFJYxCXk/4pGmdNAr4dvhZ98YflDdTjrdDFC0cQXP6yiSPIPcBIzFPdP/O4w=
+X-Gm-Gg: AR+sD12Kq3TGq4Ze9DzyGNGRVqvB2F84DAZhbvuBx7d0PaYd+7b/7a1OQgvBWLiL1OX
+	c1bXW0i8yTcyVvrwvl4LOCsYqtimXJ6kye/5qX8+xx6itUALiQwTWhaybzIogmywJlMqlLRCA4m
+	UxChapqTB62YcwtRDbl7Zsph9mG1mj9c3h6dtqaxnwjlN9VeAs7nitH7WWx/+b5oL6LUfZ3I4nm
+	NUtjZ7EWp9x9o7OSq2TLKBCI5tJgggHE9L+H9Z2lNnbfVPCTeg2f8jelsm89ItRib3W08V5Xq5A
+	qoIzFy4Q7VitDREXCArO6+stnpXRjiOe/iK8QHppri2l62dU7wma9xhIUTK2bt9tqfILqyhNuiV
+	A0RgGJeKrkPwipR+RBCCZRP0rgwlbfO2018HIV7jUWs7iiKJC1NTmSTtRgMQuHNgfgYwnjqrHhr
+	eYKDq9H94cRd29AQuVExXVzG1ObfCehtmliZ9OSORDWDaDe8MdW93V3iRr1S39mpuMcuHWzRPIT
+	kjulYeQlQ==
+X-Received: by 2002:a05:600c:1f8b:b0:499:ae94:be05 with SMTP id 5b1f17b1804b1-49cdc3df92amr7182765e9.0.1788180260838;
+        Mon, 31 Aug 2026 05:44:20 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0e:1005:fa8b:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b95013d06sm390196485e9.12.2026.08.31.05.44.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 05:44:18 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lucas Tanure <tanure@linux.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260823115335.102219-1-tanure@linux.com>
+References: <20260823115335.102219-1-tanure@linux.com>
+Subject: Re: [PATCH v2 0/2] arm64: dts: amlogic: t7: fix UART clock and SD
+ card recovery
+Message-Id: <178818025763.2318126.6483446574954996795.b4-ty@b4>
+Date: Mon, 31 Aug 2026 14:44:17 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] crypto: mxs-dcp: handle zero-length skcipher requests
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Leonard Crestez <cdleonard@gmail.com>,
- Radu Solea <radu.solea@nxp.com>, Franck LENORMAND
- <franck.lenormand@nxp.com>, linux-crypto@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260828093209.3179074-1-lilinmao@kylinos.cn>
- <apHgn8-IcTshYnfv@SMW015318>
-From: Linmao Li <lilinmao@kylinos.cn>
-In-Reply-To: <apHgn8-IcTshYnfv@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_054233_358238_BDF61212 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260831_054422_876948_5EDAC546 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-在 2026/8/29 3:25, Frank Li 写道:
-> On Fri, Aug 28, 2026 at 05:32:09PM +0800, Linmao Li wrote:
->> [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>
->> Zero-length skcipher requests are valid no-ops, but MXS-DCP queues them.
-> Any document show it? if return 0 when cryptelen, it is async, no
-> call crypto_request_complete.
-   Yes. CRYPTO_ALG_ASYNC means that the implementation may complete a
-   request asynchronously, not that every request must do so.
+On Sun, 23 Aug 2026 12:53:33 +0100, Lucas Tanure wrote:
+> Two fixes found while booting mainline on a Khadas VIM4.
+> 
+> The first one wires uart_a to the real UART bus clock. It was pointed at
+> the 24MHz crystal as a placeholder, because the T7 clock controller
+> driver did not exist when these boards were added. That leaves the real
+> clock without a user, so the kernel turns it off when it disables unused
+> clocks at the end of boot, and the board hangs with the console gone.
+> 
+> [...]
 
-   A return value of 0 indicates synchronous completion.  Only
-   -EINPROGRESS and -EBUSY cause crypto_wait_req() to wait for the
-   completion callback.  The existing fallback path relies on the same
-   semantics.
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.3/fixes)
 
-   There is also a direct precedent in commit 8a4e047c6cc0
-   ("crypto: marvell/cesa - Handle zero-length skcipher requests").
-   Marvell CESA registers asynchronous skcipher algorithms but handles a
-   zero-length request with:
+[1/2] arm64: dts: amlogic: t7: use the real UART pclk
+      https://git.kernel.org/amlogic/c/882de800bf583dd15969836088789edbf035a944
+[2/2] arm64: dts: amlogic: t7: khadas-vim4: allow the SD card to be power cycled
+      https://git.kernel.org/amlogic/c/c793a084ab3088744516aef437b4239d0d98623f
 
-           if (!req->cryptlen)
-                   return 0;
+These changes has been applied on the intermediate git tree [1].
 
+The v7.3/fixes branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
-Thanks,
-Linmao
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
->
-> Frank
->
->> When such a request reaches the worker, last_out_len remains zero. The
->> CBC completion path then subtracts AES_BLOCK_SIZE from this unsigned
->> value when updating the IV, causing the offset to underflow. On
->> decryption, the resulting source address precedes aes_in_buf.
->>
->> Return success before enqueueing zero-length requests. This avoids the
->> invalid source access and leaves the IV unchanged for a no-op.
->>
->> Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
->> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
->> ---
->>   drivers/crypto/mxs-dcp.c | 3 +++
->>   1 file changed, 3 insertions(+)
->>
->> diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
->> index 133ebc998236..60794b4d49fa 100644
->> --- a/drivers/crypto/mxs-dcp.c
->> +++ b/drivers/crypto/mxs-dcp.c
->> @@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
->>          struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
->>          int ret;
->>
->> +       if (!req->cryptlen)
->> +               return 0;
->> +
->>          if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
->>                  return mxs_dcp_block_fallback(req, enc);
->>
->>
->> base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
->> --
->> 2.25.1
->>
->>
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
