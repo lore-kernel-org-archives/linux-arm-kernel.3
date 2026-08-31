@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878FAC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4E5C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CD5OwstgpMzIDB3nnm8lm8+2h5M23PSx6Nv2d5oaTxQ=; b=GQuSlFG4RgGJaB/nGzCUuL3ijn
-	Rxq7sc+Hwftdp5Mqo1h84E2vRjCE2BM5uCB0oMsQSsf3ayFnq/WSYEmt4xfOgH521Ru7Y+bAOVgGx
-	QubBEPy5a5gsD70Im3z0W+ELu7hcU2oUmwOCegcU21UHtJXei+pNJ0HORompxkNCBraIh11Waf8el
-	TsElTdcAJjyz/J/uYQfsByL4HHSe9U23y50k5XF37Qcjl5aWayFxp7eS/D2pIWVaO8x9C8bpiDjGw
-	sY6uZRzw+qA7m6pvs0YmYK6PBmWDiGm9tsUThPbE7LhnyOLi3RVlQ4ZRXUFXvkDLiHmkmU3Gn9K3m
-	KOt8e4bg==;
+	bh=F5FZuqvEUAT2/PGcwzm4Qov9gm3yBMDweP9yb9iR+HU=; b=eKapGYOD9052plvzn3/FRsfLMV
+	YM6cix2E1MY6v+tdYj+E7NnBA3MQx50z3uEQ/lX8W/dloBL1yc/SPSzjMm44nic9eivYhZOltZlqD
+	F+G+CTLfD4CwtiW3JpvGuMtTyIYCNxmyEdzrEH4fbPtotZ/IRKflOSKUkljn75ragI9HogTAyq0ak
+	fZOD4vpnoFLB5Jg8WArrEUvS+AKOLz/tNdixaiVKW2WEjsmfCkoNtdU6Rn8nVKwZkpa7cUB3x6poi
+	185JC0VpZoo4qZyBAfKw4Sa/j+wwdDSg8ho71qnH4hvX4HHH6bDZa8cINULs4cUrPGUa1IpisnZSM
+	dBk3/5hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10sD-00000009GqO-0lrC;
-	Mon, 31 Aug 2026 12:12:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x10sx-00000009GxZ-1kwp;
+	Mon, 31 Aug 2026 12:13:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x10sC-00000009Gq3-071x
+	id 1x10su-00000009Gwv-491F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:12:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AED04400E;
-	Mon, 31 Aug 2026 12:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6AC1F00A3D;
-	Mon, 31 Aug 2026 12:12:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788178343;
-	bh=CD5OwstgpMzIDB3nnm8lm8+2h5M23PSx6Nv2d5oaTxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZdU8CmXVJuFSlUO5l1upNskR7bhYgWDGj/pOcPzrorpWb+1NP7Nc2/2fxfwwISBkI
-	 hzV19TwFueXpWVwYcgchB6ri4oy39dqJ9ZDeSYwfeL5VpZvqO4pe75s24s8om1YwWw
-	 TlbtmxbXbAc6e36avHg+ZxVGawsu/5p1qh/NWBLY7f4YkQye/M0jqEhPs9g197vgpy
-	 nd4+hFZU4acblvqUXuZagYq0dJNPmgF+dqX5d+K0qj+EjlrY8OttzKdFc308W3yxc8
-	 2hpTxS5Y955lPr060lcCKED5r/HhpGUBRO09j4S4nGNZIhwxAk+7n9zigf+DCk3e4w
-	 sWF1/PgE0D64Q==
-Date: Mon, 31 Aug 2026 13:12:16 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 8/9] spi: dw: Use dma_slave_caps bus width helpers
-Message-ID: <820f9317-8457-4041-8f94-5f5f75e7afc8@sirena.org.uk>
-References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
- <20260831-dmaengine-support-wider-dma-masks-v3-8-507d97496f2d@analog.com>
+	Mon, 31 Aug 2026 12:13:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=F5FZuqvEUAT2/PGcwzm4Qov9gm3yBMDweP9yb9iR+HU=; b=ZRFide8oJiPpu9hZmbIkYaN0+4
+	4XtdFgm/EkgzNhTbt5eEEiWaD3+OifNF8lBC/8J/GpnGa+xucYWpnCdPUjyXBZdq4NwjIqUWIeNH5
+	GW6b4s7GJcXVohYd4clgmE47LMQPpdA70XUiyjLed1CKfrRDOU5HcaAQHutx8i5wxhng=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x10se-002Acg-Kj; Mon, 31 Aug 2026 14:12:52 +0200
+Date: Mon, 31 Aug 2026 14:12:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Prasanth <prasanth.padarthi10@gmail.com>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+Message-ID: <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
+References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
+ <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch>
+ <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+AhjCYXbI1r3nDs8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260831-dmaengine-support-wider-dma-masks-v3-8-507d97496f2d@analog.com>
-X-Cookie: Sell by date stamped on bottom.
+In-Reply-To: <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_051309_035789_1892A96A 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 31, 2026 at 06:43:46AM +0530, Prasanth wrote:
+> Hi Andrew,
+> 
+> I do not currently have the PCB layout or trace-length information, so I cannot
+> prove that the board provides the TX delay externally.
+> 
+> What I have validated on hardware is:
+> 
+> rgmii: fails, with RX CRC errors and no valid RX traffic
+> rgmii-rxid: passes, 5000/5000 packets, 0% loss, no RX CRC errors
+> rgmii-id: also passes with the same traffic test
+> 
+> This shows that the RTL8211F RX internal delay is required, but it does not
+> establish where the TX delay is provided.
+> 
+> Given that I cannot provide PCB-level evidence for the TX delay, would you
+> prefer that I use rgmii-id for the next revision?
 
---+AhjCYXbI1r3nDs8
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+There has been a number of threads about the Aspeed SoC. It typically
+has delays enabled in its MAC, by the bootloader. The Linux MAC driver
+does not disable this, nor does it mask the value passed to the
+PHY. So you see many Aspeed .dts files incorrectly using 'rgmii'. Over
+the last couple of years i have been pointing out this problem, but
+nobody has stepped up to fix the issue. Most DT developers just leave
+the Ethernet node out, in order to get something merged.
 
-On Mon, Aug 31, 2026 at 12:46:45PM +0100, Nuno S=E1 wrote:
-> Store the common TX destination and RX source bus widths in a
-> driver-owned DMA bus width bitmap and populate it through the
-> dma_slave_caps helper.
->=20
-> This avoids depending on the legacy src_addr_widths and dst_addr_widths
-> masks returned by dma_get_slave_caps().
+You case is interesting, because you are not suggesting 'rgmii'. So it
+could be there is more going on.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+If you look in the email archives you should find the information
+about where to configure the delay in the hardware. You might want to
+read it out to understand how the bootloader has configured the
+hardware.
 
---+AhjCYXbI1r3nDs8
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqVb6AACgkQJNaLcl1U
-h9ClLgf/VHBuWh4bKapW/V9pta/hHFd6AdEC3fSQe3piNqlsxij13907eXkDp5vK
-49rYbjuUKofwlFtkL1iqWkbfwMLiZKB3Svg1aZIZ2vCmEHLNiYsn7aOZBr9QfbPZ
-Xa0b0gL7qDlbjlnI/aVxdeNrG+lJPCOdXXbw2lyTU02JrFe616Kvw13M3X/oRZgc
-1ApUKhWS+cNbymddHSiRqg+Xp7FZqsB/XqeoxI0jI6QTa0y9HN7YDaIb0mjk1nEF
-rJd9cfabjSWy1n1SfBsKQpaOWn4AfHNdpI31RPjauLbRJPei3NokTkAWsfYmW/92
-w0ChV1u7IFXxu0o9ZglrW9zt8VbrJA==
-=qaNr
------END PGP SIGNATURE-----
-
---+AhjCYXbI1r3nDs8--
+    Andrew
 
