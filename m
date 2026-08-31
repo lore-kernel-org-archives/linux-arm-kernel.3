@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA62BC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB08C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9s0YRMgLAPl8YqnVWX6J2cjW6FZhJibaIm074zrDvw=; b=5CL7zwbT12mVXG8z1c3QRZvI76
-	03MUExW0z6BtS70US7v7VQoRc7xc9YsQUazTLrao+CVpY3400yTUioFP7g3xDyNXUeTFDJIabJbVo
-	BX434F0uR0Eu9oQvDraT1Q1l+HkSJSgdMPBHPqfozT5Pte35nDxGEImGw3DtVeobB0z7nd7IzG6Kt
-	ec+Ue2PoIGU0mxwYgndzpeafPokq0X7CRxH9x+jVKay9MpFPytGBXhSmU6AqeMzzO58nB5cfU7fOg
-	gIb/kNmUIVUB+nXlg8DpfhlN1s0/tPKI+RBV5fI/V6xoU443FLz3B+54/J/PpMi8Q7HpYcebHIl5V
-	vabZqtaQ==;
+	bh=kOSOst4In022OAgVRNxSdoYjl0jKl41mZxfh1QOXGYk=; b=YMyX/FTNkyg0/DsiZFmA54pSP0
+	Kp33tG/ngZkR5ctYxwoV2jwDym+e9SztXihx770fIaAy/yV3z9+JQQYTW1QUfAe1J+OAAFn7ApAbf
+	MV2BToQDnUct8nsnCanIn4dotaGbxvhQo+z7BRyNKvn8Mt80bVToDoYq/Lx3QS9ocayrErDHvPJNe
+	tDNHiMnDJACZbCHFUmrSCI1i7gOOlb2e23WH6Qat8NqJbBHnjauiqv0joPQRszKEBnI4hjykW3r75
+	C8EJXjfmsBqZlaT6K3Gnc9gasaPQyNgDNYsESorPL5cW9hpye3O0xEBcIYXuE4chI+hDw+O9wCOcL
+	OrNVT8qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wvo-00000008mLS-1TsI;
-	Mon, 31 Aug 2026 07:59:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x0x3q-00000008nOK-1CsF;
+	Mon, 31 Aug 2026 08:08:10 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wvm-00000008mL1-41NP
+	id 1x0x3o-00000008nNx-0AM4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:59:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63A33438B8;
-	Mon, 31 Aug 2026 07:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 455301F000E9;
-	Mon, 31 Aug 2026 07:59:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788163190;
-	bh=F9s0YRMgLAPl8YqnVWX6J2cjW6FZhJibaIm074zrDvw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AVLeuaB5FqfzpnRddFvOgOHbjzf/5VfmFtqbAkxpxb8pKoIyt8x0MIDaLGsIE0wxi
-	 +HvGuFMOg97sD7AHod9RzoZ09b/NlXUSXLiBlFqLikQTOu6rnQ2DoJCpQmK2c0L2SC
-	 qc7d6ifVNZf29IDbPWiVZ75tA7v7VcuRcicx6OjSApDR2E+DLcINQ5H7AX3BTmPHic
-	 WcJhk1yLiJVhZ8lvYl4QnKji8JLXBuOXabU5tXTJ1kcNARed0O8xjzoOxIsoIfGlN1
-	 /EEy3e4COYfuhzniGRT2ZgUf/PVzSLyvGmTPT9B+MYrc/W4kt1msoPQHLiQ+qMDH5h
-	 Qg14pKpu1QTvg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x0wvj-00000002fjB-3i6M;
-	Mon, 31 Aug 2026 07:59:48 +0000
-Date: Mon, 31 Aug 2026 09:02:20 +0100
-Message-ID: <87y0dmn2er.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Khushit Shah <khushit.shah@nutanix.com>
-Cc: Shameer Kolothum
-	<skolothumtho@nvidia.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org"
-	<will@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"cohuck@redhat.com" <cohuck@redhat.com>,
-	"eric.auger@redhat.com"
-	<eric.auger@redhat.com>,
-	"sebott@redhat.com" <sebott@redhat.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"wangzhou1@hisilicon.com"
-	<wangzhou1@hisilicon.com>,
-	"jiangkunkun@huawei.com" <jiangkunkun@huawei.com>,
-	"jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
-	"anthony.jebson@huawei.com" <anthony.jebson@huawei.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linuxarm@huawei.com"
-	<linuxarm@huawei.com>
-Subject: Re: [PATCH v8 5/6] smccc/kvm_guest: Enable errata based on implementation CPUs
-In-Reply-To: <FA27FD8D-C029-4DED-9930-5903235099C7@nutanix.com>
-References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
-	<20250221140229.12588-6-shameerali.kolothum.thodi@huawei.com>
-	<FA27FD8D-C029-4DED-9930-5903235099C7@nutanix.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: khushit.shah@nutanix.com, skolothumtho@nvidia.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 31 Aug 2026 08:08:09 +0000
+Date: Mon, 31 Aug 2026 10:08:03 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788163685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kOSOst4In022OAgVRNxSdoYjl0jKl41mZxfh1QOXGYk=;
+	b=UqyAcgbknTYn3fJW+77HU4qPPnTrytzLhryZvvJYqEuIx8qphJckoDifDfdm+rCRRjuKx3
+	X5AYx39fVc8NNQX0G53A5jZPrsmNKDCRCO17shC7V7IzmBfEvXg+awsNTsMSRKtjVuoish
+	6esMnTvDM2bG4LZr+N3HLR7SrxRC29FZ3/9FFEJPR5tIXTO8wMMMtHknvUzs1BeoJHSEES
+	fjqXjpkR/1miN9p7UOSQgsfBnbgFNVII3NxwD42wrshQxcc3VIE4WWUYwfm+VVzt4DLsDf
+	KxMDmIxUDVB+MF902mkKdqmc/xK1S4lVk0DJdJ9CvipP2ojiOg/aG7AJ5W14fQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788163685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kOSOst4In022OAgVRNxSdoYjl0jKl41mZxfh1QOXGYk=;
+	b=N9IKktNNqgpGblx0PmDvTe0TsNYwsV/Spk75gDgAMfcaFRBv4+VoIfFsyYXqyU/3U78EvG
+	MvmNWirnPXNVdQCw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: David Stevens <stevensd@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260831080803.LhShiZ4V@linutronix.de>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <CAOiLmNHK5Hw55omycg_EAHzi=g1iqJn1NTap1Mt98im3xTXcvA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAOiLmNHK5Hw55omycg_EAHzi=g1iqJn1NTap1Mt98im3xTXcvA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_010808_234715_A6B1C4FB 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,129 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 05:46:19 +0100,
-Khushit Shah <khushit.shah@nutanix.com> wrote:
->=20
->=20
->=20
-> > On 21 Feb 2025, at 7:32=E2=80=AFPM, Shameer Kolothum <shameerali.koloth=
-um.thodi@huawei.com> wrote:
-> >=20
-> > Retrieve any migration target implementation CPUs using the hypercall
-> > and enable associated errata.
-> >=20
-> > Reviewed-by: Cornelia Huck <cohuck@redhat.com>
-> > Reviewed-by: Sebastian Ott <sebott@redhat.com>
-> > Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> > ---
-> > arch/arm64/include/asm/cputype.h    |  7 ++++
-> > arch/arm64/include/asm/hypervisor.h |  1 +
-> > arch/arm64/kernel/cpu_errata.c      | 45 +++++++++++++++++---
-> > arch/arm64/kernel/cpufeature.c      |  2 +
-> > drivers/firmware/smccc/kvm_guest.c  | 64 +++++++++++++++++++++++++++++
-> > 5 files changed, 114 insertions(+), 5 deletions(-)
-> >=20
-> > diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/=
-cputype.h
-> > index ccb4a155d118..cc2d58141be1 100644
-> > --- a/arch/arm64/include/asm/cputype.h
-> > +++ b/arch/arm64/include/asm/cputype.h
-> > @@ -276,6 +276,13 @@ static inline bool midr_is_cpu_model_range(u32 mid=
-r, u32 model, u32 rv_min,
-> > return _model =3D=3D model && rv >=3D rv_min && rv <=3D rv_max;
-> > }
-> >=20
-> > +struct target_impl_cpu {
-> > + u64 midr;
-> > + u64 revidr;
-> > + u64 aidr;
-> > +};
-> > +
-> > +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
-> > bool is_midr_in_range_list(struct midr_range const *ranges);
-> >=20
-> > static inline u64 __attribute_const__ read_cpuid_mpidr(void)
-> > diff --git a/arch/arm64/include/asm/hypervisor.h b/arch/arm64/include/a=
-sm/hypervisor.h
-> > index 409e239834d1..a12fd897c877 100644
-> > --- a/arch/arm64/include/asm/hypervisor.h
-> > +++ b/arch/arm64/include/asm/hypervisor.h
-> > @@ -6,6 +6,7 @@
-> >=20
-> > void kvm_init_hyp_services(void);
-> > bool kvm_arm_hyp_service_available(u32 func_id);
-> > +void kvm_arm_target_impl_cpu_init(void);
-> >=20
-> > #ifdef CONFIG_ARM_PKVM_GUEST
-> > void pkvm_init_hyp_services(void);
-> > diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_err=
-ata.c
-> > index 1f51cf6378c5..66869d81c3d5 100644
-> > --- a/arch/arm64/kernel/cpu_errata.c
-> > +++ b/arch/arm64/kernel/cpu_errata.c
-> > @@ -14,10 +14,34 @@
-> > #include <asm/kvm_asm.h>
-> > #include <asm/smp_plat.h>
-> >=20
-> > +static u64 target_impl_cpu_num;
-> > +static struct target_impl_cpu *target_impl_cpus;
-> > +
-> > +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus)
-> > +{
-> > + if (target_impl_cpu_num || !num || !impl_cpus)
-> > + return false;
-> > +
-> > + target_impl_cpu_num =3D num;
-> > + target_impl_cpus =3D impl_cpus;
-> > + return true;
-> > +}
-> > +
-> > static inline bool is_midr_in_range(struct midr_range const *range)
-> > {
-> > - return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-> > -       range->rv_min, range->rv_max);
-> > + int i;
-> > +
-> > + if (!target_impl_cpu_num)
-> > + return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-> > +       range->rv_min, range->rv_max);
-> > +
-> > + for (i =3D 0; i < target_impl_cpu_num; i++) {
-> > + if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
-> > +    range->model,
-> > +    range->rv_min, range->rv_max))
-> > + return true;
-> > + }
-> > + return false;
-> > }
-> >=20
-> > bool is_midr_in_range_list(struct midr_range const *ranges)
-> > @@ -47,9 +71,20 @@ __is_affected_midr_range(const struct arm64_cpu_capa=
-bilities *entry,
-> > static bool __maybe_unused
-> > is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int =
-scope)
-> > {
-> > - WARN_ON(scope !=3D SCOPE_LOCAL_CPU || preemptible());
-> > - return __is_affected_midr_range(entry, read_cpuid_id(),
-> > - read_cpuid(REVIDR_EL1));
-> > + int i;
-> > +
-> > + if (!target_impl_cpu_num) {
-> > + WARN_ON(scope !=3D SCOPE_LOCAL_CPU || preemptible());
-> > + return __is_affected_midr_range(entry, read_cpuid_id(),
-> > + read_cpuid(REVIDR_EL1));
-> > + }
-> > +
-> > + for (i =3D 0; i < target_impl_cpu_num; i++) {
-> > + if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
-> > +     target_impl_cpus[i].midr))
-> Typo? Shouldn't the second arg be target_impl_cpus[i].revidr?
+On 2026-08-28 14:17:49 [-0700], David Stevens wrote:
+> > Did lockdep see this?
+> 
+> What are you referring to by "this"? I did stress testing with lockdep
+> enabled and didn't see any errors, although I will admit the bulk of
+> that stress testing was !PREEMPT_RT.
 
-Most probably. Please send a fix.
+I am (was) just surprised that lockdep did not complain about the memory
+allocation under the PI lock. It was pointed out in that thread later
+that the new trylock usage could mask that.
 
-	M.
+> > If I understood the whole exercise correct then you have a kernel stack
+> > of two pages and in best case you can unmap and release the second page
+> > while the task is napping.
+> >
+> > What might be a tad simpler is to memset(,0,) the remaining part of the
+> > stack. Since the stack is vmap-ed it should be swapped out on its own
+> > without additional tricks. That memset() would help zram to compress
+> > better so it uses less memory. ta-da.
+> >
+> > What also should be simpler (and I am not saying just to move you away
+> > from the scheduler) is to have a shrinker which iterates over all tasks
+> > which are marked for reclaim and then similar to swap just unmap both
+> > stack pages and release the second page which is not used.
+> > Upon wake up the task should create a page_fault which would be used to
+> > allocate the second stack page and map the whole stack again.
+> >
+> > This sounds simpler.
+> 
+> There is no swap for kernel memory, only user memory. I did contribute
+> to some previous work that aimed to only only prepopulate one page of
+> each kernel stack and then to dynamically fault in further pages as
+> needed [1], but handling that architecturally and guaranteeing that
+> memory is available when needed is difficult. Full-on swap to zram
 
---=20
-Jazz isn't dead. It just smells funny.
+but faulting it in while the task is running is sort of complicated
+since the task might have page_faults disabled. This is what I missed
+initially (the task is with disabled interrupts in the scheduler).
+
+But unmap the stack while application is sleeping (via shrinker) and
+fault it in via another thread on wake up should be doable.
+
+Sebastian
 
