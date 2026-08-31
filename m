@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0304AC624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C7EC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xGLDQwdW7DxwkSiHmRet5rPRKi9PJ7VSBlBhzeVwPkI=; b=N4ESRA71kbwOMHKF3DjZGYyZW6
-	rDTSpY3dtSHjhM6OhkR71myo/1h36PMfN5d8Y2SeYe4PKXq+hXap0sik77Tz4CAxWknEiegDBYiWy
-	MZmqFkW1uuH82kbL2IrHxBiHOAWs+JkzhGkcAbUrFUuG3TNddst1UUww6eqycgAPwJHlfA29hWeUJ
-	1RXoq7gGnmVlb0PsNsTBYVbJWcJLYZZlhEKcsXrkF8snCZJJTc9/Mo0T/JqkzN5qTmGuGL2gv/CMP
-	1hMMf+/YwyiHQp9Yu8CaBRWex/81SCk9I6zWBESq5VBxHwDreLLoqYjlBlfpxnkNMTC94Cp5ZmuJA
-	jKARDlvw==;
+	bh=p/g3GZIveu5yYpaukhtKF4zcHJqCH9eviUKQ+gl5p6Y=; b=SYF1ouqQooaT0RQLDwIk7ssVfD
+	t0GlOgE520hySRKZHrQL+vTX0Fi8IMet3yI7KggVqCn18vx6tiKemCiOw8vLM+uPZLTjHuNsiTDCc
+	ZpatPNreKKK/eJXFdNsZslzMoXUiY+jII7d9HJGtrmsFtDYQf+UmvCQu6OnWr3sgXgbZrkdD5IntX
+	AKKeioKgmMnsD5yRKo0In4ZHQ1Wnk3oHXNEHHajZ4yaSFWkarpWY9oD8uHlU/S3vvk/MNYbDlZx+O
+	ugtGBSDpXErtn7qQeBcKBMC3CLD/I4uA4iemAVplZCBzY04NIkMZLbv/bjOTbBxc+xcKFdnTSNTXV
+	+owbss2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13Qy-00000009j9r-2EI8;
-	Mon, 31 Aug 2026 14:56:28 +0000
+	id 1x13R4-00000009jDK-3pp7;
+	Mon, 31 Aug 2026 14:56:34 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13Qv-00000009j8V-2yjl
+	id 1x13R0-00000009jAr-3DzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:56:26 +0000
+	Mon, 31 Aug 2026 14:56:32 +0000
 Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZDLL2414961;
-	Mon, 31 Aug 2026 14:55:51 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZEpg2414997;
+	Mon, 31 Aug 2026 14:55:56 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=xGLDQwdW7DxwkSiHm
-	Ret5rPRKi9PJ7VSBlBhzeVwPkI=; b=rWAfDko4B1y2GaMGt+S/3YQmsZG/4udy7
-	D92pFhzsOc2MBiS59BHrfeRmx+RqkR0Vf0qY6SDTRl3Xugoq7/vyaHeNkjvdtEfN
-	cPVjD5BXHtxZUKUA4iACcNFl8QQVAC66AMaGVMdEDk52J9UPim+JnEtP3ZxiR/Tm
-	Ksh/WsFeMUjam9pXLawG5vrSycDVe7QA7avGcWwYaUo43UpQlm3D5tagsVT/x4X/
-	ai+pJLk3IGiVDt8r9fNydRO2xCW39Ty+nK5dko/csMhu3bjnl+grZaUTYhw92jQp
-	OHpwfhEkDD6x5b5bTGBGmIrO3QpSCK1d1sdGXLJBi1drCuYWP6DgQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbmuhj663-1
+	:mime-version:references:subject:to; s=pp1; bh=p/g3GZIveu5yYpauk
+	htKF4zcHJqCH9eviUKQ+gl5p6Y=; b=WFmQlFq9FvSbWi/WRFtuuinMGaQllf19z
+	8IHrXcI1rjC/JaoBz1nA69CsTUVKDW9KaWg2MsujfQ1pfqeOCp/8Xd+sT8cyg8Fj
+	Iiu4t7dR9ZFv1PuYNZ58sGi9hZOw5jVwLxY5NCh6SV9rpvTvG8S5WbuwR2iOgvQd
+	t3+vPikwtMs+fFt9kmi3AfMleEHmvGJMFT8bvt586EMKW9BtorGJblIQ53PPZGxj
+	yVa3jfwyklTdgTk6NKSc1fIfrbxBS8Hf2jBoDZeRONrWLjwtectvcvXEuKEKd+dw
+	wZJXaF0kEGLmkMgEK1bvTFD+1QrI7baVt8M2HBCYiA9kj2AQFfnnQ==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbmuhj66p-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:50 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfdFI029538;
-	Mon, 31 Aug 2026 14:55:49 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gccexx8uy-1
+	Mon, 31 Aug 2026 14:55:55 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfdBB003378;
+	Mon, 31 Aug 2026 14:55:54 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcarjxgck-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:49 +0000 (GMT)
+	Mon, 31 Aug 2026 14:55:54 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtgAv48759262
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtlu545416924
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 14:55:42 GMT
+	Mon, 31 Aug 2026 14:55:47 GMT
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 72D2720040;
-	Mon, 31 Aug 2026 14:55:42 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 924D320040;
+	Mon, 31 Aug 2026 14:55:47 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F31E42004F;
-	Mon, 31 Aug 2026 14:55:41 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 223DD20043;
+	Mon, 31 Aug 2026 14:55:47 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 31 Aug 2026 14:55:41 +0000 (GMT)
+	Mon, 31 Aug 2026 14:55:47 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 10/20] s390: Add functions to query arm guest time
-Date: Mon, 31 Aug 2026 16:55:25 +0200
-Message-ID: <20260831145536.913567-11-seiden@linux.ibm.com>
+Subject: [PATCH v2 20/20] s390: Report AEF features to sysfs
+Date: Mon, 31 Aug 2026 16:55:35 +0200
+Message-ID: <20260831145536.913567-21-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831145536.913567-1-seiden@linux.ibm.com>
 References: <20260831145536.913567-1-seiden@linux.ibm.com>
@@ -98,23 +98,23 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: uMF_uENXEeg89Z0zfvnqJLaVc5nTEbik
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX9MKJCnXGmZWB
- H1EExZIUXy8xvoO2kxFlBKul8Chgc2sCBVdI0kBqXfaZCz7dHTA2SEaUNNuVwy/MM7JkVRK4PkA
- NpwCAEe1S/AXCCREjlKmusW30Wnyidd3r3/ZfE+WtKNhVHs9qrWEvcQ4KAhml+aoX7awAYsDdQB
- zeRd16Qr4CHvRDQhPD50SgzIDSRWVqJetuP3qKosBii2vGsfCXdkSg6hFhD02TkGvqMDHHEFXFY
- GJaFuJoelNGqJYplkbL91M7lTy7GnhHgyKtFbEviKZwX1srYnyTg2woXAZtXZqJGmkbTg4V4i9N
- yL0W3sNuEVWZidst5fpCeMcTzda6E12yDs6KhK2/Y2lx9bgwySrGbclBK0Rwc0vsZttNrdQRwps
- DF5genxnl3Rl5IEMJG6TT9uE9Q2r+AS1mgQEWgoxL0C8WaXm/G4FsM7Oj5D1w3AqxqKRHy8nvfO
- dgT2gohkKQzVNdtWztA==
-X-Authority-Analysis: v=2.4 cv=Osl/DS/t c=1 sm=1 tr=0 ts=6a9595f7 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+X-Proofpoint-GUID: cgKoid8oBZbsBqN5flcpESsmNzrk2mQ_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfXwxTMr/h3bS1j
+ VmZTGZ4PRF5/SDMgv1xykVVMizcyGEUBSuBO75VyzvP8KXmPqhNIJzQ4ZoAxCzSnjbUz8eLFVrp
+ NnsMJtAax7UvFrenjpX3tI6Asld0TE/KYuuHX+AhNtVhM59eXcECce51ByElD2XNc0i5UfkMzUV
+ 0gBPVKZk4Sg9foiqXOHhz8d+mdX1tViPZGR/coaZXk9X3FR5I/IhFIzn3xBOz2SSaPQT79FuJ2z
+ KvBCYJUkpnu3CWvRo824AEhRYNapMSls21dzhBriCD6wUYDL7tdzNpHdpadTgrgHHAONWOQvZP2
+ aM8L9mh2H0k2VYMLuBsPyn70zSMk70GbmGW0Eyo7GOqCdydyd7rFbEtWoEt6A8LsBQRQJFfRiJJ
+ 6qjgLFAqgUEbcPqMB1PlaP/0jA0G+LNJd2TH1Lgb0Cco5bi+xThhhU/7rT4d5uPp6z1b6uyT5Xa
+ kxqraRVpLEmObkc8hnA==
+X-Authority-Analysis: v=2.4 cv=Osl/DS/t c=1 sm=1 tr=0 ts=6a9595fb cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=zcYnEf6ijrO-n6df9P0A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX7Qsjf5A+Aywh
- EOCfhDi2pTxmRelUxZKe3a4J8Ifxik7NTtjIePVnz3W21W5hwNhPuNh5a9e69l3bUwpclDCN4BY
- aePHw+J19lCBd/anmmKetlLh+gkWj/4=
-X-Proofpoint-ORIG-GUID: DpC-zNWhyRfXAWpYM09Nx0mIOct46RbM
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=Q6p9WaQqMra0dl70cWIA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfXwp6HT7Fc9dbO
+ iOieHxbselxGXAc7QPqfaU9ina+gGu3leKxZj2M5DtOVMR3KOmxSjCRVp23ehjpzKbOSRqAZyLb
+ XUFYGOmeplAcQb4Ej80OSz7XkW7D0L0=
+X-Proofpoint-ORIG-GUID: EH6jG6WzePSfrBc3sqxsZLrZsQ3wltoZ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
@@ -124,8 +124,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075625_870593_03BE0B24 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20260831_075630_925488_66126B02 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,88 +140,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add functions to convert between ARM guest time (LSB0) and s390 host
-time (MSB0) using new ptff function codes.
+Display various information about the Arm execution Facility (AEF) to
+userspace. The files are located in /sys/firmware/aef/. Show if the
+feature is available and usable for the host, which formats are
+available, and how many arm vCPUS per guest are supported by the
+machine. Additionally, provide the raw binary output of QAAF fc1 (Query
+Model Capabilities) in the file qmc and fc2 (Initial
+System-Registers-Save Area) in the file save_area.
 
-Co-developed-by: Nico Boehr <nrb@linux.ibm.com>
-Signed-off-by: Nico Boehr <nrb@linux.ibm.com>
+Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
+Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/timex.h | 49 +++++++++++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ arch/s390/kernel/aef.c | 86 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-diff --git a/arch/s390/include/asm/timex.h b/arch/s390/include/asm/timex.h
-index 23421b6eb225..e3a2b13022c7 100644
---- a/arch/s390/include/asm/timex.h
-+++ b/arch/s390/include/asm/timex.h
-@@ -81,6 +81,8 @@ extern unsigned char ptff_function_mask[16];
- #define PTFF_QSI	0x02	/* query steering information */
- #define PTFF_QPT	0x03	/* query physical clock */
- #define PTFF_QUI	0x04	/* query UTC information */
-+#define PTFF_QAGTO	0x10	/* query arm guest time offset */
-+#define PTFF_QAGPT	0x11	/* query arm guest physical time offset */
- #define PTFF_ATO	0x40	/* adjust tod offset */
- #define PTFF_STO	0x41	/* set tod offset */
- #define PTFF_SFS	0x42	/* set fine steering rate */
-@@ -118,6 +120,17 @@ struct ptff_qui {
- 	unsigned int pad_0x5c[41];
- } __packed;
+diff --git a/arch/s390/kernel/aef.c b/arch/s390/kernel/aef.c
+index 825e2643a892..2691f1ac63dc 100644
+--- a/arch/s390/kernel/aef.c
++++ b/arch/s390/kernel/aef.c
+@@ -40,6 +40,66 @@ const struct aef_info *aef_info(void)
+ }
+ EXPORT_SYMBOL(aef_info);
  
-+/*
-+ * Query Arm Guest Time
-+ * used for:
-+ *	- Query Arm Guest Time Offset
-+ *	- Query Arm Guest Physical Time
-+ */
-+struct ptff_qagt {
-+	u64 in;
-+	u64 out;
++static struct kset *aef_query_kset;
++static struct kobject *aef_kobj;
++
++#define aef_sysfs_qval_def(_name)					\
++	static ssize_t _name##_show(struct kobject *kobj,		\
++				    struct kobj_attribute *attr,	\
++				    char *buf)				\
++	{								\
++		return sysfs_emit(buf, "%lx\n", info._name);		\
++	}								\
++	static struct kobj_attribute _name##_attr = __ATTR_RO(_name)
++
++#define aef_sysfs_qval_attr(_name) &_name##_attr.attr
++
++aef_sysfs_qval_def(arm_guest_supp);
++aef_sysfs_qval_def(sae_avail);
++aef_sysfs_qval_def(ptff_avail);
++aef_sysfs_qval_def(supp_state_desc_formats);
++aef_sysfs_qval_def(supp_save_area_formats);
++aef_sysfs_qval_def(max_num_vcpu);
++
++static ssize_t qmc_read(struct file *filp, struct kobject *kobj,
++			const struct bin_attribute *attr, char *buf, loff_t off,
++			size_t count)
++{
++	return memory_read_from_buffer(buf, count, &off, &qmc, sizeof(qmc));
++}
++
++BIN_ATTR_RO(qmc, sizeof(qmc));
++
++static ssize_t save_area_read(struct file *filp, struct kobject *kobj,
++			      const struct bin_attribute *attr, char *buf,
++			      loff_t off, size_t count)
++{
++	return memory_read_from_buffer(buf, count, &off, &save_area,
++				       sizeof(save_area));
++}
++
++BIN_ATTR_RO(save_area, sizeof(save_area));
++
++static struct attribute *aef_query_attrs[] = {
++	aef_sysfs_qval_attr(sae_avail),
++	aef_sysfs_qval_attr(ptff_avail),
++	aef_sysfs_qval_attr(supp_state_desc_formats),
++	aef_sysfs_qval_attr(supp_save_area_formats),
++	aef_sysfs_qval_attr(max_num_vcpu),
++	NULL,
 +};
 +
- /*
-  * ptff - Perform timing facility function
-  * @ptff_block: Pointer to ptff parameter block
-@@ -266,4 +279,40 @@ static inline int tod_after_eq(unsigned long a, unsigned long b)
- 	return a >= b;
++static const struct bin_attribute *aef_query_bin_attrs[] = {
++	&bin_attr_qmc,
++	&bin_attr_save_area,
++	NULL,
++};
++
++static struct attribute_group aef_query_attr_group = {
++	.attrs = aef_query_attrs,
++	.bin_attrs = aef_query_bin_attrs,
++};
++
+ static int __init aef_init_save_area(void)
+ {
+ 	int ret;
+@@ -95,7 +155,33 @@ static int __init aef_sysfs_init(void)
+ 	if (rc)
+ 		return rc;
+ 
++	aef_kobj = kobject_create_and_add("aef", firmware_kobj);
++	if (!aef_kobj)
++		return -ENOMEM;
++
++	rc = sysfs_create_file(aef_kobj, aef_sysfs_qval_attr(arm_guest_supp));
++	if (rc)
++		goto out_kobj;
++
++	aef_query_kset = kset_create_and_add("query", NULL, aef_kobj);
++	if (!aef_query_kset)
++		goto out_arm_guest_supp;
++
++	rc = sysfs_create_group(&aef_query_kset->kobj, &aef_query_attr_group);
++	if (rc)
++		goto out_kset;
++
+ 	return 0;
++
++out_kset:
++	kset_unregister(aef_query_kset);
++out_arm_guest_supp:
++	sysfs_remove_file(aef_kobj, &arm_guest_supp_attr.attr);
++out_kobj:
++	kobject_del(aef_kobj);
++	kobject_put(aef_kobj);
++
++	return rc;
  }
  
-+/*
-+ * ptff_qagto() -  Query Arm Guest Time Offset
-+ *
-+ * @physical_time: Arm guest physical time in MSb 0
-+ *
-+ * Converts Arm guest physical time in MSb 0 bit ordering
-+ * into the Arm guest offset in LSb 0 bit ordering.
-+ *
-+ * Return: Arm guest time offset in LSb 0
-+ */
-+static inline u64 ptff_qagto(u64 physical_time)
-+{
-+	struct ptff_qagt qagto = { .in = physical_time };
-+
-+	ptff(&qagto, sizeof(qagto), PTFF_QAGTO);
-+	return qagto.out;
-+}
-+
-+/*
-+ * ptff_qagpt() - Query Arm Guest Physical Time
-+ *
-+ * @guest_time_offset: Arm guest time offset in MSb 0
-+ *
-+ * Converts Arm guest offset in MSb 0 bit ordering
-+ * into the Arm guest physical time in LSb 0 bit ordering.
-+ *
-+ * Return: Arm guest physical time in LSb 0
-+ */
-+static inline u64 ptff_qagpt(u64 guest_time_offset)
-+{
-+	struct ptff_qagt qagpt = { .in = guest_time_offset };
-+
-+	ptff(&qagpt, sizeof(qagpt), PTFF_QAGPT);
-+	return qagpt.out;
-+}
-+
- #endif
+ arch_initcall(aef_sysfs_init);
 -- 
 2.53.0
 
