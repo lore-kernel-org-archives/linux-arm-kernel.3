@@ -4,78 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9150C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278B8C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lj8vVsbmTwPT0Cjl/ChRV/xwb94gczxM5UfDJ4T5bS8=; b=AyCuHFpnZbuqTg8EqrEsFeUZ7N
-	XJWHvxuhAtZ2WsWE+jUFmhB2IutTxS+7bpy8W11fShry0TSMO9Mp8ojIJ1LCUAVycgvU2ZgQ93B8y
-	WJWv/nnMZFHygemEsLcLSRTl2pCoKukqBFgKNPr5iKjH4la9HKVENViiQTcMgSeTFGJeCRWp+6EHT
-	ZAVSYYqnpQcPNEi9rrxWE5nQ52wzlnG1vaq8x6HbByTr96qnIxRCZYL7RPb7Ofb5kGsZ1TIqQE8Vb
-	dTScAdFDCVh+KoAMnKcB8vVz0S7binjyxtwKGdA2XK4CAO+ElxIdOMsF+hxAnLfZXe5cSSU71GZzw
-	P83V9Ayg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jaS8NR1sJ4QHbvDwflhJNwrm+x82RTDg/5jni6SJKAA=; b=lX52vqEfKO3nOC0Ow/yr6FJ4ud
+	R/33By9i7DpMY9K4EwX6ZzHblTFRRoB+GvqCIGL29zySAikIE+owEFGCU8pf34JpF9dLgmg63CvIa
+	vAQBK0riTEBOWOqO75qkiNMg793xyT+ZqVEOTDWKzX5cljoyKHMuHQvi1aqTviYm/nEWfIBclUUYn
+	Fyxkpd/dMYjIYBK+1h8kJ6ETxdI3wiT5hP0Ekv5nzpE4WbQqPN7UxKhh8DjaWoPBQj7BjZe795w6D
+	Yitj9AxdY7TFFY0dPjwoxK523tDiiWZAaSFX23JmUNrIYmPHSpmygJpnX5mpY47Yg6uNE2EnVmA9D
+	liaO1iCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13xu-00000009rxv-1Hh0;
-	Mon, 31 Aug 2026 15:30:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13xr-00000009rxJ-2Gqj
+	id 1x13zL-00000009sBE-2JCg;
+	Mon, 31 Aug 2026 15:31:59 +0000
+Received: from mail-swedencentralazon11013054.outbound.protection.outlook.com ([52.101.83.54] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x13zI-00000009sAm-3a6y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABB7814BF;
-	Mon, 31 Aug 2026 08:30:22 -0700 (PDT)
-Received: from [10.57.6.141] (unknown [10.57.6.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B254C3F882;
-	Mon, 31 Aug 2026 08:30:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788190226; bh=lj8vVsbmTwPT0Cjl/ChRV/xwb94gczxM5UfDJ4T5bS8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fu+LyaS3+WfBA0uqQccLp34N9VvHid4HkKzlLtdtlaQk+RXZfyDKkixn1BSnTypDV
-	 TP0ZysmdYLKJmf1Dww5bQbi7CLiGF2s1vJLj2DtgVlo8wtBBX+DEGruHr6TsXqR8/V
-	 FlL4M8MdbsuWb6O6g0Ogz9KAuTGmx2FQxRiu+xps=
-Message-ID: <e0897ac4-1e5b-4f65-93fb-a718b27ecfb4@arm.com>
-Date: Mon, 31 Aug 2026 17:30:17 +0200
+	Mon, 31 Aug 2026 15:31:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mnrjn9uALEZjYqaP0JResOK5C+7DcOARu6aLQbFasXbMa3farqiOvV5T7aDKtv1JKK0yZ5wxk3rgCGGGgiYPA+ewV3afxDtcT0xH3Xs6nKtZrdAPp02CTpRZdq7Dz3LitXlMlBci2wBlFpUzq4nTtp1P3ptQxTHIjR8/SXCPmsPi+Taa/D/YorurXpdF7k5JbqIi8ts4O2/D78kwJbB7OqRHfqa+lmcSVRM8JUU4UXLRvkjR7lL4B1EhInbBl10hHzXcik85xxLC19FqhMjWypgh7xn6HeAVqUh141a8cMJBytqVl/7pANDgaYzSaoOsyIr+EwpXkH0kQkI210PZTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jaS8NR1sJ4QHbvDwflhJNwrm+x82RTDg/5jni6SJKAA=;
+ b=PO7KZ9aLuoZo6qoEVD/r6n5jC/ofkrFtnPJvCvQ1Z4671CH+VxijXMjeNvm1Bwr66SxKWcQr4OvdMNlvcmLLL66AKvdNCfbgWQVFcfuY1EgV6/YUKry1RpYENGb+71daO1xkWuihVnDIjDUiBpX6RC/7Af3KvfnrVzcYGj6mH18nHkskX87suvGwBwh/iZDCkIvRTPtQmMQ9hmRjwUZ/ZNrqrVLkTP6y4oYxOJ34xI4NcckJYVAg+eYuadA+1wmpu/0kiAP7DIJWHbTVeWkFKR8WuCOFeWQUYUvSQEG2DeOCrr3BoANYkAqTWk1EO/TUannGudM9s4X6Yx3OPWsXuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jaS8NR1sJ4QHbvDwflhJNwrm+x82RTDg/5jni6SJKAA=;
+ b=kWdZ9hLB1nxsNKS+J28czb18MFBM1Uv4S0P4S0CEqZDw4zXSzNQZo+quB1T+M8tXaMVQXxkVECHTmdU9rwDTh0sGTAg1VIxcwDh1B3SAPtQFvqZvvhZt83YYhUyuZzImKf+j4vM7dHCn1xzFrV1VGbV+DfS+Fy/qz0ktqnpPR+CTjqNY/pdVY8Ee30Uq76nb8XpKDkRtfZN6n73xut9pvjrIuevMWtHk9t4mpIqeEwXbUCRVIoppf6e9KDXuf7SN6xry6Lqvw4F5pQm2rEeb8ipJzMSKSDXP0eswy7mo5ryCj+104VNvkYM7PtCqIynAe6fvltcLhZFxS17s/MoI7Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB10474.eurprd04.prod.outlook.com (2603:10a6:150:1da::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 15:31:49 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 15:31:48 +0000
+Date: Mon, 31 Aug 2026 10:31:38 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] media: dt-bindings: nxp,imx8-isi: Add i.MX952 ISI
+ compatible string
+Message-ID: <apWeWgaOf5pSSc05@SMW015318>
+References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
+ <20260831-isi_imx952-v2-4-fafdb4b446d4@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831-isi_imx952-v2-4-fafdb4b446d4@oss.nxp.com>
+X-ClientProxiedBy: PH7P220CA0161.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 13/25] mm: kpkeys: Introduce early page table
- allocator
-To: Dave Hansen <dave.hansen@intel.com>, linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
- <9ab4d7b8-6be9-4219-a410-ed26ae25c47e@intel.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <9ab4d7b8-6be9-4219-a410-ed26ae25c47e@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10474:EE_
+X-MS-Office365-Filtering-Correlation-Id: d7a1f9a8-0616-4a7f-322f-08df0774f87d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 1N0e1SfjZ5ZR2UfPRUwbnJmegT0tkE2u/3Cwsqv/XTZJKcWgh4kyH85W0IGfqi2sl3LuWLHmS2Z5lpa1fplfp+x6Lm6vYQhp9p7PZzwVJR5Sac6k8/MdsbtC4psIKTDPNPE6i2Ww3yNypUBs2G+t/hai6rqzh50zOk3RFiPPwXbhmtsK5ita4PvgcBAKyApMCnQEkml/WZ0rX5E84ToYBhqUE7ZeClk98TuLC9RYZL80YhMqBDA4Au18fotH381yOeCSjCt6foZJqOF9+cy+3/7pFUO/fO24HTBZce8W5NpcE3o9qD9L8F5BjZvkqBEm2oCsltE9ovIa00Aq8i0xB9SJQdxmHWXcrC8hfpPt6lT63dbNryYBX+RGxAxg9ZWOum1i1S0v82Z5FvII7df7vsmTwG/F3Josd8z9+NIlBReHQYSj7cE0TPtpwY5l3ADW4Zi73oUWgurG8fm2uyCx4L9HZwJferrVUdtdd1n2P/m8hs8VUCfY2CizQF63SVcWSx0GymmjAwBHpZ2/UWijXblTxpeVnf8vN1bVCYiJpd0snuMuUtzbp3G5YL/AmZdGP+XNFMLB9n/l6BlksqN+R3nfDMDc8rGboEO3zmps42k2JRPeUCIuCMuyPniHTm/f2V5KNH399pFbTnNwt/66pKZxtN5i3dy4O7O1IxcRZfM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9MRSpQU5ucihk2lABVVkc4ZpA3BWX+2TN7uUdpj6qfFdEoQAgGjLx79XNzMo?=
+ =?us-ascii?Q?XhcUmgL3RGf7OLnCkg1OBbM/81TtEqwhqxq7eQL9VgLbRnJ7eMfS6W4SjuPH?=
+ =?us-ascii?Q?AfQ20mwKGHUZCoatotF6pO78j2Q9s3+g9iFOvmajgZgm0JKI0p6PoJLSEWjc?=
+ =?us-ascii?Q?6lVtrtxg+IAcTTXn/odFZ0E2nCZc3OAxE5EiRnC4VTUXV1MXxVQQnp79Ceil?=
+ =?us-ascii?Q?VOxt1vK9p6aXfvp4ddCevJpKRVL0AbEaj6a47LlLQrHmH7eGq4MiFsLCxeU8?=
+ =?us-ascii?Q?zxSHZ0kv6CVwE+JEUu4uO9jgdXPSjcyUxDvRaS3TdDwD3pAUz/0zYJyjAHV+?=
+ =?us-ascii?Q?aqo2Se/EdzBC9y7tNO7S1FFvuLQjVTkPN70zcQ0z4TvL+9wO9K8fHbQJ46QY?=
+ =?us-ascii?Q?4OzGAChBISBuZ2u0uv9fLaVEPWiC8cMI8s1X6MN0TeQgMIvKwDa3x1e/ZN+f?=
+ =?us-ascii?Q?+TyhNfc1Bo/EkfHe/thSTB2Bv4k4hkLZ7DYmsU7gOWU8sj8I9XlHeLch4x0U?=
+ =?us-ascii?Q?yFv1Fj2H3R+FaH8CMWJXJG6S2wrNeuSIN9Wks2fGlW5IR/nIssmSoWgk6rZS?=
+ =?us-ascii?Q?OSYr8jk0NS4f3A7GuiYsJgASwRWlP+hoFUoMQTQl298+hCirfq/QXr1PdFdJ?=
+ =?us-ascii?Q?T6hgEQoUqFHOamTuFHoWlnPXfqC9TC06yl1nX+3ZYJUy5qyhRtSPfxBDuyTN?=
+ =?us-ascii?Q?sANm8dEBrQcp71smPePZVPpZcIfmXfa7842P9UzxlLh+mcGmJCBekbnMvTmG?=
+ =?us-ascii?Q?oOambizAgZcmYaIZPkKC3cOaBHEJXuQVS/wStUTtsKjffi1ptl6KJBlyCMDr?=
+ =?us-ascii?Q?phJZ7F0jSDI2NPDr9m5WijzNcTPsVAp7hLJgAkKQzBUliUxG/0guJBH06hvX?=
+ =?us-ascii?Q?/9M216ZWkKYFKE9XxQ00HEakQqaeIiFDx75ePgBzS7rd570lJfp1sNvEppUA?=
+ =?us-ascii?Q?9muRkvn2NLGmIHhnyq3lukEtble+mRwceT2Ti5iDiUDGQthm0AF2YpOfPQHG?=
+ =?us-ascii?Q?iePpJ7glitZ7YbFBD7x6rnJgsmtnialBcdgaTQ0HiM/G8xhu4bwLLoIHnW2F?=
+ =?us-ascii?Q?RsGNkZ39OpDB9pJ+qlGBCDO8vlxShjpKKT0gBCA6rUYHLRkXq8VLXWkAQgcC?=
+ =?us-ascii?Q?tIUOqTFyFwphC4Bje31RYe8w4PGSZA4UWXnQ0IUEEyG2XIB8m++477TQ7zGD?=
+ =?us-ascii?Q?AYOTihpngBGsDm8cX4aUxf14NXTTJzSCBvbDI4BzT6uq1hboiS8qOo1N2kgl?=
+ =?us-ascii?Q?j/8bnz41lmBycwIghh30my4McU3/wUxND25Szr+azWBVBmHEC+vq9v70YlBT?=
+ =?us-ascii?Q?GJAUlgT4YBc7fuoawnrlbI4RTqQSzx/5Tm1vEgeuOPYK7tNkpp5Ew6ap94EA?=
+ =?us-ascii?Q?6q6my9/CVDMuDZuTGdJhtDCGatqZW2BOA+VBsSmcrAuLxNqT+CIDxdpqz+To?=
+ =?us-ascii?Q?tivGr4p/7ONPexJnB5tQ1Zm20Ex4ItRZP+rN3jgwhO8RsFw/MLv6LN2hzfHi?=
+ =?us-ascii?Q?QMQa6Ri+u6MCJD9Oi4/f7LTzdOVcAdtGuQEiNWL7ItEz7s/xlnMFJiDDZ7y3?=
+ =?us-ascii?Q?h0q9ywrfhor81kZNHbk650Tlf12ndyZFKjap+eOcLnX7yjO5UHSlOLAmRV4l?=
+ =?us-ascii?Q?q8C6OJuXWRibfqyzkWj9pwhUYSm9+hCYFX/jvlrsN7e2eDN3DrGaq5r305v4?=
+ =?us-ascii?Q?7yMeIkcZEwKbGrliCzCi3QqFLNkaP9TZEZ8ETZj1Fk/YWv8W/ZQI2RvokZXo?=
+ =?us-ascii?Q?FJSLds1s904sKPP2u7DCxgkLCgXY++RUeQovkTrga1+eLhZ5vKyL?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d7a1f9a8-0616-4a7f-322f-08df0774f87d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:31:48.0046
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HIyKaFYO3PhwNKPpaxn7B+WOAEhYatuztfJPiYC1CWUMqN4viWZ1Yhrs/cCrFSp90bo94lkOp4nhFSPVBNrmD5TA9kNYGpW+47ybr9Ye92nHnQlEF/XVttVY909IX5cu
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10474
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_083027_671679_A395E1C4 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20260831_083156_903388_673DAF6E 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +147,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 20:17, Dave Hansen wrote:
-> On 8/18/26 07:08, Kevin Brodsky wrote:
->> This patch addresses the second category: PTPs allocated via memblock.
->> Such PTPs are notably used to create the linear map. Protecting them as
->> soon as they are allocated would require modifying the linear map while
->> it is being created, which seems at best difficult. Instead, a
->> simple allocator is introduced, obtaining pages from memblock and
->> keeping track of all allocated ranges to set their pkey once it is
->> safe to do so.
-> What makes setting a pkey on the memory "unsafe"? Is there something
-> preventing just making access permissive during boot?
+On Mon, Aug 31, 2026 at 11:36:59AM +0800, Guoniu Zhou wrote:
+> The i.MX952 ISI is a minor silicon revision of the i.MX95 ISI,
+> primarily addressing RAW data alignment. The core functionality
+> remains identical, so the i.MX952 ISI uses a fallback compatible
+> string to fsl,imx95-isi.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
+> Changes in v2:
+> - Use fallback compatible fsl,imx95-isi for imx952 (Frank, Conor Dooley)
+> ---
+>  .../devicetree/bindings/media/nxp,imx8-isi.yaml        | 18 +++++++++++-------
+>  1 file changed, 11 insertions(+), 7 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> index 279c9cd3034a..d0a99f00a45e 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> @@ -18,13 +18,17 @@ description: |
+>
+>  properties:
+>    compatible:
+> -    enum:
+> -      - fsl,imx8mn-isi
+> -      - fsl,imx8mp-isi
+> -      - fsl,imx8ulp-isi
+> -      - fsl,imx91-isi
+> -      - fsl,imx93-isi
+> -      - fsl,imx95-isi
+> +    oneOf:
+> +      - enum:
+> +          - fsl,imx8mn-isi
+> +          - fsl,imx8mp-isi
+> +          - fsl,imx8ulp-isi
+> +          - fsl,imx91-isi
+> +          - fsl,imx93-isi
+> +          - fsl,imx95-isi
+> +      - items:
+> +          - const: fsl,imx952-isi
 
-There are two issues at play here:
+Nit:
+	If need spin, suggest
+             -enum:
+                -  fsl,imx952-isi
 
-1. When allocating page tables to create the direct map, we cannot
-reliably set their pkey because that itself requires modifying the
-direct map (and we may not even have mapped this particular page yet).
-There may be ways around this, but it feels at best uncomfortable.
+In case more compatible string, which need fallback to fsl,imx95-isi in
+future. Anyways, it is also fine for now.
 
-2. Specifically in the context of relying on the BBML3 feature on arm64:
-when we create the direct map with large block mappings, there is a
-window during boot (before all the secondary cores are up) where we do
-not allow splitting blocks. This has caused troubles for other features
-as well, see [1].
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-My understanding is that 1. is a problem regardless of the architecture.
-2. is not actually relevant when we force the direct map to be
-PTE-mapped, as is the case in this version, but it had to be considered
-in RFC v6 where we tried to support block mappings.
 
-As per the discussion with David (also in reply to this patch), the plan
-is now to return to an earlier design where we walk the early kernel
-page tables to set their pkey. This circumvents the allocation question
-completely, albeit with the requirement that the direct map is fully
-PTE-mapped.
-
-- Kevin
-
-[1]
-https://lore.kernel.org/all/0b2a4ae5-fc51-4d77-b177-b2e9db74f11d@huawei.com/
-[2]
-https://lore.kernel.org/all/20260227175518.3728055-19-kevin.brodsky@arm.com/
-
+> +          - const: fsl,imx95-isi
+>
+>    reg:
+>      maxItems: 1
+>
+> --
+> 2.34.1
+>
+>
 
