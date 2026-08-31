@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B13C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D547BC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuj8A5e7nnoDpMMwZamaJ9ej6ugo57OPNOW4T/OwTNM=; b=VfYUseCYd7+hLMdZJ6nCKZ5MWN
-	8xVh/LsG1GFH7Jq5EOU0jm/clrmk5FWXv6tdAPFzV69un3riBbKki7TdG9YoN7tVhPRqF7vnu6xzg
-	xa/Fx7XmL5qhDqTxnb2HoQTF3aJvTDY27pvl+lOZDv1Azmle7iFpoBjaCSfYhfpMhTutaPjwVxCQ+
-	jHiniGMiSb+X5KS40LDpNR1ZB+f6HMlcgKFjs+MIEHPlZfbkuLuNI7yP8b3pyfLX3jo6BKGspJRS+
-	mwY5lc4lxyNkeXUmvL4anIce+K7ClxiF12cs4uAf55CxsGdic03L9mcMBND37V+bBUZ9sMWR0k3mJ
-	QrujwnLw==;
+	bh=9waQiWmGIRreL2pS/vRF0HC/WvchDTgVV64118m7PDE=; b=Q8pC8B9gETDKlmHHIESpF2NquN
+	AeRCpeWu2AX5L3+iSGmjmWiH6EB2ZoZHmRSPJ/L5aSa+ttoM0XSPujJF41ssgRBa7m7qVYj0LVMxv
+	H8KGGkr6QbyXo/FzGb7bG2/OzWFdmmEuCtdkb4Y6oe90h5WE2SqwkdV58hDvFr4bk8bfMY62N3WZR
+	2H6RiB5S1mfWkLiT8oltMlhg5qAFdqS8v7HbSMQoz9eufz2N5JXqKZQ6Dhh0whinOEsECjQR7N9w7
+	g2fqJyMzbfcUoQFithw0LKjbgqo2SgBCuOeEU7hZec0RVc/rH49yNEvvQxGvGyXU6gXKqxDNd5WLr
+	s1wuAq6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12GO-00000009Tkz-2jLg;
-	Mon, 31 Aug 2026 13:41:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x12Gt-00000009Two-0cMt;
+	Mon, 31 Aug 2026 13:41:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12G0-00000009TY7-2aFK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:41:04 +0000
+	id 1x12Gr-00000009TwE-2Q6b;
+	Mon, 31 Aug 2026 13:41:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B68E43238;
-	Mon, 31 Aug 2026 13:41:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C1EA1F00A3D;
-	Mon, 31 Aug 2026 13:41:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF6FD60232;
+	Mon, 31 Aug 2026 13:41:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6821F00A3E;
+	Mon, 31 Aug 2026 13:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183664;
-	bh=uuj8A5e7nnoDpMMwZamaJ9ej6ugo57OPNOW4T/OwTNM=;
+	s=k20260515; t=1788183716;
+	bh=9waQiWmGIRreL2pS/vRF0HC/WvchDTgVV64118m7PDE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=A/RskeyIIAoltiMc4OV0S1ZHutI3hX3AY+hkXPOZo36Mg/RrZMWEMHLtBIdCGghjY
-	 l1vt8naqQoQQFIVleDrwoLbLUgTexXU1bPt+3TX3A6Fk3daKI39946eT6+Cq69W/5J
-	 63xZNCPnE80+fd+ahQA8+7HRe2QZL33ph8fDINgTB4GI91v02ZG3F7ekMdAW9hi23s
-	 zMfnZ2F5+c1gd+Y3iJRzJHy4YHhquOqkIcdMla0eXEQCMaXE2KlhrtXUJg9l2Bv9Fl
-	 9VHqrtDsIEweTrUiBh4bUROANAn+CZ6JVuwAFe/LjkNUyYkAPYwnrN4ANxqcS4oAXA
-	 rN58y5uegq4EA==
+	b=W6tjZme/UAej6dvIG6QuzVr1jWsV90B4VaEnkEcq2Tf8qbmXh290HH01n19CFD4A4
+	 ILrLC1BQaZm1YSoiUVRvqMEOXFw32KuUfn2IFK5q6bhkymzIudVBj8owDBd0J3CNAL
+	 /BqmnbFJWSnnTJ3emtUQAar50ff/lU/OhzHt4ZeHEWKlX1TqzlJd94VZDA6a9YvcjY
+	 2GbCwIBi4KQcLLbWUxoqIrdADLbQjluOr7+++7NtJ3KbxYFH/kKbD/McQyeaxJZack
+	 u44/Z7SinV00sioB/5HoiyfHnJp+tKV2aJqGPjGlmA+/Y+Fwa0+drqDIZQ93HDiKn+
+	 hilyNxLhxitMg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Mostafa Saleh <smostafa@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] irqchip/gic-v4: Don't advertise VLPIs if no ITS is probed
-Date: Mon, 31 Aug 2026 09:24:18 -0400
-Message-ID: <20260831133314.4125787-230-sashal@kernel.org>
+	p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-6.12] drm/mediatek: dsi: Add compatible for mt8167-dsi
+Date: Mon, 31 Aug 2026 09:24:50 -0400
+Message-ID: <20260831133314.4125787-262-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,384 +83,391 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mostafa Saleh <smostafa@google.com>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-[ Upstream commit e61654fbc3bc5d07ec9fafe29f33e19b2b5d0fd5 ]
+[ Upstream commit 6428eaf0c1f39815b08d57054895c1934d5782f3 ]
 
-When accidentally setting “kvm-arm.vgic_v4_enable=1” on a system that has
-no MSI controller device tree node and GICv4, it results a panic as
-“gic_domain” is NULL and the kernel attempts to access it.
+The mt8167 DSI controller is fully compatible with the one found in
+mt2701. Unfortunately the device tree has a dedicated compatible for
+mt8167 since 2022 and it cannot be changed with a fallback nor removed at
+this point. The only way to get the device to work is to add the
+compatible to the driver.
 
-    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000028
-    Mem abort info:
-      ESR = 0x0000000096000006
-
-    CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-rc4-ge3f15ad3970e #5 PREEMPT
-    Hardware name: linux,dummy-virt (DT)
-    pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-    pc : __irq_domain_instantiate+0x1d4/0x578
-    lr : __irq_domain_instantiate+0x1cc/0x578
-
-Set vLPI support to false at init time if the host has no ITS, so it
-propagates properly to kvm_vgic_global_state.has_gicv4.
-
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Thomas Gleixner <tglx@kernel.org>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Link: https://patch.msgid.link/20260526125317.3672297-1-smostafa@google.com
+Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: CK Hu <ck.hu@mediatek.com>
+Link: https://patchwork.kernel.org/project/dri-devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
+Signed-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: irqchip/gic-v4: Don't advertise VLPIs if no
-ITS is probed
+# Stable Backport Analysis: drm/mediatek: dsi: Add compatible for
+mt8167-dsi
 
-**Local tree:** `v6.18.44` (`git describe HEAD` → `v6.18.44`, Makefile
-`6.18.44`)
+**Local tree:** `v6.18.43` (Makefile: 6.18.43)
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Subject line
-**Record:** `[irqchip/gic-v4]` `[prevent/advertise]` — Don't advertise
-VLPIs if no ITS is probed.
+### Step 1.1: PARSE THE SUBJECT LINE
+**Record:** `[drm/mediatek: dsi]` `[Add]` — Add `mediatek,mt8167-dsi`
+compatible string to the existing MediaTek DSI platform driver so MT8167
+boards can bind.
 
-### Step 1.2: Tags
+### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 **Record:**
-- **Suggested-by:** Marc Zyngier `<maz@kernel.org>` (GIC maintainer
-  suggested the approach)
-- **Signed-off-by:** Mostafa Saleh `<smostafa@google.com>` (author)
-- **Signed-off-by:** Thomas Gleixner `<tglx@kernel.org>` (irq
-  maintainer)
-- **Acked-by:** Marc Zyngier `<maz@kernel.org>` (GIC subsystem
-  maintainer ack)
-- **Link:**
-  https://patch.msgid.link/20260526125317.3672297-1-smostafa@google.com
-- No Fixes:, Reported-by:, Tested-by:, or Cc: stable tags (expected for
-  manual review)
-- Ignore pipeline-added markers per instructions
+- **Signed-off-by:** Luca Leonardo Scorcia `<l.scorcia@gmail.com>`
+  (author)
+- **Reviewed-by:** AngeloGioacchino Del Regno
+  `<angelogioacchino.delregno@collabora.com>`
+- **Reviewed-by:** CK Hu `<ck.hu@mediatek.com>` (MediaTek maintainer)
+- **Link:** https://patchwork.kernel.org/project/dri-
+  devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
+- **Signed-off-by:** Chun-Kuang Hu `<chunkuang.hu@kernel.org>` (applied
+  to mediatek-drm-next)
+- No Fixes:, Reported-by:, Cc: stable, or syzbot tags
+- Notable: two subsystem Reviewed-by tags, including MediaTek maintainer
 
-**Notable:** Maintainer ack from Marc Zyngier; irq maintainer merge
-sign-off from Thomas Gleixner.
-
-### Step 1.3: Body analysis
+### Step 1.3: ANALYZE THE COMMIT BODY TEXT
 **Record:**
-- **Bug:** On GICv4 hardware with no ITS device-tree node, `has_vlpis`
-  remains true even though ITS init fails.
-- **Symptom:** Kernel panic — NULL pointer dereference in
-  `__irq_domain_instantiate` when `kvm-arm.vgic_v4_enable=1` is set.
-- **Stack trace:** `__irq_domain_instantiate` on `linux,dummy-virt` with
-  `lkvm-static`, kernel `7.1.0-rc4`.
-- **Root cause:** `gic_domain` (static in `irq-gic-v4.c`) is never
-  initialized because `its_init_v4()` is never reached; KVM still
-  believes GICv4 is available via `kvm_vgic_global_state.has_gicv4`.
-- **Fix:** Set `rdists->has_vlpis = false` when `its_nodes` list is
-  empty, so `gic_v3_kvm_info.has_v4` propagates correctly as false.
+- **Bug:** MT8167 DSI hardware is register-compatible with MT2701, but
+  the DSI platform driver’s `of_match` table lacks
+  `mediatek,mt8167-dsi`.
+- **Symptom:** DSI platform device does not probe; display pipeline
+  cannot complete on MT8167 boards whose DT uses `mediatek,mt8167-dsi`.
+- **Root cause:** DT binding has listed `mediatek,mt8167-dsi` since
+  2022; that compatible cannot be removed or replaced with a fallback;
+  driver was never updated to match.
+- **Version info:** Binding present since 2022; fix is May 2026.
 
-### Step 1.4: Hidden bug fix?
-**Record:** No — this is an explicit bug fix (NULL deref / kernel
-panic), not disguised cleanup.
+### Step 1.4: DETECT HIDDEN BUG FIXES
+**Record:** Not disguised as cleanup. This is explicit hardware-
+enablement: a missing `of_device_id` entry leaves DSI non-functional on
+affected hardware. Functionally a driver/DT mismatch bug, not a new
+feature API.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory
+### Step 2.1: INVENTORY THE CHANGES
 **Record:**
-- **Files:** `drivers/irqchip/irq-gic-v3-its.c` (+1 line)
-- **Functions:** `its_init()`
-- **Scope:** Single-file, surgical one-line fix on an error path
+- **Files:** `drivers/gpu/drm/mediatek/mtk_dsi.c` (+1 line)
+- **Functions/areas:** `mtk_dsi_of_match[]` static table
+- **Scope:** Single-file, one-line surgical change
 
-### Step 2.2: Code flow change
+### Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
 **Record:**
-- **Before:** `its_init()` finds no ITS nodes → prints warning → returns
-  `-ENXIO` with `rdists->has_vlpis` unchanged (still true from hardware
-  capability detection).
-- **After:** Same path, but `rdists->has_vlpis = false` is set before
-  return, so downstream KVM info correctly reports no GICv4 support.
+- **Before:** `mtk_dsi_probe()` only runs for `mt2701-dsi`,
+  `mt8173-dsi`, `mt8183-dsi`, `mt8186-dsi`, `mt8188-dsi` compatibles.
+- **After:** Also runs for `mediatek,mt8167-dsi`, using
+  `mt2701_dsi_driver_data` (same register offsets as MT2701).
+- **Path affected:** Platform probe → `of_device_get_match_data()` → DSI
+  host/bridge registration → DRM component bind.
 
-### Step 2.3: Bug mechanism
-**Record:** **Logic / correctness fix** — stale capability flag after
-failed ITS probe.
-
-Call chain when bug triggers:
-1. `gic_update_rdist_properties()` sets `has_vlpis` from
-   `GICR_TYPER_VLPIS` hardware bit
-2. `its_init()` returns early with no ITS → `has_vlpis` stays true
-3. `gic_v3_kvm_info.has_v4 = gic_data.rdists.has_vlpis`
-   (```2279:2280:drivers/irqchip/irq-gic-v3.c```)
-4. `kvm-arm.vgic_v4_enable=1` → `kvm_vgic_global_state.has_gicv4 = true`
-   (```668:670:arch/arm64/kvm/vgic/vgic-v3.c```)
-5. `vgic_v4_init()` → `its_alloc_vcpu_irqs()` →
-   `irq_domain_create_hierarchy(gic_domain, ...)` where `gic_domain` is
-   NULL (```167:169:drivers/irqchip/irq-gic-v4.c```, never set because
-   `its_init_v4()` never called)
-6. Kernel panic in irq domain instantiation
-
-### Step 2.4: Fix quality
+### Step 2.3: IDENTIFY THE BUG MECHANISM
 **Record:**
-- **Obviously correct:** If no ITS exists, VLPIs cannot work; clearing
-  `has_vlpis` is semantically right and consistent with existing pattern
-  at lines 5864 and 3274 in the same file.
-- **Minimal:** One line, no unrelated changes.
-- **Regression risk:** Very low — only affects the no-ITS error path;
-  systems with working ITS are untouched.
+- **Category:** Logic/correctness — missing hardware identification
+  entry (compatible-string quirk).
+- **Mechanism:** `mtk_drm_drv.c` already recognizes
+  `mediatek,mt8167-dsi` in `mtk_ddp_comp_dt_ids[]` and adds a component
+  match, but `mtk_dsi_driver` never probes the device without a matching
+  `of_match` entry. DRM bind stalls or fails for the DSI component.
+
+### Step 2.4: ASSESS THE FIX QUALITY
+**Record:**
+- Obviously correct: reuses existing `mt2701_dsi_driver_data`; author
+  and reviewers confirm hardware identity.
+- Minimal, no unrelated changes.
+- Regression risk: very low — only adds a new match entry pointing at
+  proven driver data.
+- No API, structure, or locking changes.
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 3.1: Blame
-**Record:** Worktree has flattened history (single squash commit
-`7e22de67e545d`). The `list_empty(&its_nodes)` early-return path exists
-at ```5836:5838:drivers/irqchip/irq-gic-v3-its.c``` without the fix.
-GICv4/VLPI infrastructure is present throughout 6.18.
+### Step 3.1: BLAME THE CHANGED LINES
+**Record:** In this checkout, `git blame` on `mtk_dsi_of_match[]`
+attributes all lines to a single squashed base commit (`a112b91dd6349`);
+per-file history is not useful for dating the omission. The omission is
+the absence of `mt8167-dsi` while other MT8167 compatibles exist
+elsewhere in the same driver tree.
 
-### Step 3.2: Fixes: tag
-**Record:** N/A — no Fixes: tag in commit message.
+### Step 3.2: FOLLOW THE FIXES: TAG
+**Record:** N/A — no `Fixes:` tag in the commit message.
 
-### Step 3.3: Related file history
-**Record:** Limited git history in this worktree. The buggy code path
-and all related infrastructure (`has_vlpis`, `kvm-arm.vgic_v4_enable`,
-`its_init_v4`, `gic_domain`) are present in this 6.18.44 tree.
+### Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+**Record:**
+- Patch is **v4, 2/2** of series “Add support for mt8167 display
+  blocks”.
+- **v4, 1/2:** `arm64: dts: mediatek: mt8167: Add DRM nodes` (adds DSI
+  and other display nodes to `mt8167.dtsi`).
+- This driver patch is standalone: it only needs a DT node with
+  `mediatek,mt8167-dsi`, which the binding has documented since 2022 and
+  which `mtk_drm_drv.c` already handles.
 
-### Step 3.4: Author context
-**Record:** Mostafa Saleh (Google). Marc Zyngier (GIC expert/maintainer)
-suggested and acked the fix.
+### Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+**Record:** Luca Leonardo Scorcia is an active MT8167 display
+contributor. Maintainer Chun-Kuang Hu applied the patch to `mediatek-
+drm-next`. Git history in this tree is too squashed to enumerate author
+commits locally.
 
-### Step 3.5: Dependencies
-**Record:** Standalone — no series dependencies, no prerequisite
-commits. Applies to existing `its_init()` error path.
+### Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+**Record:**
+- No kernel-code prerequisites beyond existing `mt2701_dsi_driver_data`
+  and `mtk_dsi` driver (both present in 6.18.43).
+- DTS patch 1/2 is **not** required for the driver fix to apply cleanly;
+  it is required for in-tree `mt8167.dtsi` to expose a DSI node.
+  Vendor/out-of-tree DTS may already use `mediatek,mt8167-dsi`.
+- **Can apply standalone:** PASS for the driver change.
 
 ---
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 4.1: Original discussion
-**Record:** `b4 dig -c <commit>` could not be run — fix commit SHA not
-present in local repos (fix targets 7.1.0-rc4 per commit message; local
-tree is 6.18.44). Link fetch to lore/patch.msgid.link blocked by bot
-protection (Anubis). Could not retrieve thread discussion.
+### Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+**Record:**
+- `b4 dig -c <sha>` failed (commit not in this repo).
+- Patchwork: https://patchwork.kernel.org/project/dri-
+  devel/patch/20260505214541.333657-3-l.scorcia@gmail.com/
+- Series: v4, 2/2; v4, 1/2 adds DRM DT nodes.
+- Reviewed-by from AngeloGioacchino Del Regno and CK Hu on list.
+- Chun-Kuang Hu: “Applied to mediatek-drm-next”.
+- No stable nomination or NAK found in thread.
+- lore.kernel.org fetch blocked (bot protection).
 
-### Step 4.2: Reviewers
-**Record:** UNVERIFIED via b4 dig -w. Commit message confirms Acked-by
-Marc Zyngier and Signed-off-by Thomas Gleixner.
+### Step 4.2: CHECK WHO REVIEWED THE PATCH
+**Record:** CC list included `linux-mediatek`, `dri-devel`,
+`devicetree`, `chunkuang.hu@kernel.org`, `ck.hu@mediatek.com`, and other
+DRM/DT maintainers. MediaTek maintainer reviewed and applied.
 
-### Step 4.3: Bug report
-**Record:** Commit message includes full oops trace with reproducible
-scenario: `linux,dummy-virt` DT, `kvm-arm.vgic_v4_enable=1`, no ITS
-node. Severity: kernel panic.
+### Step 4.3: SEARCH FOR THE BUG REPORT
+**Record:** No formal bug report or syzbot link. Impact inferred from
+incomplete driver/DT binding alignment and partial MT8167 DRM support
+already in-tree.
 
-### Step 4.4: Related patches
-**Record:** Standalone fix, not part of a series.
+### Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+**Record:** Companion patch adds DSI node to `mt8167.dtsi`. In **this**
+tree, `mt8167.dtsi` has mmsys/SMI nodes but **no DSI node**;
+`mt8167-pumpkin.dts` also has no display nodes. Driver fix still matters
+for downstream/vendor DTS and for when patch 1/2 lands.
 
-### Step 4.5: Stable list history
-**Record:** UNVERIFIED — lore access blocked. No stable discussion found
-locally.
+### Step 4.5: CHECK STABLE MAILING LIST HISTORY
+**Record:** Not searched (lore blocked). No stable discussion found on
+Patchwork.
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1: Key functions
-**Record:** `its_init()`, `its_alloc_vcpu_irqs()`, `vgic_v4_init()`,
-`vgic_v3_probe()`, `irq_domain_create_hierarchy()`
+### Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+**Record:** `mtk_dsi_of_match[]`, `mtk_dsi_probe()`, `mtk_dsi_driver`
+(platform driver registration via `mtk_drm_init()`).
 
-### Step 5.2: Callers
+### Step 5.2: TRACE CALLERS
 **Record:**
-- `its_init()` called from `gic_of_init()` / ACPI init when
-  `gic_dist_supports_lpis()` (```2137:2138:drivers/irqchip/irq-
-  gic-v3.c```)
-- `vgic_v4_init()` called during KVM VM setup when GICv4 is enabled
-- `its_alloc_vcpu_irqs()` called from `vgic_v4_init()`
-  (```266:266:arch/arm64/kvm/vgic/vgic-v4.c```)
+- `mtk_dsi_driver` registered in `mtk_drm_init()` →
+  `platform_register_drivers()`.
+- `mtk_drm_probe()` iterates MMSYS children, matches
+  `mediatek,mt8167-dsi` via `mtk_ddp_comp_dt_ids[]`, calls
+  `drm_of_component_match_add()` for DSI nodes.
+- Without `mtk_dsi` probe, component bind cannot succeed.
 
-### Step 5.3: Callees
-**Record:** `irq_domain_create_hierarchy()` → `irq_domain_instantiate()`
-→ `__irq_domain_instantiate()`; uses static `gic_domain` set only by
-`its_init_v4()`.
+### Step 5.3: TRACE CALLEES
+**Record:** `mtk_dsi_probe()` uses `of_device_get_match_data()`,
+clock/PHY/IRQ setup, `mipi_dsi_host_register()`, DRM bridge setup — all
+standard, unchanged by this patch.
 
-### Step 5.4: Reachability
-**Record:** Reachable from userspace via KVM — boot param `kvm-
-arm.vgic_v4_enable=1` + creating/running a VM with vITS on GICv4-capable
-hardware without ITS. QEMU `virt` platform matches the reported
-scenario.
+### Step 5.4: FOLLOW THE CALL CHAIN
+**Record:** Boot → DT populates DSI platform device → `mtk_dsi_probe()`
+(needs `of_match`) → component bind in `mtk_drm_bind()` → display
+pipeline. Reachable on any MT8167 board with a DSI DT node; not a
+syscall path, but normal embedded boot/display init.
 
-### Step 5.5: Similar patterns
-**Record:** Same file already clears `has_vlpis` on GICv4 init failure
-(```5864:5864:drivers/irqchip/irq-gic-v3-its.c```) and in other error
-paths (```3274:3274```). Fix follows established convention.
+### Step 5.5: SEARCH FOR SIMILAR PATTERNS
+**Record:** `mtk_drm_drv.c` already lists many `mediatek,mt8167-*`
+compatibles (mmsys, ovl, rdma, **dsi**, etc.) while `mtk_dsi.c` lacked
+the DSI entry — clear inconsistency, same pattern as other SoC-specific
+compat strings in `mtk_dsi_of_match[]`.
 
 ---
 
-## PHASE 6: CROSS-REFERENCE AGAINST LOCAL TREE (6.18.44)
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE (6.18.43)
 
-### Step 6.1: Buggy code exists?
-**Record:** **YES.** At ```5836:5838:drivers/irqchip/irq-
-gic-v3-its.c```, the early return on empty `its_nodes` does NOT clear
-`has_vlpis`. All prerequisite code (GICv4, KVM vgic_v4_enable,
-`gic_domain` in irq-gic-v4.c) exists in 6.18.44.
+### Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+**Record:** **YES.**
+- `mtk_dsi.c` lines 1303–1309: `mtk_dsi_of_match[]` has no `mt8167-dsi`.
+- `mtk_drm_drv.c` line 813: `mediatek,mt8167-dsi` **is** in
+  `mtk_ddp_comp_dt_ids[]`.
+- `Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml`
+  line 28: `mt8167-dsi` documented.
+- `mt2701_dsi_driver_data` exists at line 1271.
+- Partial MT8167 DRM support is already in 6.18.43; DSI driver match is
+  the missing piece.
 
-### Step 6.2: Backport complications
-**Record:** **Clean apply expected** — single line insertion in
-unchanged context. No refactoring conflicts observed.
+### Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+**Record:** **Clean apply** — single line insertion after the
+`mt2701-dsi` entry. No structural conflicts observed; table layout
+matches the upstream diff context.
 
-### Step 6.3: Related fixes already present?
-**Record:** **NO** — grep shows no `rdists->has_vlpis = false` in the
-`list_empty(&its_nodes)` path. Fix not yet in this tree.
+### Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+**Record:** No existing commit in this tree adds `mt8167-dsi` to
+`mtk_dsi.c`. `git log --grep="mt8167-dsi"` returned nothing.
 
 ---
 
 ## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
 
-### Step 7.1: Subsystem criticality
-**Record:** **IMPORTANT** — ARM64 KVM + GIC interrupt controller.
-Affects virtualization hosts on ARM64 with GICv4.
+### Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+**Record:** `drivers/gpu/drm/mediatek` — **IMPORTANT** (embedded/display
+on MediaTek SoCs; not core kernel, but user-visible on affected
+hardware).
 
-### Step 7.2: Subsystem activity
-**Record:** GICv3/v4/ITS actively maintained; GICv4 KVM direct injection
-is a supported feature path in 6.18.
+### Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+**Record:** MT8167 display support is actively being completed (v4
+series, May 2026). 6.18.43 already carries substantial MT8167 DRM driver
+data, indicating the platform is in scope for this stable series.
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-### Step 8.1: Who is affected
-**Record:** ARM64 hosts running KVM with `CONFIG_KVM` +
-`CONFIG_ARM_GIC_V3_ITS`, GICv4-capable hardware (VLPI in GICR_TYPER), no
-ITS in firmware/DT, and `kvm-arm.vgic_v4_enable=1`. Common in QEMU virt
-development/testing.
+### Step 8.1: DETERMINE WHO IS AFFECTED
+**Record:** Users of MT8167-based devices with DSI panels (tablets,
+embedded boards such as Pumpkin, vendor trees using
+`mediatek,mt8167-dsi`). Config-dependent on `CONFIG_DRM_MEDIATEK` and
+MT8167 DT support.
 
-### Step 8.2: Trigger conditions
+### Step 8.2: DETERMINE THE TRIGGER CONDITIONS
+**Record:** Boot on MT8167 hardware with a DSI node using `compatible =
+"mediatek,mt8167-dsi"`. Common on intended display bring-up; not
+userspace-triggered. Likelihood: **certain** on any such board without
+this fix.
+
+### Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+**Record:** DSI driver does not probe → display does not work (no
+framebuffer/DRM output). **Severity: MEDIUM** — hardware broken for
+display use, but not a crash, security issue, or data corruption.
+
+### Step 8.4: CALCULATE RISK-BENEFIT RATIO
 **Record:**
-- Requires explicit boot param `kvm-arm.vgic_v4_enable=1` (not default)
-- Requires GICv4 hardware features without ITS node
-- Triggered when KVM VM with vITS is initialized
-- **Likelihood:** Low in production (param is opt-in), but realistic in
-  dev/QEMU environments
-- **Unprivileged trigger:** Indirect — root sets boot param; any user
-  with KVM access could then trigger VM creation path
-
-### Step 8.3: Failure mode severity
-**Record:** **CRITICAL** — kernel NULL pointer dereference → oops/panic.
-Host crash.
-
-### Step 8.4: Risk-benefit
-**Record:**
-- **Benefit:** Prevents host kernel panic on a valid-but-misconfigured
-  GICv4-without-ITS scenario; corrects false capability advertisement
-- **Risk:** Very low — one line on error-only path, maintainer-acked
-- **Ratio:** Strong benefit, minimal risk
+- **Benefit:** Enables DSI display on MT8167; fixes inconsistency with
+  binding and `mtk_drm_drv.c`.
+- **Risk:** One line, existing driver data, maintainer-reviewed — **very
+  low**.
+- **Ratio:** Favorable for stable; fits the “compatible / device ID
+  addition to existing driver” exception.
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence summary
+### Step 9.1: COMPILE THE EVIDENCE
 
 **FOR backport:**
-- Real kernel panic (NULL deref) with stack trace in commit message
-- Small, surgical, obviously correct fix
-- GIC maintainer (Marc Zyngier) suggested and acked
-- Buggy code confirmed present in 6.18.44
-- Follows existing `has_vlpis = false` pattern in same file
-- Prevents false GICv4 advertisement to KVM
+- Fixes real broken display on MT8167 when DT uses `mediatek,mt8167-dsi`
+- One-line, obviously correct; reviewed by MediaTek maintainer
+- Reuses `mt2701_dsi_driver_data` — no new APIs or logic
+- Binding and `mtk_drm_drv.c` already expect this compatible in 6.18.43
+- Classic stable exception: compatible-string addition to existing
+  driver
+- Very low regression risk
 
 **AGAINST backport:**
-- Requires opt-in boot param `kvm-arm.vgic_v4_enable=1` (niche trigger)
-- No ITS on GICv4 hardware is an unusual/misconfigured platform
+- Could be framed as “new hardware enablement” rather than crash fix
+- In-tree `mt8167.dtsi` in 6.18.43 still lacks DSI nodes (patch 1/2 not
+  merged)
+- No syzbot/user crash reports
+- Display failure is functional, not a kernel oops
 
 **UNRESOLVED:**
-- Full lore review thread inaccessible (bot protection)
-- b4 dig could not match commit (not in local git history)
+- Exact mainline commit SHA not in this repo (`b4 dig` failed)
+- lore.kernel.org thread not readable (403)
+- When `mt8167-dsi` first entered the DT binding in mainline history
+  (squashed git in this checkout)
 
-The niche trigger does not outweigh a host panic fix — stable trees
-routinely backport fixes that prevent panics on misconfiguration.
+Neither unresolved item changes the technical conclusion for 6.18.43.
 
-### Step 9.2: Stable rules checklist
-1. Obviously correct and tested? **PASS** — logically sound; maintainer
-   acked; reproducer in commit message
-2. Fixes a real bug? **PASS** — NULL deref panic on KVM GICv4 init
-3. Important issue? **PASS** — CRITICAL (kernel panic)
-4. Small and contained? **PASS** — 1 line, 1 file
-5. No new features/APIs? **PASS** — corrects existing capability flag
-6. Can apply to local tree? **PASS** — buggy code present; clean apply
-   expected
+### Step 9.2: STABLE RULES CHECKLIST
+| Criterion | Result |
+|-----------|--------|
+| 1. Obviously correct and tested? | **PASS** — maintainer Reviewed-by;
+maps to known-good MT2701 data |
+| 2. Fixes a real bug affecting users? | **PASS** — DSI cannot probe
+without this entry |
+| 3. Important issue? | **PASS (MEDIUM)** — display non-functional on
+affected hardware |
+| 4. Small and contained? | **PASS** — 1 line, 1 file |
+| 5. No new features/APIs? | **PASS** — compatible quirk only; exception
+applies |
+| 6. Can apply to local tree? | **PASS** — clean one-line apply;
+prerequisites present |
 
-### Step 9.3: Exception categories
-**Record:** N/A — standard bug fix, not a quirk/DT/device-ID exception.
+### Step 9.3: EXCEPTION CATEGORIES
+**Record:** **Hardware quirk / device compatible addition** — adding
+`mediatek,mt8167-dsi` to an existing driver’s `of_match` table, reusing
+established `mt2701_dsi_driver_data`. Explicitly allowed for stable.
 
-### Step 9.4: Decision rationale
-For **Linux 6.18.44**, this commit fixes a confirmed host kernel panic
-when KVM GICv4 is force-enabled on GICv4-capable hardware without an
-ITS. The buggy code exists in this tree, the fix is one maintainer-acked
-line on an error path, and it prevents false advertisement of VLPI/GICv4
-support to KVM. The opt-in nature of the boot parameter reduces
-production exposure but does not diminish the fix's correctness or
-stable suitability.
+### Step 9.4: DECISION RATIONALE
+
+For **6.18.43**, MT8167 DRM support is already partially merged:
+`mtk_drm_drv.c` recognizes `mediatek,mt8167-dsi` and builds an MT8167
+display pipeline, but `mtk_dsi.c` omits the compatible. That is a clear
+driver bug/oversight, not greenfield feature work. The fix is one line,
+low risk, maintainer-reviewed, and aligns driver behavior with the DT
+binding that has documented `mt8167-dsi` since 2022. Stable trees
+routinely take such compatible-string additions for existing drivers.
 
 ---
 
 ## Verification
 
-- [Phase 1] Parsed subject, tags (Acked-by Marc Zyngier, Suggested-by
-  Marc Zyngier, Link to patch)
-- [Phase 1] Identified explicit NULL deref panic bug, not hidden cleanup
-- [Phase 2] Diff: +1 line in `its_init()` at `list_empty(&its_nodes)`
-  path
-- [Phase 2] Traced bug chain: `has_vlpis` stale → `has_v4` true →
-  `has_gicv4` true → `gic_domain` NULL → panic
-- [Phase 3] `git describe HEAD`: v6.18.44
-- [Phase 3] Buggy code at lines 5836-5838 confirmed without fix
-- [Phase 3] No Fixes: tag; standalone patch
-- [Phase 4] b4 dig: commit SHA unavailable in local repos — could not
-  run
-- [Phase 4] WebFetch lore/patch.msgid.link: blocked by Anubis bot
-  protection
-- [Phase 4] UNVERIFIED: full mailing list review thread
-- [Phase 5] Verified callers: `its_init` from gic init, `vgic_v4_init` →
-  `its_alloc_vcpu_irqs`
-- [Phase 5] Verified `gic_domain` static NULL until `its_init_v4()` at
-  ```376:382:drivers/irqchip/irq-gic-v4.c```
-- [Phase 5] Verified `gic_v3_kvm_info.has_v4 =
-  gic_data.rdists.has_vlpis` at lines 2279, 2639
-- [Phase 5] Verified `kvm-arm.vgic_v4_enable` early_param at
-  ```615:619:arch/arm64/kvm/vgic/vgic-v3.c```
-- [Phase 6] Buggy code EXISTS in 6.18.44 tree
-- [Phase 6] Fix NOT yet applied in local tree
-- [Phase 6] Clean apply expected (single line insertion)
-- [Phase 7] Subsystem: irqchip GIC + ARM64 KVM, IMPORTANT criticality
-- [Phase 8] Failure mode: NULL deref panic, CRITICAL severity
-- [Phase 8] Trigger: opt-in boot param + no ITS + GICv4 hardware + KVM
-  VM init
-
-**YES**The background `git log --all` lookup for when the “No ITS
-available, not enabling LPIs” path was introduced was killed after
-timing out (and `--all` isn’t appropriate here anyway). That doesn’t
-change the backport analysis: the buggy path is present in this
-**6.18.44** tree, and the fix is still a one-line, maintainer-acked
-correction on the no-ITS error path.
+- **[Phase 1]** Parsed subject, tags, body from user-provided commit
+  message and Patchwork
+- **[Phase 2]** Confirmed diff: +1 line in `mtk_dsi_of_match[]` pointing
+  to `mt2701_dsi_driver_data`
+- **[Phase 3]** `git describe HEAD` → `v6.18.43`; `git blame` on
+  `mtk_dsi.c:1303-1310` and `mtk_drm_drv.c:813-814`
+- **[Phase 3]** `git log --grep="mt8167-dsi"` → no results in this tree
+- **[Phase 4]** Patchwork fetch: v4 2/2 series, Reviewed-by, applied to
+  mediatek-drm-next
+- **[Phase 4]** `b4 dig -c 2257966bbaa9a` → commit not found in repo
+- **[Phase 4]** lore.kernel.org → 403 Forbidden
+- **[Phase 5]** Read `mtk_dsi_probe()`, `mtk_drm_probe()`,
+  `mtk_drm_init()` registration path
+- **[Phase 5]** `grep mt8167` in `drivers/gpu/drm/mediatek/` → extensive
+  MT8167 support in `mtk_drm_drv.c`, HDMI in `mtk_hdmi.c`
+- **[Phase 6]** `grep mt8167-dsi` → present in `mtk_drm_drv.c` and
+  binding; **absent** in `mtk_dsi.c`
+- **[Phase 6]** Read `mt8167.dtsi`, `mt8167-pumpkin.dts` → no DSI node
+  in-tree yet
+- **[Phase 6]** Confirmed `mt2701_dsi_driver_data` exists at
+  `mtk_dsi.c:1271-1275`
+- **[Phase 7]** Identified subsystem as DRM/MediaTek display driver
+- **[Phase 8]** Assessed failure as non-probing DSI / no display (MEDIUM
+  severity)
 
 **YES**
 
- drivers/irqchip/irq-gic-v3-its.c | 1 +
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index a1661657391d6..38190c5196936 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -5834,6 +5834,7 @@ int __init its_init(struct fwnode_handle *handle, struct rdists *rdists,
- 		its_acpi_probe();
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index acee2227275b7..6845bb8043254 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -1302,6 +1302,7 @@ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
  
- 	if (list_empty(&its_nodes)) {
-+		rdists->has_vlpis = false;
- 		pr_warn("ITS: No ITS available, not enabling LPIs\n");
- 		return -ENXIO;
- 	}
+ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
++	{ .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8173-dsi", .data = &mt8173_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
 -- 
 2.53.0
 
