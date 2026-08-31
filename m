@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F050C61DE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 05:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3AFEC61DE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 05:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i8abeE7yuo9J9DmBCNkbVrY67aO7PUOd2dMVcC0+Ats=; b=asPMpdXK3xSTSvRHWgZo3cg8iL
-	fOFlyfv3sYGy3pRim/N3uAXfMEUFjTTHbWn6nq1U+MlUwcFqZ+iceSFogucN2wFWfbbtBQhMfR6o/
-	4p9IOTuKfwZOUaH/xiMo8V1dVCR7harvDbq7sxFdKxTwfhzC9xAqk9M6d95eJ9jSq+YkF1MTR1xWh
-	E3XmwqgW4nsbf2/OZx/nvLCjCNBfUMWawRCsAL5GCYjhYGqR0Bc0kVpPZHm5AZOj3qBzKXkoa9mMm
-	yylBn1TLdKDWlVy1DirfPBDyBg4ZIVSdmyn9k103xlqUuL9Lz/3U5+FFUwmBQB2/2Vy7pdrh3niuF
-	wj3taF+g==;
+	bh=+sjajWrfj2wM9zCU9qb6V0Zy3xK1fZ/kgY+W3FSBiiw=; b=jMhy/RabOZJxssNkvCbv2DKvAR
+	49Re29I49Y9N3YtAPzNAh+rKJWA+WgEKHKYttdtl5oNLn2ELgBaC+6u/I8An8EQRStAk6BoPVOTfJ
+	tcIye3+zE1pv1PlOv0SujyMwpnZFB6bzoKwuuRypqMBl3kUxLvKDsK8i8mbl+R5gG1c2LtVKAQa3d
+	vOFRS6YNljWwqgOTJlgCueY5bjtsnJ5vQ3x+1ixeQ/aLCuUgC7Gw/IbID2MfMJNb4MlEmIm+c967t
+	FX3IE6dUWU/e47V8tX3qBkN0jI2N7/Y5+YJ4Y6envWYoGlaQuJrXC3vpi5msofopNGcutBHa1RIxc
+	AuMUeDnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0unM-00000008XF0-1sMk;
-	Mon, 31 Aug 2026 05:43:00 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0unJ-00000008XEd-34xO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 05:42:58 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-48436216a98so523489f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 22:42:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788154975; x=1788759775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i8abeE7yuo9J9DmBCNkbVrY67aO7PUOd2dMVcC0+Ats=;
-        b=lZj540/SbRNXVLZwxa/wlEZ8CnHCqxoqYNYFmMX4KY3G6rxH7tbEYb7NgFMFjEvEFP
-         4l235v0vI/FeEBFhUZnhZ/VZ4ChWkJhr9SL+Ut7uQEqMyU7t9LsQLJmacbyzgZl/bqMW
-         tEfIsfj/aRSYW5ZKgenhB3b8e20LmDNzrC59cfz1ZN3H7OJcPRoojDkvYg6GypZe2gxL
-         ParaX51xp60tpa7m3rnM4iYrQH305j+SQI/P1nBW6J2FIFOYlH9tBKL0BecprBAwp7I1
-         e242HkNhtcHlsB3J/saoGytOarYAUVWJ9rnVFf/RvSRgr801KquWcFvtWRcXIQdBTbh2
-         ktHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788154975; x=1788759775;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i8abeE7yuo9J9DmBCNkbVrY67aO7PUOd2dMVcC0+Ats=;
-        b=bAlbWarQz0bHBcZK6/SIZGznS7svYFSuQPyrlbcUde3tYRWEN+lxTu65LqdVEjmXMq
-         1KMydDlk/YGk5o/DnhyyBd6M9eQAGCCNkCPzulqvy/TFhkhx8Sev9YPRR+2Zm3cMEihA
-         dh1MSt0cvQfkXdm5Mgt+cutzr/i/hwpL+hmk8eYKZWgb9ib3VO2+35blwvVI7htFou88
-         qUBtlxjMhzm5khQl5LEGB0xsywwQ/qlx2LTFcUZCEKj3Rv1voAb7lqVFCIoilUNfPLP/
-         uzxLYw3A4apab8cj0amAuT8gR+TwTrWVUs9Sx+URJLA5G5kL5gbyKQbDKBke/Rs20Tiw
-         CVgg==
-X-Forwarded-Encrypted: i=1; AKwUvBxI8TptfGDmBIRVQramzkpcFghBm1LxIQnY+Okbx8ZdR1ISJtcwTBk9EJWDccwDPro+VEgRsQG6E7FatPYWPYGP@lists.infradead.org
-X-Gm-Message-State: AFuF++mx5uYuYkZPlsZZY725Rmirgy3ygiuQ3ud5L6DPpSyQBP0Le+ea
-	UVLMvWFCrxbdaTiC7SCC+cWFrvF0OtswuUb/CRl7TyeGsE4Jj+gPmc5O
-X-Gm-Gg: AYBFou0Yx0xh2QxTuNvLuY/e8qHw7wPdzweAiXVmAsrLsGmAVbNJp1rZwSHHtm50wRP
-	i7gu60HWD9JsIbsarZ1grwm0D8RrhLvsh15jd8LS39WjPzyY/kcOppOwkk/xPe9XvTmENvGXahO
-	GnzQVcf4fMAba0hvLwUmQv9KYdvyrD1VDOPOrHz9VOxarhPN49dcU0EbN2cF6UosjK9NxU6ZDb3
-	qKpnfymgMsJ9GMmyfJX+F00DZiu8wQPpDzFCJaO3WQfXE36Ok71ha47x6wSGZDUBMRLkDmmo5wB
-	Co0qkT0cbmtD+ZND1dzHzC22PofoxU6t/D0GeGOl0I7KhQTQ31FPSWfOo/GgV4X/142YIXnmMVX
-	CqUvILs7YUhdvymca38TiqNFpbnC1VElEoBzmEtSkeGLoa0N91AU07Plr6FTay2zLS62chVlqDK
-	QoOOI0BTESdp3lpIusEWjOGKM+T0f5vByFwQUSJVqPUGYd/OAiDqDiVHLQG0GmIeWSp5Tr5Y50y
-	WpXo3CIuuaXfVyEGglibym+Gx5YT48Q0esVQzPbOeMd+bUciO/anfzPZvcx40Kvui0yDF0LwHv0
-	+OnBNXLgeMhzAtvDcfjPhOGT/b2gf8XJ8/17C1ZcWeC0C+MtQTIey2HGrR0Y/Mk77w==
-X-Received: by 2002:a05:6000:38f:b0:484:3317:a1a with SMTP id ffacd0b85a97d-48433170bb5mr22283097f8f.27.1788154975401;
-        Sun, 30 Aug 2026 22:42:55 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-acb9-0201-68d0-34d2-ad1a-175a.310.pool.telefonica.de. [2a02:3100:acb9:201:68d0:34d2:ad1a:175a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb284cbsm20138400f8f.30.2026.08.30.22.42.53
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 30 Aug 2026 22:42:55 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	id 1x0uo3-00000008XKo-2YxB;
+	Mon, 31 Aug 2026 05:43:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x0uny-00000008XJ7-0wgE;
+	Mon, 31 Aug 2026 05:43:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5511914BF;
+	Sun, 30 Aug 2026 22:43:31 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B2D73F85F;
+	Sun, 30 Aug 2026 22:43:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788155015; bh=QKfwc4zep2ayth9wQau6lhc5F2hRk7N0saDoBUOnEqo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BqfKECU337E7qsCYRaYZ551VunTXFknuFyCaLMIudB5TVUVPy9lcqXU9kDceG55xE
+	 3k/uh1THmhFNmRViRgc/nMwvFC4fkZ8h2ai9fhKnQX7Hczm+O8oU7JE/xv/FBEfkCv
+	 3sSZnJfiyZzjdo3E1Ch5J2JPk2brrk5Zet6wHHlk=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: samuel.holland@sifive.com,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH 6.6.y] arm64: mm: clear extra idmap level before use
-Date: Mon, 31 Aug 2026 07:42:47 +0200
-Message-Id: <20260831054247.33352-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/8] mm: Drop pxd_ERROR()
+Date: Mon, 31 Aug 2026 11:13:22 +0530
+Message-ID: <20260831054331.625505-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_224257_809168_E87A471B 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260830_224338_527626_159DF3C1 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +94,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 6.6.y adaptation of commit 0e9df1c905d8 ("arm64: mm: Don't remap
-pgtables for allocate vs populate") removes the clearing performed by
-early_pgtable_alloc().  Its replacement clears allocations made by the
-generic page-table walkers, but 6.6's create_idmap() still allocates an
-extra root level directly when a sub-48-bit VA kernel is loaded
-sufficiently high in physical memory.
+pxd_ERROR() macros have been provided by all platforms, which are very much
+identical and can be dropped off completely if these pgtable printing could
+be moved to callers in generic MM aka all pxd_clear_bad().
 
-memblock_phys_alloc_range() does not zero the returned memory.  The direct
-caller therefore publishes an uncleared root page and passes it to
-__create_pgd_mapping().  A stale nonzero entry can trip the bad-descriptor
-BUG_ON or be followed as a page-table descriptor, preventing the kernel
-from booting.
+But first cleanups and re-organizations are required in some platforms that
+are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
+macros have been completely dropped from the entire tree.
 
-Clear the direct allocation through its linear alias before publishing it.
-init_clear_pgtable() also supplies the barrier required before the table
-descriptor becomes visible.
+This series is based on v7.3-rc1 after the following patch and has also been
+built tested on multiple platforms.
 
-Mainline is not affected because commit e6128a8e523c ("arm64: mm: Use
-48-bit virtual addressing for the permanent ID map") removed the dynamic
-extra level before page-table initialization moved out of the allocator.
+Changes in V1:
 
-Fixes: 54322d95309d ("arm64: mm: Don't remap pgtables for allocate vs populate")
----
-A deterministic QEMU A/B used 16 KiB pages, a 36-bit VA, a 48-bit PA, an
-Image loaded at 0x1000200000, and test-only instrumentation that filled the
-extra root with 0x02.  The affected kernel hit the expected bad-descriptor
-BUG_ON.  With this patch, the same poisoned allocation survived
-create_idmap() before the test stopped deliberately.
+- Moved ptval_to_str() and adjcent declarations inside <include/linux/pgtable.h>
+- Fixed type s/ptrval_to_str/ptval_to_str in [PATCH 1/8]
+- Dropped PTE_FMT from riscv platform
+- Added all tags received
 
-The injected contents make the allocator's permitted nonzero return
-deterministic; they do not estimate real-world incidence.
+Changes in RFC V3:
 
-Tested on:
-  6.6.y a4a971135a2ff64382ae4235b3ae60503bb1036a (Linux 6.6.155)
+https://lore.kernel.org/all/20260818040041.1891769-1-anshuman.khandual@arm.com/
 
- arch/arm64/mm/mmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+- Moved ptrval_to_str() as header in a separate patch
+- Stopped using pxd_ERROR() in generic MM in a separate patch
+- Dropped pxd_ERRO() macros from all platforms in a separate patch
+- Dropped print_bad_pte() and also cleaned up set_pte_phys()
+- Added some pr_error() messages in __get_pte_phys()
+- Cleaned up error messages and used ptrval_to_str() in platforms
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index e075792d722575d38488e8352df8947c6aaddd2b..4e9e997e08daf543e5c09799563f991a9f8a7cc0 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -777,9 +777,10 @@ static void __init create_idmap(void)
- 	/* check if we need an additional level of translation */
- 	if (VA_BITS < 48 && idmap_t0sz < (64 - VA_BITS_MIN)) {
- 		pgd_phys = early_pgtable_alloc(PAGE_SHIFT);
-+		pgd = __va(pgd_phys);
-+		init_clear_pgtable(pgd);
- 		set_pgd(&idmap_pg_dir[start >> VA_BITS],
- 			__pgd(pgd_phys | P4D_TYPE_TABLE));
--		pgd = __va(pgd_phys);
- 	}
- 	__create_pgd_mapping(pgd, start, start, size, PAGE_KERNEL_ROX,
- 			     early_pgtable_alloc, 0);
+Changes in RFC V2:
+
+https://lore.kernel.org/all/20260811042119.3652929-1-anshuman.khandual@arm.com/
+
+- Added clean up patches for platforms with existing pxd_ERROR() usage
+- Dropped __FILE__ and __LINE__ from all print sections per David
+
+Changes in RFC V1:
+
+https://lore.kernel.org/all/20260806080639.1916749-1-anshuman.khandual@arm.com/
+
+Cc: David Hildenbrand (Arm) <david@kernel.org>
+Cc: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (8):
+  mm: Make ptval_to_str() generally available
+  mm: Stop using pxd_ERROR()
+  loongarch/mm: Stop using pte_ERROR()
+  parisc/mm: Directly use generic [pmd|pgd]_clear_bad()
+  sh/mm: Stop using pte_ERROR()
+  sh/mm: Stop using [p4d|pud|pmd]_ERROR()
+  sh/mm: Stop using pgd_ERROR()
+  mm: Drop pxd_ERROR()
+
+ arch/alpha/include/asm/pgtable.h              |  7 -------
+ arch/arc/include/asm/pgtable-levels.h         | 11 ----------
+ arch/arm/include/asm/pgtable.h                |  7 -------
+ arch/arm/kernel/traps.c                       | 17 ----------------
+ arch/arm64/include/asm/pgtable.h              | 15 --------------
+ arch/csky/include/asm/pgtable.h               |  4 ----
+ arch/hexagon/include/asm/pgtable.h            |  3 ---
+ arch/loongarch/include/asm/pgtable.h          | 13 ------------
+ arch/loongarch/mm/init.c                      |  4 +++-
+ arch/m68k/include/asm/mcf_pgtable.h           |  6 ------
+ arch/m68k/include/asm/motorola_pgtable.h      |  8 --------
+ arch/m68k/include/asm/sun3_pgtable.h          |  7 -------
+ arch/microblaze/include/asm/pgtable.h         |  7 -------
+ arch/mips/include/asm/pgtable-32.h            | 10 ----------
+ arch/mips/include/asm/pgtable-64.h            | 13 ------------
+ arch/nios2/include/asm/pgtable.h              |  7 -------
+ arch/openrisc/include/asm/pgtable.h           |  7 -------
+ arch/parisc/include/asm/pgtable.h             |  9 ---------
+ arch/parisc/kernel/pci-dma.c                  |  6 ++----
+ arch/powerpc/include/asm/book3s/32/pgtable.h  |  2 --
+ arch/powerpc/include/asm/book3s/64/pgtable.h  |  7 -------
+ arch/powerpc/include/asm/nohash/32/pgtable.h  |  2 --
+ .../include/asm/nohash/64/pgtable-4k.h        |  3 ---
+ arch/powerpc/include/asm/nohash/64/pgtable.h  |  5 -----
+ arch/riscv/include/asm/page.h                 |  6 ------
+ arch/riscv/include/asm/pgtable-64.h           |  9 ---------
+ arch/riscv/include/asm/pgtable.h              |  4 ----
+ arch/s390/include/asm/pgtable.h               | 11 ----------
+ arch/sh/include/asm/pgtable-3level.h          |  3 ---
+ arch/sh/include/asm/pgtable_32.h              | 13 ------------
+ arch/sh/mm/init.c                             | 16 ++++++++-------
+ arch/sparc/include/asm/pgtable_32.h           |  3 ---
+ arch/sparc/include/asm/pgtable_64.h           | 10 ----------
+ arch/um/include/asm/pgtable-2level.h          |  7 -------
+ arch/um/include/asm/pgtable-4level.h          | 13 ------------
+ arch/x86/include/asm/pgtable-2level.h         |  5 -----
+ arch/x86/include/asm/pgtable-3level.h         | 11 ----------
+ arch/x86/include/asm/pgtable_64.h             | 18 -----------------
+ arch/xtensa/include/asm/pgtable.h             |  4 ----
+ include/asm-generic/pgtable-nop4d.h           |  1 -
+ include/asm-generic/pgtable-nopmd.h           |  1 -
+ include/asm-generic/pgtable-nopud.h           |  1 -
+ include/linux/pgtable.h                       | 14 +++++++++++++
+ mm/memory.c                                   | 15 +-------------
+ mm/pgtable-generic.c                          | 20 +++++++++++++++----
+ 45 files changed, 45 insertions(+), 320 deletions(-)
+
 -- 
-2.39.5 (Apple Git-154)
+2.43.0
+
 
