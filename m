@@ -4,150 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE559C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217FFC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A73HwCRr0ytLESu6x1iJ7uX34QIjj6bIkBw7RZl0J54=; b=UoW1I79gJBVCvoz09mESfl17SF
-	OIL1A20K4W6hpjY+/qGMGLhGxo/KpQSTxmORjmly7vSp/91NBGFi4qT0f4DItAWfVpBdV5W+SvLRv
-	ihHkV5K4f2Emd/cyq6sN7efOCg2REYNZPibLAeeEhwm9QETLhFwMPNLahllRGiMaNHaQho2zl9Bnd
-	XO9z5LSl8JKalWuOwNv6FpgPSbRHVQox6S8661reIGz4x0bHi/qpgX4hGO0puLkfhIf5i8NGl81a0
-	NkkoekMB3F8Pn+aBOSWvjlvcHL0owEBoJo9tM8YVavm+JAKFTYsnLLHLuoeSr1LkSYqYXmBRaF52M
-	oqc06sVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AthMoz/AgoYLHvPsWwEymdR4bUCvaR6JITk6QxJBrPs=; b=HsQfwXNLfbuHKqC0fUkyG7WizP
+	y9a/jbpo3DqFI1y12DVXGAjGrFTKK1udrs5VIkCrwcJz5tytkDdgyaMx4vPXlYwkzCCU/75iljSLH
+	AceWQRqq+YDO0oggLfJHd3ockQqWSROJGMDafe5GHJCz5EGe0oY2dWc2D8SmV5E+jC1aydWNYI2Yl
+	PWfbPHFI0gs9GkNFH17HWW3dGjxj5sbrZoq62+hkj/Mew6iRA7QUHxsN6k/Q/WNsjMMTZuG1jNMeD
+	Pqku3tHCfkhXawim7zFvJki6eUKFSQ4nxYnM7NEPIa/CkSHoDtmWX+7s4NZ9z3IAGecAYm+fwzqFT
+	gsWbPm4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x175q-0000000AJuX-2W78;
-	Mon, 31 Aug 2026 18:50:54 +0000
-Received: from mail-northeuropeazon11012002.outbound.protection.outlook.com ([52.101.66.2] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x176t-0000000AKAy-3FxJ;
+	Mon, 31 Aug 2026 18:51:59 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x175i-0000000AJpm-1uFq
+	id 1x176r-0000000AKAb-24Dw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:50:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L/uH9QVklFYCH2bnYeNZsahFZgPpNq4LYV/pGcyGynZSrOTO+QVWmWeOYeL4cvOFi2LjaHwpjApREokP1rpDidGLo7fRmrLaP6DvLOfgRJzZIBLp1nciA9/UILguirC4O9aBwpm0AKKF1mWIllb2mYdBs1lE/6NnvtskbjTZWwYdCUGmane4/hyvPR7y95HiCqrzpcZ1OrE5j1chz+Wzq4FjgSilpWQz8bX4CPDnKP3+nlp5vOoYwYopbW2Owwm15rQiO3JcxQMpWMBekAz2FvOU0jeqCm2luOhMpEjQs32y0oC5q0HZQuQRbTVYBVWDA5WR2DYMWpiTwTfWbdbOaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A73HwCRr0ytLESu6x1iJ7uX34QIjj6bIkBw7RZl0J54=;
- b=yd+pZ89NaD5pWBhyd5082wQCuEdhTGp5cxNcenfHAsaW/oOFC3v33is6lcX2Nhnx7AE230vAeyZKJsdWl1EBv1vdQ7rmujVfwC5qxez2gib5QYvhGeagwXLFvSbrhSVtk22BOgKVUlVTaJYlbeVdOl7365PAorAoCtb65DizZwbEmMsNiyT3Tm+oAkGIzhuMI6tPBIHhDI29tBaqZkLOkY+tPXczhKcCbkdoSLaGP+i1w7kRS9zPeJY54wYc9Ch4afv+UpDqt9V4uUKmGvIUcBCNPzCE7l/YwxIKkbZtU2cPmjWJBs4LI0jkjorpOQxiLe4HcaNNo6PHj+75F+m0zQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A73HwCRr0ytLESu6x1iJ7uX34QIjj6bIkBw7RZl0J54=;
- b=qEsHd0aKY5SPXmcvvZBKEyNhBMWFjOCOiipraSGL5MPO9E00ccXC9p0/NNXNfl+TcnDqf3w2N4XGI/YdofanaAPe8ZyJtq6S2Tg2sWTIwOWfnzdqpmAfcxqrmeD3eDF6d60++qGG2VR4cdGDdk6VNEmpaSfj5A6gGFqNsParKV1Ecx23jmfEjlPD3ZGu5j57ZBPZRyV0MRkm1ioFFG8/0KSfZOJc0RZjMlDznfMnqxG9dUmJvG9XQOiAXWUwBAQnjaMfUZEcfUF0VmzVTxnQRdugBqbby8M4mEl751nDYG0lx9mNZBxe4s1e5hfy0l4h1bJoJSsh61cJ7YnOOsqA+g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB11994.eurprd04.prod.outlook.com (2603:10a6:20b:6fb::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 18:50:41 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 18:50:41 +0000
-From: Frank.Li@oss.nxp.com
-Date: Mon, 31 Aug 2026 14:50:20 -0400
-Subject: [PATCH v2 3/3] ARM: dts: imx: remove undocument properties of
- st,stmpe*
+	Mon, 31 Aug 2026 18:51:59 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-cc147d86bebso276132a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:51:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1788202316; x=1788807116; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AthMoz/AgoYLHvPsWwEymdR4bUCvaR6JITk6QxJBrPs=;
+        b=lBMAI0qyVhdmCwwKm1UM0WAy7cBjw9glyhzBHwMEjRJql8IMVHXfGT8n6/VzXAYNt8
+         wnEQxJ6pP724dGxiXv5H37InT1Ar/b7Tvj0i3FbE+H2SifyXVwTU2goQNGVR8WrcnO/I
+         VLla5+ypVuEhpo10KtgFKI1uWvhRyykuNY4L/gAvhO8GwNxTwh3b7hlVoBClzJjEqCGs
+         ETFZi7ZvyW3AMutsZt1PmEjM4xGevxMVnrDHTX6V8U/EyBwgx0edQU0UDrJOnUteF6/5
+         yF1PogBg/6WQTAL2+6KMk8sY1jAroz50xRHLS9EwurgsrjK6+jtetIt7rjwPHKdU3D21
+         B2uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788202316; x=1788807116;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=AthMoz/AgoYLHvPsWwEymdR4bUCvaR6JITk6QxJBrPs=;
+        b=ITY6sXnl2NR+TqRabUOjTSRZHXIHcvtLc/AbuoLB5AFU1XBKvu5z/SLalzjx9lk3Pw
+         x2Et7XHdrYAVB2S/Btyu4GzZLEvxVv13nXvdQMNoLKlHi06A2YPLI9BPEv+pFicge0R6
+         b0EYT+NTN/dRsDlplcBXYCyF4Y4WlbbmEYV/+dBIWLXeWv3YaOOCY1RK3Jx2NceScsxb
+         ipXKoF632F5OWWItkUHdeJQRmQbeonZwfk0u6rSglpssFz0fN75SEFbVdrxghW1law9R
+         1jvfJmLbovLfU5xKQa53uyC9CzMNUty+9NcuOPonMXmvTck2PZulwVdE2RXlIKh5h22f
+         foqg==
+X-Forwarded-Encrypted: i=1; AHgh+RpECqQY5e/v5o/0r54sQf01OT/G8iLiBwO38Cy5BtcRh++uAXpjz1kzvVIYTE8WY+cSlGe5AyA7YXOHgbpdXIrd@lists.infradead.org
+X-Gm-Message-State: AFuF++le2rSNz5hODrzzD1uHPc0Vz4qulQehLuoGCApY7SWIr0QLtV3H
+	6/V8yrttCW1qffE0Nq1yekGFuTyCT0gDAawsGZuGZq49f5/4ZoHKjBpfTq7hJE0AiDY=
+X-Gm-Gg: AR+sD1092fVuDxHUrQ8dAL4cLttReShCcgJ/mlWoJdmx2RFZbtMqCxNGF+plQLAx3IE
+	M9De8RzBfeE1ekxKEjPYTH3OyFTvGyc0Z3RVR5XFyPeXv29cohlrBxvYMEC0L42SdTs7+vbGotE
+	xDXEE4QtqCAEfgdGI7Cf5buTbhS8DVJvUkRB8Yt7an4tZt5kdZYJcNaTMVUKpU75INUrJ3O+wa9
+	+CgjIaZ+D3IOFoI74+oGPFz3oE5k10numbw72seYg+ZrBGbE/jaovWy3L67l7KqdhagGQcAmuYn
+	tRKhSBwdat9IIlo51xoUQ/WJyXxE8hGNrwRKgdg/kOqFQTUUVvzq++5ylfSn+mr0aDKOZJkBWNW
+	1ARL7zY4Qeq34YGfVrF2oHkoT1SPm7RQm8pp3XSyP+ml1N8rAn29whFiBidzVhhUtnP9sBBrsRD
+	cTe8ahGgwTXf3Bt/2eTx8kBM0JznAdAMJT3rnexHeYXZvRsU+4j7oYJaulRlkLiTGby6J+
+X-Received: by 2002:a05:6a21:e38a:b0:3bf:9bd9:cf60 with SMTP id adf61e73a8af0-3d816bf48f7mr264453637.6.1788202316392;
+        Mon, 31 Aug 2026 11:51:56 -0700 (PDT)
+Received: from localhost ([71.212.197.238])
+        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-cc1f3312146sm4820179a12.8.2026.08.31.11.51.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 11:51:55 -0700 (PDT)
+From: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Date: Mon, 31 Aug 2026 11:51:47 -0700
+Subject: [PATCH] cpuidle: psci: Assign domain callbacks to all CPU idle
+ states
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-dts-stmpe-v2-3-f93d5f080443@nxp.com>
-References: <20260831-dts-stmpe-v2-0-f93d5f080443@nxp.com>
-In-Reply-To: <20260831-dts-stmpe-v2-0-f93d5f080443@nxp.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Linus Walleij <linusw@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+Message-Id: <20260831-topic-lpm-psci-domain-callbacks-v1-1-4a47d95c9c79@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAELNlWoC/y2Nyw6CMBAAf4Xs2TU8ohB+xXAo20VXKS1tISaEf
+ 7eKx0kmMxsE9sIB2mwDz6sEsVOC4pQBPdR0ZxSdGMq8vOZNVWC0TghHZ9AFEtTWKJmQ1Dj2il4
+ BVaOGnHSth+oCqeI8D/L+HW7dwWHpn0zxm/0bnuclreOhQa8CI1ljJLbZWp8r9FRAt+8f/+q1c
+ K8AAAA=
+X-Change-ID: 20260831-topic-lpm-psci-domain-callbacks-a8af0cd7df35
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>
+Cc: Scaria Kochidanadu <s-kochidanadu@ti.com>, linux-pm@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788202221; l=3061;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=vObI9N9nWeIftc272jMDVqqNqfJYNfI3KxDU/Y3lcMc=;
- b=kdeVO0LydXvto0i058tU3Js/TAdwduUiZGBLWhZhcFLwRuoQ2XpC1FrVShTpjTsY1gwZ05UJR
- diRPI71iQv3AbN4k1PLBkO9isaubpAwm4+4tqG8NlrkNFoSlAk+p2EH
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: CY5PR15CA0105.namprd15.prod.outlook.com
- (2603:10b6:930:7::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB11994:EE_
-X-MS-Office365-Filtering-Correlation-Id: 472c0f89-693a-415d-c646-08df0790c196
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|1800799024|23010399003|7416014|366016|921020|6133799003|10067099003|11063799006|56012099006|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: jQzE38C9BmOtBKl1Jzld1XQ3EKS1OeT9DOYZlypXH5PZ0r6QUFzJ/zK/OIlLRWe45k8l6/iWOBoO8ak07ToxryNw+Ir5iaedV6zvbm7buRPFFHyji7IzMASHRR3/t3/dOIHe6PSlpN9hK3TlvTvYAnAsDavv0hOl2FzBlZS+ZpAwKkEZH9cPFtjJh77luuBFJoWunDJc/S0dZInfWcx8L6OXYTEGAQ3YIfbg/HalAVo91U6iApf7Gavd/XVoHWs93MLZKgA0w+NMeAX//sQih2bbPV1K5HgHSh9xe8HeITnUDPogIpU/fXHIq20f1KMyrYqZhunosH6MfG4jaGSUUAvBhK3FENMoVb/Q/wocSXT1W2azxSRK1AcBOyCvTLDAJDo2hhImKWPMrwVWAMKdoDle2rkfqnt+Z4Z6jsAkVfb0ZQ7pg8c3TFNSp6Teg4yTq9mNj/LeenPd+jgk+UXQYh1SWnLsLVPvX/Pf3sL1z/ycSOitcTtvHKFbZqVN+r9cr8ULuZ16u7m0rhW4qOFQM/hXIAZyAvkEhExiK0/9hEMyiaAS+sinQz7l+u5WyyLv4pT7x0njJU5Se2F5/M2FhNY16nvcNfiqamjbsCFbmC2iF6eW0DK0FQ0qfnVMcaR4rRa4K8gX9ybRKDe3Gbh+NQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(1800799024)(23010399003)(7416014)(366016)(921020)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QzdUZmNOWG9xZ0tKTXJyVks5UW10Rk1hVVVVUGpWdXpDRmpxdTlSUTNpdjdj?=
- =?utf-8?B?UGZKMHpnWCsvUE5TNHVPRkE4OEJvZE8zdHNBbzNJVk5uTXkzM1hxQ2xXKzdX?=
- =?utf-8?B?SmRVWjg0UCtFZzYzbW0xSUF1YVEwTHhLLzNrVytyLzNvQXVjSi9uNzBiMDBW?=
- =?utf-8?B?d2xISDZHam53R0ZQY1lxdnE4OTNCbEdVdzNaZlI2R1FkTUdvZUowRVJ5VlZ4?=
- =?utf-8?B?ZThFcjcvcnovdnEvSlRSOXorTEMxVm4wOE1rUUluVFc5RWlyc0J6VENVdWk0?=
- =?utf-8?B?czVIQm9wRFVFZ3doZ1Y5WWxuKzAwWVhheThxdXJPM3c1NndwK1k0cFV5RTFT?=
- =?utf-8?B?cnFTa3VQWDVVc045K25JcENrYUEyb2oyNHo2dyswT3ZOdDEvTk84OEhmWTFu?=
- =?utf-8?B?UmV0NlFMb2pLbWkzWm1mclZHWS9SV2hxRU9KUHBubUVyKzNlVlBFYjRObWJo?=
- =?utf-8?B?a1duKzV6N1UxK3dQZ1FYNitzYzhoczN6NG10Vm1rK0h5SFM1S3d5U01KQ1Nx?=
- =?utf-8?B?ajFKTEhTOEpha0hYNk0vVzk1MWFDc1RJc1VmemN5ZlNDWVdVRHhKWlNHSTFx?=
- =?utf-8?B?M1lMY0NRNS9YUEVUUWFEOE9pZ0pieXNFVXNUVnVORGdHM3ZMM2JGNm53dUlE?=
- =?utf-8?B?clFMdmczMUNnY0t6Y1EzL1JEMnFOTjNOWEs0c0hPWFVxcXpmR1gwcTRVaU5n?=
- =?utf-8?B?UUtFdUVvQmY4NW5LdzdBNkhrNGVoYTRSZjRQRjluWnd1RFVnaXdOMksrU3E2?=
- =?utf-8?B?ZmZNUXl2NW5IYXpWN2xiMERlbDFaZitCVW80R0RjbXRjSW9VV3B2K0hFcVB5?=
- =?utf-8?B?Q2U5bTFvQ2lqT3hCZmNBa1dzZ0pZMG83UjRmamJHbjduYkxSeFF1WnpVRTk5?=
- =?utf-8?B?ZVVDSEovUjB5RWtWeE16c3JmK2xOcHAvYXVPa1NmYWtkK1lySllXeG5rRVhG?=
- =?utf-8?B?VmlEWkFJWEhIVXlHN1kyMmgrQisrNnBRR0VOR25pNHRMWmx3cSt3Y1BYTU5s?=
- =?utf-8?B?dlBvOHZmZlFoWElQbXJlLzdBQXhPSzJjeVlmeXpGczhrN1UrYVdvOUF4Qkhp?=
- =?utf-8?B?VmxVWkg4cjBGMXQ1ZFBIc0R4Y0NxbjBnN3Zqb0dOdUI0bU1aWWwvNVJ1eWVW?=
- =?utf-8?B?eGU1UGF1OHozYUVFZGJzdHJpNXhhMnBJUDFQQlhRaHZrcVVHWlNoOTdJNVpY?=
- =?utf-8?B?Wm5jNFlINzVBWGFPNmJsWTA3VXpORG92TGM4c0tvZVYwWm1jc2JFT2xzaXdS?=
- =?utf-8?B?L2lqYjhUSU5PdnVQMU9UZjVXY0FVUUZIdU8vYjdnVzQwc3Z0MzgvWXNybEE5?=
- =?utf-8?B?dVJ2K0hsOWtRZnFzWlFEVXlHY0MwSTFkM1NyM0RiR3dNMGd1a3NpWnZkUHpC?=
- =?utf-8?B?T1VERmRZMkZPa2xFQTUvUWpvcDFlNU16bHpGaTRsMitTdnExRFZ5TGx1Y01l?=
- =?utf-8?B?a3EwZE9aU0JSYWE4b1Q2dlBIald2WWRnZEtRMXVOYmVQT1BWNjZ4QjJJYlRt?=
- =?utf-8?B?OWFiUnJlSitPaTJLbVVIUDFIOWU1UmE3RENWMFFvMCs3UGZPTmRjU0YyNHht?=
- =?utf-8?B?QnUzMFdxeHVLQTcrY0E4M1M4bTdneGNFWnNSYlB4ZjF3S2VXbXdBWmNUeFA3?=
- =?utf-8?B?d2Y2SlYwUUhRSnpQeGxsTHl6RnNXNU8yN3dIMVRsbnRSaklhcFZtQWdvV25N?=
- =?utf-8?B?TUk1Zzg2L1dwWUNkRHpXVFNSVnA3d1ZYakg5c01DVkorVkYwUFcwS3JmZ0ZJ?=
- =?utf-8?B?UVB3Y3FyLzNjR0s3dE0ySk8xTHNQbWZYVFJ0YnZIMUdsWTJPUHhpNEZzem5q?=
- =?utf-8?B?THlLT1pjQkRnODFxalpIRHVldkt1VW0xU0Y3TzF2aWhLTDdmdE1RVmFhb29U?=
- =?utf-8?B?bms3U0FUbEc1QXBDbU03SnZIZFFZUjgwRlE0Sk9QNUVCNE5saEpNYmZNMGFh?=
- =?utf-8?B?ZG84NFFHS1FjRHVjK0trTlVrWTg5WXI5K1dwcVJybG9ZTUVydDNaOUlNTDJj?=
- =?utf-8?B?N0pLSmt5VlFKYkJRSEhYZ0RyWjJhNVZiT09yV2xFWFREbTNHQnFXUm9iMzNB?=
- =?utf-8?B?cUQ0MVZHOVNqOC9iK29KR3Vjc2pMbmFkMkZrNHB3akk1WUlVYytqM2N0RE1Q?=
- =?utf-8?B?cGo5eHE3dmZmYnp6alNQWGp1TGdrc2MzNHg2Ykt1ekIxZzluK2FYdmF2Z0pt?=
- =?utf-8?B?dzRXQzdvYUlqUDIwSUdiUWdQaFRtNmFaY3B1MjZnNTUwWUtOWnR4YkhpK3Zv?=
- =?utf-8?B?YlMwMFJRRjFPYVBjMWtKNnRQZFFLMUJxZjF1dnRnTWpuUmdpcTVMR1o1Zmh3?=
- =?utf-8?B?WkFJSEw0cGovRm84b0JGVENzRGh0VVRWLyt4bmxmaWxReUJHSlBWN2dRNlJE?=
- =?utf-8?Q?yXyfAy1AgAuNwKWbC1scAYjgXyH4B8wzGbGEs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 472c0f89-693a-415d-c646-08df0790c196
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 18:50:41.5853
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FgAzGztAcLtEWBnA8dKRRGs83fBtf9ptSQ6lauqwZM1+ITZ2vTe2Vv0HTnoDxXfvZp3oljrlUFHMY3M9CPjkVuZBscCydroL3GCNiHuLbvncf8Jeg3pavTTJfcIKz+D7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11994
+ linux-rt-devel@lists.linux.dev
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3203; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=8hjCPq9667fX+V+iDArjQoIU/4NOdMM/TkYRxWB89Ro=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBqlc1LhSNw7ZHa5daoTtWUSucRYeVlg1NKgX/Lv
+ +fkTVpOXDuJAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCapXNSwAKCRBZNxia0/vG
+ ZXHbEACEedr/5CrU2dyNFywhe4xoCG2oZWYaMNNVedr2DV2qBNM/y8IPPDSmDW9eVGPE9Qx+UK9
+ yfiT6WMJiyPXx2YW7Wqz5XT0NaoZ3RxsVMi0+0BVi8lODZpxVU3424FFFsxw/tJ6myEF03kCz1k
+ zBgyc0EYPtIGpTZX7o0bCxmjZ6MHYhiGq7CZhI/TNrbkpHHod0QmGAHjc1cNJEAMS+eZ5VF4emX
+ eape3/S+wLti5Td16kcoUAfkGlCh8YIU0Ju+Bir4tPx/rskaCmfF7zQAnTEsg3DW4B45g03kMaY
+ xyzoyPWOX3FSlPXa5iVRXYla0G2AC+N5mjZjGXA/xcsdHsO4nxNm/MZ9kXrLT/kWuHCpXSO6pQC
+ 2La6HyJ4v+17QgAkkhZ3wFDFxbPk1J41tO9J4dJJclKRxDd7XmNEIUcPoGyvvmd9cb/fY72MKns
+ IWRBRpXW7OXMTbFICTJgM7GYMYQ/Kb9LNQkGR15owJLtvgYsJjgrB0tsNKXDqyOfAZX4YIywqoS
+ /HvYzFELx5HvyWCBzj9w93lqkqLCFV3a4MAgJocVA6h8d8EGIk9YBC6+LNNSV1koxHHh8icFy65
+ Vnmn01ok5luOs7YVOHAr8OXHp0ysDdJU5eCllOwQJ/k5WoZ5TKS7+WBrQXs1G8O3Ftao345mjbe
+ ILgnjOOeaWUwD/Q==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_115046_551690_E545A9FB 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260831_115157_541607_0359A253 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,88 +121,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Previously, only the deepest CPU idle state had its enter and
+enter_s2idle callbacks set to the domain-aware implementations. This
+meant that if a QoS latency constraint excluded the deepest state during
+s2idle, find_deepest_state() would find no state with enter_s2idle set
+and skip the domain idle path entirely. Similarly, during normal runtime
+idle, shallower CPU idle states could not trigger cluster-level domain
+idle states.
 
-Remove undocument properties irq-trigger, id, blocks of st,stmp* to fix
-below CHECK_DTBS warnings:
-  arch/arm/boot/dts/nxp/imx/imx6q-apalis-eval.dtb: stmpe811@41 (st,stmpe811): 'blocks', 'id', 'irq-trigger' do not match any of the regexes: '^pinctrl-[0-9]+$'
-        from schema $id: http://devicetree.org/schemas/mfd/st,stmpe.yaml
+Assign both enter_s2idle and enter (non-PREEMPT_RT) to all non-WFI CPU
+idle states so that the domain-idle-state logic is triggered regardless
+of which CPU idle state is selected. The genpd governor remains
+responsible for honouring domain-level latency constraints independently.
 
-Known other user (uboot) doesn't support this touch screen device.
+The enter_s2idle path uses dev_pm_genpd_suspend() which is safe on
+PREEMPT_RT. The enter path uses pm_runtime_put_sync_suspend() which may
+sleep and is therefore still excluded on PREEMPT_RT.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Suggested-by: Scaria Kochidanadu <s-kochidanadu@ti.com>
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx53-m53.dtsi       | 3 ---
- arch/arm/boot/dts/nxp/imx/imx6q-novena.dts     | 3 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi  | 3 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi | 3 ---
- 4 files changed, 12 deletions(-)
+ drivers/cpuidle/cpuidle-psci.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx53-m53.dtsi b/arch/arm/boot/dts/nxp/imx/imx53-m53.dtsi
-index 89b17509ad487..9f7548e87f6ca 100644
---- a/arch/arm/boot/dts/nxp/imx/imx53-m53.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx53-m53.dtsi
-@@ -41,11 +41,8 @@ &i2c2 {
- 	touchscreen@41 {
- 		compatible = "st,stmpe610";
- 		reg = <0x41>;
--		id = <0>;
--		blocks = <0x5>;
- 		interrupts = <6 0x0>;
- 		interrupt-parent = <&gpio7>;
--		irq-trigger = <0x1>;
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index dcf20ea5ef5e..db9aa57c51f5 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -250,6 +250,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
+ 				     struct psci_cpuidle_data *data,
+ 				     unsigned int state_count, int cpu)
+ {
++	int i;
++
+ 	/* Currently limit the hierarchical topology to be used in OSI mode. */
+ 	if (!psci_has_osi_support())
+ 		return 0;
+@@ -261,14 +263,22 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
+ 	psci_cpuidle_use_syscore = true;
  
- 		touchscreen {
- 			compatible = "st,stmpe-ts";
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts b/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
-index cd9a050fa906e..9938a63b5110c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
-@@ -281,9 +281,6 @@ touch: stmpe811@44 {
- 		compatible = "st,stmpe811";
- 		reg = <0x44>;
- 		irq-gpio = <&gpio5 13 GPIO_ACTIVE_HIGH>;
--		id = <0>;
--		blocks = <0x5>;
--		irq-trigger = <0x1>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_stmpe_novena>;
- 		vio-supply = <&reg_3p3v>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-index 5fcd7cdb7001f..af038ac472261 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
-@@ -631,11 +631,8 @@ codec: sgtl5000@a {
- 	/* STMPE811 touch screen controller */
- 	stmpe811@41 {
- 		compatible = "st,stmpe811";
--		blocks = <0x5>;
--		id = <0>;
- 		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
- 		interrupt-parent = <&gpio4>;
--		irq-trigger = <0x1>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_touch_int>;
- 		reg = <0x41>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
-index 8a0ce250e5760..c9e539f83f80f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
-@@ -555,11 +555,8 @@ codec: sgtl5000@a {
- 	/* STMPE811 touch screen controller */
- 	stmpe811@41 {
- 		compatible = "st,stmpe811";
--		blocks = <0x5>;
- 		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
- 		interrupt-parent = <&gpio6>;
--		id = <0>;
--		irq-trigger = <0x1>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_touch_int>;
- 		reg = <0x41>;
+ 	/*
+-	 * Using the deepest state for the CPU to trigger a potential selection
+-	 * of a shared state for the domain, assumes the domain states are all
+-	 * deeper states. On PREEMPT_RT the hierarchical topology is limited to
+-	 * s2ram and s2idle.
++	 * Assign the domain-aware callbacks to all CPU idle states so that the
++	 * domain-idle-state logic is triggered regardless of which CPU idle
++	 * state is selected.
++	 *
++	 * For s2idle, enter_s2idle uses dev_pm_genpd_suspend() which is safe
++	 * on PREEMPT_RT. find_deepest_state() will pick the deepest state
++	 * whose exit latency fits within the active QoS constraint.
++	 *
++	 * For the normal idle path, enter uses pm_runtime_put_sync_suspend()
++	 * which may sleep and is therefore not used on PREEMPT_RT.
+ 	 */
+-	drv->states[state_count - 1].enter_s2idle = psci_enter_s2idle_domain_idle_state;
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		drv->states[state_count - 1].enter = psci_enter_domain_idle_state;
++	for (i = 1; i < state_count; i++) {
++		drv->states[i].enter_s2idle = psci_enter_s2idle_domain_idle_state;
++		if (!IS_ENABLED(CONFIG_PREEMPT_RT))
++			drv->states[i].enter = psci_enter_domain_idle_state;
++	}
+ 
+ 	return 0;
+ }
 
--- 
-2.43.0
+---
+base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+change-id: 20260831-topic-lpm-psci-domain-callbacks-a8af0cd7df35
+
+Best regards,
+--  
+Kevin Hilman (TI) <khilman@baylibre.com>
 
 
