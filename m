@@ -4,69 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CA1C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1493AC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GT55Hvmm2/JZAOAZlYrRj07fOuazW0zYIN28WEzCJmA=; b=UBbSSpYo8yG/lZFtt2sUDjuj/5
-	V1c8ckN5oBf8BJW6h3D1orfybA3is718oAp2TBsHUdO3d03dheVLQjMk0llyQTo8/Xx5u5u8t6xdE
-	f6xoJ04ot1rAZ2j0CZQqHpZvdLGlPFZlmdx1+42lpz4VGwFWBhREQ5wounDH7jYW88dAyajuU5H/z
-	1S8UF9avgZtmlgS8bFJu54VVQkW+10Z2YdkGeFOMhSBelPK4BhA2vFQ+7pBON9p8evXH1g0n5rOxb
-	1Hm1tbWmnquJ9o8Y1TzOvZknbIaLtBPc8PTc7Tb7PqRR5U7e99yfF9Ev+B/HGKctANJ0jU3Og294J
-	rIlFcdvg==;
+	bh=jhBbMZhUSBavGmKY87Aokbcw6sn558H0rez4WXJpnv8=; b=NPm6/T0CzxppJ1srivhUH6cFGW
+	o6TPmzdrX6+owXfCylIb5maey6R3v4VqdXHKCuakytqIo4G0ZRUdllBh778B06vcR+rKouFgeq6jc
+	jyhJPxTwanmsKxYobUKjwONYwt88GmSQWY43uQIrH+vhDp6lRbvlfQQSDnZYKSf7Wv2tU+MRwbTDf
+	tnwrHKl56OiKgKuDfsH6svh/GkKA4+OMp90BxERO4ZDFoqFgyuLxwg9dmzXqb31vCNbIIzz9Gvuet
+	zXUx3zaWfZPtCo9APTa3ONECLHXf5u0vC7uBArbK6MCohM2T/APwyPMKdaZ65wHXPxlHSqwOD5v9r
+	rENVBQpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13d3-00000009oAE-2WqT;
-	Mon, 31 Aug 2026 15:08:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x13dA-00000009oDB-0mFz;
+	Mon, 31 Aug 2026 15:09:04 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13d2-00000009o9b-0CDS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 31 Aug 2026 15:08:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GT55Hvmm2/JZAOAZlYrRj07fOuazW0zYIN28WEzCJmA=; b=Wn24/pStfpMcjDbDcDwZsz747U
-	k5eSbSXCrwP3eGBMD8juWC7iz2MbApNL03Q2JXS7oAdoshXmZ36XFpePHucJ6x8O7k/6GJJyv5rxE
-	jAFVGCGoFp4UCOoqP0DR5E8KaGuJaSb0mbdaRessVJlz6W17U0f869Gq0MdaaG+AWGQkQ3oJWhHZs
-	aqr6MzqLVnpHtBz3ijvDGK8zXQOzAOvRnV64EGyTvqz2AODdo/Xg9Kvt7uWT5dY15iYEpA7UIO7iJ
-	ArogFig/VFLRQVsrpha/W9n4RLhcdDi+4K2kiX1boQvMrEds3b54JC8xr1Bwl5JdQhuN0zrPblJgw
-	BqpExImw==;
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x13cy-00000009yfz-2kZW
+	id 1x13d3-00000009oAC-4AvI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:08:54 +0000
+	Mon, 31 Aug 2026 15:09:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZQ5i/BKky3RZX+yIt2y7SvFTCw0ZvxrYoJ9+hw30ZJLmqUQNngoB1F4B2W2y989eAThMpqYqHm80zC1t1JZQlt8h4JxxHmWxcqJ8iE0XXvhDQgmQsq4vIY+1ZKSYx4Pr8Zm7NUApGmogzXyQJGcctIMwlOeU5zxtvH+D9Yt6c0M+l4Dw2WlW4T8ZUG8+Gu2yPVJdr4LmvQe5SoJ3DBEzyQVm1lnuP+FGNAz/goVMV/cbAG5xzcDhRqljAgPS8fr9HTxCLUCiHpuzc83dzPIEx4Adss155l/eHtxOlWL7HfzxDvX6j9esnlQJDPCaH1ilHk+aCruIJLNPAqviZc3PqA==
+ b=oLHKeLGI+2qIwutdic8r9u/enW3mWA8XX+28B79ZCzZNUUpE5qy3LEg+DVr+l7NtFUUVSMbT5U4uUnBkYJBHKFpvpTV8Q3pg/c2c29HAaRfLZlK+gopHMfb7iXdToCPctlHO3gAoVZrqiXMxkXJH0agn2QBF6UGZ/+JLKlDd5fUS7ScXZSkmCuKV0/pv2Ns8lGq9DVhoG8OMnApyEabnaOX4LM/gPJIeZHp5SROq9p43nMGz3AukPb0pBcsLy2J5x380MDUJNtLDFALq72tTsYK/N0tOcqKBlxYGoDKGMQ972DCfWfVc+IVYhdL1N9wzwxRxNUBkaqMgF+0mdCpZYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GT55Hvmm2/JZAOAZlYrRj07fOuazW0zYIN28WEzCJmA=;
- b=StBvoh2xlDeKax8Tq4EL7AAC7b37Uqzo1AOhiHC+s214eVc/8FyFtA6b1kDTTZZ13UpA+9ihhStObWSkcl0iy8rWYRUBnU6Gr5Mhf1uatLbRTvLPv4v6NtR34G0MNlVEFgsZNH9r3e0/VYK+kQ66TWnt2krmF2JZVZpoqq+vekY29hOi4B3DcgtmOVI17W53wZLk9aldG+vcp75IxQcTm6VkOzYtwMRvEa+KUUdtMyUyp+n0HBrW/Zsn1ztUyNm6E4PQt70at7sq8ycbJbQa4Co4HL4weGnZ/gn0Tbs85wdN4nug4DsgqBHpPhShXhXz+amTsnOGCTT+w38DUZd0Jg==
+ bh=jhBbMZhUSBavGmKY87Aokbcw6sn558H0rez4WXJpnv8=;
+ b=x/0wCodXyGlKVR3eynqd/8izMytM9+eX7G5zmEkthefZBRBT/MldjfOGMesS0Qare5JCqy30K0v6+9ZrCAm8QcbwxpErQAa+0zQ0F1pEDWa+1murq3Elg5LQ/VoOutDXMNUO0jS4xWEw0YFsaiBwJunDrLKfpmVK9KxADx1bQDrePw5/7GQG48SAOKcUGoi6T7NTqB2qDyZtIvnOGF3RsK44buClvuVAgyH6daloW1TFevSf4elyeeVVy/VSJ7nwGohYu2nhENweLSEzJFCxmEAcLyTnKklKU2b5QZzsIXfA0u9NJIdXbUMLkiUnALqPa9ptlaD+S7Xffq7S59RZSg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GT55Hvmm2/JZAOAZlYrRj07fOuazW0zYIN28WEzCJmA=;
- b=lKYwXRYSyRAhLRpfGYm7I2SOmpLc9v8mizqIlfs93NjVjKLkj64WIIo3mBtwqjH/xvt4dhkSbgS7GS2h2xOcJuSgItbl4bZhRDBj1alq5/p2qHBg4WV6MuBQq2U9DQwCMqBvlqCOwDADcgzEC1+UmiA50CiJ7pOwQIcXPq3q2Mk=
-Received: from BY3PR04CA0025.namprd04.prod.outlook.com (2603:10b6:a03:217::30)
- by DS7PR12MB9552.namprd12.prod.outlook.com (2603:10b6:8:24f::8) with
+ bh=jhBbMZhUSBavGmKY87Aokbcw6sn558H0rez4WXJpnv8=;
+ b=pUH3sYUGqe9xsHaQJJQo8wWBd5X4ZpQkzUsm/ucizwMk5p07T2fXTEoJU+krwqPJCuwsG9qBDXyyMRCg4C+yRK8iq/XtUUMW3lzgL8UInTQ9r6G95ufeBiqjVfFc8X+Q190df3txLXknk+VYk2hFO6uuyo1ZI+7FHLrdOhx08+k=
+Received: from BY3PR03CA0018.namprd03.prod.outlook.com (2603:10b6:a03:39a::23)
+ by SN7PR12MB7179.namprd12.prod.outlook.com (2603:10b6:806:2a7::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 15:08:27 +0000
-Received: from SJ5PEPF000001E8.namprd05.prod.outlook.com
- (2603:10b6:a03:217:cafe::4) by BY3PR04CA0025.outlook.office365.com
- (2603:10b6:a03:217::30) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 15:08:52 +0000
+Received: from SJ5PEPF000001EC.namprd05.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::3d) by BY3PR03CA0018.outlook.office365.com
+ (2603:10b6:a03:39a::23) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Mon,
- 31 Aug 2026 15:08:27 +0000
+ 31 Aug 2026 15:08:52 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -74,16 +59,20 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001E8.mail.protection.outlook.com (10.167.242.196) with Microsoft
+ SJ5PEPF000001EC.mail.protection.outlook.com (10.167.242.200) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Mon, 31 Aug 2026 15:08:26 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ 15.21.382.8 via Frontend Transport; Mon, 31 Aug 2026 15:08:52 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 31 Aug
- 2026 10:08:25 -0500
+ 2026 10:08:35 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Mon, 31 Aug
+ 2026 10:08:35 -0500
 Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Mon, 31 Aug 2026 10:08:21 -0500
+ Transport; Mon, 31 Aug 2026 10:08:30 -0500
 From: Suraj Gupta <suraj.gupta2@amd.com>
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
 	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
@@ -93,9 +82,9 @@ To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
 	<conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
 CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH net-next v3 1/6] net: xilinx: axienet: Introduce axienet_config for MAC-specific ops
-Date: Mon, 31 Aug 2026 20:38:11 +0530
-Message-ID: <20260831150816.1020883-2-suraj.gupta2@amd.com>
+Subject: [PATCH net-next v3 3/6] net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+Date: Mon, 31 Aug 2026 20:38:13 +0530
+Message-ID: <20260831150816.1020883-4-suraj.gupta2@amd.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260831150816.1020883-1-suraj.gupta2@amd.com>
 References: <20260831150816.1020883-1-suraj.gupta2@amd.com>
@@ -104,28 +93,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001E8:EE_|DS7PR12MB9552:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78b6c8e4-3c21-4e49-1e66-08df0771b556
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EC:EE_|SN7PR12MB7179:EE_
+X-MS-Office365-Filtering-Correlation-Id: f62c6f5e-e006-4446-f14a-08df0771c4ab
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|7416014|376014|1800799024|921020|6133799003|10063799003|56012099006|10067099003|5023799004|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 9jcJ+1rcV4AG9M1qt0iefMN6qdWBWY8XxE+fhiQW15cT3TWYyI2pQPlAsQStSnCpzC1osNTBPr2L9Br0UjI7YmeVe/kIm6N0UZDxysgwgqoaA88B2OVBTfQGG5has1kOsYnf9LBgYp1agyzg2YjP8H5lb5gpyBzRrvycp+dbDqPXCaGvatDZbbse4W9cl2tDOgcF7kueyUdUMOqvDLRUK6b4NtGNcwNP6Z7dSM4/sgS4PaZBFEWwhdw8jqqONbBqw5Zs5qXJh8gWEKqw/Mh6bSgS06+Ru7sZU0wjxHR2Yl3TlsPFkaSEbRbMwOm8vjdoDTaCWDcJhKgr7qJYUv0MuwxZW1X6IwiFDrgWm4oLctakrxwsKboFjiHWDLeornCgNh1lwtZhWqxo+t7S7b2srFKnlOHq1IT5siAa8qxFl+Hxw9706Kfc7YqmPG+jj/b/zVnXLN5XD1zeFZM0ehmsTjJITF5p4v8wEg9my1YPlGpT7s6rgFm4SwJU7TGqnR1eXZcfSNQBxbpBfJRDLw6vwSHIGWM1lC7/Pw0pOXreQZ3T6fO54mLBwnuxLnVP7of2Oi64NI9giYqGSzNPmEWmgvYM10XjXl7MHlEazPpFD0+Oy8X3riANHyzjfBjzO9xZf0fITCvlD4mLWXakXfgA5AeheD5vxY3f/v5TI/ejn7L35HBZCpLQV8DmOKNzq8EZ+F4n/sP+RCPmobjhI8fbJG8qOqAtQqunUSr4msEIyBvP6eXmeKglg9Ct0pbwCTi7
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(7416014)(376014)(1800799024)(921020)(6133799003)(10063799003)(56012099006)(10067099003)(5023799004)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|7416014|376014|18002099003|22082099003|56012099006|6133799003|11063799006|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: h7kd45XGBStCDNBTPUYBGKSaCS1FxIrtYoVhviHnDrsLvnhCUK3JNPBgcdXVIXBB6gA9/cpFrMtAN8u4H70HKIP9GPNj8HlknzIfPclZzqDQCJ2sQTCfQOkuR0ti46ExmHBtKVxCcP6n4JESZTwKxU0DbZ1bI3SEpaIhiPtHkuf18pR+gtbIP+8/ktZQUkmFub0KXbpknberGOOrqJ+R/Xaw1hKO11Owwt4CEkv5dEEW6WBuEqT/TBh3X1051rxza1Ht03T7XzE5NfZrEvjZGMJvES7KtteT8brY8wW7tkWwxinv0AFGFe6npD+6ugRAnmkuDSOWCbIZniAgWf78ur9jaa1UgZZ0TF6kv7tJfws1V0ZeWHID1VjoL81MZNTLvzfEBWAKuIK1YaLWIghO6Y+zNagCJ/kEagCzaiRGH2fDB0Ld27bCOoDcoGDyuQcj4k828JgxDU8ffkyE/8Wg13nGOgH65hrDheWQthEAz5r58OWZgtkGq6b3duRNzNhNT7HTTfi0BhEmmvc0VCUr36H/TdufmLmDKRyqyZmo73LeRP6w5/uZualQnwIvaqssX3Z9XfcbuoFUb5iqKzDlxEYEGIcMcsS04xldRm2AmuwtwFytkvKJIhmvPgt7f8hEHDUeC68YSCl4gJ9/7B3g2KHblWuNSSr5CCvPm4DO/PvTgUNJq4BTdYErsHEXldBqI8NI/GzpHD4HQD1nD0BWmi/fRFAhpIUfL2ByWFNOd+aPi6TF6uiPfFpRBvZf1V1s
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(7416014)(376014)(18002099003)(22082099003)(56012099006)(6133799003)(11063799006)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SdhX2bz9BXp81MxTqvW5Ywjz/oQEy8ukYZM0SACEt7rGLC2gW5rhMZ1Fh0Fey5mXfnmB8dcGVmOGS+K7YKW6TsODuvgTzRoH4NBlDrgFjDAwCrkQy9xBuzD/F1+BMTIpdYh9Z5PFkY0zCrd6oZdQA4r61PQBiaun+mOVeiGfHWdshyW9WsksEwqWb7+ab3yGw5jjJIqXjwEJrDqB9n5zXBr60at4RvyaR/XvSv1tMXpUMNeVGmxqhI9cCMUdYhkHQIK3MSm6Q3eszrWZ/PKXOzvlaIQ15gNQ8GW+h2DTgNj8REDHIuSxEmI6H+GWVjZ0XdaeuY+nG5NTTKsVKNotJtuRaseyQfpEzuSxHArlEiVq6rKL+4KgA6cy8EVviN/6j9nzjEnvn7z4//30Sb5Y0B6ZAcIuo5MDMXg6xyqTVlNrnUJN24S6Ip8r69OFjAuD
+X-MS-Exchange-AntiSpam-MessageData-0: 9dW5V8XxCGNLKutL4EP0dd0LqTALVdwa+gwP89H4sequ9KT0/vSXISgWNDzT0BY8uJQ9qDbbpvQfPrVmwjQBXNNiDbr1pJNkdUwwarRfdIRb3bcvx/uaD7GpIxkwQzLtudHyrU3O3bIpM9HlLYr6q9UjHw954eKdz38Mz4mSrLop0BAiwMeY5qog+Ged5B1jLKWQjB4wCWF7LGfXe1U8rC+Gxko/8Nho5iHKy5hTn1BuTvT3EVqpLVXgvsxi/LZOlYnFrg1KzGHHrwe6GffHCxozZ4qzc5ybE0JrOj+0YMYpxFEPfV/d0/+ZbWB8k7F6c27OYzm3xa6ZWPJ1qoqzR8tt2rhTHU6z1snxDgy7cw+QfczB8feH5vn3tHibI4vWC1Brkt7ytWFWOQ2Pb2yf6KdewG7UtXRv0ZrNYHUyu9lpHtAHDTHtujAs6Iy94uRq
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:08:26.4197
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:08:52.0873
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78b6c8e4-3c21-4e49-1e66-08df0771b556
+X-MS-Exchange-CrossTenant-Network-Message-Id: f62c6f5e-e006-4446-f14a-08df0771c4ab
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001E8.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EC.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9552
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_160852_914685_E1E58388 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20260831_080858_072741_1D341C15 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,722 +129,571 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce an axienet_config structure to abstract MAC-type-specific
-operations, preparing the driver for supporting additional MAC types
-beyond the existing 1G Ethernet.
+The AXI Ethernet driver currently supports only the AXI 1G Ethernet IP.
+Add support for the Xilinx XXV Ethernet IP[1], which implements a 10G/25G
+Ethernet MAC with PCS/PMA driving a high-speed serial transceiver, as
+specified by the 25G Ethernet Consortium.
 
-Add axienet_config with capability flags (mdio, mac_irq, legacy_dma,
-uc_filter, mc_filter, vlan, jumbo, dma_tx_csum, sw_padding, internal_pcs),
-the register-dump count and callbacks (clk_init, setoptions, probe_init,
-gt_reset, mac_init, mac_link_up, get_regs, phylink_set_caps, pcs_ops,
-stats_update), and populate it from the OF match table. Convert the
-common code to consult these capabilities and callbacks instead of
-open-coding 1G behavior, so a new MAC type can be added without adding
-MAC-specific conditionals to the shared paths.
+Add the XXV-specific logic in new xilinx_axienet_xxv.c/.h files and
+describe the MAC through an axienet_10g25g_config that provides the
+capability flags and callbacks (GT reset, link-ready polling, options
+programming, phylink caps, PCS ops, register dump and probe-time init).
+No MAC-specific conditionals are added to the shared paths.
 
-No functional change intended for the existing 1G path.
+Also propagate the axienet_device_reset() failure in axienet_open(),
+which was previously overwritten by phylink_of_phy_connect() before being
+checked. This matters for XXV, whose mac_init() can fail on a GT
+reset-done timeout.
+
+[1]: https://docs.amd.com/r/en-US/pg210-25g-ethernet
 
 Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
 ---
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |  52 +++
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 391 ++++++++++++------
- 2 files changed, 319 insertions(+), 124 deletions(-)
+ drivers/net/ethernet/xilinx/Makefile          |   3 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   9 +
+ .../net/ethernet/xilinx/xilinx_axienet_main.c |  17 +-
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.c  | 329 ++++++++++++++++++
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.h  |  86 +++++
+ 5 files changed, 437 insertions(+), 7 deletions(-)
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
 
+diff --git a/drivers/net/ethernet/xilinx/Makefile b/drivers/net/ethernet/xilinx/Makefile
+index 7d7dc1771423..db90e691fec5 100644
+--- a/drivers/net/ethernet/xilinx/Makefile
++++ b/drivers/net/ethernet/xilinx/Makefile
+@@ -6,5 +6,6 @@
+ ll_temac-objs := ll_temac_main.o ll_temac_mdio.o
+ obj-$(CONFIG_XILINX_LL_TEMAC) += ll_temac.o
+ obj-$(CONFIG_XILINX_EMACLITE) += xilinx_emaclite.o
+-xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o
++xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o \
++		    xilinx_axienet_xxv.o
+ obj-$(CONFIG_XILINX_AXI_EMAC) += xilinx_emac.o
 diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index fcd3aaef27fc..40f03c9eb382 100644
+index 40f03c9eb382..295a1b835165 100644
 --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
 +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -545,6 +545,7 @@ struct skbuf_dma_descriptor {
+@@ -17,6 +17,8 @@
+ #include <linux/phylink.h>
+ #include <linux/skbuff.h>
+ 
++#include "xilinx_axienet_xxv.h"
++
+ /* Packet size info */
+ #define XAE_HDR_SIZE			14 /* Size of Ethernet header */
+ #define XAE_TRL_SIZE			 4 /* Size of Ethernet trailer (FCS) */
+@@ -545,6 +547,7 @@ struct skbuf_dma_descriptor {
   * @tx_ring_tail: TX skb ring buffer tail index.
   * @rx_ring_head: RX skb ring buffer head index.
   * @rx_ring_tail: RX skb ring buffer tail index.
-+ * @axienet_config: MAC-type specific configuration and operations.
++ * @xxv_ip_version: XXV IP version.
+  * @axienet_config: MAC-type specific configuration and operations.
   */
  struct axienet_local {
- 	struct net_device *ndev;
-@@ -626,6 +627,57 @@ struct axienet_local {
+@@ -627,6 +630,7 @@ struct axienet_local {
  	int tx_ring_tail;
  	int rx_ring_head;
  	int rx_ring_tail;
-+	const struct axienet_config *axienet_config;
-+};
-+
-+/**
-+ * struct axienet_config - MAC-type specific configuration and operations
-+ * @mdio: MAC has an MDIO bus for external PHY management
-+ * @mac_irq: MAC has a dedicated core interrupt
-+ * @legacy_dma: MAC supports the legacy (non-dmaengine) DMA mode
-+ * @uc_filter: MAC has unicast address filter registers
-+ * @mc_filter: MAC has multicast address filter registers
-+ * @vlan: MAC supports VLAN frames by default
-+ * @jumbo: MAC supports jumbo frames
-+ * @dma_tx_csum: MAC supports TX checksum offload
-+ * @sw_padding: Short frames must be padded in software before transmit
-+ * @internal_pcs: MAC always drives an internal PCS
-+ * @regs_n: Number of MAC registers exposed through ethtool -d
-+ * @clk_init: Callback to get and enable the MAC-specific clocks
-+ * @setoptions: Callback to program MAC hardware options
-+ * @probe_init: Callback for MAC-specific probe-time init, or NULL if unused
-+ * @gt_reset: Callback to reset the serial transceiver (GT), or NULL if unused
-+ * @mac_init: Callback for MAC-specific bring-up after the DMA reset
-+ * @mac_link_up: Callback to program link speed and pause on link up, or NULL
-+ * @get_regs: Callback to dump the MAC registers for ethtool -d
-+ * @phylink_set_caps: Callback to set phylink MAC capabilities
-+ * @pcs_ops: phylink PCS operations for this MAC, or NULL if unused
-+ * @stats_update: Callback to latch/accumulate the periodic MAC counters
-+ */
-+struct axienet_config {
-+	bool mdio;
-+	bool mac_irq;
-+	bool legacy_dma;
-+	bool uc_filter;
-+	bool mc_filter;
-+	bool vlan;
-+	bool jumbo;
-+	bool dma_tx_csum;
-+	bool sw_padding;
-+	bool internal_pcs;
-+	unsigned int regs_n;
-+	int (*clk_init)(struct axienet_local *lp);
-+	void (*setoptions)(struct net_device *ndev, u32 options);
-+	void (*probe_init)(struct axienet_local *lp);
-+	void (*gt_reset)(struct axienet_local *lp);
-+	int (*mac_init)(struct net_device *ndev);
-+	void (*mac_link_up)(struct net_device *ndev, int speed,
-+			    bool tx_pause, bool rx_pause);
-+	void (*get_regs)(struct axienet_local *lp, u32 *data);
-+	void (*phylink_set_caps)(struct axienet_local *lp,
-+				 struct phylink_config *config);
-+	const struct phylink_pcs_ops *pcs_ops;
-+	void (*stats_update)(struct axienet_local *lp);
++	u32 xxv_ip_version;
+ 	const struct axienet_config *axienet_config;
  };
  
- /**
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 67d1b8e91d68..5c59423bd778 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -33,6 +33,7 @@
- #include <linux/of_irq.h>
- #include <linux/of_address.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <linux/skbuff.h>
- #include <linux/math64.h>
- #include <linux/phy.h>
-@@ -64,16 +65,6 @@
+@@ -680,6 +684,11 @@ struct axienet_config {
+ 	void (*stats_update)(struct axienet_local *lp);
+ };
  
- static void axienet_rx_submit_desc(struct net_device *ndev);
- 
--/* Match table for of_platform binding */
--static const struct of_device_id axienet_of_match[] = {
--	{ .compatible = "xlnx,axi-ethernet-1.00.a", },
--	{ .compatible = "xlnx,axi-ethernet-1.01.a", },
--	{ .compatible = "xlnx,axi-ethernet-2.01.a", },
--	{},
--};
--
--MODULE_DEVICE_TABLE(of, axienet_of_match);
--
- /* Option table for setting up Axi Ethernet hardware options */
- static struct axienet_option axienet_options[] = {
- 	/* Turn on jumbo packet support for both Rx and Tx */
-@@ -418,6 +409,9 @@ static void axienet_set_mac_address(struct net_device *ndev,
- 	if (!is_valid_ether_addr(ndev->dev_addr))
- 		eth_hw_addr_random(ndev);
- 
-+	if (!lp->axienet_config->uc_filter)
-+		return;
-+
- 	/* Set up unicast MAC address filter set its mac address */
- 	axienet_iow(lp, XAE_UAW0_OFFSET,
- 		    (ndev->dev_addr[0]) |
-@@ -467,6 +461,9 @@ static void axienet_set_multicast_list(struct net_device *ndev)
- 	u32 reg, af0reg, af1reg;
- 	struct axienet_local *lp = netdev_priv(ndev);
- 
-+	if (!lp->axienet_config->mc_filter)
-+		return;
-+
- 	reg = axienet_ior(lp, XAE_FMI_OFFSET);
- 	reg &= ~XAE_FMI_PM_MASK;
- 	if (ndev->flags & IFF_PROMISC)
-@@ -575,14 +572,25 @@ static void axienet_stats_update(struct axienet_local *lp, bool reset)
- 	write_seqcount_end(&lp->hw_stats_seqcount);
- }
- 
-+/**
-+ * axienet_1g_stats_update - Refresh 1G MAC hardware statistics
-+ * @lp:		Pointer to the axienet_local structure
-+ */
-+static void axienet_1g_stats_update(struct axienet_local *lp)
++static inline struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pcs)
 +{
-+	axienet_stats_update(lp, false);
++	return container_of(pcs, struct axienet_local, pcs);
 +}
 +
- static void axienet_refresh_stats(struct work_struct *work)
- {
- 	struct axienet_local *lp = container_of(work, struct axienet_local,
- 						stats_work.work);
- 
--	mutex_lock(&lp->stats_lock);
--	axienet_stats_update(lp, false);
--	mutex_unlock(&lp->stats_lock);
-+	if (lp->axienet_config->stats_update) {
-+		mutex_lock(&lp->stats_lock);
-+		lp->axienet_config->stats_update(lp);
-+		mutex_unlock(&lp->stats_lock);
+ /**
+  * struct axienet_option - Used to set axi ethernet hardware options
+  * @opt:	Option to be set.
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 5c59423bd778..5bffa5b9d0b4 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1705,6 +1705,10 @@ static int axienet_open(struct net_device *ndev)
+ 	axienet_lock_mii(lp);
+ 	ret = axienet_device_reset(ndev);
+ 	axienet_unlock_mii(lp);
++	if (ret) {
++		dev_err(lp->dev, "axienet_device_reset() failed: %d\n", ret);
++		return ret;
 +	}
  
- 	/* Just less than 2^32 bytes at 2.5 GBit/s */
- 	schedule_delayed_work(&lp->stats_work, 13 * HZ);
-@@ -693,6 +701,32 @@ static void axienet_dma_stop(struct axienet_local *lp)
- 	axienet_unlock_mii(lp);
- }
+ 	ret = phylink_of_phy_connect(lp->phylink, lp->dev->of_node, 0);
+ 	if (ret) {
+@@ -2604,11 +2608,6 @@ static const struct ethtool_ops axienet_ethtool_dmaengine_ops = {
+ 	.get_rmon_stats = axienet_ethtool_get_rmon_stats,
+ };
  
-+/**
-+ * axienet_1g_mac_init - 1G MAC-specific bring-up after the DMA reset
-+ * @ndev:	Pointer to the net_device structure
+-static struct axienet_local *pcs_to_axienet_local(struct phylink_pcs *pcs)
+-{
+-	return container_of(pcs, struct axienet_local, pcs);
+-}
+-
+ static void axienet_pcs_get_state(struct phylink_pcs *pcs,
+ 				  unsigned int neg_mode,
+ 				  struct phylink_link_state *state)
+@@ -2668,7 +2667,9 @@ static struct phylink_pcs *axienet_mac_select_pcs(struct phylink_config *config,
+ 	struct axienet_local *lp = netdev_priv(ndev);
+ 
+ 	if (interface == PHY_INTERFACE_MODE_1000BASEX ||
+-	    interface ==  PHY_INTERFACE_MODE_SGMII)
++	    interface == PHY_INTERFACE_MODE_SGMII ||
++	    interface == PHY_INTERFACE_MODE_10GBASER ||
++	    interface == PHY_INTERFACE_MODE_25GBASER)
+ 		return &lp->pcs;
+ 
+ 	return NULL;
+@@ -2814,6 +2815,9 @@ static void axienet_dma_err_handler(struct work_struct *work)
+ 
+ 	axienet_dma_start(lp);
+ 
++	/* This error handler runs only for the legacy embedded-DMA (1G) path,
++	 * whose mac_init() cannot fail, so its return value is not checked.
++	 */
+ 	lp->axienet_config->mac_init(ndev);
+ 
+ 	/* Sync default options with HW but leave receiver and
+@@ -2917,6 +2921,7 @@ static const struct of_device_id axienet_of_match[] = {
+ 	{ .compatible = "xlnx,axi-ethernet-1.00.a", .data = &axienet_1g_config },
+ 	{ .compatible = "xlnx,axi-ethernet-1.01.a", .data = &axienet_1g_config },
+ 	{ .compatible = "xlnx,axi-ethernet-2.01.a", .data = &axienet_1g_config },
++	{ .compatible = "xlnx,xxv-ethernet-1.0", .data = &axienet_10g25g_config },
+ 	{},
+ };
+ 
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+new file mode 100644
+index 000000000000..46b48a773c15
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+@@ -0,0 +1,329 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * XXV (10G/25G) support
 + *
-+ * Return: 0 on success or a negative error number otherwise.
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
 + */
-+static int axienet_1g_mac_init(struct net_device *ndev)
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/iopoll.h>
++#include <linux/netdevice.h>
++#include <linux/phylink.h>
++
++#include "xilinx_axienet.h"
++#include "xilinx_axienet_xxv.h"
++
++/* readl_poll_timeout() sleep interval (us) and 1 ms total timeout for GT
++ * reset-done and PCS block-lock polls. Values from ZynqMP/Versal bring-up;
++ * PG210 does not specify these bounds.
++ */
++#define XXV_LINK_POLL_INTERVAL_US	10
++
++/* Number of XXV (10G/25G) MAC registers exposed via ethtool -d.
++ * Covers configuration and status registers per Xilinx PG210.
++ */
++static const u32 axienet_xxv_reg_dump_offsets[XXV_REGS_N] = {
++	XXV_GT_RESET_OFFSET,
++	XXV_RESET_OFFSET,
++	XXV_MODE_OFFSET,
++	XXV_TC_OFFSET,
++	XXV_RCW1_OFFSET,
++	XXV_JUM_OFFSET,
++	XXV_VL_LENGTH_OFFSET,
++	XXV_TICKREG_OFFSET,
++	XXV_CONFIG_REVISION,
++	XXV_CONFIG_1588_OFFSET,
++	XXV_CONFIG_TX_FLOW_CTRL1_OFFSET,
++	XXV_CONFIG_RX_FLOW_CTRL1_OFFSET,
++	XXV_CONFIG_RX_FLOW_CTRL2_OFFSET,
++	XXV_CONFIG_RSFEC_OFFSET,
++	XXV_CONFIG_FEC_OFFSET,
++	XXV_AN_CTL1_OFFSET,
++	XXV_AN_CTL2_OFFSET,
++	XXV_AN_ABILITY_OFFSET,
++	XXV_LT_CTL1_OFFSET,
++	XXV_SWITCH_CORE_SPEED_OFFSET,
++	XXV_CONFIG_1588_32BIT_OFFSET,
++	XXV_TX_CONFIG_1588_OFFSET,
++	XXV_RX_CONFIG_1588_OFFSET,
++	XXV_GTWIZ_CTRL_OFFSET,
++	XXV_STATRX_STATUS0_OFFSET,
++	XXV_RX_STATUS_REG1,
++	XXV_STATRX_STATUS2_OFFSET,
++	XXV_STATRX_BLKLCK_OFFSET,
++	XXV_STAT_RX_RSFEC_STATUS_OFFSET,
++	XXV_STAT_RX_FEC_STATUS_OFFSET,
++	XXV_STAT_TX_RSFEC_STATUS_OFFSET,
++	XXV_STAT_TX_FLOW_CTRL1_OFFSET,
++	XXV_STAT_RX_FLOW_CTRL1_OFFSET,
++	XXV_STAT_AN_STS_OFFSET,
++	XXV_STAT_AN_LP_STATUS_OFFSET,
++	XXV_STAT_AN_LINK_CTL_OFFSET,
++	XXV_STAT_LT_STATUS1_OFFSET,
++	XXV_STAT_LT_STATUS2_OFFSET,
++	XXV_STAT_LT_STATUS3_OFFSET,
++	XXV_STAT_LT_STATUS4_OFFSET,
++	XXV_STAT_LT_COEFF0_OFFSET,
++	XXV_STAT_RX_VALID_CTRL_CODE_OFFSET,
++	XXV_STAT_CORE_SPEED_OFFSET,
++	XXV_STAT_TSN_OFFSET,
++	XXV_STAT_GTWIZ_OFFSET,
++	XXV_STAT_AN_LINK_CTL2_OFFSET,
++};
++
++/* Option table for setting up XXV Ethernet hardware options */
++static struct axienet_option xxvenet_options[] = {
++	{ /* Turn on FCS stripping on receive packets */
++		.opt = XAE_OPTION_FCS_STRIP,
++		.reg = XXV_RCW1_OFFSET,
++		.m_or = XXV_RCW1_FCS_MASK,
++	}, { /* Turn on FCS insertion on transmit packets */
++		.opt = XAE_OPTION_FCS_INSERT,
++		.reg = XXV_TC_OFFSET,
++		.m_or = XXV_TC_FCS_MASK,
++	}, { /* Enable transmitter */
++		.opt = XAE_OPTION_TXEN,
++		.reg = XXV_TC_OFFSET,
++		.m_or = XXV_TC_TX_MASK,
++	}, { /* Enable receiver */
++		.opt = XAE_OPTION_RXEN,
++		.reg = XXV_RCW1_OFFSET,
++		.m_or = XXV_RCW1_RX_MASK,
++	},
++	{}
++};
++
++static bool axienet_xxv_ip_has_gtwiz_status(u32 ip_version)
++{
++	u8 minor = FIELD_GET(XXV_MIN_MASK, ip_version);
++	u8 maj = FIELD_GET(XXV_MAJ_MASK, ip_version);
++
++	if (maj == XXV_IP_VER_GTWIZ_MAJ_MIN)
++		return minor >= XXV_IP_VER_GTWIZ_MIN_MIN;
++	return maj > XXV_IP_VER_GTWIZ_MAJ_MIN;
++}
++
++/**
++ * axienet_xxv_setoptions - Set XXV MAC options from the option table
++ * @ndev: Pointer to the net_device structure
++ * @options: Option flags to apply
++ */
++static void axienet_xxv_setoptions(struct net_device *ndev, u32 options)
 +{
 +	struct axienet_local *lp = netdev_priv(ndev);
-+	u32 axienet_status;
++	struct axienet_option *tp = xxvenet_options;
++	u32 reg;
 +
-+	axienet_status = axienet_ior(lp, XAE_RCW1_OFFSET);
-+	axienet_status &= ~XAE_RCW1_RX_MASK;
-+	axienet_iow(lp, XAE_RCW1_OFFSET, axienet_status);
++	while (tp->opt) {
++		reg = axienet_ior(lp, tp->reg) & ~tp->m_or;
++		if (options & tp->opt)
++			reg |= tp->m_or;
++		axienet_iow(lp, tp->reg, reg);
++		tp++;
++	}
 +
-+	axienet_status = axienet_ior(lp, XAE_IP_OFFSET);
-+	if (axienet_status & XAE_INT_RXRJECT_MASK)
-+		axienet_iow(lp, XAE_IS_OFFSET, XAE_INT_RXRJECT_MASK);
-+	axienet_iow(lp, XAE_IE_OFFSET, lp->eth_irq > 0 ?
-+		    XAE_INT_RECV_ERROR_MASK : 0);
++	lp->options |= options;
++}
 +
-+	axienet_iow(lp, XAE_FCC_OFFSET, XAE_FCC_FCRX_MASK);
++/**
++ * axienet_xxv_probe_init - Initialize XXV-specific state at probe time
++ * @lp: Pointer to the axienet_local structure
++ */
++static void axienet_xxv_probe_init(struct axienet_local *lp)
++{
++	lp->xxv_ip_version = axienet_ior(lp, XXV_CONFIG_REVISION);
++}
++
++/**
++ * axienet_xxv_gt_reset - Pulse the XXV GT reset line
++ * @lp: Pointer to the axienet_local structure
++ */
++static void axienet_xxv_gt_reset(struct axienet_local *lp)
++{
++	u32 val;
++
++	/* Reset GT */
++	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
++	val |= XXV_GT_RESET_MASK;
++	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
++	/* Allow 1 ms for the GT reset to settle (see timeout note above) */
++	usleep_range(1000, 2000);
++	val = axienet_ior(lp, XXV_GT_RESET_OFFSET);
++	val &= ~XXV_GT_RESET_MASK;
++	axienet_iow(lp, XXV_GT_RESET_OFFSET, val);
++}
++
++/**
++ * axienet_xxv_poll_link_ready - Wait for XXV GT and PCS block lock
++ * @ndev: Pointer to the net_device structure
++ *
++ * Poll GT wizard reset-done on IP v3.2+, then RX PCS block lock. Block-lock
++ * failure is logged but not propagated: it depends on a live link partner and
++ * reference clock, so an unplugged cable must not fail device bring-up.
++ *
++ * Return: 0 on success, or a negative error if GT reset-done times out.
++ */
++static int axienet_xxv_poll_link_ready(struct net_device *ndev)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++	u32 val;
++	int ret;
++
++	/* Confirm XXV Ethernet is up: on IP v3.2+, wait for GT
++	 * reset-done before further register access, then poll until
++	 * RX PCS block lock is asserted.
++	 */
++	if (axienet_xxv_ip_has_gtwiz_status(lp->xxv_ip_version)) {
++		ret = readl_poll_timeout(lp->regs + XXV_STAT_GTWIZ_OFFSET,
++					 val,
++					 (val & XXV_GTWIZ_RESET_DONE) == XXV_GTWIZ_RESET_DONE,
++					 XXV_LINK_POLL_INTERVAL_US,
++					 DELAY_OF_ONE_MILLISEC);
++		if (ret) {
++			netdev_err(ndev, "XXV MAC GT reset not complete! Cross-check the MAC ref clock configuration\n");
++			return ret;
++		}
++	}
++
++	ret = readl_poll_timeout(lp->regs + XXV_STATRX_BLKLCK_OFFSET,
++				 val, (val & XXV_RX_BLKLCK_MASK),
++				 XXV_LINK_POLL_INTERVAL_US,
++				 DELAY_OF_ONE_MILLISEC);
++	if (ret)
++		netdev_err(ndev, "XXV MAC block lock not complete! Cross-check the MAC ref clock configuration\n");
 +
 +	return 0;
 +}
 +
- /**
-  * axienet_device_reset - Reset and initialize the Axi Ethernet hardware.
-  * @ndev:	Pointer to the net_device structure
-@@ -708,19 +742,23 @@ static void axienet_dma_stop(struct axienet_local *lp)
-  */
- static int axienet_device_reset(struct net_device *ndev)
- {
--	u32 axienet_status;
- 	struct axienet_local *lp = netdev_priv(ndev);
- 	int ret;
- 
-+	if (lp->axienet_config->gt_reset)
-+		lp->axienet_config->gt_reset(lp);
-+
- 	lp->max_frm_size = XAE_MAX_VLAN_FRAME_SIZE;
--	lp->options |= XAE_OPTION_VLAN;
-+
-+	if (lp->axienet_config->vlan)
-+		lp->options |= XAE_OPTION_VLAN;
- 	lp->options &= (~XAE_OPTION_JUMBO);
- 
- 	if (ndev->mtu > XAE_MTU && ndev->mtu <= XAE_JUMBO_MTU) {
- 		lp->max_frm_size = ndev->mtu + VLAN_ETH_HLEN +
- 					XAE_TRL_SIZE;
- 
--		if (lp->max_frm_size <= lp->rxmem)
-+		if (lp->max_frm_size <= lp->rxmem && lp->axienet_config->jumbo)
- 			lp->options |= XAE_OPTION_JUMBO;
- 	}
- 
-@@ -737,26 +775,18 @@ static int axienet_device_reset(struct net_device *ndev)
- 		}
- 	}
- 
--	axienet_status = axienet_ior(lp, XAE_RCW1_OFFSET);
--	axienet_status &= ~XAE_RCW1_RX_MASK;
--	axienet_iow(lp, XAE_RCW1_OFFSET, axienet_status);
--
--	axienet_status = axienet_ior(lp, XAE_IP_OFFSET);
--	if (axienet_status & XAE_INT_RXRJECT_MASK)
--		axienet_iow(lp, XAE_IS_OFFSET, XAE_INT_RXRJECT_MASK);
--	axienet_iow(lp, XAE_IE_OFFSET, lp->eth_irq > 0 ?
--		    XAE_INT_RECV_ERROR_MASK : 0);
--
--	axienet_iow(lp, XAE_FCC_OFFSET, XAE_FCC_FCRX_MASK);
-+	ret = lp->axienet_config->mac_init(ndev);
-+	if (ret)
-+		return ret;
- 
- 	/* Sync default options with HW but leave receiver and
- 	 * transmitter disabled.
- 	 */
--	axienet_setoptions(ndev, lp->options &
--			   ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
-+	lp->axienet_config->setoptions(ndev, lp->options &
-+				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
- 	axienet_set_mac_address(ndev, NULL);
- 	axienet_set_multicast_list(ndev);
--	axienet_setoptions(ndev, lp->options);
-+	lp->axienet_config->setoptions(ndev, lp->options);
- 
- 	netif_trans_update(ndev);
- 
-@@ -914,6 +944,13 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
- 	int sg_len;
- 	int ret;
- 
-+	if (lp->axienet_config->sw_padding && eth_skb_pad(skb)) {
-+		/* Pad short frames; the MAC does not append Ethernet padding. */
-+		ndev->stats.tx_dropped++;
-+		ndev->stats.tx_errors++;
-+		return NETDEV_TX_OK;
-+	}
-+
- 	dma_dev = lp->tx_chan->device;
- 	sg_len = skb_shinfo(skb)->nr_frags + 1;
- 	if (CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX) <= 1) {
-@@ -938,19 +975,21 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
- 		goto xmit_error_drop_skb;
- 
- 	/* Fill up app fields for checksum */
--	if (skb->ip_summed == CHECKSUM_PARTIAL) {
--		if (lp->features & XAE_FEATURE_FULL_TX_CSUM) {
--			/* Tx Full Checksum Offload Enabled */
--			app_metadata[0] |= 2;
--		} else if (lp->features & XAE_FEATURE_PARTIAL_TX_CSUM) {
--			csum_start_off = skb_transport_offset(skb);
--			csum_index_off = csum_start_off + skb->csum_offset;
--			/* Tx Partial Checksum Offload Enabled */
--			app_metadata[0] |= 1;
--			app_metadata[1] = (csum_start_off << 16) | csum_index_off;
-+	if (lp->axienet_config->dma_tx_csum) {
-+		if (skb->ip_summed == CHECKSUM_PARTIAL) {
-+			if (lp->features & XAE_FEATURE_FULL_TX_CSUM) {
-+				/* Tx Full Checksum Offload Enabled */
-+				app_metadata[0] |= 2;
-+			} else if (lp->features & XAE_FEATURE_PARTIAL_TX_CSUM) {
-+				csum_start_off = skb_transport_offset(skb);
-+				csum_index_off = csum_start_off + skb->csum_offset;
-+				/* Tx Partial Checksum Offload Enabled */
-+				app_metadata[0] |= 1;
-+				app_metadata[1] = (csum_start_off << 16) | csum_index_off;
-+			}
-+		} else if (skb->ip_summed == CHECKSUM_UNNECESSARY) {
-+			app_metadata[0] |= 2; /* Tx Full Checksum Offload Enabled */
- 		}
--	} else if (skb->ip_summed == CHECKSUM_UNNECESSARY) {
--		app_metadata[0] |= 2; /* Tx Full Checksum Offload Enabled */
- 	}
- 
- 	dma_tx_desc = dma_dev->device_prep_slave_sg(lp->tx_chan, skbuf_dma->sgl,
-@@ -1738,8 +1777,8 @@ static int axienet_stop(struct net_device *ndev)
- 	phylink_stop(lp->phylink);
- 	phylink_disconnect_phy(lp->phylink);
- 
--	axienet_setoptions(ndev, lp->options &
--			   ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
-+	lp->axienet_config->setoptions(ndev, lp->options &
-+				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
- 
- 	if (!lp->use_dmaengine) {
- 		axienet_dma_stop(lp);
-@@ -1765,7 +1804,8 @@ static int axienet_stop(struct net_device *ndev)
- 	}
- 
- 	netdev_reset_queue(ndev);
--	axienet_iow(lp, XAE_IE_OFFSET, 0);
-+	if (lp->axienet_config->mac_irq)
-+		axienet_iow(lp, XAE_IE_OFFSET, 0);
- 
- 	if (lp->eth_irq > 0)
- 		free_irq(lp->eth_irq, ndev);
-@@ -1934,30 +1974,18 @@ static void axienet_ethtools_get_drvinfo(struct net_device *ndev,
-  */
- static int axienet_ethtools_get_regs_len(struct net_device *ndev)
- {
--	return sizeof(u32) * AXIENET_REGS_N;
-+	struct axienet_local *lp = netdev_priv(ndev);
-+
-+	return sizeof(u32) * lp->axienet_config->regs_n;
- }
- 
- /**
-- * axienet_ethtools_get_regs - Dump the contents of all registers present
-- *			       in AxiEthernet core.
-- * @ndev:	Pointer to net_device structure
-- * @regs:	Pointer to ethtool_regs structure
-- * @ret:	Void pointer used to return the contents of the registers.
-- *
-- * This implements ethtool command for getting the Axi Ethernet register dump.
-- * Issue "ethtool -d ethX" to execute this function.
-+ * axienet_1g_get_regs - Dump 1G MAC registers for ethtool
-+ * @lp:		Pointer to the axienet_local structure
-+ * @data:	Buffer for register values (zeroed and sized by the caller)
-  */
--static void axienet_ethtools_get_regs(struct net_device *ndev,
--				      struct ethtool_regs *regs, void *ret)
-+static void axienet_1g_get_regs(struct axienet_local *lp, u32 *data)
- {
--	u32 *data = (u32 *)ret;
--	size_t len = sizeof(u32) * AXIENET_REGS_N;
--	struct axienet_local *lp = netdev_priv(ndev);
--
--	regs->version = 0;
--	regs->len = len;
--
--	memset(data, 0, len);
- 	data[0] = axienet_ior(lp, XAE_RAF_OFFSET);
- 	data[1] = axienet_ior(lp, XAE_TPF_OFFSET);
- 	data[2] = axienet_ior(lp, XAE_IFGP_OFFSET);
-@@ -1998,6 +2026,31 @@ static void axienet_ethtools_get_regs(struct net_device *ndev,
- 	}
- }
- 
 +/**
-+ * axienet_ethtools_get_regs - Dump the contents of all registers present
-+ *			       in AxiEthernet core.
-+ * @ndev:	Pointer to net_device structure
-+ * @regs:	Pointer to ethtool_regs structure
-+ * @ret:	Void pointer used to return the contents of the registers.
-+ *
-+ * This implements ethtool command for getting the Axi Ethernet register dump.
-+ * Issue "ethtool -d ethX" to execute this function.
-+ */
-+static void axienet_ethtools_get_regs(struct net_device *ndev,
-+				      struct ethtool_regs *regs, void *ret)
-+{
-+	struct axienet_local *lp = netdev_priv(ndev);
-+	u32 *data = (u32 *)ret;
-+	size_t len;
-+
-+	len = sizeof(u32) * lp->axienet_config->regs_n;
-+	regs->version = 0;
-+	regs->len = len;
-+
-+	memset(data, 0, len);
-+	lp->axienet_config->get_regs(lp, data);
-+}
-+
- static void
- axienet_ethtools_get_ringparam(struct net_device *ndev,
- 			       struct ethtool_ringparam *ering,
-@@ -2634,13 +2687,9 @@ static void axienet_mac_link_down(struct phylink_config *config,
- 	/* nothing meaningful to do */
- }
- 
--static void axienet_mac_link_up(struct phylink_config *config,
--				struct phy_device *phy,
--				unsigned int mode, phy_interface_t interface,
--				int speed, int duplex,
--				bool tx_pause, bool rx_pause)
-+static void axienet_1g_mac_link_up(struct net_device *ndev, int speed,
-+				   bool tx_pause, bool rx_pause)
- {
--	struct net_device *ndev = to_net_dev(config->dev);
- 	struct axienet_local *lp = netdev_priv(ndev);
- 	u32 emmc_reg, fcc_reg;
- 
-@@ -2677,6 +2726,19 @@ static void axienet_mac_link_up(struct phylink_config *config,
- 	axienet_iow(lp, XAE_FCC_OFFSET, fcc_reg);
- }
- 
-+static void axienet_mac_link_up(struct phylink_config *config,
-+				struct phy_device *phy,
-+				unsigned int mode, phy_interface_t interface,
-+				int speed, int duplex,
-+				bool tx_pause, bool rx_pause)
-+{
-+	struct net_device *ndev = to_net_dev(config->dev);
-+	struct axienet_local *lp = netdev_priv(ndev);
-+
-+	if (lp->axienet_config->mac_link_up)
-+		lp->axienet_config->mac_link_up(ndev, speed, tx_pause, rx_pause);
-+}
-+
- static const struct phylink_mac_ops axienet_phylink_ops = {
- 	.mac_select_pcs = axienet_mac_select_pcs,
- 	.mac_config = axienet_mac_config,
-@@ -2694,7 +2756,6 @@ static const struct phylink_mac_ops axienet_phylink_ops = {
- static void axienet_dma_err_handler(struct work_struct *work)
- {
- 	u32 i;
--	u32 axienet_status;
- 	struct axidma_bd *cur_p;
- 	struct axienet_local *lp = container_of(work, struct axienet_local,
- 						dma_err_task);
-@@ -2707,8 +2768,8 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 	napi_disable(&lp->napi_tx);
- 	napi_disable(&lp->napi_rx);
- 
--	axienet_setoptions(ndev, lp->options &
--			   ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
-+	lp->axienet_config->setoptions(ndev, lp->options &
-+				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
- 
- 	axienet_dma_stop(lp);
- 	netdev_reset_queue(ndev);
-@@ -2753,29 +2814,114 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 
- 	axienet_dma_start(lp);
- 
--	axienet_status = axienet_ior(lp, XAE_RCW1_OFFSET);
--	axienet_status &= ~XAE_RCW1_RX_MASK;
--	axienet_iow(lp, XAE_RCW1_OFFSET, axienet_status);
--
--	axienet_status = axienet_ior(lp, XAE_IP_OFFSET);
--	if (axienet_status & XAE_INT_RXRJECT_MASK)
--		axienet_iow(lp, XAE_IS_OFFSET, XAE_INT_RXRJECT_MASK);
--	axienet_iow(lp, XAE_IE_OFFSET, lp->eth_irq > 0 ?
--		    XAE_INT_RECV_ERROR_MASK : 0);
--	axienet_iow(lp, XAE_FCC_OFFSET, XAE_FCC_FCRX_MASK);
-+	lp->axienet_config->mac_init(ndev);
- 
- 	/* Sync default options with HW but leave receiver and
- 	 * transmitter disabled.
- 	 */
--	axienet_setoptions(ndev, lp->options &
--			   ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
-+	lp->axienet_config->setoptions(ndev, lp->options &
-+				       ~(XAE_OPTION_TXEN | XAE_OPTION_RXEN));
- 	axienet_set_mac_address(ndev, NULL);
- 	axienet_set_multicast_list(ndev);
- 	napi_enable(&lp->napi_rx);
- 	napi_enable(&lp->napi_tx);
--	axienet_setoptions(ndev, lp->options);
-+	lp->axienet_config->setoptions(ndev, lp->options);
- }
- 
-+/**
-+ * axienet_1g_phylink_set_caps - Set 1G phylink capabilities and interfaces
-+ * @lp:		Pointer to the axienet_local structure
-+ * @config:	Pointer to the phylink_config structure
-+ */
-+static void axienet_1g_phylink_set_caps(struct axienet_local *lp,
-+					struct phylink_config *config)
-+{
-+	config->mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
-+	__set_bit(lp->phy_mode, config->supported_interfaces);
-+	if (lp->switch_x_sgmii) {
-+		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+			  config->supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_SGMII,
-+			  config->supported_interfaces);
-+	}
-+}
-+
-+/**
-+ * axienet_1g_clk_init - Get and enable the 1G MAC clocks
-+ * @lp:		Pointer to the axienet_local structure
++ * axienet_xxv_mac_init - XXV MAC-specific bring-up after the DMA reset
++ * @ndev: Pointer to the net_device structure
 + *
 + * Return: 0 on success or a negative error number otherwise.
 + */
-+static int axienet_1g_clk_init(struct axienet_local *lp)
++static int axienet_xxv_mac_init(struct net_device *ndev)
++{
++	struct axienet_local *lp = netdev_priv(ndev);
++	int ret;
++
++	ret = axienet_xxv_poll_link_ready(ndev);
++	if (ret)
++		return ret;
++
++	lp->options |= XAE_OPTION_FCS_STRIP;
++	lp->options |= XAE_OPTION_FCS_INSERT;
++
++	return 0;
++}
++
++static void axienet_xxv_phylink_set_capabilities(struct axienet_local *lp,
++						 struct phylink_config *cfg)
++{
++	u32 core_speed;
++	bool rtsw;
++
++	core_speed = axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET);
++	/* Bit[1:0]: 00=25G, 01=10G, 10=runtime-switchable 25G,
++	 * 11=runtime-switchable 10G. A runtime-switchable core can operate at
++	 * either speed, so advertise both; a fixed core advertises only its
++	 * configured speed.
++	 */
++	rtsw = core_speed & XXV_STAT_CORE_SPEED_RTSW_MASK;
++
++	if (rtsw || (core_speed & XXV_STAT_CORE_SPEED_10G_MASK)) {
++		cfg->mac_capabilities |= MAC_10000FD;
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  cfg->supported_interfaces);
++	}
++
++	if (rtsw || !(core_speed & XXV_STAT_CORE_SPEED_10G_MASK)) {
++		cfg->mac_capabilities |= MAC_25000FD;
++		__set_bit(PHY_INTERFACE_MODE_25GBASER,
++			  cfg->supported_interfaces);
++	}
++}
++
++static void axienet_xxv_pcs_get_state(struct phylink_pcs *pcs,
++				      unsigned int neg_mode,
++				      struct phylink_link_state *state)
++{
++	struct axienet_local *lp = pcs_to_axienet_local(pcs);
++
++	state->duplex = DUPLEX_FULL;
++	state->an_complete = !!(axienet_ior(lp, XXV_STAT_AN_STS_OFFSET) &
++				XXV_AN_COMPLETE_MASK);
++	state->link = axienet_ior(lp, XXV_RX_STATUS_REG1) &
++		      XXV_RX_STATUS_MASK;
++
++	if (axienet_ior(lp, XXV_STAT_CORE_SPEED_OFFSET) &
++	    XXV_STAT_CORE_SPEED_10G_MASK)
++		state->speed = SPEED_10000;
++	else
++		state->speed = SPEED_25000;
++}
++
++static int axienet_xxv_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
++				  phy_interface_t interface,
++				  const unsigned long *advertising,
++				  bool permit_pause_to_mac)
++{
++	return 0;
++}
++
++static const struct phylink_pcs_ops axienet_xxv_pcs_ops = {
++	.pcs_get_state = axienet_xxv_pcs_get_state,
++	.pcs_config = axienet_xxv_pcs_config,
++};
++
++/**
++ * axienet_xxv_get_regs - Dump XXV MAC registers for ethtool
++ * @lp: Pointer to the axienet_local structure
++ * @data: Buffer for register values (zeroed and sized by the caller)
++ */
++static void axienet_xxv_get_regs(struct axienet_local *lp, u32 *data)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(axienet_xxv_reg_dump_offsets); i++)
++		data[i] = axienet_ior(lp, axienet_xxv_reg_dump_offsets[i]);
++}
++
++static int axienet_10g25g_clk_init(struct axienet_local *lp)
 +{
 +	struct device *dev = lp->dev;
 +	int ret;
 +
-+	lp->axi_clk = devm_clk_get_optional_enabled(dev, "s_axi_lite_clk");
-+	if (!lp->axi_clk) {
-+		/* For backward compatibility, if named AXI clock is not
-+		 * present, treat the first clock specified as the AXI clock.
-+		 */
-+		lp->axi_clk = devm_clk_get_optional_enabled(dev, NULL);
-+	}
++	/* The register, RX and GT DRP clocks are mandatory for MAC+PCS
++	 * operation, so fetch them as required.
++	 */
++	lp->axi_clk = devm_clk_get_enabled(dev, "s_axi");
 +	if (IS_ERR(lp->axi_clk))
 +		return dev_err_probe(dev, PTR_ERR(lp->axi_clk),
 +				     "could not get AXI clock\n");
 +
-+	lp->misc_clks[0].id = "axis_clk";
-+	lp->misc_clks[1].id = "ref_clk";
-+	lp->misc_clks[2].id = "mgt_clk";
++	lp->misc_clks[0].id = "rx_core";
++	lp->misc_clks[1].id = "drp";
 +
-+	ret = devm_clk_bulk_get_optional_enable(dev, XAE_NUM_MISC_CLOCKS,
-+						lp->misc_clks);
++	ret = devm_clk_bulk_get_enable(dev, 2, lp->misc_clks);
 +	if (ret)
 +		return dev_err_probe(dev, ret,
-+				     "could not get/enable misc. clocks\n");
++				     "could not get/enable XXV clocks\n");
 +
 +	return 0;
 +}
 +
-+/**
-+ * axienet_1g_probe_init - 1G MAC-specific probe-time initialization
-+ * @lp:		Pointer to the axienet_local structure
++const struct axienet_config axienet_10g25g_config = {
++	.sw_padding = true,
++	.internal_pcs = true,
++	.regs_n = XXV_REGS_N,
++	.clk_init = axienet_10g25g_clk_init,
++	.setoptions = axienet_xxv_setoptions,
++	.probe_init = axienet_xxv_probe_init,
++	.gt_reset = axienet_xxv_gt_reset,
++	.mac_init = axienet_xxv_mac_init,
++	.get_regs = axienet_xxv_get_regs,
++	.phylink_set_caps = axienet_xxv_phylink_set_capabilities,
++	.pcs_ops = &axienet_xxv_pcs_ops,
++};
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
+new file mode 100644
+index 000000000000..15a323ee05b2
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
+@@ -0,0 +1,86 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * XXV (10G/25G) support
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
 + */
-+static void axienet_1g_probe_init(struct axienet_local *lp)
-+{
-+	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_STATS)
-+		lp->features |= XAE_FEATURE_STATS;
-+}
 +
-+static const struct axienet_config axienet_1g_config = {
-+	.mdio = true,
-+	.mac_irq = true,
-+	.legacy_dma = true,
-+	.uc_filter = true,
-+	.mc_filter = true,
-+	.vlan = true,
-+	.jumbo = true,
-+	.dma_tx_csum = true,
-+	.regs_n = AXIENET_REGS_N,
-+	.clk_init = axienet_1g_clk_init,
-+	.setoptions = axienet_setoptions,
-+	.probe_init = axienet_1g_probe_init,
-+	.mac_init = axienet_1g_mac_init,
-+	.mac_link_up = axienet_1g_mac_link_up,
-+	.get_regs = axienet_1g_get_regs,
-+	.phylink_set_caps = axienet_1g_phylink_set_caps,
-+	.pcs_ops = &axienet_pcs_ops,
-+	.stats_update = axienet_1g_stats_update,
-+};
++#ifndef XILINX_AXIENET_XXV_H
++#define XILINX_AXIENET_XXV_H
 +
-+/* Match table for of_platform binding */
-+static const struct of_device_id axienet_of_match[] = {
-+	{ .compatible = "xlnx,axi-ethernet-1.00.a", .data = &axienet_1g_config },
-+	{ .compatible = "xlnx,axi-ethernet-1.01.a", .data = &axienet_1g_config },
-+	{ .compatible = "xlnx,axi-ethernet-2.01.a", .data = &axienet_1g_config },
-+	{},
-+};
++#include <linux/bits.h>
 +
-+MODULE_DEVICE_TABLE(of, axienet_of_match);
++struct axienet_local;
++struct axienet_config;
 +
- /**
-  * axienet_probe - Axi Ethernet probe function.
-  * @pdev:	Pointer to platform device structure.
-@@ -2826,27 +2972,13 @@ static int axienet_probe(struct platform_device *pdev)
- 	seqcount_mutex_init(&lp->hw_stats_seqcount, &lp->stats_lock);
- 	INIT_DEFERRABLE_WORK(&lp->stats_work, axienet_refresh_stats);
- 
--	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
--						    "s_axi_lite_clk");
--	if (!lp->axi_clk) {
--		/* For backward compatibility, if named AXI clock is not present,
--		 * treat the first clock specified as the AXI clock.
--		 */
--		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
--	}
--	if (IS_ERR(lp->axi_clk))
--		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
--				     "could not get AXI clock\n");
-+	lp->axienet_config = device_get_match_data(&pdev->dev);
-+	if (!lp->axienet_config)
-+		return -ENODEV;
- 
--	lp->misc_clks[0].id = "axis_clk";
--	lp->misc_clks[1].id = "ref_clk";
--	lp->misc_clks[2].id = "mgt_clk";
--
--	ret = devm_clk_bulk_get_optional_enable(&pdev->dev, XAE_NUM_MISC_CLOCKS,
--						lp->misc_clks);
-+	ret = lp->axienet_config->clk_init(lp);
- 	if (ret)
--		return dev_err_probe(&pdev->dev, ret,
--				     "could not get/enable misc. clocks\n");
-+		return ret;
- 
- 	/* Map device registers */
- 	lp->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &ethres);
-@@ -2857,9 +2989,6 @@ static int axienet_probe(struct platform_device *pdev)
- 	/* Setup checksum offload, but default to off if not specified */
- 	lp->features = 0;
- 
--	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_STATS)
--		lp->features |= XAE_FEATURE_STATS;
--
- 	ret = of_property_read_u32(pdev->dev.of_node, "xlnx,txcsum", &value);
- 	if (!ret) {
- 		switch (value) {
-@@ -2933,7 +3062,17 @@ static int axienet_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
-+	if (lp->axienet_config->probe_init)
-+		lp->axienet_config->probe_init(lp);
++#define XXV_REGS_N		46
 +
- 	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-+		/* Non-dmaengine (legacy DMA) mode is only supported by some MACs */
-+		if (!lp->axienet_config->legacy_dma) {
-+			dev_err(&pdev->dev,
-+				"Legacy DMA mode not supported by this MAC, use dmaengine\n");
-+			return -EINVAL;
-+		}
++/* XXV MAC Register Definitions */
++#define XXV_GT_RESET_OFFSET		0x00000000
++#define XXV_RESET_OFFSET		0x00000004
++#define XXV_MODE_OFFSET			0x00000008
++#define XXV_TC_OFFSET			0x0000000C
++#define XXV_RCW1_OFFSET			0x00000014
++#define XXV_JUM_OFFSET			0x00000018
++#define XXV_VL_LENGTH_OFFSET		0x0000001C
++#define XXV_TICKREG_OFFSET		0x00000020
++#define XXV_CONFIG_REVISION		0x00000024
++#define XXV_CONFIG_1588_OFFSET		0x00000038
++#define XXV_CONFIG_TX_FLOW_CTRL1_OFFSET	0x00000040
++#define XXV_CONFIG_RX_FLOW_CTRL1_OFFSET	0x00000094
++#define XXV_CONFIG_RX_FLOW_CTRL2_OFFSET	0x00000098
++#define XXV_CONFIG_RSFEC_OFFSET		0x000000D0
++#define XXV_CONFIG_FEC_OFFSET		0x000000D4
++#define XXV_AN_CTL1_OFFSET		0x000000E0
++#define XXV_AN_CTL2_OFFSET		0x000000E4
++#define XXV_AN_ABILITY_OFFSET		0x000000F8
++#define XXV_LT_CTL1_OFFSET		0x00000100
++#define XXV_SWITCH_CORE_SPEED_OFFSET	0x00000138
++#define XXV_CONFIG_1588_32BIT_OFFSET	0x0000013C
++#define XXV_TX_CONFIG_1588_OFFSET	0x00000140
++#define XXV_RX_CONFIG_1588_OFFSET	0x00000144
++#define XXV_GTWIZ_CTRL_OFFSET		0x00000154
++#define XXV_STATRX_STATUS0_OFFSET	0x00000400
++#define XXV_RX_STATUS_REG1		0x00000404
++#define XXV_STATRX_STATUS2_OFFSET	0x00000408
++#define XXV_STATRX_BLKLCK_OFFSET	0x0000040C
++#define XXV_STAT_RX_RSFEC_STATUS_OFFSET	0x0000043C
++#define XXV_STAT_RX_FEC_STATUS_OFFSET	0x00000448
++#define XXV_STAT_TX_RSFEC_STATUS_OFFSET	0x0000044C
++#define XXV_STAT_TX_FLOW_CTRL1_OFFSET	0x00000450
++#define XXV_STAT_RX_FLOW_CTRL1_OFFSET	0x00000454
++#define XXV_STAT_AN_STS_OFFSET		0x00000458
++#define XXV_STAT_AN_LP_STATUS_OFFSET	0x0000045C
++#define XXV_STAT_AN_LINK_CTL_OFFSET	0x00000460
++#define XXV_STAT_LT_STATUS1_OFFSET	0x00000464
++#define XXV_STAT_LT_STATUS2_OFFSET	0x00000468
++#define XXV_STAT_LT_STATUS3_OFFSET	0x0000046C
++#define XXV_STAT_LT_STATUS4_OFFSET	0x00000470
++#define XXV_STAT_LT_COEFF0_OFFSET	0x00000474
++#define XXV_STAT_RX_VALID_CTRL_CODE_OFFSET	0x00000494
++#define XXV_STAT_CORE_SPEED_OFFSET	0x00000498
++#define XXV_STAT_TSN_OFFSET		0x0000049C
++#define XXV_STAT_GTWIZ_OFFSET		0x000004A0
++#define XXV_STAT_AN_LINK_CTL2_OFFSET	0x000009F0
 +
- 		/* Find the DMA node, map the DMA registers, and decode the DMA IRQs */
- 		np = of_parse_phandle(pdev->dev.of_node, "axistream-connected", 0);
- 
-@@ -3013,7 +3152,10 @@ static int axienet_probe(struct platform_device *pdev)
- 		struct xilinx_vdma_config cfg;
- 		struct dma_chan *tx_chan;
- 
--		lp->eth_irq = platform_get_irq_optional(pdev, 0);
-+		if (lp->axienet_config->mac_irq)
-+			lp->eth_irq = platform_get_irq_optional(pdev, 0);
-+		else
-+			lp->eth_irq = -ENXIO;
- 		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO) {
- 			return lp->eth_irq;
- 		}
-@@ -3066,10 +3208,12 @@ static int axienet_probe(struct platform_device *pdev)
- 	lp->tx_dma_cr = axienet_calc_cr(lp, XAXIDMA_DFT_TX_THRESHOLD,
- 					XAXIDMA_DFT_TX_USEC);
- 
--	ret = axienet_mdio_setup(lp);
--	if (ret)
--		dev_warn(&pdev->dev,
--			 "error registering MDIO bus: %d\n", ret);
-+	if (lp->axienet_config->mdio) {
-+		ret = axienet_mdio_setup(lp);
-+		if (ret)
-+			dev_warn(&pdev->dev,
-+				 "error registering MDIO bus: %d\n", ret);
-+	}
- 
- 	if (lp->phy_mode == PHY_INTERFACE_MODE_SGMII ||
- 	    lp->phy_mode == PHY_INTERFACE_MODE_1000BASEX) {
-@@ -3093,23 +3237,21 @@ static int axienet_probe(struct platform_device *pdev)
- 			goto cleanup_mdio;
- 		}
- 		of_node_put(np);
--		lp->pcs.ops = &axienet_pcs_ops;
-+		lp->pcs.ops = lp->axienet_config->pcs_ops;
-+		lp->pcs.poll = true;
-+	}
++/* XXV MAC Register Mask Definitions */
++#define XXV_GT_RESET_MASK		BIT(0)
++#define XXV_TC_TX_MASK			BIT(0)
++#define XXV_RCW1_RX_MASK		BIT(0)
++#define XXV_RCW1_FCS_MASK		BIT(1)
++#define XXV_TC_FCS_MASK			BIT(1)
++#define XXV_RX_BLKLCK_MASK		BIT(0)
++#define XXV_GTWIZ_RESET_DONE		(BIT(0) | BIT(1))
++#define XXV_MAJ_MASK			GENMASK(7, 0)
++#define XXV_MIN_MASK			GENMASK(15, 8)
++/* IP v3.2+ exposes GT wizard status before other register access (PG210). */
++#define XXV_IP_VER_GTWIZ_MAJ_MIN	3
++#define XXV_IP_VER_GTWIZ_MIN_MIN	2
++#define XXV_AN_COMPLETE_MASK		BIT(2)
++#define XXV_STAT_CORE_SPEED_RTSW_MASK	BIT(1)
++#define XXV_STAT_CORE_SPEED_10G_MASK	BIT(0)
++#define XXV_RX_STATUS_MASK		BIT(0)
 +
-+	if (lp->axienet_config->internal_pcs) {
-+		lp->pcs.ops = lp->axienet_config->pcs_ops;
- 		lp->pcs.poll = true;
- 	}
- 
- 	lp->phylink_config.dev = &ndev->dev;
- 	lp->phylink_config.type = PHYLINK_NETDEV;
- 	lp->phylink_config.mac_managed_pm = true;
--	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
--		MAC_10FD | MAC_100FD | MAC_1000FD;
-+	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
- 
--	__set_bit(lp->phy_mode, lp->phylink_config.supported_interfaces);
--	if (lp->switch_x_sgmii) {
--		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
--			  lp->phylink_config.supported_interfaces);
--		__set_bit(PHY_INTERFACE_MODE_SGMII,
--			  lp->phylink_config.supported_interfaces);
--	}
-+	lp->axienet_config->phylink_set_caps(lp, &lp->phylink_config);
- 
- 	lp->phylink = phylink_create(&lp->phylink_config, pdev->dev.fwnode,
- 				     lp->phy_mode,
-@@ -3152,7 +3294,8 @@ static void axienet_remove(struct platform_device *pdev)
- 	if (lp->pcs_phy)
- 		put_device(&lp->pcs_phy->dev);
- 
--	axienet_mdio_teardown(lp);
-+	if (lp->mii_bus)
-+		axienet_mdio_teardown(lp);
- }
- 
- static void axienet_shutdown(struct platform_device *pdev)
++extern const struct axienet_config axienet_10g25g_config;
++
++#endif /* XILINX_AXIENET_XXV_H */
 -- 
 2.25.1
 
