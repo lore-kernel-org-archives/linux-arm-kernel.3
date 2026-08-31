@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5897C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023E6C61DFD
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+k/TRLRabTSJEMCHyIc7Jf71jgev3UqCsTHxCYbIzSQ=; b=Dap1e4fyGURTZKuLsy/wA0RjPa
-	B+FHn+AOF+NiA7t956KvjvbQgrGxX2J7bNwgBaa2m+3W2W6JbrT3bhRCSU4jTEsrATynQVkGoObJk
-	HFKDZm6QNhVsQPa0dMUi5paHRQBTaJdSmG/1iDTbFMorRqeUyyxNi9vKbLOeHjPdCn/F3aMqv3CIo
-	TxqRSrn+Z9b4v0gxsUDO80fKFR9UhpMvCpMrYn6+u/DF2G3gxXe2x4fyiihfB9PvPNms7Wm7BEbOL
-	1n9Br0bAvxVKkvMcVW9c4qDtoDCeKhyZqp2kvJlYc2PgKJ/j77juVDpjw3pPm7qVcUa2rXC7RVOSm
-	FmIqE4bg==;
+	bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=; b=fifcRtxJEuneiHdo0wSl7FP4Fv
+	7aMgmdqI/DVQ420we00vQCmNsxpijmUgnOPnhwXff63kzf4ZTToQ6nIYEYo7IP6rTXmEl+FRIzljn
+	dM22PHAm9w35q1+MEUFDUvXYIg9x1r4wG2ggY3tEPGcEfJQjI3TamMZ4SPw9UBZ6UtphocoUgWkzz
+	maFHfpGNizlIdM34DHRVNKmw0A0JsCfoRgdCqOzW8Pm5a2qMKQTkPb6AxzxyAFkS7NC2mVxnrTasR
+	hGxzCxML4uv5P2RCH28BuNtSrEpoleomXdA+7LzkRSLCx2Ng8rhpoCIbawNdQRLOp8xwq4gfGW15E
+	yVZjfiLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16To-0000000AG02-12xZ;
+	id 1x16To-0000000AG0d-25L3;
 	Mon, 31 Aug 2026 18:11:36 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16Tb-0000000AFus-0ozI
+	id 1x16Te-0000000AFwN-1ksC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:11:24 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38e58034d05so3210372a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:22 -0700 (PDT)
+	Mon, 31 Aug 2026 18:11:27 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cc11a905ba5so51454a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788199882; x=1788804682; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788199885; x=1788804685; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:from:to:cc:subject:date
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+k/TRLRabTSJEMCHyIc7Jf71jgev3UqCsTHxCYbIzSQ=;
-        b=Ba3HGcrlTgYV8XvD+4FTk1yDLSlOEbRUsQcnlfyPvpCP+GSv47tqttJOWJb5mt1eDo
-         CswcF1s7JyehVJuWH+u9L4y2PEtpClstiMo2Ee0m8b5ZOdPhDEp0fAVeTR5spCzT5KsK
-         ubgwArBhmFwloNrPZaYm2/3CTWQoxGD0jzQ0BISvKLvx+QfWj8RLsUfWBr533ld+GdVv
-         gmSyl00suCD72cI91E18cRZCR3tcwiin957DHsEQxf7qAq61PdD1eiCAGQL3AT7xeba0
-         IgG7H40d/GwwzLfGXVnpAlHK1lA4nB3rhtM7uFLqQ6OQSdkNmnbov388p5n4z2f2geUa
-         b0UA==
+        bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=;
+        b=O+QZdNwR9z63CL5+hO8tG0ml+tFr0y4ocNr4eKNmRQWVldLZagUuiqrKiYw0sLwvUq
+         73XSGaZ6nmxgYbGYzymFEHGHDVjO8YNVLs/DEfw2i8X88QwKWFnkR/xWmgrJU/N9gzeK
+         dGsPHuiWiCxg57qyMyNWFg5+ImROt/Gk5Isfrw2QnbcJ+lx3u+OkIzs/GlKNPwE7e1uc
+         r++EEl8kPJXNK1Wnkr5jK3gN+NX2LbFYxRK3WgDG4PjOW5iJoRyPcg82HZ9ZXEkooJxt
+         N/l0aqcPyZ+qjHAEGCLg5Rm/1qwwb8pdVYen6lOm5XmY+nPgcUqpDX/Ia3WTWx67LWaD
+         RYKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788199882; x=1788804682;
+        d=1e100.net; s=20251104; t=1788199885; x=1788804685;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+k/TRLRabTSJEMCHyIc7Jf71jgev3UqCsTHxCYbIzSQ=;
-        b=UihFOfshV9iaAjCyTyMSDQ6GuVtmfM8k7dIAfA/qLApkKCbK/7PTNN3sgeyhGG61RO
-         hUSUQ684uAqfT+hQfnlSgR7SMyhx5EtrBX1tGNZLkv0LPlcLIs61wET61ZfmiOPM7xRL
-         YY5vmVsKbKqGoa/WuXyj5zVkL9/nO8rso9eohaWFf3S6BmzOeqDLjonMgTh2D2EBSzG5
-         4VT2RGb7NSdNiYb1n7WAs+a/YC6kWkBYpEG7TxRYDraRVrfwy2EbCgGsRyU6xtj0Y2x2
-         W8vr8UYzeg+WwSy4hotRcyDu/t9turWuk6AqBIEPmFSjDGw4ehAtvOmcy1tf8XO+W0WO
-         iQvQ==
-X-Forwarded-Encrypted: i=1; AKwUvByb8sAdqSv2HJ3amLrsNU466kMnpp+zoc6KYKT+juFtiou0lK6GRNaZKLnmmOPkuPIkk28OAOEF6TLyNEY6JIJ3@lists.infradead.org
-X-Gm-Message-State: AFuF++nnh2NzHxU00d8Tkk9O+cUYYpBiEFCjUegl6PWvE94hP1Xz9YL+
-	zaAapSlqenDmma87dLhDwA5aAvsuFKU2CikddB2Cxytdx6wS7Ws0Kkg8JkLT+ZelzLU=
-X-Gm-Gg: AYBFou1XMuO37Q9+gmTvZuxgS2dkA23S4r3JBEBLFIBNY/ciP9wY18YCrinThpD0v/p
-	/l14mKXp95n3lzlUmn6ccuEmNXwDzBVk4mgb9ZXiP686zd6MGn//MYem5hjdVR8XJip3RfFBZdc
-	DJIkEL++cyoMg5ggSueZ49sTHtPjrxUaIjgWPr+0WYLImoOypRRz5CaRnBzDCOq1zFu4WwHqerD
-	H7rLSFEcqhMNDnR8OK8j6mwVJtQSQaaXbUTLDmmIXpYYOHSqV9U2TXNyJzDty0SK7q2SkWhhtXx
-	AgXXxKVQlptOg/rwdgacNFdpjiO6OiUaPiLUnOToVpPAsII/aUElkyp/1JYJsHEZofprHOzHwUC
-	Z+eQnKXW8gtt2IcuJ51eHf+X+Q8JGz0NyefDnVKbM04h08GkGJJUF69lcOHDfVmucGKaDcT0NZr
-	3ntApj+xLDtgJ6p4FiGvjSn3owlpDJNgIaw2kTFWrGcIEmokXHvv7SgpO95A==
-X-Received: by 2002:a17:90b:4a4b:b0:398:9be6:f999 with SMTP id 98e67ed59e1d1-39907e17dcdmr2865018a91.24.1788199882306;
-        Mon, 31 Aug 2026 11:11:22 -0700 (PDT)
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=;
+        b=D60jvIKdHhSeVnzG4UORU13QbK+YMoPdVgq3MUhKy8fCtkanWzKsIs3ElN23kcDvIL
+         UaEzla0WeGt68/869vM0ef3bJ5MMjH2oCnW2XNqKH3nL4HpKSNbMVB1/nnRSGCRUU5k6
+         Mjmkg/CWCZMKmxxEmdE6uW4d4jk4n6mRFd2ldZy81AefylMgSxFWNvzRzEgymuyZThYJ
+         6BUTdcLuX+FzckRgBlnKzu5oqg5/Vk8pSVDZCYutseaFgvZtoGex6tnT7j2bVukZk7sc
+         xQ64Wpfc4jQQy7UTo72xP2L3ns0Xp9ZfNhQwVnqc+btsQAaXV7CPOGF0IUdjGAs7t/Qd
+         GLlQ==
+X-Gm-Message-State: AFuF++ku4Sy2H9Ztl6HxZW7/MOXUlm4cdytDiuayaqBSQ0NmpBQ6UHO9
+	a86jrRZpfJyEdqv3iLCHYaayk2x/mKcT7DUEvghn5Zh4tH3wc9qSUGNY2tlSSbOor0s=
+X-Gm-Gg: AYBFou3Kr/B5kgorxYsikiU1phVOiK+VBu4umWSHZe9ckdtKOe+Oz8oJB6LMBxexjyQ
+	FX3zHpyZzfLNAkjZgIIWHdbaigJLUv5RS7CNKQoKbo8CjpUKsu3dwZkwR7s0ILJG94JmLZK1QN7
+	umDFFJUs3yU5eEUS4ghN28XQB9Y3tzrq6chq7zI9byanmLGgC6sD8ZcWyuMfJAMnzXLyTodOo4G
+	SIoJfZptyXiN90KtR7xCyEQHoPSHFGMUlSJl9bsFW7raMhRw0CFoHgsvvNqFhfJYmCg7Jl0MaTv
+	6FMkOuTTAUzJLy3hPI3FvXgYOgkDXFBPLH/KTm0q+u9Tu7m9JLmnItbebNQf48GaSfer5j57XCs
+	LOkNULDA8ueGOKQJxcPZ+BsiELwignE4LF2ZjdtMI3yi9cu30QYpnM8VsoW/otAUgrhlE0gBcND
+	veG8rNrrcuh5+FjOPdOY1Nq1D0qvKex4EpXbno+E1UmXH3DlSnhiWBAi2DbA==
+X-Received: by 2002:a17:90b:5626:b0:398:9bd1:3216 with SMTP id 98e67ed59e1d1-3989bd135fcmr31021574a91.23.1788199885347;
+        Mon, 31 Aug 2026 11:11:25 -0700 (PDT)
 Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3990ba8cbf6sm829678a91.0.2026.08.31.11.11.21
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3990d4ede7csm759296a91.13.2026.08.31.11.11.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 11:11:21 -0700 (PDT)
+        Mon, 31 Aug 2026 11:11:24 -0700 (PDT)
 From: Kevin Hilman <khilman@baylibre.com>
-To: aaro.koskinen@iki.fi, rogerq@kernel.org, tony@atomide.com, 
- linux@armlinux.org.uk, terrelln@fb.com, dsterba@suse.com, 
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Andreas Kemnade <andreas@kemnade.info>
-In-Reply-To: <20260828212843.614296-1-andreas@kemnade.info>
-References: <20260828212843.614296-1-andreas@kemnade.info>
-Subject: Re: [PATCH] ARM: omap2plus_defconfig: Support for compressed
- firmware
-Message-Id: <178819988147.2869653.7385266758702402443.b4-ty@b4>
-Date: Mon, 31 Aug 2026 11:11:21 -0700
+To: Russell King <linux@armlinux.org.uk>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
+ Eric Biggers <ebiggers@kernel.org>, Takashi Iwai <tiwai@suse.de>, 
+ Kory Maincent <kory.maincent@bootlin.com>, 
+ Andreas Kemnade <andreas@kemnade.info>, Sen Wang <sen@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260709203757.2401699-1-sen@ti.com>
+References: <20260709203757.2401699-1-sen@ti.com>
+Subject: Re: [PATCH] arm: multi_v7_defconfig: Enable SND_ALOOP
+Message-Id: <178819988433.2869653.5088764257816495977.b4-ty@b4>
+Date: Mon, 31 Aug 2026 11:11:24 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_111123_244573_15260713 
-X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-CacheID: sfid-20260831_111126_483592_C6EEDBE8 
+X-CRM114-Status: UNSURE (   8.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,14 +105,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 28 Aug 2026 23:28:43 +0200, Andreas Kemnade wrote:
-> Especially zstd-compressed firmware is at least the standard in Alpine,
-> so enable it to avoid confusion when using firmware from such distros.
+On Thu, 09 Jul 2026 15:37:57 -0500, Sen Wang wrote:
+> Enable the generic PCM loopback driver for arm32, matching arm64 defconfig
+> (commit 7235cdd9cc52 ("arm64: defconfig: Enable SND_ALOOP")).
+> 
+> snd-aloop provides a virtual, cross-connected soundcard useful for
+> routing audio between applications, capturing playback on systems
+> without physical audio hardware, and automated audio pipeline
+> validation.
+> 
+> [...]
 
 Applied, thanks!
 
-[1/1] ARM: omap2plus_defconfig: Support for compressed firmware
-      commit: 20e49e03ed714b6dd47d45eed9d6f8681d691e8f
+[1/1] arm: multi_v7_defconfig: Enable SND_ALOOP
+      commit: b45c06f362ee5ce9ef6402fcf57077a740cf1063
 
 Best regards,
 -- 
