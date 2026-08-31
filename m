@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023E6C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC965C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=; b=fifcRtxJEuneiHdo0wSl7FP4Fv
-	7aMgmdqI/DVQ420we00vQCmNsxpijmUgnOPnhwXff63kzf4ZTToQ6nIYEYo7IP6rTXmEl+FRIzljn
-	dM22PHAm9w35q1+MEUFDUvXYIg9x1r4wG2ggY3tEPGcEfJQjI3TamMZ4SPw9UBZ6UtphocoUgWkzz
-	maFHfpGNizlIdM34DHRVNKmw0A0JsCfoRgdCqOzW8Pm5a2qMKQTkPb6AxzxyAFkS7NC2mVxnrTasR
-	hGxzCxML4uv5P2RCH28BuNtSrEpoleomXdA+7LzkRSLCx2Ng8rhpoCIbawNdQRLOp8xwq4gfGW15E
-	yVZjfiLw==;
+	bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=; b=WOfa/iCPwFOnIKdLcA0XdpwtYJ
+	zufXVN4X/giS9tF+7E3O2eLpyvbnx3Tn8UYJteBdTpsQYbMF6fIzBx/N0Yp295VY9mqpH6d/Bk9lM
+	D4nJwtMUVT/6itxVDyX+V/t1QYFF8fBopD54CAtI9nI4HI9pZlwtA5o/g1UyZ2KwQu4CuwcrXsRnQ
+	s1Y3pq84Bgf71+tnN+QcvcUmwhc93uRbShM1ery3QF+9Mu6Wm51GNZNL6npAYqWQrALf3oq4ll+Aj
+	F8tfBMdieIr3BN44Or/QZJYCplQ5pX9ZWZTGVmpFzMBLeLga1qnbf3SYRy7ez3BJeXpJXyyFzWFdA
+	yLWsHnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16To-0000000AG0d-25L3;
+	id 1x16To-0000000AG0P-1dOa;
 	Mon, 31 Aug 2026 18:11:36 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16Te-0000000AFwN-1ksC
+	id 1x16Tc-0000000AFvL-1DUQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:11:27 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cc11a905ba5so51454a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:26 -0700 (PDT)
+	Mon, 31 Aug 2026 18:11:25 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-39266382df6so3212088a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788199885; x=1788804685; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788199883; x=1788804683; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :subject:references:in-reply-to:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=;
-        b=O+QZdNwR9z63CL5+hO8tG0ml+tFr0y4ocNr4eKNmRQWVldLZagUuiqrKiYw0sLwvUq
-         73XSGaZ6nmxgYbGYzymFEHGHDVjO8YNVLs/DEfw2i8X88QwKWFnkR/xWmgrJU/N9gzeK
-         dGsPHuiWiCxg57qyMyNWFg5+ImROt/Gk5Isfrw2QnbcJ+lx3u+OkIzs/GlKNPwE7e1uc
-         r++EEl8kPJXNK1Wnkr5jK3gN+NX2LbFYxRK3WgDG4PjOW5iJoRyPcg82HZ9ZXEkooJxt
-         N/l0aqcPyZ+qjHAEGCLg5Rm/1qwwb8pdVYen6lOm5XmY+nPgcUqpDX/Ia3WTWx67LWaD
-         RYKQ==
+        bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=;
+        b=cPCJtLGLUHDJXrRHd+Lo1ZhJSOxoZYm7andCbK1oFPhXOiiDA8KccJtFVtZsFlt4kr
+         v+zk6LnuTcItGbI+KxISZNcj3ublDFtA0jndvZdqOfiVrquzxenkfZMrBertp/DmWuFx
+         gshNtxeKBqTB3Xc7PBnigrDXCcLrMWAnZl518FcZHQQeGlLExEajjSAUU7IFk6hngPRh
+         llGs518U7e2x1ILcBs/QYRvHmtsM5PcMdC9bIOojDmNsmTUMfxjPg9wCIr5B+QGT0n0N
+         TgyJXVGYWRtU3/1fKmjeTOqN0GAEZnVPhERpLYYi9aBi+wEvPRzJH2yJwf5sZultCM8z
+         ed/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788199885; x=1788804685;
+        d=1e100.net; s=20251104; t=1788199883; x=1788804683;
         h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kXN0jN3MnwKVM8KAifDf5fdFy6y48QrMJCG2ssDq6qc=;
-        b=D60jvIKdHhSeVnzG4UORU13QbK+YMoPdVgq3MUhKy8fCtkanWzKsIs3ElN23kcDvIL
-         UaEzla0WeGt68/869vM0ef3bJ5MMjH2oCnW2XNqKH3nL4HpKSNbMVB1/nnRSGCRUU5k6
-         Mjmkg/CWCZMKmxxEmdE6uW4d4jk4n6mRFd2ldZy81AefylMgSxFWNvzRzEgymuyZThYJ
-         6BUTdcLuX+FzckRgBlnKzu5oqg5/Vk8pSVDZCYutseaFgvZtoGex6tnT7j2bVukZk7sc
-         xQ64Wpfc4jQQy7UTo72xP2L3ns0Xp9ZfNhQwVnqc+btsQAaXV7CPOGF0IUdjGAs7t/Qd
-         GLlQ==
-X-Gm-Message-State: AFuF++ku4Sy2H9Ztl6HxZW7/MOXUlm4cdytDiuayaqBSQ0NmpBQ6UHO9
-	a86jrRZpfJyEdqv3iLCHYaayk2x/mKcT7DUEvghn5Zh4tH3wc9qSUGNY2tlSSbOor0s=
-X-Gm-Gg: AYBFou3Kr/B5kgorxYsikiU1phVOiK+VBu4umWSHZe9ckdtKOe+Oz8oJB6LMBxexjyQ
-	FX3zHpyZzfLNAkjZgIIWHdbaigJLUv5RS7CNKQoKbo8CjpUKsu3dwZkwR7s0ILJG94JmLZK1QN7
-	umDFFJUs3yU5eEUS4ghN28XQB9Y3tzrq6chq7zI9byanmLGgC6sD8ZcWyuMfJAMnzXLyTodOo4G
-	SIoJfZptyXiN90KtR7xCyEQHoPSHFGMUlSJl9bsFW7raMhRw0CFoHgsvvNqFhfJYmCg7Jl0MaTv
-	6FMkOuTTAUzJLy3hPI3FvXgYOgkDXFBPLH/KTm0q+u9Tu7m9JLmnItbebNQf48GaSfer5j57XCs
-	LOkNULDA8ueGOKQJxcPZ+BsiELwignE4LF2ZjdtMI3yi9cu30QYpnM8VsoW/otAUgrhlE0gBcND
-	veG8rNrrcuh5+FjOPdOY1Nq1D0qvKex4EpXbno+E1UmXH3DlSnhiWBAi2DbA==
-X-Received: by 2002:a17:90b:5626:b0:398:9bd1:3216 with SMTP id 98e67ed59e1d1-3989bd135fcmr31021574a91.23.1788199885347;
-        Mon, 31 Aug 2026 11:11:25 -0700 (PDT)
+         :subject:references:in-reply-to:to:from:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=;
+        b=YGzLMk8mOR8PtUawJqCC3yrNkab+5fopDGUXsMOwvtw0sKU2fYsaMohSvnWffReuGy
+         NA5t2MSBo1xzcudi9TMAJxV8YTaLwVCBs+Jq9vnzajMc5/Y1dv7Kad+9yWYwMAmwmfqZ
+         bNWSm1LcBG65jh5ZYqW/10gxCxxGp3iXY25d+mNdlTJiXlcACu1K4KSlcH7HUkU69ftC
+         tKDU2VlQdOEhnz+0JJEJo4IVjkoDyS0YNSgClJEb4bXHlG/SmIsafjx3hy2sBgAP+ek4
+         Ym2BXDaoEgreNCYhwqCUqOnG8q/j6RfSkBneB2B/Zip8V2siabp+588/h/P481UCFo0U
+         wtGw==
+X-Forwarded-Encrypted: i=1; AKwUvBxd92+KQGoMMxsuBb/YWLFJVv/hLh5cccULrFxoKON527QgS62vcKXX65k2Fr1Lel9ebbJs+Et9OzUWjTdQuOsE@lists.infradead.org
+X-Gm-Message-State: AFuF++kVtBV7D/E+uCX7LQ18N+HoMVbOcoXgT1JTQCOtl3ali1rAEIK9
+	j9XbeoLUiVred4RGjF8UQO0QOAS1hB7gx1QDMShhstk+9oYtgKUfALl2Looicpd5iTw=
+X-Gm-Gg: AYBFou0Ln7huRGlc+Dw+CQKcDI/4OnlCuQSFo375RR06RsSUPybNwioZDbhFtf+lGPU
+	QC70roBQWgdhKUlVpFjMuLODqML0KM6M6Nh5JrWsToRm2CbV+zY5Vdo9MbREN04ERzDow6vJSSN
+	O+tCn7BoR2q4BAzKmBLeFgQgWAIXT6e47Q0Xy3C1qnnOoi/KlrVQxZywiWrR+tXri/ns3SwCLsF
+	AZTqOO2HrktmKSdzdscveXV10H0m/RWgdSw2nler8WVUB54Kg+2mPLIZks4yAVXY/EJINAJ2Cvj
+	gIIlzv3pelauvA/sGaN11wUZkd82RiLZ1UOQ8s7l6RKjNbquv7O+lqqqspb3UOXFgq0b5RPQYPd
+	+yZ2b8cm7z7zUZ9AzyOOqtV00mWeJPEh7+TM5XCwluhDh12mqyyl6JIlSKZeTKat2V7DUy/8gfn
+	XrH0zx0g59thfoV4MzjujBJpGGgzoLV64Z0wzDuJbPqiA2zUxfbhw/pCky7g==
+X-Received: by 2002:a17:90b:4a02:b0:37f:fdc8:71b4 with SMTP id 98e67ed59e1d1-39907ab0960mr2402339a91.2.1788199883302;
+        Mon, 31 Aug 2026 11:11:23 -0700 (PDT)
 Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3990d4ede7csm759296a91.13.2026.08.31.11.11.24
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-398a2f5187fsm5504006a91.1.2026.08.31.11.11.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 11:11:24 -0700 (PDT)
+        Mon, 31 Aug 2026 11:11:22 -0700 (PDT)
 From: Kevin Hilman <khilman@baylibre.com>
-To: Russell King <linux@armlinux.org.uk>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linusw@kernel.org>, 
- Eric Biggers <ebiggers@kernel.org>, Takashi Iwai <tiwai@suse.de>, 
- Kory Maincent <kory.maincent@bootlin.com>, 
- Andreas Kemnade <andreas@kemnade.info>, Sen Wang <sen@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260709203757.2401699-1-sen@ti.com>
-References: <20260709203757.2401699-1-sen@ti.com>
-Subject: Re: [PATCH] arm: multi_v7_defconfig: Enable SND_ALOOP
-Message-Id: <178819988433.2869653.5088764257816495977.b4-ty@b4>
-Date: Mon, 31 Aug 2026 11:11:24 -0700
+To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Enric Balletbo i Serra <eballetbo@gmail.com>, 
+ Javier Martinez Canillas <javier@dowhile0.org>, linux-omap@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260829194003.107677-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260829194003.107677-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] ARM: dts: ti: omap: Replace spaces indentation with
+ tabs
+Message-Id: <178819988246.2869653.4070159664676583942.b4-ty@b4>
+Date: Mon, 31 Aug 2026 11:11:22 -0700
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_111126_483592_C6EEDBE8 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20260831_111124_334765_A4F378AC 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,21 +109,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 09 Jul 2026 15:37:57 -0500, Sen Wang wrote:
-> Enable the generic PCM loopback driver for arm32, matching arm64 defconfig
-> (commit 7235cdd9cc52 ("arm64: defconfig: Enable SND_ALOOP")).
-> 
-> snd-aloop provides a virtual, cross-connected soundcard useful for
-> routing audio between applications, capturing playback on systems
-> without physical audio hardware, and automated audio pipeline
-> validation.
-> 
-> [...]
+On Sat, 29 Aug 2026 21:40:04 +0200, Krzysztof Kozlowski wrote:
+> Replace excessive spaces for aligning indentation into tabs.  This will
+> be reported by dt-style-check ("[mixed-indent-chars] too many space
+> characters in indent (more than 7)").
 
 Applied, thanks!
 
-[1/1] arm: multi_v7_defconfig: Enable SND_ALOOP
-      commit: b45c06f362ee5ce9ef6402fcf57077a740cf1063
+[1/1] ARM: dts: ti: omap: Replace spaces indentation with tabs
+      commit: 973ca75604c81c985224624f685f0365e1ba78bb
 
 Best regards,
 -- 
