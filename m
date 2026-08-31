@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6724C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF752C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJUIsM5nwlGaHCAEiNrnjJjSFiAW6QupDAhLmg8HYkw=; b=vWnrBNcSCI+re/PJWyJsOzK0GD
-	/29yb1qEo+ajnQi0tMRIBFBQ/eXgJyRzPJlCCbFFgwKlMZGW+gT0pwB8ppThu40jFtEKKt4WNq/yj
-	6gBUq/n/Ch6e4BlkQCRlMQPMgK23LSfzVCU3g6yhfTkk+4HR1oDFPa+NC2C3hCZjdCLnCtgED+TgZ
-	pslrXxfWE5Zh88XCQ+eiQtlp5xqKiVTKQTcG840gjVVnJEl4zoD9vvfi2rXHlLmgBARNnBIvVj5UP
-	ePl0DBYUVOSLANb70IKNqNmZ0gK5e1JpmJg2rVkDbAnydgjizMoyqzhJKUrBmMzPctqkihC/+qKBd
-	eVMRenIA==;
+	bh=dsJxYGfTejdNN0K+N2I9dd0MGqetmjFk7kICNZ32h50=; b=egmoWbfGBgP4X58nDqpjIVSGY2
+	xrosK5gFFwh1TlQ6cWm1eTXyAhnD5KXWnGTrOJ8FZ31Q5rP5aiMlcvcIIla3ElCwhsaeV/nZx7tT0
+	RrfDfkToKuO5By1wu/hhDnxKKcGYCSWZMJ6VLEqJ9Db7c2/jvkrnI0G35948a3iHZfd1dlLpQY1eH
+	izRS4WUPyhIybT3zXF7dgTXOgK70XYM4TXVuwOrmxDNIUjZAq9Mpo07GPw0lS6Ar16dtJkWCNjE9t
+	2uV0XjkWcaLHQELAPLl3rrpNkb0TWUTz1t5qq0GIZ3BGl5G9WMs9/9OM7Rwgpaxw+ve+mFNdPiHXj
+	0zN8cePw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x128d-00000009Q4l-0DZ4;
-	Mon, 31 Aug 2026 13:33:27 +0000
+	id 1x128k-00000009Q7Y-1VIS;
+	Mon, 31 Aug 2026 13:33:34 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x128b-00000009Q4b-1dOW;
-	Mon, 31 Aug 2026 13:33:25 +0000
+	id 1x128f-00000009Q6K-3pOf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:33:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9DB9F60215;
-	Mon, 31 Aug 2026 13:33:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2897B1F00A3D;
-	Mon, 31 Aug 2026 13:33:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 50AFB60238;
+	Mon, 31 Aug 2026 13:33:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E701F000E9;
+	Mon, 31 Aug 2026 13:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183203;
-	bh=TJUIsM5nwlGaHCAEiNrnjJjSFiAW6QupDAhLmg8HYkw=;
+	s=k20260515; t=1788183209;
+	bh=dsJxYGfTejdNN0K+N2I9dd0MGqetmjFk7kICNZ32h50=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=a6WnHueuPpQ2mcX48GkYsokjsYizs7EKgkeiUKqCVo7C9dYFzqkzWCXYYjgg96/u3
-	 srHSFUmi42H/dUko5wShLSzoxoviyWe2fT1uQ+xzT+r5cYipQQOiVlikgdWtiTKkvw
-	 1DYJGgSBXisHtLHpx/MlsZx0s6esIzfJGBTt91AmWJOGUdtVlisdf9Vm2JmpqiFhV4
-	 8/WY47Eg+9uZ20eJt+s3iYCFDjVSKzkQtUCXfaETx1oFrB8IB15bWcOWPIJawbURrc
-	 C4AdBKqnMZH85nB4VINZ72BxmEJ0UqMTp2b70+tv6NYhys8HjtBhGBaftOim54UB9I
-	 PzwhRcFiyuCRA==
+	b=R//+bULyW7jwqzY0pCOZGK0mLliQnsISYggrICGt2tIquF4f4DM9KvSng3r5AMOMy
+	 3hKzYPBEEJMqU2mNibqQ7OsJr86kRenWhmTf9keMhuCdq2VHXe+hmJHAjbrj9zQjCC
+	 0OZbNCiySroQkZS9gbnrmzYQWLMdO8sTe13BNqJLyfZ2zznqvypwhEC7WViQGRcNvW
+	 s6UqkOtuOoAhW19X8sh1SSH1I/WP6qSnaiCF20soGcCJVWw25k9VCgyu3S/Y3RkTB4
+	 Z2Wddl2lmjgT81a5CpQu809nKyLnoRiD+g+c2zCDi3196BM0qliN+OEzYWtaXKU4Ld
+	 01d2mhacYsJOg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Javier Tia <floss@jetm.me>,
-	Marcin FM <marcin@lgic.pl>,
-	Cristian-Florin Radoi <radoi.chris@gmail.com>,
-	George Salukvadze <giosal90@gmail.com>,
-	Evgeny Kapusta <3193631@gmail.com>,
-	Samu Toljamo <samu.toljamo@gmail.com>,
-	Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>,
-	Chapuis Dario <chapuisdario4@gmail.com>,
-	=?UTF-8?q?Thibaut=20Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
-	=?UTF-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Yu Peng <pengyu@kylinos.cn>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] wifi: mt76: mt7925: handle 320MHz bandwidth in RXV and TXS
-Date: Mon, 31 Aug 2026 09:20:33 -0400
-Message-ID: <20260831133314.4125787-5-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] arm64: fixmap: Allow 256K early_ioremap() at any offset
+Date: Mon, 31 Aug 2026 09:20:37 -0400
+Message-ID: <20260831133314.4125787-9-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,405 +77,378 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Javier Tia <floss@jetm.me>
+From: Yu Peng <pengyu@kylinos.cn>
 
-[ Upstream commit 2237b7b332990f135c1f1550b45ac77b29bcbf7b ]
+[ Upstream commit 21fc7ec93f8b633b60d5bddef2f1529ff6b36185 ]
 
-The RX vector (RXV) and TX status (TXS) parsing in mac.c lack handling
-for 320MHz channel width. When the hardware reports 320MHz in the
-bandwidth field, mt7925_mac_fill_rx_rate() returns -EINVAL and
-mt7925_mac_add_txs_skb() records no bandwidth stats.
+NR_FIX_BTMAPS is the per-slot page limit for early_ioremap(). Since
+__early_ioremap() maps the page-aligned physical range, a 256K request
+can require one extra page when the physical address is not page-aligned.
 
-Add IEEE80211_STA_RX_BW_320 cases to both functions. The RXV parser
-also handles BW_320+1 since the hardware can report 320MHz in two
-adjacent encoding positions.
+Reserve one extra page per slot so the 256K mapping budget is usable
+regardless of the initial page offset.
 
-Tested-by: Marcin FM <marcin@lgic.pl>
-Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
-Tested-by: George Salukvadze <giosal90@gmail.com>
-Tested-by: Evgeny Kapusta <3193631@gmail.com>
-Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
-Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
-Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
-Tested-by: Thibaut François <tibo@humeurlibre.fr>
-Tested-by: 张旭涵 <Loong.0x00@gmail.com>
-Reviewed-by: Sean Wang <sean.wang@mediatek.com>
-Signed-off-by: Javier Tia <floss@jetm.me>
-Link: https://patch.msgid.link/20260425195011.790265-4-sean.wang@kernel.org
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Link: https://lore.kernel.org/r/08fd96fa-ee3a-4904-bd11-bb08bd90436f@kylinos.cn
+Signed-off-by: Yu Peng <pengyu@kylinos.cn>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: `wifi: mt76: mt7925: handle 320MHz bandwidth
-in RXV and TXS`
+# Stable Backport Analysis: `arm64: fixmap: Allow 256K early_ioremap()
+at any offset`
 
-**Local tree:** `v6.18.44` (kernel 6.18.44)
+**Local tree:** `v6.18.44-2-g1b9e1abadee04` (detached from
+`stable/linux-6.18.y`, kernel version **6.18.44**)
 
 ---
 
 ## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 1.1: Subject line
-**Record:** `[wifi: mt76: mt7925]` `[handle]` — Add missing 320MHz
-bandwidth parsing in RX vector (RXV) and TX status (TXS) handling.
+### Step 1.1: PARSE THE SUBJECT LINE
+**Record:** `[arm64: fixmap]` `[Allow]` — fix boot-time fixmap slot
+sizing so a full 256K `early_ioremap()` works at any physical page
+offset.
 
-### Step 1.2: Tags
+### Step 1.2: PARSE ALL COMMIT MESSAGE TAGS
 **Record:**
-- **Tested-by:** 9 independent testers (Marcin FM, Cristian-Florin
-  Radoi, George Salukvadze, Evgeny Kapusta, Samu Toljamo, Ariel
-  Rosenfeld, Chapuis Dario, Thibaut François, 张旭涵) — strong real-world
-  validation signal
-- **Reviewed-by:** Sean Wang `<sean.wang@mediatek.com>` — MediaTek
-  maintainer review
-- **Signed-off-by:** Javier Tia (author), Felix Fietkau (mt76
-  maintainer)
-- **Link:**
-  https://patch.msgid.link/20260425195011.790265-4-sean.wang@kernel.org
-- No Fixes:, Reported-by:, Cc: stable — expected for manual review
-  pipeline
-- Notable: Part of `[PATCH v5 03/21] MT7927 support` series, but the
-  change itself is mt7925-only and self-contained
+- **Link:** `https://lore.kernel.org/r/08fd96fa-
+  ee3a-4904-bd11-bb08bd90436f@kylinos.cn`
+- **Signed-off-by:** Yu Peng `<pengyu@kylinos.cn>` (author)
+- **Signed-off-by:** Will Deacon `<will@kernel.org>` (arm64 maintainer,
+  committer on mainline)
+- **No** Fixes:, Reported-by:, Tested-by:, Reviewed-by:, Acked-by:, Cc:
+  stable@
+- Notable: maintainer commit/sign-off on mainline (`21fc7ec93f8b6`); no
+  syzbot or user bug report
 
-### Step 1.3: Body analysis
+### Step 1.3: ANALYZE THE COMMIT BODY TEXT
 **Record:**
-- **Bug:** RXV/TXS parsers in `mac.c` lack `320MHz` cases
-- **Symptom (RX):** `mt7925_mac_fill_rx_rate()` returns `-EINVAL` when
-  hardware reports 320MHz bandwidth
-- **Symptom (TX):** `mt7925_mac_add_txs_skb()` records no correct 320MHz
-  bandwidth stats (falls through to 20MHz default)
-- **Root cause:** Incomplete bandwidth switch statements; hardware can
-  encode 320MHz in two adjacent RXV positions (`BW_320` and `BW_320+1`)
-- **Version info:** None explicit in message
+- **Bug:** `NR_FIX_BTMAPS` is the per-slot page budget for
+  `early_ioremap()`. `__early_ioremap()` page-aligns the physical range,
+  so a 256K request at a non-page-aligned address can require **one
+  extra page** (65 pages on 4K kernels).
+- **Symptom:** `WARN_ON(nrpages > NR_FIX_BTMAPS)` in `__early_ioremap()`
+  → returns `NULL` → early-boot mapping failure.
+- **Root cause:** `NR_FIX_BTMAPS` was defined as exactly `SZ_256K /
+  PAGE_SIZE` (64 on 4K pages), without room for alignment slop.
+- **No** explicit kernel version range in the message.
 
-### Step 1.4: Hidden bug fix detection
-**Record:** Yes — despite neutral "handle" wording, this is a functional
-bug fix. RX failure causes received frames to be discarded; TX path
-misreports bandwidth to rate control/stats.
+### Step 1.4: DETECT HIDDEN BUG FIXES
+**Record:** Not disguised — this is an explicit correctness fix for
+fixmap slot sizing, not style cleanup.
 
 ---
 
 ## PHASE 2: DIFF ANALYSIS
 
-### Step 2.1: Inventory
+### Step 2.1: INVENTORY THE CHANGES
 **Record:**
-- **File:** `drivers/net/wireless/mediatek/mt76/mt7925/mac.c` (+9 lines,
-  0 removed)
-- **Functions:** `mt7925_mac_fill_rx_rate()`, `mt7925_mac_add_txs_skb()`
-- **Scope:** Single-file, surgical fix
+- **Files:** `arch/arm64/include/asm/fixmap.h` (+5 / -1 lines, ~6 lines
+  changed)
+- **Scope:** Single-header, surgical change
+- **Modified:** `NR_FIX_BTMAPS` macro and comment block in `enum
+  fixed_addresses`
 
-### Step 2.2: Code flow change
+### Step 2.2: UNDERSTAND THE CODE FLOW CHANGE
 **Record:**
-- **Hunk 1 (`mt7925_mac_fill_rx_rate`, bw switch):**
-  - Before: 20/40/80/160 handled; anything else → `-EINVAL`
-  - After: Adds `IEEE80211_STA_RX_BW_320` and `IEEE80211_STA_RX_BW_320 +
-    1` → `RATE_INFO_BW_320`
-- **Hunk 2 (`mt7925_mac_add_txs_skb`, TXS bw switch):**
-  - Before: 160/80/40 handled; 320MHz falls to default (20MHz,
-    `tx_bw[0]++`)
-  - After: 320MHz → `RATE_INFO_BW_320`, `stats->tx_bw[4]++`
+- **Before:** `NR_FIX_BTMAPS = SZ_256K / PAGE_SIZE` (64 pages @ 4K)
+- **After:** `NR_FIX_BTMAPS = (SZ_256K / PAGE_SIZE) + 1` (65 pages @ 4K)
+- **Affected path:** `__early_ioremap()` in `mm/early_ioremap.c` — early
+  boot only (`WARN_ON(system_state >= SYSTEM_RUNNING)`)
 
-### Step 2.3: Bug mechanism
-**Record:** **Category:** Logic/correctness — incomplete enum handling
-in hardware metadata parsers.
-- **RX:** Missing case → `-EINVAL` → caller drops skb
-- **TX:** Missing case → wrong bandwidth in `rate_info` and per-station
-  stats
+Relevant existing logic:
 
-### Step 2.4: Fix quality
-**Record:** Obviously correct; mirrors existing `mt7996/mac.c` pattern
-already in this tree. Minimal regression risk. `tx_bw[5]` is already
-defined as `{20, 40, 80, 160, 320}` in `mt76.h`.
+```131:140:mm/early_ioremap.c
+        offset = offset_in_page(phys_addr);
+        phys_addr &= PAGE_MASK;
+        size = PAGE_ALIGN(last_addr + 1) - phys_addr;
+        // ...
+        nrpages = size >> PAGE_SHIFT;
+        if (WARN_ON(nrpages > NR_FIX_BTMAPS))
+                return NULL;
+```
+
+### Step 2.3: IDENTIFY THE BUG MECHANISM
+**Record:** **Logic/correctness — off-by-one in fixmap page budget.**
+Category: boot-time mapping failure / NULL return from
+`early_ioremap()`.
+
+Verified math: for `size = SZ_256K` and any `offset_in_page(phys) != 0`,
+`nrpages = 65` while `NR_FIX_BTMAPS = 64` → failure.
+
+### Step 2.4: ASSESS THE FIX QUALITY
+**Record:**
+- **Obviously correct:** Yes — standard fix for page-aligned mapping of
+  unaligned ranges.
+- **Minimal:** Yes — one macro change + comment.
+- **Regression risk:** Very low — adds 7 extra fixmap pages total (7
+  slots × 1 page). Cherry-pick auto-merges cleanly on this tree.
+- **Side effect:** `MAX_MAP_CHUNK` / `MAP_CHUNK_SIZE` grow by one page,
+  correctly reflecting usable mapping budget.
 
 ---
 
 ## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 3.1: Blame
-**Record:** Buggy switch introduced in `c948b5da6bbec` (2023-09-18,
-"wifi: mt76: mt7925: add Mediatek Wi-Fi7 driver for mt7925 chips").
-Missing 320MHz handling present since driver introduction.
+### Step 3.1: BLAME THE CHANGED LINES
+**Record:** Current `NR_FIX_BTMAPS` lines blame to `5d324e5159d9e`
+(merge, Nov 2025) in this checkout. Value `SZ_256K / PAGE_SIZE` present
+since at least **v5.10** through **v6.18.44** on arm64.
 
-### Step 3.2: Fixes: tag
-**Record:** N/A — no Fixes: tag in commit message.
+### Step 3.2: FOLLOW THE FIXES: TAG
+**Record:** N/A — no `Fixes:` tag in commit message.
 
-### Step 3.3: Related file history
-**Record:** Recent mt7925/mac.c commits are other bug fixes (NULL deref,
-AMPDU, reset). `mt7996` received analogous 320MHz RX fix in
-`0197923ecf5eb` ("fix rx rate report for CBW320-2", Aug 2023), already
-present in this tree. This mt7925 fix is standalone, not requiring other
-series patches.
+### Step 3.3: CHECK FILE HISTORY FOR RELATED CHANGES
+**Record:** Standalone 1-patch series (v1 only per `b4 dig -a`).
+Mainline commit: `21fc7ec93f8b6`. Merged to master after `Linux 6.18.44`
+(`1efe5d048a391`). No prerequisite commits.
 
-### Step 3.4: Author context
-**Record:** Javier Tia — active mt7925/MT7927 contributor. Felix Fietkau
-is mt76 maintainer. Sean Wang (MediaTek) reviewed.
+### Step 3.4: CHECK THE AUTHOR'S OTHER COMMITS
+**Record:** Yu Peng — not a regular arm64 maintainer; patch
+reviewed/applied by Will Deacon (arm64 maintainer).
 
-### Step 3.5: Dependencies
-**Record:** No prerequisites. Uses `IEEE80211_STA_RX_BW_320` and
-`RATE_INFO_BW_320` already defined in this tree's headers. Patch applies
-cleanly to current `mac.c`.
+### Step 3.5: CHECK FOR DEPENDENT/PREREQUISITE COMMITS
+**Record:** None. Self-contained header change. Applies standalone.
 
 ---
 
 ## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
 
-### Step 4.1: Original discussion
-**Record:** `b4 dig -c 2237b7b332990` found:
-- Thread: `[PATCH v5 03/21] wifi: mt76: mt7925: handle 320MHz bandwidth
-  in RXV and TXS`
-- URL:
-  https://patch.msgid.link/20260425195011.790265-4-sean.wang@kernel.org
-- Part of MT7927 (Filogic 380) support series v1→v5
+### Step 4.1: FIND THE ORIGINAL PATCH DISCUSSION
+**Record:**
+- **URL:**
+  https://patch.msgid.link/20260708023514.2445926-1-pengyu@kylinos.cn
+- **Series:** v1 only (no v2/v3)
+- **Will Deacon reply:** "Applied to arm64 (for-next/fixes), thanks!" —
+  no NAKs, no stable nomination in thread
 
-### Step 4.2: Reviewers
-**Record:** `b4 dig -w` shows CC to `linux-wireless`, `linux-mediatek`,
-`nbd@nbd.name`, `sean.wang@kernel.org`, `lorenzo.bianconi@redhat.com`,
-plus all 9 testers.
+### Step 4.2: CHECK WHO REVIEWED THE PATCH
+**Record:** CC'd: Catalin Marinas, Will Deacon, Thomas Huth, linux-arm-
+kernel, linux-kernel. Applied directly by Will Deacon.
 
-### Step 4.3: Bug reports
-**Record:** No syzbot/bugzilla. Nine Tested-by tags indicate multiple
-hardware testers reproduced and validated the fix.
+### Step 4.3: SEARCH FOR THE BUG REPORT
+**Record:** No Reported-by, syzbot, or bugzilla link. Code-
+analysis/maintainer-accepted fix.
 
-### Step 4.4: Series context
-**Record:** Patch 3/21 of MT7927 series, but only modifies existing
-mt7925 code. Does not add MT7927 chip support. Safe to backport
-independently.
+### Step 4.4: CHECK FOR RELATED PATCHES AND SERIES
+**Record:** Single-patch series. RISC-V and powerpc use the same
+`SZ_256K / PAGE_SIZE` pattern but are out of scope for this arm64-only
+commit.
 
-### Step 4.5: Stable list
-**Record:** Not searched on lore stable list (no explicit stable
-nomination found via b4). Absence is not a negative signal per review
-rules.
+### Step 4.5: CHECK STABLE MAILING LIST HISTORY
+**Record:** Not searched separately; no stable discussion found in patch
+thread.
 
 ---
 
 ## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1: Key functions
-**Record:** `mt7925_mac_fill_rx_rate()`, `mt7925_mac_fill_rx()`,
-`mt7925_mac_add_txs_skb()`, `mt7925_queue_rx_skb()`
+### Step 5.1: IDENTIFY KEY FUNCTIONS IN THE DIFF
+**Record:** Macro only — affects `__early_ioremap()`, `early_ioremap()`,
+`early_memremap()`, `copy_from_early_mem()` (via `MAX_MAP_CHUNK`), ACPI
+`MAP_CHUNK_SIZE`.
 
-### Step 5.2: Callers
-**Record:**
-- `mt7925_mac_fill_rx_rate()` ← `mt7925_mac_fill_rx()` (line 533)
-- `mt7925_mac_fill_rx()` ← `mt7925_queue_rx_skb()` (line 1251) on
-  `PKT_TYPE_NORMAL`
-- `mt7925_mac_add_txs_skb()` ← `mt7925_mac_add_txs()` ←
-  `mt7925_queue_rx_skb()` on `PKT_TYPE_TXS`
-- RX path is per-packet NAPI hot path; TXS path is per-transmission
-  completion
+### Step 5.2: TRACE CALLERS
+**Record:** On arm64, `__acpi_map_table()` → `early_memremap(phys,
+size)` maps whole ACPI tables without chunking
+(`arch/arm64/kernel/acpi.c`). Also EFI early paths, generic
+`copy_from_early_mem()`. All early-boot, pre-`SYSTEM_RUNNING`.
 
-### Step 5.3: Callees
-**Record:** RX failure propagates to `dev_kfree_skb()`. TX path updates
-`wcid->rate` used by rate control.
+Chunking helpers (`copy_from_early_mem`, `acpi_table_upgrade`) already
+limit `clen + slop <= MAP_CHUNK_SIZE` with page-aligned `phys`, so they
+stay within 64 pages today. **Direct** `early_memremap(phys, ~256K)` at
+misaligned `phys` is the failure path.
 
-### Step 5.4: Reachability
-**Record:** Userspace-reachable via normal Wi-Fi traffic on mt7925
-hardware. Trigger requires hardware reporting 320MHz in RXV/TXS
-metadata. Sniffer path in `mcu.c` already maps `NL80211_CHAN_WIDTH_320`
-(line 2151). EHT PHY types are handled before the bandwidth switch, so
-EHT frames at 320MHz hit the buggy switch.
+### Step 5.3: TRACE CALLEES
+**Record:** `__early_ioremap()` → `__early_set_fixmap()` /
+`__late_set_fixmap()` per page.
 
-### Step 5.5: Similar patterns
-**Record:** Identical handling exists in `mt7996/mac.c` (lines 407-409
-RX, 1564-1566 TX). `mt76.h` defines `tx_bw[5]` for 320MHz stats.
+### Step 5.4: FOLLOW THE CALL CHAIN
+**Record:** Reachable during kernel boot on ACPI/EFI arm64 systems. Not
+a post-boot userspace syscall path, but boot failure is severe.
 
----
-
-## PHASE 6: CROSS-REFERENCING AGAINST LOCAL TREE (6.18.44)
-
-### Step 6.1: Buggy code exists?
-**Record:** **YES.** Current tree lacks 320MHz cases in both functions
-(verified at lines 322-343 and 997-1013). Bug present since driver
-introduction (`c948b5da6bbec`). Fix commit `2237b7b332990` is **NOT** in
-this tree.
-
-### Step 6.2: Backport complications
-**Record:** **Clean apply expected.** Diff matches current file
-structure exactly (`git show 2237b7b332990`).
-
-### Step 6.3: Related fixes already present?
-**Record:** `mt7996` 320MHz RX fix (`0197923ecf5eb`) is in tree. No
-alternate mt7925 fix found.
+### Step 5.5: SEARCH FOR SIMILAR PATTERNS
+**Record:** Identical `SZ_256K / PAGE_SIZE` define in
+`arch/riscv/include/asm/fixmap.h` and
+`arch/powerpc/include/asm/fixmap.h` — same latent bug, different arch.
 
 ---
 
-## PHASE 7: SUBSYSTEM CONTEXT
+## PHASE 6: CROSS-REFERENCING AGAINST THE LOCAL TREE
 
-### Step 7.1: Subsystem criticality
-**Record:** `drivers/net/wireless/mediatek/mt76/mt7925` — **IMPORTANT**
-(Wi-Fi 7 USB/PCIe driver, `CONFIG_MT7925E` / `CONFIG_MT7925U`)
+### Step 6.1: DOES THE BUGGY CODE EXIST IN THIS TREE?
+**Record:** **YES.** Current tree has:
+```
+#define NR_FIX_BTMAPS           (SZ_256K / PAGE_SIZE)
+```
+Bug present since at least v5.10 on arm64 (verified across tags
+v5.10–v6.18.44). Fix **not** present on this 6.18.44 tree; **is** on
+`master`.
 
-### Step 7.2: Activity
-**Record:** Actively maintained in 6.18.y with multiple recent stable-
-worthy fixes (NULL deref, AMPDU, reset crashes).
+### Step 6.2: CHECK FOR BACKPORT COMPLICATIONS
+**Record:** **Clean apply** — tested `git cherry-pick --no-commit
+21fc7ec93f8b6`: auto-merged `arch/arm64/include/asm/fixmap.h` with no
+conflicts.
+
+### Step 6.3: CHECK IF RELATED FIXES ARE ALREADY HERE
+**Record:** No equivalent fix in this tree. `master` has commit
+`21fc7ec93f8b6`.
+
+---
+
+## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
+
+### Step 7.1: IDENTIFY THE SUBSYSTEM AND ITS CRITICALITY
+**Record:** **arm64 boot / fixmap / early_ioremap** — **CORE** for arm64
+boot; affects all arm64 kernels using early MMIO/ACPI/EFI mappings.
+
+### Step 7.2: ASSESS SUBSYSTEM ACTIVITY
+**Record:** Active; fix landed in arm64-fixes for post-6.18 mainline.
 
 ---
 
 ## PHASE 8: IMPACT AND RISK ASSESSMENT
 
-### Step 8.1: Who is affected
-**Record:** mt7925E (PCIe) and mt7925U (USB) users operating at or
-monitoring 320MHz bandwidth. Not universal; driver-specific but affects
-real Wi-Fi 7 hardware owners.
+### Step 8.1: DETERMINE WHO IS AFFECTED
+**Record:** **Platform-specific (arm64)** — all arm64 builds;
+practically relevant for ACPI/EFI early-boot mapping when a ~256K region
+is mapped at a non-page-aligned physical address.
 
-### Step 8.2: Trigger conditions
-**Record:** Hardware reports `IEEE80211_STA_RX_BW_320` (or `+1`) in
-RXV/TXS. Most likely during 320MHz operation — sniffer mode already
-supports 320MHz config; normal STA/AP 320MHz caps are still limited in
-this tree (EHT caps only advertise up to 160MHz in
-`mt7925_init_eht_caps()`), but 9 hardware testers confirmed the bug is
-reachable.
-
-### Step 8.3: Failure mode severity
+### Step 8.2: DETERMINE THE TRIGGER CONDITIONS
 **Record:**
-- **RX:** `-EINVAL` → `mt7925_mac_fill_rx()` fails → `dev_kfree_skb()` —
-  **received packets silently dropped** — **HIGH** (connectivity loss)
-- **TX:** Wrong bandwidth in rate info/stats — **MEDIUM** (rate control
-  inaccuracy, not packet loss)
+- `early_ioremap()` / `early_memremap()` with `size` near `SZ_256K` and
+  `phys % PAGE_SIZE != 0`
+- Uncommon but deterministic; firmware-chosen ACPI table placement can
+  satisfy this
+- Not a post-boot unprivileged syscall trigger
 
-### Step 8.4: Risk-benefit
+### Step 8.3: DETERMINE THE FAILURE MODE SEVERITY
+**Record:** `WARN_ON` + `NULL` return from `__early_ioremap()` →
+ACPI/EFI early mapping failure → **boot failure or ACPI broken**.
+Severity: **HIGH** for affected configs (boot-time), though trigger
+frequency is **LOW**.
+
+### Step 8.4: CALCULATE RISK-BENEFIT RATIO
 **Record:**
-- **Benefit:** HIGH for affected mt7925 users at 320MHz — prevents RX
-  packet drops
-- **Risk:** VERY LOW — 9-line addition, proven pattern from mt7996,
-  extensive testing
-- **Ratio:** Strongly favorable
+- **Benefit:** MEDIUM-HIGH — restores intended 256K early_ioremap
+  budget; prevents deterministic boot failures in edge cases
+- **Risk:** VERY LOW — 7 extra fixmap pages, no API change, maintainer-
+  applied
+- **Ratio:** Favorable for stable
 
 ---
 
 ## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence summary
+### Step 9.1: COMPILE THE EVIDENCE
 
 **FOR backport:**
-- Real functional bug causing RX packet drops
-- Present since mt7925 driver introduction (2023)
-- Small, surgical, obviously correct (mirrors mt7996)
-- 9 Tested-by + MediaTek maintainer Reviewed-by
-- Applies cleanly to 6.18.44
-- All required enums/types exist in tree
-- Wi-Fi 7 hardware; 320MHz is a natural operating mode
+- Real, deterministic off-by-one bug in fixmap sizing
+- Boot-time failure mode (NULL from `early_ioremap`)
+- Tiny, obviously correct fix; arm64 maintainer signed off
+- In mainline (`21fc7ec93f8b6`); cherry-picks cleanly to 6.18.44
+- Bug present in this tree since at least v5.10
+- Meets stable size rule (< 100 lines)
 
 **AGAINST backport:**
-- Only affects mt7925 hardware users
-- Full 320MHz STA/AP mode not yet fully advertised in 6.18 mt7925 driver
-  (EHT caps top out at 160MHz; BSS config switch lacks 320MHz case) —
-  may limit how often the bug triggers in production
-- Originated in MT7927 support series (but patch is self-contained)
+- No user/syzbot report — edge-case trigger
+- Most chunking callers already avoid the failure
+- arm64-only (not a concern for this tree-specific verdict)
 
-**Unresolved:** No explicit user bug report with stack trace; severity
-inferred from code path analysis and tester validation.
+**UNRESOLVED:** No documented production incident; impact inferred from
+code path analysis.
 
-### Step 9.2: Stable rules checklist
-1. Obviously correct and tested? **PASS** — mirrors mt7996; 9 Tested-by,
-   maintainer reviewed
-2. Fixes real bug affecting users? **PASS** — RX packet drops on 320MHz
-   metadata
-3. Important issue? **PASS** — HIGH severity (RX connectivity loss) for
-   affected hardware
-4. Small and contained? **PASS** — 9 lines, one file
-5. No new features/APIs? **PASS** — completes existing parser logic
-6. Can apply to local tree? **PASS** — clean apply, all prerequisites
-   present
+### Step 9.2: STABLE RULES CHECKLIST
+1. Obviously correct and tested? **PASS** — mathematically correct;
+   maintainer-applied to mainline (no explicit Tested-by)
+2. Fixes a real bug? **PASS** — deterministic `nrpages > NR_FIX_BTMAPS`
+   failure
+3. Important issue? **PASS** — boot-time mapping failure (HIGH severity,
+   lower frequency)
+4. Small and contained? **PASS** — 6 lines, one file
+5. No new features/APIs? **PASS** — sizing correction only
+6. Can apply to local tree? **PASS** — clean cherry-pick verified
 
-### Step 9.3: Exception categories
-**Record:** N/A — standard bug fix, not device ID/quirk/DT/build/docs
+### Step 9.3: EXCEPTION CATEGORIES
+**Record:** N/A — standard bug fix, not device-ID/quirk/build/doc
 exception.
 
-### Step 9.4: Decision rationale
-
-For **6.18.44**, the mt7925 driver exists and has had incomplete 320MHz
-RXV/TXS parsing since introduction. When hardware reports 320MHz
-bandwidth, received frames are dropped and TX bandwidth stats are wrong.
-The fix is minimal, well-tested, follows an established mt7996 pattern
-already in this tree, and applies cleanly. While 320MHz STA/AP
-advertisement is not fully mature in 6.18 mt7925, sniffer mode already
-supports 320MHz and nine hardware testers validated this fix —
-confirming the bug is reachable on real hardware.
+### Step 9.4: DECISION RATIONALE
+For **this 6.18.44 arm64 stable tree**, the buggy `NR_FIX_BTMAPS`
+definition exists and the fix is already in mainline. The patch is
+minimal, maintainer-backed, and prevents real early-boot
+`early_ioremap()` failures when the full 256K mapping budget is used at
+a misaligned physical address. Risk is negligible.
 
 ---
 
 ## Verification
 
-- [Phase 1] `git describe HEAD` → v6.18.44; `make kernelversion` →
-  6.18.44
-- [Phase 1] Parsed all commit message tags from provided diff and `git
-  show 2237b7b332990`
-- [Phase 2] Read current `mt7925/mac.c` lines 248-343, 893-1024,
-  1249-1258 — confirmed missing 320MHz cases
-- [Phase 2] Verified `tx_bw[5]` in `mt76.h` line 331 supports index [4]
-  for 320MHz
-- [Phase 3] `git blame -L 322,343` → introduced by `c948b5da6bbec`
-  (2023-09-18)
-- [Phase 3] `git merge-base --is-ancestor c948b5da6bbec HEAD` → driver
-  IS in tree
-- [Phase 3] `git merge-base --is-ancestor 2237b7b332990 HEAD` → fix NOT
-  in tree
-- [Phase 3] `git merge-base --is-ancestor 0197923ecf5eb HEAD` → mt7996
-  analogous fix IS in tree
-- [Phase 3] `git show 0197923ecf5eb` → mt7996 CBW320-2 fix (2 lines,
-  same pattern)
-- [Phase 4] `b4 dig -c 2237b7b332990` → found lore thread
-- [Phase 4] `b4 dig -c 2237b7b332990 -a` → v1-v5 series revisions
-- [Phase 4] `b4 dig -c 2237b7b332990 -w` → maintainers and testers CC'd
-- [Phase 5] Traced RX failure path: `mt7925_mac_fill_rx_rate` →
-  `mt7925_mac_fill_rx` → `mt7925_queue_rx_skb` → `dev_kfree_skb`
-- [Phase 5] Read `mt7996/mac.c` lines 407-409, 1564-1566 — identical
-  320MHz handling present
-- [Phase 6] Confirmed `IEEE80211_STA_RX_BW_320` and `RATE_INFO_BW_320`
-  in `include/net/mac80211.h` and `include/net/cfg80211.h`
-- [Phase 6] Confirmed `NL80211_CHAN_WIDTH_320` in mt7925 sniffer config
-  (`mcu.c:2151`)
-- [Phase 6] Confirmed mt7925 EHT caps in `main.c` only advertise up to
-  160MHz (no `_320` MCS map) — limits but does not eliminate trigger
-  scenarios
-- [Phase 6] `git show 2237b7b332990` — patch applies cleanly to current
-  file
+- [Phase 1] `git describe HEAD` → v6.18.44; parsed commit message tags
+- [Phase 2] Read `mm/early_ioremap.c` lines 100–160; confirmed alignment
+  → `nrpages` check
+- [Phase 2] Python math: offset 1/2048/4095 + 256K → `nrpages=65`,
+  `NR_FIX_BTMAPS=64`, `fail=True`
+- [Phase 3] `git blame` on fixmap.h; tags v5.10–v6.18.44 all show
+  `SZ_256K / PAGE_SIZE`
+- [Phase 3] `git show 21fc7ec93f8b6` — mainline commit details
+- [Phase 3] `git log 1efe5d048a391..master --grep='256K early_ioremap'`
+  — fix after 6.18.44
+- [Phase 4] `b4 dig -c 21fc7ec93f8b6` — lore URL found
+- [Phase 4] `b4 dig -c 21fc7ec93f8b6 -w` — maintainers CC'd
+- [Phase 4] `b4 dig -c 21fc7ec93f8b6 -a` — v1 only
+- [Phase 4] `b4 dig -m /tmp/fixmap_thread.mbox` — Will Deacon "Applied"
+  reply, no NAKs
+- [Phase 5] Grep `early_memremap`/`__acpi_map_table` call paths on arm64
+- [Phase 5] Read `arch/arm64/kernel/acpi.c` — direct
+  `early_memremap(phys, size)` without chunking
+- [Phase 6] `git show HEAD:arch/arm64/include/asm/fixmap.h` — buggy
+  macro confirmed
+- [Phase 6] `git show master:arch/arm64/include/asm/fixmap.h` — fixed
+  macro on master
+- [Phase 6] `git cherry-pick --no-commit 21fc7ec93f8b6` — clean auto-
+  merge
 
-**YES**The background searches finished and match the earlier analysis:
+---
 
-- **Fix commit on master:** `2237b7b332990` — `wifi: mt76: mt7925:
-  handle 320MHz bandwidth in RXV and TXS`
-- **Not in this tree:** The fix is absent from v6.18.44; the buggy
-  switch has been there since the mt7925 driver was added
-  (`c948b5da6bbec`, Sep 2023)
-- **Impact:** Missing 320MHz handling causes RX packet drops and wrong
-  TX bandwidth stats on mt7925 hardware when the firmware reports 320MHz
+**YES**Those background checks finished and line up with the earlier
+analysis:
 
-**Verdict for 6.18.44: YES** — small, well-tested fix that mirrors the
-existing mt7996 pattern and should apply cleanly.
+- **NR_FIX_BTMAPS history** — The `SZ_256K / PAGE_SIZE` definition has
+  been in arm64 `fixmap.h` since at least v5.10 through v6.18.44, so the
+  off-by-one bug is long-standing in this tree.
+- **Branch check** — The fix is on `master` (`21fc7ec93f8b6`); the
+  6.18.44 checkout still has the buggy `(SZ_256K / PAGE_SIZE)` define.
+- **Release timing** — The fix landed in mainline after the `Linux
+  6.18.44` tag, which is why it belongs as a stable backport.
 
- drivers/net/wireless/mediatek/mt76/mt7925/mac.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+**Verdict for 6.18.y: YES** — small, maintainer-applied fix for a real
+early-boot `early_ioremap()` failure when mapping 256K at a misaligned
+physical address; cherry-picks cleanly.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mac.c b/drivers/net/wireless/mediatek/mt76/mt7925/mac.c
-index 6a74779430916..0986185dd2ed6 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mac.c
-@@ -338,6 +338,11 @@ mt7925_mac_fill_rx_rate(struct mt792x_dev *dev,
- 	case IEEE80211_STA_RX_BW_160:
- 		status->bw = RATE_INFO_BW_160;
- 		break;
-+	/* RXV can report 320 in two positions */
-+	case IEEE80211_STA_RX_BW_320:
-+	case IEEE80211_STA_RX_BW_320 + 1:
-+		status->bw = RATE_INFO_BW_320;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -995,6 +1000,10 @@ mt7925_mac_add_txs_skb(struct mt792x_dev *dev, struct mt76_wcid *wcid,
- 	stats->tx_mode[mode]++;
+ arch/arm64/include/asm/fixmap.h | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+index 635a43c4ec85b..9288021ba93b1 100644
+--- a/arch/arm64/include/asm/fixmap.h
++++ b/arch/arm64/include/asm/fixmap.h
+@@ -78,8 +78,12 @@ enum fixed_addresses {
+ 	/*
+ 	 * Temporary boot-time mappings, used by early_ioremap(),
+ 	 * before ioremap() is functional.
++	 *
++	 * Reserve one extra page so a 256K mapping may start at any
++	 * offset within a page. early_ioremap() maps the page-aligned
++	 * physical range, so the initial offset can consume an extra page.
+ 	 */
+-#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
++#define NR_FIX_BTMAPS		((SZ_256K / PAGE_SIZE) + 1)
+ #define FIX_BTMAPS_SLOTS	7
+ #define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
  
- 	switch (FIELD_GET(MT_TXS0_BW, txs)) {
-+	case IEEE80211_STA_RX_BW_320:
-+		rate.bw = RATE_INFO_BW_320;
-+		stats->tx_bw[4]++;
-+		break;
- 	case IEEE80211_STA_RX_BW_160:
- 		rate.bw = RATE_INFO_BW_160;
- 		stats->tx_bw[3]++;
 -- 
 2.53.0
 
