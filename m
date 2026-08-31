@@ -4,138 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF623C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 21:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAECC61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 21:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8sOevd0NXgJVoo3vkTRl31qiiCQ4gC3DmE05MtMPehg=; b=XE/BSfQ+G+LG9XAQxNabny1GAB
-	g0Tb38zaLbgAXR2psK2fd++ms9j9DEJm2v6a+m4TmCPwjb8F0d87CDw0NBvHyTtIdzzYpZFr+xoDE
-	mK3vcJQtpXiCpukv855pGOD1x9AekHOqJ5Eo9k7nteR5l3pNr0q/BIT6F6mqoCDYUTVBExzOO7Df2
-	F1ZUuvoEwDxJeoAFNjP0x9ecjDcQYjuqp03TEJOmvZPj6hvlk+lMmnFNxMCKLhJEBjUMp3Thdg7Ry
-	WKq/MUrDgQGaYM689Nq5ypjaoFXaHzzNl5T2zxmk0hv4PdXCG8hj8cYgo+jNlWVgJF4bMakYpqgjJ
-	7iwRZELg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E4N2Z9Nu76llWCIDOn2i9yQBrPhlyiZyTva3R2V2uoo=; b=PFLYcX3cd01AFu/2HnQuW+ylJc
+	rmrx3mfCiBN7M1ZMH6Ye3f3mDls4eM7f0vk5vl3Tw0nFaVOyq283fsACLwtM/YR/S/yy7fYMki+gh
+	7MIEiOZDkwUkUw+W4kdorlx2iFe3NGZP2uHxCHEEN2b8E7UvTnL7RCIC0dNQBIY1bGCHdD3pD0q+6
+	9hb1sWy6bXYJL5Ek3gsdocKXRrwy8NNtsnZdX0/6pKt0sv/1Uh4TNu3C5RjN6hME6SniO3c3EYHz2
+	GCq1yV7Q8k1xwb+xIXIGVmRmSsV7Femzi/5/dPAaFbm74SkVRlszO9K2DjoTCjiO6uWxDRFerHiH+
+	I3AepqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x19nQ-0000000AYId-2BTM;
-	Mon, 31 Aug 2026 21:44:04 +0000
-Received: from mail-westusazon11012063.outbound.protection.outlook.com ([52.101.43.63] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1x19qm-0000000AYYr-3msk;
+	Mon, 31 Aug 2026 21:47:32 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x19nN-0000000AYIG-3iGJ
+	id 1x19qj-0000000AYXn-2CiG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 21:44:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HCeKotGPQN39++VzHtpqsKdiExbSBDZWob4MevldcrgfReoT5vmPpCP8Aw9bcwhrLPTAZZNCjcg1IcXijpBTNOEJ/brankJ30CWmEP5N8yadgyGN8AcnI3+zSzEzWQTtAAvIa4ltVomts8l567m0xOCzVPoTaXcGEiUcApRyeTMOdTATzRcXaKtac4IZDWu60OMRPY1zuTamcEqpByxah5ks1yOihSS3n9DPDt4A8MoJ2aAnFnyjUyupfSq+u/mQSEG54gEYgCb9Q/TsRhoD33uK0aG9rrCQX+X6arvWDgThEHuQa1zG0WveuqrlNG1ep2D/4hUWS1qDkv2mVlpQ7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8sOevd0NXgJVoo3vkTRl31qiiCQ4gC3DmE05MtMPehg=;
- b=hgGHBbI4D7y84XUY93MS+dvQnFKwLCg+Dc3ff6CzUnP7qABYcw2HLtomRJTU2l2+pvBu+aDqg6Fzb/k+ez56uzQTMFourNw0YZ8+YjE9yHxCJBTluxtZefvBrA3R3TJUKBkOVH9fdXRYnVkho9AIUTYaVrhqg7VNNXDUID9mIeQqNf3UpUrmOTzQEbYslGlbr6PJ64Zq6pFEFyEWwKVltC1F2XhuedwUyO62E5LIwthrmeL+Y+GeUgoWnBlXif556RLkZ9WEccKw6XaQH9xDvruw+aaAvR/G0B4IvES2nM0QfXSat8PhYhfxd5vDhkTHHp4xaptlyuPX8GqyfP6iVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8sOevd0NXgJVoo3vkTRl31qiiCQ4gC3DmE05MtMPehg=;
- b=BQX6Xr/VxFWbr1KtI6r9C23ZNCdKHEo2Iko1sTjtYAa0c7jSCm+czoJWJAApHHJ+Xu7b++AW77lRgLeKeMsAr1hjaxej6U5eTf630lmyWhBw4gon4pKXlitEWixuhrMjj2S4uQKil/Xh5Em1gl+X0n4o5DQ4AUOYFshHU3E7IMVNlgI1P7RlR6sZdwVteKeS2XeZ8E4/52WKVKNkvlH4NqQj0btukfIYd8JN82phcSFkB+LAVtcGUUoBh6s6OR5yJlcfOkxa96eaThMTSZw0UbZ6KMxYsD9NCVv7Jc3f/9faVPiIkY8vap0gLEXcucPJ1z2Y4almO5uU+0BFWFbmdg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by DS0PR12MB999081.namprd12.prod.outlook.com (2603:10b6:8:2ff::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 21:43:54 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 21:43:53 +0000
-Date: Mon, 31 Aug 2026 23:43:43 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Christian Loehle <christian.loehle@arm.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
- cores
-Message-ID: <apX1j6srdTcFLZOd@gpd4>
-References: <20260831181800.1668646-1-arighi@nvidia.com>
- <20260831181800.1668646-2-arighi@nvidia.com>
- <f5d625d0-3b94-407c-8f64-793df9590f03@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f5d625d0-3b94-407c-8f64-793df9590f03@arm.com>
-X-ClientProxiedBy: MI1P293CA0005.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:290:2::12) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Mon, 31 Aug 2026 21:47:30 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3a20dec69f9so31418901fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 14:47:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788212847; x=1788817647; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=E4N2Z9Nu76llWCIDOn2i9yQBrPhlyiZyTva3R2V2uoo=;
+        b=YbnM32K+Ba3v+G09T/Ptp0K+GGT9ysV9HhYfzq4uEDrcp+cHRFzNvOPXJ4U5qJ0Dq5
+         f9IV6PWrsqFv7mnt512c8e/LMLeDzJZEqVAUah8rSWKVrPjHKpljONviABhUaAv/e1jM
+         MlwZDgxrOTP0CYaU1hYMs4d/CQjV5K/1T5e5M3P/tcAmb3FJYksfMLCrT/MixRfBZSuN
+         2TR7m5xlmaPXhZc1WS5k3058z8/FTp6eOUcsfCSxRUesiI4+Ypwv9bsor95+Af9X7zgP
+         3EuxQ7ePZDRPs+5IwnYJFh3akiZj9wZUVuUUt2RKLaPHICp2aNrs2oKn9qacvqOLWTWO
+         9szA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788212847; x=1788817647;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=E4N2Z9Nu76llWCIDOn2i9yQBrPhlyiZyTva3R2V2uoo=;
+        b=mHyguDBp1/zt0OxNM52kVX/PL7U77yj85ISRFtdgKaKUvW6lTH7zTqkzLv9smrrU3q
+         OChB+omjCjhxORWYqkXD70ppnZuwvTkWzy77w83GFD3oOYX2TTKF6eLdf4Ujam73CiIM
+         UxF13lwYT50YPo5AuQiC1c1zirlw2VtlxIAS27ij0dPEYIztycwVOF/VHaOo+YLY6YM4
+         yKF5U3xryH+5f9m7/JBMGPg9ZevvBNaXx7aYGjc+TCfEammhLu1J7l4AbLUJnZ6jG300
+         v+mY/3QshDFvW7qQ+O86afHGziipLuw070dPK6CXbNhUG3qOzLc2Fi6mKec342AAbvGK
+         OCjQ==
+X-Forwarded-Encrypted: i=1; AKwUvBycRgxT6OV8pgN6NCt+ULg9cqNoIMvJIo6f0YpcvdUjt9LuqVzqs1whwxEuqeErfwryboupI3phTwOURs8GRcrE@lists.infradead.org
+X-Gm-Message-State: AFuF++nfBi2cVBZs8ol2R/UwNSX9zcbWWTL8O+8jb+rfMfBhuS6j+CVZ
+	G6OKc2crpGBYDHGDRpzZnDwhSC2/yP1ia6hrD8h/AOXwUFl/g5V702o=
+X-Gm-Gg: AYBFou2w0cN6GMygfKuxmlMNBJwFcw4w1SDTlUtjsOH0uEuna/o5zrioQEBjVFv+OKm
+	Iv9gdIfz7hUjx1XXigdi8rvBh3n8ErRFBQQEAt9X8ShYAO5Kqq+/YjhLoYOZrKsnBWcxOYjceXQ
+	Bhnh5DrUFaG/jTSwiJFEwJPKpunEfMN5pXDMVP6xfmS7wft6icsKrXMQXYERBqp3GZVPJ9VsmOn
+	u8rbBhzvI4oRpzlG7do+uUBFlHsBTe4GplAOVRfO60C2c//ozcF5M5jA4hG69KjKl8aCy/M+qb3
+	Qc/6JnIIUJ6thpeRrEfIEx1UbeTZK95I08NonfIaJTBkJo2NQCumsglKCC6xJzJcN8SSNlHdKNO
+	qk+F21yfzGXFX0+vQn/40tt71cqdNT1S88xAVIXhBem6D+JdeYRydz+wuWmLdf8B73o8NcehQQu
+	JoxtIQMrkl2SVajFykKJiVbmX+m7jCqv2tkRRsqISYT3EqgvAksf+cfAlUkKQJ
+X-Received: by 2002:a05:651c:b23:b0:3a3:314:8c8a with SMTP id 38308e7fff4ca-3a3031499camr62394581fa.14.1788212846426;
+        Mon, 31 Aug 2026 14:47:26 -0700 (PDT)
+Received: from fedora ([92.36.9.2])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a31550cefbsm18299201fa.9.2026.08.31.14.47.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 14:47:26 -0700 (PDT)
+From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	netdev@vger.kernel.org
+Cc: upstream@airoha.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Vitaliy Sochnev <sochnev.v.74@gmail.com>
+Subject: [PATCH net v2 0/3] net: airoha: fix silent RX loss on the shared CPU ring
+Date: Tue,  1 Sep 2026 00:46:58 +0100
+Message-ID: <20260831234701.206021-1-sochnev.v.74@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260830095717.37218-1-sochnev.v.74@gmail.com>
+References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|DS0PR12MB999081:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff232d0e-c9dd-4bd3-4305-08df07a8f3bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|56012099006|10067099003|5023799004|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Pvln9wp0ySXHNekDgdjjQlNLtEITGvLfZnal+CRCsdyn4k5PlPDXUnSg1dWNR5CVloOxVxQIhpU5SipRx1tPraZX+lbr/HTtQFKWXmJhb0YYG7tirpeYgPVfXCZ1mXHDv/tOvOkO1ex7G3LkCv48tLlGSat1zb7MXKHaqohpLQF+eSMVlSEQJmpRvKCHvSaky9HRMpqwtE6qnA74e7ptDnunt4dJ4zPnexjpe0vMainqNjpUVTLyPEQlPGhTYJpGW1XFwYUBixWjq9tLPsWn46adnfAgByuQ5L7rQSyymPB3e54O6haccxUiBouEXuyd8CoQLjC4Ys6FTeZVYsFEVhzEXrYLHNtSGkWbH2qZSBNMMqhEYiAR47743QxvwhiLIT+k2Jb0En452dhfolLAVbmKelKkwg/VXoHAHGyFKnBnWUcJIEw0JrkBUCMrN3+4m3Rc5JXRQhOdh4PE2rdYIeT8r/Y5PAK/LRS0UBj8GTrP4lGM//g22tWbSW6Smy3VhKoWVPefCF7DXvHaa08qDr2QinalSWqxyd8BkKcWmsM1UBxQp9o0Ug0cxSqebrjAzzbdPda01me05Q2flc+na9euZzsFafTnWTggk10rhjHnU5yF0JCcCbf96cOaBZxUE3Kux0GC+1J3Ni0llcIw6FnlvLzQJbVFphCcWHa2MR8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(56012099006)(10067099003)(5023799004)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CAZeKHtYsy0CQ8ldutYB2+Bvar3nC+3hWRvpGRx0LoILAK0FermgyQTJgXYu?=
- =?us-ascii?Q?DlzLIWJrVZdgQ0dxNa+EJKF3uNWBM6A2wJ7TsaBDn9vC0nj8dNQUBKAdYErq?=
- =?us-ascii?Q?dJdfonoYN1ayWalbv9aBHyqSZE1URrhkUO8kPusUG46sP6Cp2bhMr0jaWS3D?=
- =?us-ascii?Q?hOdVgsRaBU2KUWNJM0eXa45WXi/3QBUxDkJs3HMitnGUUTJTevYO5bRuoimK?=
- =?us-ascii?Q?mBI7h9yVAIFIgmGBmUpeIFYcaFiGnZdfmXEFfO12gHgNp65XANnkLymFpleG?=
- =?us-ascii?Q?5EQE5BBtZotmhqCxDhyv6YXz9HfPGxGbtU4Khw2wLAWQYGW862kwxavzVUH6?=
- =?us-ascii?Q?BiCiA61lCmgjvTMxsP29Bj6DGyiPIHjzTa8bEBHrXEZaHlNIg4wc4hzc1hPB?=
- =?us-ascii?Q?cl2d5eGcu4auXFjsSxG8xtLcekoofMtX1YsS/6YOBxgBxlx13l2cieJOp6UU?=
- =?us-ascii?Q?pHU1VE7wSmgmOZvdfwRFLcttt1ckvXvciIrc1wDI530uoqGEzsI/eDfj8nBg?=
- =?us-ascii?Q?FD5IW0eeLiGP+cdDZnWhP+969Fe0TEpzYn4SgI+Fdf9ygCf4V5vPxEI7uUwo?=
- =?us-ascii?Q?YJvD6p38KZE8eo49vbGlHQWp0a75t+fgOlnq1C74xETzu8prqTgPz7R3vsCd?=
- =?us-ascii?Q?zrdRSD8nDzOah1mF8Mmap1bPza/COMygzlRN2PrVEQ1W9IICobVDR3Ab/qbr?=
- =?us-ascii?Q?TgbLRy3ndoktftMxQYHQ1ME6g1KWZOs0HJ0JHAtL4evc9PdoMQZ+10j1RRWv?=
- =?us-ascii?Q?7LpJW7n/WHemEzW11PbSMx+N3MvkB5nAwKpjEFXKFJGkwunVRzrxqKx+k/go?=
- =?us-ascii?Q?0slH6k/w4Pgvt7ivcDKROLy95KPLK7Z5UKAsjr+B6B4S6JQo/6M8VBKB/Fpq?=
- =?us-ascii?Q?3qeQBaildIUkZuqZi/+NORHLAb5mUzMSDwhoYqs7fXC9lgnwQe8StqwZbfWP?=
- =?us-ascii?Q?c7mcNji3Hn1LDI2+Pgju8shgoTHiATCjKXM4dRtzMYqhfLYYu5n6P8Hz9Jjy?=
- =?us-ascii?Q?LGCYQcjM2+Pu1aLP3Obd3jCVvIazq3+kLAv4e5LbLNUnr16eV8q1xJz7f74+?=
- =?us-ascii?Q?FIobCE0kPPsWCZt9pILE71CC9cj46ad4gBYA/BDlRjKnpp3qonmBApCqJUbl?=
- =?us-ascii?Q?+mgrV6Hzan8Shg8eezCp6MUZmivh/lPEG3wF30sycJePLGGwhOaV+qDxIjOy?=
- =?us-ascii?Q?0j6NMhkDQJSZ1ckMa1rH+5EfZs0RSMgqmC4W7CGf67d7SiQk74abrViGAO0h?=
- =?us-ascii?Q?mx8GH0/tivKzHpiSz0D4Ds7ew/xdw0GJOP2tQc8pnZAiZQazO/XGG2PwzJDy?=
- =?us-ascii?Q?rAOC9ISAJAAs1ckWtxcIXJG1/+eqEvdHe4rAKYhLsaWhd/RK1AmDwopcfmXF?=
- =?us-ascii?Q?aZLc/KNKEx3hlWqHmQROSI6UsqItSsfZo0PaTeXDgqByI5j35f7m72Rqf5tJ?=
- =?us-ascii?Q?GfVwNy+TyOa6U74uq9cU29p+5R+vccvmKGYd90N7RSYDKzvy/DDjQmY2GYft?=
- =?us-ascii?Q?mfMoyGUhXug7Y8hRFA5yJzwOx8ml+2yEPxXcNjCzgZOe6L4egRZEg0rNEZTQ?=
- =?us-ascii?Q?Gv8sKPHDSpfwPh0mEFv4B3rUsNe0l+OjDh6myAXPOrF5BdfJBSnP3+TFGbXl?=
- =?us-ascii?Q?osgx327f2DTlCLCqNX9cvQOZiepMf5SDI8dw1oi4ngk2SMiW6m23wARK56aw?=
- =?us-ascii?Q?LWXB2gGNKhIPATve0FIc4PbpNpR0bgJuoETdD2HoonNgAzX4H7u7x5T2w1Uf?=
- =?us-ascii?Q?+SDGYAK7Lw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff232d0e-c9dd-4bd3-4305-08df07a8f3bf
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 21:43:53.6911
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cMIpYamJ3PgeGlbvEgtDX6DWjScDOa1iPujv2X0wwnpEr62/gD3aai7O+Z9YKpyBxrPKhCuMJv/Hw4jBXiIZkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB999081
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_144401_933921_F984A7C4 
-X-CRM114-Status: GOOD (  40.65  )
+X-CRM114-CacheID: sfid-20260831_144729_579109_62F61F5F 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,196 +107,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+All three target net. v1 split them across net/net-next; with the ring
+size now shown to be load bearing, they belong together.
 
-On Mon, Aug 31, 2026 at 10:13:42PM +0100, Christian Loehle wrote:
-> On 8/31/26 19:10, Andrea Righi wrote:
-> > NVIDIA Olympus implements spatial SMT with symmetric steady-state PE
-> > capacity but two different resource modes. One-Thread Active mode gives
-> > one PE the full core, while waking the other PE restores Two-Thread
-> > Active mode and partitions decode, issue, cache, TLB, and vector
-> > resources. Returning to full-resource mode requires the sibling to
-> > remain in WFI for 10 Ki cycles.
-> > 
-> > Measurements show that pinned workloads perform equally on either PE,
-> > but freely migratable workloads lose substantial throughput when they
-> > alternate between PE identities. Consistently selecting PE0 keeps PE1
-> > idle, avoids repeated SMT repartitioning, and restores one-thread-per-core
-> > performance.
-> > 
-> > Describe this scheduling preference with SD_ASYM_PACKING and give PE0,
-> > identified by MPIDR_EL1.Aff0, the higher arch_asym_cpu_priority(). This is
-> > independent of SD_ASYM_CPUCAPACITY: SMT siblings retain equal capacity,
-> > while physical cores with different maximum frequencies are handled by
-> > a higher scheduling domain.
-> 
-> But why? This asympacking + CAS interaction is a bit hard to comprehend IMV.
+Answers to the v1 review:
 
-The two mehcanisms describe different preferences at different scheduling domain
-levels: SD_ASYM_CPUCAPACITY selects among physical cores with different max
-capacities, SD_ASYM_PACKING is set only on the SMT domain and selects the
-canonical PE within the core chose by the existing placement and capacity logic.
+- "fill_rx_queue() overwrites the DONE bit written by hw" - no. I
+  implemented that check anyway (bail out in fill_rx_queue(), clear the
+  bit in rx_process()) and it never fired once, while the ring was
+  demonstrably stalled: the descriptor at q->head never had
+  QDMA_DESC_DONE_MASK set, so there was nothing to catch. Worse,
+  clearing desc->ctrl outright also wipes QDMA_DESC_LEN_MASK, which
+  fill_rx_queue() writes as the buffer size and hw reads back - RX then
+  delivers poisoned pages. That version is dropped.
 
-> Why can't we encode both preferences in the asym-packing priority, e.g.
-> 
-> priority(cpu) = is_primary(cpu) ? 2 * highest_perf(cpu)
->                                 : highest_perf(cpu)
-> 
-> so that all primary PEs are preferred over all sibling PEs, while still
-> preserving the highest_perf ordering within each group, and do away with
-> SD_ASYM_CPUCAPACITY on Vera altogether?
+- "have you tried to just increase the queue size" - yes, and that is
+  the fix. Ring 4 at 16 stalls roughly every 35 s under repeated PPPoE
+  dial-up and negotiation never completes; at 128 nothing triggered
+  across 500 forced reconnects over 20 h. Patch 3.
 
-I can experiment with this combined priority, but I think removing
-SD_ASYM_CPUCAPACITY is a separate policy change rather than an alternative
-implementation of this fix.
+- "is QDMA_DESC_DROP_MASK set when the issue occurs" - no, never, for
+  the whole duration of the stall.
 
-A static asym-packing priority does not preserve the capacity-aware semantics
-used for task fitting, uclamp, misfit handling and migration. The current
-approach keeps those semantics when selecting a physical core, then applies the
-PE preference only within that core.
+- default RX_DSCP_NUM raised 16 -> 32 per the vendor SDK, as asked.
 
-Also, encoding the combined priority alone would not fix the problem addressed
-by patch 2: the idle-selection paths currently do not consult asymmetric SMT
-priority. They can still return an arbitrary idle sibling regardless of how
-arch_asym_cpu_priority() is defined. Patch 2 adds that missing behavior and
-scopes it to the shared-capacity SMT domain.
+- recovery pause measured at 986-1131 us over 13 events, against the
+  50 ms read_poll_timeout() ceiling.
 
-> I had suggested this a while ago, did you have a stab at that by any chance,
-> too?
+- style: RCT, verbose comments gone, and the !q->ndesc check dropped -
+  the bit is only set from rx_process(), which cannot run on a ring
+  without descriptors.
 
-I tested your CPPC-based asym-packing series, but not this particular
-combined-priority variant. IIUC the earlier proposal was replacing
-capacity-aware scheduling for minor physical-core capacity differences, SMT
-sibling ordering looks like an orthogonal problem.
+One cost worth flagging: the detector adds an uncached REG_RX_DMA_IDX
+read to every rx_process() call that ends on a non-DONE descriptor. airoha_qdma_rx_napi_poll() loops while the last
+pass reaped anything, so that is once or twice per NAPI poll, on every
+ring, not just the one that can stall. Gating it on the previous poll
+having reaped nothing would keep it off busy rings and only delays
+detection by about one poll, since q->tail is frozen from the moment
+the stall begins. I left it ungated as I have no profiling either way -
+happy to add the gate if you prefer it.
 
-And at the time, the combined SMT-aware SD_ASYM_CPUCAPACITY approach also gave
-the best Vera results of the alternatives I tested, which is another reason I
-kept physical-core capacity selection separate here.
+A question for the airoha folks: during the stall REG_RX_DMA_IDX keeps advancing while
+REG_RX_CPU_IDX stays put and the consumer never sees another DONE. Is
+there a documented condition under which hw stops writing completions
+back to a ring, or a constraint on RX_CPU_IDX that the driver is
+violating by leaving one descriptor unposted?
 
-> Am I missing something altogether?
+The rx_stall_recover ethtool counter from v1 is dropped here - new ABI
+does not belong in a fix - and will follow for net-next.
 
-Combining the priorities is a valid experiment, but I'm not sure if it
-completely solves the problem by itself, I'll give it a try and share the
-results.
+Tested on Nokia XG-040G-MF (AN7583) on a live PPPoE line, in both
+configurations: as sent, and with stock ring sizes so the recovery path
+actually executes.
 
-Thanks,
--Andrea
+Vitaliy Sochnev (3):
+  net: airoha: handle RX_NO_CPU_DSCP interrupt, not just RX_DONE
+  net: airoha: recover RX ring after hw completion stall
+  net: airoha: grow the small RX rings
 
-> 
-> > 
-> > Firmware currently provides no interface for describing the preferred
-> > SMT sibling. Detect Olympus by MIDR until such an interface is available.
-> > 
-> > Signed-off-by: Andrea Righi <arighi@nvidia.com>
-> > ---
-> >  arch/arm64/include/asm/topology.h |  1 +
-> >  arch/arm64/kernel/smp.c           |  1 +
-> >  arch/arm64/kernel/topology.c      | 62 +++++++++++++++++++++++++++++++
-> >  3 files changed, 64 insertions(+)
-> > > 
-> > diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-> > index b9eaf4ad70850..edc1c59b3448d 100644
-> > --- a/arch/arm64/include/asm/topology.h
-> > +++ b/arch/arm64/include/asm/topology.h
-> > @@ -18,6 +18,7 @@ int pcibus_to_node(struct pci_bus *bus);
-> >  #include <linux/arch_topology.h>
-> >  
-> >  void update_freq_counters_refs(void);
-> > +void arm64_init_sched_topology(void);
-> >  
-> >  /* Replace task scheduler's default frequency-invariant accounting */
-> >  #define arch_scale_freq_tick topology_scale_freq_tick
-> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > index a61dc3016a117..0135ac4eea8bd 100644
-> > --- a/arch/arm64/kernel/smp.c
-> > +++ b/arch/arm64/kernel/smp.c
-> > @@ -443,6 +443,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
-> >  	hyp_mode_check();
-> >  	setup_system_features();
-> >  	setup_user_features();
-> > +	arm64_init_sched_topology();
-> >  	mark_linear_text_alias_ro();
-> >  }
-> >  
-> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> > index d28438f8b83f1..0dd9eec1c4946 100644
-> > --- a/arch/arm64/kernel/topology.c
-> > +++ b/arch/arm64/kernel/topology.c
-> > @@ -19,6 +19,8 @@
-> >  #include <linux/init.h>
-> >  #include <linux/percpu.h>
-> >  #include <linux/sched/isolation.h>
-> > +#include <linux/sched/topology.h>
-> > +#include <linux/smp.h>
-> >  #include <linux/xarray.h>
-> >  
-> >  #include <asm/cpu.h>
-> > @@ -44,6 +46,66 @@
-> >  static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
-> >  static cpumask_var_t amu_fie_cpus;
-> >  
-> > +/*
-> > + * Switching the active PE on an NVIDIA Olympus SMT core can keep the core in
-> > + * two-thread active mode, with resources partitioned between the PEs.
-> > + *
-> > + * Prefer PE0 so PE1 can remain idle and the core can stay in full-resource
-> > + * mode. Firmware does not currently describe this preference, so detect
-> > + * Olympus by MIDR until a firmware interface is available.
-> > + */
-> > +static bool olympus_prefer_pe0 __ro_after_init;
-> > +
-> > +#ifdef CONFIG_SCHED_SMT
-> > +static int arm64_smt_flags(void)
-> > +{
-> > +	int flags = cpu_smt_flags();
-> > +
-> > +	if (olympus_prefer_pe0)
-> > +		flags |= SD_ASYM_PACKING;
-> > +
-> > +	return flags;
-> > +}
-> > +#endif
-> > +
-> > +static struct sched_domain_topology_level arm64_asym_smt_topology[] = {
-> > +#ifdef CONFIG_SCHED_SMT
-> > +	SDTL_INIT(tl_smt_mask, arm64_smt_flags, SMT),
-> > +#endif
-> > +#ifdef CONFIG_SCHED_CLUSTER
-> > +	SDTL_INIT(tl_cls_mask, cpu_cluster_flags, CLS),
-> > +#endif
-> > +#ifdef CONFIG_SCHED_MC
-> > +	SDTL_INIT(tl_mc_mask, cpu_core_flags, MC),
-> > +#endif
-> > +	SDTL_INIT(tl_pkg_mask, NULL, PKG),
-> > +	{ NULL, },
-> > +};
-> > +
-> > +void __init arm64_init_sched_topology(void)
-> > +{
-> > +	if (!IS_ENABLED(CONFIG_SCHED_SMT))
-> > +		return;
-> > +
-> > +	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
-> > +		return;
-> > +
-> > +	if (!topology_core_has_smt(smp_processor_id()))
-> > +		return;
-> > +
-> > +	olympus_prefer_pe0 = true;
-> > +	set_sched_topology(arm64_asym_smt_topology);
-> > +	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
-> > +}
-> > +
-> > +int arch_asym_cpu_priority(int cpu)
-> > +{
-> > +	if (!olympus_prefer_pe0)
-> > +		return 0;
-> > +
-> > +	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
-> > +}
-> > +
-> >  struct amu_cntr_sample {
-> >  	u64		arch_const_cycles_prev;
-> >  	u64		arch_core_cycles_prev;
-> 
+ drivers/net/ethernet/airoha/airoha_eth.c  | 114 ++++++++++++++++++++--
+ drivers/net/ethernet/airoha/airoha_eth.h  |  11 ++-
+ drivers/net/ethernet/airoha/airoha_regs.h |   2 +
+ 3 files changed, 120 insertions(+), 7 deletions(-)
+
+-- 
+2.55.0
+
 
