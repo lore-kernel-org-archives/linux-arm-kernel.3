@@ -4,87 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C92C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C05C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXfeL69njth1gQEctlUblNfdQfmto+YptObUfIhDkjM=; b=TiTFWT/Q0oHp+0gRaTRly0+vK6
-	3/e98nOVOxt334+MURlijrJLoXZaMqZ3VUeH81+n6JfzuL7GwziKiE58sfAXPylwGUqAwp5zuVqRi
-	ski6SKcUGhcdxTpO5Qo5ELzetuRWVaTlVM2fUDAItgg2RG4qJuElu9enVB3BHZZ66jY4pPyZkhclt
-	bV1fQc/Z3hU2GTI6ImEgfoB2RLcCQf7i/q5RoJUjvhLMPgHoiK1mAXmD0EhJFAeTEC01G1iBUgp20
-	MF0wvR48ubIqaGMiHLwYCxi8VpK/SltXvR547ZXY8Y4H/Ryi0NeLWk+6KFHDzoBK2xi6lG5Nzs+8Z
-	ABzyhOYg==;
+	bh=we6kX8c1jEEVMpkRDJZRm/0sdajbfwMgVnriyN7aRk0=; b=BhBLCQvlq+bp5sIPLcErYyUskB
+	y7mrItvHUEhV364Qx4Ofwe5poqbBLoPooGq+t6Sz5xLkQaRYxcWtxA+kmpJyfleGVBu4GSihTgzaw
+	4i07GuQGhXYHGm364FHHc2SBNxnpot9+PAeYwKxPKx+8CXAFvEwqhLr0hDuF/N11dO644o/7Voouf
+	apTKkJlzFtGs5k3UzMSt/jRepiC5952AxPE5kFFkQeJgSI995yYtxIuAYiLu7Nuek6+lMioCLSK9T
+	cCFubXhICN7HzkYR88+cE5+GEaznVsKFAWlZk9JK5oqQAFUvYsr3Xl7Mt1wpVw8m4iuzQ1f2SRV5k
+	RA431+zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0zp5-000000099OT-3tbX;
-	Mon, 31 Aug 2026 11:05:07 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1x10Fg-00000009B0a-1TdZ;
+	Mon, 31 Aug 2026 11:32:36 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0zp3-000000099Nt-1i6K;
-	Mon, 31 Aug 2026 11:05:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788174306; x=1819710306;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YPMj4lSvftoy2mPSE2BoRYZKbnYiULh2Q6DhbTrJd2Y=;
-  b=R/ZXyGK1Zdch0boXaQyMzwCdxJuMYDJ6fXPsnVbAUmBmwt/Edy7L4oTI
-   snieILtod4eM30UuI2vSXIz4e/HlpNyHjlS93VKX0P//LdkmCayArf3x3
-   RA6Vc0DQlMB3wyuRNLWQYp6yA7dQuhn5Q29Fb2k/XJqMcNkZjUY0xEb/w
-   R16St3Huw4QjLi8VHuW7x/QMMc+gtqMYvVLSaJlmY/pLgBLihHLELetpH
-   o3mgs31x0zY2dXcOadC4ZG1BLOtG8wur80L6kz/fPkJfvNKzWvE7GC39J
-   nJdL2Gckv+mIj6dcxrk0rzw6Fe2pz26JhLJZzyMwQQw78E6W1Pla2c0ur
-   A==;
-X-CSE-ConnectionGUID: kv8PxsyXQwOvXZzn9YIivQ==
-X-CSE-MsgGUID: wc41faTXROuXIXg3h4oOOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11891"; a="88431701"
-X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
-   d="scan'208";a="88431701"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 04:05:03 -0700
-X-CSE-ConnectionGUID: 7zOKNvibTQCwcwcmNeMpVA==
-X-CSE-MsgGUID: v38GUscTSeeAtaGg45E8sQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
-   d="scan'208";a="292272041"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa002.fm.intel.com with ESMTP; 31 Aug 2026 04:04:58 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id F058E99; Mon, 31 Aug 2026 13:04:56 +0200 (CEST)
-Date: Mon, 31 Aug 2026 13:04:56 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Marek Vasut <marex@nabladev.com>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Pankaj Dev <pankaj.dev@st.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH 06/16] usb: typec: add FUSB340 SuperSpeed switch driver
-Message-ID: <apVf2GL-r0Cm8Q53@black.igk.intel.com>
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-6-c5e27cbc0795@foss.st.com>
+	id 1x10Fb-00000009B0D-3di2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 11:32:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W2ocbrv3HcR5WODGP6/vzj9uSz+SVIdfNxLY7e61MHx7pl6i7M6gMW+muXrFkNwNRaoOU3VNyCq6gGwn3e2y4DJQZldDjQcaxjLwmCOLImLAAnO6ZdycPXzoiUOvxn9WhyZuHe7lm8MImp8Map3ZAAVQy+ezvLO88V3S6vPLplxMeCwrUH9UMORYLyAafVENavCBMmPgah/IDEdNN1JhJSMdb3dZ2zu3YDnUrBhUVnm5qP3aFg72Pbx3WhMzAuw+D0DSLvcHthtP97UKicVVVqmZiyYc6078IJ9IKnaV3pQnyJsekK8RLYgyTjl0cR/zcqlAffmHIQdY1GkVBaGxSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=we6kX8c1jEEVMpkRDJZRm/0sdajbfwMgVnriyN7aRk0=;
+ b=XeqE9bIUFffe7OGciRdhx9SNMzPqs8/bbQEUsfygxkjViWccFnqBrMRhwfKMs0K/se2O6MRCp5+p8NV0fJTsekeaudfihf3Pzs36NhqSGBsvt4zXBkTOqTX1ztvPRYeAMRAbfrl9r4q7V4j82Uqw0X9SII3AMPaqJQs32eoC2mt5An8EuWz9LExnzVdc5TDPP5Bofg9EYbfOp47wEqyGwtGZ+Ti7cE/kDbTZnZHT/Dyf7tWQCwUosZPwoy08dlY/2uonhC0mffT/dxwueqONYCSRyLku/0+2yOYn/zsAs9ujQmMJ+1eAjfdcdArlUVcoPUHKM3qFsAkK1J7C9/5L+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=we6kX8c1jEEVMpkRDJZRm/0sdajbfwMgVnriyN7aRk0=;
+ b=XPp5/ar3ZZaGA1g4JXgvkI/ouPH81naJTg11nWnyM2/kAwhKOZeR78SivQzJsbjWPbstSD15SxR2P6DUw0VISss8fsDPfFC4Yc4gOH6NtcEbBZEew/YjgqNrvEVLD6A71SYzoOxKVaHkJydqUEkwTRBDMyZXDQQviaxZo93bIb4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB9475.namprd12.prod.outlook.com (2603:10b6:8:251::6) by
+ DS2PR12MB9799.namprd12.prod.outlook.com (2603:10b6:8:270::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.13; Mon, 31 Aug 2026 11:32:13 +0000
+Received: from DS7PR12MB9475.namprd12.prod.outlook.com
+ ([fe80::4371:c924:8800:2587]) by DS7PR12MB9475.namprd12.prod.outlook.com
+ ([fe80::4371:c924:8800:2587%6]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 11:32:13 +0000
+Message-ID: <53e214e8-2199-430e-8dd6-da56a91f541f@amd.com>
+Date: Mon, 31 Aug 2026 17:02:07 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] irqchip: Add Xilinx Versal NET SMMU CSR interrupt
+ controller driver
+From: Tushar Nimkar <tunimkar@amd.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+ Tushar Nimkar <tushar.nimkar@amd.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Michal Simek <michal.simek@amd.com>,
+ "Sarangi, Anirudha" <anirudha.sarangi@amd.com>, git@amd.com
+References: <20260817105251.1557770-1-tushar.nimkar@amd.com>
+ <87ik55kirt.ffs@fw13> <41587817-c7dd-4fb2-aad7-772f85dedd6d@amd.com>
+Content-Language: en-US
+In-Reply-To: <41587817-c7dd-4fb2-aad7-772f85dedd6d@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0030.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:b8::17) To DS7PR12MB9475.namprd12.prod.outlook.com
+ (2603:10b6:8:251::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-6-c5e27cbc0795@foss.st.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9475:EE_|DS2PR12MB9799:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95ef2734-821d-4c59-412a-08df07538081
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: 3sRcOEHrI6uRaKRZitjxSvSRC5QnrLJ8QDSyliugRIgjsHGMjckFh/mxclhAETsHhFjZfcSulmfO3kSoFomX8hbQ9oEVEZmc5WqctBkr9UOavDpM1nzEonjUFDo5u5tBRWe2Dn3/nWYenoMAGaPu57ajGury28wx6pY4WIjOcGNrgZM2k9TK3DXtC7ppXpxXxS+CXulEtRJQEEr7mMRh9z+IvVo9b2FhYtaHM/H3b+/X7zou9kH82ju40P5zbBMkIlki72kvHT6yRs4htdj9kgfnVTSLQJ1HHzFI1hPAM4i/a/4Z3Y67YYJ6ItpUlY2OXXHCTiHdkR+WFYQHU4OEiiYGoa+BiE9DO4vPKUW2zZSo9wiRI1Cq5nhgT5x6RGlEOtN+iWHyKWEI/UhbIF9CI+D62zw+QVyr0jOLlVwWxioxwkVfxh0poKhmjNtMM7U6xJcAbwEwbi30dnXtqc+pR7/POOM/VXH463E0letNg4SD9nbxBnFgI7TDN6kOA9H/tu16y6IzpJyaf8XLt1AkjHFgX9dqLs0/HTCx/VGImbr48sRELfpfj4WMCvhfRZMj1J20JX+byOPA5chkSgdk7AE2ZJzRP+iyb6YnpdnxK2d1PHzaSL0If2U5QTA5e8GlpjraNClk5h6xckwrQe4uoNy4X/qMENAy0enoKKc5Lk4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9475.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVRXU1VVS29GMTNrdjA5WDJNMUxKZHIyR0hQcmQ2SndWNlJNNmxaNnRBb3Qr?=
+ =?utf-8?B?clhIcVplVHIwTkFzOUM5MHB0a2E0aFNWcnVJcjNkUGhSMks5L1Zmd1BqZ3pv?=
+ =?utf-8?B?UTdPU3JMS3V1VTd0QkNWcDJVSSt3RUhWUDBuSjRPa2VMbHZ1OWY4TVZRVEJC?=
+ =?utf-8?B?eTlobGhCbjNqYW1sR29DQWR1RFViUEtpbW55S0NYTGN1eWllTVAxTldFSVhR?=
+ =?utf-8?B?SHMwbHhZTHR4YlRadmFXeXhCMzdLQXpMVVVWaHVDZURvOTVUUVBzMVRZYUx1?=
+ =?utf-8?B?ZGhLMTNRWGMwZW5jZWhIZEVnYkFYRjZPcVVvSi9JVkFWMnEyTk5MSGlSMVl3?=
+ =?utf-8?B?NGFvcHRGL012a2k4bFN3L3FDQlZtK0U2VDFxVmFsY0x6UXo5aXFWQ0hGNHM0?=
+ =?utf-8?B?eEloMzB0MWNzcXVoTWFHZUwxMUd3ZmFXZk44ZVNCT2IxT2V0dWtmRXdBTnBu?=
+ =?utf-8?B?ckpuY3VnYzZKQVF4aHk2d25WcEhLUjBpMFVaZjIwWDlNTmgzR2pOU1BKdEND?=
+ =?utf-8?B?cVhsK2JOTWQ3N1dzRW5wenp1OXNXZUxML1pyRThiay8wcENDZWsza053UUJE?=
+ =?utf-8?B?eXRjc3dpSjVWSHVGeTFBS09laXprYk1tNVZjZnovMjZubVh0YmpsbCs3L3lr?=
+ =?utf-8?B?ZXZWaHkxN0F0dW1nMXQ2Wks4RkR3UDdmbERlZjhtUlRuM0RtZTVEamRFcW0x?=
+ =?utf-8?B?QW5UeUl4d0Fic2hPWWJwRnVIdHE2Mlhoby9HWkxDd1hWSjI3czBuS3VlWVpj?=
+ =?utf-8?B?WjZicjdiZXIvRzhoOEhpUnZ0NXhBM2tuMTRPeG54aXVQRFJTdFU5SW1SMUJj?=
+ =?utf-8?B?L1ZJTm1WMEVnSktRWThLZmJRNGwzL2pnTm9MajhOTzFWWUZoelJRTlpsL1cz?=
+ =?utf-8?B?Rkt1ZnQxd1ZHbHg4N2huL3ZQOTBvRTNOMzkwVnZQb3YxQXhYaTBReEUwMHlJ?=
+ =?utf-8?B?MWVNRFlCL1phcFJEdWk0ZGRINnBpcFhLaitST253UnIzT0ppNy9tWThOSTl4?=
+ =?utf-8?B?eXJQaksrb3FRSlNPMDZSOXJURnNIRGIybmpucFZQZDhuS3M1MkVDdzNIQ0xj?=
+ =?utf-8?B?SlFyWGphR2tUQjRETFd1L0FvR0kyU1gwZ2VqK0RzR1BrNUJnR2N3Tkp5d3Vz?=
+ =?utf-8?B?cnR5b0JMa3p1ZVRvaE9wTldyOWIySUU3Ti9YWnY2dGRydDd3dGxUNnN0WWtY?=
+ =?utf-8?B?WVpWUG8yZkZhdU1XRTFqQTJFeXdjNVRDK240dzNTd2N4SHFHL2pNNEFnS0Nl?=
+ =?utf-8?B?RmFGaEtZeHR0bDV1SjE1aEt4Y2hNdS9OTFdOWFJDYllUaXU4bnhZRzBHbHlQ?=
+ =?utf-8?B?RG04ZUYxNExHTEloRlVQeUkwa2l0OEVNUkhzQlZkblRCRkNkbkZ0eUxBZWt4?=
+ =?utf-8?B?M0M4Qm9mUWV4eFZjV1pFZ0NKOUVhVUVYcnQ3OTl3SjdDWm83YTBYckkwcjhL?=
+ =?utf-8?B?TmUyNlQzSXRGbjlSK21uSVRjVE4wTmxtRGxRYVlHUlN6VVhsOXFpb0N3aVp5?=
+ =?utf-8?B?Y003VVhqb1NXdnBCZFBOSmd1YTBoL1B3MlpHZDlSUXpTNzNCbTU3cm5YYWwr?=
+ =?utf-8?B?RCtRTXIvTXVqVEFXeXpMdHdjUmIxR3RBR0NHMHZkSXRzR3F6SmN1VTU5TjM3?=
+ =?utf-8?B?cS9zTi9VaVhGejQwSnBwSERYNWVFOWdmQjlqaWhhOFlJR1FJdlQxWXJsL0Na?=
+ =?utf-8?B?b3RFaVVqV3ZHa2NoVmc3MVpTSDhYdDR3bVhZY05hVUZ5VE1DRk13blNLMkFn?=
+ =?utf-8?B?a3hTK2pYNTd6diswdjZqUU5nSi9jWmc5VnVZaEkwM0RjZHlTVVhzendlOUU0?=
+ =?utf-8?B?ZXdiQjVaY0J2bi9vOU1oV0N2bmlWOU1lSGxKYUdHaWlmMGRZa3gyQ2h5RG9X?=
+ =?utf-8?B?djZLR3lHOWdpckFlbFJ4V09LNmJqS1lLR0ZHZVF2NTVCVGlsQnpDMW1TK2U1?=
+ =?utf-8?B?RjNmMVNtcjRJMW9wMjhPUmhlSkVrU0cwYVVvbmJoYlAwb0lGN1FwK0pDR3BX?=
+ =?utf-8?B?NjgweGVuV0dSbG1wWU5aelBwOXBDVjlNSSsxV0ZURGR1MVRETVhKTXZ2ZWMv?=
+ =?utf-8?B?dzh5aFo3bHFmZUtkaWZvRm1wbzBYUUE5a0JtL2tuNkZQRXdCOUdYVHEvNVAw?=
+ =?utf-8?B?dVdSMTJMTGhpS0tBemF6R1BaWEpSMUxzVGc2K1lkbEpaSDFtR2gxUjBFcXY3?=
+ =?utf-8?B?anZ3Y0lBcXM3c2NsSUZoNlRKdS8rTXBaNU8zYzdJTTIwNjFRSWp2aGZqbTdS?=
+ =?utf-8?B?M2ZzS2EySVNLWGxEa0RKMmJIOXRHenVuWWltaitVMjRpWnp6TTFNTTkxY1dy?=
+ =?utf-8?B?RmloM09abDFrbWVhcHRObmowNmorNE5NTXhlN0FwU1dKNUpPT0hCZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95ef2734-821d-4c59-412a-08df07538081
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9475.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 11:32:13.2881
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q0r/h85EMZc7DcDP+sjEAaiR252pJBeB1IM6Yp2J48tKlkDLcVaT5UW7Des/FguT/aEN0YNFeAT7GoeF0PUlGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9799
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_040505_522694_1F800C61 
-X-CRM114-Status: GOOD (  31.49  )
+X-CRM114-CacheID: sfid-20260831_043231_918073_49C6F124 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,235 +149,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 06:23:17PM +0200, Fabrice Gasnier wrote:
-> Add a platform driver for the ON Semiconductor FUSB340 SuperSpeed switch.
-> The driver uses enable-gpios and select-gpios to control the switch and
-> registers Type-C switch and mux providers for Type-C applications where a
-> reversible cable requires a switch.
-> 
-> Assisted-by: GitHub-Copilot:GPT-5.4-mini
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
->  drivers/usb/typec/mux/Kconfig   |   8 ++
->  drivers/usb/typec/mux/Makefile  |   1 +
->  drivers/usb/typec/mux/fusb340.c | 169 ++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 178 insertions(+)
+Hi Thomas,
 
-> diff --git a/drivers/usb/typec/mux/Kconfig b/drivers/usb/typec/mux/Kconfig
-> index 6dd8f961b593..6a1da48a2a8f 100644
-> --- a/drivers/usb/typec/mux/Kconfig
-> +++ b/drivers/usb/typec/mux/Kconfig
-> @@ -12,6 +12,14 @@ config TYPEC_MUX_FSA4480
->  	  common USB Type-C connector.
->  	  If compiled as a module, the module will be named fsa4480.
->  
-> +config TYPEC_MUX_FUSB340
-> +	tristate "ON Semi FUSB340 SuperSpeed switch driver"
-> +	help
-> +	  Driver for the ON Semiconductor FUSB340 SuperSpeed switch, which
-> +	  provides support for routing SuperSpeed pairs in Type-C applications
-> +	  where a reversible cable requires a switch.
-> +	  If compiled as a module, the module will be named fusb340.
-> +
->  config TYPEC_MUX_GPIO_SBU
->  	tristate "Generic GPIO based SBU mux for USB Type-C applications"
->  	help
-
-Why can't you just use MUX_GPIO_SBU (sorry if I've missed something)?
+>>> +{
+>>> +     struct xilinx_smmu_csr *csr;
+>>> +     int ret;
+>>> +
+>>> +     if (WARN_ON_ONCE(!parent))
+>>> +             return -EINVAL;
+>>> +
+>>> +     if (irq_find_matching_fwnode(of_fwnode_handle(node),
+>>> +                                  DOMAIN_BUS_ANY))
+>>> +             return -ENODEV;
+>>> +
+>>> +     csr = kzalloc(sizeof(*csr), GFP_KERNEL);
+>> devm_kzalloc()
+> okay
+>>
+>>> +     if (!csr)
+>>> +             return -ENOMEM;
+>>> +
+>>> +     raw_spin_lock_init(&csr->lock);
+>>> +
+>>> +     csr->base = of_iomap(node, 0);
+>> devm_of_iomap()
+> okay
+>>
+I realized later and thought to get a clarification on 
+devm_kzalloc()/devm_of_iomap() -  both need a struct device *, but this 
+driver registers via IRQCHIP_DECLARE, so xilinx_smmu_csr_init() is 
+called from of_irq_init() during early boot — there's no bound struct 
+device at that point. AFAIK - If I get device from 
+of_find_device_by_node() it might return NULL since of_irq_init() time 
+the platform bus isn't populated yet.
+So I think we should keep using kzalloc()/of_iomap() -  what do you think?
 
 Thanks,
+Tushar Nimkar
 
-> diff --git a/drivers/usb/typec/mux/Makefile b/drivers/usb/typec/mux/Makefile
-> index b4f599eb5053..ef8d2b05ff7f 100644
-> --- a/drivers/usb/typec/mux/Makefile
-> +++ b/drivers/usb/typec/mux/Makefile
-> @@ -1,6 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  
->  obj-$(CONFIG_TYPEC_MUX_FSA4480)		+= fsa4480.o
-> +obj-$(CONFIG_TYPEC_MUX_FUSB340)		+= fusb340.o
->  obj-$(CONFIG_TYPEC_MUX_GPIO_SBU)	+= gpio-sbu-mux.o
->  obj-$(CONFIG_TYPEC_MUX_PI3USB30532)	+= pi3usb30532.o
->  obj-$(CONFIG_TYPEC_MUX_INTEL_PMC)	+= intel_pmc_mux.o
-> diff --git a/drivers/usb/typec/mux/fusb340.c b/drivers/usb/typec/mux/fusb340.c
-> new file mode 100644
-> index 000000000000..0f0e45743784
-> --- /dev/null
-> +++ b/drivers/usb/typec/mux/fusb340.c
-> @@ -0,0 +1,169 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * ON Semiconductor FUSB340 SuperSpeed switch driver
-> + *
-> + * Copyright (C) 2026 STMicroelectronics
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/usb/typec_altmode.h>
-> +#include <linux/usb/typec_mux.h>
-> +
-> +struct fusb340 {
-> +	struct gpio_desc *enable_gpio;
-> +	struct gpio_desc *select_gpio;
-> +	struct mutex lock; /* serialize orientation and mode updates */
-> +	struct typec_switch_dev *sw;
-> +	struct typec_mux_dev *mux;
-> +	enum typec_orientation orientation;
-> +	unsigned long mode;
-> +};
-> +
-> +static void fusb340_update_locked(struct fusb340 *fusb)
-> +{
-> +	bool enable = fusb->mode == TYPEC_STATE_USB &&
-> +		      fusb->orientation != TYPEC_ORIENTATION_NONE;
-> +	bool select = fusb->orientation == TYPEC_ORIENTATION_REVERSE;
-> +
-> +	gpiod_set_value_cansleep(fusb->enable_gpio, enable);
-> +	gpiod_set_value_cansleep(fusb->select_gpio, select);
-> +}
-> +
-> +static int fusb340_switch_set(struct typec_switch_dev *sw,
-> +			      enum typec_orientation orientation)
-> +{
-> +	struct fusb340 *fusb = typec_switch_get_drvdata(sw);
-> +
-> +	mutex_lock(&fusb->lock);
-> +
-> +	if (fusb->orientation != orientation) {
-> +		fusb->orientation = orientation;
-> +		fusb340_update_locked(fusb);
-> +	}
-> +
-> +	mutex_unlock(&fusb->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static int fusb340_mux_set(struct typec_mux_dev *mux,
-> +			   struct typec_mux_state *state)
-> +{
-> +	struct fusb340 *fusb = typec_mux_get_drvdata(mux);
-> +	int ret = 0;
-> +
-> +	mutex_lock(&fusb->lock);
-> +
-> +	if (state->mode != TYPEC_STATE_SAFE && state->mode != TYPEC_STATE_USB) {
-> +		ret = -EOPNOTSUPP;
-> +		goto out_unlock;
-> +	}
-> +
-> +	if (fusb->mode != state->mode) {
-> +		fusb->mode = state->mode;
-> +		fusb340_update_locked(fusb);
-> +	}
-> +
-> +out_unlock:
-> +	mutex_unlock(&fusb->lock);
-> +
-> +	return ret;
-> +}
-> +
-> +static int fusb340_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct typec_switch_desc sw_desc = { };
-> +	struct typec_mux_desc mux_desc = { };
-> +	struct fusb340 *fusb;
-> +	int ret;
-> +
-> +	fusb = devm_kzalloc(dev, sizeof(*fusb), GFP_KERNEL);
-> +	if (!fusb)
-> +		return -ENOMEM;
-> +
-> +	fusb->orientation = TYPEC_ORIENTATION_NONE;
-> +	fusb->mode = TYPEC_STATE_SAFE;
-> +
-> +	fusb->enable_gpio = devm_gpiod_get(dev, "enable", GPIOD_OUT_LOW);
-> +	if (IS_ERR(fusb->enable_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(fusb->enable_gpio),
-> +				     "failed to get enable gpio\n");
-> +
-> +	fusb->select_gpio = devm_gpiod_get(dev, "select", GPIOD_OUT_LOW);
-> +	if (IS_ERR(fusb->select_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(fusb->select_gpio),
-> +				     "failed to get select gpio\n");
-> +
-> +	mutex_init(&fusb->lock);
-> +
-> +	sw_desc.drvdata = fusb;
-> +	sw_desc.fwnode = dev_fwnode(dev);
-> +	sw_desc.set = fusb340_switch_set;
-> +
-> +	fusb->sw = typec_switch_register(dev, &sw_desc);
-> +	if (IS_ERR(fusb->sw)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(fusb->sw),
-> +				    "failed to register typec switch\n");
-> +		goto err_mutex_destroy;
-> +	}
-> +
-> +	mux_desc.drvdata = fusb;
-> +	mux_desc.fwnode = dev_fwnode(dev);
-> +	mux_desc.set = fusb340_mux_set;
-> +
-> +	fusb->mux = typec_mux_register(dev, &mux_desc);
-> +	if (IS_ERR(fusb->mux)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(fusb->mux),
-> +				    "failed to register typec mux\n");
-> +		goto err_unregister_switch;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, fusb);
-> +
-> +	return 0;
-> +
-> +err_unregister_switch:
-> +	typec_switch_unregister(fusb->sw);
-> +err_mutex_destroy:
-> +	mutex_destroy(&fusb->lock);
-> +	return ret;
-> +}
-> +
-> +static void fusb340_remove(struct platform_device *pdev)
-> +{
-> +	struct fusb340 *fusb = platform_get_drvdata(pdev);
-> +
-> +	gpiod_set_value_cansleep(fusb->enable_gpio, 0);
-> +	gpiod_set_value_cansleep(fusb->select_gpio, 0);
-> +
-> +	typec_mux_unregister(fusb->mux);
-> +	typec_switch_unregister(fusb->sw);
-> +	mutex_destroy(&fusb->lock);
-> +}
-> +
-> +static const struct of_device_id fusb340_of_match[] = {
-> +	{ .compatible = "onnn,fusb340" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, fusb340_of_match);
-> +
-> +static struct platform_driver fusb340_driver = {
-> +	.probe = fusb340_probe,
-> +	.remove = fusb340_remove,
-> +	.driver = {
-> +		.name = "fusb340",
-> +		.of_match_table = fusb340_of_match,
-> +	},
-> +};
-> +module_platform_driver(fusb340_driver);
-> +
-> +MODULE_DESCRIPTION("ON Semiconductor FUSB340 SuperSpeed switch driver");
-> +MODULE_AUTHOR("Fabrice Gasnier <fabrice.gasnier@foss.st.com>");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.43.0
 
--- 
-heikki
 
