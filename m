@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E216C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C92C61DE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 11:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDQLGo2eBys2v5fSX9hMlquDuFbTQ/zAGUSHKc6b0N4=; b=0tRocYFBY6054BfVBwCXlnxfNn
-	TSJTDLrRUuxFURQLdYk2QVaNBDaC8dtoai3XwQedPNJ9N/F2pKzT9DLZoTd87bHqF83W3BXboyqzN
-	yTllT9L+pObGw6kSp3/Bc4MjRex4O2QnIrOcWG5UZ/vu7ZZ0tRhSISe9LR8JnzaOh3eaXMAmINBnx
-	Dt2An9eXISV8F/Ay393QKCQKyYF6Q0CzrHZIy86sPkSgvXLQvMH9uiXVdWb/s2nOpIkG3MQMtx5OX
-	2r4oaEAIpUdRg6/ZwU5hiA7hyRZm2meT58xTingvK3VUqHDF10fJqFtwki91aPl39clyvLUnNLFBq
-	LUArKqYQ==;
+	bh=qXfeL69njth1gQEctlUblNfdQfmto+YptObUfIhDkjM=; b=TiTFWT/Q0oHp+0gRaTRly0+vK6
+	3/e98nOVOxt334+MURlijrJLoXZaMqZ3VUeH81+n6JfzuL7GwziKiE58sfAXPylwGUqAwp5zuVqRi
+	ski6SKcUGhcdxTpO5Qo5ELzetuRWVaTlVM2fUDAItgg2RG4qJuElu9enVB3BHZZ66jY4pPyZkhclt
+	bV1fQc/Z3hU2GTI6ImEgfoB2RLcCQf7i/q5RoJUjvhLMPgHoiK1mAXmD0EhJFAeTEC01G1iBUgp20
+	MF0wvR48ubIqaGMiHLwYCxi8VpK/SltXvR547ZXY8Y4H/Ryi0NeLWk+6KFHDzoBK2xi6lG5Nzs+8Z
+	ABzyhOYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0zkq-0000000998b-1bIi;
-	Mon, 31 Aug 2026 11:00:44 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1x0zp5-000000099OT-3tbX;
+	Mon, 31 Aug 2026 11:05:07 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0zkn-00000009985-2FX9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 11:00:42 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5b4aff8e8c4so2761150e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 04:00:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788174039; x=1788778839; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SDQLGo2eBys2v5fSX9hMlquDuFbTQ/zAGUSHKc6b0N4=;
-        b=o4gXJ0vv4zDH3QnLRBruK7s3OObziFdSYNzr7e2wsRDHpbTF/Zaz2wfp74+y9BmAb5
-         P0Rg/xvd9KWTYXicIjszC6zmT+uD/W9HBWbtRIBc+kCOCWQp19NVkbwWxVAUxmbrY9db
-         eFIsGt6JHDJ8rnlY/KuEoHpAnlcg191VxMEkEmu0dVi6jle+BnSNP3D84ovU4pRpYNDH
-         UzIXD5j+F+UpAZe+4jjwxCg9795h08h3LawDXY6gFWOsyL3ToMB1peQvnQxy1vszDynp
-         1dhzrHkutasYVeh6EDk0556NUAxkX2wmTF41tR1xY8JQ27h/Tkbx59HCwGbhoPAwuVxq
-         Sh8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788174039; x=1788778839;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SDQLGo2eBys2v5fSX9hMlquDuFbTQ/zAGUSHKc6b0N4=;
-        b=fL4W1U9hGCdENDT8KE9hEJwiHFWafeCth0fp063IdPiOaS7Wih99pv38q9m9B2cy41
-         nkhIsK807JehlW20NNiAeUk5bZAHz+Qla6oAYafMMTDDk1qucHySCuI8Z/NWZn4UQCEV
-         EM3Y3u3nv6RotQuxOyLciU2kIt0ZW8eWzhdwaeV6lQZ2qy2MLtRSBHI//eqsNDL+KZZn
-         3U1Jj9C1m+NKhLT6yhrxj2GX1Ko4pfVidz6kz2MaiaJHv/Y0IX3OTcporwANBV7EQqRA
-         ZbU4l5bD6G7bQz9ZqIQs2B8g177jncN39IlH4Gd29BxsS+fIEaX52vs1/SvVVfXnGb8V
-         gblQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwPhZOjppFNPdJfoI4nV0b1sQ4C24XH0ru3KKqRx7ftCFqfFs/tIJtEHGMPuEX92D8FoydgnBmsZEZnQAVh80lS@lists.infradead.org
-X-Gm-Message-State: AFuF++mP8xoPbz76p069+zk5h73FianBfmQXg7OxVM4K8C8drpYYshb9
-	jCtb2kP4Xjed99NUboAzZOxyxFiMUJCpMw7awTcKp7L0FoFdhuiPiqvR
-X-Gm-Gg: AYBFou3AxLxMj8j6NBP2hJG0LQVf0H6N0OjoEs7o5wWKRwtwmwavI8VF9JwQmKZ7ejx
-	/an2EX17Wj1xh2h55Kg0+n+BnOQY8a63c4GjcFGebFZwyIVvbM3rUmpr7zogxS4Rbnd6ItCEqqv
-	SWpIKZN8Qw1Je6VhrASFCxB1XmIUtvWWY9WARi0DAIRBxLSMEjujQsvkAMKtbSbeT8fGyt+eaXg
-	HJyXDDRWDI4Aw2O1tGYkA5ye2rJi3F+9uMI4mgm4a/CObnN+SDcUeD0H9xYiAmU3Nsr25bSJ92z
-	n50zkN6hK6ZybyYo+LUzmYseBv6LA4w6wpFlcoqcNaRzU5/4hbY4l5sUrn47d4/QDw3qKZ/mh9z
-	KcOqqA9QnHM25fVg3twzPF7zGEe3LXPWhkiCsyYduwhcGb31zsIiBF0dulF3YH5OamuJ4DNjYRr
-	E1YFr5p5Us19EHWEGxc+IL+GOIZ8bT2uH5vOau6hm7DzFKpsLYUubJWRGFfMohX46HxQ3racSs0
-	PhNs6+rTJmgzOmMrL4gOMFFMyip0YuiWbwVrGAybtMqY8i85bMWrR3Z1OCIlpOpxYP/q8NcmVt8
-	htpHSDDojgiSOm8douwfiiWbg3Xtg91MLlgy+9oyAs20Za0SJxv7CypZJYrkzs910W2BzN/1scA
-	=
-X-Received: by 2002:a05:6512:2355:b0:5b5:f946:513c with SMTP id 2adb3069b0e04-5b5f94653e5mr1425845e87.17.1788174038781;
-        Mon, 31 Aug 2026 04:00:38 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl (dynamic-2a02-3100-acb9-0201-68d0-34d2-ad1a-175a.310.pool.telefonica.de. [2a02:3100:acb9:201:68d0:34d2:ad1a:175a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b5e89c5b65sm2175666e87.16.2026.08.31.04.00.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 04:00:37 -0700 (PDT)
-Date: Mon, 31 Aug 2026 13:00:34 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6.6.y] arm64: mm: clear extra idmap level before use
-Message-ID: <apVbNN_gtowKWVhR@gmail.com>
-References: <20260831054247.33352-1-kmehltretter@gmail.com>
- <2026083125-upbeat-series-9565@gregkh>
- <7f744f2a-409b-454f-bdb9-fccb5031640d@app.fastmail.com>
+	id 1x0zp3-000000099Nt-1i6K;
+	Mon, 31 Aug 2026 11:05:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788174306; x=1819710306;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YPMj4lSvftoy2mPSE2BoRYZKbnYiULh2Q6DhbTrJd2Y=;
+  b=R/ZXyGK1Zdch0boXaQyMzwCdxJuMYDJ6fXPsnVbAUmBmwt/Edy7L4oTI
+   snieILtod4eM30UuI2vSXIz4e/HlpNyHjlS93VKX0P//LdkmCayArf3x3
+   RA6Vc0DQlMB3wyuRNLWQYp6yA7dQuhn5Q29Fb2k/XJqMcNkZjUY0xEb/w
+   R16St3Huw4QjLi8VHuW7x/QMMc+gtqMYvVLSaJlmY/pLgBLihHLELetpH
+   o3mgs31x0zY2dXcOadC4ZG1BLOtG8wur80L6kz/fPkJfvNKzWvE7GC39J
+   nJdL2Gckv+mIj6dcxrk0rzw6Fe2pz26JhLJZzyMwQQw78E6W1Pla2c0ur
+   A==;
+X-CSE-ConnectionGUID: kv8PxsyXQwOvXZzn9YIivQ==
+X-CSE-MsgGUID: wc41faTXROuXIXg3h4oOOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11891"; a="88431701"
+X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
+   d="scan'208";a="88431701"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 04:05:03 -0700
+X-CSE-ConnectionGUID: 7zOKNvibTQCwcwcmNeMpVA==
+X-CSE-MsgGUID: v38GUscTSeeAtaGg45E8sQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
+   d="scan'208";a="292272041"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa002.fm.intel.com with ESMTP; 31 Aug 2026 04:04:58 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id F058E99; Mon, 31 Aug 2026 13:04:56 +0200 (CEST)
+Date: Mon, 31 Aug 2026 13:04:56 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Marek Vasut <marex@nabladev.com>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Pankaj Dev <pankaj.dev@st.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH 06/16] usb: typec: add FUSB340 SuperSpeed switch driver
+Message-ID: <apVf2GL-r0Cm8Q53@black.igk.intel.com>
+References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
+ <20260821-ucpd-host-fusb340-v7-2-rfc-v1-6-c5e27cbc0795@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7f744f2a-409b-454f-bdb9-fccb5031640d@app.fastmail.com>
+In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-6-c5e27cbc0795@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_040041_600501_C9DD8B04 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20260831_040505_522694_1F800C61 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +99,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 08:15:52AM +0100, Ard Biesheuvel wrote:
+On Fri, Aug 21, 2026 at 06:23:17PM +0200, Fabrice Gasnier wrote:
+> Add a platform driver for the ON Semiconductor FUSB340 SuperSpeed switch.
+> The driver uses enable-gpios and select-gpios to control the switch and
+> registers Type-C switch and mux providers for Type-C applications where a
+> reversible cable requires a switch.
 > 
-> 
-> On Mon, 31 Aug 2026, at 07:54, Greg Kroah-Hartman wrote:
-> > On Mon, Aug 31, 2026 at 07:42:47AM +0200, Karl Mehltretter wrote:
-> >> The 6.6.y adaptation of commit 0e9df1c905d8 ("arm64: mm: Don't remap
-> >> pgtables for allocate vs populate") removes the clearing performed by
-> >> early_pgtable_alloc().  Its replacement clears allocations made by the
-> >> generic page-table walkers, but 6.6's create_idmap() still allocates an
-> >> extra root level directly when a sub-48-bit VA kernel is loaded
-> >> sufficiently high in physical memory.
-> >> 
-> >> memblock_phys_alloc_range() does not zero the returned memory.  The direct
-> >> caller therefore publishes an uncleared root page and passes it to
-> >> __create_pgd_mapping().  A stale nonzero entry can trip the bad-descriptor
-> >> BUG_ON or be followed as a page-table descriptor, preventing the kernel
-> >> from booting.
-> >> 
-> >> Clear the direct allocation through its linear alias before publishing it.
-> >> init_clear_pgtable() also supplies the barrier required before the table
-> >> descriptor becomes visible.
-> >> 
-> >> Mainline is not affected because commit e6128a8e523c ("arm64: mm: Use
-> >> 48-bit virtual addressing for the permanent ID map") removed the dynamic
-> >> extra level before page-table initialization moved out of the allocator.
-> >
-> > Why can't we take that change instead?
-> >
-> 
-> Nope. That relies on a massive refactoring of the arm64 startup code.
-> 
-> Can we just revert 0e9df1c905d8 (aka 54322d95309d) instead?
-> 
+> Assisted-by: GitHub-Copilot:GPT-5.4-mini
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> ---
+>  drivers/usb/typec/mux/Kconfig   |   8 ++
+>  drivers/usb/typec/mux/Makefile  |   1 +
+>  drivers/usb/typec/mux/fusb340.c | 169 ++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 178 insertions(+)
 
-Yes, that fixes the issue too.
+> diff --git a/drivers/usb/typec/mux/Kconfig b/drivers/usb/typec/mux/Kconfig
+> index 6dd8f961b593..6a1da48a2a8f 100644
+> --- a/drivers/usb/typec/mux/Kconfig
+> +++ b/drivers/usb/typec/mux/Kconfig
+> @@ -12,6 +12,14 @@ config TYPEC_MUX_FSA4480
+>  	  common USB Type-C connector.
+>  	  If compiled as a module, the module will be named fsa4480.
+>  
+> +config TYPEC_MUX_FUSB340
+> +	tristate "ON Semi FUSB340 SuperSpeed switch driver"
+> +	help
+> +	  Driver for the ON Semiconductor FUSB340 SuperSpeed switch, which
+> +	  provides support for routing SuperSpeed pairs in Type-C applications
+> +	  where a reversible cable requires a switch.
+> +	  If compiled as a module, the module will be named fusb340.
+> +
+>  config TYPEC_MUX_GPIO_SBU
+>  	tristate "Generic GPIO based SBU mux for USB Type-C applications"
+>  	help
 
-The commit was patch 3/3 of the following speedup series:
-
-https://lore.kernel.org/r/20240412131908.433043-1-ryan.roberts@arm.com
-
-Patches 1 and 2 accounted for most of the speedup.
-
-I'll wait a bit to give the others a chance to comment.
-
-I can send the revert as v2, or my original patch as v2 with the
-missing "Assisted-by: LLM" and "Signed-off-by:" trailers.
+Why can't you just use MUX_GPIO_SBU (sorry if I've missed something)?
 
 Thanks,
-Karl
+
+> diff --git a/drivers/usb/typec/mux/Makefile b/drivers/usb/typec/mux/Makefile
+> index b4f599eb5053..ef8d2b05ff7f 100644
+> --- a/drivers/usb/typec/mux/Makefile
+> +++ b/drivers/usb/typec/mux/Makefile
+> @@ -1,6 +1,7 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  
+>  obj-$(CONFIG_TYPEC_MUX_FSA4480)		+= fsa4480.o
+> +obj-$(CONFIG_TYPEC_MUX_FUSB340)		+= fusb340.o
+>  obj-$(CONFIG_TYPEC_MUX_GPIO_SBU)	+= gpio-sbu-mux.o
+>  obj-$(CONFIG_TYPEC_MUX_PI3USB30532)	+= pi3usb30532.o
+>  obj-$(CONFIG_TYPEC_MUX_INTEL_PMC)	+= intel_pmc_mux.o
+> diff --git a/drivers/usb/typec/mux/fusb340.c b/drivers/usb/typec/mux/fusb340.c
+> new file mode 100644
+> index 000000000000..0f0e45743784
+> --- /dev/null
+> +++ b/drivers/usb/typec/mux/fusb340.c
+> @@ -0,0 +1,169 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * ON Semiconductor FUSB340 SuperSpeed switch driver
+> + *
+> + * Copyright (C) 2026 STMicroelectronics
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/usb/typec_altmode.h>
+> +#include <linux/usb/typec_mux.h>
+> +
+> +struct fusb340 {
+> +	struct gpio_desc *enable_gpio;
+> +	struct gpio_desc *select_gpio;
+> +	struct mutex lock; /* serialize orientation and mode updates */
+> +	struct typec_switch_dev *sw;
+> +	struct typec_mux_dev *mux;
+> +	enum typec_orientation orientation;
+> +	unsigned long mode;
+> +};
+> +
+> +static void fusb340_update_locked(struct fusb340 *fusb)
+> +{
+> +	bool enable = fusb->mode == TYPEC_STATE_USB &&
+> +		      fusb->orientation != TYPEC_ORIENTATION_NONE;
+> +	bool select = fusb->orientation == TYPEC_ORIENTATION_REVERSE;
+> +
+> +	gpiod_set_value_cansleep(fusb->enable_gpio, enable);
+> +	gpiod_set_value_cansleep(fusb->select_gpio, select);
+> +}
+> +
+> +static int fusb340_switch_set(struct typec_switch_dev *sw,
+> +			      enum typec_orientation orientation)
+> +{
+> +	struct fusb340 *fusb = typec_switch_get_drvdata(sw);
+> +
+> +	mutex_lock(&fusb->lock);
+> +
+> +	if (fusb->orientation != orientation) {
+> +		fusb->orientation = orientation;
+> +		fusb340_update_locked(fusb);
+> +	}
+> +
+> +	mutex_unlock(&fusb->lock);
+> +
+> +	return 0;
+> +}
+> +
+> +static int fusb340_mux_set(struct typec_mux_dev *mux,
+> +			   struct typec_mux_state *state)
+> +{
+> +	struct fusb340 *fusb = typec_mux_get_drvdata(mux);
+> +	int ret = 0;
+> +
+> +	mutex_lock(&fusb->lock);
+> +
+> +	if (state->mode != TYPEC_STATE_SAFE && state->mode != TYPEC_STATE_USB) {
+> +		ret = -EOPNOTSUPP;
+> +		goto out_unlock;
+> +	}
+> +
+> +	if (fusb->mode != state->mode) {
+> +		fusb->mode = state->mode;
+> +		fusb340_update_locked(fusb);
+> +	}
+> +
+> +out_unlock:
+> +	mutex_unlock(&fusb->lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static int fusb340_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct typec_switch_desc sw_desc = { };
+> +	struct typec_mux_desc mux_desc = { };
+> +	struct fusb340 *fusb;
+> +	int ret;
+> +
+> +	fusb = devm_kzalloc(dev, sizeof(*fusb), GFP_KERNEL);
+> +	if (!fusb)
+> +		return -ENOMEM;
+> +
+> +	fusb->orientation = TYPEC_ORIENTATION_NONE;
+> +	fusb->mode = TYPEC_STATE_SAFE;
+> +
+> +	fusb->enable_gpio = devm_gpiod_get(dev, "enable", GPIOD_OUT_LOW);
+> +	if (IS_ERR(fusb->enable_gpio))
+> +		return dev_err_probe(dev, PTR_ERR(fusb->enable_gpio),
+> +				     "failed to get enable gpio\n");
+> +
+> +	fusb->select_gpio = devm_gpiod_get(dev, "select", GPIOD_OUT_LOW);
+> +	if (IS_ERR(fusb->select_gpio))
+> +		return dev_err_probe(dev, PTR_ERR(fusb->select_gpio),
+> +				     "failed to get select gpio\n");
+> +
+> +	mutex_init(&fusb->lock);
+> +
+> +	sw_desc.drvdata = fusb;
+> +	sw_desc.fwnode = dev_fwnode(dev);
+> +	sw_desc.set = fusb340_switch_set;
+> +
+> +	fusb->sw = typec_switch_register(dev, &sw_desc);
+> +	if (IS_ERR(fusb->sw)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(fusb->sw),
+> +				    "failed to register typec switch\n");
+> +		goto err_mutex_destroy;
+> +	}
+> +
+> +	mux_desc.drvdata = fusb;
+> +	mux_desc.fwnode = dev_fwnode(dev);
+> +	mux_desc.set = fusb340_mux_set;
+> +
+> +	fusb->mux = typec_mux_register(dev, &mux_desc);
+> +	if (IS_ERR(fusb->mux)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(fusb->mux),
+> +				    "failed to register typec mux\n");
+> +		goto err_unregister_switch;
+> +	}
+> +
+> +	platform_set_drvdata(pdev, fusb);
+> +
+> +	return 0;
+> +
+> +err_unregister_switch:
+> +	typec_switch_unregister(fusb->sw);
+> +err_mutex_destroy:
+> +	mutex_destroy(&fusb->lock);
+> +	return ret;
+> +}
+> +
+> +static void fusb340_remove(struct platform_device *pdev)
+> +{
+> +	struct fusb340 *fusb = platform_get_drvdata(pdev);
+> +
+> +	gpiod_set_value_cansleep(fusb->enable_gpio, 0);
+> +	gpiod_set_value_cansleep(fusb->select_gpio, 0);
+> +
+> +	typec_mux_unregister(fusb->mux);
+> +	typec_switch_unregister(fusb->sw);
+> +	mutex_destroy(&fusb->lock);
+> +}
+> +
+> +static const struct of_device_id fusb340_of_match[] = {
+> +	{ .compatible = "onnn,fusb340" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, fusb340_of_match);
+> +
+> +static struct platform_driver fusb340_driver = {
+> +	.probe = fusb340_probe,
+> +	.remove = fusb340_remove,
+> +	.driver = {
+> +		.name = "fusb340",
+> +		.of_match_table = fusb340_of_match,
+> +	},
+> +};
+> +module_platform_driver(fusb340_driver);
+> +
+> +MODULE_DESCRIPTION("ON Semiconductor FUSB340 SuperSpeed switch driver");
+> +MODULE_AUTHOR("Fabrice Gasnier <fabrice.gasnier@foss.st.com>");
+> +MODULE_LICENSE("GPL");
+> 
+> -- 
+> 2.43.0
+
+-- 
+heikki
 
