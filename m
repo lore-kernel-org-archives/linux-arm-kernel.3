@@ -4,96 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC965C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D06C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 18:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=; b=WOfa/iCPwFOnIKdLcA0XdpwtYJ
-	zufXVN4X/giS9tF+7E3O2eLpyvbnx3Tn8UYJteBdTpsQYbMF6fIzBx/N0Yp295VY9mqpH6d/Bk9lM
-	D4nJwtMUVT/6itxVDyX+V/t1QYFF8fBopD54CAtI9nI4HI9pZlwtA5o/g1UyZ2KwQu4CuwcrXsRnQ
-	s1Y3pq84Bgf71+tnN+QcvcUmwhc93uRbShM1ery3QF+9Mu6Wm51GNZNL6npAYqWQrALf3oq4ll+Aj
-	F8tfBMdieIr3BN44Or/QZJYCplQ5pX9ZWZTGVmpFzMBLeLga1qnbf3SYRy7ez3BJeXpJXyyFzWFdA
-	yLWsHnPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=90hKnJqi8flNNql9zSvlZrF5lGGlotSa6h45XR068QY=; b=uyF/CwOwZDx9Vl/3OZEsyJNvyN
+	hOFT3HGTcTck2I3hSWhaW4OYwVRiBJoQKOAWx6Athlb1hj8pJ2b8l82OG2r9izi5w/KA24dY9tnMF
+	KJBbAgUKfRCnqlqS3MEhmu2U0YcEDTTWkx2msCX+9Sq/KAF241pbiJOXF5ujUbCrr9F8FVu6yjaa1
+	xkl4u3GVAxV7TOsIDl3Xtdppd7TJJPljlwPNJRerb+AuMstppc21Q/189psUiM2obF87TSovvGace
+	WqesjVJj/1mXZsDcZUzbaav5gyQtY4F3Wfyz0X54OKZgsnMMA6EjPgToLlhuSx86zLTzalam0R8Ma
+	kqeQ7KZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16To-0000000AG0P-1dOa;
-	Mon, 31 Aug 2026 18:11:36 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1x16aP-0000000AGkT-1Wi3;
+	Mon, 31 Aug 2026 18:18:25 +0000
+Received: from mail-northcentralusazon11013052.outbound.protection.outlook.com ([40.107.201.52] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x16Tc-0000000AFvL-1DUQ
+	id 1x16aN-0000000AGjf-2zcA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 18:11:25 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-39266382df6so3212088a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 11:11:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788199883; x=1788804683; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=;
-        b=cPCJtLGLUHDJXrRHd+Lo1ZhJSOxoZYm7andCbK1oFPhXOiiDA8KccJtFVtZsFlt4kr
-         v+zk6LnuTcItGbI+KxISZNcj3ublDFtA0jndvZdqOfiVrquzxenkfZMrBertp/DmWuFx
-         gshNtxeKBqTB3Xc7PBnigrDXCcLrMWAnZl518FcZHQQeGlLExEajjSAUU7IFk6hngPRh
-         llGs518U7e2x1ILcBs/QYRvHmtsM5PcMdC9bIOojDmNsmTUMfxjPg9wCIr5B+QGT0n0N
-         TgyJXVGYWRtU3/1fKmjeTOqN0GAEZnVPhERpLYYi9aBi+wEvPRzJH2yJwf5sZultCM8z
-         ed/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788199883; x=1788804683;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0OemJiih1sslqSbQP4J3cbLzB8Lyd73Gg/1M0pWEdtY=;
-        b=YGzLMk8mOR8PtUawJqCC3yrNkab+5fopDGUXsMOwvtw0sKU2fYsaMohSvnWffReuGy
-         NA5t2MSBo1xzcudi9TMAJxV8YTaLwVCBs+Jq9vnzajMc5/Y1dv7Kad+9yWYwMAmwmfqZ
-         bNWSm1LcBG65jh5ZYqW/10gxCxxGp3iXY25d+mNdlTJiXlcACu1K4KSlcH7HUkU69ftC
-         tKDU2VlQdOEhnz+0JJEJo4IVjkoDyS0YNSgClJEb4bXHlG/SmIsafjx3hy2sBgAP+ek4
-         Ym2BXDaoEgreNCYhwqCUqOnG8q/j6RfSkBneB2B/Zip8V2siabp+588/h/P481UCFo0U
-         wtGw==
-X-Forwarded-Encrypted: i=1; AKwUvBxd92+KQGoMMxsuBb/YWLFJVv/hLh5cccULrFxoKON527QgS62vcKXX65k2Fr1Lel9ebbJs+Et9OzUWjTdQuOsE@lists.infradead.org
-X-Gm-Message-State: AFuF++kVtBV7D/E+uCX7LQ18N+HoMVbOcoXgT1JTQCOtl3ali1rAEIK9
-	j9XbeoLUiVred4RGjF8UQO0QOAS1hB7gx1QDMShhstk+9oYtgKUfALl2Looicpd5iTw=
-X-Gm-Gg: AYBFou0Ln7huRGlc+Dw+CQKcDI/4OnlCuQSFo375RR06RsSUPybNwioZDbhFtf+lGPU
-	QC70roBQWgdhKUlVpFjMuLODqML0KM6M6Nh5JrWsToRm2CbV+zY5Vdo9MbREN04ERzDow6vJSSN
-	O+tCn7BoR2q4BAzKmBLeFgQgWAIXT6e47Q0Xy3C1qnnOoi/KlrVQxZywiWrR+tXri/ns3SwCLsF
-	AZTqOO2HrktmKSdzdscveXV10H0m/RWgdSw2nler8WVUB54Kg+2mPLIZks4yAVXY/EJINAJ2Cvj
-	gIIlzv3pelauvA/sGaN11wUZkd82RiLZ1UOQ8s7l6RKjNbquv7O+lqqqspb3UOXFgq0b5RPQYPd
-	+yZ2b8cm7z7zUZ9AzyOOqtV00mWeJPEh7+TM5XCwluhDh12mqyyl6JIlSKZeTKat2V7DUy/8gfn
-	XrH0zx0g59thfoV4MzjujBJpGGgzoLV64Z0wzDuJbPqiA2zUxfbhw/pCky7g==
-X-Received: by 2002:a17:90b:4a02:b0:37f:fdc8:71b4 with SMTP id 98e67ed59e1d1-39907ab0960mr2402339a91.2.1788199883302;
-        Mon, 31 Aug 2026 11:11:23 -0700 (PDT)
-Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-398a2f5187fsm5504006a91.1.2026.08.31.11.11.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 11:11:22 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
- Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Enric Balletbo i Serra <eballetbo@gmail.com>, 
- Javier Martinez Canillas <javier@dowhile0.org>, linux-omap@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260829194003.107677-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260829194003.107677-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] ARM: dts: ti: omap: Replace spaces indentation with
- tabs
-Message-Id: <178819988246.2869653.4070159664676583942.b4-ty@b4>
-Date: Mon, 31 Aug 2026 11:11:22 -0700
+	Mon, 31 Aug 2026 18:18:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gjl91rysrTILEvMLgXc8qy7c8c4qe0W/HMTBmZozQ45vvr1GCoNQ6XJYlJz1nA6Gz5FGssHlVODzJLfXzKSNF9U5d4X3r5LLRGzb7RG0GyR7PBA1pQmC111r+U5M13Yjcc+7Ol425VrmscytkbHH5O68znbGRGwMqUMv8Gr9xkzdF6rMgiVTMe4E4Lc97A2dHBjDrp1WsYaQV//iO6gQ2SnWuOT88tJK7sGWw8mSmD18OQkgkmGamAUMVQAZz6UrgMo8iUlC7rxfsWN5fOsVEwlek4QPNJ1dBrBr0nJkhbNCPI4gsXGfplKfeKcmaL4fbpPlYABnRkFb4+5o+aFbMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=90hKnJqi8flNNql9zSvlZrF5lGGlotSa6h45XR068QY=;
+ b=MgoLKJX9lqddH2v65VdO2Jw4rEnDro5cdpSw0szgKnXLli2MjunZ2b0c91sU3dRTd+GSVttKesNmhDgn4Eeg42XHBsGyBukWlWDH+73tCt2/Rq7NZ0AqrPeLCpOQFTh7o62dihXeKxPW81Mbe27JUK5eE6Ycdn2ArZO56mJ8KjaWEvBLPiA3NQqtxw96NG60Nh5rrwDeO9KsAOJzOnIAFpUEkQZib/4xjyfPjy5Y33JB4rQo46iiw7HFzqAqAqoGzerlxWOp4r9JZa0Inm028nzn0+k5ci3AVTCUjwT8d5q8NVoAzhYZeGLOq4ViIjUDSxn7kIynCFsxqoVpmXDJfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=90hKnJqi8flNNql9zSvlZrF5lGGlotSa6h45XR068QY=;
+ b=ARK08CZuoUk/tTFaGnz7mT9wJWyxrtUtcVBi80GxewBd0/G+UmJnysT/N/E/PHAYVW+I1eJPOjvpFoD99cFf9Sn16KpgyUnp7BSXJBQ4Lv0OHDrrMG8WmV4heH8mUd06mTqGaEnIKgDmr+O5cqXhrqzmIY0IOWeyovmE/R03X6X/UAxVEduJNStBA8BQTyG3pYzu9DJVqgNriyK+n8WBrlSvuE60PVUaGzB+eMOpl8NGhaFg2KwsG1qGYTMjwhwTa9uyRmV2PgQYij3n/auAgJYcOvTJJexCYi2I/gprPjtvOVDv4NIKBCNCDx+ferJhUTcIfEha3KyDGgAvg/HcmQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by CH2PR12MB4264.namprd12.prod.outlook.com (2603:10b6:610:a4::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 18:18:12 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 18:18:11 +0000
+From: Andrea Righi <arighi@nvidia.com>
+To: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>,
+	Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] sched: Enable preferred SMT siblings on NVIDIA Olympus
+Date: Mon, 31 Aug 2026 20:10:49 +0200
+Message-ID: <20260831181800.1668646-1-arighi@nvidia.com>
+X-Mailer: git-send-email 2.55.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MI1P293CA0014.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:2::17) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|CH2PR12MB4264:EE_
+X-MS-Office365-Filtering-Correlation-Id: f252a151-c790-41e9-a762-08df078c375d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|56012099006|11063799006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: S/gFgJfFfD8WHQml5D3/VY9+si8BEx4NKQjmx88DmCVmEC1T4aacnCE7mGrcjbgd9ZmXCm0cP4w8YV1oB0mkCzIUHVCsS1Oex+gEN3GTu6ZjuIXLLyO7gbieS1PC5bytTq8IfLM1ZxHNC2FDIiBp2WKxK/X5E74jM5/iY3ybwe3jdLjkuP0pgtWQzrC3vlPokcuO/HFUBksTMJcwITQH4zVdmYjTMciiisLZVQutkVd6qDn5CgLdWktu5waI+mkerD6Q46uEY4xweiSojrt/Y5vvph/gq3S55Co0rjKnsgqB1ubRHDC8LkNf//q0eQZEfgy1PutLbCCfKDBzSAXadZpy1YE2MwN7i2068KyDNemuGLLMpw8BP/ygOhg2Z8Z8/yCNoXmMBEWOul6F/CDuPqI+/J/57Yvn+oPJvojLyhqo4eLVoP1PctIZ46ZTX97Wticm4j/5Svju7qVZmH5ziPLWcRV2sXY/O1yd6HfwAiO0/HyOzzIneG/ph27ZhmzAllVSOvQ4rtWgxVCeaPcc2ldljf+KDojeJnb221uKVjXLFF5I3JY/m0Z8TJw81oJwAtvV8kgJehCXCQJWD3guulUpD3JHPMsxCtHFvE3/w5/Zbkpi/SCA+849p7YKxInO/rwTQVFYLBmmQX9iPdFxlOaSmw/OjVn4jDZsuWCIvVg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(56012099006)(11063799006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5ycxO2G8y8wIsTHS781KcJvY/ClBSW8IfDHhU6hJ2V2yVKBRET80UnwUjs3l?=
+ =?us-ascii?Q?YFQJbsexPSEqehy5klSgYtltU6HGNUx8yYPEweSJBc0RueSfunQwjPUyfYLl?=
+ =?us-ascii?Q?g49MQFrHr5ewqkmYc2EXYH21JoWz0r8jnlu5aEEKSvZoNhtXCyhvTjer4oa1?=
+ =?us-ascii?Q?PKkDCubsNnm05kjS3cMmn8F7w/3F4xfpu8Qb+CZXvOuPRbCEFWHvmUrwPJ6T?=
+ =?us-ascii?Q?KTfvuNrXLSb3/qmMdvxAMBOF0YISVATiGaV1Twws9a++TSeTEL+AM0jDPGyR?=
+ =?us-ascii?Q?WZhSGr7HXMfWJ+2kEK4AOvcw6M2471uFgbyzar3KQ2vn5668lx8UmFeYL9j5?=
+ =?us-ascii?Q?OFOC1zHX13SaIdovfFC5pSGfxcGm3FqEgMRtDc5smTWfsg1t4GAxG9xYQ6XN?=
+ =?us-ascii?Q?7YA1SvtXvtuSYu/O2JTLifXRS6qUJ4zyVljYdAhPLVccvkpJZuZc25myDKId?=
+ =?us-ascii?Q?xYIMJEQILw7Q0xB0jpOr/Sp93Rdxrp3sxWmjH14vsl/Aan6a2uknhqzUm7f8?=
+ =?us-ascii?Q?ZhEv9itJ5xbA4PcfrwP8UuDfB+T40B/h5WZhJZ2r5rsL+MB9iG4un7QVOFcW?=
+ =?us-ascii?Q?os1KxvL+Pm/wFF+kiqjMaYYzomLORSM0SdsO2FzyD2jVK8TYQQBxrdMtnsZd?=
+ =?us-ascii?Q?bjhG8wXnWHggQd3KWPms7PdYs5OQ0HjkBEBOfw9tuLF8hLGqMKSp4gvOnB18?=
+ =?us-ascii?Q?1+0UrNdERzDB8kbumVwP1UrpLzEZhIKmBnOD1RZ6luHoEtWtBHT52iesR6MZ?=
+ =?us-ascii?Q?2fTVeQ1f4xG+3ufZTV1hXVVOW0c8hOl+7iKOSTzD6hdZIdryQey/gWgrFnJm?=
+ =?us-ascii?Q?B69Wbf0sQlllmthECeiO4nNIrXIHkcYZH/eNLLzHLU4L+jXHVx8HU6/9d5eW?=
+ =?us-ascii?Q?ICvrHtJ5rg/iVYcb6Utd1eJHLwZjf1VDS8XN4Ay5wLcGgRRn6u1O8K3gif3W?=
+ =?us-ascii?Q?ig4C/zKAzwDRusaXBWjAtOsrv2mbFfY3LfV9b8Tk7m391jZloxKvfD0b4vIL?=
+ =?us-ascii?Q?lRwujgO734Q04Kp4Llw+C+3HmgOewgoy+gJrIJ6ZAgIuceXflXqOmEEzEZrH?=
+ =?us-ascii?Q?UTykmgRyhDsDc75Vwg6lAhsSREQi2XCT0ftRlz/T0f1XUYL6dv2BYVekc6Ps?=
+ =?us-ascii?Q?Rv9YOvvhKqis1EoL7WQx4FUUSqHAblHwEe+urM2zvRotAh+8hNr3tVmXrdyY?=
+ =?us-ascii?Q?ZS2qDQm59i3Mp3xMqQvm01e0bkS/D32nsF8UPZzb+pKBUFPsDRGS8UYLC6hO?=
+ =?us-ascii?Q?0X4lIYQu6wgwR1/Q1pYCQI7HO75J3zC3A7F0MvEB55jzcmZQLS2fHbE5buuZ?=
+ =?us-ascii?Q?xRX0Ao2xy8YJISPOWy5+2pkknwR2T0guGGqJY0I2irKRxW6ra5HB2j9wAnHX?=
+ =?us-ascii?Q?L/My12V7QzSmkAbocjh2Xn/udANYr5EzEbWi1QuiJy81D+GAXSr3owY/PSnh?=
+ =?us-ascii?Q?9Uoa02YwLiWJ6sLEpn41mSJJ085f9YhQ/FFGW4KgP1+214mrrUGbOkPDt450?=
+ =?us-ascii?Q?deIVPm7I7qXX/d6yn7r3v3o7DDgBEYqCADRXuxNhenme6ZPGhe3r1D9Ya/j8?=
+ =?us-ascii?Q?DdzWfQIBqPQZ1s2kX7GbN88tNoM0XWTLiEFJ0pX5EtWWIL92bSN0ggSCmosJ?=
+ =?us-ascii?Q?xzx1FRi8wJqTl7cMXrN0kTw4LWQIEcYNnJ5N2VVprwUn462f193lP8K6/O+a?=
+ =?us-ascii?Q?gf+iHSH5cnegbQART5CD9F7QawXoxVbbkq1I6Z5XwzaMWVnlCoIRW0cZdXD0?=
+ =?us-ascii?Q?F6FK5GVJng=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f252a151-c790-41e9-a762-08df078c375d
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 18:18:11.7698
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 10rWBNg5eLwrVwBqQNYHwhb5HsIF0QEi8tuKJqmMSoEC8r8fG/2trZZbSpAIyFWrAowtm7usD4gDhEgUgH521A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4264
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_111124_334765_A4F378AC 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260831_111823_754675_668FBD13 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,19 +150,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
+When only one PE is active, the core operates in single-thread mode and
+that PE can use the full core resources. When both PEs are active, the core
+operates in two-thread mode and the PEs share those resources. This
+behavior is common to SMT implementations, but Olympus is particularly
+sensitive to brief sibling activations because returning from two-thread
+mode to single-thread mode after a sibling becomes idle is not immediate.
+As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
+for NOHZ balancing"):
 
-On Sat, 29 Aug 2026 21:40:04 +0200, Krzysztof Kozlowski wrote:
-> Replace excessive spaces for aligning indentation into tabs.  This will
-> be reported by dt-style-check ("[mixed-indent-chars] too many space
-> characters in indent (more than 7)").
+  Briefly activating an otherwise idle sibling can reduce the performance
+  available to the other sibling and this effect does not necessarily end
+  once the activated sibling becomes idle: after the ILB finishes and its
+  CPU enters WFI, full single-thread performance is restored only after the
+  sibling has remained idle for a qualification interval (10 Ki cycles on
+  the tested Vera system).
 
-Applied, thanks!
+That change prevents the NOHZ idle load balancer from unnecessarily waking
+a sibling of a busy PE. However, ordinary task placement can still select
+either sibling of an idle core and repeated changes of the active PE can
+keep Olympus cores in two-thread mode despite little or no useful overlap
+between the siblings.
 
-[1/1] ARM: dts: ti: omap: Replace spaces indentation with tabs
-      commit: 973ca75604c81c985224624f685f0365e1ba78bb
+This series makes PE0 the preferred sibling of an Olympus core using
+SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
+honor asymmetric SMT priority. The scheduler first selects an idle core
+according to its existing placement and capacity rules, then chooses the
+highest-priority available sibling within that core. The generic scheduler
+behavior is enabled only when an architecture supplies an SD_ASYM_PACKING
+SMT domain.
 
-Best regards,
--- 
-Kevin Hilman (TI) <khilman@baylibre.com>
+PE0 and PE1 have equal steady-state capacity, the preference does not
+identify a faster PE. PE0 is used only as a canonical choice when both
+siblings are available. Consistently selecting the same sibling avoids
+alternating the active PE across wakeups, lets PE1 remain idle for longer,
+and allows more cores to remain in, or return to, full-resource
+single-thread mode.
 
+The series was tested on a two-node Vera system using an 88-thread
+single-precision GEMM on the 88 physical cores of NUMA node 0.
+
+With the workload allowed to choose either sibling of every core, observed
+throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
+to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
+became more predictable because the workload consistently settled on PE0
+while PE1 remained quiet.
+
+Andrea Righi (2):
+  arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
+  sched/fair: Honor asymmetric SMT priority in idle selection
+
+ arch/arm64/include/asm/topology.h |  1 +
+ arch/arm64/kernel/smp.c           |  1 +
+ arch/arm64/kernel/topology.c      | 62 +++++++++++++++++++++++++++++++++++++++
+ kernel/sched/fair.c               | 81 +++++++++++++++++++++++++++++++++++++++++++------
+ kernel/sched/sched.h              |  6 ++++
+ kernel/sched/topology.c           | 36 ++++++++++++++++++++++
+ 6 files changed, 178 insertions(+), 9 deletions(-)
 
