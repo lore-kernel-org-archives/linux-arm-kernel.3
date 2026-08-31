@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256ACC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF356C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 16:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CSD4bne3AT6ceRgo+6wIO9gkD2uwS0got8y9byEnPz4=; b=xqLJP2N2uBqPqpg+8U0+02T5Rp
-	jIT1Pdyf7F0gDBBdzcl8929HFBhyqve1QZcTfqwrprkRnXdN/TMllm/x9UQ2S9IzHeoGL8gFsw4Bf
-	WUjqD2cXbiNWNm1qhdgD2rsygWZMsaLdgVKc/6ouCAAS1vyoCg6nCPvDwWV9bEe8mQf/jsBNREpsI
-	20J406kG/ps5PGjM8Z05LFxBf0y3OdCLt5nSKsP57cB9oZESg4x5wKuQgkUy8mLxg0Wx/Rf8IzMSz
-	7F+HcyhhbPmATnW0VzfB/eHLd51eIzPpWMz6+aSN+vqcqQrf1UXcsg4ZsUzw4FdzZ0N5yLLw/YQCx
-	J+A3LmAA==;
+	bh=8x5D3Sy8XI2Y0RSG8CakP4VDIkPyB4RhQYD2D1sygMY=; b=4J0bfQMilR9l/hUXuowDRPyvPl
+	YWUEQMF8y/OwVRIQkPnHbJNqZtKC0E3Fr0kdOLy0MhYwElJvbLPBnL9SlbCCE9gmvfOeOEgMdPzbf
+	XewaNstManrdR//DNVtDm34ay3Ll06MR9D0eLiqfr3OmR8oTrB1Elfpw4+ybLvFIsz/RDncDgWiNY
+	N7kJL9AUq2iqrEp2PeGDVbMShLA6Xax5fD2vRTLAe+YjSDdyaZlJCdThM6/TduO+SU0VozU9Jd+7l
+	Kz/JpepiHhfGGlXbDxh23B/uup/Hrn4jChbpsXrAlrhL2Z0/+x45ONKJ/zSH37Ss0yoUQLBXFg+pw
+	9gnCmQMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14yS-0000000A3w6-17wl;
-	Mon, 31 Aug 2026 16:35:08 +0000
-Received: from out-202.mta1.migadu.com ([2001:41d0:203:375::ca] helo=mta1.migadu.com)
+	id 1x14zF-0000000A4et-0k0I;
+	Mon, 31 Aug 2026 16:35:57 +0000
+Received: from out-133.mta0.migadu.com ([91.218.175.133] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x14y3-0000000A3cY-09K2
+	id 1x14yf-0000000A4Bq-01Q7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 16:34:44 +0000
+	Mon, 31 Aug 2026 16:35:23 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=6t1gqYdyhRpYCJ4ePxm8eKCyjmvWIh4HU6EgCqsQmzQ=;
+DKIM-Signature: a=rsa-sha256; bh=cANDNO2tv54Yz7hlZgxlcIbNF8NJMg7aOsYvgLITD0E=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788194081; v=1; x=1788798881;
- b=IgEYf/Az+fqDs23NBg8dsv69+fkBGC62ietkamCYq5kJZ/OlVP5fHWII9/BR/SkI46uaM6qd
- jjN+W+/ebrGd2uTq6FfAuyvOsp9yQhPBXw2Ikn3zNU8skFdjfFZodfnIj+vaLF6+3H3Q15KMnX4
- mFrrvXR25KYGRhE8haZZt/7s=
+ t=1788194118; v=1; x=1788798918;
+ b=m0S5Xv9sS8l1MAYCE5+BuJGNUw9NxcmBYch3u2fcZWBsXTW3xo/UfySFUZYczK3shndU4iaY
+ wqMZgjavCvVAusRgbe+pazdkl2IaBr2+Rf0CIPaRFBwXlemfPKIP+5UwrsWJ5KugquK9KePBQCI
+ DZt4GCfp+OD+T6ujUhtWPO/Q=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id faf522f5f8183ba7;
-	Mon, 31 Aug 2026 16:34:40 +0000
-X-Mizu-Trace-ID: faf522f5f8183ba7
+Received: by smtp.migadu.com with ESMTPS id 8a9deb6fc4739e5d;
+	Mon, 31 Aug 2026 16:35:18 +0000
+X-Mizu-Trace-ID: 8a9deb6fc4739e5d
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 07/17] KVM: arm64: Add system register reset framework for protected VMs
-Date: Mon, 31 Aug 2026 17:34:11 +0100
-Message-Id: <20260831163421.272420-8-fuad.tabba@linux.dev>
+Subject: [PATCH 17/17] KVM: arm64: Document the protected VM userspace API
+Date: Mon, 31 Aug 2026 17:34:21 +0100
+Message-Id: <20260831163421.272420-18-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260831163421.272420-1-fuad.tabba@linux.dev>
 References: <20260831163421.272420-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_093443_485847_C58F17DF 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20260831_093521_540075_47C3B4C5 
+X-CRM114-Status: GOOD (  38.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,165 +80,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reset a protected VM's system registers at EL2 rather than taking the
-host's values: add kvm_reset_pvm_sys_regs() and the
-pvm_sys_reg_reset_vals[] table that drives it, and call it from
-init_pkvm_hyp_vcpu() for protected vCPUs. The values follow the
-host-side reset in sys_regs.c, with a poison value where it resets to
-UNKNOWN, and for VBAR_EL1 and CONTEXTIDR_EL1 in place of the 0 it
-resets them to. MPIDR_EL1 is derived from vcpu_id, as for any KVM
-guest.
+EL2 owns a protected vCPU's state once it has run, and the ioctls that
+would access it fail rather than silently operate on a copy that is not
+the guest's. Describe the resulting API in pkvm.rst, point api.rst at
+it from each ioctl that behaves differently, and note the errnos beside
+the PVTIME attribute in devices/vcpu.rst and the PSCI version register
+in fw-pseudo-registers.rst.
+
+No functional change intended.
 
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c         |  5 ++
- arch/arm64/kvm/hyp/nvhe/sys_regs.c     | 91 ++++++++++++++++++++++++--
- 3 files changed, 93 insertions(+), 4 deletions(-)
+ Documentation/virt/kvm/api.rst                |  22 ++-
+ .../virt/kvm/arm/fw-pseudo-registers.rst      |   2 +
+ Documentation/virt/kvm/arm/pkvm.rst           | 141 +++++++++++++++++-
+ Documentation/virt/kvm/devices/vcpu.rst       |   4 +-
+ 4 files changed, 161 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index 49a0a992047ba..a04b7c04d5135 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -95,6 +95,7 @@ bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-+void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu);
- int kvm_check_pvm_sysreg_table(void);
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index e0430cc750c9e..212ac2aa5c6bd 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -1322,6 +1322,9 @@ guests, across different userspace implementations. Nevertheless, userspace
+ can still emulate all Arm exceptions by manipulating individual registers
+ using the KVM_SET_ONE_REG API.
  
- #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index e85f13233da08..af334318d0a03 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -551,6 +551,11 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
- 		goto done;
++For a protected VM, setting ext_dabt_pending returns -EPERM; see
++Documentation/virt/kvm/arm/pkvm.rst. Injecting an SError is unaffected.
++
+ See KVM_GET_VCPU_EVENTS for the data structure.
  
- 	ret = pkvm_vcpu_init_sve(hyp_vcpu, host_vcpu);
-+	if (ret)
-+		goto done;
-+
-+	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		kvm_reset_pvm_sys_regs(&hyp_vcpu->vcpu);
- done:
- 	if (ret)
- 		unpin_host_vcpu(host_vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 8758c68017765..ebfd48aa15b56 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -525,6 +525,84 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
- 	/* Performance Monitoring Registers are restricted. */
- };
+ Calling this ioctl on a vCPU that hasn't been initialized will return
+@@ -1624,6 +1627,11 @@ For arm64/riscv:
+ The only states that are valid are KVM_MP_STATE_STOPPED and
+ KVM_MP_STATE_RUNNABLE which reflect if the vcpu should be paused or not.
  
-+struct sys_reg_desc_reset {
-+	int reg;
-+	void (*reset)(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *rd);
-+	u64 value;
-+};
++On arm64, once a protected VM's vcpu has run, KVM_MP_STATE_RUNNABLE and
++KVM_MP_STATE_SUSPENDED return -EPERM if the guest has powered it off with
++CPU_OFF or has not yet brought it online with CPU_ON: only the guest can
++power it on. See Documentation/virt/kvm/arm/pkvm.rst.
 +
-+/* Hardware value, as sys_regs.c's reset_actlr()/reset_amair_el1(). */
-+static void reset_actlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, read_sysreg(actlr_el1));
-+}
-+
-+static void reset_amair_el1(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, read_sysreg(amair_el1));
-+}
-+
-+static void reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, kvm_calculate_mpidr(vcpu));
-+}
-+
-+static void reset_value(struct kvm_vcpu *vcpu, const struct sys_reg_desc_reset *r)
-+{
-+	__vcpu_assign_sys_reg(vcpu, r->reg, r->value);
-+}
-+
-+#define RESET_VAL(REG, RESET_VAL) {  REG, reset_value, RESET_VAL }
-+
-+#define RESET_ZERO(REG) RESET_VAL(REG, 0)
-+
-+#define RESET_UNKNOWN(REG) RESET_VAL(REG, 0x1de7ec7edbadc0deULL)
-+
-+#define RESET_FUNC(REG, RESET_FUNC) {  REG, RESET_FUNC, 0 }
-+
-+/* Sorted ascending by reg; kvm_check_pvm_sysreg_table() enforces it. */
-+static const struct sys_reg_desc_reset pvm_sys_reg_reset_vals[] = {
-+	RESET_FUNC(MPIDR_EL1, reset_mpidr),
-+	RESET_UNKNOWN(TPIDR_EL0),
-+	RESET_UNKNOWN(TPIDRRO_EL0),
-+	RESET_UNKNOWN(TPIDR_EL1),
-+	RESET_ZERO(CNTKCTL_EL1),
-+	RESET_UNKNOWN(PAR_EL1),
-+	RESET_ZERO(MDCCINT_EL1),
-+	RESET_ZERO(DISR_EL1),
-+	RESET_ZERO(PMCCFILTR_EL0),
-+	RESET_ZERO(PMUSERENR_EL0),
-+	RESET_ZERO(CPACR_EL1),
-+	RESET_VAL(CONTEXTIDR_EL1, 0x00000000dbadc0deULL),
-+	RESET_VAL(SCTLR_EL1, 0x00C50078ULL),
-+	RESET_FUNC(ACTLR_EL1, reset_actlr),
-+	RESET_ZERO(TCR_EL1),
-+	RESET_UNKNOWN(AFSR0_EL1),
-+	RESET_UNKNOWN(AFSR1_EL1),
-+	RESET_UNKNOWN(ESR_EL1),
-+	RESET_UNKNOWN(MAIR_EL1),
-+	RESET_FUNC(AMAIR_EL1, reset_amair_el1),
-+	RESET_ZERO(MDSCR_EL1),
-+	RESET_ZERO(ZCR_EL1),
-+	RESET_UNKNOWN(TTBR0_EL1),
-+	RESET_UNKNOWN(TTBR1_EL1),
-+	RESET_UNKNOWN(FAR_EL1),
-+	RESET_VAL(VBAR_EL1, 0x1de7ec7edbadc000ULL),
-+	RESET_UNKNOWN(PIRE0_EL1),
-+	RESET_UNKNOWN(PIR_EL1),
-+};
-+
-+void kvm_reset_pvm_sys_regs(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long i;
-+
-+	for (i = 0; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
-+		const struct sys_reg_desc_reset *r = &pvm_sys_reg_reset_vals[i];
-+
-+		r->reset(vcpu, r);
-+	}
-+}
-+
- /*
-  * Initializes feature registers for protected vms.
-  */
-@@ -550,16 +628,21 @@ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
- }
+ On LoongArch, only the KVM_MP_STATE_RUNNABLE state is used to reflect
+ whether the vcpu is runnable.
  
- /*
-- * Checks that the sysreg table is unique and in-order.
-- *
-- * Returns 0 if the table is consistent, or 1 otherwise.
-+ * Both tables must be unique and sorted ascending. pvm_sys_reg_descs.reg is the
-+ * sys_reg() encoding, pvm_sys_reg_reset_vals.reg the vcpu_sysreg index, so they
-+ * compare differently. BUG_ON() at __pkvm_init: fatal at boot.
-  */
- int kvm_check_pvm_sysreg_table(void)
- {
- 	unsigned int i;
+@@ -2324,7 +2332,8 @@ Errors:
+   ENOENT   no such register
+   EINVAL   invalid register ID, or no such register or used with VMs in
+            protected virtualization mode on s390
+-  EPERM    (arm64) register access not allowed before vcpu finalization
++  EPERM    (arm64) register access not allowed before vcpu
++           finalization, or after a protected VM's vcpu has run
+   EBUSY    (riscv) changing register value not allowed after the vcpu
+            has run at least once
+   ======   ============================================================
+@@ -2949,7 +2958,8 @@ Errors include:
+   ENOENT   no such register
+   EINVAL   invalid register ID, or no such register or used with VMs in
+            protected virtualization mode on s390
+-  EPERM    (arm64) register access not allowed before vcpu finalization
++  EPERM    (arm64) register access not allowed before vcpu
++           finalization, or after a protected VM's vcpu has run
+   ======== ============================================================
  
- 	for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_descs); i++) {
--		if (cmp_sys_reg(&pvm_sys_reg_descs[i-1], &pvm_sys_reg_descs[i]) >= 0)
-+		if (cmp_sys_reg(&pvm_sys_reg_descs[i - 1], &pvm_sys_reg_descs[i]) >= 0)
-+			return 1;
-+	}
+ (These error codes are indicative only: do not rely on a specific error
+@@ -3484,6 +3494,7 @@ Errors:
+   ======     =================================================================
+   EINVAL     the target is unknown, or the combination of features is invalid.
+   ENOENT     a features bit specified is unknown.
++  EPERM      the vcpu belongs to a protected VM and has already run.
+   ======     =================================================================
+ 
+ This tells KVM what type of CPU to present to the guest, and what
+@@ -3512,6 +3523,10 @@ after the vcpu has been run. This will reset the vcpu to its initial
+ state. All calls to this function after the initial call must use the same
+ target and same set of feature flags, otherwise EINVAL will be returned.
+ 
++For a protected VM this ioctl returns EPERM once the vcpu has run, and the
++features it accepts are restricted: KVM_ARM_VCPU_PSCI_0_2 is required. See
++Documentation/virt/kvm/arm/pkvm.rst.
 +
-+	for (i = 1; i < ARRAY_SIZE(pvm_sys_reg_reset_vals); i++) {
-+		if (pvm_sys_reg_reset_vals[i - 1].reg >= pvm_sys_reg_reset_vals[i].reg)
- 			return 1;
- 	}
+ Possible features:
  
+ 	- KVM_ARM_VCPU_POWER_OFF: Starts the CPU in a power-off state.
+@@ -3790,6 +3805,9 @@ can be determined by querying the KVM_CAP_GUEST_DEBUG_HW_BPS and
+ KVM_CAP_GUEST_DEBUG_HW_WPS capabilities which return a positive number
+ indicating the number of supported registers.
+ 
++On arm64, this ioctl returns -EPERM for a protected VM: debugging a
++protected guest is not supported. See Documentation/virt/kvm/arm/pkvm.rst.
++
+ For ppc, the KVM_CAP_PPC_GUEST_DEBUG_SSTEP capability indicates whether
+ the single-step debug event (KVM_GUESTDBG_SINGLESTEP) is supported.
+ 
+diff --git a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
+index d78b53b05dfcf..c07471e258ea2 100644
+--- a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
++++ b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
+@@ -33,6 +33,8 @@ The following registers are defined:
+     highest PSCI version implemented by KVM and compatible with v0.2)
+   - Allows any PSCI version implemented by KVM and compatible with
+     v0.2 to be set with SET_ONE_REG
++  - Returns -EINVAL for a version below v1.1 on a protected VM (see
++    Documentation/virt/kvm/arm/pkvm.rst)
+   - Affects the whole VM (even if the register view is per-vcpu)
+ 
+ * KVM_REG_ARM_SMCCC_ARCH_WORKAROUND_1:
+diff --git a/Documentation/virt/kvm/arm/pkvm.rst b/Documentation/virt/kvm/arm/pkvm.rst
+index 514992a79a833..4411599fd508f 100644
+--- a/Documentation/virt/kvm/arm/pkvm.rst
++++ b/Documentation/virt/kvm/arm/pkvm.rst
+@@ -15,7 +15,8 @@ Overview
+ Booting a host kernel with '``kvm-arm.mode=protected``' enables
+ "Protected KVM" (pKVM). During boot, pKVM installs a stage-2 identity
+ map page-table for the host and uses it to isolate the hypervisor
+-running at EL2 from the rest of the host running at EL1/0.
++running at EL2 from the rest of the host running at EL1/0. pKVM requires
++a GICv3 interrupt controller.
+ 
+ pKVM permits creation of protected virtual machines (pVMs) by passing
+ the ``KVM_VM_TYPE_ARM_PROTECTED`` machine type identifier to the
+@@ -31,7 +32,7 @@ See hypercalls.rst for more details.
+ Isolation mechanisms
+ ====================
+ 
+-pKVM relies on a number of mechanisms to isolate PVMs from the host:
++pKVM relies on a number of mechanisms to isolate pVMs from the host:
+ 
+ CPU memory isolation
+ --------------------
+@@ -67,12 +68,20 @@ largely due to the lack of MMU notifiers:
+   then it will either return ``-EFAULT`` or forcefully reclaim the
+   memory pages. Reclaimed memory is zeroed by the hypervisor and a
+   subsequent attempt to access it in the pVM will return ``-EFAULT``
+-  from the ``VCPU_RUN`` ioctl().
++  from the ``KVM_RUN`` ioctl().
+ 
+ CPU state isolation
+ -------------------
+ 
+-Status: **Unimplemented.**
++Status: CPU register state of protected vCPUs is managed entirely at EL2.
++
++pKVM performs the complete context switch for protected vCPUs within the
++hypervisor. Protected vCPU state is initialised by the hypervisor to
++architecturally defined reset values, and only what each exit needs is
++synchronised back to the host.
++
++The user-visible consequences are described under `API behaviour for
++protected VMs`_.
+ 
+ DMA isolation using an IOMMU
+ ----------------------------
+@@ -89,13 +98,135 @@ The FF-A proxy ensures that the host cannot share pVM or hypervisor
+ memory with Trustzone as part of a "confused deputy" attack.
+ 
+ The PSCI proxy ensures that CPUs always have the stage-2 identity map
+-installed when they are executing in the host.
++installed when they are executing in the host. This proxy is distinct
++from the PSCI handling provided to protected guests, which is described
++under `API behaviour for protected VMs`_.
+ 
+ Protected VM firmware (pvmfw)
+ -----------------------------
+ 
+ Status: **Unimplemented.**
+ 
++API behaviour for protected VMs
++===============================
++
++Protected vCPU state is owned by EL2 (see `CPU state isolation`_). The VMM
++configures a vCPU before its first ``KVM_RUN``; afterwards the state is
++private to the guest and the ioctls that access it return ``-EPERM``. The
++errors follow one rule: ``-EPERM`` means the host asked for state that the
++guest owns, and ``-EINVAL`` means the request is not valid for a protected
++VM. The ioctls themselves are described in Documentation/virt/kvm/api.rst.
++
++Boot
++----
++
++A protected VM boots from a single primary vCPU. Before the first
++``KVM_RUN``, the VMM prepares the boot state:
++
++* Set ``KVM_MP_STATE_RUNNABLE`` on the primary vCPU and
++  ``KVM_MP_STATE_STOPPED`` on every other vCPU. EL2 allows only one
++  RUNNABLE primary per protected VM. A second RUNNABLE vCPU fails at its
++  first ``KVM_RUN``.
++* Set the primary vCPU's boot state with ``KVM_SET_ONE_REG``: the kernel
++  entry address in ``PC`` and the DTB pointer in ``x0``.
++
++``PC`` and ``x0`` are the only registers EL2 takes from the host. Other
++pre-run writes are accepted, but the guest starts from the architectural
++reset values.
++
++Secondary vCPUs are started by the guest itself through PSCI ``CPU_ON``
++(see `Power state`_), which supplies their entry point and context ID.
++The VMM cannot choose where they boot.
++
++vCPU state
++----------
++
++* ``KVM_GET_ONE_REG`` and ``KVM_SET_ONE_REG`` return ``-EPERM`` once the
++  vCPU has run. Before that, they access the host-side copy from which
++  EL2 builds the guest's boot state (see `Boot`_).
++* ``KVM_ARM_VCPU_INIT`` accepts only the vCPU features that a protected
++  guest supports and returns ``-EINVAL`` otherwise.
++  ``KVM_ARM_VCPU_PSCI_0_2`` is required, as EL2 implements PSCI 1.1 for
++  the guest (see `Power state`_). ``KVM_ARM_VCPU_EL1_32BIT`` is not
++  supported: protected guests run in AArch64 only and see no AArch32
++  support in ``ID_AA64PFR0_EL1``. Once the vCPU has run,
++  ``KVM_ARM_VCPU_INIT`` returns ``-EPERM``, as re-initialising it would
++  reset the host-side copy alone.
++* ``KVM_SET_VCPU_EVENTS`` returns ``-EPERM`` for external-abort injection
++  (``ext_dabt_pending``). SError injection is unaffected.
++* ``KVM_SET_GUEST_DEBUG`` returns ``-EPERM`` (see `Debug`_).
++
++Power state
++-----------
++
++EL2 implements PSCI 1.1 for a protected guest. The calls that move a
++vCPU's power state, ``CPU_ON``, ``CPU_OFF`` and ``AFFINITY_INFO``, are
++handled at EL2, and the host cannot change the outcome: for ``CPU_ON``
++the host only schedules the target, which EL2 has already reset to the
++entry point the guest chose, and for ``CPU_OFF`` it only stops
++scheduling it. A vCPU becomes a valid ``CPU_ON`` target at its first
++``KVM_RUN``, and before that EL2 returns ``INVALID_PARAMETERS``. The
++platform calls, ``CPU_SUSPEND``, ``SYSTEM_OFF``, ``SYSTEM_RESET`` and
++``SYSTEM_RESET2``, are forwarded to the host and behave as for a
++non-protected VM, with the ``SYSTEM_*`` calls exiting to the VMM as
++``KVM_EXIT_SYSTEM_EVENT``; the ``SYSTEM_RESET2`` reset type and cookie
++are in the guest's registers, which ``KVM_GET_ONE_REG`` rejects once
++the vCPU has run. Any other function returns ``NOT_SUPPORTED``, and
++``PSCI_FEATURES`` reports the same set. Because the host handles those
++forwarded calls, ``KVM_SET_ONE_REG`` on ``KVM_REG_ARM_PSCI_VERSION``
++returns ``-EINVAL`` for a version below 1.1.
++
++Once a vCPU has run, its power state follows the guest's PSCI calls, not
++the VMM's. ``KVM_SET_MP_STATE`` with ``KVM_MP_STATE_STOPPED`` still stops
++the vCPU, so the VMM can pause it. ``KVM_MP_STATE_RUNNABLE`` and
++``KVM_MP_STATE_SUSPENDED`` return ``-EPERM`` for a vCPU that the guest has
++powered off with ``CPU_OFF``, or has not yet brought online with ``CPU_ON``:
++only an in-guest ``CPU_ON`` can power it on.
++
++Other interface differences
++---------------------------
++
++* ``KVM_CHECK_EXTENSION`` reports only the capabilities that pKVM supports
++  for protected guests, and ``KVM_ENABLE_CAP`` accepts only those. Query
++  them on the VM file descriptor: the system file descriptor has no VM to
++  filter against. The filter does not cover every interface either:
++  device-fd configuration (for example the VGIC after
++  ``KVM_CREATE_DEVICE``) and vCPU attributes are unfiltered, and can refuse
++  what a capability reported as available. ``KVM_ARM_VCPU_PVTIME_CTRL``
++  returns ``-EPERM``, for example, since steal time cannot work for a
++  protected guest.
++* The vGIC of a protected VM remains host-managed: device creation,
++  configuration and interrupt injection all work as they do for a
++  non-protected VM.
++* ``KVM_ARM_SET_COUNTER_OFFSET`` and ``KVM_ARM_GET_REG_WRITABLE_MASKS``
++  return ``-EINVAL``: their capabilities are not offered to a protected
++  VM, whose counter offset and ID registers are set by EL2. A protected
++  guest sees the physical timebase.
++* A protected guest's first access to each page of memory exits to the
++  host, since the hypervisor cannot tell memory from a device before the
++  page is mapped. For a store, the host sees the value of the register
++  the syndrome names, clamped to the access width, and nothing else from
++  the register file.
++* A protected guest that uses a feature it was not given, or executes an
++  ``SMC``, takes an undefined instruction exception from the hypervisor;
++  the host is not involved.
++* The hypervisor handles a protected guest's SMCCC calls itself and does
++  not involve the host. A function it does not implement returns
++  ``NOT_SUPPORTED``.
++* The hypervisor can decode a trapped guest access only from the CPU's
++  instruction syndrome, which is provided only for a load or store of a
++  single general-purpose register. An access without one (for example a
++  load/store pair or a SIMD/FP access) cannot be decoded. For a
++  non-protected VM it can exit to the VMM as ``KVM_EXIT_ARM_NISV``. For a
++  protected VM it cannot be emulated by the VMM, so the guest takes a
++  synchronous external abort instead.
++
++Debug
++-----
++
++Hardware-assisted debugging is not available to protected guests: their
++debug registers are RAZ/WI.
++
+ Resources
+ =========
+ 
+diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+index deb5c51bc00c8..5e571d43e54ca 100644
+--- a/Documentation/virt/kvm/devices/vcpu.rst
++++ b/Documentation/virt/kvm/devices/vcpu.rst
+@@ -226,12 +226,14 @@ Returns:
+ 	 -ENXIO   Stolen time not implemented
+ 	 -EEXIST  Base address already set for this VCPU
+ 	 -EINVAL  Base address not 64 byte aligned
++	 -EPERM   The VCPU belongs to a protected VM
+ 	 =======  ======================================
+ 
+ Specifies the base address of the stolen time structure for this VCPU. The
+ base address must be 64 byte aligned and exist within a valid guest memory
+ region. See Documentation/virt/kvm/arm/pvtime.rst for more information
+-including the layout of the stolen time structure.
++including the layout of the stolen time structure. Stolen time is not
++supported for protected VMs (see Documentation/virt/kvm/arm/pkvm.rst).
+ 
+ 4. GROUP: KVM_VCPU_TSC_CTRL
+ ===========================
 -- 
 2.39.5
 
