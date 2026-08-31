@@ -4,105 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DD6C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512E7C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EZphEP1aVBZVI+sCUTh5FGIjIPbG+M3yCoLuytV4vxw=; b=AbGUM+nOaWZsZoyBfwZ8Wy2nfI
-	KwkykIGN7sW7DI2vlcr8Pn5HkvSuFXqwMPqc3idQuiJ4y5c7Q0y0MWo376iNvRQT3HpWKtPn61dc6
-	OeMWzn4YSK6ASZsJME2Ko+p7d229jMR61efFKL9QAmMFrJO0gVxkUa/KI+wtjiNtXIkEfJbOmUAnC
-	Fn5kP+mmEDVqdi/oJlal39E4diAiLpt3rbqsVq6ekdkijoXWOMLMXFD8HIm62cL6kU6kq+b7gcq6t
-	uVV/y3cochR0ZaFEtM47nn9oRuyUSFvWdqqMpWjZ6/3Q3v6b6webKmg7bjqR/BBVCnU6Arbb7LzcL
-	vkbZz+3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=agfqRcX4Mpju56NeWpoeTXUedTUg8+bW2vmKHAJk+wA=; b=JWwrSQJucGTtXHKNfHllsnYPzQ
+	rU4Gu51o/y4QQrZwXlfzp6pdIIN+IT1UlxrWwfuSgQC7JFRdMr2zsLXU0nP45pmpVVQglOjPy7+Vg
+	1H7tTsnSgFS7QVS60Vl3SOL2d+y82C+8Ht78Ome1I6sWS79f27m/cYf5rvljgN2u1nPLd6v6+uRo3
+	UcmBncd1ahkGG8EpWnWMQyYIOS5tzYkV8jlUdAhcTNxZ4bOrc84s0NZftngJ06e7tt4n1dnNZ2UGW
+	FA8BTljO7g5t9gozTrhym0NsoaGIWiGnZcs+DP/zJb1ZK/IcDKNFMh43BFlMJLjshzki62bg3+D3J
+	iNvuYiHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12MU-00000009Wl3-0Fho;
-	Mon, 31 Aug 2026 13:47:46 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1x12Mm-00000009WrS-0sKU;
+	Mon, 31 Aug 2026 13:48:04 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12MR-00000009WjE-38W3
+	id 1x12Mj-00000009Wqc-2uH7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:47:45 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-ca80d708489so2437466a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 06:47:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788184062; x=1788788862; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=EZphEP1aVBZVI+sCUTh5FGIjIPbG+M3yCoLuytV4vxw=;
-        b=JeYmFRGHBNUP+tOZhxuBlGdBV05FswOYLXCerINDbRDIKbRPpbSnTFmvIA7HBRaIKd
-         EdQjwFnmGQ7gPDYvp3hKuDdp0AD2mH3xr1k79TG4iPMvrGQ3etbOL3EkLwpXzmZiemdI
-         Ptu0KYe2ZUMQGGKntLtqTDchjezificRMYEFj4K5tBwS4TmOSalUWsUCjsonZCdJDy4n
-         CvAJpXFO8I/9ekHy0MWm/fIMOzJKCgGlvkjPdN6d1K9klhvMYfCYH1P8kn0rnr9wFqWL
-         US8EEaCDtlhrgLOB1/xXFEwBOsnWtO2McfpktmZwx8YFSZSAh6/5nAUKbST7WfpPNpnh
-         YtRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788184062; x=1788788862;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=EZphEP1aVBZVI+sCUTh5FGIjIPbG+M3yCoLuytV4vxw=;
-        b=fBRf5E7CzdIfjTW9z9lTBXFG9WFgq2Z/e5dLbXHghRgjtlBzHWA6ESQclXQrHyZGjw
-         dhV0xGneymvPsCzzgrsefzfaN1/zWwm5cyL32RSBNY73OpadxqIP0XoqwKb8F+QCvTgq
-         m6ZGbXgANUCTwqLpuVNY0QOiBOBnlqQDVqBWEwIsVbWWnO51Zb3YIMGsULYi9KwBd2hh
-         E32dCdvMQ9Uj+yhGJQaIcnYicelu7zYlYvWvojidmWHZnBh3xmpiZSUO866rhdjzP7aj
-         Io6Kj52aZ8mSFMBf1MKzAjII4OzhbKwRXu57EZeyyV5dx6HtT0lsgxgPVgQ9odnBdvNF
-         lfow==
-X-Forwarded-Encrypted: i=1; AKwUvByVFKWcj93HD5RlYLNO8KYNpTvG7XtzY5TE9uBvYn4G0XNQQw4cJmUcKLFx1+1xZhIgIcOKZNoAJGGm4JKAVh8p@lists.infradead.org
-X-Gm-Message-State: AFuF++nJPNP2g8TPTbhZt3M/l6Yez+wyGL6JZc3AtKMB44VbYa7Bzdq6
-	GqsdIbRwynavHyx0M9BjexTQ9iH0BKPzbG7YNsutV9bJ7jeYd3B3Y+Su
-X-Gm-Gg: AYBFou0vfLOZEbLGn27Nyyj/x2ETdKWlM1094lgJU233suIhqZrhWVO2+/3a6u4tCgw
-	aglJIMTU1+UvtOZLz21LrfOEzxb43UzJAPGeMpq6Xfcy22yWLLgxfyrHvgVcAxRI5ExTNlNnvAL
-	DWDLoXtaGHechlDIpeSxhGgF0CfJs4e32sT6tI1FQ6CrClxasjnjaKobvR2W04FZoxDHQkycMfo
-	vQ8sqpDxteo1Mr5bDzXeyypoxJrIINBaq2l5IZ2NSxkRCdFjEJ5ai05xGKeiBmPga6sak7wVeB7
-	NrZc4ZeJYsyj+ErLdW3f3vJQ8QnG68h43z/CV6oVzLBW93JhhaOMKuHKtHG+khdG0M1HQCxWqxV
-	pJmAjc5wmbEuK2oJ5MsuLBUgjqTVYTHk8dDgXMVYf2YLshldcS5NGgjcEc63WuhKsb8HxnhA8ML
-	BGVct2wuNGOcYFTEqlyIY6ucg8tGF16Hc5Ce5oXEHtwwzfY+kwxzJ9PCafrV0PWp7QFtKLnCLv1
-	DOnsbru6oShvRWq4K7J8yDL3XqR
-X-Received: by 2002:a17:90b:1d0d:b0:398:9bd3:d6d1 with SMTP id 98e67ed59e1d1-398da6f3ec3mr6720331a91.11.1788184062144;
-        Mon, 31 Aug 2026 06:47:42 -0700 (PDT)
-Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fd5c34sm22051985a91.8.2026.08.31.06.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 06:47:41 -0700 (PDT)
-From: Mike Hsieh <mike.quanta.115@gmail.com>
-X-Google-Original-From: Mike Hsieh <mike_hsieh@quantatw.com>
-Date: Mon, 31 Aug 2026 21:47:57 +0800
-Subject: [PATCH] ARM: dts: aspeed: clemente: Remove nct3018y rtc node
+	Mon, 31 Aug 2026 13:48:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788184081; x=1819720081;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ie3xlaMgCZRHfQFO9tpvIrY06r9dN2T6vkkF4iH+iGU=;
+  b=bEUOnQ3HyVaAbr6H8uE/I1cBRrlchpRGlmdXDC3jbsAje3sqU+78Y8yl
+   g8fqx/UvqcsFXcZ95cINkuoIvhXZMIplPdYiuO7Jnlt9HupwUTRc2rK6A
+   69+JxXLfUBi3Xjzp/HdALPWLxOZp4TkdySV9VrxbNhqQXJeVJELBJU2G5
+   8ICGAWlHfm39db9krHRLtUt1iFMlumFkQ50eLbFsCFL0z64LLzmeTB7v8
+   2W+uo4QHVcn4/ePaFM7g8jk/3fTKGCX9ZgP12vFG/pcqT1Soiklfc/hr/
+   bMf5ThBQ63t94qjJ8SQNdn9OBvtI0o5xKPzV5gIzA98h2DcP6dHwhuouK
+   w==;
+X-CSE-ConnectionGUID: fX2IC5iQTuGBLU1jFZsCfQ==
+X-CSE-MsgGUID: lEyo1MwZTNaFGcSGkcPIbg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11891"; a="114129759"
+X-IronPort-AV: E=Sophos;i="6.25,254,1779174000"; 
+   d="scan'208";a="114129759"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 06:48:01 -0700
+X-CSE-ConnectionGUID: +4KfFTj7TNWoAYw8FptzuQ==
+X-CSE-MsgGUID: GDSOXyHfQ+abDtDfzeAhMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,254,1779174000"; 
+   d="scan'208";a="293633674"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.21])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 06:47:56 -0700
+Date: Mon, 31 Aug 2026 16:47:54 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 8/9] spi: dw: Use dma_slave_caps bus width helpers
+Message-ID: <apWGCkIJ7zGh2Gd0@ashevche-desk.local>
+References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+ <20260831-dmaengine-support-wider-dma-masks-v3-8-507d97496f2d@analog.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-clemente-remove-rtc-v1-1-84fc5787a6bb@quantatw.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBQFrxJ/nWAKGV0lWtTvVR/KQiWC6O5Jq
- 2EWMw9FBEGktngo4JIoh89SlQXxOvgFSqbsZLSpdWMrxRt2+AQVsB9XRmI1WTc7xw00j5TLM2C
- W+792/ft+WksGJmUAAAA=
-X-Change-ID: 20260831-clemente-remove-rtc-d37f77c8e0cb
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Mik Lin <mik.lin@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
- Mike Hsieh <mike_hsieh@quantatw.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788184083; l=1130;
- i=mike_hsieh@quantatw.com; s=20260522; h=from:subject:message-id;
- bh=wbzWufdH1+05XeIF2UprLNnPXLOsM98m2VskYJzVc3M=;
- b=2dMXHa9BYQMJWRIeFy9+pcKa28XMr7eWy8ya+OnqUgbtTebVuhdxMyXh+CIHfidxvK2Vo6CpH
- UpkwbQS4uMCB4BS0St4Z0vIHonO6AJfchblqTsk+pnKP61dsaihR+Be
-X-Developer-Key: i=mike_hsieh@quantatw.com; a=ed25519;
- pk=DRIErV0xX0KMBlR/irAsbuN4L3egitHbC8FHruUH4HE=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260831-dmaengine-support-wider-dma-masks-v3-8-507d97496f2d@analog.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_064743_797638_CD1FB5E5 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260831_064801_749250_8A5150C7 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,41 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Clemente platform has a second source RTC chip (PCF85053A) that
-shares the same I2C address (0x6f) with the existing NCT3018Y.
+On Mon, Aug 31, 2026 at 12:46:45PM +0100, Nuno Sá wrote:
+> Store the common TX destination and RX source bus widths in a
+> driver-owned DMA bus width bitmap and populate it through the
+> dma_slave_caps helper.
+> 
+> This avoids depending on the legacy src_addr_widths and dst_addr_widths
+> masks returned by dma_get_slave_caps().
 
-Remove the statically defined nct3018y RTC node from the device tree.
-The correct RTC driver will be dynamically detected and instantiated
-from userspace/early-init script at runtime.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+One nit-pick below.
 
-Signed-off-by: Mike Hsieh <mike_hsieh@quantatw.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 5 -----
- 1 file changed, 5 deletions(-)
+...
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-index 820d39a92974..51e90a4fba0e 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-@@ -958,11 +958,6 @@ io_expander3: gpio@21 {
- 			"",
- 			"";
- 	};
--
--	rtc@6f {
--		compatible = "nuvoton,nct3018y";
--		reg = <0x6f>;
--	};
- };
- 
- &i2c7 {
+> +++ b/drivers/spi/spi-dw.h
 
----
-base-commit: bd35c4d64a566319bb5a151384eb9dbdf4b44eb9
-change-id: 20260831-clemente-remove-rtc-d37f77c8e0cb
+>  #include <linux/scatterlist.h>
+>  #include <linux/spi/spi-mem.h>
+>  #include <linux/bitfield.h>
+> +#include <linux/dma/engine/types.h>
 
-Best regards,
+Even if it's not sorted, try to squeeze the new one into ordered manner.
+
 -- 
-Mike Hsieh <mike_hsieh@quantatw.com>
+With Best Regards,
+Andy Shevchenko
+
 
 
