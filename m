@@ -4,102 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2BDC624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC24C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRDYJHHyH3j1YjcQkf01ypzJlaSwq1OAM4tqza49KSI=; b=hPIoHLp8NPjebjIJJUdjDRP+IN
-	efySEWOKtGVpm4N4kLgJ8KPx5kQblvcIm2/HFocbcWei3oM4Xs95WrIJrpOM/P5m8TEYSTrVNLR5F
-	y2EWsTzTS7DS1Xkn8mYBZ1i/WJP+KeHxVfN541jkE4uz0q5JW5QVIOUS78lLrJIKOOuXAu22QM41p
-	J2hOZm7FWXe6QBrdoFWnhvSMtFCiJuL2+ld5w5ZAb7eNnC7Ccmn2lw2Km0LYstBPiv4gJhqixfgZl
-	o617fEHxAyAfS77hnVK/sVtY6C1AwdKNGVgA6kHIsou0oznDp/qJb7JNFuQWag+jw02h4rKTiOSy0
-	HsTfHq2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AWOWzpgdxGdYk1/NK4J2sBGgq9jBCzF9YKqr8x3nWMY=; b=J6UqX+rYNanEvVUTxV5AlIm5wr
+	W3zo6yCe04o09w5IOWqTTuZT2OCv81bdkTS8bIbEVDt1pXyUA2RkNqoau78z7ripTdCOK18/eza2Q
+	PdEs6vH4gwTdciDsjNq1Kd5fR+TOe//xhDrW3cWhi4P+8kN3YD1jH88iLTLQ2dqPJ4DhAwGSUA18B
+	i8f+tKZ8qGvrEoh72wN18yVQPMcUS/8TpXB8FOnHrWJRVoRGNTlsZOnoefEc6G6e3wz/PqgjmmAZH
+	KqQ9L4f30jUdQsEMdc8iakIH+K+5ilC4zErsg0Qpfw7BkKJkNP7laEvSx25ElRyajn00koRkExbxZ
+	g50lgtfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13H9-00000009fg8-15nB;
-	Mon, 31 Aug 2026 14:46:19 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1x13HE-00000009fj0-1zYy;
+	Mon, 31 Aug 2026 14:46:24 +0000
+Received: from mail-northeuropeazon11012055.outbound.protection.outlook.com ([52.101.66.55] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13H7-00000009ff8-0E8L
+	id 1x13HA-00000009fg9-3tZu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:46:18 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cc1cb48db3eso387106a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:46:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788187576; x=1788792376; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iRDYJHHyH3j1YjcQkf01ypzJlaSwq1OAM4tqza49KSI=;
-        b=nZ77kP5xySV6JlP7IiDASV+6hzLhlBKMvYKq6S1GDrLH9GacEiE+eowqvx3jUxPJC6
-         wMHQzRyl1+fkE3G7x4yBtq0+zOO9a+MmZ8zgg+EqRvt1Yn6yPzfa0287MLg4zM3T0M1H
-         K9j4TuyJdqVwbMEPvdRWuz+iqRgYzvLiC7hUkX0pgF+2A1GtB1zBauN8lICKV+x7ujOh
-         bZDehCo4aDb/NxpEmD4bbETU+8bKhxDdyF9F/q55Jne0mcEV30//MzGcnb1pmJTjmF6w
-         +4bTosysVNc+Lbkb1jFO9WFj8Ms3cC82BWbbc+muBSw6k66Uk+syPU8czCLxw8mj+BJF
-         AMIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788187576; x=1788792376;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iRDYJHHyH3j1YjcQkf01ypzJlaSwq1OAM4tqza49KSI=;
-        b=RJhap9YtkkJ8wTGuAiyGX6ZjxW7X0EH3S0Ooi4tVnSQ5tTgPadHqKQEDqN6OhTMb/r
-         bdBRnpyi5+AofjRu0sfi2ZsFir1jSzcdF2EwRXiqA+6kU7FVOtxP5Z1GHZN76EMztuk2
-         95scaTy5FEZnpINypPdLYnH5dfzuEnmfteeFR5NCvGoa1o9zsvKNc0/OATTCsOa+//Er
-         P5V671QN1FGUJQBbPlEq5nS+QWPHdVrHA6xKHP1CHIKVkx2kpvBq+y0l1L6V1TCTzQ0I
-         nF/Yj26ZDBWVHVF1SY2gA6Q3w8DZOktTp5r2EFOZ6zWDQPuj/pyuaUk8a0zMV+UCY+46
-         vMJQ==
-X-Forwarded-Encrypted: i=1; AKwUvByQ1DWkIrWNWQWviOgN7+MCXzKxwhAPe++wUJkz46m1FdsGLRZz8ekJu9T1wjYBpBb0A+oMIQT7P77AShrsSTPm@lists.infradead.org
-X-Gm-Message-State: AFuF++nGW09YcL2O/xjWaxBtJvgJQIPgEDX7Y5gSXooSBamc/7NeN4Pg
-	dPSpp9f84PjeQLkzBuiUP5His5M4RrVVuM7UHRTKlbLe3jkuAsfQVs38
-X-Gm-Gg: AYBFou3EeieIB++NuoMX2nHjT76jWnc0+e7+6nJFTAWpeNLJDuDOCIYczf7o61ABWcx
-	vxwhG0bN7ucz/JM8TOpWkMD7PP3hpuMoL+DuGVtyy5JBQ4IVrOr0I1SZpjTlMmGkk5SgZBE+28e
-	5x4x5Tnq5t98/TwPy39LRMymSwNTYG44Adub/qW6oEWfKmLbI+Gmjr24YdeCYuF7kVbKsYOdvs1
-	UnlzUibyk9zv2FBv25wqNHW+xrVD6+JZ4rV10NFMaZi3WvjCWt3BIxL57ZUvM98wz3sD7Ntjndc
-	DdlYkxk99FayRD78PSx/vEf9lo42e2axvcs1ntdN/cp+80vhFvNkoE4CrzieO3tQJ39egt3wssP
-	mNh0/yPQ1Hvsmagas+sKkwqkr0CaRfBn6j+sB1CpC2iyQ4jp5RAJ1cSppvzMVPDwstWDK/Xlplh
-	+pE+dAKKFeZL3ZbdnY0C2ID1YjxLswdeSKevqYJsczwQDMOlHuZ9+aKhaZUNQdtoijGRSXifI=
-X-Received: by 2002:a17:90b:17cd:b0:396:d27b:86a4 with SMTP id 98e67ed59e1d1-398bab2710cmr11977556a91.2.1788187575913;
-        Mon, 31 Aug 2026 07:46:15 -0700 (PDT)
-Received: from [10.60.78.252] ([2409:40c2:5009:b339:5edc:6eb2:1ff7:f053])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0bf8a13sm43217279c88.0.2026.08.31.07.46.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 07:46:15 -0700 (PDT)
-From: Bhargav Joshi <j.bhargav.u@gmail.com>
-Date: Mon, 31 Aug 2026 20:15:34 +0530
-Subject: [PATCH v3 1/2] ARM: dts: ti: keystone: Align devctrl child node
- names with dtschema
-MIME-Version: 1.0
+	Mon, 31 Aug 2026 14:46:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MmwkX01w2E5eCsGsaGLiWxMnLo5CHDs77DkZtxnoQqYxcIeI0YSypZO9evBuvCFtx5AdqMF19nzng/J4oN8N+5C6Z/TwE/AziUDAWC0xTKW0eYb6Dmzp6Om4Tbp0hVZcC1tKHoO+znT98tLcFj48UwWDMedEsIPYuAYzK7K078EmRTOHqiLR3WIT6nQhUQc283/TVexzUV2J/HNk4sFZESXG1M11y8UPFVg9Rikh314b9AyfPynjBeopzrVRolhKqsbi6WJDqxVcjO099KX3+dgjdLxX+0zoBYYE9T2w6OTMuXI0OeR4UEAz+T12eIZd6ea3BxSC/6iYBxfYyO29MA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AWOWzpgdxGdYk1/NK4J2sBGgq9jBCzF9YKqr8x3nWMY=;
+ b=UsMIxWwCSDsUR6Qpka3LvJRLEMBgSz8DLn+RSHBvdjEoQ+gupWZPlsM8M0AseZd93faELj7O0IoUi3r5oXgUtmWJdDmfMQGtoAModYp7oMd+O+HIEjjuED58QDxsGOrMPlIDvWHNW3iuHl7/AlBRjwweCd+e23vAf5rfXlXmdqK2AfotOKrW7SL+kTIlwjhIuriT0f3k2P38ArJitqSXaiEjMqZiZ+es9BEmqOSzTENB1DppRPWfUo/DnDc+ljFDaep3uUiLY94ngEKSd8QDETm7jekATsZ5hY8tGF71bRgwX7GVmXDzP98USvNUM1OOPu+xJkB1Rbcywfe8cRf5Pw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AWOWzpgdxGdYk1/NK4J2sBGgq9jBCzF9YKqr8x3nWMY=;
+ b=JJR0hyoIogKf6mkYwODVjhj0WMF/y+Myb6ooQPX1jLjF44pXhgiWmYhn4ZoU7MpEvOubk+fg8b+Jv26XmeJJI+NNPLyxxRgQRtemawbOewlU7jTZQq2Ys9cvh75/Yn5lVd2lp8yg4jqiYFTLq5fna1DVsBtHxbJLkflvS9dlV7VzOQnnYxjN/eeqZ0MnElS8IW5LFhZC3FvGHTILy348C7o5bUli27Gw1saNA53JyN1Dg50AnSlB1di1I0NCr86/A+aAVhKaGPDbKG3GPbfI/PhAJ2O78ze+d09uuULIaylTNAMFQHUJ+7iYSPz1XPtDQyAFlxf2vtbKpYfMAzgzVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB792713.eurprd04.prod.outlook.com (2603:10a6:800:365::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 14:46:15 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 14:46:15 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Thomas Huth <thuth@redhat.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] soc: imx: Replace __ASSEMBLY__ with __ASSEMBLER__ in header file
+Date: Mon, 31 Aug 2026 10:46:07 -0400
+Message-ID: <178818740151.3984314.5873793309786228451.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260619122448.188046-1-thuth@redhat.com>
+References: <20260619122448.188046-1-thuth@redhat.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-ti-keystone-devctrl-v3-1-0614fceba0f1@gmail.com>
-References: <20260831-ti-keystone-devctrl-v3-0-0614fceba0f1@gmail.com>
-In-Reply-To: <20260831-ti-keystone-devctrl-v3-0-0614fceba0f1@gmail.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>, Nishanth Menon <nm@ti.com>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, goledhruva@gmail.com, m-chawdhry@ti.com, 
- daniel.baluta@gmail.com, simona.toaca@nxp.com, j.bhargav.u@gmail.com, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788187552; l=6209;
- i=j.bhargav.u@gmail.com; h=from:subject:message-id;
- bh=WFjPHdh767TYAqxnbwvqJA2jUU4RF6BRsluNltVcpcI=;
- b=EDhmBQAGk3n3xwBV3ty5tVe4aEqWdWKxnk0TbK9Rua1kU1Y+co788gVzpzKP1LcDxN8UW30ii
- bPmqpi/zmobAKjOJUThukmRkZfBryaFPeKSjh0ts2/ekhPWlReapWP6
-X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
- pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY8PR11CA0023.namprd11.prod.outlook.com
+ (2603:10b6:930:48::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB792713:EE_
+X-MS-Office365-Filtering-Correlation-Id: b511f0fc-47e6-4681-e0b7-08df076e9b9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|366016|23010399003|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: I605v3qCac3AI6RBR8g+VkMVzTdmyLNYLNRpjRvBhu/VfWeFUcBo1+hjFIuysm1Ki3RjmGMkk1rhKWzpMMAPppR1Lxtgjjb+mS9LkBIFPaB62nWTPtIZJBHxsiWa/41qD8PppMhUv2F02MW2Gv0GWwvvEuvWqb++UCG2k1XEUGvK9qwwEHWQ6T9REBB3XT1Ja5hAtjS71SURefFuckS+rSxWwmpNJKJNQXvUIfVZWmmYjWd2YcW//OACvHPz+rvPsUDJxFNnspE23q4uJD7kEJRUjz9Rib1trYyuicU3c6wdlfca7drtHuWTypGYl7uTlmuly4Ae27SxVqsDc0qj/dKGJwUtfe7JBKEfYirfh1e4tN4Jym+D/Kvp3XBWPdXnxJY9quS3p5NwusqAIJ8MILo0ZHoukCB8YpXL0jEUd/8vRP+fBMzHFNxf8hn3ODsfpntEys2ILKoG4frohYydbSMbYCVoAqnTGuNOo0aLH92eennDohGtrgoEI2wuzpOFA+TwbWwUomTPHo8Qysp4pU4a5FYej/QCN24JV1CSwIAo++juHvbC1ESSzcuiCnglEL2U2+8B2uABzH6V1Jgu40gCrTm0VuX+1zQYe1+Jn0O/zqCgYhFB/eRaFDP7eD/GDj5LF5gpLzgwI6gn+rpl/f2NxFlu/44SkCQTqhaQ3KE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(366016)(23010399003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MDQ5Z1hUTVZjVmVQTWdDcVBXMEVBL05UR3BpUGltaEh2cEZSSDcxdXh1dmhS?=
+ =?utf-8?B?NUJzZm9vWEY0aTFZV3JpL3ZYVkVEOU54RkxzazlveVF6ejdKWE9XSDkrdFJS?=
+ =?utf-8?B?OGsreVFKd29XMU4zeHRCL1VuS3hkazNkRjlFcXVHekJxNnlDWWt5aG8vOE5p?=
+ =?utf-8?B?SEphMjJqQzhMZXBDYXVGVkMxczBqZ2tBMUdJYWFQYms2eER2Y0VWUG9HMklT?=
+ =?utf-8?B?eUFwWUhkUmljWXpBb0trNk5OS2dWd2ovQmxrL2RTOTZzVHFUblFxbGR1WnZx?=
+ =?utf-8?B?amF6WHFocHd5eEY4c3g2YUpCcTdJaTk0VE9IRlh0bHFkdWtsNExhNllHU2Jy?=
+ =?utf-8?B?T3kzSExaZGZBUHlxbmc0Z05VUzNkendrU2sreHdOQWxSelhBNytOMDJSL1Jz?=
+ =?utf-8?B?c2Z4RnVxdFFJSVdNSmR1OWdKQ0NsZUcwK0pGSUs5OEhSckNuUDdXbUJrUkph?=
+ =?utf-8?B?REFDRlRCVE9kcHRZR1lodTNVcXN1OUlOZkV6S0RPdTNTRUVCYXBYSEdVMTZP?=
+ =?utf-8?B?ZlUvdXJ4eThkd3p6cjlqcVNGTVpvS2crRzIvOUs4cktPL0wzcFJ3aHFQZnY3?=
+ =?utf-8?B?RjlZNGpBZitiUXpYVjZNN09jMUFadGxDaW9rall3Si9tUnRmMXV5YURXNExR?=
+ =?utf-8?B?Mm5sT3I0OVdBdjFORWEzTlJocUwwN0dBeC8xTFhneWF2UlkrVVVmOFpEWXZF?=
+ =?utf-8?B?YnhTdXRqVUZlbGRib0hwR2xEb2NvTlFNWUV4bGJocDZzQjNpVmtMWFZ6Zjh1?=
+ =?utf-8?B?Y2ZFV1IwM3NTSVFYVmlvZWhwY1VmNkZRMVVDZ1RzRnJLcTdsR0dHUjc1cGN0?=
+ =?utf-8?B?dEpVT1luRmUwQzRnMXRWTlBqNnhBTGcwMXpVZjRNZHZrYi9IN0c4Znl0N2pY?=
+ =?utf-8?B?UUhvN1ZiTkt3WVhXMnBua1p0Y0FQdGl0OGx1MmtYMlhTRFE3VGFHaVRrS2U2?=
+ =?utf-8?B?SUxMazZXclIwS3ZGdHBJbnlJa2crV0NBRTlWRElBam8yaG1DM2kwQnlLbyt0?=
+ =?utf-8?B?a0xwNHBCSlpGVnRDa0dLRldNQ2xBaHdSV01NUzRwU0dsVFhaYWFySmpxR3dr?=
+ =?utf-8?B?ZXYwcXpsdnlIMW4yVGM2WWJ5SE5KYWlVMzc3V3kwZ1lmSk5jTTdmUHFOVGtL?=
+ =?utf-8?B?SGY0SXNHRlNlL1ZLc0JOeHE1OFBSMS9XZk1iS1A3SDZ2L3l1Y1JtWkEydERH?=
+ =?utf-8?B?cXV4eWhKUXFidlkybGQ4RW1odXptT2cwL3VZNnZWZU41QXdJYWJONzFPUnJj?=
+ =?utf-8?B?ZnZBVnRHblgrV1A4dFROeHhqaDlWZGhRUklUcTdrMHpJZGRkMlcxWnE3NHha?=
+ =?utf-8?B?aGFQWkRONUtOcS9wZWEvSnkyT2o3S1JhV2RJdm13SXBwTVhLelNiTW1PTXl5?=
+ =?utf-8?B?QVZKR21ua2tGd3F6MmlUYm9nMmRQVHZkenJJOTVLRnFhTHpOMGpjZ3l6UHlm?=
+ =?utf-8?B?SjRwdHJEUGYwWFdFUkxTUjdHQXYwbm1ERmErMzZrRlVSVWtZS0Q3WlJ3Q05P?=
+ =?utf-8?B?dlZrQmExWVJZSEJLK2FhT0NDR0paWFQxdzhKa0FBeGpGVmhneG9LM2ZtK3JW?=
+ =?utf-8?B?NGl1SFhMVUhOQ25hWDVPYmh2emRYM0lucjk1b2VSSGZvTkJ1MGZWdW1sY0dm?=
+ =?utf-8?B?S1lGdlZBeVVnNGtWRk4vVHZiVnN5KzUzNy90WUgwWGhVcFRpZkJjVWl4eUJO?=
+ =?utf-8?B?dHZxektTUjV1QWtXaUJWSEYzZmtvSjN1U1RzQWxSRUd0Vm1SUUFSRUZ6eHlB?=
+ =?utf-8?B?aUVjWTVwRis3dDhRVDZtb1NJTkppTjV1YkdZOXRxay91U0NtMWxYUG8zcUdK?=
+ =?utf-8?B?TmZZVEt5cDlKeFJteHFhYk1mMWcra0pEczI5Y2dNWEZqZE5OM2d2L2lBVGt4?=
+ =?utf-8?B?SWJKS0lLdTZ5YXRNcnpwSm5wWnRkdUtvS1RXSDVLNkFQYjBvOVpZaHljK2hX?=
+ =?utf-8?B?SDJYTmo0a0pFUGNQNVdldGM2WE1ESHNsR0kzWjY1R0NqNGV2UHJkMVV6RktJ?=
+ =?utf-8?B?U3NZQnE1NE5CSm9CZVM3c2pHYTdsTFNvMFlQYzlNSC9heU42YklNWUltRm41?=
+ =?utf-8?B?MjZKMkhHWXNqWUV1WXRQejRSODVqYldTTDFRY3NvTzA5Y0g2bWE3Z3huSUND?=
+ =?utf-8?B?RHQ0YUh1czJLclZWY2NycjY1aW5pU0dMZmtYWHhabUVvOXQrcTdCalFEaTFk?=
+ =?utf-8?B?SVRSN1NoajAxdU5ieWZWaDJKMHdWSVNOS3VKNXNGZlVaR2FYbUl3LzNSUlNi?=
+ =?utf-8?B?YzQ5TkU2REs4ZnJpZkJPSmh1YnI3VVRNOHR4V3VIY2pzQlZFTm8yRDFReG82?=
+ =?utf-8?B?TWxiWDFPOGtOMUFxTmFxWVptQkVLT3cwMTRHd3ROQUxXeWZ4REhqVHlvUksr?=
+ =?utf-8?Q?txz+ruT8BSLclyPE=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b511f0fc-47e6-4681-e0b7-08df076e9b9b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 14:46:15.0532
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dXRPYfSwG/991f1D0EdIQh9rwVyomVkw20iCrW6V4QFHfs3SdddwOm3Sp6Rn9s+itypFmVhZHHojYxFS2ctmqP97hv8Haml1h9d1VZyemxePubTl+kzV1YXbZoNyXKNR
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB792713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_074617_108055_7D2A6F1F 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260831_074620_979569_950D62DB 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,186 +151,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align TI Keystone device state control child node names with standard
-naming conventions.
-- Change keystone_irq to interrupt-controller
-- Change keystone_dsp_gpio to gpio
+From: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
----
- arch/arm/boot/dts/ti/keystone/keystone-k2e.dtsi  |  2 +-
- arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi  |  4 ++--
- arch/arm/boot/dts/ti/keystone/keystone-k2hk.dtsi | 16 ++++++++--------
- arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi  |  8 ++++----
- arch/arm/boot/dts/ti/keystone/keystone.dtsi      |  2 +-
- 5 files changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2e.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2e.dtsi
-index 662aa33cba11..083c94b62fc7 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone-k2e.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone-k2e.dtsi
-@@ -110,7 +110,7 @@ pscrst: reset-controller {
- 		};
- 
- 		devctrl: device-state-control@2620000 {
--			dspgpio0: keystone_dsp_gpio@240 {
-+			dspgpio0: gpio@240 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x240 0x4>;
- 				gpio-controller;
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-index dafe485dfe19..11b27663503a 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone-k2g.dtsi
-@@ -121,7 +121,7 @@ devctrl: device-state-control@2620000 {
- 			#size-cells = <1>;
- 			ranges = <0x0 0x02620000 0x1000>;
- 
--			kirq0: keystone_irq@2a0 {
-+			kirq0: interrupt-controller@2a0 {
- 				compatible = "ti,keystone-irq";
- 				reg = <0x2a0 0x10>;
- 				interrupts = <GIC_SPI 1 IRQ_TYPE_EDGE_RISING>;
-@@ -130,7 +130,7 @@ kirq0: keystone_irq@2a0 {
- 				ti,syscon-dev = <&devctrl 0x2a0>;
- 			};
- 
--			dspgpio0: keystone_dsp_gpio@240 {
-+			dspgpio0: gpio@240 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x240 0x4>;
- 				gpio-controller;
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2hk.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2hk.dtsi
-index 4fdf4b30384f..b7a9fbd6d59d 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone-k2hk.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone-k2hk.dtsi
-@@ -88,7 +88,7 @@ pscrst: reset-controller {
- 		};
- 
- 		devctrl: device-state-control@2620000 {
--			dspgpio0: keystone_dsp_gpio@240 {
-+			dspgpio0: gpio@240 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x240 0x4>;
- 				gpio-controller;
-@@ -96,7 +96,7 @@ dspgpio0: keystone_dsp_gpio@240 {
- 				gpio,syscon-dev = <&devctrl 0x240>;
- 			};
- 
--			dspgpio1: keystone_dsp_gpio@244 {
-+			dspgpio1: gpio@244 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x244 0x4>;
- 				gpio-controller;
-@@ -104,7 +104,7 @@ dspgpio1: keystone_dsp_gpio@244 {
- 				gpio,syscon-dev = <&devctrl 0x244>;
- 			};
- 
--			dspgpio2: keystone_dsp_gpio@248 {
-+			dspgpio2: gpio@248 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x248 0x4>;
- 				gpio-controller;
-@@ -112,7 +112,7 @@ dspgpio2: keystone_dsp_gpio@248 {
- 				gpio,syscon-dev = <&devctrl 0x248>;
- 			};
- 
--			dspgpio3: keystone_dsp_gpio@24c {
-+			dspgpio3: gpio@24c {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x24c 0x4>;
- 				gpio-controller;
-@@ -120,7 +120,7 @@ dspgpio3: keystone_dsp_gpio@24c {
- 				gpio,syscon-dev = <&devctrl 0x24c>;
- 			};
- 
--			dspgpio4: keystone_dsp_gpio@250 {
-+			dspgpio4: gpio@250 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x250 0x4>;
- 				gpio-controller;
-@@ -128,7 +128,7 @@ dspgpio4: keystone_dsp_gpio@250 {
- 				gpio,syscon-dev = <&devctrl 0x250>;
- 			};
- 
--			dspgpio5: keystone_dsp_gpio@254 {
-+			dspgpio5: gpio@254 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x254 0x4>;
- 				gpio-controller;
-@@ -136,7 +136,7 @@ dspgpio5: keystone_dsp_gpio@254 {
- 				gpio,syscon-dev = <&devctrl 0x254>;
- 			};
- 
--			dspgpio6: keystone_dsp_gpio@258 {
-+			dspgpio6: gpio@258 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x258 0x4>;
- 				gpio-controller;
-@@ -144,7 +144,7 @@ dspgpio6: keystone_dsp_gpio@258 {
- 				gpio,syscon-dev = <&devctrl 0x258>;
- 			};
- 
--			dspgpio7: keystone_dsp_gpio@25c {
-+			dspgpio7: gpio@25c {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x25c 0x4>;
- 				gpio-controller;
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
-index 330b437b667f..4678454c0eb3 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
-@@ -290,7 +290,7 @@ osr: sram@70000000 {
- 		};
- 
- 		devctrl: device-state-control@2620000 {
--			dspgpio0: keystone_dsp_gpio@240 {
-+			dspgpio0: gpio@240 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x240 0x4>;
- 				gpio-controller;
-@@ -298,7 +298,7 @@ dspgpio0: keystone_dsp_gpio@240 {
- 				gpio,syscon-dev = <&devctrl 0x240>;
- 			};
- 
--			dspgpio1: keystone_dsp_gpio@244 {
-+			dspgpio1: gpio@244 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x244 0x4>;
- 				gpio-controller;
-@@ -306,7 +306,7 @@ dspgpio1: keystone_dsp_gpio@244 {
- 				gpio,syscon-dev = <&devctrl 0x244>;
- 			};
- 
--			dspgpio2: keystone_dsp_gpio@248 {
-+			dspgpio2: gpio@248 {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x248 0x4>;
- 				gpio-controller;
-@@ -314,7 +314,7 @@ dspgpio2: keystone_dsp_gpio@248 {
- 				gpio,syscon-dev = <&devctrl 0x248>;
- 			};
- 
--			dspgpio3: keystone_dsp_gpio@24c {
-+			dspgpio3: gpio@24c {
- 				compatible = "ti,keystone-dsp-gpio";
- 				reg = <0x24c 0x4>;
- 				gpio-controller;
-diff --git a/arch/arm/boot/dts/ti/keystone/keystone.dtsi b/arch/arm/boot/dts/ti/keystone/keystone.dtsi
-index ff16428860a9..20596fa446b9 100644
---- a/arch/arm/boot/dts/ti/keystone/keystone.dtsi
-+++ b/arch/arm/boot/dts/ti/keystone/keystone.dtsi
-@@ -93,7 +93,7 @@ devctrl: device-state-control@2620000 {
- 			#size-cells = <1>;
- 			ranges = <0x0 0x02620000 0x1000>;
- 
--			kirq0: keystone_irq@2a0 {
-+			kirq0: interrupt-controller@2a0 {
- 				compatible = "ti,keystone-irq";
- 				reg = <0x2a0 0x4>;
- 				interrupts = <GIC_SPI 4 IRQ_TYPE_EDGE_RISING>;
+On Fri, 19 Jun 2026 14:24:48 +0200, Thomas Huth wrote:
+> While the GCC and Clang compilers already define __ASSEMBLER__
+> automatically when compiling assembly code, __ASSEMBLY__ is a
+> macro that only gets defined by the Makefiles in the kernel.
+> This can be very confusing when switching between userspace
+> and kernelspace coding, or when dealing with uapi headers that
+> rather should use __ASSEMBLER__ instead. So let's standardize now
+> on the __ASSEMBLER__ macro that is provided by the compilers.
+> 
+> [...]
 
+Applied, thanks!
+
+[1/1] soc: imx: Replace __ASSEMBLY__ with __ASSEMBLER__ in header file
+      commit: 9d183de1df061377bf5d29f33dc4814382187649
+
+Best regards,
 -- 
-2.55.0
-
+Frank Li <Frank.Li@nxp.com>
 
