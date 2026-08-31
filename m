@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53E5C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51831C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LRBgQm6sj4tNo42HhUWLPZvzIm/BclzjpwzZc5im/Q=; b=Auy+GRcappSZ3Wdn90wrknd/3u
-	eWUz0BxkwEakGuG+K/mMMcDH1gkDCCZf4RegUgkv+kzUteeukr5LD2uxvfqCCh1zeUZtZ90984UFt
-	iSqQ1+J/RY5222zt0Crt+TJ1m6Dp5JRS16e9cVxsLgfcyOBf2LmZA8pC87wbsRWdBgr07agZmXwQr
-	O51CpQPuFXfwop7QsNKcf9dIxQapHICyfgtEjoWEi3jCz6U/v45RUMU277xo6LxZStUwh4DzWMQba
-	fJUkwtXBThrIlQ57V2RYC04K+lh9zh5zCILYuKZRtHGBYa8bAL0mEhIs90FIPdvHM7/R6E3L72xTG
-	0JCKgXuQ==;
+	bh=XdGz328xTlkQ6Cul4SWgdJ/Sm6sjC60Xa8F08i/Exa4=; b=jvHTnLzLV/r++hC0dRsqDpU4d5
+	Q1MIEa5iOyxqMnuKHBJ5Ouq/6K7qAAxF741empd2CpmtUYP9zjC57+oEFOpe527KkaMvhvJFOv5bW
+	arUfCI7sp7axNR++P9+oXUrVPnHhYkQ+MbKnQ4KJBrnRifXzv564UYeOYGjBhEiqpUebzYz+QWMwA
+	hhHrWmhTQtMpfcHRIB5nPGk+mLLounKwxFp1lixuIBkqZuY/DGeqL0kn4+7DAWcMwtpbwaugPLIS+
+	cT0gKOkjk3KohqdtJk9Sk3lBWX6Gr08r038iDE5i+vlRMeBdm1wQtSDY3jP71k7jAjIFIwCC6abTg
+	OoirGbsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12JF-00000009Um0-49rY;
-	Mon, 31 Aug 2026 13:44:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x12JV-00000009Uta-2fJn;
+	Mon, 31 Aug 2026 13:44:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12JE-00000009Ul7-19Yy;
-	Mon, 31 Aug 2026 13:44:24 +0000
+	id 1x12JV-00000009UtM-0jbW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 13:44:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF2AB417EF;
-	Mon, 31 Aug 2026 13:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910071F00A3F;
-	Mon, 31 Aug 2026 13:44:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DC5F602C8;
+	Mon, 31 Aug 2026 13:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFA011F00ADE;
+	Mon, 31 Aug 2026 13:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183863;
-	bh=+LRBgQm6sj4tNo42HhUWLPZvzIm/BclzjpwzZc5im/Q=;
+	s=k20260515; t=1788183880;
+	bh=XdGz328xTlkQ6Cul4SWgdJ/Sm6sjC60Xa8F08i/Exa4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=H+MEF+4w3isN9xtQY5oyALpvYcmbD7zuNmNRezc1+iRLL07V+vBlrn3p5WP+uUYYI
-	 knmpSZzpfl5+TFGm5SxChd/2+yQaQj3yjz4MvtY3b5/znP72WdSWcCq8FHF7+av6Ck
-	 XA+OUbMNGfD4guc1VHotVsAmxOOC6Zwy/pycJsUDM9Nt4slZYEy2knX3EXGmxHlPgW
-	 4WwloF1sknXRkOa59CJKYi5uNyHGlzRE3/FrxBvtlaF1evPobbvPhepR0/+9PIc7gR
-	 wREU+Z4VuK2gN+kDXsEs6Kn7m9310/4B1NTRIcBvpKG3//yFx/5SyiIHb57yeerYnC
-	 yw7KZ5fMb5iSQ==
+	b=UlALr4SA4jGFugjpSB8q4EHP0Ob8AGB4G4DqdhsnizlC/XBxrA5yVo5DuR64UIc5n
+	 N++xK6wWsMXZCVVaHXPR8mPjcM2gJO4d9cIMWdS5F3sUP+hmaX/852W8MN7F+KvwVw
+	 xAwSi7RYS8cnAsja40Gw/okR6X+9w3vh+GyqIYFD7vocFZkAapNb1EvhQLFamtee+u
+	 EGvE6ERnB0KW3/MWPv+57VUGIPiNEiL+nunq/ZqbAakUpVWNO7zyMFsTSqmNuR+Owr
+	 8eGZGTUoHFvg8HU27Rrq6LhjlvO79zl7I+bmxytgO6GpFPLli7lt6mRCO23Jxmo5Dh
+	 nu604xaPAS6Eg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Javier Tia <floss@jetm.me>,
-	Marcin FM <marcin@lgic.pl>,
-	Cristian-Florin Radoi <radoi.chris@gmail.com>,
-	George Salukvadze <giosal90@gmail.com>,
-	Evgeny Kapusta <3193631@gmail.com>,
-	Samu Toljamo <samu.toljamo@gmail.com>,
-	Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>,
-	Chapuis Dario <chapuisdario4@gmail.com>,
-	=?UTF-8?q?Thibaut=20Fran=C3=A7ois?= <tibo@humeurlibre.fr>,
-	=?UTF-8?q?=E5=BC=A0=E6=97=AD=E6=B6=B5?= <Loong.0x00@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] wifi: mt76: mt7925: populate EHT 320MHz MCS map in sta_rec
-Date: Mon, 31 Aug 2026 09:26:17 -0400
-Message-ID: <20260831133314.4125787-349-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.15] firmware: arm_scmi: Validate SENSOR_UPDATE payload size
+Date: Mon, 31 Aug 2026 09:26:26 -0400
+Message-ID: <20260831133314.4125787-358-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,382 +77,414 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Javier Tia <floss@jetm.me>
+From: Sudeep Holla <sudeep.holla@kernel.org>
 
-[ Upstream commit e7bbd3d8b4f01473676da3aa8be17099e1604459 ]
+[ Upstream commit 32bc5496b48174dbca1f187f710955ee4d9527a1 ]
 
-The sta_rec_eht structure has a mcs_map_bw320 field, and the channel
-width mapping includes NL80211_CHAN_WIDTH_320, but the 320MHz MCS/NSS
-map was never copied from the station's EHT capabilities to the MCU TLV.
-This prevents negotiation of 320MHz channel width even when both the
-hardware and firmware advertise support for it.
+SENSOR_UPDATE carries one or more sensor readings after the fixed
+notification header. The parser derives the expected reading count
+from the sensor description, but it did not verify that the received
+payload contains those entries before parsing them.
 
-Add the missing memcpy for the 320MHz MCS map, matching the existing
-pattern for BW20, BW80, and BW160.
+Reject truncated update notifications before reading the variable
+array.
 
-Tested-by: Marcin FM <marcin@lgic.pl>
-Tested-by: Cristian-Florin Radoi <radoi.chris@gmail.com>
-Tested-by: George Salukvadze <giosal90@gmail.com>
-Tested-by: Evgeny Kapusta <3193631@gmail.com>
-Tested-by: Samu Toljamo <samu.toljamo@gmail.com>
-Tested-by: Ariel Rosenfeld <ariel.rosenfeld.750@gmail.com>
-Tested-by: Chapuis Dario <chapuisdario4@gmail.com>
-Tested-by: Thibaut François <tibo@humeurlibre.fr>
-Tested-by: 张旭涵 <Loong.0x00@gmail.com>
-Reviewed-by: Sean Wang <sean.wang@mediatek.com>
-Signed-off-by: Javier Tia <floss@jetm.me>
-Link: https://patch.msgid.link/20260425195011.790265-5-sean.wang@kernel.org
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Link: https://patch.msgid.link/20260517-scmi_fixes-v1-3-d86daec4defd@kernel.org
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-# Stable Backport Analysis: wifi: mt76: mt7925: populate EHT 320MHz MCS
-map in sta_rec
+## Phase 1: Commit Message Forensics
 
-**Local tree:** `v6.18.44` (VERSION=6, PATCHLEVEL=18, SUBLEVEL=44)
+**Step 1.1 — Subject line**
+- Record: `[firmware: arm_scmi]` `[Validate]` — Validate SENSOR_UPDATE
+  notification payload size before parsing variable-length sensor
+  readings.
 
----
+**Step 1.2 — Tags**
+- Record:
+  - `Link:` https://patch.msgid.link/20260517-scmi_fixes-v1-3-
+    d86daec4defd@kernel.org
+  - `Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>` (ARM SCMI
+    maintainer)
+  - `Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>` (SCMI
+    maintainer)
+  - No `Fixes:`, `Reported-by:`, `Cc: stable@vger.kernel.org`, or syzbot
+    tags
+  - Part of `[PATCH 3/4]` in series `firmware: arm_scmi: Fix protocol
+    parsing and validation`
 
-## PHASE 1: COMMIT MESSAGE FORENSICS
+**Step 1.3 — Body analysis**
+- Record:
+  - **Bug:** `SCMI_EVENT_SENSOR_UPDATE` notifications carry a fixed
+    header plus a variable array of readings. The parser derives
+    `readings_count` from the sensor description but never checks that
+    `payld_sz` covers those entries.
+  - **Symptom:** Truncated notifications are parsed anyway; readings
+    beyond the valid payload are read and forwarded to handlers.
+  - **Root cause:** Missing minimum and expected payload size validation
+    before accessing `p->readings[]`.
+  - **Version info:** None in commit message; code has existed since
+    SCMI v3.0 sensor notifications (2020).
 
-### Step 1.1: Subject line
-**Record:** `[wifi: mt76: mt7925]` `[populate]` — Populate the missing
-EHT 320MHz MCS/NSS map in the station-record EHT TLV sent to firmware.
-
-### Step 1.2: Tags
-**Record:**
-- **Tested-by:** Marcin FM, Cristian-Florin Radoi, George Salukvadze,
-  Evgeny Kapusta, Samu Toljamo, Ariel Rosenfeld, Chapuis Dario, Thibaut
-  François, 张旭涵 (9 testers — strong real-world validation signal)
-- **Reviewed-by:** Sean Wang `<sean.wang@mediatek.com>` (MediaTek/mt76
-  maintainer)
-- **Signed-off-by:** Javier Tia `<floss@jetm.me>` (author), Felix
-  Fietkau `<nbd@nbd.name>` (mt76 maintainer)
-- **Link:** https://patch.msgid.link/20260425195011.790265-5-
-  sean.wang@mediatek.org (patch 5/N in a Sean Wang series)
-- **No** Fixes:, Reported-by:, Cc: stable@vger.kernel.org, Acked-by:, or
-  syzbot tags
-
-**Notable pattern:** Heavy Tested-by list from multiple independent
-users; maintainer Reviewed-by.
-
-### Step 1.3: Body analysis
-**Record:**
-- **Bug:** `sta_rec_eht` has `mcs_map_bw320`, and channel-width mapping
-  includes `NL80211_CHAN_WIDTH_320`, but the driver never copies the
-  station's 320MHz MCS/NSS map into the MCU TLV.
-- **Symptom:** 320MHz channel-width negotiation fails even when hardware
-  and firmware advertise support.
-- **Root cause:** Missing `memcpy` for the 320MHz map; BW20/80/160 maps
-  were populated, BW320 was not.
-- **Version info:** None in the message.
-
-### Step 1.4: Hidden bug fix?
-**Record:** Yes. Despite the neutral "populate" wording, this is a
-functional driver bug — incomplete TLV population that prevents
-advertised hardware capability from working. Not cosmetic cleanup.
+**Step 1.4 — Hidden bug fix?**
+- Record: **Yes.** Despite the neutral “validate” wording, this is a
+  real parsing bug fix, not cosmetic cleanup. It prevents out-of-spec
+  payload processing.
 
 ---
 
-## PHASE 2: DIFF ANALYSIS
+## Phase 2: Diff Analysis
 
-### Step 2.1: Inventory
-**Record:**
-- **Files:** `drivers/net/wireless/mediatek/mt76/mt7925/mcu.c` (+1 line)
-- **Function:** `mt7925_mcu_sta_eht_tlv()`
-- **Scope:** Single-file, single-line surgical fix
+**Step 2.1 — Inventory**
+- Record:
+  - `drivers/firmware/arm_scmi/sensors.c`: +9 / -1 lines
+  - Function modified: `scmi_sensor_fill_custom_report()`
+  - Scope: single-file, surgical fix in one `switch` case
 
-### Step 2.2: Code flow change
-**Record:**
-- **Before:** After allocating `STA_REC_EHT` TLV, driver copies
-  `mcs_map_bw20` (conditionally), `mcs_map_bw80`, and `mcs_map_bw160`.
-  `mcs_map_bw320` left zeroed.
-- **After:** Adds `memcpy(eht->mcs_map_bw320, &mcs_map->bw._320,
-  sizeof(eht->mcs_map_bw320));` matching the BW80/BW160 pattern.
-- **Path:** Station association/update path when EHT-capable peer
-  connects (`mt7925_mcu_sta_update` → `mt7925_mcu_sta_eht_tlv`).
+**Step 2.2 — Code flow change**
+- Record:
+  - **Hunk 1 (minimum header check):** Before → reads `p->sensor_id`
+    immediately. After → returns early if `payld_sz < sizeof(*p)` (8
+    bytes).
+  - **Hunk 2 (expected size check):** Before → loops `readings_count`
+    times over `p->readings[i]` unconditionally. After → computes
+    `expected_sz = sizeof(*p) + readings_count * sizeof(p->readings[0])`
+    and breaks if `payld_sz < expected_sz`.
+  - **Failure path:** `break` leaves `rep = NULL`; caller logs and skips
+    notification handlers.
 
-### Step 2.3: Bug mechanism
-**Record:**
-- **Category:** Logic/correctness — incomplete firmware TLV population
-- **Mechanism:** Firmware receives zero/empty 320MHz MCS map → refuses
-  or cannot negotiate 320MHz despite peer and local HW supporting it.
-  Sibling driver `mt7996` already populates this field correctly.
+**Step 2.3 — Bug mechanism**
+- Record:
+  - **Category:** Memory safety / bounds validation (out-of-bounds read
+    of notification payload).
+  - **Mechanism:** `scmi_notify()` only enforces an upper bound (`len >
+    max_payld_sz`). For `SENSOR_UPDATE`, `max_payld_sz` allows up to 63
+    axis readings, but a shorter payload is accepted. The handler then
+    reads 16-byte `scmi_sensor_reading_resp` entries beyond the copied
+    `payld_sz` bytes. The scratch buffer (`pd->eh`) is pre-allocated to
+    max size, so this typically reads stale buffer contents rather than
+    faulting — but wrong sensor values are still delivered to consumers.
 
-### Step 2.4: Fix quality
-**Record:**
-- Obviously correct: mirrors existing BW80/BW160 `memcpy` calls and
-  `mt7996_mcu_sta_eht_tlv()` at line 1394.
-- Minimal, no unrelated changes.
-- **Regression risk:** Very low — only adds data that should have been
-  sent; no locking, no API change.
-
----
-
-## PHASE 3: GIT HISTORY INVESTIGATION
-
-### Step 3.1: Blame
-**Record:**
-- `mt7925_mcu_sta_eht_tlv()` introduced in `c948b5da6bbec7` (2023-09-30,
-  "add Mediatek Wi-Fi7 driver for mt7925 chips") without BW320 `memcpy`.
-- Refactored in `b2f59773061920` (2024-06-12, MLO per-link STA) — BW320
-  still missing.
-- `mcs_map_bw320` field in `sta_rec_eht` also from `c948b5da6bbec7`.
-- `NL80211_CHAN_WIDTH_320` mapping present since driver introduction.
-- Bug present since driver inception (~2.5 years in this tree).
-
-### Step 3.2: Fixes: tag
-**Record:** N/A — no Fixes: tag in commit message.
-
-### Step 3.3: Related file history
-**Record:**
-- Recent mt7925 commits are mostly MLO, crash, and deadlock fixes — no
-  prior fix for this issue.
-- `mt7996` got `mcs_map_bw320` memcpy in `92aa2da9fa497` ("enable EHT
-  support in firmware") — mt7925 was never updated similarly.
-- Standalone one-line fix; patch 5 of a series but this hunk has no code
-  dependency on other series patches.
-
-### Step 3.4: Author context
-**Record:** Javier Tia has one other mt7925 commit in this tree
-(`b8bf7c221b364`, stale pointer fix). Sean Wang (reviewer) is primary
-mt7925/MLO maintainer with extensive history in this driver.
-
-### Step 3.5: Dependencies
-**Record:** No prerequisites. `struct sta_rec_eht.mcs_map_bw320`,
-`ieee80211_eht_mcs_nss_supp.bw._320`, and `mt7925_mcu_sta_eht_tlv()` all
-exist in v6.18.44. Applies standalone.
+**Step 2.4 — Fix quality**
+- Record:
+  - Fix is obviously correct; mirrors the existing fixed-size check on
+    `SCMI_EVENT_SENSOR_TRIP_POINT_EVENT` and the variable-size pattern
+    in `system.c`.
+  - Minimal, no API changes.
+  - Regression risk: very low — only rejects malformed/truncated
+    notifications that were already being mishandled.
 
 ---
 
-## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+## Phase 3: Git History Investigation
 
-### Step 4.1: Original discussion
-**Record:** `b4 dig -c db6df9da5b5d7` failed — commit not in this
-checkout (upstream-only). Lore/patch.msgid.link URLs blocked by Anubis
-bot protection; could not read thread content.
+**Step 3.1 — Blame**
+- Record: `SCMI_EVENT_SENSOR_UPDATE` handler introduced in
+  `e3811190acf85` (Cristian Marussi, 2020-11-19, “Add SCMI v3.0 sensor
+  notifications”). Bug present since introduction. Present in this tree
+  at `drivers/firmware/arm_scmi/sensors.c:1074-1101`.
 
-### Step 4.2: Reviewers
-**Record:** UNVERIFIED via b4 -w (commit not in tree). Commit message
-shows Reviewed-by Sean Wang and Signed-off-by Felix Fietkau.
+**Step 3.2 — Fixes: tag**
+- Record: Not applicable — no `Fixes:` tag.
 
-### Step 4.3: Bug report
-**Record:** No external bug report link. Nine Tested-by entries are the
-primary evidence of user impact.
+**Step 3.3 — Related file history**
+- Record:
+  - Recent related hardening: `76f89c9547887` (“Harden accesses to the
+    sensor domains”), `3b0041f6e10e5` (“Validate
+    BASE_DISCOVER_LIST_PROTOCOLS response”) — same class of “don’t trust
+    SCMI payload sizes.”
+  - Patch 1/4 of the same series is already in this tree:
+    `bac3e70c2fb10` (“Read sensor config as 32-bit value”).
+  - Patches 2/4 and 4/4 of the series are not yet in this tree; patch
+    3/4 is standalone.
 
-### Step 4.4: Series context
-**Record:** Link indicates patch 5 of Sean Wang's 2026-04-25 series.
-This specific change is self-contained (one `memcpy`). UNVERIFIED
-whether other series patches are required for 320MHz to work end-to-end.
+**Step 3.4 — Author context**
+- Record: Sudeep Holla is the SCMI maintainer. Cristian Marussi is the
+  primary SCMI protocol author and reviewed this patch.
 
-### Step 4.5: Stable list history
-**Record:** UNVERIFIED — lore.kernel.org/stable not accessible.
-
----
-
-## PHASE 5: CODE SEMANTIC ANALYSIS
-
-### Step 5.1: Key functions
-**Record:** `mt7925_mcu_sta_eht_tlv()` (modified), called from
-`mt7925_mcu_sta_update()` path.
-
-### Step 5.2: Callers
-**Record:** `mt7925_mcu_sta_eht_tlv()` called from line 1993 inside sta-
-rec update builder. `mt7925_mcu_sta_update()` called from:
-- `main.c`: association (`mt76_sta_add`), disassociation, AP mode
-  station add/remove, TDLS-related paths
-- `mac.c`: one additional call site
-
-All are normal WiFi connect/operate paths — common for any mt7925 user
-associating to an EHT AP.
-
-### Step 5.3: Callees
-**Record:** `mt76_connac_mcu_add_tlv()`, `cpu_to_le16/le64`, `memcpy`.
-TLV allocation zero-fills buffer; without the fix, `mcs_map_bw320` stays
-zero.
-
-### Step 5.4: Reachability
-**Record:** Triggered on every EHT-capable station association/update
-when `link_sta->eht_cap.has_eht` is true. Userspace connects to WiFi →
-driver sends STA_REC to firmware. Reachable from normal network use; no
-special privileges beyond using the WiFi interface.
-
-### Step 5.5: Similar patterns
-**Record:** `mt7996/mcu.c:1394` already has identical `memcpy` for
-`mcs_map_bw320`. mt7925 was the outlier.
+**Step 3.5 — Dependencies**
+- Record: **Standalone.** Only touches existing
+  `SCMI_EVENT_SENSOR_UPDATE` path. No prerequisite commits required
+  beyond code already in `linux-6.18.y`.
 
 ---
 
-## PHASE 6: CROSS-REFERENCE AGAINST LOCAL TREE (v6.18.44)
+## Phase 4: Mailing List and External Research
 
-### Step 6.1: Buggy code present?
-**Record:** **YES.** Current tree at lines 1687–1690 copies BW20/80/160
-only; BW320 `memcpy` absent:
+**Step 4.1 — Original discussion**
+- Record:
+  - Lore URL: https://lore.kernel.org/linux-arm-
+    kernel/20260517-scmi_fixes-v1-3-d86daec4defd@kernel.org/
+  - Series cover (patch 0/4) explains: “The next two patches harden
+    notification parsing for variable-sized payloads. BASE_ERROR_EVENT
+    and SENSOR_UPDATE both carry counted trailing arrays…”
+  - “No functional change is intended for well-formed SCMI responses.”
+  - Review reply from Cristian Marussi on patch 3/4 exists in thread
+    (Reviewed-by in final commit).
 
-```1687:1691:drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-        if (link_sta->bandwidth == IEEE80211_STA_RX_BW_20)
-                memcpy(eht->mcs_map_bw20, &mcs_map->only_20mhz,
-sizeof(eht->mcs_map_bw20));
-        memcpy(eht->mcs_map_bw80, &mcs_map->bw._80,
-sizeof(eht->mcs_map_bw80));
-        memcpy(eht->mcs_map_bw160, &mcs_map->bw._160,
-sizeof(eht->mcs_map_bw160));
-}
-```
+**Step 4.2 — Reviewers**
+- Record: CC’d to `Cristian Marussi`, `arm-scmi@vger.kernel.org`,
+  `linux-arm-kernel@lists.infradead.org`. Subsystem maintainers were
+  included.
 
-`sta_rec_eht.mcs_map_bw320[3]` exists in `mcu.h:416`.
-`NL80211_CHAN_WIDTH_320` mapped at `mcu.c:2151`. Driver commit
-`c948b5da6bbec7` is an ancestor of HEAD.
+**Step 4.3 — Bug report**
+- Record: No external bug report or syzbot link. Issue found during
+  spec-compliance review per series cover letter.
 
-### Step 6.2: Backport complications
-**Record:** Clean apply expected — single line insertion after the BW160
-`memcpy`. No conflicting recent changes in this function.
+**Step 4.4 — Series context**
+- Record: 4-patch series; patch 3 is independent of patches 2 and 4.
+  Patch 1 already backported to this tree, indicating stable maintainers
+  already consider the series appropriate for `6.18.y`.
 
-### Step 6.3: Related fixes already present?
-**Record:** No — `git log --grep` found no "populate EHT 320MHz" or
-`mcs_map_bw320` fix for mt7925 in this tree.
-
----
-
-## PHASE 7: SUBSYSTEM AND MAINTAINER CONTEXT
-
-### Step 7.1: Subsystem
-**Record:** `drivers/net/wireless/mediatek/mt76/mt7925` — WiFi driver
-(IMPORTANT; affects mt7925/Filogic 360 hardware users, not universal).
-
-### Step 7.2: Activity
-**Record:** Actively developed — many recent fixes (NULL deref,
-deadlock, MLO, crash in reset). Driver is mature enough for stable
-backports of targeted fixes.
+**Step 4.5 — Stable list history**
+- Record: No explicit `Cc: stable` nomination found in thread. Not a
+  negative signal per instructions.
 
 ---
 
-## PHASE 8: IMPACT AND RISK ASSESSMENT
+## Phase 5: Code Semantic Analysis
 
-### Step 8.1: Who is affected
-**Record:** Users of mt7925-based WiFi 7 hardware (PCIe/USB) connecting
-to EHT APs that support 320MHz. Config-specific: `CONFIG_MT7925` (driver
-built-in or module).
+**Step 5.1 — Key functions**
+- Record: `scmi_sensor_fill_custom_report()`,
+  `scmi_parse_sensor_readings()`
 
-### Step 8.2: Trigger conditions
-**Record:** EHT-capable association where both ends support 320MHz.
-Requires WiFi 7 AP with 320MHz and compatible firmware. Not every boot,
-but normal for users seeking WiFi 7 performance. Unprivileged users
-trigger via normal WiFi connection.
+**Step 5.2 — Callers**
+- Record:
+  - `REVT_FILL_REPORT()` macro in `notify.c:495` called from
+    `scmi_process_event_payload()`
+  - `scmi_process_event_payload()` called from
+    `scmi_events_dispatcher()` workqueue handler
+  - Context: process context, SCMI notification worker path
 
-### Step 8.3: Failure mode severity
-**Record:** **MEDIUM** — No crash, hang, corruption, or security issue.
-Functional defect: advertised 320MHz capability never negotiated; users
-capped at lower bandwidth (160MHz or less). Significant performance
-impact for affected WiFi 7 users, but system remains stable.
+**Step 5.3 — Callees**
+- Record: `le32_to_cpu()`, `scmi_parse_sensor_readings()` (reads 16-byte
+  unaligned LE64 pairs per axis)
 
-### Step 8.4: Risk-benefit
-**Record:**
-- **Benefit:** HIGH for mt7925 WiFi 7 users who cannot use 320MHz;
-  enables hardware capability that driver structures already support.
-- **Risk:** VERY LOW — one-line `memcpy`, proven pattern, 9 independent
-  testers.
-- **Ratio:** Favorable for backport to this tree.
+**Step 5.4 — Reachability**
+- Record:
+  - Triggered when platform firmware sends `SCMI_EVENT_SENSOR_UPDATE`
+    notifications
+  - Affects ARM/ARM64 systems using SCMI (Juno, NXP i.MX, STM32 MP,
+    Neoverse, etc.)
+  - Not directly userspace-triggerable, but firmware bugs, transport
+    corruption, or spec violations can deliver truncated payloads
+  - Downstream consumers include
+    `drivers/iio/common/scmi_sensors/scmi_iio.c` (registers for
+    `SCMI_EVENT_SENSOR_UPDATE` and copies `readings[]` into IIO buffers)
+
+**Step 5.5 — Similar patterns**
+- Record:
+  - `SCMI_EVENT_SENSOR_TRIP_POINT_EVENT` already validates `sizeof(*p)
+    != payld_sz`
+  - `scmi_system_fill_custom_report()` validates `payld_sz !=
+    expected_sz`
+  - `scmi_reset_fill_custom_report()`,
+    `scmi_power_fill_custom_report()`, `scmi_perf_fill_custom_report()`
+    all validate payload sizes
+  - `SENSOR_UPDATE` was the outlier missing validation
 
 ---
 
-## PHASE 9: FINAL SYNTHESIS
+## Phase 6: Cross-Reference Against Local Tree
 
-### Step 9.1: Evidence summary
+**Step 6.1 — Buggy code exists?**
+- Record: **Yes.** Local tree is `stable/linux-6.18.y` at `v6.18.44`.
+  Buggy code confirmed at `sensors.c:1082-1098` — no payload size
+  validation before parsing readings.
 
-**FOR backport:**
-- Real, long-standing driver bug (since Sep 2023 driver add)
-- Bug confirmed present in v6.18.44
-- One-line, obviously correct fix matching mt7996
-- Nine Tested-by, maintainer Reviewed-by
-- Completes existing EHT TLV — not a new API or feature
-- Applies cleanly, no dependencies
-- Users cannot use advertised 320MHz WiFi 7 bandwidth
+**Step 6.2 — Backport complications**
+- Record: **Clean apply expected.** File is present and structure
+  matches the diff context exactly. No conflicting refactors in this
+  area.
 
-**AGAINST backport:**
-- Not a crash/corruption/deadlock/security issue
-- Strict stable-rules reading: performance/capability limitation, not
-  stability failure
-- 320MHz WiFi 7 on mt7925 is a relatively narrow user base
-- UNVERIFIED: whether other patches in the April 2026 series are also
-  needed for full 320MHz operation
+**Step 6.3 — Related fixes already present?**
+- Record: Patch 1/4 of same series already backported (`bac3e70c2fb10`).
+  This specific SENSOR_UPDATE validation is **not** yet present. No
+  duplicate fix found.
 
-### Step 9.2: Stable rules checklist
-1. Obviously correct and tested? **PASS** — mirrors BW160 pattern and
-   mt7996; 9 Tested-by + maintainer review.
-2. Fixes a real bug affecting users? **PASS** — 320MHz negotiation
-   broken for mt7925 EHT stations.
-3. Important issue? **PASS (borderline)** — not crash/corruption, but
-   clear functional hardware-enablement defect with documented user
-   impact; fits "oh, that's not good" incomplete TLV population.
-4. Small and contained? **PASS** — 1 line, 1 file.
-5. No new features or APIs? **PASS** — fills existing struct field
-   already allocated in TLV.
-6. Can apply to local tree? **PASS** — all structures and code paths
-   exist in v6.18.44.
+---
 
-### Step 9.3: Exception categories
-**Record:** Closest match: hardware enablement / incomplete capability
-population (analogous to quirks enabling advertised hardware behavior).
-Not a device-ID addition, build fix, or docs fix.
+## Phase 7: Subsystem and Maintainer Context
 
-### Step 9.4: Decision rationale
-For **v6.18.44** specifically: the mt7925 driver, EHT support,
-`sta_rec_eht.mcs_map_bw320`, and 320MHz channel-width mapping all exist.
-The omission of one `memcpy` has prevented 320MHz negotiation since the
-driver was added. The fix is trivial, well-tested, maintainer-reviewed,
-and low-risk. While not a stability crash, it is a genuine, user-visible
-functional bug in production WiFi 7 hardware support — the kind of
-targeted driver fix stable trees routinely carry.
+**Step 7.1 — Subsystem criticality**
+- Record: `firmware/arm_scmi` — **IMPORTANT** for ARM embedded/server
+  platforms. Sensor notifications feed hwmon/IIO/thermal subsystems.
+
+**Step 7.2 — Subsystem activity**
+- Record: Actively maintained; recent commits include protocol
+  versioning, sensor domain hardening, and the first patch of this same
+  fix series.
+
+---
+
+## Phase 8: Impact and Risk Assessment
+
+**Step 8.1 — Who is affected**
+- Record: ARM platforms using SCMI sensor continuous-update
+  notifications — embedded, mobile, server BMC paths. Config-dependent
+  on `CONFIG_ARM_SCMI` and sensor notification registration.
+
+**Step 8.2 — Trigger conditions**
+- Record: Truncated or malformed `SENSOR_UPDATE` notification from SCMI
+  firmware. Uncommon in normal operation but possible with buggy
+  firmware or corrupted messages. Not unprivileged-userspace-
+  triggerable.
+
+**Step 8.3 — Failure mode severity**
+- Record:
+  - **Failure mode:** Reads beyond valid payload into stale scratch-
+    buffer data; incorrect sensor readings propagated to IIO/hwmon
+    notifiers.
+  - **Severity:** **MEDIUM-HIGH** — data integrity issue in sensor
+    reporting path; could affect thermal/power decisions on affected
+    platforms. Unlikely to panic (buffer is pre-allocated to max size),
+    but wrong data is a real bug.
+
+**Step 8.4 — Risk vs benefit**
+- Record:
+  - **Benefit:** Prevents bogus sensor data from truncated
+    notifications; aligns with existing SCMI validation patterns; same
+    series already partially backported.
+  - **Risk:** Very low — 9-line validation-only change on error path.
+  - **Ratio:** Strong benefit, minimal risk.
+
+---
+
+## Phase 9: Final Synthesis
+
+**Step 9.1 — Evidence summary**
+
+*For backporting:*
+- Real bounds-check bug in notification parser since 2020
+- Incorrect sensor readings possible on truncated payloads
+- Small, obviously correct, maintainer-reviewed fix
+- Consistent with prior SCMI validation backports in this tree
+  (`3b0041f6e10e5`)
+- Patch 1/4 of same series already in `linux-6.18.y`
+- Standalone, clean apply to this tree
+
+*Against backporting:*
+- No user crash report or syzbot finding
+- Requires malformed firmware notification (trusted path)
+- Part of a series where patches 2 and 4 are not yet backported (but
+  patch 3 is independent)
+
+*Unresolved:*
+- No explicit stable nomination in lore thread (not required)
+
+**Step 9.2 — Stable rules checklist**
+1. Obviously correct and tested? **PASS** — logic is straightforward;
+   reviewed by SCMI maintainer; series patch 1 already in tree with
+   multiple Tested-by tags on series.
+2. Fixes a real bug? **PASS** — truncated payloads parsed without bounds
+   check.
+3. Important issue? **PASS** — data integrity in sensor notification
+   path (MEDIUM-HIGH).
+4. Small and contained? **PASS** — 9 lines, one function, one file.
+5. No new features/APIs? **PASS** — validation only.
+6. Can apply to local tree? **PASS** — buggy code present, clean apply
+   expected.
+
+**Step 9.3 — Exception categories**
+- Record: Not a device ID/quirk/DT/build/doc exception. Standard bug
+  fix.
+
+**Step 9.4 — Decision rationale**
+
+For `linux-6.18.y` at `v6.18.44`, this commit should be backported. The
+`SCMI_EVENT_SENSOR_UPDATE` handler has been missing payload size
+validation since 2020, allowing truncated notifications to produce
+incorrect sensor readings that flow into IIO consumers. The fix is
+minimal, matches established patterns elsewhere in the same driver, was
+reviewed by the SCMI maintainer, and belongs to a series whose first
+patch is already in this stable tree.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed subject, 9 Tested-by, Reviewed-by Sean Wang, Link
-  tag; no Fixes:/syzbot
-- **[Phase 2]** Confirmed 1-line `memcpy` addition in
-  `mt7925_mcu_sta_eht_tlv()`
-- **[Phase 3]** `git describe HEAD` → v6.18.44; `git blame` → function
-  from c948b5da6bbec7 (2023-09-30); BW320 never copied
-- **[Phase 3]** `git log -S mcs_map_bw320` → field since driver add;
-  mt7996 fix in 92aa2da9fa497
-- **[Phase 3]** `git merge-base --is-ancestor c948b5da6bbec7 HEAD` →
-  driver in tree
-- **[Phase 4]** `b4 dig -c db6df9da5b5d7` → commit not in tree
-  (expected)
-- **[Phase 4]** lore.kernel.org / patch.msgid.link → blocked by Anubis;
-  thread content UNVERIFIED
-- **[Phase 5]** `grep mt7925_mcu_sta_eht_tlv` → caller at mcu.c:1993;
-  `mt7925_mcu_sta_update` callers in main.c, mac.c
-- **[Phase 5]** Read mt7996/mcu.c:1394 → identical BW320 `memcpy`
-  present
-- **[Phase 6]** Read mcu.c:1687-1691 → buggy code present (no BW320
-  copy)
-- **[Phase 6]** Read mcu.h:416 → `mcs_map_bw320[3]` exists
-- **[Phase 6]** Read mcu.c:2151 → `NL80211_CHAN_WIDTH_320` mapped
-- **[Phase 6]** `git log --grep` → no existing fix in tree
-- **[Phase 8]** Failure mode assessed as functional/MEDIUM, not crash
+- [Phase 1] `git describe HEAD` → `v6.18.44`; parsed commit message tags
+  and body
+- [Phase 2] Read diff and `sensors.c:1050-1108`; confirmed
+  `scmi_sensor_reading_resp` is 16 bytes; `sizeof(*p)` is 8 bytes
+- [Phase 3] `git blame -L 1074,1101 sensors.c` → bug from
+  `e3811190acf85` (2020-11-19)
+- [Phase 3] `git show e3811190acf85` → introduced SCMI v3.0 sensor
+  notifications
+- [Phase 3] `git log --oneline -20 --
+  drivers/firmware/arm_scmi/sensors.c` → recent activity confirmed
+- [Phase 3] `git log --oneline -1 bac3e70c2fb10` → patch 1/4 already in
+  tree
+- [Phase 4] Fetched lore thread via `curl .../t.mbox.gz`; confirmed
+  series context and Reviewed-by
+- [Phase 4] `b4 am 20260517-scmi_fixes-v1-3-d86daec4defd@kernel.org` →
+  found thread on lore.kernel.org
+- [Phase 5] `grep fill_custom_report notify.c` → call chain through
+  `scmi_process_event_payload()`
+- [Phase 5] Read `scmi_iio.c:39-55` → consumer copies
+  `sensor_update->readings[]` to IIO buffers
+- [Phase 5] Read `notify.c:598-611, 759-789` → upper-bound-only check in
+  `scmi_notify()`; scratch buffer sized to max
+- [Phase 6] Confirmed buggy code at `sensors.c:1082-1098` without fix
+- [Phase 6] `git branch` shows `HEAD detached at stable/linux-6.18.y`
+- [Phase 6] No existing SENSOR_UPDATE validation fix in tree
+- [Phase 8] Assessed failure as stale-data reads → incorrect sensor
+  values, not kmalloc overflow (scratch buffer pre-allocated to
+  `max_payld_sz`)
 
-**YES**
+**YES****Verdict: YES** — backport to `linux-6.18.y`.
 
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 1 +
- 1 file changed, 1 insertion(+)
+The `SCMI_EVENT_SENSOR_UPDATE` handler in
+`drivers/firmware/arm_scmi/sensors.c` parses variable-length sensor
+readings without checking that the notification payload is large enough.
+Truncated messages can produce incorrect readings that reach IIO/hwmon
+consumers.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index 18efcfa614400..1d63bfa58c437 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -1693,6 +1693,7 @@ mt7925_mcu_sta_eht_tlv(struct sk_buff *skb, struct ieee80211_link_sta *link_sta)
- 		memcpy(eht->mcs_map_bw20, &mcs_map->only_20mhz, sizeof(eht->mcs_map_bw20));
- 	memcpy(eht->mcs_map_bw80, &mcs_map->bw._80, sizeof(eht->mcs_map_bw80));
- 	memcpy(eht->mcs_map_bw160, &mcs_map->bw._160, sizeof(eht->mcs_map_bw160));
-+	memcpy(eht->mcs_map_bw320, &mcs_map->bw._320, sizeof(eht->mcs_map_bw320));
- }
+The fix is small (9 lines), reviewed by SCMI maintainer Cristian
+Marussi, and matches validation patterns already used elsewhere in the
+driver. Patch 1/4 of the same series is already in this tree; this one
+is standalone and should apply cleanly.
+
+ drivers/firmware/arm_scmi/sensors.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/arm_scmi/sensors.c b/drivers/firmware/arm_scmi/sensors.c
+index 1be0f89fc2c4b..99233742714c9 100644
+--- a/drivers/firmware/arm_scmi/sensors.c
++++ b/drivers/firmware/arm_scmi/sensors.c
+@@ -1074,12 +1074,15 @@ scmi_sensor_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 	case SCMI_EVENT_SENSOR_UPDATE:
+ 	{
+ 		int i;
++		size_t expected_sz;
+ 		struct scmi_sensor_info *s;
+ 		const struct scmi_sensor_update_notify_payld *p = payld;
+ 		struct scmi_sensor_update_report *r = report;
+ 		struct sensors_info *sinfo = ph->get_priv(ph);
  
- static void
+-		/* payld_sz is variable for this event */
++		if (payld_sz < sizeof(*p))
++			break;
++
+ 		r->sensor_id = le32_to_cpu(p->sensor_id);
+ 		if (r->sensor_id >= sinfo->num_sensors)
+ 			break;
+@@ -1093,6 +1096,11 @@ scmi_sensor_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 		 * readings defined for this sensor or 1 for scalar sensors.
+ 		 */
+ 		r->readings_count = s->num_axis ?: 1;
++		expected_sz = sizeof(*p) + r->readings_count *
++			      sizeof(p->readings[0]);
++		if (payld_sz < expected_sz)
++			break;
++
+ 		for (i = 0; i < r->readings_count; i++)
+ 			scmi_parse_sensor_readings(&r->readings[i],
+ 						   &p->readings[i]);
 -- 
 2.53.0
 
