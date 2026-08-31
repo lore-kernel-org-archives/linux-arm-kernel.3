@@ -4,111 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA36C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27485C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFWfbb/gIctZHoo0CDVoZsBSY4wt/NAsN/U4bJzB5KM=; b=btrFCLAKZ8lfVXBPSD7xTMv88H
-	dnWmfe06CoqCfNvFgffzG36Yswuk/CeEqX5vac1HvXXlt5g2lBS1xhVckHhLcf2SHwQ2HcFjhg1a1
-	FW0KI9SeCWf2QziBTMbBRS47zUZaRpjkknGbk4XjNtuIqLtBALWNkvIZdG1jlTm9DAvFjS9YwDPmN
-	XseWffqKn3mvpL+EqjMxor1F0v1ayjQJzHqbpaGV8eZ4eRcVL4Uny1vAhCFVaqaB9+Yw49jGbnYkS
-	ktHkNvgokM9xQp2vWCPY1ugrtLzUx/Ie3kLny5wXE1hVmQpqPWo3x2aQd51vEmt0KIrWUAbSimjNG
-	KVh3Nz7Q==;
+	bh=jp+hqQqMNpfps3DxX8HzIVZ5L4ni0RL7VXbNl/0NSJ8=; b=vH0jniYmujh9QOIr58fMV5Z2Zw
+	in8R1HwWzU81FRgVP3JmOXk+MH5pbs2g6XTkSK+vuX9PIXmrtfwEKXV83m0jJUh8ih55iis5p2i7J
+	K7FeTkUQSqdqBbAwUxFA4JiWto60JlbyS0m0f27T1lfpGRudyL5Yw5CC6/bBxZyo+gvWwNgyygjHk
+	Ot+8xv7Fb+wim+8l2VPys0nZkrFQxGtXFNlVeI6HPQjGGjLjppqoUS6bCTW2S7T6CW3GkGGRJMXmb
+	NqgiNJkaovq6jU6q3yQ7pfD30pVqjV5fYVUYEog41JBiiYeNSoinjMvjs9adqdqOjpxuCzg127Gky
+	UPrXZpug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wJe-00000008iCq-1SIF;
-	Mon, 31 Aug 2026 07:20:26 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1x0wJl-00000008iFM-2ug3;
+	Mon, 31 Aug 2026 07:20:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wJa-00000008iBX-0RXY
+	id 1x0wJc-00000008iCJ-48PN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:20:23 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-52f9fc510e1so35857581cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 00:20:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788160820; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qITNxePfcb8yhO4JvKUq4Ng/eYk2VYGPzLaj81XVqh1yYhH1UGKJ80rNsEqQMq9XNA
-         b0dAFkUJ+bOHB86UqkerQFvOqHIkTlzWaPMv4fYW0GzYxijdqVYIrBE3H7+VXI6QJ6vg
-         YI1mWM9cW9K9URZ5ZHzA9pX0vEkWOqNXGCv8fNoLzES4LMYSDbReY9GRcARsixmiGSz0
-         0ickIgwISfyu6aIVFtCJ1XStg5Y981IM56tvYKJJyhxtJte4BhTAII6/s+fwlzw6vePT
-         Y+VF8mzkzY0YbGnRDmlObIoiEmH8x8GeS2WDcrxSFqTh6Xu9YypuSFsy5A0FsWXg2Dps
-         clLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bFWfbb/gIctZHoo0CDVoZsBSY4wt/NAsN/U4bJzB5KM=;
-        fh=2QHC6UEjsIoWt0VN8EzIiylQcvauwl1dA0hE3xuE1cM=;
-        b=Dkj0zVdePnAPYhOvTrq0qjFVoMMOcCrGChJCB97mlgrhsRx5+JDqSBYkBTDxxn9ejL
-         x7IXNKE/2VQApQ4XCXxVa+ThIHixB0DHl1C0ZRDAzFfdBBDp/+rhvsOSRt+c1brI1Q2x
-         IF1MzaN19xzPXcoyqmRI8QuM4ESgf+wsnBK2oF7meeF2UPXse0yTw00wJlu+m63VhwQU
-         EuYrnRCwaPM5M+g4G/7ppO9Kakc91VPg8kxwjdTbwORNbqf8KyWB3BWX67wFYCMqUARh
-         ai6b42mSFKLmiO4fe5zHogj/DxZTL5N/rMvFU4SQap3Y/LWPAmSljgN+m7FwPbqznl8H
-         jdBw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 31 Aug 2026 07:20:26 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67V52fdL2522559
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:20:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	jp+hqQqMNpfps3DxX8HzIVZ5L4ni0RL7VXbNl/0NSJ8=; b=T+KK612LWjZUANeB
+	VkFdsMWkr9eyhS/Q15o16qwql0zjmx3zVqavLU23rgjw75IUZUoeAw5IHkblRKn+
+	7YzUSSJgv8+lF+kOZ2W6XWW5bum1I9EQ+RpOKDfct9vO11Ph6msTMLpc/ic9AYgw
+	9O8Aw8paGd/LlJnIuE4ETOoGVuwYXXhZ+vb77bRI3rZ8QAVyFbCKjs8vRFOOVwqN
+	jYcwONoZ8zLm1TjLaKsiTZz3e2FqBM4bH5hcaHomWo0mCaNv/8Iyq9WKBXXmSWeT
+	sCT2wFUOep/7F5Lk8R53LQ532oQlxD+K1hDs2Mlg9Gl+3TG7dDe49k7ZK1lSrFtj
+	9mSIhA==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gcv7w9dyr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:20:22 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-90ce451128fso3234426d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 00:20:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tomeuvizoso-net.20251104.gappssmtp.com; s=20251104; t=1788160820; x=1788765620; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bFWfbb/gIctZHoo0CDVoZsBSY4wt/NAsN/U4bJzB5KM=;
-        b=P4//qHTtA2qNNV9z/ddUiSwZA9ppOMYo505yFR6zFIpNPqoFoptYnOnuNLpLAbpBfT
-         2NdtuLt0Cb/bmNFGt1B3YqQdqxug0vlfw0mFhRkh2QiudNPZ/3xLWBdmcy7xbL7yqPYN
-         6L1G2j/LTBNe+xYaM0RrmdwlynKXu9qd5wTctp9+EJFCIq6dEz91kox84z4gbBUnIutH
-         2nCqnfSsDoy0yqTzT2BiVjTh0dyakpYY6doFXGgIjrRL4KuXIqUHvuYNSEcCwjukGuPN
-         imGARhXFGugpsBwtERjHkVVvcyE/FmDZgsD5Vk5k0PbbCZDUVhxl3kCecN9Kf1Fyx/3a
-         A05w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788160820; x=1788765620;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1788160822; x=1788765622; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bFWfbb/gIctZHoo0CDVoZsBSY4wt/NAsN/U4bJzB5KM=;
-        b=agogWaAmuMN8MuwUZw1AJ8wmSTeylLyOW4quVjMPR90PyEuV9lky3LrxJQZzZ6ovGG
-         QjzTKNMjFMZTOklSgJ+unEbaVQLHTwYcbY2dru/+QFKQY6XBKQyALvcWVVcj/9bdmhC5
-         Y49P6bs5IlI8bFpgqXC6pyfeNj+/Q2VH96JsrR56p1bE5BRTvWy5l0nMATZqKuTcTYqN
-         czjAnEoxy4gTgYcDdIBnDnZD1dB3kahN1nA0hqP7c9cJuzxu9yd8QkmyErF2FCJ//ype
-         rL41bdyQxLC4TRzIUZYzjFdEk33un3Igb1Roq3eh8Gk5L8HWCRWBXQAx5Ti5VuRZOcCL
-         NZsg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq1tPexajz6M4i7Z+CkoklEqn2eVkvApjxfS2wIP9ZVKG4mT79T9bMWVP2V1gz583Bwdo5d27IqruDjoKQZUyeG@lists.infradead.org
-X-Gm-Message-State: AFuF++kKr1I3sIHccz88j8Jxmy9QDQmuj2WX3pe4vLw0sByizho1bso7
-	lKZZmLjlUMjm9lZ/Zx8iHo4odTeHPEcCT1PIX3SvHm5JCQjIZQFuhrC+re4EZhCP8CvHpfwO/If
-	jhhN2Gazn9YIvELpMqiB2BoY2q1hmfxxtz8DgQMhj2A==
-X-Gm-Gg: AR+sD10rk34407hABfj+xRWHBFDeccUIj0wqvvGDRbF+apXP54AhwDFgj6EHAKAJD7h
-	Rlftko9VGBsbvfgErsqkheI3SoS6BB+YkZHngAAuak58SD3IXvskTjuhlHatvcoUDVEqwpxMJzZ
-	COUQnt2g0z4JyfQ7VPKBRi4RmfvhBG+rlkC+jUQm15dQmIYZfWq9lNSX6wE3qN8lul1UN+BwEoY
-	0a1X3oC3+1TJaFSwqc5PPcoJOFokSqr6Yr8fx7DB0j1LrdnaY0rGCVhnWItNaM1/M40d0pjnH9x
-	Zgf5W0NBm88SlsgDzxJW8w+Emt8Wnq3RVdVAUSMSimeT
-X-Received: by 2002:a05:620a:1d02:b0:939:619:c6eb with SMTP id
- af79cd13be357-93936c7a141mr714176285a.8.1788160820472; Mon, 31 Aug 2026
- 00:20:20 -0700 (PDT)
+        bh=jp+hqQqMNpfps3DxX8HzIVZ5L4ni0RL7VXbNl/0NSJ8=;
+        b=Xcr1EfOzhq+qFitefOle/s+slTR0T/rbTbr9ZxmLkbUtnIP3beRx8iMcZf3y2pvu5a
+         yqTWLfx5hMP0mSGPWJGsrolVBIjdUcGNQby2eOJ9V31U3bcZ6GoI3Irkj01yYrJTpZw1
+         4B1bS4vcn88VUm34tChzvoul9Vp+PPsucFPIrTRI5XEyB3qoGJp3pKFZdxRQAryC4+7t
+         7t9CR1Mw491abgOvR1ShE0C7/ihWMVzx1v12L5mU41vXxG44rrxbFu+wWrqeEmKab2EP
+         jyzHETGjsdUmdfcv32aphtnjIHopwI8o5BgpWicfeLxIeUpwPoQMdZFRaHB9V4I/UvGF
+         diUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788160822; x=1788765622;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jp+hqQqMNpfps3DxX8HzIVZ5L4ni0RL7VXbNl/0NSJ8=;
+        b=pYywmkExtdJp4Gb6Epu3r80cy6ml2f7Cehk64z1mm7JssCn+asYfKh7YN/F9b8YRn2
+         qDxhfVIEd9ia1DmONMRT5x8+nJqYbdNHBHpmZQUoaqcnIsag/o4eUSHHGA63zF3h4MMy
+         n3RMhhgQ6vhQ6Uz3h0GrjYG6ZHqcEjsiStL0PLooox2LYJZGGPCLWSiEpUuMLV+F1Hux
+         S+AeKzSs0Bpem8Z3U5K0Uz5K/kbMWLcEl2UiQSsknf+dFGqKKdzdvuUPXXFH5wD2yYBO
+         OhnuCWJAVJnoHqC6AL1WLo9AYsnLbu8hbiO/ukQCc0B3NVF2TjlEbJzOToO4/YqM8ETM
+         EnEA==
+X-Forwarded-Encrypted: i=1; AHgh+RpzpKctkqzxjBRxaxvRXmsM+rwQFmJ4UTsQLOepJSp6jQ6cCLj90TScHwYvN00CEmYlhiehGqAkrn31yc+Kos2X@lists.infradead.org
+X-Gm-Message-State: AFuF++n/8WjpUkorfHX9w+6CC6I7JCxyKKfEYRUuf156uzaVMKn+A99w
+	kvEwlQX95r0+yIz87npUFo7uXuf+QvYYfZXsj+pRdl0MSAIPXtYNO5lvJVqgaT8Ljr+PGHLtiXF
+	U8YsWfFP3tfrmVfPe09RxSlGjHp37VcOTs/PTSjkFCNaVjhmAcFgqESJXyhd5f7GuQGyri2+7HO
+	f8Mg==
+X-Gm-Gg: AR+sD13zkRg0L7XMBEZwrwwAE/dlnI5JPFy6sQAmZADfHr+dDorvsZHpINTwmkoH30J
+	GGKJJRYA+mV1u7G6fsxbqg/KGbrNWIhlpceSGfwu2h8c+G5c89zrsYiWLhhPLs3dswOtrtjyQn9
+	QMYt7I1FQz3g6MwpCFBbyeY02Tb6S+i27eQ/KlzWJP6s5uMitlnzGgM6JjEgv0d14FWHCDymsta
+	Ft+MpziavE14uB573gmg0/PnjUe+rSbia7V0Cel0sVjVVi/Rcz3Cf3XCf23Mhl8yvMHzYU+2bz3
+	Irz8EZ2pl193gJDSS3NfnEREVv4gi2+3b//hfRAyZx6LN6j4jCkzPgGwBif4nOTUCKQINIqK7s/
+	uR2n5ePR4PKTwO1OEko2/QA==
+X-Received: by 2002:a05:620a:1b9a:b0:92b:7420:bd58 with SMTP id af79cd13be357-939285432f8mr771689485a.0.1788160822420;
+        Mon, 31 Aug 2026 00:20:22 -0700 (PDT)
+X-Received: by 2002:a05:620a:1b9a:b0:92b:7420:bd58 with SMTP id af79cd13be357-939285432f8mr771687685a.0.1788160821970;
+        Mon, 31 Aug 2026 00:20:21 -0700 (PDT)
+Received: from [192.168.202.12] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c255f1b2049sm405315466b.36.2026.08.31.00.20.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Aug 2026 00:20:21 -0700 (PDT)
+Message-ID: <655e39a2-88d7-4522-a27d-767dc9578aa2@oss.qualcomm.com>
+Date: Mon, 31 Aug 2026 09:20:17 +0200
 MIME-Version: 1.0
-References: <20260831040804.24111-1-gahing@gahingwoo.com>
-In-Reply-To: <20260831040804.24111-1-gahing@gahingwoo.com>
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Mon, 31 Aug 2026 09:20:09 +0200
-X-Gm-Features: AcwNN1Uwr5NzEhJ7J-T4GkpAbcQEn3hzAH0qQngAbR_wX7Qh73vwn6zU-qNzhjg
-Message-ID: <CAPsqS2TGXOCOL8BzaJ4NaJqtuKid7vhRdJq-80ngGxhNN_UWCw@mail.gmail.com>
-Subject: Re: [PATCH v10 00/13] accel/rocket: RK3576 NPU (RKNN) enablement
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org, 
-	p.zabel@pengutronix.de, ogabbay@kernel.org, zhangqing@rock-chips.com, 
-	royalnet026@gmail.com, u.kleine-koenig@baylibre.com, 
-	chaoyi.chen@rock-chips.com, diederik@cknow-tech.com, alchark@flipper.net, 
-	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] i2c: qcom-geni: release DMA channels on probe error
+To: Shengzhuo Wei <me@cherr.cc>,
+        Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        Nicolas Ferre <nicolas.ferre@microchip.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+        Wolfram Sang <wsa@kernel.org>,
+        Ludovic Desroches <ludovic.desroches@atmel.com>,
+        Oleksij Rempel <o.rempel@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Frank Li
+ <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Yao Yuan <yao.yuan@freescale.com>,
+        Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Praveen Talari <praveen.talari@oss.qualcomm.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
+References: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
+ <20260827-i2c-dma-channel-leak-v1-3-271d4adc03a0@cherr.cc>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260827-i2c-dma-channel-leak-v1-3-271d4adc03a0@cherr.cc>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=E9f9Y6dl c=1 sm=1 tr=0 ts=6a952b36 cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=FqpsaMCCsM1CaQCKzz8A:9 a=QEXdDO2ut3YA:10
+ a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDA2MSBTYWx0ZWRfXw/xjB4EeReTC
+ K32iUScxgMUSOjrWMT6PK2xfr8yRL24VDGIk4yGb98FZBMkumi6O4rQbixBtdIOr3OwBElCvWMz
+ zBu9SHkAW594klZX1cwlzljmB9EKi/c=
+X-Proofpoint-ORIG-GUID: 7lur8OZusvu9ipIaC18IH6OspUIxiUBf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDA2MSBTYWx0ZWRfXxTNrjduAviwK
+ sw4ylRrmOyQyTTiQaEgoFtP0sSK5n5Xgz2HNk+lGsZQp8ehXlg5dyf3AE/TLyZ5Qe1Rx5cHdKar
+ J9AYXwuS4z5udX0LTkyRrfZIKk5k+tAn0+kV520vw1i1CPqhlGQ8qo4zvQ8wOkENC55jCbkykcK
+ Nk9XfYfRcUOLLWGPMOVY/AK/LIOwxt9/F4zB24I4pFOcfTI49cZICG/QgxkYnLGj/wlCONhpZrA
+ PDujrckgVxjN/pczfR1y65BWZV78cpr0wYBAY57opg5kndtYY3fKlhaIcdIpogLwQ//sTNAG0Su
+ mbxlUWx7ILOcCZv4WVdtPCuTCswXGZDrO5yIvHPMMfCLMfEy1CWpGqdliJQo1lcb1qfpijH3mPO
+ SUDazQw9H2YT8FNAgbVpEWSC3rOlvcZKgy0VQrrbxbp82iKHQxvGxPbkgodPRBdMRRYENhKDKeN
+ kwQUgJmNyv2332Fd3Yw==
+X-Proofpoint-GUID: 7lur8OZusvu9ipIaC18IH6OspUIxiUBf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-31_02,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 bulkscore=0 spamscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 impostorscore=0 priorityscore=1501
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608310061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_002022_417783_0926DAAB 
-X-CRM114-Status: GOOD (  39.01  )
+X-CRM114-CacheID: sfid-20260831_002025_145243_7FE5ABE5 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,162 +168,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 6:08=E2=80=AFAM Jiaxing Hu <gahing@gahingwoo.com> w=
-rote:
->
-> Based on Igor Paunovic's "[PATCH v2] accel/rocket: request the core
-> clocks by name", as v6 through v9 were.
->
->   https://lore.kernel.org/linux-rockchip/20260729130743.128876-1-royalnet=
-026@gmail.com/
->
-> Tested on a Radxa ROCK 4D, on next-20260814. The tree is byte identical
-> to v9, so that is the same test rather than a new one.
->
-> This adds the RK3576 NPU to accel/rocket, which today supports RK3588
-> only. The RK3576 carries two cores of the same RKNN block, wired up
-> differently. Two extra convolution buffer clocks, two power domains per
-> core, one reset rather than two, no NPU SRAM rail, and a PC_TASK_CON
-> that packs the task number into sixteen bits rather than twelve.
->
-> What changed since v9
->
-> No code. Every patch's diff is byte identical to its v9 counterpart, and
-> below the --- the only change anywhere is 5/13's git note. Above it, six
-> commit messages each gained one trailer line and nothing else. Six tags,
-> that note, and the base-commit trailers back where v8 had them.
->
-> The note first, because v9's cover letter said 5/13 carried it and the
-> posted mail did not. Rob Herring's bot asked on v8 for the dependency to
-> be recorded in the patch rather than only in the letter, v9 said it was
-> there, and it was not: my send script never passed --notes. Igor
-> Paunovic noticed while applying the series and said so before v10 rather
-> than after, and he had the cause right. Nothing was lost in a rebase;
-> the flag was missing. The script now regenerates with --notes and
-> refuses to send unless exactly one patch carries a Notes block.
->
-> Igor also ran the 19 August protocol again on v9 as posted, on RK3588,
-> an Orange Pi 5 Plus with all three cores bound, PROVE_LOCKING=3Dy and
-> DEBUG_ATOMIC_SLEEP=3Dy, and a local test-only patch lowering
-> JOB_TIMEOUT_MS to 2 ms so healthy jobs cross the timeout. Two passes per
-> kernel at console loglevel 8 and 4, serial captured on a second machine.
->
->   v9, two passes         12 and 11 induced resets, all recovered,
->                          48 of 48 within 1 on both, including the
->                          inference after a forced autosuspend and
->                          resume. No MMU faults, no lockdep hits,
->                          nothing on the console.
->
->   without 1 and 2/13,    8, 10, 12, 8 and 15 induced resets, all
->   five runs in the       recovered. Four runs clean. In the
->   same session           remaining one the inference after autosuspend
->                          reported success and returned a constant
->                          buffer, all 48 output channels at 0x80,
->                          which is not this model's output zero
->                          point, while the CPU reference varied
->                          normally. Zero kernel messages, zero
->                          lockdep hits, nothing on the console.
->
->   1, 2 and 3/13 only,    13 and 13 induced resets, all recovered,
->   two passes             oracle 48 of 48 throughout, including after a
->                          forced autosuspend and resume. On the 1+2 arm
->                          a round that ends in a timeout leaves the
->                          affected core runtime-active even through a
->                          forced autosuspend; with 3/13 applied the same
->                          sequence leaves all three cores suspended.
->                          That arm is where 3/13's Tested-by comes from.
->
-> A job that signals completion while its output buffer is never written
-> is the silent form of the race 1/13 and 2/13 close, and across 102
-> induced resets in nine runs that day it appeared only on the arm without
-> them. It is a better statement of what those two patches are for than
-> anything my own logs have caught, which has always been the loud form:
-> a message, a wrong answer, something to look at.
->
-> The tags, and where each came from:
->
->   02/13  Tested-by: Igor Paunovic   # RK3588, three cores, induced
->                                     # reset, differential base,
->                                     # JOB_TIMEOUT_MS=3D2
->   03/13  Tested-by: Igor Paunovic   # RK3588, three cores, induced
->                                     # reset, JOB_TIMEOUT_MS=3D2
->   06/13  Acked-by: Conor Dooley
->   07/13  Acked-by: Conor Dooley
->   08/13  Reviewed-by: Abel Vesa
->   09/13  Reviewed-by: Abel Vesa
->
-> The two Tested-by comments are not the same string, and that is how they
-> were given. 1/13, 4/13 and 5/13 keep the tags they had; Igor checked befo=
-re
-> testing that 1/13 is byte identical to v8 1/12 up to the base-commit
-> trailer and 4/13 identical to v8 3/12, so those tags still describe what
-> was tested.
->
-> The bindings are unchanged since v9, where dt_binding_check was clean on
-> all three with dtschema 2026.6 and yamllint 1.38.0, and CHECK_DTBS was
-> clean on all 13 rk3576 and all 48 rk3588 dtbs.
->
-> Two things I raised in v9 and would still rather hear about than guess
-> at. 8/13 does three things: it adds the settle delay, renames a macro,
-> and gives RK3576_PD_NPU a regulator, which also makes every RK3576 board
-> force that domain off at probe. I asked whether it wants splitting;
-> Abel Vesa's Reviewed-by may be the answer, but nobody has said so, and I
-> would rather split it than have it merged on my silence. And 12/13 gives
-> each core both NPU domains, which is the description that has been
-> tested here rather than the topology; if it should be one domain per
-> core, 5/13's minItems has to change with it. That one has had no reply
-> at all.
->
-> Nothing else moved.
->
-> Jiaxing Hu (13):
->   accel/rocket: take the completion register writes under job_lock
->   accel/rocket: wait for a running IRQ handler before resetting a core
->   accel/rocket: let the core suspend after a reset
->   accel/rocket: factor the completion tail out of the IRQ handler
->   dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
->   dt-bindings: power: rockchip: allow resets in a power domain node
->   dt-bindings: iommu: rockchip: describe the RK3576 NPU MMU
->   pmdomain/rockchip: add optional per-domain power-on settle delay
->   pmdomain/rockchip: cycle optional power-domain resets on power-on
->   accel/rocket: select the per-core clock and reset counts from match
->     data
->   accel/rocket: add RK3576 NPU (RKNN) support
->   arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
->   arm64: dts: rockchip: rk3576-rock-4d: enable NPU
->
->  .../bindings/iommu/rockchip,iommu.yaml        |  28 +++++
->  .../npu/rockchip,rk3588-rknn-core.yaml        |  47 ++++++-
->  .../power/rockchip,power-controller.yaml      |   8 ++
->  .../boot/dts/rockchip/rk3576-rock-4d.dts      |  13 ++
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  82 +++++++++++-
->  drivers/accel/rocket/rocket_core.c            |  28 ++++-
->  drivers/accel/rocket/rocket_core.h            |  11 +-
->  drivers/accel/rocket/rocket_device.c          |   7 +-
->  drivers/accel/rocket/rocket_drv.c             |  28 ++++-
->  drivers/accel/rocket/rocket_drv.h             |   2 +
->  drivers/accel/rocket/rocket_job.c             | 119 ++++++++++++++----
->  drivers/pmdomain/rockchip/pm-domains.c        |  75 +++++++----
->  12 files changed, 385 insertions(+), 63 deletions(-)
->
->
-> base-commit: 4477a78374a57c3809b172ad30cceabda48c47c6
-> prerequisite-patch-id: 46ebb679e93d3d25393e8cbf8fc3c955bcc01bd4
+On 8/27/26 5:43 PM, Shengzhuo Wei wrote:
+> geni_i2c_init() grabs exclusive GPI tx/rx DMA channels when the serial
+> engine runs in GPI mode. If i2c_add_adapter() subsequently fails, probe
+> returns without releasing the channels, because the remove callback is
+> not invoked after a failed probe.
+> 
+> The adapter-registration failure path used to release the channels via
+> its err_dma label; that release was dropped when the probe tail was
+> restructured into geni_i2c_init().
+> 
+> Release the channels on the adapter-registration failure path, mirroring
+> geni_i2c_remove().
+> 
+> Fixes: d8d3bb127ad1 ("i2c: qcom-geni: Isolate serial engine setup")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shengzhuo Wei <me@cherr.cc>
+> Assisted-by: GLM:5.3
+> ---
 
-Hi Jiaxing,
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-I want to get soon to review this and the other pending rocket series,
-and in the meantime something that could help this moving would be to
-get a review from Sashiko.
-
-As you can see in [0], Sashiko is not reviewing this series because it
-doesn't not understand yet prerequisite-patch-id. Can you please
-resubmit the series with Igor's (presumably) patches bundled in it?
-
-[0] https://sashiko.dev/#/patchset/20260831040804.24111-1-gahing%40gahingwo=
-o.com
-
-Thanks,
-
-Tomeu
+Konrad
 
