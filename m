@@ -4,128 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D667C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C45C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jqRJhkvqT1GsTrtGqK3664E13XbR/rXj6jqyCh2zYjY=; b=gzdVjP4ILAfHgj4AW7L06sSVyX
-	TNcyGD3yHLchok8mRlXUjGCsMONwL8CokYEJYLxl4klHzKrAB5mWfNqZSstTi5htCZ4YvHuJMc3fe
-	0QiQvH05LwMv0owGXFHNdYULu3M9Kq3sOQHXtd7rtOxiqcaj0GceKmUnYr3JMHSUSSUYEpXQDDEvF
-	ytJwSnSTt2CHGvwoHFElt0s7efKHzvQkSF0xVXEwcteSKE/kL7AsdkJ4Qd5sQY4W6mXMnDaYCoadB
-	R7EKd8bBU+dq2HBGmSfxCtI1qscfgSM8CArgseonm0v/w5Bk+sqaYhWla1VrMG+z1evHO9Ubca8Uc
-	RNnWEkTA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/tTvXG2rpMdNnMtH4efVDaA6Y1oiD9kVL+nK2bMsJxg=; b=hZBs90hzuxIy/be8hVoggXFa1N
+	LljhYCTkouTb56SpSPSS2/8H0o5646JoxYijSbAPwsfFaW1Nzi5OjL1eUVEnWDOB2bK1ybPzxu+mo
+	WU780lDhhe9v4jeVBozM29w/LQNcWaRzc7clC110VRUveWTLUaTHWYucFYS0hHEsWW8V2S/heapUm
+	301ndydzLSz+ED1KjRJBs0E8oWnZf64GkxEDEo82nTh1CsEOMa2P8vux+5AEVtfOmgrT4GD+049cL
+	4lUfVnDWlngFAmO4sMia/0mjPK8VzI+c1SNRJq99zNj/DpJYaQxmReWTgjeTsoz4myH96TZacq6h/
+	bf1QDbKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RK-00000009jQ3-227F;
-	Mon, 31 Aug 2026 14:56:50 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x13TQ-00000009kEm-2unf;
+	Mon, 31 Aug 2026 14:59:00 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13RA-00000009jID-3LAi
+	id 1x13TO-00000009kEK-3WYH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:56:42 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZO9S2583494;
-	Mon, 31 Aug 2026 14:55:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=jqRJhkvqT1GsTrtGqK3664E13XbR/rXj6jqyCh2zY
-	jY=; b=JVcwVY35n4jwqEA0UWuDiKZ9x3gg+OsGgaDZMwHKCNhCb6ny3l6mRyq4H
-	yQcdFtB779GwIwUGQFvITeZAEMCe7xfyDCYjOokxLkOddE4dU+5ZQ/4xNNXcky6J
-	m4ROX6aEh57yj8j2Zc6hbQZin66hDFmsLIqKf05TF/bDa/EO6xi0MXelPVYFQVw4
-	rcyqfV4UaBPfF7bkAk8f3TiOac4goG+67TjWkA6ACAPiIhEvHifwLFAtTOv9+jPR
-	X5UrSvIibgRoXbokLX0v33YTXJEjaYhLE9zXkfXE7/zLnKtOcPqWIcihV4wgsPyg
-	dzz+PqVAPf6MTyyXT0lmHp3fOH7KA==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq2t1u9a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfgY9016964;
-	Mon, 31 Aug 2026 14:55:44 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h6dp5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:44 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtbAZ16122264
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 14:55:37 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 623AB20043;
-	Mon, 31 Aug 2026 14:55:37 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DE8FD20040;
-	Mon, 31 Aug 2026 14:55:36 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 31 Aug 2026 14:55:36 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 00/20] KVM: arm64 on s390 System Register Handling
-Date: Mon, 31 Aug 2026 16:55:15 +0200
-Message-ID: <20260831145536.913567-1-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
+	Mon, 31 Aug 2026 14:59:00 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c1677c91969so342523366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:58:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1788188336; x=1788793136; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/tTvXG2rpMdNnMtH4efVDaA6Y1oiD9kVL+nK2bMsJxg=;
+        b=Nfl3FWP1I+K3HRTDNzGIpXlkFZU++qcdxLljpT6bN1In5vZ/+thV+rM/hqTqTlOMmC
+         4KIbm6NursqJqCvsrwlfypOBadxhnJmGaMUrULiagbP/iGqQ7UdYiTpFTOcGxm4t8aQI
+         gBPp3c4kwTXbFVr+8U1Pv7WWZEB83bYF4gRyE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788188336; x=1788793136;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/tTvXG2rpMdNnMtH4efVDaA6Y1oiD9kVL+nK2bMsJxg=;
+        b=TRk+sDJ/ahXDjBXLBfNa2lvQYaaF1hoEKSNjTt53D45+Jsnczp3VkG/CoIrmm+hniC
+         ExMPSadA0tOjnUbTAVz2l7eslxNJ+3Q9ib4JZJRlfjaSMJ9fc2cTZzLqNnjFuxSHsacb
+         hf2Q9ifqDLhR48RXTrb5PMqt4+31ES0HFE0Wz8kVmoeznJiYbY435jsunPJBQSLJ10Cg
+         MPPlGcbBDfocqp7Iuj0T4TUBTWtXk1jmSYTh5a0w2L/eORI+L7sShdn8zGxruNf06LbH
+         D1BsM8Fsk7FrT2ex2HQk9mNwImWF/QL6bo+5LOa6BVha/c0RzZpWeuYimTY08+39T0j6
+         oqZg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro7MCPPdKypGPjJ8m54VsjMKthnkqTEVbiVcQSDQYcDSsSSGUIDCr/SrvLiv+uixYYT5/B/fT1M7cgaM/dqfXEW@lists.infradead.org
+X-Gm-Message-State: AFuF++kT2YK/XYovSuL8K9mR52Ctj+8L5hV5cd+xjYKMj7JR2ic+KO5r
+	ZbUgaJ1MilzgrtcikNc67BIGSURxKf4tgesvgRxP0IC0qwlBcqDU+gV3FxiFTBrKbeFvSLX4Ge+
+	7fKi6vg==
+X-Gm-Gg: AR+sD139+f9sA32j05hRorbmsR6MzgsIkXVsq0LnmqSZs2j2JOmBv+tIMowbl8VJJa0
+	E3PuniEBYpNKcdg4Uy8FM994TQAsF8Ic72+SWbuaY34XArHqjspJnUJurE0Sfuv2YNLthOQjMmI
+	a7vdYBXK6Wf2Gn7AWwn6tjBs3mKq4d92wX5wWDfhZo5swThn2uWuia5rRfXnGbMz1j6QKTmttUq
+	UoE59axm/A/qKxqBH1Ts4w7pH3bT8Vz/plEHgA6uF3vvKxFnMgbZ+x0Ut6/ZS3+2SbxOQXgiw2W
+	W+GRvOxdo5WL1Mc4hVR68rc8bql4pi40MQQkrbLwp11ipCt+F57LzyJVWmSygrJ7BGRP3Dsun1M
+	uiWGXk+QYYDDNbbQCdspWfk3nKIl1fEq/8kE+foVvBxuYxIYmm1YxQTiVedd1tK4u037q4Db6aD
+	bIjHfdmSOT/LndPXZnHQI7kXvmlEStm3Ti+3Zb+TTpAu8xX+limR/cGS7DgmpV1KaHcBn2uZ2Oz
+	26ngWf+BxYXWKL2Vw4HAbUscCkyJzvmUw84JQ==
+X-Received: by 2002:a17:907:928c:b0:c25:9b8:30d6 with SMTP id a640c23a62f3a-c2557030670mr1546099466b.12.1788188336368;
+        Mon, 31 Aug 2026 07:58:56 -0700 (PDT)
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com. [209.85.221.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c255ee09c68sm448048166b.7.2026.08.31.07.58.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Aug 2026 07:58:55 -0700 (PDT)
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-48433e9562bso298919f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:58:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBx+2ZDo4pF0MbWV92OjR18/kU7Qan+FxTdOaX3wfoHq3LvNpjw/xt/tA5TlSrV/UoeFu8TbnRMJObqa8qtY7nSN@lists.infradead.org
+X-Received: by 2002:a05:6000:2403:b0:484:3310:f394 with SMTP id
+ ffacd0b85a97d-4843310f432mr23509935f8f.23.1788188332108; Mon, 31 Aug 2026
+ 07:58:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=bc1bluPB c=1 sm=1 tr=0 ts=6a9595f1 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
- a=EfswLKZZKe3xjtufmi4A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX/ptxmNmaUZLq
- YyLjS+vnjR8bdNRIthOyGpGtPX7R2UOFeXT7drKghjhhmn9SM1sXQ5Hcw/Otfdbv6hG8FfsIzBq
- +15SXukCbLp5Tf9Pkn2/1nx9Tvq9z9A=
-X-Proofpoint-ORIG-GUID: tJk3lHyBuCvFyK4D4Jm4WJo_l80TsR5g
-X-Proofpoint-GUID: PpKGMHsad5exdoUBflKzHUK-XjjSTErS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX/F0k6ufohfpi
- sNIX5dnxVHYr97GY/wHpjiYKI48RDKSVfU3P5s1vXw4IF1lIS1URRjA/WN9sZeRfAxD+X7lPJpU
- HucYtaqXGj4UJmdPGRtR3FrxtbSDGurpIfLFMlEaRX3FyEDLKiS8B4jS+IXnCjsSOdSczdhhLxa
- S4enEBWnRJ+s+fFvNZqS6nE7gKRpC0m/BM9hmC6SpOomp4fmbsiF4Dyki5A/8ZWZhCoP2qi+pCW
- H2JH665DnZEJrgziNuP0GPDqZdLTn7rULDyePay9gOhAMGB5D1Ip8KM0PwP/JETzqBMBKnk/to9
- /V779lnMM+Zg6Yd1EmZufXGMYYovQBX3YrGYR+MDT4zUtUB0Lok/63B1bgasDjvq+bqAenaQdmJ
- 4VQYy3UTnKT90mA4ZePwjHDJBON3ioIwwaRtOueE+1kyxtQuf5ESM2NdZ+plu4BzXDnC1yofonq
- C4Yom/xKV4pb/tjQofw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 spamscore=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608310125
+References: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com>
+ <20260825-drm-bridge-drm_panel-cleanup-v2-8-c6c88ba7ffd2@bootlin.com>
+ <CAD=FV=Xdj_foBqt9A9EVVoCA2BxAV3UZNz3SuVPu2ZoNXgnS=w@mail.gmail.com> <DL308Z0JXJ31.2V3H29DTG4MSM@bootlin.com>
+In-Reply-To: <DL308Z0JXJ31.2V3H29DTG4MSM@bootlin.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 31 Aug 2026 07:58:40 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=UOwWdVc8p1js+28C1u7=iRqRpv86PkwWf5g8yL-Uq5kw@mail.gmail.com>
+X-Gm-Features: AcwNN1Uwe20Iwwe3Thag0bGUZKeQo9OpK0wBSimBjMptkSoLanhwYwfNst4yWiY
+Message-ID: <CAD=FV=UOwWdVc8p1js+28C1u7=iRqRpv86PkwWf5g8yL-Uq5kw@mail.gmail.com>
+Subject: Re: [PATCH v2 08/12] drm/bridge: parade-ps8640: select DRM_PANEL_BRIDGE
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
+	Pin-yen Lin <treapking@chromium.org>, Enric Balletbo i Serra <eballetbo@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_075640_958873_22FD6CFC 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20260831_075858_932053_60278BBF 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,125 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add system register handling for KVM/arm64 on s390. Share KVM/arm64 code,
-introduce ARM guest management functions for s390 hosts, and implement host
-sysreg & exception handling.
+Hi,
 
-This is a complete rework of v1 using sharing markers and not moving code to a
-shared location.
+On Mon, Aug 31, 2026 at 2:01=E2=80=AFAM Luca Ceresoli <luca.ceresoli@bootli=
+n.com> wrote:
+>
+> Hi,
+>
+> On Thu Aug 27, 2026 at 6:23 PM CEST, Doug Anderson wrote:
+> > Hi,
+> >
+> > On Tue, Aug 25, 2026 at 3:11=E2=80=AFAM Luca Ceresoli <luca.ceresoli@bo=
+otlin.com> wrote:
+> >>
+> >> This driver uses the drm_panel_bridge API and not the drm_panel API so=
+ it
+> >> should select DRM_PANEL_BRIDGE and not DRM_PANEL.
+> >
+> > Which exact "drm_panel_bridge" API does it use? I don't see any...
+>
+> It calls devm_drm_of_get_bridge() [0], which is in bridge/panel.c [1],
+> which is enabled by CONFIG_DRM_PANEL_BRIDGE [2].
+>
+> [0] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/bridge=
+/parade-ps8640.c#L636
+> [1] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/bridge=
+/panel.c#L483-L515
+> [2] https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/Makefi=
+le#L159
 
-Changes in detail:
+Ah, indeed! I missed that since it didn't have "panel" in the name.
+FWIW, then I think for this patch:
 
-arm64:
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
-Refactor the id register fields in arch_vcpu into a dedicated structure such
-that it can be reused by s390. Refactor detection of the number of sysregs.
-Mark sysreg related code as shared.
+...but, ironically, that means that for the other patch I looked at
+(ti-sn65dsi86.c) we're missing the "select DRM_PANEL_BRIDGE" since it
+uses the same API call, doesn't it?
 
-s390:
-
-Add s390 instruction support for ARM guest management: easr/sasr for
-system register access, QAAF for feature queries, and ptff extensions
-for guest time handling.
-
-Implement complete sysreg handling for s390 including feature
-sanitisation, register enumeration and access, exception injection,
-and finalized page fault handling.
-
-The series builds upon the foundation established in the first series and
-requires the first series v7[1] as base. A branch at kernel.org is available [2].
-
-Some in-between steps will trigger compile warnings (mostly unused warnings in
-shared code) but of course always compile. After the last commit of this series
-will trigger no compiler warnings.
-
-	Steffen
-
-[1] https://lore.kernel.org/all/20260831144802.834315-1-seiden@linux.ibm.com/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/kvms390/linux.git/log/?h=sae
-
-Steffen Eiden (20):
-  KVM: arm64: Refactor idreg caching into dedicated structure
-  KVM: arm64: Extract number of sys_reg_desc into a constant
-  arm64: sysreg: Define OSLSR_EL1_OSLK_MASK
-  arm64: Share more arm64 headers with s390
-  KVM: s390: arm64: Prepare for sharing more arm64 code
-  KVM: arm64: Prepare sys_regs.c for sharing with s390
-  KVM: arm64: Share more arm64 code with s390
-  s390: tools: Allow sharing arm64/kvm headers
-  s390: Introduce read/write ARM sysreg instructions
-  s390: Add functions to query arm guest time
-  KVM: s390: arm64: Query Available Arm features
-  KVM: s390: arm64: Implement feature sanitisation
-  KVM: s390: arm64: Implement arm sysreg managing infrastructure
-  KVM: s390: arm64: Integrate sysreg into the host
-  KVM: s390: arm64: Use QAAF init save area
-  KVM: s390: arm64: Implement exception injection
-  KVM: s390: arm64: Finalize page fault handling
-  KVM: s390: arm64: Implement SVE for arm guests
-  KVM: s390: arm64: Promote PTRAUTH capability
-  s390: Report AEF features to sysfs
-
- arch/arm64/include/asm/cache.h               |   3 +
- arch/arm64/include/asm/cputype.h             |   3 +
- arch/arm64/include/asm/kvm_emulate.h         |   5 +-
- arch/arm64/include/asm/kvm_host.h            |  68 +-
- arch/arm64/include/asm/spectre.h             |   7 +
- arch/arm64/include/asm/sysreg.h              |   1 +
- arch/arm64/kvm/arm.c                         |   3 +
- arch/arm64/kvm/config.c                      |   2 +-
- arch/arm64/kvm/guest.c                       |  11 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c               |   7 +-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c           |   4 +-
- arch/arm64/kvm/sys_regs.c                    | 164 ++--
- arch/arm64/kvm/sys_regs.h                    |   1 +
- arch/s390/include/arm64/kvm_hyp.h            |  18 +
- arch/s390/include/arm64/kvm_nested.h         |   5 +
- arch/s390/include/arm64/sys_regs.h           |   9 +
- arch/s390/include/asm/aef.h                  |  28 +
- arch/s390/include/asm/kvm_host_arm64.h       | 237 +++++-
- arch/s390/include/asm/kvm_host_arm64_types.h | 111 +++
- arch/s390/include/asm/sae-asm.h              |  48 ++
- arch/s390/include/asm/sae.h                  |  83 ++
- arch/s390/include/asm/timex.h                |  49 ++
- arch/s390/kernel/Makefile                    |   2 +-
- arch/s390/kernel/aef.c                       | 187 +++++
- arch/s390/kernel/dis.c                       |   1 +
- arch/s390/kvm/arm64/Makefile                 |   5 +
- arch/s390/kvm/arm64/Makefile.gen             |   1 +
- arch/s390/kvm/arm64/arm.c                    |  73 +-
- arch/s390/kvm/arm64/exception.c              | 105 +++
- arch/s390/kvm/arm64/feature.c                | 190 +++++
- arch/s390/kvm/arm64/feature.h                | 102 +++
- arch/s390/kvm/arm64/guest.c                  | 222 +++++-
- arch/s390/kvm/arm64/handle_exit.c            |   1 +
- arch/s390/kvm/arm64/inject_fault.c           |  73 +-
- arch/s390/kvm/arm64/mmu.c                    |  68 +-
- arch/s390/kvm/arm64/qaaf.c                   |  74 ++
- arch/s390/kvm/arm64/qaaf.h                   |  11 +
- arch/s390/kvm/arm64/reset.c                  |  69 +-
- arch/s390/kvm/arm64/spectre.c                |  14 +
- arch/s390/kvm/arm64/sys_regs.c               | 750 +++++++++++++++++++
- arch/s390/kvm/arm64/trace.h                  |  51 ++
- arch/s390/tools/Makefile.arm64h              |  11 +-
- arch/s390/tools/opcodes.txt                  |   3 +
- 43 files changed, 2724 insertions(+), 156 deletions(-)
- create mode 100644 arch/s390/include/arm64/kvm_hyp.h
- create mode 100644 arch/s390/include/arm64/sys_regs.h
- create mode 100644 arch/s390/include/asm/aef.h
- create mode 100644 arch/s390/include/asm/sae-asm.h
- create mode 100644 arch/s390/kernel/aef.c
- create mode 100644 arch/s390/kvm/arm64/exception.c
- create mode 100644 arch/s390/kvm/arm64/feature.c
- create mode 100644 arch/s390/kvm/arm64/feature.h
- create mode 100644 arch/s390/kvm/arm64/qaaf.c
- create mode 100644 arch/s390/kvm/arm64/qaaf.h
- create mode 100644 arch/s390/kvm/arm64/spectre.c
- create mode 100644 arch/s390/kvm/arm64/sys_regs.c
-
-
-base-commit: ab80750cee6e09e0036ac43f257059122a05a71d
--- 
-2.53.0
-
+-Doug
 
