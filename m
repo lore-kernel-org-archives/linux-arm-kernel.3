@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB14AC624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7ECC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wxPJ66xv/m8p7z+wgFkwlta0qkVfk6x+8jdgBQHqV0Q=; b=u012Tuj5eS3dA+EGMHAoD2fOIs
-	w30gmMCKBjluQK6J9OhsIS3SanrcXLb8Ghx3eWJ5FHmW7nW0xFaCoQtVxdYK0wbaRTM8qVgEK1Tsc
-	QqhT2uO4c3r1MROQe3lANBgctDyBlVeKQ0CTseMZBd1JKt8WmC8H12n1yhtw+JjfagtLQAQTpBtNL
-	wEMDtpMsB9zeuGH4o9EXCAGJt/UtFyT0tCL+i97ClQWVQYLXDY4yhjsqG7+OUcHL3o3kW3uSzRCZL
-	Jmqb2CaiO12y8E1tqCSdBRs2CFmhl7Piak7DUuDWDSTHhcBEZZMsu3kuBKKD0B502v3hMeXLw0vcz
-	92Okc6uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KbRkYwnQi8E0M8Q6TBJ0YGyVB5OutSqWDHxS8ant4AU=; b=WWpE0ZNfrtWCQ+KxWm08KWCfpH
+	5hQ9wlmOp20cMgboZljP9+UY1F+mEhliTvLrSQRNOXl/hQ2gem3wZDlcE/oGf7+yYbvWaM9xwhBoE
+	v12XoKm177e1KYY07+8j8BU7FjVfSX+M2CaFJjKORrdfHtHCnEAv1rzxGCbk0OJCG0y6oLveaPRK7
+	WDhBzlrTrOJygjkLocE1TEyiWhzgljfQK3KRTD1bEqVff5+N6rGF6w1Mb7BLUJ+mJOOdioRxwhVvB
+	HmPbdsD9lVILHtVxpWPMLLVlvPArkc+zR7Ed/OyKDqcS/5IPwzr3q+T1Sk7ciCzCqlLYyb97z/7w+
+	7g3pLPnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x128k-00000009Q7r-1xJ1;
-	Mon, 31 Aug 2026 13:33:34 +0000
+	id 1x1295-00000009QFt-3urO;
+	Mon, 31 Aug 2026 13:33:55 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x128g-00000009Q6O-1dm0
+	id 1x1295-00000009QFN-1s4D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 13:33:30 +0000
+	Mon, 31 Aug 2026 13:33:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE199436D7;
-	Mon, 31 Aug 2026 13:33:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A1F1F00A3D;
-	Mon, 31 Aug 2026 13:33:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 36EE74009D;
+	Mon, 31 Aug 2026 13:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 841E71F00A3D;
+	Mon, 31 Aug 2026 13:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183209;
-	bh=wxPJ66xv/m8p7z+wgFkwlta0qkVfk6x+8jdgBQHqV0Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NkreY35hnBgnlJR0I22JY3/sH6vJCMAsqYJphyey7jJ1YPxfIfBn5ZLnbrWNMm+qO
-	 ZTK8TH6e54EyPnkc/MbLu1hvyL4UPDWrrvfP8XxDBUEq4wcI9Pas2lcx59dXrxEv4Y
-	 ezCv0OHkcdQHlDzasHpLBDlcs6HdDcWCXm8WRddwj2wzp97WcC1I2A8aprKWzacW1q
-	 t/ayJUem0QcChgEf/QKCHKTDd8w79O5od+Rl6ySzuna5KmzWk85zVYmJWljuPDn+Xk
-	 Tcyy/lmEZ9UDqneCCobJFLAr/BRJA7NdMChJisudulVGcENau5Zfhce9UeQO2vCC91
-	 pMq+McTz9Em4Q==
-Date: Mon, 31 Aug 2026 08:33:28 -0500
-From: Rob Herring <robh@kernel.org>
-To: Bhargav Joshi <j.bhargav.u@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, goledhruva@gmail.com,
-	m-chawdhry@ti.com, daniel.baluta@gmail.com, simona.toaca@nxp.com
-Subject: Re: [PATCH v3 2/2] dt-bindings: spi: ti,davinci-spi: convert to DT
- schema
-Message-ID: <20260831133328.GA703892-robh@kernel.org>
-References: <20260817-ti-davinci-spi-v3-0-23844cfb5e6a@gmail.com>
- <20260817-ti-davinci-spi-v3-2-23844cfb5e6a@gmail.com>
+	s=k20260515; t=1788183235;
+	bh=KbRkYwnQi8E0M8Q6TBJ0YGyVB5OutSqWDHxS8ant4AU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jgRck4luXYMSp+/6mh5I9lj1BpHNklP5EpFTF3f6GYBCH4ypL0cPqCkqQ1LLjIQTY
+	 U3VuytCTZSkdv8khnfFn+IYcOhSaemVJRpx3iuG6eOn2HlH0n+hZsDNizqOyY5c3m6
+	 ks/1yU1yvSsDQtv4wk4ovGH1m2Wh5/QkumOsJXPRBWIkeliqfey14+3gCa9URummvf
+	 4bkwWaG1clQ/qu5udMQpLng5V3UfSuapNQ7eMFkyF0gkCuznjd1a2XCnPMKVh2nJhc
+	 4/Xa+b2xCIaumokWL23JcSymnXwTB9BT6Ei4tzNu0OxWUSelV8hhZfclF5G9SXoD+D
+	 c8uQXAXM9H1fQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Michael Walle <mwalle@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Randolph Sapp <rs@ti.com>,
+	Nishanth Menon <nm@ti.com>,
+	Antonios Christidis <a-christidis@ti.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Sasha Levin <sashal@kernel.org>,
+	kristo@kernel.org,
+	sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.18-5.10] clk: keystone: don't cache clock rate
+Date: Mon, 31 Aug 2026 09:20:54 -0400
+Message-ID: <20260831133314.4125787-26-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
+References: <20260831133314.4125787-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817-ti-davinci-spi-v3-2-23844cfb5e6a@gmail.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.18.48
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,129 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 03:25:26AM +0530, Bhargav Joshi wrote:
-> Convert the TI DaVinci/Keystone SPI controller binding from text format
-> to DT schema.
-> 
-> Changes during the conversion:
-> - Create a separate ti,davinci-spi-peripheral-props.yaml schema to
->   properly define the ti,spi-wdelay peripheral property.
-> - Add missing dmas and dma-names properties.
-> - Add constraints to ti,spi-wdelay based on the 6-bit width
->   of the SPIFMTn.WDELAY hardware register field.
-> 
-> Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
-> ---
->  .../devicetree/bindings/spi/spi-davinci.txt        | 100 -----------------
->  .../bindings/spi/spi-peripheral-props.yaml         |   1 +
->  .../spi/ti,davinci-spi-peripheral-props.yaml       |  25 +++++
->  .../devicetree/bindings/spi/ti,davinci-spi.yaml    | 124 +++++++++++++++++++++
->  4 files changed, 150 insertions(+), 100 deletions(-)
+From: Michael Walle <mwalle@kernel.org>
 
+[ Upstream commit a80b32a140c8612bbaed27009c383d43304db6d5 ]
 
-> diff --git a/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
-> new file mode 100644
-> index 000000000000..5bf74f3ca588
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
-> @@ -0,0 +1,124 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/spi/ti,davinci-spi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: TI DaVinci/Keystone SPI Controller
-> +
-> +maintainers:
-> +  - Bartosz Golaszewski <brgl@kernel.org>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - enum:
-> +          - ti,da830-spi
-> +          - ti,keystone-spi
-> +          - ti,dm6441-spi
-> +      - items:
-> +          - const: ti,keystone-spi
-> +          - const: ti,dm6441-spi
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +    description:
-> +      Should contain a phandle to a PM domain provider node
-> +      and an args specifier containing the SPI device id
-> +      value.
-> +
-> +  num-cs:
-> +    minimum: 1
-> +    default: 1
-> +    description:
-> +      Number of chip selects supported by the controller. This
-> +      includes both internal and GPIO chip selects.
-> +
-> +  ti,davinci-spi-intr-line:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    description:
-> +      Interrupt line used to connect the SPI IP to the interrupt
-> +      controller within the SoC.  The SPI peripheral can route its
-> +      interrupt output to one of two lines (INT0 or INT1). Set
-> +      this based on the SoC-specific wiring to the interrupt
-> +      controller.
-> +
-> +  dmas:
-> +    items:
-> +      - description: RX DMA channel
-> +      - description: TX DMA channel
-> +
-> +  dma-names:
-> +    items:
-> +      - const: rx
-> +      - const: tx
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - ti,davinci-spi-intr-line
-> +  - num-cs
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +
-> +allOf:
-> +  - $ref: spi-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          const: ti,keystone-spi
-> +    then:
-> +      required:
-> +        - power-domains
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    spi@20bf0000 {
-> +        compatible = "ti,keystone-spi","ti,dm6441-spi";
+The TISCI firmware will return 0 if the clock or consumer is not
+enabled although there is a stored value in the firmware. IOW a call to
+set rate will work but at get rate will always return 0 if the clock is
+disabled.
+The clk framework will try to cache the clock rate when it's requested
+by a consumer. If the clock or consumer is not enabled at that point,
+the cached value is 0, which is wrong. Thus, disable the cache
+altogether.
 
-Missing space between compatible strings. The newish dt-check-style 
-should catch this.
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+Reviewed-by: Kevin Hilman <khilman@baylibre.com>
+Reviewed-by: Randolph Sapp <rs@ti.com>
+Reviewed-by: Nishanth Menon <nm@ti.com>
+Signed-off-by: Antonios Christidis <a-christidis@ti.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+Link: https://patch.msgid.link/20260507-clk-sci-v2-1-38f59b48777a@ti.com
+Signed-off-by: Nishanth Menon <nm@ti.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+LLM Generated explanations, may be completely bogus:
+
+The background checks finished:
+
+- **Commit presence:** `a80b32a140c86` is **not** in the local 6.18.44
+  tree (as expected from the analysis).
+- **Related GPU commits:** No separate `drm/imagination` clock-control
+  fix turned up on mainline — the `sci-clk` NOCACHE change is the
+  standalone fix from the J722S GPU bring-up work.
+
+The earlier analysis stands: **YES** for backport to this tree.
+
+ drivers/clk/keystone/sci-clk.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+index a4b42811de55d..066823458a75c 100644
+--- a/drivers/clk/keystone/sci-clk.c
++++ b/drivers/clk/keystone/sci-clk.c
+@@ -333,6 +333,14 @@ static int _sci_clk_build(struct sci_clk_provider *provider,
+ 
+ 	init.ops = &sci_clk_ops;
+ 	init.num_parents = sci_clk->num_parents;
++
++	/*
++	 * A clock rate query to the SCI firmware will return 0 if either the
++	 * clock itself is disabled or the attached device/consumer is disabled.
++	 * This makes it inherently unsuitable for the caching of the clk
++	 * framework.
++	 */
++	init.flags = CLK_GET_RATE_NOCACHE;
+ 	sci_clk->hw.init = &init;
+ 
+ 	ret = devm_clk_hw_register(provider->dev, &sci_clk->hw);
+-- 
+2.53.0
+
 
