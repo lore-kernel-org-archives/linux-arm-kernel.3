@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC31C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37E5C624D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JldW9rnjKPf9Ndo3hw5bd/n4o37HN08HKBEH3onbVpo=; b=flGbBJkkM7a6yvFgTIV6CgqqWS
-	ceWj5ZARRLnetzSKQ6wmE9asFmAguWrNfrKvCiGxHbaqeB661ypW4eP5o8TmodyFv3SDlewBw/IfI
-	OHLV46+fzs7/3FmSBh6BgldpRN3kcY3obGihZFEB03NEKCOpQkdZx6exPIEfAgKXRUopEgjvD45pY
-	QMLOjiv8sB0FUrNOVCQ03HVCLFiNbMoq6/Bnmu8venTqZCYYsHYuXokm/LgmNVSrNLXsz+p5v6vnQ
-	peNvDJjm9BDIGR7Tv9xR5G6k8WmDxnRXwbBNSsQGMDjR/QOi7klCMk9QKeGSHuel6KwETcDXn1Eqk
-	VehyAItg==;
+	bh=EBlzdFY4NKUxnAP9piof8UgZXXWTUwVL1IgsfK24VTc=; b=wNYic6HmrkWnw0SB+bp5e4RCJM
+	zIepuicWL7cIh0nuhKXyZN8tqu4kxqLnyy7ACD3ksgGx2oSNT9pj0dMXHbkVLuFwMWrzDu4O06+zd
+	+qY+bDPWLGEkQqBSsX17EcWlF5jQ8j2OQqQ681G2yqUIApMUcjgDU4ZKFtOmeKT+WjZWo/DlyCe/s
+	qkNXezlDZS1RT+Mzv3vaZSbR5ocxhmlfRip2PLAPsBkw6NeHqpftubugU2T+Tdq/TWyn199b+kV8V
+	e/hpx3y2WpJ7I22uN37rG5K7CLy7laGIwF6NImq3QhiBdgc2yEKnydLAtoQStDSSanklnED55mPki
+	Tb48FjzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1MmS-0000000BhWX-3q6x;
-	Tue, 01 Sep 2026 11:35:56 +0000
+	id 1x1MmZ-0000000Bhcz-1TlW;
+	Tue, 01 Sep 2026 11:36:03 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1MmP-0000000BhTz-3QHc;
-	Tue, 01 Sep 2026 11:35:55 +0000
+	id 1x1MmV-0000000BhTz-44hj;
+	Tue, 01 Sep 2026 11:36:01 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 1 Sep
- 2026 19:35:38 +0800
+ 2026 19:35:39 +0800
 Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 1 Sep 2026 19:35:38 +0800
+ Transport; Tue, 1 Sep 2026 19:35:39 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Tue, 1 Sep 2026 19:35:28 +0800
-Subject: [PATCH 1/8] dt-bindings: i3c: Document the AST2700 I3C controller
+Date: Tue, 1 Sep 2026 19:35:31 +0800
+Subject: [PATCH 4/8] i3c: mipi-i3c-hci: Add a quirk to clear the TX start
+ threshold
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260901-b4-i3c-hci-ast2700-v1-1-19909e7cbd7e@aspeedtech.com>
+Message-ID: <20260901-b4-i3c-hci-ast2700-v1-4-19909e7cbd7e@aspeedtech.com>
 References: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
 In-Reply-To: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
@@ -51,16 +52,16 @@ CC: <linux-i3c@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788262538; l=6052;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788262538; l=11122;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=CmjtH7jTG5+YPiPuOpmBo34pkSZretrF0i3bIFIUIZs=;
- b=obfw+O0Z2sGTX5UNne+B4lR3b9FwoJjZ9Zlrl0aI1cWzON1B/wCWo+0EN2GTuX/RH0ZTh6vd2
- KgVDu5JN4lWC9bfdHmkYiflE6oNctNgHYy50RHU+eJ79u8mtHZmOv+W
+ bh=n6vO/Fi5jhecmVwxetC4Wj6M9A4SBSKPZgOHLJNm8ng=;
+ b=HHfIRufKO0rvzVE5evGWDeOxDqIGK5LwC4DFCfClX9QJhRprAHy2Zx7GO/2FHHZR7t0GHsEpU
+ zZFLkzvr9C7CxAPfWOiwrs+ICl6gQuAse4SxQHa4bHJWvlYaTMZn3mf
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_043553_861129_C72C7735 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260901_043600_026155_2EF350F4 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,185 +76,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 I3C controller implements the MIPI I3C HCI programming
-model, extended with an ASPEED in-house control block and a PHY
-programming window advertised through an HCI vendor extended
-capability. Follow the existing aspeed,ast2600-i3c precedent of
-describing SoC integrations of a common I3C IP in their own schema.
+The DATA_TX_START_THLD field of the PIO data buffer threshold register
+holds off the start of a TX transfer until the FIFO holds a set amount
+of data, which in PIO mode cuts down on the number of software writes.
+The field resets to 0x1, requiring at least (2 ^ 2) DWORDs (16 bytes)
+in the FIFO before transmission starts.
 
-The controller takes a core clock for PHY timing and two reset-names
-lines: its own reset and a DMA engine reset shared by all I3C
-controllers on the SoC.
+HCI controllers that support both PIO and DMA can expose the two as
+separate register blocks; nothing in the specification says selecting
+DMA mode disables the PIO block's own gating logic. On ASPEED
+platforms it doesn't: DATA_TX_START_THLD still holds up transfer
+start regardless of which mode feeds the FIFO, and in DMA mode that
+threshold is never satisfied for some transfer sizes:
 
-The PHY timings derived from the core clock and bus rate assume
-nominal bus loading. Boards with long traces, weak pull-ups, or
-capacitive loading need different ratios and setup periods, so
-document properties to override the push-pull and open-drain SCL
-periods, the SDA TX hold time, the tCAS/tCBP periods, and the SCL low
-period used for a repeated START or STOP.
+ - 1-4 bytes: uses the Immediate Data Transfer Command.
+ - 13+ bytes: since the hardware fetches data in 4-byte chunks, a
+   13-byte transfer fetches 16 bytes into the FIFO and reaches the
+   threshold.
+ - 5-12 bytes: the threshold is never reached and the transfer stalls.
 
-Boards without external I3C pull-up resistors can use the PHY's
-built-in pull-ups instead. The achievable resistance depends on the
-voltage domain of the pins (high-voltage vs low-voltage), which can be
-determined from the pin group assigned to the bus. Reuse bias-pull-up
-(pincfg-node.yaml) for the strength in Ohms; it is declared on this
-node rather than a pin-config node since the pull-up switch is part of
-the I3C PHY, not the broader SoC pin control IPs.
+Add HCI_QUIRK_TX_START_THLD to clear the field whenever DMA mode is
+selected. The clear lives in i3c_hci_set_io_mode() rather than in
+probe so the reset-and-restore recovery path also reapplies it after
+a controller soft reset. Move the PIO Access Area register and
+bitfield definitions from pio.c to a new pio.h so this quirk can reuse
+PIO_DATA_BUFFER_THLD_CTRL and DATA_TX_START_THLD instead of
+redefining them.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 Assisted-by: Claude:claude-fable-5
-
 ---
-We considered formally expressing bias-pull-up's dependency on a
-pinctrl state in the schema, but couldn't find a clean way to say
-"depends on whichever pinctrl-N is active" without hard-coding
-pinctrl-0 specifically, which would be wrong in general (a node's
-active pin state doesn't have to sit at index 0). We've added
-pinctrl-0 to the example to illustrate the typical usage instead,
-without a formal schema-level dependency.
----
- .../bindings/i3c/aspeed,ast2700-i3c-hci.yaml       | 133 +++++++++++++++++++++
- 1 file changed, 133 insertions(+)
+ drivers/i3c/master/mipi-i3c-hci/core.c |  14 +++++
+ drivers/i3c/master/mipi-i3c-hci/hci.h  |   1 +
+ drivers/i3c/master/mipi-i3c-hci/pio.c  |  97 +----------------------------
+ drivers/i3c/master/mipi-i3c-hci/pio.h  | 109 +++++++++++++++++++++++++++++++++
+ 4 files changed, 125 insertions(+), 96 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml b/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml
+diff --git a/drivers/i3c/master/mipi-i3c-hci/core.c b/drivers/i3c/master/mipi-i3c-hci/core.c
+index c03c3a9cbe4f..2290a889701c 100644
+--- a/drivers/i3c/master/mipi-i3c-hci/core.c
++++ b/drivers/i3c/master/mipi-i3c-hci/core.c
+@@ -26,6 +26,7 @@
+ #include "cmd.h"
+ #include "dat.h"
+ #include "ibi.h"
++#include "pio.h"
+ 
+ /*
+  * Host Controller Capabilities and Operation Registers
+@@ -823,6 +824,19 @@ static int i3c_hci_set_io_mode(struct i3c_hci *hci, bool dma)
+ 	else
+ 		reg_set(HC_CONTROL, HC_CONTROL_PIO_MODE);
+ 
++	/*
++	 * On the ASPEED AST2700 the TX start threshold gates transfer start
++	 * even in DMA mode. Clear it so DMA transfers are not held back
++	 * waiting for a PIO FIFO level that will never be reached.
++	 */
++	if (dma && (hci->quirks & HCI_QUIRK_TX_START_THLD) && hci->PIO_regs) {
++		void __iomem *thld_reg = hci->PIO_regs + PIO_DATA_BUFFER_THLD_CTRL;
++		u32 thld_val = readl(thld_reg);
++
++		thld_val &= ~DATA_TX_START_THLD;
++		writel(thld_val, thld_reg);
++	}
++
+ 	if (!is_version_1_1_or_newer(hci))
+ 		return 0;
+ 
+diff --git a/drivers/i3c/master/mipi-i3c-hci/hci.h b/drivers/i3c/master/mipi-i3c-hci/hci.h
+index 2110f806a53c..d9c9e609a879 100644
+--- a/drivers/i3c/master/mipi-i3c-hci/hci.h
++++ b/drivers/i3c/master/mipi-i3c-hci/hci.h
+@@ -179,6 +179,7 @@ struct i3c_hci_dev_data {
+ #define HCI_QUIRK_DMA_REQUIRES_HC_ABORT		BIT(9)  /* Use HC_CONTROL ABORT to abort DMA */
+ #define HCI_QUIRK_DAT_INDEX_IS_ADDR	BIT(10)  /* DAT entries are indexed by device address */
+ #define HCI_QUIRK_DMA_64BIT		BIT(11)  /* Controller DMA supports 64-bit addressing */
++#define HCI_QUIRK_TX_START_THLD		BIT(12)  /* Clear TX start threshold in DMA mode */
+ 
+ /* global functions */
+ void mipi_i3c_hci_resume(struct i3c_hci *hci);
+diff --git a/drivers/i3c/master/mipi-i3c-hci/pio.c b/drivers/i3c/master/mipi-i3c-hci/pio.c
+index 439578a6eb54..6bd5e43364a1 100644
+--- a/drivers/i3c/master/mipi-i3c-hci/pio.c
++++ b/drivers/i3c/master/mipi-i3c-hci/pio.c
+@@ -14,6 +14,7 @@
+ #include "hci.h"
+ #include "cmd.h"
+ #include "ibi.h"
++#include "pio.h"
+ 
+ /*
+  * PIO Access Area
+@@ -22,102 +23,6 @@
+ #define pio_reg_read(r)		readl(hci->PIO_regs + (PIO_##r))
+ #define pio_reg_write(r, v)	writel(v, hci->PIO_regs + (PIO_##r))
+ 
+-#define PIO_COMMAND_QUEUE_PORT		0x00
+-#define PIO_RESPONSE_QUEUE_PORT		0x04
+-#define PIO_XFER_DATA_PORT		0x08
+-#define PIO_IBI_PORT			0x0c
+-
+-#define PIO_QUEUE_THLD_CTRL		0x10
+-#define QUEUE_IBI_STATUS_THLD		GENMASK(31, 24)
+-#define QUEUE_IBI_DATA_THLD		GENMASK(23, 16)
+-#define QUEUE_RESP_BUF_THLD		GENMASK(15, 8)
+-#define QUEUE_CMD_EMPTY_BUF_THLD	GENMASK(7, 0)
+-
+-#define PIO_DATA_BUFFER_THLD_CTRL	0x14
+-#define DATA_RX_START_THLD		GENMASK(26, 24)
+-#define DATA_TX_START_THLD		GENMASK(18, 16)
+-#define DATA_RX_BUF_THLD		GENMASK(10, 8)
+-#define DATA_TX_BUF_THLD		GENMASK(2, 0)
+-
+-#define PIO_QUEUE_SIZE			0x18
+-#define TX_DATA_BUFFER_SIZE		GENMASK(31, 24)
+-#define RX_DATA_BUFFER_SIZE		GENMASK(23, 16)
+-#define IBI_STATUS_SIZE			GENMASK(15, 8)
+-#define CR_QUEUE_SIZE			GENMASK(7, 0)
+-
+-#define PIO_ALT_QUEUE_SIZE		0x1C
+-#define EXT_IBI_QUEUE_EN		BIT(28)
+-#define ALT_RESP_QUEUE_EN		BIT(24)
+-#define ALT_RESP_QUEUE_SIZE		GENMASK(7, 0)
+-
+-#define PIO_INTR_STATUS			0x20
+-#define PIO_INTR_STATUS_ENABLE		0x24
+-#define PIO_INTR_SIGNAL_ENABLE		0x28
+-#define PIO_INTR_FORCE			0x2c
+-#define STAT_TRANSFER_BLOCKED		BIT(25)
+-#define STAT_PERR_RESP_UFLOW		BIT(24)
+-#define STAT_PERR_CMD_OFLOW		BIT(23)
+-#define STAT_PERR_IBI_UFLOW		BIT(22)
+-#define STAT_PERR_RX_UFLOW		BIT(21)
+-#define STAT_PERR_TX_OFLOW		BIT(20)
+-#define STAT_ERR_RESP_QUEUE_FULL	BIT(19)
+-#define STAT_WARN_RESP_QUEUE_FULL	BIT(18)
+-#define STAT_ERR_IBI_QUEUE_FULL		BIT(17)
+-#define STAT_WARN_IBI_QUEUE_FULL	BIT(16)
+-#define STAT_ERR_RX_DATA_FULL		BIT(15)
+-#define STAT_WARN_RX_DATA_FULL		BIT(14)
+-#define STAT_ERR_TX_DATA_EMPTY		BIT(13)
+-#define STAT_WARN_TX_DATA_EMPTY		BIT(12)
+-#define STAT_TRANSFER_ERR		BIT(9)
+-#define STAT_WARN_INS_STOP_MODE		BIT(7)
+-#define STAT_TRANSFER_ABORT		BIT(5)
+-#define STAT_RESP_READY			BIT(4)
+-#define STAT_CMD_QUEUE_READY		BIT(3)
+-#define STAT_IBI_STATUS_THLD		BIT(2)
+-#define STAT_RX_THLD			BIT(1)
+-#define STAT_TX_THLD			BIT(0)
+-
+-#define PIO_CONTROL			0x30
+-#define PIO_CONTROL_ABORT		BIT(2)
+-#define PIO_CONTROL_RS			BIT(1)
+-#define PIO_CONTROL_ENABLE		BIT(0)
+-
+-#define PIO_QUEUE_CUR_STATUS		0x38
+-#define CUR_IBI_Q_LEVEL			GENMASK(28, 20)
+-#define CUR_RESP_Q_LEVEL		GENMASK(18, 10)
+-#define CUR_CMD_Q_EMPTY_LEVEL		GENMASK(8, 0)
+-
+-#define PIO_DATA_BUFFER_CUR_STATUS	0x3c
+-#define CUR_RX_BUF_LVL			GENMASK(26, 16)
+-#define CUR_TX_BUF_LVL			GENMASK(10, 0)
+-
+-/*
+- * Handy status bit combinations
+- */
+-
+-#define STAT_LATENCY_WARNINGS		(STAT_WARN_RESP_QUEUE_FULL | \
+-					 STAT_WARN_IBI_QUEUE_FULL | \
+-					 STAT_WARN_RX_DATA_FULL | \
+-					 STAT_WARN_TX_DATA_EMPTY | \
+-					 STAT_WARN_INS_STOP_MODE)
+-
+-#define STAT_LATENCY_ERRORS		(STAT_ERR_RESP_QUEUE_FULL | \
+-					 STAT_ERR_IBI_QUEUE_FULL | \
+-					 STAT_ERR_RX_DATA_FULL | \
+-					 STAT_ERR_TX_DATA_EMPTY)
+-
+-#define STAT_PROG_ERRORS		(STAT_TRANSFER_BLOCKED | \
+-					 STAT_PERR_RESP_UFLOW | \
+-					 STAT_PERR_CMD_OFLOW | \
+-					 STAT_PERR_IBI_UFLOW | \
+-					 STAT_PERR_RX_UFLOW | \
+-					 STAT_PERR_TX_OFLOW)
+-
+-#define STAT_ALL_ERRORS			(STAT_TRANSFER_ABORT | \
+-					 STAT_TRANSFER_ERR | \
+-					 STAT_LATENCY_ERRORS | \
+-					 STAT_PROG_ERRORS)
+-
+ struct hci_pio_dev_ibi_data {
+ 	struct i3c_generic_ibi_pool *pool;
+ 	unsigned int max_len;
+diff --git a/drivers/i3c/master/mipi-i3c-hci/pio.h b/drivers/i3c/master/mipi-i3c-hci/pio.h
 new file mode 100644
-index 000000000000..19ecb5b15038
+index 000000000000..72318961e991
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml
-@@ -0,0 +1,133 @@
-+# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i3c/aspeed,ast2700-i3c-hci.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/i3c/master/mipi-i3c-hci/pio.h
+@@ -0,0 +1,109 @@
++/* SPDX-License-Identifier: BSD-3-Clause */
++/*
++ * Copyright (c) 2020, MIPI Alliance, Inc.
++ *
++ * Author: Nicolas Pitre <npitre@baylibre.com>
++ *
++ * PIO Access Area register and bitfield definitions.
++ */
 +
-+title: ASPEED AST2700 I3C controller
++#ifndef PIO_H
++#define PIO_H
 +
-+maintainers:
-+  - Billy Tsai <billy_tsai@aspeedtech.com>
++#define PIO_COMMAND_QUEUE_PORT		0x00
++#define PIO_RESPONSE_QUEUE_PORT		0x04
++#define PIO_XFER_DATA_PORT		0x08
++#define PIO_IBI_PORT			0x0c
 +
-+description:
-+  The AST2700 I3C controller implements the MIPI I3C HCI programming model,
-+  extended with an ASPEED in-house control block and a PHY programming window
-+  that are advertised through an HCI vendor extended capability.
++#define PIO_QUEUE_THLD_CTRL		0x10
++#define QUEUE_IBI_STATUS_THLD		GENMASK(31, 24)
++#define QUEUE_IBI_DATA_THLD		GENMASK(23, 16)
++#define QUEUE_RESP_BUF_THLD		GENMASK(15, 8)
++#define QUEUE_CMD_EMPTY_BUF_THLD	GENMASK(7, 0)
 +
-+properties:
-+  compatible:
-+    const: aspeed,ast2700-i3c-hci
++#define PIO_DATA_BUFFER_THLD_CTRL	0x14
++#define DATA_TX_START_THLD		GENMASK(18, 16)
++#define DATA_RX_START_THLD		GENMASK(26, 24)
++#define DATA_RX_BUF_THLD		GENMASK(10, 8)
++#define DATA_TX_BUF_THLD		GENMASK(2, 0)
 +
-+  reg:
-+    maxItems: 1
++#define PIO_QUEUE_SIZE			0x18
++#define TX_DATA_BUFFER_SIZE		GENMASK(31, 24)
++#define RX_DATA_BUFFER_SIZE		GENMASK(23, 16)
++#define IBI_STATUS_SIZE			GENMASK(15, 8)
++#define CR_QUEUE_SIZE			GENMASK(7, 0)
 +
-+  interrupts:
-+    maxItems: 1
++#define PIO_ALT_QUEUE_SIZE		0x1C
++#define EXT_IBI_QUEUE_EN		BIT(28)
++#define ALT_RESP_QUEUE_EN		BIT(24)
++#define ALT_RESP_QUEUE_SIZE		GENMASK(7, 0)
 +
-+  clocks:
-+    maxItems: 1
++#define PIO_INTR_STATUS			0x20
++#define PIO_INTR_STATUS_ENABLE		0x24
++#define PIO_INTR_SIGNAL_ENABLE		0x28
++#define PIO_INTR_FORCE			0x2c
++#define STAT_TRANSFER_BLOCKED		BIT(25)
++#define STAT_PERR_RESP_UFLOW		BIT(24)
++#define STAT_PERR_CMD_OFLOW		BIT(23)
++#define STAT_PERR_IBI_UFLOW		BIT(22)
++#define STAT_PERR_RX_UFLOW		BIT(21)
++#define STAT_PERR_TX_OFLOW		BIT(20)
++#define STAT_ERR_RESP_QUEUE_FULL	BIT(19)
++#define STAT_WARN_RESP_QUEUE_FULL	BIT(18)
++#define STAT_ERR_IBI_QUEUE_FULL		BIT(17)
++#define STAT_WARN_IBI_QUEUE_FULL	BIT(16)
++#define STAT_ERR_RX_DATA_FULL		BIT(15)
++#define STAT_WARN_RX_DATA_FULL		BIT(14)
++#define STAT_ERR_TX_DATA_EMPTY		BIT(13)
++#define STAT_WARN_TX_DATA_EMPTY		BIT(12)
++#define STAT_TRANSFER_ERR		BIT(9)
++#define STAT_WARN_INS_STOP_MODE		BIT(7)
++#define STAT_TRANSFER_ABORT		BIT(5)
++#define STAT_RESP_READY			BIT(4)
++#define STAT_CMD_QUEUE_READY		BIT(3)
++#define STAT_IBI_STATUS_THLD		BIT(2)
++#define STAT_RX_THLD			BIT(1)
++#define STAT_TX_THLD			BIT(0)
 +
-+  resets:
-+    items:
-+      - description: Core controller reset.
-+      - description: DMA engine reset shared by all I3C controllers.
++#define PIO_CONTROL			0x30
++#define PIO_CONTROL_ABORT		BIT(2)
++#define PIO_CONTROL_RS			BIT(1)
++#define PIO_CONTROL_ENABLE		BIT(0)
 +
-+  reset-names:
-+    items:
-+      - const: core
-+      - const: dma
++#define PIO_QUEUE_CUR_STATUS		0x38
++#define CUR_IBI_Q_LEVEL			GENMASK(28, 20)
++#define CUR_RESP_Q_LEVEL		GENMASK(18, 10)
++#define CUR_CMD_Q_EMPTY_LEVEL		GENMASK(8, 0)
 +
-+  bias-pull-up:
-+    $ref: /schemas/pinctrl/pincfg-node.yaml#/properties/bias-pull-up
-+    enum: [177, 231, 261, 317, 400, 470, 550, 600, 750]
-+    description:
-+      Enable the PHY-internal pull-ups on SCL and SDA and select their
-+      strength, in Ohms. High-voltage pins support 400, 470 or 600 Ohms,
-+      and low-voltage pins support 177, 231, 261, 317, 400, 550 or 750
-+      Ohms. When absent the internal pull-ups stay disabled and the bus
-+      relies on external pull-ups.
++#define PIO_DATA_BUFFER_CUR_STATUS	0x3c
++#define CUR_RX_BUF_LVL			GENMASK(26, 16)
++#define CUR_TX_BUF_LVL			GENMASK(10, 0)
 +
-+  aspeed,pp-scl-high-ns:
-+    description:
-+      Push-pull SCL high period. Overrides the value derived from the
-+      i3c-scl-hz bus rate.
++/*
++ * Handy status bit combinations
++ */
 +
-+  aspeed,pp-scl-low-ns:
-+    description:
-+      Push-pull SCL low period. Overrides the value derived from the
-+      i3c-scl-hz bus rate.
++#define STAT_LATENCY_WARNINGS		(STAT_WARN_RESP_QUEUE_FULL | \
++					 STAT_WARN_IBI_QUEUE_FULL | \
++					 STAT_WARN_RX_DATA_FULL | \
++					 STAT_WARN_TX_DATA_EMPTY | \
++					 STAT_WARN_INS_STOP_MODE)
 +
-+  aspeed,od-scl-high-ns:
-+    default: 380
-+    description:
-+      Open-drain SCL high period.
++#define STAT_LATENCY_ERRORS		(STAT_ERR_RESP_QUEUE_FULL | \
++					 STAT_ERR_IBI_QUEUE_FULL | \
++					 STAT_ERR_RX_DATA_FULL | \
++					 STAT_ERR_TX_DATA_EMPTY)
 +
-+  aspeed,od-scl-low-ns:
-+    default: 620
-+    description:
-+      Open-drain SCL low period.
++#define STAT_PROG_ERRORS		(STAT_TRANSFER_BLOCKED | \
++					 STAT_PERR_RESP_UFLOW | \
++					 STAT_PERR_CMD_OFLOW | \
++					 STAT_PERR_IBI_UFLOW | \
++					 STAT_PERR_RX_UFLOW | \
++					 STAT_PERR_TX_OFLOW)
 +
-+  aspeed,sda-tx-hold-ns:
-+    default: 10
-+    description:
-+      SDA output hold time relative to the SCL edge.
++#define STAT_ALL_ERRORS			(STAT_TRANSFER_ABORT | \
++					 STAT_TRANSFER_ERR | \
++					 STAT_LATENCY_ERRORS | \
++					 STAT_PROG_ERRORS)
 +
-+  aspeed,cas-ns:
-+    minimum: 39
-+    description:
-+      Clock-after-start (tCAS) period driven after a START condition.
-+      When absent it is derived from the SCL low period of the
-+      applicable bus context, clamped to the protocol minimum.
-+
-+  aspeed,cbp-ns:
-+    minimum: 20
-+    description:
-+      Clock-before-stop (tCBP) period driven before a STOP condition.
-+      When absent it is derived from the SCL low period of the
-+      applicable bus context, clamped to the protocol minimum.
-+
-+  aspeed,sr-p-scl-low-ns:
-+    default: 40
-+    description:
-+      SCL low period used while preparing a repeated START or STOP
-+      condition, kept separate from the push-pull SCL low period to
-+      satisfy the MIPI I3C clock stalling requirements.
-+
-+dependencies:
-+  aspeed,pp-scl-high-ns:
-+    - aspeed,pp-scl-low-ns
-+  aspeed,pp-scl-low-ns:
-+    - aspeed,pp-scl-high-ns
-+  aspeed,od-scl-high-ns:
-+    - aspeed,od-scl-low-ns
-+  aspeed,od-scl-low-ns:
-+    - aspeed,od-scl-high-ns
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: i3c.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i3c@14c24000 {
-+        compatible = "aspeed,ast2700-i3c-hci";
-+        reg = <0x14c24000 0x1000>;
-+        interrupts = <100>;
-+        clocks = <&syscon 20>;
-+        resets = <&syscon 37>, <&syscon 34>;
-+        reset-names = "core", "dma";
-+        bias-pull-up = <400>;
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&pinctrl_i3c4_default>;
-+        #address-cells = <3>;
-+        #size-cells = <0>;
-+    };
++#endif
 
 -- 
 2.34.1
