@@ -4,76 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96AAC624D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A21AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iuish5hluWdY71WX+l22NL4cSYu/RU1lYznBGbg7EhU=; b=Rj5YQ8f6u3PIGdtT7rsK/HyM88
-	+W2V8WpxO9DWXQ1spsWYGnGG/hEXzHRzvU6mW/jHIsnnZmhE7tuKS+0hEeJa4YWQv6wK9Hm8SRxbP
-	hWe8qtoAG7z5hjEVWuUwOnNygzaZq8Mmi9mFfhUeLjHoz3TKhduW1tD1GdgcclASNAScQ8Ve6Jmbv
-	uXhsU+5S4uUUfnLAnpuyJq7iIgkNtBsckFEomgmG7x7xx/GJxMaiiABXCB0heK/slsXji0Xyu5REb
-	TLLrbcCJ7Jhccmh2Y4kwT2cf17D9ozOxYTEThbJy6Hfskemhqz5ow/TJeuYhqo511V/fCnNgPrk43
-	AZN+NJ8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b62TM3b+R7LBBBMdiFoxJotUo5iPVNG6UJ+rLi3xZbw=; b=JucGn1bJuJAPPhXNHGJ6CR3OCO
+	zQ5XjQoVB2PUQf42tDsK2yYdYZ6h+KLZaomeYfNQQXTuuCdRGz9xLN5kNpmfZXAywDG942f68qkar
+	CUblte0fU8H0UNquwbEY/XhLBD0ggCVuDG0edFkcRprfG2vi8GJWymSM/qh78YLCVmBMuXgMPPwG2
+	a4WN06vjVW9KsIIwEIIrKEuXKcTwt8+LyDuPortY1vN3veN8VuJvAOLfFfYgGLrexoNU95QZIGDaT
+	siXjQAuuUCGyiycyZFtVczE1MS1Rj8uRDeuM3HzoFhamUQ9VRgODTpUaj5Dt3tGl1KIw0ahEg434S
+	2XvBgHOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RZP-0000000ChDL-32iO;
-	Tue, 01 Sep 2026 16:42:47 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1x1RfV-0000000Chom-2E7i;
+	Tue, 01 Sep 2026 16:49:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RZM-0000000ChCX-3U7j;
-	Tue, 01 Sep 2026 16:42:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788280957; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XDWm3uwvnZHLBvsndM4gHUkLPU6ZiY9hjH5bB1WF0FWMUaqLsICxnjMqgMOE691P9+RmL3wFioHiyfOKRMehftq0zeV1mu+yYuNcqm8RTjJ7LUUomczRxet3FxKutYr+sDXZKIrx99bTBdiG3qthYKNBaeWghCF+RhoIxu3SOLU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788280957; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=iuish5hluWdY71WX+l22NL4cSYu/RU1lYznBGbg7EhU=; 
-	b=Ab2lSfDdVhxEObA8hbG+3eETu3FpRC5vRVCMfrkvxWtqlKwc313Vc7MAcNntOTba6F/qPViM4vN4oRawmo1nWxi4KpDBOmlkd0MFoeUFH5XpJJYq+xORIyuuxuigK8T1oY1vpfIpzTGXN+Fk1lHcLQk1VQZDztjB+5mf/K3+OF4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788280957;
-	s=zmail2048; d=rong.moe; i=i@rong.moe;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:Content-Type:Content-Transfer-Encoding:Date:Date:MIME-Version:Message-Id:Reply-To;
-	bh=iuish5hluWdY71WX+l22NL4cSYu/RU1lYznBGbg7EhU=;
-	b=cWWhXRp3TIwhIyBIrh/SfLhTPj1DRrPZXLqFZbE6Hsr2SrccUSpuIkTkaZ9hWkif
-	JImILrx0Qkce1JrJxNtq7AlcqA904ov5x7R74ZsmDWR9moabEKW+dJumPv5nF2gtiMC
-	nOl8NxAlPqOVqXiQu2YWpN0GoWYfisNWKhjHHA4plX358hG1cijWN0ZlmiU3yPm54oJ
-	VHdPGC15OeOGQaZMefFzTwueLzxM7qPRj3b/hJEPV86JApEwvidm/aT7J/6JrlPQSEi
-	BS5Nic6MSlgaNHdnuo3BbGEZhQ7mWW7IObxGL2hE0eXbDb7zfUHg6myGYuce4V5DZR5
-	ZiJEtifaog==
-Received: by mx.zohomail.com with SMTPS id 1788280954716290.2395123693982;
-	Tue, 1 Sep 2026 09:42:34 -0700 (PDT)
-Message-ID: <8783d4c77f112c55c9f9678b5a8e0a88d49c1141.camel@rong.moe>
-Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
- MT7922/MT7925 on Ryzen platform
-From: Rong Zhang <i@rong.moe>
-To: Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz
-	 <luiz.dentz@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, Chris Lu
- =?Big5?Q?=28=B3=B0=B8X=AAl=29?=
-	 <Chris.Lu@mediatek.com>, Will-CY Lee =?Big5?Q?=28=A7=F5=ACF=BFo=29?=
-	 <Will-CY.Lee@mediatek.com>, SS Wu =?Big5?Q?=28=A7=C5=BE=CB=AAY=29?=
-	 <ss.wu@mediatek.com>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-In-Reply-To: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
-References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 02 Sep 2026 00:37:25 +0800
+	id 1x1RfO-0000000ChnW-0Mpb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 16:48:59 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 681E974m2912234
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 1 Sep 2026 16:48:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	b62TM3b+R7LBBBMdiFoxJotUo5iPVNG6UJ+rLi3xZbw=; b=gLNqsgggpn1u3v7B
+	ihUObr1bhMSg+9eNo6gGT6JwdQ7VCl51Iw1tDlfT4vRHHDM0zHCPu7D0NAMXY0zW
+	AAwHroDHKm4owfTqo/eS9u+jDHHeLbm3JKcUK52z+XGnbU9RvFqJ+1KwRR2L6qJk
+	JVLFPl1EYWSvB0Ua4ajiC5qSdyS0Qg1A3IHBC2SWo8BSj87hAUb7ZPFrDWH/qiP3
+	OCjG5jrZyzgig4exr5ZLAcflW30O/0utbZfTJY3ql5AOlbKCGyvJQ+X+aeyedqW2
+	IulmWho7SXtAee0CvZgQClTNGFS6P8W7Q6rG9pVLPhmpYQp1fQj5rLHqH7AmI4kd
+	rX2J3Q==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gdp7r3jju-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 16:48:54 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-385d2703b64so1445997a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 09:48:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788281333; x=1788886133; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b62TM3b+R7LBBBMdiFoxJotUo5iPVNG6UJ+rLi3xZbw=;
+        b=JdJKcb/vYBasnaV+J6K2fzAtUwfRlbsS0Yz91ySm8N6NIWhvmr41GTlUQ9Rq3K+3FE
+         QWhrDSfEv1VVnZZraDbVB8mODiPXFDGYIOdkktiGxmFKQ46FXGnwaQcZTjuEdweriDwM
+         WIW6mHrWzZmxvHGE1wpzmebNcTKG3Y1zDqeer5B+NT4FGszdNOpBk1QML5qmFofKg/3a
+         2l1J5xGjsKsQPs9Q9K/2F8EcEIKsSIfy/TcMls8z7j4DATOvr+QM+DvMQu9MGWApeKbO
+         xd/AG6OtxxjbR4ableuyCpRTT8IzwWHDxxJNysK5NjeTLcoCw35ASLoCCUClkmneLzTa
+         7htA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788281333; x=1788886133;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b62TM3b+R7LBBBMdiFoxJotUo5iPVNG6UJ+rLi3xZbw=;
+        b=GfFja15izrzwtNplCNc1AVFSWjFiUEQXPX+40/4gYYB81PDVpeRtnRO54ssz9iVw15
+         J+M1Pjt3sCyibxA0eWAL4Kv370ABG2OFZcm34M66QDoKYDfUNdPe/uT25yRdltx8+FCM
+         uHiC5FK7kjnRDsZ9tHQw9BoLC75szhLunwf//76XsxS7J3ts081YGJCDaBGAz2CzRuku
+         A/tSSMfjTVyCUUkoQ/kCYPSj/Gsf4HXgsr2xkP2Oa9i7lIj96B6JENtsp/3ulFMkivTu
+         DNvFi/gM0fVSpcrbEYCWxhCUCDpzE5aD0BatdV78ql2HEKttuotjL/uu0Sz3K6vBAhNb
+         dvZA==
+X-Forwarded-Encrypted: i=1; AKwUvBxJzn1wncK6gGpMV0ZaQ062Eze/RfWfBZRpDQOPwE8afaSaf8zmeWDQWUY8XZGbI+klphOgdf68f7ad0KOHJMin@lists.infradead.org
+X-Gm-Message-State: AFuF++kHzChZO8Ajv8gNbAbgbYztD1YMUgDk17RbYWwScyQM/EebwDe5
+	iQaw0IOhqdEyt/PkIJUxZvvUfCxN2dHCkKoxWhM2rtVPL4TDwJHLcNzgoH0s8U6CHa4+osimzVB
+	5BwnZ+vV69glNRfAU50PWcG0s7UcI7SA9g7szsTht+IlvdeBGTuZhpqVcRutw53nvKdGrEKPapK
+	2d0A==
+X-Gm-Gg: AYBFou3izOsXYSnMnHUJq/2ikJ+5Up3D5M2/gR2FnmGLr55DIe6FQmkbk/kMWjBbpNh
+	lXlr8cQlKrDcccb6cQF0TzP3+7AMlqs4ny/wHkGyV9bug5F1+QeL9a9x6iPLQtb748CvL84D9W+
+	jkTCGet058gJuHTwcUnINK/bQ7C4OjyARubEtjIBgbWEoGBu0+bHQt5FReE2liB3kxzArqs6bVV
+	VvpaOACoL6w2JCUZZf4D0TCIS7mm2Uy7bTUNzTRf0Jh2lF89OpYXL0BpvorLbuDciwUwmlfKWE6
+	TlT9Dkdptje5gU8sVzqc/C7562A30SymHyj+9Ky1t3LoAwL8scLe27pYFNII8hZ50Le8D94GnTJ
+	ecRPavK0arspaGFvmn5Lt5MoMVIuY/pAc
+X-Received: by 2002:a17:90b:2247:b0:37f:a913:1554 with SMTP id 98e67ed59e1d1-3990f890861mr6902051a91.16.1788281333017;
+        Tue, 01 Sep 2026 09:48:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:2247:b0:37f:a913:1554 with SMTP id 98e67ed59e1d1-3990f890861mr6901973a91.16.1788281332349;
+        Tue, 01 Sep 2026 09:48:52 -0700 (PDT)
+Received: from [192.168.0.5] ([49.204.111.114])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-328713b944bsm41662284eec.27.2026.09.01.09.48.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Sep 2026 09:48:51 -0700 (PDT)
+Message-ID: <177884a8-902f-49be-8fcb-b2bec3ec7d6c@oss.qualcomm.com>
+Date: Tue, 1 Sep 2026 22:18:44 +0530
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2-10+b1 
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/9] soc: qcom: geni: Derive SE clock configuration
+ from OPP table on SA8255P
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+        Andi Shyti <andi.shyti@kernel.org>, mukesh.savaliya@oss.qualcomm.com,
+        chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
+        linux-i2c@vger.kernel.org, Abel Vesa <abel.vesa@oss.qualcomm.com>
+References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
+ <CAPx+jO9fcvBsxe9yx9oK=0EXmpNwub5ba0a-TGk1WRFaRGsqpA@mail.gmail.com>
+Content-Language: en-US
+From: Praveen Talari <praveen.talari@oss.qualcomm.com>
+In-Reply-To: <CAPx+jO9fcvBsxe9yx9oK=0EXmpNwub5ba0a-TGk1WRFaRGsqpA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=beZbluPB c=1 sm=1 tr=0 ts=6a9701f6 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Z/g59IqO3Gki/5UUpFMnLg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=1OWG-U-0pMjJ1F8qq_YA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDE0OCBTYWx0ZWRfX9sxdwxDU8gmB
+ 09fdFhU6hO6umDJtIkxqEdR5gK6q94RVaqQW5Oiu/7p3zbgGAfeSNclXVgk/vZNLm9YJAshr6Zp
+ d3+RCDiGOF7I2pNTqFKaoK3wjQQnnJubdr4kTk+eiuruPKQXaeUUi6NqAMEIKAoRBwE2EBGO1lp
+ YtsdNlGLZgajQIMTzwBfiXTEmylStk9FPIRzPceaDOIHTSLR4iEGawIZaCEiYjtcNogNFgkWilL
+ 1El7xfCg6GgTn6V6OEOq/pb0LzEz4KWPNXojShgHUyoHOZkADlUy0e/w933S76jVrASxiavTRxc
+ DEYSRhXb3Ep1GHhzAlNjO9n//qG4Ld8ijPRREYE3+vX3VyLqDavbE8Y1YLalZOBFxQcenpxHkuB
+ NOnORyt6p721pb65ol1giqJC2tOTu6/F55mZ3xMKScjAWRJK0SOZRmsFUNDhcarz3I00HVFhlR+
+ RwYImu5pfpIEbuWtFqw==
+X-Proofpoint-GUID: GG5FVdCSwisanGbenHBTVdMUpeuP8XBr
+X-Proofpoint-ORIG-GUID: GG5FVdCSwisanGbenHBTVdMUpeuP8XBr
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDE0OCBTYWx0ZWRfXzLLCbVJxm3rM
+ HUm63wbMF1Fl4heeZhoANaDyIgdVNQUWUyD+hgPNw3pi1fA1Zd3HAP5+DmNTQ6gn7TfhdeQuYlH
+ wFH8fCNxoKW95z4/ZLkvHyqDww4aaEM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-01_04,2026-09-01_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 bulkscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609010148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_094244_927950_70F86ED3 
-X-CRM114-Status: GOOD (  46.09  )
+X-CRM114-CacheID: sfid-20260901_094858_258746_F8C65971 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,228 +162,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luiz,
+Hi Ulf,
 
-Gentle ping.
+On 01-09-2026 20:22, Ulf Hansson wrote:
+> On Thu, Aug 27, 2026 at 7:59 PM Praveen Talari
+> <praveen.talari@oss.qualcomm.com> wrote:
+>> On firmware-managed platforms such as SA8255P, there is no Linux clock
+>> handler available to determine the appropriate SE source clock, source
+>> clock index, and divider values for a requested protocol frequency.
+>> However, these parameters are required when programming GSI TREs, where
+>> the hardware expects an explicit clock source selection and divider
+>> configuration for the serial engine.
+>>
+>> In contrast, platforms using Linux-managed clocks derive these
+>> parameters through geni_se_clk_freq_match() using the source clock
+>> information stored in clk_perf_tbl. Since the firmware-managed path
+>> lacks equivalent clock information, protocol drivers cannot reuse the
+>> existing frequency matching logic and instead rely on a direct mapping
+>> between protocol-requested frequencies and performance levels. This
+>> creates a separate clock configuration flow and prevents
+>> firmware-managed platforms from deriving the actual SE clock parameters
+>> required for GSI TRE programming.
+> Hmm, this sounds like moving backwards when it comes to keeping
+> drivers as portable as possible.
+>
+> I understand geni_se_clk_freq_match() has been around for a while, but
+> fortunately its use seems limited to only a few qcom specific drivers.
+>
+> Rather than continue down this path, would it not be possible to find
+> a more generic solution for "geni_se_clk_freq_match()"? Can we replace
+> it with a common clock/OPP API? In this way, we would not need to
+> sprinkle drivers with calls to platform specific  code.
+I agree that protocol drivers should not need to know whether GENI resources
+are managed through the clock framework or a firmware-provided 
+performance domain.
 
-On Wed, 2026-07-01 at 23:43 +0800, Rong Zhang wrote:
-> It is reported that a remote wakeup could cause MT7922/MT7925's btusb
-> interface completely unresponsive. Resetting the xHCI root hub doesn't
-> help at all, and recovering from such a state needs a power cycle.
->=20
-> All reports seen to be relevant to Ryzen-based laptops. These NICs are
-> usually used as OEM components thanks to some sort of reference designs.
-> Their popularity on other platforms is unclear. While there is still a
-> chance that the quirk may exist on other platforms, be cautious and only
-> apply the quirk to direct children of Ryzen platforms's root hubs for
-> the time being. In most cases the root hub is on the SoC or PCH, which
-> needs the quirk. Unfortunately, this can't distinguish root hubs on PCIe
-> add-in cards. Such roughness should be acceptable, as PCIe USB
-> controller add-in cards are less commonly used nowadays. On the other
-> hand, applying the quirk doesn't hurt any functionalities either, as the
-> device can still be used as a wakeup source if desired. Theoretically,
-> we could retrieve the root hub's PCI vendor ID with some hierarchy
-> magic, but that's too intrusive...
->=20
-> Meanwhile, though device_set_wakeup_capable(false) is the correct fix
-> for other NICs with fake remote wakeup capabilities, doing so for
-> MT7922/MT7925 effectively prevents it from being used as wakeup
-> sources as per userspace requests. Hence, return -EBUSY on runtime
-> suspend to prevent the interface from being autosuspended while it's
-> still opened, which has the same effect as
-> device_set_wakeup_capable(false), since disabling remote wakeup simply
-> causes the USB core to gate runtime autosuspend as well due to
-> needs_remote_wakeup =3D=3D 1. The interface can be safely autosuspended a=
-s
-> long as remote wakeup is disabled, i.e., after closing the HCI device.
->=20
-> Specifically, the interface may still take the advantage of remote
-> wakeup in order to wake up the system from sleep if userspace has
-> enabled it as a wakeup source.
->=20
-> Fixes: e31d761628ad ("Bluetooth: btmtk: Disable remote wakeup for MT7922/=
-MT7925")
-> Signed-off-by: Rong Zhang <i@rong.moe>
+The intent of this series is actually to move in that direction rather than
+introduce a separate flow. Today firmware-managed platforms cannot use
+geni_se_clk_freq_match() because clk_perf_tbl is only populated when a 
+Linux clock
+is present. This series derives the same clock-performance 
+information(clk_perf_tbl) from the OPP
+table and populates clk_perf_tbl during geni_se_domain_attach(), 
+allowing both
+resource-management models to reuse the existing 
+geni_se_clk_freq_match() infrastructure.
 
-Could you kindly take a look at the patch?
+Likewise, geni_se_set_rate() hides whether the underlying implementation 
+uses
+dev_pm_opp_set_rate() on a perf-domain device or a regular clock-backed 
+device,
+so protocol drivers no longer need platform-specific callbacks. The goal 
+is to
+converge both paths behind common GENI helpers rather than maintain separate
+clock-selection mechanisms.
+>
+>> To address this limitation, the performance-domain OPP table is treated
+>> as the representation of SE-supported source clock frequencies. During
+>> geni_se_domain_attach(), the OPP entries are used to populate
+>> clk_perf_tbl and related clock performance data, allowing
+>> firmware-managed platforms to leverage the same clock frequency matching
+>> infrastructure used by Linux-managed platforms.
+>>
+>> With this change, protocol drivers can use geni_se_clk_freq_match() to
+>> select the closest supported source clock frequency for a requested
+>> protocol rate, derive the corresponding source clock index and divider
+>> values required for GSI TRE programming, and apply the matched clock
+>> through the OPP framework. This removes the dependency on direct
+>> protocol-frequency-to-performance-level mappings and provides a common
+>> clock selection and configuration mechanism across both firmware-managed
+>> and Linux-managed GENI deployments.
+> Rather than adding yet another platform specific method, would it be
+> possible to extend the generic OPP library with the pieces that are
+> missing to make this work in a generic way?
+I agree with the goal of using generic infrastructure. However, 
+geni_se_clk_freq_match()
+derives GENI-specific parameters such as the source clock, clock index, 
+and divider values
+required for GSI TRE programming, which are not represented by the 
+generic OPP interface today.
 
-Chris Lu from MediaTek has relied with a "LGTM" to the patch, and there
-is already a Tested-by from Rafael Passos. Additionally, based on
-Rafael's debugging observations, the issue does exist on AMD PCHs, so
-matching X86_FEATURE_ZEN is appropriate.
-
-Thanks,
-Rong
-
-> ---
-> Changes in v2:
-> - Only apply the quirk to to direct children of Ryzen platforms's root
->   hubs
->   - Theoretically, we could retrieve the root hub's PCI vendor ID with
->     some hierarchy magic to further limit the range down to only root
->     hubs on the SoC or PCH, but that's too intrusive -- the hierarchy
->     magic really made me nervous once I saw what I have wrote, so I gave
->     it up
-> - Link to v1: https://patch.msgid.link/20260629-btmtk-ryzen-remote-wakeup=
--v1-1-1d2f1cee6d22@rong.moe
-> ---
->  drivers/bluetooth/btmtk.c | 10 -------
->  drivers/bluetooth/btusb.c | 73 +++++++++++++++++++++++++++++++++++++++++=
-+++---
->  2 files changed, 69 insertions(+), 14 deletions(-)
->=20
-> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-> index 02a96342e964..4614434dd57b 100644
-> --- a/drivers/bluetooth/btmtk.c
-> +++ b/drivers/bluetooth/btmtk.c
-> @@ -1381,16 +1381,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
->  		break;
->  	case 0x7922:
->  	case 0x7925:
-> -		/*
-> -		 * A remote wakeup could cause the device completely unresponsive, and
-> -		 * recovering from such a state needs a power cycle.
-> -		 *
-> -		 * Since the remote wakeup capability is super broken, just disable it
-> -		 * to get rid of the troubles. The device can still be autosuspended
-> -		 * when the bluetooth interface is closed.
-> -		 */
-> -		device_set_wakeup_capable(&btmtk_data->udev->dev, false);
-> -		fallthrough;
->  	case 0x7961:
->  	case 0x7902:
->  	case 0x6639:
-> diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-> index 08c0a99a62c5..eef6e3b43bf9 100644
-> --- a/drivers/bluetooth/btusb.c
-> +++ b/drivers/bluetooth/btusb.c
-> @@ -6,6 +6,7 @@
->   *  Copyright (C) 2005-2008  Marcel Holtmann <marcel@holtmann.org>
->   */
-> =20
-> +#include <linux/cpufeature.h>
->  #include <linux/dmi.h>
->  #include <linux/module.h>
->  #include <linux/usb.h>
-> @@ -957,6 +958,7 @@ struct qca_dump_info {
->  #define BTUSB_USE_ALT3_FOR_WBS	15
->  #define BTUSB_ALT6_CONTINUOUS_TX	16
->  #define BTUSB_HW_SSR_ACTIVE	17
-> +#define BTUSB_WAKEUP_BROKEN	18
-> =20
->  struct btusb_data {
->  	struct hci_dev       *hdev;
-> @@ -2936,10 +2938,25 @@ static int btusb_send_frame_mtk(struct hci_dev *h=
-dev, struct sk_buff *skb)
->  	}
->  }
-> =20
-> +static inline bool platform_is_ryzen(void)
-> +{
-> +#ifdef CONFIG_X86
-> +	return boot_cpu_has(X86_FEATURE_ZEN);
-> +#else
-> +	return false;
-> +#endif
-> +}
-> +
-> +static inline bool is_direct_child_of_root_hub(struct usb_device *udev)
-> +{
-> +	return udev->parent =3D=3D udev->bus->root_hub;
-> +}
-> +
->  static int btusb_mtk_setup(struct hci_dev *hdev)
->  {
->  	struct btusb_data *data =3D hci_get_drvdata(hdev);
->  	struct btmtk_data *btmtk_data =3D hci_get_priv(hdev);
-> +	int err;
-> =20
->  	/* MediaTek WMT vendor cmd requiring below USB resources to
->  	 * complete the handshake.
-> @@ -2956,7 +2973,40 @@ static int btusb_mtk_setup(struct hci_dev *hdev)
->  		btusb_mtk_claim_iso_intf(data);
->  	}
-> =20
-> -	return btmtk_usb_setup(hdev);
-> +	err =3D btmtk_usb_setup(hdev);
-> +	if (err)
-> +		return err;
-> +
-> +	switch (btmtk_data->dev_id) {
-> +	case 0x7922:
-> +	case 0x7925:
-> +		/*
-> +		 * All reports seen to be relevant to Ryzen-based laptops. These
-> +		 * NICs are usually used as OEM components thanks to some sort
-> +		 * of reference designs.
-> +		 *
-> +		 * Their popularity on other platforms is unclear. While there
-> +		 * is still a chance that the quirk may exist on other
-> +		 * platforms, be cautious and only apply the quirk to direct
-> +		 * children of Ryzen platforms's root hubs for the time being.
-> +		 *
-> +		 * In most cases the root hub is on the SoC or PCH, which needs
-> +		 * the quirk. Unfortunately, this can't distinguish root hubs on
-> +		 * PCIe add-in cards. Such roughness should be acceptable, as
-> +		 * PCIe USB controller add-in cards are less commonly used
-> +		 * nowadays. On the other hand, applying the quirk doesn't hurt
-> +		 * any functionalities either, as the device can still be used
-> +		 * as a wakeup source if desired.
-> +		 *
-> +		 * Theoretically, we could retrieve the root hub's PCI vendor ID
-> +		 * with some hierarchy magic, but that's too intrusive...
-> +		 */
-> +		if (platform_is_ryzen() && is_direct_child_of_root_hub(data->udev))
-> +			set_bit(BTUSB_WAKEUP_BROKEN, &data->flags);
-> +		break;
-> +	}
-> +
-> +	return 0;
->  }
-> =20
->  static int btusb_mtk_shutdown(struct hci_dev *hdev)
-> @@ -4532,11 +4582,26 @@ static int btusb_suspend(struct usb_interface *in=
-tf, pm_message_t message)
-> =20
->  	BT_DBG("intf %p", intf);
-> =20
-> -	/* Don't auto-suspend if there are connections or discovery in
-> -	 * progress; external suspend calls shall never fail.
-> +	/*
-> +	 * It is reported that remote wakeup events could sometimes cause some
-> +	 * adapters completely unresponsive. Resetting the xHCI root hub doesn'=
-t
-> +	 * help at all, and recovering from such a state needs a power cycle.
-> +	 * Since disabling remote wakeup simply causes the USB core to gate
-> +	 * runtime autosuspend as well due to needs_remote_wakeup =3D=3D 1, let=
-'s do
-> +	 * this ourselves to make our life easier. The interface can be safely
-> +	 * autosuspended as long as remote wakeup is disabled, i.e., after
-> +	 * closing the HCI device.
-> +	 *
-> +	 * Don't auto-suspend if there are connections or discovery in progress=
-.
-> +	 *
-> +	 * External suspend calls shall never fail. Specifically, a device with
-> +	 * broken remote wakeup may still take the advantage of remote wakeup i=
-n
-> +	 * order to wake up the system from sleep if userspace has enabled it a=
-s
-> +	 * a wakeup source.
->  	 */
->  	if (PMSG_IS_AUTO(message) &&
-> -	    (hci_conn_count(data->hdev) || hci_discovery_active(data->hdev)))
-> +	    ((test_bit(BTUSB_WAKEUP_BROKEN, &data->flags) && data->intf->needs_=
-remote_wakeup) ||
-> +	     hci_conn_count(data->hdev) || hci_discovery_active(data->hdev)))
->  		return -EBUSY;
-> =20
->  	if (data->suspend_count++)
->=20
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
->=20
-> Thanks,
-> Rong
+This series does not introduce a new clock selection path; it reuses the 
+existing
+geni_se_clk_freq_match() flow on firmware-managed platforms by populating
+clk_perf_tbl from OPP data.
+>
+>> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
+> Kind regards
+> Uffe
+>
+>> ---
+>> Changes in v2:
+>> - Add new patch to remove OPP rate reset from resource deactivation
+>> - Add new patch to vote source frequency via OPP for I2C
+>> - Compress the SPI, I2C and serial commit messages per review feedback
+>> - Drop a stray blank line before trace_geni_i2c_bus_setup() in the
+>>    I2C resource-initialization helper commit.
+>> - Link to v1: https://patch.msgid.link/20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com
+>>
+>> ---
+>> Praveen Talari (9):
+>>        pmdomain: arm: Fix -EINVAL from scmi_pd_set_perf_state() on state 0
+>>        soc: qcom: geni-se: Populate clk_perf_tbl with SE source clock frequencies from perf OPP table
+>>        soc: qcom: geni-se: Add helper to set SE clock rate via OPP
+>>        soc: qcom: geni-se: Remove OPP rate reset from resource deactivation
+>>        serial: qcom-geni: Use geni_se_set_rate() for source clock configuration
+>>        spi: qcom-geni: Use geni_se_set_rate() for setting source clock frequency
+>>        i2c: qcom-geni: Vote for SE clock rate using OPP
+>>        i2c: qcom-geni: Use common GENI resource initialization helper
+>>        i2c: qcom-geni: Use geni_se_set_rate() for setting source clock frequency
+>>
+>>   drivers/i2c/busses/i2c-qcom-geni.c      | 72 +++++++++++++++++----------------
+>>   drivers/pmdomain/arm/scmi_perf_domain.c |  2 +-
+>>   drivers/soc/qcom/qcom-geni-se.c         | 62 +++++++++++++++++++++++++---
+>>   drivers/spi/spi-geni-qcom.c             | 24 +++++------
+>>   drivers/tty/serial/qcom_geni_serial.c   | 26 ++++++------
+>>   include/linux/soc/qcom/geni-se.h        |  2 +
+>>   6 files changed, 122 insertions(+), 66 deletions(-)
+>> ---
+>> base-commit: 0f6da28aab51b16762ed82e8fdeaa5042da45b08
+>> change-id: 20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-2f29ad32226a
+>>
+>> Best regards,
+>> --
+>> Praveen Talari <praveen.talari@oss.qualcomm.com>
+>>
 
