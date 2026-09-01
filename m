@@ -4,55 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B48C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1DFC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9817+vy3gEnpJQ4kgLut8eMpM0Nvzbnj2sTQP/ukjEc=; b=RIvszaO3Tov8OTwTSeB9NlOvD+
-	Wjw9ZBzXnqD/0IIqq2w+BDJe7yJaXFUXYbztzgPnLEvEnnWIOwkUbddyYH5/RoBA1JJ+PWJQVb17S
-	JVyuJYA1Z4xUhddU+vozc5OiIw1OTH/FhzJDUpXC9JBTd40FErjVftCFr7MO8vMYBb5ZM+sxVMM9P
-	xDjYYnY6A0UgzfcxqL4ppN8POFd6q/qkSVEX9QNkgXmaLMmYf8m5gdQvhvd1cHZpX2KEwuTMIoi42
-	eYFeQAj7K47gbVqB/95qQ+Os0Dto+tAEmPji7nddvZLPHlKy8vE5Ukj6KcY1fNL506KZzfBE1F5Fr
-	ozAKM0VA==;
+	bh=iJv/WiakOodAqFIubQ5HTmHL0TDtf9MpNqrzEXUw2fg=; b=x3Ipl+PRbYJREBceVIruNQviRJ
+	v0dM0KS6KoKRQ2A2SJe7ugLIyNKdtEUJfKycwopnBSIZqbG3X+3ijkFgET84SRPDm1dDkIJHwART3
+	Fnd8qLA9UoEYo6LGB45SM3jEJQApXPVKyEbeIJVFHVrhgHp4/8wr2bIEw2IVXv5bLSjqEO9JC+OEN
+	MfqR3dPuMA4ozL90ukfej5QBSzNaMz5JfYiina1P9DmaSiH5fE6HjHwYk1Zhm+Q5pVmfybypX6HDk
+	YF3Q3x9L8ugazIOtKFXwayJ/Ok7/k8ZOP3QFN5rmw9XBEky101mHH8qU2bDs+RYZsxtpAcUtJWPoK
+	p0YcUWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JLY-0000000BBbg-3hyw;
-	Tue, 01 Sep 2026 07:55:56 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x1JOw-0000000BBjx-1FFS;
+	Tue, 01 Sep 2026 07:59:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JLV-0000000BBbC-19D4
+	id 1x1JOv-0000000BBjq-1gCz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:55:55 +0000
-Received: from ratatoskr.pengutronix.de (unknown [IPv6:2a00:1f:f805:4b01:1e0e:d42d:4ec8:33b2])
-	(Authenticated sender: str@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4F6AD200FE5;
-	Tue, 01 Sep 2026 09:55:49 +0200 (CEST)
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>,  Frank Li <Frank.Li@nxp.com>,  Sascha Hauer
- <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
- <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Shawn Guo
- <shawnguo@kernel.org>,  =?utf-8?Q?S=C3=B8ren?= Andersen <san@skov.dk>,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,  Conor Dooley
- <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 0/5] arm64: dts: imx8mp-skov: add new 7" variant
-In-Reply-To: <20260831182243.GA955466-robh@kernel.org>
-References: <20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de>
-	<20260831182243.GA955466-robh@kernel.org>
-User-Agent: mu4e 1.14.3; emacs 31.1
-Date: Tue, 01 Sep 2026 09:55:47 +0200
-Message-ID: <87o6ehjth8.fsf@pengutronix.de>
+	Tue, 01 Sep 2026 07:59:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A0667601DB;
+	Tue,  1 Sep 2026 07:59:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201A81F000E9;
+	Tue,  1 Sep 2026 07:59:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788249564;
+	bh=iJv/WiakOodAqFIubQ5HTmHL0TDtf9MpNqrzEXUw2fg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P7SEFFP8puwZXZp/YRq5bm12kLhga+lgh99B8rQeYLWPKvjGgDXAgg7amgbvop6gs
+	 KnFbcm9PWiLs6fpRX3X9ZFziRD/tbsK3eH/C4U9q+apMvreDXnEx9yuMWrWXaAlfn9
+	 RfE+EypR5zdZI4scQXJRBlRBhEahbdQVPKXgYGzRzl4sArWd1u++y7ARbEBAYmsoti
+	 qa/YYnJeh63FtQSZKwP6986LY6PCjMAcEQlpM6IXvbI4ROaA1SfUtvjcxi9CnB5UZH
+	 Nk9IDitG/j2LUr0suo0oUruy11Tq+byoKby/mpiq0sCo0dpWi4sYmz38BnnJLGVmE9
+	 9mRRThkgaqcJA==
+Date: Tue, 1 Sep 2026 10:59:16 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Eli Billauer <eli.billauer@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Brad Warrum <bwarrum@linux.ibm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Ritu Agarwal <rituagar@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
+ kmalloc()
+Message-ID: <apaF1HUtJnstuUN4@kernel.org>
+References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
+ <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
+ <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
+ <20260831123937.32255a49@pumpkin>
 MIME-Version: 1.0
-Content-Type: text/plain; format=flowed
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_005553_462386_AF9A5729 
-X-CRM114-Status: GOOD (  15.78  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831123937.32255a49@pumpkin>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,28 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-31 at 13:22 -05, Rob Herring <robh@kernel.org> wrote:
-
-> On Mon, Aug 31, 2026 at 10:17:37AM +0200, Steffen Trumtrar wrote:
-> > Add a new board variant for the Skov i.MX8MP based family of boards.
-> > 
-> > This variant uses a different 7" panel than the existing ones.
+On Mon, Aug 31, 2026 at 12:39:37PM +0100, David Laight wrote:
+> On Mon, 31 Aug 2026 12:13:08 +0200
+> Eli Billauer <eli.billauer@gmail.com> wrote:
 > 
-> The sashiko issue needs to be addressed.
+> > On 30/08/2026 9:47, Mike Rapoport (Microsoft) wrote:
+> > > fifo_init() allocates the buffers backing the software FIFO and
+> > > endpoint_alloc() allocates the transfer buffers of a USB endpoint.
+> > > 
+> > > These buffers can be allocated with kmalloc() as there's nothing special
+> > > about them to go directly to the page allocator.  
+> > 
+> > Except that they are a bit large.
+> > 
+> > fifo_init() may be requested to allocate up to 256 MB of buffer memory. 
+> > This memory resource is split into an array of buffers (fifo->mem[i]), 
+> > each 64 kiB (or less, if there's trouble obtaining segments of this size).
+>
+> Would it really make sense to allocate the four buffers separately?
+> And/or use vmalloc().
 
-I'm not 100% sure what would be the correct solution for this case.
+My understanding is that the buffers don't need to be physically
+contiguous and vmalloc()ing the entire fifo->mem in one go should work.
 
-Would it be valid when the *.dtso just drop the "skov,imx8mp-skov-revc-touch"?
-The generic compatible is not really needed, but the base DTS wouldn't have a compatible otherwise.
-
-Or do I have to change the binding, so that 3 entries are valid for the skov,imx8mp-skov-recv-* and keep the hierarchy (although unused)?
-
-Thanks,
-Steffen
+Eli, what do you think?
+ 
+> David
 
 -- 
-Pengutronix e.K.                | Dipl.-Inform. Steffen Trumtrar |
-Steuerwalder Str. 21            | https://www.pengutronix.de/    |
-31137 Hildesheim, Germany       | Phone: +49-5121-206917-0       |
-Amtsgericht Hildesheim, HRA 2686| Fax:   +49-5121-206917-5555    |
+Sincerely yours,
+Mike.
 
