@@ -4,190 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B77EC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078CEC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgNFLyvt0IK2VAnYuI5z5Qhqprmps/QQc7WY6xXK4GM=; b=lkM89/3Imz7XQMpG27q38ddaQP
-	JwRylO6A+8ULfvUyPqKbRqeko2OacagiN2cClkOD7V8yBPhQVquJVKUVxS6h9n9h9KR/vEQV2hEqA
-	Xi6RErj+b+2cXo7/IP4aiCiTLhdaGQepyhsPZJKjIwKs+57MqnJcugINZeBEYcwQe4tgAOk4TyW7B
-	I5ZauMAa8muRiylkJRZre7UIGCM9KSD+PjXxRnASNUN8x1TFaQBuKs0sEG8Y1VQR4l2jIH5axyR6j
-	XTNn3A05J5XWf3vy5fb5fSfNSkTg0ii2DOLCJ2BGZ7WI14RlL2+7NcCWjpd/Rgv8RLJoOH89Jk+hm
-	vplAxpkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFMGPc5SrnGwaCZ7sUtMBJVB/X1XYqXdBON1UU2MYc4=; b=irw8RpwEPlOgGIRyKwhV7t7Xho
+	PJVopxVFlEGazd7Y7O0PA4kuPF4O4u1PmSnCtpmEkcmlEzLZsxtqbdLZNO7eioo6UpqxE3TetIB/p
+	2g5EGJWoCrglgVY1kCNmED3/5o6B2RXVWmF/b/M3TLDM4a0oF3MDaSsCeIbRieawSVrxnD7HR2V4y
+	RBDW4Ofggzrfbaqz5ZkT1PMmfpjYTmY17g23HKdcUaKtcn+r6otlYah3+aYw7Smb3PEicf6Dr973X
+	zrBwhY+PilzALVRWEtdgZJt6Vb6FanHK8XxDXf+KEIqUMFXex98dVyDpcodXLn7RX+jLM8sZXNfUv
+	BBWDCY3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JnB-0000000BFrO-0Z0u;
-	Tue, 01 Sep 2026 08:24:29 +0000
-Received: from mx0a-00128a01.pphosted.com ([148.163.135.77] helo=mx0b-00128a01.pphosted.com)
+	id 1x1Jqn-0000000BGC1-2ffK;
+	Tue, 01 Sep 2026 08:28:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Jn9-0000000BFqr-0Jih
+	id 1x1Jql-0000000BGBQ-230t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:24:28 +0000
-Received: from pps.filterd (m0375855.ppops.net [127.0.0.1])
-	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6817C1ip2805706;
-	Tue, 1 Sep 2026 04:24:21 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=DKIM; bh=TgNFL
-	yvt0IK2VAnYuI5z5Qhqprmps/QQc7WY6xXK4GM=; b=dxi9piO2U1/BAiMzuOngr
-	s9p0tIE7M59CprJYTlSqMKCSBSS1vDQx8pEcNYkLfm229hq89e9n7GiChMiCG0yt
-	RGSHTKTdeCxJ0mpb0Io54AiP0m2kVgN+oKHMBuVlUjC4lYVrLMcrPSASSXtxRPG0
-	CiwDr1pcWrOAIfYMvJfJVcTd/rDyMarILtE4nxCCBaKnTnMej6ExatfwziueA/YH
-	+oPYQiJYQpqN5bfXoNAak8ogpX3iZgPCNA3pGcavPkRLVLBo2iuaGiI6ha2GTwnZ
-	D6L15N9BywujHSLaPxDdd1LCFDQ2R7RX1eV1w/QZIJyve7iPZ4Uc/l7on8QApZxj
-	Q==
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010005.outbound.protection.outlook.com [40.93.198.5])
-	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4gcdrds0pe-2
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 01 Sep 2026 04:24:20 -0400 (EDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=puV6G6qWcZIPPaJ1CQgPSPm9Hw0wpouU6RxViBipC0O6cjtztY3k8DT/LOUNQyucmmVJoygAy4i+KFf80ba1GAC4GUKecigD7ZKUKkfRoKRtbPVXpMPFII5H5nhmSEFiJkO233YflOXS21uFJzqt24ob+wTDLrSRicH/is9ofIJOWrC5Y0pz8NQBXuEI0xuJszx3Pr30gPTy41zdmMRH7Sj9Gz7LS/UgN0qxOy5lqB3sVEy5wGG6f9G4RuccPN4O6MSoLfyJy7uII0A7onYcjIMSD88UoJm+iA3WS1p0a5mF3hs8WwUdA0Xtu8sVeET/WL14DssgCEzVnJ7RQiHPFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TgNFLyvt0IK2VAnYuI5z5Qhqprmps/QQc7WY6xXK4GM=;
- b=YJgSBntfcSbiaQfnJlfdyDoTdkfgtqrvyn0NKuQPr+gzTNU4LRu2oBykIt+P0wV/VnJpQBcNGI4UlHj+8OJLBGaJYmuDSLprGl6zQCNTWZkK0ilo8lDm71rLjC9ku5gIYdZAfRUKvhsDjmwvSMH/IKOqgYcTwO9vI3ce2zSy5AKiB/1n83j7tjJKIOXxkSVMrj/3xSuKKzYdy8vAPlF9YIrY3gXbcKjwJurcvigeK41jI+1w4V0SURgSCxo+DwgrpYdQvyYGq8bZXHRkuye1cuSin3BNxKfeskv6pptYJicYvNoFGcgEu6dBMWmLcPHC1GbBRwB9mauaLvqPtRvopg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
- dkim=pass header.d=analog.com; arc=none
-Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
- by SA1PR03MB989244.namprd03.prod.outlook.com (2603:10b6:806:4f6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 08:24:17 +0000
-Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
- ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
- ([fe80::2a19:76b2:e731:8c5a%6]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 08:24:17 +0000
-Date: Tue, 1 Sep 2026 09:25:10 +0100
-From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-        linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-        Lars-Peter Clausen <lars@metafoo.de>,
-        Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Jonathan Cameron <jic23@kernel.org>,
-        David Lechner <dlechner@baylibre.com>,
-        Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>,
-        Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 5/9] dmaengine: stm32-dma3: Use bus width capability
- helpers
-Message-ID: <apaKbjer_IZKJ7H9@nsa>
-References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
- <20260831-dmaengine-support-wider-dma-masks-v3-5-507d97496f2d@analog.com>
- <eb9fa2ed-e59d-4ad4-9218-f7473ceb9f9b@foss.st.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <eb9fa2ed-e59d-4ad4-9218-f7473ceb9f9b@foss.st.com>
-X-ClientProxiedBy: MA3P292CA0045.ESPP292.PROD.OUTLOOK.COM
- (2603:10a6:250:48::10) To SJ0PR03MB5469.namprd03.prod.outlook.com
- (2603:10b6:a03:28a::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|SA1PR03MB989244:EE_
-X-MS-Office365-Filtering-Correlation-Id: b238f1e9-e962-4475-cdad-08df08026a32
-X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|6133799003|56012099006|10067099003|4143699003|11063799006|5023799004|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: e/lzwW8jyk6Zs/7i2OIJi/vnMr66Z3vjLVv8k1TztPATr4IWBXsDlyAGaaccAONZzcSznHfjzr7ZfwJaeUQPipw0P5D8SBKOtLETTPJ1yuCHHW//szueotPR6c0LmuiTfw0ZCjVTw49/7oONlTKbndMY8Em8gdICQwMg3WymlXy+ZDv9B9TpFZF0o0ic3wlmlj3yNERJDeboD+QnktfM0gtIjUQUfwLo+4jrS8wKq9a3D3v4E3+532Z85DHvO2BvbGBo76N9z7kvFGJvQ2/7dqt5VboHDRofu675WUXjVH5MYRBp+hlTQrsGVcGiYjmExjwMgGZgdiBSEzAWcBB8R9kylyBlc/68b9gDHHoJtkOwR5g27EDt3q5XtK4j+FMFcUsEJm7haC00ET46XL7zPAszKyf2eaORYBB57j1X9vo9hxa/pVm+eBpUiYvMRZEJFqYEU8LIJTjeo8a4ICgN1fy70BIj66i/KlMP5EbuB+S0R+FCR3znbGOvtnTZxVGVSqAf64GGxISFOlObgDCDmA3Ggg+eErpA0IYwzsNwLgddDNKEFyiL5JWmResfTBAJWddyNaCgM7mv3HnOD5+eCYOKRVgsPbncb1lP4HzyiVt2r3Kb7rZNiyordeTD6CIAf1pA8bEzRQaMVWwyWScv4g+iWduWLrFpojY0Es1jUU0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UC9ON2pMQzRsTGE3M29Ba0xUTmhhOEdubTZ6Q3FQRjlWWUd3Uk1XWWpqd3ls?=
- =?utf-8?B?d0p0RHRSRGQ5bEtXY3ZEb1FPb1FJcitQbzhvNUFBSC9Od25BdC9KR0JNZ2Nm?=
- =?utf-8?B?TWcxQVI3a3ZLT010K3d0V1F3N3h6MldKMHF1WUVyenFndVR3VlVGT0VxNnNo?=
- =?utf-8?B?UWZ3NGpVVjEzWlFCYWlsb1FVUVhVOGx3Y2tHNk9GNVd6WjVNNXhNLzdtc2hj?=
- =?utf-8?B?UkxYcjdnamxaV1M0U2xmZDNEeVROd0tNeHloR3kwSVB4b2c1L09MVjhGYmxR?=
- =?utf-8?B?cjRleCtMZXdCWXpTRXR0ZE95L0V3ZUZnSldGTlVsRG1JRmlzVEh2S3JPUjBn?=
- =?utf-8?B?VzhpNGNEcUlCbCtLczZ0OGttSU9SeTBsSm5ZTWdiWnpVMnBNZld1dlN5NzE0?=
- =?utf-8?B?M2FyMGluTktNZWlWeDk2V1VCM2Y0SUtyMDV4UFdtOEc5c3BFQzBRY2lFends?=
- =?utf-8?B?QXc5ZVZTUlN1WEJIVjFuMWNLUFJzZVE0RzJyY3JKWnFoa1VWanFsM0pHeDNj?=
- =?utf-8?B?S3hGOVZkUzVnZnExWWIzaDNxY0RPZGM0akxqdnA3OHIwTEFDdFBnbFk4SjZJ?=
- =?utf-8?B?U201ZmdBSkprbzk4bXFkSmhsekZhVnVBWDl4cUlIbk1xN0lxdkYxSVdMaWxy?=
- =?utf-8?B?TUk0T1RmWHVVUzJ6MzlkNjB5TFpJVE9YajZzSEFkZDFsb3lWRnZFVEZLeTRR?=
- =?utf-8?B?ZkdwbXVkTmM3WmlXYUlvR1pYYmdMck5ocDR4SlRpZG00ZzJ6UUlxQTl4V2JR?=
- =?utf-8?B?ckhtSkMxQVprYlFOTmVxVjc2cjUweFRZY1Qxd2RHMm44TzBrRUV5R3VyTjBG?=
- =?utf-8?B?R2FIVUZnWHkzZTZpOGpsMjM5bVBNQTg1d1JKWGVjM0hxemtlREhSczVEUjZj?=
- =?utf-8?B?WlZ4UnlnZnZIc2lPU2pCbmF4WUJJRmRCaUo1ekFDR3lIcjdLcGdpUEVzSlo2?=
- =?utf-8?B?Y2d3bTk5SUJHL1BwdUFaMFJKYWY4V244TWl4SUxMbXZUNjNDV3R6djVzaVNN?=
- =?utf-8?B?OHdFY2NqcHh6QmM2T3M2anBvcHVZK3pubmR4eUI0andBTFJ0NGRUeHhxWkxl?=
- =?utf-8?B?c0N1NERiVFNrWU9vclRXZGxQSnRINStsN01rUkZ4Yk1Bd09BMG1xcjhudnU3?=
- =?utf-8?B?UjdsSnNTbkJIZnZJY2ROVTUrUWxHK0lwZVgxMDc2dWg2eldicENDaFV2bVJz?=
- =?utf-8?B?WThhL0ZpMmI3a3M1ZzM2d2lhelg0R0U3SmVNTmhTL3V0UTdidnJZZXA0em1W?=
- =?utf-8?B?M3g2YkJHakFJQXB2ZjVzREw2SGhkaDRZdlBmQmNSdkJPVmlteFRHcTRTQW5s?=
- =?utf-8?B?SWVjZnUrK2lmUmRWSVo4M3daUUhvM0NUUTEvNGlVVEk5OXdHQUNLTTVXZE56?=
- =?utf-8?B?MGVHaWJpYUQrOHRVaHQ0Ri8wcFFLaXNQbkFRTGxrRlpVUW12SWh2VXZBSWFx?=
- =?utf-8?B?VGtPZWtIM2ZjRU9iU0JlV3Zpa3h3Y29kdit5RXBRcGJWQldNZHJiNXliZFEw?=
- =?utf-8?B?dzJ3eDBna2M3cjlGdFVEZDQzTCtnU3RBOFB6ZnZVckM3MWxtQW83V0FDQlhG?=
- =?utf-8?B?cWRpZlpDd0pYM1ZxdHNsVEhibnZlbHltUWVCeTBZdnpqcjJjYnNCUktwNGpV?=
- =?utf-8?B?bzY3eEsxNER2OVI1ekVQZVY3ajBLMlJqaU5JNTNlaXJHbkpRVkhiY2o2UXRv?=
- =?utf-8?B?Qjh6U3FvWUloUDF0OFRVY3MrVmsrU0ZhaTc2TXJIKzdJZ3lMWXdvT0l6TWxQ?=
- =?utf-8?B?TnNibzBsWGIyZHBINUZqbFZnVzVTdjJqaUE1bmRvbDhSbjRodE52Rm1xSy9l?=
- =?utf-8?B?dHhLNUVzbGtFRUZiTW5BNHpQdC81eEgvOGJEWllCYVhGRXVHbFNsOG9lOGQz?=
- =?utf-8?B?WmxHU1BmSmtTeUllQmtSeXV3a0R0VzhteGFiaHIwVk5tMVE1ZGo0YjlwMnd6?=
- =?utf-8?B?OFJEN215TTUwSkx4Vy9FV0Y0S1dUb2ZWOVhIbWVuVFZnanE5VUp2NVhjakpB?=
- =?utf-8?B?c3p3VmpRckl3ZTY2d3pUUjN4NW9GS1ZWM2M1d3lWd0hhdEI5OHBNcmF0Tnlr?=
- =?utf-8?B?c3Q2djFJU2tEUWJmbGlENWZQN0Ric0dJNitySzYzTDNSYlFXaTRVZFRUWFFF?=
- =?utf-8?B?SUNvSnBZRkZrUGc4c0RmUDExNHF6MitSbzc1d1ZTSXNKdTdiTkJiR1Q1NitE?=
- =?utf-8?B?TkxOcUx2eDc4aThSVnhWK0tiSHR5QVlndkx3d2U4cmh5SDZueTlpRGpYYzYr?=
- =?utf-8?B?QWxHalJqUWgwdU1PTVdGcXkyUWxHL0tueVBIV2pIa2Z3Z1A0bGNQajI0L0hW?=
- =?utf-8?B?ZXYyZG9Ta01SOUtETUpkVCtMdTVRMmU0cmFDaEpzNnRnQWZjNDNaUT09?=
-X-Exchange-RoutingPolicyChecked: uepLlXKTZ49q9tpstdN4VPiklCAbums6/SfSWPkmdgn52pT7Yfb5XcvUTaoyrbeGI0FcGcpGdVKo4lOXcXaAhdhkmmpHEAr+2cgSZP991ynUSePVxff9qiPjZVazlwsCW/U5OmjQhtN1EoluTZeaCHNvRmEcAoBMCM03qG2v6c6FbOFFl+jj7JnDoWcG9K0tFVZsUZkXRSmzhoyclnv06ByjWdnOYHUk5Sl7tj+yy+nIpXt/l0O9U4pYTJBE99hQOVOs2EMpSEX/4dXKwl2u+juu35nhdBx/wNCBlpgAUbwlmAexI59tWXhmWRoI1r+3Q2fjaPLqyq9mCx2+UZP/Bw==
-X-OriginatorOrg: analog.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b238f1e9-e962-4475-cdad-08df08026a32
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 08:24:17.6359
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fglFz+UIv2f5dpK/Y77zKg2N+4y6iXUlgrdZtU/WGQ+ukLJ+V4k9bwTWQRstUdZN7H5R0VnwvmEqtgqy9eKaAg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR03MB989244
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDA3NCBTYWx0ZWRfX7P81rc5Xuy/Y
- uhh+Jx8035SuphPED1KLn2XkG7acTec+lmbPlqoLa6cKLY1xjgsjifir2bvBj620yp9diqJVexA
- FXgS3ZF33xfa7yMIt7kjmIGvDXeP7sKmaDbwFMrbLRuyEIlvNxUo
-X-Authority-Analysis: v=2.4 cv=feSdDUQF c=1 sm=1 tr=0 ts=6a968bb4 cx=c_pps
- a=bt8r0o3PvT4lvF5YbTRm1A==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=M51BFTxLslgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=N--XFCr6TIEc_64PeIT2:22
- a=8AirrxEcAAAA:8 a=gAnH3GRIAAAA:8 a=8b9GpE9nAAAA:8 a=b3kx_tIP8Hl93w7_1YYA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=ST-jHhOKWsTCqRlWije3:22
- a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-ORIG-GUID: Z5ffrIhSkICIWS6rXvgtTtB8sVKEtB5-
-X-Proofpoint-GUID: Z5ffrIhSkICIWS6rXvgtTtB8sVKEtB5-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDA3NCBTYWx0ZWRfX/+Ggo4dKl3tQ
- 81GTYgK4uV/TSZ3q6lFFsLFDLXtEAKCiQPNdfEEguFNjgXZ5OOxqVhT4kJ57eGHGblfB4JeZDFt
- SPmvuCtT6uWDUxMWPb1gYS265DrefEC3kwmjdPusTFSYI7h+ErH+wHFHNANczm6c32ZxPGtnCro
- tpPGUXKGCpKYt/y3vNdF5kE55T+nDAYma7Wpw4D/ESA5DyESd0ufpgjOVdlqqui2f5mO7ecTLkZ
- +tpaNwf4+GLfwUtc40wSxG+7wk5kAfmcuzKgBm5MYBLKfxmj+ok7JdXD1SwBrP5ZEDFgp/5hlB2
- cQx1JbLhN/VJl2zu8FdP5xI7SiLJM3nlpN6vudxK2I038SX6W+zXdxjNh65HVa47qcdZKN7xU6o
- R8Wi2XdEFRkm6ElcOHLF/Ym9/ZvLNGXzJvQVCTH5rGYygq0iLs1G41P5+jOAdzgzTXRI3BEED/E
- SryaqaRE3lvKaGL4bXw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-01_02,2026-08-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 spamscore=0
- adultscore=0 bulkscore=0 clxscore=1015 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609010074
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_012427_119412_A750F256 
-X-CRM114-Status: GOOD (  30.90  )
+	Tue, 01 Sep 2026 08:28:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 99EBF601DB;
+	Tue,  1 Sep 2026 08:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3F7B1F000E9;
+	Tue,  1 Sep 2026 08:28:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788251290;
+	bh=NFMGPc5SrnGwaCZ7sUtMBJVB/X1XYqXdBON1UU2MYc4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LUbLR8I/AqanKIO8TlOgWzWlfplmYbMrAWrTt8eA/g8nYlLcJfGGR7Vut046WYyax
+	 WOI0S2W14PVYgXuR3JE8eDs6cPtK7LZeur8FYqHq5XzED9iQnNFLkVR6iYK/aCK1cF
+	 3eaJcKMy4EAaSf1hxX/1TYPorf2dIt4Wb0+UCVvgmAsLzcEffzFkhB41D39M8urbvR
+	 mrxxaDl6B5YoWtZEb7J1oP8t6BiTKsPvJxQGDsTc7EdJZCW6d3dmURR7EjU8hCv+tl
+	 WNEJjKWG0/7ulI4wOmUqfSaf1pCvcHibFAqXP+0MveYwQKYWqCJVA+0rJLqPINAD9M
+	 DPlb0NyfWby9Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x1Jqh-00000003Cie-3E0s;
+	Tue, 01 Sep 2026 08:28:07 +0000
+Date: Tue, 01 Sep 2026 09:30:40 +0100
+Message-ID: <87o6ehmkzz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 07/20] KVM: arm64: Share more arm64 code with s390
+In-Reply-To: <20260831145536.913567-8-seiden@linux.ibm.com>
+References: <20260831145536.913567-1-seiden@linux.ibm.com>
+	<20260831145536.913567-8-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,129 +110,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 04:01:24PM +0200, Amelie Delaunay wrote:
-> Hi,
+On Mon, 31 Aug 2026 15:55:22 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> Thanks for the updates!
-> 
-> On 8/31/26 13:46, Nuno Sá wrote:
-> > Advertise the controller-wide bus width capabilities through the new
-> > dma_bus_width_set_many() helper and clear the per-channel unsupported
-> > widths through dma_bus_width_clear().
-> > 
-> > While at it, validate the requested transfer bus widths against the new
-> > capability mask instead of the legacy u32 one. Besides not depending on
-> > the legacy field anymore, this also stops BIT() from being fed a bus
-> > width coming from the device tree without any bound check.
-> > 
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > Signed-off-by: Nuno Sá <nuno.sa@analog.com>
-> > ---
-> >   drivers/dma/stm32/stm32-dma3.c | 34 +++++++++++++++++++++-------------
-> >   1 file changed, 21 insertions(+), 13 deletions(-)
-> > 
-> > diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-> > index 4724e7fa0008..0689aeb7cff5 100644
-> > --- a/drivers/dma/stm32/stm32-dma3.c
-> > +++ b/drivers/dma/stm32/stm32-dma3.c
-> > @@ -9,6 +9,7 @@
-> >   #include <linux/bitfield.h>
-> >   #include <linux/clk.h>
-> >   #include <linux/dma-mapping.h>
-> > +#include <linux/dma/engine/widthmask.h>
-> >   #include <linux/dmaengine.h>
-> >   #include <linux/dmapool.h>
-> >   #include <linux/init.h>
-> > @@ -588,7 +589,8 @@ static int stm32_dma3_chan_prep_hw(struct stm32_dma3_chan *chan, enum dma_transf
-> >   	dbl_max = chan->dma_config.dst_maxburst ? : 1;
-> >   	/* Following conditions would raise User Setting Error interrupt */
-> > -	if (!(dma_device.src_addr_widths & BIT(sdw)) || !(dma_device.dst_addr_widths & BIT(ddw))) {
-> > +	if (!dma_bus_width_test(dma_device.src_bus_widths, sdw) ||
-> > +	    !dma_bus_width_test(dma_device.dst_bus_widths, ddw)) {
-> 
-> Just to come back to one point you mentioned in your cover letter, "this
-> stops BIT() from being fed an unvalidated device tree bus width". Here, sdw
-> and ddw are set either by dma_config.[src|dst]_addr_width, or forced to
-> DMA_SLAVE_BUSWIDTH_4_BYTES or DMA_SLAVE_BUSWIDTH_8_BYTES depending on the
-> channel capabilities. So, unless I'm missing something, they do not come
-> from an "unvalidated *device tree* bus width".
+> Mark functions that s390 can use to implement arm on s390 as shared
+> functions.
 
-Yeah, nowadays I let commits and covers be written mainly by AI (I do
-review it though) and I guess that slipped. I mean, it's not wrong but I
-guess it should be not in the cover as it's very focused on the ADI dmac
-controller (and in a legacy path which used to read DT).
+More of what? For what purpose? What is the logic behind exposing
+snippets of code to S390? This patch tags some PAuth stuff, a bunch of
+SVE definitions, and a whole lot of sysreg helpers.
 
-I'll probably drop that from the cover.
+What is the rationale for this organisation? I can't see any, and it
+just looks like a very random approach to the problem.
 
-> Anyway, it's great to see another use of the new API.
+I want to see logic, a progression. Something I can follow.
+
 > 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/arm64/kvm/arm.c      |  3 +++
+>  arch/arm64/kvm/guest.c    | 11 +++++++----
+>  arch/arm64/kvm/sys_regs.c | 36 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 46 insertions(+), 4 deletions(-)
 > 
-> >   		dev_err(chan2dev(chan), "Bus width (src=%u, dst=%u) not supported\n", sdw, ddw);
-> >   		return -EINVAL;
-> >   	}
-> > @@ -1469,14 +1471,14 @@ static void stm32_dma3_caps(struct dma_chan *c, struct dma_slave_caps *caps)
-> >   	if (!chan->fifo_size) {
-> >   		caps->max_burst = 0;
-> > -		caps->src_addr_widths &= ~BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > -		caps->dst_addr_widths &= ~BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > +		dma_bus_width_clear(caps->src_bus_widths, DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > +		dma_bus_width_clear(caps->dst_bus_widths, DMA_SLAVE_BUSWIDTH_8_BYTES);
-> >   	} else {
-> >   		/* Burst transfer should not exceed half of the fifo size */
-> >   		caps->max_burst = chan->max_burst;
-> >   		if (caps->max_burst < DMA_SLAVE_BUSWIDTH_8_BYTES) {
-> > -			caps->src_addr_widths &= ~BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > -			caps->dst_addr_widths &= ~BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > +			dma_bus_width_clear(caps->src_bus_widths, DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > +			dma_bus_width_clear(caps->dst_bus_widths, DMA_SLAVE_BUSWIDTH_8_BYTES);
-> >   		}
-> >   	}
-> >   }
-> > @@ -1734,6 +1736,12 @@ static int stm32_dma3_probe(struct platform_device *pdev)
-> >   	struct reset_control *reset;
-> >   	struct stm32_dma3_chan *chan;
-> >   	struct dma_device *dma_dev;
-> > +	enum dma_slave_buswidth buswidths[] = {
-> > +		DMA_SLAVE_BUSWIDTH_1_BYTE,
-> > +		DMA_SLAVE_BUSWIDTH_2_BYTES,
-> > +		DMA_SLAVE_BUSWIDTH_4_BYTES,
-> > +		DMA_SLAVE_BUSWIDTH_8_BYTES,
-> > +	};
-> >   	u32 master_ports, chan_reserved, i, verr;
-> >   	u64 hwcfgr;
-> >   	int ret;
-> > @@ -1775,14 +1783,14 @@ static int stm32_dma3_probe(struct platform_device *pdev)
-> >   	 * channel, and can only access address at even boundaries, multiple of the buswidth.
-> >   	 */
-> >   	dma_dev->copy_align = DMAENGINE_ALIGN_8_BYTES;
-> > -	dma_dev->src_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > -	dma_dev->dst_addr_widths = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
-> > -				   BIT(DMA_SLAVE_BUSWIDTH_8_BYTES);
-> > +	ret = dma_bus_width_set_many(dma_dev->src_bus_widths, buswidths, ARRAY_SIZE(buswidths));
-> > +	if (ret)
-> > +		goto err_clk_disable;
-> > +
-> > +	ret = dma_bus_width_set_many(dma_dev->dst_bus_widths, buswidths, ARRAY_SIZE(buswidths));
-> > +	if (ret)
-> > +		goto err_clk_disable;
-> > +
-> >   	dma_dev->directions = BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_DEV) | BIT(DMA_MEM_TO_MEM);
-> >   	dma_dev->descriptor_reuse = true;
-> > 
-> 
-> It looks nicer this way. Thanks!
-> 
-> Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 6b92a3c1d490..62e8b32ee74e 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -340,6 +340,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>  	kvm_arm_teardown_hypercalls(kvm);
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static bool kvm_has_full_ptr_auth(void)
+>  {
+>  	bool apa, gpa, api, gpi, apa3, gpa3;
+> @@ -374,6 +375,8 @@ static bool kvm_has_full_ptr_auth(void)
+>  		(apa + api + apa3) == 1);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
 
-Thx!
+This could have been done much earlier.
 
-- Nuno Sá
+>  int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  {
+>  	int r;
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 6ca5a9f357cd..e978b2fbeb76 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -307,12 +307,12 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	return err;
+>  }
+>  
+> -#endif /* ARM64_S390_COMMON */
+> -
+>  #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
+>  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
+>  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
 
-> Regards,
-> Amelie
+Pointless churn.
+
+>  static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  {
+>  	unsigned int max_vq, vq;
+> @@ -383,6 +383,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	return 0;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  #define SVE_REG_SLICE_SHIFT	0
+>  #define SVE_REG_SLICE_BITS	5
+>  #define SVE_REG_ID_SHIFT	(SVE_REG_SLICE_SHIFT + SVE_REG_SLICE_BITS)
+> @@ -399,6 +400,8 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  #define KVM_SVE_ZREG_SIZE KVM_REG_SIZE(KVM_REG_ARM64_SVE_ZREG(0, 0))
+>  #define KVM_SVE_PREG_SIZE KVM_REG_SIZE(KVM_REG_ARM64_SVE_PREG(0, 0))
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /*
+>   * Number of register slices required to cover each whole SVE register.
+>   * NOTE: Only the first slice every exists, for now.
+> @@ -595,8 +598,6 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
+>  	return copy_core_reg_indices(vcpu, NULL);
+>  }
+>  
+> -#endif /* ARM64_S390_COMMON */
+> -
+>  static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+>  {
+>  	const unsigned int slices = vcpu_sve_slices(vcpu);
+> @@ -658,6 +659,8 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+>  	return num_regs;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /**
+>   * kvm_arm_num_regs - how many registers do we present via KVM_GET_ONE_REG
+>   * @vcpu: the vCPU pointer
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 53d096803d9d..b167f9d06fd4 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -45,6 +45,7 @@
+>   * 64bit interface.
+>   */
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static u64 sys_reg_to_index(const struct sys_reg_desc *reg);
+>  static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+>  		      u64 val);
+> @@ -82,6 +83,8 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
+>  			"sys_reg write to read-only register");
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  enum sr_loc_attr {
+>  	SR_LOC_MEMORY	= 0,	  /* Register definitely in memory */
+>  	SR_LOC_LOADED	= BIT(0), /* Register on CPU, unless it cannot */
+> @@ -428,6 +431,7 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+>  	__vcpu_assign_sys_reg(vcpu, reg, val);
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  /* CSSELR values; used to index KVM_REG_ARM_DEMUX_ID_CCSIDR */
+>  #define CSSELR_MAX 14
+>  
+> @@ -533,6 +537,8 @@ static bool access_rw(struct kvm_vcpu *vcpu,
+>  	return true;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /*
+>   * See note at ARMv7 ARM B1.14.4 (TL;DR: S/W ops are not easily virtualized).
+>   */
+> @@ -800,6 +806,7 @@ static bool access_gicv5_ppi_enabler(struct kvm_vcpu *vcpu,
+>  	return true;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static bool trap_raz_wi(struct kvm_vcpu *vcpu,
+>  			struct sys_reg_params *p,
+>  			const struct sys_reg_desc *r)
+> @@ -853,6 +860,8 @@ static bool trap_oslsr_el1(struct kvm_vcpu *vcpu,
+>  	return true;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static int set_oslsr_el1(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+>  			 u64 val)
+>  {
+> @@ -1011,6 +1020,7 @@ static u64 reset_actlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  	return actlr;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  {
+>  	u64 mpidr = kvm_calculate_mpidr(vcpu);
+> @@ -1019,6 +1029,8 @@ static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  	return mpidr;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static unsigned int hidden_visibility(const struct kvm_vcpu *vcpu,
+>  				      const struct sys_reg_desc *r)
+>  {
+> @@ -1922,6 +1934,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
+>  	}
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
+>  static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
+> @@ -2078,6 +2091,8 @@ static bool access_id_reg(struct kvm_vcpu *vcpu,
+>  	return true;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
+>  				       const struct sys_reg_desc *r)
+>  {
+> @@ -2127,6 +2142,7 @@ static unsigned int fp8_visibility(const struct kvm_vcpu *vcpu,
+>  	return REG_HIDDEN;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  {
+>  	if (!vcpu_has_sve(vcpu))
+> @@ -2288,6 +2304,8 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
+>  	return set_id_reg(vcpu, rd, val);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static u64 read_sanitised_id_dfr0_el1(struct kvm_vcpu *vcpu,
+>  				      const struct sys_reg_desc *rd)
+>  {
+> @@ -2332,6 +2350,7 @@ static int set_id_dfr0_el1(struct kvm_vcpu *vcpu,
+>  	return set_id_reg(vcpu, rd, val);
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
+>  			       const struct sys_reg_desc *rd, u64 user_val)
+>  {
+> @@ -2661,6 +2680,8 @@ static bool access_ccsidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  	return true;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+>  		       u64 *val)
+>  {
+> @@ -2764,6 +2785,7 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>  	SYS_REG_USER_FILTER(name, access_arch_timer, reset_val, 0, \
+>  			    arch_timer_get_user, arch_timer_set_user, vis)
+>  
+> +#ifdef ARM64_S390_COMMON
+>  /*
+>   * Since reset() callback and field val are not used for idregs, they will be
+>   * used for specific purposes for idregs.
+> @@ -2840,6 +2862,8 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>  	.val = 0,				\
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static bool access_sp_el1(struct kvm_vcpu *vcpu,
+>  			  struct sys_reg_params *p,
+>  			  const struct sys_reg_desc *r)
+> @@ -3212,6 +3236,7 @@ static void init_imp_id_regs(void)
+>  	boot_cpu_aidr_val = read_sysreg(aidr_el1);
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static u64 reset_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  {
+>  	switch (reg_to_encoding(r)) {
+> @@ -3269,6 +3294,8 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  	.val = mask,					\
+>  	}
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+>  {
+>  	__vcpu_assign_sys_reg(vcpu, r->reg, vcpu->kvm->arch.nr_pmu_counters);
+> @@ -4833,6 +4860,7 @@ static const struct sys_reg_desc cp15_64_regs[] = {
+>  	{ SYS_DESC(SYS_AARCH32_CNTVCTSS),     access_arch_timer },
+>  };
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
+>  			       bool reset_check)
+>  {
+> @@ -4882,6 +4910,8 @@ static void perform_access(struct kvm_vcpu *vcpu,
+>  		kvm_incr_pc(vcpu);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /*
+>   * emulate_cp --  tries to match a sys_reg access in a handling table, and
+>   *                call the corresponding trap handler.
+> @@ -5340,6 +5370,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm)
+>  			    &sr_resx_fops);
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static void reset_vm_ftr_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *reg)
+>  {
+>  	u32 id = reg_to_encoding(reg);
+> @@ -5360,6 +5391,8 @@ static void reset_vcpu_ftr_id_reg(struct kvm_vcpu *vcpu,
+>  	reg->reset(vcpu, reg);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /**
+>   * kvm_reset_sys_regs - sets system registers to reset value
+>   * @vcpu: The VCPU pointer
+> @@ -5432,6 +5465,7 @@ int kvm_handle_sys_reg(struct kvm_vcpu *vcpu)
+>  	return 1;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  /******************************************************************************
+>   * Userspace API
+>   *****************************************************************************/
+> @@ -5753,6 +5787,8 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+>  	return write_demux_regids(uindices);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
+>  	KVM_ARM_FEATURE_ID_RANGE_IDX(sys_reg_Op0(r),		\
+>  		sys_reg_Op1(r),					\
+
+The way you pick and chose random helpers feels *VERY* wrong. I really
+want to understand the rationale for not using most of it, *including*
+the sysreg arrays as a whole. Everything in this file is (or at leats
+aims to be) architectural, and should be directly reused.
+
+It should only be a matter of providing the required indirection to
+access the S390 representation of the arm64 state.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
