@@ -4,116 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6873DC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B793C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+ww05w7mmoIv4vxq1+fWmu8KH4UmvjD9xsbmPma+uY=; b=1rwPIWY1f/wrhhy6LZOeCHrnBF
-	zcnpnYAHDtcpW8/SoMBsSd0l4+CcPGLR7pX4Fgi5/yYw/HkSO2jbnjee1wI5N9L5O8t+cXk6hgvAG
-	vo1ill4aP4btmg7RnYPuVWAUFx05zeP/yUH5mM7BpqX79l7naJ2hEkCbEUc6ErwMudxltAhJjpj+N
-	uWcBG/IFyyftisWoHLXC2F5kDwTsch5ZLSXbCVUqTKRth3Yqd6cXY//Rvrr0AGiohQaklI58h0kA2
-	EYfzbP3Mnt0B3h8M2GPIA0hPL/yYrEucfVghLon3HOE4G59Gz3Ka0tjJSZLGcFbjgdMlK3P+65nna
-	QK2MApoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=57RWwzvbEDf7DvtJW9GsWV6QWqUGcL9KWR4klLOP/3A=; b=MoKbLIRsD9hnowckEiyNYlYYAX
+	VOqkfBp3K5k89GsJZi0cWEJyxJ67JEesmJKDTFVG/+1HU2KY4mnlExTw8z6h8f2qEGjaFZlGfCmoE
+	+5pKZ621KzqRTneM7LxFu0rN6z5vJLNbz5LSRGltRxmvIZlHbi8VrnpZ3aiRk/MtzcRlo5HMGTKtO
+	RF1yVPwz6iNvYtFTWbHZZ0GFt+upL8VwU+f9sdMy0qlpOloASy7cM7yzqyw0d1LHrQyqD7J9kezpP
+	w47yGczqtnq0p2LzP0zoRShUanY0r6REtmNmheh8oPkjeQgEZd2Tn0Fo2DW49nPjh4M9/u68SeFAa
+	+vfOzlug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OoE-0000000CFJ2-468H;
-	Tue, 01 Sep 2026 13:45:54 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1x1OrX-0000000CFdC-1niO;
+	Tue, 01 Sep 2026 13:49:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OoC-0000000CFIR-0cqy
+	id 1x1OrV-0000000CFcn-1CDt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 13:45:53 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c2020421077so721011866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 06:45:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788270350; cv=none;
-        d=google.com; s=arc-20260327;
-        b=az23ZE9PDeqQRF247JPsXS0kc57mOo7E98DUzMWxe6JddUEYmp9fxhYkMRvD6Xx5Mj
-         6wrSmE5o0MIf1c1px7HB/CIUzFH//+m+nNSvYORFtxgWNlVr3oZNJxKvhIZDPyV3uVIG
-         6+DqsNdbtlj0elUVGuSsSQVFJUcDu09d3MkIRrrJ+TapRHOTsN0c9EGlRnI4SBZLWmog
-         FWiEOFfYsJrSiMVGlN/cPnuMFc1FA+Y3nlXu9JqVZJLCSRYl13dOIOkBWrgqycwqHvBs
-         KmVXnBHNR27TsbP2paij34ltxdfwslGwABe8ltCoppgvPEdVh/+tKZL3q656+gAd8EcH
-         EnnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=T+ww05w7mmoIv4vxq1+fWmu8KH4UmvjD9xsbmPma+uY=;
-        fh=PDIp7WebinUZTo1zR8mINKQrVkjDubYL5Ircohd5g+Q=;
-        b=no8lA3PmLzDrxhJycD0pS4G1i0dv2c9TceB2LqNheDyxLJRt7h3cDK0kACvgAuD4Df
-         1pJUJU8DaKzhF02Csiz+riftxQDXwPFtIEG03jmGImK6L9G7FzGlP07QKwb5rlcd2PTl
-         n0wGKMG1A5oHjZdQuLdnAyG7M6BNvKmiaiGv1o8mh0gRGwgQE1mnDjYPXsMPKYP2bqDA
-         xr4lYIRpRQKYwDwuvHgOE+fnx6ETd+m54h3mBVZ/Az54YcVqGr4uFRgIMuZut1wodIQX
-         lcnNu3eUwoovuXWVnHfF+btkX3wLt7FvYGON1yPC/78epn5rikUkqeiVFsWu5j8JHH9Q
-         gDYw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788270350; x=1788875150; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=T+ww05w7mmoIv4vxq1+fWmu8KH4UmvjD9xsbmPma+uY=;
-        b=FxUGwSIV5k31Au14hiyp8QNRpWupZoW/ZifoQPUPBHKC0nnyQFYVgJp8lmoXhkBNlx
-         j1wlScT84vb/H9Vk+j74sei7rYSG/cjxSULGYW6vjMZjI4tTEYa4TmhZtGlGuvUEggTa
-         7oLaBkuhNNm6AnNeEqhNXvYqlYI0j4Gks2SMqzNg86I65PQYqQgc1zysQYYDZ8SyLrPp
-         EwmuieyscaYqMRoDG+x7vIOO5+TW+/99heuj7Av/4QUIDpOoA7+kHhNIrMh2G5K0dJ9n
-         x5Acy/XBOlPlF+jh5EbRRbBP4XrsHkbc/QsdZaFCyeBUm7iABJ6yirDGrQFaU+NoGrwc
-         2Thg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788270350; x=1788875150;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T+ww05w7mmoIv4vxq1+fWmu8KH4UmvjD9xsbmPma+uY=;
-        b=QHhZDnrzCPF+ZkRmjkecZ6BgsAmdLsiDxdFyavHlZt7i8NcIsppYN3+uLcP7Y9fYCo
-         oOlYFHmJ1vKtmEzSo+OoHUl5j+YMaxpyTUOtHTNnyoNBcQ3s0BslND8DMQwLvV8XvOw/
-         adZOIlELVhr/ASBWOwZT5Y8Q8TqW1PAH96sVYLzpqoqPTVQ4LCzK/5omuw/gSXDWGrvo
-         /WZs+LJ70ojOptRhkXf+ekqVSqJRmLeq2MCqXUnpjsyo5ozB0feX7uV3oG52xysPB7c8
-         swRnYtcJncLFIzgAxb/DKq/uIWIFTU8PKXd05JT+A5mj/lSzGr5OnZYgrxEd9mF1+z+Y
-         696w==
-X-Forwarded-Encrypted: i=1; AHgh+Root+0XvIPjZXyxV0qao/WbivQXv82uv+Qvn4tGRgeHamaNhJaLNXe2ppOeN3jlBAfysjVcwW4Hz9enp4/ikOpY@lists.infradead.org
-X-Gm-Message-State: AFuF++l1Di9vokER0H//Pqy4BeO42AQikUTz36S5xC735lYz7pRK5CqE
-	3awVRnLVXrl/zYU5xBPio3pavfyjv2bTVDclDUEn+xnwSymu0gH/7tf5CMhE354b829z1qmnAzL
-	67XezVDKm1rXuC0wRgxgyiil94bJPwz8=
-X-Gm-Gg: AR+sD10eU6alZJzyNdk7+KOHCbpOXwcLXPyex46v/cx8MMV3UBsA0qBIMRnrwIQsSHN
-	dbB6R8yOGlr80OfOUrJoammq5vG5HoqVnMj3n91oqKvixFtbIAqaXEvM+i7OTCvQWT4HMtG+QLt
-	yJJNDvZ2pc0ohKIoCivTwMjJhR39LhmS268N85jV2oGv/baKVH7piPmbsW6YpnZsnjVJxPnmO7y
-	SUVAvyCm7SgeFdybnV9XYn3vJs8k8h1ZGhsBtWEFIYQE05FskXBHK37uVeWiZz13COz8sEnO9ME
-	Dk2H7Eww4IY+Bo7zA/13xfc20BvZ+NIKtQNJFRDHyZxzK9532u9fCLABJcEd2FIw0Y8HdA==
-X-Received: by 2002:a17:907:c01c:b0:c21:382e:9a38 with SMTP id
- a640c23a62f3a-c2556c18e20mr2310750866b.2.1788270349459; Tue, 01 Sep 2026
- 06:45:49 -0700 (PDT)
+	Tue, 01 Sep 2026 13:49:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=57RWwzvbEDf7DvtJW9GsWV6QWqUGcL9KWR4klLOP/3A=; b=BmPHjLdmp5W9SZiMNWvuxvdjCj
+	Wa9un9M1cecMTXAQROipZ+eaiy+P0Ic3OnFb76MwkN2bBLa66Z6TuTC3TsfDt94pdBw0UaGoMBezy
+	B3I32EJxW+9swJ09kjtNwPPvdOjptdI793sgwStqwh+HAIQ1q8OVQRXfODOcjrhAH7f8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x1OrA-002Mbr-FD; Tue, 01 Sep 2026 15:48:56 +0200
+Date: Tue, 1 Sep 2026 15:48:56 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add UltraRISC DP1000 GMAC
+ support
+Message-ID: <910be156-b631-4b62-972a-79d9a9e38697@lunn.ch>
+References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
+ <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
 MIME-Version: 1.0
-References: <20260810164622.1829843-1-puranjay@kernel.org>
-In-Reply-To: <20260810164622.1829843-1-puranjay@kernel.org>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Tue, 1 Sep 2026 15:45:35 +0200
-X-Gm-Features: AcwNN1V-BSr9PbUGVMO7koykFLZgUeLcnwPUwQVqoGS2DmQVFtek6kPoYQ5CUiY
-Message-ID: <CANk7y0ixo5a3Vfzj_HVhVHRNce2Rsit4pP27GCtXd4jHHzmiKg@mail.gmail.com>
-Subject: Re: [PATCH v6 0/3] arm64: Add BRBE support for bpf_get_branch_snapshot()
-To: James Clark <james.clark@linaro.org>
-Cc: bpf@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	John Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Shuah Khan <shuah@kernel.org>, 
-	Breno Leitao <leitao@debian.org>, Ravi Bangoria <ravi.bangoria@amd.com>, 
-	Stephane Eranian <eranian@google.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif <usama.arif@linux.dev>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_064552_260174_8C4F6971 
-X-CRM114-Status: GOOD (  41.10  )
+X-CRM114-CacheID: sfid-20260901_064917_323069_4B62E8B0 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,256 +82,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
+> @@ -0,0 +1,54 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * UltraRISC DWMAC platform driver
+> + *
+> + * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
+> + */
+> +
+> +#include <linux/module.h>
+> +#include <linux/phy.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "stmmac_platform.h"
+> +
+> +static int ultrarisc_dwmac_probe(struct platform_device *pdev)
+> +{
+> +	struct plat_stmmacenet_data *plat_dat;
+> +	struct stmmac_resources stmmac_res;
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get resources\n");
+> +
+> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> +	if (IS_ERR(plat_dat))
+> +		return dev_err_probe(dev, PTR_ERR(plat_dat), "failed to parse DT parameters\n");
+> +
+> +	plat_dat->phy_interface =
+> +		phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface, true, true);
+> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
+> +		return dev_err_probe(dev, -EINVAL, "unsupported phy interface mode\n");
+> +
+> +	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+> +}
+> +
+> +static const struct of_device_id ultrarisc_dwmac_match[] = {
+> +	{ .compatible = "ultrarisc,dp1000-gmac" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, ultrarisc_dwmac_match);
+> +
+> +static struct platform_driver ultrarisc_dwmac_driver = {
+> +	.probe = ultrarisc_dwmac_probe,
+> +	.driver = {
+> +		.name = "ultrarisc-dwmac",
+> +		.pm = &stmmac_pltfr_pm_ops,
+> +		.of_match_table = ultrarisc_dwmac_match,
+> +	},
+> +};
+> +module_platform_driver(ultrarisc_dwmac_driver);
+> +
+> +MODULE_DESCRIPTION("UltraRISC DWMAC platform driver");
+> +MODULE_LICENSE("GPL");
 
-Can you review this version of the patchset? It is implementing what
-we discussed in the thread on the last version.
+This looks to be 90% identical to dwmac-sophgo.c.
 
-Thanks,
-Puranjay
+Do you expect any further changes to this driver? Is everything
+supported? Are there more clocks? A GPIO for WoL?
 
-On Mon, Aug 10, 2026 at 5:46=E2=80=AFPM Puranjay Mohan <puranjay@kernel.org=
-> wrote:
->
-> Changelog:
-> v5: https://lore.kernel.org/all/20260616155716.2631508-1-puranjay@kernel.=
-org/
-> Changes in v6:
-> - Split the two perf/core patches out into their own series [3]. They
->   fix bugs of their own and do not depend on this one.
-> - Add raw_local_daif_save() and raw_local_daif_restore(), so the
->   snapshot can mask exceptions without trace_hardirqs_off() evicting
->   the records it is about to read (new patch 1).
-> - Rework the snapshot. Clear PMCR_EL0.E across the BRBFCR_EL1
->   read-modify-write so that a freeze cannot set PAUSED behind the saved
->   value, and unpause before restarting the counters, since a paused
->   BRBE cannot freeze for its own overflow handler (James Clark).
-> - Skip the pause entirely when BRBE is disabled or already frozen, and
->   invalidate only when the snapshot was the one to pause it.
-> - Run valid_brbe_version() before masking exceptions; the static call
->   is only reached from BPF programs, which run with migration disabled.
-> - Fold cpu_has_brbe() into valid_brbe_version() and drop the
->   arm_brbe_ prefix from the snapshot callback (James Clark).
-> - Derive the selftest skip threshold from the waste and hit limits it
->   depends on, so the two cannot drift apart.
->
-> v4: https://lore.kernel.org/all/20260527121207.2312181-1-puranjay@kernel.=
-org/
-> Changes in v5:
-> - Rework patch 2: drop the UAPI union. Instead rename the helper to perf_=
-clear_branch_entry() and
->   clear the entry with a single
->         *br =3D (struct perf_branch_entry){ }.
->   This stays kernel-internal, with no changes to the uapi/ or tools/ head=
-ers (James Clark).
-> - Add an isb() to the BRBCR_EL1 =3D=3D 0 early-exit in the snapshot, for =
-consistency with the other
->   two exit paths (bpf-ci).
-> - Add Rob Herring's Reviewed-by to patch 3
->
-> v3: https://lore.kernel.org/all/20260413185740.3286146-1-puranjay@kernel.=
-org/
-> Changes in v4:
-> - Fix leaking branch records when scheduled task has an unrelated perf ev=
-ent (Sashiko)
-> - Update tools/include/uapi/linux/perf_event.h as well for patch 2
-> - Introduce cpu_has_brbe() and use it in
->   arm_brbe_snapshot_branch_stack(0 to make sure we don't run on a CPU
->   without BRBE.
-> - Add explicit isb() after after writing to SYS_BRBFCR_EL1.
-> - Rebase on latest arm64 tree.
->
-> v2: https://lore.kernel.org/all/20260318171706.2840512-1-puranjay@kernel.=
-org/
-> Changes in v3:
-> - Move NULL pmu_ctx fix from arm_pmuv3.c to perf core (Leo Yan)
-> - Use union to clear branch entry bitfields instead of per-field
->   zeroing (Leo Yan)
-> - Remove per-CPU brbe_active flag; check BRBCR_EL1 =3D=3D 0 instead (Rob
->   Herring)
-> - Remove redundant valid_brbidr() check in snapshot path (Rob Herring)
-> - Introduce for_each_brbe_entry() iterator to deduplicate bank
->   iteration (Rob Herring)
-> - Include perf core maintainers (Leo Yan, Rob Herring)
->
-> v1: https://lore.kernel.org/all/20260313180352.3800358-1-puranjay@kernel.=
-org/
-> Changes in v2:
-> - Rebased on arm64/for-next/core
-> - Add per-CPU brbe_active flag to guard against UNDEFINED sysreg access
->   on non-BRBE CPUs in heterogeneous big.LITTLE systems.
-> - Fix pre-existing bug in perf_clear_branch_entry_bitfields() that missed
->   zeroing new_type and priv bitfields, added as a separate patch with
->   Fixes tags (new patch 2).
-> - Use architecture-specific selftest threshold (#if defined(__aarch64__))
->   instead of raising the global threshold, to preserve x86 regression
->   detection.
->
-> RFC: https://lore.kernel.org/all/20260102214043.1410242-1-puranjay@kernel=
-.org/
-> Changes from RFC:
->  - Fix pre-existing NULL pointer dereference in armv8pmu_sched_task()
->    found by Leo Yan during testing (patch 1)
->  - Pause BRBE before local_daif_save() to avoid branch pollution from
->    trace_hardirqs_off()
->  - Use local_daif_save() to prevent pNMI race from counter overflow
->    (Mark Rutland)
->  - Reuse perf_entry_from_brbe_regset() instead of duplicating register
->    read logic, by making it accept NULL event (Mark Rutland)
->  - Invalidate BRBE after reading to maintain record contiguity for
->    other consumers (Mark Rutland)
->  - Adjust selftest wasted_entries threshold for ARM64 (patch 3)
->  - Tested on ARM FVP with BRBE enabled
->
-> This series enables the bpf_get_branch_snapshot() BPF helper on ARM64
-> by implementing the perf_snapshot_branch_stack static call for ARM's
-> Branch Record Buffer Extension (BRBE).
->
-> bpf_get_branch_snapshot() [1] allows BPF programs to capture hardware
-> branch records on-demand from any BPF tracing context. This was
-> previously only available on x86 (Intel LBR) since v5.16. With BRBE
-> available on ARMv9, this series closes the gap for ARM64.
->
-> Usage model
-> -----------
->
-> The helper works in conjunction with perf events. The userspace
-> component of the BPF application opens a perf event with
-> PERF_SAMPLE_BRANCH_STACK on each CPU, which configures the hardware
-> to continuously record branches into BRBE (on ARM64) or LBR (on x86).
-> A BPF program attached to a tracepoint, kprobe, or fentry hook can
-> then call bpf_get_branch_snapshot() to snapshot the branch buffer at
-> any point. Without an active perf event, BRBE is not recording and
-> the buffer is empty.
->
-> On-demand branch snapshots from BPF are useful for diagnosing which
-> specific code path was taken inside a function. Stack traces only show
-> function boundaries, but branch records reveal the exact sequence of
-> jumps, calls, and returns within a function -- making it possible to
-> identify which specific error check triggered a failure, or which
-> callback implementation was invoked through a function pointer.
->
-> For example, retsnoop [2] is a BPF-based tool for non-intrusive
-> mass-tracing of kernel internals. Its LBR mode (--lbr) creates per-CPU
-> perf events with PERF_SAMPLE_BRANCH_STACK and then uses
-> bpf_get_branch_snapshot() in its fentry/fexit BPF programs to capture
-> branch records whenever a traced function returns an error.
->
-> Consider debugging a bpf() syscall that returns -EINVAL when creating
-> a BPF map with invalid parameters. Running retsnoop on an ARM64 FVP
-> with BRBE to trace the bpf() syscall and array_map_alloc_check():
->
->   $ retsnoop -e '*sys_bpf' -a 'array_map_alloc_check' --lbr=3Dany \
->              -F -k vmlinux --debug full-lbr
->   $ simfail bpf-bad-map-max-entries-array  # in another terminal
->
-> Output of retsnoop:
->
->   --- fentry BPF program (entries #63-#17) ---
->
->   [#63-#59] __htab_map_lookup_elem: hash table walk with memcmp        (h=
-ashtab.c)
->   [#58] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xc850           (h=
-ashtab.c:750)
->   [#57-#55] ... dump_bpf_prog internal branches ...
->   [#54] dump_bpf_prog+0xcab8        -> bpf_get_current_pid_tgid+0x0    (h=
-elpers.c:225)
->   [#53] bpf_get_current_pid_tgid+0x1c -> dump_bpf_prog+0xcabc          (h=
-elpers.c:225)
->   [#52-#51] ... dump_bpf_prog -> __htab_map_lookup_elem ...
->   [#50-#47] __htab_map_lookup_elem: htab_map_hash (jhash2), select_bucket
->   [#46-#42] lookup_nulls_elem_raw: hash chain walk with memcmp         (h=
-ashtab.c:717)
->   [#41] __htab_map_lookup_elem+0x98  -> dump_bpf_prog+0xcaf8           (h=
-ashtab.c:750)
->   [#40-#37] ... dump_bpf_prog -> bpf_ktime_get_ns ...
->   [#36] bpf_ktime_get_ns+0x10       -> ktime_get_mono_fast_ns+0x0      (h=
-elpers.c:178)
->   [#35-#32] ktime_get_mono_fast_ns: tk_clock_read -> arch_counter_get_cnt=
-pct
->   [#31] ktime_get_mono_fast_ns+0x9c -> bpf_ktime_get_ns+0x14           (t=
-imekeeping.c:493)
->   [#30] bpf_ktime_get_ns+0x18       -> dump_bpf_prog+0xcd50            (h=
-elpers.c:178)
->   [#29-#25] ... dump_bpf_prog internal branches ...
->   [#24] dump_bpf_prog+0x11b28       -> __bpf_prog_exit_recur+0x0       (t=
-rampoline.c:1190)
->   [#23-#17] __bpf_prog_exit_recur: rcu_read_unlock, migrate_enable     (t=
-rampoline.c:1195)
->
->   --- array_map_alloc_check (entries #16-#12) ---
->
->   [#16] dump_bpf_prog+0x11b38       -> array_map_alloc_check+0x8       (a=
-rraymap.c:55)
->   [#15] array_map_alloc_check+0x18  -> array_map_alloc_check+0xb8      (a=
-rraymap.c:56)
->         . bpf_map_attr_numa_node       . bpf_map_attr_numa_node
->   [#14] array_map_alloc_check+0xbc  -> array_map_alloc_check+0x20      (a=
-rraymap.c:59)
->         . bpf_map_attr_numa_node
->   [#13] array_map_alloc_check+0x24  -> array_map_alloc_check+0x94      (a=
-rraymap.c:64)
->   [#12] array_map_alloc_check+0x98  -> dump_bpf_prog+0x11b3c           (a=
-rraymap.c:82)
->
->   --- fexit trampoline overhead (entries #11-#00) ---
->
->   [#11] dump_bpf_prog+0x11b5c       -> __bpf_prog_enter_recur+0x0      (t=
-rampoline.c:1145)
->   [#10-#03] __bpf_prog_enter_recur: rcu_read_lock, migrate_disable     (t=
-rampoline.c:1146)
->   [#02] __bpf_prog_enter_recur+0x114 -> dump_bpf_prog+0x11b60          (t=
-rampoline.c:1157)
->   [#01] dump_bpf_prog+0x11b6c       -> dump_bpf_prog+0xd230
->   [#00] dump_bpf_prog+0xd340        -> brbe_snapshot_branch_stack+0x0    =
- (arm_brbe.c:814)
->
->                    el0t_64_sync+0x168
->                    el0t_64_sync_handler+0x98
->                    el0_svc+0x28
->                    do_el0_svc+0x4c
->                    invoke_syscall.constprop.0+0x54
->     373us [-EINVAL] __arm64_sys_bpf+0x8
->                     __sys_bpf+0x87c
->                     map_create+0x120
->      95us [-EINVAL] array_map_alloc_check+0x8
->
-> The FVP's BRBE buffer has 64 entries (BRBE supports 8, 16, 32, or
-> 64). Of these, entries #63-#17 (47) are consumed by the fentry BPF
-> trampoline that ran before the function, and entries #11-#00 (12)
-> are consumed by the fexit trampoline that runs after. Entry #00
-> shows the very last branch recorded before BRBE is paused: the call
-> into brbe_snapshot_branch_stack().
->
-> The 5 useful entries (#16-#12) show the exact path taken inside
-> array_map_alloc_check(). Record #14 shows a jump from line 56
-> (bpf_map_attr_numa_node) to line 59 (the if-condition), and #13
-> shows an immediate jump from line 59 (attr->max_entries =3D=3D 0) to
-> line 64 (return -EINVAL), skipping lines 60-63. This pinpoints
-> max_entries=3D=3D0 as the cause -- a diagnosis impossible with stack
-> traces alone.
->
-> [1] 856c02dbce4f ("bpf: Introduce helper bpf_get_branch_snapshot")
-> [2] https://github.com/anakryiko/retsnoop
-> [3] https://lore.kernel.org/all/20260810133540.1947118-1-puranjay@kernel.=
-org/
->
-> Puranjay Mohan (3):
->   arm64: Add raw variants of local_daif_save() and local_daif_restore()
->   perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
->   selftests/bpf: Adjust entry thresholds for ARM64 BRBE
->
->  arch/arm64/include/asm/daifflags.h            |  41 +++++-
->  arch/arm64/kernel/suspend.c                   |   7 +-
->  drivers/perf/arm_brbe.c                       | 135 ++++++++++++++----
->  drivers/perf/arm_brbe.h                       |   9 ++
->  drivers/perf/arm_pmuv3.c                      |   5 +-
->  .../bpf/prog_tests/get_branch_snapshot.c      |  28 ++--
->  6 files changed, 175 insertions(+), 50 deletions(-)
->
->
-> base-commit: 03a2e393994ca27567fe060e066806589c547fbc
-> --
-> 2.53.0-Meta
->
+I'm just wondering if the common code should be pulled out, or even
+dwmac-sophgo.c made generic so it can handle all plain boring devices
+which have RGMII delays and not a lot else.
+
+      Andrew
 
