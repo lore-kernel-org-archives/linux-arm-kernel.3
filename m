@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A7C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4654AC624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOCnMiWwuAqeY7230RPEeGlPmrcMUY6HdWpI0w4hMDA=; b=Lf9d7RVevvHzNPEuQZDG1BtkFi
-	r8bHWbFaDJAz33vZyJZzrwpTI66NH5ydg+kvn9RYDcSreJdCb/KPDtbCsDMheUYhX1gfcqfoMSqnL
-	hM7375AZU/868FtzoofMTWerqJSIB68Ou8bbMPTPHblieFjruEvz3z87Zf+MExILZK7ArekQAJluL
-	1we6/tul/h4s0dZeItt1rRPPYnAYpcMVL49+1jORQhj1kKnUcAAyRtFfqV7pbDrDpVFRxE/f6d+xR
-	5ybI1ftxLQmAq3FYE9szxKT8mwHuvtMRyhLH0gSus6etqGZQf2WVGh41fDFHiC1KHF1u2SANvNHUP
-	JyPXAMXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=drnZj9ls+Re3u3xWFMdJ9ITFaJJVUQr1ILP70Ur9h/g=; b=CRE6Y+rHmBYI0hFkms25bDBPZI
+	FlWkjQcXuY/3nXzBSGSgHrFEZojr+BA7wva9jKeL9i+1/oinPjJMJUWMEBUZDW7J3wQhLTz356Pc9
+	MwtXWunHt43rcdDXUD5L7isHessVnRPonBeRP7VoLyW7VVJU4Mmf8U4eV4320trgvGRZIYi7nhEC2
+	atFa9RNCZ2Jt7WXUvc3uCFfqAhfHv3Qij8iZMv3M6Dw/op4e4WgB48hxDLCi22N+HTnDe6GNeCN/i
+	xPASj+CUx/AXGFRV/G+7Qtex0tJ4NOrdqflft9Qr10An9B8c8nGN/HRRIezxXgaDhVDMR4hO+5xte
+	IhWZPP8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1C3k-0000000AhTV-1wFg;
-	Tue, 01 Sep 2026 00:09:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1C6z-0000000AhhI-3ztq;
+	Tue, 01 Sep 2026 00:12:25 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1C3i-0000000AhTO-2pjc
+	id 1x1C6x-0000000Ahgx-1Eqw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 00:09:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE8DA406EF;
-	Tue,  1 Sep 2026 00:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE4AA1F000E9;
-	Tue,  1 Sep 2026 00:09:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788221341;
-	bh=MOCnMiWwuAqeY7230RPEeGlPmrcMUY6HdWpI0w4hMDA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TX3AkNbqanYf/UIUjrymI1W/9kEbYODsuEKCcVac0QFQGRRXvMVN2a6k4ib+zl02L
-	 4dp09cP7ahoQGjNCsqXtcXaFrithQUTh04xQeBPXot8wQCv9TS8AwMYLKarPmDo4wf
-	 JQpgQ3Qy5IbFW8obwGz+bkp8TYO8cE7Mlakf4hRnFAy62uK+fa+Zje7SPRSWjqiDGy
-	 ikBThDDtZowX62erg0MYRdiH0H7OXM3w4c78GKFzWXvBeB/0sFmAq4TaEK3ZhfTL9e
-	 moJ7m4a/a9eh0cWXOfpftQRl6gOiefrDNjJt0fpGwooDyr+QDzn0IJ9l06O+6lpFsg
-	 laXtW67OdYyeg==
-Date: Mon, 31 Aug 2026 17:08:58 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: netdev@vger.kernel.org, Linus Walleij <linusw@kernel.org>, Imre Kaloz
- <kaloz@openwrt.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org (moderated
- list:ARM/INTEL IXP4XX ARM ARCHITECTURE), linux-kernel@vger.kernel.org (open
- list)
-Subject: Re: [PATCH net] net: ixp4xx_eth: handle probe deferral from
- of_get_mac_address()
-Message-ID: <20260831170858.7e23643e@kernel.org>
-In-Reply-To: <20260827013634.167932-1-rosenp@gmail.com>
-References: <20260827013634.167932-1-rosenp@gmail.com>
+	Tue, 01 Sep 2026 00:12:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=drnZj9ls+Re3u3xWFMdJ9ITFaJJVUQr1ILP70Ur9h/g=; b=n5Lop7Hs9qzLRTh6aTMexZHCFM
+	59wIXe05Amg7DeRdLCJpXJyIS2O+ud5/qQ60GugK50PpLZIDOWHXpazK0xx8Xo++m9JhzY02KEeDt
+	xu3g9vlUwiH29QQ8JiTqsBfJUi5K56kVYs/RLCxS2m65LxMK5Sd1LcV1b43UTh9qU4OM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x1C6k-002H9w-SC; Tue, 01 Sep 2026 02:12:10 +0200
+Date: Tue, 1 Sep 2026 02:12:10 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac4: Use the full perfect
+ filter ability for UC filter
+Message-ID: <285c8969-2f0d-46de-b098-60ff10f30cf6@lunn.ch>
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+ <20260831070121.349778-3-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831070121.349778-3-maxime.chevallier@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_171223_331518_09E77480 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Aug 2026 18:36:34 -0700 Rosen Penev wrote:
-> ixp4xx_of_get_platdata() returns NULL on failure, which the probe converts
-> to -ENODEV, discarding the real cause of the failure. Return ERR_PTR()
-> with the appropriate error so callers can distinguish cases such as
-> missing DT properties (-EINVAL) and, importantly, handle -EPROBE_DEFER
-> from of_get_mac_address().
+On Mon, Aug 31, 2026 at 09:01:20AM +0200, Maxime Chevallier wrote:
+> Contrary to dwmac1000 that gets its number of perfect filter entries
+> through the 'snps,perfect-filter-entries' property, dwmac4 allows
+> reading the filter size from the HW features registers.
 
-Doesn't seem like this should be treated as a fix, AI says:
+Does dwmac4 take any notice of "snps,perfect-filter-entries"? Should
+it be marked deprecated?
 
-Can a device tree that actually reaches this new code path pass
-dtbs_check? -EPROBE_DEFER out of of_get_mac_address() only comes from
-the nvmem lookup:
-
-net/core/of_net.c:of_get_mac_address() {
-	...
-	return of_get_mac_address_nvmem(np, addr);
-}
-
-which needs nvmem-cells and nvmem-cell-names = "mac-address" in the node.
-Documentation/devicetree/bindings/net/intel,ixp4xx-ethernet.yaml ends with
-additionalProperties: false and pulls in ethernet-controller.yaml only via
-allOf/$ref, re-listing just phy-mode, phy-handle and fixed-link. It never
-lists nvmem-cells, nvmem-cell-names, mac-address or local-mac-address.
-
-Should the binding gain those properties (or switch to
-unevaluatedProperties: false) so the configuration this patch handles
-can be described?
-
-
-And if this goes to net-next there's a bunch of pre-existing
-bugs in the area which will conflict, so frankly let's just leave 
-this be.
+   Andrew
 
