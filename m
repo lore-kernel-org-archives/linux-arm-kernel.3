@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868A9C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB09AC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1m7p93mjLfPxSWMbv3pLNDOYf1eYKvY+H2exLWC6ts=; b=QoXYA5pr7CXyzXlPoMqdJLnjMA
-	LPKjQEk7jfpjRkHEewLKDxqSuIeorSLvcFVo4Ugn9GgsnYU56Uk00qkoBc2D7AV4kIiIbDQr9Qzsh
-	3jVVtBwRemti8a0M6N0/THpGuK6tHEcOLZ6/6JIIEOATSAZF3SIl4EZvk3QOxL2W5C3oNLwxgGl7/
-	ZFz1A57cUz+8x68b+zquePPt3XofVdpHfilmNKVKLDDyNhd0yynKH/IEOirHEMOiKv2neWfCQR4H+
-	GoUcKCzkPdDf4YO0UiYilq09ranSFsqYdXeMoV4vDch2xc30UEyi9eSRMBIMlTZgvurjLCv2IUkNC
-	5nQRfwDQ==;
+	bh=hB6Yr+B5nAEcqJKEIa+DHN9+pvY2ehWZII2ywBdMNPY=; b=O5THy4Nm9L/QvAN83iXuf0Je1L
+	DDPnK2ZA04npxW3qtHYpOB6upIw0NZzTvMZDbuj5nXk9ELaOBfugeJzV9DPNmRjGhNhVpGmtHPTRT
+	MGknfpl53o4NpCLa0HoznhxBI6+XolHRXfU16aurR9ShAVscDQ3tG2mlKbd+7P/wHYpwI4FssKFAi
+	4+CDAiYC0J/xvG1OMjVBYiO9qVWeqxw38z5EX/zkqTwJePIU2dhD9BLy+peLeYh+XzlkNEVnpHbVI
+	alzTGwNs0QCWmqWnhUvqUTXJsT0apQ1XmddqM6biEVxOgI3RsBKWzBh3Wxep6tZxEUe0WjIGG7CNT
+	WbxlNX2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tb3-0000000D3be-3kSy;
-	Tue, 01 Sep 2026 18:52:37 +0000
+	id 1x1Tb5-0000000D3gn-2cYG;
+	Tue, 01 Sep 2026 18:52:39 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZq-0000000D1L5-0RQ1;
+	id 1x1TZp-0000000D1Iq-2R7u;
 	Tue, 01 Sep 2026 18:51:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
 	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=f1m7p93mjLfPxSWMbv3pLNDOYf1eYKvY+H2exLWC6ts=; b=S31JMAHEkA0tzWlkZ/oplZTb89
-	VkDbZLlanGjDo3hagEw3Cq6XSU2wBEA+rLo+RMQc6UzCYJkgLtp6vPJR60LQFnidLAtZ/pQD8GSvK
-	dxDX7kh9XUHYoIpxiteie50R96tC5CgD87pfGRwSM/C7hnqyo6QdpRpeyhT0qqz/6mb7dj8ug7rlg
-	wELZFImLND9FtDz70gbrBi0CSyV8saGK+HUcK2xki+sp8dZtIFk+NidhgTzgjlGJgofNNoJzk2Sf6
-	vP2u4fQiD8cKdLvXFDJwm/FeFDr1oiHN3JmhRbn8PyeiQGqePLt0rAEg7+4eJbIoTC0CIcTtQZZF1
-	+xLxRJjQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	bh=hB6Yr+B5nAEcqJKEIa+DHN9+pvY2ehWZII2ywBdMNPY=; b=DMCJPenruEh2WUiPh6hewESjwl
+	1JapsfoUHXUy+4e37u4W6afrULjDr+Gq2foitA1GA8BqyAXufhZ8RA4sdNtL67IFSL2+VWV6xZ/35
+	fouYnI2u6Yu3B04WzPR7mmwEIjnt8FLf0oO9QieNR/ENha9/tXZUrTttPtiqBRKPVf9D7kuDcHakh
+	ZSp/HBkZjg1f2cRX+S2MW07S3mMkI+GCiTeyWpVyUKdqRsBaHBMx5WbrOR3kwbBlIZWfSxHqkE+pR
+	btK7wqjLirYuU0J/n6Q4XUmVowywOCtLw47V8lcpBDVbfGcH8y4irJj7xtgw3tCAxwCpAvA2V1eGF
+	Z/stzRVQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZk-00000005afN-1Fdl;
+	id 1x1TZj-00000005aeg-2Yp3;
 	Tue, 01 Sep 2026 18:51:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288675;
-	bh=soG6OH4rGe++2MGJbbJQb1ItRjhRkZ2mAadAs/HdPYA=;
+	s=mail; t=1788288674;
+	bh=Ib0VXkvxZ021Tl3KbWX279RZDAC5hW7lLH2AzR9DLTs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=b87MGsuvSdP6RSwSeM6+07OGqTEDo2mCf7Lao9sglKkDKpaRPlHYmRAhTvgd9Dx3F
-	 cCmFaZXjHHcEDXRCPj6dI6nGWQWsc5IVgM2/HYNHEjgtTWOCmzBfPtAZ8OjB6qk0rc
-	 ozK+C234lkx88FevJZbqZzVw59Ab2ZnV/J1z00+Gmh2oQFFVInDS/tk0OsfO1UGiIJ
-	 hEf0ThEISFF6IPK6oW017/01noZ5yTN0ew51+jstG3FY+ei6BpdIjRkvAKwo1GsLm7
-	 L3p7OQhYdwNjGIemksY4DNVNRUB2fdx2l7PV2OPYYEoLb24xJuR9wfHZK08XnnCjQt
-	 YJUWJ7AAw+8kw==
+	b=P4QPhmQUZWxgCCRFZOeWbJMjk7CAPeFPQXo6QaVcrMLoxO3g3sOKo3kKMvhrA3P2r
+	 m9qIdkv+iZ0qtP8hHD5JtRG+fnSKZINZZP9MTaIZiuA7WS3LOnRQYX8mMD4tHE9KnM
+	 3MQPLWFakDjq763WeQXTaZ3VEwoD1zM8rpkIDQK8YBNBbv/QCQhu1IllPtT+cTpbFR
+	 8wwmz0za37N1Ezrl2PPIpvpE2xgixgDPfql03ghpXLe/SioaVg6Gt/6kHYFnP5az1s
+	 hpCWgvXMsKSyXtKxEL8MXG18xAKD+4nUqueiffZ3K3iA/W2U5EmW9NrZvJ08799nKZ
+	 N9gkqzbm7vMAg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0F7DF17E3C68;
-	Tue, 01 Sep 2026 20:51:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4BBD517E3C67;
+	Tue, 01 Sep 2026 20:51:14 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:51:10 +0300
-Subject: [PATCH v11 46/74] drm/vc4: hdmi: Convert to
- drmm_connector_hdmi_init()
+Date: Tue, 01 Sep 2026 21:51:09 +0300
+Subject: [PATCH v11 45/74] drm/vc4: hdmi: Propagate -EDEADLK to the top
+ level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-46-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-45-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -92,8 +92,9 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_195117_445986_E9A4055C 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260901_195117_454946_6878FDB3 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,222 +109,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch driver over to the new drmm_connector_hdmi_init() signature. The
-vendor, product, supported_formats and max_bpc values previously passed
-as arguments are now provided through struct drm_connector_hdmi_funcs,
-together with the new supported_hdmi_ver field.
+drm_connector_helper_funcs.detect_ctx() is expected to propagate
+-EDEADLK so that context owners, e.g. drm_helper_probe_detect_ctx(), can
+perform the required backoff and retry.
 
-VC4 needs three distinct capability sets, based on the maximum TMDS
-character rate and color depth supported by each controller variant:
+vc4_hdmi_handle_hotplug() instead runs its own retry loop and calls
+drm_modeset_backoff() on an acquire context it does not own.  This drops
+all locks in the context, including connection_mutex held by the core.
 
-  RPi 0-3:              162 MHz (HDMI 1.2),  8-bit
-  RPi 4 (HDMI1):        340 MHz (HDMI 1.4), 12-bit
-  RPi 4 (HDMI0), RPi 5: 600 MHz (HDMI 2.0), 12-bit
+Drop the local retry logic and propagate -EDEADLK to the caller instead.
+This aligns VC4 with the expected detect_ctx() semantics.
 
-Introduce three drm_connector_hdmi_funcs instances for these tiers and
-assign them to the corresponding vc4_hdmi_variant entries. Additionally,
-drop the now redundant .supports_hdr field of struct vc4_hdmi_variant.
-
-As the callback members are identical across all three, factor the
-shared initializers into a VC4_HDMI_CONNECTOR_FUNCS_COMMON macro to
-avoid duplication, with each variant adding only its distinguishing
-max_bpc/supported_hdmi_ver fields.
-
-Note that HDMI 2.0 cannot be advertised at this point, since it requires
-converting the driver to common scrambling infrastructure. This will be
-handled separately, hence temporarily use HDMI_VERSION_UNKNOWN for the
-related hdmi_funcs instance to skip generic scrambler and TMDS rate
-validation, and continue to rely on current driver-local implementation.
-
-No functional change intended.
-
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/vc4/vc4_hdmi.c | 93 ++++++++++++++++++++++++------------------
- drivers/gpu/drm/vc4/vc4_hdmi.h |  6 +--
- 2 files changed, 56 insertions(+), 43 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 23 +++++++----------------
+ 1 file changed, 7 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 6bd5aa77538e..a03e50e8afcb 100644
+index 7c921a444e98..6bd5aa77538e 100644
 --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
 +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -510,7 +510,6 @@ static const struct drm_connector_helper_funcs vc4_hdmi_connector_helper_funcs =
- 	.mode_valid = drm_hdmi_connector_mode_valid,
- };
- 
--static const struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs;
- static const struct drm_connector_hdmi_audio_funcs vc4_hdmi_audio_funcs;
- 
- static int vc4_hdmi_connector_init(struct drm_device *dev,
-@@ -518,22 +517,13 @@ static int vc4_hdmi_connector_init(struct drm_device *dev,
- {
- 	struct drm_connector *connector = &vc4_hdmi->connector;
- 	struct drm_encoder *encoder = &vc4_hdmi->encoder.base;
--	unsigned int max_bpc = 8;
- 	int ret;
- 
--	if (vc4_hdmi->variant->supports_hdr)
--		max_bpc = 12;
--
--	ret = drmm_connector_hdmi_ini2(dev, connector,
--				       "Broadcom", "Videocore",
-+	ret = drmm_connector_hdmi_init(dev, connector,
- 				       &vc4_hdmi_connector_funcs,
--				       &vc4_hdmi_hdmi_connector_funcs,
-+				       vc4_hdmi->variant->hdmi_funcs,
- 				       DRM_MODE_CONNECTOR_HDMIA,
--				       vc4_hdmi->ddc,
--				       BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
--				       BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |
--				       BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444),
--				       max_bpc);
-+				       vc4_hdmi->ddc);
- 	if (ret)
- 		return ret;
- 
-@@ -1722,28 +1712,51 @@ vc4_hdmi_connector_clock_valid(const struct drm_connector *connector,
- 	return MODE_OK;
+@@ -344,12 +344,11 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
+ 	return drm_atomic_helper_reset_crtc(crtc, ctx);
  }
  
--static const struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
--	.tmds_char_rate_valid	= vc4_hdmi_connector_clock_valid,
--	.avi = {
--		.clear_infoframe = vc4_hdmi_clear_avi_infoframe,
--		.write_infoframe = vc4_hdmi_write_avi_infoframe,
--	},
--	.hdmi = {
--		.clear_infoframe = vc4_hdmi_clear_hdmi_infoframe,
--		.write_infoframe = vc4_hdmi_write_hdmi_infoframe,
--	},
--	.audio = {
--		.clear_infoframe = vc4_hdmi_clear_audio_infoframe,
--		.write_infoframe = vc4_hdmi_write_audio_infoframe,
--	},
--	.hdr_drm = {
--		.clear_infoframe = vc4_hdmi_clear_hdr_drm_infoframe,
--		.write_infoframe = vc4_hdmi_write_hdr_drm_infoframe,
--	},
--	.spd = {
--		.clear_infoframe = vc4_hdmi_clear_spd_infoframe,
--		.write_infoframe = vc4_hdmi_write_spd_infoframe,
--	},
-+#define VC4_HDMI_CONNECTOR_FUNCS_COMMON						\
-+	.vendor			 = "Broadcom",					\
-+	.product		 = "Videocore",					\
-+	.supported_formats	 = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |	\
-+				   BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |	\
-+				   BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444),	\
-+	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,		\
-+	.avi = {								\
-+		.clear_infoframe = vc4_hdmi_clear_avi_infoframe,		\
-+		.write_infoframe = vc4_hdmi_write_avi_infoframe,		\
-+	},									\
-+	.hdmi = {								\
-+		.clear_infoframe = vc4_hdmi_clear_hdmi_infoframe,		\
-+		.write_infoframe = vc4_hdmi_write_hdmi_infoframe,		\
-+	},									\
-+	.audio = {								\
-+		.clear_infoframe = vc4_hdmi_clear_audio_infoframe,		\
-+		.write_infoframe = vc4_hdmi_write_audio_infoframe,		\
-+	},									\
-+	.hdr_drm = {								\
-+		.clear_infoframe = vc4_hdmi_clear_hdr_drm_infoframe,		\
-+		.write_infoframe = vc4_hdmi_write_hdr_drm_infoframe,		\
-+	},									\
-+	.spd = {								\
-+		.clear_infoframe = vc4_hdmi_clear_spd_infoframe,		\
-+		.write_infoframe = vc4_hdmi_write_spd_infoframe,		\
-+	}
-+
-+static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi12 = {
-+	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
-+	.max_bpc		= 8,
-+	.supported_hdmi_ver	= HDMI_VERSION_1_2,
-+};
-+
-+static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi14 = {
-+	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
-+	.max_bpc		= 12,
-+	.supported_hdmi_ver	= HDMI_VERSION_1_4,
-+};
-+
-+static const struct drm_connector_hdmi_funcs vc4_hdmi_connector_funcs_hdmi20 = {
-+	VC4_HDMI_CONNECTOR_FUNCS_COMMON,
-+	.max_bpc		= 12,
-+	/* TODO: set HDMI_VERSION_2_0 and convert to common scrambler infra */
-+	.supported_hdmi_ver	= HDMI_VERSION_UNKNOWN,
- };
+-static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+-				    struct drm_modeset_acquire_ctx *ctx,
+-				    enum drm_connector_status status)
++static int vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
++				   struct drm_modeset_acquire_ctx *ctx,
++				   enum drm_connector_status status)
+ {
+ 	struct drm_connector *connector = &vc4_hdmi->connector;
+-	int ret;
  
- #define WIFI_2_4GHz_CH1_MIN_FREQ	2400000000ULL
-@@ -3359,7 +3372,7 @@ static const struct vc4_hdmi_variant bcm2835_variant = {
- 	.phy_rng_enable		= vc4_hdmi_phy_rng_enable,
- 	.phy_rng_disable	= vc4_hdmi_phy_rng_disable,
- 	.channel_map		= vc4_hdmi_channel_map,
--	.supports_hdr		= false,
-+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi12,
- };
+ 	/*
+ 	 * NOTE: This function should really be called with vc4_hdmi->mutex
+@@ -368,17 +367,9 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+ 	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
  
- static const struct vc4_hdmi_variant bcm2711_hdmi0_variant = {
-@@ -3387,8 +3400,8 @@ static const struct vc4_hdmi_variant bcm2711_hdmi0_variant = {
- 	.phy_rng_enable		= vc5_hdmi_phy_rng_enable,
- 	.phy_rng_disable	= vc5_hdmi_phy_rng_disable,
- 	.channel_map		= vc5_hdmi_channel_map,
--	.supports_hdr		= true,
- 	.hp_detect		= vc5_hdmi_hp_detect,
-+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi20,
- };
+ 	if (status != connector_status_connected)
+-		return;
++		return 0;
  
- static const struct vc4_hdmi_variant bcm2711_hdmi1_variant = {
-@@ -3416,8 +3429,8 @@ static const struct vc4_hdmi_variant bcm2711_hdmi1_variant = {
- 	.phy_rng_enable		= vc5_hdmi_phy_rng_enable,
- 	.phy_rng_disable	= vc5_hdmi_phy_rng_disable,
- 	.channel_map		= vc5_hdmi_channel_map,
--	.supports_hdr		= true,
- 	.hp_detect		= vc5_hdmi_hp_detect,
-+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi14,
- };
- 
- static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
-@@ -3443,8 +3456,8 @@ static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
- 	.phy_init		= vc6_hdmi_phy_init,
- 	.phy_disable		= vc6_hdmi_phy_disable,
- 	.channel_map		= vc5_hdmi_channel_map,
--	.supports_hdr		= true,
- 	.hp_detect		= vc5_hdmi_hp_detect,
-+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi20,
- };
- 
- static const struct vc4_hdmi_variant bcm2712_hdmi1_variant = {
-@@ -3470,8 +3483,8 @@ static const struct vc4_hdmi_variant bcm2712_hdmi1_variant = {
- 	.phy_init		= vc6_hdmi_phy_init,
- 	.phy_disable		= vc6_hdmi_phy_disable,
- 	.channel_map		= vc5_hdmi_channel_map,
--	.supports_hdr		= true,
- 	.hp_detect		= vc5_hdmi_hp_detect,
-+	.hdmi_funcs		= &vc4_hdmi_connector_funcs_hdmi20,
- };
- 
- static const struct of_device_id vc4_hdmi_dt_match[] = {
-diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.h b/drivers/gpu/drm/vc4/vc4_hdmi.h
-index 29d461d4ee49..d5ffcc17de32 100644
---- a/drivers/gpu/drm/vc4/vc4_hdmi.h
-+++ b/drivers/gpu/drm/vc4/vc4_hdmi.h
-@@ -90,11 +90,11 @@ struct vc4_hdmi_variant {
- 	/* Callback to get channel map */
- 	u32 (*channel_map)(struct vc4_hdmi *vc4_hdmi, u32 channel_mask);
- 
--	/* Enables HDR metadata */
--	bool supports_hdr;
+-	for (;;) {
+-		ret = vc4_hdmi_reset_link(connector, ctx);
+-		if (ret == -EDEADLK) {
+-			drm_modeset_backoff(ctx);
+-			continue;
+-		}
 -
- 	/* Callback for hardware specific hotplug detect */
- 	bool (*hp_detect)(struct vc4_hdmi *vc4_hdmi);
-+
-+	/* HDMI-related connector callbacks and controller capabilities */
-+	const struct drm_connector_hdmi_funcs *hdmi_funcs;
- };
+-		break;
+-	}
++	return vc4_hdmi_reset_link(connector, ctx);
+ }
  
- /* HDMI audio information */
+ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
+@@ -416,10 +407,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
+ 			status = connector_status_connected;
+ 	}
+ 
+-	vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
++	ret = vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
+ 	pm_runtime_put(&vc4_hdmi->pdev->dev);
+ 
+-	return status;
++	return ret == -EDEADLK ? ret : status;
+ }
+ 
+ static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
 
 -- 
 2.55.0
