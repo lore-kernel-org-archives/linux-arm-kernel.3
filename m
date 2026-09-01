@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D1DC624CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 890B6C624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=myrc9Gil2RJrqCTse2ZhaV1wha3SGUMFTBi/a0DM/mk=; b=P+Xw1q0XsWmmwKJbfxj2xvvcm9
-	7TYZnE9qBF6B6PQ9bJkFrHqKytJOhhBhXAp5aQf/j3nJ+TVW1Q/KqJrzruzpRfAAHsDCCiGbZwOqf
-	w2gNuUue7GiTvCqOv+l8dY6DUPwehQGTKOJg41V6NmqsLxMNGWTHS9pPaWg12p7/aeGsstyfW7D0M
-	8/GjjLleZeZu8H6CUL1WeQMJhRFDCfBWsPP8GsSfdcAolMeabQa4WP12HLQ3P+zPN+x4xtZ/0rEAk
-	UgHfjhH6d3Q3PRdxMkSec+4Nn61kAaOQzWjAu2nd/F2Bb98Itw6kp42KZVmWKedHgqXuByalITv3r
-	pPs7pB8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sWzcDxcK5KHl/AoklH17Lv+StaJJHsmm0a/OqQGdPUY=; b=EBnvkFM7xFM8jekZLNRCrb3jZL
+	rba0oeo5RqoyeZg4gBN/J6OX0e1MgglATz9q6knqZx3Nnyi7TtnEkb9YbsB1ap7ABTQ6432treG3v
+	aZRjIstqbmXZK14ffkVDozCyJ1Q8eMqhXjmgXCPYc2lnooNUUk1Ia2SVkU5zcpBfdPy+HfMY0n+X2
+	ADCpugkBQQv4N7G7auIVVFBp2j186c0ozkaEE+Stjzrl/iIDxxLCQwXUzqhOHaqkQ1Grmbo3mfMHE
+	lzakESaXHAusfU4kYvyYNKwOW2ez61k5Q8WMhahXyfguAUL1e+QiPoYQtc6qvDYX8+bT2RapnOuUR
+	wDEf9aZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1CKi-0000000AiqB-0q2M;
-	Tue, 01 Sep 2026 00:26:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1CKq-0000000AisL-1Fye;
+	Tue, 01 Sep 2026 00:26:44 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1CKg-0000000Aipr-3Fn9
+	id 1x1CKm-0000000Air2-1uIz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 00:26:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D97C2602C3;
-	Tue,  1 Sep 2026 00:26:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5741F000E9;
-	Tue,  1 Sep 2026 00:26:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788222393;
-	bh=myrc9Gil2RJrqCTse2ZhaV1wha3SGUMFTBi/a0DM/mk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=czZWZeIxlf3GT6/1dh47dSkMckpF0/fGbH+d4J4dghB10s7jtVgZl3KdK5FBfAi3C
-	 7l78CVIMF+dyf9/SlsZE1QmM3loIj4F8aM3wzjaDeirj0pV1u1co1qwkhZ8gWFbx/W
-	 O/nplxd2GNTF+gIpKW8eZq9i8Dk6pXKDtsbgTtxDyI+80PaJ7Xdcs+ZUD2F7kWmFeO
-	 3GjvM/klpJ0sxk7ttC+4PLO9VpX979BvyZJ2HIEpweA3X49sBSVqHrJrVFatbm85nk
-	 pRh8jXfo+22Xp7K5iTUQgJpzxP/VmFR73iDoeb+4h4Ku1wHyNAwqsD4kKbfDEicmsY
-	 yQsk/qt1Yn/jA==
-Date: Mon, 31 Aug 2026 17:26:32 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v2] net: stmmac: hold runtime PM reference in
- setup_tc
-Message-ID: <20260831172632.64aadc2c@kernel.org>
-In-Reply-To: <apWVBrXNt74gtUd4@lore-desk>
-References: <20260827-stmmac-setup-tc-enable-pm-v2-1-a9b8a5948f41@oss.qualcomm.com>
-	<apWVBrXNt74gtUd4@lore-desk>
+	Tue, 01 Sep 2026 00:26:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=sWzcDxcK5KHl/AoklH17Lv+StaJJHsmm0a/OqQGdPUY=; b=d1x5Uc3VR4Yn9rjdeQJ21p1Jg1
+	SPogErl/w5tumNkDDhGyYmcDUMTe882WPRTkK3hIMoT0ZQy28FRpsfzNJcWyI6QyZi5d+BlnkmZ2V
+	S09btPQQjLmxqQPADojha0SaNYzIbrhospnJOIhvOKtQaE9fkhRZdPA3IrXfojx6ngOw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x1CKY-002HFd-O9; Tue, 01 Sep 2026 02:26:26 +0200
+Date: Tue, 1 Sep 2026 02:26:26 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Nicolai Buchwitz <nb@tipi-net.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac4: Read the UC filter
+ size from hardware capabilities
+Message-ID: <b2fbcec7-90ee-4a6f-bd15-32e4e1ff1a47@lunn.ch>
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+ <20260831070121.349778-2-maxime.chevallier@bootlin.com>
+ <2631c832d5aebc56e152628132494545@tipi-net.de>
+ <480f15e2-e045-46b7-89af-1fbcefd3c4eb@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <480f15e2-e045-46b7-89af-1fbcefd3c4eb@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_172640_500832_C85A106A 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 16:51:50 +0200 Lorenzo Bianconi wrote:
->   - This issue is not introduced by this patch and it needs to be fixed with a
->     dedicated patch
+> Yeah but dwmac4 has a hash filter, but same as the UC filter it's just not plumbed
+> in :/
+> 
+> Let's leave this flag here, hash filter addition for MC filtering is coming-up, so let's not
+> drop it now only to re-enable it after, one of the other wonderful discoveries found by
+> running the selftests...
 
-Looks like the driver has multiple bugs in handling of TC callbacks
-while down. Please fix all of them in one series, otherwise we may
-end up changing approach.
+I assume you can put a MC address in a perfect match filter? You can
+perfectly match a multicast address just as well as a unicast address.
 
-Can you also confirm that the device programmed while down retains
-all the necessary configuration thru the open path, and everything
-works as expected?
--- 
-pw-bot: cr
+The hash filter is less accurate, but again can be used to match a
+unicast or multicast address, and then you need additional filtering
+in software, which Linux will do.
+
+So it seems to me, you should use a perfect match filters if you have
+one available, independent of unicast or multicast, and only use a
+hash filter if you have run out of perfect match filters.
+
+A IPv6 interface will be listening on a multicast address for
+Neighbour discovery. It would be good to do a perfect match on it...
+
+	  Andrew
+
 
