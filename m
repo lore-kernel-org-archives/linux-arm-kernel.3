@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0B7C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A024C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkJF4e9VVXUzCeuMYU3zzOmDCo18fe8y5N/96bdVQZA=; b=Yc7n1A8Q9e/3P3uirjQyDrUCQm
-	RywUR6Yw3UBdsAlgeS2+/P54rf07jnizuz7g2AaGLG4xwehrPAQ2146HFU1IxloNF/BeUOxUcM+PB
-	6rYNV0pn/bOoDO3YpWzs5kMVYIz83xdsuyhL7oAOMxz+lFqGv3ikL03LGqJECZkT/J+jaaVyTmJm2
-	lUEjSesobgfxUlu5GXKye3oz9h9gzAInqsyNMG7WNNeEhfHO7BYG+dK2aGgnRTN2PO7uR3K1CfJ29
-	q3scTHRgWspXZuj5c2wy9rIHo9GB9o48KnGjuVuH9AKTiLUYAFwjsoJHKCEyREdR9p33K2fqdba9e
-	XPO7Ql4g==;
+	bh=C62NbbZZXw/kBQhpslyP1gjpT+jZCJgIPo2p22d+QlI=; b=n3UjjX28d5UVqwk0z6tMRoO2L+
+	XmnWF8h/2vLukXv68rk/CkgAr6o2i2HYSB9yBYPuEG288fDx4dvjaAosxIv9jmNetMeIJPvnbii0j
+	GOMvBuBiZ2CrW9jKs7LykZPmTMfQihcKmPXgBmLtePOD/WW+ZvNFlF8KbZlRpG5sTtQOkw0JwQ4pc
+	YQwhvZJvvQZi8FU17RmhGxHkRzgii0UMN4G2LrbpuiMNZDNT/2SWiNK4jez/7stzazvZzT0qr0ZWw
+	LfWMKPOTNGQ35JVgomJ2jJD6+y5m0HgId6r1qWcM32ZlHyyRDiQ5SDJ+asdamOJH0YKCsQtfMyT6x
+	ES06Yvww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tbo-0000000D57o-48VF;
-	Tue, 01 Sep 2026 18:53:24 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1x1Tbt-0000000D5Iv-3Pox;
+	Tue, 01 Sep 2026 18:53:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZr-0000000D1M0-0PO8;
-	Tue, 01 Sep 2026 18:51:27 +0000
+	id 1x1TZw-0000000D1MW-1bWc;
+	Tue, 01 Sep 2026 18:51:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=rkJF4e9VVXUzCeuMYU3zzOmDCo18fe8y5N/96bdVQZA=; b=CsManvvWcFeLOwsgmzggB+g+Ho
-	J4ekKPW0Zd+LwM+tNtQpLLQV9IXI8TVfn6ehVmgdVMcinN0kh/2G2PvugpG43vdHjE2WsVECALwnD
-	RQrvomDyTsHydRvMVfxGmWM6IjL8QCcuGCJHDuWnQtDgm8eLdH5jMHNYRBX9X57jWU1JPNmWb1ygh
-	MUPfpAScEhmbSDzMv1hk0Qz8Ug+oHFYs6Rv/WdOrZotaFjgTPfiizUDJmxQ4b8fDJAGzJY9MD+eHw
-	CH80Z2YvYkK9dDlfZxCCeh3P9/x/TeMvamOxPPVT7pLb/gG30EVzFTgRn4wQTpSwyLd3jUSEWJ/Pv
-	NRCcYmng==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZk-00000005acj-07k4;
-	Tue, 01 Sep 2026 18:51:22 +0000
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=C62NbbZZXw/kBQhpslyP1gjpT+jZCJgIPo2p22d+QlI=; b=QUOD7jH/RzCN2B7/4AvD/mZlsE
+	QT5Sm8i4VDlus+8k7QmXcX+vceALApy3s3ZWW/K6PNqLr9DVGeyqFxd/pomBuFtLfcp5bhAxflmhF
+	rixfpw+9usPR4DoXInnBNOVyCsVVo/QtsndZxah4MB03posWJfNaUNRkucMsTPTZAq3l2nYDTZMzw
+	7U3o+sz3dlo2slK/EuQZXWDE75MJ9c93J/nRC8LOq/3g+LgspHnoPPx/QpNU37AzbEfGj3p5rWB4B
+	tMTwzQEzkLvAjlic8r+7KBDkBGaZ6Nnvw2KH3c37U3ct2aGIg73IcmmnRK6o5lqT+2NK039Z3f5I4
+	kIym6kog==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1TZs-0000000BHbd-1OfM;
+	Tue, 01 Sep 2026 18:51:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288671;
-	bh=hMfmPjxTX291Q5EGzy4LRXRcR3XKvgItQhsbL5BpXSo=;
+	s=mail; t=1788288683;
+	bh=eTwvcHzDahjPYHCtMEH5hOYZ7IvsD5Sh3bBiNe6fI+U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oq7fl5//ZutIy2KKIU1JPjsv6aZcOkqABCODUfgGNewdcJAMQ6SE0Vuk79vkQs2dA
-	 WfaS4b6wx9wdsStk1XwXviSUlQ7j9fS4c7nQHGaNYSzQNXc7WIbSlGbCC/KYJ1zGEI
-	 VeIDy8Q7YgmFzCBy/ed1NawJc3Y6im9ypKEw+k1xjUXNfaBzdiOPkTyZV1paaeSXlV
-	 hg49TqzMn1elVzlkkCroNFlfKCjyscnYXhoBfdkZZMN47NuE69cGtcCrfgXG51gxbj
-	 j0rQdAty9msM+0HlFWVydhiWYWs6xpdJ1KBcvvYTMNNsIdksW21C2rbz7aiYQILW9D
-	 1Y3HiLtZedYag==
+	b=W4Dr2V50fcGATA3BlMN2dZTHzsCTva51cS7g3YJltBdKQqVmNCxpivDne3jYxhAMj
+	 IdHzXLDAXcROyA4yKlviV5WVIQDblwOxH0Wul3CzAvAouKKRgpNXRGf7+Wys9+x6pN
+	 CoNWo0ru1uTpvCoeT7ULCL8DasrcHW/R4uKDNpqA1ixgCyYaXHDn7aVOpJGNJcjR6t
+	 2Xd/Gz07CsmE17BdkCKZZhPknfaLVcKkpSapw/n40M9fOHP8VMXr12YAJ5Kz4aQq2O
+	 i3C+aSlTolESSnJkVxj24iwhfHyU2hh8LVkHNAoisVK/c7UQ3FpZ81ZtwhCDko6kpe
+	 48dpPv/kbDTuQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 539F717E3C60;
-	Tue, 01 Sep 2026 20:51:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0DD1217E3C88;
+	Tue, 01 Sep 2026 20:51:23 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:51:05 +0300
-Subject: [PATCH v11 41/74] drm/bridge: dw-hdmi-qp: Drop unused .setup_hpd()
- phy op
+Date: Tue, 01 Sep 2026 21:51:21 +0300
+Subject: [PATCH v11 57/74] drm/sun4i: hdmi: Convert to
+ drmm_connector_hdmi_init()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-41-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-57-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -89,13 +89,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, Maud Spierings <maud_spierings@hotmail.com>, 
- Diederik de Haas <diederik@cknow-tech.com>
+ linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_195116_283852_46FBD8B4 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260901_195124_495217_A2930782 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the transition to .{enable|disable}_hpd() phy ops complete in both
-the bridge and platform drivers, .setup_hpd() has no remaining callers.
-Drop it.
+Switch driver over to the new drmm_connector_hdmi_init() signature and
+advertise HDMI 1.2 support.  The vendor, product, supported_formats and
+max_bpc values previously passed as arguments are now provided through
+struct drm_connector_hdmi_funcs, together with the new
+supported_hdmi_ver field.
 
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
+The HDMI connector helpers infer the 165 MHz TMDS character rate ceiling
+from supported_hdmi_ver and reject modes exceeding it before invoking
+the driver's .tmds_char_rate_valid() hook.  This makes the explicit mode
+clock check in sun4i_hdmi_connector_clock_valid() redundant, so drop it.
+
+No functional change intended.
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 3 ---
- include/drm/bridge/dw_hdmi_qp.h              | 1 -
- 2 files changed, 4 deletions(-)
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index a2277531182c..fcbc518cd90a 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -1295,9 +1295,6 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
- 	/* Clear DONE and ERROR interrupts */
- 	dw_hdmi_qp_write(hdmi, I2CM_OP_DONE_CLEAR | I2CM_NACK_RCVD_CLEAR,
- 			 MAINUNIT_1_INT_CLEAR);
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index d98b6f12a7bc..6f4fe0c8efae 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -192,10 +192,6 @@ sun4i_hdmi_connector_clock_valid(const struct drm_connector *connector,
+ 	if (mode->flags & DRM_MODE_FLAG_DBLCLK)
+ 		return MODE_BAD;
+ 
+-	/* HDMI 1.0 max TMDS character rate */
+-	if (clock > HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ)
+-		return MODE_CLOCK_HIGH;
 -
--	if (hdmi->phy.ops->setup_hpd)
--		hdmi->phy.ops->setup_hpd(hdmi, hdmi->phy.data);
+ 	rounded_rate = clk_round_rate(hdmi->tmds_clk, clock);
+ 	if (rounded_rate > 0 &&
+ 	    max_t(unsigned long, rounded_rate, clock) -
+@@ -253,6 +249,15 @@ static struct i2c_adapter *sun4i_hdmi_get_ddc(struct device *dev)
  }
  
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index b4fb1c578a5b..ad33f9cafdeb 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -16,7 +16,6 @@ struct dw_hdmi_qp_phy_ops {
- 	int (*init)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable)(struct dw_hdmi_qp *hdmi, void *data);
- 	enum drm_connector_status (*read_hpd)(struct dw_hdmi_qp *hdmi, void *data);
--	void (*setup_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*enable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- };
+ static const struct drm_connector_hdmi_funcs sun4i_hdmi_hdmi_connector_funcs = {
++	/*
++	 * NOTE: Those are likely to be wrong, but I couldn't find
++	 * the actual ones in the BSP.
++	 */
++	.vendor = "AW",
++	.product = "HDMI",
++	.supported_hdmi_ver = HDMI_VERSION_1_2,
++	.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++	.max_bpc = 8,
+ 	.tmds_char_rate_valid	= sun4i_hdmi_connector_clock_valid,
+ 	.avi = {
+ 		.clear_infoframe	= sun4i_hdmi_clear_avi_infoframe,
+@@ -654,19 +659,11 @@ static int sun4i_hdmi_bind(struct device *dev, struct device *master,
+ 
+ 	drm_connector_helper_add(&hdmi->connector,
+ 				 &sun4i_hdmi_connector_helper_funcs);
+-	ret = drmm_connector_hdmi_ini2(drm, &hdmi->connector,
+-				       /*
+-					* NOTE: Those are likely to be
+-					* wrong, but I couldn't find the
+-					* actual ones in the BSP.
+-					*/
+-				       "AW", "HDMI",
++	ret = drmm_connector_hdmi_init(drm, &hdmi->connector,
+ 				       &sun4i_hdmi_connector_funcs,
+ 				       &sun4i_hdmi_hdmi_connector_funcs,
+ 				       DRM_MODE_CONNECTOR_HDMIA,
+-				       hdmi->ddc_i2c,
+-				       BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
+-				       8);
++				       hdmi->ddc_i2c);
+ 	if (ret) {
+ 		dev_err(dev,
+ 			"Couldn't initialise the HDMI connector\n");
 
 -- 
 2.55.0
