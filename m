@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4706BC624CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D639C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eptbgNmTS4rkLSwMh/pJm6Fg1kYiL08r3P/b5PdQUAE=; b=17TxJYA1TLRL36gsEvDD7Q8eos
-	Cbxo4YpQASB5YSYtLehYMx6UjqgjYzlFRZsNm0XUuuUY0U3VRvKpSrddlsXX+LaRBkNO9z5N3yuAT
-	c+Ntr2c0S64yMgRBf2kU4/RPZNFTFhF2qssGBSWQT/YBZKSHNbPET9QDwFCUp0d6l5fU1bthFPmt1
-	/gnc856NfT/5nG26j5I8FPHb7RNaN1A98AaJnYZ/ql2Q73DH//3dVU9oSbjyR0zrU8J0ulpZ/p4b1
-	TQ6BlLHTIjuojCe56YoH5VNiR8AhvBcmGuz/gw7oQeO/aC2wWh7r2Tuk2Zl4NXPChkaCAXZNCZT9Q
-	x3a7Fjyw==;
+	bh=DcGXRbOjTcgaUXDimFb+w2dbIkSAxSexDhooE+XIces=; b=IqtkIX+fmFBcfrIHKdo/ia5pee
+	CQ7CFixhAJ2/VL+d5EnbRrkt2f7ssTqTv2krIl8Z02z23ryBXeXj5xtN7SoIBvO1qReF72ahxe2oB
+	zzVu7zPPQgLDqJWbN5rGge5CvLjhs7hKQPeqYT6I9q0pCw3ieZeJ8iDt7ozEl6i1y9s+8RAcX8LLm
+	TEpKG5iQNazulZWB+P0QRwq24fpwD5cF+gKy0JLR5vw8LKmPRNOl1/VMGF2mgD4pc0SLInr0kO8F6
+	cyHek20+UtyJnEJc0TxvBpVRMXqhIpBwYWOE5umpSCDFvWIGg4JraHHppnK4AWdbinrDzwOoHkx4k
+	Dg7nrcpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZB-0000000BCpp-2iis;
-	Tue, 01 Sep 2026 08:10:01 +0000
-Received: from mail-ed1-x547.google.com ([2a00:1450:4864:20::547])
+	id 1x1JZF-0000000BCuw-07n7;
+	Tue, 01 Sep 2026 08:10:05 +0000
+Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZ8-0000000BCku-40mY
+	id 1x1JZC-0000000BCo6-0WWF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:10:00 +0000
-Received: by mail-ed1-x547.google.com with SMTP id 4fb4d7f45d1cf-6a178080182so4805430a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:09:58 -0700 (PDT)
+	Tue, 01 Sep 2026 08:10:03 +0000
+Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6a18e611c82so4620838a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:10:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788250197; x=1788854997; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788250200; x=1788855000; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eptbgNmTS4rkLSwMh/pJm6Fg1kYiL08r3P/b5PdQUAE=;
-        b=X6MnDNZRaEot+yqLoYsS8CuwYjp18Wc9Lz6qw8941eug9mw4wOUS50fetGQg2M7QEn
-         hynfVeFkta94/W9yAHGBcKpMV8eYJUwBW77jbjAst4LNlRLq/H/X3JWT2Fs5B8YCSBKF
-         qLSNV3TU75uggiT4K8Fin0/l1TX5DXz94Kw65zw8FOMh31uHD/raOrYuvT11JTr8yqV3
-         xlPIZGr//Qno+qiSfGFePbPl2GMhBWKK0Pc4Gqd468Sn7UAxkC0Bim7dZcCSaSJuhSXP
-         gm95DAYzHNKzXDQgGbPTStg+xQ++Kum3/Knr8/s9kH/89X2OjOG4J/8VIp/G52pr8Ell
-         A1VQ==
+        bh=DcGXRbOjTcgaUXDimFb+w2dbIkSAxSexDhooE+XIces=;
+        b=fC7NBzhxLyjUmdQQ8+KcwjNP212qflHvZo++BFJMcRJww7M1Hl9FMBWoyuatLajmHh
+         v7QcKYIItfKvgKXxte4ZR63YmXJ2XdzIHiQ1l5UwUL55f6CU5suuXO0ynPwyvEHBUpTk
+         DGM0TtYXD4rUnpf2Qml/mN2SFQhmDzIaCbYhwX8IFUNQb60wqq2DLfEmYyVAh8V1syW5
+         FtJJTdIVlYP20F64y8Fc7Soqvx5nJSL66eRttpv85r6tKW5EnzIfAM/SPMVnJrWWaLW6
+         i92oMdAxMv3tE1KsE+t7nOWioRZ9IOsq4zC11GYH2hArXFSLvAA6IJJk962jRP9sYOzB
+         nl9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788250197; x=1788854997;
+        d=1e100.net; s=20251104; t=1788250200; x=1788855000;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eptbgNmTS4rkLSwMh/pJm6Fg1kYiL08r3P/b5PdQUAE=;
-        b=NZpi45V49SC7F9cTk+kVzVKJhheNY8sqlC/AiNOUT9YGv5REnCc9cepI85pSID2NOD
-         eucKVpnGOL2VczDVVqg0dSXfcuc7ijb7YB2TiWYlh4yPoszThPHoywKObAc7AGvo3PBc
-         VSUeNgYQk3zkIj3HYWQNtlmIVrK67Es+a4EpGKS3+motMll7apAA9o7VvNOzkbblJEZ1
-         UY8rOcT7cI6gLfkdFbXDmcQlHObRPMzU8OPj9koQjm1co5sodAfqYYi8SuSguQ56I8T4
-         w4JcaevlVKunJIZNiEQCkOWNyD1v8qSmG+5r66gLVTmNvc4ikL//6GOpTQCQ8Abkxc5g
-         n3Gw==
-X-Forwarded-Encrypted: i=1; AKwUvBztSZljzSgBJTCwtl82W9mUvV08Sr93yzw8apQfj48DpKScuJLPdkfK0Hl11r/MxQhJKGIUrabCAWXKW08JCaln@lists.infradead.org
-X-Gm-Message-State: AFuF++mok1YWqr0Z0i3b28raFb3qzdx5+8oNRs4dFhLYnpzn5jWGsWIV
-	PeeCP7Xjmo3zZtIUSBXMqGcXPeGZTX8vbPvO6CXD4BKyXpm8la2YQOYDaoW45rvbEUunwdm6tLR
-	hoedkeWVxNHDwMQ6WPXAiCg==
-X-Received: from edgi18-n2.prod.google.com ([2002:a05:6402:a592:20b0:6a6:72b4:df94])
+        bh=DcGXRbOjTcgaUXDimFb+w2dbIkSAxSexDhooE+XIces=;
+        b=P5AR8RYe61pQIxmXtuaVWxWRydulJYQbdkuG0lWjviM1Mt6IXALqjF0g2/7DlO3+OJ
+         AW+u7giBn6Q1TyrqQINbJQyuooYhuseDEm4lt0v3CjvyW3EZhfWmmBOwf1gHSQgxnhbv
+         r0IlY+VZg2TGrliHxwQOjNoD2ZNN3xM2qY55nie0oN5N0VpIxaAES4d0aUYZbXsdcu1K
+         if9ihHnDPmsDI3KZSOiV0HzZEzbTm7eLrcukYR1edPG55WLLMbb6qrnwwzIo/IMUQOaN
+         kqGLl9dFQyEH0nyoM6FOKNo3Y/WDY8PSZW6/4/EM5p/bpkhdpsVhco44lZCNN+BF/CgJ
+         sNJQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzdgqoab822JpyhWzNVgr9CSvaEO/t+xAjb6ZkKj3R/3vhTKWRhizvedPP6QOxKDW2E2/jhYSLlz81S85zJEKjL@lists.infradead.org
+X-Gm-Message-State: AFuF++lEH/352jtwDVZQ6pbBBAW2AaEttYC0sGPhkTdDQGdr0u7KZrBS
+	QN7KgC+kIJRrcZoQqg24V8/ksylZ4ad/JjKQy653mWU8kAOtD7DI4Mt792vwx6PDTNtQLC9p4YL
+	us/+2Yu7IYyvgJWqWYKbHQQ==
+X-Received: from edat36.prod.google.com ([2002:a05:6402:2424:b0:6a6:7416:c649])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:4285:b0:6a5:dd97:23ea with SMTP id 4fb4d7f45d1cf-6a60d3715b5mr20153705a12.11.1788250196848;
- Tue, 01 Sep 2026 01:09:56 -0700 (PDT)
-Date: Tue,  1 Sep 2026 09:09:30 +0100
+ 2002:a05:6402:505c:b0:6a6:489:e89b with SMTP id 4fb4d7f45d1cf-6a60d33f88dmr17579445a12.5.1788250199559;
+ Tue, 01 Sep 2026 01:09:59 -0700 (PDT)
+Date: Tue,  1 Sep 2026 09:09:32 +0100
 In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260901080941.997769-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260901080941.997769-8-vdonnefort@google.com>
-Subject: [PATCH v5 07/18] KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
+Message-ID: <20260901080941.997769-10-vdonnefort@google.com>
+Subject: [PATCH v5 09/18] KVM: arm64: Add selftests for the pKVM heap allocator
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_010959_170084_F606ACC3 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260901_011002_232429_D1D79376 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,179 +93,393 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new pkvm_hyp_request type asking the host to top up the pKVM
-heap allocator.
+Introduce a comprehensive runtime selftest for the pKVM hypervisor heap
+allocator, executed during init when CONFIG_NVHE_EL2_DEBUG is enabled.
 
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+The selftest runs entirely at EL2 and exercises allocator's core
+mechanisms:
+
+  * over-sized allocations
+  * basic allocation and alignment
+  * chunk recycling, splitting, merging
+  * memory reclaiming
+  * memory topup
+
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
 diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index e5b92ac09e69..de59e89318fa 100644
+index fc3c52b03154..0a8df74a7b4e 100644
 --- a/arch/arm64/include/asm/kvm_asm.h
 +++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -89,6 +89,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
+@@ -92,6 +92,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_reclaim,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_reclaimable,
++	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_selftest,
  
  	MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
  
 diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 19bddf261c82..5ea5633705ef 100644
+index 5ea5633705ef..366bbd5c854b 100644
 --- a/arch/arm64/include/asm/kvm_pkvm.h
 +++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -17,6 +17,10 @@
+@@ -19,8 +19,10 @@
  
- #define HYP_MEMBLOCK_REGIONS 128
+ enum pkvm_topup_id {
+ 	PKVM_TOPUP_HYP_ALLOC,
++	PKVM_TOPUP_HYP_ALLOC_SELFTEST,
+ };
  
-+enum pkvm_topup_id {
-+	PKVM_TOPUP_HYP_ALLOC,
-+};
-+
++void pkvm_selftests(void);
  int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
  int pkvm_create_hyp_vm(struct kvm *kvm);
  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-@@ -207,6 +211,7 @@ struct pkvm_mapping {
- 
+@@ -212,6 +214,7 @@ struct pkvm_mapping {
  enum pkvm_hyp_req_type {
  	PKVM_HYP_NO_REQ = 0,
-+	PKVM_HYP_REQ_HYP_ALLOC,
+ 	PKVM_HYP_REQ_HYP_ALLOC,
++	PKVM_HYP_REQ_HYP_ALLOC_SELFTEST,
  	__PKVM_HYP_REQ_TYPE_MAX,
  };
  
-@@ -228,9 +233,13 @@ struct pkvm_hyp_req {
- 
- static inline size_t pkvm_hyp_req_arg_size(u8 type)
- {
-+	struct pkvm_hyp_req *req;
-+
- 	switch (type) {
+@@ -239,6 +242,7 @@ static inline size_t pkvm_hyp_req_arg_size(u8 type)
  	case PKVM_HYP_NO_REQ:
  		return 0;
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		return sizeof(req->mem);
+ 	case PKVM_HYP_REQ_HYP_ALLOC:
++	case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
+ 		return sizeof(req->mem);
  	default:
  		WARN_ON(1);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90..09ae5431ce58 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2914,6 +2914,8 @@ static int __init init_hyp_mode(void)
+ 			kvm_err("Failed to init hyp memory protection\n");
+ 			goto out_err;
+ 		}
++
++		pkvm_selftests();
  	}
+ 
+ 	return 0;
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/alloc.h b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+index 8f87a63f8946..bca0168e0046 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/alloc.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+@@ -14,4 +14,15 @@ int hyp_alloc_init(size_t size);
+ int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc);
+ unsigned long hyp_alloc_reclaimable(void);
+ void hyp_alloc_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
++
++#ifdef CONFIG_NVHE_EL2_DEBUG
++int hyp_allocator_selftest(void);
++u32 hyp_alloc_selftest_topup_needed(void);
++int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc);
++void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
++#else
++static inline int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc) { return 0; };
++static inline void
++hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target) { };
++#endif
+ #endif
+diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
+index 32435782030b..3b83de90472a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/alloc.c
++++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
+@@ -1001,9 +1001,17 @@ int hyp_alloc_errno(void)
+ 	return hyp_allocator_errno(&hyp_allocator);
+ }
+ 
++static int selftest_init(void);
++
+ int hyp_alloc_init(size_t size)
+ {
+-	return hyp_allocator_init(&hyp_allocator, size);
++	int ret;
++
++	ret = hyp_allocator_init(&hyp_allocator, size);
++	if (ret)
++		return ret;
++
++	return selftest_init();
+ }
+ 
+ void hyp_alloc_reclaim(struct kvm_hyp_memcache *mc, unsigned long target)
+@@ -1025,3 +1033,179 @@ u32 hyp_alloc_topup_needed(void)
+ {
+ 	return hyp_allocator_topup_needed(&hyp_allocator);
+ }
++
++#ifdef CONFIG_NVHE_EL2_DEBUG
++#define SELFTEST_MAX_PAGES 6
++#define SELFTEST_MAX_SIZE (PAGE_SIZE * SELFTEST_MAX_PAGES)
++
++static DEFINE_PER_CPU(int, __selftest_errno);
++static DEFINE_PER_CPU(u32, __selftest_topup_needed);
++
++static struct hyp_allocator selftest_allocator = {
++	.errno = &__selftest_errno,
++	.topup_needed = &__selftest_topup_needed,
++	.lock = __HYP_SPIN_LOCK_UNLOCKED,
++};
++
++int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc)
++{
++	return hyp_allocator_topup(&selftest_allocator, host_mc);
++}
++
++void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target)
++{
++	hyp_allocator_reclaim(&selftest_allocator, host_mc, target);
++}
++
++u32 hyp_alloc_selftest_topup_needed(void)
++{
++	return hyp_allocator_topup_needed(&selftest_allocator);
++}
++
++static int selftest_init(void)
++{
++	return hyp_allocator_init(&selftest_allocator, SELFTEST_MAX_SIZE);
++}
++
++static void *selftest_alloc(size_t size)
++{
++	return hyp_allocator_alloc(&selftest_allocator, size);
++}
++
++static void selftest_free(void *addr)
++{
++	hyp_allocator_free(&selftest_allocator, addr);
++}
++
++static int selftest_errno(void)
++{
++	return hyp_allocator_errno(&selftest_allocator);
++}
++
++int hyp_allocator_selftest(void)
++{
++	struct hyp_allocator *allocator = &selftest_allocator;
++	static DEFINE_HYP_SPINLOCK(selftest_lock);
++	struct kvm_hyp_memcache host_mc = { };
++	void *addr1, *addr2, *addr3, *addr4;
++	int ret;
++
++	guard(hyp_spinlock)(&selftest_lock);
++
++	if (allocator->mc.nr_pages < SELFTEST_MAX_PAGES) {
++		*this_cpu_ptr(allocator->topup_needed) = SELFTEST_MAX_PAGES -
++							 allocator->mc.nr_pages;
++		return -ENOMEM;
++	}
++
++	selftest_alloc(SELFTEST_MAX_SIZE);
++	if (selftest_errno() != -E2BIG)
++		return -EINVAL;
++
++	selftest_alloc(SIZE_MAX);
++	if (selftest_errno() != -E2BIG)
++		return -EINVAL;
++
++	/* Test first chunk */
++	addr1 = selftest_alloc(0);
++	if (!addr1 || addr1 != (void *)allocator->start + chunk_hdr_size())
++		return -EINVAL;
++
++	/* Test second contiguous chunk with unaligned size */
++	addr2 = selftest_alloc(MIN_ALLOC_SIZE + 1);
++	if (!addr2)
++		return -EINVAL;
++	addr3 = selftest_alloc(0);
++	if (!addr3 ||
++	    addr3 != addr2 + (2 * MIN_ALLOC_SIZE) + chunk_hdr_size())
++		return -EINVAL;
++
++	selftest_free(addr3);
++
++	/* Test chunk recycling */
++	selftest_free(addr1);
++	if (addr1 != selftest_alloc(0))
++		return -EINVAL;
++
++	/* Test chunk forward merging */
++	addr3 = selftest_alloc(0);
++	selftest_free(addr2);
++	selftest_free(addr1);
++	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
++		return -EINVAL;
++
++	selftest_free(addr1);
++
++	/* Test chunk splitting */
++	if (addr1 != selftest_alloc(0))
++		return -EINVAL;
++	if (addr2 != selftest_alloc(0))
++		return -EINVAL;
++
++	/* Test chunk backward merging */
++	selftest_free(addr1);
++	selftest_free(addr2);
++	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
++		return -EINVAL;
++
++	selftest_free(addr1);
++
++	/* Test chunk 3-way merging */
++	addr1 = selftest_alloc(0);
++	addr2 = selftest_alloc(0);
++	addr4 = selftest_alloc(0);
++	selftest_free(addr1);
++	selftest_free(addr3);
++	selftest_free(addr2);
++	if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 3))
++		return -EINVAL;
++
++	selftest_free(addr4);
++	selftest_free(addr1);
++
++	/* Test reclaiming */
++	if (addr1 != selftest_alloc(0))
++		return -EINVAL;
++	if (addr2 != selftest_alloc(PAGE_SIZE * 2))
++		return -EINVAL;
++	addr3 = selftest_alloc(0);
++	addr4 = selftest_alloc(PAGE_SIZE);
++
++	/* Test reclaiming the last chunk of the list */
++	selftest_free(addr4);
++	hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
++	if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 3)
++		return -EINVAL;
++
++	/* Test punching a hole in the middle of a free chunk ... */
++	selftest_free(addr2);
++	hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
++	if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 2)
++		return -EINVAL;
++
++	if (selftest_alloc(PAGE_SIZE))
++		return -EINVAL;
++	if (selftest_errno() != -ENOMEM)
++		return -EINVAL;
++
++	/* ... and to refill this hole */
++	ret = hyp_allocator_topup(allocator, &host_mc);
++	if (ret)
++		return ret;
++	/* Chunk at addr2 was made smaller by the reclaim */
++	if (addr2 != selftest_alloc(PAGE_SIZE))
++		return -EINVAL;
++
++	/* Test reclaiming the entire allocator from the host */
++	selftest_free(addr3);
++	selftest_free(addr2);
++	selftest_free(addr1);
++	if (addr1 != selftest_alloc(SELFTEST_MAX_PAGES * PAGE_SIZE - chunk_hdr_size()))
++		return -EINVAL;
++	selftest_free(addr1);
++
++	return 0;
++}
++#else
++static int selftest_init(void) { return 0; }
++#endif
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 9a3b92e626ad..0e590261f1cc 100644
+index 62567560e1a5..563be134c0cb 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -17,6 +17,7 @@
- #include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- 
-+#include <nvhe/alloc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-@@ -826,6 +827,30 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
+@@ -827,6 +827,22 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
  	cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
  }
  
-+static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
++static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
 +{
-+	DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
-+	DECLARE_REG(phys_addr_t, head, host_ctxt, 2);
-+	DECLARE_REG(unsigned long, nr_pages, host_ctxt, 3);
-+	struct kvm_hyp_memcache host_mc = {
-+		.head = head,
-+		.nr_pages = nr_pages,
-+	};
-+	int ret;
++	struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
++	int ret = -EPERM;
 +
-+	switch (id) {
-+	case PKVM_TOPUP_HYP_ALLOC:
-+		ret = hyp_alloc_topup(&host_mc);
-+		break;
-+	default:
-+		ret = -EINVAL;
++#ifdef CONFIG_NVHE_EL2_DEBUG
++	ret = hyp_allocator_selftest();
++	if (ret == -ENOMEM) {
++		req.type = PKVM_HYP_REQ_HYP_ALLOC_SELFTEST;
++		req.mem.nr_pages = hyp_alloc_selftest_topup_needed();
 +	}
-+
++#endif
 +	cpu_reg(host_ctxt, 1) = ret;
-+	cpu_reg(host_ctxt, 2) = host_mc.head;
-+	cpu_reg(host_ctxt, 3) = host_mc.nr_pages;
++	pkvm_hyp_req_to_smccc(host_ctxt, &req);
 +}
 +
- static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
+ static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
  {
- 	DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
-@@ -934,6 +959,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
- 	HANDLE_FUNC(__vgic_v5_save_apr),
- 	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-+	HANDLE_FUNC(__pkvm_hyp_topup),
+ 	DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
+@@ -842,6 +858,9 @@ static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
+ 	case PKVM_TOPUP_HYP_ALLOC:
+ 		ret = hyp_alloc_topup(&host_mc);
+ 		break;
++	case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
++		ret = hyp_alloc_selftest_topup(&host_mc);
++		break;
+ 	default:
+ 		ret = -EINVAL;
+ 	}
+@@ -862,6 +881,9 @@ static void handle___pkvm_hyp_reclaim(struct kvm_cpu_context *host_ctxt)
+ 	case PKVM_TOPUP_HYP_ALLOC:
+ 		hyp_alloc_reclaim(&host_mc, target);
+ 		break;
++	case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
++		hyp_alloc_selftest_reclaim(&host_mc, target);
++		break;
+ 	default:
+ 		ret = -EINVAL;
+ 	}
+@@ -998,6 +1020,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_hyp_topup),
+ 	HANDLE_FUNC(__pkvm_hyp_reclaim),
+ 	HANDLE_FUNC(__pkvm_hyp_reclaimable),
++	HANDLE_FUNC(__pkvm_hyp_alloc_selftest),
  
  	HANDLE_FUNC(__pkvm_host_share_hyp),
  	HANDLE_FUNC(__pkvm_host_unshare_hyp),
 diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 11d9e2f70cd8..9cd23978481c 100644
+index fec819a9dc78..7821f2592eba 100644
 --- a/arch/arm64/kvm/pkvm.c
 +++ b/arch/arm64/kvm/pkvm.c
-@@ -88,6 +88,33 @@ void __init kvm_hyp_reserve(void)
- 		 hyp_mem_base);
+@@ -344,6 +344,22 @@ static int __init pkvm_drop_host_privileges(void)
+ 	return ret;
  }
  
-+static int pkvm_hyp_topup(enum pkvm_topup_id id, unsigned long nr_pages)
++void __init pkvm_selftests(void)
 +{
-+	struct kvm_hyp_memcache mc;
-+	struct arm_smccc_res res;
-+	int ret;
++#ifdef CONFIG_NVHE_EL2_DEBUG
++	int ret = pkvm_call_hyp_req(__pkvm_hyp_alloc_selftest);
++	unsigned long reclaimed;
 +
-+	init_hyp_memcache(&mc);
-+	ret = topup_hyp_memcache(&mc, nr_pages);
-+	if (ret)
-+		goto err;
++	reclaimed = pkvm_hyp_reclaim(PKVM_TOPUP_HYP_ALLOC_SELFTEST, ULONG_MAX);
 +
-+	arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__pkvm_hyp_topup), id, mc.head,
-+			  mc.nr_pages, &res);
-+	if (WARN_ON_ONCE(res.a0 != SMCCC_RET_SUCCESS)) {
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+
-+	ret = res.a1;
-+	mc.head = res.a2;
-+	mc.nr_pages = res.a3;
-+
-+err:
-+	free_hyp_memcache(&mc);
-+	return ret;
++	/* On failure, not all the pages may be reclaimable */
++	if (!ret)
++		WARN_ON(reclaimed != 6 /* SELFTEST_MAX_PAGES */);
++	else
++		kvm_err("pKVM hyp allocator selftest failed (%d)\n", ret);
++#endif
 +}
 +
- static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
+ static int __init finalize_pkvm(void)
  {
- 	if (pkvm_hyp_vm_is_created(kvm)) {
-@@ -603,6 +630,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
- 	int ret = -EINVAL;
- 
- 	switch (req->type) {
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
+ 	int ret;
+@@ -677,6 +693,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
+ 	case PKVM_HYP_REQ_HYP_ALLOC:
+ 		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
+ 		break;
++	case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
++		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC_SELFTEST, req->mem.nr_pages);
 +		break;
  	}
  
  	trace_kvm_handle_pkvm_hyp_req(req, ret);
-diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
-index 3966c111e3ad..493225e3282d 100644
---- a/arch/arm64/kvm/trace_pkvm.h
-+++ b/arch/arm64/kvm/trace_pkvm.h
-@@ -9,9 +9,11 @@
- #define TRACE_SYSTEM kvm
- 
- TRACE_DEFINE_ENUM(PKVM_HYP_NO_REQ);
-+TRACE_DEFINE_ENUM(PKVM_HYP_REQ_HYP_ALLOC);
- 
--#define PKVM_HYP_REQ_TYPES \
--	{ PKVM_HYP_NO_REQ, "NO_REQ" }
-+#define PKVM_HYP_REQ_TYPES				\
-+	{ PKVM_HYP_NO_REQ, "NO_REQ" },			\
-+	{ PKVM_HYP_REQ_HYP_ALLOC, "HYP_ALLOC" }
- 
- TRACE_EVENT(kvm_handle_pkvm_hyp_req,
- 	TP_PROTO(struct pkvm_hyp_req *req, int ret),
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
