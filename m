@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB5EC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEDFC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+lig2wWateZ3qcPGa65gSpdC8pzSuwuFnuWLnmFIX0g=; b=FT2H05bHU8pbxF4w8BiXnDbBX6
-	tXdDssBtF9FUY23fFsvx9yEjR/fdzuyZD/vkvUe/KkX7ZUlLp9/SrdwYQMIRN4dfrOc7NRMDNPl2e
-	rRqMKIOHSsbzUSHRsYW5psnQF7VR9bhuwYMsqMhgrvdis1Y5CEncuwcFLvXpO2eJLUArtA0CTawUW
-	z5q9UabH8nEz3H773DuKLzffIg9eQnkCthl5Idk79N/dM1NifhU+IkgyRKF0p6+2EAFZow3D6GYMW
-	nKtIZzlKO8UO08MSVMPr2x2S0yaJGdyExTVXMyR4Rbf2qBfpWu2F6N+pAn5xPt4KclwbiHJI0wCan
-	XXmYrxew==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bksl1grHHC9ENwLdrKoV8nNZBnNNdWkVPDuvfgKcTeo=; b=1nYC+1rV27MYbhxwtagngSpyCn
+	wAW1QlfMsbM4KzieU8r6ZPLaa0bAd17PWo01KE9j4zj4HyUXhKA/dfipRUgPJiXVtRvRiiltcqRr3
+	HREB7y6Sggp4BHx2CJxnIXka45SEv3xH9tmMPSrBMuXFp/EIPZAq7JJwh/thuUpwRId20jFkptSt4
+	r7u7qn821HrLJ5rEYElWTQS8WxwRqUN1tb5ceeRvW9w3iz/KLX7mmnk9Ib+csut9dDnTxie0zMKcW
+	2bEdOoO9+aHTmx9+pVSnMDzpVd6UIeFYSzrD3DXH6OT4WJGJwoHNhRARBN48NCdzRU7O/H96Ox5pY
+	WUflLXwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P5L-0000000CGqf-0lbK;
-	Tue, 01 Sep 2026 14:03:35 +0000
-Received: from out-137.mta1.migadu.com ([2001:41d0:203:375::89] helo=mta1.migadu.com)
+	id 1x1P5Q-0000000CGsN-1Ay3;
+	Tue, 01 Sep 2026 14:03:40 +0000
+Received: from out-140.mta1.migadu.com ([2001:41d0:203:375::8c] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P5H-0000000CGqF-2Ld3
+	id 1x1P5N-0000000CGqh-0P7k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 14:03:33 +0000
+	Tue, 01 Sep 2026 14:03:38 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=xqsWMT0UQL17844m89J+TS6qe4Mn9+Ht1tW6y+PjAdY=;
+DKIM-Signature: a=rsa-sha256; bh=YdyDvE3tN60IKzKfKyZI9bbbKb+LrCKA/IsBMvtv8gM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788271409; v=1; x=1788876209;
- b=TUagjlPLAPvFNTOOEOKoiSPdvh2J/8nYFwMlBNCt2zZPumBzRH9XCm/xnMJbW6ASlX6iPQJi
- v3/7TqEXL4Fs4mxUdP+OuCqB1JnZJy/R6ou+TonAgQ4FlCTtpPbaUhakc69q300aFRdFesfHQNv
- AxL8gCfOOxjvfRCFO4EjpJbE=
+ t=1788271414; v=1; x=1788876214;
+ b=wNvglYEEkCn5ctxkoaG1x9yj5bMTOzdWIVJtg4/BwOtjisOrJDYkJv7ykQD2IwaXu4kwCSFW
+ jMyTcMBbfqUp0dkho8Ce51V99XZuiAGUoAT52kT3Cj9xMqSUmMGWwpDFQbM+fe8YxbnB4d4iG8D
+ iPGZAHtpYvxpUCiZRoKiZZk8=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 4bf510939060550e;
-	Tue, 01 Sep 2026 14:03:28 +0000
-X-Mizu-Trace-ID: 4bf510939060550e
+Received: by smtp.migadu.com with ESMTPS id ef121039728df9a3;
+	Tue, 01 Sep 2026 14:03:34 +0000
+X-Mizu-Trace-ID: ef121039728df9a3
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -61,14 +61,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-trace-kernel@vger.kernel.org,
 	Fuad Tabba <tabba@google.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>
-Subject: [PATCH v4 00/11] KVM: arm64: Restore type-checking across the host/hyp hypercall boundary
-Date: Tue,  1 Sep 2026 15:03:15 +0100
-Message-Id: <20260901140326.3812068-1-fuad.tabba@linux.dev>
+Subject: [PATCH v4 01/11] tracing: Include linux/types.h in trace_remote_event.h
+Date: Tue,  1 Sep 2026 15:03:16 +0100
+Message-Id: <20260901140326.3812068-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260901140326.3812068-1-fuad.tabba@linux.dev>
+References: <20260901140326.3812068-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_070332_088395_A243CC0D 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20260901_070337_278045_994EE7C0 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,153 +86,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+trace_remote_event.h uses bool without including linux/types.h, so a
+translation unit that includes it ahead of anything else that pulls
+types.h in fails to build, as with nvhe/trace.h at EL2.
 
-Changes since v3 [1]:
-  - Rebased onto 7.3-rc1. The pkvm-7.3 handler rework that made patches
-    9-11 deviate on kvmarm/next is upstream now, so there is a single
-    version of the series again. It applies to kvmarm/next unchanged.
-  - Dropped the Fixes: tag from patch 1. No config fails to build
-    without the include, so it is a self-containment fix rather than a
-    fix for an active break. (Steven)
-  - Collected Marc's series-wide Reviewed-by, and Vincent's on patch 1.
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Acked-by: Steven Rostedt <rostedt@goodmis.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ include/linux/trace_remote_event.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The SMCCC conversion of the host/hyp interface reduced every hypercall
-to a function number and a pile of registers: kvm_call_hyp_nvhe() never
-shows the compiler a callable, so the caller's arguments and the
-handler's DECLARE_REG() casts can disagree in type, count or order
-without a diagnostic. Reviewing a fix for exactly that class of bug,
-Marc wrote [2]:
-
-  "we lost all form of type-checking when everything was hastily
-   converted to SMCCC to avoid function pointers. Somehow, I feel that
-   the cure was worse than the disease.
-
-   I wish we'd reintroduce some form of compile-time checks, maybe by
-   having generated stubs?"
-
-and sketched how he would do it [3]: a generated nvhe_hvc_##f()
-stub that does the type-checking, driven by "some form of declarative
-IDL", with "both the caller and callee stubs ... totally generated".
-
-This series implements that, in plain preprocessor macros rather than
-an external generator, in the mold of the syscall wrappers. Each
-hypercall's signature is declared once, in kvm_hcall.h:
-kvm_call_hyp_nvhe() resolves to a typed nvhe_hvc_##f() stub generated
-from the declaration, and the hyp-main.c handlers unmarshal their
-arguments through glue that is type-checked against the same
-declaration. A mistyped or stale call, or a handler that drifts from
-its caller, now fails to compile. On top of that shared declaration,
-host-VA parameters gain a __kern sparse address space, so
-dereferencing one at EL2 without kern_hyp_va_host() translation is
-flagged by sparse. The address space is KVM-private and lives with the
-interface it annotates rather than in compiler_types.h, like x86's
-__seg_gs in asm/percpu.h. The deeper instances of that bug class, host
-VAs reached through struct fields after the boundary, are follow-up
-work.
-
-The declarations do not also generate the function-number enum or the
-dispatch table. The enum carries the availability-band markers that
-decide when each hypercall becomes reachable, and its base entry is
-consumed from assembly, so generating it would hide the banding. The
-remaining duplication cannot drift silently: a name mismatch between
-declaration, caller and handler fails to compile, and a missing
-dispatch-table entry is rejected at run time as
-SMCCC_RET_NOT_SUPPORTED.
-
-Along the way it turned out "make C=2" has never checked the nVHE
-objects at all: the custom %.nvhe.o rule reuses rule_cc_o_c, which
-only hooks the checker for C=1, and that only on a rebuild. Patches
-2-5 fix the hook and the handful of pre-existing sparse warnings it
-flushes out, so the checker lands clean. The libfdt objects under
-arch/arm64/kernel/pi/ have the same gap through the same rule, so
-patch 6 gives them the same one-line fix. It touches arm64 core
-rather than KVM, so it can go through either tree. Patch 1 is
-adjacent: trace_remote_event.h is not self-contained (it uses bool
-without including linux/types.h), which the nVHE include order had
-been silently working around. It can go through the tracing tree
-instead if preferred.
-
-The first six patches do not depend on the type-checking work (the
-tracing-header fix, the sparse cleanups, and the two C=2 hook fixes),
-so they could be taken on their own, ahead of the rest of the series
-if that is easier.
-
-The series is structured as follows:
-
-  01:     Make trace_remote_event.h self-contained.
-  02-04:  Fix the pre-existing sparse warnings in the nVHE code.
-  05:     Run the source checker on nVHE objects under C=2.
-  06:     Same for the libfdt objects under arch/arm64/kernel/pi/.
-  07:     Pass the host-VA hypercall arguments as pointers at EL2.
-  08:     Move the dispatch macros to a new kvm_hcall.h.
-  09:     Declare the hypercall signatures, type-check the callers.
-  10:     Generate the handler unmarshalling, type-check the handlers.
-  11:     Tag host-VA parameters __kern for sparse.
-
-The generated code is unchanged, checked by comparing the disassembly of
-every KVM object, function by function, against the base: the callers
-are identical apart from hypercall returns now being tested at their
-declared width and the stage-2 TLB-flush level argument now being
-sign-extended as it is loaded (an s8 passed as an int). The handlers are
-instruction-for-instruction identical apart from
-flush_hyp_vcpu()/sync_hyp_vcpu() being inlined into their only caller,
-and the two vgic_v3 apr handlers addressing the cpu_if directly where
-the base reached it at a fixed offset from the vcpu (patch 11). The
-extra argument that prompted the thread, a mistyped or reordered
-argument, and a handler that disagrees with its declaration all now fail
-to compile. checkpatch complains about the __KVM_HCALL_MAP() machinery,
-the (type, name) pair syntax and the generated signature typedefs, as it
-does about __MAP() in the syscall wrappers. The idiom cannot be
-parenthesized, and the typedef is what checks the handler against the
-declaration. Enforcing the __kern tag needs sparse v0.6.5-rc1 or later
-for __typeof_unqual__, as all sparse checking on current kernels does.
-No stable sparse release has it yet, so build from sparse.git
-(kbuild warns and skips the check on anything older).
-
-Based on Linux 7.3-rc1 (cee9395acd804).
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260804112317.1937387-1-fuad.tabba@linux.dev/
-[2] https://lore.kernel.org/all/86zf7po2n3.wl-maz@kernel.org/
-[3] https://lore.kernel.org/all/86wm2tnsd8.wl-maz@kernel.org/
-
-Fuad Tabba (11):
-  tracing: Include linux/types.h in trace_remote_event.h
-  KVM: arm64: nVHE: Share the stacktrace per-CPU declarations with EL2
-  KVM: arm64: nVHE: Declare the hyp event IDs before defining them
-  KVM: arm64: nVHE: Use NULL to reset the trace buffer backing pointer
-  KVM: arm64: nVHE: Run the source checker under C=2
-  arm64: pi: Run the source checker on the libfdt objects under C=2
-  KVM: arm64: nVHE: Pass host VA arguments as pointers
-  KVM: arm64: Move the host hypercall interface to its own header
-  KVM: arm64: Type-check hypercall arguments at the caller
-  KVM: arm64: nVHE: Check hypercall handlers against the declared ABI
-  KVM: arm64: Tag host-VA hypercall parameters __kern
-
- arch/arm64/include/asm/kvm_hcall.h       | 241 ++++++++++++
- arch/arm64/include/asm/kvm_host.h        |  48 +--
- arch/arm64/include/asm/kvm_mmu.h         |  10 +
- arch/arm64/include/asm/stacktrace/nvhe.h |  10 +-
- arch/arm64/kernel/pi/Makefile            |   1 +
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h   |   7 +-
- arch/arm64/kvm/hyp/include/nvhe/trace.h  |   5 +-
- arch/arm64/kvm/hyp/nvhe/Makefile         |   1 +
- arch/arm64/kvm/hyp/nvhe/events.c         |   2 +
- arch/arm64/kvm/hyp/nvhe/hyp-main.c       | 459 +++++++++++------------
- arch/arm64/kvm/hyp/nvhe/pkvm.c           |  12 +-
- arch/arm64/kvm/hyp/nvhe/stacktrace.c     |   3 +-
- arch/arm64/kvm/hyp/nvhe/trace.c          |   6 +-
- arch/arm64/kvm/hyp_trace.c               |   2 +-
- arch/arm64/kvm/stacktrace.c              |   3 -
- include/linux/trace_remote_event.h       |   2 +
- 16 files changed, 493 insertions(+), 319 deletions(-)
- create mode 100644 arch/arm64/include/asm/kvm_hcall.h
-
-
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+index c8ae1e1f5e721..e4cc2d4497bcf 100644
+--- a/include/linux/trace_remote_event.h
++++ b/include/linux/trace_remote_event.h
+@@ -3,6 +3,8 @@
+ #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
+ #define _LINUX_TRACE_REMOTE_EVENTS_H
+ 
++#include <linux/types.h>
++
+ struct trace_remote;
+ struct trace_event_fields;
+ struct trace_seq;
 -- 
 2.39.5
 
