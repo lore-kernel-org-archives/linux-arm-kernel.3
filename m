@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FCCC624D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB866C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XttkQrGGxgVvdqaU8oqPJsj1rOoam2GxZi/pM1qFyT4=; b=DCJ0uoj26FVfFGL7mfQ02qIrIJ
-	tWL6NYFn2agSm2aFDxl/m2yR5a1356+WBaELClpGfFMrYYPaIZ1/JnGZNPhc5LeO7pbwW3wI+pmMD
-	k+ri9dOxvUm/JNN5USsgzwzYHC+E/On5eKKU+0uT0f54dUA93Mdn5950PKvg/YjkZXNaVbqiIz1iw
-	5NpLcy5yYu/6dqyOXcI+W3PYL/EJDOHE8w9lEhCyXfzdUerNryOZHmJoCYVnbLLH7cRkebs8S3QOB
-	SeO1RY99iYkLhWWx+Y/gbgBBXMX50G1ixtB2l9GV2a61A+G6FqDu1WR0WhCHbwLhnGunTM7M/vOI0
-	kAgmRe9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hYZ9mTkKbflVQt98jHbC/mLce8oRUM09qM0H6dktBA8=; b=HP+1M8aF61zHq57/TyKAormA2b
+	Ot9wo/LIaaV8qoTOhpYcU7OFuSlfsKydgLdlXsLy31E9KOvJJBKsXZs/+n/iZBcRWIVh1w3bjcGuz
+	0lTpqlI/0d3LEIGFDdFg4/LJJnW026EBorAU+Mb9+5hcnwJx6WhrO9YUg4gf/FAeX0s6fvBdF2LZ2
+	6VvJJOQCJZFvFob9ZsZQZRnwhk/IUzg/IdPBbwMGHa7QvqcO0wBc12xpAVMHCGcjQ9Hys0UU/Urzt
+	m3JnAiOWHiazC+Ulsgyq2Bxj8yF12N9/adKFIe0SuTSy9hKVcjn+nMi5eH2S5WXVIlRrJi+w13dJc
+	X9PyhgvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OIa-0000000CAiw-2tPW;
-	Tue, 01 Sep 2026 13:13:12 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1x1ONk-0000000CCAe-3Sux;
+	Tue, 01 Sep 2026 13:18:32 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OIR-0000000CAUF-42Nx;
-	Tue, 01 Sep 2026 13:13:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=XttkQrGGxgVvdqaU8oqPJsj1rOoam2GxZi/pM1qFyT4=;
-	b=oqdtTUz137cwCvq0Vima4V9QcWzM4sStSL8ZtpjXR8tPlPAwKkGSMw/X2mcn8CYGdD1RMM1EU
-	0zBr7kXbFBEZNkx7360byyUndc2bPGLy9WXrEM88bvSKaENFLj7zly0SL4WVixAWzB+1+7mQTOJ
-	zMAr1SQGMXcfEmia1jBeVwQ=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hZ5bz1Nx9zRhRG;
-	Tue,  1 Sep 2026 21:02:07 +0800 (CST)
-Received: from dggpemr100018.china.huawei.com (unknown [7.185.36.64])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92A1240538;
-	Tue,  1 Sep 2026 21:12:54 +0800 (CST)
-Received: from huawei.com (10.50.85.155) by dggpemr100018.china.huawei.com
- (7.185.36.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 1 Sep
- 2026 21:12:53 +0800
-From: zhouminqiang <zhouminqiang2@huawei.com>
-To: <linux@armlinux.org.uk>, <vz@mleia.com>, <piotr.wojtaszczyk@timesys.com>,
-	<maddy@linux.ibm.com>, <dwmw2@infradead.org>, <richard@nod.at>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-mtd@lists.infradead.org>,
-	<chengzhihao1@huawei.com>, <yangerkun@huawei.com>, <yi.zhang@huawei.com>
-Subject: [PATCH v3 3/8] jffs2: replace per-superblock verify buffer with per-write buffer
-Date: Tue, 1 Sep 2026 21:05:44 +0800
-Message-ID: <20260901130549.1761342-4-zhouminqiang2@huawei.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
-References: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
+	id 1x1ONi-0000000CCA3-2TAx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 13:18:31 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-4843efcbdb2so1111413f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 06:18:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788268709; x=1788873509; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hYZ9mTkKbflVQt98jHbC/mLce8oRUM09qM0H6dktBA8=;
+        b=sLfCm8fr2xbO9TQ9FZtBFkeH1LA5byggbKN05osgqxHWljvfcsCVifFwbTgLsvjRE6
+         iSegskL2ICocHLa6S/LUVoe5D7pz0QJMUFNQPr5cnm9K7IuPPfP+tkPlDlxTLo+PjdG+
+         4eBh2vU1WRPabWu1s3wDNYnqVAsVYWLvPOQKY4m4ivfVw9LBY30FimA+lxmME5STuLp6
+         auIz1Le/YldawlyXKESNaj360VTomKx8m3fVxIkAbOznlG6oRbuknwmNj410dcxDdek4
+         7FpjeeEbQS+JsZZWKssydmywR+h0fdKn41lWu39aa9CJw3kg9fUyYMXrgHozdMtyI3X/
+         seUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788268709; x=1788873509;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hYZ9mTkKbflVQt98jHbC/mLce8oRUM09qM0H6dktBA8=;
+        b=ZdyC/jwiu1C57///MBMARp8+5pjGR3GVoYX/1cpiYCRVfqFwuBZ4Xu4M6JxWq6NuhS
+         BxKlZvhznW0oIlwaQ5dnrve+bfQ7+bQI3112xjNFMRrO8lo/xGxPEXeMNLKYdG2Fqeld
+         6bLmlGPJJMpdWXk4d0imp+MwcQjdBjQe3Xd6s0H8+2p2sbGAoA1qPjqiS3rDzyYzRSIf
+         wQprwDDrEcMxW3K+IoIxMSo7NRGVaoZEA0vFdZEokioltbkcZD++vNJBcR5rWRN4WXJ3
+         tf1HJrsyLcSSFPwwqRO75nl76la8CbGH6caLqRuIk5jT+0hHd1F5vsXrkBaSAhjxYP2a
+         rZuQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp1BAkg4MvTRRkMPd+2Uk8++QNG5vGjk+uY0bKDZUOa3OPQWnCWi9VN2+JP/Di6Od4eTwpbjF5NthCiVtr0A6K0@lists.infradead.org
+X-Gm-Message-State: AFuF++kD88fYeWoz4DA2QqvELdhD9xxAPzyu2R2cCO7XvmrxQksRrGki
+	QTxO0GkWpk3mtubF92MlzkUeKjGfQQAAN1ii9DDRtZt3WKDot5R58rII
+X-Gm-Gg: AR+sD11ccOqgBP6WpKwxs/iFfUJA6eT2pbPiG7w2SECNK5wgHPs35fntqZy3DBqvLJ/
+	PHofhc4rVCCv2c/kmDiZd1d/8NtZ9ujPYCB9zV1ykSdJJM2R/dkRUtGirCQxgOi3Zt8RVOVQpQk
+	DiExcVY9DP+su0Z0iRe/A0/6zesSyJrz42tr9mbFWJ58duNDlM+GYCQU5s7O8tY5CXj3x9kTWoI
+	p0VIfNZwUl8x1F6j1rdSP6FB2AQWScNjUHZQy5dKY+b8fMKCQNLQhESZrJ8kM3GpcsVegdtFqK0
+	PrYTKfxKsnXpkSh35U3iKKq8GCBr3uyLLDa2PRvCvCJueNrU84NbPmQRpp1lUfsaRUzMQ/s2Rk2
+	X7UfHWr/adLkVxrlD2uhaunqVXZ6kP49e+pkJ0PkyQav7Mm7Fdd6X8oy9Lgam1dLxYXWSItkPsK
+	T6o6pw92OqRWH9+FDigX9gUt/Z7NyF2fF/6rfi4KnqPLTOixMzx70tWk8FBl+FdONryM1uHdAMO
+	q1iRdXiEVrPjlSA9M0cVJYSUO4LHmtECMQq2seEoP+WCQQv1YnzhG075VtCsJbW3TK4VL65pC3w
+	cEaETcM2qjcAvv2kuX4QBpNvDcZkLNhhx277jgo1J0k97cNX92BIy6tKsp8sxjxvHg2d2SeeZGh
+	KzeOt4g==
+X-Received: by 2002:a05:600c:4f0e:b0:49b:9433:ea44 with SMTP id 5b1f17b1804b1-49cdc40ff56mr178836565e9.4.1788268708319;
+        Tue, 01 Sep 2026 06:18:28 -0700 (PDT)
+Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-a16a-7801-fd8c-4b37-36b4-e53a.310.pool.telefonica.de. [2a02:3100:a16a:7801:fd8c:4b37:36b4:e53a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b926874fdsm356104405e9.4.2026.09.01.06.18.27
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 01 Sep 2026 06:18:27 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	David Hildenbrand <david@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
+Date: Tue,  1 Sep 2026 15:18:23 +0200
+Message-Id: <20260901131823.15799-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.85.155]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemr100018.china.huawei.com (7.185.36.64)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_061304_414381_CAA8075C 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20260901_061830_645252_55993D59 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,166 +108,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Subsequent patches will extend write verification to additional write
-paths that may execute concurrently. A shared per-superblock buffer
-would require a coarse lock to serialize all verification, hurting
-concurrency.
+huge_ptep_modify_prot_start() clears a hugetlb entry before changing its
+permissions. For contiguous PTE mappings, break-before-make (BBM)
+requires a TLB invalidation after clearing the set and before making any
+entry valid again.
 
-To avoid this contention, remove the wbuf_verify field from
-jffs2_sb_info, along with the scattered kmalloc/kfree of wbuf_verify
-in jffs2_nand_flash_setup, jffs2_dataflash_setup,
-jffs2_nor_wbuf_flash_setup and their corresponding cleanup functions.
+Commit fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from
+get_clear_flush()") removed this invalidation, relying on the deferred
+flush from the core code. Commit 410982303772 ("arm64: hugetlb: Restore
+TLB invalidation for BBM on contiguous ptes") restored it for
+huge_ptep_set_{access_flags,wrprotect}(), since a deferred flush is too
+late for the break step. The modify-prot path has the same problem.
 
-Instead, allocate a temporary buffer inside jffs2_verify_write(),
-giving each invocation its own buffer and eliminating the shared state.
+Use huge_ptep_clear_flush() for contiguous entries so that the TLB is
+invalidated during the break step. Leave huge_ptep_get_and_clear()
+unchanged because it is also used by teardown paths, where the deferred
+flush is sufficient.
 
-Signed-off-by: zhouminqiang <zhouminqiang2@huawei.com>
+Fixes: fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from get_clear_flush()")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- fs/jffs2/jffs2_fs_sb.h |  3 ---
- fs/jffs2/wbuf.c        | 61 ++++++++++++++++--------------------------
- 2 files changed, 23 insertions(+), 41 deletions(-)
+An instrumented QEMU detected the missing break-step TLBI on an unpatched
+kernel and none with this change. A fork() control exercising
+huge_ptep_set_wrprotect() remained clean. No user-visible failure was
+reproduced.
 
-diff --git a/fs/jffs2/jffs2_fs_sb.h b/fs/jffs2/jffs2_fs_sb.h
-index 5a7091746f68..8a75870d3fc8 100644
---- a/fs/jffs2/jffs2_fs_sb.h
-+++ b/fs/jffs2/jffs2_fs_sb.h
-@@ -124,9 +124,6 @@ struct jffs2_sb_info {
- 
- 	uint32_t wbuf_pagesize; /* 0 for NOR and other flashes with no wbuf */
- 
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	unsigned char *wbuf_verify; /* read-back buffer for verification */
--#endif
- #ifdef CONFIG_JFFS2_FS_WRITEBUFFER
- 	unsigned char *wbuf; /* Write-behind buffer for NAND flash */
- 	uint32_t wbuf_ofs;
-diff --git a/fs/jffs2/wbuf.c b/fs/jffs2/wbuf.c
-index 360a291d9fd5..31fef7466d04 100644
---- a/fs/jffs2/wbuf.c
-+++ b/fs/jffs2/wbuf.c
-@@ -233,19 +233,31 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
- 	int ret;
- 	size_t retlen;
- 	char *eccstr;
-+	void *verify_buf;
-+
-+	verify_buf = kmalloc(c->wbuf_pagesize, GFP_NOFS);
-+	if (!verify_buf) {
-+		pr_warn("%s(): verify buffer allocation failed, skipping verification\n",
-+			__func__);
-+		return 0;
-+	}
-+
-+	ret = mtd_read(c->mtd, ofs, c->wbuf_pagesize, &retlen, verify_buf);
- 
--	ret = mtd_read(c->mtd, ofs, c->wbuf_pagesize, &retlen, c->wbuf_verify);
- 	if (ret && ret != -EUCLEAN && ret != -EBADMSG) {
- 		pr_warn("%s(): Read back of page at %08x failed: %d\n",
- 			__func__, c->wbuf_ofs, ret);
--		return ret;
-+		goto out_free;
- 	} else if (retlen != c->wbuf_pagesize) {
- 		pr_warn("%s(): Read back of page at %08x gave short read: %zd not %d\n",
- 			__func__, ofs, retlen, c->wbuf_pagesize);
--		return -EIO;
-+		ret = -EIO;
-+		goto out_free;
-+	}
-+	if (!memcmp(buf, verify_buf, c->wbuf_pagesize)) {
-+		ret = 0;
-+		goto out_free;
- 	}
--	if (!memcmp(buf, c->wbuf_verify, c->wbuf_pagesize))
--		return 0;
- 
- 	if (ret == -EUCLEAN)
- 		eccstr = "corrected";
-@@ -261,9 +273,14 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
- 
- 	pr_warn("Read back:\n");
- 	print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
--		       c->wbuf_verify, c->wbuf_pagesize, 0);
-+		       verify_buf, c->wbuf_pagesize, 0);
- 
-+	kfree(verify_buf);
- 	return -EIO;
-+
-+out_free:
-+	kfree(verify_buf);
-+	return ret;
- }
- #else
- #define jffs2_verify_write(c,b,o) (0)
-@@ -1217,22 +1234,11 @@ int jffs2_nand_flash_setup(struct jffs2_sb_info *c)
- 		return -ENOMEM;
- 	}
- 
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
--	if (!c->wbuf_verify) {
--		kfree(c->oobbuf);
--		kfree(c->wbuf);
--		return -ENOMEM;
--	}
--#endif
- 	return 0;
- }
- 
- void jffs2_nand_flash_cleanup(struct jffs2_sb_info *c)
+The QEMU checker was exercised with 4K and 64K base-page kernels. The
+patched kernel passed the LTP hugetlb tests with both -cpu max and -cpu
+cortex-a72 (16 TPASS and no failures).
+
+Testing on Neoverse N1 hardware would be welcome, as it can use the
+contiguous hint and can be configured to report TLB conflicts.
+
+ arch/arm64/mm/hugetlbpage.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 8e799c1fe0aa..bb53a04b73b2 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -517,6 +517,11 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
+ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
  {
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	kfree(c->wbuf_verify);
--#endif
- 	kfree(c->wbuf);
- 	kfree(c->oobbuf);
- }
-@@ -1272,14 +1278,6 @@ int jffs2_dataflash_setup(struct jffs2_sb_info *c) {
- 	if (!c->wbuf)
- 		return -ENOMEM;
+ 	unsigned long psize = huge_page_size(hstate_vma(vma));
++	pte_t pte = __ptep_get(ptep);
++
++	/* The break step for contiguous PTEs must include the TLB flush. */
++	if (pte_cont(pte))
++		return huge_ptep_clear_flush(vma, addr, ptep);
  
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
--	if (!c->wbuf_verify) {
--		kfree(c->wbuf);
--		return -ENOMEM;
--	}
--#endif
--
- 	pr_info("write-buffering enabled buffer (%d) erasesize (%d)\n",
- 		c->wbuf_pagesize, c->sector_size);
- 
-@@ -1287,9 +1285,6 @@ int jffs2_dataflash_setup(struct jffs2_sb_info *c) {
- }
- 
- void jffs2_dataflash_cleanup(struct jffs2_sb_info *c) {
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	kfree(c->wbuf_verify);
--#endif
- 	kfree(c->wbuf);
- }
- 
-@@ -1309,20 +1304,10 @@ int jffs2_nor_wbuf_flash_setup(struct jffs2_sb_info *c) {
- 	if (!c->wbuf)
- 		return -ENOMEM;
- 
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
--	if (!c->wbuf_verify) {
--		kfree(c->wbuf);
--		return -ENOMEM;
--	}
--#endif
- 	return 0;
- }
- 
- void jffs2_nor_wbuf_flash_cleanup(struct jffs2_sb_info *c) {
--#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
--	kfree(c->wbuf_verify);
--#endif
- 	kfree(c->wbuf);
- }
- 
--- 
-2.52.0
+ 	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+ 		/*
+@@ -524,7 +529,7 @@ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr
+ 		 * when the permission changes from executable to non-executable
+ 		 * in cases where cpu is affected with errata #2645198.
+ 		 */
+-		if (pte_user_exec(__ptep_get(ptep)))
++		if (pte_user_exec(pte))
+ 			return huge_ptep_clear_flush(vma, addr, ptep);
+ 	}
+ 	return huge_ptep_get_and_clear(vma->vm_mm, addr, ptep, psize);
 
+base-commit: 786262be6048deab760f68c8acc2c85607165894
+-- 
+2.53.0
 
