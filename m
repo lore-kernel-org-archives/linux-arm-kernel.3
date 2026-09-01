@@ -4,130 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCE7C624CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1CAC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7fMlDkXKYG3oVx4kQUx8RwXQRR3ISB+4nAjaV5mjKQ=; b=35lXyGouqTxT4G43MymX2Rkd7k
-	VRw5quNLcnNXmhU35bZ+TnQyl7OeNB0jksgL4odMzNneokmX/MVdsC2Ymzw1yqhM+iquZtsq5caSs
-	aAgapRjJLKR/7J3Zg+39ive0ZJd2TR27/L8oJtsXbK+0/S1RQEt3EuhsUmwGiIDJoQrUDqVVMx/Xk
-	UUCdm15H2RedNQBotWcoMRK1EXXXuQhpdGxRfcjqsbtJuB9x03B4LQtsxnWegYnIR1ILAMo5ds9wY
-	wst9vVBB4bF2gViMR42+2vwHr+BKA5wrcI9PntbtHpdmJY4e1XWZpMj8snU4VqNxcak1Kx3oj6cnT
-	wOmEOPxQ==;
+	bh=7FBWJeS1MQOSdXBgxfttU7zMh63dJLVmgB54nZNbWEU=; b=GQ2I/6rdHZD+PCJgrwXEFeKivT
+	1R8pxnEi3Y0TrmdxL5sagpJV/Z6Lu9peRLg36zmKCG4EVyPhLzbm//7MPxXilIuKxWIrzdJaboQdD
+	0zS5ilR+PERPRT3KpHkG/3K5/4/Qs3oIwWj+g6IeBtm6X/8XEbjpGT/F2hRxdL7quG0TtDoutEdve
+	paTvptYmakqINP9shBeypvYjOfj3F5k9lnDEJdPrFcScsyIKDNwVA3cgdk+EAaRCN9rw0YErPiN4r
+	corIa2qUQTSbzZsZ0U2/V5LmO+xh12Adj/ghOWtbsB38rL/L3T9hO6fub2DPTt5arhEXJDjamTl2B
+	egDug7oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Mtr-0000000Biw7-3ipo;
-	Tue, 01 Sep 2026 11:43:35 +0000
-Received: from mail-australiaeastazon11020076.outbound.protection.outlook.com ([52.101.150.76] helo=SY8PR01CU002.outbound.protection.outlook.com)
+	id 1x1Mz6-0000000BjNa-1jbS;
+	Tue, 01 Sep 2026 11:49:00 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Mto-0000000Biuh-3P7c;
-	Tue, 01 Sep 2026 11:43:34 +0000
+	id 1x1Mz4-0000000BjMv-3Lg5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 11:49:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N2GB39diLQWAk618IOKTF9FBBgvZ7TivU47qDfMUWiJVIpm8DLuEfQyHIEhF2PB7Fxyzt66f5EZ1SC+kKvYKSNaXicTh1x8uqo0soPD+vE+COLw/DLTCsJtQhVDflUrPrWpDT7lbDTgSPwlBhmVwpaIyXBlp1w1tc+fC+5KxMqTt4omJRoPt9+rj949Vn4h/8jtdC8hEwYl3Wus2DV63dlHRi/OdScbMutasaA823WJljnlTU4cdPITk6HVu/TGsnQMH/TopBUQ1Xd4asNy3rVtQORmvaYjxD0EzQUh5zbYdawWu4VC+VjJ77z6csPlK5zQL05RPa+kuTp006tyOSA==
+ b=sTMa6sQk/SKc/jvHIOinRTgBdyINOIRSaWSa68sTfpRyWAemXLJ8GaCry2jOhKodYTRy95vjBBHOrUo3D/zc9QWoT+hQxrf8mvDYB/tBjQ0d8sNVI3EYkmQfJimrRUv8DOEzdG7CO9Z26H9unQ89r6XQm/sB0jYVr+tC5XO9aSlHm2uFs2ewaxQIJT/zJTLWodJWoqudg2/5sntHs4g+A/LiJIyUJgAsKZzC5f5APKxckYivFFLqfD9Njp4OU4Xp4zCim+11jQEL78GWtTKPIGnwKofsmcldN9iam5ViYa+Y97ge54ksLwGJnVuu2EKMK52a15VQNEIZSgAKCXrgdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y7fMlDkXKYG3oVx4kQUx8RwXQRR3ISB+4nAjaV5mjKQ=;
- b=P7Ay50TnhnVHJM1y5p93lXMD5z2dFW1M8OMsTwxg/h0zvZBdxTIxMxbh82fXO2beQvedYiDf3uOwbtkx9XmnoPU+m4wKLYdoJldDTzmimtEQr9HEW6DMED11tmDZ7uBKPJJeN5dH11lFhn17+VrKA7C7HcQuUEDgZyGYjtQ+TtBtoxkBxaXXmoBljQzZ8629kp5sIq8j0sqR7kPJYyauejrgJinus5puX5Q9ii+3Pim8NY8bXrLbL24ZMgIzVc8dvOza9NsJadSqdsXJFXEBP6tfCiiqDVqeAPkFdOA5EePcSAbJzlPg0eiO7WlftUijydLxafeRzrBmx/QhzoRYzQ==
+ bh=7FBWJeS1MQOSdXBgxfttU7zMh63dJLVmgB54nZNbWEU=;
+ b=sTL5PVX+Yi+YAtWIZpefxGs07IXj5N/YXU9vZs6oYjYKmyZT9qhPSfLis4cTwf7GtggrUXEMXQ3km4h3ZNRDwx60v5bAGQfgXCLUkbiQVUksA4bsOQCavOWddZmMPZYBs9w7ULXQz5yfivT9gZ7EkXWFIvk8uZ3A9MxEGqFS/PexTZayUnXfbIXjsKuO8GRjb5uOU3Qa+IldBkfWJBADlLvjDbFrqQrXgjP6ETUX2nHWfa94MWtc6B0x4VMOCT8FkMPmG/FehwXBzKPkbXX/IlAhXVD6RWgsUq7jl0MU1I+t9SJinlUPjEGvjuPHbtxvhi7Z+vi5QCoYWbqG2kkOzw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=heitbaum.com;
- s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y7fMlDkXKYG3oVx4kQUx8RwXQRR3ISB+4nAjaV5mjKQ=;
- b=iOMQASEuA7u8+fi31TCspHTKrsPGcCEJ+IKhCj9dgfAW5vggLJ0iZed5PAvCQUJWF6aFAAt0tHWxhgOYS/LUYI8OHU9G+gIdzJu5arm8DYKPjXCj+0N6gRpWfPa8fIEZhhKj8BeaKp6j8xXZqahLSKNXU/xmzWE9SKsExC2aQWQ1Xtm/Ok346WN6foeEsmWpJHpF2NsKmXfKK8QG4y7jOEKevwFqeAqBs9/8ZNyM0QawZeObRZBVBE8d1zkj4l/92KBOeDquaevmh9GGCcIJPV2zZVr31Ip+hQmjN7kSGvklinxjOwWoTSQQF0xV1wrs+LnEWZuAg6EoIBIJfQcSoA==
+ bh=7FBWJeS1MQOSdXBgxfttU7zMh63dJLVmgB54nZNbWEU=;
+ b=S1cXktB4brImSMUd1uhnV4JebSwjCg2PhftkfFnbpz5NW6324RjCqiAHWltAEVqNXKDD8cFwhfONBA5MlTwdNPuTMKE1vkh/E3Y8JK0e3/D7VjOg3YSvqZPAk8cK1r3IXqYqrFWjvUnxzXHHaXkUn4vMsOie3Pi33AIUPGb2OQXnZ91o9tUCuHywXLTXFP4FiJNTDU5C30xhyPI/hZhSZM60ty5aDNgWLDiK5uISFWhthfMOYp8CjkkrYq9QBa7c4Bqc+SQk/zk9taNC7N7A0Tl5YpS08cTZ21L5BpyBIYwF/e9Z1T3YWfSsOTA+nshn9dL5587Os20zV60Yk1Y76A==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by SY5P282MB4758.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:270::21) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
+ by DU4PR04MB10717.eurprd04.prod.outlook.com (2603:10a6:10:584::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 11:43:11 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 11:43:10 +0000
-Date: Tue, 1 Sep 2026 11:42:52 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: Chaoyi Chen <kernel@airkyi.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-Cc: Matthias Kaehlcke <mka@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rudi@heitbaum.com
-Subject: Re: [PATCH] usb: onboard_dev: add the Rockchip rk1808
-Message-ID: <apa6PKthz_vMv3XP@649ea4ce1770>
-References: <aouw7rH6FZxscUTO@0d3a7a881997>
- <5096877.GXAFRqVoOG@phil>
- <apFpPP1O45BWXDv5@5be1eda4e59e>
- <4512468.iIbC2pHGDl@diego>
- <apGMEsCwly8TCOww@5be1eda4e59e>
- <84A6832DFD4B9FF2+64806113-d65e-448a-b2c4-ee83e125a665@airkyi.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <84A6832DFD4B9FF2+64806113-d65e-448a-b2c4-ee83e125a665@airkyi.com>
-X-ClientProxiedBy: MEWP282CA0129.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:220:1d1::9) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Tue, 1 Sep
+ 2026 11:48:53 +0000
+Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
+ ([fe80::bdf4:c9d1:4e3f:68c6%3]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
+ 11:48:52 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>
+Cc: linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	s32@nxp.com,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v4 1/3] can: rx-offload: make skb_irq_queue per-CPU
+Date: Tue,  1 Sep 2026 13:48:46 +0200
+Message-ID: <20260901114848.500591-2-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260901114848.500591-1-ciprianmarian.costea@oss.nxp.com>
+References: <20260901114848.500591-1-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR3P281CA0127.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:94::13) To AM0PR04MB5858.eurprd04.prod.outlook.com
+ (2603:10a6:208:132::23)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY5P282MB4758:EE_
-X-MS-Office365-Filtering-Correlation-Id: 89e7b651-34a1-466f-59ec-08df081e32a1
+X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|DU4PR04MB10717:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3dd6ca00-1e1b-4bb6-c239-08df081efe98
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|4143699003|10067099003|22082099003|18002099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: 4PHA7fkqgJXwvO8TccO/D96thmsgD7C7qObnnQxS7IhNjuhvFBDhbZr6Xv9HD4I7xqY/RaBzbBmA6rEENLvKxRLyeS+6F2Ygv82a3AL5+KLxNu+uo/nlEvLWL0JN0OS5a5YaGTj2yqxbmhupcNuYL/dDGlu5Ez21DYQ8b6u5eEgOcmwyS7IrekT23QqwfQHcYSXzMf22IT2SuaEYJ+Gph4ZcjzXya5MQ0ibjtX/cnwT7Tht/b8sD7uOEU54osATSdak7fyDfwkNfsOXEPJgbtXSzxPThtXNqdR/o23Ibua0YvxL9nbzfSxumJtJx8Dw9pd7Rl/W0ocG6iUBxBhIDII2jZ1mfIIjkD3jWnM81TeCKMOp9MCTUhy/3jX0T8wB7VGeBstySU3QgUDEzXOYB8jYAF9NpkIV14+kY3HMrnrJ91RMJf8xW4TFeAUVi6YuPXyRUbne5jwR3fenEi9on0oOCcY9otpblpf5EELAVadvV6CWmshKA96NoHg2sTRSnYrkmIrpG/EthbrQHZC/aZrPgfWu09fBjpdOvNoO5IMcn6r7PHnBl6yLH5Sp4yrSwBUosog5qoLXEKQ8W9OK9LMXI3lxjXbrBvmlaL3is57XfTZryroVVxfXhBjA3563dVHTTTzMgY/PGX+/Vl3CmlF8X4izZkFqt+mTY8WORFOs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(4143699003)(10067099003)(22082099003)(18002099003)(3023799007)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|22082099003|18002099003|56012099006|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info: U+I52vR1QjEclxKVK753g1TRBTZnj95a7jjAvwf3ePntCZJ2spshqWIwEWLF8KJopITZ1+vDkG3rR482v/19h5lxMjk0RUZTAe44uvbBGhc7XCzAW8N80boUQYeoYQ1x6MztGK+n8SvXNXY6xtMhOYFFNzP840l9m4IKzwnCtGguMpWvc/cjEwPDylHU6BZ0EYeICIYnWhov+XP2c2BAvA81ExxkLvhqjiInnyS0PlfXfnCyBOHq6DMowFouzO2sUB5eWDg8FbbBn84QYjt4J5lROzQ7k6nSSxd5cs5w6SMo09bCJgEufYxXobd4z7a9i9BHySRpLfwQegMWARLRS7ef8haJ9XAu1ZIWNc26XZP94gFEWqFMvW4Jn/v/RBDFSv86gL+c0p0wkGPW92NMvCFoh8teCeDVp9CgsDeborW/CtLq6ECkun5MBEWDJ33+DAeZlsFqGypmQg0QDCq4hn1ObnqVAVRjRgO+GQPIOsPOLP5qsEzAMFOkkU/fr4NWhxJqXQZ5ebU+szzKCWdZU98CShRsuX+0Y69nfkPMQnoRhMI2M6z6wrbVW0xyNtNXSsHLSumVfu2qFtIf1CA6Q6td0c2a26gOjoutAPMMqFgD3LwcF9HJ3DQbCpkEYJfz30reyYJb6zrDVLcRLokiPpQX7lZmDo3avuRnL6tq6Q4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bFebHJVF2SS7ycWWFriUYMzzV0c4HwVKvEkqiYmEaByySSHrFYCLkwayvnLV?=
- =?us-ascii?Q?dtDsj4onfPMq7WhUFUV/d68ChpGKMfStgkoI6HJH5EPAOn2SmvQXla/xu/gU?=
- =?us-ascii?Q?BxLLwJoQT+OdualYmqOaC/XK8DWb8R1RBLfTVfD3K+yaaut42PJ5Ckqsg459?=
- =?us-ascii?Q?NT793z5Q7e/CX420RH5FL/8OlWZW387xom9kJQxC2AGp8rA8250xe8Rv3Iye?=
- =?us-ascii?Q?+BGkrRpn4G6Mosv7mpifJapImxxpeLxd8+8eHeaCFbgVyd2VisY1dHzxJknr?=
- =?us-ascii?Q?I2GgGkNkj2572Du+dAXkCKlrYBUq7W34EfrCQuYhx+pl5mnLa5L6EoZZe70J?=
- =?us-ascii?Q?FyWYQZ+INb2Gbhn+JKaCeTI1M7NjwbChK+1JraG+wruZ3xzGJobcyUwZ9mjN?=
- =?us-ascii?Q?uSNHPY3qJGhJogCSF10xvUCvD3q9lN/KzPUUuo+YW36C6QtEuPBNtu/MXkl/?=
- =?us-ascii?Q?mVwLS1t5ikdudgcBaXw1U9/eoeGaNIxEqpE+yOYcqhrpFeo5TMJ++ceDh+vY?=
- =?us-ascii?Q?DuGj1B7nL062QP4CCQOZTW0x9dlg040DMAG0HCJ5Aenm8j7q+gmTxViSp9KR?=
- =?us-ascii?Q?guiLxiXPZE3LAqQNylj8nagVM9MdYgBveiwKNFiQrqzORaX0Y/JcyZRdkO2r?=
- =?us-ascii?Q?+uJxXSAjmFDsBdUkaACpmWCvuS4TAwypnxF3nEXCzbOkNu+jHhX7jdrqtM8k?=
- =?us-ascii?Q?6VgvDT04wxxE0pvSwcU+Sv5B5d7Iv1OxPR2vYnavv6QF1eMH8xGBvu69qHqf?=
- =?us-ascii?Q?lE3yrTw4FBVl2elDb5XXAFdk1Cft0bcdICeNrEis0yWWLL7U5ASK4NHC6iqY?=
- =?us-ascii?Q?Xqd5thhUrTVBCVmjFeuGs+UUL7HCxytGdJJHSmZJfQn6JqrnJnOUqkfBonBP?=
- =?us-ascii?Q?qsrYE8fbycSB9M/qV8KONMFH1gi68xtHePE8oQUZ+Fz0OeZHwKUKzp2PylUv?=
- =?us-ascii?Q?BnXDX7JlZ2+/09WJx1u2+hj1Ig0C8mIzaVdjYZDDa98y0sQ6eWq01wjYkVRL?=
- =?us-ascii?Q?NCC+eLKgBVF0EnKOLYwqD36xjVDLIzi7qG7L7RQCubOAbUsI4VhvEvfmBwm7?=
- =?us-ascii?Q?clx71ZQ23oHuHwnG4DcJggIxYvu40BqQqrMJ95245dw6rE9xKzwsZnHshjNs?=
- =?us-ascii?Q?qSEaX4L42uLQOMPqfGsi5+52Ezrm+oUglbomGwA2nKfCkuOWnb2x7rYvinxZ?=
- =?us-ascii?Q?bqiqU42S0WXCdTIMIkqK88HmSvy/RIFoDkTXPAuEN+aFQ2gR+TcUCd5IN3Mo?=
- =?us-ascii?Q?PUBbObbtbp+utwAsK5IE7pPLhFs0skRRDQ460sCeFp/fwhn5/av9oqUW1/Jx?=
- =?us-ascii?Q?Ld4VMYkFjx+xO5ZyUF1E/oQDvANROAcQOrzBWerRZ8HpaFEXL/hs3MxDLO3O?=
- =?us-ascii?Q?O4g7G6BBDlOg0bEyX+7oRJ4YZLc9Agdpe4bIiu6ZvLzZ3GsEcc3PWyQGSEKO?=
- =?us-ascii?Q?eOs5ySTpTMB4y7HDQZ25cJeg0ErPZ0PZ2MoITenB5nAIacf3myZFtGANYAkj?=
- =?us-ascii?Q?gwu1lazmrEOdqlxTl7LMiCLVDIvH+XWoOoBvFxKJd+zQfZNwokIeyVQeTvKv?=
- =?us-ascii?Q?QJHOjHcUmgetqzXL9hB5o9nPAyCJgBqwG0R1vz39gopyctQ1eNFtPhnSm7mQ?=
- =?us-ascii?Q?g52ua3elYltxSgEWRG1METfClO5rh9DxG8RQJkpY5SuxjHdmZ55Koj5F2ZvB?=
- =?us-ascii?Q?WDllksL97FskgruI3Fca59qNFnehFFN90/Aa+KPuVfgVPEde?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89e7b651-34a1-466f-59ec-08df081e32a1
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cExOdU4xeXpRWE5SVmh5MGlIQjFDdHVIL2JwdzVDU0JjeUZOYnM0RnAweWk1?=
+ =?utf-8?B?MENBN0RHZGRPUHlTUWpiUk5kN2k2cVVraThqN1REaXphbG1xdHNzbnBiSk5Q?=
+ =?utf-8?B?ZTdHeklaeDBYWXAzODY2am5EcU1vVXNmWkVJS0U4ZUtTa3hOSWpHc0xKQlBD?=
+ =?utf-8?B?c29LOHRjRnQrWjBTOFR3NHVhcWNFS0VMU1JaZUNmSFdYeDFaVklUNkowU21V?=
+ =?utf-8?B?SnlJU2p2M2NHYlBDM3BLM25sUzliRHNCZnNRVkpqWTlEMzZramJpUFplZ0l2?=
+ =?utf-8?B?d25BSXYvRDlvWS92djZENTlmV09lZ01aMllxNWxXcU9HNm5RS0V1RnFFVTNu?=
+ =?utf-8?B?WlhsRE5PNS9QZStnc2FrOGMrdjl0VXp0bmErNjh5MUNTQ1BCN05WNTlVOUFu?=
+ =?utf-8?B?am9Bd1lURFhIWXdQQmJjMi9DRE14TE5DbXltbE1hbUQ5MldZd3VtYnQyaGNM?=
+ =?utf-8?B?Ri9pQ1h4S0dWQURNVlU2bHZHVlY1WkFCbERWdTZ3SEZRUWdqLzlxTVE1YVA1?=
+ =?utf-8?B?aWlRb1U5K1JNTW1xWWF2OWEzYzBXZ3QveGp3d3p2NG5ab0oyWGRpZWc5bVZT?=
+ =?utf-8?B?VlBkOE5rc1ZUYjQ2cWNKeEdvSjdMRHRTSzcwSlIvMGQrdjFZZmJ2TzNvNEF2?=
+ =?utf-8?B?eXVudGg0RjRCZGl1YnMydWFBaWppY20wcmttbnJGNzlrN2NYUWFac25iL1ho?=
+ =?utf-8?B?MjdYV09Hc1gybjFERHM2cnJEV0srRXowZzNJU0RFUU9ISlZGT29WU093WG5t?=
+ =?utf-8?B?bFhUcmIxNHovaGUrVUYvdU1hVXVIWW51Y1F2Uy9NZjZpTGhxLzRwcFpadEkw?=
+ =?utf-8?B?M29IMGFvdDl5TkZMMVIraUx1ODFnbCtKY1ZIZVV2OUp1SnV2V1k3NDZyU3FQ?=
+ =?utf-8?B?RFRPb3NQYlZhZDBteVVRN0d6ZGRTMk9OczhUOWhXUE9DUlRhU3BlckU5eHRy?=
+ =?utf-8?B?MWVvL29EOURWUFdSN0lSeDBodnNKbkszeFhVc1NZaEN0TittZXVmanNMWE90?=
+ =?utf-8?B?cUU1YnIxN1V6b3V1bkVTK1BQNEJNeEJFT1NRM3paMDg4UFN5R1BZRSt4VzB4?=
+ =?utf-8?B?NGRxZkhHQmlsTittUUxrSGg4a3VGNTNjUXBicVJCbUNRSmNyVXNFS2wvbVIx?=
+ =?utf-8?B?KzRSR0ROVnJsQjhMMU9jcldFbThiVHlPYUY2YVNKdUwyNStyNENNb1pjQmwz?=
+ =?utf-8?B?dVNVbmRRT2t5VXhtQVRMRlZWRlRGZUJmVHFzL3RKeEZsOVBPZHRoM3F5Nllx?=
+ =?utf-8?B?eEsyMVZla2tjVm14Q3FtTWU5RGF5aWEvOHpUVzNmTGtYS2NNTkZJNzY1NGdr?=
+ =?utf-8?B?VWhlSmZGTFhNK2h1ZjQxNHE0dTlOTnQ2VlhXeUJHdTJHdHBDNjd4NXVXa3ZK?=
+ =?utf-8?B?QzliOGFnUHVnb1EvaEd1SGU5Y1FZT0N4L2ZiMTBsajV1T2lYVFdCQ3ZISkRU?=
+ =?utf-8?B?S0NidnlheUoyTzg5cUtmTkJGWjF1eW9kcTB6cnMzbWFTeW9nRitIS0pHUFlW?=
+ =?utf-8?B?U3dOQjVPZ0txWEpiYXU0RlhXbnZsaWRPOTZGd0tRMzExek1CMnpLSVB5TFJK?=
+ =?utf-8?B?WGJ1UjY0RmJ5SGZtZjVrR1lpaDJZb3FpaE4waG9ITitBbXFtclBDTXgzb1V5?=
+ =?utf-8?B?THRSb0FlYlQ5RnFUdnNMRjBCUVpTbGdVdW85eXh0L0VwaFJ4QW1jSEw4YnRl?=
+ =?utf-8?B?enlySW96c0hzVUtEdW93TmRvK3gydDI1bjE5aFkxRm5MTzdadjJqOW8vSjJS?=
+ =?utf-8?B?UVBPL2s2UlhSMnpiOXZ2c2FtbnBqeWcvM0hCZm1WQXdmKzhPaUVydHl3WG9X?=
+ =?utf-8?B?a1l1cjBialJNQ3NPdSt4MzFZV2pZbUVzVG9jbzVQU0tVR01GNElVdTJvOUxp?=
+ =?utf-8?B?YXpyQkd1VmZRc1lMTlFJdy9jWFNSTG93TFVrRS94SG1CMko3dkRsaXRwMkxw?=
+ =?utf-8?B?L3JLQlh6WlBRbUZvWnE1YlJvU2UrWnBvNFFDM3R1QUF1ZnZ5a09aTkJuS25S?=
+ =?utf-8?B?T0pIcU5GVXBXOExaelFnalZxVTkwLzlrZFRLLzZxYVFQa3ZrZHJZM0pmZFhX?=
+ =?utf-8?B?SXlSVWVoTmlyeXg5MmMzcVZKOW1DejVMZ2tBbk04UzdGNFpVVGRNVmtYb3k3?=
+ =?utf-8?B?UUYrYVc2NW1yZWNOOWhKL3VOYzBpVXRiU0NwK0NhbzNaZkFuYllOdklLRVk5?=
+ =?utf-8?B?SnNYSHJPS2syT3VKY1d4bWo3d05aRGpHS2FCdEYxUEIvSVYvc3dOZXFhZy9r?=
+ =?utf-8?B?M0lUWmNnb2t0NW5KamkrWU5PaVl1Ky9ONGNsQ1JFRnhqYWFnbiswWGVUQzBr?=
+ =?utf-8?B?dWxnUzA0VERiem5jZ1NWUm16WnhxNGw0aUZtM2dpeHVvUVlyM2dzbFc0dk1R?=
+ =?utf-8?Q?Tpnjb+AEFq/ZQ+ew=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3dd6ca00-1e1b-4bb6-c239-08df081efe98
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 11:43:10.2212
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 11:48:52.5190
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /WDQBVeFTjaTdBBpsaiKGovkPKQHldLgkFpzs9Sg1FtkJReMRN6VxPJmTX/zP3tCSGJLpAU9/PN6WMYW+m1KNQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY5P282MB4758
+X-MS-Exchange-CrossTenant-UserPrincipalName: gQd9rB94SlULt4Xrp1yjoxoZJ+fH1jsI9rWQQDTXoFq/tDEAUpmltYK5K+wGUYFJy8JzqZ5vrnQN3WRRhT+p51sX4wGpkSAmQUxqzbF8dV8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10717
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_044332_886377_6427011D 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20260901_044858_983835_2AD1E618 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,72 +157,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 09:41:08AM +0800, Chaoyi Chen wrote:
-> Hello Rudi,
-> 
-> On 8/28/2026 9:24 PM, Rudi Heitbaum wrote:
-> > Hi Heiko,
-> > 
-> > I hadn't looked in to these from the mainline viewpoint. I had been
-> > using an adapted vendor script based on the radxa npu_powerctl binary
-> > which reimplements the npu_reset sequence over GPIO.
-... 
-> > I have the schematics and the working N10 here, so let me look into
-> > describing these in the .dts and update the onboard_usb_dev.h.
-> > 
-> 
-> Perhaps we should first check whether the power-on sequence in
-> onboard_usb_dev.c meets the requirements, as it enables all
-> regulator supplies at the same time.
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Hi Chaoyi and Heiko,
+skb_irq_queue is filled by the IRQ handlers using the lockless
+__skb_queue_add_sort() / __skb_queue_tail() helpers and later spliced
+into skb_queue under skb_queue.lock by can_rx_offload_irq_finish() and
+can_rx_offload_threaded_irq_finish().
 
-I have done some work on the bringup of the rk1808, and can confirm that
-it needs six rails up and its reset released before it appears on the
-bus. There are no ordering requirements, issuing the reset 25 ms later
-is reliably working. The supply names being "vdd", "vddlog", "vddcpu",
-"vdd0v8", "vcc1v8", "vccio". This moves the power-on into the kernel
-and not the userland script. 
+This is only safe while a single context fills skb_irq_queue. FlexCAN
+on NXP S32G2 (FLEXCAN_QUIRK_SECONDARY_MB_IRQ) uses two mailbox IRQ
+lines, one for MB0-7 and one for MB8-63; MCF5441X similarly splits its
+mailbox interrupt. When these lines are affined to different CPUs both
+handlers can run at the same time and enqueue into the same sk_buff_head
+concurrently, corrupting its list.
 
-The MAX_SUPPLIES fixed size array needs to be expanded from 2 to 6 to
-accommodate the rails.
+Allocate skb_irq_queue per-CPU so the handlers no longer share a list,
+keeping the enqueue path lock-free. Access the per-CPU queue via
+get_cpu_ptr()/put_cpu_ptr() in the enqueue helpers: this disables
+preemption around the lockless __skb_queue_*() operation.
 
-The rock-pi-n10 and the on-die rk1808 (including the onboard VIP8000Nano-Q
-NPU) are now both running on the 7.2 mainline kernel. The
-rock-pi-n10/rk3399pro-vmarc-som is booting with the mainline .dts and
-the rk1808 is booting with an adapted vendor .dts.
+can_rx_offload_irq_finish() runs in the same context as its enqueues and
+splices this_cpu_ptr(). can_rx_offload_threaded_irq_finish() may have
+been migrated after its enqueues, so it splices every possible CPU's
+queue; this is safe because each per-CPU queue has a single producer and
+that producer runs with preemption disabled, so it cannot race the
+splice.
 
-The required changes to the drivers/usb/misc/onboard_usb_dev.h are now:
+Cross-line frames are now sorted by timestamp only within a CPU's queue
+and appended across CPUs on splice; each skb keeps its own timestamp.
 
-    @@ -6,1 +6,1 @@
-    -#define MAX_SUPPLIES 2
-    +#define MAX_SUPPLIES 6
+Fixes: c757096ea103 ("can: rx-offload: add skb queue for use during ISR")
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+---
+ drivers/net/can/dev/rx-offload.c | 83 ++++++++++++++++++++++++++------
+ include/linux/can/rx-offload.h   |  2 +-
+ 2 files changed, 70 insertions(+), 15 deletions(-)
 
-    @@ -134,6 +134,6 @@ static const struct onboard_dev_pdata xmos_xvf3500_data = {
-    +static const struct onboard_dev_pdata rockchip_rk1808_data = {
-    +       .reset_us = 25000,
-    +       .num_supplies = 6,
-    +       .supply_names = { "vdd", "vddlog", "vddcpu", "vdd0v8", "vcc1v8", "vccio" },
-    +       .is_hub = false,
-    +};
+diff --git a/drivers/net/can/dev/rx-offload.c b/drivers/net/can/dev/rx-offload.c
+index 46e7b6db4a1e..649bfda08b65 100644
+--- a/drivers/net/can/dev/rx-offload.c
++++ b/drivers/net/can/dev/rx-offload.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/can/dev.h>
+ #include <linux/can/rx-offload.h>
++#include <linux/percpu.h>
+ 
+ struct can_rx_offload_cb {
+ 	u32 timestamp;
+@@ -175,9 +176,18 @@ can_rx_offload_offload_one(struct can_rx_offload *offload, unsigned int n)
+ int can_rx_offload_irq_offload_timestamp(struct can_rx_offload *offload,
+ 					 u64 pending)
+ {
++	struct sk_buff_head *irq_queue;
+ 	unsigned int i;
+ 	int received = 0;
+ 
++	/*
++	 * get_cpu_ptr() disables preemption so that the lockless
++	 * __skb_queue_*() below operate on the current CPU's queue without
++	 * racing a migration. This also keeps this_cpu_ptr() valid when a
++	 * driver enqueues from a preemptible (threaded IRQ) context.
++	 */
++	irq_queue = get_cpu_ptr(offload->skb_irq_queue);
++
+ 	for (i = offload->mb_first;
+ 	     can_rx_offload_le(offload, i, offload->mb_last);
+ 	     can_rx_offload_inc(offload, &i)) {
+@@ -190,20 +200,25 @@ int can_rx_offload_irq_offload_timestamp(struct can_rx_offload *offload,
+ 		if (IS_ERR_OR_NULL(skb))
+ 			continue;
+ 
+-		__skb_queue_add_sort(&offload->skb_irq_queue, skb,
++		__skb_queue_add_sort(irq_queue, skb,
+ 				     can_rx_offload_compare);
+ 		received++;
+ 	}
+ 
++	put_cpu_ptr(offload->skb_irq_queue);
++
+ 	return received;
+ }
+ EXPORT_SYMBOL_GPL(can_rx_offload_irq_offload_timestamp);
+ 
+ int can_rx_offload_irq_offload_fifo(struct can_rx_offload *offload)
+ {
++	struct sk_buff_head *irq_queue;
+ 	struct sk_buff *skb;
+ 	int received = 0;
+ 
++	irq_queue = get_cpu_ptr(offload->skb_irq_queue);
++
+ 	while (1) {
+ 		skb = can_rx_offload_offload_one(offload, 0);
+ 		if (IS_ERR(skb))
+@@ -211,10 +226,12 @@ int can_rx_offload_irq_offload_fifo(struct can_rx_offload *offload)
+ 		if (!skb)
+ 			break;
+ 
+-		__skb_queue_tail(&offload->skb_irq_queue, skb);
++		__skb_queue_tail(irq_queue, skb);
+ 		received++;
+ 	}
+ 
++	put_cpu_ptr(offload->skb_irq_queue);
++
+ 	return received;
+ }
+ EXPORT_SYMBOL_GPL(can_rx_offload_irq_offload_fifo);
+@@ -222,6 +239,7 @@ EXPORT_SYMBOL_GPL(can_rx_offload_irq_offload_fifo);
+ int can_rx_offload_queue_timestamp(struct can_rx_offload *offload,
+ 				   struct sk_buff *skb, u32 timestamp)
+ {
++	struct sk_buff_head *irq_queue;
+ 	struct can_rx_offload_cb *cb;
+ 
+ 	if (skb_queue_len(&offload->skb_queue) >
+@@ -233,8 +251,9 @@ int can_rx_offload_queue_timestamp(struct can_rx_offload *offload,
+ 	cb = can_rx_offload_get_cb(skb);
+ 	cb->timestamp = timestamp;
+ 
+-	__skb_queue_add_sort(&offload->skb_irq_queue, skb,
+-			     can_rx_offload_compare);
++	irq_queue = get_cpu_ptr(offload->skb_irq_queue);
++	__skb_queue_add_sort(irq_queue, skb, can_rx_offload_compare);
++	put_cpu_ptr(offload->skb_irq_queue);
+ 
+ 	return 0;
+ }
+@@ -268,13 +287,17 @@ EXPORT_SYMBOL_GPL(can_rx_offload_get_echo_skb_queue_timestamp);
+ int can_rx_offload_queue_tail(struct can_rx_offload *offload,
+ 			      struct sk_buff *skb)
+ {
++	struct sk_buff_head *irq_queue;
++
+ 	if (skb_queue_len(&offload->skb_queue) >
+ 	    offload->skb_queue_len_max) {
+ 		dev_kfree_skb_any(skb);
+ 		return -ENOBUFS;
+ 	}
+ 
+-	__skb_queue_tail(&offload->skb_irq_queue, skb);
++	irq_queue = get_cpu_ptr(offload->skb_irq_queue);
++	__skb_queue_tail(irq_queue, skb);
++	put_cpu_ptr(offload->skb_irq_queue);
+ 
+ 	return 0;
+ }
+@@ -307,14 +330,15 @@ EXPORT_SYMBOL_GPL(can_rx_offload_get_echo_skb_queue_tail);
+ 
+ void can_rx_offload_irq_finish(struct can_rx_offload *offload)
+ {
++	struct sk_buff_head *irq_queue = this_cpu_ptr(offload->skb_irq_queue);
+ 	unsigned long flags;
+ 	int queue_len;
+ 
+-	if (skb_queue_empty_lockless(&offload->skb_irq_queue))
++	if (skb_queue_empty_lockless(irq_queue))
+ 		return;
+ 
+ 	spin_lock_irqsave(&offload->skb_queue.lock, flags);
+-	skb_queue_splice_tail_init(&offload->skb_irq_queue, &offload->skb_queue);
++	skb_queue_splice_tail_init(irq_queue, &offload->skb_queue);
+ 	spin_unlock_irqrestore(&offload->skb_queue.lock, flags);
+ 
+ 	queue_len = skb_queue_len(&offload->skb_queue);
+@@ -330,15 +354,29 @@ void can_rx_offload_threaded_irq_finish(struct can_rx_offload *offload)
+ {
+ 	unsigned long flags;
+ 	int queue_len;
+-
+-	if (skb_queue_empty_lockless(&offload->skb_irq_queue))
+-		return;
+-
++	int cpu;
++
++	/*
++	 * Splice every CPU's queue: unlike the non-threaded
++	 * can_rx_offload_irq_finish(), a threaded handler may be migrated
++	 * between the enqueue and this splice, so the frames may sit on a
++	 * different CPU's queue. This is only safe because a given per-CPU
++	 * queue has a single producer (the enqueue on that CPU is
++	 * non-preemptible), so no producer can race this splice.
++	 */
+ 	spin_lock_irqsave(&offload->skb_queue.lock, flags);
+-	skb_queue_splice_tail_init(&offload->skb_irq_queue, &offload->skb_queue);
++	for_each_possible_cpu(cpu) {
++		struct sk_buff_head *irq_queue;
++
++		irq_queue = per_cpu_ptr(offload->skb_irq_queue, cpu);
++		skb_queue_splice_tail_init(irq_queue, &offload->skb_queue);
++	}
+ 	spin_unlock_irqrestore(&offload->skb_queue.lock, flags);
+ 
+ 	queue_len = skb_queue_len(&offload->skb_queue);
++	if (!queue_len)
++		return;
++
+ 	if (queue_len > offload->skb_queue_len_max / 8)
+ 		netdev_dbg(offload->dev, "%s: queue_len=%d\n",
+ 			   __func__, queue_len);
+@@ -353,13 +391,21 @@ static int can_rx_offload_init_queue(struct net_device *dev,
+ 				     struct can_rx_offload *offload,
+ 				     unsigned int weight)
+ {
++	int cpu;
++
+ 	offload->dev = dev;
+ 
+ 	/* Limit queue len to 4x the weight (rounded to next power of two) */
+ 	offload->skb_queue_len_max = 2 << fls(weight);
+ 	offload->skb_queue_len_max *= 4;
+ 	skb_queue_head_init(&offload->skb_queue);
+-	__skb_queue_head_init(&offload->skb_irq_queue);
++
++	offload->skb_irq_queue = alloc_percpu(struct sk_buff_head);
++	if (!offload->skb_irq_queue)
++		return -ENOMEM;
++
++	for_each_possible_cpu(cpu)
++		__skb_queue_head_init(per_cpu_ptr(offload->skb_irq_queue, cpu));
+ 
+ 	netif_napi_add_weight(dev, &offload->napi, can_rx_offload_napi_poll,
+ 			      weight);
+@@ -420,8 +466,17 @@ EXPORT_SYMBOL_GPL(can_rx_offload_enable);
+ 
+ void can_rx_offload_del(struct can_rx_offload *offload)
+ {
++	int cpu;
++
+ 	netif_napi_del(&offload->napi);
+ 	skb_queue_purge(&offload->skb_queue);
+-	__skb_queue_purge(&offload->skb_irq_queue);
++
++	if (!offload->skb_irq_queue)
++		return;
++
++	for_each_possible_cpu(cpu)
++		__skb_queue_purge(per_cpu_ptr(offload->skb_irq_queue, cpu));
++
++	free_percpu(offload->skb_irq_queue);
+ }
+ EXPORT_SYMBOL_GPL(can_rx_offload_del);
+diff --git a/include/linux/can/rx-offload.h b/include/linux/can/rx-offload.h
+index d29bb4521947..1b9e2a8ab39a 100644
+--- a/include/linux/can/rx-offload.h
++++ b/include/linux/can/rx-offload.h
+@@ -20,7 +20,7 @@ struct can_rx_offload {
+ 					bool drop);
+ 
+ 	struct sk_buff_head skb_queue;
+-	struct sk_buff_head skb_irq_queue;
++	struct sk_buff_head __percpu *skb_irq_queue;
+ 	u32 skb_queue_len_max;
+ 
+ 	unsigned int mb_first;
+-- 
+2.43.0
 
-    @@ -167,2 +167,2 @@ static const struct of_device_id onboard_dev_match[] = {
-    +       { .compatible = "usb2207,1808", .data = &rockchip_rk1808_data, },
-    +       { .compatible = "usb2207,180a", .data = &rockchip_rk1808_data, },
-
-Hoping to get your direction on this, and if this can go through as a
-single patch, or should be raised as a series. I will raise a v2 of
-the above if this is suitable.
-
-https://github.com/heitbaum/linux/commits/rock-pi-n10/
-https://github.com/heitbaum/linux/commits/rk1808/
-
-Regards
-Rudi
-
-> 
-> -- 
-> Best, 
-> Chaoyi
-> 
 
