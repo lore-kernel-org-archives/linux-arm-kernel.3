@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B04BC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D579C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQ+b0FuUbkgk3GjbjUprpVwWlSOMhpS2zwmbdYuf/ow=; b=MpbXhpZ+GTYN0av7MfGPmE+gWg
-	v/8Nh9FyivZ31cgfdtva35i/Jh70suGIyK1Unfad63ndBO0aMkn963puzaW+Z6qFLqMup3z1d4L3W
-	HQQwASNaFpl29XppMy7IGn2hHUoWcoqHerJ5iK5DdvQ0+gPlTBvYO9KjRhL7aZ60QN0Y2WSgreLJY
-	dhAQetqVMPDceWAj9Iwu0YMa0+eJdCjAhY/BYJxnoJxoRDnMaHlOLKZW957HJbfb4YQyvqHDLX6tX
-	eS/rFtuLB6JtAnxw/gKzI74V1u05JyHo47qNZeOlpHkiQn4y7THX4pPRJY6X02cT5Hpiyb7NDjdHP
-	eJxqEMkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSzSwKdiOyhfRAmkgtryOTqsNj7Y6W/yZ2lJoe+sm1s=; b=NinpwCveRI3dWlGA87W/mOtjGp
+	MFbw+2BFTLZr4F618BzDVWuYHYYzBzLG6Z78FFV4zztpazE4V2IBLCLBaFy0x0g+c8izTzFWTtHQA
+	2QwhteuIcwvbMt/fIdxkqkw8n1UOOIV5K+fj8aDI2GHJ+0eW9l76QPaV0eC67r9ELQWeVT1Dh0Jme
+	DcmakCN5h/1Zr5RHANfiEFn7gXBfGOhkEpMCyhPDSYxJVYb0wTNjmfoT5XmRtSlShK3vJsnwfnd8r
+	jh6YO42tyJXSiJFrdFJIrSOjiD1hie8j68QQiVBueo8SEFSQRNSFjl2n0Ju79aogasvb8ZEk85tl0
+	0q77ZG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RRE-0000000Cfi7-2IGa;
-	Tue, 01 Sep 2026 16:34:20 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1x1RRY-0000000Cfqx-3Baa;
+	Tue, 01 Sep 2026 16:34:40 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RRA-0000000Cfg7-3lYO
+	id 1x1RRU-0000000CfpD-2VK9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 16:34:18 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-3a33307ecd9so36641fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 09:34:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788280455; x=1788885255; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eQ+b0FuUbkgk3GjbjUprpVwWlSOMhpS2zwmbdYuf/ow=;
-        b=oRGsBWrvJRNf+yf4vKh9etM1FmikAs9ZNkQDCgln5dQ99uG8u+dYE1uWKqhMXTMvpi
-         6Bq382ku/x7xn6u1MDskf43o6PByyBhcqySZP2ZLqaP8g1omq7s8g9FUM6xI71qFrDfv
-         T+t5vGAfRQ55TiViz1Oh1tyWXG9ZDTw3uu/o5YvpiKuDAJGtYzYafzAH7VVmFSTaRXor
-         mVRwsBaIV8fL8nwWqo/KksDLgTnuEwQsoiGOIuEVqTKyEhde6n9S34crwz0dDCGyok9W
-         ubGozWAdmpj/XMScWEikudYuSpr2L0wnadqF63FGAavtVF2Hrms/EfB+S2Z5o3pEhRLI
-         UVLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788280455; x=1788885255;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eQ+b0FuUbkgk3GjbjUprpVwWlSOMhpS2zwmbdYuf/ow=;
-        b=QHGlXxDecpFDN3Gpjq5+tNqDJ2U7+jEG9PaKMAxFurRMY3HHnGrYsT74bZDBK37485
-         xxfUoXaE1CgLxHZ9KcEP2ejYz0hwyhTmeuA9PGoeknvQ/96fqhBvMvyIVWFMRrB02nR/
-         tVyNyUz81ZtaiY4mCHuOrSj9AYAvDQVax/axSrqaCkoWPhTYbLksxfN9o3Bxz+VYUWYX
-         pj1UAXcuBMB0/K1qoogOc2JZ0QpWmGdbPwKCpT3bYDdqxuqUKh6gJe2DI1a5j4z2Tlh3
-         ypWRFcFG/YcxlMp56AKnyrREEyj6TbcfD8slFG0NHWVu/KQaM2L9C3xrNwSN9KJoHIRh
-         QU+g==
-X-Forwarded-Encrypted: i=1; AKwUvBzau1QFx0bHSu3h5qEpWPGKamBU6zhF60rHZBtD4Br6/etbmkWgLg6c7yVS3z1QkCZrtQDCTPJ/Z++kmALpOYVG@lists.infradead.org
-X-Gm-Message-State: AFuF++mEMi2HaZoYhDwH42DaS69Pz9DurON8fzBDElzaE0mjK+6Ug6QP
-	Tu0NZGJenDkmOdqurRzGRt2p/Pj4BayEoZKMkWdY+AxCVVpSw99+JFk=
-X-Gm-Gg: AYBFou1fMYTR7NlIo+pLa9uJtGjb3tMEw/5x+UaeHhH0eWod80yeg1C51pKNcm3L5PM
-	HmbZpa+MTeLVXhqpu+51sgABi+W7moJl3er2eQdaGujLujoopMGCK8a7QKcU/DLkQYIgmeTqiRq
-	TQOwZvj0yk/a15seQqhE+LfVfDUbw4Illfak9zjq5+ZGD5wJjszywU4qgp+QMatxIviJsZD1l8y
-	sIlwLoNB5JW+DptGmXrXr2PgffAMspzP9fhEnXuyP1+iVu9iehCBrZpq1lvq4CEaeeawsn5GzGd
-	uEHvwZb139FRNtyBudavnvclZXdpX4cdjRI9ahaWH1tIw8DndPdiWnMv/2SoLoUPeHEsT8/FNAP
-	4afYFSH/g2derJKVHbOVKn4kiomlm1IanzslqQ//ORDNC85C8TtfCSF8BGOPf1zI9EYpb61XGHw
-	KqcZ9pJ/mYLNtxqjifbSORNRmPcj2UbzDXdYzQdDg8jZMRT5LoCoEc
-X-Received: by 2002:a2e:a554:0:b0:3a2:fd1:8a8 with SMTP id 38308e7fff4ca-3a3018ba808mr78554981fa.1.1788280454464;
-        Tue, 01 Sep 2026 09:34:14 -0700 (PDT)
-Received: from fedora ([92.36.3.203])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a34a8f03fasm688001fa.9.2026.09.01.09.34.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 09:34:14 -0700 (PDT)
-From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	netdev@vger.kernel.org
-Cc: upstream@airoha.com,
+	Tue, 01 Sep 2026 16:34:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788280429; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jDxfWGQAvL0qTaX362S0GAKT1dNbUHBBeVr8edgQonH6NEK46AXLtAHx0aiOwZzyXXab+Qm44TuU7Fxi9eLpNJTEapcbWmsVYjnFqC5KXx9s6cU2F0H9y/FRmv7Uzh3iYQCKIrz+aNgkAkMlMcKarlWawh/TBDbq9MnhOgevCsQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788280429; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=aSzSwKdiOyhfRAmkgtryOTqsNj7Y6W/yZ2lJoe+sm1s=; 
+	b=XmIgUJoS9mL+tg5zPsiBaeM9U5A6lvUkShybZDACb5DraepsMdvMch2O4vsHu8G3u0qEnPMELnIICJd4u+hvkhcWEiGLPexv24QHCdCcOaOxleXjrdi0hxh1dc6kSEupv+dJwIGBC2jkekV9ALTQNLl4kZLxqOe+4mBgRbXyyDo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788280429;
+	s=zmail; d=ziyao.cc; i=me@ziyao.cc;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=aSzSwKdiOyhfRAmkgtryOTqsNj7Y6W/yZ2lJoe+sm1s=;
+	b=izm7AwEwUZ6Ix97/NfYMiLDMn1TgHl0z2BKTdbaFqJVSrDmvqMjesw+YuMC75pFY
+	g6QPLjkL9oCTyynjVdUyNoLzhubLv2jaBeKS0OqCTrLeG7++9JVzX3x+s7UC4zNgCKk
+	dbTFGmVe377NH04L7EHEMb0/SxXlzpaCMOOpQHXM=
+Received: by mx.zohomail.com with SMTPS id 1788280425896668.4069042560614;
+	Tue, 1 Sep 2026 09:33:45 -0700 (PDT)
+Date: Tue, 1 Sep 2026 16:33:22 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-mediatek@lists.infradead.org,
+	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
+	Frank <Frank.Sae@motor-comm.com>
+Cc: thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Subject: Re: [PATCH net v2 2/3] net: airoha: recover RX ring after hw completion stall
-Date: Tue,  1 Sep 2026 19:33:48 +0100
-Message-ID: <20260901183348.40949-1-sochnev.v.74@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <apaA5jDYH71F0JaS@lore-desk>
-References: <20260830095717.37218-1-sochnev.v.74@gmail.com> <20260831234701.206021-1-sochnev.v.74@gmail.com> <20260831234701.206021-3-sochnev.v.74@gmail.com> <apaA5jDYH71F0JaS@lore-desk>
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 0/3] net: phy: motorcomm: Enable analog frontend
+ DAC on yt8531S
+Message-ID: <apb-UvaZYQljYJ5I@pie>
+References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/288.256.78
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_093416_945391_7A47976E 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260901_093436_720692_2F46015D 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,25 +92,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> IIUC increasing the ring size the issue never occurs again (correct?). If so, I
-> would drop this patch for the moment and add it if it is really necessary.
+On Mon, Aug 31, 2026 at 09:37:42AM +0200, Maxime Chevallier wrote:
+> In the process of getting more stmmac boards to run tests on, I've
+> acquired a nice and inexpensive YT6801 PCIe card, that can do
+> 10/100/1000BaseT. It uses stmmac's PCI variant dwmac-motorcomm, as well
+> as an integrated Motorcomm PHY (the YT8531S).
+> 
+> However while testing the card, I had link-up maybe once every 10
+> reboots, and no traffic whatsoever. Comparing with the out-of-tree
+> driver provided by Motorcomm, it was found that some Analog Frontend DAC
+> needs a clock to be enabled, and indeed it fixed the issue.
 
-Correct. At 128 the stall never occurred: 500 forced PPPoE reconnects
-over 20 h, ~37500 samples, zero triggers, plus ~994 cycles in earlier
-runs. This detector was compiled in and armed throughout, so that is a
-measured absence, not just the absence of a visible symptom.
+As a side note, this operation was added between v1.0.30 and v1.031 of
+the vendor driver, and we haven't observed similar issues with the
+current YT8531S driver, so maybe this is a silicon issue only present in
+later revisions of the chip.
 
-It is also not sufficient on its own: at 16 descriptors the recovery
-fires roughly every 35 s and PPPoE still never completes, since each
-recovery flushes the ring and negotiation restarts. The ring size is
-what fixes the bug - and the other two patches on their own are what
-ran the longest here: 508 forced reconnects over 20 h 32 min, zero
-rx_dropped/rx_errors across 39158 samples.
+If interested, you could find v1.028, v1.029, and v1.031 of the YT6801
+driver here[1]. And REG_MII_EXT_AFE_CONTROL_CLKDAC_AON_POS was
+introduced in this commit[2].
 
-Dropped in v3, just sent. I will resend this one with evidence if the
-stall ever turns up at the larger ring.
+> As I don't know much about this device, this series implements the DAC
+> CLK configuration in the YT8531S driver only for the integrated version,
+> that uses the GMII interface.
+> 
+> I split that into 3 commits, the first 2 are splitting-out the YT8521
+> and YT8531S config_init(). The third commit adds the DAC configuration.
+> 
+> This was tested on YT6801, which now reliably reports link up.
+> 
+> Maxime Chevallier (3):
+>   net: phy: motorcomm: Split yt8521_config_init() page management
+>   net: phy: motorcomm: Add a dedicated .config_init for YT8531S
+>   net: phy: motorcomm: Enable analog frontend on YT8531S
+> 
+>  drivers/net/phy/motorcomm.c | 76 ++++++++++++++++++++++++++-----------
+>  1 file changed, 54 insertions(+), 22 deletions(-)
+> 
+> -- 
+> 2.55.0
+> 
 
-Thanks for the review.
+Regards,
+Yao Zi
 
-Vitaliy
+[1]: https://github.com/deepin-community/kernel/blob/linux-6.6.y/drivers/net/ethernet/motorcomm/yt6801/
+[2]: https://github.com/deepin-community/kernel/commit/721c505713d104fe48a817e703936dfe583b8ae4
 
