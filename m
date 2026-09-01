@@ -4,117 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268DFC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A18C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUM+yN+wV2Rum2NOiWGNEq7ms74eqAhRWAUvws9oiXc=; b=M58kDeZEwee5kTL2zq43b0ALjL
-	U/QPm0oTSx7LMNndOb55uQz/ZSp+aSc8K03BHb1n6e+ns1LE3bzrfjBQwjuW1SMf0aYuHR9p33Mkp
-	AsrerLrvc0A8l+tS0nQWSJgHJ6SwoqXc5qGJd18wcCAFWVEqxZVmb4YgqJqWyblU387pMGgGxMQNO
-	yE5bTP9blQz6fnrG1FS4O+9hb95doSyoyzPZ1Q2O9pmTe2BYKPiXNKq8dqX8ELqMAVRwasKZEdGzi
-	ccj/qUiCyAKPkouqWHfqs4TNINU5ruNA0+3FD9Hz0y3DgpZ6Zsj9isOEavwTbsoHODmMn249KR7Hc
-	GITaQKCQ==;
+	bh=rDmlt9RDKbAS65tpISiNDaFS1yWWw3Wq1GeLi/uFO9I=; b=rlzs6DW6eInTnhDeM5Q6zAiwIL
+	IHlDg/Dhg4IvVkjfVRPFosqzrtKgVgFUVuOXB93Z+18SaI0SeasjoOdC2J2q3DaDgXkuHMTsILvt0
+	s1HkD0f2h82SHOK7qsVEMu3TEfSmKTLBJ+x75txXR6yWdXyWgb2bmoiqlmaJd1nZUtWjrgGgnkUhH
+	JRSTBEDDe/VR2ayWgBWredhj0TL+rLcOoRTpunXfhkVbHAb9XlAtVizYJ3EkKR3UgLRZQ502rJ/S/
+	1IHRoMoiXqBeLuWqd3x4tzNvAvSMtLm+Guf922BBy3/UrSOtjnVbEmmV9BafnIO14pL2l6Ia9/f7P
+	0TkQ2cIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OXc-0000000CDZj-0eD1;
-	Tue, 01 Sep 2026 13:28:44 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1x1Oir-0000000CEmG-1wec;
+	Tue, 01 Sep 2026 13:40:21 +0000
+Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OXZ-0000000CDZF-48oi
+	id 1x1Oip-0000000CEkE-0Zqi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 13:28:43 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 213E1240029
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Sep 2026 15:28:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1788269317;
-	bh=vUM+yN+wV2Rum2NOiWGNEq7ms74eqAhRWAUvws9oiXc=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=EAgluykfAjkRXM1DT8Typ2YUTHMMjJyBZEaJWN25o3SPept1PGpq6pWpAyGgRNYm+
-	 ITCZaWPgb7aeAHVrS12l2xZy/FJbEZtPgvlE+ahrNMW7/kcHM8ayN1LaqRtga9xGlE
-	 /oQ/UkGQwwKfNUtbZNFnCE2xjaCANnqeib+ot6DPAhZySVjAXZWKJUurPWJsaxrgNK
-	 lnRlAYqZaNpe50gCz+kSArDkCavOODkJaCeJH6m7yFf1JPyXCPF8v2xwuye78LIn/c
-	 1HZ4S//1N9A34INu/OiVg64XZmipGdhLO8M6fwe+ddIySzSCOGjUpq49qsVsacztrq
-	 /FY7gkAc6Yefg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hZ6BV3xF4z6tyW;
-	Tue,  1 Sep 2026 15:28:34 +0200 (CEST)
-Message-ID: <c4b9b6c6033774a02be50cf07a6729a6b1e9e5ba.camel@posteo.de>
-Subject: Re: [PATCH v8 1/6] dt-bindings: rtc: Add pinctrl for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
-	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
-	 <sebastian.hesselbarth@gmail.com>, Michael Langer
-	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
-	 <akpm@linux-foundation.org>, Linus Walleij <linusw@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	Tue, 01 Sep 2026 13:40:20 +0000
+Received: from martin by akranes.kaiser.cx with local (Exim 4.98.2)
+	(envelope-from <martin@akranes.kaiser.cx>)
+	id 1x1Oih-000000008Jv-2X2P;
+	Tue, 01 Sep 2026 15:40:11 +0200
+Date: Tue, 1 Sep 2026 15:40:11 +0200
+From: Martin Kaiser <martin@kaiser.cx>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-crypto@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Date: Tue, 01 Sep 2026 13:28:36 +0000
-In-Reply-To: <20260901-proud-furious-bison-0edeec@quoll>
-References: <20260831-rtc_s35390a_int1-v8-0-dac1dc86ce1f@posteo.de>
-	 <20260831-rtc_s35390a_int1-v8-1-dac1dc86ce1f@posteo.de>
-	 <20260901-proud-furious-bison-0edeec@quoll>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-iRkZX+HtzAjTofklDxni"
+Subject: Re: [PATCH] hwrng: imx-rngc: propagate clock enable errors
+Message-ID: <apbVu9mZpjslNi6k@akranes.kaiser.cx>
+References: <20260830131253.2718-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260830131253.2718-1-pengpeng@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_062842_334643_C7B57CC4 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20260901_064019_172270_BE1CE5EF 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,193 +65,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thus wrote Pengpeng Hou (pengpeng@iscas.ac.cn):
 
---=-iRkZX+HtzAjTofklDxni
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+> imx_rngc_probe() reads hardware registers after enabling its clock without
+> checking the result, and the runtime resume callback always reports success
+> after the same unchecked operation.
 
-On Tue, 2026-09-01 at 12:05 +0200, Krzysztof Kozlowski wrote:
-> On Mon, Aug 31, 2026 at 05:42:22PM +0000, Markus Probst wrote:
-> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
-up
-> > the system.
-> >=20
-> > Move devicetree bindings for sii,s35390a into its own file.
-> > Add necessary properties to configure the individual pins via pinctrl,
-> > which allows the interrupt signal 1 to be used for wakeup alarm.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 117 +++++++++++++=
-++++++++
-> >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
-> >  2 files changed, 117 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/D=
-ocumentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > new file mode 100644
-> > index 000000000000..dfe632c4b2c8
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > @@ -0,0 +1,117 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: S-35390A 2-WIRE REAL-TIME CLOCK
-> > +
-> > +maintainers:
-> > +  - Markus Probst <markus.probst@posteo.de>
-> > +
-> > +description:
-> > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with=
- the
-> > +  very low current consumption in the wide range of operation voltage.
-> > +
-> > +allOf:
-> > +  - $ref: rtc.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: sii,s35390a
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +    description: Supports up to 2 interrupt lines via the INT1 and INT=
-2 pins.
-> > +
-> > +  interrupt-names:
-> > +    items:
-> > +      - const: int1
-> > +      - const: int2
-> > +
-> > +  wakeup-parent: true
-> > +
-> > +  wakeup-source: true
-> > +
-> > +  "#clock-cells":
-> > +    const: 1
-> > +
-> > +patternProperties:
-> > +  "^pins":
-> > +    type: object
-> > +    additionalProperties: false
-> > +
-> > +    patternProperties:
-> > +      "-pins$":
-> > +        type: object
-> > +        additionalProperties: false
-> > +
-> > +        allOf:
-> > +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
-> > +
-> > +        properties:
-> > +          pins:
-> > +            minItems: 1
-> > +            items:
-> > +              enum:
-> > +                - int1
-> > +                - int2
-> > +
-> > +          function:
-> > +            description: |
-> > +              Pin function:
-> > +              - ignore:  Preserve the previous state.
-> > +              - disable: Disable pin output.
-> > +              - wakeup:  Output wakes up the system.
-> > +              - clock:   Output clock pulse.
-> > +              - pmin1:   Minute periodical output with 50% duty.
-> > +              - pmin2:   Minute periodical output L for 7.81 ms.
-> > +                         Can only be used with pin int1.
-> > +            enum:
-> > +              - ignore
-> > +              - disable
-> > +              - wakeup
-> > +              - clock
-> > +              - pmin1
-> > +              - pmin2
-> > +
-> > +        required:
-> > +          - pins
-> > +          - function
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    i2c {
-> > +        #address-cells =3D <1>;
-> > +        #size-cells =3D <0>;
-> > +
-> > +        rtc@30 {
-> > +            compatible =3D "sii,s35390a";
-> > +            reg =3D <0x30>;
-> > +            pinctrl-0 =3D <&rtc_pins_default>;
-> > +            pinctrl-names =3D "default";
-> > +
-> > +            wakeup-parent =3D <&int>;
->=20
-> I don't understand this need. Device does not generate interrupts - no
-> interrupts property - thus how can it wakeup?
-It is just an example.
+> Propagate clock-enable errors before accessing the RNG and to the
+> runtime-PM
+> core on resume.
 
->=20
-> As explained in commit msg, the signal at int1 goes to the SoC, right?
-I assume.
+> Fixes: 1d5449445bd0 ("hwrng: mx-rngc - add a driver for Freescale RNGC")
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>  drivers/char/hw_random/imx-rngc.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 
-> So where does it go? To which pin of which device? &int?
-For my Synology DS923+ NAS, I do not have schematics. I only know for
-sure from source code that INT1 is used for wakeup and I can confirm
-that this does indeed wake the device up.=20
+> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+> index 7693328f10564..00a21d62c79c3 100644
+> --- a/drivers/char/hw_random/imx-rngc.c
+> +++ b/drivers/char/hw_random/imx-rngc.c
+> @@ -266,7 +266,9 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
+>  	if (irq < 0)
+>  		return irq;
 
->=20
-> Can you show complete upstream DTS using this?
-There is arch/arm/boot/dts/ti/omap/am3517-som.dtsi, which has the pin
-output of INT1 routed to a gpio pin. INT2 isn't connected at all.
-According to the public schematic [1], this looks accurate.
+> -	clk_prepare_enable(rngc->clk);
+> +	ret = clk_prepare_enable(rngc->clk);
+> +	if (ret)
+> +		return ret;
 
+>  	ver_id = readl(rngc->base + RNGC_VER_ID);
+>  	rng_type = FIELD_GET(RNG_TYPE, ver_id);
+> @@ -338,9 +340,7 @@ static int imx_rngc_resume(struct device *dev)
+>  {
+>  	struct imx_rngc *rngc = dev_get_drvdata(dev);
 
-Thanks
-- Markus Probst
+> -	clk_prepare_enable(rngc->clk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(rngc->clk);
+>  }
 
-[1] https://www.scribd.com/doc/60133698/SOM-M2-Schematic
+>  static const struct dev_pm_ops imx_rngc_pm_ops = {
 
->=20
->=20
-> Best regards,
-> Krzysztof
+> base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
+> -- 
+> 2.50.1
 
---=-iRkZX+HtzAjTofklDxni
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+The same patch was sent 2 days ago.
 
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmqW0vQbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSb7EP/0A6hImyam3AZT6bEy9e
-tqPzzX/4eg90lRdFBoC07xjNdZy9zEF7/SN1jeWxIssdBIm70G5PqQ4ovL8BN5uy
-4h/06BGhT0JxIYlTUiaJNye1ro3B8TquZJUCWr2s3DYLuim3sGAr366rL2Py6U8D
-VooNcKXa68474yEi/cJKQfqF5E5m6pwDaISAKfJcrd0rQA9MitLaLu8iFK+vfKPF
-vfM1fdZnMJEiRU1juNsqz1asfpqKOxX+Jn8u9ZEpZfBErnsCpM+sX2MEw7DbD6xw
-WpETOiFat1weVALHkGE/seTEasfVJdJcNeAJ51RBpPmva5Yz63wKPugl4siz/WRI
-0ECRDwpWQI2567MQOOpk2RtXByYq5sc8TDB/rofz+0sUB4ck5jHyv9eHK72rObbv
-EHsK/HcJ0+i/YlFqUqBS8LsjAdZAlvLw0jdBdsUS09p50gLUtAsr4vrFSz/sd21C
-bba9qkI+Pz4YvrLvno72CES7EQ7PAt1eFNT/Waudu8Rp/tKWdTbn/1sMOYdZmxLR
-ysKzIu6tTTtbL8VPbixjhVo3lAZyB7EteAVPctpnP+w2/UrLW47qP30nP2OJsr+J
-AFJoL9Y6j+iW8j7H7utpdRHacuKHEnazT5YeR3wla2h6LWJnrpynsRKCtIgJDs9E
-AcViFv6GY9IYjEqxwEnLwuwe
-=fvHI
------END PGP SIGNATURE-----
-
---=-iRkZX+HtzAjTofklDxni--
+https://lore.kernel.org/linux-crypto/apHlIGM3_GHf86fK@SMW015318/T/#t
 
