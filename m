@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2338BC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 10:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A5AC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 10:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JILWnOs54Nn3C+Kuiyqfpag/plbfbFDDxTr4XHpskoY=; b=iMWadpYoEfZ9ksypoWPPAuFo5E
-	fhbox2ae22H+MVIq0ALbY6VBCZCeLx/i2HLFD3Xud/wGwAnjVTayZE/b1XThIWEkMvzWtHMHcLDxe
-	ksV5en1h0jbG2OTA2i57vcEEMS6B1hpZHKEIhsN2jYyDz0rOX9UqyXzHFUOYVg5aw1E7X1KsYkMH8
-	lBDmmeBRNskZ4abrlwgJ7c4JoMcia4jsFtKbC3FfqEThvakaLgs0XA6+01s58ZW5eQy7buiDG0Tb3
-	R1UgADcItGruyayb1+1kWjL3UTA9PpTmtvteTyp0ldp/Fs+l1kEy9CDdQ/63xl5wukovsDYFZYtsF
-	Ib5l46wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=P/I2DTgQAxOgxPI9wEVMOM0VoFWJdzYjw+yI+ro0Jfo=; b=kQ64ZDWsl1LprP
+	xjMgoLv7uRKxXQ1Bi5qHTOOaUFjUV6j+RGoAltnxHL6Ltd64GsFMaQyKKCFjNozZ/k2giuydZxsyi
+	QKXkIv/gI71CV57S5NW+bWUtbNMQGLnGHe2dCC8rLlQZtXcfRgqqqvMAzmLB9KHSdPMpnkA93stvE
+	QtCcQ899ZibCZpNla4OZlC0+Xsc7HddjMmX5l+yhmqDemzqK5FAI2nKwYgYcaYiSnbnYj3unwQO9y
+	eBSzDKzB6NrynBvHOa5fk600yHT2p61a2vFuTJSG/pYV85xkDyeOasxPxVZ2Az3ZEdnUO7ftYEpdL
+	Ntxkvaqbp/JmJVtZ1taw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1LgZ-0000000BXQz-0VM7;
-	Tue, 01 Sep 2026 10:25:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1Ljv-0000000BXo1-1yle;
+	Tue, 01 Sep 2026 10:29:15 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1LgY-0000000BXQZ-0Q1v
+	id 1x1Ljs-0000000BXlT-1ehQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 10:25:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B446401E2;
-	Tue,  1 Sep 2026 10:25:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40851F000E9;
-	Tue,  1 Sep 2026 10:25:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788258345;
-	bh=JILWnOs54Nn3C+Kuiyqfpag/plbfbFDDxTr4XHpskoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GwKJ2pb20IazCMdTzU5Hgo8RXNWu8ZZnGm6PIg9BsHyoQJnaEmS4BmR4y8WeFGnTn
-	 oLLkO9ba7prZwJj7sScsLLMAEsTE0f4s5YmpfnsHiI+QbOs+0tUjXj3Mydt4nYfTfT
-	 TZfuPnXRQZjOrpliQObdkKuYcCBoHsO3XDC7IoU+wuDwAyYfCDhL2a/SvQjoK6YbPs
-	 HcT0SgwLq3/0xAO30SY9kS1UX5P0iel5EP9MtMXfqPnz8K62k6mxQtO8Bl288kXKqe
-	 1P7ip+w7s6bicT5OnN3+buZ4N+LKT10n8BUyHYI0y34N8bQisn6din/SO6CT4as7hB
-	 gvZ5OO9OE2ncg==
-Date: Tue, 1 Sep 2026 11:25:33 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, tsbogend@alpha.franken.de, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, peterz@infradead.org, kees@kernel.org,
-	nathan@kernel.org, linusw@kernel.org, ojeda@kernel.org,
-	david.kaplan@amd.com, lukas.bulwahn@redhat.com,
-	ryan.roberts@arm.com, maz@kernel.org, timothy.hayes@arm.com,
-	lpieralisi@kernel.org, thuth@redhat.com, menglong8.dong@gmail.com,
-	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
-	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
-	yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
-	arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
-	akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-	kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
-	sshegde@linux.ibm.com, thorsten.blum@linux.dev,
-	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
-	x86@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Message-ID: <apaoHUrbY_1JFjfU@willie-the-truck>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
- <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
- <akvoN5vvQaW3MdmI@willie-the-truck>
- <110d75e9-1580-42d3-b137-89bdad22b80a@huawei.com>
+	Tue, 01 Sep 2026 10:29:14 +0000
+Received: by chaosmail.tech (Postfix) id 313F41C8852;
+	Tue, 01 Sep 2026 10:29:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1788258545;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=P/I2DTgQAxOgxPI9wEVMOM0VoFWJdzYjw+yI+ro0Jfo=;
+	b=b31zg8TqI5YV+yz7n4qucxmGK8MIKQYzMifv6+PR/LjD49WDQLYWyha25qAgxFMaCbv9op
+	rXbaUL+n/9RBBmL0ffupKRS91FEtTKn2zJ1jiZEFwy4P5DEDMJE5O58GldpjLG0hF4DK8W
+	szicpUEK21fsgvYZwIUfyKev+aOfPug=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Subject: [PATCH v9 0/6] spmi: apple: Additional commands and interrupt
+ support.
+Date: Tue, 01 Sep 2026 12:28:59 +0200
+Message-Id: <20260901-t603x-spmi-v9-0-09e702e3b153@chaosmail.tech>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <110d75e9-1580-42d3-b137-89bdad22b80a@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23Qy07DMBAF0F+pvMbIbzus+A/Ewo8xMaJNFYeoq
+ Mq/44QFNng50px7R3NHGeYEGT2d7miGNeU0XcowPJyQH+3lDXAKZUaMMEU0k3hRhN9wvp4T1kJ
+ x4iJ1xBJUwHWGmG5H2Mvrz5w/3Tv4ZU/YN8aUl2n+OtpWuu91g1eKCQZq2RB9YIGb53LLlM82f
+ Twu4Ee0p6+s9qbxrPgoOMhICUjDu57/ekN443nxnmoniQoDtbTrRe3b+8XhpaUsDFaHvpe1b++
+ XxUvJvbSeRcp116vKU9V4tfdL64y2Vgjtul7Xvu3XxQcbwYECrfnQ9abyf/5vitfEBBEoAxLDP
+ 79t2zc6tWAfewIAAA==
+X-Change-ID: 20260725-t603x-spmi-74630bf1b0a0
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788258545; l=2577;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=H8mZX7id9FvtDTJIogqkS54qI9UOB7o+m0z4PCa/pKY=;
+ b=bJyo2vYcPBaQI5zv88nbTYSowC5dNA8b/kwBl3MmVlMfx07syGDedKa+CyK/kfesCQHDcwm5N
+ +XXtNSh084qAj/9YJ3iTcIDjHB81kNez+hO8TSycPmTHTH5h7u6aKYN
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_032912_939487_92A62D0D 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +85,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 11:18:47AM +0800, Jinjie Ruan wrote:
-> 在 2026/7/7 1:39, Will Deacon 写道:
-> > On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
-> >> On 6/24/2026 8:16 PM, Will Deacon wrote:
-> >>> Please just give me the time I asked for. If you want to help out in the
-> >>> meantime, there are plenty of patches that need reviewing...
-> >>
-> >> It was a mistake on my part, and I sincerely apologize for wasting
-> >> community review resources and disrupting your schedule.
-> >>
-> >> I will absolutely back off now and wait for your official series. Lesson
-> >> learned. Thanks for your patience and for calling me out on this.
-> > 
-> > So I've mostly got the old series back on its feet:
-> > 
-> >   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
-> > 
-> > but there are still two issues left to resolve:
-> > 
-> >   1. The printing that can happen before RCU has started. Although I've
-> >      reduced this somewhat, there are still error paths in e.g.
-> >      verify_local_cpu_capabilities() that print a message before dying.
-> > 
-> >   2. check_local_cpu_capabilities() can mutate the system capability
-> >      state via update_cpu_capabilities(), so it's really dodgy running
-> >      that prior to synchronisation.
-> 
-> Just a gentle ping on this. I replied to the two remaining issues
-> earlier — any thoughts on my response? Happy to help test or rebase if
-> that helps.
+The SPMI bus has grown additional responsibilities in the M3
+generation, making the current driver insufficient. Add M3 comatibles,
+support for slave-sent interrupts, FIFO interrupts, power management
+commands, parity validation, and fix locking.
 
-I've been preparing a series to post asap (I was waiting for the merge
-window to close), but I'm also looking at some of the id register issues
-that have been pointed out around rng, mpam and mte.
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
-Will
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+Changes in v9:
+- more dt-binding fixes
+- Link to v8: https://patch.msgid.link/20260828-t603x-spmi-v8-0-708d4d12e0fd@chaosmail.tech
+
+Changes in v8:
+- dt-binding style fixes per review
+- Link to v7: https://patch.msgid.link/20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech
+
+Changes in v7:
+- Require interrupt support on M3+
+- Link to v6: https://patch.msgid.link/20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech
+
+Changes in v6:
+- Fix interrupt controller teardown
+- Link to v5: https://patch.msgid.link/20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech
+
+Changes in v5:
+- Style fixes per review
+- Fix fifo flush
+- Link to v4: https://patch.msgid.link/20260805-t603x-spmi-v4-0-c15a12d9a7d1@chaosmail.tech
+
+Changes in v4:
+- Re-do error recovery.
+- Fix an address calculation mistake
+- Link to v3: https://patch.msgid.link/20260803-t603x-spmi-v3-0-c17b506d91a1@chaosmail.tech
+
+Changes in v3:
+- Rework interrupt support
+- Address review comments
+- Link to v2: https://patch.msgid.link/20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech
+
+Changes in v2:
+- Change locking to non-interruptible
+- Reorder irq ack
+- Clarify dt binding
+- Some data type cleanups
+- Link to v1: https://patch.msgid.link/20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech
+
+---
+Alba Mendez (5):
+      spmi: apple: Validate FIFO state
+      spmi: apple: check transaction status
+      spmi: apple: Implement remaining commands
+      spmi: apple: lock around FIFOs
+      spmi: apple: Add interrupt functionality
+
+Sasha Finkelstein (1):
+      dt-bindings: spmi: apple,spmi: Add t603x and t8122
+
+ Documentation/devicetree/bindings/spmi/apple,spmi.yaml |  29 ++++++++++
+ drivers/spmi/Kconfig                                   |   3 +-
+ drivers/spmi/spmi-apple-controller.c                   | 389 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 389 insertions(+), 32 deletions(-)
+---
+base-commit: 0f23d56f17fdfc7db69d51f64c8b91bbab947aa9
+change-id: 20260725-t603x-spmi-74630bf1b0a0
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
+
 
