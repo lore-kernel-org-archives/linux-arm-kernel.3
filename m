@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26B9C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8275FC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dz5fCb8eEO+u0xeHbat1iXwZqnQiKYPkVzTkS17OKDs=; b=mB2Lf5XaIjne2PAdu5t7Ryxh08
-	LsnSjNA2FwSOY1DbBrx/iHpo5L1sXC2k9hILfCDc/Z7PqGGouR8IiksyheIXMtqcf6nDdd7ezyUFi
-	zR5WXjjaNWbgWxAheg/ntAJ37xfPHy5jUUnmBQTPc1xbcc4ehp9zbirdNTGtaywZJgYurZPZuiM37
-	rdJsXpWzPJKsFvCX7ZYFUtRi6nlPRMfTmsBdvEqABse7lEgq0kVq1854HDuX6voe6fZPsnmiIXE+p
-	8i++uD+yq6RbmEB2fjA1L1jCI6iAKgOIdTGHVIND7vuSK3Cb/KiVFH7Pd3gq1fDNrJ17vdD03hufd
-	1ShVz99Q==;
+	bh=iPWi4hoZNDrjC4oNfHd7fHgoe10Ao+nAr9o9Kh5FrzI=; b=OzN4PLxsydOPYZqIQi94+N5Q5N
+	WuubFpbo1J0qH54utvPTr4etYnPN5aO0dbiIi/IMRdDADh5k0YdG5CMhttsGZ+HBIDyil+BHLeQgr
+	LJlv7xtRXbkS/4wb6qBDF77yONYtHbHoU6tw12ZnMioM8nU+1Gsqj2onR7jS0JugXEduTNtGVCsQn
+	plhepuiC/rhh9TE5tIrsEDVoejojupx8UTaa21TJQktXUlz5SnVP6I1NPy+CSGlRd1+1E46h4PQxg
+	d9vWVTcdcCaCHhh7leF8ajWnqG5ZG/5QqhSAChPS7GRur6B72a2I/KKu/9Z0jWznsNKXGQznSa+i7
+	C5K8C4xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SXl-0000000CrZz-0Qfz;
-	Tue, 01 Sep 2026 17:45:09 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1x1SZL-0000000CrmC-1E1d;
+	Tue, 01 Sep 2026 17:46:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SXi-0000000CrZX-1TN9
+	id 1x1SZK-0000000Crm6-3Gx5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:45:08 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-93900ed2925so18892285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 10:45:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1788284704; x=1788889504; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Dz5fCb8eEO+u0xeHbat1iXwZqnQiKYPkVzTkS17OKDs=;
-        b=E0Ori3cyH4QYNcur6xmJLK3tqYy+U0PpI+7NTEY4U800fSr2tS+JviEfyNGY4yt4bF
-         sQHklAvcur39rU/CwkDbfmTyMjNqXuP5C7pBagwkt/Gp7iYXXPmzW3UOboGy658FNPk4
-         myQ2nhfewFRoe9c4ghjAPFJn1bk5DP25gGBgprzOWrNTp72oWheKKG/fWA3LglVVia6E
-         iwsHOhNLi5vas5nkiMWXiDDNI7HFYNXoSjntDh3vQKQf/hw13G4hdM45P2fa/7WV/KXO
-         RbrK3Csu+z/AveF7UUA5KaGsYOv6LmJIhLAGw+Y6EcRSDTO0K8YpMdTjLC57qYPvH/np
-         XpMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788284704; x=1788889504;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Dz5fCb8eEO+u0xeHbat1iXwZqnQiKYPkVzTkS17OKDs=;
-        b=dFt5Sqwwq2r4cuiGH0Fr8RBVIcGt5lNxKEGtlZueR68zG9QIKmK2xCDgm+gyw8+Sr6
-         V2C84TOng5943f7MVe8ypP8kgKX6ug3iG3Cyc8zcm8kRj8TA8tdwzOCMXkZIH2jnZonU
-         k4mA6ZFI7XZojfnD4wBzsBmw5MM26lyknPwv8Z4F5/vVzFj8ujXaFbgJ4X+88C68lTt+
-         NcfdsBknlEB99+eFTQwkCpeVvxRqRd301VByTrUwfAfMeXF1W4jWCj2G8OlVLwko4IPp
-         HlUF3bZrJ0+3XWDfsO/r0jgCFrZZmXxUdxpMwWZd8f1S0j2coH1V3LYC/865W3kDKSJU
-         Uh2g==
-X-Forwarded-Encrypted: i=1; AHgh+RqAH2CfYWpCN4Dflm+EPiArGbVyIIRoRCu+4FzgX2feq4L1JFSlSfzDkc17ulMKqxdJ21e0u4T566ZAhyuD4P62@lists.infradead.org
-X-Gm-Message-State: AFuF++lxsK39i/afrKA3/P7D++6N3kU9rtZboHSb5cxhf7S3O2gzgfcf
-	k2SB4gYaf1lDWKs2zuHsKP/BmVkXolXSmxmrvAjkwsPFb+6NQ6/gNBbOcHdZFQ33lVc=
-X-Gm-Gg: AR+sD12jEZlod5VmSoom/Kh8kCeDhqa8aYvScg3zaCrwfWH9Ax97t+6ZEp1jpo/LNzc
-	PKr00U/Qxy5WhfK10X09gdFGH+wqmc6ixPI3/IbDPvHFGjZp8uvxwLwcgsHLtsDBct87a/EL5hk
-	oCw+roYSXlgxC5TX0XOnsqh3GOBuchww4PTvUg54meeToEduMqk07wvOIiHmu52VwO5yfjD8n/p
-	+OhWEdyX93dtAkJ7iR6/L+z3snoU1yx1f6nY/YG4jQxkaoBF+Omg62T8BJgj7O/nLqFwXBJwlTZ
-	fx1i/unKU7x5k+zP0jyV425c0uIioduF5hdNSsh0for9tMGh6FfI3yHN70YyX/wNHbTjU0bpVuS
-	S8j81WzViKgamGyfkWjfzuCfQzBsqrvQ9s6DBqr0eeL4/lXgKQ8XgL3Jk8uXlTce5mTlv1M7eB/
-	j9peFnMTtKeNh2dvczQehjTxLFDOtlkKrtz1wulUmjKvKUMVky+nUXblTQZGcYLijAO3OUfPccK
-	fkBE2Ca+feD6Mc7anrvJqE72mtpPzUflTj8n5IeLIMXaA==
-X-Received: by 2002:a05:620a:2b90:b0:939:3712:77df with SMTP id af79cd13be357-939480e4a93mr1404504985a.21.1788284704506;
-        Tue, 01 Sep 2026 10:45:04 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93917247209sm1093584585a.17.2026.09.01.10.45.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 10:45:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x1SXf-0000000C5Bj-0yOq;
-	Tue, 01 Sep 2026 14:45:03 -0300
-Date: Tue, 1 Sep 2026 14:45:03 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <20260901174503.GB2847102@ziepe.ca>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com>
- <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org>
- <20260901143445.GC56830@ziepe.ca>
- <apcHoHKGoI7WNFXp@nvidia.com>
- <apcI6dnRaGRNdzN1@nvidia.com>
+	Tue, 01 Sep 2026 17:46:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 745A640933;
+	Tue,  1 Sep 2026 17:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3E731F000E9;
+	Tue,  1 Sep 2026 17:46:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788284806;
+	bh=iPWi4hoZNDrjC4oNfHd7fHgoe10Ao+nAr9o9Kh5FrzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nXTCt3rNQUkwOrhPzMl0KYcQM0uwZq+OWqHdAykNvQi3KJ3W75V1wgo+nZIlRf+b1
+	 GB7VwPNqXnX5Rs6wcx7DZGLSExw0HLvDp4KtZsHLQ02+vRHlhSsSQKbA5ACVa8ikP+
+	 AUJJaseGWXkgNdM+O7OlCDrSno6Fwj6ij2L9NAtJ300JlUES0huwhjmZ9c+OXe2KXP
+	 xeHoU0eZwxbiUnHGtzfO55eUfSOTKMIZF8T8uk4Ggktc8FlUw+qBpC1QS1Uc0a5ghT
+	 x1gyMwBBTWQNPQbKzLTeEfc9AJWgPahIyWpAQLGV5C/81xRCjXoRkh46lAgKJavs4S
+	 pKFh39gZDRAvw==
+Date: Tue, 1 Sep 2026 18:46:41 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jia Wang <wangjia@ultrarisc.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next 1/3] dt-bindings: net: snps,dwmac: Add UltraRISC
+ DP1000 compatible
+Message-ID: <20260901-press-buckwheat-92d17a6b8f71@spud>
+References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
+ <20260901-dwmac-ultrarisc-v1-1-f19454814bcf@ultrarisc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jiiFleqVVWDTS025"
 Content-Disposition: inline
-In-Reply-To: <apcI6dnRaGRNdzN1@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_104507_717322_114F89FE 
-X-CRM114-Status: GOOD (  27.00  )
+In-Reply-To: <20260901-dwmac-ultrarisc-v1-1-f19454814bcf@ultrarisc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,49 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:18:33AM -0700, Nicolin Chen wrote:
-> On Tue, Sep 01, 2026 at 10:13:11AM -0700, Nicolin Chen wrote:
-> > On Tue, Sep 01, 2026 at 11:34:45AM -0300, Jason Gunthorpe wrote:
-> > > On Tue, Sep 01, 2026 at 03:36:37PM +0530, Aneesh Kumar K.V wrote:
-> > > 
-> > > > @@ -463,14 +460,13 @@
-> > > >  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
-> > > >  
-> > > >  	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
-> > > > +		if (arm_smmu_is_realm_viommu(viommu))
-> > > > +			return arm_realm_smmu_v3_init(viommu, user_data);
-> > > > +
-> > > 
-> > > I think the realm vsmmu is going to require a different info struct
-> > > than the normal psmmu case, isn't it?
-> > > 
-> > > If so it needs its own enum value.
-> > > 
-> > > It would be nice to see a draft patch showing how the real vsmmu works
-> > > on top of the RMM spec for it. If we are using a viommu object then
-> > > non-vsmmu case should be identical just with an option in the info
-> > > struct to not create the vsmmu object.
-> > 
-> > Actually, the PSMMU-only viommu object in this series only adds a
-> > type with no viommu data structure.
-> > 
-> > I've drafted the vsmmu case on top of the series, so it would add
-> > a structure reusing the same IOMMU_VIOMMU_TYPE_ARM_SMMUV3 with a
-> > flag:
-> 
-> Oh. I replied too fast that I didn't notice this is under the
-> standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3 used by non-secure vSTE.
+--jiiFleqVVWDTS025
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The original patches were OK:
+On Tue, Sep 01, 2026 at 09:27:30AM +0800, Jia Wang wrote:
+> The UltraRISC DP1000 GMAC is based on a Synopsys DesignWare MAC.
+>=20
+> Allow its SoC-specific compatible in the common DWMAC compatible list.
+>=20
+> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+> ---
+>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Docu=
+mentation/devicetree/bindings/net/snps,dwmac.yaml
+> index 2449311c6d28..2ed4564ae99d 100644
+> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+> @@ -119,6 +119,7 @@ properties:
+>          - starfive,jh7110-dwmac
+>          - tesla,fsd-ethqos
+>          - thead,th1520-gmac
+> +        - ultrarisc,dp1000-gmac
 
-@@ -1055,6 +1055,7 @@ enum iommu_viommu_type {
-        IOMMU_VIOMMU_TYPE_DEFAULT = 0,
-        IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
-        IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
-+       IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 = 3,
+This should not be a standalone patch, rather merged with the other dt
+one.
 
-That's where everything should be placed, including your new struct
-above.
+> =20
+>    reg:
+>      minItems: 1
+>=20
+> --=20
+> 2.34.1
+>=20
 
-Jason
+--jiiFleqVVWDTS025
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapcPgAAKCRB4tDGHoIJi
+0pJJAQC2MOQ3WQ775wZhL2oOE84EeepYhkoKAGs4AIdvFoIJIQEAs4oDcmd2sGxv
+x/CeJ0b0IJ340Tqg8YPgsSiFvur70QU=
+=9MSe
+-----END PGP SIGNATURE-----
+
+--jiiFleqVVWDTS025--
 
