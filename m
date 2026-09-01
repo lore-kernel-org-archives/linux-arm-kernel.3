@@ -4,98 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078CEC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39320C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NFMGPc5SrnGwaCZ7sUtMBJVB/X1XYqXdBON1UU2MYc4=; b=irw8RpwEPlOgGIRyKwhV7t7Xho
-	PJVopxVFlEGazd7Y7O0PA4kuPF4O4u1PmSnCtpmEkcmlEzLZsxtqbdLZNO7eioo6UpqxE3TetIB/p
-	2g5EGJWoCrglgVY1kCNmED3/5o6B2RXVWmF/b/M3TLDM4a0oF3MDaSsCeIbRieawSVrxnD7HR2V4y
-	RBDW4Ofggzrfbaqz5ZkT1PMmfpjYTmY17g23HKdcUaKtcn+r6otlYah3+aYw7Smb3PEicf6Dr973X
-	zrBwhY+PilzALVRWEtdgZJt6Vb6FanHK8XxDXf+KEIqUMFXex98dVyDpcodXLn7RX+jLM8sZXNfUv
-	BBWDCY3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9C9PquLTIFgMhA+5If1UmoprkzZ8Splb57Qu2HeuyeU=; b=bR7KHJs9LdGmSSi6HeqswQuPWa
+	xhnNGupIsJnPDQFtRKzLpQipSwUH+CvJjPPMfV6fT88vwvrU/R8QNObDzcepTQmBHtZvAhPNADlMf
+	8H7F5LkW7sllWWgs8f+WhD7g+hKfiE4dbkjtbPyXUMeo4J8f7KSL+c05LiyoDTIY+r8GsfSxXTmtu
+	5Es7Zjqs8ge9PnuMkzORRc0YGsH2aN4fS9dzmXoPkWwRd1myFseIfIda4tAHnSKnfJAEzeBtvEQJS
+	Rs99fNVXMVQcYNahkhYv6b0NBQluDPuzd5xk6yO3oOZCuW3w9jJyiyAVJQQBTNTZPjcC6Lr3L9bIF
+	qXYAiUBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Jqn-0000000BGC1-2ffK;
-	Tue, 01 Sep 2026 08:28:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1Jrj-0000000BGM0-4ANx;
+	Tue, 01 Sep 2026 08:29:11 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Jql-0000000BGBQ-230t
+	id 1x1Jrg-0000000BGLA-3NTl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:28:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 99EBF601DB;
-	Tue,  1 Sep 2026 08:28:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3F7B1F000E9;
-	Tue,  1 Sep 2026 08:28:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788251290;
-	bh=NFMGPc5SrnGwaCZ7sUtMBJVB/X1XYqXdBON1UU2MYc4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LUbLR8I/AqanKIO8TlOgWzWlfplmYbMrAWrTt8eA/g8nYlLcJfGGR7Vut046WYyax
-	 WOI0S2W14PVYgXuR3JE8eDs6cPtK7LZeur8FYqHq5XzED9iQnNFLkVR6iYK/aCK1cF
-	 3eaJcKMy4EAaSf1hxX/1TYPorf2dIt4Wb0+UCVvgmAsLzcEffzFkhB41D39M8urbvR
-	 mrxxaDl6B5YoWtZEb7J1oP8t6BiTKsPvJxQGDsTc7EdJZCW6d3dmURR7EjU8hCv+tl
-	 WNEJjKWG0/7ulI4wOmUqfSaf1pCvcHibFAqXP+0MveYwQKYWqCJVA+0rJLqPINAD9M
-	 DPlb0NyfWby9Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x1Jqh-00000003Cie-3E0s;
-	Tue, 01 Sep 2026 08:28:07 +0000
-Date: Tue, 01 Sep 2026 09:30:40 +0100
-Message-ID: <87o6ehmkzz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 07/20] KVM: arm64: Share more arm64 code with s390
-In-Reply-To: <20260831145536.913567-8-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
-	<20260831145536.913567-8-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 01 Sep 2026 08:29:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0791F1A18FD;
+	Tue,  1 Sep 2026 08:29:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C0D2B6053C;
+	Tue,  1 Sep 2026 08:29:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D87611C79239;
+	Tue,  1 Sep 2026 10:28:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788251340; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=9C9PquLTIFgMhA+5If1UmoprkzZ8Splb57Qu2HeuyeU=;
+	b=ySGtK2PQxTK0mPDTeBgTfM8uNmdLH2en7dtCWlV2ryudYRHswSvMCQj5+/0XXaqLTNTCAa
+	5xuDyVgE9zrCgI9Z5dx9wsC3GJD2sTiOm3vk+OQ8ruz9MQ5f1RBVKvXuR7D1P6aripD0kX
+	FlJtupueLVEbVYzJaMRX6BXUdqjpn9c0CyBCqfryLV6bKJL9XcSrKr5MD6Wl0LWVPs+miG
+	pOaAuWO/f3kwCqiP29Y4EhoV4ch3R5WTjpBR9mGrUYXpQkwdUkrt1EUrQMWJloY2FdE08i
+	mzILhXUv6ERPjDzMPVaUw7amAC12BuqU5P3t3mrm/4MxO0V2lEztth6tD9J+1g==
+Message-ID: <c48c9cde-a5db-4aea-9b62-1ce007308a68@bootlin.com>
+Date: Tue, 1 Sep 2026 10:28:50 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH linux next v2] net: stmmac: remove software VLAN tag
+ stripping
+To: he.peilin@zte.com.cn, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ vbridgers2013@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: jiang.kun2@zte.com.cn, xu.xin16@zte.com.cn
+References: <20260901102838839qOylm1OxcNUptu0TbB_Cd@zte.com.cn>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260901102838839qOylm1OxcNUptu0TbB_Cd@zte.com.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_012908_990068_8A572128 
+X-CRM114-Status: GOOD (  28.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,329 +81,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 15:55:22 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+Hi,
+
+On 9/1/26 04:28, he.peilin@zte.com.cn wrote:
+> Problem
+> =======
+> When the stmmac driver has NETIF_F_HW_VLAN_STAG_RX enabled by default,
+> but the hardware does not support hardware stripping of ETH_P_8021AD
+> (VLAN 802.1ad) tags, the driver falls back to software stripping in
+> stmmac_rx_vlan(). If the received VLAN packet is fragmented and the
+> VLAN header resides in the non-linear part of the skb, the driver
+> attempts to pull the header without first ensuring it is linearized.
+> This leads to a kernel BUG in __skb_pull() due to invalid header
+> access.
 > 
-> Mark functions that s390 can use to implement arm on s390 as shared
-> functions.
+> Crash log
+> =========
+> [   72.212903] kernel BUG at include/linux/skbuff.h:2700!
+> [   72.212908] Kernel BUG [#1]
+> ..
+> [   72.212958] [<ffffffff846919d2>] eth_type_trans+0xe2/0x168
+> [   72.212962] [<ffffffff844672e2>] stmmac_rx+0x602/0xc58
+> [   72.212966] [<ffffffff84467984>] stmmac_napi_poll_rx+0x4c/0xb8
+> [   72.212970] [<ffffffff84635246>] __napi_poll+0x2e/0x1e0
+> [   72.212975] [<ffffffff8463596e>] net_rx_action+0x31e/0x388
+> [   72.212979] [<ffffffff83c329b0>] handle_softirqs+0x170/0x358
+> [   72.212983] [<ffffffff83c32cc6>] __irq_exit_rcu+0xd6/0x100
+> [   72.212986] [<ffffffff83c32ee0>] irq_exit_rcu+0x18/0x28
+> [   72.212989] [<ffffffff84895b1e>] handle_riscv_irq+0x66/0x78
+> [   72.212994] [<ffffffff84896728>] do_irq+0x60/0xa0
+> 
+> Root cause
+> ==========
+> In the software VLAN stripping path, stmmac_rx_vlan() does not call
+> pskb_may_pull() to ensure that the Ethernet header plus VLAN header
+> are in the linear area. As a result, __skb_pull() operates on an
+> skb with insufficient linear data, triggering the BUG check.
+> 
+> Solution
+> ========
+> The software VLAN stripping logic in stmmac_rx_vlan() was originally
+> introduced in 2014 by commit b93819854d6e ("stmmac: Add vlan rx for
+> better GRO performance.") as a workaround to improve GRO performance,
+> since at that time GRO could not handle frames with VLAN tags. However,
+> this limitation was resolved in 2015 by commit 66e5133f19e9 ("vlan: Add
+> GRO support for non hardware accelerated vlan"), which added GRO support
+> for non-hardware-accelerated VLAN frames. Keeping a software fallback
+> path for VLAN stripping is no longer necessary and only adds complexity.
 
-More of what? For what purpose? What is the logic behind exposing
-snippets of code to S390? This patch tags some PAuth stuff, a bunch of
-SVE definitions, and a whole lot of sysreg helpers.
-
-What is the rationale for this organisation? I can't see any, and it
-just looks like a very random approach to the problem.
-
-I want to see logic, a progression. Something I can follow.
+I'm not convinced this is the proper explanation to use here. How did you
+trigger it in the first place ? Just getting rid of unnecessary code
+is good enough of an explanation :)
 
 > 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> Rather than fixing the issue by adding pskb_may_pull() checks to
+> stmmac_rx_vlan(), remove the function entirely. Additionally, ensure
+> that hardware VLAN stripping features are only reported via
+> dev->hw_features when the hardware truly supports them.
+> 
+> Fixes: b93819854d6e ("stmmac: Add vlan rx for better GRO performance.")
+> Signed-off-by: Peilin He <he.peilin@zte.com.cn>
+> Reviewed-by: xu xin <xu.xin16@zte.com.cn>
+> Reviewed-by: Jiang Kun <jiang.kun2@zte.com.cn>
 > ---
->  arch/arm64/kvm/arm.c      |  3 +++
->  arch/arm64/kvm/guest.c    | 11 +++++++----
->  arch/arm64/kvm/sys_regs.c | 36 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 46 insertions(+), 4 deletions(-)
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 27 ++-----------------
+>  1 file changed, 2 insertions(+), 25 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 6b92a3c1d490..62e8b32ee74e 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -340,6 +340,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->  	kvm_arm_teardown_hypercalls(kvm);
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b2b7d0242dd3..790b7362048e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5021,24 +5021,6 @@ static netdev_features_t stmmac_features_check(struct sk_buff *skb,
+>  	return vlan_features_check(skb, features);
 >  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static bool kvm_has_full_ptr_auth(void)
->  {
->  	bool apa, gpa, api, gpi, apa3, gpa3;
-> @@ -374,6 +375,8 @@ static bool kvm_has_full_ptr_auth(void)
->  		(apa + api + apa3) == 1);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
-
-This could have been done much earlier.
-
->  int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  {
->  	int r;
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 6ca5a9f357cd..e978b2fbeb76 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -307,12 +307,12 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  	return err;
->  }
->  
-> -#endif /* ARM64_S390_COMMON */
+> 
+> -static void stmmac_rx_vlan(struct net_device *dev, struct sk_buff *skb)
+> -{
+> -	struct vlan_ethhdr *veth = skb_vlan_eth_hdr(skb);
+> -	__be16 vlan_proto = veth->h_vlan_proto;
+> -	u16 vlanid;
 > -
->  #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
->  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
->  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
-
-Pointless churn.
-
->  static int get_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  {
->  	unsigned int max_vq, vq;
-> @@ -383,6 +383,7 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  	return 0;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  #define SVE_REG_SLICE_SHIFT	0
->  #define SVE_REG_SLICE_BITS	5
->  #define SVE_REG_ID_SHIFT	(SVE_REG_SLICE_SHIFT + SVE_REG_SLICE_BITS)
-> @@ -399,6 +400,8 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  #define KVM_SVE_ZREG_SIZE KVM_REG_SIZE(KVM_REG_ARM64_SVE_ZREG(0, 0))
->  #define KVM_SVE_PREG_SIZE KVM_REG_SIZE(KVM_REG_ARM64_SVE_PREG(0, 0))
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * Number of register slices required to cover each whole SVE register.
->   * NOTE: Only the first slice every exists, for now.
-> @@ -595,8 +598,6 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
->  	return copy_core_reg_indices(vcpu, NULL);
->  }
->  
-> -#endif /* ARM64_S390_COMMON */
+> -	if ((vlan_proto == htons(ETH_P_8021Q) &&
+> -	     dev->features & NETIF_F_HW_VLAN_CTAG_RX) ||
+> -	    (vlan_proto == htons(ETH_P_8021AD) &&
+> -	     dev->features & NETIF_F_HW_VLAN_STAG_RX)) {
+> -		/* pop the vlan tag */
+> -		vlanid = ntohs(veth->h_vlan_TCI);
+> -		memmove(skb->data + VLAN_HLEN, veth, ETH_ALEN * 2);
+> -		skb_pull(skb, VLAN_HLEN);
+> -		__vlan_hwaccel_put_tag(skb, vlan_proto, vlanid);
+> -	}
+> -}
 > -
->  static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
->  {
->  	const unsigned int slices = vcpu_sve_slices(vcpu);
-> @@ -658,6 +659,8 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
->  	return num_regs;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
 >  /**
->   * kvm_arm_num_regs - how many registers do we present via KVM_GET_ONE_REG
->   * @vcpu: the vCPU pointer
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 53d096803d9d..b167f9d06fd4 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -45,6 +45,7 @@
->   * 64bit interface.
->   */
->  
-> +#ifdef ARM64_S390_COMMON
->  static u64 sys_reg_to_index(const struct sys_reg_desc *reg);
->  static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->  		      u64 val);
-> @@ -82,6 +83,8 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
->  			"sys_reg write to read-only register");
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
+>   * stmmac_rx_refill - refill used skb preallocated buffers
+>   * @priv: driver private structure
+> @@ -5407,9 +5389,7 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+>  	if (priv->hw->hw_vlan_en)
+>  		/* MAC level stripping. */
+>  		stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+> -	else
+> -		/* Driver level stripping. */
+> -		stmmac_rx_vlan(priv->dev, skb);
 > +
->  enum sr_loc_attr {
->  	SR_LOC_MEMORY	= 0,	  /* Register definitely in memory */
->  	SR_LOC_LOADED	= BIT(0), /* Register on CPU, unless it cannot */
-> @@ -428,6 +431,7 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
->  	__vcpu_assign_sys_reg(vcpu, reg, val);
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  /* CSSELR values; used to index KVM_REG_ARM_DEMUX_ID_CCSIDR */
->  #define CSSELR_MAX 14
->  
-> @@ -533,6 +537,8 @@ static bool access_rw(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * See note at ARMv7 ARM B1.14.4 (TL;DR: S/W ops are not easily virtualized).
->   */
-> @@ -800,6 +806,7 @@ static bool access_gicv5_ppi_enabler(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static bool trap_raz_wi(struct kvm_vcpu *vcpu,
->  			struct sys_reg_params *p,
->  			const struct sys_reg_desc *r)
-> @@ -853,6 +860,8 @@ static bool trap_oslsr_el1(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static int set_oslsr_el1(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->  			 u64 val)
->  {
-> @@ -1011,6 +1020,7 @@ static u64 reset_actlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  	return actlr;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  {
->  	u64 mpidr = kvm_calculate_mpidr(vcpu);
-> @@ -1019,6 +1029,8 @@ static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  	return mpidr;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static unsigned int hidden_visibility(const struct kvm_vcpu *vcpu,
->  				      const struct sys_reg_desc *r)
->  {
-> @@ -1922,6 +1934,7 @@ static u8 pmuver_to_perfmon(u8 pmuver)
->  	}
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val);
->  static u64 sanitise_id_aa64pfr2_el1(const struct kvm_vcpu *vcpu, u64 val);
-> @@ -2078,6 +2091,8 @@ static bool access_id_reg(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
->  				       const struct sys_reg_desc *r)
->  {
-> @@ -2127,6 +2142,7 @@ static unsigned int fp8_visibility(const struct kvm_vcpu *vcpu,
->  	return REG_HIDDEN;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
->  {
->  	if (!vcpu_has_sve(vcpu))
-> @@ -2288,6 +2304,8 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
->  	return set_id_reg(vcpu, rd, val);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static u64 read_sanitised_id_dfr0_el1(struct kvm_vcpu *vcpu,
->  				      const struct sys_reg_desc *rd)
->  {
-> @@ -2332,6 +2350,7 @@ static int set_id_dfr0_el1(struct kvm_vcpu *vcpu,
->  	return set_id_reg(vcpu, rd, val);
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
->  			       const struct sys_reg_desc *rd, u64 user_val)
->  {
-> @@ -2661,6 +2680,8 @@ static bool access_ccsidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
->  	return true;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->  		       u64 *val)
->  {
-> @@ -2764,6 +2785,7 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
->  	SYS_REG_USER_FILTER(name, access_arch_timer, reset_val, 0, \
->  			    arch_timer_get_user, arch_timer_set_user, vis)
->  
-> +#ifdef ARM64_S390_COMMON
->  /*
->   * Since reset() callback and field val are not used for idregs, they will be
->   * used for specific purposes for idregs.
-> @@ -2840,6 +2862,8 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
->  	.val = 0,				\
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static bool access_sp_el1(struct kvm_vcpu *vcpu,
->  			  struct sys_reg_params *p,
->  			  const struct sys_reg_desc *r)
-> @@ -3212,6 +3236,7 @@ static void init_imp_id_regs(void)
->  	boot_cpu_aidr_val = read_sysreg(aidr_el1);
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static u64 reset_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  {
->  	switch (reg_to_encoding(r)) {
-> @@ -3269,6 +3294,8 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->  	.val = mask,					\
->  	}
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
->  {
->  	__vcpu_assign_sys_reg(vcpu, r->reg, vcpu->kvm->arch.nr_pmu_counters);
-> @@ -4833,6 +4860,7 @@ static const struct sys_reg_desc cp15_64_regs[] = {
->  	{ SYS_DESC(SYS_AARCH32_CNTVCTSS),     access_arch_timer },
->  };
->  
-> +#ifdef ARM64_S390_COMMON
->  static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
->  			       bool reset_check)
->  {
-> @@ -4882,6 +4910,8 @@ static void perform_access(struct kvm_vcpu *vcpu,
->  		kvm_incr_pc(vcpu);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * emulate_cp --  tries to match a sys_reg access in a handling table, and
->   *                call the corresponding trap handler.
-> @@ -5340,6 +5370,7 @@ void kvm_sys_regs_create_debugfs(struct kvm *kvm)
->  			    &sr_resx_fops);
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static void reset_vm_ftr_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *reg)
->  {
->  	u32 id = reg_to_encoding(reg);
-> @@ -5360,6 +5391,8 @@ static void reset_vcpu_ftr_id_reg(struct kvm_vcpu *vcpu,
->  	reg->reset(vcpu, reg);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /**
->   * kvm_reset_sys_regs - sets system registers to reset value
->   * @vcpu: The VCPU pointer
-> @@ -5432,6 +5465,7 @@ int kvm_handle_sys_reg(struct kvm_vcpu *vcpu)
->  	return 1;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  /******************************************************************************
->   * Userspace API
->   *****************************************************************************/
-> @@ -5753,6 +5787,8 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->  	return write_demux_regids(uindices);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
->  	KVM_ARM_FEATURE_ID_RANGE_IDX(sys_reg_Op0(r),		\
->  		sys_reg_Op1(r),					\
+>  	skb->protocol = eth_type_trans(skb, priv->dev);
+> 
+>  	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
+> @@ -5901,9 +5881,6 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+>  		if (priv->hw->hw_vlan_en)
+>  			/* MAC level stripping. */
+>  			stmmac_rx_hw_vlan(priv, priv->hw, p, skb);
+> -		else
+> -			/* Driver level stripping. */
+> -			stmmac_rx_vlan(priv->dev, skb);
+> 
+>  		skb->protocol = eth_type_trans(skb, priv->dev);
+> 
+> @@ -7965,7 +7942,7 @@ static int __stmmac_dvr_probe(struct device *device,
+>  	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
+>  #ifdef STMMAC_VLAN_TAG_USED
+>  	/* Both mac100 and gmac support receive VLAN tag detection */
+> -	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
+> +	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
+>  	if (dwmac_is_xmac(priv->plat->core_type)) {
+>  		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+>  		priv->hw->hw_vlan_en = true;
 
-The way you pick and chose random helpers feels *VERY* wrong. I really
-want to understand the rationale for not using most of it, *including*
-the sysreg arrays as a whole. Everything in this file is (or at leats
-aims to be) architectural, and should be directly reused.
+Now that we don't have software fallback, tag stripping is only going to work
+on GMAC4 and later, so we mustn't unconditionally set the NETIF_F_HW_VLAN_CTAG_RX
+flag anymore. It should be something like :
 
-It should only be a matter of providing the required indirection to
-access the S390 representation of the arm64 state.
+// No more dev->features |= NETIF_F_HW_VLAN_CTAG_RX;
 
-	M.
+if (dwmac_is_xgmac(priv->plat->core_type)) {
+	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
+	ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+	priv->hw->hw_vlan_en = true;
+}
 
--- 
-Jazz isn't dead. It just smells funny.
+Maxime
 
