@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C0BC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDA8C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=; b=qU8ibAzZmTnkpk5/MyRryJoiKk
-	v4IbdB0/hmfY1mVVUgOCW8z2bbRHv0ZfBu4Po1MSMbjDhh4lvjJW9NsGcIuXq2bjWjwEw6c9LDYSK
-	Oi+eKW+w0PfJwl5RciHM3l1Gt3LhIcoJCnti+arnpWVBGBxbewiySm2MdbE30pS3rpsY6R5nAx85k
-	TyHZI+nEjfBTHfLkuomw8MLSi1mIbM/uReYA9CggllGbzLxbvg55+6BtK7UfENsY/IBBME2b07ai+
-	JEXv+YRo+RyYM4zwxX7CHLBKh9BaJKjmplbF3cXGhqPImx/2YmgN7UdnEsfWMboEvqzkOwDTXFgVs
-	XlMtYblA==;
+	bh=WAjfPRBGQzShc8YtJJtfd3nlouF6dpts5iw2uGzuEPI=; b=ajdsi9o/czgi3BiLXqBSxPjiBZ
+	X5IkRLFeq4KbPc/v1BvcxHwr5NlDwxE8RB95AxqzxBNNb9OShO0GtiC/fP0eoFCmit84mRBDmEVZN
+	8GztZ9buKciQYWFSU+Os70nELIBTrLWgpIde+nG3D9Meqt/XOP/e8t9rpySB01q8zG7PpxCt9nj2o
+	f8XATSpENryAmBK/Lkmwl3PrOpTgdcihEqjLzo0Pim08q27qc1c1t3Pecf1Eouh9ZeM6H6sihJNdf
+	h3ZS5IOnKtgHbObwq4LexP7Rz4++B2z8nmOrNrR6Hvwzw6l8q/250JsYyFh/q1qMBye29KqATIISM
+	NK40Kw1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1K9X-0000000BKcy-1H84;
-	Tue, 01 Sep 2026 08:47:35 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1x1KA9-0000000BKkH-2cMH;
+	Tue, 01 Sep 2026 08:48:13 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1K9U-0000000BKcQ-3fzi
+	id 1x1KA7-0000000BKje-0vDL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:47:34 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-498012a61f6so34345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:47:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788252451; x=1788857251; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=;
-        b=cqgLt8VHA6qBDqVjDnNWIcktVir/3l2fNOg0ZCOGHjLamYxA1z/kzFjbc61trTrj6Y
-         bSo3lJcG+IjuckfPtAwhtVszdgy0CVHz/sT/QhxLOPPvlNQypnDIkROwtU5HYMvCc83V
-         uR4Pq5Bh3Be2RRmUPnnhUHRiPFgA4d0cPCJvjU/qusc/nB63EGyNxi0nxSFuOaZwlGSY
-         Dj1j1BqFzq/DSrgADPYtdP8q5wPNUF+wpIEKhhTVW/Ox0YkUDjfLvHmgivjeZvnS25Ew
-         ezqF5pbi2EJ8DMIZ1ecjPMzW29BfHisTNB8XgfEgwrsIYHNXiUzqUf5ku//BGcYfy1DZ
-         7WLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788252451; x=1788857251;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=;
-        b=iROGYTpJuoc/WOybFf1PcFxJ4326LcSHk0/n8QOm2o+a8VOn98DwHfP1PNcuCFtUFa
-         Aydx7nqVZNN6mmRQKAAbKqzS94abqCukXjJD+QWO4/UCvfdR77NypFX2qOUHsGOwyECC
-         nm9TZfvgfp8knSayG1zOugtNxSHZOVTgUzzqjUpllMDqtHydgQzykUVjlov6TtRm/ccy
-         CxRlRf58m+g4lEyC8ERZbS/l/0LUb2liClR2AMuTOmrReb3segKMfrdVDoEMH5iyN4RN
-         BxZatgKyvVcrU19JMRkd8IeOcHUdHjQIUUqe0Pcs4iXzTpgVXuKZJbkK6OzzPZ0qYe8w
-         KSrQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqxgTK+yrca8aYexofpkLHvn3s5UhsFkJFovyHydNiVlPk6NwewkOA7yM5V4AEJK7PqgpQyOyjlpTSLtKiaWuJB@lists.infradead.org
-X-Gm-Message-State: AFuF++l2TjranyS8CEV3qXaF+nFw1F1q+kRB9LTeMDHegBTRleri6DXy
-	x3vIBIaubclePfMK/K8EX55uiE8WanAtMtB+51e6wFT4p90v/xz4GZhsF97K1L44yg==
-X-Gm-Gg: AR+sD12MnjKx+ogJeE756w72IgBPHhafcqi0kDWTUifhVbnrRjqU72ItYu1SnxdTmkd
-	w/pWP+2d6DFhrf8vul8NRWKB3j84D7J5cNYVawgtTkj6CDxezAXh2Rzoind3I3UN6yL6w4zyeAc
-	t5YgrtvoLo82GilzkpHWJVEwUmhWi2wWQQgidYgQNkRmCculBsErNPuTz14YDSmtQf3XzArml4B
-	vs6TUxC0MkKYdBYVKmRqFx25y3MSfx/yD2Ew1n1jscaDZNaHAuGHS6xh56avQPSVLnOIYAdr4S8
-	Ajd3VuXYgrvOBQACTZ82ibMoeaHJV8+ny1RR9Zkk2PwzQndRkvzTpOZ06tDgpIUaakE9HYp3K77
-	uhDxOS41EUQebWYuGEGasvkYFvHk6zB2727gHnKF1ww3o9u0acZEBL8jtaaD8t4scNMmUDaoFh8
-	MThknJAwbJw55C8usmB8cwp/nhQ7OdLAqFKEqyq5NtxgAi2auR4ZjpyFtfM2Had2iQO5mdHBELD
-	fhj+R7sVzpRYdlb/4DE62CByGG25g==
-X-Received: by 2002:a05:600c:12c2:b0:499:be2c:94f3 with SMTP id 5b1f17b1804b1-49cdd26e207mr507145e9.6.1788252450501;
-        Tue, 01 Sep 2026 01:47:30 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49c5a903eebsm220827575e9.4.2026.09.01.01.47.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 01:47:29 -0700 (PDT)
-Date: Tue, 1 Sep 2026 08:47:25 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
-	nicolinc@nvidia.com, praan@google.com
-Subject: Re: [PATCH 3/7] iommu/arm-smmu-v3-iommufd: Fix error path in
- arm_vsmmu_cache_invalidate()
-Message-ID: <apaRHXMxfM7lxdJV@google.com>
-References: <20260828125409.1921538-1-smostafa@google.com>
- <20260828125409.1921538-4-smostafa@google.com>
- <178792724269.3808739.17189675074822824146.b4-review@b4>
+	Tue, 01 Sep 2026 08:48:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788252491; x=1819788491;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vKNhSQ2KYcaUOtuQBgsj1j9mWaFB4IaP4yx80H7ljDc=;
+  b=UKaiUAqES+4g3SdKD/Wwdm4FgfS2GXid/pw6to3KteybCIqujJ1ImIvp
+   n9J/y6RjLDWxG98r//cpcyU4kzreVxEZJLhdhijvwP2jrGvzoXbdxutzO
+   A3PaUKDb/W1wa+cZFhU8K1IXIrLAzSjBhY7/TWqzdFLml+4xERI4i8c1f
+   Pvv+f4ZLZa6QWGdiF8SnZgoMgTvstg+8rUNsYEJZKf3nKVqEZOZYvFzhv
+   nkgIp/hhigsjyJEjeP5mzSl9yV+PhoO/TqsD6RxhZw7kdxdHi2QTDkKLE
+   RYVIeNM+nVHma23yo8HJILrC+kPpuvBbdLd7rPsimt1iLslxyDVlaMA7l
+   g==;
+X-CSE-ConnectionGUID: tOLk5htnS5eR7FBHjxJFtQ==
+X-CSE-MsgGUID: VG+e19wrRr6oFi7Dhw+fYQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="88434017"
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="88434017"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 01:48:08 -0700
+X-CSE-ConnectionGUID: WdsnewkQS9yOAp9UxZs+qw==
+X-CSE-MsgGUID: Pm49jRiJTYiFtkP/MJltEg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="270981162"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa004.fm.intel.com with ESMTP; 01 Sep 2026 01:48:04 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id A858C99; Tue, 01 Sep 2026 10:48:02 +0200 (CEST)
+Date: Tue, 1 Sep 2026 10:48:02 +0200
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 06/19] thunderbolt: Try reading host DROM from device
+ tree first
+Message-ID: <20260901084802.GB106095@black.igk.intel.com>
+References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
+ <20260830-b4-apple-soc-tbt-v1-6-44bc9348683c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <178792724269.3808739.17189675074822824146.b4-review@b4>
+In-Reply-To: <20260830-b4-apple-soc-tbt-v1-6-44bc9348683c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_014732_920725_4B2731AA 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20260901_014811_307163_1C45D12D 
+X-CRM114-Status: GOOD (  27.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +98,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 11:27:22AM -0300, Jason Gunthorpe wrote:
-> > arm_vsmmu_cache_invalidate() issues commands in batch size.
-> > However, if arm_vsmmu_convert_user_cmd() fails, it will return to the
-> > user that it processed "cur - cmds" which may be part of a batch not
-> > issued yet.
-> > 
-> > Fix this by calculating the returned entry_num solely based on the
-> > "last" that tracks the last batch that was successfully issued.
-> > 
-> > Also, fix the number of commands for early failing condition.
-> > 
-> > Fixes: d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
-> > Reported-by: Sashiko <>
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> 
-> Nicolin's series fixes this and the other sashiko note about over
-> allocation:
-> 
-> https://lore.kernel.org/all/cover.1785258826.git.nicolinc@nvidia.com/
-> 
+Hi,
 
-I see, I will add it to my review list. Hopefully I can get to it by
-this week.
+On Sun, Aug 30, 2026 at 10:19:24PM +0200, Sven Peter wrote:
+> On Apple Silicon SoCs the DROM is provided by a device tree property.
+> Try reading from that property first.
+> 
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  drivers/thunderbolt/eeprom.c | 32 +++++++++++++++++++++++++++-----
+>  1 file changed, 27 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/thunderbolt/eeprom.c b/drivers/thunderbolt/eeprom.c
+> index 2a13fa6888ba..389de7df84f6 100644
+> --- a/drivers/thunderbolt/eeprom.c
+> +++ b/drivers/thunderbolt/eeprom.c
+> @@ -468,14 +468,14 @@ static void tb_switch_drom_free(struct tb_switch *sw)
+>  }
+>  
+>  /*
+> - * tb_drom_copy_efi - copy drom supplied by EFI to sw->drom if present
+> + * tb_drom_copy_property - copy drom from a device property if present
 
-Thanks,
-Mostafa
+tb_drom_copy_property() - Copy DROM from ..
 
-> I think it is in good shape, I would rather merge it than hack on this
-> further.
+Ditto for the other kernel-doc comments. If it is static trivial function
+you don't need to add them.
+
+>   */
+> -static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
+> +static int tb_drom_copy_property(struct tb_switch *sw, const char *name, u16 *size)
+
+I think this should be split into two lines.
+
+>  {
+>  	struct device *dev = sw->tb->nhi->dev;
+>  	int len, res;
+>  
+> -	len = device_property_count_u8(dev, "ThunderboltDROM");
+> +	len = device_property_count_u8(dev, name);
+>  	if (len < 0 || len < sizeof(struct tb_drom_header))
+>  		return -EINVAL;
+>  
+> @@ -483,8 +483,7 @@ static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
+>  	if (res)
+>  		return res;
+>  
+> -	res = device_property_read_u8_array(dev, "ThunderboltDROM", sw->drom,
+> -									len);
+> +	res = device_property_read_u8_array(dev, name, sw->drom, len);
+>  	if (res)
+>  		goto err;
+>  
+> @@ -500,6 +499,22 @@ static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
+>  	return -EINVAL;
+>  }
+>  
+> +/*
+> + * tb_drom_copy_of_apple - copy drom supplied by the device tree for Apple Silicon to sw->drom.
+
+Like these, not really useful comments you can drop.
+
+> + */
+> +static int tb_drom_copy_of_apple(struct tb_switch *sw, u16 *size)
+> +{
+> +	return tb_drom_copy_property(sw, "apple,thunderbolt-drom", size);
+> +}
+> +
+> +/*
+> + * tb_drom_copy_efi - copy drom supplied by EFI to sw->drom if present
+> + */
+> +static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
+> +{
+> +	return tb_drom_copy_property(sw, "ThunderboltDROM", size);
+> +}
+> +
+>  static int tb_drom_copy_nvm(struct tb_switch *sw, u16 *size)
+>  {
+>  	u16 drom_offset;
+> @@ -675,6 +690,13 @@ static int tb_drom_host_read(struct tb_switch *sw)
+>  {
+>  	u16 size;
+>  
+> +	/*
+> +	 * Apple Silicon machines always get their host DROM from the Device Tree,
+> +	 * so make sure to try reading it first before any other method.
+> +	 */
+> +	if (!tb_drom_copy_of_apple(sw, &size))
+> +		return tb_drom_parse(sw, size);
+> +
+>  	if (tb_switch_is_usb4(sw)) {
+>  		usb4_switch_read_uid(sw, &sw->uid);
+>  		if (!usb4_copy_drom(sw, &size))
 > 
 > -- 
-> Jason
+> 2.55.0
+> 
 
