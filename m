@@ -4,111 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9421BC61DE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 05:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36FF1C61DE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YygSGBZu0R6mtENe2yptPbGK7gd+pjUTcphUn2rVuTo=; b=aTWQu1s/ski9ziW97rb4mnyWTp
-	R2iakqRonm+afyBuLX5OhR2PeuHj1CrqvOBPbUG8LJrxRFVEty1rjUAhuBPFTPtqbzCLVZPGHnqsd
-	KKVLirNeI6UAkZ8YxR4lg7p0JBaDXSiOnzA4mejq1wLErwCa+qlKyVzn7pZFekcwnbPz1j/8bs2J3
-	qIBYzarKRCDp6khyuTv1QtoxuP4TlqMt0xCEw07iuQJLYtF7AUu1VWG5jFg3+HkSUfrkOzW6gJwZd
-	SuiszLzHSZHzFg3uW9O/S9qg+Ub+ysSn/3swamn6oCi8XxUabXfyCjM2Osnx36DIQNyOJjPMUmNyW
-	oJZh6xqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sP8zomlI6+RZLbBTLmxVuJ+3J5i6YfjhWoQlVOoCnRc=; b=I+H71wDZmqzSnBD0mGEgrcY+Cx
+	HFw9pUBFvkiDcfamVfyZgSL4Pmakp0mGhK+mLs2W9YlrjiOZzsSd+Aam9+6HcwsI8RI5KBgnoPArT
+	REslYaIiYtVXpS85aLYV2O3VeqNNVl4zQsNh38BfqpcOraS/SpvUH+sPeVBAUMUeaX1dC1wY0kQOR
+	3U23fLNuU0YM8hTNO54FXtPbbRhB/5DB5K68pJNz5Vyf7Yy6g+nTI4vgkbVJugJlslHH+pfbvojct
+	kqeMMXbiIiRQZqXksq+5zYGu/QPkrWPyoYoGSFoX6NJt/j5PKwsaQ+IDaiUe/RQ1K+CG6gPZR3ysx
+	PwaS0lqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HQh-0000000B2GS-0RRh;
-	Tue, 01 Sep 2026 05:53:07 +0000
-Received: from m101-out-mua-6.websupport.se ([2a00:1968:0:9:109:235:175:106])
+	id 1x1Hd5-0000000B2nD-0Cu4;
+	Tue, 01 Sep 2026 06:05:55 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HQd-0000000B2EZ-1f1Z
+	id 1x1Hd2-0000000B2mt-1zyd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 05:53:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1788241715;
-	bh=YygSGBZu0R6mtENe2yptPbGK7gd+pjUTcphUn2rVuTo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KZ5UTKMS6tkX5fwRrcxEB4s0bZWbepjd0YohsrdLoFy1Tgmo5Oq/tpdj7NYPwqWnV
-	 YWgGVUmIHskDAeWgSoezOW01N1V6XZuniezQyMxb2vN5pAhYKbr61k0Sz5bu3kCrnX
-	 ZAotHbPqXwMyVdCbh8mmg/tmUU+Ef6aj4OJWhJFfobxXNB9NlrEHzHOhpfF7DmrDkD
-	 HCOefuXkRvcPvF1BUXJqEf3SKRUXubRwgP0oL2PYpo3N1BqxtQGPU+BMtaHXlnWmM9
-	 hvIEtARyqbjM9JHo1ihbObu0EC/NH1Oqj4oexiVG6UY5aTCAjuABCz1wtGUBaiOiuQ
-	 05JeiBjexsung==
-Received: from m101-u6-ing.websupport.se (unknown [10.30.6.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hYvzl60sSz1GVb;
-	Tue,  1 Sep 2026 07:48:35 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u6-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from rpi (unknown [213.204.219.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u6-ing.websupport.se (Postfix) with ESMTPSA id 4hYvzg2Zqwz2k72;
-	Tue,  1 Sep 2026 07:48:31 +0200 (CEST)
-Date: Tue, 1 Sep 2026 07:48:27 +0200
-From: Per Larsson <per@palvencia.se>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Heiner
- Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Liu
- Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: allwinner: a523: x96qpro+: enable
- Ethernet support
-Message-ID: <20260901074827.39a649bc@rpi>
-In-Reply-To: <20260809134607.65d66069@rpi>
-References: <20260803101452.2993721-1-andre.przywara@arm.com>
-	<20260803101452.2993721-7-andre.przywara@arm.com>
-	<20260809134607.65d66069@rpi>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Tue, 01 Sep 2026 06:05:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WqEGl1RiGs9LY9WM2izLK7tS1Au5A2zkH+j0hGl84ntSGasE28ByZVgL9KW3bE0FuZBZUZmgqJjhGS7iZlRHsevVYsZd/9l5GkOgWw/qo3KliSC5q7eyUJ7AA/E4XkdXXdo18LPxXj/053dKjs+j5WjM2Lg7gjD6wNKmhQDJbV1hWEcdSqzCwsULzGEfU7M47/OPaMuBzHJtHg0dHEsViPOajF+rKRa8ShgEze+ZBwpXI6BttMastcwJDNmIgYt366yKgsFJ5dkMCR71byYZB5lEvmTnBllR0FMnh9Cuegp/zcybpehgbvLD3Rhg+i8p+Ms4Zci1oEfOiodkXPtVmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sP8zomlI6+RZLbBTLmxVuJ+3J5i6YfjhWoQlVOoCnRc=;
+ b=JMDh5aJ8aK6BWQ+nHacDEgvflxq2VXb1Y7ZxUXAYlZvp4UqMw+lp3dMXmDUEQWqtpv/oaqEO63pylUPZN59OaFh+lQwItVlLv+CIEEHS8V+qWXYjjY8aVUovRLD0ZNZXToSGFdLlH898XYM1ZFiIo1Oqh/RoOKbgsOTORu6bDeH2ut04P+BnrMMeHSz+M/8oKUZOvrYaxcMEygOI7gl4edOr4EWLgJ03pB1W361an4d+Vyn81/c+W1iGfRl69idxTwUJNMfIHr0EJANzDZ1OveStJvc1Vny5lzNbGLUyGZP1k/OgkNheCGrMi1i0X2mZTW/fOajYqeD/Fldii9Arbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sP8zomlI6+RZLbBTLmxVuJ+3J5i6YfjhWoQlVOoCnRc=;
+ b=M/joJ3TM82ynz2uTsPsowEBDe6ScJ0hsLZlr2VGUUfio9KMd9oqhM4izeQ5GzWMvt/uaYvcKXK7l8kgUvMQ5EaC/5U1R0cvIrgqgfuMdwlB7rbRPGfk/1JbvN59eq35R44L430JbzOc2YzJW5B9kui2jA1PnxtKvPISnP5ED4kHFxLltsD28xfC3SD5Fb5W0CMmP3dew1u0pfUoULVDXpvbeayP1IZ7DH5KWuW3doGEplQVT7uSRULn5wEzjeNdh/c54vfqqRfFGUi3MZaaYkWFuv96141tLkY9KqOMX1MqcShsWIh/8cwfML0xaFli4KQkNgbEhrvWQxp72F2uMGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by SAVPR12MB999144.namprd12.prod.outlook.com (2603:10b6:806:4e6::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
+ 2026 06:05:42 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
+ 06:05:42 +0000
+Date: Tue, 1 Sep 2026 08:05:31 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Christian Loehle <christian.loehle@arm.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
+ cores
+Message-ID: <apZrKweoy6uej0Q-@gpd4>
+References: <20260831181800.1668646-1-arighi@nvidia.com>
+ <20260831181800.1668646-2-arighi@nvidia.com>
+ <f5d625d0-3b94-407c-8f64-793df9590f03@arm.com>
+ <apX1j6srdTcFLZOd@gpd4>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apX1j6srdTcFLZOd@gpd4>
+X-ClientProxiedBy: ZR0P278CA0051.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:1d::20) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Out-Spamd-Result: default: False [1.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,outlook.com];
-	TAGGED_RCPT(0.00)[netdev,dt];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	ASN(0.00)[asn:35790, ipnet:213.204.219.0/24, country:SE];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	BAYES_HAM(0.00)[40.30%];
-	HAS_X_AS(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,google.com,kernel.org,redhat.com,gmail.com,sholland.org,armlinux.org.uk,outlook.com,vger.kernel.org,lists.linux.dev,lists.infradead.org]
-X-Out-Rspamd-Queue-Id: 4hYvzg2Zqwz2k72
-X-Out-Rspamd-Server: m101-rspamd-out-4
-X-Rspamd-Action: no action
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 466
-X-purgate-ID: 155908::1788241715-3F2551C6-327DD7E6/0/0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SAVPR12MB999144:EE_
+X-MS-Office365-Filtering-Correlation-Id: e0c85194-e1e4-47bb-5db6-08df07ef0dd7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|3023799007|10067099003|11063799006|4143699003|5023799004|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: edsWU8Yj5ZN+RYp6+stJZsxBYsavjLPHu3+OjpWgr3xzfSc9jRq99Gh7sz6WTVVuDmwOkiKOzAAu6QYWhL6mjBmprfZleyHFzEKEbG4pk6RqNddHU87ryQYidSVI2PdajPlYq3SW+XUZLumSSNAS8r3aUq3jInLnRU+TpYH5hZ77Ely5k1h3CpeGE38fU5pMq5H/qkp0O7uAB4FPAxvAvNVQ3aTOF7uvwF0hg9ksWd4X4UrUFoKK4I9yFYttkJrgZuxSazk1C7j7IjYhS9cZA6hFwx9i8OCv1Um6sLg00J2Qni1pBg5omT94CYvGnn4DgYOdT26XQSA+O/be5rr0Y8D34lV4gPMQLof+Suo4FhvHAmbqEdkIGEM6qKB9xCAnwo0nMTfKITEBsr4mTdGnD9c5PvcfQNN0qOl7quTBAMncIGe6yZ4lYTxmNDWcbG5RVPRCqdvTY+DwML1xwBOrZqEOYfmsAzM+x7clQMBuPyY436g1Ac4R+YfAarIqc6LGLnEEuCVAtGU9uQP+6VLK1/GsJKDZBtKg/Jv7IK7K/Jr5LoD9FE6X+Kr+IOaIfABJZ4zfbgcMkn0tiE/0rHsygcZxjJWOeJMhY3apfW0aveAOZM4bpjJT4VLwFKF6wyymTw1wJ5DyqdqTWzSVH3Cy2kevfEPLG30seFfbCW5JFTA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(3023799007)(10067099003)(11063799006)(4143699003)(5023799004)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/VOgOIbF4kd5XxFadoeLZnH3cNWx3rv3iXZY4QYg0YSzY6e9vQacivOivSzc?=
+ =?us-ascii?Q?4NU14Y5OVSEyVAIoVQjEWa3ufC72jlCIsRmBZYdV4E7QM+TpypzZJEUYFCwu?=
+ =?us-ascii?Q?O+F/qrdoggrgr1NXPFeRsoFekDMDhNIV4rgJ8Lkf1g02zpvZPVWCF91BX95X?=
+ =?us-ascii?Q?9SFYM3m1bcXVG+26rqwNWuXUMzOoPyq/D9Njy2wUYI6DHR481ZZPXleWhfqc?=
+ =?us-ascii?Q?zBhqjEMUR+/ll97E+bMoVyC2tArqM2T/7XU/h9LcHHVarG7I+GHacbxe3u3j?=
+ =?us-ascii?Q?X3NaEQyj9P0NRxVE7v89Wnq5OmtFsEtRXy31tLcIu2H1cL1QklgskylOYkmZ?=
+ =?us-ascii?Q?Qbrg78phkKCinMIPeXjkec/xCGkDz4ebWobv3zcM3kOkDaw6SGBzf8OQQHXM?=
+ =?us-ascii?Q?n58hM6RkICq2nJqlfnvSGp+Fud8KLnGC3jKE+Rw9vga/ZqsnnZwvtU1qkJQW?=
+ =?us-ascii?Q?3SlLGuBvi3b7Mb50TYEI5j2dr2zSBjF76Ft3kbDQ2kmjV4P53c/KphArnE4M?=
+ =?us-ascii?Q?zjdcuT8rSCQzZagVQ/wMKicePtReQNuEMvb+l8YygOrlyDFwGo54ut8rjNrt?=
+ =?us-ascii?Q?w+6KcwuN5SAfstRXxyLHtybK7WOGFpp7zyDF065kz1WWglxwdsvfexFNw0q8?=
+ =?us-ascii?Q?ikdLn9dDqDPC7pDVAw+IIEDEZfbRuVVoniysLLbVMYHJq3AwgdLyN37orOFh?=
+ =?us-ascii?Q?lZoauBXveirjJQZ+tkjpFfuLof9ARdvI3v7+6ZJI94N59XAoSpL4vMtE4HW+?=
+ =?us-ascii?Q?tlbCcxEuqTQz1RuqHgdPdMHhnXZcfBCvZLmRs012hGayReZ43oQ4LH2EXrH/?=
+ =?us-ascii?Q?617ss2Gvc9xX5uHemSppXr9uKUfcj1OpWIdCvYXN3iZaU32b/xyBt/Lwp23r?=
+ =?us-ascii?Q?DEHhNODRWSrDhPjZ8Ldl7yr4/BuPoIB+MNt9M8kKhIignUI6sFtyIEvoJ+0x?=
+ =?us-ascii?Q?8xIJApzhrq4fvotKhXMHbypNtfYMvcxyxW2T+/uDhsXzNQpYQV5IdRfxuFvA?=
+ =?us-ascii?Q?LlZui1uUlFH+e1PN36GU9mwyOg0DZZhkFTmWan1sKylBUr+BvcIja4uswqxP?=
+ =?us-ascii?Q?QRGnfrQpsU6RTOndwZzHLHchQTBtR54wvzXsUomg2crGsLLcKkZXAiHPx739?=
+ =?us-ascii?Q?R+gFWqIR5VMn58/1g6XOfs9gsPf4xQfVFX05R6IccYn1v2jIhwGZROxuT/go?=
+ =?us-ascii?Q?4mXlyDYJs7YHVPmpq5Q2DbjZRaBm7XqqVWsKpc8p4/UxDcVDPrpYROPQ3Oau?=
+ =?us-ascii?Q?ApvwIxKdqb8wDq28pLyz1P2d2p7vA0AgYRKYbFbk7FcaHEDqwHn/Kmv5ofh/?=
+ =?us-ascii?Q?whuYpOCOhOqY7/Q+591O3rdw3VH+wGAR2IxXHD3qg12oO5VjfMNqNmtwojwJ?=
+ =?us-ascii?Q?xLT1ztE85IITsauRWdLi/sFtjdsOjzgAjBG4lZGvGdYvA+/qelrXnRedHvFC?=
+ =?us-ascii?Q?7pbFcD7JF7A0mLjiW79Aa+wx8KCdgQ2eoQ3DxXK84w3wGmb9TZw8r6BQR8un?=
+ =?us-ascii?Q?tJYvFsbiQwVjsepvjWAhZrHZw/OqYNy4v9JuN2GYFIpdQHbCY0uNbNY7bFOW?=
+ =?us-ascii?Q?55Kaj8fYrzXeOrN8We9KAP0s8Ymmn2AePz/2X2MmAylYP5Ac8gigdOn9Dm/y?=
+ =?us-ascii?Q?HgiW5oYDbME/TwsZWpWxSBZ/qNV5SOc9HkABYhPDvE5k4e1Y6lFQKdhppZGh?=
+ =?us-ascii?Q?BBIk4TaaaREGWgbNF5rQ3OJe+sNUAZ5HWiOp4H+f+AaaOcflLLfWqcH96CK6?=
+ =?us-ascii?Q?rM0go4U3xA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0c85194-e1e4-47bb-5db6-08df07ef0dd7
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 06:05:42.4088
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b1Z/s6gdv2RwBf8TUS+zmm00CBJPZ1+tM5gQWWKO3mwUzHOwVx9tnNXb7i4l2WIVb9y9qybwPkdkYk+h4xTjUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_225303_730660_B58E230C 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260831_230552_588709_CA4DFE74 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,18 +151,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 9 Aug 2026 13:46:07 +0200
-Per Larsson <per@palvencia.se> wrote:
+Hi Christian,
 
-> On Mon,  3 Aug 2026 12:14:52 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
-> 
-> > +		pinctrl-0 = <&ephy_25m_pin>;  
-> 
-> This should be &ephy1_25m_pin, right?
+On Mon, Aug 31, 2026 at 11:43:54PM +0200, Andrea Righi wrote:
+...
+> Combining the priorities is a valid experiment, but I'm not sure if it
+> completely solves the problem by itself, I'll give it a try and share the
+> results.
 
-With this typo (and the one in patch 4/6) fixed, this series gets a
-Tested-by: Per Larsson <per@palvencia.se>
-since it eliminates the need to use hackier methods to get the ethernet
-port to work on this box.
+I did some tests comparing this asym-capacity+asym-packing approach vs the
+combined-asym-packing approach (tested patch for the combined-asym-packing
+approach is at the end - patch 2 is the same).
+
+Policies tested
+---------------
+
+combined-asym-packing:
+
+- combined capacity/PE priority
+- SD_ASYM_PACKING at all topology levels
+- SD_ASYM_CPUCAPACITY disabled
+
+asym-capacity+smt-asym-packing:
+
+- capacity-aware physical-core selection retained
+- PE0 priority applied only in the SMT domain
+
+[ Both policies include the idle-selection fix - patch 2 ]
+
+SGEMM throughput
+----------------
+
+The primary result is ten repetitions of the exact 88-thread command provided.
+
+Metric                    combined-asym-packing    asym-capacity+smt-asym-packing    Difference
+Average throughput        9.864 +/- 0.180 TFLOP/s  10.094 +/- 0.065 TFLOP/s          +2.34%
+Best throughput           10.194 +/- 0.193 TFLOP/s 10.374 +/- 0.065 TFLOP/s          +1.77%
+Minimum average run       9.575 TFLOP/s            9.968 TFLOP/s                    +4.10%
+Maximum average run       10.057 TFLOP/s           10.204 TFLOP/s                   +1.46%
+
+asym-capacity+smt-asym-packing averages 10.095 TFLOP/s versus 9.920 TFLOP/s, a
+1.76% advantage. More importantly, the run-to-run standard deviation drops from
+180 to 65 GFLOP/s. combined-asym-packing can reach a good peak, but it does not
+sustain it as reliably.
+
+Thread scaling
+--------------
+
+Three runs per point, average throughput:
+
+Threads  combined-asym-packing    asym-capacity+smt-asym-packing    Difference
+22       3.065 +/- 0.002 TFLOP/s  3.068 +/- 0.002 TFLOP/s          +0.08%
+44       5.849 +/- 0.064 TFLOP/s  5.888 +/- 0.022 TFLOP/s          +0.66%
+88       9.975 +/- 0.128 TFLOP/s  10.062 +/- 0.107 TFLOP/s         +0.86%
+176      10.695 +/- 0.004 TFLOP/s 10.704 +/- 0.012 TFLOP/s         +0.09%
+
+The difference is specifically most visible around the intended
+one-thread-per-core operating point. At 176 threads, where both SMT PEs are
+used, the policies are effectively tied (as expected).
+
+Cyclic wake-up latency
+----------------------
+
+Values are averages of three runs. Percentiles are the mean of each run's
+reported percentile.
+
+Condition  Metric  combined-asym-packing  asym-capacity+smt-asym-packing
+Idle       median  6.433 us               6.398 us
+Idle       p99     12.753 us              12.494 us
+Idle       p99.9   18.324 us              19.025 us
+Loaded     median  5.114 us               4.500 us
+Loaded     p99     12.398 us              12.759 us
+Loaded     p99.9   24.240 us              20.954 us
+
+Idle latency is essentially tied. Under concurrent 88-thread SGEMM,
+asym-capacity+smt-asym-packing improves median latency by 12% and p99.9 by
+13.6%.
+
+The worst observed loaded sample was 579.5 us with combined-asym-packing and
+74.5 us with asym-capacity+smt-asym-packing. That is only one outlier and should
+not be generalized without longer runs, but it favors
+asym-capacity+smt-asym-packing.
+
+Concurrent SGEMM throughput was tied: 9.902 versus 9.899 TFLOP/s.
+
+Scheduler microbenchmarks
+-------------------------
+
+Lower is better for these results.
+
+Test                       combined-asym-packing  asym-capacity+smt-asym-packing  Difference
+sched pipe, processes      4.478 us/op            4.446 us/op                     -0.7%
+sched pipe, threads        3.618 us/op            3.625 us/op                     +0.2%
+SMT pair, CPU 0/176        1.815 us/op            1.813 us/op                     tied
+Separate cores, CPU 0/1    4.388 us/op            4.311 us/op                     -1.8%
+Unrestricted node 0        4.284 us/op            4.385 us/op                     +2.4%
+
+These simple ping-pong results are effectively tied.
+
+combined-asym-packing did materially better in the broader 160-task sched
+messaging socket tests:
+
+Test            combined-asym-packing  asym-capacity+smt-asym-packing
+Process/socket  0.669 s                1.039 s
+Thread/socket   0.653 s                0.989 s
+Process/pipe    0.296 s                0.337 s
+
+This suggests that combined asym-packing can help some highly communicating,
+oversubscribed workloads by changing how runnable tasks are packed.
+
+Futex
+-----
+
+Test             combined-asym-packing  asym-capacity+smt-asym-packing  Difference
+Wake one         0.1695 ms              0.1800 ms                       +6.2%
+Wake all         0.1734 ms              0.1693 ms                       -2.4%
+Parallel wake    0.0430 ms              0.0332 ms                       -22.6%
+Hash throughput  4.052 Mops/s           4.064 Mops/s                    +0.3%
+
+Futex hashing is tied. Wake results are mixed, with
+asym-capacity+smt-asym-packing notably better in the parallel-waker case.
+
+Conclusion
+----------
+
+The combined priority is technically workable, but combined-asym-packing does
+more than express the PE0 preference:
+
+- it replaces SD_ASYM_CPUCAPACITY with asym-packing across the Olympus topology.
+- It changes placement policy for unrelated multi-core and communication-heavy
+  workloads
+- It still requires the idle-selection scheduler change
+- It produces lower and substantially more variable throughput
+
+The asym-capacity+smt-asym-packing seems to solve the specific spatial-SMT issue
+on Vera, retains the existing capacity-aware semantics, provides the best
+target-workload result and has no general latency regression in this dataset.
+
+combined-asym-packing patch
+---------------------------
+
+The following is the combined-asym-packing policy patch tested in this report.
+The idle-selection patch was present in both test kernels and is therefore not
+included in this policy delta.
+
+---
+ arch/arm64/include/asm/topology.h |  1 +
+ arch/arm64/kernel/smp.c           |  1 +
+ arch/arm64/kernel/topology.c      | 90 +++++++++++++++++++++++++++++++
+ include/linux/sched/topology.h    |  2 +
+ kernel/sched/topology.c           |  8 +++
+ 5 files changed, 102 insertions(+)
+
+diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+index b9eaf4ad70850..edc1c59b3448d 100644
+--- a/arch/arm64/include/asm/topology.h
++++ b/arch/arm64/include/asm/topology.h
+@@ -18,6 +18,7 @@ int pcibus_to_node(struct pci_bus *bus);
+ #include <linux/arch_topology.h>
+ 
+ void update_freq_counters_refs(void);
++void arm64_init_sched_topology(void);
+ 
+ /* Replace task scheduler's default frequency-invariant accounting */
+ #define arch_scale_freq_tick topology_scale_freq_tick
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index a61dc3016a117..0135ac4eea8bd 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -443,6 +443,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ 	hyp_mode_check();
+ 	setup_system_features();
+ 	setup_user_features();
++	arm64_init_sched_topology();
+ 	mark_linear_text_alias_ro();
+ }
+ 
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index d28438f8b83f1..42a5c0d4f5d2e 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -19,6 +19,8 @@
+ #include <linux/init.h>
+ #include <linux/percpu.h>
+ #include <linux/sched/isolation.h>
++#include <linux/sched/topology.h>
++#include <linux/smp.h>
+ #include <linux/xarray.h>
+ 
+ #include <asm/cpu.h>
+@@ -44,6 +46,94 @@
+ static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+ static cpumask_var_t amu_fie_cpus;
+ 
++/*
++ * Switching the active PE on an NVIDIA Olympus SMT core can keep the core in
++ * two-thread active mode, with resources partitioned between the PEs.
++ *
++ * Prefer PE0 so PE1 can remain idle and the core can stay in full-resource
++ * mode. Combine that preference with the normalized maximum CPU capacity so
++ * asym-packing also orders physical cores by performance. Firmware does not
++ * currently describe the PE preference, so detect Olympus by MIDR until a
++ * firmware interface is available.
++ */
++static bool olympus_prefer_pe0 __ro_after_init;
++
++static int arm64_asym_packing_flags(void)
++{
++	return olympus_prefer_pe0 ? SD_ASYM_PACKING : 0;
++}
++
++#ifdef CONFIG_SCHED_SMT
++static int arm64_smt_flags(void)
++{
++	return cpu_smt_flags() | arm64_asym_packing_flags();
++}
++#endif
++
++#ifdef CONFIG_SCHED_CLUSTER
++static int arm64_cluster_flags(void)
++{
++	return cpu_cluster_flags() | arm64_asym_packing_flags();
++}
++#endif
++
++#ifdef CONFIG_SCHED_MC
++static int arm64_core_flags(void)
++{
++	return cpu_core_flags() | arm64_asym_packing_flags();
++}
++#endif
++
++static struct sched_domain_topology_level arm64_asym_smt_topology[] = {
++#ifdef CONFIG_SCHED_SMT
++	SDTL_INIT(tl_smt_mask, arm64_smt_flags, SMT),
++#endif
++#ifdef CONFIG_SCHED_CLUSTER
++	SDTL_INIT(tl_cls_mask, arm64_cluster_flags, CLS),
++#endif
++#ifdef CONFIG_SCHED_MC
++	SDTL_INIT(tl_mc_mask, arm64_core_flags, MC),
++#endif
++	SDTL_INIT(tl_pkg_mask, arm64_asym_packing_flags, PKG),
++	{ NULL, },
++};
++
++void __init arm64_init_sched_topology(void)
++{
++	if (!IS_ENABLED(CONFIG_SCHED_SMT))
++		return;
++
++	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
++		return;
++
++	if (!topology_core_has_smt(smp_processor_id()))
++		return;
++
++	olympus_prefer_pe0 = true;
++	set_sched_topology(arm64_asym_smt_topology);
++	pr_info("Enabling capacity and PE asym-packing for NVIDIA Olympus\n");
++}
++
++int arch_asym_cpu_priority(int cpu)
++{
++	int priority;
++
++	if (!olympus_prefer_pe0)
++		return 0;
++
++	/* cpu_scale preserves the ordering provided by CPPC highest_perf. */
++	priority = topology_get_cpu_scale(cpu);
++	if (MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0)
++		priority *= 2;
++
++	return priority;
++}
++
++bool arch_asym_cpu_capacity_enabled(void)
++{
++	return !olympus_prefer_pe0;
++}
++
+ struct amu_cntr_sample {
+ 	u64		arch_const_cycles_prev;
+ 	u64		arch_core_cycles_prev;
+diff --git a/include/linux/sched/topology.h b/include/linux/sched/topology.h
+index b5d9d7c2b8add..dd40b8f466ca0 100644
+--- a/include/linux/sched/topology.h
++++ b/include/linux/sched/topology.h
+@@ -50,6 +50,8 @@ extern const struct cpumask *tl_mc_mask(struct sched_domain_topology_level *tl,
+ extern const struct cpumask *tl_pkg_mask(struct sched_domain_topology_level *tl, int cpu);
+ 
+ extern int arch_asym_cpu_priority(int cpu);
++/* Return false when the architecture represents capacity through packing. */
++bool arch_asym_cpu_capacity_enabled(void);
+ 
+ struct sched_domain_attr {
+ 	int relax_domain_level;
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 0248227d983a7..8ccc734efd748 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -1682,6 +1682,9 @@ asym_cpu_capacity_classify(const struct cpumask *sd_span,
+ 	struct asym_cap_data *entry;
+ 	int count = 0, miss = 0;
+ 
++	if (!arch_asym_cpu_capacity_enabled())
++		return 0;
++
+ 	/*
+ 	 * Count how many unique CPU capacities this domain spans across
+ 	 * (compare sched_domain CPUs mask with ones representing  available
+@@ -1709,6 +1712,11 @@ asym_cpu_capacity_classify(const struct cpumask *sd_span,
+ 
+ }
+ 
++bool __weak arch_asym_cpu_capacity_enabled(void)
++{
++	return true;
++}
++
+ static void free_asym_cap_entry(struct rcu_head *head)
+ {
+ 	struct asym_cap_data *entry = container_of(head, struct asym_cap_data, rcu);
+
+Thanks,
+-Andrea
 
