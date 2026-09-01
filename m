@@ -4,67 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04095C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B48C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYWHO/BYqDIdn8dYvGxMzWWVhK7Sib/Rj+KSMAXGayE=; b=R5ys0aigxknHGvQC6IKIhn6r1f
-	Z/qiW52fbVbybhDHtXbSXl51CkZqebcgfH7GC8RlpzwN973u3LxwG29ZPP3i4wJM5Dn12N3YJ4neC
-	3Jhztg5dAgzO5Rgj+nwlto3XxuaPp4HNIxzMoGBL13mOcyNp+2CFWDhKMJiUU4Ith1+riiANTiOMt
-	6CtaqnadZrp04IptNpT0h1LBE8EteY4A7ROUT5s8U9MVcYQyp7L5Ta9URZH6zCxPBw8j9pDx/ACz3
-	gsBzJzxFn0Juxdb9nZtl2JIgANXYpmJndn0ZtrYFNMC7irQThnakJaFC4jwu4eNcXOonH784upRCJ
-	XM1b6s/g==;
+	bh=9817+vy3gEnpJQ4kgLut8eMpM0Nvzbnj2sTQP/ukjEc=; b=RIvszaO3Tov8OTwTSeB9NlOvD+
+	Wjw9ZBzXnqD/0IIqq2w+BDJe7yJaXFUXYbztzgPnLEvEnnWIOwkUbddyYH5/RoBA1JJ+PWJQVb17S
+	JVyuJYA1Z4xUhddU+vozc5OiIw1OTH/FhzJDUpXC9JBTd40FErjVftCFr7MO8vMYBb5ZM+sxVMM9P
+	xDjYYnY6A0UgzfcxqL4ppN8POFd6q/qkSVEX9QNkgXmaLMmYf8m5gdQvhvd1cHZpX2KEwuTMIoi42
+	eYFeQAj7K47gbVqB/95qQ+Os0Dto+tAEmPji7nddvZLPHlKy8vE5Ukj6KcY1fNL506KZzfBE1F5Fr
+	ozAKM0VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JJO-0000000BBNY-1xQ3;
-	Tue, 01 Sep 2026 07:53:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1JLY-0000000BBbg-3hyw;
+	Tue, 01 Sep 2026 07:55:56 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JJM-0000000BBNG-36U1
+	id 1x1JLV-0000000BBbC-19D4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:53:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAD49407AF;
-	Tue,  1 Sep 2026 07:53:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065CC1F000E9;
-	Tue,  1 Sep 2026 07:53:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788249219;
-	bh=nYWHO/BYqDIdn8dYvGxMzWWVhK7Sib/Rj+KSMAXGayE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BvCQ+XbC0PM01UKGWp94G/nCvIBwI8I0D3vl5AA7LjToukoDS+uUK7MO1pIVVl/aj
-	 I6t/QlHPrecba7qBDUAccRf6gI1ZBQxnlTqwGytgRtDi5zpjC6kbv32j+PaIXlOXFH
-	 9AXIAO0IRvO5rzlJrIHKhnMzrR5zxIyXRYX97+rMnZ7qAZe8mklMAoaxlp9453rE8G
-	 ZkzxFTPokaj1OxzVGAHUAsjzQ/nLqVW9oo2YeH9ncqdqd+km3mo+YgoppSjz1zNx2r
-	 LPR3z/AlTE7HCCxppW52NU78gn29xeWLHpkqkucsgtYIK7sMpxnMfOy+aEAuHbQgFS
-	 8Eazk6ZL0ezRQ==
-Date: Tue, 1 Sep 2026 09:53:36 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Georgi Djakov <djakov@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-	Robert Marko <robimarko@gmail.com>, Guru Das Srinagesh <linux@gurudas.dev>, 
-	Taniya Das <taniya.das@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v5 06/15] dt-bindings: interconnect: Add Qualcomm Kuno NoC
-Message-ID: <20260901-orthodox-hyena-of-abracadabra-fa2b31@quoll>
-References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
- <20260827-kuno-soc-support-v5-6-6d47636a8f09@oss.qualcomm.com>
+	Tue, 01 Sep 2026 07:55:55 +0000
+Received: from ratatoskr.pengutronix.de (unknown [IPv6:2a00:1f:f805:4b01:1e0e:d42d:4ec8:33b2])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 4F6AD200FE5;
+	Tue, 01 Sep 2026 09:55:49 +0200 (CEST)
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>,  Frank Li <Frank.Li@nxp.com>,  Sascha Hauer
+ <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  =?utf-8?Q?S=C3=B8ren?= Andersen <san@skov.dk>,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,  Conor Dooley
+ <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 0/5] arm64: dts: imx8mp-skov: add new 7" variant
+In-Reply-To: <20260831182243.GA955466-robh@kernel.org>
+References: <20260831-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v8-0-e2e635452ba9@pengutronix.de>
+	<20260831182243.GA955466-robh@kernel.org>
+User-Agent: mu4e 1.14.3; emacs 31.1
+Date: Tue, 01 Sep 2026 09:55:47 +0200
+Message-ID: <87o6ehjth8.fsf@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260827-kuno-soc-support-v5-6-6d47636a8f09@oss.qualcomm.com>
+Content-Type: text/plain; format=flowed
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_005553_462386_AF9A5729 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +67,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 11:21:09PM +0530, Hardeep Sharma wrote:
-> Document the RPMh-based Network-on-Chip interconnect providers and
-> associated node-ID definitions for the Qualcomm Kuno SoC.
+On 2026-08-31 at 13:22 -05, Rob Herring <robh@kernel.org> wrote:
+
+> On Mon, Aug 31, 2026 at 10:17:37AM +0200, Steffen Trumtrar wrote:
+> > Add a new board variant for the Skov i.MX8MP based family of boards.
+> > 
+> > This variant uses a different 7" panel than the existing ones.
 > 
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-> ---
->  .../bindings/interconnect/qcom,kuno-rpmh.yaml      | 118 +++++++++++++++++++++
->  include/dt-bindings/interconnect/qcom,kuno.h       |  89 ++++++++++++++++
->  2 files changed, 207 insertions(+)
+> The sashiko issue needs to be addressed.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+I'm not 100% sure what would be the correct solution for this case.
 
-Best regards,
-Krzysztof
+Would it be valid when the *.dtso just drop the "skov,imx8mp-skov-revc-touch"?
+The generic compatible is not really needed, but the base DTS wouldn't have a compatible otherwise.
 
+Or do I have to change the binding, so that 3 entries are valid for the skov,imx8mp-skov-recv-* and keep the hierarchy (although unused)?
+
+Thanks,
+Steffen
+
+-- 
+Pengutronix e.K.                | Dipl.-Inform. Steffen Trumtrar |
+Steuerwalder Str. 21            | https://www.pengutronix.de/    |
+31137 Hildesheim, Germany       | Phone: +49-5121-206917-0       |
+Amtsgericht Hildesheim, HRA 2686| Fax:   +49-5121-206917-5555    |
 
