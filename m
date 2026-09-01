@@ -4,102 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AC3C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C305C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xid0dA7otX4+6iAbFy9+p9EdcnWq6wqzT6/W3b9k1mc=; b=z4UkkeqOm5oeiJzgXOYrz7Vseu
-	vjwDXKm7Wx8BCJczC3HRtcHHOhTr3Ny6tCbFwLw9eTzYvieb0NDdSe1Jt9dyENccNRzdF0UNLauIW
-	eOPxyGJrMfKs7VULAGRfEGH767n64ncCeRnvR6ABBx54dmhp+/4qNAvxiVEw7+Eokecgt6b1VwkPN
-	y8gfvVpgg7hB2Hqbx/c9+zQ7wVrsy3xBexoxZaE2QbUgYsMIpnzayh5KVTEPul3HZ+ihKD6aLkEN5
-	XYGFbccM0c/Ou3hLus3Of4NT0ULilARJyy0lfrAUMvUCFCLUZuzwgnj/+g0qyhiwppI+6084kJhUx
-	tjEjSJ2g==;
+	bh=ZesAiea/HD1vlRsrFj0Au2AyHXRN8QeZN3AWkJ1tr+4=; b=Ap7o5O5+d8dI0WMrM/RswWaj8D
+	sW1UCbSd8mJsXdvxYBgdab4bQVgtiPnd7mS0b4bL6csHEouiOmiHH6gtC9wUVzahmPHxC0Mn7mm1H
+	RypajlNCBgr0rXbMuB7xs8AFUX4e+CTaIVzV3DjEQxPuzBu5BjMybcFrkDO6YCnN8diWbU6XSkVwF
+	XayPlVBWSLD6D54PzVkN0bM/Zz+vSlYgbgICxgiWrkoHBxudvOSvDJOxkh2LzhZgrFJuscpESnHKr
+	0AXQZt9qsxd1zPcJlyWPsHJccfu7ocESbgIRvALd5a7ReZJSFYh2ePBQjvFOy9RkcV7K33Ud0QiIb
+	Ebm93sqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Qao-0000000CYU1-0aTe;
-	Tue, 01 Sep 2026 15:40:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1Qgg-0000000CaBj-1a9d;
+	Tue, 01 Sep 2026 15:46:14 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Qad-0000000CXyf-0K45;
-	Tue, 01 Sep 2026 15:39:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xid0dA7otX4+6iAbFy9+p9EdcnWq6wqzT6/W3b9k1mc=; b=AC/7mMqiSvuyrlBcx9Xu95G1l9
-	Mgl453LTQtPmzUn+DjEzARjdf0h0umE4//5GkkTEnZvPGGFWxQsjk3KqOGGtX9Zbzm2nIzyonzAYV
-	xZZPEKHttoswgxYbjno4RiSy5ABOuvSrAqPfPE+ujKwYncLM5nKzdoYhBlMRfVqmcjJKpcCx29WYn
-	s3LVqMbgNlO7xlgxJIB1yuqb8cf0/OyI+SGD2snabpFmaC+/rvgFDg3rpGVUePLpHgcEFcN2aSVP0
-	x7faewnUKpoCW6vmBmkQA16wToRHPBidJ2PiGtYVdzG65Rv5eiSowXtDSSp9r7uiUVAk49ht/l6ZW
-	p8io4Z4g==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1QaZ-0000000B6l7-2tqi;
-	Tue, 01 Sep 2026 15:39:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788277191;
-	bh=w3o68JB6uDSIOfx70I4h682mdpQUBc6qKdbQS+xbH9w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=K5zlhTNK9Vboc7MY6KD1zI6OroQ/spxNb+1G1KWzbKl3M3qaxVv4C+KKUdaCrWBaI
-	 2PJzeRciPRTLd/tIfTMbPyqtiXK8cJe78jMq0wbM9VYTk5a347DNRt8qGUbXfT4f1L
-	 Vmaz9bBQc7gsGESeewQP511ZChjSZ9YE0MeaaiFO1+nqvHkbSVfvflQvws+r41Tnfs
-	 20Kv16OfXjRYHfrb+S6cOCZTit+FUVsTuTuwe4O8tVoHUBaidcwXKl6ltqKTPYoWo7
-	 TxFp3St8sjUWXABoenuaxnIGaDvfb47pizmoU7jcXjBKrxQ6qHZYpQSxIBC10ujo0V
-	 tqVISk8Au+DMw==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3048917E10C2;
-	Tue, 01 Sep 2026 17:39:50 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 01 Sep 2026 17:39:12 +0200
-Subject: [PATCH v11 24/24] scsi: ufs: mediatek: Add MT8196 compatible,
- update copyright
+	id 1x1Qgd-0000000Ca9z-14Y5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 15:46:12 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 681E8Z7E2145885
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 1 Sep 2026 15:46:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZesAiea/HD1vlRsrFj0Au2AyHXRN8QeZN3AWkJ1tr+4=; b=feYTI9+AXed/U2aQ
+	urR4ihwgtlD6ItpFSuAQtQEVdpvW/fhqqnRBzvM8xzz9hcvZK3m3gA19/Y8/s6co
+	STQk+LdhxM8bCRTz5CeG1xf4+1Bd0Osr3fH50gOkQlcSbZpzi/0FVSDyG9RFqoRU
+	QUw1PuLsqUbMfpGZeJk/ZLXRdguuyBWlBZBv8zcKoazxEe8k7zD58ccU4eAl7dWl
+	yHxtugvSRYVgOOAe2HecNQDneJIXfyWjML+QoJCW7tqM4OGxoiPEg5KoeZnhHu4Q
+	/6rGV/R30g4y9ExEGzEwmxUS+9DNxqYesPbcPBJmpIFk1ud+YEDSKJQqXAG4FDsl
+	Lp1Bzw==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gdnk8uh44-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 15:46:10 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cc1c62f0d60so5488a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:46:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788277570; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FNnfrnw/r/ifg1k/vQj3VaFJW8mb8S5DGBctOO1MBKuPOx1OWLRg4ZN3NnEYBkZIGc
+         xS1Mm0ygLMPuAPe6gq2iD1HTKlc/LdU3OEptDl3SNkztSw7GLunsZr5k1D/riDEMgStU
+         rH9XJMk05SHpsNBY8rNGOdcGMbLyqskxEBnf25iUYWSjgCr/CF4LeC9EwDQ1/2rGS5sY
+         P/FbqYJyvUN8qern4uUThabIzXJ87DwxvBdkrdJorE1mOx5QiyFjpGBF4zpiHfHopb2d
+         JStsFwBtmGuCtQItxc2GCq5SvxzBrm7dsQJVA8G6bvh6l1j8KgPu2aQIUO67FKKkkNVx
+         JkYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZesAiea/HD1vlRsrFj0Au2AyHXRN8QeZN3AWkJ1tr+4=;
+        fh=UmyxPhQeRPw6x1uw6EX2lQfHkxTCdRX3ybQIdjC1iIs=;
+        b=WFalRKXe9mmXA9eoN4kLdQWxzXtLZ+FBrHa19FQi0eHwJZuRDsMYQeGV18q6CN14vb
+         A3ZYdp3xn14jfyV3GS755pI7QOs9PMZEq+X0VcEkAEafgFi20ZYltHPQQrm/QVHKp/Z6
+         9B/tbtuADVLfeiYSxRZYCaRxiW/mt4cpOkE3UEb0mFGAs5rF+TBNKVYSs4kwC8Lvlz8r
+         O6KyXQobm8H/Tf6urXb4L7Q6h1hcmQkjIgXJ21lRe21KUWkukyFJoziPSgCbpwY2aRwI
+         v5JI3clkTkJ4OW41sGNXZze5hCayDENRe9FomkjKnLlWqH9wGgFwCh0h1SpUaYLUBCy4
+         cC2w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788277570; x=1788882370; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZesAiea/HD1vlRsrFj0Au2AyHXRN8QeZN3AWkJ1tr+4=;
+        b=hXAFZPOVtztJ1HgSLW+F8hs7gMjaiw77f97LBSmELmbNC8PDkHnJTQ2iNuKHCW7YFN
+         0HW75OInjcGF6vi8HPvO+TYVcUMqnW/wUTWxVJTkUcNrzz7o34jt0BOoIK+A5ee6AkJ6
+         wLGT6lt4TDee1Xc9EFu8VT6X1q/YqLEMOy/JFXto8S2adfVSmJIDBBXKhZAZ8SAeK1AK
+         Ki7XhAHW4BfZ91GLxFjkLHnQQiZYlB3QPTc4rUltx4xpRYSA9VnyU/oLBbJpKnyRKCSr
+         YmyGmod59v1tW9yuwH5+NzezGDKAGddkgEk8mA4+SCcxSjG/57fWnRLdCaAgT01YVisz
+         qjRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788277570; x=1788882370;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZesAiea/HD1vlRsrFj0Au2AyHXRN8QeZN3AWkJ1tr+4=;
+        b=TD4aw+yS/zSw450bK0nUUp+j5IBm1rjvYmRTXfrlVzYF5qFyU+4O8zVpSAJq8nrylJ
+         +fqvxiVQxAnt/V+xj/nAtBMRvIDAXCiozXeZHfDvy1AtKO5AwGBxjp01IJtzYI+Ze875
+         7clvC92e1YHJIOhiWB8hFHISiv2mNUc5JOzSlnw3jiNqg5H1Qi+wmzv/Icu0fHNERtZy
+         lKsigvC5Onc9Kmj8NuyABWRKaY95H2z4+Dh3cdyYel2HMEm4EsAeIyFXng6XCALbupGx
+         i93inK1pDSdDIVtodS/k+VLURaSe0bIGoEQ3muVlu3YX/lEOEe7nW/tVu12ZQQEm+/aa
+         ZxpA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0rpD9p0qj5A0uJ/ROIwfQGQigq0sgedBYc/po4qw+7Ow61zFj1RT3UP2dnawupJxy5G9OHNupmdYXL94NwydH@lists.infradead.org
+X-Gm-Message-State: AFuF++mR4qcpo5d+2KWxPpI0S3YbAJR68vkEwfZ3n/4Joy5IinoiRfIc
+	uOBOn+4trY9f8hz1YZ0gibpWdOnQs/AtJXszz8LZUucKxTtinrggHA3dmPl5MtM5wDNRfcTCc3L
+	d1v1aURQNEbrL/k+6wfxPYOF5mJE0GbbOxiIioho274XiJHkxQdIDJpAJuhaJwC0zWwuGM7cyev
+	NBqjQaLl5XZdrmrblfD7Uz9xT35q/Qw7GMZ7pqlXsmB7Z6sgvqos3H
+X-Gm-Gg: AR+sD12B/5pP0M17n7FwzcyCqncxuPTMLX9EEG+GmMt4QjYA1F0p11Txk0RqXnYHEEw
+	aIbUCwlQrfwfaka0k6jV9CJYHtSmgoj+xj5Mv8hyS1YCHPDKjJAjEk9qr3FUDlwFVouWgM0x6g5
+	/uSdsAvzNDdHIQoj8dWT6iRv5I2LS69keEThTo80spawN1YrfeXi5KAaz+BA==
+X-Received: by 2002:a05:6a20:2d24:b0:3d3:af66:9f61 with SMTP id adf61e73a8af0-3d7b0858c0dmr13796020637.27.1788277569852;
+        Tue, 01 Sep 2026 08:46:09 -0700 (PDT)
+X-Received: by 2002:a05:6a20:2d24:b0:3d3:af66:9f61 with SMTP id
+ adf61e73a8af0-3d7b0858c0dmr13795922637.27.1788277569390; Tue, 01 Sep 2026
+ 08:46:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-mt8196-ufs-v11-24-dbd007704490@collabora.com>
-References: <20260901-mt8196-ufs-v11-0-dbd007704490@collabora.com>
-In-Reply-To: <20260901-mt8196-ufs-v11-0-dbd007704490@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- "Martin K. Petersen" <mkp@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788277164; l=2479;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=TCHbaQOkhWPI6pTkaQPvBwPebaH2+1nAOIm/pIDz/b8=;
- b=XQLCPjAIYYnvecg/0h7DzQ5sTjiaMyOwj05bKsGYbFPgaxcB7LSSh6qF0r415WzjbuVFGiu2X
- Sb1QEe4AJCtAR6vFptLwe1oweSVqNzNWehN3PHS62FWGzIhdeY7F/BB
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+References: <20260821085222.140633-1-ansuelsmth@gmail.com>
+In-Reply-To: <20260821085222.140633-1-ansuelsmth@gmail.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Tue, 1 Sep 2026 17:45:57 +0200
+X-Gm-Features: AcwNN1X-ZkG58Ju7YGsTebESlLv7OBivRQr4LICy-o3mSGUv_1-w5G-mpWoo6R8
+Message-ID: <CAPx+jO_T3qLTYh3VORuPB7_caWXXOXy4XYfwXhT4THEjTghj4g@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: airoha: fix unselectable AIROHA_CPU_PM_DOMAIN kconfig
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=f6p4wuyM c=1 sm=1 tr=0 ts=6a96f342 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=YMgV9FUhrdKAYTUUvYB2:22 a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8
+ a=95gA0qMHRU8tCJvgjbwA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDEzOSBTYWx0ZWRfX5Mk9uvJBaU0e
+ n2s/b1It3lOlC557rnPZrsxuu+Qf7DuLIdeUVYtF+yzUGtBx9fxPh8GtsGUIytU4S/N8atxu9W6
+ Rc7RO1lcvoxF/gSX2xctVTf6OXFJaQzXlUgFcQ3u8UuR9vCHOsUpcTpQ3KzD8ocdwGN2gyv4a0k
+ akwfr4aI8E6xfjQdaBICpNwnW173XQwYfnLvoSIAwOQ5J25SvOfaUux2szFRQMXOQwwyYdDBNl6
+ bXUoPIjcB+2+KERA5+ahrJQTCAWDj/JfWbzCyg8LpcrxHB3DOMYOGh7K8Da5kA6732CyKYTmG3Z
+ ds7A1Ob+djcTSaCkdNsTx+gZd1hwcj8SqFjjZe0vEub/VNOojlSFHVQQWtqx4ccf86/PeVSLKYu
+ 6CDDlvovHN+9THC7Ahol1Do5c5xasIQ3JCd1WJGYUz0DE2K4GZf7wedZMmEQEhyv0aYI3N0VLBN
+ YxxjF+ikQPnDAj/LMMA==
+X-Proofpoint-ORIG-GUID: G_6s4lhCOjFyas_vQ5e3unPD8BvqCCfG
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDEzOSBTYWx0ZWRfXwIcaBbhAjEDa
+ wjILInRVDevJBBBXzgCt95c52iZeZj3BmC6PuNQ/2Pzrq3AqmMlUGqvhOVdEziggVkw6UxEWmE7
+ ZsatG5FXZhLMruoZFqths/NuNAT+1XM=
+X-Proofpoint-GUID: G_6s4lhCOjFyas_vQ5e3unPD8BvqCCfG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-01_04,2026-09-01_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 priorityscore=1501 suspectscore=0
+ impostorscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609010139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_163955_949587_487E1E5E 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260901_084611_297264_C64384F3 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,73 +166,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+On Fri, Aug 21, 2026 at 10:52=E2=80=AFAM Christian Marangi <ansuelsmth@gmai=
+l.com> wrote:
+>
+> The AIROHA_CPU_PM_DOMAIN config was wrongly guarded under the Mediatek PM
+> Domains menu and was unselectable.
+>
+> Move it outside the menu so it's now visible and correctly selectable by
+> default on Airoha SoC.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 82e703dd438b ("pmdomain: airoha: Add Airoha CPU PM Domain support"=
+)
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-THe MT8196's UFS controller has a new compatible. Add the necessary
-struct definitions to support it.
+Applied for fixes, thanks!
 
-Also update the copyrights and authors, without tabs following spaces to
-avoid checkpatch errors, to list myself as having contributed to this
-driver after the preceding rework patches.
+Kind regards
+Uffe
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index a894810a83de..e6a672888d04 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1,9 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Copyright (C) 2019 MediaTek Inc.
-+ * Copyright (C) 2026 Collabora Ltd.
-  * Authors:
-- *	Stanley Chu <stanley.chu@mediatek.com>
-- *	Peter Wang <peter.wang@mediatek.com>
-+ *      Stanley Chu <stanley.chu@mediatek.com>
-+ *      Peter Wang <peter.wang@mediatek.com>
-+ *      Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (Major cleanups)
-  */
- 
- #include <linux/arm-smccc.h>
-@@ -2242,6 +2244,10 @@ static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
- 	"avdd12", "avdd12-ckbuf", "avdd18"
- };
- 
-+static const char *const ufs_mtk_regs_avdd12_ckbuf[] = {
-+	"avdd12", "avdd12-ckbuf"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
- 	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-@@ -2254,10 +2260,18 @@ static const struct ufs_mtk_soc_data mt8192_8195_data = {
- 	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
- 
-+static const struct ufs_mtk_soc_data mt8196_data = {
-+	.has_avdd09 = true,
-+	.has_avdd09_1 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf),
-+};
-+
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
- 	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
- 	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8196-ufshci", .data = &mt8196_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
-
--- 
-2.55.0
-
+> ---
+>  drivers/pmdomain/mediatek/Kconfig | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pmdomain/mediatek/Kconfig b/drivers/pmdomain/mediate=
+k/Kconfig
+> index 8923e6516441..a2eb704a773c 100644
+> --- a/drivers/pmdomain/mediatek/Kconfig
+> +++ b/drivers/pmdomain/mediatek/Kconfig
+> @@ -43,9 +43,12 @@ config MTK_MFG_PM_DOMAIN
+>           This driver is required for the Mali GPU to work at all on MT81=
+96 and
+>           MT6991.
+>
+> +endmenu
+> +
+>  config AIROHA_CPU_PM_DOMAIN
+>         tristate "Airoha CPU power domain"
+>         default ARCH_AIROHA
+> +       depends on ARCH_AIROHA || COMPILE_TEST
+>         depends on HAVE_ARM_SMCCC
+>         depends on PM
+>         select PM_GENERIC_DOMAINS
+> @@ -54,5 +57,3 @@ config AIROHA_CPU_PM_DOMAIN
+>
+>           CPU frequency and power is controlled by ATF with SMC command t=
+o
+>           set performance states.
+> -
+> -endmenu
+> --
+> 2.53.0
+>
 
