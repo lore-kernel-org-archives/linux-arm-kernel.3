@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DFEC61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 02:52:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29878C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 02:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBIciBePJHu4TIWKwdlTXJQRXcfr437nv2k1+x9xHR4=; b=y/Tp7dqhzqx1s3VBPdMhTa8GEi
-	jbCO8OvPYZiuCQGW9frTTWAH/WUOvLxmaHD5mvsH+ikVDhVwMRjPZqiFF4sQLIQlyiOb7oX81XdJO
-	WVDdIJbDYuYGsg5RCiWFl9r6nWSK8A+4sf2/kLSCLw16TnTGiPKXff/24kQpQBT9RYGf7YkPZytD6
-	MQO+tNhVBuwWSJGTSqV80dRZRmt9iiWHM+EyDQFmfKnyS0DFlKkhmXIU5tZSCJzF+jpf9Vd0lXGKA
-	VZnATVgovkF3mG8xKPi+qxIrJ1pcuG3oBmgJbDLs7tOrJxoOFcEmVUWSGkQB+jqLRYCO69nc/aR+2
-	UEyF5Xdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ycaVktr9GUautRfaUy5FlWIJEqAYyOLe3etWF2OPKqA=; b=H1dNR/zVTidG2uRa+aaJuQ6CNd
+	F8cw0bbPC0cagNMrz9Gp5+DFVlfeY0/AhqhgCDO5XdWnpvgjV7aeWHC/7AEIHI1M0PTHlmUkDWAGa
+	MRPjaL5WuTKjbFj8eD385Bit/2l+speQOokSQjJ0z5jnjSaIzBjs3528e0T9Nw1W1qXsiQ+I94C65
+	maRSwuAYDNYcKBkJlMeGrBpTk0I2ATxs12jvFHZ7mBiNqtC17dbqkvM7itsyqmKBJzdOOL5A9ZWTF
+	4fotdX+rFtm3UF0FaHxread8QJFAw8bNq3nhg7yl+XgX1JlUzC/L91jNwOXKEDr81W5DYm9Aqou+i
+	H9LbHyUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Ebf-0000000AuIc-07YO;
-	Tue, 01 Sep 2026 02:52:15 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x1Ecj-0000000AuUG-1Gti;
+	Tue, 01 Sep 2026 02:53:21 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Ebc-0000000AuHZ-0xXy
+	id 1x1Ecd-0000000AuTK-0rQa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 02:52:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=RBIciBePJHu4TIWKwdlTXJQRXcfr437nv2k1+x9xHR4=; b=N56MgGkHsZSpLfM4B1uuwf/LjI
-	FzLViVUW/IzxNJuNpKNa96HeXLGVjxqUaUb6/vAolsBCtofUzpxGVx3dEmjoJyjYygalDN0PwL9L7
-	doiYZZa4HXe5iLC39O+C2E7raTdbxc5qQW4jhMIRSHdVwQDZQzYMR6MKBY+IjUD0qvO0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x1EbT-002I9V-HN; Tue, 01 Sep 2026 04:52:03 +0200
-Date: Tue, 1 Sep 2026 04:52:03 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	Tue, 01 Sep 2026 02:53:19 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2d710632717so36193505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 19:53:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788231194; x=1788835994; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ycaVktr9GUautRfaUy5FlWIJEqAYyOLe3etWF2OPKqA=;
+        b=Jin8kqbsR3TsUS4G/McFUSo2bXcbxYolzzPlNB1GRLs4KnLlU3I3DIfyrHqDRuIltI
+         7EfRfv8eA9jn4hYoK7sc02UBf0Aw/fq6/CNwnuBPrlBviazKikischQrp3p9kmPUf5UY
+         i3ECSvSEH3BqIIwiUEWTmPHtB7Qzwz1gWiRd6Pbwh9ptFc5a3epsLnWBIEswqrqTG89Q
+         8X+fuDiBHlFYTkZLlcKZRBrrWqetEHWHKZKA0ZLMTZDln+zIJgvgAtkce6LcfYA5Rs6J
+         9EsJj5L4AOHsDiuMb4qNhhbGmihe3aqDiaqz7KNZZrU5X76ULDj4nn7magQrp3tiExsM
+         kBuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788231194; x=1788835994;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ycaVktr9GUautRfaUy5FlWIJEqAYyOLe3etWF2OPKqA=;
+        b=b/HIUt2wb424W9YPPzQyr8A0wQ2L6fa0X3h2xQBTfwztLB9vsrAdgzaJbx/EQ+a59E
+         MYNu4b5doL579Ij5J/PMFKeXGpclgemqbRFM6fjmPikxEgLis+KwMqfK85CmVWGNoV6G
+         cd4iItdt77DGH+wgkVWfd7gmTpolVOVw6MjIRQ5AuMAbBnNbt/5vmai95WvTBDcO7auq
+         5PpoVqPSt1VDavRN4PF1lxDMneaKPdz4SYnln94GUENBuO+dqwuukg7WqJvZ7GhqLDqo
+         Q5/ZzOoxOkz1nNpEZ2SvUgdGz1CT8nFMBtCxXSMVPXun2coGDdfSMsT3cZaIi7ACr5C7
+         K+JQ==
+X-Forwarded-Encrypted: i=1; AKwUvByK6o9s7c3eeeJqyO766zjKcCQwS/CHK1HSrDIX9/Hp7hboEzw+BEK6X17Q0N5wAfdLBS874FuffstW07UMJaPG@lists.infradead.org
+X-Gm-Message-State: AFuF++mJIPKF7CmEV8rwU1qCjnsdK8QeBVUonwz3e3M/e4XU85KWNQbB
+	Zr+U8EMfhwMFRb9YAgpJTAZRJCwt1GgRX9gYgdEuzZYZN26fFDG5q9Ic
+X-Gm-Gg: AYBFou2eql5D+/m1vSLkF5iG+TrY+Q9JPvkx4bkwAebfr8AKAyotbVcjPnYaXMiBxa+
+	cz5x/hDPynotn5DcM16c6kCtC3DhJj1yfos4qmBSAComYXIdDoTyx26rFwwt/hQP98OyxIq8/6W
+	UEwBMthzbLA1FvpnEsAUQ1Echr9zKBQI4iqfatGVYX/Yv3gxNKboA5v2RBLQg7OFyklQGJ7NAkk
+	KHtWBss2JZzeDmNpM8EwhPcRjOTJfd6eSkLOvERg1wqRPpzTLJ7kF07r4XH9u2dSuv7Bvcd7MIg
+	LD85pg2EO9wDc+ybgwW1FM3nm+bGBn7R7HLYdZySYbRxfFXlAIA+Th+ObNC27zY4BVBzNK/DnAg
+	0uuoBOzm3Yp8gj+MmlAVThHWuR8C+wrPZxxbJo0FhH30J02O75oRGZi4VRh92jNpiqR2EQF88QJ
+	D1CQx1j/9r2CzTfwBPQ0sjKK30vKaQTRH+IEyCSaUjd08k8tuAgDOYPpzLlaHbRuGYY6Q6htmXA
+	IL5tjJQMJ4aTwig078ca30G7Z6EUeJ6rO2I6qyn5PcbOldwTvl+Cm7fIIPbX0zrQFTiSifR7cuo
+	j3Vf6vwAFnRGxobK1VeegaX+qjrEkocGpkjfWg==
+X-Received: by 2002:a17:903:fad:b0:2c9:c991:3bf0 with SMTP id d9443c01a7336-2d74dcc2d3cmr460608505ad.8.1788231194184;
+        Mon, 31 Aug 2026 19:53:14 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3286f552473sm37613800eec.0.2026.08.31.19.53.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Aug 2026 19:53:13 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 3/6] net: xilinx: axienet: Add 10G/25G (XXV)
- ethernet support
-Message-ID: <fe83c236-ce55-4c33-aa1f-23028e978696@lunn.ch>
-References: <20260831150816.1020883-1-suraj.gupta2@amd.com>
- <20260831150816.1020883-4-suraj.gupta2@amd.com>
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: helios4: add Wake-on-LAN gpio key
+Date: Mon, 31 Aug 2026 19:53:11 -0700
+Message-ID: <20260901025311.955936-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260831150816.1020883-4-suraj.gupta2@amd.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_195212_267932_C99B4DDB 
-X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-CacheID: sfid-20260831_195315_767420_AE97F9D6 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,12 +104,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	/* This error handler runs only for the legacy embedded-DMA (1G) path,
-> +	 * whose mac_init() cannot fail, so its return value is not checked.
-> +	 */
+Add a gpio-keys node exposing Wake-On-LAN on its gpio0 18 input,
+allowing the board to be woken from suspend.
 
-Is legacy the correct word here. Have you stopped licensing the 1G
-MAC?
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-	Andrew
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index 176198d99c26..e3376c703cbf 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -87,6 +87,18 @@ fault-led {
+ 		};
+ 	};
+ 
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-0 = <&microsom_phy0_int_pins>;
++
++		wol {
++			label = "Wake-On-LAN";
++			linux,code = <KEY_WAKEUP>;
++			gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
++			wakeup-source;
++		};
++	};
++
+ 	io-leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+-- 
+2.55.0
+
 
