@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770CDC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC31C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BlRBTnAxAr5Mr3h2Ki5AWmuYRNMm8WhwP7R0oNWZa10=; b=sp8Mx0iOQJ8LzXxJSO+2a2B92/
-	LknvGtfdIx6TmWX37fSKkUs/QKLa2ocyQ7eAzd9NCt+i9y7JADsGJlkkbbnt6pnR8ESF8jKHhWkaA
-	5G93UjZyR60XDg2qhAMhkmpNzTIY/MSt3kQr3c3LvC0xaud+hH3oC58CamqZYPQpTpiU0h0NTfjQm
-	Hp+g+0b+3Z3HskYYH6ZBINQLucYX0uSyO/g3Zh7ILHpHrA0eJ0Oj5IhTaslvYU2tgynsHm4Ajpi2n
-	dIns8/IAF/LC7AcknS9i0CbD9C5JeG4+cVwaJkeqN2wTDl+rzarCtND2Klvd2w60397Cg0wefMO2Y
-	P6ZawC2Q==;
+	bh=MR/cQZoK7JPxTk5LPqkidwaMJQfEv51POKdRxNvWHUE=; b=hNEU8HF2iy9FcDR+H7Fp3OiN2p
+	fz0jdm+GRXwN/g1Vtb2Z96VWBvJOFedEoD4f3T6qIqS6Dxt+gU/AmXU+upSyRJq8tzMVHuvTNus7M
+	486ezWZrozh3f6kKxr/b50qAcJYq/AjslzEU2KTfE7R36wvf6DGIxWAnKNqgGKGl67z7FbZ+4ZOf1
+	99CUeTl0ILclIRSPLchsrqMUWQddAm/+/AqRE59qPToW8e7IdgeKVjXzAiSGx9+wA/gqB8fs8Qlr5
+	Acq5N4bDMMF7vl286EjOaMbqNe64qejEjTRVCobu2rLDnzq8shdQV9o6acWakgWPzw86e3dlww99j
+	PcHqgPoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QUW-0000000CVry-07WW;
-	Tue, 01 Sep 2026 15:33:40 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1x1QUo-0000000CW44-1XFP;
+	Tue, 01 Sep 2026 15:33:58 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QUT-0000000CVor-3Rhk
+	id 1x1QUl-0000000CW1m-1KCq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:33:38 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49cd77e0f95so11789715e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:33:37 -0700 (PDT)
+	Tue, 01 Sep 2026 15:33:56 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4843750de83so11645f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:33:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1788276816; x=1788881616; darn=lists.infradead.org;
+        d=flipper.net; s=google; t=1788276833; x=1788881633; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BlRBTnAxAr5Mr3h2Ki5AWmuYRNMm8WhwP7R0oNWZa10=;
-        b=bKhoJ3foHe6mHE8OpJMp8tdd74Rb2zgnj7Xg6dv/OnguXmRowG57JqDFegIAXZ7Wgl
-         KwZS1wD1E2lhD7L+IrUXgtJ88huZxCjV+1auZ8+G346BcBTYRDVF9ic67rXh6rdsBw8R
-         YaHt67nZiHIxFTu1qG6KW1Gm9+DixzbssoOlJS2gv1fh5XUX8T0XA9BghDH2hixNfsDS
-         McrZ7RYsEDop+BSRd8ofrKLNXoLmFVMd2k+rgryLrs8Vnqs93ORfG8iiZVV5cPmxJJpA
-         JdoV+BmhVSZWp2bdpKpqNLmoZzeQZGNZR4tcXnqGizjnFRsEupcbObIG7DH/4+XkVvsx
-         PHwg==
+        bh=MR/cQZoK7JPxTk5LPqkidwaMJQfEv51POKdRxNvWHUE=;
+        b=ahtQUN7deCnhSB0DI87v2V5QnCxi4i+8cJ0hse4oUg1dWZ1Zp3+axt0bSZeUdIqgE5
+         L3H6iRiKfZMsiFLJ/y8wfcPz8nKqZPCw71ALfIwErTTaHmXZ6Ou4cA/kirGiDspqo4kJ
+         e+bWUA9shEgaqriowWWon8v1NKGxuvM3VPMtF01DBHVZ0hyxIudbInuAuk7ipuahVTaK
+         WjmGn9EXu4jPTznMf35xBh8WmgcuoMJzRASnIr17qHePGxv60PaT9ETffaq+I/8yOSt4
+         +d9Yy97wzMrJkWOtnUZM1aKssqQLx4J0CvgVauLKxYJ640KUJA49mWAx+Fn+b0TPKIQA
+         1FTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788276816; x=1788881616;
+        d=1e100.net; s=20251104; t=1788276833; x=1788881633;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BlRBTnAxAr5Mr3h2Ki5AWmuYRNMm8WhwP7R0oNWZa10=;
-        b=K8Fvtj89+/+2EVPLq6ewwycUGCKnldKI0w8sffPVSe/GiizfxnIBqR/goX9aVlI+lH
-         OEcM9mP2IyiN/gDc4152ymJxgrkpCJQPy7lq93TQdcBAdHfuSg8j2+Zx0wNAQ7hFWZq+
-         BxBTHMa4Ao5sWVCsj4G3VPm3spLlM63Py281mn8l9LWnHy8dQurgiHPcSHWd1RO188yP
-         ooHdlHqOXlbWnBfu2L7IUHMdY5XCzW+QSaZbQ7Ua9gIKVceBDc8lsaT6ABzX1VW/5LS4
-         UBwiRCW3dhFuFZLanBUMI17h2a/BrSXJcwGrgUdDBIfq+58odZk3/yKlNX5pTRmSBy1J
-         ivmA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp3a7eJo0gYdzT6x/ADkWWgA3yFsth2m+NqolG2Kg2OB+IPQB4MouVF/WjAQXXahYhgSICsqCsT9X4E2LtpnMQx@lists.infradead.org
-X-Gm-Message-State: AFuF++mDUxo7S3lMUWU40jZ369w4fOlH0xowO6l1eDe++Wa8FCzgHMFv
-	WYmRUCmBhEb6EzAnU5VALh+UdNYV6+/1eVKgywVcG16TJKruMqJfMwIasW9Lo2h9eUO/ybRCr1y
-	u17Nz
-X-Gm-Gg: AR+sD11mpV4p6yoDgw6agDGWsOU01sGFTynXpl1VCmsK/M0xiTDm+xNjZ2HSztI5GHg
-	qkVuZmZgjwtvC1HgT3yPSf4steJWBVOZr7slKwmi5shJXhir29utkCdRkKtJAT11P8ZqW+vci2g
-	ZrGTp9ftpUARwGqFZtEL82Kq3gGrCzME+2L2phlX/YucpPEv8x/eeFJcX1e/kwTM2Plj1rW+nkP
-	6auNsrLREg0oNlz58O8VOI0mbKzcJ85GOex0Xi46vf79g+9h5PR8Y2rb1p1xbxuoILZolmIAcx1
-	xnTJOrN42ecbiVBGl0qhvYcN/nPUdHEOxgoNUgU3GjAFJGbmctH/m7srFyDvBACS77XDeYAgrxj
-	NWJzw0RMgWPmQQqqkkvEmXpiesqIS0d7Ar612IHLAW24tu9SZ4EN7hIzszqS3E7V+9TcGrIswE5
-	9/mKjwmYEm98imfpK0wFSKZz2OjjUoqJ+3UYeMvUF8btL2Qm60Flr6XXLWlxo37JbumGqAm9u7E
-	HDLJZb6iDGfhBBkrIXw7KybCBnB006w32mOqaqw
-X-Received: by 2002:a05:600c:5288:b0:499:84fe:5f3e with SMTP id 5b1f17b1804b1-49b91c41014mr616951295e9.9.1788276815737;
-        Tue, 01 Sep 2026 08:33:35 -0700 (PDT)
+        bh=MR/cQZoK7JPxTk5LPqkidwaMJQfEv51POKdRxNvWHUE=;
+        b=U+KgKjamfQzlI0Wu+jw9VAjTau8C+5WZowU+9eRVU/dqqQF5WIq3+1ocYsTtt9n3fK
+         KIjk4CXUncIJ7H6nZLps1oniPHJL1pCdRnqjxRWDAgoeRJaznQyF5QWTIkq4PTugq3Sl
+         qkAu6MqfQnLIcbMHHXUMq07A7gu0iIRxQOTXUYG/on5Uum65pfLgGx1x1dnR0HZ98AEq
+         dOJJm8RbISTmXDODPnZHHWriBIgmtYWFtNSnXH7VDCBVDMRadA3L3YEeKS0MOvs3MfyY
+         7d5GOX+0sNIw1kuzOIB2S0zzNA+14L988HZJqYzn6VFhGNEpU2sWO8olC8mbmVm09Pmc
+         KA5g==
+X-Forwarded-Encrypted: i=1; AHgh+Rr2B3LX9iFQjapYOK6/DSzCtRxithtE6DgYZeMbX4Ips+wpVtizsuv3YkeWTV0I+LmbdlP5C3j5h/ZaZRVaS8/G@lists.infradead.org
+X-Gm-Message-State: AFuF++m50UypR0yRCCyIjtvDqaBWDwqZL48dbd0DJlTX7r03PY2p+0Ef
+	bV/WuJBJEzcmFrhFgNWr8O73WA/5JxA7lMtJtuTCGG77WJLcfB/TljLGUR/74jwIG5MXCR1xr7z
+	p7xMX
+X-Gm-Gg: AR+sD11Iunq2D3EtkM+LHn25L283fzflLI92EBJWWbp1J1YyJKejr5ag6DSL4EhV6DU
+	V6RTXRBYEtQlfVnnz5J5CWJlPHavvFBhYUpipA8LVu3QfL338vUu+tv+lO4ibnleH1Tfo8mVGxH
+	9hyVWmH6vKhSKEZ3jzcZI9o0oYlk1rcOgwoodGxzySJonR7QsuFWICyP6EAbg31Won4+67zBk8X
+	KGpPaSvyZOGTZY8xnkp+ZkZeECOleUzTb2tggtVj0SZ1mUp8/LEkBoALaMAvjhIze086E48xR06
+	zhT0LOUMp9oUDj7Gzp8rQCG/M1XdHMhqEJNWQ8c65Uv7Dwkdlgk+sW4Og762HM50/MfncO1gUiS
+	G8sPpEqHq8O2R7XnSm1BZo2/e5fjZTc9jb1ubwtBPC24Vn5C3AqJv+Jql1H1RHjjXX6IjjwLveL
+	7h383S2YYhm26ki1NNtDIHiWTXvzsDburzZT+RGRFvi1+EpsILdsK92NNnlL3P6tuk1MiBhkTtP
+	1Z2Bnpc5RyZEbwfkwfKyDZ/FNJqpH4uUvqEoietUZWYIrWPZ88=
+X-Received: by 2002:a05:600c:5391:b0:49c:cedf:f870 with SMTP id 5b1f17b1804b1-49cdc555577mr180831445e9.16.1788276804848;
+        Tue, 01 Sep 2026 08:33:24 -0700 (PDT)
 Received: from alchark-surface.localdomain (bba-2-51-220-108.alshamil.net.ae. [2.51.220.108])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b91c5790csm314541845e9.0.2026.09.01.08.33.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b91c5790csm314541845e9.0.2026.09.01.08.33.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 08:33:33 -0700 (PDT)
+        Tue, 01 Sep 2026 08:33:24 -0700 (PDT)
 From: Alexey Charkov <alchark@flipper.net>
-Date: Tue, 01 Sep 2026 19:33:14 +0400
-Subject: [PATCH 4/4] arm64: dts: rockchip: Derive GMAC MAC addresses from
- OTP on RK3576
+Date: Tue, 01 Sep 2026 19:33:11 +0400
+Subject: [PATCH 1/4] nvmem: rockchip-otp: Serialize reads
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-rk3576-otp-cpuid-mac-v1-4-ea9135270fc2@flipper.net>
+Message-Id: <20260901-rk3576-otp-cpuid-mac-v1-1-ea9135270fc2@flipper.net>
 References: <20260901-rk3576-otp-cpuid-mac-v1-0-ea9135270fc2@flipper.net>
 In-Reply-To: <20260901-rk3576-otp-cpuid-mac-v1-0-ea9135270fc2@flipper.net>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -90,19 +89,19 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Alexey Charkov <alchark@flipper.net>
+ Alexey Charkov <alchark@flipper.net>, stable@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2071; i=alchark@flipper.net;
- h=from:subject:message-id; bh=7ScGxa+8+RlYUQcbDyTy3K6G/E2mZ7i4yB4b0QAxXtI=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRN+2Bn0+oxU6P3qU/7I7eGFXnGf49KT7dMO7uyUF1W6
- rxyqMHyjoksDGJcDJZiiixzvy2xnWrEN2uXh8dXmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
- 0EjHWMeIgYtTAKa6W5zhn97ro1tSdDtDJG4wGubZej43tPqwU1bkr0wH95UzN2IYrzEyPHz0dy2
- bQNfGDaf/3zEQnXryvurGjW8ropd8La2Y5dtUwAkA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2712; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=amm6IB2QVHQmS41llynjCeEO9qHZu2xpesEVqtnd22I=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRN+2C3xbXrK4OeZYvDjPdrr1mZbp/St7fnwfTot49W3
+ TD5HCSf3jGRhUGMi8FSTJFl7rcltlON+Gbt8vD4CjOHlQlkiLRIAwMQsDDw5SbmlRrpGOmZahvq
+ GRrpGOsYMXBxCsBUx35iZNibP3We43yhXZ16Wn+qpl7LuCJ44ZzTmxzTjRy/HlSF/clg+GfIZX2
+ of9I/hUiz98vtfcUeTXiyUHIf56ZrjJturNqyaAEPAA==
 X-Developer-Key: i=alchark@flipper.net; a=openpgp;
  fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_083337_881650_3272ED2D 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20260901_083355_375191_31876687 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,60 +116,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip SoCs derive stable MAC addresses from the CPU ID in OTP memory,
-which a bootloader would normally process and patch the live device tree
-based on it. This depends on the particular bootloader implementation
-though, and the derivation itself is not described in the device tree.
+The OTP controller is driven through a single set of registers holding a
+state machine which has to be stepped through for every word read, yet
+nothing keeps two readers out of each other's way. Concurrent reads
+interleave, and the outcome is either a reader bailing out:
 
-Add explicit nvmem layout for the CPU ID derived MAC addresses on RK3576,
-so that any OS can implement the same derivation without depending on the
-bootloader used.
+  rockchip-otp 2a580000.otp: timeout during read setup
 
-Boards which store a MAC address of their own can override the reference
-with a cell of their choosing.
+or, worse, one of them silently taking delivery of the other's data.
 
+Reading two cells in parallel from userspace on RK3576 reproduces both
+within 150 iterations - 53 read errors and 9 corrupted results, the latter
+either losing their first word or, in one case, ending in the two bytes
+which belong to the other reader's cell - whereas the same reads issued
+sequentially never fail. Concurrency is not hypothetical here, as six
+thermal sensors source their trim values from the OTP and reach the driver
+straight from asynchronous driver probing.
+
+Guard the read path with a mutex. Reads are the only way into the hardware,
+as the driver registers no write callback, and they always run in process
+context, so a plain mutex spanning the whole clock-enable, read,
+clock-disable sequence is enough.
+
+Fixes: 755864feb729 ("nvmem: add Rockchip OTP driver")
+Cc: stable@vger.kernel.org
 Signed-off-by: Alexey Charkov <alchark@flipper.net>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/nvmem/rockchip-otp.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index b0c0d3c8b1b1..0012b45ef426 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1845,6 +1845,8 @@ gmac0: ethernet@2a220000 {
- 			interrupts = <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_mac_address 0>;
-+			nvmem-cell-names = "mac-address";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC0>;
- 			reset-names = "stmmaceth";
-@@ -1893,6 +1895,8 @@ gmac1: ethernet@2a230000 {
- 			interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_mac_address 1>;
-+			nvmem-cell-names = "mac-address";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC1>;
- 			reset-names = "stmmaceth";
-@@ -2131,6 +2135,14 @@ soc_tsadc_trim: soc-tsadc-trim@64 {
- 				reg = <0x64 0x2>;
- 				bits = <0 10>;
- 			};
-+
-+			nvmem-layout {
-+				compatible = "rockchip,rk3576-otp-cpuid";
-+
-+				otp_mac_address: mac-address {
-+					#nvmem-cell-cells = <1>;
-+				};
-+			};
- 		};
+diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+index 2c0feb036f3f..b034b7455016 100644
+--- a/drivers/nvmem/rockchip-otp.c
++++ b/drivers/nvmem/rockchip-otp.c
+@@ -12,6 +12,7 @@
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/nvmem-provider.h>
+ #include <linux/reset.h>
+ #include <linux/slab.h>
+@@ -80,6 +81,8 @@ struct rockchip_otp {
+ 	void __iomem *base;
+ 	struct reset_control *rst;
+ 	const struct rockchip_data *data;
++	/* Serializes access to the OTP controller state machine */
++	struct mutex mutex;
+ 	struct clk_bulk_data clks[];
+ };
  
- 		sai0: sai@2a600000 {
+@@ -272,6 +275,8 @@ static int rockchip_otp_read(void *context, unsigned int offset,
+ 	if (!otp->data || !otp->data->reg_read)
+ 		return -EINVAL;
+ 
++	guard(mutex)(&otp->mutex);
++
+ 	ret = clk_bulk_prepare_enable(otp->data->num_clks, otp->clks);
+ 	if (ret < 0) {
+ 		dev_err(otp->dev, "failed to prepare/enable clks\n");
+@@ -431,6 +436,11 @@ static int rockchip_otp_probe(struct platform_device *pdev)
+ 
+ 	otp->data = data;
+ 	otp->dev = dev;
++
++	ret = devm_mutex_init(dev, &otp->mutex);
++	if (ret)
++		return ret;
++
+ 	otp->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(otp->base))
+ 		return dev_err_probe(dev, PTR_ERR(otp->base),
 
 -- 
 2.54.0
