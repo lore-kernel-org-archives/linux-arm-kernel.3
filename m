@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05112C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 01:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CC4C624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 01:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KDrJ8qKZmj8mBstfQ6vGXNiDtCIG1JEEtjpWX1LRrbs=; b=FnbCGf7ox+9vyxwH+4Dx7qgr7C
-	4urr8n589A40jUyoTotgfopFdi6MzCDpGe6rqAMUKvfO8O1MvMqjX3As8Hcd//UGgVoj8tb4JmIIb
-	/b6lEFVyoaAM9M2hXno4vSkj3xhz5N0kIto+1pM/O5d6jtSyCnw7i/3ggjLVYvBNjodUd1ahk+a7o
-	DPCSY6nR5+sUFa9wKuE6c9IDBUlMZlmAqfNP0V1lOTUjZDr1LUJnT5OE02p3tZq6iw7RieReTocpm
-	2z4DwC7h03b0CRR9/kXgF2FbFKae5DtBEY67ReTBooUAmp7V9WooXw7vRBYllwwwGbppwhYtG2Jb3
-	+fT/hUfA==;
+	bh=F6iCtAnnI49OGLW9ySlZUD0rarIlZ+sSl9c1sQjcB4Y=; b=oPs0JN88DwZaTuYgSvylGv/2YR
+	Iz8JFxiG9XU4uwNLb61iJfXHSWNCIv3LpL1ohBLlaolHQDQGTqGMx6sw/gVBIXbDYvGHaU1uGODTD
+	vWTvtfmCEbsurBqOBB/engkCWhJUL0cROQfJtTUK/xn92Pp0ZwOL4KoE1M1cY+JbcfkxLzZa3P/L0
+	/UiZHYAaoottCh9XJY58a5hFwMhT09N3MNPAuMCaM4x/ILRYfRIwOWgycba3WVYxrBlqtxM62GagT
+	mjlgzMpttIJBykig/O8ARmRKlgKhAGQQyJk6xvrFOkPQIC4mute6jMcixZH8Hxaw5JxCLbve5AgYp
+	bOPAGNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DJX-0000000Anry-0cBL;
-	Tue, 01 Sep 2026 01:29:27 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DJJ-0000000Anlp-2Xsk
+	id 1x1DLp-0000000Ao8V-1wP8;
+	Tue, 01 Sep 2026 01:31:49 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1DLl-0000000Ao88-0WoF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 01:29:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	References:In-Reply-To:To:Cc; bh=KDrJ8qKZmj8mBstfQ6vGXNiDtCIG1JE
-	EtjpWX1LRrbs=; b=neH4wKOTMVDiAq663MQod/wpQltdEgJawCv689xw+qynvOm
-	gYtXO5L2KLugIrnyAKI+/rE4K/clbNOjTLqJyFFcJTNK3j8iCCVFkVGTkiB8Z504
-	JIjOIzjkxv+aDI6qSy9BI3hO25+yryPO492J0I7Uh40iuGkkD5+KOhVKEAww=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwYZKpZqvx0AAA--.111S4;
-	Tue, 01 Sep 2026 09:28:14 +0800 (CST)
-From: Jia Wang <wangjia@ultrarisc.com>
-Date: Tue, 01 Sep 2026 09:27:31 +0800
-Subject: [PATCH net-next 2/3] dt-bindings: net: Add UltraRISC DP1000 GMAC
+	Tue, 01 Sep 2026 01:31:47 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=F6iCtAnnI49OGLW9ySlZUD0rarIlZ+sSl9c1sQjcB4Y=;
+	b=Pfk2cfdd2lkkfaJghnK1V5QNqCG+vzUjSy5NvwSfX4B5LKYRrHGO5y/b3+mcm3npeDnnDk74n
+	JHZ9uyKOirx2g4QqhDDJwtlOaQXSxGeJSRxHscsNWzxD6VFLEZ1a+Zf9W/KXLr7CuAMi/inYI8B
+	qtzyPUWt5hHgQK/GXOS1ydM=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hYp2544xMzpTBG;
+	Tue,  1 Sep 2026 09:20:13 +0800 (CST)
+Received: from whupemo500002.china.huawei.com (unknown [7.152.185.250])
+	by mail.maildlp.com (Postfix) with ESMTPS id EFBA54058C;
+	Tue,  1 Sep 2026 09:31:31 +0800 (CST)
+Received: from [10.67.120.139] (10.67.120.139) by
+ whupemo500002.china.huawei.com (7.152.185.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 1 Sep 2026 09:31:29 +0800
+Message-ID: <c00d649f-aa24-40a8-849e-789ce1a6aca9@huawei.com>
+Date: Tue, 1 Sep 2026 09:31:28 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dwmac-ultrarisc-v1-2-f19454814bcf@ultrarisc.com>
-References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
-In-Reply-To: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, Jia Wang <wangjia@ultrarisc.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788226062; l=3097;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=CYi87bj0peNiOasgsBO9R91QkY43F/FrkslS+8YFcw8=;
- b=uuv29OU19WBJ6Z9pIIHSRs3M1C3KwXTeNAyix/Y1l7CVrzlXYgJn+UEwsmv5LUJ4Acyghml7p
- lUgkIt7IJYkBrOicT04ldQCGyyvdvtuu8fFapvwBPioTe01Y6UgvL+l
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwDnrwYZKpZqvx0AAA--.111S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw13Jw1UGrWxCF4xGr45KFg_yoW5AF13pF
-	ZxCFs5JFs2gF13Ww4fta4xA3ZYyw18AFy3Awn2yw1UtFZ8uasYqrsrK345Zas8JrZrXa4q
-	vFyY9r10ka109w7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r4UJwAS
-	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
-	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
-	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E
-	4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGV
-	WUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
-	Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj4
-	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
-	JrUvcSsGvfC2KfnxnUUI43ZEXa7sRipB-tUUUUU==
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAREWqVJKMAFQAFsp
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/8] hwtracing: hisi_ptt: Add pattern PMU config for
+ trace format selection
+To: Sizhe Liu <liusizhe5@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
+	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <wuzongyu1@huawei.com>
+References: <20260827140442.2031128-1-liusizhe5@huawei.com>
+ <20260827140442.2031128-8-liusizhe5@huawei.com>
+Content-Language: en-US
+From: Yushan Wang <wangyushan12@huawei.com>
+In-Reply-To: <20260827140442.2031128-8-liusizhe5@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.139]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ whupemo500002.china.huawei.com (7.152.185.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_182913_991231_8ABBB63C 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260831_183145_902497_693AC6BA 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,117 +90,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DP1000 integrates a Synopsys DesignWare GMAC from the 5.20 series with
-one MMIO register range, one clock and one interrupt.
+On 8/27/2026 10:04 PM, Sizhe Liu wrote:
+> Introduce a `pattern` PMU config field (config:36-39) that controls
+> which TLP header format the hardware traces. bit[3:1] are reserved for
+> future extension and only bit0 is used currently:
+>
+> - pattern=0 (default, compatibility mode): the driver sets bit[8] of
+>   HISI_PTT_TRACE_CTRL so the hardware traces the data in compatibility
+>   mode.
+> - pattern=1: the driver clears bit[8] of HISI_PTT_TRACE_CTRL so the
+>   hardware traces the data pattern including some bitfields of the TLP
+>   header defined in PCIe r6.4 sec 2.2.1.2.
+>
+> Note that bit[8] of HISI_PTT_TRACE_CTRL is inverted with respect to the
+> `pattern` value: bit[8]=1 selects the legacy format, bit[8]=0 selects
+> the new format. Bit[11:9] is still reserved, which is consistent with the
+> PMU config field. The driver validates the 4-bit value in
+> hisi_ptt_trace_valid_pattern() and applies it in hisi_ptt_trace_start().
+>
+> Document the new parameter in Documentation/trace/hisi-ptt.rst.
+>
+> Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
+> ---
+>  Documentation/trace/hisi-ptt.rst | 25 +++++++++++++++++++++++--
+>  drivers/hwtracing/ptt/hisi_ptt.c | 25 ++++++++++++++++++++++++-
+>  drivers/hwtracing/ptt/hisi_ptt.h |  4 ++++
+>  3 files changed, 51 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/trace/hisi-ptt.rst b/Documentation/trace/hisi-ptt.rst
+> index f6a2655f99e5..c95eaa12f4d3 100644
+> --- a/Documentation/trace/hisi-ptt.rst
+> +++ b/Documentation/trace/hisi-ptt.rst
+> @@ -255,7 +255,28 @@ directly from the TLP header.
+>       DW2 [                     Header DW2                            ]
+>       DW3 [                     Header DW3                            ]
+>
+> -5. Memory Management
+> +5. Trace pattern
+> +-----------------
+> +
+> +You can control whether the trace is taken with the new version of the
+> +TLP header format by specifying the `pattern` parameter. The default
+> +value is 0, which means the legacy format is used for backward
+> +compatibility. The parameter value is 4 bit and bit[3:1] are currently
+> +reserved for extension. Current supported values are shown below:
+> +
+> +- 4'b0000: legacy trace format
+> +    DW2 and DW3 are printed with generic field names only, and
+> +    no message-type-basedfield decoding.
+> +- 4'b0001: trace format v1
+> +    DW2 and DW3 are decoded according to the TLP message type (MWr,
+> +    Msg, Atomic, IO, CPL, Cfg) with detailed field names. It is recommended to
+> +    use trace format v1 when the current PCIe link generation is higher than
+> +    PCIe 6.0.
+> +
+> +For trace data recorded by an older tracer without the `pattern` parameter,
+> +the decoder will work as `pattern` forced to 0.
+> +
+> +6. Memory Management
+>  --------------------
+>
+>  The traced TLP headers will be written to the memory allocated
+> @@ -274,7 +295,7 @@ will commit the AUX buffer first and then apply for a new one with
+>  the same size. The size of AUX buffer is default to 16MiB. User can
+>  adjust the size by specifying the `-m` parameter of the perf command.
+>
+> -6. Decoding
+> +7. Decoding
+>  -----------
+>
+>  You can decode the traced data with `perf report -D` command (currently
+> diff --git a/drivers/hwtracing/ptt/hisi_ptt.c b/drivers/hwtracing/ptt/hisi_ptt.c
+> index 94c371c49135..1696c30ac4c9 100644
+> --- a/drivers/hwtracing/ptt/hisi_ptt.c
+> +++ b/drivers/hwtracing/ptt/hisi_ptt.c
+> @@ -233,6 +233,10 @@ static int hisi_ptt_trace_start(struct hisi_ptt *hisi_ptt)
+>       val |= FIELD_PREP(HISI_PTT_TRACE_CTRL_TARGET_SEL, hisi_ptt->trace_ctrl.filter);
+>       if (!hisi_ptt->trace_ctrl.is_port)
+>               val |= HISI_PTT_TRACE_CTRL_FILTER_MODE;
+> +     if (!ctrl->pattern)
+> +             val |= HISI_PTT_TRACE_CTRL_PATTERN;
+> +     else
+> +             val &= ~HISI_PTT_TRACE_CTRL_PATTERN;
 
-It also provides fixed TX and RX RGMII clock delays that cannot be
-disabled. Board connections must therefore not add either delay in PCB
-traces, making "rgmii-id" the only supported phy-mode.
+Hi Sizhe,
 
-Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
----
- .../bindings/net/ultrarisc,dp1000-gmac.yaml        | 74 ++++++++++++++++++++++
- MAINTAINERS                                        |  5 ++
- 2 files changed, 79 insertions(+)
+This hunk seems not able to be applied to mainstream cleanly, otherwise
+this series LGTM.
 
-diff --git a/Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml b/Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
-new file mode 100644
-index 000000000000..13029302877b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
-@@ -0,0 +1,74 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ultrarisc,dp1000-gmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: UltraRISC DP1000 DWMAC Ethernet controller
-+
-+maintainers:
-+  - Jia Wang <wangjia@ultrarisc.com>
-+
-+description:
-+  The DP1000 integrates a Synopsys DesignWare GMAC controller from the
-+  5.20 series. The SoC integration adds fixed RGMII TX and RX clock delays
-+  which cannot be disabled. Consequently, a functional RGMII link requires
-+  a PCB without TX or RX clock delays, represented by "rgmii-id".
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: ultrarisc,dp1000-gmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: ultrarisc,dp1000-gmac
-+      - const: snps,dwmac-5.20
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: stmmaceth
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-names:
-+    const: macirq
-+
-+  phy-mode:
-+    const: rgmii-id
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - phy-mode
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    ethernet@38000000 {
-+        compatible = "ultrarisc,dp1000-gmac", "snps,dwmac-5.20";
-+        reg = <0x38000000 0x1000000>;
-+        clocks = <&clk 0>;
-+        clock-names = "stmmaceth";
-+        interrupts = <84>;
-+        interrupt-names = "macirq";
-+        phy-mode = "rgmii-id";
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3a19da74d00c..3b96ff0734e6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -28004,6 +28004,11 @@ F:	Documentation/devicetree/bindings/clock/ultrarisc,dp1000-clk.yaml
- F:	drivers/clk/ultrarisc/*
- F:	include/dt-bindings/clock/ultrarisc,dp1000-clk.h
- 
-+ULTRARISC DP1000 DWMAC GLUE LAYER
-+M:	Jia Wang <wangjia@ultrarisc.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
-+
- ULTRARISC DP1000 PINCTRL DRIVER
- M:	Jia Wang <wangjia@ultrarisc.com>
- L:	linux-gpio@vger.kernel.org
+Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
 
--- 
-2.34.1
+>
+>
+>       /* Start the Trace */
+>       val |= HISI_PTT_TRACE_CTRL_EN;
+> @@ -805,12 +809,14 @@ PMU_FORMAT_ATTR(filter,         "config:0-19");
+>  PMU_FORMAT_ATTR(direction,   "config:20-23");
+>  PMU_FORMAT_ATTR(type,                "config:24-31");
+>  PMU_FORMAT_ATTR(format,              "config:32-35");
+> +PMU_FORMAT_ATTR(pattern,             "config:36-39");
+>
+>  static struct attribute *hisi_ptt_pmu_format_attrs[] = {
+>       &format_attr_filter.attr,
+>       &format_attr_direction.attr,
+>       &format_attr_type.attr,
+>       &format_attr_format.attr,
+> +     &format_attr_pattern.attr,
+>       NULL
+>  };
+>
+
+[...]
+
 
 
