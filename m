@@ -4,51 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A483EC624CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 01:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DAFC61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 01:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WrlZlq/Ukg6tU5uYiXQOjyVhnRiamFbSgmVGOW21QaU=; b=t+uKFE91NVfBF7
-	EtM6wmlPzlssLo+mfGzk0+DDAearDJCe66NK4wONKP6DjMJB7Ht3BXybQE0Tilxl63kgHU843y2gx
-	XkFNFXoK2PslDyOJrtz4zG2u0C9T8qJudV1XlKJj6gVRx6vMEiVJS6gdBU6lc07v6uSl8xukEsSnY
-	YzHDLUdATkk7m5YaRfzq8GspyDFgHH07zzkM6Z9kIthZFW0Ssze7eiGBqeV3gCjNUEDz+jSI3ZCSc
-	a5YRNLBsebb4RnApUz7guF5Bkd10XAYDfeL6WPcjuRcB9phKj2AXhC2TqL6by5Uv3jw14k4mBu263
-	zPKvb+FF+WbA/nja2nTA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oPMus4f9khSHNl1xw09P4WveQB8xHvTB7gEdDUV7WpQ=; b=EbNgsj3skkNFY9c5Si4/btKKkJ
+	vHVIDr0g2L8B82H7Au+We0UGgaJGPGom3g4S4tzgW0wCilKaPizxCzMPMUy4VPN4MXyfi9rQZz+2B
+	zBUEUzPTqOuKlPAzaNA0LWdPzxcAh5Rac7f1L+yaGKHKosxv4k/EUydmIOk0OUGMObYq/bL5BuSkx
+	c33ogvNTkKdOLRWFq3NMXAN3VFDpABwKQ6Yj/rCEYuonVCjHboXZ7FCFOr4XaJflr60dOqJe+Vsrb
+	5/v5mzDYH/jsEngVgp1Q9R3T3N4yCCILYl418UXxBBcrGZ3YQ1Irt7ois+zNyOFltl3PxjNZEgrZ4
+	L26ACW4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DId-0000000AnhB-2lRr;
-	Tue, 01 Sep 2026 01:28:31 +0000
+	id 1x1DJL-0000000AnnH-3ltB;
+	Tue, 01 Sep 2026 01:29:15 +0000
 Received: from [218.76.62.146] (helo=ultrarisc.com)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1DIa-0000000Ang4-3Hmk
+	id 1x1DJJ-0000000Anlr-2Z6P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 01:28:31 +0000
+	Tue, 01 Sep 2026 01:29:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Subject:Date:Message-Id:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:To:Cc; bh=Wr
-	lZlq/Ukg6tU5uYiXQOjyVhnRiamFbSgmVGOW21QaU=; b=Vpr1qOnQ7BQiLJDZ+2
-	ETZ48mVxT3pFXd3Y4sesDeSsZ/u5h16uFaic13ipW3gH7BoBvsXZED7qGa6zgb+/
-	LlSl/h7JohrOIZ0/HHsAlkjCLDsz9pgBba/23y9DkwVeWiCrGTSE5YoovWIO1yR6
-	c51p0svkv/p7NOEhRVafgn0R0=
+	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
+	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	References:In-Reply-To:To:Cc; bh=oPMus4f9khSHNl1xw09P4WveQB8xHvT
+	B7gEdDUV7WpQ=; b=Z/ylyA9f5pgkAAy0cwkORuyhy9gvseii4BR7mryOIBONoc5
+	/eRWPMcJJb05sYPMPtTg1CfHznwsWxDTxoy8RMi8FPOd0c0nYkI7T0bl3FTPuPb4
+	hyvqzxnoZTzwS2w5/kzB1iSNq7/iF/zxmn5/g4tRDYseaqdd4Xvks3Bq2mZw=
 Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwYZKpZqvx0AAA--.111S2;
-	Tue, 01 Sep 2026 09:27:53 +0800 (CST)
+	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwYZKpZqvx0AAA--.111S3;
+	Tue, 01 Sep 2026 09:28:14 +0800 (CST)
 From: Jia Wang <wangjia@ultrarisc.com>
-Subject: [PATCH net-next 0/3] net: stmmac: Add UltraRISC DP1000 GMAC
- support
-Date: Tue, 01 Sep 2026 09:27:29 +0800
-Message-Id: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
+Date: Tue, 01 Sep 2026 09:27:30 +0800
+Subject: [PATCH net-next 1/3] dt-bindings: net: snps,dwmac: Add UltraRISC
+ DP1000 compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAEqlmoC/yWMQQ7CMAzAvjLlTKSuBzr4CuJQ0nQEQUFJB5Om/
- Z3CjpZlL2CswgbHbgHlt5g8S4N+1wFdYxkZJTUG7/zeDT5g+jwi4XSvGlWMMFA4ZJ8Hl1MPrXo
- pZ5n/xxMUrlh4rnDejE2XG1P9DWFdvzWSKKh9AAAA
-X-Change-ID: 20260827-dwmac-ultrarisc-7c79f2f80fd1
+Message-Id: <20260901-dwmac-ultrarisc-v1-1-f19454814bcf@ultrarisc.com>
+References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
+In-Reply-To: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -63,34 +61,35 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, Jia Wang <wangjia@ultrarisc.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788226062; l=1669;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788226062; l=785;
  i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=yJE5PmKj9xp18WQCV9PO1CGrkbkB6wXZibF6L4cW2MM=;
- b=uBEkdhNGN0KNSs5ew0dPyZf5HS16Iu5sGIyVbWynEqq22OG2189vuxtgUSnuECVn34yJ66DlH
- ecBKdY2O+LACKSWD79osQnF5skG6aKewz3Xl8SmdkSEQTcoao1uUyHq
+ bh=0jp2oZepn59YrZNO2xcX1aONGmEQ6d4WQrTT8EojDqk=;
+ b=swpM4mkNje6FrBe/Y42aTJnG7N+b+zOwukSJYSL0BrXu9sLp6Ql0sLpN7pTjBKYOvz2sgPFmw
+ /kk0czpC7YSDiCYg5Od96KNoiP28lcujNMVMeYjeaQlWPXVqTnQkoUh
 X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
  pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwDnrwYZKpZqvx0AAA--.111S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF4xurWrZw43KF1rAw1UWrg_yoW8WrWUpa
-	98Ca4ayrykJF4Ig3WSyw48Ga4SgF40qrW7KF4xtw1fJFZ8JFyDtrZ0g3yUA3Wjyr4kXF1a
-	vF1Uuw13Ga4FvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAREWqVJKMAFQABst
+X-CM-TRANSID: AQAAfwDnrwYZKpZqvx0AAA--.111S3
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFW5XFyxAFy8Jr4xAr48Xrb_yoW3AFc_Aa
+	4xWa1DAFWkGFyFgFWDAa1xJF15Jw13uF1kCw1Dtr1qy34Ik398Kas3try5ArW7Cr47uFn3
+	uFs3JryjyFsrKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbQAYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Wr0E3s1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7
+	IE14v26r18M28IrcIa0xkI8VCY1x0267AKxVW8JVW5JwA2ocxC64kIII0Yj41l84x0c7CE
+	w4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6x
+	kF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF
+	7I0E14v26r4j6r4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4
+	xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCa
+	FVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI4
+	02YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IY
+	c2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s
+	026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF
+	0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0x
+	vE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv
+	6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTR3xhLUUUUU
+X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQAREWqVJKMAFQADsv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_182829_317278_7DB8607A 
-X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-CacheID: sfid-20260831_182913_997672_739926D5 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,45 +105,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The UltraRISC DP1000 integrates a Synopsys DesignWare GMAC from the 5.20
-series with fixed TX and RX RGMII clock delays that cannot be disabled.
+The UltraRISC DP1000 GMAC is based on a Synopsys DesignWare MAC.
 
-For boards without PCB delays, "rgmii-id" describes the link. Passing this
-mode unchanged to the PHY would enable another pair of delays and break the
-RGMII timing.
-
-Add a dedicated binding and a small DWMAC glue driver. The driver uses
-phy_fix_phy_mode_for_mac_delays() to account for the fixed delays before
-attaching the PHY and rejects unsupported RGMII modes.
-
-Tested with:
-
-1. dt_binding_check and dtbs_check.
-2. RISC-V build with CONFIG_DWMAC_ULTRARISC=m.
-3. Runtime validation on Shenzhen Rongda M0 with a YT8531S PHY and
-   Milk-V Titan with an RTL8211F PHY: ultrarisc-dwmac binds and
-   establishes a 1000 Mb/s full-duplex link on both boards.
+Allow its SoC-specific compatible in the common DWMAC compatible list.
 
 Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
 ---
-Jia Wang (3):
-      dt-bindings: net: snps,dwmac: Add UltraRISC DP1000 compatible
-      dt-bindings: net: Add UltraRISC DP1000 GMAC
-      net: stmmac: Add UltraRISC DP1000 GMAC support
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
- .../bindings/net/ultrarisc,dp1000-gmac.yaml        | 74 ++++++++++++++++++++++
- MAINTAINERS                                        |  6 ++
- drivers/net/ethernet/stmicro/stmmac/Kconfig        | 11 ++++
- drivers/net/ethernet/stmicro/stmmac/Makefile       |  1 +
- .../net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c  | 54 ++++++++++++++++
- 6 files changed, 147 insertions(+)
----
-base-commit: abdf623ddb75b24659018d3952d8f61937306ae5
-change-id: 20260827-dwmac-ultrarisc-7c79f2f80fd1
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 2449311c6d28..2ed4564ae99d 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -119,6 +119,7 @@ properties:
+         - starfive,jh7110-dwmac
+         - tesla,fsd-ethqos
+         - thead,th1520-gmac
++        - ultrarisc,dp1000-gmac
+ 
+   reg:
+     minItems: 1
 
-Best regards,
---  
-Jia Wang <wangjia@ultrarisc.com>
+-- 
+2.34.1
 
 
