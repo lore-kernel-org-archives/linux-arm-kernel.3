@@ -4,106 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30426C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 05:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9421BC61DE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 05:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKfCohoJKBTiPKVgTsTz6ZX4azQ94zIE5XmXPUkUt30=; b=dZ7K8H7z3WfEczc/8EbURxaqrP
-	pR/i4ZOgR4M3PEpG67WyNr0cTQ4FHaostGw4kHzyprkXgz6DLAnc8veGrFD4LGZc7kNolLpDW5MZH
-	l1L+I4xyrWIwu1xCbFyixPi6WmhQzoLpjQpPyxY+wkwXzyoQxXM/SVo/GzB9z5HQinDlkJlmNZGpW
-	WpWY+JaWfQMrIR4vxNyiE6U6Dvx3+ezDGh5fIuOSpB+qmG2geJDJVhGzSP+hfmCzptQa+OTZ9T3xb
-	rCg7P6dxCnxo6xLzHkGAGu0dmlfTiPQA/BhW7inpzz9UjBNGGO6QrLLxz5VSS0rd2g/Kpku3ABbmB
-	laysJk4Q==;
+	bh=YygSGBZu0R6mtENe2yptPbGK7gd+pjUTcphUn2rVuTo=; b=aTWQu1s/ski9ziW97rb4mnyWTp
+	R2iakqRonm+afyBuLX5OhR2PeuHj1CrqvOBPbUG8LJrxRFVEty1rjUAhuBPFTPtqbzCLVZPGHnqsd
+	KKVLirNeI6UAkZ8YxR4lg7p0JBaDXSiOnzA4mejq1wLErwCa+qlKyVzn7pZFekcwnbPz1j/8bs2J3
+	qIBYzarKRCDp6khyuTv1QtoxuP4TlqMt0xCEw07iuQJLYtF7AUu1VWG5jFg3+HkSUfrkOzW6gJwZd
+	SuiszLzHSZHzFg3uW9O/S9qg+Ub+ysSn/3swamn6oCi8XxUabXfyCjM2Osnx36DIQNyOJjPMUmNyW
+	oJZh6xqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HLU-0000000B1xu-19rI;
-	Tue, 01 Sep 2026 05:47:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1HQh-0000000B2GS-0RRh;
+	Tue, 01 Sep 2026 05:53:07 +0000
+Received: from m101-out-mua-6.websupport.se ([2a00:1968:0:9:109:235:175:106])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1HLS-0000000B1xd-2Vtl;
-	Tue, 01 Sep 2026 05:47:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9030D40550;
-	Tue,  1 Sep 2026 05:47:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 399E01F000E9;
-	Tue,  1 Sep 2026 05:47:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788241661;
-	bh=EKfCohoJKBTiPKVgTsTz6ZX4azQ94zIE5XmXPUkUt30=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iuemYoeZGFGLTERH7y3jY2bzkArxvG6wMjgtiKKEy92VH/J3opeqKj/5FgrxtZ4lc
-	 1tvC3QJxqJFEd9LU60idFIJ/oD/kl+t+mc7lsYlN3C96oZO1N66bJO7dnfh1SUhvxb
-	 933ykveeql9pNlWw6tQOBVvby6BJlVpqWH9kRtk+OY+7TSytfolsuXwa0kDv/a1Kz3
-	 ayYZuR4vAcYs02iPo2+zqb974L99l2MpqjBq7OuyEXgLpLgurBo5WoFFoFXfNELInc
-	 3vN4WfitOkY5BpSACsLrv4kXB3US0TZX5AwXqJc8rvqKNLmd0dsAVIBzxKqrQz8DRz
-	 jSvrJOwAJ+uWQ==
-Message-ID: <503e87d9-3311-413a-98c0-e02a02c4a354@kernel.org>
-Date: Tue, 1 Sep 2026 07:47:33 +0200
+	id 1x1HQd-0000000B2EZ-1f1Z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 05:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
+	s=mail; t=1788241715;
+	bh=YygSGBZu0R6mtENe2yptPbGK7gd+pjUTcphUn2rVuTo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KZ5UTKMS6tkX5fwRrcxEB4s0bZWbepjd0YohsrdLoFy1Tgmo5Oq/tpdj7NYPwqWnV
+	 YWgGVUmIHskDAeWgSoezOW01N1V6XZuniezQyMxb2vN5pAhYKbr61k0Sz5bu3kCrnX
+	 ZAotHbPqXwMyVdCbh8mmg/tmUU+Ef6aj4OJWhJFfobxXNB9NlrEHzHOhpfF7DmrDkD
+	 HCOefuXkRvcPvF1BUXJqEf3SKRUXubRwgP0oL2PYpo3N1BqxtQGPU+BMtaHXlnWmM9
+	 hvIEtARyqbjM9JHo1ihbObu0EC/NH1Oqj4oexiVG6UY5aTCAjuABCz1wtGUBaiOiuQ
+	 05JeiBjexsung==
+Received: from m101-u6-ing.websupport.se (unknown [10.30.6.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hYvzl60sSz1GVb;
+	Tue,  1 Sep 2026 07:48:35 +0200 (CEST)
+X-Authenticated-Sender: per@palvencia.se
+Authentication-Results: m101-u6-ing.websupport.se;
+	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
+Received: from rpi (unknown [213.204.219.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: per@palvencia.se)
+	by m101-u6-ing.websupport.se (Postfix) with ESMTPSA id 4hYvzg2Zqwz2k72;
+	Tue,  1 Sep 2026 07:48:31 +0200 (CEST)
+Date: Tue, 1 Sep 2026 07:48:27 +0200
+From: Per Larsson <per@palvencia.se>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Liu
+ Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 6/6] arm64: dts: allwinner: a523: x96qpro+: enable
+ Ethernet support
+Message-ID: <20260901074827.39a649bc@rpi>
+In-Reply-To: <20260809134607.65d66069@rpi>
+References: <20260803101452.2993721-1-andre.przywara@arm.com>
+	<20260803101452.2993721-7-andre.przywara@arm.com>
+	<20260809134607.65d66069@rpi>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] dt-bindings: Add CIX Sky1 USB bindings
-To: Hongliang Yang <hongliang.yang@cixtech.com>, peter.chen@kernel.org,
- pawell@cadence.com, vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: gregkh@linuxfoundation.org, rogerq@kernel.org, neil.armstrong@linaro.org,
- p.zabel@pengutronix.de, fugang.duan@cixtech.com,
- cix-kernel-upstream@cixtech.com, linux-usb@vger.kernel.org,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260831082309.3854507-1-hongliang.yang@cixtech.com>
- <20260831082309.3854507-2-hongliang.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260831082309.3854507-2-hongliang.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-Out-Spamd-Result: default: False [1.90 / 1000.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_RHS_NOT_FQDN(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,outlook.com];
+	TAGGED_RCPT(0.00)[netdev,dt];
+	RCVD_COUNT_ZERO(0.00)[0];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	ASN(0.00)[asn:35790, ipnet:213.204.219.0/24, country:SE];
+	RCPT_COUNT_TWELVE(0.00)[19];
+	BAYES_HAM(0.00)[40.30%];
+	HAS_X_AS(0.00)[];
+	ALIAS_RESOLVED(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,google.com,kernel.org,redhat.com,gmail.com,sholland.org,armlinux.org.uk,outlook.com,vger.kernel.org,lists.linux.dev,lists.infradead.org]
+X-Out-Rspamd-Queue-Id: 4hYvzg2Zqwz2k72
+X-Out-Rspamd-Server: m101-rspamd-out-4
+X-Rspamd-Action: no action
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 466
+X-purgate-ID: 155908::1788241715-3F2551C6-327DD7E6/0/0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260831_225303_730660_B58E230C 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,302 +123,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/08/2026 10:23, Hongliang Yang wrote:
-> Add device tree bindings for CIX Sky1 USB3 PHY and Cadence USBSSP
-> controller glue layer.
+On Sun, 9 Aug 2026 13:46:07 +0200
+Per Larsson <per@palvencia.se> wrote:
+
+> On Mon,  3 Aug 2026 12:14:52 +0200
+> Andre Przywara <andre.przywara@arm.com> wrote:
 > 
-> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
-> ---
->  .../bindings/phy/cix,sky1-usb3-phy.yaml       | 109 +++++++++++++
->  .../bindings/usb/cix,sky1-usbssp.yaml         | 153 ++++++++++++++++++
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
-And do not combine USB patches with other subsystems.
-
->  MAINTAINERS                                   |   3 +
->  3 files changed, 265 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
->  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+> > +		pinctrl-0 = <&ephy_25m_pin>;  
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
-> new file mode 100644
-> index 000000000000..76d020df72dd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
-> @@ -0,0 +1,109 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/cix,sky1-usb3-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 USB3 PHY
-> +
-> +maintainers:
-> +  - Hongliang Yang <hongliang.yang@cixtech.com>
-> +
-> +description:
-> +  The CIX Sky1 USB3 PHY is a multi-port SuperSpeedPlus PHY that
-> +  supports up to two USB3 lanes. Each port is represented as a
-> +  child node of the PHY controller.
+> This should be &ephy1_25m_pin, right?
 
-Please read and follow DTS coding style.
-
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-usb3-phy
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: APB register interface clock
-> +      - description: PHY reference clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb_clk
-> +      - const: ref_clk
-> +
-> +  resets:
-> +    items:
-> +      - description: PHY reset
-> +      - description: PHY APB preset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: reset
-> +      - const: preset
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  "^usb-port@[0-9a-f]+$":
-> +    type: object
-> +    description:
-> +      A single USB3 PHY port/lane.
-> +
-> +    properties:
-> +      reg:
-> +        maxItems: 1
-> +
-> +      "#phy-cells":
-> +        const: 0
-> +
-> +    required:
-> +      - reg
-> +      - "#phy-cells"
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +
-> +unevaluatedProperties: false
-
-Which other schema do you want to reference?
-
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    usb-phy@9210000 {
-> +        compatible = "cix,sky1-usb3-phy";
-> +        reg = <0x09210000 0x40000>;
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        resets = <&s5_syscon SKY1_USBPHY_SS_RST_N>,
-> +                 <&s5_syscon SKY1_USBPHY_SS_PST_N>;
-> +        reset-names = "reset", "preset";
-> +
-> +        clocks = <&scmi_clk CLK_TREE_USB3A_PHY3_GATE>,
-> +                 <&scmi_clk CLK_TREE_USB3A_PHY_x2_REF>;
-> +        clock-names = "apb_clk", "ref_clk";
-> +
-> +        usb-port@0 {
-> +            reg = <0>;
-> +            #phy-cells = <0>;
-> +        };
-> +
-> +        usb-port@1 {
-> +            reg = <1>;
-> +            #phy-cells = <0>;
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> new file mode 100644
-> index 000000000000..47202ff5b9e5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> @@ -0,0 +1,153 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbssp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 Cadence USBSSP Controller
-> +
-> +maintainers:
-> +  - Hongliang Yang <hongliang.yang@cixtech.com>
-> +
-> +description:
-> +  The CIX Sky1 USBSSP controller is based on the Cadence USBSSP DRD
-> +  controller. The integration adds glue registers and mode strap controls
-> +  in the Sky1 S5 system controller. The CIX glue node wraps a Cadence
-> +  USBSSP core as a child node.
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-usbssp
-> +
-> +  reg:
-> +    items:
-> +      - description: AXI property configuration register
-> +      - description: Controller status register
-
-Registers are not address spaces. Devices do not have address spaces of
-one register, so this is not a real device.
-
-
-> +
-> +  reg-names:
-> +    items:
-> +      - const: axi_property
-
-axi
-
-> +      - const: controller_status
-
-controller
-
-
-
-> +
-> +  clocks:
-> +    items:
-> +      - description: Start-of-frame clock
-> +      - description: AXI bus clock
-> +      - description: Low-power mode clock
-> +      - description: APB register interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sof_clk
-> +      - const: usb_aclk
-> +      - const: lpm_clk
-> +      - const: usb_pclk
-> +
-> +  resets:
-> +    items:
-> +      - description: APB register reset
-> +      - description: Controller reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: usb_preset
-> +      - const: usb_reset
-> +
-> +  cix,usb_syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the Sky1 S5 system controller used to program USB mode
-> +      strap controls.
-
-So this is part of that device most likely.
-
-> +
-> +  axi_bmax_value:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    default: 0x7
-> +    description:
-> +      AXI bus maximum burst length configuration value.
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^usb-controller@[0-9a-f]+$":
-
-Why using completely different names than entire Linux kernel?
-
-> +    $ref: cdns,usb3.yaml#
-> +    description:
-> +      The Cadence USBSSP core controller node. See cdns,usb3.yaml
-> +      for properties such as dr_mode, maximum-speed, phys, and interrupts.
-
-Redundant description.
-
-> +    unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - cix,usb_syscon
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - ranges
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        usb@91c0300 {
-> +            compatible = "cix,sky1-usbssp";
-> +            #address-cells = <2>;
-> +            #size-cells = <2>;
-> +            ranges;
-> +
-> +            reg = <0x00 0x091c0314 0x00 0x4>,
-> +                  <0x00 0x091c0400 0x00 0x4>;
-
-Nope. You do not have a device with two registers.
-
-
-Best regards,
-Krzysztof
+With this typo (and the one in patch 4/6) fixed, this series gets a
+Tested-by: Per Larsson <per@palvencia.se>
+since it eliminates the need to use hackier methods to get the ethernet
+port to work on this box.
 
