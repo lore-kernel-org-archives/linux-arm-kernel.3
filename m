@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A29DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6E3C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVyNmPZk8xroeMlfEyBXTtkBWQBzLnb7LaqjL0r2gKY=; b=VZAHqQtNuHbVKQcpMmdg7bkjhD
-	BTzNJYJCkeO6mdAbWGoub5fRMwFZQv7WY0uFMV+1SYxa615Ix3vVjoK7imSazXp6U7d6gr+UEMpFa
-	p8abCYpzbSpJMuhzjXrHUtysENNe+Kld0xvd+IfEshxHV5tlr3zU0ly1UNolmwiHreU0xPFcPrBPp
-	jcLnfChOWJHHGJffx4MwBklE0vqACMaRGk+nsGE6yeAoyEdZkI0IRYUyJvUrE0qzFfFlKtWIi+cXa
-	s1sLvGu2oQoQXM/toGjCsb1e6Txx2Q2j6mG8ud7hMQdX9fNJ7o9ErXwXzw1jIzcbVR1yH2ypSBnXG
-	eJG5y/7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AKZFjZR3oGAf3wmW5AspCS7cLC5s5rSIpfT6xlfMbhs=; b=J38XXqmAuY5PGXfuwxpYaIp8FG
+	x0y013q5VVPNoegNNiVhhrUwjXBPvxRMaWmQrTVMFh0lsb6o9//UI3JDBBMz1w6DSnulWupOIOz4F
+	RooD9g5OSY56xOmguFDtcfptfMY9HdbEt1WdP2JuRlmi41+KAaydqUIBrJggMuqtcobL33Lxg8gKd
+	Qu2Xc4S49cK8SIsOZhqTnEu3Z27mdhm3NJgiXZ4tKZX246wb7cySboqlWJ+otLuo244c10oL6HpZ5
+	tInmzqSYPzMoO+/TGCYqIhxr6TwTrE9LZngSi5Smp286Fz7FB8o0uxMRsb43WSuvzyTyyXRWCFcc3
+	MzmjwEXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SIh-0000000CpU1-2Wl7;
-	Tue, 01 Sep 2026 17:29:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1SJM-0000000Cphz-35TZ;
+	Tue, 01 Sep 2026 17:30:16 +0000
+Received: from out-11.mta0.migadu.com ([2001:41d0:1004:224b::b] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SIg-0000000CpTU-0qFP
+	id 1x1SJI-0000000Cpg4-0tvy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:29:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFEE44388F;
-	Tue,  1 Sep 2026 17:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B5A1F00A3E;
-	Tue,  1 Sep 2026 17:29:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788283773;
-	bh=EVyNmPZk8xroeMlfEyBXTtkBWQBzLnb7LaqjL0r2gKY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KtkmMZlm7pdlaVD2POunK3BmTzCzGjOiaFm/Kk5cnszKSNphKUepiWoDULW+vEQ4e
-	 PkjA+G/48biGxGdgisfCpcPRNoQ8Y80A/rsMwZuWnp7VZpxJl2VpvZSYRRZEybRzV2
-	 f6YkrWLFdyaVYExTK3p6FZ3D7sfYP8IKivZlOWjROJikuGF5gYFe63U1ozizDYXKdp
-	 NqJ7WjaghELgFfkXEBRtYIHm3e4fGjPBvfbzXYLt6qTSaazHFBMPuuCk1lKtjHKocj
-	 5O9rMzhMZfGs/SR18+lQWbLbrxGHysTvtkVVtc3qjbg4GnP6wWUlt6h7HWjZO3fE9M
-	 b8yJZW0GPf1+Q==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 01 Sep 2026 18:29:00 +0100
-Subject: [PATCH v3 2/2] KVM: arm64: nv: Fix null ptr deref on nested
- wp/unmap, teardown race
+	Tue, 01 Sep 2026 17:30:14 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ULSR5be2YtUyyk60Ms2Rw0/VkY/Y5pS/9BTkgu36FE4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788283808; v=1; x=1788888608;
+ b=ZwZ74tGTouA20nrjEmkoi8/II7RNPLtbA0CxNSyuXpVafqmDUISc4mngMrqxaU22VDR1CHuh
+ yfR/I/XnVjM+QBhcX5eLguhLiu8SQnlcZzfLKtD04XrlQ1mDZFr2JXvpQC87tJRiIT3vlMFX2J9
+ AW7VeFl5z7EE/v4Tbu7bPw+E=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 263de0399fd3ef4f;
+	Tue, 01 Sep 2026 17:30:08 +0000
+X-Mizu-Trace-ID: 263de0399fd3ef4f
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5b2a8173142so279e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 10:30:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwzYsUyJq2fPq702F3fOv7sISXwLOpVNtPCEInihZNb+nyjFBd/LePI7LP0YEtrxNwo5oIO09YnyuyyPpfH0Gog@lists.infradead.org
+X-Gm-Message-State: AFuF++kTSSNB+WgBlL8l93SXBBe3TVYkc/7j2QFZaOTKsYIooVR5WSr7
+	g/7pjNfnuqrt3rY7qOVR3hPAuUgBl/NXefKD8it+FAKyF4S7JR9GKC1GP4XovpZOUdQ4XXD1znK
+	IkSGaUOtDBBB0ZurAbCOu/obWRuD9KxQFXFP0p/DQ
+X-Received: by 2002:a05:6512:158b:b0:5b1:ca0b:25d2 with SMTP id
+ 2adb3069b0e04-5b606b396b9mr6047e87.4.1788283807433; Tue, 01 Sep 2026 10:30:07
+ -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-kvm-arm-nested-virt-fix-v3-2-b154676f7e4c@kernel.org>
-References: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
-In-Reply-To: <20260901-kvm-arm-nested-virt-fix-v3-0-b154676f7e4c@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Christoffer Dall <christoffer.dall@arm.com>, 
- Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>, 
- Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3208; i=ljs@kernel.org;
- h=from:subject:message-id; bh=hIJQVO5FZNvdm0cmp7KFRCyJsyxlcDY2tLzeNko9CCQ=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKmcxf5Mv/I4XDw3rh/n/efK/dZIqJTN9c/tGDv9rXML
- 3cxX1XWUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgIkcE2P4X9PZksZ/X+c9709b
- aSaLHXf2T3++2tr3fRr3kuf+xSLWzgz/w/+1l19Y++Pz/7g7P5b4Bs2cyyk7m/W6akOIMTdntI8
- fDwA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+References: <20260901080941.997769-1-vdonnefort@google.com> <20260901080941.997769-11-vdonnefort@google.com>
+In-Reply-To: <20260901080941.997769-11-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 1 Sep 2026 18:30:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw91tzLNXZDoRfty767vxLjao9bADkVD=vyhH64chLyDw@mail.gmail.com>
+X-Gm-Features: AcwNN1VxnCRhcWk2F0atM0MG2flGmEqHcqfsD7nDrWqtoce5L066OBj30S3ayJY
+Message-ID: <CA+EHjTw91tzLNXZDoRfty767vxLjao9bADkVD=vyhH64chLyDw@mail.gmail.com>
+Subject: Re: [PATCH v5 10/18] KVM: arm64: Add a shrinker for pKVM
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_103012_392308_BD2EF441 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,94 +82,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU
-notifiers") introduced VNCR_EL2 invalidation in both kvm_nested_s2_unmap()
-and kvm_nested_s2_wp().
+On Tue, 1 Sept 2026 at 09:10, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> Integrate the pKVM memory reclaim interface with the host's memory
+> management subsystem.
+>
+> This allows the host to automatically recover unused memory fom the
+> hypervisor's heap allocator when the host is under memory pressure.
+>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-However at the point of this being performed concurrent stage 2 teardown of
-a nested guest can cause kvm->arch.mmu.pgt to be set to NULL.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-This happens in kvm_flush_shadow_all() -> kvm_arch_flush_shadow_all() ->
-kvm_free_stage2_pgd() and is performed under the kvm->mmu_lock.
+Cheers,
+/fuad
 
-Commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
-tables") introduced the teardown of the entire nested MMU range, which then
-invokes stage2_apply_range() with resched=true:
 
-mmu_notifier_invalidate_range_start()
-  -> ... -> kvm_mmu_notifier_invalidate_range_start()
-    -> kvm_mmu_unmap_gfn_range()
-      -> kvm_unmap_gfn_range()
-        -> kvm_nested_s2_unmap()
-          -> kvm_stage2_unmap_range()
-            -> __unmap_stage2_range()
-                -> stage2_apply_range()
-
-This means that stage2_apply_range() can drop the kvm->mmu_lock and thus
-concurrent progress can be made in lockstep with
-kvm_arch_flush_shadow_all().
-
-If kvm_arch_flush_shadow_all() advances ahead of stage2_apply_range() and
-completes its operation it guarantees a NULL pointer deref.
-
-Since kvm_free_stage2_pgd() is performed under the kvm->mmu_lock this will
-either be observed NULL or not and serialised against
-kvm_free_stage2_pgd().
-
-Resolve the issue by abstracting the invalidation to a new function,
-kvm_invalidate_vncr_ipa_all(), and check that the pgt is non-NULL before
-dereferencing it.
-
-Fixes: 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
-Cc: stable@vger.kernel.org
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/arm64/kvm/nested.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 17123f0b6dab..f69722e1592a 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1260,6 +1260,17 @@ void kvm_handle_s1e2_tlbi(struct kvm_vcpu *vcpu, u32 inst, u64 val)
- 	invalidate_vncr_va(vcpu->kvm, &scope);
- }
- 
-+static void kvm_invalidate_vncr_ipa_all(struct kvm *kvm)
-+{
-+	struct kvm_pgtable *pgt = kvm->arch.mmu.pgt;
-+
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
-+	/* if the mmu lock was dropped, pgt teardown may have raced. */
-+	if (pgt)
-+		kvm_invalidate_vncr_ipa(kvm, 0, BIT(pgt->ia_bits));
-+}
-+
- void kvm_nested_s2_wp(struct kvm *kvm)
- {
- 	int i;
-@@ -1276,7 +1287,7 @@ void kvm_nested_s2_wp(struct kvm *kvm)
- 			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
- 	}
- 
--	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-+	kvm_invalidate_vncr_ipa_all(kvm);
- }
- 
- void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
-@@ -1295,7 +1306,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
- 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
- 	}
- 
--	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-+	kvm_invalidate_vncr_ipa_all(kvm);
- }
- 
- void kvm_nested_s2_flush(struct kvm *kvm)
-
--- 
-2.55.0
-
+>
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 366bbd5c854b..976fa65522fe 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -19,6 +19,7 @@
+>
+>  enum pkvm_topup_id {
+>         PKVM_TOPUP_HYP_ALLOC,
+> +       NR_PKVM_TOPUP_HYP_IDS,
+>         PKVM_TOPUP_HYP_ALLOC_SELFTEST,
+>  };
+>
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 7821f2592eba..ea96744f41fb 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -133,7 +133,7 @@ static unsigned long __pkvm_hyp_reclaim(enum pkvm_topup_id id, unsigned long tar
+>         return reclaimed;
+>  }
+>
+> -static __maybe_unused unsigned long pkvm_hyp_reclaim(enum pkvm_topup_id id, unsigned long target)
+> +static unsigned long pkvm_hyp_reclaim(enum pkvm_topup_id id, unsigned long target)
+>  {
+>         unsigned long reclaimed = 0;
+>
+> @@ -154,7 +154,7 @@ static __maybe_unused unsigned long pkvm_hyp_reclaim(enum pkvm_topup_id id, unsi
+>         return reclaimed;
+>  }
+>
+> -static __maybe_unused unsigned long pkvm_hyp_reclaimable(enum pkvm_topup_id id)
+> +static unsigned long pkvm_hyp_reclaimable(enum pkvm_topup_id id)
+>  {
+>         return kvm_call_hyp_nvhe(__pkvm_hyp_reclaimable, id);
+>  }
+> @@ -360,8 +360,39 @@ void __init pkvm_selftests(void)
+>  #endif
+>  }
+>
+> +static unsigned long pkvm_shrinker_count(struct shrinker *shrink, struct shrink_control *sc)
+> +{
+> +       unsigned long reclaimable = 0;
+> +       int id;
+> +
+> +       for (id = 0; id < NR_PKVM_TOPUP_HYP_IDS; id++)
+> +               reclaimable += pkvm_hyp_reclaimable(id);
+> +
+> +       return reclaimable ?: SHRINK_EMPTY;
+> +}
+> +
+> +static unsigned long pkvm_shrinker_scan(struct shrinker *shrink, struct shrink_control *sc)
+> +{
+> +       unsigned long reclaimed = 0;
+> +       int id;
+> +
+> +       sc->nr_scanned = 0;
+> +
+> +       for (id = 0; id < NR_PKVM_TOPUP_HYP_IDS; id++) {
+> +               unsigned long r = pkvm_hyp_reclaim(id, sc->nr_to_scan - sc->nr_scanned);
+> +
+> +               reclaimed += r;
+> +               sc->nr_scanned += r;
+> +               if (sc->nr_scanned >= sc->nr_to_scan)
+> +                       break;
+> +       }
+> +
+> +       return reclaimed ?: SHRINK_STOP;
+> +}
+> +
+>  static int __init finalize_pkvm(void)
+>  {
+> +       struct shrinker *pkvm_shrinker;
+>         int ret;
+>
+>         if (!is_protected_kvm_enabled() || !is_kvm_arm_initialised())
+> @@ -377,10 +408,21 @@ static int __init finalize_pkvm(void)
+>         kmemleak_free_part_phys(hyp_mem_base, hyp_mem_size);
+>
+>         ret = pkvm_drop_host_privileges();
+> -       if (ret)
+> +       if (ret) {
+>                 pr_err("Failed to finalize Hyp protection: %d\n", ret);
+> +               return ret;
+> +       }
+>
+> -       return ret;
+> +       pkvm_shrinker = shrinker_alloc(0, "pkvm");
+> +       if (pkvm_shrinker) {
+> +               pkvm_shrinker->count_objects = pkvm_shrinker_count;
+> +               pkvm_shrinker->scan_objects = pkvm_shrinker_scan;
+> +               shrinker_register(pkvm_shrinker);
+> +       } else {
+> +               kvm_err("Failed to register shrinker for pKVM\n");
+> +       }
+> +
+> +       return 0;
+>  }
+>  device_initcall_sync(finalize_pkvm);
+>
+> --
+> 2.55.0.897.gb25b4bd76c-goog
+>
 
