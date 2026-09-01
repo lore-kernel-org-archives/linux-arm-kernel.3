@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134C5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC19C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5DRTm1vBTSdsG8fvXQbVvQFIhMRCac0V8WwKFuXILs=; b=ljJ4PhL1hPNB34EoLcfI46NwQH
-	EE/a/d73pZ7lZjnOeCEuUY9gznPPjZheSyLKZMLBH+1l7c8qwegW4oLdbpFE0/CsdzbwY4UjJ4jlL
-	MGEX7WGSr8q6z+3x0aw7w9TDsAtGR6vPx6LWWEsCU16pwWv502RRp3Oo0oX+YJaZxJDzI6cvraXA2
-	0zvk0qanpGTDJbhC+BuiPMtXq9ZL9GgQjOH6q9HuEhAuRvss1PkN88a+DWkA4rQ/x8fH0k/tzAt/d
-	crG2yRUDWC2DfVht5EwTZLQ0w0NRw0zBHV9t5iRqhw0uY3pcoC8/XS/csptQwrDh3JS+zrune5Umm
-	Ck/h0tJQ==;
+	bh=Ml1141pOhty5pXeGcRLTk7QTOgOyqxgpokXH+B8i+50=; b=AggLdYwj73UEgBb3j+/ChXj21b
+	cMVy6VEM2RNKUvG8WEeJZKUXKuyyFsCEUstJXhMWNFdn6RktDZqpRt+guepxgXv0PXzlfqk3Av97U
+	1JK9IY/KofpW9zLeQzTXZL9AJBcCxX/EaYIlY1lK543baARoj911Lb24co9tiwOwueJtvhr7Y07Xa
+	dVItAalujq2HEo4kCJg1G55WWjfrtYv06OnlP24X+HlcO3f9lncY09n5OcQWecUT+2AleNg5TwDHe
+	uvRtu+rx1z9SA6kk/KMR2of0U00H+9pTPSyrzqHizKM5MhhEEEYYNY4JvxpZG4m4fsVUa+QI6FmdQ
+	gx/dM9aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tav-0000000D3Iq-4A4Q;
-	Tue, 01 Sep 2026 18:52:30 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x1Tax-0000000D3Nz-3N91;
+	Tue, 01 Sep 2026 18:52:31 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZW-0000000D0rX-1Rgd;
-	Tue, 01 Sep 2026 18:51:10 +0000
+	id 1x1TZW-0000000D0rQ-0z70;
+	Tue, 01 Sep 2026 18:51:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1788288659;
-	bh=RkfCwo+2xh2eA4ByQWj+OR0E04K3cBjBCK6HYgdmnC4=;
+	bh=llRoKpfXuQkYY+W0+/jwbxQOlm0Z0m47rfFzOtj1Nlw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=e57Wp8BCxkaI3grdmHvLeFEzL34bcRhsPmJS/VLQ6NSOsAK5su60nB3bcl5H0C/fk
-	 nh31JaIO157gB+AJ5utw8azvVZ5H4berfJoT3IUd2a3v7Chnu7ZMBRbxoskadxEYXZ
-	 GalLCIzLFoE6OA7dpRgi1vEuhqNXj2ATFnSekxYS0yx7l9Fjy5my1w3hMTHXa+vJU9
-	 0OBPLJZftdnFTMixnWZ+d4ardebC+7dO30nd2PrUieKTL0U6w6aszH3ZaXsrrIm4FB
-	 LbeJ3wThzHrLRbw4lSnx7bkhUypGR4F/sIwgeraRhoXNzFA2C9QnlPwVbIBeZfec7s
-	 dLg4LSiPPdg2w==
+	b=WkqOVOtUGI+dxR97lgGEVnMkIlpIq9j2acvd8iVZ9kqVtmIeu0bXneyWSBUt52yVA
+	 szeP9EhMz62PcX8q1VXK8wcVjDgq9qoJAfdPoMqKUHqFHelUN1k6xBcfFS7azUUiDv
+	 JTs0XyBfvU6eoLdyxDNbUIqibiB3GlqiNh2vqrF8RaAcBxjwYk0ahRXRS4HV7cIGcI
+	 WfAMdN6skhKyLymkvub+vLTMaogL/1JPc9lhlMF7x2n1jNo/+hVFa8K7Z4ZBPXoq7O
+	 2LVtJZCuShFVV2Bvh0fexr4Vjwr/KmmqhbaIivO7lCHDuingYR1LNdvRwqbIUH7BtR
+	 jAsyWc9gI0XsA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9D9B417E38F9;
-	Tue, 01 Sep 2026 20:50:59 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDABA17E38F5;
+	Tue, 01 Sep 2026 20:50:58 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:50:49 +0300
-Subject: [PATCH v11 25/74] drm/display: bridge_connector: Switch to
- .force_ctx() connector helper
+Date: Tue, 01 Sep 2026 21:50:48 +0300
+Subject: [PATCH v11 24/74] drm/display: hdmi-state-helper: Set HDMI
+ scrambling requirement
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-25-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-24-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,11 +75,13 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org
+ linux-fbdev@vger.kernel.org, Maud Spierings <maud_spierings@hotmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_115102_581124_1AF83BB4 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260901_115102_469299_73F560D0 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Turn drm_bridge_connector_force() into a .force_ctx() implementation and
-hand the acquire context over to
-drm_atomic_helper_connector_hdmi_force_ctx(), so that the HDMI connector
-framework can reset the CRTC to recover the SCDC state when the sink
-reconnects while the display pipeline is active.
+Set drm_connector_hdmi_state.scrambler_needed when the computed TMDS
+character rate exceeds the HDMI 1.3 maximum TMDS character rate.
 
-No functional change for non-HDMI bridge connectors, which keep behaving
-as a no-op.
+HDMI 2.0 requires scrambling above 340 MHz.  Centralize that clock-based
+requirement in the HDMI state helper so drivers do not need to open-code
+the threshold check.
 
+Acked-by: Maxime Ripard <mripard@kernel.org>
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index b5a6e2e8bcd5..707d7143e475 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -208,16 +208,6 @@ static void drm_bridge_connector_disable_hpd(struct drm_connector *connector)
-  * Bridge Connector Functions
-  */
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 1e269b203b98..7cdb7ca3dc12 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -596,6 +596,9 @@ hdmi_compute_clock(const struct drm_connector *connector,
  
--static void drm_bridge_connector_force(struct drm_connector *connector)
--{
--	struct drm_bridge_connector *bridge_connector =
--		to_drm_bridge_connector(connector);
--	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
--
--	if (hdmi)
--		drm_atomic_helper_connector_hdmi_force(connector);
--}
--
- static void drm_bridge_connector_debugfs_init(struct drm_connector *connector,
- 					      struct dentry *root)
- {
-@@ -277,7 +267,6 @@ drm_bridge_connector_color_format(const struct drm_connector_state *conn_state)
+ 	conn_state->hdmi.tmds_char_rate = clock;
+ 
++	/* TODO: also check drm_display_info.hdmi.scdc.scrambling.low_rates */
++	conn_state->hdmi.scrambler_needed = (clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++
+ 	return 0;
  }
  
- static const struct drm_connector_funcs drm_bridge_connector_funcs = {
--	.force = drm_bridge_connector_force,
- 	.fill_modes = drm_helper_probe_single_connector_modes,
- 	.atomic_create_state = drm_bridge_connector_create_state,
- 	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
-@@ -329,6 +318,19 @@ static int drm_bridge_connector_detect_ctx(struct drm_connector *connector,
- 	return status;
- }
- 
-+static int drm_bridge_connector_force_ctx(struct drm_connector *connector,
-+					  struct drm_modeset_acquire_ctx *ctx)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
-+
-+	if (hdmi)
-+		return drm_atomic_helper_connector_hdmi_force_ctx(connector, ctx);
-+
-+	return 0;
-+}
-+
- static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
- 					       struct drm_bridge *bridge)
- {
-@@ -421,6 +423,7 @@ static int drm_bridge_connector_atomic_check(struct drm_connector *connector,
- static const struct drm_connector_helper_funcs drm_bridge_connector_helper_funcs = {
- 	.get_modes = drm_bridge_connector_get_modes,
- 	.detect_ctx = drm_bridge_connector_detect_ctx,
-+	.force_ctx = drm_bridge_connector_force_ctx,
- 	.mode_valid = drm_bridge_connector_mode_valid,
- 	.enable_hpd = drm_bridge_connector_enable_hpd,
- 	.disable_hpd = drm_bridge_connector_disable_hpd,
 
 -- 
 2.55.0
