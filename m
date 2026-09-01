@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F8FC624D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73741C624CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 11:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKCeWdD3esCiQBbiy3fpNmUiloQNTLOC1fFjOsvDmFg=; b=zhO+mZXUd/V2hg5l1/FUNcQxkX
-	evieuQYYb6dCaO5JhBQ8i3ArwoorzSvEpDxVzK/B2YT+3G1MH46PIGgwuVYbL84gmAgDkNCXHbDfs
-	iBOnPn2py0DqbK+WeJDz2f9iqJXvGZ+N/P2w9jOV6QDvtkp24nahzP0FyAn6+P2DRtwOZAIuMPhC2
-	92NVtvTMJ3JJjLvHqXRBS3JQPBUeXJOTwfKbRfI7NjnP3A3SKpv2fU+OElJWDYXvYFkmakMbOuXFA
-	0bPlHDJqxH1wKHCo2QK6cROf/HcXxnI3u1vM979j3OSQSnxihDKAImAYdif866RaZOmyvK6vpiZd4
-	rLla2C0g==;
+	bh=g5YoS6hJGyxhwlaLCQYETQrNLpOjLD6ebCCi8hUMnNk=; b=dXLf+8E8n7hoA6R9Y6BaJm4iKZ
+	cKlmwqhNVCLqNxVSnESi8z2NLn7iMl9Yr966mcVRxu1QzLGnK2J1pRdmplJcNTICpU9savAztdNdi
+	3AI9Z4qZDVZiLqABPF/+TfzWZEWM66FLDcgJPT9+F1DPlFYQbnEWhVyhaiou5McxfZMozqmNn7Kqo
+	TTTyijvvCjcjMbygkgNx5eX0qXbAuuIV/1J+p5tLNweLVnvpNHWrOQIfH3jvrNIxEgml/Mm6SO08h
+	F350Mve4G4PRBlDap/ohaGmDmNqVeHQIl0cP4oqIrwSezElhuw84L/NY9UA8PgWfFubMQyPY+zNcv
+	xd8RETWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1MmW-0000000BhaT-1peN;
-	Tue, 01 Sep 2026 11:36:00 +0000
+	id 1x1Mmd-0000000Bhif-03eU;
+	Tue, 01 Sep 2026 11:36:07 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1MmT-0000000BhTz-3yfb;
-	Tue, 01 Sep 2026 11:35:59 +0000
+	id 1x1Mma-0000000BhTz-2Qhm;
+	Tue, 01 Sep 2026 11:36:05 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 1 Sep
@@ -34,13 +34,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Tue, 1 Sep 2026 19:35:39 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Tue, 1 Sep 2026 19:35:30 +0800
-Subject: [PATCH 3/8] i3c: mipi-i3c-hci: Add a quirk for 64-bit DMA
- addressing
+Date: Tue, 1 Sep 2026 19:35:33 +0800
+Subject: [PATCH 6/8] i3c: mipi-i3c-hci: Program AST2700 IBI termination
+ threshold
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260901-b4-i3c-hci-ast2700-v1-3-19909e7cbd7e@aspeedtech.com>
+Message-ID: <20260901-b4-i3c-hci-ast2700-v1-6-19909e7cbd7e@aspeedtech.com>
 References: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
 In-Reply-To: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
@@ -52,16 +52,16 @@ CC: <linux-i3c@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788262538; l=2535;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788262538; l=4578;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=w8DwWiTyjCgKHUh3jNegniNOD5FFOdIu9HTX8Den63I=;
- b=zakcGFU95zIF9c596EWGOrqXlXM4wUfpzGev03srlA/CbJygcFlzgNMnkc2Q3kd0uBFwf9HFP
- 5576jPxF/gFAjNsiAAYqwNub4CH4bWgjn3W7UY6ik5cId2GXEvjb1vU
+ bh=xOl9+Kul4dBwt8rxRnAINY0vnOHwaByTCuM9DbK+p3I=;
+ b=qWtlv5VOUEegPE0YGyLI/BFbXn5JqLuelcacCgbJoGHuQrR+O8yF30Ewl63FfhKPpWughtyAl
+ CyKmYJFamIQD4ibRMn+c7kGx+ZNZ05JfxmCg1tulc3aHN/RrVyURlUY
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_043557_991540_8D73D128 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260901_043604_640773_92174372 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +76,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HCI ring base registers are 64 bits wide by specification, but not
-every implementation wires the upper half, so the driver leaves the
-platform device at the default 32-bit DMA mask unless told otherwise.
-ASPEED platforms place all of DRAM above the 32-bit boundary
-(0x4_00000000), so under the default mask every dma_alloc_coherent()
-call for the DMA rings fails.
+For an IBI with payload, it's normally the device that decides when to
+stop sending payload bytes. A misbehaving device that never terminates
+can leave the controller stuck waiting on the transfer. AST2700 has an
+in-house IBI payload length threshold that, once enabled, forces
+termination once the received payload reaches it.
 
-Add HCI_QUIRK_DMA_64BIT for controllers whose DMA engine drives the
-full address width, and declare a 64-bit streaming and coherent DMA
-mask for them before the rings are allocated.
+When payload IBIs are requested, grow the AST2700 termination
+threshold to at least the requested payload length and enable
+termination on that value. The register is controller-wide while IBI
+requests for different devices can run in parallel, so the
+read-modify-write is serialized under the controller lock. Controllers
+without the vendor capability block keep the existing behavior.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 Assisted-by: Claude:claude-fable-5
 ---
- drivers/i3c/master/mipi-i3c-hci/core.c | 7 +++++++
- drivers/i3c/master/mipi-i3c-hci/hci.h  | 1 +
- 2 files changed, 8 insertions(+)
+ drivers/i3c/master/mipi-i3c-hci/core.c          | 14 ++++++++++----
+ drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.c | 20 ++++++++++++++++++++
+ drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.h |  5 +++++
+ 3 files changed, 35 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/i3c/master/mipi-i3c-hci/core.c b/drivers/i3c/master/mipi-i3c-hci/core.c
-index a624e3c40484..c03c3a9cbe4f 100644
+index e0ee8148aa2f..3d52d8f277ad 100644
 --- a/drivers/i3c/master/mipi-i3c-hci/core.c
 +++ b/drivers/i3c/master/mipi-i3c-hci/core.c
-@@ -10,6 +10,7 @@
- #include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/device.h>
-+#include <linux/dma-mapping.h>
- #include <linux/errno.h>
- #include <linux/i3c/master.h>
- #include <linux/interrupt.h>
-@@ -1167,6 +1168,12 @@ static int i3c_hci_probe(struct platform_device *pdev)
- 	hci->quirks = (unsigned long)device_get_match_data(&pdev->dev);
- 	if (!hci->quirks && platform_get_device_id(pdev))
- 		hci->quirks = platform_get_device_id(pdev)->driver_data;
-+	if (hci->quirks & HCI_QUIRK_DMA_64BIT) {
-+		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
-+		if (ret)
-+			return dev_err_probe(&pdev->dev, ret,
-+					     "cannot set DMA mask\n");
+@@ -690,15 +690,21 @@ static void i3c_hci_detach_i2c_dev(struct i2c_dev_desc *dev)
+ static int i3c_hci_request_ibi(struct i3c_dev_desc *dev,
+ 			       const struct i3c_ibi_setup *req)
+ {
+-	struct i3c_master_controller *m = i3c_dev_get_master(dev);
+-	struct i3c_hci *hci = to_i3c_hci(m);
+ 	struct i3c_hci_dev_data *dev_data = i3c_dev_get_master_data(dev);
++	struct i3c_master_controller *m = i3c_dev_get_master(dev);
++	unsigned int ibi_max_len = req->max_payload_len;
+ 	unsigned int dat_idx = dev_data->dat_idx;
++	struct i3c_hci *hci = to_i3c_hci(m);
+ 
+-	if (req->max_payload_len != 0)
++	if (req->max_payload_len != 0) {
+ 		mipi_i3c_hci_dat_v1.set_flags(hci, dat_idx, DAT_0_IBI_PAYLOAD, 0);
+-	else
++
++		if (is_aspeed(hci))
++			aspeed_i3c_ibi_grow_threshold(hci, ibi_max_len);
++	} else {
+ 		mipi_i3c_hci_dat_v1.clear_flags(hci, dat_idx, DAT_0_IBI_PAYLOAD, 0);
 +	}
++
+ 	return hci->io->request_ibi(hci, dev, req);
+ }
  
- 	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
- 	if (ret < 0)
-diff --git a/drivers/i3c/master/mipi-i3c-hci/hci.h b/drivers/i3c/master/mipi-i3c-hci/hci.h
-index f50fc1e22a85..2110f806a53c 100644
---- a/drivers/i3c/master/mipi-i3c-hci/hci.h
-+++ b/drivers/i3c/master/mipi-i3c-hci/hci.h
-@@ -178,6 +178,7 @@ struct i3c_hci_dev_data {
- #define HCI_QUIRK_DMA_ABORT_REQUIRES_PIO_RESET	BIT(8)  /* Do PIO queue SW resets after DMA abort */
- #define HCI_QUIRK_DMA_REQUIRES_HC_ABORT		BIT(9)  /* Use HC_CONTROL ABORT to abort DMA */
- #define HCI_QUIRK_DAT_INDEX_IS_ADDR	BIT(10)  /* DAT entries are indexed by device address */
-+#define HCI_QUIRK_DMA_64BIT		BIT(11)  /* Controller DMA supports 64-bit addressing */
+diff --git a/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.c b/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.c
+index b521fce4c084..e32dea0d5fc3 100644
+--- a/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.c
++++ b/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.c
+@@ -25,6 +25,26 @@ void aspeed_i3c_write(struct i3c_hci *hci, u32 reg, u32 val)
+ 	writel(val, to_aspeed_vendor_data(hci)->inhouse_regs + reg);
+ }
  
- /* global functions */
- void mipi_i3c_hci_resume(struct i3c_hci *hci);
++void aspeed_i3c_ibi_grow_threshold(struct i3c_hci *hci, unsigned int ibi_max_len)
++{
++	u32 mrl, cur_len;
++
++	/*
++	 * The termination threshold is controller-wide while IBI requests
++	 * for different devices can run in parallel, so serialize the
++	 * read-modify-write.
++	 */
++	guard(spinlock_irqsave)(&hci->lock);
++
++	mrl = aspeed_i3c_read(hci, ASPEED_I3C_MST_MRL);
++	cur_len = FIELD_GET(ASPEED_I3C_IBI_TERMINATE_LEN, mrl);
++
++	ibi_max_len = max(ibi_max_len, cur_len);
++	aspeed_i3c_write(hci, ASPEED_I3C_MST_MRL,
++			 ASPEED_I3C_IBI_TERMINATE_EN |
++			 FIELD_PREP(ASPEED_I3C_IBI_TERMINATE_LEN, ibi_max_len));
++}
++
+ static void aspeed_i3c_phy_write(struct i3c_hci *hci, u32 reg, u32 val)
+ {
+ 	writel(val, to_aspeed_vendor_data(hci)->phy_regs + reg);
+diff --git a/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.h b/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.h
+index 8760384d1c6f..84afb2bec956 100644
+--- a/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.h
++++ b/drivers/i3c/master/mipi-i3c-hci/vendor_aspeed.h
+@@ -51,6 +51,7 @@ static inline struct aspeed_i3c_vendor_data *to_aspeed_vendor_data(struct i3c_hc
+ u32 aspeed_i3c_read(struct i3c_hci *hci, u32 reg);
+ void aspeed_i3c_write(struct i3c_hci *hci, u32 reg, u32 val);
+ int aspeed_i3c_phy_init(struct i3c_hci *hci);
++void aspeed_i3c_ibi_grow_threshold(struct i3c_hci *hci, unsigned int ibi_max_len);
+ 
+ #define ASPEED_I3C_CTRL				0x00
+ #define ASPEED_I3C_CTRL_CLOCK_STALL_EN		BIT(14)
+@@ -58,6 +59,10 @@ int aspeed_i3c_phy_init(struct i3c_hci *hci);
+ #define ASPEED_I3C_CTRL_INIT_MODE		GENMASK(1, 0)
+ #define   ASPEED_I3C_INIT_MST_MODE		0
+ 
++#define ASPEED_I3C_MST_MRL			0x08
++#define ASPEED_I3C_IBI_TERMINATE_EN		BIT(16)
++#define ASPEED_I3C_IBI_TERMINATE_LEN		GENMASK(15, 0)
++
+ #define ASPEED_I3C_DAA_INDEX0			0x10
+ #define ASPEED_I3C_DAA_INDEX1			0x14
+ #define ASPEED_I3C_DAA_INDEX2			0x18
 
 -- 
 2.34.1
