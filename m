@@ -4,140 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D414DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B188C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6y1Fud7IWTKJABngp1BcnESrVoszryA38tIGmaHdhz4=; b=G6NGEf2qzDgQOPWEmGeZtB8Yl9
-	DpbkN0F1JT1bS0n5Z3Cw2/bJN+rxua5tx0hr5CugfrYQlpb4Trxfk/9uED0VNwOtfZI9XjSJFNfRw
-	hK4x6vEu7i0/vzmRCctWBYUc0Ta7f6Qy5l+NSKqfu+4uXRAgOJmECxhDIDQdNt1m6Ud/E+6BTgcyZ
-	KEcjdgaEbGgme9mc4sgeh6brTbKbb2X/M9kdGyzBROhBggMyB6HmNcoZW0IdZjc/kDkzpHB3HuoUt
-	QGgdb39ygthMAFToz/sH1lbwxIWIala4AW8WfDUPnmqpMFh9R88OcdD5jqWSryzxWqVzZrec5i+Mp
-	tSib4jWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mCPNVjswzrfu/6ewp3QsYppMVfdEr2MBSoZ8rIPqMgs=; b=U1DxTRVXXCOhD0RDhSzH8EMa3w
+	4HCg4iFISPyfn+sNcbCvpuuup7b1zlGnxAuw4J+2YA53lq0NfdgT3zFaUKYRHuXgo6GQ189ddAAdU
+	nMKb5dYMDFJ7iDWflB8Rymaw6NVshlVF2q5uIJBG0Bx8b6K8RvStnvbOeCeDag7wH2SPpuE+BrsZM
+	9COEp98JubcJi/d9igeKUpKW8p83XFef4Per5IPozErnGpZ2JPF6r4hXa5AcaOYg91OwvNHrVIla0
+	QAjVf/J+D+VCiNbnDRCJ5MDpyAX9kO0FG2nzml26R0qkhOhBDBLtvGHbtHos646rCd5Zfn7dYSSfC
+	YHWrm98g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1UJR-0000000DEBs-1ozL;
-	Tue, 01 Sep 2026 19:38:29 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1x1ULD-0000000DEaf-3Vj3;
+	Tue, 01 Sep 2026 19:40:19 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1UJP-0000000DE9w-2LRc
+	id 1x1ULB-0000000DEZl-44Fr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 19:38:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FdlMCq33PkgtjqcZHaehkLESz3jIfwksZa+amzN39SXASuBX1stZcKArur9FTOA6iJugZeH2U7zKkKsmopULNBfEuKAbHLx380PpwSCbEqObqEV98QJmkFfhVrwPED01I+lgxUMytSv771G3yABgr0ekLyAsJfhNZg4sQTH8KvNnaHTTnLZejq4TiZvRlDllPeJ4kn8LrWUfTsSfMfte3SNEBzVuoyMocsH8PPuii9haQAdBrqvKwnk4QDbFhG3fmAYp6oHpWSO9rmw51j1Wu0gyII0pM5lS786q0gF4p5bg4vc+qvS879B5SeCnMeHKGZQQXIgyYqfw550EeHN8VQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6y1Fud7IWTKJABngp1BcnESrVoszryA38tIGmaHdhz4=;
- b=dp8pG4PHv8Q899R9QppLV7ru2bgvuGMyOwZuQY769zT7OOuk6EPmvYeJtxvNG0cX6b4L8+NyOLzJY3Tr2XDMptp1dyl6OpbJGqU2RZq+6kV6CkFYAA7rxDiPmPsjuvzCe2Ui905Gi0uLiSwLrqFHT9ICxh75bQ4fhuaYZZEcj0iac8MDtGSKvV1rcqFuwoJuhPNe5DDj/7n1m6LNwIbWvSYBTQqHXvQ7oplG77zsduz1F5PfvGAZJ2+dJPkrwnq63bAXl4aRXdsNOn/tJ6gvny9EhM/M8IAH39Sl6li29waTxxMOG/1gNQ88/1vZt18YVBgmztOy8tNf91ye8PT4UA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6y1Fud7IWTKJABngp1BcnESrVoszryA38tIGmaHdhz4=;
- b=h/LcqjDFias2OeHjqK5I+SMekpZTzoJV/t3M4W5n0ABCUjnW71maGL687Fpk8jVOjTt6PAe0VH9bJv9JoYsbIDnaLIIqbsIuc/fIYJyJkgSaInmBejBPhdp8BgQ0flS8paKDlv0SRiLfqABKA9rvUT/ZWtsNW9D2pV6ycd+fFGfRIkQ/Jbg8g827vDWrG247LbRrFabufy1tqgYbvbIoT7JjTlQD3XaR4Bc9b7F08KgLTLM59I7UmRny7bJyuzKia28SBK3ob9xz2/zoW/3Bl5c/18AC1ClnOQe5MmXzz4MtxveSnjgrl4RNaqO8lyGdCq8ThMvbkx1uv/e3FIScIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by DS0PR12MB7972.namprd12.prod.outlook.com (2603:10b6:8:14f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 19:38:15 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 19:38:14 +0000
-Date: Tue, 1 Sep 2026 21:38:05 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Christian Loehle <christian.loehle@arm.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT
- cores
-Message-ID: <apcpnYdW6vzew36c@gpd4>
-References: <20260831181800.1668646-1-arighi@nvidia.com>
- <20260831181800.1668646-2-arighi@nvidia.com>
- <f5d625d0-3b94-407c-8f64-793df9590f03@arm.com>
- <apX1j6srdTcFLZOd@gpd4>
- <25dbcc86-bfb2-4018-b388-7d8d1693203b@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <25dbcc86-bfb2-4018-b388-7d8d1693203b@arm.com>
-X-ClientProxiedBy: MI2P293CA0011.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:290:45::11) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Tue, 01 Sep 2026 19:40:19 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-499add6348fso115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 12:40:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788291614; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qM2L8MOXpGbTXbedATwVE6X5QY/98e63FjAMeEchOSTOS829qAmOFCi8wmt+w86Mn8
+         BpPd99DbFOs6Eggenf4zKki4cshtAr3f6xQeCHI6c222tqogMe+gRFNkA5q4fkCCpWdM
+         r44S2IqK8Mwxd0XZlx1lyJ5Z4j8sUz1+9xTSTnll23s+Q4EL4a32cBqM23Z3+HQBcxhV
+         HWvoQv7YM2yUUrF/2W+YeKX7G/noO7vMhlh3DUuZs8GedC57NLYh2NMdcA1wPtBoNJuq
+         XKxLVwHob9n8WHbvX1WyT8xkpeOSh98R/ej+KpHz7yPXEPecCiwbKa0avB4teGwLwt+a
+         Tl3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mCPNVjswzrfu/6ewp3QsYppMVfdEr2MBSoZ8rIPqMgs=;
+        fh=LQyWwhdpinDqtUibhF62ck2XWlVV0+h3zp74lOsQDwQ=;
+        b=G5fmj+aWEj+ApEyrPaOsxVydJNL2QNHvVdm6QRF8sylgv59qrcjNEwCRDPFS+pjDiB
+         PA4wDWD+XZwFDVbroQ9Tfd00Ci9k2XobiZK7vayMjX5sPMkUIGX6DemnaTkLT/COGDbH
+         21z3vDg14mEypP3dbzS8jh7r0yqKQ43cMUnBvci5VE6VrOa/dAYXyAbY1EBeSt7M3jUt
+         G9McNCWZIfwyEDmqL6yzciuPQvr1OweGvAmLjQHiHMuU1xCEs6x1xNkAZCJHCckMpWoS
+         EYAVnaEdvWekRNBu6cj+k7dBKCSIVWCU1bDFwoObSwuk9wrsvpb9oUIwUA6K9Ji5Zk4O
+         IP/A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788291614; x=1788896414; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mCPNVjswzrfu/6ewp3QsYppMVfdEr2MBSoZ8rIPqMgs=;
+        b=IZFxENfhuOQ9KR8d97a78a1xh+hBU5vXbczIAyNbQ8N1IrH7jDBKuIWgL/VfG/uxLi
+         eJ1iuYV2J2knBFJqxdIROmUj6FETv14kBh6hB5NFVmmrsA412QCsQhIgahUGi9HtCbeJ
+         QqeM/Wq3HlPaFWVzmqpmeJyRs9ER2ESmiyioNlQzAriCYMEi++mDLYOP4hvXPD7sc/10
+         U33sGCxuTvN/G2wMJYDEl99+vQG3UntKc3L2IyL4/35nbfPFLQKtNr/DbMJupYUOMpnW
+         dE8CXErSLquvhcP2gBF+A+blISR4nIRGGiUOKhgiUUh+/iQLCvmehGmahqL2p0hu/+0D
+         21aQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788291614; x=1788896414;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mCPNVjswzrfu/6ewp3QsYppMVfdEr2MBSoZ8rIPqMgs=;
+        b=e3J2a4je+C+By1E7YwT2eWMWESu3VucftCFa7McMP5En9oGFEn/McBKjKqmswdrAaT
+         SqS3r1Iy0vsku7uJn+uZjTrSaxrNc5wvKyB0NDWeM8kGkwo+k2ZZce/HfGEveKLpKE6S
+         AdV9sWxzaS0BJt1k8xB/OM+cPgr0fd8n/8O4l2EmRtV7O6rdUWEUXbapuHp4wBb6/EmW
+         OrqUtKMg95KdS0Bp6bjF+BczKpzekI2DJlnlMyoK0/mdebNd8VhfM7pbuwj1aD8/n5sZ
+         zYNzWs1xcgUqg/w5lyY4WgUYf/56S2U3QtUKbm9cpzvmQ+ikDINUQa5+eUKqbMZk8S3h
+         BO0w==
+X-Forwarded-Encrypted: i=1; AHgh+RrBwijA9oaOFXqtpOW3YKupdoQfdSFCAZxcA3Au+tuzOPpcGn3F3VG4MeiMUQ6etldOnsJptmk7qqd/49Pq9qH7@lists.infradead.org
+X-Gm-Message-State: AFuF++lKUsqS0tOEZkF9nDB1K8r3dt1SX18Zu+4IbLuKMtxxa4jIKHfZ
+	JA9cPYMgku4CBPXQoP+06V13bXo88cgDSThyiAgoVn6D+mixodbajuYBnLtSpD8JxiY2LqQmTMH
+	fghv86MxU5vC00wtSgWF3pastduyamvhUjDldQXzm
+X-Gm-Gg: AR+sD107Nk7xOTf5Suus5Fh/dqPPPlkysMQogZmeollteae21Qxu+Ob7r5+mahNx7xP
+	xVz30rSooTP2jzJ2bQMykX5QW2mhnfPG2CBT/l5jOaI4yAbuyIpxDdvABI8i2JpUT/QtrceE1dR
+	27PeqvoLVCBIRbbLQ4nluaSgvWEzTn1AWR7Z3QQJOqX9NSzF5gHqXsG63Ul2euOblaIUbBch7Lz
+	hWmKwTk2qEz56xdl0e9umPtcwH11/XuYLht4L7x8lOEjrAUTzOva9T9ULQCQjdFtsoHFssI7DEe
+	NOla2llDDNZSBSX2ldowPxa/9e34V9qUe618vJd9o6RkrqGC8H7uPjGm3SrR2hRzduQMg/JJE16
+	u
+X-Received: by 2002:a05:600c:224b:b0:499:7da3:dd0c with SMTP id
+ 5b1f17b1804b1-49ce462122emr115145e9.0.1788291614023; Tue, 01 Sep 2026
+ 12:40:14 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|DS0PR12MB7972:EE_
-X-MS-Office365-Filtering-Correlation-Id: a920a16c-b566-465d-e167-08df08609072
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|23010399003|18002099003|22082099003|4143699003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: Wg5WvASKaNOVNbD+7c4JvMCF9p2IO00DrUIkyB/XydH/7mLKJ44DEfS0BR9p+eLI9JrhX+Hi4LJ3ko49lxb/CSh/n8shfHwWDOzg6Ac+2QNBdsYLPv3oS9nZRIT/dZOkhhcqEvTHaC65C/CczBYkNLq/YP5/02wIjuKuWTLmY2wB7DpD0hE3CH0gpWIsJVQtWj2XkjHPR70wmjYJYQvpA0XSu7QDKCQa5jgVX4Wx4ee0lzUDQNxE2Rcv0nTjiwbmLFV9b6DdbeRcHGApJY71ivxAr0yKZv0JP2Zo7cegIPky8LyPXuh7hW6DIN/oEPAHMz4zFNj3UgE1bYPYFH+0hFq0GH7o9VTOjgrXAgruaBR77Iq66jam1b+eFVuCsDHsBZpzo+6pncvWEfn/8UyTSWR55s+sGtDQF3TmMUikliRda4Ya1LZS9wL78BE+jUH7hqBwrIyloeTM1xOtJGYasx6WQ8zU2EAis8Xm8j+zI8cR4e6siil8UZDpAkEdk8g8HftXCQkk3Hm8EU1JVy4+QsU5mR1q1PCfBzo6MkdS99handJai51uE4WyUK2T7Nw5Nn9Ay5fK102oOLGzPeGPN4C+dmi1/BIsaCtrXWebnbJDAlVzkJFr6QybvUw14xPoBSwuAqjrnCdsKTjauPZ7/iclMpdCEMy2Xi3NYrkpypQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mULytH9NKIHWYFymWpXgIAsW1zjY7BhvIyO6CoAfwlfk4YHyWMUulPttb0AR?=
- =?us-ascii?Q?zrtS5JqDQ8T21BdS29yqueNKvV/AF3WhRjMtS/1PAd0/FsTeFUAa8hT+9ayi?=
- =?us-ascii?Q?59ou6y7SfX55VD3ODIT/tDwGlwCqJVTMwWOHzk+trGp6M6ztMFuAs4I4chQ2?=
- =?us-ascii?Q?VL4F5+8q+53+CBry3qAQMiwgKmj7IrRwBLbzmHasiHObdmyOQex+DjAByZFP?=
- =?us-ascii?Q?bE/W75slDMHWSY9J+5SFOM0H4E9zsJ2cLEd1ID1Cun2GdbNtG2iHPryVdwFM?=
- =?us-ascii?Q?VmR0mNPqZ8ShSWpkW4iHVsLraYXTARpXSygbYWoJXnRTPUP4QrJ3eXBoM6q1?=
- =?us-ascii?Q?5UbZsrLxtHxe9jQy8NHnu7NB3fbjE3UuGS1JjZXOzwkPZz/Kom3h8d+ow8HN?=
- =?us-ascii?Q?0k6tVdiLKDbK7Z01SmWnAfnypzlXxp34yMIXT0swDV2XOOrfxqeU1e3oRkCb?=
- =?us-ascii?Q?64d8SzgAA5j3oi5s90LpgoQ4sAM5n5d54DxaxGlMIMrJ2ZrLWOM0SgDt8YZk?=
- =?us-ascii?Q?0JlujYsAPA6fAVIKltVkBscQYVHljCTPq9fe2gVqxTFCRI6rIN4Oxc4arOtX?=
- =?us-ascii?Q?6xRQeVszhoTfLUzJ4WC+w0IVm0nTszh168KBQbfa0WtxWcfL7WBFGdV37KNV?=
- =?us-ascii?Q?xN8Q62JPRM3ow00k+rjUFwTr2vyheDYKGuRvpyURH4VdI8NpNyEsZyPlKRrx?=
- =?us-ascii?Q?uQLxldhjD4qZ1RObfTvKlPz9G706Ra9QWDyd6Yzmx4t4DcOV5tZFgmHwZF8O?=
- =?us-ascii?Q?cPCA+vNxuS6jJQxilAFjXsRbt3Am29xC9PM/8FnE+Qd5IEyXiMQSqjuPNBcS?=
- =?us-ascii?Q?YVyDpaIMQRk/P/R4Z+vTk9RrLfhv4YcxUT55KRIuqo8iuCNx+rDkEFLQOmWq?=
- =?us-ascii?Q?hvBOi2Zd2D5Q1eWa+BaIHeD7P4UrO/K9XFeBGvsUZ4Gw8zZmGNp5UeHkgf5o?=
- =?us-ascii?Q?K74HxjEx1dppUOiFiCuTpf9xg+Ml9bW9gGRXTxqcCJDtGeowP6M+ahiwwLNN?=
- =?us-ascii?Q?wDamcHnef9ItdGDhhL4nZDuTKw/rNcddOI3B/UbUACsF4BelND6b75iivukt?=
- =?us-ascii?Q?QddYh58fH/590RaXXEV22ilBjc3ANFcdi5A2PDx9IjrY2dBP2/jweIiwCCSE?=
- =?us-ascii?Q?O1OFThhLsjMxO5h0Qd2iIgycm+/w20RAsRba0nkcU4j9lJT9FEHX3bqyqDQ6?=
- =?us-ascii?Q?dA2xgheCchx4DFgduX0zIzql6vM63xudtMNq+1nyUbk6kGQT9Zn49TaLKHdd?=
- =?us-ascii?Q?7XQTDscU7wNwQJkq6/HZGWhNAMtKGgvJuNTJq9495MUjj2C2ApGX+nYFGM/e?=
- =?us-ascii?Q?Y7+uriZckks677iMgDq0pW6/yOWZmZqZFsAz2p2qJeuLU/+GL8f6zS7QERc1?=
- =?us-ascii?Q?lCE8P7r9MuP+JA9NNZkoYcrdiP+6BL7Voj0Q5sIwQxgJI2H2eQiQHi5g+6eq?=
- =?us-ascii?Q?yGa1rTu8g+TI7OAbLZz3mgxChPSJgPNlqVUfRrQRt6hoNubwCn1NN9+p6AUD?=
- =?us-ascii?Q?PQ3GWhQlDsMzLnqhte3Zdf62XKbcpdUlunZaHneoGFQVC88AiPg5bpSaKnrc?=
- =?us-ascii?Q?oKQ13xlBPd3p+0WoePcOUJHeZRUCcrMWO6+or8/p5JF+TEZM7PGo0Qhv8nFX?=
- =?us-ascii?Q?0KIN3EZClUVczOyYu83GJ1yJXgaONggByG/K3SYGhCdwEvbeKnrTYgZMxfn3?=
- =?us-ascii?Q?BNPNyVtLyHuvRU5SV27CNUMjrBOL+3V0X5awiYuZ4RNCjzbuTUQJ0ucw32GJ?=
- =?us-ascii?Q?ka9BUaskGA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a920a16c-b566-465d-e167-08df08609072
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:38:14.8175
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Zrccl3RhJ0m0H+RAGeQyKbV3D1TK6c7RgYPkVYFQn7KJU5UQqZJfiOMdAW6hqzMnVmZgRvbBX/msNu18676TVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7972
+References: <20260827194508.446733-1-linux@yoavmoshe.com> <20260830155100.1020620-1-linux@yoavmoshe.com>
+In-Reply-To: <20260830155100.1020620-1-linux@yoavmoshe.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Tue, 1 Sep 2026 12:39:36 -0700
+X-Gm-Features: AcwNN1XK0l8thrBV4rYONxxoAFHyd0qFWNxSTWm7rTcE9pRg3SR1YhO1gQnpQwA
+Message-ID: <CABCJKuecSgC2yZ1QHACv3gfOYf+cPXvR5TCEM_t67NX-putr+g@mail.gmail.com>
+Subject: Re: [PATCH v5] ARM: imx: Fix suspend/resume crash with Clang CFI
+To: "Yo'av Moshe" <linux@yoavmoshe.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Russell King <linux@armlinux.org.uk>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
+	stable@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_123827_626755_4934F475 
-X-CRM114-Status: GOOD (  41.60  )
+X-CRM114-CacheID: sfid-20260901_124018_028504_4A7D009D 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,147 +123,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+On Sun, Aug 30, 2026 at 8:51=E2=80=AFAM Yo'av Moshe <linux@yoavmoshe.com> w=
+rote:
+>
+> The suspend code that runs from OCRAM is copied there with fncpy(),
+> which does not copy the kCFI type hash preceding the function. With
+> CONFIG_CFI=3Dy the indirect call through imx6_suspend_in_ocram_fn
+> therefore panics.
+>
+> Keep the call covered by CFI instead of exempting it:
+>
+> - Add SYM_TYPED_FUNC_START_ALIGNED(), a variant of
+>   SYM_TYPED_FUNC_START() that aligns the function entry rather than
+>   the type hash preceding it, and use it to declare imx6_suspend():
+>   fncpy() requires the entry point of the function it copies to be
+>   8-byte aligned. The macro lives in arch/arm/include/asm/linkage.h
+>   since the requirement comes from arm's fncpy().
+>
+> - Add a cfi_type member at the end of struct imx6_cpu_pm_info, which
+>   directly precedes the OCRAM copy of the function. It fits in the
+>   struct's tail padding, so no sizes or offsets change. Fill it using
+>   cfi_get_func_hash(), putting the hash where the caller's CFI check
+>   expects it: four bytes before the function entry.
+>
+> Also mark ccm_base, suspend_ocram_base and imx6_suspend_in_ocram_fn
+> as __ro_after_init: they are only written during __init, and the
+> function pointer in particular should not be writable afterwards.
+>
+> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yo'av Moshe <linux@yoavmoshe.com>
 
-On Tue, Sep 01, 2026 at 09:32:56AM +0100, Christian Loehle wrote:
-> On 8/31/26 22:43, Andrea Righi wrote:
-...
-> > I can experiment with this combined priority, but I think removing
-> > SD_ASYM_CPUCAPACITY is a separate policy change rather than an alternative
-> > implementation of this fix.
-> 
-> Cool thanks, and sorry for curveballing the approach like this, I wish I had
-> the platform to test these ideas myself :/ 
+Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
 
-No problem, thanks for looking into this! Access to Vera systems is problematic
-also on my side, especially for all the time it takes to run all these tests. :)
-
-> 
-> > 
-> > A static asym-packing priority does not preserve the capacity-aware semantics
-> > used for task fitting, uclamp, misfit handling and migration. The current
-> > approach keeps those semantics when selecting a physical core, then applies the
-> > PE preference only within that core.
-> 
-> Right, but arguably most of these semantics become questionable as soon as the
-> core enters two-thread mode, since the capacity available to each PE then
-> depends on the state of its sibling.
-
-Yes, I agree with that the current capacity model doesn't account the capacity
-lost when an SMT sibling becomes active. And Olympus makes that limitation
-particularly visible.
-
-That said, I think the static CPU capacity is still meaningful when there's no
-SMT contention. SD_ASYM_CPUCAPACITY can compare the task's demand against the
-standalone capacity of the candidate physical cores and select an appropriate
-one. And looking at the results, this appears to be beneficial. Then the
-SMT-local asym-packing priority can select the preferred PE within that core,
-which helps keep its sibling idle and preserve the uncontended state whenever
-possible.
-
-Once every usable physical core already has an active PE, any additional work
-invitably introduces SMT contention. At that point, the effective capacity
-becomes sibling-state-dependent and neither SD_ASYM_CPUCAPACITY nor a combined
-static asym-packing priority can accurately model it.
-
-> 
-> Task fitting:
-> We consider two tasks with util=400 to fit on two capacity=1000 PEs, even
-> though once both PEs are active neither may have anything close to capacity
-> 1000 available. In other words, the capacity used for fitting doesn't account
-> for the capacity "stolen" by activating the sibling.
-
-Correct, util_fits_cpu() doesn't reduce capacity merely because the sibling is
-busy. The scheduler handles this through the SD_SHARE_CPUCAPACITY topology,
-idle-core selection and SMT balancing, which tries to move work from a busy SMT
-core to an idle core when possible. It doesn't provide a dynamic numerical
-capacity for each PE.
-
-But the same limitation remains with the combined asym-packing. Once both
-siblings must be used, neither static priority describes how the core resources
-are partitioned.
-
-> 
-> Uclamp:
-> Isn't uclamp, and particularly its bucket implementation, fundamentally a poor
-> fit for these platforms in the first place? Even if we tried to represent these
-> small capacity differences through uclamp, we'd need something like
-> UCLAMP_BUCKETS_COUNT=512 or 1024 to get useful resolution. We currently limit
-> it to 20, and for good reason: the overhead.
-
-Yeah, the uclamp buckets are used to aggregate runnable-task clamps on a
-runqueue, they don't encode CPU capacity classes. So it's a different story.
-
-> 
-> Misfit handling:
-> This seems problematic for essentially the same reason as task fitting. A task
-> can be classified as fitting while the core is in one-thread mode, then lose a
-> substantial fraction of its effective CPU capacity when the sibling becomes
-> active, without the static CPU capacity reflecting that change. Conversely,
-> migrating it to an otherwise equivalent core and allowing that core to return
-> to one-thread mode changes the effective capacity (and therefore utilization)
-> again.
-
-Yes, misfit handling compares a task against the CPU's standalone capacity, it
-doesn't dynamically reduce that capacity when an SMT sibling becomes busy. That
-is true for regular SMT as well, and sibling contention is handled separately by
-the SMT balancing logic. The combined asym-packing priority doesn't change this,
-it orders CPUs but doesn't make capacity depend on sibling state.
-
-> 
-> I'm assuming the CPU_CYCLES counter advancement isn't affected by the
-> one-thread/two-thread mode transition?
-
-My understanding is that the core counter continues to advance according to the
-PE clock while the PE is active. The mode transition doesn't change the clock
-frequency, so the AMU ratio will not reflect the loss of issue/cache/vector
-resources.
-
-So, yes, you are right that the existing capacity model does not fully describe
-SMT interference. This is probably a broader dynamic-SMT capacity issue and
-neither of the policies discussed here models it explicitly.
-
-That said, this series achieves the intended result for the GEMM benchmark (with
-similar results observed also for other CPU-intensive workloads): with SMT off,
-running one CPU-intensive task per physical core reaches the same ~10 TFLOP/s as
-the patched kernel with SMT enabled and the same number of tasks. So the
-scheduler now appears to select the preferred PE consistently and avoid the
-unwanted resource-mode transitions.
-
-> 
-> > 
-> > Also, encoding the combined priority alone would not fix the problem addressed
-> > by patch 2: the idle-selection paths currently do not consult asymmetric SMT
-> > priority. They can still return an arbitrary idle sibling regardless of how
-> > arch_asym_cpu_priority() is defined. Patch 2 adds that missing behavior and
-> > scopes it to the shared-capacity SMT domain.
-> 
-> Sure, patch 2 is a different story altogether.
-
-Ok.
-
-> 
-> > 
-> >> I had suggested this a while ago, did you have a stab at that by any chance,
-> >> too?
-> > 
-> > I tested your CPPC-based asym-packing series, but not this particular
-> > combined-priority variant. IIUC the earlier proposal was replacing
-> > capacity-aware scheduling for minor physical-core capacity differences, SMT
-> > sibling ordering looks like an orthogonal problem.
-> > 
-> > And at the time, the combined SMT-aware SD_ASYM_CPUCAPACITY approach also gave
-> > the best Vera results of the alternatives I tested, which is another reason I
-> > kept physical-core capacity selection separate here.
-> > 
-> >> Am I missing something altogether?
-> > 
-> > Combining the priorities is a valid experiment, but I'm not sure if it
-> > completely solves the problem by itself, I'll give it a try and share the
-> > results.
-> 
-> Thanks again, i'll have a look and give it some more thoughts myself.
-
-Thanks!
--Andrea
+Sami
 
