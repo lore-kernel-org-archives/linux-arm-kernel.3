@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C2EC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60A7C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sLYYR1Q3UHqS1LNM5yZKokLJjleeLqn68LSKKJwz7Z4=; b=dcvdwci3CfZmrezJHiK8GIQJKI
-	wf7uR2n2aItHw9Z+KUlPp2XZzBDEko3Ij2F0UXZaqSRctMAlIWd6x3+Lc91wVTIuGMrHmqcnTuQxi
-	ziSBwbWHMnBnS2kNaka5snz+Noc/XB7gPkcz3P5IaGuyGEuul5angyPTzGP1Xx37VSLlqWrX7y2aF
-	DzV0+XGK4QO9wm/zpzi6iFKUaxrFomIijkSKIzSjElznf0gK4o1BUTa+7jdScf4df0DxgAvGqiSsL
-	QOwiRXxg17N5TQfCNSTLo/qqdbn/RXupetvNd7qUMhJZ8BPpQ6hA1K4DizVu/jCcK70VZ3EPfxY6U
-	eoFWil+A==;
+	bh=C7nBgl70e5xfSJ2oqkVr0tglewdp5qWUVF45E6u5ip4=; b=qPonSewHN5KhiUlTtBm4Z2S/l+
+	C+A/5gVJ4P7O8XDHwzSRyRaL80hiPQDldE4mvRobmQlbfwddPVvLGG+PDhzWou9lYqnNLbOrO57Pl
+	ceOSTmPem1LbKwWRd5ZuD2ECGRpPaf7AS5JBCkZiIzEiT3gEL91S/3XIYfbrnUEhgVx2Odp0QabMn
+	dM/Y1OpVbnKJ0/2WUJSjmYuSqSR7LnQsElGX4CW9T1SDbh6qrdgXaueD1E0xTldqtE0SEO9vql6di
+	7KuEuZ9pQOao1j8KA7nvze4naXPiMQB8DEsY/u50E1oTNSAnj47yh9DzUi88LZTNYyyXI2MIooiCO
+	Fg4g+KyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JVW-0000000BC6V-0Np9;
-	Tue, 01 Sep 2026 08:06:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1JZ6-0000000BCju-0dg7;
+	Tue, 01 Sep 2026 08:09:56 +0000
+Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JVU-0000000BC6H-1bJZ
+	id 1x1JZ3-0000000BChj-2Fx1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:06:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEBEC41454;
-	Tue,  1 Sep 2026 08:06:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7187D1F000E9;
-	Tue,  1 Sep 2026 08:06:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788249971;
-	bh=sLYYR1Q3UHqS1LNM5yZKokLJjleeLqn68LSKKJwz7Z4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Yww9opiDEtAb0FOh1SffRy21uR0A1iM451Jd8FZ6mGqW7t8SIcQZhFekFugF5EHGj
-	 FVMHCr4EJSWenZm5cRMxXVKUo45rYQNf5KNChd3vVXD+QkRzNjoi8mDy5Z+Xcux8yA
-	 q6sffr3VWGX7qOYSq4JatW5OslJMZcN/3NPHpgfKRfmZn5n8jD04JQ6vCM6ufeqLVy
-	 uePs1QBhi4kEe1JKZ2fk9ocFEETuCrApKFqa4wboDLKF0/jXd9OGLlihXaCJ10F1lW
-	 JkT7aiPzIY+IuqfbmotsUpwELnBLPgmiDyFFw/ioDQUkNGF2i2emvq1HUOh4m1ziQQ
-	 btAndgH9o5S9g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x1JVR-00000003Bso-0fIi;
-	Tue, 01 Sep 2026 08:06:09 +0000
-Date: Tue, 01 Sep 2026 09:08:41 +0100
-Message-ID: <87tso9mm0m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 04/20] arm64: Share more arm64 headers with s390
-In-Reply-To: <20260831145536.913567-5-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
-	<20260831145536.913567-5-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 01 Sep 2026 08:09:54 +0000
+Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-49991beee7aso41259715e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:09:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788250191; x=1788854991; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=C7nBgl70e5xfSJ2oqkVr0tglewdp5qWUVF45E6u5ip4=;
+        b=uS6Tyhrmtlban1GtTn4EsKlW5sSsZLK9Fa6f1pprspHlqUF6LvNq5iKYCG3Mx8NWWc
+         csBrLpkKrHF/ZN6YwZC0BAUdV/hWAWLabpwd/p96vSYy/o1YIgAIsh+hmmrj5A2Svuem
+         CuJx1DdPHXGml9Luqvd1jheE78ZEnYjydFIMhHDbaVjjkrqnI5+qx9uCqXC4NO/bmsEp
+         OBU/SeyLGl0iiToe9K7GmjcX7cmgldCJ1OoLitXjhbRQlUJ48K9ynFLhF4kHa+Cc1zRR
+         302SzyBbHQ4/Tt60auBmpeEJvb6yDSScQ1lTjrgi+WaSjcDwRwsMIfhFDJX1xPXrnlvC
+         jWnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788250191; x=1788854991;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=C7nBgl70e5xfSJ2oqkVr0tglewdp5qWUVF45E6u5ip4=;
+        b=n0GoJYEGUtWco2SA2o3N0v51IanbhWLxdtGdndXGI+dUGA3RBusE9Nui9jkIOwUrf3
+         P9Fo+Azf6OcC5/btjG4STwSnmsLY4OpNVLBQFQo4I2lLeV1qAYCTf1kOdGgjr9Hyi7y8
+         laMinMGPLr9EVB5DseYOTN+td2X0krnpQs6LQf/YHIWgWNUP5qh+71vJh7uWDJZe5eMm
+         uj/OyfABr+WRxRZp+ypaEJnKYj/bBk9aAFxzchB6q9KQLI4e41rlODqzZ8saf2J+h1yC
+         dsGAu2WC8l72kg8bymUQ4wmi8BPiyWmj0RivJ599es2dp73gjl1MLFKH2IydRPP+kSBd
+         GkuA==
+X-Forwarded-Encrypted: i=1; AHgh+RqJjB8x3FVpFvgSHM8swDigorVO3k/+ruqFbXOOnaoPTGFPFYLNOOMJ/ki0+/U7gplNBTjM/4YInjapIXYXxa9m@lists.infradead.org
+X-Gm-Message-State: AFuF++ma5/A3YGsQislJwZhNpXMprQdz7R9UxncCJhstXfQwWkRkIlug
+	w3u+1jeJmZIZbPWScllagaaZhXUr1LGgZhpZBhuNWRKRo8aA1ccKGahDkWxul0emKxEAvhJcvLg
+	lrilE7ngHGJnf6dHs2KHlOg==
+X-Received: from wmpx23.prod.google.com ([2002:a05:600c:1897:b0:499:b2be:d4b])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:8b88:b0:49b:4d64:bbc4 with SMTP id 5b1f17b1804b1-49cdc4403e4mr121681065e9.8.1788250190134;
+ Tue, 01 Sep 2026 01:09:50 -0700 (PDT)
+Date: Tue,  1 Sep 2026 09:09:24 +0100
+In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20260901080941.997769-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
+Message-ID: <20260901080941.997769-2-vdonnefort@google.com>
+Subject: [PATCH v5 01/18] KVM: arm64: Add pkvm_private_va_range_pa
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_010953_611057_7F80B37A 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,240 +93,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 15:55:19 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Mark more headers as shared or move definitions to an already shared
-> location if the context is similar. Most of them are required to
-> implement system register handling for the host.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/cache.h       |  3 +++
->  arch/arm64/include/asm/cputype.h     |  3 +++
->  arch/arm64/include/asm/kvm_emulate.h |  5 ++++-
->  arch/arm64/include/asm/kvm_host.h    | 18 +++++++++++++-----
->  arch/arm64/include/asm/spectre.h     |  7 +++++++
->  arch/arm64/kvm/sys_regs.h            |  1 +
->  6 files changed, 31 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
-> index 10a7ffadee3d..f9dbc8143dc9 100644
-> --- a/arch/arm64/include/asm/cache.h
-> +++ b/arch/arm64/include/asm/cache.h
-> @@ -8,6 +8,7 @@
->  #define L1_CACHE_SHIFT		(6)
->  #define L1_CACHE_BYTES		(1 << L1_CACHE_SHIFT)
->  
-> +#ifdef ARM64_S390_COMMON
->  #define CLIDR_LOUU_SHIFT	27
->  #define CLIDR_LOC_SHIFT		24
->  #define CLIDR_LOUIS_SHIFT	21
-> @@ -25,6 +26,8 @@
->  /* Ttypen, bits [2(n - 1) + 34 : 2(n - 1) + 33], for n = 1 to 7 */
->  #define CLIDR_TTYPE_SHIFT(level)	(2 * ((level) - 1) + CLIDR_EL1_Ttypen_SHIFT)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * Memory returned by kmalloc() may be used for DMA, so we must make
->   * sure that all such allocations are cache aligned. Otherwise,
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index 1fa29616e586..a5fd2b749b3b 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -5,6 +5,7 @@
->  #ifndef __ASM_CPUTYPE_H
->  #define __ASM_CPUTYPE_H
->  
-> +#ifdef ARM64_S390_COMMON
->  #define INVALID_HWID		ULONG_MAX
->  
->  #define MPIDR_UP_BITMASK	(0x1 << 30)
-> @@ -259,6 +260,8 @@
->  #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
->  #define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_EL1_NFD1 | TCR_EL1_NFD0)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #ifndef __ASSEMBLER__
->  
->  #include <asm/sysreg.h>
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 09f04a5686a1..6cd9b244d82e 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -23,6 +23,7 @@
->  #include <asm/cputype.h>
->  #include <asm/virt.h>
->  
-> +#ifdef ARM64_S390_COMMON
->  #define CURRENT_EL_SP_EL0_VECTOR	0x0
->  #define CURRENT_EL_SP_ELx_VECTOR	0x200
->  #define LOWER_EL_AArch64_VECTOR		0x400
-> @@ -35,6 +36,8 @@ enum exception_type {
->  	except_type_serror	= 0x180,
->  };
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #define kvm_exception_type_names		\
->  	{ except_type_sync,	"SYNC"   },	\
->  	{ except_type_irq,	"IRQ"    },	\
-> @@ -525,13 +528,13 @@ static __always_inline bool kvm_vcpu_abt_issea(const struct kvm_vcpu *vcpu)
->  	}
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
->  {
->  	u64 esr = kvm_vcpu_get_esr(vcpu);
->  	return ESR_ELx_SYS64_ISS_RT(esr);
->  }
->  
-> -#ifdef ARM64_S390_COMMON
+Mappings in the pKVM private range are not identity mapped, making the
+standard __hyp_pa() unsuitable for translating these addresses.
 
-This could have been done from the beginning, in the previous series.
-I keep asking you to reduce the churn...
+Introduce pkvm_private_va_range_pa() to resolve physical addresses for
+this range by walking the hypervisor page-table. This will be useful for
+the upcoming pKVM heap allocator.
 
->  static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
->  {
->  	if (kvm_vcpu_abt_iss1tw(vcpu)) {
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index f9e90ef9ee4b..2ca5fbc39f15 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -349,6 +349,7 @@ enum fgt_group_id {
->  	__NR_FGT_GROUP_IDS__
->  };
->  
-> +#ifdef ARM64_S390_COMMON
->  struct kvm_vm_id_regs {
->  	/*
->  	 * Emulated CPU ID registers per VM
-> @@ -368,6 +369,8 @@ struct kvm_vm_id_regs {
->  	u64 ctr_el0;
->  };
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-That's another example of pointless churn. You could have added this
-structure at a convenient spot, where you already have S390 markers.
-
->  struct kvm_arch {
->  	struct kvm_s2_mmu mmu;
->  
-> @@ -1240,9 +1243,6 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
->  		__v;							\
->  	})
->  
-> -u64 vcpu_read_sys_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
-> -void vcpu_write_sys_reg(struct kvm_vcpu *, u64, enum vcpu_sysreg);
-> -
->  struct kvm_vm_stat {
->  	struct kvm_vm_stat_generic generic;
->  };
-> @@ -1322,11 +1322,9 @@ int kvm_handle_cp14_32(struct kvm_vcpu *vcpu);
->  int kvm_handle_cp14_64(struct kvm_vcpu *vcpu);
->  int kvm_handle_cp15_32(struct kvm_vcpu *vcpu);
->  int kvm_handle_cp15_64(struct kvm_vcpu *vcpu);
-> -int kvm_handle_sys_reg(struct kvm_vcpu *vcpu);
->  int kvm_handle_cp10_id(struct kvm_vcpu *vcpu);
->  
->  void kvm_sys_regs_create_debugfs(struct kvm *kvm);
-> -void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
->  
->  int __init kvm_sys_reg_table_init(void);
->  struct sys_reg_desc;
-> @@ -1337,6 +1335,11 @@ int __init populate_nv_trap_config(void);
->  void kvm_calculate_traps(struct kvm_vcpu *vcpu);
->  
->  #ifdef ARM64_S390_COMMON
-> +u64 vcpu_read_sys_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
-> +void vcpu_write_sys_reg(struct kvm_vcpu *, u64, enum vcpu_sysreg);
-> +int kvm_handle_sys_reg(struct kvm_vcpu *vcpu);
-> +void kvm_reset_sys_regs(struct kvm_vcpu *vcpu);
-> +
->  unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
->  int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
->  int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
-> @@ -1538,8 +1541,10 @@ struct kvm *kvm_arch_alloc_vm(void);
->  	(system_supports_32bit_el0() &&				\
->  	 !static_branch_unlikely(&arm64_mismatched_32bit_el0))
->  
-> +#ifdef ARM64_S390_COMMON
->  #define kvm_vm_has_ran_once(kvm)					\
->  	(test_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &(kvm)->arch.flags))
-> +#endif /* ARM64_S390_COMMON */
->  
->  static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
->  {
-> @@ -1567,6 +1572,7 @@ static inline void kvm_hyp_reserve(void) { }
->  void kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu);
->  bool kvm_arm_vcpu_stopped(struct kvm_vcpu *vcpu);
->  
-> +#ifdef ARM64_S390_COMMON
->  static inline u64 *__vm_id_reg(struct kvm_vm_id_regs *id_regs, u32 reg)
->  {
->  	switch (reg) {
-> @@ -1640,6 +1646,8 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
->  	(kvm_cmp_feat(kvm, id, fld, >=, min) &&				\
->  	kvm_cmp_feat(kvm, id, fld, <=, max))
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /* Check for a given level of PAuth support */
->  #define kvm_has_pauth(k, l)						\
->  	({								\
-> diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
-> index 296ae3420bfd..e1c13797ea7c 100644
-> --- a/arch/arm64/include/asm/spectre.h
-> +++ b/arch/arm64/include/asm/spectre.h
-> @@ -19,6 +19,7 @@
->  #include <asm/cpufeature.h>
->  #include <asm/virt.h>
->  
-> +#ifdef ARM64_S390_COMMON
->  /* Watch out, ordering is important here. */
->  enum mitigation_state {
->  	SPECTRE_UNAFFECTED,
-> @@ -26,6 +27,8 @@ enum mitigation_state {
->  	SPECTRE_VULNERABLE,
->  };
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  struct pt_regs;
->  struct task_struct;
->  
-> @@ -81,7 +84,9 @@ static __always_inline void arm64_apply_bp_hardening(void)
->  		d->fn();
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  enum mitigation_state arm64_get_spectre_v2_state(void);
-> +#endif /* ARM64_S390_COMMON */
->  bool has_spectre_v2(const struct arm64_cpu_capabilities *cap, int scope);
->  void spectre_v2_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
->  
-> @@ -93,7 +98,9 @@ bool has_spectre_v4(const struct arm64_cpu_capabilities *cap, int scope);
->  void spectre_v4_enable_mitigation(const struct arm64_cpu_capabilities *__unused);
->  void spectre_v4_enable_task_mitigation(struct task_struct *tsk);
->  
-> +#ifdef ARM64_S390_COMMON
->  enum mitigation_state arm64_get_meltdown_state(void);
-> +#endif /* ARM64_S390_COMMON */
-
-Again: how about grouping things in a logical way so that you can
-minimise the number of annotations? The two prototypes you single out
-are clearly related to the enum at the beginning of the file, and
-don't depend on anything else.
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+index 6e83ce35c2f2..85f1e3c711d9 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+@@ -30,5 +30,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+ 				  unsigned long *haddr);
+ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
++phys_addr_t pkvm_private_va_range_pa(void *va);
+ 
+ #endif /* __KVM_HYP_MM_H */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..260e14d6d200 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -17,6 +17,8 @@
+ #include <asm/lse.h>
+ #include <asm/rwonce.h>
+ 
++#include <linux/cleanup.h>
++
+ typedef union hyp_spinlock {
+ 	u32	__val;
+ 	struct {
+@@ -122,4 +124,6 @@ static inline void hyp_assert_lock_held(hyp_spinlock_t *lock)
+ static inline void hyp_assert_lock_held(hyp_spinlock_t *lock) { }
+ #endif
+ 
++DEFINE_LOCK_GUARD_1(hyp_spinlock, hyp_spinlock_t, hyp_spin_lock(_T->lock),
++		    hyp_spin_unlock(_T->lock))
+ #endif /* __ARM64_KVM_NVHE_SPINLOCK_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 3b0bee496bff..755630c0d15e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -90,6 +90,24 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
+ 	return ret;
+ }
+ 
++/**
++ * pkvm_private_va_range_pa - Translate a private VA to a physical address.
++ * @va:		The private virtual address to translate.
++ *
++ * Return: The physical address corresponding to @va.
++ */
++phys_addr_t pkvm_private_va_range_pa(void *va)
++{
++	kvm_pte_t pte;
++	s8 level;
++
++	guard(hyp_spinlock)(&pkvm_pgd_lock);
++	WARN_ON(kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)va, &pte, &level));
++	WARN_ON(!kvm_pte_valid(pte));
++
++	return kvm_pte_to_phys(pte) + ((u64)va & (kvm_granule_size(level) - 1));
++}
++
+ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+ 				  enum kvm_pgtable_prot prot,
+ 				  unsigned long *haddr)
 -- 
-Jazz isn't dead. It just smells funny.
+2.55.0.897.gb25b4bd76c-goog
+
 
