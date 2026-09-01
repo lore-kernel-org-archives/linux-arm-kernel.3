@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E59C624D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CC1C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iB+tsdMn4ZgLtwxcSYrc6KBKmwXZnemZ13eusCwI6U=; b=mPDgcjI1nVsGw4GcXZoxRzSeh1
-	uxtjiAUl2IA5DBh+NZjPIftRWoiRxzMisKhuSKqWOBkDnB6KHBMLU/UuMygaAANFLTmnBJDHD97Qv
-	ciPGnR1gWjXy/ZSxaV6ueW9QZ88VvfU3z3AfzvBhtNZX0yABlLBbQ4s+VLHzfApaJ/dWWq/OwlSql
-	zKM0vG2qkSYmgwYpxsMxnqugM4GnqAMn9gDuAYBgEoAyXBBFjNbANMWK/15zZSaemZ1luKLle8XqB
-	AKldgEKw3NJqP55deAqHeln601SjazNEVhfWDfMhpcEmk/oX4dFRVPN3BuVTFVJDKcAMsjzOHcK0H
-	Siohk6Tw==;
+	bh=OXm2M9DNvJ99auIy9XohmbJRDNnWTj1OOy5cYsVWUhw=; b=BGt2f/yfm85dFPZWVZNpicmQ58
+	t4JxroDcyuZYio2bAAAKYECvHA7ao8ulhSFMVFS/O2BFiR8jMmG1JHdKWW5PBrRbQg1+YQ3sfN5D1
+	dTHpmRMESsRy37bguIjj5gq6PHaBN28awZDFApY5x1By91AMQuGUO/0Kyv0bpRS7JRGRL9HteC1uy
+	+oRJS20b+nJUuMQhN6/tuLcrL4GS2oQEKH4rh1L3KklV7T42MHmjGhlVqO3LkjxjfckI4qgJGiUeg
+	+qz+5VWN9u5TCyasgq5z6xol1J6Xj/sceFUi8WznEUE0hKPoDYRHA3H2za9Ex6Cep9QkY/pMYFwuK
+	psSiB9PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TaC-0000000D1oG-3XHy;
-	Tue, 01 Sep 2026 18:51:44 +0000
+	id 1x1TaK-0000000D23U-04WJ;
+	Tue, 01 Sep 2026 18:51:52 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZN-0000000D0gH-0CgY;
-	Tue, 01 Sep 2026 18:51:00 +0000
+	id 1x1TZR-0000000D0k8-2nTJ;
+	Tue, 01 Sep 2026 18:51:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288650;
-	bh=FYdmAkPWFKCF8O++onHpEmGeuQyVm5oG12OGbdUPBSU=;
+	s=mail; t=1788288653;
+	bh=Zn+3yeN9Rme+fj1mMWRS/y1YS+3AEJGqzPP55xPQzUk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I9EWgqCEXTO1HQHg65SdoSbw5hytYZgMJMA6p8u+jfLmpEjrhQGG4EJiMqZnRCDsB
-	 Dc0di44ZLXRA8tRKhF1P6oTNQt94LGIvGkt2iERzqSi6/USBZn9VGT/olY9/vut1Lu
-	 X1gy2To1yHvCtyQAhZnSjelA83+9OSrXVBAfu7CCuV++LfRlBJWCyGb+WbMUjll8yp
-	 VCat2m9yWQRBtBO/IebG2njy7jfYa8B30zxBTw3khcaCe/ZQqV8Y2aoiQKZLkso+6B
-	 fjQ7gGCnavuBP+4XqExdhIai0DqfCQGnyHih70BTHcLhD4h2cGrTodPmgOHp5Ql/H/
-	 hOUH8pBl3Vdow==
+	b=nehOE6mARkUsJttmQXp7DeJKRFQBJQTd0hcxP94Q/Kv459JsOVp5TamWIdkp0Pv2K
+	 Xv3awKZHLGFGpX7u8M+ypuIQv5jK9hR8TPutGQfF5I1qMusRqmdOsYpBf1lImOPymj
+	 WbiME8lphrkk8QqTpBaTnE42Ia2VQBleSakU+5Ei+hm2TSqQ2TjniLCO8akWLyNL5h
+	 80aWUcAcIUr61ctJc7Ld4kLFlkbi+MVcpAi9bAmTDJ1eI6kz0PY5QJvqMl3EDkyN7p
+	 pfDbJ2n6X0NHMOEuoGR8ukqNrW57ozmKb72km7Lax3jptpOg5OKtvrkJH1g6H7MdYU
+	 t4jrdVn+CeoyA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADF5117E361B;
-	Tue, 01 Sep 2026 20:50:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B77D417E373E;
+	Tue, 01 Sep 2026 20:50:53 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:50:37 +0300
-Subject: [PATCH v11 13/74] drm/bridge: Fix NULL deref in drm_bridge_add()
- for legacy bridges
+Date: Tue, 01 Sep 2026 21:50:41 +0300
+Subject: [PATCH v11 17/74] drm/display: bridge_connector: Use cached
+ connector status in .get_modes()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-13-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-17-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,11 +75,14 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+ linux-fbdev@vger.kernel.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_115056_025018_D0B0FDFD 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260901_115057_907309_3E4280C0 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +97,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Legacy bridge drivers that embed struct drm_bridge in a zero-initialized
-allocation, rather than obtaining it from devm_drm_bridge_alloc(), never
-run INIT_LIST_HEAD() on bridge->list, leaving next and prev NULL.
-list_empty() compares next against &bridge->list, so it reports such a
-list head as non-empty.  list_del_init() therefore runs and dereferences
-the NULL pointers, panicking the kernel during probe.  Only builds with
-CONFIG_DEBUG_LIST survive, with a list corruption report.
+Replace the active drm_bridge_connector_detect() call in get_modes()
+with a read of the already-cached connector->status.
 
-This affects rk3066_hdmi and the i.MX8 LDB bridges, which still embed a
-bridge in a devm_kzalloc()'d struct.
+The .get_modes() callback is only invoked from
+drm_helper_probe_single_connector_modes(), which has already retrieved
+the connector status.  Calling detect again is redundant and triggers a
+duplicate hotplug event.  This is also a prerequisite for switching to
+the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
+available in the .get_modes() path.
 
-Initialize the list head when it is found to be NULL, so that the bridge
-ends up with a valid empty list head and list_del_init() is only reached
-for bridges that can actually be linked.
-
-Fixes: 17805a15d175 ("drm/bridge: add list of removed refcounted bridges")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260731175016.C5D591F00AC4@smtp.kernel.org/
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 2c457ad74f3b..a8b6df5c13ea 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -453,9 +453,16 @@ void drm_bridge_add(struct drm_bridge *bridge)
- 	 * If the bridge was previously added and then removed, it is now
- 	 * in bridge_lingering_list. Remove it or bridge_lingering_list will be
- 	 * corrupted when adding this bridge to bridge_list below.
-+	 *
-+	 * Legacy drivers that allocate the bridge with kzalloc() rather than
-+	 * devm_drm_bridge_alloc() leave list.next NULL. Such a bridge cannot
-+	 * be on any list, and list_del_init() would dereference NULL, so
-+	 * initialize the list head first.
- 	 */
- 	mutex_lock(&bridge_lock);
--	if (!list_empty(&bridge->list))
-+	if (!bridge->list.next)
-+		INIT_LIST_HEAD(&bridge->list);
-+	else if (!list_empty(&bridge->list))
- 		list_del_init(&bridge->list);
- 	mutex_unlock(&bridge_lock);
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 63cdc6eab132..a73c177a3c10 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -328,12 +328,10 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+ 					       struct drm_bridge *bridge)
+ {
+-	enum drm_connector_status status;
+ 	const struct drm_edid *drm_edid;
+ 	int n;
  
+-	status = drm_bridge_connector_detect(connector, false);
+-	if (status != connector_status_connected)
++	if (connector->status != connector_status_connected)
+ 		goto no_edid;
+ 
+ 	drm_edid = drm_bridge_edid_read(bridge, connector);
 
 -- 
 2.55.0
