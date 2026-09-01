@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A1FC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F74AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8WFJH0ESiWBm+RbvdI7K60WSeg5h8yrXuENGkm3xh5c=; b=oMIGcbEO8NrWp0f3+4tvjH+Fxf
-	C96bZn2eQKPQJJ6caxCkOaaXFw9bh3hHmh1w9cQNFF3c80Mq3Q/gKC6yU2ZSBBFlwEYDVG/jHDHRj
-	meEI3oUxCsB2Bn+GN9kx+YRRROv88okUuBryltBJ3PZS+baXqWaCrIxd4wMmAVgnQyGaanwO9N8lt
-	kuyNMKREEuc08nLmfTm40cmyMB9hPiHApfMmtVT239AEuWOzuc+A9YlJnNOC4f+/s5+1l/T4iSZvn
-	BTIC8R4z4Nd28VZhbmDIww4xValTiIhMH4JOQgWubTQIZ6DADsQ14aRqkYVxb6wKLWE7md+rF+rnF
-	m7ia/nFQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EcnqIGbKAVtdyFI4AnAxKNCEqkoHQsPJ+QMG1G+XIUo=; b=QZXijWdtsNq4Jrhyh+WmQ1paLx
+	8+e/vXMoHpgCZUKQObyw2OaZb+xZXXiqQFVaEEKdoniObuAjNFWDLzuJIIh273eij/S3fVyWvXGfY
+	mdYyaWKV6ILiEW1K+9+NYf365C9cUMGqjBnt5sNnK8AsFQJpx7zUD7x3hnI2wXIeEYDALsfS0Tttt
+	N3AvdIoaWh0G3rxmFfYweUdNpdCQldke15Qs7REj1khWN4PWO5a3ifuDFQ+OpBnXP0BATILI30wHR
+	2c0C3MvxJE4t0t86EBUE28h9omz3r998N5d+tTduOGshicM8W8M9/ayEaQAERSukDTfekPBge4OPw
+	5+aGURhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QFu-0000000CT0f-04B2;
-	Tue, 01 Sep 2026 15:18:34 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1x1QG1-0000000CT2h-0S9M;
+	Tue, 01 Sep 2026 15:18:41 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QFr-0000000CSzy-2op7
+	id 1x1QFz-0000000CT1s-00B1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:18:32 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-85457d780adso282438b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:18:30 -0700 (PDT)
+	Tue, 01 Sep 2026 15:18:40 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-85237ffb172so202348b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:18:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788275910; x=1788880710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8WFJH0ESiWBm+RbvdI7K60WSeg5h8yrXuENGkm3xh5c=;
-        b=cAtOREJwIL+TjO9qEFa7C4bSv00Ppg9xgwpvy2dITq41PQTlZi//7mdxjLxp7tu+CF
-         PAYaw/Ud5vjLDPmrHJRlzQReyNMKAAgxClfCduqi9hPfe4XwHNsI1a+G7WZI0Hy5/yLM
-         sxDF4k03son1a4Fyzyt0o40YcmvpSyDOiG5yDB6oFlMmZwXAFJRrc4SukHlQZncdJOuq
-         EY31pNEltC5fDUJoTPEigAU5Wx3JAHlctrf4yW0ZjJPzk6IBnhG3OMTojf0rPI8j9OVL
-         1U+t8DU8OFWSo9Rx1uetszei7yh8+wvmoGO9hZfY7kHaCr3TbrB+bpYZKtMrgGubgvis
-         kyEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788275910; x=1788880710;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788275918; x=1788880718; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8WFJH0ESiWBm+RbvdI7K60WSeg5h8yrXuENGkm3xh5c=;
-        b=ecqzRSqiYUY+4UV+96DnVtc9sAh4TY/W0I22WRojHibqM36T2crBMtuyeHWyzsw7hp
-         2jdHO3PooPBHwAaKmJMThhzJucHPPCWwS+6+PmRuNdnZ51G1yJA0c4acBdKSPSxe+wIn
-         BEM1RoG9AdUJVqiIatqL+x2uhejfQ7iMbonYEI61QpXn8sF5vhjBp4InUm0dlPqZ3tsR
-         ipFJf2ytkpXDHSahk1PDXTYsXOh7SLcOdSIb3ZnrXZLeycJOUa7rp/GocszyaOOeLR45
-         pCGbb9p4bEnvYwBf2+8j7hXlDGLGJMUjI7uY/zz52rK/p7fdxiwY4ywfkd0oNK+CzIa0
-         ooNw==
-X-Forwarded-Encrypted: i=1; AHgh+RovjoksHxrnUVdiDy3ALKFMJ/KUa+8R+RZ+s+kutNKRBc/2AWdAywWig7dBf4UKJGNOtHvJ7T51QFmYNpyBH62F@lists.infradead.org
-X-Gm-Message-State: AFuF++mRoVMqCRENOuJxkUHRw1SiIhJkMPJzD1cbkSPDCM9Cbjo+kPov
-	u7BmPDhLPiW2XOfow3sU8On75Yq2AM/9Rdcp3aOBbIY644TYHPxOOKO4
-X-Gm-Gg: AR+sD10zK38OMuw6+shDhMKzkGn6XfzaLCCRvkPcwxnbFGt2V8bk8exwjRubwSQ7Bte
-	Wpjn/YizAezgbcFh6c02WQ+rLjh5ZG7lp9u+L5G8EcAJ7jVCJNu3H9NN6dtFQPLQ1zBeixhbRcY
-	hEiJyXMwjGxKdrQGkaieUfhCwGZX0RSMCaUZvrpSz/syIZSqk9e71h+eOxtx4k5owHq3FvgzOei
-	hdzv3O39BGsMOrw5pwMyjxhpTJhAOgjeImmjQ8qPUyzgdoGeGRFK5VaOFS95WkFU+eJeHhzjmK1
-	Pv3zBYtGDiR5uqC10uP+FcnBUFj/0e3c/L4QZkZa5vq985aqnWHUuS5CYB+ig8NWWl/t3+vBgIQ
-	ZBzstKjgHTY7e/0evCaqGntVdc6SckSdPaGKaU3UFaWuZaWUkz3Xc5YxSl9FpA0l0X1modDTvHx
-	zh1ceQlpcIX41tsf1sDB3aEm6Evdghe/QJt9QMjzd450mq4OBnKNxJepUvgpKnZKkaQPwfVqpsD
-	IrjoFpBA+t5iFmjB6hwxg7V1w==
-X-Received: by 2002:a05:6a00:4a07:b0:850:a86b:6ce1 with SMTP id d2e1a72fcca58-85625c2c844mr22271937b3a.0.1788275909909;
-        Tue, 01 Sep 2026 08:18:29 -0700 (PDT)
+        bh=EcnqIGbKAVtdyFI4AnAxKNCEqkoHQsPJ+QMG1G+XIUo=;
+        b=P18kxRCVYoE28VnuAgtQGsW/vHGDSFBwvG0VvvHPKa/C7yzq9T88A5U7YqdrbzI49W
+         XW76ASUUTPaF35e//plyMGnU93dYS8MYWuYCdH61ddrvE1Tc66PMBG/mnWIi0RHNdka/
+         r1CbXKb4aIlxhURYIp4QUBXE9ANYtikA1kp/BNJW8UgGjzX6Hjfk7WLEvC4Sm76YLTN9
+         51pS0vMZHM6VxYqdIvsrFkL/BoMHp6JzgtoJ+9TT6pj9/MkZADN/ZmMueLZiNiewT/ZW
+         xROjhEvPM6GqjXwVz0lq41KMGLu9t3eLqbohRW4Anv+5ZLvJ96sv7ZPHqvEyM32cFq0N
+         K6TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788275918; x=1788880718;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EcnqIGbKAVtdyFI4AnAxKNCEqkoHQsPJ+QMG1G+XIUo=;
+        b=PSuIGTpZkL3n5lZnBbwfThLFSdfjwfE1/r6dX2orJmIor3pj5q7sgyA1dpOaeRPx9V
+         bHVpqKgGDO3ePn3veEmHa6jkNteydKvf6vPD8ndCJp1btLOseJIrSPRMZz5O8uEXU3aw
+         ClgVTkWSVxFDChN8dY/DN/ZeaC/FQcxXkgt9wDd9puNyW4Y3kgNGWBqLxx5fUHa7q9Oh
+         ecv4qVgz6ao2SOqJKFDQqXw/BCKlQPhpDNvkJ1WPagjF01DZOackmoMCy8qEEyHSxaoz
+         8ng+twt0/8pGPzb5KVt5iCS+4ctq/dGX5BbPdy5KLd2s9D22fjH1uEdfI5g0dWfLC8Pz
+         FQow==
+X-Forwarded-Encrypted: i=1; AHgh+RpyKlKuKTmYownMt+nEYsQHESVrXcacs4LLr5cczJ9Z0hzwP67Pu05xJIq80SSeYmFL8Z9jMs+ZSItG2+MvjT+3@lists.infradead.org
+X-Gm-Message-State: AFuF++lOFiW6VX48zSpSgSZ43oeg2QOD61BiBvooSYU8R1aqM8ryBtTD
+	1wGS86Zf551lh9Xi/DjyLeYD/S1pt0toVuZ9/G0mZQyzh+54+U3k3UB9
+X-Gm-Gg: AR+sD10rVMF+j42Nd361QPOafjK7IzX3IwM0vZXKkPvQJ4BcjBEmV40HfdMWKAOI5YR
+	MLcQGT0+geKcGjaj8CK7Ka0XRLrKV8e5LQmjLhlbVVuk2SHUbCZUXwdhKnDq8MB+BSVLZlp84/C
+	tSgO+Ia7/k/6i3qeAaX0qCXzF9P4Le7PyZbypU59XDY9zLDZkX6n+o5VaJkMZ3nwgcRA/qeA3FK
+	HH+YUF7DAIgzRg9818FmFKvB5ZksTOd4pJM6UadR8BTaV/mr8wi2UZ8qQUf8E0J5P8VXJu8sn9l
+	TFt/JXzbumoeV0A0tARehedp0sG+CqG9t2zp0G4imGgj+7hDcce4Tad3VAEGTFZP+/TbspAhk/L
+	tQmY49bzCdOaJwk4QitG9NFUw2lKBv5ZNWqcmGFEQPKymjB14IMQjMzFmU6TdD/M9rbx9uu0ej2
+	qMEOc4lXJ/uLdc4y68Z7vi1/X2ZyGI4MBw8k0NUNInCArn8Bhtq0y4X8P6Kdgw3mDMDUPXVCLMu
+	cms8cs8Ry+BJW5z4YIQLFb3zl/sgyoEGSqn
+X-Received: by 2002:a05:6a20:7f82:b0:3bf:b228:10b4 with SMTP id adf61e73a8af0-3d26795f2e7mr31819840637.2.1788275917973;
+        Tue, 01 Sep 2026 08:18:37 -0700 (PDT)
 Received: from o6.lan ([240e:391:ed0:47d0::1])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db24f33a0sm89911b3a.9.2026.09.01.08.18.20
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db24f33a0sm89911b3a.9.2026.09.01.08.18.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 08:18:27 -0700 (PDT)
+        Tue, 01 Sep 2026 08:18:37 -0700 (PDT)
 From: Xueyuan Chen <xueyuan.chen21@gmail.com>
 To: akpm@linux-foundation.org
 Cc: david@kernel.org,
@@ -98,15 +99,17 @@ Cc: david@kernel.org,
 	peterz@infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 0/3] mm: make persistent huge zero folio read-only
-Date: Tue,  1 Sep 2026 23:18:15 +0800
-Message-ID: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+Subject: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+Date: Tue,  1 Sep 2026 23:18:16 +0800
+Message-ID: <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_081831_715601_ABF981BC 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260901_081839_044323_AE55EFFF 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,90 +124,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The persistent huge zero folio is shared globally and must remain zero
-after initialization. As Jann Horn pointed out [1], kernel bugs can write
-to pages that are intended to be read-only, including in security-sensitive
-paths. Protecting the folio's direct-map mapping turns such writes into
-faults instead of silently corrupting the shared zero page.
+The persistent huge zero folio is shared globally and should stay zero
+after initialization. As Jann Horn pointed out [1], kernel bugs have
+ended up writing to pages that were meant to be read-only, including in
+security-sensitive cases. Making the folio read-only in the direct map
+turns such writes into faults instead of silent zero-page corruption.
 
-This series makes that protection available to MM code and applies it to
-the persistent huge zero folio. It is best-effort: arm64 and x86 protect
-the permanent direct-map mapping, while highmem folios and architectures
-without support retain the existing behavior.
+Add a page-based helper consistent with the existing direct-map interfaces.
+Handle TLB invalidation in the architecture implementation; unsupported
+architectures retain their current behavior.
 
-The interface remains page-based to match the existing direct-map helpers.
-The wider address-based conversion discussed in [2] can be handled
-separately. Permission changes and TLB invalidation stay together in the
-architecture code, avoiding a noflush interface that is easy to misuse.
+Protect the folio after initialization. Skip highmem folios, which have no
+permanent direct-map mapping.
 
-Patches 2 and 3 add arm64 and x86 support. The approach follows the
-huge-zero-folio discussion in [3].
+Inspired by Jann Horn's read-only zero page work [1] and follow-up
+discussion [3] with Yang Shi.
 
-Link: https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/ [1]
-Link: https://lore.kernel.org/linux-mm/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org/ [2]
-Link: https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/ [3]
+Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@google.com [1]
+Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org [2]
+Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com [3]
 
-v6 -> v7:
-- Rebase onto the latest mm-unstable and adapt to huge_zero_init()
-  (per David).
-- Switch to a page-based interface and move TLB flushing into the
-  architecture implementations (per Will, Dave and David).
-- https://lore.kernel.org/r/20260730090647.2401252-1-xueyuan.chen21@gmail.com/
+Suggested-by: David Hildenbrand <david@kernel.org>
+Suggested-by: Usama Arif <usama.arif@linux.dev>
+Co-developed-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Lance Yang <lance.yang@linux.dev>
+Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+---
+ include/linux/set_memory.h | 17 +++++++++++++++++
+ mm/huge_memory.c           | 13 ++++++++++---
+ 2 files changed, 27 insertions(+), 3 deletions(-)
 
-v5 -> v6:
-- Patch #01: Skip the direct-map permission change and TLB flush for
-  highmem folios, which have no permanent direct-map mapping.
-- https://lore.kernel.org/all/20260727143426.1077133-1-xueyuan.chen21@gmail.com/
-
-RFC v4 -> v5:
-- Drop the RFC tag.
-- No code changes.
-- https://lore.kernel.org/all/20260718095647.182592-1-xueyuan.chen21@gmail.com/
-
-RFC v3 -> RFC v4:
-- Patch #01: Flush the direct-map range after changing it read-only, since
-  the folio was cleared through writable mappings after SMP initialization
-  (per Usama, thanks!).
-- Patch #01: Keep the flush in the caller to preserve the
-  set_direct_map_ro_noflush() contract and make the flushed range explicit.
-- Patch #01: Clarify the noflush API contract and the reason stale writable
-  translations must be invalidated.
-- https://lore.kernel.org/linux-mm/20260706130440.9295-1-xueyuan.chen21@gmail.com/
-
-RFC v2 -> RFC v3:
-- Patch #01: Replace arch_make_pages_readonly() with
-  set_direct_map_ro_noflush() in the existing set_direct_map* family
-  (per Mike and David, thanks!).
-- Patch #01: Use a direct-map address and number of pages, and document the
-  direct-map-only and no-TLB-flush semantics (per David, thanks!).
-- Patch #02 and #03: Update the arm64 and x86 implementations for
-  set_direct_map_ro_noflush().
-- https://lore.kernel.org/linux-mm/20260609143801.7917-1-xueyuan.chen21@gmail.com/
-
-RFC v1 -> RFC v2:
-- Patch #01: Drop the READONLY_HUGE_ZERO_FOLIO Kconfig option
-  (per Dave, thanks!).
-- Patch #01: Replace the huge-zero-folio-specific hook with a generic
-  page-range hook (per David, thanks!).
-- Patch #02 and #03: Update the arm64 and x86 implementations for the new
-  hook.
-- https://lore.kernel.org/linux-mm/20260527035607.14919-1-xueyuan.chen21@gmail.com/
-
-Xueyuan Chen (3):
-  mm: make persistent huge zero folio read-only
-  arm64/mm: add set_direct_map_ro()
-  x86/mm: add set_direct_map_ro()
-
- arch/arm64/include/asm/set_memory.h |  2 ++
- arch/arm64/mm/pageattr.c            | 12 ++++++++++++
- arch/x86/include/asm/set_memory.h   |  2 ++
- arch/x86/mm/pat/set_memory.c        | 10 ++++++++++
- include/linux/set_memory.h          | 17 +++++++++++++++++
- mm/huge_memory.c                    | 13 ++++++++++---
- 6 files changed, 53 insertions(+), 3 deletions(-)
-
-
-base-commit: 88297631d4d42f6004cb39c0ba3da7d2d10a616f
+diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+index 3fe293cfed8c..ed9ce04b18a1 100644
+--- a/include/linux/set_memory.h
++++ b/include/linux/set_memory.h
+@@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
+ #endif
+ #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+ 
++#ifndef set_direct_map_ro
++/**
++ * set_direct_map_ro - make a direct-map range read-only
++ * @page: first page in the direct-map range
++ * @nr: number of pages in the range
++ *
++ * Make the direct-map range starting at @page read-only and invalidate stale
++ * writable translations before returning.
++ *
++ * Return: 0 on success, or a negative error code on failure.
++ */
++static inline int set_direct_map_ro(struct page *page, unsigned int nr)
++{
++	return 0;
++}
++#endif
++
+ #ifdef CONFIG_X86_64
+ int set_mce_nospec(unsigned long pfn);
+ int clear_mce_nospec(unsigned long pfn);
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 54494c3fa983..742283b36d74 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -42,6 +42,7 @@
+ #include <linux/pgalloc_tag.h>
+ #include <linux/pagewalk.h>
+ #include <linux/cleanup.h>
++#include <linux/set_memory.h>
+ 
+ #include <asm/tlb.h>
+ #include "internal.h"
+@@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
+ 	huge_zero_folio = alloc_huge_zero_folio();
+ 	if (!huge_zero_folio) {
+ 		pr_warn("Allocating persistent huge zero folio failed\n");
+-	} else {
+-		huge_zero_pfn = folio_pfn(huge_zero_folio);
+-		count_vm_event(THP_ZERO_PAGE_ALLOC);
++		return 0;
+ 	}
++
++	huge_zero_pfn = folio_pfn(huge_zero_folio);
++	count_vm_event(THP_ZERO_PAGE_ALLOC);
++
++	/* Highmem folios have no permanent direct-map mapping to protect. */
++	if (!folio_test_highmem(huge_zero_folio))
++		set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_PMD_NR);
++
+ 	return 0;
+ }
+ 
 -- 
 2.47.3
+
 
