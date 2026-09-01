@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70858C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5650EC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVxT21+okXO7H1rZRlv527+HZuHOBJIShXeskdwzZ5E=; b=BNjd0VP50L37OHXp8EMqKzyC78
-	+rUYKSdkZ1Eo1F1auuLI2JuqaKZvebr3NU5qkc0SMW0Z0zK0RWQ9w4TG73mDsMUrb1/7JSS/H7BVc
-	aLEeIW0+Tv2xT9q4butnDNkF5x96Ypd01nClRdCIUTXR1ShKVWFTYFGTc3uH9Bkl1Zqzb/+ebctGz
-	JFyChxDpPNftrAobMo3BMY+7s9RV51x8e++Q+VQIkrxiyX6wnSdMEcbpxL77MrPfrQ2d1wo5hVygD
-	oCewq2xOM1U0fodFH2ACVsY8W3ZrvJa7BUGiAkOAFqSrKKySJb7J44NKD+eH5GaEf4nKgxZ5HYAco
-	B8ilirbw==;
+	bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=; b=XEzDMWFLqMBkzSfL1u2SaXVB71
+	864X6k8SIHsEUzSFgTPJdkUKWS06EYRvuuaPMP7kpRAGN0dK+kPn5SsV5VnDIQQVyuZlEZPBZb9XA
+	10cMufAJMh8Pi25eUJfEGdd0U6yZhRDwy9vcfFuc31n49NHjgYodYYN11SAFQ1mEGnti/1pu3G5MB
+	6NoyHA1E0M19khwDdMxx3ymopT4aVUc7u4SjGJt4ORi6UtFQeDEuIhloKv+veIE6g9IbPXSCV1rDf
+	vbrLH0sabcxtWmiC4b5DHnUSKR/iydRLrBEBqrD1MIB/Anrx+7F0YidGezBn92WibYhfWW0FXekAo
+	dDQKzqQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TMH-0000000CyxL-05eI;
-	Tue, 01 Sep 2026 18:37:21 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1x1TUt-0000000D044-431j;
+	Tue, 01 Sep 2026 18:46:15 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TME-0000000CywR-0Pz1
+	id 1x1TUq-0000000D03e-34Ec
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 18:37:19 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a20319d030so204133a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 11:37:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788287835; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JsObTBfaiv6XZzhC2GWUyFgkXaarmwIyR6XN2bVa2xQjCLrmZ1PE6chXStYRRsQtK9
-         Hk9Uvbcy1vnhzvZwVXNLqovz6WSvjYVNK2UuWS42EFZd0TmO9OnSPvfZXE4Cq8qjP3LZ
-         3bs0el1/1rsxT/mUaQmDEGjowumGOQxLdbTM1wHOK2C8pWsf4hkFx7O4vXdBGi3MtioG
-         Mp4w84WGMX/dZE/PyIp1Xn+DbEBKJYdTfgzmHin43KQ8aSn4S6H3hUEPaKs2EI7NzuVg
-         qlvkVSL2+GUrnaB7w0/XWYMQG/ae5Efa/hIoAKUyBQf4XEwf3nsqM/3raVYgHPfI333Z
-         UDkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=VVxT21+okXO7H1rZRlv527+HZuHOBJIShXeskdwzZ5E=;
-        fh=s3VpvAJD8qsBwh4Nk5YMiLiVtGSuQgEl9L5Cnjd04w0=;
-        b=dGcZ2Ri7hJrvR/mzCQZrmad/mz3D4Na7qSCT8L2qpg55y09F0hW8SpzKpM6pZ+WLa/
-         PPZ2ViTm878m12Gb1WnEr+yO3JbCuP+NKEZK/axoZMPrAxscut9FZkraZshpyoM9N7Kl
-         VSqU1Ko5h4fehOTmhZ9vj0WavVulDFQgsMOqoc/dl0O5fp2vBtvVq1e+kavmj8Hzy2rv
-         8qK4SIzfoVQlXhmZb7cinj93UewPV8wRVMYceGBwSdK07icJhwjEyE+Q6QpKMNTqrQg7
-         MyEVVCwurZqn4407djgUy+rZDDe6BqZjqHppUAeh9SgMymVWr+EuHUwlow2yPQb0Nkqe
-         ZnzA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 01 Sep 2026 18:46:14 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8558c0b26a8so147134b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 11:46:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788287835; x=1788892635; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VVxT21+okXO7H1rZRlv527+HZuHOBJIShXeskdwzZ5E=;
-        b=NE3MLhPgU959tGn/GJnxuH7/cXUB/dHVfJkKmw6BNrHxHqXMOxnOwY6MSWEJ2DuYo8
-         BwoYfl6XeJQfD7kU0/j8UsGymcEdMtTPY69HVIyQ9srFNrSvjrX/9BxEF1UrBWG/x0mT
-         ZzUDfjMycrR/pFRCydYDcKAK32oP1kjuBJEPzkHCNIiP38e+qVdtaRNZXAgo2+SXmugO
-         Om/V72LBreTYJzqcREWmqsYR5AO1XzVDn4+sX/ZT6CRzDHd+mumkwsqwQ6Y0veA7WEGw
-         +N7kRD5NlUZgnXn3bchN6N7ZV3IklFkDw0+FqVXINWDTOtz6OQHzSIs0qoeJr/uZLOBj
-         DjGw==
+        d=baylibre.com; s=google; t=1788288371; x=1788893171; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=;
+        b=eMsGAppMVqYT5+lYShPN3IEixSW3VId657YbRdQXjy2CTjavy49gaL571YZs2Vz2A6
+         +WD2A+AiluVUe9tArxDaZo2W4le5tRXQ+0dLQSqhXW2GAZ6j8mPZBgC+uj52HLqMWu8S
+         YvIUquL/J1NKAPG0eMfvaC+MR0YZoFX24DQNNDSSYAappqVRo1Q6PlQZFUq/OPmr4CE+
+         Zeb56heyIpqAgBih4k0NzZovCKW2AAbyE4j0Puizo5bRSBoheKN1UuhE+PW2OM4Qrv/F
+         meFWFD51VB+sdQPPMeuVHbd2FSCSUodPYHWJkyTAnNEHrM8SIsfrMOBpFike94UjN+ST
+         wYsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788287835; x=1788892635;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1788288371; x=1788893171;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VVxT21+okXO7H1rZRlv527+HZuHOBJIShXeskdwzZ5E=;
-        b=Ez8nZgkTlJOkWiBlBJ30kI2FXAtfgNiPlR7wwynMkj721dL1zFYe411sPffFxxjKbI
-         202SiKj4JTbpxg+gY96cNN14TOWMPq6HngJb2GUNTAtZVl7pnbYkqnuGYW78pa5gIocB
-         A3ccDdNywUUt5FhCOgOhRiRoxl7oZEjCNNVycyYq3ugX0k3YHt5HvvnaABTjZOyryqjF
-         YAqaa0lAovGLuEq/ifF3sJtdII4x+woRNH0RHwXZQFNrh4PiSh/bGC1wUtImU0AwtbAI
-         HqftYi0VqUvA69J8SxsXVY9laXK9dm4F+atJLsSifhddY/MoTAnGGmO0YZRr7TO2EOwN
-         t+Mg==
-X-Forwarded-Encrypted: i=1; AKwUvBzQrL0dHkNBA2yBwCIyz9OHmPta0UlofMGcoHu8e6WDtYq47BlN+wtGyDxr66FprysGBWYcTOuk3b8ZqIcx78MU@lists.infradead.org
-X-Gm-Message-State: AFuF++kFXr93qQvg4dv9IThhnum+DkmzRuROegL8zodADqcM0yxe6RVA
-	/TMQeqTmFzXhLh0Li9xEaaVnecBJtDiI/9r74RZpFK8ZBpILGqZspbPC8XTLtCyOVbsaAfpktDm
-	hztxYaRO3bhBYoAYCiQ9Pjy5We03tLOQ=
-X-Gm-Gg: AYBFou0qvKOa1S/ZzFqnt8Ln3/liYGqeIsAvKpqQyUBgBwA1Ww7VNFOqZNrPCA1eYoD
-	8hUs5aGyAHR5iyu+voVVCZUG4T+7M3fKHgyzPzLa+cIJXxO5xQziYzI4gwGcfiBaoxDlI/8zyYK
-	SPOVSZ0npTSF6lpByFelCVNG1omxggv0f9IRdY77BxKs/SJIZtC7P2OaHZOSqgcwymV5Fu8I7Wc
-	kWeqci260pnmrO/VbN2CZey0LhbaE2fT/sb0O90Dih9yJZcXDqmTvSRF7Vo1FHaBEVZBn/SyaKa
-	ULRFMAo81pQAaFyFAm8ylO0bHV3a34fYSs3tqFaEL/ExDqAYkZKY7OQBlgNB/UKfZBA2WCLdqvj
-	URq8geoTB7h0gHfULL9bpiFtpqXQ4dgb11oF3payXRhzj8ZCSLv9h46KFF7359w1pn0P47cqtLH
-	eB0N72bMEipTz5vaWfTpFhF0LMnXrnrgZpUY7UP3PQLm1fn4ZKNcFqdCw=
-X-Received: by 2002:a05:6402:c44:b0:6a6:32fa:1e9a with SMTP id
- 4fb4d7f45d1cf-6a632fa1f2bmr14643753a12.18.1788287835187; Tue, 01 Sep 2026
- 11:37:15 -0700 (PDT)
+        bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=;
+        b=MkwekEh91PZdJI/ZpA5qURRYaDu7nNj6UnqqWTWy97NT5jvBIzGEKwIiWJMNLZoRwk
+         3Mt6dZTr3Y0oDKPdkDMWn+qoovHhln/04Ih8OH2yLpSknqvYQim+3JbaU/UmR/YIfFYG
+         nJnFEZTGeHe3QWzkawbGfLlyJnZTofL5ChwlYk2VMy/hr6w2am2YYdROvRl9QndMGqkd
+         p8guAvPYyzBnxNIWa1dKL299zcndwdDns7Cm4uXLJgNfkGUEKnftUfkDviV4/BcRMyGb
+         01QyLdSagd/ya116vp95+OahrVRieFwIezcFrcwegPA2L9khORySnfIaIfV7cZ8WL0St
+         XrNQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrPL1LknkvkduuJUjlPtty21Nfj+zo3xJQm+9BdT/uSazXld0GOj+Rz0IFeHdFjrgD2HYw0UH1dQSnbk8c5dynd@lists.infradead.org
+X-Gm-Message-State: AFuF++lbhlajvnIGTlXR2ZTxQIn/yix39B9eQKiWrGJxQZIP100rwz2O
+	YW5EL4+EmwijeSfoC98HCyIkvdOxmBCefoYiBpZpoOEtyBCm/teJdk+iZBQ4MP8dpvE=
+X-Gm-Gg: AR+sD10wa52wpE4WTJQNnVpKFSH7m73tEKcVqrlOUHbeWvQCg+3sQQw5HOar6EoeUah
+	eIUxfCOrT+u9a3Icg67BNNIVhjxHc+HHVFd0UvFs8Y8GJhvInppMWjZGVxL2o25OKojtAyd0Lzf
+	Ynq3/sz0KjfQWnIULzfFmxWNNabebd15HkNLBRNYR7YfiItWALA1BMxuX+8MjtcGfHsvySMFIv6
+	Q9V1N3ZvBfqXKpOeH+EHebtZqze4AG716IgTlS9glgWPnGAYZMbszorpKDqnpN8PNEBmx96p2IN
+	InLNYZx9kYxNX082dFMORuc9LhlE/DLinM9shsCyyTh94QkiTXJuqzCSav6p2CRVz5nlxlqfOUF
+	rzimYqP/Pjm/ianFrO6+ntcWwHK3MoH+OENAt6z9Xw5GON7hIXUWL2qhnJIL++bK8LQF7O7Adzr
+	SOhRBDwlNw4MNxUtPWymgxqWzD98e4T7zupbJRsjCTQynv2doJRntIw6j5rQ==
+X-Received: by 2002:a05:6a00:4187:b0:853:2e35:ad84 with SMTP id d2e1a72fcca58-8562a4e89aemr63794080b3a.14.1788288371275;
+        Tue, 01 Sep 2026 11:46:11 -0700 (PDT)
+Received: from localhost ([71.212.197.238])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-85db24f33a0sm300383b3a.9.2026.09.01.11.46.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 11:46:10 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
+ <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Scaria
+ Kochidanadu <s-kochidanadu@ti.com>, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] cpuidle: psci: Assign domain callbacks to all CPU idle
+ states
+In-Reply-To: <CAPx+jO85NBZq=YCxhs5Fbo5rDZ7pGHHKiG2HRJUNVKj_1SOscg@mail.gmail.com>
+References: <20260831-topic-lpm-psci-domain-callbacks-v1-1-4a47d95c9c79@baylibre.com>
+ <CAPx+jO85NBZq=YCxhs5Fbo5rDZ7pGHHKiG2HRJUNVKj_1SOscg@mail.gmail.com>
+Date: Tue, 01 Sep 2026 11:46:10 -0700
+Message-ID: <7hh5k87qtp.fsf@baylibre.com>
 MIME-Version: 1.0
-References: <20260901025311.955936-1-rosenp@gmail.com> <e1087196-fcfa-4c1f-96da-ef76a3e03a11@lunn.ch>
-In-Reply-To: <e1087196-fcfa-4c1f-96da-ef76a3e03a11@lunn.ch>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 1 Sep 2026 11:37:03 -0700
-X-Gm-Features: AcwNN1UPUj6nKVtq1cjCz-NC6msW_ZrmBOinD39yYI4g4c84oBstlABPtX9pTQk
-Message-ID: <CAKxU2N_qR-KKvq=qv0eu4PMYMf8zHnpYnZ8jMvpBNKVitB3Vuw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: helios4: add Wake-on-LAN gpio key
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	"moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_113718_158767_F231726E 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260901_114613_055128_497A719D 
+X-CRM114-Status: GOOD (  33.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,20 +104,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 8:08=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Mon, Aug 31, 2026 at 07:53:11PM -0700, Rosen Penev wrote:
-> > Add a gpio-keys node exposing Wake-On-LAN on its gpio0 18 input,
-> > allowing the board to be woken from suspend.
->
-> Could you explain this some more. Why a GPIO key? The MAC needs to
-> know if the PHY can wake the system, in order to offload the WoL to
-> the PHY.
-This was an out of tree solution to get WOL working on this board.
+Ulf Hansson <ulf.hansson@oss.qualcomm.com> writes:
 
-After some back and forth with an LLM, the conclusion reached was that
-this is the simplest way to get it working, not upstream ready. And as
-sashiko points out, it has problems. I'll respin.
+> On Mon, Aug 31, 2026 at 8:52=E2=80=AFPM Kevin Hilman (TI) <khilman@baylib=
+re.com> wrote:
+>>
+>> Previously, only the deepest CPU idle state had its enter and
+>> enter_s2idle callbacks set to the domain-aware implementations. This
+>> meant that if a QoS latency constraint excluded the deepest state during
+>> s2idle, find_deepest_state() would find no state with enter_s2idle set
+>> and skip the domain idle path entirely. Similarly, during normal runtime
+>> idle, shallower CPU idle states could not trigger cluster-level domain
+>> idle states.
+>>
+>> Assign both enter_s2idle and enter (non-PREEMPT_RT) to all non-WFI CPU
+>> idle states so that the domain-idle-state logic is triggered regardless
+>> of which CPU idle state is selected. The genpd governor remains
+>> responsible for honouring domain-level latency constraints independently.
+>>
+>> The enter_s2idle path uses dev_pm_genpd_suspend() which is safe on
+>> PREEMPT_RT. The enter path uses pm_runtime_put_sync_suspend() which may
+>> sleep and is therefore still excluded on PREEMPT_RT.
+>>
+>> Suggested-by: Scaria Kochidanadu <s-kochidanadu@ti.com>
+>> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+>> ---
+>>  drivers/cpuidle/cpuidle-psci.c | 24 +++++++++++++++++-------
+>>  1 file changed, 17 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-ps=
+ci.c
+>> index dcf20ea5ef5e..db9aa57c51f5 100644
+>> --- a/drivers/cpuidle/cpuidle-psci.c
+>> +++ b/drivers/cpuidle/cpuidle-psci.c
+>> @@ -250,6 +250,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_=
+driver *drv,
+>>                                      struct psci_cpuidle_data *data,
+>>                                      unsigned int state_count, int cpu)
+>>  {
+>> +       int i;
+>> +
+>>         /* Currently limit the hierarchical topology to be used in OSI m=
+ode. */
+>>         if (!psci_has_osi_support())
+>>                 return 0;
+>> @@ -261,14 +263,22 @@ static int psci_dt_cpu_init_topology(struct cpuidl=
+e_driver *drv,
+>>         psci_cpuidle_use_syscore =3D true;
+>>
+>>         /*
+>> -        * Using the deepest state for the CPU to trigger a potential se=
+lection
+>> -        * of a shared state for the domain, assumes the domain states a=
+re all
+>> -        * deeper states. On PREEMPT_RT the hierarchical topology is lim=
+ited to
+>> -        * s2ram and s2idle.
+>> +        * Assign the domain-aware callbacks to all CPU idle states so t=
+hat the
+>> +        * domain-idle-state logic is triggered regardless of which CPU =
+idle
+>> +        * state is selected.
+>> +        *
+>> +        * For s2idle, enter_s2idle uses dev_pm_genpd_suspend() which is=
+ safe
+>> +        * on PREEMPT_RT. find_deepest_state() will pick the deepest sta=
+te
+>> +        * whose exit latency fits within the active QoS constraint.
+>> +        *
+>> +        * For the normal idle path, enter uses pm_runtime_put_sync_susp=
+end()
+>> +        * which may sleep and is therefore not used on PREEMPT_RT.
+>>          */
+>> -       drv->states[state_count - 1].enter_s2idle =3D psci_enter_s2idle_=
+domain_idle_state;
+>> -       if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+>> -               drv->states[state_count - 1].enter =3D psci_enter_domain=
+_idle_state;
+>> +       for (i =3D 1; i < state_count; i++) {
+>> +               drv->states[i].enter_s2idle =3D psci_enter_s2idle_domain=
+_idle_state;
+>> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+>> +                       drv->states[i].enter =3D psci_enter_domain_idle_=
+state;
+>> +       }
 >
->     Andrew
+> This breaks the current contract for genpd when it tries to select a
+> domain idle state for a group of CPUs that shares the same PM domain.
+
+Could you elaborate on what that "current contract" is or point me to
+where it's described in more detail.  I understand there was a reason
+for this design choice when first implemented, but now that we have
+added support for using QoS to constrain the state selection used for
+system-wide suspend (including s2idle) this "contract" is really
+restrictive, and doesn't allow the domain idle logic to be used at all
+for shallower states.
+
+> In principle, if the CPU has a clock gating state (shallow) and a
+> power collapse state (deep), it would be sufficient for the CPU to be
+> in the clock gating state, while allowing the cluster PM domain
+> (through genpd) to enter a domain idle state that corresponds to a
+> power collapse state. Depending on the platform of course.
+
+Yes, that is possible in principle, but with an important clarification:
+
+Once all CPUs are in an idle state (either shallow or deep), the domain
+idle state logic is entered.  It's then up to the domain (or its
+governor) to select the appropriate state(s) for the domain.  If any of
+the CPUs are in a shallow state, the domain governor should not allow a
+deep state.
+
+In your example, you mention the CPUs in a shallow state but the cluster
+domain would pick a deep state.  I would say that's a bug in the
+PM domain (or its governor) if it would allow that.
+
+The job of the PM domain is to pick the deepest state that is possible
+based on the state of the devices (including CPUs) that are in that
+domain.
+
+The same is true today for domains that do not have CPUs.  If you have a
+device that runtime suspended, but in a shallow state (e.g. only clock
+gated), the PM domain it is in should not hit a deep (power-off) state,
+otherwise that device will lose context and not resume properly.
+
+I'm trying to enable that same thing for PM domains with CPUs.
+
+> On the platform you are working, is there a clock gating state (or
+> similar) on the cluster PM domain, which is allowed to be entered when
+> the corresponding CPUs are in the similar state?
+
+Yes.  Not only the CPUs have shallow and deep states, but the domains
+can have shallow and deep states as well.
+
+Kevin
 
