@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A09BC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB250C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G15OLlb8BNxHhKtxBYPBZO5Y8Xgs6zR8B1vnSey/Pds=; b=iYSFe4lRWZYGq0ndQ+8VyObJ7A
-	6eJhqcFNaviCVOI/y6OeZ/3hwREZ/PxsR5zVoOrbuOp+SNmOFTmvzdeCWP7H3NCtHOtZjskCF7UhV
-	st+sD1KuvkUWQiLG7SsGEmFiDpSxPf/SgciEJaILd6HWxeY+J4rneHwcGpPQLHfCGitPMENa00Lhs
-	SU7urSV99XuQxiQT5ebSOFVNCt3V3NOZfUVOu1FcvufPagARTAxbSJ0Z7Lv7voncjX+OqOsKgJpns
-	FHVnqRaIMCGBAUHllVv6hWKNlWWDeuTb86oofLHH+YqJQoq76KII4mWigDgHfGXeRhXUDHXrEqiXt
-	83Ai/g9w==;
+	bh=dv0pI/3nuMX6U9ZIElHDfP8csVhpHIU2+r66dlW2IkI=; b=jvo9il6RRwO1ZSX5y3X82PFt8b
+	Yf1r88QKYlco4gW1dYl9uJTK0mnQOCTBt4b+jraVYSnEsQeOE4aVmvfUwQNytBeMrgfXxw4v40PF6
+	SqREHycI4c3vrqhjqToksZktlvmhe7CvONVtHtvVBPPY17NDyMPdEbS0sbVUlHowrrR5k8c9dOrWF
+	/en1+JnqigpPRi3oin/uyJjljHzfSeQB6JSGPx6Akr5lMsK6WnyBXGDVP08/KEb3GWyqKCJZVBJT7
+	h4KCqa7RQ+p/3nD/0lJNDm9w60k46npUBrhu4zDSaieJI1GqsRTQfslRe5a0sgme1ljctOQquZqx1
+	6H4z5OOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1NP1-0000000C4re-1qa5;
-	Tue, 01 Sep 2026 12:15:47 +0000
+	id 1x1NOz-0000000C4pW-0zVn;
+	Tue, 01 Sep 2026 12:15:45 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1NOy-0000000C4oP-1shh
+	id 1x1NOy-0000000C4oI-140o
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Sep 2026 12:15:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A79B60A82;
+	by tor.source.kernel.org (Postfix) with ESMTP id 39CD660A67;
 	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1EAE2C4AF52;
-	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EE0CFC4AF09;
+	Tue,  1 Sep 2026 12:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788264943;
-	bh=U0nlzt3GQrEhW9lHsZWaloQdOHudVOamVF/QIb8C8ms=;
+	bh=JBzgO46ZJ+ojd+2K6OHgmQUhukdPoy2vAFnVtYq6r2s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mSE4ZrSIbBufXBA82eLDZL+kdH09S4hm8kyLadSDY8ekMVE4jZC1vuMlQzqFVyHXN
-	 xUFDI/5l60iCpTUIi2USEEYPzeHRWaHw+2cKdd6yWiGJjFdwvCbVaaQKIRr6Q9WrtZ
-	 sUKOhCFmAG5U2bSqiV+uCbuUFKaAVc0MzXEz1Y6DJWGfTy/WTPg9x7q+CI9kMvvwQy
-	 YJhFYzVi05yTZ1eR8n0Xb2TDbhtjOJJMx3iyOZsIVHCMjziduINj3hNo9hBGY+Fo4v
-	 l6JYw1k3rB0CBEWOTGrA7DM7MFE3F/y5gjUg8O91VuSWvXg0H2mddPy+aHBo/s+ODM
-	 sR1sLgWO3dSJw==
+	b=jCgQzPotaGpNncdfI/3nARnEWCYZmOORzSumSEt58dVRu93wAECO2ps+W4muCagEM
+	 2hBxUEqAyhXvpTE8SSzF4zYaRvz3r/mmg2qh4va2Q3OloCBQn02BKnvDPWO+3bCFeh
+	 7QKR/EoQfSBPCRRIE4iBZn5XiyPmwiX/45AYep2qslOcvMgVkmBhNlxNvB01JoIFCK
+	 gYq/dlTt2di8rg304LfHU8zM9ZWC3sdF9Kob2nJgHUTJD0tHiAaonC/eds4A3Gtl9u
+	 t5II8c6QIIPYuYCX8TuJS3Uto6rIbuw2w7IAGb0MaokAd1OiWX7G3QUxtLywaIiZcx
+	 xpH/A7HUSR5bQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D2F3C624D3;
-	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA568C61DD3;
+	Tue,  1 Sep 2026 12:15:42 +0000 (UTC)
 From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Tue, 01 Sep 2026 20:15:23 +0800
-Subject: [PATCH v7 08/11] ARM: dts: aspeed: anacapa: evt2: Add shunt
- resistor values for HSC monitors
+Date: Tue, 01 Sep 2026 20:15:21 +0800
+Subject: [PATCH v7 06/11] ARM: dts: aspeed: anacapa: Align PDB fan GPIO
+ numbering
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-anacapa-devlop-phase-devicetree-v7-8-0bd71d2e0105@gmail.com>
+Message-Id: <20260901-anacapa-devlop-phase-devicetree-v7-6-0bd71d2e0105@gmail.com>
 References: <20260901-anacapa-devlop-phase-devicetree-v7-0-0bd71d2e0105@gmail.com>
 In-Reply-To: <20260901-anacapa-devlop-phase-devicetree-v7-0-0bd71d2e0105@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,13 +63,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
- Peter Shen <peter.shen@amd.com>
+ Rex Fu <rex.fu.amd@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788264931; l=2046;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788264931; l=1809;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=3PJIko2HxXfn3+qbGJ71r5pZFx7EAq9CZKMxe8Oqcys=;
- b=VdT2ZY1Sy1/ZuhfWeDB3NI57vohjfLLT5uykMW0yx5Npe3R4lMpPLOXY2tNdVrgwOthCKpaIa
- tB+X8TmroJHBpF2J4GktUGvER/5UHdxuqJ7QqVqEAU6Il7fq8aojxxJ
+ bh=nItmbKUGTjp2PKloSxDWx74Eq/xSt6JRiDFfFn87dgs=;
+ b=2ee2Hsh/ABUYcrJfkM2OLOifYsSh3wdjNMETF8NHTkQ0alUwAQ8QPwZ2cvAJoRf9ZQ+utz/5O
+ 0TfzqG0/XoJCEmU3qNmajZ6m7NBgkREOWWgCP/QXWWU1Seg+uox+2ZS
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
@@ -90,83 +90,65 @@ Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Shen <peter.shen@amd.com>
+From: Rex Fu <rex.fu.amd@gmail.com>
 
-Add shunt resistor configuration for LTC4287 hot-swap controllers on
-Anacapa EVT2 platform.
+Update the LPDB and RPDB fan GPIO line names to align with the platform
+fan numbering scheme.
 
-The resistor values are required for accurate current and power
-measurement by the driver. These settings reflect the actual BOM used
-on EVT2, where different sense resistor values (150 uOhm and 250 uOhm)
-are populated across rails.
+The LPDB fan GPIOs are named FAN0 through FAN4, while the RPDB fan GPIOs
+are named FAN5 through FAN8. This keeps the GPIO line names consistent
+with the fan inventory and platform-level fan numbering.
 
-Without this configuration, the reported readings would be incorrect.
-
-Signed-off-by: Peter Shen <peter.shen@amd.com>
+Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   | 42 ++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-index c0b2976ad9e9..92be113463de 100644
+index ed46a53aab24..83b3b99ceccb 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-@@ -38,6 +38,30 @@ gpio@24 {
- 					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
- 					"", "";
- 			};
-+
-+			power-monitor@42 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x42>;
-+				shunt-resistor-micro-ohms = <150>;
-+			};
-+
-+			power-monitor@43 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x43>;
-+				shunt-resistor-micro-ohms = <150>;
-+			};
-+
-+			power-monitor@44 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x44>;
-+				shunt-resistor-micro-ohms = <250>;
-+			};
-+
-+			power-monitor@45 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x45>;
-+				shunt-resistor-micro-ohms = <250>;
-+			};
- 		};
+@@ -3,6 +3,40 @@
+ /dts-v1/;
+ #include "aspeed-bmc-facebook-anacapa-evt1.dtsi"
  
- 		i2c@1 {
-@@ -52,6 +76,24 @@ gpio@24 {
- 					"","",
- 					"","";
- 			};
-+
-+			power-monitor@40 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x40>;
-+				shunt-resistor-micro-ohms = <150>;
++// MB - PDB
++&i2c8 {
++	i2c-mux@72 {
++		i2c@0 {
++			gpio@24 {
++				gpio-line-names =
++					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
++					"RPDB_PWRGD_P50V_HSC4_SYS_R",
++					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
++					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
++					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
++					"", "RPDB_FAN5_PRSNT_N_R",
++					"", "RPDB_FAN6_PRSNT_N_R",
++					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
++					"", "";
 +			};
++		};
 +
-+			power-monitor@41 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x41>;
-+				shunt-resistor-micro-ohms = <150>;
++		i2c@1 {
++			gpio@24 {
++				gpio-line-names =
++					"LPDB_P50V_FAN0_R2_PG","LPDB_P50V_FAN1_R2_PG",
++					"LPDB_P50V_FAN2_R2_PG","LPDB_P50V_FAN3_R2_PG",
++					"LPDB_P50V_FAN4_R2_PG","LPDB_FAN0_PRSNT_N_R",
++					"LPDB_FAN1_PRSNT_N_R","LPDB_FAN2_PRSNT_N_R",
++					"LPDB_FAN3_PRSNT_N_R","LPDB_FAN4_PRSNT_N_R",
++					"","",
++					"","",
++					"","";
 +			};
++		};
++	};
++};
 +
-+			power-monitor@45 {
-+				compatible = "lltc,ltc4287";
-+				reg = <0x45>;
-+				shunt-resistor-micro-ohms = <250>;
-+			};
- 		};
- 	};
- };
+ // SCM
+ &i2c9 {
+ 	// SCM FRU
 
 -- 
 2.34.1
