@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03F5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92164C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=av5E6myi9G7QeL8WQJzJ9qdGau4rdkeKffGwocyGmds=; b=cbJqs8pzIE7sUxtseEMCrSmdF/
-	khTmdGJDgjV6ADNcYJuXyWSlhe4eu7hUqrAXXridMwZUeWnkhG8IIW+87FvMmD71KDelGBJZKO7gC
-	aw6ehnXfph8gFXXSpwjqzO4wtjGvRvTZhqkHHSqnrpgbpOM6X3fBz9zNFXB9Uuk3uCRXX4Gb1ZlYI
-	59BOPLtVQ+7bnBZYJb5Ld5aUIIKKEheSuOkjc4kEprE91Wxx3Aj4Te7HUsQPRlfxO8qcDt8RGRo2h
-	W3QDmO7jlvYABDSp/DH2iYwbcyksr60CAsh1KwzwCak0kQ6gi3zmPeMVPNxaNSTZUVEY5+qKxTz1d
-	e+AW1/BA==;
+	bh=4l/4r2o+XySRKolgkZpaLOlp+tOiTwKRedLdVM+gSoQ=; b=z9LwNYwqRJXI9aETbyStf+xfdj
+	fY2O3RBYKqw9CVPZ0JyXKs17jYivDESmIwpTTs8hv79dsDbzknZGjBULB8SH2UOghfwzySGkFU0YE
+	D+Dss8gf6PTDLeLIgoiXsPaZMka0bEgw6Rm2wBLT8XeK1ifQfmRsNGFqGamwFbT2M3oOoJG7NPHuy
+	/zrFoDZ1Q4n6Z9Qrv/4IgeLQHnkKszJ2cn6giltgNxvEVBQwFU2qIsSAOAfFckPxTl8U1/3Yhs5y8
+	XEhkE3llw4NclRl/QY3PiRhz+FQ+N4btMOlUt65CDAGSRDDU8rkEHFHRM6xMlbAlspZF79S34Kh9y
+	EWWQjXVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IhF-0000000B6Au-21ik;
-	Tue, 01 Sep 2026 07:14:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IhC-0000000B6AZ-3xSW
+	id 1x1IlJ-0000000B6Wn-452E;
+	Tue, 01 Sep 2026 07:18:29 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1IlG-0000000B6W3-32SI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:14:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 341A31AED;
-	Tue,  1 Sep 2026 00:14:09 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B0633F882;
-	Tue,  1 Sep 2026 00:14:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788246852; bh=8lenoH4AtdUqKZVuI5QAwaPE/ZyDUq1qfP4acf1k1cE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h94hB45f2Hm/8UAfS1IpI2Kf6J6k9KhCyh9Jf5KpOpsLiNiT664pYD+aX7zL4/Oo4
-	 0kl4GOPa6y5pDImrTARo4kz7ElFJDzRZhAKvKkGsg6lqPTT6QGPNEC3aYv/XO7VKRd
-	 +SZ8LKoM/m3+014nfGAElUWKgHR69yo2c7KH93m8=
-Date: Tue, 1 Sep 2026 12:44:09 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 00/17] arm64/mm: Enable 128 bit page table entries
-Message-ID: <tkok4a65bilixfk2wswck4zkt6ndngjartnwyfx6ssqr5hypmf@4njnzfxamdjr>
-References: <20260729122452.3797443-1-anshuman.khandual@arm.com>
+	Tue, 01 Sep 2026 07:18:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788247106; x=1819783106;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=nQ1Txs5VtWwa3LV7R5SsGLj9IbDYJQeJmmceT7DdqFA=;
+  b=Z6AZQRHni6dqdqDwCab6t7basbX1y8oU/uVT3kBD4DtX/VLVQZmUjA/W
+   mxRi6cA8mF5N9pbf3KCbPm8sfyq15RHmPiz0ZciIgWz5dghzyGv9Sly3t
+   tmpo9ifMPQBiP7mjZdRwWQqKWY0eEO9oM/am/xMr0ynE4/nBgJ71NdAfm
+   XlZXX0UI4tgM0KXjtA/mYGMABcXYyNXC1esPMrXVWT+W16PsLwKDxknPf
+   YBUMVeS2Lqz45XkPUPrEgIPKcS/wZyAoJ2fTzlpwzuOBi6dhg3QyoFyYD
+   /55YxlwiT/iwKj/yl2tBkWOUFZAWN8Ri5egHUvL6yFhRlwLIqCCkJd/0r
+   A==;
+X-CSE-ConnectionGUID: GXTg/551Qj+T87UwwTrQWg==
+X-CSE-MsgGUID: sYFP2sEJTlef4l2OqW/EZA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="92534046"
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="92534046"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 00:18:25 -0700
+X-CSE-ConnectionGUID: 6fQWQPLNTsGsO9NeARB8fA==
+X-CSE-MsgGUID: KiNiqfY8RJGBKkD+8I7ZhA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="292513211"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.222])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 00:18:20 -0700
+Date: Tue, 1 Sep 2026 10:18:17 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
+Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v3 1/9] dmaengine: Support bus widths of 32 bytes and
+ above
+Message-ID: <apZ8OSzG7bEpQylL@ashevche-desk.local>
+References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
+ <20260831-dmaengine-support-wider-dma-masks-v3-1-507d97496f2d@analog.com>
+ <apWFa4BFoAL2AhG3@ashevche-desk.local>
+ <apWjMBvGA6yo_nCZ@nsa>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260729122452.3797443-1-anshuman.khandual@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <apWjMBvGA6yo_nCZ@nsa>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_001415_063640_3075DE9F 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20260901_001826_829899_70B2DFCD 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,182 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 05:54:35PM +0530, Anshuman Khandual wrote:
-> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
-> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
-> arm64 platforms with FEAT_D128 enabled will now have two different memory
-> translation systems i.e VMSAv8-64 and VMSAv9-128.
-> 
-> FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
-> and virtual address range while also expanding available room for more MMU
-> feature bits for both HW and SW usage.
-> 
-> A new config option ARM64_D128 is being added thus enabling users to chose
-> between aforementioned memory translations regimes VMSAv8-64 (aka D64) and
-> VMSAv9-128 (aka D128) during the build time. If the ARM64_D128 built kernel
-> does not detect FEAT_D128 feature on the hardware, then it gets stuck with
-> with a new reason code CPU_STUCK_REASON_NO_D128. So ARM64_D128 built kernel
-> cannot fallback to D64 translation regime on unsupported HW.
-> 
-> READ_ONCE() on page table entries get routed via level specific pxdp_get()
-> helpers which platforms could then override when required. These accessors
-> on arm64 platform help in ensuring page table accesses are performed in an
-> atomic manner while reading 128 bit page table entries.
-> 
-> ARM64_[VA|PA]_BITS combinations for respective CONFIG_ARM64_XXK_PAGES are
-> now supported both on VMSAv8-64 and VMSAv9-128 memory translation regimes.
-> Although FEAT_D128 provided 52 bit VA and PA space along with skip levels
-> features are not supported currently.
-> 
-> Basic page table geometry has also been changed with VMSAv9-128, as there
-> are fewer entries per level as compared to VMSAv8-64. Please refer to the
-> following table for various leaf entry sizes including the cont entries.
-> 
-> ------------------------------------------------
-> |           |       D64      |       D128      |
-> ------------------------------------------------
-> | PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
-> -----------------------------|-----------------|
-> |     4K    |    2M  |  1G   |    1M  |  256M  |
-> |    16K    |   32M  | 64G   |   16M  |   16G  |
-> |    64K    |  512M  |  4T   |  256M  |    1T  |
-> ------------------------------------------------
-> 
-> --------------------------------------------------------------------
-> |           |            D64           |             D128          |
-> --------------------------------------------------------------------
-> | PAGE_SIZE |   CONT_PTE  |  CONT_PMD  |   CONT_PTE  |   CONT_PMD  |
-> --------------------------|------------|-------------|--------------
-> |     4K    |     64K     |     32M    |     64K     |      16M    |
-> |    16K    |      2M     |      1G    |      1M     |     256M    |
-> |    64K    |      2M     |     16G    |      1M     |      16G    |
-> --------------------------------------------------------------------
-> 
-> Similarly arm64 kernel features such as KVM, KASAN and UNMAP_KERNEL_AT_EL0
-> are currently not supported as well.
-> 
-> This series applies on v7.2-rc5 but after applying the following patch that
-> standardized printing pgtable entries. There are no apparent problems while
-> running MM kselftests with and without CONFIG_ARM64_D128.
-> 
-> https://lore.kernel.org/all/20260709044334.1741263-1-anshuman.khandual@arm.com/
-> 
-> Changes in V1:
-> 
-> - Rebased on v7.2-rc5
-> - Pulled in new standardized pgtable entry print patch
-> - Added standardized pgtable entry print on arm64 platform
-> - Added KASAN related pgdp_get() changes missing earlier
-> - Renamed pxxval_get/set() as ptval_get/set()
-> - Renamed ptval_cmpxchg_relaxed() and ptval_xchg_relaxed()
-> - Renamed tlbi_args_t as tlbi_arg_t per Ryan
-> - Split final D128 enablement patch into four separate ones
-> - Updated all commit messages as required
-> 
-> Changes in RFC V2:
-> 
-> https://lore.kernel.org/all/20260513044547.4128549-1-anshuman.khandual@arm.com/
-> 
-> - Dropped some patches that were merged upstream and rebased on v7.1-rc3
-> - Updated commit message for the 5-level fixmap change per David
-> - Moved pxdval_t definition inside generic page table header
-> - Dropped _once from pgprot_read/write() per Mike
-> - Updated ARM64_CONT_[PTE|PMD]_SHIFT both for 16K and 64K base pages
-> - Renamed __PRIpte as __PRIpxx per David
-> - Added abstraction for tlbi_op
-> - Adopted TLBIP implementation to recent TLB flush changes
-> - Moved back all helpers back from arch/arm64/mm/mmu.c into the header
-> - Moved arm64 pgtable header READ_ONCE() replacements later in the series
-> - Renamed all ptdesc_ instances as pxxval_ instead
-> - Updated all commit messages as required and suggested
-> - Restored print format in __print_bad_page_map_pgtable() per Usama
-> 
-> Changes in RFC V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20260224051153.3150613-2-anshuman.khandual@arm.com/
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Lorenzo Stoakes <ljs@kernel.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Linu Cherian <linu.cherian@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> 
-> Anshuman Khandual (15):
->   mm: Add read-write accessors for vm_page_prot
->   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
->   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
->   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
->   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
->   arm64/mm: Route all pgtable reads via ptval_get()
->   arm64/mm: Route all pgtable writes via ptval_set()
->   arm64/mm: Route all pgtable atomics to central helpers
->   arm64/mm: Override read-write accessors for vm_page_prot
->   arm64/mm: Standardize printing for pgtable entries
+On Mon, Aug 31, 2026 at 04:56:18PM +0100, Nuno Sá wrote:
+> On Mon, Aug 31, 2026 at 04:45:15PM +0300, Andy Shevchenko wrote:
+> > On Mon, Aug 31, 2026 at 12:46:38PM +0100, Nuno Sá wrote:
 
-Page table entries print standardization patch has been taken out
-from this series here and posted separately which uses a recently
-added generic MM helper ptval_to_str().
+...
 
-https://lore.kernel.org/all/20260901065454.1906343-1-anshuman.khandual@arm.com/
-
-Similarly the following READ_ONCE() ---> pxdp_get() conversion
-patches too could also be split out from this series here and
-reviewed independently.
-
-   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
-   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
-   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
-   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
-
-Please do let me know if there are any concerns.
-
-- Anshuman
-
->   arm64/mm: Enable fixmap with 5 level page table
->   arm64/mm: Enable pgtable geometry for FEAT_D128
->   arm64/mm: Enable pgtable descriptor for FEAT_D128
->   arm64/mm: Enable 128 bit translation
->   arm64/mm: Make ARM64_D128 selectable
+> > >  F:	drivers/dma/
+> > >  F:	include/dt-bindings/dma/
+> > >  F:	include/linux/dma/
+> > > +F:	include/linux/dma/engine/
+> > >  F:	include/linux/dmaengine.h
+> > >  F:	include/linux/of_dma.h
+> > 
+> > Unneeded, previous entry includes recursively.
 > 
-> Linu Cherian (2):
->   arm64/mm: Add an abstraction level for tlbi_op
->   arm64/mm: Enable TLBIP instruction based TLB flush
+> Checkpatch complains so I guess we assume it's a tool issue?
+
+Can you confirm that without this line get_maintainer.pl works? If it does,
+then the problem is in checkpatch.pl (false positive).
+
+...
+
+> > It's possible to split this patch to two:
+> > - move the existing type into a new types.h header
+> > - add support for the new API
 > 
->  arch/arm64/Kconfig                     |  51 ++++++-
->  arch/arm64/Makefile                    |   4 +
->  arch/arm64/include/asm/assembler.h     |   4 +-
->  arch/arm64/include/asm/el2_setup.h     |   9 ++
->  arch/arm64/include/asm/pgtable-hwdef.h | 137 ++++++++++++++++++
->  arch/arm64/include/asm/pgtable-prot.h  |  18 ++-
->  arch/arm64/include/asm/pgtable-types.h |   4 +
->  arch/arm64/include/asm/pgtable.h       | 188 +++++++++++++++++++------
->  arch/arm64/include/asm/smp.h           |   1 +
->  arch/arm64/include/asm/tlbflush.h      | 138 ++++++++++++------
->  arch/arm64/kernel/head.S               |  12 ++
->  arch/arm64/mm/fault.c                  |  31 ++--
->  arch/arm64/mm/fixmap.c                 |  24 +++-
->  arch/arm64/mm/hugetlbpage.c            |  10 +-
->  arch/arm64/mm/kasan_init.c             |  18 +--
->  arch/arm64/mm/mmu.c                    |  81 ++++++-----
->  arch/arm64/mm/pageattr.c               |   8 +-
->  arch/arm64/mm/proc.S                   |  25 +++-
->  arch/arm64/mm/trans_pgd.c              |  14 +-
->  include/linux/mm_types.h               |  40 ++++++
->  include/linux/pgtable.h                |  14 ++
->  mm/huge_memory.c                       |   4 +-
->  mm/memory.c                            |  42 +-----
->  mm/migrate.c                           |   2 +-
->  mm/mmap.c                              |   2 +-
->  25 files changed, 668 insertions(+), 213 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+> Yeah I thought about that but this still looked simple enough to go
+> together but I can split in the next version.
+
+I think the split is needed as it makes better view on the changes
+(and accompanying justifications in the commit messages).
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
