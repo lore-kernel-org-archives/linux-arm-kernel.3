@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92164C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9F0C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4l/4r2o+XySRKolgkZpaLOlp+tOiTwKRedLdVM+gSoQ=; b=z9LwNYwqRJXI9aETbyStf+xfdj
-	fY2O3RBYKqw9CVPZ0JyXKs17jYivDESmIwpTTs8hv79dsDbzknZGjBULB8SH2UOghfwzySGkFU0YE
-	D+Dss8gf6PTDLeLIgoiXsPaZMka0bEgw6Rm2wBLT8XeK1ifQfmRsNGFqGamwFbT2M3oOoJG7NPHuy
-	/zrFoDZ1Q4n6Z9Qrv/4IgeLQHnkKszJ2cn6giltgNxvEVBQwFU2qIsSAOAfFckPxTl8U1/3Yhs5y8
-	XEhkE3llw4NclRl/QY3PiRhz+FQ+N4btMOlUt65CDAGSRDDU8rkEHFHRM6xMlbAlspZF79S34Kh9y
-	EWWQjXVQ==;
+	bh=Pe8F/Y/8QTfgkrG5uLMZ++MudMQRDOd3PvSYxZZEGWY=; b=nt8QgyX/UeUihFgkH3yA7Es0nL
+	Ve4PUTZbIiTSK+DpCF7s9L499gkjrikVh39u72srCmC29hFkDzmLCd6Ho+Yt12xX4jIQrUS47ny/g
+	i4ebNQHTuu/G1uKQIkK8L7mGVBuOzdEAyVJPn4aQlB2orDJ9slokuRphj2WPKXlLbxIamzEoNQG/Z
+	i+JWWWb3lcm0ExNKM1TUhtVPci9n0XEzLAP9EK6mavHDBXfi86jYl8eo32yetRdcETjuSpOwupED4
+	i0yybCgkJ6Ss8DzRMsXVR6N3/X0kOCSFY8tFld7e7HQKNwnOzuH6gDA6EFMwir7VbEINUNTMxOC2K
+	3mODcygQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IlJ-0000000B6Wn-452E;
-	Tue, 01 Sep 2026 07:18:29 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1x1Ipl-0000000B6ua-380q;
+	Tue, 01 Sep 2026 07:23:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IlG-0000000B6W3-32SI
+	id 1x1Ipk-0000000B6uM-15Tq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:18:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788247106; x=1819783106;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=nQ1Txs5VtWwa3LV7R5SsGLj9IbDYJQeJmmceT7DdqFA=;
-  b=Z6AZQRHni6dqdqDwCab6t7basbX1y8oU/uVT3kBD4DtX/VLVQZmUjA/W
-   mxRi6cA8mF5N9pbf3KCbPm8sfyq15RHmPiz0ZciIgWz5dghzyGv9Sly3t
-   tmpo9ifMPQBiP7mjZdRwWQqKWY0eEO9oM/am/xMr0ynE4/nBgJ71NdAfm
-   XlZXX0UI4tgM0KXjtA/mYGMABcXYyNXC1esPMrXVWT+W16PsLwKDxknPf
-   YBUMVeS2Lqz45XkPUPrEgIPKcS/wZyAoJ2fTzlpwzuOBi6dhg3QyoFyYD
-   /55YxlwiT/iwKj/yl2tBkWOUFZAWN8Ri5egHUvL6yFhRlwLIqCCkJd/0r
-   A==;
-X-CSE-ConnectionGUID: GXTg/551Qj+T87UwwTrQWg==
-X-CSE-MsgGUID: sYFP2sEJTlef4l2OqW/EZA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="92534046"
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="92534046"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 00:18:25 -0700
-X-CSE-ConnectionGUID: 6fQWQPLNTsGsO9NeARB8fA==
-X-CSE-MsgGUID: KiNiqfY8RJGBKkD+8I7ZhA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="292513211"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.222])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 00:18:20 -0700
-Date: Tue, 1 Sep 2026 10:18:17 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 1/9] dmaengine: Support bus widths of 32 bytes and
- above
-Message-ID: <apZ8OSzG7bEpQylL@ashevche-desk.local>
-References: <20260831-dmaengine-support-wider-dma-masks-v3-0-507d97496f2d@analog.com>
- <20260831-dmaengine-support-wider-dma-masks-v3-1-507d97496f2d@analog.com>
- <apWFa4BFoAL2AhG3@ashevche-desk.local>
- <apWjMBvGA6yo_nCZ@nsa>
+	Tue, 01 Sep 2026 07:23:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62CE160202;
+	Tue,  1 Sep 2026 07:23:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 158CC1F000E9;
+	Tue,  1 Sep 2026 07:23:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788247383;
+	bh=Pe8F/Y/8QTfgkrG5uLMZ++MudMQRDOd3PvSYxZZEGWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DWR/jrnSDZPJp1eP3Dcm6CayOzYp/KAXxWB0n2EksMZsUuFGu9uVY5oyvcy+ZbJL7
+	 Uzz3xswuG0IQXDkN9EYXewSBC7j8OGGx402znSNjpbZKampBiPSgfolQuRxNYcckGB
+	 Cd+c81aKQ3VAKiJLAqRKqVymqRMhFoT7/5v6Ac/4KndtR7YZIMGZy/Jv5r5A5IN0IW
+	 MNrVfGAfY7xVD6Owz5MOY1Meed+frmhz0ER5McFlaMQAL49Ywb4yyV+jO2/LAxN3vj
+	 OIyXUvndkeZ2KmxVH197YyfClgy08r3LxBLJfetI8MJg7OF5lA9EZvcdUGI5BuI3hq
+	 0isKt2AMGFuSw==
+Date: Tue, 1 Sep 2026 08:22:59 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Carol Soto <csoto@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	mochs@nvidia.com, Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: Unmap Rx/Tx buffers on shutdown
+Message-ID: <20260901-nimble-uber-walrus-7a3ac0@sudeepholla>
+References: <20260818224404.3694580-1-csoto@nvidia.com>
+ <20260819-aromatic-albatross-of-virtuosity-2406c5@sudeepholla>
+ <c5f0fe8e-faa2-48d5-b6a1-370ba36b19bc@nvidia.com>
+ <4436a4ae-de40-4355-95b5-f5104ad30dd4@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <apWjMBvGA6yo_nCZ@nsa>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_001826_829899_70B2DFCD 
-X-CRM114-Status: GOOD (  17.75  )
+In-Reply-To: <4436a4ae-de40-4355-95b5-f5104ad30dd4@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 04:56:18PM +0100, Nuno Sá wrote:
-> On Mon, Aug 31, 2026 at 04:45:15PM +0300, Andy Shevchenko wrote:
-> > On Mon, Aug 31, 2026 at 12:46:38PM +0100, Nuno Sá wrote:
-
-...
-
-> > >  F:	drivers/dma/
-> > >  F:	include/dt-bindings/dma/
-> > >  F:	include/linux/dma/
-> > > +F:	include/linux/dma/engine/
-> > >  F:	include/linux/dmaengine.h
-> > >  F:	include/linux/of_dma.h
+On Mon, Aug 24, 2026 at 11:33:08AM -0500, Carol Soto wrote:
+> 
+> On 8/19/26 2:13 PM, Carol Soto wrote:
 > > 
-> > Unneeded, previous entry includes recursively.
+> > On 8/19/26 2:08 AM, Sudeep Holla wrote:
+> > > I had posted a single line patch here[1]. The original
+> > > author/reported never
+> > > got back.
+> > > 
+> > > -- Regards, Sudeep [1] https://lore.kernel.org/all/20260729-nostalgic-accurate-raccoon-ab7d7e@sudeepholla
+> > 
+> > Hi Sudeep,
+> > 
+> > Thanks for the pointer. I tried your patch from [1] and it fixes the
+> > kexec issue on my setup.
+> > 
+> > I also tried limiting the shutdown patch to just RXTX_UNMAP, but that is
+> > not sufficient here.
+> > The next kernel can still fail notificaion setup with:
+> > 
+> > ARM FF-A: Notification bitmap create error -13
+> > 
+> > So I agree that using the normal FF-A cleanup patch from shutdown looks
+> > like the right approach,
+> > since it tears down the notification bitmap state as well as unmapping
+> > the Rx/Tx buffers.
+> > 
+> > Are you planning to submit that change to resolve this issue?
+> > 
+> > Thanks,
+> > Carol
 > 
-> Checkpatch complains so I guess we assume it's a tool issue?
-
-Can you confirm that without this line get_maintainer.pl works? If it does,
-then the problem is in checkpatch.pl (false positive).
-
-...
-
-> > It's possible to split this patch to two:
-> > - move the existing type into a new types.h header
-> > - add support for the new API
+> Hi Suddep,
 > 
-> Yeah I thought about that but this still looked simple enough to go
-> together but I can split in the next version.
+> Just following up on the FF-A kexec issue. Do you plan to submit your
+> shutdown cleanup patch, or would you prefer that I send a v2 based on that
+> approach?
+> 
 
-I think the split is needed as it makes better view on the changes
-(and accompanying justifications in the commit messages).
+I was away for a while, I will post it as a proper patch soon. Sorry for the
+delay.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Regards,
+Sudeep
 
