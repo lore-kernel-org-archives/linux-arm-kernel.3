@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF3CC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE2DC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFOAryefyj3E8LprwQb6zM23kP14ZZpWJUCwFcY71vI=; b=SiTfBzGIALzF4uHuGaC+2jekwA
-	vUjNml99ajUqbjA/Z3GaB8XC7PvK1Vf190jj+RDA0HStdT/27/vYZDfS+WJ8zAy2iuIPFf2OqNMFp
-	S5ETuy+KmFtqLk1mRT7ZDwx5WfaYReKg49PM5DAJg5DS4X6ildkdFTTm1PVEb13zmKOvrWH9JTyZd
-	BXfIxrjOL1xduB3DKjKZpVCtGuzXZVdlo+cfgG1NTJmrHvJ25FYfvw+NjiTHVdFsXoxA/NOUh0mHk
-	94udn/xB9tkNjL/1aQs5H9WxPJ0O0c5gdHpk5tR2w9xv2qPx1JLZhFTI+dOWz480WrE9oRaoGyIhW
-	pTocDClg==;
+	bh=I/qfdHGcZJO3oZ78BHYS8PUCc8yEpZReKvOSgJYCsWs=; b=QXmjjyfetyv6n+enkDKtHaEclB
+	Isjq2ls3tMjg4efVHmHyJ1xvzhkEC1BTK8q0EYMAM+J2LSazk99Hwf9WnrtUIFm3/lejP0GaYMCXt
+	KBlGHAtMeb8ZCNx5w/xGaTUmoxFBhidEcfFmO8pVK7wT1lnlxv3M40fi60Q2bc+ddgyU4LXLxSUg2
+	QMddw8EoLGc4q6pzgrleOa4H4umIiMmgJoif5zwfmZsKmPatjqPRmwrdkcXHeIE5keT33/URMegAZ
+	tPXwy8zI4D2myViqt/s6Kmuvn55wKdk6u11jsIH32r09cRSsmTTC1dWUk8rP8xW2rReW0f9IV/dsq
+	0OwZYnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Q22-0000000CQb6-2yE9;
-	Tue, 01 Sep 2026 15:04:14 +0000
-Received: from mail-pz2-x09.google.com ([2607:f8b0:4864:3b::9])
+	id 1x1Q58-0000000CQyk-1ECo;
+	Tue, 01 Sep 2026 15:07:26 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Q20-0000000CQZt-3uKF
+	id 1x1Q55-0000000CQyN-3cee
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:04:13 +0000
-Received: by mail-pz2-x09.google.com with SMTP id 41be03b00d2f7-cc1ddb3ba3eso3187706a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:04:12 -0700 (PDT)
+	Tue, 01 Sep 2026 15:07:24 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-46a22783960so1271900fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:07:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788275052; x=1788879852; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788275242; x=1788880042; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jFOAryefyj3E8LprwQb6zM23kP14ZZpWJUCwFcY71vI=;
-        b=P4CemD6vg6v47biQQDo/D2523jTiufVg9PMaKMBMg5CnU1AzGDWiGloQf/L3JjARnS
-         UwchxqUBlP4+RMmA1SMKNJ515DXh3eTFZNJgXtBWVwKvTRYhdU8s+oRoFpN3t89r4Acl
-         vyhgNERdt2Np3O2EWYDcAvng94BlVDEFkGdmCpkmOjkAk+kLVH2Xt+8rK54UyuILPUQw
-         rtBA5IyMzYMFSOdWRI7CO+O8zSRfcAfEu1m3i5CyaaP/l4oDOq0iJs0u63N34oL21dDH
-         AnSGst1TBLjFuQZF1jDHKBNK0vVEq6K9+Cw4st6z407Pk676T3+FM1XDGq2LT4rkPMFX
-         rXgA==
+        bh=I/qfdHGcZJO3oZ78BHYS8PUCc8yEpZReKvOSgJYCsWs=;
+        b=G5b8zwPtA39NzO20BtBrdhAFs58CODJQDvj6w/5Zlp+Ux0V1eYp27mxpWlC/wi5Y9n
+         u2QcD0UZiCYlXviLs0LZjUPeEFTMeOoORf33PvU2Cbg3G/AdfGUESQQ2sYUwFUC1FLSl
+         jguXVeONJFBIkrdHOHCOlwF0sUY7zdlVC5xA5B/JaK5tyXSP7JdFVP3UJP1uwu3rWi/3
+         D97fcv9JaAl2ICMVKP6ONrtKJW8HojQ0ZzjXZFWTLdxyz5UKqq7+kDazMwWd0mxQNMPX
+         YWw0j7YpxnvnWcqEyxb9JUUUACVloFGeShr0dr3Z43yykEs+qLQGDU+tYUBEYbUQ8XTH
+         Ug0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788275052; x=1788879852;
+        d=1e100.net; s=20251104; t=1788275242; x=1788880042;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jFOAryefyj3E8LprwQb6zM23kP14ZZpWJUCwFcY71vI=;
-        b=kjLa4wMyTWIZjM0JFYZuxa1MCcjQ7uNN3F7H0K4InsJqA8WQAmSneGjnWti1wqrLbF
-         ujJtOCWgb13YzyVuofhkUw6qkzkNq5tgtaElO0h7xrA66XMBTDDo699Q8vHPGsIM81c4
-         6F8Dt9lsQZvZF6P5lMIuYaXPP5JqJH626kIbTAK/4tMnEOwj57VTQVNpDxZQIe0tIMrr
-         IjAOIzOrG9RnINnKtNdHfNMAJ0J1xXv85+dLNZgyJJAI/eDtrPHM6CMxV2TqO/uWZoWk
-         oQbYj21Lzuv/JxtVT9CfqRaqt7GKHhtlobys6IF8BeocP7YGjDy0dxsNjL6wMhnn5yfK
-         cFSA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpr4p2NpBpOytmQ0/np0uXIRNjpqPIOKFImASKOHAn9BRVtsk19jBKCfNXBypWprfoTV95Ryd33bPhwjWTMR66S@lists.infradead.org
-X-Gm-Message-State: AFuF++kLVXNUUyNWfEJITbSFwKrRR5sLe5pukcKK1TALXz9WODyCPaM1
-	m8sHxIx26FpFIGHmPRL89mzZn6KIZAX2+GHKggt455Dz0xr2TOz4NeRD
-X-Gm-Gg: AR+sD11gnYV1CUDHPF3hHMkvObRE2InQ7lF2pt67br+rZnrzmKJ/lP7W1qXEQfbSdZQ
-	r6L5qC11/s5dz4UQvCToUB0CJfpG/Bt0bzkO5yWb1hBNEg2lmrE3yatU0qzKPHUZ7ibbbnCevzd
-	AlHtLgKFBKsQFvzbXE3Rxi2VwXNk2Yy4b7m2tceraqKvUL2Kv/P7vLAXMI/wmke1cZQV+syxmsZ
-	F2frQA0IhXDv68gedZLEHas7V28FBS6Yq1Mx1XgEy8+Z768opi/3vtkpdayD07hnNn6KOxX9GMv
-	nnPWJSuTwkLllsylzDngr84nHev6NfrFdvj3lcJPYNcOXUh3Dbhc5wuiTZ3C2O5EkAlbtnLS4Kq
-	7VjdU5yIL29EXPvSy78k/wGLY3c8Kdjc91eUFKi4B+FgbTG8/bk8v/ewA3BAat4aCnRVHS1DqsD
-	aAccXYpOF4yex6GYM5hJDoKkiqMdLtMeTVXG8whlefCP45VPWD38Mc5bgMlKg=
-X-Received: by 2002:a05:6a00:4501:b0:857:72f8:dc91 with SMTP id d2e1a72fcca58-85772f8de55mr39669660b3a.18.1788275020723;
-        Tue, 01 Sep 2026 08:03:40 -0700 (PDT)
-Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85dc0716846sm27914b3a.45.2026.09.01.08.03.29
+        bh=I/qfdHGcZJO3oZ78BHYS8PUCc8yEpZReKvOSgJYCsWs=;
+        b=AuLFO4opM5fME/oQPm7r5oyBx3m6OJ4WBwPC5+CNU2K/6vfv2upVZe6heOv94XHL95
+         BpaWmWAySiJM5suia+O9GRk8sPGnrWCIMUZRcknzM4KJ5qAPRJkcJkkHWacLCW6Xj2x1
+         hrYKoWqz2Nrb8UJ9qVg4n+Y3W39uZcdbxCoL+jDACQkwjZdPpdZ0WCsSo/RiZT038TeB
+         MVWn+pwolQDwtJDnYh+wUuu+qTlQHI4nNP3+/Q0tSWRt5JK77zhB0T8LR703rj/eYuiB
+         /5OX69lrvhEEmrtcDXS+vEtPlQpexlN9Ppqbe0IdCcAFQSdsU+3p7Wg8mIAECOFyE/W3
+         Gl3w==
+X-Forwarded-Encrypted: i=1; AHgh+RrrMhyAiPeogdO81KMYcoO4htTKEohS+roaXb+/bzk0s4N377r5x6sivLmZPpevDOra47VHJDgCt+IzxENgpY4W@lists.infradead.org
+X-Gm-Message-State: AFuF++m5mimeFVJYkVpq0XrwhPEmr+zhAAChNCfyd0ALNyGTPnFA8kiC
+	suaS7CTmU1feBvh99EaF4+7dsd3RfFODfaIf20Bcg4NO6ZbAQ0ZRQo3v
+X-Gm-Gg: AYBFou0NnzgSqkbCMKQCDGnHhLLiRbpV2jDNwbhCqvFk26pGcYhylRK6z19+ZGNh/Pi
+	DBTa6vagNUoz6Nr5x2v+e/9ZxBhQme8RauRrx5bh/eBXW/m/yzSWC3Bplo1thWEUDMUhu07AQkG
+	5FwbHR9H385qmse8Boj8/w5k0v08jV0/bo70+l/8KW3rOb6U2ht+Wwj1f0Rgh/2bbhbr8kjRSdR
+	ciEQoZCnIiTX4hYr8fzimpKN1wwrqAZWTtRj2pJBVhW0UfyLjMsVGtJicKoCuS45wkse/Y4J7Kf
+	iH/Wsmgp5N49q/dxr2MxxGsUX1jNn9Z4ewEqZc4+7zjXs4be/fbUEv9uQ12QQJy0Doz7WXI2RvX
+	JjdQAmAmcql5Gr57n90DbkQz4WNNBq8y3sZZOtzkg1Sd8HEE+0I1A2FkptfnV2ACeNd5hfBzk8F
+	I8INZ7rsJ15SD2vC/nw0ZZQsN6Hz76BSThgRIJoHX5pzwBLNFTNoyUrBef6KBjKdjryqgejiGD6
+	uTrUxAz2Ejee/i+xJN1kWXY3hOIZhmBQC3977rM
+X-Received: by 2002:a05:6870:698a:b0:456:772f:682d with SMTP id 586e51a60fabf-46837cfc41emr43388545fac.19.1788275242027;
+        Tue, 01 Sep 2026 08:07:22 -0700 (PDT)
+Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-46a4b7a9f82sm10697162fac.18.2026.09.01.08.07.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 08:03:39 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+        Tue, 01 Sep 2026 08:07:21 -0700 (PDT)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v3 10/10] MAINTAINERS: add entry for Rockchip XPCS driver
-Date: Tue,  1 Sep 2026 23:01:10 +0800
-Message-ID: <20260901150111.141037-11-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260901150111.141037-1-coiaprant@gmail.com>
-References: <20260901150111.141037-1-coiaprant@gmail.com>
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/4] arm64: dts: allwinner: add A733/Cubie A7S DTS support
+Date: Tue,  1 Sep 2026 11:07:20 -0400
+Message-ID: <20260901150720.1764626-1-enzo.adriano.code@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260826230942.466219-1-vinicius.eduardo.pedrosa@gmail.com>
+References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com> <20260826230942.466219-1-vinicius.eduardo.pedrosa@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_080412_984113_B49BAD51 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260901_080723_926912_8168C78A 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the Rockchip RK3568 XPCS platform driver
-and its device tree binding.
+Hi Vinicius,
 
-Include the relevant mailing lists (netdev and linux-rockchip) so that
-future patches are properly distributed.
+Thanks for the detailed report. I reproduced all three issues and updated
+the private v2 candidate.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+The Cubie A7S board now defines a correctly named 26 MHz `hosc`. The main
+CCU takes `hosc` plus `losc`, `iosc`, and `losc-fanout` from the RTC clock
+provider, matching the four-input binding. I also renamed the bus to `soc@0`
+and moved the UART0 pins into the DTSI with `allwinner,pinmux = <2>`.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 3a19da74d00c9..c3b17752cc817 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23744,6 +23744,15 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/rockchip,rk3576-sai.yaml
- F:	sound/soc/rockchip/rockchip_sai.*
- 
-+ROCKCHIP XPCS DRIVER
-+M:	Coia Prant <coiaprant@gmail.com>
-+L:	netdev@vger.kernel.org
-+L:	linux-rockchip@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
-+F:	drivers/net/pcs/pcs-xpcs-rk.c
-+F:	include/linux/pcs/pcs-xpcs-rk.h
-+
- ROCKER DRIVER
- M:	Jiri Pirko <jiri@resnulli.us>
- L:	netdev@vger.kernel.org
--- 
-2.47.3
+The MMC binding fix is already in mainline, so v2 will contain three patches
+instead of four. I will hold v2 until the public CCU and pinctrl prerequisites
+are resolved, then rebuild and retest on that public stack.
 
+Assisted-by: Codex:gpt-5
+I reviewed this reply and take responsibility for its contents.
+
+Thanks,
+Enzo
 
