@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6DFC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492C9C624D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xr51EjeNPpVhvkrX+j2KA7sh6coRP73TE02mljTkxnU=; b=kWV1Z+q8qRAEV+vzrSnVDHdisd
-	kiNCfEbOiOq7Fxw1y1YTIzABsjB3emtwxgl1LKBi917GucRP+6NRExrofxji63AXKUBtnSyXqFi++
-	4DHMUFx+w5cMtgcQ+FhLryobmOywuq2jTz/S848jGJTtpDrarnSKN1IHJh641xVAPda3HhnFsBRhz
-	jzqdoJFZktZINfSMq1L9k4M9I3YS/LLRCWjYhYwxG4QWD9u+wzMgBO7JvjZvM3yBwq3uXsYDwTHWs
-	c7hdJFmMA9UNm86eO8DrRqedDCubLv++EyBispMBRNRj+J1TQ67gklvQBWFwxC14F6NrQ2F3/2r43
-	1V00RABg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=11FIk8dcywNJhU7vX3fMrD3GTQv+b8U3zFVsgXjY8xM=; b=XpTdg/D4+xSPDOifVg/57g9Goy
+	eotmIsgEUntqnPPv/Q4908M+4hJWagqp4rCwxV3Svv7rWecsN8M/YPOZ/ytCGNn7YoMFhpI9mmFLC
+	ofBzKxHn1LOIW4jxtx6KRiK9AzbmVK+ogsjI5zXywA7mYVUIi//0bfTH30jBdo7JSrQSEtcV3febX
+	7bAq9Peg4odJEuq6Av/7/PtHPlEgI96IiR2yC12UjwQNGFtSEZFuB7j53oOSsgJq4Tyv955zelTxx
+	ZCPSIxV89T1m6TMmdoIbjr8qCZc1bN3cQvIR4jnJQ3OmkS92Q8TdzpTdtPr6jy/KNLTKrdPjXTH/J
+	mPfK6UdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Nao-0000000C6fx-1sMq;
-	Tue, 01 Sep 2026 12:27:58 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x1NfQ-0000000C7Af-0KBG;
+	Tue, 01 Sep 2026 12:32:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Nal-0000000C6fY-3ibO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 12:27:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8DCE54E4146F;
-	Tue,  1 Sep 2026 12:27:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 50B286053C;
-	Tue,  1 Sep 2026 12:27:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A52211C7926B;
-	Tue,  1 Sep 2026 14:27:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788265667; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Xr51EjeNPpVhvkrX+j2KA7sh6coRP73TE02mljTkxnU=;
-	b=v8//1kYrmgBcaY6YVc8sDaF69kyfH4N9WEwUhY/Wo+1HXLtYKSqrB/9+Ul2nYL6KKpt6US
-	fqBzJ7WqTU6KPYB0g1slSVgS40NG95FD3gwRQ3bwEAkBTEEZNfbcRrebLA06ZQ0F4HKtYN
-	wyyfMqyHwBUkRkHy3hGPoAZ/nxie3rleG+4aWVVKu2QValCJHKxS6fH5GaSTqjY8KLYM/x
-	Y43ew5raxQ16WVeXs4YqhJCeqhC/csYuDmno1pUkctQX6eyuLUn37plP1UL45LiUuqcSu3
-	ATy7I2LgRdyL+SAL/FJi8RPAcw6nljrXCAS4tW5u3cttrHARFq/KUnsEkKr32A==
-Message-ID: <6f395b75-d5ed-4536-9f9b-9de2f56dd9fb@bootlin.com>
-Date: Tue, 1 Sep 2026 14:27:40 +0200
+	id 1x1NfP-0000000C7AX-05hy;
+	Tue, 01 Sep 2026 12:32:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=11FIk8dcywNJhU7vX3fMrD3GTQv+b8U3zFVsgXjY8xM=; b=m3LPIu+FoN9GPmQNL+JAbX4umA
+	RCUc+55B7wNBeD3QfRf+OKff006wPY1a+T19QUXMcQ8KZEi3a5TwgbOb6786lS+bW2TFXIYPIRHhE
+	qRIvsbkExCXz+DP7wtsi0aHN56mVl5brXaG+jkal7C/7mYPaczD+Rl6dK7M5b3vqIeRtlPfX4Hfl/
+	1LH04kzs9EHRGu7/dwrbDFrW48rrY6d1lX5LWfchOSIbd0HdayxTR9wg4Sf2mizckZ+LOabpUVMgo
+	wtG/mnhCfGBbWaYhgPcFuc5AAYBFFlZ38IjafUCrsAko73fIWQLqur2GNEBKog4d2Smxl6v7uXoAA
+	lF7siVdQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1NfK-0000000AwqP-2nSA;
+	Tue, 01 Sep 2026 12:32:38 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 7FE65300578; Tue, 01 Sep 2026 14:32:36 +0200 (CEST)
+Date: Tue, 1 Sep 2026 14:32:36 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	David Stevens <stevensd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260901123236.GA687043@noisy.programming.kicks-ass.net>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
+ <20260828151018.HnR9xV1N@linutronix.de>
+ <20260828150836.2d5b378c@gandalf.local.home>
+ <20260828151313.5c4a5e4b@gandalf.local.home>
+ <20260828151747.20035d50@gandalf.local.home>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac4: Use the full perfect
- filter ability for UC filter
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
- =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
- <20260831070121.349778-3-maxime.chevallier@bootlin.com>
- <285c8969-2f0d-46de-b098-60ff10f30cf6@lunn.ch>
- <493afde2-8603-41e8-b6ce-f8e399c53275@bootlin.com>
- <c7819431-d33d-4e9c-ab36-be55b94d29f4@lunn.ch>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <c7819431-d33d-4e9c-ab36-be55b94d29f4@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_052756_113990_B6E67232 
-X-CRM114-Status: GOOD (  16.45  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260828151747.20035d50@gandalf.local.home>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,56 +101,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 28, 2026 at 03:17:47PM -0400, Steven Rostedt wrote:
 
+>   1)     8072     104   update_group_capacity+0x94/0x960
+>   2)     7968     528   update_sd_lb_stats.constprop.0+0x426/0x39b0
+>   3)     7440     424   sched_balance_find_src_group+0x8f/0x1150
+>   4)     7016     552   sched_balance_rq+0x934/0x4130
 
-On 9/1/26 14:21, Andrew Lunn wrote:
-> On Tue, Sep 01, 2026 at 08:37:20AM +0200, Maxime Chevallier wrote:
->> Hi,
->>
->> On 9/1/26 02:12, Andrew Lunn wrote:
->>> On Mon, Aug 31, 2026 at 09:01:20AM +0200, Maxime Chevallier wrote:
->>>> Contrary to dwmac1000 that gets its number of perfect filter entries
->>>> through the 'snps,perfect-filter-entries' property, dwmac4 allows
->>>> reading the filter size from the HW features registers.
->>>
->>> Does dwmac4 take any notice of "snps,perfect-filter-entries"? Should
->>> it be marked deprecated?
->>
->> It's only used on :
->>
->>   "st,spear600-gmac"
->>   "snps,dwmac-3.50a"
->>   "snps,dwmac-3.70a"
->>   "snps,dwmac-3.72a"
->>   "snps,dwmac"
->>
->> So, dwmac1000.
->>
->> I'd say, we can definitely deprecate on IPs that don't match these.
->>
->> Interestingly, there are _some_ dwmac4 devicetrees out there that use
->> this property. It achieves nothing, and even worse, doesn't match what
->> the HW reports :
->>
->> In arch/riscv/boot/dts/starfive/jh7110.dtsi for example :
->>
->> gmac1: ethernet@16040000 {                                            
->> 	compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
->> 	[...]
->> 	snps,perfect-filter-entries = <256>;
->> }
-> 
-> So another thing for the TODO list, extend the YAML description to
-> make properties conditional on the IP core version, so the validator
-> tools will pick this up.
+Bah, yeah, those on-stack statistics just keep growing.
 
-Looks like it yes. I'm starting to wonder if we should  maintain this kind
- of TODO list in the kdoc. I know these types of lists have a nasty
-tendancy of falling into disrepair, but this could help.
+This should probably help. Very lightly tested. Also we can probably
+relax the assertion to bh-disabled and avoid the extra irq-disable
+around sched_balance_rq().
 
-Maxime
+Anybody got time to play around with this?
 
-> 
-> 	Andrew
-
+---
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 8dff37059faf..0c83b0856a95 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -11418,6 +11418,39 @@ struct sd_lb_stats {
+ 	struct sg_lb_stats local_stat;		/* Statistics of the local group */
+ };
+ 
++struct pcpu_lb_stats {
++	struct sd_lb_stats sds;
++	struct sg_lb_stats sgs;
++	struct sg_lb_stats local_sgs;
++	struct sg_lb_stats idlest_sgs;
++};
++
++static DEFINE_PER_CPU(struct pcpu_lb_stats, pcpu_lb_stats);
++
++static inline struct sd_lb_stats *this_sds(void)
++{
++	lockdep_assert_irqs_disabled();
++	return this_cpu_ptr(&pcpu_lb_stats.sds);
++}
++
++static inline struct sg_lb_stats *this_sgs(void)
++{
++	lockdep_assert_irqs_disabled();
++	return this_cpu_ptr(&pcpu_lb_stats.sgs);
++}
++
++static inline struct sg_lb_stats *this_local_sgs(void)
++{
++	lockdep_assert_irqs_disabled();
++	return this_cpu_ptr(&pcpu_lb_stats.local_sgs);
++}
++
++static inline struct sg_lb_stats *this_idlest_sgs(void)
++{
++	lockdep_assert_irqs_disabled();
++	return this_cpu_ptr(&pcpu_lb_stats.idlest_sgs);
++}
++
+ static inline void init_sd_lb_stats(struct sd_lb_stats *sds)
+ {
+ 	/*
+@@ -12406,12 +12439,13 @@ static struct sched_group *
+ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int this_cpu)
+ {
+ 	struct sched_group *idlest = NULL, *local = NULL, *group = sd->groups;
+-	struct sg_lb_stats local_sgs, tmp_sgs;
++	struct sg_lb_stats *local_sgs = this_local_sgs();
+ 	struct sg_lb_stats *sgs;
+ 	unsigned long imbalance;
+-	struct sg_lb_stats idlest_sgs = {
+-			.avg_load = UINT_MAX,
+-			.group_type = group_overloaded,
++	struct sg_lb_stats *idlest_sgs = this_idlest_sgs();
++	*idlest_sgs = (struct sg_lb_stats){
++		.avg_load = UINT_MAX,
++		.group_type = group_overloaded,
+ 	};
+ 
+ 	do {
+@@ -12430,17 +12464,17 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+ 					       sched_group_span(group));
+ 
+ 		if (local_group) {
+-			sgs = &local_sgs;
++			sgs = local_sgs;
+ 			local = group;
+ 		} else {
+-			sgs = &tmp_sgs;
++			sgs = this_sgs();
+ 		}
+ 
+ 		update_sg_wakeup_stats(sd, group, sgs, p);
+ 
+-		if (!local_group && update_pick_idlest(idlest, &idlest_sgs, group, sgs)) {
++		if (!local_group && update_pick_idlest(idlest, idlest_sgs, group, sgs)) {
+ 			idlest = group;
+-			idlest_sgs = *sgs;
++			*idlest_sgs = *sgs;
+ 		}
+ 
+ 	} while (group = group->next, group != sd->groups);
+@@ -12458,17 +12492,17 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+ 	 * If the local group is idler than the selected idlest group
+ 	 * don't try and push the task.
+ 	 */
+-	if (local_sgs.group_type < idlest_sgs.group_type)
++	if (local_sgs->group_type < idlest_sgs->group_type)
+ 		return NULL;
+ 
+ 	/*
+ 	 * If the local group is busier than the selected idlest group
+ 	 * try and push the task.
+ 	 */
+-	if (local_sgs.group_type > idlest_sgs.group_type)
++	if (local_sgs->group_type > idlest_sgs->group_type)
+ 		return idlest;
+ 
+-	switch (local_sgs.group_type) {
++	switch (local_sgs->group_type) {
+ 	case group_overloaded:
+ 	case group_fully_busy:
+ 
+@@ -12486,17 +12520,17 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+ 		 */
+ 
+ 		if ((sd->flags & SD_NUMA) &&
+-		    ((idlest_sgs.avg_load + imbalance) >= local_sgs.avg_load))
++		    ((idlest_sgs->avg_load + imbalance) >= local_sgs->avg_load))
+ 			return NULL;
+ 
+ 		/*
+ 		 * If the local group is less loaded than the selected
+ 		 * idlest group don't try and push any tasks.
+ 		 */
+-		if (idlest_sgs.avg_load >= (local_sgs.avg_load + imbalance))
++		if (idlest_sgs->avg_load >= (local_sgs->avg_load + imbalance))
+ 			return NULL;
+ 
+-		if (100 * local_sgs.avg_load <= sd->imbalance_pct * idlest_sgs.avg_load)
++		if (100 * local_sgs->avg_load <= sd->imbalance_pct * idlest_sgs->avg_load)
+ 			return NULL;
+ 		break;
+ 
+@@ -12545,9 +12579,9 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+ 				imb_numa_nr = min(w, sd->imb_numa_nr);
+ 			}
+ 
+-			imbalance = abs(local_sgs.idle_cpus - idlest_sgs.idle_cpus);
++			imbalance = abs(local_sgs->idle_cpus - idlest_sgs->idle_cpus);
+ 			if (!adjust_numa_imbalance(imbalance,
+-						   local_sgs.sum_nr_running + 1,
++						   local_sgs->sum_nr_running + 1,
+ 						   imb_numa_nr)) {
+ 				return NULL;
+ 			}
+@@ -12560,7 +12594,7 @@ sched_balance_find_dst_group(struct sched_domain *sd, struct task_struct *p, int
+ 		 * up that the group has less spare capacity but finally more
+ 		 * idle CPUs which means more opportunity to run task.
+ 		 */
+-		if (local_sgs.idle_cpus >= idlest_sgs.idle_cpus)
++		if (local_sgs->idle_cpus >= idlest_sgs->idle_cpus)
+ 			return NULL;
+ 		break;
+ 	}
+@@ -12647,14 +12681,13 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+ {
+ 	struct sched_group *sg = env->sd->groups;
+ 	struct sg_lb_stats *local = &sds->local_stat;
+-	struct sg_lb_stats tmp_sgs;
+ 	unsigned long sum_util = 0;
+ 	bool sg_overloaded = 0, sg_overutilized = 0;
+ 
+ 	env->dst_core_idle = !sched_smt_active() || is_core_idle(env->dst_cpu);
+ 
+ 	do {
+-		struct sg_lb_stats *sgs = &tmp_sgs;
++		struct sg_lb_stats *sgs = this_sgs();
+ 		int local_group;
+ 
+ 		local_group = cpumask_test_cpu(env->dst_cpu, sched_group_span(sg));
+@@ -12929,21 +12962,21 @@ static inline void calculate_imbalance(struct lb_env *env, struct sd_lb_stats *s
+ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ {
+ 	struct sg_lb_stats *local, *busiest;
+-	struct sd_lb_stats sds;
++	struct sd_lb_stats *sds = this_sds();
+ 
+-	init_sd_lb_stats(&sds);
++	init_sd_lb_stats(sds);
+ 
+ 	/*
+ 	 * Compute the various statistics relevant for load balancing at
+ 	 * this level.
+ 	 */
+-	update_sd_lb_stats(env, &sds);
++	update_sd_lb_stats(env, sds);
+ 
+ 	/* There is no busy sibling group to pull tasks from */
+-	if (!sds.busiest)
++	if (!sds->busiest)
+ 		goto out_balanced;
+ 
+-	busiest = &sds.busiest_stat;
++	busiest = &sds->busiest_stat;
+ 
+ 	/* Misfit tasks should be dealt with regardless of the avg load */
+ 	if (busiest->group_type == group_misfit_task)
+@@ -12965,7 +12998,7 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ 	if (busiest->group_type == group_imbalanced)
+ 		goto force_balance;
+ 
+-	local = &sds.local_stat;
++	local = &sds->local_stat;
+ 	/*
+ 	 * If the local group is busier than the selected busiest group
+ 	 * don't try and pull any tasks.
+@@ -12986,14 +13019,14 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ 			goto out_balanced;
+ 
+ 		/* XXX broken for overlapping NUMA groups */
+-		sds.avg_load = (sds.total_load * SCHED_CAPACITY_SCALE) /
+-				sds.total_capacity;
++		sds->avg_load = (sds->total_load * SCHED_CAPACITY_SCALE) /
++				sds->total_capacity;
+ 
+ 		/*
+ 		 * Don't pull any tasks if this group is already above the
+ 		 * domain average load.
+ 		 */
+-		if (local->avg_load >= sds.avg_load)
++		if (local->avg_load >= sds->avg_load)
+ 			goto out_balanced;
+ 
+ 		/*
+@@ -13009,9 +13042,9 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ 	 * Try to move all excess tasks to a sibling domain of the busiest
+ 	 * group's child domain.
+ 	 */
+-	if (sds.prefer_sibling && local->group_type == group_has_spare &&
++	if (sds->prefer_sibling && local->group_type == group_has_spare &&
+ 	    (busiest->group_type == group_llc_balance ||
+-	    sibling_imbalance(env, &sds, busiest, local) > 1))
++	    sibling_imbalance(env, sds, busiest, local) > 1))
+ 		goto force_balance;
+ 
+ 	if (busiest->group_type != group_overloaded) {
+@@ -13025,7 +13058,7 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ 		}
+ 
+ 		if (busiest->group_type == group_smt_balance &&
+-		    smt_vs_nonsmt_groups(sds.local, sds.busiest)) {
++		    smt_vs_nonsmt_groups(sds->local, sds->busiest)) {
+ 			/* Let non SMT CPU pull from SMT CPU sharing with sibling */
+ 			goto force_balance;
+ 		}
+@@ -13054,8 +13087,8 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+ 
+ force_balance:
+ 	/* Looks like there is an imbalance. Compute it */
+-	calculate_imbalance(env, &sds);
+-	return env->imbalance ? sds.busiest : NULL;
++	calculate_imbalance(env, sds);
++	return env->imbalance ? sds->busiest : NULL;
+ 
+ out_balanced:
+ 	env->imbalance = 0;
+@@ -13958,6 +13991,7 @@ static void sched_balance_domains(struct rq *rq, enum cpu_idle_type idle)
+ 
+ 		interval = get_sd_balance_interval(sd, busy);
+ 		if (time_after_eq(jiffies, sd->last_balance + interval)) {
++			guard(irqsave)();
+ 			if (sched_balance_rq(cpu, rq, sd, idle, &continue_balancing)) {
+ 				/*
+ 				 * The LBF_DST_PINNED logic could have changed
 
