@@ -4,112 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E9AC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63E3C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fphDOyDXIc9z55x5SG5ifvoj7feVaMiS/8ezdRLSxrI=; b=EIYR/qGUsdKylxxN2qvhfiXdWM
-	FVXYFt5KTsVTYqmHXR8A0VF1VAgMNfZxZeOlJMGJkdQEyvOBKQWpA1rfv/hSR8rUYIMk2OubGdLC4
-	Ji6oTLmgnVE0m7Q3h2TOerrXnQxfZ7tk5pj/u+kDSXbFovsMiAa5NXd2j1pWNh1WoiUkCpoldBxbA
-	p65L8SQ/E/2rgXjP+ohpszssCMhHcoWckxCxXpcDEUA23iKWcmFqVw4MvbP4AOMDPKMBEZdGciPr2
-	LxJ/Yt+OCCul4r5u2u8G/ZauTXlFpz0R4w4WzIdwOw+6RHpAyvKP5APPYJJWkO3bbRxS0o5Zta2Ik
-	m3GnqRmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KVR3J3LUOARNMC+CB31gVBLqv+1XiADEtaX3xGLnS4U=; b=aBnNyURF3hhaRa0kspmWVcpsUu
+	hIHv5Oakkxjhpgw0AE1vnvyIHG7kwW9M3qDz3AsHFKoHUjbYleuB9vc1uinBYXjJzD2CN9rFH+gH6
+	WOBdJRCTHGc1twGdTmEMyk4mJGZTvLHJ5HuNaONKA9UlHXvchDB+ATL79yFJaLnjtkgN9UYoJDohS
+	kphTBbowx+cL4R8O6RrzoIXtp3A+8c15XfYOuQh1yi+yv2SEXPQ3cTtv2+/jXE1PQ+o71h9AJKKic
+	vz9AKKDaYrpPfiic2r5ycx6f07tT/Jirny6ap1wzSAeyqMytTLqb8IfH/ICsMfyaomSDPQrM+I1os
+	yBWte7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Q02-0000000CPCg-3feT;
-	Tue, 01 Sep 2026 15:02:10 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Pzz-0000000CPAc-3TaZ
+	id 1x1Q08-0000000CPFm-2ak7;
+	Tue, 01 Sep 2026 15:02:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1Q05-0000000CPE6-3ZOF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:02:09 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-84e84a6c4bfso1245703b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:02:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788274927; x=1788879727; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fphDOyDXIc9z55x5SG5ifvoj7feVaMiS/8ezdRLSxrI=;
-        b=ddLdScggC4LC0tZiQjQuwP9PWzK9CxEwWT9fKWa2WdXkvajnJy4uk/BCwusZsgP5D6
-         s7yFcZ3lkKizsW6krXIdmPAHEvYxQ+TXDIvs8+LzbAx2DvqyHd2Jql2NvTMRkq1/vlHd
-         eicujXMqProHfEMr9nPa0MrjTb63NfFNaP/vRGMnHjLdMJpfB3INsYUPUWSEOziQTE2n
-         +0FZaJlj6Hu7g/jxg/myZYF4O0/x7L7Xmx4MCf+Fe/5DynN+NTdGm9filWfseVoCtf9B
-         4xKUK+xOa8+crcVC0WTh3SXVr7fm1lpu2PmXw8D03bTDSrcxo9sNY8o4pdvdkZ04vNuV
-         sTgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788274927; x=1788879727;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fphDOyDXIc9z55x5SG5ifvoj7feVaMiS/8ezdRLSxrI=;
-        b=MwkL2h+6lrZyDQHZc5G4WC82Nu/ctYpB29dTMMhUEex7YnZYoEiltMofcfaSccnksS
-         iwQDHyIp7CfipCSkWGxqdhVmIJpq7Mcn8G6ZsT7iuxIm9LnVor0srNQbqJ+EeK4pFR8p
-         nH2kdl9eVe6wbqV+fsJbxsd3jHaXhLMDNTF+0/m7e7oy3OKy6ONZopdC0d/aheKbdpOn
-         jXNBeAL9v9ZfESbJYH5OC733aYvd/RI4Apl0Y89XazAbnpTFrbJeBAIIPN2J2/JMAdeh
-         XDN6zkipDWyB6+IzZsQkuweISW1m+o2xDTB6hccezqda24N2uySpyHK7wBP2CPk4tKGs
-         Qu+g==
-X-Forwarded-Encrypted: i=1; AHgh+RoY7dlccxuBckWY2qt5ASj10DqHXBl3u8PIV1qD0PNbO5jlRy2CBmec5ueCFP1xg6J193Too97Kf1XG6OxiFC1Z@lists.infradead.org
-X-Gm-Message-State: AFuF++lsgUhPRZHkJoQ4KyBYvwFEbrxM3d2kPJd9Rs3eVMbQzTg+EvQe
-	mA566bm8fkw+E+dWbKD0b5HE3E/urFyZNFjtq75ojCw7SMdEDQCOQj/N
-X-Gm-Gg: AR+sD12hqCyXJ2oDsQvl86DDWhAY/ERlSRl3aiesTMyrV425zYQ8keiQDYXBdl4iiwN
-	jq5y0DPu4jbu2CZUoO07ub6c0rrNbtPV0vH87f2t3c47sCBE5k1e7CWhQMS2TIx93fJYfP3vkqq
-	DE2SPyftp6Yr9IAjPRxPK3KGV+HAmtlqC+sOl5twqMGQd5HhGPFHHI2mstmgHr3db20UVNaP9bD
-	5+wcBli8AdvZ88UCZqtPZxhcsUikgg58N2An1RE/RSxCgT1C/vcxnKRZcTtU7cBcKU8o74Wf+Re
-	kPvNkKAcygjW/Qck8ySxsefKErf8ytp7Xg3KncDHcHK3cToeryVbjGkSSsd+GAKcylTCuu2UWn8
-	ivNzp2NzICFYXHwnJRe2A+UNOGzO6/dooMv2YstWgjqPl9WqATQKfUtlXUfBaBZdvMmXWAZTnPY
-	fUWBU3G9xCAc9HQCU3xea7zgGnVMuUs/vJT8spDH8fBtMLbDwZCSgGDBB025Q=
-X-Received: by 2002:a05:6a00:1591:b0:857:73c3:4467 with SMTP id d2e1a72fcca58-85bcc75002dmr4811294b3a.22.1788274925534;
-        Tue, 01 Sep 2026 08:02:05 -0700 (PDT)
-Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85dc0716846sm27914b3a.45.2026.09.01.08.01.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 08:02:05 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	David Heidelberg <david@ixit.cz>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v3 01/10] net: stmmac: move XPCS lifetime management to platform drivers
-Date: Tue,  1 Sep 2026 23:01:01 +0800
-Message-ID: <20260901150111.141037-2-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260901150111.141037-1-coiaprant@gmail.com>
-References: <20260901150111.141037-1-coiaprant@gmail.com>
+	Tue, 01 Sep 2026 15:02:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F33C31BD0;
+	Tue,  1 Sep 2026 08:02:08 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00EFD3F882;
+	Tue,  1 Sep 2026 08:02:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788274932; bh=7EJNu/nvGjjQDlHRvCOJ0kkMWzSTWzSt9Ya+CDFC2qk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gnMo5yM8DqcJl6z44P81WDEYjZAyfpNdIp4BjWVf647PI4hAGOwLGlYELgiMnj1Fz
+	 ovafnQ1yMRTCiDCWsU1GJaqNcUYEJ26PqbI3JjBcNnZHZX6eOOAK/Yp9F1L1xL8Vn+
+	 6/9Ym54cvRiJBdHF7Z+Tz17QvuwoIPcJhOxg2ylc=
+Date: Tue, 1 Sep 2026 20:32:09 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
+Message-ID: <apbo8Yr5C-6c0XXr@a079125.arm.com>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_080207_871582_5C824607 
-X-CRM114-Status: GOOD (  27.21  )
+X-CRM114-CacheID: sfid-20260901_080213_970301_BC57DE24 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,243 +91,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current XPCS creation logic in stmmac_pcs_setup() is problematic
-for several reasons.
+Hi Kevin,
 
-First, if a device tree specifies a "pcs-handle" but no select_pcs()
-callback is provided by the platform driver, the created XPCS is never
-used. The phylink framework requires select_pcs() to actually return
-the PCS to the core, so the pcs-handle property becomes effectively
-useless without the matching callback. This is confusing for developers
-who expect that specifying a pcs-handle in their device tree should be
-sufficient to enable the PCS.
+On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
+> [Sending during the merge window in case reviewers have spare
+> cycles; I'm not aiming to have this series merged in v7.3.]
+> 
+> This is a proposal to leverage protection keys (pkeys) to harden
+> critical kernel data, by making it mostly read-only. The series includes
+> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+> as well as a page table hardening feature based on that framework,
+> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+> concept, but they are designed to be compatible with any architecture
+> that supports pkeys.
+> 
+> The proposed approach is a typical use of pkeys: the data to protect is
+> mapped with a given pkey P, and the pkey register is initially
+> configured to grant read-only access to P. Where the protected data
+> needs to be written to, the pkey register is temporarily switched to
+> grant write access to P on the current CPU.
+> 
+> The key fact this approach relies on is that the target data is
+> only written to via a limited and well-defined API. This makes it
+> possible to explicitly switch the pkey register where needed, without
+> introducing excessively invasive changes, and only for a small amount of
+> trusted code.
+> 
+> Page tables are chosen as an initial target because of their especially
+> critical nature - a single write may result in arbitrary pages becoming
+> accessible to any context (including userspace). In order to keep the
+> series digestible for reviewers, this version focuses on functionality
+> rather than performance, making it most suitable as a debug feature. The
+> key trade-off is the requirement to PTE-map the linear map - see section
+> "Protected page table allocation" for details.
+> 
+> This series has similarities with the "PKS write protected page tables"
+> series posted by Rick Edgecombe a few years ago [1] but it is not
+> specific to x86/PKS - the approach is meant to be generic.
+> 
+> This proposal (as of RFC v5) was presented at Linux Security Summit
+> Europe 2025 [2].
+> 
+> [Table of contents]
+> 
+> * kpkeys
+>   - pkey register management
+> 
+> * kpkeys_hardened_pgtables
+>   - Protected page table allocation
+>   - kpkeys context switching
+>   - Performance
+>   - Limitations
+> 
+> * This series
+>   - Branches
+> 
+> * Threat model
+> 
+> * Further use-cases
+> 
+> * Open questions
+> 
+> kpkeys
+> ======
+> 
+> The use of pkeys involves two separate mechanisms: assigning a pkey to
+> pages, and defining the pkeys -> permissions mapping via the pkey
+> register. This is implemented through the following interface:
+> 
+> - Pages are assigned a pkey in the linear map using set_memory_pkey().
+>   This is sufficient for this series, but it is also plausible for
+>   higher-level allocators to support marking allocations with a given
+>   pkey.
+> 
+> - The pkey register is configured based on a *kpkeys context*. kpkeys
+>   contexts are represented as simple integers that correspond to a given
+>   configuration, for instance:
+> 
+>   KPKEYS_CTX_DEFAULT:
+>         RW access to KPKEYS_PKEY_DEFAULT
+>         RO access to any other KPKEYS_PKEY_*
+> 
+>   KPKEYS_CTX_<FEAT>:
+>         RW access to KPKEYS_PKEY_DEFAULT
+>         RW access to KPKEYS_PKEY_<FEAT>
+>         RO access to any other KPKEYS_PKEY_*
+> 
+>   Only pkeys that are managed by the kpkeys framework are impacted;
+>   permissions for other pkeys are left unchanged (this allows for other
+>   schemes using pkeys to be used in parallel, and arch-specific use of
+>   certain pkeys).
 
-Second, and more critically, when stmmac_pcs_setup() fails to create
-an XPCS (either because no pcs-handle is present and no pcs_mask is
-configured), it falls through to the else branch and leaves
-priv->hw->xpcs as NULL. This will silently override any XPCS that a
-platform driver may have already set up during its own initialization,
-for example in a pcs_init() callback or during probe. The platform
-driver has no way to prevent this override because the common code
-runs unconditionally after the platform-specific initialization.
+- Adding some basic details on what a scheme and context is quite helpful.
 
-After commit 93f84152e4ae ("net: stmmac: clean up
-stmmac_mac_select_pcs()"), the common code no longer falls back to
-priv->hw->phylink_pcs if select_pcs() is not set. This change
-reinforces that each platform must manage its own PCS life cycle
-explicitly, but the XPCS creation code in stmmac_pcs_setup() was not
-updated to match this new expectation, leaving a gap where platform
-drivers have no clean way to take control of XPCS creation.
+- Giving some hints (may be an example) on how multiple schemes and multiple contexts
+  play together would be quite helpful.
 
-Address all of these issues by introducing pcs_init() and pcs_exit()
-callbacks in plat_stmmacenet_data. These callbacks give platform
-drivers full control over when and how the XPCS is created, configured,
-and destroyed. The common stmmac_pcs_setup() and stmmac_pcs_clean()
-functions are simplified to just call these callbacks, removing the
-confusing and error-prone XPCS creation logic from the common code.
+May be adding a documentation covering these aspects would be helpful as
+well.
 
-Platforms that do not need an XPCS simply leave the callbacks as NULL
-and no change in behavior occurs. Platforms that do need an XPCS can
-now create it with the exact configuration they require, including
-wrapping it with custom phylink_pcs_ops when necessary.
+My understanding is that pkeys are being partitioned across different
+contexts. But then the introduction of the term "scheme" looks bit confusing to me.
 
-Existing platform drivers (intel, rzn1, socfpga) are updated to use
-the new callbacks by moving their XPCS creation and cleanup logic into
-pcs_init() and pcs_exit(). In their pcs_exit() implementations, the
-pointer to the destroyed PCS is explicitly set to NULL to avoid
-dangling pointer references.
+> 
+>   The current kpkeys context is changed by calling
+>   kpkeys_enter_context(), which will set the pkey register
+>   accordingly and return the original state. A
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 44 +++++++++++++++++--
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  7 ++-
- .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |  7 ++-
- .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  7 ++-
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 37 +++-------------
- 5 files changed, 61 insertions(+), 41 deletions(-)
+..snip
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-index f5f9fa67ecd77..fd5f01c8941c1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-@@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
- 	plat->mdio_bus_data->needs_reset = true;
- }
- 
-+static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct fwnode_handle *devnode, *pcsnode;
-+	struct dw_xpcs *xpcs = NULL;
-+	int addr;
-+
-+	devnode = dev_fwnode(priv->device);
-+
-+	if (fwnode_property_present(devnode, "pcs-handle")) {
-+		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
-+		xpcs = xpcs_create_fwnode(pcsnode);
-+		fwnode_handle_put(pcsnode);
-+	} else {
-+		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
-+		xpcs = xpcs_create_mdiodev(priv->mii, addr);
-+	}
-+
-+	if (IS_ERR(xpcs))
-+		return PTR_ERR(xpcs);
-+
-+	xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
-+
-+	priv->hw->xpcs = xpcs;
-+	return 0;
-+}
-+
-+static void intel_mgbe_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (!priv->hw->xpcs)
-+		return;
-+
-+	xpcs_destroy(priv->hw->xpcs);
-+	priv->hw->xpcs = NULL;
-+}
-+
- static struct phylink_pcs *intel_mgbe_select_pcs(struct stmmac_priv *priv,
- 						 phy_interface_t interface)
- {
--	/* plat->mdio_bus_data->has_xpcs has been set true, so there
--	 * should always be an XPCS. The original code would always
--	 * return this if present.
--	 */
-+	if (!priv->hw->xpcs)
-+		return NULL;
-+
- 	return xpcs_to_phylink_pcs(priv->hw->xpcs);
- }
- 
-@@ -733,6 +767,8 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
- 	    plat->phy_interface == PHY_INTERFACE_MODE_1000BASEX) {
- 		plat->mdio_bus_data->pcs_mask = BIT_U32(INTEL_MGBE_XPCS_ADDR);
- 		plat->default_an_inband = true;
-+		plat->pcs_init = intel_mgbe_pcs_init;
-+		plat->pcs_exit = intel_mgbe_pcs_exit;
- 		plat->select_pcs = intel_mgbe_select_pcs;
- 	}
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index 19f34e18bfef2..9af32c26f9c14 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -81,8 +81,11 @@ static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
- 
- static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-index 13634965bc19a..01df4776edb3f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-@@ -35,8 +35,11 @@ static int rzn1_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void rzn1_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *rzn1_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 1d7f0a57d2889..6d4bc1fe8f751 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -539,8 +539,11 @@ static int socfpga_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void socfpga_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index afe98ff5bdcb0..d2f77f0c223a7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -426,36 +426,15 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- int stmmac_pcs_setup(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	struct fwnode_handle *devnode, *pcsnode;
--	struct dw_xpcs *xpcs = NULL;
--	int addr, ret;
--
--	devnode = dev_fwnode(priv->device);
--
--	if (priv->plat->pcs_init) {
--		ret = priv->plat->pcs_init(priv);
--	} else if (fwnode_property_present(devnode, "pcs-handle")) {
--		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
--		xpcs = xpcs_create_fwnode(pcsnode);
--		fwnode_handle_put(pcsnode);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else if (priv->plat->mdio_bus_data &&
--		   priv->plat->mdio_bus_data->pcs_mask) {
--		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
--		xpcs = xpcs_create_mdiodev(priv->mii, addr);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else {
-+	int ret;
-+
-+	if (!priv->plat->pcs_init)
- 		return 0;
--	}
- 
-+	ret = priv->plat->pcs_init(priv);
- 	if (ret)
- 		return dev_err_probe(priv->device, ret, "No xPCS found\n");
- 
--	if (xpcs)
--		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
--
--	priv->hw->xpcs = xpcs;
--
- 	return 0;
- }
- 
-@@ -463,14 +442,10 @@ void stmmac_pcs_clean(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 
--	if (priv->plat->pcs_exit)
--		priv->plat->pcs_exit(priv);
--
--	if (!priv->hw->xpcs)
-+	if (!priv->plat->pcs_exit)
- 		return;
- 
--	xpcs_destroy(priv->hw->xpcs);
--	priv->hw->xpcs = NULL;
-+	priv->plat->pcs_exit(priv);
- }
- 
- struct stmmac_clk_rate {
--- 
-2.47.3
+> Open questions
+> ==============
+> 
+> A few aspects in this RFC that are debatable and/or worth discussing:
+> 
+> - There is currently no restriction on how kpkeys contexts map to pkeys
+>   permissions. A typical approach is to allocate one pkey per context and
+>   make it writable in that context only. As the number of contexts
+
+Probably to avoid the assumption, may be we can we have something like
+below
+
+For a pkey P, we could define
+PKEY_P_PERM_CTXT_OTHERS  //permission for pkey p in other contexts
+PKEY_P_PERM_CTXT_SELF    //permission for pkey p in self context
+
+With the assumption of one pkey mapped for every context,
+the permission for the default context would look something like,
+
+PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
+PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT |
+PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
+...(for all valid contexts)
+
+where,
+Permission key, PKEY_DEF is associated with context DEFAULT,
+Permission key, PKEY_CT0 is associated with context CT0,
+Permission key, PKEY_CT1 is associated with context CT1
+
+
+>   increases, we may however run out of pkeys, especially on arm64 (just
+>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+>   use the same pkey for the data associated to multiple contexts.
+> 
+
+Lets say two contexts A and B, use the same pkey P as their permission matches.
+But then, when we enter context A, permission for pkey P gets
+relaxed, then that would relax permission for pages associated with
+context B as well which is unintended ?
+
+As the hardware supports 16 pkeys, should we consider removing the limit
+of 8 pkeys so that we can have unique pkeys for each context ?
+
+--
+Linu Cherian
 
 
