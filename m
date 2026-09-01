@@ -4,145 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853CBC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162E9C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLefIa8Mrh/aTZAMwrh+JCwyU3O8JQ9MIQ5ATlA7HxE=; b=H7V1NHuJw6AbSTRGrLwvClrm9K
-	Kk+xyf+a2LKyFIsLwjdNcncQbXgUeoTOteogDALhY5KN2LQpSDWW7zZQ3gvbUHEHAgephF3ZBC/Wu
-	RZ7y24H/NxxNnvRzdDX5CePNu4ap+2pJVx7oXJZJCAr+qf04nSLmxK29+vN/Q+YgLbFQiM1Z1HaFO
-	rbJDmRh6nRGySP1zk178GzPaf7STXmfZrpKA5YjTGtFSQA9RCQGhSp8HrzloNDVLcSzsEYz4sc6UY
-	718Mwn40SMiKBuYiylPtfPNxuI7p3EEyTW6GdbCuLmcnzQpKm8TFJBL+CfgTsgOzv+s+SajEnax6r
-	BJMsrzJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2knjofwQvuzR1wr+XZv3xX6N0QAal6YKt6Ix7SMUxH4=; b=H3qd1uW4GjKc1pr58BaIvde1nc
+	/3OTSnRFft3dLFjaCK2R3QHLGQIOzaJAJA0GBeeMSrSZPoN451qVDTIwjAss9GtaMPQQYaNeWswEC
+	+8Li0OnDC54Zaob92cbuY36fa/El8qrcejWNiJ0JRgUYSsiR0gojqrdGs4jMIzdU3h2NfRq/mwTBu
+	xnABixTSKa7YOMUSuENPkWeJDlmFaGkJrmWMOTV8fPnzMKYcBS04jCO1eerNLlC2+wZxdV1RiQ9zF
+	XcuVCkehvxG37vPryC2swc3jeBFxAGM3AEIGVJjtm2lQouuQU7spod0ajkSP9b28hT1XNRXfcs4UA
+	cXN29HVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RsB-0000000Ck3N-2vqY;
-	Tue, 01 Sep 2026 17:02:11 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1x1Rw7-0000000CkTl-1CFL;
+	Tue, 01 Sep 2026 17:06:15 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Rs8-0000000Ck2o-0Dm4
+	id 1x1Rw4-0000000CkT2-2ZjA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:02:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=re/GDW9XiaerK/a9a95GFks8+K6LB7QeGyKsyFKZ2/gYh3dRbYSvpd4cAWGEMeLBqVVJ3DMMPTXpTaYAYjiW6fkbtEZJ5yulex22+4R7XhUo7dCAqhLrvn6sp9HgbieZQZQIqdLFA4yqK6eCV+/r1QgjRWyST7O1ifbOu9aKadigWVc94XwRsISgoQkWJbPQaK5lQGDti2podSsQEuPBqGI6K/GsArCW5qzqI9AGjxAIdjsTCTNsgRLWa1tZRTNYGQdrcLFh1nudQjOLgWiPXFqgmC7G5WjBkGmsyZh/6bU3MVpddI2STxy6WDRnnB3Bphyr9FmYc61PyfpiHqtJmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PLefIa8Mrh/aTZAMwrh+JCwyU3O8JQ9MIQ5ATlA7HxE=;
- b=wzTDbIzp/WzG4rN9YqhOi6zBaoCAlvETtGRVJ4/fq4mdcpb09VhPvxA1Y0aUoPqQF7aMfk7UnvzF5P/7369EGI4yFXaClQCuqPge9J4WIIxaFh1cLqHjqmj0z+JRMlT2XRLbnsyR/EZ6/MUvX8var7+8PYdSD9SkiH9480qLzvFZR+7L5qtCmnlNxe+50QYTzGXax/3MGf6Adha5Xgv9bRgXTOHKiUn6Rpl2RoxJZUubL6vfZ+7enY7kx+KrP8HCWjwJOWPlY3Swmk8VurJNhVqp44zn+NZaSuFVYOyqFnbMSiutN/vEq0Vfbc1D3uTDGPLfZrBoTk9VdZyYCHPS3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PLefIa8Mrh/aTZAMwrh+JCwyU3O8JQ9MIQ5ATlA7HxE=;
- b=5SAWdzqCUFiw0lNLJQxQ5E7jFV2fYfG3GUpKpRE0G82VZIdO2lTS4uZhfTXpJLMl6mPeaOgP0nZG9ANrSCliWcLLrjYtTt4ASnqkNoZXmzu5wYYrMEMY1wij4F++65LNIdOhgEQO+k+tT/XWtt3co/n5tpLMhVgCgDRRGZTjqcI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by SA1PR12MB7222.namprd12.prod.outlook.com (2603:10b6:806:2bf::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 17:01:56 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54%2]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 17:01:56 +0000
-Message-ID: <320e31b8-7e26-404e-a1bc-d19ecb59ff3d@amd.com>
-Date: Tue, 1 Sep 2026 22:31:47 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
- Xilinx XXV 10G/25G Ethernet
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260831150816.1020883-1-suraj.gupta2@amd.com>
- <20260831150816.1020883-3-suraj.gupta2@amd.com>
- <bb36094f-07d1-49fb-be2a-ffe126e1b919@lunn.ch>
- <9717ad8d-0117-4320-9d6c-dda6b712ecee@amd.com>
- <b5126d72-734b-4f4d-b953-807579c8583e@lunn.ch>
-Content-Language: en-US
-From: "Gupta, Suraj" <suraj.gupta2@amd.com>
-In-Reply-To: <b5126d72-734b-4f4d-b953-807579c8583e@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PNYPR01CA0038.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:25d::9) To SA1PR12MB6798.namprd12.prod.outlook.com
- (2603:10b6:806:25a::22)
+	Tue, 01 Sep 2026 17:06:14 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-866e57f63a3so2800807b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 10:06:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788282371; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TfB3lAmqXJB++8VbfcCdB42T85Kal5eu3VRsYRyx2O8Bxqdzy+wzWUX1BYaAcZgtYb
+         UQXLC6pLdfs36Gz43SJgI80kSmzi/gD+HZFtY2koZ28xXvgPGUvCbmGPlxEwvKVLs1/r
+         fVwv+ocfIh5cKG8LO98LYrCZMRA3GfLOaSTSdUMU1GFARbg/IgCBBue/PcLcdLZzINmS
+         gdYPBmx1Y80JIah4BdAizm4q+0x42Y390VaverfCHrNeqBZLP3AZlhT1/EIscmh+YGOs
+         sLwopNmTH9UxwH6gPoApGPfK8ZcnVbd8yZXREseappLFGyP3lq7k2OZyAeuf++6KqTJB
+         xGBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=2knjofwQvuzR1wr+XZv3xX6N0QAal6YKt6Ix7SMUxH4=;
+        fh=V6suD5ckeTVQTJZNRRkytdr0GTz3rFhaYbwc1IZkHT0=;
+        b=jLBKicrYeUoP0ygQxV1uoVRdAMANsP79wcYbJ/n4z1aRVg5DwhEI7UmhnpzXEMSyzu
+         Fp5BUn8Kg2CMXLrruKtBwKWpCMGzKc42Qdb0tmMYlurOa2Y11NrtfyB/XZQ71ONDj/NH
+         OqYuV839mKGXoVUsbjWcwkv2VI1hmFdsXqvVuVafrLjTlKf+lufdJSugWhDJwegsnhVM
+         LD3mt6qzCbLHLH4H12ocNnluadrzslok8NLQ+FFg1E1FYpndo/zFiQyexiG5EPc2qFjK
+         wP4h0qDwa10ovkStjuXwZHM6tuBwwiDXGW0YbDBFOremR9n4ZC2JG148gHPvbafYXSCG
+         5qfw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788282371; x=1788887171; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2knjofwQvuzR1wr+XZv3xX6N0QAal6YKt6Ix7SMUxH4=;
+        b=LG7ABF1+QFu2wl6kquHfoeNfbLCewqq9XjdsflYfRvDQLZknujkOJvZcXMW06kZ5m3
+         PA3WLRozFd9NngEZTUhoeBIUEwadfYU8aHmd9cY7YiOBwV1aT+0SB9lyya6Cjuz6JmEW
+         d4mG2fJslHNFMlnE86j0lVnZBD0rPAn//fyjUSGCSIJ9gTEU+RSBkk9WP6tUcEm4CCR3
+         O3kNLLJN6268XoUkm1VhFDa+l4vRzKUHhGNa7aBhkrsEJNdipBxNkCH/W+dq8ngj30Ck
+         Sv1yP/14yduCiV02/Ypato41vq055XP334LOX7k2nrBlopczcejKkYGs1KGbn3IQXOek
+         rGoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788282371; x=1788887171;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2knjofwQvuzR1wr+XZv3xX6N0QAal6YKt6Ix7SMUxH4=;
+        b=Dmr2tz370j4uZtWrtFcB5xG7Ux8tB8bb3EkjlBN9Ty6PuyboZnPfEPYkF7jZLokmpr
+         5XNIfsMx8jEz9hqOFnTMKsZY+JtCyPS2G2q6SBy2WuWv+oEwT7YKc7K4H0cU5ZkMQoSO
+         CGZaTTB8IfEa7Sc8VJVgMKPjlrSWreJzUN19iuIiLkuDqgf5btM/+B5R5kLij5Qx6ES0
+         y13804NRvkXxgA4DZXyw92/0SzRe9xHORmpwPVI4nNAC/LTMFrcfNy3YBUOAy8WbTI3k
+         8YjrvjCOl9m9uWwcHj8P/askSIJOFYOrqAfxynUXZFeTdQJoYm+JSRpQ8BIv92eyPG0W
+         r/Zw==
+X-Forwarded-Encrypted: i=1; AKwUvBxSCa21kOWqr0EWa9aqXipKfHKT1wFxNkSLQw9MJ9HNWkBCNhhks6Hv4blI+9sS/ratDMKlNDSxXDICudfVvktg@lists.infradead.org
+X-Gm-Message-State: AFuF++nkgrnNrOi2jAmQZ/ar+hCWRiyt9oQQjR9UHxuTtPz7YXzyI4aj
+	7WMB8bUvQSCgpLgAUmVunPRUWxh2RN6SoVeoPA0/vfmaTpMdDCEDKtYsXvCc+hbTMXC/D2Aq/M+
+	lhPrh5t/WqUGLAxHSiRIflQ6OJKbn9nlejD7+
+X-Gm-Gg: AYBFou0fxXkshYzqY+TIJ6tgymuTJf/MET9lf2XGv0DN0Q2TM6juRDOryYz8gHkiiPe
+	c+ZkstpD89AdwwWHyiLb/r+ZTNJJ52W606PCBgAYPiS1Doh8YRnOc+wJotxUSvqwAQyImal63ec
+	EE2Wfjyy50LjU6sDITCm9pvTmTx2mLC20izFS8mBueEcm1ZOOnVwsz51X0smvvS2DpfPtCE3KT3
+	uRE168aPBxD7XNUN5syHTBbuQhbUrSwX7dkgaN/ViY94WZZhYKnpQM0sbWKX43uiB6vwd7HfTdG
+	O8UWZk3d/GUu+Q8sSkeQOsUzDp54lEgHXCeXQjXvEOtC6s4MKNkaePmJ3x9Be7R0kuNs77b3O7l
+	mLa0By/vK8uSljKqbOffBbPLNBR3QdPg=
+X-Received: by 2002:a05:690c:c384:b0:81e:5d2e:89c8 with SMTP id
+ 00721157ae682-85d69e05ecbmr139075427b3.14.1788282370489; Tue, 01 Sep 2026
+ 10:06:10 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|SA1PR12MB7222:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0c8f8b9-4c53-41ce-4240-08df084abac2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|18002099003|22082099003|56012099006|6133799003|4143699003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: GGHkoFoWukGsBdp9WqQgmxbPXiIupEQCyPsGW9YwN8wnzoUXUtDxu9PMSBnJSvmRqLgUCPi9z7JqMtmBygwoLBA0m7BRdzBP4Ai8bxaVWoXbBFOKVjj6RYKYh/Mtn4xtXJxMqgzi6JUyYcpbyyO/qw3DCZdjBIabcAXnEnqPBAG4a8ABFhYR2rl7MYfUer0FWCsxUSCGBYV0irOTya/kH3SIRt3it4P7+sgN3cYjAqdHtMFQVzcn6W9id7wK5diKPWVhfB3dK7vy4APZI2eO72ZoDSuGwiAKDVneLQMBVu97bq4lLOe3C1JJS0ld1NxoGpFfsdIAJ/wBe+bnBO3Qs5Umz/KcLZuQuomuERBa1zR+OJUh3/9SfB2QBoKBRNxdW/1QhArKadu3Mp9HgpMmc3ILoFaEHWCuXLxDJhsfMrEn6488OquUrhLYARYPOuJaBe1pwzgfZ18ELGmcD++f4U6d3xuXqhCIFysKvNJcRfvb1Hagi+fWkrjr8kHAA9lT8e3hEMXAp/Y5kHHU/2wUd+Eqid8i1CoQp6CbJhADrFkczaVE5zY5pQMerxMKs4YBzBopUMOEud/LPVy4MSvqXnKBd8bPwhX+oADnMZQq9SZbhhfgPvPh8FbtVxfH5Xtf4wWVzkMzknVz+cR9rjrexHBOSF2/t9laBTWO59TvdeA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(18002099003)(22082099003)(56012099006)(6133799003)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NHhFeElETFQwb3dPMTNZdHdnYkNpdHBoaXY2V0ZOVTRtb1ByQlRUZ3FTVFNn?=
- =?utf-8?B?b2ErbGQvVU0rVktLRkdzRjVFWjUxelExMFkyQVVJTFlyTXlFN1VVOTNrZTBH?=
- =?utf-8?B?R25vVzY5OEtUZ3hWS0h4S0dYUnFLYXJNN2VEVzhTb09vaHFrQ0t5elJlRDcv?=
- =?utf-8?B?RnFDblN4SHZqWkZzMGpKaFVNazJHaldYSkJSM3FlNkhtNDdIUEQrSktjclh3?=
- =?utf-8?B?ZFNMY3hBL3FMYVdteWpJZk9uMGxwODV5VkFpUGhMZUthWVlIVHc4eGpIQ1FZ?=
- =?utf-8?B?UEQxRE9sK3Jpc1FpR0tFd0ZwWXRHUnU1UGZJeE5QRHI3TmFaMlN5bXJhZ1V5?=
- =?utf-8?B?SnFyZGRsdXZ4YkhTZTlMb3d0OExsaElkM0swUUtpeUNnSWgzM3FFQzRGV0do?=
- =?utf-8?B?dkF5NjJDNndUSGR2bmlOc3I5Z1pwcENXNm5GRTRzQ0lETjNRR051dytGRm0r?=
- =?utf-8?B?WjVNbXBkeU5LT0g3akJHS3A0Qlh5Sm5vMnhIS3FkZlFsWU9jd3VkS1B5ZmdU?=
- =?utf-8?B?UXRwOTFPVjVGTTVRc0E3TkVMb2cvWFNWZUozbThYVHBLeFhxdmVpRGlBQVBC?=
- =?utf-8?B?NitBWTJxQlNBMmV1MG96T2d5MUYxNVJXNGZsQ09CYkVMWFhlYlRPclEvKy9n?=
- =?utf-8?B?dTlHc1Z1aCtmdXh5enVXUk53bnJzUjZrY2FQUFpaR1VQNE5yTW9kdzN4Z0VC?=
- =?utf-8?B?enU4dzg0MVl5a25XVGt6NWZKeG5GM2dyOHd0dkVuZ0VWd2txc0JQaFdZOGxU?=
- =?utf-8?B?Z3IrZk94VXFBTisrRm1qMGpZTzRDL0JVblNaRXM2Q20rU205SU5KOXc3dXJv?=
- =?utf-8?B?cFVQMEk4Q256UGJRa3czZmxWTTBvbmtUeWNmandrSUJva2pOajZNQjVraFlq?=
- =?utf-8?B?M2Fvc1VZQy9kVHdmYlFLL0pXWkJiMkR2OFMwa1JMM1NIZ0RPMlF2UmxHdnVu?=
- =?utf-8?B?cjYyR2tMNkg2U0l2MngxTlJuZkxYL3RLMUMxbXRLRlFkb3RVR3kybHlMME1l?=
- =?utf-8?B?SGJKVis1OU5mMjEyRnZhS29EQzA4ZitNYWlxL2NTY3FkdzhPZWd2czRYS2tK?=
- =?utf-8?B?M1ZtdDRPVk5yVzhKMGFvL3pJWmZTajIxZnRaSDFGTWxWV3lySkNHdWlBNEE1?=
- =?utf-8?B?dVJDTmJrYTlBQzZ1LzQyeVVGaC80c0N4OC84QWRjWGtjTVo3REZoOHhOYTda?=
- =?utf-8?B?ck1JNTQ2TkN5bkFRYkExd3F3REpWb09yY3MwYTY2bzBDd2gwY21sS2VLV200?=
- =?utf-8?B?N28raFVvSnBTb3BXZjlaNElHNDdWZVFSMlZhMHZ0WUJvcWFxd0RWS3h5ZWdj?=
- =?utf-8?B?QXZkUXoxQkMzb2dNVDg1RHp0R2cxbVkvbXhEUU42djZVbDFBOUNUZ2xDSVBV?=
- =?utf-8?B?UkJLTGIwNkVQdGJXT1NhQzEwOHJHbFBnVTVBS0puNEJZVmNPM3lMMHdtbHdS?=
- =?utf-8?B?TXM5R1A2RkgreHBkOEc5Qjg4ZlorZEl6UW5BMVpYTHVQTG1ZbEtMYnVpNE0w?=
- =?utf-8?B?c1htSGJvRFlYbUxZaXhRNDVySXM5M242Nk1CSVE4Q1FMZStxOXBueUpiNUpR?=
- =?utf-8?B?dCtDbGs5NWdnb2tONkNIYWR1L3UyYmlJcGYrTlVZUU8vY0pmeGRkOW5Ybzcx?=
- =?utf-8?B?WkZkMW8xb211TjV5K1NkM2VOU1lKTkJpWXFlbTU3V1Qyd1hxamNmdElYWnB4?=
- =?utf-8?B?eS9oUGxyNzYydHFnTjlLTFBKRkhIZGlBMjNVVytvRTdYWW9XR1BKaG1IaE15?=
- =?utf-8?B?QnBWZysvQkJ4Ui9IUUR6REU0VndrSzVRcDRZdU5uRjVzL0s2Qnp1cy9MZjhk?=
- =?utf-8?B?TWl0RVJ0YWVDU2ZZSUNSRXVaL1VjOHBmYjVhQ04vQlJTWUZIMW1id25KSjBR?=
- =?utf-8?B?RnpJWG1Hbkx0U2xlNGhwU01FYjBDelppNDd5ZWRTbTJRY2kvQTM0M1grQkhC?=
- =?utf-8?B?Und1emFpYUJqMU11U0p2Y1ZuYjFIZ28yRnhBK0l4Rmd0b2p3a0hhYWdJUTh4?=
- =?utf-8?B?T3J5Yi9SaHRUbWNNc3RiVXhEcGRPYUZjTTN2NFhsWXhFK0hlWGZvQ080cS9j?=
- =?utf-8?B?bFlwbjdJQWZ4cmJySEVPU3dDR0Z0QkpyMkRvRTI0M2htcjA4QlRtaVYxSU5J?=
- =?utf-8?B?b3ByRmVGU0ZQT0NkZnFzeEJIbkFQWllHc0VoWGlic3hTbE5yV3BhRDV4WGQ5?=
- =?utf-8?B?UGQzM2NUYS9YeEVQVUlONllFeW1xQ0RSSEM0bWtNTFhYMUNJQkJmQUZMejBG?=
- =?utf-8?B?a1cwQ0VpV1h5eE5rUmxScmVsdGEwOFBhMmdjNGFNNW1zS2FhR1h4ZVA2cEg4?=
- =?utf-8?B?d29TV1RrS2ppSk9KMVJtY2syZEtqVnBWLzkvMlFhMC9XbjJZZHZTdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0c8f8b9-4c53-41ce-4240-08df084abac2
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 17:01:56.5698
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8VWPbA9Q4yvlGRfUTGOKP6XIO7sdclTD6tZxONs9wsz5B6izBnStdFpvAbXSDocx8pmug75Dvz8cTIcbHs8/vA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7222
+References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe> <8783d4c77f112c55c9f9678b5a8e0a88d49c1141.camel@rong.moe>
+In-Reply-To: <8783d4c77f112c55c9f9678b5a8e0a88d49c1141.camel@rong.moe>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Tue, 1 Sep 2026 13:05:58 -0400
+X-Gm-Features: AcwNN1WyKYfoBfTCbGlRw4onwMdCpqeOdj0mqYvXld-ZqkdT9u9PeZktFapWL2M
+Message-ID: <CABBYNZJ2J1Z5X+bb_3DLbXR-xVLP9Jzu62NjhDx1f+GErVTy8w@mail.gmail.com>
+Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
+To: Rong Zhang <i@rong.moe>
+Cc: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>, 
+	=?UTF-8?B?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>, 
+	=?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>, 
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_100208_103772_EE16BC76 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20260901_100612_686785_FBF4A4CD 
+X-CRM114-Status: GOOD (  54.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,84 +124,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rong,
+
+On Tue, Sep 1, 2026 at 12:42=E2=80=AFPM Rong Zhang <i@rong.moe> wrote:
+>
+> Hi Luiz,
+>
+> Gentle ping.
+>
+> On Wed, 2026-07-01 at 23:43 +0800, Rong Zhang wrote:
+> > It is reported that a remote wakeup could cause MT7922/MT7925's btusb
+> > interface completely unresponsive. Resetting the xHCI root hub doesn't
+> > help at all, and recovering from such a state needs a power cycle.
+> >
+> > All reports seen to be relevant to Ryzen-based laptops. These NICs are
+> > usually used as OEM components thanks to some sort of reference designs=
+.
+> > Their popularity on other platforms is unclear. While there is still a
+> > chance that the quirk may exist on other platforms, be cautious and onl=
+y
+> > apply the quirk to direct children of Ryzen platforms's root hubs for
+> > the time being. In most cases the root hub is on the SoC or PCH, which
+> > needs the quirk. Unfortunately, this can't distinguish root hubs on PCI=
+e
+> > add-in cards. Such roughness should be acceptable, as PCIe USB
+> > controller add-in cards are less commonly used nowadays. On the other
+> > hand, applying the quirk doesn't hurt any functionalities either, as th=
+e
+> > device can still be used as a wakeup source if desired. Theoretically,
+> > we could retrieve the root hub's PCI vendor ID with some hierarchy
+> > magic, but that's too intrusive...
+> >
+> > Meanwhile, though device_set_wakeup_capable(false) is the correct fix
+> > for other NICs with fake remote wakeup capabilities, doing so for
+> > MT7922/MT7925 effectively prevents it from being used as wakeup
+> > sources as per userspace requests. Hence, return -EBUSY on runtime
+> > suspend to prevent the interface from being autosuspended while it's
+> > still opened, which has the same effect as
+> > device_set_wakeup_capable(false), since disabling remote wakeup simply
+> > causes the USB core to gate runtime autosuspend as well due to
+> > needs_remote_wakeup =3D=3D 1. The interface can be safely autosuspended=
+ as
+> > long as remote wakeup is disabled, i.e., after closing the HCI device.
+> >
+> > Specifically, the interface may still take the advantage of remote
+> > wakeup in order to wake up the system from sleep if userspace has
+> > enabled it as a wakeup source.
+> >
+> > Fixes: e31d761628ad ("Bluetooth: btmtk: Disable remote wakeup for MT792=
+2/MT7925")
+> > Signed-off-by: Rong Zhang <i@rong.moe>
+>
+> Could you kindly take a look at the patch?
+>
+> Chris Lu from MediaTek has relied with a "LGTM" to the patch, and there
+> is already a Tested-by from Rafael Passos. Additionally, based on
+> Rafael's debugging observations, the issue does exist on AMD PCHs, so
+> matching X86_FEATURE_ZEN is appropriate.
+
+Please resubmit so it can be retested, since it has already been
+archived for being over 30 days old.
+
+> Thanks,
+> Rong
+>
+> > ---
+> > Changes in v2:
+> > - Only apply the quirk to to direct children of Ryzen platforms's root
+> >   hubs
+> >   - Theoretically, we could retrieve the root hub's PCI vendor ID with
+> >     some hierarchy magic to further limit the range down to only root
+> >     hubs on the SoC or PCH, but that's too intrusive -- the hierarchy
+> >     magic really made me nervous once I saw what I have wrote, so I gav=
+e
+> >     it up
+> > - Link to v1: https://patch.msgid.link/20260629-btmtk-ryzen-remote-wake=
+up-v1-1-1d2f1cee6d22@rong.moe
+> > ---
+> >  drivers/bluetooth/btmtk.c | 10 -------
+> >  drivers/bluetooth/btusb.c | 73 +++++++++++++++++++++++++++++++++++++++=
++++++---
+> >  2 files changed, 69 insertions(+), 14 deletions(-)
+> >
+> > diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> > index 02a96342e964..4614434dd57b 100644
+> > --- a/drivers/bluetooth/btmtk.c
+> > +++ b/drivers/bluetooth/btmtk.c
+> > @@ -1381,16 +1381,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+> >               break;
+> >       case 0x7922:
+> >       case 0x7925:
+> > -             /*
+> > -              * A remote wakeup could cause the device completely unre=
+sponsive, and
+> > -              * recovering from such a state needs a power cycle.
+> > -              *
+> > -              * Since the remote wakeup capability is super broken, ju=
+st disable it
+> > -              * to get rid of the troubles. The device can still be au=
+tosuspended
+> > -              * when the bluetooth interface is closed.
+> > -              */
+> > -             device_set_wakeup_capable(&btmtk_data->udev->dev, false);
+> > -             fallthrough;
+> >       case 0x7961:
+> >       case 0x7902:
+> >       case 0x6639:
+> > diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+> > index 08c0a99a62c5..eef6e3b43bf9 100644
+> > --- a/drivers/bluetooth/btusb.c
+> > +++ b/drivers/bluetooth/btusb.c
+> > @@ -6,6 +6,7 @@
+> >   *  Copyright (C) 2005-2008  Marcel Holtmann <marcel@holtmann.org>
+> >   */
+> >
+> > +#include <linux/cpufeature.h>
+> >  #include <linux/dmi.h>
+> >  #include <linux/module.h>
+> >  #include <linux/usb.h>
+> > @@ -957,6 +958,7 @@ struct qca_dump_info {
+> >  #define BTUSB_USE_ALT3_FOR_WBS       15
+> >  #define BTUSB_ALT6_CONTINUOUS_TX     16
+> >  #define BTUSB_HW_SSR_ACTIVE  17
+> > +#define BTUSB_WAKEUP_BROKEN  18
+> >
+> >  struct btusb_data {
+> >       struct hci_dev       *hdev;
+> > @@ -2936,10 +2938,25 @@ static int btusb_send_frame_mtk(struct hci_dev =
+*hdev, struct sk_buff *skb)
+> >       }
+> >  }
+> >
+> > +static inline bool platform_is_ryzen(void)
+> > +{
+> > +#ifdef CONFIG_X86
+> > +     return boot_cpu_has(X86_FEATURE_ZEN);
+> > +#else
+> > +     return false;
+> > +#endif
+> > +}
+> > +
+> > +static inline bool is_direct_child_of_root_hub(struct usb_device *udev=
+)
+> > +{
+> > +     return udev->parent =3D=3D udev->bus->root_hub;
+> > +}
+> > +
+> >  static int btusb_mtk_setup(struct hci_dev *hdev)
+> >  {
+> >       struct btusb_data *data =3D hci_get_drvdata(hdev);
+> >       struct btmtk_data *btmtk_data =3D hci_get_priv(hdev);
+> > +     int err;
+> >
+> >       /* MediaTek WMT vendor cmd requiring below USB resources to
+> >        * complete the handshake.
+> > @@ -2956,7 +2973,40 @@ static int btusb_mtk_setup(struct hci_dev *hdev)
+> >               btusb_mtk_claim_iso_intf(data);
+> >       }
+> >
+> > -     return btmtk_usb_setup(hdev);
+> > +     err =3D btmtk_usb_setup(hdev);
+> > +     if (err)
+> > +             return err;
+> > +
+> > +     switch (btmtk_data->dev_id) {
+> > +     case 0x7922:
+> > +     case 0x7925:
+> > +             /*
+> > +              * All reports seen to be relevant to Ryzen-based laptops=
+. These
+> > +              * NICs are usually used as OEM components thanks to some=
+ sort
+> > +              * of reference designs.
+> > +              *
+> > +              * Their popularity on other platforms is unclear. While =
+there
+> > +              * is still a chance that the quirk may exist on other
+> > +              * platforms, be cautious and only apply the quirk to dir=
+ect
+> > +              * children of Ryzen platforms's root hubs for the time b=
+eing.
+> > +              *
+> > +              * In most cases the root hub is on the SoC or PCH, which=
+ needs
+> > +              * the quirk. Unfortunately, this can't distinguish root =
+hubs on
+> > +              * PCIe add-in cards. Such roughness should be acceptable=
+, as
+> > +              * PCIe USB controller add-in cards are less commonly use=
+d
+> > +              * nowadays. On the other hand, applying the quirk doesn'=
+t hurt
+> > +              * any functionalities either, as the device can still be=
+ used
+> > +              * as a wakeup source if desired.
+> > +              *
+> > +              * Theoretically, we could retrieve the root hub's PCI ve=
+ndor ID
+> > +              * with some hierarchy magic, but that's too intrusive...
+> > +              */
+> > +             if (platform_is_ryzen() && is_direct_child_of_root_hub(da=
+ta->udev))
+> > +                     set_bit(BTUSB_WAKEUP_BROKEN, &data->flags);
+> > +             break;
+> > +     }
+> > +
+> > +     return 0;
+> >  }
+> >
+> >  static int btusb_mtk_shutdown(struct hci_dev *hdev)
+> > @@ -4532,11 +4582,26 @@ static int btusb_suspend(struct usb_interface *=
+intf, pm_message_t message)
+> >
+> >       BT_DBG("intf %p", intf);
+> >
+> > -     /* Don't auto-suspend if there are connections or discovery in
+> > -      * progress; external suspend calls shall never fail.
+> > +     /*
+> > +      * It is reported that remote wakeup events could sometimes cause=
+ some
+> > +      * adapters completely unresponsive. Resetting the xHCI root hub =
+doesn't
+> > +      * help at all, and recovering from such a state needs a power cy=
+cle.
+> > +      * Since disabling remote wakeup simply causes the USB core to ga=
+te
+> > +      * runtime autosuspend as well due to needs_remote_wakeup =3D=3D =
+1, let's do
+> > +      * this ourselves to make our life easier. The interface can be s=
+afely
+> > +      * autosuspended as long as remote wakeup is disabled, i.e., afte=
+r
+> > +      * closing the HCI device.
+> > +      *
+> > +      * Don't auto-suspend if there are connections or discovery in pr=
+ogress.
+> > +      *
+> > +      * External suspend calls shall never fail. Specifically, a devic=
+e with
+> > +      * broken remote wakeup may still take the advantage of remote wa=
+keup in
+> > +      * order to wake up the system from sleep if userspace has enable=
+d it as
+> > +      * a wakeup source.
+> >        */
+> >       if (PMSG_IS_AUTO(message) &&
+> > -         (hci_conn_count(data->hdev) || hci_discovery_active(data->hde=
+v)))
+> > +         ((test_bit(BTUSB_WAKEUP_BROKEN, &data->flags) && data->intf->=
+needs_remote_wakeup) ||
+> > +          hci_conn_count(data->hdev) || hci_discovery_active(data->hde=
+v)))
+> >               return -EBUSY;
+> >
+> >       if (data->suspend_count++)
+> >
+> > ---
+> > base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+> > change-id: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
+> >
+> > Thanks,
+> > Rong
 
 
-On 9/1/2026 8:01 PM, Andrew Lunn wrote:
-> On Tue, Sep 01, 2026 at 08:48:18AM +0530, Gupta, Suraj wrote:
->>
->>
->> On 9/1/2026 7:57 AM, Andrew Lunn wrote:
->>>> +  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
->>>> +  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
->>>> +  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
->>>> +  Ethernet Consortium specification. It has no external MDIO PHY
->>>
->>> What about MDIO bus?
->>>
->>> 	Andrew
->>
->> The 10G/25G (XXV) Ethernet Subsystem IP does not provide an MDIO master.
-> 
 
-
-I'll try to make the overall architecture clear, please let me know if I 
-miss something and additional details needed. The datapath is:
-
-DMA (AXIDMA/ MCDMA) <-> (XXV MAC + PCS/PMA) <-> GT serial transceiver 
-<-> optical module / backplane.
-MAC's in-core PCS/PMA drives a hardened GT (SerDes) transceiver directly 
-at 10GBASE-R / 25GBASE-R, and the GT is configured over its DRP 
-interface (the "drp" clock in this binding). There is no discrete PHY 
-chip and no MDIO or I2C master inside the IP.
-
-XXV ethernet PG: https://docs.amd.com/r/en-US/pg210-25g-ethernet
-
-> O.K. Please change the wording to make that clear. There are plenty to
-> 10G PHYs available, but it seems like you do not consider that a use
-> case.
-> 
-
-Correct, the IP has no MDIO bus master, so an externally MDIO-managed 
-PHY is not a supported use case. I will reword the description in v4 to 
-state that explicitly, e.g.:
-"The subsystem has an in-core PCS/PMA that drives a GT serial 
-transceiver; it has no MDIO bus master and is therefore not managed 
-through an external MDIO PHY. Link state is taken from the MAC's own 
-status registers."
-
-> Has the MDIO bus master been replaced with I2C? I assume you intend
-> this device to be paired by an SFP cage, so an I2C bus will be
-> required. Is that a different IP which needs to be licensed?
-> 
-
-The XXV Ethernet core contains neither an MDIO nor an I2C master. When a 
-hardware design pairs it with an SFP/SFP+ cage, only the high-speed data 
-path runs through this IP: the in-core PCS/PMA drives the GT 
-transceiver, whose serial TX/RX lanes connect to the module. The module 
-management side-band -- I2C for the module EEPROM/diagnostics is not 
-part of this IP. It is provided by separate board logic, i.e. a 
-different IP: a standard AXI IIC controller. Those are general-purpose 
-soft cores from the standard Vivado IP catalog; each has its own 
-devicetree node and binding, so the SFP management path looks outside 
-the scope of this Ethernet binding.
-Please let me know if I should describe sfp in this binding.
-
-
->> The contents of the appropriate MDIO registers are available in the IP control &
->> status registers.
-> 
-> What does that mean?
-> 
->       Andrew
-
-I meant that the PCS/link state a driver would normally read from a PHY 
-over MDIO (link up, resolved speed, block-lock/RX status) is exposed 
-directly in the XXV IP's control & status registers, because the PCS/PMA 
-is in-core.
-
-
-Thanks,
-Suraj
-
-
+--=20
+Luiz Augusto von Dentz
 
