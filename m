@@ -4,119 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A59CC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A743AC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzl1fegg651C+BGn+9BpVpBQrZWJ8dZP9YkF2EBwbPE=; b=u/rQNr6dlVCI1t6JSCpRAxz0aj
-	mFq6NbTdhbCcmHX0plCXEECEhrEtto8elDmxaUa1VnkOKNfKRZ9mprm0QL0afv4hzFq+Z+3wE2UTT
-	y8jzo1KC8MiYTCVyD2GlcbOJW9IyLzTBhWI/gus+bAP3LO2wt5NTVCFcSqCvqBneJtAK/pvzVZHdW
-	878VoF4R0oVCjLJ/c1pLjMyt0B9bwQ7Xzgc50flZJ8CVHkFskG8iCi5MTZ+KNVZ4Aq9BEMDRzT1DD
-	anfVbAnRvqOshXA3t5XPNaLR1399ThYl1KgTEHiKCH0G6olV5/9a0G21HuSkhm3q1H/KHLCNee0tC
-	avMwhjSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F9coXQbrdFuQ0I2N64E5IpczSfJCiCpk2zHWVJBW3Ek=; b=Tab1U+Mno8lfg2DsE4Xz70fNSO
+	NaC8iliz7i5kSznNgFvexXa9oPgLPolzA5ExhveKduqxaZhkcjVK424VanEJzENX5NhAO1grwLZVK
+	CI3mw2P1aUVvkZzwr7fUkNSQA+8SH0qzfmXwM0cWutENOaq6NrZKE/cQmaWaonSkyi5Itg9+Mc6ca
+	YxymQmyKR9ISq1tuwBR1q5aqIAvMvueld8Fnh1gVvQHVa8HgOcqDK25EBSP0G68Q7s3uWak63hRkq
+	4rflQVE4jAy+LzXUqvR/NkloEnp8Lo70V4t8mgBIrwhUpNNmNk3yUXGY62mEb7jzG9Ao6oF9kH9E6
+	INhWqOiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1UBF-0000000DDAU-0dYC;
-	Tue, 01 Sep 2026 19:30:01 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1x1UIa-0000000DE0S-0qAO;
+	Tue, 01 Sep 2026 19:37:36 +0000
+Received: from mail-westeuropeazon11010036.outbound.protection.outlook.com ([52.101.69.36] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1UBD-0000000DD8X-068Z
+	id 1x1UIX-0000000DDzo-1B0f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 19:30:00 +0000
+	Tue, 01 Sep 2026 19:37:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BYu3onTeUn8Qvhg5p1SKx747CV4yOT9uw8jWurPKS9wjBQ5QrkFSPYKDy4FtPJaswEo3YVZsU2Bg2bHgX2UBMn3+1mhxyIyz8JPx1XVxhbgtzJl3a4pA3kFIR1tdNnQSiCgLoAHvO7BqDeCPWKd1uDdq9Q5FvUVqE88nJE7+vNv9IpGI30TnYeQUZ06hOFmy6ReQ9s+Kuky3ahqNBRplKWJmFWNrwTGesB9E3suJGPTT/0Wbs/82jqDGuwViKk7Ce91/35uXq1dTMD8zNJea8knwkd2zcMOUm7cOuHct5cBXNJ/9Mm1pb3xZGExSx3lhfCzyOYIHHIjmC/kYY4gB+A==
+ b=n7FVtb4/93QXEqNcfj66G0NtOqoPOZaeiRSiO3MLkO16p60KwTc/XHr8jiXgDia0bRRttnl9oIIcV6ow0z2/Pc4cK6efD6l8M9Cabbd0qNnZWuuNRdqFoXcvU6vjMrGTippMJpSrGHIzPbgW1ceSHI44Mi7nDpcWSMXcVtnUwJkZFj8zSK4/JRcoX+uy7bqPu3XFGgv8SwY89y2Eu0LMlFBs3WWYJLM+QrMS8nwMI+7MooDgEB0s2CPVEYC5di6xsJi2WD9ePSpjUyjrxY6Vq0IuixnEOkke2Fe00DnoFvPw/TnSKSbo21EbOmKbd1GMnOjJUsGHnrBhtG2SEFRTDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dzl1fegg651C+BGn+9BpVpBQrZWJ8dZP9YkF2EBwbPE=;
- b=ZkIDs3xj0jMIyFeFBJ8rjuhSfIzeGE8msaGlnNZ4gPhOa53yIhg/NLMBqGIn4oORcUnEvSnJ1zmHY9Kh/eGV61m75XPvI+EkpwcxhFVM8W0JdPRnF55wUEmFAMDZtdjX3hJ9Lz31ZmSEQ1TDqvhGnokk9MF0ss6pKBmJvy4GtQohfHKOI7YhWSiVCLOP1E0EZYM0q1sxSGD8xFRv6+1dnMmzLlqCLxu00ZLzHOG4j/bKvhYEM823xJON0Rf6E9UN/hekMJnpzvV6sQ6dTPlSg2eBqQjoRyDAwv7tHbDGiQCNwCxpfzxIuRx6cO63vrQujnV6I5H3pA5Wfyb6XwddNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=F9coXQbrdFuQ0I2N64E5IpczSfJCiCpk2zHWVJBW3Ek=;
+ b=MKWOk1m/QCt8w6gMBLEK+wQGWBgO1Z60j07Ols4mT0UspLgMAx+X59kHPGVzBv4rpVBZj6fdfv+ONqA2FtKE/RdIqDZU2gh0pe8ASN8BLINhT9yN4/kShqegm6piF6A18Do45Ft5Is3EwuyYYkjBfTxq27cZrGerouMx4YvgwmVFcii4hR7eAl4u7Ss51h3Lbm2WmHnOnwWleFn3nX/zzcj2Ai+pjFytK0xGFJtEXuHhFFd4HZlj3d+RuuLL5qIZONXjeY5OAJmfKnouR/qPJvOceCI8hsWLXmoRr7SIo22UpKzqeWJMRU8AI6PGOQKMAfGOiCzM0lS6w2qtLEQ+kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dzl1fegg651C+BGn+9BpVpBQrZWJ8dZP9YkF2EBwbPE=;
- b=ocdxzEjXSU9E6E7FuXfPxqjLvu/FEanrVc9aDEOvuQs82jDu1r2qLsJiCAxgf7PgdCuiSDtQKSAMvo4lEAD1cyycmMnBpSkM59Rn0Tg78OfBcQOP5l3EDIU/Eiu+RKvPimISpxeiDJkrg5XAiCxFPYZjoWBpwopBlHqIqCoXfZ7n9QyIpfvLMyDp49lj187wED8/MPFdOaP5K6pdW71xCBxCvKExUOg/V0yPWr1WLs7LOReeduoopjX8tVaa6PAnVCGCyd9sRjQ6HR29F9x7eHF8cQS5Swg1bktlda5l93vmaxyrf0U9t+qHpX4+AycVaR7r0sw7DIgxB24nd/2uNQ==
-Received: from PH7P221CA0006.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:32a::19)
- by PH0PR12MB7813.namprd12.prod.outlook.com (2603:10b6:510:286::16) with
+ bh=F9coXQbrdFuQ0I2N64E5IpczSfJCiCpk2zHWVJBW3Ek=;
+ b=X8smMWL+xImA9GHw/7uhFuXj2jqVSxw17VGqHTeXrGD3hvJRvQ255VB5C32zR39M4P+4+iNAM5rV29wg0gCfk/mrgfy2lVqYuZPtp1Xk4NjwLkJk80f9kggXNqhjSAgzRHfVMIX/Vx0+3sNUZ/rdWPHqy7QUk4d2gv8OI04vl6vmYmJsYXJOPyjJjpDPYppzzKStczkCMiTGjo5uzUa4EVRhv3nO3VK/ave7i4kuopSa2BiwvtOM685MtMyYFDCUtbRleRsKPMgdrGReNxWS/rJ5ecIR2rUuzcARYyP2yC/9v8b+p5Nuq74oxQ+5t4cLdaS+BwJFn9CYxJRmPCxQHw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10596.eurprd04.prod.outlook.com (2603:10a6:800:278::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 19:29:47 +0000
-Received: from CY4PEPF0000EE3D.namprd03.prod.outlook.com
- (2603:10b6:510:32a:cafe::8c) by PH7P221CA0006.outlook.office365.com
- (2603:10b6:510:32a::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
- Sep 2026 19:29:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000EE3D.mail.protection.outlook.com (10.167.242.15) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 19:29:44 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
- 2026 12:29:15 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
- 2026 12:29:14 -0700
-Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Tue, 1 Sep 2026 12:29:14 -0700
-From: Jamie Nguyen <jamien@nvidia.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
-	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
- . Wysocki" <rafael@kernel.org>
-CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
-	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Jamie Nguyen <jamien@nvidia.com>
-Subject: [PATCH v2 2/3] ACPI: arm64: Add support for the FF-A FFH Operation Region (offset 2)
-Date: Tue, 1 Sep 2026 12:29:05 -0700
-Message-ID: <20260901192906.133670-3-jamien@nvidia.com>
+ 2026 19:37:27 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
+ 19:37:27 +0000
+From: Frank.Li@oss.nxp.com
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-clk@vger.kernel.org (open list:NXP i.MX CLOCK DRIVERS),
+	imx@lists.linux.dev (open list:NXP i.MX CLOCK DRIVERS),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT...),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: clock: imx5: add assigned-clock* properties
+Date: Tue,  1 Sep 2026 15:37:19 -0400
+Message-ID: <20260901193720.1066686-1-Frank.Li@oss.nxp.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260901192906.133670-1-jamien@nvidia.com>
-References: <20260901192906.133670-1-jamien@nvidia.com>
-MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: CYZPR11CA0008.namprd11.prod.outlook.com
+ (2603:10b6:930:8d::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3D:EE_|PH0PR12MB7813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 753f2201-0060-4578-cadc-08df085f60de
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10596:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a4527cb-7813-4e58-737f-08df086074a2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|23010399003|36860700016|6133799003|3023799007|10067099003|56012099006|5023799004|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: /3I9U2+X8Lf0hDwPGBZgexHP9JEckmUYjUSk8PjZXcllS+ugoRNHq2KLyQbX4nAi7fHlt87I/mlQcidnfwXI29FpLJwJDHrCoiIcu2oF0RA+S53W1h6B2uhcGRoiIDgReM8X2+lRDKwTa03C/6bJUFcsT4qgrItD0lUMSRN734T8Oi57E/8pIa/MS1koQ2a0Ri9ulj4EomP5j9RmkmJSj1rKJT+WNOiq1byIlcJhFIEYe6WRV8i3AU96MZgdEmiMj6SEB5IBm+UTxSatevB2CtQq89S7VjiRR7MrubmS0sCq7tUhdoKSNAMYg4/wSwru2SvMM/Vez9jzHSGTB9AYHrM5nWM158ii7y7WRoQGb305As8Cfh6Vidlr9LuiFcOsj110Vv3uHgNOnEfg0Sq2hyfg+PiXqMjmlSZqvMkk5sxyWm3VHAydmp7/xBynr7UFKImKVOWaxZfF4vXPq0uRZU6vDEdpzGN9RensmAZaGiXIC0ZbXbA41VMmtByxqMYNJrDOA73vS7XyE8AhjZK3GQpDpfXHcN7d5GgkGEX/YcsuV9uxfY8b0lmHAekvUoSrRt6pM/Tb3/P2Ss3RF2eyECOxSlu3wbjvF7b21eGjByAN2qyBZqO+jaVkosplnFX+VaLyESFtFzumqCeaF4gwdcG7EzhWu0mx+TJQP0FVIZLK3tjVKpTv7WwGijSdzS9TcPT/1po++19xYOLmMGLR1A==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(23010399003)(36860700016)(6133799003)(3023799007)(10067099003)(56012099006)(5023799004)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|7416014|366016|6133799003|921020|18002099003|3023799007|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: ayCWuQJ5goLRGWTk2Ihocd08iOP8I0GMrj4JbKKQ124GtO3JkMvvJ50uUHmkhusEHAfU4Fx1UEo7UTUq4n5wk/tM2b9CHt+jLD1whJZi+hh0Z2egqtk5r8+7/W2/ZIuNL0GFkJ8fOXFGsDS9o/KYEuTKIB1gp7OUIFh++mvlPhOsiEHJ0RRXakBu1btprAdoA0CSWHdIEKvw1ng2Sz/lwnlHKDCCg/RZLLKrDAtj1sW3jRMxQOOgN4y7eZDSBW9KVmg2hwbYEh8Xs9b09DHiu5GzVlqbAbRDsYsG5nBhwUp045psm7nHlMRs+G6aLNd3la6hUGyzh+J+PNYYh6IEERRZzOLBfhZVZ6Fhq+K+Lj+mV855/xfc6BEDNDVCzuwuinRFuxgHDgc9v8fL4F+wMA+Nz8FArFZSBCp4MyEKR2orLi3nhshEtPNTNr/hltv9qJFuHoX25hDVM83bq0OclGfvtV7hL3lCYPI/tz2lB40VGOJkQxMsebf1ptEm/onM++pts4bH5CQzyo1+LaMrdh+vzlSyAaDSifCg+1duVLrNiYk0pXP0c7pYpFWSR5YZFo8L3ma22EuiHEEtfotzLcvP+qlaCDGCk7KPdZCw/NskDX64B5oqu+WCYzkJ4sz6pD7cWjsWfRhFhWH8R407pMoKx7C4xdvOC/AlXVzDFavPvVzE1qboU7jEXNV1VC9SK0k3EkltOJ0hUKOu2l5Jxg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(7416014)(366016)(6133799003)(921020)(18002099003)(3023799007)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CQgNuzdlX+/g5G157tlbHjBEG3kEWfAr56PmohFMxQtr5LNaHYajlGGgB4hwRe5/o6SnJBqetHvQ8KHImqe1DHI93ZVWBT1OJmxRAtn/uvTM6ErZ8JnsvV3IyIm0SqhItu5n5/1Nfoovsg1OKZq4ASRdhPe7xm45dcWq5i331qkLBpMr4mzGzWCOVPGCMbPDefqqdfi6813JGXlijvLLYbYazMzPt5ZMrrx4Nuo5Ujfc9DDfGvWTglMS8xvIZbeLxintDIXUH8DD84911O+EvXF0/7zedmq7EGMGYdTdRyJ34nbo0Z68m77CPlt7ahwoHKhRK/PbGHwsKJO8ahD1tHR7xlAYpTXuDRTLpvtTQhM6ZExNiOdT3owQIGHhz7eqsgIuBOc/o3T1yGTAZRiR8vuP14gh1eOPkp55zmsnwAsoZYhFzGhogzAljrUDl39J
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:29:44.9306
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QVukq5h3Rw74uUSaSYiniB9mTnvR+Y4qoJJZLjjtKhDQPdjvyRAxzc5TYXaO?=
+ =?us-ascii?Q?VSm8nOhwYFEWd5LIcTi5hLlo5ANdvwrvAkTHRArfsqHTMfYWtaRXnZabxKzb?=
+ =?us-ascii?Q?8JtIHOOc/HOQy8daOFXjvL6XhzBeoXThtsPHyXda/am4Pc0QwHAWIUu4xA+l?=
+ =?us-ascii?Q?ZMrcyDle2KU4bzJzLbCudhfG59nZMQNIaf0NmpPGtZ+XFOkWRQret1ifNIUJ?=
+ =?us-ascii?Q?+0sHBrMT7debjPsH1v52fJGG2DV/JlYGguiyPOESyY1FJRn6UlmePPdmn26T?=
+ =?us-ascii?Q?PvcEe6XAN01c4kRVoKIjvBqSy6mjtfqjB100iJKzEN2GIwZbJFkej+zAG22O?=
+ =?us-ascii?Q?6rAGitLSuy0udckMAincXNShYCewR12/LDqDpMRddvWZtruwxqlSiOnYk6Ae?=
+ =?us-ascii?Q?C6/oomyK9Wb2oFOifK8MqgwVNfPoW1tb3deYv9/O1+N1aCzXU6OPl8l0juLB?=
+ =?us-ascii?Q?MOgfgv6Q0IH7bmQ9IwPGr1Vy9dLa0zygQjm+o6kxjOl4WUp0A1bShKZzDQyx?=
+ =?us-ascii?Q?RPoBBs1SvuPJS3Vpi11kkGEUkxST1yKa8Msa24Dt5UVaMJovRegXzkgmf5Ez?=
+ =?us-ascii?Q?FPKMyTT5RujlVosa7JB8OJp0lte1cMS9oBSspltW9bzROZZF0BVBmQL6zk8x?=
+ =?us-ascii?Q?7vOqc71JrjzEJ4+/XEMPztEYGdLlhQ//leY2x6Shn+0Wc79VJeErgyN2JCML?=
+ =?us-ascii?Q?EP2a2LcLjHCpdGMB6uyrK89sJaVNHP3dDVTCGPxu1neNgcxJq8vdeMCgESsR?=
+ =?us-ascii?Q?fKRZlXyu7Nhe7i4XUfYL15AClrgqpM2cKr6rhoU9MBHBCHZWd5oOyXXgMqak?=
+ =?us-ascii?Q?DBfb4R6K6QoHgPcjnhXMzPks36A3Uzln+dn3lzirV4CrCSQmFZRPRwdTC4Xo?=
+ =?us-ascii?Q?mBpsZvEdFmy5c+QMeR/TPEMlyn9mlJPLusNUAkclhTm1ZiouNvJw2OzTfARG?=
+ =?us-ascii?Q?TQGvwdmZh5zOWMY2TUYM24gmkzeki3JfU8PT94mEOG44ZmrjFVC8cwgnN7Cv?=
+ =?us-ascii?Q?5RBsYUQ179yn9hElCtI/yRiT/Vp2GAxK2f55CREsl9gc0TKlpEOc6cSOx2YD?=
+ =?us-ascii?Q?ZtdWrlBWVCDrjTv8uisicuIAAq71eMM8oQrbWxQdrEZHdQPIxOo4l3a3r4Sl?=
+ =?us-ascii?Q?XWY6QDLHqkSYniCn7/2t1woxvBTWlaVpWcojNS4bck6Ki1YfKBbUuPhLoeVW?=
+ =?us-ascii?Q?QYuUHegLH3Fe9b9OxOe5g+drSY0TsVWaQMwkQfWRwsw9CPldhyuvHwC4qP63?=
+ =?us-ascii?Q?1r5pwhpvIJPfmdzPpDhL9Iz2rcEpuxrwMtSnlGJr28KtFjw5SlEIXO+R5DbZ?=
+ =?us-ascii?Q?6tNmXT/MPOaNxfVrboRgMFJ41DmtJcZOn6XQwraT3sUbdmg+QqDxuDSufi4D?=
+ =?us-ascii?Q?Z0jmPJEDKFVfUGvY35OabLTMOZx3a1dyUqj+6q1m94hX4XTh5PU03WwbV2tU?=
+ =?us-ascii?Q?3pHlv//0R12HxBnmr8ONy7jpGZW5H9tKas6kAhKy8fLCtrHYxt05KI/CiZD9?=
+ =?us-ascii?Q?1J7fIfShNWIJ2y+EypV7HTk9z0f5hdAdxif9MU4d0G64qehQJkd4f43MtkDI?=
+ =?us-ascii?Q?Cim5xlwIH2bUUjDfZ4K0D96zjJMvGV0QPycyTFHvh4ijFRC5n4PxphzTDzZY?=
+ =?us-ascii?Q?Ulvt03mjkOX8syDNBO53RFSkIwuYQBPUbvh5j4QvdbB4J1R8fWpjUcOGpq+g?=
+ =?us-ascii?Q?c+3yN80pgvyKSKt8IRZAHlnawqm/iIgkIqWF2pjqPNWikg4wyPYFEWDng7MV?=
+ =?us-ascii?Q?EvjV/THFghoxrt+mkb3AwacATghDixhrzj+toXXpmiD9YgXdQ1lh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a4527cb-7813-4e58-737f-08df086074a2
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:37:27.8127
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 753f2201-0060-4578-cadc-08df085f60de
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3D.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7813
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yZDn6xbAYQzSxCTIp37aVoRCuITvF6gAQf0HIua9/S+cxwqUQq1xjQ+B/7J+X6EgrecP5cVD6X8Sv2C2Dv5iTYLvxkuD4mJj7f+iy+4yjPuCD1nay5nohrlZlUlgrMhF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10596
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_122959_288306_C8BBF730 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20260901_123733_320819_5801BFAA 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,318 +150,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm DEN0048D (Functional Fixed Hardware Specification v1.3, March 2026)
-added a third FFH Operation Region flavour. An Operation Region declared
-with an Offset of 0x2 triggers an FFA_MSG_SEND_DIRECT_REQ2 call instead of
-a bare SMC or HVC, and each 64-bit field of the region is one register,
-starting at X0:
+From: Frank Li <Frank.Li@nxp.com>
 
-  X0		call status, populated by OSPM on return
-  X1		Bits[15:0] receiver endpoint ID, or zero to have OSPM
-		resolve it from the service UUID
-  X2-X3		service UUID of the callee partition, written by ACPI
-		platform firmware using ToUUID()
-  X4-X17	message payload, X4 is always present
+The i.MX5 CCM is a pure clock provider with no 'clocks' consumer
+property in its binding. The dtschema framework only merges the
+clocks.yaml meta-schema properties (which include assigned-clocks,
+assigned-clock-parents, and assigned-clock-rates) into a binding
+when the binding itself declares 'clocks:'.
 
-DEN0048D recommends Offset 0x2 for new platforms, since not every OSPM
-implements Offsets 0x0 and 0x1. Linux implements both and rejects anything
-else, so AML using the recommended encoding simply fails today.
+For example, imx53-m53menlo.dts configures the CKO1 output clock
+by setting assigned-clocks on the &clks node:
 
-Add the Operation Region side of it. Region length validation, the X0-X17
-layout, the ToUUID() to FF-A UUID byte order conversion and the DEN0048D
-table 3 status codes all live here; they are ACPI semantics, not FF-A
-ones. The call itself goes out through a small set of ops that the FF-A
-driver registers. That indirection is needed because this file is built
-in, while CONFIG_ARM_FFA_TRANSPORT is a tristate.
+  &clks {
+    assigned-clocks = <&clks IMX5_CLK_CKO1_SEL>, ...;
+    assigned-clock-parents = <&clks IMX5_CLK_AHB>;
+    assigned-clock-rates = <133333334>, <33333334>, <33333334>;
+  };
 
-Anything that stops the call being made comes back to AML in the X0 status
-field: a malformed region length, or a null service UUID when AML has
-asked OSPM to find the endpoint itself. Once the call has gone out every
-register is copied back, whatever the outcome, which is what DEN0048D
-requires. That also takes care of table 3, because FFA_ERROR reports the
-FF-A error code in X2 and FFH_FFA_CALL_FAILED wants it in the same place.
-A response that is neither FFA_ERROR nor FFA_MSG_SEND_DIRECT_RESP2 is
-handled the same way; the call did complete.
+Without explicit declarations this triggers a dtbs_check error:
+  arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dtb: ccm@53fd4000 (fsl,imx53-ccm): 'assigned-clock-parents', 'assigned-clock-rates', 'assigned-clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
 
-Assisted-by: Claude:claude-opus-5
-Co-developed-by: Dat Mach <dmach@nvidia.com>
-Signed-off-by: Dat Mach <dmach@nvidia.com>
-Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+Assisted-by: Claude:claude-sonnet-4.6
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/acpi/arm64/ffh.c | 185 +++++++++++++++++++++++++++++++++++++++
- include/linux/acpi.h     |  41 +++++++++
- 2 files changed, 226 insertions(+)
+ .../devicetree/bindings/clock/imx5-clock.yaml        | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/acpi/arm64/ffh.c b/drivers/acpi/arm64/ffh.c
-index 04380bab193df..9f8a508cf2d4a 100644
---- a/drivers/acpi/arm64/ffh.c
-+++ b/drivers/acpi/arm64/ffh.c
-@@ -1,7 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <linux/acpi.h>
- #include <linux/arm-smccc.h>
-+#include <linux/rwsem.h>
- #include <linux/slab.h>
-+#include <linux/uuid.h>
+diff --git a/Documentation/devicetree/bindings/clock/imx5-clock.yaml b/Documentation/devicetree/bindings/clock/imx5-clock.yaml
+index 423c0142c1d33..7be1d36f41707 100644
+--- a/Documentation/devicetree/bindings/clock/imx5-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/imx5-clock.yaml
+@@ -35,6 +35,18 @@ properties:
+   '#clock-cells':
+     const: 1
  
- /*
-  * Implements ARM64 specific callbacks to support ACPI FFH Operation Region as
-@@ -62,6 +64,183 @@ static bool acpi_ffh_smccc_owner_allowed(u32 fid)
- 	return false;
- }
- 
-+/*
-+ * FFH Operation Regions declared with an Offset of 0x2 trigger an
-+ * FFA_MSG_SEND_DIRECT_REQ2 call, as described in Arm DEN0048D (Functional
-+ * Fixed Hardware Specification v1.3) section 2.3.1.2. Every 64-bit field of
-+ * the region maps to one register, ordered from X0:
-+ *
-+ *   X0		status, one of the ACPI_FFH_FFA_* codes below, populated by
-+ *		OSPM on return
-+ *   X1		Bits[15:0] hold the receiver endpoint ID, or zero to have OSPM
-+ *		resolve it from the service UUID
-+ *   X2-X3	service UUID of the callee partition, written by ACPI platform
-+ *		firmware with the ToUUID() ASL operator
-+ *   X4-X17	message payload, X4 is always present
-+ *
-+ * The region Length is "32 + 8 * N" bytes with 1 <= N <= 14, which is X0-X4
-+ * at minimum and X0-X17 at most.
-+ */
-+#define ACPI_FFH_FFA_HDR_REGS		4	/* X0 - X3 */
-+#define ACPI_FFH_FFA_MAX_PAYLOAD_REGS	14	/* X4 - X17 */
-+#define ACPI_FFH_FFA_UUID_OFFSET	(2 * sizeof(u64))
-+#define ACPI_FFH_FFA_MIN_LENGTH		((ACPI_FFH_FFA_HDR_REGS + 1) * sizeof(u64))
-+#define ACPI_FFH_FFA_MAX_LENGTH		\
-+	((ACPI_FFH_FFA_HDR_REGS + ACPI_FFH_FFA_MAX_PAYLOAD_REGS) * sizeof(u64))
++  assigned-clocks:
++    minItems: 1
++    maxItems: 64
 +
-+/* DEN0048D table 3, FFH Operation Region status codes for FFA calls */
-+#define ACPI_FFH_FFA_CALL_FAILED		1
-+#define ACPI_FFH_FFA_SUCCESS			0
-+#define ACPI_FFH_FFA_NOT_SUPPORTED		(-1)
-+#define ACPI_FFH_FFA_INVALID_PARAMETERS		(-2)
-+#define ACPI_FFH_FFA_OUT_OF_MEMORY		(-3)
-+#define ACPI_FFH_FFA_UNSPECIFIED_ERROR		(-4)
++  assigned-clock-parents:
++    minItems: 1
++    maxItems: 64
 +
-+static const struct acpi_ffh_ffa_ops *ffa_ops;
-+static DECLARE_RWSEM(ffa_ops_sem);
++  assigned-clock-rates:
++    minItems: 1
++    maxItems: 64
 +
-+int acpi_ffh_ffa_register(const struct acpi_ffh_ffa_ops *ops)
-+{
-+	int ret = 0;
-+
-+	if (!ops || !ops->partition_id || !ops->direct_req2)
-+		return -EINVAL;
-+
-+	down_write(&ffa_ops_sem);
-+	if (ffa_ops)
-+		ret = -EBUSY;
-+	else
-+		ffa_ops = ops;
-+	up_write(&ffa_ops_sem);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(acpi_ffh_ffa_register);
-+
-+void acpi_ffh_ffa_unregister(const struct acpi_ffh_ffa_ops *ops)
-+{
-+	down_write(&ffa_ops_sem);
-+	if (ffa_ops == ops)
-+		ffa_ops = NULL;
-+	up_write(&ffa_ops_sem);
-+}
-+EXPORT_SYMBOL_GPL(acpi_ffh_ffa_unregister);
-+
-+/*
-+ * ToUUID() emits the UUID in mixed-endian (EFI GUID) byte order whereas FF-A
-+ * expects the RFC4122 layout, which is exactly a guid_t to uuid_t conversion.
-+ */
-+static void acpi_ffh_ffa_uuid(uuid_t *uuid, const u8 *aml_buf)
-+{
-+	int i;
-+
-+	for (i = 0; i < UUID_SIZE; i++)
-+		uuid->b[i] = aml_buf[guid_index[i]];
-+}
-+
-+static int acpi_ffh_ffa_status(int err)
-+{
-+	switch (err) {
-+	case 0:
-+		return ACPI_FFH_FFA_SUCCESS;
-+	case -EIO:
-+	case -EPROTO:
-+		return ACPI_FFH_FFA_CALL_FAILED;
-+	case -EOPNOTSUPP:
-+		return ACPI_FFH_FFA_NOT_SUPPORTED;
-+	case -EINVAL:
-+	case -ENOENT:
-+	case -ENODEV:
-+	case -ENOTUNIQ:
-+		return ACPI_FFH_FFA_INVALID_PARAMETERS;
-+	case -ENOMEM:
-+		return ACPI_FFH_FFA_OUT_OF_MEMORY;
-+	default:
-+		return ACPI_FFH_FFA_UNSPECIFIED_ERROR;
-+	}
-+}
-+
-+static bool acpi_ffh_ffa_length_valid(u64 length)
-+{
-+	return length >= ACPI_FFH_FFA_MIN_LENGTH &&
-+	       length <= ACPI_FFH_FFA_MAX_LENGTH &&
-+	       !(length % sizeof(u64));
-+}
-+
-+static void acpi_ffh_ffa_handler(struct acpi_ffh_info *info, void *value)
-+{
-+	int status = ACPI_FFH_FFA_INVALID_PARAMETERS;
-+	u64 resp_regs[3] = {};
-+	unsigned int nr_payload;
-+	u64 *regs = value;
-+	uuid_t uuid;
-+	u16 dst_id;
-+	int ret;
-+
-+	if (!acpi_ffh_ffa_length_valid(info->length))
-+		goto out;
-+
-+	nr_payload = info->length / sizeof(u64) - ACPI_FFH_FFA_HDR_REGS;
-+
-+	acpi_ffh_ffa_uuid(&uuid, (u8 *)value + ACPI_FFH_FFA_UUID_OFFSET);
-+
-+	down_read(&ffa_ops_sem);
-+	if (!ffa_ops) {
-+		status = ACPI_FFH_FFA_NOT_SUPPORTED;
-+		goto out_unlock;
-+	}
-+
-+	/*
-+	 * A zero receiver endpoint ID means ACPI platform firmware expects
-+	 * OSPM to derive it from the service UUID.
-+	 */
-+	dst_id = regs[1] & GENMASK(15, 0);
-+	if (!dst_id) {
-+		/*
-+		 * A null UUID means "every partition" to
-+		 * FFA_PARTITION_INFO_GET, so reject it here rather than let a
-+		 * bare read of the Operation Region, which arrives as a zeroed
-+		 * buffer, resolve to an arbitrary endpoint.
-+		 */
-+		if (uuid_is_null(&uuid))
-+			goto out_unlock;
-+
-+		ret = ffa_ops->partition_id(&uuid, &dst_id);
-+		if (ret) {
-+			status = acpi_ffh_ffa_status(ret);
-+			goto out_unlock;
-+		}
-+	}
-+
-+	ret = ffa_ops->direct_req2(dst_id, &uuid, regs + ACPI_FFH_FFA_HDR_REGS,
-+				   nr_payload, resp_regs);
-+	status = acpi_ffh_ffa_status(ret);
-+
-+	/*
-+	 * DEN0048D asks for the response registers to be copied back. That also
-+	 * takes care of table 3: FFA_ERROR reports the FF-A error code in X2,
-+	 * which is exactly where FFH_FFA_CALL_FAILED wants it. -EIO and -EPROTO
-+	 * both mean the call completed, so the registers hold the callee's
-+	 * response and not AML's own request.
-+	 */
-+	if (!ret || ret == -EIO || ret == -EPROTO) {
-+		regs[1] = resp_regs[0];
-+		regs[2] = resp_regs[1];
-+		regs[3] = resp_regs[2];
-+	}
-+
-+out_unlock:
-+	up_read(&ffa_ops_sem);
-+out:
-+	/*
-+	 * DEN0048D describes this field as 64 bits wide and gives the table 3
-+	 * codes as signed values, so sign extend rather than write a narrower
-+	 * quantity. 0xfffe or 0xfffffffe would read back as a positive number
-+	 * in a 64-bit AML comparison.
-+	 */
-+	regs[0] = (u64)(s64)status;
-+}
-+
- int acpi_ffh_address_space_arch_handler(acpi_integer *value, void *region_context)
- {
- 	int ret = 0;
-@@ -99,6 +278,12 @@ int acpi_ffh_address_space_arch_handler(acpi_integer *value, void *region_contex
- 			ffh_ctxt->invoke_ffh64_fn(r, r);
- 			memcpy(value, r, ffh_ctxt->info.length);
- 		}
-+	} else if (ffh_ctxt->info.offset == 2) {
-+		/* FFA_MSG_SEND_DIRECT_REQ2 call */
-+		if (ffh_ctxt->info.length < sizeof(u64))
-+			ret = AE_ERROR;
-+		else
-+			acpi_ffh_ffa_handler(&ffh_ctxt->info, value);
- 	} else {
- 		ret = AE_ERROR;
- 	}
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index ddacac8120947..9f219a75cffe6 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1649,6 +1649,35 @@ void acpi_init_pcc(void);
- static inline void acpi_init_pcc(void) { }
- #endif
- 
-+/**
-+ * struct acpi_ffh_ffa_ops - FF-A backend for the FFH Operation Region
-+ * @partition_id: Resolve @uuid to a unique endpoint ID. Must fail with a
-+ *		  negative errno if the UUID resolves to no endpoint or to
-+ *		  more than one distinct endpoint.
-+ * @direct_req2:  Issue FFA_MSG_SEND_DIRECT_REQ2 towards @dst_id using @uuid
-+ *		  as the service UUID. @payload holds the X4-X17 registers
-+ *		  taken from the Operation Region and is updated in place
-+ *		  with the response payload; @nr_payload is the number of
-+ *		  registers in use (1 to 14). @resp_regs is filled with the
-+ *		  X1-X3 registers returned by the callee, and @payload with
-+ *		  the response, whenever the call was actually made. Returns
-+ *		  0 on success, -EIO if the callee returned FFA_ERROR,
-+ *		  -EPROTO if it returned something unexpected, or another
-+ *		  negative errno if the call could not be made at all. -EIO
-+ *		  and -EPROTO both mean the registers hold the callee's
-+ *		  response and must be copied back to AML.
-+ *
-+ * Backend for FFH Operation Regions declared with an Offset of 0x2, as
-+ * described in Arm DEN0048D (Functional Fixed Hardware Specification v1.3)
-+ * section 2.3.1.2. Registered by the FF-A driver, which may be a module,
-+ * while the Operation Region handler itself is built in.
-+ */
-+struct acpi_ffh_ffa_ops {
-+	int (*partition_id)(const uuid_t *uuid, u16 *dst_id);
-+	int (*direct_req2)(u16 dst_id, const uuid_t *uuid, u64 *payload,
-+			   unsigned int nr_payload, u64 resp_regs[3]);
-+};
-+
- #ifdef CONFIG_ACPI_FFH
- void acpi_init_ffh(void);
- extern int acpi_ffh_address_space_arch_setup(void *handler_ctxt,
-@@ -1659,6 +1688,18 @@ extern int acpi_ffh_address_space_arch_handler(acpi_integer *value,
- static inline void acpi_init_ffh(void) { }
- #endif
- 
-+#if defined(CONFIG_ACPI_FFH) && defined(CONFIG_ARM64)
-+int acpi_ffh_ffa_register(const struct acpi_ffh_ffa_ops *ops);
-+void acpi_ffh_ffa_unregister(const struct acpi_ffh_ffa_ops *ops);
-+#else
-+static inline int acpi_ffh_ffa_register(const struct acpi_ffh_ffa_ops *ops)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline void acpi_ffh_ffa_unregister(const struct acpi_ffh_ffa_ops *ops) { }
-+#endif
-+
- #ifdef CONFIG_ACPI
- extern void acpi_device_notify(struct device *dev);
- extern void acpi_device_notify_remove(struct device *dev);
+ required:
+   - compatible
+   - reg
 -- 
 2.43.0
 
