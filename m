@@ -4,111 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27408C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545E5C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyeT2gPwgRHGbRT1UC00BJ26hUwN31fmD+oDhUutisA=; b=CUE9WMLS+oyUAimVOSsWb03+1Z
-	UTQAal9xU9aocuNhU85Dykt75iJRs7sL63AuBkSpTPU0cGROxn1LBqfSNUfYzLMX0Fi6iQS2EMrjf
-	1q5r21C8p2YL/LZtIg7cMg40yjv2o26deWCRplK/2XvJ1uCq8wvPVRFUIIQ9vA/WEKhT7jxBh/cxY
-	wbUA0b822nmGyjV5uz0Mhdh9hUWguaWgKzPzN78MRgZUYBVy9SQ94BMfwV5nII+iF5+wgYTyWykhp
-	J3p+l/ilhewDWV0Nw5NbDhkIqogDH2oH5tJViuWQZB/GpreHT9GTcZWTPF0mnqM3fHQOFMARmu2lb
-	f0ReILOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o8mQrubMfq7apt28Lc/aGd7gh6BelReRAK6wSkmkAv8=; b=xJwXi+hmlSWRS0VhZ1CH3beRvS
+	AVBWVC6dMIMZTxnf3tOEYXBykL6MP5/d9xJr7fB6N7lU1mIT97UM7Yy4ezzL8wDR0H+x0Ir7NKFS6
+	8vAXrRIBsr3qIT2YTvj8AS+jQGPu8rIYdGjRBsPbTZ2fCKXXaJt0hfFmEKdM4sr9VdFIDl5h2MSMx
+	uuJXjBDnZhem69ikOw8BnXaNWuqSBNDSdonNJsFixpHK83jJDbZFcgkww8pIw55iioXYnEJ+8L7ld
+	USI1k4QoOVyydeb2ayLjTnc4w+1F4nuIgDcJLuVVB6b8DMTlVPye/y24VOfEInQQMBSvGkn1B6rWr
+	DwBx/K6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P1E-0000000CGWb-1zFn;
-	Tue, 01 Sep 2026 13:59:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x1P3Z-0000000CGj0-3SW9;
+	Tue, 01 Sep 2026 14:01:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1P1B-0000000CGVs-3nQu
+	id 1x1P3Y-0000000CGis-2TiI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 13:59:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788271156;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RyeT2gPwgRHGbRT1UC00BJ26hUwN31fmD+oDhUutisA=;
-	b=KyeCevMprtdCYPT5qP6PaXzXCrjqRl2/bIBUByesZ9ZtgzEu9B1gG0fgXUZxbDE5t+sjPt
-	GXCdNU8S6AkXoUWc6+XsiGtfHrYeQLQbed6h3CWPq4eapUWXuB8SA33OpoHN9MZXe92oRU
-	nT3ds9RaD+fBV22ZIL8m3UrvwB8u+wY=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-99-zRdF9mFENoulzWVzuCFyGw-1; Tue, 01 Sept 2026 09:59:09 -0400
-X-MC-Unique: zRdF9mFENoulzWVzuCFyGw-1
-X-Mimecast-MFC-AGG-ID: zRdF9mFENoulzWVzuCFyGw_1788271148
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-49ccf17d3b0so18186115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 06:59:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788271148; x=1788875948;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RyeT2gPwgRHGbRT1UC00BJ26hUwN31fmD+oDhUutisA=;
-        b=Dp7yHc4EsBQIsZfQXlEEjua3lYjIbVWJMGIN0v1E5CX1NnGU+aZVH5Zw002nManUzt
-         vjM2OxYIW9Egky2Ws37cIrA3i7JXgO6yP5Yq3rFQwUqVeDQBvYKdfvg54BSlVaC/nJ50
-         McO67ydTQ5xKtwlHrnp51qH2NMY4dTGwbQoz7uwg2WknxjaOewIuUok8nSKPgY+T2VHo
-         VNP5DXeUvzTencGTjXcXoool4Jg3tVIPFI97TNwT3XjcRdpS5W8d+BcLWMGPc3ZK04fY
-         oRAAOhx8s///L08xqpe41ZZRXoXTI+7rNNnVqTPRJFA5xuHGverrHAsG0o1aIOuXyBkv
-         2/WQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoxCoj3WmheWgW64DHoC1aHwMIZnJ7pJZg6xA8Jh5vjwal0PxdS4SBhoXu7L1LH/JG5sr7+SJB/jtkZFlr48cBu@lists.infradead.org
-X-Gm-Message-State: AFuF++kwQRPMq+OCfHRy5r0BXjylhFYJiVOXoFS/zAHKLjpjqKMQx6gj
-	BmkQ/NHDlnz1tM5atP5dnnYlxoqVgeH3YKpp7mw6j2T2LpxUvm9oahI7rFxXcwW5l9vZZyXVE2Z
-	7/FSeajlEj99bCRwbJtsZtaNcT5dglizgiv4jds3JsO2YiNwjS0REem+F3PXrbRGRd5sUEgvIb3
-	Qa
-X-Gm-Gg: AR+sD10q0ocIKVIbSiHojrlFQb9bpj1fYibWJlPktF99nw8UHm4bilToisZwPl3ats0
-	k7paa7n4vtDOO5YBiXmBXwAcrXcG68YAr+Xo+89UZQGD9YLnQUwtQc0WErBFk9hdzXslUZrXTet
-	oWE08Ro7W7leFWlS9URVsUDJ9yXm58OkCgQUB/yibgJIy05tu/ggUVbu/tsffnF0mYyQhbKh72h
-	NNe/VkOA4EArBvJNPsX3TluX/bK5A34vCwlHLx21+6jGkQHTJi7NotJ+hni39kqKvockborNSZ8
-	7ne4VEeWV2t5LT/tSSPheBJp5POXApY5Jusdjc2/yzGiKrCzZaKjIvSWo4sJ5gebLZRXRIu9DgQ
-	pp/FHEXUGIOsdrgfhHd/e88I2HMlSdd/sdocVq+o2Ft1Jmgx4LZha1n8CCW9FNH735Fn65UzWJQ
-	==
-X-Received: by 2002:a05:600c:3542:b0:499:a5c8:c6f3 with SMTP id 5b1f17b1804b1-49cdc422c19mr158172455e9.3.1788271148254;
-        Tue, 01 Sep 2026 06:59:08 -0700 (PDT)
-X-Received: by 2002:a05:600c:3542:b0:499:a5c8:c6f3 with SMTP id 5b1f17b1804b1-49cdc422c19mr158171425e9.3.1788271147829;
-        Tue, 01 Sep 2026 06:59:07 -0700 (PDT)
-Received: from [192.168.188.218] (ip245-45-231-195.pool-bba.aruba.it. [195.231.45.245])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cdce10153sm76476035e9.4.2026.09.01.06.59.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Sep 2026 06:59:07 -0700 (PDT)
-Message-ID: <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
-Date: Tue, 1 Sep 2026 15:59:04 +0200
+	Tue, 01 Sep 2026 14:01:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D238860214;
+	Tue,  1 Sep 2026 14:01:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1691F000E9;
+	Tue,  1 Sep 2026 14:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788271303;
+	bh=o8mQrubMfq7apt28Lc/aGd7gh6BelReRAK6wSkmkAv8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dix8H7HjnBFsKReQ8DjEp08GQWI1dGAyzfxLCH6+abKlsKrCy6Q9Vlp0TK009PJLH
+	 8nkJkofi6GEThp0RoASMBkbDcxZgX4VmLMKeYlHiFpM9PfWRoKSAHpkeHBDmQdRWcy
+	 XunjS0HvdD1yTD/BlTZ5wrQLKnplwFxE052ep6It4fWMdIp/qt0K/O6jr2fNrA9GGf
+	 Wq4plO0eZXrU4fo1iJzfvJmzwjdiQgrJU+4YoSc/elM1NLol7yXMPbYFecq0hRAJO3
+	 y29+oH6rkbkAPp/wKvIkGqBHuCvFcGQte4GCpOQvmhpDSeCSS7FZMUK+Uv2ZE+aaNp
+	 I3gjnZ2moqV+A==
+Date: Tue, 1 Sep 2026 09:01:42 -0500
+From: Rob Herring <robh@kernel.org>
+To: Christophe ROULLIER <christophe.roullier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linusw@kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next,PATCH v2 1/5] dt-bindings: net: add phy-supply
+ property for stm32
+Message-ID: <20260901140142.GB1244140-robh@kernel.org>
+References: <20260812091122.566439-1-christophe.roullier@foss.st.com>
+ <20260812091122.566439-2-christophe.roullier@foss.st.com>
+ <20260812195828.GA724768-robh@kernel.org>
+ <3326ff38-75c3-4218-b537-17077f3faa4e@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: phy: motorcomm: Enable analog frontend
- on YT8531S
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Simon Horman <horms@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
- Heiner Kallweit <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
- Frank <Frank.Sae@motor-comm.com>
-Cc: thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
- <20260831073747.361482-4-maxime.chevallier@bootlin.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260831073747.361482-4-maxime.chevallier@bootlin.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ykThflAUtvJaelosX3Xy4960G4tj6NU23fxtWVBlBY8_1788271148
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_065918_026711_3F7D40E2 
-X-CRM114-Status: GOOD (  24.76  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3326ff38-75c3-4218-b537-17077f3faa4e@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,67 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/31/26 9:37 AM, Maxime Chevallier wrote:
-> The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
-> well as a YT8531S PHY, configured in GMII mode.
+On Tue, Sep 01, 2026 at 09:33:33AM +0200, Christophe ROULLIER wrote:
 > 
-> It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
-> enabled for link to reliably establish, otherwise the link just doesn't
-> come up.
+> Le 12/08/2026 à 21:58, Rob Herring a écrit :
+> > On Wed, Aug 12, 2026 at 11:11:18AM +0200, Christophe Roullier wrote:
+> > > Phandle to a regulator that provides power to the PHY. This
+> > > regulator will be managed during the PHY power on/off sequence.
+> > > 
+> > > Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
+> > > ---
+> > >   Documentation/devicetree/bindings/net/stm32-dwmac.yaml | 3 +++
+> > >   1 file changed, 3 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> > > index 987254900d0da..0c7eb1ccadd47 100644
+> > > --- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> > > +++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> > > @@ -99,6 +99,9 @@ properties:
+> > >         encompases the glue register, the offset of the control register and
+> > >         the mask to set bitfield in control register
+> > > +  phy-supply:
+> > > +    description: PHY regulator
+> > Which phy? There can be multiple for ethernet. In any case, doesn't
+> > really matter because either is wrong. The supply(ies) for a device go
+> > in that device's DT node. This node is not a PHY.
+> > 
+> > Rob
 > 
-> Let's enable it at config_init().
+> Hi Rob,
 > 
-> This logic has been extracted from the vendor driver provided by
-> Motorcomm.
+> Ok I will update my description with :   "Regulator that powers the Ethernet
+> PHY."
 > 
-> It's really unclear if this is specific to the integrated version of
-> that PHY, and how this potentially interacts with the fiber mode this
-> PHY supports, so this configuration is only enabled when the interface
-> is GMII, i.e. the PHY is integrated.
+> To manage this regulator on Ethernet glue, I based my work on the examples
+> of :
 > 
-> With this, the PHY reliably establishes link and the YT6801 PCIe card
-> becomes fully functional.
+>   - allwinner,sun4i,
 > 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  drivers/net/phy/motorcomm.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
+>   - allwinner,sun7i
 > 
-> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-> index 36c229460a77..90a4f86f2758 100644
-> --- a/drivers/net/phy/motorcomm.c
-> +++ b/drivers/net/phy/motorcomm.c
-> @@ -144,6 +144,11 @@
->  #define YT8521_CLOCK_GATING_REG			0xC
->  #define YT8521_CGR_RX_CLK_EN			BIT(12)
->  
-> +/* Analog front-end control register 3 */
-> +#define YT8531S_EXT_AFE_CTRL3			0x12
-> +/* Analog front-end DAC clock enable */
-> +#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
-> +
->  #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
->  #define YT8521_ESC1R_SLEEP_SW			BIT(15)
->  #define YT8521_ESC1R_PLLON_SLP			BIT(14)
-> @@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
->  	if (ret)
->  		goto err_restore_page;
->  
-> -	if (phy_interface_is_rgmii(phydev))
-> +	if (phy_interface_is_rgmii(phydev)) {
->  		ret = yt8531_set_ds(phydev);
-> +		if (ret)
-> +			goto err_restore_page;
-> +	}
-> +
-> +	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
-> +		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
-> +				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
+>   - allwinner,sun8i
+> 
+>   - fsl,fec
+> 
+>   - rockchip-dwmac
+> 
+>   - rockchip,emac
 
-Sashiko suspects this will not survive a suspend/resume:
+There are plenty of examples of how not to model things in the tree.
 
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831073747.361482-1-maxime.chevallier%40bootlin.com
+> 
+> For me it is normal that PHY Ethernet regulator is managed by MAC glue
+> because it is mandatory to power ON Ethernet PHY chip BEFORE MDIO scan.
 
-/P
+What happens when you have a PHY with a supply, clock, and reset that 
+all need handling and those all need to be handled in a specific order 
+and timing? And then you have 10 different boards with different PHYs 
+and different power on requirements? You are not going to handle that in 
+the MAC driver. We've fallen into the trap of "I just need this one 
+property" many times. It doesn't scale.
 
+The MDIO subsystem has provisions for handling power on of devices 
+before discovery. I know it will generically enable a clock. Maybe a 
+single regulator is handled too, I don't recall. If the PHY gets more 
+complicated, then you need a specific PHY driver to handle it.
+
+Rob
 
