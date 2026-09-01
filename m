@@ -4,132 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D5DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4A9C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sKj9tfk0MoT+Ht4idfi+B4AA+MZbQZunBLDDUvonyg=; b=wP2gi3ZnypEOrq4ztnFeKkXj1N
-	9rgkvNajcdU8zmZe00H6hZ20l8KDUPVCFb9lvDURHfyO1dPZUkTL0t6vMWA+LZlPYv7EZ6vW7+BHi
-	BfiVJP7SfiJWRA/pZedU+PgeieA8g+nCYqNsJxZf6thpt/4UdtlsSuvSFgFb5fwDiiGjWYsdzsMz+
-	yBCMCahym02+JXVbCe0fK3NptnFFu0UZEekQIkbgTYGXCaerDEybVae+Wynq0dW4eHM4kJbnsvBr1
-	F91/tTp9/V9CfYK0m39xH9CkiVy7iozVCgd8UjxeaKrKP9/Kh5hBHMhTLiBgirlMnqcpGO7hcX3Je
-	P+AzFbjg==;
+	bh=qeaOyJCk9cex+e5o7JjHCxLWrioSsoMPLRXcs380aPs=; b=VcwbxPJYE9iXZAcuNv30gDw3MO
+	HLp0hyJT6dkQzTsL4XqcdWkJqDTaXx2fIkIxZKPVHWqih+Y8JdGOwXXqxa6nwBgrOXi0OYVystvA0
+	xRCfRXD61osbvmNxF0AsybwIFkhqErDUmUZ1U8xqkIZHI6M6so3kdwUikaa1HM4PzE5o83KRqqw/7
+	veeVyUQqcIPmD3/GGy+dCNEox+dHI/Vq3qR8wFdSBFZIefJO5sUFnM2P+J/xlf8RDU5SWP+hQiVUk
+	fEolz/mhdzNPNKP/CzNjzNKPiD/TwqnV0ituazQDmJt13KgBIGusA/mewM/r8b3Kq+C/L6M5sVNTx
+	ZEduMGVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Koi-0000000BRCh-083Y;
-	Tue, 01 Sep 2026 09:30:08 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x1Ks9-0000000BRZQ-2T5F;
+	Tue, 01 Sep 2026 09:33:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Kof-0000000BRC0-17vd
+	id 1x1Ks6-0000000BRYV-0MVd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 09:30:06 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6817VbEY571790;
-	Tue, 1 Sep 2026 09:29:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=+sKj9tfk0MoT+Ht4idfi+B4AA+MZbQ
-	ZunBLDDUvonyg=; b=AcuExZw4wZOM/HI1rB01RDPx3MvdEoAXlAqwCE8Y1J1CqE
-	ZcgyGZN1ZzaFaa0h69XGUB+Vb68mPgJatftcHhPPYfcq5xQEnZO2PpxLXjAzto7q
-	FpBZJI8/3wffsW3FnsiNOG0w408QzTfAk1s4UU1N8Dl9P1y2oKydxb3zzLx758S1
-	3Wl+GJMnU5lLEJPfn9GgV8mf8elFn9iPrdtA54ELzqIPEkM9pr+2Ta3GDUZRUGi3
-	ZseorKeETxe+sVAuiWjn+PniUnGZGosDNEPjRwKgGqTw0RcSMswPBHG5MW+TQ2fa
-	zkCxlw+MSNNWCfarafeCHUVotrZeG6EDS8BgmT3g==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq54pvqq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 01 Sep 2026 09:29:53 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6819QHef031734;
-	Tue, 1 Sep 2026 09:29:52 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gca4w2yfp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 01 Sep 2026 09:29:52 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6819TfSZ52101544
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 1 Sep 2026 09:29:41 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F0C6C20043;
-	Tue,  1 Sep 2026 09:29:40 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 881C120040;
-	Tue,  1 Sep 2026 09:29:40 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue,  1 Sep 2026 09:29:40 +0000 (GMT)
-Date: Tue, 1 Sep 2026 11:29:39 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 06/20] KVM: arm64: Prepare sys_regs.c for sharing with
- s390
-Message-ID: <20260901092939.231001-B-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
- <20260831145536.913567-7-seiden@linux.ibm.com>
- <87pkyxmllo.wl-maz@kernel.org>
+	Tue, 01 Sep 2026 09:33:39 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 681792aS705426
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 1 Sep 2026 09:33:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=qeaOyJCk9cex+e5o7JjHCxLW
+	rioSsoMPLRXcs380aPs=; b=a4IOrlKpzE7t4dcemMBXOE9PzfcMJpttc5ennfqT
+	TtNT/l+FIydPbLaECvLiWQfmkvvxfa8O4sGIgx7CebqtkqPN8rhc6ZKJzfV4vmEJ
+	ocNq77spQ9pvGPByAkgp5ubWcrmD3NuIsmJ4SZtTe7kcbD791N1FOSGzXebSXBgV
+	a0xUkINLZmWXEVP3gNjTR1dEZRW/J1ubJlzTcplZ1k6BASH5cxOmsFLTQ/8BgGfB
+	dQ5diqo17IvRDrpSpaFByOUNJPEkmWnoavlQYfG8dKT1jxr+SJGGmdqUSeiIaN6c
+	pdcRWMpx2+tMLmOe08ejjaR/34S8BjQ0YQFTM10p40lKqw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gdrcsh3mf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 09:33:37 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9308eafb465so1129361085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 02:33:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788255216; x=1788860016; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qeaOyJCk9cex+e5o7JjHCxLWrioSsoMPLRXcs380aPs=;
+        b=TB5lftAS2cCZedjWJV7jeTV4rQ+oYYdFHgp3mS43WKOMGWqwrn+ZpcxDtDhQksvCl/
+         sPEbHcup6r7EcfsJ568L0L5Bpx6bktapa9C0GgqY2AoK0RSTdq5JGKdZX5KaxGfer3lS
+         j63Zt9zdOPkpvCCqFG0Q496buxymRjEP+MmAU+XrK+xWV/FK883Lha4vAEA5M/SeAdBQ
+         PNysWCSSxYf95V+bgQvgpf8jnsjFAQdfzpdxHYRf9mZBQ7UEqQPx0T+WoIrvuxCHwcD8
+         0NANiB0g+2n0619DJWc77PY+5dE53UeKYhTM/v4wzzP6SChl1N/e3uc7PNZEOy5IW2+C
+         Mqwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788255216; x=1788860016;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qeaOyJCk9cex+e5o7JjHCxLWrioSsoMPLRXcs380aPs=;
+        b=h1URt39v+psNG+eq/Kt4U2TRqnPo7Xiw/JFgoEGl9QLSg0mEfdU2sAs2YTiiV6yhpE
+         Z7VDvc0hAkKmlv5jzQIyyPhf7iQ5KcYjPuAvdn2sYLIKtJFugxdCI1UHGy1IW7Fs0PA9
+         +C4T+FbcCh8sAV78Za/CxtN5WWWXK8C6EZ6FKzSB+66BYAzIiWA4kd0cYWUkMKV4zL4n
+         6n0DKuRxBbWBFu12RVQN5JAGB0ucEs4faYsbb7BpyHHCSVqE00BNFXKmADzBRLatxCdq
+         i19G0/acY1pHA96zd046rasyd8zymcdwO4ejMS4m41MaTv+c/+ZkVferxZlePwtyYVo6
+         ISMg==
+X-Forwarded-Encrypted: i=1; AHgh+RpuzPDp+NIsnIqinb4zbkjkwkdHi7wEpz16NyuDPrnHc2rNO++AlB7YvVAAHMSC+pM25CYBsfZxg2hMzq/rfnr9@lists.infradead.org
+X-Gm-Message-State: AFuF++mb17birZ7n53/biQggW9nXohB295HfyyPdVltW0+gkB0VD4+T1
+	D2fBs92Z6liXZQt6Zsa5Yrq2xcko36TMtwJzQ4XPt1H0hnn+GKeZmNAR8FKkMMgpHbgxSw40Cj8
+	Gbo9AjrI6WsKNbWxgc+hUlToQWjckX0cJQi1w9ahtc4z3poewBCja6309+Vly1SRyrO/kMmCDft
+	DyCQ==
+X-Gm-Gg: AR+sD1036xOqPxMlOJJ+W+E89LBK8rj13OzCuoQ6MP7hF6UCO5NG/XxRfco9zSA2vG3
+	GxIeB7awaqLDx7T0B4XN0qEfL52xG1A6riN7nrpVIc2E0iaH4uoVpS/V0Rrv2PKt62vikZISYpU
+	obdPnqPwsdb7i1bGssqI6TIgTqnmoYidbLJUdhfznEXVdscS4swsbMdPgjYx9HDhb4V1afVnwMn
+	yx5vC251FkWmWS0UkxUTbS0DlBrxNGNWwGhZqL27PlOeTwpC98C04miljUdYipISU16g69hjnvS
+	7MXynX+DRzRmWzro7sgz+j++x0yhKNJPQdEWM4M4E2in2DkPQTwm51bz0KLmqlimYGISuMRQkN6
+	bLFRUQkyV2LHiiQ==
+X-Received: by 2002:a05:620a:6289:b0:937:65d:d89e with SMTP id af79cd13be357-9391378427emr4366704285a.3.1788255215087;
+        Tue, 01 Sep 2026 02:33:35 -0700 (PDT)
+X-Received: by 2002:a05:620a:6289:b0:937:65d:d89e with SMTP id af79cd13be357-9391378427emr4366686885a.3.1788255213973;
+        Tue, 01 Sep 2026 02:33:33 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c255f1b28ebsm532678066b.29.2026.09.01.02.33.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 02:33:32 -0700 (PDT)
+Date: Tue, 1 Sep 2026 11:33:30 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v2] net: stmmac: hold runtime PM reference in setup_tc
+Message-ID: <apab6tPGZ33OoXX5@lore-desk>
+References: <20260827-stmmac-setup-tc-enable-pm-v2-1-a9b8a5948f41@oss.qualcomm.com>
+ <apWVBrXNt74gtUd4@lore-desk>
+ <20260831172632.64aadc2c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="YgACt2WWoxLzx2dw"
 Content-Disposition: inline
-In-Reply-To: <87pkyxmllo.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDA4MCBTYWx0ZWRfX3NNLjMYJhQ+J
- PnkgXgDqjQ1zxC4Bt6UNbZzX3j0VLFEccbfJv3P8M4jb/Tq4s+12WHC6SXEAjdFpBdvI4ZQMXcm
- Bs2zdsITSvdZsAAJ+KI+T5lGiCs3Jg28Zgk+zhGCaWcQsyUWAM+GWIv0FfdbP5qrNEyfKWyD624
- uipG0junOfsNxnAD8xgqmO+1bNCyT91y/cDryTGh1ewwadm1L5XHc9GqTHXHzT+4CmemVKXFQLW
- zbeZomwA4GrwwhKv5eNcfOA7YHSj+RKzU1iQqshARnHiS+m3LEDRdm9ev/bBRN1IAsj1uteovvh
- HRu4UvLlJsMOTSP4nZRxKsy3vGL+3omJK20bd4QbclOQ1joALrvkpqbfjl9cMbjs99hUTMr8Nea
- 5R0at1wEGqkX4bOzUQ6dC5jQfIKEaOLwomSfq/AajQXsmJP5ADaTJeJoTf1k5yTh1YKdU/AtWIe
- vZ06EUKL1eO2SLvysVQ==
-X-Proofpoint-ORIG-GUID: H4c5ZkYE78F1AmN4S8l17S6U7m88SXt7
-X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a969b12 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=1oIFmkYgyMm4aX7jZ7kA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: NfZeEAY2368YIHjJlXmBcv7hal8unP-s
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDA4MCBTYWx0ZWRfX9vWOsXm0TQLz
- TDF3fY931hSxqwM8gW1F/5tul3x29Pg8lGGQWUh3k3B7zP9+pqCWKaCbC1TCcBV56OQSMHsOPxU
- DpsqHf7C+M/7NOPRaJvmuk/sIJWMUHU=
+In-Reply-To: <20260831172632.64aadc2c@kernel.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDA4NCBTYWx0ZWRfXzFjoJZAVwMYL
+ mfKVYrY3EbPOsuS1U8mgV3BicWt+JKeMsXDOHT6nCnU+J4g7zL8E8ImFnJu6b3occmh8Qbk9A+j
+ RHNdOrXzfgSa4sEPEDf3FkHO9fq1tOg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDA4NCBTYWx0ZWRfX7Jw8AskRYYxG
+ cuQeHLi69suxJ0fgwF+t8Sfu2nICRVvuDZgOrmdoJ+UPND0BUJRnNbrU74yKlBiXs3Fw0ScVHjF
+ 3QMaaD8EQcKySbaCnPwVzMGQqfwe5/xuJLhb7yVDouFWoYXhuELGgR0hn8AMy6mMkaO5LDhCixn
+ 5HoWbJGlbmH2FSdB+GhVM73MSOhACa0w/xQxbmytcr9f6Oohy+LpawO70Z+2MdIIwFGRXteIfEj
+ mnpva6xt8TnviwVW+9VOiqzCrQxA2gq+DqB5kCn+n7sklOPfRWDX7UsQWsIpGTzSukfdJRXc14L
+ dzReDSOtdXep9TJQvgHGtl6qFF1QYeybaTJIJct1m6uObdLArSXjfwFxGR7DANX+hvWU3vx6MWK
+ /fNF5+IfGA0lKjKJ3erbUBCp39wO3MGIW7LMR85KeyObXG5DeDuj7DlOCH3EwvmaU1pEPR+RfPt
+ I7OnSJjpEWQnIB1C+LA==
+X-Proofpoint-GUID: 6bUvD1zNkJ5AaswF5eYce1xo9gP2L1NI
+X-Proofpoint-ORIG-GUID: 6bUvD1zNkJ5AaswF5eYce1xo9gP2L1NI
+X-Authority-Analysis: v=2.4 cv=QsNuG1yd c=1 sm=1 tr=0 ts=6a969bf1 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=rNchZ6wNclprkupQ3ucA:9 a=CjuIK1q_8ugA:10 a=zZCYzV9kfG8A:10
+ a=8FirTQ5JliGXrdKJnOMA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-01_02,2026-08-31_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609010080
+ bulkscore=0 impostorscore=0 phishscore=0 suspectscore=0 adultscore=0
+ lowpriorityscore=0 malwarescore=0 priorityscore=1501 spamscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609010084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_023005_315650_42738A93 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260901_023338_130856_8AFA50F2 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,26 +156,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 09:17:39AM +0100, Marc Zyngier wrote:
-> On Mon, 31 Aug 2026 15:55:21 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > Prepare sharing of sys_regs.c with s390 by moving functions to another
-> > location inside sys_regs.c. This reduces the number of shared regions.
-> > 
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > ---
-> >  arch/arm64/kvm/sys_regs.c | 100 +++++++++++++++++++-------------------
-> >  arch/s390/kvm/arm64/arm.c |   2 +
-> >  2 files changed, 52 insertions(+), 50 deletions(-)
+--YgACt2WWoxLzx2dw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-...
+> On Mon, 31 Aug 2026 16:51:50 +0200 Lorenzo Bianconi wrote:
+> >   - This issue is not introduced by this patch and it needs to be fixed=
+ with a
+> >     dedicated patch
+>=20
+> Looks like the driver has multiple bugs in handling of TC callbacks
+> while down. Please fix all of them in one series, otherwise we may
+> end up changing approach.
 
-> 
-> Please split this. arm64 refactor and S390 changes should not be part
-> of the same patch.
+ack, I will do.
 
-Sorry, this was a mistake.
-	
-	Steffen
+>=20
+> Can you also confirm that the device programmed while down retains
+> all the necessary configuration thru the open path, and everything
+> works as expected?
+
+there are some leftover issues I am looking at:
+- https://lore.kernel.org/netdev/20260831-stmmac_tc_cls32_reconfigure-v1-1-=
+21cb459e64ae@oss.qualcomm.com/
+- https://lore.kernel.org/netdev/20260829-stmmac-est-reapply-after-open-v2-=
+1-5e5ccb185e92@oss.qualcomm.com/
+
+Regards,
+Lorenzo
+
+> --=20
+> pw-bot: cr
+
+--YgACt2WWoxLzx2dw
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapab6gAKCRA6cBh0uS2t
+rAzkAP9PVIHkeOY8Bd+C/l/C48j4rxhvXtwJQqY++nM4MzLxpgEA61NH14LNrjgF
++HHRWRLkq81brcUvd/opfeJSsuNzYA8=
+=7Cq8
+-----END PGP SIGNATURE-----
+
+--YgACt2WWoxLzx2dw--
 
