@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542F5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0F4C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g6gNF1L2W2DbFnprEAmekbeKiRyxpCj5ws+3FN1RDWk=; b=zKA9bcjMONlx/9yLMso2GlFcC+
-	0JcL4XAZV1Sp7RmmAiPilCBCd+rvh1D6qw3y3Vc2QY1HY4B2uRNE3hH3pwphlG/qEHDc5j0xFuXci
-	jLy33V5JxDsFOvyVolEImx/UncSiJSZRHW1PupFsqrb/YYXEKrFMCDjvjSMLMgO8A9w/MSUJiKM1W
-	12Y92664CRe8wgb/1NzjGzXN3702lv0atx8bqkjN6S+3Vk5ORWFDTx4WgCLKr6Q2zqnoijdhFoVFK
-	VFOAKKwf0h34QQWjiS3B8+9FINBV/Sf8JW61+79t2KG3HaiEBDobZz7fIE5K4pcb/p+bfFiCbD35w
-	nLqFGtMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XPyoXnX799zplSGoWRCxzPEXIRbeRij2GoDGs6QAZDo=; b=X4WW0cbhWkm2QYgHInNtmoTeMx
+	NZEvOcMgFlACkiOMWcJH6N4F1WiXZ96Goi5tdMJpUP0QKmAwdS2SVkXO1jyNo3hX8SVT5G5GcyVS9
+	yfagtTLQqerL1/O1j2+eWFnh5ZhLB7t9ylnlnJ5z+CQSqXKvy2AeCcopl9BHoiZsrgiPVapzzGDM9
+	JY2WgK/lQuEUjUVb1K+JOa7EYdg/5cv/A4BOAUW1GsNfgYS9d+t0yYGYs3gHY3bhzTxxYIgm9vzzF
+	/sSo3/BvgYSK7zF2LYkYm4hY/SjW3UPDx9QhBZlqC3tD4ynyg5nAg7xSMzzuC2l1WyC+ehUYO8w3U
+	bYvzR5FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KJS-0000000BLwH-1bHw;
-	Tue, 01 Sep 2026 08:57:50 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1x1KJm-0000000BLzp-267M;
+	Tue, 01 Sep 2026 08:58:10 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KJQ-0000000BLvs-29uh
+	id 1x1KJk-0000000BLzI-0Zp1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:57:49 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-482e067e908so3362978f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:57:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788253065; x=1788857865; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g6gNF1L2W2DbFnprEAmekbeKiRyxpCj5ws+3FN1RDWk=;
-        b=RZWMS6PmWMuO9ORDVLDf7deTY3U19eGj4oL56rT81m4rLBMs+6pGDKOnt0nPjYal6E
-         gspVMqK5lIEqrQ95B2CzIWT8+hiYI3nBFm9QQo59V969qGNapv9ov7rN8q4TR5em8cFF
-         we9PsgeleoXeRarMYbZn3LRwCgHarj50Qyd3jgKSK5cbK+apcsjrMEFnF5WMHAnIh3qu
-         i27qTmYtNf/qkpr3K85MceSMCz/IpvKc57kqvwlTbxqeS5fCe750m2lgDFuVGksdT43H
-         suN+GcxWF7tb2fKU3MoxVfp9rTqAyiC9/Yx+vYqYwoDZcvU9+1ZrcW62fl+M0sSwrE8E
-         CXsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788253065; x=1788857865;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g6gNF1L2W2DbFnprEAmekbeKiRyxpCj5ws+3FN1RDWk=;
-        b=JLCdSDnyyuqJbOhdNNVZpHBDeZYalR3G1uIwv6d4Ka1aQbhkn3ApByNp+2uKqj5rqr
-         9HOUsuL6dlHFsuNb1ojcebHzpik2scBsyX+UClreKBLq+BWHylUiyhXgZmcfRYI+ud4N
-         zwgRd/4QBPlWLm5kDw8bEtMZElyEo/IQ6PwRqOcstgtRxPxsDbk8v4ScK+0FMP4+Q2M+
-         zySsfrGPSmO4XYt4GrPtkSeSLlH82hel8AfiFcqpCgpHh/oMrlnzAMfdZnQtJ6C8ym+N
-         I6jNRAj+uMNOY/vIXMU7xRILC03PxSANi/qnYOXC5UQhzGkuuVRCINBvgb8eOpqRbkyv
-         YpVw==
-X-Forwarded-Encrypted: i=1; AHgh+RqXsT8m38iO8G+oeiwQVLBOxExoq7cjiUESD6qj0Rt0bsvsX0YYL12bZoJk2A+Ee0oBHC4x1fy5EHVNSEVMFfAw@lists.infradead.org
-X-Gm-Message-State: AFuF++mVnlL4bydrlukYNn0vVIJecJrRjoXGq5YjwfqCv94UoX3YtgjW
-	X7DxKRQMe6Q8fWlE6buTHt9W/t/rSQ4zp5ohrYcORvuxulSTxnf0JxLq
-X-Gm-Gg: AR+sD13+8Fe10HHnwExcuymt3bJVPY0fm2RGuaEmt64fx53WR77qiAjfYOqD5rNcpIv
-	EFqLNFTbX4cAZ3ixFIEyRBUHe2dujEMvFX8pQMCdq0yI2EHXxd6mGe5FQSoFz8vbaPy7GzF1H8w
-	ZuJFpy+oOoEEG5Nnw8iUDEDwn/VFzC1QUzruBMySUnhizXAJninaSxQ5E1DfOq6f4n3FoXPMvm8
-	Izn+540AFzMxFYLWTeFjh/O4jpzIZM2F2f48GZdai63svrUJbrXhS4ODyS7wFGosRuiLABVBOUA
-	XbJ9czR6BgGMKO5slRKSeKXD1R2+MpFWlCzd01gp5ZYAXQbIkZg996KVZ3/u84yldqs7IT2CteX
-	VfCQTVBZN/8Dx2dtXG+cN2Epefdk4crd5LQYEYhMmR7deNl1M8Ut8fD1Rs82w3pconq+6aG0OWY
-	vEOECIYv7KiI1Xe6Cj/VKEutMDri5guTK7AFVBtsTpxlyS7RY+RwCwtxyuLMOK2gCxqcn1uUA8Q
-	wwXKNUEPVznfrcE1QyPina1pLx0Y/pzPHFD6nPwbrxwJBZIWulxTbw38u1Tic85HsBRkCcETOFP
-	IK7Tr0pR+uwLxDyx64vtrYJl2zcsNENDdg8yyUXfPVvYRDE/hFUGZk0B+Rwuttm1bK4=
-X-Received: by 2002:a05:600c:4f8b:b0:49a:2c4b:403f with SMTP id 5b1f17b1804b1-49b91c46494mr428394385e9.13.1788253065376;
-        Tue, 01 Sep 2026 01:57:45 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a16a-7801-fd8c-4b37-36b4-e53a.310.pool.telefonica.de. [2a02:3100:a16a:7801:fd8c:4b37:36b4:e53a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cdd73f7a4sm45023365e9.12.2026.09.01.01.57.44
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 01 Sep 2026 01:57:44 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: mm: align hugetlb mappings to the huge page size
-Date: Tue,  1 Sep 2026 10:57:40 +0200
-Message-Id: <20260901085740.66283-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Tue, 01 Sep 2026 08:58:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788253089; x=1819789089;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Dn9Xg91C/1thO31fkCEIbl0rMR4votQKC6FIQtp2kqc=;
+  b=C/rHrVMVcH/32w+Ba9FDCvQbOcGKkL8WS4SrikorO5/bU/mGY4Nmqf7F
+   B078zG/xbOdqIusR6pHbyUrfOvVOePZtxAB+SSNWV85ChkxOF2DhEmDgp
+   XqicXOEt47NuOgsDoFoaw7N6wE94VCr3DAia5a4wmKm2ZArwL57ypQyjG
+   MBQ9r7qBjwSY14ZkMIxrU58sfbul8J4lAeG7mC4mpajGx53bPG9kb4Rfp
+   e5V/DHBcqqNUV2ZTCGnbquSyRWtN1b1qAFTCQD3dGffrZUksHDugGXdPS
+   b9k497fiaUXXQaItETeRIa3in72rCviXq1QsP8gGj1AZfTtLtfqfxcq+1
+   Q==;
+X-CSE-ConnectionGUID: t6xZH8dIQRWB7sXxtz915A==
+X-CSE-MsgGUID: 9TBQX4NmSLG9uCuUqAjZ4g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="92542933"
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="92542933"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 01:58:07 -0700
+X-CSE-ConnectionGUID: czjYX5yyTDOsZtb1SZR0ug==
+X-CSE-MsgGUID: Y14AxRADQre7S7wFBk1Gvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="265319657"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa010.fm.intel.com with ESMTP; 01 Sep 2026 01:58:03 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 1FEEE99; Tue, 01 Sep 2026 10:58:02 +0200 (CEST)
+Date: Tue, 1 Sep 2026 10:58:02 +0200
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 10/19] thunderbolt: Make the ring register layout
+ configurable
+Message-ID: <20260901085802.GC106095@black.igk.intel.com>
+References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
+ <20260830-b4-apple-soc-tbt-v1-10-44bc9348683c@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260830-b4-apple-soc-tbt-v1-10-44bc9348683c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_015748_593282_71354369 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20260901_015808_218869_080D2C0D 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,83 +98,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mmap(MAP_HUGETLB) on 32-bit Arm can return an address which is not
-aligned to the huge page size. In a QEMU virt guest, unmapping the VMA
-then hits the alignment check in __unmap_hugepage_range():
+Hi,
 
-  kernel BUG at mm/hugetlb.c:5213!
-  Internal error: Oops - BUG: 0 [#1] SMP ARM
-  PC is at __unmap_hugepage_range+0x540/0x584
-  LR is at __zap_vma_range+0x13a0/0x1410
+On Sun, Aug 30, 2026 at 10:19:28PM +0200, Sven Peter wrote:
+> The ring descriptor and options registers are laid out differently on
+> the Apple NHI. Describe their offsets and strides with a
+> tb_nhi_ring_layout struct that NHI drivers can override.
 
-Commit 7bd3f1e1a9ae ("mm: make hugetlb mappings go through
-mm_get_unmapped_area_vmflags") made hugetlb mappings use the
-architecture's arch_get_unmapped_area(). The generic implementations
-handle hugetlb alignment, but the Arm implementations only account for
-the optional SHMLBA cache-colouring constraint. A 4 KiB-page kernel can
-therefore align the mapping to 4 KiB or 16 KiB instead of the required
-2 MiB.
+This is odd because Apple is sitting in USB-IF and they are behind the
+original register layout so why they do not follow it themselves?
 
-Set the alignment mask from the file's hstate for hugetlb mappings in
-both Arm implementations. Huge-page alignment also satisfies the
-SHMLBA constraint.
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  drivers/thunderbolt/nhi.c   | 30 ++++++++++++++++++++++++------
+>  drivers/thunderbolt/nhi.h   | 18 ++++++++++++++++++
+>  include/linux/thunderbolt.h |  3 +++
+>  3 files changed, 45 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+> index fc54ff7edfb9..3a3d334e69fd 100644
+> --- a/drivers/thunderbolt/nhi.c
+> +++ b/drivers/thunderbolt/nhi.c
+> @@ -176,19 +176,32 @@ void nhi_disable_interrupts(struct tb_nhi *nhi)
+>  
+>  /* ring helper methods */
+>  
+> +static const struct tb_nhi_ring_layout nhi_default_ring_layout = {
+> +	.tx_desc_base = REG_TX_RING_BASE,
+> +	.rx_desc_base = REG_RX_RING_BASE,
+> +	.desc_stride = 16,
+> +	.tx_options_base = REG_TX_OPTIONS_BASE,
+> +	.rx_options_base = REG_RX_OPTIONS_BASE,
+> +	.options_stride = 32,
+> +};
 
-Fixes: 7bd3f1e1a9ae ("mm: make hugetlb mappings go through mm_get_unmapped_area_vmflags")
-Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Tested an LPAE multi_v7_defconfig kernel on QEMU virt with
--cpu max,aarch64=off and -cpu cortex-a15, using both the default and
-legacy VA layouts. The LTP hugemmap01/04/05/06, hugefork01/02,
-hugeshmat01, hugeshmget01, and hugefallocate01 tests gave 16 TPASS and
-no failures on either CPU model.
+I'm not fan of these to be honest.
 
-Also tested on a Raspberry Pi 400. The unpatched kernel returned a
-misaligned address and became unresponsive while touching the mapping.
-The patched kernel returned an aligned address, touched the full mapping,
-and unmapped it cleanly.
+I think either adding ring_ops that includes hooks that can be overridden
+by non-standard HI or not sure if we can take advantage of regmap here?
 
- arch/arm/mm/mmap.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
-index 3dbb383c26d54..dbb3f07a77852 100644
---- a/arch/arm/mm/mmap.c
-+++ b/arch/arm/mm/mmap.c
-@@ -11,6 +11,7 @@
- #include <linux/io.h>
- #include <linux/personality.h>
- #include <linux/random.h>
-+#include <linux/hugetlb.h>
- #include <asm/cachetype.h>
- 
- #define COLOUR_ALIGN(addr,pgoff)		\
-@@ -72,7 +73,10 @@ arch_get_unmapped_area(struct file *filp, unsigned long addr,
- 	info.length = len;
- 	info.low_limit = mm->mmap_base;
- 	info.high_limit = TASK_SIZE;
--	info.align_mask = do_align ? (PAGE_MASK & (SHMLBA - 1)) : 0;
-+	if (filp && is_file_hugepages(filp))
-+		info.align_mask = huge_page_mask_align(filp);
-+	else
-+		info.align_mask = do_align ? (PAGE_MASK & (SHMLBA - 1)) : 0;
- 	info.align_offset = pgoff << PAGE_SHIFT;
- 	return vm_unmapped_area(&info);
- }
-@@ -123,7 +127,10 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
- 	info.length = len;
- 	info.low_limit = FIRST_USER_ADDRESS;
- 	info.high_limit = mm->mmap_base;
--	info.align_mask = do_align ? (PAGE_MASK & (SHMLBA - 1)) : 0;
-+	if (filp && is_file_hugepages(filp))
-+		info.align_mask = huge_page_mask_align(filp);
-+	else
-+		info.align_mask = do_align ? (PAGE_MASK & (SHMLBA - 1)) : 0;
- 	info.align_offset = pgoff << PAGE_SHIFT;
- 	addr = vm_unmapped_area(&info);
- 
-base-commit: abdf623ddb75b24659018d3952d8f61937306ae5
--- 
-2.53.0
+> +
+>  static void __iomem *ring_desc_base(struct tb_ring *ring)
+>  {
+> +	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
+>  	void __iomem *io = ring->nhi->iobase;
+> -	io += ring->is_tx ? REG_TX_RING_BASE : REG_RX_RING_BASE;
+> -	io += ring->hop * 16;
+> +
+> +	io += ring->is_tx ? layout->tx_desc_base : layout->rx_desc_base;
+> +	io += ring->hop * layout->desc_stride;
+>  	return io;
+>  }
+>  
+>  static void __iomem *ring_options_base(struct tb_ring *ring)
+>  {
+> +	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
+>  	void __iomem *io = ring->nhi->iobase;
+> -	io += ring->is_tx ? REG_TX_OPTIONS_BASE : REG_RX_OPTIONS_BASE;
+> -	io += ring->hop * 32;
+> +
+> +	io += ring->is_tx ? layout->tx_options_base : layout->rx_options_base;
+> +	io += ring->hop * layout->options_stride;
+>  	return io;
+>  }
+>  
+> @@ -215,8 +228,10 @@ static void ring_iowrite32desc(struct tb_ring *ring, u32 value, u32 offset)
+>  
+>  static void ring_iowrite64desc(struct tb_ring *ring, u64 value, u32 offset)
+>  {
+> -	iowrite32(value, ring_desc_base(ring) + offset);
+> -	iowrite32(value >> 32, ring_desc_base(ring) + offset + 4);
+> +	void __iomem *base = ring_desc_base(ring);
+> +
+> +	iowrite32(value, base + offset);
+> +	iowrite32(value >> 32, base + offset + 4);
+>  }
+>  
+>  static void ring_iowrite32options(struct tb_ring *ring, u32 value, u32 offset)
+> @@ -1253,6 +1268,9 @@ int nhi_probe(struct tb_nhi *nhi)
+>  	if (!nhi->ops->init_interrupts)
+>  		return dev_err_probe(dev, -EINVAL, "missing required NHI ops\n");
+>  
+> +	if (!nhi->ring_layout)
+> +		nhi->ring_layout = &nhi_default_ring_layout;
+> +
+>  	nhi->hop_count = ioread32(nhi->iobase + REG_CAPS) & 0x3ff;
+>  	dev_dbg(dev, "total paths: %d\n", nhi->hop_count);
+>  
+> diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+> index 4884c3f5a2b2..035cee433a3c 100644
+> --- a/drivers/thunderbolt/nhi.h
+> +++ b/drivers/thunderbolt/nhi.h
+> @@ -40,6 +40,24 @@ void nhi_reset_interface(struct tb_nhi *nhi);
+>  
+>  extern const struct dev_pm_ops nhi_pm_ops;
+>  
+> +/**
+> + * struct tb_nhi_ring_layout - Layout of the ring registers in the NHI MMIO space
+> + * @tx_desc_base: Offset of the descriptor registers of the first TX ring
+> + * @rx_desc_base: Offset of the descriptor registers of the first RX ring
+> + * @desc_stride: Stride between the descriptor registers of neighboring rings
+> + * @tx_options_base: Offset of the options registers of the first TX ring
+> + * @rx_options_base: Offset of the options registers of the first RX ring
+> + * @options_stride: Stride between the options registers of neighboring rings
+> + */
+> +struct tb_nhi_ring_layout {
+> +	u32 tx_desc_base;
+> +	u32 rx_desc_base;
+> +	u32 desc_stride;
+> +	u32 tx_options_base;
+> +	u32 rx_options_base;
+> +	u32 options_stride;
+> +};
+> +
+>  /**
+>   * struct tb_nhi_ops - NHI specific optional operations
+>   * @init: NHI specific initialization
+> diff --git a/include/linux/thunderbolt.h b/include/linux/thunderbolt.h
+> index d48623fda79b..7c2717bd2945 100644
+> --- a/include/linux/thunderbolt.h
+> +++ b/include/linux/thunderbolt.h
+> @@ -503,6 +503,8 @@ void tb_service_properties_changed(struct tb_service *svc);
+>   *	  interrupt_work when dispatching interrupts to individual rings.
+>   * @dev: Device associated with this NHI instance
+>   * @ops: NHI specific optional ops
+> + * @ring_layout: Layout of the ring registers inside @iobase. If not set
+> + *		 the default layout from the USB4 specification is used.
+>   * @iobase: MMIO space of the NHI
+>   * @tx_rings: All Tx rings available on this host controller
+>   * @rx_rings: All Rx rings available on this host controller
+> @@ -524,6 +526,7 @@ struct tb_nhi {
+>  	spinlock_t lock;
+>  	struct device *dev;
+>  	const struct tb_nhi_ops *ops;
+> +	const struct tb_nhi_ring_layout *ring_layout;
+>  	void __iomem *iobase;
+>  	struct tb_ring **tx_rings;
+>  	struct tb_ring **rx_rings;
+> 
+> -- 
+> 2.55.0
+> 
 
