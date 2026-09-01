@@ -4,79 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63E3C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB258C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVR3J3LUOARNMC+CB31gVBLqv+1XiADEtaX3xGLnS4U=; b=aBnNyURF3hhaRa0kspmWVcpsUu
-	hIHv5Oakkxjhpgw0AE1vnvyIHG7kwW9M3qDz3AsHFKoHUjbYleuB9vc1uinBYXjJzD2CN9rFH+gH6
-	WOBdJRCTHGc1twGdTmEMyk4mJGZTvLHJ5HuNaONKA9UlHXvchDB+ATL79yFJaLnjtkgN9UYoJDohS
-	kphTBbowx+cL4R8O6RrzoIXtp3A+8c15XfYOuQh1yi+yv2SEXPQ3cTtv2+/jXE1PQ+o71h9AJKKic
-	vz9AKKDaYrpPfiic2r5ycx6f07tT/Jirny6ap1wzSAeyqMytTLqb8IfH/ICsMfyaomSDPQrM+I1os
-	yBWte7LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=; b=X3S2ScjTDZY+xvvupyeOnEBjtF
+	OSXTDEtzaD3wEEjAyryHLyqaQ0cX5nZzMVYmHbNVbnLAnb0rNyxEIyZe0xzsZkdtosTIN7dbzgSkP
+	w+qHvBJJgL9+zdTtERSbNyRnwsp4LDX23HyfDzqFgJZYUa4jdRVWK30Gy4wgPvsZk1aoM2hvByso7
+	LQ5JUVaaZX/Tecmr4w2himOw1OsvU1X43RnKX1e5eeH0rC1lWX4Yf5FnWJaRgoHJ7G1K3ulcFKgq6
+	i0ARjHDm2Nr1RgZnRDy0TruWyZ73MXh3xY387QmU16RnoopvxwisaItpzbFPGgLcSV+6U4AWBiwcP
+	GgeQgcMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Q08-0000000CPFm-2ak7;
-	Tue, 01 Sep 2026 15:02:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Q05-0000000CPE6-3ZOF
+	id 1x1Q0E-0000000CPJb-30hD;
+	Tue, 01 Sep 2026 15:02:22 +0000
+Received: from mail-pz2-x0b.google.com ([2607:f8b0:4864:3b::b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1Q0A-0000000CPGn-0uUF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:02:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F33C31BD0;
-	Tue,  1 Sep 2026 08:02:08 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00EFD3F882;
-	Tue,  1 Sep 2026 08:02:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788274932; bh=7EJNu/nvGjjQDlHRvCOJ0kkMWzSTWzSt9Ya+CDFC2qk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gnMo5yM8DqcJl6z44P81WDEYjZAyfpNdIp4BjWVf647PI4hAGOwLGlYELgiMnj1Fz
-	 ovafnQ1yMRTCiDCWsU1GJaqNcUYEJ26PqbI3JjBcNnZHZX6eOOAK/Yp9F1L1xL8Vn+
-	 6/9Ym54cvRiJBdHF7Z+Tz17QvuwoIPcJhOxg2ylc=
-Date: Tue, 1 Sep 2026 20:32:09 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-hardening@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Maxwell Bland <mbland@motorola.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
-Message-ID: <apbo8Yr5C-6c0XXr@a079125.arm.com>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+	Tue, 01 Sep 2026 15:02:20 +0000
+Received: by mail-pz2-x0b.google.com with SMTP id 41be03b00d2f7-cc1631a57d2so2430833a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:02:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788274937; x=1788879737; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=;
+        b=V+/dGm9L6Lz0MjNHzEsD34z/nhQxwSU4Fs5hQpZABZywyDkBU2f7UyF8ZO0S6PuwNQ
+         4w7TpqyTbJKR6WxCpIm6zcxDmpbVG9UGrqOelR9wngDnksTT20WhnXLvqEiFpUM9p5i1
+         u1q56kYTqXge1OreG/3/aV3hs26LekrMr9b35YAnv3eXoxbRIC0uSthkzD9WvTNBOuv7
+         1IEfQTqDGmaJSxOGr8W+PxhGRULflK/GZ3nGeukuJg6XKWpE/Ezrga0b8k8wiYoMKfkf
+         kIC273eJyke55+pm2RR4cDiYiankw6Drfj/2ZMBEulV8PzhGm1dvqfzGKdL4VM8xY945
+         Dn2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788274937; x=1788879737;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=;
+        b=FgrtmMWubPB8HPfiWybCwQUy0s42Be5VgBLcmcNwNjmkflhzUV8VB3gKzo1jwpZLtx
+         FVsdhU/6FDtJLHtJmTZf+A+sDrjpQ5zJznUsOkPq5LRhglAypwFgzhtOmWejBdxcVBQ4
+         6d+0m0Rb/opBOf0Bea/suCoWZ9V8123hw4MkFHx0HvL8lt1QyTMSFWCtoGJGNHhbGGA4
+         kZIUvir3ECrgden/F3XldSfgTowqRAnDQGwaQVsKU8pag4qZmqdhc8JamcBhpx8N0u1X
+         DU0Mz/NcbgkKy44zOgfKTnoo5P9Ec0q8mzCX157osj6aWVpg0m8r8IuBIXU9wP634pHn
+         /13g==
+X-Forwarded-Encrypted: i=1; AHgh+Rpso/7shwoBXJDEcssYT6ECtze6mo9sl2eCKI/PwwLQ/ZuL6XZLjY/AgVwQltW5CIHqZwqnPvZ73Xr5WYvcn3dU@lists.infradead.org
+X-Gm-Message-State: AFuF++kdxL5z7PWAKtAX5kADfP6v7agZG67sY2UyQwtyrG5nALiOushF
+	IY/itliA5iKR0QFYlyBTWvCXHoLi2eMsnQWN97X4rQuf7fPbRSXjP7BB
+X-Gm-Gg: AR+sD11WE9BsilBdcTH73Ve1X+QKURt37n+VYVVQS6MdkiZuYtUdx6HmfeUnR3D/9lx
+	FF3JglcnMLuaWeqhory+VHoYxWfnKrR+EpbBVzNZUmpVmnAhNzEl4JN1Jt65c0Juw+2YGwQSrTa
+	SHDxDBGTI/EP2U0tEpqgzNYlWxfwhkPWO6j4Eg7lQWimjP8N0QXDcMJl9KEdcBwjB5mgNZo7dV7
+	kkNX63EEDRA83cbgrGL98NSJwlRKCuAbXhTz8m1gXxHNcdKMplDCtTRTX0xreE+RnBKCUyerCHs
+	ar6l3EWhj23ce+ggWXyVyG/Knrmt98SstzqGn8G8i+niQfFs3/SMi9XIEwCrV5L8JTtfQ/YRVto
+	uk2hJLADSarwv+XC1rU2EmM+mT1SkbGDnF33OHAIbMf9YOnBC2/oAnp8I6WtAm3l7ut8RF7B2b6
+	usTVB5Ad2ni/e8qZ72Md9QVanGCArXWdp0TFIf2ulUQGsZm4y/+F6f1t5rXtM=
+X-Received: by 2002:a05:6a00:3397:b0:85b:cf16:597 with SMTP id d2e1a72fcca58-85bcf1605c8mr9714948b3a.19.1788274935860;
+        Tue, 01 Sep 2026 08:02:15 -0700 (PDT)
+Received: from server.lan ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85dc0716846sm27914b3a.45.2026.09.01.08.02.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 08:02:14 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Coia Prant <coiaprant@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH net-next v3 02/10] dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+Date: Tue,  1 Sep 2026 23:01:02 +0800
+Message-ID: <20260901150111.141037-3-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260901150111.141037-1-coiaprant@gmail.com>
+References: <20260901150111.141037-1-coiaprant@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_080213_970301_BC57DE24 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20260901_080218_279570_CBBDF911 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,159 +124,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
+On RK3568, the SGMII interface can be routed to either GMAC0 or
+GMAC1 via the pipe_sgmii_mac_sel bit in the pipe GRF registers.
 
-On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
-> [Sending during the merge window in case reviewers have spare
-> cycles; I'm not aiming to have this series merged in v7.3.]
-> 
-> This is a proposal to leverage protection keys (pkeys) to harden
-> critical kernel data, by making it mostly read-only. The series includes
-> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
-> as well as a page table hardening feature based on that framework,
-> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
-> concept, but they are designed to be compatible with any architecture
-> that supports pkeys.
-> 
-> The proposed approach is a typical use of pkeys: the data to protect is
-> mapped with a given pkey P, and the pkey register is initially
-> configured to grant read-only access to P. Where the protected data
-> needs to be written to, the pkey register is temporarily switched to
-> grant write access to P on the current CPU.
-> 
-> The key fact this approach relies on is that the target data is
-> only written to via a limited and well-defined API. This makes it
-> possible to explicitly switch the pkey register where needed, without
-> introducing excessively invasive changes, and only for a small amount of
-> trusted code.
-> 
-> Page tables are chosen as an initial target because of their especially
-> critical nature - a single write may result in arbitrary pages becoming
-> accessible to any context (including userspace). In order to keep the
-> series digestible for reviewers, this version focuses on functionality
-> rather than performance, making it most suitable as a debug feature. The
-> key trade-off is the requirement to PTE-map the linear map - see section
-> "Protected page table allocation" for details.
-> 
-> This series has similarities with the "PKS write protected page tables"
-> series posted by Rick Edgecombe a few years ago [1] but it is not
-> specific to x86/PKS - the approach is meant to be generic.
-> 
-> This proposal (as of RFC v5) was presented at Linux Security Summit
-> Europe 2025 [2].
-> 
-> [Table of contents]
-> 
-> * kpkeys
->   - pkey register management
-> 
-> * kpkeys_hardened_pgtables
->   - Protected page table allocation
->   - kpkeys context switching
->   - Performance
->   - Limitations
-> 
-> * This series
->   - Branches
-> 
-> * Threat model
-> 
-> * Further use-cases
-> 
-> * Open questions
-> 
-> kpkeys
-> ======
-> 
-> The use of pkeys involves two separate mechanisms: assigning a pkey to
-> pages, and defining the pkeys -> permissions mapping via the pkey
-> register. This is implemented through the following interface:
-> 
-> - Pages are assigned a pkey in the linear map using set_memory_pkey().
->   This is sufficient for this series, but it is also plausible for
->   higher-level allocators to support marking allocations with a given
->   pkey.
-> 
-> - The pkey register is configured based on a *kpkeys context*. kpkeys
->   contexts are represented as simple integers that correspond to a given
->   configuration, for instance:
-> 
->   KPKEYS_CTX_DEFAULT:
->         RW access to KPKEYS_PKEY_DEFAULT
->         RO access to any other KPKEYS_PKEY_*
-> 
->   KPKEYS_CTX_<FEAT>:
->         RW access to KPKEYS_PKEY_DEFAULT
->         RW access to KPKEYS_PKEY_<FEAT>
->         RO access to any other KPKEYS_PKEY_*
-> 
->   Only pkeys that are managed by the kpkeys framework are impacted;
->   permissions for other pkeys are left unchanged (this allows for other
->   schemes using pkeys to be used in parallel, and arch-specific use of
->   certain pkeys).
+Add the optional "rockchip,sgmii-mac-sel" property to allow the
+device tree to select which GMAC controller is used for SGMII.
 
-- Adding some basic details on what a scheme and context is quite helpful.
+The property takes a value of 0 (GMAC0) or 1 (GMAC1). The hardware
+reset value is 1 (GMAC1), but this can be overridden by setting the
+property to 0 for boards where SGMII is connected to GMAC0.
 
-- Giving some hints (may be an example) on how multiple schemes and multiple contexts
-  play together would be quite helpful.
+This is necessary for boards such as the Ariaboard Photonicat, where
+the SGMII interface is connected to GMAC0 and needs to be explicitly
+configured.
 
-May be adding a documentation covering these aspects would be helpful as
-well.
+Signed-off-by: Coia Prant <coiaprant@gmail.com>
+---
+ .../bindings/phy/phy-rockchip-naneng-combphy.yaml   | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-My understanding is that pkeys are being partitioned across different
-contexts. But then the introduction of the term "scheme" looks bit confusing to me.
-
-> 
->   The current kpkeys context is changed by calling
->   kpkeys_enter_context(), which will set the pkey register
->   accordingly and return the original state. A
-
-..snip
-
-> Open questions
-> ==============
-> 
-> A few aspects in this RFC that are debatable and/or worth discussing:
-> 
-> - There is currently no restriction on how kpkeys contexts map to pkeys
->   permissions. A typical approach is to allocate one pkey per context and
->   make it writable in that context only. As the number of contexts
-
-Probably to avoid the assumption, may be we can we have something like
-below
-
-For a pkey P, we could define
-PKEY_P_PERM_CTXT_OTHERS  //permission for pkey p in other contexts
-PKEY_P_PERM_CTXT_SELF    //permission for pkey p in self context
-
-With the assumption of one pkey mapped for every context,
-the permission for the default context would look something like,
-
-PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
-PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT |
-PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
-...(for all valid contexts)
-
-where,
-Permission key, PKEY_DEF is associated with context DEFAULT,
-Permission key, PKEY_CT0 is associated with context CT0,
-Permission key, PKEY_CT1 is associated with context CT1
-
-
->   increases, we may however run out of pkeys, especially on arm64 (just
->   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->   use the same pkey for the data associated to multiple contexts.
-> 
-
-Lets say two contexts A and B, use the same pkey P as their permission matches.
-But then, when we enter context A, permission for pkey P gets
-relaxed, then that would relax permission for pages associated with
-context B as well which is unintended ?
-
-As the hardware supports 16 pkeys, should we consider removing the limit
-of 8 pkeys so that we can have unique pkeys for each context ?
-
---
-Linu Cherian
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+index 379b08bd9e97a..8e898bce9af73 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+@@ -80,6 +80,15 @@ properties:
+     description:
+       Some additional pipe settings are accessed through GRF regs.
+ 
++  rockchip,sgmii-mac-sel:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1]
++    default: 1
++    description:
++      Select gmac0 or gmac1 to be used as SGMII controller.
++      The hardware reset value is GMAC1 (1). Set this to 0 to route
++      SGMII to GMAC0.
++
+   "#phy-cells":
+     const: 1
+ 
+@@ -105,6 +114,10 @@ allOf:
+           maxItems: 1
+         reset-names:
+           maxItems: 1
++        rockchip,sgmii-mac-sel: true
++    else:
++      properties:
++        rockchip,sgmii-mac-sel: false
+   - if:
+       properties:
+         compatible:
+-- 
+2.47.3
 
 
