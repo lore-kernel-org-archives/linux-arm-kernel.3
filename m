@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE00C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A5C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppvYUZdPBmuaBv1YdwpjusxCdqJckL+Q48S47VSYESw=; b=eEVmnQZsqjHkhOuf6z1GPRy663
-	c3JkfI+dEbUgYe5txEdTwU2m/lU56/r7xxfrPmIk6hcVFGaGhgi4nbIdNOWTPys88x8KPt0y+Bb8u
-	+iq+TUNavjpZRpXNcN3emUr6CzNAumQdujp5fm5oefK3PjXNgdgtlvE+WrCmEkzpJfzl5h5+T5Cx6
-	oRjaQjT5gq6ao9E2UXtEcPd+xwEopIvBzcOe+kby7912CKZ25C3j/z+v48LRjrL8USFry2JZdPVzJ
-	2etetbQkcJDqW52f0A234WNhXrUhU2h2yLCAENgY/wI3HTY8OvtkCDXYbzaLdE/8eWvQuhlMLnZ8L
-	YO8RcNtQ==;
+	bh=UZB1OLP7prA7rwlGLIa5XRKyBZ1d7kf5fm2V6ZP76JY=; b=RRff4PERuoOgFkVxIg3sLiG8pB
+	FT3iNwgDQaqG3kYRHbp7IqaJeq11NRUotNmlVcALb82okpg08GJG1yuHFZdSxJEYPO4P0QWW8OpTH
+	Nj3OGYtavfa0rmHdEdYqMWxfhkvyNj15EWskRbN9cl58ngrAvAI4Set5SDirqKyRNQvL0apB8/q7I
+	pXfsTQxT1a+S+I+XKaeAomJRiKvZazNYAevm+caPidphrhwWRkqT1fbdagguKR7Hm3pQAS6nJLMYT
+	GqeGxzVymh6WfTyRUNL/JUTIP0HU1RNBcce9kcv7J7lQKsOlxfLZgK4xBZNiytDlJg4yr52e0JNe9
+	8ojd6yDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JCJ-0000000B9kJ-0A3j;
-	Tue, 01 Sep 2026 07:46:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1JES-0000000B9tY-175P;
+	Tue, 01 Sep 2026 07:48:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JCH-0000000B9kC-1l0k
+	id 1x1JEQ-0000000B9tS-3fNC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:46:21 +0000
+	Tue, 01 Sep 2026 07:48:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8FBCB600D1;
-	Tue,  1 Sep 2026 07:46:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 417FC1F000E9;
-	Tue,  1 Sep 2026 07:46:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 03FEA601DB;
+	Tue,  1 Sep 2026 07:48:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9311F000E9;
+	Tue,  1 Sep 2026 07:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788248780;
-	bh=ppvYUZdPBmuaBv1YdwpjusxCdqJckL+Q48S47VSYESw=;
+	s=k20260515; t=1788248913;
+	bh=UZB1OLP7prA7rwlGLIa5XRKyBZ1d7kf5fm2V6ZP76JY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=kgcra3RW2Y0FmlVVaIMjCWPhG9oH8mn5lyDloXP2WiFqGhcpLyawUZasaZOBc6uCB
-	 b88wljyLeHQ4I8ratx5Tst/lzkCEP3KIqKfIhr4xslhdhAQIE4rP6mJI5x/ld9h9u9
-	 ZGuslPT4fCuVzTd8PE1bthyv6MkQ+r7MxgfI7nS2I6oR6bvwOXEBk2dL0/C+0tCxL+
-	 d8/X3DaIXIRma8/N6PDEmUoUm5pAV4mQ94qhZ/o7O3RCdTiaBU5aiWN7XvuSjnRCnK
-	 +EcSYt5WXqSutjqgiX6jYDANj0GnkapvxB2t25MEvuK/LBRYPRBc7VoMrWiilOgoI3
-	 v+mtzXfI8IpfQ==
+	b=bTKw+OT/UwTVuABIiuKZ7SaC+N5dRiEp901CPG1h28Un6ph5XDeSJrrqZexbEoyWj
+	 90e61JGRfKsjntjQTGfLb9PR/jv5MKl8yTjXcS0cL39Dd/yAREBnTvqp4a6BVYhEXw
+	 XmlferqV+KPuveBHwgmdzWcMRNcyUhW/angxzNOFzAuIC4EDJEummrPZAl4QhYYIuX
+	 /M19kvrhdwA/aNR6//g/+g2mEagXzkR6szUgjwldGHyesUdoLHyxpBnxaHmr5LumvQ
+	 Y8vqCT2XdMhpAPvnYnLZc1SphxJQXWGXlS93oP3xxA6Lmf/psUZGmD/v4mC+CdrZrN
+	 ibng9DxMTFC0g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x1JCD-00000003BOj-2WY3;
-	Tue, 01 Sep 2026 07:46:17 +0000
-Date: Tue, 01 Sep 2026 08:48:50 +0100
-Message-ID: <87wlt5mmxp.wl-maz@kernel.org>
+	id 1x1JEN-00000003BRD-3HQ7;
+	Tue, 01 Sep 2026 07:48:31 +0000
+Date: Tue, 01 Sep 2026 08:51:04 +0100
+Message-ID: <87v78pmmtz.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Steffen Eiden <seiden@linux.ibm.com>
 Cc: kvm@vger.kernel.org,
@@ -83,10 +83,10 @@ Cc: kvm@vger.kernel.org,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Will Deacon <will@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 02/20] KVM: arm64: Extract number of sys_reg_desc into a constant
-In-Reply-To: <20260831145536.913567-3-seiden@linux.ibm.com>
+Subject: Re: [PATCH v2 03/20] arm64: sysreg: Define OSLSR_EL1_OSLK_MASK
+In-Reply-To: <20260831145536.913567-4-seiden@linux.ibm.com>
 References: <20260831145536.913567-1-seiden@linux.ibm.com>
-	<20260831145536.913567-3-seiden@linux.ibm.com>
+	<20260831145536.913567-4-seiden@linux.ibm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -110,25 +110,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 15:55:17 +0100,
+On Mon, 31 Aug 2026 15:55:18 +0100,
 Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> Define the constant `num_sys_reg_descs` which stores the number of
-> elements in the sys_reg_descs array. Replace all occurrences of
-> ARRAY_SIZE(sys_reg_descs) with the new constant.
+> Define the missing mask for the OLSK field of OSLSR_EL1 which is
+> required to safely write a value to that field.
 > 
-> This refactoring eases the integration of handling system registers for
-> arm on s390.
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/arm64/include/asm/sysreg.h | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 1c5c4df260be..5a439853b721 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -200,6 +200,7 @@
+>  #define OSLSR_EL1_OSLM_NI		0
+>  #define OSLSR_EL1_OSLM_IMPLEMENTED	BIT(3)
+>  #define OSLSR_EL1_OSLK			BIT(1)
+> +#define OSLSR_EL1_OSLK_MASK		BIT(1)
 
-How? What is so different in the way you are handling the sysreg array
-that you need some arbitrary constant that is not the array size? Why
-is this the only array you care about? Why not the sys_insn_descs
-array, for example?
-
-It feels like you are papering over some other design issue, and I'd
-like to understand that.
-
-Thanks,
+Just move the required sysregs to the sysreg file, with the full bit
+description. This will sort this once and for all.
 
 	M.
 
