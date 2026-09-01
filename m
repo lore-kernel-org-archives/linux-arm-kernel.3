@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAB9C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD67C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 20:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oorCmDuTuOwOAKRI6FKp5odqautTQUZvocOog8AXXgo=; b=KL2ygwIYZGlw77W6PujoimKbR8
-	gYKMp8UxWROl4p7SaqwmWrMTlShUs8CB9k9qJl2Ou7pJbzS0ADqAJWeFG4N26dC+sMY0LdmZVxguM
-	TvzST8jXhy4CvtnxaQputsZamR6dBt3CZH7RuWzmP9IrZ2bc7DkVXeimDWnSwqUK+n0mhcPCcbSJH
-	wn0D+NuzP04tZYFveprGLU3P0rv1Nq5Maytmtxj9BcSeBd5JPJMDKFJECHkN8kwT4viwmF9N00ED1
-	GQaMt62Q9rBcYvXsmlA4xZbocv9tYHYJsKYrH8+dii+CBCJyzMPf3iY/3qPSSKEh+b2x9hQ4sXLzT
-	HFNZlqXQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=01IkyQRQG/lSUmqdbouqV6kPDaesEhGkw7qS1Uqjgdk=; b=qp+MS+1qctmFjv1WmesYmWmJve
+	9YJc30DmW5DCWL1UYfYJ9FpYPQFoJAm48VgHkthAyFLYrVbYVryWf8hApAoL3ZALbe0cKGmVnFjvs
+	Iv0rnBGiv8QTW/Purvgb6ne+PBdbFq3ZNbJZCJWmxqcAaCPsJr/9O3t/TZMnaZFAoouF0ma5NAVB9
+	liVO3o3DvX5O2sLok0kPyyqy4t4j6rMv7RMlPU7OSj4YcxglmftJQUNSB0X9fj0Jof73IZ5gd5yGE
+	jSsxX2AirLWlmVIUxGriFXqvjHQvWr2wAS/cVTyBndIVm3FssXmNYmHgD6Djj5u6wR5fc725UCRwD
+	U+y+zE8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Ubt-0000000DGtJ-1kQi;
-	Tue, 01 Sep 2026 19:57:33 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x1Uj9-0000000DHze-1sF9;
+	Tue, 01 Sep 2026 20:05:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Ubq-0000000DGnb-2dpX;
-	Tue, 01 Sep 2026 19:57:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788292645;
-	bh=5+//jJMis2DTE/0hiz65W/T5XYb9Lv/1gpdVa6A5mio=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GFvon9g7x4fUT1VdcNt3Q86mI6IjNsKMXP9weCH+QkYRnbOfgR9P/udvfiMcn5iG7
-	 vIMq3SXs6B9rOHW2gVUHmbEEOwOaE13lMhsemKCjfhXlsDCIMRlm6pAODM0fel4l/b
-	 Z7etHCzlPiAWpiCZko5cGLSNz/KNIuFxC3MMZ9U25qflATwbHueNh7YbL+JCW8FAc/
-	 XLHR7QKJbTrxKwVoCNo7iPvtLrm9VhOIuZ04BFdJK4g8gUg6TGlTVvws9TrVMBRSbn
-	 +4o60HMDJRgUPhZD4QQWUMtVBMvX2P1KaOsS91J3q8o7QiFE4xzxSNy5AgPZyGGpXq
-	 V9XzkX+/b45cQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5D14917E0CAB;
-	Tue, 01 Sep 2026 21:57:25 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 22:55:15 +0300
-Subject: [PATCH v2 3/3] phy: rockchip: samsung-hdptx: Add support for FRL
- TxFFE level control
+	id 1x1Uj8-0000000DHzV-1Sd6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 20:05:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63248600D9;
+	Tue,  1 Sep 2026 20:05:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F362CC2BCF4;
+	Tue,  1 Sep 2026 20:05:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788293101;
+	bh=Qvg96r1uqRi7ZsIahTd0vxEuEUAxLGPkPnDx+jmOuQs=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=TnzEUrOnWeKc2IJhDqDEHr24D1ZpYZJTysb91o2LXRfFMdLZJD8mon8H9TFI1JY+g
+	 wHBs3NQfp/kNUO8unmeJXu9FFgc1ywOzd8wd8R6KsCjGi5+oOk+xXooNI6waXpRBPT
+	 2W2dJA8Pcon9slfvjKvGaa/Kg9MZLGSOBq4btFOzzOIHiaEwDoKsG5XRRvq1mVWmk3
+	 f4SK+nIxxW8UkkzcWPyH0g8mRQTtt3sZK2lTX7YK1dAKyRCEVq27puthHw8f5vTe+i
+	 0RoJG/1mMSvdGe7mmO1fK/sMGU+FF7ByXgL2fBH+62ePRjQ/LR50qBeKVlNC2qevZa
+	 85k4kYnncJzZg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CC85DC61DD6;
+	Tue,  1 Sep 2026 20:05:00 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Tue, 01 Sep 2026 22:04:37 +0200
+Subject: [PATCH] bus: fsl-mc: register the object drivers after misc_class
+ exists
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-hdptx-ffe-v2-3-3a5922c76fc5@collabora.com>
-References: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
-In-Reply-To: <20260901-hdptx-ffe-v2-0-3a5922c76fc5@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_125730_845918_D942A9F3 
-X-CRM114-Status: GOOD (  15.32  )
+Message-Id: <20260901-for-upstream-fsl-mc-initcall-order-v1-1-36ffe48f767d@free.fr>
+X-B4-Tracking: v=1; b=H4sIANQvl2oC/x3NwQrCMAyA4VcZORtoU5jMVxEPtUs10LUj2UQYe
+ 3eLx+/y/wcYq7DBbThA+SMmrXb4ywDpHeuLUeZuIEejm4gwN8V9tU05Lpit4JJQqmwploJNZ1b
+ kEPwYJnf19IQeWpWzfP+T++M8f6bGI1F0AAAA
+To: Ioana Ciornei <ioana.ciornei@nxp.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Laurentiu Tudor <laurentiu.tudor@nxp.com>, 
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable+noautosel@kernel.org, 
+ Vincent Jardin <vjardin@free.fr>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788293080; l=2613;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=SXlMvnAA+Yv9aOr3bof+GHsV/62VSrRffjRMXK6jUP8=;
+ b=Q0DNQlW6k/74/YvmvMnm7KR6URJ1LrX/mfYfTlKrZ73dg+vhupeXaUuRo+NA7LhYlLA4RULEh
+ Bl42jSLrySdALA0c54lYp2NUpW7m/nPrOleoqbafewj1sO6QtpbR7ZC
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +84,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During HDMI 2.1 FRL link training, the source may need to incrementally
-raise the TxFFE level in response to persistent link failures reported
-by the sink during LTS3.  The phy_configure_opts_hdmi struct now carries
-ffe_level and set_ffe_level fields to convey such an update
-independently of a full rate reconfiguration.
+From: Vincent Jardin <vjardin@free.fr>
 
-Wire up the optional TxFFE control in the Samsung HDPTX PHY driver.
+Unbinding and re-binding the root DPRC fails with:
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+  sysfs: cannot create duplicate filename '/dev/char/10:256'
+    misc_register / fsl_mc_uapi_create_device_file /
+    dprc_setup / dprc_probe
+
+Cc: stable+noautosel@kernel.org # niche: root DPRC unbind/rebind only
+Fixes: 2cf1e703f066 ("bus: fsl-mc: add fsl-mc userspace support")
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 72 +++++++++++++++++++++--
- 1 file changed, 68 insertions(+), 4 deletions(-)
+Issue found when unbinding/rebinding the root DPRC on an LX2160A.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index b03042ec9a84..6879eecc5a9f 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -333,6 +333,7 @@
- #define FRL_3G3L_RATE			900000000
- #define FRL_6G3L_RATE			1800000000
- #define FRL_8G4L_RATE			3200000000
-+#define FRL_FFE_MAX_LEVEL		3
+The failure is silent at bind time and only shows up as a
+duplicate /dev/char entry on the second bind.
+---
+ drivers/bus/fsl-mc/fsl-mc-bus.c | 40 ++++++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
+index 66a4fa73c5b86..7f283844e4500 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-bus.c
++++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
+@@ -1264,35 +1264,43 @@ static int __init fsl_mc_bus_driver_init(void)
+ 	error = bus_register(&fsl_mc_bus_type);
+ 	if (error < 0) {
+ 		pr_err("bus type registration failed: %d\n", error);
+-		goto error_cleanup_cache;
++		return error;
+ 	}
  
- enum dp_link_rate {
- 	DP_BW_RBR,
-@@ -466,6 +467,16 @@ static const struct ropll_config rk_hdptx_tmds_ropll_cfg[] = {
- 	{  25175000ULL,   84,    84,    1,    1,   15,  1,  168,    1,  16,  4,   1,    1, },
- };
- 
-+static const struct ffe_config {
-+	u8 pre_shoot;
-+	u8 de_emphasis;
-+} rk_hdptx_frl_ffe_cfg[FRL_FFE_MAX_LEVEL + 1] = {
-+	{ 0x3, 0x4 },
-+	{ 0x3, 0x6 },
-+	{ 0x3, 0x8 },
-+	{ 0x3, 0x9 },
-+};
+-	error = platform_driver_register(&fsl_mc_bus_driver);
+-	if (error < 0) {
+-		pr_err("platform_driver_register() failed: %d\n", error);
++	error = bus_register_notifier(&platform_bus_type, &fsl_mc_nb);
++	if (error < 0)
+ 		goto error_cleanup_bus;
+-	}
 +
- static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
- 	REG_SEQ0(CMN_REG(0009), 0x0c),
- 	REG_SEQ0(CMN_REG(000a), 0x83),
-@@ -1321,6 +1332,45 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
- 	return rk_hdptx_post_enable_lane(hdptx);
- }
- 
-+static int rk_hdptx_frl_ffe_config(struct rk_hdptx_phy *hdptx, u8 ffe_level)
-+{
-+	u8 val;
-+
-+	if (ffe_level > FRL_FFE_MAX_LEVEL)
-+		return -EINVAL;
-+
-+	val = rk_hdptx_frl_ffe_cfg[ffe_level].pre_shoot;
-+
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0305),
-+			   LN_TX_DRV_PRE_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_PRE_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0405),
-+			   LN_TX_DRV_PRE_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_PRE_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0505),
-+			   LN_TX_DRV_PRE_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_PRE_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0605),
-+			   LN_TX_DRV_PRE_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_PRE_LVL_CTRL_MASK, val));
-+
-+	val = rk_hdptx_frl_ffe_cfg[ffe_level].de_emphasis;
-+
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0304),
-+			   LN_TX_DRV_POST_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_POST_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0404),
-+			   LN_TX_DRV_POST_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_POST_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0504),
-+			   LN_TX_DRV_POST_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_POST_LVL_CTRL_MASK, val));
-+	regmap_update_bits(hdptx->regmap, LANE_REG(0604),
-+			   LN_TX_DRV_POST_LVL_CTRL_MASK,
-+			   FIELD_PREP(LN_TX_DRV_POST_LVL_CTRL_MASK, val));
 +	return 0;
++
++error_cleanup_bus:
++	bus_unregister(&fsl_mc_bus_type);
++	return error;
 +}
++postcore_initcall(fsl_mc_bus_driver_init);
 +
- static void rk_hdptx_dp_reset(struct rk_hdptx_phy *hdptx)
- {
- 	reset_control_assert(hdptx->rsts[RST_LANE].rstc);
-@@ -1735,6 +1785,13 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
- 		unsigned long long frl_rate = 100000000ULL * hdmi_in->frl.lanes *
- 					      hdmi_in->frl.rate_per_lane;
++static int __init fsl_mc_bus_drivers_init(void)
++{
++	int error;
  
-+		if (hdmi_in->frl.set_ffe_level) {
-+			if (hdmi_in->frl.ffe_level > FRL_FFE_MAX_LEVEL)
-+				return -EINVAL;
+ 	error = dprc_driver_init();
+ 	if (error < 0)
+-		goto error_cleanup_driver;
++		return error;
+ 
+ 	error = fsl_mc_allocator_driver_init();
+ 	if (error < 0)
+ 		goto error_cleanup_dprc_driver;
+ 
+-	return bus_register_notifier(&platform_bus_type, &fsl_mc_nb);
++	error = platform_driver_register(&fsl_mc_bus_driver);
++	if (error < 0) {
++		pr_err("platform_driver_register() failed: %d\n", error);
++		goto error_cleanup_dprc_driver;
++	}
 +
-+			return 0;
-+		}
-+
- 		switch (hdmi_in->frl.rate_per_lane) {
- 		case 3:
- 		case 6:
-@@ -2081,11 +2138,18 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
- 		if (ret) {
- 			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
- 		} else {
--			hdptx->pll_config_dirty = true;
-+			if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL &&
-+			    opts->hdmi.frl.set_ffe_level) {
-+				dev_dbg(hdptx->dev, "%s ffe_level=%u\n", __func__,
-+					opts->hdmi.frl.ffe_level);
-+				ret = rk_hdptx_frl_ffe_config(hdptx, opts->hdmi.frl.ffe_level);
-+			} else {
-+				hdptx->pll_config_dirty = true;
++	return 0;
  
--			dev_dbg(hdptx->dev, "%s %s rate=%llu bpc=%u\n", __func__,
--				hdptx->hdmi_cfg.mode ? "FRL" : "TMDS",
--				hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
-+				dev_dbg(hdptx->dev, "%s %s rate=%llu bpc=%u\n", __func__,
-+					hdptx->hdmi_cfg.mode ? "FRL" : "TMDS",
-+					hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
-+			}
- 		}
- 
- 		return ret;
+ error_cleanup_dprc_driver:
+ 	dprc_driver_exit();
+-
+-error_cleanup_driver:
+-	platform_driver_unregister(&fsl_mc_bus_driver);
+-
+-error_cleanup_bus:
+-	bus_unregister(&fsl_mc_bus_type);
+-
+-error_cleanup_cache:
+ 	return error;
+ }
+-postcore_initcall(fsl_mc_bus_driver_init);
++subsys_initcall_sync(fsl_mc_bus_drivers_init);
 
+---
+base-commit: 786262be6048deab760f68c8acc2c85607165894
+change-id: 20260922-for-upstream-fsl-mc-initcall-order-e3316390712b
+
+Best regards,
 -- 
-2.55.0
+Vincent Jardin <vjardin@free.fr>
+
 
 
