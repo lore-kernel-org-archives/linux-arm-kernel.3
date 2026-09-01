@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD4CC624CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 02:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15F2C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 02:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmaAfbWHGwLcti2TlXMDXUq+DvFQ5ZoOFVXxydmhGrI=; b=FZv2ENB8rfP5lA4reaHXluUuxl
-	DXG/ZzUbKdc3ASdmYlUqsztWxii/IDGcMVNAGKBFGlodxcGB+ynbasPGMu275MLvI9JD6Vk83y+5u
-	giQCUqbePnpmr0+IYFcD+6wdeGII0PoStoYEchhjJvGWJ8aVqUpznxpOpQ4w2W21bR5gmUNZ+qdNJ
-	FQc0SvVRuj5VpV9d4ZYpdWE1IC+EtQUm+r3vcM2KqOdxvNklJTvw3q3xZAkNzxUO66844D8JSE9tU
-	jBeAUnWXb6XYXbXEqADnFpHE4m1YR8gTK2ZK0wWMoAP3deD+etoivDWP+PBlDvekdz6GcTnPQrD4Y
-	lDpXuufg==;
+	bh=imccdf2g1mEFtExQXUXHUdzPH5T3kvgztV71j7lsVdk=; b=F5fZlZZJh92lPGdtWKwXaeQLpI
+	Go/BcJxeY3ax+Aqy5oERd2k8GgEP0SFoRskou4bSwNgpPht3I9Nea2lN/qGueypnaCsPU1rQd8CT8
+	MyNHiIIQms7nsIfwiQ/J3U+tSNtYzK1NBpD3MDHsXqtgX7cMoEDTwe9uIk1NMmS9lt5VmuBGegtRR
+	nMqQ/HXsPPuxBK/czs8tKcQmpf+kujFlA4MJ1KWtMGm6XOUYLHALz71B6WtXsP5OStZyQsaJFiOHw
+	+RAE9bgPmFyBQ40yLk1gOWSO2e75fiD6eTH6J475OaLgS3n4AF4vw65SP0GGz+V7sd3qmEtvUyoEa
+	Uy8ZF41A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Dwb-0000000AqOQ-1s7R;
+	id 1x1Dwb-0000000AqOM-1UpQ;
 	Tue, 01 Sep 2026 02:09:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Dwa-0000000AqO7-2TJU;
+	id 1x1Dwa-0000000AqO5-0hk4
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 01 Sep 2026 02:09:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9DD86020E;
-	Tue,  1 Sep 2026 02:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8B41F00ADE;
+	by sea.source.kernel.org (Postfix) with ESMTP id C067E40A42;
 	Tue,  1 Sep 2026 02:09:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B25EF1F00ACA;
+	Tue,  1 Sep 2026 02:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788228587;
-	bh=vmaAfbWHGwLcti2TlXMDXUq+DvFQ5ZoOFVXxydmhGrI=;
+	s=k20260515; t=1788228585;
+	bh=imccdf2g1mEFtExQXUXHUdzPH5T3kvgztV71j7lsVdk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NPcwdzXbFAz7LdV+i8lTfKO3SbL8a239juAaEq0h+Tye0iCXqY+WttUHcy4enekA4
-	 CYaOzgHnESK3eiPFul++hOUuh9vdIlQ+lh8Jshqnu8CqlZJsd7oPOEWPnTugkCC1LL
-	 mS7zxd9U+Y1LGkvQdtfNF7hPewNh25TWfRzPz7PoACNvmQuJTX9l8iKxNzg7f42u5C
-	 QN8JNQRhHoaaut5DFwxOjoZG1efi8l1lHoj+XJoxjopxCOr4wl7SLG0XkzEObCutgv
-	 YBgGFHjh6yysqv3PeoCGRySK4UnWthUfiU4iVhwB2UjBmANMgAWXCPa94p2FSq1b6I
-	 l88z+W2V5iTRg==
+	b=Ok2cON5qzJUYs6HC/WtGf6nOZ+S7sog1jx06koojWhYpFvB1VjXlpU+vazbj6ys6X
+	 5NaeODhTcaoc/Wr0vJz6n2tNSs+/7uMVVIQEQCklowwFfSRTC0jihy6WpRwsDFJhTw
+	 utAT3OmjhjG2VfvLkMnFdFm2RfAE/kQ8ugvNCpyBdAyxBm35bEexK2wsO88UXt6SxC
+	 J4hGZZQOjQ4lmZzuEyH0vh5MC4F1UfYUlc9dkyf+/VqvKRw7gSogBmSItmpuQXFjV9
+	 sOqkbnoqyFXwJhzmXg95gCfi/FksnNECfYMWhmofd+jCJDZA4TWyC3W77+LTsVw++C
+	 /fi4xgOjY/I9A==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org,
+	Ulf Hansson <ulfh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Robert Marko <robimarko@gmail.com>,
+	Guru Das Srinagesh <linux@gurudas.dev>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v2 0/2] Add CoreSight nodes for Qualcomm Shikra SoC
-Date: Mon, 31 Aug 2026 21:09:23 -0500
-Message-ID: <178822856255.1835959.13014643071629589214.b4-ty@kernel.org>
+	devicetree@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v5 00/15] Add initial support for Qualcomm Kuno SoC
+Date: Mon, 31 Aug 2026 21:09:22 -0500
+Message-ID: <178822856270.1835959.15842744749902984423.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
-References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+In-Reply-To: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -88,21 +97,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 15 Jul 2026 09:16:13 +0800, Jie Gan wrote:
-> This series adds the CoreSight debug and trace subsystem for the
-> Qualcomm Shikra SoC.
+On Thu, 27 Aug 2026 23:21:03 +0530, Hardeep Sharma wrote:
+> This series adds initial support for the Qualcomm Kuno SoC and the Kuno
+> IDP reference board.
 > 
-> The first patch adds a fallback compatible for the Shikra CTCU (CoreSight
-> Trace Control Unit). The CTCU on Shikra shares the same configuration as
-> the one on SA8775p, so "qcom,shikra-ctcu" falls back to the existing
-> "qcom,sa8775p-ctcu" compatible.
+> Kuno is a 32-bit ARM (Cortex-A7) Qualcomm platform. This series brings up
+> the essential SoC infrastructure required to boot to a serial console:
+> 
+>   - Global Clock Controller (GCC) and RPMh clock controller
+>   - RPMh power domains
+>   - Interconnect (NoC) provider
+>   - TLMM pin controller
+>   - PDC interrupt controller and SCM firmware interface
+>   - Devicetree for the SoC and the Kuno IDP board
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dt-bindings: arm: add CTCU device for shikra
-      commit: f0c7f46249b917668851f51c7f6e9297c44d42d4
+[04/15] dt-bindings: clock: qcom,rpmhcc: Add Kuno RPMh clock controller
+        commit: e304e8919043712191462224ce9d40bb5f5a6bc1
+[05/15] clk: qcom: clk-rpmh: Add support for Kuno RPMh clocks
+        commit: 12918d595ac96b819b9c3ba0df4c6a4bf50c43a9
+[11/15] clk: qcom: Add Global Clock Controller driver for Kuno
+        commit: 7db06b5f624b583fa2206f98de8437819acada9b
 
 Best regards,
 -- 
