@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5317C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81AFC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJ9QnmOxHh4CvZBFQXJjBlKANbistLk+5N+SYPX+l5g=; b=TsSsp0Oqj+yhGcLDWBEwZx7U+i
-	3dAvERPJ265Cb54vi3AwD46R1fze28RJH2keDx3B1x/6F6FnJgZcMroHL+X5Msryaf5ZG14l0RYrV
-	YzbZgXX1YllGUlaEslykcUb4Eye/LswcNXsR7ZUQubxFuzqP1JDEEBqXJYbScR3EFZ1X+XIB0BWDE
-	BXPG6txp4zujyvO6j9eRQERsDjFAusPjDrfG/zpj6kke5lhwz6mh/m5Le1yyR6bSloHMOqCHHE6gq
-	oB6467HDuvWfXdCxYrqMlXGtqqIhyUP48ZAhTO77oFeNyh88LEarp6fDgq0NDn1lR7bRyv0WmWSYQ
-	M0n1V6qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mITZlxCGGk5dvksU48UBQe0WaGaTY/+s4dpeJMto630=; b=XsUJTkJicU5EVCW4SNpT5GJ/UX
+	6a72rh7MzdZzLVpuFa3hMSHLK7kgdUwTSjlJtd7BJlNpxihIONFqwmRxSRwlzn69uH2Og2T/wQmGo
+	XYtBpdgzRXehepdRpohxfMyq81LEqXMhSKzJsn6BgjOedsPXhxuPwHYDuTscABrYwEjT7WMkYjiQ/
+	y0MrnWFJLCphQCG7WcV20R6aYJwJBLt9+ag1n/FIpJs1xI8gfZrwxXvP/eOMxhcuYtQrcoyIkqe2l
+	jgV7eBr7mcciGHonDz6ztEeUB0Hoqo6C1Rb/uJVlQB4BWYLQsEANaodd96X7BMdFvMPGVtgNyWCW8
+	pMj+UdbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KYB-0000000BODC-3TTj;
-	Tue, 01 Sep 2026 09:13:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KY9-0000000BOBt-1gP2
+	id 1x1KcF-0000000BOjq-1TCx;
+	Tue, 01 Sep 2026 09:17:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1KcD-0000000BOji-3BzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 09:13:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 714961AED;
-	Tue,  1 Sep 2026 02:12:56 -0700 (PDT)
-Received: from [10.57.7.38] (unknown [10.57.7.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A378B3F882;
-	Tue,  1 Sep 2026 02:12:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788253980; bh=rbaRyeBPrLdcQyWyCt5ftES2mzcd8+vW5l8SUinEmKw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KoOZ9kQRWDVapEe+PRSx3GlmHQ1bOERvE9n0m1uXbfY+3jf32r3ozjYgMTknTEt97
-	 J/egV5OVx8vR+xZPEwrKRHP2kIWAR+pa3QkOiuluynTStRIM5QctxTFFnLmls1qM/2
-	 Zr5IKtty+8ZaimKIu4wbd7BWz8iAesXqI/FfuOws=
-Message-ID: <e98a0dd6-d834-402c-be1c-0b7e8737e7ad@arm.com>
-Date: Tue, 1 Sep 2026 11:12:54 +0200
+	Tue, 01 Sep 2026 09:17:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D378F601DB;
+	Tue,  1 Sep 2026 09:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4EB61F000E9;
+	Tue,  1 Sep 2026 09:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788254232;
+	bh=mITZlxCGGk5dvksU48UBQe0WaGaTY/+s4dpeJMto630=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=XROMNIUmyhA7M/dbxKK8Imo86dz2L5j/zRFqHXNrxib/St5Bz1Wb45NtmhWOw5fJy
+	 1u3rgOng700Q/MQ7vgjnccFx73xrQm/I7XQ3n67GRnFhDKxJ/VFmyX48m+SserSxs+
+	 Tj82D7pJJMB26AvoXAgxRVqAW3LgHXg+Khq3BxBKr9/K3b1pItu8VaSk4UULn1gG//
+	 8C8f2gKAHAI74TDde4b39ZA0HPi0d9Z3mFhPd6KgiQH0aY3Zq0mWuwzTsGSVTSS7ZE
+	 jUydPyVjl+1VTyXdmpr4NjgMXIHt/C0EyY7NN9kjEfZOHNqNA5Ed9dbgxa4YiD6AJE
+	 VftVrjb3WsNrg==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+In-Reply-To: <apM6dOHcEI2ztWS0@nvidia.com>
+References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
+ <20260427085344.941627-4-aneesh.kumar@kernel.org>
+ <apM6dOHcEI2ztWS0@nvidia.com>
+Date: Tue, 01 Sep 2026 14:47:04 +0530
+Message-ID: <yq5a8q5lz5yn.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 4/4] arm64: mm: Move fixmap intermediate page
- tables into .rodata
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>
-References: <20260827164409.3421848-6-ardb+git@google.com>
- <20260827164409.3421848-10-ardb+git@google.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260827164409.3421848-10-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_021301_487407_7B804EB4 
-X-CRM114-Status: GOOD (  19.08  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,58 +86,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 18:44, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> The fixmap intermediate page tables are allocated statically, are
-> installed into the kernel's page table hierarchy early during boot, and
-> control a slice of the kernel's virtual address space that is not
-> subject to KASLR randomization.
->
-> Combined with the lack of randomization of the linear map, and the
-> tendency of some Android bootloaders to place the kernel image at the
-> base of DRAM in the physical space, the placement of these page tables
-> produces a vulnerability that is comparatively easy to exploit.
->
-> Avoid this, by moving these intermediate page tables into .rodata, so
-> that they cannot be manipulated directly via the linear map.
+Nicolin Chen <nicolinc@nvidia.com> writes:
 
-Would be good to mention that this works thanks to the previous patches,
-otherwise one would wonder why we didn't do this earlier :)
-
-- Kevin
-
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/include/asm/linkage.h | 1 +
->  arch/arm64/mm/fixmap.c           | 4 ++--
->  2 files changed, 3 insertions(+), 2 deletions(-)
+> On Mon, Apr 27, 2026 at 02:23:31PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> +static const struct iommufd_viommu_ops arm_realm_smmu_v3_ops = {
+>> +	.destroy = arm_realm_smmu_v3_destroy,
+>> +	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
+>> +	.cache_invalidate = arm_vsmmu_cache_invalidate,
 >
-> diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
-> index d1f7a16729d2..00963e11ebf0 100644
-> --- a/arch/arm64/include/asm/linkage.h
-> +++ b/arch/arm64/include/asm/linkage.h
-> @@ -45,6 +45,7 @@
->  
->  #define _THIS_IP_ ({ unsigned long __ip; asm volatile("adr %0, ." : "=r" (__ip)); __ip; })
->  
-> +#define __rodata_pgtbl __section(".pgtbl.ro_after_init") __aligned(PAGE_SIZE)
->  #define __bss_pgtbl __section(".bss..pgtbl") __aligned(PAGE_SIZE)
->  
->  #endif
-> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> index 3a8cf6de6a7d..ab0f9ba7b712 100644
-> --- a/arch/arm64/mm/fixmap.c
-> +++ b/arch/arm64/mm/fixmap.c
-> @@ -32,8 +32,8 @@ static_assert(NR_BM_PMD_TABLES == 1);
->  #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
->  
->  pte_t fixmap_bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __bss_pgtbl;
-> -static pmd_t bm_pmd[PTRS_PER_PMD] __bss_pgtbl __maybe_unused;
-> -static pud_t bm_pud[PTRS_PER_PUD] __bss_pgtbl __maybe_unused;
-> +static pmd_t bm_pmd[PTRS_PER_PMD] __rodata_pgtbl;
-> +static pud_t bm_pud[PTRS_PER_PUD] __rodata_pgtbl;
->  
->  const size_t fixmap_bm_pte_size = sizeof(fixmap_bm_pte);
->  
+> I don't think realm vsmmu should include NS nested domain ops. I
+> wonder if adding here is for some covert reason that prevents us
+> from registering viommu/vdevice objects?
+>
+>> +static int arm_realm_smmu_v3_vdevice_init(struct iommufd_vdevice *vdev)
+>> +{
+>> +	struct device *dev = iommufd_vdevice_to_device(vdev);
+>> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+>> +	// fixme which stream to pick
+>> +	/* At this moment, iommufd only supports PCI device that has one SID */
+>> +	struct arm_smmu_stream *stream = &master->streams[0];
+>> +	struct arm_smmu_device *smmu = master->smmu;
+>> +	unsigned long rmi_ret = 0;
+>> +	int ret;
+>> +
+>> +	if (!smmu->realm_initialized)
+>> +		return -EINVAL;
+>> +
+>> +	ret = rmi_psmmu_st_l2_create(smmu->base_phys,
+>> +				     ALIGN_DOWN(stream->id, STRTAB_NUM_L2_STES),
+>> +				     &rmi_ret);
+>
+> The "vdevice" is for a PSMMU stream table allocation..
+>
+>> +int arm_realm_smmu_v3_init(struct iommufd_viommu *viommu,
+>> +			   const struct iommu_user_data *user_data)
+>> +{
+> [...]
+>> +psmmu_activate:
+>> +	ret = rmi_psmmu_activate(smmu->base_phys, virt_to_phys(params),
+>> +				 &rmi_ret);
+>
+> .. and the "viommu" is also for PSMMU activation...
+>
+>> +++ b/include/uapi/linux/iommufd.h
+>> @@ -1055,6 +1055,7 @@ enum iommu_viommu_type {
+>>  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
+>>  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
+>>  	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
+>> +	IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 = 3,
+>
+> .. and we demand userspace (VMM) to use IOMMU_VIOMMU_ALLOC ioctl,
+> even if VMM does not actually expose a guest-level SMMU instance.
+> Thus, no user_data.
+>
+> I can get the reasoning behind the flow using this viommu/vdevice.
+>
+> But, on the other hand, I can imagine that a Realm VSMMU would add
+> a new flag with a user_data to this VIOMMU. Then, this flow would
+> give some troubles to VMM (QEMU for example):
+>
+>  - For VM with a guest-level SMMU, QEMU creates a realm instance
+>    where IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 (with vsmmu) can be
+>    allocated.
+>  - For VM w/o a guest-level SMMU, QEMU won't create such a realm
+>    instance, while still required to invoke the ioctl (w/o vsmmu). 
+>
+> Taking a step back, I wonder if we really need to use iommufd for
+> PSMMU activation and its stream table allocations?
+>
+> Here are some facts:
+>   - An iommufd has a ctx, that's one per VM. Similarly, a Realm
+>     has an RD.
+>   - For an RMI command that needs an RD, it makes sense to be per
+>     iommufd ctx, e.g. RMI_VSMMU_* or RMI_VDEV_* commands.
+>   - PSMMU commands are global; they don't need RD. So they don't
+>     seem necessary to tie to an iommufd ctx.
+>
+> Instead, could the PSMMU activation be done after RMI_PSMMU_INFO
+> check? Is there any reason not to do that? A safer timing might
+> be at the device assignment stage?
+>
+
+One of the reasons I added IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 was to
+avoid creating a psmmu object when we are not using a PCI passthrough
+VM. That is also the reason for all the refcounting around the psmmu
+objects.
+
+If we are okay with creating psmmu objects early, then I guess we can go
+with the above approach.
+
+>
+> Speaking of which, RMI_PSMMU_ST_L2_CREATE doesn't seem necessary
+> to be invoked in a vdevice context either. Maybe it should align
+> with iommufd idev's lifecycle?
+>
+
+-aneesh
 
