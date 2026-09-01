@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B2CC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7F9C624D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 12:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZsjKt2b2zDyrawq5+vtQdIRMpQv2o/4SIXAuax/wrk=; b=XEeizD4FwkbsF247tOgXLzvnIu
-	fGY0YpltX4vTbQNmbYGoeLgYO70VDHQDofQ8cMmd/IpE4wQAMs/RiMRvME0MzqhRCef55InzDA5nW
-	S5RC2gtk6kL3uO6+cvJVyFcFGTEFBcezshWi+k/BFnfZmeUxR8te4UHb6l/fXyDaoVpaTiTtAfi4q
-	VfhFXdUC384ffRh1jOojNXb6ltzTCzqKeTIAunKKSz7VZkExRQYsS/IzUG4i/Z17PW0n6BnHmId1h
-	2iEUGcOuE9yj7oPCHqydiLFgR5NI2t9Q2RcgmrDktGf90sHxKuXGlZmtGFoBMRuenmdwhKwzL5ZKN
-	S3KDTzfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HdWnpN5iGKqOjiVIG1o47AbqSjEI69XYYtz2Z3ole4A=; b=35Hz5Z9ttYEOJLRVqZJ6FoLba+
+	bcWn/AzT2a99MBy6zJYmyGr1fBw4QGuM/aRFcIqFhmoXMQQwFPUrxQIqvn5fDlTGZyHF6dxbMfdpS
+	WBfnZMgWYoO0BdHh0pVqCyIlBJAVbLB0IJ8dtQKvCcuLU2430sD0XnGYPE65sa1+VczIHhK3rHQ0j
+	qnJdkEE08oasVmZ1rtcwARApVHqdSgeG+7Bn6c/SXw6U4yEyAZxMqlnE6OKRtmX4qrdGhVIWirNY8
+	1vkreQBlNDTZ2n0QTT5MZ8FszM2gyft2Uc6kG3wmAc/Cy0a8k7SvJ9VtFwpLR4qD5eLJ7x3W7ZcCx
+	T8cW/+Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1NPO-0000000C5E6-3Hui;
-	Tue, 01 Sep 2026 12:16:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1NV7-0000000C6DG-2kSB;
+	Tue, 01 Sep 2026 12:22:05 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1NPK-0000000C58s-2RYy
+	id 1x1NV5-0000000C6Cg-1Ygn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 12:16:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C517C42E26;
-	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 31E81C4AF55;
-	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788264943;
-	bh=aC9eTAMi0OOM2Bgn0ghZ/W4r+uPD1jhTPP9DQztf1fY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=IY+nh25BWyj12/k2Pq1ujK641uq1dPFtAg13all4CfUsAjo8bEtgSa1xx6mG0dn1k
-	 i8o6ottwuRqP8SAyOlzop6dWHthKqe+MCNGU5/jkqqQiyLJH7gD2stHFuuthzqq5S8
-	 r7fpmC/E2QknwZ+pKb6j60FQanlUrxmgn7tSJIFXE1l6SR/2qOJW+h09Aj8wBbOOGl
-	 7fUGuYcravYNtJbHA94A+d96Bf7tyt7HvB4+NehOTFmQ4ZndZ73v2fimV5TwRb9rcU
-	 s7K58uqdITIcAEUMoYLC/fkSLXD+4T4y8KFdlN/RHWnH/Sl7/Y/w+vdb5W55eyafNI
-	 BPDnYqHL53rhg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 200FBC624D4;
-	Tue,  1 Sep 2026 12:15:43 +0000 (UTC)
-From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Tue, 01 Sep 2026 20:15:24 +0800
-Subject: [PATCH v7 09/11] ARM: dts: aspeed: anacapa: Add LPDB fuse monitor
- GPIO expander
+	Tue, 01 Sep 2026 12:22:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=HdWnpN5iGKqOjiVIG1o47AbqSjEI69XYYtz2Z3ole4A=; b=wIYwJysDRjxZNe5mlKoAshLsC2
+	PGC67MswfnqliG2iCZ95UIO8R4sNNbOsVYb46auguwyTiUI0Da3FoVY+EyrkoWI1XybrcrkBovnn0
+	9DD6ZjySSPtjJpRsFLjXVEOFyD2MbWsA58IFoADS8g+uup2dUBBEHh6frpxKs2hss8h8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x1NUu-002Lya-1S; Tue, 01 Sep 2026 14:21:52 +0200
+Date: Tue, 1 Sep 2026 14:21:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac4: Use the full perfect
+ filter ability for UC filter
+Message-ID: <c7819431-d33d-4e9c-ab36-be55b94d29f4@lunn.ch>
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+ <20260831070121.349778-3-maxime.chevallier@bootlin.com>
+ <285c8969-2f0d-46de-b098-60ff10f30cf6@lunn.ch>
+ <493afde2-8603-41e8-b6ce-f8e399c53275@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-anacapa-devlop-phase-devicetree-v7-9-0bd71d2e0105@gmail.com>
-References: <20260901-anacapa-devlop-phase-devicetree-v7-0-0bd71d2e0105@gmail.com>
-In-Reply-To: <20260901-anacapa-devlop-phase-devicetree-v7-0-0bd71d2e0105@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
- Rex Fu <rex.fu.amd@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788264931; l=3707;
- i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=XDe8OanyqhQtPqFNuz6nTtJf4V9+FAm+mTk0hIZBJNE=;
- b=BsAlKLJqtFR9ny7JLOgiDOCgCUotH4tMDowmylNEKBk2FK0agvqzmXf+gtrlXT1cL/DWwqPMv
- vUN7DP3OfxcDZIpyf4lRWlaiUZNfo3+7EmHfbq0tomxpxmNNB1MWwRV
-X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
- pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
-X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
- auth_id=761
-X-Original-From: Colin Huang <u8813345@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <493afde2-8603-41e8-b6ce-f8e399c53275@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_052203_410162_72748F60 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,130 +76,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Fu <rex.fu.amd@gmail.com>
+On Tue, Sep 01, 2026 at 08:37:20AM +0200, Maxime Chevallier wrote:
+> Hi,
+> 
+> On 9/1/26 02:12, Andrew Lunn wrote:
+> > On Mon, Aug 31, 2026 at 09:01:20AM +0200, Maxime Chevallier wrote:
+> >> Contrary to dwmac1000 that gets its number of perfect filter entries
+> >> through the 'snps,perfect-filter-entries' property, dwmac4 allows
+> >> reading the filter size from the HW features registers.
+> > 
+> > Does dwmac4 take any notice of "snps,perfect-filter-entries"? Should
+> > it be marked deprecated?
+> 
+> It's only used on :
+> 
+>   "st,spear600-gmac"
+>   "snps,dwmac-3.50a"
+>   "snps,dwmac-3.70a"
+>   "snps,dwmac-3.72a"
+>   "snps,dwmac"
+> 
+> So, dwmac1000.
+> 
+> I'd say, we can definitely deprecate on IPs that don't match these.
+> 
+> Interestingly, there are _some_ dwmac4 devicetrees out there that use
+> this property. It achieves nothing, and even worse, doesn't match what
+> the HW reports :
+> 
+> In arch/riscv/boot/dts/starfive/jh7110.dtsi for example :
+> 
+> gmac1: ethernet@16040000 {                                            
+> 	compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
+> 	[...]
+> 	snps,perfect-filter-entries = <256>;
+> }
 
-Add PCA9554 GPIO expanders for PDB fuse monitor signals on the
-Anacapa DVT board.
+So another thing for the TODO list, extend the YAML description to
+make properties conditional on the IP core version, so the validator
+tools will pick this up.
 
-The patch adds GPIO expander definitions for both the left and
-right PDBs under the i2c8 multiplexer and updates the associated
-gpio-line-names to reflect the final signal assignments.
-
-Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
----
- .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    | 92 ++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-index 6650a5e4e130..cb4c41bd8b8f 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-@@ -3,6 +3,98 @@
- /dts-v1/;
- #include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
- 
-+// MB - PDB
-+&i2c8 {
-+	i2c-mux@72 {
-+		i2c@0 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TMP432_U8_ALERT_R_N",
-+					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
-+					"RPDB_FAN_CT_FAN_FAIL_R_N", "RPDB_VERID_A0",
-+					"RPDB_VERID_A1", "RPDB_VERID_A2",
-+					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
-+					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
-+					"RPDB_P12V_MB_VRM_ALERT_R_N",
-+					"RPDB_P12V_STBY_VRM_ALERT_R_N",
-+					"RPDB_PGD_P3V3_STBY_PWRGD_R",
-+					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
-+			};
-+
-+			gpio@24 {
-+				gpio-line-names =
-+					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
-+					"RPDB_PWRGD_P50V_HSC4_SYS_R",
-+					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
-+					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
-+					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
-+					"RPDB_SKU_ID0", "RPDB_FAN5_PRSNT_N_R",
-+					"", "RPDB_FAN6_PRSNT_N_R",
-+					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
-+					"", "";
-+			};
-+
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				#gpio-cells = <2>;
-+				gpio-controller;
-+
-+				gpio-line-names =
-+					"RPDB_P50V_FUSE2_TVS1", "RPDB_P50V_FUSE2_TVS2",
-+					"RPDB_P50V_FUSE3_TVS1", "RPDB_P50V_FUSE3_TVS2",
-+					"RPDB_P50V_FUSE4_TVS1", "",
-+					"", "";
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+			};
-+		};
-+
-+		i2c@1 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"LPDB_FAN_FULL_SPEED_R_N", "LPDB_I2C_TEMP75_U8_ALERT_R_N",
-+					"LPDB_I2C_TMP432_U29_ALERT_R_N", "LPDB_GLOBAL_WP",
-+					"LPDB_FAN_CT_FAN_FAIL_R_N", "LPDB_VERID_A0",
-+					"LPDB_VERID_A1", "LPDB_VERID_A2",
-+					"LPDB_ALERT_P50V_HSC0_R_N", "LPDB_ALERT_P50V_HSC1_R_N",
-+					"LPDB_ALERT_P50V_HSC5_R_N", "LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
-+					"LPDB_EAM0_PRSNT_MOS_N_R", "LPDB_EAM1_PRSNT_MOS_N_R",
-+					"LPDB_PWRGD_P50V_HSC5_SYS_R", "BARKLIP_PRSNT_N_R3";
-+			};
-+
-+			gpio@24 {
-+				gpio-line-names =
-+					"LPDB_P50V_FAN0_R2_PG", "LPDB_P50V_FAN1_R2_PG",
-+					"LPDB_P50V_FAN2_R2_PG", "LPDB_P50V_FAN3_R2_PG",
-+					"LPDB_P50V_FAN4_R2_PG", "LPDB_FAN0_PRSNT_N_R",
-+					"LPDB_FAN1_PRSNT_N_R", "LPDB_FAN2_PRSNT_N_R",
-+					"LPDB_FAN3_PRSNT_N_R", "LPDB_FAN4_PRSNT_N_R",
-+					"LPDB_SKU_ID0", "",
-+					"", "",
-+					"", "LPDB_PG_P3V3_R";
-+			};
-+
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				#gpio-cells = <2>;
-+				gpio-controller;
-+
-+				gpio-line-names =
-+					"LPDB_P50V_FUSE0_TVS1", "LPDB_P50V_FUSE0_TVS2",
-+					"LPDB_P50V_FUSE1_TVS1", "LPDB_P50V_FUSE1_TVS2",
-+					"LPDB_P50V_FUSE5_TVS1", "",
-+					"", "";
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+			};
-+		};
-+	};
-+};
-+
- &sgpiom0 {
- 	gpio-line-names =
- 	/*in - out */
-
--- 
-2.34.1
-
-
+	Andrew
 
