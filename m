@@ -4,146 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094B4C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC15C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G65HChs2d3I4puGF5AaZ5m3jZR+7JmUE74crLw6Hs54=; b=Nb+sy/Gq0JYo0BcGMwgUMc8dLv
-	xs5b5aBFoocNp/HkyGO/ovtlUhj0KqREAcFW7SiC+xTt1yrTTxVQhNLXOXQuGIiply+zhNdAk5FTI
-	Nh5lbdMbQBT9P+7I13OaU15CLaEWbSGzKi2X6DGYirprzyBtLgiWffJmumx0cztmHT7vDKSX+ZLjx
-	HASPy82yH8uduG2nvGeUGkH9w0Tj/fWW59rECMPBCcgBNdOsMC5xnZNrZ01yftjX7QF7eZSOaaOlb
-	Cq95/4m3m16ktL2eh5CCfSA+zZ2sPtzXkdxtZLo79OM3mjDdF6Ha2pcARGPR3num8/5pLpbdcgtRA
-	5JC+mRWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=; b=I23mP1OSmhAtJqiVA8bqMsvD7O
+	NNCOpc6r9uJ3pFfHKoPyF+IjzCpbWI/7NXGL+5sogny6EqJbTzAeY1oFijXBkdkomZlM2/fYEBo7t
+	3u8KOvFZzp/zyP5mH3A63G2LeI5qZl6HnAZhVO6ZPZJdRwLn6i4Q/5rPIAkuLoqVCXnEk4UbzD9UO
+	LxUZij2/Xn5Oclzsk6gQkmTGX/iBKvC+WfvJo3HrRzr3W4fKDOHXINExsrvUMPOIVj9qR4KsxYiQT
+	dvYf4cirG7XPyBON7kdkKCDlmHs2uozrgGLASRQgwwcq6FyT+CZgxfPIWk7UNyAYKTSYQtiCulOMJ
+	qAaoFeeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tpv-0000000DATW-1RsR;
-	Tue, 01 Sep 2026 19:07:59 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x1TrR-0000000DAg2-2UYI;
+	Tue, 01 Sep 2026 19:09:33 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tpt-0000000DASn-2KhX
+	id 1x1TrP-0000000DAf3-0Ll1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 19:07:58 +0000
+	Tue, 01 Sep 2026 19:09:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LSNbS5IlpRYinHAzw2Y+IROcIM2kKeCN1b+WUWf5iKo3CoHfZqYAEHViy15UsEXEVol+amTpNNy/iygKdBdGosPpUMt7W0o8f6vd2AcxqaZBJBdsc2M1atSUn6UH0UEvXe5GhvVyXf3L7vSPy3lfSqYiuVD/x0NcnDuP358/E/S/NDR2sGP2sUxRMaXszv+5tCD+nRFjAz20b8LWdL3Z1/aHJUhRPiq/mZ+BGfFjo6F5au9AvqZ8A/A8L9uxc0jP20hQRz91brGrHSZLHk7sMbmY94sg5///tus/C9gp/jXGMyn+Mstrc2xiRHCRYchPmC9e8AM5BtkXeAOywpOBtg==
+ b=dvX2XmVhQCS8BJ9h+KyBlqwM1gDrInuBy+ex3y3eEJeDjPG3pTrj8sN/69CqCp0tE6mQ3fXJNIf+QEr2mR1cnk6PFWzxRGAwnSECCWIHZlHeS/QNdWguUkCLILr7IDFRBu7TJ7uEH/U7YTACMHvDP2+vxQlYJ+B6IKbqKh4BSkORZdPNMSXh2Xqt4RniuGnI1o88mBHKVa6oL7jdISorWaxwB01Sr7/ytVqR4Ox9/iN/sUMl33IL93inwEFeRRiq6vJzy3sGdwYC88jnToNolkH/qHNXGFYpM7WXlFera2iiA7HK06wZL9l7pTr3VV+jmSY8OOYkzAwMI8NClH3zjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G65HChs2d3I4puGF5AaZ5m3jZR+7JmUE74crLw6Hs54=;
- b=RLQxe6rR6NpNSb+PzJ5ixkbAcsTQTxrnCX8PkFVnZq9p8g74h0bfWAqc4HvyEQCGd7eEcVa1kn/FvMQB+8/r4IgTKwOX+G4Kqh0vAZ9twqRbo5ULmIY2jJUrpMBAkCNdQxz3I1DuGehciGGb3G6XIxZpXQcgQE3SksUrAkRUJie2v08/NyByMPj0Sz2AxUunF0OxcIiwnWKWfz5IW3vNi8HZH5FmMTFvqvgC3n/vEIQBLENCEpiNvV9xxo0KX9FRmiER3x9r+Q6T43zpG3et/Cyr5pcw9fG7NkeU4EE1VjC74mFxTCfwzjK7eylByOagPa31hs/f2e1trlavgTjKzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=;
+ b=Gtzo1PNDcFGf5FBl7GZbHQJOcGZwzrwww3TAXfE1cHHbOs3WmdvU91Te4CQQOEwhQM709LTZR2xs6EeWxl97WfrggiX5PQe2PZ+hxFbDGQvkzEkVquFrnPrRMAsK+legCi9nsroZol969Ne6SRVYS0z1uqi1aa/JjkX5MgQLjmRkNAR+YvrFkaLznQRA23a5ofUJGZqrC446SO5Q+7muzlvPJVR6bC2aEjwqyoygwXuhWh2uggKzu2Xfk4DIhbkJRYbd2FgwV6hYxUsv6yLeLCbA8Vz5psq7dqN3/x0eqcJ2wrnF6OrOawQL3r6QWjWvzIlq2GccRfeo13GiKJb+SA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G65HChs2d3I4puGF5AaZ5m3jZR+7JmUE74crLw6Hs54=;
- b=SfpPKWa/CnugnX9eReM3JCvOj3TWu14fK2eDQPV02pqijo5D3mcKbLUzxWPWvTFIPtAPZo7BcJgXctf+JRkjwYp4suclzCcZ8ICXfxsWn09Neeq5QcibKYB+V9d6cApkaRWH3syd0oLD3jIE54ahod0PohIiouQs0D3FU/C5dwemHpnQMVkX5EiV2KUzwVv86IWbXTy22+89Qg77hDDsWMltBiBi+9Qnx1xldpvgAn7f6X79SBZb2YKjeEJC7/WAnF4TPT1ntvcgLrph9ZTT6g5bb5Byz5kovovKTMpi0Z/3FcLl3prxbbOf+Ob2iyslSdZYxniiEUJnyw2LwWwANw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB6919.eurprd04.prod.outlook.com (2603:10a6:20b:10e::20) with
+ bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=;
+ b=PrMNUi7z8X3l2rz/4gTenHqFOS/V6pGIKoK92ineeXr3N2Lfmzzkc0Qgte2cfS5XGH/xJGb/kfxUgkUMqq6jdKyKoB0P+ZZiuHMIKDd93xb6emvZopj5arsDWzmvUyyKFLwxAxzS7E0mAMW7RKINZUQTpbc+4IGXLpzbfgNV4kSS25uWlf2ZuQSSqpqOluSI2HRMVy7L3sG+pNZ1EQ6Y0SgqYZJvq11DZ0XllYR3EHT8wqA9M4Zmx0Aw8b8s2liWhh/O8co8WzZGjto6c3E4659sqv1nln8fSFLXo6Hb11MsPYe8VNIJTSQtL2f4+Hzo8TC0kq9rfSw8nsDxzEDoeA==
+Received: from BY3PR03CA0025.namprd03.prod.outlook.com (2603:10b6:a03:39a::30)
+ by SJ2PR12MB8718.namprd12.prod.outlook.com (2603:10b6:a03:540::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 19:07:52 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Tue, 1 Sep 2026
- 19:07:52 +0000
-Date: Tue, 1 Sep 2026 14:07:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Linmao Li <lilinmao@kylinos.cn>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Leonard Crestez <cdleonard@gmail.com>,
-	Radu Solea <radu.solea@nxp.com>,
-	Franck LENORMAND <franck.lenormand@nxp.com>,
-	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: mxs-dcp: handle zero-length skcipher requests
-Message-ID: <apcify8QdDGOHVi-@SMW015318>
-References: <20260828093209.3179074-1-lilinmao@kylinos.cn>
- <apHgn8-IcTshYnfv@SMW015318>
- <6416cbee-35c7-4fc8-9a80-a25403eb1e6f@kylinos.cn>
- <apWXYPYyPktawUru@SMW015318>
- <649d8c23-4af8-4e50-90be-0bdd83f373f1@kylinos.cn>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <649d8c23-4af8-4e50-90be-0bdd83f373f1@kylinos.cn>
-X-ClientProxiedBy: CYXPR03CA0050.namprd03.prod.outlook.com
- (2603:10b6:930:d1::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ 2026 19:09:04 +0000
+Received: from SJ1PEPF000026C8.namprd04.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::7f) by BY3PR03CA0025.outlook.office365.com
+ (2603:10b6:a03:39a::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Tue, 1
+ Sep 2026 19:09:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF000026C8.mail.protection.outlook.com (10.167.244.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 19:09:04 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
+ 2026 12:08:41 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 1 Sep 2026 12:08:40 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Tue, 1 Sep 2026 12:08:39 -0700
+Date: Tue, 1 Sep 2026 12:08:38 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, <linux-coco@lists.linux.dev>,
+	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Alexey Kardashevskiy <aik@amd.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
+	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, "Marc
+ Zyngier" <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Robin
+ Murphy" <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>, "Steven
+ Price" <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	"Will Deacon" <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+Message-ID: <apcitkpASOREamQs@nvidia.com>
+References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
+ <20260427085344.941627-4-aneesh.kumar@kernel.org>
+ <apM6dOHcEI2ztWS0@nvidia.com>
+ <yq5a8q5lz5yn.fsf@kernel.org>
+ <yq5aecfdnv4i.fsf@kernel.org>
+ <20260901143445.GC56830@ziepe.ca>
+ <apcHoHKGoI7WNFXp@nvidia.com>
+ <20260901174230.GA2847102@ziepe.ca>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260901174230.GA2847102@ziepe.ca>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6919:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f173e2e-a27a-489f-032e-08df085c5238
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C8:EE_|SJ2PR12MB8718:EE_
+X-MS-Office365-Filtering-Correlation-Id: b94e85a9-e126-4c95-5ad5-08df085c7d5e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|7416014|376014|18002099003|22082099003|56012099006|13003099007|10067099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: yAL1aXbQQ8nVR12sKWM48It/uf5WazmlOPe7HM6iyaEUujpQP2d5JjbnP4bTwyDCROdmp5cFTvExoZcq0Rn4LmLFDSbjbFMRMZ0V5a9G8rRyVz/WaNrN1KOINTrN+MIzIqDwZohQW02nxt2yqAhA8eLkQ/uWsfPQawtuR869fkaV4d2xwqDCjnKTMz4Sfnu8gIgdArLG2VPGyz6CL9al84SyEyTZaPx0SZ5oJGcd3F9trXZ2ZKbgn6tfQY+u40CyQDVDDlwTWwWCWBgdVWw3rXkG2unmfs8pOk1a5LochKwHaUHjW6CZoFdkHwhiIWRddGImU2mbwGoHgdR0hh5otm5otLo2dmlBMTNDen7HJHGNW3P1i4X880q3I1Q9wcKgQU/amIXYnCWS9F1V9m37trKldOscNW8TMbbEbf5Ym7lVv3aoao/Q76c+CEg+pjhoBI3o32zCaLwytup6Coj7cV1jGHJ83M4PEU/6/xP2LuDXbAEzZ2Ct6SdYeuNqhxk/jdbS4fhMj79ZT6/ySjTvQbeAV2DitEjjf+JExQrqocBdD0q9tWblgJgSEpNKtkChNaZv+uIl9HLJQ/yyDVibPhOTAbroqQBC2ikWqa3UXQ3vhxeP6AFo5BY97HGYa6Z+bjTTG61X4PxA2RIoqT8VAWJJ92zd0hicKDZO3z1jg4U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(7416014)(376014)(18002099003)(22082099003)(56012099006)(13003099007)(10067099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|7416014|376014|6133799003|10067099003|4143699003|56012099006|11063799006|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: mzhxmUjEwmpKKkqjSA6VsVXyfOIBeFR0r3as9S3p3Sd0x0oqEex/Huj65UKNKH1fX+o2sLMvxUAMVRgxAATMYAoGaPBs/gjN/tHzq4lntdRrjasRgIG7nZFyVPzT2Czjwtjj7JRJCJBHWjfUiWSliBt0QbXExZdbqwU6ZH1TbpqOGx7HamlW5IUXqCDjq7j2rzD+7viZpvZtLVEbgGc96DuERGpUTyj1DD840MIaa9dpV2oFqAS/NpAst7D1CkJdlbqWFNnEKdEhzMTwW31CR5AVy/JfWHpnZ9+ZHu+1+oGG36VbmepT1HoNEnJb3sp16dyZ2HG8zYoiJSLkxzhVhakVEdsi70uP63pwD/XRnDAd89x0KbTkCWc+51MdSdrW8mJZ0aiF+hO8TgR3uDNwBrp8FwqUeD2AEmf081l//0M5l0k2JO9Fa/r8313NW/rFKSbztPv/1s0hb+fVJE1RawbKbrWS3/cMsQSrOezP12lRNuABvNTfCJPwNJ8VPkXu8iX8glyCYoSHmKqELoOsgde0s6mPMLF1Xt+o7geZWUsfydy8qwlBPjeqvhMbPAGokG0m+38bOBWuPu/OGCO6TEvxHKdkBuzL7jgjvJjWl8AZXqGo3mfeljkK5+soiNO087xPGJnscrzjhvihR1QH4srntOwF4qfOTisTrS4xBiSNKKVlHEHPMI9W/R3WFMgGhPblGqnKGBofG5N89wIWEg==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(7416014)(376014)(6133799003)(10067099003)(4143699003)(56012099006)(11063799006)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3g0azkyZEdzdkdtRTBrbGpGdzhyYlNmUDVZTWpRVUJvVHNyc080Rkw5MHo2?=
- =?utf-8?B?Q1k1bGw0b0czTnR2MlRReDVyMUVjUzE4MkRlKzYxTmdDWjBiZ1o2cDZIOEVJ?=
- =?utf-8?B?Vk9kZXAzSVprdHhhMDV3R1NCdlRQS1FCYllVdkwwRytGNS9yUTRsRGcyZGhr?=
- =?utf-8?B?SFFxbmZnbktTMXphcnpIeEVxbE8rYzF3Y25BZUFZMDIwUjRaRXkvbkVCUmVN?=
- =?utf-8?B?czNHVlBaV0t2eFZRTEYzZXBIVzRyZWJ6aUxlc0tiZU1tRUM3MzdLMEN2TDVP?=
- =?utf-8?B?T2NaNjh5MG5xMlFHTER5aDh5OHhKMUxROS9vL0l6Qjd4YURDMTN5QzhlWGFs?=
- =?utf-8?B?c0JoWlJEM3NYK0k0cFBiTHNQcXJ4dnVqMnFVbXU1ZVBIcEFBNWlnY0t0bUJH?=
- =?utf-8?B?MXlub0dvTmdTZElya3lxckpFY21NWFZVMWVFeDRQQWZuUnVMaDJZVFdVZGZo?=
- =?utf-8?B?emFKdXpuNGw2VGNEWFVScTJqeU8zdWduUVVDZFRqLzJNeDNqSFNkbjJxcGtI?=
- =?utf-8?B?SnVBcE4vZWkwdkdtMjQ4MGdxaW5jYlFYYmN2eFJEanFPUGt2YVRhK1psalJz?=
- =?utf-8?B?YWQyM2NmQ2tGVXg3RjBKV2pDUE93VzV0bGlQc3kvVGd4K2Y3bGhZUDdvSkNp?=
- =?utf-8?B?VTB2Zkd0cW41Vm5DaForUFBac2pNOXdTZGFUckZnRVVBaU5DTTVoeUozSDdn?=
- =?utf-8?B?TkpPQy9DcjdoOWk0b2FFRHBUMWw1Q3RyN0VKamxjWnYvYkMyVk5MTFlNQWJl?=
- =?utf-8?B?OG41K2ladVZGNWprRnh6Tlkwc3c5ZmdsWnh1V1lBRGJIcHltOHppRVlQZFNK?=
- =?utf-8?B?TWdQMGJXVTQ3dkZEbmtnWEpOQlp6WFJ6akNiMHNGTzJUbHlhM0hIc1d5MDJC?=
- =?utf-8?B?bFBHbnA1VmN0TWswdWtBR0JpTUVvQis1bTJKN2MxMzR1azlndDl2TG5LSFdT?=
- =?utf-8?B?UmNsN2N6dTRBTVZTM1o2VnV2cDJvdm1iQnNVNVFpckRicnNYVEFSamQyTVVx?=
- =?utf-8?B?RUdyMEwxTHdtUWhCWlhnSE9BdFY5cEo3aExGc2ZveTR2Y2xNY3NEM2lHVUFr?=
- =?utf-8?B?ZC9UQ3Z1WXFNb1dUbkZURkQ1S0NJTjdmN2JVQ1FlWmV5RGY5N3dqTzREQ3du?=
- =?utf-8?B?V2VkWWlKMzRlVUtRMWdjcHR5VWprOXBvOE1FS2ZLTG9PQVhYM2xjZ2k3cVJV?=
- =?utf-8?B?WFlsaDloYVNkRjJCeUFpby9QR0JtMVJsTXNoc1FjUE85dXBKZEU0bWhQcHhz?=
- =?utf-8?B?Z2R3RnFoaWFaUGhMQ28ycjdrSkhSandBR2dDa2RrUDF1QWJ6aHZZRUJhTjJa?=
- =?utf-8?B?cnR0d3BtMmdaUitBenpFNCtIV2JnL280RGk0ZU45anlvL2N2NlJ5cXBCcGRR?=
- =?utf-8?B?NEljV25WMEN2cEdmbnhMYWhQZ3hGSnREK3JGa2c4M2VxazUzSExNWDNmNGZm?=
- =?utf-8?B?NGQ0OE9lUnpHNnpxOVJEbk9KdzRzTFhQSStPa1o5TGhQdzE5WGtRL0M5eHVt?=
- =?utf-8?B?TW5pZWJPU2k0aGNWS0c3V3JYMDJEN2hYNGF0OXJmSUF6R1ZNU1BUSzlmdWQ0?=
- =?utf-8?B?YWRDVVZRRTFIMnUzNFJsNEdNVDRvVXpyV1hocnh6NVZQNk1Sd04rbEhxbWNY?=
- =?utf-8?B?Z3htRUM1dkIyNS9VTXorTEJGSENLTGJndUVPbUNJM1ZiNHcvNFgxdThpbStP?=
- =?utf-8?B?TkwyRlNpN2JCUUdNR25DeGFTblppRTVCU25GSWtPLzYweWp1elIvSkpOWWc1?=
- =?utf-8?B?aW9ZUExIY0V5dUJVejZ3eGtsNzdpSjFIcEJFMTFWaG15M0tVdFVrV3BtSVBT?=
- =?utf-8?B?NkJmZTc0dm1aNHVpZVJiM2tDa2VDOHRoNlRaSG54VmhhRjhGbmZjSHJwMGpS?=
- =?utf-8?B?Ujd3T1YvQ2VlNjN2bW5BdllETW9HdldGRk9Tem1GMHZ3VEk1Y1JLVWx3U2tU?=
- =?utf-8?B?VmtuRTZTSFl2Z3puMS9ZTVV4SzZSSjJFWC9makRrR3Y2NEMzZTg1RTZUSU05?=
- =?utf-8?B?TjBwckJvd2YySm9uVnFEdkR1MHBvTmZNK1Q3eGJTWWVtOW1Xd29LQkNUbldF?=
- =?utf-8?B?RWhDbERjLzB0emNER1dMa3U5MHZDYVBSdXJtay9qTlA2WWMyM3NIL0JHOEk2?=
- =?utf-8?B?MkpnTU5nYTJvV1Zla1VQKzN2QVp5KzBkdk5nNjRFdWxCblo2VU8wWXFWK0Ry?=
- =?utf-8?B?TGRhLzRlRzQ1TUNHUEtpcXZHU0djWjB0Nk52RnNwZ3VSdUZjeWlSd1NYcjZJ?=
- =?utf-8?B?Y0xjdlJGREQzNUhCbnRjYzNjWWR3akZUcitBeW1ZYnZMZTZvMjZaeDFzdmE2?=
- =?utf-8?B?RXZvRkVVUVgzUW5rMFdkQkRleVcrSUp6Q3RlaUYxZGpkbHBOdFBwUmlkUE5K?=
- =?utf-8?Q?W4IR31zD4/DrIybUZ3J464jMEzg2b0LIPifx+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f173e2e-a27a-489f-032e-08df085c5238
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:07:52.2193
+X-MS-Exchange-AntiSpam-MessageData-0: sIkvFzOkPF46m21AYRbJR5jPxvHhoc7/1WnOwzmGr9vs31wQkley/YMhqrm9sdcOo8As9WU1Kb8Kd/cn106k2w3Cs8656o+BR+yq9GbC1ARKoQPKkgCNT4xhusKZgxbuCtel3D6NX5f5Ci5RI2gEWqFp3wCtJSv0FgwOrQwbrnPWb2eyigVUBpJluBvBH4A50YbuWTiIyyUJ24J2eNlvs+boDnKV6twD4hHkr6AsQtstq8S82U8xIwO4Aun8W/edFpkVWSYq7iPyDSbVQb7X2V+DzdbQGO9VQMidBPc31NCvUK3vBEjmOLm4O5th5pH3YDzw0Iz8d9w8lrruXZtcVUOSJNCdTvuw9xUtIwVLqyastMpWx6ZjYZTeHPqzjnh0FASqCIBelgFQWRwY7GnKIASFG/HegPiT5tpd8Gq6cfUDw7U/Gh3v7QJuU7u56uLo
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:09:04.2982
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mzpEMJpWnMuS/Qx6yy5MgPDxkdgHr1H1DTvIC3bY2H3wbt0eVNAsb5Zn7wMzMXbi8QqeUmP0Ogrr7Qukpr2NrlxFi5DQYgx6aTpgZxZivO3W2kCwNbVaw4KDFrc/w32P
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6919
+X-MS-Exchange-CrossTenant-Network-Message-Id: b94e85a9-e126-4c95-5ad5-08df085c7d5e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C8.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8718
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_120757_601155_8960E8A2 
-X-CRM114-Status: GOOD (  37.03  )
+X-CRM114-CacheID: sfid-20260901_120931_130720_A83FD98B 
+X-CRM114-Status: GOOD (  36.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,100 +141,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 11:05:30AM +0800, Linmao Li wrote:
->
-> 在 2026/8/31 23:01, Frank Li 写道:
-> > On Mon, Aug 31, 2026 at 08:42:20PM +0800, Linmao Li wrote:
-> > > [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > >
-> > > 在 2026/8/29 3:25, Frank Li 写道:
-> > > > On Fri, Aug 28, 2026 at 05:32:09PM +0800, Linmao Li wrote:
-> > > > > [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> > > > >
-> > > > > Zero-length skcipher requests are valid no-ops, but MXS-DCP queues them.
-> > > > Any document show it? if return 0 when cryptelen, it is async, no
-> > > > call crypto_request_complete.
-> > >    Yes. CRYPTO_ALG_ASYNC means that the implementation may complete a
-> > >    request asynchronously, not that every request must do so.
-> > >
-> > >    A return value of 0 indicates synchronous completion.  Only
-> > >    -EINPROGRESS and -EBUSY cause crypto_wait_req() to wait for the
-> > >    completion callback.  The existing fallback path relies on the same
-> > >    semantics.
-> > >
-> > >    There is also a direct precedent in commit 8a4e047c6cc0
-> > >    ("crypto: marvell/cesa - Handle zero-length skcipher requests").
-> > >    Marvell CESA registers asynchronous skcipher algorithms but handles a
-> > >    zero-length request with:
-> > >
-> > >            if (!req->cryptlen)
-> > >                    return 0;
-> > Thanks, but still not answer my question,
-> >
-> > Any document show "Zero-length skcipher requests are valid no-ops", why
-> > not API direct return 0, instead of pass to every driver to check it.
-> >
-> > I suppose it should be checked before call driver's callback.
->   You are right; I could not find an explicit Crypto API document defining
->   the zero-length behavior, so the wording "valid no-ops" was too broad.
->
->   With the current API, simply returning 0 in the core for every
->   zero-length request would change XTS semantics, since the generic XTS
->   implementation returns -EINVAL.  MXS-DCP only implements ECB and CBC
->   here, whose generic implementations currently return 0.  Handling it in
->   the driver therefore matches existing behavior; centralizing this would
->   require algorithm-specific length information.
->
->   I agree that the commit message should describe this as existing ECB/CBC
->   behavior rather than a general skcipher API rule.
+On Tue, Sep 01, 2026 at 02:42:30PM -0300, Jason Gunthorpe wrote:
+> On Tue, Sep 01, 2026 at 10:13:04AM -0700, Nicolin Chen wrote:
+> 
+> > +/**
+> > + * enum iommu_viommu_arm_realm_vsmmuv3_flags - Flags for ARM SMMUv3 Realm
+> > + * @IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU: Indicates whether the Realm has
+> > + *                                             a guest-visible VSMMU instance
+> > + */
+> > +enum iommu_viommu_arm_realm_vsmmuv3_flags {
+> > +	IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU = 1 << 0,
+> > +};
+> > +
+> > +/**
+> > + * struct iommu_viommu_arm_realm_vsmmuv3 - ARM Realm VSMMUv3 parameters
+> > + *                                         (IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3)
+> > + * @flags: Combination of enum iommu_viommu_arm_realm_vsmmuv3_flags
+> > + * @reg_base: MMIO base address of the VSMMU in the guest VM
+> > + * @reg_top: MMIO top address of the VSMMU in the guest VM
+> > + * @aidr: AIDR register value of the VSMMU in the guest VM
+> > + * @idr: IDR register values of the VSMMU in the guest VM
+> > + */
+> > +struct iommu_viommu_arm_realm_vsmmuv3 {
+> > +	__aligned_u64 flags;
+> > +	__aligned_le64 reg_base;
+> > +	__aligned_le64 reg_top;
+> > +	__aligned_le64 aidr;
+> > +	__aligned_le64 idr[7];
+> > +};
+> 
+> Yeah, broadly what I would expect. Pass everything needed to execute
+> RMI_VSMMU_CREATE through this struct.
+> 
+> Is there anything more than RMI_VSMMU_CREATE needed from a RMM
+> perspective? What about that dpt/ats stuff?
 
-Okay
+DPT is a bit hacky currently..
 
-Frank
+Prior to RMM v2.0 ABI, DPT was allocated statically in RMM; there
+was no RMI command for DPT allocations.
+
+Now, with RMM v2.0 ABI, DPT can be managed via RMIs. I am making
+it follow GPT at this point, similar to the static idea. But, in
+the long run, I will think of decoupling, but I haven't looked at
+that closely.
+ 
+> > I think this should work. But I still feel awkward that a non-vsmmu
+> > case has to allocate a viommu object for a set of RMI commands that
+> > don't need an Realm Descriptor.
+> 
+> It is for the RMI_VDEV_CREATE which needs the RD:
+> 
+> 	case IOMMU_VDEVICE_TSM_BIND:
+> 		rc = tsm_bind(vdev->idev->dev, kvm, vdev->virt_id);
+> 		break;
+> 
+> It has to be tied to a vdevice on a viommu to pick up the kvm and
+> vSID.
+> 
+> If we don't do that we need a new way to get the virt_id and kvm into
+> the flow, which doesn't really seem worthwhile to me.
+
+Okay. I see the gap now...
+
+For tsm_bind: idev has dev, idev has kvm, but idev has no vBDF.
+
+Maybe we could allow vdevice to have no viommu? In which way, VMM
+can forward vBDF independently. If VMM has a vsmmu instance, then
+it can allocate vdevice in the traditional way.
+
+The viommu object here is an empty vehicle that almost has no use
+but to allow another vehicle (vdevice) on top to forward vBDF. It
+makes VMM code a bit awkward: there is no iommu instance, so VMM
+doesn't enable iommu driver, then there is no good place to alloc
+the viomu object for VIOMMU_TYPE_ARM_REALM_SMMUV3.
+
+> > Things could be cleaner if we allow RMI_PSMMU_ACTIVATE and
+> > RMI_PSMMU_ST_L2_CREATE to be independent on a viommu; then leave
+> > IOMMU_VIOMMU_TYPE_ARM_SMMUV3 to vsmmu-visiable case.
+> 
+> This is why I asked in the other message if RMM spec is clear that
+> PSMMU and STE are not required for anything but VDEV_CREATE. If so,
+> the PDEV create and SPDM stuff is fuly independent.
+
+I think the spec is clear. And you are right PDEV is independent,
+only linked to PSMMU when VDEV is created.
+
+> Which is why I'm saying the split doesn't make sense. PSMMU,
+> interrupts, STE, VDEV are all related objects that should be managed
+> together by the SMMUv3 driver. You need a PDEV to create a STE, and
+> you need a STE to create a VDEV.
+> 
+> PDEV is the SPDM channel and should be managed by the TSM driver.
 >
->   Thanks,
->   Linmao
-> >
-> > Frank
-> >
-> > >
-> > > Thanks,
-> > > Linmao
-> > >
-> > > > Frank
-> > > >
-> > > > > When such a request reaches the worker, last_out_len remains zero. The
-> > > > > CBC completion path then subtracts AES_BLOCK_SIZE from this unsigned
-> > > > > value when updating the IV, causing the offset to underflow. On
-> > > > > decryption, the resulting source address precedes aes_in_buf.
-> > > > >
-> > > > > Return success before enqueueing zero-length requests. This avoids the
-> > > > > invalid source access and leaves the IV unchanged for a no-op.
-> > > > >
-> > > > > Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
-> > > > > Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
-> > > > > ---
-> > > > >    drivers/crypto/mxs-dcp.c | 3 +++
-> > > > >    1 file changed, 3 insertions(+)
-> > > > >
-> > > > > diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
-> > > > > index 133ebc998236..60794b4d49fa 100644
-> > > > > --- a/drivers/crypto/mxs-dcp.c
-> > > > > +++ b/drivers/crypto/mxs-dcp.c
-> > > > > @@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
-> > > > >           struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
-> > > > >           int ret;
-> > > > >
-> > > > > +       if (!req->cryptlen)
-> > > > > +               return 0;
-> > > > > +
-> > > > >           if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
-> > > > >                   return mxs_dcp_block_fallback(req, enc);
-> > > > >
-> > > > >
-> > > > > base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-> > > > > --
-> > > > > 2.25.1
-> > > > >
-> > > > >
+> So, I think the IOMMU_VDEVICE_TSM_BIND is not justified. "BIND" should
+> happen when the SMMUv3 realm viommu ops create the vdevice. The same
+> way the vcmdq sets up the VSID tables when the vdevice is created. Is
+> there a reason to have it in its own command?
+> 
+> Further the implementation of IOMMU_VDEVICE_TSM_BIND in this series
+> *requires* a viommu to work. So OK, let's lean into that. (to be clear
+> I am saying delete tsm_bind)
+
+Yea, IOMMU_VDEVICE_TSM_BIND feels redundant..
+
+Thanks
+Nicolin
 
