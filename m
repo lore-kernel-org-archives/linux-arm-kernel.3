@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158EBC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E18C624D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1RngNz1izmirvFZ3A73M9H6QDB0HWQQSYLcGQ4IXqs=; b=FrEGy2+XUPRmQANRlILXx/jxpW
-	ZH+VK7QtAq66ZG6S9mTuea9pLIutYPHZqo3wrrw4jCoY7RBIiwX4R6iT/1kCwlhp8RWdiA8d+F0ob
-	MPXqsRKClm3jyPQZEncj3cN/zzV09Li3RExo/POd6ROqhci+rcWlJKdiCrkZ7c0Yk2AuH6keDJl6d
-	xq3gwXa33vCNe5f0gVymiIMXV6yeD7aJpBHj/phSFfjZWkExkabQO9WijD5+ERHABM4K9xhfgjkO0
-	3k1MqgYesdprp3TnCQKMGQrZiV++ffuj4GWJ5obEpezU0BR+CTy+NfvCL8/g3tqBcp666Fe4Dhk2i
-	rL4D5jkg==;
+	bh=QyHs4S0dc94/NUToDxmHqTGMasZcTDyzb455/LwWY0c=; b=r5/NklVp/KHA73LDUJlNaXubN0
+	j94HX7wiMduHy32VFhlE8eYNvebNLWltv2rhE85I/NpEax5FIjMyu57uNYsOQW+RgUjp4CfsOV7+A
+	/ag8274M0PhlzELuxoNY8b/6F8APx+N9+hNIgKCuLCwwVOmH6ru7ca+e9xbmG8voOtNhQjMpxan/b
+	gNd8sfi4PqSyCk6zS0hrccXybJX67YoLPcTFakwU/PlCNoTwGI+fvV9c3cs88sSMuQQsudtDq1WOh
+	eslluXnhavFhpbI8Z8pQLdYxpJVlRxtIl8dwwse5IOFB/x8xYs5/Z1CRA8FlNjYDR0N8czi2wDSrM
+	cX3oYe3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S5q-0000000CnNA-36Ck;
+	id 1x1S5q-0000000CnMs-2X2M;
 	Tue, 01 Sep 2026 17:16:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S5l-0000000CnIa-432m
+	id 1x1S5j-0000000CnGv-1RQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:16:17 +0000
+	Tue, 01 Sep 2026 17:16:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6893F1756;
-	Tue,  1 Sep 2026 10:16:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20A731CE0;
+	Tue,  1 Sep 2026 10:16:07 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CA563F7D8;
-	Tue,  1 Sep 2026 10:16:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D902A3F7D8;
+	Tue,  1 Sep 2026 10:16:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788282973; bh=xHPxvRUZ+WgjAT7cIxsez9QFHBw7/cnqGtqr1gFdEFs=;
+	t=1788282970; bh=cUkDq0mjr3TsA7BpjTcTYdqNjWROCRQ9y+M5Y07ELLk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=avpHPUawEvIy+sjjbEKnOY/hZjj8JDCtZFbHdPe0LrsVzAxThZRqt9TwPpoocuO7B
-	 ce/wL7F/mIQIfaQIbqYOoesaX03FGn2TTY9i90TeC1Lwsp/0/m1ZqzY5rqdPXOrqAa
-	 GeD6emuHuERG7trk/+9ySHWUi+Kto67cqMGylIiY=
+	b=Nt9Elcsvd3jZ+LcqUqz1b+KB9JX1ovs+EflajajcYUOxxMmm27aBQ9hPb61JgRE1h
+	 C8n5H+fQF0osMb4k1W0lZn7okuI3B0i5oBIL/EvgSymIg17RJup5E+mLzQHi818l29
+	 E3grDL3AYL4u1r42PQTWxIhJfjfF12WXGAo7F/lw=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -56,19 +56,19 @@ To: Marc Zyngier <maz@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 4/5] KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
-Date: Tue,  1 Sep 2026 18:15:55 +0100
-Message-ID: <20260901171558.2674031-5-leo.bras@arm.com>
+Subject: [RFC PATCH 3/5] KVM: arm64: Introduce a dedicated walker for stage2 write-protect
+Date: Tue,  1 Sep 2026 18:15:54 +0100
+Message-ID: <20260901171558.2674031-4-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260901171558.2674031-1-leo.bras@arm.com>
 References: <20260901171558.2674031-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2471; i=leo.bras@arm.com; h=from:subject; bh=xHPxvRUZ+WgjAT7cIxsez9QFHBw7/cnqGtqr1gFdEFs=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLKms81rLTxzPFn9uwlPFJfEYf1pFw7Zip9VPPj7mbHxr Ck/DhRt6yhlYRDjYpAVU2SRfTR/Fc/3KRlHrvxYADOHlQlkCAMXpwBM5G4qw//Mw89LmMwSwl+8 cix5IPL2uHOF6+LtRlsc+c3mTD205gc7wz+zqTk8ftFcZ4LqisRjjE4uPl5+ge+qWvzJXZmHgi9 8UOcEAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1978; i=leo.bras@arm.com; h=from:subject; bh=cUkDq0mjr3TsA7BpjTcTYdqNjWROCRQ9y+M5Y07ELLk=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLKms839fqptm9uuVyxG3C8UWvP+Z230rRcKjkyzP3Mxl 8WR03BFRykLgxgXg6yYIovso/mreL5PyThy5ccCmDmsTCBDGLg4BWAiiiUM/0x4nv4SvsdpK7Zn ju37c39F1q6wulF7tm25x+Sj/1Zu/sjB8Jtd9s2qFrdzCeXz0x69q5i/Zp9rgXyi710tJZ/Lq48 FlfABAA==
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_101614_119420_6950122F 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260901_101611_510515_5A8029F5 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a vcpu request to exit guest, reload Stage2, and then come back to
-guest.
+The new walker cleans the dirty bit on leaf entries, as well as clean
+the DBM bit in blocks so it still faults for lazy hugepage splitting when
+we enable FEAT_HDBSS in future patches.
 
-This will be used on future patches that enable S2 HAFDBS and HDBSS, as
-they may need to change VTCR bits for enabling/disabling the feature when
-the vcpus are still running.
+With disabled HDBSS, there should be no change in faulting behavior.
 
 Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 2 ++
- arch/arm64/kvm/arm.c              | 8 ++++++++
- 2 files changed, 10 insertions(+)
+ arch/arm64/kvm/hyp/pgtable.c | 26 ++++++++++++++++++++++----
+ 1 file changed, 22 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 27fe0cd5b2d7..00fe169f239f 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -48,20 +48,22 @@
- #define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
- #define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
- #define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
- #define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
- #define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
- #define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
- #define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
- #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
- #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
- #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-+#define KVM_REQ_RELOAD_STAGE2 \
-+	KVM_ARCH_REQ_FLAGS(12, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 2ff33d3e371e..2849c136f366 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1287,26 +1287,44 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+ 		return ret;
  
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
+ 	if (orig_pte)
+ 		*orig_pte = data.pte;
  
- #define KVM_HAVE_MMU_RWLOCK
- 
- /*
-  * Mode of operation configurable with kvm-arm.mode early param.
-  * See Documentation/admin-guide/kernel-parameters.txt for more information.
-  */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8b080804bc90..1e528d53d093 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1164,20 +1164,28 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
- 
- 		if (kvm_check_request(KVM_REQ_RESYNC_PMU_EL0, vcpu))
- 			kvm_vcpu_pmu_restore_guest(vcpu);
- 
- 		if (kvm_check_request(KVM_REQ_SUSPEND, vcpu))
- 			return kvm_vcpu_suspend(vcpu);
- 
- 		if (kvm_dirty_ring_check_request(vcpu))
- 			return 0;
- 
-+		if (kvm_check_request(KVM_REQ_RELOAD_STAGE2, vcpu)) {
-+			unsigned long flags;
-+
-+			local_irq_save(flags);
-+			__load_stage2(vcpu->arch.hw_mmu);
-+			local_irq_restore(flags);
-+		}
-+
- 		check_nested_vcpu_requests(vcpu);
- 	}
- 
- 	return 1;
+ 	if (level)
+ 		*level = data.level;
+ 	return 0;
  }
  
- static bool vcpu_mode_is_bad_32bit(struct kvm_vcpu *vcpu)
++static int stage2_wrprotect_walker(const struct kvm_pgtable_visit_ctx *ctx,
++				   enum kvm_pgtable_walk_flags visit)
++{
++	kvm_pte_t new = ctx->old & ~KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++
++	/* We remove DBM on blocks so they can fault and get split */
++	if (ctx->level < KVM_PGTABLE_LAST_LEVEL)
++		new &= ~KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++
++	if (kvm_pte_valid(ctx->old) && ctx->old != new)
++		WRITE_ONCE(*ctx->ptep, new);
++
++	return 0;
++}
++
++
+ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
  {
- 	if (likely(!vcpu_mode_is_32bit(vcpu)))
- 		return false;
+-	return stage2_update_leaf_attrs(pgt, addr, size, 0,
+-					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+-					NULL, NULL,
+-					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
++	struct kvm_pgtable_walker walker = {
++		.cb	= stage2_wrprotect_walker,
++		.flags	= KVM_PGTABLE_WALK_LEAF,
++	};
++
++	return kvm_pgtable_walk(pgt, addr, size, &walker);
+ }
+ 
+ void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
+ 				enum kvm_pgtable_walk_flags flags)
+ {
+ 	int ret;
+ 
+ 	ret = stage2_update_leaf_attrs(pgt, addr, 1, KVM_PTE_LEAF_ATTR_LO_S2_AF, 0,
+ 				       NULL, NULL, flags);
+ 	if (!ret)
 -- 
 2.55.0
 
