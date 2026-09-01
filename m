@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AFCC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24601C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6SspQdEACvGEk1Ae6Fpw9EBFz3jN7+O/eb7ZbTrySo=; b=EpQfFp4rLncogXv0RaPpoYC78/
-	Exsj9GB53CQRKgOP0Yo2DqOvjtnNC6D/J8izaH8fDx++FoDnzRx/GHrYJSrpCZFQ/h9HN6jWELzUT
-	jFD9V7bsBIJdohnN08xBXaOZbaadML/TZi+JviLNlHfEZT/Olss0sTHA89HgdTDD9+ShuciNExCh5
-	Lu0CvDMi4thLEeOK1TN0Omgi2/7tdXeRwxk9q5T+KrjMGYhoakg9sf6pev35AQzvAswT/IaiRrRXg
-	pq6iiJv09wyE3aTBA6GVDOFxAQ08fKW/fgaf/4M7/CoXHNOjolfHe6GNa+quors/lOUN0tsjil32k
-	FvamQUSw==;
+	bh=pmrb0YESjLDDQvAfrvXG5WhHbn9ivEjnRLF1FaaGt34=; b=SWy44TTgLntGqedC3XagjgRN0C
+	QqEuKzu3VWAi9t0j5uE5Qi9oJDym8zGlk787JGFBwqf3p47WDVpOfJS6TvU3zf01DqICuW0jPNQvX
+	QYlw5iCBIB5OAMJ/GwZcvj2WDr3Xmn490EpclAL+AI9rZCwyQFK7259j33CWSVnswwzroOCZyCr0V
+	RS0wNZNA65Tri7fJ+J+FUzhAmU6Pxfj9silGjFazCSon/RH6AyR+ptQUvvHcXbIK6kmQxlnZ4wVBz
+	b4D4qdRrM3lEKO3A/BolfmnHUlbrzWzI6v4qnmGf60EHNo2hS28pCv6gSh6ZkcYyvWgnNXu1ugHwW
+	zB72JK4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Kfh-0000000BPGL-2kMQ;
-	Tue, 01 Sep 2026 09:20:49 +0000
-Received: from [38.71.22.102] (helo=spam.axera-tech.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Kfb-0000000BPAf-3ELd
+	id 1x1KgY-0000000BPjI-2U36;
+	Tue, 01 Sep 2026 09:21:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1KgV-0000000BPi7-1Yww
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 09:20:46 +0000
-Received: from aixinexchange02.aixin-chip.com ([10.122.86.161])
-	by spam.axera-tech.com with ESMTPS id 6819Jbg5047671
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 1 Sep 2026 17:19:37 +0800 (+08)
-	(envelope-from lenghonglin@axera-tech.com)
-Received: from [127.0.1.1] (10.126.103.103) by aixinexchange02.aixin-chip.com
- (10.122.86.161) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 1 Sep 2026
- 17:19:36 +0800
-From: Leng Honglin <lenghonglin@axera-tech.com>
-Date: Tue, 1 Sep 2026 17:19:29 +0800
-Subject: [PATCH v2 2/6] dt-bindings: arm: add Axera AX650 SoC and AX650
- Demo board
+	Tue, 01 Sep 2026 09:21:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A380C1692;
+	Tue,  1 Sep 2026 02:21:34 -0700 (PDT)
+Received: from [10.57.7.38] (unknown [10.57.7.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 461E13F882;
+	Tue,  1 Sep 2026 02:21:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788254498; bh=d//sRRyeATR2XER8C63DKurn876rElyS0ew2RlJKmyk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tFZaD8OomT/iBVMAGMTFX2gOOiDx9+faBP6Bu9/PxfBU5aQdrs4A/uRdFNPjZYhGV
+	 lx2S3pjy1cYj8gr76k1bL3/U/0njq8fbKjy9pUshI1Xg4QqXwxOMUcFHXw3bRm7LQo
+	 opNf+lP+KnVLOvnObXaXf5iEz7AJm/P/2ZVDSkd0=
+Message-ID: <16f40b06-e871-4921-bbc6-42637c63e6bd@arm.com>
+Date: Tue, 1 Sep 2026 11:21:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 0/4] arm64: mm: Map fixmap page tables read-only
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, Jann Horn <jannh@google.com>,
+ linux-hardening@vger.kernel.org
+References: <20260827164409.3421848-6-ardb+git@google.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260827164409.3421848-6-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260901-ax650-v1-v2-2-993bea305476@axera-tech.com>
-References: <20260901-ax650-v1-v2-0-993bea305476@axera-tech.com>
-In-Reply-To: <20260901-ax650-v1-v2-0-993bea305476@axera-tech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Shi Zhicheng
-	<shizhicheng@axera-tech.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will
- Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Linus
- Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <soc@lists.linux.dev>,
-        Leng Honglin
-	<lenghonglin@axera-tech.com>, <hlleng233@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788254374; l=1063;
- i=lenghonglin@axera-tech.com; s=20260818; h=from:subject:message-id;
- bh=ERI43HuiL6QTfhZ7M0Jf5DJh/DNFPQT5VndJPqtsttw=;
- b=W1RQzi21UuVxmWW3bPYMMVjiymvAeGH/Ui98pv9e0T+aasdxCusiaIu4/jDEpRv9TqSXC5F/e
- 4oLoPLbpGvGA/jLSQjnRBFLqKBHBtaIvkzsJEGnVTiHhNO80Wvsf4Rx
-X-Developer-Key: i=lenghonglin@axera-tech.com; a=ed25519;
- pk=fo0agzxyiwbJZc3VZRLVthobvWCvq0qAViAw4TxhF80=
-X-Originating-IP: [10.126.103.103]
-X-ClientProxiedBy: aixinexchange02.aixin-chip.com (10.122.86.161) To
- aixinexchange02.aixin-chip.com (10.122.86.161)
-X-DKIM-Results: [10.122.86.161]; dkim=none;
-X-DNSRBL: 
-X-MAIL: spam.axera-tech.com 6819Jbg5047671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_022044_146018_641B4F4C 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260901_022139_455914_1C5A1A06 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree bindings for the Axera AX650 SoC and AX650 Demo board.
+On 27/08/2026 18:44, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> This v2 now covers intermediate level page tables as well as the PTE
+> level page table for the fixmap. The latter is a special case, as it
+>
+> a) is only accessed via the kernel image's mapping, and never via the
+>    linear map (except for ptdump etc)
+>
+> b) must be accessible via a read-write mapping, as all manipulation of
+>    read-only page table descriptors relies on the fixmap itself
+>
+> and so it is treated separately. The intermediate page tables may be
+> shared with other mappings in the upper kernel/vmalloc region, so they
+> must be updatable using the ordinary APIs.
+>
+> Build tested and boot tested on a Lenovo Yoga C630 using 16k pages.
+>
+> v1: https://lore.kernel.org/all/20260805104042.1107678-2-ardb+git@google.com/
+>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+> Cc: Liz Prucka <lizprucka@google.com>
+> Cc: Seth Jenkins <sethjenkins@google.com>
+> Cc: Kees Cook <kees@kernel.org>
+> Cc: Jann Horn <jannh@google.com>
+> Cc: linux-hardening@vger.kernel.org
 
-Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
----
- Documentation/devicetree/bindings/arm/axera.yaml | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Looks like the Cc's didn't propagate to the actual patches, fortunately
+my lei filters did catch this series ;)
 
-diff --git a/Documentation/devicetree/bindings/arm/axera.yaml b/Documentation/devicetree/bindings/arm/axera.yaml
-new file mode 100644
-index 000000000000..28bf0ce9fd27
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/axera.yaml
-@@ -0,0 +1,24 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/axera.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axera platforms
-+
-+maintainers:
-+  - Shi Zhicheng <shizhicheng@axera-tech.com>
-+  - Leng Honglin <lenghonglin@axera-tech.com>
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: axera,ax650-demo
-+          - const: axera,ax650
-+
-+additionalProperties: true
-+
-+...
+Either way I quite like this series, it's an elegant approach and it
+should increase security without overhead, what's not to like!
 
--- 
-2.34.1
+I also considered it from the perspective of kpkeys protection [1] and I
+think they should work together fine. The kpkeys series still allows
+page table setters to write to all page tables, so if we get a fault
+there it must be because the target is read only, and not because of a
+pkey fault.
 
+- Kevin
+
+[1] https://lore.kernel.org/all/20260818-kpkeys-v9-0-743ad31b2c8f@arm.com/
 
