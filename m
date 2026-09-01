@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5678C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B47C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7plJxIygwISfSRDt4IRuRj0Ea3yUgy5TIf9N8SYgTA=; b=0X3xTWoh6PieKpMrA125CVWh+U
-	uhzz/PLO2ZmUZpID49l89IuKfrLnJuuIuSyMm5MPCjRSbsTbeyyA6EO9FG2KDf46nfoOR1d6uAqTZ
-	Zj2UHDDXv70AAWM9lglMschowcfabIIfHFXxYIoOSuEB9fvaYj5LHfDLCwZBjyMU6sTrgPcolqlrx
-	VxbWq+buQj7q4JfgtCG31XUmJlFNWkm9YDCB9MZsmQIK+i+gZOtXEPCXHGQfHJ6q7y8x/ssBx+Du5
-	E9F8Ip40VhNsGSs59eVVAy0BaXxxJC22hcNrvCLocGbNo0Mm0n4Tmyt4/QpVbwzzoo68s0sYaQEYN
-	1JE5sBNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uZ2uRcgPfud4hk5s1LTXcwJq61fP1H5EqgQJ2HryKic=; b=cX6FeTb+SjtF5xXxUZNvz7k4v+
+	lJx1TXKwWTaV8Dcld84quKzg2UJGEwtaNXazfixCXGcToxP8RTwJRFqIb1xY9wE6SZ7YBNPLSq+si
+	aaOFF2XWFSiu/W0Uuw3w8LyyxxwtDGA3Whtl48LXJ/lPm61IePovyb8EUMF9SYz2xEBn95VAM53Lz
+	AsNEet6eVAn9Rei+r2rEAQTUv5YUmp+2Csi0pdJ96lPaK9tMDHdRYraEr5qzM8kUFrRZAvJBedjcq
+	xjBlJ3h+q/3GZwgDjUgGIkZqsOboSKeH7uZGSAjSI6lRnUrdpJ4tNLid/ag+/5HrDGMk8vC6/7C7b
+	Prv64rYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T0W-0000000Cvn5-2C20;
-	Tue, 01 Sep 2026 18:14:52 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1x1T57-0000000CwCV-0wAe;
+	Tue, 01 Sep 2026 18:19:37 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T0T-0000000CvlM-1b8h
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 18:14:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1788286487;
- bh=e7plJxIygwISfSRDt4IRuRj0Ea3yUgy5TIf9N8SYgTA=;
- b=nQBeSbhJ+7+EnuXnKofOhOWvneozte3SoBrNwGRb3YOyDXWfRO4tQttKSHTyfiQAQvLD9w+qw
- 3iYT2hxPrxCux28UaFIFvO69cN/ycN8rG0BGvQBh6LH5WSU84SwEN0kdAN4WybmUfbDz76Kx0mM
- LDj71SsA7l0D+Y9IffLe88VPxfYjZhF1pyAOKtk0KGJxG+4JDfc2Ttwbc2p7D6gjiG7tr1OC7GN
- JIdkoMB/qOUd6RNrpztP+Sqi7rJGdgqEFc10wpS4lhxJUah99zhQ8qq+WATTae2LaysIYOKFK6i
- PeLS4JwIyGiigKpXYsyTdMV0e8u9h8ycJfh78tXe1BYQ==
-X-Forward-Email-ID: 6a971609a9d0b3c06ff430dc
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.14.0
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <cddc47a2-81de-4978-9009-bdefeda2d3b5@kwiboo.se>
-Date: Tue, 1 Sep 2026 20:14:23 +0200
+	id 1x1T54-0000000CwC2-02fu;
+	Tue, 01 Sep 2026 18:19:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788286768; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=USb3jODCBA8EzpNeFDTXt2QMSj2eX0bvUx2KeBJ2JnHPffDC4ZS9v3eRaK4MDJC829XdcWAXib+ciqp0mtLHmEOrZxccPkGDnODnQ6umv6dwe386TsJcZqH1xFeBz/qZm5MJ8r47zs1MgBoGDhcjsNLxIPaj3Nry/Dpbh7SEbfM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788286768; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=uZ2uRcgPfud4hk5s1LTXcwJq61fP1H5EqgQJ2HryKic=; 
+	b=g7YDL2Qd0jBtTnsa/fkQs7p2c+iLm+Bm6Vn1EVwNiwAY5ERgokT7yeX5Xr+4TuSsL/a8gVHGcbjMfzy0YZiSvsawmJhk9Zgbaj30mNuqAMNRVzRg3YHuo9aLj1cp6Vm/pfDyQjcvyC5hHZKRdZOeB1ofVZmwLpThKoTuNHn8M4U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788286768;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=uZ2uRcgPfud4hk5s1LTXcwJq61fP1H5EqgQJ2HryKic=;
+	b=e2ZhGK9NXPC5tAzpWpEAlWgB0+sZCKSP2leGoN4Qkn4VF2S0Qxxtwzs8JHdSrBx4
+	2A0FOggvqErSX95F8NWc1hwo6i+B+1RyHRg1urFTIp1Z13UpbKKVVOh0Y4JjF8jxXm1
+	x5ru+E7jJb2RYXcnZNkq+UCgk7dn4eYleY9+JIAiUSrSfWRLHBdKL2n+WCD52b90T4M
+	ScdWsA4cLWRlcPZNXcM68ZFAzA1wfmRrW21lbuMQSgGdTjiuc4VCKpgg48Rr2TwejPo
+	Zb/+D8Tq3yC0RC0q2Z5LgZl4UIEiK0IyTVLDmMI8hi/8h2chpzPInAK/WTHMoNS61dO
+	DmY6FfQQQg==
+Received: by mx.zohomail.com with SMTPS id 1788286767462479.40721919787177;
+	Tue, 1 Sep 2026 11:19:27 -0700 (PDT)
+From: Rong Zhang <i@rong.moe>
+Date: Wed, 02 Sep 2026 02:19:18 +0800
+Subject: [PATCH v3] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/15] phy: rockchip: inno-hdmi: Use the common
- Innosilicon PHY helpers
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, Hal Feng
- <hal.feng@starfivetech.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Conor Dooley <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- mfd@lists.linux.dev, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-riscv@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>,
- Andy Yan <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Maud Spierings <maudspierings@gocontroll.com>,
- Graham Markall <hello@big-grey.co.uk>
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
- <CGME20260828134835eucas1p27736632121c17e11f554e295994a7d8d@eucas1p2.samsung.com>
- <20260828-jh7110-clean-send-v2-12-331680c8b9d1@samsung.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260828-jh7110-clean-send-v2-12-331680c8b9d1@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260902-btmtk-ryzen-remote-wakeup-v3-1-8a733d0edd7c@rong.moe>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0K6tqYM0Ior72FclDJoNbSkLSgS7
+ m7Bha7IrF7y572JeHQaPTkmE3E4aK+tiZDtEqJu0lyR6joygYxV8qBKWoU2PKgb32iow9YGpE/
+ 5wL6jrChkzgQ/ADYk/ncOG/1a3efLl31f3VGFRbgsbtoH68Y1PqTLjgADzjhsdYaUxquhSRUir
+ wFOzprrvrVIlswAP5Fg6ZYIokhwIZUomcjFv2ie5w9qhQb7HAEAAA==
+X-Change-ID: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
+To: Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, 
+ =?utf-8?q?Chris_Lu_=28=E9=99=B8=E7=A8=9A=E6=B3=93=29?= <Chris.Lu@mediatek.com>, 
+ =?utf-8?q?Will-CY_Lee_=28=E6=9D=8E=E6=94=BF=E7=A9=8E=29?= <Will-CY.Lee@mediatek.com>, 
+ =?utf-8?q?SS_Wu_=28=E5=B7=AB=E6=86=B2=E6=AC=A3=29?= <ss.wu@mediatek.com>, 
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Rafael Passos <rafael@rcpassos.me>, Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-1f2f7
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_111449_825653_FF5367BE 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20260901_111934_141077_1EC64175 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,279 +92,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+It is reported that a remote wakeup could cause MT7922/MT7925's btusb
+interface completely unresponsive. Resetting the xHCI root hub doesn't
+help at all, and recovering from such a state needs a power cycle.
 
-On 8/28/2026 3:47 PM, Michal Wilczynski wrote:
-> The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
-> determine_rate implementations are the generic Innosilicon ones, so drop
-> the local copies and use the shared helpers instead.
+All reports seen to be relevant to Ryzen-based laptops. These NICs are
+usually used as OEM components thanks to some sort of reference designs.
+Their popularity on other platforms is unclear. While there is still a
+chance that the quirk may exist on other platforms, be cautious and only
+apply the quirk to direct children of Ryzen platforms's root hubs for
+the time being. In most cases the root hub is on the SoC or PCH, which
+needs the quirk. Unfortunately, this can't distinguish root hubs on PCIe
+add-in cards. Such roughness should be acceptable, as PCIe USB
+controller add-in cards are less commonly used nowadays. On the other
+hand, applying the quirk doesn't hurt any functionalities either, as the
+device can still be used as a wakeup source if desired. Theoretically,
+we could retrieve the root hub's PCI vendor ID with some hierarchy
+magic, but that's too intrusive...
 
-RK3528 and RK3538/RK3539 also seems to use the generic Innosilicon ones,
-so we should hopefully also be able to use the helpers for those SoCs.
+Meanwhile, though device_set_wakeup_capable(false) is the correct fix
+for other NICs with fake remote wakeup capabilities, doing so for
+MT7922/MT7925 effectively prevents it from being used as wakeup
+sources as per userspace requests. Hence, return -EBUSY on runtime
+suspend to prevent the interface from being autosuspended while it's
+still opened, which has the same effect as
+device_set_wakeup_capable(false), since disabling remote wakeup simply
+causes the USB core to gate runtime autosuspend as well due to
+needs_remote_wakeup == 1. The interface can be safely autosuspended as
+long as remote wakeup is disabled, i.e., after closing the HCI device.
 
-> 
-> The RK3228 pre-PLL sits at different register addresses, so it keeps its
-> own register level code and only shares the table lookup.
-> 
-> The register writes, their order and the values written are unchanged.
-> No functional change intended.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/phy/rockchip/Kconfig                  |   1 +
->  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 127 +++++---------------------
->  2 files changed, 25 insertions(+), 103 deletions(-)
-> 
-> diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-> index 14698571b607590dc0e7a29f3b39eb9a5d4e3d25..9732c5be87717dc3ddbea1c60080952336a07af9 100644
-> --- a/drivers/phy/rockchip/Kconfig
-> +++ b/drivers/phy/rockchip/Kconfig
-> @@ -34,6 +34,7 @@ config PHY_ROCKCHIP_INNO_HDMI
->  	depends on COMMON_CLK
->  	depends on HAS_IOMEM
->  	select GENERIC_PHY
-> +	select PHY_INNO_HDMI
->  	help
->  	  Enable this to support the Rockchip Innosilicon HDMI PHY.
->  
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> index 1483907413faa5ce1dc8614db05e6e929410404d..fae766607b0ea120b3adb36001387062f39a5c00 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> @@ -17,6 +17,7 @@
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
-> +#include <linux/phy/inno-hdmi-phy.h>
->  #include <linux/phy/phy.h>
->  #include <linux/slab.h>
->  
-> @@ -240,6 +241,8 @@ struct inno_hdmi_phy {
->  	const struct inno_hdmi_phy_drv_data *plat_data;
->  	int chip_version;
->  
-> +	struct inno_hdmi_phy_pre_pll pre_pll;
-> +
->  	/* clk provider */
->  	struct clk_hw hw;
->  	struct clk *phyclk;
-> @@ -247,21 +250,6 @@ struct inno_hdmi_phy {
->  	unsigned long tmdsclock;
->  };
->  
-> -struct pre_pll_config {
-> -	unsigned long pixclock;
-> -	unsigned long tmdsclock;
-> -	u8 prediv;
-> -	u16 fbdiv;
-> -	u8 tmds_div_a;
-> -	u8 tmds_div_b;
-> -	u8 tmds_div_c;
-> -	u8 pclk_div_a;
-> -	u8 pclk_div_b;
-> -	u8 pclk_div_c;
-> -	u8 pclk_div_d;
-> -	u8 vco_div_5_en;
-> -	u32 fracdiv;
-> -};
->  
->  struct post_pll_config {
->  	unsigned long tmdsclock;
-> @@ -290,7 +278,7 @@ struct inno_hdmi_phy_drv_data {
->  	const struct phy_config		*phy_cfg_table;
->  };
->  
-> -static const struct pre_pll_config pre_pll_cfg_table[] = {
-> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
->  	{ 25175000,  25175000,  3,  125, 3, 1, 1,  1, 3, 3,  4, 0, 0xe00000},
->  	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
->  	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
-> @@ -673,20 +661,12 @@ static const struct phy_ops inno_hdmi_phy_ops = {
->  };
->  
->  static const
-> -struct pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
-> -						     unsigned long rate)
-> +struct inno_hdmi_phy_pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
-> +								   unsigned long rate)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->  
-> -	for (; cfg->pixclock != 0; cfg++)
-> -		if (cfg->pixclock == rate && cfg->tmdsclock == tmdsclock)
-> -			break;
-> -
-> -	if (cfg->pixclock == 0)
-> -		return ERR_PTR(-EINVAL);
-> -
-> -	return cfg;
-> +	return inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
+Specifically, the interface may still take the advantage of remote
+wakeup in order to wake up the system from sleep if userspace has
+enabled it as a wakeup source.
 
-Please fully remove the local inno_hdmi_phy_get_pre_pll_cfg() helper and
-call inno_hdmi_phy_pre_pll_lookup() in its place.
+Fixes: e31d761628ad ("Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925")
+Tested-by: Rafael Passos <rafael@rcpassos.me>
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+Changes in v3:
+- Resubmit due to v2 being archived
+- Update tags
+- Link to v2: https://patch.msgid.link/20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe
 
->  }
->  
->  static int inno_hdmi_phy_rk3228_clk_is_prepared(struct clk_hw *hw)
-> @@ -752,7 +732,7 @@ unsigned long inno_hdmi_phy_rk3228_clk_recalc_rate(struct clk_hw *hw,
->  static int inno_hdmi_phy_rk3228_clk_determine_rate(struct clk_hw *hw,
->  						   struct clk_rate_request *req)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
->  
->  	req->rate = (req->rate / 1000) * 1000;
->  
-> @@ -773,7 +753,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
->  					     unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	const struct pre_pll_config *cfg;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
->  	u32 v;
->  	int ret;
-> @@ -870,39 +850,11 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->  						   unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	unsigned long frac;
-> -	u8 nd, no_a, no_b, no_d;
-> -	u64 vco;
-> -	u16 nf;
-> -
-> -	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
-> -	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
-> -	nf |= inno_read(inno, 0xa3);
-> -	vco = parent_rate * nf;
-> -
-> -	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
-> -		frac = inno_read(inno, 0xd3) |
-> -		       (inno_read(inno, 0xd2) << 8) |
-> -		       (inno_read(inno, 0xd1) << 16);
-> -		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
-> -	}
->  
-> -	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
-> -		do_div(vco, nd * 5);
-> -	} else {
-> -		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
-> -		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
-> -		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
-> -		no_b += 2;
-> -		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
-> -
-> -		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
-> -	}
-> +	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
-> +							   parent_rate);
->  
-> -	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
-> -
-> -	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
-> -		__func__, inno->pixclock, vco);
-> +	dev_dbg(inno->dev, "%s rate %lu\n", __func__, inno->pixclock);
+Changes in v2:
+- Only apply the quirk to to direct children of Ryzen platforms's root
+  hubs
+  - Theoretically, we could retrieve the root hub's PCI vendor ID with
+    some hierarchy magic to further limit the range down to only root
+    hubs on the SoC or PCH, but that's too intrusive -- the hierarchy
+    magic really made me nervous once I saw what I have wrote, so I gave
+    it up
+- Link to v1: https://patch.msgid.link/20260629-btmtk-ryzen-remote-wakeup-v1-1-1d2f1cee6d22@rong.moe
+---
+ drivers/bluetooth/btmtk.c | 10 -------
+ drivers/bluetooth/btusb.c | 73 ++++++++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 69 insertions(+), 14 deletions(-)
 
-VCO should be between 1.4-3.2 GHz, we now loose this debug information.
-This is a change that probably should be noted in the commit message.
+diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+index c0ed51567ed4..9589caff925d 100644
+--- a/drivers/bluetooth/btmtk.c
++++ b/drivers/bluetooth/btmtk.c
+@@ -1374,16 +1374,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+ 		break;
+ 	case 0x7922:
+ 	case 0x7925:
+-		/*
+-		 * A remote wakeup could cause the device completely unresponsive, and
+-		 * recovering from such a state needs a power cycle.
+-		 *
+-		 * Since the remote wakeup capability is super broken, just disable it
+-		 * to get rid of the troubles. The device can still be autosuspended
+-		 * when the bluetooth interface is closed.
+-		 */
+-		device_set_wakeup_capable(&btmtk_data->udev->dev, false);
+-		fallthrough;
+ 	case 0x7961:
+ 	case 0x7902:
+ 	case 0x6639:
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index d70a3e7a13f5..95f4640c60e4 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -6,6 +6,7 @@
+  *  Copyright (C) 2005-2008  Marcel Holtmann <marcel@holtmann.org>
+  */
+ 
++#include <linux/cpufeature.h>
+ #include <linux/dmi.h>
+ #include <linux/module.h>
+ #include <linux/usb.h>
+@@ -980,6 +981,7 @@ struct btqca_data {
+ #define BTUSB_USE_ALT3_FOR_WBS	15
+ #define BTUSB_ALT6_CONTINUOUS_TX	16
+ #define BTUSB_HW_SSR_ACTIVE	17
++#define BTUSB_WAKEUP_BROKEN	18
+ 
+ struct btusb_data {
+ 	struct hci_dev       *hdev;
+@@ -2969,10 +2971,25 @@ static int btusb_send_frame_mtk(struct hci_dev *hdev, struct sk_buff *skb)
+ 	}
+ }
+ 
++static inline bool platform_is_ryzen(void)
++{
++#ifdef CONFIG_X86
++	return boot_cpu_has(X86_FEATURE_ZEN);
++#else
++	return false;
++#endif
++}
++
++static inline bool is_direct_child_of_root_hub(struct usb_device *udev)
++{
++	return udev->parent == udev->bus->root_hub;
++}
++
+ static int btusb_mtk_setup(struct hci_dev *hdev)
+ {
+ 	struct btusb_data *data = hci_get_drvdata(hdev);
+ 	struct btmtk_data *btmtk_data = hci_get_priv(hdev);
++	int err;
+ 
+ 	/* MediaTek WMT vendor cmd requiring below USB resources to
+ 	 * complete the handshake.
+@@ -2989,7 +3006,40 @@ static int btusb_mtk_setup(struct hci_dev *hdev)
+ 		btusb_mtk_claim_iso_intf(data);
+ 	}
+ 
+-	return btmtk_usb_setup(hdev);
++	err = btmtk_usb_setup(hdev);
++	if (err)
++		return err;
++
++	switch (btmtk_data->dev_id) {
++	case 0x7922:
++	case 0x7925:
++		/*
++		 * All reports seen to be relevant to Ryzen-based laptops. These
++		 * NICs are usually used as OEM components thanks to some sort
++		 * of reference designs.
++		 *
++		 * Their popularity on other platforms is unclear. While there
++		 * is still a chance that the quirk may exist on other
++		 * platforms, be cautious and only apply the quirk to direct
++		 * children of Ryzen platforms's root hubs for the time being.
++		 *
++		 * In most cases the root hub is on the SoC or PCH, which needs
++		 * the quirk. Unfortunately, this can't distinguish root hubs on
++		 * PCIe add-in cards. Such roughness should be acceptable, as
++		 * PCIe USB controller add-in cards are less commonly used
++		 * nowadays. On the other hand, applying the quirk doesn't hurt
++		 * any functionalities either, as the device can still be used
++		 * as a wakeup source if desired.
++		 *
++		 * Theoretically, we could retrieve the root hub's PCI vendor ID
++		 * with some hierarchy magic, but that's too intrusive...
++		 */
++		if (platform_is_ryzen() && is_direct_child_of_root_hub(data->udev))
++			set_bit(BTUSB_WAKEUP_BROKEN, &data->flags);
++		break;
++	}
++
++	return 0;
+ }
+ 
+ static int btusb_mtk_shutdown(struct hci_dev *hdev)
+@@ -4565,11 +4615,26 @@ static int btusb_suspend(struct usb_interface *intf, pm_message_t message)
+ 
+ 	BT_DBG("intf %p", intf);
+ 
+-	/* Don't auto-suspend if there are connections or discovery in
+-	 * progress; external suspend calls shall never fail.
++	/*
++	 * It is reported that remote wakeup events could sometimes cause some
++	 * adapters completely unresponsive. Resetting the xHCI root hub doesn't
++	 * help at all, and recovering from such a state needs a power cycle.
++	 * Since disabling remote wakeup simply causes the USB core to gate
++	 * runtime autosuspend as well due to needs_remote_wakeup == 1, let's do
++	 * this ourselves to make our life easier. The interface can be safely
++	 * autosuspended as long as remote wakeup is disabled, i.e., after
++	 * closing the HCI device.
++	 *
++	 * Don't auto-suspend if there are connections or discovery in progress.
++	 *
++	 * External suspend calls shall never fail. Specifically, a device with
++	 * broken remote wakeup may still take the advantage of remote wakeup in
++	 * order to wake up the system from sleep if userspace has enabled it as
++	 * a wakeup source.
+ 	 */
+ 	if (PMSG_IS_AUTO(message) &&
+-	    (hci_conn_count(data->hdev) || hci_discovery_active(data->hdev)))
++	    ((test_bit(BTUSB_WAKEUP_BROKEN, &data->flags) && data->intf->needs_remote_wakeup) ||
++	     hci_conn_count(data->hdev) || hci_discovery_active(data->hdev)))
+ 		return -EBUSY;
+ 
+ 	if (data->suspend_count++)
 
->  
->  	return inno->pixclock;
->  }
-> @@ -910,20 +862,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
->  static int inno_hdmi_phy_rk3328_clk_determine_rate(struct clk_hw *hw,
->  						   struct clk_rate_request *req)
->  {
-> -	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> -
-> -	req->rate = (req->rate / 1000) * 1000;
-> -
-> -	for (; cfg->pixclock != 0; cfg++)
-> -		if (cfg->pixclock == req->rate)
-> -			break;
-> -
-> -	if (cfg->pixclock == 0)
-> -		return -EINVAL;
-> -
-> -	req->rate = cfg->pixclock;
-> +	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
->  
-> -	return 0;
-> +	return inno_hdmi_phy_pre_pll_determine_rate(&inno->pre_pll, req);
->  }
->  
->  static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
-> @@ -931,9 +872,8 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->  					     unsigned long parent_rate)
->  {
->  	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-> -	const struct pre_pll_config *cfg;
-> +	const struct inno_hdmi_phy_pre_pll_config *cfg;
->  	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
-> -	u32 val;
->  	int ret;
->  
->  	dev_dbg(inno->dev, "%s rate %lu tmdsclk %lu\n",
-> @@ -946,35 +886,11 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
->  	if (IS_ERR(cfg))
->  		return PTR_ERR(cfg);
->  
-> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN,
-> -			 RK3328_PRE_PLL_POWER_DOWN);
-> -
-> -	/* Configure pre-pll */
-> -	inno_update_bits(inno, 0xa0, RK3328_PCLK_VCO_DIV_5_MASK,
-> -			 RK3328_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
-> -	inno_write(inno, 0xa1, RK3328_PRE_PLL_PRE_DIV(cfg->prediv));
-> -
-> -	val = RK3328_SPREAD_SPECTRUM_MOD_DISABLE;
-> -	if (!cfg->fracdiv)
-> -		val |= RK3328_PRE_PLL_FRAC_DIV_DISABLE;
-> -	inno_write(inno, 0xa2, RK3328_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
-> -	inno_write(inno, 0xa3, RK3328_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
-> -	inno_write(inno, 0xa5, RK3328_PRE_PLL_PCLK_DIV_A(cfg->pclk_div_a) |
-> -		   RK3328_PRE_PLL_PCLK_DIV_B(cfg->pclk_div_b));
-> -	inno_write(inno, 0xa6, RK3328_PRE_PLL_PCLK_DIV_C(cfg->pclk_div_c) |
-> -		   RK3328_PRE_PLL_PCLK_DIV_D(cfg->pclk_div_d));
-> -	inno_write(inno, 0xa4, RK3328_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c) |
-> -		   RK3328_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
-> -		   RK3328_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b));
-> -	inno_write(inno, 0xd3, RK3328_PRE_PLL_FRAC_DIV_7_0(cfg->fracdiv));
-> -	inno_write(inno, 0xd2, RK3328_PRE_PLL_FRAC_DIV_15_8(cfg->fracdiv));
-> -	inno_write(inno, 0xd1, RK3328_PRE_PLL_FRAC_DIV_23_16(cfg->fracdiv));
-> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, true);
-> +	inno_hdmi_phy_pre_pll_configure(&inno->pre_pll, cfg);
-> +	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, false);
->  
-> -	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN, 0);
+---
+base-commit: 786262be6048deab760f68c8acc2c85607165894
+change-id: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
 
-This should likely also remove all now unused RK3328 pre_pll related
-macros.
-
-Regards,
-Jonas
-
-> -
-> -	/* Wait for Pre-PLL lock */
-> -	ret = inno_poll(inno, 0xa9, val, val & RK3328_PRE_PLL_LOCK_STATUS,
-> -			1000, 10000);
-> +	ret = inno_hdmi_phy_pre_pll_wait_locked(&inno->pre_pll, 10000);
->  	if (ret) {
->  		dev_err(inno->dev, "Pre-PLL locking failed\n");
->  		return ret;
-> @@ -1373,6 +1289,11 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(inno->regmap))
->  		return PTR_ERR(inno->regmap);
->  
-> +	/* The PHY block starts the register space on these SoCs. */
-> +	inno->pre_pll.regmap = inno->regmap;
-> +	inno->pre_pll.offset = 0;
-> +	inno->pre_pll.table = pre_pll_cfg_table;
-> +
->  	/* only the newer rk3328 hdmiphy has an interrupt */
->  	inno->irq = platform_get_irq(pdev, 0);
->  	if (inno->irq > 0) {
-> 
+Thanks,
+Rong
 
 
