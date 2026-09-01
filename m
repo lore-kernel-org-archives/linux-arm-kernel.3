@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684DDC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51418C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNtqw+4cMw2tiBTTuj3vqzwte2JlYbPEDqcQmayzdB4=; b=D1QCK6UZjw3Un01/SfQ8sJ0OM0
-	QbAN2QyD86YTJKy9cTtclbNIWj4ZAbywpdLy9XpMJfEVURaRj5mFxLvXgzlgT3XM4tBRHnO4H7ymg
-	Wcyh3qetn7sfkoNb3SiWHBtZWNXT1r1VPKzujPx9G64/btZiG6Ypmut86sjkYDP91zwKdOngsp0js
-	SI5r0tp6vi6VB8ezThIvJNpd5dIbC8hoAj/RE2jASF1OqdQdg56QTB0yKQx/wrxbg4UOPac8kX4Qh
-	EVplA/tcg/z8FsZiC1OGk0Mx+EGk/9fvzDNHKglsffdcI/KDIG3d0b9dhW3c6FlWWecQ0/NnL9uQj
-	GMZXJ20Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UTYhxBnwSC8yAJEvjw+cCqMcJ96NHJ7AdHx5vnA8Kag=; b=H46gf02qHEKlMFNAAD0dVsJzy5
+	RZpX5HDlV+XNB8ZAwFwiukyrMf/C/rfdlZe1YsYY7v7qVXe3upzHK7zqpny4xwq40uh369ua2Ftfq
+	noELKgVzS/2r3kfnoFvzVFGtZPV6jloeW/Vg8R86AYevzHKCaCXl6RNyodYD66iwcBLmJIoZ1eaJM
+	ebWzJK9uriOWH1BOdt1JcWTGQevXM+1pSM8lxz6L34wFKMa+aQI4NHdolO9v9GrOUres1hNo5KiSE
+	0yOkZkvY2r+wMiY+hwjYyLOUgnxSQfG8n2mOnBWsKtiVKxTbiIZ+5ZpS65swepiTHnuORVt9rRy4P
+	xekGoBlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SDi-0000000Cotq-1AdB;
-	Tue, 01 Sep 2026 17:24:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1SGR-0000000CpGW-07K9;
+	Tue, 01 Sep 2026 17:27:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1SDh-0000000Cote-1Amw
+	id 1x1SGP-0000000CpGN-3Tiq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:24:25 +0000
+	Tue, 01 Sep 2026 17:27:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0ECAB4351C;
-	Tue,  1 Sep 2026 17:24:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44B451F000E9;
-	Tue,  1 Sep 2026 17:24:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E9B0408C3;
+	Tue,  1 Sep 2026 17:27:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B548B1F000E9;
+	Tue,  1 Sep 2026 17:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788283464;
-	bh=FNtqw+4cMw2tiBTTuj3vqzwte2JlYbPEDqcQmayzdB4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LA5VUHH3CQRbq6TtG7uAOUnltv/nWwvN8V4834MNvXbYRxwSmTotOmWteii8UiQS5
-	 QR4fRDprMmPj5OuZI0MppUEPQ57nQvrdsdqpstxXyjI1E00zLmnpLMN9UloL/ZT3FO
-	 0XmliimdrLwMGlqsl+hZIsTW4GKZKZZ9EEBZc2x2c4GzLI/e4yKx5tOAffPk/J5ASP
-	 x2ZLdYf9X9nf1oK3mVaEG8OLndn+E+5n+OfO8fLsoGCF3JHWDts5Pv/MKpgYoy/yPr
-	 NZso7dD+ZtKvquJLdY3TsryJ/fkqf89H3HUSu6B8WDndLzqUjSBpq32qmt4O6UVQE/
-	 43dW7Sls5S4Yw==
-Date: Tue, 1 Sep 2026 20:24:16 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Eli Billauer <eli.billauer@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Ritu Agarwal <rituagar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
- kmalloc()
-Message-ID: <apcKQBRCFeF-usK7@kernel.org>
-References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
- <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
- <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
- <apVmYXlqsVr_p4Oc@kernel.org>
- <7adfefaa-91c5-4bf4-ff98-5dfbba0eac96@outbound.gmail.com>
+	s=k20260515; t=1788283633;
+	bh=UTYhxBnwSC8yAJEvjw+cCqMcJ96NHJ7AdHx5vnA8Kag=;
+	h=From:Date:Subject:To:Cc;
+	b=OQIvTMiVjUOTouHgNZm/4jk1gj6AWHc5oxw7C9FLVGOKURh5qWfEXeBbJXtfo+XaU
+	 3M140dneL9GwXkoTfQcr2klZMtlwdfsyDoLgZyOLRT+idC3U+XvjNlOj+BGljcpn+1
+	 haX7CJ3T+02vxcobqGJuF9TZVKPqlDaYwpH5Itcp8NbwZenTVpCJfJZmZQLS8AuRqe
+	 rqSMBHK2VPQ5CTxVssecqZBO+itmUzCwqzkkjaOCEv+bOWsP/Pl2Tp+9IhgJeTunH7
+	 XNZsc9LFFwnvxeFPwq96DVCsSW8x4aEhzd/A4xvC6lG9RxCCFVfMD1i/9Kqf+SnN0K
+	 oFWB5ucle2NAw==
+From: Mark Brown <broonie@kernel.org>
+Date: Tue, 01 Sep 2026 18:27:06 +0100
+Subject: [PATCH] kselftest/arm64: Extend gcs-locking to cover cases where
+ enable is unlocked
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7adfefaa-91c5-4bf4-ff98-5dfbba0eac96@outbound.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260901-arm64-test-gcs-locking-no-enable-v1-1-8335dacb1587@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAOkKl2oC/yXNQQrCMBBA0auUWTuQRgnVq4iLdDKNozWRTCpC6
+ d2Nunyb/1dQLsIKp26Fwi9Ryamh33VAV58io4RmsMY6M1iHvjzcAStrxUiKc6a7pIgpIyc/zox
+ kjz0FCpMZ9tAyz8KTvH+L8+VvXcYbU/12Yds+KogZUYQAAAA=
+X-Change-ID: 20260826-arm64-test-gcs-locking-no-enable-c291cdcdf083
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Bill Roberts <bill.roberts@foss.arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=GitzmlQ5l2hvhW8wvFRTMCxX5/K59sspgMLl2BRFAKs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlwrtKh42AbGQdwtSNDUXnKY5gRabpMQmdzjHD
+ UEke+z5R3OJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcK7QAKCRAk1otyXVSH
+ 0Du0B/0d+jiM4CD5r2DSpJPQ0ZEneNMYRJD+tpkMb2BAe1cTlB6P0/4zzqlVrlbIPRhs8JI5GyN
+ RnDgJ1optVUKvI4x4Rzdtf83OzHBh76lx9VHKkvVY9dv+LE70SNihTryO8Ru3tv3rVZVZeRQOLv
+ xjnA3KdZgmcuMIXXgf2/PJv41YYvdig1e9T2wGqGDSqY+BeCU+4/i++ba2bsZdFxKCSqOiugUAe
+ 7H0Bkv9UPP3j3hE9b3tQS65HDyzQMGlhSicEfeSjj/54c+elh8lfa2iFbevg+SeZ38oOgs0rqRA
+ crCUKVmx/KXiosqF3/NBLh9/RG3GzZ+QQvDV59new5CB6zqK
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:42:47AM +0200, Eli Billauer wrote:
-> On 31/08/2026 13:32, Mike Rapoport wrote:
-> > For large sizes kmalloc falls back to page allocator anyway.
-> > 
-> > And the doc is out of date unfortunately.
-> 
-> I think it would be a good idea to update the doc first, and by doing so
-> officially change the API. After getting this change approved, it's indeed
-> safe to rely on kmalloc() even for larger memory allocations.
+The gcs-locking test case currently only covers locking combinations of
+the various flags that can be set for GCS (enable, write and push) where
+enable is included in the locked bits. Since it is valid to only lock a
+combination of write and push while leaving enable user controllable we
+should also cover those cases, add coverage for them. The new cases pass
+as expected.
 
-The documentation always lags behind the code and "official" API is what
-include/linux/slab.h says :)
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/gcs/gcs-locking.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-When I wrote that document, SLAB and SLOB were still around and had
-different properties than SLUB for larger allocations.
-
-Still, the documentation update is on it's way upstream:
-https://lore.kernel.org/linux-mm/20260831-docs-memalloc-guide-v1-0-547718c274c1@kernel.org/
+diff --git a/tools/testing/selftests/arm64/gcs/gcs-locking.c b/tools/testing/selftests/arm64/gcs/gcs-locking.c
+index 1e6abb136ffd..4dd7ab4191f1 100644
+--- a/tools/testing/selftests/arm64/gcs/gcs-locking.c
++++ b/tools/testing/selftests/arm64/gcs/gcs-locking.c
+@@ -77,6 +77,21 @@ FIXTURE_VARIANT_ADD(valid_modes, enable_write_push)
+ 		PR_SHADOW_STACK_PUSH,
+ };
  
-> Regards,
->    Eli
++FIXTURE_VARIANT_ADD(valid_modes, write)
++{
++	.mode = PR_SHADOW_STACK_WRITE,
++};
++
++FIXTURE_VARIANT_ADD(valid_modes, push)
++{
++	.mode = PR_SHADOW_STACK_PUSH,
++};
++
++FIXTURE_VARIANT_ADD(valid_modes, write_push)
++{
++	.mode = PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH,
++};
++
+ FIXTURE_SETUP(valid_modes)
+ {
+ }
 
--- 
-Sincerely yours,
-Mike.
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260826-arm64-test-gcs-locking-no-enable-c291cdcdf083
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
+
 
