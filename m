@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3430C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E0FC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6u/kmbF2kdDxG9ePtu8S4fZO3W//sG9GxBaHKxPVZI=; b=1DMbx9ZjB3x+v6elx9yCCSDCyU
-	x61fouMoPWwoiGO1TOQjekBF/F14eAygpmolUPYnkxmGUMwyJF0JSVvPTv3Ao259d3QbtxV6ZATe9
-	hxr5luseDrzimgARgKSFxEkdUXEDcZil3b3CVbwKkt8ezwkq6Jbx5gPiVPUO4444z0mbbhSR/XtW6
-	Be/1u3FQYlsRw8Md34DCP4H4TfgPxBHdHcG8TPKRYWNZzOjhT4STfYpHBj4kabUQdy32YAY61SD4N
-	HAkYaVMdTcZye5IoEGra52pkA/4wrQne4hUjnBSpU1nQgdZnRiHvAP0nWzYGb0DI7pfDpoIfD9xG4
-	L6OzDwZQ==;
+	bh=o4KYhJdCwBe+SxoLEa4AxrQNZqlmNDYC6sJ8UWY4Hc0=; b=XnIjHxmY6mMkSxesACd+FzGgeB
+	pLeZhN/2BbzuJ8hYP8LzAklv3R1bI7jBAqAlo+b7g9vyYkgqPC6gby/ZeULuxVVJf82D92NwiQcp+
+	uvyxp7Za0Fql4E4n5oHiCEJq/jAPiIELlf+CSg4HUvWCDXQGwOKq2Ycoo0LV5culrOcBGbg+X0+/i
+	Qn+9QZsSqpD04nvwW7Gjt+Es/ZZZ+tAouU5tDqphEQP7Lai9fEv53jDCQ+hgTkwoGng5bZGGiVbFJ
+	jWhjiFY9rRIBnU0cBRNMzWSGeuWf0pXfSARjZpDur7gwyHcTEBEEIwm/3gPIHDIIXBtB/PPEOCjpC
+	hdUGJT/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QBd-0000000CRlu-1XAq;
-	Tue, 01 Sep 2026 15:14:09 +0000
-Received: from sender5-pp-f112.zoho.com ([165.173.182.112])
+	id 1x1QBj-0000000CRsl-0n5r;
+	Tue, 01 Sep 2026 15:14:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QBa-0000000CRi9-36hF;
-	Tue, 01 Sep 2026 15:14:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788275633; cv=none; 
+	id 1x1QBg-0000000CRqD-3Y2p;
+	Tue, 01 Sep 2026 15:14:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788275637; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=m/qx46OP64iE/WYWWYpfub2V9+XK3vB6IhrbFCj80sZUmqzHOXwkmJjrfdp/XtDKm0C/6EpYUzDKtfli8xdLONAVbZg1VC+Ayxhq23yBnlalS32tdnCHKtL0LWRtzq1pW64FB3bri/mt7vgitgHufzSFLjGGAlrVJ2vqUJo5igw=
+	b=VXyw//D9atWhae4pSE5cGcAIjgUbqZv5Q+/++J/8ZwwGtL1HaV/1qXdu88Kd+WR386Cx8jjzrQJN1PUV7BS1tgNGHd/76duWW651d2uJGvP0fghHAgremEAJ8Tx50afxSMztLlLzNEpWSTzakKpBU5GwHPqbAPHZ3esw/k6pQRo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788275633; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=d6u/kmbF2kdDxG9ePtu8S4fZO3W//sG9GxBaHKxPVZI=; 
-	b=aWZobQb+NHpJ9qBjXxhTKuKaxML2AKspn1+YHYfyzDzVX6snYrspPQsWE18PoOZdfG4SGXOhH9Wme4RyprFDUBMksgRxYPVRtQ/U2eXjEPHGr+Q/3vL9RZT3d0zod2ktHkuQQt5yfNcG/dfyVKbD0Y1oUF0acmB9H6BYSM6Tcuk=
+	t=1788275637; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=o4KYhJdCwBe+SxoLEa4AxrQNZqlmNDYC6sJ8UWY4Hc0=; 
+	b=QCw9PSIS2A7oAUJShvxQywxoSp57bg00U4bWU3T8R4/er/5Q2WCGqQuBfoVX5twygpupL/4aU15/GDLgtC/k8jOBpKVxzTdXeOFFHQMfipZhmXuZIEqt6p5WzfPpthRwWaVRbiB5hcFgoElz9yzix5l4p3FhO7ekMGqAnymjyq4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788275633;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788275637;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=d6u/kmbF2kdDxG9ePtu8S4fZO3W//sG9GxBaHKxPVZI=;
-	b=chKxVftuxavbRYqN+fM6/DwnnHfX3Ma5Ci+WoAfdph6SL5weVJ613JIXODzYU4Oa
-	zDR0ocwYb7DAJAMP3hVodrHEq1/4OQV22okjUq54oLhJr7boFUZ5M0w6q8nOEXRXYHU
-	MdXkeU+DUmtUxuUihoNFSsRHpxSCedd0PxaKgyO8=
-Received: by mx.zohomail.com with SMTPS id 1788275632318628.167775850034;
-	Tue, 1 Sep 2026 08:13:52 -0700 (PDT)
+	bh=o4KYhJdCwBe+SxoLEa4AxrQNZqlmNDYC6sJ8UWY4Hc0=;
+	b=c1kzbC5GPWrFe/4tByq97LXZvLIf3tKO2YjgrNtq+IS20jqciqIQDPfe2Hm6N866
+	WKREsg/jFsiQwwGXBo1hREnf2GWPorGoPbNM3DSViByOk1M+h9P2jUeebcR2BstpjZQ
+	hJDtbLuBcr8My3+O7dqVB7sPMg5g+UEPmHLeoids=
+Received: by mx.zohomail.com with SMTPS id 1788275634800229.52516383730926;
+	Tue, 1 Sep 2026 08:13:54 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 01 Sep 2026 17:13:34 +0200
-Subject: [PATCH 1/2] clk: rockchip: Remove dead code from softrst driver
+Date: Tue, 01 Sep 2026 17:13:35 +0200
+Subject: [PATCH 2/2] clk: rockchip: softrst: Remove unused num_regs member
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-rockchip-reset-refactor-v1-1-936576523b21@collabora.com>
+Message-Id: <20260901-rockchip-reset-refactor-v1-2-936576523b21@collabora.com>
 References: <20260901-rockchip-reset-refactor-v1-0-936576523b21@collabora.com>
 In-Reply-To: <20260901-rockchip-reset-refactor-v1-0-936576523b21@collabora.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -62,8 +62,8 @@ Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  kernel@collabora.com, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_081406_840006_8FB37FC3 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260901_081412_935198_B2EC7683 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,479 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Every Rockchip SoC supported by mainline uses the HIWORD_MASK mechanism
-for fine-grained atomic register updates to the reset controller
-registers. This means the reset assert/deassert ops contain an
-unnecessary branch for code that is never used, and the driver struct
-contains a spinlock that is also unused.
-
-Remove this code, adjust the function signature that passes flags, and
-fix up all users, since the only downstream SoC that would make use of
-this code path is 14+ years old. If someone wants to add support to it,
-it should use separate ops.
-
-FIELD_PREP_WM16 can't be used for the reg writes here because the mask
-is non-constant.
+Not used by anything, but set. Get rid of it to save an entire 4 bytes
+of memory, which is not nothing in this economy.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/clk/rockchip/clk-px30.c    |  3 +--
- drivers/clk/rockchip/clk-rk3036.c  |  3 +--
- drivers/clk/rockchip/clk-rk3128.c  |  3 +--
- drivers/clk/rockchip/clk-rk3188.c  |  3 +--
- drivers/clk/rockchip/clk-rk3228.c  |  3 +--
- drivers/clk/rockchip/clk-rk3288.c  |  3 +--
- drivers/clk/rockchip/clk-rk3308.c  |  3 +--
- drivers/clk/rockchip/clk-rk3328.c  |  3 +--
- drivers/clk/rockchip/clk-rk3368.c  |  3 +--
- drivers/clk/rockchip/clk-rk3399.c  |  6 ++---
- drivers/clk/rockchip/clk-rk3568.c  |  6 ++---
- drivers/clk/rockchip/clk-rv1108.c  |  3 +--
- drivers/clk/rockchip/clk-rv1126.c  |  6 ++---
- drivers/clk/rockchip/clk.h         | 10 +++-----
- drivers/clk/rockchip/rst-rk3506.c  |  3 +--
- drivers/clk/rockchip/rst-rk3528.c  |  3 +--
- drivers/clk/rockchip/rst-rk3562.c  |  3 +--
- drivers/clk/rockchip/rst-rk3576.c  |  3 +--
- drivers/clk/rockchip/rst-rk3588.c  |  3 +--
- drivers/clk/rockchip/rst-rv1126b.c |  4 +--
- drivers/clk/rockchip/softrst.c     | 52 ++++++++------------------------------
- 21 files changed, 37 insertions(+), 92 deletions(-)
+ drivers/clk/rockchip/softrst.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/drivers/clk/rockchip/clk-px30.c b/drivers/clk/rockchip/clk-px30.c
-index caf7c0e6e479..1ce76bc149f8 100644
---- a/drivers/clk/rockchip/clk-px30.c
-+++ b/drivers/clk/rockchip/clk-px30.c
-@@ -1034,8 +1034,7 @@ static void __init px30_clk_init(struct device_node *np)
- 	rockchip_clk_protect_critical(px30_cru_critical_clocks,
- 				      ARRAY_SIZE(px30_cru_critical_clocks));
- 
--	rockchip_register_softrst(np, 12, reg_base + PX30_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 12, reg_base + PX30_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, PX30_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3036.c b/drivers/clk/rockchip/clk-rk3036.c
-index df9330958c83..4794d7d2fc25 100644
---- a/drivers/clk/rockchip/clk-rk3036.c
-+++ b/drivers/clk/rockchip/clk-rk3036.c
-@@ -479,8 +479,7 @@ static void __init rk3036_clk_init(struct device_node *np)
- 			&rk3036_cpuclk_data, rk3036_cpuclk_rates,
- 			ARRAY_SIZE(rk3036_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK2928_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3128.c b/drivers/clk/rockchip/clk-rk3128.c
-index 7c3d92af12df..3b6f6f1f0473 100644
---- a/drivers/clk/rockchip/clk-rk3128.c
-+++ b/drivers/clk/rockchip/clk-rk3128.c
-@@ -603,8 +603,7 @@ static struct rockchip_clk_provider *__init rk3128_common_clk_init(struct device
- 			&rk3128_cpuclk_data, rk3128_cpuclk_rates,
- 			ARRAY_SIZE(rk3128_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK2928_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3188.c b/drivers/clk/rockchip/clk-rk3188.c
-index 318c8ddc8a76..9481ed7cdc21 100644
---- a/drivers/clk/rockchip/clk-rk3188.c
-+++ b/drivers/clk/rockchip/clk-rk3188.c
-@@ -782,8 +782,7 @@ static struct rockchip_clk_provider *__init rk3188_common_clk_init(struct device
- 	rockchip_clk_register_branches(ctx, common_clk_branches,
- 				  ARRAY_SIZE(common_clk_branches));
- 
--	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK2928_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3228.c b/drivers/clk/rockchip/clk-rk3228.c
-index ed602c27b624..a63f363058b6 100644
---- a/drivers/clk/rockchip/clk-rk3228.c
-+++ b/drivers/clk/rockchip/clk-rk3228.c
-@@ -714,8 +714,7 @@ static void __init rk3228_clk_init(struct device_node *np)
- 			&rk3228_cpuclk_data, rk3228_cpuclk_rates,
- 			ARRAY_SIZE(rk3228_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 9, reg_base + RK2928_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3228_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3288.c b/drivers/clk/rockchip/clk-rk3288.c
-index 9cf3e1e43b78..4365ce8465a1 100644
---- a/drivers/clk/rockchip/clk-rk3288.c
-+++ b/drivers/clk/rockchip/clk-rk3288.c
-@@ -975,8 +975,7 @@ static void __init rk3288_common_init(struct device_node *np,
- 			ARRAY_SIZE(rk3288_cpuclk_rates));
- 
- 	rockchip_register_softrst(np, 12,
--				  rk3288_cru_base + RK3288_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				  rk3288_cru_base + RK3288_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3288_GLB_SRST_FST,
- 					   rk3288_clk_shutdown);
-diff --git a/drivers/clk/rockchip/clk-rk3308.c b/drivers/clk/rockchip/clk-rk3308.c
-index 95a9512a41a3..976da61e156b 100644
---- a/drivers/clk/rockchip/clk-rk3308.c
-+++ b/drivers/clk/rockchip/clk-rk3308.c
-@@ -948,8 +948,7 @@ static void __init rk3308_clk_init(struct device_node *np)
- 				     &rk3308_cpuclk_data, rk3308_cpuclk_rates,
- 				     ARRAY_SIZE(rk3308_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 10, reg_base + RK3308_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 10, reg_base + RK3308_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3308_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3328.c b/drivers/clk/rockchip/clk-rk3328.c
-index cd5f65b6cdf5..d15014feb878 100644
---- a/drivers/clk/rockchip/clk-rk3328.c
-+++ b/drivers/clk/rockchip/clk-rk3328.c
-@@ -912,8 +912,7 @@ static void __init rk3328_clk_init(struct device_node *np)
- 				     &rk3328_cpuclk_data, rk3328_cpuclk_rates,
- 				     ARRAY_SIZE(rk3328_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 12, reg_base + RK3328_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 12, reg_base + RK3328_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3328_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3368.c b/drivers/clk/rockchip/clk-rk3368.c
-index 95e6996adbae..77ba625d7bcd 100644
---- a/drivers/clk/rockchip/clk-rk3368.c
-+++ b/drivers/clk/rockchip/clk-rk3368.c
-@@ -902,8 +902,7 @@ static void __init rk3368_clk_init(struct device_node *np)
- 			&rk3368_cpuclkl_data, rk3368_cpuclkl_rates,
- 			ARRAY_SIZE(rk3368_cpuclkl_rates));
- 
--	rockchip_register_softrst(np, 15, reg_base + RK3368_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 15, reg_base + RK3368_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3368_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rk3399.c b/drivers/clk/rockchip/clk-rk3399.c
-index c2b243d7a5e2..42d2a48040f7 100644
---- a/drivers/clk/rockchip/clk-rk3399.c
-+++ b/drivers/clk/rockchip/clk-rk3399.c
-@@ -1568,8 +1568,7 @@ static void __init rk3399_clk_init(struct device_node *np)
- 	rockchip_clk_protect_critical(rk3399_cru_critical_clocks,
- 				      ARRAY_SIZE(rk3399_cru_critical_clocks));
- 
--	rockchip_register_softrst(np, 21, reg_base + RK3399_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 21, reg_base + RK3399_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3399_GLB_SRST_FST, NULL);
- 
-@@ -1607,8 +1606,7 @@ static void __init rk3399_pmu_clk_init(struct device_node *np)
- 	rockchip_clk_protect_critical(rk3399_pmucru_critical_clocks,
- 				  ARRAY_SIZE(rk3399_pmucru_critical_clocks));
- 
--	rockchip_register_softrst(np, 2, reg_base + RK3399_PMU_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 2, reg_base + RK3399_PMU_SOFTRST_CON(0));
- 
- 	rockchip_clk_of_add_provider(np, ctx);
- }
-diff --git a/drivers/clk/rockchip/clk-rk3568.c b/drivers/clk/rockchip/clk-rk3568.c
-index d571c4b0c35f..3871c139b5dd 100644
---- a/drivers/clk/rockchip/clk-rk3568.c
-+++ b/drivers/clk/rockchip/clk-rk3568.c
-@@ -1644,8 +1644,7 @@ static void __init rk3568_pmu_clk_init(struct device_node *np)
- 	rockchip_clk_register_branches(ctx, rk3568_clk_pmu_branches,
- 				       ARRAY_SIZE(rk3568_clk_pmu_branches));
- 
--	rockchip_register_softrst(np, 1, reg_base + RK3568_PMU_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 1, reg_base + RK3568_PMU_SOFTRST_CON(0));
- 
- 	rockchip_clk_protect_critical(rk3568_pmucru_critical_clocks,
- 				      ARRAY_SIZE(rk3568_pmucru_critical_clocks));
-@@ -1688,8 +1687,7 @@ static void __init rk3568_clk_init(struct device_node *np)
- 	rockchip_clk_register_branches(ctx, rk3568_clk_branches,
- 				       ARRAY_SIZE(rk3568_clk_branches));
- 
--	rockchip_register_softrst(np, 30, reg_base + RK3568_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 30, reg_base + RK3568_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RK3568_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rv1108.c b/drivers/clk/rockchip/clk-rv1108.c
-index 5f49af3c970a..71ad247b7028 100644
---- a/drivers/clk/rockchip/clk-rv1108.c
-+++ b/drivers/clk/rockchip/clk-rv1108.c
-@@ -813,8 +813,7 @@ static void __init rv1108_clk_init(struct device_node *np)
- 			&rv1108_cpuclk_data, rv1108_cpuclk_rates,
- 			ARRAY_SIZE(rv1108_cpuclk_rates));
- 
--	rockchip_register_softrst(np, 13, reg_base + RV1108_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 13, reg_base + RV1108_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RV1108_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk-rv1126.c b/drivers/clk/rockchip/clk-rv1126.c
-index 15e7bfe84506..f35bc9670c27 100644
---- a/drivers/clk/rockchip/clk-rv1126.c
-+++ b/drivers/clk/rockchip/clk-rv1126.c
-@@ -1102,8 +1102,7 @@ static void __init rv1126_pmu_clk_init(struct device_node *np)
- 	rockchip_clk_register_branches(ctx, rv1126_clk_pmu_branches,
- 				       ARRAY_SIZE(rv1126_clk_pmu_branches));
- 
--	rockchip_register_softrst(np, 2, reg_base + RV1126_PMU_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 2, reg_base + RV1126_PMU_SOFTRST_CON(0));
- 
- 	rockchip_clk_of_add_provider(np, ctx);
- }
-@@ -1138,8 +1137,7 @@ static void __init rv1126_clk_init(struct device_node *np)
- 	rockchip_clk_register_branches(ctx, rv1126_clk_branches,
- 				       ARRAY_SIZE(rv1126_clk_branches));
- 
--	rockchip_register_softrst(np, 15, reg_base + RV1126_SOFTRST_CON(0),
--				  ROCKCHIP_SOFTRST_HIWORD_MASK);
-+	rockchip_register_softrst(np, 15, reg_base + RV1126_SOFTRST_CON(0));
- 
- 	rockchip_register_restart_notifier(ctx, RV1126_GLB_SRST_FST, NULL);
- 
-diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-index 72b36bba3152..4da264f5f0c8 100644
---- a/drivers/clk/rockchip/clk.h
-+++ b/drivers/clk/rockchip/clk.h
-@@ -1358,8 +1358,6 @@ void rockchip_clk_protect_critical(const char *const clocks[], int nclocks);
- void rockchip_register_restart_notifier(struct rockchip_clk_provider *ctx,
- 					unsigned int reg, void (*cb)(void));
- 
--#define ROCKCHIP_SOFTRST_HIWORD_MASK	BIT(0)
--
- struct clk *rockchip_clk_register_halfdiv(const char *name,
- 					  const char *const *parent_names,
- 					  u8 num_parents, void __iomem *base,
-@@ -1375,21 +1373,21 @@ struct clk *rockchip_clk_register_halfdiv(const char *name,
- void rockchip_register_softrst_lut(struct device_node *np,
- 				   const int *lookup_table,
- 				   unsigned int num_regs,
--				   void __iomem *base, u8 flags);
-+				   void __iomem *base);
- #else
- static inline void rockchip_register_softrst_lut(struct device_node *np,
- 				   const int *lookup_table,
- 				   unsigned int num_regs,
--				   void __iomem *base, u8 flags)
-+				   void __iomem *base)
- {
- }
- #endif
- 
- static inline void rockchip_register_softrst(struct device_node *np,
- 					     unsigned int num_regs,
--					     void __iomem *base, u8 flags)
-+					     void __iomem *base)
- {
--	return rockchip_register_softrst_lut(np, NULL, num_regs, base, flags);
-+	return rockchip_register_softrst_lut(np, NULL, num_regs, base);
- }
- 
- void rv1126b_rst_init(struct device_node *np, void __iomem *reg_base);
-diff --git a/drivers/clk/rockchip/rst-rk3506.c b/drivers/clk/rockchip/rst-rk3506.c
-index c3abde60f3c6..74b66870f4a7 100644
---- a/drivers/clk/rockchip/rst-rk3506.c
-+++ b/drivers/clk/rockchip/rst-rk3506.c
-@@ -221,6 +221,5 @@ void rk3506_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rk3506_register_offset,
- 				      ARRAY_SIZE(rk3506_register_offset),
--				      reg_base + RK3506_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RK3506_SOFTRST_CON(0));
- }
-diff --git a/drivers/clk/rockchip/rst-rk3528.c b/drivers/clk/rockchip/rst-rk3528.c
-index b24f2c367929..0434f69059f9 100644
---- a/drivers/clk/rockchip/rst-rk3528.c
-+++ b/drivers/clk/rockchip/rst-rk3528.c
-@@ -301,6 +301,5 @@ void rk3528_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rk3528_register_offset,
- 				      ARRAY_SIZE(rk3528_register_offset),
--				      reg_base + RK3528_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RK3528_SOFTRST_CON(0));
- }
-diff --git a/drivers/clk/rockchip/rst-rk3562.c b/drivers/clk/rockchip/rst-rk3562.c
-index a3854eaef3be..1de4907bf794 100644
---- a/drivers/clk/rockchip/rst-rk3562.c
-+++ b/drivers/clk/rockchip/rst-rk3562.c
-@@ -424,6 +424,5 @@ void rk3562_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rk3562_register_offset,
- 				      ARRAY_SIZE(rk3562_register_offset),
--				      reg_base + RK3562_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RK3562_SOFTRST_CON(0));
- }
-diff --git a/drivers/clk/rockchip/rst-rk3576.c b/drivers/clk/rockchip/rst-rk3576.c
-index 15cbb9bc0a41..19b28d4bf2e0 100644
---- a/drivers/clk/rockchip/rst-rk3576.c
-+++ b/drivers/clk/rockchip/rst-rk3576.c
-@@ -646,6 +646,5 @@ void rk3576_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rk3576_register_offset,
- 				      ARRAY_SIZE(rk3576_register_offset),
--				      reg_base + RK3576_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RK3576_SOFTRST_CON(0));
- }
-diff --git a/drivers/clk/rockchip/rst-rk3588.c b/drivers/clk/rockchip/rst-rk3588.c
-index c4ebc01f1c9c..cbc84e47902d 100644
---- a/drivers/clk/rockchip/rst-rk3588.c
-+++ b/drivers/clk/rockchip/rst-rk3588.c
-@@ -853,6 +853,5 @@ void rk3588_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rk3588_register_offset,
- 				      ARRAY_SIZE(rk3588_register_offset),
--				      reg_base + RK3588_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RK3588_SOFTRST_CON(0));
- }
-diff --git a/drivers/clk/rockchip/rst-rv1126b.c b/drivers/clk/rockchip/rst-rv1126b.c
-index c75b0d885ca2..9ec3246306cc 100644
---- a/drivers/clk/rockchip/rst-rv1126b.c
-+++ b/drivers/clk/rockchip/rst-rv1126b.c
-@@ -438,6 +438,6 @@ void rv1126b_rst_init(struct device_node *np, void __iomem *reg_base)
- 	rockchip_register_softrst_lut(np,
- 				      rv1126b_register_offset,
- 				      ARRAY_SIZE(rv1126b_register_offset),
--				      reg_base + RV1126B_SOFTRST_CON(0),
--				      ROCKCHIP_SOFTRST_HIWORD_MASK);
-+				      reg_base + RV1126B_SOFTRST_CON(0));
-+
- }
 diff --git a/drivers/clk/rockchip/softrst.c b/drivers/clk/rockchip/softrst.c
-index 115f317a99a2..c59589b02963 100644
+index c59589b02963..b463f59cbf36 100644
 --- a/drivers/clk/rockchip/softrst.c
 +++ b/drivers/clk/rockchip/softrst.c
-@@ -7,7 +7,6 @@
- #include <linux/slab.h>
- #include <linux/io.h>
- #include <linux/reset-controller.h>
--#include <linux/spinlock.h>
- #include "clk.h"
- 
- struct rockchip_softrst {
-@@ -15,11 +14,10 @@ struct rockchip_softrst {
+@@ -13,7 +13,6 @@ struct rockchip_softrst {
+ 	struct reset_controller_dev	rcdev;
  	const int			*lut;
  	void __iomem			*reg_base;
- 	int				num_regs;
--	int				num_per_reg;
--	u8				flags;
--	spinlock_t			lock;
+-	int				num_regs;
  };
  
-+#define NUM_PER_REG	16
-+
- static int rockchip_softrst_assert(struct reset_controller_dev *rcdev,
- 			      unsigned long id)
- {
-@@ -31,23 +29,10 @@ static int rockchip_softrst_assert(struct reset_controller_dev *rcdev,
- 	if (softrst->lut)
- 		id = softrst->lut[id];
+ #define NUM_PER_REG	16
+@@ -75,7 +74,6 @@ void rockchip_register_softrst_lut(struct device_node *np,
  
--	bank = id / softrst->num_per_reg;
--	offset = id % softrst->num_per_reg;
--
--	if (softrst->flags & ROCKCHIP_SOFTRST_HIWORD_MASK) {
--		writel(BIT(offset) | (BIT(offset) << 16),
--		       softrst->reg_base + (bank * 4));
--	} else {
--		unsigned long flags;
--		u32 reg;
--
--		spin_lock_irqsave(&softrst->lock, flags);
-+	bank = id / NUM_PER_REG;
-+	offset = id % NUM_PER_REG;
- 
--		reg = readl(softrst->reg_base + (bank * 4));
--		writel(reg | BIT(offset), softrst->reg_base + (bank * 4));
--
--		spin_unlock_irqrestore(&softrst->lock, flags);
--	}
-+	writel(BIT(offset) | BIT(offset) << 16, softrst->reg_base + (bank * 4));
- 
- 	return 0;
- }
-@@ -63,22 +48,10 @@ static int rockchip_softrst_deassert(struct reset_controller_dev *rcdev,
- 	if (softrst->lut)
- 		id = softrst->lut[id];
- 
--	bank = id / softrst->num_per_reg;
--	offset = id % softrst->num_per_reg;
-+	bank = id / NUM_PER_REG;
-+	offset = id % NUM_PER_REG;
- 
--	if (softrst->flags & ROCKCHIP_SOFTRST_HIWORD_MASK) {
--		writel((BIT(offset) << 16), softrst->reg_base + (bank * 4));
--	} else {
--		unsigned long flags;
--		u32 reg;
--
--		spin_lock_irqsave(&softrst->lock, flags);
--
--		reg = readl(softrst->reg_base + (bank * 4));
--		writel(reg & ~BIT(offset), softrst->reg_base + (bank * 4));
--
--		spin_unlock_irqrestore(&softrst->lock, flags);
--	}
-+	writel(BIT(offset) << 16, softrst->reg_base + (bank * 4));
- 
- 	return 0;
- }
-@@ -91,7 +64,7 @@ static const struct reset_control_ops rockchip_softrst_ops = {
- void rockchip_register_softrst_lut(struct device_node *np,
- 				   const int *lookup_table,
- 				   unsigned int num_regs,
--				   void __iomem *base, u8 flags)
-+				   void __iomem *base)
- {
- 	struct rockchip_softrst *softrst;
- 	int ret;
-@@ -100,20 +73,15 @@ void rockchip_register_softrst_lut(struct device_node *np,
- 	if (!softrst)
- 		return;
- 
--	spin_lock_init(&softrst->lock);
--
  	softrst->reg_base = base;
  	softrst->lut = lookup_table;
--	softrst->flags = flags;
- 	softrst->num_regs = num_regs;
--	softrst->num_per_reg = (flags & ROCKCHIP_SOFTRST_HIWORD_MASK) ? 16
--								      : 32;
+-	softrst->num_regs = num_regs;
  
  	softrst->rcdev.owner = THIS_MODULE;
  	if (lookup_table)
- 		softrst->rcdev.nr_resets = num_regs;
- 	else
--		softrst->rcdev.nr_resets = num_regs * softrst->num_per_reg;
-+		softrst->rcdev.nr_resets = num_regs * NUM_PER_REG;
- 	softrst->rcdev.ops = &rockchip_softrst_ops;
- 	softrst->rcdev.of_node = np;
- 	ret = reset_controller_register(&softrst->rcdev);
 
 -- 
 2.55.0
