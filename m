@@ -4,75 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167EBC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42D1C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SusLD2LJRuGl/EM1pa68AofUX9dK45Px9vTM6WPxfNY=; b=B6JP8L271GiN4j7PmRAIOczb7C
-	v9Mj8iICgLL4u3BEpHioL15YaoNhdutz9u1p4Tn4p1T5d4TX+DoiAmvyXKgAep/pWBEwpQ844oPwk
-	yz5daYptI2IsrnLbrZ5NPD5YLHXGYmKD49Bbq6yhvpeAPfEukEodZHI/sBZ5XMSM4pub6FCl5Oj0s
-	OqtGJrY2HQ7fVBRrNWhvhrGBx+sfzCr9z14jeb8KGtiVXiH0pbpbeRepebTIsDBcYC1j+hsYOeWfo
-	ZN/qr7/P0IrrW1QRaNQzYjihWeP5H7exk3WFgrFs5HeFSGQMcEZuC6mtPh+qBeqhVu5xB+CFDzc4X
-	FoYD3IiA==;
+	bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=; b=4u7ScO56nCj47qYEOBQh0F/6sD
+	q/QSdwmlg6UoL9aRUFysY2YuLEBZWKsXY3WnwNRUpPYM/Lrz2qRmNzhYdl7QDoVbYTya3WNDfXzgX
+	YEi9dIJeTNg8IJ63+QBKhIwAtBWgmbuEaOD1MVHbLngX2xoIDE9DfBhLzpQDYMQGxGAbTXtVi1ams
+	ywq05nun+8NXv75VCHefIFbHlaYuMRsnuM1t7kfk/+846cgTnBv2C3ttCTfEsd1oqg6Nj74KV0Viw
+	r1PlL3TAPWPzjsR/1SyNvKFAhvLlA0/S4/hgaBSBrLnugMJlhDXHT1SnfoLl+YjAzHzqN3MkwTXZh
+	QT9cramA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Iwe-0000000B8Lr-1ZBx;
-	Tue, 01 Sep 2026 07:30:12 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x1J07-0000000B8YR-3d6q;
+	Tue, 01 Sep 2026 07:33:47 +0000
+Received: from mail-swedencentralazon11013071.outbound.protection.outlook.com ([52.101.83.71] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Iwa-0000000B8Kx-3e8u
+	id 1x1J04-0000000B8Y1-2udg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:30:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3E5E11A192B;
-	Tue,  1 Sep 2026 07:30:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0672C6053C;
-	Tue,  1 Sep 2026 07:30:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 50EAE11C78C5E;
-	Tue,  1 Sep 2026 09:29:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788247800; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=SusLD2LJRuGl/EM1pa68AofUX9dK45Px9vTM6WPxfNY=;
-	b=ju3mnYyBlBA49ik61v0qwK2BAK3AnHW/nkCQh90vS7pobAOCGmGw9xiqTnGWGYYQ0FMBIv
-	RTpke5CvTPKds58wsCQoj9GKc8kVwZ6/663+Mivtjnz5LtY2vibecJb8eehBNIjtwu6xbi
-	H2V0V8rR85Rn/m026MnSngUolJviOnv1Qm68oNxXXIwe8C9ZZO+o424C7RVNjfyGMk8Njv
-	WDCrrfT/yv8CBww/KsPoPxqkQnYD908ulBdv5Q8qXrwneiXuF7DNEjL3HHh8wtttq+xLHD
-	zw3fm4nfZArVvDWExfLZlV6FckehdnWcLsiJeuC3K/FK31mCa5vaCIdJ/UpG/g==
-Message-ID: <49620860-9bd5-48fb-bbaf-55da377e9018@bootlin.com>
-Date: Tue, 1 Sep 2026 09:29:51 +0200
+	Tue, 01 Sep 2026 07:33:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fh4P82hZ9ufqgQa7OHtSFMnbcDQ2EK+8RFEir8SkYyfBE25N0g1Mx7DLsqYmLE6cKUUQLES8ckHIQLoclSRjrrHfUOGAUOihLxcRA1/ypfRZ0a/FDBKrfUP1dv2Vzl8/dz3t7SIuBXy9b6OJm0AophaSMYZZml4Io/kZcc/QZ4sHmSfls6E9vZzhb0fjoBeXCE7XjgX8M3SirVbScrwOFkT8RI7ZGRTvv+mgx6H+4An1JrRBgjszfNyc8PnIyTJYq7aSCmyoyCALin3gasJDsN5oDPrNhvnXDJgUCFRoDsIbzqRa62HYedB7gTkIdvvHT6bsvJIgGWj5b3s061gKIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=;
+ b=y7LI6ukY8vu2NOV4v47+RTMbjjJfHM9RTIF8Ad99d9xr6D/2LGJG/sFPBpzKItbZZcjG6Or2oCtBQk/m0l2TYd+YjrabtQrRQc1nZtc03DGZmrKEsvMfQ189W4EmBPT4ApqLiopyXxwjLYnu8J8gS4NJOiJi/wA0aCwkBsfVr54Pjrg3bksAaxDaglayGnMOOS+T4G0I6aMQ1g1hGKaUrREXdX0Cxn7YRAiA9ufOgFPLFIdbtoS7TvAycAmly9Lr8AW5cUuQOpQgRF+tsF3rFj74Uv49KaoNSXmRC4pNJ/Qge/W8A0KYOxAa7B4PyoKm708FWbDibodl3AEYcPtKfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.88) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=;
+ b=Jy/x9OO2LVRmEkVQk4NJXvKQYJ5ugp0o9+oDIdxbXcUsq2wmNDg/zDGEyetPTpkzk/cutGJIB92pA0bInAJn6Gkw5Cn2OO+KBZLNhRcOby6NbDoVIesMoU2G8/GRVImEpk05vyfUogm6mTqqRtjWjKmX7GxuinMpxFpONRbR9SVlqSm8tUX92TjrMylltlViKx87KU1TCtsEmNyrzrULIm1PGv+Dan37808E/0VbIcZV5wHs+8mZ9IUMb33eRNWAvUfDD4Ggk4sT0mS7O4o7Y/67UDrk7gYOT0XJrC5t9W5fbcOTaNQqlZzjcVPNrQI59K2LJt4snvlTm4fkOFGQxA==
+Received: from AS4P191CA0012.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:5d5::11)
+ by DB4PR10MB6920.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3fc::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
+ 2026 07:33:36 +0000
+Received: from AM4PEPF00027A6C.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d5:cafe::31) by AS4P191CA0012.outlook.office365.com
+ (2603:10a6:20b:5d5::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
+ Sep 2026 07:33:36 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.88)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.88 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.88; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.88) by
+ AM4PEPF00027A6C.mail.protection.outlook.com (10.167.16.90) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 07:33:36 +0000
+Received: from ENXDAG1NODE4.st.com (10.75.129.197) by smtpo365.st.com
+ (10.250.44.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 1 Sep
+ 2026 09:30:54 +0200
+Received: from [10.48.87.85] (10.48.87.85) by ENXDAG1NODE4.st.com
+ (10.75.129.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 1 Sep
+ 2026 09:33:34 +0200
+Message-ID: <3326ff38-75c3-4218-b537-17077f3faa4e@foss.st.com>
+Date: Tue, 1 Sep 2026 09:33:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add UltraRISC DP1000 GMAC
- support
-To: Jia Wang <wangjia@ultrarisc.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
- <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [net-next,PATCH v2 1/5] dt-bindings: net: add phy-supply property
+ for stm32
+To: Rob Herring <robh@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linusw@kernel.org>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260812091122.566439-1-christophe.roullier@foss.st.com>
+ <20260812091122.566439-2-christophe.roullier@foss.st.com>
+ <20260812195828.GA724768-robh@kernel.org>
+Content-Language: fr
+From: Christophe ROULLIER <christophe.roullier@foss.st.com>
+In-Reply-To: <20260812195828.GA724768-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.85]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To ENXDAG1NODE4.st.com
+ (10.75.129.197)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6C:EE_|DB4PR10MB6920:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb82eb40-2125-446c-c93a-08df07fb5576
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|7416014|22082099003|18002099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: ia9RuAsjnKd+F7/pwoGdZmzqJIYzluSdPV68mho0wlAE/OLnV2UJQtWHHCXr5G1dIH/NgXgVebW6FdgdSNiGhvsU43xiPR/u0LgR8WAJDwwI40UxwKP3k6kfgYqNuut7UGtAj/+7i+TwChGW6t9HPpaCXT4aZD64JCkYRcczcp5T5HlyUyNjdtrsJ6XkoxOL56wXLVGle5+smbCWLbZEbjTwXFrpyL+5wHviUQh7XLx+nxlMrnObk9oKPVJVeVsEf3hJLjqSOA6fOK9zQGKoSUmD0C4lfouDdZS01Q8LjBxUBK0m8keRLoFYCwkd2uJwEA9D7IgbfruORfTGN5EwRDXxmy/9eKNwkWMkcFSz1O1x7AuNLwhlyixIBTVGX83wl2TC2cVnsasD4UVzdMipaNBgMVJo3ccQr2TQnFMLq6s3Xo8zMm6HasTvzD5x6iNjY4/cCd54d+LvDjliZoJPnR1MVKmhztSPnnvO9W0OUqNlVFd2syegY5v8G1UvG6OWjmb3mU+FtoWquZaR5HWr8pcvSp7guI61gPCU3V45Hl2ZMd+2Mvt/j/4vk89f7Mk66aVVvpp8fthRNadBSfUFpxjtVwDfhrv/9nLAMyy5WVjD2eJg31N4umZ4JC2t0OpJ8X9uTI24crk9mF1leQjQ8WdZpg2/LU3Z5gZ+3MHOI5X72xEfKT1Crf+UiYNURE0S
+X-Forefront-Antispam-Report: CIP:164.130.1.88;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: mXu6N9bKxnX9QAMh6vGLaLCEOvVcLv9kFFtI04S5GZoFkyTykcbVkVx2kkA+MbxQQIBT6ZCxoy+bOORxO1j9poFTTdRN3Vn/uDNf5OrHuAyq0kChE+w/r/aSS/DcDG/+gx9LZRDgBbHF0eQQCpYjP/+IGodD6AxdcFC25ipTwxp4wOSaCswjhsXiAzE+2p169DW+9aGRo6x8wq0zH7kM0J119U7wbDB7cb66qZJLpGvvq1EQrqWLSAmLmAZvMvkDaNX+uIuxScUIplaH40DkOMIcmaMBPcfiJcu0dtO8Xft49ZfOgNTSWQ7VN40ZSx9Fshz5lRunPRoAVKygNrP7yp7m3HvGcAx4qkneLEPPLbimf09JJNfOudb1YQgRehu4cbMHPNse2o5/IIBkiUd5ohYwEKYBEUcQLTggO6FXP3I+E9kM5L/nHI6cYcAXqVue
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 07:33:36.1128
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb82eb40-2125-446c-c93a-08df07fb5576
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.88];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6C.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6920
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_003009_076988_5191FECA 
-X-CRM114-Status: GOOD (  28.61  )
+X-CRM114-CacheID: sfid-20260901_003345_142700_FFB7D3D7 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,183 +136,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-On 9/1/26 03:27, Jia Wang wrote:
-> The DP1000 GMAC integration provides fixed TX and RX RGMII clock delays
-> that cannot be disabled. For boards without PCB delays, "rgmii-id"
-> describes the link, but passing that mode unchanged to the PHY would enable
-> a second set of delays.
-> 
-> Use phy_fix_phy_mode_for_mac_delays() to translate "rgmii-id" to "rgmii"
-> before attaching the PHY. Reject other RGMII modes because the fixed MAC
-> delays cannot be combined with them without duplicating or omitting a
-> delay.
-> 
-> Signed-off-by: Jia Wang <wangjia@ultrarisc.com>
+Le 12/08/2026 à 21:58, Rob Herring a écrit :
+> On Wed, Aug 12, 2026 at 11:11:18AM +0200, Christophe Roullier wrote:
+>> Phandle to a regulator that provides power to the PHY. This
+>> regulator will be managed during the PHY power on/off sequence.
+>>
+>> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
+>> ---
+>>   Documentation/devicetree/bindings/net/stm32-dwmac.yaml | 3 +++
+>>   1 file changed, 3 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+>> index 987254900d0da..0c7eb1ccadd47 100644
+>> --- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+>> +++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+>> @@ -99,6 +99,9 @@ properties:
+>>         encompases the glue register, the offset of the control register and
+>>         the mask to set bitfield in control register
+>>   
+>> +  phy-supply:
+>> +    description: PHY regulator
+> Which phy? There can be multiple for ethernet. In any case, doesn't
+> really matter because either is wrong. The supply(ies) for a device go
+> in that device's DT node. This node is not a PHY.
+>
+> Rob
 
-Simple enough, this is nice :)
+Hi Rob,
 
-One thing, I'm going to start requiring this for new glue drivers, can you give
-the output of "ethtool -t eth0" on your device with this new glue driver ?
+Ok I will update my description with :   "Regulator that powers the 
+Ethernet PHY."
 
-You'll have to enable CONFIG_STMMAC_SELFTESTS
+To manage this regulator on Ethernet glue, I based my work on the 
+examples of :
 
-As this is is a 5.20, I'm expecting you'll get something like :
+   - allwinner,sun4i,
 
- 1. MAC Loopback                 0
- 2. MMC Counters                 0
- 3. EEE                          -95
- 4. Hash Filter MC               0
- 5. Perfect Filter UC            0
- 6. MC Filter                    0
- 7. UC Filter                    0
- 8. Flow Control                 -95
- 9. RSS                          -95
-10. VLAN Filtering               -110
-11. VLAN Filtering (perf)        -110
-12. Double VLAN Filter           -110
-13. Double VLAN Filter (perf)    -110
-14. Flexible RX Parser           -95
-15. SA Insertion (desc)          0
-16. SA Replacement (desc)        0
-17. SA Insertion (reg)           0
-18. SA Replacement (reg)         0
-19. VLAN TX Insertion            -110
-20. SVLAN TX Insertion           -95
-21. L3 DA Filtering              -95
-22. L3 SA Filtering              -95
-23. L4 DA TCP Filtering          -95
-24. L4 SA TCP Filtering          -95
-25. L4 DA UDP Filtering          -95
-26. L4 SA UDP Filtering          -95
-27. ARP Offload                  -110
-28. Jumbo Frame                  0
-29. Multichannel Jumbo           -95
-30. Split Header                 -95
-31. TBS (ETF Scheduler)          -95
+   - allwinner,sun7i
 
--95 (-EOPNOTSUP) and 0 are OK, watch for any other values.
+   - allwinner,sun8i
 
-If ARP Offload and any VLAN selftest (insertion and filtering), this is a known
-issue and you can ignore :)
+   - fsl,fec
 
-Maxime
+   - rockchip-dwmac
+
+   - rockchip,emac
+
+For me it is normal that PHY Ethernet regulator is managed by MAC glue 
+because it is mandatory to power ON Ethernet PHY chip BEFORE MDIO scan.
+
+Let me know if that works for you
+
+Regards,
+
+Christophe.
 
 
-> ---
->  MAINTAINERS                                        |  1 +
->  drivers/net/ethernet/stmicro/stmmac/Kconfig        | 11 +++++
->  drivers/net/ethernet/stmicro/stmmac/Makefile       |  1 +
->  .../net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c  | 54 ++++++++++++++++++++++
->  4 files changed, 67 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 3b96ff0734e6..aacbab369b51 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -28008,6 +28008,7 @@ ULTRARISC DP1000 DWMAC GLUE LAYER
->  M:	Jia Wang <wangjia@ultrarisc.com>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
-> +F:	drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
->  
->  ULTRARISC DP1000 PINCTRL DRIVER
->  M:	Jia Wang <wangjia@ultrarisc.com>
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> index e3dd5adda5ac..ab3c4cf96423 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-> @@ -319,6 +319,17 @@ config DWMAC_THEAD
->  	  the stmmac device driver. This driver is used for T-HEAD TH1520
->  	  ethernet controller.
->  
-> +config DWMAC_ULTRARISC
-> +	tristate "UltraRISC DWMAC support"
-> +	default ARCH_ULTRARISC
-> +	depends on OF && (ARCH_ULTRARISC || COMPILE_TEST)
-> +	help
-> +	  Support for the Ethernet controller on the UltraRISC DP1000 SoC.
-> +
-> +	  This selects the UltraRISC platform specific glue layer support
-> +	  for the stmmac device driver. This driver is used for the DP1000
-> +	  GMAC Ethernet controller.
-> +
->  config DWMAC_IMX8
->  	tristate "NXP IMX8 DWMAC support"
->  	default ARCH_MXC
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> index a1cea2f57252..b16a456b730e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-> @@ -36,6 +36,7 @@ obj-$(CONFIG_DWMAC_SUNXI)	+= dwmac-sunxi.o
->  obj-$(CONFIG_DWMAC_SUN8I)	+= dwmac-sun8i.o
->  obj-$(CONFIG_DWMAC_SUN55I)	+= dwmac-sun55i.o
->  obj-$(CONFIG_DWMAC_THEAD)	+= dwmac-thead.o
-> +obj-$(CONFIG_DWMAC_ULTRARISC)	+= dwmac-ultrarisc.o
->  obj-$(CONFIG_DWMAC_DWC_QOS_ETH)	+= dwmac-dwc-qos-eth.o
->  obj-$(CONFIG_DWMAC_INTEL_PLAT)	+= dwmac-intel-plat.o
->  obj-$(CONFIG_DWMAC_LOONGSON1)	+= dwmac-loongson1.o
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
-> new file mode 100644
-> index 000000000000..4bdda2665338
-> --- /dev/null
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
-> @@ -0,0 +1,54 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * UltraRISC DWMAC platform driver
-> + *
-> + * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/phy.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include "stmmac_platform.h"
-> +
-> +static int ultrarisc_dwmac_probe(struct platform_device *pdev)
-> +{
-> +	struct plat_stmmacenet_data *plat_dat;
-> +	struct stmmac_resources stmmac_res;
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get resources\n");
-> +
-> +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> +	if (IS_ERR(plat_dat))
-> +		return dev_err_probe(dev, PTR_ERR(plat_dat), "failed to parse DT parameters\n");
-> +
-> +	plat_dat->phy_interface =
-> +		phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface, true, true);
-> +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
-> +		return dev_err_probe(dev, -EINVAL, "unsupported phy interface mode\n");
-> +
-> +	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-> +}
-> +
-> +static const struct of_device_id ultrarisc_dwmac_match[] = {
-> +	{ .compatible = "ultrarisc,dp1000-gmac" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, ultrarisc_dwmac_match);
-> +
-> +static struct platform_driver ultrarisc_dwmac_driver = {
-> +	.probe = ultrarisc_dwmac_probe,
-> +	.driver = {
-> +		.name = "ultrarisc-dwmac",
-> +		.pm = &stmmac_pltfr_pm_ops,
-> +		.of_match_table = ultrarisc_dwmac_match,
-> +	},
-> +};
-> +module_platform_driver(ultrarisc_dwmac_driver);
-> +
-> +MODULE_DESCRIPTION("UltraRISC DWMAC platform driver");
-> +MODULE_LICENSE("GPL");
-> 
 
 
