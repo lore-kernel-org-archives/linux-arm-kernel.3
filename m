@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192A8C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CEF8C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rrE+Xpcc9OkxLyVZ7+mxr2/E1WQvXxHbBEf/HiXP99Q=; b=yUfV5bPga98ltNvAJ4W1GSAjR4
-	LRBxAIKhOByU/UPGgYC6gbVPdgOZkQpY4RQy+jIdlwccZX28+fTTsGbvYyL8GL6/sm0WxuE8/35KQ
-	N0Tq3LSdaEXUBgOQXC4fzjnK2KxeOf1TElTROWgHIVn8CUM1Lj1960s94clygYzz2by1cH8XbrK4y
-	JxKsN5ZFbbMP1978ZZ4fiQL+cgGiGi/8Ba3RJvCZPE1ftpl+W0qS16UGNwvRHrUGjMJB1ltURVPJz
-	Kve2wX5YI/yq1bOYnBoyyY/lK+C4F6HNP6a5xXqpjq+hT8nmi2KPJ46fOpgJUUETcSyGVXTDzoNg6
-	4J+QWq7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zaM3jU4o2eLseJzaumSG3mU1xqoFMK4JnncFkSoW6BI=; b=cKrdDCaQtICB9enHpnce/xbwYx
+	VIDuZYUrlHA4A1zRhHy4mfQ/+rhEpmjOIjj647tdWloBfjdLTj1XwBcm4hhlMRkhkgNAWUQFG6Adu
+	G0CQQEnAEr4wfBFAFaW2tjoe/AI6vum9jqqqSXuU4If4DX9+Q2zR6WdEQ6LPJWVt2RccWaLISHI2H
+	xV/P5spPP8US9jkVekT4RViuqptSW4HQd3WPzPuDiS8aZ3P1AyWgeX2jgF+NzkSRSCRYc5Iae/+N0
+	MX3NU5x7SvFjK88aCp32b/7PYqU0aU7C3URcpqbw+ROL+FEjbb/uxWURCCTSuLIe3Tt8alKsu8rZ4
+	Zg7zX9gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IQf-0000000B5Ab-3RWW;
-	Tue, 01 Sep 2026 06:57:09 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1x1IY0-0000000B5Wb-2GzN;
+	Tue, 01 Sep 2026 07:04:44 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IQd-0000000B59w-1Uma
+	id 1x1IXx-0000000B5W1-28CT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 06:57:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788245827; x=1819781827;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Z8iSOtQQ5N/Zb04KDBa6B08g8AitxJSoe7kabS6P2yg=;
-  b=nEq7Q2Xl0QBkaIN4IdT/k5XCoNjHcqrNkchTQzwmlpR9Ewq1fUtMrCd/
-   Gpmntz4tXnJr829yIzIFNLD4P2o7h779s1tXKAvf99itqrm1JY+raAvCz
-   pah9AL0YkGrlsEC5fwm2POBtwy1EfZ/m2deE0GX+wpF76pcG70zm/tRFO
-   oVno7w1zhwdGgdCsiEsR6Ar/YShXT/TnrnozN9no0x8TEUZTZJTNZwsxX
-   TBg6okGbez+ZI0IuqUfeM0I/EEsxms7uFid77lXD19lWbk/dKYrjOJNu5
-   Nip4nVL/4lA53w3spx/cH55xnGSMehoejPE6OlVd1gC8QPjmrf1sJQsZ4
-   w==;
-X-CSE-ConnectionGUID: PhiF4dpASFiNvMGQy4FsqQ==
-X-CSE-MsgGUID: /Sm3MCj3QmmeZEY4HnY5SA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="111435566"
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="111435566"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 23:57:06 -0700
-X-CSE-ConnectionGUID: 0dRf2eKMQ6mUUxunvfbtVA==
-X-CSE-MsgGUID: /rACxs7dTwis/6NrTuKXow==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="269060856"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.222])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 23:57:02 -0700
-Date: Tue, 1 Sep 2026 09:57:00 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
-Cc: mdshahid03@gmail.com, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com, linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] iio: adc: bcm_iproc_adc: fix include dependencies
-Message-ID: <apZ3PBOrxn9sLjKD@ashevche-desk.local>
-References: <20260830170919.470974-1-mdshahid03@gmail.com>
- <20260830170919.470974-3-mdshahid03@gmail.com>
- <apY4GY-0_XMSfE9B@debian-BULLSEYE-live-builder-AMD64>
+	Tue, 01 Sep 2026 07:04:43 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 884E24E41491;
+	Tue,  1 Sep 2026 07:04:37 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 59C716053C;
+	Tue,  1 Sep 2026 07:04:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E6C111C791BE;
+	Tue,  1 Sep 2026 09:04:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788246276; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=zaM3jU4o2eLseJzaumSG3mU1xqoFMK4JnncFkSoW6BI=;
+	b=v206OMzfYeQ7xEHxKAWOM1ctyzoIUou2/+W0y+dVbL+M4SfijKa5BWrW5WGJcxzHoaVz39
+	k+WxEg+Vnf+EXsGS5ZZ7VvMw9Xkvehp9TX99d7CtRe9R6MEs7JhKV1zra/xiVSI9Csayzg
+	jEZ4yUc4LqjQKg/1OxUmkHgT8heQODdZNCmZTNqrjbxjjqqZnNsPbGmnqY1qJ/VnPBoaG7
+	ESyG1Y0VE7IzJqe5wU0GQJbVlj1Lkax1N6aYWzj1Mc2MZJAakiKN0EIWsIUs28d8p0thTb
+	cOJnslXFyvqZVsOko5wI3mq7ATuumHBbXyKcqscJzQA2qoFNer7EE0i7OI9hDQ==
+Message-ID: <b677535a-5395-4703-aa08-a71a6b26ccb6@bootlin.com>
+Date: Tue, 1 Sep 2026 09:04:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <apY4GY-0_XMSfE9B@debian-BULLSEYE-live-builder-AMD64>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac4: Read the UC filter size
+ from hardware capabilities
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Nicolai Buchwitz <nb@tipi-net.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Russell King <linux@armlinux.org.uk>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+ <20260831070121.349778-2-maxime.chevallier@bootlin.com>
+ <2631c832d5aebc56e152628132494545@tipi-net.de>
+ <480f15e2-e045-46b7-89af-1fbcefd3c4eb@bootlin.com>
+ <b2fbcec7-90ee-4a6f-bd15-32e4e1ff1a47@lunn.ch>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <b2fbcec7-90ee-4a6f-bd15-32e4e1ff1a47@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_235707_443648_22AB695A 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260901_000441_715701_C50EBDBC 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +89,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 11:27:37PM -0300, Marcelo Schmitt wrote:
-> On 08/30, mdshahid03@gmail.com wrote:
 
-> > Add the headers required directly by the driver for completion and
-> > mutex APIs.
-> > 
-> > Remove the unused `linux/io.h` header now that register access is
-> > handled through regmap APIs.
 
-...
-
-> >  #include <linux/clk.h>
-> > +#include <linux/completion.h>
-> >  #include <linux/delay.h>
-> >  #include <linux/interrupt.h>
-> > -#include <linux/io.h>
-> >  #include <linux/mfd/syscon.h>
-> >  #include <linux/module.h>
-> > +#include <linux/mutex.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/regmap.h>
+On 9/1/26 02:26, Andrew Lunn wrote:
+>> Yeah but dwmac4 has a hash filter, but same as the UC filter it's just not plumbed
+>> in :/
+>>
+>> Let's leave this flag here, hash filter addition for MC filtering is coming-up, so let's not
+>> drop it now only to re-enable it after, one of the other wonderful discoveries found by
+>> running the selftests...
 > 
-> I think that's okay. Though, if you go for a v3, you may also add 
-> #include <linux/bits.h>
-> #include <linux/types.h>
-> #include <linux/array_size.h>
+> I assume you can put a MC address in a perfect match filter? You can
+> perfectly match a multicast address just as well as a unicast address.
+> 
+> The hash filter is less accurate, but again can be used to match a
+> unicast or multicast address, and then you need additional filtering
+> in software, which Linux will do.
+> 
+> So it seems to me, you should use a perfect match filters if you have
+> one available, independent of unicast or multicast, and only use a
+> hash filter if you have run out of perfect match filters.
 
-> #include <linux/device-id/of.h>
+That's an interesting point. The HW supports that, we have 3 control knobs
+for that in the MAC_PACKET_FILTER register :
 
-This one is covered by platform_device.h.
+ - HPF (bit 10) : Use Hash or Perfect Match for filtering.
+                  0 : Match UC and MC against hash filter
+                  1 : Match UC and MC according to HMC and HUC
 
-> #include <linux/iio/types.h>
+ - HMC (bit 2) : Use Hash or Perfect Match for MC filtering
+                 0 : Match MC against perfect filter
+                 1 : Match MC against Hash table
 
-This one is covered by iio/iio.h.
+ - HUC (bit 1) : Use Hash of PF for UC filtering
+                 0 : Match UC against PF
+                 1 : Match UC against Hash table
 
-> which mostly completes the list of includes iwyu tool reports to be missing.
+I don't know though how this all interacts with the primary MAC address. We
+always have one entry in PF for the device's own MAC address, we should
+probably always perfect match that one.
 
-The rest is indeed needs to be added. Thanks for spotting that!
+But as the UC Perfect Filter toggle is global for All UC addresses it means
+we're stuck with perfect filter for all UC then ?
 
--- 
-With Best Regards,
-Andy Shevchenko
+For MC, this is a good point, but I'm worried about the complexity vs gain.
 
+If we consider the 4 dwmac boards I have (may not be a very representative sample),
+we have :
 
+ - imx8mp   : 64 PF (Perfect Fitler) entries
+ - jh7110   : 9 PF entries
+ - stm32mp1 : 4 PF entries
+ - yt6801   : 1 PF entry
+
+On a simple setup, between the IPv4 and IPv6 multicast, we very easily have at
+least 3 multicast addresses assigned to our interface when it's brought up :
+
+# ip maddr show eth0
+2:      eth0
+        link  33:33:00:00:00:01
+        link  01:00:5e:00:00:01
+        link  33:33:ff:00:af:d7
+[...]
+
+So on STM32MP1 this is already enough to fill the perfect fitler, any addition
+trips either the promisc logic, or a more complex logic to re-split UC and MC into
+Hash and Perfect filters separately
+
+On YT8601, 1 PF entry, all MC to Hash, and any additional UC trips the UC-promisc mode.
+
+I think in a typical setup, the UC table has more chance of getting filled than the hash
+table, so a simpler option could be :
+
+ - Always use hash for MC
+ - Use perfect match for UC when possible
+ - If perfect filter is full, use Hash for UC and MC matching, with
+the idea that hash is still better than going UC-promisc ?
+
+Maxime
 
