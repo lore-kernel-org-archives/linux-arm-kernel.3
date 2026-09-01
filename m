@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A9AC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F6C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGJBTxI0BTFP9qYGYHlSLCXCQCO3O2EtQUjch3HFwi8=; b=hd3XYcv5IK7/hpv5yJMWEIzzPv
-	Z3fSgvX+7KRfobOl00BO+DNx+zvTMrdJAo3eBJZirMeyjRsVHObz4qKTI5Nb6Cxjqe5jEkyQPbTdR
-	IFvHSFfVIIN+sxPNaZn7TiFJ3DVdYRz/ftKXWtPFT/CRB3t7BJiv/6DLlZVr+IZIYjNR3s6j37lqj
-	mc1qwdY2repp5/ylrivnzu+rwwK7VJmutTAaK06SM9NnBOZam56bQVgm521j9qyugK+grcyP+3q8R
-	bDsAWRixKZ/vYlafbH2FqBm+bsTKrLRj38LYV2Puh3WSmhovsmVKHZnyLxx11EYaxwTSkZQAE0r0t
-	PI8nZsiQ==;
+	bh=8fY/Dl2/758QW1rxNPqXXC5GnM3C1mV2NhcBW5N/hzY=; b=Rg+7xDXDtW1pURAdo2OoVE0ksR
+	IssKTSlgT7qxdrLC+D+66gRfospw2IupAI+bLLyLAhfgKSNQafv3mH/csdRBPgDWDrAtyHrAmWoeC
+	sTp2FV6LvUqpHSBu407Nwx6tIVPn6UvcmoTiGOdFTn/cwCfAzQQvIelipj3qkrDMCJfBWpyOW6yE6
+	V6OspOtvdgn5EW00JSk1aqvkcWuVhbZs4TT/jUCYjrPrU6Up0N492R42N8y4udoqHKzgKoUjoxyZV
+	OZWkjEyclNv3EUW3QcFo0TLmZ4/AuhPUBoSNWI7kwndCtIfrA46xcdkySBryu3ccjvo8XYvUDvZGB
+	p4e05U4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1J4U-0000000B8ok-1BL7;
-	Tue, 01 Sep 2026 07:38:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1J5I-0000000B8xm-12pj;
+	Tue, 01 Sep 2026 07:39:08 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1J4T-0000000B8ob-0Gpv;
-	Tue, 01 Sep 2026 07:38:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 858EB4010B;
-	Tue,  1 Sep 2026 07:38:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFDC01F000E9;
-	Tue,  1 Sep 2026 07:38:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788248296;
-	bh=kGJBTxI0BTFP9qYGYHlSLCXCQCO3O2EtQUjch3HFwi8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J/B0TM+qn7Bc6/87PafTXa00ztozqZNvsXgnr5Z5wdK0mUQIqViGzAQrquu4+Rlej
-	 uNvdZTiee3n6L06Qr4N2t2tjJwiBekmH8OwLGpv1fs+wTjDO95HOt/mnrTCipEg9O0
-	 TWtI8iHWAcy/Y9s7oTna14pTlQafb6rC7dYf0FmhddV1Mpj3SoM0d2a93UnUZwLmaf
-	 zLZzKG6o0TBjLu26QbRbCbVU/aL9P5ath/gR5LkDMVzKL2CEz5B2XOB+jMY0CaiEl9
-	 JrQJDQVMG32lCsan1QNse+jfkioI7kV8icktX+tBj2EGTTyBU+MxrUn4h26Bb9oavT
-	 ls6sKrNtoP9mA==
-Date: Tue, 1 Sep 2026 09:38:14 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Cc: netdev@vger.kernel.org, upstream@airoha.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 2/3] net: airoha: recover RX ring after hw
- completion stall
-Message-ID: <apaA5jDYH71F0JaS@lore-desk>
-References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
- <20260831234701.206021-1-sochnev.v.74@gmail.com>
- <20260831234701.206021-3-sochnev.v.74@gmail.com>
+	id 1x1J5F-0000000B8xE-2GDu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 07:39:06 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6817VmxK458568;
+	Tue, 1 Sep 2026 07:38:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=8fY/Dl2/758QW1rxNPqXXC5GnM3C1m
+	V2NhcBW5N/hzY=; b=VtE2Iu6vRlD48u8PHjVDsTvgegEBr/79jCKiybkRPJe7UN
+	HPVFeHIADAUPsnAIBXkfDFkK25itwdH477EP6Db8l4IVanDDZxPkBZ7PCLYDF7MB
+	ZOMcIljS5r5HKDJWRjEh8VXVaNos15k2cgXKefjBcj4rRdwPkE0yoezdBPIQjcw0
+	JpJSVUESF7fhvHDH91Pss94yKVAadhvE+jQp5yd62iIiS1QwDQRAJGIApP71EFTf
+	wELUrzuebzD+gYbjXDHXw6LOOnCnEYI19o39+SisAobiAY9xkpiqeYLG3EY/CSBn
+	sXmz5WtDwZpY0/r2TS2SyJBHz/Zkc5jf0ktSU6WQ==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbmuhpeew-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 01 Sep 2026 07:38:52 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6817QH1c000869;
+	Tue, 1 Sep 2026 07:38:51 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcark2f88-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 01 Sep 2026 07:38:51 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6817cnE342140150
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 1 Sep 2026 07:38:49 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3CBD020043;
+	Tue,  1 Sep 2026 07:38:49 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0204420040;
+	Tue,  1 Sep 2026 07:38:49 +0000 (GMT)
+Received: from osiris (unknown [9.224.76.185])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue,  1 Sep 2026 07:38:48 +0000 (GMT)
+Date: Tue, 1 Sep 2026 09:38:59 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        kvmarm@lists.linux.dev, Fuad Tabba <fuad.tabba@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Return -EINVAL for an empty SMCCC filter
+ range at base 0
+Message-ID: <20260901073859.185345-A-seiden@linux.ibm.com>
+References: <20260829054856.70549-1-kmehltretter@gmail.com>
+ <20260829054856.70549-2-kmehltretter@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AGYD2yEKCoEXZcmo"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260831234701.206021-3-sochnev.v.74@gmail.com>
+In-Reply-To: <20260829054856.70549-2-kmehltretter@gmail.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: ZCbQ-ZklX7stda1AuCkPQ0Djjt_a0WKY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDA2NiBTYWx0ZWRfX4h+TXCOEI7wH
+ 6eMfhCl9yIVObK3BCrNHD8Dq3qA3ZMS/VYvCRHiJftV4ivux8cMKSQfM92VTBM9XfXw3PmxqFNh
+ 9OTN9SgrFiyzSNKVKBmZQwyaJEU1aJmlrNpYpjbcYTC+RtkDGKeVc9YQb9alJ3jlq/OhHgov1uV
+ JX30A0+5iKSHW0PB6rGEkJGZTI/7vGzNAVe3pr31cENAs+mjp9eQ6qUEJ9EV3ezAHEB79sQ58Y9
+ nJ5YwZGiqaGAWTxYGyWT6R9F6OKuMB9e0fnyZMIEbtUjBbV8UoTAPDcecO6siPiNJ9gBLHbFoDs
+ O7vd0JCz9y8jF5x+LHatF7wO03UuBCd2SnD7m6JEV5zYZD82drlk8SZD8sPtMcGJteuByBxvocw
+ vIArUz59EW6PIbbEWkY4nWUN6wdufOT1SrLKPZWhZx1odnRqyito0KZSb+SkDigDpDaCZsUgAYX
+ WMfgJ6x3bko8mOt7fuw==
+X-Authority-Analysis: v=2.4 cv=Osl/DS/t c=1 sm=1 tr=0 ts=6a96810c cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=pGLkceISAAAA:8
+ a=VnNF1IyMAAAA:8 a=sTVcf0stEawvOQYPuTgA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDA2NiBTYWx0ZWRfXy4lZ/J7YpckL
+ K0SY6MkUpi5sUw7oztTXtF2gTI3R/neK7rxtxiz60RLfyOvT9Nf0r+CbEwZfrLb399CxCRuQ3Y3
+ sM+IqxmBNeFFM3kYX5eDNYok2nAILFA=
+X-Proofpoint-ORIG-GUID: GL9tonZEYnwAQvDdc17GjcJN60W2-KOG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-01_02,2026-08-31_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0
+ adultscore=0 impostorscore=0 phishscore=0 clxscore=1011 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609010066
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_003905_694543_7812B6D2 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,268 +131,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---AGYD2yEKCoEXZcmo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Sat, Aug 29, 2026 at 07:48:55AM +0200, Karl Mehltretter wrote:
+> kvm_smccc_set_filter() only rejects a range if its inclusive end,
+> base + nr_functions - 1, is below base. That catches an empty range
+> (nr_functions == 0) at every nonzero base, but at base 0 the end wraps
+> to U32_MAX and KVM tries to insert [0, U32_MAX], which overlaps the
+> reserved Arm Architecture Calls ranges. KVM_ARM_VM_SMCCC_FILTER then
+> returns -EEXIST instead of the -EINVAL that the smccc_filter selftest
+> expects for an empty range.
+> 
+> Reject a zero function count explicitly.
+> 
+> Tested with a userspace reproducer on an arm64 VHE host under QEMU TCG:
+> EEXIST before, EINVAL after.
+> 
+> Fixes: 821d935c87bc ("KVM: arm64: Introduce support for userspace SMCCC filtering")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-> On AN7583 hw can stop advancing the descriptor the sequential consumer in
-> airoha_qdma_rx_process() is waiting on, while its own completion counter
-> keeps moving. The ring is then dead: NAPI is scheduled, finds DONE clear
-> at q->tail, and does nothing, forever.
->=20
-> Observed directly on ring 4 at its 16-descriptor default (devmem, qdma0):
-> REG_RX_CPU_IDX frozen at 15 for over an hour while REG_RX_DMA_IDX advanced
-> 29 -> 96, with a 60-byte frame left stranded in the ring.
-> QDMA_DESC_DROP_MASK was never set. In practice this is hit during PPPoE
-> negotiation bursts on the shared "force to CPU" ring, where it stops the
-> dial-up from ever completing.
->=20
-> Detect it without trusting ring content: REG_RX_DMA_IDX is hw's own
-> counter, independent of what sw posted. If it advances across polls while
-> q->tail does not, hw is making progress the consumer cannot observe. Idle
-> rings, where hw does not advance either, are left alone. An earlier
-> version scanned the ring for a DONE descriptor and trusted its content;
-> that OOMed once it reached uninitialised DMA memory that happened to have
-> the bit set. A register cannot misfire that way.
->=20
-> Recovery is deferred to a work item, since the register access can sleep.
-> It drops what is in flight and re-arms the ring through the existing
-> cleanup_rx_queue()/fill_rx_queue() pair, which only touch the sw-owned
-> [tail, head) window and rewrite both indices from it. Trying instead to
-> identify and keep the descriptor hw used caused a page_pool double free.
->=20
-> GLOBAL_CFG_RX_DMA_EN_MASK is per-QDMA, not per-ring, so this briefly
-> pauses every ring behind that instance; there is no per-ring equivalent.
-> The measured pause is 986-1131 us over 13 recoveries, not the 50 ms
-> read_poll_timeout() ceiling, so the logged value is worth having.
->=20
-> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
-SoC")
-> Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+Good catch.
 
-IIUC increasing the ring size the issue never occurs again (correct?). If s=
-o, I
-would drop this patch for the moment and add it if it is really necessary.
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
 
-Regards,
-Lorenzo
-
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 98 +++++++++++++++++++++++-
->  drivers/net/ethernet/airoha/airoha_eth.h |  8 ++
->  2 files changed, 105 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index c59201aded26..177a0e10e372 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -3,12 +3,14 @@
->   * Copyright (c) 2024 AIROHA Inc
->   * Author: Lorenzo Bianconi <lorenzo@kernel.org>
->   */
-> +#include <linux/ktime.h>
->  #include <linux/of.h>
->  #include <linux/of_net.h>
->  #include <linux/of_reserved_mem.h>
->  #include <linux/platform_device.h>
->  #include <linux/tcp.h>
->  #include <linux/u64_stats_sync.h>
-> +#include <linux/workqueue.h>
->  #include <net/dst_metadata.h>
->  #include <net/page_pool/helpers.h>
->  #include <net/pkt_cls.h>
-> @@ -657,6 +659,34 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, stru=
-ct airoha_qdma_desc *desc)
->  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
->  }
-> =20
-> +#define AIROHA_RX_STALL_THRESHOLD	3
-> +
-> +/* REG_RX_DMA_IDX is hw's own completion counter, independent of what sw=
- has
-> + * posted, so comparing it against q->tail spots the stall without trust=
-ing
-> + * ring content: if hw keeps advancing while the strictly sequential con=
-sumer
-> + * does not, it is completing descriptors that consumer can never reach.
-> + */
-> +static void airoha_qdma_rx_check_stall(struct airoha_queue *q)
-> +{
-> +	struct airoha_qdma *qdma =3D q->qdma;
-> +	int qid =3D q - &qdma->q_rx[0];
-> +	u32 dma_idx;
-> +
-> +	dma_idx =3D airoha_qdma_get(qdma, REG_RX_DMA_IDX(qid),
-> +				  RX_RING_DMA_IDX_MASK);
-> +
-> +	if (q->stall_tail =3D=3D q->tail && dma_idx !=3D q->stall_dma_idx) {
-> +		if (++q->stall_count >=3D AIROHA_RX_STALL_THRESHOLD &&
-> +		    !test_and_set_bit(qid, qdma->rx_recover_mask))
-> +			schedule_work(&qdma->rx_recover_work);
-> +	} else {
-> +		q->stall_count =3D 0;
-> +	}
-> +
-> +	q->stall_tail =3D q->tail;
-> +	q->stall_dma_idx =3D dma_idx;
-> +}
-> +
->  static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
->  {
->  	enum dma_data_direction dir =3D page_pool_get_dma_dir(q->page_pool);
-> @@ -675,8 +705,10 @@ static int airoha_qdma_rx_process(struct airoha_queu=
-e *q, int budget)
->  		struct page *page;
-> =20
->  		desc_ctrl =3D le32_to_cpu(READ_ONCE(desc->ctrl));
-> -		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
-> +		if (!(desc_ctrl & QDMA_DESC_DONE_MASK)) {
-> +			airoha_qdma_rx_check_stall(q);
->  			break;
-> +		}
-> =20
->  		dma_rmb();
-> =20
-> @@ -895,6 +927,56 @@ static void airoha_qdma_cleanup_rx_queue(struct airo=
-ha_queue *q)
->  			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->tail));
->  }
-> =20
-> +static void airoha_qdma_rx_recover_work(struct work_struct *work)
-> +{
-> +	struct airoha_qdma *qdma =3D container_of(work, struct airoha_qdma,
-> +						rx_recover_work);
-> +	int qid;
-> +
-> +	for_each_set_bit(qid, qdma->rx_recover_mask, AIROHA_NUM_RX_RING) {
-> +		struct airoha_queue *q =3D &qdma->q_rx[qid];
-> +		ktime_t rx_dma_off_ts;
-> +		s64 rx_dma_off_us;
-> +		u32 status;
-> +
-> +		napi_disable(&q->napi);
-> +
-> +		/* per-QDMA, not per-ring: this pauses every RX ring behind
-> +		 * this instance, hence the measured duration below
-> +		 */
-> +		rx_dma_off_ts =3D ktime_get();
-> +		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> +				  GLOBAL_CFG_RX_DMA_EN_MASK);
-> +		if (read_poll_timeout(airoha_qdma_rr, status,
-> +				      !(status & GLOBAL_CFG_RX_DMA_BUSY_MASK),
-> +				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
-> +				      qdma, REG_QDMA_GLOBAL_CFG))
-> +			dev_warn(qdma->eth->dev,
-> +				 "qid=3D%d RX DMA busy timeout during recovery\n",
-> +				 qid);
-> +
-> +		airoha_qdma_cleanup_rx_queue(q);
-> +		if (q->skb) {
-> +			dev_kfree_skb(q->skb);
-> +			q->skb =3D NULL;
-> +		}
-> +		airoha_qdma_fill_rx_queue(q);
-> +
-> +		airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-> +				GLOBAL_CFG_RX_DMA_EN_MASK);
-> +		rx_dma_off_us =3D ktime_us_delta(ktime_get(), rx_dma_off_ts);
-> +
-> +		q->stall_count =3D 0;
-> +		napi_enable(&q->napi);
-> +		napi_schedule(&q->napi);
-> +
-> +		dev_warn_ratelimited(qdma->eth->dev,
-> +				     "qid=3D%d RX ring recovered after hw stall (RX DMA paused %lld =
-us)\n",
-> +				     qid, rx_dma_off_us);
-> +		clear_bit(qid, qdma->rx_recover_mask);
-> +	}
-> +}
-> +
->  static int airoha_qdma_init_rx(struct airoha_qdma *qdma)
->  {
->  	int i;
-> @@ -1582,6 +1664,8 @@ static void airoha_qdma_cleanup(struct airoha_eth *=
-eth,
->  {
->  	int i;
-> =20
-> +	cancel_work_sync(&qdma->rx_recover_work);
-> +
->  	if (test_bit(DEV_STATE_INITIALIZED, &eth->state)) {
->  		u32 status;
-> =20
-> @@ -1639,6 +1723,13 @@ static int airoha_hw_init(struct platform_device *=
-pdev,
->  	if (err)
->  		return err;
-> =20
-> +	/* init every instance up front: the error path below tears down all
-> +	 * of eth->qdma[], including entries the init loop never reached
-> +	 */
-> +	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
-> +		INIT_WORK(&eth->qdma[i].rx_recover_work,
-> +			  airoha_qdma_rx_recover_work);
-> +
->  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++) {
->  		err =3D airoha_qdma_init(pdev, eth, &eth->qdma[i]);
->  		if (err)
-> @@ -1687,6 +1778,11 @@ static void airoha_qdma_stop_napi(struct airoha_qd=
-ma *qdma)
->  {
->  	int i;
-> =20
-> +	/* must not run or re-arm past this point: the work calls
-> +	 * napi_disable() too, and doing that twice spins forever
-> +	 */
-> +	disable_work_sync(&qdma->rx_recover_work);
-> +
->  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
->  		napi_disable(&qdma->q_tx_irq[i].napi);
-> =20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index fa9a8edce22f..c195dad5ed58 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -207,6 +207,11 @@ struct airoha_queue {
->  	bool txq_stopped;
->  	bool flushing;
-> =20
-> +	/* see airoha_qdma_rx_check_stall() */
-> +	u32 stall_dma_idx;
-> +	u16 stall_tail;
-> +	u8 stall_count;
-> +
->  	struct napi_struct napi;
->  	struct page_pool *page_pool;
->  	struct sk_buff *skb;
-> @@ -567,6 +572,9 @@ struct airoha_qdma {
->  	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
->  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
-> =20
-> +	struct work_struct rx_recover_work;
-> +	DECLARE_BITMAP(rx_recover_mask, AIROHA_NUM_RX_RING);
-> +
->  	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
->  };
-> =20
-> --=20
-> 2.55.0
->=20
-
---AGYD2yEKCoEXZcmo
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapaA5gAKCRA6cBh0uS2t
-rL7jAP9qEM/opfNLRp7q5R6TRo2Ez9Nid+r3IAynC+NEWoZQ6QEA0fUQT4kWN7Qu
-3xpi2zx+HAETBAl4w32vblKK7tzXeAY=
-=ewuH
------END PGP SIGNATURE-----
-
---AGYD2yEKCoEXZcmo--
+FWIW: Tested it on my downstream version of arm-on-s390 with hypercalls
+already implemented. 
 
