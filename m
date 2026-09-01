@@ -4,112 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE4CC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63063C624DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 15:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzuzRQWzKhh9d8u5tb9B8Xmk/6ykx/rwaytUEdjFAyo=; b=eLXTfplv4SWwDJWnPyz5V+WjHN
-	3rwK1upmOopywawDESiI1lQ9LtobumO4kWBBt/xpKYxW7sSd8RfUudGLj0G20RMUjEElK93hgvDpK
-	CArrnVsHpqdmYJK1SOtBGD10hlSvF401O+l1dcwaIbeCJdEhvkxvEL6z74xtgmLJxRqr2DIoh9kG0
-	fehldjzEYhZ8WWCp+fHdcu95RTeFqLJn3OTz3oqr1shCYUrEIXSKA7eKw71c4ez/UXqk6J7RHGOlS
-	aaNCrBM9o8t4ct3E1dBS9F3Hk63dZZfb3fts5CvvSCicGsYiI+Qvyy63/3AUa1qhCYia6WcfGAekW
-	ViQitRIA==;
+	bh=Khutpt1Q351IwolIbC0d/9GIqS/rl15klAhLqAi/pRg=; b=RdrsrYyDC8ik94l0+9IFJJPuV6
+	jFaew3RDEO2NVxs38+N9FvpFlGAYrBS5cBmo56Ygd70WDK67KeO/WnDHelXKzZialgbVP0/3bSz0F
+	vJ2qInYa7vax7B+AUfy6mlIukaQJLHYgOnTwRenEhjnhHpE0zkzozBoujpM7+KedAT4Qwt0GNCkr1
+	niWW/UuSonbVGlWPE7J2kymNNVgGF1VdDQ0jAx/lvZIE/JovSEWWrbCjBiLlUp256wxXube+1zvvu
+	imzauOs5nGO1e2a7jUV3NCZVT6bB2ctgaYTjeMqVzOnUX/gbdU9fYs6TwkJ0TtZTtbG23aGS6u29t
+	PI0mEISw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QGH-0000000CTAT-1iPu;
-	Tue, 01 Sep 2026 15:18:57 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1x1QOq-0000000CUAG-2mGl;
+	Tue, 01 Sep 2026 15:27:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1QGF-0000000CT9B-1t72
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 15:18:56 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8484a24ccf8so458290b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 08:18:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788275934; x=1788880734; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dzuzRQWzKhh9d8u5tb9B8Xmk/6ykx/rwaytUEdjFAyo=;
-        b=RS23IBnLeGB7NSoDxU3EIyybOQBvSL5/A0J1v1dI+t8525yplYs8I7F1a5F8WniNU6
-         cX5PvFMi163jfzfRiBGblmxaSnms0bQhIhokNUTu7iCuytGZHSclLUSttFALcnFHIOaq
-         hv/vlLEzeg6lbu2p0DI3UFmTegodOLnDbOFYjG+iIx9Iua6yNbcWZp3dliKrapwXtZT1
-         36KN72kCqj/eZbBk3C1hdu9D2raHi9uFAPPlZWJW3du56TxNH3qXkRzwtOF9XTvxSKBt
-         sRTBLkzZaW51oDVMFzLyYSyiNQIDaHdd5r3LK9Ypg6EhqmY+pMxutHpoOlhcSO5Od8Jo
-         714Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788275934; x=1788880734;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dzuzRQWzKhh9d8u5tb9B8Xmk/6ykx/rwaytUEdjFAyo=;
-        b=KQnzGM9LkuPZ51fmj3mo3kyBIBBq6rDSaqOqwLSygY0oE1SdzkGLB376BV2moe34PQ
-         MceAbjdqZYAaM+DBPzXfDdvMFatRe3djvy9pBbVHkfIm535CcoMmXjTxJB6aITMiqOE5
-         BGM7YtpsXU9ZDbAXxxTHvcgc3c5tuTFocRKckkmgVSMs6KBD0Jwacj0wEOy/HxCjRrko
-         x6vzxZmCQJMmqrG9QAF9lgJLK3D3mO/MMeXXj4UqU6Qis7lYP8/pEiGQyjUtj0OMdmvv
-         UiSeJDUEZb0hwghNmgAyATrEhKGW0E3mDXwyRkYKPb+SCkYWeF5H3su/dDy2IBS0EdJL
-         ZKWA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpujt7Ony3rIjG/3eudvy+Z0YvBiBYHjrqIPUKRuYYHTB6SLdQaNBcp40g45JjTlwa9/vAKhskPqvAZO5SGbcVv@lists.infradead.org
-X-Gm-Message-State: AFuF++mzCbVEgQoTGrfoL37jMQS85wx9gJjMbstTGQlQqcpC/DvjTlw0
-	3Qu4sgSalsdcohNKG4TjCLW49pDIWwrhC96Hn5m77oUwukX2IYv9FkB1
-X-Gm-Gg: AR+sD11m9TwjwbWRQoUhDKb5xdiC1Vt1JfGvH1phR/WTv2X2u5sa/+Z2+S40C37yfvx
-	XViUwYd4UHUrsitBUtUXXxmx7evtZ5Mj2tDKZOjMAuiW39UCCCwCCfsdVP33powcSIZ9Qvy0brg
-	kSLMfJOsSlHFoKf7CCNXewD2x6KQhb83yjrPBi2A9jqJZ5G85hXWAJHFHX/b5LrjnVhJyA1FmMR
-	Cwimv5+J/Qf9N9tp9ZnNillTdDvtK5V1TvTmZi/ClIGeXJnf0O2V6ZuD/JPosgP328456DwWKUV
-	DGuXLcx6U412hlrids64/wKo7Av2mKrBSV2nUNHzOgbHEh2ZjBV1+WCTchuN2EyK9a+x7fFgUs0
-	DC5qDj3Pie0Y6ZC+O7iuddYC3H/zAN23QwuJgOb3rephWPzp6pkQ0peNlI/RePzTtaXeZzzzTE7
-	ldM4d22iuNXXxpxFEITY1QpMmrpYWFyEyQcoKT+kQIEt3PcfKSX2dsti/pcDwIZQBFO/dlkhXFg
-	e43JPPbBNyduXe8UtLixALPTA==
-X-Received: by 2002:a05:6a00:4a89:b0:845:cf73:5bd8 with SMTP id d2e1a72fcca58-856271fc239mr22836969b3a.1.1788275934457;
-        Tue, 01 Sep 2026 08:18:54 -0700 (PDT)
-Received: from o6.lan ([240e:391:ed0:47d0::1])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db24f33a0sm89911b3a.9.2026.09.01.08.18.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 08:18:53 -0700 (PDT)
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: akpm@linux-foundation.org
-Cc: david@kernel.org,
-	ljs@kernel.org,
-	usama.arif@linux.dev,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	liam@infradead.org,
-	nico.pache@linux.dev,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	baohua@kernel.org,
-	lance.yang@linux.dev,
-	kas@kernel.org,
-	rppt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	luto@kernel.org,
-	peterz@infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 3/3] x86/mm: add set_direct_map_ro()
-Date: Tue,  1 Sep 2026 23:18:18 +0800
-Message-ID: <20260901151818.3191443-4-xueyuan.chen21@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+	id 1x1QOp-0000000CU8G-0er8;
+	Tue, 01 Sep 2026 15:27:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9FBD43378;
+	Tue,  1 Sep 2026 15:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7F4DAC2BCFD;
+	Tue,  1 Sep 2026 15:27:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788276466;
+	bh=O7eMDBHqcruD9r+Gj32/0LYLOb9udOfrNqBmq6ix7CA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=r+EB22dSn+8a9Z21FaG9jc06hoqZZaO5NgmKGQzpsUrUeBRiL9+9hnZsRsYqIlI86
+	 f2d2O5PKPFzoEJ8RABq5r+PDm7sUSeDgN9Sj+HAxA0yeuib4gcKZ2juebnlADoObVy
+	 suAjVPPnunWxASfALZaOYRHT5x+eLWZV7mH5qvRurSrUn5e0rzlmtNlDrCRjTe9Ibh
+	 c1OS+6eYuNp0UKBZ/P6nBRRyFlxDFUA7YMFpaesIO2HCPPv19n16cxRgIfDmjM35YB
+	 /7vt3DWAYWDlcdg8RwHUkCAg08bIv/QRPobCsScGbZwzHBRnuhQz4fuSshL3M0Sg5O
+	 TA8CQJn6Xxjpg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5FFB6C61DD3;
+	Tue,  1 Sep 2026 15:27:46 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Tue, 01 Sep 2026 17:25:52 +0200
+Subject: [PATCH v10 1/6] mfd: khadas-mcu: Add per-variant configuration
+ infrastructure and VIM4 support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_081855_491645_6275C6AE 
-X-CRM114-Status: GOOD (  10.90  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260901-add-mcu-fan-khadas-vim4-v10-1-aecdb9955a30@aliel.fr>
+References: <20260901-add-mcu-fan-khadas-vim4-v10-0-aecdb9955a30@aliel.fr>
+In-Reply-To: <20260901-add-mcu-fan-khadas-vim4-v10-0-aecdb9955a30@aliel.fr>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ mfd@lists.linux.dev, Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2035;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=41a1uCUdSjssDusDgka02m9AT4HiCk+OuG8CTPrx2oY=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9a0dy/rs7TzjeMnZDy9eyfhb8WWj2n8xVM2zrlxlf/X/
+ thdRSbKHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEvmozMmxd8mll5IslkfvO
+ Tnz6TqC/08xhpqFxzqG1x30bdVvq4ksZ/squ//B53duUhW+1V6VOMfi1rjGMT/Pn5VTf3X38Vay
+ vVzEAAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +92,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement set_direct_map_ro() for x86 with a page-based interface. Clear
-_PAGE_RW and _PAGE_DIRTY through the CPA path and let the common CPA
-wrapper invalidate stale writable translations before returning.
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Co-developed-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Some values change per variant, add the structure to manage it.
+
+Add VIM4 specific registers done for a subsequent patch, which will use a
+new compatible especially to get the right regmap config.
+
+Add an enum khadas_mcu_type used as value to match.
+
+Also introduce khadas_mcu_fan_pdata to pass fan register address, a
+table named levels to get fan-supported levels on the MCU, and the number
+of levels to the fan sub-driver. Done in preparation for a subsequent
+commit.
+
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/x86/include/asm/set_memory.h |  2 ++
- arch/x86/mm/pat/set_memory.c      | 10 ++++++++++
- 2 files changed, 12 insertions(+)
+ include/linux/mfd/khadas-mcu.h | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 39271a5ea925..710164ea8258 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -88,6 +88,8 @@ int set_pages_rw(struct page *page, int numpages);
+diff --git a/include/linux/mfd/khadas-mcu.h b/include/linux/mfd/khadas-mcu.h
+index a99ba2ed0e4e0..7a9980ea63e7e 100644
+--- a/include/linux/mfd/khadas-mcu.h
++++ b/include/linux/mfd/khadas-mcu.h
+@@ -70,6 +70,13 @@
+ #define KHADAS_MCU_WOL_INIT_START_REG		0x87 /* WO */
+ #define KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG	0x88 /* WO */
  
- int set_direct_map_invalid_noflush(struct page *page, unsigned int nr);
- int set_direct_map_default_noflush(struct page *page, unsigned int nr);
-+int set_direct_map_ro(struct page *page, unsigned int nr);
-+#define set_direct_map_ro set_direct_map_ro
- bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index a1a061d995b3..7c0cfa7acd17 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2666,6 +2666,16 @@ int set_direct_map_default_noflush(struct page *page, unsigned int nr)
- 	return __set_pages_p(page, nr, 0);
- }
- 
-+int set_direct_map_ro(struct page *page, unsigned int nr)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
++/* VIM4 specific registers */
++#define KHADAS_MCU_VIM4_REST_CONF_REG		0x2c /* WO - reset EEPROM */
++#define KHADAS_MCU_VIM4_LED_ON_RAM_REG		0x89 /* WO - LED volatile */
++#define KHADAS_MCU_VIM4_FAN_CTRL_REG		0x8a /* WO */
++#define KHADAS_MCU_VIM4_WDT_EN_REG		0x8b /* WO */
++#define KHADAS_MCU_VIM4_SYS_RST_REG		0x91 /* WO */
 +
-+	/* Direct-map callers are expected to pass pages without aliases. */
-+	return change_page_attr_set_clr(&addr, nr, __pgprot(0),
-+					__pgprot(_PAGE_RW | _PAGE_DIRTY), 0,
-+					CPA_NO_CHECK_ALIAS, NULL);
-+}
+ enum {
+ 	KHADAS_BOARD_VIM1 = 0x1,
+ 	KHADAS_BOARD_VIM2,
+@@ -88,4 +95,21 @@ struct khadas_mcu {
+ 	struct regmap *regmap;
+ };
+ 
++/**
++ * struct khadas_mcu_fan_pdata - fan sub-driver configuration
++ * @fan_reg: register address to write the fan level
++ * @levels: table mapping logical cooling-device states to raw fan levels
++ * @nlevels: number of entries in @levels
++ */
++struct khadas_mcu_fan_pdata {
++	unsigned int fan_reg;
++	const unsigned int *levels;
++	unsigned int nlevels;
++};
 +
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
++enum khadas_mcu_type {
++	KHADAS_MCU_GENERIC = 1, /* VIM1/2/3, Edge, Edge-V */
++	KHADAS_MCU_VIM4,
++};
++
+ #endif /* MFD_KHADAS_MCU_H */
+
 -- 
-2.47.3
+2.49.0
+
 
 
