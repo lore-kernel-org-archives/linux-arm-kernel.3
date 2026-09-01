@@ -4,95 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C05C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D098C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2nW3DmaEwtQqmdcgqJ0ClmdaBE1cGoZ7pcvRuf3Yst4=; b=EMOt982n5KeRJybMzJFaBOtH3s
-	u5SCqKHaUgkmVIU1L/HzCkWhhPMdzbwWcENZghshRhijVblHdoNix7OOAupjtlkH/QCZkTFHrOZ5+
-	jnkv57GijIOhY0ie9Vm5GTw9rRz4Lf1dySU7/uq5Iro05PewpCSIk9w1teNurZVNBj3xy5N5yL+Aw
-	bmj+8LBpW3DzCBA8cuW616uwhwQxE+0f8xoqlcBZvPQfYUBSr1HVDhrbY1hAoWC8Op8ISym2qwUGA
-	zT+BDF2Oef8EBCqzfLni/yHK1XfZtCH5TE7MtulCifO2TDTeLLMiBoDXz7eV1ARRTBId6PXW67rUb
-	J6jFxZAg==;
+	bh=BlynNgY5zP68PI3zywr2W59oa9iEvK/XT6rpy4x8qgE=; b=2GMTsqzMz0k2AIqIcbhp3/p52O
+	QQY4ind47uFhgCQXziZcHiT4r6w7wqSxEZVPiVcquhossj1XjAeROeiNnKW7EEd2DiCymPCxCD0id
+	M8jJRhZNdnWNQg/OrKEpBTpbOOPulgriaXEhc0nWBR7modnf44r3BnGNwdEhTGIC++uzTDu0mSVvw
+	xBI3UGfZciXxUTVk254csI01FpX+AgEpz/7Xn/VICIssk9/1f0/epNcdMfDB0r8kGDmNbWO0jroJn
+	GRopXKgPjvVPr2sMpMrVtErRA5QvKS7rK7iWgkWgPmFi/mMbvYnHMf7owtNfh9J8Kdn3wfuaoPP0x
+	N0TC225w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PGf-0000000CJYh-06xx;
-	Tue, 01 Sep 2026 14:15:17 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1x1PN9-0000000CKCg-11U1;
+	Tue, 01 Sep 2026 14:21:59 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PGZ-0000000CJXo-3Wol;
-	Tue, 01 Sep 2026 14:15:15 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260901141504euoutp02f8cf59604fcc0bb3e97ba307ffda0a3a~ROAEy4Y3I1223512235euoutp02b;
-	Tue,  1 Sep 2026 14:15:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260901141504euoutp02f8cf59604fcc0bb3e97ba307ffda0a3a~ROAEy4Y3I1223512235euoutp02b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788272104;
-	bh=2nW3DmaEwtQqmdcgqJ0ClmdaBE1cGoZ7pcvRuf3Yst4=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=FI9HGXNVyamhN2zlQXR4CDPmMvub+hQK2T7ZBv5DkCgQPnby1w+gTVZUh41hlg+KR
-	 5ny8AyyOmQlmxO76627Rk1f6+fa9NHdeszWgDcCUqsh3yBThzUR5IsBAQipbYRojBC
-	 INCm0GUIqJFBdpcJ/FMR+S//fjPKiXb3VraxvlOY=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260901141504eucas1p156346e8510ccf68f19fc29333c31cfe7~ROAEgxzXG3199331993eucas1p12;
-	Tue,  1 Sep 2026 14:15:04 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260901141502eusmtip277e141767fe1c923ccc834fdf6eb451f~ROACyv4-D1277812778eusmtip20;
-	Tue,  1 Sep 2026 14:15:02 +0000 (GMT)
-Message-ID: <b41f260d-2308-4853-8d3b-22cba534e4e2@samsung.com>
-Date: Tue, 1 Sep 2026 16:15:02 +0200
+	id 1x1PN5-0000000CKCI-1vaH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 14:21:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1151B4E41496;
+	Tue,  1 Sep 2026 14:21:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D682E6053C;
+	Tue,  1 Sep 2026 14:21:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B20F611C79234;
+	Tue,  1 Sep 2026 16:21:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788272506; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=BlynNgY5zP68PI3zywr2W59oa9iEvK/XT6rpy4x8qgE=;
+	b=H2/4vuqC5BV/8rBy8qIYdeXYUf+vcm1VOR/iXjm8IH96O/YVghje2GnNdxIk/Ni5lDF3ph
+	J6L7CUQ65zzz+/Td49gkM+GNN9TyOuuRxRtNgXSynBLpfUSF2N4qBrmqRwCiBOcVdzLOpq
+	ve9Nukk4bt1+4KZa/3uOLXZcL5D+YPsF/ud5XFlbgoRJ0e5qNe4n2pD8xWxG/TRqGukO6e
+	xZjfqb2fyEswz6XZRIsTO+rvK8zYLNiXmUXSUDWdMX/n/Grju+kPAfQyrrzZLuUGl0ov3S
+	1jcAWxE/x8nbnTZRNWVGhZT3QTvxQRdxkYx2AY2dgrfEH7NH6FBS9SNScWdsVg==
+Message-ID: <3053bd10-50c0-4a4e-bfe3-7c2479bad560@bootlin.com>
+Date: Tue, 1 Sep 2026 16:21:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/15] riscv: dts: starfive: jh7110: Update DT for
- display subsystem
-To: Icenowy Zheng <uwu@icenowy.me>, Vinod Koul <vkoul@kernel.org>, Neil
-	Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss
-	<rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>, Philipp Zabel <p.zabel@pengutronix.de>, Emil
-	Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Heiko Stuebner
-	<heiko@sntech.de>, Conor Dooley <conor@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>, Marek
-	Szyprowski <m.szyprowski@samsung.com>, Maud Spierings
-	<maudspierings@gocontroll.com>, Graham Markall <hello@big-grey.co.uk>
+Subject: Re: [PATCH net-next 3/3] net: phy: motorcomm: Enable analog frontend
+ on YT8531S
+To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
+ Frank <Frank.Sae@motor-comm.com>
+Cc: thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
+ <20260831073747.361482-4-maxime.chevallier@bootlin.com>
+ <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
 Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <e0e0c41c4c6b0b674c4cfc3b6927d60c40fbf733.camel@icenowy.me>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260901141504eucas1p156346e8510ccf68f19fc29333c31cfe7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260828134839eucas1p2d19363d17d4dbf5a7ae5228444af16fa
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134839eucas1p2d19363d17d4dbf5a7ae5228444af16fa
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134839eucas1p2d19363d17d4dbf5a7ae5228444af16fa@eucas1p2.samsung.com>
-	<20260828-jh7110-clean-send-v2-14-331680c8b9d1@samsung.com>
-	<e0e0c41c4c6b0b674c4cfc3b6927d60c40fbf733.camel@icenowy.me>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_071512_479710_316627F0 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20260901_072155_665627_C95B0EA3 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,118 +90,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/28/26 16:06, Icenowy Zheng wrote:
-> 在 2026-08-28五的 15:47 +0200，Michal Wilczynski写道：
->> Activate the display subsystem by adding the dc8200, hdmi and voutcrg
->> nodes as direct soc children. Each references the PD_VOUT power
->> domain
->> through power-domains, so genpd powers the domain on demand, and the
->> HDMI-PHY -> voutcrg -> HDMI-controller probe order is resolved by
->> deferred probe.
+On 9/1/26 15:59, Paolo Abeni wrote:
+> On 8/31/26 9:37 AM, Maxime Chevallier wrote:
+>> The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
+>> well as a YT8531S PHY, configured in GMII mode.
 >>
->> The monolithic hdmi node is modelled as a container with hdmi_phy
->> and hdmi_controller children. This lets the PHY (clock provider,
->> depending only on xin24m) and the controller (clock consumer) probe
->> independently, breaking the circular clock dependency with voutcrg.
+>> It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
+>> enabled for link to reliably establish, otherwise the link just doesn't
+>> come up.
 >>
->> voutcrg consumes the pixel clock from the &hdmi_phy node instead of
->> the
->> old fixed-clock, and dc8200 gets its pixel clocks from voutcrg's
->> MUXes
->> and is marked dma-noncoherent for framebuffer DMA. The old, incorrect
->> hdmitx0-pixel-clock fixed-clock node is removed.
+>> Let's enable it at config_init().
 >>
->> Co-developed-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> +		compatible = "fixed-clock";
->> +		#clock-cells = <0>;
->> +		clock-frequency = <24000000>;
->> +		clock-output-names = "xin24m";
->> +	};
->> +
->>  	soc {
->>  		compatible = "simple-bus";
->>  		interrupt-parent = <&plic>;
->> @@ -1199,22 +1200,92 @@ csi_phy: phy@19820000 {
->>  			#phy-cells = <0>;
->>  		};
+>> This logic has been extracted from the vendor driver provided by
+>> Motorcomm.
+>>
+>> It's really unclear if this is specific to the integrated version of
+>> that PHY, and how this potentially interacts with the fiber mode this
+>> PHY supports, so this configuration is only enabled when the interface
+>> is GMII, i.e. the PHY is integrated.
+>>
+>> With this, the PHY reliably establishes link and the YT6801 PCIe card
+>> becomes fully functional.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>>  drivers/net/phy/motorcomm.c | 14 +++++++++++++-
+>>  1 file changed, 13 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+>> index 36c229460a77..90a4f86f2758 100644
+>> --- a/drivers/net/phy/motorcomm.c
+>> +++ b/drivers/net/phy/motorcomm.c
+>> @@ -144,6 +144,11 @@
+>>  #define YT8521_CLOCK_GATING_REG			0xC
+>>  #define YT8521_CGR_RX_CLK_EN			BIT(12)
 >>  
->> +		dc8200: display@29400000 {
->> +			compatible = "verisilicon,dc";
->> +			reg = <0x0 0x29400000 0x0 0x2800>;
->> +			interrupts = <95>;
->> +			dma-noncoherent;
+>> +/* Analog front-end control register 3 */
+>> +#define YT8531S_EXT_AFE_CTRL3			0x12
+>> +/* Analog front-end DAC clock enable */
+>> +#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
 >> +
->> +			power-domains = <&pwrc JH7110_PD_VOUT>;
+>>  #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
+>>  #define YT8521_ESC1R_SLEEP_SW			BIT(15)
+>>  #define YT8521_ESC1R_PLLON_SLP			BIT(14)
+>> @@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
+>>  	if (ret)
+>>  		goto err_restore_page;
+>>  
+>> -	if (phy_interface_is_rgmii(phydev))
+>> +	if (phy_interface_is_rgmii(phydev)) {
+>>  		ret = yt8531_set_ds(phydev);
+>> +		if (ret)
+>> +			goto err_restore_page;
+>> +	}
 >> +
->> +			clocks = <&voutcrg
->> JH7110_VOUTCLK_DC8200_CORE>,
->> +				<&voutcrg
->> JH7110_VOUTCLK_DC8200_AXI>,
->> +				<&voutcrg
->> JH7110_VOUTCLK_DC8200_AHB>,
->> +				<&voutcrg
->> JH7110_VOUTCLK_DC8200_PIX0>,
->> +				<&voutcrg
->> JH7110_VOUTCLK_DC8200_PIX1>;
->> +			clock-names = "core", "axi", "ahb", "pix0",
->> "pix1";
->> +
->> +			resets = <&voutcrg
->> JH7110_VOUTRST_DC8200_CORE>,
->> +				 <&voutcrg
->> JH7110_VOUTRST_DC8200_AXI>,
->> +				 <&voutcrg
->> JH7110_VOUTRST_DC8200_AHB>;
->> +			reset-names = "core", "axi", "ahb";
->> +		};
->> +
->> +		hdmi_subsystem: hdmi@29590000 {
->> +			compatible = "starfive,jh7110-hdmi-
->> subsystem";
->> +			reg = <0x0 0x29590000 0x0 0x4000>;
->> +
->> +			/*
->> +			 * This MFD's PHY child is the first device
->> in the vout
->> +			 * region to touch registers, so it owns the
->> NoC display
->> +			 * bus clock + reset that gate access to the
->> region.
->> +			 * PD_VOUT is powered on by genpd via power-
->> domains.
->> +			 */
->> +			power-domains = <&pwrc JH7110_PD_VOUT>;
->> +			clocks = <&syscrg
->> JH7110_SYSCLK_NOC_BUS_DISP_AXI>;
->> +			resets = <&syscrg
->> JH7110_SYSRST_NOC_BUS_DISP_AXI>;
+>> +	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
+>> +		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
+>> +				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
 > 
-> I think the NOC clocks/resets should be also needed by the DC8200
-> either?
+> Sashiko suspects this will not survive a suspend/resume:
 > 
-> Although patching the DC8200 driver to add support for these
-> clocks/resets looks a little dirty...
-> 
-> Maybe it's still good to have a vout subsys instead of a hdmi subsys...
+> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831073747.361482-1-maxime.chevallier%40bootlin.com
 
-Yeah that was the idea as it was modeling hardware correctly, however
-indirectly it works thanks to the probing order. The problem with the
-extra vout subsys as shown in the RFC was that an extra driver and extra
-dt-binding were needed which seemed to complicate things a bit. But it
-does seem more correct in a sense that it's modeling the relationship
-correctly so I'll bring it back for v3.
+hmm sashiko may be right, worth adding right now as it seems there are
+some discussions already on motorcomm suspend/resume issues, let me spin
+a V2
 
+Thanks !
 
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
-> 
-> Thanks,
-> Icenowy
-> 
-
+Maxime
 
 
