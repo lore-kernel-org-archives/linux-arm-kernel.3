@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC95C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 23:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60472C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 23:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q1fny0bMdrHzrb/Y/AQziUWSkRiiitvwLoZ2sKa9vaw=; b=PurYtNw3WCncmtDqo2ru9O+tFW
-	1ZmGtXNczDqAgDXKZ00VuMMaRfR4qzCrAsO4ryr5ng0tTZNRL4YltVyqT0EtrsmfeAxFSLshebJLS
-	bbFLd6Ce6wtb/CLYu0oFM+OpycvgfJj5d8aMXoNEy+hO8OJ30JYEUsecofhFsuTIK4ADMnyZBTVsu
-	5pp39iD31aOFPZB9TiAS9Os8mysIrUAxK+BtCpJoi8MJrAObQJeEP0PCzTEweW+eRV2otPCFgV9T2
-	LorDkRYmjneXIZEjza5oHGcqmxqLKlSqsZc7GZzlVPK96rVwNB/pLkIoYNx3Uvi+GzxD7+CwqUMVN
-	kWliMMug==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ppZkh3AVCrQx9O4YNbO0XMQav0agPe5LBnt6LSWUrys=; b=iIgKubM5legiX8tER8BIuPLdaA
+	Uqx3qvY0C6NPd8mG+7JX7d0PY0/V7rFcFgJ2xTrv6xvh96gxdVZvqY9bjurG9pstZi1sGaavYGHDF
+	Tv08vQADiR3svUKoQgQtQDlSqW5IpV75iE9pO/bgq4P2c04kNqWQNIpgPK+FXNktm2U5JOJFNMfB2
+	PSdKpaJX6uQwC8uJr6ptjts2eU/QGghNSq4H+9KXtg3WxmZVfCpE98cM8iW9pl+LfEJxQPH+59Une
+	EER2GwK/riRRENzGshtlNq5hqltnHV/ujZnePDwYYWoHxA6II7lRAcQSuSgDeikNzazsLKhiNyn97
+	dgI51o5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Y9E-0000000DXz1-3Yo6;
-	Tue, 01 Sep 2026 23:44:12 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1x1Y9H-0000000DY0B-0Ozp;
+	Tue, 01 Sep 2026 23:44:15 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Y9C-0000000DXxQ-3jjg
+	id 1x1Y9D-0000000DXxh-0RJF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 23:44:11 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2d7200b2e15so4243285ad.3
+	Tue, 01 Sep 2026 23:44:13 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d715f4a587so5782205ad.2
         for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 16:44:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788306249; x=1788911049; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q1fny0bMdrHzrb/Y/AQziUWSkRiiitvwLoZ2sKa9vaw=;
-        b=c6ZJZ8lCZ7oKFjsKX+Kwp+a4P4iw4HqMzw7ysj5pjQmDBoAA76IvRXyu4jEBSRGPxU
-         dXwbXCAiN9iIrxaAQ22Pg1xzU5FSgYg78iPf18huQyy16DF7DaupHT784ejo4D8Rxxlv
-         fcd6l+tZy+6lMVEac0HQ7CG7mcYRwnryfIAEbyzBTbgpsnBnQ0CUByXnPMN3VIiN/uhL
-         UKydxeaEhpIa6XbmRorfhtGIz5IJBrFvMfPI3yxvp0QxkmRV27Ln8rkOmw5h36HhT/L4
-         T6fngfn5Q5yD7k0J2jaXndFOVN7LE24MTb3dzlveb7sb8+5ZQSTCuUi+Q19uWCp82TSQ
-         jZjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788306249; x=1788911049;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788306250; x=1788911050; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=q1fny0bMdrHzrb/Y/AQziUWSkRiiitvwLoZ2sKa9vaw=;
-        b=Io+UsyQiHxI2mFnsp4HRsDnzDr79APQ69HieXOvQtRVUy+u0gZ/B4QAtFk/XS7V/yi
-         e1uI2dYc30DNaaak48E+maPCdTwo/2ke2V0PB9W2hEp/SrShpWqb25blGkjRNLX8lSb2
-         FPBNoOahtjQP64tKao0V57BYf6UOcO1p1nNT5eLt4de1ucwtgKU9CnYUtcil2JQEbycj
-         M8cb8BoDnW3yqwB5eIb36sWBkWw8Qg8cAZbrKhLqJbrtlrTVyNLowa/646BuLdBi8HNl
-         lc+PGZSODx0tdPOanlg/0qOtefT52zJVYHOtnAczaJr4uIJm0bJydV2Pk+s4knokQm5m
-         vmSw==
-X-Forwarded-Encrypted: i=1; AKwUvByebj2KDo37FHTb16xZ/I0nxNW8l3rS+G9A+Xq3jd1dSjDUBdmkQc3u/zjediijK0ZPKxZMdvKg7IE0o9B9KWhS@lists.infradead.org
-X-Gm-Message-State: AFuF++nWc+IsqVbX6sx3egbLEs7902eYZy8PVeYYb69J2Oj9BUyRjkwn
-	VYItACcvgi1hX0nmklb+D+C727AxOYdVib+ySrRVTN7fzP+Ze2TqEJDQ
-X-Gm-Gg: AYBFou25H/ZNGXcmXCf545qmvsOGubiWNYPqUyh8bXf9c/0WpxKSU1DThu15X7b4+Zq
-	xAEVw6BHQmSWdjdnM38zVq9+ZyNcbat9IEVWeocIpPJc55cpTAvIWIcwrAH8Ohbso+hLsQfO8/Q
-	UiqxCy6BIpim1sFkwg54sFO0SQS0UTy7kiOAI4UFNc8Z1j3FvZ9isfKZN/Sj1ydhRinfRAl3hvG
-	iTKl067DXsLl3ykA0d2pBeRkpqqjIcbfUBXk32J5zKUvzX1HsBeN8OaNH5b8clepxqjwr0yFz7A
-	rKB9QkBW7iNTojRzE4JQM/6vpebqsCvzHoekKLXQSRF/muO/T69jou6Bv3N9c0TbibvOd2GwUFe
-	4BuvtiEbWriLXTn8fxR/u1QDMFzYJNqwN223g/NmnQUIqAWeknBGRzgld0PIDsex5/XVy7gA3d9
-	dLUm8pOx36excvD0VrHPy7Iop9OG5Q0NsXxi4AaTd1mQl+8hb4A2TxuLtf319hmDVOMJPzJ74gG
-	HgZsK3KXJ+kWYhJB0PUFY9ogQ==
-X-Received: by 2002:a17:90b:3d81:b0:398:c150:e7b3 with SMTP id 98e67ed59e1d1-39aedf5d923mr868098a91.4.1788306249089;
-        Tue, 01 Sep 2026 16:44:09 -0700 (PDT)
+        bh=ppZkh3AVCrQx9O4YNbO0XMQav0agPe5LBnt6LSWUrys=;
+        b=jRIn0H4m5s3k/pCZCO5NRNvTFN0SYEwBXndS/ITv3zOEaF2t9h91VdNxC7jv5ms2+M
+         u5hHaUWOD9lD1uNJoJ1kZElUQUsmUEsH70NdKpQ5MzXt8Uz6q0izc2kH7dknGrhXNeKH
+         xRqxUDozMgI46Ro8OEiXeFEHD10RMU2uC7TP4rfnsLCr30gbcspHB8bIjy256Mcsji/2
+         XWRggEZ3SnLdBAH8TFjEsIIw8Zh6cBDeliri0pT5j5/UBiCI30S4oWVRBhFBPWZ6K0l+
+         a3ALMOCD6XHVQzwt6V38YwL5IYoAdvbEV2dzymTXYbebY6jeG8DwRUnrJx2tCEm8g8JH
+         /bTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788306250; x=1788911050;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ppZkh3AVCrQx9O4YNbO0XMQav0agPe5LBnt6LSWUrys=;
+        b=eTqMIj175aQYagQ9b+BN6fn3Cw+QHHAEdreIqAWF+9k2Iu8Zs7bDHYUDeTLaxidoyX
+         XEUuTBQSq8hR2M7W/Cg5i1MqQKfXvU6Js+V6SiiYNt2AQZLBI20WOvOUL0vMLaA0cNiZ
+         c9vFg9hZ6I8PLJWzUBk6qcn8dNYq1706VdskYKmlQgoUKRg63hDaBuD7Q5Z/Hypu2Ly7
+         nJ7etGsrA7CoCRfdZP6oU1VRORv3Qvmo9mxryu2wvhJ+IfjomvJdB/1NAt4dBMarzsBx
+         CjBuV2rCd2dGvyxS+OoRn+93ng5u5GhZRs/FAunk8Wo0Ff6aTs/z3eDGcS7uLnaRFwp2
+         rOcg==
+X-Forwarded-Encrypted: i=1; AKwUvBz8AehRN4w9QgDHWmJbTGHxINJgz451XQTFbq1+pMn1UhkL2PaTo8u/NlB/VXr0VV2NoEyOLDejRXBHg1mYWL2W@lists.infradead.org
+X-Gm-Message-State: AFuF++ltQVcYqFNt/tuK7TQ4BFSY/FUQhOomYWFI6A22pOjh5NRWw8++
+	0fiXSVma+3qXbEDpCd220D0uLUbo/HsdEyblfkba8v62yToX+8SrHAh8
+X-Gm-Gg: AYBFou2IHHKvF3AxGLc1q8A6kQSnY7rCTmejN6iApXlFgEoTCW2K868vrX+JpymfY0i
+	z5UgLUik45AlEANE6WY8FkN1kJ0X+3IDo7SLV8E6VM4g2q+Dq/flOn4MRLoeRS2S7thom+3Z8b7
+	VyLCDpjUi7EsU9mNMeHoLn9xRGJbwPh/7Y9KD/MMAX9PH/3XZYPjlD77b/NBWHaf7C2gGRw8RkY
+	wHBJWS1TFXhmSLt8/ZEQ04yCZewVXvKbRsY6HXVfAkOQ1KHxlvY4T43HgQg7HrhIAImEUQa0igY
+	ZmpyHu7G/7T/dzLwzz5Zx9lBQmLC6mvSP+6FdWbskWXOoJ6+vhSEpoYRMJLOZjCAram85vqWYzB
+	oiQno3+PW29amMKvsyvYV00Eg99J7w7waiz61HAYgbI/36/b+J6Yt1x8wiMnk6ZaUAOnQYkG/bx
+	C90RPFUJcRZ03OMIFQGH1FL0IcfefXxAXb70/5t5NAwwFbQCvRHbb1a4OnNOLlmne3AQFRFhWkm
+	YgPe+Zglesb5sc/DMMrL/KeJA==
+X-Received: by 2002:a17:90b:5743:b0:398:bbe9:73af with SMTP id 98e67ed59e1d1-39aedfdb0b1mr956150a91.7.1788306250071;
+        Tue, 01 Sep 2026 16:44:10 -0700 (PDT)
 Received: from anarsoul-xps15.lan (d50-92-231-36.bchsia.telus.net. [50.92.231.36])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3990baaeec3sm8299903a91.0.2026.09.01.16.44.08
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3990baaeec3sm8299903a91.0.2026.09.01.16.44.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 16:44:08 -0700 (PDT)
+        Tue, 01 Sep 2026 16:44:09 -0700 (PDT)
 From: Vasily Khoruzhick <anarsoul@gmail.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Brian Masney <bmasney+clk@redhat.com>,
@@ -86,15 +87,17 @@ To: Stephen Boyd <sboyd@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
 Cc: Vasily Khoruzhick <anarsoul@gmail.com>
-Subject: [PATCH 1/2] clk: rockchip: rk3399: add 85.5 MHz rate to PLL rate table
-Date: Tue,  1 Sep 2026 16:42:30 -0700
-Message-ID: <20260901234351.190506-1-anarsoul@gmail.com>
+Subject: [PATCH 2/2] drm/rockchip: vop: don't round the pixel clock when the encoder owns the PLL
+Date: Tue,  1 Sep 2026 16:42:31 -0700
+Message-ID: <20260901234351.190506-2-anarsoul@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260901234351.190506-1-anarsoul@gmail.com>
+References: <20260901234351.190506-1-anarsoul@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_164410_921406_97967142 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260901_164411_172934_2B64306D 
+X-CRM114-Status: GOOD (  28.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +112,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-85.5 MHz is the pixel clock of the standard DMT 1366x768@60 mode,
-which is the native mode of many cheap HDMI panels.
+On RK3399 the HDMI reference clock is VPLL, a dedicated PLL that is a
+parent of the VOP dclk. dw_hdmi_rockchip_mode_valid() accepts a mode
+only if VPLL can produce its pixel clock, and encoder mode_set() then
+programs VPLL to that rate. However vop_crtc_mode_fixup() ran first,
+in the check phase, and rounded adjusted_mode->clock through
+clk_round_rate() on the dclk. At that point VPLL still sits at its
+previous rate, so the dclk composite picks whichever of VPLL/CPLL/GPLL
+gets closest at its *current* rate and stores that inexact value.
 
-Use a 1368 MHz VCO (24 MHz * 57, already used by the existing
-1368 MHz entry) with postdiv1 = postdiv2 = 4 to hit 85.5 MHz
-exactly in integer mode.
+For 1366x768 (85.5 MHz) this yields GPLL/7 = 84.857 MHz. mode_set()
+then requests 84.857 MHz from VPLL, which the PLL rate table snaps
+down to 74.25 MHz, and the VOP ends up on GPLL/7. The panel receives a
+timing 0.75% slow, which some monitors misdetect (e.g. as 1195x768)
+and display distorted. Only modes whose clock happens to be an exact
+GPLL or CPLL fraction (74.25, 148.5, 297 MHz, ...) were unaffected.
+
+Let the encoder tell the CRTC, via a new rockchip_crtc_state flag set
+in its atomic_check, that it will program a dedicated dclk parent to
+exactly the requested pixel clock. Move the rounding from mode_fixup
+to atomic_check, which runs after the encoder's atomic_check as
+recommended by the DRM documentation, and skip it when the flag is
+set. With VPLL then set to the exact rate before the VOP enables,
+clk_set_rate() on the dclk finds an exact match on VPLL.
+
+The flag is only meaningful within the check that sets it and is
+cleared when the state is duplicated, so it cannot leak into a later
+modeset on the same CRTC with a different encoder. Behaviour for
+encoders without a dedicated PLL is unchanged.
 
 Assisted-by: Claude:claude-fable-5
 Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
 ---
- drivers/clk/rockchip/clk-rk3399.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c |  8 ++++++-
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h |  9 ++++++++
+ drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 25 +++++++++++++++------
+ 3 files changed, 34 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/clk/rockchip/clk-rk3399.c b/drivers/clk/rockchip/clk-rk3399.c
-index c2b243d7a5e2..db241d2df625 100644
---- a/drivers/clk/rockchip/clk-rk3399.c
-+++ b/drivers/clk/rockchip/clk-rk3399.c
-@@ -98,6 +98,7 @@ static struct rockchip_pll_rate_table rk3399_pll_rates[] = {
- 	RK3036_PLL_RATE( 148500000, 1, 99, 4, 4, 1, 0),
- 	RK3036_PLL_RATE( 106500000, 1, 71, 4, 4, 1, 0),
- 	RK3036_PLL_RATE(  96000000, 1, 64, 4, 4, 1, 0),
-+	RK3036_PLL_RATE(  85500000, 1, 57, 4, 4, 1, 0),
- 	RK3036_PLL_RATE(  74250000, 2, 99, 4, 4, 1, 0),
- 	RK3036_PLL_RATE(  65000000, 1, 65, 6, 4, 1, 0),
- 	RK3036_PLL_RATE(  54000000, 1, 54, 6, 4, 1, 0),
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index b6e154c35e7c..ece44c6ec95c 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -300,8 +300,8 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 				      struct drm_crtc_state *crtc_state,
+ 				      struct drm_connector_state *conn_state)
+ {
+-	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+ 	struct rockchip_hdmi *hdmi = to_rockchip_hdmi(encoder);
++	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+ 	union phy_configure_opts opts = {};
+ 	u32 bus_format;
+ 
+@@ -327,6 +327,12 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 
+ 	s->output_type = DRM_MODE_CONNECTOR_HDMIA;
+ 	s->bus_format = bus_format;
++	/*
++	 * The reference clock (e.g. VPLL on RK3399) is a parent of the VOP
++	 * dclk, and mode_set() programs it to the pixel clock, which
++	 * mode_valid() already guaranteed it can produce.
++	 */
++	s->dclk_exact = !!hdmi->ref_clk;
+ 
+ 	if (!hdmi->phy || !conn_state->hdmi.tmds_char_rate)
+ 		return 0;
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+index 4705dc6b8bd7..8cb828ae9af6 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+@@ -57,6 +57,15 @@ struct rockchip_crtc_state {
+ 	u32 bus_format;
+ 	u32 bus_flags;
+ 	int color_space;
++	/*
++	 * Set by an encoder's atomic_check when it owns a dedicated PLL that
++	 * feeds the CRTC's dclk and will program it to exactly
++	 * adjusted_mode->clock at mode_set time. The CRTC must then not
++	 * round the pixel clock against the current clock tree, which does
++	 * not reflect that PLL's future rate. Only valid within one check,
++	 * it is cleared when the state is duplicated.
++	 */
++	bool dclk_exact;
+ };
+ #define to_rockchip_crtc_state(s) \
+ 		container_of(s, struct rockchip_crtc_state, base)
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+index 0090d8ff0c79..73a92ccbcb94 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+@@ -1207,11 +1207,9 @@ static enum drm_mode_status vop_crtc_mode_valid(struct drm_crtc *crtc,
+ 	return MODE_OK;
+ }
+ 
+-static bool vop_crtc_mode_fixup(struct drm_crtc *crtc,
+-				const struct drm_display_mode *mode,
+-				struct drm_display_mode *adjusted_mode)
++static void vop_crtc_adjust_clock(struct vop *vop,
++				  struct drm_display_mode *adjusted_mode)
+ {
+-	struct vop *vop = to_vop(crtc);
+ 	unsigned long rate;
+ 
+ 	/*
+@@ -1245,8 +1243,6 @@ static bool vop_crtc_mode_fixup(struct drm_crtc *crtc,
+ 		rate = clk_round_rate(vop->dclk,
+ 				      adjusted_mode->clock * 1000 + 999);
+ 	adjusted_mode->clock = DIV_ROUND_UP(rate, 1000);
+-
+-	return true;
+ }
+ 
+ static bool vop_dsp_lut_is_enabled(struct vop *vop)
+@@ -1558,6 +1554,19 @@ static int vop_crtc_atomic_check(struct drm_crtc *crtc,
+ 	s = to_rockchip_crtc_state(crtc_state);
+ 	s->enable_afbc = afbc_planes > 0;
+ 
++	/*
++	 * Round the pixel clock to what the dclk can really produce, unless
++	 * the encoder will program a dedicated dclk parent PLL to exactly
++	 * this rate at mode_set time. In that case the clock tree seen here
++	 * (with that PLL still at its old rate) would pick a worse, inexact
++	 * source and bake that rate into adjusted_mode, defeating the PLL.
++	 *
++	 * Same condition the atomic helpers use for the mode_fixup callback.
++	 */
++	if ((crtc_state->mode_changed || crtc_state->connectors_changed) &&
++	    !s->dclk_exact)
++		vop_crtc_adjust_clock(vop, &crtc_state->adjusted_mode);
++
+ 	return 0;
+ }
+ 
+@@ -1623,7 +1632,6 @@ static void vop_crtc_atomic_flush(struct drm_crtc *crtc,
+ 
+ static const struct drm_crtc_helper_funcs vop_crtc_helper_funcs = {
+ 	.mode_valid = vop_crtc_mode_valid,
+-	.mode_fixup = vop_crtc_mode_fixup,
+ 	.atomic_check = vop_crtc_atomic_check,
+ 	.atomic_begin = vop_crtc_atomic_begin,
+ 	.atomic_flush = vop_crtc_atomic_flush,
+@@ -1643,6 +1651,9 @@ static struct drm_crtc_state *vop_crtc_duplicate_state(struct drm_crtc *crtc)
+ 	if (!rockchip_state)
+ 		return NULL;
+ 
++	/* Only valid within the check phase that sets it. */
++	rockchip_state->dclk_exact = false;
++
+ 	__drm_atomic_helper_crtc_duplicate_state(crtc, &rockchip_state->base);
+ 	return &rockchip_state->base;
+ }
 -- 
 2.55.0
 
