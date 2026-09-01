@@ -4,98 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB46C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EC6C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jZowfmyKxOguFaJuZq/Bm4rZ+Os6TFRN1DcxWsiy2Q=; b=XnSrBPRhzCzkC78UoL2Dh1/GlC
-	7rMIR0IcNAPhuuuuiR4PaleWHbbbjQ2qPcTECJGZrIZuQgwJMQvcShYoqGct20Gyiesn31INisIQM
-	kf47IEfrXW8seCf695UinqLKg4BCsf0+Nm+Z+1t07iWrOFxKBI/oj5/Bordid8kzBBWze3ihYQBV/
-	tdWAFF1zoIDwx0rkxs3/gCZECABbCP8NUx28FrDck3hPV1SS9q4qDPk3hZHaQpCWNK272c7ly0blV
-	qnXZ+A+99LoaUJ6YZMKwDhJ8z5jc+SMkJqolkefdw2Br88vQec1dn+ILCs+gS6DU/i9+9sZmrEfS6
-	HwX8xHOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NP765eIK3i1h4ElPABCA1IyV3GB75Wkk4F2PfSzC7Fs=; b=13Kn8C0NXJNCwoYuqIbtt3ZqUS
+	WH8KlhPYJVfTAqAngI4m1XyfPjOyk7OGMPXBWCysWvmghYkm8RbYGn3Dzwlp2rq/iZQxK3dixDd+D
+	l31Qpb9bt98fC5JABsrYtxqDbKyOhT3co7FfwdGrrOt0wX6A7E2jLi0q2Ry0G2RIgQJGwHOzwhM+p
+	iCbfK3zTmyQUugf8WB8/x8oPB4DwKsJwSclokoD+x0ZdEvJRzX7s2gVnPQSAfA6TDeb+ovzPiPPpJ
+	pyOXybvsDvKJfiT0mI6A+9+GgAJoC2Vl2oOdIAOwY9P64A15baxU3hGlhVzPnlhdss58mSoiKio2l
+	AE9StavA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1U7y-0000000DCRd-05hj;
-	Tue, 01 Sep 2026 19:26:38 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1x1UBG-0000000DDBI-1QfP;
+	Tue, 01 Sep 2026 19:30:02 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1U7v-0000000DCPy-1SRf
+	id 1x1UBE-0000000DD8u-12fa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 19:26:36 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a682579c72so21497a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 12:26:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788290793; x=1788895593; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+jZowfmyKxOguFaJuZq/Bm4rZ+Os6TFRN1DcxWsiy2Q=;
-        b=pLXB9BKsXGvi3UIG3hVhbRPUAtyYHm4RLxmU9dF/j0vC1m8iAte5Lstvg+uuJtY+/F
-         85BeSw1MDpXldyQpcUYY13fwptarrX9ZmCJ5L1Ty2B3MdWqjom7Auy71K7MefNDW0cAU
-         ttoMamZcfFPMoPaDNgDammyNvjjfKB1Uz2TDxkmUXJXYHLcNUOlQHhgofqXazUEl+HSG
-         TGhkOEyhNf5+AEcuHJE6zMQEesl1O2JzSpyxEWgmOYiPhzDJtpC5eW8LwFvPXzVDNAmC
-         IV3F7SghGdLRZqIKdbSd3nzag0PvTQ5/c8mDBHWGq7Y8D+KW7tpYDkZGhW+clcta9hlb
-         8WvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788290793; x=1788895593;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+jZowfmyKxOguFaJuZq/Bm4rZ+Os6TFRN1DcxWsiy2Q=;
-        b=BD3Tv9P8CowwhGy8uq+Qhm0aze6zj8ZugsisVZQEQWa66PbV2y8mFClNXf79LD9eLh
-         aM+1FPD28rFvNYqUy+TNqgfx//g7Kk9M2tNuVHp23vVMTC1JB/M72q4xUT/uOn+jyd34
-         WDlQSI1PVuEYHSNeXDe1vYGEf+ZOSSFEx/Hszzk9abwOUk2hRJfc3u7IRFbXszmlTpKL
-         V+jN4A0hVGnNclzfBB6hrsbcrherafqjasY7L5aRQn/Sk62ey1gFG1jh66/8mhXYi0kb
-         aPmEFS70pYDAuhuWxTi5K/mWqX//vvp5QlhCMM6fwe3yzPNW3FTUlxQcJAWuDjCdeDua
-         KU7Q==
-X-Forwarded-Encrypted: i=1; AKwUvBxQHmE4LJMsKudbY5EiF4TphIkTLkA5951pGBfqxC+cv45R3VYw6OuEbZ/x666pxT1T+AaHbY9Ld080m5CVFyci@lists.infradead.org
-X-Gm-Message-State: AFuF++nuzbbZ0novV6cyWUGPTR0dE3fyiyNcaKQtjoYdMYb38Z8I7eeu
-	/urQWjrCEVx3sPyty2pjVviTDzrPJlviL2VJ6NXCmnttzHwqEfi+2p0Y
-X-Gm-Gg: AYBFou0fRraH4cp/K8R4Pd/87cCUg9LtOQtO1Nalpb50VF7LXFCP34uPrcVOEmVq2OR
-	f9NSdIVYvl7TAoSLDYQJWGKfcbRzDjQ33qD6bZmtmbDgZli/1gPruRtrkjMW5+W0WMBbGhhs9he
-	Lrn4U9Alc0nRSNwFD/OyvtIfTlovIOmErOMhswXuTg+rw90RHSFJJ6hgS/RNgpbUF2h6FAz5jAh
-	KF4R6+EoOkUZrB6/vrP2y7FW1BWV7xgAnHnp9CWDv6pYP0aaphEnnGlxcLMVL6fPMYWqAZ51uBT
-	NiEFwnYnUF3JHjH1JDjcuWYMKW39L+WGZZ5B7uy7OCEPyl0qpMC0O3I909s7ncBLA7kJHdKsudz
-	U+PxB6w8FctmOyJbfGgIn9rwcOjVHq+pcv4SKFAIz8necOBPNkgKlH/l8iepqSFBtWv3/4IMw/u
-	s3d0jFrpmlnAiYbA7kxM5Fkb1tGyNWZ8IMlJC8gddiWKFiohzvTi+5kqJpbjm8HQ==
-X-Received: by 2002:a05:6402:5305:b0:6a6:757d:6311 with SMTP id 4fb4d7f45d1cf-6a68257c1eemr63061a12.9.1788290793582;
-        Tue, 01 Sep 2026 12:26:33 -0700 (PDT)
-Received: from khalil-hp.home ([62.250.116.161])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f94242csm146373a12.21.2026.09.01.12.26.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 12:26:33 -0700 (PDT)
-From: Khalil <khalilst@gmail.com>
-X-Google-Original-From: Khalil <khalil@rentman.nl>
-To: Mark Brown <broonie@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Richard Fitzgerald <rf@opensource.cirrus.com>,
-	patches@opensource.cirrus.com,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-spi@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Khalil <khalil@rentman.nl>,
-	Khalil <khalilst@gmail.com>
-Subject: [PATCH v3 1/3] spi: Preserve preset cs_gpiod in __spi_add_device()
-Date: Tue,  1 Sep 2026 21:26:23 +0200
-Message-ID: <20260901192625.1497791-2-khalil@rentman.nl>
+	Tue, 01 Sep 2026 19:30:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eyVE/YZ6z5UEceHJ4DHT9hLsLUx0gek4sVCVmoRrJJvX5cx9NEJgUJ0O8ab/c0jvbM9jxKmqNP9SG6qhFeFA3EMZvYuZ6FHrkAnI+OhY5LVHNE5Muv6FHWHcNt14QARJv6idZbpqvEic8mNILRGcy7NBM3ABtFm8aHWMBEucIgicxk26u9E+zqhkPpncFaytuIFWj5Ze+8dS57CLLUlSs4XupeK97BX2ydI6QVwSpmH0IgJ9+tcGRZ3ErU8aTD46Rc3n6FgG3y5idhIB1nvBS8qqpUtm8O6/CnZoSX9fTG8jXX+FneV2ng/DMLTaj+ECeeqCn1gHaosPXflq8g7KYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NP765eIK3i1h4ElPABCA1IyV3GB75Wkk4F2PfSzC7Fs=;
+ b=D2N2aWuI3IIlmZkRTjgj/uE29eBEZLDm/N2rFyPFewn0Se5TrHbwRxpPeBkmLkBKN9PKAmarlU0KdE6PcMVI0LnWjkVvT96z//k0hq74xLI2Ej3B/KPHmuTmse9s4uJxl3bOYjZWFnvhBDalcbIC9Ph0j/FYbqQ5wzr7g01prcLhNA6Wco2Glp3k0jlG+p5R1cgzGHqxqDubhUBOFeC/8gFs8NJ6w7x1SW7ptQBKqziGLcenNm7D5I2dzu695feQp6hgKbhf8M53TUBidaqlOOKwCafnovh6uJZxZ4h74NBDIPUvlFiuCyCqxqpT9xQg4zStYqNUiG9OSf1XZB+cxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NP765eIK3i1h4ElPABCA1IyV3GB75Wkk4F2PfSzC7Fs=;
+ b=RJKgLQk8yTy6HQX9FXjjhQEmzyBBe8nJBHg+TO7XQOMhtuZMoqLRNgnh/YEAaXyyacUjHq/XY5k0GrEp4KO85qsuNQe2rZWDecUMBP6ujGYCSGwDmja4+7bfQXfiBwGqrYxpzVhnyNDEE/kNK4BSaFD8tMI2t1/tnprURSQsQ/ESEH5c34PS5R4A9FCnDHFLqF89IlVFd0qMSQnQy6ak/ZDP0IXTGD5SXNJNcFAX8kKuM8bXOAV6ITsP1YN4UbmrI8K2hkDf0J9cUeaS24BED+vMJpveSy3Phku34ay3sX/sMTixc9CmirmkutndU79npoVfmLstop9OGLC5CITBLg==
+Received: from BN0PR03CA0039.namprd03.prod.outlook.com (2603:10b6:408:e7::14)
+ by LVUPR12MB999138.namprd12.prod.outlook.com (2603:10b6:408:39e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
+ 2026 19:29:51 +0000
+Received: from BN3PEPF00022BC0.namprd04.prod.outlook.com
+ (2603:10b6:408:e7:cafe::9) by BN0PR03CA0039.outlook.office365.com
+ (2603:10b6:408:e7::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
+ Sep 2026 19:29:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF00022BC0.mail.protection.outlook.com (10.167.248.123) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 19:29:49 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
+ 2026 12:29:16 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
+ 2026 12:29:15 -0700
+Received: from dgx-1v-42.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Tue, 1 Sep 2026 12:29:15 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
+ . Wysocki" <rafael@kernel.org>
+CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Jamie Nguyen <jamien@nvidia.com>
+Subject: [PATCH v2 3/3] firmware: arm_ffa: Back the ACPI FF-A FFH Operation Region
+Date: Tue, 1 Sep 2026 12:29:06 -0700
+Message-ID: <20260901192906.133670-4-jamien@nvidia.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260901192625.1497791-1-khalil@rentman.nl>
-References: <20260901192625.1497791-1-khalil@rentman.nl>
+In-Reply-To: <20260901192906.133670-1-jamien@nvidia.com>
+References: <20260901192906.133670-1-jamien@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC0:EE_|LVUPR12MB999138:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf64c89b-b66e-47cb-1012-08df085f63c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|23010399003|1800799024|7416014|376014|56012099006|11063799006|10067099003|3023799007|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 7lsNEmAyn0Otubvs/OkrOvlVbCRxj0FjD74FcqBwnYfbl1qLvyYvOUKXVpKq/J/Hu2cTma+fMYvCb3NWGJBx+eur3AP0zZbZ6OYL09G9dfgJvir9dZNDu56aK3QDlLiWvk93lnUdnKI2DPSH3ajyqaLaScl3JCWGts9mZXvVFZGzC0AkvR1S/5IWXa2DbXSyaJX/VZDMNdPc4VQzHSRaTTwEtgjoMxnCP3kUkWQhdjG1C2ZgTGG2CXGc8GjN8Ry9j6i7zA0o9C7kBNAysE2nR3r34ejKV38N3/+88Q2YQPp+QQ3XJTRax7Gs4PGDUwQ35QSMLhfg9vF93scDUvN69tuuc7P6NycLnpiyR5vAkEg/gOJpO+8EsY/lDpJOLL3FU2iBOgZLj17IrYrddvVlYegsG6pgiikMdXPQI9OoFQYEB6HAmoJWOXpX0Et3HKPQ/2qbSB5R0KfyS646W64y6vYKkfsjRwnem7s4tRDb0otW5aZMVlSYzneGqcaTuqDkh9MWlkPcAF385XToMX3VLepyhHxuNWYAt+WkuzrNlUBmbqIe4qYM4Uxo1jtaqGw+ss0phiabEz4gfQmXxMme0hRO8uZfW2YiWZOoYIhAhh5lo+SIJFLI/2o3/B5c/sj1fex0Y7o0frEKIeKzdh3qerdLBcMc97DlTgcDmlivgzsuPkLKEi/KkF4E++SWHvVnXva8bjNfFe2ULVaQn1af2w==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(23010399003)(1800799024)(7416014)(376014)(56012099006)(11063799006)(10067099003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 35tC+pRezPjV24WvUCf3mPhtxi0h984qzgERjkB++UuVei4YBEM3a2b7uP+mkayNtfTesWyKg+8jeBvXW/2DHk7IZ7MkzvawS8XrR9/HGIsh+pgB8liiRE995Fk5r+l7Sunm4+HWRpfo0MTrNJ9juvXs/djQiraFnZdF4h8nOmCNRvWVm1CsDwvf6TGKDkV2Ix9OaDYWCwdOOgJYvNawg7gJzXUasj5kY+ag9xvHMRu7HE7NI6nzlAH0mPQB0MMFlQ3BeGkrFPLfKjJIqlv0NHL3tHQz6cxnLei4O4ojL4uvNmMqq8Ls9m3L8g43AWvCjsbZixxO4fUK2DVJDy4pei4jf6dj2NXCEBFaQKwYagbYaVvlH45sKegNvPLlPfydYFXQRnZR7KGTqkzG5KJhr5jTR2UkfN+JCAfMEDsJYiTiAfGbSTyEbjrlQpdH9Xu8
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:29:49.7128
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf64c89b-b66e-47cb-1012-08df085f63c9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BC0.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVUPR12MB999138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_122635_402611_91352473 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20260901_123000_291909_109ECB3F 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,40 +131,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__spi_add_device() unconditionally overwrites spi->cs_gpiod[] from
-ctlr->cs_gpiods[cs], even if the caller has already set a GPIO
-descriptor on the device. This prevents drivers like
-serial-multi-instantiate from pre-configuring a GPIO chip select
-acquired from ACPI before adding the device.
+Add the FFA_MSG_SEND_DIRECT_REQ2 backend behind FFH Operation Regions
+declared with an Offset of 0x2, as described in Arm DEN0048D section
+2.3.1.2, and register it once partition setup has completed.
 
-Skip the overwrite when the device already has a cs_gpiod set for
-the given index, allowing callers to preset GPIO chip selects that
-aren't described in the controller's cs-gpios property.
+None of what the Operation Region handler needs was reachable through the
+existing ffa_device based interface. Resolving a service UUID to an
+endpoint ID had no user yet. ffa_sync_send_receive2() always addresses
+dev->vm_id, so a receiver endpoint ID that AML supplied in X1 cannot be
+honoured. And the response registers DEN0048D wants copied back to AML are
+discarded by ffa_msg_send_direct_req2(), which folds the FF-A error code
+into an errno instead; patch 1 dealt with that one.
 
-This is useful on platforms where the ACPI _DSD cs-gpios property
-on the SPI controller is incomplete, but the peripheral's ACPI node
-does contain the correct GpioIo resource for its chip select.
+DEN0048D only requires the resolved endpoint to be unique, and a single
+partition may be described by more than one entry, so compare endpoint IDs
+instead of insisting on exactly one descriptor.
 
-Suggested-by: Richard Fitzgerald <rf@opensource.cirrus.com>
-Signed-off-by: Khalil <khalilst@gmail.com>
+Where the endpoint was enumerated at probe time, check first that it can
+receive direct request2 messages. AML then gets FFH_FFA_NOT_SUPPORTED
+instead of a call that was never going to work. An endpoint with no
+matching device is passed through and left for the callee to reject.
+
+Assisted-by: Claude:claude-opus-5
+Co-developed-by: Dat Mach <dmach@nvidia.com>
+Signed-off-by: Dat Mach <dmach@nvidia.com>
+Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
 ---
- drivers/spi/spi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 118 +++++++++++++++++++++++++++++-
+ 1 file changed, 116 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-index 07c572e1df..fbfb9a1aa2 100644
---- a/drivers/spi/spi.c
-+++ b/drivers/spi/spi.c
-@@ -924,7 +924,8 @@ static int __spi_add_device(struct spi_device *spi, struct spi_device *parent)
- 	if (ctlr->cs_gpiods) {
- 		for (idx = 0; idx < spi->num_chipselect; idx++) {
- 			cs = spi_get_chipselect(spi, idx);
--			spi_set_csgpiod(spi, idx, ctlr->cs_gpiods[cs]);
-+			if (!spi_get_csgpiod(spi, idx))
-+				spi_set_csgpiod(spi, idx, ctlr->cs_gpiods[cs]);
- 		}
- 	}
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 3236cd0a731ab..0577c7d5685ee 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2146,6 +2146,114 @@ static void ffa_notifications_setup(void)
+ 	ffa_notifications_cleanup();
+ }
  
++/*
++ * Backend for FFH Operation Regions declared with an Offset of 0x2, see Arm
++ * DEN0048D (Functional Fixed Hardware Specification v1.3) section 2.3.1.2.
++ * The Operation Region handler itself lives in drivers/acpi/arm64/ffh.c and
++ * is built in, so it reaches this driver, which may be a module, through the
++ * ops registered below.
++ */
++static int ffa_acpi_ffh_partition_id(const uuid_t *uuid, u16 *dst_id)
++{
++	struct ffa_partition_info *pbuf;
++	int count, idx, ret = 0;
++	u16 id;
++
++	count = ffa_partition_probe(uuid, &pbuf);
++	if (count <= 0)
++		return count ? : -ENOENT;
++
++	/*
++	 * DEN0048D only requires the endpoint ID to be unique. A partition may
++	 * be described by more than one entry, so compare IDs rather than
++	 * insisting on a single descriptor.
++	 */
++	id = pbuf[0].id;
++	for (idx = 1; idx < count; idx++) {
++		if (pbuf[idx].id != id) {
++			ret = -ENOTUNIQ;
++			goto out;
++		}
++	}
++
++	*dst_id = id;
++out:
++	kfree(pbuf);
++	return ret;
++}
++
++static int ffa_acpi_ffh_match_id(struct device *dev, const void *data)
++{
++	const u16 *dst_id = data;
++
++	return to_ffa_dev(dev)->vm_id == *dst_id;
++}
++
++static int ffa_acpi_ffh_check_partition(u16 dst_id)
++{
++	struct device *dev;
++	bool supported;
++
++	dev = bus_find_device(&ffa_bus_type, NULL, &dst_id,
++			      ffa_acpi_ffh_match_id);
++	/*
++	 * Only partitions reported by FFA_PARTITION_INFO_GET at probe time have
++	 * a device here. AML may name an endpoint that was never enumerated, so
++	 * an unknown one is left to the callee to reject rather than refused
++	 * outright.
++	 */
++	if (!dev)
++		return 0;
++
++	supported = ffa_partition_supports_direct_req2_recv(to_ffa_dev(dev));
++	put_device(dev);
++
++	return supported ? 0 : -EOPNOTSUPP;
++}
++
++static int ffa_acpi_ffh_direct_req2(u16 dst_id, const uuid_t *uuid,
++				    u64 *payload, unsigned int nr_payload,
++				    u64 resp_regs[3])
++{
++	struct ffa_send_direct_data2 req = {}, resp;
++	int ret;
++
++	BUILD_BUG_ON(sizeof(req.data[0]) != sizeof(*payload));
++
++	if (!drv_info->msg_direct_req2_supp)
++		return -EOPNOTSUPP;
++
++	if (!nr_payload || nr_payload > ARRAY_SIZE(req.data))
++		return -EINVAL;
++
++	ret = ffa_acpi_ffh_check_partition(dst_id);
++	if (ret)
++		return ret;
++
++	/*
++	 * Registers not represented in the Operation Region stay zero, as
++	 * required by DEN0048D.
++	 */
++	memcpy(req.data, payload, nr_payload * sizeof(*payload));
++
++	ret = __ffa_msg_send_direct_req2(drv_info->vm_id, dst_id, uuid, &req,
++					 &resp, resp_regs);
++
++	/*
++	 * DEN0048D asks for the registers to be copied back once the call has
++	 * completed, whatever the outcome, so this runs on the FFA_ERROR path
++	 * too rather than leaving AML looking at its own request.
++	 */
++	memcpy(payload, resp.data, nr_payload * sizeof(*payload));
++
++	return ret;
++}
++
++static const struct acpi_ffh_ffa_ops ffa_acpi_ffh_ops = {
++	.partition_id	= ffa_acpi_ffh_partition_id,
++	.direct_req2	= ffa_acpi_ffh_direct_req2,
++};
++
+ static int ffa_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -2228,8 +2336,13 @@ static int ffa_probe(struct platform_device *pdev)
+ 	ffa_notifications_setup();
+ 
+ 	ret = ffa_setup_partitions();
+-	if (!ret)
+-		return ret;
++	if (!ret) {
++		ret = acpi_ffh_ffa_register(&ffa_acpi_ffh_ops);
++		if (ret && ret != -EOPNOTSUPP)
++			pr_warn("failed to register ACPI FFH backend (%d)\n",
++				ret);
++		return 0;
++	}
+ 
+ 	pr_err("failed to setup partitions\n");
+ 	ffa_notifications_cleanup();
+@@ -2249,6 +2362,7 @@ static void ffa_remove(struct platform_device *pdev)
+ {
+ 	struct ffa_drv_info *info = platform_get_drvdata(pdev);
+ 
++	acpi_ffh_ffa_unregister(&ffa_acpi_ffh_ops);
+ 	ffa_notifications_cleanup();
+ 	ffa_partitions_cleanup();
+ 	ffa_rxtx_unmap();
 -- 
 2.43.0
 
