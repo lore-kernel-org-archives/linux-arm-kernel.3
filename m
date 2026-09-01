@@ -4,79 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B6DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E26C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RwiugeaifPQdmY9Zpdvu0ty8fQ/P33k9akYKvOyAbg=; b=UuJspD0ZcHi2jyXqTjk6SOdGkH
-	Ja9ha+dDuC0Ha19ZBPjwAH0lp95Qkk4PqIvrB4P70wI0GFsbYMBOhNkFVndCQ8upvXF6oN12EJIbj
-	w4Mp5Tz9bFSqEtfw1vy3tL8GdCLaDIKyMvyTwwKVtTf2MHf+0NAWvMjbro8M+UYneidk36abrGcjB
-	upwumEEuAGCc1F4X+YvgoSSFJH5tW9rxV0rOiyHkWUkOsLWN6wB/n/3Mn91pkP9ORParfvdYcboEx
-	Lv5r6gB10LUjcqGRtH/tlPzoEvtVbU6RBC+pdtjG8apvD1Ngrw6Py4te8YlCo+bcvfhkc3Q331O5w
-	Q7tnEDxQ==;
+	bh=4okLrgTesZNCTwGc9pt7tVg1zsDdOnzz5zopu0OeRA4=; b=TrLwxP4SLAEF4VG6P3aW7L1+Xl
+	GL7ZFjaB3ymtYViCg08YyfpP+UVY3hyu8Q9s0j6vWzMto1K5TSRtyjW6gu9HTnlGDG60lzpl46dA1
+	dountrtb/eCgnzbJctR1MgwONnSSZL2j7mlu88G7KIpZvNRNb/+cWBnJaw2Hbnp3ImkKUSsRYa7Ki
+	wcWfIyN11P0Ovz1+EtN8mkXp2LiCxYktdb91ZSVkEHE95RnHieahq31A/vkGouOnbYxSFabRpcAw0
+	cuUWWCuvgao0TK8iTew4cli+CkFEFCJ+HugMJkgs75ywq531gVE7+v0cbhAVE57m1J/X0Y+WuGEGT
+	arJ1ECBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PPS-0000000CKSH-3wDH;
-	Tue, 01 Sep 2026 14:24:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PPP-0000000CKPf-4A0p
+	id 1x1PSE-0000000CKpG-1dbH;
+	Tue, 01 Sep 2026 14:27:14 +0000
+Received: from aposti.net ([185.119.170.32])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1PSB-0000000CKob-0R7J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 14:24:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 465AC1756;
-	Tue,  1 Sep 2026 07:24:12 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4935A3F882;
-	Tue,  1 Sep 2026 07:24:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788272656; bh=/+VTS/wowKUBMEJfUdOzNr9Rhq2odKsUrNC+nH+Ov6Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l4FEsQQe49YrVK3Eui9gTKKd5V+dmOfEGgip57IjEp8fEHqxuePGNLZ8GuKu3jUkH
-	 Nuu4Yb8TJamyzrltg+7AYmQs+NWdzyZYMLwxZNhYodLsRsv4xL01vE1oUHLn7FgNkk
-	 bnf93fyhdWxCsyIBOYeKlsSDcxBRvdiBP1KnBM5k=
-Date: Tue, 1 Sep 2026 19:54:12 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-hardening@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
-	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Maxwell Bland <mbland@motorola.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
-Message-ID: <apbgDNjQPLBdsUe0@a079125.arm.com>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+	Tue, 01 Sep 2026 14:27:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=crapouillou.net;
+	s=mail; t=1788272825;
+	bh=AhJNT/NbiwuvDf+yhvjO9/pLXEAE/7mBodgsYiWNRmo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=jLL8kVChJrcMXifFJ8V/P84E0/24nUQgS+ci5c89I5Fexk2RNxA74Cv69rgGSgM7W
+	 rQHAChMAv3g9HY3iwr6Kw56w5MEP8Io2TobR78vxtSl9grpjaf/h8qdC9GeChqHLiY
+	 NTPzjFZz+65dnrasrThCDW2RX88SfcCLwHG2XhX0=
+Message-ID: <be168b7cd89c23855dc4e5b0df57940e902afa27.camel@crapouillou.net>
+Subject: Re: [PATCH v2] ARM: dts: samsung: exynos4210-i9100: Enable RTS/CTS
+ in Bluetooth node
+From: Paul Cercueil <paul@crapouillou.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Alim Akhtar	 <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 01 Sep 2026 16:27:03 +0200
+In-Reply-To: <20260829101509.138284-1-paul@crapouillou.net>
+References: <20260829101509.138284-1-paul@crapouillou.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_072420_116471_64E6D5DE 
-X-CRM114-Status: GOOD (  38.27  )
+X-CRM114-CacheID: sfid-20260901_072711_352515_FFFA7137 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,163 +66,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
+Hi,
 
-On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
-> [Sending during the merge window in case reviewers have spare
-> cycles; I'm not aiming to have this series merged in v7.3.]
-> 
-> This is a proposal to leverage protection keys (pkeys) to harden
-> critical kernel data, by making it mostly read-only. The series includes
-> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
-> as well as a page table hardening feature based on that framework,
-> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
-> concept, but they are designed to be compatible with any architecture
-> that supports pkeys.
-> 
-> The proposed approach is a typical use of pkeys: the data to protect is
-> mapped with a given pkey P, and the pkey register is initially
-> configured to grant read-only access to P. Where the protected data
-> needs to be written to, the pkey register is temporarily switched to
-> grant write access to P on the current CPU.
-> 
-> The key fact this approach relies on is that the target data is
-> only written to via a limited and well-defined API. This makes it
-> possible to explicitly switch the pkey register where needed, without
-> introducing excessively invasive changes, and only for a small amount of
-> trusted code.
-> 
-> Page tables are chosen as an initial target because of their especially
-> critical nature - a single write may result in arbitrary pages becoming
-> accessible to any context (including userspace). In order to keep the
-> series digestible for reviewers, this version focuses on functionality
-> rather than performance, making it most suitable as a debug feature. The
-> key trade-off is the requirement to PTE-map the linear map - see section
-> "Protected page table allocation" for details.
-> 
-> This series has similarities with the "PKS write protected page tables"
-> series posted by Rick Edgecombe a few years ago [1] but it is not
-> specific to x86/PKS - the approach is meant to be generic.
-> 
-> This proposal (as of RFC v5) was presented at Linux Security Summit
-> Europe 2025 [2].
-> 
-> [Table of contents]
-> 
-> * kpkeys
->   - pkey register management
-> 
-> * kpkeys_hardened_pgtables
->   - Protected page table allocation
->   - kpkeys context switching
->   - Performance
->   - Limitations
-> 
-> * This series
->   - Branches
-> 
-> * Threat model
-> 
-> * Further use-cases
-> 
-> * Open questions
-> 
-> kpkeys
-> ======
-> 
-> The use of pkeys involves two separate mechanisms: assigning a pkey to
-> pages, and defining the pkeys -> permissions mapping via the pkey
-> register. This is implemented through the following interface:
-> 
-> - Pages are assigned a pkey in the linear map using set_memory_pkey().
->   This is sufficient for this series, but it is also plausible for
->   higher-level allocators to support marking allocations with a given
->   pkey.
-> 
-> - The pkey register is configured based on a *kpkeys context*. kpkeys
->   contexts are represented as simple integers that correspond to a given
->   configuration, for instance:
-> 
->   KPKEYS_CTX_DEFAULT:
->         RW access to KPKEYS_PKEY_DEFAULT
->         RO access to any other KPKEYS_PKEY_*
-> 
->   KPKEYS_CTX_<FEAT>:
->         RW access to KPKEYS_PKEY_DEFAULT
->         RW access to KPKEYS_PKEY_<FEAT>
->         RO access to any other KPKEYS_PKEY_*
-> 
->   Only pkeys that are managed by the kpkeys framework are impacted;
->   permissions for other pkeys are left unchanged (this allows for other
->   schemes using pkeys to be used in parallel, and arch-specific use of
->   certain pkeys).
+Le samedi 29 ao=C3=BBt 2026 =C3=A0 12:15 +0200, Paul Cercueil a =C3=A9crit=
+=C2=A0:
+> The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-
+> rtscts'
+> property.
+>=20
+> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+> ---
+>=20
+> Notes:
+> =C2=A0=C2=A0=C2=A0 Changes:
+> =C2=A0=C2=A0=C2=A0=20
+> =C2=A0=C2=A0=C2=A0 V1 was: "ARM: dts: samsung: exynos4210-i9100: Fix Blue=
+tooth node"
+> =C2=A0=C2=A0=C2=A0=20
+> =C2=A0=C2=A0=C2=A0 -v2: Drop max-speed property. It's only supposed to be=
+ used in
+> some
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cases, which don't apply=
+ here. As this was the "fix" for
+> getting
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Bluetooth to work on my =
+device, which will be applied to the
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 driver instead, the Fixe=
+s: tag was removed.
 
+I'll V3. I think I did not understand properly what 'max-speed' was
+for, and indeed it does apply in this case - the Bluetooth chip's
+maximum rate is 4 Mbps while the max baudrate of the SoC's UART is 3
+Mbps.
 
-- Adding some basic details on what a scheme and context is quite helpful.
+Cheers,
+-Paul
 
- - Giving some hints (may be an example) on how multiple schemes and multiple contexts
-  play together would be quite helpful.
-
-Adding a documentation that covers these aspects would be much
-appreciated.
-
-My understanding is that pkeys are being partitioned across different
-contexts. But then the introduction of the term "scheme" looks bit confusing to me.
-
-
-> 
->   The current kpkeys context is changed by calling
->   kpkeys_enter_context(), which will set the pkey register
->   accordingly and return the original state. A
->   subsequent call to kpkeys_leave_context() restores the original
->   state (and thus the original kpkeys context). The numeric value of
->   KPKEYS_CTX_* (kpkeys context) is purely symbolic and thus generic,
->   however each architecture is free to define non-default pkeys
->   values (KPKEYS_PKEY_*).
-> 
-..snip
-
-> Open questions
-> ==============
-> 
-> A few aspects in this RFC that are debatable and/or worth discussing:
-> 
-> - There is currently no restriction on how kpkeys contexts map to pkeys
->   permissions. A typical approach is to allocate one pkey per context and
->   make it writable in that context only. As the number of contexts
-
-Probably to avoid the assumption, may be we can we have something like
-below 
-
-For a pkey P, we could define
-PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
-PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
-
-With the assumption of one pkey mapped for every context,
-the permission for the default context would look something like,
-
-PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
-PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
-PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
-...(for all valid contexts)
-
-where,
-Permission key, PKEY_DEF is associated with context DEFAULT,
-Permission key, PKEY_CT0 is associated with context CT0,
-Permission key, PKEY_CT1 is associated with context CT1
-
->   increases, we may however run out of pkeys, especially on arm64 (just
->   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->   use the same pkey for the data associated to multiple contexts.
-
-Lets say two contexts A and B, use the same pkey P as their permission matches.
-But then, when we enter context A, permission for pkey P gets
-relaxed, then that would relax permission for pages associated with
-context B as well which is unintended ? 
-
-As the hardware supports 16 pkeys, should we consider removing the limit
-of 8 pkeys so that we can have unique pkeys for each context ?
-
---
-Linu Cherian
+>=20
+> =C2=A0arch/arm/boot/dts/samsung/exynos4210-i9100.dts | 1 +
+> =C2=A01 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> index 8a635bee59fa..95964be7daa8 100644
+> --- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> +++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> @@ -875,6 +875,7 @@ &serial_0 {
+> =C2=A0	status =3D "okay";
+> =C2=A0
+> =C2=A0	pinctrl-names =3D "default";
+> +	uart-has-rtscts;
+> =C2=A0	pinctrl-0 =3D <&bt_en>, <&bt_res>, <&uart0_data>,
+> <&uart0_fctl>;
+> =C2=A0
+> =C2=A0	bluetooth {
 
