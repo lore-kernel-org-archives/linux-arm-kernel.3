@@ -4,124 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42D1C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A9AC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=; b=4u7ScO56nCj47qYEOBQh0F/6sD
-	q/QSdwmlg6UoL9aRUFysY2YuLEBZWKsXY3WnwNRUpPYM/Lrz2qRmNzhYdl7QDoVbYTya3WNDfXzgX
-	YEi9dIJeTNg8IJ63+QBKhIwAtBWgmbuEaOD1MVHbLngX2xoIDE9DfBhLzpQDYMQGxGAbTXtVi1ams
-	ywq05nun+8NXv75VCHefIFbHlaYuMRsnuM1t7kfk/+846cgTnBv2C3ttCTfEsd1oqg6Nj74KV0Viw
-	r1PlL3TAPWPzjsR/1SyNvKFAhvLlA0/S4/hgaBSBrLnugMJlhDXHT1SnfoLl+YjAzHzqN3MkwTXZh
-	QT9cramA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kGJBTxI0BTFP9qYGYHlSLCXCQCO3O2EtQUjch3HFwi8=; b=hd3XYcv5IK7/hpv5yJMWEIzzPv
+	Z3fSgvX+7KRfobOl00BO+DNx+zvTMrdJAo3eBJZirMeyjRsVHObz4qKTI5Nb6Cxjqe5jEkyQPbTdR
+	IFvHSFfVIIN+sxPNaZn7TiFJ3DVdYRz/ftKXWtPFT/CRB3t7BJiv/6DLlZVr+IZIYjNR3s6j37lqj
+	mc1qwdY2repp5/ylrivnzu+rwwK7VJmutTAaK06SM9NnBOZam56bQVgm521j9qyugK+grcyP+3q8R
+	bDsAWRixKZ/vYlafbH2FqBm+bsTKrLRj38LYV2Puh3WSmhovsmVKHZnyLxx11EYaxwTSkZQAE0r0t
+	PI8nZsiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1J07-0000000B8YR-3d6q;
-	Tue, 01 Sep 2026 07:33:47 +0000
-Received: from mail-swedencentralazon11013071.outbound.protection.outlook.com ([52.101.83.71] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x1J4U-0000000B8ok-1BL7;
+	Tue, 01 Sep 2026 07:38:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1J04-0000000B8Y1-2udg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:33:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fh4P82hZ9ufqgQa7OHtSFMnbcDQ2EK+8RFEir8SkYyfBE25N0g1Mx7DLsqYmLE6cKUUQLES8ckHIQLoclSRjrrHfUOGAUOihLxcRA1/ypfRZ0a/FDBKrfUP1dv2Vzl8/dz3t7SIuBXy9b6OJm0AophaSMYZZml4Io/kZcc/QZ4sHmSfls6E9vZzhb0fjoBeXCE7XjgX8M3SirVbScrwOFkT8RI7ZGRTvv+mgx6H+4An1JrRBgjszfNyc8PnIyTJYq7aSCmyoyCALin3gasJDsN5oDPrNhvnXDJgUCFRoDsIbzqRa62HYedB7gTkIdvvHT6bsvJIgGWj5b3s061gKIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=;
- b=y7LI6ukY8vu2NOV4v47+RTMbjjJfHM9RTIF8Ad99d9xr6D/2LGJG/sFPBpzKItbZZcjG6Or2oCtBQk/m0l2TYd+YjrabtQrRQc1nZtc03DGZmrKEsvMfQ189W4EmBPT4ApqLiopyXxwjLYnu8J8gS4NJOiJi/wA0aCwkBsfVr54Pjrg3bksAaxDaglayGnMOOS+T4G0I6aMQ1g1hGKaUrREXdX0Cxn7YRAiA9ufOgFPLFIdbtoS7TvAycAmly9Lr8AW5cUuQOpQgRF+tsF3rFj74Uv49KaoNSXmRC4pNJ/Qge/W8A0KYOxAa7B4PyoKm708FWbDibodl3AEYcPtKfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.88) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GPgVgyUxOXuHj9KnGx3BV8CxHTqn5InN3T6v8yMqnhA=;
- b=Jy/x9OO2LVRmEkVQk4NJXvKQYJ5ugp0o9+oDIdxbXcUsq2wmNDg/zDGEyetPTpkzk/cutGJIB92pA0bInAJn6Gkw5Cn2OO+KBZLNhRcOby6NbDoVIesMoU2G8/GRVImEpk05vyfUogm6mTqqRtjWjKmX7GxuinMpxFpONRbR9SVlqSm8tUX92TjrMylltlViKx87KU1TCtsEmNyrzrULIm1PGv+Dan37808E/0VbIcZV5wHs+8mZ9IUMb33eRNWAvUfDD4Ggk4sT0mS7O4o7Y/67UDrk7gYOT0XJrC5t9W5fbcOTaNQqlZzjcVPNrQI59K2LJt4snvlTm4fkOFGQxA==
-Received: from AS4P191CA0012.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:5d5::11)
- by DB4PR10MB6920.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3fc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 07:33:36 +0000
-Received: from AM4PEPF00027A6C.eurprd04.prod.outlook.com
- (2603:10a6:20b:5d5:cafe::31) by AS4P191CA0012.outlook.office365.com
- (2603:10a6:20b:5d5::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
- Sep 2026 07:33:36 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.88)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.88 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.88; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.88) by
- AM4PEPF00027A6C.mail.protection.outlook.com (10.167.16.90) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 07:33:36 +0000
-Received: from ENXDAG1NODE4.st.com (10.75.129.197) by smtpo365.st.com
- (10.250.44.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 1 Sep
- 2026 09:30:54 +0200
-Received: from [10.48.87.85] (10.48.87.85) by ENXDAG1NODE4.st.com
- (10.75.129.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 1 Sep
- 2026 09:33:34 +0200
-Message-ID: <3326ff38-75c3-4218-b537-17077f3faa4e@foss.st.com>
-Date: Tue, 1 Sep 2026 09:33:33 +0200
+	id 1x1J4T-0000000B8ob-0Gpv;
+	Tue, 01 Sep 2026 07:38:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 858EB4010B;
+	Tue,  1 Sep 2026 07:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFDC01F000E9;
+	Tue,  1 Sep 2026 07:38:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788248296;
+	bh=kGJBTxI0BTFP9qYGYHlSLCXCQCO3O2EtQUjch3HFwi8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J/B0TM+qn7Bc6/87PafTXa00ztozqZNvsXgnr5Z5wdK0mUQIqViGzAQrquu4+Rlej
+	 uNvdZTiee3n6L06Qr4N2t2tjJwiBekmH8OwLGpv1fs+wTjDO95HOt/mnrTCipEg9O0
+	 TWtI8iHWAcy/Y9s7oTna14pTlQafb6rC7dYf0FmhddV1Mpj3SoM0d2a93UnUZwLmaf
+	 zLZzKG6o0TBjLu26QbRbCbVU/aL9P5ath/gR5LkDMVzKL2CEz5B2XOB+jMY0CaiEl9
+	 JrQJDQVMG32lCsan1QNse+jfkioI7kV8icktX+tBj2EGTTyBU+MxrUn4h26Bb9oavT
+	 ls6sKrNtoP9mA==
+Date: Tue, 1 Sep 2026 09:38:14 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+Cc: netdev@vger.kernel.org, upstream@airoha.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 2/3] net: airoha: recover RX ring after hw
+ completion stall
+Message-ID: <apaA5jDYH71F0JaS@lore-desk>
+References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
+ <20260831234701.206021-1-sochnev.v.74@gmail.com>
+ <20260831234701.206021-3-sochnev.v.74@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next,PATCH v2 1/5] dt-bindings: net: add phy-supply property
- for stm32
-To: Rob Herring <robh@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linusw@kernel.org>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260812091122.566439-1-christophe.roullier@foss.st.com>
- <20260812091122.566439-2-christophe.roullier@foss.st.com>
- <20260812195828.GA724768-robh@kernel.org>
-Content-Language: fr
-From: Christophe ROULLIER <christophe.roullier@foss.st.com>
-In-Reply-To: <20260812195828.GA724768-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.85]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To ENXDAG1NODE4.st.com
- (10.75.129.197)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6C:EE_|DB4PR10MB6920:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb82eb40-2125-446c-c93a-08df07fb5576
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|7416014|22082099003|18002099003|56012099006|11063799006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: ia9RuAsjnKd+F7/pwoGdZmzqJIYzluSdPV68mho0wlAE/OLnV2UJQtWHHCXr5G1dIH/NgXgVebW6FdgdSNiGhvsU43xiPR/u0LgR8WAJDwwI40UxwKP3k6kfgYqNuut7UGtAj/+7i+TwChGW6t9HPpaCXT4aZD64JCkYRcczcp5T5HlyUyNjdtrsJ6XkoxOL56wXLVGle5+smbCWLbZEbjTwXFrpyL+5wHviUQh7XLx+nxlMrnObk9oKPVJVeVsEf3hJLjqSOA6fOK9zQGKoSUmD0C4lfouDdZS01Q8LjBxUBK0m8keRLoFYCwkd2uJwEA9D7IgbfruORfTGN5EwRDXxmy/9eKNwkWMkcFSz1O1x7AuNLwhlyixIBTVGX83wl2TC2cVnsasD4UVzdMipaNBgMVJo3ccQr2TQnFMLq6s3Xo8zMm6HasTvzD5x6iNjY4/cCd54d+LvDjliZoJPnR1MVKmhztSPnnvO9W0OUqNlVFd2syegY5v8G1UvG6OWjmb3mU+FtoWquZaR5HWr8pcvSp7guI61gPCU3V45Hl2ZMd+2Mvt/j/4vk89f7Mk66aVVvpp8fthRNadBSfUFpxjtVwDfhrv/9nLAMyy5WVjD2eJg31N4umZ4JC2t0OpJ8X9uTI24crk9mF1leQjQ8WdZpg2/LU3Z5gZ+3MHOI5X72xEfKT1Crf+UiYNURE0S
-X-Forefront-Antispam-Report: CIP:164.130.1.88;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mXu6N9bKxnX9QAMh6vGLaLCEOvVcLv9kFFtI04S5GZoFkyTykcbVkVx2kkA+MbxQQIBT6ZCxoy+bOORxO1j9poFTTdRN3Vn/uDNf5OrHuAyq0kChE+w/r/aSS/DcDG/+gx9LZRDgBbHF0eQQCpYjP/+IGodD6AxdcFC25ipTwxp4wOSaCswjhsXiAzE+2p169DW+9aGRo6x8wq0zH7kM0J119U7wbDB7cb66qZJLpGvvq1EQrqWLSAmLmAZvMvkDaNX+uIuxScUIplaH40DkOMIcmaMBPcfiJcu0dtO8Xft49ZfOgNTSWQ7VN40ZSx9Fshz5lRunPRoAVKygNrP7yp7m3HvGcAx4qkneLEPPLbimf09JJNfOudb1YQgRehu4cbMHPNse2o5/IIBkiUd5ohYwEKYBEUcQLTggO6FXP3I+E9kM5L/nHI6cYcAXqVue
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 07:33:36.1128
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb82eb40-2125-446c-c93a-08df07fb5576
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.88];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6C.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6920
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_003345_142700_FFB7D3D7 
-X-CRM114-Status: GOOD (  11.34  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="AGYD2yEKCoEXZcmo"
+Content-Disposition: inline
+In-Reply-To: <20260831234701.206021-3-sochnev.v.74@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,62 +76,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--AGYD2yEKCoEXZcmo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Le 12/08/2026 à 21:58, Rob Herring a écrit :
-> On Wed, Aug 12, 2026 at 11:11:18AM +0200, Christophe Roullier wrote:
->> Phandle to a regulator that provides power to the PHY. This
->> regulator will be managed during the PHY power on/off sequence.
->>
->> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
->> ---
->>   Documentation/devicetree/bindings/net/stm32-dwmac.yaml | 3 +++
->>   1 file changed, 3 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
->> index 987254900d0da..0c7eb1ccadd47 100644
->> --- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
->> +++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
->> @@ -99,6 +99,9 @@ properties:
->>         encompases the glue register, the offset of the control register and
->>         the mask to set bitfield in control register
->>   
->> +  phy-supply:
->> +    description: PHY regulator
-> Which phy? There can be multiple for ethernet. In any case, doesn't
-> really matter because either is wrong. The supply(ies) for a device go
-> in that device's DT node. This node is not a PHY.
->
-> Rob
+> On AN7583 hw can stop advancing the descriptor the sequential consumer in
+> airoha_qdma_rx_process() is waiting on, while its own completion counter
+> keeps moving. The ring is then dead: NAPI is scheduled, finds DONE clear
+> at q->tail, and does nothing, forever.
+>=20
+> Observed directly on ring 4 at its 16-descriptor default (devmem, qdma0):
+> REG_RX_CPU_IDX frozen at 15 for over an hour while REG_RX_DMA_IDX advanced
+> 29 -> 96, with a 60-byte frame left stranded in the ring.
+> QDMA_DESC_DROP_MASK was never set. In practice this is hit during PPPoE
+> negotiation bursts on the shared "force to CPU" ring, where it stops the
+> dial-up from ever completing.
+>=20
+> Detect it without trusting ring content: REG_RX_DMA_IDX is hw's own
+> counter, independent of what sw posted. If it advances across polls while
+> q->tail does not, hw is making progress the consumer cannot observe. Idle
+> rings, where hw does not advance either, are left alone. An earlier
+> version scanned the ring for a DONE descriptor and trusted its content;
+> that OOMed once it reached uninitialised DMA memory that happened to have
+> the bit set. A register cannot misfire that way.
+>=20
+> Recovery is deferred to a work item, since the register access can sleep.
+> It drops what is in flight and re-arms the ring through the existing
+> cleanup_rx_queue()/fill_rx_queue() pair, which only touch the sw-owned
+> [tail, head) window and rewrite both indices from it. Trying instead to
+> identify and keep the descriptor hw used caused a page_pool double free.
+>=20
+> GLOBAL_CFG_RX_DMA_EN_MASK is per-QDMA, not per-ring, so this briefly
+> pauses every ring behind that instance; there is no per-ring equivalent.
+> The measured pause is 986-1131 us over 13 recoveries, not the 50 ms
+> read_poll_timeout() ceiling, so the logged value is worth having.
+>=20
+> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
+SoC")
+> Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
 
-Hi Rob,
-
-Ok I will update my description with :   "Regulator that powers the 
-Ethernet PHY."
-
-To manage this regulator on Ethernet glue, I based my work on the 
-examples of :
-
-   - allwinner,sun4i,
-
-   - allwinner,sun7i
-
-   - allwinner,sun8i
-
-   - fsl,fec
-
-   - rockchip-dwmac
-
-   - rockchip,emac
-
-For me it is normal that PHY Ethernet regulator is managed by MAC glue 
-because it is mandatory to power ON Ethernet PHY chip BEFORE MDIO scan.
-
-Let me know if that works for you
+IIUC increasing the ring size the issue never occurs again (correct?). If s=
+o, I
+would drop this patch for the moment and add it if it is really necessary.
 
 Regards,
+Lorenzo
 
-Christophe.
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 98 +++++++++++++++++++++++-
+>  drivers/net/ethernet/airoha/airoha_eth.h |  8 ++
+>  2 files changed, 105 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index c59201aded26..177a0e10e372 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -3,12 +3,14 @@
+>   * Copyright (c) 2024 AIROHA Inc
+>   * Author: Lorenzo Bianconi <lorenzo@kernel.org>
+>   */
+> +#include <linux/ktime.h>
+>  #include <linux/of.h>
+>  #include <linux/of_net.h>
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/tcp.h>
+>  #include <linux/u64_stats_sync.h>
+> +#include <linux/workqueue.h>
+>  #include <net/dst_metadata.h>
+>  #include <net/page_pool/helpers.h>
+>  #include <net/pkt_cls.h>
+> @@ -657,6 +659,34 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, stru=
+ct airoha_qdma_desc *desc)
+>  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+>  }
+> =20
+> +#define AIROHA_RX_STALL_THRESHOLD	3
+> +
+> +/* REG_RX_DMA_IDX is hw's own completion counter, independent of what sw=
+ has
+> + * posted, so comparing it against q->tail spots the stall without trust=
+ing
+> + * ring content: if hw keeps advancing while the strictly sequential con=
+sumer
+> + * does not, it is completing descriptors that consumer can never reach.
+> + */
+> +static void airoha_qdma_rx_check_stall(struct airoha_queue *q)
+> +{
+> +	struct airoha_qdma *qdma =3D q->qdma;
+> +	int qid =3D q - &qdma->q_rx[0];
+> +	u32 dma_idx;
+> +
+> +	dma_idx =3D airoha_qdma_get(qdma, REG_RX_DMA_IDX(qid),
+> +				  RX_RING_DMA_IDX_MASK);
+> +
+> +	if (q->stall_tail =3D=3D q->tail && dma_idx !=3D q->stall_dma_idx) {
+> +		if (++q->stall_count >=3D AIROHA_RX_STALL_THRESHOLD &&
+> +		    !test_and_set_bit(qid, qdma->rx_recover_mask))
+> +			schedule_work(&qdma->rx_recover_work);
+> +	} else {
+> +		q->stall_count =3D 0;
+> +	}
+> +
+> +	q->stall_tail =3D q->tail;
+> +	q->stall_dma_idx =3D dma_idx;
+> +}
+> +
+>  static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+>  {
+>  	enum dma_data_direction dir =3D page_pool_get_dma_dir(q->page_pool);
+> @@ -675,8 +705,10 @@ static int airoha_qdma_rx_process(struct airoha_queu=
+e *q, int budget)
+>  		struct page *page;
+> =20
+>  		desc_ctrl =3D le32_to_cpu(READ_ONCE(desc->ctrl));
+> -		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+> +		if (!(desc_ctrl & QDMA_DESC_DONE_MASK)) {
+> +			airoha_qdma_rx_check_stall(q);
+>  			break;
+> +		}
+> =20
+>  		dma_rmb();
+> =20
+> @@ -895,6 +927,56 @@ static void airoha_qdma_cleanup_rx_queue(struct airo=
+ha_queue *q)
+>  			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->tail));
+>  }
+> =20
+> +static void airoha_qdma_rx_recover_work(struct work_struct *work)
+> +{
+> +	struct airoha_qdma *qdma =3D container_of(work, struct airoha_qdma,
+> +						rx_recover_work);
+> +	int qid;
+> +
+> +	for_each_set_bit(qid, qdma->rx_recover_mask, AIROHA_NUM_RX_RING) {
+> +		struct airoha_queue *q =3D &qdma->q_rx[qid];
+> +		ktime_t rx_dma_off_ts;
+> +		s64 rx_dma_off_us;
+> +		u32 status;
+> +
+> +		napi_disable(&q->napi);
+> +
+> +		/* per-QDMA, not per-ring: this pauses every RX ring behind
+> +		 * this instance, hence the measured duration below
+> +		 */
+> +		rx_dma_off_ts =3D ktime_get();
+> +		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
+> +				  GLOBAL_CFG_RX_DMA_EN_MASK);
+> +		if (read_poll_timeout(airoha_qdma_rr, status,
+> +				      !(status & GLOBAL_CFG_RX_DMA_BUSY_MASK),
+> +				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
+> +				      qdma, REG_QDMA_GLOBAL_CFG))
+> +			dev_warn(qdma->eth->dev,
+> +				 "qid=3D%d RX DMA busy timeout during recovery\n",
+> +				 qid);
+> +
+> +		airoha_qdma_cleanup_rx_queue(q);
+> +		if (q->skb) {
+> +			dev_kfree_skb(q->skb);
+> +			q->skb =3D NULL;
+> +		}
+> +		airoha_qdma_fill_rx_queue(q);
+> +
+> +		airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
+> +				GLOBAL_CFG_RX_DMA_EN_MASK);
+> +		rx_dma_off_us =3D ktime_us_delta(ktime_get(), rx_dma_off_ts);
+> +
+> +		q->stall_count =3D 0;
+> +		napi_enable(&q->napi);
+> +		napi_schedule(&q->napi);
+> +
+> +		dev_warn_ratelimited(qdma->eth->dev,
+> +				     "qid=3D%d RX ring recovered after hw stall (RX DMA paused %lld =
+us)\n",
+> +				     qid, rx_dma_off_us);
+> +		clear_bit(qid, qdma->rx_recover_mask);
+> +	}
+> +}
+> +
+>  static int airoha_qdma_init_rx(struct airoha_qdma *qdma)
+>  {
+>  	int i;
+> @@ -1582,6 +1664,8 @@ static void airoha_qdma_cleanup(struct airoha_eth *=
+eth,
+>  {
+>  	int i;
+> =20
+> +	cancel_work_sync(&qdma->rx_recover_work);
+> +
+>  	if (test_bit(DEV_STATE_INITIALIZED, &eth->state)) {
+>  		u32 status;
+> =20
+> @@ -1639,6 +1723,13 @@ static int airoha_hw_init(struct platform_device *=
+pdev,
+>  	if (err)
+>  		return err;
+> =20
+> +	/* init every instance up front: the error path below tears down all
+> +	 * of eth->qdma[], including entries the init loop never reached
+> +	 */
+> +	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
+> +		INIT_WORK(&eth->qdma[i].rx_recover_work,
+> +			  airoha_qdma_rx_recover_work);
+> +
+>  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++) {
+>  		err =3D airoha_qdma_init(pdev, eth, &eth->qdma[i]);
+>  		if (err)
+> @@ -1687,6 +1778,11 @@ static void airoha_qdma_stop_napi(struct airoha_qd=
+ma *qdma)
+>  {
+>  	int i;
+> =20
+> +	/* must not run or re-arm past this point: the work calls
+> +	 * napi_disable() too, and doing that twice spins forever
+> +	 */
+> +	disable_work_sync(&qdma->rx_recover_work);
+> +
+>  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
+>  		napi_disable(&qdma->q_tx_irq[i].napi);
+> =20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index fa9a8edce22f..c195dad5ed58 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -207,6 +207,11 @@ struct airoha_queue {
+>  	bool txq_stopped;
+>  	bool flushing;
+> =20
+> +	/* see airoha_qdma_rx_check_stall() */
+> +	u32 stall_dma_idx;
+> +	u16 stall_tail;
+> +	u8 stall_count;
+> +
+>  	struct napi_struct napi;
+>  	struct page_pool *page_pool;
+>  	struct sk_buff *skb;
+> @@ -567,6 +572,9 @@ struct airoha_qdma {
+>  	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+>  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
+> =20
+> +	struct work_struct rx_recover_work;
+> +	DECLARE_BITMAP(rx_recover_mask, AIROHA_NUM_RX_RING);
+> +
+>  	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
+>  };
+> =20
+> --=20
+> 2.55.0
+>=20
 
+--AGYD2yEKCoEXZcmo
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapaA5gAKCRA6cBh0uS2t
+rL7jAP9qEM/opfNLRp7q5R6TRo2Ez9Nid+r3IAynC+NEWoZQ6QEA0fUQT4kWN7Qu
+3xpi2zx+HAETBAl4w32vblKK7tzXeAY=
+=ewuH
+-----END PGP SIGNATURE-----
+
+--AGYD2yEKCoEXZcmo--
 
