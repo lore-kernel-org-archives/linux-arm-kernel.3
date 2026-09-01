@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFA9C61DE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2517CC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKEypurhbn+A/hhYrWpuIDicafbAr2+ct/5OlPU0wvc=; b=OKnLiWMd2ycBQuVvjIu5s9lKKj
-	QW4G927XJDzfYvXgLbIzBBXxXw9S5rcVOEUq39ncXtNZVjMetDmLiWYxlOsNvb5pOrEUn/xdSCI2w
-	/YbagQt9OVbHtK5GjDPK7umAQxSaok/ryOiOgomu7izIDHjr/fxVXjk8/hqLvnDobH+xB6xqGusbx
-	Wtye29eYL9XnkOCVyZj5aF7PsarChaLqr+RpE4DyeCVC8qGjh+Li6yUpG/MWU6RRBu8tcIn8KJ9jv
-	1yPQQMSuA8t9U9r0zj3r5Cvz4sizLTp82c36+XkoeFcMhUIJaVjYhHyKfm5O6+vTrA38Wv8aqcgFC
-	vQi/zN8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZqHJxMj9cZZ6xGbdiah9c7VOBxKeP9sXbxqvcW+iWvc=; b=fUeAE5cerVzS+HnE3hB3BqRIZ6
+	6NgfjMKfMAlSnUEPNS2PCQpYYtnNyYHkywy9p/URDuoR04+UiG9hdlM27AmZglv7qUu9iCq2jZq3y
+	8pB14On5wuUKlzqv3cIxpDkln2B2uRmXLfTikiEuWp8Bt3UOHPnlu7X9Nbb5Jj5LM5vZbEtUkPqCm
+	XYtLZBKaXftygF3jw1y9gzde5/VB53YNNe30E8bHiuEysHV9Ll7NXjtG7vH3xD+HBcFGWH+iKylNo
+	1Udh6IiMMMWrnuxZx/ybz56ClbURetPq+dRavQx8+GoVWOfyKKy3P+lrZ4BEmbHwkm487KEFn+TwI
+	XK++DrzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1I7p-0000000B4Gb-0GnV;
-	Tue, 01 Sep 2026 06:37:41 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1I7l-0000000B4G3-2Ohe
+	id 1x1IOh-0000000B4sw-1kTe;
+	Tue, 01 Sep 2026 06:55:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1IOd-0000000B4rw-4BfX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 06:37:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6CCAF4E4148D;
-	Tue,  1 Sep 2026 06:37:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 388616053C;
-	Tue,  1 Sep 2026 06:37:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD25211C7923B;
-	Tue,  1 Sep 2026 08:37:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788244648; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=nKEypurhbn+A/hhYrWpuIDicafbAr2+ct/5OlPU0wvc=;
-	b=UOuE6lU4zg3o1KqkkQJPmyZu+5/Xwr2pHDItPy9EIt0atoE1KpyHORRD0EEMMLVO9IH44m
-	EU1j9R4FamRgFSQMZCI9OruXFl1JLl8c4Jpez/PS5gBTU4XCuV0Q8VjTtmpmno0oXIEi6F
-	EiiCN7UhAoJ9rG8eRp+8WGQQq1g3GITZi51AeebSo0reyrWR/wqmPcBWDGJQq8Z15/m4XS
-	l+FTpbyXGOH9G0wgt1ueGeieFUKjjOR801jA4g4YEcprsEs0Ce+z7G9PaLEIT3tDRxXDYo
-	sBqcjevFau9ZlcfxzD2/iecNRvmzFjTWbAPWHHAMzDLVbGQotRSGuZfKqQWqyg==
-Message-ID: <493afde2-8603-41e8-b6ce-f8e399c53275@bootlin.com>
-Date: Tue, 1 Sep 2026 08:37:20 +0200
+	Tue, 01 Sep 2026 06:55:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE94D1AED;
+	Mon, 31 Aug 2026 23:54:55 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0D243F85F;
+	Mon, 31 Aug 2026 23:54:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788245699; bh=ce/DLlpHBRa0sOyR5fJVD2nnBUjY9hH50UmSGmi9zDo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iVCF8hbH09QwEoLLCy5nDqwnQnUTRnYnxct0R9KGT2fNm28OZNlKPL5y/ZVYyLarR
+	 G97VWOjRF0iMyiyBQyL+rUoh+K5lW9l0oQHRuBhT9ntBgfqe+6OndnwbdmNSBBFsWo
+	 ltBmtg/ObqlFYO+SYLvq4upKKiNCWbiCa+XhNDso=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [PATCH 0/2] arm64/mm: Standardize printing for pgtable entries
+Date: Tue,  1 Sep 2026 12:24:52 +0530
+Message-ID: <20260901065454.1906343-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac4: Use the full perfect
- filter ability for UC filter
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
- =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
- <20260831070121.349778-3-maxime.chevallier@bootlin.com>
- <285c8969-2f0d-46de-b098-60ff10f30cf6@lunn.ch>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <285c8969-2f0d-46de-b098-60ff10f30cf6@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_233737_761474_90270443 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20260831_235504_161744_792B9F3E 
+X-CRM114-Status: UNSURE (   8.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,48 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Standardize printing for pgtable entries using recently introduced generic
+helper ptval_bytes_to_hex_str() in core MM which automatically enables 128
+bits entries when added later.
 
-On 9/1/26 02:12, Andrew Lunn wrote:
-> On Mon, Aug 31, 2026 at 09:01:20AM +0200, Maxime Chevallier wrote:
->> Contrary to dwmac1000 that gets its number of perfect filter entries
->> through the 'snps,perfect-filter-entries' property, dwmac4 allows
->> reading the filter size from the HW features registers.
-> 
-> Does dwmac4 take any notice of "snps,perfect-filter-entries"? Should
-> it be marked deprecated?
+But first move __check_safe_pte_update() outside <asm/pgtable.h> to avoid
+a cyclic dependency while accessing these afore mentioned core MM helpers
+defined in <linux/pgtable.h>. This replaces the original page table entry
+print standardisation proposal which was earlier part of the D128 series.
 
-It's only used on :
+https://lore.kernel.org/linux-mm/20260729122452.3797443-11-anshuman.khandual@arm.com/
 
-  "st,spear600-gmac"
-  "snps,dwmac-3.50a"
-  "snps,dwmac-3.70a"
-  "snps,dwmac-3.72a"
-  "snps,dwmac"
+This series applies on v7.3-rc1 but after the following.
 
-So, dwmac1000.
+https://lore.kernel.org/linux-mm/20260831054331.625505-1-anshuman.khandual@arm.com/
 
-I'd say, we can definitely deprecate on IPs that don't match these.
+Cc: David Hildenbrand (Arm) <david@kernel.org>
+Cc: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org
 
-Interestingly, there are _some_ dwmac4 devicetrees out there that use
-this property. It achieves nothing, and even worse, doesn't match what
-the HW reports :
+Anshuman Khandual (2):
+  arm64/mm: Move __check_safe_pte_update()
+  arm64/mm: Standardize printing for pgtable entries
 
-In arch/riscv/boot/dts/starfive/jh7110.dtsi for example :
+ arch/arm64/include/asm/pgtable.h | 47 +-----------------------------
+ arch/arm64/mm/fault.c            | 20 +++++++++----
+ arch/arm64/mm/mmu.c              | 49 ++++++++++++++++++++++++++++++++
+ 3 files changed, 65 insertions(+), 51 deletions(-)
 
-gmac1: ethernet@16040000 {                                            
-	compatible = "starfive,jh7110-dwmac", "snps,dwmac-5.20";
-	[...]
-	snps,perfect-filter-entries = <256>;
-}
-
-To my knowledge, 256 isn't even possible, there's only 128 MAC address
-registers available :/
-
-perfect filter size discovery on real HW says there's on 8 available,
-I haven't measured the actual size of the filter though but it seems
-more plausible than 256.
-
-Maxime
+-- 
+2.43.0
 
 
