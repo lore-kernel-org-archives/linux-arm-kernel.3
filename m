@@ -4,127 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837F5C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07051C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAVQ0TJ93CY8h2ybSXsxvwv4B6V+ikyiH86YZsaq4A0=; b=eFY5kviFbqVkhJtMNHaeUpZME3
-	0yY+m5HjovHtmza6bqdCzGrda/q0Vqz8WuQvkYmt1m2Ab7YCXksrKIWol4yzfUnWOd+67kYvX9aMX
-	FZAYU/ySVGP0CuEAYgsS+8h0YP4zmmVTM1mUnhL3Vr8R1IBGvMswvlgk4+87OyW6UgbEv76aisqID
-	494hVfDH0m1W0yA3jG6pr0zRQi2oTX6rd6kVaklWP4agZJVMZlnP/EV7yAz8OB4mNvUjR8Y9i2CXJ
-	OlVnfgF/XL881FcBUZWgAy63GobFqbHb4JZm+ymqs8ZuPPWrzcs+cFh9IQP89M2mT2uEsscC8mTZi
-	zY8ydkDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ad1DukBGwLi6ArucFKVFRHpCwR2Weby1EPL9ATOHJ1c=; b=fgFh6vnM2Kfbanob2K+oJ1+8g5
+	AucMBc5YyTIeunopv/krf4XE/4QxK25SuvAA2LpEop/uY/WWky8D0oYj2z6nVV/6vMF19NXigDaTO
+	yvaDuCPkVrmx1Pf3r5RAobvMpKDgGPs3V/wm6Ce5d4Ek0hJhCDCTSe15JHQh2KpHKMMxHJIYVnZk2
+	PA2b6qRMGCypeaTy4AgkRTAmjHKQdRUxEX4xL7UT0YYHJTRh7WGtQeeFshj/8OGfVDzIIgVYbqsH2
+	kxcLVhoe2xZ/0VNoirU+6puGM2wWnHSZOQ7wZZCDKKP0WlRy1UF+gg9HghXtQRwaneoKSX0TDJnoJ
+	Gmx44MUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S8o-0000000Co41-16QI;
-	Tue, 01 Sep 2026 17:19:22 +0000
-Received: from mail-eastusazon11012066.outbound.protection.outlook.com ([52.101.53.66] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1x1SCJ-0000000Coe5-0R7E;
+	Tue, 01 Sep 2026 17:22:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S8l-0000000Co3T-2n9J
+	id 1x1SCH-0000000CodO-2nXc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:19:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ydvSIX/ryypsRdB8DXtGl+vRPphB1udWgkR4jujdNfGjrfizpvrAeSNaAiMb65SuHaebnjLYBtBd/xCB4uIiFUCffi1tnGNZeP5y60ewyNdm6+RMQ9Rm4F40OwnPoiIuJDB9J3GKjECzjbFVUMQWE6q7439amvryDKylHTZZtIID89KgNbBMHfc0hsIWr4Eam4kIqDPwjo/t7sFqvVwL7Ukjpj95PCT+UjT3AtsnOJCIut/ketByMWB1vAgfq3VvqTTXiJziIqD58mlCAYifOwMl2Ah7lX8Le0ad5RRI15y0w78W48hNPq4p3iiFP5v6nv7jDHgKXlNFK07FIurujw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iAVQ0TJ93CY8h2ybSXsxvwv4B6V+ikyiH86YZsaq4A0=;
- b=lkfY0bTUjCvRicDVR1TKCwCzY/q7d35YblMLDjrZlolmxnSwv4Ub/Bhc4YXcu35pkSehypu0pID0g1fgYrpv1GfZukHadxFZM56MQPj7/t49DkafQ8v/PyNImfCUbQKiWV8prrcrDi4SrxJUNsoFuzRDOXnAJKUAxxsnGR1FpxB8hPnRtZyimBOwa0G5B04AzyyV6w3R4FHZ3wytxG5Aak8/aHJKRBHSeyFLuDdZs520gj7yI+MMT15CtN5/JmKessBh8tpOp4TCYiv31J3MSu9lby6l4LcZvHZzMAmRIdH6pCkML0135gpTyc1KkdpRcP7EMT575nBPQ9wIVz6hMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iAVQ0TJ93CY8h2ybSXsxvwv4B6V+ikyiH86YZsaq4A0=;
- b=ZPfMiZXoSs+BFs1k8tc44CS3Htm3zgS5+Y+/t+rskffpaQCAdtF4zsuxSu2Ns4K55xGC0R7XB6Iv8mK3eXkbEhjBDal7cAWKCPaxfedZsXUC5ho+jKahX5+Vq/JYd+Rn3mpttTxl+9RY3Z3leHcY5cALPi3G0MLxFNWovRyF/IgIuguGKvE8Gp3/qOsUJBo35PbG1ht7qlykfIX9IAJr43/3bcPvJbBOwlGOKiBuT69VlAHde4f6Zip2IseZ/qNNqhDdc6vAjEtVIBcxjKdlwThy+wC9SMTnydMO4/Rj+YPI0FkSjEz9ADEnhBKtujwFyYqewH5SU7KHZlAgudqPgw==
-Received: from DS1P220CA0026.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:44c::17) by
- DS7PR12MB6094.namprd12.prod.outlook.com (2603:10b6:8:9d::14) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.13; Tue, 1 Sep 2026 17:19:05 +0000
-Received: from SN1PEPF0002BA4D.namprd03.prod.outlook.com
- (2603:10b6:8:44c:cafe::ab) by DS1P220CA0026.outlook.office365.com
- (2603:10b6:8:44c::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
- Sep 2026 17:19:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SN1PEPF0002BA4D.mail.protection.outlook.com (10.167.242.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 17:19:05 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
- 2026 10:18:36 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 1 Sep 2026 10:18:36 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Tue, 1 Sep 2026 10:18:34 -0700
-Date: Tue, 1 Sep 2026 10:18:33 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, <linux-coco@lists.linux.dev>,
-	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Alexey Kardashevskiy <aik@amd.com>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, "Marc
- Zyngier" <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Robin
- Murphy" <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>, "Steven
- Price" <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	"Will Deacon" <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <apcI6dnRaGRNdzN1@nvidia.com>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com>
- <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org>
- <20260901143445.GC56830@ziepe.ca>
- <apcHoHKGoI7WNFXp@nvidia.com>
+	Tue, 01 Sep 2026 17:22:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A91043889
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Sep 2026 17:22:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 222DC1F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  1 Sep 2026 17:22:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788283377;
+	bh=Ad1DukBGwLi6ArucFKVFRHpCwR2Weby1EPL9ATOHJ1c=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=hLT6pqk/N3t4GsJHKh6IsbFpP3/hTTyorJFTxXTtgNJXA6dBXcp/OsAr/8n8udXL2
+	 yPmUjPQnbS7tthwscVDgkBq0SpjosQzqiNizqvhoNY9oQT6oPiGLUAcgp7cbmnMb3Q
+	 FzZjM3JzC2jleBf4G97WdhXulwnZuZrKjMpUOQMSv3N39ayy9KVor+RQs1iQnnZkF8
+	 A2NkG8MKPzXB6EiPADiumEzl35X73acZNA96sFjXu35zszn+mHIm/2C9zB1BIGnDfN
+	 YrQ1HzKChXi0MGA2X3ERbmr4r2zuBI2tFkW6LwhYtie1Ygd6J8oea2NX2at8grVpE8
+	 bZuBEPcgIAgnw==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5b5e1340faeso1070145e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 10:22:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBybs5QFrLRNgdPC7SaOlUsdGpDiq+2BhkeBiWK+b1INxE+3eUDB49p6UoEKrLsGTzGKhhwxUMUDw8+R2u7w0yqA@lists.infradead.org
+X-Gm-Message-State: AFuF++nKw4H+Lw6dV83rKYem+B6QVa3okZQ3PCnNqq6NzDqdnXUwOsUh
+	oI1aJMYfS6vgg5lTR7rJyUPHS+OYWEy04GPwBW4AUzB2iAMUJaWgm0YfrKXQKQMc77oyYrAPJO6
+	BUR+2+vyIdSmMOwDh2Nv81r8nuKrdke0=
+X-Received: by 2002:a05:6512:ac7:b0:5ae:b998:9134 with SMTP id
+ 2adb3069b0e04-5b5e68a7adfmr11827743e87.1.1788283375630; Tue, 01 Sep 2026
+ 10:22:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <apcHoHKGoI7WNFXp@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4D:EE_|DS7PR12MB6094:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1a96151-1672-40ed-bdaf-08df084d1ffc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|23010399003|1800799024|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: +BohfrBwIFeE5vj9QuuZkHY65txW7zuWZS/1aGKBXArDcWZY7V9m9oCC4PtmwAUMppwVa1zu98Gx/0s9sdLy0ciQF58RSbDtZa/MglvbIiD/KeshPgY+4viS/yjjXX+CKBKEyU2SMlsX2IAXBN1XJjCDi1i10sI9DExosnhaJiVTOPAzlBxc4lHgTSSbXyu/61z5RsJWOakoJyjYDFmmrD4DagCgnDRtuFVgVuAnVVN4gyJLvBmRcYiznLdL8acvA4MnMAeyI4MssMJ64WkKyMKz9m4oZbPzueou6CCGT4ntewxDPqMGVqdku6LcBouyMUDUezT3YQD4rGwVUh8Qi6lSh+Clj0Jyy3vE5h4cbWhcX/axgUf2fKDWycdnjXyw2r4W/qfNyTKsKoxlFdVt96AN2elhHfskzYhZFrcz+AkN8EZecw1cZ2EURqZg71YZ+wqbIzgCBjjuMGewkmzKN0VOsA2DJpubUoGaqZ1oF4Seet6IltjPdR0V2lxS8xKb+gtTauCvtTZEKwSv3anFJ5fuYrz3pgU2o1XJcp1b+YctubQ6dZEfMXSF7Q2cRUiYOApGLuEDU73VCpk17aJRLeRcJT6w+dFeaE9Clkq31z3ogypzKfq3jDxOHYgIXRHzeR45xLygT9LLDqC9eEBQL1z2ZYTHZNb/541XjqUEU47UDWv/1mShr/FVMuZIwcVMBnOomRmSdiMIxg94BYrJpg==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(23010399003)(1800799024)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HruBIGFzd6D5eQUrI0/AX6ItOIyxt+lotmIw8Q0nif9+3Hd+7kSWRHV4T7HVTVASVDJLpVyPdvUkXHgZFC1cz14zgr5U5pzUrnfnlYloVQhuwlo2WQpBAHwHTb43Xhllef8v13FvtDmq3HjjBLQzaqhyjPD09c5kMJlh92TTQNq0gXwecbNuqm8v7CHt14kx0tzOMpVW22wx+eF7uCivmG6giSmAiZVlsRYGFLAN7YymtOMUyeoIBV2vu+k9q7Xzfrwp4H0IWLf3oz+9uObpVdY9Rf+Kjh/tsrgalcF9kwhyReZi5Owikvb2SNOWDBBnk6kh6ZC+W9HfSk6DY+jsommBu2uaoamO6n5jcWqEpcEdMdU5gJ3ZStbD/DfGxWzkoHZz+QoLGJjek4P+juTkw+vWdQajciS8TlFdMH7/JpYeCnvYZ91FeNn1ELMy+3EG
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 17:19:05.0690
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1a96151-1672-40ed-bdaf-08df084d1ffc
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4D.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6094
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_101919_707001_BB34D200 
-X-CRM114-Status: GOOD (  23.36  )
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com> <20260827-kuno-soc-support-v5-9-6d47636a8f09@oss.qualcomm.com>
+In-Reply-To: <20260827-kuno-soc-support-v5-9-6d47636a8f09@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 1 Sep 2026 19:22:42 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnHCrhvdVCzbU5JA1qVOQ7hh7B=gwPr9QPtZdqh9ZxADw@mail.gmail.com>
+X-Gm-Features: AcwNN1V_scX2qdh9lKw1huy2nxRfP13bn5JqOZZxyJX3f5glJ69SIw1ECTFLPMk
+Message-ID: <CAD++jLnHCrhvdVCzbU5JA1qVOQ7hh7B=gwPr9QPtZdqh9ZxADw@mail.gmail.com>
+Subject: Re: [PATCH v5 09/15] pinctrl: qcom: Add Kuno pinctrl driver
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Georgi Djakov <djakov@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>, 
+	Guru Das Srinagesh <linux@gurudas.dev>, Taniya Das <taniya.das@oss.qualcomm.com>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,39 +88,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 10:13:11AM -0700, Nicolin Chen wrote:
-> On Tue, Sep 01, 2026 at 11:34:45AM -0300, Jason Gunthorpe wrote:
-> > On Tue, Sep 01, 2026 at 03:36:37PM +0530, Aneesh Kumar K.V wrote:
-> > 
-> > > @@ -463,14 +460,13 @@
-> > >  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
-> > >  
-> > >  	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
-> > > +		if (arm_smmu_is_realm_viommu(viommu))
-> > > +			return arm_realm_smmu_v3_init(viommu, user_data);
-> > > +
-> > 
-> > I think the realm vsmmu is going to require a different info struct
-> > than the normal psmmu case, isn't it?
-> > 
-> > If so it needs its own enum value.
-> > 
-> > It would be nice to see a draft patch showing how the real vsmmu works
-> > on top of the RMM spec for it. If we are using a viommu object then
-> > non-vsmmu case should be identical just with an option in the info
-> > struct to not create the vsmmu object.
-> 
-> Actually, the PSMMU-only viommu object in this series only adds a
-> type with no viommu data structure.
-> 
-> I've drafted the vsmmu case on top of the series, so it would add
-> a structure reusing the same IOMMU_VIOMMU_TYPE_ARM_SMMUV3 with a
-> flag:
+On Thu, Aug 27, 2026 at 7:52=E2=80=AFPM Hardeep Sharma
+<hardeep.sharma@oss.qualcomm.com> wrote:
 
-Oh. I replied too fast that I didn't notice this is under the
-standard IOMMU_VIOMMU_TYPE_ARM_SMMUV3 used by non-secure vSTE.
+> Add the TLMM pinctrl driver for the Qualcomm Kuno platform, supporting
+> 110 GPIOs and their pin multiplexing, pin configuration and gpiolib
+> interface through the common pinctrl-msm driver.
+>
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 
-That doesn't look correct for a no-vsmmu case..
+FWIW LGTM
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Nicolin
+Bartosz will decide and merge when it is ready.
+
+Yours,
+Linus Walleij
 
