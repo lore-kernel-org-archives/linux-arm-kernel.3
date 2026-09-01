@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05B5C624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2DB9C624D1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hdFVyI+iwmCLzmueY5nTTG6ZH9FRTD6xXO0pAOzqdmo=; b=5G2NH5x/+ovwv0FGPieKmNAVns
-	4NfxDvgW10ih52kcjZ7K5cNgtU7677rggSmVhe0CkpPKPN1RwgePVS2RKgsryF7e9hATW/uLEDI0m
-	EJHt/OJgOGqT1alBh3mISjXRZYZcLiQluw5nv+F/yEo6W2b0EwqcM+fnNq1GSzh5P1It2dC9clphz
-	zoqVx77Bz6aJcgAMnpoHUHVWWMLo55aHKkfTQ7iw+16WMn6HqleTmyNRAzxrwR9CdNRGDViiWSI6u
-	dHxDbdZwu5CpZcXrJf8fRuv3nigbZxaOWuaE99YWaXuhj/wjSICgtYe+qDUkATUtQXqeOXbMBGQ3l
-	CaI7tIBA==;
+	bh=KSsAeCTnj7JowSArhdAWoJWpv0EUg3Eajoq0vBky2Ls=; b=b/IrMEJjij0WX2cUs0Pud+pnJy
+	XkqR0ELn6nrWeQFP0KcFwPQ5/RVydFplVwTMfvAE/fmG6kwww8mmSCS4La/MaWITGjeNZWKnmwvPY
+	T3wY8ORwQJnOayIDHd2m9P+nQzOEsTE4f/pMvKcW1uh5LgYx1S3pqiCWm9mTCiL785jinR64knxVp
+	Gmd9j/O81gGkBGx/yKOFfXATLiP3qY67tBHt+VbzW8zz1vbNjtzPvXUfai5tvrRX04cOuqy2Jn+Vj
+	kENsjGI2gPQVKp1bmZG8Ri024Xja8HuoPF9YIkUn3n2rz0X3bk1qk10DOZo0OcMr4/mBo/fHLs64H
+	L1mACOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZJ-0000000BD1R-0anf;
-	Tue, 01 Sep 2026 08:10:09 +0000
-Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
+	id 1x1JZN-0000000BD9s-2Aoc;
+	Tue, 01 Sep 2026 08:10:13 +0000
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZF-0000000BCst-3kIy
+	id 1x1JZI-0000000BCxv-2HIm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:10:07 +0000
-Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-4843afbecdbso210280f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:10:04 -0700 (PDT)
+	Tue, 01 Sep 2026 08:10:11 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-49b0e6638e3so34099585e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:10:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788250203; x=1788855003; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788250206; x=1788855006; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hdFVyI+iwmCLzmueY5nTTG6ZH9FRTD6xXO0pAOzqdmo=;
-        b=fFf0ciWjmtvoG/Bqa0tHtU5ssGjezyk5VQAJEJN+UPGHeMVHTQC/wGZ08VY2ZYEoct
-         omkqvLYAqE/7KxTZ9FccazYx9sunjvHfT8C2SdrA0XgX6QsAv5zW7y8moOCJXAcqf92O
-         nx+RFZ6XRxt/TtoQ8Db9wh4lLsVdo9W1Yv8Icx9l4d7rJ6LqBBVwBvSF9QXIp+mepnFx
-         1eJWRvsdu3zeFGzvMPLFekorrTokYLTmg4iZXe6hUpG0ZAHIDM7i8U7YVVC3D6wlOgxV
-         QdsJC05OCXSgzqb/TlNifBvE/bOyTarv+3YmA6CZQkFkywmxH1LlKYR+wEZRCK7X/G2V
-         axRg==
+        bh=KSsAeCTnj7JowSArhdAWoJWpv0EUg3Eajoq0vBky2Ls=;
+        b=ILWWNWKPnKBK9HWvs5wq0yeJsPz9i1Fz/g/POuIwTmlpWLp2/p280jSyfMIVDbqyC7
+         kHZBkcSg/eka8CPFvJEST7A75SDePQS08sHe5jBj+qqUULqg2bQkhOHgg+QCziAy9owE
+         x0K168PL/MYmcxmCBi+4NxIfwtOpuPDcFnX5LmK178UJkv34G+yEwBnztoAF0QVMYKNO
+         QsTPaM8T32GFC3ip5MA6sY5rof0xQgWr79GWroUI/tLyN20l3Gcj24fSepVrjrtAsPPB
+         FxbX51ra2Nv3NLtyvRAjzU46FB8reZ+t0ZVj8ZEt1qIBt1fISHnueFIKfSv6kDIrtl9O
+         MoGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788250203; x=1788855003;
+        d=1e100.net; s=20251104; t=1788250206; x=1788855006;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hdFVyI+iwmCLzmueY5nTTG6ZH9FRTD6xXO0pAOzqdmo=;
-        b=swBZSiAFC1G41cNasmEDsorcJASn3JT7ZEaf5OSbW+FYVLGCUV/stXjXAYMfUXZitp
-         MovNkJtuh4jVIqXGACN6wgAFycCmQJg6EeIbF5PYzLyx8TdYLCKoNRYMSFMnKwFT1/PX
-         sEAV5FB75zQ6Vn6UPzx23cbQoJlt4MFI15r9DaI8n16wYDX0OgMwsKdhtlJ3i68Z5dUb
-         fwu6V/e1n9lhBGqC2WFQFOVSJlj6Jx5EPHQ73gqevLr8FycEQUpKEmglIob6wFoC//53
-         +UhNaFDby7hYo/1rL6KMnqZirXP9r3qa5tJuuATKv7WIn9J0BiEYhaHQKa3UyaC4zXWu
-         YnKg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq7oMMo1jEXVUKDa/LoJhJ3Dewb9TIpS2y+jG1yeIW2SKZp5wmHuEy6l/lM0QJ7agPa29ecFaIvsMyOWAiBUfN9@lists.infradead.org
-X-Gm-Message-State: AFuF++kYWc4vYeMbmTswxywm9LGVv7uxCGBHb5izIrkwu9NLxkvfrMa4
-	n9ejpFDmdv7awOGT+cfnp8x4jThTqbV+CqS5XxYJfc2IvnfQcEujP1P+gWgFlwJ3CO62ZbPoe5+
-	0gZpriaTOTYCiufnQPiSLBg==
-X-Received: from wmol4.prod.google.com ([2002:a05:600c:47c4:b0:49c:da85:4930])
+        bh=KSsAeCTnj7JowSArhdAWoJWpv0EUg3Eajoq0vBky2Ls=;
+        b=Hxe7gwpHCDmpF2n7wZaclVW4pxc2DAbBAXb7ZCYa3/FagDLvFn2vKUV3m9WqJ+S7Q5
+         NJeGy7Ir0AwOVSQ+wnKiHXTeh02nehBWjiEpwc+OHqPdISJ3NJFRr0llAZMX4TP51yJ4
+         vOyT74PekWcGupTAXihu9xLl2g/6zLew1ynHFe/4yWVnGeNDrOflB83oMpHFyo5ghzs/
+         mJFIBShO6zVN6iUo/gbksZhC+ZX8c5fBhck1Yq0Vk5ZALuZs831D7Uyh0hykKGvt0Ol4
+         D89SaXvJGcZ7h+ITd+qE+OPhCriYagRDPPAFqb388KusaF63cDfz+SAf+co6+Pmkm2Jl
+         73Tg==
+X-Forwarded-Encrypted: i=1; AHgh+RpiapSdxS+BB6B1/14OHU2qEGuOpG106jZD0iFKNtwMWgaFZaVTvWQJbxbL8C9CL4CQ85hxICreoBtxIhLZKwq0@lists.infradead.org
+X-Gm-Message-State: AFuF++nvH+20/HpeZUt/LDb8xiXyEG+NbpknLxRXnfijsLfavJgYWppm
+	OTvLC9qr8+J7y3RMbFdz9uP2LBnRQxMGCqT9Az7erRA8l+eJiEQ6sjn0hJwr1hgPM66De9dDIHz
+	dgevk9wMYlN0uy3b0jnl8oQ==
+X-Received: from wmfr22.prod.google.com ([2002:a05:600c:1596:b0:499:caa3:ae0f])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600d:8449:b0:49b:96a0:5c00 with SMTP id 5b1f17b1804b1-49b96a05caemr444293575e9.13.1788250202692;
- Tue, 01 Sep 2026 01:10:02 -0700 (PDT)
-Date: Tue,  1 Sep 2026 09:09:35 +0100
+ 2002:a05:600c:4f0e:b0:49b:9433:ea44 with SMTP id 5b1f17b1804b1-49cdc40ff56mr130922965e9.4.1788250206008;
+ Tue, 01 Sep 2026 01:10:06 -0700 (PDT)
+Date: Tue,  1 Sep 2026 09:09:38 +0100
 In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260901080941.997769-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260901080941.997769-13-vdonnefort@google.com>
-Subject: [PATCH v5 12/18] KVM: arm64: Move hyp_vm refcount into the structure
+Message-ID: <20260901080941.997769-16-vdonnefort@google.com>
+Subject: [PATCH v5 15/18] KVM: arm64: Rename vCPU pkvm_memcache to stage2_mc
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_011006_119671_769EEC1A 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260901_011008_629383_EBEE7E65 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,96 +93,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for allocating hyp_vm using the pKVM heap allocator
-(hyp_alloc()), move its reference count out of the page metadata
-(vmemmap) and place it into the structure itself. This transition is
-necessary because hyp_alloc() allows multiple small objects to share the
-same physical page.
+With the introduction of the pKVM hyp allocator, the memcache for vCPUs
+is now only used for carrying pages dedicated to the stage-2 page tables.
+Rename pkvm_memcache to stage2_mc to reflect its purpose.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index c904647d2f76..624367d0ef5b 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -41,6 +41,7 @@ struct pkvm_hyp_vm {
- 	struct kvm_pgtable pgt;
- 	struct kvm_pgtable_mm_ops mm_ops;
- 	struct hyp_pool pool;
-+	unsigned short refcount;
- 	hyp_spinlock_t lock;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index fe5364b507f9..7aaa139ac89b 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -939,7 +939,7 @@ struct kvm_vcpu_arch {
+ 	struct kvm_mmu_memory_cache mmu_page_cache;
  
- 	/* Array of the hyp vCPU structures for this VM. */
-@@ -65,6 +66,18 @@ static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
- 	return kvm_vm_is_protected(&hyp_vm->kvm);
+ 	/* Pages to top-up the pKVM/EL2 guest pool */
+-	struct kvm_hyp_memcache pkvm_memcache;
++	struct kvm_hyp_memcache stage2_mc;
+ 
+ 	/* Virtual SError ESR to restore when HCR_EL2.VSE is set */
+ 	u64 vsesr_el2;
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 09ae5431ce58..fa77abf8cff6 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -591,7 +591,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	if (!is_protected_kvm_enabled())
+ 		kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
+ 	else
+-		free_hyp_memcache(&vcpu->arch.pkvm_memcache);
++		free_hyp_memcache(&vcpu->arch.stage2_mc);
+ 	kvm_timer_vcpu_terminate(vcpu);
+ 	kvm_pmu_vcpu_destroy(vcpu);
+ 	kvm_vgic_vcpu_destroy(vcpu);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index bc54f477c147..fc3a624b0c4c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -407,9 +407,9 @@ static int pkvm_refill_memcache(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+ 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+ 
+-	return refill_memcache(&hyp_vcpu->vcpu.arch.pkvm_memcache,
+-			       host_vcpu->arch.pkvm_memcache.nr_pages,
+-			       &host_vcpu->arch.pkvm_memcache);
++	return refill_memcache(&hyp_vcpu->vcpu.arch.stage2_mc,
++			       host_vcpu->arch.stage2_mc.nr_pages,
++			       &host_vcpu->arch.stage2_mc);
  }
  
-+static inline void pkvm_hyp_vm_ref_inc(struct pkvm_hyp_vm *hyp_vm)
-+{
-+	BUG_ON(hyp_vm->refcount == USHRT_MAX);
-+	hyp_vm->refcount++;
-+}
-+
-+static inline void pkvm_hyp_vm_ref_dec(struct pkvm_hyp_vm *hyp_vm)
-+{
-+	BUG_ON(!hyp_vm->refcount);
-+	hyp_vm->refcount--;
-+}
-+
- void pkvm_hyp_vm_table_init(void *tbl);
+ static void handle___pkvm_host_donate_guest(struct kvm_cpu_context *host_ctxt)
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 39aa8911f62c..dadd48431036 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1023,7 +1023,7 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ 	ret = 0;
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_SHARED_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 	WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
+ unlock:
+ 	guest_unlock_component(vm);
+@@ -1058,7 +1058,7 @@ int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ 						      PKVM_ID_GUEST, meta));
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ unlock:
+ 	guest_unlock_component(vm);
+ 	host_unlock_component();
+@@ -1422,7 +1422,7 @@ static int __guest_check_pgtable_memcache(struct pkvm_hyp_vcpu *vcpu)
+ {
+ 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
  
- int __pkvm_reserve_vm(void);
+-	if (vcpu->vcpu.arch.pkvm_memcache.nr_pages < kvm_mmu_cache_min_pages(vm->pgt.mmu))
++	if (vcpu->vcpu.arch.stage2_mc.nr_pages < kvm_mmu_cache_min_pages(vm->pgt.mmu))
+ 		return -ENOMEM;
+ 
+ 	return 0;
+@@ -1456,7 +1456,7 @@ int __pkvm_host_donate_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu)
+ 						      PKVM_ID_GUEST, meta));
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 
+ unlock:
+ 	guest_unlock_component(vm);
+@@ -1527,7 +1527,7 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
+ 
+ 	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
+ 				       pkvm_mkstate(prot, PKVM_PAGE_SHARED_BORROWED),
+-				       &vcpu->vcpu.arch.pkvm_memcache, 0));
++				       &vcpu->vcpu.arch.stage2_mc, 0));
+ 
+ unlock:
+ 	guest_unlock_component(vm);
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 459bd9eb7e4b..0a041d41b9ea 100644
+index ee2060aa1131..8a8b694ca00f 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -278,7 +278,7 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
- 	}
+@@ -760,7 +760,7 @@ struct pkvm_hyp_vcpu *init_selftest_vm(void *virt)
+ 			continue;
+ 		p[i].refcount = 1;
+ 		if (seeded < min_pages) {
+-			push_hyp_memcache(&selftest_vcpu.vcpu.arch.pkvm_memcache,
++			push_hyp_memcache(&selftest_vcpu.vcpu.arch.stage2_mc,
+ 					  hyp_page_to_virt(&p[i]), hyp_virt_to_phys);
+ 			seeded++;
+ 		} else {
+@@ -1002,7 +1002,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
+ 		if (!hyp_vcpu)
+ 			continue;
  
- 	hyp_vcpu->loaded_hyp_vcpu = this_cpu_ptr(&loaded_hyp_vcpu);
--	hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
-+	pkvm_hyp_vm_ref_inc(hyp_vm);
- unlock:
- 	hyp_spin_unlock(&vm_table_lock);
+-		vcpu_mc = &hyp_vcpu->vcpu.arch.pkvm_memcache;
++		vcpu_mc = &hyp_vcpu->vcpu.arch.stage2_mc;
  
-@@ -294,7 +294,7 @@ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	hyp_spin_lock(&vm_table_lock);
- 	hyp_vcpu->loaded_hyp_vcpu = NULL;
- 	__this_cpu_write(loaded_hyp_vcpu, NULL);
--	hyp_page_ref_dec(hyp_virt_to_page(hyp_vm));
-+	pkvm_hyp_vm_ref_dec(hyp_vm);
- 	hyp_spin_unlock(&vm_table_lock);
+ 		while (vcpu_mc->nr_pages) {
+ 			void *addr = pop_hyp_memcache(vcpu_mc, hyp_phys_to_virt);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 3163502cc7d2..afde0894ab15 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1553,7 +1553,7 @@ static void *get_mmu_memcache(struct kvm_vcpu *vcpu)
+ 	if (!is_protected_kvm_enabled())
+ 		return &vcpu->arch.mmu_page_cache;
+ 	else
+-		return &vcpu->arch.pkvm_memcache;
++		return &vcpu->arch.stage2_mc;
  }
  
-@@ -311,7 +311,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
- 	hyp_spin_lock(&vm_table_lock);
- 	hyp_vm = get_vm_by_handle(handle);
- 	if (hyp_vm)
--		hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
-+		pkvm_hyp_vm_ref_inc(hyp_vm);
- 	hyp_spin_unlock(&vm_table_lock);
+ static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 36e677e51f7d..83e18c0e30b5 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -182,7 +182,7 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
+ 	pkvm_handle_t handle = vcpu->kvm->arch.pkvm.handle;
+ 	int ret;
  
- 	return hyp_vm;
-@@ -320,7 +320,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
- void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm)
- {
- 	hyp_spin_lock(&vm_table_lock);
--	hyp_page_ref_dec(hyp_virt_to_page(hyp_vm));
-+	pkvm_hyp_vm_ref_dec(hyp_vm);
- 	hyp_spin_unlock(&vm_table_lock);
- }
+-	init_hyp_stage2_memcache(&vcpu->arch.pkvm_memcache);
++	init_hyp_stage2_memcache(&vcpu->arch.stage2_mc);
  
-@@ -979,7 +979,7 @@ static struct pkvm_hyp_vm *get_pkvm_unref_hyp_vm_locked(pkvm_handle_t handle)
- 	hyp_assert_lock_held(&vm_table_lock);
- 
- 	hyp_vm = get_vm_by_handle(handle);
--	if (!hyp_vm || hyp_page_count(hyp_vm))
-+	if (!hyp_vm || hyp_vm->refcount)
- 		return NULL;
- 
- 	return hyp_vm;
+ 	ret = pkvm_call_hyp_req(__pkvm_init_vcpu, handle, vcpu);
+ 	if (!ret)
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
