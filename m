@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41286C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D1DC624CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 00:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bD9pjtuRl9hU9C5HPULWpXB9xdeI4tOkxBYaaThOYk=; b=P8ceMM7fi4840swRHLNM0m8IIy
-	cY9aqb8QO9pqW8ETF5+2B1VnyT8w3XZeQzjzN8AoA3peSDl4PHI1mTGUtvnKwMkU4Cy9bI+IJZAb3
-	rP6v3A6XjTxzfVA5vRxYqlnfVX/k+9SUVNGP8m42umn/sMmihVf/QB1QgdccknVB/pK1gSa/N7IIz
-	B8eOBGQmUiRzPvB9WRtnO30wclv+KZWc4h5AW5kH8xFdpWhfFBeVNUE3UzQMTof9j38TSFzSAmd6o
-	oTb3jFbcQfB05bt27A9nnds1GBwfvSw/bb0CHlT9BcWMpG4bPWUTSTyHS8fzSVHKgbilwXkOtwRi3
-	1U4zXqYg==;
+	bh=myrc9Gil2RJrqCTse2ZhaV1wha3SGUMFTBi/a0DM/mk=; b=P+Xw1q0XsWmmwKJbfxj2xvvcm9
+	7TYZnE9qBF6B6PQ9bJkFrHqKytJOhhBhXAp5aQf/j3nJ+TVW1Q/KqJrzruzpRfAAHsDCCiGbZwOqf
+	w2gNuUue7GiTvCqOv+l8dY6DUPwehQGTKOJg41V6NmqsLxMNGWTHS9pPaWg12p7/aeGsstyfW7D0M
+	8/GjjLleZeZu8H6CUL1WeQMJhRFDCfBWsPP8GsSfdcAolMeabQa4WP12HLQ3P+zPN+x4xtZ/0rEAk
+	UgHfjhH6d3Q3PRdxMkSec+4Nn61kAaOQzWjAu2nd/F2Bb98Itw6kp42KZVmWKedHgqXuByalITv3r
+	pPs7pB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1CFU-0000000AiQJ-2nVJ;
-	Tue, 01 Sep 2026 00:21:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1CKi-0000000AiqB-0q2M;
+	Tue, 01 Sep 2026 00:26:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1CFU-0000000AiQB-0wm2
+	id 1x1CKg-0000000Aipr-3Fn9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 00:21:12 +0000
+	Tue, 01 Sep 2026 00:26:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F01A406DC;
-	Tue,  1 Sep 2026 00:21:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 710561F000E9;
-	Tue,  1 Sep 2026 00:21:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D97C2602C3;
+	Tue,  1 Sep 2026 00:26:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5741F000E9;
+	Tue,  1 Sep 2026 00:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788222071;
-	bh=6bD9pjtuRl9hU9C5HPULWpXB9xdeI4tOkxBYaaThOYk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=itSMjdzeLVU9wIpAKN8ugLqjY7/+glY+jcu8UsobxN5MylrXuYCy0VcO6ku9iKjX2
-	 E9FW9R+gUUFttJZVJsITkrEcTfBYWVhUewDAT6oMTPkK5mo9dWamCFf2pCg1evpC8i
-	 GUxYRlQqwtzmdexmVEHcFLf3jrtW0Elcx8wZlvRB+tq4FEUzjRRumV9vDophjhuL3g
-	 Zc855y4daC4J8G30FkIQ7lKxY0w5UlsxgJemLuPrH67mkP1WmGsNpSnL+ZjaCGfpat
-	 IXxgCNkG3PIpkZPpZ4wLaVfYtjeChKMCNuEDz3DeYnKNLjX0jk4mND75YX0lda3RD2
-	 K3cmTzrqTZoUA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93924392447E;
-	Tue,  1 Sep 2026 00:20:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1788222393;
+	bh=myrc9Gil2RJrqCTse2ZhaV1wha3SGUMFTBi/a0DM/mk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=czZWZeIxlf3GT6/1dh47dSkMckpF0/fGbH+d4J4dghB10s7jtVgZl3KdK5FBfAi3C
+	 7l78CVIMF+dyf9/SlsZE1QmM3loIj4F8aM3wzjaDeirj0pV1u1co1qwkhZ8gWFbx/W
+	 O/nplxd2GNTF+gIpKW8eZq9i8Dk6pXKDtsbgTtxDyI+80PaJ7Xdcs+ZUD2F7kWmFeO
+	 3GjvM/klpJ0sxk7ttC+4PLO9VpX979BvyZJ2HIEpweA3X49sBSVqHrJrVFatbm85nk
+	 pRh8jXfo+22Xp7K5iTUQgJpzxP/VmFR73iDoeb+4h4Ku1wHyNAwqsD4kKbfDEicmsY
+	 yQsk/qt1Yn/jA==
+Date: Mon, 31 Aug 2026 17:26:32 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net v2] net: stmmac: hold runtime PM reference in
+ setup_tc
+Message-ID: <20260831172632.64aadc2c@kernel.org>
+In-Reply-To: <apWVBrXNt74gtUd4@lore-desk>
+References: <20260827-stmmac-setup-tc-enable-pm-v2-1-a9b8a5948f41@oss.qualcomm.com>
+	<apWVBrXNt74gtUd4@lore-desk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: stmmac: stop DMA before freeing descriptors on open
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178822201413.848040.18166339908544983659.git-patchwork-notify@kernel.org>
-Date: Tue, 01 Sep 2026 00:20:14 +0000
-References: <32EB352EB66D74E7+20260827025415.2684733-1-zhaojinming@uniontech.com>
-In-Reply-To: <32EB352EB66D74E7+20260827025415.2684733-1-zhaojinming@uniontech.com>
-To: ZhaoJinming <zhaojinming@uniontech.com>
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com, andrew@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- boon.leong.ong@intel.com, weifeng.voon@intel.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, joabreu@synopsys.com,
- f.fainelli@gmail.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, 31 Aug 2026 16:51:50 +0200 Lorenzo Bianconi wrote:
+>   - This issue is not introduced by this patch and it needs to be fixed with a
+>     dedicated patch
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Looks like the driver has multiple bugs in handling of TC callbacks
+while down. Please fix all of them in one series, otherwise we may
+end up changing approach.
 
-On Thu, 27 Aug 2026 10:54:15 +0800 you wrote:
-> In __stmmac_open() and stmmac_xdp_open(), the DMA engine is started
-> before stmmac_request_irq() is called.  If the IRQ request fails, the
-> clean-up paths free the DMA descriptor rings via dma_free_coherent()
-> without stopping the DMA engine first.
-> 
-> With the DMA engine still running, hardware may continue to access the
-> descriptor ring memory after it has been freed.  Add stmmac_stop_all_dma()
-> to both error paths, matching the teardown order in __stmmac_release().
-> 
-> [...]
-
-Here is the summary with links:
-  - net: stmmac: stop DMA before freeing descriptors on open
-    https://git.kernel.org/netdev/net-next/c/25c1f6111034
-
-You are awesome, thank you!
+Can you also confirm that the device programmed while down retains
+all the necessary configuration thru the open path, and everything
+works as expected?
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+pw-bot: cr
 
