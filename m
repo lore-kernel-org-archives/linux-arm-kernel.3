@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D303C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDF9C624D3
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hWHMZANuyto9dL0rZ5Jl0kraj9mv6LaBGG2cASeNcns=; b=G1rJ0OTVMDySMqOAeHH3wfmndi
-	4ydThxsS+ctn58P/Oc/NJRpiLKPljhF9FZKna662TYhPPhiZDqLveV7DwJ+3O3KrEohlomNB8hEcI
-	Sf+bpVt2DHq9GyA0RV1wofInfNgRuVW/hTULZSZZ+EHAXyDl+4EPGwCEuHoqFp4kWR02Xy0PEfBdn
-	5yO8rpiLUGGIWChSHt0SKyqQ1rNhJLwxqrvZSctor9v98NWbgToweHn1yYQTZ3LbiUkKAco3JP9Zu
-	zzL9tgorja2oT35xLxPE3/0quombW0Nh/DnRDb2JvbX7bX5LbHBdyid2rkOtY9QliBaEBAxFXeEX7
-	QM/y1USQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=muty118/xcIejpUbZ16T9R4WFWh3teUwX+/oBg8EgyE=; b=rV8lBvBH+rd9Sc+uo1kGkZjpiP
+	pkfYOpv7Ns5W7vSyi2dAFGuotei8anx9KfqfLepY3h7MycUeIA70XKX72/g4J0P1VTmc1lPl40wK+
+	B0C6Ag40kQNUWCAxGiMmyv3TER8k+V5MyCPEUoTRCeFzC5q2v0L6emGmRO9ZU62JNOq83R7EzgX/M
+	LcWBpWKU4OZPjGyAw0t03GOFgYQBkwmdQFlQPTv1Ymrw4+jizePCYAOogyELljCgHPRnRnioxB9fX
+	zKV8/qPyEPlsnsQBUXciuZdMCHF+P8YPCX4eJMR8s46kJGSk7IK/S+bg1PrKFlWIrxBobTZAJ56Wf
+	kYlMXZgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S5i-0000000CnFg-0Pe2;
-	Tue, 01 Sep 2026 17:16:10 +0000
+	id 1x1S5n-0000000CnJX-0skW;
+	Tue, 01 Sep 2026 17:16:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1S5f-0000000CnD9-1ADY
+	id 1x1S5h-0000000CnET-308x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:16:09 +0000
+	Tue, 01 Sep 2026 17:16:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23B441756;
-	Tue,  1 Sep 2026 10:16:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D03301CDD;
+	Tue,  1 Sep 2026 10:16:04 -0700 (PDT)
 Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DABA83F7D8;
-	Tue,  1 Sep 2026 10:16:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 764FB3F7D8;
+	Tue,  1 Sep 2026 10:16:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788282963; bh=LPbF21iE9ep8LNYPWYLCmBh5eBtWwnTLW2zpejTK+uM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BLJGPw59ghk0iGEn/Xo+nJCxYpjfDuyKJQ/An5HQZwkuFRmeCug1iR1JoCNTkGxz1
-	 cY+PoFVYEB2SO/PfWwx4+sUVA4oOvbDqq/p7yYpHoBq4/C0Ft8jauPMOy1fuagqg+U
-	 5x+ShIzKTjsojlTYEmmdHEqEq0TD+k/bUK5fLASE=
+	t=1788282968; bh=fHum/s+Aejo7NcIvYND4tx4EZkEpYPggeko+MiFb1fk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eh+KRn1incH2Nb0cLjK4I3h7y5ono1I8nfHCcCwsB/nW1G0HnqqGYhCjaWt9lONZC
+	 zkNvMA+eMHVKvB980L0jqBbIwruJhX7edW0he2GCTIeI8+WtxmPRojPAfhRBeFQ5AD
+	 Ckfesr3KYUj1K6/DfJ6F4+F/mPabFD+qzJL+mNgI=
 From: Leonardo Bras <leo.bras@arm.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -56,17 +56,19 @@ To: Marc Zyngier <maz@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 0/5] KVM: arm64: New PTE dirty-page encoding, HAFDBS new usage
-Date: Tue,  1 Sep 2026 18:15:51 +0100
-Message-ID: <20260901171558.2674031-1-leo.bras@arm.com>
+Subject: [RFC PATCH 2/5] KVM: arm64: Add KVM_PGTABLE_PROT_DIRTY
+Date: Tue,  1 Sep 2026 18:15:53 +0100
+Message-ID: <20260901171558.2674031-3-leo.bras@arm.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260901171558.2674031-1-leo.bras@arm.com>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2083; i=leo.bras@arm.com; h=from:subject; bh=LPbF21iE9ep8LNYPWYLCmBh5eBtWwnTLW2zpejTK+uM=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLKms82R+l6aLevoLPTlevrjXj+xN0X5Dw80573/FLDZL OEZ5/QLHaUsDGJcDLJiiiyyj+av4vk+JePIlR8LYOawMoEMYeDiFICJWDAx/M822rbU95bGj2U7 BIREbi46WyIsOXGdcyy/imhR69apEpwM/0PLPCdczPnF+W1Ga8H74w7V9z0XvvvxSWi96/uv32W CPdgA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13499; i=leo.bras@arm.com; h=from:subject; bh=fHum/s+Aejo7NcIvYND4tx4EZkEpYPggeko+MiFb1fk=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLKms80N28THeOn2z4kqZ5RZi+NWLc9WmxAZs6nosNnpN Rvjzy6P7ihlYRDjYpAVU2SRfTR/Fc/3KRlHrvxYADOHlQlkCAMXpwBMZAkvw2821Sjh6B/SFw/L FApwJRkfmme75IAFZ+wnucLCSct+2HIwMuyt2DxR2tGlSLkn3uRDSZbXtqR8jvJDBpa5Qld3XMv czQEA
 X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_101607_700223_1BB3F333 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260901_101609_860712_A3A0F5CB 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +83,410 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series have 2 main goals:
+Second step of changing the encoding for the Stage2 PTE descriptor,
+introduce the concept of dirty page, so we can have a writable but not
+dirty (WC) page, and a writable and dirty (WD) page.
 
-1 - Patches #1,#2,#3 : Change the PTE descriptor to use WD/WC/RO encodings
-    making use of the DBM bit, adapting all usages, and
-2 - Patches #4,#5 are an RFC on using HAFDBS on a guest to avoid resetting
-    all PTEs to WC when dirty-logging starts, speeding-up startup.
+In order to do so, evaluate uses in a per-case basis, and figure what
+concept was important in each case (being dirty, or writable).
 
-(1) will also introduce a new walker for cleaning the dirty-bit, which will
-clear the DBM bit if it's a block mapping (hugepage). This is needed as on
-lazy-splitting we need to fault a write so we can do the lazy splitting.
-This is needed for both the next patches, and for HDBSS & HACDBS
-enablement.
+Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+---
+ arch/arm64/include/asm/kvm_pgtable.h |  9 ++++++---
+ arch/arm64/kvm/hyp/pgtable.c         | 23 +++++++++++++++++------
+ arch/arm64/kvm/mmu.c                 | 27 ++++++++++++++++-----------
+ arch/arm64/kvm/ptdump.c              |  6 ++++++
+ 4 files changed, 45 insertions(+), 20 deletions(-)
 
-On (2), I really just want feedback to understand if it's worth pursuing.
-My main idea is that we can use HAFDBS _outside_ dirty-logging to only mark
-dirty the pages that were actually written to. That is supposed to make it
-faster to transverse the pagetables when we need to clean the dirty-bit, as
-there is potentially less atomic writes to perform. The price paid for that
-is disabling HAFDBS on every vcpu before we can start cleaning the pages,
-done by a (new) vcpu request.
-
-Please let me know of what do you think!
-
-Thanks!
-Leo
-
-Leonardo Bras (5):
-  KVM: arm64: pgtables: Change write bit from S2AP_W to DBM
-  KVM: arm64: Add KVM_PGTABLE_PROT_DIRTY
-  KVM: arm64: Introduce a dedicated walker for stage2 write-protect
-  KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
-  KVM: arm64: Enable HAFDBS for guests not on migration
-
- arch/arm64/include/asm/kvm_host.h    |  2 ++
- arch/arm64/include/asm/kvm_mmu.h     |  6 ++++
- arch/arm64/include/asm/kvm_nested.h  |  9 +++--
- arch/arm64/include/asm/kvm_pgtable.h | 12 +++++--
- arch/arm64/kvm/arm.c                 | 15 ++++++++
- arch/arm64/kvm/hyp/pgtable.c         | 49 +++++++++++++++++++++-----
- arch/arm64/kvm/mmu.c                 | 51 ++++++++++++++++++++++------
- arch/arm64/kvm/nested.c              |  4 ++-
- arch/arm64/kvm/ptdump.c              | 10 ++++--
- 9 files changed, 130 insertions(+), 28 deletions(-)
-
-
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 37baa86d6fd8..379031c74cbc 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -258,45 +258,48 @@ enum kvm_pgtable_stage2_flags {
+ 	KVM_PGTABLE_S2_AS_S1			= BIT(1),
+ };
+ 
+ /**
+  * enum kvm_pgtable_prot - Page-table permissions and attributes.
+  * @KVM_PGTABLE_PROT_UX:	Unprivileged execute permission.
+  * @KVM_PGTABLE_PROT_PX:	Privileged execute permission.
+  * @KVM_PGTABLE_PROT_X:		Privileged and unprivileged execute permission.
+  * @KVM_PGTABLE_PROT_W:		Write permission.
+  * @KVM_PGTABLE_PROT_R:		Read permission.
++ * @KVM_PGTABLE_PROT_DIRTY:	Dirty attribute.
+  * @KVM_PGTABLE_PROT_DEVICE:	Device attributes.
+  * @KVM_PGTABLE_PROT_NORMAL_NC:	Normal noncacheable attributes.
+  * @KVM_PGTABLE_PROT_SW0:	Software bit 0.
+  * @KVM_PGTABLE_PROT_SW1:	Software bit 1.
+  * @KVM_PGTABLE_PROT_SW2:	Software bit 2.
+  * @KVM_PGTABLE_PROT_SW3:	Software bit 3.
+  */
+ enum kvm_pgtable_prot {
+ 	KVM_PGTABLE_PROT_PX			= BIT(0),
+ 	KVM_PGTABLE_PROT_UX			= BIT(1),
+ 	KVM_PGTABLE_PROT_X			= KVM_PGTABLE_PROT_PX	|
+ 						  KVM_PGTABLE_PROT_UX,
+ 	KVM_PGTABLE_PROT_W			= BIT(2),
+ 	KVM_PGTABLE_PROT_R			= BIT(3),
++	KVM_PGTABLE_PROT_DIRTY			= BIT(4),
+ 
+-	KVM_PGTABLE_PROT_DEVICE			= BIT(4),
+-	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(5),
++	KVM_PGTABLE_PROT_DEVICE			= BIT(5),
++	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(6),
+ 
+ 	KVM_PGTABLE_PROT_SW0			= BIT(55),
+ 	KVM_PGTABLE_PROT_SW1			= BIT(56),
+ 	KVM_PGTABLE_PROT_SW2			= BIT(57),
+ 	KVM_PGTABLE_PROT_SW3			= BIT(58),
+ };
+ 
+-#define KVM_PGTABLE_PROT_RW	(KVM_PGTABLE_PROT_R | KVM_PGTABLE_PROT_W)
++#define KVM_PGTABLE_PROT_RW	(KVM_PGTABLE_PROT_R | KVM_PGTABLE_PROT_W | \
++				 KVM_PGTABLE_PROT_DIRTY)
+ #define KVM_PGTABLE_PROT_RWX	(KVM_PGTABLE_PROT_RW | KVM_PGTABLE_PROT_X)
+ 
+ #define PKVM_HOST_MEM_PROT	KVM_PGTABLE_PROT_RWX
+ #define PKVM_HOST_MMIO_PROT	KVM_PGTABLE_PROT_RW
+ 
+ #define PAGE_HYP		KVM_PGTABLE_PROT_RW
+ #define PAGE_HYP_EXEC		(KVM_PGTABLE_PROT_R | KVM_PGTABLE_PROT_X)
+ #define PAGE_HYP_RO		(KVM_PGTABLE_PROT_R)
+ #define PAGE_HYP_DEVICE		(PAGE_HYP | KVM_PGTABLE_PROT_DEVICE)
+ 
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index ca49f1bd7c34..2ff33d3e371e 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -724,22 +724,26 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+ 		attr = KVM_S2_MEMATTR(pgt, NORMAL);
+ 	}
+ 
+ 	r = stage2_set_xn_attr(prot, &attr);
+ 	if (r)
+ 		return r;
+ 
+ 	if (prot & KVM_PGTABLE_PROT_R)
+ 		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+ 
+-	if (prot & KVM_PGTABLE_PROT_W)
+-		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++	if (prot & KVM_PGTABLE_PROT_W) {
++		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++
++		if (prot & KVM_PGTABLE_PROT_DIRTY)
++			attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++	}
+ 
+ 
+ 	if (!kvm_lpa2_is_enabled())
+ 		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+ 
+ 	attr |= KVM_PTE_LEAF_ATTR_LO_S2_AF;
+ 	attr |= prot & KVM_PTE_LEAF_ATTR_HI_SW;
+ 	*ptep = attr;
+ 
+ 	return 0;
+@@ -747,23 +751,27 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+ 
+ enum kvm_pgtable_prot kvm_pgtable_stage2_pte_prot(kvm_pte_t pte)
+ {
+ 	enum kvm_pgtable_prot prot = pte & KVM_PTE_LEAF_ATTR_HI_SW;
+ 
+ 	if (!kvm_pte_valid(pte))
+ 		return prot;
+ 
+ 	if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R)
+ 		prot |= KVM_PGTABLE_PROT_R;
+-	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM)
++	if (pte & KVM_PTE_LEAF_ATTR_HI_S2_DBM) {
+ 		prot |= KVM_PGTABLE_PROT_W;
+ 
++		if (pte & KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W)
++			prot |= KVM_PGTABLE_PROT_DIRTY;
++	}
++
+ 	switch (FIELD_GET(KVM_PTE_LEAF_ATTR_HI_S2_XN, pte)) {
+ 	case 0b00:
+ 		prot |= KVM_PGTABLE_PROT_PX | KVM_PGTABLE_PROT_UX;
+ 		break;
+ 	case 0b01:
+ 		prot |= KVM_PGTABLE_PROT_UX;
+ 		break;
+ 	case 0b11:
+ 		prot |= KVM_PGTABLE_PROT_PX;
+ 		break;
+@@ -1282,21 +1290,20 @@ static int stage2_update_leaf_attrs(struct kvm_pgtable *pgt, u64 addr,
+ 		*orig_pte = data.pte;
+ 
+ 	if (level)
+ 		*level = data.level;
+ 	return 0;
+ }
+ 
+ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
+-					KVM_PTE_LEAF_ATTR_HI_S2_DBM |
+ 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+ 					NULL, NULL,
+ 					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
+ }
+ 
+ void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
+ 				enum kvm_pgtable_walk_flags flags)
+ {
+ 	int ret;
+ 
+@@ -1362,22 +1369,26 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+ 	kvm_pte_t xn = 0, set = 0, clr = 0;
+ 	s8 level;
+ 	int ret;
+ 
+ 	if (prot & KVM_PTE_LEAF_ATTR_HI_SW)
+ 		return -EINVAL;
+ 
+ 	if (prot & KVM_PGTABLE_PROT_R)
+ 		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R;
+ 
+-	if (prot & KVM_PGTABLE_PROT_W)
+-		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM | KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++	if (prot & KVM_PGTABLE_PROT_W) {
++		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
++
++		if (prot & KVM_PGTABLE_PROT_DIRTY)
++			set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++	}
+ 
+ 	if (prot & KVM_PGTABLE_PROT_X) {
+ 		ret = stage2_set_xn_attr(prot, &xn);
+ 		if (ret)
+ 			return ret;
+ 
+ 		set |= xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
+ 		clr |= ~xn & KVM_PTE_LEAF_ATTR_HI_S2_XN;
+ 	}
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 9ba86450fe4a..9d4f70430bbe 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1205,21 +1205,23 @@ int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages)
+ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+ 			  phys_addr_t pa, unsigned long size, bool writable)
+ {
+ 	phys_addr_t addr;
+ 	int ret = 0;
+ 	struct kvm_mmu_memory_cache cache = { .gfp_zero = __GFP_ZERO };
+ 	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
+ 	struct kvm_pgtable *pgt = mmu->pgt;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_DEVICE |
+ 				     KVM_PGTABLE_PROT_R |
+-				     (writable ? KVM_PGTABLE_PROT_W : 0);
++				     (writable ?
++				      (KVM_PGTABLE_PROT_W | KVM_PGTABLE_PROT_DIRTY) :
++				      0);
+ 
+ 	if (is_protected_kvm_enabled())
+ 		return -EPERM;
+ 
+ 	size += offset_in_page(guest_ipa);
+ 	guest_ipa &= PAGE_MASK;
+ 
+ 	for (addr = guest_ipa; addr < guest_ipa + size; addr += PAGE_SIZE) {
+ 		ret = kvm_mmu_topup_memory_cache(&cache,
+ 						 kvm_mmu_cache_min_pages(mmu));
+@@ -1571,21 +1573,21 @@ static int topup_mmu_memcache(struct kvm_vcpu *vcpu, void *memcache)
+  *
+  * Also encode the level of the original translation in the SW bits of the leaf
+  * entry as a proxy for the span of that translation. This will be retrieved on
+  * TLB invalidation from the guest and used to limit the invalidation scope if a
+  * TTL hint or a range isn't provided.
+  */
+ static enum kvm_pgtable_prot adjust_nested_fault_perms(struct kvm_s2_trans *nested,
+ 						       enum kvm_pgtable_prot prot)
+ {
+ 	if (!kvm_s2_trans_writable(nested))
+-		prot &= ~KVM_PGTABLE_PROT_W;
++		prot &= ~(KVM_PGTABLE_PROT_W | KVM_PGTABLE_PROT_DIRTY);
+ 	if (!kvm_s2_trans_readable(nested))
+ 		prot &= ~KVM_PGTABLE_PROT_R;
+ 
+ 	return prot | kvm_encode_nested_level(nested);
+ }
+ 
+ static enum kvm_pgtable_prot adjust_nested_exec_perms(struct kvm *kvm,
+ 						      struct kvm_s2_trans *nested,
+ 						      enum kvm_pgtable_prot prot)
+ {
+@@ -1642,21 +1644,21 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	smp_rmb();
+ 
+ 	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
+ 	if (ret) {
+ 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+ 					      write_fault, exec_fault, false);
+ 		return ret;
+ 	}
+ 
+ 	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
+-		prot |= KVM_PGTABLE_PROT_W;
++		prot |= KVM_PGTABLE_PROT_W | KVM_PGTABLE_PROT_DIRTY;
+ 
+ 	if (s2fd->nested)
+ 		prot = adjust_nested_fault_perms(s2fd->nested, prot);
+ 
+ 	if (exec_fault || cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+ 		prot |= KVM_PGTABLE_PROT_X;
+ 
+ 	if (s2fd->nested)
+ 		prot = adjust_nested_exec_perms(kvm, s2fd->nested, prot);
+ 
+@@ -1674,24 +1676,24 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, s2fd->fault_ipa,
+ 								 prot, flags);
+ 	} else {
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
+ 							 __pfn_to_phys(pfn), prot,
+ 							 memcache, flags);
+ 	}
+ 
+ out_unlock:
+-	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
++	kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_DIRTY);
+ 	kvm_fault_unlock(kvm);
+ 
+-	if ((prot & KVM_PGTABLE_PROT_W) && !ret)
++	if ((prot & KVM_PGTABLE_PROT_DIRTY) && !ret)
+ 		mark_page_dirty_in_slot(kvm, s2fd->memslot, gfn);
+ 
+ 	return ret != -EAGAIN ? ret : 0;
+ }
+ 
+ struct kvm_s2_fault_vma_info {
+ 	unsigned long	mmu_seq;
+ 	long		vma_pagesize;
+ 	vm_flags_t	vm_flags;
+ 	unsigned long	max_map_size;
+@@ -1977,25 +1979,28 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+ 	 * and trigger the exception here. Since the memslot is valid, inject
+ 	 * the fault back to the guest.
+ 	 */
+ 	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(s2fd->vcpu))) {
+ 		kvm_inject_dabt_excl_atomic(s2fd->vcpu, kvm_vcpu_get_hfar(s2fd->vcpu));
+ 		return 1;
+ 	}
+ 
+ 	*prot = KVM_PGTABLE_PROT_R;
+ 
+-	if (s2vi->map_writable && (s2vi->device ||
+-				   !memslot_is_logging(s2fd->memslot) ||
+-				   kvm_is_write_fault(s2fd->vcpu)))
++	if (s2vi->map_writable) {
+ 		*prot |= KVM_PGTABLE_PROT_W;
+ 
++		if (s2vi->device || !memslot_is_logging(s2fd->memslot) ||
++		    kvm_is_write_fault(s2fd->vcpu))
++			*prot |= KVM_PGTABLE_PROT_DIRTY;
++	}
++
+ 	if (s2fd->nested)
+ 		*prot = adjust_nested_fault_perms(s2fd->nested, *prot);
+ 
+ 	if (kvm_vcpu_trap_is_exec_fault(s2fd->vcpu))
+ 		*prot |= KVM_PGTABLE_PROT_X;
+ 
+ 	if (s2vi->map_non_cacheable)
+ 		*prot |= (s2vi->vm_flags & VM_ALLOW_ANY_UNCACHED) ?
+ 			KVM_PGTABLE_PROT_NORMAL_NC : KVM_PGTABLE_PROT_DEVICE;
+ 	else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
+@@ -2012,21 +2017,21 @@ static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+ 
+ 	return 0;
+ }
+ 
+ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 			    const struct kvm_s2_fault_vma_info *s2vi,
+ 			    enum kvm_pgtable_prot prot,
+ 			    void *memcache)
+ {
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+-	bool writable = prot & KVM_PGTABLE_PROT_W;
++	bool dirty = prot & KVM_PGTABLE_PROT_DIRTY;
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
+ 	struct kvm_pgtable *pgt;
+ 	long perm_fault_granule;
+ 	long mapping_size;
+ 	kvm_pfn_t pfn;
+ 	gfn_t gfn;
+ 	int ret;
+ 
+ 	kvm_fault_lock(kvm);
+ 	pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+@@ -2075,29 +2080,29 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
+ 								 prot, flags);
+ 	} else {
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
+ 							 __pfn_to_phys(pfn), prot,
+ 							 memcache, flags);
+ 	}
+ 
+ out_unlock:
+-	kvm_release_faultin_page(kvm, s2vi->page, !!ret, writable);
++	kvm_release_faultin_page(kvm, s2vi->page, !!ret, dirty);
+ 	kvm_fault_unlock(kvm);
+ 
+ 	/*
+ 	 * Mark the page dirty only if the fault is handled successfully,
+ 	 * making sure we adjust the canonical IPA if the mapping size has
+ 	 * been updated (via a THP upgrade, for example).
+ 	 */
+-	if (writable && !ret) {
++	if (dirty && !ret) {
+ 		phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+ 		ipa &= ~(mapping_size - 1);
+ 		mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
+ 	}
+ 
+ 	if (ret != -EAGAIN)
+ 		return ret;
+ 	return 0;
+ }
+ 
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index b0cb8d84a9e9..a1251e252b4f 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -38,20 +38,26 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+ 		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R,
+ 		.set	= "R",
+ 		.clear	= " ",
+ 	},
+ 	{
+ 		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
+ 		.val	= KVM_PTE_LEAF_ATTR_HI_S2_DBM,
+ 		.set	= "W",
+ 		.clear	= " ",
+ 	},
++	{
++		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
++		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
++		.set	= "D",
++		.clear	= "C",
++	},
+ 	{
+ 		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
+ 		.val	= 0b00UL << __bf_shf(KVM_PTE_LEAF_ATTR_HI_S2_XN),
+ 		.set	= "px ux ",
+ 	},
+ 	{
+ 		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
+ 		.val	= 0b01UL << __bf_shf(KVM_PTE_LEAF_ATTR_HI_S2_XN),
+ 		.set	= "PXNux ",
+ 	},
 -- 
 2.55.0
 
