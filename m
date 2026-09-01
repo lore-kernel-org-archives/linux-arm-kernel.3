@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2910FC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C0BC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSZ+W+gpyvva9DOkNjE72UDAxg//MujBrcnUpMW/QcY=; b=CdPt/JmAx+/MPo3gieZLO6xzft
-	UDkmc3tv4tX8VoX8ScSHtPQEt34JdEqvrpJDQa2SU02Gaz3xjZogsM6Md/VawqxogL/5wb09FaS35
-	IEu6z2/JH0l7krqiLvJsfXU8AywGcn/dkFtoy75ZJRlDc3njvd8cX3md9i7oCBJ7khM/NCMyV3clR
-	SoXSblZ2PyBLXa0ajoV9YZIPbZ4JOlk42ybTfGSneM0bJpi8gq3R0ekz9ibRttFMbetjugTlNdGiE
-	Prv2ImzzMVOhW8zNz3SQQIgsbSNtQWctTvqKVKRajuZy1zUoIyAw8O0TJbTw0eTPufFZ4tMSBr+je
-	FdilF8yQ==;
+	bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=; b=qU8ibAzZmTnkpk5/MyRryJoiKk
+	v4IbdB0/hmfY1mVVUgOCW8z2bbRHv0ZfBu4Po1MSMbjDhh4lvjJW9NsGcIuXq2bjWjwEw6c9LDYSK
+	Oi+eKW+w0PfJwl5RciHM3l1Gt3LhIcoJCnti+arnpWVBGBxbewiySm2MdbE30pS3rpsY6R5nAx85k
+	TyHZI+nEjfBTHfLkuomw8MLSi1mIbM/uReYA9CggllGbzLxbvg55+6BtK7UfENsY/IBBME2b07ai+
+	JEXv+YRo+RyYM4zwxX7CHLBKh9BaJKjmplbF3cXGhqPImx/2YmgN7UdnEsfWMboEvqzkOwDTXFgVs
+	XlMtYblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1K8N-0000000BKT1-09Yh;
-	Tue, 01 Sep 2026 08:46:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1K9X-0000000BKcy-1H84;
+	Tue, 01 Sep 2026 08:47:35 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1K8L-0000000BKSs-01TV
+	id 1x1K9U-0000000BKcQ-3fzi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:46:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D012E601DB;
-	Tue,  1 Sep 2026 08:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3216B1F000E9;
-	Tue,  1 Sep 2026 08:46:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788252379;
-	bh=sSZ+W+gpyvva9DOkNjE72UDAxg//MujBrcnUpMW/QcY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=kghze7x3MwDDqCvHjx3ZgTrJRLG41aro+Xm0FE6b6M6N87BFrqfJiFQjdaNbyLjei
-	 /a0OGIdZv30zvjAUQNX00VUKHQKXCR2agw7Z3sq1Iz3YSvNGyKEtzmzcCh7n4KUmXG
-	 uz1hIO1S1ln18PVcx9PsArwCn61NTGEDT+6ibg3Jp48OI2ZzhY5p17nMoy8ky5yUg0
-	 KyGbFbwiDzGSs0LfbmSaPYcAZYNf4/wtrGpomumjEMkz6mpyTmY7z84nicptr3WT/8
-	 RxgbatJmc0fP+5PEruglqmQNsVmlcvcYnePVLmcPF5rhWlw9iSwFakTC14vEGovfKN
-	 zUZN80YOsQ3XA==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 01/16] iommu/arm-smmu-v3: Discover RME support
- and realm IRQ topology
-In-Reply-To: <apMjUSbxcnlAKjks@nvidia.com>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-2-aneesh.kumar@kernel.org>
- <apMjUSbxcnlAKjks@nvidia.com>
-Date: Tue, 01 Sep 2026 14:16:10 +0530
-Message-ID: <yq5aik4pnyul.fsf@kernel.org>
+	Tue, 01 Sep 2026 08:47:34 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-498012a61f6so34345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:47:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788252451; x=1788857251; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=;
+        b=cqgLt8VHA6qBDqVjDnNWIcktVir/3l2fNOg0ZCOGHjLamYxA1z/kzFjbc61trTrj6Y
+         bSo3lJcG+IjuckfPtAwhtVszdgy0CVHz/sT/QhxLOPPvlNQypnDIkROwtU5HYMvCc83V
+         uR4Pq5Bh3Be2RRmUPnnhUHRiPFgA4d0cPCJvjU/qusc/nB63EGyNxi0nxSFuOaZwlGSY
+         Dj1j1BqFzq/DSrgADPYtdP8q5wPNUF+wpIEKhhTVW/Ox0YkUDjfLvHmgivjeZvnS25Ew
+         ezqF5pbi2EJ8DMIZ1ecjPMzW29BfHisTNB8XgfEgwrsIYHNXiUzqUf5ku//BGcYfy1DZ
+         7WLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788252451; x=1788857251;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k+HrXbMbxa/Y02K3QZMbt843lXkhHRmzbDFOaV/a9gQ=;
+        b=iROGYTpJuoc/WOybFf1PcFxJ4326LcSHk0/n8QOm2o+a8VOn98DwHfP1PNcuCFtUFa
+         Aydx7nqVZNN6mmRQKAAbKqzS94abqCukXjJD+QWO4/UCvfdR77NypFX2qOUHsGOwyECC
+         nm9TZfvgfp8knSayG1zOugtNxSHZOVTgUzzqjUpllMDqtHydgQzykUVjlov6TtRm/ccy
+         CxRlRf58m+g4lEyC8ERZbS/l/0LUb2liClR2AMuTOmrReb3segKMfrdVDoEMH5iyN4RN
+         BxZatgKyvVcrU19JMRkd8IeOcHUdHjQIUUqe0Pcs4iXzTpgVXuKZJbkK6OzzPZ0qYe8w
+         KSrQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqxgTK+yrca8aYexofpkLHvn3s5UhsFkJFovyHydNiVlPk6NwewkOA7yM5V4AEJK7PqgpQyOyjlpTSLtKiaWuJB@lists.infradead.org
+X-Gm-Message-State: AFuF++l2TjranyS8CEV3qXaF+nFw1F1q+kRB9LTeMDHegBTRleri6DXy
+	x3vIBIaubclePfMK/K8EX55uiE8WanAtMtB+51e6wFT4p90v/xz4GZhsF97K1L44yg==
+X-Gm-Gg: AR+sD12MnjKx+ogJeE756w72IgBPHhafcqi0kDWTUifhVbnrRjqU72ItYu1SnxdTmkd
+	w/pWP+2d6DFhrf8vul8NRWKB3j84D7J5cNYVawgtTkj6CDxezAXh2Rzoind3I3UN6yL6w4zyeAc
+	t5YgrtvoLo82GilzkpHWJVEwUmhWi2wWQQgidYgQNkRmCculBsErNPuTz14YDSmtQf3XzArml4B
+	vs6TUxC0MkKYdBYVKmRqFx25y3MSfx/yD2Ew1n1jscaDZNaHAuGHS6xh56avQPSVLnOIYAdr4S8
+	Ajd3VuXYgrvOBQACTZ82ibMoeaHJV8+ny1RR9Zkk2PwzQndRkvzTpOZ06tDgpIUaakE9HYp3K77
+	uhDxOS41EUQebWYuGEGasvkYFvHk6zB2727gHnKF1ww3o9u0acZEBL8jtaaD8t4scNMmUDaoFh8
+	MThknJAwbJw55C8usmB8cwp/nhQ7OdLAqFKEqyq5NtxgAi2auR4ZjpyFtfM2Had2iQO5mdHBELD
+	fhj+R7sVzpRYdlb/4DE62CByGG25g==
+X-Received: by 2002:a05:600c:12c2:b0:499:be2c:94f3 with SMTP id 5b1f17b1804b1-49cdd26e207mr507145e9.6.1788252450501;
+        Tue, 01 Sep 2026 01:47:30 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49c5a903eebsm220827575e9.4.2026.09.01.01.47.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 01:47:29 -0700 (PDT)
+Date: Tue, 1 Sep 2026 08:47:25 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
+	nicolinc@nvidia.com, praan@google.com
+Subject: Re: [PATCH 3/7] iommu/arm-smmu-v3-iommufd: Fix error path in
+ arm_vsmmu_cache_invalidate()
+Message-ID: <apaRHXMxfM7lxdJV@google.com>
+References: <20260828125409.1921538-1-smostafa@google.com>
+ <20260828125409.1921538-4-smostafa@google.com>
+ <178792724269.3808739.17189675074822824146.b4-review@b4>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178792724269.3808739.17189675074822824146.b4-review@b4>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_014732_920725_4B2731AA 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,156 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nicolin Chen <nicolinc@nvidia.com> writes:
+On Fri, Aug 28, 2026 at 11:27:22AM -0300, Jason Gunthorpe wrote:
+> > arm_vsmmu_cache_invalidate() issues commands in batch size.
+> > However, if arm_vsmmu_convert_user_cmd() fails, it will return to the
+> > user that it processed "cur - cmds" which may be part of a batch not
+> > issued yet.
+> > 
+> > Fix this by calculating the returned entry_num solely based on the
+> > "last" that tracks the last batch that was successfully issued.
+> > 
+> > Also, fix the number of commands for early failing condition.
+> > 
+> > Fixes: d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
+> > Reported-by: Sashiko <>
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> 
+> Nicolin's series fixes this and the other sashiko note about over
+> allocation:
+> 
+> https://lore.kernel.org/all/cover.1785258826.git.nicolinc@nvidia.com/
+> 
 
-> On Mon, Apr 27, 2026 at 02:23:29PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-realm.c
->> @@ -0,0 +1,124 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2026 ARM Ltd.
->> + */
->> +
->> +#include <linux/interrupt.h>
->> +#include <asm/rmi_smc.h>
->> +#include <asm/rmi_cmds.h>
->> +
->> +#include "arm-smmu-v3.h"
->> +
->> +#define	RMI_PSMMU_IRQ_GERROR	BIT(0)
->> +#define	RMI_PSMMU_IRQ_EVENTQ	BIT(1)
->> +#define	RMI_PSMMU_IRQ_PRIQ	BIT(2)
->> +#define	RMI_PSMMU_IRQ_CMDQ	BIT(3)
-> [...]
->> +	if (irq == smmu->realm_evtq_irq)
->> +		notify_flags =  RMI_PSMMU_IRQ_EVENTQ;
->> +	else if (irq == smmu->realm_gerr_irq)
->> +		notify_flags =  RMI_PSMMU_IRQ_GERROR;
->> +	else if (irq == smmu->realm_pri_irq)
->> +		notify_flags =  RMI_PSMMU_IRQ_PRIQ;
->
-> These are defined as BIT(x)...
->
->> +		if (rmi_psmmu_irq_notify(smmu->base_phys,
->> +					 notify_flags, &event)) {
-> [...]
->> +			rmi_psmmu_event_consume(smmu->base_phys, notify_flags);
->
-> .. and passed to RMI_PSMMU_IRQ_NOTIFY and RMI_PSMMU_EVENT_CONSUME.
->
-> RMI_PSMMU_IRQ_NOTIFY takes RmiPsmmuIrqSet type, which is a 4-bit
-> field that has a range of [BIT(0), BIT(3)]. So this is correct.
->
-> However, RMI_PSMMU_EVENT_CONSUME takes RmiPsmmuIrq type, which is
-> a 2-bit field that has a range of [0x0, 0x3]. So this seems wrong.
->
+I see, I will add it to my review list. Hopefully I can get to it by
+this week.
 
-Updated that to
+Thanks,
+Mostafa
 
-#define	RMI_PSMMU_IRQ_PEND_GERROR	BIT(0)
-#define	RMI_PSMMU_IRQ_PEND_EVENTQ	BIT(1)
-#define	RMI_PSMMU_IRQ_PEND_PRIQ		BIT(2)
-#define	RMI_PSMMU_IRQ_PEND_CMDQ		BIT(3)
-
-
-#define	RMI_PSMMU_IRQ_GERROR	0
-#define	RMI_PSMMU_IRQ_EVENTQ	1
-#define	RMI_PSMMU_IRQ_PRIQ	2
-#define	RMI_PSMMU_IRQ_CMDQ	3
-
-
-and 
-	if (irq == smmu->realm.evtq_irq) {
-		notify_flags =  RMI_PSMMU_IRQ_PEND_EVENTQ;
-		psmmu_irq = RMI_PSMMU_IRQ_EVENTQ;
-	} else if (irq == smmu->realm.gerr_irq) {
-
-...
-	rmi_psmmu_event_consume(smmu->base_phys, psmmu_irq);
-
->
->> +void arm_smmu_setup_realm_irqs(struct arm_smmu_device *smmu)
->> +{
->> +	int irq, ret;
->> +
->> +	irq = smmu->realm_evtq_irq;
->> +	if (irq) {
->> +		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
->> +						arm_smmu_realm_notify_thread,
->> +						IRQF_ONESHOT,
->> +						"arm-smmu-v3-realm-evtq",
->> +						smmu);
->
-> These IRQ numbers are raw numbers forwarded by firmware and then
-> returned by RMI_PSMMU_INFO:
->
-> +		if ((psmmu_info->flags & RMI_PSMMU_IRQCFG_MASK) ==
-> +		    RMI_PSMMU_IRQCFG_IRQ_WIRED) {
-> +			smmu->realm_gerr_irq = psmmu_info->gerror_intr_num;
-> +			smmu->realm_evtq_irq = psmmu_info->eventq_intr_num;
-> +			smmu->realm_pri_irq = psmmu_info->priq_intr_num;
->
-> Should they be converted to Linux IRQ numbers before forwarded to
-> devm_request_threaded_irq?
->
-
-Yes, that needs conversion. I guess we can use the irq_domain associated
-with the non-Realm IRQ number to create the mappings?
-
-Something like:
-
-
-+static struct irq_domain *arm_smmu_get_wired_irq_domain(struct arm_smmu_device *smmu)
-+{
-+	int irqs[] = {
-+		smmu->combined_irq,
-+		smmu->evtq.q.irq,
-+		smmu->gerr_irq,
-+		smmu->priq.q.irq,
-+	};
-+	struct irq_domain *domain = NULL;
-+	struct irq_data *irq_data;
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(irqs); i++) {
-+		if (irqs[i] <= 0)
-+			continue;
-+
-+		irq_data = irq_get_irq_data(irqs[i]);
-+		if (!irq_data || !irq_data->domain)
-+			return ERR_PTR(-EINVAL);
-+
-+		if (domain && domain != irq_data->domain)
-+			return ERR_PTR(-EINVAL);
-+
-+		domain = irq_data->domain;
-+	}
-+
-+	return domain ?: ERR_PTR(-ENXIO);
-+}
-
->
->> @@ -782,6 +787,9 @@ struct arm_smmu_device {
->>  
->>  	int				gerr_irq;
->>  	int				combined_irq;
->> +	int				realm_gerr_irq;
->> +	int				realm_evtq_irq;
->> +	int				realm_pri_irq;
->
-> Nit: this series adds a few realm-specific things in the top SMMU
-> structure. Maybe a "struct arm_realm_psmmu" can make them clearer.
->
-
-Added
-
-struct arm_smmu_realm {
-	int				gerr_irq;
-	int				evtq_irq;
-	int				pri_irq;
-	struct mutex			mutex;
-	refcount_t			users;
-};
-
--aneesh
+> I think it is in good shape, I would rather merge it than hack on this
+> further.
+> 
+> -- 
+> Jason
 
