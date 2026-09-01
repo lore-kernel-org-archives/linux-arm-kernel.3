@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81AFC624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FB1C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mITZlxCGGk5dvksU48UBQe0WaGaTY/+s4dpeJMto630=; b=XsUJTkJicU5EVCW4SNpT5GJ/UX
-	6a72rh7MzdZzLVpuFa3hMSHLK7kgdUwTSjlJtd7BJlNpxihIONFqwmRxSRwlzn69uH2Og2T/wQmGo
-	XYtBpdgzRXehepdRpohxfMyq81LEqXMhSKzJsn6BgjOedsPXhxuPwHYDuTscABrYwEjT7WMkYjiQ/
-	y0MrnWFJLCphQCG7WcV20R6aYJwJBLt9+ag1n/FIpJs1xI8gfZrwxXvP/eOMxhcuYtQrcoyIkqe2l
-	jgV7eBr7mcciGHonDz6ztEeUB0Hoqo6C1Rb/uJVlQB4BWYLQsEANaodd96X7BMdFvMPGVtgNyWCW8
-	pMj+UdbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Y2gsrAzghCkNe63DGxqfAqp5vecG0jlL0NDDMMIqfo=; b=z2M3wAJT+gblhPCjyFoCsoGm+X
+	JZKdyDUR3q9d0Q6W0w0tBp+wFLT1+XNUbDUCHbdvo/8EvIzc8u67y7nQt3eWITRkUv4C/jxqlSPuW
+	LCm++BhivR8u2dSFJRoNoUdtR9KLzsX3KXjOIGun6syarJoJXOoyNtAyNMP3n5xmocEy6AhG0VSUb
+	J+rb+RdVZjWyY9vuNGodL0OLGjpHylsqxmMyHa+zP3d4X4E+susSNzI4/bXNvqdQ7FkFUNcU32dBr
+	cuOn2sRif1m+BHjinO7kftchLLN1VVk794lagzks4mlxy+Mm3VXgdtx+cMm/cnWSeJztFY+/w2Y1m
+	xVgi6ieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KcF-0000000BOjq-1TCx;
-	Tue, 01 Sep 2026 09:17:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1Kfe-0000000BPEB-3n2B;
+	Tue, 01 Sep 2026 09:20:46 +0000
+Received: from [38.71.22.102] (helo=spam.axera-tech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KcD-0000000BOji-3BzQ
+	id 1x1Kfb-0000000BPAY-2E9j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 09:17:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D378F601DB;
-	Tue,  1 Sep 2026 09:17:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4EB61F000E9;
-	Tue,  1 Sep 2026 09:17:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788254232;
-	bh=mITZlxCGGk5dvksU48UBQe0WaGaTY/+s4dpeJMto630=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=XROMNIUmyhA7M/dbxKK8Imo86dz2L5j/zRFqHXNrxib/St5Bz1Wb45NtmhWOw5fJy
-	 1u3rgOng700Q/MQ7vgjnccFx73xrQm/I7XQ3n67GRnFhDKxJ/VFmyX48m+SserSxs+
-	 Tj82D7pJJMB26AvoXAgxRVqAW3LgHXg+Khq3BxBKr9/K3b1pItu8VaSk4UULn1gG//
-	 8C8f2gKAHAI74TDde4b39ZA0HPi0d9Z3mFhPd6KgiQH0aY3Zq0mWuwzTsGSVTSS7ZE
-	 jUydPyVjl+1VTyXdmpr4NjgMXIHt/C0EyY7NN9kjEfZOHNqNA5Ed9dbgxa4YiD6AJE
-	 VftVrjb3WsNrg==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-In-Reply-To: <apM6dOHcEI2ztWS0@nvidia.com>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com>
-Date: Tue, 01 Sep 2026 14:47:04 +0530
-Message-ID: <yq5a8q5lz5yn.fsf@kernel.org>
+	Tue, 01 Sep 2026 09:20:44 +0000
+Received: from aixinexchange02.aixin-chip.com ([10.122.86.161])
+	by spam.axera-tech.com with ESMTPS id 6819JcIG047674
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 1 Sep 2026 17:19:38 +0800 (+08)
+	(envelope-from lenghonglin@axera-tech.com)
+Received: from [127.0.1.1] (10.126.103.103) by aixinexchange02.aixin-chip.com
+ (10.122.86.161) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 1 Sep 2026
+ 17:19:37 +0800
+From: Leng Honglin <lenghonglin@axera-tech.com>
+Date: Tue, 1 Sep 2026 17:19:31 +0800
+Subject: [PATCH v2 4/6] arm64: defconfig: enable ARCH_AXERA
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260901-ax650-v1-v2-4-993bea305476@axera-tech.com>
+References: <20260901-ax650-v1-v2-0-993bea305476@axera-tech.com>
+In-Reply-To: <20260901-ax650-v1-v2-0-993bea305476@axera-tech.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Shi Zhicheng
+	<shizhicheng@axera-tech.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will
+ Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Linus
+ Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <soc@lists.linux.dev>,
+        Leng Honglin
+	<lenghonglin@axera-tech.com>, <hlleng233@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788254374; l=579;
+ i=lenghonglin@axera-tech.com; s=20260818; h=from:subject:message-id;
+ bh=lY3H3CECdbVmg66k7XKZsXiqwLwFaAv/7LL6m5RONQs=;
+ b=PO+EGm4ITO/sCGhBPDdL30RjnQwHxVEvYdK/B57ayU/qU4R6VYkK40Vm7gm6IhlFgWmFtBUFO
+ +aTH4EVD55qB09MJ6aP4IQeuRpHB7LohKuS0WGPommoibc9/JSIdj8H
+X-Developer-Key: i=lenghonglin@axera-tech.com; a=ed25519;
+ pk=fo0agzxyiwbJZc3VZRLVthobvWCvq0qAViAw4TxhF80=
+X-Originating-IP: [10.126.103.103]
+X-ClientProxiedBy: aixinexchange02.aixin-chip.com (10.122.86.161) To
+ aixinexchange02.aixin-chip.com (10.122.86.161)
+X-DKIM-Results: [10.122.86.161]; dkim=none;
+X-DNSRBL: 
+X-MAIL: spam.axera-tech.com 6819JcIG047674
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_022043_894851_AEE886D7 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,100 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nicolin Chen <nicolinc@nvidia.com> writes:
+Enable ARCH_AXERA in the arm64 defconfig.
 
-> On Mon, Apr 27, 2026 at 02:23:31PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> +static const struct iommufd_viommu_ops arm_realm_smmu_v3_ops = {
->> +	.destroy = arm_realm_smmu_v3_destroy,
->> +	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
->> +	.cache_invalidate = arm_vsmmu_cache_invalidate,
->
-> I don't think realm vsmmu should include NS nested domain ops. I
-> wonder if adding here is for some covert reason that prevents us
-> from registering viommu/vdevice objects?
->
->> +static int arm_realm_smmu_v3_vdevice_init(struct iommufd_vdevice *vdev)
->> +{
->> +	struct device *dev = iommufd_vdevice_to_device(vdev);
->> +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
->> +	// fixme which stream to pick
->> +	/* At this moment, iommufd only supports PCI device that has one SID */
->> +	struct arm_smmu_stream *stream = &master->streams[0];
->> +	struct arm_smmu_device *smmu = master->smmu;
->> +	unsigned long rmi_ret = 0;
->> +	int ret;
->> +
->> +	if (!smmu->realm_initialized)
->> +		return -EINVAL;
->> +
->> +	ret = rmi_psmmu_st_l2_create(smmu->base_phys,
->> +				     ALIGN_DOWN(stream->id, STRTAB_NUM_L2_STES),
->> +				     &rmi_ret);
->
-> The "vdevice" is for a PSMMU stream table allocation..
->
->> +int arm_realm_smmu_v3_init(struct iommufd_viommu *viommu,
->> +			   const struct iommu_user_data *user_data)
->> +{
-> [...]
->> +psmmu_activate:
->> +	ret = rmi_psmmu_activate(smmu->base_phys, virt_to_phys(params),
->> +				 &rmi_ret);
->
-> .. and the "viommu" is also for PSMMU activation...
->
->> +++ b/include/uapi/linux/iommufd.h
->> @@ -1055,6 +1055,7 @@ enum iommu_viommu_type {
->>  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
->>  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
->>  	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
->> +	IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 = 3,
->
-> .. and we demand userspace (VMM) to use IOMMU_VIOMMU_ALLOC ioctl,
-> even if VMM does not actually expose a guest-level SMMU instance.
-> Thus, no user_data.
->
-> I can get the reasoning behind the flow using this viommu/vdevice.
->
-> But, on the other hand, I can imagine that a Realm VSMMU would add
-> a new flag with a user_data to this VIOMMU. Then, this flow would
-> give some troubles to VMM (QEMU for example):
->
->  - For VM with a guest-level SMMU, QEMU creates a realm instance
->    where IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 (with vsmmu) can be
->    allocated.
->  - For VM w/o a guest-level SMMU, QEMU won't create such a realm
->    instance, while still required to invoke the ioctl (w/o vsmmu). 
->
-> Taking a step back, I wonder if we really need to use iommufd for
-> PSMMU activation and its stream table allocations?
->
-> Here are some facts:
->   - An iommufd has a ctx, that's one per VM. Similarly, a Realm
->     has an RD.
->   - For an RMI command that needs an RD, it makes sense to be per
->     iommufd ctx, e.g. RMI_VSMMU_* or RMI_VDEV_* commands.
->   - PSMMU commands are global; they don't need RD. So they don't
->     seem necessary to tie to an iommufd ctx.
->
-> Instead, could the PSMMU activation be done after RMI_PSMMU_INFO
-> check? Is there any reason not to do that? A safer timing might
-> be at the device assignment stage?
->
+Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-One of the reasons I added IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 was to
-avoid creating a psmmu object when we are not using a PCI passthrough
-VM. That is also the reason for all the refcounting around the psmmu
-objects.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 654a102cb5bc..a2c2b41f0146 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -40,6 +40,7 @@ CONFIG_ARCH_ALPINE=y
+ CONFIG_ARCH_APPLE=y
+ CONFIG_ARCH_ARTPEC=y
+ CONFIG_ARCH_ASPEED=y
++CONFIG_ARCH_AXERA=y
+ CONFIG_ARCH_AXIADO=y
+ CONFIG_ARCH_BCM=y
+ CONFIG_ARCH_BCM2835=y
 
-If we are okay with creating psmmu objects early, then I guess we can go
-with the above approach.
+-- 
+2.34.1
 
->
-> Speaking of which, RMI_PSMMU_ST_L2_CREATE doesn't seem necessary
-> to be invoked in a vdevice context either. Maybe it should align
-> with iommufd idev's lifecycle?
->
-
--aneesh
 
