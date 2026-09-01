@@ -4,143 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2368C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45EAAC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4tTkCcMq6zotwRicGA7neKe28S4A5lFqmzjTU8MYQPE=; b=BXo5W7MpzE0a1r75/RKTosZ6sC
-	F0vasq/4QqwpuE2RzVo8SkHWMPtcXq3in3HyG8fmZxd2+I+QEW4CCjQmQGPYZC7tu5OvmiNwc20Ft
-	NAr1mRvRSGpweYDCdcsPFFIEKTRHW193m3bwikjxbZiVI3b22FgvhKkYL8XY8Ok482mCjLFyDYEDR
-	rTS+sgzKLRm9INVp44TehsSmN4iobSwjgMqifvknkz8U7GZmIQT0/XYypfnJiXHhTvvoGNIgBv9Ce
-	CsH8D4UudWZcxEmqZJ5yRbFVMBDElgfB2Du98mQEjrAIATIb0boHdr7nmoVpcW/8OXGUPp+MXWuvI
-	LMak+aBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=awL7EJRIIWZmZbuML6Yj4uYN8A8XYeaOTFa5cFWKueY=; b=g7gN5TJmDNvmEs3UsbSUXP2HJ+
+	jKhFF1nXtcn1wccFQ9Pw3UBf+lISjUmDHmqXup6FPxjljCGjlw0kUjFVmyUmvteXay521c40HNVHn
+	SY/k//DhTgZalb43UwzrdEy6RLl88vTNa+1m6Va14WxDSl+S49xlxrpBpLeG/KQ0j5FVayCXmbWS1
+	ERH0nW1L0aFiTHd+PJ4rRQ2iMUpNzs958Ef9IP8fEEfdWLSa5tmbBID7qndWfjVGNp4DslGJr8630
+	j8e5TY8IflfvIJtji7pB4cZEhFxwVqr7pSCkCGqQXVSPY7UKU4g6ZzWQUTEx0yj97/jJw2/tBVjtL
+	v0at6jeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KSU-0000000BNEd-35mH;
-	Tue, 01 Sep 2026 09:07:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x1KUp-0000000BNVp-0E1O;
+	Tue, 01 Sep 2026 09:09:35 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KSR-0000000BNE0-3QJP
+	id 1x1KUn-0000000BNVL-1gIs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 09:07:09 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68179C3T2061566
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 1 Sep 2026 09:07:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=4tTkCcMq6zotwRicGA7neKe2
-	8S4A5lFqmzjTU8MYQPE=; b=jKW8ZG75NTlQIR4jrv4KkMX72pX2UEteYN2bAmsO
-	TnlxoaPY0S2DF/s+10YQA+xdqpd18Tr9wSiUdhAiEVA71d72RSVlm4BbhFgwSpFw
-	/oi6x0BcXQhDsWz2d2lE4fFfkmUsIt9B+k8AHS7RlYY+OPx06D8vdGK1U8pMA8O/
-	YF+NbdUVd7kCyYkS7QBAg1IrB6DNHDHI01f3YVVDY8cC/D9RNdut88RTR722EK2D
-	YkAgLxJp5CwCmQtNwX2f74ds3hHZjdn746qnUOjdvlIRoFLvxyFCBCJXoKqShRNd
-	Qb6gFWovopyyidhDmH+EfxGpT/rPDG3kXF4szs493FxrGQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gdqbh17n2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 09:07:06 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e820609d9so894617685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 02:07:06 -0700 (PDT)
+	Tue, 01 Sep 2026 09:09:34 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49ccfbe062eso23349025e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 02:09:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788253626; x=1788858426; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4tTkCcMq6zotwRicGA7neKe28S4A5lFqmzjTU8MYQPE=;
-        b=R0Zd3WOLPywZmzGI9p8ZA5ub/TrbXF6f5qUabWKz5GIn8rbQlqyAqAlILCIoBgvZ1O
-         8PxDSHsrSgje04OgDKQHIQXEqBCGOM1Xtial69pgm/hHM1stCH1DzLHbaWl68SJ/pKdN
-         9cO1BMIXQu9tYxd32slbz0QAky5hoU0tobViON5IqnUrtruZ95/yIveuGSIayyUX9Liz
-         sO12dDxSotQrZcKMqX8Ib/wAbhSgLTOT9rLTRoxTpT+Rfq8zfz8rlFDiw65JS0Edr04i
-         C/acerrsC4SjW10NtoIL05Xv12WlpTLJyFjoVspVBwoGMIOT5zjqaW0f58wvaDBUU0z/
-         Iqrg==
+        d=amarulasolutions.com; s=google; t=1788253771; x=1788858571; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=awL7EJRIIWZmZbuML6Yj4uYN8A8XYeaOTFa5cFWKueY=;
+        b=oTwbydfVXagbBjLS3l0lv8Sziqr0TtzIVbsLlz4PXfA9aN6nOCPQmXs/nDZmauYCMo
+         KCtNt237pLc/7Je0OgXlFzBWM3WVd0DirM4F0ohOWRst4LKgg4GLiRsiL/2e1ex2HnNk
+         57JLurHDu2jdsZF4R5X+sGT0jZKngjz56+F/c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788253626; x=1788858426;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4tTkCcMq6zotwRicGA7neKe28S4A5lFqmzjTU8MYQPE=;
-        b=iMWIM88cNLEA3He0A8dDbZ8UWQDqDsdOuYr1yO3H4mmfQMWYqUmQ23KFC1T/gaDJ3O
-         UzYhJq2PlbFGN0u4QceScKuwdSTyKh70KyTQB9G4K68lq5l9jdExHj34d917s3Fwb1vY
-         qNi86Vzo2GTcBPD3ZsqQwHqn8+M2VzXQZQVCfnxkIwyT7Yz7J+RK+hM4dVTRYCYlEeiT
-         Q2k5IK1kXahzrlFo2dmQt8MMdbKYIDo4fgRik8FxU1OEVlBaTLiNTsKHv7BMlrEjQi3y
-         YhSdHmCw3whfWAYAe3sHjCSKrP/eFQAUHGJwBWZ111HA25fHGhRSVzRBGYIFtHjzz2eh
-         hsXQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrHg7SIWUJGLXH9IQyXEKSfaVPeg3MFrEeHu+Tvxu3irt/lYf+SP1wxyxC1LRNZs9kqPZnXdGZQ7ktWdFf9LnqU@lists.infradead.org
-X-Gm-Message-State: AFuF++khsqBs7I4pxd02x5Rcy1UgaxFX6G4F1Qt6V4QYWcedLgNPS///
-	Cku/XCReyjDvYaygPCG5PpqS2RhpLLhxlrHxDup9lxfm4rTHT3jlIffWAcDW71sGfdtRf8/a2ps
-	XjEn1vW+f4f2XmEpOHDzxoqnau+VIRYKlu7irDyBuINVsnRDl6J1TnL0wpLAiJNL5hJn+F+OsGd
-	/gPA==
-X-Gm-Gg: AR+sD11bxUOVEIXvMTR76JdMEJUl/gxvQ9C3U78HG+7m1FsQU8Qf8ppKKLKQfPybg8m
-	Jl6o3WFL+6SXXRzktZyHIYkwhSG/9Rjg/RMbHWDgN1Gf5samYqPty1s5M73MMQ56VJ7P1rQs/Lp
-	ZH9JjgdVVhPrtBxK9d1B5SlXUgxSFXD5AnTtuHh9ra+4hEdWLXZnsLkuZqvIBdErK8PX6qXW+ye
-	2HzFSTU5QnBlH3tXBoLR2VnFc+9oTZ5RIVjsqB4Nf9yDSQdvK+BIECWWNhIfYH4JNMCCS5p4Yys
-	YRh6wQtSMVczXEBkiBpbVRC+nppG15ixoef3pqDqqxk/vsrkfNWKd8Sc3qE+TGp/aUsUSwVknwT
-	ozwsMvwLbXhzzEg==
-X-Received: by 2002:a05:620a:440e:b0:923:7821:dc0d with SMTP id af79cd13be357-93948132c08mr841860485a.33.1788253625905;
-        Tue, 01 Sep 2026 02:07:05 -0700 (PDT)
-X-Received: by 2002:a05:620a:440e:b0:923:7821:dc0d with SMTP id af79cd13be357-93948132c08mr841852685a.33.1788253625338;
-        Tue, 01 Sep 2026 02:07:05 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48442d791a7sm3645264f8f.31.2026.09.01.02.07.04
+        d=1e100.net; s=20251104; t=1788253771; x=1788858571;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=awL7EJRIIWZmZbuML6Yj4uYN8A8XYeaOTFa5cFWKueY=;
+        b=cwc1pnAEVVI/Spxa+vsj8Q6zjIEIxY8tOVU2IbRmhHw6ai+5F67of5XWyk9MSMqJSg
+         YZG8R+XVyKkDBdCctxE8SpRtHABBEllVz765Y9VtKsTA8Da25zU+0zcgNG+VtIJAllXf
+         fPC10CsvVRpb0d0gCdf9Czf3yzs9HiUXaOcUkHi2ngMpnq4Y8GNRUerXSFEsVnhpq89+
+         THrh9nwFVZsnnbAZQXELLcakct+ZnkIOKxFrWI9Cdc6cRpzjsKi9R/HkU6UMjdu3KQ+J
+         baS+w+uXHlb9IW4SUST5q4Dy+WDltZwlc+AYPGh9gVSEjSukmQKEG0m6tcmTJ/vkY/FY
+         s/vg==
+X-Forwarded-Encrypted: i=1; AHgh+RoF+2MVbgYACb0FzQ0dG9KjnuQboqdS+DDEnegIEwBk2DLM18IweR/ZskygJ6Mdq2iICKmSYqbE6i24PkhErww5@lists.infradead.org
+X-Gm-Message-State: AFuF++kssjNi0GvnEQ6GyVy94GHTCCpzKe3YPmmmL92DH7UKoEU8R149
+	wjLWis2m6aRk95p4Lq7WNO+zHbk17Q5USab5/rTuivEb8dIWLUSSiw0/2dTi4QwUUtg=
+X-Gm-Gg: AR+sD11DJCsXtyjVSGUoqh/E2hneRux7K1Lwd34QzU5/MmHgC8AxU9Yf/7aZxgm0mih
+	hkv/Wp8IfSR+9V4cOQ94oQq3FlBFNQsVRBSzp+k508hqnYNDrLel/Gzm/VpA6sDtNKqxAQzMyh/
+	m+yZelnZ+EcXwDydCXhN7Q4U/3A7K74Dq7ZHh5391jUOlXqcCBf0LkZCzLeSEFrRgG9kq0jstxc
+	v48u+NIN25fxBByD8MCQlM2oeEG1id4IJxZdETY/AGeVfCjAJnP5ZGARmRv/JZL0fkkRk/q7RXE
+	SyKhB7jHoeIhpt36XscbtCotPD4V08sjc2fDe09Oixm6naCqNc6vHBjFy9IyFx1IvSGpurEO/RO
+	fXV30AvksVsg74KxAjIxYC4olNDchP+dMPaALVd3yIC2oSNt7G0G0bHzse7LNalWu/7t4j/nheA
+	v+UUFYjqdxnJHzmsGkY1AY5evOcGfA/yOcC1ndj+Q67FtWhyOpJot4BMYzLutGUMRdfLyptGLDe
+	HjZw8CrLTSF2vHwN/SVXHpxFir0Qtq0eWXmvfE/XCpILFgN5k7WiP0Aif+9EAqunZMXP1mpij9s
+	FBKyS3Mwiiq42wjrfvTzucLypaqt8MT0t1u8fMQEGw0DJkbaOEJz7WE=
+X-Received: by 2002:a05:600c:19c8:b0:49b:c8e:a211 with SMTP id 5b1f17b1804b1-49b91c20bfamr497636215e9.5.1788253771241;
+        Tue, 01 Sep 2026 02:09:31 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com (host-87-9-102-148.retail.telecomitalia.it. [87.9.102.148])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48442c425cesm3825273f8f.6.2026.09.01.02.09.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 02:07:04 -0700 (PDT)
-Date: Tue, 1 Sep 2026 11:07:03 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Furong Xu <0x1207@gmail.com>, Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net 0/2] net: stmmac: fix qdisc configuration overwrite
- during qdisc_graft().
-Message-ID: <apaVt5NN-FTjtTfJ@lore-desk>
-References: <20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e@oss.qualcomm.com>
+        Tue, 01 Sep 2026 02:09:30 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v11 2/2] clk: imx: pll14xx: support spread spectrum clock generation
+Date: Tue,  1 Sep 2026 11:05:18 +0200
+Message-ID: <20260901090912.585681-3-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260901090912.585681-1-dario.binacchi@amarulasolutions.com>
+References: <20260901090912.585681-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+NEuofCU5XXUBBBx"
-Content-Disposition: inline
-In-Reply-To: <20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAxMDA4MSBTYWx0ZWRfX2QF9PC+y5dyB
- GuEgk6mGLnCY/Z+m3gwCnndNgfqaKLUsb3Xm3xa0gyCYn2Gtfs7WE2GM0kBIWwm3Bj6qmQeFFe+
- PLgRVG8gZFJ4tMItiXtv6jTUs8CHx1s=
-X-Authority-Analysis: v=2.4 cv=R9wz39RX c=1 sm=1 tr=0 ts=6a9695ba cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=GaJwwe295ui8M3rlBr0A:9 a=CjuIK1q_8ugA:10 a=5MFtv9REYAT2gr-WTQEA:9
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: 7KgfC8RrRcpZ3YgxhgGFn8DkANq7hSff
-X-Proofpoint-ORIG-GUID: 7KgfC8RrRcpZ3YgxhgGFn8DkANq7hSff
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAxMDA4MSBTYWx0ZWRfX/sPN2q/zkOPU
- pYmsA69QtYJ8boNd6bJ7qN9JZ4fgxU6GO+5Bzg56303SMzjthE0NBqvBiIJVQmu43JuSyQIe0GW
- Ks0iK/z0B7oS1d7J9QATVrzShZnL3SJodwa5+JssUZY/jUG9dB3FnWvQn/+OuBFosBV6LKXLaOH
- /2rxLPD9X00QwcnzPHkJSf69okU5SsGXagg7jxt/jeLff4d07J2HrOjuMvkYOPfV2rIm4Ytieay
- tRGx9dulmCCl7191kLNE+cLvFKN1VRflGhuVQiaG6yKH9VNDIq/ptI05l8seSsb0vJJiyOtZP/B
- ZD0EQ/Z3pQJaMebQ1OHj0GdjHefCTgePbhJmEspCgJpcEgScgL2ZD+K9yA/bF26KNlWC2KvAXH0
- PDwTmAO92wzkazmLmaof7RpzZ2w3Gh9iPJI3ye6LLB92xBJf9JpaSp1uZ8BUJakDgpbLJebk7ja
- V75HnwXSjnOZXeJj4oQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-01_02,2026-08-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 clxscore=1015 phishscore=0 suspectscore=0
- malwarescore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609010081
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_020707_966229_4C10541D 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260901_020933_490168_C70A3E62 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,46 +109,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---+NEuofCU5XXUBBBx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add support for spread spectrum clock (SSC) generation to the pll14xx
+driver.
 
->=20
-> ---
-> Lorenzo Bianconi (2):
->       net: stmmac: preserve real_num_tx_queues on mqprio setup failure
->       net: stmmac: preserve FPE preemption class across qdisc replacement
->=20
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h    |  7 ++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 97 +++++++++++++++++++=
-------
->  2 files changed, 80 insertions(+), 24 deletions(-)
-> ---
-> base-commit: 2188569e7e1b0bc3f3b557dc97ab7a02befc11c8
-> change-id: 20260827-stmmac-fix-graft-overwrite-d3ec2e72d901
+Tested on the video PLL of i.MX8MN and i.MX8MP based boards.
 
-Please drop this version, I will address some sashiko's comments in v2.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Regards,
-Lorenzo
+---
 
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
->=20
+Changes in v11:
+ - Drop the dt-bindings/clock/clock.h include and use the enum
+   clk_ssc_method values from clk-provider.h, as clk-scmi-oem.c does.
+ - Disable SSC and clear the modulation fields in SSCG_CTRL when no
+   spread method is configured, so that a setup left enabled by the
+   bootloader is not kept active.
+ - Skip the SSC setup instead of dividing by zero when modfreq_hz is
+   zero or mfr truncates to zero.
+ - Reject mfr and mrr values that do not fit the MFREQ_CTL and MRAT_CTL
+   register fields instead of letting FIELD_PREP silently truncate
+   them. This also prevents the 10000 * mfr multiplication from
+   overflowing.
+ - Compute the mfr divisor in 64-bit arithmetic, as the 32-bit product
+   could wrap with out of range modfreq_hz values.
 
---+NEuofCU5XXUBBBx
-Content-Type: application/pgp-signature; name=signature.asc
+Changes in v10:
+- Drop 'Reviewed-by' tag of Peng Fan.
+- Adapt the driver to the new infrastructure. Implement the
+  set_spread_spectrum() and get the modulation parameters from
+  struct clk_spread_spectrum.
 
------BEGIN PGP SIGNATURE-----
+Changes in v9:
+- Add 'Reviewed-by' tag of Peng Fan.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapaVtwAKCRA6cBh0uS2t
-rJT0AQCa9ps03VLvVpsG68lb345JfNeswBHXjWyOPPGvKjsjKAEAkoYEoKyPKGei
-DAnKuH9j5nC3/fVKBpAavY/ehooieQk=
-=+nd+
------END PGP SIGNATURE-----
+ drivers/clk/imx/clk-pll14xx.c | 79 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 79 insertions(+)
 
---+NEuofCU5XXUBBBx--
+diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+index b6f1cc9f5700..0c2b812ba20c 100644
+--- a/drivers/clk/imx/clk-pll14xx.c
++++ b/drivers/clk/imx/clk-pll14xx.c
+@@ -13,6 +13,7 @@
+ #include <linux/export.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
++#include <linux/math64.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+ #include <linux/jiffies.h>
+@@ -22,6 +23,8 @@
+ #define GNRL_CTL	0x0
+ #define DIV_CTL0	0x4
+ #define DIV_CTL1	0x8
++#define SSCG_CTRL	0xc
++
+ #define LOCK_STATUS	BIT(31)
+ #define LOCK_SEL_MASK	BIT(29)
+ #define CLKE_MASK	BIT(11)
+@@ -33,6 +36,13 @@
+ #define KDIV_MASK	GENMASK(15, 0)
+ #define KDIV_MIN	SHRT_MIN
+ #define KDIV_MAX	SHRT_MAX
++#define SSCG_ENABLE	BIT(31)
++#define MFREQ_CTL_MASK	GENMASK(19, 12)
++#define MRAT_CTL_MASK	GENMASK(9, 4)
++#define SEL_PF_DOWN_SPREAD	0
++#define SEL_PF_UP_SPREAD	1
++#define SEL_PF_CENTER_SPREAD	2
++#define SEL_PF_MASK	GENMASK(1, 0)
+ 
+ #define LOCK_TIMEOUT_US		10000
+ 
+@@ -44,6 +54,7 @@ struct clk_pll14xx {
+ 	int rate_count;
+ 	s16 delta_k;
+ 	spinlock_t lock;
++	struct clk_spread_spectrum ss_conf;
+ };
+ 
+ #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
+@@ -366,6 +377,58 @@ static int clk_pll1416x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	return 0;
+ }
+ 
++static void __clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
++					       unsigned long parent_rate,
++					       unsigned int pdiv,
++					       unsigned int mdiv)
++{
++	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
++	struct clk_spread_spectrum *conf = &pll->ss_conf;
++	u32 sscg_ctrl, mfr, mrr, sel_pf;
++
++	sscg_ctrl = readl_relaxed(pll->base + SSCG_CTRL);
++	sscg_ctrl &= ~(SSCG_ENABLE | MFREQ_CTL_MASK | MRAT_CTL_MASK | SEL_PF_MASK);
++
++	switch (conf->method) {
++	case CLK_SPREAD_CENTER:
++		sel_pf = SEL_PF_CENTER_SPREAD;
++		break;
++	case CLK_SPREAD_UP:
++		sel_pf = SEL_PF_UP_SPREAD;
++		break;
++	case CLK_SPREAD_DOWN:
++		sel_pf = SEL_PF_DOWN_SPREAD;
++		break;
++	default:
++		/* No spread: disable modulation and clear any stale state */
++		goto out;
++	}
++
++	if (!conf->modfreq_hz)
++		goto out;
++
++	mfr = div64_u64(parent_rate, (u64)conf->modfreq_hz * pdiv * BIT(5));
++	if (!mfr || mfr > FIELD_MAX(MFREQ_CTL_MASK)) {
++		pr_warn("%s: SSC disabled, modulation frequency (%u Hz) out of range\n",
++			clk_hw_get_name(hw), conf->modfreq_hz);
++		goto out;
++	}
++
++	mrr = (conf->spread_bp * mdiv * BIT(6)) / (10000 * mfr);
++	if (!mrr || mrr > FIELD_MAX(MRAT_CTL_MASK)) {
++		pr_warn("%s: SSC disabled, spread (%u permyriad) out of range\n",
++			clk_hw_get_name(hw), conf->spread_bp);
++		goto out;
++	}
++
++	sscg_ctrl |= SSCG_ENABLE | FIELD_PREP(MFREQ_CTL_MASK, mfr) |
++		FIELD_PREP(MRAT_CTL_MASK, mrr) |
++		FIELD_PREP(SEL_PF_MASK, sel_pf);
++
++out:
++	writel_relaxed(sscg_ctrl, pll->base + SSCG_CTRL);
++}
++
+ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 				 unsigned long prate)
+ {
+@@ -390,6 +453,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 		writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
+ 			       pll->base + DIV_CTL1);
+ 
++		__clk_pll1443x_set_spread_spectrum(hw, prate, rate.pdiv,
++						   rate.mdiv);
++
+ 		spin_unlock_irqrestore(&pll->lock, flags);
+ 
+ 		return 0;
+@@ -411,6 +477,8 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 
+ 	writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv), pll->base + DIV_CTL1);
+ 
++	__clk_pll1443x_set_spread_spectrum(hw, prate, rate.pdiv, rate.mdiv);
++
+ 	spin_unlock_irqrestore(&pll->lock, flags);
+ 
+ 	/*
+@@ -437,6 +505,16 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	return 0;
+ }
+ 
++static int clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
++					    const struct clk_spread_spectrum *ss_conf)
++{
++	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
++
++	memcpy(&pll->ss_conf, ss_conf, sizeof(pll->ss_conf));
++
++	return 0;
++}
++
+ static int clk_pll14xx_prepare(struct clk_hw *hw)
+ {
+ 	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
+@@ -509,6 +587,7 @@ static const struct clk_ops clk_pll1443x_ops = {
+ 	.recalc_rate	= clk_pll14xx_recalc_rate,
+ 	.determine_rate = clk_pll1443x_determine_rate,
+ 	.set_rate	= clk_pll1443x_set_rate,
++	.set_spread_spectrum = clk_pll1443x_set_spread_spectrum,
+ };
+ 
+ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
+-- 
+2.43.0
+
 
