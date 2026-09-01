@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DD7C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192A8C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 06:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8DKxHX0ZMrbGN0igWT+gZcjJs4LnZ44sJG8G/14viw=; b=g1GTxYJP0zGiUIXL6UHwsAAdbO
-	58Hj6RtIm6qoNelxR9dfLbrhCoYGZtF7P4bVRpPhtdBit0CKUPwAyHEkwHo3ypfjHD9Jr0Jm1Xa0a
-	phfkZ/V69ahj5xVFxZe3JkdWc8lRGc8ssMhUtSix3osP4PcpJs4n5RcO2fBE2inpcbZOO9XB07ENE
-	tqxCGwGnX7bV6lxRUMJN1ipmpqbAk6npt9DSWyuyIgbJpkrCbMwgw2o3uRsBuVfZnlZ/fE0SoXMtJ
-	tR2zKlmwn4xMWWwAqMf9QKH+0y6/H5qwaPrGStNdYLfy8UOfGIRcIhoqSAg38HDjbUBIwahvCVG2A
-	mUEX9Sjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rrE+Xpcc9OkxLyVZ7+mxr2/E1WQvXxHbBEf/HiXP99Q=; b=yUfV5bPga98ltNvAJ4W1GSAjR4
+	LRBxAIKhOByU/UPGgYC6gbVPdgOZkQpY4RQy+jIdlwccZX28+fTTsGbvYyL8GL6/sm0WxuE8/35KQ
+	N0Tq3LSdaEXUBgOQXC4fzjnK2KxeOf1TElTROWgHIVn8CUM1Lj1960s94clygYzz2by1cH8XbrK4y
+	JxKsN5ZFbbMP1978ZZ4fiQL+cgGiGi/8Ba3RJvCZPE1ftpl+W0qS16UGNwvRHrUGjMJB1ltURVPJz
+	Kve2wX5YI/yq1bOYnBoyyY/lK+C4F6HNP6a5xXqpjq+hT8nmi2KPJ46fOpgJUUETcSyGVXTDzoNg6
+	4J+QWq7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IOr-0000000B4vK-2aim;
-	Tue, 01 Sep 2026 06:55:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1IOi-0000000B4t7-09xd
+	id 1x1IQf-0000000B5Ab-3RWW;
+	Tue, 01 Sep 2026 06:57:09 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1IQd-0000000B59w-1Uma
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 06:55:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59E721AED;
-	Mon, 31 Aug 2026 23:55:03 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F83C3F85F;
-	Mon, 31 Aug 2026 23:55:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788245707; bh=2hzv/NqRxDU4SWdVB7ecExnD8ZoMIIlhEra3AsMGD9g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DA90OAk6s7/d4f58uVk/xDIOuXs7qXRsRUqf64Mwqa1i2VsbAZOrj5nZNc8g/zTwm
-	 S9hjBOZlCgnRHyb86ea8deaMVTDR9vfmTC6fytQTUp3tNlv2H/usJ2b9+X0/5yK+3I
-	 zJljC9GrQ1xoaNT62eeLSvKdSRUbbB/tS89uYr/0=
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH 2/2] arm64/mm: Standardize printing for pgtable entries
-Date: Tue,  1 Sep 2026 12:24:54 +0530
-Message-ID: <20260901065454.1906343-3-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260901065454.1906343-1-anshuman.khandual@arm.com>
-References: <20260901065454.1906343-1-anshuman.khandual@arm.com>
+	Tue, 01 Sep 2026 06:57:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788245827; x=1819781827;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Z8iSOtQQ5N/Zb04KDBa6B08g8AitxJSoe7kabS6P2yg=;
+  b=nEq7Q2Xl0QBkaIN4IdT/k5XCoNjHcqrNkchTQzwmlpR9Ewq1fUtMrCd/
+   Gpmntz4tXnJr829yIzIFNLD4P2o7h779s1tXKAvf99itqrm1JY+raAvCz
+   pah9AL0YkGrlsEC5fwm2POBtwy1EfZ/m2deE0GX+wpF76pcG70zm/tRFO
+   oVno7w1zhwdGgdCsiEsR6Ar/YShXT/TnrnozN9no0x8TEUZTZJTNZwsxX
+   TBg6okGbez+ZI0IuqUfeM0I/EEsxms7uFid77lXD19lWbk/dKYrjOJNu5
+   Nip4nVL/4lA53w3spx/cH55xnGSMehoejPE6OlVd1gC8QPjmrf1sJQsZ4
+   w==;
+X-CSE-ConnectionGUID: PhiF4dpASFiNvMGQy4FsqQ==
+X-CSE-MsgGUID: /Sm3MCj3QmmeZEY4HnY5SA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="111435566"
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="111435566"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 23:57:06 -0700
+X-CSE-ConnectionGUID: 0dRf2eKMQ6mUUxunvfbtVA==
+X-CSE-MsgGUID: /rACxs7dTwis/6NrTuKXow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
+   d="scan'208";a="269060856"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.222])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2026 23:57:02 -0700
+Date: Tue, 1 Sep 2026 09:57:00 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
+Cc: mdshahid03@gmail.com, Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] iio: adc: bcm_iproc_adc: fix include dependencies
+Message-ID: <apZ3PBOrxn9sLjKD@ashevche-desk.local>
+References: <20260830170919.470974-1-mdshahid03@gmail.com>
+ <20260830170919.470974-3-mdshahid03@gmail.com>
+ <apY4GY-0_XMSfE9B@debian-BULLSEYE-live-builder-AMD64>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apY4GY-0_XMSfE9B@debian-BULLSEYE-live-builder-AMD64>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_235508_155199_EE654B92 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260831_235707_443648_22AB695A 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,119 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Standardize printing for pgtable entries using recently introduced generic
-helper ptval_bytes_to_hex_str() in core MM which automatically enables 128
-bits entries when added later.
+On Mon, Aug 31, 2026 at 11:27:37PM -0300, Marcelo Schmitt wrote:
+> On 08/30, mdshahid03@gmail.com wrote:
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/mm/fault.c | 20 +++++++++++++++-----
- arch/arm64/mm/mmu.c   | 16 ++++++++++------
- 2 files changed, 25 insertions(+), 11 deletions(-)
+> > Add the headers required directly by the driver for completion and
+> > mutex APIs.
+> > 
+> > Remove the unused `linux/io.h` header now that register access is
+> > handled through regmap APIs.
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 0b52557652be..c75bab3c2f4b 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -130,6 +130,11 @@ static inline unsigned long mm_to_pgd_phys(struct mm_struct *mm)
-  */
- static void show_pte(unsigned long addr)
- {
-+	char pgd_str[PTVAL_STR_MAX];
-+	char p4d_str[PTVAL_STR_MAX];
-+	char pud_str[PTVAL_STR_MAX];
-+	char pmd_str[PTVAL_STR_MAX];
-+	char pte_str[PTVAL_STR_MAX];
- 	struct mm_struct *mm;
- 	pgd_t *pgdp;
- 	pgd_t pgd;
-@@ -156,7 +161,8 @@ static void show_pte(unsigned long addr)
- 		 vabits_actual, mm_to_pgd_phys(mm));
- 	pgdp = pgd_offset(mm, addr);
- 	pgd = READ_ONCE(*pgdp);
--	pr_alert("[%016lx] pgd=%016llx", addr, pgd_val(pgd));
-+	ptval_to_str(pgd_str, pgd_val(pgd));
-+	pr_alert("[%016lx] pgd=%s", addr, pgd_str);
- 
- 	do {
- 		p4d_t *p4dp, p4d;
-@@ -169,19 +175,22 @@ static void show_pte(unsigned long addr)
- 
- 		p4dp = p4d_offset(pgdp, addr);
- 		p4d = READ_ONCE(*p4dp);
--		pr_cont(", p4d=%016llx", p4d_val(p4d));
-+		ptval_to_str(p4d_str, p4d_val(p4d));
-+		pr_cont(", p4d=%s", p4d_str);
- 		if (p4d_none(p4d) || p4d_bad(p4d))
- 			break;
- 
- 		pudp = pud_offset(p4dp, addr);
- 		pud = READ_ONCE(*pudp);
--		pr_cont(", pud=%016llx", pud_val(pud));
-+		ptval_to_str(pud_str, pud_val(pud));
-+		pr_cont(", pud=%s", pud_str);
- 		if (pud_none(pud) || pud_bad(pud))
- 			break;
- 
- 		pmdp = pmd_offset(pudp, addr);
- 		pmd = READ_ONCE(*pmdp);
--		pr_cont(", pmd=%016llx", pmd_val(pmd));
-+		ptval_to_str(pmd_str, pmd_val(pmd));
-+		pr_cont(", pmd=%s", pmd_str);
- 		if (pmd_none(pmd) || pmd_bad(pmd))
- 			break;
- 
-@@ -190,7 +199,8 @@ static void show_pte(unsigned long addr)
- 			break;
- 
- 		pte = __ptep_get(ptep);
--		pr_cont(", pte=%016llx", pte_val(pte));
-+		ptval_to_str(pte_str, pte_val(pte));
-+		pr_cont(", pte=%s", pte_str);
- 		pte_unmap(ptep);
- 	} while(0);
- 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index e9c66d26bc0a..b5de4095d650 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2410,6 +2410,8 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
-  */
- void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
- {
-+	char pte_str_old[PTVAL_STR_MAX];
-+	char pte_str[PTVAL_STR_MAX];
- 	pte_t old_pte;
- 
- 	if (!IS_ENABLED(CONFIG_DEBUG_VM))
-@@ -2427,14 +2429,16 @@ void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte)
- 	 * (__ptep_set_access_flags safely changes valid ptes without going
- 	 * through an invalid entry).
- 	 */
-+	ptval_to_str(pte_str, pte_val(pte));
-+	ptval_to_str(pte_str_old, pte_val(old_pte));
- 	VM_WARN_ONCE(!pte_young(pte),
--		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: racy access flag clearing: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- 	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
--		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: racy dirty state clearing: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- 	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
--		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
--		     __func__, pte_val(old_pte), pte_val(pte));
-+		     "%s: unsafe attribute change: %s -> %s",
-+		     __func__, pte_str_old, pte_str);
- }
- #endif
+...
+
+> >  #include <linux/clk.h>
+> > +#include <linux/completion.h>
+> >  #include <linux/delay.h>
+> >  #include <linux/interrupt.h>
+> > -#include <linux/io.h>
+> >  #include <linux/mfd/syscon.h>
+> >  #include <linux/module.h>
+> > +#include <linux/mutex.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/regmap.h>
+> 
+> I think that's okay. Though, if you go for a v3, you may also add 
+> #include <linux/bits.h>
+> #include <linux/types.h>
+> #include <linux/array_size.h>
+
+> #include <linux/device-id/of.h>
+
+This one is covered by platform_device.h.
+
+> #include <linux/iio/types.h>
+
+This one is covered by iio/iio.h.
+
+> which mostly completes the list of includes iwyu tool reports to be missing.
+
+The rest is indeed needs to be added. Thanks for spotting that!
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
