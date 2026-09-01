@@ -4,56 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DABEC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328A1C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbuqvrUxLbJimZLoZGxYgoQEqW8HaFtUtkBWapx+QpE=; b=4PSRkaP0k7wO8KCc5n2yxgixL3
-	K5DgddHoVdemHOp8OnDnA8YOige4iNoYuIoL9QCa7L6MNxI8SDBZjrcloZs2s8dVWsyUg7UlSUBgx
-	b3yPBSLVDUexXorYysYlShGIRX8V+Y9MOofAB7Llye9WOH9KaAK6EGJXdckuQNXc7T7ouyoDqJRZN
-	HPr8Fk9NcuPFI36FKCOgEDrD6v4yrgUZnLsGUsuzeaj0VFVZKLbhAMxqpaBvmKjPEbcl0UFoobJ8I
-	FLklYCESQ5TYHuWF1p6RK5gg8KWoEC//wgM9e0WW2PtanVZ/QRHVwHHySoiHnTn8OuaUhNTqSgyl7
-	TQ6bBiDg==;
+	bh=8XjVam93oa3spMQHjTS09LkSETmO0biyQOMZVXxMvCA=; b=enqnWUZNJi9MQUrezbMNUSWDFB
+	l6z8LuqlEiudyYjXhPk3BCfxyT+SYo+ndfJ5lf4/5zoZADkYfyl2Z3iaRiKvP+mIblUUdaKY2zBcY
+	4lXihWb8pTpKTwd4KrsYBWKQX0BFcCdNBu+wdih9+hLX4bDxeDt0vQrYzd1Ikg3v+dwSeHc8yTCxD
+	R5IXioR9jfyCmLFIrTA49Olv1Uo4vcRhnnHidpeUQPSTedeRIvbUQVELmyOf6YB1WtVEDLGPxlkUc
+	MDsJlMZ05UwzmiGnazLzhl+RK9iRancC6sRmWzdmkDR3w3F61Ta3Tv0FdX8Tlcat1lRKb+Dq0HTo0
+	CbKeOMKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Pem-0000000CMfa-05dX;
-	Tue, 01 Sep 2026 14:40:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1Pfd-0000000CMqU-0emD;
+	Tue, 01 Sep 2026 14:41:05 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Pek-0000000CMf3-0hAc
+	id 1x1PfY-0000000CMpH-06Ub
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 14:40:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BBE9602D0;
-	Tue,  1 Sep 2026 14:40:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59E341F00A3A;
-	Tue,  1 Sep 2026 14:40:04 +0000 (UTC)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, hanzhijian <hanzhijian1991@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, 
- Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260822012205.2459806-1-hanzhijian1991@gmail.com>
-References: <20260822012205.2459806-1-hanzhijian1991@gmail.com>
-Subject: Re: [PATCH] PCI: imx6: fix pwrctrl device leak on PM runtime setup
- failure
-Message-Id: <178827360391.66243.4223755160511839364.b4-ty@b4>
-Date: Tue, 01 Sep 2026 16:40:03 +0200
+	Tue, 01 Sep 2026 14:41:03 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-39675172593so4354275a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 07:40:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788273659; x=1788878459; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8XjVam93oa3spMQHjTS09LkSETmO0biyQOMZVXxMvCA=;
+        b=J0ExXRcNOAUSFwS4zu7bFmv1F5Jap3+EtLbLWG4LhPyJHJyWwjwqojCWsCVlw4QaY8
+         C46ohB5u2mZAEqeOp2vJ0SNulNnHd3S77ZYMZEgIUi7RJA0WGvEdt/AxNFLpePV51smt
+         TueOnktzPQJkiKdIj9saqFo9eSYE96AK04/6Sc0eEeZAsQ/tDVB17UIqZotU05rbAznx
+         gH4shKQ7IYwgI/WCqi2SnJdNBAAedlcdQtaG53JPPBQstuJ8Ygz6opkQV9lp7qVbbCDP
+         E9L5F+85C1rUn6Oj9Tm5igqAoyApvICEvBUOQYaezDtv7JCuHLiSUcOyfzhQ7+upx+KF
+         t3Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788273659; x=1788878459;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8XjVam93oa3spMQHjTS09LkSETmO0biyQOMZVXxMvCA=;
+        b=LBfJtu7JxQZUUpixdc5Hr7A6+mhGbm3WS3OjW98qWIdJSPtlMYTSnzUj5MD57lQxix
+         LushkbS/xoBzdO8G3rfB9t1owo+SkROcDYvyxEFyAGWbLOV6bkM0J8os2Nm659GumfSI
+         C6GtUDa9sBG2ebaKxdHzDs66X/C1vJc7LxBXjqyvwdTBDNQ4L+PsqVgfP5VnAWdi4545
+         NWXG0+fC47UZpE0OqGEfiT+vjzPd03l51VIzBikMotxqseR/yO6Lc5cGvXbqbUuZJCcM
+         kuC4EQBae1sDfdTCPVqCxsL7JFpBwutg71WaiU52XpVaojaZUSwNSDS8T7aB7we+47Ot
+         qbbA==
+X-Forwarded-Encrypted: i=1; AKwUvByHJpBcYPODjDVyDUJMsnVoZlQz9HvzBGBUwO7uNBNQ9V6752NK/VNAR6hnPijBNLeYdkilShtlC9twyMQeQmxQ@lists.infradead.org
+X-Gm-Message-State: AFuF++ml46jweCs5D2j40AYniuBqGe93eJWoh7pHjhj7Amj+QMM5D9RU
+	+xde0p1PRNF/sDoiY7nwNZciqH5/Xfx1Wpcs8Xj4n+Oi8NJ5YeI9ONT0
+X-Gm-Gg: AYBFou1YvUaCBQvGB6R/KUiwQQc4F0WLORskZXPYroDb13WwICzHVP8bhe8ypffP8oY
+	teiz30uavQuFX/6V8qkIRW0m70fiXZNI90HPzd1CmrGnC7/MXy/0P2nHhd45xSwuiac1Mk1IA62
+	2cNRWbY7iZnBmfYonUNqb9KlNzJHtNK+cuM2KaekJqFRzZVIZxqMFOsMz5DEPmBXVovLavmsYpd
+	F3lJ2wFehxQGUaFJLTuEbpdWnP7xI9Dcg35j3gIvwoNyAqnVWp23ltsEnMHUSCU/AaCen1Taat1
+	wkClnzzzQ83WwKsvhQ4b/5ZtRvWGUbL7/iFhvv7OMwRyodyka2/5MoYhKC1p5ahLWl+myFWIznU
+	bifkyQOX5etSgY1mzJz6SkMFLQyvQi2kls1fcQCC7W502eqO/ztr8roBnA/v8SCtdICfwVMxbXx
+	0r/CVnU4yp9eBaW5ovn5pkUDtCdUV8Dbad/OgfpVLxY95WXq7z7YSOP6WYBg==
+X-Received: by 2002:a17:90b:3985:b0:398:e46e:ade3 with SMTP id 98e67ed59e1d1-398e46eb068mr20470492a91.23.1788273658460;
+        Tue, 01 Sep 2026 07:40:58 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:bf00:62c:e311:6048])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39ae380d7casm21027a91.10.2026.09.01.07.40.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 07:40:57 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: jic23@kernel.org
+Cc: marcelo.schmitt1@gmail.com,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] iio: adc: bcm_iproc_adc: use device-managed resources
+Date: Tue,  1 Sep 2026 20:10:30 +0530
+Message-ID: <20260901144030.509802-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260830170919.470974-1-mdshahid03@gmail.com>
+References: <20260830170919.470974-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_074100_064263_DDFC60DB 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
-On Sat, 22 Aug 2026 09:22:05 +0800, hanzhijian wrote:
-> In imx_pcie_probe(), after pci_pwrctrl_create_devices() creates the
-> pwrctrl devices, the error paths for imx_add_pcie_ep() and
-> dw_pcie_host_init() both jump to err_pwrctrl_destroy to tear them down.
-> However, the error path for devm_pm_runtime_set_active_enabled() returns
-> directly, leaking the pwrctrl devices.
-> 
-> Jump to err_pwrctrl_destroy instead so the pwrctrl devices are cleaned
-> up on this error path too.
-> 
-> [...]
+Thanks for the reviews and suggestions.
 
-Applied, thanks!
+For v3, I will incorporate the following changes:
 
-[1/1] PCI: imx6: fix pwrctrl device leak on PM runtime setup failure
-      commit: 0031f76f73b86f711d0e4e95a967aea1821fb867
+Patch 2/5:
+-Add the direct includes for <linux/bits.h>, <linux/types.h>, and <linux/array_size.h>.
+ Keep <linux/device-id/of.h> and <linux/iio/types.h> out, as these are already provided through the appropriate headers.
+Patch 5/5:
+-Remove the now-unnecessary platform_set_drvdata().
+-Return devm_iio_device_register() directly.
+-Remove the unnecessary backticks around function names in the commit message.
 
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
+For patch 3/5, I understand that splitting the ADC cleanup into a follow-up patch would be preferable from a patch-scope 
+perspective.I will split this into a separate patch for v3.
 
+Please let me know if I have misunderstood any of the review comments.
 
+Thanks,
+
+Shahid
 
