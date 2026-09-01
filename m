@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD92C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E61AC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GseR/4rIwmv4ssW4cil/yTAT5gQZjTd5OHiT4vt1s7c=; b=H54wQpdOWI2aT6HiRQewfeSZsp
-	c2Vonc8Z3hIbA08g9N1zyvaZsKb6ugH1QOLLq+7lMxTL/8/WWXJCx/xQXji2SLJ8sKQlAYniBeQLK
-	fHcPudnipu7Up/PQSUje9OoBcxVx/UzTJmZAxR41W6xV7JNRFx7r6Q4PhbBR+dPHpqDkIeH1gjWTI
-	wHcryEbFsxAcRFA4/gfYFHihyF9WFWTygLlCB1D8YPsIORHge/wgaDmW5Vg05RiFWxMBsqDQiVy1F
-	40wkU+QQeOY/y1dVmaGDBtS/vUfK0FF5e1ozQnkXhOzpHlwF7rzdNpVKWpfoeDpIxg9SxrJkwpSGf
-	L0OfJU5g==;
+	bh=UhHFWoZtkZYKuTgedr1b5+pQi4aZnm9izg1DIkuHVjc=; b=IJXCVWBp7Rw3GKR6Z/81hXHP8G
+	J5/mT9EyjOTBjNa/RNqmoe5kbJqLmZ6OTb3p66o/Z+4aJBPRWwGEHt5QyNpr0VFrVHIUCE2z6A2yw
+	SYC997QuH4obPxUz+PCMp6bnzvyfI9mEPE2OnYH/zJ1ALtXsZJC9P8tz47fnfomNs0DM9PUHqSfdy
+	lUDiSEBkY32RQQvI5lcAwl0Y/iELblfpCvdM8MixmhkclecO9MSeQt7CpFIukMGWAm3z2wZHX++AW
+	84YiL5RCSqd9cZ9RyjN5q+scnkGPNqAuVIiiF0TVT1AmQIAz5nOpysohteVc/ByhIEg0eZ4Q9VWIa
+	O77m7KEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tc7-0000000D5xt-3w0O;
-	Tue, 01 Sep 2026 18:53:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZz-0000000D1To-1WSd;
-	Tue, 01 Sep 2026 18:51:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GseR/4rIwmv4ssW4cil/yTAT5gQZjTd5OHiT4vt1s7c=; b=diJ5RNslwezE58otZowfFmnZJM
-	MlUO1Oo7cGRjfy0oVrsNTNYpQluF4ES+ScFLVoCjK4JSQpocIaneSFLvkNf+k4VwpRP+5bBNhunrn
-	9AYr6UCVdT8iXFfvY4lyZEzCdaCqDu4Qs6cD8XynI1IRXdVscIx4VkCRF03IMvpRwLFdCBOczv+b1
-	WWgsy8U+GBKG9UrQxYnpWM5DEg6pU9OJ5P1/y6ehK2MTVm+S2S0rH6o4DYwVoAZ0nh/Sy5D1M0Ygt
-	g0N12Fn03Qpmw4HtJIwaiJD4LLKUsNeha2KCpdvm/hb40g0daPMYvPh4mWpOUuUQMhUK6Qr/UXAvN
-	xcCRgP2w==;
+	id 1x1TcD-0000000D6DM-0FWp;
+	Tue, 01 Sep 2026 18:53:49 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1TZv-0000000BHeM-0ZJM;
-	Tue, 01 Sep 2026 18:51:30 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1TZz-0000000D1Tg-2Rf1;
+	Tue, 01 Sep 2026 18:51:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288686;
-	bh=9+B0lSYbOtT/mNa8n8pzlwF+N7/unRvesgf3I/R8mRg=;
+	s=mail; t=1788288689;
+	bh=kA6nVSOFOk0yymzKaCCJLaqlyDMieIsqeSwOvsCsQw8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=mOE/zo47NqcktPeFz6KITCmmEVvDv/qiq04xSJ1SJVWtzw7hAOUd6GhIJEOXOPaPN
-	 lQ1/6SZsU127+3kZQIZYYW6tpGsm5pJYRywXFHWl+heVB+OwAra/QRGc7zkBIj1NCI
-	 fjxamXAaXgxZ/AgM/NBpYF0x8NFHba13o9q0aMHM8cULUfa9UcRDhxrPPrP/ws6TfQ
-	 uatxnHtbLsO48lY3FopDf5cd8R3o7+cQFis0OYzEEucpaC68eXrfZTqUsFY9nbJ7G4
-	 SAAcHiEobWwb22CeTi9i7+qnb0SJNf54Mmocjte5VwyGSfqgc2fNkpowdWU+6uCHlU
-	 mjYLy8m7wGEGg==
+	b=c57xhHIFq3DY9IHh4Hg/QyaXNkgTQfPfL1l8uzFPTN5oOX8HY68DcCmeq4StTiACY
+	 F9Cnzu6tNikSDvu/tEwHBEY+h1zz1bUwLNqWQ/0UTSjcS/3f5FVorHz6i0iw7/ShuA
+	 5mIVpVhPg5pBOJf63PJ/M5G4fc9qL9CVoJFjV247OaCm1gHTWCPEXlvLE3/1ItLB5/
+	 aTh7YRJRnpaHjovLBvbcCan5izg1pslEDHJWYezDJ/2BjDwUKOxEmRahJbNqUPmsnw
+	 eVNkN5PoJWIWiFBq4Ye19jizfG8q6ZjZFAI0AoFJD9edhXXySofL8uh6ZPYoDbOf7J
+	 O8Kc5fHzwfJtQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E4A6D17E3C8F;
-	Tue, 01 Sep 2026 20:51:25 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9E5A317E3C99;
+	Tue, 01 Sep 2026 20:51:29 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:51:25 +0300
-Subject: [PATCH v11 61/74] drm/tests: bridge: Set supported HDMI version
+Date: Tue, 01 Sep 2026 21:51:30 +0300
+Subject: [PATCH v11 66/74] drm/tests: hdmi_state_helper: Add
+ connector-provided max_tmds_char_rate coverage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-61-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-66-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -91,9 +78,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_195127_268440_2BB7C7D9 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260901_115132_418283_89DC8955 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +94,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new HDMI connector initialization API
-is completed.
+Test the hdmi_clock_valid() logic that rejects modes whose TMDS
+character rate exceeds connector->hdmi.max_tmds_char_rate.
 
-Advertise HDMI 1.4 as the default for the test bridges, since that is
-the highest version that does not require additional initialization
-data.  This also avoids implying support for HDMI capabilities they do
-not currently model.
+Exercise both an explicit limit set through drm_connector_hdmi_funcs'
+supported_tmds_char_rate and the limit inferred from supported_hdmi_ver.
+
+Also verify that a driver hook can further restrict the connector limit.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/tests/drm_bridge_test.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 116 +++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
 
-diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/tests/drm_bridge_test.c
-index 15583ade8494..a445f71c31b8 100644
---- a/drivers/gpu/drm/tests/drm_bridge_test.c
-+++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-@@ -497,6 +497,7 @@ drm_test_bridge_chain_init(struct kunit *test, unsigned int num_bridges,
- 			bridge->type = DRM_MODE_CONNECTOR_HDMIA;
- 			bridge->vendor = "LNX";
- 			bridge->product = "KUnit";
-+			bridge->supported_hdmi_ver = HDMI_VERSION_1_4;
- 			bridge->supported_formats = (BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
- 						     BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
- 						     BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |
-@@ -597,6 +598,7 @@ drm_test_bridge_hdmi_init(struct kunit *test, const struct drm_bridge_funcs *fun
- 	bridge->ops |= DRM_BRIDGE_OP_HDMI;
- 	bridge->vendor = "LNX";
- 	bridge->product = "KUnit";
-+	bridge->supported_hdmi_ver = HDMI_VERSION_1_4;
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index f35dc31326bc..6d648332aa15 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -190,6 +190,32 @@ static const struct drm_connector_hdmi_funcs reject_100mhz_connector_hdmi_funcs
+ 	},
+ };
  
- 	ret = drm_kunit_bridge_add(test, bridge);
- 	if (ret)
++static enum drm_mode_status
++accept_any_connector_tmds_char_rate_valid(const struct drm_connector *connector,
++					  const struct drm_display_mode *mode,
++					  unsigned long long tmds_rate)
++{
++	return MODE_OK;
++}
++
++static const struct drm_connector_hdmi_funcs reject_over_165mhz_connector_hdmi_funcs = {
++	.vendor = "Vendor",
++	.product = "Product",
++	.supported_hdmi_ver = HDMI_VERSION_1_3,
++	.supported_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ,
++	.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
++	.max_bpc = 8,
++	.tmds_char_rate_valid = accept_any_connector_tmds_char_rate_valid,
++	.avi = {
++		.clear_infoframe = accept_infoframe_clear_infoframe,
++		.write_infoframe = accept_infoframe_write_infoframe,
++	},
++	.hdmi = {
++		.clear_infoframe = accept_infoframe_clear_infoframe,
++		.write_infoframe = accept_infoframe_write_infoframe,
++	},
++};
++
+ static int dummy_connector_get_modes(struct drm_connector *connector)
+ {
+ 	struct drm_atomic_helper_connector_hdmi_priv *priv =
+@@ -2753,6 +2779,93 @@ static void drm_test_check_mode_valid_reject_max_clock(struct kunit *test)
+ 	KUNIT_EXPECT_EQ(test, preferred->clock, 25200);
+ }
+ 
++/*
++ * Test that the max_tmds_char_rate inferred from caps.supported_hdmi_ver
++ * is applied as a mode-filtering limit: with an HDMI 1.3 connector and no
++ * driver hook, drm_hdmi_connector_mode_valid() will reject modes whose TMDS
++ * character rate exceeds 340 MHz, even though the sink itself advertises
++ * a higher limit (600 MHz).
++ */
++static void
++drm_test_check_mode_valid_reject_inferred_max_tmds_char_rate(struct kunit *test)
++{
++	struct drm_connector_hdmi_funcs hdmi_funcs = dummy_connector_hdmi_funcs;
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_display_mode *preferred;
++
++	hdmi_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test, &hdmi_funcs,
++					test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	KUNIT_ASSERT_EQ(test, priv->connector.hdmi.max_tmds_char_rate,
++			HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ);
++
++	preferred = find_preferred_mode(&priv->connector);
++	KUNIT_ASSERT_NOT_NULL(test, preferred);
++	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 2560);
++	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 1600);
++	KUNIT_EXPECT_EQ(test, preferred->clock, 268500);
++}
++
++/*
++ * Test that a connector-provided max_tmds_char_rate limit (165 MHz) takes
++ * precedence over a permissive .tmds_char_rate_valid() driver hook and
++ * drm_hdmi_connector_mode_valid() will reject modes whose computed TMDS
++ * character exceeds the connector limit.
++ */
++static void
++drm_test_check_mode_valid_connector_max_tmds_char_rate_precedes_driver_hook(struct kunit *test)
++{
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_display_mode *preferred;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
++					&reject_over_165mhz_connector_hdmi_funcs,
++					test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	KUNIT_ASSERT_EQ(test, priv->connector.hdmi.max_tmds_char_rate,
++			HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ);
++
++	preferred = find_preferred_mode(&priv->connector);
++	KUNIT_ASSERT_NOT_NULL(test, preferred);
++	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 2048);
++	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 1152);
++	KUNIT_EXPECT_EQ(test, preferred->clock, 162000);
++}
++
++/*
++ * Test that a connector-provided max_tmds_char_rate (165 MHz) can be further
++ * limited by a more restrictive (100 MHz) .tmds_char_rate_valid() driver hook
++ * and drm_hdmi_connector_mode_valid() will reject modes whose computed TMDS
++ * character exceeds the hook limit.
++ */
++static void
++drm_test_check_mode_valid_driver_hook_limits_connector_max_tmds_char_rate(struct kunit *test)
++{
++	struct drm_connector_hdmi_funcs hdmi_funcs = reject_100mhz_connector_hdmi_funcs;
++	struct drm_atomic_helper_connector_hdmi_priv *priv;
++	struct drm_display_mode *preferred;
++
++	hdmi_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
++	hdmi_funcs.supported_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
++
++	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test, &hdmi_funcs,
++					test_edid_hdmi_4k_rgb_yuv420_dc_max_600mhz);
++	KUNIT_ASSERT_NOT_NULL(test, priv);
++
++	KUNIT_ASSERT_EQ(test, priv->connector.hdmi.max_tmds_char_rate,
++			HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ);
++
++	preferred = find_preferred_mode(&priv->connector);
++	KUNIT_ASSERT_NOT_NULL(test, preferred);
++	KUNIT_EXPECT_EQ(test, preferred->hdisplay, 1440);
++	KUNIT_EXPECT_EQ(test, preferred->vdisplay, 900);
++	KUNIT_EXPECT_EQ(test, preferred->clock, 88750);
++}
++
+ /*
+  * Test that drm_hdmi_connector_mode_valid() will accept modes that require a
+  * 4:2:0 chroma subsampling, even if said mode would violate maximum clock
+@@ -2843,6 +2956,9 @@ static struct kunit_case drm_atomic_helper_connector_hdmi_mode_valid_tests[] = {
+ 	KUNIT_CASE(drm_test_check_mode_valid_reject),
+ 	KUNIT_CASE(drm_test_check_mode_valid_reject_rate),
+ 	KUNIT_CASE(drm_test_check_mode_valid_reject_max_clock),
++	KUNIT_CASE(drm_test_check_mode_valid_reject_inferred_max_tmds_char_rate),
++	KUNIT_CASE(drm_test_check_mode_valid_connector_max_tmds_char_rate_precedes_driver_hook),
++	KUNIT_CASE(drm_test_check_mode_valid_driver_hook_limits_connector_max_tmds_char_rate),
+ 	KUNIT_CASE(drm_test_check_mode_valid_yuv420_only_max_clock),
+ 	KUNIT_CASE(drm_test_check_mode_valid_reject_yuv420_only_connector),
+ 	KUNIT_CASE(drm_test_check_mode_valid_accept_yuv420_also_connector_rgb),
 
 -- 
 2.55.0
