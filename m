@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F9B2C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E1FC624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 07:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppTKN+ViX0ps4m1x8WbWgM6kLhXVltmE87oNPgspGL0=; b=mOFsDsN62dfQ5w3pjOmLCk5DZ5
-	WFvHORuKEHDKW8v2+HZtgzp0N21u1ajPcsbwxTatIzAYiZiuW0uN7EJVW08zmMYxKUXZdl6BMYrx3
-	kfCsq85ZlRmfhh2aTAcMDpZdz9huPzKaAh41ADFxjbUrKLNwcmqi5pl2Q8bpaKmBWgVYqGUWQi12m
-	EU5gzUw2/uAylU2cheBNkxO2p7MI2/+rglBf+UNL176x/eFTzYQMzpE0NjDdYqQq4rxrSWxZgU38P
-	OH07DQDrsNCjCltYLBDFd2HFRWlCBDMsHBuPME5y2EzO3tMWJqItYDOuLi2fiYUXHnPk+fA0mnl0w
-	cIv484Vg==;
+	bh=wJzWbza2zag3QhFxPq/teShXqDf76npySrhO2+9Jdis=; b=VKhtNb9UANxTDrxbtDRF+b7RdD
+	XwWHxWwuVxcCedvt6WLTH9kYaooFt1rNAuVzlyPqol1HNQKTS29+gj+dDGB+PK8CxzSBFe6KBeLr0
+	0G3LHz0hqs3KYsAjqSvoN1fP3lbcwag4B3ApBsFbl5jTmq7r8XT8sKrlNzrjzwizjba4oIyKX/87h
+	BRHBxl9L+7CGotMfhQiaN7203yb1hHVfnax0A1sGQVDJnxr65zW26IAGmXlackbV1Gr5dktRQNZ49
+	G1rC5+zYlsO1bICHdNUQR36HJoCcpe1hIGdJm1cyFkl4fVrLoEaUYtiRZag1HUjCxi8C0fJ6G9CsG
+	Iyu5OR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JFr-0000000BA8W-1iXR;
-	Tue, 01 Sep 2026 07:50:03 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1x1JFs-0000000BA9u-2Ixs;
+	Tue, 01 Sep 2026 07:50:04 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JFo-0000000BA51-13xu
+	id 1x1JFp-0000000BA6I-2Pl6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 07:50:01 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2d9004f39d3so27644955ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 00:49:59 -0700 (PDT)
+	Tue, 01 Sep 2026 07:50:03 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2d7195706f1so43951975ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 00:50:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1788248999; x=1788853799; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1788249001; x=1788853801; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ppTKN+ViX0ps4m1x8WbWgM6kLhXVltmE87oNPgspGL0=;
-        b=Zin3qQ7sWYv9edWQB9qXqA9I2neZn4n4UsttZylPPZ8zKYP/HhEBkxTVUk5fRTQ5VG
-         BAC8lDCP07AyRGVNxe1lWY8+aMjkQoliQcmCd9XFbDuOgiVeVhZG7gENZJ0RUUVWommt
-         Qetn5d+GY3fhAAy7bv6JQkzzLPpjmVzMGM80c=
+        bh=wJzWbza2zag3QhFxPq/teShXqDf76npySrhO2+9Jdis=;
+        b=obqyvsT8rWyD+G+8PsE+pUGs9Hgy6JjdMf5O50jeYIgO5f4piyLK/nRBusKEMKbRTZ
+         B0uWcjKf01h58zEc0kHST0I+hFARIRLeCHPwUgTJ138G+S6kaseq2QM8NAj9VjqsvsFs
+         weNNHPPJUCxHlbO4xLGTigBW+5bco589ZR3G8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788248999; x=1788853799;
+        d=1e100.net; s=20251104; t=1788249001; x=1788853801;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ppTKN+ViX0ps4m1x8WbWgM6kLhXVltmE87oNPgspGL0=;
-        b=afWfBIIN0z6iFExS4F48wTVoo2e5dvA/R0rdF2LmWbzgiUAe7iNorBUV883V7O1BEW
-         ykHbKlDT+FHcli25sQFJjqCfSraBMQTloPgIUGh2j5B9GXzRzEp910jA0RXekS+qCr0U
-         nmrY09f+NsWKXuZoer65fyk/iIhCbDK4lIyixCsB60/OD+piZwVnD9BhYGBp4d9HKxja
-         Av1Ns+Qls07r3Qna5xBNhxIi23NYvryu+menCVL5uF62u5VJ1TjKB5djv7i2JH4erQcQ
-         SqoRsxFVdbwfaYnWf9ohdD+53mAuP6Gb6DPKWsAucm/oaf85t7LJTGgCu6yHaTyBNniX
-         XTBQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwr/TJAiIDHQ2AygTdb3sh1/q81YMck/1Twn9pXf5/PH/Vaih/XjrNyfRgQ7/UnXOHKEVCRld/8ZtxNx+61geL2@lists.infradead.org
-X-Gm-Message-State: AFuF++kRuyfT0po9PsPcF1hmWlvfAcNMkDR0/utsUG5RE1cfVQOTesyI
-	CQVwlzXZn7XECTasGtG2v2RoGXQpvu0IBwBzBRe1fJ/AB3CTyZfv7wWU3iySAoPwNQ==
-X-Gm-Gg: AYBFou1hc26Qx06IfrCAJ7uAWrjo82wxyya+R4x4keSWXYRXF4COIR4VFa1I4L1O48R
-	fZfivYljAtVrbtz982PHp27tO1VOzL1n2negAowWZ32QtDRzzbbkteeVao+xx0n2H1amsxmxPpB
-	jZF/e1nUmu+w6qEqhNQ8SVvK/k47kPyHPGC+GtMwuuK1XQn83YL/UrLeqwr/68qLm8rfcv1ukYV
-	w4Zj65pO3Hlu+H/KTKr/dRalTeVAfVafzOzXlYzur/faLmtw+SwxUfsTHvhYarEjZlwfQboc5qX
-	3KocDmD17gzP5fEbUc+fc3LwqBUgYV2EJqcvpN18hJzU5LrdAS3cvaj0DuBs01virkBmDflTYLO
-	yvbsQdwznzmEJe5KllNGPu4tS37PGoAlHfbPhSgHRLJXgJM9tn0vORCGsFEcPU/D1EQ46QTIJeW
-	izCGjVjAcuuhH0QC7LyBOM0Su5uByUKWi8vpj+t0RUvE23jmypYKoVUVPIUoE7J+IDP+aFGCJK3
-	ZMJtKrUoC4e3e4xV4kdQnNEbM2FBuMZgJAtRRpOaDgCuwE=
-X-Received: by 2002:a17:903:3883:b0:2d9:216a:cdd3 with SMTP id d9443c01a7336-2d94a93609cmr90196685ad.18.1788248997383;
-        Tue, 01 Sep 2026 00:49:57 -0700 (PDT)
+        bh=wJzWbza2zag3QhFxPq/teShXqDf76npySrhO2+9Jdis=;
+        b=NlzU3Wwe3UA2YrSfVS1U4yP+pBqC+th6YZwp8Nyd5rn0gOa6l+6hKLQor7/aSmgggR
+         7Ocj/f5x27DEEqkwrDy5AhX+8iqcvOuRbSdOBOC8mqFALY0YL4xFiPzZ5UqbFTOy0YEl
+         n2iqqQCHYKFBKZIpgNzOuuJOJikIQZohTctVLGzxSzMdGXr28NX2ze3XzotmgssKAzJF
+         edBqgnmDoWFDZM+Bk2ciqrtCJmCG/KggZvmkkhVGSg0yKSGl2dQbh5HNIpAUkQ2Bzw4q
+         27gl68XAtvth2g7K6I8kVlMDrP0vF1sLha+ZpPY4SgBp1aBkAkifubdJtL7W/CqAgvep
+         JutQ==
+X-Forwarded-Encrypted: i=1; AKwUvBz0IVK+hpJ2sT0yJUEL9YOZquBTLBrNliNOsMF22gxYQnHKsTeG+m3Ei4NgFLoLk3jxpMzRXW3KgzHdaEfPpep7@lists.infradead.org
+X-Gm-Message-State: AFuF++mC/of8TQp/VhVrfWATTj9S3JXmFlwsOxgsCBdCNpaXT0+TbfWL
+	Y67kQLJT+PAJbGExKBWQ1g8Z2lJ77tO1+hGzj1bchxbpIW32vFNtWf3e0IAUxoKrcQ==
+X-Gm-Gg: AYBFou0q5m6ME5mmzDbuh2bTrL4f0yjH1lEnQnOzBCLOxvOQ1obJGG6vTHdTi7REMUs
+	BIlbGTWODu/KviQLemwp5C4mlXdc/NFN8VQ/ygg8Fc9pKcHdyxfjb6RmweiiLi2OWrdc1V1Zu0r
+	B2Fm7hPNuGM9lmalB3BZsn1tjZc3QxIq8EsSoOWIAP818n8J0Y2KJ6H+XjX2ouVLz+1I+gZsmwy
+	9ih4QAai1UiLmou4HrCTpAW9zBlvddBAlcTxQGjEWziWASJnfQ9DadE2c8/OTmJU1OevUbfHHg2
+	52s7gGEy9sjJ8rVftTQw1WNY2CYh57dN9NvDxz9xdVrAgz2rljKoUn1n7EfVUX5VrMhBdcTHh8X
+	0+r/aLEC30rj/DubYiqmNHWhf89pzB5AHDbNwfq24wVEwonjDKExSufRErqDqOyUK27P2/DERyz
+	ImzOCPW3LYLUkiO7hIjgUqm8c0lrfEOz3rnDrU0igfWbcuFOWp9eDSs3qbLeJoQI4eWEYxNw2Vx
+	V9A6bbyxlv7je3wpOBGjaDEKRwnma1G63+3qSYXDLC8Kg==
+X-Received: by 2002:a17:903:3d0e:b0:2d8:d4d7:f055 with SMTP id d9443c01a7336-2d94a930d44mr91456335ad.22.1788249000970;
+        Tue, 01 Sep 2026 00:50:00 -0700 (PDT)
 Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:201d:8:8cf:6df0:9c4e:f5e1])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d75988b699sm48142515ad.59.2026.09.01.00.49.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d75988b699sm48142515ad.59.2026.09.01.00.49.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 00:49:56 -0700 (PDT)
+        Tue, 01 Sep 2026 00:50:00 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
@@ -83,19 +83,18 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	chrome-platform@lists.linux.dev,
 	linux-input@vger.kernel.org,
 	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable+noautosel@kernel.org
-Subject: [PATCH v6 2/8] Input: elan_i2c - Wait for initialization after enabling regulator supply
-Date: Tue,  1 Sep 2026 15:49:20 +0800
-Message-ID: <20260901074930.764550-3-wenst@chromium.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 3/8] HID: i2c-hid-of: skip post-power-on delay if powered on sufficiently long
+Date: Tue,  1 Sep 2026 15:49:21 +0800
+Message-ID: <20260901074930.764550-4-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
 In-Reply-To: <20260901074930.764550-1-wenst@chromium.org>
 References: <20260901074930.764550-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_005000_290837_28D88CF2 
-X-CRM114-Status: GOOD (  18.57  )
+X-CRM114-CacheID: sfid-20260901_005001_605520_B173E9FD 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,79 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Elan trackpad controllers require some delay after enabling power to
-the controller for the hardware and firmware to initialize:
+On some devices the HID device is powered from an always-on power rail,
+or the power rail has been left on by either POR defaults or the
+bootloader. By the time the driver probes, the device most certainly
+has finished initializing. There is no need for the delay.
 
-  - 2ms for hardware initialization
-  - 100ms for firmware initialization
+In such designs, the system integrators tend to work around the delay
+to avoid the boot time penalty by simply omitting it from the device
+tree. This is undesired, as the device tree is not fully describing
+the hardware.
 
-Until then, the hardware will not respond to I2C transfers. This was
-observed on the MT8173 Chromebooks after the regulator supply for the
-trackpad was changed to "not always on".
+Switch to the new regulator_bulk_enable_and_wait() function that makes
+sure a certain amount of time has passed since the regulator supplies
+were actually enabled.
 
-Switch to the new regulator_enable_and_wait(). This makes sure that
-enough time has passed since the regulator was first enabled, satisfying
-the power sequencing delay requirement. This allows the delay to be
-skipped if the regulator supply was already enabled by some other part
-of the kernel, such as the I2C OF component prober.
-
-Fixes: 6696777c6506 ("Input: add driver for Elan I2C/SMbus touchpad")
-Cc: <stable+noautosel@kernel.org> # needs new regulator API
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Changes since v5:
-- Added noautosel tag
-
 Changes since v2:
-- Switched to new regulator_enable_and_wait() API
-
-Changes since v1:
-- Delay only if the regulator was previously disabled / turned off
-- Link to v1
-  https://lore.kernel.org/all/20241001093815.2481899-1-wenst@chromium.org/
+- Switched to new regulator_bulk_enable_and_wait() API
 ---
- drivers/input/mouse/elan_i2c_core.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/hid/i2c-hid/i2c-hid-of.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/input/mouse/elan_i2c_core.c b/drivers/input/mouse/elan_i2c_core.c
-index f5e505edbc33..4bbc6cef8be6 100644
---- a/drivers/input/mouse/elan_i2c_core.c
-+++ b/drivers/input/mouse/elan_i2c_core.c
-@@ -36,6 +36,7 @@
- #include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/string_choices.h>
+diff --git a/drivers/hid/i2c-hid/i2c-hid-of.c b/drivers/hid/i2c-hid/i2c-hid-of.c
+index 59393d71ddb9..fdaad451e710 100644
+--- a/drivers/hid/i2c-hid/i2c-hid-of.c
++++ b/drivers/hid/i2c-hid/i2c-hid-of.c
+@@ -29,6 +29,7 @@
+ #include <linux/of.h>
+ #include <linux/pm.h>
+ #include <linux/regulator/consumer.h>
 +#include <linux/time.h>
- #include <linux/uaccess.h>
- #include <linux/unaligned.h>
  
-@@ -47,6 +48,8 @@
- #define ETP_FWIDTH_REDUCE	90
- #define ETP_FINGER_WIDTH	15
- #define ETP_RETRY_COUNT		3
-+/* H/W init 2 ms + F/W init 100 ms w/ round up */
-+#define ETP_POWER_ON_DELAY_US	(110 * USEC_PER_MSEC)
+ #include "i2c-hid.h"
  
- /* quirks to control the device */
- #define ETP_QUIRK_QUICK_WAKEUP	BIT(0)
-@@ -1260,7 +1263,7 @@ static int elan_probe(struct i2c_client *client)
- 	if (IS_ERR(data->vcc))
- 		return dev_err_probe(dev, PTR_ERR(data->vcc), "Failed to get 'vcc' regulator\n");
+@@ -48,16 +49,14 @@ static int i2c_hid_of_power_up(struct i2chid_ops *ops)
+ 	struct device *dev = &ihid_of->client->dev;
+ 	int ret;
  
--	error = regulator_enable(data->vcc);
-+	error = regulator_enable_and_wait(data->vcc, ETP_POWER_ON_DELAY_US);
- 	if (error) {
- 		dev_err(dev, "Failed to enable regulator: %d\n", error);
- 		return error;
-@@ -1416,7 +1419,7 @@ static int elan_resume(struct device *dev)
- 	int error;
+-	ret = regulator_bulk_enable(ARRAY_SIZE(ihid_of->supplies),
+-				    ihid_of->supplies);
++	ret = regulator_bulk_enable_and_wait(ARRAY_SIZE(ihid_of->supplies),
++					     ihid_of->supplies,
++					     ihid_of->post_power_delay_ms * USEC_PER_MSEC);
+ 	if (ret) {
+ 		dev_warn(dev, "Failed to enable supplies: %d\n", ret);
+ 		return ret;
+ 	}
  
- 	if (!device_may_wakeup(dev)) {
--		error = regulator_enable(data->vcc);
-+		error = regulator_enable_and_wait(data->vcc, ETP_POWER_ON_DELAY_US);
- 		if (error) {
- 			dev_err(dev, "error %d enabling regulator\n", error);
- 			goto err;
+-	if (ihid_of->post_power_delay_ms)
+-		msleep(ihid_of->post_power_delay_ms);
+-
+ 	gpiod_set_value_cansleep(ihid_of->reset_gpio, 0);
+ 	if (ihid_of->post_reset_delay_ms)
+ 		msleep(ihid_of->post_reset_delay_ms);
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
