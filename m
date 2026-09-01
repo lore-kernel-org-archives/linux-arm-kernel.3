@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3641CC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E561DC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bF2Zr22zF1ExN0EBKh2uA/sdQi5I3Kk26013OME4S8=; b=gDkuOui0FjHTxRX91FeuZwXE6J
-	k+HxNApOjeO0e1+GTqt9Oa9++o11EIf0ei69cZIo0yONMal2yxCDQvWmf8sOn9vB6dURLhs7AfsCf
-	mFLTa9/dAOkscZjZJwe3+XOYvu4dHO65bBlp1kGOiWZP3vbA/6Xqe5hIhBJ06nQQ7z3FauRkibZL8
-	mVlQ9anNtZ2fmH9DZrrX1azsbP5ynpW3/Ow7fL2WVHajg2pDQKjpO1gwV0yH/93O4NQ3qrA5FE43y
-	u6Lhsn5BBDvwOszEfNNzsK6Y0neZKAwq46mTxUD7yW3PwhubRdluud7htc0nfOy4GuFdhk/gD07PH
-	Dfb3D7wA==;
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X2FS6chP7XdH8eNdzIIj2eLyHHehKHlFVlN1lgbFGhg=; b=iCSG/ixr2eWmrM2VOU/Oz8Xux4
+	yKkLq7hj3uBURkYVvJSB1UAKUiU2LUxAZqcKcZFiS/1eS9/q0fn6wB2w6Z7lYzdTxXAr3LU5yPLHq
+	uIhohWEHEAHKJAXbe5Fch/Sk06Lo3Qb3COfgljll2OPHLWWOnBXIBcMJ/2piAhQRiEPBrax3cHhN5
+	9rFBH5n8zYz6fAT6QwX9hJOVqElKgKr8GJqIgZ/eG76y7nqUkQwbUEO35BwICEgLofNhbWnMba2bw
+	bvWh+/eSFmgqgi2dA4Z9ZUmVBzUMO4emuxW5Ri+Nu5jZRWRmG2TJNApKV/nL30XmVGttn26ikEpQC
+	lFqu9g3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JeC-0000000BEzp-04Zb;
-	Tue, 01 Sep 2026 08:15:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1JmC-0000000BFhY-49Ob;
+	Tue, 01 Sep 2026 08:23:28 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JeA-0000000BEzc-2Qsk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:15:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E4ED56020A;
-	Tue,  1 Sep 2026 08:15:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B8591F00A3D;
-	Tue,  1 Sep 2026 08:15:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788250509;
-	bh=5bF2Zr22zF1ExN0EBKh2uA/sdQi5I3Kk26013OME4S8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=f+04YShfVti8/cuhke4D7kJFqxFJsy/0WRmPZoRm44J/TpyaVrsuMUilYuEv57qF7
-	 BxRAuZFlcvpDPWvntn24KOWxVebGYNMdSnDwR1mkGXmS9wNdP9O+EdoBAdCI31jrDj
-	 +9xLtopMsYpAgaj5iVi2ZxnpUShZGJM9qRmAcipKVozKCN9W2nyaKbwVWjPeWj/1c1
-	 bPlME1pRoOkF63nMYGjx+W16Cvduj0k5orLtVRXRVQXaTiqDMxsyPdZvrsk07BSz5/
-	 GPYhd2lRaYFEnfbM3yHn3HiGYVu/rgEcfzYtg3XB6EgNc5cHxfqGnVaLylF3antfL+
-	 e/4CrboZha/Fg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x1Je7-00000003CMj-1bxe;
-	Tue, 01 Sep 2026 08:15:07 +0000
-Date: Tue, 01 Sep 2026 09:17:39 +0100
-Message-ID: <87pkyxmllo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 06/20] KVM: arm64: Prepare sys_regs.c for sharing with s390
-In-Reply-To: <20260831145536.913567-7-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
-	<20260831145536.913567-7-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1x1Jm9-0000000BFgo-3Og2;
+	Tue, 01 Sep 2026 08:23:27 +0000
+X-UUID: 62de9c1ea5de11f1acbe4559397dec65-20260901
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=X2FS6chP7XdH8eNdzIIj2eLyHHehKHlFVlN1lgbFGhg=;
+	b=jhjwxedIUN1TPGSLfgT8rNpVAndLs1AMe3X9v8ujfsTuj7v5NpH2Z7nDpN4yBhWpeXeAUU3AYYKMLBv4tRXU1WHO4f+gckR08ckGWIY2a8Kd7qr214v32PkqlmCpjyUlUCHRKO6Mea2LfdUfVifiiG4GogYcqGtLO5fgzfv3fn4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:23306d9c-ce58-4803-8a3b-08b78891bf2d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:35e15d23-5869-48e3-bf78-b0f483615649,B
+	ulkID:nil,BulkQuantity:0,SF:102|123|836|865|888|898,TC:-5,Content:0|15|50|
+	99,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 62de9c1ea5de11f1acbe4559397dec65-20260901
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <zhaoping.shu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1386515738; Tue, 01 Sep 2026 01:23:18 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 1 Sep 2026 16:23:16 +0800
+Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 1 Sep 2026 16:23:14 +0800
+From: <zhaoping.shu@mediatek.com>
+To: <edumazet@google.com>, <ncardwell@google.com>, <kuniyu@google.com>,
+	<davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <dsahern@kernel.org>,
+	<willemb@google.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <haijun.liu@mediatek.com>, <xiayu.zhang@mediatek.com>,
+	<lambert.wang@mediatek.com>, <Iven.Yang@mediatek.com>, <nbd@nbd.name>, HW He
+	<hw.he@mediatek.com>, Zhaoping Shu <zhaoping.shu@mediatek.com>
+Subject: [PATCH net v5] net: gro: Fix nesting of TCP GSO SKBs in skb_gro_receive_list()
+Date: Tue, 1 Sep 2026 16:23:12 +0800
+Message-ID: <20260901082312.14596-1-zhaoping.shu@mediatek.com>
+X-Mailer: git-send-email 2.17.0
+MIME-Version: 1.0
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_012325_863752_2FFFCC43 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,197 +88,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 31 Aug 2026 15:55:21 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Prepare sharing of sys_regs.c with s390 by moving functions to another
-> location inside sys_regs.c. This reduces the number of shared regions.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/arm64/kvm/sys_regs.c | 100 +++++++++++++++++++-------------------
->  arch/s390/kvm/arm64/arm.c |   2 +
->  2 files changed, 52 insertions(+), 50 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 7d0047b542f4..53d096803d9d 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2043,13 +2043,6 @@ static inline bool is_vcpu_ftr_id_reg(u32 id)
->  	return is_feature_id_reg(id) && !is_vm_ftr_id_reg(id);
->  }
->  
-> -static inline bool is_aa32_id_reg(u32 id)
-> -{
-> -	return (sys_reg_Op0(id) == 3 && sys_reg_Op1(id) == 0 &&
-> -		sys_reg_CRn(id) == 0 && sys_reg_CRm(id) >= 1 &&
-> -		sys_reg_CRm(id) <= 3);
-> -}
-> -
->  static unsigned int id_visibility(const struct kvm_vcpu *vcpu,
->  				  const struct sys_reg_desc *r)
->  {
-> @@ -2065,20 +2058,6 @@ static unsigned int id_visibility(const struct kvm_vcpu *vcpu,
->  	return 0;
->  }
->  
-> -static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
-> -				       const struct sys_reg_desc *r)
-> -{
-> -	/*
-> -	 * AArch32 ID registers are UNKNOWN if AArch32 isn't implemented at any
-> -	 * EL. Promote to RAZ/WI in order to guarantee consistency between
-> -	 * systems.
-> -	 */
-> -	if (!kvm_supports_32bit_el0())
-> -		return REG_RAZ | REG_USER_WI;
-> -
-> -	return id_visibility(vcpu, r);
-> -}
-> -
->  static unsigned int raz_visibility(const struct kvm_vcpu *vcpu,
->  				   const struct sys_reg_desc *r)
->  {
-> @@ -2099,6 +2078,27 @@ static bool access_id_reg(struct kvm_vcpu *vcpu,
->  	return true;
->  }
->  
-> +static unsigned int aa32_id_visibility(const struct kvm_vcpu *vcpu,
-> +				       const struct sys_reg_desc *r)
-> +{
-> +	/*
-> +	 * AArch32 ID registers are UNKNOWN if AArch32 isn't implemented at any
-> +	 * EL. Promote to RAZ/WI in order to guarantee consistency between
-> +	 * systems.
-> +	 */
-> +	if (!kvm_supports_32bit_el0())
-> +		return REG_RAZ | REG_USER_WI;
-> +
-> +	return id_visibility(vcpu, r);
-> +}
-> +
-> +static inline bool is_aa32_id_reg(u32 id)
-> +{
-> +	return (sys_reg_Op0(id) == 3 && sys_reg_Op1(id) == 0 &&
-> +		sys_reg_CRn(id) == 0 && sys_reg_CRm(id) >= 1 &&
-> +		sys_reg_CRm(id) <= 3);
-> +}
-> +
->  /* Visibility overrides for SVE-specific control registers */
->  static unsigned int sve_visibility(const struct kvm_vcpu *vcpu,
->  				   const struct sys_reg_desc *rd)
-> @@ -2553,29 +2553,6 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val)
->  	*p = val;
->  }
->  
-> -static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> -		       u64 *val)
-> -{
-> -	*val = 0;
-> -	return 0;
-> -}
-> -
-> -static int set_wi_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> -		      u64 val)
-> -{
-> -	return 0;
-> -}
-> -
-> -static bool access_ctr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-> -		       const struct sys_reg_desc *r)
-> -{
-> -	if (p->is_write)
-> -		return write_to_read_only(vcpu, p, r);
-> -
-> -	p->regval = kvm_read_vm_id_reg(vcpu->kvm, SYS_CTR_EL0);
-> -	return true;
-> -}
-> -
->  static bool access_clidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
->  			 const struct sys_reg_desc *r)
->  {
-> @@ -2684,6 +2661,29 @@ static bool access_ccsidr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
->  	return true;
->  }
->  
-> +static int get_raz_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> +		       u64 *val)
-> +{
-> +	*val = 0;
-> +	return 0;
-> +}
-> +
-> +static int set_wi_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-> +		      u64 val)
-> +{
-> +	return 0;
-> +}
-> +
-> +static bool access_ctr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-> +		       const struct sys_reg_desc *r)
-> +{
-> +	if (p->is_write)
-> +		return write_to_read_only(vcpu, p, r);
-> +
-> +	p->regval = kvm_read_vm_id_reg(vcpu->kvm, SYS_CTR_EL0);
-> +	return true;
-> +}
-> +
->  static unsigned int mte_visibility(const struct kvm_vcpu *vcpu,
->  				   const struct sys_reg_desc *rd)
->  {
-> @@ -4855,12 +4855,6 @@ static bool check_sysreg_table(const struct sys_reg_desc *table, unsigned int n,
->  	return true;
->  }
->  
-> -int kvm_handle_cp14_load_store(struct kvm_vcpu *vcpu)
-> -{
-> -	kvm_inject_undefined(vcpu);
-> -	return 1;
-> -}
-> -
->  static void perform_access(struct kvm_vcpu *vcpu,
->  			   struct sys_reg_params *params,
->  			   const struct sys_reg_desc *r)
-> @@ -4944,6 +4938,12 @@ static void unhandled_cp_access(struct kvm_vcpu *vcpu,
->  	kvm_inject_undefined(vcpu);
->  }
->  
-> +int kvm_handle_cp14_load_store(struct kvm_vcpu *vcpu)
-> +{
-> +	kvm_inject_undefined(vcpu);
-> +	return 1;
-> +}
-> +
->  /**
->   * kvm_handle_cp_64 -- handles a mrrc/mcrr trap on a guest CP14/CP15 access
->   * @vcpu: The VCPU pointer
-> diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-> index 3caa72f780a5..2740ee3b703e 100644
-> --- a/arch/s390/kvm/arm64/arm.c
-> +++ b/arch/s390/kvm/arm64/arm.c
-> @@ -9,6 +9,7 @@
->  #include <linux/kvm_host.h>
->  #include <linux/cleanup.h>
->  #include <linux/fpu.h>
-> +#include <linux/bitfield.h>
->  
->  #include <asm/access-regs.h>
->  
-> @@ -25,6 +26,7 @@
->  #include "trace.h"
->  
->  static unsigned long system_supported_vcpu_features(void);
-> +#define read_sanitised_ftr_reg(_id) 0
->  
->  #define __INCL_GEN_ARM_FILE
->  #include "generated/arm.inc"
+From: HW He <hw.he@mediatek.com>
 
-Please split this. arm64 refactor and S390 changes should not be part
-of the same patch.
+Fraglist GRO and hardware GRO can create an fraglist of
+HW-GRO packets. This cannot be segmented back into
+the original form on TCP tethering scenario.
 
-	M.
+Avoid constructing such a GSO packet, by flushing an already
+built fraglist GRO packet if a hardware GRO packet arrives.
 
+Scenario (Tethering/Forwarding):
+1.Driver submits a single TCP packet, P1. P1 is kept in the
+gro_list as the first packet.
+
+2. The driver submits a TCP GSO skb, P2. P2 has already aggregated
+multiple TCP packets by HW_GRO, and its non-linear data is stored in
+frags[].
+
+3. P1 and P2 match the GRO rules, and since there is no local socket,
+they are aggregated by skb_gro_receive_list(). The resulting skb,
+P3, has a frag_list entry that still contains frags[]:
+P3: [ Linear Data ] -> frag_list -> [ Linear Data ]
+                                    [ frag[1] ]
+                                    [ frag[2] ]
+                                    ...
+4. Later, tcp4_gso_segment() or tcp6_gso_segment() calls
+skb_segment_list() to segment P3. However, skb_segment_list() only
+segments the entries in frag_list. It does not segment the frags[]
+inside P2, so P3 is not restored to the original packets, which leads
+to IP fragmentation or packet drop in the following path.
+
+Check skb_is_gso(skb) and current GRO method, make sure fraglist GRO
+applies to consecutive non-GSO skb, others adopt regular GRO path.
+
+Fixes: 8d95dc474f85 ("net: add code for TCP fraglist GRO")
+Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
+Signed-off-by: HW He <hw.he@mediatek.com>
+
+---
+[4]: https://patchwork.kernel.org/patch/14756974
+[3]: https://patchwork.kernel.org/patch/14747095
+[2]: https://patchwork.kernel.org/patch/14706032
+[1]: https://patchwork.kernel.org/patch/14702209
+---
+ net/ipv4/tcp_offload.c   | 22 ++++++++++++++++------
+ net/ipv6/tcpv6_offload.c | 15 +++++++++++++--
+ 2 files changed, 29 insertions(+), 8 deletions(-)
+
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index 3b1fdcd3cb29..e74d99ca9fac 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -332,6 +332,7 @@ struct sk_buff *tcp_gro_receive(struct list_head *head, struct sk_buff *skb,
+ 		flush |= skb->ip_summed != p->ip_summed;
+ 		flush |= skb->csum_level != p->csum_level;
+ 		flush |= NAPI_GRO_CB(p)->count >= 64;
++		flush |= NAPI_GRO_CB(p)->is_flist != NAPI_GRO_CB(skb)->is_flist;
+ 		skb_set_network_header(skb, skb_gro_receive_network_offset(skb));
+ 
+ 		if (flush || skb_gro_receive_list(p, skb))
+@@ -395,12 +396,20 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	struct net *net;
+ 	int iif, sdif;
+ 
+-	if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
+-		return;
+-
+ 	p = tcp_gro_lookup(head, th);
+ 	if (p) {
+-		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++		/* flist GRO applies to consecutive non-GSO skbs */
++		if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
++			NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++			return;
++		}
++
++		/* Fall back to the regular GRO path */
++		if (NAPI_GRO_CB(p)->count == 1)
++			NAPI_GRO_CB(p)->is_flist = 0;
++
++		NAPI_GRO_CB(skb)->is_flist = 0;
++
+ 		return;
+ 	}
+ 
+@@ -410,7 +419,7 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	sk = __inet_lookup_established(net, iph->saddr, th->source,
+ 				       iph->daddr, ntohs(th->dest),
+ 				       iif, sdif);
+-	NAPI_GRO_CB(skb)->is_flist = !sk;
++	NAPI_GRO_CB(skb)->is_flist = !sk && !skb_is_gso(skb);
+ 	if (sk)
+ 		sock_gen_put(sk);
+ }
+@@ -430,7 +439,8 @@ struct sk_buff *tcp4_gro_receive(struct list_head *head, struct sk_buff *skb)
+ 	if (!th)
+ 		goto flush;
+ 
+-	tcp4_check_fraglist_gro(head, skb, th);
++	if (unlikely(skb->dev->features & NETIF_F_GRO_FRAGLIST))
++		tcp4_check_fraglist_gro(head, skb, th);
+ 
+ 	return tcp_gro_receive(head, skb, th);
+ 
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index f2a659cd6183..eec3778855eb 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -26,7 +26,18 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 
+ 	p = tcp_gro_lookup(head, th);
+ 	if (p) {
+-		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++		/* flist GRO applies to consecutive non-GSO skbs */
++		if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
++			NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++			return;
++		}
++
++		/* Fall back to the regular GRO path */
++		if (NAPI_GRO_CB(p)->count == 1)
++			NAPI_GRO_CB(p)->is_flist = 0;
++
++		NAPI_GRO_CB(skb)->is_flist = 0;
++
+ 		return;
+ 	}
+ 
+@@ -36,7 +47,7 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	sk = __inet6_lookup_established(net, &hdr->saddr, th->source,
+ 					&hdr->daddr, ntohs(th->dest),
+ 					iif, sdif);
+-	NAPI_GRO_CB(skb)->is_flist = !sk;
++	NAPI_GRO_CB(skb)->is_flist = !sk && !skb_is_gso(skb);
+ 	if (sk)
+ 		sock_gen_put(sk);
+ #endif /* IS_ENABLED(CONFIG_IPV6) */
 -- 
-Jazz isn't dead. It just smells funny.
+2.17.0
+
 
