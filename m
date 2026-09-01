@@ -4,71 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9656CC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA1E9C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 17:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hvbqHcICkknYa23vS53IIzBlXB8gIPFaVx5czPkQzuM=; b=nl/aHr7SXBcEARjSqGF+fbIGJ6
-	m6K+kEAFA9Yaa+0x/dhkZXPQ71pn+uv9wHyYfs1PpIKANjd8SdOE9Sudqih+yGiD2JLG4fhY6EvdE
-	E05c+J3K48CiQUgu0B6y4hAP6HAOKpwnCcfeg+o6en6X2F3JPZ9UMD/PAw5IPYxuZKfDcE+tSAdfv
-	B7vyc6gSCxqEmeilh/4Tzrq5nzSrbC6SYNEcB0g2XKq/TuL14ovrdIRx4HBIBL8BqOJnzVidrwqlT
-	o4Do6dfInejEiGxJndGEFffevvJ5ELNyKmoD/rkKNVRWRSamcvQFDElltJS+ljI84wk0OnKcFATKN
-	faScUCpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uG7i5QwUOaLOklcylctfw26uRdi4EgStfwzNBzXlZAM=; b=dvvQ69+5xDhSJh5vWyfZtAeHaf
+	WLiJMCm5EV0Emytl4o95sXM8AgjjK61LMP+dMT1hiykkbXexOo+rc4pO30DbclZyP0ulLipdU9a+/
+	6UnQDbjTIOp6jW4p3qv6RtFEoL5rTNr+QW5oDRwXX/4Jg1kRYhKphLp+ueMXqTz02SfA9i73y5+o7
+	uKyz3PAv2bq63cdIVtqT0B7rjzGshSgnHw50UZkGl2mxAY7GGtL+eh6HUVW+EET5uPZTTi6mPSnFH
+	hiMJl3f3dmhA+Uv8xXyZbN7ECr5ScDKO77eBua8eBM93q8DTVFwj/gofma6bn0s9SCEA3XkH8Zt/b
+	nWa+oLLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Rzr-0000000ClL2-1gmz;
-	Tue, 01 Sep 2026 17:10:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1S3c-0000000CmTw-0BF6;
+	Tue, 01 Sep 2026 17:14:00 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Rzq-0000000ClJg-0uuz
+	id 1x1S3Z-0000000CmSl-31Sn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 17:10:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00D5C43870;
-	Tue,  1 Sep 2026 17:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C68BC1F00ACA;
-	Tue,  1 Sep 2026 17:10:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788282605;
-	bh=hvbqHcICkknYa23vS53IIzBlXB8gIPFaVx5czPkQzuM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=RDyWF4015QhkHk49lqGVk76m7TKYPTRJ2wknd5RLtp7RkRqsYQSCWJ/3cjyL3a5Of
-	 dU8zweNQ5tq6TTGwO/afHVMC1c7Na6tRbE+TFSbLJ7h6gT7x1EWp+7jX3EUn1i6FYB
-	 qR6VKwOLNe/ppToLt2mGe8oN5D2lpNnCqSu4UjqvLI082eKUAuoEDoyFt5G298cLXa
-	 UrdrMi6d/uzdzKNF96MwA3KjVZzhjYBA4oUSGKndcqIW4j660NgNlMBYsZVdWKvSXs
-	 +77G49CNEvnkabh5LwdmPC1WuUwk79ykLx/QuACcXWNd2lZoi4hrE17RCdRRsKM8aP
-	 SPmN0NsCuQIHg==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Sep 2026 18:06:51 +0100
-Subject: [PATCH 11/11] kselftest/arm64: Run KVM guests from fp-stress
+	Tue, 01 Sep 2026 17:13:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jxdePTz0uwF+cVxC3ljfvb3P99pwCiyT9YBUW9vfPLadCZQIQ4CDnIPyLpuUmGbo1U69gnj5tkJf4oh8t+IoX+/2Zh63GPtbdErZOPJbn5Xdw4Q1SyWZDafEUhvptqpElzQfsdMzHEdf3pGjdNdV2737wmu6ol1kXUU3A9mBW3MEtqj2/wkNYicsHmdvb0TjqtyRehx7eozKePUkBtGtfi19cLecX0JZNcAPmUsWL4V21NdZ0buP+MYBp0goC9QjU6IYtoAbAdXE6cwV+LZLxxZmZYCLCKF0RhUR7FLShFS9U0FwVb5EtC1ef1Nhtcc4BwDP2g/pWjXXVCpTRqv+eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uG7i5QwUOaLOklcylctfw26uRdi4EgStfwzNBzXlZAM=;
+ b=UgZM+5luTGrf+4MV24Ui4BxlCHzrntlr6SDoyWB4uWFaxDfI7Mp0FlUwbm6OsvdDHX9tRl+vB8t3zMhUCLvXB2W4Bo/u2jkCA0L0KqO6gb8lezZfTaF8D3vNtyxkq5qcYrv9HgYni7yq3hu4BDgjw48NT95dXqV/lTByOzTmw6hSu4/Z/TXHnIMjfVcIEq1O51fhTMaWfxIz87j6Oexk0RKuSYxgeR6ouS+1dT3xtL+1S/rhSOpLWYw/0MRshPk9EaRwpkuie1aCRoC+4zuUU86Dvh3Csxen5QXjZkv+pKYSZvncPtlbQqJ3pPr7tbpkZuHhVV1Wte7FkDj1gUWl2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uG7i5QwUOaLOklcylctfw26uRdi4EgStfwzNBzXlZAM=;
+ b=irl1DqnzuNT5Wdas9ENwewR6RPMyp7TYrkcACMN7ajwjjgRCqPM9+8xXNWDU1v+2X2pza7pCCJJDpsARXHvxfkaW27N9oo5lAx5fGHuMsj9TRchPyTQj0oN2iDF78mWCWhqV5xhPdHyhopY7mogvn6yeN6xQfIduAhfokA5Qe76ggOc40q4CxqyXBOMFTVMwZGm78/yKMZEanVn0VTBjhSsDc7+ZOKDH/Ny0RHjCjx9Xlo4HlodBBUHwotSzxYcG57jpxsNjAZJgGawnt1EgAxv0ukwpoHOLLzVg0gNH0hxCOyVI6PH2VG6GhZc6nY4oLofK/7xwbCn5LfsBaRyhFw==
+Received: from CH0PR08CA0017.namprd08.prod.outlook.com (2603:10b6:610:33::22)
+ by IA1PR12MB7517.namprd12.prod.outlook.com (2603:10b6:208:41a::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.9; Tue, 1 Sep 2026
+ 17:13:47 +0000
+Received: from LV8PEPF0000005C.namprd02.prod.outlook.com
+ (2603:10b6:610:33:cafe::29) by CH0PR08CA0017.outlook.office365.com
+ (2603:10b6:610:33::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Tue, 1
+ Sep 2026 17:13:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ LV8PEPF0000005C.mail.protection.outlook.com (10.167.245.132) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 17:13:47 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
+ 2026 10:13:07 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
+ 2026 10:13:07 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Tue, 1 Sep 2026 10:13:05 -0700
+Date: Tue, 1 Sep 2026 10:13:04 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, <linux-coco@lists.linux.dev>,
+	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Alexey Kardashevskiy <aik@amd.com>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
+	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, "Marc
+ Zyngier" <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Robin
+ Murphy" <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>, "Steven
+ Price" <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	"Will Deacon" <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+Message-ID: <apcHoHKGoI7WNFXp@nvidia.com>
+References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
+ <20260427085344.941627-4-aneesh.kumar@kernel.org>
+ <apM6dOHcEI2ztWS0@nvidia.com>
+ <yq5a8q5lz5yn.fsf@kernel.org>
+ <yq5aecfdnv4i.fsf@kernel.org>
+ <20260901143445.GC56830@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-arm64-fp-stress-kvm-v1-11-31bce995b49b@kernel.org>
-References: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
-In-Reply-To: <20260901-arm64-fp-stress-kvm-v1-0-31bce995b49b@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8727; i=broonie@kernel.org;
- h=from:subject:message-id; bh=uBEt48fkdIrhDTjaKvMKXF0+9Hsw4hMyzSvrjNvM2hk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlwbN4akSMGwELlkKeqlfq3eTOnGxRaNSEIYGN
- hSL7J4l9+2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcGzQAKCRAk1otyXVSH
- 0ExeB/9MfI9CctAFe7/OeJpYmCe8K+Tmqf3Zq+RXkJzgAGKleoXhkP6JmbY/Y6Kc7q63TJnLzdF
- WuZ7B1DfFoCgYarhTRLEhzbi0LN+x/aQQ0lo32JT5FmLT+q+U4QLWmabrRJVyYXM91+itrUuTJ6
- egodvY5Lkz9HXKU0RJPFIRctbVMYCGuXgH9E4hnTQmPfBzGgAffw2ErUk/NJSFT/Ekw0A5weGG1
- tmEFNkbk6go5G8KUZaaq3IC7bIzDrW/RkI8vYimwkxCEtlWKUecwBGJmysAcQquxe1SSa0eW+yQ
- TRrFcyGtKMocv+AoIPRRLMhwCQy0f+DAoYE7kNTsF4ihE4IG
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260901143445.GC56830@ziepe.ca>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000005C:EE_|IA1PR12MB7517:EE_
+X-MS-Office365-Filtering-Correlation-Id: f86e19ae-e8e1-44c4-7390-08df084c62a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|376014|7416014|36860700016|10067099003|56012099006|3023799007|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: JNq6FSEmbckf4pSDNVxWSsxrnGh7VHtXT7HJf8ujQAZJIukaYGEYzpIM/0IfhFD3mXH9JeJ4njyNtDmv9euMCCROnUyb+C27DTQGSWB7JsH4j2rULDOSplJeOQAATmnk9m/WgWMCztVLMGNYkn+QNjFW9CJgBD07SYwY0ilbJ9o8ei99Kd6N+rFeK9G8StJymYroaqNjeE8OlgQnspnwPTYHbabImhZE1UiSnVf99mXQXqEXjy4tGHD+HCJe0+NvM3Di/0OoXLBz3FonapSOFg2knW1naHfBeCmz5czU1ZMnnGrRR5/s9lGRgLef9y8eOXzTB1Ex8rLglymh/QPTIs8o8GN7ZSigKGwq6vE22MhTJOhD5CyIVyo/IWWiWR38Q5ocj1FyH63+PYY3vBuTlkH0miyZ+tEGZb38/YW4gKA8+PeOuIep6CYjCe5Jf7g5rdSi1sjwAAckS85G9nw1Vn4gFq8Mrm85OOz9i9Ge2XmWgolVdINfvNf1TijX8QJx10OYHuzmAnVXQ7eBYnoJgw7Fz4RBeRi58/VGX2wURNiOq6RY+RFzZjWco1Yisb/LvlUY1daPQQfoo+xwB6H/p5eXmRar6VR2zT6zMc8NI3AG7cxq8NDD51mxdrRfUbVCp0BpvEP8dwR4XYebRhDjKzPBoseCsR7RPLaxLsuqI7qFWA9IgAszbwKkcpE4zZRhL1TFB0+ZGDHn2cSmhYKJHA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(376014)(7416014)(36860700016)(10067099003)(56012099006)(3023799007)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: NaZGZeMGM4XaM6BzKPntuEnRGqY4BbbN0ArU0LWOJYjxvKRiXoCu8J4bMou75knRJKwn7wYuR0mWFo0BFqQAYsRiOxUS+qlmThlZQsfrg+sEh5Ba0goWh/i8AnU5vLKb3WhqQ7t98XwfhDBb7NobUx3BdL7YyJ2daNSphLOhm67Z+urioJKV7cir5HRMsu/u4iQrI1uLz5Eo1Bhr0Xb7XxxRGD8sNf4Ipt8WLVzOKgZBF7mGYGvO+lxS8on+D9OXJ86m1ldRdS6HloyFwTVoYVbMnu6GFun5PrJngSvQQ7rettlQaGtDyos0wk0gLmeYGxBhJKW4q26ozysvqhOgxDqHypIOBfhIEdSp/Gj8N2U+V4L1qartLgyufyZvAqkBuAoVVAhgXFHeLPzVRMTRE31GHTxhHRu3rmY1OBjxwzMf/3NRs/UcVIGftkZYNX2j
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 17:13:47.3739
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f86e19ae-e8e1-44c4-7390-08df084c62a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF0000005C.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7517
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260901_101358_032855_642548A2 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,318 +139,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a VMM that integrates with fp-stress and the guest code to
-run with it extend fp-stress to run KVM guests along with host test loads.
-When we have access to KVM we start FPSIMD and SVE test loads in KVM on odd
-numbered CPUs.  If nested virtualisation is supported half of those will be
-run in guests with EL2 support.
+On Tue, Sep 01, 2026 at 11:34:45AM -0300, Jason Gunthorpe wrote:
+> On Tue, Sep 01, 2026 at 03:36:37PM +0530, Aneesh Kumar K.V wrote:
+> 
+> > @@ -463,14 +460,13 @@
+> >  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
+> >  
+> >  	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
+> > +		if (arm_smmu_is_realm_viommu(viommu))
+> > +			return arm_realm_smmu_v3_init(viommu, user_data);
+> > +
+> 
+> I think the realm vsmmu is going to require a different info struct
+> than the normal psmmu case, isn't it?
+> 
+> If so it needs its own enum value.
+> 
+> It would be nice to see a draft patch showing how the real vsmmu works
+> on top of the RMM spec for it. If we are using a viommu object then
+> non-vsmmu case should be identical just with an option in the info
+> struct to not create the vsmmu object.
 
-Although the VMM supports protected guests we do not currently start any
-since doing so taints the kernel, having this happen as standard is
-likely to lead to confusion if other tests fail on a system with pKVM
-enabled.
+Actually, the PSMMU-only viommu object in this series only adds a
+type with no viommu data structure.
 
-If any non-virtualisable SVE VLs are detected we will skip SVE, currently no
-such systems are known to exist.  Should any be encountered the appropriate
-enumeration code can be implemented.
+I've drafted the vsmmu case on top of the series, so it would add
+a structure reusing the same IOMMU_VIOMMU_TYPE_ARM_SMMUV3 with a
+flag:
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/fp/fp-stress.c | 204 ++++++++++++++++++++++++++-
- 1 file changed, 199 insertions(+), 5 deletions(-)
-
-diff --git a/tools/testing/selftests/arm64/fp/fp-stress.c b/tools/testing/selftests/arm64/fp/fp-stress.c
-index e96fe1ac1ad1..968983a5e39f 100644
---- a/tools/testing/selftests/arm64/fp/fp-stress.c
-+++ b/tools/testing/selftests/arm64/fp/fp-stress.c
-@@ -7,6 +7,7 @@
- #define _POSIX_C_SOURCE 199309L
- 
- #include <errno.h>
-+#include <fcntl.h>
- #include <getopt.h>
- #include <poll.h>
- #include <signal.h>
-@@ -18,11 +19,13 @@
- #include <unistd.h>
- #include <sys/auxv.h>
- #include <sys/epoll.h>
-+#include <sys/ioctl.h>
- #include <sys/prctl.h>
- #include <sys/types.h>
- #include <sys/uio.h>
- #include <sys/wait.h>
- #include <asm/hwcap.h>
-+#include <linux/kvm.h>
- 
- #include "kselftest.h"
- 
-@@ -46,6 +49,11 @@ static struct epoll_event *evs;
- static int tests;
- static int num_children;
- static bool terminate;
-+static int sve_vl_count, sme_vl_count;
-+static int sve_vls[MAX_VLS], sme_vls[MAX_VLS];
-+static bool have_kvm;
-+static bool have_kvm_el2;
-+static bool have_kvm_sve;
- 
- static int startup_pipe[2];
- 
-@@ -60,6 +68,14 @@ static int num_processors(void)
- 	return nproc;
- }
- 
-+static char *kvm_el_arg(int cpu)
-+{
-+	if (have_kvm_el2 && ((cpu % 4) == 3))
-+		return "--el2";
-+	else
-+		return "--el1";
-+}
-+
- static void child_start(struct child_data *child, char *const prog_args[])
- {
- 	int ret, pipefd[2], i;
-@@ -322,6 +338,21 @@ static void start_fpsimd(struct child_data *child, int cpu, int copy)
- 	ksft_print_msg("Started %s\n", child->name);
- }
- 
-+static void start_fpsimd_kvm(struct child_data *child, int cpu, int copy)
-+{
-+	char *args[] = { "./fp-stress-vmm", kvm_el_arg(cpu),
-+			 "./fpsimd-test-kvm.bin", NULL };
-+	int ret;
-+
-+	ret = asprintf(&child->name, "FPSIMD-KVM-%d-%d", cpu, copy);
-+	if (ret == -1)
-+		ksft_exit_fail_msg("asprintf() failed\n");
-+
-+	child_start(child, args);
-+
-+	ksft_print_msg("Started %s\n", child->name);
-+}
-+
- static void start_kernel(struct child_data *child, int cpu, int copy)
- {
- 	char *args[] = { "./kernel-test", NULL };
-@@ -354,6 +385,26 @@ static void start_sve(struct child_data *child, int vl, int cpu)
- 	ksft_print_msg("Started %s\n", child->name);
- }
- 
-+static void start_sve_kvm(struct child_data *child, int vl, int cpu)
-+{
-+	char *args[] = { "./fp-stress-vmm", "--sve", NULL, kvm_el_arg(cpu),
-+			 "./sve-test-kvm.bin", NULL };
-+	char vl_str[32];
-+	int ret;
-+
-+	/* Our VLs are in bytes, fp-stress-vmm wants bits */
-+	snprintf(vl_str, sizeof(vl_str), "%d", vl * 8);
-+	args[2] = vl_str;
-+
-+	ret = asprintf(&child->name, "SVE-KVM-VL-%d-%d", vl, cpu);
-+	if (ret == -1)
-+		ksft_exit_fail_msg("asprintf() failed\n");
-+
-+	child_start(child, args);
-+
-+	ksft_print_msg("Started %s\n", child->name);
-+}
-+
- static void start_ssve(struct child_data *child, int vl, int cpu)
- {
- 	char *args[] = { "./ssve-test", NULL };
-@@ -404,6 +455,136 @@ static void start_zt(struct child_data *child, int cpu)
- 	ksft_print_msg("Started %s\n", child->name);
- }
- 
-+static void kvm_put_vcpu(int vm_fd, int vcpu_fd)
-+{
-+	if (vcpu_fd >= 0)
-+		close(vcpu_fd);
-+	if (vm_fd >= 0)
-+		close(vm_fd);
-+}
-+
-+static bool kvm_get_vcpu(int kvm_fd, int feature, int *vm_fd, int *vcpu_fd)
-+{
-+	struct kvm_vcpu_init init;
-+	int ret;
-+
-+	*vcpu_fd = -1;
-+
-+	*vm_fd = ioctl(kvm_fd, KVM_CREATE_VM, 0);
-+	if (*vm_fd < 0) {
-+		ksft_print_msg("KVM_CREATE_VM failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+		return false;
-+	}
-+
-+	*vcpu_fd = ioctl(*vm_fd, KVM_CREATE_VCPU, 0);
-+	if (*vcpu_fd < 0) {
-+		ksft_print_msg("KVM_CREATE_VCPU failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+		goto err;
-+	}
-+
-+	ret = ioctl(*vm_fd, KVM_ARM_PREFERRED_TARGET, &init);
-+	if (ret) {
-+		ksft_print_msg("KVM_ARM_PREFERRED_TARGET failed: %s (%d)\n",
-+			       strerror(errno), errno);
-+		goto err;
-+	}
-+
-+	init.features[0] |= 1 << feature;
-+	ret = ioctl(*vcpu_fd, KVM_ARM_VCPU_INIT, &init);
-+	if (ret) {
-+		ksft_print_msg("KVM_ARM_VCPU_INIT feature %d failed: %s (%d)\n",
-+			       feature, strerror(errno), errno);
-+		goto err;
-+	}
-+
-+	return true;
-+
-+err:
-+	kvm_put_vcpu(*vm_fd, *vcpu_fd);
-+	return false;
-+}
-+
-+static void probe_kvm_sve(int kvm_fd)
-+{
-+	__u64 vqs[KVM_ARM64_SVE_VLS_WORDS];
-+	struct kvm_one_reg reg = {
-+		.id = KVM_REG_ARM64_SVE_VLS,
-+		.addr = (__u64)vqs,
-+	};
-+	int vm_fd, vcpu_fd, i;
-+	unsigned int vq;
-+
-+	if (!sve_vl_count)
-+		return;
-+
-+	if (!ioctl(kvm_fd, KVM_CHECK_EXTENSION, KVM_CAP_ARM_SVE)) {
-+		ksft_print_msg("No KVM SVE support\n");
-+		return;
-+	}
-+
-+	if (!kvm_get_vcpu(kvm_fd, KVM_ARM_VCPU_SVE, &vm_fd, &vcpu_fd))
-+		return;
-+
-+	/*
-+	 * The vector length set is readable without finalizing the vCPU,
-+	 * we only want to look at it rather than run anything.
-+	 */
-+	if (ioctl(vcpu_fd, KVM_GET_ONE_REG, &reg)) {
-+		ksft_print_msg("Failed to read KVM SVE VLs: %s (%d)\n",
-+			       strerror(errno), errno);
-+		goto out;
-+	}
-+
-+	have_kvm_sve = true;
-+	for (i = 0; i < sve_vl_count; i++) {
-+		vq = sve_vq_from_vl(sve_vls[i]);
-+
-+		if (!(vqs[(vq - KVM_ARM64_SVE_VQ_MIN) / 64] &
-+		      (1ULL << ((vq - KVM_ARM64_SVE_VQ_MIN) % 64)))) {
-+			ksft_print_msg("KVM has no SVE VL %d\n", sve_vls[i]);
-+			have_kvm_sve = false;
-+		}
-+	}
-+
-+out:
-+	kvm_put_vcpu(vm_fd, vcpu_fd);
-+}
-+
-+/*
-+ * We don't act as a VMM for guests directly, this just enumerates what
-+ * can be run with KVM.
++/**
++ * enum iommu_viommu_arm_realm_vsmmuv3_flags - Flags for ARM SMMUv3 Realm
++ * @IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU: Indicates whether the Realm has
++ *                                             a guest-visible VSMMU instance
 + */
-+static void probe_kvm(void)
-+{
-+	int fd, ret;
++enum iommu_viommu_arm_realm_vsmmuv3_flags {
++	IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU = 1 << 0,
++};
 +
-+	fd = open("/dev/kvm", O_RDWR | O_CLOEXEC);
-+	if (fd < 0) {
-+		ksft_print_msg("Not using KVM, /dev/kvm: %s (%d)\n",
-+			       strerror(errno), errno);
-+		return;
-+	}
-+
-+	ret = ioctl(fd, KVM_GET_API_VERSION, 0);
-+	if (ret != KVM_API_VERSION) {
-+		ksft_print_msg("Not using KVM, API version %d not %d\n",
-+			       ret, KVM_API_VERSION);
-+		close(fd);
-+		return;
-+	}
-+
-+	have_kvm = true;
-+
-+	if (ioctl(fd, KVM_CHECK_EXTENSION, KVM_CAP_ARM_EL2))
-+		have_kvm_el2 = true;
-+
-+	probe_kvm_sve(fd);
-+
-+	close(fd);
-+}
-+
- static void probe_vls(int vls[], int *vl_count, int set_vl)
- {
- 	unsigned int vq;
-@@ -460,10 +641,8 @@ int main(int argc, char **argv)
- 	int timeout = 10 * (1000 / SIGNAL_INTERVAL_MS);
- 	int poll_interval = 5000;
- 	int cpus, i, j, c;
--	int sve_vl_count, sme_vl_count;
- 	bool all_children_started = false;
- 	int seen_children;
--	int sve_vls[MAX_VLS], sme_vls[MAX_VLS];
- 	bool have_sme2;
- 	struct sigaction sa;
- 
-@@ -509,9 +688,15 @@ int main(int argc, char **argv)
- 	ksft_print_header();
- 	ksft_set_plan(tests);
- 
-+	probe_kvm();
-+
- 	ksft_print_msg("%d CPUs, %d SVE VLs, %d SME VLs, SME2 %s\n",
- 		       cpus, sve_vl_count, sme_vl_count,
- 		       have_sme2 ? "present" : "absent");
-+	ksft_print_msg("KVM: %s, %s EL2, %s SVE\n",
-+		       have_kvm ? "present" : "absent",
-+		       have_kvm_el2 ? "with" : "without",
-+		       have_kvm_sve ? "with" : "without");
- 
- 	if (timeout > 0)
- 		ksft_print_msg("Will run for %d\n", timeout);
-@@ -559,11 +744,20 @@ int main(int argc, char **argv)
- 				   tests);
- 
- 	for (i = 0; i < cpus; i++) {
--		start_fpsimd(&children[num_children++], i, 0);
-+		if (have_kvm && (i % 2))
-+			start_fpsimd_kvm(&children[num_children++], i, 0);
-+		else
-+			start_fpsimd(&children[num_children++], i, 0);
- 		start_kernel(&children[num_children++], i, 0);
- 
--		for (j = 0; j < sve_vl_count; j++)
--			start_sve(&children[num_children++], sve_vls[j], i);
-+		for (j = 0; j < sve_vl_count; j++) {
-+			if (have_kvm_sve && (i % 2))
-+				start_sve_kvm(&children[num_children++],
-+					      sve_vls[j], i);
-+			else
-+				start_sve(&children[num_children++],
-+					  sve_vls[j], i);
-+		}
- 
- 		for (j = 0; j < sme_vl_count; j++) {
- 			start_ssve(&children[num_children++], sme_vls[j], i);
++/**
++ * struct iommu_viommu_arm_realm_vsmmuv3 - ARM Realm VSMMUv3 parameters
++ *                                         (IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3)
++ * @flags: Combination of enum iommu_viommu_arm_realm_vsmmuv3_flags
++ * @reg_base: MMIO base address of the VSMMU in the guest VM
++ * @reg_top: MMIO top address of the VSMMU in the guest VM
++ * @aidr: AIDR register value of the VSMMU in the guest VM
++ * @idr: IDR register values of the VSMMU in the guest VM
++ */
++struct iommu_viommu_arm_realm_vsmmuv3 {
++	__aligned_u64 flags;
++	__aligned_le64 reg_base;
++	__aligned_le64 reg_top;
++	__aligned_le64 aidr;
++	__aligned_le64 idr[7];
++};
 
--- 
-2.47.3
+I think this should work. But I still feel awkward that a non-vsmmu
+case has to allocate a viommu object for a set of RMI commands that
+don't need an Realm Descriptor. Things could be cleaner if we allow
+RMI_PSMMU_ACTIVATE and RMI_PSMMU_ST_L2_CREATE to be independent on
+a viommu; then leave IOMMU_VIOMMU_TYPE_ARM_SMMUV3 to vsmmu-visiable
+case.
 
+Nicolin
 
