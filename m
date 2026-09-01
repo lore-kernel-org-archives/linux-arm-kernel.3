@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D892C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 21:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64ACFC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 21:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyh12vLSEfb1JF7lQC/qy5BquW9r8pj96hLZDvx4BW8=; b=n/KSHBK5f2UkCfD6JYlomD3ED6
-	dx7ZsRcSE1AVcc4YCQQCIcE6U1Qhjbo7AfB7vfKZH0elxOmu9Og5T4zcJMpEmg2l3cXo8hTFuWWJI
-	3S1eKXCmDXY+fm588Do2DMVZpnJeCPD4uUoNFTUn1yS904LlFAT6t/g5cVIHQ61DN2q/qe84PnbCk
-	TxbBLhkea9xUntFjHIVqP9s0CkdIWXqrbXD+6438lSlnesvl525rJXYpZVH362oaPNgnkUkPtwdGs
-	WJNDpDJUgLTTs6MYptgfKZvqJztjZGn82HvCpPtrZeBdck+k3oNCuQctz6w4Xf9PLKmy9JwbTF64a
-	1YIDZyGA==;
+	bh=nW2uwG3VWmqTYBYq5oWNcIeaMFqReX/mfTA7yT0Lz8Q=; b=hEvNo3J3DG/P7PQ+B5U1N5UfRQ
+	Gtv57anf22WnWVFIpL2q9/JfLSdkcsFgbNJGAhXi8Gb9IDb54euCiSwxEo++aIA9YottXOOaNcwo7
+	lT5hlczXehz76gvj8sJv9z+tNNL7jjzYOXyUnOlAwnsGetbmyJySCWQQ20fGBfOIMdJOHMmPUix1h
+	AzWq4qEI5wWJXWv1yIfMP9cgow3aafg83q4DAUg/LM8mpcF0m9Cc92ZX8Jx4uTMDh2kiwomPPuogJ
+	rSD2wDe36Ms9utMrNRSNE1vFhmOVsp/4VTdXpHWAJC9JJDTypF+pYqq/VIOPvXovitJ3Wcs4LG/+I
+	bo7Yk8Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1WNx-0000000DQZe-2bm3;
-	Tue, 01 Sep 2026 21:51:17 +0000
+	id 1x1WO0-0000000DQdV-2z70;
+	Tue, 01 Sep 2026 21:51:20 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1WNw-0000000DQY0-1sqK
+	id 1x1WNz-0000000DQcT-3t5f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 21:51:16 +0000
+	Tue, 01 Sep 2026 21:51:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3945D43E98;
+	by sea.source.kernel.org (Postfix) with ESMTP id AD1A743EA3;
+	Tue,  1 Sep 2026 21:51:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800EA1F000E9;
 	Tue,  1 Sep 2026 21:51:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4731F00A3D;
-	Tue,  1 Sep 2026 21:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788299476;
-	bh=kyh12vLSEfb1JF7lQC/qy5BquW9r8pj96hLZDvx4BW8=;
+	s=k20260515; t=1788299479;
+	bh=nW2uwG3VWmqTYBYq5oWNcIeaMFqReX/mfTA7yT0Lz8Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Oh6qO9xXikF9ABcqX1Z6Wzetl7Pw09t7uf8Vr2MXZc877Vch84HUh07Q6yDBzmmXx
-	 hdnSLHQ4KSVxn+PLMCEsa+XJ+cfAp4vxVHhWzdJxuuTZfmZ9RoHcqOGrcPPrc2pPPP
-	 ugXd/r4P6RDyrhiNdHzvjK+c6ujSGvNXtyVSrfgMckaq/7MMaqp53JzRVlEneZnQed
-	 sAtpLuqsILLNScAd5Vu18YUVPq15sKBTLma/fp4MrMg7j4CwgswbLLOGu0vENLdz4z
-	 lBmmCPPCZIFxCn1lNqs+aclZLw28lh7zXShd6DGrVFZ3VgPCxjRNtrZIRuGQvQT0MA
-	 sxSWW8Wlkm2AQ==
+	b=FZaa0EOECdWg2EgzznRZk6c5LR2LAC5TUfhY0ew/EHHwcGGfLh2DjlILvi/uE5unV
+	 VTNCRFXyIOGMPSepAF3zZe3egbb+j4dqiWFSAxHs+/BaJTjYbS6GqdAYJKylb6iZL6
+	 4QEtx6wIb0XC3+pshtqlwjGj0EWT3FisTFkab+xa5KyIec1jcYOV2J3dbXgzufoMBt
+	 3ulC5lw1giIAc8bzZaHyEHBEu49cg0j5XprAxICF6OtjzwaGPrhTE/blM/9B+XbYck
+	 SrgcnEvewn5gohjP6sJoWDM9s8LRwpH5JMX3TuOpZg6MXxuEWoZzAcdO5pXnNQBn1h
+	 yyypQuF2d6Yfg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 01 Sep 2026 22:47:09 +0100
-Subject: [PATCH v20 11/14] KVM: selftests: arm64: Add GCS to set_id_regs
+Date: Tue, 01 Sep 2026 22:47:10 +0100
+Subject: [PATCH v20 12/14] KVM: selftests: arm64: Only restore SPSR_EL1 and
+ ELR_EL1 if they change
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-arm64-gcs-v20-11-f31750bdfadb@kernel.org>
+Message-Id: <20260901-arm64-gcs-v20-12-f31750bdfadb@kernel.org>
 References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
 In-Reply-To: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,15 +64,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=987; i=broonie@kernel.org;
- h=from:subject:message-id; bh=d3SxEv6RjSY+xiyxMK7Zi+tIruIS+RbgPdYjX8k0TSU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBql0ile6y9IO6whC6xpi+oS4hBxrk51YhD+JwGo
- bxQJVnl5W+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapdIpQAKCRAk1otyXVSH
- 0KhKB/97CmnH6U9bJtP2Mm28nFOfYooeNFvRGvFyuo5tp3UZest+BV+9oPUvc0BIX6un3pRpFd3
- VfPIcW0YCn6rulXH3lKsQctM4zDKNEodrdn2KM015lmcrdS5U1u+gcqN3xP6LuwxxZAdUGaalyC
- lIW9GB5nOV2DiujzdzxkmhjThpX+8rrwbJtZmpEjlZH8O+ltbMmOyOn7NcGuedzaA49vYvviBkW
- PDhHqTGLgGZbzpKtTgOxFCKX+TAPkq2ptxIbD7QEZDfKF9NFi4ea8QJtYeNG3bU+wYTBi2rsl/f
- hsjb/FP8n87EAAW+92sGNqZpeeUCQvB0g/FzhIKxNyo9Z+T2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1508; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=kq5inm4XLV9y3q0emrqMvgSlwP7yu7PrdQSzkYGOWPo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBql0iliOMUqxh8DIPCCcFfMaZ3eY2IVxW8m+MHV
+ xhDFuanEVmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapdIpQAKCRAk1otyXVSH
+ 0EVBB/0RCAXJEfmE292StzFEMt6Xvh301atWZ16nvdp7WSfV9/IGI9oAnQ+BdlPcSXspY37gzpe
+ 2QAe9yOe+sdXjCLybMonWti/OK5GdTR45EHQJNJcBFgjL/mOFtKwYSnkpQAUQSozRBWEAZ02zYA
+ iK44Ng1rBjrfJpDQKsSevJnC0+/nJkLzFST6dVVpjd/0Vf5/RptCCYm1XEm9aBHZ9tuZwO8fSO2
+ i1g/Lk6yytq+hHmaldxudHH6zYzOGgEfIUBcdGrFlR9Vxt028FpJTpRwnmI/ltwoRz+Anb48EVv
+ qKexXAtgYwwx07GOL2I8dqWDbyLlJAktHiKXbdSZiCX8Ob0m
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,26 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that GCS is configurable via the ID registers update set_id_regs to
-cover ID_AA64PFR1_EL1.GCS.
+When EXLOCK is enabled for ELx writes to SPSR_ELx and ELR_ELx generate
+GCS exceptions. Currently the selftest helpers unconditionally reload the
+saved values for these registers regardless of if the handler didn't change
+them. This gets in the way of EXLOCK testing, making it hard to generate
+contexts which will generate an invalid ERET since we never get as far as
+doing an exception return while EXLOCK is enabled.
+
+In order to facilitate testing of nested virtualisation emulation of EXLOCK
+change our reloads into read/modify/write cycles, suppressing the writes
+when they would not change the value in the register.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/testing/selftests/kvm/lib/arm64/handlers.S | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 7429a1055df5..34e59fbbbe89 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -154,6 +154,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+diff --git a/tools/testing/selftests/kvm/lib/arm64/handlers.S b/tools/testing/selftests/kvm/lib/arm64/handlers.S
+index 0e443eadfac6..367c22d61cba 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/handlers.S
++++ b/tools/testing/selftests/kvm/lib/arm64/handlers.S
+@@ -33,8 +33,18 @@
  
- static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, DF2, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, GCS, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
+ .macro restore_registers
+ 	ldp	x1, x2, [sp, #16 * 16] /* PC, PSTATE */
++
++	/* Suppress redundant writes to support GCS exception lock testing */
++	mrs	x3, elr_el1
++	cmp	x1, x3
++	beq	.Lskip_elr_\@
+ 	msr	elr_el1, x1
++.Lskip_elr_\@:
++	mrs	x3, spsr_el1
++	cmp	x2, x3
++	beq	.Lskip_spsr_\@
+ 	msr	spsr_el1, x2
++.Lskip_spsr_\@:
+ 
+ 	/* sp is not restored */
+ 	ldp	x30, xzr, [sp, #16 * 15] /* x30, SP */
 
 -- 
 2.47.3
