@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 873F0C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B81C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+PNXfvvSVMdiv5W0xxEcK++hpZTu+rqnFDb2lmCj1j4=; b=nJ5vcdoTC5VXNETiNHiWgr/JaX
-	5QmEq0Ipnares5qYeebqJe3p/n/fYs2ibfqcWEJeNOAURmn0inpRTUQKNWcQUpJzpwqRi/FLvm2ww
-	TenvO5kinoSlnoms5JS9c7dR9v+I2Pzg2nHcoPCTExjMNa7vOsB4ZkUPqNPj0aeQ4zXNYY/6Uq6n4
-	FT9/KIQMKIrp7kczyrRbSiC313qK3u6SfsA9xDP9No8vxowd1HHpCfCTWrHHsEZ+kMbhlPc4vl8Fu
-	mL3cabycEjLME4CSD3rlYSu8/Dg2ylCqN85zQN4TDvuZme4lIl93qASVvDaDyhtbdcuOekg/cG2u9
-	qQfRL7pQ==;
+	bh=VQruuicz/6guQAq8w+QAJ7KPe6zCOEn9cupA41y8u7Y=; b=VLvgQkQlv57N1e7TsHxBu0r4/t
+	EFSYyRZGjDHCeBm4rhvgnHql7E7jt5rJxmzc/x2KA0kgqwMVK8CVV3waLYUgm2Wgst7goTDL01s5O
+	PPVgGztxNxOfafagulWa5nch9kl+yK2iFJstxoxRA2XwwY8mTNfpFQxbpEPJoSFiU/sVydml+c8zA
+	dSEyGeW0quKGr7Zo89HMGnPO5zLLu6+ZyR23kAhITZyy8fNfS9itEPoyMRVGcSX1I1peP3FnQ3bUV
+	6EUpvwaE+rtBpg1Ke0Gk0+FFqjZ50J2B5etsgJc0fctMTFMfFfHgtL1w+WIiluyM0p11f8gSLENC7
+	8GZDF8hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZ8-0000000BClZ-1ldE;
-	Tue, 01 Sep 2026 08:09:58 +0000
-Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
+	id 1x1JZB-0000000BCpU-2DI5;
+	Tue, 01 Sep 2026 08:10:01 +0000
+Received: from mail-wr1-x448.google.com ([2a00:1450:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1JZ5-0000000BCiD-2qU0
+	id 1x1JZ8-0000000BCkY-26lz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:09:56 +0000
-Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c1f74261f67so156343566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:09:54 -0700 (PDT)
+	Tue, 01 Sep 2026 08:09:59 +0000
+Received: by mail-wr1-x448.google.com with SMTP id ffacd0b85a97d-47f6d70223dso3003295f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 01:09:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788250193; x=1788854993; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788250196; x=1788854996; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+PNXfvvSVMdiv5W0xxEcK++hpZTu+rqnFDb2lmCj1j4=;
-        b=q3kaH9vdvDPh5BMGXAuF6ZO8RWd1q5q/KKETpT6dzgpv4KrW48XDKTG3mj0/9AfhjC
-         0oYBZt68YGSNivl4UrpdAGX0hBQrDXjCN6waySWgZpCg0bSrYuW2MrFsaBGLEnebxfTG
-         4HPvFIaYI21kdsLtgauyyCodmml4+P8HuSKoDq7wM4xF2cGhPG8GMc+nl0IIzhDaBnjI
-         WNtQWhAGJdYDbnrt8gTFC5aj7HJdKVv/UDzdLKEbJwV3O9dGcOkEtniPC8KY1jF7Mim9
-         cL9TBW+NrHKQ6GYC/nNQ8c1B8PC5WpCcCtyqR1Hh7RO5Y9wBmtR87nQNyp7u3A1gFssW
-         G6YA==
+        bh=VQruuicz/6guQAq8w+QAJ7KPe6zCOEn9cupA41y8u7Y=;
+        b=Ne9PBlezm7uGhvkqHjN13DaYASqQvXzZz17TTf6sBKwzWGXLtyBczWMsNBOEZpA8Mm
+         asSBYf0VlX3lBU6FotiQQgYOAMralcE5Rtn7/txkyhDiDdzX8PbRvFJdupnUi2qmOXOd
+         Ld8TKdCcBc7Z0WYscQvdYd6sLdK+Mkb1Fg5u7OWu5pkwFXAfCbdmhAxc8L4K6EVjQWRi
+         g3It1h2PTXzo1SXs9QSyNxO5ICSpeKv6F60e9xIsdqWxCWFU0MOiVsQDuE4Zo3dI93hu
+         6p3gtmW2E0FillFFOlZrnxOc34/yNycMcnmpYX/+1DHCT/loGmnx6yvSCRbWmSnA/pYx
+         2KFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788250193; x=1788854993;
+        d=1e100.net; s=20251104; t=1788250196; x=1788854996;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+PNXfvvSVMdiv5W0xxEcK++hpZTu+rqnFDb2lmCj1j4=;
-        b=iQsm5hOU/CXxElYmD8pBdE9RP/H/gVIYEviG9ohlr7Uv1Rb14nA9HqqRU14JHOLXpc
-         meQWnD8ApKadSZhV0H7Bi9lc7Q5cK7E3eSsg3NVfRksGj1Z/pjH08prZt/HR25h/ng2M
-         t7UGPmb7+p8w+it/auxIAjxWV6cOMciEoVqXnuLheB43vBcJbZ1Z2wDxZROUWQaBga1x
-         m4OUQ48PsdNKX01mcq0SprqAT3VVhnxC/HIqJ6/GYlAqdBQV0Pxz1jWRMZPhbTseXMLI
-         ZqPMNrTScuVUUbZUhAJ9ytSoqvEtk9eHkL1ICtHaH01EeDru9omK7KAQ7h1df5mkNEEY
-         KclQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpkgOMOxLE9gpmBflMPLLBD4sT4mUCE887lpsM2JLp0i3N59E2UEnoz2298QzdFim9B6zKuYEiphB2FX0g8LGI0@lists.infradead.org
-X-Gm-Message-State: AFuF++kCI2YcRZP3d3ruZnoWYHxBYWm8uMujtEAXxEw5yxc8xC8eJyQg
-	+0PTDOjv5XsC1lAD1y1B9Y7F6Rpar4rS6W9APpovP80mTBl2pUeNCo+HlbSSB8oX2XYO8aRp2aI
-	OCStztQAdUAkGxla0wgjMMA==
-X-Received: from ejih12.prod.google.com ([2002:a17:906:2dcc:b0:c25:34f8:440f])
+        bh=VQruuicz/6guQAq8w+QAJ7KPe6zCOEn9cupA41y8u7Y=;
+        b=gkduu//od+Z3HdWxGm5ah5Q5+8kOUCBN/4M4F1TnGSlp13oMMDhVqtL5uQse3FVr8F
+         8lxtV9Js5kddFH3oBfMmrO8pa8G+Jv4iTk6YwT/wK6BYGROImxRK/7+5FdhMPPIgakFC
+         H7tjMRmKAmGuUMx90DoxPD3A07yrvM1O3ik7wkvpX3pq3rI7E65p86akfuA5Y+GQgQvV
+         89dV17MRkn0aEhc/HMlaFxAO6kISCwPoPbkWbtObmTvNxNieEvIFDO1OcIg56i52Oly+
+         l8PxhAO02OulThkrAf7ZnQSaoEKm9wVdD/2GQAjSM4gW0IQTDYcuqwqd8LYQyRiSQh1o
+         sIxg==
+X-Forwarded-Encrypted: i=1; AKwUvByuXwHJlTBW0n3pysxk6zPYWDDV20BxL+YMOS887De/3R+/JbruNxiO1oPRtXV5XW4wikP1GnTN4h71MdM+t4Q+@lists.infradead.org
+X-Gm-Message-State: AFuF++kA4Kuoj0iBE5b072WFwcNX0mYtWa940K3Au4OTdh9Q8DvQntGU
+	3ATl1/rQFLdk5fkU4VjAmCEuw+uPqNQ4VOohBntcrq++21Nr4EMvOLxe3pngq7U6Suzj3XxqxXB
+	Q7p5RrP59LWHK6IRXufBqYg==
+X-Received: from wrsc7.prod.google.com ([2002:adf:fb47:0:b0:47f:45e3:ffb0])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:3d4d:b0:c21:7feb:4574 with SMTP id a640c23a62f3a-c25b3b00031mr355498266b.1.1788250192206;
- Tue, 01 Sep 2026 01:09:52 -0700 (PDT)
-Date: Tue,  1 Sep 2026 09:09:26 +0100
+ 2002:adf:f68f:0:b0:482:f0ee:1390 with SMTP id ffacd0b85a97d-4844101d845mr9401575f8f.22.1788250195887;
+ Tue, 01 Sep 2026 01:09:55 -0700 (PDT)
+Date: Tue,  1 Sep 2026 09:09:29 +0100
 In-Reply-To: <20260901080941.997769-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260901080941.997769-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260901080941.997769-4-vdonnefort@google.com>
-Subject: [PATCH v5 03/18] KVM: arm64: Add pkvm_map_private_va_range
+Message-ID: <20260901080941.997769-7-vdonnefort@google.com>
+Subject: [PATCH v5 06/18] KVM: arm64: Add pkvm_hyp_req infrastructure
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,8 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_010955_738061_3E684CC2 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20260901_010958_619967_6F9FEBD2 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +93,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for the pKVM heap allocator, introduce
-pkvm_map_private_va_range() to map a physical range into the pKVM
-private range.
+Introduce a struct pkvm_hyp_req to enable the pKVM hypervisor to request
+resources from the host.
+
+Provide serialisation helpers to transport these requests via SMCCC
+registers (starting from a2):
+
+  pkvm_hyp_req_to_smccc() to encode into the SMCCC args.
+  smccc_to_pkvm_hyp_req() to decode them.
+
+When the hypervisor raises a request, the host must handle it and retry
+the HVC. To automate this sequence, introduce the pkvm_call_hyp_req()
+macro. This intercepts pending requests, invokes the handler and retries
+the HVC.
+
+Additionally, introduce a trace event to track the handling of these
+requests.
 
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-index 00cadd13ee5d..ea97ea49820e 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-@@ -31,6 +31,7 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
- 				  unsigned long *haddr);
- int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
- int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
-+int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size);
- phys_addr_t pkvm_private_va_range_pa(void *va);
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index beea00e693a0..19bddf261c82 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -205,6 +205,109 @@ struct pkvm_mapping {
+ 	u64 __subtree_last;	/* Internal member for interval tree */
+ };
  
- #endif /* __KVM_HYP_MM_H */
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index 9ab7f613fa36..22f6aae42f29 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -25,6 +25,7 @@ struct memblock_region hyp_memory[HYP_MEMBLOCK_REGIONS];
- unsigned int hyp_memblock_nr;
- 
- static u64 __io_map_base;
-+static u64 __hyp_private_va_start;
- 
- struct hyp_fixmap_slot {
- 	u64 addr;
-@@ -90,6 +91,41 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
- 	return ret;
- }
- 
-+/**
-+ * pkvm_map_private_va_range() - Map a physical range into the private VA range
-+ * @haddr:	The virtual address in the private range.
-+ * @phys:	The physical address to map.
-+ * @size:	The size of the range to map.
-+ *
-+ * The hypervisor VA @haddr must have been first allocated with
-+ * pkvm_alloc_private_va_range(). The created mapping can later be removed
-+ * with pkvm_remove_mappings().
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int pkvm_map_private_va_range(void *haddr, phys_addr_t phys, size_t size)
++enum pkvm_hyp_req_type {
++	PKVM_HYP_NO_REQ = 0,
++	__PKVM_HYP_REQ_TYPE_MAX,
++};
++
++#define PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX \
++	(sizeof(struct arm_smccc_res) - offsetof(struct arm_smccc_res, a2) - 1)
++
++struct pkvm_hyp_req {
++	u8 type;
++	union {
++		struct {
++			u32	nr_pages;
++		} mem;
++		struct {
++			/* Helper for SMCCC encoding/decoding */
++			u8	args[PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX];
++		} args;
++	};
++};
++
++static inline size_t pkvm_hyp_req_arg_size(u8 type)
 +{
-+	unsigned long addr = (unsigned long)haddr;
-+	int ret;
++	switch (type) {
++	case PKVM_HYP_NO_REQ:
++		return 0;
++	default:
++		WARN_ON(1);
++	}
 +
-+	if (!PAGE_ALIGNED(addr | phys | size))
-+		return -EINVAL;
++	return 0;
++}
 +
-+	guard(hyp_spinlock)(&pkvm_pgd_lock);
++/* Encode the pending pkvm_hyp_req type into the SMCCC args */
++static inline void
++pkvm_hyp_req_to_smccc(struct kvm_cpu_context *host_ctxt, struct pkvm_hyp_req *req)
++{
++	u8 *dst, type = req->type;
++	size_t size;
 +
-+	if (addr < __hyp_private_va_start || addr >= __io_map_base)
-+		return -EINVAL;
++	if (type == PKVM_HYP_NO_REQ || type >= __PKVM_HYP_REQ_TYPE_MAX) {
++		host_ctxt->regs.regs[2] = 0;
++		return;
++	}
 +
-+	if (size > __io_map_base - addr)
-+		return -EINVAL;
++	size = pkvm_hyp_req_arg_size(type);
++	if (WARN_ON(size > PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX))
++		return;
 +
-+	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, size, phys, PAGE_HYP);
-+	if (ret)
-+		kvm_pgtable_hyp_unmap(&pkvm_pgtable, addr, size);
++	dst = (u8 *)&host_ctxt->regs.regs[2];
++	*dst = type;
++
++	memcpy(dst + 1, &req->args, size);
++}
++
++/* Return true if a pkvm_hyp_req has been decoded from the SMCCC args */
++static inline bool smccc_to_pkvm_hyp_req(struct pkvm_hyp_req *req, struct arm_smccc_res *res)
++{
++	u8 *src = (u8 *)res + offsetof(struct arm_smccc_res, a2);
++	u8 type = *src;
++
++	if (type == PKVM_HYP_NO_REQ || type >= __PKVM_HYP_REQ_TYPE_MAX)
++		return false;
++
++	req->type = type;
++	memcpy(&req->args, src + 1, pkvm_hyp_req_arg_size(type));
++
++	return true;
++}
++
++int __pkvm_handle_smccc_req(struct arm_smccc_res *res);
++
++/**
++ * pkvm_call_hyp_req() - Issue an HVC that can return hypervisor requests
++ * @f: Hypervisor function symbol to call.
++ * @...: Arguments to pass to the hypercall.
++ *
++ * Re-issue an HVC and process any pending hypervisor request until completion
++ * or error.
++ *
++ * Only use this helper for HVCs whose hypervisor handlers format their return
++ * registers with pkvm_hyp_req_to_smccc().
++ *
++ * Return: Result of the hypercall or a negative error if the hyp request
++ * handling failed.
++ */
++#define pkvm_call_hyp_req(f, ...)								\
++({												\
++	struct arm_smccc_res __res;								\
++	int __ret;										\
++	do {											\
++		__ret = -1;									\
++		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f), ##__VA_ARGS__, &__res);		\
++		if (WARN_ON(__res.a0 != SMCCC_RET_SUCCESS))					\
++			break;									\
++		__ret = __res.a1;								\
++		if (!__ret)									\
++			break;									\
++		__ret = __pkvm_handle_smccc_req(&__res);					\
++	} while (!__ret);									\
++	__ret;											\
++})
++
+ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 			     struct kvm_pgtable_mm_ops *mm_ops);
+ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index e5200731a45b..11d9e2f70cd8 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -16,6 +16,9 @@
+ 
+ #include "hyp_constants.h"
+ 
++#define CREATE_TRACE_POINTS
++#include "trace_pkvm.h"
++
+ DEFINE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+ 
+ static struct memblock_region *hyp_memory = kvm_nvhe_sym(hyp_memory);
+@@ -594,3 +597,25 @@ bool pkvm_force_reclaim_guest_page(phys_addr_t phys)
+ 
+ 	return !ret || ret == -EAGAIN;
+ }
++
++static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
++{
++	int ret = -EINVAL;
++
++	switch (req->type) {
++	}
++
++	trace_kvm_handle_pkvm_hyp_req(req, ret);
 +
 +	return ret;
 +}
 +
- /**
-  * pkvm_private_va_range_pa - Translate a private VA to a physical address.
-  * @va:		The private virtual address to translate.
-@@ -168,6 +204,12 @@ int pkvm_create_mappings(void *from, void *to, enum kvm_pgtable_prot prot)
-  * pkvm_remove_mappings - Remove mappings from the hypervisor page-table
-  * @from:	The starting virtual address of the range to remove
-  * @to:		The ending virtual address of the range to remove
-+ *
-+ * The range [@from, @to) can be a subset of the range previously mapped by
-+ * pkvm_create_mappings(), as the latter enforces PTE-level mappings. However,
-+ * it cannot be a subset of a range mapped by pkvm_map_private_va_range() as
-+ * that function allows block mappings which the hypervisor page-table does not
-+ * split.
-  */
- void pkvm_remove_mappings(void *from, void *to)
- {
-@@ -462,6 +504,7 @@ int hyp_create_idmap(u32 hyp_va_bits)
- 	 */
- 	__io_map_base = start & BIT(hyp_va_bits - 2);
- 	__io_map_base ^= BIT(hyp_va_bits - 2);
-+	__hyp_private_va_start = __io_map_base;
- 	__hyp_vmemmap = __io_map_base | BIT(hyp_va_bits - 3);
- 
- 	return __pkvm_create_mappings(start, end - start, start, PAGE_HYP_EXEC);
++int __pkvm_handle_smccc_req(struct arm_smccc_res *res)
++{
++	struct pkvm_hyp_req req;
++
++	if (smccc_to_pkvm_hyp_req(&req, res))
++		return pkvm_handle_hyp_req(&req);
++
++	return res->a1;
++}
+diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
+new file mode 100644
+index 000000000000..3966c111e3ad
+--- /dev/null
++++ b/arch/arm64/kvm/trace_pkvm.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#if !defined(_TRACE_PKVM_ARM64_KVM_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _TRACE_PKVM_ARM64_KVM_H
++
++#include <linux/tracepoint.h>
++#include <asm/kvm_pkvm.h>
++
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM kvm
++
++TRACE_DEFINE_ENUM(PKVM_HYP_NO_REQ);
++
++#define PKVM_HYP_REQ_TYPES \
++	{ PKVM_HYP_NO_REQ, "NO_REQ" }
++
++TRACE_EVENT(kvm_handle_pkvm_hyp_req,
++	TP_PROTO(struct pkvm_hyp_req *req, int ret),
++	TP_ARGS(req, ret),
++
++	TP_STRUCT__entry(
++		__field(u8,	type)
++		__field(int,	ret)
++	),
++
++	TP_fast_assign(
++		__entry->type = req->type;
++		__entry->ret = ret;
++	),
++
++	TP_printk("type: %s ret: %d",
++		  __print_symbolic(__entry->type, PKVM_HYP_REQ_TYPES),
++		  __entry->ret)
++);
++
++#endif /* _TRACE_PKVM_ARM64_KVM_H */
++
++#undef TRACE_INCLUDE_PATH
++#define TRACE_INCLUDE_PATH .
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_FILE trace_pkvm
++
++/* This part must be outside protection */
++#include <trace/define_trace.h>
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
