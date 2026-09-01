@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0F4C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 08:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5A5C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 09:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XPyoXnX799zplSGoWRCxzPEXIRbeRij2GoDGs6QAZDo=; b=X4WW0cbhWkm2QYgHInNtmoTeMx
-	NZEvOcMgFlACkiOMWcJH6N4F1WiXZ96Goi5tdMJpUP0QKmAwdS2SVkXO1jyNo3hX8SVT5G5GcyVS9
-	yfagtTLQqerL1/O1j2+eWFnh5ZhLB7t9ylnlnJ5z+CQSqXKvy2AeCcopl9BHoiZsrgiPVapzzGDM9
-	JY2WgK/lQuEUjUVb1K+JOa7EYdg/5cv/A4BOAUW1GsNfgYS9d+t0yYGYs3gHY3bhzTxxYIgm9vzzF
-	/sSo3/BvgYSK7zF2LYkYm4hY/SjW3UPDx9QhBZlqC3tD4ynyg5nAg7xSMzzuC2l1WyC+ehUYO8w3U
-	bYvzR5FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dVSTupzsKDeKcaOCfLgTue1jYvMasSEVlpq2JV9+6jU=; b=hLM8eNkb3jFh4ruM8akzAZR4d1
+	msG5eVDPOZeyEJyxH0VHJmy6UJyL1tybZFXV5j7Ic5yHUVikzFinFa+w1j/1scrJj7073nxVTWZlD
+	cZI3Q6iTWBILmaLj0Syjfv0IZ1igltVKom/mOU9V9lB36d3V7ysd3jA6BE/fglvgehcCEv4k/8IC6
+	vIUJFqf31WTjY9wCxx0OQDlFWFeSDRGHyok4c5vTpLURExA4g2Or1wlfqjCNbbZBB0xBH46EvMsR1
+	SMLVUZc9sj4rfKJUhomPylBnPP+luZ1BNhHZKdPJi0ms//mXtg5USExK8ljzEBtxjJbYX0KF4UAvR
+	5k1D96mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KJm-0000000BLzp-267M;
-	Tue, 01 Sep 2026 08:58:10 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1x1KOc-0000000BMb1-0iTG;
+	Tue, 01 Sep 2026 09:03:10 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1KJk-0000000BLzI-0Zp1
+	id 1x1KOY-0000000BMZr-21fY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 08:58:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788253089; x=1819789089;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Dn9Xg91C/1thO31fkCEIbl0rMR4votQKC6FIQtp2kqc=;
-  b=C/rHrVMVcH/32w+Ba9FDCvQbOcGKkL8WS4SrikorO5/bU/mGY4Nmqf7F
-   B078zG/xbOdqIusR6pHbyUrfOvVOePZtxAB+SSNWV85ChkxOF2DhEmDgp
-   XqicXOEt47NuOgsDoFoaw7N6wE94VCr3DAia5a4wmKm2ZArwL57ypQyjG
-   MBQ9r7qBjwSY14ZkMIxrU58sfbul8J4lAeG7mC4mpajGx53bPG9kb4Rfp
-   e5V/DHBcqqNUV2ZTCGnbquSyRWtN1b1qAFTCQD3dGffrZUksHDugGXdPS
-   b9k497fiaUXXQaItETeRIa3in72rCviXq1QsP8gGj1AZfTtLtfqfxcq+1
-   Q==;
-X-CSE-ConnectionGUID: t6xZH8dIQRWB7sXxtz915A==
-X-CSE-MsgGUID: 9TBQX4NmSLG9uCuUqAjZ4g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="92542933"
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="92542933"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 01:58:07 -0700
-X-CSE-ConnectionGUID: czjYX5yyTDOsZtb1SZR0ug==
-X-CSE-MsgGUID: Y14AxRADQre7S7wFBk1Gvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="265319657"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa010.fm.intel.com with ESMTP; 01 Sep 2026 01:58:03 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 1FEEE99; Tue, 01 Sep 2026 10:58:02 +0200 (CEST)
-Date: Tue, 1 Sep 2026 10:58:02 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 10/19] thunderbolt: Make the ring register layout
- configurable
-Message-ID: <20260901085802.GC106095@black.igk.intel.com>
-References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
- <20260830-b4-apple-soc-tbt-v1-10-44bc9348683c@kernel.org>
+	Tue, 01 Sep 2026 09:03:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2A5FA1A1932;
+	Tue,  1 Sep 2026 09:03:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E9DBB6053C;
+	Tue,  1 Sep 2026 09:03:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D87A811C78AAE;
+	Tue,  1 Sep 2026 11:02:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788253381; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=dVSTupzsKDeKcaOCfLgTue1jYvMasSEVlpq2JV9+6jU=;
+	b=MJWBBoD56GD1gKMxyfsPWLPEUcE9vRgAYgIRAzg6cwJmDCdtzke3j7KuygdQYD6AU8JGr2
+	GKaqslm1ZTFs7QX6di7xfUjopH+ur8ijdXPU+7mUuK2qP20jf7QVXnuGj49QQfQ66R9gca
+	erGt/XmynmF26FIUFylqf9oX93o85jP7XixnI2CREKpsQMDfxrPz0P3o6UCQU4sJhxTbKp
+	kTogl93s2G648lT1wsMR3IqLntJDyzoGI6/F6E94dNQcA4iXw5rzr7e7v7KOm8wRDNcb6D
+	JNUCnN9+S3v2NQdc9/dqN1pOuR6iAm9gowwws49ZVMJLRqPs3htZL0sZIQTOqg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Michael Walle" <mwalle@kernel.org>
+Cc: "Pratyush Yadav" <pratyush@kernel.org>,  "Takahiro Kuwano"
+ <takahiro.kuwano@infineon.com>,  "Richard Weinberger" <richard@nod.at>,
+  "Vignesh Raghavendra" <vigneshr@ti.com>,  "Nicolas Ferre"
+ <nicolas.ferre@microchip.com>,  "Alexandre Belloni"
+ <alexandre.belloni@bootlin.com>,  "Claudiu Beznea"
+ <claudiu.beznea@tuxon.dev>,  "Jonathan Corbet" <corbet@lwn.net>,  "Shuah
+ Khan" <skhan@linuxfoundation.org>,  "Steam Lin" <STLin2@winbond.com>,
+  "Hsin-Yi Wang" <hsinyi@chromium.org>,  "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>,  <linux-mtd@lists.infradead.org>,
+  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>,
+  <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v3 08/23] mtd: spi-nor: winbond: Prepare introduction of
+ W25QxxRV-Q/N parts
+In-Reply-To: <DKOKKCF45CY6.2RXHF51EW6VV0@kernel.org> (Michael Walle's message
+	of "Fri, 14 Aug 2026 11:46:14 +0200")
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
+	<20260813-winbond-v7-1-spi-nor-rv-addition-v3-8-b637cf120d5c@bootlin.com>
+	<DKOKKCF45CY6.2RXHF51EW6VV0@kernel.org>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 01 Sep 2026 11:02:56 +0200
+Message-ID: <87qzjd8htr.fsf@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260830-b4-apple-soc-tbt-v1-10-44bc9348683c@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_015808_218869_080D2C0D 
-X-CRM114-Status: GOOD (  28.67  )
+X-CRM114-CacheID: sfid-20260901_020306_662262_9F5894D6 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,145 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello,
 
-On Sun, Aug 30, 2026 at 10:19:28PM +0200, Sven Peter wrote:
-> The ring descriptor and options registers are laid out differently on
-> the Apple NHI. Describe their offsets and strides with a
-> tb_nhi_ring_layout struct that NHI drivers can override.
+>> +static const struct spi_nor_fixups winbond_nor_partname_fixups =3D {
+>> +	.post_sfdp =3D winbond_nor_partname_post_sfdp_fixups,
+>> +};
+>> +
+>> +static bool is_w25qxxrv(const struct spi_nor *nor)
+>> +{
+>> +	struct sfdp_header *sfdp_h =3D (struct sfdp_header *)nor->sfdp->dwords;
+>
+> nitpick, spi_nor_sfdp_get_header()?
 
-This is odd because Apple is sitting in USB-IF and they are behind the
-original register layout so why they do not follow it themselves?
+Yup.
 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/thunderbolt/nhi.c   | 30 ++++++++++++++++++++++++------
->  drivers/thunderbolt/nhi.h   | 18 ++++++++++++++++++
->  include/linux/thunderbolt.h |  3 +++
->  3 files changed, 45 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
-> index fc54ff7edfb9..3a3d334e69fd 100644
-> --- a/drivers/thunderbolt/nhi.c
-> +++ b/drivers/thunderbolt/nhi.c
-> @@ -176,19 +176,32 @@ void nhi_disable_interrupts(struct tb_nhi *nhi)
->  
->  /* ring helper methods */
->  
-> +static const struct tb_nhi_ring_layout nhi_default_ring_layout = {
-> +	.tx_desc_base = REG_TX_RING_BASE,
-> +	.rx_desc_base = REG_RX_RING_BASE,
-> +	.desc_stride = 16,
-> +	.tx_options_base = REG_TX_OPTIONS_BASE,
-> +	.rx_options_base = REG_RX_OPTIONS_BASE,
-> +	.options_stride = 32,
-> +};
+>> +	 * W25QxxRV chips re-use the same ID as the W25QxxJV family.
+>> +	 *
+>> +	 * Chips are very similar, W25QxxRV brings mostly performance and power
+>> +	 * consumption improvements. The RV family does not require the multi
+>> +	 * die fixup.
+>> +	 *
+>> +	 * They can be distinguished based on their SFDP minor revision:
+>> +	 * W25QxxJV:        JESD216A, minor revision =3D=3D 05h
+>> +	 * W25Q512/01/02JV: JESD216B, minor revision =3D=3D 06h
+>> +	 * W25QxxRV:        JESD216F, minor revision >=3D 0Ah
+>> +	 */
+>> +	return sfdp_h->minor >=3D SFDP_JESD216F_MINOR;
+>> +}
+>> +
+>> +static bool winbond_jv_match(const struct spi_nor *nor)
+>> +{
+>> +	return !nor->sfdp || !is_w25qxxrv(nor);
+>
+> So how do we know if nor->sfdp is already there for a given fixup.
+> Without having looked at the code, there could potentially be fixups
+> before SFDP is parsed (and the nor->sfdp is populated), right? Might
+> be worth to be mentioned somewhere.
 
-I'm not fan of these to be honest.
+You are right, it is worth mentioning. In practice only default_init()
+is too early.
 
-I think either adding ring_ops that includes hooks that can be overridden
-by non-standard HI or not sure if we can take advantage of regmap here?
-
-> +
->  static void __iomem *ring_desc_base(struct tb_ring *ring)
->  {
-> +	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
->  	void __iomem *io = ring->nhi->iobase;
-> -	io += ring->is_tx ? REG_TX_RING_BASE : REG_RX_RING_BASE;
-> -	io += ring->hop * 16;
-> +
-> +	io += ring->is_tx ? layout->tx_desc_base : layout->rx_desc_base;
-> +	io += ring->hop * layout->desc_stride;
->  	return io;
->  }
->  
->  static void __iomem *ring_options_base(struct tb_ring *ring)
->  {
-> +	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
->  	void __iomem *io = ring->nhi->iobase;
-> -	io += ring->is_tx ? REG_TX_OPTIONS_BASE : REG_RX_OPTIONS_BASE;
-> -	io += ring->hop * 32;
-> +
-> +	io += ring->is_tx ? layout->tx_options_base : layout->rx_options_base;
-> +	io += ring->hop * layout->options_stride;
->  	return io;
->  }
->  
-> @@ -215,8 +228,10 @@ static void ring_iowrite32desc(struct tb_ring *ring, u32 value, u32 offset)
->  
->  static void ring_iowrite64desc(struct tb_ring *ring, u64 value, u32 offset)
->  {
-> -	iowrite32(value, ring_desc_base(ring) + offset);
-> -	iowrite32(value >> 32, ring_desc_base(ring) + offset + 4);
-> +	void __iomem *base = ring_desc_base(ring);
-> +
-> +	iowrite32(value, base + offset);
-> +	iowrite32(value >> 32, base + offset + 4);
->  }
->  
->  static void ring_iowrite32options(struct tb_ring *ring, u32 value, u32 offset)
-> @@ -1253,6 +1268,9 @@ int nhi_probe(struct tb_nhi *nhi)
->  	if (!nhi->ops->init_interrupts)
->  		return dev_err_probe(dev, -EINVAL, "missing required NHI ops\n");
->  
-> +	if (!nhi->ring_layout)
-> +		nhi->ring_layout = &nhi_default_ring_layout;
-> +
->  	nhi->hop_count = ioread32(nhi->iobase + REG_CAPS) & 0x3ff;
->  	dev_dbg(dev, "total paths: %d\n", nhi->hop_count);
->  
-> diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
-> index 4884c3f5a2b2..035cee433a3c 100644
-> --- a/drivers/thunderbolt/nhi.h
-> +++ b/drivers/thunderbolt/nhi.h
-> @@ -40,6 +40,24 @@ void nhi_reset_interface(struct tb_nhi *nhi);
->  
->  extern const struct dev_pm_ops nhi_pm_ops;
->  
-> +/**
-> + * struct tb_nhi_ring_layout - Layout of the ring registers in the NHI MMIO space
-> + * @tx_desc_base: Offset of the descriptor registers of the first TX ring
-> + * @rx_desc_base: Offset of the descriptor registers of the first RX ring
-> + * @desc_stride: Stride between the descriptor registers of neighboring rings
-> + * @tx_options_base: Offset of the options registers of the first TX ring
-> + * @rx_options_base: Offset of the options registers of the first RX ring
-> + * @options_stride: Stride between the options registers of neighboring rings
-> + */
-> +struct tb_nhi_ring_layout {
-> +	u32 tx_desc_base;
-> +	u32 rx_desc_base;
-> +	u32 desc_stride;
-> +	u32 tx_options_base;
-> +	u32 rx_options_base;
-> +	u32 options_stride;
-> +};
-> +
->  /**
->   * struct tb_nhi_ops - NHI specific optional operations
->   * @init: NHI specific initialization
-> diff --git a/include/linux/thunderbolt.h b/include/linux/thunderbolt.h
-> index d48623fda79b..7c2717bd2945 100644
-> --- a/include/linux/thunderbolt.h
-> +++ b/include/linux/thunderbolt.h
-> @@ -503,6 +503,8 @@ void tb_service_properties_changed(struct tb_service *svc);
->   *	  interrupt_work when dispatching interrupts to individual rings.
->   * @dev: Device associated with this NHI instance
->   * @ops: NHI specific optional ops
-> + * @ring_layout: Layout of the ring registers inside @iobase. If not set
-> + *		 the default layout from the USB4 specification is used.
->   * @iobase: MMIO space of the NHI
->   * @tx_rings: All Tx rings available on this host controller
->   * @rx_rings: All Rx rings available on this host controller
-> @@ -524,6 +526,7 @@ struct tb_nhi {
->  	spinlock_t lock;
->  	struct device *dev;
->  	const struct tb_nhi_ops *ops;
-> +	const struct tb_nhi_ring_layout *ring_layout;
->  	void __iomem *iobase;
->  	struct tb_ring **tx_rings;
->  	struct tb_ring **rx_rings;
-> 
-> -- 
-> 2.55.0
-> 
+Thanks,
+Miqu=C3=A8l
 
