@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA21C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24592C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZxW7rjtqQc+LAzEY2e5oP4g+BE+YY8gyU5Acp8joSKo=; b=TlZt5rCpYxB7e/bdFjWdyKL6Vt
-	gnFVzt4/bb2nP8CxMrIL4bDNXGvdL50Rk6X3KheC5ze9WGXnNzoHLRocUPDz0nnyCRWXCjVQJj30+
-	9TnS32VdZ7g7OqRWwCPfc1qpkUfaDGhR7lkQBdXCZAyxMeCKsbIdxxXtE5ezfAmbVECS5aZ2QDaPB
-	qXhRqT3zkEPhvDfX/Z1CoQWpFGtjHehjfpR7elYwgD+Ok9HHnxhB55twKi7eK+05Fa0KrzRc9IlIo
-	z8lVF5gO5lHCMAys2FSsdRKKNrKeXq+70372rUbYxE4zBe30YrXaJbFEM1i+VSpDYbF0r+QMuVNwU
-	0woJqjSg==;
+	bh=DtEtsbpRHA9G7bWdNj7DDptncmLtU6r7+aRERSU/0MU=; b=09ipSFeOGwzjNQ+NJK8KDGEqMP
+	C+3U/Ma+yz2oPe8hB87O28lJbxYWFpcysoSf0QSM82gUNu2kR8iPUBOjjTzqnYZpN5PGcTGIE0ytP
+	vHTC6FqT+830z9UoCkRUFgcHUeuyzNaoFeUO+UW8PL6aokkoCKyVDVocpn5HfsBBYMSDaGVgf36cm
+	suWMfmxmUXdvjqWzvo/Aq7TgGCOusBXOWEdD0+3E9/Lgn5J4PvzODBXx5a9tLzm2EL1pgpzW6n/BB
+	F2334DLo7URwao5YcjoQbHcgWd1N6oZi06vs1cOEn/vPxqEmc/415dxwPmg9bigWHi/bfi0fza16E
+	beNYynaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tai-0000000D2rQ-02z4;
-	Tue, 01 Sep 2026 18:52:16 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1x1Tal-0000000D2zB-3ajB;
+	Tue, 01 Sep 2026 18:52:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZR-0000000D0kh-4C0L;
-	Tue, 01 Sep 2026 18:51:16 +0000
+	id 1x1TZh-0000000D1C9-2OSU;
+	Tue, 01 Sep 2026 18:51:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=DtEtsbpRHA9G7bWdNj7DDptncmLtU6r7+aRERSU/0MU=; b=kufEDjYvfgPeZb3cFS1/0vLpvL
+	oDp29tI+Gd1tBuKliNGmnhUSFLwiDUPt8WiGKVKhlS1jwMG/LH5dSPu3UmMVha+v1jte/QT71Fgt0
+	DUK5WdJQ/1JlmFAKy55Br4GNzEBljWboroBDybNERu9Nx8iYqz1Q/zEbkROpZmQaxGvBkJiy/WH97
+	qtllvL4CJUPcU4RPsJV9uixAW2c20sKJLxUfx8VJ/zJgpAkZhgVBe+e7l6Wk/wHjhzuEXZAiJ+4p4
+	1dY512txJaJLVZlHvUJe19NSCmTYYVVIcb84Zt3E6MCwfHr65NZC+DfOuvI2dPrNg30obzohr9zd+
+	uJzIZRTA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1TZc-0000000BHQw-3n0e;
+	Tue, 01 Sep 2026 18:51:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288655;
-	bh=9CFIYOskix3ufH18zNjEwK+Gw3EDatbHB34+EKdhcxE=;
+	s=mail; t=1788288667;
+	bh=J2id52QhgWo1E1P95MlPV/yTzEnlNrvgDE2c5comEmM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oy+JRpAtArdeUXFPxd8Cqf5UODaWOjesxM8nIk2TVVKY0sQWVoCUdA53ah9KVU3XS
-	 c+CaDAhSqdY0OZZP7qJscGOL9xo7TmjLVdpbJtPwjoHHTM4YHO3NZYw/KaZEwPKWTE
-	 iwiQNhRlOJpVGI+KddOrwDrUzcn/atUZwwOjd49zYntmv7zySiC8btpGn1qcA3CIdI
-	 JbGp9cjrbsCGXMh2sEQTWtRBFsYFpTkRM0yURV7tBI2EswKrGPhJl5d8cabpziu5rE
-	 ILYlV7pnVpyLH/SyAqYXURWAX2dKZdzI+Kp+I2bKOxTUqozeKh4y7BwbEqcwSSgt1M
-	 ccxlj70ww+52A==
+	b=WhYlSmVPSQsjcw+VifNSGNflrABmi0VKg2AfYScGqAiex4T41RkuP/2jd4pETDeGV
+	 1wVnOwb1lZyN4RAM1+iRSwLmEbCrmZjwOVdGyWYTF4C+RuVmNw/XQzgCuKqnIaP16B
+	 liFqEmKZsDwj0rd2XXzyxUy0qlO7E/GUbR2UyhczspI00KoAiN3JlqOU1x5mN/r+h/
+	 /CAsGdob8EjZytSGvnRP1QQYO7MSBGNXAnN9JlUg3wldiNLLQi1uuUG8hURGyxDkQD
+	 kyHFsc9o4R19i/osCoBbTKnINrkKk6XGL5+xY5RBszcPW7nLeNuRufIHy1bDmrs/Ne
+	 VK/1BhBevZa4Q==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 341E717E37D1;
-	Tue, 01 Sep 2026 20:50:55 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9689417E0CAB;
+	Tue, 01 Sep 2026 20:51:07 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:50:43 +0300
-Subject: [PATCH v11 19/74] drm/display: bridge_connector: Wire up HDMI 2.0
- scrambler callbacks
+Date: Tue, 01 Sep 2026 21:51:00 +0300
+Subject: [PATCH v11 36/74] drm/rockchip: dw_hdmi_qp: Mask RK3576 HPD IRQ in
+ io_init
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-19-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-36-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,12 +89,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, Maud Spierings <maud_spierings@hotmail.com>, 
- Diederik de Haas <diederik@cknow-tech.com>
+ linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_115058_861748_9D81DCE3 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260901_195109_138743_86DD2DAC 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,94 +108,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Connect the bridge connector's .scrambler_{enable|disable} callbacks to
-the underlying bridge's .hdmi_scrambler_{enable|disable} funcs when
-HDMI 2.0 conformance is advertised.
+Start with HPD masked, matching RK3588, so the bridge framework controls
+when interrupts are armed via hpd_enable().
 
-This completes the bridge connector plumbing so that the SCDC
-scrambling helpers can control source-side scrambling through the
-bridge chain.
-
-Tested-by: Maud Spierings <maud_spierings@hotmail.com>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 40 +++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 4ad3cd107ecd..0f85ca2bf209 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -577,6 +577,32 @@ static int drm_bridge_connector_write_spd_infoframe(struct drm_connector *connec
- 	return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index dff400233154..bcfa6646546e 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -432,7 +432,7 @@ static void dw_hdmi_qp_rk3576_io_init(struct rockchip_hdmi_qp *hdmi)
+ 
+ 	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON14, val);
+ 
+-	val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0);
++	val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1);
+ 	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
  }
  
-+static int drm_bridge_connector_scrambler_enable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_scrambler_enable(bridge);
-+}
-+
-+static int drm_bridge_connector_scrambler_disable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_scrambler_disable(bridge);
-+}
-+
- static const struct drm_edid *
- drm_bridge_connector_read_edid(struct drm_connector *connector)
- {
-@@ -604,7 +630,7 @@ static const struct drm_connector_hdmi_funcs drm_bridge_connector_hdmi_funcs = {
- 		.clear_infoframe = drm_bridge_connector_clear_hdmi_infoframe,
- 		.write_infoframe = drm_bridge_connector_write_hdmi_infoframe,
- 	},
--	/* audio, hdr_drm and spd are set dynamically during init */
-+	/* scrambler, audio, hdr_drm and spd are set dynamically during init */
- };
- 
- static const struct drm_connector_infoframe_funcs drm_bridge_connector_hdmi_audio_infoframe = {
-@@ -908,6 +934,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			     !bridge->funcs->hdmi_clear_spd_infoframe))
- 				return ERR_PTR(-EINVAL);
- 
-+			if (bridge->supported_hdmi_ver >= HDMI_VERSION_2_0 &&
-+			    (!bridge->funcs->hdmi_scrambler_enable ||
-+			     !bridge->funcs->hdmi_scrambler_disable))
-+				return ERR_PTR(-EINVAL);
-+
- 			bridge_connector->bridge_hdmi = drm_bridge_get(bridge);
- 		}
- 
-@@ -1027,6 +1058,13 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			bridge_connector->hdmi_funcs.spd =
- 				drm_bridge_connector_hdmi_spd_infoframe;
- 
-+		if (bridge_connector->bridge_hdmi->supported_hdmi_ver >= HDMI_VERSION_2_0) {
-+			bridge_connector->hdmi_funcs.scrambler_enable =
-+				drm_bridge_connector_scrambler_enable;
-+			bridge_connector->hdmi_funcs.scrambler_disable =
-+				drm_bridge_connector_scrambler_disable;
-+		}
-+
- 		ret = drmm_connector_hdmi_init(drm, connector,
- 					       &drm_bridge_connector_funcs,
- 					       &bridge_connector->hdmi_funcs,
 
 -- 
 2.55.0
