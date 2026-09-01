@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4679C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B86E3C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9NpBB7CEIjqjyGCb4SVckgVeutjU9azjoaZgEVa947o=; b=YHNB8eu4SJ8HqXq1oxINBnD5BK
-	Sl9uWlf7WdponlilJjU1oMOAtH2Cz8VhSujQlayaZpc5B1ZVVLl0cHGG52Bj7pgVTs326fuHBOEI7
-	HHYINEtzfctBRF+Zh5o36eoxTJB/ylc2jZBA72bG0L8cO+elAJmKBdoX4EtWeANm84zG39gxzjlhW
-	j18tZTaghCp14LJSLSclfPwidUwVoLwyhfz5fFK9sv9+kcQg478y2L/qLUwCXtsEmacvp2a5Y/IY3
-	UC22yYLltwn07BF4uW5os4GEBGhaqAsquUQCRKiA4FoNjnpo3nQzNPUEqc3BqeSFH2Wqaykt4+ukO
-	l9sbWk3A==;
+	bh=bLJ7so2eQ04eUxA7uRgkuQiNgLyO0A/w5Eo0GY7ooL8=; b=AVsG5P+4tj6CYsrK/0yoxIz9dA
+	hRP86ze2wvk19EpDAjB11XFp8ENDLKttof4T+js7igudpgJPHpEOjD5NGtYgXkjkJ2WYUx4rb4J29
+	mr+XlqIQPadBd4DiVHyiT5yTNQm/742lEYylRqqsTMt5Xl8+YxgQckMDlaQ0midBuf1ZlZH1+H9Vk
+	M89RMlxS2zPNqyJAFDxYhGAwvUUav7k0hu351X/6YT6RGi4V0BwL6p1BDS5DdfAE300ONqIDdIaxq
+	2pGfcloH93PUHV/BbdM3GSywfu/IXixomzmlPz6WWakpjR6uQnsR99SfK5DGp+qdgUhmXgo9ne9I8
+	F/kdaurQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OIa-0000000CAh7-0znl;
-	Tue, 01 Sep 2026 13:13:12 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1x1OIX-0000000CAbw-20SJ;
+	Tue, 01 Sep 2026 13:13:09 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OIR-0000000CAUE-3WXK;
-	Tue, 01 Sep 2026 13:13:06 +0000
+	id 1x1OIQ-0000000CAUZ-0ffV;
+	Tue, 01 Sep 2026 13:13:05 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=9NpBB7CEIjqjyGCb4SVckgVeutjU9azjoaZgEVa947o=;
-	b=sLIQWxtrS8w5ERuoFDXmbubInkswYa662b4wJY61Zn7xeDFflLoibLq4MWzVHCe0KOiu45zz/
-	WsF0/wDXGz+6Irxls6bqJzT51YJ9VpzdmO28F/hdacMD9/6HUBU+B/lIjOaXLBS1rXND9jmd36W
-	gmNkFosl91edLNaX6LjQcZk=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hZ5bq63dBzKm5m;
-	Tue,  1 Sep 2026 21:01:59 +0800 (CST)
+	bh=bLJ7so2eQ04eUxA7uRgkuQiNgLyO0A/w5Eo0GY7ooL8=;
+	b=xTyBELc/cInYBPOUaTwt3ILOfZ8Pf1/HI1d647R/Wj1c7mrsUsFgGo6dMICOPm6/A2FvA1OPa
+	OLpDQ8pLDW77LCeJ/wMWwQZwTA8vs7oqYp02u/NAFMCA1JTKhXa+1DFZkbttwNYqEJRvMcS+5Dk
+	X8P9UZhgp21LbdrV9BHtios=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hZ5bz1vPzz1prLc;
+	Tue,  1 Sep 2026 21:02:07 +0800 (CST)
 Received: from dggpemr100018.china.huawei.com (unknown [7.185.36.64])
-	by mail.maildlp.com (Postfix) with ESMTPS id 01D1440586;
-	Tue,  1 Sep 2026 21:12:53 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7E33440579;
+	Tue,  1 Sep 2026 21:12:58 +0800 (CST)
 Received: from huawei.com (10.50.85.155) by dggpemr100018.china.huawei.com
  (7.185.36.64) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 1 Sep
- 2026 21:12:52 +0800
+ 2026 21:12:57 +0800
 From: zhouminqiang <zhouminqiang2@huawei.com>
 To: <linux@armlinux.org.uk>, <vz@mleia.com>, <piotr.wojtaszczyk@timesys.com>,
 	<maddy@linux.ibm.com>, <dwmw2@infradead.org>, <richard@nod.at>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-mtd@lists.infradead.org>,
 	<chengzhihao1@huawei.com>, <yangerkun@huawei.com>, <yi.zhang@huawei.com>
-Subject: [PATCH v3 1/8] jffs2: wbuf: clear wbuf on recovery failure paths
-Date: Tue, 1 Sep 2026 21:05:42 +0800
-Message-ID: <20260901130549.1761342-2-zhouminqiang2@huawei.com>
+Subject: [PATCH v3 8/8] jffs2: add runtime toggle for write verification
+Date: Tue, 1 Sep 2026 21:05:49 +0800
+Message-ID: <20260901130549.1761342-9-zhouminqiang2@huawei.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
 References: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
@@ -62,8 +62,8 @@ X-Originating-IP: [10.50.85.155]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemr100018.china.huawei.com (7.185.36.64)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_061304_266727_9A966BF8 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260901_061302_552664_D9CC72A0 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,175 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Write verification was introduced by commit a6bc432e296d ("[JFFS2]
-Add support for write-buffer verification.") to detect transport or
-program-time corruption. When verification fails, jffs2_wbuf_recover()
-attempts to recover the data: it first calls jffs2_block_refile()
-to mark the old eraseblock's remaining space as REF_OBSOLETE,
-then rewrites the old block's data along with the new data still
-in the wbuf to a new block.  However, when the recovery write
-verification also fails, the function returns without clearing
-c->wbuf_len, leaving the wbuf still pointing to the refiled old
-block, which leads to two kinds of bugs.
+Write verification is a diagnostic facility that adds read-back
+overhead to every write. In production, this overhead is undesirable
+unless fault isolation is required.
 
-Both cases below are illustrated with a filesystem of
-erasesize=16KB and wbuf_pagesize=512B.
-
-Case 1: BUG_ON in jffs2_link_node_ref():
-
-    User: Two 1KB writes
-      ref0: [A+0,    A+1092) (ri:68B + data:1024B)
-      ref1: [A+1092, A+2184)
-
-    User: append 1KB write
-      ...
-      jffs2_write_dnode
-        jffs2_flash_writev
-          c->wbuf_ofs = A+2048, c->wbuf_len = 512
-          __jffs2_flush_wbuf
-            mtd_write                          -> 0-to-1 bit flip
-            jffs2_verify_write                 -> verify failed
-            jffs2_wbuf_recover
-              jffs2_block_refile
-                c->nextblock = NULL
-                jffs2_link_node_ref            -> mark A remaining
-                  ref2: [A+2184, A+16384)         space REF_OBSOLETE,
-                                                  jeb_A->free_size = 0
-              jffs2_reserve_space_gc
-                jffs2_do_reserve_space
-                  jffs2_find_nextblock
-                    c->nextblock = B
-              start = A+1092, end = A+2184
-              end - start >= c->wbuf_pagesize  -> recover data in A
-              mtd_write
-              jffs2_verify_write               -> verify also failed
-              return                           -> c->wbuf_ofs = A+2048
-                                                  c->wbuf_len = 512
-        retry
-        jffs2_flash_writev
-          if (SECTOR_ADDR(to) != SECTOR_ADDR(c->wbuf_ofs))
-                                               -> SECTOR(to) = B
-                                               -> SECTOR(c->wbuf_ofs) = A
-          __jffs2_flush_wbuf(c, PAD_NOACCOUNT) -> flush residual wbuf data
-            wbuf_jeb = A                       -> c->wbuf_ofs still points
-                                                  to refiled old block
-            mtd_write                          -> succeeds via NAND AND
-            jffs2_verify_write                 -> passed
-            if (pad)
-            jffs2_link_node_ref
-              ref_offset(ref) = c->wbuf_ofs + c->wbuf_len = A+2560
-              jeb_A->offset = A
-              c->sector_size = 16384
-              jeb_A->free_size = 0
-              ref_offset(ref) != jeb_A->offset +
-                c->sector_size - jeb_A->free_size -> BUG
-
-Case 2: deadlock in jffs2_flush_wbuf_pad():
-
-    User: 1KB write
-      A_ref0: [A+0,    A+1092) (ri:68B + data:1024B)
-
-    User: append 1K write
-      ...
-      jffs2_write_dnode
-        jffs2_flash_writev
-          c->wbuf_ofs = A+1024, c->wbuf_len = 512
-          __jffs2_flush_wbuf
-            mtd_write                          -> bit flip
-            jffs2_verify_write                 -> verify failed
-            jffs2_wbuf_recover
-              jffs2_block_refile
-                c->nextblock = NULL
-                jffs2_link_node_ref            -> mark A remaining
-                  A_ref1: [A+1092, A+16384)       space as REF_OBSOLETE
-              jffs2_reserve_space_gc
-                jffs2_do_reserve_space
-                  jffs2_find_nextblock
-                    c->nextblock = B
-              start = A, end = A+1092
-              end - start >= c->wbuf_pagesize  -> recover data in A
-              mtd_write
-              jffs2_verify_write               -> verify also failed
-              jffs2_add_physical_node_ref      -> mark written area in
-                B_ref0: [B+0, B+1536)             B as REF_OBSOLETE
-              return                           -> c->wbuf_ofs = A+1024
-                                                  c->wbuf_len = 512
-        retry
-        jffs2_flash_writev
-          down_write(&c->wbuf_sem)
-          if (SECTOR_ADDR(to) != SECTOR_ADDR(c->wbuf_ofs))
-                                               -> SECTOR(to) = B
-                                               -> SECTOR(c->wbuf_ofs) = A
-          __jffs2_flush_wbuf(c, PAD_NOACCOUNT) -> flush residual wbuf data
-            wbuf_jeb = A                       -> c->wbuf_ofs still points
-                                                  to refiled old block
-            mtd_write                          -> bit flip
-            jffs2_verify_write                 -> verify failed
-            jffs2_wbuf_recover
-              jffs2_block_refile
-                c->nextblock != jeb            -> jeb = A, nextblock = B
-                jffs2_link_node_ref            -> append zero-length ref
-                  A_ref2: [A+16384, A+16384)      marked REF_OBSOLETE
-                                                  after the existing one
-              end = jeb_A->last_node           -> inflates to
-                                                  eraseblock tail
-              start = A, end = A+16384
-              jffs2_reserve_space_gc
-                minsize = end - start = 16384
-                jffs2_do_reserve_space
-                  jeb = c->nextblock           -> points to B
-                  jeb_B->free_size = 16384 - 1536
-                  minsize > jeb_B->free_size   -> first recovery's OBSOLETE
-                                                  ref reduced free_size
-                  jffs2_wbuf_dirty(c)
-                  jffs2_flush_wbuf_pad(c)
-                    down_write(&c->wbuf_sem)   -> already held, deadlock
-
-Fix this by setting c->wbuf_len = 0 when jffs2_verify_write fails in
-recovery path, and also in the jffs2_reserve_space_gc() and
-jffs2_prealloc_raw_node_refs() failure paths, ensuring subsequent
-flushes will not attempt writes on refiled blocks.
+Add a module parameter jffs2.write_verify (bool, 0644) that defaults
+to off when CONFIG_JFFS2_FS_WRITE_VERIFY is enabled. The verification
+entry checks READ_ONCE(jffs2_write_verify) and returns immediately
+when disabled, avoiding any overhead. The parameter can be toggled at
+runtime via /sys/module/jffs2/parameters/write_verify or set at
+boot/modprobe time.
 
 Signed-off-by: zhouminqiang <zhouminqiang2@huawei.com>
 ---
- fs/jffs2/wbuf.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ fs/jffs2/Kconfig  |  8 ++++++++
+ fs/jffs2/writev.c | 23 +++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
 
-diff --git a/fs/jffs2/wbuf.c b/fs/jffs2/wbuf.c
-index 3b7803c75d58..61e3dbd4cd7b 100644
---- a/fs/jffs2/wbuf.c
-+++ b/fs/jffs2/wbuf.c
-@@ -390,6 +390,7 @@ static void jffs2_wbuf_recover(struct jffs2_sb_info *c)
- 	if (ret) {
- 		pr_warn("Failed to allocate space for wbuf recovery. Data loss ensues.\n");
- 		kfree(buf);
-+		c->wbuf_len = 0;
- 		return;
- 	}
+diff --git a/fs/jffs2/Kconfig b/fs/jffs2/Kconfig
+index 556025a5d438..03dadbd003cd 100644
+--- a/fs/jffs2/Kconfig
++++ b/fs/jffs2/Kconfig
+@@ -61,6 +61,14 @@ config JFFS2_FS_WRITE_VERIFY
+ 	  tell transport/program-time corruption from post-commit media
+ 	  damage.
  
-@@ -400,6 +401,7 @@ static void jffs2_wbuf_recover(struct jffs2_sb_info *c)
- 	if (ret) {
- 		pr_warn("Failed to allocate node refs for wbuf recovery. Data loss ensues.\n");
- 		kfree(buf);
-+		c->wbuf_len = 0;
- 		return;
- 	}
++	  Verification defaults to off when this option is selected and can
++	  be enabled at runtime via sysfs:
++
++	    /sys/module/jffs2/parameters/write_verify
++
++	  Write 0 to disable, 1 to enable.  Boot/modprobe parameter
++	  jffs2.write_verify=0|1 is also supported.
++
+ 	  If unsure, say 'N'.
  
-@@ -431,12 +433,13 @@ static void jffs2_wbuf_recover(struct jffs2_sb_info *c)
+ config JFFS2_SUMMARY
+diff --git a/fs/jffs2/writev.c b/fs/jffs2/writev.c
+index 604a14bb5710..342c413be95c 100644
+--- a/fs/jffs2/writev.c
++++ b/fs/jffs2/writev.c
+@@ -9,12 +9,32 @@
+  *
+  */
  
- 		if (ret || retlen != towrite || jffs2_verify_write(c, rewrite_buf, ofs)) {
- 			/* Argh. We tried. Really we did. */
--			pr_crit("Recovery of wbuf failed due to a second write error\n");
-+			pr_crit("Recovery of wbuf failed due to a second write error. Data loss ensues.\n");
- 			kfree(buf);
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
+ #include <linux/kernel.h>
++#include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/mtd/mtd.h>
+ #include "nodelist.h"
  
- 			if (retlen)
- 				jffs2_add_physical_node_ref(c, ofs | REF_OBSOLETE, ref_totlen(c, jeb, first_raw), NULL);
+ #ifdef CONFIG_JFFS2_FS_WRITE_VERIFY
++/*
++ * Optional read-back after writes.
++ *
++ * Catch cases where data is corrupted after node CRCs are calculated but
++ * before it is correctly programmed -- e.g. in RAM or during DMA/bus
++ * transfer to the flash controller -- so mtd_write() succeeds while the
++ * medium does not match the in-memory image.
++ *
++ * Runtime toggle: /sys/module/jffs2/parameters/write_verify
++ * (also boot/modprobe: jffs2.write_verify=0|1)
++ */
++static bool jffs2_write_verify;
++module_param_named(write_verify, jffs2_write_verify, bool, 0644);
++MODULE_PARM_DESC(write_verify,
++		 "Verify flash writes by reading back (default: N)");
++
++
+ int jffs2_verify_write(struct jffs2_sb_info *c, const unsigned char *buf,
+ 			      uint32_t ofs, size_t len)
+ {
+@@ -23,6 +43,9 @@ int jffs2_verify_write(struct jffs2_sb_info *c, const unsigned char *buf,
+ 	char *eccstr;
+ 	void *verify_buf;
  
-+			c->wbuf_len = 0;
- 			return;
- 		}
- 		pr_notice("Recovery of wbuf succeeded to %08x\n", ofs);
++	if (!READ_ONCE(jffs2_write_verify))
++		return 0;
++
+ 	verify_buf = kmalloc(len, GFP_NOFS | __GFP_NOWARN);
+ 	if (!verify_buf) {
+ 		pr_warn("%s(): verify buffer allocation failed, skipping verification\n",
 -- 
 2.52.0
 
