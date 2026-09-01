@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D66C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181DEC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKdIL71OW8377COSueQQB9UY5Qo71kH7cDT61xcV7v0=; b=vIPO7+m/54X3HtgH5jZAamN85R
-	EgjSCfT7MkCWMuMsOq6a4sCi6ggUsQeBk6+i0fW0icgsA6SwKcRutLBbRUdwVaNp+H0tWRUwwSfv6
-	lpPH3P60DZKAj1pZ+uLf9j89afjHTC/TVbI5ASRMKRF9+t5mgQrRfH+bt7ZvpD1DlmzSHBNq+TwXP
-	mCBVRq1jhxOVQZmxQIL8rJlAmLrnqvWU8VwBPFCtkTaxOGZiZ6W/gk9wBLrq4I8TDxXHRzppl3qyP
-	xybArwwgHYsT1s9Xx3/VvBIF5q1LdWdr9LFki2169oRrKPkat+3Hr2mr4Znana1Ajg7/O08vT6ZFk
-	fX+o+UPA==;
+	bh=8erPI3FlDm+wON0APsVatUpl/ybjSpq8XyPHUuxDthE=; b=IYG7v/NcvbMdKDIBKB5xwAGosK
+	3xfhdhnAy+zm/1xGWzAP1Ls/5v+dGlP3gqAY9nb0CT2KxFYzf4aklNVQZdQmaQhio1Q+IbnRbe0uf
+	B+RvcH5souCFxK8LOCXRsau6VEu0gzSxRCj/+cNVWnBBFkYjF66IKJl7TX1pVdEPq9WENukKXLYOZ
+	v2ckATPt9nCR9ZKURk7Ax2F5gWgu+zBEvpF32rVxLamOeQ6Sh3sSsXCy3SysK6tHYdiS7yM+UlXt6
+	hidAxlF7IjCv8jHBEaHJHCqW9bW7vnOib33DoigJU4aKcyRBzsENR5Rw3gt/1/1QuiXAPHxuXhCnC
+	0W7OILDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TbK-0000000D49q-3eXm;
-	Tue, 01 Sep 2026 18:52:54 +0000
+	id 1x1TbQ-0000000D4Kk-3T8p;
+	Tue, 01 Sep 2026 18:53:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZq-0000000D1Lw-40H1;
+	id 1x1TZr-0000000D1M2-24e5;
 	Tue, 01 Sep 2026 18:51:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FKdIL71OW8377COSueQQB9UY5Qo71kH7cDT61xcV7v0=; b=pFoszfrCKGEKhJc+lQEZO+3Kry
-	wY4hVoQ9fyZ+o1llP6za/rbpx7txgcq2FXA6mloPO9E9v6n0KkWKIDJxEVa7ea4/FXUnrXblXbt5r
-	QkUFE6iqTZOU7pPowbbb2OPXqS6wHiLWJnobETo+rWKerdJulFnndBXKAFE0NJurpYMyEfsuiNzvo
-	ve2LXGSIMcoJXCg1zo9AxqGh06e6ZrkWVHeBb+24h85cDEaIA4tKBXWk+yhXHrkEV/QEQR+zejy4n
-	rn2Bv5WqvP+GwRSHfQaXzivWPxeYvo0iay/ANaGUqJQavirmVLWukPTwPuTDG53F3sohZfi9d4LaX
-	YKVfrFlQ==;
+	bh=8erPI3FlDm+wON0APsVatUpl/ybjSpq8XyPHUuxDthE=; b=byRDQPMGpH/0sECFMmzb/3Y77k
+	ofcwU8X5H+ZWL5UnMwHeXy+yxeEFZ9t/jLfY6wi5FkfUhkS8q/cnCwpWYfd7sskv7Hr/unOGPewas
+	zSvReci6qd+yMFhGqplf1/zvekq+v//kwfwNdvSgjuXfCjuyYixKzrY79SG4DOn398vWcF4b8VCvx
+	LFibfXEIB5wvt4DdyQLODSHi+TgolSdGi/tpNLChVLVThq4TGy4l56Jk6DEkzgxoozy9rinofcxYk
+	MUHRDwzKNExHKsQ6oY7ZFfFjpmILMxZBZxjhpTrQcH1NT1zIWOA/kMM5jx++P4Fc2gKWqW2dsrKwK
+	ugrC9smA==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1TZn-0000000BHXT-3Wi5;
-	Tue, 01 Sep 2026 18:51:21 +0000
+	id 1x1TZf-0000000BHRa-47Vb;
+	Tue, 01 Sep 2026 18:51:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288678;
-	bh=hse6ZoBRDdkgueZEFZSp6DqlC7adzsHmGMK2OKfFL4E=;
+	s=mail; t=1788288669;
+	bh=4/YtiZaZ89Twed4oFSRxyYx32iL1zMvuMBIOY5hJe+k=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=JUIAX35pkGhzYnzN4qdFzY4BQZPKYsC8sOxYYiKgX2WWsE9TxYoj5gbi4K5mACXSF
-	 DYdv+OEPLN/8o1GHXftpZMoyaC0dQGvQhKGerER6qEVRfmQ5mfvhR6+KPU9xBNCM1z
-	 QnLeg+wsDTtABzvHHpUMtcnn7dGp+CepEEzZobukzyZ8QwoYm3li5Aj5GDFONc9khN
-	 PLYPS74zUtg6DZ/KhvXF5sozxj1Bk0VrPraN2AGsTAS9x7iZS1ia3G0jNOYctHMoVF
-	 lbwtmJ78qnnQ5si4j2g3cAI3lYdHTLeHReB5JRAXEPYI4Q4rECLyXZ6pdQL09vav0W
-	 PYHRYtYTj6UWQ==
+	b=PGzp1SsilCwKYexcs8Bz9AWbenl0kCA6UHdzrNc6drFAF0zRKDQx0sbazIh4l4zr8
+	 nyj7K0MoXR0S3HZsdldbnCOHAhuw8wRQ/AOKPg8RK3FTd+Q1PusLGmFxRPQ92qyWeq
+	 boryLrLsAE0ZO+EgmSa0FtvsE/hRrVisMMLHTjWtfYUMg43Bl6bKMcVdmFotFA6LHV
+	 9d3RpySLf+hRNTJrIWTlBhAF3J98DN4vt4MOCCz9Ztomz/tBXRIxHA0xlWpAqkLkHr
+	 Uw5IhMvrMNYdHy+9iW0DKZdJ7HLWYYPUByQHXJMGtsHOGHMQjPWyvfuuD9yTTYEiYx
+	 jH1CXtdgCP1Pg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 974FC17E3C75;
-	Tue, 01 Sep 2026 20:51:18 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 28D7117E3C56;
+	Tue, 01 Sep 2026 20:51:09 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:51:15 +0300
-Subject: [PATCH v11 51/74] drm/bridge: inno-hdmi: Advertise HDMI 1.2
- capabilities
+Date: Tue, 01 Sep 2026 21:51:02 +0300
+Subject: [PATCH v11 38/74] drm/rockchip: dw_hdmi_qp: Factor out HPD
+ interrupt (un)mask helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-51-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-38-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -89,11 +89,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org
+ linux-fbdev@vger.kernel.org, Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_195119_974415_3DF9F687 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260901_195120_803675_874202CA 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +108,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new caps-based HDMI connector
-initialization API is completed.
+Extract the GRF-level HPD interrupt mask/unmask register writes into
+dedicated dw_hdmi_qp_rk35{88,76}_{mask,unmask}_hpd() helpers, and use
+them from the .enable_hpd()/.disable_hpd() phy ops as well as the
+hardirq, threaded re-arm and io_init() paths.
 
-Since inno_hdmi_phy_config.pixelclock does not exceed 165 MHz for any of
-the chip variants handled by the driver, advertise HDMI 1.2 as the
-supported version.
+This is a preparatory refactor that separates the SoC-level HPD mask
+from the phy op entry points, so a subsequent change can gate the
+platform HPD IRQ line without affecting the debounce paths.
 
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/inno-hdmi.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 54 ++++++++++++++++++--------
+ 1 file changed, 37 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index dd35f5a875d3..ea3447d4f285 100644
---- a/drivers/gpu/drm/bridge/inno-hdmi.c
-+++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -1119,6 +1119,7 @@ struct inno_hdmi *inno_hdmi_bind(struct device *dev,
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Inno";
- 	hdmi->bridge.product = "Inno HDMI";
-+	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_2;
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 9e48ec06eb66..ecf12403101d 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -277,9 +277,8 @@ dw_hdmi_qp_rk3588_read_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 	return val ? connector_status_connected : connector_status_disconnected;
+ }
  
- 	hdmi->bridge.ddc = inno_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
+-static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++static void dw_hdmi_qp_rk3588_unmask_hpd(struct rockchip_hdmi_qp *hdmi)
+ {
+-	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 	u32 val;
+ 
+ 	if (hdmi->port_id)
+@@ -292,9 +291,8 @@ static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+ }
+ 
+-static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++static void dw_hdmi_qp_rk3588_mask_hpd(struct rockchip_hdmi_qp *hdmi)
+ {
+-	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 	u32 val;
+ 
+ 	if (hdmi->port_id)
+@@ -305,6 +303,20 @@ static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+ }
+ 
++static void dw_hdmi_qp_rk3588_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++{
++	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
++
++	dw_hdmi_qp_rk3588_unmask_hpd(hdmi);
++}
++
++static void dw_hdmi_qp_rk3588_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
++{
++	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
++
++	dw_hdmi_qp_rk3588_mask_hpd(hdmi);
++}
++
+ static const struct dw_hdmi_qp_phy_ops rk3588_hdmi_phy_ops = {
+ 	.init		= dw_hdmi_qp_rk3588_phy_init,
+ 	.disable	= dw_hdmi_qp_rk3588_phy_disable,
+@@ -325,23 +337,31 @@ dw_hdmi_qp_rk3576_read_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ 		connector_status_connected : connector_status_disconnected;
+ }
+ 
++static void dw_hdmi_qp_rk3576_unmask_hpd(struct rockchip_hdmi_qp *hdmi)
++{
++	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_CLR, 1) |
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0));
++}
++
++static void dw_hdmi_qp_rk3576_mask_hpd(struct rockchip_hdmi_qp *hdmi)
++{
++	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
++		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1));
++}
++
+ static void dw_hdmi_qp_rk3576_enable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+-	u32 val;
+ 
+-	val = (FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_CLR, 1) |
+-	       FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0));
+-
+-	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
++	dw_hdmi_qp_rk3576_unmask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3576_disable_hpd(struct dw_hdmi_qp *dw_hdmi, void *data)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = (struct rockchip_hdmi_qp *)data;
+ 
+-	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0,
+-		     FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1));
++	dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ }
+ 
+ static const struct dw_hdmi_qp_phy_ops rk3576_hdmi_phy_ops = {
+@@ -375,7 +395,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_hardirq(int irq, void *dev_id)
+ 	regmap_read(hdmi->regmap, RK3576_IOC_HDMI_HPD_STATUS, &intr_stat);
+ 
+ 	if (intr_stat & RK3576_HDMI_OHPD_INT) {
+-		dw_hdmi_qp_rk3576_disable_hpd(NULL, hdmi);
++		dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ 		return IRQ_WAKE_THREAD;
+ 	}
+ 
+@@ -389,7 +409,7 @@ static irqreturn_t dw_hdmi_qp_rk3576_irq(int irq, void *dev_id)
+ 	mod_delayed_work(system_percpu_wq, &hdmi->hpd_work,
+ 			 msecs_to_jiffies(HOTPLUG_DEBOUNCE_MS));
+ 
+-	dw_hdmi_qp_rk3576_enable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3576_unmask_hpd(hdmi);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -404,7 +424,7 @@ static irqreturn_t dw_hdmi_qp_rk3588_hardirq(int irq, void *dev_id)
+ 	intr_stat &= hdmi->port_id ? RK3588_HDMI1_OHPD_INT : RK3588_HDMI0_OHPD_INT;
+ 
+ 	if (intr_stat) {
+-		dw_hdmi_qp_rk3588_disable_hpd(NULL, hdmi);
++		dw_hdmi_qp_rk3588_mask_hpd(hdmi);
+ 		return IRQ_WAKE_THREAD;
+ 	}
+ 
+@@ -418,7 +438,7 @@ static irqreturn_t dw_hdmi_qp_rk3588_irq(int irq, void *dev_id)
+ 	mod_delayed_work(system_percpu_wq, &hdmi->hpd_work,
+ 			 msecs_to_jiffies(HOTPLUG_DEBOUNCE_MS));
+ 
+-	dw_hdmi_qp_rk3588_enable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3588_unmask_hpd(hdmi);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -435,7 +455,7 @@ static void dw_hdmi_qp_rk3576_io_init(struct rockchip_hdmi_qp *hdmi)
+ 
+ 	regmap_write(hdmi->regmap, 0xa404, 0xffff0102);
+ 
+-	dw_hdmi_qp_rk3576_disable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3576_mask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+@@ -460,7 +480,7 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+ 		val = FIELD_PREP_WM16(RK3588_HDMI0_GRANT_SEL, 1);
+ 	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
+ 
+-	dw_hdmi_qp_rk3588_disable_hpd(NULL, hdmi);
++	dw_hdmi_qp_rk3588_mask_hpd(hdmi);
+ }
+ 
+ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
 
 -- 
 2.55.0
