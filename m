@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BF8C624D7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC35C624D8
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2P8iYkBiquMQ9xhGmNnETo5g+10FLtrI2QpuPoS6jnU=; b=yVR9WqstDXbRFja83SlhFqmKFK
-	6oAil8/s0kpM2Xx6XMqKPni/80OWS4B3NdpboEJXC2qD7mRVjCmzN3YOmiSHt7f+YMy+iXIMKQW/1
-	zQ4Ixu+GiZZexpGr4Ye9vqzJNcdoGZsEMv83nhcseVgKNOfOAGNjGFpn6nJhsaBCeZGkKsGMLCcdm
-	PHTXPw2/WLTzD6f9Av+NHj7O8prWTQl15uyy4xzX+2gguFNrPfrHTlXuJ26jGHT5tFoclHH8tVY0h
-	d3fIpXQjo5Q5z16UeDcyBNJAwjH5Det8M46S99Y3xapbh2R9Rt08SGnUOEMgKOS1QYIF4FgeI/hDh
-	n5+gs9zA==;
+	bh=r0Ii2FNlV0pZiidhdvwyoAt0t79HDJ6o/7lDJ4FLcUA=; b=4wviWZwGco1cgMC0UT74BSvrjL
+	7WfqZ3IdbnFvBasWCKFgMwE8DYTA0GOr0Z/lRnS1WgncMqNSil6q+397ThwLSB+ypBNYzUUjKJWyi
+	xQfX6bghJeZWM1pgKalTUn849vE/pRpYPuhPsHJdhLWGS2Ab3mmWxbQvvUELwGPNstkjb33TgLycF
+	RqmCYuXdr+YmSj7PcHTVluubwzXsz6d8MmR3qrmD3Hy1z56MH9dKj6EBQaxS56kNq9VcMea0owPOG
+	DILJDwlI6P5L5ItSCJ7qQ+zX4IzvR6eHNoVlzaUMU5DUKyuIizbk6bDqlUB7QJnKKdfF9n833nPjz
+	LsWWBAeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Tbb-0000000D4iE-0SCb;
-	Tue, 01 Sep 2026 18:53:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x1Tbc-0000000D4lR-1dQM;
+	Tue, 01 Sep 2026 18:53:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZa-0000000D11M-2xIN;
+	id 1x1TZr-0000000D1M4-31b7;
 	Tue, 01 Sep 2026 18:51:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=r0Ii2FNlV0pZiidhdvwyoAt0t79HDJ6o/7lDJ4FLcUA=; b=o37VYzsuorO+G7mOuRTV40ZpSC
+	Bz5CdP58ZUPf/ls1asPkj6mLXF0uIqGYKPNsvD4OoY2A2VEq5nngZcMn0cEa1xXI1c4H1XMEIrdfz
+	DTambUWA2XhYRNWs7zxmJBngJCRW3PE2zULOptMbjU0cQuURiYt9v4fdhqe0hdo5vw7N2P7GF12ff
+	Ddg9Bk3dgHMHgMdrMrmns0nQzqjMr6DcRVKc9uWCpBjM14GRSL6kWObc0UFL74KdkSF61ReBD4FLi
+	B1bDe3nDEqDpV9oyLIvbw3NK2OyYgrUFygHPar7yyj20hn1zQbkYMyuNUz5Yb1+d+a+ModGFlldqZ
+	qo+V4BPg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1TZo-0000000BHXt-2epx;
+	Tue, 01 Sep 2026 18:51:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288664;
-	bh=BCFJ3gchupj/9avFxr4weEfiesajDGa7RfU7qo/IoNY=;
+	s=mail; t=1788288679;
+	bh=FjNG/FbAfUxNWdfXcasZdzMERNWbRLC78jj086GTy6I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aO7gjjj6twE0Kl/4SOBOapcQBhg1gHxsfUFmqolGMK1acUYb4KVYHZ2XBG/nsu+zN
-	 tmX2e4Cz+00l4yJ5ZaVXbnLJMpcryvxCUfT/KpUe8NkY965pog7y5Mw8/9Ngk57NLW
-	 b7stdpZXVJUMBzFAH4U3mjqwgcsHkTdxFfxPUJXyEF7CxsyQLcbDrCJG9k3wI4pNSZ
-	 GGzD8XwFoiPEJD3t9ImrDIIF1B7FBKeRxQoMC8CX9iHPy0m3YFDg2pnXUMjWP8VUbx
-	 YSuUTzUr650hCr/+0JJIkDXo4zJ//YB0VXu/iOhD9os1FPjHca26z0pSq8AFRB9OU8
-	 3rJBGyYi1PT+Q==
+	b=HlwRPzYap1glbrJnfLcC2NFINYYovF4JW9xAFw8W9qLlGl6EWvWK2n8rAGAdp5KTj
+	 1u9SAoOL7rxv98kkUC7LlkTDd8EckVpWMweCGAf7hqHXPCN0W5Fa8lU6r9fJVEUpqu
+	 HcfrsNPLGkvpAClhVhVkifq7lbTgSLHNxY0GXk5tae8jpQwZz/dY2ijuOAweS9n9OL
+	 fYB/xbkSULb1AzZa/aEmlhkI7Sq7GTTNRAtOyObl3H0yD9CQTK6831bqRwjN32eWQf
+	 C8dnwTz6j2J6nvtsvhiqFUTD7lmXbPOQpk9fmU7aWaz3xVTwyQA+Ra7lzDnOJH6NQC
+	 Ca/Zx61fzEfTg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B05AF17E3B2D;
-	Tue, 01 Sep 2026 20:51:04 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A3B817E3C76;
+	Tue, 01 Sep 2026 20:51:19 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:50:56 +0300
-Subject: [PATCH v11 32/74] drm/rockchip: dw_hdmi_qp: Cancel pending HPD
- work on suspend
+Date: Tue, 01 Sep 2026 21:51:16 +0300
+Subject: [PATCH v11 52/74] drm/bridge: ite-it6263: Drop redundant
+ .mode_valid hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-32-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-52-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,11 +89,11 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- linux-fbdev@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+ linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_115107_038821_FE12C587 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20260901_195120_896575_AFB52F76 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +108,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HPD threaded handler debounces hotplug events by delaying
-hdmi->hpd_work for 150 ms.  Nothing discards that work when the system
-goes to sleep: drm_kms_helper_poll_disable() only disables the HPD IRQ
-line via the bridge .hpd_disable() op, and disable_irq() merely waits
-for the threaded handler, which has already returned after arming the
-timer.
+Bridges using DRM_BRIDGE_OP_HDMI expect connectors to be created through
+drm_bridge_connector_init(), thereby relying on the bridge connector's
+.mode_valid hook to invoke drm_hdmi_connector_mode_valid().
 
-If the debounce expires during suspend, its non-freezable work may probe
-the connector and read the EDID over DDC.  Since genpd powers off the
-HDMI controller's power domain in ->suspend_noirq(), this access may
-hit unpowered hardware and hang the system.
+The generic helper computes the mode's TMDS character rate and forwards
+it to the bridge's .hdmi_tmds_char_rate_valid callback through the
+connector HDMI funcs.  This covers exactly what
+it6263_bridge_mode_valid() does for 8 bpc RGB444, but due to being
+output-format aware, it also handles the validation more thoroughly.
 
-Cancel the work in the suspend callback.  The DRM device is registered
-as a consumer of the HDMI device, so it always suspends first and the
-HPD IRQ is already disabled by that point, meaning nothing can re-arm
-the work behind our back.  No counterpart is needed on resume, as the
-work gets scheduled again on the next hotplug interrupt.
+Both the connector and bridge .mode_valid hooks are invoked during
+mode validation through drm_mode_validate_pipeline(), so the custom
+bridge hook is redundant.  Drop it.
 
-Fixes: 128a9bf8ace2 ("drm/rockchip: Add basic RK3588 HDMI output support")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260723015909.7F79A1F000E9@smtp.kernel.org/
+While at it, remove the now-unused drm_hdmi_helper.h include.
+
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/ite-it6263.c | 16 ----------------
+ 1 file changed, 16 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 646a4cb96830..42f2627e1a05 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -728,8 +728,12 @@ static int __maybe_unused dw_hdmi_qp_rockchip_suspend(struct device *dev)
- {
- 	struct rockchip_hdmi_qp *hdmi = dev_get_drvdata(dev);
+diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+index 21ac8e58b9d2..550999491086 100644
+--- a/drivers/gpu/drm/bridge/ite-it6263.c
++++ b/drivers/gpu/drm/bridge/ite-it6263.c
+@@ -15,7 +15,6 @@
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
  
--	if (hdmi)
--		dw_hdmi_qp_suspend(dev, hdmi->hdmi);
-+	if (!hdmi)
-+		return 0;
-+
-+	cancel_delayed_work_sync(&hdmi->hpd_work);
-+
-+	dw_hdmi_qp_suspend(dev, hdmi->hdmi);
- 
- 	return 0;
+-#include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+@@ -669,20 +668,6 @@ static void it6263_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	regmap_write(regmap, HDMI_REG_PKT_GENERAL_CTRL, ENABLE_PKT | REPEAT_PKT);
  }
+ 
+-static enum drm_mode_status
+-it6263_bridge_mode_valid(struct drm_bridge *bridge,
+-			 const struct drm_display_info *info,
+-			 const struct drm_display_mode *mode)
+-{
+-	unsigned long long rate;
+-
+-	rate = drm_hdmi_compute_mode_clock(mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444);
+-	if (rate == 0)
+-		return MODE_NOCLOCK;
+-
+-	return bridge->funcs->hdmi_tmds_char_rate_valid(bridge, mode, rate);
+-}
+-
+ static int it6263_bridge_attach(struct drm_bridge *bridge,
+ 				struct drm_encoder *encoder,
+ 				enum drm_bridge_attach_flags flags)
+@@ -831,7 +816,6 @@ static const struct drm_bridge_funcs it6263_bridge_funcs = {
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+ 	.attach = it6263_bridge_attach,
+-	.mode_valid = it6263_bridge_mode_valid,
+ 	.atomic_disable = it6263_bridge_atomic_disable,
+ 	.atomic_enable = it6263_bridge_atomic_enable,
+ 	.detect = it6263_bridge_detect,
 
 -- 
 2.55.0
