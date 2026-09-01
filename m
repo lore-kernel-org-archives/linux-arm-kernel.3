@@ -4,129 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC15C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E911C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 19:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=; b=I23mP1OSmhAtJqiVA8bqMsvD7O
-	NNCOpc6r9uJ3pFfHKoPyF+IjzCpbWI/7NXGL+5sogny6EqJbTzAeY1oFijXBkdkomZlM2/fYEBo7t
-	3u8KOvFZzp/zyP5mH3A63G2LeI5qZl6HnAZhVO6ZPZJdRwLn6i4Q/5rPIAkuLoqVCXnEk4UbzD9UO
-	LxUZij2/Xn5Oclzsk6gQkmTGX/iBKvC+WfvJo3HrRzr3W4fKDOHXINExsrvUMPOIVj9qR4KsxYiQT
-	dvYf4cirG7XPyBON7kdkKCDlmHs2uozrgGLASRQgwwcq6FyT+CZgxfPIWk7UNyAYKTSYQtiCulOMJ
-	qAaoFeeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WyEFu62ujimxaQJil6RmK3n8Y5dLLUWHpcfLAU5G5Cc=; b=Fh3PwTzyb6gWcdqqkaRIUIt/dK
+	cnFB8AcfHvvudj/tfo41oWOvlxv1JFyiOEEz25n+nKzQ8/ShWFOdTdB3+WI7wvWYeFFGhfD+JN5UN
+	Tkjq1AfnvnyLSPwEToyXHS87anIl7XxFg+wRXkoB6/CE1jWeeTtCu3pW9JVhdru1G5KTkBwPZTYme
+	F03TG5S563zMjsWdkiLHdNdbYaYBjRh5pqjQB/yhuAJN3tBik0dAIBZxcCpTFuLijUNNTa1xZwFW7
+	D9koon1ORlWPI2r+1awwFvJT28tGxGvh8Kz9eXIFhwFuilfmlZjMfIIj5dsln8iMRxqTCeJY4ZPdo
+	1a6TExsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TrR-0000000DAg2-2UYI;
-	Tue, 01 Sep 2026 19:09:33 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1x1U80-0000000DCSk-1Sar;
+	Tue, 01 Sep 2026 19:26:40 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TrP-0000000DAf3-0Ll1
+	id 1x1U7w-0000000DCQd-3UZe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 19:09:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dvX2XmVhQCS8BJ9h+KyBlqwM1gDrInuBy+ex3y3eEJeDjPG3pTrj8sN/69CqCp0tE6mQ3fXJNIf+QEr2mR1cnk6PFWzxRGAwnSECCWIHZlHeS/QNdWguUkCLILr7IDFRBu7TJ7uEH/U7YTACMHvDP2+vxQlYJ+B6IKbqKh4BSkORZdPNMSXh2Xqt4RniuGnI1o88mBHKVa6oL7jdISorWaxwB01Sr7/ytVqR4Ox9/iN/sUMl33IL93inwEFeRRiq6vJzy3sGdwYC88jnToNolkH/qHNXGFYpM7WXlFera2iiA7HK06wZL9l7pTr3VV+jmSY8OOYkzAwMI8NClH3zjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=;
- b=Gtzo1PNDcFGf5FBl7GZbHQJOcGZwzrwww3TAXfE1cHHbOs3WmdvU91Te4CQQOEwhQM709LTZR2xs6EeWxl97WfrggiX5PQe2PZ+hxFbDGQvkzEkVquFrnPrRMAsK+legCi9nsroZol969Ne6SRVYS0z1uqi1aa/JjkX5MgQLjmRkNAR+YvrFkaLznQRA23a5ofUJGZqrC446SO5Q+7muzlvPJVR6bC2aEjwqyoygwXuhWh2uggKzu2Xfk4DIhbkJRYbd2FgwV6hYxUsv6yLeLCbA8Vz5psq7dqN3/x0eqcJ2wrnF6OrOawQL3r6QWjWvzIlq2GccRfeo13GiKJb+SA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s7uW5KskTS4dXl+SOZwtRz5cWx2MZfZbWxPzt/1WPV0=;
- b=PrMNUi7z8X3l2rz/4gTenHqFOS/V6pGIKoK92ineeXr3N2Lfmzzkc0Qgte2cfS5XGH/xJGb/kfxUgkUMqq6jdKyKoB0P+ZZiuHMIKDd93xb6emvZopj5arsDWzmvUyyKFLwxAxzS7E0mAMW7RKINZUQTpbc+4IGXLpzbfgNV4kSS25uWlf2ZuQSSqpqOluSI2HRMVy7L3sG+pNZ1EQ6Y0SgqYZJvq11DZ0XllYR3EHT8wqA9M4Zmx0Aw8b8s2liWhh/O8co8WzZGjto6c3E4659sqv1nln8fSFLXo6Hb11MsPYe8VNIJTSQtL2f4+Hzo8TC0kq9rfSw8nsDxzEDoeA==
-Received: from BY3PR03CA0025.namprd03.prod.outlook.com (2603:10b6:a03:39a::30)
- by SJ2PR12MB8718.namprd12.prod.outlook.com (2603:10b6:a03:540::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Tue, 1 Sep
- 2026 19:09:04 +0000
-Received: from SJ1PEPF000026C8.namprd04.prod.outlook.com
- (2603:10b6:a03:39a:cafe::7f) by BY3PR03CA0025.outlook.office365.com
- (2603:10b6:a03:39a::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Tue, 1
- Sep 2026 19:09:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ1PEPF000026C8.mail.protection.outlook.com (10.167.244.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Tue, 1 Sep 2026 19:09:04 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 1 Sep
- 2026 12:08:41 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 1 Sep 2026 12:08:40 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Tue, 1 Sep 2026 12:08:39 -0700
-Date: Tue, 1 Sep 2026 12:08:38 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Aneesh Kumar K.V <aneesh.kumar@kernel.org>, <linux-coco@lists.linux.dev>,
-	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Alexey Kardashevskiy <aik@amd.com>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>, "Marc
- Zyngier" <maz@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Robin
- Murphy" <robin.murphy@arm.com>, Samuel Ortiz <sameo@rivosinc.com>, "Steven
- Price" <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	"Will Deacon" <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <apcitkpASOREamQs@nvidia.com>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com>
- <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org>
- <20260901143445.GC56830@ziepe.ca>
- <apcHoHKGoI7WNFXp@nvidia.com>
- <20260901174230.GA2847102@ziepe.ca>
+	Tue, 01 Sep 2026 19:26:38 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6a6143cca69so287311a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 12:26:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788290795; x=1788895595; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WyEFu62ujimxaQJil6RmK3n8Y5dLLUWHpcfLAU5G5Cc=;
+        b=omH+6c0o0QSo+LMGMvCds9OP0pMCTR1/Y3sl4K5Vh0508QXPvHmJ5PLogAMBWnC/JH
+         S9P5NAsSl3WTuxiU30ltp//lSbOE31P/r1KyZTR6JoqTxMXiwurhb1vrUjkNjjbUb+Yy
+         t16Jo+TXp9fCWI+RG0dnkfG/8vjLWaBSZ7MXZTD6ITIRKuSIKCqEDUNZcnhph62VnfYP
+         phlrJdMYguoKmmwO8n4TYfTFZXJ7zxF0SqZfPMBBr8pOi/gXfnFVpfXU7AiXGY1x1TPr
+         0MGb6/U8mZ2S2ZLAPaiN5e5jCYG3FT6WoCMwTxXEoq2kKV+a+plcrRhMlor+jf8wEiOY
+         sDog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788290795; x=1788895595;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WyEFu62ujimxaQJil6RmK3n8Y5dLLUWHpcfLAU5G5Cc=;
+        b=ATUeSEOa2UMnQm/4J93ZV2GacG8snKT7Bfcl045BAH1cUxQvdPVVA9K+KJyzccuEzr
+         kHVODlKYwO0SjtbCI4pkClwVo8BVB9XtcEXBST/34b47AFzOAC6SOIQEvBgTkqJt9nwo
+         beL8fCxZ4oTZmvBsvrlttm+O7IAE7wbFZhggapgl9TSay9beizq8A5hxgzCiNu7t6LnI
+         sGOWwYNzIvjxloEoTpNVDEd2TKcz8lJXxap9oUAM4k3RqKJcFS6MA+zNyRk5m7BNDesk
+         mlFmf038GF5KTgEpNXG7dDgHaEefvmMK25WVCA2VG7gESXcId3SLLzftCq7HjdcD7fqE
+         33tg==
+X-Forwarded-Encrypted: i=1; AKwUvBznKNZXIErf0vEsvTKWrxgXViWIApN1zGJTlBUCcH60FYD/URWXjMWd6e3Y64h8ZyAXaLUgLwkPKq11Qht6JPyV@lists.infradead.org
+X-Gm-Message-State: AFuF++kkg5p3U39OhjF3eA/ONCNHFuMs2u16+n68pP3h5ezB73nU3+WZ
+	qOO4SmMqHjs776FL87MtSPE9gwDHwoVrhFBzQQSADHx1k7iMsqcuKO3N
+X-Gm-Gg: AYBFou21bDVpoFMcaJn/NNvk/ls6mOzD355B46svdmIpYan+UU69qXXKdr5OAXyO4FR
+	m1c73qrkb2q4d1YPL0o8duT9QQ/S2o06+z+jyhKsSPawJUv5Kl0KLUBJbfJLqpld/Qzp5EUYUqT
+	wQfKab+q8soLwJP30Q7zjaqxz5GpS8YVeRcXDGbtOWMTRtSdrTn/55DYaVHu5cZXqcofWJJQYlQ
+	CCoSoPdhAClhHRl+cSIeyDZe2mYD7kPQwPzZhb7bQ5yj7JgeyuDXPc9WLavnc+Z9WrO5+5MSQxs
+	KBfgZLJohvuN/y6MlqKggvaGXgvpjVsgTYTIEouzo7Z6oZkdjsUYYSC/GaWD+217U6QZE/kuPfo
+	J4nB+SjV93yGrrv0GdOhIcIaz5K/pF8bqrKwhBNhtxpCAEdB2boJS076AL1KaEx+zMDRVSFBISY
+	klUKrw1Et4wHCiz9AOG4JN6YytMOgCcZj+kISsm2NIvGQ+UnjnYWh895O6+xan006G7UeW5iCr
+X-Received: by 2002:a05:6402:21d4:b0:6a0:dda3:83db with SMTP id 4fb4d7f45d1cf-6a6818d24f1mr115922a12.0.1788290795093;
+        Tue, 01 Sep 2026 12:26:35 -0700 (PDT)
+Received: from khalil-hp.home ([62.250.116.161])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f94242csm146373a12.21.2026.09.01.12.26.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Sep 2026 12:26:34 -0700 (PDT)
+From: Khalil <khalilst@gmail.com>
+X-Google-Original-From: Khalil <khalil@rentman.nl>
+To: Mark Brown <broonie@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Richard Fitzgerald <rf@opensource.cirrus.com>,
+	patches@opensource.cirrus.com,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-spi@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Khalil <khalil@rentman.nl>,
+	Khalil <khalilst@gmail.com>
+Subject: [PATCH v3 3/3] spi: pxa2xx: Handle clock gating for GPIO chip select devices
+Date: Tue,  1 Sep 2026 21:26:25 +0200
+Message-ID: <20260901192625.1497791-4-khalil@rentman.nl>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260901192625.1497791-1-khalil@rentman.nl>
+References: <20260901192625.1497791-1-khalil@rentman.nl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260901174230.GA2847102@ziepe.ca>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C8:EE_|SJ2PR12MB8718:EE_
-X-MS-Office365-Filtering-Correlation-Id: b94e85a9-e126-4c95-5ad5-08df085c7d5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|7416014|376014|6133799003|10067099003|4143699003|56012099006|11063799006|3023799007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: mzhxmUjEwmpKKkqjSA6VsVXyfOIBeFR0r3as9S3p3Sd0x0oqEex/Huj65UKNKH1fX+o2sLMvxUAMVRgxAATMYAoGaPBs/gjN/tHzq4lntdRrjasRgIG7nZFyVPzT2Czjwtjj7JRJCJBHWjfUiWSliBt0QbXExZdbqwU6ZH1TbpqOGx7HamlW5IUXqCDjq7j2rzD+7viZpvZtLVEbgGc96DuERGpUTyj1DD840MIaa9dpV2oFqAS/NpAst7D1CkJdlbqWFNnEKdEhzMTwW31CR5AVy/JfWHpnZ9+ZHu+1+oGG36VbmepT1HoNEnJb3sp16dyZ2HG8zYoiJSLkxzhVhakVEdsi70uP63pwD/XRnDAd89x0KbTkCWc+51MdSdrW8mJZ0aiF+hO8TgR3uDNwBrp8FwqUeD2AEmf081l//0M5l0k2JO9Fa/r8313NW/rFKSbztPv/1s0hb+fVJE1RawbKbrWS3/cMsQSrOezP12lRNuABvNTfCJPwNJ8VPkXu8iX8glyCYoSHmKqELoOsgde0s6mPMLF1Xt+o7geZWUsfydy8qwlBPjeqvhMbPAGokG0m+38bOBWuPu/OGCO6TEvxHKdkBuzL7jgjvJjWl8AZXqGo3mfeljkK5+soiNO087xPGJnscrzjhvihR1QH4srntOwF4qfOTisTrS4xBiSNKKVlHEHPMI9W/R3WFMgGhPblGqnKGBofG5N89wIWEg==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(7416014)(376014)(6133799003)(10067099003)(4143699003)(56012099006)(11063799006)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sIkvFzOkPF46m21AYRbJR5jPxvHhoc7/1WnOwzmGr9vs31wQkley/YMhqrm9sdcOo8As9WU1Kb8Kd/cn106k2w3Cs8656o+BR+yq9GbC1ARKoQPKkgCNT4xhusKZgxbuCtel3D6NX5f5Ci5RI2gEWqFp3wCtJSv0FgwOrQwbrnPWb2eyigVUBpJluBvBH4A50YbuWTiIyyUJ24J2eNlvs+boDnKV6twD4hHkr6AsQtstq8S82U8xIwO4Aun8W/edFpkVWSYq7iPyDSbVQb7X2V+DzdbQGO9VQMidBPc31NCvUK3vBEjmOLm4O5th5pH3YDzw0Iz8d9w8lrruXZtcVUOSJNCdTvuw9xUtIwVLqyastMpWx6ZjYZTeHPqzjnh0FASqCIBelgFQWRwY7GnKIASFG/HegPiT5tpd8Gq6cfUDw7U/Gh3v7QJuU7u56uLo
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Sep 2026 19:09:04.2982
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b94e85a9-e126-4c95-5ad5-08df085c7d5e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8718
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_120931_130720_A83FD98B 
-X-CRM114-Status: GOOD (  36.28  )
+X-CRM114-CacheID: sfid-20260901_122636_884944_8EFED3A6 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,110 +110,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 02:42:30PM -0300, Jason Gunthorpe wrote:
-> On Tue, Sep 01, 2026 at 10:13:04AM -0700, Nicolin Chen wrote:
-> 
-> > +/**
-> > + * enum iommu_viommu_arm_realm_vsmmuv3_flags - Flags for ARM SMMUv3 Realm
-> > + * @IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU: Indicates whether the Realm has
-> > + *                                             a guest-visible VSMMU instance
-> > + */
-> > +enum iommu_viommu_arm_realm_vsmmuv3_flags {
-> > +	IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU = 1 << 0,
-> > +};
-> > +
-> > +/**
-> > + * struct iommu_viommu_arm_realm_vsmmuv3 - ARM Realm VSMMUv3 parameters
-> > + *                                         (IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3)
-> > + * @flags: Combination of enum iommu_viommu_arm_realm_vsmmuv3_flags
-> > + * @reg_base: MMIO base address of the VSMMU in the guest VM
-> > + * @reg_top: MMIO top address of the VSMMU in the guest VM
-> > + * @aidr: AIDR register value of the VSMMU in the guest VM
-> > + * @idr: IDR register values of the VSMMU in the guest VM
-> > + */
-> > +struct iommu_viommu_arm_realm_vsmmuv3 {
-> > +	__aligned_u64 flags;
-> > +	__aligned_le64 reg_base;
-> > +	__aligned_le64 reg_top;
-> > +	__aligned_le64 aidr;
-> > +	__aligned_le64 idr[7];
-> > +};
-> 
-> Yeah, broadly what I would expect. Pass everything needed to execute
-> RMI_VSMMU_CREATE through this struct.
-> 
-> Is there anything more than RMI_VSMMU_CREATE needed from a RMM
-> perspective? What about that dpt/ats stuff?
+On Intel LPSS SPI controllers (Cannon Lake and later) with dynamic
+clock gating (cs_clk_stays_gated=true), the SPI clock is gated when
+no native chip select is asserted. When using a GPIO chip select
+(via SPI_CONTROLLER_GPIO_SS), the SPI framework toggles the GPIO
+and also calls the controller's set_cs callback.
 
-DPT is a bit hacky currently..
+Handle this in the pxa2xx cs_assert/cs_deassert functions: when the
+device uses a GPIO chip select on an LPSS controller, assert native
+CS in the control register to enable the clock, and force the clock
+gate on. On deassert, restore both.
 
-Prior to RMM v2.0 ABI, DPT was allocated statically in RMM; there
-was no RMI command for DPT allocations.
+This is needed on platforms where serial-multi-instantiate installs
+a GPIO chip select from the peripheral's ACPI GpioIo resource to
+work around an incomplete cs-gpios property on the SPI controller.
 
-Now, with RMM v2.0 ABI, DPT can be managed via RMIs. I am making
-it follow GPT at this point, similar to the static idea. But, in
-the long run, I will think of decoupling, but I haven't looked at
-that closely.
+Signed-off-by: Khalil <khalilst@gmail.com>
+---
+ drivers/spi/spi-pxa2xx.c | 45 ++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 41 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
+index 6291d7c2e0..fe57620630 100644
+--- a/drivers/spi/spi-pxa2xx.c
++++ b/drivers/spi/spi-pxa2xx.c
+@@ -419,20 +419,43 @@ static void cs_assert(struct spi_device *spi)
+ {
+ 	struct driver_data *drv_data =
+ 		spi_controller_get_devdata(spi->controller);
++	const struct lpss_config *config;
  
-> > I think this should work. But I still feel awkward that a non-vsmmu
-> > case has to allocate a viommu object for a set of RMI commands that
-> > don't need an Realm Descriptor.
-> 
-> It is for the RMI_VDEV_CREATE which needs the RD:
-> 
-> 	case IOMMU_VDEVICE_TSM_BIND:
-> 		rc = tsm_bind(vdev->idev->dev, kvm, vdev->virt_id);
-> 		break;
-> 
-> It has to be tied to a vdevice on a viommu to pick up the kvm and
-> vSID.
-> 
-> If we don't do that we need a new way to get the virt_id and kvm into
-> the flow, which doesn't really seem worthwhile to me.
+ 	if (drv_data->ssp_type == CE4100_SSP) {
+ 		pxa2xx_spi_write(drv_data, SSSR, spi_get_chipselect(spi, 0));
+ 		return;
+ 	}
+ 
+-	if (is_lpss_ssp(drv_data))
+-		lpss_ssp_cs_control(spi, true);
++	if (is_lpss_ssp(drv_data)) {
++		config = lpss_get_config(drv_data);
++
++		if (spi_is_csgpiod(spi)) {
++			/*
++			 * GPIO handles the actual chip select to the device.
++			 * On LPSS controllers with dynamic clock gating, the
++			 * SPI clock won't run unless the native CS state says
++			 * "asserted" in the CS control register. Assert native
++			 * CS in the register to enable the clock, and force
++			 * the clock gate on.
++			 */
++			lpss_ssp_cs_control(spi, true);
++			if (config->cs_clk_stays_gated) {
++				__lpss_ssp_update_priv(drv_data,
++					LPSS_PRIV_CLOCK_GATE,
++					LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK,
++					LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_ON);
++			}
++		} else {
++			lpss_ssp_cs_control(spi, true);
++		}
++	}
+ }
+ 
+ static void cs_deassert(struct spi_device *spi)
+ {
+ 	struct driver_data *drv_data =
+ 		spi_controller_get_devdata(spi->controller);
++	const struct lpss_config *config;
+ 	unsigned long timeout;
+ 
+ 	if (drv_data->ssp_type == CE4100_SSP)
+@@ -444,8 +467,22 @@ static void cs_deassert(struct spi_device *spi)
+ 	       !time_after(jiffies, timeout))
+ 		cpu_relax();
+ 
+-	if (is_lpss_ssp(drv_data))
+-		lpss_ssp_cs_control(spi, false);
++	if (is_lpss_ssp(drv_data)) {
++		config = lpss_get_config(drv_data);
++
++		if (spi_is_csgpiod(spi)) {
++			/* Deassert native CS and restore clock gating */
++			lpss_ssp_cs_control(spi, false);
++			if (config->cs_clk_stays_gated) {
++				__lpss_ssp_update_priv(drv_data,
++					LPSS_PRIV_CLOCK_GATE,
++					LPSS_PRIV_CLOCK_GATE_CLK_CTL_MASK,
++					LPSS_PRIV_CLOCK_GATE_CLK_CTL_FORCE_OFF);
++			}
++		} else {
++			lpss_ssp_cs_control(spi, false);
++		}
++	}
+ }
+ 
+ static void pxa2xx_spi_set_cs(struct spi_device *spi, bool level)
+-- 
+2.43.0
 
-Okay. I see the gap now...
-
-For tsm_bind: idev has dev, idev has kvm, but idev has no vBDF.
-
-Maybe we could allow vdevice to have no viommu? In which way, VMM
-can forward vBDF independently. If VMM has a vsmmu instance, then
-it can allocate vdevice in the traditional way.
-
-The viommu object here is an empty vehicle that almost has no use
-but to allow another vehicle (vdevice) on top to forward vBDF. It
-makes VMM code a bit awkward: there is no iommu instance, so VMM
-doesn't enable iommu driver, then there is no good place to alloc
-the viomu object for VIOMMU_TYPE_ARM_REALM_SMMUV3.
-
-> > Things could be cleaner if we allow RMI_PSMMU_ACTIVATE and
-> > RMI_PSMMU_ST_L2_CREATE to be independent on a viommu; then leave
-> > IOMMU_VIOMMU_TYPE_ARM_SMMUV3 to vsmmu-visiable case.
-> 
-> This is why I asked in the other message if RMM spec is clear that
-> PSMMU and STE are not required for anything but VDEV_CREATE. If so,
-> the PDEV create and SPDM stuff is fuly independent.
-
-I think the spec is clear. And you are right PDEV is independent,
-only linked to PSMMU when VDEV is created.
-
-> Which is why I'm saying the split doesn't make sense. PSMMU,
-> interrupts, STE, VDEV are all related objects that should be managed
-> together by the SMMUv3 driver. You need a PDEV to create a STE, and
-> you need a STE to create a VDEV.
-> 
-> PDEV is the SPDM channel and should be managed by the TSM driver.
->
-> So, I think the IOMMU_VDEVICE_TSM_BIND is not justified. "BIND" should
-> happen when the SMMUv3 realm viommu ops create the vdevice. The same
-> way the vcmdq sets up the VSID tables when the vdevice is created. Is
-> there a reason to have it in its own command?
-> 
-> Further the implementation of IOMMU_VDEVICE_TSM_BIND in this series
-> *requires* a viommu to work. So OK, let's lean into that. (to be clear
-> I am saying delete tsm_bind)
-
-Yea, IOMMU_VDEVICE_TSM_BIND feels redundant..
-
-Thanks
-Nicolin
 
