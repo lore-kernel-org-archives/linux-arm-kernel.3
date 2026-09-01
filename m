@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5650EC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99BDC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=; b=XEzDMWFLqMBkzSfL1u2SaXVB71
-	864X6k8SIHsEUzSFgTPJdkUKWS06EYRvuuaPMP7kpRAGN0dK+kPn5SsV5VnDIQQVyuZlEZPBZb9XA
-	10cMufAJMh8Pi25eUJfEGdd0U6yZhRDwy9vcfFuc31n49NHjgYodYYN11SAFQ1mEGnti/1pu3G5MB
-	6NoyHA1E0M19khwDdMxx3ymopT4aVUc7u4SjGJt4ORi6UtFQeDEuIhloKv+veIE6g9IbPXSCV1rDf
-	vbrLH0sabcxtWmiC4b5DHnUSKR/iydRLrBEBqrD1MIB/Anrx+7F0YidGezBn92WibYhfWW0FXekAo
-	dDQKzqQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+EdOCYHdoxuRmz6Krna/WF/yq1BxGZQXedylPxEwU/M=; b=IijZHNtnj53Lhn
+	3CNmF3dM0vWS5XCBc2fuHKPRZCcNudVFLUlSpIdAUJJarrcYD7+OY1ICBOhIvaSbhDtKYzlT15wPt
+	sjU/nnRMiydvLTAwFyVyKpFkDQNrBSLpncLebjk+5UBtlGDvrDxCD3ScZHzH3DdlJv0qRUEjYlLyD
+	OLhGbD0bgfL65lQP6JOajkkrFBCXuOP9+d9jFcLlcS3mqZcQc7LNITOMWJ4jQsHpIkN3gxz5duJLp
+	Ya6KNTkGTO18Qjm5+2veUb6mWZXHMCX/xUohHWBX9/HuJayJu43CULmHiXUbyKVmWvgilOmpZ9823
+	2ysCuIaLa6JyZtCAHnOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TUt-0000000D044-431j;
-	Tue, 01 Sep 2026 18:46:15 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1x1TZ0-0000000D0Te-2JSp;
+	Tue, 01 Sep 2026 18:50:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TUq-0000000D03e-34Ec
+	id 1x1TYz-0000000D0TT-3q0V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 18:46:14 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8558c0b26a8so147134b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 11:46:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788288371; x=1788893171; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=;
-        b=eMsGAppMVqYT5+lYShPN3IEixSW3VId657YbRdQXjy2CTjavy49gaL571YZs2Vz2A6
-         +WD2A+AiluVUe9tArxDaZo2W4le5tRXQ+0dLQSqhXW2GAZ6j8mPZBgC+uj52HLqMWu8S
-         YvIUquL/J1NKAPG0eMfvaC+MR0YZoFX24DQNNDSSYAappqVRo1Q6PlQZFUq/OPmr4CE+
-         Zeb56heyIpqAgBih4k0NzZovCKW2AAbyE4j0Puizo5bRSBoheKN1UuhE+PW2OM4Qrv/F
-         meFWFD51VB+sdQPPMeuVHbd2FSCSUodPYHWJkyTAnNEHrM8SIsfrMOBpFike94UjN+ST
-         wYsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788288371; x=1788893171;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IRSg5TsPLhCh9Up4rkAnm+9DnhJsd5XJxJ094xnRn18=;
-        b=MkwekEh91PZdJI/ZpA5qURRYaDu7nNj6UnqqWTWy97NT5jvBIzGEKwIiWJMNLZoRwk
-         3Mt6dZTr3Y0oDKPdkDMWn+qoovHhln/04Ih8OH2yLpSknqvYQim+3JbaU/UmR/YIfFYG
-         nJnFEZTGeHe3QWzkawbGfLlyJnZTofL5ChwlYk2VMy/hr6w2am2YYdROvRl9QndMGqkd
-         p8guAvPYyzBnxNIWa1dKL299zcndwdDns7Cm4uXLJgNfkGUEKnftUfkDviV4/BcRMyGb
-         01QyLdSagd/ya116vp95+OahrVRieFwIezcFrcwegPA2L9khORySnfIaIfV7cZ8WL0St
-         XrNQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrPL1LknkvkduuJUjlPtty21Nfj+zo3xJQm+9BdT/uSazXld0GOj+Rz0IFeHdFjrgD2HYw0UH1dQSnbk8c5dynd@lists.infradead.org
-X-Gm-Message-State: AFuF++lbhlajvnIGTlXR2ZTxQIn/yix39B9eQKiWrGJxQZIP100rwz2O
-	YW5EL4+EmwijeSfoC98HCyIkvdOxmBCefoYiBpZpoOEtyBCm/teJdk+iZBQ4MP8dpvE=
-X-Gm-Gg: AR+sD10wa52wpE4WTJQNnVpKFSH7m73tEKcVqrlOUHbeWvQCg+3sQQw5HOar6EoeUah
-	eIUxfCOrT+u9a3Icg67BNNIVhjxHc+HHVFd0UvFs8Y8GJhvInppMWjZGVxL2o25OKojtAyd0Lzf
-	Ynq3/sz0KjfQWnIULzfFmxWNNabebd15HkNLBRNYR7YfiItWALA1BMxuX+8MjtcGfHsvySMFIv6
-	Q9V1N3ZvBfqXKpOeH+EHebtZqze4AG716IgTlS9glgWPnGAYZMbszorpKDqnpN8PNEBmx96p2IN
-	InLNYZx9kYxNX082dFMORuc9LhlE/DLinM9shsCyyTh94QkiTXJuqzCSav6p2CRVz5nlxlqfOUF
-	rzimYqP/Pjm/ianFrO6+ntcWwHK3MoH+OENAt6z9Xw5GON7hIXUWL2qhnJIL++bK8LQF7O7Adzr
-	SOhRBDwlNw4MNxUtPWymgxqWzD98e4T7zupbJRsjCTQynv2doJRntIw6j5rQ==
-X-Received: by 2002:a05:6a00:4187:b0:853:2e35:ad84 with SMTP id d2e1a72fcca58-8562a4e89aemr63794080b3a.14.1788288371275;
-        Tue, 01 Sep 2026 11:46:11 -0700 (PDT)
-Received: from localhost ([71.212.197.238])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-85db24f33a0sm300383b3a.9.2026.09.01.11.46.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 11:46:10 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla
- <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Scaria
- Kochidanadu <s-kochidanadu@ti.com>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] cpuidle: psci: Assign domain callbacks to all CPU idle
- states
-In-Reply-To: <CAPx+jO85NBZq=YCxhs5Fbo5rDZ7pGHHKiG2HRJUNVKj_1SOscg@mail.gmail.com>
-References: <20260831-topic-lpm-psci-domain-callbacks-v1-1-4a47d95c9c79@baylibre.com>
- <CAPx+jO85NBZq=YCxhs5Fbo5rDZ7pGHHKiG2HRJUNVKj_1SOscg@mail.gmail.com>
-Date: Tue, 01 Sep 2026 11:46:10 -0700
-Message-ID: <7hh5k87qtp.fsf@baylibre.com>
+	Tue, 01 Sep 2026 18:50:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 119D660207;
+	Tue,  1 Sep 2026 18:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 697711F000E9;
+	Tue,  1 Sep 2026 18:50:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788288628;
+	bh=+EdOCYHdoxuRmz6Krna/WF/yq1BxGZQXedylPxEwU/M=;
+	h=From:Subject:Date:To:Cc;
+	b=MZx6z3KBd0SIH9k4Qs2ZSYsraNF6DTxsHzcDUZkyk1oiwDe9dx3P9ss0DN7CCeSTd
+	 jwS/KxMPkdLYojMKGy9WjO0vECDYeOndYSGTulci4Ms4QJ04K3Y4Hrame6EjIXARRR
+	 I92DzTshe/GDGqF6swsD7/9/FFiyPEn21zo8i8Sjd/eymQfxk3vyVk77ZPnMzBNnPN
+	 NI2wWJ2B2LrA7AKE0SQg6tGVb51S/PI+zOAK4fZwiYvn2TyuOQH46rT1PkfOY4EO5n
+	 nVSrhtLVjSRXJpMsjqufn7QSKkIoRiv9JAFnxGu2ndO3CKkQ8ZP4uDBVsFgZRNnVOk
+	 aE1I4UxI5Vlfg==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v7 0/3] KVM: selftests: arm64: Improve diagnostics from
+ set_id_regs
+Date: Tue, 01 Sep 2026 19:50:00 +0100
+Message-Id: <20260901-kvm-arm64-set-id-regs-aarch64-v7-0-7b065b0bda9a@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_114613_055128_497A719D 
-X-CRM114-Status: GOOD (  33.56  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFgel2oC/4XPTWrDMBAF4KsErauiGf3ZXfUepQvJmXFEGrtIw
+ bQE371KaDHFCy3fG/iGdxOFcqIiXg43kWlJJc1TDf7pIIZTmEaS6VizQIUWFHbyvFxkyBdnZKF
+ rPcpMY5Eh5OFUO4rR+971RsEgqvGZidPXw397r/mUynXO3493C9zbX1mrhryAVLJ3TOqIEXxHr
+ 2fKE308z3kUd3rBjQMwLQ4r5zwygmEDkXec3jiEvsXpykUOxhsaNEK348wf5xQo1+JM5QZPbKy
+ FwFHvOLtxGnyLs5ULTjHG3jpC3HFu43x7rKucR4OdZ8ug/o9d1/UHB7ANllYCAAA=
+X-Change-ID: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>
+Cc: Ben Horgan <ben.horgan@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2411; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=4OkU9WgvaTBr4fJA+BqdrjhjALCzfWtqREvgXEsfess=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhqzpcrmHRNqMLwefaRC9ed7e1FZmbfI5y+i8fb2Vr/0nV
+ D5fWL+wk9GYhYGRi0FWTJFl7bOMVenhElvnP5r/CmYQKxPIFAYuTgGYSP939j+cTl4dZ+ZKFOcl
+ NX7RYY7tSXmfNuVYlJ/BOzNNMX7GpBspd4UXd+o3Xek4I6UWdCxuifXZCXaTdJjeLG8QVFtwdVO
+ DssbrXQb3aw0VNy55klraM9ErYePcY+/e/NzGo3HWYMbxH68NkoI4+rxnPnacybjl20G2Ki7+BN
+ +I47xVvKrZn7/Fl9drVHxz4JQIcO9fpnf6kJ75W8FKSX379LabmlVbTE6w1m4X26f3qfr51FsXg
+ 3hktr1KulYdfHyJthJ/4SLVMKb+UydPJjbXFb/f0BEacXFn8kG5gJ0rzycdOyJ3JPW/btNzPUF2
+ LqWc5DO3G3c2+GWH3Il09Wnoq0g/XG1wxqr7+Dm/h1rlAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,137 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ulf Hansson <ulf.hansson@oss.qualcomm.com> writes:
+While debugging issues related to aarch64 only systems I ran into
+speedbumps due to the lack of detail in the results reported when the
+guest register read and reset value preservation tests were run, they
+generated an immediately fatal assert without indicating which register
+was being tested. Update these tests to non-fatally report a standard
+kselftest result per register, making it much easier to see what the
+problem being reported is.
 
-> On Mon, Aug 31, 2026 at 8:52=E2=80=AFPM Kevin Hilman (TI) <khilman@baylib=
-re.com> wrote:
->>
->> Previously, only the deepest CPU idle state had its enter and
->> enter_s2idle callbacks set to the domain-aware implementations. This
->> meant that if a QoS latency constraint excluded the deepest state during
->> s2idle, find_deepest_state() would find no state with enter_s2idle set
->> and skip the domain idle path entirely. Similarly, during normal runtime
->> idle, shallower CPU idle states could not trigger cluster-level domain
->> idle states.
->>
->> Assign both enter_s2idle and enter (non-PREEMPT_RT) to all non-WFI CPU
->> idle states so that the domain-idle-state logic is triggered regardless
->> of which CPU idle state is selected. The genpd governor remains
->> responsible for honouring domain-level latency constraints independently.
->>
->> The enter_s2idle path uses dev_pm_genpd_suspend() which is safe on
->> PREEMPT_RT. The enter path uses pm_runtime_put_sync_suspend() which may
->> sleep and is therefore still excluded on PREEMPT_RT.
->>
->> Suggested-by: Scaria Kochidanadu <s-kochidanadu@ti.com>
->> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
->> ---
->>  drivers/cpuidle/cpuidle-psci.c | 24 +++++++++++++++++-------
->>  1 file changed, 17 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-ps=
-ci.c
->> index dcf20ea5ef5e..db9aa57c51f5 100644
->> --- a/drivers/cpuidle/cpuidle-psci.c
->> +++ b/drivers/cpuidle/cpuidle-psci.c
->> @@ -250,6 +250,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_=
-driver *drv,
->>                                      struct psci_cpuidle_data *data,
->>                                      unsigned int state_count, int cpu)
->>  {
->> +       int i;
->> +
->>         /* Currently limit the hierarchical topology to be used in OSI m=
-ode. */
->>         if (!psci_has_osi_support())
->>                 return 0;
->> @@ -261,14 +263,22 @@ static int psci_dt_cpu_init_topology(struct cpuidl=
-e_driver *drv,
->>         psci_cpuidle_use_syscore =3D true;
->>
->>         /*
->> -        * Using the deepest state for the CPU to trigger a potential se=
-lection
->> -        * of a shared state for the domain, assumes the domain states a=
-re all
->> -        * deeper states. On PREEMPT_RT the hierarchical topology is lim=
-ited to
->> -        * s2ram and s2idle.
->> +        * Assign the domain-aware callbacks to all CPU idle states so t=
-hat the
->> +        * domain-idle-state logic is triggered regardless of which CPU =
-idle
->> +        * state is selected.
->> +        *
->> +        * For s2idle, enter_s2idle uses dev_pm_genpd_suspend() which is=
- safe
->> +        * on PREEMPT_RT. find_deepest_state() will pick the deepest sta=
-te
->> +        * whose exit latency fits within the active QoS constraint.
->> +        *
->> +        * For the normal idle path, enter uses pm_runtime_put_sync_susp=
-end()
->> +        * which may sleep and is therefore not used on PREEMPT_RT.
->>          */
->> -       drv->states[state_count - 1].enter_s2idle =3D psci_enter_s2idle_=
-domain_idle_state;
->> -       if (!IS_ENABLED(CONFIG_PREEMPT_RT))
->> -               drv->states[state_count - 1].enter =3D psci_enter_domain=
-_idle_state;
->> +       for (i =3D 1; i < state_count; i++) {
->> +               drv->states[i].enter_s2idle =3D psci_enter_s2idle_domain=
-_idle_state;
->> +               if (!IS_ENABLED(CONFIG_PREEMPT_RT))
->> +                       drv->states[i].enter =3D psci_enter_domain_idle_=
-state;
->> +       }
->
-> This breaks the current contract for genpd when it tries to select a
-> domain idle state for a group of CPUs that shares the same PM domain.
+A similar issue exists with the validation of the individual bitfields
+in registers due to the use of immediately fatal asserts. Update those
+asserts to be standard kselftest reports.
 
-Could you elaborate on what that "current contract" is or point me to
-where it's described in more detail.  I understand there was a reason
-for this design choice when first implemented, but now that we have
-added support for using QoS to constrain the state selection used for
-system-wide suspend (including s2idle) this "contract" is really
-restrictive, and doesn't allow the domain idle logic to be used at all
-for shallower states.
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v7:
+- Rebase onto v7.3-rc1.
+- Link to v6: https://patch.msgid.link/20260719-kvm-arm64-set-id-regs-aarch64-v6-0-724287f5f108@kernel.org
 
-> In principle, if the CPU has a clock gating state (shallow) and a
-> power collapse state (deep), it would be sufficient for the CPU to be
-> in the clock gating state, while allowing the cluster PM domain
-> (through genpd) to enter a domain idle state that corresponds to a
-> power collapse state. Depending on the platform of course.
+Changes in v6:
+- Rebase onto v7.2-rc3.
+- Drop changes to handling of aarch32 related registers on 64 bit only
+  systems, an in kernel solution is preferred for those.
+- Use a define to count the non-test_regs registers.
+- Link to v5: https://patch.msgid.link/20260317-kvm-arm64-set-id-regs-aarch64-v5-0-a60f2b956e22@kernel.org
 
-Yes, that is possible in principle, but with an important clarification:
+Changes in v5:
+- Rebase onto v7.0-rc1.
+- Link to v4: https://patch.msgid.link/20260106-kvm-arm64-set-id-regs-aarch64-v4-0-c7ef4551afb3@kernel.org
 
-Once all CPUs are in an idle state (either shallow or deep), the domain
-idle state logic is entered.  It's then up to the domain (or its
-governor) to select the appropriate state(s) for the domain.  If any of
-the CPUs are in a shallow state, the domain governor should not allow a
-deep state.
+Changes in v4:
+- Correct check for 32 bit ID registers.
+- Link to v3: https://patch.msgid.link/20251219-kvm-arm64-set-id-regs-aarch64-v3-0-bfa474ec3218@kernel.org
 
-In your example, you mention the CPUs in a shallow state but the cluster
-domain would pick a deep state.  I would say that's a bug in the
-PM domain (or its governor) if it would allow that.
+Changes in v3:
+- Rebase onto v6.19-rc1.
+- Link to v2: https://patch.msgid.link/20251114-kvm-arm64-set-id-regs-aarch64-v2-0-672f214f41bf@kernel.org
 
-The job of the PM domain is to pick the deepest state that is possible
-based on the state of the devices (including CPUs) that are in that
-domain.
+Changes in v2:
+- Add a fix for spurious failures with 64 bit only guests.
+- Link to v1: https://patch.msgid.link/20251030-kvm-arm64-set-id-regs-aarch64-v1-0-96fe0d2b178e@kernel.org
 
-The same is true today for domains that do not have CPUs.  If you have a
-device that runtime suspended, but in a shallow state (e.g. only clock
-gated), the PM domain it is in should not hit a deep (power-off) state,
-otherwise that device will lose context and not resume properly.
+---
+Mark Brown (3):
+      KVM: selftests: arm64: Report set_id_reg reads of test registers as tests
+      KVM: selftests: arm64: Report register reset tests individually
+      KVM: selftests: arm64: Make set_id_regs bitfield validatity checks non-fatal
 
-I'm trying to enable that same thing for PM domains with CPUs.
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 121 ++++++++++++++++++------
+ 1 file changed, 91 insertions(+), 30 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20251028-kvm-arm64-set-id-regs-aarch64-ebb77969401c
 
-> On the platform you are working, is there a clock gating state (or
-> similar) on the cluster PM domain, which is allowed to be entered when
-> the corresponding CPUs are in the similar state?
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-Yes.  Not only the CPUs have shallow and deep states, but the domains
-can have shallow and deep states as well.
-
-Kevin
 
