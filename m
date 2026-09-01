@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D098C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B6DC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 14:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BlynNgY5zP68PI3zywr2W59oa9iEvK/XT6rpy4x8qgE=; b=2GMTsqzMz0k2AIqIcbhp3/p52O
-	QQY4ind47uFhgCQXziZcHiT4r6w7wqSxEZVPiVcquhossj1XjAeROeiNnKW7EEd2DiCymPCxCD0id
-	M8jJRhZNdnWNQg/OrKEpBTpbOOPulgriaXEhc0nWBR7modnf44r3BnGNwdEhTGIC++uzTDu0mSVvw
-	xBI3UGfZciXxUTVk254csI01FpX+AgEpz/7Xn/VICIssk9/1f0/epNcdMfDB0r8kGDmNbWO0jroJn
-	GRopXKgPjvVPr2sMpMrVtErRA5QvKS7rK7iWgkWgPmFi/mMbvYnHMf7owtNfh9J8Kdn3wfuaoPP0x
-	N0TC225w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+RwiugeaifPQdmY9Zpdvu0ty8fQ/P33k9akYKvOyAbg=; b=UuJspD0ZcHi2jyXqTjk6SOdGkH
+	Ja9ha+dDuC0Ha19ZBPjwAH0lp95Qkk4PqIvrB4P70wI0GFsbYMBOhNkFVndCQ8upvXF6oN12EJIbj
+	w4Mp5Tz9bFSqEtfw1vy3tL8GdCLaDIKyMvyTwwKVtTf2MHf+0NAWvMjbro8M+UYneidk36abrGcjB
+	upwumEEuAGCc1F4X+YvgoSSFJH5tW9rxV0rOiyHkWUkOsLWN6wB/n/3Mn91pkP9ORParfvdYcboEx
+	Lv5r6gB10LUjcqGRtH/tlPzoEvtVbU6RBC+pdtjG8apvD1Ngrw6Py4te8YlCo+bcvfhkc3Q331O5w
+	Q7tnEDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PN9-0000000CKCg-11U1;
-	Tue, 01 Sep 2026 14:21:59 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1PN5-0000000CKCI-1vaH
+	id 1x1PPS-0000000CKSH-3wDH;
+	Tue, 01 Sep 2026 14:24:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1PPP-0000000CKPf-4A0p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 14:21:58 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1151B4E41496;
-	Tue,  1 Sep 2026 14:21:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D682E6053C;
-	Tue,  1 Sep 2026 14:21:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B20F611C79234;
-	Tue,  1 Sep 2026 16:21:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788272506; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=BlynNgY5zP68PI3zywr2W59oa9iEvK/XT6rpy4x8qgE=;
-	b=H2/4vuqC5BV/8rBy8qIYdeXYUf+vcm1VOR/iXjm8IH96O/YVghje2GnNdxIk/Ni5lDF3ph
-	J6L7CUQ65zzz+/Td49gkM+GNN9TyOuuRxRtNgXSynBLpfUSF2N4qBrmqRwCiBOcVdzLOpq
-	ve9Nukk4bt1+4KZa/3uOLXZcL5D+YPsF/ud5XFlbgoRJ0e5qNe4n2pD8xWxG/TRqGukO6e
-	xZjfqb2fyEswz6XZRIsTO+rvK8zYLNiXmUXSUDWdMX/n/Grju+kPAfQyrrzZLuUGl0ov3S
-	1jcAWxE/x8nbnTZRNWVGhZT3QTvxQRdxkYx2AY2dgrfEH7NH6FBS9SNScWdsVg==
-Message-ID: <3053bd10-50c0-4a4e-bfe3-7c2479bad560@bootlin.com>
-Date: Tue, 1 Sep 2026 16:21:36 +0200
+	Tue, 01 Sep 2026 14:24:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 465AC1756;
+	Tue,  1 Sep 2026 07:24:12 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4935A3F882;
+	Tue,  1 Sep 2026 07:24:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788272656; bh=/+VTS/wowKUBMEJfUdOzNr9Rhq2odKsUrNC+nH+Ov6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l4FEsQQe49YrVK3Eui9gTKKd5V+dmOfEGgip57IjEp8fEHqxuePGNLZ8GuKu3jUkH
+	 Nuu4Yb8TJamyzrltg+7AYmQs+NWdzyZYMLwxZNhYodLsRsv4xL01vE1oUHLn7FgNkk
+	 bnf93fyhdWxCsyIBOYeKlsSDcxBRvdiBP1KnBM5k=
+Date: Tue, 1 Sep 2026 19:54:12 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+	Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Maxwell Bland <mbland@motorola.com>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pierre Langlois <pierre.langlois@arm.com>,
+	=?iso-8859-1?Q?Pierre-Cl=E9ment?= Tosi <ptosi@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
+Message-ID: <apbgDNjQPLBdsUe0@a079125.arm.com>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: phy: motorcomm: Enable analog frontend
- on YT8531S
-To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
- Frank <Frank.Sae@motor-comm.com>
-Cc: thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
- <20260831073747.361482-4-maxime.chevallier@bootlin.com>
- <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_072155_665627_C95B0EA3 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260901_072420_116471_64E6D5DE 
+X-CRM114-Status: GOOD (  38.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +91,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kevin,
 
-
-On 9/1/26 15:59, Paolo Abeni wrote:
-> On 8/31/26 9:37 AM, Maxime Chevallier wrote:
->> The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
->> well as a YT8531S PHY, configured in GMII mode.
->>
->> It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
->> enabled for link to reliably establish, otherwise the link just doesn't
->> come up.
->>
->> Let's enable it at config_init().
->>
->> This logic has been extracted from the vendor driver provided by
->> Motorcomm.
->>
->> It's really unclear if this is specific to the integrated version of
->> that PHY, and how this potentially interacts with the fiber mode this
->> PHY supports, so this configuration is only enabled when the interface
->> is GMII, i.e. the PHY is integrated.
->>
->> With this, the PHY reliably establishes link and the YT6801 PCIe card
->> becomes fully functional.
->>
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
->> ---
->>  drivers/net/phy/motorcomm.c | 14 +++++++++++++-
->>  1 file changed, 13 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
->> index 36c229460a77..90a4f86f2758 100644
->> --- a/drivers/net/phy/motorcomm.c
->> +++ b/drivers/net/phy/motorcomm.c
->> @@ -144,6 +144,11 @@
->>  #define YT8521_CLOCK_GATING_REG			0xC
->>  #define YT8521_CGR_RX_CLK_EN			BIT(12)
->>  
->> +/* Analog front-end control register 3 */
->> +#define YT8531S_EXT_AFE_CTRL3			0x12
->> +/* Analog front-end DAC clock enable */
->> +#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
->> +
->>  #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
->>  #define YT8521_ESC1R_SLEEP_SW			BIT(15)
->>  #define YT8521_ESC1R_PLLON_SLP			BIT(14)
->> @@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
->>  	if (ret)
->>  		goto err_restore_page;
->>  
->> -	if (phy_interface_is_rgmii(phydev))
->> +	if (phy_interface_is_rgmii(phydev)) {
->>  		ret = yt8531_set_ds(phydev);
->> +		if (ret)
->> +			goto err_restore_page;
->> +	}
->> +
->> +	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
->> +		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
->> +				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
+On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
+> [Sending during the merge window in case reviewers have spare
+> cycles; I'm not aiming to have this series merged in v7.3.]
 > 
-> Sashiko suspects this will not survive a suspend/resume:
+> This is a proposal to leverage protection keys (pkeys) to harden
+> critical kernel data, by making it mostly read-only. The series includes
+> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+> as well as a page table hardening feature based on that framework,
+> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+> concept, but they are designed to be compatible with any architecture
+> that supports pkeys.
 > 
-> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831073747.361482-1-maxime.chevallier%40bootlin.com
+> The proposed approach is a typical use of pkeys: the data to protect is
+> mapped with a given pkey P, and the pkey register is initially
+> configured to grant read-only access to P. Where the protected data
+> needs to be written to, the pkey register is temporarily switched to
+> grant write access to P on the current CPU.
+> 
+> The key fact this approach relies on is that the target data is
+> only written to via a limited and well-defined API. This makes it
+> possible to explicitly switch the pkey register where needed, without
+> introducing excessively invasive changes, and only for a small amount of
+> trusted code.
+> 
+> Page tables are chosen as an initial target because of their especially
+> critical nature - a single write may result in arbitrary pages becoming
+> accessible to any context (including userspace). In order to keep the
+> series digestible for reviewers, this version focuses on functionality
+> rather than performance, making it most suitable as a debug feature. The
+> key trade-off is the requirement to PTE-map the linear map - see section
+> "Protected page table allocation" for details.
+> 
+> This series has similarities with the "PKS write protected page tables"
+> series posted by Rick Edgecombe a few years ago [1] but it is not
+> specific to x86/PKS - the approach is meant to be generic.
+> 
+> This proposal (as of RFC v5) was presented at Linux Security Summit
+> Europe 2025 [2].
+> 
+> [Table of contents]
+> 
+> * kpkeys
+>   - pkey register management
+> 
+> * kpkeys_hardened_pgtables
+>   - Protected page table allocation
+>   - kpkeys context switching
+>   - Performance
+>   - Limitations
+> 
+> * This series
+>   - Branches
+> 
+> * Threat model
+> 
+> * Further use-cases
+> 
+> * Open questions
+> 
+> kpkeys
+> ======
+> 
+> The use of pkeys involves two separate mechanisms: assigning a pkey to
+> pages, and defining the pkeys -> permissions mapping via the pkey
+> register. This is implemented through the following interface:
+> 
+> - Pages are assigned a pkey in the linear map using set_memory_pkey().
+>   This is sufficient for this series, but it is also plausible for
+>   higher-level allocators to support marking allocations with a given
+>   pkey.
+> 
+> - The pkey register is configured based on a *kpkeys context*. kpkeys
+>   contexts are represented as simple integers that correspond to a given
+>   configuration, for instance:
+> 
+>   KPKEYS_CTX_DEFAULT:
+>         RW access to KPKEYS_PKEY_DEFAULT
+>         RO access to any other KPKEYS_PKEY_*
+> 
+>   KPKEYS_CTX_<FEAT>:
+>         RW access to KPKEYS_PKEY_DEFAULT
+>         RW access to KPKEYS_PKEY_<FEAT>
+>         RO access to any other KPKEYS_PKEY_*
+> 
+>   Only pkeys that are managed by the kpkeys framework are impacted;
+>   permissions for other pkeys are left unchanged (this allows for other
+>   schemes using pkeys to be used in parallel, and arch-specific use of
+>   certain pkeys).
 
-hmm sashiko may be right, worth adding right now as it seems there are
-some discussions already on motorcomm suspend/resume issues, let me spin
-a V2
 
-Thanks !
+- Adding some basic details on what a scheme and context is quite helpful.
 
-Maxime
+ - Giving some hints (may be an example) on how multiple schemes and multiple contexts
+  play together would be quite helpful.
 
+Adding a documentation that covers these aspects would be much
+appreciated.
+
+My understanding is that pkeys are being partitioned across different
+contexts. But then the introduction of the term "scheme" looks bit confusing to me.
+
+
+> 
+>   The current kpkeys context is changed by calling
+>   kpkeys_enter_context(), which will set the pkey register
+>   accordingly and return the original state. A
+>   subsequent call to kpkeys_leave_context() restores the original
+>   state (and thus the original kpkeys context). The numeric value of
+>   KPKEYS_CTX_* (kpkeys context) is purely symbolic and thus generic,
+>   however each architecture is free to define non-default pkeys
+>   values (KPKEYS_PKEY_*).
+> 
+..snip
+
+> Open questions
+> ==============
+> 
+> A few aspects in this RFC that are debatable and/or worth discussing:
+> 
+> - There is currently no restriction on how kpkeys contexts map to pkeys
+>   permissions. A typical approach is to allocate one pkey per context and
+>   make it writable in that context only. As the number of contexts
+
+Probably to avoid the assumption, may be we can we have something like
+below 
+
+For a pkey P, we could define
+PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
+PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
+
+With the assumption of one pkey mapped for every context,
+the permission for the default context would look something like,
+
+PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
+PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
+PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
+...(for all valid contexts)
+
+where,
+Permission key, PKEY_DEF is associated with context DEFAULT,
+Permission key, PKEY_CT0 is associated with context CT0,
+Permission key, PKEY_CT1 is associated with context CT1
+
+>   increases, we may however run out of pkeys, especially on arm64 (just
+>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+>   use the same pkey for the data associated to multiple contexts.
+
+Lets say two contexts A and B, use the same pkey P as their permission matches.
+But then, when we enter context A, permission for pkey P gets
+relaxed, then that would relax permission for pages associated with
+context B as well which is unintended ? 
+
+As the hardware supports 16 pkeys, should we consider removing the limit
+of 8 pkeys so that we can have unique pkeys for each context ?
+
+--
+Linu Cherian
 
