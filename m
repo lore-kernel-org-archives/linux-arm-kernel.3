@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BB7C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531A2C624D8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 13:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4WQe8WxOJvjm3sLRvwhf9J7T9KlfMScAPN+0OUz8OY=; b=mtT7J3dT4qT6pWIUkcqxESNCkB
-	gRlMW0zSa6AiUkv89A241Lf5GdJDUcMr6DrSyJCpt0hGPoptpN8S9dR0xWHPIcMkpxEsWhAgqSKpe
-	fXAc/XhY6FgQpgg/wK4PkV4YQY+TqN1kWZBD5/Orau3dkugZDUbqOgd+GFVFZWPdmjOjRoHKFfT7E
-	GqqSOsOw/Tn0ymUW/4d4wQjMw6ogfrWE83U+A9MODK20EhYjUa0VEGWJIxPm4dQOpd7/wvI7Osi94
-	qqgjoO5h5wAX24k8/Ed3K9jsOCFR936ZkrqGu2GBL+rSeEy9dS7Lg80l2G3KGS2swhzd7O7Q+8rF4
-	sbn6ZPkA==;
+	bh=uoYKoPZ7YKPmsCHG/kXIjc+wB00oulf3PAI6t9L7dXc=; b=Qc5qhrc2l7DBvAzWZWpa/SZMIT
+	IclujOGdqYSNvexONNBZVKUrG+bPGWzdDh0FLr0xK6jIewdtTydGTcWlyxhdLe1cS3ENE6MJ2rG2p
+	ZChbjNoZg7MZSuKeuqzllz9NUTj7+Pz4oGQ6NP2z/qPbMNQiuy92n3xul5kdTZK83H9Tyvh5efsmp
+	/HUU4JkF9HPN6WJM7GFXuom7JycBwrfshCGcW6nXpoeB53VdnQei4qf4dzxBdA2OvbM4Av727FK5s
+	nJHgtxvgt3WpTPALUoi3cS3FjA+tl8WNHRE92hnCPUI88HxGiW3ZVQkKjH3NPW5dnbmxbehHKlcg7
+	5e52fjAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OGs-0000000CA7v-1LIy;
-	Tue, 01 Sep 2026 13:11:26 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1x1OIT-0000000CAXi-192n;
+	Tue, 01 Sep 2026 13:13:05 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1OGq-0000000CA6l-0IJu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 13:11:25 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49cd77e0f95so9847155e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 06:11:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788268282; x=1788873082; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W4WQe8WxOJvjm3sLRvwhf9J7T9KlfMScAPN+0OUz8OY=;
-        b=QMs2afNqZFhvOXQSZU6JD6UQaUDGquohitJxk1VRa2VcmAZqjyVo1OrW2/hHQDmO+H
-         hERytUBokb5UXkAUbhQjMrrTHRqFx94zob6f3LTO9ClACoZw8+DqCLSR9VG8Sr3jWnOd
-         jhY7QrQwrm8/hIJF9zHACkMgtmeSiHO+BzE/SGMeMvCLzAfbJO5+0MP2s9ZrdwoXEHum
-         f23RI/ihOcvjeR+qGEc5Wk3nlKcFzmhlbU1wjsz0/YhUBBTTyoXx7vQr/nL6shRb5qwy
-         0cKmqHWMVnLV0TvKhV/oY5JmcVlDlQwBWRv1pi58TJXiI6c/Mp5Hhgk9oMhHC35+knDe
-         0+0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788268282; x=1788873082;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W4WQe8WxOJvjm3sLRvwhf9J7T9KlfMScAPN+0OUz8OY=;
-        b=GW13nqDQ6X2v0tOezTkTzWi3CTXZWTGEhVWpZaJOe5u62A59RbvafXnU8seTzu4BvE
-         hki1sgp3+qpKjmLdDcee+I9REgsWW3es0lhxI9pazfvB1q6+9i7NvZ51XSeUywx6jtRI
-         ph2nJ7U1wXUc+P/weUx5hKxpKS+okomPtgoejecoqIwRt7TeSbVLYqE8VoaIS6muLb6D
-         cX4bvbp/iBN3NgAYnEI1d3BoIuBsuJsQxvTvFzYMHaV7mrGrGgtejC05JDMWwgrRrqou
-         iBBbm0tBuEtK2x8W3uc5IdhYs2/ijLQtWMim5ZHkvVqeB1TzA7jO5rXh8CkFEYX80B+a
-         HmqQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoUrDwV3EQTQh2fatf46v2dHT74yV9hrk1VJ7sWzeB3bO4SnvslLw13j6dqfm+Zr9RJ5qiou9wY7go5TayXNQQv@lists.infradead.org
-X-Gm-Message-State: AFuF++kRkcyDjTkEEpffX+xaJrrv5lAtJFFqCZ9rC/IFkA+tS5ejHGB6
-	kEoViNfu0q5yb3MKfQhU90KWX6V1gNn17LHwNGnVNS43zcyPcIc7bSUN
-X-Gm-Gg: AR+sD11U4HpuR5zwnkt5GSaQnBuxitSsQUdDwXfAQoUPUSrzY5DZ9dPTGF+UW/6WTyO
-	HuWLBp4uewv2eA5ia7PKHKd09n9yZSmizP8FGOzIglqvLeTE/IUfrfN3Fu1hxkr7PMBezds81zX
-	QrXAlvTam0H0w6IrxxBUIZf+gbBpcxCoiyusDyyVDBauOizf/ZiaKEEj7usEemvE94t4LIWfP7V
-	06xS91XOOm6XqlfPpLMjumD1gcfeYeW0arNLIsRt6IprN8qiJVvqA/FibEn7hUVTBKUbr7jVMcu
-	NOVs2w6Rlqgl9ZI2Ff3HtRGortizicC6htqkgnBBkdD0Ek8LBA96ZimAXRH3YVRA8HvWDb82Ri3
-	dafwoK/cloilTtrJA1X56DC3KY2SwXgUtMcTAydBR5MgXJ3+4v3vBwUDa7/c7Qz/3Xh9MQWUXAC
-	Db6yEmEn3gop64IybScL9HR3pxc30ymrAdZpS49rvwNKSKUppQmZIwQrAJkVGiXbb+RA1aH9jcU
-	PjeOSgGyBZaE3BIHfzWe694mppc+trlMRxN1Pc2sti8Qw==
-X-Received: by 2002:a05:600c:3511:b0:499:adb4:a922 with SMTP id 5b1f17b1804b1-49b91c4bab5mr387735445e9.12.1788268282047;
-        Tue, 01 Sep 2026 06:11:22 -0700 (PDT)
-Received: from Ansuel-XPS. (host-79-26-252-140.retail.telecomitalia.it. [79.26.252.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cdce1a3fesm70391065e9.12.2026.09.01.06.11.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Sep 2026 06:11:21 -0700 (PDT)
-Message-ID: <6a96cef9.1f1211b9.23c693.9e1e@mx.google.com>
-X-Google-Original-Message-ID: <apbO8hHBw7bMvVxL@Ansuel-XPS.>
-Date: Tue, 1 Sep 2026 15:11:14 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: airoha: Document support for
- AN7583 Gen3 PCIe PHY
-References: <20260827122127.18874-1-ansuelsmth@gmail.com>
- <20260827122127.18874-2-ansuelsmth@gmail.com>
- <20260831-elastic-turquoise-puma-f032fc@quoll>
+	id 1x1OIQ-0000000CAU0-00Y1;
+	Tue, 01 Sep 2026 13:13:04 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=uoYKoPZ7YKPmsCHG/kXIjc+wB00oulf3PAI6t9L7dXc=;
+	b=AjShkyBICAQG93Xx24uO5WkxiKPbiNgccEYEo+cH2GjESgyKEM//MZ278+F6XzwOlEUJ34IXR
+	gGLmLMCdZY+TwaKIQcratPL0uQrHHNhh3oTLFnFNjRlq5slRg6HK0rXoLect9UvacjQfXAPOIG/
+	AW3dbypsROzmFphzCRweR1I=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hZ5bw237xzLlXZ;
+	Tue,  1 Sep 2026 21:02:04 +0800 (CST)
+Received: from dggpemr100018.china.huawei.com (unknown [7.185.36.64])
+	by mail.maildlp.com (Postfix) with ESMTPS id C14E04057C;
+	Tue,  1 Sep 2026 21:12:53 +0800 (CST)
+Received: from huawei.com (10.50.85.155) by dggpemr100018.china.huawei.com
+ (7.185.36.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 1 Sep
+ 2026 21:12:52 +0800
+From: zhouminqiang <zhouminqiang2@huawei.com>
+To: <linux@armlinux.org.uk>, <vz@mleia.com>, <piotr.wojtaszczyk@timesys.com>,
+	<maddy@linux.ibm.com>, <dwmw2@infradead.org>, <richard@nod.at>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-mtd@lists.infradead.org>,
+	<chengzhihao1@huawei.com>, <yangerkun@huawei.com>, <yi.zhang@huawei.com>
+Subject: [PATCH v3 2/8] jffs2: wbuf: fix space accounting in recovery secondary write failure
+Date: Tue, 1 Sep 2026 21:05:43 +0800
+Message-ID: <20260901130549.1761342-3-zhouminqiang2@huawei.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
+References: <20260901130549.1761342-1-zhouminqiang2@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260831-elastic-turquoise-puma-f032fc@quoll>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.85.155]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemr100018.china.huawei.com (7.185.36.64)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_061124_126871_C23F4401 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260901_061302_352858_18A8EBD9 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,34 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 31, 2026 at 08:51:46AM +0200, Krzysztof Kozlowski wrote:
-> On Thu, Aug 27, 2026 at 02:21:20PM +0200, Christian Marangi wrote:
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/phy/phy.h>
-> > +
-> > +    phy@1fc7f000 {
-> > +        compatible = "airoha,an7583-pcie-gen3-phy";
-> > +        reg = <0x1fc7f000 0xfff>,
-> > +              <0x1fc7e000 0xfff>,
-> 
-> Sashiko has a valid point here.
-> 
-> This should reflect real hardware, not current driver. It is very, very
-> unlikely that hardware designers designed a block of 0xfff size or 0x4
->
+In jffs2_wbuf_recover(), when the recovery write to the new erase block
+also fails, the code marks the already-written portion as REF_OBSOLETE
+via jffs2_add_physical_node_ref(). However, the length passed is
+ref_totlen(c, jeb, first_raw), which is the length of a single node on
+the old block, not retlen which is the actual number of bytes written to
+the new block.
 
-Hi for 0xfff yes the block is 0x1000 but I was reporting how it was defined
-in the original DTS. For the 0x4 is for real a single register for that
-usage. Documentation is scarce for that single block but this also reflect
-the same implementation used on EN7581. I updated the example to address
-the strange block of 0xfff.
+When the recovery buffer contains multiple nodes, ref_totlen only
+accounts for the first node's length, which can be much smaller than
+retlen. This under-deducts free_size, causing subsequent allocations to
+land on already-programmed NAND pages and silently corrupt data. When
+first_raw is the only node in the recovery range, ref_totlen equals the
+full unaligned data size and exceeds the page-aligned retlen,
+over-deducting free_size and wasting space.
+
+Use retlen so the new block's free_size accurately reflects which NAND
+pages have been programmed.
+
+Signed-off-by: zhouminqiang <zhouminqiang2@huawei.com>
+---
+ fs/jffs2/wbuf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fs/jffs2/wbuf.c b/fs/jffs2/wbuf.c
+index 61e3dbd4cd7b..360a291d9fd5 100644
+--- a/fs/jffs2/wbuf.c
++++ b/fs/jffs2/wbuf.c
+@@ -437,7 +437,7 @@ static void jffs2_wbuf_recover(struct jffs2_sb_info *c)
+ 			kfree(buf);
  
-> > +              <0x1fc30044 0x4>,
-> > +              <0x1fc35030 0x4>;
-> 
-
+ 			if (retlen)
+-				jffs2_add_physical_node_ref(c, ofs | REF_OBSOLETE, ref_totlen(c, jeb, first_raw), NULL);
++				jffs2_add_physical_node_ref(c, ofs | REF_OBSOLETE, retlen, NULL);
+ 
+ 			c->wbuf_len = 0;
+ 			return;
 -- 
-	Ansuel
+2.52.0
+
 
