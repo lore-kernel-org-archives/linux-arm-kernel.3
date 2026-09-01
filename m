@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6744C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 587C8C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0OG6DPfx8cghAxN+mmKvSd2C01G7nJ+tvgQRro5Ux44=; b=bNy+OW5fobX0nWEXNqA3hPA25Y
-	rhCwIO0SIowo3B0avhxhUW/940y5fMXgn8TdvyGMMQMNbZTnRcuMbwizmEQ9HB3bYbcp00MQLFXeN
-	qxiT0d15LGeb2ozb84sSGDPBx7J2gsYMLkUzP1ReOQgKmu5eIhF5Bw5J3TCbog5mEuyt7VZ2fskC8
-	CoEpUSaQlrr3Qyujagr/3QKr50bOtVnhPBuDh1920DK0gR0R/wFR1jkNt0X2cocFlORUQUAG1d9+2
-	CovvkCVJMiZRN3k+6xlxfOvKOJiNeidgzELt2adOo35ekqkp2RGG8hlETR7Wols8BWi5W/kNLDZXW
-	gMAhW/5A==;
+	bh=D7KWZsXInfoSau4DqLZQKAEan/Zg+ZLE3n8FIFk3xmc=; b=qbokZHHP858TDIGQ3jj9CbeOC5
+	y9Z+uIzLSod03A7Yywekcx4525Rv7Jm8OrB7G8fDcYsXTWMBTE0bQTSFRvZGY9m5DV5zw51IAQ/IW
+	g2rJjoesatODPpXfFpGWOoHL7LkkGFY0VznOznU769/ox556NyxH2mXxRkz6gVWvy7OqTWKp3ms0U
+	kFxf12alxXmrqh/RXufd1CSBzfWULAtLCVloFYEXgtf1z5Z/Iy9qnslgeeLIi0UXPXyH3sPle0qRN
+	Lw+EUKaTFNVhW8xsOWtcuJdQZ+ZrcqwbLjrOBIuQOEMvOkueto4FrcSAhK8ZyBzr5Vc2i5DkFPCYN
+	opOVJ0DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TbD-0000000D3sQ-172c;
-	Tue, 01 Sep 2026 18:52:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1TZs-0000000D1MH-41iM;
-	Tue, 01 Sep 2026 18:51:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=0OG6DPfx8cghAxN+mmKvSd2C01G7nJ+tvgQRro5Ux44=; b=KTis4Vg1Q1zXBQckaFe6zsSdVp
-	0i/o/Kr8NFj5HDRzJG5lS5e4l6cJD/II+IBLYJK0pHD6oMcWl1WKsLgvTSthFRZLcEEJUq0GJ28cr
-	M+R9iBaEFLmTR6UgLKBLzHx7BRGnXTA6G8BC3DNsI15QE4+oy+oVPHrFQNpzxyr7lIpnbeTYd9Hu3
-	Mj22r2hajBwLjdZskqHzajOiB6704P4J2gNNjNi9EBIMt0xDkN9AKKMbMWB3ZsbMC9XbDsrCV+Xn4
-	aggi/Dvz+4/PuxDJ8soRsOGeCPyW9BdNMGbujLYjmAJ1Mjf1lnzq8E7TJXvGfuy3mvJ2WDkV1kO0z
-	yg/rX/mQ==;
+	id 1x1TbG-0000000D406-016Y;
+	Tue, 01 Sep 2026 18:52:50 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1TZp-0000000BHYv-3fgy;
-	Tue, 01 Sep 2026 18:51:23 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1TZY-0000000D0vF-069F;
+	Tue, 01 Sep 2026 18:51:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788288680;
-	bh=9ULxXAJ8Lgf9TVfLmpWCFcvW40GpvaJh+iJkfEerDYw=;
+	s=mail; t=1788288661;
+	bh=8Oq1JKZ+6aISjMBfW/rB+bCdiIclZbkZhtUTs+Enj9E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dIctpRAQoiG69X0o4pnh6hUlZznNakZMsVMx/PQqn7QpfOIcvUjBYXGqq9map+tAC
-	 0a8IGYPL4TM8X4P9TM5cyqswNhCPELserhcjhAW3rEr2j+F/ls/pIsu6qNtTLAdzIW
-	 yKwxGICO/4gamiPdsn7s9YXyiFsqtnfmb1gzzkBczuBvgOWTbMwWzVM6GEBTwRHQBv
-	 W4sZGv4JfqLcx1V0p3RqXaaecmm/aNFvQ8eexM9nml4FBM4m3G2RQYvqU89BHc6yNw
-	 fzzUP0lctPRzfYQN6Li37q2DtWjcQtxUFf2GRKrWRE9UWNj4amM69x+b9zgiuDkeMX
-	 NgqMUBbawukSw==
+	b=Og55MvAzDAr7Bv+d9/9T7Q5xhdI+voULqob07G1Tdp5WDSxNtGeZk942RTA7/Qe2g
+	 KeVYppx9jjrVsup/B2RqdtqG7fHCrr2yC9nNysB4J1CmJ3ZiedrG+TUSAly9/TbUQR
+	 gScPyd4HalqHbOSlV4MiFBOjv4N4GxpEn+6V50Dhd5yggK+MF2KTab/lbp7Kfve7/Q
+	 3PLZlKWG245ZLx3Wmjb5Hmz1ZuxCk4qhFEH0XMlSoRSGVILNshQEVvT0dfW8KiUu92
+	 Mj+RQszfDV22FbgHx4BS7hBl3Cg+LjZ+TkdcprSPsDbV2UtJ/yH3cqu+8ebxTXJcz1
+	 Erhzgt/tWP6BQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1E37F17E3C79;
-	Tue, 01 Sep 2026 20:51:20 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9EE917E39A8;
+	Tue, 01 Sep 2026 20:51:01 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 01 Sep 2026 21:51:17 +0300
-Subject: [PATCH v11 53/74] drm/bridge: ite-it6263: Advertise HDMI 1.3
- capabilities
+Date: Tue, 01 Sep 2026 21:50:52 +0300
+Subject: [PATCH v11 28/74] drm/bridge: dw-hdmi-qp: Remove unused workqueue
+ include and define
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260901-dw-hdmi-qp-scramb-v11-53-bc12954a0688@collabora.com>
+Message-Id: <20260901-dw-hdmi-qp-scramb-v11-28-bc12954a0688@collabora.com>
 References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -92,8 +78,9 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-fbdev@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_195122_078485_2E03622C 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260901_115104_914120_CF0340C7 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,77 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are expected to provide the supported
-HDMI version.  This is not enforced yet, but will become mandatory once
-the migration to the caps-based HDMI connector initialization API is
-complete.
+linux/workqueue.h is no longer needed, and SCRAMB_POLL_DELAY_MS is
+unused.
 
-Advertise HDMI 1.3 support for IT6263, covering the 225 MHz TMDS
-character rate currently documented by the driver, which is within the
-HDMI 1.3 limit of 340 MHz.  Additionally, keep the stricter 150 MHz
-effective mode limit by setting max_tmds_char_rate from
-MAX_PIXEL_CLOCK_KHZ.
-
-The existing .hdmi_tmds_char_rate_valid() hook checks both the pixel
-clock and TMDS character rate.  Since the bridge only supports 8 bpc
-RGB444, these are equivalent for supported modes, making the 225 MHz
-TMDS rate check unreachable once the 150 MHz pixel-clock limit is
-applied.
-
-drm_bridge_connector_atomic_check() invokes
-drm_atomic_helper_connector_hdmi_check(), which rejects modes whose
-computed TMDS character rate exceeds the connector's max_tmds_char_rate
-before invoking the driver's .tmds_char_rate_valid hook.  Since
-max_tmds_char_rate now carries the existing effective limit,
-it6263_hdmi_tmds_char_rate_valid() is redundant.  Drop it.
+Remove them.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/ite-it6263.c | 17 ++---------------
- 1 file changed, 2 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
-index 550999491086..e8e0197171e1 100644
---- a/drivers/gpu/drm/bridge/ite-it6263.c
-+++ b/drivers/gpu/drm/bridge/ite-it6263.c
-@@ -738,20 +738,6 @@ it6263_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
- 	return input_fmts;
- }
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index a0613f0d2ebc..246c4161e627 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -15,7 +15,6 @@
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
+-#include <linux/workqueue.h>
  
--static enum drm_mode_status
--it6263_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
--				 const struct drm_display_mode *mode,
--				 unsigned long long tmds_rate)
--{
--	if (mode->clock > MAX_PIXEL_CLOCK_KHZ)
--		return MODE_CLOCK_HIGH;
--
--	if (tmds_rate > MAX_HDMI_TMDS_CHAR_RATE_HZ)
--		return MODE_CLOCK_HIGH;
--
--	return MODE_OK;
--}
--
- static int it6263_hdmi_clear_avi_infoframe(struct drm_bridge *bridge)
- {
- 	struct it6263 *it = bridge_to_it6263(bridge);
-@@ -821,7 +807,6 @@ static const struct drm_bridge_funcs it6263_bridge_funcs = {
- 	.detect = it6263_bridge_detect,
- 	.edid_read = it6263_bridge_edid_read,
- 	.atomic_get_input_bus_fmts = it6263_bridge_atomic_get_input_bus_fmts,
--	.hdmi_tmds_char_rate_valid = it6263_hdmi_tmds_char_rate_valid,
- 	.hdmi_clear_avi_infoframe = it6263_hdmi_clear_avi_infoframe,
- 	.hdmi_write_avi_infoframe = it6263_hdmi_write_avi_infoframe,
- 	.hdmi_clear_hdmi_infoframe = it6263_hdmi_clear_hdmi_infoframe,
-@@ -883,6 +868,8 @@ static int it6263_probe(struct i2c_client *client)
- 	it->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	it->bridge.vendor = "ITE";
- 	it->bridge.product = "IT6263";
-+	it->bridge.supported_hdmi_ver = HDMI_VERSION_1_3;
-+	it->bridge.max_tmds_char_rate = 1000ULL * MAX_PIXEL_CLOCK_KHZ;
+ #include <drm/bridge/dw_hdmi_qp.h>
+ #include <drm/display/drm_hdmi_helper.h>
+@@ -38,8 +37,6 @@
+ #define DDC_CI_ADDR		0x37
+ #define DDC_SEGMENT_ADDR	0x30
  
- 	return devm_drm_bridge_add(dev, &it->bridge);
- }
+-#define SCRAMB_POLL_DELAY_MS	3000
+-
+ /*
+  * Unless otherwise noted, entries in this table are 100% optimization.
+  * Values can be obtained from dw_hdmi_qp_compute_n() but that function is
 
 -- 
 2.55.0
