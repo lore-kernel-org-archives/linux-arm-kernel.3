@@ -4,53 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB4CC624D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5648EC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 16:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sIzLT/xRcPzl/3H+A9x90LFxp0WAG3bfsSL5ZILRtwA=; b=bgQ+zEyRZ3FNjg
-	ux7YSUQIWvfqcMtpf0OY7IBxfhIkMoydhzg5RJnOHhGSfe/3XjSGRSyjPtZ28XOc0d5Qj70L7sg7p
-	4fvUnlqhv2pDpgTz/W9sSO1qLABIC36fx//5GuNiKrAvNFAQwhXquLPT5hGy2ZFqz6tzlpfvXjigd
-	doGPuYCsivc3uiDOmSdptp/Kzbgjus4dO+MAX9jhnXOq2WKuoNerTUfMSam3gxeZS5ItDbFiUv/Zs
-	0jWOZF3aGn4hXQNCPkqp7DCLyFVHU4hiah2vFrNem4kCQ/mAdDFhcDHGbvWAR2ig+Zm1Lbis/x0id
-	YZOA7gos+agpaerCuKtA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1FmwgBnF7ivRkTiZaJQUXFfrSzr8cBynCbocKJZ8k2Y=; b=ogq2fXkEVpMroGD9oOFrHNEEyj
+	Y+ebY1XOGfRGmUJ6uYjtT0tGEPoG9n8c+Hao3AL8mtijbq1HtxeRb0kRXvfrkbvCtNz72acZws3r6
+	SqfYkweykDi0oFwRpnuju7nACmdMUhQ0+yASRanlSR3UW+tOVwl5EDKT/DvJPw5s1Bsmm5ExONepV
+	kt3hLtb9Ud8fULRemExOwchLZiZnA42NdwYHErnhLV8mC4TDFLfnI+vZgu3zz0iZSmt1dlcaOn2xH
+	fiDxnJUBJ566wwYEz1Lx4QVX4FCWmHO7FysOk5YNFkCgEp7UsEls9CmVwR4m2wo5yru29YMGPfIAd
+	mpk+L8cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RTR-0000000Cg9x-2eH2;
-	Tue, 01 Sep 2026 16:36:40 +0000
+	id 1x1RTZ-0000000CgD2-3D27;
+	Tue, 01 Sep 2026 16:36:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1RTK-0000000Cg7x-30Jx
+	id 1x1RTN-0000000Cg99-3JhJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 16:36:32 +0000
+	Tue, 01 Sep 2026 16:36:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D27D1756;
-	Tue,  1 Sep 2026 09:36:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 479931756;
+	Tue,  1 Sep 2026 09:36:29 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 156F53F85F;
-	Tue,  1 Sep 2026 09:36:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 436883F85F;
+	Tue,  1 Sep 2026 09:36:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788280586; bh=zCJfrcWau7jbwN72fLHboX/CuuSQr1vM6q6Bc/NBwBo=;
-	h=From:Subject:Date:To:Cc:From;
-	b=QiwuEj1dRF3pQYhiMJDVjIXlk6l2bFvWyInpmizT+KDdGrBMEHTx3xAHswKSRpA+Z
-	 PQ0TfcYd71YZMd0urzSWzdSq62w/xI6oHpIRFlZKGhm2AGbO3FiaXyMB4PdyDezcVx
-	 IMyweNi939V6HiRu2xrXHe9gCTjuwyvy8RJT6rjI=
+	t=1788280593; bh=plbS3HrWoctD/KTUTIyQWYwlq1nvdgjH+NpGvIk01I0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Rvw1F4JqFT9cmvfKZRxPyC/CyJi67KrhZbPdsaRElG7OG4W1iSsG6YHGXDbveaNBr
+	 GXDQuv2tEcSYrw0/EVsUH2EGMXpkB1+PETo0WQuEVIL1zRNhrics/94/sKwvuHtGPC
+	 taC87RhVxDsDn+VLt0PZrzeKrPkXQAa7JTnRYDP8=
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH 0/3] perf: Suppress redundant ITRACE start records for Arm
- SPE and CoreSight
-Date: Tue, 01 Sep 2026 17:36:14 +0100
-Message-Id: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+Date: Tue, 01 Sep 2026 17:36:17 +0100
+Subject: [PATCH 3/3] coresight: perf: Suppress ITRACE start records
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAP7+lmoC/x2NwQqDMBAFf0X23EAMWkh/pUgI8cXuRcNuLIL47
- waPA8PMSQphKH26kwR/Vt7WBv2ro/SL6wLDc2Ny1r2tt70pkBx0L0WgGrhKTAhao9QgSJvMaga
- XYx5G+ARPLdTUzMcz+U7XdQNAVaCydAAAAA==
-X-Change-ID: 20260901-perf_suppress_itrace_start_records-42faf45e9ce9
+Message-Id: <20260901-perf_suppress_itrace_start_records-v1-3-c4fbc6860859@arm.com>
+References: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
+In-Reply-To: <20260901-perf_suppress_itrace_start_records-v1-0-c4fbc6860859@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
  Will Deacon <will@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mark Rutland <mark.rutland@arm.com>, 
@@ -61,17 +58,16 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788280584; l=1790;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788280584; l=1225;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=zCJfrcWau7jbwN72fLHboX/CuuSQr1vM6q6Bc/NBwBo=;
- b=6lzMWVLUtIPg/UE/t2UwAum630KRWxLtZUOdj3e5NzZk00au2gVpwEJ/JeAjMQAzYdE4s80R8
- 0i0k0B/m8/UBSPK3wNfeGmRhvTCJ902iXl96pUW1iKGUWhXpQgdxArH
+ bh=plbS3HrWoctD/KTUTIyQWYwlq1nvdgjH+NpGvIk01I0=;
+ b=M2xhsj9QnStXjg3/CiMvt7fs5r0R/XWoUkx20EZFiAisrr2dCZzjJbYY5Mj6SIxtIj7qKyvHO
+ VipAxQad+BbDz1TkoYFA1EA67dG2VjzHfDd/uuk+eI5PPdPX1L9B0jf
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_093630_833038_C87600AC 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260901_093633_981670_5BF64059 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks to Tamas Petz for noticing that Arm CoreSight perf data can contain
-many PERF_RECORD_ITRACE_START records.
+PERF_RECORD_ITRACE_START establishes the initial thread context at the
+beginning of a trace. Afterwards, decoders track the thread context using
+context packets.
 
-PERF_RECORD_ITRACE_START provides the decoder with the initial thread
-context when that information is absent from the trace stream. Once
-tracing has started, Arm SPE and CoreSight decoders track subsequent
-context changes using context packets or recorded sched_switch events.
+Call perf_event_itrace_started() after successfully starting the event
+to prevent perf core from emitting redundant PERF_RECORD_ITRACE_START
+records when the event is scheduled in again.
 
-Have both drivers call perf_event_itrace_started() after successfully
-starting event. This prevents perf core from emitting redundant
-PERF_RECORD_ITRACE_START records when an event is scheduled in again.
-
-Since the Arm SPE and CoreSight drivers can be built as modules, export
-perf_event_itrace_started() before using it in those drivers.
-
-This series was verified with Arm CoreSight using the commands below.
-The perf data contains 100 sched_switch events but only one
-PERF_RECORD_ITRACE_START record:
-
-  taskset -c 2 perf record -e cs_etm//u -e sched:sched_switch -- \
-	  taskset -c 2 bash -c 'while true; do sleep 0.01; done'
-  ^C
-
-  perf script -D 2>&1 | grep -c sched_switch
-  100
-
-  perf script -D 2>&1 | grep -c PERF_RECORD_ITRACE_START
-  1
+When per-thread mode traces multiple child threads, tooling should
+enable context ID tracing instead to identify each thread.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-Leo Yan (3):
-      perf/core: Export perf_event_itrace_started()
-      perf: arm_spe: Suppress redundant ITRACE start records
-      coresight: perf: Suppress ITRACE start records
-
  drivers/hwtracing/coresight/coresight-etm-perf.c | 2 ++
- drivers/perf/arm_spe_pmu.c                       | 2 ++
- kernel/events/core.c                             | 1 +
- 3 files changed, 5 insertions(+)
----
-base-commit: 786262be6048deab760f68c8acc2c85607165894
-change-id: 20260901-perf_suppress_itrace_start_records-42faf45e9ce9
+ 1 file changed, 2 insertions(+)
 
-Best regards,
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 09b21a711a8764ea429d712890265c84648e889e..80502e8b084074980000a039e73e1a164940011d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -613,6 +613,8 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 		perf_report_aux_output_id(event, hw_id);
+ 	}
+ 
++	perf_event_itrace_started(event);
++
+ out:
+ 	/* Tell the perf core the event is alive */
+ 	event->hw.state = 0;
+
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
