@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BE6C624D1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 10:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2338BC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 10:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zo70F/BkQKPKETdnlHFUhcXqfNxXWrxlYCsW6o6YSyo=; b=2UKBj7a9kx5A2j6AEgKAu+cfPl
-	6jrp9X9DSXuKl4m93C43H0cYfq8SyMuHYjlV8FUNT6tU8H+kmvpmBd5vtL8tjchj3inOl4ZNCI6WB
-	zFK+0GVE5i+5egac9JdPx9l+6flXgTi4d9hCPwpx3o0p8jCPfUDMksG/c6I0rQ88o7I6V0O8tffz7
-	jBhKcgUY/PjIUkY4eibxovaGMsRS/WOZjbsLCpd0mGsOe4J0oXIprAQQWA0dZrK27HYK06xWR3xW/
-	jyXTv0o9GpbM/e91HlJulrtaqRPcWUbtj69XM4FcJ8iRdb3llkw8U8IUPBM62JoMfETiooJL5WjTf
-	uycLEhbA==;
+	bh=JILWnOs54Nn3C+Kuiyqfpag/plbfbFDDxTr4XHpskoY=; b=iMWadpYoEfZ9ksypoWPPAuFo5E
+	fhbox2ae22H+MVIq0ALbY6VBCZCeLx/i2HLFD3Xud/wGwAnjVTayZE/b1XThIWEkMvzWtHMHcLDxe
+	ksV5en1h0jbG2OTA2i57vcEEMS6B1hpZHKEIhsN2jYyDz0rOX9UqyXzHFUOYVg5aw1E7X1KsYkMH8
+	lBDmmeBRNskZ4abrlwgJ7c4JoMcia4jsFtKbC3FfqEThvakaLgs0XA6+01s58ZW5eQy7buiDG0Tb3
+	R1UgADcItGruyayb1+1kWjL3UTA9PpTmtvteTyp0ldp/Fs+l1kEy9CDdQ/63xl5wukovsDYFZYtsF
+	Ib5l46wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Lbl-0000000BWyp-2Ttg;
-	Tue, 01 Sep 2026 10:20:49 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1x1LgZ-0000000BXQz-0VM7;
+	Tue, 01 Sep 2026 10:25:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Lbi-0000000BWyR-43lI
+	id 1x1LgY-0000000BXQZ-0Q1v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 01 Sep 2026 10:20:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788258047; x=1819794047;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bH/cyuEmH8e42aHPDwxlQ95WZHFNp6qYvd4pHWTgC2c=;
-  b=Y030m2UkkQ4/LsdYEhyQkKLxGdRtB2MvmUZtf1UeWWm/H+kNfsMektvL
-   iZX4YnJaYd/JRH0Cw2jqAikdiThQlxPp/ONvGHZH82yPyIutbQ4Azysx+
-   997FN1AbbKAm1MFMrWmPeAWpeuNuIgTbaDd8/nYymoak2gSWF7j3/0CrR
-   yS8sgiBqtidRFhyvMW88egAL8xiS2z9VmaY5c1PeZJGH7bYobFwRppuLi
-   lWxgTu7igZwdpNad+GLOidQmU950ZgZW9JyH6L5XQHEinAz79HC3OPUP/
-   fZJJH2PCYBGb7bsGwWiypSL63nayfflROKIMYdXA7VsfOhRbz58iES/19
-   A==;
-X-CSE-ConnectionGUID: YDaBxzAST8StXxYsuiginA==
-X-CSE-MsgGUID: 1U99PGs+SFiBH4VqaS95FA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11892"; a="88608691"
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="88608691"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 03:20:47 -0700
-X-CSE-ConnectionGUID: nlax7mflS7ilXTp0XV4EoQ==
-X-CSE-MsgGUID: tswa2/1zQbGg/UccToCrVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,255,1779174000"; 
-   d="scan'208";a="298947127"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa002.jf.intel.com with ESMTP; 01 Sep 2026 03:20:42 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 79DCD99; Tue, 01 Sep 2026 12:20:41 +0200 (CEST)
-Date: Tue, 1 Sep 2026 12:20:41 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 17/19] arm64: dts: apple: t8103: Add USB4 ACIO and NHI
-Message-ID: <20260901102041.GG106095@black.igk.intel.com>
-References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
- <20260830-b4-apple-soc-tbt-v1-17-44bc9348683c@kernel.org>
+	Tue, 01 Sep 2026 10:25:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B446401E2;
+	Tue,  1 Sep 2026 10:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40851F000E9;
+	Tue,  1 Sep 2026 10:25:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788258345;
+	bh=JILWnOs54Nn3C+Kuiyqfpag/plbfbFDDxTr4XHpskoY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GwKJ2pb20IazCMdTzU5Hgo8RXNWu8ZZnGm6PIg9BsHyoQJnaEmS4BmR4y8WeFGnTn
+	 oLLkO9ba7prZwJj7sScsLLMAEsTE0f4s5YmpfnsHiI+QbOs+0tUjXj3Mydt4nYfTfT
+	 TZfuPnXRQZjOrpliQObdkKuYcCBoHsO3XDC7IoU+wuDwAyYfCDhL2a/SvQjoK6YbPs
+	 HcT0SgwLq3/0xAO30SY9kS1UX5P0iel5EP9MtMXfqPnz8K62k6mxQtO8Bl288kXKqe
+	 1P7ip+w7s6bicT5OnN3+buZ4N+LKT10n8BUyHYI0y34N8bQisn6din/SO6CT4as7hB
+	 gvZ5OO9OE2ncg==
+Date: Tue, 1 Sep 2026 11:25:33 +0100
+From: Will Deacon <will@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, tsbogend@alpha.franken.de, tglx@kernel.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	hpa@zytor.com, peterz@infradead.org, kees@kernel.org,
+	nathan@kernel.org, linusw@kernel.org, ojeda@kernel.org,
+	david.kaplan@amd.com, lukas.bulwahn@redhat.com,
+	ryan.roberts@arm.com, maz@kernel.org, timothy.hayes@arm.com,
+	lpieralisi@kernel.org, thuth@redhat.com, menglong8.dong@gmail.com,
+	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
+	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
+	yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
+	arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
+	akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
+	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+	kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
+	sshegde@linux.ibm.com, thorsten.blum@linux.dev,
+	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
+	x86@kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+Message-ID: <apaoHUrbY_1JFjfU@willie-the-truck>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <ajvKkLw5bL-FT5JC@willie-the-truck>
+ <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+ <akvoN5vvQaW3MdmI@willie-the-truck>
+ <110d75e9-1580-42d3-b137-89bdad22b80a@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260830-b4-apple-soc-tbt-v1-17-44bc9348683c@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_032047_293556_B795C99D 
-X-CRM114-Status: GOOD (  20.70  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <110d75e9-1580-42d3-b137-89bdad22b80a@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,333 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 10:19:35PM +0200, Sven Peter wrote:
-> Add the ACIO host router, NHI, DART and M3 mailbox nodes for both
-> Type-C ports on t8103 and connect the host routers to the Type-C
-> connectors.
+On Mon, Aug 31, 2026 at 11:18:47AM +0800, Jinjie Ruan wrote:
+> 在 2026/7/7 1:39, Will Deacon 写道:
+> > On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
+> >> On 6/24/2026 8:16 PM, Will Deacon wrote:
+> >>> Please just give me the time I asked for. If you want to help out in the
+> >>> meantime, there are plenty of patches that need reviewing...
+> >>
+> >> It was a mistake on my part, and I sincerely apologize for wasting
+> >> community review resources and disrupting your schedule.
+> >>
+> >> I will absolutely back off now and wait for your official series. Lesson
+> >> learned. Thanks for your patience and for calling me out on this.
+> > 
+> > So I've mostly got the old series back on its feet:
+> > 
+> >   https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+> > 
+> > but there are still two issues left to resolve:
+> > 
+> >   1. The printing that can happen before RCU has started. Although I've
+> >      reduced this somewhat, there are still error paths in e.g.
+> >      verify_local_cpu_capabilities() that print a message before dying.
+> > 
+> >   2. check_local_cpu_capabilities() can mutate the system capability
+> >      state via update_cpu_capabilities(), so it's really dodgy running
+> >      that prior to synchronisation.
 > 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  arch/arm64/boot/dts/apple/t8103-jxxx.dtsi |  61 ++++++++++
->  arch/arm64/boot/dts/apple/t8103.dtsi      | 188 ++++++++++++++++++++++++++++++
->  2 files changed, 249 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-> index 686fb1dd215d..acdefa2a0084 100644
-> --- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-> @@ -17,6 +17,10 @@ aliases {
->  		wifi0 = &wifi0;
->  		atcphy0 = &atcphy0;
->  		atcphy1 = &atcphy1;
-> +		usb4-0-acio = &usb4_0_acio;
-> +		usb4-0-nhi = &usb4_0_nhi;
-> +		usb4-1-acio = &usb4_1_acio;
-> +		usb4-1-nhi = &usb4_1_nhi;
->  	};
->  
->  	chosen {
-> @@ -76,6 +80,13 @@ typec0_connector_ss: endpoint {
->  						remote-endpoint = <&atcphy0_typec_lanes>;
->  					};
->  				};
-> +
-> +				port@2 {
-> +					reg = <2>;
-> +					typec0_con_tbt: endpoint {
-> +						remote-endpoint = <&usb4_0_acio_tbt>;
-> +					};
-> +				};
->  			};
->  		};
->  	};
-> @@ -107,6 +118,13 @@ typec1_connector_ss: endpoint {
->  						remote-endpoint = <&atcphy1_typec_lanes>;
->  					};
->  				};
-> +
-> +				port@2 {
-> +					reg = <2>;
-> +					typec1_con_tbt: endpoint {
-> +						remote-endpoint = <&usb4_1_acio_tbt>;
-> +					};
-> +				};
->  			};
->  		};
->  	};
-> @@ -198,6 +216,49 @@ atcphy1_usb3: endpoint {
->  	};
->  };
->  
-> +/* USB4 */
-> +&usb4_0_acio {
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* 1: USB4 port */
-> +		port@1 {
-> +			reg = <1>;
-> +			usb4_0_acio_tbt: endpoint {
-> +				remote-endpoint = <&typec0_con_tbt>;
-> +			};
-> +		};
-> +
-> +		/* 2: unused(?) USB4 port */
+> Just a gentle ping on this. I replied to the two remaining issues
+> earlier — any thoughts on my response? Happy to help test or rebase if
+> that helps.
 
-I'm assuming these are all adapters in a router so the 2 here is the lane 1
-adapter. One USB4 port has always 2 lane adapters: lane 0 and lane 1.
+I've been preparing a series to post asap (I was waiting for the merge
+window to close), but I'm also looking at some of the id register issues
+that have been pointed out around rng, mpam and mte.
 
-
-> +		/* 3: PCIe */
-> +		/* 4: USB3 */
-> +		/* 5: DP0 */
-> +		/* 6: DP1 */
-> +	};
-> +};
-> +
-> +&usb4_1_acio {
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* 1: USB4 port */
-> +		port@1 {
-> +			reg = <1>;
-> +			usb4_1_acio_tbt: endpoint {
-> +				remote-endpoint = <&typec1_con_tbt>;
-> +			};
-> +		};
-> +
-> +		/* 2: unused(?) USB4 port */
-
-Same here.
-
-> +		/* 3: PCIe */
-> +		/* 4: USB3 */
-> +		/* 5: DP0 */
-> +		/* 6: DP1 */
-> +	};
-> +};
-> +
->  /*
->   * Force the bus number assignments so that we can declare some of the
->   * on-board devices and properties that are populated by the bootloader
-> diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-> index 5b68bf0df4e6..f83ed8da9a42 100644
-> --- a/arch/arm64/boot/dts/apple/t8103.dtsi
-> +++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-> @@ -982,6 +982,14 @@ pinctrl_aop: pinctrl@24a820000 {
->  				     <AIC_IRQ 272 IRQ_TYPE_LEVEL_HIGH>,
->  				     <AIC_IRQ 273 IRQ_TYPE_LEVEL_HIGH>,
->  				     <AIC_IRQ 274 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +			acio0_pins: acio0-pins {
-> +				pinmux = <APPLE_PINMUX(39, 1)>;
-> +			};
-> +
-> +			acio1_pins: acio1-pins {
-> +				pinmux = <APPLE_PINMUX(41, 1)>;
-> +			};
->  		};
->  
->  		ans_mbox: mbox@277408000 {
-> @@ -1018,6 +1026,96 @@ nvme@27bcc0000 {
->  			resets = <&ps_ans2>;
->  		};
->  
-> +		usb4_0_mbox: mailbox@381100000 {
-> +			compatible = "apple,t8103-m3-mailbox",
-> +				"apple,m3-mailbox-v2";
-> +			reg = <0x3 0x81100000 0x0 0x4000>;
-> +			interrupt-parent = <&aic>;
-> +			interrupts = <AIC_IRQ 812 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 813 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 814 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 815 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "send-empty", "send-not-empty",
-> +				"recv-empty", "recv-not-empty";
-> +			#mbox-cells = <0>;
-> +		};
-> +
-> +		usb4_0_acio: cio@381ac0000 {
-> +			compatible = "apple,t8103-usb4-acio";
-> +			reg = <0x3 0x81ac0000 0x0 0xc000>,
-> +				<0x3 0x81080000 0x0 0x20000>;
-> +			reg-names = "rc", "sram";
-> +
-> +			mboxes = <&usb4_0_mbox>;
-> +			resets = <&cio_reset 0>;
-> +
-> +			power-domains = <&ps_atc0_cio>,
-> +					<&ps_atc0_cio_pcie>,
-> +					<&ps_atc0_cio_usb>;
-> +
-> +			thunderbolt-switch;
-> +
-> +			pinctrl-0 = <&acio0_pins>;
-> +			pinctrl-names = "default";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges = <0x0 0x3 0x81000000 0x1000000>;
-> +			nonposted-mmio;
-> +
-> +			usb4_0_dart: iommu@a80000 {
-> +				compatible = "apple,t8103-dart";
-> +				reg = <0xa80000 0x4000>;
-> +				interrupt-parent = <&aic>;
-> +				interrupts = <AIC_IRQ 810 IRQ_TYPE_LEVEL_HIGH>;
-> +				#iommu-cells = <1>;
-> +			};
-> +
-> +			usb4_0_nhi: nhi@f00000 {
-> +				reg = <0xf00000 0x100000>,
-> +					<0xdb0000 0x30004>;
-> +				reg-names = "nhi", "pdf";
-> +				compatible = "apple,t8103-usb4-nhi";
-> +				interrupt-parent = <&aic>;
-> +				interrupts = <AIC_IRQ 783 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 784 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 785 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 786 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 787 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 788 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 789 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 790 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 791 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 792 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 793 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 794 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 795 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 796 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 797 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 798 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 799 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 800 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 801 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 802 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 803 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 804 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 805 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 806 IRQ_TYPE_LEVEL_HIGH>;
-> +				interrupt-names =
-> +					"txring0", "txring1", "txring2",
-> +					"txring3", "txring4", "txring5",
-> +					"txring6", "txring7", "txring8",
-> +					"txring9", "txring10", "txring11",
-> +					"rxring0", "rxring1", "rxring2",
-> +					"rxring3", "rxring4", "rxring5",
-> +					"rxring6", "rxring7", "rxring8",
-> +					"rxring9", "rxring10", "rxring11";
-> +				iommus = <&usb4_0_dart 1>;
-> +				/* To be filled by the loader */
-> +				apple,thunderbolt-drom = [00];
-> +			};
-> +		};
-> +
->  		dwc3_0: usb@382280000 {
->  			compatible = "apple,t8103-dwc3";
->  			reg = <0x3 0x82280000 0x0 0xcd00>, <0x3 0x8228cd00 0x0 0x3200>;
-> @@ -1070,6 +1168,96 @@ atcphy0: phy@383000000 {
->  			power-domains = <&ps_atc0_usb>;
->  		};
->  
-> +		usb4_1_mbox: mailbox@501100000 {
-> +			compatible = "apple,t8103-m3-mailbox",
-> +				"apple,m3-mailbox-v2";
-> +			reg = <0x5 0x01100000 0x0 0x4000>;
-> +			interrupt-parent = <&aic>;
-> +			interrupts = <AIC_IRQ 892 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 893 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 894 IRQ_TYPE_LEVEL_HIGH>,
-> +				<AIC_IRQ 895 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "send-empty", "send-not-empty",
-> +				"recv-empty", "recv-not-empty";
-> +			#mbox-cells = <0>;
-> +		};
-> +
-> +		usb4_1_acio: cio@501ac0000 {
-> +			compatible = "apple,t8103-usb4-acio";
-> +			reg = <0x5 0x01ac0000 0x0 0xc000>,
-> +				<0x5 0x01080000 0x0 0x20000>;
-> +			reg-names = "rc", "sram";
-> +
-> +			mboxes = <&usb4_1_mbox>;
-> +			resets = <&cio_reset 1>;
-> +
-> +			power-domains = <&ps_atc1_cio>,
-> +					<&ps_atc1_cio_pcie>,
-> +					<&ps_atc1_cio_usb>;
-> +
-> +			thunderbolt-switch;
-> +
-> +			pinctrl-0 = <&acio1_pins>;
-> +			pinctrl-names = "default";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			ranges = <0x0 0x5 0x01000000 0x1000000>;
-> +			nonposted-mmio;
-> +
-> +			usb4_1_dart: iommu@a80000 {
-> +				compatible = "apple,t8103-dart";
-> +				reg = <0xa80000 0x4000>;
-> +				interrupt-parent = <&aic>;
-> +				interrupts = <AIC_IRQ 890 IRQ_TYPE_LEVEL_HIGH>;
-> +				#iommu-cells = <1>;
-> +			};
-> +
-> +			usb4_1_nhi: nhi@f00000 {
-> +				reg = <0xf00000 0x100000>,
-> +					<0xdb0000 0x30004>;
-> +				reg-names = "nhi", "pdf";
-> +				compatible = "apple,t8103-usb4-nhi";
-> +				interrupt-parent = <&aic>;
-> +				interrupts = <AIC_IRQ 863 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 864 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 865 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 866 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 867 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 868 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 869 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 870 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 871 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 872 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 873 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 874 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 875 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 876 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 877 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 878 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 879 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 880 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 881 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 882 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 883 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 884 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 885 IRQ_TYPE_LEVEL_HIGH>,
-> +					<AIC_IRQ 886 IRQ_TYPE_LEVEL_HIGH>;
-> +				interrupt-names =
-> +					"txring0", "txring1", "txring2",
-> +					"txring3", "txring4", "txring5",
-> +					"txring6", "txring7", "txring8",
-> +					"txring9", "txring10", "txring11",
-> +					"rxring0", "rxring1", "rxring2",
-> +					"rxring3", "rxring4", "rxring5",
-> +					"rxring6", "rxring7", "rxring8",
-> +					"rxring9", "rxring10", "rxring11";
-> +				iommus = <&usb4_1_dart 1>;
-> +				/* To be filled by the loader */
-> +				apple,thunderbolt-drom = [00];
-> +			};
-> +		};
-> +
->  		dwc3_1: usb@502280000 {
->  			compatible = "apple,t8103-dwc3";
->  			reg = <0x5 0x02280000 0x0 0xcd00>, <0x5 0x0228cd00 0x0 0x3200>;
-> 
-> -- 
-> 2.55.0
-> 
+Will
 
