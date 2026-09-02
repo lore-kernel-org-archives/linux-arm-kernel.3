@@ -4,154 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC365C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA60C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5ltGb5qxPvD3jFiEXdQhEApOI6vDeU/ug2xf9ZQ5zRw=; b=2kgWR//MM/c7ZO
-	CeLY94cMhA0rfRtn+3rH5yChLFPk8lbK3I8wyd09HeuwlTekgVOACMKwKNOgEUy288Jno68Dkqtry
-	WCpYm9pHgo+nFsVAwZT8sOlK2fTyjvp5M1mu5tx8+Hfnum6HYPksQ0fl/pU7tJjCqy1Mtv0/V2cuy
-	qgb3ct9xAYVRn5jzm3ft0B3OBF8WdMYPKet5/gw/ahjxNrHVKdyXzvl1NHxCZP2H1wZXRMVNXgaBq
-	5Loz0cOFeNHNIi4vrubImURHZKXUsOeUfaGdVnTsaknUQpGiDZ1mvNyM1l+QCUONvflt4gKXj/cJf
-	1FhZWtoDH7axgcuq0reA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=46siBCCvcvlpzJgw+UUQdDmQusxn/J6ohahT+j6al9s=; b=39tBIdqo5fzWBiNhLVPKhUXd7i
+	hRMRrXI6OBF7TuEW0nmhGIsVXgsVJUEFRvu92UrC6z+GWPGVBRruhEAABCKCDMasP4qsvyD1BMg/a
+	zTOXfeaBlwFa7jyBBeuKaZ5+uhDfcJWmCkfod8uh66DHKfONwbrdkkQ3PD0rCszLuWCjZC2ATfroY
+	vOt7DFpsT8estSYxrjcyMsCwOsUFERSbysD5D5I7sb46SL1fXtDN3yB9Aq8iXm0vZvoCmp82p2xrR
+	NoRIrG/idHhFcQINQv3TLZ1Y26y9l9qC3+hs2UOxSwr+3mSlIq32l/zToXMO0/42nsWtgZBdhS3rY
+	Ru/2DDdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rO2-0000000FqEZ-1lQC;
-	Wed, 02 Sep 2026 20:16:46 +0000
+	id 1x1rOD-0000000FqHE-2V3W;
+	Wed, 02 Sep 2026 20:16:57 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rO0-0000000FqEF-2f53
+	id 1x1rOA-0000000FqGY-3iTY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 20:16:46 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682Hqrfo1650582
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:16:43 GMT
+	Wed, 02 Sep 2026 20:16:56 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682HrEa52210063
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:16:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=5ltGb5qxPvD3jFiEXdQhEA
-	pOI6vDeU/ug2xf9ZQ5zRw=; b=eKIqNL8zw812M4XVaezWsTyGhGKXMfrRbULuqs
-	STB+uGQF2UySTlmKjIkk2LEuaZcYiG7DaAqzWXPua8qQYe8dyQZIXxclFHBkK3kk
-	Jr0RbVJx/gqW8In4Yc+c/PFjBmP2ixnl+CXA6d4Np+dp4S128jEW7qGihNdj42Fh
-	dIjB5U77mofw8VKqbO5RO6FRHvERVQVFZ2bPbI/hEzastUGynIXIDkUOJV+zVTOD
-	j+T9X6MtWmCswsa4/oXA/YwMXwio3BaQk0D9GM1uEA/6ggof63uPjb+adnN3Xcla
-	EsM+VSTpjfjosu7eMkWNC0LlSk8Qn12Dc0zqvCra2xwsimJQ==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gemj4srmr-1
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=46siBCCvcvlpzJgw+UUQdDmQusxn/J6ohah
+	T+j6al9s=; b=WPo3DI7A9bAW4tlVrg0bqu4V+styJyUGUWS5W2JZCHN1MQPiTEi
+	B/GveQ3mT/MrXBHqngiJvivPBht8vzfcWMVEe4SKqmIWxL6trNRvOAqeBCQxa9Cr
+	CWxC7O6PRXcoIuZHFmx9f3HHaBfZ14Fm6UC9YMn3bMaA2GNvqkFiKTdYJzVrn8z0
+	hJOGd1ybUsWB3nmQ5aLfFb0YTMEd1iqn7U0jVHt4/SGXznL8v5A7BR7nOU0B/Gyh
+	gwvi2r+y7o9EnlAP8R003zg6xp9/l3tKssS7AOrIDul135GXM5UYereiVFD5t9Xu
+	q6VoVNFAk528wRFtBLUFlQ4ltt5gNafAp0Q==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gepv5s4hc-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:16:42 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-90e80ce3597so29666676d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:16:42 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:16:53 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-39aee9b4cf2so2019434a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:16:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788380202; x=1788985002; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=5ltGb5qxPvD3jFiEXdQhEApOI6vDeU/ug2xf9ZQ5zRw=;
-        b=YHjRRnFTgU6QwIcZYjoZXpPGtLMbLREVA52Flde6mASCGe4aSgzeucPo8bz/UGsish
-         tLwRu9j9F4HLB/3FLE9xYk+KvwHHJ5OxkNSLUUrZriZM50TdvZ/UkaGBvPgDPqvU6D8B
-         pH5z0gXX1jtnkDYkDb7TlkJ/Pn4yYsMrvsO1QqbXFvja5EcziFxg6S4Tv4m0GN2/hvfT
-         k+itMLtvnVjU4FwXoyk/rwEq4v4oJIH83WrvzsGMHFhrQ33GDK9QshQDP8XcnBjiJP6U
-         NfJac0+E3lTioxAauII4e/fuyeEg7YuBJ3mzmQ/SRRKCPMYvV/NDOCU9SsiiOgombz3T
-         9yXg==
+        d=oss.qualcomm.com; s=google; t=1788380213; x=1788985013; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=46siBCCvcvlpzJgw+UUQdDmQusxn/J6ohahT+j6al9s=;
+        b=UHctmAmL9HenkuWSLPBcJYs2B4u7pg2M+kozXjDqJxlrYifQOY1ow4yvnsRx0wD7vR
+         gTjAQoTtcbkqATmOPKnthS59zhwxkLydWkibWetwiHHGi19yHVwbiL7TXcfN4kQHcvVE
+         F2Jd06UvnjsODAyuPb9o0/0iewC/K4u5Htc5WsyMlLfBB2eAmSKpCihtRqrH/UL9dmEo
+         /953vtjoJ5cY9o1jXySwCp9JQW3jPfVPDYMwLfsbqepD2LjgkhocmTlYsJ2v+LnzUPcm
+         hoQ+tzCt4JCDxg1p6zQAWY/ziUM6x9/w3WP9dozha4YoZhw4s5qI1NuntkC86ElJNAEr
+         L5hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788380202; x=1788985002;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5ltGb5qxPvD3jFiEXdQhEApOI6vDeU/ug2xf9ZQ5zRw=;
-        b=qjAPRSfz9yk59G1yYu3SwKWFQohMEnkPOm2zk7wFGclFo3stl4M2pSS1B1RPBNxv9v
-         porfvWOPAyqN+rEfojhAheUpwa11qrOeEX0i5jYFFytvn8r4S2LXXnFuNSRvjRX9AgkM
-         Ul3p49wLY/TwShHmSD7YsvADL4EEYthJl7vtXJgMEvVJfrXUIyM368a+C5qE5vzI/m7C
-         0xXlSlsT3ugiDofk12hsJ+6hbBBz0TI1F0hMFpKzbRqzfiaogeKMzsuaXkQ/dXnGCm26
-         hp6JHlUcBuku4bhugoMVyqrYWDXEWsz9Y4zazjWR6Wt5ZhP+AbzrxveFf+HuzDyDzxJh
-         VLfg==
-X-Forwarded-Encrypted: i=1; AKwUvBzHS+doKZsckT69LR5KjkFUMlQKUkKtkfV1Yt8iynvTbsySzBrnnJvITcIPMIEAcwKXo3/XjJcyuvz+QDQ0GJlo@lists.infradead.org
-X-Gm-Message-State: AFuF++lpRhqSLWhXKKvY2Nl11W5cMu/1WxX1y5If7w7QQkjURfj9lelv
-	+sK7wbHVZIlspX3E5zmeQfq2UXKHABg80wbUFwnn5GXmuzecjB4uC88W33hpR+06m9Nva0Agd+j
-	xODBANChKSWQO5SjKH4oivRIqIb+yX4osYV2oBSrWzTAjUFwiFW7AV9FiQR8+ovKco4MuWPehGc
-	8ysA==
-X-Gm-Gg: AYBFou1s7weZi29pupuQ/vbXDs06MUnE5RFcHp1MrI/+Jrz0pcA9SDnsI3Kzs8tZJ/V
-	HriPONIWJfaeazHbhH6r4FTZz+8F5YZyw4mRbIO5awUpkk9PPgbRtP3TeTr9M8lyRfUOh5UUM7D
-	3DLPYnP/3U+l08FGEX8FVNdjdvlNhRZcGgIUJnQCNsrOr/rv2dA7KdKEp9hhUSvepgUtD7HU7uY
-	kzgZdNz0IDh0HFoZ5aK5QmWRadApVQqvl9ZFuiTLgzyHu11SljNf9uWyujZrzO3pop7apVowo0G
-	m5p24s6uMjWzyQKis5uebBF9rmLx26KdbgYTtNhZFsIakYoK0r8aWO0ePDN9bLYoU2fRULupY5J
-	H6af1S4sAmBHMCQ==
-X-Received: by 2002:a05:620a:a80b:b0:930:a26a:fb2a with SMTP id af79cd13be357-93960cb8422mr878377685a.2.1788380202259;
-        Wed, 02 Sep 2026 13:16:42 -0700 (PDT)
-X-Received: by 2002:a05:620a:a80b:b0:930:a26a:fb2a with SMTP id af79cd13be357-93960cb8422mr878371285a.2.1788380201749;
-        Wed, 02 Sep 2026 13:16:41 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448eea961sm8577632f8f.28.2026.09.02.13.16.40
+        d=1e100.net; s=20251104; t=1788380213; x=1788985013;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=46siBCCvcvlpzJgw+UUQdDmQusxn/J6ohahT+j6al9s=;
+        b=EusLwg1wghrLg35upLfVRtbpb2qiCYDVlclQxnaFLQu4lSxpJVmBMpRDXXQWKb4hUh
+         rHUFcdUEf3fjHF/7I1zRMi4zLWeTqzVzyJuoK1TA3mwUJLB/W/13iK1z/zCKJP8QVdNP
+         69xePAETLEvymg2u9JZqowLio++h19YsYOiaK4So0PKKNU1CPNCN16JhDId9LURruNNV
+         wn22L/OYpcl+d/Aw5090LiYH5cy6v23axdLLECnBTBLOGxOXWNTHN0r0ApPiOf90+N1S
+         ZQGnXu6eGKVuYWYhSSkIewamuZaEhcQjRtBS6UdRO1o9AzED52Azrr1iac9OtPkwd01O
+         6OAg==
+X-Forwarded-Encrypted: i=1; AKwUvBxVR4OUp3+MRGPIlC4VyePfJ1j66a9aHlp8oSn9xiaoo+Ddt+LMOxT7UH6I4+/9dREEqJh3kkrJ8eB46ccKb+qn@lists.infradead.org
+X-Gm-Message-State: AFuF++nbTSRX1SGKtjASAUorinBOUGEck/aYUEWHSXQYA4jU3hf4cjkv
+	DPlONpDw/2iBJ4kDeOz2AHdSEZ4XzWGHmmXYmiisEFqUVkduLqr+KfzXxFb6CVZbfW+L8J+fanh
+	YXCV9jOnVzInSLzUf/saDkk1hmcyI79doz6S2CsIV+GBSyREBZmZbwqssT3EGgwFef54qiTuNj4
+	sgvA==
+X-Gm-Gg: AYBFou2XP0oQPwNG0xaRmxwV5z5YgOWjlaaYQLf4okmFwGkD3XzJVTrh3wUqCZnXoDc
+	bQv8MfYkmy/owkya0QBWr1i8oDKY4p+2FskSPjpKuqhv/7BPcsmZBZMuViQTk9yPEHwNTtTInmL
+	e1CcdmM+JYStXhspAsF25/CQHnd1r7e6n5UqF6qytl0Gg7BnDXyhkMPYX5ziDExne9sJLH3GcGV
+	IFDg29CAtG7rKjoddk5zclscAXopLZiBHfsDR3kQ7+OTpssEKB8Qe8CCo9Nmd1BP8gHHchpQrVJ
+	BlgHw3qEaNPbkk3rb9QAMG3Rchkhaxb9cctN4bBqr6JeYUxzxYxlqy3zw6nxSbtOPN+Jig6sIMR
+	stqk/EjjLqBSB6Fx6uOurlmLp7GQ=
+X-Received: by 2002:a17:90a:c107:b0:398:d2a0:87ff with SMTP id 98e67ed59e1d1-39aedf7c6bbmr11956088a91.1.1788380212445;
+        Wed, 02 Sep 2026 13:16:52 -0700 (PDT)
+X-Received: by 2002:a17:90a:c107:b0:398:d2a0:87ff with SMTP id 98e67ed59e1d1-39aedf7c6bbmr11955961a91.1.1788380211806;
+        Wed, 02 Sep 2026 13:16:51 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33256414c60sm497205eec.24.2026.09.02.13.16.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 13:16:40 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net v3 0/4] net: stmmac: re-apply taprio offload in
- __stmmac_open() and stmmac_resume()
-Date: Wed, 02 Sep 2026 22:15:40 +0200
-Message-Id: <20260902-stmmac-est-reapply-after-open-v3-0-e72a6df5a7ef@oss.qualcomm.com>
+        Wed, 02 Sep 2026 13:16:51 -0700 (PDT)
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Liviu Dudau <liviu.dudau@arm.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Paul Cercueil <paul@crapouillou.net>,
+        Anitha Chrisanthus <anitha.chrisanthus@intel.com>,
+        Paul Kocialkowski <paulk@sys-base.io>,
+        Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Samuel Holland <samuel@sholland.org>,
+        Alexey Brodkin <abrodkin@synopsys.com>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Michal Simek <michal.simek@amd.com>
+Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
+        Billy Tsai <billy_tsai@aspeedtech.com>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+        linux-mips@vger.kernel.org, linux-sunxi@lists.linux.dev,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Subject: [PATCH v2 0/11] drm: Use devm_of_reserved_mem_device_init()
+Date: Thu,  3 Sep 2026 01:46:29 +0530
+Message-ID: <20260902201640.2024648-1-mukesh.ojha@oss.qualcomm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XNywqDMBAF0F+RrDtiYuOjq/5H6SLGsQbMo0kqF
- fHfG6SLLgpuBu5cOHclAb3CQC7ZSjzOKihrUihPGZGjMA8E1adMWMGqomFnCFFrIQFDBI/CuWk
- BMUT0YB0aoA3t60JQjl1FkuE8Duq9+zdiMJJ7eo4qROuXfXOme/Xl+QE/U6DQD6Ip6pJj2rnaE
- PLnS0zSap2nsw/M7Bdtj1CWUI5cyo42HFv2B9227QNL3Ub7KwEAAA==
-X-Change-ID: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Jose Abreu <Jose.Abreu@synopsys.com>,
-        Rayagond Kokatanur <rayagond@vayavyalabs.com>,
-        Thierry Reding <treding@nvidia.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX0EokGP4+gQZZ
- YYc+1C56lcZ/xNdPVZ3ydgVkpN0jkOT6q5VZHGlP2T+YlSc/nMbDQK7SE2QB8u6xdtn/KWyyoU3
- IOkYx1nXa0jnd1JqGW961vBH2KD4ST1rD6fKWqxJwO4CfCf3/hPv1+G2KGJPWDL3LguMc7ptwRc
- CArcFxbgi9UUE05cpIWM1weh9HuP2CX8aqCOVbiFMEuUBWCZvmwITWCYm1V5VtEKcU1puiPzHgi
- /RnEzrk2b9Dl1r/UU9X/UxEx/Olm1Fl3LagGofRt8WF0FdYT5hpWCQFU3aySn0ToD4nGNbJa+Lq
- o1zrBHfQ/xEgVTph5uDNCZ317MKB6l+Z6pJ/kbbchwZqgh7+4BPLyCn2f56+ioEu0+EncaZyM/0
- rS/bre/RWzF1kiPd8DQUMYT0tiTqKGwPhojJoisMf5x+dywukgT9+F8ega6UMre90KOKt9YgwCf
- Em97JlxRMivOkA0QEhw==
-X-Proofpoint-ORIG-GUID: sqw1iFW5IkML0qjf2-Mk6hHSABVyqNmf
-X-Authority-Analysis: v=2.4 cv=MdhcfZ/f c=1 sm=1 tr=0 ts=6a98842a cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=98BwIGCMshqbzBBwbswA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-GUID: sqw1iFW5IkML0qjf2-Mk6hHSABVyqNmf
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfXxod1L+f5M3jD
- QyMGdCOGIUPTAmZ7EITFIublKW3EaJTIcYA10xAgBWsM7nxMrIXUM2esUBmJiQc+FAVrVbWM4bx
- s3njwTGhsGqU6sP0rFwR6AaTgQ7JPX8=
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=T8y8ifKQ c=1 sm=1 tr=0 ts=6a988435 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=nZq82LKI3H6k8voUjgcA:9 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-GUID: nK9pQLr1WfUsUCTS9023p88JT7ViEWuM
+X-Proofpoint-ORIG-GUID: nK9pQLr1WfUsUCTS9023p88JT7ViEWuM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX6R0oZUTB1bC2
+ VZ7UB6ESzVe43lCBzLn/+zuIcHOY69DgD21YuzSdhyNJ+e6j7eOx5enf0bBD8TcgQvq1KnckwfV
+ 8XfGJLoWd+SCtoDaZPWu5pp6ljVS5ajIangaYXDjumeXlibjX36Ko0A5BZ7TuLn5MMoxeQsrolo
+ rvMlxVznpoBUs4jBh1p31h/A4SOXPOPfxWBP/zJw8J5YkVXonGO6Qlz53XQ7ay3rdcunHFmFgmt
+ C2YpFhDRjZebqYWcTC8JjBKc1cwNUFdynObU1y0e5rN1jC3i1kE2U0hiZlMvohLTuSzYz0AzcNv
+ gbbS8R2ztfWRex1rX1T0wAUoQJxSIPCqZJ8C8MH2qiMeeWNFu1qlwScoZ5rjxLUGswD7ayTs5wa
+ kvmVlPSAJk5ssOsXJy8boZUAiUh89vYqz0tToDi4tkMbpEQQwCH7jXrJ6ltBSjbtH6oHdAwJtA5
+ Wwc7oXsuxcibUqfC0nw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfXxP8mOSmp2eMz
+ LbA3y0/BLnXf1cpcxebZ6GSg8VVEHx1se6wwn1AFz/HTLmIJejwuKLofq7nxxE/vGQ5ft+lsnUu
+ wG05r4S9vVwbVkqEo64NCow0d3g3d5Y=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-02_04,2026-09-02_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 bulkscore=0 adultscore=0 suspectscore=0 malwarescore=0
- phishscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020179
+ malwarescore=0 phishscore=0 impostorscore=0 adultscore=0 spamscore=0
+ clxscore=1015 suspectscore=0 lowpriorityscore=0 priorityscore=1501
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609020179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_131644_824910_33CBC235 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20260902_131655_054374_4851611A 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,43 +161,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Several DRM drivers manually manage reserved memory lifetime by pairing
+of_reserved_mem_device_init() with an explicit of_reserved_mem_device_release()
+in the remove or unbind path. Missing the release on any error path between
+the two calls leaks the region for the lifetime of the driver.
 
----
-Changes in v3:
-- Guard priv->est.enable update using est_lock mutex.
-- Embed stmmac_est in stmmac_priv struct.
-- Rework locking in tc_taprio_configure().
-- Fix possible divided by zero crash in tc_taprio_configure().
-- Add missing reconfiguration during stmmac_resume().
-- Honor ptp error code in __stmmac_open() and stmmac_resume().
-- Link to v2: https://lore.kernel.org/r/20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com
+devm_of_reserved_mem_device_init() was recently introduced to tie the
+release to the device's devres lifetime automatically. Convert the affected
+DRM drivers to use it.
 
-Changes in v2:
-- Rename stmmac_est_reconfigure() in stmmac_setup_est().
-- Rely on stmmac_setup_est() in tc_taprio_configure().
-- Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com
+Note for drivers using the component framework (hdlcd, malidp, sun4i): the
+previous code called of_reserved_mem_device_release() explicitly in the
+component unbind callback. After conversion, the release happens at device
+removal (devm teardown) rather than at component unbind. For standard CMA
+or system heap reserved memory, this is benign. Drivers relying on custom
+rmem->ops with meaningful release-time side effects may need to retain an
+explicit release in unbind; those cases are not known to exist for the
+drivers converted here.
 
----
-Lorenzo Bianconi (4):
-      net: stmmac: propagate PTP init failures in stmmac_setup_ptp()
-      net: stmmac: embed struct stmmac_est in stmmac_priv struct
-      net: stmmac: pass the desired EST enable state to est_configure()
-      net: stmmac: re-apply taprio offload in __stmmac_open() and stmmac_resume()
+Changes since v1: https://lore.kernel.org/lkml/20260703193855.110619-2-mukesh.ojha@oss.qualcomm.com/
+ - Carried R-b tag if any.
+ - Rebased it.
 
- drivers/net/ethernet/stmicro/stmmac/hwif.h        |   2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  |  36 +++++-
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  13 +++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  76 ++++++++----
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  41 ++-----
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 134 +++++++++++-----------
- 7 files changed, 176 insertions(+), 128 deletions(-)
----
-base-commit: f695390ea63941a9e412bf1f3afe65ab245fc681
-change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
+Mukesh Ojha (11):
+  drm: logicvc: Use devm_of_reserved_mem_device_init()
+  drm: hdlcd: Use devm_of_reserved_mem_device_init()
+  drm: pl111: Use devm_of_reserved_mem_device_init()
+  drm: komeda: Use devm_of_reserved_mem_device_init()
+  drm: malidp: Use devm_of_reserved_mem_device_init()
+  drm: ingenic: Use devm_of_reserved_mem_device_init()
+  drm: kmb: Use devm_of_reserved_mem_device_init()
+  drm: sun4i: Use devm_of_reserved_mem_device_init()
+  drm: xlnx: zynqmp_dpsub: Use devm_of_reserved_mem_device_init()
+  drm: aspeed: Use devm_of_reserved_mem_device_init()
+  drm: arcpgu: Use devm_of_reserved_mem_device_init()
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+ drivers/gpu/drm/logicvc/logicvc_drm.c             | 21 ++++++++-------------
+ drivers/gpu/drm/arm/hdlcd_drv.c                   |  6 +-----
+ drivers/gpu/drm/pl111/pl111_drv.c                 |  4 +---
+ drivers/gpu/drm/arm/display/komeda/komeda_dev.c   |  4 +---
+ drivers/gpu/drm/arm/malidp_drv.c                  |  4 +---
+ drivers/gpu/drm/ingenic/ingenic-drm-drv.c         | 13 +------------
+ drivers/gpu/drm/kmb/kmb_drv.c                     | 12 ++----------
+ drivers/gpu/drm/sun4i/sun4i_drv.c                 |  4 +---
+ drivers/gpu/drm/xlnx/zynqmp_dpsub.c               |  4 +---
+ drivers/gpu/drm/aspeed/aspeed_gfx_drv.c           |  2 +-
+ drivers/gpu/drm/tiny/arcpgu.c                     |  2 +-
+ 11 files changed, 14 insertions(+), 76 deletions(-)
 
+--
+2.34.1
 
