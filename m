@@ -4,76 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58296C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DB1C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRLi1FBteYpjMUirky+hyusys6nAANuCHisJ2JsNe8k=; b=BUclsvA7GhSByatNV33IHNS9hC
-	95HUz6lx+7cxe3jHxUDCzQo9iN1HSFNMo98MC54M+r9tWnwBp4wS7nIYY/UYZvYZuBHoF9WPH2g2E
-	AQfW4htSolUyCfAZdiJgKC/LB3XMFtnuyzWdmXjZqP02gHbdZftrWub21KSF1DpeYaa0aaHe1oV5t
-	w6uh5q3CObsjjgARcJM29WnjsU7nBqjJezgACIcb84XKFg7SR6U4xXfNq0wy2D8lV2LFK8ZyoMCqn
-	tzqtt8x4vlzj25xgVids27bAZZU7ZOLO1QL/onVbbsOgaW9JuRwja7Fr9gL1Jv5AsUtTpVaXc120B
-	SNjuFWcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uzv/JmEo6dRoaDeN8R/MmzC/JFKPPs1P6QOp8MtYRWQ=; b=eSc3IsToC/fchDhP8sLZnBDR3g
+	W4aWsw7TQh3xskDw99hrhVMbHn1YtezoBS5eOy25gimcw28xGnynDGPiV6qM8NOX3LLtkSrz3rLZB
+	uZc6BkWEo7jB+ddnQxgBCPaqrkmOdyVfyX7mzGk+qvvtAo7T6ZKEDj4OpPTvm0Pa6rKL2zDc+SuFS
+	gSlXfRW+7r8Zs5Yp93vb1lyHYwmU7AFhTKaohz7em5DpghdurgltDxD70UoFBoq/QCEWBNdwXBT7G
+	Q7sBFtqae+vAJKJTQK7IPmWpltRp700XvxBa9u/3Qm3S5vBxSCkyNoa6rRj9oId3m/H2IqQtgC1Xg
+	BJZcU8dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kk9-0000000EluM-07I1;
-	Wed, 02 Sep 2026 13:11:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1ko6-0000000EmFU-3oAW;
+	Wed, 02 Sep 2026 13:15:14 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kk8-0000000EluA-2QQj
+	id 1x1ko3-0000000EmF1-3eZY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:11:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A2A3600C8;
-	Wed,  2 Sep 2026 13:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1A611F000E9;
-	Wed,  2 Sep 2026 13:11:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788354667;
-	bh=nRLi1FBteYpjMUirky+hyusys6nAANuCHisJ2JsNe8k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=AjTqpzq4q2LFSPFFt+yF0vXv5UNifGGusVKCrtWydIJ+Ib1DGqMErun1wVgdXn/1H
-	 lU1n+rD9Cok863jcdsTklSuT6Y0QSauxCSRV+inADasqrGmuGTun/tsJhEpB2YwUFG
-	 JGgxDB4x9N1wpwQ7KOaK5Bw3rrjHVPCEyqlYlZBXcmclfdxz23uEJ4mkQa5KawrX6e
-	 PK2eOBHtzGLnlXN1mzewSMnuqCDJhTfczqRGiRuobPLXqqgegsCKBl3Pe/Covj9d2B
-	 as4VOU1YWGFO52qoukHRQDiZfSAZU1c5ZnFEeOxWWYguRLa2uD4OVvWGAojYxp6ZYg
-	 Dv1XgULDqf4kA==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
+	Wed, 02 Sep 2026 13:15:13 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8568e3ecfc3so834129b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 06:15:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788354911; x=1788959711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Uzv/JmEo6dRoaDeN8R/MmzC/JFKPPs1P6QOp8MtYRWQ=;
+        b=js3zJqycFQnM1dyXAztNmtU4aDcoUup0btFbM5Op8IlVZ2WFcoDPR/gl+pwZncLM7F
+         I8w03r0GlSKGhte0g8YU94kjQOouv/0R9iibUuX7y5dUT6693RC3a846na5Oz0akWZ6l
+         J1vq+E+dIIJ8y4TJJTRqqr4R+GEwDJTZasjnvwUPFEdesoMGwdtMWrIyjOtK+wO2vzvK
+         L3wwEB5F3nF47NsoMnW10ZekIKjkkjqxjfJaewLLqnaLwTN72KYxs+2DjI1H+T/hQI90
+         x9O0B5xFPw3NR370pmHyxEV240M3GUx57Wp4FNYKxKJxPmtTRtR8tVBujp5dopxtMRdm
+         uB4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788354911; x=1788959711;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Uzv/JmEo6dRoaDeN8R/MmzC/JFKPPs1P6QOp8MtYRWQ=;
+        b=rRlrZg7QYRXoQ+GxKIEe0huNbhYhPkJV/ZqBNWaeczMzdgmtsFYHEvyQmhY9fiOQkE
+         4OwAZE7B9VuCStSUlUUaA1uPht3hK1sHb41cHG3lrNyvrQzoGUcdp5BwGb8mZYWQsVkk
+         X53Nz/yLu8Uertgw0HnDbCFFJOmVv6c66r0w1ZOnYUxzCKtPv3vXscQx6h0wuqR0TOie
+         7wdYaZA/bVXF/nKlU6z8Swd0CaarprF5lbc2EtGiwdsLGUB8hnPwiRvOQ228I1favSbD
+         IqMBuaWFc4FwgVyLTvqA6vtRh1AAgkFAVwT6fk9diS83EmNW0pYbsG8ROXfgaJbJQ8MT
+         dYGg==
+X-Forwarded-Encrypted: i=1; AKwUvBxwNT/4UXDTj6PxaJF1QK5jL+/VyUnRbsoL4FpuU/UsnDB49tVXBlSgJhqrRtglvi5IQjENftadeLmERvSEujGn@lists.infradead.org
+X-Gm-Message-State: AFuF++kAS05DlGK15oDSxRKHql88J5rJK04gSmeLoA9H9pqdkHMSH9hm
+	NwRD8IdNw2oU9u5HUtnK+ulVtyqPwMVV5XA5rdt+6LoXZF/j5QDUkDLe
+X-Gm-Gg: AYBFou1qLegIZTf6S1dKCfOTp+jYqhQBq/pw5HRXaA+7/Tz84FAfVd2R/3US38Ii5La
+	LqbR2RB9jnQonoCWdQ9kzPfZP1nN9sr8NqQY57XoPGFtM95KI2mLmMUe7KQI1V2TnsBdM8RDnlM
+	9vjnzNaj00twi9626x+I913JpAcCLMwmrFXog11y4YLOhioU9sGWp+DKbOS4zFYKf2c66kJOyIt
+	i/LkUGGikEqE1Sm13+EVbWiloP7yZ6L8k+fuZ2vO3+zgJx/siyLk4ZW04Co4tCbcH7TWrR1Ccrt
+	V8Vt50Zdn1RzbBEe0IURHkGqOAZyQ++JRnKOYSYp7x8XL9gOj2/OHgAo+t1hY8Y/eY59HJKlL5A
+	9fbLU9JfmrWsL7UQ4T0o2txEp3p785e9hwd2ooiJ1+liLhG0N3zgW7NeOQi799/c0JpyfRCZU6j
+	yYQzGww7ZXtkGE9y7vmMzbz1izk4J/hub8eTuVY6norWyv+XgpHTMZfLABR4E=
+X-Received: by 2002:a05:6a00:f88:b0:858:b809:6ec0 with SMTP id d2e1a72fcca58-85ed4d13780mr8488702b3a.23.1788354910497;
+        Wed, 02 Sep 2026 06:15:10 -0700 (PDT)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85da342023asm1398533b3a.0.2026.09.02.06.15.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 06:15:10 -0700 (PDT)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	richardcochran@gmail.com,
+	maxime.chevallier@bootlin.com,
+	muhammad.nazim.amirul.nazle.asmade@altera.com,
+	rohan.g.thomas@altera.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-In-Reply-To: <apcHoHKGoI7WNFXp@nvidia.com>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com> <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org> <20260901143445.GC56830@ziepe.ca>
- <apcHoHKGoI7WNFXp@nvidia.com>
-Date: Wed, 02 Sep 2026 18:40:57 +0530
-Message-ID: <yq5ajyp3ztlq.fsf@kernel.org>
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v4 0/2] net: stmmac: dwxgmac2: timestamp interrupt + Agilex5 fix
+Date: Wed,  2 Sep 2026 21:14:39 +0800
+Message-Id: <20260902131441.322167-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_061512_045426_5557B965 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,71 +108,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nicolin Chen <nicolinc@nvidia.com> writes:
+This series adds auxiliary snapshot (EXTTS) interrupt support to
+DWXGMAC2/DWXLGMAC2 and fixes a regression it would introduce on the
+Agilex5 cross-timestamp path.
 
-> On Tue, Sep 01, 2026 at 11:34:45AM -0300, Jason Gunthorpe wrote:
->> On Tue, Sep 01, 2026 at 03:36:37PM +0530, Aneesh Kumar K.V wrote:
->> 
->> > @@ -463,14 +460,13 @@
->> >  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
->> >  
->> >  	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
->> > +		if (arm_smmu_is_realm_viommu(viommu))
->> > +			return arm_realm_smmu_v3_init(viommu, user_data);
->> > +
->> 
->> I think the realm vsmmu is going to require a different info struct
->> than the normal psmmu case, isn't it?
->> 
->> If so it needs its own enum value.
->> 
->> It would be nice to see a draft patch showing how the real vsmmu works
->> on top of the RMM spec for it. If we are using a viommu object then
->> non-vsmmu case should be identical just with an option in the info
->> struct to not create the vsmmu object.
->
-> Actually, the PSMMU-only viommu object in this series only adds a
-> type with no viommu data structure.
->
-> I've drafted the vsmmu case on top of the series, so it would add
-> a structure reusing the same IOMMU_VIOMMU_TYPE_ARM_SMMUV3 with a
-> flag:
->
-> +/**
-> + * enum iommu_viommu_arm_realm_vsmmuv3_flags - Flags for ARM SMMUv3 Realm
-> + * @IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU: Indicates whether the Realm has
-> + *                                             a guest-visible VSMMU instance
-> + */
-> +enum iommu_viommu_arm_realm_vsmmuv3_flags {
-> +	IOMMU_VIOMMU_ARM_REALM_SMMUV3_FLAGS_VSMMU = 1 << 0,
-> +};
-> +
-> +/**
-> + * struct iommu_viommu_arm_realm_vsmmuv3 - ARM Realm VSMMUv3 parameters
-> + *                                         (IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3)
-> + * @flags: Combination of enum iommu_viommu_arm_realm_vsmmuv3_flags
-> + * @reg_base: MMIO base address of the VSMMU in the guest VM
-> + * @reg_top: MMIO top address of the VSMMU in the guest VM
-> + * @aidr: AIDR register value of the VSMMU in the guest VM
-> + * @idr: IDR register values of the VSMMU in the guest VM
-> + */
-> +struct iommu_viommu_arm_realm_vsmmuv3 {
-> +	__aligned_u64 flags;
-> +	__aligned_le64 reg_base;
-> +	__aligned_le64 reg_top;
-> +	__aligned_le64 aidr;
-> +	__aligned_le64 idr[7];
-> +};
->
-> I think this should work. But I still feel awkward that a non-vsmmu
-> case has to allocate a viommu object for a set of RMI commands that
-> don't need an Realm Descriptor. Things could be cleaner if we allow
-> RMI_PSMMU_ACTIVATE and RMI_PSMMU_ST_L2_CREATE to be independent on
-> a viommu; then leave IOMMU_VIOMMU_TYPE_ARM_SMMUV3 to vsmmu-visiable
-> case.
- 
-RMI_VSMMU_CREATE requires an RD, RD won't be available during
-viomm_alloc right?
+Patch 1 wires up a dedicated DWXGMAC2 timestamp interrupt handler.
+Before this change the XGMAC hwif entries used the generic stmmac_ptp
+ops, whose timestamp_interrupt callback read the dwmac4 offset
+GMAC_TIMESTAMP_STATUS (0xb20) instead of the XGMAC register at 0xd20,
+and XGMAC_TSIE was never enabled, so auxiliary snapshot events were
+never reported on XGMAC platforms.
 
--aneesh
+Patch 1 also unmasks XGMAC_TSIE in XGMAC_INT_DEFAULT_EN.  That makes the
+new handler run from hardirq on every XGMAC timestamp event, which races
+with the Agilex5 smtg_crosststamp() poll loop: the handler clears TSIS
+by reading XGMAC_TIMESTAMP_STATUS before the poll loop in process
+context can observe it, so getcrosststamp() times out.  Patch 2 fixes
+this by masking XGMAC_TSIE for the duration of the cross-timestamp so
+the handler cannot steal TSIS while smtg_crosststamp() owns the
+snapshot FIFO.
+
+Patch 2 has been verified on Agilex5 hardware: with both patches
+applied, smtg_crosststamp() no longer times out (no "Wait for time sync
+operation timeout" in dmesg) and the PTP clock registers and operates
+normally.
+
+The pre-existing FIFO-pop / PTP_ACR / flags races that the automated
+review raised are not specific to this series (the same shape exists in
+the dwmac4 handler) and are left for a separate follow-up.
+
+v1: https://lore.kernel.org/netdev/20260806-dwxgmac2-timestamp-irq-v1-1-c051c79c9d90@gmail.com/
+v2: https://lore.kernel.org/netdev/20260810100221.9166-1-zxyan0222@gmail.com/
+v3: https://lore.kernel.org/netdev/20260818132722.1852876-1-zxyan0222@gmail.com/
+v4:
+- Rebased on the latest net-next/main (v7.4 cycle, after net-next
+  reopened).
+
+Zxyan Zhu (2):
+  net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
+  net: stmmac: dwmac-socfpga: mask XGMAC_TSIE during cross-timestamp
+
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 11 +++++
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  2 +-
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 43 +++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h     |  1 +
+ .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 12 ++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  1 +
+ 7 files changed, 71 insertions(+), 3 deletions(-)
+
+--
+2.34.1
 
