@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4816C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 22:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0362C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 22:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I+vEOyqPDv7rU89jwmnevj+9dxsKc/yKY2uAhwHha8M=; b=PrJ2hATtawRQ7jkoMdZTCrp78q
-	Y4tWlfyJeazOJTjcNrJU9RjLqBOw6ZP3DTD8CJtkQBy1JrVljpL2dfJpYh7Ek5GwF/6/8XNaynu+6
-	4Z7CFaOeO8Wqij/iLdaKQ9dLk/n5AKq+AcIhYvy/kCMbYwLFb33rDDDXErXMvHqkh8kV1BngPCnfC
-	ieDBjg8nkEERQilRJBmwp5b9GmBHPUNg2eEaks9b/D955ham54iXYL+LfPa74gbbjdx+KM8D4Xqma
-	J0tBkjFJbh/+Xh517jttSzNIfxrv4GO++WeXiazURpJodND5SsnW9cWASgVrggBl4vJiFQHupGNET
-	7ehKF8Yg==;
+	bh=G8GIJmRVcQRu3gXC8ANh/f6tIzU9fEZM1Etf82O4wT4=; b=Dedm5oxIUlBmAUDZaPW7HLtWu1
+	pv8PGEyQkfqGHDhyUOLNzDqmfR/nJXWohFeDiP5b41zfW0FktG4HL59OwBpZ3nHZ35kn4e54JudVE
+	2horulBHRYaPWUUm/8q3QMp4Taf0P0qTIbKXEkw1hxXxhJPl81mFli6fvorzEJEFL+vl8TGrxnLN7
+	j/iMZS7N057xh6Ux9ha+rg5sHuS7vkoo6JQr0G+vrvCejkAc5rhMAB8KDzKFfypG+pypvmXYs13T2
+	7KldOFT8yaEkXnq6GDO+V+ONu79LCLptVwTWFNwdkFQk4m9RC5SyN7IAY6a8Iqgbr5pdUVA74b3ha
+	1EQcZhVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1tF2-0000000FzEL-05nw;
-	Wed, 02 Sep 2026 22:15:36 +0000
-Received: from mail-wr1-f45.google.com ([209.85.221.45])
+	id 1x1tGS-0000000FzOm-1kou;
+	Wed, 02 Sep 2026 22:17:04 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1tEy-0000000FzCw-3CPI
+	id 1x1tGP-0000000FzOS-1Pd8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 22:15:34 +0000
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-482ea739de2so926028f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 15:15:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788387326; x=1788992126;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=I+vEOyqPDv7rU89jwmnevj+9dxsKc/yKY2uAhwHha8M=;
-        b=RlzBu/axFBnjrFYUvwIvK3l2hO/7NhtedPj4qyMl5fLy8+mnXEgxVGvGxc7huf+qxC
-         npDW/cDURj4LRpWW0ovHEN4iBqzeZ9Waxjk0BTqfl3gohZGsYJ4fxd+mUqcYwGkJiiom
-         l/eXmRu81EsONXqynSPhl0xVjGzRdoqW60F35kKtr96K5HDnnrfilis7H1G36x43qPYf
-         MePvsJ6NRoPhWyIBdfOdqzAueY8ADsvch0bCA9BsM/+4PtW9uf0Wux25Hqk19wPq18oZ
-         Sp65H2bp13FKfJ782XUl8SSgCqZj3JhrRgM3DHXYbkF2fSw2Ze2AroNo4DGNcz/cJzWq
-         q2qA==
-X-Forwarded-Encrypted: i=1; AKwUvBzCXRquS8RynMOroUXMvbz8hMoTf6ge4erbxWLk4N6xj0AqTNu5p91Juc7e3wIXmmj5n0t9k1dfJ1W7RrbNdtUg@lists.infradead.org
-X-Gm-Message-State: AFuF++lCL+oILM4YJJpxl38uOIeXb0R+I4yiltA6MLjkTN87PUxEI/yy
-	n/EkVH6eeIoGotX+DDNQKij6FjfxcOg0xz5zEH93ta1gKFbdzeKPyy7M
-X-Gm-Gg: AYBFou30/519VMyUxjQ3z3Jqy1we9OxE0GTj0h8jP/RGuGbXmf/hEfNmb/Q7/whm+IW
-	qTbXj5R9rMydsKOJ/nwZdZmp0pqkLZtcxIr45Z0ierbhuefdX3WeBz/3JJFg6mpYQxMUw16fUt2
-	1rS3LCFbKohV2QluQTEH7AhhG0OAwU11SesQVrlMLIKXqA/MTZTmCG+wANGketJjDbM2LimkeR+
-	6jUsn1E719LaZOr2SDB+yBYj4z9IguhstK5hM2u10CjMk43c8IXeis5gdYwKQGeDfh8hlDyjvX4
-	GXvDqli+MZVCM444QTdYK7AiB1VJKaDqHD+vrgA9zGpOyLCKRWCWTBqgIGXsnv1SIC24Ynd+Nrr
-	fGKbN6sq3+aXiC4Mhw3AqCmc53koNx/Va5q0IqUkNS6hK5ru93n+VJbI8kg+rjGYqX7fBo5ut7t
-	P8pP0c6H9gJOH9ApQ4NriWNhkMK0iW7ttix7dL3qIG++GpaBluAbK1Kkh6jovwCnvGEkFYOomN7
-	lhS5v6A0ci1OFBYmiibdY7Egu+S2eM0bkFK3OrOk085lUQdXpKlwxvyZP7M3I2OzDAk39d5FZFV
-	JwA=
-X-Received: by 2002:a05:6000:4208:b0:484:4769:18a4 with SMTP id ffacd0b85a97d-48488f10236mr16624383f8f.14.1788387326455;
-        Wed, 02 Sep 2026 15:15:26 -0700 (PDT)
-Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448ed38cfsm8301961f8f.19.2026.09.02.15.15.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2026 15:15:25 -0700 (PDT)
-Message-ID: <9bb0ee66-d313-4a07-af4c-ffd002b55dee@reactivated.net>
-Date: Wed, 2 Sep 2026 23:15:23 +0100
+	Wed, 02 Sep 2026 22:17:03 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 8633D4E41497;
+	Wed,  2 Sep 2026 22:16:57 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 313B95FF79;
+	Wed,  2 Sep 2026 22:16:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7C0AC11C79331;
+	Thu,  3 Sep 2026 00:16:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788387411; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=G8GIJmRVcQRu3gXC8ANh/f6tIzU9fEZM1Etf82O4wT4=;
+	b=fTRFOtF9+Ij664TLlH2OaK1q9NFCBpYw+pqZ2Q1o6ziiWIhfqb/GeUYIJEI1KVP8W6xr6i
+	nu/dQff/nCwUbXXyMi4KNdHHhWWU550J6fd18roIahAyl4awZFOCVjS1920bibBmdlLJAo
+	lSVXYVkrwIpjdjasjpZiCOex1E3fOerBqn3PSfjfThCZPJfWXhiEisstIOfvjALpkvfpjE
+	nlAcV5FJAD30OtBJguSyZaqSwNM6Frt4Vy7rFo0ib066VvfVo9V8RC+DUwb7IJKSmkHPTV
+	+mJKFU8pZs/UjSJgN6W1nOE0opx+1moGPqdAM8PCyRFktSEP/QsVD18Pil/L6Q==
+Message-ID: <ebe7d40e-4f2c-4c39-8d9d-ef588074154b@bootlin.com>
+Date: Thu, 3 Sep 2026 00:16:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
-To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com,
- james.quinlan@broadcom.com, Jason Gunthorpe <jgg@ziepe.ca>
-References: <20260902-bcm2712-iommu-submit-v4-0-9dbb657578c1@reactivated.net>
- <20260902-bcm2712-iommu-submit-v4-4-9dbb657578c1@reactivated.net>
+Subject: Re: [PATCH net v3 1/4] net: stmmac: propagate PTP init failures in
+ stmmac_setup_ptp()
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Jose Abreu <Jose.Abreu@synopsys.com>,
+ Rayagond Kokatanur <rayagond@vayavyalabs.com>,
+ Thierry Reding <treding@nvidia.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20260902-stmmac-est-reapply-after-open-v3-0-e72a6df5a7ef@oss.qualcomm.com>
+ <20260902-stmmac-est-reapply-after-open-v3-1-e72a6df5a7ef@oss.qualcomm.com>
+ <1010cb80-d9c9-4891-a719-8d7ca31c732a@bootlin.com>
+ <apiT0ZrlBMF2k8qz@lore-desk>
 Content-Language: en-US
-From: Daniel Drake <dan@reactivated.net>
-In-Reply-To: <20260902-bcm2712-iommu-submit-v4-4-9dbb657578c1@reactivated.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <apiT0ZrlBMF2k8qz@lore-desk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_151532_989956_FB11BDC2 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20260902_151701_520322_B68CE7CC 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,50 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2026 18:57, Daniel Drake wrote:
-> +static int bcm2712_iommu_blocking_attach(struct iommu_domain *blocking_domain,
-> +					 struct device *dev,
-> +					 struct iommu_domain *old)
-> +{
-> +	struct bcm2712_iommu *mmu = dev_iommu_priv_get(dev);
-> +	int ret = 0;
-> +
-> +	scoped_guard(spinlock_irqsave, &mmu->hw_lock) {
-> +		/*
-> +		 * Completely block DMA by disabling both the bypass window
-> +		 * and the translation aperture.
-> +		 */
-> +		bcm2712_iommu_writel(mmu, MMMU_BYPASS_START_OFFSET, 0);
-> +		bcm2712_iommu_writel(mmu, MMMU_BYPASS_END_OFFSET, 0);
-> +		bcm2712_iommu_writel(mmu, MMMU_ADDR_CAP_OFFSET,
-> +				     MMMU_ADDR_CAP_ENABLE);
-> +		bcm2712_iommu_writel(mmu, MMMU_ILLEGAL_ADR_OFFSET, 0);
-> +		ret = bcm2712_iommu_clear_and_enable(mmu);
-> +		mmu->domain = NULL;
-> +	}
+Hi,
 
-My understanding is that when the IOMMU is enabled, the address cap 
-represents the highest permittable memory address; requests for anything 
-higher would abort. So I had hoped to achieve blocking mode by setting 
-ENABLE | 0 in ADDR_CAP, thinking that would set a cap of 0, and hence 
-memory accesses would fail.
+>>> -static void stmmac_setup_ptp(struct stmmac_priv *priv)
+>>> +static int stmmac_setup_ptp(struct stmmac_priv *priv)
+>>>  {
+>>>  	int ret;
+>>>  
+>>>  	ret = clk_prepare_enable(priv->plat->clk_ptp_ref);
+>>> -	if (ret < 0)
+>>> +	if (ret < 0) {
+>>>  		netdev_warn(priv->dev,
+>>>  			    "failed to enable PTP reference clock: %pe\n",
+>>>  			    ERR_PTR(ret));
+>>> +		return ret;
+>>> +	}
+>>> +
+>>> +	ret = stmmac_init_timestamping(priv);
+>>> +	if (ret) {
+>>> +		clk_disable_unprepare(priv->plat->clk_ptp_ref);
+>>> +		return ret;
+>>> +	}
+>>
+>> This can legitimately fail with -EOPNOTSUPP, we musn't failt the whole open
+>> sequence in this case.
+> 
+> ops, right. I guess we should just skip -EOPNOTSUPP in this case, or do you
+> prefer to always not report the error from stmmac_init_timestamping()?
 
-But a Sashiko review pointed out that actually this value would produce 
-a translation aperture of 256MB, because of the way the register works. 
-And I confirmed this experimentally, Sashiko is right.
+The clean solution IMO is to gracefully handle -EOPNOTSUPP, here I think you
+pass it on to the caller exactly like you do (I don't think it makes sense to
+still enable clk_ptp_ref if you don't have timestamping available), and in the
+__stmmac_open() path you don't fail on -EOPNOTSUPP.
 
-I also confirmed experimentally that setting value 0 to ADDR_CAP (i.e. 
-dropping the enable bit too), with the IOMMU enabled, results in a full 
-unrestricted bypass/identity mode.
+Thanks :)
 
-So unless someone from RPi/Broadcom can inform otherwise, I'm going to 
-conclude that the hardware doesn't support blocking mode and remove the 
-blocking domain implementation.
-
-This will cause the iommu layer to fall back to creating an empty paging 
-domain when blocking mode is requested, which seems appropriate if the 
-hardware doesn't offer a more direct way of blocking all memory access.
-
-Daniel
+Maxime
 
 
