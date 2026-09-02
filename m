@@ -4,131 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50B8C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B087C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q45RbScyxL0pb7YTfQo7YLG68Wfy4GxVP56bn3Sl/9c=; b=EdzM7qG/E5laioqbJtnT4FBC+9
-	152PJd5BTPZHT5GwvHqSeRDCcvfXW59sWIunovoBKBK5FTL4BvAZIEkVMuyNg6FC8uC2hooUEic4W
-	dPSe22NTomj7CKkK8u3mjky1CMbQDrZqz/nUmUBSDe0MAk+jhj6FiYTlQybWSFHGG1qUAKt+L7jGA
-	Ee5Uau/VoKvYPVJJAqoHRsMcQD/QKFikwuJCVKBh3N83MMF21OOhbX/PDWHCJ4EFg5+Jm/a84Hfdp
-	7847RGHzkS1vblaHKaXo8Y+yJT5my4HSV70KsDMBAh6Cc54TLg8/ifxGwtApqjAXhVvmEuVS1mkbd
-	m0opyiFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0ov0jpnT3Hdfhq0upQmnF3hbkyRKxEOCtUzSgD0XVs=; b=uOv0SqPSHvuBvLTkmZW5VPrmP0
+	mGYWYJQz2QFOibCdjv34CD9whEtutEk6dXK2vOWvY6YL5tDm/hNU+2D+5q+v0hHPRVErE/q8nTuLD
+	XPE9VNKdxEJrVRu9cSlRyEGLRGh3jqEaOpdNVZH47m0JcM6PgzuIKmyveuCB1E3HgOv4o1Sua5g9w
+	lL+kYXGApKrsZOysdaRHoIUn0tuy7UvZIBNAm5R95+DdOTa+BIEhtCy91X7if78o6+VI2nkTS7oUP
+	6A0jr5VCxSeADijenz5cWopXKdcjAsCNWZx6mnNr1ae6umt+kuX9kxDKt5NabODk2bQ3aDcVr2ZO4
+	SvK/pIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nZd-0000000FAmr-3yTm;
-	Wed, 02 Sep 2026 16:12:29 +0000
-Received: from mail-northeuropeazon11011002.outbound.protection.outlook.com ([52.101.65.2] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x1nbW-0000000FAw3-1OBu;
+	Wed, 02 Sep 2026 16:14:26 +0000
+Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nZb-0000000FAmR-2RfG
+	id 1x1nbU-0000000FAvI-0QJl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 16:12:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yyw1hdjPq6N4YtuSOqXwFzTfU93xiPZC83FxBSpcYycgjku2ifwHoxfkGi6m/6kHLklkcWnSJOlsx+9KhFBlNgoy50DMHSON8MOhXcXXK2bdF54V7FFYscwcXey6IF7y6gPxVTSgCfCeugdUrcoK2p6y7INj3kABjNoT2+J3Cyak4klOKxx1c9umYMlPloK9ohCFNULSBcYSyMko2IFeh6yn+Eq3Cz2hpECYvVd7e2aPpsY7oPE7V4N8zaYMNx+7wNSoBTcgrGrfFhHLtUZEZH+beO1iL3cfId11sKJWa1cz1wOkdX/YyTLxMknh2WAKRkc/ginnnohlaPJLOYo9gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V38/JnoaGUHPBp6RKhQusg6Vn77g0RbRe7WSdlCE6Jw=;
- b=HoeiEjH8B5QdanHmMY6E4eCTYEoZMDEaPONs1Te0Y/Z5OhwI4K1ICuVsSpMlhRFxAy4bwNyMsKuUF+u+REPUJcfCYYsCJnH0oOcWijr5MxRo/0okuqiKYBDYeYQsh2AMrfSFQb8MTy40ZsWg0QMxJQlKvnEGX6gGxDlix8TvZxBxZHXQdWWGkO+w3uFd+8OohxuXOkoIIN9IqRVs2g+6ALGwgAs4YnbAzX3nIkAA4etZRVxiNt08BTV6BoncvU98mJv9ce3syxY1z40YF5jOOUsbSkQ1pXh4zNxm+hHCj67KG58OBKg6xVYC2eGb8SBx+SnZJMO1LaPnapz8Rbjl+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V38/JnoaGUHPBp6RKhQusg6Vn77g0RbRe7WSdlCE6Jw=;
- b=KDUtVbI13h6Vc/nFBCoaSIf/HPsyQVMEBoopOTOgBs5lXMKaEQhZI8lj8Cfpxu/rpza/KTj+EPR+r6zdTN7T2xSZKaPcvgdw8gjcZWGhzuBF7rqFHNbDyGOE1463huDpg2jPqAeR7zIC7GM0VUsf5qX9mSuWY+T7u1po6HT6GLtV3IoWl2UxLHsaHxy+8IMmeiYCLc0xLkseFETpmX9NklU52auTjp1pOFm33ztmc/n2W+icIx1CT9i3m6QkwyFsPZ0wIVd4v05KN/c+vfM8muIOvwyUJ0dze3ZoGLvuHuF6q3KyXI/ogK47zGKMFGbGAQmaXBiULs/Th7E59TArlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV2PR04MB12338.eurprd04.prod.outlook.com (2603:10a6:150:321::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 16:11:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 16:11:20 +0000
-Date: Wed, 2 Sep 2026 11:11:10 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux@ew.tq-group.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] ARM: dts: imx7-tqma7: correctly specify PMIC voltage
- constraints
-Message-ID: <aphKnnReHQed9ahY@SMW015318>
-References: <9a916f24b610cc60e0efd13296f281e00b41391e.1788335665.git.nora.schiffer@ew.tq-group.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9a916f24b610cc60e0efd13296f281e00b41391e.1788335665.git.nora.schiffer@ew.tq-group.com>
-X-ClientProxiedBy: PH7PR17CA0069.namprd17.prod.outlook.com
- (2603:10b6:510:325::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB12338:EE_
-X-MS-Office365-Filtering-Correlation-Id: fcdff392-a7d4-4f30-aea4-08df090cd381
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|10067099003|6133799003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: BpOzeQiAR5y7x+LdHbNcYRLTjR6bSpdGOY3ifGeOCuJuE3B3nYWxDrZ1Be9e/KaOqf8wH7HKZsWOQbRXdC88zAxI1WEsbWLhLZ9FHziA/CudC2U1afwo8js0UyhQc/J4AXqtv4AInVrZHK0THMXoX42zfSLD/oSmJS2yAEED4MPhDXqDVktjb2hjQpCehlJFpBEDpW5Xd1yjEUbVTdTsS/2ANZXGfmnvceWWfhJCZlMwITmTMAtJk93fpNJjFkiciqe3OcoGNj2YX+iCKbK3w9A7XyxPD5cs7GNaD80ZQ5hBA2SLnXIFWSTlRUSAp914Uo+Gm0ObM7rJnE4WuyNKdUrYnS2VagujynL2BCxJpVmpQVOhk0FBDpbCb/KzWfHVdij1jTDRzvf0MB5aiiyrQ6knLJjc1HE5QEt+3I1oPI+IgrluVt1tbSy5RZOr1lWhHddXKpCwMVr6x8KoGYHQ8aNiUdyYoHooix7Q5Oh6mtmlIj8KNQkg65FZxAjE8OHrClyfcXMdzRaqlU/WPA1V0je7i2wfDKoKnDS1uVXTOn1Ddyle3KGU3F/4hJrq0IEh4RIaNCKnyDJfwzYFA+DySduoOgyXqqUwe/BKjlhzqBk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(10067099003)(6133799003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?GvdoqmUf5S9J21c0+3m8owsD8eJNUl74MlKG4tc3kZQgnOBtWAmcMf08tG?=
- =?iso-8859-1?Q?AQPnD3HTi+LjKS47jictrDN+fsnS5SQb2KCWFMoo0g8cwWGKIvFMgVH7H3?=
- =?iso-8859-1?Q?nM2j4fjZzjX8yMoLq/KPtggdmajQWv5hI/vN0Vh4t4nCvFYYRddNa7ZpnB?=
- =?iso-8859-1?Q?NccrRgfXqBvW8zqwdcrtl9zYDjK+1k2SejV0CoZFGlT2jOL+Nb4tUpVXfA?=
- =?iso-8859-1?Q?+bIpExKYkWKrMoA6xpULrrwqYg+gUGgk6HaDsbT3z0EDgUneHGk0QSpgrZ?=
- =?iso-8859-1?Q?BiYMHXvvZg9E146I7SBA5bYI3iUkpfeXuhy65fLy/jVJLng12ecGc+PG1h?=
- =?iso-8859-1?Q?soBnvhj+7VI5Uzg7FKOiDAUdlEa9/HU5dXULjRffSHB0ubvonjhl433NYS?=
- =?iso-8859-1?Q?xJ/S+s1HCobccfEVFYBx9c4tC81WEYkaeEccKjWhBJtiZ0eqRtKo/NdN7f?=
- =?iso-8859-1?Q?QzvbHtJ6B231VPcFZEpxEJk6WdWTv93ao0iNF2x4sFapGUliph5yrCKodg?=
- =?iso-8859-1?Q?78zpiZtzPWr5LQVa7wA7O0oao4zaVZDWeVhuaqj0tiXohPvOOWCTO1760c?=
- =?iso-8859-1?Q?NCTmeZa+RieGpV2ZhwYZ58Yt6fvpJJOysNl7z4OtsjzAmvM0ulEQSG+60v?=
- =?iso-8859-1?Q?uv46kTNrXuqPN7JaDhEXooPZsn+5mxXJ1UKvnhAOdhFYMVcwOBd/k/T0mX?=
- =?iso-8859-1?Q?XD9OgX7d5HMDpnsHN4N7dO3DCHaHzt34+bSA+NZTnLT9ZMV/VqryAyvPP6?=
- =?iso-8859-1?Q?74SqLFdVrNpibvdtSwu8a5ZLHStgJGkqN+g1Fqe7JUz4/5zMLzoPscAxL5?=
- =?iso-8859-1?Q?TVOU8w0x6kZ7PWFhd1/2euenRXW7R9neQM6jkCu5ZtMcCXjNSr5K+nx+LS?=
- =?iso-8859-1?Q?B9ykcAe3AO3tO7oNMdxaA44W0ZwC5cJYfeYFnGwJZAaAcAs1oWxNa3E/hL?=
- =?iso-8859-1?Q?vuG78/yjqPeTNEpwspGnGCheJ74HxrcTXicbfXPgyI+RjyBABstKu1gQ8Y?=
- =?iso-8859-1?Q?+Vqf2YYXYoNZcVJ5O2x0Ea2fiJ8mmPwWDObpTWEHQuoMUx4SnSMkmekaZ/?=
- =?iso-8859-1?Q?obKi5f/gTDVC8ev7RG51WqTrxsam9sQCDJFYPz9lUa/bScrKQ8p98R3Yu8?=
- =?iso-8859-1?Q?amg2Z1FFu7IgM7/6/u73827EnvMR6U2JW0Wz27KJTfKtiHphpv7vbccHZL?=
- =?iso-8859-1?Q?39enl+NOSChFNOnNNvqv/D/4gXgyJh7o1rbWOC7S0r0G8evG0B5FXfpI0I?=
- =?iso-8859-1?Q?hagXlJoIFgPhBkothJEzjJvCQ6bYEhKFAYSwLPUIHnYCbiq81eaMgUNdj+?=
- =?iso-8859-1?Q?svG2c4bWraUCPwtCW9bFAGjXJB2j+kxi6C/QBfqPnAlwdKxPCHYUX54bZk?=
- =?iso-8859-1?Q?I3gLOOipFC4nuhyECkdZJUEixe5qMsoEmCupz2rxbNtu+ykaHAM3pDKxb7?=
- =?iso-8859-1?Q?/LPHyjkPwh6+jthlzTDAAgPHdwbr7/fqUrKjxFfxMBp+/yLCk7+k+MlBOd?=
- =?iso-8859-1?Q?SENFG/lZS8J18ZG9T+vEXi+1MnEDo1m5JQc3wlRHk+MzG7WxpgappIqgjA?=
- =?iso-8859-1?Q?zlPIo81VCi8fse6NDYvUSLvx7ICeLVvunCaoNgpLsBmhad5c9fLq6MW6As?=
- =?iso-8859-1?Q?tbchJr1/GptQFC11Wnk89XwCH4FrsWTpQybpnVCauFYGuZEF63XLCdOisk?=
- =?iso-8859-1?Q?uGpLpPFgX560W/vv/M59JzBsw1IAI05oC5aKz8p7kmw0ELDnY20OaEFFrX?=
- =?iso-8859-1?Q?9hstPnkeSL77wwEuE+/2MuvsxerizhWMp62zuaeQZHMNYJ0pbJOgAm/mRv?=
- =?iso-8859-1?Q?7h5bRk/tyIYoHmVV7VJgFrOIGb4iPQO/up/UBZzjlAYPX0amltE4?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fcdff392-a7d4-4f30-aea4-08df090cd381
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 16:11:20.6647
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yCaOvzOA9dzpfqqucVp8MBYUhdn7BJwRXbQ7muI/RNh9fgFXRIXlXJxgFpTInYo0y2b8v7Qje8GwVtye+kjiRpiWZDCcxsl96vDhphsqifTTuYeMfbaZ7ncba4Jh4EWB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12338
+	Wed, 02 Sep 2026 16:14:25 +0000
+Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-84a251c2e3eso16154b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 09:14:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788365662; x=1788970462; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Y0ov0jpnT3Hdfhq0upQmnF3hbkyRKxEOCtUzSgD0XVs=;
+        b=H33e/3lE4LnmmPC+Y5/OpnL45/grTSQl6tghaR+7gYcFussPX3/baFBZ5Mr9idKnsa
+         8tipL0lpHXD2psiY1aonkTRmWMusi3SlNhCvPwQ6+ngTwibf5c1TulTmAB91Iy7YzXXn
+         2LpoPVMZmAwhARVbfh8pKIaukBsBifJ6GdLgzFq1WV1MFAAeRsEicI3rmYQKEme1lXYo
+         Xv02uwWOjSWKpt+vfm/R4Lpe/Ba3Ar7cYJRH1DEg9DSz/9txjh5xRiYkU2XI+jgy9sO7
+         Nrv+652cUnftMzmdpPjwIKogDIiWkt2HOdzFSSjNHhW1omvKtHnweZxHYDi9eKznA5lB
+         roeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788365662; x=1788970462;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Y0ov0jpnT3Hdfhq0upQmnF3hbkyRKxEOCtUzSgD0XVs=;
+        b=N3PJkGB4PEkNtD/fRVwIZZ3yCId2IRbHUlERsJDWH7/mCjzyyaVIHCgSK0Iin36RJM
+         Qo6Mis7MEkskbl72GQgRmtipw2wgU0BYfw4/HOzu7rSWkqmLnjh6AFeOdeXSKalGMhCa
+         AlYyQsxpwB1hJk54c2s/04I6pjky8rgIl1709PntWxKc+f67Z0ytwrpL9DJ20E1AGv4a
+         JxdxtO/XYLzVpxf2OHDYKUIVMpzMfO/ug1ZovVKeLSSedGzJyga+apF4SdgV1PgnBsdA
+         nrgIJmfOKYNTdYU8OqW659U/8zddo7xJkQA0hVSjzLOWqwkaleM+rq+iglIzs5cmf4CN
+         iJtQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxL6X7iaGZZ3sQeQnUbczPJ/OHvb6Dr/bml6qPv9LqsHbqjHLhKE1GcFZ2Tad0Q9Rh7GCEuN/3+aMDerOZaFbE5@lists.infradead.org
+X-Gm-Message-State: AFuF++kGkpIo9ONF9sVg5oNK1Enfv9bIuihHJICZ7SWOYN1bi4NG92dN
+	6TQoGAj+M9YAL7cMnsX9mECTaNWAv/FDGpvLr6GojTcjzb8tW545KAT1Xr2KizNa6X2hJxshY6X
+	S3BLKmQ==
+X-Received: from pgdu13.prod.google.com ([2002:a05:6a02:2f4d:b0:cc4:32d3:9186])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:517:b0:3d3:aed2:6f22
+ with SMTP id adf61e73a8af0-3da216426c3mr267024637.22.1788365662108; Wed, 02
+ Sep 2026 09:14:22 -0700 (PDT)
+Date: Wed, 2 Sep 2026 09:14:21 -0700
+In-Reply-To: <20260902075028.231001-D-seiden@linux.ibm.com>
+Mime-Version: 1.0
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
+ <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
+Message-ID: <aphLXQL1H2zYZgTi@google.com>
+Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
+From: Sean Christopherson <seanjc@google.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_091227_631319_26BA3D71 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20260902_091424_175456_16C00A9F 
+X-CRM114-Status: GOOD (  39.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,132 +103,636 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 10:05:37AM +0200, Nora Schiffer wrote:
-> regulator-(min|max)-microvolt refer to the supported voltages according
-> to board design, not the possible range of the regulators themselves.
+On Wed, Sep 02, 2026, Steffen Eiden wrote:
+> On Tue, Sep 01, 2026 at 05:40:25PM -0700, Sean Christopherson wrote:
+> > On Mon, Aug 31, 2026, Steffen Eiden wrote:
+> > > Allow KVM implementations to choose alternative device names. This is
+> > > especially useful for architectures providing multiple KVM
+> > > implementations simultaneously. Architectures providing multiple KVM
+> > > implementations must compile the KVM common code once per
+> > > implementation and mange symbols.
+> > 
+> > What about tracepoints?  Or do those show up as "kvm" and "kvm-arm64"?
+> 
+> Yes, I want them to show up as kvm and  kvm-arm64.
+> 
+> Thanks for pointing that out - I just noticed that I forgot to switch
+> the trace system to kvm-arm64 for the common tracepoints in
+> trace/events/kvm.h
+> I only did it for the arch-local traces in PATCH 21.
+> 
+> I would just do the following:
+> 
+> diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
+> index b282e3a86769..5d4f8a0693a3 100644
+> --- a/include/trace/events/kvm.h
+> +++ b/include/trace/events/kvm.h
+> @@ -5,7 +5,11 @@
+>  #include <linux/tracepoint.h>
+> 
+>  #undef TRACE_SYSTEM
+> +#ifdef KVM_S390_ARM64
 
-I think make sense, but any document or mail list can be refer to?
+Side topic, I recommend choosing a macro name that doesn't have a near-collision
+with CONFIG_KVM_S390_ARM64.  This *looks* like a typo, i.e. it looks like you
+forgot the CONFIG_ prefix.  Especially since the macro is defined in the Makefile
+and won't show up with e.g. "git grep -w KVM_S390_ARM64". E.g. KVM_S390_BUILD_ARM64
+or something?
 
-Frank
+Side topic #2, this entire approach seems extremely brittle unless you make it
+all but impossible for non-KVM code to get at KVM structure definitions.  Outside
+of KVM, all compilation units will see the s390 version of KVM structures.  Which
+is "fine", but obviously dangerous and IMO asking for maintenance issues down the
+road.
 
-> Update the configuration for the TQMa7x's PMIC and also add a comment
-> regarding the PMIC's VCC_SD switching feature.
->
-> Fixes: a80a1af6ec8a ("ARM: dts: tq imx7 common board support")
-> Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-> ---
->  arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi | 40 +++++++++++++----------
->  1 file changed, 23 insertions(+), 17 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-> index e1f740edfb763..7f49c80fef4c6 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-> @@ -46,8 +46,8 @@ pfuze3000: pmic@8 {
->
->  		regulators {
->  			sw1a_reg: sw1a {
-> -				regulator-min-microvolt = <700000>;
-> -				regulator-max-microvolt = <3300000>;
-> +				regulator-min-microvolt = <1000000>;
-> +				regulator-max-microvolt = <1225000>;
->  				regulator-boot-on;
->  				regulator-always-on;
->  				regulator-ramp-delay = <6250>;
-> @@ -55,34 +55,33 @@ sw1a_reg: sw1a {
->
->  			/* use sw1c_reg to align with pfuze100/pfuze200 */
->  			sw1c_reg: sw1b {
-> -				regulator-min-microvolt = <700000>;
-> -				regulator-max-microvolt = <1475000>;
-> +				regulator-min-microvolt = <1000000>;
-> +				regulator-max-microvolt = <1000000>;
->  				regulator-boot-on;
->  				regulator-always-on;
->  				regulator-ramp-delay = <6250>;
->  			};
->
->  			sw2_reg: sw2 {
-> -				regulator-min-microvolt = <1500000>;
-> -				regulator-max-microvolt = <1850000>;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
->  				regulator-boot-on;
->  				regulator-always-on;
->  			};
->
->  			sw3a_reg: sw3 {
-> -				regulator-min-microvolt = <900000>;
-> -				regulator-max-microvolt = <1650000>;
-> +				regulator-min-microvolt = <1350000>;
-> +				regulator-max-microvolt = <1350000>;
->  				regulator-boot-on;
->  				regulator-always-on;
->  			};
->
->  			swbst_reg: swbst {
-> -				regulator-min-microvolt = <5000000>;
-> -				regulator-max-microvolt = <5150000>;
-> +				/* Not connected and left unconfigured */
->  			};
->
->  			snvs_reg: vsnvs {
-> -				regulator-min-microvolt = <1000000>;
-> +				regulator-min-microvolt = <3000000>;
->  				regulator-max-microvolt = <3000000>;
->  				regulator-boot-on;
->  				regulator-always-on;
-> @@ -95,18 +94,25 @@ vref_reg: vrefddr {
->
->  			vgen1_reg: vldo1 {
->  				regulator-min-microvolt = <1800000>;
-> -				regulator-max-microvolt = <3300000>;
-> +				regulator-max-microvolt = <1800000>;
->  				regulator-always-on;
->  			};
->
->  			vgen2_reg: vldo2 {
-> -				regulator-min-microvolt = <800000>;
-> -				regulator-max-microvolt = <1550000>;
-> +				regulator-min-microvolt = <1500000>;
-> +				regulator-max-microvolt = <1500000>;
->  				regulator-always-on;
->  			};
->
->  			vgen3_reg: vccsd {
-> -				regulator-min-microvolt = <2850000>;
-> +				/*
-> +				 * Specified values refer to 3.3V operation; voltage for 1.8V
-> +				 * operation is derived from this.
-> +				 *
-> +				 * The base board should usually mux GPIO1_IO08 to SD1_VSELECT for
-> +				 * automatic switching of SD card IO voltage.
-> +				 */
-> +				regulator-min-microvolt = <3300000>;
->  				regulator-max-microvolt = <3300000>;
->  				regulator-always-on;
->  			};
-> @@ -118,13 +124,13 @@ vgen4_reg: v33 {
->  			};
->
->  			vgen5_reg: vldo3 {
-> -				regulator-min-microvolt = <1800000>;
-> +				regulator-min-microvolt = <3300000>;
->  				regulator-max-microvolt = <3300000>;
->  				regulator-always-on;
->  			};
->
->  			vgen6_reg: vldo4 {
-> -				regulator-min-microvolt = <1800000>;
-> +				regulator-min-microvolt = <3300000>;
->  				regulator-max-microvolt = <3300000>;
->  				regulator-always-on;
->  			};
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> https://www.tq-group.com/
->
->
+> +#define TRACE_SYSTEM kvm-arm64
+> +#else
+>  #define TRACE_SYSTEM kvm
+> +#endif /* KVM_S390_ARM64 */
+> 
+>  #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
+> 
+> 
+> This would leak a bit of arm on s390 into common KVM but I do not see
+> another way.
+
+Morpheus: Stop trying to use macros, and use macros!
+
+The most annoying thing is that macro shenanigans don't play well with hyphens,
+but that can be handled either by using a different macro for the trace name, or
+by creating /dev/kvm_arm64 instead of /dev/kvm-arm64.  My vote would be to have
+the device be /dev/kvm_arm64, assuming that doesn't cause problems elsewhere.
+
+And taking things a few steps further, we can solve the MMIO issue in a more
+elegant way, and eliminate the runtime string building in this patch (after looking
+more closely, that code needs to be jettisoned no matter what, there's simply no
+reason to specify the names at runtime since they're separate compilation units).
+
+Rather than splatter #defines throughout header files, deal with the bulk of the
+pain in Makefile.kvm.  By feeding conditionals into Makefile.kvm, the s390+arm64
+build can easily omit coalesced_mmio.o and async_pf.o, define __KVM_HAVE_ARCH_MMIO
+programatically without having to change other architectures, and solve the naming
+stuff.
+
+Full diff relative to this series at the bottom.  Compile tested only (all
+architectures, though I certainly didn't get every combination of PPC insanity).
+Oh, and I also created an empty include/trace/events/kvm_arm64.h.
+
+virt/kvm/Makefile.kvm
+
+  KVM ?= ../../../virt/kvm
+  
+  KVM_WANT_MMIO ?= $(CONFIG_KVM_MMIO)
+  KVM_WANT_ASYNC_PF ?= $(CONFIG_KVM_ASYNC_PF)
+  
+  KVM_DEV_NAME ?= kvm
+  KVM_DEV_MINOR ?= KVM_MINOR
+  
+  ccflags-y += -DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
+  
+  kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+  kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+  ifeq ($(KVM_WANT_MMIO),y)
+  ccflags-y += -D__KVM_HAVE_ARCH_MMIO
+  kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
+  endif
+  ifeq ($(KVM_WANT_ASYNC_PF),y)
+  kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
+  endif
+  kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+  kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+  kvm-$(CONFIG_HAVE_KVM_PFNCACHE) += $(KVM)/pfncache.o
+  kvm-$(CONFIG_KVM_GUEST_MEMFD) += $(KVM)/guest_memfd.o
+
+
+arch/s390/kvm/s390/Makefile:
+
+  KVM := ../../../../virt/kvm
+  KVM_WANT_MMIO := n
+  include $(srctree)/virt/kvm/Makefile.kvm
+  include $(srctree)/arch/s390/kvm/gmap/Makefile
+  
+  ccflags-y += -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+  
+  kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+  kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+  kvm-y += $(gmap-y)
+  
+  kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
+  obj-$(CONFIG_KVM) += kvm.o
+
+arch/s390/kvm/arm64/Makefile (partial):
+
+  KVM := ../../../../virt/kvm
+  KVM_WANT_ASYNC_PF := n
+  KVM_DEV_NAME := kvm_arm64
+  KVM_DEV_MINOR := MISC_DYNAMIC_MINOR
+  
+  include $(srctree)/virt/kvm/Makefile.kvm
+  include $(srctree)/arch/s390/kvm/gmap/Makefile
+  include $(src)/Makefile.gen
+  
+  ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_BUILD_ARM64
+
+And the full diff (it's big because I literally reverted this patch):
+
+diff --git a/arch/s390/include/asm/kvm.h b/arch/s390/include/asm/kvm.h
+index aeb11dc631d5..ae9b7509a3c1 100644
+--- a/arch/s390/include/asm/kvm.h
++++ b/arch/s390/include/asm/kvm.h
+@@ -1,5 +1,5 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include <uapi/arm64/kvm.h>
+ #else
+ #include <uapi/asm/kvm.h>
+diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
+index cd6d572883ab..2206c5791373 100644
+--- a/arch/s390/include/asm/kvm_host.h
++++ b/arch/s390/include/asm/kvm_host.h
+@@ -3,7 +3,7 @@
+ #ifndef ASM_KVM_HOST_H
+ #define ASM_KVM_HOST_H
+ 
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include <asm/kvm_host_arm64.h>
+ #else
+ #include <asm/kvm_host_s390.h>
+diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
+index 207f44cb86d9..cd692f8fb764 100644
+--- a/arch/s390/include/asm/kvm_host_s390.h
++++ b/arch/s390/include/asm/kvm_host_s390.h
+@@ -29,7 +29,6 @@
+ 
+ #define KVM_HAVE_MMU_RWLOCK
+ #define KVM_MAX_VCPUS 255
+-#define KVM_NO_MMIO
+ 
+ #define KVM_INTERNAL_MEM_SLOTS 1
+ 
+diff --git a/arch/s390/include/asm/kvm_host_types.h b/arch/s390/include/asm/kvm_host_types.h
+index d308739ebcf5..39da4ac5407c 100644
+--- a/arch/s390/include/asm/kvm_host_types.h
++++ b/arch/s390/include/asm/kvm_host_types.h
+@@ -3,10 +3,10 @@
+ #ifndef ASM_KVM_HOST_TYPES_H
+ #define ASM_KVM_HOST_TYPES_H
+ 
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include <asm/kvm_host_arm64_types.h>
+ #else
+ #include <asm/kvm_host_s390_types.h>
+-#endif /* KVM_S390_ARM64 */
++#endif /* KVM_S390_BUILD_ARM64 */
+ 
+ #endif /* ASM_KVM_HOST_TYPES_H */
+diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
+index ae614a62f7b5..1d744d4dfc06 100644
+--- a/arch/s390/kvm/arm64/Makefile
++++ b/arch/s390/kvm/arm64/Makefile
+@@ -1,11 +1,15 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ KVM := ../../../../virt/kvm
++KVM_WANT_ASYNC_PF := n
++KVM_DEV_NAME := kvm_arm64
++KVM_DEV_MINOR := MISC_DYNAMIC_MINOR
++
+ include $(srctree)/virt/kvm/Makefile.kvm
+ include $(srctree)/arch/s390/kvm/gmap/Makefile
+ include $(src)/Makefile.gen
+ 
+-ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_ARM64
++ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_BUILD_ARM64
+ 
+ kvm-arm64-obj := \
+ 	arm.o \
+diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+index 3caa72f780a5..7cf62fa7b77b 100644
+--- a/arch/s390/kvm/arm64/arm.c
++++ b/arch/s390/kvm/arm64/arm.c
+@@ -745,8 +745,7 @@ static int __init kvm_s390_arm64_init(void)
+ 	if (!sclp.has_aef)
+ 		return -ENXIO;
+ 
+-	return kvm_init_with_dev(sizeof(struct kvm_vcpu), 0, THIS_MODULE,
+-				 KVM_DEV_NAME, MISC_DYNAMIC_MINOR);
++	return kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+ }
+ 
+ static __exit void kvm_s390_arm64_exit(void)
+diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
+index 093a638e2cf9..e176bf403850 100644
+--- a/arch/s390/kvm/arm64/arm.h
++++ b/arch/s390/kvm/arm64/arm.h
+@@ -5,18 +5,17 @@
+ #include <linux/compiler_attributes.h>
+ #include <linux/kvm_host.h>
+ 
+-#define KVM_DEV_NAME "kvm-arm64"
++#define VM_EVENT(d_kvm, d_loglevel, d_string, d_args...)	\
++	debug_sprintf_event((d_kvm)->arch.dbf, d_loglevel,	\
++			    __stringify(KVM_DEV_NAME) ": " d_string "\n", d_args)
+ 
+-#define VM_EVENT(d_kvm, d_loglevel, d_string, d_args...) \
+-	debug_sprintf_event((d_kvm)->arch.dbf, d_loglevel, KVM_DEV_NAME ": " d_string "\n", d_args)
+-
+-#define VCPU_EVENT(d_vcpu, d_loglevel, d_string, d_args...)			\
+-	do {									\
+-		debug_sprintf_event(						\
+-			(d_vcpu)->kvm->arch.dbf, d_loglevel,			\
+-			KVM_DEV_NAME " %02d[%016llx-%016llx]: " d_string "\n",	\
+-			(d_vcpu)->vcpu_id, (d_vcpu)->arch.sae_block.pstate,	\
+-			(d_vcpu)->arch.sae_block.pc, d_args);			\
++#define VCPU_EVENT(d_vcpu, d_loglevel, d_string, d_args...)					\
++	do {											\
++		debug_sprintf_event(								\
++			(d_vcpu)->kvm->arch.dbf, d_loglevel,					\
++			__stringify(KVM_DEV_NAME) " %02d[%016llx-%016llx]: " d_string "\n",	\
++			(d_vcpu)->vcpu_id, (d_vcpu)->arch.sae_block.pstate,			\
++			(d_vcpu)->arch.sae_block.pc, d_args);					\
+ 	} while (0)
+ 
+ static __always_inline int kvm_is_ucontrol(struct kvm *kvm)
+diff --git a/arch/s390/kvm/gmap/faultin.c b/arch/s390/kvm/gmap/faultin.c
+index 2e93bd563d5c..f2d3779db2d4 100644
+--- a/arch/s390/kvm/gmap/faultin.c
++++ b/arch/s390/kvm/gmap/faultin.c
+@@ -10,7 +10,7 @@
+ 
+ #include "gmap.h"
+ #include "faultin.h"
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include "arm.h"
+ #else
+ #include "s390.h"
+diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
+index b7071f50f7ad..a75275be542e 100644
+--- a/arch/s390/kvm/gmap/gmap.c
++++ b/arch/s390/kvm/gmap/gmap.c
+@@ -21,7 +21,7 @@
+ 
+ #include "dat.h"
+ #include "gmap.h"
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include "arm.h"
+ #else
+ #include "s390.h"
+diff --git a/arch/s390/kvm/gmap/kvm_mmu.c b/arch/s390/kvm/gmap/kvm_mmu.c
+index a26a16193467..5536ae279aad 100644
+--- a/arch/s390/kvm/gmap/kvm_mmu.c
++++ b/arch/s390/kvm/gmap/kvm_mmu.c
+@@ -3,7 +3,7 @@
+ #include <linux/kvm_types.h>
+ #include <linux/kvm_host.h>
+ 
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #include "arm.h"
+ #else
+ #include "s390.h"
+diff --git a/arch/s390/kvm/gmap/trace_gmap.h b/arch/s390/kvm/gmap/trace_gmap.h
+index 431c9442b10c..6ac0d4961b96 100644
+--- a/arch/s390/kvm/gmap/trace_gmap.h
++++ b/arch/s390/kvm/gmap/trace_gmap.h
+@@ -4,18 +4,16 @@
+ 
+ #include <linux/tracepoint.h>
+ 
++#undef UNPACK_KVM
++#define UNPACK_KVM(name) name
+ #undef TRACE_SYSTEM
+-#ifdef KVM_S390_ARM64
+-#define TRACE_SYSTEM kvm_arm64
+-#else
+-#define TRACE_SYSTEM kvm
+-#endif
++#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
+ #undef TRACE_INCLUDE_PATH
+ #define TRACE_INCLUDE_PATH ../gmap
+ #undef TRACE_INCLUDE_FILE
+ #define TRACE_INCLUDE_FILE trace_gmap
+ 
+-#ifdef KVM_S390_ARM64
++#ifdef KVM_S390_BUILD_ARM64
+ #define __KVM_FIELDS \
+ 	__field(unsigned long, pstate) \
+ 	__field(unsigned long, pc)
+diff --git a/arch/s390/kvm/s390/Makefile b/arch/s390/kvm/s390/Makefile
+index 762a63826423..56495321dbe8 100644
+--- a/arch/s390/kvm/s390/Makefile
++++ b/arch/s390/kvm/s390/Makefile
+@@ -1,10 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ KVM := ../../../../virt/kvm
++KVM_WANT_MMIO := n
+ include $(srctree)/virt/kvm/Makefile.kvm
+ include $(srctree)/arch/s390/kvm/gmap/Makefile
+ 
+-ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
++ccflags-y += -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+ 
+ kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+ kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index ec294e419762..be76b79a1e26 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -45,6 +45,8 @@
+ #include <asm/kvm_host.h>
+ #include <linux/kvm_dirty_ring.h>
+ 
++#define KVM_DEV_STRING(x) __stringify(KVM_DEV_NAME ## _ ## x)
++
+ #ifndef KVM_MAX_VCPU_IDS
+ #define KVM_MAX_VCPU_IDS KVM_MAX_VCPUS
+ #endif
+@@ -1082,9 +1084,7 @@ static inline void kvm_irqfd_exit(void)
+ {
+ }
+ #endif
+-int kvm_init(unsigned int vcpu_size, unsigned int vcpu_align, struct module *module);
+-int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
+-		      struct module *module, const char *dev_name, int minor);
++int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module);
+ void kvm_exit(void);
+ 
+ void kvm_get_kvm(struct kvm *kvm);
+diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
+index b282e3a86769..23792ba49e83 100644
+--- a/include/trace/events/kvm.h
++++ b/include/trace/events/kvm.h
+@@ -4,8 +4,10 @@
+ 
+ #include <linux/tracepoint.h>
+ 
++#undef UNPACK_KVM
++#define UNPACK_KVM(name) name
+ #undef TRACE_SYSTEM
+-#define TRACE_SYSTEM kvm
++#define TRACE_SYSTEM UNPACK_KVM(KVM_DEV_NAME)
+ 
+ #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
+ 
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index d047d4cf58c9..2b64e6745d79 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -5,10 +5,23 @@
+ 
+ KVM ?= ../../../virt/kvm
+ 
++KVM_WANT_MMIO ?= $(CONFIG_KVM_MMIO)
++KVM_WANT_ASYNC_PF ?= $(CONFIG_KVM_ASYNC_PF)
++
++KVM_DEV_NAME ?= kvm
++KVM_DEV_MINOR ?= KVM_MINOR
++
++ccflags-y += -DKVM_DEV_NAME=$(KVM_DEV_NAME) -DKVM_DEV_MINOR=$(KVM_DEV_MINOR)
++
+ kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
++ifeq ($(KVM_WANT_MMIO),y)
++ccflags-y += -D__KVM_HAVE_ARCH_MMIO
+ kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
++endif
++ifeq ($(KVM_WANT_ASYNC_PF),y)
+ kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
++endif
+ kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+ kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+ kvm-$(CONFIG_HAVE_KVM_PFNCACHE) += $(KVM)/pfncache.o
+diff --git a/virt/kvm/async_pf.c b/virt/kvm/async_pf.c
+index 015761249107..de2d086d816f 100644
+--- a/virt/kvm/async_pf.c
++++ b/virt/kvm/async_pf.c
+@@ -19,19 +19,11 @@
+ 
+ static struct kmem_cache *async_pf_cache;
+ 
+-int kvm_async_pf_init(const char *cache_name)
++int kvm_async_pf_init(void)
+ {
+-	char *full_cache_name;
+-
+-	full_cache_name = kasprintf(GFP_KERNEL, "%s_async_pf", cache_name);
+-	if (!full_cache_name)
+-		return -ENOMEM;
+-
+-	async_pf_cache = kmem_cache_create(full_cache_name,
++	async_pf_cache = kmem_cache_create(KVM_DEV_STRING(async_pf),
+ 					   sizeof(struct kvm_async_pf), 0,
+ 					   SLAB_ACCOUNT, NULL);
+-	kfree(full_cache_name);
+-
+ 	if (!async_pf_cache)
+ 		return -ENOMEM;
+ 
+diff --git a/virt/kvm/async_pf.h b/virt/kvm/async_pf.h
+index 4a7b81743248..90d1a7d8c6de 100644
+--- a/virt/kvm/async_pf.h
++++ b/virt/kvm/async_pf.h
+@@ -12,11 +12,11 @@
+ #define __KVM_ASYNC_PF_H__
+ 
+ #ifdef CONFIG_KVM_ASYNC_PF
+-int kvm_async_pf_init(const char *cache_name);
++int kvm_async_pf_init(void);
+ void kvm_async_pf_deinit(void);
+ void kvm_async_pf_vcpu_init(struct kvm_vcpu *vcpu);
+ #else
+-#define kvm_async_pf_init(_name) (0)
++#define kvm_async_pf_init() (0)
+ #define kvm_async_pf_deinit() do {} while (0)
+ #define kvm_async_pf_vcpu_init(C) do {} while (0)
+ #endif
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 8ff9d9a6f47a..6b1d90161099 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,8 +15,6 @@
+ #include <linux/slab.h>
+ #include <linux/kvm.h>
+ 
+-#ifndef KVM_NO_MMIO
+-
+ #include "coalesced_mmio.h"
+ 
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -190,5 +188,3 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
+-
+-#endif /* ifndef KVM_NO_MMIO */
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 826af421a5be..b7ff8b009412 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
+ 
+-#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
++#ifdef __KVM_HAVE_ARCH_MMIO
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 7f37d3b5af48..85985663a4a5 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4061,7 +4061,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
++#ifdef __KVM_HAVE_ARCH_MMIO
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4902,7 +4902,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
++#ifdef __KVM_HAVE_ARCH_MMIO
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5243,7 +5243,7 @@ static long kvm_vm_ioctl(struct file *filp,
+ 		break;
+ 	}
+ #endif
+-#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
++#ifdef __KVM_HAVE_ARCH_MMIO
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
+ 
+@@ -5577,7 +5577,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
++#ifdef __KVM_HAVE_ARCH_MMIO
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
+@@ -5595,7 +5595,9 @@ static struct file_operations kvm_chardev_ops = {
+ };
+ 
+ static struct miscdevice kvm_dev = {
+-	.fops = &kvm_chardev_ops,
++	KVM_DEV_MINOR,
++	__stringify(KVM_DEV_NAME),
++	&kvm_chardev_ops,
+ };
+ 
+ #ifdef CONFIG_KVM_GENERIC_HARDWARE_ENABLING
+@@ -6367,13 +6369,13 @@ static void kvm_uevent_notify_change(unsigned int type, struct kvm *kvm)
+ 	kfree(env);
+ }
+ 
+-static void kvm_init_debug(const char *dev_name)
++static void kvm_init_debug(void)
+ {
+ 	const struct file_operations *fops;
+ 	const struct kvm_stats_desc *pdesc;
+ 	int i;
+ 
+-	kvm_debugfs_dir = debugfs_create_dir(dev_name, NULL);
++	kvm_debugfs_dir = debugfs_create_dir("kvm", NULL);
+ 
+ 	for (i = 0; i < kvm_vm_stats_header.num_desc; ++i) {
+ 		pdesc = &kvm_vm_stats_desc[i];
+@@ -6509,42 +6511,23 @@ void kvm_unregister_perf_callbacks(void)
+ }
+ #endif
+ 
+-int kvm_init(unsigned int vcpu_size, unsigned int vcpu_align, struct module *module)
++int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ {
+-	return kvm_init_with_dev(vcpu_size, vcpu_align, module, "kvm", KVM_MINOR);
+-}
+-
+-int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
+-		      struct module *module, const char *dev_name, int minor)
+-{
+-	char *cache_name;
+ 	int r;
+ 	int cpu;
+ 
+-	kvm_dev.minor = minor;
+-	kvm_dev.name = kstrdup_const(dev_name, GFP_KERNEL);
+-	if (!kvm_dev.name)
+-		return -ENOMEM;
+-
+ 	/* A kmem cache lets us meet the alignment requirements of fx_save. */
+ 	if (!vcpu_align)
+ 		vcpu_align = __alignof__(struct kvm_vcpu);
+-
+-	r = -ENOMEM;
+-	cache_name = kasprintf(GFP_KERNEL, "%s_vcpu", dev_name);
+-	if (!cache_name)
+-		goto err_dev_name;
+ 	kvm_vcpu_cache =
+-		kmem_cache_create_usercopy(cache_name, vcpu_size, vcpu_align,
+-					   SLAB_ACCOUNT,
++		kmem_cache_create_usercopy(KVM_DEV_STRING(vcpu),
++					   vcpu_size, vcpu_align, SLAB_ACCOUNT,
+ 					   offsetof(struct kvm_vcpu, arch),
+ 					   offsetofend(struct kvm_vcpu, stats_id)
+ 					   - offsetof(struct kvm_vcpu, arch),
+ 					   NULL);
+-	kfree(cache_name);
+-
+ 	if (!kvm_vcpu_cache)
+-		goto err_dev_name;
++		return -ENOMEM;
+ 
+ 	for_each_possible_cpu(cpu) {
+ 		if (!alloc_cpumask_var_node(&per_cpu(cpu_kick_mask, cpu),
+@@ -6558,7 +6541,7 @@ int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
+ 	if (r)
+ 		goto err_irqfd;
+ 
+-	r = kvm_async_pf_init(dev_name);
++	r = kvm_async_pf_init();
+ 	if (r)
+ 		goto err_async_pf;
+ 
+@@ -6570,7 +6553,7 @@ int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
+ 	kvm_preempt_ops.sched_in = kvm_sched_in;
+ 	kvm_preempt_ops.sched_out = kvm_sched_out;
+ 
+-	kvm_init_debug(kvm_dev.name);
++	kvm_init_debug();
+ 
+ 	r = kvm_vfio_ops_init();
+ 	if (WARN_ON_ONCE(r))
+@@ -6612,8 +6595,6 @@ int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
+ 	for_each_possible_cpu(cpu)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
+-err_dev_name:
+-	kfree_const(kvm_dev.name);
+ 	return r;
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_init);
+@@ -6639,8 +6620,5 @@ void kvm_exit(void)
+ 	kvm_vfio_ops_exit();
+ 	kvm_async_pf_deinit();
+ 	kvm_irqfd_exit();
+-
+-	kfree_const(kvm_dev.name);
+-	kvm_dev.name = NULL;
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_exit);
+
 
