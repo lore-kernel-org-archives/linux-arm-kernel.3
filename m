@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9DAC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3DDC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8EBwRXRgxnDgc1hzoXKaNCqP19NjmMioRMdJEYoHAwY=; b=KcRf3/QmoR+O0zcgXgbopuOcjI
-	PEeywlfO1dQnOgTP2eqjuOEwnQhgIrnDYsMwowh6G5W0wvaUligaaOgeBc3gmpk+hS2QgB0yaqfTG
-	pNGL/vixMqXX3jGBJ3+3zaRykkS8ptf85iTC9/qQOZbkNOwbYz9v3SMtMH7/FMlbyGBL36d6cdDoM
-	6PwWqDxg3nIpvm1NLD2vB5aFYcEGalKFB6ugzHHUtUVIdDQK9NoYnPJ3fHtWQ5t8PAxysPewPmuQf
-	uEEkS70Ss5bumh1Sp70J1vFKnISrZTJnIylIzEnUPuB/OKX2I2STR2ko97BPf7gL5ybbt0kh7LkDk
-	YuiZkhYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kjnHhYYJD0+aIwN+FIjlSKYUA6SFvP6GEaO3N1I22Yk=; b=ha2HUSIgO4my5Xqog9Uu4gAh4j
+	OAcr2ZdvPJHEN875NYjtyESH+G8jhKRfoB9WqLBM+G9lmoLbqzHJ8+urqboHCfsKR99jUPm8owpbY
+	cw5LRC2kuTQA0XEXIlF6mHxNp76RD6t80sKMB/k8X2/K2+zy9TeA7Mk+TtL0ErZDFVjx+K3Val7pR
+	SDL/Unqrbl5Kr4gywkq09omAZk8zXDyZOrJC6eh044wVY2xXfNEQ1muMr5vd1WnpKjDpC2pl3n0OR
+	NddALxkywDhKcckh9jQurso9H1cHUqC4Haj1/6coc2UbidVKg9V1w8pgj0iiVfeyJBGHVjg7qiQsI
+	UiHUt8hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nWp-0000000FAVA-3Rc6;
-	Wed, 02 Sep 2026 16:09:35 +0000
-Received: from mail.alien8.de ([65.109.113.108])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nWl-0000000FATG-0z0V
+	id 1x1nXs-0000000FAdY-0PdW;
+	Wed, 02 Sep 2026 16:10:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1nXn-0000000FAcA-3Jce
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 16:09:33 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 4D69A40E039E;
-	Wed,  2 Sep 2026 16:09:15 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id EMw9dlDvPqEm; Wed,  2 Sep 2026 16:09:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1788365343; bh=8EBwRXRgxnDgc1hzoXKaNCqP19NjmMioRMdJEYoHAwY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=adij380JJaT1VPcepZIup1x17uVcz+DEuwbfV4MGy5ccR5YSHhn8LKMEo2oVcw50b
-	 K6avUY+ttC70+rhwRgYFOSBiaW0DZhCoQKvHzHp+0zQ87+gzMuXyA71yuDS9XZvswn
-	 WjRkl33Q6GS7NG/EOeIGWR/rFL1gcsHoHxNhOkdT8oMLighw9/QIkG8eqKkZTerSVv
-	 trSfgLi0cld1yJYAUOCFzmLwboFG2Ktcrbg7W0aTZCtRsHMHbpAwHpYnG6DO2PQKt8
-	 9O1Xc9ZZLUxrGGVOGKR6MbsAhWs4zollXkOFrSOAlqiPrLfqFRo2UqfZtM1AVO067Q
-	 58rObV9SQ1TQ+nQtGP1Otz/m7MJep4FAN30TyIZZ4FdQlOVpc4jCdi7kq8RIOCiV+G
-	 FTx1NKT720mBUIDSoEJQvquGLNfNM7skAnJisqS9LD1sUQO09dkml87ZCi+qf3fJGH
-	 2O4n070uB6E4/1Kp2yIeMcU/QMIjh/M3ORK3PQJ8iz/E5CrR8FNq9wkwrfEfQKH3NB
-	 gSd2TB63/zLm3HycNcbo+uf2sBPxY/e+hnTMmdRfc1kvPZCR4Qnwu4lLBTRML4KyX/
-	 155CLDCOAaxzAPIVpiXl3EABqJRUSOTUcrHN7yF/XxDX6nVfdMkUEfiDgThs9z9rd5
-	 a0NoRBfgayOU7NkWATWC595Y=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 4E36C40E024B;
-	Wed,  2 Sep 2026 16:08:47 +0000 (UTC)
-Date: Wed, 2 Sep 2026 09:08:43 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Tony Luck <tony.luck@intel.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, linux-edac@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/8] Add Aspeed AST2700 SDRAM EDAC support
-Message-ID: <20260902160843.GCaphKC-y8HpkiAIWh@fat_crate.local>
-References: <20260824-edac-v2-0-c8d8bb693586@aspeedtech.com>
+	Wed, 02 Sep 2026 16:10:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E256A165C;
+	Wed,  2 Sep 2026 09:10:28 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17D4B3F882;
+	Wed,  2 Sep 2026 09:10:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788365432; bh=7sKEJxzv6oWdnSG+l/bvz7wN+zpUz7CdCJvv7fb64EQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=En1mNkpi476gzNKoeJHAipyjHm7WppfgeZlgpffTMxqy+Oa8xwR13SdKrPNm+Z6U4
+	 Ly7/LVOEslRRJI1aLzp8BffO0tsc1QuwAJN4R75+iQsr0g1dRhHlVWgZhWWxM57sBq
+	 TjI+kq/dUM9YmGKvc7WM4E7yT4FcDPrd5oEnselg=
+Message-ID: <0b0eef2d-ce3b-48c8-af08-5889e7396e4f@arm.com>
+Date: Wed, 2 Sep 2026 17:10:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260824-edac-v2-0-c8d8bb693586@aspeedtech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm_mpam: resctrl: Separate MPAM domains
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com
+Cc: tony.luck@intel.com, babu.moger@amd.com, yu.c.chen@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <85ca29e89eacf12cfa7071249419e7cadb8f0691.1788220029.git.reinette.chatre@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_090931_430903_6DF9F06D 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260902_091035_975917_9D538861 
+X-CRM114-Status: GOOD (  43.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +72,727 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 10:42:27AM +0800, Ryan Chen wrote:
-> Add ECC error reporting for the Aspeed AST2700 SoC to the existing
-> aspeed_edac driver.
+Hi Reinette,
+
+On 01/09/2026 00:54, Reinette Chatre wrote:
+> A single struct mpam_resctrl_dom instance represents both an allocation and
+> monitor domain. When a system supports allocation and monitoring a single
+> struct mpam_resctrl_dom instance is created and then added to both the
+> monitor and control domain lists via
+> mpam_resctrl_dom::rdt_ctrl_domain::rdt_domain_hdr::list_head
+> and mpam_resctrl_dom::rdt_l3_mon_domain::rdt_domain_hdr::list_head
+> respectively.
 > 
-> The AST2700 memory controller keeps the same overall EDAC programming
-> model as the earlier Aspeed BMC SoCs, but uses a different register
-> layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memory.
-> Rather than fork the driver, the existing code is first tidied and
-> generalised, then the AST2700 is added as one more per-SoC variant.
+> Representing both allocation and monitoring domains with a single
+> architecture domain requires that allocation and monitoring be done at the
+> same scope and also requires a resource to have 1:1 support for an allocation
+> control and monitoring. The latter means that when a resource supports
+> multiple controls for allocation of a resource, for example a "min" bandwidth
+> control as well as a "max" bandwidth control for memory bandwidth allocation,
+> then each domain supporting each allocation control needs a matching
+> monitoring domain. This does not accurately represent the resource
+> capabilities.
+
+For MPAM, the scope of a control is determined by where the MSC are in a system. For the MSC in the
+L3 we collect the MSC in a cache instance and call that a component and collect those components and
+call them a class. Similarly for other caches. The scope of a control is based on the component it
+is in. Hence, we are unable to use all the flexibility that resctrl will offer.
+
+For MSC at the memory we currently only consider them for resctrl if there is only one memory
+instance (a single NUMA node) and that this corresponds to the topology of the L3 in the system (i.e
+only one L3 instance). This will change when NUMA scope is introduced to resctrl but for now the
+domain associated with the MPAM component for MSC at the memory covers all the cpus and in such a
+system there is only one L3 domain. The idea being that memory bandwidth controls at the memory are
+effectively the same as those at L3 if only if there is only one of each and no other caches in
+between. The initial MPAM driver put up for upstream review was more lenient than this and so the
+tigtening up ended up leaving some complexity around that is no longer needed. I hope to simplify
+this in the future and hopefully allow MPAM component to be used more directly to resctrl domain.
+
 > 
-> Patches 2-5 are bug fixes and cleanups to the existing driver. Patches 6
-> and 7 rework the implementation to accommodate the AST2700. Patch 8 adds
-> the AST2700 support itself.
+> Split MPAM allocation and monitoring domain management to enable a resource
+> to support multiple allocation controls. As an initial and knowingly
+> inefficient approach, duplicate struct mpam_resctrl_dom between the
+> monitoring and control lists while only initializing the relevant member
+> structs.
+> 
+> The goal of this conservative approach is to use something that can only
+> be compile tested by me to learn from MPAM folks on what the best approach
+> should be for MPAM to support multiple allocation controls.
+> 
+> This patch is extracted from the "Generic schema description" PoC [1] that,
+> among its various goals, aim to add support for MPAM's multiple controls
+> to resctrl.
+> 
+> This has only been compile tested by me but Fenghua's work to enable
+> MPAM's CPU-less NUMA nodes [2] is using it as a baseline.
+> 
+> I did consider a new layout as below but there seems to be a contradiction
+> in mpam_resctrl_alloc_domain() where domain addition for allocation as well
+> as monitoring domains unconditionally fails if there is no "ctrl_comp" while
+> a comment when adding a monitoring domain states "there may be no ctrl_comp
+> for the L3".
 
-Sashiko has comments:
+Hmmm, confusing, but there is no real contradiction. Just some bad naming.
 
-https://sashiko.dev/#/patchset/20260824-edac-v2-0-c8d8bb693586%40aspeedtech.com
+Quoting the problem area:
 
-Please address them: if valid, fix them, if not, explain why they don't need
-to be fixed.
+	ctrl_comp = NULL;
+	guard(srcu)(&mpam_srcu);
+	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+				 srcu_read_lock_held(&mpam_srcu)) {
+		if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+			ctrl_comp = comp_iter;
+			break;
+		}
+	}
 
-Btw, I don't see Stefan reviewing this driver and his last mail on LKML is
-from 2025 so it looks like we'll orphan this driver too.
+	/* class has no component for this CPU */
+	if (WARN_ON_ONCE(!ctrl_comp))
+		return ERR_PTR(-EINVAL);
 
-Thx.
 
--- 
-Regards/Gruss,
-    Boris.
+In mpam_resctrl_alloc_domain() this initial 'ctrl_comp' check ensures that there is for the class
+associated with the given resource, res, a component which includes the given cpu in its affinity
+mask. The class is all the L3 MSC or an equivalent of the same scope, see mpam_resctrl_monitor_init().
 
-https://people.kernel.org/tglx/notes-about-netiquette
+	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+	if (!dom)
+		return ERR_PTR(-ENOMEM);
+
+	if (r->alloc_capable) {
+		dom->ctrl_comp = ctrl_comp;
+
+If the resource is alloc capable this component is used as the domain ctrl_comp.
+
+		ctrl_d = &dom->resctrl_ctrl_dom;
+		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
+		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+		err = resctrl_online_ctrl_domain(r, ctrl_d);
+		if (err)
+			goto free_domain;
+
+		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+	} else {
+		pr_debug("Skipped control domain online - no controls\n");
+	}
+
+	if (r->mon_capable) {
+		struct mpam_component *any_mon_comp = NULL;
+		struct mpam_resctrl_mon *mon;
+		enum resctrl_event_id eventid;
+
+		/*
+		 * Even if the monitor domain is backed by a different
+		 * component, the L3 component IDs need to be used... only
+		 * there may be no ctrl_comp for the L3.
+		 * Search each event's class list for a component with
+		 * overlapping CPUs and set up the dom->mon_comp array.
+		 */
+The MSC at the L3 may only have monitors and so no control component.
+
+
+
+
+
+> 	struct mpam_resctrl_mon_dom {
+> 		struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
+> 		struct rdt_l3_mon_domain	resctrl_mon_dom;
+> 	}
+> 
+> 	struct mpam_resctrl_ctrl_dom {
+> 		struct mpam_component		*ctrl_comp;
+> 		struct rdt_ctrl_domain		resctrl_ctrl_dom;
+> 	};
+
+What you have looks to work for me, with some local cmax, mbw_min, mbw_max additions but with the
+new layout also works. I gave it a go with this mechanical patch which uses the new layout.
+
+Thanks,
+
+Ben
+
+commit c67c624149474b96e07ccedda11a11ce968e5599
+Author: Ben Horgan <ben.horgan@arm.com>
+Date:   Tue Sep 1 17:36:29 2026 +0100
+
+    arm_mpam: resctrl: Separate monitor and control domain structure
+
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 3304ef64fcae..855f06657554 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -393,18 +393,14 @@ struct mpam_resctrl_ctrl {
+ 	struct resctrl_ctrl	r_ctrl;
+ };
+
+-struct mpam_resctrl_dom {
+-	struct mpam_component		*ctrl_comp;
+-
+-	/*
+-	 * There is no single mon_comp because different events may be backed
+-	 * by different class/components. mon_comp is indexed by the event
+-	 * number.
+-	 */
++struct mpam_resctrl_mon_dom {
+ 	struct mpam_component		*mon_comp[QOS_NUM_EVENTS];
++	struct rdt_l3_mon_domain	resctrl_mon_dom;
++};
+
++struct mpam_resctrl_ctrl_dom {
++	struct mpam_component		*ctrl_comp;
+ 	struct rdt_ctrl_domain		resctrl_ctrl_dom;
+-	struct rdt_l3_mon_domain	resctrl_mon_dom;
+ };
+
+ struct mpam_resctrl_res {
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index faaa390ac5bf..9a198f71bac8 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -516,7 +516,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+ 			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
+ 			   void *arch_priv, u64 *val, void *arch_mon_ctx)
+ {
+-	struct mpam_resctrl_dom *l3_dom;
++	struct mpam_resctrl_mon_dom *l3_dom;
+ 	struct mpam_component *mon_comp;
+ 	u32 mon_idx = *(u32 *)arch_mon_ctx;
+ 	enum mpam_device_features mon_type;
+@@ -530,7 +530,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+ 	if (eventid >= QOS_NUM_EVENTS || !mon->class)
+ 		return -EINVAL;
+
+-	l3_dom = container_of(hdr, struct mpam_resctrl_dom, resctrl_mon_dom.hdr);
++	l3_dom = container_of(hdr, struct mpam_resctrl_mon_dom, resctrl_mon_dom.hdr);
+ 	mon_comp = l3_dom->mon_comp[eventid];
+
+ 	if (eventid != QOS_L3_OCCUP_EVENT_ID)
+@@ -1316,7 +1316,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
+ 	struct mpam_config *cfg;
+ 	struct mpam_props *cprops;
+ 	struct mpam_resctrl_res *res;
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_ctrl_dom *dom;
+ 	enum mpam_device_features configured_by;
+
+ 	lockdep_assert_cpus_held();
+@@ -1325,7 +1325,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
+ 		return resctrl_get_default_ctrlval(ctrl);
+
+ 	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
+-	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
++	dom = container_of(d, struct mpam_resctrl_ctrl_dom, resctrl_ctrl_dom);
+ 	cprops = &res->class->props;
+
+ 	/*
+@@ -1399,7 +1399,7 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
+ 	struct mpam_config cfg;
+ 	struct mpam_props *cprops;
+ 	struct mpam_resctrl_res *res;
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_ctrl_dom *dom;
+
+ 	lockdep_assert_cpus_held();
+ 	lockdep_assert_irqs_enabled();
+@@ -1412,7 +1412,7 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
+ 	 * resctrl_arch_update_domains() relies on this.
+ 	 */
+ 	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
+-	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
++	dom = container_of(d, struct mpam_resctrl_ctrl_dom, resctrl_ctrl_dom);
+ 	cprops = &res->class->props;
+
+ 	if (mpam_resctrl_hide_cdp(r))
+@@ -1626,12 +1626,12 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+ 	return NULL;
+ }
+
+-static struct mpam_resctrl_dom *
++static struct mpam_resctrl_ctrl_dom *
+ mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, struct mpam_resctrl_res *res,
+ 			       struct resctrl_ctrl *ctrl)
+ {
+ 	int err;
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_ctrl_dom *dom;
+ 	struct rdt_ctrl_domain *ctrl_d;
+ 	struct mpam_class *class = res->class;
+ 	struct mpam_component *comp_iter, *ctrl_comp;
+@@ -1680,11 +1680,11 @@ mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, struct mpam_resctrl_res *res,
+ 	return dom;
+ }
+
+-static struct mpam_resctrl_dom *
++static struct mpam_resctrl_mon_dom *
+ mpam_resctrl_alloc_mon_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ {
+ 	int err;
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_mon_dom *dom;
+ 	struct rdt_l3_mon_domain *mon_d;
+ 	struct mpam_class *class = res->class;
+ 	struct mpam_component *comp_iter, *ctrl_comp;
+@@ -1766,11 +1766,11 @@ mpam_resctrl_alloc_mon_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+  * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
+  * for anything that is not a cache.
+  */
+-static struct mpam_resctrl_dom *
++static struct mpam_resctrl_mon_dom *
+ mpam_resctrl_get_mon_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+ {
+ 	int cache_id;
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_mon_dom *dom;
+ 	struct rdt_resource *r = &res->resctrl_res;
+
+ 	lockdep_assert_cpus_held();
+@@ -1792,10 +1792,10 @@ mpam_resctrl_get_mon_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+ 	return NULL;
+ }
+
+-static struct mpam_resctrl_dom *
++static struct mpam_resctrl_ctrl_dom *
+ mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct resctrl_ctrl *ctrl)
+ {
+-	struct mpam_resctrl_dom *dom;
++	struct mpam_resctrl_ctrl_dom *dom;
+
+ 	lockdep_assert_cpus_held();
+
+@@ -1814,7 +1814,6 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+
+ 	guard(mutex)(&domain_list_lock);
+ 	for_each_mpam_resctrl_control(res, rid) {
+-		struct mpam_resctrl_dom *dom;
+ 		struct rdt_resource *r = &res->resctrl_res;
+ 		struct resctrl_ctrl *ctrl;
+
+@@ -1822,27 +1821,32 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+ 			continue;	// dummy_resource;
+
+ 		if (r->alloc_capable) {
++			struct mpam_resctrl_ctrl_dom *ctrl_dom;
++
+ 			for_each_resource_ctrl(ctrl, r) {
+-				dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, ctrl);
+-				if (!dom) {
+-					dom = mpam_resctrl_alloc_ctrl_domain(cpu, res, ctrl);
+-					if (IS_ERR(dom))
+-						return PTR_ERR(dom);
++				ctrl_dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, ctrl);
++				if (!ctrl_dom) {
++					ctrl_dom = mpam_resctrl_alloc_ctrl_domain(cpu, res, ctrl);
++					if (IS_ERR(ctrl_dom))
++						return PTR_ERR(ctrl_dom);
+ 				} else {
+-					struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
++					struct rdt_ctrl_domain *ctrl_d;
+
++					ctrl_d = &ctrl_dom->resctrl_ctrl_dom;
+ 					mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+ 				}
+ 			}
+ 		}
+ 		if (r->mon_capable) {
+-			dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
+-			if (!dom) {
+-				dom = mpam_resctrl_alloc_mon_domain(cpu, res);
+-				if (IS_ERR(dom))
+-					return PTR_ERR(dom);
++			struct mpam_resctrl_mon_dom *mon_dom;
++
++			mon_dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
++			if (!mon_dom) {
++				mon_dom = mpam_resctrl_alloc_mon_domain(cpu, res);
++				if (IS_ERR(mon_dom))
++					return PTR_ERR(mon_dom);
+ 			} else {
+-				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
++				struct rdt_l3_mon_domain *mon_d = &mon_dom->resctrl_mon_dom;
+
+ 				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
+ 			}
+@@ -1863,7 +1867,6 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+
+ 	guard(mutex)(&domain_list_lock);
+ 	for_each_mpam_resctrl_control(res, rid) {
+-		struct mpam_resctrl_dom *dom;
+ 		struct rdt_l3_mon_domain *mon_d;
+ 		struct rdt_ctrl_domain *ctrl_d;
+ 		struct resctrl_ctrl *ctrl;
+@@ -1874,28 +1877,32 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+ 			continue;	// dummy resource
+
+ 		if (r->alloc_capable) {
++			struct mpam_resctrl_ctrl_dom *ctrl_dom;
++
+ 			for_each_resource_ctrl(ctrl, r) {
+-				dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, ctrl);
+-				if (WARN_ON_ONCE(!dom))
++				ctrl_dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, ctrl);
++				if (WARN_ON_ONCE(!ctrl_dom))
+ 					continue;
+-				ctrl_d = &dom->resctrl_ctrl_dom;
++				ctrl_d = &ctrl_dom->resctrl_ctrl_dom;
+ 				dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+ 				if (dom_empty) {
+ 					resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl, ctrl_d);
+-					kfree(dom);
++					kfree(ctrl_dom);
+ 				}
+ 			}
+ 		}
+
+ 		if (r->mon_capable) {
+-			dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
+-			if (WARN_ON_ONCE(!dom))
++			struct mpam_resctrl_mon_dom *mon_dom;
++
++			mon_dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
++			if (WARN_ON_ONCE(!mon_dom))
+ 				continue;
+-			mon_d = &dom->resctrl_mon_dom;
++			mon_d = &mon_dom->resctrl_mon_dom;
+ 			dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+ 			if (dom_empty) {
+ 				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
+-				kfree(dom);
++				kfree(mon_dom);
+ 			}
+ 		}
+ 	}
+
+> 
+> Any feedback is appreciated.
+> 
+> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
+> Link: https://lore.kernel.org/lkml/d258a32f-12d5-464d-abe9-4720fb3e44b3@intel.com/ # [1]
+> Link: https://lore.kernel.org/lkml/20260831172245.42253-1-fenghuay@nvidia.com/ # [2]
+> ---
+> - Extracted from "generic schema description"
+>   https://lore.kernel.org/lkml/d258a32f-12d5-464d-abe9-4720fb3e44b3@intel.com/
+> 
+> Changes since extract from PoC:
+> - Rebased on v7.3-rc1
+> - Re-wrote changelog
+> - Return NULL instead of ERR_PTR() when searching for monitoring domain
+>   to ensure the if (!dom) check works.
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 207 +++++++++++++++++++--------------
+>  1 file changed, 121 insertions(+), 86 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 9d223057953a..c888773f3d03 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -1616,11 +1616,10 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+>  }
+>  
+>  static struct mpam_resctrl_dom *
+> -mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+> +mpam_resctrl_alloc_ctrl_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>  {
+>  	int err;
+>  	struct mpam_resctrl_dom *dom;
+> -	struct rdt_l3_mon_domain *mon_d;
+>  	struct rdt_ctrl_domain *ctrl_d;
+>  	struct mpam_class *class = res->class;
+>  	struct mpam_component *comp_iter, *ctrl_comp;
+> @@ -1628,6 +1627,9 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>  
+>  	lockdep_assert_held(&domain_list_lock);
+>  
+> +	if (!r->alloc_capable)
+> +		return ERR_PTR(-EINVAL);
+> +
+>  	ctrl_comp = NULL;
+>  	guard(srcu)(&mpam_srcu);
+>  	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+> @@ -1646,70 +1648,97 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>  	if (!dom)
+>  		return ERR_PTR(-ENOMEM);
+>  
+> -	if (r->alloc_capable) {
+> -		dom->ctrl_comp = ctrl_comp;
+> +	dom->ctrl_comp = ctrl_comp;
+>  
+> -		ctrl_d = &dom->resctrl_ctrl_dom;
+> -		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
+> -		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+> -		err = resctrl_online_ctrl_domain(r, ctrl_d);
+> -		if (err)
+> -			goto free_domain;
+> +	ctrl_d = &dom->resctrl_ctrl_dom;
+> +	mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, r->rid, &ctrl_d->hdr);
+> +	ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+> +	err = resctrl_online_ctrl_domain(r, ctrl_d);
+> +	if (err)
+> +		goto free_domain;
+>  
+> -		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+> -	} else {
+> -		pr_debug("Skipped control domain online - no controls\n");
+> -	}
+> +	mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+>  
+> -	if (r->mon_capable) {
+> -		struct mpam_component *any_mon_comp = NULL;
+> -		struct mpam_resctrl_mon *mon;
+> -		enum resctrl_event_id eventid;
+> +	return dom;
+>  
+> -		/*
+> -		 * Even if the monitor domain is backed by a different
+> -		 * component, the L3 component IDs need to be used... only
+> -		 * there may be no ctrl_comp for the L3.
+> -		 * Search each event's class list for a component with
+> -		 * overlapping CPUs and set up the dom->mon_comp array.
+> -		 */
+> +free_domain:
+> +	kfree(dom);
+> +	dom = ERR_PTR(err);
+> +
+> +	return dom;
+> +}
+> +
+> +static struct mpam_resctrl_dom *
+> +mpam_resctrl_alloc_mon_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+> +{
+> +	int err;
+> +	struct mpam_resctrl_dom *dom;
+> +	struct rdt_l3_mon_domain *mon_d;
+> +	struct mpam_class *class = res->class;
+> +	struct mpam_component *comp_iter, *ctrl_comp;
+> +	struct rdt_resource *r = &res->resctrl_res;
+> +	struct mpam_component *any_mon_comp = NULL;
+> +	struct mpam_resctrl_mon *mon;
+> +	enum resctrl_event_id eventid;
+>  
+> -		for_each_mpam_resctrl_mon(mon, eventid) {
+> -			struct mpam_component *mon_comp;
+> +	lockdep_assert_held(&domain_list_lock);
+>  
+> -			if (!mon->class)
+> -				continue;       // dummy resource
+> +	if (!r->mon_capable)
+> +		return ERR_PTR(-EINVAL);
+>  
+> -			mon_comp = find_component(mon->class, cpu);
+> -			dom->mon_comp[eventid] = mon_comp;
+> -			if (mon_comp)
+> -				any_mon_comp = mon_comp;
+> -		}
+> -		if (!any_mon_comp) {
+> -			WARN_ON_ONCE(0);
+> -			err = -EFAULT;
+> -			goto offline_ctrl_domain;
+> +	ctrl_comp = NULL;
+> +	guard(srcu)(&mpam_srcu);
+> +	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+> +				 srcu_read_lock_held(&mpam_srcu)) {
+> +		if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+> +			ctrl_comp = comp_iter;
+> +			break;
+>  		}
+> +	}
+>  
+> -		mon_d = &dom->resctrl_mon_dom;
+> -		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
+> -		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+> -		err = resctrl_online_mon_domain(r, &mon_d->hdr);
+> -		if (err)
+> -			goto offline_ctrl_domain;
+> +	/* class has no component for this CPU */
+> +	if (WARN_ON_ONCE(!ctrl_comp))
+> +		return ERR_PTR(-EINVAL);
+>  
+> -		mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+> -	} else {
+> -		pr_debug("Skipped monitor domain online - no monitors\n");
+> +	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+> +	if (!dom)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	/*
+> +	 * Even if the monitor domain is backed by a different
+> +	 * component, the L3 component IDs need to be used... only
+> +	 * there may be no ctrl_comp for the L3.
+> +	 * Search each event's class list for a component with
+> +	 * overlapping CPUs and set up the dom->mon_comp array.
+> +	 */
+> +	for_each_mpam_resctrl_mon(mon, eventid) {
+> +		struct mpam_component *mon_comp;
+> +
+> +		if (!mon->class)
+> +			continue;       // dummy resource
+> +
+> +		mon_comp = find_component(mon->class, cpu);
+> +		dom->mon_comp[eventid] = mon_comp;
+> +		if (mon_comp)
+> +			any_mon_comp = mon_comp;
+>  	}
+> +	if (!any_mon_comp) {
+> +		WARN_ON_ONCE(0);
+> +		err = -EFAULT;
+> +		goto free_domain;
+> +	}
+> +
+> +	mon_d = &dom->resctrl_mon_dom;
+> +	mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
+> +	mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+> +	err = resctrl_online_mon_domain(r, &mon_d->hdr);
+> +	if (err)
+> +		goto free_domain;
+> +
+> +	mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+>  
+>  	return dom;
+>  
+> -offline_ctrl_domain:
+> -	if (r->alloc_capable) {
+> -		mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+> -		resctrl_offline_ctrl_domain(r, ctrl_d);
+> -	}
+>  free_domain:
+>  	kfree(dom);
+>  	dom = ERR_PTR(err);
+> @@ -1724,21 +1753,25 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>   * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
+>   * for anything that is not a cache.
+>   */
+> -static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
+> +static struct mpam_resctrl_dom *
+> +mpam_resctrl_get_mon_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>  {
+>  	int cache_id;
+>  	struct mpam_resctrl_dom *dom;
+> -	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+> +	struct rdt_resource *r = &res->resctrl_res;
+>  
+>  	lockdep_assert_cpus_held();
+>  
+> -	if (!l3->class)
+> +	if (r->rid != RDT_RESOURCE_L3)
+> +		return NULL;
+> +
+> +	if (!res->class)
+>  		return NULL;
+>  	cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>  	if (cache_id < 0)
+>  		return NULL;
+>  
+> -	list_for_each_entry_rcu(dom, &l3->resctrl_res.mon_domains, resctrl_mon_dom.hdr.list) {
+> +	list_for_each_entry_rcu(dom, &res->resctrl_res.mon_domains, resctrl_mon_dom.hdr.list) {
+>  		if (dom->resctrl_mon_dom.hdr.id == cache_id)
+>  			return dom;
+>  	}
+> @@ -1747,7 +1780,7 @@ static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
+>  }
+>  
+>  static struct mpam_resctrl_dom *
+> -mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+> +mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>  {
+>  	struct mpam_resctrl_dom *dom;
+>  	struct rdt_resource *r = &res->resctrl_res;
+> @@ -1759,11 +1792,7 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>  			return dom;
+>  	}
+>  
+> -	if (r->rid != RDT_RESOURCE_L3)
+> -		return NULL;
+> -
+> -	/* Search the mon domain list too - needed on monitor only platforms. */
+> -	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
+> +	return NULL;
+>  }
+>  
+>  int mpam_resctrl_online_cpu(unsigned int cpu)
+> @@ -1779,18 +1808,25 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
+>  		if (!res->class)
+>  			continue;	// dummy_resource;
+>  
+> -		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+> -		if (!dom) {
+> -			dom = mpam_resctrl_alloc_domain(cpu, res);
+> -			if (IS_ERR(dom))
+> -				return PTR_ERR(dom);
+> -		} else {
+> -			if (r->alloc_capable) {
+> +		if (r->alloc_capable) {
+> +			dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res);
+> +			if (!dom) {
+> +				dom = mpam_resctrl_alloc_ctrl_domain(cpu, res);
+> +				if (IS_ERR(dom))
+> +					return PTR_ERR(dom);
+> +			} else {
+>  				struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+>  
+>  				mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
+>  			}
+> -			if (r->mon_capable) {
+> +		}
+> +		if (r->mon_capable) {
+> +			dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
+> +			if (!dom) {
+> +				dom = mpam_resctrl_alloc_mon_domain(cpu, res);
+> +				if (IS_ERR(dom))
+> +					return PTR_ERR(dom);
+> +			} else {
+>  				struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
+>  
+>  				mpam_resctrl_online_domain_hdr(cpu, &mon_d->hdr);
+> @@ -1815,36 +1851,35 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
+>  		struct mpam_resctrl_dom *dom;
+>  		struct rdt_l3_mon_domain *mon_d;
+>  		struct rdt_ctrl_domain *ctrl_d;
+> -		bool ctrl_dom_empty, mon_dom_empty;
+> +		bool dom_empty;
+>  		struct rdt_resource *r = &res->resctrl_res;
+>  
+>  		if (!res->class)
+>  			continue;	// dummy resource
+>  
+> -		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+> -		if (WARN_ON_ONCE(!dom))
+> -			continue;
+> -
+>  		if (r->alloc_capable) {
+> +			dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res);
+> +			if (WARN_ON_ONCE(!dom))
+> +				continue;
+>  			ctrl_d = &dom->resctrl_ctrl_dom;
+> -			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+> -			if (ctrl_dom_empty)
+> +			dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+> +			if (dom_empty) {
+>  				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
+> -		} else {
+> -			ctrl_dom_empty = true;
+> +				kfree(dom);
+> +			}
+>  		}
+>  
+>  		if (r->mon_capable) {
+> +			dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res);
+> +			if (WARN_ON_ONCE(!dom))
+> +				continue;
+>  			mon_d = &dom->resctrl_mon_dom;
+> -			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+> -			if (mon_dom_empty)
+> +			dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+> +			if (dom_empty) {
+>  				resctrl_offline_mon_domain(&res->resctrl_res, &mon_d->hdr);
+> -		} else {
+> -			mon_dom_empty = true;
+> +				kfree(dom);
+> +			}
+>  		}
+> -
+> -		if (ctrl_dom_empty && mon_dom_empty)
+> -			kfree(dom);
+>  	}
+>  }
+>  
+
 
