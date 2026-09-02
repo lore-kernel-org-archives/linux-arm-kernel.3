@@ -4,118 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A702CC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4547BC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYAOQwQb2HfqPywVtWuRASfqN3xJx96u2yl4fq6Cc0Y=; b=HyAhagjisBpqNLw1xQiKhUhedK
-	vNTqITgeWMjhDhm6qfWEO0k7jTls+knhoHPJHF20gijL54jALX7wCsd6/mr4M9WFF8yzUXhDC59Ea
-	mFBkd2ioFvDryd6M8q7ckU/KJna6kVzKZxxEW4Rjxq5CPUESSZlFY62SLwbS5IWmnwCUOlVl8BgaH
-	5MNW+n1DPYLcv1BF+1Qs0sQzisYM/vnOgdLSUswaQMaHB/b1R6UCQmC6+e47CAQQGhk/HPWceoY3X
-	OAn1yblJgE7ZWa5/M570VOwZ2642XjS5Oms4EZeUGMW9R88usgXi9ds5UrKNi7MBuYGdXTBU/AX54
-	imsuTxrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lTb31aJyYEihExlJbMTmTBFJ0xHAaFSqcXJx0OH+m38=; b=XskB5TsoVpGDgOlo7j51UR8Hjq
+	tU5nOiWsoZIzNGCk4OJ8ZLhiSYb0gkhihBwBuoQuw39vegDp50FtXugwQTyhivDdO4LODeyCdnQSB
+	k12RvoRkPwsVs0KXbDMA30s7DvpYoy3x2X0WuHp2wXQpuc4Z3j7X9Um4f3XP+OQAVrnLRcP4691Vy
+	UMpKKtMF0CKgej8GiSti9+dw47b3Mbehrbk9A2Ng164ZluFOvJzXJuD6LQEJ8uxOpf+BcnRqbGQCP
+	T4pzamlBBIj7oa0tLED9NBa893ivsJVPpfwxEKXVWR0jQ4M3Wr7zi3nTnd4q5RretDvNst984XMSn
+	BGw+GFWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oV9-0000000FPMu-1kca;
-	Wed, 02 Sep 2026 17:11:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1x1oaD-0000000FPss-0bqJ;
+	Wed, 02 Sep 2026 17:17:09 +0000
+Received: from out-235.mta0.migadu.com ([2001:41d0:1004:224b::eb] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oV7-0000000FPMK-2IDV
+	id 1x1oaA-0000000FPs8-47qB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:11:54 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4995b0343c1so14386895e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 10:11:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788369112; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NWJBz9B+QglivVT4kRK4fFWyZ8pbLLgl7yv2rDRl8E6VoYSVxLDH1RjAqaCcTTUXID
-         azhn5vGXtAGGImFSprnloUh2RmxeLgGLregEtuJYD4EOnfd3zrKiiuExG4pY4ZEY2spB
-         HbOJB1icUqVD6PoGVJ+5ZdVF/3adho8A0Yl5A7lzrNqDfeYq6ghnFLLnsg2zZQ9xq8za
-         KoCriYwE3hm4r/FZfVlBsPy+jZx/cUxeRX5IQeLYTkZAhrbdNt9+kd2i6iVaZZyVQIsz
-         k5iaesXGcgWIt11uuBQlr31KBiYExZDnCrIUQDaKQi8OJCaDeULJNqr9LFhnrqpk0qrG
-         1kyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=mYAOQwQb2HfqPywVtWuRASfqN3xJx96u2yl4fq6Cc0Y=;
-        fh=onk99zGzXaHUq3PaQ3WYYR+tjvZ4wCWWZehlczz154Y=;
-        b=MDWFzNqLu3mOU6IDK9wpmXOvfZLnjHm/BM7Nnfcd2mrNl6Cn9L2NA+DDiL7HUNlO57
-         HQh6QFLkoFmm/1dJfo9gKB35d/yUXV2ySWFC82UjWiHdo3Ym8G0EJIrh+ddNmAWeJCSM
-         biQAr6qISjI1C4wV6V9JAce+nb2MCBLc9kVW//8myIPoul3rGzE1cQwwuz1ok7ZbL60D
-         BmU2BmnsD21eo3HhTzE/YaMCfLjDCLnUt1zUy7SLxrIeM7wxeLvLlBLb6io1gafaa9Tv
-         WDIg7JZ4fl2YR7kQBDPHCc0bo6kzYnkbRF3k9U6t9Fp+Oy5exnII8fO1aLLUWlsJZSgO
-         N9Qg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788369112; x=1788973912; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mYAOQwQb2HfqPywVtWuRASfqN3xJx96u2yl4fq6Cc0Y=;
-        b=JjdyfDS2imoDz/qbl3XiKcjRlglGEPMyDZpqOivGkoKLO+TecfPXnvK35Dze8O7OIg
-         Zqry8fioZjKmTVr0tx4vqSjyDSeGNw9addqi5Qp4qJygbAct5lSQG+MVM283ztlGwwwo
-         qALT+NJLRxZGBUlk4mi9PkupE8datTLqycWHNOhZ42u5n4+ZqWkibEWAzwVmj3GGNOlm
-         7IMPA3C11zesFYW4DUvx5zkB35z2EUUFhH+swJ/3dFGZzSumPwgze6LKSSPNNyWQnhyT
-         2kCl7iCdvUuMyHfDQQzQ0hM9FmAyUAyvzswpcF1all1+QVB+oaBynHvsd1trrhbyEk7z
-         pP7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788369112; x=1788973912;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mYAOQwQb2HfqPywVtWuRASfqN3xJx96u2yl4fq6Cc0Y=;
-        b=CnZUJhuxAW5GwwZuAcUzRdIzjR2oWK02wG5ZRr77mJ1s6s6DCihmXnvNP4So41xSe6
-         JeDozexN9JY6ZoTmO1pDCIDdON0cvVtk0O4Hv6L4vBRmTSnkc9Ib7DZE90v4HY7j9mve
-         4qZXHvVc8HSoYwDRomOcWzfTpa4kX/4xMgV8CL3Nt5T6GTBePOTQcEsTaoiodk49F6Ha
-         F4tJoB5vBHRpWU3/eh2iOGvqJKQWiqyOGjufLo5hm0hDp0GGa1NixgC3vztJt4xFdh+4
-         oQCKgFZj+aMrix1HjtNBCF4MSg6ZDrQ8MbDDFqCnWGaA2CEFn7qcDfbcqbtNpgKTOcU6
-         Mirw==
-X-Forwarded-Encrypted: i=1; AHgh+Rrn8o2upbG+bt9SDau+BTmo+1mhCG2lx2uwQTmvyvlLC5WyvQpEsTLS2FMkO8VkOZPhZfnGos2X1Da7tzSf7Gru@lists.infradead.org
-X-Gm-Message-State: AFuF++l7x/e6DRRg8Age90pN+gXzA3n1gC/zqZEOUo3/z5wP5iFimR0b
-	Z7GZNYEmN0XhdiMSAfLSNo1OYm3fuOMY85sf/Yammne2ECW4df6B9FfeBbUIxklAHMpF3hWGYtq
-	fpOMiYCZIapN6iiH+vWV6tTUGeZG7w9BUjmchmPDl
-X-Gm-Gg: AR+sD10EWc2pCMn3StF7dcLN/Ia9hq6uIt0TviZPvP+mbnOKf9dORCTnFwLztmeg7EM
-	ZaKmLA0N4sgTVV2H0yBsdNzJCdlA/X4EBMjxP7nZAOTtxAiPGVC4SUnxGte9HFM5kflOdSHs2mk
-	FMhPRJtWKOBEhZ3BAIPPNTtkD2j6sFlD6dkvc2Zs3P6XLLFSXLf4+KmgS31soivhn4kcGVJmzLO
-	Neog/ivQmFLHuo5gTQN7HLKmFD0yvjzVGx6JF16vekDj+yJl0sz2QTRcS2VvUGrxdQ2clg5B1D2
-	/235aCMVzHAZYpf6dZwA2tw/RuYyDenh4AQ4xJwv+1SI81ESSKDC8epSL6EHgZGe7fL5L19vpXW
-	MQ9KUBRH+EpY3sP51GwH798vqNvh+reFoTarRG6ZUCE41Y/AvWFstziZBZm0cMpgOjg==
-X-Received: by 2002:a05:600c:4e86:b0:49a:77c1:d246 with SMTP id
- 5b1f17b1804b1-49ce5852589mr112274565e9.15.1788369110872; Wed, 02 Sep 2026
- 10:11:50 -0700 (PDT)
+	Wed, 02 Sep 2026 17:17:08 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=kbN2T3HRxTE8CcU7FkVYnjiHCvTMBx8FujkNyQbwo6o=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788369424; v=1; x=1788974224;
+ b=mJISh18usSyksGynG0cxc4RIvEDwxbD6UZO69me3t4fCYcBkAmhFblRH4MCX8MCclmC7v3ET
+ pvDcw9yrjAovso+kk3C6MLJEbCisS7NOzPaHAr/3PGhpHYA/wOo/i1vEgrFTenEwTKWrGmfibHg
+ xnUSzwLfKPw8DyAEK3Y3wukI=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by mta10.migadu.com with ESMTPS id 29a99734ea6f9c70;
+	Wed, 02 Sep 2026 17:17:04 +0000
+X-Mizu-Trace-ID: 29a99734ea6f9c70
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 2 Sep 2026 19:16:57 +0200
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: atmel-tdes - sync output bounce buffer before DMA
+Message-ID: <aphaCSSkk_pDjyqz@linux.dev>
+References: <20260829045316.92931-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-References: <20260718111340.159896-1-linux@yoavmoshe.com> <20260827194508.446733-1-linux@yoavmoshe.com>
- <CAKwvOdkSZBbq=e916=efx8G-CTzZ5b31AhyUytO6eJjjkEdMow@mail.gmail.com>
- <CABCJKuc0cWWdkA7zrCcuze4AE-qTSETuUi-eRewPnn_ivHEADQ@mail.gmail.com>
- <CAKwvOdnA7Ej_uppSL7U2xwxyUQoDMvO+RArj4HCUSOziH0rCqA@mail.gmail.com>
- <CABCJKuezb0HtOcMBsObczS=HBaRvMszagkOZGHyOVbXBqtJi5g@mail.gmail.com>
- <2bd0c842-d0cb-4ad7-b3a3-fed2000dea83@yoavmoshe.com> <CABCJKudb5RegHcNPkXG5p1TcCFAe5_8+hqBP-2GyHVK19oB94g@mail.gmail.com>
- <CAKwvOd=OLLO5AXiR54o0nU16e_pTDt_yiEPQ0GgnX8DRGJXYmw@mail.gmail.com>
- <aphSYUS7xGJjj2gT@SMW015318> <CAKwvOdmG92SPOuMJka6KqODqObB0F8YJ6NhpEj7eisv-ZK+GXQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdmG92SPOuMJka6KqODqObB0F8YJ6NhpEj7eisv-ZK+GXQ@mail.gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Wed, 2 Sep 2026 10:11:39 -0700
-X-Gm-Features: AcwNN1Xmy-BrINuLcPwv_tFccFrs29sUnSKtr5FfgrTjlEDRCX8NohA0W3QuOR8
-Message-ID: <CAKwvOd=P+bnKm_wDaZjBJQUcYKvVHb55MtOLKWO4k99By8emNA@mail.gmail.com>
-Subject: Re: [PATCH v4] ARM: imx: Fix suspend/resume crash with Clang CFI
-To: Frank Li <Frank.li@oss.nxp.com>, Nathan Chancellor <nathan@kernel.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>, "Yo'av Moshe" <linux@yoavmoshe.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Russell King <linux@armlinux.org.uk>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260829045316.92931-1-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_101153_610239_8A927F39 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260902_101707_181322_306AEBE7 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,34 +74,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 2, 2026 at 10:10=E2=80=AFAM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Wed, Sep 2, 2026 at 9:44=E2=80=AFAM Frank Li <Frank.li@oss.nxp.com> wr=
-ote:
-> >
-> > Nick Desaulniers:
-> >
-> >         Is this patch good to pickup?
->
-> Yes.
->
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> It does depend on
-> https://lore.kernel.org/lkml/20260604-tracing-fix-cfi-h-build-error-v1-1-=
-b27015390901@kernel.org/
-> though, so you might need to coordinate your PRs to Linus with Nathan.
-> Nathan, is https://lore.kernel.org/lkml/20260604-tracing-fix-cfi-h-build-=
-error-v1-1-b27015390901@kernel.org/
-> going via kbuild tree or what?
+On Sat, Aug 29, 2026 at 06:53:16AM +0200, Karl Mehltretter wrote:
+> The slow path DMAs into a bounce buffer mapped once at probe with
+> DMA_FROM_DEVICE.  On reuse, nothing invalidates the CPU cache for it
+> before the DMA writes, so the copy-out can read stale data.
+> 
+> This was hidden by the copy-out calling dma_sync_single_for_device()
+> instead of dma_sync_single_for_cpu(): on ARM the misplaced for_device call
+> invalidates the cache, which is exactly what the missing pre-DMA sync
+> should have done.  Commit c8a9a647532f ("crypto: atmel-tdes - fix DMA sync
+> direction") corrected that call.  On ARM926 dma_unmap_area is a no-op, so
+> for_cpu does not invalidate and the SAM9X60 and SAM9X7 parts lost their
+> only invalidate.
+> 
+> With CONFIG_CRYPTO_SELFTESTS=y all four DES/TDES algorithms now fail on
+> SAM9X75:
+> 
+>   alg: skcipher: atmel-ecb-tdes encryption test failed (wrong result) on
+>   test vector 2, cfg="unaligned buffer, offset=1"
+> 
+> Sync the output buffer for the device before starting the DMA, in both
+> the PDC and DMA engine paths.
+> 
+> Fixes: c8a9a647532f ("crypto: atmel-tdes - fix DMA sync direction")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Tested on top of:
+> 
+>   crypto: atmel-tdes - zero-initialize device state
+>   https://lore.kernel.org/r/20260829035821.67220-1-kmehltretter@gmail.com/
+> 
+> Without that fix, on the tested SAM9X75 the DES/TDES self-tests hang on
+> their first requests before reaching this test vector, so the failure
+> fixed here is not observable on an otherwise unpatched tree.
+> 
+> The two patches are independent and apply in either order.
+> 
+>  drivers/crypto/atmel-tdes.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 
-And make sure to pick up v5, not v4. Was just looking at this thread
-on lore, and it seems like Frank you replied on v4, not v5. My RB tag
-is for v5, not v4.
-https://lore.kernel.org/llvm/ca86be7a-7439-49cb-9deb-8d565ca0b1dd@yoavmoshe=
-.com/T/#mc0e4f1537fba074b962de6b4338f289dbb26c81e
---=20
+The code change looks correct to me.
+
+However, I find the first two paragraphs of the changelog difficult to
+understand. Could you please reword those and consistently use full
+function names with trailing parentheses?
+
 Thanks,
-~Nick Desaulniers
+Thorsten
 
