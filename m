@@ -4,151 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE37CC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F76C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JDjRVYqzUw0COQ4lE1cK71GEKSAg7BunK0EkaeA4ZQ=; b=k6SbmzXGmk0X2Oiarkyq3opoF3
-	ymdLIjB0UjM8eB6pxE50465/b5DJ+Xmcf7l9uKw1l7W+2rHyUgRCA0i7yz0FV4a6UU15Yf+Nxp3iE
-	BbXjfCPB0u6MXaR8t1ysbhcRTMlDmQmbnnzlQiiMbSk07qxg3qAt+ZRMQSZVgG6SQqCetCxKLkSlv
-	yp0ZdmNmNx7wPgJp8GwP667jlP+XpD6LzZ+LrfSEpxZAFUDHppHQ4BSXNGOayD/aqdYPEro2UdlV4
-	u0gUbd6uhVpSvXDuXGul5zd25rX6fCO2kmBBEt1MZ9AWIzdpCwnz3Iev7Toa4Sqt0gHMByDl5uQWN
-	8iUwY3Xg==;
+	bh=dyYScNOtdHH5lkgudhM8EXCmcZZ2OIA7V31pDbai0PQ=; b=IzMDEGstfgsot+GPpb2Pc2lfu2
+	h9yYVYndTl6g2lYE60WSUsQA61HP6sDQtbSMJYALotcGmcsV2uWtqSOK7gJa8nrHbLQ+xy3kIYxtO
+	VDHGWGpqREGxAF7MSbfCTReqddbxIZrH8//m/zIRPr8v7oKMgTtDzm+oaCkBPLj2d03bQroXwuogb
+	mJef6xFnkNCOu4obA+AJIl/yXAbxb9i3OOhOG5Ldpm6Zmd9bYkaRNKD6QfHwysUbVErAKf9HAWdQb
+	DUOBLidItS0DPuOWJkwhXXAILNnB7NQEJdGPQyQ/C3punIj5pARrbGv8JdCnwSH1lgc6R9aFBxxG7
+	4uhYtEdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rP9-0000000Fqqr-3xea;
-	Wed, 02 Sep 2026 20:17:55 +0000
+	id 1x1rPC-0000000FqtZ-0OyP;
+	Wed, 02 Sep 2026 20:17:58 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rP7-0000000Fqoi-28o2
+	id 1x1rP9-0000000Fqqk-3X11
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 20:17:54 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682KH8g22417705
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:17:52 GMT
+	Wed, 02 Sep 2026 20:17:57 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682KHKx22797345
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:17:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=8JDjRVYqzUw
-	0COQ4lE1cK71GEKSAg7BunK0EkaeA4ZQ=; b=EZxmMMjjSUe4iDpYendft8KMQIW
-	QkTF2YwCjO/T+sAA0lM05BjucwS8gz5p8R9Y3XJ8dt3UKkChO5FXcmzEgXUYh5LV
-	0eUM6KrEuBBs5kxP0uzF9gj5GfWUkp6aC6hqAqGb4Rt++R/dXixxZqPa/dj3gjgG
-	VIondF8saW5VVamYQkiL3C+emxDxq886FpIUTmNoJIWi8eb7UMiAGOZ2JQ+QMhfO
-	/oD7yrZ9fucXcKp59nfpx2XTZ4N06MhaW5AEiuqcHir5eQFTJnqvpTT9lAiTGR8C
-	8XHq+Nb3SFVzm1xP/WolzePIlW8KkPNlVss4gLm+VQ3dA98z+xxFZHo6Lww==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4genrdsepg-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	dyYScNOtdHH5lkgudhM8EXCmcZZ2OIA7V31pDbai0PQ=; b=fxlBvkH+vXl0Gx0O
+	ag8gnUdA9OsyNqIr10AuWOAq5z/1Qs6DF0Z9g+wiV6At2goJbvh8a+819ZDOM2Bc
+	PwV1kRM9w2VHUBvvxKjqZmIQmXEu8Sl2ID54ndP9NcJi591kgVzg75D5/ioBLpkx
+	R3Ya+gTWoPLz6LGLVoIORazrkBhpyxkeDTYFuD8RDLo+uD+6rTqkD3t2AX4rxwgP
+	ZiS8R8WC+YuSylM+t/OjfgQ/e8XEL3Wv7lMq/wM+iieZt/0l5wqYhUqvAuFInEC9
+	/VhDYj7kzcVaRv8vjhM35caDGGzS6VNml0OiapBRnot/GfMECgKM5iV1O2BTlQ24
+	7oX+Mg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gemjh9qdn-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:17:52 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-ca6bd8a190cso2287033a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:17:52 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:17:54 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93771aa0379so419165185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:17:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788380271; x=1788985071; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1788380274; x=1788985074; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8JDjRVYqzUw0COQ4lE1cK71GEKSAg7BunK0EkaeA4ZQ=;
-        b=TtJ63lfWqmYQ+oglFQRoQbBZrztz5IZS83eBlqGksFENvQcMKAS5MNjx/zAxkR8JdY
-         tNY3lDU0dIrSIYFXU9VPqwLWXrgDc4GF8Yy0oIClvvXaipteBK+lJtsdkd7qN8I43Ebe
-         X+qdLulmST6OKcLSE7B94ze2aXKjj4tyvxUAXy4JbH/uzkKZJuGBVkioGvN9EzHrd8EF
-         dbebyKcukpCISUwo7GWVkL/xitMTZ5aS0B2/c84hDSU6o41OVIoJuBFchn2PFdfFdWRz
-         LYbhQN2LF/abJZmUeyJyBqmnCa+XGQucmyiEEqEwMlvUqqXJQkK9ccLPjfXY3+ahpPYT
-         rpAA==
+        bh=dyYScNOtdHH5lkgudhM8EXCmcZZ2OIA7V31pDbai0PQ=;
+        b=F73qATqfgarEx42yik7vzW2Myxd3sYzOdZ+72uvoBOWXC6R6VwL822lf79tnLcNtJ+
+         l3aU6GjVLysa9zrMMCAD9YSh6Q0ZYOrRbS52HJmWl4br2YY6J3rWIfWyml532Fob80fb
+         6UP6sHav/TYfIok+eNuyBvjhpldUbRXAXisKMdniVZN8JxdXCwP/I8G9CdmSBSnoTG4t
+         FXQ3isqbdUzZwfi7R3XxPx+DOwTVTRTQT8UZRjW/UwaIV2AFQOZnMjMKqzj8LHdm9Yta
+         cURqzO5NjsGUTo0ltiENRl9KPB8F8jWk/kAW5Cth0OJKyrHJeGEORFF89BpZLKdoZxZN
+         UJ6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788380271; x=1788985071;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8JDjRVYqzUw0COQ4lE1cK71GEKSAg7BunK0EkaeA4ZQ=;
-        b=qV5SvmZUywPy4jSRRClD4zOKJEPqWfrcisBsUIGb+X3QJE86Kf8f5wC4+nJAgbVAfY
-         p+97paiThglZsXgReUw9XhFXKRBlcxAI6wqBBO/JtxpowE98IBBYgbU7YSmq9AahhBay
-         KtkQ86/sUQovL/QO8FE5udIHu85AAvI0dzjqDB/ro3TjQ54eJKzR4l2BZGzcktQgUwf1
-         0FfKLhdDqR7r/LCQt1WXWAi2XsQX52aMzsUh1HUWuJfGibB2xJVExAEI3nCl01exIn0A
-         2uXN69WHLs8j1ipsvHeFhf1K42wbRMw54QfE8uYwre53Phh9xHgfdiqH09aChF0DV3+n
-         NcYw==
-X-Forwarded-Encrypted: i=1; AKwUvBxHrM40MOIWWeV8BqPUn1aqkuqSZ5o7Icwi8egudMt3hZ4VZorKS3r+JYVmUZXDncL/prDpVgo1t80+/JP/czg2@lists.infradead.org
-X-Gm-Message-State: AFuF++mEUgqQPE+pztvk9C9bjkkn9ErHk7IMcyb/0zAzP5/p6cdRDBnH
-	zHXPEHUB1lJ0OvPywN0yQ17rdu7asJwmkFHm8UgeOUryQyKDW0HXolcQTIp7bzwSBQu/AQNjLMw
-	GVFw3w2D3SI9B6mNbjHVDwN91R7tYK4xYyoLL63fgJDbyhWTqSegzN3YZc4cwhqXvEIbrjK2nAd
-	GfAw==
-X-Gm-Gg: AYBFou3GkXWV6RF9lhjqxGP0wkJnyn0+ZXvtPSQi837cifFKe9leljtZ8SFSF5PTaWI
-	gYtt18XxTo74zwKdn6Mn8wjz3TmupFvemBwFCx1wK8d0C2CNB4ntvaZGd78M6h1A2OQJ5/sNg/k
-	ZVVgQNuTdSJk71L4c5oE34IS2dRLQzurSEefEA6Rirgnvg7g7RsggTFgJmtrOXET07X1Jq8F42d
-	eeJa1sIxteGl1NDgmcA2fXllyoz909Sjl/FvKfshn5gHKEhYlMPIkMlBrzFu3dGyF7rPhFxn+BO
-	Q9AMd7SCSyB7GnlorZqp0yFAwbMgNMfIA6BaQq9Euftmg0f5EeoyoGJUYqAgE8ZmV93i8b2pl6u
-	njIDmgjXGSFmM3mM//oCs1jiN3Y4=
-X-Received: by 2002:a05:6a20:1611:b0:3cc:f008:8125 with SMTP id adf61e73a8af0-3d9ad9a7feamr11025937637.1.1788380271478;
-        Wed, 02 Sep 2026 13:17:51 -0700 (PDT)
-X-Received: by 2002:a05:6a20:1611:b0:3cc:f008:8125 with SMTP id adf61e73a8af0-3d9ad9a7feamr11025843637.1.1788380270956;
-        Wed, 02 Sep 2026 13:17:50 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33256414c60sm497205eec.24.2026.09.02.13.17.42
+        d=1e100.net; s=20251104; t=1788380274; x=1788985074;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dyYScNOtdHH5lkgudhM8EXCmcZZ2OIA7V31pDbai0PQ=;
+        b=S9kOrvCTNmY/SI/zpVM9qeaMyEy1GrUPAH03nAllZWv3sfSyIiNxkD12zc1koBX8KJ
+         Xk7dS4Y50k3zA4kGdzRpQxcZUVwFyXE5ECcpWe11EtSeJrl39+1A/5FqWEP+9U8gkKXV
+         cRpiZOv7CSyH+f7Q0UwRZTi4UmnVWEOL4Al06ZT2xTxKIAmGxUufcpktCMBwMoCsL5AY
+         3a2tWMFwZ2X4Lbe2YxrdNYKGE6Fzp8DGPM+Vgj06QnAugmYN2IjF2J5vySm51xeJ3IH0
+         aPcmSX7Gn++YpnJxnjhRVuYxQ0/M0TQ7oRe3mqi9YDNbPb3eAn9KYVNVPNeuuaUYsG7y
+         oztQ==
+X-Forwarded-Encrypted: i=1; AKwUvBynbJAKs1z+ziJKlr0An6Z8tTqIxVEmnPKhyDVElHvGYMhTatzObiX6yvfb7riC3VcJKwo41dDjW6DLuWPyLggJ@lists.infradead.org
+X-Gm-Message-State: AFuF++m6rrPIkuPheLj5COKN5j/Pjzyd6RvLiMkgWUmI1UjAXOhfGKhN
+	wyYiPfgO16cYzo4KE/D/mpY46wVpc9i69BoyrfKgRVVC01l8xatIuZfgox5FC49eA8ShYD3XFiA
+	U+04F0k32ipS8sLMBvl9RotjUvnG/iFwB4an3HqVk/buXPRhu+XG4TyvOcd0O/ceRHo3zdppkid
+	rvew==
+X-Gm-Gg: AYBFou2TwA2qxs9BuT0ciSgcQFC0tOcoUdLP2fMUIVnUWFE4CQI2wIaIZ5mgFr/eiEc
+	odVZrtncTTW3UgLuCzDZPDD/Z0VBRJPiOJO4BfKjpjdZj20BlpIOrEEhalY7t4v0iglcpiTs4vl
+	+8tHbLlChMHmuXJJBxWD1bozP3sK0hIfZt7VjiE2Yi698TkhMjEYSFgXAja9mRLegeenJ/4TM8/
+	Id/eGGjndTtHSNljJ5VSPyJyO8lAyg0dp5BUAnDz+ZGKQChnEcrzDFvb/+Ho0dBo5YCm150IHQ+
+	E0M0BoZJkKeXMYYzmqXKNj0ZU81O6ciLWva0XI5Fpo190X4rLWydv66b0gi4bq7HhMkHyl3sOZP
+	cl83A/Hk0mvbfPA==
+X-Received: by 2002:a05:620a:2682:b0:939:1459:efb2 with SMTP id af79cd13be357-93960ef3c8amr950529385a.24.1788380274071;
+        Wed, 02 Sep 2026 13:17:54 -0700 (PDT)
+X-Received: by 2002:a05:620a:2682:b0:939:1459:efb2 with SMTP id af79cd13be357-93960ef3c8amr950521185a.24.1788380273528;
+        Wed, 02 Sep 2026 13:17:53 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee5d6029sm15725085e9.6.2026.09.02.13.17.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 13:17:50 -0700 (PDT)
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Liviu Dudau <liviu.dudau@arm.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        Paul Cercueil <paul@crapouillou.net>,
-        Anitha Chrisanthus <anitha.chrisanthus@intel.com>,
-        Paul Kocialkowski <paulk@sys-base.io>,
-        Linus Walleij <linusw@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Alexey Brodkin <abrodkin@synopsys.com>,
-        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Michal Simek <michal.simek@amd.com>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
-        Billy Tsai <billy_tsai@aspeedtech.com>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-        linux-mips@vger.kernel.org, linux-sunxi@lists.linux.dev,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH v2 7/11] drm: kmb: Use devm_of_reserved_mem_device_init()
-Date: Thu,  3 Sep 2026 01:46:36 +0530
-Message-ID: <20260902201640.2024648-8-mukesh.ojha@oss.qualcomm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260902201640.2024648-1-mukesh.ojha@oss.qualcomm.com>
-References: <20260902201640.2024648-1-mukesh.ojha@oss.qualcomm.com>
+        Wed, 02 Sep 2026 13:17:52 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Wed, 02 Sep 2026 22:15:42 +0200
+Subject: [PATCH net v3 2/4] net: stmmac: embed struct stmmac_est in
+ stmmac_priv struct
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=H4/rBeYi c=1 sm=1 tr=0 ts=6a988470 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
- a=WgoW8aVLYYFOpEymBdMA:9 a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-GUID: kHt0OmLaSK3aJKSDjIOJqHBX2qaQpQC9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfXzg5qhIF5H73D
- C0CMwu7Pbb0WR0rAiOeJtqiCGuQboygKgHKW0xK9IPbZWMxnKCNNTNseO6gtlU7haOPBHQd2HwE
- xsDVMNJf+hPHaNgOhJFZipi+flSIxLLzcrYTKVtqaNgi0bS6SgWCDFlf17LSZvnVZqTlzKg+AmD
- gMGn+VDTqWkltprNruAW/FHzRUuDVq3ZlGteWjCLy0l6D79jjVhR5PRQ1CL5X4aJqhKp21iY5WE
- jucpMeE9iLm24mHPaJDPHpqygKvaRPF44vO2Hkbn8Vz2gwYTO+uU5HkTplJC3q2SOaLnBIAfOKt
- P7Y8G6pd5dNoIjyoTWBy6/MoAEMPy07FMopuO3lvYGAGmNV7pboQ47SUzw+Cn09ns9VUrNGG9CE
- pDT1VMegQqg7TuFpP/dno9CVPORTZ5giWKeHyMna9iIir5seysVkGhOTzROoqu+SzRJVI8qSXzf
- cuM8IM21YX/6yasiCvg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX4ojVF4/V3TVf
- 1h6+WiBpoiONLOJxelekAvvYN1jBkM0/IeYPxpTn25+3sApnMtZTV8E71IBoqyCUc7fTyeCDPV3
- 3Bt93J54g+VW8Uu+QeV4ITokOioKAUo=
-X-Proofpoint-ORIG-GUID: kHt0OmLaSK3aJKSDjIOJqHBX2qaQpQC9
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260902-stmmac-est-reapply-after-open-v3-2-e72a6df5a7ef@oss.qualcomm.com>
+References: <20260902-stmmac-est-reapply-after-open-v3-0-e72a6df5a7ef@oss.qualcomm.com>
+In-Reply-To: <20260902-stmmac-est-reapply-after-open-v3-0-e72a6df5a7ef@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Jose Abreu <Jose.Abreu@synopsys.com>,
+        Rayagond Kokatanur <rayagond@vayavyalabs.com>,
+        Thierry Reding <treding@nvidia.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-GUID: n7i7fVuDaKTk4k_IVSI6-fuf3a_T1Kch
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX/4XP6mU9SdUA
+ NTOXv+NQvLZ7+Xv/Nrfug4ZWGpL6dJmjf0uvmU6TwSulD8qiBJI9svTsdgz9iA2iWkKuIa7SYll
+ 2rn1caEY2VdKO5DKcH/V14j+v3Gvnqa50j9RcWNjPJgFZjWBCh5Lhf4+ux7EiYsLO3D4uxY958Y
+ 363rG5d2QvYN2T8zSiqKsxflyelXcLKURwKTdjHjLRHZeL2oqqWNF5a00N7QhZivwtlQv2lcsLz
+ lKNW4n1X+khRwKhdXqsheR7HMMJ7vDuAbHYNW4H+/HH7fpKsMzbbtNik704EdjBbwV3AUy0RSOi
+ 39fX37O08s57f3MCnuFQQRLihIjjgDXGMChEQTEAFxg30Y36CbHR1HguRWe5oYNf7L92004tL12
+ 0Vk8u7TiVWPQ/dpDcg6o56ZIvDcPnjLJsOWCy+39luNcW+AqLCTwuG/05M/Vt5H2LDjg1/2BFA5
+ enMhudvNKUEfRpeWnXg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX1o4E5vkm70ha
+ TU5be39MbeqBKIba8PwaKZyj/gyMXkmVlM4clH8L8YEfdV6KzYa7d2ePD18BNRSPrV5hMVNOkbD
+ a7BTo6ij+6xNPgJfenv0eYk1k2ZouQA=
+X-Authority-Analysis: v=2.4 cv=ErHiaycA c=1 sm=1 tr=0 ts=6a988472 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=8m_mm4JullfRwlNGEJsA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-ORIG-GUID: n7i7fVuDaKTk4k_IVSI6-fuf3a_T1Kch
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-02_05,2026-09-02_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 adultscore=0 bulkscore=0 clxscore=1015
- malwarescore=0 spamscore=0 phishscore=0 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020179
+ phishscore=0 bulkscore=0 adultscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609020179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_131753_672390_97C7CE0C 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20260902_131756_062421_B1F27804 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,57 +166,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the devres-managed devm_of_reserved_mem_device_init() instead of
-the manual of_reserved_mem_device_init()/of_reserved_mem_device_release()
-pair, letting the device resource manager handle cleanup automatically.
-Also simplify the IRQ error path since the release before init was a no-op.
+This is a preliminary change to fix EST reconfiguration in the open
+and resume paths: the taprio offload must be re-applied after the DMA
+soft reset clears the MTL_EST registers, but the current layout makes
+that fragile.
+priv->est is currently a pointer allocated with devm_kzalloc() on the
+first taprio REPLACE, and the mutex guarding it (priv->est_lock) is
+initialized at the same time. That ties the lock's validity to whether
+taprio has ever been configured, so the EST parameters can not be
+read under the lock (e.g. to check priv->est->enable in the open and
+resume paths) before the first offload setup.
+Embed struct stmmac_est into struct stmmac_priv and initialize the mutex
+in probe(). This makes the code simpler (no logical changes added).
+Moreover, the lock is now unconditionally valid, so the enable flag can
+be inspected under the lock from any control path.
 
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
- drivers/gpu/drm/kmb/kmb_drv.c | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 17 +++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 22 ++++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 61 ++++++++++-------------
+ 4 files changed, 45 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/gpu/drm/kmb/kmb_drv.c b/drivers/gpu/drm/kmb/kmb_drv.c
-index 7c2eb1152fc2..88fe377940f3 100644
---- a/drivers/gpu/drm/kmb/kmb_drv.c
-+++ b/drivers/gpu/drm/kmb/kmb_drv.c
-@@ -140,13 +140,12 @@ static int kmb_hw_init(struct drm_device *drm, unsigned long flags)
- 	/* Allocate LCD interrupt resources */
- 	irq_lcd = platform_get_irq(pdev, 0);
- 	if (irq_lcd < 0) {
--		ret = irq_lcd;
- 		drm_err(&kmb->drm, "irq_lcd not found");
--		goto setup_fail;
-+		return irq_lcd;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 7582fca63741..a8c8be34ff81 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -298,7 +298,7 @@ struct stmmac_priv {
+ 	struct plat_stmmacenet_data *plat;
+ 	/* Protect est parameters */
+ 	struct mutex est_lock;
+-	struct stmmac_est *est;
++	struct stmmac_est est;
+ 	struct dma_features dma_cap;
+ 	struct stmmac_counters mmc;
+ 	int hw_cap_support;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 47295845371a..a9fb15bdda43 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2723,9 +2723,8 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+ 		if (!xsk_tx_peek_desc(pool, &xdp_desc))
+ 			break;
+ 
+-		if (priv->est && priv->est->enable &&
+-		    priv->est->max_sdu[queue] &&
+-		    xdp_desc.len > priv->est->max_sdu[queue]) {
++		if (priv->est.enable && priv->est.max_sdu[queue] &&
++		    xdp_desc.len > priv->est.max_sdu[queue]) {
+ 			priv->xstats.max_sdu_txq_drop[queue]++;
+ 			continue;
+ 		}
+@@ -4788,13 +4787,12 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (skb_is_gso(skb))
+ 		return stmmac_tso_xmit(skb, dev);
+ 
+-	if (priv->est && priv->est->enable &&
+-	    priv->est->max_sdu[queue]) {
++	if (priv->est.enable && priv->est.max_sdu[queue]) {
+ 		sdu_len = skb->len;
+ 		/* Add VLAN tag length if VLAN tag insertion offload is requested */
+ 		if (priv->dma_cap.vlins && skb_vlan_tag_present(skb))
+ 			sdu_len += VLAN_HLEN;
+-		if (sdu_len > priv->est->max_sdu[queue]) {
++		if (sdu_len > priv->est.max_sdu[queue]) {
+ 			priv->xstats.max_sdu_txq_drop[queue]++;
+ 			goto max_sdu_err;
+ 		}
+@@ -5198,9 +5196,8 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ 	if (stmmac_tx_avail(priv, queue) < STMMAC_TX_THRESH(priv))
+ 		return STMMAC_XDP_CONSUMED;
+ 
+-	if (priv->est && priv->est->enable &&
+-	    priv->est->max_sdu[queue] &&
+-	    xdpf->len > priv->est->max_sdu[queue]) {
++	if (priv->est.enable && priv->est.max_sdu[queue] &&
++	    xdpf->len > priv->est.max_sdu[queue]) {
+ 		priv->xstats.max_sdu_txq_drop[queue]++;
+ 		return STMMAC_XDP_CONSUMED;
  	}
+@@ -8029,6 +8026,7 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	stmmac_napi_add(ndev);
  
- 	/* Get the optional framebuffer memory resource */
--	ret = of_reserved_mem_device_init(drm->dev);
-+	ret = devm_of_reserved_mem_device_init(drm->dev);
- 	if (ret && ret != -ENODEV)
- 		return ret;
+ 	mutex_init(&priv->lock);
++	mutex_init(&priv->est_lock);
  
-@@ -155,11 +154,6 @@ static int kmb_hw_init(struct drm_device *drm, unsigned long flags)
- 	kmb->irq_lcd = irq_lcd;
+ 	stmmac_fpe_init(priv);
  
- 	return 0;
--
-- setup_fail:
--	of_reserved_mem_device_release(drm->dev);
--
--	return ret;
+@@ -8160,6 +8158,7 @@ void stmmac_dvr_remove(struct device *dev)
+ 	stmmac_mdio_unregister(ndev);
+ 
+ 	destroy_workqueue(priv->wq);
++	mutex_destroy(&priv->est_lock);
+ 	mutex_destroy(&priv->lock);
+ 	bitmap_free(priv->af_xdp_zc_qps);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 960249960004..be5b26edd04c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -69,11 +69,11 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 	nsec = reminder;
+ 
+ 	/* If EST is enabled, disabled it before adjust ptp time. */
+-	if (priv->est && priv->est->enable) {
++	if (priv->est.enable) {
+ 		est_rst = true;
+ 		mutex_lock(&priv->est_lock);
+-		priv->est->enable = false;
+-		stmmac_est_configure(priv, priv, priv->est,
++		priv->est.enable = false;
++		stmmac_est_configure(priv, priv, &priv->est,
+ 				     priv->plat->clk_ptp_rate);
+ 		mutex_unlock(&priv->est_lock);
+ 	}
+@@ -91,19 +91,19 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 		mutex_lock(&priv->est_lock);
+ 		priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
+ 		current_time_ns = timespec64_to_ktime(current_time);
+-		time.tv_nsec = priv->est->btr_reserve[0];
+-		time.tv_sec = priv->est->btr_reserve[1];
++		time.tv_nsec = priv->est.btr_reserve[0];
++		time.tv_sec = priv->est.btr_reserve[1];
+ 		basetime = timespec64_to_ktime(time);
+-		cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC +
+-			     priv->est->ctr[0];
++		cycle_time = (u64)priv->est.ctr[1] * NSEC_PER_SEC +
++			     priv->est.ctr[0];
+ 		time = stmmac_calc_tas_basetime(basetime,
+ 						current_time_ns,
+ 						cycle_time);
+ 
+-		priv->est->btr[0] = (u32)time.tv_nsec;
+-		priv->est->btr[1] = (u32)time.tv_sec;
+-		priv->est->enable = true;
+-		ret = stmmac_est_configure(priv, priv, priv->est,
++		priv->est.btr[0] = (u32)time.tv_nsec;
++		priv->est.btr[1] = (u32)time.tv_sec;
++		priv->est.enable = true;
++		ret = stmmac_est_configure(priv, priv, &priv->est,
+ 					   priv->plat->clk_ptp_rate);
+ 		mutex_unlock(&priv->est_lock);
+ 		if (ret)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index 14cabe76e53e..e25a08e4be5f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -959,7 +959,7 @@ static void tc_taprio_map_maxsdu_txq(struct stmmac_priv *priv,
+ 		count = qopt->mqprio.qopt.count[i];
+ 
+ 		for (j = offset; j < offset + count; j++)
+-			priv->est->max_sdu[j] = qopt->max_sdu[i] + ETH_HLEN - ETH_TLEN;
++			priv->est.max_sdu[j] = qopt->max_sdu[i] + ETH_HLEN - ETH_TLEN;
+ 	}
  }
  
- static const struct drm_mode_config_funcs kmb_mode_config_funcs = {
-@@ -465,8 +459,6 @@ static void kmb_remove(struct platform_device *pdev)
- 	pm_runtime_put_sync(drm->dev);
- 	pm_runtime_disable(drm->dev);
+@@ -1023,24 +1023,15 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	if (qopt->cycle_time_extension >= BIT(wid + 7))
+ 		return -ERANGE;
  
--	of_reserved_mem_device_release(drm->dev);
+-	if (!priv->est) {
+-		priv->est = devm_kzalloc(priv->device, sizeof(*priv->est),
+-					 GFP_KERNEL);
+-		if (!priv->est)
+-			return -ENOMEM;
 -
- 	/* Release clks */
- 	kmb_display_clk_disable(kmb);
+-		mutex_init(&priv->est_lock);
+-	} else {
+-		mutex_lock(&priv->est_lock);
+-		memset(priv->est, 0, sizeof(*priv->est));
+-		mutex_unlock(&priv->est_lock);
+-	}
++	mutex_lock(&priv->est_lock);
++	memset(&priv->est, 0, sizeof(priv->est));
++	mutex_unlock(&priv->est_lock);
  
+ 	size = qopt->num_entries;
+ 
+ 	mutex_lock(&priv->est_lock);
+-	priv->est->gcl_size = size;
+-	priv->est->enable = qopt->cmd == TAPRIO_CMD_REPLACE;
++	priv->est.gcl_size = size;
++	priv->est.enable = qopt->cmd == TAPRIO_CMD_REPLACE;
+ 	mutex_unlock(&priv->est_lock);
+ 
+ 	for (i = 0; i < size; i++) {
+@@ -1065,7 +1056,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 			return -EOPNOTSUPP;
+ 		}
+ 
+-		priv->est->gcl[i] = delta_ns | (gates << wid);
++		priv->est.gcl[i] = delta_ns | (gates << wid);
+ 	}
+ 
+ 	mutex_lock(&priv->est_lock);
+@@ -1075,22 +1066,22 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	time = stmmac_calc_tas_basetime(qopt->base_time, current_time_ns,
+ 					qopt->cycle_time);
+ 
+-	priv->est->btr[0] = (u32)time.tv_nsec;
+-	priv->est->btr[1] = (u32)time.tv_sec;
++	priv->est.btr[0] = (u32)time.tv_nsec;
++	priv->est.btr[1] = (u32)time.tv_sec;
+ 
+ 	qopt_time = ktime_to_timespec64(qopt->base_time);
+-	priv->est->btr_reserve[0] = (u32)qopt_time.tv_nsec;
+-	priv->est->btr_reserve[1] = (u32)qopt_time.tv_sec;
++	priv->est.btr_reserve[0] = (u32)qopt_time.tv_nsec;
++	priv->est.btr_reserve[1] = (u32)qopt_time.tv_sec;
+ 
+ 	ctr = qopt->cycle_time;
+-	priv->est->ctr[0] = do_div(ctr, NSEC_PER_SEC);
+-	priv->est->ctr[1] = (u32)ctr;
++	priv->est.ctr[0] = do_div(ctr, NSEC_PER_SEC);
++	priv->est.ctr[1] = (u32)ctr;
+ 
+-	priv->est->ter = qopt->cycle_time_extension;
++	priv->est.ter = qopt->cycle_time_extension;
+ 
+ 	tc_taprio_map_maxsdu_txq(priv, qopt);
+ 
+-	ret = stmmac_est_configure(priv, priv, priv->est,
++	ret = stmmac_est_configure(priv, priv, &priv->est,
+ 				   priv->plat->clk_ptp_rate);
+ 	mutex_unlock(&priv->est_lock);
+ 	if (ret) {
+@@ -1106,19 +1097,17 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	return 0;
+ 
+ disable:
+-	if (priv->est) {
+-		mutex_lock(&priv->est_lock);
+-		priv->est->enable = false;
+-		stmmac_est_configure(priv, priv, priv->est,
+-				     priv->plat->clk_ptp_rate);
+-		/* Reset taprio status */
+-		for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+-			priv->xstats.max_sdu_txq_drop[i] = 0;
+-			priv->xstats.mtl_est_txq_hlbf[i] = 0;
+-			priv->xstats.mtl_est_txq_hlbs[i] = 0;
+-		}
+-		mutex_unlock(&priv->est_lock);
++	mutex_lock(&priv->est_lock);
++	priv->est.enable = false;
++	stmmac_est_configure(priv, priv, &priv->est,
++			     priv->plat->clk_ptp_rate);
++	/* Reset taprio status */
++	for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
++		priv->xstats.max_sdu_txq_drop[i] = 0;
++		priv->xstats.mtl_est_txq_hlbf[i] = 0;
++		priv->xstats.mtl_est_txq_hlbs[i] = 0;
+ 	}
++	mutex_unlock(&priv->est_lock);
+ 
+ 	stmmac_fpe_map_preemption_class(priv, priv->dev, extack, 0);
+ 
+
 -- 
 2.55.0
 
