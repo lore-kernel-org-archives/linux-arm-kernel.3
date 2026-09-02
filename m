@@ -4,136 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF03C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 01:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26608C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 01:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQaLT2zZCFDWN2vwwfUKQXLUXtpMPHPvIGpOsySFKns=; b=UhGYR9qWLEVwkQPVzrWkB+10fp
-	SSOqxIwasAX6p6NrRRoWo+UanDks5flpU3Sjm7tL5egnd0BsqqZjeMURth+35po6LryYl0htRfXqw
-	0c54Cu8ug+T3oCFAHsZzw+6pUmurWfkt9HYr735PSGfHtu6sSVudeCNU6BZ9ggLoomkQsf6HSLRTd
-	JNaNMAONBCknDBwN/8ZIB/wQc+0t0RIJvOPrKwIPwNBV9u9jWSvKZXA8GTrXhO6WJIL4uc6VJmIxq
-	g8b2gG1ptoUecNiuaFkFCTkTi1gFVkF3KW7C0tcgVgT2mKBMjR6trHmEyUSqeMPSWG4uL50mLa+4Z
-	QJPQPnFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eLo9S8PuOg5HvUQkJbCZdrhcdLFN1mpCpBFRPejbhUs=; b=RbUdrpxFgDe6mHy09mqpbeKZYN
+	iVgc6zT2P9tDWMGWdr2Q/yUWMADg+mbV2PEtsAcRDj1f3QXEUh5xcLkmn+icZhhXJNxsg8Hotmqee
+	QodwSvKZyORdCYOmvUCbL/TuaUNdbBQNMuEN8rnnaem/Zv0FkLYblfOpBEymcKczlCuk4dLhFruF7
+	FAhaYYYepj1dTjnYwTOpZValOjoTmQ/TZvxDYT9zaBlb+yNsphAu8q/TkvVTHmDldC09lLNTZU6Q/
+	IMLupbbFmrGeOeC7njZP+/ZZ4Rp/lqHmt/p7Zn60zn6LBJlzZhJ4BrDZET5aSv42eO7rqrGthOuGp
+	VMepR0bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1a0p-0000000Ddp0-3Iix;
-	Wed, 02 Sep 2026 01:43:39 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x1a44-0000000De1z-11ST;
+	Wed, 02 Sep 2026 01:47:00 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1a0n-0000000DdoP-1DVA
+	id 1x1a40-0000000De1Q-2iN7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 01:43:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qBZqaWaSU3ryvaPTCUQP435oqYWDrq5vubPZDA3TVjkzRlfMRXiKrcdUugiLcZ7lQVRu3T+Rh61/5glm2P+dM9D4zshx14GPoNkjS4I+qR1qQn/qwvk+GZ3UsvaKP0WOKxR1dBwVVR3n7h7BLE9Y+JFzJdDp+RyC5haF90jWT96XMLeqwLD2nqucNM8AOfCLLvhs2aw7PFps7a2dPciRtrN5VYaLlijuuw3XhqD9SgjbNage9aytSqz8sjI0Qi/mxVelBTF2uxzagZEsGj0Y9qHNyu3nhXYIOB7X/nw+YCe9hOdZXTa/A8VD8/N5rtpTbB2hIR0Or6xETnJNBZB/mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AQaLT2zZCFDWN2vwwfUKQXLUXtpMPHPvIGpOsySFKns=;
- b=UpIKFqJWVnpOA/HKdR3opTuH0N00Ea2YgcWmakk2eUpw1/wVIQQRXrrz6YwLhrM65hWnPD5D56rpFcU8Eed2mX9GOvhWw31AH0Lh9+p/MyGmcfgrSOuFy3OSsngre7BbPrmSBpE4UuXRcn8M2JniKIH2PNXaP8Opu4h2MwZmsxqHY1AtPSlFC3CfW6388hWekXQQ8HNykIRi0XEiIXbkkQdXz0GdJmuieDx2b+YQozRrVKAvprhuSUBEinyrZGPcWBNtVkJ7toUVAVhovbXJ08g2y7z//tcTWBZ+mZ4rjW4gg9tglsoR4Tui1V+7E05OXsDv2l55xJhIC5U7+XDGiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AQaLT2zZCFDWN2vwwfUKQXLUXtpMPHPvIGpOsySFKns=;
- b=Dcz3EJk/tiXpP/2aZA0SHoYEQ+M41gd0u1mufTLOtioSUgfU1q4YNZhjugHa4LYKWN7mkd4w1MQOKeRh/sD6q7dU1j1BgwfZyS96OYv29z3adbZSsls8vdfi8GLlagXj+bgz785KAJ5iUwnMh0SMNmD9WzY6n4zTHXzLzsQhcVhD0jsaScuiWNKkNS6ah/AtPLXtVSusEByoF2ZQSiwiU5JSKJGbOvTNu/eqNZNWCXT4IZCtcgUdw0yhNeEW0/uiN2JFano1yLCiHPrjmpa6EMFX2p3Gcl9pg+C+bfx4qXnFkHmZFTCVpx+E8x4r1uJLYxlWlJl8gMwXCIGb9PBHxQ==
-Received: from GV2PR04MB11739.eurprd04.prod.outlook.com
- (2603:10a6:150:2fc::18) by GVXPR04MB10202.eurprd04.prod.outlook.com
- (2603:10a6:150:1c2::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 01:43:30 +0000
-Received: from GV2PR04MB11739.eurprd04.prod.outlook.com
- ([fe80::71c2:937b:d466:174a]) by GV2PR04MB11739.eurprd04.prod.outlook.com
- ([fe80::71c2:937b:d466:174a%6]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 01:43:30 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>, "Wei Fang (OSS)" <wei.fang@oss.nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "pabeni@redhat.com"
-	<pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
-	"richardcochran@gmail.com" <richardcochran@gmail.com>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v3 net-next 0/8] net: dsa: netc: add PTP support for NETC
- switch
-Thread-Topic: [PATCH v3 net-next 0/8] net: dsa: netc: add PTP support for NETC
- switch
-Thread-Index: AQHdOSFyxDnezHhky0Oua7JIEybwnLa51ZsAgACwmjA=
-Date: Wed, 2 Sep 2026 01:43:30 +0000
-Message-ID: <GV2PR04MB11739E3BACC0BAA6DE3E1461D88B72@GV2PR04MB11739.eurprd04.prod.outlook.com>
-References: <20260831082335.1184605-1-wei.fang@oss.nxp.com>
- <20260901080950.63e28bab@kernel.org>
-In-Reply-To: <20260901080950.63e28bab@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB11739:EE_|GVXPR04MB10202:EE_
-x-ms-office365-filtering-correlation-id: 9a6a347b-0636-4312-540f-08df0893975e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|38070700021|10067099003|11063799006|4143699003|18002099003|22082099003|56012099006;
-x-microsoft-antispam-message-info: TN+VY7AUOFwSsVzrlhJ2EPzi9Tpm1SAJiVfIILb9abEzyBZI+UL3GkAG3eaKOW5C5D5gKcI06f7F9wk86O7z4NknUZCjlrT2sIF3JP9/KiiVRpwEd/YKz5Pub2G83rqsLso/9iad79KpEuwu/tfHhhR1iKk0UBSqVmFgMDBTyq7CHtS7oHExr4PyFksoJ2eOji8Siv+p1cY2gi1++rlEgiRb0oDHt27xaldh5EnHdxaafm6Kh809mAv4+y0bdJ8H6KYLKAwtEtkWSVIFC9BDt2lRC3eo2gOiKQKGPwZNa8gfGFli/R5dzm6tE9htVDCvWY8g31rPijAvOjn44EZE0Ivpxc5y08RPtEb7W7QY6NfvXCdVNMBCPfd28M2LPoWxujqrkFrMQxuDRO1cZwUEKFvXVyHTNBlU02Tbr6IFMpAZE5LwganEfEozA0XAsKIV/d4qOq7MdLW0GbP9AZV14pxzdMowphZz0ioSiufL3h4KZ7xj835K9IqNpzVKekMb6k5sC+cVXXbx+WYDEQyIuR5jbpty+229XHP4cYT5xcq6xtr77BUCGJkpssIsvQYH5QGjkzwh77RUEXF2TXwGpbo0HV2yg/LcO3gM9kgZya/3iHJvcBUscr9lL+XqSgk2iO8PzeX5Mp3Q+asEYQ2oNl0g4S88adWiJTkfeaFygvhL+MuZ+E3jLgBL0kn14JhXbP8j4a9gE5uO+gJd4BDhPMIJcnH/5m2smX03OeWa4zA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11739.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(38070700021)(10067099003)(11063799006)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4cVFDfVSYojDMiejlpGEjHh1GMSwPiC1BpFYx5wvyN/h+KO0cVq1uUUP2ICF?=
- =?us-ascii?Q?Qhc4jgve2e2k+FKYe9O5jCjt3yq8aBMgn7U4Zisw2a0uj4w7GAtov+l/IjQY?=
- =?us-ascii?Q?5va7ORJ6a3gxPkIwqx/f/hDqxFpoH/woYWiIQVDlbXVvumzL2KDtCgS+pQlo?=
- =?us-ascii?Q?giYzMIT9d6Qscla7qqwBuZuC6c31CyfQmcQhUtHPSO9VC8KtW7XT5sHtHWWZ?=
- =?us-ascii?Q?LFgfstBpBSgU6nWx9F50h37kMb0OPylF9mJ/XlLBBun9GJ+oFaIBPwnfz1RQ?=
- =?us-ascii?Q?NTeZP+8TPTXJiojT38lAi1YQPQOxe769mH21PSYIOg1ggg1wtKrTVheChOpe?=
- =?us-ascii?Q?NQRWIdXxJvZ91Paun41PapA0v40ayVuZkJGCfY4uEIH0bQjTUwoDwTsr9aIp?=
- =?us-ascii?Q?SGlXAcFKHd3ZsEniys8kC65ntAZKt52CtuBGYrQxzcxQZ94fgsvTvN1OveBX?=
- =?us-ascii?Q?ky/mYBrgULsUnIUVfHnmYXf1/B5cnUiTF1AoWEFQQ0B7ZPTL8xzaGnpEsB3K?=
- =?us-ascii?Q?Rl8gQmgLPQLH/0BEV1PFDYKCY4q5gvoikisbCtIQ2JlsqzAIaHec7l1+JQFW?=
- =?us-ascii?Q?X1tSY1ijcRogOuQDHLa/d9bo/qL6/Ia9WfyEgm8hUxy02kl8oj80m6U2r9gq?=
- =?us-ascii?Q?18LLTMLGZz5+JRsg/6tpDv7kv8fZJ6VioaMnAo0cxmKIPsxDkuyUiJdQ6Vq5?=
- =?us-ascii?Q?s0Os8Mw/pBEtuxdSnm+NN+7f0LJYrSylris8fMZr3EnG6osZNOfSolWeOPd/?=
- =?us-ascii?Q?0rjzhcd+Ks9vcYK/y0Sf1cZ9Efq57cUAlF7idp5gOXJAlAn2R2htHbVRc6p5?=
- =?us-ascii?Q?IcjGIsM6nQdiE3AZ5WhXWEv+MDJTBfQV4t42Ov0O5RHp2ztPLjRnFZyCbMEO?=
- =?us-ascii?Q?uESZh8ykQWCjsW1fw4XXfzA4poBty7cMJZNaiuafePnfo5EsQGK9F/BaqAqY?=
- =?us-ascii?Q?+y/3AfW2ZDhdnE0mr+r9oAdnGeumc5WmQX/WeXTxNe28y/W0fF6gMY+4e96a?=
- =?us-ascii?Q?LYzxMAPS+NI65rEMb+eDDPzclZj/d1lx3t8TVkwwYPXD87QoCbtpqFVN2s9P?=
- =?us-ascii?Q?iLLGAaTii8pdZ5Y5T9n6sp5uxB8PifsIrBSSF7XmXAA4plR1LpQ/CBHf5bSv?=
- =?us-ascii?Q?FXXg83Y7QXTuNXiiLdJg4IPjXmQ8riu09z9DnQcYh0Dz7Mo1zniFLf0d+NuS?=
- =?us-ascii?Q?ryhvVkhW+08Lky9/89Annx1GwLkySbR8H9pRTB36Z4i/2JyKv26PQh/bo1yS?=
- =?us-ascii?Q?oiPvkPgKGMyq1OI2qU8NfLQ8d0I7WiyLY2v8TnG7X6et966V2VZ6a4CYijYQ?=
- =?us-ascii?Q?ZnWHJQXDi4pnCnl/HbdvYTqBZtwhR9yqMn55i8hAjYbjMRkVy4gdbeH2sRH8?=
- =?us-ascii?Q?RzR2gSjTMD7s4XsjtesOGSCt0uOaDP0AkfzGqy4CCcrnxXKbT6qgRJpCuYqN?=
- =?us-ascii?Q?1c0HsEWyx+W3jOHd3p+/n3en5/r3j/9fN9PZgfiWPQwEVFy0MxGCvFGBIvN9?=
- =?us-ascii?Q?qxA9xSk03Q3b7Z5G46S6YlwlF/GK4L/btTTUZJRvWJgPsa8qR2Lg92jIKKHT?=
- =?us-ascii?Q?MYHms0nPWLpZYU+wpLpxJ7F+7yld2xrU/a3xf94G7Tg3w0z/bAKb4KdBRG19?=
- =?us-ascii?Q?BeHM58ZbbsIX1nlORqYgyzNnA8iUp3Nqa70Pm1P2D6unyxw3E5W+X5H7Ulpq?=
- =?us-ascii?Q?mLlVQbuTIsHDHc8fSbbK7S/gXsX+eKliJBNX9xeIsMM5ZljR?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11739.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a6a347b-0636-4312-540f-08df0893975e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2026 01:43:30.2036
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VurXMC6kxp/XhKIX1xxKhMbKKrA98VGYIITlmDtN2ZQSRbUe3ZdlYWUgDRSXJeYdufHW/3BAjJS2ZcpE5ZJbeg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10202
+	Wed, 02 Sep 2026 01:46:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788313616; x=1819849616;
+  h=date:from:to:cc:subject:message-id;
+  bh=iE0qA2/7PV2SFwoLVDG51fTE95ezA9s75pujqNV61FM=;
+  b=fUapTBBYEe2EHtekucEmYZBiaqktFoYLykdbQG3qTJExAB207bmul73m
+   z4VPk0FOxRMw8DCN+8gBWwTK9w3ZBxiZWS+9Yzw94bM72pxMQfGR9RJgr
+   n+H00uPaFq/z2w8vrVhPD4+UGGvHlAkphmoUwfc+b+CBwVTCW5615soRx
+   LAp/5OZnRH81nz360dsLs+hYIM+MACIvuvQLHVixihApYn+Uuuop6Z5w2
+   nyxoaWR3bFRPuddgy3vkkoAkO0/MykbJcYrgvUljtQXD//2wLvBzZyWwK
+   fMxlrC2scNITs96QZ1zsvsUb1yWcqGVdFY6LGwboGAX5EInB1Xs34bUhx
+   A==;
+X-CSE-ConnectionGUID: guER5pt/QhOUf0BpuXbBdQ==
+X-CSE-MsgGUID: nYnelqM4TBS6X27yYfpa8A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="87698857"
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="87698857"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Sep 2026 18:46:54 -0700
+X-CSE-ConnectionGUID: f2X8yTNDRfW9ga8iYW9T/Q==
+X-CSE-MsgGUID: rBf27dSjSB2BSqS2GHr0rA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="269290220"
+Received: from lkp-server01.sh.intel.com (HELO bfac249b2189) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 01 Sep 2026 18:46:52 -0700
+Received: from kbuild by bfac249b2189 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x1a3t-000000001jG-2G3l;
+	Wed, 02 Sep 2026 01:46:49 +0000
+Date: Wed, 02 Sep 2026 09:46:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv3 19/19]
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h:207:2: warning: variable '__val'
+ is uninitialized when used within its own initialization
+Message-ID: <202609020944.8Ffx8eaS-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_184337_342957_B64D2F07 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260901_184656_704837_CFC2F98D 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,18 +85,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Mon, 31 Aug 2026 16:23:27 +0800 wei.fang@oss.nxp.com wrote:
-> > Subject: [PATCH v3 net-next 0/8] net: dsa: netc: add PTP support for NE=
-TC
-> switch
->=20
-> Please be advised that the limit of 15 patches applies across
-> the series. You posted 2 large series to net-next at once.
->=20
-> See "Limit patches outstanding on mailing list" in the docs.
-> If this happens again we'll be forced to start discarding your patches.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
+head:   ae6cf96796e7f11ecba10429d64400e708687cdf
+commit: ae6cf96796e7f11ecba10429d64400e708687cdf [19/19] KVM: arm64: Avoid writing to MDSCR_EL1 unless necessary
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260902/202609020944.8Ffx8eaS-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 678058af7da6a20593d8bb23076dc4773f9e55f1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260902/202609020944.8Ffx8eaS-lkp@intel.com/reproduce)
 
-Oh, sorry, I was not aware of the rule has been updated. I will repost
-this series when the ENETC VF series is applied to net-next tree, thanks.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609020944.8Ffx8eaS-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/arm64/kvm/hyp/vhe/sysreg-sr.c:7:
+>> arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h:207:2: warning: variable '__val' is uninitialized when used within its own initialization [-Wuninitialized]
+     207 |         sysreg_cond_write(*ctxt_mdscr_el1(ctxt), mdscr_el1);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/arm64/include/asm/sysreg.h:1222:16: note: expanded from macro 'sysreg_cond_write'
+    1222 |                 write_sysreg(__val, sysreg);                            \
+         |                 ~~~~~~~~~~~~~^~~~~~~~~~~~~~
+   arch/arm64/include/asm/sysreg.h:1179:20: note: expanded from macro 'write_sysreg'
+    1179 |         u64 __val = (u64)(v);                                   \
+         |             ~~~~~         ^
+   1 warning generated.
+
+
+vim +/__val +207 arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+
+   199	
+   200	static inline void __sysreg_restore_common_state(struct kvm_cpu_context *ctxt)
+   201	{
+   202		/*
+   203		 * KVM NV traps writes to MDSCR_EL1, as the access is
+   204		 * otherwise written to memory, with no effects. Avoid the
+   205		 * high trap cost by only writing if the value has changed.
+   206		 */
+ > 207		sysreg_cond_write(*ctxt_mdscr_el1(ctxt), mdscr_el1);
+   208	
+   209		// POR_EL0 can affect uaccess, so must be saved/restored early.
+   210		if (ctxt_has_s1poe(ctxt))
+   211			write_sysreg_s(ctxt_sys_reg(ctxt, POR_EL0),	SYS_POR_EL0);
+   212	}
+   213	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
