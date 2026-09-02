@@ -4,53 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA353C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B56AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtsHa0PY4VBZ8+p3srWpam5h0SutKx/xK4Ns+YJ7IF0=; b=j5kOhTuAuaD+f718VjvyoMUhk3
-	k5kiadotzvcFY+EPCY0nEABb0E718DNyJNHB0RSDrFE4/dATLeecW5R7gyoGqZAEnS07JL6gsHkQ2
-	jPtW4YqgcAl2BDLhfIJdRfFxDckF9sZ//DyK7jQuFmzZo0DmZt3P/U/LTTrcDcdTyTLeiRgJ25rGr
-	xC8mVFfx6zTxZEjAndI5qOEMRebdIXoe+drZ5QyZ/F6eUqWcUvxNcWi+awfy4b+gFx8GIUABXYmGs
-	nlPACLhXFOjj8OSwgbCwHmfIzOYGiAfi13chG6ymiNe5C+ZOmQV3T6ST3/bvQICI0iuqsExQiWVHF
-	sbnMbuxg==;
+	bh=LORGKtEmjojKlKzUAL6AcL3FZ1dzN7SRP7UvYdmDE2I=; b=2OCw1VrYhYcBW7RwAOD/h59Nzh
+	z4W41WUuxxCKQOr9aUg7kDPr+jpggJvue+NoK3lEE0oBnmjXdNsLcqhL/V0MYBopQLvQ9tG4IcsA0
+	/0/KWA0eK1XZu9LZUyOwOvGkQLsusCY/rQvKd9sKrRABXG0lG+SsLY45kGYM4l9lws9otaQAsV/Yi
+	cq8gSxPKgJGr2VOi7G0KfG2L+EZKZtT6Vrx/pTqBOIgsjiMN/L4GEtby+BbMseyP3aXU9fj5echQv
+	h2qJ6/4n7YXH0t894UgKUsp7SRxgD5LHs+nphN2GqCE3OWWnBNFPLyLZmbwqjEAZDxvvEzLmRYG+c
+	JDriCbNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lkW-0000000EuvX-08lg;
-	Wed, 02 Sep 2026 14:15:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lkT-0000000EuvF-3gJf
+	id 1x1lsZ-0000000Evut-3NUZ;
+	Wed, 02 Sep 2026 14:23:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1lsX-0000000Evu5-2vqW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:15:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BCD742E36;
-	Wed,  2 Sep 2026 14:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF34A1F000E9;
-	Wed,  2 Sep 2026 14:15:26 +0000 (UTC)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: leoreis.costa@gmail.com, fra.schnyder@gmail.com, francesco@dolcini.it, 
- frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
- kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, 
- bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
- festevam@gmail.com, hongxing.zhu@oss.nxp.com
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org
-In-Reply-To: <20260813095003.356062-1-hongxing.zhu@oss.nxp.com>
-References: <20260813095003.356062-1-hongxing.zhu@oss.nxp.com>
-Subject: Re: [PATCH v2] PCI: imx6: Move clock enable after core reset
- assertion
-Message-Id: <178835852653.83808.12038237867062064510.b4-ty@b4>
-Date: Wed, 02 Sep 2026 16:15:26 +0200
+	Wed, 02 Sep 2026 14:23:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 03455165C;
+	Wed,  2 Sep 2026 07:23:48 -0700 (PDT)
+Received: from [10.1.34.165] (e121487-lin.cambridge.arm.com [10.1.34.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 669D23F882;
+	Wed,  2 Sep 2026 07:23:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788359031; bh=OerhqSxd1xyENhpWH7nbLflrBECJlBgy0uR0tCnVTRQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=S5NaqTUvSbfmyi5QSM7kw1SCtiGgmNbut93K3BQXM0NlrcsCCkyVsONpAN11Q8Vba
+	 c1OvglbUQOPZ3i6o8edKY7XL14X+oZBbK2UFp3pkM9i3/bQx12rsG3wJsLDCII3Hia
+	 VQ9d9+u76qC33feiFv4NyidJkFrdnbwAd+1iE7tI=
+Message-ID: <73f3c180-1915-42be-ba21-86e8f07f8bb1@arm.com>
+Date: Wed, 2 Sep 2026 15:23:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 14/45] arm64: entry: Introduce entry specific
+ exception masking helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-15-vladimir.murzin@arm.com>
+ <c2c67794-a65c-4c63-b94b-cdb7e99bd92b@huawei.com>
+ <928dbd54-19ff-498f-a49c-23bdeccc589e@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <928dbd54-19ff-498f-a49c-23bdeccc589e@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_072353_941306_00D04E00 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,26 +74,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 13 Aug 2026 17:50:03 +0800, hongxing.zhu@oss.nxp.com wrote:
-> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
-> inadvertently moved clock enablement before core reset assertion, breaking
-> PCI device initialization on i.MX6Q Apalis platforms with
-> ASM1061/ASM1062 SATA controllers connected.
+On 8/29/26 03:34, Jinjie Ruan wrote:
 > 
-> NOTE: It is not 100% clear if the issue is specific to the ASM1061/ASM1062
-> device or on the specific power-up sequence (reset vs cold-power-on).
+> 在 2026/7/28 17:29, Jinjie Ruan 写道:
+>>
+>> 在 2026/7/28 0:34, Vladimir Murzin 写道:
+>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>
+>>> The entry code handles interrupt masking differently from the rest of
+>>> the kernel. Exception handlers enter and exit with all exceptions
+>>> masked, but they must temporarily unmask the appropriate set of
+>>> exceptions so that the rest of the handler executes with the expected
+>>> exception state.
+>>>
+>>> For EL0 handlers, this means dropping to masking context appropriate
+>>> for the work to be performed. For EL1 handlers, this means restoring
+>>> the masking context of the interrupted task. In both cases, all
+>>> exceptions must be masked again before returning from the exception
+>>> handler.
+>>>
+>>> The rest of the kernel typically follows the opposite pattern: it
+>>> raises the masking context to protect a critical section and later
+>>> restores the previous context.
+>>>
+>>> Given these different usage patterns, introduce a dedicated set of
+>>> exception masking helpers for the entry code. Keeping these helpers
+>>> separate from the generic interrupt masking APIs makes the intended
+>>> usage explicit and helps avoid mixing the two masking models.
+>>>
+>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/interrupts/entry.h | 113 ++++++++++++++++++++++
+>>>  1 file changed, 113 insertions(+)
+>>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+>>>
+>>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+>>> new file mode 100644
+>>> index 000000000000..d66eb5d633f0
+>>> --- /dev/null
+>>> +++ b/arch/arm64/include/asm/interrupts/entry.h
+>>> @@ -0,0 +1,113 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>>> +/*
+>>> + * Copyright (C) 2025 Arm Ltd.
+>>> + */
+>>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+>>> +#define __ASM_INTERRUPTS_ENTRY_H
+>>> +
+>>> +#include <asm/arch_gicv3.h>
+>>> +#include <asm/bug.h>
+>>> +#include <asm/cpufeature.h>
+>>> +#include <asm/interrupts/common_flags.h>
+>>> +
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>>> +						  arm64_exc_hwstate_t next)
+>> may be const arm64_exc_hwstate_t next
+>>
+>>> +{
+>>> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
+>>> +	bool force;
+>>> +
+>>> +	arm64_debug_exc_hwstate(prev);
+>>> +
+>>> +	if (prev.flags == next.flags)
+>>> +		return next;
+>>> +
+>>> +	if (!irqs_disabled)
+>>> +		trace_hardirqs_on();
+>>> +
+>>> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+>>> +
+>>> +	__arm64_update_exc_hwstate(next, force);
+>>> +
+>>> +	if (irqs_disabled)
+>>> +		trace_hardirqs_off();
+>>> +
+>>> +	return next;
+>> We do not update next; it should be "void".
+> Hi Vladimir,
 > 
-> [...]
+> What do you think?
 
-Applied, thanks!
+I have no strong opinion, TBH. It is done that way to make it
+interchangeable with the wrappers around it. For instance, the
+arm64_inherit_exc_context() wrapper can be easily replaced with
+the bare version:
 
-[1/1] PCI: imx6: Move clock enable after core reset assertion
-      commit: 16929741a622eb345057e41c7b335d9b297890e1
+__arm64_switch_exc_hwstate_to(arm64_exc_hwstate_of_context(CRITICAL_CONTEXT),
+			      arm64_inherit_exc_hwstate(regs))
 
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
+yes, it is less readable (and it is the reason we have wrappers),
+but functionally equivalent.
 
+I'm happy to change it if people feel strongly about it.
+
+Cheers
+Vladimir
 
 
