@@ -4,53 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AE9C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9AEC624D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGZwYBojvf6z6A3kSsqqOxznQcvg2kta/W2R0+OqU+I=; b=uJw6x6XXn/HX0gVovQ3k3UfYsy
-	iTafWzImC2TTnd+bTlj2nY97ptMIm9DEgGH/yS+lynmh9fvk/2Ohkn8za/wgQWe+Lrsqa7XlXbpgo
-	UkzYdSI7kcALiAOU8Go7FunQgVdlyC6k5uniDK8lWY9IsgVsDcakYHbSdWvarVU0L/Jq2sU+fN9aG
-	oazzBmQw5fZiQdYKBhPiIPEaMRC8dYRPTrsw2L2I+Jx3GpRku4Z2t+Vt9BHLTcJXjTqwX9UsWqCJz
-	sDrxNyrZ0GG+AZEqFvgUUKC2FDt+RgQODY8nhWGAMaMdNAyl0c4VfJwJHUgG2x8GEulay+QAAvbBq
-	ntsOAhxA==;
+	bh=IWMiLXP2vfrqRyQznAWNKhIoOiuG2w/T2zoaxLRzsUw=; b=t6d0ZghrjTZlJLIf2FRDRoeOb0
+	TUkZxF18sLbtMtqDDqw3eHM86pG+FQJ8XVovo9xNq57vq1Na5Px/BhE0rESB2+PVM/m1aJJwbJWhb
+	27bQYXe7YHd9r/e/z2+Sgh2RZXHKlbiV+zEwsWElL5RWp7yXC9nK0ZbxwSiy3CywNTI9FUoyuj2M6
+	WnhLdIcU1gUIS133MHOEWnwuarE3evwE+nybN7U7uo/P8sZdllJ00TBhADmuaYX4c65w0V4FhP4ra
+	LdMwSIiiZAqkaKUYFrP7XbabBEDn55IQERpZKVVEq1ajdkwFd2yjYcbRpwgAjlO+OqPUglLNcvwtD
+	f7k+Prfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oJr-0000000FKkV-2RVa;
-	Wed, 02 Sep 2026 17:00:15 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x1oJz-0000000FKsy-44xQ;
+	Wed, 02 Sep 2026 17:00:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oJm-0000000FKck-0tbE;
-	Wed, 02 Sep 2026 17:00:14 +0000
+	id 1x1oJy-0000000FKqs-2TzA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Sep 2026 17:00:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=IWMiLXP2vfrqRyQznAWNKhIoOiuG2w/T2zoaxLRzsUw=; b=LMLbk/AQVL6+yorldqx/1RJExy
+	F3CRTTgbo5cfUwkk8vD6w++RPNaStXMYNkDD0h+zN1zjgry2ROgpQ4vvPzmEvPJMeZTwON2CrUpD8
+	q4u344VZc69bAtpzowEGyxXldqTPSlZKw7b4fywuV8QmdX6+z9WN1RACpos3EDWJEJ5ZL/LTZcp6Y
+	uBvuflIcqTh9Ve+5qM4UyHE5gWeHfZjzaVy9qgAla8+pNtQI/hvzw8TnkS0alrRMl4en9LX7yqL9E
+	l4qnsfTFdYCJcsQTnfg+SODQNG/254zJsrfin9wcqcrreu2aIEAy19F1f9Ps3TEBn0axnOJ2Z5YeB
+	mX+QA6bA==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1oJt-0000000CEfw-2ufK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 17:00:21 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 730984E414EB;
-	Wed,  2 Sep 2026 17:00:08 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6C8D24E414EC;
+	Wed,  2 Sep 2026 17:00:10 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 47B4C6053C;
-	Wed,  2 Sep 2026 17:00:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 552B511C79D62;
-	Wed,  2 Sep 2026 19:00:05 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FE826053C;
+	Wed,  2 Sep 2026 17:00:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 98AD511C795A7;
+	Wed,  2 Sep 2026 19:00:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788368407; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1788368409; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=LGZwYBojvf6z6A3kSsqqOxznQcvg2kta/W2R0+OqU+I=;
-	b=JwDbN15jc6X++alUeVNGWxECEV7xs0qC3M1t+K0CP0N7sLzhJHcDjQsJH97WPOMhqnbme2
-	riiDEidWszJ7WfaQLHb0qkmEHOCujv9Uhz6qyAuYqZSdiUHYoRPF78tEnMSBS5BTZWN6tG
-	IW2KL7NuwCPgGieLTUcaEq+UdK7ngBHWSK+2moD+dGg5u9V8Ew0xnZdxjcTvsJSCOIKlhG
-	4KgRY1pfnxt8PuaSqcAIYE0DqqcrK3k68i3ctWhbdPlDuPiIcosn5nftYKgL/1/psWhVaj
-	SsCIHWblxytCh01m9ZRAAiWRF3WEDRtHsYVjgzPcdQB8TG4OgImjdPNqLoWDGg==
+	bh=IWMiLXP2vfrqRyQznAWNKhIoOiuG2w/T2zoaxLRzsUw=;
+	b=GCvglVqfIAwaR67asJsY+OmbUnBoAqpWJc81t/t4E/VrtNfCCsAV1TV+LUflrKZG5GWcWa
+	951tYos2WtXf79FVQxap7kD9M5PMSn0yV5zQ0MkT7RVLwiXoiGE6bWR4MxEZf1IyYof6he
+	P8zJvV3n5vlewV9sfh9DQ+mhfAwVef4nldUJNYcOrNZcWJlNCin3tWrNFyyJn6dk19vury
+	eJzf7ROmjd4MJQS9nH2ZcLXcoz8rjYK1hUeYeHu1n/kXlqJhYA6cVdPs+HG9urxQjEhmce
+	7GCk6snYu4up7o5iqJSvTqp5W/AqnYIaMkKrG26vy6vLeOYmbot7bUpMyGXz9Q==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 02 Sep 2026 18:59:21 +0200
-Subject: [PATCH v4 07/25] mtd: spi-nor: Create an indirection on the part
- name
+Date: Wed, 02 Sep 2026 18:59:22 +0200
+Subject: [PATCH v4 08/25] mtd: spi-nor: Move the SFDP header structure to a
+ C header
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-7-779d35303dff@bootlin.com>
+Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-8-779d35303dff@bootlin.com>
 References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
@@ -68,8 +84,8 @@ Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_100010_427128_F6A97B5A 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20260902_180017_883727_438578FF 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +100,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently print through sysfs and debugfs the name of the part if the
-.name field, which is legacy, has been filled in the ID table (otherwise
-"(null)" is printed). These IDs had an interest until manufacturers
-started re-using more and more extensively the so called unique JEDEC
-IDs. At this stage, a name that was tailored for a chip sold in 2016 may
-no longer be relevant for a chip sold in 2026. Still showing this name
-through the various filesystems may confuse people, removing these names
-cannot be done since they are now part of the user ABI (because of
-sysfs).
-
-In order to allow overwriting the .name field (which is part of a
-read-only structure), let's create a spi-nor pointer which will by
-default point to that .name, but which can be cleared in fixup hooks to
-make sure the name is hidden on newer parts.
+The sfdp_header structure is currently defined in sfdp.c, whereas the
+sfdp_parameter_header structure is defined in sfdp.h. In order to ease
+the reuse of this structure outside of the sfdp.c file, move this
+structure to the sfdp C header (.h).
 
 Reviewed-by: Takahiro Kuwano <takahiro.kuwano@infineon.com>
 Reviewed-by: Michael Walle <mwalle@kernel.org>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/spi-nor/core.c    | 1 +
- drivers/mtd/spi-nor/debugfs.c | 3 +--
- drivers/mtd/spi-nor/sysfs.c   | 4 ++--
- include/linux/mtd/spi-nor.h   | 1 +
- 4 files changed, 5 insertions(+), 4 deletions(-)
+ drivers/mtd/spi-nor/sfdp.c | 11 -----------
+ drivers/mtd/spi-nor/sfdp.h | 11 +++++++++++
+ 2 files changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index 77d28c99c33b..1e8628da675b 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -3493,6 +3493,7 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
- 		return PTR_ERR(info);
+diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
+index 87b2d0a0e9f4..c40099a27cb5 100644
+--- a/drivers/mtd/spi-nor/sfdp.c
++++ b/drivers/mtd/spi-nor/sfdp.c
+@@ -34,17 +34,6 @@
  
- 	nor->info = info;
-+	nor->partname = info->name;
+ #define SFDP_SIGNATURE		0x50444653U
  
- 	mutex_init(&nor->lock);
+-struct sfdp_header {
+-	u32		signature; /* Ox50444653U <=> "SFDP" */
+-	u8		minor;
+-	u8		major;
+-	u8		nph; /* 0-base number of parameter headers */
+-	u8		unused;
+-
+-	/* Basic Flash Parameter Table. */
+-	struct sfdp_parameter_header	bfpt_header;
+-};
+-
+ /* Fast Read settings. */
+ struct sfdp_bfpt_read {
+ 	/* The Fast Read x-y-z hardware capability in params->hwcaps.mask. */
+diff --git a/drivers/mtd/spi-nor/sfdp.h b/drivers/mtd/spi-nor/sfdp.h
+index e8ed814c6530..2cbe22246c5e 100644
+--- a/drivers/mtd/spi-nor/sfdp.h
++++ b/drivers/mtd/spi-nor/sfdp.h
+@@ -149,4 +149,15 @@ struct sfdp_parameter_header {
+ 	u8		id_msb;
+ };
  
-diff --git a/drivers/mtd/spi-nor/debugfs.c b/drivers/mtd/spi-nor/debugfs.c
-index 512825c3fc85..275671222588 100644
---- a/drivers/mtd/spi-nor/debugfs.c
-+++ b/drivers/mtd/spi-nor/debugfs.c
-@@ -82,13 +82,12 @@ static int spi_nor_params_show(struct seq_file *s, void *data)
- 	struct spi_nor_flash_parameter *params = nor->params;
- 	struct spi_nor_erase_map *erase_map = &params->erase_map;
- 	struct spi_nor_erase_region *region = erase_map->regions;
--	const struct flash_info *info = nor->info;
- 	char buf[16], *str;
- 	loff_t lock_start;
- 	u64 lock_length;
- 	unsigned int i;
- 
--	seq_printf(s, "name\t\t%s\n", info->name);
-+	seq_printf(s, "name\t\t%s\n", nor->partname);
- 	seq_printf(s, "id\t\t%*ph\n", SPI_NOR_MAX_ID_LEN, nor->id);
- 	string_get_size(params->size, 1, STRING_UNITS_2, buf, sizeof(buf));
- 	seq_printf(s, "size\t\t%s\n", buf);
-diff --git a/drivers/mtd/spi-nor/sysfs.c b/drivers/mtd/spi-nor/sysfs.c
-index 643513ee891b..a2dabe4c6422 100644
---- a/drivers/mtd/spi-nor/sysfs.c
-+++ b/drivers/mtd/spi-nor/sysfs.c
-@@ -25,7 +25,7 @@ static ssize_t partname_show(struct device *dev,
- 	struct spi_mem *spimem = spi_get_drvdata(spi);
- 	struct spi_nor *nor = spi_mem_get_drvdata(spimem);
- 
--	return sysfs_emit(buf, "%s\n", nor->info->name);
-+	return sysfs_emit(buf, "%s\n", nor->partname);
- }
- static DEVICE_ATTR_RO(partname);
- 
-@@ -78,7 +78,7 @@ static umode_t spi_nor_sysfs_is_visible(struct kobject *kobj,
- 
- 	if (attr == &dev_attr_manufacturer.attr && !nor->manufacturer)
- 		return 0;
--	if (attr == &dev_attr_partname.attr && !nor->info->name)
-+	if (attr == &dev_attr_partname.attr && !nor->partname)
- 		return 0;
- 	if (attr == &dev_attr_jedec_id.attr && !nor->info->id && !nor->id)
- 		return 0;
-diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-index 3a55d76ea77d..b1e573367604 100644
---- a/include/linux/mtd/spi-nor.h
-+++ b/include/linux/mtd/spi-nor.h
-@@ -395,6 +395,7 @@ struct spi_nor {
- 	u8			*id;
- 	const struct flash_info	*info;
- 	const struct spi_nor_manufacturer *manufacturer;
-+	const char		*partname;
- 	u8			addr_nbytes;
- 	u8			erase_opcode;
- 	u8			read_opcode;
++struct sfdp_header {
++	u32		signature; /* Ox50444653U <=> "SFDP" */
++	u8		minor;
++	u8		major;
++	u8		nph; /* 0-base number of parameter headers */
++	u8		unused;
++
++	/* Basic Flash Parameter Table. */
++	struct sfdp_parameter_header	bfpt_header;
++};
++
+ #endif /* __LINUX_MTD_SFDP_H */
 
 -- 
 2.54.0
