@@ -4,90 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBF3C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C3CC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zuSQQlpTAcogubeGK9Q+eqQpXU90+aksiuAKusVb3Y=; b=kql6San8cst6alt+EGKFX5zcSG
-	YV+IswP2fxkOwlrumXcYWsHWAa78/WKQFSmx826+/PvrCXFP8ABoeJjhzlDXMzyXQ+rD5ZXyFOCj/
-	bUSq1XYvlDI4SFCh+WxWczYpX/3+NjDZ2TwpBSH5yLhkFa3OWmxoDbuJraWrTveh2Rt1HfVQgXLel
-	R0Wt8a/TenEFKDImYMWX26Re+yM0fklmCUYCNGEKrCzd5TndoLH+3WsBUcdCNdf/0StOphorY0tRW
-	LYSLN9zvrQFgdTZKNXK1dzRlLTT0fKGQXByQMfDT+RnCtj3RmSQZ/+rNECJHrL0nv61VNl1RatlWR
-	XjBQAN5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=; b=ZvreX38hw2ytPYIT//Drngi7X9
+	ktcjvAQWhAmgmuZFE7Bufixyb/Rq2/aie2a2P2Pg75JukDQ0e4Ti3A06MHIlOyQvG9NAlR4Da1P5e
+	XFOcmR+p07NuxZgWss8nRcRhi47N5uFC08lLGZ+ZZ7g1Kdotdut0O8u7ajawWBnoVQ1vyQM0/te5b
+	WpMIEVEvPGqklOdoOE7sPtIoOSMiozTtwUETb8dKPqx9cOHjjsaCVxvk8MTVQOOP6rs35CV0Trq99
+	SMkcuPkbmsr9Gfd44GD6OcGm0rv1mPgxCy7rm7eYLxanpLQi4LiG8JjbZ2t1ZuOQbOJXog+RH23VH
+	0PO0pcmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n4r-0000000F7lf-2ime;
-	Wed, 02 Sep 2026 15:40:41 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1x1n71-0000000F80j-3hif;
+	Wed, 02 Sep 2026 15:42:55 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n4o-0000000F7ku-3oUe
+	id 1x1n70-0000000F7zi-0zCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 15:40:40 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6a63667b78aso2132068a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:40:38 -0700 (PDT)
+	Wed, 02 Sep 2026 15:42:55 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48433fad54aso807203f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:42:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1788363637; x=1788968437; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=0zuSQQlpTAcogubeGK9Q+eqQpXU90+aksiuAKusVb3Y=;
-        b=e1kEFHKIqUVLD5Ezu3HU5yZg3S+g8bP+Yr4vowkyWsgYIUU23i8Zp6AI46mi94byl9
-         6QOPvsvgJ1+/1E0PfLvylB5Q/bjEPqS2lYXiOFZZcIQCmy0ybq9SWlH/MIE0a5tJIw+U
-         NWdj2lIBDPXDkc02MBYPeNxSA+NRQa0jP6pjd2/RqIQ5zF/G+gy3ag81aoMlsKJnH7r6
-         zBtKO2V3YE9GX9eYCJS0UzwfDDtxAVc0bwSImzdIan6apsjMI8bgekcEEK3x+Wc7fk1H
-         jkcUzbedy80mw9dNc/YUGhQ4Siid0uMH9wBLZEFdOWitqW2VMTm4zwd/KggBZRzakq1V
-         jQoQ==
+        d=gmail.com; s=20251104; t=1788363772; x=1788968572; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=;
+        b=FuDVO8eS/OW2GE/P9OPlqd6rxsYnexx4oVnFHBkX615qkCUzrjmtQGiDUed+Ggt5sE
+         wCX0H1QguwYJX55lX6gGkpUTdCURqx3rMf1Yf7Mwcksb1f7nlMGBkfzga3bx9hlok3k5
+         hvXQ8azF4KHuVgbfqUc/WZ+pB3utFUX0ICPIANxXdpRwnLJQvstWGaShPWweyVYrnB9z
+         f4lAEVKLxnCEVPuddIwHRYiu/YblxnTgTPgJ+BVVyIYM+t98RPh1PYtISPF0V90StGJR
+         uOyG7bxWwAWSCwpJse2/G80XdtVQsHgYiH82xyuJxLui59EslfAHReIzWOLj3fPj3XDc
+         O8HA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788363637; x=1788968437;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=0zuSQQlpTAcogubeGK9Q+eqQpXU90+aksiuAKusVb3Y=;
-        b=AIrV7n6w7n/I2NzS0cPDPUQ/KE01EG2jVDpzeCIU4lP0zZnVDFIUlVbI57p9ZrJq/G
-         scPChQHRqtH+vKUfICOHqK8wrnbD7u+zqoHzH2MP36bdu9UB4Bh5N7XFVWWyOPpyj3Rf
-         JkeCgli6gEdG4nDcB1wzawGsPkjAsjyZJZtoIl/dzthkf9LPrY1YW8y9TacrLVOXlA9k
-         BuVhxEgWIA0QDg58wxxYn6gsgN2CHa7ZRoOrIfUsCMH1XvoDXi3cesBLKjD6sZR4L+iE
-         4imiL3PjwYsXN6I8HGIq/P68OBj8ssHqr4b+Vy+1dIt6ZwEVHJXrWFTIeUEOQd+Ml7a0
-         dBNA==
-X-Gm-Message-State: AFuF++kITKprb9FbjYoD1Tdjabbo1BBmjmh8BdAcIZ8Kzr2NYYa/ewxo
-	KlzN1In5Kqbt/dPJ/kfMIqTWMCANf3/Gqhr1iyeeSV1wH3QOIsncyV4dy4Oy++u8KIM=
-X-Gm-Gg: AYBFou12pGZZzgw73QmB/f5s24DSFzecEB7xpfySpz5V4Z9H8l7nUKmBm8NVIMga5aY
-	urZeBr6Je36fFZhddEuvsn6alkj7IFnLK1OQkVrCAX+8PKlJlDTbdh7kGtgJmarEhNiiEbgHsHf
-	y4id1Pfr1PREx5ebKUsE+T6WgemxHAVu2QesZqhn8WlZM438D0Neliewmmmr0DcLL6CuNcVHldK
-	bA9SFqnVX9OwnlY7MHwTK3MlqJrXYF9QUwaLKUSuoF/rj9K3TrP+luScIPQpMyJgtOwuSJ6b2QG
-	G2JBASTnuihWh9rsb9Y6+3m8uh3FycID4onzbHRnMVqDzmOWPxKZNy/lBVyLaPToxuE5gXqvbPg
-	VebTvObl4HQZKIU82QylHlhvW+aCBakKqyl7dk7J5yoFottf71cz+j3INjtUvgxdw97gatTJP+r
-	cqsZH8hJ1Nl0IxQyPnVK6JtL3fD9PhOQc2HZUZNtGCiRb0Xa5usA1n0gZ8ZeFKaLc7Tosg53DTx
-	vNF
-X-Received: by 2002:a05:6402:218a:b0:6a6:1719:3f42 with SMTP id 4fb4d7f45d1cf-6a68257c26dmr4666942a12.6.1788363636908;
-        Wed, 02 Sep 2026 08:40:36 -0700 (PDT)
-Received: from dev-ag ([102.33.165.38])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f932de4sm1280187a12.18.2026.09.02.08.40.33
+        d=1e100.net; s=20251104; t=1788363772; x=1788968572;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=;
+        b=CjRkBaSmk5RxDLMilv4ImnlUuwFVBEgN/oNqMH7zOtx7f5ha7NI6lndsciVON8JwVO
+         Zg3cJeF9n519/N0og5pxe4127R3ZEANhg7DI9U6xr6RR4sAZhtbFcN4ui9xZ0ofoJnmT
+         70fQCOsJaX1c8J7A9RNVp9rt5M82An5zRMJ+gkXdp6SQ9DjatRlssHmuXy5WaMKkoV41
+         LCanqjiZWOAyw29mpBAfTxW3bvE8djZPzp7mH0wx1QFet7IEJhXhJbvZq1cfM1flpmWR
+         gqHsLred7WSb+D91U/7j10gKkGAXqgY3cADVzicLZdILs4z60z1CER3kcfFgPDV03zPu
+         WX5g==
+X-Forwarded-Encrypted: i=1; AHgh+RqzrrJWnE3I28OFOuL+eCMRJqQY81ju9m2kyZoBjwzz6YDfbQOIZ2fU92ppvk85bKacacH8KqmCUl3kOfcpUw1b@lists.infradead.org
+X-Gm-Message-State: AFuF++mSiVVAonBTBArGQnoI0VJXeWGDRyrFVd+TO0BMMcjU8Kviuecv
+	6842s166obE22e3JUvcNv3l5VNbGpKQ15ym/50gjokOQaKA5LxMfJInK
+X-Gm-Gg: AR+sD13q/5b1PlaJOoo+U14m0Dg95CZRDLoq/qVNvFIWnJF/ZarFD5mmZiIx9uv8iRo
+	knL9l9swuX1TUVizo3KyK3RuqWXFwx8mvRpaWQLyfQoIeSftDyt9FR7+aeQNyWyQRGlTWJPdqh8
+	478/F+W36vTQlvpd8jmuIYXnT+6tisissMvDph8+ploz9jL6NBOlTC9Ghlv366OA7gRomZmvgi9
+	XxfWyObh6dQepkdyRa2z79FDSgP21pPTpAwfB++JBYfeCm4UJCMrZ1a2NCl/9fATDYpAopcHJx+
+	twzGqNKfFNpHaRe68YKEDD0kN4m6oyz4AvsaWTCnxCww1VbiMznmm5OmVIoOSensYFZhGhjfVI/
+	kxSRcCrVTgj12eWsGwUDdAst2sTBT+OCLJopVDDJPxqerPUNl6yXTdx6osVeu3bK9stFEl3nWzg
+	SkXZhuWTqDjJD+d+XoxZhhc3oFsqfIqzatvEI2xXd8HUY81M9BZEyCDtbRj3fWwslgWq2zaXQGm
+	9t2iWTblfZ/Y37+/27DHC8UJw==
+X-Received: by 2002:a05:600c:8714:b0:499:b65d:1250 with SMTP id 5b1f17b1804b1-49ce580d869mr109336155e9.2.1788363771670;
+        Wed, 02 Sep 2026 08:42:51 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce47b9817sm57993845e9.1.2026.09.02.08.42.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 08:40:35 -0700 (PDT)
-From: Andrew Gaylard <ag@ffroot.co.za>
-To: qinjian@cqplus1.com
-Cc: linux-arm-kernel@lists.infradead.org,  robh@kernel.org,
-  krzk+dt@kernel.org,  conor+dt@kernel.org,  linux@armlinux.org.uk,
-  devicetree@vger.kernel.org
-Subject: Re: [PATCH 0/2] arm: sunplus: add SP7021 LTPP3G2 board support --
- withdrawn
-In-Reply-To: <20260902104545.67794-1-ag@ffroot.co.za> (Andrew Gaylard's
-	message of "Wed, 2 Sep 2026 12:45:43 +0200")
-References: <20260902104545.67794-1-ag@ffroot.co.za>
-User-Agent: mu4e 1.12.14; emacs 30.2
-Date: Wed, 02 Sep 2026 17:40:31 +0200
-Message-ID: <sa6a4pzwtjk.fsf@dev-ag>
+        Wed, 02 Sep 2026 08:42:51 -0700 (PDT)
+Date: Wed, 2 Sep 2026 16:42:50 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Usama Anjum <usama.anjum@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ linux-arm-kernel@lists.infradead.org, vladimir.murzin@arm.com,
+ ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com,
+ stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com,
+ yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org,
+ david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
+Subject: Re: [PATCH v2 00/20] arm64: Preemptible this_cpu_*() operations
+Message-ID: <20260902164250.40852ba7@pumpkin>
+In-Reply-To: <9789fd67-205a-412f-90d6-42c401d3babe@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+	<9789fd67-205a-412f-90d6-42c401d3babe@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_084039_084118_C3FF8918 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260902_084254_302425_0C07C007 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,11 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Andrew Gaylard <ag@ffroot.co.za> writes:
+On Wed, 2 Sep 2026 12:55:12 +0100
+Usama Anjum <usama.anjum@arm.com> wrote:
 
-> This series adds device tree support for the Tibbo LTPP3G2 board, which
-> is based on the Sunplus SP7021 SoC (quad-core ARM Cortex-A7).
+> On 04/08/2026 6:04 pm, Mark Rutland wrote:
+> > This series reworks arm64's this_cpu_*() operations such that they do
+> > not need to disable preemption, avoiding related overhead in the fast
+> > paths. Instead, the ops begin/end a "PCPU GPR" critical section using
+> > unconditional/posted stores, which should be very cheap on any
+> > reasonable micro-architecture. During a critical section, should a
+> > (preemptible) exception be taken, the entry code will apply a fixup to
+> > the GPRs containing the percpu offset and the generated percpu address.
+...
+> tl;dr
+> Comparing this series with the page-table series [a] gives 8 improvements and 3
+> regressions.
+> 
+> Fastpath is a Linux kernel performance benchmarking service. The table
+> compares the both patched kernels: positive values are faster, negative
+> values are slower, and (I)/(R) indicate statistically significant
+> improvements/regressions. Unmarked differences are not significant after
+> accounting for confidence and noise thresholds.
+> 
+> +---------------------------------+--------------------+-----------------+-----------------------+
+> | Benchmark                       | percpu-pgtable [2] |   gpr-fixup [3] |         gpr-fixup [3] |
+> |                                 |    vs baseline [1] | vs baseline [1] | vs percpu-pgtable [2] |
+> +=================================+====================+=================+=======================+
+...
+> | perf/futex                      |              0.55% |      (R) -2.80% |            (R) -3.34% |
+> | perf/sched                      |          (I) 1.61% |          -0.39% |            (R) -1.97% |
 
-sashiko-bot found several issues with this series.
-Please don't review it, I'll fix them and re-send.
+Might be worth investigating those two.
+Something odd is probably happening.
+
+David
 
