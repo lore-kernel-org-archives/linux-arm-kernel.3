@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E9FC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EEA3C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYVnLyOaTgHPP6xz/UHsXg+cvDAjK8CW3IzfuxYWXPc=; b=bL38fjB4lATdY80dmWhs0W+fIw
-	L+3bWvRLZhHcGauA8QAXJwpY0YKuooZPd5O6g70TyHiZ8wzbygBKuNf85CGwkNC1qauiAcH6SLtxl
-	+wLy/FkLpvdez6u0TRoMAckBYjmCNpYtVE3fZhnyHp6t7q8eE8DFhrku91Cq4XAY9cYa67mqYg8Uh
-	KUZmK30XvswYTnOdWn8W/Actf6fjT1XbIzSvPg32fNFzLj9dVbai0otjtYTiNwwR9nWfeuNpql/IS
-	RDUq93Iu8gYcAm60o+jc4g5TVcCyN7GbHex+wqu6qG7mMpaV0B/hCVBYQbCFEcuDnThs8l54G4Rtj
-	9NYxcdvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nmUHQDRJovGy5euybNv8U4I384UlmmpWUQBP5c7RHzY=; b=2x0ecdkZ/tNg6GduWXTPDxzOEV
+	2VvJvLlZZPkoWEtGtvoHKA9coo/H1Ni4pQGLsm07klrQ79G1C2XtZTjGdI+3AgXdyUFi7kz4srOlZ
+	frQHQm/AOwYXBhKqZ8rA0rrf66ppY0qIE83bBFuNAr7NLAbqRA2XRCo8a7skatG3nFwTBDdG72sSX
+	45wXqdMtMtDcY86UxNiNP06QZIPJLpv7fteETF7mp7CJID7jljX9lYs559xoXMXCrwEH9basn1mRX
+	vtjmcMmbj1+SJtgMZjWnFIWV+rmd/FTFhzGhxrFNWpVtEv5k0wy7lwXvJeH/ZzRlLC9HtPyaQG5jg
+	Ehn6npKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ndz-0000000FBcs-2PbO;
-	Wed, 02 Sep 2026 16:16:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ndw-0000000FBYH-0Qwr
+	id 1x1nhM-0000000FC1R-0J3E;
+	Wed, 02 Sep 2026 16:20:28 +0000
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1nhJ-0000000FC0o-3oIH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 16:16:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9862165C;
-	Wed,  2 Sep 2026 09:16:48 -0700 (PDT)
-Received: from [10.57.81.239] (unknown [10.57.81.239])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CC9B3F882;
-	Wed,  2 Sep 2026 09:16:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788365812; bh=gSEvBp+KCkXzHc8dbTVfAUkWIju2bmeIwgUNZoB5Jt0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GzQ39Llny2ZuYBIRxqfmTLFB8+xgcnuApQeVF7Znpj2TjYxDzgeaV37nuH25mn0rx
-	 KqEIpkSwP29+sHWsyfh1SSc4Iuv7/CcNnzDIC/mdocDoDWU2tgWauk+y1MvmzYSMU+
-	 40g6i1Xs00gK1gmyV5Y8FC4PEHfJOL8ZxTLS8jno=
-Message-ID: <8e9f7967-710d-4548-89c4-8e5ba46d8714@arm.com>
-Date: Wed, 2 Sep 2026 17:16:45 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
-To: Dev Jain <dev.jain@arm.com>, Karl Mehltretter <kmehltretter@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
- David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20260901131823.15799-1-kmehltretter@gmail.com>
- <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-Content-Language: en-GB
-In-Reply-To: <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 02 Sep 2026 16:20:27 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-c89704da8c7so1740056a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 09:20:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788366024; x=1788970824; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nmUHQDRJovGy5euybNv8U4I384UlmmpWUQBP5c7RHzY=;
+        b=vR18lpX6lR7PJchukulk4j9uWkt7h7u8v2pRhhDmN5C5hKN5hHLIcNTGdkIHRHRQPR
+         vmFvxgBqWdjJ+kwrVvjZ5j8X5wHhFgUJKwGf4p0Q7fTAh5qOsrQ1kWY9rPPkXZYLZjo3
+         9RmZ15yZoqD9Otk/HvVZmPWRTcbssK91J8UPB1a7HRW8i+E8LXAXaoMUhdVkfjzk1hXw
+         D0iEHZZHmVO2i7F2qBqxTvYcD61CBm16x8PkjlQm4PuOerVuybbOk9E6EBumUM8TBNdV
+         SNAbqtSGFVjjv+PzHflrsFcAXtKYQszLNQdikzoMsNBNkeisJ3YTiA2k4XJhkYdlG/J2
+         544w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788366024; x=1788970824;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nmUHQDRJovGy5euybNv8U4I384UlmmpWUQBP5c7RHzY=;
+        b=GnOHuv7QCttx7un5DPsa6e3mb2O8wzQ8OO1HJyv+AkVfRlDcKOKjkoKj71nh+1iMgo
+         YZCPGPlrXPUn5TKfPKjRVfT/ETdjRJmEF5zX+DZzwu8vm900zqRsVCv6FudfbqFgidYL
+         jKtt7ckY/miiWcxmlNDYxe/yRB97WTsLNLzMSZ/ieyxw+OtDOYq/W9U+RhmjnEkyK66B
+         Yu7erVyeBi8ByC02H4Gbhe9z31UgcN2Qt/UEi6uEZet045lAwqr/sJFTnzXS9w0c1o3L
+         S6HHk6UY2KIleNtgrtVszpk0uSk9uMIYHixq/PHPM5a2wHA2sGzNxzfLmpyhjDyMpJO8
+         dJyw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq8SAxvtxwu/VIV7h9NPYpgCm3GbhO7T3XCVi5lYZxnB2bS67tXw4CURo9fqBZmunQ9OkbDIKAd0gWO4UqyO+By@lists.infradead.org
+X-Gm-Message-State: AFuF++lLOYszBL+YBuFuUpZDKGZ75dGQNj7Y39xV6YJdXUAqMy3cX4tc
+	Bjsut9POD00FqdJopBcfBY5XvDj8ZckRncbzhbasZ6FId+tqHyMwrrad3SVy3GZBjqgavA96WXt
+	gSTWIBw==
+X-Received: from pgp27-n1.prod.google.com ([2002:a05:6a02:62db:10b0:cbe:e120:3788])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:2d22:b0:3d3:aec2:4dcb
+ with SMTP id adf61e73a8af0-3d9b051aa7dmr10390341637.23.1788366023624; Wed, 02
+ Sep 2026 09:20:23 -0700 (PDT)
+Date: Wed, 2 Sep 2026 09:20:23 -0700
+In-Reply-To: <20260831144802.834315-24-seiden@linux.ibm.com>
+Mime-Version: 1.0
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-24-seiden@linux.ibm.com>
+Message-ID: <aphMx5hsoXwIpNjt@google.com>
+Subject: Re: [PATCH v7 23/23] KVM: s390: arm64: Add KVM_S390_ARM64 Kconfig and Makefile
+From: Sean Christopherson <seanjc@google.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_091656_300949_09C23372 
-X-CRM114-Status: GOOD (  31.17  )
+X-CRM114-CacheID: sfid-20260902_092025_953713_711D8402 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,116 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2026 15:46, Dev Jain wrote:
-> 
-> 
-> On 01/09/26 6:48 pm, Karl Mehltretter wrote:
->> huge_ptep_modify_prot_start() clears a hugetlb entry before changing its
->> permissions. For contiguous PTE mappings, break-before-make (BBM)
->> requires a TLB invalidation after clearing the set and before making any
->> entry valid again.
->>
->> Commit fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from
->> get_clear_flush()") removed this invalidation, relying on the deferred
->> flush from the core code. Commit 410982303772 ("arm64: hugetlb: Restore
->> TLB invalidation for BBM on contiguous ptes") restored it for
->> huge_ptep_set_{access_flags,wrprotect}(), since a deferred flush is too
->> late for the break step. The modify-prot path has the same problem.
->>
->> Use huge_ptep_clear_flush() for contiguous entries so that the TLB is
->> invalidated during the break step. Leave huge_ptep_get_and_clear()
->> unchanged because it is also used by teardown paths, where the deferred
->> flush is sufficient.
->>
->> Fixes: fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from get_clear_flush()")
->> Assisted-by: LLM
->> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
->> ---
+On Mon, Aug 31, 2026, Steffen Eiden wrote:
+> diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+> index 8d3ee17a1bcb..9c69ea16031e 100644
+> --- a/arch/s390/kvm/Kconfig
+> +++ b/arch/s390/kvm/Kconfig
+> @@ -53,4 +53,33 @@ config KVM_S390_UCONTROL
+>  
+>  	  If unsure, say N.
+>  
+> +config KVM_S390_ARM64
+> +	def_tristate y
+> +	prompt "KVM support for hardware accelerated arm64 guests"
+> +	depends on HAS_IOMEM
+> +	depends on KVM
 
-Is there a user-visible bug here? Or is this just AI-assisted hypothesising?
+Is this actually necessary?  I.e. does kvm.ko need to be *loaded* in order for
+kvm-arm64.ko to be loaded?
 
+If kvm-arm64.ko does indeed have a hard dependency on kvm.ko, then I think it
+makes sense to not have redundant "select" statements below.  As an outsider,
+it's super confusing because the KVM_S390_ARM64 are incomplete, e.g. are lacking
+things like VIRT_XFER_TO_GUEST_WORK (at least, I assume those are lacking), and
+makes it hard to see what is actually unique to kvm-arm64.ko.
 
-> 
-> The transition happening here is:
-> 
-> old_prot+cont -> zero -> new_prot+cont ... (i)
-> and then TLB flush.
-> 
-> Arm Arm rule R_JQQTC says:
-> "For a TLB lookup in a contiguous region mapped by translation table entries
-> that have consistent values for the Contiguous bit, but have the OA, attributes,
-> or permissions misprogrammed, that TLB lookup is permitted to produce an OA,
-> access permissions, and memory attributes that are consistent with any one
-> of the programmed translation table values."
-> 
-> This implies that a live update like
-> old_prot+cont -> new_prot+cont then TLB flush ... (ii)
-> 
-> is safe. Which should also imply that the transition (i) is safe,
-> since the configurations the PE can observe for (ii) is the same
-> for (i), except that in (ii) the PE can fault too, which is fine.
-> 
-> Upon discussing with Ryan I got to know, he was implementing the
-> contpte stuff for non-hugetlb user mappings and that basically
-> drove a clarification on the semantics of contiguous bit and
-> this rule was added.
-> 
-> If you see currently for non-hugetlb mprotect() we do not flush
-> during contpte teardown.
-> 
-> So if the above reasoning makes sense, I can infact audit and
-> remove the flushes in the hugetlb helpers.
-
-I agree with this analysis. I believe it is safe to elide the intermediate flush
-in this case (as is done in contpte_wrprotect_ptes()). And I agree that we can
-likely remove some existing TLB maintenance in hugetlb helpers.
-
-Thanks,
-Ryan
-
-> 
->> An instrumented QEMU detected the missing break-step TLBI on an unpatched
->> kernel and none with this change. A fork() control exercising
->> huge_ptep_set_wrprotect() remained clean. No user-visible failure was
->> reproduced.
->>
->> The QEMU checker was exercised with 4K and 64K base-page kernels. The
->> patched kernel passed the LTP hugetlb tests with both -cpu max and -cpu
->> cortex-a72 (16 TPASS and no failures).
->>
->> Testing on Neoverse N1 hardware would be welcome, as it can use the
->> contiguous hint and can be configured to report TLB conflicts.
->>
->>  arch/arm64/mm/hugetlbpage.c | 7 ++++++-
->>  1 file changed, 6 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->> index 8e799c1fe0aa..bb53a04b73b2 100644
->> --- a/arch/arm64/mm/hugetlbpage.c
->> +++ b/arch/arm64/mm/hugetlbpage.c
->> @@ -517,6 +517,11 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
->>  pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
->>  {
->>  	unsigned long psize = huge_page_size(hstate_vma(vma));
->> +	pte_t pte = __ptep_get(ptep);
->> +
->> +	/* The break step for contiguous PTEs must include the TLB flush. */
->> +	if (pte_cont(pte))
->> +		return huge_ptep_clear_flush(vma, addr, ptep);
->>  
->>  	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
->>  		/*
->> @@ -524,7 +529,7 @@ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr
->>  		 * when the permission changes from executable to non-executable
->>  		 * in cases where cpu is affected with errata #2645198.
->>  		 */
->> -		if (pte_user_exec(__ptep_get(ptep)))
->> +		if (pte_user_exec(pte))
->>  			return huge_ptep_clear_flush(vma, addr, ptep);
->>  	}
->>  	return huge_ptep_get_and_clear(vma->vm_mm, addr, ptep, psize);
->>
->> base-commit: 786262be6048deab760f68c8acc2c85607165894
-> 
-
+If kvm-arm64.ko doesn't have a dependency on kvm.ko, e.g. to initialize hardware
+or something, then this "depends on" should go away.
 
