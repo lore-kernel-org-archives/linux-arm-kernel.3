@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14306C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D827AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yh0jUY/UkhTVKIwfR038cHyUmi536MDRjqIhfBHdV9Y=; b=FlFEoRePIVwg3XjI3LIK2mZDPY
-	X2sChkWP7MEmUKM+2WUxcJq0IN+MA+XY99jr9W4KdXKxXfy2IHFRr5QgHyx4Ccb47b1gb+p16YbjJ
-	3bR4W4IRE2CdNwdjX2w9yB6rS21Eumi4LG36UKTL7QLsiUySKP+1EZZ1Uoy/KOiQCVdETB8OeeZ/n
-	yqFFvZQ8659m1/Q9ICP73HFH6osaLk3v26Uk5GCOnA5rTMSqmFusTmwE1AEOnxiSahAjLfzCVY6RI
-	8w/1QCwy/PKqaUSQs34PelAWLMYviPRK0B1veyTAzBtkLiaXKXY/NVsAoUjRSNmGlHMuquPKaArWu
-	AlSLYxUw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5YogQB6SySQ6aAk/WCOW5RxdsBzeZ+b+tzLvpdAkOkQ=; b=sv00+yZA/CexM+lq/yicLsNMto
+	6axpwUMKciuK2m4mvWrGyUts5Ul/jZtOR45TBsf6O4AE6eHhRtqVGDXr/UgLXkVC7Zw5RvHtNNsVI
+	Z7HH8EK8GNgtnqjq409+uQ0v3v1fuz2fTF3jBfDf/EDj3qwl4H0DKhJx16diiFZ2difh2N+iNXPPM
+	Rvr7MB12hhWFb9i/XxvJX5EgvHVUR0KJQQWo13f21vDyrowbiaN/SQrm+fNJwp/RFvLhNCC94CkcF
+	DYuoUPHPbcVdpBcP42jcXQcU+wRZmuenxlJjtzK+cejsf4rpssOFHlEf1/xPOy9V8zy2yEkakgjkr
+	7eUq7IgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lbW-0000000EtLu-3RI2;
-	Wed, 02 Sep 2026 14:06:18 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1x1liW-0000000EuP2-02O8;
+	Wed, 02 Sep 2026 14:13:32 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lbU-0000000EtLA-1zGO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:06:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357974; bh=Yh0jUY/UkhTVKIwfR038cHy
-	Umi536MDRjqIhfBHdV9Y=; b=kEApHB3L3c/2qU7Q4iTJk1lqcnvdFlaCI2FzwKYIgUUiq8y9Yv
-	d71Wynez6A7XQlCwi13FIFsvXC5ui+VYstPiyzkZ0ED9A+sME9W4rJYsTd/DVexZcX+eAfLH2bX
-	JlKcE2wtN1QhXIpuxmfXaO+Ev13m7TupHejZ5Ni0gds863Fx0KM1tsrysWG3Ri0vu0wPadJVOyH
-	3QkBUIZs0dU/ddjEAgzGsEH6fgFsWaehE5Iwa0RyKnfs7IYD7ipuwcvShKAxXJlL7lIJ5Kql8nn
-	nsZPLYj8m5W+cyHqVhQKg8MpZOsxv1zHM/VFVVMUj1vaBiuK3JVxMNWuU1ysC7aGd9Q==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357974; bh=Yh0jUY/UkhTVKIwfR038cHy
-	Umi536MDRjqIhfBHdV9Y=; b=SjnLnZzJB5zntGpbKnTzVZ8PAALKCHQGdxUjt9BZddML87CET/
-	LNhOo5CqaDZr8KNMlO9ePlKzdptTqczXDxBw==;
-Date: Wed, 02 Sep 2026 15:06:12 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
-In-Reply-To: <apgsm92KtXA7xh6H@J2N7QTR9R3.cambridge.arm.com>
-References: <20260825205839.14571-1-brads@mainlining.org> <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com> <B23E199A-2D3D-48B4-A7E9-9664371A7361@mainlining.org> <apgsm92KtXA7xh6H@J2N7QTR9R3.cambridge.arm.com>
-Message-ID: <8294D170-3378-4411-8771-CB7D9ACBC38E@mainlining.org>
+	id 1x1liS-0000000EuON-3TBa;
+	Wed, 02 Sep 2026 14:13:30 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 26D1511BB09;
+	Wed, 02 Sep 2026 16:13:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1788358401;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=5YogQB6SySQ6aAk/WCOW5RxdsBzeZ+b+tzLvpdAkOkQ=;
+	b=cqIENlVqirvUqfu3sa9gEzGPy9IuHNLsFOxB1X0ScF+P9r/15lI6WkBtCpbeJ4W+dSyN6J
+	HvoC8ggeu/IDJITA2mErtPkk7ZdtSBh4GoooilITGh6X/RHm9767RplejnJIBOrF4r2wB4
+	ymL0Cc8bq7Bkpat3WfpbiZR1jq4s0+ZcxVrhWbyc24AyaBL5E5aHjRl1saq1a35NUD1c6p
+	dy5ezy71X34MbkKA/D56GWjZ7FUumCI4ksw6X7iJPs7ANsLWAzq6Q1l8zkq7rzFDfGH0+R
+	IUn5wNx7RXqsP8/UoiBkEAuqFQk5yPNlCpL5+51vElPUPBVjJSdkiIZbvD21cw==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-phy@lists.infradead.org
+Cc: Pankaj Dev <pankaj.dev@st.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Rahul Kumar <rahul.kumar05@st.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
+	Marek Vasut <marex@nabladev.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
+	Rosen Penev <rosenp@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	devicetree@vger.kernel.org,
+	kernel@dh-electronics.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v5 1/2] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO PHY
+Date: Wed,  2 Sep 2026 16:13:02 +0200
+Message-ID: <20260902141312.649406-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_070616_664645_6950104F 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20260902_071329_165406_D42588FD 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,114 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2 September 2026 15:03:07 BST, Mark Rutland <mark.rutland@arm.com>
-wrote:
->On Wed, Sep 02, 2026 at 02:51:22PM +0100, Bradley Morgan wrote:
->> On 2 September 2026 14:50:22 BST, Mark Rutland <mark.rutland@arm.com>
->> wrote:
->> >On Tue, Aug 25, 2026 at 08:58:32PM +0000, Bradley Morgan wrote:
->> >> This comes out of the hibernate resume discussion where Will asked if
->> >> the restored kernel's hyp vectors are reinstalled before we come back
->> >> from swsusp_arch_suspend() and free the reserved pages. Rather than
->> >> answer with a one off fix, this series reworks resume to look like a
->> >> resume from idle, which makes the answer fall out on its own.
->> >> 
->> >> The series leans on Mark Rutland's old work for inspiration, he had
->the
->> >> same end goal in a branch from back then:
->> >> 
->> >>  
->>
->>https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
->> >
->> >Most of the series seems to be a rebased of those patches, just with
->> >paraphrased commit messages and my S-o-B lines dropped. As commented on
->> >patch 4, I do not think that is appropriate.
->> 
->> Same question as patch 2
->> 
->> If you want your S-O-B added, ok fine, but yeah.
->
->As on patch 2, please read the documentation before continuing futher.
->
+From: Pankaj Dev <pankaj.dev@st.com>
 
-Ack.
+Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+Two such PHYs in total are present in STM32MP25 SoC, they both are
+slightly different, therefore they use different compatible string
+to discern them.
 
->> Do you think this series itself is good? 
->
->No. At present I think it's in a worse state than it was in my branch,
->because portions have changed, with no rationale and no clear benefit.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+Co-developed-by: Rahul Kumar <rahul.kumar05@st.com>
+Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
+Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Co-developed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Co-developed-by: Marek Vasut <marex@nabladev.com>
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Christian Bruel <christian.bruel@foss.st.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Pankaj Dev <pankaj.dev@st.com>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Rahul Kumar <rahul.kumar05@st.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Rosen Penev <rosenp@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-phy@lists.infradead.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+V2: - Fix up Sob/Cdb lines
+    - Fix up compatible string in example
+    - Use additionalProperties: false
+    - Expand description:
+    - Use clock-cells = <1> to discern OSC and future PLL clock from the PHY
+V3: - Move clock-cells next to PHY cells
+    - Fix the bindings
+    - Fix up Sob/Cdb lines further
+V4: - Reorder the properties: list, put #...cells at the end, reg after compatible
+    - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
+      https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
+V5: Add RB from Krzysztof
+---
+ .../bindings/phy/st,stm32-usb2phy.yaml        | 68 +++++++++++++++++++
+ 1 file changed, 68 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
 
-Sorry. I'm sure the points you will bring up on review will go into V2,
-andthen it should be better then.
+diff --git a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+new file mode 100644
+index 0000000000000..c76e94c044e67
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+@@ -0,0 +1,68 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/st,stm32-usb2phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STMicroelectronics STM32 MPU High-Speed USB PHY
++
++description:
++  USB2 PHY block in STM32 is attached to USB 2.0 Host controller and
++  USB 2.0 side of DWC3 DRD controller, and provides the USB LS/FS/HS
++  connectivity. Both PHYs are the FEMTO-PHY, but their configuration
++  bits in the system control register are different for each variant.
++
++maintainers:
++  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
++  - Marek Vasut <marex@nabladev.com>
++  - Pankaj Dev <pankaj.dev@st.com>
++
++properties:
++  compatible:
++    enum:
++      - st,stm32mp25-usb2phy1
++      - st,stm32mp25-usb2phy2
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  vdd33-supply:
++    description: Phandle to regulator providing 3V3 power supply to the USB2 HS PHY
++
++  "#clock-cells":
++    const: 1
++
++  "#phy-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++  - vdd33-supply
++  - "#clock-cells"
++  - "#phy-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++
++    usb-phy@2400 {
++        compatible = "st,stm32mp25-usb2phy1";
++        reg = <0x2400 0x24>;
++        #phy-cells = <0>;
++        #clock-cells = <1>;
++        clocks = <&rcc CK_KER_USB2PHY1>;
++        resets = <&rcc USB2PHY1_R>;
++        vdd33-supply = <&vdd33usb>;
++    };
+-- 
+2.53.0
 
->
->Hence my ask to Catalin and Will to NOT pick this up for now.
->
->Mark.
->
->> 
->> >
->> >I'll take a more in-depth look shortly.
->> 
->> thanks!
->> 
->> >
->> >Catalin, Will, for the moment please do not pick these up.
->> >
->> >Mark.
->> >
->> >> The short answer to the question: yes, but only because the rework
->makes
->> >> resume look like a resume from idle. We enter cpu_resume() at the
->> >highest
->> >> available EL with the MMU off, and the resumed kernel installs its
->own
->> >> hyp stub vectors into VBAR_EL2 through init_kernel_el() before
->anything
->> >> else runs, so by the time swsusp_free() releases the trans_pgd copies
->> >> nothing points at them anymore.
->> >> 
->> >> The series is structured so the first patch stands alone as a stable
->> >> worthy fix for the missing hvc arguments. The rest is the cleanup:
->the
->> >> stale init_kernel_el() comment gets corrected, MTE tag pages get
->freed
->> >> after save instead of leaking on failed hibernates, the fragile
->> >> _cpu_resume() calling convention gets split, and the last patch
->reworks
->> >> hibernate to use the regular cpu_resume() logic end to end.
->> >> 
->> >> Everything object compiles and passes checkpatch and sparse. I could
->not
->> >> boot or run a hibernate cycle on real hardware here, so that still
->wants
->> >> doing before anyone gets excited.
->> >> 
->> >> Bradley Morgan (7):
->> >>   arm64: hibernate: pass HVC_SET_VECTORS args to the resume hvc
->> >>   arm64: head: correct comment for init_kernel_el()
->> >>   arm64: hibernate: free MTE tag pages after saving
->> >>   arm64: hibernate: fix _cpu_resume() calling convention
->> >>   arm64: hibernate: use dcache_by_myline_op
->> >>   arm64: hibernate: only clean to PoC
->> >>   arm64: hibernate: use regular cpu_resume() logic
->> >> 
->> >>  arch/arm64/include/asm/suspend.h  |  1 -
->> >>  arch/arm64/kernel/head.S          |  6 +--
->> >>  arch/arm64/kernel/hibernate-asm.S | 87
->+++++++++++++++++++------------
->> >>  arch/arm64/kernel/hibernate.c     | 66 +++++++++++------------
->> >>  arch/arm64/kernel/sleep.S         |  6 +--
->> >>  5 files changed, 88 insertions(+), 78 deletions(-)
->> >> 
->> >> -- 
->> >> 2.47.3
->> 
->> --- Thanks!
->>
->https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
-
---- Thanks!
-https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
 
