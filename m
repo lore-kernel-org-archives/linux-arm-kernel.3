@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82073C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2884FC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRZwS841GcA5VzuOYLgzKhcr7/acQnTRJCI0lS681iY=; b=xChH0FH/54l2ziN9TzK7OrtOGz
-	SR0Ia2vQzFt3phdvzFIFhou9HK7YmUqQklQPUus/RYT6ifxij78YncxBknR4Qaf6siTZlBHDddeLT
-	MUrJuqgMElBwdAWm7/1YaPd7ZWWl/cuywy9gwTZYEOWTqFzd+2ANP/GBsO3MBb4+tK5D+QDnRK/3N
-	TveSXZ5UW7UadSG1nhUpdFhfH+yF+gbqTaNyetK+u25yXJDIGTKDeNwt51Hh7IrU6/x6vPjbCRrvc
-	c2fQLwmHPk2pNRfnMSR5V1I6dQnQhlGXW0n0lQHXSBFnNymYVqvRKncFVijZR3qMcKqNjLnFFMh8E
-	Rn9rJAnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NvSyt0Es0oOyf5nqnDpYQVhIX0Hc4JIHt/cczqvyv1c=; b=GXAEmqy+k594j8JIkd2kivQBBN
+	pXf3lL9ipoXU9TQx7JR3McQXtAzibCdDDtH6agJ3VYU5CiTFVkYG0DL6v8rrNGqFg+ZOMBEqvcZVM
+	scYeUfcsIFiOwZV1F2BZtnWvD3ZrQhyg3S6Dd9aBFexBedMew9CafTy3jTIuenvSFIxMTK+Bnsl/q
+	ZxEdQ4sfGhNGTnz/peIoL/2x3nokprM7P3U80ull9C48tsqKGASywsEP+IA96YLA+gItozZEchBAQ
+	oo2IoAA+J1LmFp4pmMbj58Q9U11ofBsWYphs116DalLGiAb+m9wBivVghEXMA/XxU56zNbT8Wo+BZ
+	bWjimB/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lX8-0000000EsZi-1lFK;
-	Wed, 02 Sep 2026 14:01:46 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lX5-0000000EsYw-3Mq7
+	id 1x1lYX-0000000Esnf-4083;
+	Wed, 02 Sep 2026 14:03:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1lYV-0000000EsnF-4B9E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:01:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357698; bh=kRZwS841GcA5VzuOYLgzKhc
-	r7/acQnTRJCI0lS681iY=; b=THYpt8plHH5PHoL0pm5ADvyOnwx8z5K4uGClagz7HRZ/25PLG1
-	RmhMzMMLQ9bSDESWfULPx4k4yr2VpvwN+nFJyzQGClLk8CnvTcxXnqj9WyPzl0w41/BRJIVYUjG
-	g+gChXg2CYyE4FBJsQNk8dzG+ErY2brU6aAN9lUv2mNavXr21v1pNLqz+61l+qesQwTxr/N/Icq
-	S0TzWQ0SAQFojnkBEYZxlnlOKG61TJFqCgBEdmxgMHFjQusixUeeOPyjDGlLRz/wZRla0o3vz4C
-	/WRFTdh6FkL5FY6sQPbGTy2qgyGcDqHD8pA8EBfYrTkMpKAKZLWe/G8ZHtp+hjePYsw==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357698; bh=kRZwS841GcA5VzuOYLgzKhc
-	r7/acQnTRJCI0lS681iY=; b=oR7N+qIW/Wl0QWs83dGRv5hC50V7ul9TSAiv1FzAKPrmzhDT1y
-	MKqvSiMeUIyIoXQo2XnUdVMv2wnj3peCLKAw==;
-Date: Wed, 02 Sep 2026 15:01:36 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/7] arm64: head: correct comment for init_kernel_el()
-In-Reply-To: <apgrlRLacxqhXsX-@J2N7QTR9R3.cambridge.arm.com>
-References: <20260825205839.14571-1-brads@mainlining.org> <20260825205839.14571-3-brads@mainlining.org> <apgovCGT-D7OWbSE@J2N7QTR9R3.cambridge.arm.com> <FBC45096-70E5-4F97-B2F0-863BCC91BB4F@mainlining.org> <apgrlRLacxqhXsX-@J2N7QTR9R3.cambridge.arm.com>
-Message-ID: <9489CCEF-9599-4F1D-AD03-CC995CF1956A@mainlining.org>
+	Wed, 02 Sep 2026 14:03:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64387165C;
+	Wed,  2 Sep 2026 07:03:07 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C484E3F882;
+	Wed,  2 Sep 2026 07:03:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788357791; bh=3c0gDYInTZgTimYJJ/kS8+tUIjz/dRXle3zB3JebKzY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ly9NPgyNCw3EbKiDZoRLsBgw8+9SW/WmYI6/NYlG5ZxycQjftWVfGO7Up13PJKxJF
+	 qkkiLJU52UtKXyd3PwjcWkEYZGv20GxNO5GtvL/3AD7MPL3C0KvF2fglSwN5j+Cm8C
+	 rsr64c9rNZi4egaekP0YlZfp7UDKcxM+JV5sCl9c=
+Date: Wed, 2 Sep 2026 15:03:07 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Bradley Morgan <brads@mainlining.org>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
+Message-ID: <apgsm92KtXA7xh6H@J2N7QTR9R3.cambridge.arm.com>
+References: <20260825205839.14571-1-brads@mainlining.org>
+ <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com>
+ <B23E199A-2D3D-48B4-A7E9-9664371A7361@mainlining.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <B23E199A-2D3D-48B4-A7E9-9664371A7361@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_070144_012685_88DE610D 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20260902_070312_399424_B6E5FB5E 
+X-CRM114-Status: GOOD (  32.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,103 +73,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2 September 2026 14:58:45 BST, Mark Rutland <mark.rutland@arm.com>
-wrote:
->On Wed, Sep 02, 2026 at 02:49:57PM +0100, Bradley Morgan wrote:
->> On 2 September 2026 14:46:36 BST, Mark Rutland <mark.rutland@arm.com>
->> wrote:
->> >On Tue, Aug 25, 2026 at 08:58:34PM +0000, Bradley Morgan wrote:
->> >> The comment above init_kernel_el() still says the function configures
->> >> the CPU to execute at the highest reachable EL, but that stopped
->being
->> >> true a while back. Ever since commit ae4b7e38e9a94798 ("arm64: Allow
->> >> sticky E2H when entering EL1"), init_kernel_el() always drops to EL1,
->> >> and it is finalise_el2() that brings us back up to EL2 when we want
->it.
->> >> 
->> >> Update the comment to match what the code actually does.
->> >> 
->> >> Signed-off-by: Bradley Morgan <brads@mainlining.org>
->> >> Cc: Ard Biesheuvel <ardb@kernel.org>
->> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> >> Cc: James Morse <james.morse@arm.com>
->> >> Cc: Marc Zyngier <maz@kernel.org>
->> >> Cc: Will Deacon <will@kernel.org>
->> >> ---
->> >>  arch/arm64/kernel/head.S | 6 +++---
->> >>  1 file changed, 3 insertions(+), 3 deletions(-)
->> >
->> >This looks to be my patch [1], but with a (partially) rewritten commit
->> >message, and my S-o-B dropped.
->> >
->> >There was admittedly one typo in that commit message that needed to be
->> >fixed, but I don't think the rest of the changes were necessary, and I
->> >don't think it's approriate to drop my S-o-B.
->> >
->> >I think similar is true for the rest of the series. The patch fixing
->the
->> >_cpu_resume() only seems to have a paraphrased commit message.
->> >
->> >[1]
->>
->>https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=ee4323ff6a2ba4c3989b38f13b2c1a516d6c27e4
->> >
->> >Mark.
->> >
->> >> 
->> >> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
->> >> index 87a822e5c4ca..c6301557eee1 100644
->> >> --- a/arch/arm64/kernel/head.S
->> >> +++ b/arch/arm64/kernel/head.S
->> >> @@ -254,9 +254,9 @@ SYM_FUNC_END(__primary_switched)
->> >>  	.section ".idmap.text","a"
->> >>  
->> >>  /*
->> >> - * Starting from EL2 or EL1, configure the CPU to execute at the
->> >highest
->> >> - * reachable EL supported by the kernel in a chosen default state.
->If
->> >dropping
->> >> - * from EL2 to EL1, configure EL2 before configuring EL1.
->> >> + * Starting from EL2 or EL1, configure the CPU to execute at EL1.
->> >> + * If dropping from EL2 to EL1, configure EL2 before configuring
->EL1.
->> >> + * To use VHE we'll upgrade back to EL2 later in finalise_el2().
->> >>   *
->> >>   * Since we cannot always rely on ERET synchronizing writes to
->sysregs
->> >(e.g. if
->> >>   * SCTLR_ELx.EOS is clear), we place an ISB prior to ERET.
->> >> -- 
->> >> 2.47.3
->> Hi mark, do you **WANT** your sob? I don't mind.
->
->Please read Documentation/process/submitting-patches.rst
->
->The SoB lines form a chain of authorship and delivery. You *must not*
->drop an SoB line.
->
->> I dropped it because it seemed you didn't care about it (or were too
->> busy),hence, yeah.
->
->I was busy, then on holiday. Neither has any relevance to the SoB lines.
->
->I do care about these patches, and I'm going to have to review them
->regardless. The reason I hadn't posted them was that this is a subtle
->area that needs careful handling.
->
->Mark.
-Sorry mate,
+On Wed, Sep 02, 2026 at 02:51:22PM +0100, Bradley Morgan wrote:
+> On 2 September 2026 14:50:22 BST, Mark Rutland <mark.rutland@arm.com>
+> wrote:
+> >On Tue, Aug 25, 2026 at 08:58:32PM +0000, Bradley Morgan wrote:
+> >> This comes out of the hibernate resume discussion where Will asked if
+> >> the restored kernel's hyp vectors are reinstalled before we come back
+> >> from swsusp_arch_suspend() and free the reserved pages. Rather than
+> >> answer with a one off fix, this series reworks resume to look like a
+> >> resume from idle, which makes the answer fall out on its own.
+> >> 
+> >> The series leans on Mark Rutland's old work for inspiration, he had the
+> >> same end goal in a branch from back then:
+> >> 
+> >>  
+> >https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
+> >
+> >Most of the series seems to be a rebased of those patches, just with
+> >paraphrased commit messages and my S-o-B lines dropped. As commented on
+> >patch 4, I do not think that is appropriate.
+> 
+> Same question as patch 2
+> 
+> If you want your S-O-B added, ok fine, but yeah.
 
-V2 will have your SOB on all patches
+As on patch 2, please read the documentation before continuing futher.
 
-I removed them due to like, what if you said
+> Do you think this series itself is good? 
 
-"Remove my sob these patches are terrible and unrelated"
+No. At present I think it's in a worse state than it was in my branch,
+because portions have changed, with no rationale and no clear benefit.
 
-Well, this is a corner case, but I had to think this through,
+Hence my ask to Catalin and Will to NOT pick this up for now.
 
-Yep, V2 will have your sob on all 7 patches.
---- Thanks!
-https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
+Mark.
+
+> 
+> >
+> >I'll take a more in-depth look shortly.
+> 
+> thanks!
+> 
+> >
+> >Catalin, Will, for the moment please do not pick these up.
+> >
+> >Mark.
+> >
+> >> The short answer to the question: yes, but only because the rework makes
+> >> resume look like a resume from idle. We enter cpu_resume() at the
+> >highest
+> >> available EL with the MMU off, and the resumed kernel installs its own
+> >> hyp stub vectors into VBAR_EL2 through init_kernel_el() before anything
+> >> else runs, so by the time swsusp_free() releases the trans_pgd copies
+> >> nothing points at them anymore.
+> >> 
+> >> The series is structured so the first patch stands alone as a stable
+> >> worthy fix for the missing hvc arguments. The rest is the cleanup: the
+> >> stale init_kernel_el() comment gets corrected, MTE tag pages get freed
+> >> after save instead of leaking on failed hibernates, the fragile
+> >> _cpu_resume() calling convention gets split, and the last patch reworks
+> >> hibernate to use the regular cpu_resume() logic end to end.
+> >> 
+> >> Everything object compiles and passes checkpatch and sparse. I could not
+> >> boot or run a hibernate cycle on real hardware here, so that still wants
+> >> doing before anyone gets excited.
+> >> 
+> >> Bradley Morgan (7):
+> >>   arm64: hibernate: pass HVC_SET_VECTORS args to the resume hvc
+> >>   arm64: head: correct comment for init_kernel_el()
+> >>   arm64: hibernate: free MTE tag pages after saving
+> >>   arm64: hibernate: fix _cpu_resume() calling convention
+> >>   arm64: hibernate: use dcache_by_myline_op
+> >>   arm64: hibernate: only clean to PoC
+> >>   arm64: hibernate: use regular cpu_resume() logic
+> >> 
+> >>  arch/arm64/include/asm/suspend.h  |  1 -
+> >>  arch/arm64/kernel/head.S          |  6 +--
+> >>  arch/arm64/kernel/hibernate-asm.S | 87 +++++++++++++++++++------------
+> >>  arch/arm64/kernel/hibernate.c     | 66 +++++++++++------------
+> >>  arch/arm64/kernel/sleep.S         |  6 +--
+> >>  5 files changed, 88 insertions(+), 78 deletions(-)
+> >> 
+> >> -- 
+> >> 2.47.3
+> 
+> --- Thanks!
+> https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
 
