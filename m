@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD2AC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A097FC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtq/Hbwh3y6+tZU+24Z00S/OaFKe/w6VjMyJdVY5XfE=; b=QAEuXks5bMKNzcAtoRM/DtxEJn
-	sq7HpsUCEafv6iAfUUloafRC4Bp8nUzQ0MzdIqkYrR6x4FAZVJD38gCcGLIxSMSeNrYPuyYCd6+gT
-	slk8yQKbS4V5W04GiZfVpNnUTx+38TvwUkMMwQwGldy39YjYw7c5ieehKE5cXCDMA/VE/kIcmD3bV
-	RKwKN9DDNIJs/PbMadcUbyWvYlbYdgIHdFQ/LVVLrqVc0B+VSxYhBgbrozjZthIXxztaH9x1dHaCa
-	mhfAr6zCSd4nDxFZimkpNNCDC5Y5OmPW3x6tQhULcRNVPXgr5SRFNE+FY09ZsfTFJsFblHYAvluDb
-	2sdhUZdw==;
+	bh=e13hcDNI+tjK7ZYito3EK+F+gJpiQQy7yUGftOidPTo=; b=lmpEa1cFK1vhNmEOSswuQKgZ+F
+	56JUKRmSO0Q/MhFdAONzlr8YTVL3QbJGIEUX3uJ7on24VSpJoJwpjP5GcseHBRMJicjrA2RESsUFU
+	7bFBl1LYdGx+28IfNp64pxd6LsMek18U3zmDBz5N6eWIABkpaSL9qcalq4F/EEeilA4wFEwcYK4iJ
+	RaAxjePkkIZllkEIoJRczZwLq8HfNl8YJL9jKgfoljswFvHUnX0BN0Gq8nzDUoZpkBhm8YsgDXwAp
+	Jphu07y1LdfMIdITCKHbmK0NoIg0RPJAqC7VtPOClOUe4UrKf8vzHGMr444qkFT1vC4jUe7NGF8KC
+	Wyw6uupw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1isO-0000000ESpL-2Haf;
-	Wed, 02 Sep 2026 11:11:32 +0000
+	id 1x1isP-0000000ESqy-3Yzd;
+	Wed, 02 Sep 2026 11:11:33 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1isJ-0000000ESjb-3QBB;
-	Wed, 02 Sep 2026 11:11:30 +0000
+	id 1x1isN-0000000ESmk-0gVe;
+	Wed, 02 Sep 2026 11:11:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=jtq/Hbwh3y6+tZU+24Z00S/OaFKe/w6VjMyJdVY5XfE=; b=GzHRdNdbla3pQEwW2Se5SLxB7T
-	KQPQr3K7NviQhmFM7GkxzgEygrlhcXWj70lGyHyUs5kMA8neLseGhiPejDvTLl6zNU6654Bn3iln2
-	Cgi/ADt+xlPaZjfmQlLD8O83GPKq1NfIA2yR4BlO3IYfeOurDFBdV8NViundwSQIl2IPhu++mDCI3
-	1MgM3mhocUg4KltxLp8FMQA8UsS0oHsprz7GvW55l//j4jNCPgvMucDft+R7IXgy4zCwu/a0+e3lM
-	EHnPCdsfZdX7sBV2M9j2Ly+U4UWP322pMKBsmONinSN14Fg4mpkxgWutn7jbL9vwuRipvIgEfI6XR
-	rz3xlixA==;
+	bh=e13hcDNI+tjK7ZYito3EK+F+gJpiQQy7yUGftOidPTo=; b=H0QaVw5Qja/LxL3EoDTsZSAWu+
+	DK9KFWSCKqQug6/BxhFEznFPH/fb8uU+FKbmdcmGIJI8l7KZxIVVAK9cnRtqjmT1StRVezLK4ows1
+	ax/aQocKpxQzM0sEV5+ZW1RnbtyO4lylYn+Ot1lL1LQY/I4dktFtVXXuWMv/ScYt71xnXh+/+Wgyt
+	NFxV2Wxct9H+/9xCIV/NoXgBsy3vRKRrSpitX1seuym0/ZoHxX3pLC/RpNUJgSnkOaTQFEwE2qtMl
+	wFnO0cNlZeu84wAPHLH8uFgJSBSEKC9TghfFt8sA78yOqRwkC+svXiAi9OLpcoe6+w71YkDZOUcsz
+	A6FYh+qQ==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rudi Heitbaum <rudi@heitbaum.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	kernel@pengutronix.de,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cunhao Lu <1579567540@qq.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
+	linux-can@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: rk3399pro-vmarc-som: add i2c2 scl timing
-Date: Wed,  2 Sep 2026 13:11:17 +0200
-Message-ID: <178834747218.2268650.11241416915608173120.b4-ty@sntech.de>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v6 1/4] dt-bindings: can: rockchip: add rk3588 CAN-FD compatible
+Date: Wed,  2 Sep 2026 13:11:12 +0200
+Message-ID: <178834747221.2268650.16431820094445507549.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <aou1Q5-hdF7kRVpe@0d3a7a881997>
-References: <aou1Q5-hdF7kRVpe@0d3a7a881997>
+In-Reply-To: <tencent_AE1A1199FC8C9ADC680C6458134A46B40309@qq.com>
+References: <tencent_AE1A1199FC8C9ADC680C6458134A46B40309@qq.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_041127_870222_FF181C23 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260902_041131_205612_B2A1DB23 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +77,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Aug 2026 03:06:43 +0000, Rudi Heitbaum wrote:
-> The hym8563 on i2c2 does not ack:
+On Thu, 30 Jul 2026 22:34:02 +0800, Cunhao Lu wrote:
+> RK3588 integrates a Rockchip CAN-FD controller variant that is not
+> fully compatible with RK3568v2. The RX FIFO count register field is
+> encoded in bits 7:5 on RK3588, while RK3568v2 uses bits 6:4.
 > 
->   rtc-hym8563 2-0051: could not init device, -6
-> 
-> It is also the ext_clock for sdio-pwrseq, so wifi does not come up
-> either.
+> Add a dedicated rockchip,rk3588-canfd compatible to describe this
+> variant. Do not use rockchip,rk3568v2-canfd as a fallback, because that
+> would describe a register layout that does not match the hardware.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: rk3399pro-vmarc-som: add i2c2 scl timing
-      commit: 7c40dc4055b6868c5ee7c4e30fd483544a25a58c
+[3/4] arm64: dts: rockchip: add CAN-FD nodes for RK3588
+      commit: 685b81f8c717b0f7ec7219f35ead626758ef3aec
+[4/4] arm64: dts: rockchip: Enable CAN controller on RK3588-Tiger-Haikou
+      commit: 0fb792388d2d39e35b7b366f491f846a7ebd8630
 
 Best regards,
 -- 
