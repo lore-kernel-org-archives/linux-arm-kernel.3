@@ -4,131 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE71C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5065EC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=; b=Psn7EUxwW1d44qX+zqhN9eRWdF
-	LIsLZZjeEiEuUnt54Jqua1QgoJHM8ReCq5mrektSTgjQDgNIkWg85/29DRlXrLKkG5o8yZKZdn/ZC
-	nUgYR+3MUAG8ZKyXWFhTTVepBjFODddrLLak7bCdxk9F+3sJaMDJXpdvo+ctozpGDwstwr/5L/jXJ
-	F0wizWKQv9W2UMomycfktatCJB4DzYbznserT2FaXYa6A+/RjRhWanReLJ8uV2cE+H0QRhiltk0cO
-	uP/C7clNLufBw3G80mixTDr7FRRILbhLlkDQJ5OkK/tiSBOVrKXqRnOy/JcYFa4EZYBzsiFXM2lNq
-	JpaFK59g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P9gX6/N+hUOidEKEDGQo/G6sZJ3cDNUMsczJpk9kQyc=; b=QH1DBDMruE790X/Wd/TH0MgA5c
+	oLQfpLBhnXy4OPAIj0Zcr7Rnq7LkEpwZCt+AUnDX7i0fJHXstSC7iUiUufpdWHQwUp6J9nMak0i4H
+	qHNOTxKzhLfN+X8XX9ekR2VpN5vTnqAbm8vn487Y2EbMp3AGkbeBsTi4gw7RZrXXgaC+36EPhxywf
+	8VCdvo4oMxosAV0VlmZx4nYTAw71j/8rHf+fASbTKYTy5ZFWdiqDU6o7dK0COLaumRbHT8A6JRgRn
+	CPbXoWQimIJYXansycjGGha6/MEUnhgVfmYo2fcFhntOC5DgK8CQpxS7ZYXHUp8pGfNXxzcb2agGE
+	blyRmpbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mtO-0000000F54s-0a9h;
-	Wed, 02 Sep 2026 15:28:50 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1x1mte-0000000F59v-11w4;
+	Wed, 02 Sep 2026 15:29:06 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mtM-0000000F54H-3MV3
+	id 1x1mtc-0000000F58d-12nm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 15:28:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nb8kzE3IOOfSk5J5s/JGbgOA5y1T1V88PAyNmfLhx2mHcgK2GucoO0C+96yWDs0GroB0eOv3z/qriw3KSKx9WeclmEVXqWKer3ovP6d+fEyqne/RUxYq9rwYaqaOyHPD4/ZsYwEEzDJtLRPcoAneUwAy3Pt4qepz4ALgDoL38Hkj2Q3ttI8Xm1QIi0MOItPCw1eBLs2Dg4wH2MbaSlvHO43f1vWBkiM6tUbP4LgqZlwpGTlhBKETA7oMaAkYrPm6E1047KOp2vkph2PeE2rn0xLBDNbPe+7WEeD7BqaKkO5RKI3PkS+EITmtdv63BwZDXm1WrPuW6WScjNzFY+ZRTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=;
- b=zPTYc3QOibXWPKuA23dSgvopEYJhFHPkmu3MX3QTZOn18CPXZKoaFDuH6YtlhhZtt67TK7ce/6F/YkTcS+QStFz9rryvcpe37IXQ7F+az1xQ3SWMmIkTJPlUaKg5AmDQci41ZxOPjzxoFQhay+QYRoilmfCY/+DAXhGU+ltH4M41uEPgxpQeNOsTag/JhVwv6YllDR3IqkWbIrHxVpuOwqOhlqSE+eg8Qy3fOlu0rVgYqK4Tw31pqJHsoPEzsV0Td1tZVUHgjqXrKWfIHfwwCPPbY3DxLFCdNYNacGcXl/7K+yIbTmhl3qZMK1y1as3a6pSS/i3X2Y1t3PXbsUTHjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=;
- b=iwL6FWXdPjVCvlrrI7wt+CHLisEBseSLak+7PlCKvDDB+wPUcFkq0bMxb3KIoH+sLJhKko27VXbUAe9H/n1ACJ+4LtVmA2c06hN1HMXyey00iVJyJcUpWNL0hvo9nDsnW7KK1Ft0Txa5MlAHaImYFbfY5R+ZLvNZdg4lktC1LA8VXuF7QyefHpRwUYe+edTUUrmJwNrrQRl6gEDjEb1UIhXCc90qjRcNqhE0P/qjMa08D730jstuOJ4sGur+bOxQYiOPLnndobTYVrHPtbUJ9G8PZ1R632Kv2Tbwr66/b0V4x7Woz3y1lCNvYFrjIriQjHmECb9vT3A1dQ39+3lcJw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by ZR6PR04MB910871.eurprd04.prod.outlook.com (2603:10a6:910:dc::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 15:28:45 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 15:28:44 +0000
-Date: Wed, 2 Sep 2026 11:28:36 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Allen Pais <allen.lkml@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 08/34] dmaengine: imx-dma: flip per-chan tasklet to
- dmaengine BH
-Message-ID: <aphApJ1wEAJLOxGM@lizhi-Precision-Tower-5810>
-References: <cover.1785183549.git.allen.lkml@gmail.com>
- <cover.1786384168.git.allen.lkml@gmail.com>
- <787938bdaef4c3530b4bf0296386a33928b877f0.1786384168.git.allen.lkml@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <787938bdaef4c3530b4bf0296386a33928b877f0.1786384168.git.allen.lkml@gmail.com>
-X-ClientProxiedBy: CYZPR11CA0014.namprd11.prod.outlook.com
- (2603:10b6:930:8d::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 02 Sep 2026 15:29:05 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4994d41ceb9so900085e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:29:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788362942; x=1788967742; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=P9gX6/N+hUOidEKEDGQo/G6sZJ3cDNUMsczJpk9kQyc=;
+        b=beZqx4I1+LCB6L7xSjsKtxSN8Ztn4MiSnJ8uTYuCZnhbdG/NGObRH/Eyf9JW9JXHge
+         SDd0PAFIqC/WM+3/VXmEPuPQQxLmH7mQy+XEnn5B6+LH99oyUOVnmEZkUceG0MQqWJRU
+         TJb66y071ex+uam1X1XegHxq+D/PLcjK+wA9rRibU4xPCaUb4e/qsIS2KFWcdQ0b5vKA
+         3i/Qk4a6wo/TK/boXhAW6Z9oJgcqY5VQ4rNECOUazzDeDX3cHT/5KiBaEmO3ExzZ5FmH
+         6ar2GFy1bztyfD7YXWXfBvvJJ2ji01eZ3olY/yfWR5JD1ZVyY34jBAyfHvO32xbf2et8
+         hBpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788362942; x=1788967742;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=P9gX6/N+hUOidEKEDGQo/G6sZJ3cDNUMsczJpk9kQyc=;
+        b=AoyVFwlCaxgnaKVRAA7qy32/F1bmCOKuqPyIMx5NXXY76ShfOoaKUlrBdxIqH6xb3F
+         v2h/I9aDcM5w6Kgr3gZBlbN3lyYgEEb3r+E46/C83qnGRHD9R8CVa0t81Nsxod9A6cfa
+         +qNkxg/x9ig/HBrQNomDxTl4MlI/giMb1qyX6d66y2C/663Gd7NSdMQJWMrDnPV+ax7f
+         Ymw/iJavTpMOOTiLtxbCKKzMrZHOSBWc6qpmXodHfGKssrtfJgHwSh2FDWiu3+8XCxog
+         I7+4Cz5uwkkncBltksUNkkmEzdgPmIRfxjWwuMp6BFLR+3QrCnLY0zJMxzg0FfS9ZhH6
+         J1TQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpekETBI/NI2gzCDoWdGJbRjVlgkUMgztajCq8nEv+ArjnlLvlJKCles9wRtLFZdPiZfEhijFbTBLk7D5mP0YBk@lists.infradead.org
+X-Gm-Message-State: AFuF++mBjVu+5tsHt7J/pMFZyL7uFbje/BKFXziodJfZPnFgS81lx26w
+	xKtAO9djClW0MNxA5pCS0v9f/MDZb1S96XURkOvYj8wRRmcabFrIqNxn
+X-Gm-Gg: AR+sD11DDyQZoKSYhrZu4MuJKt+vEg/xD7PQoiOvSeCcvuqXgCFcN5OFqWY5TcMlP8u
+	eBkaOS0qpnhpxsmRkg+orD0aY3hIpQ99tccS+7p2z+TCMqt7yui4lDh652DtXkkgYyLbIO7RZq4
+	3eHDM8Lrwjyan75WfhDWBagPbHxLt4uyM/D8sg8owSK2pkgX3FZJYJnZ4raZE81QXJGmmRC9vqi
+	GwdnbI22SK6dfLaeBIY0lQVzgxAxNANaQX9yEep6ZntgJvV7RNaGKA0b3drKpP9NWfOOk2RXy0n
+	TX/NDxURNhPIy4rkNf43FOWTkSWIer17Co9j/jSu88/zZ8bd2Fbvdev4xdnKUinV7Blu2jMB7JT
+	194EdCBQfV1Gxpq3TGhRsud3NYVaTFVcHQx0DKCElRliYVIVXKn2Fip2W8hZL/CNFhoozDcB0bb
+	tntyH6JwAuBVJkJC9qk/Q3z5lby7zBXOgUZLZ9c6AfRaE+KXF8yykDnxjOObYiue0jeehOs6o3I
+	kbPypfqumBaxXh3z4pJUV+gV/b57mvsr2Z/5vQda3jazbLYw9Of2XZZdCaETRnpk5Ql1ifgXeSE
+	o8SQ
+X-Received: by 2002:a05:600c:c48e:b0:499:d95a:41f with SMTP id 5b1f17b1804b1-49ce558d5cbmr47256105e9.0.1788362942067;
+        Wed, 02 Sep 2026 08:29:02 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B831700D60D5CCF7970D839.dsl.pool.telekom.hu. [2001:4c4e:1b83:1700:d60d:5ccf:7970:d839])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce4775005sm91395395e9.10.2026.09.02.08.28.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 08:29:01 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	mcanal@igalia.com,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Raphael Gallais-Pou <rgallaispou@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Daniel Stone <daniels@collabora.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Phong LE <ple@baylibre.com>,
+	Helge Deller <deller@gmx.de>,
+	kernel@collabora.com,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Maud Spierings <maud_spierings@hotmail.com>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP TX
+Date: Wed,  2 Sep 2026 17:28:35 +0200
+Message-ID: <20260902152838.5771-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
+References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|ZR6PR04MB910871:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72c89483-2cac-4d09-33dd-08df0906dfc9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|10067099003|4143699003|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: qDTR+zOUoovYa4fidISF0Fp9C/9FBBt2TcQAowz01G8vlL1yUrQ56ozyww2kheQrJnxZc2zcGn6Mi3wc42kAoQAo0oaWXSupqOVqSflbLRAsWf81ROOWIyNU0Jj9Vzz7+OwsLw1pYcr+04PXjkkYzTRGjJs+ThQBlbTosBq/Yhi9/YWsdo2MtqbWi0IqqDx4uMoOR71utrXh/cMy9vUErKl8BuXbo+ap8uu7YNRS+7xd7s40nhgpWPI8njvAj6V6vBO8494UwzcVHYF7JTjzZJsLy8eCmzT5RZp8wP3FSQ2Z+oLpd6eMeIGDANI/HDOYLFe4wujLINAKqPPoKLCRTL+PobGKsCyLeCFqkNeMUxzT2wEr8zs4sEJxz9bcRvOI18AdW0aiDdN3JnOJD/6djKcoM1A5uc1BL9hghMM1G3wZqVfHyoFADFJQeiDG1d+aGuWIs0Pm2Ih6h6dMHHJM5SdigY62jRdWzs4Nxd41MD05Q2gGpmYA6Uni6fAZyDDoMMTiV0KUtGZdby0xSJvAxvcAka84CxZFhoF5ItRTw1jZbHHyYbnvjzHRPi/73XxUG9cD/d/fsw5OBf28LXLCiD/osPAaDecOkYgp58TRHuDoehjYMND4rreOxfXYc8s5eygNuDtms1c6nkY/93fRBdHtcpQZVbLvAMzzQKNfZOA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hHp9gvyqBzBWu3rMNATs3okFOy0dMIQFCHFs2XFKKiCjnYHflFQFfK7GeN2E?=
- =?us-ascii?Q?vFk3pTviXtmfK7cVygemakRQy2R6BjoRpP42G517Tc+BCAu33lFfXEGsk2Tv?=
- =?us-ascii?Q?kX6ysjPMJhGQZwjzQ5aB2mvQKRZh/ACtQtVc5BurJnHUjZzoY0Eex6SQKqNB?=
- =?us-ascii?Q?6i/nZJ/mLMOCeJpT9hb2MQHfygkS7/9qzILevrQcHg9RERHc02WBGZabCjZY?=
- =?us-ascii?Q?0T730iB/D/tdFYW4qZox5hYFGfT7aBYkcWB3R2kpLEXdVs/hIaZh22lFgTF6?=
- =?us-ascii?Q?KNmmI+HI16+iNnIHJ/+QZ/NRT7Pz+ScZchw2GWbrBF0qo4PHRchQffSt/O07?=
- =?us-ascii?Q?kzuEOsqkDPLn8hauDn/x8fml9Rjun+hZqWoAVMXne16l4suFhOyqKSXfH+Il?=
- =?us-ascii?Q?xpFvX60NjrOiPhFDdHmVtyNjfYLPrj+TIUiQJqzNnQUpoeeJ9O3VkqI5Eog3?=
- =?us-ascii?Q?vaPQQt4FpB9RKcQ34nyD+LG4TmkN7YOWYyq5asZfLm6aXui1nJtppXkzlegL?=
- =?us-ascii?Q?yb4OKi17B4n46AnHaZquCuUBC+WEaR45Z7KLFXWjm2X46AQTwtGV/tbFdM/5?=
- =?us-ascii?Q?NOr+glYgKbF9XFUQFH4bVrxsc+AwcK+6JONi4BD9e/dRAcuQWUsi8qrUpIpY?=
- =?us-ascii?Q?XyatnP8cVgRnbACic87ytLoO97lcTXCwfik4cQkFKZiA/WjJISB43b64lc99?=
- =?us-ascii?Q?E0tnQ3tGHMdG/0GsBVhhSf2p8WIPr6LtZQ03bfz7l4HVgOQQYn23iykoES1w?=
- =?us-ascii?Q?SwDrycy9+qhyfry9wxo3TIojwdfeCK/AvvVvF7ti4+ZEzY54Ac/3r6X8Lw1R?=
- =?us-ascii?Q?O3sXDuXWdKL7W5uSbIVgbYuqNbPKGbvRN75RrxfmYchiUslCPfBhanfR7SH0?=
- =?us-ascii?Q?DeoDkw8BI30q6mmV294ddrB4r6OVts6Um0svl6JFuuf6gRQNrNXpZj96K+uI?=
- =?us-ascii?Q?L3+lpKPboseCnGkGORwVaZbRb13XG88vJOet3y9yQwsmEpHYNR4BUqS6mlrD?=
- =?us-ascii?Q?I+mZ5cwvOei0VMzag0rEZm4rniyCMKgVKbR0hSDpDVxL7c1Mn/Sv6ABI07Cj?=
- =?us-ascii?Q?Y6drRd4FFMHTBIPvZUzj6VymzFdcQoBJSxoRfhswqwNosWSne6T/TigXj3dZ?=
- =?us-ascii?Q?aRq9gJpcAI/Rwpzudehy9JkIYxY5XVkN3j/hrUIYpV9SZcbK5ZRzR3mb7C/l?=
- =?us-ascii?Q?H8Ay7Rzz9LCVh4NQXl4U6egjwXBZRB4N3g5HWt2C9FV34yoS0+EjHKqEvnB/?=
- =?us-ascii?Q?D+lha7oVV7wXrWRvgdUSUBz3be2XvMX7vZpuo8wq4arGiTCSHP5hG6shU3sD?=
- =?us-ascii?Q?fnNoyl9j82YiQq5RreId+OdXoX98AeOvQbmnHpOIT63EWw9l3XgGgB0oDQ9w?=
- =?us-ascii?Q?QUl0BuqUAAM1fx1/xgAotRX5ZqgIkMCNdQ+geyVJjc7eWf8V/GYPheksbtup?=
- =?us-ascii?Q?nY6sPGUR4FUdGbmQasQjsGHyEFHXCBIn43eaoyikiDD88QSTE19j1/oYnd7Y?=
- =?us-ascii?Q?DogKuSZSYbvbKIHKLTfdO/qUF1So6PAwrQDjiGBIfKAfzYMVuEne7J5ZGvSl?=
- =?us-ascii?Q?tL5fS6Rw26cfRkdlJAhxva34FmcqKgIN6aBxSlVhNX4+942q/e/p/rPm0K+o?=
- =?us-ascii?Q?SXJfUd7jAJW7BZSFBppJ/b9BS3fH6X6HdI/hF6e6M3qL/gLLccVaNN+IuANz?=
- =?us-ascii?Q?eGFbC9I7ykj9JTp0MTgr/aH7jqM0LjwIsFnbp6uWoQ5tXrT6SowVYXYX91dm?=
- =?us-ascii?Q?diKjPheXQChzexDsJ5cgwvQ5Bf8mguE6hHH/hpVZCOEVzc6DxXno?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72c89483-2cac-4d09-33dd-08df0906dfc9
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 15:28:44.3495
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0d+Ty5DtxWJndderzhC+f/AKIdTeRv8YmYL16Wm44ASIhb/61ubrSx3WtTcvi6sxVzBYvtriCQWh/oZOV1YI4wdO2u4+FcN/2xOVlF5sJ/jEMVGdsGk3AVVHM7SD01I3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB910871
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_082848_837657_F450FE11 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20260902_082904_306863_D8A4B0AD 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,107 +134,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 11:09:09AM -0700, Allen Pais wrote:
-> Replace the per-channel tasklet with the shared dmaengine BH helper.
-> The handler continues to run in softirq context while dmaengine owns
-> the common scheduling and teardown mechanism.
->
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
+Hi Cristian,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> This has been tested on the following boards:
 
->  drivers/dma/imx-dma.c | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/dma/imx-dma.c b/drivers/dma/imx-dma.c
-> index 81c6276436f8..308fe407fe16 100644
-> --- a/drivers/dma/imx-dma.c
-> +++ b/drivers/dma/imx-dma.c
-> @@ -145,7 +145,6 @@ struct imxdma_channel {
->  	struct imxdma_engine		*imxdma;
->  	unsigned int			channel;
->
-> -	struct tasklet_struct		dma_tasklet;
->  	struct list_head		ld_free;
->  	struct list_head		ld_queue;
->  	struct list_head		ld_active;
-> @@ -344,8 +343,8 @@ static void imxdma_watchdog(struct timer_list *t)
->
->  	imx_dmav1_writel(imxdma, 0, DMA_CCR(channel));
->
-> -	/* Tasklet watchdog error handler */
-> -	tasklet_schedule(&imxdmac->dma_tasklet);
-> +	/* BH watchdog error handler */
-> +	dmaengine_schedule_bh(&imxdmac->chan);
->  	dev_dbg(imxdma->dev, "channel %d: watchdog timeout!\n",
->  		imxdmac->channel);
->  }
-> @@ -390,8 +389,8 @@ static irqreturn_t imxdma_err_handler(int irq, void *dev_id)
->  			imx_dmav1_writel(imxdma, 1 << i, DMA_DBOSR);
->  			errcode |= IMX_DMA_ERR_BUFFER;
->  		}
-> -		/* Tasklet error handler */
-> -		tasklet_schedule(&imxdma->channel[i].dma_tasklet);
-> +		/* BH error handler */
-> +		dmaengine_schedule_bh(&imxdma->channel[i].chan);
->
->  		dev_warn(imxdma->dev,
->  			 "DMA timeout on channel %d -%s%s%s%s\n", i,
-> @@ -448,8 +447,8 @@ static void dma_irq_handle_channel(struct imxdma_channel *imxdmac)
->  			imx_dmav1_writel(imxdma, tmp, DMA_CCR(chno));
->
->  			if (imxdma_chan_is_doing_cyclic(imxdmac))
-> -				/* Tasklet progression */
-> -				tasklet_schedule(&imxdmac->dma_tasklet);
-> +				/* BH progression */
-> +				dmaengine_schedule_bh(&imxdmac->chan);
->
->  			return;
->  		}
-> @@ -462,8 +461,8 @@ static void dma_irq_handle_channel(struct imxdma_channel *imxdmac)
->
->  out:
->  	imx_dmav1_writel(imxdma, 0, DMA_CCR(chno));
-> -	/* Tasklet irq */
-> -	tasklet_schedule(&imxdmac->dma_tasklet);
-> +	/* Schedule the IRQ BH */
-> +	dmaengine_schedule_bh(&imxdmac->chan);
->  }
->
->  static irqreturn_t dma_irq_handler(int irq, void *dev_id)
-> @@ -592,9 +591,10 @@ static int imxdma_xfer_desc(struct imxdma_desc *d)
->  	return 0;
->  }
->
-> -static void imxdma_tasklet(struct tasklet_struct *t)
-> +static void imxdma_tasklet(struct dma_chan *chan)
->  {
-> -	struct imxdma_channel *imxdmac = from_tasklet(imxdmac, t, dma_tasklet);
-> +	struct imxdma_channel *imxdmac = container_of(chan, struct imxdma_channel,
-> +						      chan);
->  	struct imxdma_engine *imxdma = imxdmac->imxdma;
->  	struct imxdma_desc *desc, *next_desc;
->  	unsigned long flags;
-> @@ -1142,7 +1142,7 @@ static int __init imxdma_probe(struct platform_device *pdev)
->  		INIT_LIST_HEAD(&imxdmac->ld_free);
->  		INIT_LIST_HEAD(&imxdmac->ld_active);
->
-> -		tasklet_setup(&imxdmac->dma_tasklet, imxdma_tasklet);
-> +		dmaengine_init_bh(&imxdmac->chan, imxdma_tasklet);
->  		imxdmac->chan.device = &imxdma->dma_device;
->  		dma_cookie_init(&imxdmac->chan);
->  		imxdmac->channel = i;
-> @@ -1211,7 +1211,7 @@ static void imxdma_free_irq(struct platform_device *pdev, struct imxdma_engine *
->  		if (!is_imx1_dma(imxdma))
->  			disable_irq(imxdmac->irq);
->
-> -		tasklet_kill(&imxdmac->dma_tasklet);
-> +		dmaengine_kill_bh(&imxdmac->chan);
->  	}
->  }
->
-> --
-> 2.43.0
->
+One more, with a sink pair your boards cannot cover:
+
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588 Orange Pi 5 Plus, dual HDMI
+
+Setup: whole v11 on its stated base (drm-misc-next 47b823940e38),
+both SoC HDMI ports driven at once: a Samsung with HF-VSDB (max
+TMDS character rate 600 MHz, SCDC present) and a Sony limited to
+300 MHz TMDS.
+
+1) HDMI 2.0 path: the Samsung now offers and runs 3840x2160@60 RGB
+   with a 594 MHz pixel clock (modetest-confirmed). Without the
+   series the same port tops out at 4K@30. A stable picture at
+   594 MHz is only possible with scrambling and the 1/40 TMDS ratio
+   active; it stayed stable across boot, mode changes and hotplug.
+
+2) Non-2.0 fallback: the Sony keeps its 297 MHz 4K@30 modes.
+   No regression.
+
+3) The result I care most about: this Sony in standby keeps EDID/5V
+   up but drops the link, and on my 7.2 stack that generates a
+   storm of detect/modeset cycles - measured 119-194 per hour,
+   enough to make the desktop stutter. On v11, twenty minutes of
+   standby produced ZERO events, and wake restored both sinks by
+   itself. Whatever share of that the cached-status detect and the
+   SCDC-loss handling each take - thank you.
+
+4) Hotplug on both ports: clean detach and reattach, no storms.
+
+5) Audio on a dead link: this morning my 7.2 stack took an SError
+   panic (regmap read in dw_hdmi_qp_bridge_clear_audio_infoframe
+   when a PCM was closed on a link whose SCDC never came up - full
+   UART trace available if useful). On v11 I could not reproduce
+   the class: six open/close cycles against the standby sink plus
+   one natural prepare-failure-then-close during replug all
+   survived cleanly. Caveat: different base kernels, so this is
+   not a clean A/B on the series alone.
+
+Scope: RGB output only (the YUV420 output series is separate), no
+USB-C DP on this base, VC4 side not exercised.
+
+Igor
 
