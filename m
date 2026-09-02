@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7F9C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 00:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C22C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 00:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FaTmFFkWvtpI1wxK9lbUH5Q49TqxcdmMs9wtskLlSB4=; b=poM4Hsqb2XvEICgsMW6tYbhfRZ
-	4KLfuXmZNVcP8qDLB0OnuTw5RVM7g/E8VjLWyWB9kddYjSc7t6BFELZ/s+gto4KjmvXIscYnOVIdx
-	jAVFtrsCku8cnqAWyEcgSt0lutC2kcAALlX/fIMZ3dRGZTQhN7aTS224Z7hF5lWV1zXV1jNMHQF2N
-	5B1XZEkoSKyU+kNOQQvyb8SYHLwBsUfw90lQQdsCJ28vxkvlKAG1NpcigbbH2ocuW1wCQDLJOK0KC
-	7Qa0FZRx8Aao9VTfOyYD3NfXNOaM+Qubsp2AtSlhawVD4qdfPIDe+lxBTbHRDyi1VAkm9eQAagZuB
-	dPxG1RNw==;
+	bh=0Yk5W8YMQMFUnjqW7SP37P8eIRPlwXT5+5U93q8LYb8=; b=eVzllNrwgx2NpFGsvTDrrdRIfe
+	I25NGsUP8NkUPwxZMPk+Prt8ZfvWwm76xxVzo44rc3nmdHWRfr5VcY9Qkrwm9LfXYOdNbLgV6K5AL
+	9aYEAHcxiB3tVorKScOHAHemeF9hkn2L81m7Ik5yh+mo+0+T0POHqZNg7Ps8dICPnZ0wnGuRjlrjZ
+	ESzEp5W9SlHhZvalPHLAWXH3+GLSH+fAkoQv/a6IIZFHgt6Npbgf21AHehJRVxmeXzcpOMdZYnlHP
+	50Ez4NvZOWiSY46HgsRLFyKdLVOsxzbdFCrTmJtt9amB7t/R+55zBCCIIRYAeoyIzOka1DzYAmCwp
+	dmHNl6Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Z0E-0000000Dafs-26pX;
-	Wed, 02 Sep 2026 00:38:58 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1x1Z1j-0000000Daon-3Bgs;
+	Wed, 02 Sep 2026 00:40:31 +0000
+Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1Z0C-0000000DafV-05NX
+	id 1x1Z1g-0000000DaoT-1Bbk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 00:38:57 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d6f80c76e6so6440725ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 17:38:55 -0700 (PDT)
+	Wed, 02 Sep 2026 00:40:29 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-ca8aee88725so676034a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 01 Sep 2026 17:40:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788309534; x=1788914334; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788309626; x=1788914426; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=FaTmFFkWvtpI1wxK9lbUH5Q49TqxcdmMs9wtskLlSB4=;
-        b=GDlBmLmFd9zKUYI6ESZlRU47LCkhklO1k/R/jDXM1HhM94rAmlyxJdMKt+Hi8FScDV
-         PPtxDyBvHJ4PmjypZ1mIJksHLjzd/b/EBvemIyRz0aHma3OgvLYFpieh158y22//FlZ6
-         a/ibJh2Duj70afxDRHza+lMmrSZqaqawTOgCOiMjrYd7kcwFUipcaqfCdn6vJeXyUJCX
-         jxsdrv/fDkBco+s1Ru4tQO8P6I8p5J5zJkt3XeGvBk71yLp+IydCdh1Djed7eaT9Eqzk
-         2kVvq89Qi2tQqqh1+ndcE8KapqisT2MNblK/y5DexdFsMob+e8V0QxsFA0m0nqHMzcdJ
-         AtZg==
+        bh=0Yk5W8YMQMFUnjqW7SP37P8eIRPlwXT5+5U93q8LYb8=;
+        b=qbh7iY0cskpWLmO9isJNfsMQuPGPZY0h/cw9ELoqivGY3yNCaWqCJEyZIdOIuWHWE3
+         6ayco5VTzHGVWEDvW1dYmiIHbRIYp2pA/E43TkLG34bETIYJs2n8yMfWTke1UNQSyUZl
+         KaD9sF4gT7KYGDdwHtHpsO8cD0OIFkxfiy4YdE0auuDKjVM2CCouMlJLGjKO8t0FhDtP
+         2WXZAeQP8wxrR9FezIu64wk+l1GhqLUBJcLWrwh0bsRq/v/IX826SussBrgO+fgjfZ99
+         e/VdyH7RT8sdhDrPp+iFUSsbu1lMTMap4vUfKDmrPXvct8kPuBGaz30o+Xbu1imBI4AW
+         9GJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788309534; x=1788914334;
+        d=1e100.net; s=20251104; t=1788309626; x=1788914426;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FaTmFFkWvtpI1wxK9lbUH5Q49TqxcdmMs9wtskLlSB4=;
-        b=LVF68sCk5AuASFBMH8RbVkCGlXR6YS2El5me/ZzS19lu6yXVaqNXybdriUfyZGfl5D
-         yxUVjLi6fVRdwRBXarDzOXIX0+rbGV/Ora+RXYtQjd0sk5wCaKnECuwPuqOqAWak89xW
-         cgCad21AKn11tPEze0CcQyJj0xj1mzaC4d60+Tig95NKe+WeSYUBsBVYH4s3cRZH1oMl
-         Kg/4+D7wjNY6wrUyahDxvNkAbeDFkIIyibkKYqU63DAGzOSQPSc0AtJfGq/zVEFn7Ei1
-         Dh9iJus4i/60M5+TmwC22CZ2COZUqurZD46aMh9Cr/WGFXdUtnrlvnNQo5amsxHVxyCP
-         RnEg==
-X-Forwarded-Encrypted: i=1; AKwUvBzvPMbwFPXWJhCkjlGB2FfOpnAx27RDpPKn6jzFhkw6x3kApCKfRY7M37EW0bfnt9jWMkKzdA5jAMp7iovOzP93@lists.infradead.org
-X-Gm-Message-State: AFuF++kqwRoC0zrUH4nywoe73Py5laQDfbfSWty/jLunC8tsnZQxlTYT
-	ZbyxQ+vXmo4nxyYyGmpu3aTQcpKq8GK9YgJdaBfzvBEyUE4fLe2vQSq3AnlZjaqVwX7kv5dj/9d
-	bEZj0FA==
-X-Received: from plgf7.prod.google.com ([2002:a17:902:ce87:b0:2cc:6063:a658])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:26c6:b0:2d8:d4cc:be67
- with SMTP id d9443c01a7336-2daec73f1d2mr14199535ad.20.1788309534336; Tue, 01
- Sep 2026 17:38:54 -0700 (PDT)
-Date: Tue, 1 Sep 2026 17:38:53 -0700
-In-Reply-To: <20260831144802.834315-4-seiden@linux.ibm.com>
+        bh=0Yk5W8YMQMFUnjqW7SP37P8eIRPlwXT5+5U93q8LYb8=;
+        b=C6nE2Ef4yCWFuMjsJmvaCrZVrBdkhG8UqaWYKyQiKT6nRdqg+EskmdKuF4mkhxlcq3
+         DGRmpiDLbD7J0bmTCMhZCafu5XL859NzPUmk23tu6C1RlYPYMD/iaq6P6agBNgxlH7LO
+         fyc2tBqtm6mEn2GCevR11mbQk+48DaCcwXjQSolbuGUb2zIJE2l7iykcTxXq+bbSxs+i
+         ayW5lqtfndskDgM8jiBqdQSladYvdfqvn/yXrFJaZhgsOGw8VaRMTXSEQKISOFsJTyt7
+         OFHi9JVKf1K9suKVs7zXzgaOh7tQPBy4SdkEWue6aSvt+nTvzTu8vqX9OZ3h9DTddC1v
+         BKHQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwlsTl7x/FM5c1I7GM/JRnOvETe0acGjlsI/amDHc5qUDS9pw7dz5D/LVPOEDbEiNOGRiUrZElM8aSWyZoIFwTY@lists.infradead.org
+X-Gm-Message-State: AFuF++nACkyDvFzhG8phIImD5eOwNozfkPf3rlBSYXnFUFC2Zv8IVc4U
+	dE1AEMlPoPlBo1UoJoPnsZhgG1dopmNrn+o2R2olJfZCF44aguERrLPHSxK8Zr1mCKXlvpAQSKk
+	XvgPHHw==
+X-Received: from pfbi25-n2.prod.google.com ([2002:a05:6a00:a519:20b0:84f:4ff1:f767])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:ab08:b0:848:5cf5:5040
+ with SMTP id d2e1a72fcca58-85ed23e044bmr2745937b3a.10.1788309626365; Tue, 01
+ Sep 2026 17:40:26 -0700 (PDT)
+Date: Tue, 1 Sep 2026 17:40:25 -0700
+In-Reply-To: <20260831144802.834315-3-seiden@linux.ibm.com>
 Mime-Version: 1.0
-References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-4-seiden@linux.ibm.com>
-Message-ID: <apdwHcdy2iYRTrww@google.com>
-Subject: Re: [PATCH v7 03/23] KVM: Allow KVM implementations to switch off
- MMIO independent of Kconfig
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
+Message-ID: <apdweRfqt4dTxcU9@google.com>
+Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
 From: Sean Christopherson <seanjc@google.com>
 To: Steffen Eiden <seiden@linux.ibm.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
@@ -87,8 +86,9 @@ Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
 	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_173856_061321_2D2AECA1 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20260901_174028_319966_F91B5DFE 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,17 +104,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Mon, Aug 31, 2026, Steffen Eiden wrote:
-> Only defining KVM_MMIO is not flexible enough for multi-KVM systems
-> where one KVM implements MMIO but others do not. Solve this by
-> additionally testing for the non-existence of KVM_NO_MMIO before
-> including MMIO code to KVM.
+> Allow KVM implementations to choose alternative device names. This is
+> especially useful for architectures providing multiple KVM
+> implementations simultaneously. Architectures providing multiple KVM
+> implementations must compile the KVM common code once per
+> implementation and mange symbols.
 
-Ewwwww.  IIUC, s390 ends up with two KVM modules, i.e. there really are two different
-KVMs being built.  Rather than have a KVM_MMIO and NO_KVM_MMIO, I vote very
-strongly to drop CONFIG_KVM_MMIO entirely and replace it with __KVM_HAVE_ARCH_MMIO,
-a la __KVM_HAVE_ARCH_VM_FREE and others.  Tracking two separate macros is going
-to be annoying to maintain, and will definitely be confusing for non-s390 people.
-
-It'll mean linking in an emtpy coalesced_mmio.o on s390 when building without arm64
-support, but I'm guessing that won't be at all common for s390 builds.
+What about tracepoints?  Or do those show up as "kvm" and "kvm-arm64"?
 
