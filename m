@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B69EC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4314C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ONPSI/VlMp5H2rLzLONUVgKvb9Ot4bxmMLHTzduPPbQ=; b=BIzuthnM4RB9QWJTMoNDziDDNc
-	+iSiszcygYQ1gFpsCR6nSJ8i2p2o6lOw6ucZb3p1YZawQYPUbCQ4IJXe3jo51Mo8Yfxzsjs6fswpz
-	d/S6N3aB5ByKCAnqde+wCBa2wAyJGRKQhzobY5jN6Abo7wvtUAGtz+PgJFtEyjBU9ErM4tistK+45
-	Ga3dYl3vRU1h283lOQJHkaNB5HJauOj0jx2OV1pjsK3qJTsu4nuka9q2SxHHk6gRLTY/fsNbgSaZk
-	r6bdtLUHp5daCxPAXRlvTAOKCItQvBsxPCCz873w+oxGkRASJInjcV6uybUOKq632fjvFSU7ueGSN
-	t0V92cuQ==;
+	bh=zqqQfmGbY4Cj4cCuxB/rRRIjWVsYvDtJYHIxf77UTI8=; b=C/iy6RH2/Yj6DjZowc1gPVpSW1
+	sEe+y5DVEieWGbTJYrpFE1QAuMTvTp71/2GbTzcfSmVKh0AJm9LmxUeG23vApBz5CEkuUJKGlsNzj
+	TOZUNpuRlHmxa4qpOthgOQNAQirzUP3Cg7ueLeY5VXkKRjrTccG4CB9JxGG6pAfLtcfsQCkAfz43E
+	duh/50UjOXKp+Qe+nsE8MiOTR2B8QKARCyYjjdgcWFlpV9a5LpOHkwLTP8cFrOne5f/1+KlH2X0xd
+	V74U0cWygd7xJDaxGxHAuojo1Ln4GNgjWwMA8qdZ0Rx7eNId7pMPvWzY5f4Y9C/bQmPQUbaEWS9dP
+	VM1kKMjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAM-0000000EV2D-2old;
-	Wed, 02 Sep 2026 11:30:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1jAY-0000000EV86-3rBL;
+	Wed, 02 Sep 2026 11:30:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAL-0000000EV19-1x7u
+	id 1x1jAX-0000000EV6c-0kzg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:30:05 +0000
+	Wed, 02 Sep 2026 11:30:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B1F441893;
-	Wed,  2 Sep 2026 11:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98EE11F000E9;
-	Wed,  2 Sep 2026 11:29:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EACF940595;
+	Wed,  2 Sep 2026 11:30:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 625DA1F000E9;
+	Wed,  2 Sep 2026 11:30:11 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,9 +61,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v3 04/12] of: property: fw_devlink: Add support for renesas,scmi-firmware
-Date: Wed,  2 Sep 2026 13:29:20 +0200
-Message-ID: <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
+Subject: [PATCH v3 06/12] reset: Extract __reset_control_get_from_provider()
+Date: Wed,  2 Sep 2026 13:29:22 +0200
+Message-ID: <2824c50f77aa287a3555533e4b9760109aae1741.1788338320.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1788338320.git.geert+renesas@glider.be>
 References: <cover.1788338320.git.geert+renesas@glider.be>
@@ -83,43 +83,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let fw_devlink create device links between consumers and suppliers of
-SCMI firmware on Renesas platforms, and enforce these dependencies.
-
-This prevents probing of drivers before the firmware they depend on
-becomes available, thus avoiding unneeded probe deferrals.
+Extract the code to create a reset_control structure from a given
+provider into its own function, so it can be reused later.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v3:
-  - s/firmware/renesas,scmi-firmware/,
-
-v2:
-  - No changes.
+  - New.
 ---
- drivers/of/property.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/reset/core.c | 92 ++++++++++++++++++++++++--------------------
+ 1 file changed, 50 insertions(+), 42 deletions(-)
 
-diff --git a/drivers/of/property.c b/drivers/of/property.c
-index 72cf12907de034e9..e79cd3cce4e2e41a 100644
---- a/drivers/of/property.c
-+++ b/drivers/of/property.c
-@@ -1417,6 +1417,7 @@ DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
- DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
- DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
- DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
-+DEFINE_SIMPLE_PROP(renesas_scmi_firmware, "renesas,scmi-firmware", NULL)
+diff --git a/drivers/reset/core.c b/drivers/reset/core.c
+index 38e189d04d09b270..8af7cd2e8a5029df 100644
+--- a/drivers/reset/core.c
++++ b/drivers/reset/core.c
+@@ -1135,6 +1135,54 @@ __reset_find_rcdev(const struct fwnode_reference_args *args, bool gpio_fallback)
+ 	return NULL;
+ }
  
- static struct device_node *parse_pinctrl_n(struct device_node *np,
- 					   const char *prop_name, int index)
-@@ -1574,6 +1575,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
- 	{ .parse_prop = parse_regulators, },
- 	{ .parse_prop = parse_gpio, },
- 	{ .parse_prop = parse_gpios, },
-+	{ .parse_prop = parse_renesas_scmi_firmware, },
- 	{
- 		.parse_prop = parse_post_init_providers,
- 		.fwlink_flags = FWLINK_FLAG_IGNORE,
++static struct reset_control *
++__reset_control_get_from_provider(const struct fwnode_reference_args *args,
++				  struct fwnode_handle *consumer, int index,
++				  bool gpio_fallback,
++				  enum reset_control_flags flags)
++{
++	struct reset_control *rstc = ERR_PTR(-EINVAL);
++	struct reset_controller_dev *rcdev;
++	int rstc_id = -EINVAL;
++
++	guard(mutex)(&reset_list_mutex);
++
++	rcdev = __reset_find_rcdev(args, gpio_fallback);
++	if (!rcdev)
++		return ERR_PTR(-EPROBE_DEFER);
++
++	if (WARN_ON(args->nargs != rcdev->fwnode_reset_n_cells))
++		return ERR_PTR(-EINVAL);
++
++	if (rcdev->of_xlate && is_of_node(consumer)) {
++		struct device_node *np = to_of_node(consumer);
++		struct of_phandle_args of_args;
++		int ret;
++
++		ret = of_parse_phandle_with_args(np,
++					 gpio_fallback ? "reset-gpios" : "resets",
++					 gpio_fallback ? "#gpio-cells" : "#reset-cells",
++					 gpio_fallback ? 0 : index,
++					 &of_args);
++		if (ret)
++			return ERR_PTR(ret);
++
++		rstc_id = rcdev->of_xlate(rcdev, &of_args);
++		of_node_put(of_args.np);
++	} else if (rcdev->fwnode_xlate) {
++		rstc_id = rcdev->fwnode_xlate(rcdev, args);
++	}
++	if (rstc_id < 0)
++		return ERR_PTR(rstc_id);
++
++	flags &= ~RESET_CONTROL_FLAGS_BIT_OPTIONAL;
++
++	scoped_guard(mutex, &rcdev->lock)
++		rstc = __reset_control_get_internal(rcdev, rstc_id, flags);
++
++	return rstc;
++}
++
+ struct reset_control *
+ __fwnode_reset_control_get(struct fwnode_handle *fwnode, const char *id, int index,
+ 			   enum reset_control_flags flags)
+@@ -1142,10 +1190,7 @@ __fwnode_reset_control_get(struct fwnode_handle *fwnode, const char *id, int ind
+ 	bool optional = flags & RESET_CONTROL_FLAGS_BIT_OPTIONAL;
+ 	bool gpio_fallback = false;
+ 	struct reset_control *rstc = ERR_PTR(-EINVAL);
+-	struct reset_controller_dev *rcdev;
+ 	struct fwnode_reference_args args;
+-	struct of_phandle_args of_args;
+-	int rstc_id = -EINVAL;
+ 	int ret;
+ 
+ 	if (!fwnode)
+@@ -1185,46 +1230,9 @@ __fwnode_reset_control_get(struct fwnode_handle *fwnode, const char *id, int ind
+ 		}
+ 	}
+ 
+-	guard(mutex)(&reset_list_mutex);
+-
+-	rcdev = __reset_find_rcdev(&args, gpio_fallback);
+-	if (!rcdev) {
+-		rstc = ERR_PTR(-EPROBE_DEFER);
+-		goto out_put;
+-	}
+-
+-	if (WARN_ON(args.nargs != rcdev->fwnode_reset_n_cells)) {
+-		rstc = ERR_PTR(-EINVAL);
+-		goto out_put;
+-	}
+-
+-	if (rcdev->of_xlate && is_of_node(fwnode)) {
+-		ret = of_parse_phandle_with_args(to_of_node(fwnode),
+-					 gpio_fallback ? "reset-gpios" : "resets",
+-					 gpio_fallback ? "#gpio-cells" : "#reset-cells",
+-					 gpio_fallback ? 0 : index,
+-					 &of_args);
+-		if (ret) {
+-			rstc = ERR_PTR(ret);
+-			goto out_put;
+-		}
+-
+-		rstc_id = rcdev->of_xlate(rcdev, &of_args);
+-		of_node_put(of_args.np);
+-	} else if (rcdev->fwnode_xlate) {
+-		rstc_id = rcdev->fwnode_xlate(rcdev, &args);
+-	}
+-	if (rstc_id < 0) {
+-		rstc = ERR_PTR(rstc_id);
+-		goto out_put;
+-	}
+-
+-	flags &= ~RESET_CONTROL_FLAGS_BIT_OPTIONAL;
+-
+-	scoped_guard(mutex, &rcdev->lock)
+-		rstc = __reset_control_get_internal(rcdev, rstc_id, flags);
++	rstc = __reset_control_get_from_provider(&args, fwnode, index,
++						 gpio_fallback, flags);
+ 
+-out_put:
+ 	fwnode_handle_put(args.fwnode);
+ 
+ 	return rstc;
 -- 
 2.43.0
 
