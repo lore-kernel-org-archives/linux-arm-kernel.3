@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC72EC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33CCC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pLRU7fz/a4AmTksGXjPumynJ36B37oe4U/DOZBzei24=; b=0Lf4d25kuU+ml3FSn7WCYEA0t3
-	Sj09ZeIdkDrVPGhv/fij67GiNbGQia/ljqLZP/LzwXmkCaKidRbVd7mButoXPuBD2M72xjyAdahtd
-	i56md1jWj0a3LThmTyZbKEm0cI0wUvec4wpuoKgykDpB+a7rhqRYprxsdOQLVNQUyBmay99DD9MMe
-	lLiDrcqUZzHrQCnhb4kQ52QhWZzdtojGb3cUjFeziZ6mL6/q+PESjBgi72ctht1oIw1bluJFb7Fje
-	GOFCw6SqiKjnGjMyvM3TC3Dr7wGAgyEQM2qOvwLPq2qkxsCxYu8Fv3K97dlBPQA6i4PSRcxdBvNtL
-	9ml/6Spw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=; b=KGsNGEPRsnmHShRb59++NlbSiL
+	SljkwxndcUA9rNLSSP9RGhvuPpAca+sDncsX1CNHianip3mgadb94w9b7f+btDV7MShaxwQ5vRYUk
+	SRKepUEtlTr+jSMR5pN9v0mwV9CEvTSdFPYYL3BM1ZrrC33B6GHrtGT4anPvNzbF1KZj+qb6ZMSTB
+	qX8vAaAqQTLRAD4oBdiG3Vvdb/YfD8nY2WeouyCwqyTv3vP/IV5J0yRMWII29xrfcjq7YAu3BX6fs
+	45kZFJEuwiV3v/rB1Wnzcu8t38/MNlgBEaG307TI2+YC3ZXyXKSW2Copr5MdRxyxDRC9vAHkT9Pxq
+	PfF3GxtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kau-0000000Ek7I-2m69;
-	Wed, 02 Sep 2026 13:01:36 +0000
-Received: from mail-centralusazon11010050.outbound.protection.outlook.com ([52.101.61.50] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1x1kb1-0000000EkAe-3Dlj;
+	Wed, 02 Sep 2026 13:01:43 +0000
+Received: from mail-westus3azon11012042.outbound.protection.outlook.com ([40.107.209.42] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kar-0000000Ek5Z-36ps
+	id 1x1kay-0000000Ek8a-39dw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:01:34 +0000
+	Wed, 02 Sep 2026 13:01:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l8A2kiBWz8wlCE9/Em6n4ZlB+JwMwr7rtWTAO+681VmzgcMP52ZuODJSsORsoa7Srgke/f/GmWGyV/kx3L260s/7J/64ux/Xh1uvUF4CE48bMVU2IuldN4JorsdxjYBsRXJc6+0yy8/zAC2P5X9FTqkK/McR4NadYnQCkuKwp0C7RpHbvBFXLK/EMZ9ZzUr4XxpzVbiSDrZVX2ttByWqPBq8Hudb/Jfy5mAKqTeEtKemJtwdt/xMRo7DwWInzA7sV/gqe1gVypEh5lJfdrsgPzye6zzGqWwMsq55zhswEhOKdKuQALI98OUj0Ho4Z3yckMig7CwRmpeSOQZEma31jg==
+ b=qaujxe9++KxTlL+7OH6zxUykksxIAIFu+0Ny8vI4i1ANSP7H4WsSeEq+RTbjQTAc4xqR2YC/k9gJeHuRoAT9qVFyTuhlxnWuxMrJaLYcfFWNIxE49gdvXg9YvcHqizvFsnxSpKqEUKSuSz8AF24M1syoyhLYiqSXX9fFUox7WZeKOxS600qAsQe4T7lAFbmi7xnSYzbplNhvIjnbCL8YXnyXMFi8RBHcc94tGF48oGpq5h3DOpZOdN9hueYxMVpqoRZXWKtUKRg56x/9V/ZVBxNYpnw3bwQB72EDNw73Y9zAskhHri/zpjXYCasgK9S+90JlkJWy/IVewGCM0ZFBjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pLRU7fz/a4AmTksGXjPumynJ36B37oe4U/DOZBzei24=;
- b=Zea1/OddI1EbhNYecCZV9trLIzo9dMvDRIRmsg9XX2OZc9RMlXne0fj1VcltAiG1VP57lVjmr+C46tX3EYvYI1IKiL/FhPkMPexJrcgc0PtPhKlJzVMhkBkuZJtrcLcewmGEAVZKvMGLn7dl5W14YzM5GTHm9NcztAfj+05BW87NIa45hAZM3IO6hgUKi/5OZTqhaYlweOfv4u2LMCbfic8ZXv0OxFpm/2fXVcsR24YaOpobTkLToQWVw1inLlAxUgaWmIuvB8IhQCcRUmBNAh4+s1E+pQZ81U/dXHJtrPR0KkJhZV/4lEVTlfro2BPZ481UcgY4qOQkmoC/GzXSCQ==
+ bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=;
+ b=XsTH0fL9+TPYhWxGuQHJBxxXnk4DTcbIuQ/2/V0dWmkkyIKrOaw8GjypVfmb9wOcWpDqJtar9nTdbaVAqFnv334pbK2hcQuDQSZjUvYTHak305Q4FUTdZvMmfMQOTMVHOgIBKj4ucVmSeTvl3mPQzHEjvZwXNivpNIE1BRUjzCfJS46AAOVUzNctp8lna0Dpxo0oaZFp+3/kNlmoAYQkGMRn+um9eqfYad8k9n8B7MH+pQJQk1rt1oLXNMjcV6zL9PZqbMv/fwYylRt5qBgwJ47v4CisL3nEhmrpG4swnkUUMX+WVO9fR7HiNN39QnILV6PPSDfUXgUKMitwr2zX4w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  165.85.157.49) smtp.rcpttodomain=lists.infradead.org
  smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
@@ -42,84 +42,78 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pLRU7fz/a4AmTksGXjPumynJ36B37oe4U/DOZBzei24=;
- b=ZjUxId66AgV8rDnyPhsPlNW81ee8W2SK5JksQo1dbaUd/qAuHPBktwgqUM+LwG4BCrP9KVviAQdmdtjuGj28GgWoG8P2EY2ABdS0J9oSEUVLPI2a4HD5nnXh3heiSkbG6haHY2DEOkPuy8DxO5SE5lVSHz6r937Fxu6cUVicInWgNKGqmlgTG+eSkNyKK99ONmjHuA5NCUFAUt8UweZRaBSGr64CyEcD5uzZpOjYgorLzzbnr8D7he0nAHe0taPAXp0ngxPtoqREeR6x4w5a+WoS72h1qfVaTd0G9uHmsRxdYCyov8g6BTitUJOpuWH+xYpV9qI2TTeYvVn8xs8mpw==
-Received: from BN0PR04CA0042.namprd04.prod.outlook.com (2603:10b6:408:e8::17)
- by IA0PR22MB4402.namprd22.prod.outlook.com (2603:10b6:208:491::20) with
+ bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=;
+ b=HIlMyMN3SAWC25rsQWLntIMwmuBqGpojCErz+1AbPNUVxdBgMAF8kLuQHg3eW0Bk1VeVDXhydGxq3ZJ4P28ctLvrW0gHM5KyUwF3RoFFJeXisrMsfr3ASHb/u/8G1M5xGsPGdr/5vPyryBIdPBgA6A/J/L7Mi0m4jgubYDvGalRNHDrZyDUcjzal4MznPrL+QoI9DiVP8GxUA9QiVlj1GyIwcfwVR8sdwqiuWuX7lTaScmK2Nb7gYohASqPqwZeyfJB2jZwxPmBC1X+zYLC1/h+A5LadgfTj81y7nXkrVCFi34pqCY8FWj/6HXaHSFvd5KUDxGZs1PPmNWnIG5N2Dg==
+Received: from CH0PR03CA0255.namprd03.prod.outlook.com (2603:10b6:610:e5::20)
+ by LV8PR22MB5699.namprd22.prod.outlook.com (2603:10b6:408:267::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Wed, 2 Sep
- 2026 13:01:20 +0000
-Received: from BN3PEPF00022BD4.namprd03.prod.outlook.com
- (2603:10b6:408:e8:cafe::47) by BN0PR04CA0042.outlook.office365.com
- (2603:10b6:408:e8::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
+ 2026 13:01:28 +0000
+Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
+ (2603:10b6:610:e5:cafe::6c) by CH0PR03CA0255.outlook.office365.com
+ (2603:10b6:610:e5::20) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed, 2
- Sep 2026 13:01:20 +0000
+ Sep 2026 13:01:25 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
  smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
 Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
  not designate 165.85.157.49 as permitted sender)
  receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=atlrelay2.compute.ge-healthcare.net;
-Received: from atlrelay2.compute.ge-healthcare.net (165.85.157.49) by
- BN3PEPF00022BD4.mail.protection.outlook.com (10.167.248.102) with Microsoft
+ helo=atlrelay1.compute.ge-healthcare.net;
+Received: from atlrelay1.compute.ge-healthcare.net (165.85.157.49) by
+ CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 13:01:19 +0000
+ 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 13:01:25 +0000
 Received: from zeus.fihel.lab.ge-healthcare.net (zoo13.fihel.lab.ge-healthcare.net [10.168.174.111])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 62D81E4DB;
-	Wed,  2 Sep 2026 16:01:15 +0300 (EEST)
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 2622119249;
+	Wed,  2 Sep 2026 16:01:22 +0300 (EEST)
 From: Ian Ray <ian.ray@gehealthcare.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>,
 	Frank Li <Frank.Li@nxp.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	dri-devel@lists.freedesktop.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Ian Ray <ian.ray@gehealthcare.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ian Ray <ian.ray@gehealthcare.com>
-Subject: [PATCH v1 0/3] drm/bridge: dw-hdmi: allow ignoring rxsense for hotplug
-Date: Wed,  2 Sep 2026 16:01:13 +0300
-Message-ID: <20260902130113.2720-1-ian.ray@gehealthcare.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 3/3] ARM: dts: imx: bx50v3: ignore HDMI rxsense
+Date: Wed,  2 Sep 2026 16:01:15 +0300
+Message-ID: <20260902130117.2731-3-ian.ray@gehealthcare.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20260902130117.2731-1-ian.ray@gehealthcare.com>
+References: <20260902130117.2731-1-ian.ray@gehealthcare.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD4:EE_|IA0PR22MB4402:EE_
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD76:EE_|LV8PR22MB5699:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 37500e36-4f33-4247-7d9d-08df08f24862
+X-MS-Office365-Filtering-Correlation-Id: 95b8c148-ec75-433d-69eb-08df08f24bdc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|376014|1800799024|10067099003|6133799003|3023799007|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: EbM1VzQmcM2omfi7VysFqMvXn4sTKpwIKdD+mAPXeqjq8AJhAFXODfZDOARdyc8E5giQBYigcW3TyuuP2AUjW8sEDpEqykUChdvoohPZwvA0ZpzNMDGus56Yz8QllCZoMkQrUS0fRfZlHCc7lcFvh/Utc7uyw1Sy7L1iD0tXeQheMSSkFjf+XawQki0JDzeZ8yiSatki/klSW7A8hsVhYjLQSbLbwJ+Rv8FceADr4wtVU3kHt5ma6Ti22kIUi/W/ZfQ8FudNHzYwQYhXyuqmllNnDJTYT+67Wo+gdBbew5lt5NbWjl1Jbaj/jUj+H8aVQhObXZg46LjEgOD0DRBe6xfBR+4HR9hnsFEVvpi2v4VrqpCep+MO+d3zYCKFHWLR2nfZc6yV4ZgWzr+WAt6BckJCcNVuJNBPTkTttqvLGZWTTzyMqX9ikuwI7GvCuADxSv50vkz9UC3PVT/WbJfvv5GOraOju+2gSU5J/Fl1FX64FNxgUm0W4YiI5I7kI666Nt6tDX1v0iNGCzTTee2qe+aiCI0+1+TxpHG/7QvE3NvrHq4p91VLBH8cfshkhh/1+eh78p3eEtWleO2y2fd1I9P7v9tLW/94l/FdR4uKzIkQtNlmkrjBmvgOlJ0x7wIGR1UQQmPjHWIxpvWZXOB9sM9D3q9yWAyT6LFmxwntZ4rsEypa9ShG1Zl/Sn6RVYvJRAqRfWwllVefvZaGMfZHog==
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(376014)(1800799024)(10067099003)(6133799003)(3023799007)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|10067099003|11063799006|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 7baRqnGRIXlC3qPIDmgw0aMqEnjb4xbdKBI3gCl2sPtqbzrigUCpaX3JUbgWYPwQeQonshQOTowypQ5WlJTbu62ax04zy+SYAIA9MvOiVvjDdFwJWleY6FN5VsTjTR7XfQdjb0ANErjulywMTBmknzKuaWl3iDMIniSkFKJDO5mhPaFJH9/lTJV16YwvUbelCUwtR23T5t5Y/ivDnD1CE0IwN26R+AyYmDQd/9H+tslCquoOFdGwYE7ooSFxjATULY8dz+c7MUBIk+oJCvLZDn4TL/zSt0ZTcnK011CWn5iGSmoDAFkRe9D5IE5qdCOoNEzJGNzzSgRnEo3L/Zv28SmY1Rv++RneST0RtVwnLkldG702pfHh3Sj4uh0Xz6b3lkOEbQLAdMYov5aQN6H/pIM1kMxHz49d81nHECddcCusfIoFXXczEqUfjnw+IuYpp+xdmi0XtgmjvlXRwHsgH7fJYqSb8EPErUjv+3fCnQg7jproXdnqaJLHTfVU0qHBB+Wp5xx8sDt2rmwlLOoQbEnca/gvxBnzbp2QIcetlQLDbzuCQhNj9IMRZ41c4y6xEjHIqIu7CSge82kFyqea2vmxXJZW8yGEhMU0276vjRDl12CUnoeBhY4Tp5syxpUQMqmwxV5uaYE2JMMEqcTmd53+2ipiec3J9T1Neqg5QAknUhmhGMR9ycFl7dnX3AiDoMqXrtYoxvryv00qpTtKTQ==
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(10067099003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: x6u/S+nEmkA85p50yDKtJRJBHwtSin4qLMIuXDXTS6D4t9mdcBqRtTUeGbyBe37W3SL1DnCDiA6L3cwX9W6m7Wh7LAcCzdTW0Q2f40IAmJcfUsNPan6MVRR3U6BEY3Q44AyzHhAfC8zNzD1bSU8mfr+NM0zcWD1uYbFFAR0PjBijDltiu7uEzle16SWRsoYlAGMfFYywjPPP5RRE+CFPZjDQOyPbDbnYpU8EUvyFguxERJw2CWi3ZWFw2RacCeXldlgEB91Q3TmUkbzPdnNiKNxzTiux+OoBQvhuOXx7Fu4TOyAt7QTzDmcldvzSP0nCTOTPidmASFZuemnrkS9ao6eiUhcWJ1Yha3F5/N74kQQ9DRli5FOOtKdcNjs5sYuA4gw3hWz+wf2DxQxViDzjO+N8dQUpLrHiIN48sme4kSN5xmB6phJ7VYuomVNFPPvh
+X-MS-Exchange-AntiSpam-MessageData-0: oV6bDXkdIO4I84d7D6fhBtH3AsHWUMzrAVIqtdMNOVRWxevsYJKH8wykv/oD+CdQwA0wArZEGokdGfAtExvomW3GqfC49mSUg9SZ2m+i0/nUpZRWvovzLNDMxQLFs+OTjZkUfnLP2Zyc8s32DmR1AIDBlxgE6Fa5PWEIFK8h7jQ4AwfLGoHKeqyamM8F/UW6LEP+/NMxFGbDduDJNpDzKmRAxYwPaIW2bdXM8PdAyW8E5N5wIw9BDR7yuFWXITQAvhHH8lJmMyG7FYKtARJvpQJ1dmtw5OxkDtfmNciKqI1UJTpbZuNl4/ctAg4j1M64bof6FoxPWWEpLTMKdlyvIM9SjelURvBK6Fh08raD71Vs7iK3+shZIqfN+sokp/DdB8HTeMPz8J2iRAbMnP+Vj4h2E9+VdvmjfgB5oGvYg6u9j5F2Jch+nXVXEb8U32ne
 X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 13:01:19.6980
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 13:01:25.3376
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37500e36-4f33-4247-7d9d-08df08f24862
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95b8c148-ec75-433d-69eb-08df08f24bdc
 X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay2.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay1.compute.ge-healthcare.net]
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-BN3PEPF00022BD4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CH1PEPF0000AD76.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR22MB4402
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR22MB5699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_060133_789937_13005E4B 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260902_060140_808325_1215176F 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,43 +128,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit da09daf88108 ("drm: bridge: dw_hdmi: only trigger hotplug event
-on link change") made hotplug detection also consider rxsense: a
-disconnect is now reported only when both HPD and rxsense are low.
+HDMI is converted to DP in the B450, B650, and B850 boards; as such the
+rxsense must be ignored for hotplug detect to work.
 
-This is a problem for boards that route the HDMI output through a
-downstream device which keeps the TMDS lines permanently loaded. On the
-GE B450/B650/B850 (bx50v3) boards an STDP2600 HDMI-to-DP converter is
-used, so rxsense is always asserted and a disconnect is never reported,
-even though the HPD signal works correctly. The connector is stuck in
-the "connected" state.
+Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-This series adds an optional 'ignore-rxsense' device tree property that
-restores HPD-only detection for such boards, and enables it on the
-bx50v3 boards. The change is backward compatible: without the property
-the existing behaviour is unchanged, so old device trees are unaffected.
-
-  Patch 1 adds the device tree binding.
-  Patch 2 adds the driver support in the common dw-hdmi layer.
-  Patch 3 enables the property on the imx6q bx50v3 boards.
-
-  `make dt_binding_check' is clean for the schema.
-  `make CHECK_DTBS=y' is clean for the device trees.
-
-Note: The series touches two subsystems. Patches 1-2 target drm-misc;
-patch 3 (ARM dts). Sent together for context, but driver support must
-land first.
-
-Ian Ray (3):
-  dt-bindings: display: synopsys,dw-hdmi: add ignore-rxsense
-  drm/bridge: dw-hdmi: optionally ignore rxsense when detecting hotplug
-  ARM: dts: imx: bx50v3: ignore HDMI rxsense
-
- .../bindings/display/bridge/synopsys,dw-hdmi.yaml         | 8 ++++++++
- arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi               | 5 +++++
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c                 | 6 ++++++
- 3 files changed, 19 insertions(+)
-
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
+index 2c8d2ab8cda1..8e129b1bdbbf 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
+@@ -174,6 +174,11 @@ m25_eeprom: eeprom@0 {
+ 	};
+ };
+ 
++&hdmi {
++	/* converted to DP using STDP2600 */
++	ignore-rxsense;
++};
++
+ &i2c1 {
+ 	pinctrl-names = "default", "gpio";
+ 	pinctrl-1 = <&pinctrl_i2c1_gpio>;
 -- 
 2.47.3
 
