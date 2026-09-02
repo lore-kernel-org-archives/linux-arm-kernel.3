@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0CDC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48DDCC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=; b=dZ/JtIzFnW4B38G+WxAPIFBX1t
-	tSAtFkyX8xAbqfdSuBROoEcbfbYaj9XRDRw8pPTS/oRaVxGkWso14TpdaRE3mMb/7XUDC0I3VjgOZ
-	sVUqNX1VfFbaF1DgeSUpCNNMuw7CKj+t1742cF83RI1WTH2oECqeqM7re8irQVtZ5QEYqVhX978L7
-	wvOC30sgy4/EDv5eklfPo7sObSjuvbUsk/Nf7gpKQF37uB59dwjHipWd1TEdYsBZ+dPb6FUx5VSUz
-	UL0b0NDAUsHY5Cq18JVxwIa13251ezsQXOh7fpHkDVjCCzH1KqKuwBjDRmtcaypV6vIQsHJjBWIlQ
-	xOpRRFLA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3iZk4OWcdg0+cXmzhzjzSGUo3JXPkTbXucm5mccprQ=; b=GJ8I1zaBKkSQPMkLd24rQ+T79C
+	48+nHQSf1qwP7VSdnSxJb2sAVaQ7JguUUJZmdJI5AUQHbCvAfz2WwTJTK4HGyYkiSWkaPkoxhb1/j
+	W9rNrofQl/9KxOvJcaavV3nIXZ2JoYTkSsNlGiEKeeWQRwwpF9PpBl6mEchhsAqk2vjXcrAAqkLju
+	T/dGxIgjQk3qmv+RGSGB+TcrcaGGLsUptCv3MuDCdE7FxxCjienmlTRLRgiQSAAWTVzAVA/Z+PezK
+	Kb3mxQ/Y3KcYWKwo0JJB/t0P3e0t33DNo7nnsz+Tynx14ky2DRwLSvU/H8Y3uYZtd3sFLaSlWbhAQ
+	cTh66Uxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iU9-0000000EOEr-2rLn;
-	Wed, 02 Sep 2026 10:46:29 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1x1iUG-0000000EOGa-3ZOU;
+	Wed, 02 Sep 2026 10:46:36 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iU6-0000000EOEL-1dKx
+	id 1x1iUE-0000000EOFr-3hKB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 10:46:28 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954a9e8490so12670445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:46:24 -0700 (PDT)
+	Wed, 02 Sep 2026 10:46:36 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49cca4ffdcfso6067155e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:46:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1788345984; x=1788950784; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=;
-        b=O5Kao687NgkqQxN1kp7X4i5pm4BJDFDQZNHqOP086hebGhVa3Lwp5Y4nghxIuPub5S
-         jXK98eNP9+xCVcAv5vdaTM51ujrFD1gkHHyX+WaxIivzbXplvKQBD/G9uN7uwpWDYPzD
-         Tal5NpcAzZtZ9DkOIRn44LSZaM5NobQfe+C94f3e5NfO5WWklie73WBWtmpJhMdWpVAM
-         et6AkV/tjdVwndeS76tk8Yr7E4eBodYV8Tn9fT4uWwAFDvjPVyL/z917jzq6qtFvqp7B
-         dbP8JqLJ7QFPb3XDlqhplu1jDyKPY8pNkKGQ15QAJ2lKqf6PvQ+IQeqHfo0dyGR9SZRS
-         o5uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788345984; x=1788950784;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1788345993; x=1788950793; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=;
-        b=Dx4NYs5JJALF4Tk85jddw5jWNJaEbD0Fs1/D4R7dl7TSNiXHNFo3Qe2AxRPmKZeZR3
-         4yVfl6RXj0uR+I3QMic5EO6veviSq+HdY/yM+yhtfPqEnZK8x3TVmG8ZOfvtgtqnOQqR
-         PhMYDkyUkcLMEeIs3glOSSSQWiAM/mB94i6qzsFo7eRAGRETupYEqlUFRToZVXXMUFQp
-         5v8DyZHylu6qqYkOVas90IQPwpD02frHXzyf30oKNILlG3Fv3vdn+wMc9NlI0ais0wh4
-         HVO4/IaNb3GaaEy8fRJPncJcZm+vecTR5VHV/CkAjgZTi0FmLbiF1VDmkrr3SRuH5P5q
-         IS1A==
-X-Forwarded-Encrypted: i=1; AHgh+RrEr/nAFbuJ76z3u0uxvMKFvmLwul8WvI9KO/4yeAVjExv+QKYRuJbqJVN4ruC7cPOtybUkagqnB9jMnNHz3sKd@lists.infradead.org
-X-Gm-Message-State: AFuF++mBn9N9VngqotMr3rdBR2/CMddITuk2S4uwCuO8i+IavQdNfmEM
-	nrnLHWL9+YmIbUA9aiR9kBUHBBCzegGDm6CLrGfGqYBpHLMMkZ0GDtgFzgBYbvXVhXU=
-X-Gm-Gg: AR+sD10Jdh/4wl/d8ikHUspVr/pF+Mpyo+BTSGeQrIffwInF5++/0JR6T7rfOY/G21C
-	DoemJbQlfYJZVBxKubrsAaGjNkUNszUQ3/6EOV4GaBGwocDwU+AD3YuzNjXutO2B88FtjtGhhIT
-	pHp1dmoXddtzZST6JBZOnrX2HIJ4tSbjpmrqOreiEuAZq3H2eC2cREVvxpYIGFVqo08NDGcat6I
-	4ML9aQtCSO6YzW82OuCzKR5xp0lFiRd4m8x2de3V6awT1uq2V1kgDzh7XzfoSRaCMjje7wcqfcp
-	hFoZg1HAnSp/leY27WFmQDcLf6F0/JwI1X6e5YY+hNgXhX3MCnlaM9qDswmXQaZsJvkRKz3F32E
-	OvjkddydoArEXkQRiNBeaXd1RKKmE7e10bMHvVgL3G+v3+BqW86blgAvTpvujalga1AUu4TTcaS
-	TVyjdqb0bLS99Hfq0uxXusDvxVdui+ayWSS5A5yDE3wl/xtiBtXV+kxPkJ0SafzUfBnfW3Bx2om
-	n7AE0vMasNLmi6zMBFTJw0=
-X-Received: by 2002:a05:600c:8718:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49ce7c03f46mr34819935e9.3.1788345983519;
-        Wed, 02 Sep 2026 03:46:23 -0700 (PDT)
+        bh=L3iZk4OWcdg0+cXmzhzjzSGUo3JXPkTbXucm5mccprQ=;
+        b=sjzTc3T6tHvZp3qH0i/0jgaUet1H5RDp9CmAWfAX6n36J8FhNlKFgguzUUDcwnCFYG
+         DL0k12FtGWxXmomYZOYY+yuVm7HdVt2Y/mfAjqstwjuaLsxUSdsrl/JoGHu8E8QcW3dK
+         hcUBbb3Yk9IXAt+yzrjzLCd4mmigZnzdxUtMuQCJQ3EK20niTPJzhi4DCiuVQ/EovJNJ
+         J7G25yj9Jw4TpX0kl/qi86PdWe4p20iXDbhJMzPZQTGwmmD7HFgMZ4gEQyF955A3Lwkg
+         dzcrHJiagTY+klp3XgZI1usUgWwbu4sUO/dKoPW3vbrrZaDWM9pJzM1oTrO46tjV2987
+         cfbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788345993; x=1788950793;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L3iZk4OWcdg0+cXmzhzjzSGUo3JXPkTbXucm5mccprQ=;
+        b=S/mkiKknXHS+BkpN02Uu2p277+H2obKa0GvpeQhqkglYiwpXrTEy4ZLHJKvfNPZEWI
+         u2mNfuNclpCS6T4NJMc21cFXcyZqDPxwEYrV7pUMPkViJwDms+iOH8YvpLA35CuSEoVr
+         rdMHrNq80w1p69FHHq1O2NE0d2ctk8y+OU+kkwoL6AxyQY0HFzFT6a3tarJry558pSCc
+         Dnf6Rna2XC09XWxFCjGpg+8ayQpMORvABOzKotJjUsVUoTpfkT1BdF7v4+sTT/+4UaDX
+         KwYY3Zfo9hv4Viffq5EXtNKCdCfMcqmMr7m8Ccpmm/y4OUfylBUUYe+aHvGcL6dkex53
+         LiNw==
+X-Forwarded-Encrypted: i=1; AHgh+RrP8tfP4tqug+buVVSPe0jQz2y0eXAB85TaidDUpWJxd9FuEGCQ2KLfTrFMYCpkpN9oMdfQ82/tRQ2oJI3jvrWt@lists.infradead.org
+X-Gm-Message-State: AFuF++n9KgypSq1FAc16vTQ8D6ZcPfhcM/fTE1zTGFw4bKyFDq/HWGsK
+	U7fcbueApdgT+OniFc5slVchGGb/OE3wTqLVl3Vj5cIhLtfOnXHFGziSdm9clZBDb88=
+X-Gm-Gg: AR+sD11l7s1CTlsf/bExahHYB9Il4opfNZozpM2S7PsayCKZNFZ1y2ohfjHNyRFFkFc
+	AVnEiyzBB+nRh37dcuDF3O3DN4g5/BYkZM0qLNEU8FR3tqo9LOYJrO93oGngjGfkGW2cb0j64gd
+	981zvcP3lV8nmSpk0WmSjldHPFetDoh8LTa0HM+i6hNJ13WsevPAkuiyX7ugqovqHTZnLT8MXkd
+	Pwl8C2Gs/VZ8aITFKKo6UvtSizRXry64Oe27o/bjjf+14schU0xazg+/8Sctw4D+Dp03MI8Gatv
+	B6O7FfTjwIXtwtF9DuBhXXheiAkpILsXHhFKgZWZ0NrW/Oqtd5bU4XAae9wBCKZ38A8FCult5/z
+	d1MSksyVDJCwBIsmAXRjRcdL7vHj6+RsCRh0vueug2LYDL9YReM43bMWAaiz7dAHCZfRdpFcnnz
+	XZKSOFMvrvca10tgSgQz46+Df3VPWFqlLRcAH0KmP8IVWNxbcK6LCsmxFz65zuSlLGkySQOEEGT
+	SzGIuXyUwGEJUoxq4OjXJ4=
+X-Received: by 2002:a05:600c:8b88:b0:495:5890:8f6c with SMTP id 5b1f17b1804b1-49ce581a0a0mr75334855e9.7.1788345992988;
+        Wed, 02 Sep 2026 03:46:32 -0700 (PDT)
 Received: from dev-ag.figment.co.za ([102.33.165.38])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce5936a5esm20127665e9.3.2026.09.02.03.46.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce5936a5esm20127665e9.3.2026.09.02.03.46.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 03:46:22 -0700 (PDT)
+        Wed, 02 Sep 2026 03:46:32 -0700 (PDT)
 From: Andrew Gaylard <ag@ffroot.co.za>
 To: qinjian@cqplus1.com,
 	linux-arm-kernel@lists.infradead.org
@@ -78,15 +79,17 @@ Cc: robh@kernel.org,
 	linux@armlinux.org.uk,
 	devicetree@vger.kernel.org,
 	Andrew Gaylard <ag@ffroot.co.za>
-Subject: [PATCH 0/2] arm: sunplus: add SP7021 LTPP3G2 board support
-Date: Wed,  2 Sep 2026 12:45:43 +0200
-Message-ID: <20260902104545.67794-1-ag@ffroot.co.za>
+Subject: [PATCH 1/2] arm: dts: sunplus: add peripheral device nodes to sp7021.dtsi
+Date: Wed,  2 Sep 2026 12:45:44 +0200
+Message-ID: <20260902104545.67794-2-ag@ffroot.co.za>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260902104545.67794-1-ag@ffroot.co.za>
+References: <20260902104545.67794-1-ag@ffroot.co.za>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_034626_679490_3B638022 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260902_034634_962808_03DE16FF 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +104,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds device tree support for the Tibbo LTPP3G2 board, which
-is based on the Sunplus SP7021 SoC (quad-core ARM Cortex-A7).
+Add device tree nodes for SP7021 peripherals whose drivers are already
+upstream:
 
-Patch 1 adds peripheral device nodes to the SP7021 SoC DTSI for
-peripherals whose drivers are already upstream: PWM, watchdog, eMMC,
-and the L2SW Ethernet switch.
+- PWM controller
+- Watchdog/STC timer
+- eMMC controller (mmc0)
+- Ethernet switch (L2SW)
 
-Patch 2 adds a DTS for the LTPP3G2 board itself, enabling those
-peripherals and configuring the board-specific pinmux and Ethernet
-topology. It also updates the defconfig to enable the relevant drivers.
+Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
+---
+ arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi | 48 +++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-Tested on the Tibbo LTPP3G2 board with linux-next 20260901.
-
-Andrew Gaylard (2):
-  arm: dts: sunplus: add peripheral device nodes to sp7021.dtsi
-  arm: sunplus: add Tibbo LTPP3G2 board support; update defconfig
-
- arch/arm/boot/dts/sunplus/Makefile            |   5 +-
- .../dts/sunplus/sunplus-sp7021-ltpp3g2.dts    | 301 ++++++++++++++++++
- arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi |  48 +++
- arch/arm/configs/sp7021_defconfig             |  30 ++
- 4 files changed, 381 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
-
+diff --git a/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi b/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
+index ae9bbe0320b8..9bb349a5542a 100644
+--- a/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
++++ b/arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi
+@@ -291,6 +291,54 @@ uart4: serial@8780 {
+ 			pinctrl-0 = <&uart4_pins>;
+ 			status = "disabled";
+ 		};
++
++		pwm: pwm@7a00 {
++			#pwm-cells = <2>;
++			compatible = "sunplus,sp7021-pwm";
++			reg = <0x7a00 0x80>;
++			clocks = <&clkc CLK_DISP_PWM>;
++			resets = <&rstc RST_DISP_PWM>;
++			status = "disabled";
++		};
++
++		wdt: watchdog@630 {
++			compatible = "sunplus,sp7021-wdt";
++			reg = <0x630 0x08>, <0x274 0x04>;
++			clocks = <&clkc CLK_STC0>;
++			resets = <&rstc RST_STC0>;
++			status = "disabled";
++		};
++
++		mmc0: mmc@3b00 {
++			compatible = "sunplus,sp7021-mmc";
++			reg = <0x3b00 0x180>;
++			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clkc CLK_CARD_CTL0>;
++			resets = <&rstc RST_CARD_CTL0>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&emmc_pins>;
++			bus-width = <8>;
++			max-frequency = <52000000>;
++			non-removable;
++			disable-wp;
++			cap-mmc-highspeed;
++			mmc-ddr-3_3v;
++			no-sdio;
++			no-sd;
++			status = "disabled";
++		};
++
++		l2sw: ethernet@108000 {
++			compatible = "sunplus,sp7021-emac";
++			reg = <0x108000 0x400>;
++			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clkc CLK_L2SW>, <&clkc PLL_E_25>,
++				 <&clkc PLL_E_2P5>, <&clkc PLL_E_112P5>;
++			clock-names = "l2sw", "plle_25", "plle_2p5", "plle_112p5";
++			resets = <&rstc RST_L2SW>;
++			status = "disabled";
++		};
++
+ 	};
+ 
+ 	leds {
 -- 
 2.53.0
 
