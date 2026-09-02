@@ -4,49 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B148C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B58FC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sHbodhSuVQFDd5DH6SbPy+kbc6nPgBa+etGiPdlahE=; b=hW+q+0GDLebujmdaQqgYJUZyxq
-	S1Bu5a9q6yTirYml7jMUBc68UUrrDeew/IrdRFNJhmUrcO6kO2OghcwfcNhJmR+JmsQ5s4rUY4owr
-	7svX8rw2QRsnDiIy1KTzuCdV9FpFgBUDtSmD5jGftxf8ud7PD0SDW00HWm/WL9/v+rezj3yD9VtKB
-	fzJT/z507akfwuAojKiqSbpIfpV2MuKHvADDqeFEqC9ZuDwsUWgTCToPCV99mhYzFosdA/zWvMoZ0
-	E6cwbXSkSSUpKXRM3U+zCUyVP0XJkr4HuXgZaMV0oT3Ors3FPiGMm3oIBtgmcqjsz7+OGFQPMYRTM
-	XJd8zJ9g==;
+	bh=QSk7N42z/E0aSGwJSoS5uvlLSbYqJqcS/6p2yhQSxUk=; b=TqTaremSG/i8smh7ht8wLxnCDr
+	Qv78CwUK7axUKHa+TludEqn9yP9vsz1pYMOJeS1pNLSbYCep1DjnyBzCKzVPs0Z+KG6BzSyvaOb68
+	HUA4dKZ7BRRwEzM5ifwcm13oLJVY1+GZAqiogEGt1dDT084cadUENxDg5DvL0mUFv+x2/VCOFcb1U
+	f9w2GoBQYdFupWFQL1uZtKOcwyc6+gPYXZuxfPsYlEYwCqTRnFc8vQtjyvRNqQz2TxlW3pFp8455n
+	4bfYqcswHBFRSf95dP2x4JUzMd6wjo8hBfeB26DMrFBvX4q7Uk7TdLwW/rfFoH+Hoo42UVcbR+t8M
+	K3Uk9HQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jwh-0000000EeBJ-0S5i;
-	Wed, 02 Sep 2026 12:20:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jwf-0000000EeAG-46C4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Sep 2026 12:20:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3sHbodhSuVQFDd5DH6SbPy+kbc6nPgBa+etGiPdlahE=; b=pK2pOVhKkYdceW3BvZW5wXplFm
-	0gU9A7mpSB1qsDiQUeghFK9irSibQrq/FqRACFChIw49mjmBf5Wr81CnuBvW0v68M0vqpNpDZBlhq
-	67B0DzgEGLfIii7AKFBR8frgekwXfI8auScbN7UlKOlDcuvzn2z084o5OxRIA2umTuNZ+nLLY36AA
-	z+WMnWCcdIng0PLbTnBSiwo17s0m/8MjLmRGm1F4oOSvCe/MDnNxrs+ykwN9Au0a61Cz9ZcK8OXKz
-	xmY1KdQu0RrYedI51s+WJ2ucatzV76YgHcBR51JEaBiCNdedZi/M7M7z63q5bd10g1Wr9DiXeBYe4
-	ciAvy6ZQ==;
+	id 1x1jwq-0000000EeI3-1p8j;
+	Wed, 02 Sep 2026 12:20:12 +0000
 Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1jwd-0000000BxqK-1Kuk
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1jwm-0000000EeE9-2GrH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:20:01 +0000
+	Wed, 02 Sep 2026 12:20:11 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 45A581F7E4;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 671581F81C;
 	Wed,  2 Sep 2026 12:19:43 +0000 (UTC)
 Authentication-Results: smtp-out2.suse.de;
 	none
@@ -54,12 +39,12 @@ Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 55EA01397A;
-	Wed,  2 Sep 2026 12:19:40 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 93710136E6;
+	Wed,  2 Sep 2026 12:19:41 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id kF+JE1wUmGqxEAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 02 Sep 2026 12:19:40 +0000
+	id cBiWIl0UmGqxEAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Wed, 02 Sep 2026 12:19:41 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: jfalempe@redhat.com,
 	javierm@redhat.com,
@@ -83,29 +68,30 @@ Cc: dri-devel@lists.freedesktop.org,
 	virtualization@lists.linux.dev,
 	sashiko-reviews@lists.linux.dev,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v3 10/14] drm/panic: Restrict to primary planes
-Date: Wed,  2 Sep 2026 14:13:18 +0200
-Message-ID: <20260902121930.597222-11-tzimmermann@suse.de>
+Subject: [PATCH v3 12/14] drm/panic: Internalize panic locking in DRM core and helpers
+Date: Wed,  2 Sep 2026 14:13:20 +0200
+Message-ID: <20260902121930.597222-13-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260902121930.597222-1-tzimmermann@suse.de>
 References: <20260902121930.597222-1-tzimmermann@suse.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
-X-Rspamd-Queue-Id: 45A581F7E4
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 671581F81C
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-Spamd-Result: default: False [-4.00 / 50.00];
 	REPLY(-4.00)[];
 	R_RATELIMIT(0.00)[to_ip_from(RLqtkr6cif1ebgurukgmwdm7xc)]
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_131959_471389_14B1B3E1 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260902_052008_885835_904D693A 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,59 +106,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restrict panic handling to primary displays. Overlays and cursors
-should not display panic output. If there are exceptions, they can
-be registered by the driver itself.
-
-v3:
-- also update drm_panic_is_enabled() (Sashiko)
-- still do some testing when unregistering (Sashiko)
+None of the DRM drivers handles panic locking. Declare the interfaces
+in an internal header file. Move the trylock required during the panic
+into the DRM core's sources.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
 ---
- drivers/gpu/drm/drm_panic.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ Documentation/gpu/drm-kms.rst        |  3 ++
+ MAINTAINERS                          |  3 +-
+ drivers/gpu/drm/drm_atomic_helper.c  |  2 +-
+ drivers/gpu/drm/drm_drv.c            |  2 +-
+ drivers/gpu/drm/drm_panic.c          |  4 ++
+ drivers/gpu/drm/drm_panic_internal.h | 55 +++++++++++++++++++++++
+ include/drm/drm_panic.h              | 65 ----------------------------
+ 7 files changed, 66 insertions(+), 68 deletions(-)
+ create mode 100644 drivers/gpu/drm/drm_panic_internal.h
 
+diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
+index 0dd440a14946..8988fd64369b 100644
+--- a/Documentation/gpu/drm-kms.rst
++++ b/Documentation/gpu/drm-kms.rst
+@@ -421,6 +421,9 @@ Plane Panic Functions Reference
+ .. kernel-doc:: include/drm/drm_panic.h
+    :internal:
+ 
++.. kernel-doc:: drivers/gpu/drm/drm_panic_internal.h
++   :internal:
++
+ .. kernel-doc:: drivers/gpu/drm/drm_panic.c
+    :export:
+ 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c66c3fe93f3d..ccc5dc0a01ae 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9111,7 +9111,8 @@ S:	Supported
+ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+ F:	drivers/gpu/drm/drm_draw.c
+ F:	drivers/gpu/drm/drm_draw_internal.h
+-F:	drivers/gpu/drm/drm_panic*.c
++F:	drivers/gpu/drm/drm_panic.c
++F:	drivers/gpu/drm/drm_panic_internal.h
+ F:	drivers/gpu/drm/tests/drm_panic_test.c
+ F:	include/drm/drm_panic.h
+ F:	include/drm/drm_panic_helper.h
+diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+index 285aac3554df..af3934df3313 100644
+--- a/drivers/gpu/drm/drm_atomic_helper.c
++++ b/drivers/gpu/drm/drm_atomic_helper.c
+@@ -41,7 +41,6 @@
+ #include <drm/drm_drv.h>
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_gem_atomic_helper.h>
+-#include <drm/drm_panic.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_self_refresh_helper.h>
+ #include <drm/drm_vblank.h>
+@@ -49,6 +48,7 @@
+ 
+ #include "drm_crtc_helper_internal.h"
+ #include "drm_crtc_internal.h"
++#include "drm_panic_internal.h"
+ 
+ /**
+  * DOC: overview
+diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
+index 8c0879c336e5..64055514acbf 100644
+--- a/drivers/gpu/drm/drm_drv.c
++++ b/drivers/gpu/drm/drm_drv.c
+@@ -51,13 +51,13 @@
+ #include <drm/drm_file.h>
+ #include <drm/drm_managed.h>
+ #include <drm/drm_mode_object.h>
+-#include <drm/drm_panic.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_privacy_screen_machine.h>
+ #include <drm/drm_ras_genl_family.h>
+ 
+ #include "drm_crtc_internal.h"
+ #include "drm_internal.h"
++#include "drm_panic_internal.h"
+ 
+ MODULE_AUTHOR("Gareth Hughes, Leif Delgass, José Fonseca, Jon Smirl");
+ MODULE_DESCRIPTION("DRM shared core routines");
 diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 624042c42a7f..381f8aab3661 100644
+index 7b9864857577..41ba0c4b050e 100644
 --- a/drivers/gpu/drm/drm_panic.c
 +++ b/drivers/gpu/drm/drm_panic.c
-@@ -1059,9 +1059,13 @@ bool drm_panic_is_enabled(struct drm_device *dev)
- 	if (!dev->mode_config.num_total_plane)
- 		return false;
+@@ -35,6 +35,7 @@
  
--	drm_for_each_plane(plane, dev)
--		if (plane->helper_private && plane->helper_private->get_scanout_buffer)
--			return true;
-+	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
-+		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
-+			continue;
-+		return true;
-+	}
- 	return false;
+ #include "drm_crtc_internal.h"
+ #include "drm_draw_internal.h"
++#include "drm_panic_internal.h"
+ 
+ MODULE_AUTHOR("Jocelyn Falempe");
+ MODULE_DESCRIPTION("DRM panic handler");
+@@ -976,6 +977,9 @@ int drm_plane_helper_display_panic_screen(struct drm_plane *plane, const char *d
  }
- EXPORT_SYMBOL(drm_panic_is_enabled);
-@@ -1079,6 +1083,8 @@ void drm_panic_register(struct drm_device *dev)
- 		return;
+ EXPORT_SYMBOL(drm_plane_helper_display_panic_screen);
  
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		plane->kmsg_panic.dump = drm_panic;
-@@ -1106,6 +1112,8 @@ void drm_panic_unregister(struct drm_device *dev)
- 		return;
++#define drm_panic_trylock(dev, flags) \
++	raw_spin_trylock_irqsave(&(dev)->mode_config.panic_lock, flags)
++
+ static void drm_panic_display_panic_screen(struct drm_plane *plane, const char *description)
+ {
+ #if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
+diff --git a/drivers/gpu/drm/drm_panic_internal.h b/drivers/gpu/drm/drm_panic_internal.h
+new file mode 100644
+index 000000000000..c68d64c56e15
+--- /dev/null
++++ b/drivers/gpu/drm/drm_panic_internal.h
+@@ -0,0 +1,55 @@
++/* SPDX-License-Identifier: GPL-2.0 or MIT */
++
++/*
++ * Copyright (c) 2024 Intel
++ * Copyright (c) 2024 Red Hat
++ */
++
++#ifndef __DRM_PANIC_INTERNAL_H__
++#define __DRM_PANIC_INTERNAL_H__
++
++#include <linux/spinlock.h>
++
++struct drm_device;
++
++#ifdef CONFIG_DRM_PANIC
++
++/**
++ * drm_panic_lock - protect panic printing relevant state
++ * @dev: struct drm_device
++ * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
++ *
++ * This function must be called to protect software and hardware state that the
++ * panic printing code must be able to rely on. The protected sections must be
++ * as small as possible. It uses the irqsave/irqrestore variant, and can be
++ * called from irq handler. Examples include:
++ *
++ * - Access to peek/poke or other similar registers, if that is the way the
++ *   driver prints the pixels into the scanout buffer at panic time.
++ *
++ * - Updates to pointers like &drm_plane.state, allowing the panic handler to
++ *   safely deference these. This is done in drm_atomic_helper_swap_state().
++ *
++ * - An state that isn't invariant and that the driver must be able to access
++ *   during panic printing.
++ */
++#define drm_panic_lock(dev, flags) \
++	raw_spin_lock_irqsave(&(dev)->mode_config.panic_lock, flags)
++
++/**
++ * drm_panic_unlock - end of the panic printing critical section
++ * @dev: struct drm_device
++ * @flags: irq flags that were returned when acquiring the lock
++ *
++ * Unlocks the raw spinlock acquired by either drm_panic_lock() or
++ * drm_panic_trylock().
++ */
++#define drm_panic_unlock(dev, flags) \
++	raw_spin_unlock_irqrestore(&(dev)->mode_config.panic_lock, flags)
++
++#else
++static inline void drm_panic_lock(struct drm_device *dev, unsigned long flags) {}
++static inline void drm_panic_unlock(struct drm_device *dev, unsigned long flags) {}
++#endif
++
++#endif /* __DRM_PANIC_INTERNAL_H__ */
+diff --git a/include/drm/drm_panic.h b/include/drm/drm_panic.h
+index 430df536de14..99572b7eeab9 100644
+--- a/include/drm/drm_panic.h
++++ b/include/drm/drm_panic.h
+@@ -8,11 +8,9 @@
+ #ifndef __DRM_PANIC_H__
+ #define __DRM_PANIC_H__
  
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		kmsg_dump_unregister(&plane->kmsg_panic);
+-#include <linux/module.h>
+ #include <linux/types.h>
+ #include <linux/iosys-map.h>
+ 
+-#include <drm/drm_device.h>
+ #include <drm/drm_fourcc.h>
+ 
+ struct page;
+@@ -85,71 +83,8 @@ struct drm_scanout_buffer {
+ 	 * set_pixel()
+ 	 */
+ 	void *private;
+-
+ };
+ 
+-#ifdef CONFIG_DRM_PANIC
+-
+-/**
+- * drm_panic_trylock - try to enter the panic printing critical section
+- * @dev: struct drm_device
+- * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
+- *
+- * The panic-printing code calls this function. The panic printing attempt must
+- * be aborted if the trylock fails.
+- *
+- * Return:
+- * %0 when failing to acquire the raw spinlock, nonzero on success.
+- */
+-#define drm_panic_trylock(dev, flags) \
+-	raw_spin_trylock_irqsave(&(dev)->mode_config.panic_lock, flags)
+-
+-/**
+- * drm_panic_lock - protect panic printing relevant state
+- * @dev: struct drm_device
+- * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
+- *
+- * This function must be called to protect software and hardware state that the
+- * panic printing code must be able to rely on. The protected sections must be
+- * as small as possible. It uses the irqsave/irqrestore variant, and can be
+- * called from irq handler. Examples include:
+- *
+- * - Access to peek/poke or other similar registers, if that is the way the
+- *   driver prints the pixels into the scanout buffer at panic time.
+- *
+- * - Updates to pointers like &drm_plane.state, allowing the panic handler to
+- *   safely deference these. This is done in drm_atomic_helper_swap_state().
+- *
+- * - An state that isn't invariant and that the driver must be able to access
+- *   during panic printing.
+- */
+-
+-#define drm_panic_lock(dev, flags) \
+-	raw_spin_lock_irqsave(&(dev)->mode_config.panic_lock, flags)
+-
+-/**
+- * drm_panic_unlock - end of the panic printing critical section
+- * @dev: struct drm_device
+- * @flags: irq flags that were returned when acquiring the lock
+- *
+- * Unlocks the raw spinlock acquired by either drm_panic_lock() or
+- * drm_panic_trylock().
+- */
+-#define drm_panic_unlock(dev, flags) \
+-	raw_spin_unlock_irqrestore(&(dev)->mode_config.panic_lock, flags)
+-
+-#else
+-
+-static inline bool drm_panic_trylock(struct drm_device *dev, unsigned long flags)
+-{
+-	return true;
+-}
+-
+-static inline void drm_panic_lock(struct drm_device *dev, unsigned long flags) {}
+-static inline void drm_panic_unlock(struct drm_device *dev, unsigned long flags) {}
+-
+-#endif
+-
+ #if defined(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
+ size_t drm_panic_qr_max_data_size(u8 version, size_t url_len);
+ 
 -- 
 2.55.0
 
