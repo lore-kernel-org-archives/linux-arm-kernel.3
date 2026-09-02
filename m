@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F6EFC61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885E9C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tHRD4WxC/IaJcjkVhlf5WlP0bokX0W9deHxSA1TN92g=; b=hL2xK+WDCcn1NzjK2moCx9HjbP
-	mPpdGgQXrnVg80EJslsQuLWDaV8+MDE4Lx+gIJq2OCDcKiA6mQAxxe8hNUBLBzLviFxPydRvyTqK1
-	Mik/HQcVUJMiF2qUC1llhL+jRLEA49JN+E3EBAkOqBDyHIOQT+Cynre48Qy4FUGWL4E1MeHwwnQDC
-	rMH3B8t/dHOhXNUhMkrVmbmO8MGQ5X++0CQ35H7T2gYw4JIIfi5g6nXaiz4x6DgORvTJbcTJVVpdL
-	YglE+KPFCNT/vlCutCdqG0cKBbZBtUxNom/W1SvqN57/YKUkHcAsCrmyElvUqvDX6pB0TWUoV2goT
-	p+LaQMXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DlTJOIsThjiSM/dkMSfWXp9ZPGqirIyhJ6Grt5P8AUA=; b=So4RNkTGsXmFidTmimSxwXLcWQ
+	dpqDPcpGaTUGVi7mr4WOwoauTmogwqRDCjnqP7nrjhu3ufEQ3FpsHVHS+nSghoHXd1VyvscrMVgYt
+	zcvXp6iUS+2yiAQL42FOxvRHQagJsu5mrvPN2maQs73PEPYBtNRotM+Lmu/3t2b22On6xyGt3UNbz
+	CJBClwOTUHQE+dCmV/GOvBYmThm82q2Pzd42JzMIuaDLj3SHiV+GpVsciE8Q7SWzdplsfksIjtoHk
+	J1SKuNW+PFL9zIet9POeU9v6aU8+LESHTcEsTnONO69svq9PFLXzxAnUaqsDSD5RDCjLsbN6LY4si
+	iClSSi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fJB-0000000Dv1F-12ei;
-	Wed, 02 Sep 2026 07:22:57 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1x1fLY-0000000Dv9B-2R5M;
+	Wed, 02 Sep 2026 07:25:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fJ8-0000000Dv0h-0tG6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 07:22:56 +0000
-Received: from PC-202605011814.localdomain (unknown [222.191.246.242])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4c3ae27c0;
-	Wed, 2 Sep 2026 15:22:49 +0800 (GMT+08:00)
-From: Runyu Xiao <runyu.xiao@seu.edu.cn>
-To: Khuong Dinh <khuong@os.amperecomputing.com>
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Jianhao Xu <jianhao.xu@seu.edu.cn>
-Subject: [PATCH] perf: xgene: initialize lock before requesting IRQ
-Date: Wed,  2 Sep 2026 15:22:41 +0800
-Message-Id: <20260902072241.3489222-1-runyu.xiao@seu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1x1fLX-0000000Dv8Z-2Nvi;
+	Wed, 02 Sep 2026 07:25:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F82F600D0;
+	Wed,  2 Sep 2026 07:25:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADCB81F000E9;
+	Wed,  2 Sep 2026 07:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788333922;
+	bh=DlTJOIsThjiSM/dkMSfWXp9ZPGqirIyhJ6Grt5P8AUA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XDj0pHfAS59/KUdvAlCj+JVDqbtR0LF4LH36ZomND++PC0c/U3kb0O2eaVcXYGYZF
+	 FMoEsSlT8I2yP9jm7xm5/5lbxp8/vK2siRw3ZoX28miej3Bp8Hzv2rIlMNOBl3yUo8
+	 fiQ2iYcVEep0worPDZpDACJuVKRHrZtJMgi+VEl2xAvoCLB39rc70tZiYwgnkX1fRE
+	 pdGPdEwKvxCyc/o/yzzaA9U/uETV1LQ+tiXjeZrugtoGjYRGqII3GHYRwdloxcCcZN
+	 0HlQyAJ/AxdnGgmRbrjsClUesLhRna4dWFJSJpuEMI31aSSVi44BBjGjV+fVrRRiOF
+	 JDetf+6cvik6g==
+Date: Wed, 2 Sep 2026 09:25:13 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Koichiro Den <den@valinux.co.jp>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Aksh Garg <a-garg7@ti.com>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>, Jon Mason <jdmason@kudzu.us>,
+	Dave Jiang <dave.jiang@intel.com>, Allen Hubbe <allenbh@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>,
+	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>,
+	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
+	ntb@lists.linux.dev, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] PCI: endpoint: Support hardware-owned MSI-X table
+ and PBA
+Message-ID: <apfPWc09CY2o-P5s@ryzen>
+References: <20260830151948.3547577-1-den@valinux.co.jp>
+ <apVWd1u9JjTKQczu@ryzen>
+ <pj5vpwwd5tr5tuvhdq3bcpefnq27r6ljvwoysguz2o4tglcqx5@l7zmb6wjnhla>
+ <apXdm2I33edo8kpZ@ryzen>
+ <sor2mm4jzgeprhn3fjw4jmcaowwkhhuus6exi4k5kum6frqvug@gatkk7r4qyxd>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa060ffc45a03a1kunmc59ae71f19a9b3
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDHkIeVkhCGU0ZTx8fH0JJT1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUlVSkJKVUlPTVVJT0lZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pPSExVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=DHd4u57ssBnKzKdav46DlB5cj7KC2LdnTpbE/giGCNhstfDQSV0yMswkbiZmoF4XP5Xd6F2E1a14tUfcfgtUXyYl9Vkd43x3y7qVET2Ps+M2Y3uoYm16GxRxT/mMogPl7xO7OwDZYk90T83Ee80HMTpflxZataU39gDY1MsaUVY=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
-	bh=tHRD4WxC/IaJcjkVhlf5WlP0bokX0W9deHxSA1TN92g=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_002254_450148_E5620879 
-X-CRM114-Status: GOOD (  11.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <sor2mm4jzgeprhn3fjw4jmcaowwkhhuus6exi4k5kum6frqvug@gatkk7r4qyxd>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xgene_pmu_probe() requests the PMU IRQ before initializing
-xgene_pmu->lock. request_irq() enables IRQ handling before it returns,
-so xgene_pmu_isr() can run in this window and acquire the uninitialized
-raw spinlock.
+On Wed, Sep 02, 2026 at 11:14:00AM +0900, Koichiro Den wrote:
+> 
+> This still sounds really odd, and it does not obviously explain why both DWORDs
+> at 0x4000 and 0x4004 are affected. I may be missing something important. If
+> anything similar involving iMSIX-TX Table RAM entry #0 has been discussed
+> before, please point me to the relevant thread.
+> 
+> (Also, I can share my current WIP v3 series, which makes pci-epf-test and
+> nvmet-pci-epf use the hardware-owned layout when available, while leaving
+> pci-epf-ntb with its EPF-owned layout. If you have any setup where you could
+> test it, please let me know.)
 
-Initialize the lock before requesting the IRQ so the handler always sees a
-valid lock.
+Some time ago, I did verify that I could raise an IRQ using
+dw_pcie_ep_raise_msix_irq_doorbell(). If I remember correctly, I did so using
+pci-epf-test and not nvmet-pci-epf.
 
-Fixes: 832c927d119b ("perf: xgene: Add APM X-Gene SoC Performance Monitoring Unit driver")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:GPT-5
-Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
----
- drivers/perf/xgene_pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Did pci-epf-test work? (From what you explain, it seems to be related to if
+MSI-X Table entry #0 is used or not.)
 
-diff --git a/drivers/perf/xgene_pmu.c b/drivers/perf/xgene_pmu.c
-index ab3623fab..0aa2b605f 100644
---- a/drivers/perf/xgene_pmu.c
-+++ b/drivers/perf/xgene_pmu.c
-@@ -1873,6 +1873,8 @@ static int xgene_pmu_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return -EINVAL;
- 
-+	raw_spin_lock_init(&xgene_pmu->lock);
-+
- 	rc = devm_request_irq(&pdev->dev, irq, xgene_pmu_isr,
- 				IRQF_NOBALANCING | IRQF_NO_THREAD,
- 				dev_name(&pdev->dev), xgene_pmu);
-@@ -1881,8 +1883,6 @@ static int xgene_pmu_probe(struct platform_device *pdev)
- 
- 	xgene_pmu->irq = irq;
- 
--	raw_spin_lock_init(&xgene_pmu->lock);
--
- 	/* Check for active MCBs and MCUs */
- 	rc = xgene_pmu_probe_active_mcb_mcu_l3c(xgene_pmu, pdev);
- 	if (rc) {
--- 
-2.34.1
+Please share your branch. I should have time to do a quick test.
 
+
+> 
+> > 
+> > 
+> > What I suggest that you instead do something like:
+> > Patch 1/7: pci-epf-vntb: Fix to actually use MSI-X when requested.
+> >            This probably includes adding the code that is inside the
+> > 	   if (ret == -ENOENT) { }.
+> > Patch 2/7: PCI: endpoint: Support hardware-owned MSI-X table and PBA
+> > Patch 3/7: PCI: dw-rockchip: Support fixed MSI-X table and PBA on RK3588
+> > Patch 4/7: pci-epf-vntb: Add code that calls pci_epc_get_hw_msix_layout()
+> >            and uses that layout, if the function returned success.
+> > Patch 5/7: pci-epf-test: Add code that calls pci_epc_get_hw_msix_layout()
+> >            and uses that layout, if the function returned success.
+> > Patch 6/7: nvmet-pci-epf: Add code that calls pci_epc_get_hw_msix_layout()
+> >            and uses that layout, if the function returned success.
+> > Patch 7/7: pci-epf-ntb: Add comment that explains why it cannot call
+> >            pci_epc_get_hw_msix_layout() like all other EPF drivers that
+> > 	   support MSI-X.
+> > 
+> > 
+> > This way, patch 1/7 can be backported, and will help all users vNTB users,
+> > even the users that do not use RK3588 as an EPC.
+> 
+> That split makes sense. However, given the issue I described above, perhaps I
+> should send patch 1/7 as a standalone fix and hold off on the rest until the
+> issue is understood and resolved.
+
+Agreed, a standalone 1/7 patch could be picked up without the need to wait for
+any other changes.
+
+
+> 
+> Testing vNTB alone (ie. this v2 way) did not expose it because its first data
+> doorbell uses MSI-X Table entry #2. I only found the issue because your
+> suggestion led me to convert and test nvmet-pci-epf, thank you!
+
+I'm sorry that we have a problem.
+At least it is better to discover it now, rather than discovering it after
+the patches had been merged.
+
+
+Kind regards,
+Niklas
 
