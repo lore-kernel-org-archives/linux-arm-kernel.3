@@ -4,72 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D072C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F428C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGitWDIlcZr9zvSU+hzEEYkqYzd83UWvS+OZwK2+CsI=; b=V5LzpI5XdxSTBo5SAPljRel2+/
-	DNeI5ipsX68AFXfP22QPBk4c2MENKhGA5qgUVN7bQX5xcZa3sC2pPk/+zUsQ1uwPjRTtURKijd3fu
-	K8VONa6ZHJB68eh2XPxsa676ugwcDmNYcFdqp/lZXs9VcABF3BfKhPFafMUBzrojmKIAsSTE7KZC+
-	QE/laSUx1tGJqkYZnPeKUv3he7zS3NrSNNrAx/seOp6KGQOAR3GDXpV2EPi3jC8tuulnPy9ksmPqL
-	ZxzhEXDv7Wki3BQqMBewfK47w1kTiasmYRyjK26Z0OzShx8FQcSrwXTwHFeTWi9lgp8S9eqyVxy8/
-	3HF04WyQ==;
+	bh=VpVxjIgh1sJ8siH4MabXOeI7ltH2TIrh04kKBHSBaFM=; b=BLvyXwzXYKKb9QbN5O3qc2Dheg
+	W7StLIRi8ulcrgx9GvAK17Czq4lGc1kLvLz2m5ZtDf6/tI/VxrEbEm08WhdkZgEto0OiSu31ovUtt
+	hQ6cPJfgT0oGYugRbk3Sb2YeiNeoWfLTsnHfFrQ82LySbIJn64XVAPskY4HVoNoogEGlfPc53Ia5F
+	shIYl0LGpq0aWwKhzdkN3Hfp5GfBXGjTL+3RUde6mZwmgJm7NeZ/U2zliIZAAAAsbDDTCJGS7MoEB
+	TFdiZe2a0Jm8LShKhAAbi0WnofK/oqUbfF0A4Qb+jNe1LuqYoI0uB9U+TatT4FGDTKLMLu3ypfbxz
+	YaOZ/7cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nAQ-0000000F8Ub-3rF5;
-	Wed, 02 Sep 2026 15:46:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1nC6-0000000F8is-0vdr;
+	Wed, 02 Sep 2026 15:48:10 +0000
+Received: from mail-northeuropeazon11012067.outbound.protection.outlook.com ([52.101.66.67] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nAO-0000000F8U4-41TG;
-	Wed, 02 Sep 2026 15:46:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B03D600C8;
-	Wed,  2 Sep 2026 15:46:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B461F00A3A;
-	Wed,  2 Sep 2026 15:46:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788363983;
-	bh=eGitWDIlcZr9zvSU+hzEEYkqYzd83UWvS+OZwK2+CsI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lBi2W2yzrvXVJzPMlfdStn4bFVddJWTcU1CGAX/PCOWtbs/dxRiGEBTDLppEkGwPo
-	 mnHglfgSQ48apYe+/FiB94hboWLnfvkPiiX6Xc7QGSkTymnWcWLnLUAzxEmFNTDIOP
-	 pjlLqEClBZ5lhswXBhsgo/i+TpNQfDPmAZPw9GIzH0rVC8+UfHYjDZ3jrKXEQa3F6O
-	 x9F0qcCuSziOz+InMP8gQqtlqVGu3l6EM3wOX3rgh8rnH83UbbiL65FfwkmLh2BIpc
-	 OnbJTg/rpBHLBD79ilKfEVw1MO+LrCkJL2zQMfVOJxTd7Rr6wqgljdQSyQ8ZQUKf+N
-	 zCEsUuWG292qQ==
-Date: Wed, 2 Sep 2026 16:46:16 +0100
-From: Lee Jones <lee@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Val Packett <val@packett.cool>,
-	Julien Massot <julien.massot@collabora.com>,
-	Fabien Parent <parent.f@gmail.com>,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, mfd@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH RESEND v9 0/9] Add support for MT6392 PMIC
-Message-ID: <20260902154616.GA2133376@google.com>
-References: <20260820122242.120039-1-l.scorcia@gmail.com>
-MIME-Version: 1.0
+	id 1x1nC2-0000000F8hu-2Bf4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 15:48:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yZAckbMK+/xecMdnoVZymAba8Ci0fBIBvDMry2j7NQjAok9a9vGRQICJ9gJPux6vEjRNoAtCYqbzcZYyXZxPPimrF4B6mtwoWjjmq2C5eVMYHEfw+VP+QFTb7MeoXXz3oqFiWvuzxHidwlSSDEshV0mqHukWgjoOAYB1JcxvzW8Ngc/bHfU5X50zPZJyqh0S464yaKeJ4FmGdWtbfi/l1rtJxzv+ZJBI7u8hWNhBxgFJBKFLkUZDhVdp7YVEbx64GozYiYgQg1+ecOjauF6lmSXgPi7lAmXRFA3DfN1D22QTaiSpOP19+S3F/p1OYyxqQi4lsxXfFI7F5DSQT+RYTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VpVxjIgh1sJ8siH4MabXOeI7ltH2TIrh04kKBHSBaFM=;
+ b=I7mmHJGUdF4QC1BERfEo55bL3+q1PdZvUBfSJNTXzK6zGG/itQ/DpJDCDI3GrZwskVOBR+wIXyUKZGLKXgu91etxUsgN6G7XstOu/N3KeQ0DkuvmCLLq8RkAt/cBaOw6TKL5BqDSOXTEZU8z3qUaMenLX+viwRKk/QYh4DQmO3a2eQ9ne8nuKzDJfRjjsnh5MzRQSnpoMArOXt/NxAyb1nGgYiq+kL1gW5U8SbImebYxbnItuv9FvqaEI/mW/PwQTYfDy725tj+fYCQs6M4p/IS04EeeauVBgwYxIr278jvVV21WwrrXCYf4NqqSgynhCHDCcun+o3bTESdaVDTZyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VpVxjIgh1sJ8siH4MabXOeI7ltH2TIrh04kKBHSBaFM=;
+ b=lTTJ2wJf/zD6XwEPZ5DB4eYnOcFaOZFNOnuBJhMTYZDlKvLFhrv1y5VIyljpDMgzrix/fW3c9kC9yjiZBFxHu4t55dl6c3BqsaHf2ayexdywoq0BuJ566s/WD5AIMCHx7j/7jr70sKk/gwD/5hX3oumrUE2uNlyLzLj0fekbZIozfZnuoTgs0yogptxNIPbcej+yF9qO/v+qQ5Yqw4hj0/Gjdwb0D/J3czJiJrr5WnozIksrViv/OV4kxagnEUuyRQJS60dS2q3raLdiNRcKcOXewwuac2ZW4xYRjX4DbmbY3ZsKGTyXXe5W4hFi13f2OwmuGbAmZkC9+oUgDAT7kg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM0PR04MB7124.eurprd04.prod.outlook.com (2603:10a6:208:1a0::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
+ 2026 15:48:01 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
+ 15:48:00 +0000
+Date: Wed, 2 Sep 2026 11:47:52 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Allen Pais <allen.lkml@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
+	Sinan Kaya <okaya@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v3 32/34] dmaengine: hidma: defer callbacks via channel BH
+Message-ID: <aphFKIkJXWCO5ixx@lizhi-Precision-Tower-5810>
+References: <cover.1785183549.git.allen.lkml@gmail.com>
+ <cover.1786384168.git.allen.lkml@gmail.com>
+ <702687c28f440bf017c6e57f630bb65d22d3b217.1786384169.git.allen.lkml@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260820122242.120039-1-l.scorcia@gmail.com>
+In-Reply-To: <702687c28f440bf017c6e57f630bb65d22d3b217.1786384169.git.allen.lkml@gmail.com>
+X-ClientProxiedBy: PH7P221CA0018.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB7124:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6863f44-7c82-4d24-1c97-08df0909911e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|10067099003|11063799006|4143699003|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: Q6t7kWsbqVTTy5e9bxhdJNjKoUUnt/59zuPwOhTgGCKHCFqadYdotf3ERQ19E4liEBPaTOzByYvRiAuGibF8ganV35petjK76uefz1ySQKwgd9KSutvsGSzepD4ts+WRf1BonBtm5bTh0FqJzDzrgoqAgyRuWDyIAt9WH7ysxSQmcgLoFmJYGCE8w3A2Z4oFfjCMZWUr0XqnZMxmCpIhmM5B9ScVrNaGlueYmOST0XlJU9WB8WhsAlbNJRdD4TCGrcecSFQfhDq/Ki7g3RlnRa/4n04a32VoZtb/V7cOC1860ZYBfhyg+zwgxOfEOZz/CCPYWR7dHia6vRJqatbq+ea/0X5Ps0XdhtP8xZMQAyGVrLHmrNDQN7C4cHJqOdu31NdU9uq5emJQJvpwEeUNEz+LZ3c2HJ7s9wVzR4IXBs9+K9AnrosVldC8OV/QP20lBM/IGTOYik2AA6d6uyHsOovoaKOq4ltXJ6vtPbkPYYEgfAcmr1L5vJgUtc3MBRepN7/aYCpQkv+FCJbwE07CPscD6Pp/mAgT/sGpfq774PYvzRgWUsPXivf8mHoErK8GXVRore6pQc7ZXtEHO07grdexxxCMRXSSwWKD757Q5ukIjT/5csvsihQzRWsrdKMzRN4dlQzCfX63CdJuojdcfOGtnxuz+5k4BsSIui5Rz78=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(10067099003)(11063799006)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KGkYBUHztWZiF1RYl6AMK/EfJs58AbSO7gyz55aeAYaVw3bYlEX28xYQCA6U?=
+ =?us-ascii?Q?wr4B6MeUNbCCWo1eU4hs6HkBa/fymH1hRqlfVuvP21TvEO10kngu9qtt/79/?=
+ =?us-ascii?Q?SVm+DJy+/EVRnrlXVd5QvvYEBEFIK8Ezhl6tTtwpgy/MVFfo2qqN8RhjMl0a?=
+ =?us-ascii?Q?ZeibivXnW8fz0zzFkogXpybc/dPEkdGfGVPh2OCXQXQWukxMRR6iYW2iZupE?=
+ =?us-ascii?Q?lQ9KezfOdqwhOrZVGsyzhEHVNHE0OB2EMb9T39DibC9b8MJK0PyCNcdyuwNR?=
+ =?us-ascii?Q?v+EDUph7Xn1l+N9uMWEoGvD8WhurvRZ26EdW4R8Bu4E/f6HE+5sxsYovV2Tv?=
+ =?us-ascii?Q?+yrz4SiDRe5CDGiKLf5fZBP9XuHAhHkmZRsuoQiw+knSPBVzDHbwy5p0wO2g?=
+ =?us-ascii?Q?4c3MpK0vdd+OI5+hKHyZjn747bqezYiPqUfON3e0yzcXULoKqsydBAyxX0zk?=
+ =?us-ascii?Q?aWVKJBXMFOqXEMjJDTJlXr1Fj4ZFwKVzC/dU4UbXsNRjcPdzb0LmLtSD5bYU?=
+ =?us-ascii?Q?vIowlILalFerFJ1myU0Swr5C6NQyN6YRBXldnuhLYGGzqg4PLDYz/mTmSvBe?=
+ =?us-ascii?Q?kgqrNrC0Won49lEzlUvc3iFw/QWkUm3UBa+6AuXs76GJUSVtiV9TATMF2lZg?=
+ =?us-ascii?Q?TWbYR3IFkHDTFjcyMMWp6DEDI5urw44LfqkDtxEgNpfUvt36m0U7tq31LShs?=
+ =?us-ascii?Q?Q5PM5nQr9BlWUdvKOKvNPAKgwuVlWosdTeA+ICYHn4yVs63FowM4XZ0TTthu?=
+ =?us-ascii?Q?M+Tu0J0DNHjsJmIicx0CYH0jsmlLThvxUGWLrcqoA0VbgusleKxzlHlX4Euc?=
+ =?us-ascii?Q?Njt00TNsdwoqW+dJ+Z4f4cOCO1o3SZCrQAqcM2z61bRelmw98kKTCD8Cn1n5?=
+ =?us-ascii?Q?xMW7Q5q2NMDkuHCMRJU9sM2WqfE82p9HNT+8yAC8clrHbz99PidtCGZ27gvC?=
+ =?us-ascii?Q?+S+um9Pq8xLPUaDLEcjKexQJC3l3MTPwrx1AcucwySPYN6CStQZ8j5YwSEg9?=
+ =?us-ascii?Q?HwsGaiTYXfMrYdn06krrJeQwYEnTJefpMHTIe97KPp8PzhEDDLo7U6DapSym?=
+ =?us-ascii?Q?vUjP+GK6hv6yFAhJROKHn5VT0SCp2bkQUMYTeuUqHXSx+/B2QjZ3/L+KuxKZ?=
+ =?us-ascii?Q?/GWhhGrER1e1OFHKvRq/eaNA9TiqwLmasZ7ewStlfKNPH3I5RqqkcQS7M/mY?=
+ =?us-ascii?Q?YBwNYIhx6niNXJLPqlyKW2TUiYGB/dqHODiTfoMszB1v+XtXCKzkB2s5ffv3?=
+ =?us-ascii?Q?vBTqArYNdumsUcChagp+vzb2DGt1EDmrWJGMveZW9DSvVtD8um4qJgsYTnje?=
+ =?us-ascii?Q?6aHQq3FSr7QhSgjUXzUhQbX87A+0v6uyg6j2DB0JsaD4eyWGb8zFaRD+GxwA?=
+ =?us-ascii?Q?gwlWnZihaLtYO3A6RPQr0FNchHkLMA4TI5gsJCpjgcI0UCmXHHDP/2khgGW7?=
+ =?us-ascii?Q?b4+KieNn8ow8SWkk6tlquD8YwZQANfwX1Ym06leQ0VxipFg25jQutPRnsL2a?=
+ =?us-ascii?Q?XNWWoI4/en5cPbma4ssI8SgH5sygfA/4bJD1DDxNhpa92ShpM1r1nr7ZUIQi?=
+ =?us-ascii?Q?Jhg6bjJnAynMl7PnPPsc1I3YcxoL5zwyawOlO9bQ2x19gCSEcaRGpImcvgXP?=
+ =?us-ascii?Q?3w8Ei1Kt6AqhXMgZX+q9S5/7LuuqfCkWqJY5uZP7xd2hU/EHj2mwaTf4HgYF?=
+ =?us-ascii?Q?HY/Js4kbsYKl+jO2hZcNOTJMP1/fMBVe4wHXH+2jDre52S1vtyLAvJWt8di7?=
+ =?us-ascii?Q?l4soPU0ARDFC9ecWHs5Rv43RZaFnN67AWWB+O5lITlBjHo4IfGtD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6863f44-7c82-4d24-1c97-08df0909911e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 15:48:00.6906
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gKw1RkPMiysfahI8UEqtwa3fZCx+0Rbu+d4A1vBHqbsOOQJIKsc7Ms40uqRj52WSqQVapSFrMfHp0R+aHo4HpH7juIpfrXJHR5iIeugZUD07pGd+61tCrti6EVV/4Dd5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7124
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_084806_565843_9DC87240 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,13 +140,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026, Luca Leonardo Scorcia wrote:
+On Mon, Aug 10, 2026 at 11:09:33AM -0700, Allen Pais wrote:
+> Move descriptor callback processing out of the low-level completion
+> path and schedule it through per-channel BH work. Drain that work while
+> freeing channels so callbacks cannot outlive channel storage.
+>
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+> ---
+>  drivers/dma/qcom/hidma.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
+> index c939635be21d..486a2c61a9fb 100644
+> --- a/drivers/dma/qcom/hidma.c
+> +++ b/drivers/dma/qcom/hidma.c
+> @@ -90,7 +90,13 @@ static inline struct hidma_chan *to_hidma_chan(struct dma_chan *dmach)
+>
+>  static void hidma_free(struct hidma_dev *dmadev)
+>  {
+> -	INIT_LIST_HEAD(&dmadev->ddev.channels);
+> +	struct hidma_chan *mchan, *next;
+> +
+> +	list_for_each_entry_safe(mchan, next, &dmadev->ddev.channels,
+> +				 chan.device_node) {
+> +		dmaengine_kill_bh(&mchan->chan);
+> +		list_del(&mchan->chan.device_node);
 
-> The MediaTek MT6392 PMIC is usually found on devices powered by
-> the MT8516/MT8167 SoC and is yet another MT6323/MT6397 variant.
+origial code have not list_del(), is it fix other problem?
 
-What Acks are you waiting on?
-
--- 
-Lee Jones
+Frank
+> +	}
+>  }
+>
+>  static unsigned int nr_desc_prm;
+> @@ -155,6 +161,13 @@ static void hidma_process_completed(struct hidma_chan *mchan)
+>  	}
+>  }
+>
+> +static void hidma_chan_bh(struct dma_chan *chan)
+> +{
+> +	struct hidma_chan *mchan = to_hidma_chan(chan);
+> +
+> +	hidma_process_completed(mchan);
+> +}
+> +
+>  /*
+>   * Called once for each submitted descriptor.
+>   * PM is locked once for each descriptor that is currently
+> @@ -181,7 +194,7 @@ static void hidma_callback(void *data)
+>  	}
+>  	spin_unlock_irqrestore(&mchan->lock, irqflags);
+>
+> -	hidma_process_completed(mchan);
+> +	dmaengine_schedule_bh(&mchan->chan);
+>
+>  	if (queued) {
+>  		pm_runtime_mark_last_busy(dmadev->ddev.dev);
+> @@ -203,6 +216,7 @@ static int hidma_chan_init(struct hidma_dev *dmadev, u32 dma_sig)
+>  	mchan->dmadev = dmadev;
+>  	mchan->chan.device = ddev;
+>  	dma_cookie_init(&mchan->chan);
+> +	dmaengine_init_bh(&mchan->chan, hidma_chan_bh);
+>
+>  	INIT_LIST_HEAD(&mchan->free);
+>  	INIT_LIST_HEAD(&mchan->prepared);
+> --
+> 2.43.0
+>
 
