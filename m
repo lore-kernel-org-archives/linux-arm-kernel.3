@@ -4,111 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3F4C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BDBC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqFrysN/+2cVNmsG8C/cGiUNyDrof3Ao3d+7KzBs1dg=; b=Zq5QZxFSrh0aaOiOER2f9Larm6
-	u0aLde+lKLnheC7CqIOIAaBUKTlfLEdlU0SPCAye9WEcEegFz1I8dOFkdlv8mKViKKhoRDG/VRVl8
-	X0dxf92tsovk2mZibtdJUGhLTiOwsCT70RnblDDna1zkXtBmJ5bk+QJ3TiQgFMTSXs+9+6r3LB0nC
-	eMFGTOdQZcLXxlcOppQceWirR7J3dMrani9CLwd8iXS2p2bP03omqxcT16DBFdX81wao1Yf1SQciX
-	+L41wzAP1YLpJG6RKwzz8udaRePvSYwLCTzzjpI0CqhA93HW9s9HBCCsH7qf8XMrWeplabaT3V+bu
-	ImJDHSnw==;
+	bh=8HO2oXDKMUH/IBYP69UiPRfT2MLlZ9mi40/eACWvXEM=; b=0YEpxqQhE4piTDoSAqzqEMFuZ8
+	2bqSmCnkV5ysarcf5A5tdfgGKEWhK7jl1hwOy71CCnhAk5oAEU6caseDTLxz6v9aXjezhaKlTixU4
+	JrBHQK1PosUJ0Qsn4VB7M1c6Vg3CMd7KrMSCIuhACzFTCE7LY6Iw8/67fAJOEv501FjzzmNU1puV/
+	fSxFS+7GqOSuVE9hsgqL9BNDKDv2GowoB+qcbCIr+l1H7nUg2FXSB5SoWMWfwVWCIwQiSXWvy/Gfd
+	Wp+CurjPoqmLzG1qJiTDZnnUtQ1P4iLeq9hToM2CMIIa6Ni1cx9rEK758B9DYyO79FhGjazXtYDUu
+	H0ysYYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mHF-0000000F14B-1IB6;
-	Wed, 02 Sep 2026 14:49:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1x1mQA-0000000F22A-0VNL;
+	Wed, 02 Sep 2026 14:58:38 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mHC-0000000F12E-09bI
+	id 1x1mQ6-0000000F21e-0dhb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:49:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788360560;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bqFrysN/+2cVNmsG8C/cGiUNyDrof3Ao3d+7KzBs1dg=;
-	b=L9kbnnbOMr4eZBelfYGJ9k0y1oVeppzlgx9iYz1l8M6CrnjvDu0AIh2Av2aM7QH2SmSi1u
-	sRBOoG43v/R1VaPVK7z1vqegltmPRSwwO7RjNn1cg6TovIFU9LL1WE0Ol4/ngyJ/C1b3ae
-	nsGHi7hqdtqvzu7Z1MGEeeh+b2sok/o=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-164-s526a6ALOyOWX3gB-VFPkQ-1; Wed, 02 Sep 2026 10:49:18 -0400
-X-MC-Unique: s526a6ALOyOWX3gB-VFPkQ-1
-X-Mimecast-MFC-AGG-ID: s526a6ALOyOWX3gB-VFPkQ_1788360558
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-90e853561c5so14266756d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 07:49:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788360558; x=1788965358;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bqFrysN/+2cVNmsG8C/cGiUNyDrof3Ao3d+7KzBs1dg=;
-        b=n68u34c7tXLhu98ypSghkYJSfwpZspk2V9zIqENYowgXAffypVOWxvyz9OQeX4DPTt
-         B799V/61qlR+fRUNsC629IzETIkwBIlNkfnDkVwnnhdEVhAKXZ33/k/alIkxdVUph2MT
-         aR2/6KB0kVgtKOpCNPq3PSBM0ndGQv7iE/PQPeMIB4X0UeswDf1FQwR6JUJaBhhRYlr7
-         b5a6r8xD6+HpMne/+TixuO/gpyTzP3sxXVl/hV6kKdmpyVsvKNbU3YbVdcj6Gce2kJZY
-         AUAXWBVGY3Bw2q5G0waHTFBdl8zt9wZyJBRTxGT+v289F9E/JaR+RfXndCRXHJLVK2L5
-         TO9w==
-X-Gm-Message-State: AFuF++lNU5ZMYb3mXeRBF9MZVAI/AIrxhy5GbEHxnOoqikpeAS2wGu8J
-	TfCpGKRG8H1IS4T0nlJab2VQuqZYabQmDth+gY/wmyyL8ZM1wWKbWsXb/WO0E/i6gA4QLB72npD
-	r6m7nLyrwIngrfw0re0WTTkuNbx3kUA13ryzcgR2Okfhj38IDY7L4cZHUf5YrOAmkgWpItUmk9r
-	Oo
-X-Gm-Gg: AYBFou1n6Z/9KDAbGl5/ecMZoHW5f3UMm4/JdBrWpZIu9inAr9i9RoMya58IGXm9rLo
-	IirgYlc8PdVZ8p++1PT6+N0owlOo2I9ltQBFR2gO1iApix7jsleUwNUcB57NLlX8VSd7kKi0KF2
-	BcrdP2mW1u7xTqEe1ebSsPtKqq7AuR1q0cYtWPgbXJzexhBs5c2mA8shRJ7untSrZuMe0d46A6e
-	uj+H7jfPSzBXKFo4t/ME33b+P/Q61x+jvkNM2iuMvSOoGB0fRpLjzwrJlhM/v5G/u2oKpMdrDY9
-	8lIjHGUekmBaNGjDAmMPdpsA9WLc83LmvlW4gaVET7UHwbnPLRFkHwYz6hNPc2a1d0t14AS/sCe
-	ysYdZjYKt6U5YDnxofVUiEsv5DMrLUx8MDXvY+LM=
-X-Received: by 2002:a05:6214:2b0a:b0:90e:8dcc:4e5 with SMTP id 6a1803df08f44-90ebafb8fefmr72182166d6.28.1788360558155;
-        Wed, 02 Sep 2026 07:49:18 -0700 (PDT)
-X-Received: by 2002:a05:6214:2b0a:b0:90e:8dcc:4e5 with SMTP id 6a1803df08f44-90ebafb8fefmr72181126d6.28.1788360557564;
-        Wed, 02 Sep 2026 07:49:17 -0700 (PDT)
-Received: from [192.168.1.3] (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90e9eec8482sm19647986d6.31.2026.09.02.07.49.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 07:49:16 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-To: Daniel Palmer <daniel@thingy.jp>, 
- Romain Perier <romain.perier@gmail.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, hanzhijian <hanzhijian1991@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20260824142800.3497263-1-hanzhijian1991@gmail.com>
-References: <20260824142800.3497263-1-hanzhijian1991@gmail.com>
-Subject: Re: [PATCH v2] clk: mstar: msc313-mpll: fix off-by-one in clock
- array allocation
-Message-Id: <178836054100.2017040.16035095251394555993.b4-ty@b4>
-Date: Wed, 02 Sep 2026 10:49:01 -0400
-MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=332; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=idLPkDsA8mhI1Ih+j5hSWIEMKho7R3PzR+kQbEfB5mg=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJmmKdNeOt2NXwvq8a0uXzTGK91flEzf1zEn9/tJ7lxd
- uxx2eagjlIWBjEuBlkxRZYluUYFEamrbO/d0WSBmcPKBDKEgYtTACaS94jhn36ndiwDS89kU/kU
- 4xW5Rw2qK/X+qds+mnL19/FU5s3S6xgZGm8m+nMnrD7x/5+EmK2SqqDHZFsBaaMLxtKucwwemrY
- xAQA=
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IlJUjtGfC-qYF2g-35RsvERO1X4WNjlB6o8UkPPkS58_1788360558
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	Wed, 02 Sep 2026 14:58:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788361100; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=S3QT2xnqapjWCt5br7N62PuBrrk/9qtRhbUZ0tLdJjAkdyn8BujS1mrgqWyhz07dljw/NP7WOK3LteyREHuSegPaB5HM29ePvLQs4r1wudYTm+IrRSBq7gQy8IwMEE1QVvw7mO6P8negJYTImrNpaXiBHH05Hr+vnsaF9DcCyoE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788361100; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8HO2oXDKMUH/IBYP69UiPRfT2MLlZ9mi40/eACWvXEM=; 
+	b=b92bjwNpEO9fBCluP9ciiZ5sWudULCQpXOFi2mYF4ha9xqOIknar1RRQ4885UiWT33ZunTU/XrFg3p2vfcwW+7xf/qLGjF8cqJOG9OiahalSpCoHfA03PRfmxeLMecwV3em/6GPCWpE+zPbMA+Pb4gweYjN7wKrtrYnEk4nXKKw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788361100;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:In-Reply-To:Reply-To;
+	bh=8HO2oXDKMUH/IBYP69UiPRfT2MLlZ9mi40/eACWvXEM=;
+	b=qACYkUGwqEncwBwGhite6gjWfNXt9JXXjby68YUe1+OEKSieU1l/UGTyYe1eVbiE
+	uUD6/jVuQd9uCyHa3zLpJH3HkdbW4TcY7yS9vSmIY7Yg1W9m3LPCzt5WPMLNnSDn2R/
+	Z/LzbdirePQ+PKEk8zcitTJFlU0IiS4moaKyGCpM=
+Received: by mx.zohomail.com with SMTPS id 178836109677887.78200468721616;
+	Wed, 2 Sep 2026 07:58:16 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 02 Sep 2026 22:58:04 +0800
+Message-Id: <DL4X3G8EL12W.GCHSR93W77W3@pigmoral.tech>
+Cc: "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
+ <samuel@sholland.org>, "Philipp Zabel" <p.zabel@pengutronix.de>,
+ <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>
+Subject: Re: [PATCH v2 4/8] clk: sunxi-ng: a733: Add PLL clocks support
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
+X-Mailer: aerc 0.21.0
+References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech>
+ <20260711-a733-clk-v2-4-974d188cbe0c@pigmoral.tech>
+ <CAGb2v65KKifCUYUxnZ5Vm=XNqNdiNC1i+U9mgX2djtPkwvtN2g@mail.gmail.com>
+In-Reply-To: <CAGb2v65KKifCUYUxnZ5Vm=XNqNdiNC1i+U9mgX2djtPkwvtN2g@mail.gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_074922_157851_5CAD5690 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260902_075834_639817_C450A302 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,17 +86,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Chen-Yu,
+Thanks for your review. I will address the comments in v3.
 
-On Mon, 24 Aug 2026 22:28:00 +0800, hanzhijian wrote:
-> clk: mstar: msc313-mpll: fix off-by-one in clock array allocation
+On Sun Aug 23, 2026 at 5:38 PM CST, Chen-Yu Tsai wrote:
+> (trimmed recipient list a bit)
+>
+> On Sat, Jul 11, 2026 at 4:12=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.t=
+ech> wrote:
+>>
+>> Add PLL clock support for the main CCU of the Allwinner A733 SoC. The
+>> structure is mostly similar to the sun55i, with the addition of a
+>> PLL_REF clock that normalizes the hardware-detected DCXO/hosc frequency
+>> (19.2MHz, 24MHz, or 26MHz) into a consistent 24MHz reference for all
+>> subsequent PLLs.
+>>
+>> The behaviors of PLL_AUDIO0 and PLL_AUDIO1 are ported from the vendor
+>> driver. Specifically, PLL_AUDIO0 is configured with SDM parameters to
+>> provide a 22.5792MHz * 4 output, while PLL_AUDIO1 is integrated into
+>> the main CCU without using SDM.
+>>
+>> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  drivers/clk/sunxi-ng/Kconfig           |   5 +
+>>  drivers/clk/sunxi-ng/Makefile          |   2 +
+>>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 539 ++++++++++++++++++++++++++=
++++++++
+>>  3 files changed, 546 insertions(+)
 
-Applied, thanks!
+[...]
 
-[1/1] clk: mstar: msc313-mpll: fix off-by-one in clock array allocation
-      commit: 712b75152c00a8ab0c56dbfe34caf88e3870ddde
+>> +
+>> +/*
+>> + * There is no actual clock output with that frequency (2.4 GHz), inste=
+ad it
+>> + * has multiple outputs with adjustable dividers from that base frequen=
+cy.
+>> + * Model them separately as divider clocks based on that parent here.
+>> + */
+>> +#define SUN60I_A733_PLL_PERIPH0_REG    0x0a0
+>> +static struct ccu_nm pll_periph0_4x_clk =3D {
+>> +       .enable         =3D BIT(25) | BIT(26) | BIT(27),
+>
+> The gate helper sort of expects this to be just one bit. And the three
+> bits here are for the three individual outputs (2x, 800M, 480M). I think
+> you should move the bits to the individual outputs, and use BIT(31) here
+> instead (or just leave out the enable bit for this one).
 
+I will leave out the enable bit for the PLL core and move the three
+output gate bits to their corresponding child clocks.
+
+[...]
+
+>> +
+>> +static const struct clk_hw *pll_audio1_hws[] =3D {
+>> +       &pll_audio1_clk.common.hw
+>> +};
+>> +static SUNXI_CCU_M_HWS(pll_audio1_div2_clk, "pll-audio1-div2", pll_audi=
+o1_hws,
+>> +                      SUN60I_A733_PLL_AUDIO1_REG, 20, 3, 0);
+>> +static SUNXI_CCU_M_HWS(pll_audio1_div5_clk, "pll-audio1-div5", pll_audi=
+o1_hws,
+>> +                      SUN60I_A733_PLL_AUDIO1_REG, 16, 3, 0);
+>
+> Perhaps these should be made fixed? Otherwise the names don't apply corre=
+ctly.
+
+Agreed. Since the names explicitly describe fixed /2 and /5 divisions,
+I will model these two outputs as fixed-factor clocks and initialize the
+corresponding divider fields accordingly.
+
+[...]
+
+>> +       .lock           =3D BIT(28),
+>> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+>> +       .m              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+>> +       .common         =3D {
+>> +               .reg            =3D SUN60I_A733_PLL_DE_REG,
+>> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-de-12x",=
+ pll_ref_hws,
+>> +                                                        &ccu_nm_ops,
+>> +                                                        CLK_SET_RATE_GA=
+TE),
+>> +       },
+>> +};
+>> +
+>> +static const struct clk_hw *pll_de_hws[] =3D {
+>> +       &pll_de_12x_clk.common.hw
+>> +};
+>> +static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
+>> +                      SUN60I_A733_PLL_DE_REG, 20, 3, 0);
+>> +static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
+>> +                      SUN60I_A733_PLL_DE_REG, 16, 3, 0);
+>
+> Should we make the values fixed or the divider read-only?
+
+After checking the manual again, I don't think these dividers should be
+fixed or read-only.
+
+The 4X and 3X suffixes appear to be hardware output names rather than
+fixed multiplication factors. The manual describes both P0 and P1 as
+programmable dividers and only gives their default frequencies; it does
+not say that their values must remain fixed.
+
+For example, the default frequencies of DEPLL4X and DEPLL3X are
+1044 MHz and 696 MHz, respectively. If the suffixes represented
+multiples of a common base frequency, 1044 MHz / 4 * 3 would be
+783 MHz, not 696 MHz.
+
+[...]
+
+>> +
+>> +       /*
+>> +        * The PLL clock code does not model all bits, for instance it d=
+oes
+>> +        * not support a separate enable and gate bit. We present the
+>> +        * gate bit(27) as the enable bit, but then have to set the
+>> +        * PLL Enable, LDO Enable, and Lock Enable bits on all PLLs here=
+.
+>> +        */
+>> +       for (i =3D 0; i < ARRAY_SIZE(pll_regs); i++) {
+>> +               val =3D readl(reg + pll_regs[i]);
+>> +               val |=3D BIT(31) | BIT(30) | BIT(29);
+>> +               writel(val, reg + pll_regs[i]);
+>> +       }
+>> +
+>> +       /* Enforce m1 =3D 0 for PLL_AUDIO0 */
+>> +       val =3D readl(reg + SUN60I_A733_PLL_AUDIO0_REG);
+>> +       val &=3D ~BIT(1);
+>> +       writel(val, reg + SUN60I_A733_PLL_AUDIO0_REG);
+>
+> We should also force the divider for all the divN or Nx outputs.
+
+For the reasons above, I plan to force the divider values only for the
+divN outputs, whose names explicitly specify their division ratios, and
+leave the Nx output dividers programmable.
+
+>
+>
+> Thanks
+> ChenYu
+>
+
+--=20
 Best regards,
--- 
-Brian Masney <bmasney@redhat.com>
-
+Junhui Liu
 
