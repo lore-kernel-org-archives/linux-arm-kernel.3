@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09095C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67B2C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=; b=p2PFLJqPgVQyKJVgxOXqkrMrPy
-	KiI+bXuSsW+bxIsCf+1k/awFDZroBxVfJrhSIQNC3ee28iS+/YM7apJ3hN2GEie2MYbFwDE1iD+8G
-	hb85KO9A2Pu3FRNRcZkr9MMcgHq7u5iIuitGlQGjJyZoFgjnBM9viI+STrF/RP7hMpHLxBGVFABid
-	eqJ7L0FXN9cLtsn5m7XAXWn7Uad9Y8boM/Z7BeTBY07RToWRzBOrthBq/oSe+BpVyhYmg0MTEIBwc
-	zjhl7odD9nUfePB6J4Io2O0Bv6/CvvP50RyE3dK64HmfbX4QWlSlEzWbu96ylzooEyPI2mAOSnRWx
-	/hhRsXuw==;
+	bh=+r81eXQkPwwLn8jLtM+WMgen97MgrIQl5dfvFBIuIvE=; b=YyRrFDfZhHXqDjMxS7YAu4bucd
+	qP7n7hVhtOkG2aX1f6iMLKKQaeDAJd/Mnq+ZcaWczXVT4Wl45dnIBy4F6sTaC5SGjKpCuRiZCwA9s
+	iRnDhrVXGtlOhwBbWSvgt2kLT26bqmBiVW4A39TFDBW78q+4UwAo71YuB6JTEl306t54wBzYQs1Aq
+	72wYXZPzTEQ8L6bYJINpIThJ4Bg5rHaaCrakuCKa+fzF8TUCSCElbFRDgFt+f+YaFzW4p3SfhHfKt
+	smgvUgF4ShYI3K/FM2etmM4tt8i9NP3NdjHfsj1GcWUN8MRaK9l1x9CTlMdn4vdADcfIrHQf4MfAc
+	cOlLqLDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1j3J-0000000EURH-3XIV;
-	Wed, 02 Sep 2026 11:22:49 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1x1j9z-0000000EUtn-2x2W;
+	Wed, 02 Sep 2026 11:29:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1j3H-0000000EUPQ-2jXK
+	id 1x1j9y-0000000EUth-2PuV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:22:49 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-853c947bfefso882572b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:22:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788348166; x=1788952966; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=;
-        b=LNltt7HqgYUgiaHkKIaKEanhJwkfoqVXMuuB1Eqb7Gbs5h5t+dajKlz3upLSOfO56Y
-         rn1CJo+qBaJCnaP//XCdBDveJOwNrxsUtqWXHCRxGsm5up8nfwhvdqRGIfqcAA6E/FFY
-         VyHxNZ4peCoMYtKrz98r8cgptFiUdtvqymEiNWVR1/C/qnMB/Ll3rR9lRIX0/qUITnMV
-         6d5v8NdwLamKb97oA838D3ST5O4GE1oyQKmjy0Gp7usLc8F7jXDFb3deOgflbZKAwfRJ
-         ZFCf8YndmBiHuDRpC7g+ltL9hHnjBEhr41UWrItLSdHIudhCMnpqW4T3GCuRJJVi7EUa
-         jO9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788348166; x=1788952966;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=;
-        b=derJmhyKZ9n42i0ucrp564X5HbO6v836EeRTPNzO3YTLaVXwU2dSSqd9+V6V4ndZTZ
-         DWBUM5vBuV/AEnz4B1SsXzotvr90lqvzC8hRrbghOOVENuPEDZIELJymR/vHZlfOUWAO
-         rbcOUXdtOfAf+GztudrEBO/YrYEgpvlFMt1cF2li5MEU2dwfw+ZlrYIV7nAjhIVkL13n
-         8vGBZpdpkx6yB5AHcHkqyu6U4Op84lrWjMO1/UXOvuFsKqtw0ttnL5Ca/bXLlgeIa1NY
-         EjnSTh55aSfnQPtzIl0VSXwNQwHyEQ9I+TScbCODSUwo72cDZDCk5mHo0SxDob24yeY+
-         cSVw==
-X-Forwarded-Encrypted: i=1; AKwUvBwjJXf7FEv+M8RY+GrfKbaKPzY+ZYUvjqFyHLgWAYnB+fd/ztO8X4h2/+5g5iNu2bfloNGr51MnSTVMYomZqYla@lists.infradead.org
-X-Gm-Message-State: AFuF++l2NKLi2+CK5aG0VMz5adUvsz0mE6drE2W53d861boDuneQSB9X
-	LjgWqq5rkLejCLeOrYCi66VoOv4FMVUgMFu2KG8V//m0zBl0OcbN5cB/
-X-Gm-Gg: AYBFou012AhNj1RYRdms3aNigdS4Tw9T3cO7LHzHpqBY7V50cyOyqUab/HbnFHp4pFr
-	oYVr/EScaHhegrYqKhKMVialIrEm6SWdF/sRrCnaozM8O3nbZHbd1igxHv+iYLHJLm4avOKm6ax
-	4jKnwOGjf7884b7rf8Y2y0y6aUnNecz4qz9rhm1GRYPvJb88LzDpGF3WYFWaztWZPnvK46Zr/Af
-	dFGbG7vbtpDoUQ05Dn1ULI7mKidiRkXeX0t530o4DKgsJcW1omlFuS4gmKfrAiL1yr78RFAI8+D
-	L6v6YJPW0RiFFTqOSFf9pd21IP7OepxOKYHXctyOLd1qni8OlxM7lj869rkIS8EYy2XXAV9i4zI
-	TWoC3ogViSbh9ClYwpkqARkOJG8/RrqF5CCnPwvyI+JMrjt6szEBl7woc9MnsmA4/eIbDGbcg5O
-	iPzWJO9GCNNLbeGP7yARLmoWLVahxzZw5cSPq6vezYfQYfRgIXIkU2cfn4ibzycQSRXO1psQ==
-X-Received: by 2002:a05:6a00:178e:b0:84a:2b96:5986 with SMTP id d2e1a72fcca58-85f42e35709mr1863167b3a.8.1788348165513;
-        Wed, 02 Sep 2026 04:22:45 -0700 (PDT)
-Received: from hnkz-ubuntu-server ([2404:7a80:860:3300:f22f:74ff:feda:3295])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85dc11f8471sm1167571b3a.58.2026.09.02.04.22.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 04:22:45 -0700 (PDT)
-From: Kazuki Hanai <hnkz.64@gmail.com>
-To: Bin Liu <bin.liu@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Kazuki Hanai <hnkz.64@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Xia Jiang <xia.jiang@mediatek.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 02 Sep 2026 11:29:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DAF3F413CF;
+	Wed,  2 Sep 2026 11:29:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB641F000E9;
+	Wed,  2 Sep 2026 11:29:36 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clegoffic@baylibre.com>
+Cc: devicetree@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH] media: mediatek: jpeg: Avoid context access after job finish
-Date: Wed,  2 Sep 2026 20:22:28 +0900
-Message-ID: <20260902112230.452176-1-hnkz.64@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH v3 00/12] R-Car X5H Ironhide CPG/MDLC SCMI remapping support
+Date: Wed,  2 Sep 2026 13:29:16 +0200
+Message-ID: <cover.1788338320.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_042247_702147_2A724262 
-X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +81,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v4l2_m2m_job_finish() publishes job completion and wakes waiters
-before it returns. A concurrent file release can therefore finish
-v4l2_m2m_ctx_release() and free the context while the single-core IRQ
-handler continues with its tail.
+	Hi all,
 
-Both handlers only need the device for the matching runtime PM put.
-Use the IRQ-owned jpeg pointer instead of dereferencing ctx after
-completion has been published. This preserves the get/put pairing and
-removes the post-completion context access.
+TL;DR:
 
-Fixes: 45f13a57d813 ("media: platform: Add jpeg enc feature")
-Fixes: 5827e4b14ee7 ("media: platform: Improve power on and power off flow")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:gpt-5
-Signed-off-by: Kazuki Hanai <hnkz.64@gmail.com>
----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+    Describe hardware in DT, and perform mapping to abstractions offered
+    by SCMI in Linux.
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index d147ec4830811..9010e7b1108fa 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1574,7 +1574,7 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	v4l2_m2m_buf_done(dst_buf, buf_state);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
--	pm_runtime_put(ctx->jpeg->dev);
-+	pm_runtime_put(jpeg->dev);
- 	return IRQ_HANDLED;
- }
- 
-@@ -1855,7 +1855,7 @@ static irqreturn_t mtk_jpeg_dec_irq(int irq, void *priv)
- 	v4l2_m2m_buf_done(src_buf, buf_state);
- 	v4l2_m2m_buf_done(dst_buf, buf_state);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
--	pm_runtime_put(ctx->jpeg->dev);
-+	pm_runtime_put(jpeg->dev);
- 	return IRQ_HANDLED;
- }
- 
+The Renesas R-Car X5H-based Ironhide board is the first Renesas
+SoC/board combination that implements the ARM System Control and
+Management Interface (SCMI).
+
+This means Linux can no longer perform various system operations (e.g.
+clock, power domain, and reset control) by accessing the hardware
+directly.  Instead, these operations are abstracted according to various
+SCMI sub-protocols, and Linux has to send messages to an SCMI-compliant
+firmware running on a System Control Processor (SCP).
+More specifically, the R-Car X5H SCP FW SCMI controls access to:
+  1. Core clocks and module clocks,
+  2. Module resets,
+  3. Power domains,
+  4. System power.
+The latter is not relevant for this discussion.
+
+Using SCMI also has an impact on the board DTS: besides the addition of
+a firmware/scmi node with protocol-specific subnodes, devices using
+SCMI-abstracted system resources now have to refer to these resources
+using resource specifiers containing phandles to the SCMI protocol
+subnodes, and firmware-specific object IDs[1].
+
+Unfortunately we encountered several issues with this:
+  - The clock, reset, and power domain IDs are not stable by design,
+    causing DT incompatibilities.
+    SCMI requires that the ID space exposed to an agent (i.e. Linux)
+    starts at zero and is contiguous.  Hence any change in system
+    partitioning (Application CPU core vs. Realtime CPU core,
+    virtualization, ...) may mean a renumbering of all SCMI IDs,
+    implying a massive change to the DT.
+  - There may be different SCP firmware lineages, e.g. proprietary and
+    certified variants, and FLOSS variants,
+  - SCMI features may differ across firmware versions,
+  - SCMI may abstract the hardware in a different way, requiring changes
+    in (possibly existing) DT bindings and drivers to support the same
+    hardware with and without SCMI:
+      - E.g. the number of SCMI clocks inputs to a hardware block may
+	differ from the actual hardware,
+      - E.g. hardware clock inputs may be abstracted as SCMI power
+	domains (or vice versa), like on Qualcomm SA8255P[2].
+    Experience has taught that not describing the hardware in DT may
+    lead to major issues later.
+  - SCMI does not support the concept of a clock domain, so existing
+    drivers can no longer rely on Runtime PM, but need to be changed to
+    manage functional clocks explicitly,
+  - U-Boot IPL (Initial Program Loader) needs a proper hardware
+    description in DT, not using SCMI.
+
+This list deliberately ignores ID instability and the need for SCMI
+quirks during development of the SCMI firmware.  While upstream Linux
+must only support sufficiently mature firmware versions, vendor trees
+(e.g. renesas-lts) may still want to support development firmware
+versions.
+
+During last OSSJ/LPC, Marek Vasut pondered if we could keep our own ID
+lists stable, and perform a mapping to the IDs used by the actual SCMI
+implementation running on the system.  This was also briefly discussed
+at LPC[3].  After some refining of the initial idea, this series takes a
+slightly different approach, by:
+  1. Describing the actual hardware components in DT, plus a minimum
+     SCMI glue,
+  2. Mapping DT hardware descriptions to SCMI-backed objects and
+     abstractions (or replacements, in case they are unusable,
+     unavailable, or too different), in Linux drivers, based on the
+     detected firmware version.
+
+This has the following advantages:
+  1. The DT ABI is stable,
+  2. DT bindings and drivers for existing hardware blocks do not need to
+     be modified,
+  2. Current and future firmware can be handled in driver code,
+  3. U-Boot IPL can use almost the same DTS; it just needs stripping of
+     SCMI-related nodes and properties.
+  4. If ever needed, the Clock Pulse Generator (CPG) and Module
+     Controller (MDLC) drivers can be extended to program the hardware
+     directly if SCMI is not present,
+
+This series consists of four parts:
+  1. Patches 1-2 update the DT bindings for the R-Car X5H Clock Pulse
+     Generator (CPG) and Module Controller (MDLC) blocks,
+  2. Patches 3-7 add new interfaces needed by the remapping support,
+  3. Patches 8-10 prepare and add SCMI remapping support to the R-Car
+     X5H CPG and MDLC drivers,
+  4. Patches 11-12 enable more SCMI protocols on R-Car X5H Ironhide, and
+     link the CPG and MDLC blocks to their SCMI provider.
+
+Changes compared to v2[4]:
+  - New patches:
+    "[PATCH v3 06/12] reset: Extract __reset_control_get_from_provider()",
+    "[PATCH v3 08/12] clk: renesas: r8a78000: Add clk_hw to clk_map",
+  - Move DT binding patches forward in series,
+  - Add "renesas" vendor prefix and "scmi-" function prefix to the
+    "firmware" property (I still think the vendor property should be
+    dropped, or replaced by "arm"),
+  - Add "of_" prefix to genpd_get_from_provider(),
+  - Replace reset_controller_get_provider() by
+    reset_control_get_from_provider_exclusive(),
+  - Add kerneldoc,
+  - Rebase,
+  - Consistently use /* sentinel */ for zero sentinels,
+  - Call reset_control_*() APIs instead of internal reset_control_ops
+    methods,
+  - Rename struct mod_map to struct mod_map_in,
+  - Add struct mod_map, which also contains a reset_control pointer,
+  - Add fill_mod_map() to obtain all SCMI reset_control structures
+    up-front, as one can no longer use lazy look-up,
+  - Prefix DEFINE_MDLC_RESET_WRAPPER() parameters with underscores.
+
+Changes compared to v1[5]:
+  - Drop SCMI quirks and SCMI mapping tables,
+  - Move CPG/MDLC DT bindings and minimal base drivers to a separate
+    series,
+  - Add that SCMI may provide different abstractions,
+  - Add missing asterisk to blank kerneldoc line,
+  - Let scmi_get_base_info() return -EPROBE_DEFER or -EOPNOTSUPP instead
+    of -ENOENT, and propagate these errors in callers,
+  - Fall back to the default support when SCMI support or firmware is
+    not available, or when the detected SCMI firmware version is not
+    supported by the driver,
+  - Improve error message on scmi_get_base_info() failure,
+  - Check if SCMI firmware node is available,
+  - Use reverse xmas ordering in r8a78000_cpg_probe(),
+  - Replace the scmi_*_np members of struct r8a78000_*_priv by local
+    variables in the probe functions, and pass them to the fill_*_map()
+    functions,
+  - Join split short lines,
+  - Move check for supported firmware version up,
+  - Fix DT misindentations,
+  - Add scmi_clk node, as it is no longer added in earlier commits.
+
+Note that in reponse of feedback on v1, I did try to use SCMI IDs in DT,
+and handle most issues in Linux SCMI drivers and SCMI quirks[6].  While
+the result worked, it did not solve everything in the issues list above.
+
+Note that this series does not include actual SCMI quirks and CPG/MDLC
+mapping tables, as the SCMI firmware for R-Car X5H is still under
+development.
+
+For testing, I have pushed this series plus additional work to[7].
+
+Thanks for your comments!
+
+[1] Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+[2] "[PATCH net-next v11 1/7] dt-bindings: phy: document the serdes PHY on sa8255p"
+    https://lore.kernel.org/20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com
+[3] "Firmware ABI stability" at Linux Plumbers Conference 2025
+    https://lpc.events/event/19/contributions/2153/
+[4] "[PATCH v2 00/10] R-Car X5H Ironhide CPG/MDLC SCMI remapping
+     support"
+    https://lore.kernel.org/cover.1783505329.git.geert+renesas@glider.be
+[5] "[PATCH/RFC 00/14] R-Car X5H Ironhide SCMI CPG/MDLC remapping"
+    https://lore.kernel.org/cover.1776793163.git.geert+renesas@glider.be
+[6] "[PATCH/RFC 0/9] R-Car X5H Ironhide pure SCMI proof-of-concept"
+    https://lore.kernel.org/cover.1781171705.git.geert+renesas@glider.be/
+[7] topic/rcar-x5h-ironhide-scmi-cpg-mdlc-remapping-v3 branch of
+    https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-drivers.git
+
+Geert Uytterhoeven (12):
+  dt-bindings: clock: renesas,r8a78000-cpg: Add renesas,scmi-firmware
+    property
+  dt-bindings: power: renesas,r8a78000-mdlc: Add firmware property
+  firmware: arm_scmi: Add scmi_get_base_info()
+  of: property: fw_devlink: Add support for renesas,scmi-firmware
+  pmdomain: Make genpd_get_from_provider() public
+  reset: Extract __reset_control_get_from_provider()
+  reset: Add reset_control_get_from_provider_exclusive()
+  clk: renesas: r8a78000: Add clk_hw to clk_map
+  clk: renesas: r8a78000: Add SCMI remapping support
+  pmdomain: renesas: r8a78000: Add SCMI remapping support
+  arm64: dts: renesas: ironhide: Enable SCMI devpd, sys, clock, and
+    reset
+  arm64: dts: renesas: ironhide: Add CPG/MDLC renesas,scmi-firmware
+    properties
+
+ .../bindings/clock/renesas,r8a78000-cpg.yaml  |   9 +
+ .../bindings/power/renesas,r8a78000-mdlc.yaml |   9 +
+ .../boot/dts/renesas/r8a78000-ironhide.dts    | 135 ++++++
+ drivers/clk/renesas/r8a78000-cpg.c            | 230 +++++++++--
+ drivers/firmware/arm_scmi/driver.c            |  33 ++
+ drivers/of/property.c                         |   2 +
+ drivers/pmdomain/core.c                       |  22 +-
+ drivers/pmdomain/renesas/r8a78000-mdlc.c      | 383 ++++++++++++++++--
+ drivers/reset/core.c                          | 119 ++++--
+ include/linux/pm_domain.h                     |   7 +
+ include/linux/reset.h                         |   8 +
+ include/linux/scmi_protocol.h                 |   8 +
+ 12 files changed, 859 insertions(+), 106 deletions(-)
+
 -- 
-2.53.0
+2.43.0
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
