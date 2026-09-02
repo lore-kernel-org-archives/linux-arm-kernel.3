@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244BCC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DA9C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7YIOafvXbCcZYfkJxsD9i8XvErNivDNnj0yBlvpAKmg=; b=jqbKPDuHeJQZlN6D1sOWN6LezH
-	kj9bm0/I+nmj3QDAxrd3Pe8vd5vhMngvMBCZgOo+Xl9L0Qd/oyUTH/mprovLRgxuynYDiKdFCY1Id
-	w/0XoHnQZcDCggyneUm2vXRNwqkQl04n9SWQd3JfwlicpBl4pXV7MduUN4pyOBfBcqsKllMI3RuUc
-	u4USzy2Kv68EPvhA2EjvXDEPOjPRjU+D5yd6kdx0RakesMN+qwli8HTacKxuUGaU7ibRFNsrD4t5t
-	1qChf6X7n6FqO/XYPuba2qj1PouOaw4KVABgTDoqwt2o/cnLnFTNh4f1FMWSxdPhW+D7ioPtChdt1
-	nUGdD8tg==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PeYlPvxj6C8sDizkaQcHGH0t51hRGjzyyZaVlzwVXG4=; b=WkXQXi05CSLsJTna5pSgKm9981
+	0kdpwNullv+HBpxo+fEMKLYrudGfe8blXsiCuHwOpYeefIAgbu/6GBexlKsDF5kDJsH/scDMhJqjg
+	E+C8jcqk0f4AIyybqfkh3F756p4kmFVJ9EjW58GPwDS3xOdVl8Z0CFao6Pyq83iI8oeuttICvWLCz
+	WAJP5Bad57ODUryd+m1gdiFrULPfsicFDMoEwPGuDxl3rf9U+hoyLnNs28VD+y05jC/y+g4/SNmwj
+	nCFBrbd7RKPCyCBK/cGeOG6D3kVQAuPUnrrHJ2t7cMyUiR+h7sTJ8hBGAsYmPcvmRCZ7lthg9eGH3
+	o7jad24g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lv1-0000000EwMr-0PUg;
-	Wed, 02 Sep 2026 14:26:27 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1x1lzq-0000000ExB5-3a4T;
+	Wed, 02 Sep 2026 14:31:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lux-0000000EwLH-3HLc
+	id 1x1lzp-0000000ExAo-1QvQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:26:25 +0000
-Received: from PC-202605011814.localdomain (unknown [223.112.146.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4c487cfc0;
-	Wed, 2 Sep 2026 22:26:07 +0800 (GMT+08:00)
-From: Runyu Xiao <runyu.xiao@seu.edu.cn>
-To: Iwona Winiarska <iwona.winiarska@intel.com>
-Cc: Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	Jianhao Xu <jianhao.xu@seu.edu.cn>
-Subject: [PATCH] peci: aspeed: Initialize state before requesting IRQ
-Date: Wed,  2 Sep 2026 22:26:00 +0800
-Message-Id: <20260902142600.3580382-1-runyu.xiao@seu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	Wed, 02 Sep 2026 14:31:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C7297419C8;
+	Wed,  2 Sep 2026 14:31:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C4D1F000E9;
+	Wed,  2 Sep 2026 14:31:19 +0000 (UTC)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Michal Gorlas <michal.gorlas@9elements.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
+References: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
+Subject: Re: [PATCH RESEND v2] PCI: imx6: Enable ASPM L1 only iff CLKREQ#
+ is supported
+Message-Id: <178835947957.88571.7553170178358028044.b4-ty@b4>
+Date: Wed, 02 Sep 2026 16:31:19 +0200
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa062834d9e03a1kunm2177e8e01adc4c
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCShlDVh8fTkhKHk9IH0gZHlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVSkpJVUpPTVVKTUlZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pPSExVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=KKF8bk19ENztW57ojYhZ3fOHVd6TfrO65VlreY5e/zGH8R63SXibz+1hD52XfdiBQEOmmSl+B0x1erwvCUuV8L1sARACXJtB8X83tXJBikjKGw7EeO8+2Xq5uZ7u9qRMdUOafMr8TNGwhZei0FHZInCgqSKU8fq84x7ouLYwvxU=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
-	bh=7YIOafvXbCcZYfkJxsD9i8XvErNivDNnj0yBlvpAKmg=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_072624_049979_98AABD62 
-X-CRM114-Status: GOOD (  10.08  )
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +69,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PECI interrupt handler uses the lock and completion object as soon as
-the interrupt is delivered. Initialize both before registering the
-handler so an early interrupt cannot access uninitialized state.
 
-Fixes: a85e4c52086c ("peci: Add peci-aspeed controller driver")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:GPT-5
-Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
----
- drivers/peci/controller/peci-aspeed.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+On Thu, 27 Aug 2026 18:51:00 +0200, Michal Gorlas wrote:
+> Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+> states for devicetree platforms"), ASPM states are force enabled
+> on all devicetree platforms. This causes PCI devices on some i.MX SoCs
+> (for e.g. i.MX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+> though CLKREQ# is not supported (and consequently supports-clkreq is
+> not set in pcie controller node of their DT), which causes the device to
+> never wake up from L1.
+> 
+> [...]
 
-diff --git a/drivers/peci/controller/peci-aspeed.c b/drivers/peci/controller/peci-aspeed.c
-index a0c99ecf7..5d7f4f8fd 100644
---- a/drivers/peci/controller/peci-aspeed.c
-+++ b/drivers/peci/controller/peci-aspeed.c
-@@ -529,14 +529,14 @@ static int aspeed_peci_probe(struct platform_device *pdev)
- 	if (priv->irq < 0)
- 		return priv->irq;
- 
-+	init_completion(&priv->xfer_complete);
-+	spin_lock_init(&priv->lock);
-+
- 	ret = devm_request_irq(&pdev->dev, priv->irq, aspeed_peci_irq_handler,
- 			       0, "peci-aspeed", priv);
- 	if (ret)
- 		return ret;
- 
--	init_completion(&priv->xfer_complete);
--	spin_lock_init(&priv->lock);
--
- 	priv->rst = devm_reset_control_get(&pdev->dev, NULL);
- 	if (IS_ERR(priv->rst))
- 		return dev_err_probe(priv->dev, PTR_ERR(priv->rst),
+Applied, thanks!
+
+[1/1] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is supported
+      commit: 94420d27973f567e5c10b631115ea8b9abc0172e
+
+Best regards,
 -- 
-2.34.1
+மணிவண்ணன் சதாசிவம்
+
 
 
