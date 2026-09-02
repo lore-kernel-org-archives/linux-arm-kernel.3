@@ -4,109 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69697C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF79C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qwirF8YS4XS5WYBuAAukyT9KZnZ3AKCmccSFmPzUas=; b=IJij3gdi2r1BsbBs4qa2CkjrNW
-	Hoh7BONKFJ+KtGEklAzFvfnRN28rSe7dKph0i3dWJT+HHTKV27pXyxyfg8Adsnu4gvmSCLwVHYeXO
-	sBHg31hf2pPvzzjf68z+dtMvdIQMJDN8aIrEgUzxCd96GSPlh0Gk4QySrGcMJhUhsJbTQ+0YMWfF9
-	ur6JJi/iFcwC1i24LSeDfI/lSEZUJNmyO1RDihOabyvygSI6emKHYfiNLKbFWnHimrwCjrR1/Fsg+
-	BWy6cwBYVwx2BIBBgE7Ss/sjYVLYGs5jX2RfemQxoQ4z16Kqu0/hNl0F1GXbDeomlUKkiwPVjaHaQ
-	vwO8RQLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k0oNEv6a+vQgq+nBNFX0wb7aQu0rQMa5axwLFQaIQJ0=; b=IqmgtjFEQEcg/NmA5wSZQwov9r
+	K8TEMlUXAqnHaiRl4ydhvqTYCclmsfwIPbAoMS6TcQjyM2nmnXq64w13IJ80Qx+AfnZluMBKv8mBP
+	Rq3bYqyoMaVGK1WkcLjBpHJUmA82PX2Ckxc/wVIwu4zp2vH6oBHkqZewWpLhV3x0eqWrT8C3dw0EP
+	u3YjqjYMS8qwcwUvJFJYrP6+MNx3A4PnC74yU4NpyevMohS8sMkiiAolmEPn16bTUPuXiiSs4Yicv
+	rdChVieltg1aTgLO3SJSlv3zZ9QgWyS26hTxvrz+pyvzaJdOBRq6w+giSjxX/39/OWtHHY/Dg/NA8
+	yoZVNSfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oKB-0000000FL9X-3IzB;
-	Wed, 02 Sep 2026 17:00:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1oKJ-0000000FLMp-3GoK;
+	Wed, 02 Sep 2026 17:00:43 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oK6-0000000FKyI-1VUf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Sep 2026 17:00:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2qwirF8YS4XS5WYBuAAukyT9KZnZ3AKCmccSFmPzUas=; b=BeL/IgXDkChkiVh6vqvqVZp6pY
-	P/XRsjrvJwvWGYpXl5gFfygLC0ZPooQNsp6eHVSmHyzzjb7RBGIJRiJFJbiSLjfpZUevyw9v4ES8T
-	1HnqtpFtzHQyjE1ky+ZbEHw7JjIvKD5VEMw5sbPwzquHv3G18ygNasUovJ8lTNib54/+GPc1DJwfd
-	6WYLCnAU2vnbRkogD7CaZsu2koM4C+WP9xooMIMbJmo+f0+z7enXq00ehuF2G1o7TFoFmaCF7u4Tp
-	WvTKlNidXf0ubqRZD37MPZ/stAGnLjZ2T9A7ZBw18zS+HKcQDeTluWdpTrBogGCPXPHitq8rUZO0x
-	+aSgseXg==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1oK3-0000000CEkW-0N23
+	id 1x1oK9-0000000FL2P-2qvd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:00:29 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-482dbe4d247so572810f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 10:00:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788368425; x=1788973225; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2qwirF8YS4XS5WYBuAAukyT9KZnZ3AKCmccSFmPzUas=;
-        b=cGAIhd2lST1o1KXdlG9Y5YQ3dYvsKuu9VgvPSLI9KqWrABRtBbxZGUQjAxjk//Q596
-         wuHi17Us4nYMrDD+2Ts/NstGFtMG4nNeGjmFXccxBaBGX4zGA2gf3aKBY/yzyDlXnFsn
-         POD9mn5cv8B/0mAYOqNJj5GA8iErq+DnrBStY7ktkzkS2UzaauZj9YYqJdGucvgSgOrp
-         7DI6pNvfwvXXTMa7B6XQTfjbGAkGZf5wnydMpOz9+eDGYcPFhsnOdWzZAVI2mtN9DOqa
-         AP/PaZsCjiJn1goQDXGRNmvHZACIXGLt82rMhJOCxR7T6wGBAKGothLb64Xv58T88zPO
-         e1sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788368425; x=1788973225;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2qwirF8YS4XS5WYBuAAukyT9KZnZ3AKCmccSFmPzUas=;
-        b=duruWikyCb5pPfR9N+fV/sQOg0YXsFgsd3BQpoHoOR3LmV8ROD2Jr3zuzAU07o45Pc
-         qo1Tjg7XVKkilhQp1qsc3wWJ3sepC6oHB8eR+IjDWJgfcLiVfqdCwIXmD88hyJkhzh2a
-         WKIolexJzEaXKDlRcgyR/yJB+DVApB5FPgMZHXBtjhRdwF7UpA39xzg4MC6R0jx7HwAs
-         XY8ZUWZTdpIulA6vM8A6Lr2tFzFm6rfOR+wXTPT85WL8JIqeMHeCSXSHONk5T2LebFNe
-         +OTxC0P6KyjUFz6Yjuu8XciH3JI7YRXmn9kk7KfsdkQY/jYnAkflbVaeEJdp9wiBxJr9
-         OwCQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwWHDRYNJ0BNPv7YN5gREjooRMn9DR/os0iRMXYiYYYyGRCE9PxAZNR5pjIBEVip/fpfC4ik/hrEgnqByAYDo4g@lists.infradead.org
-X-Gm-Message-State: AFuF++kKDmz266pXeFnboimtffE0CWpdY0uidG5ye+wKC42lKY9DO9lk
-	uKjKjHqiAh9G2+4eUOEnQtRgxWD2E8a3DW8h0sfcKtHAL6R9wtcL+h6+
-X-Gm-Gg: AYBFou0yKAaeTwLfxR8cJC8t+aD0wGAZB5CknTxqsXO+hU17mJGP/uz8hsTO8baD/eu
-	sWa6kwPP/RBREAZOZ4Ux/7bKFJPOck/wiizqDR1+vIT3SO0m+3ZX1ObL9WsVLZQCYvxdmkH7wWM
-	d8UkA633GEGFyJXKT2bGK825uYrinzoRMkeAePgk3PvkgwY5hv5VEAt2TvXlVToQofOO4R/QyR0
-	kViFTL1cMIjDim5ZecF4IhaX9/JHR2SbGEemXnh/5mjFgidY6+A2yYVGJJ6j3jDnia06ajaOVKV
-	5CzV5SysSEo6ImCQWAxoVd/x5wl0a85HWYzMQwiGHIEsbMg/rhzjyJB9QiH8iVZ/kTsTz0AYalT
-	Km80JMGD2dlDcublz4TOHDMB5opgEfbA0xmmm5FqNm7sE1dQyiKoU/kfrxihIdNa5vuSyJ+uDJy
-	ljp8p8K6I23R9av6pXY4IQGbERw2jlUy1bJ75Dtik/afmyWieq5AplOWPrliZDSTMTjmOIJpRNB
-	EH0CuqLsNc2vNI7oVE4/e9F20SJmGTpyWLWnQFJ4g0PTv74b5tPYM4JzwCWch9i18yIrjM4C3Z+
-	8TYtJhLvQGO94tN9ac5CtEfSIMnIX94uwUg=
-X-Received: by 2002:a5d:554c:0:b0:482:e6ec:4edb with SMTP id ffacd0b85a97d-48488f1b148mr8670058f8f.15.1788368421495;
-        Wed, 02 Sep 2026 10:00:21 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-077-007-017-232.77.7.pool.telefonica.de. [77.7.17.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448ed2edfsm7345851f8f.23.2026.09.02.10.00.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 10:00:20 -0700 (PDT)
-Date: Wed, 2 Sep 2026 18:58:22 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Muchun Song <muchun.song@linux.dev>, 
-	Oscar Salvador <osalvador@suse.de>, David Hildenbrand <david@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
-Message-ID: <aphUkaF4mXlxAuCm@gmail.com>
-References: <20260901131823.15799-1-kmehltretter@gmail.com>
- <xwyaihtgvjonk4wqmllsnzkq2ch63bhfzmvh6353ds6tpjuaww@lmu7ltps4il5>
+	Wed, 02 Sep 2026 17:00:40 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 153681A1977;
+	Wed,  2 Sep 2026 17:00:32 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DDF3F6053C;
+	Wed,  2 Sep 2026 17:00:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78F2F11C79B6F;
+	Wed,  2 Sep 2026 19:00:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788368430; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=k0oNEv6a+vQgq+nBNFX0wb7aQu0rQMa5axwLFQaIQJ0=;
+	b=Wt/QsPAHC4Xbs9Ajwboz7RXyxZDxUkf2r0qyHzWu8+45fO4zgpfoJXTJRqD3cD26TyGwdy
+	mDi/YD28PhiFFA/4MxU/WoUgPTgtEhDeNcgUnVdGYoJTbmRHFLNtrG9euox8TTVcU6Sg27
+	iSe9djgd25QHGXRFzc0ag1AycUyarxsIqngvjrmOJhWwGcW1Ga/K368jSz7fGpMC8xZubt
+	g22DA7fbB1Mp6VpwgGem12QjQKU/iU2YMxQwAQ+ymFKZuzZeUMIZy84iw95idjdCidNDHw
+	kh8b4paHH48x75X0zW4loL89KoQyjnRydZ1cEr8/dtmjX6CFz3axTkBHN9cJSA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 02 Sep 2026 18:59:27 +0200
+Subject: [PATCH v4 13/25] mtd: spi-nor: winbond: Add support for
+ W25Q25RV-Q/N
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <xwyaihtgvjonk4wqmllsnzkq2ch63bhfzmvh6353ds6tpjuaww@lmu7ltps4il5>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-13-779d35303dff@bootlin.com>
+References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
+In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
+To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_180027_315038_2D844BFF 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260902_100033_975266_BFCFB5CF 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,36 +85,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 10:08:58AM +0100, Anshuman Khandual wrote:
-> No user-visiable failure was reported even without this change ?
-> Missing TLBI as seen in QEMU is the only clue here ?A
+There is an ID collision with the chip of same density from the JV
+family. Both chips are very similar in practice, it is mostly a matter
+of electrical differences (mostly power consumption being lower).
 
-This came out of an experiment to add warnings for architectural
-details that QEMU does not normally model. The checker tracks guest
-page-table writes and TLBIs using a shadow TLB.
+As a significant difference, RV chips identify themselves as supporting
+the new SFDP (rev F) field which forces an alternate write SR2
+opcode (0x31).
 
-It reported 3072 contiguous PTE transitions without an intervening
-TLBI on the unpatched kernel, none with this change, and none for the
-already-flushed write-protect control. Together with the code history,
-that was the basis for the patch.
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
++ cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
+ef4019
++ cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
+winbond
++ xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+534644500a0101ff00080117800000ff84010102e00000ffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffe520f3ffffffff0f44eb086b083b42bbfeffffffffff
+0000ffff44eb0c200f5210d80000d639a50081d614cee96376337a757a75
+f7a4d55c39f66dffe970f9a50000000000002c0000000000f6ffffff0000
+00000000000000000000ffffffffff0a00fe21ffdcff
++ sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+05a7889e03e6de2ca02479e195acc717339481f2aa459df411fb9180d0e3998c  /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
++ cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
+Supported read modes by the flash
+ 1S-1S-1S
+  opcode	0x13
+  mode cycles	0
+  dummy cycles	0
+ 1S-1S-2S
+  opcode	0x3c
+  mode cycles	0
+  dummy cycles	8
+ 1S-2S-2S
+  opcode	0xbc
+  mode cycles	2
+  dummy cycles	2
+ 1S-1S-4S
+  opcode	0x6c
+  mode cycles	0
+  dummy cycles	8
+ 1S-4S-4S
+  opcode	0xec
+  mode cycles	2
+  dummy cycles	4
+ 4S-4S-4S
+  opcode	0xec
+  mode cycles	2
+  dummy cycles	4
 
-As noted in the testing section, no user-visible failure was
-reproduced. 
+Supported page program modes by the flash
+ 1S-1S-1S
+  opcode	0x12
+ 1S-1S-4S
+  opcode	0x34
++ cat /sys/kernel/debug/spi-nor/spi0.0/params
+name		(null)
+id		ef 40 19 00 00 00
+size		32.0 MiB
+write size	1
+page size	256
+address nbytes	4
+flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET | NO_WP | HAS_SR2_CMP_BIT6
 
-I also tested an unpatched kernel on a Raspberry Pi 400.
+opcodes
+ read		0xec
+  dummy cycles	6
+ erase		0xdc
+ program	0x34
+ SR1 read	0x05
+ SR2 read	0x35
+ SR1 write	0x01
+ SR2 write	0x31
+ QE		SR2 bit 1
+ 8D extension	repeat
 
-The Cortex-A72's L1 data-TLB refill ratio was approximately 1:16 for
-the 64K hugetlb mapping versus a forced-4K control, indicating that it
-amalgamated the 16 contiguous PTEs. A contended test still completed
-85,396 full-range permission changes and about 2.8 billion reads
-without a fault or data mismatch.
+protocols
+ read		1S-4S-4S
+ write		1S-1S-4S
+ register	1S-1S-1S
 
-> But you have not seen any real TLB conflicts even on custom QEMU ?
+erase commands
+ 21 (4.00 KiB) [1]
+ dc (64.0 KiB) [3]
+ c7 (32.0 MiB)
 
-No. QEMU does not model the stage-1 Contiguous hint as a combined TLB
-entry. The added checker only logged the page-table/TLBI sequence, it
-did not change translation behaviour or inject TLB conflicts.
+sector map
+ region (in hex)   | erase mask | overlaid
+ ------------------+------------+---------
+ 00000000-01ffffff |     [   3] | no
 
-Thanks,
-Karl
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01ffffff | unlocked | 512
++ dd 'if=/dev/urandom' 'of=./spi_test' 'bs=1M' 'count=2'
+[   24.169256] random: crng init done
+2+0 records in
+2+0 records out
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ hexdump spi_read
+0000000 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0200000
++ sha256sum spi_read
+4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
++ mtd_debug write /dev/mtd0 0 2097152 spi_test
+Copied 2097152 bytes from spi_test to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_read
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_test
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_test
++ mtd_debug info /dev/mtd0
+mtd.type = MTD_NORFLASH
+mtd.flags = MTD_CAP_NORFLASH
+mtd.size = 33554432 (32M)
+mtd.erasesize = 65536 (64K)
+mtd.writesize = 1
+mtd.oobsize = 0
+regions = 0
+
++ alias 'show_sectors=grep -A4 "locked sectors" /sys/kernel/debug/spi-nor/spi0.0/params'
++ flash_lock -u /dev/mtd0
++ flash_lock -i /dev/mtd0
+Device: /dev/mtd0
+Start: 0
+Len: 0x2000000
+Lock status: unlocked
+Return code: 0
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug write /dev/mtd0 0 2097152 spi_test
+Copied 2097152 bytes from spi_test to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_read
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_test
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01ffffff | unlocked | 512
++ flash_lock -l /dev/mtd0
++ flash_lock -i /dev/mtd0
+Device: /dev/mtd0
+Start: 0
+Len: 0x2000000
+Lock status: locked
+Return code: 1
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_read
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_test
++ dd 'if=/dev/urandom' 'of=./spi_test2' 'bs=1M' 'count=2'
+2+0 records in
+2+0 records out
++ mtd_debug write /dev/mtd0 0 2097152 spi_test2
+Copied 2097152 bytes from spi_test2 to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read2
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read2
++ sha256sum spi_read spi_read2 spi_test spi_test2
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_read
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_read2
+ad25f48ad5b35e95d6055cd54fef93c6ad33c389907a8e494a9807e4787f8db9  spi_test
+04a89ca2d9ae1bda059af80fb9d84b44e49a2a5ef1f8764254d1d80e533917ec  spi_test2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01ffffff |   locked | 512
++ flash_lock -u /dev/mtd0
++ cat /sys/class/mtd/mtd0/size
++ size=33554432
++ cat /sys/class/mtd/mtd0/erasesize
++ bs=65536
++ grep unlocked /sys/kernel/debug/spi-nor/spi0.0/params
++ sed -e 's/.*unlocked | //'
++ nsectors=512
++ ss=65536
++ bps=1
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 33423360 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01fdffff | unlocked | 510
+ 01fe0000-01ffffff |   locked | 2
++ flash_lock -u /dev/mtd0 33423360 1
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01feffff | unlocked | 511
+ 01ff0000-01ffffff |   locked | 1
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 25165824 128
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-017fffff | unlocked | 384
+ 01800000-01ffffff |   locked | 128
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 0 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0001ffff |   locked | 2
+ 00020000-01ffffff | unlocked | 510
++ flash_lock -u /dev/mtd0 65536 1
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0000ffff |   locked | 1
+ 00010000-01ffffff | unlocked | 511
++ all_but_one=511
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 65536 511
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0000ffff | unlocked | 1
+ 00010000-01ffffff |   locked | 511
++ flash_lock -u /dev/mtd0 65536 1
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0001ffff | unlocked | 2
+ 00020000-01ffffff |   locked | 510
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 0 511
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01feffff |   locked | 511
+ 01ff0000-01ffffff | unlocked | 1
++ flash_lock -u /dev/mtd0 33423360 1
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-01fdffff |   locked | 510
+ 01fe0000-01ffffff | unlocked | 2
+---
+ drivers/mtd/spi-nor/winbond.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/mtd/spi-nor/winbond.c b/drivers/mtd/spi-nor/winbond.c
+index 1ddc2ea1ad9c..5ab24aed311f 100644
+--- a/drivers/mtd/spi-nor/winbond.c
++++ b/drivers/mtd/spi-nor/winbond.c
+@@ -275,7 +275,7 @@ static const struct flash_info winbond_nor_parts[] = {
+ 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
+ 		.flags = SPI_NOR_QUAD_PP | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_CMP,
+ 	}, {
+-		/* W25Q256JV-Q/N */
++		/* W25Q256JV-Q/N, W25Q25RV-Q/N */
+ 		.id = SNOR_ID(0xef, 0x40, 0x19),
+ 		.name = "w25q256",
+ 		.size = SZ_32M,
+
+-- 
+2.54.0
+
 
