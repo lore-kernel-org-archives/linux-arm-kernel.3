@@ -4,118 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B23DC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6760C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=036mA8orffinoqt2iQHKcFlBXTwc5/7dbRbRMf6syWk=; b=q5eGygv69/jCwkUEnSJGsQt2Wn
-	mFusiwAU7SHpeCTUPty7H/jsfh2VnK6wtlxQ/IXiJFRbTmDJ4zkU+wvdZaIfijas63Hj+n665wiiT
-	E3nuE+w532az52vymB9Z+7Q47KQU+8Qf0xjXpyy/o0795TFNeD3asU+21/3XrskwJQ3HRNDu9R6kU
-	2f5JpLhgwbNy9qDrWKt+LRgvLJHs7wG/KzweuvmI6TQdLjOBc1dr0T//1CcKId2J65jEm5KmTSJjs
-	1SXi4mHIJrfKZM4SVZZkQ1n1UPkCG9OYnDt0Sq6sBf40uhOf8dnc7fZGvNe6AGHOh7/AbR9XvltLB
-	abeo5lzw==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YU2mIB835mYw5//qKk+9pqJCWuqJD/Z0SnWodIvE8IM=; b=wv8dYYNv2Y9rRpzeEl92PCqJRb
+	4bxKyNVDcxi34jMXDn6yR7EUS4E2L1UoF4pa7o8c0lOIuE5aZ2qUrpTNrXTHQhUQe0g1Zw+O2/97j
+	RSdmQgP7tUAiWrKhNXJqqagE+AgMq/1Ps3pcBvLpQMrzHGvt0Y0+LNxTyehDIMMe/nwWx70UPF2kX
+	MblURXKZiiustTk5CtFOgRiMAEaLfj97P5AkovDR+T5hOfeSzp++038ghqnZBjK0z/OMcZlFnEPHv
+	L9TGQ4rgdfwsmaHR7lIWBHIDFeJanBxCX4s+646pa0e+diQCBalyX0N7Nz7xg7l6DlbRNclU2vJWA
+	9tTuDkKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1k2x-0000000Efr5-0jwb;
-	Wed, 02 Sep 2026 12:26:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1k6k-0000000EgFM-2he1;
+	Wed, 02 Sep 2026 12:30:26 +0000
+Received: from mail-10627.protonmail.ch ([79.135.106.27])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1k2v-0000000EfqF-1keB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Sep 2026 12:26:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=036mA8orffinoqt2iQHKcFlBXTwc5/7dbRbRMf6syWk=; b=LUE9zBsSS4lKmkjt1Tb+FE1OUy
-	ZVuQJxSBkV3tKkes1ZkRJXRPPiR1ytCJkEKIZmDbb+xg7J8R4JnmUKjHaBFBVEu2CpJhy+J6SHtmE
-	q9XPOHjlNB/j7OZMdp7wHSYQouqZ4MEIN0/rAhlHgAlxnKOH8NnDqshLUlSWtMKnjurThynasoNO+
-	TmiP4Ju5L8KAzYIgI2KcJaRI71NDRp3WvHgweRNVDw6Dx73IVkM0DqWMdNcmrJx1jookh2QgRiyQj
-	amCwZcwTRbX9zgFCuFpfnQ6KHjBuN2vhiQxbKFk06451km45iPoeXxEqzvcMVUMOff0D02G/cpSAn
-	HCXGSQ6g==;
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1k2r-0000000BycA-1FIX
+	id 1x1k6g-0000000EgE6-3tb1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:26:28 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so989916f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 05:26:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788351983; x=1788956783; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=036mA8orffinoqt2iQHKcFlBXTwc5/7dbRbRMf6syWk=;
-        b=nRPnmC3BDr3SwD6ZVH8reGBv+6g0YHcmB6y7ZjVO1oj7OelhZ7RdFOBNpFaLIXE3f0
-         3hTRV19In58nleCyGxqVNiFti3r48ERWCx6+bzrmcH+rHu4YhSuQKksrbFcZHeF/fFcl
-         yL5VecUkrL9TCT+4L9aAqTnBs9ynlveqtVGdCeakHLKy3Xzp+EQVrdB1ecNGA5UbQQek
-         IOt+d64rDwjoSiogxZmruuCgDUrHM196Yxq5ux3I2P1agqPjxtJxc+frH9mEd/eFDFdw
-         +ilzkCTmcoiJ0cqbjR18lcNcrJ2qfa5qtKMaVU/VDvwK7hQesqRQuMtDjjXWr0to+0ax
-         HlGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788351983; x=1788956783;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=036mA8orffinoqt2iQHKcFlBXTwc5/7dbRbRMf6syWk=;
-        b=b0eEt62B5xMNR2EjMuxECSV9hFARsMWfPGC8gZGunpwwQewwXANDbkqpEBlgwUajv+
-         IQ3Ufy/6j1v8L3qZ8NNeEZcY1+B+8Y076gjun/NxCQf21XkLgjtp8nmeFnc0Z7rVJGHS
-         YHcu646Fh8fIk0tr3q2lmsPRcZZ5Wc5GFflUeaDYn8F1GN9bStWmkwUGTdJzmxQZ8IBs
-         QYwI1ihYjtWY+LgrryhmTcW1E3FPFvlDn/ZdDOK3Z3qWy15arqimu6+JgbxwzbRcvCTZ
-         /JPC7kexWS6CaRg3J5vqap1GhRm2xKE865skQGPqVsDS+EV/jVULMztM6HOU8+l2TsDY
-         AH9g==
-X-Forwarded-Encrypted: i=1; AKwUvBxJYUFdVrP9zEpLm1oZcGiW+NO34cPiL1q4PgPnNRCxw26t3w/YhoqNzZYl1QAO3jsv7JD9PsNUStFZpIlg23wm@lists.infradead.org
-X-Gm-Message-State: AFuF++lZWJaKro+C22fAvdNBfJvwKwzMenRT4dpAffBZ5SBGczMxVnin
-	AQ6tdNnkEQlZH05mmSVy1U5ukoLDOurA7HJ960R4KBSCt6EbpEHxlGjw
-X-Gm-Gg: AYBFou3/Bs5FLvcCRoKZnmcp5fKuSEalFCESS24+Oq4DC7D4Z+K2Zf3xrcIjobqhUX4
-	ItqrelwF36CGNuzeJrnQ8YLxE72cETIM+WbdvpHdF2l7/pxw0q2mdRUn3pgdvobVWLY/cBprxMj
-	fCatojy1dYMxyixlbU9H8zHC7v5KeZculjDt1ibPCczGBoJjO8+eVQ4OOsS4Uidb0rHE2gCtZ/2
-	0vD/Y23Fu1rXhBcZBel4bBHujvNsChVAR2woD3a5ITqgYM9r7HIT9cdMX9Vs0qGBFiVccvHpz3k
-	JetfqNNNcRFgTHMuKCcqAG+G9k/IUBwOfm2wH5bkD5gnr2kthX5Rn/SPHL5fkhaBYEGxdLaJoyY
-	PIHbltH0bMu41DuGT0IadjyQhOJbhAwc/QMwotLRMflFtpu02mLbXdeZgJQlrX81Sz+H1GAJ4ZT
-	iKX/xlH3kE5v8rKJ6jkJDS2Lgz/ZidZQNVfuYMcUMEKlyAiNC5MbRDDdmtpFnjSGyZQQ0We6WE4
-	sKIDB/zXj6rhjJXFO7r8vZFbvT74qhUvdT1
-X-Received: by 2002:a05:6000:4b1d:b0:481:503b:b663 with SMTP id ffacd0b85a97d-48488f1ac85mr8671422f8f.18.1788351983076;
-        Wed, 02 Sep 2026 05:26:23 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-484492cdc37sm6635359f8f.34.2026.09.02.05.26.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 05:26:22 -0700 (PDT)
-Date: Wed, 2 Sep 2026 13:26:21 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Eli Billauer <eli.billauer@gmail.com>
-Cc: Mike Rapoport <rppt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Brad
- Warrum <bwarrum@linux.ibm.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Michal Simek <michal.simek@amd.com>, Ritu
- Agarwal <rituagar@linux.ibm.com>, Andrew Morton
- <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Matthew
- Wilcox <willy@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
- kmalloc()
-Message-ID: <20260902132621.7444266b@pumpkin>
-In-Reply-To: <9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
-References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
-	<20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
-	<f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
-	<20260831123937.32255a49@pumpkin>
-	<apaF1HUtJnstuUN4@kernel.org>
-	<1729fb06-6beb-f8ef-3e71-47fc3f00345d@outbound.gmail.com>
-	<apcPg_y-HsMki7we@kernel.org>
-	<9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 02 Sep 2026 12:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=empyreal.works;
+	s=protonmail2; t=1788352217; x=1788611417;
+	bh=YU2mIB835mYw5//qKk+9pqJCWuqJD/Z0SnWodIvE8IM=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=Impi0/5biADa5seEW73LvAATqy5IbbIYSehU5FFVfJGpOp9WnL5VIexSNJ6iKidop
+	 QmL0/uLL1VLb+uBvaan668VUTnBwgvkgIUkPvH7yNq5nNjhbJK7xDYMGb7PsRuhcHc
+	 OTlgeIF4yjdQgYUCsf/2eI4lBf+rU6EOLufPShH8OznB71YovU2lx7zi6yZbR4RtcW
+	 cMoP308WgmzQKcc2w8g5cYHCk5lxAyyat5wvrKz0gjDXzNsZ9ZpI3VN8P/qql2/03n
+	 uXL24965X0RjlGsG/+2gKbfuMQf3ekyHBXpm2TmxL4KUS8cudl5NB2KOxuXUIsL5RY
+	 fgAS61XZMrVhw==
+Date: Wed, 02 Sep 2026 12:30:11 +0000
+To: linux-wireless@vger.kernel.org
+From: Andrei Rusu de Castro <arc@empyreal.works>
+Cc: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com, shayne.chen@mediatek.com, sean.wang@mediatek.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: mt7925: stabilize STA_REC_MLD link selection
+Message-ID: <20260902-mt7925-0cbea623@empyreal.works>
+Feedback-ID: 182420409:user:proton
+X-Pm-Message-ID: 024b838ed21db538301af0a81238c1b4034d27bb
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_132625_443982_B1CB7074 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260902_053023_616032_2CB2C39F 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,47 +66,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Sep 2026 13:41:54 +0200
-Eli Billauer <eli.billauer@gmail.com> wrote:
+mt7925_mcu_sta_mld_tlv() encodes the primary link and then, as the
+secondary entry, whichever link the current station update happens to
+be for.
 
-> On 01/09/2026 19:46, Mike Rapoport wrote:
-> >> * Does vmalloc() guarantee that non-pageable physical RAM is allocated when
-> >> it returns?  
-> > It's not pageable in the sense of demand paging. Some architectures lazily
-> > synchronize vmalloc page tables and this can cause page faults that will
-> > take care of the page table synchronization.
-> >   
-> 
-> Thanks for this clarification.
-> 
-> This sounds like a showstopper to me. Immediately after the allocation 
-> of these buffers, data from the USB device can arrive at 400 MB/s. If 
-> the data flow is throttled as a result of handling page faults while 
-> trying to write the data to these buffers, this could lead to an 
-> overflow in the USB device's own RAM buffers. This is because the USB 
-> device is an FPGA, where RAM is an expensive resource.
+STA_REC_MLD is a complete record rather than an incremental update:
+every call rewrites primary_id, secondary_id, link_num and link[]. Since
+mt7925_mcu_sta_update() is issued per link, the record left in firmware
+depends on which link was updated last. For a two-link station an update
+for the secondary link leaves both links, while a later update for the
+primary leaves only the primary.
 
-IIUC The faults don't usually happen.
-But if one cpu write the address somewhere and another cpu picks it up
-immediately and access the buffer you can get a fault.
-Even if they do happen they are unlikely to be worse than normal
-interrupt latency.
+Fill the remaining firmware entries from the station's valid links.
+Keep the primary in entry zero, walk secondary links in link ID order,
+skip links without both station and BSS state, stop at the firmware
+array size, and set link_num from the number of entries written.
 
-If you are trying to receive data at very high speed I'd have thought that
-you'd want the USB data written directly into you buffer list.
-(Much the same way as most ethernet hardware handles rx frames.)
-I realise the the usb kernel code isn't really written for that sort
-of access (some of usbnet could do with it).
+A link added through .change_sta_links needs one ordering exception.
+mt7925_mac_link_sta_add() sends the MCU command before publishing the
+new link in msta->link[] and msta->valid_links. Fold that in-flight
+caller link into the local valid-link snapshot and use its passed
+station object when the published slot is still empty. The VIF link
+state is already published and remains the BSS authority.
 
-David 
+Commit ff643b81bc38 ("wifi: mt76: mt7925: pass mlink and mconf to
+sta_mld_tlv()") removed the complete link lookups because the caller
+already knew one link. Reintroduce them because that caller context
+cannot otherwise describe the complete two-entry firmware record.
 
-> 
-> So using vmalloc() may result in a malfunction in the data transport 
-> where the __get_free_pages() would have been successful. This outweighs 
-> the benefit of a somewhat higher probability of success in allocating 
-> very large buffers, and surely the improved aesthetics of the kernel code.
-> 
-> Regards,
->     Eli
+A source and call-graph audit identified the
+trigger-dependent record and the link-add publication window. A
+source-level harness issues the encoder across seven settled layouts
+plus the in-flight add ordering, reproduces the old trigger dependence,
+and passes 90 checks. The exact changed object builds with W=3D1.
+
+Fixes: ff643b81bc38 ("wifi: mt76: mt7925: pass mlink and mconf to sta_mld_t=
+lv()")
+
+Signed-off-by: Andrei Rusu de Castro <arc@empyreal.works>
+---
+ .../net/wireless/mediatek/mt76/mt7925/mcu.c   | 49 +++++++++++++++++--
+ 1 file changed, 44 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/=
+wireless/mediatek/mt76/mt7925/mcu.c
+index fa29c486a455..d3e1ae4143cb 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+@@ -2068,9 +2068,12 @@ mt7925_mcu_sta_mld_tlv(struct sk_buff *skb,
+ =09struct mt792x_vif *mvif =3D (struct mt792x_vif *)vif->drv_priv;
+ =09struct mt792x_sta *msta =3D (struct mt792x_sta *)sta->drv_priv;
+ =09struct mt792x_dev *dev =3D mvif->phy->dev;
++=09unsigned long valid =3D msta->valid_links;
+ =09struct mt792x_bss_conf *mconf_pri;
+ =09struct sta_rec_mld *mld;
++=09unsigned int link_id;
+ =09struct tlv *tlv;
++=09u8 max_links;
+ =09u8 cnt =3D 0;
+=20
+ =09/* Primary link always uses driver's deflink WCID. */
+@@ -2099,11 +2102,47 @@ mt7925_mcu_sta_mld_tlv(struct sk_buff *skb,
+ =09mld->link[cnt].wlan_id =3D cpu_to_le16(msta->deflink.wcid.idx);
+ =09mld->link[cnt++].bss_idx =3D mconf_pri->mt76.idx;
+=20
+-=09/* Optionally encode the currently-updated secondary link. */
+-=09if (mlink && mlink !=3D &msta->deflink && mconf) {
+-=09=09mld->secondary_id =3D cpu_to_le16(mlink->wcid.idx);
+-=09=09mld->link[cnt].wlan_id =3D cpu_to_le16(mlink->wcid.idx);
+-=09=09mld->link[cnt++].bss_idx =3D mconf->mt76.idx;
++=09/* Encode the remaining valid links of this station, not just the one
++=09 * this command happens to be updating. STA_REC_MLD is a complete
++=09 * record: every update rewrites link_num and link[], so selecting the
++=09 * secondary entry from the caller's link made the record firmware
++=09 * ends up holding depend on which link was updated last.
++=09 */
++=09max_links =3D ARRAY_SIZE(mld->link);
++
++=09/* mt7925_mac_link_sta_add() issues this command before publishing
++=09 * a new link in msta->link[] and msta->valid_links. Include that
++=09 * in-flight caller link in this record so it is not lost.
++=09 */
++=09if (mlink && mconf && mlink !=3D &msta->deflink)
++=09=09valid |=3D BIT(mlink->wcid.link_id);
++
++=09for_each_set_bit(link_id, &valid, IEEE80211_MLD_MAX_NUM_LINKS) {
++=09=09struct mt792x_link_sta *mlink_sec;
++=09=09struct mt792x_bss_conf *mconf_sec;
++
++=09=09if (cnt =3D=3D max_links)
++=09=09=09break;
++
++=09=09if (link_id =3D=3D msta->deflink_id)
++=09=09=09continue;
++
++=09=09mlink_sec =3D mt792x_sta_to_link(msta, link_id);
++=09=09if (!mlink_sec && mlink && link_id =3D=3D mlink->wcid.link_id)
++=09=09=09mlink_sec =3D mlink;
++=09=09if (!mlink_sec || mlink_sec =3D=3D &msta->deflink)
++=09=09=09continue;
++
++=09=09mconf_sec =3D rcu_dereference_protected(mvif->link_conf[link_id],
++=09=09=09=09=09=09      lockdep_is_held(&dev->mt76.mutex));
++=09=09if (!mconf_sec)
++=09=09=09continue;
++
++=09=09if (cnt =3D=3D 1)
++=09=09=09mld->secondary_id =3D cpu_to_le16(mlink_sec->wcid.idx);
++
++=09=09mld->link[cnt].wlan_id =3D cpu_to_le16(mlink_sec->wcid.idx);
++=09=09mld->link[cnt++].bss_idx =3D mconf_sec->mt76.idx;
+ =09}
+=20
+ =09mld->link_num =3D cnt;
 
 
