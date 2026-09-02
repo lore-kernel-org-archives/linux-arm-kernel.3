@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C3CC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB57C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=; b=ZvreX38hw2ytPYIT//Drngi7X9
-	ktcjvAQWhAmgmuZFE7Bufixyb/Rq2/aie2a2P2Pg75JukDQ0e4Ti3A06MHIlOyQvG9NAlR4Da1P5e
-	XFOcmR+p07NuxZgWss8nRcRhi47N5uFC08lLGZ+ZZ7g1Kdotdut0O8u7ajawWBnoVQ1vyQM0/te5b
-	WpMIEVEvPGqklOdoOE7sPtIoOSMiozTtwUETb8dKPqx9cOHjjsaCVxvk8MTVQOOP6rs35CV0Trq99
-	SMkcuPkbmsr9Gfd44GD6OcGm0rv1mPgxCy7rm7eYLxanpLQi4LiG8JjbZ2t1ZuOQbOJXog+RH23VH
-	0PO0pcmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Kj6OXmnI796AJi+KtMQGs/+5fjlPUrVETNMvDH3Q10=; b=3+180hcsstYhFR8f53K/DkPJBX
+	LmDtWm6yaSm+IMmEdb2oAuSfhhBz7yDFUZb4NcHFM7S3EMLyy2a3m2606JBV8F6angf6jvej3SWvh
+	bILNbgCB2EsgtPLxk2LXFoN+Y3Jg5rBJmSbjcj5WnpJtI8Rj2N7gblRLVCHNszUx1SRJdI1hNc6uh
+	ZZoQh6I4/xiOTtbdHL4/yzCbLSlQnpdMoo9DM8YsPAxNZaehtq1cUA/+qc6FWF1b2lYTJ7+xkeCuR
+	Ol5MgrNPI2ETduHgnO4UlnVCS+XuzBrD1ZLxWr2zcOKGqnmR+LW/BXgcJl9Cg3E1q3wxClIGFZbtn
+	3WBFu1ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n71-0000000F80j-3hif;
-	Wed, 02 Sep 2026 15:42:55 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1x1n7T-0000000F85H-0KeX;
+	Wed, 02 Sep 2026 15:43:23 +0000
+Received: from out-60.mta0.migadu.com ([2001:41d0:1004:224b::3c] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n70-0000000F7zi-0zCJ
+	id 1x1n7Q-0000000F84Y-0iCl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 15:42:55 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48433fad54aso807203f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:42:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788363772; x=1788968572; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=;
-        b=FuDVO8eS/OW2GE/P9OPlqd6rxsYnexx4oVnFHBkX615qkCUzrjmtQGiDUed+Ggt5sE
-         wCX0H1QguwYJX55lX6gGkpUTdCURqx3rMf1Yf7Mwcksb1f7nlMGBkfzga3bx9hlok3k5
-         hvXQ8azF4KHuVgbfqUc/WZ+pB3utFUX0ICPIANxXdpRwnLJQvstWGaShPWweyVYrnB9z
-         f4lAEVKLxnCEVPuddIwHRYiu/YblxnTgTPgJ+BVVyIYM+t98RPh1PYtISPF0V90StGJR
-         uOyG7bxWwAWSCwpJse2/G80XdtVQsHgYiH82xyuJxLui59EslfAHReIzWOLj3fPj3XDc
-         O8HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788363772; x=1788968572;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tkCOea6tIQttao4Q4gnUxT8VpD52QN8Jk9jItuqC2g0=;
-        b=CjRkBaSmk5RxDLMilv4ImnlUuwFVBEgN/oNqMH7zOtx7f5ha7NI6lndsciVON8JwVO
-         Zg3cJeF9n519/N0og5pxe4127R3ZEANhg7DI9U6xr6RR4sAZhtbFcN4ui9xZ0ofoJnmT
-         70fQCOsJaX1c8J7A9RNVp9rt5M82An5zRMJ+gkXdp6SQ9DjatRlssHmuXy5WaMKkoV41
-         LCanqjiZWOAyw29mpBAfTxW3bvE8djZPzp7mH0wx1QFet7IEJhXhJbvZq1cfM1flpmWR
-         gqHsLred7WSb+D91U/7j10gKkGAXqgY3cADVzicLZdILs4z60z1CER3kcfFgPDV03zPu
-         WX5g==
-X-Forwarded-Encrypted: i=1; AHgh+RqzrrJWnE3I28OFOuL+eCMRJqQY81ju9m2kyZoBjwzz6YDfbQOIZ2fU92ppvk85bKacacH8KqmCUl3kOfcpUw1b@lists.infradead.org
-X-Gm-Message-State: AFuF++mSiVVAonBTBArGQnoI0VJXeWGDRyrFVd+TO0BMMcjU8Kviuecv
-	6842s166obE22e3JUvcNv3l5VNbGpKQ15ym/50gjokOQaKA5LxMfJInK
-X-Gm-Gg: AR+sD13q/5b1PlaJOoo+U14m0Dg95CZRDLoq/qVNvFIWnJF/ZarFD5mmZiIx9uv8iRo
-	knL9l9swuX1TUVizo3KyK3RuqWXFwx8mvRpaWQLyfQoIeSftDyt9FR7+aeQNyWyQRGlTWJPdqh8
-	478/F+W36vTQlvpd8jmuIYXnT+6tisissMvDph8+ploz9jL6NBOlTC9Ghlv366OA7gRomZmvgi9
-	XxfWyObh6dQepkdyRa2z79FDSgP21pPTpAwfB++JBYfeCm4UJCMrZ1a2NCl/9fATDYpAopcHJx+
-	twzGqNKfFNpHaRe68YKEDD0kN4m6oyz4AvsaWTCnxCww1VbiMznmm5OmVIoOSensYFZhGhjfVI/
-	kxSRcCrVTgj12eWsGwUDdAst2sTBT+OCLJopVDDJPxqerPUNl6yXTdx6osVeu3bK9stFEl3nWzg
-	SkXZhuWTqDjJD+d+XoxZhhc3oFsqfIqzatvEI2xXd8HUY81M9BZEyCDtbRj3fWwslgWq2zaXQGm
-	9t2iWTblfZ/Y37+/27DHC8UJw==
-X-Received: by 2002:a05:600c:8714:b0:499:b65d:1250 with SMTP id 5b1f17b1804b1-49ce580d869mr109336155e9.2.1788363771670;
-        Wed, 02 Sep 2026 08:42:51 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce47b9817sm57993845e9.1.2026.09.02.08.42.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 08:42:51 -0700 (PDT)
-Date: Wed, 2 Sep 2026 16:42:50 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Usama Anjum <usama.anjum@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- linux-arm-kernel@lists.infradead.org, vladimir.murzin@arm.com,
- ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com,
- stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com,
- yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org,
- david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
-Subject: Re: [PATCH v2 00/20] arm64: Preemptible this_cpu_*() operations
-Message-ID: <20260902164250.40852ba7@pumpkin>
-In-Reply-To: <9789fd67-205a-412f-90d6-42c401d3babe@arm.com>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
-	<9789fd67-205a-412f-90d6-42c401d3babe@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 02 Sep 2026 15:43:21 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=TDDB9h6jCMOmpsGVUIa0QZINLyS4wj3l4QWCvShhMTw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788363798; v=1; x=1788968598;
+ b=mCTA+Fgqx0q7VIF1BKxZBxvH/N+TLIMVml0ynAaVnZtPdrQa11c2wjl4pP/jM+damoXFi85Q
+ 6Gwm5x+Loor74deH5aYWuqjgiL3rzJFJGOyTBtdOtezyvGTAbwcc0OdFU1x6SEAgwH1nejYnsm3
+ ce1+iCDF2ECTdybBIzl5kRqo=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id e3fa1f804db94fd1;
+	Wed, 02 Sep 2026 15:43:18 +0000
+X-Mizu-Trace-ID: e3fa1f804db94fd1
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so3005e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:43:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwcM0Ok2H7XLcrchkJkRcAUoM/RddAJSLSfzbngPv+ReIjKX1dqDwRYc+JoLoeeMRNe6yxiMtY0urycNdzriCzl@lists.infradead.org
+X-Gm-Message-State: AFuF++kkY4hEOxfl6dZLXsPXxbYJo8waqjsqK1HKIZCx14w7xCLJ8D48
+	26jNcp5CvgKy0NvZb346ZsxCdp62BlUkRO4Sj5fTp4FWUBnBD3k6nfZqs1LR5SPto7NfD77d5xG
+	5fMVDelU3B20jRIVyVyEr/WiuB8MuM23EdlhsT6L+
+X-Received: by 2002:a05:6512:1317:b0:5b1:571f:715f with SMTP id
+ 2adb3069b0e04-5b60d662ef3mr52821e87.3.1788363796807; Wed, 02 Sep 2026
+ 08:43:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
+ <a491ea12-b0f6-43e4-bb5d-dba508120bfb@arm.com> <CA+EHjTy0jCbEb0K7Sd_+X-Ly_6fC3vuPxmyTVRkqkF_DAFMucA@mail.gmail.com>
+ <0b2c58d2-cc82-4c68-aaa2-83449d0b48c1@arm.com> <2368f72ea9a447057456eb37450e1c25f4bdddff.camel@xry111.site>
+In-Reply-To: <2368f72ea9a447057456eb37450e1c25f4bdddff.camel@xry111.site>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 2 Sep 2026 16:42:40 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTymqz4gA4OU8TULa-NROfpmxg0_K7UJd_00jFhVJLtTug@mail.gmail.com>
+X-Gm-Features: AcwNN1Vqyai7NwAklslw_P-gB_E9iMkS68kcpmtYOZrPmf--aKrYMKE_RXKOiVE
+Message-ID: <CA+EHjTymqz4gA4OU8TULa-NROfpmxg0_K7UJd_00jFhVJLtTug@mail.gmail.com>
+Subject: Re: arm64: MPAM2_EL2 and MPAMHCR_EL2 are left UNKNOWN under arm64.nompam
+To: Xi Ruoyao <xry111@xry111.site>
+Cc: Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_084254_302425_0C07C007 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20260902_084320_349396_399FE4A9 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Sep 2026 12:55:12 +0100
-Usama Anjum <usama.anjum@arm.com> wrote:
+On Wed, 2 Sept 2026 at 16:27, Xi Ruoyao <xry111@xry111.site> wrote:
+>
+> On Thu, 2026-08-27 at 09:41 +0100, Ben Horgan wrote:
+> > > not, could the caveat go the other way round: arm64.nompam is for
+> > > systems where firmware ignores MPAM, and should only be set on a
+> > > machine that does not boot without it?
+> >
+> > Yes, seems fine.
+>
+> Sorry for the late reply.  This is indeed the original purpose for
+> arm64.nompam, a dirty hack when we have no other ways to make the system
+> boot.  If you think it causes an inconsistent state I'd not complain
+> against adding a loud warning or something.
 
-> On 04/08/2026 6:04 pm, Mark Rutland wrote:
-> > This series reworks arm64's this_cpu_*() operations such that they do
-> > not need to disable preemption, avoiding related overhead in the fast
-> > paths. Instead, the ops begin/end a "PCPU GPR" critical section using
-> > unconditional/posted stores, which should be very cheap on any
-> > reasonable micro-architecture. During a critical section, should a
-> > (preemptible) exception be taken, the entry code will apply a fixup to
-> > the GPRs containing the percpu offset and the generated percpu address.
-...
-> tl;dr
-> Comparing this series with the page-table series [a] gives 8 improvements and 3
-> regressions.
-> 
-> Fastpath is a Linux kernel performance benchmarking service. The table
-> compares the both patched kernels: positive values are faster, negative
-> values are slower, and (I)/(R) indicate statistically significant
-> improvements/regressions. Unmarked differences are not significant after
-> accounting for confidence and noise thresholds.
-> 
-> +---------------------------------+--------------------+-----------------+-----------------------+
-> | Benchmark                       | percpu-pgtable [2] |   gpr-fixup [3] |         gpr-fixup [3] |
-> |                                 |    vs baseline [1] | vs baseline [1] | vs percpu-pgtable [2] |
-> +=================================+====================+=================+=======================+
-...
-> | perf/futex                      |              0.55% |      (R) -2.80% |            (R) -3.34% |
-> | perf/sched                      |          (I) 1.61% |          -0.39% |            (R) -1.97% |
+Thanks. After discussing it with Ben, I think the best option (or the
+least bad option :)) seems to be documenting it [1]. I'll send that
+soon.
 
-Might be worth investigating those two.
-Something odd is probably happening.
+Cheers,
+/fuad
 
-David
+[1] https://lore.kernel.org/all/0b2c58d2-cc82-4c68-aaa2-83449d0b48c1@arm.com/
+
+>
+> --
+> Xi Ruoyao <xry111@xry111.site>
 
