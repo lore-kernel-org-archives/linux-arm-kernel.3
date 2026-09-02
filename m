@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D64C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A097C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmNQ6WKBMzr8oIBSZDnJlW7h+ZrhoZOuFj83Jzmbsfo=; b=16qbhFU/AHh92pTVzFw/SgVj25
-	LIfTgLkaxHULyNBNywIm+iMn4IWCjdx47NGRdpUKRVarY1CGvDAIz8oF9JvX6spyYCGJ8q/3R+orc
-	WCmhif10aajVJ6zC8qv5Ra2YDYAx/z76TnKsQ/aMjoRFT3XX8dRdxPMBB05aI2AvprHZSYAgXjncv
-	g34uERm3I/Wvops8Ebz+XOcbZbxMsP/sGwOnBFh2x4tKKPTt+VhlqU8tEw0vlylnDBayoCbpoX8lK
-	q59ujluWO97zbANaPUy6nrVNJzocQBhRi9LovJ6yelyNwiIGA5fHifsIxGL3MWZE5b0H9hGIPBdlg
-	Rar4QFsA==;
+	bh=l3/1naZ1RhLgUWY856SAbE6LeQ8PQwzS4dxBvl1l3nM=; b=jwmzi2SW4NY0r4XnJJypnxng47
+	hHq9sdEXmqKLskL+26l1S3fVjhFBqWJQKS3CKWZN8phcuqohpQZQHhtLUeMdYlaM/o2Y+Lv8a5HnW
+	OSevtR25ae6rHkLBTGLjhveHe+kLd+vqu+quWZQbrGrYrwIUIPr9LXUtvQmwuiFEgZR0Fe/n6OPn/
+	yuUSo2OH791GHMyD+JyfHmpfNAFXJn6k70MSJ6sp3PaXrTnK7S/yIoqTFL39wgVSnpEKK2zvPcxDk
+	jCD5X0y3lO0Vg6b6TS/2DgcTmhL0BrQk+6LRhKiISBI5VDVe3ZLs+xUJQlATTrv13H88QFlfprFuy
+	DkCdDrOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ogR-0000000FQQd-0EGT;
-	Wed, 02 Sep 2026 17:23:35 +0000
+	id 1x1ohS-0000000FQbw-25KD;
+	Wed, 02 Sep 2026 17:24:38 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ogP-0000000FQQ2-0Sfj
+	id 1x1ohR-0000000FQbc-2EbE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:23:33 +0000
+	Wed, 02 Sep 2026 17:24:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86113433B7;
-	Wed,  2 Sep 2026 17:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B05C1F00A3A;
-	Wed,  2 Sep 2026 17:23:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BF7E40273;
+	Wed,  2 Sep 2026 17:24:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1164D1F000E9;
+	Wed,  2 Sep 2026 17:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788369812;
-	bh=XmNQ6WKBMzr8oIBSZDnJlW7h+ZrhoZOuFj83Jzmbsfo=;
+	s=k20260515; t=1788369877;
+	bh=l3/1naZ1RhLgUWY856SAbE6LeQ8PQwzS4dxBvl1l3nM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SQ/e64ILDN1pnMgED8ssh6q9/0rLdHgxDHqnOBlzw92WYCiWJaT5cTvF+TPGYNpsX
-	 MX3S60psaFTPn+grPZ3LvrWhFEpGNfvppk5aC/ydk2gk7hv3FHidWSHch5Tghbqtnt
-	 BLiitH1a1HWIYSaP7P14oDJzjpjM2XT6PYZw4KxZrFOErwOxMcfQxwIQk56lhejnjk
-	 qv0z3nBoKeZH/L4lNhlM/6jirLe1WCUqP2JogwSOPRgGzo3aYZq8Nas0eyO455mxcs
-	 jJv1M6Zjvwe/9CiiQzd8B8PuXrz3OsZgV0HQNShSz7a8MGhj6HQElRLPKoLifUjQH1
-	 rGVz9fCVKnzcQ==
-Date: Wed, 2 Sep 2026 20:23:22 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org
-Subject: Re: [RFC PATCH 0/9] arm64: Allocate .text and .init.text together
-Message-ID: <aphbiuSzIrM6vhJt@kernel.org>
-References: <20260822135323.795946-11-ardb+git@google.com>
+	b=DXiOsd0IOwaWcqNMcESpWf4hFCXAp8Wnr0mmhtnowdnpJUppd8Az9ulZWwyJ2Uu4R
+	 wkSOKrsgXyrCbsZ4Ej8dCHAUO3I/4HPgFL476eGN0P/8NbBkNtGVWoaVvzxq629JSE
+	 MNyjdmuBfdWD9tp2ye9BdSsE7IZfLQ6ow1ntz6mprCCXuVX0AkCxGb50BYmQW7oBbd
+	 MPaDcJNFaSVqAkwRbQfma7hfoYES0jZcC+6XyiyrsPbnOzs3CpqliBh6dejcYwxVGB
+	 pQAl1sebDUlr62/dzSyXwzrWVKPVJmhKguUHvxr/r+W7Qs+BOd/D226mZ36jtpIbUb
+	 BuzrSWHmpSLjQ==
+Date: Wed, 2 Sep 2026 12:24:36 -0500
+From: Rob Herring <robh@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org,
+	akpm@linux-foundation.org, sudeep.holla@kernel.org,
+	jenswi@kernel.org, mark.rutland@arm.com, sumit.garg@kernel.org,
+	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
+	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 02/10] of: reserved_mem: Introduce "ll-map" property
+Message-ID: <20260902172436.GB1440252-robh@kernel.org>
+References: <20260902104712.2399797-1-vdonnefort@google.com>
+ <20260902104712.2399797-3-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260822135323.795946-11-ardb+git@google.com>
+In-Reply-To: <20260902104712.2399797-3-vdonnefort@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +74,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+On Wed, Sep 02, 2026 at 11:47:04AM +0100, Vincent Donnefort wrote:
+> Keeping last-level mappings is interesting on some architectures as it
+> allows mapping/unmapping pages from the kernel direct map without the
+> risk of splitting blocks which, under the break-before-make rule, may
+> trigger page-faults the kernel can't handle.
+> 
+> Add an "ll-map" property for reserved-memory regions. When set, it
+> splits the underlying memblock and sets the MEMBLOCK_LLMAP flag.
 
-On Sat, Aug 22, 2026 at 03:53:22PM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The arm64 module loader has to deal with a couple of corner cases that
-> may occur when .init.text is placed out of direct branch range of .text:
-> 
-> - ordinary direct branches from .init.text into .text may require the
->   use of a PLT entry (i.e., a trampoline aka veneer), which means not
->   only that additional PLT entries need to be allocated for
->   cross-section calls, but also that .init.text needs its own PLT
->   reservation, as the one in .text will be out of range as well;
-> 
-> - dynamic patching of the ftrace handler into .init.text code needs its
->   own dedicated trampoline as the one in .text may be too far away.
-> 
-> - recent compilers may omit BTI veneers for static functions that never
->   have their address taken, and so additional veneers will need to be
->   added to .text in case cross-section direct branches from .init.text 
->   require a PLT entry (and therefore a landing pad at the target end).
-> 
-> This is unfortunate, because it is actually somewhat unusual for .text
-> and .init.text to be so far away from each other: only when allocating
-> either of them (but not both) exhausts the 'near' (PLT-less) module
-> region, the other will be allocated from the spillover region, which is
-> not in direct branching range, and therefore requires PLT entries for
-> cross-section calls.
-> 
-> This series addresses this wart by allocating both of them as a single
-> chunk, and freeing the .init.text part along with the other init
-> sections at the appropriate time. This ensures that the two regions will
-> never require veneers for cross-section calls, allowing the arm64 module
-> loader to be simplified.
-> 
-> Ard Biesheuvel (9):
->   mm: execmem: Add API to split an existing execmem cache allocation
->   mm: execmem: Allow huge vmappings to be avoided for execmem caches
->   module: Place MOD_TEXT before MOD_INIT_TEXT in enumeration
->   module: Allocate MOD_INIT_TEXT from the MOD_TEXT ROX allocation
->   arm64: mm: Permit permissions changes on huge vmappings
->   arm64: Enable the execmem ROX cache for module text
->   arm64: ftrace: Revert "fix unreachable PLT for ftrace_caller ..."
->   arm64: module: Combine init and core PLT entries again
->   arm64: ftrace: Simplify PLT handling
+Where is this documented? Any DT property must have a schema.
 
-I can't say I like the idea of tying the single chunk allocation of
-modules .text and .init.text to the ROX cache.
+Though I'm not thrilled about more flag properties. Handling all the 
+combinations of properties has proven to be painful. Can this be implied 
+from the compatible string instead?
 
-The goal of the cache is to have executable code mapped at higher page
-table levels. Letting it use base-page mappings completely dismisses it.
-
-I'm not against having execmem_split() or something along these lines, but
-it should work without the ROX cache as well.
-
-Another question I had is did you consider splitting the area on free
-rather than on alloc?
-
-In this case it could be execmem_shrink() that immediately frees the
-.init.text part.
- 
->  arch/arm64/Kconfig                  |  1 +
->  arch/arm64/include/asm/module.h     |  2 -
->  arch/arm64/include/asm/module.lds.h |  3 -
->  arch/arm64/kernel/ftrace.c          | 13 +---
->  arch/arm64/kernel/module-plts.c     | 63 +++++---------------
->  arch/arm64/kernel/module.c          | 20 +------
->  arch/arm64/mm/init.c                | 19 +++++-
->  arch/arm64/mm/pageattr.c            | 13 +++-
->  include/linux/execmem.h             | 11 ++++
->  include/linux/module.h              |  4 +-
->  kernel/module/main.c                | 22 +++++--
->  mm/execmem.c                        | 47 ++++++++++++++-
->  12 files changed, 124 insertions(+), 94 deletions(-)
-> 
-> -- 
-> 2.55.0.860.g4b6b3295ed-goog
-> 
-
--- 
-Sincerely yours,
-Mike.
+Rob
 
