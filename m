@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F56C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82073C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UBvLVixT6RLkfZb5JmChiUQYBB/FY97zNKMHPqvta4I=; b=uuRibkfwRArQtFjQuIe2O961a4
-	jolgE2BJBfiqDg1BLk3VyyVZ5v7yA2reMOyglL27eGrzK5CqN4qF/mIo7Nu1nZbjrWBEStzaEst7U
-	YIFzrXIT56VfkvbgnBTW9nSecdTFkEcWElYfB8tH8dMpufqcq/q6Yq4ZO1/3fQSn84pKYSGsJc3eV
-	2moxkX4MieS2v6GsrS3e0he6BXzDIwQCd2FrILLzkNBsRYNWZxjF56fc3+eGsGZb5wUVAtz8poxtE
-	IJ/75hiswh+IUKybTcjqfy2SdpiDcZq0pXqDWhT2It6hKMS2c7LE6xAGjMwmIsT2Tq1Wm4kz2hWP5
-	fwKYI2oA==;
+	bh=kRZwS841GcA5VzuOYLgzKhcr7/acQnTRJCI0lS681iY=; b=xChH0FH/54l2ziN9TzK7OrtOGz
+	SR0Ia2vQzFt3phdvzFIFhou9HK7YmUqQklQPUus/RYT6ifxij78YncxBknR4Qaf6siTZlBHDddeLT
+	MUrJuqgMElBwdAWm7/1YaPd7ZWWl/cuywy9gwTZYEOWTqFzd+2ANP/GBsO3MBb4+tK5D+QDnRK/3N
+	TveSXZ5UW7UadSG1nhUpdFhfH+yF+gbqTaNyetK+u25yXJDIGTKDeNwt51Hh7IrU6/x6vPjbCRrvc
+	c2fQLwmHPk2pNRfnMSR5V1I6dQnQhlGXW0n0lQHXSBFnNymYVqvRKncFVijZR3qMcKqNjLnFFMh8E
+	Rn9rJAnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lWe-0000000EsUN-0gsy;
-	Wed, 02 Sep 2026 14:01:16 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1x1lX8-0000000EsZi-1lFK;
+	Wed, 02 Sep 2026 14:01:46 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lWb-0000000EsTl-2tam;
-	Wed, 02 Sep 2026 14:01:15 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CB580116285;
-	Wed, 02 Sep 2026 16:00:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788357666;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=UBvLVixT6RLkfZb5JmChiUQYBB/FY97zNKMHPqvta4I=;
-	b=c0vhFCUm60JhACOaILD6cYJwpBpRswO/i3lqu56CVr/czbBMgUfZFhRhbswuSBOvFcrnt5
-	umsfz3gNoE3y+FnfJ725bec1sYgvHj2t1SqJVD/kdEkf1hGQBn/uqXfm5NDB0KPZbgL/4L
-	CTSBib66XoXyCKoCsMikTAIk9LokJgaqTN/1d44C2d1aHp2PQ5eHeXdoNYSoWFifK7bXyk
-	bzuIEEq++2YUKG7ID8qeLFFn2yZ9jC3/VeID1XIl++kMZdccFMXY12U0+Q8saPOwPsPkA1
-	qcldKnPecGK9avgb+c4COn2TAIRkF/ucNtNpYd2RtxyB3CZnCnlfkasnOhLK5w==
-Message-ID: <6ffc69b6-4f93-4799-a369-f71ce9d97530@nabladev.com>
-Date: Wed, 2 Sep 2026 15:45:05 +0200
+	id 1x1lX5-0000000EsYw-3Mq7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 14:01:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1788357698; bh=kRZwS841GcA5VzuOYLgzKhc
+	r7/acQnTRJCI0lS681iY=; b=THYpt8plHH5PHoL0pm5ADvyOnwx8z5K4uGClagz7HRZ/25PLG1
+	RmhMzMMLQ9bSDESWfULPx4k4yr2VpvwN+nFJyzQGClLk8CnvTcxXnqj9WyPzl0w41/BRJIVYUjG
+	g+gChXg2CYyE4FBJsQNk8dzG+ErY2brU6aAN9lUv2mNavXr21v1pNLqz+61l+qesQwTxr/N/Icq
+	S0TzWQ0SAQFojnkBEYZxlnlOKG61TJFqCgBEdmxgMHFjQusixUeeOPyjDGlLRz/wZRla0o3vz4C
+	/WRFTdh6FkL5FY6sQPbGTy2qgyGcDqHD8pA8EBfYrTkMpKAKZLWe/G8ZHtp+hjePYsw==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=Message-ID:Subject:To:From:Date; t=1788357698; bh=kRZwS841GcA5VzuOYLgzKhc
+	r7/acQnTRJCI0lS681iY=; b=oR7N+qIW/Wl0QWs83dGRv5hC50V7ul9TSAiv1FzAKPrmzhDT1y
+	MKqvSiMeUIyIoXQo2XnUdVMv2wnj3peCLKAw==;
+Date: Wed, 02 Sep 2026 15:01:36 +0100
+From: Bradley Morgan <brads@mainlining.org>
+To: Mark Rutland <mark.rutland@arm.com>
+CC: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/7] arm64: head: correct comment for init_kernel_el()
+In-Reply-To: <apgrlRLacxqhXsX-@J2N7QTR9R3.cambridge.arm.com>
+References: <20260825205839.14571-1-brads@mainlining.org> <20260825205839.14571-3-brads@mainlining.org> <apgovCGT-D7OWbSE@J2N7QTR9R3.cambridge.arm.com> <FBC45096-70E5-4F97-B2F0-863BCC91BB4F@mainlining.org> <apgrlRLacxqhXsX-@J2N7QTR9R3.cambridge.arm.com>
+Message-ID: <9489CCEF-9599-4F1D-AD03-CC995CF1956A@mainlining.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] phy: stm32: Add support for ST STM32MP25
- USB2-FEMTO PHY
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- linux-phy@lists.infradead.org
-Cc: Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
- <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>,
- Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20260828150739.174460-1-marex@nabladev.com>
- <20260828150739.174460-2-marex@nabladev.com>
- <4a33230b-3e5a-4132-8467-79b864a91b99@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <4a33230b-3e5a-4132-8467-79b864a91b99@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_070113_948587_47718242 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260902_070144_012685_88DE610D 
+X-CRM114-Status: GOOD (  27.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +70,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/2/26 9:52 AM, Fabrice Gasnier wrote:
+On 2 September 2026 14:58:45 BST, Mark Rutland <mark.rutland@arm.com>
+wrote:
+>On Wed, Sep 02, 2026 at 02:49:57PM +0100, Bradley Morgan wrote:
+>> On 2 September 2026 14:46:36 BST, Mark Rutland <mark.rutland@arm.com>
+>> wrote:
+>> >On Tue, Aug 25, 2026 at 08:58:34PM +0000, Bradley Morgan wrote:
+>> >> The comment above init_kernel_el() still says the function configures
+>> >> the CPU to execute at the highest reachable EL, but that stopped
+>being
+>> >> true a while back. Ever since commit ae4b7e38e9a94798 ("arm64: Allow
+>> >> sticky E2H when entering EL1"), init_kernel_el() always drops to EL1,
+>> >> and it is finalise_el2() that brings us back up to EL2 when we want
+>it.
+>> >> 
+>> >> Update the comment to match what the code actually does.
+>> >> 
+>> >> Signed-off-by: Bradley Morgan <brads@mainlining.org>
+>> >> Cc: Ard Biesheuvel <ardb@kernel.org>
+>> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> >> Cc: James Morse <james.morse@arm.com>
+>> >> Cc: Marc Zyngier <maz@kernel.org>
+>> >> Cc: Will Deacon <will@kernel.org>
+>> >> ---
+>> >>  arch/arm64/kernel/head.S | 6 +++---
+>> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+>> >
+>> >This looks to be my patch [1], but with a (partially) rewritten commit
+>> >message, and my S-o-B dropped.
+>> >
+>> >There was admittedly one typo in that commit message that needed to be
+>> >fixed, but I don't think the rest of the changes were necessary, and I
+>> >don't think it's approriate to drop my S-o-B.
+>> >
+>> >I think similar is true for the rest of the series. The patch fixing
+>the
+>> >_cpu_resume() only seems to have a paraphrased commit message.
+>> >
+>> >[1]
+>>
+>>https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=ee4323ff6a2ba4c3989b38f13b2c1a516d6c27e4
+>> >
+>> >Mark.
+>> >
+>> >> 
+>> >> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+>> >> index 87a822e5c4ca..c6301557eee1 100644
+>> >> --- a/arch/arm64/kernel/head.S
+>> >> +++ b/arch/arm64/kernel/head.S
+>> >> @@ -254,9 +254,9 @@ SYM_FUNC_END(__primary_switched)
+>> >>  	.section ".idmap.text","a"
+>> >>  
+>> >>  /*
+>> >> - * Starting from EL2 or EL1, configure the CPU to execute at the
+>> >highest
+>> >> - * reachable EL supported by the kernel in a chosen default state.
+>If
+>> >dropping
+>> >> - * from EL2 to EL1, configure EL2 before configuring EL1.
+>> >> + * Starting from EL2 or EL1, configure the CPU to execute at EL1.
+>> >> + * If dropping from EL2 to EL1, configure EL2 before configuring
+>EL1.
+>> >> + * To use VHE we'll upgrade back to EL2 later in finalise_el2().
+>> >>   *
+>> >>   * Since we cannot always rely on ERET synchronizing writes to
+>sysregs
+>> >(e.g. if
+>> >>   * SCTLR_ELx.EOS is clear), we place an ISB prior to ERET.
+>> >> -- 
+>> >> 2.47.3
+>> Hi mark, do you **WANT** your sob? I don't mind.
+>
+>Please read Documentation/process/submitting-patches.rst
+>
+>The SoB lines form a chain of authorship and delivery. You *must not*
+>drop an SoB line.
+>
+>> I dropped it because it seemed you didn't care about it (or were too
+>> busy),hence, yeah.
+>
+>I was busy, then on holiday. Neither has any relevance to the SoB lines.
+>
+>I do care about these patches, and I'm going to have to review them
+>regardless. The reason I hadn't posted them was that this is a subtle
+>area that needs careful handling.
+>
+>Mark.
+Sorry mate,
 
-[...]
+V2 will have your SOB on all patches
 
->> +static int stm32_usb2phy_set_mode(struct phy *phy, enum phy_mode mode, int submode)
->> +{
->> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
->> +	u32 mask = SYSCFG_USB2PHY2CR_USB2PHY2CMN |
->> +		   SYSCFG_USB2PHY2CR_VBUSVALID |
->> +		   SYSCFG_USB2PHY2CR_VBUSVLDEXT;
->> +	u32 val = 0;
->> +	int ret;
->> +
->> +	if (mode == PHY_MODE_USB_HOST) {
->> +		if (submode != USB_ROLE_NONE)
->> +			val = SYSCFG_USB2PHY2CR_VBUSVALID;
->> +	} else if (mode == PHY_MODE_USB_DEVICE) {
->> +		val = SYSCFG_USB2PHY2CR_USB2PHY2CMN |
->> +		      SYSCFG_USB2PHY2CR_VBUSVLDEXTSEL;
->> +		if (submode != USB_ROLE_NONE)
->> +			val |= SYSCFG_USB2PHY2CR_VBUSVLDEXT;
->> +		mask |= SYSCFG_USB2PHY2CR_VBUSVLDEXTSEL;
->> +	} else {
->> +		return -EINVAL;
->> +	}
->> +
->> +	ret = regmap_update_bits(phy_dev->regmap, phy_dev->cr_offset, mask, val);
->> +	if (ret)
->> +		return ret;
->> +
->> +	phy_dev->mode = mode;
-> 
-> Hello Marek,
-> 
-> The 'mode' is used typically when exiting low power mode. Should keep
-> track of the submode too here. See next comment.
-> 
->> +
->> +	return 0;
->> +}
->> +
->> +static int stm32_usb2phy1_init(struct phy *phy)
->> +{
->> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
->> +	int ret;
->> +
->> +	ret = stm32_usb2phy_enable(phy_dev);
->> +	if (ret)
->> +		return ret;
->> +
->> +	phy_dev->is_init = true;
->> +
->> +	return 0;
->> +}
->> +
->> +static int stm32_usb2phy2_init(struct phy *phy)
->> +{
->> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
->> +	int ret;
->> +
->> +	ret = stm32_usb2phy_enable(phy_dev);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (phy_dev->mode != PHY_MODE_INVALID) {
->> +		ret = stm32_usb2phy_set_mode(phy, phy_dev->mode, USB_ROLE_NONE);
-> 
-> This part restores the mode, when existing from low power: Controller
-> driver (dwc3) calls phy_init/power_on. The submode should be restored
-> too here, instead of USB_ROLE_NONE.
-Will do in V5, thanks !
+I removed them due to like, what if you said
+
+"Remove my sob these patches are terrible and unrelated"
+
+Well, this is a corner case, but I had to think this through,
+
+Yep, V2 will have your sob on all 7 patches.
+--- Thanks!
+https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
 
