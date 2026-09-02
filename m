@@ -4,113 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6417C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 22:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4816C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 22:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMRUnS9h0I4E1M9rrYsru3/ZHmbTDkVOTPmvmnyeUFU=; b=1pTTld8Gi3NA+7CYWFeX9gzuQQ
-	2nXGsu2R1Be93rQjhNe8aSiIH2mcYx+l6frXydjGGjfUlW7fXX8g3H7BCxHpUGJg+ijENxF0jQ8wR
-	dFDd5zRmftB+ZNNsG7yPBZozgbyv6GBwDzNeN9G2BkqLyt8d5KyrE+AN9jT4XBBIoZWZb17uYUs7P
-	i7Y7IP0DmefDzmvGuj3La+WbIyzNbXbY4cfNLGY7yWsW+Mxrc4shcr2Ipx690TazSOivu4bRJQiXa
-	HLeXWsIknektmjSu4N/Jatq2ix9rxia8Ov+vkh/p0MtPamk4GT+jfJvLUTxSKAYKXAnl3FKkCv5jz
-	2+9Z48Hg==;
+	bh=I+vEOyqPDv7rU89jwmnevj+9dxsKc/yKY2uAhwHha8M=; b=PrJ2hATtawRQ7jkoMdZTCrp78q
+	Y4tWlfyJeazOJTjcNrJU9RjLqBOw6ZP3DTD8CJtkQBy1JrVljpL2dfJpYh7Ek5GwF/6/8XNaynu+6
+	4Z7CFaOeO8Wqij/iLdaKQ9dLk/n5AKq+AcIhYvy/kCMbYwLFb33rDDDXErXMvHqkh8kV1BngPCnfC
+	ieDBjg8nkEERQilRJBmwp5b9GmBHPUNg2eEaks9b/D955ham54iXYL+LfPa74gbbjdx+KM8D4Xqma
+	J0tBkjFJbh/+Xh517jttSzNIfxrv4GO++WeXiazURpJodND5SsnW9cWASgVrggBl4vJiFQHupGNET
+	7ehKF8Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1tE0-0000000Fz6V-3Dvl;
-	Wed, 02 Sep 2026 22:14:32 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x1tF2-0000000FzEL-05nw;
+	Wed, 02 Sep 2026 22:15:36 +0000
+Received: from mail-wr1-f45.google.com ([209.85.221.45])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1tDx-0000000Fz5l-0lPG
+	id 1x1tEy-0000000FzCw-3CPI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 22:14:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788387268;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IMRUnS9h0I4E1M9rrYsru3/ZHmbTDkVOTPmvmnyeUFU=;
-	b=fgapnAz1/yx16qQOP1NzTZZo90xy0LohaJ0dr2xXFPObgerer6MNTh27acyx6fkqbtobLv
-	HjREjtpmGfFZaYeQZ26Vmnt+Kt95gqmHdslsRKgRR3hg1MtR9WawrUEswN252YdU2JNPPg
-	TkAo8LqNvf83U0t5njOND1zC2391+Mk=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-207-Drc4ocRtPACz9H5MEIbUww-1; Wed, 02 Sep 2026 18:14:27 -0400
-X-MC-Unique: Drc4ocRtPACz9H5MEIbUww-1
-X-Mimecast-MFC-AGG-ID: Drc4ocRtPACz9H5MEIbUww_1788387267
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-936e393061dso244619785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 15:14:27 -0700 (PDT)
+	Wed, 02 Sep 2026 22:15:34 +0000
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-482ea739de2so926028f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 15:15:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788387266; x=1788992066;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IMRUnS9h0I4E1M9rrYsru3/ZHmbTDkVOTPmvmnyeUFU=;
-        b=NT8t+kiO4O53PDszYwND5BKc/bdBb8pjfgtcvodVXOzFMFvH8ahm/WsDQddal+xpLA
-         Tf5jku+hL6EBq7P0o1YR5Sju72zU7UB3E5x5pxuh/dyJEU5otNM3SG028eBCJ20e2BIJ
-         QZE4K1fdFfPAMWqNgWxsfy0AQ0fcr85XQNYcNIOVQ/25NiTjUviHBg7FhCyEWwhSfZRA
-         WdYir7jQa9ihMVEFfkiDVQ2/EWGLOUvUiFFaGMHssLxnOAFvMRtiikajBGCJ25kyDhnc
-         jh60JIEFibnTTpZux/IPhkd34vBXbImuKrsnruBDXWkmeFXGeFIBsh579f+clK+j1yTv
-         mMcg==
-X-Forwarded-Encrypted: i=1; AKwUvBz0PQsYuFYcDH11QYyTtaBQ7nERwWlOPDPtI4wV6DZJ4oHbQTpJ1CFpBrW0kF5zB5NiY0NwEKJsgqD+6A0nMkYO@lists.infradead.org
-X-Gm-Message-State: AFuF++lMGuA6UikJOKuyobRSWYWABsP+9j39O83l3b2QSjyGu8DYvn+O
-	E1qpwdapfOYJZftY8iDkoCwhqfc7kdaP/0QB1DhdlKasU/0/FYCoebLZX1tQa1ysnlmiyeh9c91
-	K6+qFBl43VXcqxds/xw+9tEUjzzpa4W4acpdjTIo4rHjanvl9lloTvDbXMGiIEeyO25VNscwF3r
-	5f
-X-Gm-Gg: AYBFou3TL2vUD5sjWTxS70bqjh0V1QnFvUTsmkC+xZQDAH9iwvWHkKJSR+ut5HKhy1O
-	yIg8J+npzr/opOVl4Ly6rQ5PCmRssFbNE61y3bW4Iqp5EXcmtpENddGXIGxv7ZlIwCOUey88JW5
-	2yp9dfOCxfOae3QVWX2T90KeP0cVJLd7h/IdLVMNlZ6Oj3gK9DmSnnZATjermomBM/z6OOv6XYv
-	jd4Sis5RMUtA7hsE380NIesUoC/LIRj5bymXJdDZ1XbfbAmy0b3/dCRq15ZolW38Q1j1/4HZ8ZS
-	E6g//6nBYGZW5l+UaxBKhs8SWgfvFYWB2JYZ8MNCyTbZT5Y3+7Ts7aUMhCBXi9zW+v9Wd3Eo8zy
-	BeA==
-X-Received: by 2002:a05:620a:224:b0:939:6dea:374b with SMTP id af79cd13be357-9396dea3871mr270245985a.47.1788387266607;
-        Wed, 02 Sep 2026 15:14:26 -0700 (PDT)
-X-Received: by 2002:a05:620a:224:b0:939:6dea:374b with SMTP id af79cd13be357-9396dea3871mr270241785a.47.1788387266148;
-        Wed, 02 Sep 2026 15:14:26 -0700 (PDT)
-Received: from [10.239.101.46] ([69.43.42.202])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9395f1bb916sm333992485a.21.2026.09.02.15.14.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 15:14:25 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-actions@lists.infradead.org
-In-Reply-To: <dd9c25f164c46a80b4dd70c12af3196fcb398cc5.1786718502.git.geert+renesas@glider.be>
-References: <dd9c25f164c46a80b4dd70c12af3196fcb398cc5.1786718502.git.geert+renesas@glider.be>
-Subject: Re: [PATCH] clk: actions: Drop unneeded forward declarations for
- clk_fixed_factor_ops
-Message-Id: <178838725006.2050893.8055946747659778474.b4-ty@b4>
-Date: Wed, 02 Sep 2026 18:14:10 -0400
+        d=1e100.net; s=20251104; t=1788387326; x=1788992126;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I+vEOyqPDv7rU89jwmnevj+9dxsKc/yKY2uAhwHha8M=;
+        b=RlzBu/axFBnjrFYUvwIvK3l2hO/7NhtedPj4qyMl5fLy8+mnXEgxVGvGxc7huf+qxC
+         npDW/cDURj4LRpWW0ovHEN4iBqzeZ9Waxjk0BTqfl3gohZGsYJ4fxd+mUqcYwGkJiiom
+         l/eXmRu81EsONXqynSPhl0xVjGzRdoqW60F35kKtr96K5HDnnrfilis7H1G36x43qPYf
+         MePvsJ6NRoPhWyIBdfOdqzAueY8ADsvch0bCA9BsM/+4PtW9uf0Wux25Hqk19wPq18oZ
+         Sp65H2bp13FKfJ782XUl8SSgCqZj3JhrRgM3DHXYbkF2fSw2Ze2AroNo4DGNcz/cJzWq
+         q2qA==
+X-Forwarded-Encrypted: i=1; AKwUvBzCXRquS8RynMOroUXMvbz8hMoTf6ge4erbxWLk4N6xj0AqTNu5p91Juc7e3wIXmmj5n0t9k1dfJ1W7RrbNdtUg@lists.infradead.org
+X-Gm-Message-State: AFuF++lCL+oILM4YJJpxl38uOIeXb0R+I4yiltA6MLjkTN87PUxEI/yy
+	n/EkVH6eeIoGotX+DDNQKij6FjfxcOg0xz5zEH93ta1gKFbdzeKPyy7M
+X-Gm-Gg: AYBFou30/519VMyUxjQ3z3Jqy1we9OxE0GTj0h8jP/RGuGbXmf/hEfNmb/Q7/whm+IW
+	qTbXj5R9rMydsKOJ/nwZdZmp0pqkLZtcxIr45Z0ierbhuefdX3WeBz/3JJFg6mpYQxMUw16fUt2
+	1rS3LCFbKohV2QluQTEH7AhhG0OAwU11SesQVrlMLIKXqA/MTZTmCG+wANGketJjDbM2LimkeR+
+	6jUsn1E719LaZOr2SDB+yBYj4z9IguhstK5hM2u10CjMk43c8IXeis5gdYwKQGeDfh8hlDyjvX4
+	GXvDqli+MZVCM444QTdYK7AiB1VJKaDqHD+vrgA9zGpOyLCKRWCWTBqgIGXsnv1SIC24Ynd+Nrr
+	fGKbN6sq3+aXiC4Mhw3AqCmc53koNx/Va5q0IqUkNS6hK5ru93n+VJbI8kg+rjGYqX7fBo5ut7t
+	P8pP0c6H9gJOH9ApQ4NriWNhkMK0iW7ttix7dL3qIG++GpaBluAbK1Kkh6jovwCnvGEkFYOomN7
+	lhS5v6A0ci1OFBYmiibdY7Egu+S2eM0bkFK3OrOk085lUQdXpKlwxvyZP7M3I2OzDAk39d5FZFV
+	JwA=
+X-Received: by 2002:a05:6000:4208:b0:484:4769:18a4 with SMTP id ffacd0b85a97d-48488f10236mr16624383f8f.14.1788387326455;
+        Wed, 02 Sep 2026 15:15:26 -0700 (PDT)
+Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448ed38cfsm8301961f8f.19.2026.09.02.15.15.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Sep 2026 15:15:25 -0700 (PDT)
+Message-ID: <9bb0ee66-d313-4a07-af4c-ffd002b55dee@reactivated.net>
+Date: Wed, 2 Sep 2026 23:15:23 +0100
 MIME-Version: 1.0
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=356; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=UWho1uqQ0CDENJKMvXX+YEGm4bA2kTI7CNsEm75ctQc=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJmzN99cWbGSYXpOwItG+YHsChGTbuy2IzTfLGjVswqP
- 0aBAL20jlIWBjEuBlkxRZYluUYFEamrbO/d0WSBmcPKBDKEgYtTACayZBIjw6s/bcZVz26z/3+0
- YvFyl843TlmHH+8SPd145aSy0nPj+eaMDNNMq8q3vIp4/FgpODVs7Uod992W3PUHO/gmFNnzzql
- 5xQcA
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CwIOSnLVy5beZb9yT6tmu8ULD1sX8GMxnLI-h0HN2Vg_1788387267
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
+To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, nick.hollinghurst@raspberrypi.com,
+ james.quinlan@broadcom.com, Jason Gunthorpe <jgg@ziepe.ca>
+References: <20260902-bcm2712-iommu-submit-v4-0-9dbb657578c1@reactivated.net>
+ <20260902-bcm2712-iommu-submit-v4-4-9dbb657578c1@reactivated.net>
+Content-Language: en-US
+From: Daniel Drake <dan@reactivated.net>
+In-Reply-To: <20260902-bcm2712-iommu-submit-v4-4-9dbb657578c1@reactivated.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_151429_293082_22982181 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260902_151532_989956_FB11BDC2 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,17 +98,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 02/09/2026 18:57, Daniel Drake wrote:
+> +static int bcm2712_iommu_blocking_attach(struct iommu_domain *blocking_domain,
+> +					 struct device *dev,
+> +					 struct iommu_domain *old)
+> +{
+> +	struct bcm2712_iommu *mmu = dev_iommu_priv_get(dev);
+> +	int ret = 0;
+> +
+> +	scoped_guard(spinlock_irqsave, &mmu->hw_lock) {
+> +		/*
+> +		 * Completely block DMA by disabling both the bypass window
+> +		 * and the translation aperture.
+> +		 */
+> +		bcm2712_iommu_writel(mmu, MMMU_BYPASS_START_OFFSET, 0);
+> +		bcm2712_iommu_writel(mmu, MMMU_BYPASS_END_OFFSET, 0);
+> +		bcm2712_iommu_writel(mmu, MMMU_ADDR_CAP_OFFSET,
+> +				     MMMU_ADDR_CAP_ENABLE);
+> +		bcm2712_iommu_writel(mmu, MMMU_ILLEGAL_ADR_OFFSET, 0);
+> +		ret = bcm2712_iommu_clear_and_enable(mmu);
+> +		mmu->domain = NULL;
+> +	}
 
-On Fri, 14 Aug 2026 16:43:30 +0200, Geert Uytterhoeven wrote:
-> clk: actions: Drop unneeded forward declarations for clk_fixed_factor_ops
+My understanding is that when the IOMMU is enabled, the address cap 
+represents the highest permittable memory address; requests for anything 
+higher would abort. So I had hoped to achieve blocking mode by setting 
+ENABLE | 0 in ADDR_CAP, thinking that would set a cap of 0, and hence 
+memory accesses would fail.
 
-Applied, thanks!
+But a Sashiko review pointed out that actually this value would produce 
+a translation aperture of 256MB, because of the way the register works. 
+And I confirmed this experimentally, Sashiko is right.
 
-[1/1] clk: actions: Drop unneeded forward declarations for clk_fixed_factor_ops
-      commit: e831ea3564120f5eb21a90eb7a46249b5b4f2878
+I also confirmed experimentally that setting value 0 to ADDR_CAP (i.e. 
+dropping the enable bit too), with the IOMMU enabled, results in a full 
+unrestricted bypass/identity mode.
 
-Best regards,
--- 
-Brian Masney <bmasney@redhat.com>
+So unless someone from RPi/Broadcom can inform otherwise, I'm going to 
+conclude that the hardware doesn't support blocking mode and remove the 
+blocking domain implementation.
+
+This will cause the iommu layer to fall back to creating an empty paging 
+domain when blocking mode is requested, which seems appropriate if the 
+hardware doesn't offer a more direct way of blocking all memory access.
+
+Daniel
 
 
