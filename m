@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D731C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E12FC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PRsM2/3sL9e8tNNcBWDr2itQkbxIUJuX5JRNdJQai/A=; b=iD3vv3Ke9SB+Ubr13eqPERsSnv
-	BgpSfqcHeFg57FNAWgSeQCHhXVXiQ5pPY30gavKVvGvc5z9Ea5PA6sZTziGjrd7khgRloUSoQucen
-	eL43m9HHuSE1AmRGMqnn+gDR+6ac9X6uSkp4jDh0v4T9FyCYUe4zr43OsYgwaNHI5nLPJP9SRUyca
-	RPfGit2EquIf6jCR57XfuTGCSC2AKfK2KK96o1LcrfDNncZA+ygtfKGBZBZGLgqi8okVQf8HoRdwq
-	3ow3p7HznivwCoEeExq5iwS6E691OE4nLH7JF/HaRa2wIezbW4KGJl7KbXSZUwHg3/NDUA5Zoj5Uv
-	Ip+Vd5WQ==;
+	bh=8JHpVGvvc0BxDXqHE+ko9RQSlW/vc4sxkXIPPE0SgRE=; b=LW6qSyeu0UF7jZddPD2nNP88LH
+	/rg+dLacFJi2McjXhCQHCh11h1nFlfBwGt5iJzsC76M1JNmna5EiLOhRmvrFqAadn5r7XuOLQ44Ml
+	wpvr4g7Yt7PDGYrEswRtXGe9Nxolia5L4a/Tny7Pul5VR+DjhT3uCP2SqAfA5wwnoQTKs2ExfBWZO
+	I0f69FPKIBSqgLzbODg0x2QYn/IBYD4gV38TGroGypLEB/x1FZVaRSuEe4ZajicslyZ+8icuvM9Oc
+	s1F8xErBTMyGrQmrvJjE9iw/9OrHw9e5BGfynbFCVORUW74B6x9aGsPOOlNzmFiwCA7uMaE2ikB04
+	nXAL2LmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1i6w-0000000EKUl-1OWM;
-	Wed, 02 Sep 2026 10:22:30 +0000
-Received: from mail-eastus2azon11011052.outbound.protection.outlook.com ([52.101.57.52] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1x1i72-0000000EKYl-1s1O;
+	Wed, 02 Sep 2026 10:22:36 +0000
+Received: from mail-northcentralusazon11010035.outbound.protection.outlook.com ([52.101.193.35] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1i6u-0000000EKSW-1tu0
+	id 1x1i70-0000000EKWv-1c2I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 10:22:29 +0000
+	Wed, 02 Sep 2026 10:22:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HHU9Lvl52S/s9lnpWGljWSWeaQY25atXfng19Q9r8o6hi0asxrpFeD2aVbHjc4MtHWlABN1Orkctw2EEk73oU+yk9Y9L6685DEHQg2aMRZyGtglPj3ch9vYqPv7j9Vj9MfPlXtpWAPWvBzwkus8lh4lbY/keAeYOFTRcfsTmQHSSZCP80/QxPlAglya/aRhLlTcvkKSPOD9ptD06crXv/oFeeAIgTZFsmf5pNcioOmh5Df/xhjMiDVF3zvV316nbmMno3bAVlr20nYyFA888AGUa4iI2sKsYAd9a8ZLP1Q3rC2C3+W4FHoTlNOcRuzn5Ujgg7LPSuZBoIB+NQPafSA==
+ b=kp5yawI3LhCvSH5mGUwYuzdAecoiodEaw6zGDEmOHKzZFdzMCCKLz7/urIb+JRUKyVGYIxZzVBQDPyBUqU9MBPn2Xm5/Hf8XxWK7DVlFdwMw0Gs4UqMMpBvX/bMJO8GLf3KYLZOyJJp7Kk+40zCZKSL3V4Z7zgktsSlOsSAJIVnenwHlrPHK14BdXq6wjihuC3etrx4hXGNChlqoBqvYvUUpBd0vvbhZedxblpRv8HtG6HJ7lJiCjIArXBfIrzXqfdwun6J/IRFTIxKcY/2LxjHft5+jlF/5e0cw+bDbuMq73C27RlucEm+th5yC4maFcZJDQzy5YeycRB3V29gKjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PRsM2/3sL9e8tNNcBWDr2itQkbxIUJuX5JRNdJQai/A=;
- b=tEuI3oORYCDomRkl+5CZAZFMppgbC+VT/9zBQijGHQaORO9HYXjK2RNNQ/C7Pagk9VVCyPSwvPXa2x8Xdh+1cNR0f5Rvj9L+Ci5yUXL+Ihb/h9TBLZFIh0bJvW/+tb0jUvRj3dgkTP5va03i+4cMLWNuCMN2+edE0mO5D1klLE0axJh9wcODXcIzMUqLV8Os9WaYf1PDjK3pbEWzH/OqHE3LmJgqioZSFcNKj+A+iSsZseVJMo3k4tKTtZiz8rGnRrskchVWGByVJ5caWTh7q8PAXggmrNGX+tlU5qSthFkV0aSTWVXRTCrP8oIoAnomqIZcOnJezNqF4jfGVbGkyg==
+ bh=8JHpVGvvc0BxDXqHE+ko9RQSlW/vc4sxkXIPPE0SgRE=;
+ b=Fb3N2jyrWp7az2g8IxVNlhe/IAmwGQkVu07vSGAlM98xdHX4wX17+A63VJbHF8ltdEAKNPji5ojZB+QKLMQzWIaocxq8oqe89Mxnsct5qel9/ehFYPF1lGLIGRywoMA/qIN9Jf0Dul12roxYXtUoSc5Q+ExmGW1JreHJrPI+Vk3O3ZE7FpeprtL9OWlM4x9melDESCFtiZ0s+PMGU022koKKE22UVtTgktQr0MJvARNz8FxgIW3uG4M5VmqhZKr26XpYDPcu9qMyDg4nHdBly3uybWd4nX6wJ0YMOP0Z5SCWEfsSDRmBaUj7/FbJ5Phs8CA9MveiHE7SDobfanY5HQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=aspeedtech.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PRsM2/3sL9e8tNNcBWDr2itQkbxIUJuX5JRNdJQai/A=;
- b=TC+y0dBzeyrajMAJgTscO9ZV+RuOcE9muRxGGxRlqSrFsZKgXlXYf+YvyPaPvdhuP2CGoXmHXbfRNWe5zJF7/U/WbwKZjqZUbm+VKM+HgX2r6ksnsZveL5o/OlW2070EppCrC31cB2cPRB0ENKXq7dbAVokBxAlazpGhsJv3uTw=
-Received: from BN0PR02CA0047.namprd02.prod.outlook.com (2603:10b6:408:e5::22)
- by SJ0PR12MB6687.namprd12.prod.outlook.com (2603:10b6:a03:47a::19) with
+ bh=8JHpVGvvc0BxDXqHE+ko9RQSlW/vc4sxkXIPPE0SgRE=;
+ b=BtCNmGGh9hwOfDHluCqcL14zRI8NgQuNFEiR0z2wRJ4ykyiGUXhUlh2un5QdCPb+rOkYgGI0nO4kh+pmCN/3/uIHM1FatwKLIsEjOU/ilxAqTs/SZZSQPWD9HZo3lMBVYVfLAmqDgVaOe01cnCnA8+zfqSWnYsfeKhMTZM74V7U=
+Received: from PH1PEPF000132E7.NAMP220.PROD.OUTLOOK.COM (2603:10b6:518:1::27)
+ by CHAPR12MB999248.namprd12.prod.outlook.com (2603:10b6:610:2ff::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 10:22:16 +0000
-Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
- (2603:10b6:408:e5:cafe::a5) by BN0PR02CA0047.outlook.office365.com
- (2603:10b6:408:e5::22) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 10:22:27 +0000
+Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
+ (2a01:111:f403:c902::b) by PH1PEPF000132E7.outlook.office365.com
+ (2603:1036:903:47::3) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed, 2
- Sep 2026 10:22:15 +0000
+ Sep 2026 10:22:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 10:22:15 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 10:22:26 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 2 Sep
- 2026 05:22:14 -0500
+ 2026 05:22:23 -0500
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 2 Sep 2026 05:22:11 -0500
+ Transport; Wed, 2 Sep 2026 05:22:20 -0500
 From: Colin Huang <colin.huang2@amd.com>
-Date: Wed, 2 Sep 2026 18:21:16 +0800
-Subject: [PATCH v8 04/11] ARM: dts: aspeed: anacapa: Add additional EEPROM
- node for SCM
+Date: Wed, 2 Sep 2026 18:21:19 +0800
+Subject: [PATCH v8 07/11] ARM: dts: aspeed: anacapa: Enable MCTP and FRU
+ for NIC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260902-anacapa-devlop-phase-devicetree-v8-4-69c8eb2a7cda@gmail.com>
+Message-ID: <20260902-anacapa-devlop-phase-devicetree-v8-7-69c8eb2a7cda@gmail.com>
 References: <20260902-anacapa-devlop-phase-devicetree-v8-0-69c8eb2a7cda@gmail.com>
 In-Reply-To: <20260902-anacapa-devlop-phase-devicetree-v8-0-69c8eb2a7cda@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -85,39 +85,40 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Billy Tsai <billy_tsai@aspeedtech.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Andy Chung
+	<Andy.Chung@amd.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788344509; l=1225;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788344509; l=3254;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=dS+Ny01+XQ5n7Md3LPea05VV+V4r9WTNjxB4lZM1dm8=;
- b=agq+V6GAWDcaaKSoxza91nWBrpFn58LL6/AYZxpxvcxkxXoZHVExrwqVnBiajCgNu3SRWXglJ
- 1SrCBpeuquzCL1TTxvozdK1SBhZPfE1utXMB6cyl8KHJ18mLYO5TS2T
+ bh=xSybis4WnZ0wCCi5yNlS7U3ZxSjvjItq7krEUM0miaU=;
+ b=CLqCcYJoPpX5GX/Qr80BeGDmPdzaN97aanRt2Txebmgy9U+kpFu/HT9Hl2IMKGzmbg1eFKHXr
+ WLHaKN45VTMDdnKXmkP/E+22ONMZBrh/5QOqwD8uxrgsIAZ73h8kTSc
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|SJ0PR12MB6687:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c7a31c1-2bbd-4e26-25c8-08df08dc0f6c
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|CHAPR12MB999248:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07727b38-edb4-47b3-8971-08df08dc1642
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|7416014|376014|18002099003|22082099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: ciCiQ7ubZyv2lZyMCBiNYYM0D41Q/4IHvgr3y/A+fNzhmkKNEJwV6Gqjzk2qvFY59Bem0uFx77S5BjBF4IuX5uH4aikw7sURZ9QNHybsFs3ggr+ppf8OdimRcXklPW9/6aMugPTeIonyQ9qoEGoxOBXlqqvL56Bovewyw02Ujdftrd9GSduZeVzX820DMkPtStVuRjY3NaZrEYS4p3/yZZ7+YR74uVZZ9pK0/6y6tB+ali0y3Cp38GWatAe23B1pQvL1jynJ6I0JC1nZj/Ye6nmyUTqRrH2khMUL0N9MXdoG5GbWDoel657Q4jaXEn/e/wvsafACWkQP/lV4ZwZ5qC15rW04ka12WSieTIG4meCqLIPKAEqHyaskP5NEiBQKnrC/Ve+fNNtP8I0SWkvtCUQMb4pLQWHK+7hsNWMibxFGKBb6KpIb44vqRHOmMCzX+LAncWsDjKWmFUkU0el7wxtarbS9fAlAJS1ZQ+3SldO1+EGKAxzhwRbY4So6puZ5RHlzDUCGHX0gh+prislARMmXWm7HQqirCW720fjry/GxwRd3hcCuG4vREgc24MLggEF4lx6B59qap/w5iz6bu8DzfAKcGlvdH666IQvLxTED/SoDht3YH/yEArbG8Xs555gVlGxFS2G4X8+X338CEbUHMVWbRXWilczIy41oeghV/Ro6TMI+SrDsku1HouJqTcpVuxejWMoQNpzoMW3hwQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(7416014)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|23010399003|20046099003|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 6RkuuK6vgHtqM3H00fGnabh9MQpbLZm74P8qYVx8mrrolTEYrf93tGlm1p50C1WkVX6vDufJHFiRCgdFw2lhLOCnGMarLwdW0q2iFeKuV4WnJKjaoIatziw8u7LNOJ51T8VDqDaiyioXysj7XSwKZZFeY3g8uVfszeJJqRECb+SoSr2dAH6hd2Iua6KPFNT+d0cT1WemStL/KVy2jtqz3nAOST4MitufQKz7QfQo5B5EQ2htRhVGKCCp6FGAQv0GCsKWt2y3B8EEGlQ7zkyZhv3inBpbVdrHSNzLezKoyr6BhjVTcVCidlvurupNBVs/J8Bc6XcLKHgD+qhFQlx+W7wU0SJ0+yw87DsiH6v9MPHXkQBTJ6zQLuhfaC2+2QzGO8IJo7mUCx4H/Jdd3x+kfaaBY8zCymj0y1hHtUg30/1X4ED2tWEgEZOgBUNn/mFJnVtzoX9LsfvA3ZKAuTqnJnDvn+Q/ZlqbJTYpRu4fFgLMLGY1YeF7S7p+qtykiyORQ3P+lm4yTBdmnKqjuAMTPrsoIhHFeTdJgkSnLZcnBRsSpfQKWZm+aHLbB75khfM6K+d+PzsCBH082XDE7xbOP0oOJz8oxaoSZjpgX/pAkfZRglRO1ai0zRGQBebFteRdkqxm7N3HEy6T7SooDoK6AvP144dKL6ImlcocpBEM1s4UKVgW22Qp19ehlI9JbpY8fNXFGfWBhueteNrri/9g+g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(23010399003)(20046099003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TOdz+zjLkqSKbS/CwEWjWevnbPxzvPUa0DCr0iTmaFq9rJe1WFZnghJULCKQgBTveDsNrr2jOnXf8O3Ez4dn9BcNA28gACrcv29s9vsdzVPMiYNVKUYRVz6KmrBWORLIrKlJtLji9YkaiQFsCGY7oWy5tTVgZhL3oPbx9p8NQb6wxFRhoWdnm2C9v21M66+ObolstY3E3fmVBJ4F7QXakap6GVCwvtmSoslUeHZ5QWfCnnUY5C2j+Ldlgv0sJ5W+9XmBV+AF6S6Bdcir4ouGU3H6DWYEOPlaC9GE/QI68uBURcij5zRsP5s0HzePTSJNesgrdFfIhbA6jYueTg+QRlMVZPBQSG1zp1gok+bw2S9aXB4qMN3x2AVxSDO86RqaDX2Aiui3FOTdilXnkecyFsywUWXCik+Oretva/fLxb2ZAWUFT6Obu3kzsINoZ0AC
+X-MS-Exchange-AntiSpam-MessageData-0: ngOV+WqL5WthzR1wrtoOSXRttDL9eXmQSlB+dqkhtvRxGPIygf8RKRzJGcij/CmGhZFrImhgfrDaKcvcJWe81IfT7uBLC4jjI3ebW7muhTabyhqPdOQKOURYv00Q1KCevDDGSrBO/xqAZWyUrXvPOdau7DizvZO7hAguomlpisaUShFitP/7BswjBQ/MEhsKjfrR/JZ3NoKJIgwRUNdWqhKCtPQjJy/s3TSmN4rOZtg5Eqgnw8TcULLsxpKBFZ3/ngz6Tqhx+BzEZuP/TkZTywtFiH5GoXvpeXYYEg6akc49ikTISgcCaIwIPsdrQopVvbaqfsps5ldZ1tdgD/Lr/IuU0wTQO7LVMjIzgz39uVS+NQX41yvEhDiHLpwh1g9rLbuBATV3dDf1AM6uvr+EVlNt6otn+w8xLiRQ4GTkSkZe0d9gDgysYyOi5eHp/T6Y
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 10:22:15.4069
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 10:22:26.8168
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c7a31c1-2bbd-4e26-25c8-08df08dc0f6c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07727b38-edb4-47b3-8971-08df08dc1642
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6687
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHAPR12MB999248
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_032228_524970_086377FF 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260902_032234_439786_A8467812 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,45 +133,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Colin Huang <u8813345@gmail.com>
+From: Andy Chung <Andy.Chung@amd.com>
 
-The SCM FRU EEPROM I2C address differs between SCM revisions:
-- Rev B uses address 0x50
-- Rev C/D/E/F and later use address 0x51
+Add the mctp-controller property to enable frontend NIC management
+via PLDM over MCTP.
+Also add EEPROM device for NIC FRU and reorder the I2C virtual bus
+index accroding to the system silkscreen index.
 
-Add an additional AT24C128 EEPROM node at 0x51 on i2c9 so the same
-device tree can support multiple SCM revisions.
-
-Signed-off-by: Colin Huang <u8813345@gmail.com>
+Signed-off-by: Andy Chung <Andy.Chung@amd.com>
 ---
- .../boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi  | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi   | 137 +++++++++++++++++++++
+ 1 file changed, 137 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-index c43090618c4a..8c4a03a82d44 100644
+index 3ea5d67865d4..ab16e5ad5871 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dtsi
-@@ -2,6 +2,20 @@
+@@ -2,6 +2,25 @@
  
  #include "aspeed-bmc-facebook-anacapa-evt1.dtsi"
  
-+// SCM
-+&i2c9 {
-+	// SCM FRU
-+	// | DC-SCM Rev        | Slave address of eeprom  |
-+	// |-------------------|--------------------------|
-+	// | Rev B             | 0x50                     |
-+	// | Rev C/D/E/F/above | 0x51                     |
++&{/aliases} {
++	i2c36 = &i2c11mux0ch5;
++	i2c37 = &i2c11mux0ch6;
++	i2c38 = &i2c11mux0ch7;
++	i2c39 = &i2c11mux0ch0;
++	i2c40 = &i2c11mux0ch1;
++	i2c41 = &i2c11mux0ch2;
++	i2c42 = &i2c11mux0ch3;
++	i2c43 = &i2c11mux0ch4;
++	i2c44 = &i2c10mux0ch1;
++	i2c45 = &i2c10mux0ch2;
++	i2c46 = &i2c10mux0ch3;
++	i2c47 = &i2c10mux0ch4;
++	i2c48 = &i2c10mux0ch5;
++	i2c49 = &i2c10mux0ch6;
++	i2c50 = &i2c10mux0ch7;
++	i2c51 = &i2c10mux0ch0;
++};
 +
-+	eeprom@51 {
-+		compatible = "atmel,24c128";
-+		reg = <0x51>;
+ // MB - PDB
+ &i2c8 {
+ 	i2c-mux@72 {
+@@ -50,6 +69,124 @@ eeprom@51 {
+ 	};
+ };
+ 
++// R Bridge Board
++&i2c10 {
++	multi-master;
++
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
++	i2c-mux@71 {
++		/delete-property/ i2c-mux-idle-disconnect;
++
++		i2c10mux0ch1: i2c@1 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c10mux0ch2: i2c@2 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c10mux0ch3: i2c@3 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c10mux0ch4: i2c@4 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
 +	};
 +};
 +
- &sgpiom0 {
- 	gpio-line-names =
- 	/*in - out */
++// L Bridge Board
++&i2c11 {
++	multi-master;
++
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
++	i2c-mux@71 {
++		/delete-property/ i2c-mux-idle-disconnect;
++
++		i2c11mux0ch0: i2c@0 {
++			mctp-controller;
++			// FE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c11mux0ch1: i2c@1 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c11mux0ch2: i2c@2 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c11mux0ch3: i2c@3 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++
++		i2c11mux0ch4: i2c@4 {
++			mctp-controller;
++			// BE NIC FRU
++
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++	};
++};
++
+ // MB
+ &i2c13 {
+ 	i2c-mux@70 {
 
 -- 
 2.34.1
