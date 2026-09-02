@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B56AC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A9DC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LORGKtEmjojKlKzUAL6AcL3FZ1dzN7SRP7UvYdmDE2I=; b=2OCw1VrYhYcBW7RwAOD/h59Nzh
-	z4W41WUuxxCKQOr9aUg7kDPr+jpggJvue+NoK3lEE0oBnmjXdNsLcqhL/V0MYBopQLvQ9tG4IcsA0
-	/0/KWA0eK1XZu9LZUyOwOvGkQLsusCY/rQvKd9sKrRABXG0lG+SsLY45kGYM4l9lws9otaQAsV/Yi
-	cq8gSxPKgJGr2VOi7G0KfG2L+EZKZtT6Vrx/pTqBOIgsjiMN/L4GEtby+BbMseyP3aXU9fj5echQv
-	h2qJ6/4n7YXH0t894UgKUsp7SRxgD5LHs+nphN2GqCE3OWWnBNFPLyLZmbwqjEAZDxvvEzLmRYG+c
-	JDriCbNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eCEhzIHv+gI4dxAX0R87oiyrbLJH9NF0MvQOqH+iMVM=; b=Tc325ammQB7e8APmcLM54L+K1O
+	Flsz7uQnjgymYav0QO3duxSWMi3xeyXDeDJKTwxWk5hPjUWfol66auIYn0DNnxlEBuScYSCUu0PTx
+	8UEMnznolGmDfmz/KYmSmIyOgq0yY1kd3EGLCsB/rt2AsuyVyAzt94ehLlWzbq1hU6JXdQ01selLu
+	miKzYavqgPJqad0J+3bNrEWHnmRQ/1bLiG5f49uTOsF/l2zeLGstB6A0OpHJ2K7uLTcxwzUj7IH01
+	HhyX4w3h5MM2wxbYZ6KoAIfxWUlewBfXHMgLUaEKJ7aicAS3QOPcVvvWmvpYID0wQrSkRjlttfmSm
+	ggYtefWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lsZ-0000000Evut-3NUZ;
-	Wed, 02 Sep 2026 14:23:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lsX-0000000Evu5-2vqW
+	id 1x1lsf-0000000EvwH-2JdC;
+	Wed, 02 Sep 2026 14:24:01 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1lsc-0000000Evv4-2f2O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:23:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 03455165C;
-	Wed,  2 Sep 2026 07:23:48 -0700 (PDT)
-Received: from [10.1.34.165] (e121487-lin.cambridge.arm.com [10.1.34.165])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 669D23F882;
-	Wed,  2 Sep 2026 07:23:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788359031; bh=OerhqSxd1xyENhpWH7nbLflrBECJlBgy0uR0tCnVTRQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S5NaqTUvSbfmyi5QSM7kw1SCtiGgmNbut93K3BQXM0NlrcsCCkyVsONpAN11Q8Vba
-	 c1OvglbUQOPZ3i6o8edKY7XL14X+oZBbK2UFp3pkM9i3/bQx12rsG3wJsLDCII3Hia
-	 VQ9d9+u76qC33feiFv4NyidJkFrdnbwAd+1iE7tI=
-Message-ID: <73f3c180-1915-42be-ba21-86e8f07f8bb1@arm.com>
-Date: Wed, 2 Sep 2026 15:23:48 +0100
+	Wed, 02 Sep 2026 14:24:00 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48431648f33so1681278f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 07:23:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788359036; x=1788963836; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=eCEhzIHv+gI4dxAX0R87oiyrbLJH9NF0MvQOqH+iMVM=;
+        b=nmonXIXP2SKI38FiRLlxlJCslYEJ+LCjIHyrpZQhrILayoeBxq0IMEah1/Se0e0E1x
+         3/WYk8Pj98g1KorDsHtG04fbU4XuEZeGx3O/DkoKCVomiG6UiyOLCFe2WjbofuoWPsp9
+         /tqkSySiQNgOffbkp1OrmDKNOUnHLElQv7KYfy4gjga+Zzf0KHgHmMlr/8Irbl7S2ffJ
+         Q4hB+S+FN5Fh/X9tL1K3xpSZ6SKgAzo6e+gtwk7o6OsAfQo6YSuR0tqgBT66jRc69agw
+         H5WUFn1P8YKPclUlWgXf/STS4kr1H72KxHzf1T4rS7oE/3vbb28RAdH2OzqjMsF/JNY8
+         YxlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788359036; x=1788963836;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eCEhzIHv+gI4dxAX0R87oiyrbLJH9NF0MvQOqH+iMVM=;
+        b=LTEXOatVflpQkHiAI6yt9XFmXYxdHVhmFg+dVw+fhF6sLw/ET/ARi8RHWdk1qi65uq
+         LiXBnQWl0gyUAyq9BBM6JUNk30shoosLhqid3c2bYB/fUsl2Kh8Q4sIYkeofCrvtpvGL
+         DMWIFrtrnvwtYsFezxJYZxAVnLb9ygsLmJd+KrXDDatgJdK+piPPXwLMONXF9Q8x1+r3
+         ZP5L4dThcai5ZEu8UoZlOxo0sUjppo9Li8J5bB6jM8Xx0C0x7Q2NYFUAXhlLbMeXNfg1
+         tGvDaIhEGzfzGUSIyuIqUel875SB8Dh5BOlsZeymiE0dNe/xo3TKRhuURpu1pjF/cO88
+         WhbA==
+X-Forwarded-Encrypted: i=1; AKwUvBz5RxPUQypDpzsjYal96ckmnU0M5Huv6pfmfDky7IJOsWFTERLPNpsPlpY+DilhuPyuDctKZMJg8OpYbs2YQxB2@lists.infradead.org
+X-Gm-Message-State: AFuF++m3K49vWIni1YnZCvZgqeT6z7VW2CS36roUsTSHIS7rC8mOpKe/
+	oC1XillDr/qexP6A0Rbw3nMr7x0ncspyeDo8jqqTOvC5yW5+6ewRlki/
+X-Gm-Gg: AYBFou1Vpaj2NLnqqgUnwv6aSI01jwJnq0wGolnKi3pHd1ZARb21MXxyOLpfgEl9JAU
+	dYvSfFmiwziBKgO/ogErsrg5s/rTA6IacQkTcTWxsBSyXHWzV1YRxlr6KKVntZlGvRP/+n55Lkd
+	crCcl3p+PSGIy7rU4Lr64NCSINqFeHP9vwzACneogmSdF/Vamm8qlHqunWfLQZHpiXn7cgcETBv
+	V5qjxjeqE+yNd9Jg39uN1n6XALNI+bIWTgkPYFNwieBKaKiu46P4TMWhCPqBp4ow35wKltQGIxM
+	u1SKQfqUly9rI2CciZzSo58oyt0SiKQnAuLdw5lNLbd+abNcIGtmWh5pGHhPFNKYDCVgRRxnQ0k
+	L5ZGGk8sQrR/BsUhxPi7CRz2iSkTW1MCLLFvMJAB2iGhfMrhAwzyNW7dXX1YaqzHIs3WwNxrz5n
+	j4qU+A/KSNAwA+l1+6BWQyXkUBdWcuLglpItpuJwA4q5uGkeltkG6WgeghQM1LHQ1EbUFvS856N
+	5OOvvOweTAFFx0oSB8ybKrlfz5gDKBZ8uulETDG+Z8p/gdn/CBQCb6Glq2Yhbw=
+X-Received: by 2002:a05:6000:4211:b0:482:fbb6:1b29 with SMTP id ffacd0b85a97d-485781faaeemr6553373f8f.10.1788359035442;
+        Wed, 02 Sep 2026 07:23:55 -0700 (PDT)
+Received: from ernest.hoecke-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e6f604sm6722961f8f.2.2026.09.02.07.23.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 07:23:54 -0700 (PDT)
+Date: Wed, 2 Sep 2026 16:23:53 +0200
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, 
+	Kieran Bingham <kieran.bingham@ideasonboard.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+Subject: Re: [PATCH 6/8] arm64: dts: freescale: imx8mm-verdin: Add Toradex
+ OV5640 CSI Cameras
+Message-ID: <qkcwnshcm4o3q5vbdgb6i33wtm3wrri7ifsi5pnj342mqgfiaw@76vnlt3yro5v>
+References: <20260713-v1-verdin-imx8mm-dtbos-v1-6-4acd63db4504@toradex.com>
+ <al5mDqeFE8QVbUd9@lizhi-Precision-Tower-5810>
+ <3ak4ffamwvdrtgw3bivzvrbtkmyh7g3lvuk4xwvdiuzizi3iu3@uxqvyif7rvpx>
+ <178471622928.2174993.5439033710284861967@ping.linuxembedded.co.uk>
+ <20260722105914.GA72270@francesco-nb>
+ <amDXGRT80HfyJwCt@SMW015318>
+ <vrw2wmtywuokachenclid4dnrosaq2xqlzqtyqe75tsdt27yzx@ntztzwyxoadw>
+ <amJrv2FDbdkbvMKQ@SMW015318>
+ <sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl>
+ <amN9zxNjXM0bSp1w@SMW015318>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 14/45] arm64: entry: Introduce entry specific
- exception masking helpers
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-15-vladimir.murzin@arm.com>
- <c2c67794-a65c-4c63-b94b-cdb7e99bd92b@huawei.com>
- <928dbd54-19ff-498f-a49c-23bdeccc589e@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <928dbd54-19ff-498f-a49c-23bdeccc589e@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amN9zxNjXM0bSp1w@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_072353_941306_00D04E00 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260902_072358_725909_861AF422 
+X-CRM114-Status: GOOD (  65.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,104 +116,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/29/26 03:34, Jinjie Ruan wrote:
+On Fri, Jul 24, 2026 at 09:59:27AM -0500, Frank Li wrote:
+> On Fri, Jul 24, 2026 at 03:41:59PM +0200, Ernest Van Hoecke wrote:
+> > On Thu, Jul 23, 2026 at 02:30:07PM -0500, Frank Li wrote:
+> > > On Wed, Jul 22, 2026 at 06:15:50PM +0200, Ernest Van Hoecke wrote:
+> > > > On Wed, Jul 22, 2026 at 09:43:37AM -0500, Frank Li wrote:
+> > > > > On Wed, Jul 22, 2026 at 12:59:14PM +0200, Francesco Dolcini wrote:
+> > > > > > Hello Kieran,
+> > > > > >
+> > > > > > On Wed, Jul 22, 2026 at 11:30:29AM +0100, Kieran Bingham wrote:
+> > > > > > > Quoting Ernest Van Hoecke (2026-07-22 10:27:32)
+> > > > > > > > On Mon, Jul 20, 2026 at 02:16:46PM -0400, Frank Li wrote:
+> > > > > > > > > On Mon, Jul 13, 2026 at 05:06:27PM +0200, Ernest Van Hoecke wrote:
+> > > > > > > > > > From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > > > > > > >
+> > > > > > > > > > Add device tree overlays for the Toradex OV5640 CSI Camera on Verdin CSI_1.
+> > > > > > > > > >
+> > > > > > > > > > The default overlay describes the current CSI Camera Set 5MP OV5640 with a
+> > > > > > > > > > 27 MHz on-board oscillator. Add a separate 24 MHz overlay for the legacy
+> > > > > > > > > > camera module.
+> > > > > > > > > >
+> > > > > > > > > > Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
+> > > > > > > > > > Link: https://www.toradex.com/accessories/csi-camera-ov5640
+> > > > > > > > > > Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
+> > > > > > > > > > Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+> > > > > > > > > > ---
+> > > > > > > > > >  arch/arm64/boot/dts/freescale/Makefile             |  6 ++
+> > > > > > > > > >  .../dts/freescale/imx8mm-verdin-ov5640-24mhz.dtso  | 17 +++++
+> > > > > > > > > >  .../boot/dts/freescale/imx8mm-verdin-ov5640.dtsi   | 78 ++++++++++++++++++++++
+> > > > > > > > > >  .../boot/dts/freescale/imx8mm-verdin-ov5640.dtso   | 18 +++++
+> > > > > > > > > >  4 files changed, 119 insertions(+)
+> > > > > > ...
+> > > > > > > I think with the Toradex ecosystem there would be some value in
+> > > > > > > supporting or helping with the ongoing dt-connectors or dt-addons topics
+> > > > > > > so that we can abstract the hardware which is being 'added'.
+> > > > > > >
+> > > > > > > I think it's important that we tackle the problem of combinatorial
+> > > > > > > explosions of overlays when we can add a component to multiple
+> > > > > > > platforms.
+> > > > > > >
+> > > > > > > For example, your OV5640 camera could be added to many different boards
+> > > > > > > - and each board could have many different cameras - in different ports.
+> > > > > > >
+> > > > > > > We should not be copy/pasting overlays for each combination, or we'll
+> > > > > > > have 'thousands' of identical overlays.
+> > > > > >
+> > > > > > I see your point, and I agree that it would be valuable to move this
+> > > > > > topic forward. I will raise it internally at Toradex and see how we can
+> > > > > > contribute.
+> > > > > >
+> > > > > > At the same time, quoting Marex (https://lore.kernel.org/all/dec2a7f6-80fd-4692-8936-969f8837a555@nabladev.com/):
+> > > > > >
+> > > > > >  | DT connectors have been discussed for the last 10 or so years and three
+> > > > > >  | is still no real progress.
+> > > > > >  |
+> > > > > >  | I would be happy to send a follow up patchset which would convert the
+> > > > > >  | DTOs to whatever connector implementation format lands in the future,
+> > > > > >  | but I am concerned that waiting for DT connectors will block this
+> > > > > >  | patchset from landing for a long time.
+> > > > > >
+> > > > >
+> > > > > I do quick check for ov5640, we can use partial connectors, which already
+> > > > > in kernel tree.
+> > > > >
+> > > > > use duplicate label like
+> > > > >
+> > > > > in mainboard
+> > > > > csi_io_i2c: &i2c3 {
+> > > > > 	...
+> > > > > }
+> > > > >
+> > > > > csi_io_regualotor_3v3: ....
+> > > > >
+> > > > >
+> > > > > csi_io: connector_csi {
+> > > > > 	compatible = "...";
+> > > > > 	gpio-map = <0 0 &gpio1 3 3>;
+> > > > > 	...
+> > > > > 	irq-map =<0 &gpio1 4 1>;
+> > > > > 	...
+> > > > > }
+> > > > >
+> > > > > in 5640 overlay
+> > > > >
+> > > > > &csi_io_i2c {
+> > > > > 	camera@xx {
+> > > > >
+> > > > > 		reset-gpios = <&csi_io 0 ACTIVE_HIGHT>;
+> > > > > 	}
+> > > > > }
+> > > > >
+> > > > > https://lore.kernel.org/imx/AM9PR04MB8353AC7DF91C5F73C34019E0E3F72@AM9PR04MB8353.eurprd04.prod.outlook.com/
+> > > > >
+> > > > > Only clock part have dependence. other parts. I am working mipi dsi for
+> > > > > display, almost work except panel show have some problem, which is not
+> > > > > related with connector.
+> > > > >
+> > > > > Frank
+> > > >
+> > > > This is very interesting and I agree with both you and Kieran that it
+> > > > would be great to abstract these connections away and kill the need for
+> > > > so many variations.
+> > > >
+> > > > Certainly I will read up on this and spread it internally as well.
+> > > >
+> > > > That said, since there are still unresolved dependencies, I am not
+> > > > convinced that we should already head this way with this series. It
+> > > > supports hardware that exists today in the currently standard and clean
+> > > > way.
+> > >
+> > > Your ov5640 have not such dependence. You can try connector firstly.
+> > >
+> > > display most like can go through connector, (I remember pwm already
+> > > supported, but not sure).
+> > >
+> > > others continue go through old method until dependence clear.
+> > >
+> > > Frank
+> > >
+> >
+> > The ov5640 still requires a clock nexus which is not merged yet.
+> >
+> > I have been playing around with it locally now and find the work here
+> > very interesting. Certainly this is also useful for Toradex and I would
+> > like to use it to reduce duplication.
+> >
+> > We will repeat this work for the Verdin iMX8MP. So I see real value in
+> > using these new mechanisms to map the GPIOs such that the Verdin ov5640
+> > overlay can be reused. However, this would also require a new binding
+> > for a "verdin_csi" device.
+> >
+> > Therefore, I could consider dropping the ov5640 overlays from this
+> > series and sending them as a follow up with the partial connectors
+> > support. But I don't want to block the series from getting merged for
+> > this non-trivial effort.
+> >
+> > If we go that way, I wonder where the verdin-ov5640 overlay should go?
+> > We also have Verdin modules with a TI SoC, with the OV5640 overlays
+> > already merged, that could be refactored. Those live in ti/, not
+> > freescale/. Do you have any input on how we should deal with that?
 > 
-> 在 2026/7/28 17:29, Jinjie Ruan 写道:
->>
->> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>
->>> The entry code handles interrupt masking differently from the rest of
->>> the kernel. Exception handlers enter and exit with all exceptions
->>> masked, but they must temporarily unmask the appropriate set of
->>> exceptions so that the rest of the handler executes with the expected
->>> exception state.
->>>
->>> For EL0 handlers, this means dropping to masking context appropriate
->>> for the work to be performed. For EL1 handlers, this means restoring
->>> the masking context of the interrupted task. In both cases, all
->>> exceptions must be masked again before returning from the exception
->>> handler.
->>>
->>> The rest of the kernel typically follows the opposite pattern: it
->>> raises the masking context to protect a critical section and later
->>> restores the previous context.
->>>
->>> Given these different usage patterns, introduce a dedicated set of
->>> exception masking helpers for the entry code. Keeping these helpers
->>> separate from the generic interrupt masking APIs makes the intended
->>> usage explicit and helps avoid mixing the two masking models.
->>>
->>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->>> ---
->>>  arch/arm64/include/asm/interrupts/entry.h | 113 ++++++++++++++++++++++
->>>  1 file changed, 113 insertions(+)
->>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
->>>
->>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
->>> new file mode 100644
->>> index 000000000000..d66eb5d633f0
->>> --- /dev/null
->>> +++ b/arch/arm64/include/asm/interrupts/entry.h
->>> @@ -0,0 +1,113 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +/*
->>> + * Copyright (C) 2025 Arm Ltd.
->>> + */
->>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
->>> +#define __ASM_INTERRUPTS_ENTRY_H
->>> +
->>> +#include <asm/arch_gicv3.h>
->>> +#include <asm/bug.h>
->>> +#include <asm/cpufeature.h>
->>> +#include <asm/interrupts/common_flags.h>
->>> +
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
->>> +						  arm64_exc_hwstate_t next)
->> may be const arm64_exc_hwstate_t next
->>
->>> +{
->>> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
->>> +	bool force;
->>> +
->>> +	arm64_debug_exc_hwstate(prev);
->>> +
->>> +	if (prev.flags == next.flags)
->>> +		return next;
->>> +
->>> +	if (!irqs_disabled)
->>> +		trace_hardirqs_on();
->>> +
->>> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
->>> +
->>> +	__arm64_update_exc_hwstate(next, force);
->>> +
->>> +	if (irqs_disabled)
->>> +		trace_hardirqs_off();
->>> +
->>> +	return next;
->> We do not update next; it should be "void".
-> Hi Vladimir,
+> 1: need make both work by duplicate overlay source file, which under TI
+> and freescale.
+> 2: try to create common dir, and merge two file to one, which may need
+> involve both TI, freescale and Soc maintainer to discuss where to put.
+> the discussion start utill real case happen. This one may first real
+> user case.
 > 
-> What do you think?
+> >
+> > Personally I am still more in favour of merging now and refactoring with
+> > our next series for other SoMs, but I understand the desire to start on
+> > this now so there are more consumers of this new behaviour.
+> 
+> I suggest use this 8mm ov5640 as start, you can refact other later step by
+> step.
+> 
+> I can increase this part review priority.
+> 
+> Frank
+> 
 
-I have no strong opinion, TBH. It is done that way to make it
-interchangeable with the wrappers around it. For instance, the
-arm64_inherit_exc_context() wrapper can be easily replaced with
-the bare version:
+I've prototyped the GPIO nexus approach and confirmed that it works. It
+abstracts the sideband GPIO wiring, but the camera pipelines and port 
+election remain SoC- and port-specific.
 
-__arm64_switch_exc_hwstate_to(arm64_exc_hwstate_of_context(CRITICAL_CONTEXT),
-			      arm64_inherit_exc_hwstate(regs))
+So I could implement all of this, probably with a binding too (unclear
+to me as of now if a compatible + binding is needed or if we can just
+leave the compatible property out). But it would only enable sharing one
+overlay between the Verdin iMX8MM and Verdin iMX8MP. As you noted, we
+could do something like:
 
-yes, it is less readable (and it is the reason we have wrappers),
-but functionally equivalent.
+imx8mm-verdin.dtsi:
+	/* Verdin CSI_1 */
+	verdin_csi_capture: &csi {};
+	verdin_csi_rx: &mipi_csi {};
+	verdin_csi_i2c: &i2c3 {...};
+imx8mp-verdin.dtsi:
+	/* Verdin CSI_1 */
+	verdin_csi_capture: &isi_0 {};
+	verdin_csi_rx: &mipi_csi_0 {};
+	verdin_csi_i2c: &i2c3 {...};
 
-I'm happy to change it if people feel strongly about it.
+Along with a nexus node to abstract the GPIOs used in both, and then
+have one shared camera overlay enable everything and define the camera.
 
-Cheers
-Vladimir
+But on the Verdin iMX95 for example, the pipeline is more complicated so
+unless we find a way to set up more of the pipeline in the base DTSI, we
+would still need a separate overlay for it.
 
+On SMARC iMX95, for example, we would still require separate CSI0 and
+CSI1 overlays because they use different receivers, pixel formatters and
+ISI ports. And there is no mechanism to select CSI0 or CSI1 from an
+overlay, that would need the proposed generic connector concept, not
+just these nexus nodes.
+
+My current thinking is that this is not worth implementing as we don't
+really gain much. However, it is clear that connectors would be hugely
+beneficial. I propose that we drop the idea for this camera overlay,
+unless you see a real maintenance benefit, but we work on the connector
+topic to hopefully get rid of this combinations explosion in the future.
+
+We are continuing to work on connector infrastructure where it provides
+a concrete abstraction, including the LVDS nexus work and the related
+GPIO/PWM fw_devlink fixes. [1]
+
+[1] https://lore.kernel.org/all/juuc4af7ndbajcl7gzf4tg5qz2q2j5tt3rvql4jbauradujrre@gc5nbdhhixaf/
+
+Kind regards,
+Ernest
 
