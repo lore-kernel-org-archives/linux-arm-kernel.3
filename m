@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28852C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BABC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMrRYkbF5OZt+EYuQBRlyrF86w/zMKZa5CwvbhvSVgQ=; b=b0s+XZ/vdRj7asec7swlIfR+BV
-	sRIQ7EplknLbZIeVuwNDt7ajERm030bqzFpLrwl3GK4BJbUWNF90NO+NCN5uymigmADflNxguu4Wo
-	p1wHDso4+6F/fFqX80sxBreRMrbWh0wgfXOVmKof2arsD71uJ2bO0GN9IGleesgvWqQZHo6RYCAvx
-	J23H9lqkZcZ+pzaacMEZ32MBq7z53TcGvdbLvXFBOj2wqOFtQcPQVLPE7F1OVmy0arvnbpgAwD473
-	t+VewE0/F41+U2uWIAHZEsJ2Hs3U7jC5GJb0J9rXEeaAif+UDZuLrsCnglNeFRHVZ+0ooiYfRMtw0
-	+kD8oyvw==;
+	bh=OeADUFwIew+k818uFxxMlUv0AMDwYY19D1ydeF7tVUI=; b=X2lh8mnXSvKRekVZuQzDX37I0z
+	7E7X6tKQ2SXDP+VEJ2tGWSGDqyqfkLDzmBD4olRCBaPNtTFhtMkmbKG4hhNw50sh9QzZhB310V0yQ
+	Cp29qFIteLHnb7GLfZk3J1///9l3SH1y3+ddY5BgK80lSIyWBBIxXereM2xXiQOP499NA3WHEvQFx
+	YkGVeB5NfQiMohqHqUNyL5T8iB2mKSBQKPQL5QhhoyGSFkVVTRnng1ReXfUjUfEJGZJnj9OOc4ZRx
+	MXrC0fQdESIvluZW1/cJcFoCqaQZvvhcNIrgPBYKzCwuakNwq5WSybcDR3hDQ/y3kKtfQRvHCiGby
+	0zBgowSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fgZ-0000000DyuC-44ul;
-	Wed, 02 Sep 2026 07:47:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1fhn-0000000Dz8K-1M2T;
+	Wed, 02 Sep 2026 07:48:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fgZ-0000000Dytn-0WKS
+	id 1x1fhm-0000000Dz7t-0Fh3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 07:47:07 +0000
+	Wed, 02 Sep 2026 07:48:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59914600C8;
-	Wed,  2 Sep 2026 07:47:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9C31F000E9;
-	Wed,  2 Sep 2026 07:47:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 51798600C8;
+	Wed,  2 Sep 2026 07:48:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 068E01F000E9;
+	Wed,  2 Sep 2026 07:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788335226;
-	bh=HMrRYkbF5OZt+EYuQBRlyrF86w/zMKZa5CwvbhvSVgQ=;
+	s=k20260515; t=1788335301;
+	bh=OeADUFwIew+k818uFxxMlUv0AMDwYY19D1ydeF7tVUI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=kmWx0i1NgJvsbl7HVHwHOHUrzI7dPQ8T/ayJKlDyUU/WXndfT4LTsi34pD8oCMJwW
-	 LCeYnse+v9023DMTMpO3TYaWx2TztOJTuP1Knjb3yiuj4ZweZqdFJ3b6dvOsIed9ZL
-	 MFc2q9nn7rferIqHBLii9tMX8z0IJmfR32q1fVDwW9cGyQcY/i+iz5AFUi0oW55rAo
-	 BAcd2sMaWjXJ8IPb/iP9toIkpV2PYNDruENhzsi9SGxXH/ouzmwATwuUz77HR6r1QO
-	 EsLNO5rwzI+IL7qBCE+IpMe324knTkP44Y92J2raQrqhy9Eli2Y/SBLf+I9H2/htTp
-	 WeDczrwosL6+w==
+	b=izYq5VJk2wZVFpoRFQlmdL1wKt3D9KB5P6sF4EX0cOHPdGByj4Rd9mxXLJ7FUSTHq
+	 ey3Ui/L0pSBVuFc8OMCI4bqP/XNLyzPsnpESX3ZCtNav2xApANu8BWjS1eQPUB6zoG
+	 JYCmTzO1WiHQZtodhqFB/kvvmFwyg5GQymdOBFMonlMQurPAwAjAc3Z2uMQ9qNwcEG
+	 PlzK+VFTzM2iijqQUNtWaS/rUpMKvzHaM7yNRoZMGKhjVCRoQAEwCuwieOLNNNx8LD
+	 WRe7gGAMK2Ae4WGzd4HobxKWfAApolDjJlBHwJu8NoRdeCJRG75QHoDz76Jb2D3SfB
+	 eesE4iLZSIpMQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x1fgV-00000003lmO-22FI;
-	Wed, 02 Sep 2026 07:47:03 +0000
-Date: Wed, 02 Sep 2026 08:49:36 +0100
-Message-ID: <87ld9km6sv.wl-maz@kernel.org>
+	id 1x1fhj-00000003loj-181o;
+	Wed, 02 Sep 2026 07:48:19 +0000
+Date: Wed, 02 Sep 2026 08:50:52 +0100
+Message-ID: <87jyp4m6qr.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+To: Khushit Shah <khushit.shah@nutanix.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Oliver Upton <oupton@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 03/20] arm64: sysreg: Define OSLSR_EL1_OSLK_MASK
-In-Reply-To: <20260901092552.231001-A-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
-	<20260831145536.913567-4-seiden@linux.ibm.com>
-	<87v78pmmtz.wl-maz@kernel.org>
-	<20260901092552.231001-A-seiden@linux.ibm.com>
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: errata: pass REVIDR when matching target implementation CPUs
+In-Reply-To: <20260831105444.4065831-1-khushit.shah@nutanix.com>
+References: <20260831105444.4065831-1-khushit.shah@nutanix.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Rcpt-To: khushit.shah@nutanix.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, skolothumtho@nvidia.com, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -112,72 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 01 Sep 2026 10:25:52 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+On Mon, 31 Aug 2026 11:54:44 +0100,
+Khushit Shah <khushit.shah@nutanix.com> wrote:
 > 
-> On Tue, Sep 01, 2026 at 08:51:04AM +0100, Marc Zyngier wrote:
-> > On Mon, 31 Aug 2026 15:55:18 +0100,
-> > Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > > 
-> > > Define the missing mask for the OLSK field of OSLSR_EL1 which is
-> > > required to safely write a value to that field.
-> > > 
-> > > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> > > ---
-> > >  arch/arm64/include/asm/sysreg.h | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> > > index 1c5c4df260be..5a439853b721 100644
-> > > --- a/arch/arm64/include/asm/sysreg.h
-> > > +++ b/arch/arm64/include/asm/sysreg.h
-> > > @@ -200,6 +200,7 @@
-> > >  #define OSLSR_EL1_OSLM_NI		0
-> > >  #define OSLSR_EL1_OSLM_IMPLEMENTED	BIT(3)
-> > >  #define OSLSR_EL1_OSLK			BIT(1)
-> > > +#define OSLSR_EL1_OSLK_MASK		BIT(1)
-> > 
-> > Just move the required sysregs to the sysreg file, with the full bit
-> > description. This will sort this once and for all.
+> When target implementation CPUs are provided, is_affected_midr_range()
+> accidentally passed the MIDR as both arguments to __is_affected_midr_range(),
+> so the REVIDR mask check operated on the wrong register.
 > 
-> You mean to the tools/syreg file to generate the descriptions?
+> Pass REVIDR as intended.
 > 
-> I wanted to do that but OSLSR has a split field (OSLM in bit 3 and 0)
-> which the generation tooling cannot handle. (right?)
+> Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Khushit Shah <khushit.shah@nutanix.com>
 
-Composite fields are nothing new. We have those everywhere (page
-tables, for a start).
-
-> 
-> Now that I am rethinking this:
-> 
-> I could move the stuff to the tools/sysregs and in addtion define the
-> OSLM field here manually but this time using the generated constansts.
-> probably sth. like: 
-> 
-> #define OSLSR_EL1_OSLM_MASK		(OSLSR_EL1_OSLM0_MASK | OSLSR_EL1_OSLM3_MASK)
-> #define OSLSR_EL1_OSLM_NI		OSLSR_EL1_OSLM0_NI
-> #define OSLSR_EL1_OSLM_IMPLEMENTED	OSLSR_EL1_OSLM3_IMPLEMENTED
-> 
-> Shall I do this?
-
-Yes. Except that OSLM3 should really be OSLM1, being bit 1 of the OSLM
-field. And it would make a lot more sense to express NI and
-IMPLEMENTED in terms of the two bits, just like the JSON describes it:
-
-OSLSR_EL1       [2,0,1,1,4]     MRS
-# Reg cond: IsFeatureImplemented(FEAT_AA64)
-Res0    63:4
-UnsignedEnum    3       OSLM
-UnsignedEnum    0       OSLM
-        0b00    VAL_00
-        0b10    VAL_10
-EndEnum
-UnsignedEnum    2       nTT
-EndEnum
-Field   1       OSLK
-
-Thanks,
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
