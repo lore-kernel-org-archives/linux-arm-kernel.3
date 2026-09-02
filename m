@@ -4,137 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D3FC61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70981C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mIWT8NjT9D+AaSquZYEzdoAy7u3WlsN+G01rdybEXW8=; b=u7uc/LdeLvoA3DbaHBQFJSu7AT
-	ioRIL4EFuJ0bZcFNKViyvhankN3c1yROV2hgz8Ra/eGgz7N/8GmG8vSIcY5CUONYjK6/9XsTsMXMs
-	iwlsGvJFtfNsyk+KlBTq/2K7HzKBiKMAD9H+bYrvLhMSvSbqTt5rkvFy9pVXG+uNPXuWhqbP31B56
-	BFij1tGgheP9Hndv0XO0XskMTPvzG/6GJbAId2z0VHFhzTXP2xoMAKiYujWbNvXTwxDADJdpfNfNj
-	Y1RnU3FraJXRnkGYS3Bvx0My88/InBOpEFu0CbN510p1yW9tci8IlV+EkomeDfp/zANKChNb0Wula
-	Rj4LeerQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aDeLBX9QBOTBJ5rFj/dwetIriA6+Uk+oY4WRGgHLJXU=; b=lbVRHh1tZlZxCJYuCLpr4Jq2UF
+	/t6GKO4C+0+/UJAagwk/8DNvpJxMUIPOTlFDOXgiKahu2VdILID1Ei7sCS41bxmq1BDrhTglxR+BV
+	UgrZAqa1NFmHeMucQioFJQySMm+jr2h+wI86Lt9AHqo8xUGXnWmAGFKbCje4vxrvcZoJXm0JoQUK3
+	Y9EjSU8HMuSLItdKe6QV3GOEjt/jlVRL65nhmSxTy3eaHoN3JNLZBKezHNtzLM4KqtGmxB4q0BVQs
+	ZPBt5JmaEOpHebOa3ZqV+K3dS2XYhq/3dQ3LI/+uj1mFLMrMfzFe0QFQDgrDsRDVbp/sRsRkWJe4c
+	8zH278pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fxJ-0000000E0g5-2rs9;
-	Wed, 02 Sep 2026 08:04:25 +0000
-Received: from mail-northeuropeazon11011018.outbound.protection.outlook.com ([52.101.65.18] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x1fyI-0000000E15J-3gU4;
+	Wed, 02 Sep 2026 08:05:26 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fxG-0000000E0ei-30BO
+	id 1x1fyG-0000000E11N-0eC9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 08:04:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZKK/r4rvZeVDRwPjLQv64B7ayT9x9F0USkvT28+y3FBkUNjPBtLfmTC39i9qU7lkBpvZaQXKuEmTfCiNnfGUogiTWiyfqXayR2Mc02GJeLHT9JFPfJPV/bHiFa5d5BvDdn2mhtsQ4+OzKXcJ4iG3cY7m/o7F92nZYs8sv4jdp/IPnm9dp6beDoERadFecfU+15eD2XUi8Tunwu9cI3RfXFPDe0oaGyhyFODz1wuhMvhyh8PErkHc0CBPIjlg/55/Gg059gSzsd2ZRkVCMWzow9e9PtgsfwaSrQG6tEDaFdiHN1HGyr+WjtcchdlGXLE+8juI+5knpccMdvfkBRVwDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mIWT8NjT9D+AaSquZYEzdoAy7u3WlsN+G01rdybEXW8=;
- b=hJrg0w7SS88/Hso5TM8U2mV+ovQR++H//NsrhTonRJFlzBQ5a7klc58uo6oiV85uzcLoof5TL0G7fn5pqSydAzqNYeqNEEGAkbQ9PZWZFWJpv1hKcRxydPVQXxceYsfAIVi8BpxQj5hbjUlyM/czHSdurMyR8xNSJjmJ2xMxb0p6syHMVzpoE841xxhV3uQP/bBmMkGkDnAEISzqHPuza4erj6FJjNHSbde5s07DjLgnh9fjyCNmZo9MY6ZtzHLD1Xp1mvfdgsMhifK+EtZcb7mu3261ULcp9ltEdVEw2JE3Euv69WNEb/A4IgrwxRTNETdy8cqnhHAjTVtW2V+70Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mIWT8NjT9D+AaSquZYEzdoAy7u3WlsN+G01rdybEXW8=;
- b=n0nASsg7Z3kt8piLueMfTqxLoJ9V/xOdI87t1VMQ+U2l0gW9p8azRwkm5sFv/Oc+8EK6E+qTl/rZPi8xgzPSWirTlclotQi7TLHiHgzJRwns20h34Mj2Aebx7U09nKeDhS5tlR91ttucaJM3ivIpXua9JWqm6IlQok2xh21pYwQb8LtV0f+bTwDK5YiX41Ejw3pYyiyDCogMMCR5gBDhuVQE9T0bzr8kc+yZVzUCAEGiTFCHarrEIAqRvqsw2qpovT50+H14Wcb6ZmVAw9rWvP3NnYlvP7l54QS5KaSTU4RWxcanFjxnHKPx7Ne+wIJPD/n9UPLQoBjHWNHb2pNkVA==
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14) by VI0PR04MB602228.eurprd04.prod.outlook.com
- (2603:10a6:800:363::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 08:04:15 +0000
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 08:04:14 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Manivannan Sadhasivam <mani@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Zhijian Han <hanzhijian1991@gmail.com>
-CC: Lucas Stach <l.stach@pengutronix.de>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
-	<kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring
-	<robh@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio
- Estevam <festevam@gmail.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "sashiko-bot@kernel.org"
-	<sashiko-bot@kernel.org>
-Subject: RE: [PATCH v4] PCI: imx6: fix resource leaks in probe error paths
-Thread-Topic: [PATCH v4] PCI: imx6: fix resource leaks in probe error paths
-Thread-Index: AQHdM9n70fwYf+Kx3kGly/dGwwi8S7a6+GgAgAABnEA=
-Date: Wed, 2 Sep 2026 08:04:14 +0000
-Message-ID: <GV2PR04MB12019F7317287AC3FCAD939F58CB72@GV2PR04MB12019.eurprd04.prod.outlook.com>
-References: <20260824150454.3511203-1-hanzhijian1991@gmail.com>
- <kyuxfl6wmsytudadd2dazw7norz25mpsk6bjsfxsj2cpo7yj3h@eujfdbehavzm>
-In-Reply-To: <kyuxfl6wmsytudadd2dazw7norz25mpsk6bjsfxsj2cpo7yj3h@eujfdbehavzm>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|VI0PR04MB602228:EE_
-x-ms-office365-filtering-correlation-id: e0918223-ba3f-4db6-cc0a-08df08c8c7cb
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|376014|7416014|1800799024|10067099003|4133799003|56012099006|11063799006|4143699003|18002099003|22082099003|5023799004|38070700021;
-x-microsoft-antispam-message-info: DW/RNTYOB5V5UhqCYekDOWJ4E59iS3OnzK7DcUVGo66yY8/N4z1Pn6ylrpQLk2Pc8K6i6sS/81cqi4yb1rMW1XwZEbfiZSAiXbryK+w1P9NucLLfej+UT6dP7CF7wFiR7pl1iIQKCLQC+cO9kfhagykoih5WwNvwcRAOf18+eqxwTON14dXdkxYCLkvhGYq7+tMnOBJ4hkHsd7G7XdKjGPFPmMfH5JZxuDeeEWaJvb9azUL9hOs3G/wql6SeATVRb7qHGQHIfyIxZ+TLrhhC/EPro+J3gcljgTllELrLbMTIoq4jdwUKNL+FWB49XVOQ29l1hS/+YPnVlUgDbCvw9Yiz2WfkqwkmdxM4lO34vFhf7lyfZI1fuCxxcFI48X0oIIdQZDZTkFxocvD4uDeJfGWPu+cVmlWHMHbDEnrVbkx/2gtjay/MPluFtw9DjP3FIS67aXga8LXBfrTwTSJD3xqKKKGdK3t2P0h9WSuCL3HLvpLEJ3kWwBOXX19MKkedAPdf3u2SAS2w2JwqfYk3v1nDcxPdfxVG6iit7DWjNRlbTXWpgu01Hju2TzHsSw9+/RKZmb9+QB5KKxaAXWAt+SFEhXR0yYy4Q8G3BGNLPMyg/LAH3yWTIDtXKkDJEr42jZO8LEDeH7s1Yxc94W9XVbxMTGr0pXLP2dhf69pJdz2zlRB/XonkW3ZXqjLVqUtsFhgaEAf9qrTUQh+LNuV/eRA4nhF67Wp8btagIAk84UE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(376014)(7416014)(1800799024)(10067099003)(4133799003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(5023799004)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?3QkhT4rCgmIeGK+6JPUAm4sKGW485PHorgvlv2UMcT0rZ3wDPeYUgG+wyl?=
- =?iso-8859-2?Q?luPyXH5NA3lxumgU6plzaIWqbZTg4PEg/TimxYS7HsLQIfUJBDncC5h+xa?=
- =?iso-8859-2?Q?5SuKK/jWrPRR3pFTF5AkRiZMjgu4SxsxbN1b6ESGAlN+6aSupU87IBRzc+?=
- =?iso-8859-2?Q?F2A0LYVUQUeTkVyk1Ljn7in2WPioSSObFMB989EwrZaWtpZJR7QJKrKvRo?=
- =?iso-8859-2?Q?rX97iBzWWq13yihXp2XQxmMKKEMnTcdF89w2rYa9MCN6hrWgrq24OWuQD6?=
- =?iso-8859-2?Q?dVZDHkaAUD1dV7TiwJE+yggjqaaa/msbKo596O8EFDet6Np9wk30nt9wxL?=
- =?iso-8859-2?Q?8RijImu9fAfrR8YNMFlkxsF+w5c89ImNILba7fASle52lIddc2tjx+iEiQ?=
- =?iso-8859-2?Q?KWl9S6YIHT6DwqN/9PvKOrn5apXIslfol4HxoPh2DYeywV817C1B4DDAeG?=
- =?iso-8859-2?Q?Q2ivNiAa3yv93kk9ZmvJAI6IW5LjDMAUgLaoITDijBBnzl4xtHgZlHfzum?=
- =?iso-8859-2?Q?cIZg2k89VHjFUQ4FHPT8CEBrQx66wi3wUybJ+79qivUpkA9zzqMMenxxCw?=
- =?iso-8859-2?Q?Hw88pMbZ58+AuLXXcImoVJy1OtVks6w/NkSPH6W6bqXrSfm1N/8cAQYpvR?=
- =?iso-8859-2?Q?MZPVHbAN0jZ6pCME+n1q1bLR+tmBWLaOtH2hB1NFwiTheU85UFtq3A/2zt?=
- =?iso-8859-2?Q?+wCofmEC82fQzWqldnims10BgjowunfOavg/400VZhD25IXtdGofUaLfdU?=
- =?iso-8859-2?Q?BIQkLOASEdiVGvjJjkF8fM3Y12cuoBbhCTLJpINjWghrmSF1m/MvtrMLTQ?=
- =?iso-8859-2?Q?BH9RofLXCofwOsBhP8WNNBPvCEzRQeeBiILp27gWu2Dyl0hR6bbLOAzpkp?=
- =?iso-8859-2?Q?8fK+8vAcrDKP0YHgQMVqgHRFsddoDslwHuotT2CWIDOXjKShsCM3QfxwRY?=
- =?iso-8859-2?Q?yiAVriCjEB1Q796drCwxd3av/JTrL8NbKysUVwbFxEFpWo9KalGcFYiVw3?=
- =?iso-8859-2?Q?FPa9uIYbTdzM/7f7l3q1/K/jZng8LmrjDqa3xG2BSCUvUaESFtfDVqpr/V?=
- =?iso-8859-2?Q?nBEk5jq3wTiUHHcyUyXcPfLOSusDM0qIj8xRN7JENaOd7qYYIvYS6G5eRe?=
- =?iso-8859-2?Q?Fg0sazlXec0HpIxxA7TFrgComOf6RO8fRnlBORpglFVUmZchKGs+fcvwEU?=
- =?iso-8859-2?Q?5KlL6nkzmzVGMtVtq1XYQiXJQXas19xJvep+fR/hwz+qWsblMY40TBaGfn?=
- =?iso-8859-2?Q?hk3OJWFyIKbEBQJg8ivmhwgkOBfi4gYHHK8+WPeUPsGkGeV9KaQZykQTfN?=
- =?iso-8859-2?Q?7zLZPw0KMEBMcrjgPuhJKtLQ+I59/fXiKSP7hPLxQVXHtjQrZFDc9J28E/?=
- =?iso-8859-2?Q?vPsIXSsujbriupcBBSdBU86W/eED1OXZ2IzEWti7xoL5qS0Cw+20+tGndE?=
- =?iso-8859-2?Q?JQfWewmc+bZdoT4TDV3Du1/6AfLnG+BcYsNHmbHm67/bSZvEChYoisfLMx?=
- =?iso-8859-2?Q?lIM7FFYI4nPQS6krYBFqIpxDahl5rA0WNZg5iLaUf/zKBMbvw2SJ46s4nF?=
- =?iso-8859-2?Q?bca7Z//MoS+0NBJL4vJmHBsCztGfkLaHHjXpZ8J0emRZfd0oZAcm00fz5i?=
- =?iso-8859-2?Q?p0l2fQRJQjQqsNRnRYbylSbPOMDbaLrOuKOZ574p7YoTeyZv+YU9GStptp?=
- =?iso-8859-2?Q?p0R2vvngJX3GdqaReJAXBdvwB8sfvfD7s/gJz8t7VfHeQDi3FPkuTAP+1r?=
- =?iso-8859-2?Q?1yeT0LC894RfH0zCRy8yfHEyU3AV9f8Co2rtpyg2h2kRnY?=
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 02 Sep 2026 08:05:25 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49b965570d7so5543185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 01:05:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lex.la; s=google; t=1788336322; x=1788941122; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aDeLBX9QBOTBJ5rFj/dwetIriA6+Uk+oY4WRGgHLJXU=;
+        b=L5e3oD5IxujcU14WQnkkutN7OS7ljNfNyKJUca0GWsE6srZpa1NwAs93lUlWevMR/D
+         GLFSjfQCp1nLPBnm3PXiEo+0pkK3S8xg7Xtu3U0V9WmS3xjQasb3pZQHrsBj83/o5P1j
+         XDCDaCIkjOsU2A5PLj6/qy4L2mtGU0Cog46YzUFNhUEkLF1n8X1aUAwVz/MvE43Fs95i
+         Wfd0m8RB0HJvSRkPZwts4PIC3rqw8btdSsm7Se0Y4/Da4BMcbsAwh7qKgJBU8xiWnH7V
+         XYRaF5goUmzQoO6ozbuxqvRTiaTy08+Kx3e4D7svwwJMAQRkak47552kve+WITHJUEE0
+         6e2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788336322; x=1788941122;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aDeLBX9QBOTBJ5rFj/dwetIriA6+Uk+oY4WRGgHLJXU=;
+        b=e2A2Pvyl56t1OTq5pO114Z82sAYqBQDAfiQnZibM3kG8kZs4IGLv5CcOpXqKJ9CdQQ
+         05irQY9csOoaZgouBJMidTD4fICed5+5YDntyHVNGD/r7rvhZu1eAoPfO0izJQKLSBVF
+         wuan/4NXBVlqhwiJ05to2COKPdFv7ijrF+fSgGisKTeDD8I/+50LJKLe/gJFh1ONtWC/
+         mNlXksJlh5900HdBD//qTrZP0ynm6o2P/IPWU+WKZ5gZi5lEWzKirtk9pgx15d11IXSQ
+         aKIWL7waAVejrtJrIW2h/gNfbY/P45TPJLoD0EHNPzQUc0THWC/cDXl/QdCbkyYOJHf3
+         TksA==
+X-Forwarded-Encrypted: i=1; AHgh+RozCGTeg/wYcByOap/FznVQmDl6/iMRuH5Pa+2OeiesTBlKPYPk4uo47bjlGVkv3d7RdD7oQZjcG1pB4Ve2B8vi@lists.infradead.org
+X-Gm-Message-State: AFuF++lZ7n4r67pk/uDb6kg0jbnhxiEbvjluViKzwjqrw/cLTDDZg2Qr
+	FvcI3A13CbCs3R9pnQ4Q/e7kg7Baujua5JRZtp+lsV4eH7O2xxYhuAnu89I6jADh3cs=
+X-Gm-Gg: AR+sD12N3gaXYThU/F7UgwPxmD8tfYgJGyxaY37JAy4R48SubJg8BOh2E3f65mo9yNF
+	ZsKbP/LG+sfKbwg3QDDwhrfN46IMK/sDCC5Phs0Qf1HQkGc33BI4XmLXiRT3rDw3yu8RNFzGGP8
+	s0J+eXS6Lrlb79XMrTAZ5uanvYK7UGvLLlN3Rjywb49rSSmRG97DUDDD8h80Y5wuhd0uVPhDeJI
+	rrMRmhW/3WElHJ0C5HlZJ/WtEaMWglU4ZWhy7R1+NJ8PIl2k6mDNWyky9RiD1YZMCkn7qKqNSPp
+	zuxM+IPOUeRuJMnfCsS0B+sGTb8bTy21Tb/f6e00aQ1nf9eEjSf6gaWAvYpqZSOwh+EIo5DdADO
+	2UwQYESFaiGDfeV5VmAu++mmItzPfB1dKcB02nvH6/SQyO8yF6fav5O10OZCCjDKaCJctHbqQoR
+	zDNVslVU6MuwCgr5GbyReB4hfLxQBQH/pufILj2jUeqpXQLpc/UQ==
+X-Received: by 2002:a05:600c:4e93:b0:499:cd34:100d with SMTP id 5b1f17b1804b1-49ce57f5235mr48830435e9.7.1788336322158;
+        Wed, 02 Sep 2026 01:05:22 -0700 (PDT)
+Received: from remote-01 ([84.17.55.226])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce309e418sm72781715e9.13.2026.09.02.01.05.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 01:05:21 -0700 (PDT)
+From: Aleksei Sviridkin <f@lex.la>
+To: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	nbd@nbd.name,
+	lorenzo@kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	netdev@vger.kernel.org
+Cc: linux@armlinux.org.uk,
+	dqfext@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net v4 0/2] net: restore EEE on MediaTek switches and SoC MACs
+Date: Wed,  2 Sep 2026 08:05:17 +0000
+Message-ID: <20260902080519.2211373-1-f@lex.la>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0918223-ba3f-4db6-cc0a-08df08c8c7cb
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2026 08:04:14.7910
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0qGoFsENAs+EAfK8QNIUz0p7f1OD8rUp2BvpAPSw6NPfrmZudr8lbmfC3g6EEVe2Vxf2pFVHF9qTsnIh9zVIWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB602228
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_010422_768200_144DD932 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260902_010524_249072_5C4A08FE 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,74 +110,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Both drivers fill in phylink_config.lpi_capabilities and
+lpi_timer_default but never lpi_interfaces. phylink treats a MAC as
+supporting managed EEE only when the tx_lpi methods are implemented and
+BOTH bitmaps are non-empty, which phylink_create() decides once and for
+all, so EEE has been off on every mt753x port and on every mtk_eth_soc
+MAC that uses mtk_phylink_ops since the two commits named in the
+Fixes: tags. Because the tx_lpi methods ARE implemented, phylink takes
+the other branch and calls phy_disable_eee(), which fills
+eee_disabled_modes - so userspace cannot enable EEE either.
 
-> -----Original Message-----
-> From: Manivannan Sadhasivam <mani@kernel.org>
-> Sent: Wednesday, September 2, 2026 3:53 PM
-> To: Hongxing Zhu <hongxing.zhu@nxp.com>; Frank Li <frank.li@nxp.com>;
-> Zhijian Han <hanzhijian1991@gmail.com>
-> Cc: Hongxing Zhu <hongxing.zhu@nxp.com>; Lucas Stach
-> <l.stach@pengutronix.de>; Lorenzo Pieralisi <lpieralisi@kernel.org>; Krzy=
-sztof
-> Wilczy=F1ski <kwilczynski@kernel.org>; Bjorn Helgaas <bhelgaas@google.com=
->;
-> Frank Li <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Rob
-> Herring <robh@kernel.org>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; linux-
-> pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> imx@lists.linux.dev; linux-kernel@vger.kernel.org; sashiko-bot@kernel.org
-> Subject: Re: [PATCH v4] PCI: imx6: fix resource leaks in probe error path=
-s
->=20
-> On Mon, Aug 24, 2026 at 11:04:54PM +0800, Zhijian Han wrote:
-> > imx_pcie_probe() leaks both pwrctrl devices and power domains on failur=
-e:
-> >
-> > - imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
-> >   and adds device links to them, but nothing detaches the domains on
-> >   probe failure or deferral, so they leak.
-> >
-> > - A failure of devm_pm_runtime_set_active_enabled() returns directly
-> >   without destroying the pwrctrl devices.
-> >
-> > - A partial failure inside imx_pcie_attach_pd() leaks the power domains
-> >   that were already attached.
-> >
-> > Add imx_pcie_detach_pd() to detach the power domains in reverse order
-> > of acquisition and call it from the probe error paths.  Add
-> > DL_FLAG_AUTOREMOVE_CONSUMER to the device links so the driver core
-> > removes them automatically when probe fails, instead of tracking and
-> > deleting them manually.
-> >
-> > Reported-by: sashiko-bot@kernel.org
-> > Link:
-> > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flor=
-e
-> > .kernel.org%2Fall%2F20260822013640.182C01F000E9%40smtp.kernel.org%2
-> F&d
-> >
-> ata=3D05%7C02%7Chongxing.zhu%40nxp.com%7C8285e77d3eaf45f25a0608df08
-> c73e1
-> >
-> 2%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C6392393239841792
-> 60%7CUn
-> >
-> known%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwM
-> CIsIlAiOi
-> >
-> JXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3Dgcw
-> b63Hn
-> > dHcOrDQnwD37rUN%2F0EUDcnIZOOGrZ7Ylzio%3D&reserved=3D0
-> > Fixes: 2c5768344f88 ("PCI: imx6: Move pci_pwrctrl_create_devices() to
-> > imx_pcie_probe()")
-> > Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
->=20
-> Frank, Richard, can I get your review for this patch?
-Apologies for missing this earlier.
-Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
+On an MT7981B board with an MT7531 switch, before these patches:
 
-Best Regards
-Richard Zhu
->=20
-> - Mani
+  == lan1
+  Cannot get EEE settings: Not supported
+  == lan2
+  Cannot get EEE settings: Not supported
+  == lan3
+  Cannot get EEE settings: Not supported
+  == lan4
+  Cannot get EEE settings: Not supported
+  == wan
+  Cannot get EEE settings: Not supported
+
+lan1-3 are the MT7531 internal PHYs, lan4 is an EN8811H on switch port
+5 whose MAC side runs 2500BASE-X rate matched to a 1 Gbps media link,
+and wan is the mtk_eth_soc MAC with its directly attached 1 Gbps PHY -
+so both drivers are covered.
+
+Each patch fills lpi_interfaces from supported_interfaces and leaves
+2.5 Gbps out of both bitmaps for now. LPI above 1 Gbps is unvalidated
+rather than unsupported: both MACs fold 2.5 Gbps onto their 1 Gbps
+speed encoding, so the 1 Gbps EEE force bit is what would govern it.
+MediaTek's SDK driver sets the force bits for 100 Mbps and 1 Gbps only,
+EEE signalling on 2500BASE-X is outside 802.3, and the 1 us unit of the
+wakeup timers is undocumented at 2.5 times the port clock.
+
+The SoC MAC patch fills lpi_interfaces only on SoCs carrying a new
+MTK_GMAC_EEE capability. mtk_mac_enable_tx_lpi() programs wake-up times
+taken from MT7531's reset values, and the capability marks the SoCs
+where those have been measured to work: MT7981 for now. The others keep
+today's behaviour, EEE unreachable from userspace, until someone with
+the hardware confirms them.
+
+Neither driver sets eee_enabled_default, so LPI stays off until
+userspace asks for it with ethtool --set-eee. The EEE advertisement is
+a different matter: phylink stops force-clearing it, so a PHY that
+advertises EEE out of reset advertises it again and the link may
+negotiate EEE, without this MAC asserting LPI. MT7531's internal PHYs
+and EN7528 are the exceptions, for the reasons in patch 1. Devicetree
+eee-broken-* marks act at the PHY level and keep working, so a board
+that already distrusts its PHYs stays protected: OpenWrt marks all
+modes broken on MT7621's internal PHYs.
+
+The two patches are independent and touch different subsystems; they
+are sent together because they are the same bug.
+
+Targeted at net as a regression fix with an active userspace lockout;
+can be retargeted at net-next if maintainers prefer.
+
+Based on net-next at 91ec20351349. All three files touched are byte
+identical in net/main and the series applies there unchanged.
+
+After the series, all five ports report:
+
+  EEE status: disabled
+  Tx LPI: disabled
+  Supported EEE link modes:  100baseT/Full
+                             1000baseT/Full
+  Advertised EEE link modes:  Not reported
+
+No 2.5G mode is offered, which is the narrowed lpi_capabilities, and
+nothing is advertised until userspace asks. On this board no PHY came
+out of reset advertising EEE, so the case where the advertisement
+returns once phylink stops clearing it is not exercised here.
+
+Enabling it on lan1, whose partner advertises EEE at both speeds:
+
+  # ethtool --set-eee lan1 eee on
+  EEE status: enabled - active
+  Advertised EEE link modes:  100baseT/Full 1000baseT/Full
+  Link partner advertised EEE link modes:  100baseT/Full 1000baseT/Full
+
+  # ethtool --set-eee lan1 eee on tx-lpi on
+  EEE status: enabled - active
+  Tx LPI: 30 (us)
+
+With LPI armed, 30 parallel ICMPv6 streams of 1400-byte payload, 300
+packets each one second apart - so every gap crosses the LPI threshold
+and the link enters and leaves LPI thousands of times over 300 s - lost
+nothing: 300/300 on every stream, tx and rx error counters unchanged,
+carrier_changes unchanged, and no mac_enable_tx_lpi errors in dmesg.
+
+On wan, cabled for this round to a partner that advertises EEE (a
+BCM5720), the MT7981 GMAC's own LPI was exercised. With tx-lpi armed
+the wan PHY's MMD 3.1 reads 0x0f44, Tx LPI indication set, so the MAC
+is asserting LPI; it drops to 0x0044 with tx-lpi off and comes back
+with it on. The same 30-stream test at 1 Gbps lost nothing over 9000
+packets with the link cycling through LPI at every 1 s gap. At
+100 Mbps the only losses were the first packet or two of some
+streams, and those reproduce with EEE disabled on both ends:
+neighbour discovery for 30 streams starting at once. The 17 and 36 that
+mtk_mac_enable_tx_lpi() programs therefore hold on MT7981 against this
+partner at both speeds. Its Tx LPI reads 1000 (us) against lan1's 30;
+see the note below the scissors of patch 1.
+
+lan4 keeps EEE disabled and never arms LPI, which is what dropping
+2500BASE-X from lpi_interfaces is for. Forwarding through it was
+lossless with no carrier change.
+
+---
+v4: patch 2: populate lpi_interfaces only on SoCs carrying a new
+    MTK_GMAC_EEE capability, set for MT7981 after measuring its LPI
+    exits; the other SoCs keep the current behaviour (Paolo Abeni).
+    patch 1: lpi_capabilities is derived from mac_capabilities instead
+    of asserting both speeds. Cover: the MT7981 GMAC LPI measurement.
+    https://lore.kernel.org/netdev/20260827211652.63504-1-f@lex.la/
+v3: both commit messages cut down to the Why, with the mechanism left
+    to the diff and the detail below the scissors (Andrew Lunn); no
+    code changes.
+    https://lore.kernel.org/netdev/20260824024117.46154-1-f@lex.la/
+v2: commit messages rewritten to carry the Why only, mechanism notes
+    moved below the scissors (Andrew Lunn); comments and commit
+    messages reworded so the 2.5 Gbps exclusion reads as unvalidated
+    rather than impossible (Daniel Golle); no functional changes.
+    https://lore.kernel.org/netdev/20260822195252.2934-1-f@lex.la/
+
+Aleksei Sviridkin (2):
+  net: dsa: mt7530: populate lpi_interfaces to fix EEE support
+  net: ethernet: mtk_eth_soc: populate lpi_interfaces to fix EEE support
+
+ drivers/net/dsa/mt7530.c                    | 25 +++++++++++++----
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 30 ++++++++++++++++++---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h |  4 ++-
+ 3 files changed, 50 insertions(+), 9 deletions(-)
+
+-- 
+2.53.0
+
 
