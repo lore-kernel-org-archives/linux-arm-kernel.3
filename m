@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A005C61DD6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA028C624D5
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gODwxuTtOVKQ6CMnGDMT0l3+wYWk2p1Ok9ZsUXJwJCE=; b=S7GY6zEyHuGUa7xFKXYPRbfc7/
-	xvmY2ADkmzNdt6JsyTqsvv8+8yFxmRGcBHAnDW0lM41c49N2c+xL1DJVRdcLM/KSOtSdFY++p/8+o
-	/mVmY+RSCHEebKwl0APyDmOL7yB00JSgppouVXJHB0UlaEDsxNnI9Pb2ZaVNK1R61LFwQa4umISPz
-	EFjhzvp0f/Pax/JHENwKA4WPiAKaWjP+h3lmJ57Vv4KdVbxGMy0eczZRITds+PVdjSfnwIK3yzewy
-	PCtRhnVWwo3GWnyFH85sXmgE1H3OftK2ecmfvUuO+TBKumnZisB1VL6K4nPW+XgsksLNUPElwzRSP
-	KfQQmc4w==;
+	bh=IlzRHwAUXMpKspjrSSJuu5KTpj2eywEkwws+9IOUBiI=; b=gHsRnjZJZ8Rhw+axe0Sd8Y0mFq
+	qmLw+tCLIbAqOPSrb+z/Sn55FCXIXuNpvJvrsOKvcfMWkefw8qXYBUVfNk9EN9Bckc2eOmoyJbCFj
+	qsqH9HWB2a6Fkrn/63oCnpIqFpU2wCc70heNOKu3a6WKLKtNNP7D225d+XIKtq9wMTRpONYb7f12y
+	AAFKCbb03832m3apGFKlxXFV2bBLCeoLJetJVYvzniBB477gT80/qPs++rD2FmhXI1Fq7nibvynRZ
+	GaCHRaHSUoyeL4i6TDBLm/krAHeoZCDC+OmLKAOLCYI7eeLO3hU1ybe6uJFjj++7sFUn68UkVcz3I
+	RNv/jWlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iYr-0000000EP2P-1Dlj;
+	id 1x1iYr-0000000EP3B-2eEs;
 	Wed, 02 Sep 2026 10:51:21 +0000
-Received: from mail-ed1-x546.google.com ([2a00:1450:4864:20::546])
+Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iYn-0000000EOuM-0p3T
+	id 1x1iYp-0000000EOwg-0HaQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 10:51:18 +0000
-Received: by mail-ed1-x546.google.com with SMTP id 4fb4d7f45d1cf-6a18e611c82so1083275a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:51:15 -0700 (PDT)
+	Wed, 02 Sep 2026 10:51:20 +0000
+Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-47d81cf0c4cso699762f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:51:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788346274; x=1788951074; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788346276; x=1788951076; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gODwxuTtOVKQ6CMnGDMT0l3+wYWk2p1Ok9ZsUXJwJCE=;
-        b=AaoDceEE74LK27T3HD8W/sr9ncFM63Gmdbyh9UAWPE+OAX9RWQ2V+G/f+/EWI/h25u
-         p7HhSXBLErlwDWQ0q2noD+/zVkD+d4gD//nB7rtlpTIrPvr54krpmuIv5zjwZ9iAaAyv
-         sCpbpLI/eTI6rDZffqzIJzfCti9GO53pbRWmS2xR3vQNmvUYqpY8VF/FXXODyXN1E3Ma
-         XhiAtBUgAcyrrCa3IFb5WuFHLK4rSj5JzBv+is3hx4Jb5hTjdoUCBJb3dp4KpsskY4o2
-         WNPfasK3ODUyj0Ro9z7pW9G2Q+uT5z9ZZc/LmaL3d/dq8AQEOc+W/1UEXreWww+10gxk
-         81HQ==
+        bh=IlzRHwAUXMpKspjrSSJuu5KTpj2eywEkwws+9IOUBiI=;
+        b=RR9ew3dZKFFS6kai0wsIx0hmpG7E88yrXZuO5MptNTUcKmjWAx3RZvkGKgcHvIRuhj
+         hIosDvUnXXj9gZdenOBzfz0GpT9nV59ZmRfdCndQNFQS6ij2dMoCrzkapVOjDjd2ImTW
+         BRqlL9JapckUj/+mayC+vvCr3k3+aqC4JfL7BK+shF3qsPP6qA7wyQA+4Ow86Ins3ZFa
+         4LL5GNY7S2JbZyr/pJYqz578bgFnoVb8JuBL1ycFcCZ3G8X6sHdM4HWVt5h15cBgIz19
+         ukK2vP95uOHGMLbHbucTBXYebRV+ktzHvwlr92kNEIpE1Edf7AVKUWoRNNOVW+OIEMJX
+         PH7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788346274; x=1788951074;
+        d=1e100.net; s=20251104; t=1788346276; x=1788951076;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gODwxuTtOVKQ6CMnGDMT0l3+wYWk2p1Ok9ZsUXJwJCE=;
-        b=n7MWGbpCwJug8lg+ho4cORSxuiqTlMm0ydmpKEj9Xdn7uw8pgCSISkBr9+gZlylU/n
-         WLXmEtxTgBtT2VElsqsbRFSoB12YTSycD536EFr94uTZcqs1p6bbzJDDgdbdTGjuo3+q
-         /UhrF1zrErtJ8bxsprbZo9ZaGmZChLpuKugEpjEYK1FLMl0J2nqCUSi0UOO/JyvzpbqX
-         ZH/T63AszyUvHRdW7J7tNzyBmPpKCr0gfepitXoy+FwJXNp1JAQCwmjsj8gIZyEwSwGA
-         Xk0pzVmb8Z4otUBKsc6mfT6IM1oK3Q3sBVidt6gCTZjiC5p458RjQ2FKGUmwMKXM/xNb
-         KtAw==
-X-Forwarded-Encrypted: i=1; AKwUvBxEobrCLAgdx+tyQddvqVfTuMjBA3nbh5LHWCE/L7OzAiE1VdpIIGpmIrbtixBK9ep2Vb/Au6fDBJ6Rz+F9NH5D@lists.infradead.org
-X-Gm-Message-State: AFuF++mwLK8Wps92PxpTvULaT+cNsfnJHt95axVYUeiJHigpOjkKtrc2
-	+edEJepDVeRli+N7WB26SPpQM4vG7wluQ5h9X1wRDWKyHc6rHnYGln3xPwALXj16dy4/Wt+s+X1
-	QYB8u7XmmwuTakMdZzvnjEg==
-X-Received: from edy6-n2.prod.google.com ([2002:a05:6402:5346:20b0:6a6:8ab2:8708])
+        bh=IlzRHwAUXMpKspjrSSJuu5KTpj2eywEkwws+9IOUBiI=;
+        b=Hm9BPqY7Yt71eESqjnALUAjUTnVf2vVVYcA5w+LS42EQTYIgg+2mEJJ+kA+3A9+DrQ
+         UVSsxJdcBj2r7ELc8qcgdKL+7CZYo6/0QEHBLz8cV4anpltLQHf1aRNqQ6XqCl3I0MPm
+         vBP9cmV9OvgacIhI4WSIef0R1WDPXtP1SxaFWHeLHLqdN7sVvgJT2+LgubOMtpQA1ZA8
+         Lk7T24VEmmWcvyf/ePfIByXs7I54UMDztYxqGYCCA+oL3PNLW2tqJ/XaLC3eEu+PCDUJ
+         e2HJ1t65MRPgXElJr0IJ1h5cqQ4AVmJGhO0jjBtEgyYCl/8aXj607jM09KuaksJ+Dszc
+         BiaQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwRJn2MnDrybiy+i9vrQuRw4ZUc6k/JszGl3lrkmy42yuQia3TwQ4USGiKS3xOJFA/8o4vwOc8ptLJP3IrCBTfN@lists.infradead.org
+X-Gm-Message-State: AFuF++loZVGKOFnunn+rnwEPxOKCpoIzyKmM2PCfWEDo2TGm3XuxeKT4
+	jNUsFH0BSe75OJ2oUKoYWymbfGIJs5qbMVHXLAzWL3H354bq8ZLOEDbQKqtcy333TgWWgm1kooR
+	Zep0n/yfRVVXbO9LDwDMM9Q==
+X-Received: from wrqr17.prod.google.com ([2002:a5d:4991:0:b0:482:abe4:58a8])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:4284:b0:6a6:32f5:ff40 with SMTP id 4fb4d7f45d1cf-6a682af8134mr2906512a12.20.1788346274084;
- Wed, 02 Sep 2026 03:51:14 -0700 (PDT)
-Date: Wed,  2 Sep 2026 11:47:08 +0100
+ 2002:a5d:5f47:0:b0:482:fc30:a1b4 with SMTP id ffacd0b85a97d-48488e03952mr6019121f8f.5.1788346276079;
+ Wed, 02 Sep 2026 03:51:16 -0700 (PDT)
+Date: Wed,  2 Sep 2026 11:47:10 +0100
 In-Reply-To: <20260902104712.2399797-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260902104712.2399797-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.970.g62bdec98f9-goog
-Message-ID: <20260902104712.2399797-7-vdonnefort@google.com>
-Subject: [PATCH v9 06/10] arm64: Implement can_set_direct_map_range()
+Message-ID: <20260902104712.2399797-9-vdonnefort@google.com>
+Subject: [PATCH v9 08/10] arm64: Add support for MEMBLOCK_LLMAP
 From: Vincent Donnefort <vdonnefort@google.com>
 To: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org, 
 	akpm@linux-foundation.org, sudeep.holla@kernel.org, jenswi@kernel.org, 
@@ -79,8 +79,8 @@ Cc: mark.rutland@arm.com, sumit.garg@kernel.org, ardb@kernel.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_035117_255672_85D8E36D 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260902_035119_153936_B35F17D2 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,81 +95,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For systems where can_set_direct_map() is false, it is still possible
-that a subregion of the direct map can be modified if it is mapped at
-the last-level. Add an implementation for can_set_direct_map_range(). It
-falls back to a page table walk to verify the mapping level if
-can_set_direct_map() is false.
+With the MEMBLOCK_LLMAP flag, force a last-level mapping.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-index 90f61b17275e..1a37f4ef130b 100644
---- a/arch/arm64/include/asm/set_memory.h
-+++ b/arch/arm64/include/asm/set_memory.h
-@@ -9,6 +9,9 @@
- bool can_set_direct_map(void);
- #define can_set_direct_map can_set_direct_map
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 79d90226fd5d..c0fcc76914d1 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1184,9 +1184,8 @@ static void __init map_mem(void)
+ 	phys_addr_t init_begin = __pa_symbol(__init_begin);
+ 	phys_addr_t init_end = __pa_symbol(__init_end);
+ 	phys_addr_t kernel_end = __pa_symbol(__bss_stop);
+-	phys_addr_t start, end;
+ 	int flags = NO_EXEC_MAPPINGS;
+-	u64 i;
++	struct memblock_region *r;
  
-+bool can_set_direct_map_range(struct page *page, unsigned long nr_pages);
-+#define can_set_direct_map_range can_set_direct_map_range
+ 	/*
+ 	 * Setting hierarchical PXNTable attributes on table entries covering
+@@ -1226,9 +1225,13 @@ static void __init map_mem(void)
+ 		       flags);
+ 
+ 	/* map all the memory banks */
+-	for_each_mem_range(i, &start, &end) {
++	for_each_mem_region(r) {
++		phys_addr_t start, end;
 +
- int set_memory_valid(unsigned long addr, int numpages, int enable);
- 
- int set_direct_map_invalid_noflush(struct page *page);
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 58898ae53f5d..c59ef17eb0d0 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -103,6 +103,48 @@ bool can_set_direct_map(void)
- 		system_supports_bbml3();
++		if (memblock_is_nomap(r))
++			continue;
+ 		/*
+-		 * for_each_mem_range may return sub-page-aligned boundaries
++		 * for_each_mem_region may return sub-page-aligned boundaries
+ 		 * after memblock_mark_nomap() splits regions at byte precision.
+ 		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
+ 		 * which could accidentally map no-map memory on the boundary.
+@@ -1237,17 +1240,23 @@ static void __init map_mem(void)
+ 		 * regions. The cost is at most one page of unmapped gap at
+ 		 * each boundary.
+ 		 */
+-		start = PAGE_ALIGN(start);
+-		end = end & PAGE_MASK;
++		start = PAGE_ALIGN(r->base);
++		end = (r->base + r->size) & PAGE_MASK;
+ 		if (start >= end)
+ 			continue;
++
++		int rflags = flags;
++
++		if (memblock_is_llmap(r))
++			rflags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
++
+ 		/*
+ 		 * The linear map must allow allocation tags reading/writing
+ 		 * if MTE is present. Otherwise, it has the same attributes as
+ 		 * PAGE_KERNEL.
+ 		 */
+ 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+-			       flags);
++			       rflags);
+ 	}
  }
  
-+bool can_set_direct_map_range(struct page *page, unsigned long nr_pages)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+	unsigned long end = addr + nr_pages * PAGE_SIZE;
-+
-+	if (can_set_direct_map())
-+		return true;
-+
-+	/*
-+	 * If !can_set_direct_map() then no one can split blocks and it is safe
-+	 * to walk the page-table lockless.
-+	 */
-+	while (addr < end) {
-+		pud_t *pudp, pud;
-+		pmd_t *pmdp, pmd;
-+		pgd_t *pgdp;
-+		p4d_t *p4dp;
-+
-+		pgdp = pgd_offset_k(addr);
-+		if (pgd_none(READ_ONCE(*pgdp)))
-+			return false;
-+
-+		p4dp = p4d_offset(pgdp, addr);
-+		if (p4d_none(READ_ONCE(*p4dp)))
-+			return false;
-+
-+		pudp = pud_offset(p4dp, addr);
-+		pud = READ_ONCE(*pudp);
-+		if (pud_none(pud) || pud_leaf(pud))
-+			return false;
-+
-+		pmdp = pmd_offset(pudp, addr);
-+		pmd = READ_ONCE(*pmdp);
-+		if (pmd_none(pmd) || pmd_leaf(pmd))
-+			return false;
-+
-+		addr = pmd_addr_end(addr, end);
-+	}
-+
-+	return true;
-+}
-+
- static int update_range_prot(unsigned long start, unsigned long size,
- 			     pgprot_t set_mask, pgprot_t clear_mask)
- {
 -- 
 2.55.0.970.g62bdec98f9-goog
 
