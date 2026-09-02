@@ -4,80 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C0EC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EB6C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YJo+5nQ0nINBNaxywSOUixu7kVY/MO9oQIxFhCicr3U=; b=Pe3Hvkewq+SgmyGiS/hdfSUSbW
-	hhUhwKJn+8nRrsJO/8GKnEabmX3WSKBH45as2K1qmfUh4akTEJ9R/UZZECzjXjye0CY/PLX8KDsTs
-	NczHHdPvYmixpBu4SsMhVDjH1XD6hQipHuo7/4t6nCOx2IQlCZp4I7GBlWdXNTykSzcBHNYIOqcHy
-	LMpTxCSA6TnCwE8FhxESj/FMWndsntmdbTDSvOzz6YIUqof7fscQXeD0yc0GoxDVyH8n1ib6Ueo3v
-	OrtknEHPmYx/r8/pgeVGxhrtXxzksA6xpRz6OhQgLioa4OuE4onUY3I+6pzDeNMOt3O/4tHiYTg4p
-	lBMvMjww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dOiTeKWuwA/odP2KKwquW501Owf+f40tpwUxcpypkzw=; b=f5ptUrM+mYjlwUrMWPNd6FerC1
+	7ttksM0LZ+cEgnnVLMw3CSJCnoa5FJmDogLRi5wRC3ynvVTjqf+yvgz9v5RjBaCRrCYJfJsK1PvWE
+	C6+G8qyLJjNBu4QSsB/HVkcQAkv4sC/+NzEZiycNxg0V8aylGKV2+hdiBPrV0fdTbnDBrOopS2KlU
+	ntVl/492O5CQVgZHTd8iUfgDDwtzTCMkfzcCmCROJPVTN+u3ueu0SVYGAhFgZbxiBKv+nzCdoZ1xz
+	pq2MeONORR7IgHYxk25X/g6hMg5CKQD1WX4sxeA6pf29ETXG/iH996EFq2LVZiO+R3vVrC5XQy8TO
+	7DR2k94w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kGe-0000000EhOz-0hrg;
-	Wed, 02 Sep 2026 12:40:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x1kIC-0000000EhmD-1JEj;
+	Wed, 02 Sep 2026 12:42:16 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kGd-0000000EhOU-0idR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 02 Sep 2026 12:40:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=YJo+5nQ0nINBNaxywSOUixu7kVY/MO9oQIxFhCicr3U=; b=J3Aqa8BmmBMOk+dhcHBYEVvRH0
-	16yNDXTpCyDPvrkYKGqlKPlhsf4I6JF7rtKs1kXywD2tAfJ4+X4PxLd7Ce40qiVcPxjzSNEFrkrtM
-	WDAIlWQDoOJh3LCClkbWCdSPaotOUc6nFkgPI2pc43Vxhkp4wxVG1SghapoEGqJ7vvZOui8VwG9JZ
-	U5sfpbnW0jCHEi4ANOK96KZZRnBwRnr5h8cGBXt/1HZLOyZzkED5FflkLbMSTtczJOuVMeN+z5wj1
-	KAPnhqnSfd8D1p0pdqro7WTcnAXQNac7GazS4sH8tP1vo4APip1d9hQnrFp1zN0lUOpVHQGi59RTZ
-	zAq+9Ilw==;
-Received: from [2a00:f820:417:0:178:251:229:89] (helo=mx.nabladev.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1kGa-0000000BzdK-0ckE
+	id 1x1kIA-0000000EhlZ-1XfN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:40:38 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B9BD311CE48;
-	Wed, 02 Sep 2026 14:40:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788352822; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=YJo+5nQ0nINBNaxywSOUixu7kVY/MO9oQIxFhCicr3U=;
-	b=Fus7J2enwqruCRbPnjDoUUUhP40Uy3ASz92Ve/vGIRhjx2qab15DuVYHpB3yKKYvPm3vqH
-	Vm676MIUl/Hou0yUJVBuS2+tCEmpu4onyCikaQYO7Hbk5qlo8FJ3EyXl2YvTNZjw1dvG5W
-	rC+kTspa6YkdHr2dLx/UyTy3HdiKDXnH1xcU5bbO1HB0/AT4Ix31FXBoRd7iql6GjOz7ao
-	y28MuKsc/8h3CLuFKNAnqY3y25YlYI/B16Sx5WAqkJvqEg3JmZk5nqbLDiu+6qIR8CsXfO
-	nTXNoFAd9vVEffaHwqjYBzESOBb08Tmn81TVSPXtBUcOJpxgNsg0gZV8pJ2aXw==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: fabrice.gasnier@foss.st.com,
-	Marek Vasut <marex@nabladev.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-	Rob Herring <robh@kernel.org>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	devicetree@vger.kernel.org,
-	kernel@dh-electronics.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v6 1/2] dt-bindings: arm: stm32: Document st,stm32mp23/25-syscfg subnodes and cells
-Date: Wed,  2 Sep 2026 14:39:49 +0200
-Message-ID: <20260902124018.606544-1-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 02 Sep 2026 12:42:15 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682CW9uD4190243;
+	Wed, 2 Sep 2026 12:42:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=dOiTeKWuwA/odP2KKwquW501Owf+f4
+	0tpwUxcpypkzw=; b=Uo0XEpDaaD6nlVgE2fElH6ZgG+3RUypgOIrmp0cKzeHUfL
+	DpbWsa+zm4Mji+bX5Y3KsfZXOnpdPexKhOMGVwMZw8ozXimnBv8pISe7tDxjlaQg
+	xcHmG8GbNoeuYxlxUvk/CeMjIJ3YPgaB6Vm4RJJZ2FOirqc/hM4jTed/SjK+b3Dt
+	LaS3RI0DKYyqtCOd2fWDCCC+vOSBpMC6M0KHOZsgGXJmT4MaiRFX6oZAg3Mw7/+6
+	Y9c9KjqZZvmF/ES9bfZ8M/i2Ez/NhYtUgly2JHznafPkXaCa9D+Lq81M35WuVrns
+	05E6jZAXZsqrb4GJQVAgo7YiNF0XwV02JT8dvdrQ==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbpx5pe54-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Sep 2026 12:41:59 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 682CfMji008248;
+	Wed, 2 Sep 2026 12:41:58 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gecjaj11k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Sep 2026 12:41:57 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 682Cfsuh50331914
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 2 Sep 2026 12:41:54 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E3CA82004B;
+	Wed,  2 Sep 2026 12:41:53 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 82DFF20040;
+	Wed,  2 Sep 2026 12:41:53 +0000 (GMT)
+Received: from osiris (unknown [9.224.76.185])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  2 Sep 2026 12:41:53 +0000 (GMT)
+Date: Wed, 2 Sep 2026 14:41:52 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v7 11/23] KVM: arm64: Share arm64 code with s390
+Message-ID: <20260902124152.438647-C-seiden@linux.ibm.com>
+References: <20260831144802.834315-1-seiden@linux.ibm.com>
+ <20260831144802.834315-12-seiden@linux.ibm.com>
+ <87se3tmlrv.wl-maz@kernel.org>
+ <20260901084037.185345-C-seiden@linux.ibm.com>
+ <87mru0m76g.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87mru0m76g.wl-maz@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=PPc/P/qC c=1 sm=1 tr=0 ts=6a981997 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=SYUwwzt97VIMazuNbKEA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: 6MjRUIWDIBt7iTZF9TiEC9Hdb4wCliq7
+X-Proofpoint-ORIG-GUID: A6X86a91-zHRIEr2PDnZe-nHUUowbUAo
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDExMSBTYWx0ZWRfX4Xd2aYS3gxXi
+ TH9hCVoNES6hfFUJvnS7uX+oG0mTVmrsR+VcapYhsPjjuWkESTikaChjUYFVdtDakjTUoqdpBhr
+ Ni+EkDCsBgUNCT+NyL5bnGEjSjOP6fY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDExMSBTYWx0ZWRfX4lpUgbsqkGlp
+ pDNb4lKIS4w4mGoyrFkEwNBHyPgLAox/7ehHPfVu7RE5Y+aYlH6BV6n1tTkAFUvbTQ5Ek0/KIro
+ 1nBBtPq4ZfqyFKIXE14VrXqjdsGtsDR9E1vJqnvtjhkliY3n+VyURi+05R+k/I2cpnm9DzzRdN+
+ iy7nj+v43x/fWlLv4uMFarTUObQLMss/S9T+2A7CNqRLlyRi14XTuiz2jxKP2jEu9GWWptMgs5f
+ L34EoMGb+MCvBLuKJTNAExbFCermDog5UBHGUkMPzMsjmXxp8fEU/fYEtVzkgjNOUf7Nih9XQeX
+ 0lS0LrrYc9sCel/bQmiPAhyM+Tf5lguZlWo5La0blS3q+ezHK1SzbJv/A+HOx+/UbXDNMdkuY2j
+ kd/jWIqjYPu8oov72HAtBpMApuNW5EPiQbDKxO/Zt7vuefAhqqjhcERDDHSGRra/gonOoyHj5Ro
+ YJ+pP943TrBTt5zySxg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-02_03,2026-09-01_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ spamscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609020111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_134036_284176_E9086B44 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260902_054214_416968_E51487AF 
+X-CRM114-Status: GOOD (  38.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,99 +147,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
-represent the USB 2.0 FEMTO-PHY. Document subnodes pattern properties and
-address/size cells.
+On Wed, Sep 02, 2026 at 08:41:27AM +0100, Marc Zyngier wrote:
+> On Tue, 01 Sep 2026 09:40:37 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > 
+> > On Tue, Sep 01, 2026 at 09:13:56AM +0100, Marc Zyngier wrote:
+> > > Why the exit handler, and not the EC handlers aside from the UNKNOWN
+> > > one? Yes, you probably aren't there yet in this series, but I can tell
+> > > you are going to add more and more of these.
+> > > 
+> > > But the EC array is absolutely architectural, and there is no good
+> > > reason to maintain your own.
+> > > 
+> > > So instead of this, why not keep the EC array altogether, and
+> > > implement stubs for the ECs you don't support?
+> > > 
+> > > 	M.
+> > > 
+> > 
+> > There was no specific reasson to define our own EC array as far as I
+> > remember. I will try reusing the array and find out if there are any
+> > issues with that. But I do not expect any. 
+> > 
+> > I assume the stubs probably just forward to handle_unknown_ec, or do you
+> > have a different suggestion?
+> 
+> Probably. This is an indication of something being deeply wrong in the
+> implementation (HW or SW). On reflection, kvm_handle_unknown_ec()
+> should result in a KVM_BUG().
+> 
+> 	M.
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Christophe Roullier <christophe.roullier@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Marek Vasut <marex@nabladev.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yannick Fertre <yannick.fertre@foss.st.com>
-Cc: devicetree@vger.kernel.org
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
-V2: New patch
-V3: Fix the bindings
-V4: - Undo simple-mfd in favor of dedicated SYSCFG SoC driver
-    - Update commit message to match, this used to be patch
-      dt-bindings: arm: stm32: Switch st,stm32mp23/25-syscfg into simple-mfd
-    - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
-      https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
-V5: - Add missing contains: into conditional
-    - Add phy subnodes into required list for stm32mp23-syscfg/stm32mp25-syscfg
-V6: - Reduce the pattern in patternProperties to match only on phy@2400 and phy@2800
-    - Disable address/clock/size-cells/phy@2400/phy@2800 unless compatible
-      with st,stm32mp23-syscfg or st,stm32mp25-syscfg
-    - Disable clocks unless compatible with st,stm32mp157-syscfg or st,stm32f4-gcan
----
- .../bindings/arm/stm32/st,stm32-syscon.yaml   | 30 ++++++++++++++++++-
- 1 file changed, 29 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index 95d2319afe235..a559f8b03b842 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -39,6 +39,17 @@ properties:
-   "#clock-cells":
-     const: 0
- 
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+patternProperties:
-+  "^phy@2[48]00$":
-+    type: object
-+    $ref: /schemas/phy/st,stm32-usb2phy.yaml
-+
- required:
-   - compatible
-   - reg
-@@ -54,13 +65,30 @@ allOf:
-     then:
-       required:
-         - clocks
-+    else:
-+      properties:
-+        clocks: false
-   - if:
-       properties:
-         compatible:
--          const: st,stm32mp25-syscfg
-+          contains:
-+            enum:
-+              - st,stm32mp23-syscfg
-+              - st,stm32mp25-syscfg
-     then:
-       required:
-+        - "#address-cells"
-         - "#clock-cells"
-+        - "#size-cells"
-+        - phy@2400
-+        - phy@2800
-+    else:
-+      properties:
-+        '#address-cells': false
-+        '#clock-cells': false
-+        '#size-cells': false
-+        phy@2400: false
-+        phy@2800: false
- 
- additionalProperties: false
- 
--- 
-2.53.0
+While I tried to implement the change I noticed that it might be a good
+idea to share most if not all EC functions defined in handle_exit.c
+The handling is architectural as well and s390 and arm do (and should)
+not differ in their implementation.
 
+But switching stubs to a real shared implementation is not possible if
+we want to not mix up changes in arm64 and s390 in one patch. I.e. in
+one patch expand the shared region and remove the stub. But we would
+neet to do that in one so the (s390) kernel keeps compiling.
+
+So my suggestion is:
+
+For series 1 (and 2) s390 has its own, local implementation of
+handle_exit without sharing any code with arm64 in regard to EC
+
+When s390 has all the relevant code available (likely series 3) s390 can
+switch to using most (if not all) EC handling code used by
+arm_exit_handlers implemented in handle_exit.c.
+
+This can be done without a mixed patch:
+
+1. Mark arm64 handle_exit.c as shared (roughly the first 400Loc w/o
+   includes) - s390 will not use it after this patch.
+2. remove the handle exit code from s390's handle_exit.c and include the
+   new generated handle_exit.inc
+
+This approach brings us further into the share architecture not only code
+approach you meantrioned in the comments regarding sys-regs. (I or
+Andreas will provide a solution for this later :) ) 
+
+Is that OK with you, what do you think?
+	
+	Steffen
 
