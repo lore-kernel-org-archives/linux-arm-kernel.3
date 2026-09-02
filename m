@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF921C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46619C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/A7lToJd5H8Wa6Ev0FF+7lmPELGplRLMRXbUL1yGhPg=; b=mKl7k+iF96f4BDsbfQ9uexPxZc
-	fFpqDzuK5l67/UgXzEdJ0HG7efk3NA0GX0/UQT88mYM8Xt5BVx913MXJnhyTEopQRWR+5VuTMR2tA
-	+Jzm+PrPVBIEoMzzOMYnFDW4m/BCfP0rpzeDaku2FDbRK/j1gzBmisXmIduVqIMvEf/jTZjkVC/3Y
-	k6LP5HcK7PRa4o0DaaDkIN3FBDADyY4sTHMFsL3443TB+iJkDQ+nY+IVNKBY1bsMOHP3pslruNabS
-	Xo4SmONdVbK3hrPkdUoCFAkpJiEMNanL8ezXQZC7Xny27y6NgMQ3Bivz6PDPwTKmBKdVe7t9Qwmzu
-	pM+WyL9g==;
+	bh=aI8zX4gCXAqLNE3WArET0YJfq+liXSSkiVbLeqHam0E=; b=WWOtGhN7hFKMPxDzTaFazdXYzE
+	+RtaHUKXZmchFeelpviCOeVmpAy0TpeEf8JTq3OqL5wzwMeMD98deiL5IgIZgq7mHn+W+IImUKQqA
+	Py2siM3QcKIbf0mytEapNOu2gqR/YofiUCSUXk+oAMwOSST89ablP1IoKq7A5ASiqP9hpHUltCJfs
+	pGC+HdSYi7TnSxpRv0On46AA8Wf6cmTcJeg9IlXutEJO6Ey9d07uiy6xcYpgr3WEY3Ndkxu8tMbCG
+	AJ7VdMwg/fZ8DCI/6yd6yFLCtTzuLWJnrgIienYovpAs1xz2+diTaP70TJ/T383o8ciCV237ZvdpJ
+	Ih0wxF6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oJI-0000000FKBM-0JGG;
-	Wed, 02 Sep 2026 16:59:40 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x1oJP-0000000FKFi-3cEc;
+	Wed, 02 Sep 2026 16:59:47 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oJF-0000000FK95-30pl;
-	Wed, 02 Sep 2026 16:59:39 +0000
+	id 1x1oJL-0000000FKCf-2ia2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 16:59:44 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1D57D1A1968;
-	Wed,  2 Sep 2026 16:59:36 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1C6E74E414EA;
+	Wed,  2 Sep 2026 16:59:42 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E5E8C6053C;
-	Wed,  2 Sep 2026 16:59:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8348C11C795A7;
-	Wed,  2 Sep 2026 18:59:28 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E3D2C6053C;
+	Wed,  2 Sep 2026 16:59:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0940D11C798E5;
+	Wed,  2 Sep 2026 18:59:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788368370; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1788368376; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=/A7lToJd5H8Wa6Ev0FF+7lmPELGplRLMRXbUL1yGhPg=;
-	b=jfeEVJl8zbpV5MsO/cXg1WmxAegCB9mp8lsu9WFJ/rLG/EaAJokH6ni1OZ1Nu1o5nxr6Fh
-	PHH3hksj8ZVpc4Iztfe2xO3x3Ty+Ngw4VinS6UtE1FYQoWGvgl6G2HwW/zZjNMdZNFMxNm
-	MNdInbX4XlMWceVvcRszfvrJRvQ4lgrBMNG/h+GFtrimg5oLtwKqYQPh+AlhOlwg6vnvhD
-	ef6T1U0uixtnvVpAGs7nnanrFm9RuRUPO9i6YRUbKXJgThZhpZ2bt2s4rDW9cdaO56b69V
-	ohXKZSk+PaRuQ+m5zcPEtdLxBiOYtd3xA31MpfvfQlRBKvWFeGX1YHRGUkmkQQ==
+	bh=aI8zX4gCXAqLNE3WArET0YJfq+liXSSkiVbLeqHam0E=;
+	b=Xd17MQZAPvIVbZE1/Loy/a1KlRpV8LMjWd1cMxPLOjrxHazZVK5piFBN8BSIk5bTG0pAqG
+	NyMlILm924rpZjA7NtuRD492HYv/4PWJ70nZRLfuiQgWym2jLt1CUKXzx6uzkeJkuYlL5E
+	fwHC76x65PKBK2w9PmYJ7CrDxO7m8JrrNBDrmctRQx3joqaHq4JoPBkf2F4tkMODOlyyO3
+	EKQRD0aL4VDyeSvMsU+r9u7WVoDUDNzSu19GLptF9bU0XuKTj8unZ6WixV/LFhqZMlJP3n
+	kBBWAUoP7mRkmcvL9xVnGLTChU0y3u5IRa468GHe9Me2vhi0y3hn3oswZSXf8w==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 02 Sep 2026 18:59:15 +0200
-Subject: [PATCH v4 01/25] mtd: spi-nor: Rename
- BFPT_DWORD15_QER_SR2_BIT1_BUGGY
+Date: Wed, 02 Sep 2026 18:59:16 +0200
+Subject: [PATCH v4 02/25] mtd: spi-nor: Create a structure containing the
+ flash opcodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-1-779d35303dff@bootlin.com>
+Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-2-779d35303dff@bootlin.com>
 References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
@@ -68,8 +69,8 @@ Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_095937_909105_4A3109A4 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260902_095943_964510_C3A35E3E 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +85,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The _BUGGY suffix is not super accurate. There is a behavior that indeed
-seems strange, but it is somewhat documented. The fact is, with this QER
-field the status register is considered 16-bit wide and if one writes
-the first 8 bits (SR1) without the next 8 bits (SR2) then the content of
-SR2 will be assumed to be 0x00 and will be cleared.
+Create a structure named opcodes in the flash parameters structures to
+store all the flash specific opcodes. They are typically discovered
+dynamically through SFDP parsing. Move the die_erase opcode
+inside. Later on we will add new fields there, like the supported
+opcodes for accessing the status registers, which are almost vendor
+specific.
 
-Rename it BFPT_DWORD15_QER_SR2_BIT1_NO_1B_WR to align with the other
-namings (_NO_RD) and clarify the meaning of this field.
-
-No functional change.
+No fonctional change.
 
 Reviewed-by: Takahiro Kuwano <takahiro.kuwano@infineon.com>
 Reviewed-by: Michael Walle <mwalle@kernel.org>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/spi-nor/sfdp.c | 2 +-
- drivers/mtd/spi-nor/sfdp.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/mtd/spi-nor/core.c      |  6 +++---
+ drivers/mtd/spi-nor/core.h      | 14 +++++++++++---
+ drivers/mtd/spi-nor/debugfs.c   |  2 +-
+ drivers/mtd/spi-nor/micron-st.c |  4 ++--
+ drivers/mtd/spi-nor/spansion.c  |  4 ++--
+ 5 files changed, 19 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
-index cf0e2dc7c120..526763c79f55 100644
---- a/drivers/mtd/spi-nor/sfdp.c
-+++ b/drivers/mtd/spi-nor/sfdp.c
-@@ -567,7 +567,7 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
- 		params->quad_enable = NULL;
- 		break;
+diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+index fef7f426a3a2..29b8fe3d1c65 100644
+--- a/drivers/mtd/spi-nor/core.c
++++ b/drivers/mtd/spi-nor/core.c
+@@ -1140,7 +1140,7 @@ static int spi_nor_erase_die(struct spi_nor *nor, loff_t addr, size_t die_size)
  
--	case BFPT_DWORD15_QER_SR2_BIT1_BUGGY:
-+	case BFPT_DWORD15_QER_SR2_BIT1_NO_1B_WR:
- 		/*
- 		 * Writing only one byte to the Status Register has the
- 		 * side-effect of clearing Status Register 2.
-diff --git a/drivers/mtd/spi-nor/sfdp.h b/drivers/mtd/spi-nor/sfdp.h
-index f74a0eb339ea..d976c6c9a4ad 100644
---- a/drivers/mtd/spi-nor/sfdp.h
-+++ b/drivers/mtd/spi-nor/sfdp.h
-@@ -84,7 +84,7 @@ struct sfdp_bfpt {
-  */
- #define BFPT_DWORD15_QER_MASK			GENMASK(22, 20)
- #define BFPT_DWORD15_QER_NONE			(0x0UL << 20) /* Micron */
--#define BFPT_DWORD15_QER_SR2_BIT1_BUGGY		(0x1UL << 20)
-+#define BFPT_DWORD15_QER_SR2_BIT1_NO_1B_WR	(0x1UL << 20)
- #define BFPT_DWORD15_QER_SR1_BIT6		(0x2UL << 20) /* Macronix */
- #define BFPT_DWORD15_QER_SR2_BIT7		(0x3UL << 20)
- #define BFPT_DWORD15_QER_SR2_BIT1_NO_RD		(0x4UL << 20)
+ 	if (nor->spimem) {
+ 		struct spi_mem_op op =
+-			SPI_NOR_DIE_ERASE_OP(nor->params->die_erase_opcode,
++			SPI_NOR_DIE_ERASE_OP(nor->params->opcodes.die_erase,
+ 					     nor->addr_nbytes, addr, multi_die);
+ 
+ 		spi_nor_spimem_setup_op(nor, &op, nor->reg_proto);
+@@ -3030,8 +3030,8 @@ static int spi_nor_late_init_params(struct spi_nor *nor)
+ 			return ret;
+ 	}
+ 
+-	if (!nor->params->die_erase_opcode)
+-		nor->params->die_erase_opcode = SPINOR_OP_CHIP_ERASE;
++	if (!nor->params->opcodes.die_erase)
++		nor->params->opcodes.die_erase = SPINOR_OP_CHIP_ERASE;
+ 
+ 	/* Default method kept for backward compatibility. */
+ 	if (!params->set_4byte_addr_mode)
+diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+index ba2d1a862c9d..2cc0c80da3fa 100644
+--- a/drivers/mtd/spi-nor/core.h
++++ b/drivers/mtd/spi-nor/core.h
+@@ -340,6 +340,16 @@ struct spi_nor_otp {
+ 	const struct spi_nor_otp_ops *ops;
+ };
+ 
++/**
++ * struct spi_nor_opcodes - SPI NOR flash specific opcodes.
++ * List of variable opcodes used by the chip.
++ *
++ * @die_erase: opcode for erasing a die, defaults to SPINOR_OP_CHIP_ERASE
++ */
++struct spi_nor_opcodes {
++	u8 die_erase;
++};
++
+ /**
+  * struct spi_nor_flash_parameter - SPI NOR flash parameters and settings.
+  * Includes legacy flash parameters and settings that can be overwritten
+@@ -362,7 +372,6 @@ struct spi_nor_otp {
+  *			command in octal DTR mode.
+  * @n_banks:		number of banks.
+  * @n_dice:		number of dice in the flash memory.
+- * @die_erase_opcode:	die erase opcode. Defaults to SPINOR_OP_CHIP_ERASE.
+  * @vreg_offset:	volatile register offset for each die.
+  * @hwcaps:		describes the read and page program hardware
+  *			capabilities.
+@@ -393,13 +402,12 @@ struct spi_nor_flash_parameter {
+ 	u8				rdsr_addr_nbytes;
+ 	u8				n_banks;
+ 	u8				n_dice;
+-	u8				die_erase_opcode;
+ 	u32				*vreg_offset;
+ 
+ 	struct spi_nor_hwcaps		hwcaps;
+ 	struct spi_nor_read_command	reads[SNOR_CMD_READ_MAX];
+ 	struct spi_nor_pp_command	page_programs[SNOR_CMD_PP_MAX];
+-
++	struct spi_nor_opcodes		opcodes;
+ 	struct spi_nor_erase_map        erase_map;
+ 	struct spi_nor_otp		otp;
+ 
+diff --git a/drivers/mtd/spi-nor/debugfs.c b/drivers/mtd/spi-nor/debugfs.c
+index 288e2866daed..ef6f0ffcd6bb 100644
+--- a/drivers/mtd/spi-nor/debugfs.c
++++ b/drivers/mtd/spi-nor/debugfs.c
+@@ -146,7 +146,7 @@ static int spi_nor_params_show(struct seq_file *s, void *data)
+ 
+ 	if (!(nor->flags & SNOR_F_NO_OP_CHIP_ERASE)) {
+ 		string_get_size(params->size, 1, STRING_UNITS_2, buf, sizeof(buf));
+-		seq_printf(s, " %02x (%s)\n", params->die_erase_opcode, buf);
++		seq_printf(s, " %02x (%s)\n", params->opcodes.die_erase, buf);
+ 	}
+ 
+ 	seq_puts(s, "\nsector map\n");
+diff --git a/drivers/mtd/spi-nor/micron-st.c b/drivers/mtd/spi-nor/micron-st.c
+index c75b0a1cd567..031cf887318c 100644
+--- a/drivers/mtd/spi-nor/micron-st.c
++++ b/drivers/mtd/spi-nor/micron-st.c
+@@ -131,7 +131,7 @@ static int micron_st_nor_four_die_late_init(struct spi_nor *nor)
+ {
+ 	struct spi_nor_flash_parameter *params = nor->params;
+ 
+-	params->die_erase_opcode = SPINOR_OP_MT_DIE_ERASE;
++	params->opcodes.die_erase = SPINOR_OP_MT_DIE_ERASE;
+ 	params->n_dice = 4;
+ 
+ 	/*
+@@ -147,7 +147,7 @@ static int micron_st_nor_two_die_late_init(struct spi_nor *nor)
+ {
+ 	struct spi_nor_flash_parameter *params = nor->params;
+ 
+-	params->die_erase_opcode = SPINOR_OP_MT_DIE_ERASE;
++	params->opcodes.die_erase = SPINOR_OP_MT_DIE_ERASE;
+ 	params->n_dice = 2;
+ 
+ 	/*
+diff --git a/drivers/mtd/spi-nor/spansion.c b/drivers/mtd/spi-nor/spansion.c
+index 15dcec09332a..2a8238c707e1 100644
+--- a/drivers/mtd/spi-nor/spansion.c
++++ b/drivers/mtd/spi-nor/spansion.c
+@@ -675,7 +675,7 @@ static int s25hx_t_late_init(struct spi_nor *nor)
+ 	cypress_nor_ecc_init(nor);
+ 
+ 	if (params->n_dice > 1)
+-		params->die_erase_opcode = SPINOR_OP_CYPRESS_DIE_ERASE;
++		params->opcodes.die_erase = SPINOR_OP_CYPRESS_DIE_ERASE;
+ 
+ 	return 0;
+ }
+@@ -763,7 +763,7 @@ static int s28hx_t_late_init(struct spi_nor *nor)
+ 	cypress_nor_ecc_init(nor);
+ 
+ 	if (params->n_dice > 1)
+-		params->die_erase_opcode = SPINOR_OP_CYPRESS_DIE_ERASE;
++		params->opcodes.die_erase = SPINOR_OP_CYPRESS_DIE_ERASE;
+ 
+ 	return 0;
+ }
 
 -- 
 2.54.0
