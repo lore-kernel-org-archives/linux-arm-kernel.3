@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCF6C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28852C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eVYtRrcYxbTiVniZzEVlvJjB3QGXOoZDXbBYRjI7Swg=; b=lj0fFHyyVBhE4mZKCnxv69Qxnn
-	P7FEr+5KjmBeczg1vt5ZiIYsuJHcEo6jC7WCTXR3GF1RUwC3X/Oj+4MycsQt9HZoGjuQRfBgyqIET
-	Ojty0W4t3feoJMf6AfwclA2FMuTIfoR2GVAXcrIuLcPlxB6VYoz82YXRHp/fO9KxGVKcdR1cNZpqB
-	5t0zypWbTf1+agHJhsQL3CnaKfBGKggvezQW9NKMgGtGCt9lX5brt0DWWU463CZoap3JGvutaqLXZ
-	K0jY0w2J96zyn2SXBUU3cFFsswu6+aIK0gI6bGPKb6aQeez2sj5GaONreltn1K9KeoYHR/AUhvxPZ
-	Mb2sfO/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HMrRYkbF5OZt+EYuQBRlyrF86w/zMKZa5CwvbhvSVgQ=; b=b0s+XZ/vdRj7asec7swlIfR+BV
+	sRIQ7EplknLbZIeVuwNDt7ajERm030bqzFpLrwl3GK4BJbUWNF90NO+NCN5uymigmADflNxguu4Wo
+	p1wHDso4+6F/fFqX80sxBreRMrbWh0wgfXOVmKof2arsD71uJ2bO0GN9IGleesgvWqQZHo6RYCAvx
+	J23H9lqkZcZ+pzaacMEZ32MBq7z53TcGvdbLvXFBOj2wqOFtQcPQVLPE7F1OVmy0arvnbpgAwD473
+	t+VewE0/F41+U2uWIAHZEsJ2Hs3U7jC5GJb0J9rXEeaAif+UDZuLrsCnglNeFRHVZ+0ooiYfRMtw0
+	+kD8oyvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1faS-0000000DyBr-37NU;
-	Wed, 02 Sep 2026 07:40:48 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1x1fgZ-0000000DyuC-44ul;
+	Wed, 02 Sep 2026 07:47:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fZW-0000000Dy3R-2zT6
+	id 1x1fgZ-0000000Dytn-0WKS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 07:40:47 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-482e2fdf5abso388638f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 00:39:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788334789; x=1788939589; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eVYtRrcYxbTiVniZzEVlvJjB3QGXOoZDXbBYRjI7Swg=;
-        b=W2FpJcGcEJLVOwYvuiRm3IPIf9A2VQN0NwJoqdQ0owuvWL9mZXWSONfF2zTvoSo+pX
-         kD/Z8/XVysT3UQIXtxUyqoTkzwcWoukjv6QNOx6T9bW4FsFnQqx064FD4m9wHiE156/E
-         HVVZTe3VmKtzQUAABTvOiTg28UuYAY6z2h8KtY2FC448vIwG71iX9Nxu988GiuqzQl9e
-         oWwnhogcW5AjWlAqHFOkjbg6GyRddpLCu0PS+rya/m40qJYObNUCzvyPIo7x1RhzWrE+
-         zIDQi22pd27o9d21NURiMT2kh6VK5/yb97rwECmfYWaQOtwWDiJOr6c4EpIJVQ9zLv8Y
-         gizw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788334789; x=1788939589;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eVYtRrcYxbTiVniZzEVlvJjB3QGXOoZDXbBYRjI7Swg=;
-        b=XwJnC4AnzuTsfeOpZ5k6J55wrrkp73qKWL+5V0wgVURkTs2OYcF4N2zJ4E6F72f5VW
-         wvet7KldmuQyKTX1aMfoDjpOKi8HP7mQssgOAoTCIv1d6AiHMEnIuD0unTpYr+BwYe4F
-         oFAs1rHiNwc0Da8QxWMm8nqCYBwKicMcWv1iFIg8ZmguyYm1LFNk8yh3LX5e9Xfgoq9Q
-         u2x+SspFyCVZoyWrzpQ2Fv5ryhPQTt9SUTLJF8Hn3KjNLt4fZ/o3sKom4kblTN3aj4XH
-         DxD3ALWA5Ydoeok6Dyqu7AauqS3xQKYjPgYI2SuOU+IIpjq+HNNUZqYssvXQlGCEL8vR
-         KUFA==
-X-Forwarded-Encrypted: i=1; AHgh+RowUH8/Nb0bB4jA444JfVWwLYTNkDKlujocUN8tvKxqJbsUi6bxYuffaMzrFwNljqnB13kgeGU60oN2knERAJtx@lists.infradead.org
-X-Gm-Message-State: AFuF++kTrMVIp6cQeUaxvd4n5hsni/tJvlRu9H+NScIsH2MkF/Jqs2Hd
-	b1+gyj/pVCO/Kb061LIIvwJFD2tnbechVGnI6yrfN50lQfQZADgwxs7kH6h1peAb
-X-Gm-Gg: AR+sD10OXuH8ZaaQZbR8jsRbK27O2F8LKdD6Bw6321BGij8NKSZ5VXcAPdr4oDJOkpm
-	L9Ytmf7iqRH1Ycuv0N5Oa7a4jdGZtyzYZHPYnhVNZw6o9WAFUfpV18NcjA7eA++MTHwVGy6sKPH
-	PAel1GvC+ZIknm5Je4h96aZsWVyhjB3yPkdyfxwApM3BITzdpQE/J2i32wqphR5ikdBz3nfZa9S
-	R+sECw1NDmSCPXk4URXVopgbWau7NFD0FWwjFrq3W1X0p/qvOXXtF+8+k80bdu32cI2DB9CDjHH
-	ACRemuDYnsdRGoWhehxd5SNgXeG/a3pMg2XxDTVSdzra1aCec/6rMSXz6s/0X0FH3oYFRcEJHNO
-	b8XdjxF0losFtxDIJmIEOhiXOBt5CAM9PRzv9NJgZXW5n0dgqyIL8L34wODVUAWOPrm7IjZRTyQ
-	/jLicw4eWdfm8zx4TqyM5uG6LPUtm0rkivOqIKijzuoi90lcOha7jLeRwvNxwvztSYAg==
-X-Received: by 2002:a05:600c:4ed1:b0:49c:cee2:a508 with SMTP id 5b1f17b1804b1-49ce582984dmr35814255e9.16.1788334788344;
-        Wed, 02 Sep 2026 00:39:48 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-484492ce5e5sm4209375f8f.36.2026.09.02.00.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 00:39:47 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
+	Wed, 02 Sep 2026 07:47:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 59914600C8;
+	Wed,  2 Sep 2026 07:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9C31F000E9;
+	Wed,  2 Sep 2026 07:47:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788335226;
+	bh=HMrRYkbF5OZt+EYuQBRlyrF86w/zMKZa5CwvbhvSVgQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kmWx0i1NgJvsbl7HVHwHOHUrzI7dPQ8T/ayJKlDyUU/WXndfT4LTsi34pD8oCMJwW
+	 LCeYnse+v9023DMTMpO3TYaWx2TztOJTuP1Knjb3yiuj4ZweZqdFJ3b6dvOsIed9ZL
+	 MFc2q9nn7rferIqHBLii9tMX8z0IJmfR32q1fVDwW9cGyQcY/i+iz5AFUi0oW55rAo
+	 BAcd2sMaWjXJ8IPb/iP9toIkpV2PYNDruENhzsi9SGxXH/ouzmwATwuUz77HR6r1QO
+	 EsLNO5rwzI+IL7qBCE+IpMe324knTkP44Y92J2raQrqhy9Eli2Y/SBLf+I9H2/htTp
+	 WeDczrwosL6+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x1fgV-00000003lmO-22FI;
+	Wed, 02 Sep 2026 07:47:03 +0000
+Date: Wed, 02 Sep 2026 08:49:36 +0100
+Message-ID: <87ld9km6sv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: [PATCH v2 0/2] gpio: mmio: report the line direction on chips without direction registers
-Date: Wed,  2 Sep 2026 09:39:44 +0200
-Message-ID: <20260902073946.3709080-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_003950_868724_B39EE7E5 
-X-CRM114-Status: GOOD (  15.79  )
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 03/20] arm64: sysreg: Define OSLSR_EL1_OSLK_MASK
+In-Reply-To: <20260901092552.231001-A-seiden@linux.ibm.com>
+References: <20260831145536.913567-1-seiden@linux.ibm.com>
+	<20260831145536.913567-4-seiden@linux.ibm.com>
+	<87v78pmmtz.wl-maz@kernel.org>
+	<20260901092552.231001-A-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +112,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+On Tue, 01 Sep 2026 10:25:52 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Tue, Sep 01, 2026 at 08:51:04AM +0100, Marc Zyngier wrote:
+> > On Mon, 31 Aug 2026 15:55:18 +0100,
+> > Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > > 
+> > > Define the missing mask for the OLSK field of OSLSR_EL1 which is
+> > > required to safely write a value to that field.
+> > > 
+> > > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > > ---
+> > >  arch/arm64/include/asm/sysreg.h | 1 +
+> > >  1 file changed, 1 insertion(+)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > > index 1c5c4df260be..5a439853b721 100644
+> > > --- a/arch/arm64/include/asm/sysreg.h
+> > > +++ b/arch/arm64/include/asm/sysreg.h
+> > > @@ -200,6 +200,7 @@
+> > >  #define OSLSR_EL1_OSLM_NI		0
+> > >  #define OSLSR_EL1_OSLM_IMPLEMENTED	BIT(3)
+> > >  #define OSLSR_EL1_OSLK			BIT(1)
+> > > +#define OSLSR_EL1_OSLK_MASK		BIT(1)
+> > 
+> > Just move the required sysregs to the sysreg file, with the full bit
+> > description. This will sort this once and for all.
+> 
+> You mean to the tools/syreg file to generate the descriptions?
+> 
+> I wanted to do that but OSLSR has a split field (OSLM in bit 3 and 0)
+> which the generation tooling cannot handle. (right?)
 
-Hi Bartosz, Linus,
+Composite fields are nothing new. We have those everywhere (page
+tables, for a start).
 
-this replaces the gpiolib guard patch [1], along the lines Bartosz
-suggested there: instead of teaching gpiod_get_direction() to stay quiet
-when a chip has no get_direction(), give gpio-mmio one and let the pin
-controller tell it what the pad does.
+> 
+> Now that I am rethinking this:
+> 
+> I could move the stuff to the tools/sysregs and in addtion define the
+> OSLM field here manually but this time using the generated constansts.
+> probably sth. like: 
+> 
+> #define OSLSR_EL1_OSLM_MASK		(OSLSR_EL1_OSLM0_MASK | OSLSR_EL1_OSLM3_MASK)
+> #define OSLSR_EL1_OSLM_NI		OSLSR_EL1_OSLM0_NI
+> #define OSLSR_EL1_OSLM_IMPLEMENTED	OSLSR_EL1_OSLM3_IMPLEMENTED
+> 
+> Shall I do this?
 
-The user is the Vybrid GPIO block (gpio-vf610, a generic mmio chip with
-GPIO_GENERIC_PINCTRL_BACKEND and no direction registers, the direction
-lives in the iomuxc pad as the OBE bit). Today every
-gpiod_get_direction() there trips the WARN in gpiolib, 21 backtraces per
-boot on a Colibri VF61/VF50.
+Yes. Except that OSLM3 should really be OSLM1, being bit 1 of the OSLM
+field. And it would make a lot more sense to express NI and
+IMPLEMENTED in terms of the two bits, just like the JSON describes it:
 
-Patch 1 is the pinctrl-imx side. Bartosz asked whether the raw register
-coming back from pin_config_get() is a bug in pinctrl-imx: it is, the
-callback never looked at which parameter was requested. It now answers
-PIN_CONFIG_OUTPUT_ENABLE and PIN_CONFIG_INPUT_ENABLE on SoCs that say
-where those bits live (Vybrid: OBE bit 1, IBE bit 0) and -ENOTSUPP for
-everything else; the debugfs dump, the only raw-register user, reads the
-register through its own helper. Converting the driver fully to generic
-pinconf is a bigger job than this fix needs.
+OSLSR_EL1       [2,0,1,1,4]     MRS
+# Reg cond: IsFeatureImplemented(FEAT_AA64)
+Res0    63:4
+UnsignedEnum    3       OSLM
+UnsignedEnum    0       OSLM
+        0b00    VAL_00
+        0b10    VAL_10
+EndEnum
+UnsignedEnum    2       nTT
+EndEnum
+Field   1       OSLK
 
-Patch 2 keeps the direction in gpio-mmio's existing shadow and installs
-the shadow-reading get_direction() for the "pinctrl backend, no
-direction registers" combination. The pad is asked once, from request(),
-in process context. v1 asked pinctrl from get_direction() itself; the
-Sashiko review pointed out that gpiochip_lock_as_irq() calls
-get_direction() for !can_sleep chips under the irq descriptor lock, so
-the pinctrl mutex is not an option there.
+Thanks,
 
-Tested on a Colibri VF61 (Iris carrier) on top of gpio/for-next, with
-DEBUG_ATOMIC_SLEEP and PROVE_LOCKING enabled this time: no backtraces,
-and /sys/kernel/debug/gpio shows the right direction for every requested
-line (the hogs, the SD card detect input, the USB VBUS regulator
-output). Lines the pin controller cannot answer for keep
-the input default gpiolib assumed before, so nothing that worked before
-is affected. The initial direction scan in gpiochip_add_data_with_key()
-runs before the pin ranges exist and still guesses; only requested lines
-get the real answer.
-
-Patch 2 needs patch 1 to give correct answers; taking both through one
-tree, with an ack from the other side, avoids the window.
-
-[1] https://lore.kernel.org/linux-gpio/20260813193715.2346477-1-mehmet.fide@gmail.com/
-
-Mehmet Fide (2):
-  pinctrl: imx: answer OUTPUT_ENABLE/INPUT_ENABLE queries from the pad
-    register
-  gpio: mmio: track the direction of chips without direction registers
-
- drivers/gpio/gpio-mmio.c                  | 63 +++++++++++++++++++++--
- drivers/pinctrl/freescale/pinctrl-imx.c   | 51 ++++++++++++++++--
- drivers/pinctrl/freescale/pinctrl-imx.h   |  4 ++
- drivers/pinctrl/freescale/pinctrl-vf610.c |  2 +
- 4 files changed, 113 insertions(+), 7 deletions(-)
+	M.
 
 -- 
-2.54.0
-
+Jazz isn't dead. It just smells funny.
 
