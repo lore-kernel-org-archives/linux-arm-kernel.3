@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F350AC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DCFC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7znxOme7R9B3zqE4QI3W3BM8OqUXvcsFNPFaJlfJoEI=; b=sUsEuL7x2atVjjeB+sLHBANYHP
-	XYP8jlyYF+uzqYideW/zDIDQv4gOo3eHm331SraAmVYQXdgqoDTXcwtXPmE/5kCrq/uhJFMuGeKem
-	unOIsUESogqT/g6uydrPovhF9YmxiaKZxw93kSjLFEyzjLjrXHSBlbeUPetKWEmrWf3qTacV8Lifi
-	KoNPvcz+KR+sOhwYurKtJmTwbdVOKWN8ATP0pNAnd98QGh+g8yp7mChggEUkwFyEpgaM2GtWVgz84
-	J9A9FKD3MdPFWTZ0Usz+6vCvp3i9fG9tBQWcLYeJknAE11atzuqvgRbdMHfgoIRJtph7VHWCL8bPk
-	8c4I3/Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VESX08GqcdU0uoKq9TQaQXwpyil2Dczl9kyP/gaOBOI=; b=HU9gMmTI+TCUKQlyX0HhJ4QAgB
+	JrSqBqQxcWANAahKIABrJ5/lMAAFxc3FLYi+I9gExfehSeAY8NZb8hfAzCGQcraAKo4oFxWFjjPgp
+	yPOlzA//4T7L7sZUkgU8fZLtZ/xD8yzE6CK1J9coAevkQkoyjMjuYl6iya50pZOso1OeBlr2By0Ur
+	Z5aadINUFAcJkpN85qlpUm0hbyY3pxf+hpe6Fn/FcgFYhxisGiwXP3D1mgIGMgl50iBMfyxL5yqS7
+	JruXFqIJtD8LsMhdZ8xVxypH6GlvmR+7vAd8Lx6AiM1aLTUzMCSWT3wJyqVAXMSd82qf/53Uy8dZa
+	5GIJs+Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lM7-0000000Equb-1ggu;
-	Wed, 02 Sep 2026 13:50:23 +0000
+	id 1x1lMD-0000000Eqwl-25vC;
+	Wed, 02 Sep 2026 13:50:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lM4-0000000Eqt0-3FP4
+	id 1x1lMA-0000000Eqvs-2vHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:50:21 +0000
+	Wed, 02 Sep 2026 13:50:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA8DE165C;
-	Wed,  2 Sep 2026 06:50:13 -0700 (PDT)
-Received: from [10.1.34.165] (e121487-lin.cambridge.arm.com [10.1.34.165])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 343403F673;
-	Wed,  2 Sep 2026 06:50:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B94B165C;
+	Wed,  2 Sep 2026 06:50:22 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 79F593F673;
+	Wed,  2 Sep 2026 06:50:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788357017; bh=Mn7lImXZWkh6B4HK0ved6SfMz2UwLPCZxp9UBfpFjPA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j5hyB6j2tn5RRXsTxu0PQsT64pvTXYCyFGeGfrCBFebgXphQLNLX+66Zij137hF7i
-	 RFe7cQY/Dkag8Kpk8VrZRNEJOfkIC0eF+B33hisuqhvT8oVt0WwxYpX95ijaecMxjb
-	 Vvwtt/FXeF4pROmQgbqLE0F9qkr+pkDmX+GiTiZ8=
-Message-ID: <22b3e98f-16b0-42e0-9386-909deaff8e02@arm.com>
-Date: Wed, 2 Sep 2026 14:50:14 +0100
+	t=1788357025; bh=eYWDCMbfsRmoFb3lpIHZkzboZWgEprEJgkKIXTMGNuM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BFVEhAtghcCBNiALXEl30jXmOAe7CZqJUzVpKW14WaECNQew8BgJUi41Q3cch7wZ0
+	 C29aMGGFe9pVs1I4/cWL+DuYWdPnygUffp/qtWnNyeX27KqfyYta6v8N1PphV3Jqoa
+	 admikvk0kkq7eSNRiw8teTvL6ubBIqBt6V4KCH14=
+Date: Wed, 2 Sep 2026 14:50:22 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Bradley Morgan <brads@mainlining.org>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
+Message-ID: <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com>
+References: <20260825205839.14571-1-brads@mainlining.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 00/45] arm64: Add support for FEAT_NMI
-To: Ashok Raj <ashok.raj@oss.qualcomm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, maz@kernel.org,
- will@kernel.org, catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <d594b97c-747d-41df-8f7c-563ea11974df@huawei.com>
- <18338c14-c7c0-433c-8a88-ba5624313c48@arm.com>
- <aoh4S4TE8-NTZFPV@hu-ashoraj-lv.qualcomm.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <aoh4S4TE8-NTZFPV@hu-ashoraj-lv.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260825205839.14571-1-brads@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_065020_862427_D96B3A82 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260902_065026_823041_5FF2F82E 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +71,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/21/26 17:09, Ashok Raj wrote:
-
-[snip]
-
->>>> The series would also benefit from extensive testing on real hardware
->>>> (without NMI, with pseudo-NMI, and with FEAT_NMI), as most of the
->>>> testing so far has been done on QEMU and Fast Model.
-> I'm also starting with QEMU!. just doing virt I suppose, do we have
-> sbsa-ref model as well working? just wanted to check, I was thinking
-> about it for another use case.
+On Tue, Aug 25, 2026 at 08:58:32PM +0000, Bradley Morgan wrote:
+> This comes out of the hibernate resume discussion where Will asked if
+> the restored kernel's hyp vectors are reinstalled before we come back
+> from swsusp_arch_suspend() and free the reserved pages. Rather than
+> answer with a one off fix, this series reworks resume to look like a
+> resume from idle, which makes the answer fall out on its own.
 > 
-
-I used virt. Did not try sbsa-ref, yet I do not see immediate reasons
-why it should not work. Booting requirements are documented in patch
-27/45.
-
-Cheers
-Vladimir
-
+> The series leans on Mark Rutland's old work for inspiration, he had the
+> same end goal in a branch from back then:
 > 
-> -- /ashok.raj ashok.raj@oss.qualcomm.com Qualcomm Inc
-> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
 
+Most of the series seems to be a rebased of those patches, just with
+paraphrased commit messages and my S-o-B lines dropped. As commented on
+patch 4, I do not think that is appropriate.
+
+I'll take a more in-depth look shortly.
+
+Catalin, Will, for the moment please do not pick these up.
+
+Mark.
+
+> The short answer to the question: yes, but only because the rework makes
+> resume look like a resume from idle. We enter cpu_resume() at the highest
+> available EL with the MMU off, and the resumed kernel installs its own
+> hyp stub vectors into VBAR_EL2 through init_kernel_el() before anything
+> else runs, so by the time swsusp_free() releases the trans_pgd copies
+> nothing points at them anymore.
+> 
+> The series is structured so the first patch stands alone as a stable
+> worthy fix for the missing hvc arguments. The rest is the cleanup: the
+> stale init_kernel_el() comment gets corrected, MTE tag pages get freed
+> after save instead of leaking on failed hibernates, the fragile
+> _cpu_resume() calling convention gets split, and the last patch reworks
+> hibernate to use the regular cpu_resume() logic end to end.
+> 
+> Everything object compiles and passes checkpatch and sparse. I could not
+> boot or run a hibernate cycle on real hardware here, so that still wants
+> doing before anyone gets excited.
+> 
+> Bradley Morgan (7):
+>   arm64: hibernate: pass HVC_SET_VECTORS args to the resume hvc
+>   arm64: head: correct comment for init_kernel_el()
+>   arm64: hibernate: free MTE tag pages after saving
+>   arm64: hibernate: fix _cpu_resume() calling convention
+>   arm64: hibernate: use dcache_by_myline_op
+>   arm64: hibernate: only clean to PoC
+>   arm64: hibernate: use regular cpu_resume() logic
+> 
+>  arch/arm64/include/asm/suspend.h  |  1 -
+>  arch/arm64/kernel/head.S          |  6 +--
+>  arch/arm64/kernel/hibernate-asm.S | 87 +++++++++++++++++++------------
+>  arch/arm64/kernel/hibernate.c     | 66 +++++++++++------------
+>  arch/arm64/kernel/sleep.S         |  6 +--
+>  5 files changed, 88 insertions(+), 78 deletions(-)
+> 
+> -- 
+> 2.47.3
 
