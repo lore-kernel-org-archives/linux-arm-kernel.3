@@ -4,112 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72500C624D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 09:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24991C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 09:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytaSS9E97s/JULLyGWR20qPV51uikwUgTS3pF5XmIPU=; b=0+yyYCzK1cZHEhBRw+wcH3iub3
-	wFBuAiqFWWNk675UJamxuix2HSCgJ7axTrB357ORpHAhQPglWr4Nnj4bewgvd07j7wDtH7pI3qVrl
-	UwlUaAogqgNcQ/t01wCkWISmkAhxZTt8qLScjq5Ck41bodA8S+lbtaEFXmCNxmUedm9QtGpyFNKg9
-	uukhDPzMuD1FqIxVqkfYwowBF09stQCrLt0N+yeC7RibV6E37kJTkydevBcD4HCKHQRPlqe0l5XTb
-	dRwgIl/OfTKwEvuGC31aumZYJQnGy6bpOGaYFIpsD5+IGcBcTt7J5NCXzzTux52kn06U+P5s3mKn9
-	XtdAK8Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DSI+QlvCrJr7rmb2jblg9hayvhYiJV2JO8RzzdtM3Yo=; b=nCOJGplNtjqkecZMmWAHOLBqee
+	hhV+nSLvptNwuCKZZa47pSXqR5rcOiMWqW/u8OVRt00wJwmbOJ37tZPMIyCo2EvjrFPa/JjonYko+
+	gCRbPeAHHmQ2s7YL3+ot0GzKHHfnWolwXFOFin4wly9zwThIVMvKy6MPXV/3lU8bil/9qP0+cqpVb
+	lOk2HExRzufM9C8hn6Wv4TwLMH7oBg5///WeKyqLs5SgAvjJE2CbT9vGYpf34lafxFz3IozoA+vuU
+	nKG5nYWo4OLiLbNzeap/RoPLnS7VW+5C8iQffBcvV/4azEUlz2tRnR0Nq03bT4sMj6LmePyX3Ea7p
+	8ApkianA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1hCY-0000000ECq4-3KDg;
-	Wed, 02 Sep 2026 09:24:14 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1x1hD9-0000000ED0c-3wY1;
+	Wed, 02 Sep 2026 09:24:51 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1hCV-0000000ECpL-1yOy
+	id 1x1hD6-0000000ECze-39Xz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 09:24:12 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2d6d28aa26cso5058205ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 02:24:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788341050; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XnjkGBcTDCma4jg2k8GT7+34aEVAxObak+Bb0eZZNZNeDSNr7Y9hdKqB8w0Qta/G2Q
-         CKkzKvKYQVEpIrD0FRJIttGof/odA8vJVpRUf+9jXWC5ExWwG64uVG5LtwfQofue4t7K
-         odnyzJVnnM1d9Xoh378OZuG6sK7kdLWvcjHhYXfS7nXnVjP3cFN7wiZ4n/BDZG53jK0I
-         a6yUbsfjtRk1thq7vLGGunhOdhmfwG7lMbXyeReW76oHsvSmNx05/S2mtQCF4viTngBZ
-         tjx4cmG965bvuvS4F5AEZWADbyzoIekMEVVFXVxaWb1rvd+IjOJlf2KeWirSxs8qON1K
-         cCyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ytaSS9E97s/JULLyGWR20qPV51uikwUgTS3pF5XmIPU=;
-        fh=LmbxcZxonHH/SKQj4EU/6xUT/tv/1S6lvi1GbmjwxdU=;
-        b=tCds9ursWA0uVb2jQaEfdT+vXPLkgwrTR8wEMFs10uM4F9N3BD5/NGOqRdJ84yqw0/
-         hWpfA+FnEGjlp47cJYzewGvqli3xQKL1HMnuzmOss6WRQ1Vt6/62kiXu0z2saTOSUBID
-         eTHb4t+I0YjHgDLsn+RqjH9IwqidzuLKdQCI42fNThFf8/cLG5rPC3FkPQkEzkt3x5H/
-         JIk+8X1mKA+k0xSe6GST4cPHpIUVxd6H4FiRJ05aLoFuOJHjwDmhhB1ZVjeqnkJqbkJy
-         JxgBMaI4rkCAyEhpYFeVLYVm71hK94eMyg8HlvVgJv4XuoOQZhfFYVCn7FNorEomnPQf
-         dEPA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1788341050; x=1788945850; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ytaSS9E97s/JULLyGWR20qPV51uikwUgTS3pF5XmIPU=;
-        b=KcxMloGz3TvP11abkE0kauG9SGeNWj9ALthx0iSj3HFlr/FimOI1QmF4Mi1XEx007k
-         ZKSipg/xRruMGf6KwXZ5Chjhfp6Gdp5v84HIEBFJk15bUBIJuYluhtgq8sVykdP5nnrr
-         3I1hqWOfEIP7BXhUvbj0Kt/brenr++4d3JPXRglMVOPx7F//zsmwJVDxRRz7KMr1YYdj
-         lbgj0mOf3D9ykN5nR30SAndS0+QV59htf8f1ORVA513RtxhnqIcrz5hWR4heOTZXM5my
-         0xWy7fa5gv0kSk5vtSkaYnnhqjO2/zCQefoxho0+yth3J3zv9T2VBl1HdbSM5GtITWsD
-         LrwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788341050; x=1788945850;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ytaSS9E97s/JULLyGWR20qPV51uikwUgTS3pF5XmIPU=;
-        b=lNxEtwlmFPI+tVdtLrZlRdRNIwsMPrvAdLn2XEb2KMvLMIuJjlBZzGqF0pLLkaWAvD
-         VIDI3UPKkW7EP08wxB+C5MbIcBXt6Ch4B8wk/RYK5aVLDmHnvujJ8IwvpCAMzLoWjlye
-         o34S7sbEmHJnTWw4r7F0eA8434logOFJsAF5pwIQeBsrYcHuS6a7Am3ch697IvprHRXl
-         45ZBHs6GmD9rPNDtGiw00KJYLziF7LFCW6ac+MdDAiDXOhc3/HdCTlMNGalPRbEr+6nY
-         JdH+VbLtYX4behKBZtU4A9jo6/gqAoPVo3+woHAz7hugLH6O5sHbcxmtwagczCg4bJtd
-         hWNg==
-X-Forwarded-Encrypted: i=1; AKwUvBw9VjOmULZqGRnFi1YI66qQIVdBJryAnDGpy9Dk9KwwjX4fUdFD235YVrEBV6dfwN+uQx4Kk6DYUJxb1J/cb6N8@lists.infradead.org
-X-Gm-Message-State: AFuF++nQbfV1b7YC5MTDYQ+tnt4rKL3vBO42oVlMipuihLk9lI5x8mGf
-	RL3DWamtPR5NgrZXIciKNUcy5w6vAYViH0Qmjeilwn3HASIA1g/tJkRamOdN4Vbxqzmu3lUdQYW
-	mbpoDgtkjw/x6HApjJMph8pz0/J1B05bwZ83sl7hbgA==
-X-Gm-Gg: AR+sD12LjL43NjP40WJGzlW+iESUeQyEDdgOgXK8Nwmep6r9pwJfRmJLdNQ5uCv09rP
-	ym6gzaHnfAXEzFGPQoFiIcACbsVEx6F/0VPN5tzMRI6XbpxQMkKG7kWzbt1LqQ5u4YjsVpAah8S
-	DfQYBFKgoAps1lt3U3eHyP705a48LWgBSwEmqFR4Cff8MN8/5aSXOrgg/HglgN9hXZHd/2KcRJP
-	hdEtHpB6MVFXfr8LevCiqQmIkYXOe1RTAi+w/Mtbn3yo7H2DXUcinS9qdkoqUZMitqQPtFnqU/D
-	dUTwr6ewG98bKsFWSSwJoiFn9IGRhBQMNAqb8KCFhdk6xcgbLiAFJf+vuSJpimp6UIhtoh6WFIv
-	fCA==
-X-Received: by 2002:a17:902:f682:b0:2ca:f21a:a6c5 with SMTP id
- d9443c01a7336-2daec5ad6d8mr40455475ad.1.1788341050320; Wed, 02 Sep 2026
- 02:24:10 -0700 (PDT)
+	Wed, 02 Sep 2026 09:24:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788341088; x=1819877088;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gq0rm/QcoBJl040W0wWOffDQSCftl1d5JLwbPBMCT38=;
+  b=f/i0/4y/s1w+JFx2ErbseDB3uYqhhnGeR5Hr9TVaO4SMyksm7D5+EYko
+   w0E/O5xdxfupK3idvQ6QPMafChH47NhCq3AGRSm9rHafpAWfkmHYNX8+M
+   YLT0ey6Hxv2mtIM5zqzJLDtNFja8Hg8Cg04H3oNvXGeaehhx7fVBKen47
+   0OW5bz1na7+9RT+ZnW9KA93xMJUsscxp1Y/jXSf06gqtVgFJnX8a1wnOS
+   dc41pCRBhTcBBjCJvwGdN+4G7X7gqzeCM1GTLAIbjqBAfK8gTcNW58Wnz
+   dcsGrGfPaAXwMJ2/Jh0a9cNu0sYWhwjQTYZgR9OxsdCZUQllawZjTuCUc
+   A==;
+X-CSE-ConnectionGUID: 4XPzW3bWQp68TtGez7G1tA==
+X-CSE-MsgGUID: BITJH17jSpKjgAr0V4jXCQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11893"; a="99390840"
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="99390840"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 02:24:46 -0700
+X-CSE-ConnectionGUID: RFJL2ElhTCSd6Qpp7OfSgA==
+X-CSE-MsgGUID: ikmp8GBPTV6A0/H3aM5FEg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,257,1779174000"; 
+   d="scan'208";a="265058867"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.129])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 02:24:43 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 85EF1120EB7;
+	Wed, 02 Sep 2026 12:24:39 +0300 (EEST)
+Date: Wed, 2 Sep 2026 12:24:39 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Pengyu Luo <mitltlatltl@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v6 2/5] media: hi846: Fix link frequency handling
+Message-ID: <apfrV9FZ1UN8RW55@kekkonen.localdomain>
+References: <20260830160025.211384-1-mitltlatltl@gmail.com>
+ <20260830160025.211384-3-mitltlatltl@gmail.com>
 MIME-Version: 1.0
-References: <20260901-rk3576-otp-cpuid-mac-v1-0-ea9135270fc2@flipper.net>
- <20260901-rk3576-otp-cpuid-mac-v1-1-ea9135270fc2@flipper.net> <87ecfc81e9.fsf@bootlin.com>
-In-Reply-To: <87ecfc81e9.fsf@bootlin.com>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 2 Sep 2026 13:24:00 +0400
-X-Gm-Features: AcwNN1Vwt1UNue4ueZiVCGXuJAETKqvfhojim__xlQfGqQYcvUB9rCpZaBk-bcY
-Message-ID: <CAKTNdwH5S3MxgR=5s2LXPquCFRXE-61LTTsZoHP9+YmXo_P4Ag@mail.gmail.com>
-Subject: Re: [PATCH 1/4] nvmem: rockchip-otp: Serialize reads
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Michael Walle <michael@walle.cc>, 
-	Finley Xiao <finley.xiao@rock-chips.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260830160025.211384-3-mitltlatltl@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_022411_522514_CDDF0C47 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260902_022448_813851_D47A4245 
+X-CRM114-Status: GOOD (  43.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,53 +97,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 2, 2026 at 1:10=E2=80=AFPM Miquel Raynal <miquel.raynal@bootlin=
-.com> wrote:
->
-> On 01/09/2026 at 19:33:11 +04, Alexey Charkov <alchark@flipper.net> wrote=
-:
->
-> > The OTP controller is driven through a single set of registers holding =
-a
-> > state machine which has to be stepped through for every word read, yet
-> > nothing keeps two readers out of each other's way. Concurrent reads
-> > interleave, and the outcome is either a reader bailing out:
-> >
-> >   rockchip-otp 2a580000.otp: timeout during read setup
-> >
-> > or, worse, one of them silently taking delivery of the other's data.
-> >
-> > Reading two cells in parallel from userspace on RK3576 reproduces both
-> > within 150 iterations - 53 read errors and 9 corrupted results, the lat=
-ter
-> > either losing their first word or, in one case, ending in the two bytes
-> > which belong to the other reader's cell - whereas the same reads issued
-> > sequentially never fail. Concurrency is not hypothetical here, as six
-> > thermal sensors source their trim values from the OTP and reach the dri=
-ver
-> > straight from asynchronous driver probing.
-> >
-> > Guard the read path with a mutex. Reads are the only way into the hardw=
-are,
-> > as the driver registers no write callback, and they always run in proce=
-ss
-> > context, so a plain mutex spanning the whole clock-enable, read,
-> > clock-disable sequence is enough.
-> >
-> > Fixes: 755864feb729 ("nvmem: add Rockchip OTP driver")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
->
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Hi Pengyu,
 
-Thanks for your review Miquel!
+Thanks for the update.
 
-Sashiko complained about mixing a scope-based guard into a function
-with goto-based error handling, so I am replacing the guard(mutex)
-with explicit lock and unlock calls for v2. There won't be any
-semantic change though, so if you don't mind I'd like to carry your
-tag into the v2 version.
+On Mon, Aug 31, 2026 at 12:00:22AM +0800, Pengyu Luo wrote:
+> Link frequency is tied to PLL configuration, lane count, and external
+> and configurable clock, so use runtime here instead of hardcoding for
+> specific configuration. To implement this, we do
+> 
+> 1. Drop fixed link freqs, we calculate the driver supported values and
+> use v4l2_link_freq_to_bitmap() to get the intersection with the DT
+> supported values.
+> 
+> 2. Attach mipi_clk_div_{2,4}lane to current mode, and use the div with
+> mclk clock, lane count to calculate link frequency.
+> 
+> 3. Drop mclk clock rate check.
+> 
+> Fixes: e8c0882685f9 ("media: i2c: add driver for the SK Hynix Hi-846 8M pixel camera")
+> Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
+> ---
+> v6:
+> - Add link freq ctrl back (Sakari)
+> - Use v4l2_link_freq_to_bitmap() to get matched link freqs (Sakari)
+> - Move clk_get() before than hi846_parse_dt(), since we use clock in hi846_parse_dt()
+> v5:
+> - Use separated fields instead of raw register values for PLL cfg (Sakari)
+> - Use mul_u64_u32_div() to avoid loss of pricision and u64/u32 issues (Sakari)
+> - Drop line break (Sakari)
+> ---
+>  drivers/media/i2c/hi846.c | 151 ++++++++++++++++++++++++--------------
+>  1 file changed, 94 insertions(+), 57 deletions(-)
+> 
+> diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
+> index 7f069aca0fce..2f8624f9bdf3 100644
+> --- a/drivers/media/i2c/hi846.c
+> +++ b/drivers/media/i2c/hi846.c
+> @@ -1,7 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  // Copyright (c) 2021 Purism SPC
+>  
+> -#include <linux/unaligned.h>
+> +#include <linux/bitfield.h>
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/gpio/consumer.h>
+> @@ -11,6 +11,7 @@
+>  #include <linux/pm.h>
+>  #include <linux/property.h>
+>  #include <linux/regulator/consumer.h>
+> +#include <linux/unaligned.h>
+>  #include <media/v4l2-ctrls.h>
+>  #include <media/v4l2-device.h>
+>  #include <media/v4l2-fwnode.h>
+> @@ -219,8 +220,8 @@ struct hi846_mode {
+>  	/* Horizontal timing size */
+>  	u32 llp;
+>  
+> -	/* Link frequency needed for this resolution */
+> -	u8 link_freq_index;
+> +	u8 mipi_clk_div_2lane;
+> +	u8 mipi_clk_div_4lane;
+>  
+>  	u16 fps;
+>  
+> @@ -1040,13 +1041,6 @@ static const char * const hi846_test_pattern_menu[] = {
+>  	"Resolution Pattern",
+>  };
+>  
+> -#define FREQ_INDEX_640	0
+> -#define FREQ_INDEX_1280	1
+> -static const s64 hi846_link_freqs[] = {
+> -	[FREQ_INDEX_640] = 80000000,
+> -	[FREQ_INDEX_1280] = 200000000,
+> -};
+> -
+>  static const struct hi846_reg_list hi846_init_regs_list_2lane = {
+>  	.num_of_regs = ARRAY_SIZE(hi846_init_2lane),
+>  	.regs = hi846_init_2lane,
+> @@ -1061,7 +1055,13 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 640,
+>  		.height = 480,
+> -		.link_freq_index = FREQ_INDEX_640,
+> +		.mipi_clk_div_2lane = 4,
+> +		/*
+> +		 * Dummy but necessary if we set this mode default, otherwise
+> +		 * hi846_calc_pixel_rate() will be broken in
+> +		 * hi846_init_controls()
+> +		 */
+> +		.mipi_clk_div_4lane = 8,
 
-Best regards,
-Alexey
+The divider of the 4-lane case appears to be always two times that of the
+2-lane case. Could you calculate the value instead?
+
+I think it'd be better to keep the link frequencies and modes at separate
+indices; this is the way it used to be, too.
+
+>  		.fps = 120,
+>  		.frame_len = 631,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1086,7 +1086,8 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 1280,
+>  		.height = 720,
+> -		.link_freq_index = FREQ_INDEX_1280,
+> +		.mipi_clk_div_2lane = 2,
+> +		.mipi_clk_div_4lane = 4,
+>  		.fps = 90,
+>  		.frame_len = 842,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1112,7 +1113,8 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 1632,
+>  		.height = 1224,
+> -		.link_freq_index = FREQ_INDEX_1280,
+> +		.mipi_clk_div_2lane = 2,
+> +		.mipi_clk_div_4lane = 4,
+>  		.fps = 30,
+>  		.frame_len = 2526,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1167,6 +1169,9 @@ struct hi846 {
+>  	struct v4l2_ctrl *hblank;
+>  	struct v4l2_ctrl *exposure;
+>  
+> +	s64 link_freqs[ARRAY_SIZE(supported_modes)];
+> +	int num_link_freqs;
+> +
+>  	struct mutex mutex; /* protect cur_mode, streaming and chip access */
+>  	const struct hi846_mode *cur_mode;
+>  	bool streaming;
+> @@ -1192,21 +1197,41 @@ static const struct hi846_datafmt *hi846_find_datafmt(u32 code)
+>  	return NULL;
+>  }
+>  
+> -static inline u8 hi846_get_link_freq_index(struct hi846 *hi846)
+> +static u64
+> +hi846_get_link_freq(const struct hi846 *hi846, const struct hi846_mode *mode)
+>  {
+> -	return hi846->cur_mode->link_freq_index;
+> +	u64 mclk = clk_get_rate(hi846->clock);
+> +	u8 mipi_clk_div;
+> +
+> +	if (hi846->nr_lanes == 2)
+> +		mipi_clk_div = mode->mipi_clk_div_2lane;
+> +	else
+> +		mipi_clk_div = mode->mipi_clk_div_4lane;
+> +
+> +	/*
+> +	 * HI846_REG_PLL_CFG_MIPI1_H = 0x025a, it is fixed in listed modes
+> +	 * [11:8]: 0x02 => pre_div = 3
+> +	 * [7:0]: 0x5a => multiplier = 90
+> +	 */
+> +	return mul_u64_u32_div(mclk, 90, 3 * mipi_clk_div);
+>  }
+>  
+> -static u64 hi846_get_link_freq(struct hi846 *hi846)
+> +static int hi846_get_link_freq_index(const struct hi846 *hi846,
+> +				     const struct hi846_mode *mode)
+>  {
+> -	u8 index = hi846_get_link_freq_index(hi846);
+> +	u64 link_freq = hi846_get_link_freq(hi846, mode);
+> +	int i;
+> +
+> +	for (i = 0; i < hi846->num_link_freqs; i++)
+> +		if (hi846->link_freqs[i] == link_freq)
+> +			return i;
+>  
+> -	return hi846_link_freqs[index];
+> +	return -EINVAL;
+>  }
+>  
+>  static u64 hi846_calc_pixel_rate(struct hi846 *hi846)
+>  {
+> -	u64 link_freq = hi846_get_link_freq(hi846);
+> +	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+>  	u64 pixel_rate = link_freq * 2 * hi846->nr_lanes;
+>  
+>  	do_div(pixel_rate, HI846_RGB_DEPTH);
+> @@ -1429,8 +1454,8 @@ static int hi846_init_controls(struct hi846 *hi846)
+>  	hi846->link_freq =
+>  		v4l2_ctrl_new_int_menu(ctrl_hdlr, &hi846_ctrl_ops,
+>  				       V4L2_CID_LINK_FREQ,
+> -				       ARRAY_SIZE(hi846_link_freqs) - 1,
+> -				       0, hi846_link_freqs);
+> +				       hi846->num_link_freqs - 1,
+> +				       0, hi846->link_freqs);
+>  	if (hi846->link_freq)
+>  		hi846->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
+>  
+> @@ -1503,10 +1528,9 @@ static int hi846_set_video_mode(struct hi846 *hi846, int fps)
+>  	u64 frame_length;
+>  	int ret = 0;
+>  	int dummy_lines;
+> -	u64 link_freq = hi846_get_link_freq(hi846);
+> +	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+>  
+> -	dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__,
+> -		hi846_get_link_freq(hi846));
+> +	dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__, link_freq);
+>  
+>  	do_div(link_freq, fps);
+>  	frame_length = link_freq;
+> @@ -1699,6 +1723,7 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+>  	const struct hi846_datafmt *fmt = hi846_find_datafmt(mf->code);
+>  	u32 tgt_fps;
+>  	s32 vblank_def, h_blank;
+> +	int idx;
+>  
+>  	if (!fmt) {
+>  		mf->code = hi846_colour_fmts[0].code;
+> @@ -1749,7 +1774,14 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+>  	mf->code = HI846_MEDIA_BUS_FORMAT;
+>  	mf->field = V4L2_FIELD_NONE;
+>  
+> -	__v4l2_ctrl_s_ctrl(hi846->link_freq, hi846_get_link_freq_index(hi846));
+> +	idx = hi846_get_link_freq_index(hi846, hi846->cur_mode);
+> +	if (idx < 0) {
+> +		dev_err(&client->dev,
+> +			"failed to get link freq index: %d\n", idx);
+> +		return -EINVAL;
+> +	}
+> +
+> +	__v4l2_ctrl_s_ctrl(hi846->link_freq, idx);
+>  	__v4l2_ctrl_s_ctrl_int64(hi846->pixel_rate,
+>  				 hi846_calc_pixel_rate(hi846));
+>  
+> @@ -1947,20 +1979,33 @@ static int hi846_identify_module(struct hi846 *hi846)
+>  	return 0;
+>  }
+>  
+> -static s64 hi846_check_link_freqs(struct hi846 *hi846,
+> -				  struct v4l2_fwnode_endpoint *ep)
+> +static int hi846_add_link_freqs(struct hi846 *hi846, struct device *dev,
+> +				struct v4l2_fwnode_endpoint *ep)
+>  {
+> -	const s64 *freqs = hi846_link_freqs;
+> -	int freqs_count = ARRAY_SIZE(hi846_link_freqs);
+> -	int i, j;
+> -
+> -	for (i = 0; i < freqs_count; i++) {
+> -		for (j = 0; j < ep->nr_of_link_frequencies; j++)
+> -			if (freqs[i] == ep->link_frequencies[j])
+> -				break;
+> -		if (j == ep->nr_of_link_frequencies)
+> -			return freqs[i];
+> -	}
+> +	s64 hi846_link_freqs[ARRAY_SIZE(supported_modes)];
+> +	unsigned long freq_bitmap;
+> +	int ret, i;
+> +
+> +	/*
+> +	 * Since the MCLK freq varies between platforms, calculating driver
+> +	 * supported link freqs here.
+> +	 */
+> +	for (i = 0; i < ARRAY_SIZE(supported_modes); i++)
+> +		hi846_link_freqs[i] = hi846_get_link_freq(hi846, &supported_modes[i]);
+> +
+> +	ret = v4l2_link_freq_to_bitmap(dev, ep->link_frequencies,
+> +				       ep->nr_of_link_frequencies,
+> +				       hi846_link_freqs,
+> +				       ARRAY_SIZE(hi846_link_freqs),
+> +				       &freq_bitmap);
+> +	if (ret || !freq_bitmap)
+> +		return ret;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(hi846_link_freqs); i++)
+
+Could you use the hi846_link_freqs array as-is for the control?
+
+The selectable modes are expected to depend on the chose link frequency,
+which is not affected by setting the format, for instance. I wonder if it'd
+be useful to squash the next patch into this one.
+
+> +		if (BIT(i) & freq_bitmap) {
+> +			hi846->link_freqs[hi846->num_link_freqs++] = hi846_link_freqs[i];
+> +			dev_dbg(dev, "Add supported link frequency %lld\n", hi846_link_freqs[i]);
+> +		}
+>  
+>  	return 0;
+>  }
+> @@ -1973,7 +2018,6 @@ static int hi846_parse_dt(struct hi846 *hi846, struct device *dev)
+>  		.bus_type = V4L2_MBUS_CSI2_DPHY
+>  	};
+>  	int ret;
+> -	s64 fq;
+>  
+>  	ep = fwnode_graph_get_next_endpoint(fwnode, NULL);
+>  	if (!ep) {
+> @@ -2004,11 +2048,10 @@ static int hi846_parse_dt(struct hi846 *hi846, struct device *dev)
+>  		goto check_hwcfg_error;
+>  	}
+>  
+> -	/* Check that link frequences for all the modes are in device tree */
+> -	fq = hi846_check_link_freqs(hi846, &bus_cfg);
+> -	if (fq) {
+> -		dev_err(dev, "Link frequency of %lld is not supported\n", fq);
+> -		ret = -EINVAL;
+> +	/* Add link frequencies which are supported by both DT and the driver */
+> +	ret = hi846_add_link_freqs(hi846, dev, &bus_cfg);
+> +	if (ret) {
+> +		dev_err(dev, "failed to add link frequency %d\n", ret);
+>  		goto check_hwcfg_error;
+>  	}
+>  
+> @@ -2041,30 +2084,24 @@ static int hi846_probe(struct i2c_client *client)
+>  	struct hi846 *hi846;
+>  	int ret;
+>  	int i;
+> -	u32 mclk_freq;
+>  
+>  	hi846 = devm_kzalloc(&client->dev, sizeof(*hi846), GFP_KERNEL);
+>  	if (!hi846)
+>  		return -ENOMEM;
+>  
+> -	ret = hi846_parse_dt(hi846, &client->dev);
+> -	if (ret) {
+> -		dev_err(&client->dev, "failed to check HW configuration: %d",
+> -			ret);
+> -		return ret;
+> -	}
+> -
+> +	/* Get the MCLK first, since we need it to calculate link freqs */
+>  	hi846->clock = devm_v4l2_sensor_clk_get(&client->dev, NULL);
+>  	if (IS_ERR(hi846->clock))
+>  		return dev_err_probe(&client->dev, PTR_ERR(hi846->clock),
+>  				     "failed to get clock: %pe\n",
+>  				     hi846->clock);
+>  
+> -	mclk_freq = clk_get_rate(hi846->clock);
+> -	if (mclk_freq != 25000000)
+> -		dev_warn(&client->dev,
+> -			 "External clock freq should be 25000000, not %u.\n",
+> -			 mclk_freq);
+> +	ret = hi846_parse_dt(hi846, &client->dev);
+> +	if (ret) {
+> +		dev_err(&client->dev, "failed to check HW configuration: %d",
+> +			ret);
+> +		return ret;
+> +	}
+>  
+>  	for (i = 0; i < HI846_NUM_SUPPLIES; i++)
+>  		hi846->supplies[i].supply = hi846_supply_names[i];
+
+-- 
+Regards,
+
+Sakari Ailus
 
