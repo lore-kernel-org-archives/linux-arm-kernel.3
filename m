@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8D4C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09095C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VI+zTa/H4brk4hljsWHx5rnTWZGudrTivFOtubthDSY=; b=igI2LmeuwDoYM2d0CnUPeRbULz
-	LT4An+dFxjcGAI1Z3VgSWPygGc7Lgp7zcI1nVChHx/OmR5REg0UPPFAtcrJ1lCRRY0wIViYgpunKl
-	CjcuQghu+hOD4qTraXU6Idv9grHG8iwqiv8Jz8ngYuA9R9SKeuLK9MoLQqxmqzK6+gkahdFkiwOfc
-	aP3z9gzIcy8yoExijFKVT95SXPSMW4KvPWnFjgPpcAsLC4cf0/GeH2UiyHXxuq9NZKCxsvhGKFoUs
-	0kPYRUcebtcDlr2eTt79Zi4gY9UPnXYnJ29DXw3XJxg/N3Devn790c90ZM4ozNuQ7gA1i5eAEJWeR
-	qTFXbdKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=; b=p2PFLJqPgVQyKJVgxOXqkrMrPy
+	KiI+bXuSsW+bxIsCf+1k/awFDZroBxVfJrhSIQNC3ee28iS+/YM7apJ3hN2GEie2MYbFwDE1iD+8G
+	hb85KO9A2Pu3FRNRcZkr9MMcgHq7u5iIuitGlQGjJyZoFgjnBM9viI+STrF/RP7hMpHLxBGVFABid
+	eqJ7L0FXN9cLtsn5m7XAXWn7Uad9Y8boM/Z7BeTBY07RToWRzBOrthBq/oSe+BpVyhYmg0MTEIBwc
+	zjhl7odD9nUfePB6J4Io2O0Bv6/CvvP50RyE3dK64HmfbX4QWlSlEzWbu96ylzooEyPI2mAOSnRWx
+	/hhRsXuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1j3F-0000000EUOb-1p7i;
-	Wed, 02 Sep 2026 11:22:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1j3J-0000000EURH-3XIV;
+	Wed, 02 Sep 2026 11:22:49 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1j3D-0000000EUOP-2NjX
+	id 1x1j3H-0000000EUPQ-2jXK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:22:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5612443D4E;
-	Wed,  2 Sep 2026 11:22:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FEED1F00A3D;
-	Wed,  2 Sep 2026 11:22:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788348163;
-	bh=VI+zTa/H4brk4hljsWHx5rnTWZGudrTivFOtubthDSY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XUT8yFQFIDAXpJNheMQDAc0u9jQeTZYSg6YEzu3bttwqEFwjfRvwneXYGPOPvT3do
-	 1AHDF3G8NEShvO5v/yxoQTav/PLUJRBdY/qGxocMEvdFe5dDJeR9keggoBS64Q91Wl
-	 N5Kpbazegv+XETjnI5S55SxA6pij6Ye8shiUFa0VgJ9SKHXpdyYeYlK5rHcI9X9WX+
-	 TCc4kIk/23CsoMmoQtjuLIMyKa+9djFumuYiKepkDd1PPUgmnTZvSQ8JJOrsqtGYNg
-	 Z926LX0rZkRzyFwif0h1ZLRm22R9hD0JPofEKDATAbHh6I2bNhRKOY2xqY5VQTCD/c
-	 Puq7EMndNkPGw==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 5622A198003A;
-	Wed,  2 Sep 2026 07:22:39 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Wed, 02 Sep 2026 07:22:41 -0400
-X-ME-Sender: <xms:_gaYaivawVJwMuL9zUKR0N0wUoDQHsvFMWRhd3fVHlDEVSYpdqRdwQ>
-    <xme:_gaYai6Yec-jc2kQ7kNbWqp2eEC8TnOxxQjiNHahL1ufRXnGyZsZ6kj-RbfMg8f8_
-    WbH9VuFpYu_UK6mBOboPS0f9UkXNv3kaer1kXaQY7gzR9ZEb9Nm0fU8>
-X-ME-Received: <xmr:_gaYasdF2BPNtoAy21DfX8FMRVmh1bFwOSyk-ZKYAt-0SFm8Ob1C1h6h2ag>
-X-ME-Proxy-Cause: dmFkZTFz6itMPqahSEtPkdJJ9WVlua6VjGYOXQgtB6H3nUwkTCAeCZ7daCaLn5zON1t/5A
-    MwWZ4U0HUxKeDH0x08LvUy2Gpht1F9Gi71lOZ5nSHj0qarS92q8yZpXwg0ERpN7IexVqoQ
-    rCXc+94u/RibKKQ9IAsd+X4y4hMuNhJyDmQvT5hKcDPMF120/cUdT4/Tq6AmKcsnk6v++5
-    /oMEJEwD2wTfPUps0KMjrJxACRV2mqyYw3yu2TEQqOIdZmcFBbdRWzRh0bZZ8Gg7jrLNBY
-    /TrgKqBEcdSeQqKtKM3yTlGC1/LlhFGaVy0VgQb9RdHKxxi/xfP8tbOhqqNspPwC1LnlR4
-    RG00hbJbFkJixN0Y1uvZGtWRKNW9GgQv0IUgu6Oj3n7otFGxiy5XG76k+BR8k/O5iTYyF/
-    FwpvXpT5pTGZbkjJlNIncDpg8NyX3LveylVcs+7DDs+LjyVgJVc3vR2rX+orXLmT+GbvLo
-    UB1XA2t094+SPBpEqpc0W3Veap6B3/IUiWyZ/VzXmA7W6UgTdY78NL3S2pjVQh9yv2zF3w
-    y0j/VnrJMFr4g4vKBArfmHHGNrIMnN2ZwIswOcTI1aL8aaWcvaLXiHk3aRV9kK8TY9zKSc
-    2Tx3FbzLtX8FSrS4lQBH+Qxvy4hUXNh7dUkgEPSxc9dcoig7jpmfVyTyjLNw
-X-ME-Proxy: <xmx:_gaYaqWu3P8bxchyU4iAh9qlll9KgTrepKuTfuum4GUdJ6UuUGsaKA>
-    <xmx:_gaYapXmRHSBDfLJpqErgSpOQTwWnhY_mn92ggpAUG_HmjSIG9rO7w>
-    <xmx:_gaYarSmOMMgSDvkOfA8PkuNSGYnT6lbGfMqM985o2faUNa_DsYlYQ>
-    <xmx:_gaYao1j08e-Eqgp_24jYNAKcMcrnhJ7jNSbbbhUPeLUfzLxa1xscA>
-    <xmx:_gaYasIG3WWRsMQITpsJ2YlV5g3ZKL1IU4QAICJOX_RDeg8ll1NKyqXd>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 2 Sep 2026 07:22:38 -0400 (EDT)
-Date: Wed, 2 Sep 2026 12:22:36 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org, 
-	praan@google.com, kevin.tian@intel.com, smostafa@google.com, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	jamien@nvidia.com
-Subject: Re: [PATCH v10 04/13] iommu/arm-smmu-v3: Disable the EVTQ and the
- PRIQ in a kdump kernel
-Message-ID: <apgG2jvqgd4T58br@thinkstation>
-References: <cover.1788130528.git.nicolinc@nvidia.com>
- <861f488cbbfa84a4d222a22615adbe5d2617bc87.1788130528.git.nicolinc@nvidia.com>
+	Wed, 02 Sep 2026 11:22:49 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-853c947bfefso882572b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:22:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788348166; x=1788952966; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=;
+        b=LNltt7HqgYUgiaHkKIaKEanhJwkfoqVXMuuB1Eqb7Gbs5h5t+dajKlz3upLSOfO56Y
+         rn1CJo+qBaJCnaP//XCdBDveJOwNrxsUtqWXHCRxGsm5up8nfwhvdqRGIfqcAA6E/FFY
+         VyHxNZ4peCoMYtKrz98r8cgptFiUdtvqymEiNWVR1/C/qnMB/Ll3rR9lRIX0/qUITnMV
+         6d5v8NdwLamKb97oA838D3ST5O4GE1oyQKmjy0Gp7usLc8F7jXDFb3deOgflbZKAwfRJ
+         ZFCf8YndmBiHuDRpC7g+ltL9hHnjBEhr41UWrItLSdHIudhCMnpqW4T3GCuRJJVi7EUa
+         jO9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788348166; x=1788952966;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bG2pMm0qwXP8URwYF59N+uYdVu8xUiwyKW9MTQJcAuA=;
+        b=derJmhyKZ9n42i0ucrp564X5HbO6v836EeRTPNzO3YTLaVXwU2dSSqd9+V6V4ndZTZ
+         DWBUM5vBuV/AEnz4B1SsXzotvr90lqvzC8hRrbghOOVENuPEDZIELJymR/vHZlfOUWAO
+         rbcOUXdtOfAf+GztudrEBO/YrYEgpvlFMt1cF2li5MEU2dwfw+ZlrYIV7nAjhIVkL13n
+         8vGBZpdpkx6yB5AHcHkqyu6U4Op84lrWjMO1/UXOvuFsKqtw0ttnL5Ca/bXLlgeIa1NY
+         EjnSTh55aSfnQPtzIl0VSXwNQwHyEQ9I+TScbCODSUwo72cDZDCk5mHo0SxDob24yeY+
+         cSVw==
+X-Forwarded-Encrypted: i=1; AKwUvBwjJXf7FEv+M8RY+GrfKbaKPzY+ZYUvjqFyHLgWAYnB+fd/ztO8X4h2/+5g5iNu2bfloNGr51MnSTVMYomZqYla@lists.infradead.org
+X-Gm-Message-State: AFuF++l2NKLi2+CK5aG0VMz5adUvsz0mE6drE2W53d861boDuneQSB9X
+	LjgWqq5rkLejCLeOrYCi66VoOv4FMVUgMFu2KG8V//m0zBl0OcbN5cB/
+X-Gm-Gg: AYBFou012AhNj1RYRdms3aNigdS4Tw9T3cO7LHzHpqBY7V50cyOyqUab/HbnFHp4pFr
+	oYVr/EScaHhegrYqKhKMVialIrEm6SWdF/sRrCnaozM8O3nbZHbd1igxHv+iYLHJLm4avOKm6ax
+	4jKnwOGjf7884b7rf8Y2y0y6aUnNecz4qz9rhm1GRYPvJb88LzDpGF3WYFWaztWZPnvK46Zr/Af
+	dFGbG7vbtpDoUQ05Dn1ULI7mKidiRkXeX0t530o4DKgsJcW1omlFuS4gmKfrAiL1yr78RFAI8+D
+	L6v6YJPW0RiFFTqOSFf9pd21IP7OepxOKYHXctyOLd1qni8OlxM7lj869rkIS8EYy2XXAV9i4zI
+	TWoC3ogViSbh9ClYwpkqARkOJG8/RrqF5CCnPwvyI+JMrjt6szEBl7woc9MnsmA4/eIbDGbcg5O
+	iPzWJO9GCNNLbeGP7yARLmoWLVahxzZw5cSPq6vezYfQYfRgIXIkU2cfn4ibzycQSRXO1psQ==
+X-Received: by 2002:a05:6a00:178e:b0:84a:2b96:5986 with SMTP id d2e1a72fcca58-85f42e35709mr1863167b3a.8.1788348165513;
+        Wed, 02 Sep 2026 04:22:45 -0700 (PDT)
+Received: from hnkz-ubuntu-server ([2404:7a80:860:3300:f22f:74ff:feda:3295])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85dc11f8471sm1167571b3a.58.2026.09.02.04.22.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 04:22:45 -0700 (PDT)
+From: Kazuki Hanai <hnkz.64@gmail.com>
+To: Bin Liu <bin.liu@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Kazuki Hanai <hnkz.64@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Xia Jiang <xia.jiang@mediatek.com>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH] media: mediatek: jpeg: Avoid context access after job finish
+Date: Wed,  2 Sep 2026 20:22:28 +0900
+Message-ID: <20260902112230.452176-1-hnkz.64@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <861f488cbbfa84a4d222a22615adbe5d2617bc87.1788130528.git.nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_042247_702147_2A724262 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 04:18:05PM -0700, Nicolin Chen wrote:
-> A kdump kernel cannot use either queue. The crashed kernel's CDs and page
-> tables might be corrupted, so events would spam the EVTQ, and there is no
-> way to serve the page requests that would arrive at the PRIQ.
-> 
-> The reset routine still enables both of the queues and then masks the two
-> enable bits back out, having already programmed the queue bases and taken
-> the interrupts of both.
-> 
-> Clear ARM_SMMU_FEAT_EVTQ and ARM_SMMU_FEAT_PRI in the probe instead, so all
-> of the queue handling, i.e. the interrupts, the IRQ_CTRL bits and the CR0
-> enables, keeps away from a kdump kernel via the feature tests.
-> 
-> Both queues also go unallocated now, as the two allocations test the same
-> features. Each of them is sized from the maxima that IDR1 advertises, so up
-> to 4MB apiece on a 4K-page kernel, which a kdump kernel would otherwise pay
-> for every SMMU instance out of a small crashkernel reservation.
-> 
-> The IOPF workqueue of the event queue stays allocated here, as untangling
-> it from the SVA and the stall features takes a pair of changes carried by
-> the PRI series. It costs a struct and a workqueue rather than the megabytes
-> that the two queues take, so leave it to that series.
-> 
-> Suggested-by: Kevin Tian <kevin.tian@intel.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Suggested-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Suggested-by: Will Deacon <will@kernel.org>
-> Link: https://lore.kernel.org/all/amiBagGKn-Aym1DK@willie-the-truck/
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+v4l2_m2m_job_finish() publishes job completion and wakes waiters
+before it returns. A concurrent file release can therefore finish
+v4l2_m2m_ctx_release() and free the context while the single-core IRQ
+handler continues with its tail.
 
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Both handlers only need the device for the matching runtime PM put.
+Use the IRQ-owned jpeg pointer instead of dereferencing ctx after
+completion has been published. This preserves the get/put pairing and
+removes the post-completion context access.
 
+Fixes: 45f13a57d813 ("media: platform: Add jpeg enc feature")
+Fixes: 5827e4b14ee7 ("media: platform: Improve power on and power off flow")
+Cc: stable@vger.kernel.org
+Assisted-by: Codex:gpt-5
+Signed-off-by: Kazuki Hanai <hnkz.64@gmail.com>
+---
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index d147ec4830811..9010e7b1108fa 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1574,7 +1574,7 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	v4l2_m2m_buf_done(dst_buf, buf_state);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+-	pm_runtime_put(ctx->jpeg->dev);
++	pm_runtime_put(jpeg->dev);
+ 	return IRQ_HANDLED;
+ }
+ 
+@@ -1855,7 +1855,7 @@ static irqreturn_t mtk_jpeg_dec_irq(int irq, void *priv)
+ 	v4l2_m2m_buf_done(src_buf, buf_state);
+ 	v4l2_m2m_buf_done(dst_buf, buf_state);
+ 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+-	pm_runtime_put(ctx->jpeg->dev);
++	pm_runtime_put(jpeg->dev);
+ 	return IRQ_HANDLED;
+ }
+ 
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+2.53.0
 
