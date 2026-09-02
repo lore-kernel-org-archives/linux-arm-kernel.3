@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74FDC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB324C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNfORgOwxE5iDU8cvK6xtfxcznHwopKBKWSuxTAjG6E=; b=Xe/VpcXry5Qp6ERW4wPs9H++2/
-	W0hEp/o2yUsQq0QEOMxaBcdc6fMoAMtEwvYrFddHDm7wGQrBXBPR8nMkl5qx2CBVJ/YklFnDh2EoQ
-	p9KmyPR7Pbxa9xbiDOP2GC2Tg3eUKFlJEKRG/OyFE9eARTIr6iGQxlaxPbFlnm7GYq9ZQTp+sEQ0o
-	CL6E442ABkRx882ox3UTGjAw/KVbY70GenxWTrVcFeZbuCQkeLJNhruKBO+jh3wxjTSx6jOTq1doO
-	PsCAXhq36XzKNne3Wu9HgifX3GkqueA9MXHGxnneQYsbAHGJ+Zn6stg+fZcmCry/I0JZ74dpazSBK
-	wsV58yMg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CO3LG25qSHhVLijk0TY0KKdaWHkAHnrz3sT1LudBzhk=; b=0ENKFMcL2HL58DZ+wyaFM6gaN8
+	x5EeD45FYas8LTvHV5msvIVUshncbn0rIPV7RWJ0ohhxEQxY6TdWYuKqOoMmsVWvxu+bMmD621LR5
+	UljAEMmwEw3QImQuCxF+LDmyWjUepmqzMbsmoItt2A8qYwzlpneTalVNxMGVnF7dkjpG7ndPNhulf
+	5WNlGUUEynhRqR1rantBg2fzDx30fHvbh/Ku+6XFI2ES5Jtj8kwqIBOM0PcWsvhUdeaghiLEAddDu
+	OGjM4qh+AoI3oIGKfRBSVGM/i3b991PAlEAKO4En8OL//XuUpLj28LpQ7FOO8XsBcGJLMMp1N4twv
+	zMPWgr+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jB7-0000000EVZi-0eK3;
-	Wed, 02 Sep 2026 11:30:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jB5-0000000EVYs-3m6E
+	id 1x1jCv-0000000EWCQ-2Szu;
+	Wed, 02 Sep 2026 11:32:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1jCt-0000000EWBQ-0gaH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:30:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A684440244;
-	Wed,  2 Sep 2026 11:30:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE291F00A3A;
-	Wed,  2 Sep 2026 11:30:46 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clegoffic@baylibre.com>
-Cc: devicetree@vger.kernel.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v3 12/12] arm64: dts: renesas: ironhide: Add CPG/MDLC renesas,scmi-firmware properties
-Date: Wed,  2 Sep 2026 13:29:28 +0200
-Message-ID: <da82ca150ef0bae62ba61b60376103c262f60ebc.1788338320.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1788338320.git.geert+renesas@glider.be>
-References: <cover.1788338320.git.geert+renesas@glider.be>
+	Wed, 02 Sep 2026 11:32:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC7A82F;
+	Wed,  2 Sep 2026 04:32:35 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C8D183F85F;
+	Wed,  2 Sep 2026 04:32:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788348759; bh=qx1oKdH0wHUPkUW+KQ/NyOiGBLOROyjuVV3j7qsQIEc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=r8bJ0fZC2S8t0PJtEtQmFyFf6PisNnzlOsgsaQ5jEC8xqgUDJf0BaayS8E5ZZTR5U
+	 Z+Kwz/GUtT+nnFcH5UsrLpFO0ztpD917KpAmvPDbfgghp9rfSH4eufqwWwgjRnQe5s
+	 b3Ac5x+Syl5lt5bOqQ/w6aFTfKEuKeHzCJG8+THM=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	will@kernel.org
+Subject: [PATCH 0/2] arm64: alternative: Remove optional 'cfg' parameter
+Date: Wed,  2 Sep 2026 12:32:30 +0100
+Message-Id: <20260902113232.314831-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_043243_247757_3DC3950F 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,155 +70,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Link the various Clock Pulse Generator (CPG) and Module Controller
-(MDLC) device nodes to their SCMI provider.
+These patches remove the optional 'cfg' parameter from alternative
+macros.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-v3:
-  - s/firmware/renesas,scmi-firmware/,
+Use of the 'cfg' parameter is less clear than ifdeffery or IS_ENABLED()
+checks, and also doesn't allow the compiler to elide asm() blocks when
+'cfg' is not selected, so it's preferable to avoid it.
 
-v2:
-  - No changes.
----
- .../boot/dts/renesas/r8a78000-ironhide.dts    | 116 ++++++++++++++++++
- 1 file changed, 116 insertions(+)
+Mark.
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-index 04291f04da2b7fb5..a6f055a1f38a8449 100644
---- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-@@ -170,6 +170,10 @@ ecc@1e66660000 {
- 	};
- };
- 
-+&cpg {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
- &extal_clk {
- 	clock-frequency = <16666600>;
- };
-@@ -183,6 +187,118 @@ &hscif0 {
- 	status = "okay";
- };
- 
-+&mdlc_aon {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_cmnn {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_cmns {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr0 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr1 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr2 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr3 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr4 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr5 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr6 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ddr7 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_dsp {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_gpc {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_hscn {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_hscs {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_imn {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_ims {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_mm {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_npu0 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_npu1 {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_pere {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_perw {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_rt {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_scp {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_top {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_vio {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_vipn {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
-+&mdlc_vips {
-+	renesas,scmi-firmware = <&scmi>;
-+};
-+
- &mfis_scp {
- 	status = "okay";
- };
+Mark Rutland (2):
+  arm64: mte-kasan: Use IS_ENABLED() rather than ALTERNATIVE() 'cfg'
+    parameter
+  arm64: alternative: Remove 'cfg' parameter
+
+ arch/arm64/include/asm/alternative-macros.h | 30 +++++++--------------
+ arch/arm64/include/asm/mte-kasan.h          | 10 ++++---
+ 2 files changed, 16 insertions(+), 24 deletions(-)
+
 -- 
-2.43.0
+2.30.2
 
 
