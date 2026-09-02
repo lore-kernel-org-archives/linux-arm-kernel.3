@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F30C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2176AC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d33A2cRSMy14qLiB29N4dNiBSipjfdSlz1gXIdUUM+M=; b=fiiGvvchTwLsDSduCB1gFzbSsG
-	GcIeo4S8xV1tRGumU8cAWMGg9B5jZWBoOSDtR45r05BrzvOhKfzguCRBwh02EVF7Y1r/q8Bz6sFsp
-	RYsJxczgFELxX6c7lYLLhG95Kzwb73+qvhtK2AKy6BMa+deSpIpHJ5qdoh+dlV6SDtcyOXjTZJTLt
-	7Op6WSWcMsGYB5dYg6Ii0KCc9DtyTbypEwmoXkVoic8eD3y+hgVRYEiM/wweWINi/19gAAzzYL77v
-	p3QRKnrj4dkI0rh5ifnS4SOev+8NGhuxavQpxX2h7sjfYe6E6uo/Ag1O7dDSB518OuabWyYTWwm1h
-	q9O1tyKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zOAftsAK+Nf90yUYNZWZd45OpI3sHjjNMKxymst/wiI=; b=lFESOwuFPZOzaM4LMOv2GrOZs6
+	6v/S9mBBobRMXvJa1Fl/j4nkCVSwG1Iliqh45IBEJbkPvxHKMv6GkwuJrht2b513onTN2rfKsR4ur
+	73JRoKQx2U0tBqx2EV70SvcS4XXq6ZbE/vUpYnYcKnwzy6hXGNJaLHNkPZFcqGZGdFgDAou9R+JaJ
+	79iC+eOVlZbTHUkisUUlQqfjlj4ooJFeDOys/MODh5yv26e1normjZdHU8BcVlYUxMmSmWgRQeNA8
+	H1cizRbwuL0LcjhsX0BURL5QbvlRGndCOf+qv6WdnkimAw3e26jkzzB909rEe/hNl0xRsxwgpbp2y
+	eN7g0oTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jW4-0000000EYci-0mVf;
-	Wed, 02 Sep 2026 11:52:32 +0000
-Received: from mail-qk1-f177.google.com ([209.85.222.177])
+	id 1x1jWG-0000000EYgA-2Q6F;
+	Wed, 02 Sep 2026 11:52:44 +0000
+Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jW1-0000000EYbq-1DDF
+	id 1x1jWD-0000000EYea-1UCM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:52:31 +0000
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-936e393176fso81844785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:52:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788349948; x=1788954748;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=d33A2cRSMy14qLiB29N4dNiBSipjfdSlz1gXIdUUM+M=;
-        b=pSGowrsMhU12Zy99AOl8rzJYQA6n9lkILhy9AGN8z5mpGiHcBKNVwc/0qX5TeDQzDj
-         FgUQ5ouDEABHTB+AQlpmykbHkP4LgVQT9wKfbs8GFkTKFEmX5WZpxpG3mY9kJkI2zLZ3
-         xtP/UB6TL1uQNq8JTbpfPRUEoGjIOovn1ed56yU3PZP1/XcOa91I8fAiOfF+S+gLWt6a
-         bU7s72/pYiE8GFFAjov4vq08P6hJviy/qUMa8cN/uCWaGLsMsl7Hde+xikQxmdrx5Ofp
-         sfXmWoalF0FC0zAczabWxPfsdHixhKxFzQpr4rRmyBmFCmuS2/FmmI9KGYBYDCuOuAw7
-         cdfg==
-X-Forwarded-Encrypted: i=1; AHgh+RrRL0T1f4omdBUn7tQ+HQBwVzOczdYAcrEYx032boDyq3imtRrfCiSrqPs3WcjpDYuObpqEkdQd8bnCTW05qpWt@lists.infradead.org
-X-Gm-Message-State: AFuF++la3D1gG1BJLfwOGi+3gfKbz54vjS38zYNl/2Go3tlofML1VEed
-	C1pPKTMMMtQYMw6CQC2nupFLQCrybVm2dHjght3grYdXyPRIkUvzhZid2070tc5Q
-X-Gm-Gg: AR+sD10GfHWzqz4bFp88PlYrk3aeOpzRXUwH2M5s+pTqIqlsGKhvG4FZyNOQK46VLeL
-	BKBhVz/AnFyujAfMKTNKQyNnlB0Lexsx1/fFNvuA8PrWf8PSWiQ31cgUG4mRQS00o65zjgHWT6x
-	zK7y2hZhI+KhAEzARqNFZZcNkBwy2QE7LglQAgI1DVo+y4DHj2yyPkbl4VL2beaVYFnLLUmPntL
-	yxbVpawlfmo8KTTAsavSVEiGRZ279t07r288yYfZsPsSxVsOaD8s86JhVFilE+LBEEjz6QBrK4h
-	TFKcKOzX8P7s678Q/nUkB+Ylo4xxHGykzcVLYmi/8HduBnFiTQZ02P7VVe/C2en3yL7bvAB77EW
-	kh8dWy2zGXrncDL4XM06YVlSUGa8cVotCsMcQEtsDgi6PzBkQUkuKYeUsfCaiv4H1x3u/KGgzo9
-	1dkx5bG4BeqjZAsPJ+hePxqC9etln6JRXOTuYTki+jlDDizP26kZMv5NSHNDOVgrDiem2jTXQCo
-	8q3U0i7WHvdO1ilckwBSZppeTkdVA==
-X-Received: by 2002:a05:620a:27c1:b0:939:2bbb:b266 with SMTP id af79cd13be357-93960ccd7b1mr487402785a.8.1788349947745;
-        Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com. [209.85.160.182])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9395f1aa0a3sm191112885a.17.2026.09.02.04.52.27
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5300bdf61d9so10425361cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoO7FIlhfK1sVTAHvVHlmIdiKcc5GqpfH+lu5absHhLUs8SPwwd/Lw3Q7A7w/ypkP/EEAghNryR29M88Ohqowtf@lists.infradead.org
-X-Received: by 2002:a05:6102:2997:b0:784:a169:194a with SMTP id
- ada2fe7eead31-78a1f437b62mr1623913137.10.1788349475087; Wed, 02 Sep 2026
- 04:44:35 -0700 (PDT)
+	Wed, 02 Sep 2026 11:52:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1788349961; x=1819885961;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=zOAftsAK+Nf90yUYNZWZd45OpI3sHjjNMKxymst/wiI=;
+  b=blrF+tQsWnrhWzy/CNlwS50XZ+MA9K9vXBHrndB1XKI/Um5omdzKWIPP
+   Kygks9wT25WzkPp5T6BYK6NX2syoLReflBBeeKPPQ3GD6yG7WDnG3271r
+   Jcx23JvtwlPeogAI9rMSVRwacWjmZeb+E6U6xUUHS+zBfOKws/7LkBAiP
+   LJM3y9OU9YKLV09uu7W7lM63cZdfrPF53sxwy9JyLpsMEuqHHg3ee3Lje
+   PK9rZ9bbRYZDyZ/pHcMvLUXdyFgc6tbUxV9RJR3bLnzs/efUU4fvFV7VJ
+   op/qgLytAt99iZJej/J3xAqdNPrALDP7Ak1QB5LYpJHhGzV/ArHwbLtX7
+   A==;
+X-CSE-ConnectionGUID: PjdE/nC5Tn+eSW71IvUofg==
+X-CSE-MsgGUID: kHQdIjUhTY2P3vMe8DvttQ==
+X-IronPort-AV: E=Sophos;i="6.25,257,1779148800"; 
+   d="scan'208";a="27399083"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Sep 2026 11:52:39 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:7714]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.57.85:2525] with esmtp (Farcaster)
+ id a7133567-32c7-4502-bf0e-5593dedafe5a; Wed, 2 Sep 2026 11:52:38 +0000 (UTC)
+X-Farcaster-Flow-ID: a7133567-32c7-4502-bf0e-5593dedafe5a
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.45;
+ Wed, 2 Sep 2026 11:52:38 +0000
+Received: from 80a9970eed1e.amazon.com (10.187.170.39) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.46;
+ Wed, 2 Sep 2026 11:52:37 +0000
+From: Justinien Bouron <jbouron@amazon.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, Andrew Morton
+	<akpm@linux-foundation.org>, Huang Ying <ying.huang@linux.alibaba.com>,
+	Justinien Bouron <jbouron@amazon.com>, Quentin Perret <qperret@google.com>,
+	Mark Brown <broonie@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Gunnar Kudrjavets <gunnarku@amazon.com>
+Subject: [PATCH v2 RESEND] arm64: Add user and kernel page-fault tracepoints
+Date: Wed, 2 Sep 2026 04:52:13 -0700
+Message-ID: <20260902115216.49158-1-jbouron@amazon.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-References: <cover.1788338320.git.geert+renesas@glider.be> <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
-In-Reply-To: <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 2 Sep 2026 13:44:24 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVstZYufZWdD-ajwg74kU6pWtQE3WueCg-XUw9Lye5DAA@mail.gmail.com>
-X-Gm-Features: AcwNN1UuztEnaQfQ-OMWO4Fx0VqCWe7sLpxq0iVHzvAi1AhVOPaRJUxDUVxmfIc
-Message-ID: <CAMuHMdVstZYufZWdD-ajwg74kU6pWtQE3WueCg-XUw9Lye5DAA@mail.gmail.com>
-Subject: Re: [PATCH v3 07/12] reset: Add reset_control_get_from_provider_exclusive()
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Vinod Koul <vkoul@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>, 
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.187.170.39]
+X-ClientProxiedBy: EX19D038UWB003.ant.amazon.com (10.13.139.157) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_045229_352016_984C20E4 
-X-CRM114-Status: GOOD (  38.95  )
+X-CRM114-CacheID: sfid-20260902_045241_475588_430A3E17 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,141 +94,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Sept 2026 at 13:30, Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-> When stacking two reset controllers, the upper one should go through the
-> proper channels: request exclusive reset controls and use them via the
-> reset_control_*() APIs.  However, unlike the clock subsystem, which has
-> of_clk_get_from_provider(), the reset subsystem does not offer a way to
-> lookup and obtain a reset from a reset provider.
->
-> Hence add a public helper reset_control_get_from_provider_exclusive()
-> to lookup and obtain an exclusive reference to a reset controller, based
-> on the recently introduced __reset_control_get_from_provider() helper.
-> This will be used by the R-Car X5H Module Controller driver.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v3:
->   - Replace reset_controller_get_provider() by
->     reset_control_get_from_provider_exclusive(),
->   - Add kerneldoc,
->
-> v2:
->   - No changes.
-> ---
->  drivers/reset/core.c  | 37 ++++++++++++++++++++++++++++++++-----
->  include/linux/reset.h |  8 ++++++++
->  2 files changed, 40 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/reset/core.c b/drivers/reset/core.c
-> index 8af7cd2e8a5029df..6d4c95b3edb18248 100644
-> --- a/drivers/reset/core.c
-> +++ b/drivers/reset/core.c
-> @@ -1141,6 +1141,7 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
->                                   bool gpio_fallback,
->                                   enum reset_control_flags flags)
->  {
-> +       struct fwnode_handle *fwnode = consumer ?: args->fwnode;
->         struct reset_control *rstc = ERR_PTR(-EINVAL);
->         struct reset_controller_dev *rcdev;
->         int rstc_id = -EINVAL;
-> @@ -1154,18 +1155,26 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
->         if (WARN_ON(args->nargs != rcdev->fwnode_reset_n_cells))
->                 return ERR_PTR(-EINVAL);
->
-> -       if (rcdev->of_xlate && is_of_node(consumer)) {
-> -               struct device_node *np = to_of_node(consumer);
-> +       if (rcdev->of_xlate && is_of_node(fwnode)) {
-> +               struct device_node *np = to_of_node(fwnode);
->                 struct of_phandle_args of_args;
->                 int ret;
->
-> -               ret = of_parse_phandle_with_args(np,
-> +               if (consumer) {
-> +                       ret = of_parse_phandle_with_args(np,
->                                          gpio_fallback ? "reset-gpios" : "resets",
->                                          gpio_fallback ? "#gpio-cells" : "#reset-cells",
->                                          gpio_fallback ? 0 : index,
->                                          &of_args);
-> -               if (ret)
-> -                       return ERR_PTR(ret);
-> +                       if (ret)
-> +                               return ERR_PTR(ret);
-> +               } else {
-> +                       of_args.np = of_node_get(np);
-> +                       of_args.args_count = args->nargs;
-> +
-> +                       for (unsigned int i = 0; i < args->nargs; i++)
-> +                               of_args.args[i] = args->args[i];
-> +               }
->
->                 rstc_id = rcdev->of_xlate(rcdev, &of_args);
->                 of_node_put(of_args.np);
-> @@ -1257,6 +1266,24 @@ struct reset_control *__reset_control_get(struct device *dev, const char *id,
->  }
->  EXPORT_SYMBOL_GPL(__reset_control_get);
->
-> +/**
-> + * reset_control_get_from_provider_exclusive - Lookup and obtain an exclusive
-> + *                                            reference to a reset controller.
-> + * @args: Reference to the reset controller provider with all the args like
-> + *       reset number
-> + *
-> + * Returns a struct reset_control or IS_ERR() condition containing errno.
-> + * If this function is called more than once for the same reset control it will
-> + * return -EBUSY.
-> + */
-> +struct reset_control *
-> +reset_control_get_from_provider_exclusive(const struct fwnode_reference_args *args)
-> +{
-> +       return __reset_control_get_from_provider(args, NULL, 0, false,
-> +                                                RESET_CONTROL_EXCLUSIVE);
-> +}
-> +EXPORT_SYMBOL_GPL(reset_control_get_from_provider_exclusive);
-> +
->  int __reset_control_bulk_get(struct device *dev, int num_rstcs,
->                              struct reset_control_bulk_data *rstcs,
->                              enum reset_control_flags flags)
-> diff --git a/include/linux/reset.h b/include/linux/reset.h
-> index 9c391cf0c82298a0..09ee47b27f88d3b1 100644
-> --- a/include/linux/reset.h
-> +++ b/include/linux/reset.h
-> @@ -90,6 +90,8 @@ struct reset_control *__fwnode_reset_control_get(struct fwnode_handle *fwnode,
->                                      const char *id, int index, enum reset_control_flags flags);
->  struct reset_control *__reset_control_get(struct device *dev, const char *id,
->                                           int index, enum reset_control_flags flags);
-> +struct reset_control *reset_control_get_from_provider_exclusive(
-> +                               const struct fwnode_reference_args *args);
->  void reset_control_put(struct reset_control *rstc);
->  int __reset_control_bulk_get(struct device *dev, int num_rstcs,
->                              struct reset_control_bulk_data *rstcs,
-> @@ -173,6 +175,12 @@ static inline struct reset_control *__reset_control_get(
->         return optional ? NULL : ERR_PTR(-ENOTSUPP);
->  }
->
-> +static inline struct reset_control *reset_control_get_from_provider_exclusive(
-> +                               const struct fwnode_reference_args *args)
-> +{
-> +       return NULL;
+Those tracepoints were made generic in commit 06aa9378df01
+("x86/tracing, x86/mm: Move page fault tracepoints to generic"), call
+them from arm64's page fault handling routine.
 
-As reported by Sashiko, this dummy should return ERR_PTR(-ENOTSUPP)
-instead.
+Signed-off-by: Justinien Bouron <jbouron@amazon.com>
+Reviewed-by: Gunnar Kudrjavets <gunnarku@amazon.com>
+---
+Link to v1: https://lore.kernel.org/lkml/20260520045524.75670-1-jbouron@amazon.com/
+Diff with v1:
+    * Moved the tracepoint after kprobe_page_fault(), as recommended by Leo Yan.
+---
+Benchmarking
+============
 
-> +}
-> +
->  static inline int
->  reset_control_bulk_reset(int num_rstcs, struct reset_control_bulk_data *rstcs)
->  {
+Since the added code sits in the page-fault handling hot-path, I've also ran
+some benchmarks to make sure this change is not accidentally introducing a
+regression. All testing below was done on a c6g.metal EC2 instance (i.e.
+bare-metal) which is an ARM64 CPU with 64 cores and 128GiB of RAM.
 
-Gr{oetje,eeting}s,
+First, a microbenchmark that maps anonymous memory and write to the first four
+bytes of each page, thus running into page-fault for each one:
+	#include <stdio.h>
+	#include <sys/mman.h>
+	#include <stdint.h>
+	#include <stdlib.h>
+	#include <unistd.h>
+	#include <assert.h>
 
-                        Geert
+	int main(int argc, char **argv) {
+		int npages = atoi(argv[1]);
+		size_t size = npages * 4096;
+		printf("pid = %d\n", getpid());
+		char *p = mmap((void*)0xcafe0000,
+				size,
+				PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED,
+				-1, 0);
+		assert(p != MAP_FAILED);
+		for (int i = 0; i < npages; i++)
+			*(uint32_t *)(p + i * 4096) = 0xdeadbeef;
+		munmap(p, size);
+	}
 
+Compiled with: `gcc microbench.c -no-pie -o microbench` (GCC 15.2.0)
+
+Before the change:
+	$ hyperfine --runs 50 './microbench 100000'
+	Benchmark 1: ./microbench 100000
+	  Time (mean ± σ):     148.9 ms ±   0.9 ms    [User: 6.0 ms, System: 142.9 ms]
+	  Range (min … max):   147.5 ms … 151.5 ms    50 runs
+
+After the change:
+	$ hyperfine --runs 50 './microbench 100000'
+	Benchmark 1: ./microbench 100000
+	  Time (mean ± σ):     151.0 ms ±   0.6 ms    [User: 5.6 ms, System: 145.4 ms]
+	  Range (min … max):   150.0 ms … 152.4 ms    50 runs
+
+
+Second benchmark, linux kernel compilation benchmark with defconfig (on commit
+bd5f485f3f02):
+
+Before the change:
+	$ hyperfine --runs 5 --prepare 'make clean && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches' 'make -j65'
+	Benchmark 1: make -j65
+	  Time (mean ± σ):     157.298 s ±  2.593 s    [User: 6993.534 s, System: 1213.435 s]
+	  Range (min … max):   155.881 s … 161.870 s    5 runs
+
+After the change:
+	$ hyperfine --runs 3 --prepare 'make clean && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches' 'make -j65'
+	Benchmark 1: make -j65
+	  Time (mean ± σ):     156.723 s ±  0.496 s    [User: 6987.524 s, System: 1236.200 s]
+	  Range (min … max):   156.316 s … 157.275 s    3 runs
+
+Testing
+=======
+
+Re-using the microbenchmark above, we can see the page-faults generated by
+writing to each mmap'ed page (mmap'ed region starts at address 0xcafe0000):
+	$ sudo perf record -e exceptions:page_fault_user -- ./microbench 16
+	pid = 1284962
+	[ perf record: Woken up 2 times to write data ]
+	[ perf record: Captured and wrote 0.015 MB perf.data (63 samples) ]
+	$ sudo perf script
+		  microbench 1284962 [020] 123047.716213: exceptions:page_fault_user: address=0xf25f095c3640 ip=0xf25f095c3640 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716221: exceptions:page_fault_user: address=0xf25f095e8066 ip=0xf25f095bf0c4 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716222: exceptions:page_fault_user: address=0xf25f095e8066 ip=0xf25f095bf0cc error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716227: exceptions:page_fault_user: address=0xf25f095e6e28 ip=0xf25f095bf0d0 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716229: exceptions:page_fault_user: address=0xf25f095e6e70 ip=0xf25f095bf19c error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716233: exceptions:page_fault_user: address=0xf25f095a7b38 ip=0xf25f095bf304 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716237: exceptions:page_fault_user: address=0xf25f095e5d28 ip=0xf25f095bf2f8 error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716241: exceptions:page_fault_user: address=0xfffff7aa5f10 ip=0xf25f095bdd64 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716256: exceptions:page_fault_user: address=0x400040 ip=0xf25f095c0160 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716258: exceptions:page_fault_user: address=0x41fdf8 ip=0xf25f095c02f0 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716260: exceptions:page_fault_user: address=0xf25f095e3020 ip=0xf25f095c0548 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716263: exceptions:page_fault_user: address=0xf25f095e4000 ip=0xf25f095c0640 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716270: exceptions:page_fault_user: address=0xf25f095dd008 ip=0xf25f095ad848 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716273: exceptions:page_fault_user: address=0x41fec0 ip=0xf25f095c0cd0 error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716293: exceptions:page_fault_user: address=0xf25f095d6000 ip=0xf25f095ba1c4 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716305: exceptions:page_fault_user: address=0xfffff7aa4e30 ip=0xf25f095addec error_code=0x92000047
+		  microbench 1284962 [020] 123047.716335: exceptions:page_fault_user: address=0xf25f095914d8 ip=0xf25f095c5be0 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716342: exceptions:page_fault_user: address=0xf25f0958fa88 ip=0xf25f095ae4c0 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716345: exceptions:page_fault_user: address=0xf25f0958fb20 ip=0xf25f095ae534 error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716349: exceptions:page_fault_user: address=0xf25f093d02e0 ip=0xf25f095ae704 error_code=0x92000006
+		  microbench 1284962 [020] 123047.716354: exceptions:page_fault_user: address=0xf25f09578788 ip=0xf25f095adbb0 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716357: exceptions:page_fault_user: address=0xf25f093efcef ip=0xf25f095c5358 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716361: exceptions:page_fault_user: address=0xf25f093f1650 ip=0xf25f095b927c error_code=0x92000007
+		  microbench 1284962 [020] 123047.716366: exceptions:page_fault_user: address=0xf25f095de610 ip=0xf25f095c5c10 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716370: exceptions:page_fault_user: address=0xf25f0958d080 ip=0xf25f095b46a4 error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716375: exceptions:page_fault_user: address=0xf25f0958e000 ip=0xf25f095b46fc error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716380: exceptions:page_fault_user: address=0xf25f095902d8 ip=0xf25f095b46a4 error_code=0x9200004f
+		  microbench 1284962 [020] 123047.716412: exceptions:page_fault_user: address=0xf25f09472180 ip=0xf25f09472180 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716431: exceptions:page_fault_user: address=0xf25f095d4000 ip=0xf25f095aaa40 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716443: exceptions:page_fault_user: address=0xf25f0951b1a0 ip=0xf25f0951b1a0 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716445: exceptions:page_fault_user: address=0xf25f0940188c ip=0xf25f0940188c error_code=0x82000007
+		  microbench 1284962 [020] 123047.716446: exceptions:page_fault_user: address=0xf25f09597458 ip=0xf25f0951b1dc error_code=0x92000047
+		  microbench 1284962 [020] 123047.716449: exceptions:page_fault_user: address=0xf25f0959de39 ip=0xf25f0951b1e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716451: exceptions:page_fault_user: address=0xf25f094bdce0 ip=0xf25f094bdce0 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716453: exceptions:page_fault_user: address=0xf25f09596518 ip=0xf25f0951b260 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716455: exceptions:page_fault_user: address=0xf25f0945ec10 ip=0xf25f0945ec10 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716457: exceptions:page_fault_user: address=0xf25f09592180 ip=0xf25f0940c918 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716459: exceptions:page_fault_user: address=0xf25f0946da88 ip=0xf25f0946da88 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716475: exceptions:page_fault_user: address=0xf25f094c66e0 ip=0xf25f094c66e0 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716478: exceptions:page_fault_user: address=0xf25f09418220 ip=0xf25f09418220 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716480: exceptions:page_fault_user: address=0xf25f095249a2 ip=0xf25f094182b8 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716482: exceptions:page_fault_user: address=0xf25f0949d180 ip=0xf25f0949d180 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716484: exceptions:page_fault_user: address=0xf25f09429e40 ip=0xf25f09429e40 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716486: exceptions:page_fault_user: address=0xf25f09535384 ip=0xf25f09427c58 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716488: exceptions:page_fault_user: address=0xf25f095433d2 ip=0xf25f0941e788 error_code=0x92000007
+		  microbench 1284962 [020] 123047.716490: exceptions:page_fault_user: address=0xf25f09443b80 ip=0xf25f09443b80 error_code=0x82000007
+		  microbench 1284962 [020] 123047.716497: exceptions:page_fault_user: address=0x18072008 ip=0xf25f0946bb88 error_code=0x92000046
+		  microbench 1284962 [020] 123047.716517: exceptions:page_fault_user: address=0xcafe0000 ip=0x4008e4 error_code=0x92000045
+		  microbench 1284962 [020] 123047.716522: exceptions:page_fault_user: address=0xcafe1000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716524: exceptions:page_fault_user: address=0xcafe2000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716530: exceptions:page_fault_user: address=0xcafe3000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716532: exceptions:page_fault_user: address=0xcafe4000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716533: exceptions:page_fault_user: address=0xcafe5000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716535: exceptions:page_fault_user: address=0xcafe6000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716537: exceptions:page_fault_user: address=0xcafe7000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716538: exceptions:page_fault_user: address=0xcafe8000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716540: exceptions:page_fault_user: address=0xcafe9000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716542: exceptions:page_fault_user: address=0xcafea000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716553: exceptions:page_fault_user: address=0xcafeb000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716555: exceptions:page_fault_user: address=0xcafec000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716557: exceptions:page_fault_user: address=0xcafed000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716559: exceptions:page_fault_user: address=0xcafee000 ip=0x4008e4 error_code=0x92000047
+		  microbench 1284962 [020] 123047.716561: exceptions:page_fault_user: address=0xcafef000 ip=0x4008e4 error_code=0x92000047
+
+IP 0x4008e4 corresponds to the instruction where the write to each page is
+performed:
+	$ objdump --disassemble=main ./microbench | grep 4008e4 -C7
+	  4008c8:       b9402be0        ldr     w0, [sp, #40]
+	  4008cc:       53144c00        lsl     w0, w0, #12
+	  4008d0:       93407c00        sxtw    x0, w0
+	  4008d4:       f9401fe1        ldr     x1, [sp, #56]
+	  4008d8:       8b000020        add     x0, x1, x0
+	  4008dc:       5297dde1        mov     w1, #0xbeef                     // #48879
+	  4008e0:       72bbd5a1        movk    w1, #0xdead, lsl #16
+	=>4008e4:       b9000001        str     w1, [x0]
+	  4008e8:       b9402be0        ldr     w0, [sp, #40]
+	  4008ec:       11000400        add     w0, w0, #0x1
+	  4008f0:       b9002be0        str     w0, [sp, #40]
+	  4008f4:       b9402be1        ldr     w1, [sp, #40]
+	  4008f8:       b9402fe0        ldr     w0, [sp, #44]
+	  4008fc:       6b00003f        cmp     w1, w0
+	  400900:       54fffe4b        b.lt    4008c8 <main+0x9c>  // b.tstop
+
+First error_code when writing to the mmap'ed region is 0x92000045 which, as
+expected, corresponds to user-mode, write fault, at page-table level 1 (see
+https://esr.arm64.dev/#0x92000045). Following faults have similar error_code but
+for page-table level 3 fault (https://esr.arm64.dev/#0x92000047).
+
+For kernel page-faults, tested using tracepoints directly:
+	# echo 1 > events/exceptions/page_fault_kernel/enable
+	# cat trace_pipe
+				bash-1285046 [022] ..... 123669.960098: page_fault_kernel: address=0xeb76fd8ce0f0 ip=schedule_tail error_code=0x9600004f
+				bash-1285046 [022] ..... 123669.960196: page_fault_kernel: address=0xeb76fd7e3088 ip=__arch_copy_from_user error_code=0x96000007
+				bash-1285046 [022] ..... 123669.960535: page_fault_kernel: address=0xc434acd45e08 ip=__arch_clear_user error_code=0x96000044
+				bash-1285046 [022] ..... 123669.960553: page_fault_kernel: address=0xe4a5638f98e4 ip=__arch_clear_user error_code=0x96000044
+			   <...>-1285047 [056] ..... 123673.423617: page_fault_kernel: address=0xb4b46cea0010 ip=__arch_clear_user error_code=0x96000044
+			   <...>-1285047 [056] ..... 123673.423644: page_fault_kernel: address=0xf1a30e2c28e4 ip=__arch_clear_user error_code=0x96000044
+---
+ arch/arm64/mm/fault.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 0b52557652be..2a4a3e9089ad 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -46,6 +46,9 @@
+ #include <asm/traps.h>
+ #include <asm/virt.h>
+ 
++#define CREATE_TRACE_POINTS
++#include <trace/events/exceptions.h>
++
+ struct fault_info {
+ 	int	(*fn)(unsigned long far, unsigned long esr,
+ 		      struct pt_regs *regs);
+@@ -614,6 +617,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	if (kprobe_page_fault(regs, esr))
+ 		return 0;
+ 
++	if (user_mode(regs))
++		trace_page_fault_user(addr, regs, esr);
++	else
++		trace_page_fault_kernel(addr, regs, esr);
++
+ 	/*
+ 	 * If we're in an interrupt or have no user context, we must not take
+ 	 * the fault.
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.53.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
