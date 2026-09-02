@@ -4,132 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C26C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B9DC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ejSeD4KjKKws421Wn1Lo2KRjTk+ZuTAlSMpzMTTn2w=; b=y22ms5iaUby+mam74aib1I9DDV
-	PGKTcWSb/WnvsrGuKFsXksYN+raZ0Jjzrg3kxuq/9wuhh3MgdCOqdaytjhqjvC/ZM06HC7TF+GZL7
-	QQITYVSzf3kJE8mg6yp1gEd45bDLO4kdpa3DP7K4VhKf8Cgg/G0ul2jhd7uTEN1Dh2gyJlEGPOPg2
-	BLVYjjJ6srpI25XigqFc0MJJ7rMwy2G2rtMLnfPQYoBPErfI0TvTKw0hGsbsv2uU/4YfXcvE4G7ld
-	8KeHtfSbQ2q1goQH4WteVh7oez0j2K5Sw3SCo9IJj5XvZ6DpIyXJFS7e3aJjjRuAl7BYOqYsiuVfi
-	0KNOvEGA==;
+	bh=K8wBrdWSV92hcb+OGpUJM58MhakZSJllcgFy8ZSCAG8=; b=NkjOX/OB1FHOqHRo/JkcVXy485
+	WS5kvLvLR8VNcmD2UvPcFBV6uf7JnBWMxZ8NTYgcxbg8XxI2tHKh7ZGccCNA2BJiLzLSMafssrMY+
+	f5tINwC1Q7MQfule1ASuRpQzE4yqo5BVOOSOjv6fckD3sj0tiJHG3EmqlBkhb1VNPVgWluq5Y6ibe
+	+VaCyWrep/hAUCpoBCXCFVISd2SiK6WZdgRGCtRYftclizYNj8/8Ej2tAXoJgV3qDwEP0Ixyte4eG
+	He9KlQMEEWSt9uaTEYoqn/AO4UIgOOHoV+BsNApNPj/WYI/TBWaXPLnmMKxbAckBkycZOKVmMwfJA
+	qHIqr0PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fkJ-0000000DzQl-46nF;
-	Wed, 02 Sep 2026 07:50:59 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x1fka-0000000DzSh-3A3p;
+	Wed, 02 Sep 2026 07:51:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fkF-0000000DzPv-2BlO
+	id 1x1fkY-0000000DzSC-2F82
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 07:50:56 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6826VoWJ2306841;
-	Wed, 2 Sep 2026 07:50:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=9ejSeD4KjKKws421Wn1Lo2KRjTk+Zu
-	TAlSMpzMTTn2w=; b=cxVuV2uvzkgvcs5EuoRdkgcUKRWAr5Xjwo1jC1fhMJKbAj
-	Be6LQnHyTobrmD0E8UrkCTLJf8OGTU+R54sENjr1innuQgZxieP0rxW86GNzw1hS
-	+dP9P/t65Ka5SytaXAXHEcLcHlEl17fNJGrw3qExpWhKK14HRgSjXuAZN+OSENrF
-	0ixZuJHHgBcEblO6aB63DTukueTSLI9hUZ5OSoTVkRjaO7D7Af/zK9DaUPsvZBdl
-	GS/uoaGz+TZPRP3CyKlD+ftiQdrHXJRTklWrkQll58YzmlktsM/rQqRYynQ0AhWW
-	ikkrJX57JOTPRF5YGjEmBmVLzuAEH0lTN5ebipgw==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbnudvtex-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Sep 2026 07:50:35 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6827fNxk006691;
-	Wed, 2 Sep 2026 07:50:34 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gcbygg9gx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 02 Sep 2026 07:50:34 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6827oUxL37814712
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 2 Sep 2026 07:50:30 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 632CF20040;
-	Wed,  2 Sep 2026 07:50:30 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F30C02004E;
-	Wed,  2 Sep 2026 07:50:29 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed,  2 Sep 2026 07:50:29 +0000 (GMT)
-Date: Wed, 2 Sep 2026 09:50:28 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-Message-ID: <20260902075028.231001-D-seiden@linux.ibm.com>
-References: <20260831144802.834315-1-seiden@linux.ibm.com>
- <20260831144802.834315-3-seiden@linux.ibm.com>
- <apdweRfqt4dTxcU9@google.com>
+	Wed, 02 Sep 2026 07:51:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E2DEA6022C;
+	Wed,  2 Sep 2026 07:51:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 874C51F000E9;
+	Wed,  2 Sep 2026 07:51:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788335473;
+	bh=K8wBrdWSV92hcb+OGpUJM58MhakZSJllcgFy8ZSCAG8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mBSh9Qahbt+37XpHW+HjIn3G4Y8+fqIkLpBwcbylgUvrv0dRAWkinld9EP22jagSL
+	 V4ZwlxQd1UHPzBG536m2wHB4/qjFNd4dCL4WvDdN5SsU484xb4ulC3nFRi6tKaLAc+
+	 rm/F+uKnZU3u4jRfw2vz2rvpvLsxUw5rQ6ABejmBWitxSgnmHKQPuTM4HnlyUPj4QW
+	 A7ji804fBQARmJy5SMytcQ6e51LteVAN6CpdlHKgVqdvs46uh2PesjxHfZtWMsflox
+	 teC9dkSUE/Nw1uyAh9NHe5yxkI5Na5pGmb+wSWOMwYc0qtkgDpGH6zHajDPhvz4pby
+	 menmGGcGq/s4g==
+Date: Wed, 2 Sep 2026 08:51:10 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
+	Breno Leitao <leitao@debian.org>
+Subject: Re: [PATCH v3 1/9] firmware: arm_scmi: Set fwnode for the generated
+ SCMI platform device
+Message-ID: <20260902-tireless-steadfast-mongoose-cccac7@sudeepholla>
+References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
+ <20260813-acpi_scmi_pcc-v3-1-cb6b88b4ebb3@kernel.org>
+ <20260824095121.00001b9c@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <apdweRfqt4dTxcU9@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: QF-vG4BX5O9Aa6yStpepOuZKOE1eMyna
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDA2NiBTYWx0ZWRfX1WgqhhycMSVK
- s9TTuZZWkFfejSZv8rcgEHtbfySdP1FbI2p6sJ8lf5UVjmD8xtSeQqaeDIqhpm9AVi+eqreLCNK
- 4NketVL6IBOqKHZVZK7uoJ/i/fUxsq9WruPKIFlD9cV5ZERHZlK8U9zG+koiOWfJThl/IhB+nbT
- /Rc0IBpB4uNoE84/ri3yNtDGCRrFRohts+Pg1taTifUVd3caqvrjDY2YmpHY7bkC3h63yqWIUb/
- HkzhLaJ2/cHPbe2q8fwvqi3DEGaLvPCNfOOxj486T6+LjcmcAorE11Azhw4V/UpSbbGjSEcgC3M
- TRN/62A6OrgQFJO03bzM9GTPBwVh44lYo7lv3Hq8a3AktmUl5JK798ONiVDo5kGzyaPDGmaI22Q
- q81Lcz+GoV6EfyB/m554pLNSJRJ7W7ya8LvwPZSUejGoMdeJMiQvPt4+5MfiKHst15fPHlIrrZy
- YK+63sLTYofdlCVPePw==
-X-Proofpoint-ORIG-GUID: fANCLW2A9Trn8myBhZjBZVyvyTFzAB3n
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDA2NiBTYWx0ZWRfX33hdZLrCOFfK
- OQQ8toNI0ozMn9YS4Mm21FSWxILdLLBVkjZ4MI6+sOMJ0hLlup1Gs4BYycC/uA3Vpv8med2wOms
- WjXkSL8iPba98ZH72g14RM4AVVTRDBk=
-X-Authority-Analysis: v=2.4 cv=B92JFutM c=1 sm=1 tr=0 ts=6a97d54c cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=_EcWKeZr55_4eD5WYHIA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-02_01,2026-09-01_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 spamscore=0 clxscore=1015 suspectscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609020066
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_005055_683820_3DD68EF0 
-X-CRM114-Status: GOOD (  21.25  )
+In-Reply-To: <20260824095121.00001b9c@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,52 +72,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 05:40:25PM -0700, Sean Christopherson wrote:
-> On Mon, Aug 31, 2026, Steffen Eiden wrote:
-> > Allow KVM implementations to choose alternative device names. This is
-> > especially useful for architectures providing multiple KVM
-> > implementations simultaneously. Architectures providing multiple KVM
-> > implementations must compile the KVM common code once per
-> > implementation and mange symbols.
+On Mon, Aug 24, 2026 at 09:51:33AM -0700, Jonathan Cameron wrote:
+> On Thu, 13 Aug 2026 12:32:56 +0100
+> Sudeep Holla <sudeep.holla@kernel.org> wrote:
 > 
-> What about tracepoints?  Or do those show up as "kvm" and "kvm-arm64"?
+> > Add a call to device_set_node() in the SCMI probe helper to associate
+> > generated SCMI platform device with the firmware node of its supplier
+> > transport device.
+> > 
+> > This complements device_set_of_node_from_dev() and ensures that
+> > firmware node information is propagated correctly for both Device Tree
+> > and non-DT (e.g. ACPI) based systems.
+> 
+> Hi Sudeep,
+> 
 
-Yes, I want them to show up as kvm and  kvm-arm64.
+Hi Jonathan,
 
-Thanks for pointing that out - I just noticed that I forgot to switch
-the trace system to kvm-arm64 for the common tracepoints in
-trace/events/kvm.h
-I only did it for the arch-local traces in PATCH 21.
+Thanks for all the reviews. I was away for a while and started to look at
+addressing these now.
 
-I would just do the following:
+> When you say 'complement' I'd like to see a little more.  The guts
+> of both calls includes setting dev->ofnode() adn the extra bit
+> in device_set_of_node_from_dev() is about ensuring we drop existing
+> node reference (there isn't one) and increment the reference for what
+> is the parent of_node.
+> 
 
-diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
-index b282e3a86769..5d4f8a0693a3 100644
---- a/include/trace/events/kvm.h
-+++ b/include/trace/events/kvm.h
-@@ -5,7 +5,11 @@
- #include <linux/tracepoint.h>
+Yes I agree. At the time, when I hacked this up, I was supposed to take
+a look at it again which I never did.
 
- #undef TRACE_SYSTEM
-+#ifdef KVM_S390_ARM64
-+#define TRACE_SYSTEM kvm-arm64
-+#else
- #define TRACE_SYSTEM kvm
-+#endif /* KVM_S390_ARM64 */
+> I may be wrong, but I think that is unnecessary and if I'm wrong I'd
+> like to see more info here on why it is needed.
+> 
 
- #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
+No your concerns are valid. For reference-counted non-OF fwnodes like ACPI or
+software node, platform_device_release() drops the fwnode reference,
+but device_set_node() does not acquire one.
+
+> Also, if this is commonly needed why doesn't device_set_node() include
+> that dance?
+> 
+
+I think there are new helpers added recently in the tree, thinking of using
+then. See below.
+
+> Unless I fumbled the command, a grep suggests there are no instances
+> in tree of these both being called near each other.
+> 
+
+I did that too before adding but somehow kept it for future investigation.
 
 
-This would leak a bit of arm on s390 into common KVM but I do not see
-another way.
+> Jonathan
+> 
+> > 
+> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+> > ---
+> >  drivers/firmware/arm_scmi/common.h | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> > index fe8c22cfb9f7..cc7d11c3c1f3 100644
+> > --- a/drivers/firmware/arm_scmi/common.h
+> > +++ b/drivers/firmware/arm_scmi/common.h
+> > @@ -650,6 +650,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+> >  	}								       \
+> >  									       \
+> >  	device_set_of_node_from_dev(&spdev->dev, dev);			       \
+> > +	device_set_node(&spdev->dev, dev_fwnode(dev));			       \
 
-KVM_S390_ARM64 is defined for all arm-on-s390 compile units.
+How about something like this instead of above 2 lines:
 
-I think I'll add this in PATCH 14? of this series or create a separate
-PATCH.
+if (is_of_node(dev_fwnode(dev)))
+	platform_device_set_of_node_from_dev(spdev, dev);
+else
+	platform_device_set_fwnode(spdev, dev_fwnode(dev));
 
-Does this make sense?
-
-	Steffen
-
+-- 
+Regards,
+Sudeep
 
