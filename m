@@ -4,62 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C302DC624D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C82C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fsI+nhzULsUUSIbVGLobSbdGnJMPqPjlO3ivoC99fNk=; b=X6ISeMAokm9jHGQ1OzLtfKYbHi
-	t2LV+1C6xGjFjQitldwrRFBJGHtuSG0ekEreII3PZAnzO+7hORj5Mi5bYjYQyKpuuta+6LyE5m62F
-	kIbQP8vdyvq4L7U6c5Pa7py9qUGe8jQK4LuMDo341OP829/pRRw7yEtRhwUFkoHwSC/bZbxEnCKml
-	z3OOVQnjjoRojlVY5kolAAzaoKjO14kmR6YRT/d7kV2zq8PI8cV9fez3wbHSWUwTGGsedPT1ShGHZ
-	vCsEeWhQFj4QqMVFCBb6RxwWRT1Sd7Dg/WfV97M4w49qvZeCxyYHxvo8Yt87hH/Sz+FNmRBveOPzQ
-	zhKY4EWg==;
+	bh=HGtwWmnQ6QwDDO+DyewXu4HaqP7hG4EurP/lr9Sz1eU=; b=CgCU/tLLeheFYLk1TmybRFWq01
+	pcmTMsKMiozl+DtyEEi5RR9yzzt2WWyJoHvcyBq7Ms/MJ1wzkn28ba8GQj/Wk4P5b9kPQ1sHLRnw6
+	ZA4FlpLeG1SiPP49mQygGhdCQEUyrV30dcWibgjLVLPqTx37iGALFtzKT/XuAjd2pQ1w7HsAum/bj
+	LASHKXXKGe7vT5utExeNJgJfZyGc1G3o/EhzED38bgcmuc/Cr0UpMQUbn+sCdYLIErDlyGX+NFh2M
+	Et1k6LzJ+dugt6IJ2fOQwHznyAXyCwvv8AYcTQ7ZhdaYQS0F1pa+95cIUzRymdVb+v4j5yIkQyrGH
+	a/LBh75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1our-0000000FT2l-19ly;
-	Wed, 02 Sep 2026 17:38:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1p40-0000000FTtz-3Zqc;
+	Wed, 02 Sep 2026 17:47:56 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ouq-0000000FT2a-0M2Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:38:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D79040268;
-	Wed,  2 Sep 2026 17:38:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 629A91F000E9;
-	Wed,  2 Sep 2026 17:38:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788370707;
-	bh=fsI+nhzULsUUSIbVGLobSbdGnJMPqPjlO3ivoC99fNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T6Uzr4pq+Kb+UO4HsQ0X42ZQMwEqrNkLYI01z+d2YhKthM8zctAHyrriDmaHx4SzQ
-	 aOqXsOPVcxNp5lj/SPnwfFKiaT7ZtsWIe1KheN4h+Ml8Al4W4oHiTCGKrfaq1Bw+aG
-	 /vOTnHhel0XgusHtqAAQ15PacrnKnFeT6PElkPfnrsoAI71YQMp6glvP0d2VtCRYJP
-	 Ikv6Em1jxZ8eUs/xdMnZmToKnAemXxHkr13Nwl/ucjDhwipTmwTr0OSYTe8se5zH/i
-	 8vow2FHxR4TAQTO0V3RML/oWzxwCcFFeozjODhkhkYxpAXcQ1Ze8iSkxqp49wtEN+c
-	 iRzeRHCPdTozg==
-Date: Wed, 2 Sep 2026 12:38:26 -0500
-From: Rob Herring <robh@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org,
-	akpm@linux-foundation.org, sudeep.holla@kernel.org,
-	jenswi@kernel.org, mark.rutland@arm.com, sumit.garg@kernel.org,
-	ardb@kernel.org, thierry.reding@kernel.org, david@kernel.org,
-	danielmentz@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, op-tee@lists.trustedfirmware.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 09/10] firmware: arm_ffa: Introduce ffa-lend-pool
-Message-ID: <20260902173826.GC1440252-robh@kernel.org>
-References: <20260902104712.2399797-1-vdonnefort@google.com>
- <20260902104712.2399797-10-vdonnefort@google.com>
+	id 1x1p3y-0000000FTt9-0Ove;
+	Wed, 02 Sep 2026 17:47:55 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682HVaOG661164;
+	Wed, 2 Sep 2026 17:47:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=HGtwWmnQ6QwDDO+DyewXu4HaqP7hG4
+	EurP/lr9Sz1eU=; b=pXJ51bzM+v6WL88TWOeaJMkj1nSVlEa101MtzmBfaTneIB
+	B8Ry3a6/fLkuV4E44I15E99NZ7Pa9tYuPex+ARWyywvZOqrWeSatuJck2sLldGDL
+	FLLdjhW/AuHBe0Ve2ovPjbT8LMAFqTWO4Le0cLKhTxShmhYzdqSqYtmt4pux+eFO
+	c9w4YtdIqP5+FQfeWr7Ajw8Zf+lvioZBKEyx9S1AOdCdn/hbL0UvdFyi+VFbQCjl
+	S5i7b/vmqjq1v/2/Nl7nA9W8gI2PxivpgFZabXZs5M0NRZjz2k2w7ONefhNdd1pe
+	6iRKd/ARLvVl4+eg8FLJpTOEzDZEktygdnW35Fxg==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbpx5rd98-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Sep 2026 17:47:35 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 682HQpjI023346;
+	Wed, 2 Sep 2026 17:47:34 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gc9rqkj7y-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 02 Sep 2026 17:47:34 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 682HlV6S44368140
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 2 Sep 2026 17:47:31 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 07A752004E;
+	Wed,  2 Sep 2026 17:47:31 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 90FEC2004F;
+	Wed,  2 Sep 2026 17:47:23 +0000 (GMT)
+Received: from Gautams-MacBook-Pro.local (unknown [9.124.221.176])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  2 Sep 2026 17:47:23 +0000 (GMT)
+Date: Wed, 2 Sep 2026 23:17:20 +0530
+From: Gautam Menghani <gautam@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>,
+        Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+        Ritesh Harjani <ritesh.list@gmail.com>, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 00/20] KVM: selftests: PPC pre-enabling
+Message-ID: <aphhKDm7Vx7G5ivr@Gautams-MacBook-Pro.local>
+References: <20260826230511.972824-1-seanjc@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260902104712.2399797-10-vdonnefort@google.com>
+In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=PPc/P/qC c=1 sm=1 tr=0 ts=6a986138 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=6YN9JvpFNRzmbg3FydkA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: tRZqKKrGtBjHG2Pu3xQZzuOyhRhv077A
+X-Proofpoint-ORIG-GUID: pdLNL2iG2soKTiUHunO9uJiDJ8oxj9S6
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE1NCBTYWx0ZWRfX/3BQiO/4M77n
+ AvjpUycO+mKHAdP0qa39OrRauYjGL+ZXs6GMp+BhV9vuxqhuESJqGvGyxDS/TncOIoaaNebyj2M
+ Mh+XT8fPklmzmBP5n5N6hvz8btd17e0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE1NCBTYWx0ZWRfX7sO1s5aw3bu7
+ yGm8yQcHZ7WA2zwsrkIYdeZcloHnCw+pL5crxFHgEqUiWM+wUus/GNOQ/ZAwb6FjQLOncOp8A86
+ 94yCxLIuXJcEs1s8fHFlHIfo76aNyFoh4QlGJ0Mg/HjdkoTDg99uz3Cx41t/tSng59sXrFCxcMX
+ 9aSG+t+97OyBvbo2meC9X4F15bk3na1rQooBz40mnKd4Trt5E+kWB6Y4mk1lOazlBi5WcQ9xJda
+ SX3oEaIKkegrcRVjJg9T55qxEXJTwuO+3co5WfoC4YNCD6rzXlwpMc5j+JSeRlWHRDM9Un/5kf9
+ KZHm3YyKi0t11rguHeyczHDVWwZ1ehOeBVXz31LmkDWnFTcj2X+/2d5BWmQcgwNwjEJ/LAMcP6T
+ 1ZoI/atPvxfIYGWLuyusfsc18eNXNBHm5c/bJuaj5WtHgPMuR3aqb47eggYeMiaOlkvEFr8Yd4H
+ SzqNL31hLQRftxAg6jg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-02_04,2026-09-02_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 phishscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ spamscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609020154
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_104754_140482_62528E67 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +138,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 11:47:11AM +0100, Vincent Donnefort wrote:
-> When memory is lent to the Secure world via FF-A, fatal CPU speculative
-> reads from Non-Secure can still occur as long as it retains a cacheable
-> mapping to that memory. Introduce the "arm,ffa-lend-pool"
-> reserved-memory CMA driver to unmap pages before lending
-> (ffa_prepare_lend()) and restore them upon reclaim
-> (ffa_lend_reclaimed()). Devices bind to the pool via the "memory-region"
-> DT property or via ffa_lend_pool_attach().
-> 
->   reserved-memory {
->       #address-cells = <0x2>;
->       #size-cells = <0x2>;
->       ranges;
-> 
->       ffa_lend: ffa-lend-pool {
->           compatible = "arm,ffa-lend-pool";
 
-Needs a binding schema...
-
->           reusable;
->           ll-map;
->           size = <0x0 0x4000000>;
->       };
->   };
-> 
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-
-[...]
-
-> +static int __init ffa_lend_pool_setup(unsigned long node, struct reserved_mem *rmem)
-> +{
-> +	struct cma *cma;
-> +	int ret;
-> +
-> +	if (!of_get_flat_dt_prop(node, "reusable", NULL) ||
-> +	    of_get_flat_dt_prop(node, "no-map", NULL)) {
-> +		pr_err("FF-A lend pool: node must be 'reusable' and not 'no-map'\n");
-> +		return -EINVAL;
-
-Your schema should enforce/check this.
-
-[...]
-
-> +static const struct reserved_mem_ops ffa_lend_pool_ops = {
-> +	.node_init	= ffa_lend_pool_setup,
-> +	.device_init	= ffa_lend_pool_device_init,
-> +	.device_release = ffa_lend_pool_device_release,
-> +};
-> +RESERVEDMEM_OF_DECLARE(ffa_lend_pool, "arm,ffa-lend-pool", &ffa_lend_pool_ops);
-
-Do you need this early? If not, you can create a platform driver for 
-"arm,ffa-lend-pool". ramoops is implemented that way for example.
-
-Rob
++ linuxppc-dev
 
