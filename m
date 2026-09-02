@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76BFC624D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F09D0C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nViNWw9ggHZ+B/cSMUuxV8KPSAjdZ0F6d55o2g6/IsM=; b=BSVvdQiCmk1DsnoXbXco0sEWdN
-	rJSF9AShuPCdYWAeytzUdGb/NoMCY4mYhlq8BjOgM+kK6/QLRhD2Ac2VhJAkA6+bErrCF5ltaoAxB
-	I7qiVTVJIEo2xP/xC97KzOfxXlR1RPzbxZivCUZWJ8Y2ci0QI7MEOw+9khPjS4tMqKtFA8Av1lrLs
-	yiJNX4qwTmk3CtI3RNT+6HJY1p2R4Z3EysDgs8n64iHWAIqXokpFZZSNDQZCPmp2OtITRGmUvVWd8
-	rJ2GH+kI7smTdIVAME5EJCYK8g80vufTIqIgembtzzSi2wV19Fz05UT1ZfrVAJeM2YSDKHlFPtcqw
-	LKXrYaDQ==;
+	bh=ILv17bs/7zm3LQFfVM4ZLcmPraT5qMvgwcnOmCgWJeM=; b=Z0x6QyewDjS71ySx18Oivj6qUN
+	7+w6T8U4dxiFrlfwBSEcqcfmRB/eERiaZVLm/xHwHpBmfN76HrI6gwpMLJ8jtXuDMKOWF7J4Av2M2
+	1lmM/Rl43DCQNc9wm972TFdTudVVlQYfO/oLPnvLQLCl2hOzwM0uWjkZv3PCIb+OGZBfXyhRnYC1O
+	hFD3UNRR6HzDSem9lILyagyGSpsl2dM2Mh8IynNn2lQjHAw5GzMw0XCklofkuh40b3YgSf7mjBmTi
+	bIz82FyZR1cgQqmCaxkdi2RP2ucMkfG/YONwYsgTqT+fMe5gzzczNklJod3iOP0XsPOE5rFVeJxo8
+	k00C0RiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAT-0000000EV5T-3Jzp;
-	Wed, 02 Sep 2026 11:30:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1jAe-0000000EVB0-0DxE;
+	Wed, 02 Sep 2026 11:30:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAS-0000000EV4F-0gXH
+	id 1x1jAc-0000000EVA5-3zBd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:30:12 +0000
+	Wed, 02 Sep 2026 11:30:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C253600D1;
-	Wed,  2 Sep 2026 11:30:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9A01F00A3A;
-	Wed,  2 Sep 2026 11:30:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B281C403D1;
+	Wed,  2 Sep 2026 11:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4953E1F00A3D;
+	Wed,  2 Sep 2026 11:30:17 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,9 +61,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v3 05/12] pmdomain: Make genpd_get_from_provider() public
-Date: Wed,  2 Sep 2026 13:29:21 +0200
-Message-ID: <1e1b20976fb2b0b78684be315cdf78960efcc403.1788338320.git.geert+renesas@glider.be>
+Subject: [PATCH v3 07/12] reset: Add reset_control_get_from_provider_exclusive()
+Date: Wed,  2 Sep 2026 13:29:23 +0200
+Message-ID: <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1788338320.git.geert+renesas@glider.be>
 References: <cover.1788338320.git.geert+renesas@glider.be>
@@ -83,148 +83,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the corresponding function in the clock subsystem
-(of_clk_get_from_provider()), genpd_get_from_provider() is private, and
-thus cannot be used by PM Domain drivers.
+When stacking two reset controllers, the upper one should go through the
+proper channels: request exclusive reset controls and use them via the
+reset_control_*() APIs.  However, unlike the clock subsystem, which has
+of_clk_get_from_provider(), the reset subsystem does not offer a way to
+lookup and obtain a reset from a reset provider.
 
-Make it public, so it be used by the R-Car X5H Module Controller driver.
-Add an "of_"-prefix for consistency with public genpd function naming.
+Hence add a public helper reset_control_get_from_provider_exclusive()
+to lookup and obtain an exclusive reference to a reset controller, based
+on the recently introduced __reset_control_get_from_provider() helper.
+This will be used by the R-Car X5H Module Controller driver.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v3:
-  - Add "of_" prefix,
+  - Replace reset_controller_get_provider() by
+    reset_control_get_from_provider_exclusive(),
+  - Add kerneldoc,
 
 v2:
   - No changes.
 ---
- drivers/pmdomain/core.c   | 22 +++++++++++-----------
- include/linux/pm_domain.h |  7 +++++++
- 2 files changed, 18 insertions(+), 11 deletions(-)
+ drivers/reset/core.c  | 37 ++++++++++++++++++++++++++++++++-----
+ include/linux/reset.h |  8 ++++++++
+ 2 files changed, 40 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 842c4169e290677c..ac3a07066e7fc0e7 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -2890,7 +2890,7 @@ void of_genpd_del_provider(struct device_node *np)
- EXPORT_SYMBOL_GPL(of_genpd_del_provider);
- 
- /**
-- * genpd_get_from_provider() - Look-up PM domain
-+ * of_genpd_get_from_provider() - Look-up PM domain
-  * @genpdspec: OF phandle args to use for look-up
-  *
-  * Looks for a PM domain provider under the node specified by @genpdspec and if
-@@ -2900,8 +2900,7 @@ EXPORT_SYMBOL_GPL(of_genpd_del_provider);
-  * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
-  * on failure.
-  */
--static struct generic_pm_domain *genpd_get_from_provider(
--					const struct of_phandle_args *genpdspec)
-+struct generic_pm_domain *of_genpd_get_from_provider(const struct of_phandle_args *genpdspec)
+diff --git a/drivers/reset/core.c b/drivers/reset/core.c
+index 8af7cd2e8a5029df..6d4c95b3edb18248 100644
+--- a/drivers/reset/core.c
++++ b/drivers/reset/core.c
+@@ -1141,6 +1141,7 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
+ 				  bool gpio_fallback,
+ 				  enum reset_control_flags flags)
  {
- 	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
- 	struct of_genpd_provider *provider;
-@@ -2923,6 +2922,7 @@ static struct generic_pm_domain *genpd_get_from_provider(
++	struct fwnode_handle *fwnode = consumer ?: args->fwnode;
+ 	struct reset_control *rstc = ERR_PTR(-EINVAL);
+ 	struct reset_controller_dev *rcdev;
+ 	int rstc_id = -EINVAL;
+@@ -1154,18 +1155,26 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
+ 	if (WARN_ON(args->nargs != rcdev->fwnode_reset_n_cells))
+ 		return ERR_PTR(-EINVAL);
  
- 	return genpd;
+-	if (rcdev->of_xlate && is_of_node(consumer)) {
+-		struct device_node *np = to_of_node(consumer);
++	if (rcdev->of_xlate && is_of_node(fwnode)) {
++		struct device_node *np = to_of_node(fwnode);
+ 		struct of_phandle_args of_args;
+ 		int ret;
+ 
+-		ret = of_parse_phandle_with_args(np,
++		if (consumer) {
++			ret = of_parse_phandle_with_args(np,
+ 					 gpio_fallback ? "reset-gpios" : "resets",
+ 					 gpio_fallback ? "#gpio-cells" : "#reset-cells",
+ 					 gpio_fallback ? 0 : index,
+ 					 &of_args);
+-		if (ret)
+-			return ERR_PTR(ret);
++			if (ret)
++				return ERR_PTR(ret);
++		} else {
++			of_args.np = of_node_get(np);
++			of_args.args_count = args->nargs;
++
++			for (unsigned int i = 0; i < args->nargs; i++)
++				of_args.args[i] = args->args[i];
++		}
+ 
+ 		rstc_id = rcdev->of_xlate(rcdev, &of_args);
+ 		of_node_put(of_args.np);
+@@ -1257,6 +1266,24 @@ struct reset_control *__reset_control_get(struct device *dev, const char *id,
  }
-+EXPORT_SYMBOL_GPL(of_genpd_get_from_provider);
+ EXPORT_SYMBOL_GPL(__reset_control_get);
  
- /**
-  * of_genpd_add_child_ids() - Parse power-domains-child-ids property
-@@ -2995,7 +2995,7 @@ int of_genpd_add_child_ids(struct device_node *np,
- 			goto err_unwind;
- 
- 		/* Get the parent domain */
--		parent_genpd = genpd_get_from_provider(&parent_args);
-+		parent_genpd = of_genpd_get_from_provider(&parent_args);
- 		of_node_put(parent_args.np);
- 		if (IS_ERR(parent_genpd)) {
- 			pr_err("Failed to get parent domain for %pOF: %ld\n",
-@@ -3078,7 +3078,7 @@ int of_genpd_remove_child_ids(struct device_node *np,
- 		if (ret)
- 			continue;
- 
--		parent_genpd = genpd_get_from_provider(&parent_args);
-+		parent_genpd = of_genpd_get_from_provider(&parent_args);
- 		of_node_put(parent_args.np);
- 		if (IS_ERR(parent_genpd))
- 			continue;
-@@ -3109,7 +3109,7 @@ int of_genpd_add_device(const struct of_phandle_args *genpdspec, struct device *
- 
- 	mutex_lock(&gpd_list_lock);
- 
--	genpd = genpd_get_from_provider(genpdspec);
-+	genpd = of_genpd_get_from_provider(genpdspec);
- 	if (IS_ERR(genpd)) {
- 		ret = PTR_ERR(genpd);
- 		goto out;
-@@ -3141,13 +3141,13 @@ int of_genpd_add_subdomain(const struct of_phandle_args *parent_spec,
- 
- 	mutex_lock(&gpd_list_lock);
- 
--	parent = genpd_get_from_provider(parent_spec);
-+	parent = of_genpd_get_from_provider(parent_spec);
- 	if (IS_ERR(parent)) {
- 		ret = PTR_ERR(parent);
- 		goto out;
- 	}
- 
--	subdomain = genpd_get_from_provider(subdomain_spec);
-+	subdomain = of_genpd_get_from_provider(subdomain_spec);
- 	if (IS_ERR(subdomain)) {
- 		ret = PTR_ERR(subdomain);
- 		goto out;
-@@ -3179,13 +3179,13 @@ int of_genpd_remove_subdomain(const struct of_phandle_args *parent_spec,
- 
- 	mutex_lock(&gpd_list_lock);
- 
--	parent = genpd_get_from_provider(parent_spec);
-+	parent = of_genpd_get_from_provider(parent_spec);
- 	if (IS_ERR(parent)) {
- 		ret = PTR_ERR(parent);
- 		goto out;
- 	}
- 
--	subdomain = genpd_get_from_provider(subdomain_spec);
-+	subdomain = of_genpd_get_from_provider(subdomain_spec);
- 	if (IS_ERR(subdomain)) {
- 		ret = PTR_ERR(subdomain);
- 		goto out;
-@@ -3373,7 +3373,7 @@ static int __genpd_dev_pm_attach(struct device *dev, struct device *base_dev,
- 		return ret;
- 
- 	mutex_lock(&gpd_list_lock);
--	pd = genpd_get_from_provider(&pd_args);
-+	pd = of_genpd_get_from_provider(&pd_args);
- 	of_node_put(pd_args.np);
- 	if (IS_ERR(pd)) {
- 		mutex_unlock(&gpd_list_lock);
-diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-index f925614aebdbc914..0ef717428f2935e7 100644
---- a/include/linux/pm_domain.h
-+++ b/include/linux/pm_domain.h
-@@ -458,6 +458,7 @@ int of_genpd_add_provider_simple(struct device_node *np,
- int of_genpd_add_provider_onecell(struct device_node *np,
- 				  struct genpd_onecell_data *data);
- void of_genpd_del_provider(struct device_node *np);
-+struct generic_pm_domain *of_genpd_get_from_provider(const struct of_phandle_args *genpdspec);
- int of_genpd_add_device(const struct of_phandle_args *args, struct device *dev);
- int of_genpd_add_subdomain(const struct of_phandle_args *parent_spec,
- 			   const struct of_phandle_args *subdomain_spec);
-@@ -492,6 +493,12 @@ static inline int of_genpd_add_provider_onecell(struct device_node *np,
- 
- static inline void of_genpd_del_provider(struct device_node *np) {}
- 
-+static inline struct generic_pm_domain *of_genpd_get_from_provider(
-+				const struct of_phandle_args *genpdspec)
++/**
++ * reset_control_get_from_provider_exclusive - Lookup and obtain an exclusive
++ *					       reference to a reset controller.
++ * @args: Reference to the reset controller provider with all the args like
++ *	  reset number
++ *
++ * Returns a struct reset_control or IS_ERR() condition containing errno.
++ * If this function is called more than once for the same reset control it will
++ * return -EBUSY.
++ */
++struct reset_control *
++reset_control_get_from_provider_exclusive(const struct fwnode_reference_args *args)
 +{
-+	return ERR_PTR(-ENODEV);
++	return __reset_control_get_from_provider(args, NULL, 0, false,
++						 RESET_CONTROL_EXCLUSIVE);
++}
++EXPORT_SYMBOL_GPL(reset_control_get_from_provider_exclusive);
++
+ int __reset_control_bulk_get(struct device *dev, int num_rstcs,
+ 			     struct reset_control_bulk_data *rstcs,
+ 			     enum reset_control_flags flags)
+diff --git a/include/linux/reset.h b/include/linux/reset.h
+index 9c391cf0c82298a0..09ee47b27f88d3b1 100644
+--- a/include/linux/reset.h
++++ b/include/linux/reset.h
+@@ -90,6 +90,8 @@ struct reset_control *__fwnode_reset_control_get(struct fwnode_handle *fwnode,
+ 				     const char *id, int index, enum reset_control_flags flags);
+ struct reset_control *__reset_control_get(struct device *dev, const char *id,
+ 					  int index, enum reset_control_flags flags);
++struct reset_control *reset_control_get_from_provider_exclusive(
++				const struct fwnode_reference_args *args);
+ void reset_control_put(struct reset_control *rstc);
+ int __reset_control_bulk_get(struct device *dev, int num_rstcs,
+ 			     struct reset_control_bulk_data *rstcs,
+@@ -173,6 +175,12 @@ static inline struct reset_control *__reset_control_get(
+ 	return optional ? NULL : ERR_PTR(-ENOTSUPP);
+ }
+ 
++static inline struct reset_control *reset_control_get_from_provider_exclusive(
++				const struct fwnode_reference_args *args)
++{
++	return NULL;
 +}
 +
- static inline int of_genpd_add_device(const struct of_phandle_args *args,
- 				      struct device *dev)
+ static inline int
+ reset_control_bulk_reset(int num_rstcs, struct reset_control_bulk_data *rstcs)
  {
 -- 
 2.43.0
