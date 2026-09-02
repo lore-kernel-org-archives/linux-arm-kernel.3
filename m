@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256ADC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F350AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/h0gd3tsw6WVxtngvlRpT0LRl09JE+dXR5GPsvQ4AY=; b=Ugj0tpgKdWu1/ZqBVmpPoFyyZo
-	8WTbs9mTTVsgN3G7tgQcvmFG9YygHe7UtST5bOfgIGaNSgV+llfM0kNsU2A6dUd7AL8/mEoRYInA5
-	6ESuXkNs84M7edkpHWFbJVpsGNCMK3zBfFYYMMxmxkYgD1oPfWBkx7t8Yeg1bsOauTNc5qJxJYusS
-	qsMJGmaTjgSzsTd/ZDrXCdsmDxHd5Dol5DCorZkyL3FaE+wtGSKiw9IHFNBW5hjdKOjxf0QYB/u6w
-	ZS4XmP4dI+ht1kZ4gkaqJvIYtHfjDc/ejA3na2Kh+o2ofgQnvQTRatjXbsaEhYg7r6mAGabpj5Caj
-	xniZZKTg==;
+	bh=7znxOme7R9B3zqE4QI3W3BM8OqUXvcsFNPFaJlfJoEI=; b=sUsEuL7x2atVjjeB+sLHBANYHP
+	XYP8jlyYF+uzqYideW/zDIDQv4gOo3eHm331SraAmVYQXdgqoDTXcwtXPmE/5kCrq/uhJFMuGeKem
+	unOIsUESogqT/g6uydrPovhF9YmxiaKZxw93kSjLFEyzjLjrXHSBlbeUPetKWEmrWf3qTacV8Lifi
+	KoNPvcz+KR+sOhwYurKtJmTwbdVOKWN8ATP0pNAnd98QGh+g8yp7mChggEUkwFyEpgaM2GtWVgz84
+	J9A9FKD3MdPFWTZ0Usz+6vCvp3i9fG9tBQWcLYeJknAE11atzuqvgRbdMHfgoIRJtph7VHWCL8bPk
+	8c4I3/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lM5-0000000Eqtt-1Dui;
-	Wed, 02 Sep 2026 13:50:21 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lM3-0000000Eqsc-09Pa
+	id 1x1lM7-0000000Equb-1ggu;
+	Wed, 02 Sep 2026 13:50:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1lM4-0000000Eqt0-3FP4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:50:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357000; bh=K/h0gd3tsw6WVxtngvlRpT0
-	LRl09JE+dXR5GPsvQ4AY=; b=Ybsh1orwoyhmldOacuLSs9JJKS3igIdRl4JoAslSDFnZv+gbPd
-	HCzTvT5ubkAG8k6SIr7b82Y1NA7fGa9U4n4mk2+VANYcW6/mvN9EXGqm1TwSDtJV0KU857o0CBn
-	PH+woCX9hKZ68rV5PE4VnIuoaLct8Ii9nMjqKFjQ5flpb6x8u9YCf8qMJi4tzen9XV2kIckSZFO
-	qQzvQrBqq6MpRCPTPX74/Cf+EDb3NYVzyUWPCGRthV5cAAiuide3wCg9oGSQvdNESiNf0GH50rY
-	DfvyvhgR0ExdQb617+aZjL5MHhWw4qFtXuJr6r9kgdHgLl1i0cYlzTpKtlzorhF2rhw==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357000; bh=K/h0gd3tsw6WVxtngvlRpT0
-	LRl09JE+dXR5GPsvQ4AY=; b=WeB03xa/zNXqvscdV52NjVm81qj90g5YwK6bmyxVKqozl2V0Qf
-	c0QI5WqV7DJcVxx5C2fVjcKkGgbVhypqGJCQ==;
-Date: Wed, 02 Sep 2026 14:49:57 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/7] arm64: head: correct comment for init_kernel_el()
-In-Reply-To: <apgovCGT-D7OWbSE@J2N7QTR9R3.cambridge.arm.com>
-References: <20260825205839.14571-1-brads@mainlining.org> <20260825205839.14571-3-brads@mainlining.org> <apgovCGT-D7OWbSE@J2N7QTR9R3.cambridge.arm.com>
-Message-ID: <FBC45096-70E5-4F97-B2F0-863BCC91BB4F@mainlining.org>
+	Wed, 02 Sep 2026 13:50:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA8DE165C;
+	Wed,  2 Sep 2026 06:50:13 -0700 (PDT)
+Received: from [10.1.34.165] (e121487-lin.cambridge.arm.com [10.1.34.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 343403F673;
+	Wed,  2 Sep 2026 06:50:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788357017; bh=Mn7lImXZWkh6B4HK0ved6SfMz2UwLPCZxp9UBfpFjPA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j5hyB6j2tn5RRXsTxu0PQsT64pvTXYCyFGeGfrCBFebgXphQLNLX+66Zij137hF7i
+	 RFe7cQY/Dkag8Kpk8VrZRNEJOfkIC0eF+B33hisuqhvT8oVt0WwxYpX95ijaecMxjb
+	 Vvwtt/FXeF4pROmQgbqLE0F9qkr+pkDmX+GiTiZ8=
+Message-ID: <22b3e98f-16b0-42e0-9386-909deaff8e02@arm.com>
+Date: Wed, 2 Sep 2026 14:50:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 00/45] arm64: Add support for FEAT_NMI
+To: Ashok Raj <ashok.raj@oss.qualcomm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, maz@kernel.org,
+ will@kernel.org, catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <d594b97c-747d-41df-8f7c-563ea11974df@huawei.com>
+ <18338c14-c7c0-433c-8a88-ba5624313c48@arm.com>
+ <aoh4S4TE8-NTZFPV@hu-ashoraj-lv.qualcomm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <aoh4S4TE8-NTZFPV@hu-ashoraj-lv.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_065019_227512_71894490 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20260902_065020_862427_D96B3A82 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2 September 2026 14:46:36 BST, Mark Rutland <mark.rutland@arm.com>
-wrote:
->On Tue, Aug 25, 2026 at 08:58:34PM +0000, Bradley Morgan wrote:
->> The comment above init_kernel_el() still says the function configures
->> the CPU to execute at the highest reachable EL, but that stopped being
->> true a while back. Ever since commit ae4b7e38e9a94798 ("arm64: Allow
->> sticky E2H when entering EL1"), init_kernel_el() always drops to EL1,
->> and it is finalise_el2() that brings us back up to EL2 when we want it.
->> 
->> Update the comment to match what the code actually does.
->> 
->> Signed-off-by: Bradley Morgan <brads@mainlining.org>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: James Morse <james.morse@arm.com>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Will Deacon <will@kernel.org>
->> ---
->>  arch/arm64/kernel/head.S | 6 +++---
->>  1 file changed, 3 insertions(+), 3 deletions(-)
->
->This looks to be my patch [1], but with a (partially) rewritten commit
->message, and my S-o-B dropped.
->
->There was admittedly one typo in that commit message that needed to be
->fixed, but I don't think the rest of the changes were necessary, and I
->don't think it's approriate to drop my S-o-B.
->
->I think similar is true for the rest of the series. The patch fixing the
->_cpu_resume() only seems to have a paraphrased commit message.
->
->[1]
->https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=ee4323ff6a2ba4c3989b38f13b2c1a516d6c27e4
->
->Mark.
->
->> 
->> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
->> index 87a822e5c4ca..c6301557eee1 100644
->> --- a/arch/arm64/kernel/head.S
->> +++ b/arch/arm64/kernel/head.S
->> @@ -254,9 +254,9 @@ SYM_FUNC_END(__primary_switched)
->>  	.section ".idmap.text","a"
->>  
->>  /*
->> - * Starting from EL2 or EL1, configure the CPU to execute at the
->highest
->> - * reachable EL supported by the kernel in a chosen default state. If
->dropping
->> - * from EL2 to EL1, configure EL2 before configuring EL1.
->> + * Starting from EL2 or EL1, configure the CPU to execute at EL1.
->> + * If dropping from EL2 to EL1, configure EL2 before configuring EL1.
->> + * To use VHE we'll upgrade back to EL2 later in finalise_el2().
->>   *
->>   * Since we cannot always rely on ERET synchronizing writes to sysregs
->(e.g. if
->>   * SCTLR_ELx.EOS is clear), we place an ISB prior to ERET.
->> -- 
->> 2.47.3
-Hi mark, do you **WANT** your sob? I don't mind.
+On 8/21/26 17:09, Ashok Raj wrote:
 
-I dropped it because it seemed you didn't care about it (or were too
-busy),hence, yeah.
+[snip]
 
+>>>> The series would also benefit from extensive testing on real hardware
+>>>> (without NMI, with pseudo-NMI, and with FEAT_NMI), as most of the
+>>>> testing so far has been done on QEMU and Fast Model.
+> I'm also starting with QEMU!. just doing virt I suppose, do we have
+> sbsa-ref model as well working? just wanted to check, I was thinking
+> about it for another use case.
+> 
 
---- Thanks!
-https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
+I used virt. Did not try sbsa-ref, yet I do not see immediate reasons
+why it should not work. Booting requirements are documented in patch
+27/45.
+
+Cheers
+Vladimir
+
+> 
+> -- /ashok.raj ashok.raj@oss.qualcomm.com Qualcomm Inc
+> 
+
 
