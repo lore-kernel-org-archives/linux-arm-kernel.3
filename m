@@ -4,145 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16889C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85224C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AxKRJ976rnY9y389//E4Lfcx3DtH9zicjDAgXU7mrg=; b=nam1I4qzs7Bh7z/4j3pb5pcIqK
-	iggwzXiK7XYKANdifl3rWZ4Ao+5tNUS3VHtfrEAyP92psWkiOhi1iISTNR/xSEzxf7NaZAuaV9Cnt
-	3AtzsVrEKKYHZ0dB4bcS/ffNS4J6rvRFuYZQ6lVDmcFPaR3IdA76OUqMhzGtDkKANEcyJX63XDkSP
-	+bJIX9Bb3xqbJOdmmVg9dTO/cixbMOqj39L9Il2rl2PK6ZrbfKoYtY0XYR2VMArhlO2lis44kb4Mb
-	0AL25/5SqwpislIgaWG/U8nojiUR27Z7l8U4PJVldYWOXirpQRE4otKOmfAkbG0wBm7b/SWdQcjQm
-	HkEF77Ug==;
+	bh=6/co2BbiwEGthBShXRC0EiM5pB4H/+cNPoBpHcBMo+g=; b=1sjQ+TB//6aq7hq5hJREHmc9Nr
+	oNbr32hSZpru/f2Qqcp3JjL15ZUnfuTvTssaXsj3IcjMldKs2FDipv/LETUDR3cjJY1fZIabh4Q2x
+	LJKkXElqjXMmvCEjkcPXbKto3nbTBmyNBLjamumampOv6YMLQDH02WVrD4XJXU++O+4KfH66WO1Gy
+	aya50tfRh+XHxwynD+1JN5rYei4n61LaV5tuEcyIVU9+/MR+woHnBCeH0zHjt08W6VSR+NAMhBI5V
+	csniA8iL9vRLfDk9HrhqhTLaqvZGEuOAMcghIBi16kQlAjmsJSNdE9dv/6ZdTWCoeaMSHTCqJyPCP
+	MaMTKLwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pv4-0000000Fbsc-2Nyh;
-	Wed, 02 Sep 2026 18:42:46 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x1q0s-0000000FcSC-0ne6;
+	Wed, 02 Sep 2026 18:48:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pv2-0000000Fbs5-3Pv5
+	id 1x1q0q-0000000FcRn-3HKP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 18:42:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aAXdKR+ja7YIFsftACmQzBMq8ChnothK9Hufi7jy0j+2IiVGIwImPP2M83LkhAGUOFfEqjwo7xYOk8sUwfft+kMvlh6XSsuvJgR469Ja7Z2T/NrFnsckLNUdhOPC4hCOCxvk/3zkwJaQdHlkcnKy2N/5MZ1mca/ny360Hjfq8soXNTncMyZhbH1HIrMf6q4CTcrUsy8BRxxWHVeRInOVyP38dCWHT9230r755aNRW8/tVF2mGa2DbY0gBMl+0DOfv75O9OdWY2tyowZk94YW060AAYNduUNSw+NmItT33hJtowjLPh8pOOUa7cDbAcG40V9V+9VWXjM4J+gWJY42Qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2AxKRJ976rnY9y389//E4Lfcx3DtH9zicjDAgXU7mrg=;
- b=WO5Vic2zhwRsJrJk7otwwyTZLIvxVPRMWA1vn48TDm6grxUBqkg/C4Fs0/UoRWqrXCUIcUv0vR/rwGt1znoQYBX0Il3b83sLUQ4XCaWlZ/tjoG74AXdvuIsT1WUeneHz7xypi3xDhVCFl+m4Csv/It36muhge+HDfcsfCvp4msyMuPzD6hvZKuJ/Fukgwhv+a94n1fDpZhVF/9UExlwFeI9BzUwH2WY5cdVwqfE+wJ5zR4iitIWpghURIFWJ03CKwJvPxR4MUowjTLLdQ/ScwGgj5euKe8MJfcyWT38nuTxOmOqOGmAQAD/syHMH0ZSrbg8gl0HqSWxwO0DHMB2x/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2AxKRJ976rnY9y389//E4Lfcx3DtH9zicjDAgXU7mrg=;
- b=XqbUf6wh5WHV0WKq69MiPKWhEu/1yIY7tcKsQXvRKOScV9qFpVNIkLL8G0tQxK+8zgnJ/qobR0NbP7VomC+q+3L2bN0DtRE2qVlHEti0gEWgTcIExRDn628/pmtbB7aalJ26PclFZzY+m1xDXWu2dXlt4Ef2+Kd0aoVFLZgeJ2CyRABhICkcoQM4Lw1lMDl8nqRVUMEJkrviDN/IbLBN/i6aFdxvRZ/IODZy2yfBFP4DJaIW6yjJ8jrIPhl6v+y2OznflUvd5JWTyKYYQqjaH6A2q2mZ/27ZOa7G6u3ldDs2h7B1OcbvxLv6+/TRIB3x/NXeS7EiCMqr759MWC/F2g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8040.eurprd04.prod.outlook.com (2603:10a6:20b:2a9::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 18:42:39 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 18:42:39 +0000
-From: Frank.Li@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	hongxing.zhu@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH v2 0/3] arm64: dts: imx9x: Fix PCIe memory window overlap with System RAM
-Date: Wed,  2 Sep 2026 14:42:28 -0400
-Message-ID: <178837449498.2056904.10575566728674151756.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260821054334.1277088-1-hongxing.zhu@oss.nxp.com>
-References: <20260821054334.1277088-1-hongxing.zhu@oss.nxp.com>
+	Wed, 02 Sep 2026 18:48:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C09FB600C8;
+	Wed,  2 Sep 2026 18:48:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2D071F000E9;
+	Wed,  2 Sep 2026 18:48:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788374923;
+	bh=6/co2BbiwEGthBShXRC0EiM5pB4H/+cNPoBpHcBMo+g=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cQkfPuCbiJJPEZfGHPRJjRakvmDBMzsYExiVJGi56VhwuS1Cq763RmqeLf9X3HPuS
+	 wUA5G1GLYNvfgWlVYO/7UzlD+slDzsOdVil5La4cJVLX+txLYdB9wbBvTDhQsupL9G
+	 kMeL0dkQw2iRWxvoT44gzpIxAM+IX6S00HuyfAQXk/ifidiOCyHxdPp73NgzFW/uGJ
+	 30flVx9b+RJT/HMGFLv0vJvl9087rnu4M2bq3NHRDEVEE8UdRCGCG71nG5oaS3rJs6
+	 MH0jU/iEuoiy8t0++/eeXtQ+5t5mhybtoINbFXu4asB363JYOHf8kkr9AMfHgWbgPA
+	 RS6Ko9nEByatg==
+Subject: Re: [net-next,v3] net: stmmac: drop the queue-0 pinning for GSO frames
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Wed, 02 Sep 2026 18:48:42 +0000
+Message-ID: <178837492226.3394541.13110256562881802796@kernel.org>
+In-Reply-To: <20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85@oss.qualcomm.com>
+References: <20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85@oss.qualcomm.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH0PR07CA0021.namprd07.prod.outlook.com
- (2603:10b6:510:5::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 029fa718-0a25-4232-dd0f-08df0921f68d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|366016|376014|19092799006|1800799024|18002099003|22082099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: gUBc+xkqALyJjlPk/P1al+oEJkX5QqDooOn6EXJ4BtP0j7sUcif1KPx/BvJBf6keY9OEQ+TOt1ijM0JGoQUL+KJhJZAQToVLXLuBdg2fQgCvtcDXJuojK3Z8nzBC9KoFhRBQm9j50odoRpW2rhDn3DEN/UT3N1tcAmrw/fY3kMGZBkvtKuu4bYadYuBDHkJIpgMqt3tiWaKS5/4GBW4NNrTG66UWloRM40eIVytedPky4+mj/mJ1SdGoRJ5NNfIrGSCZzenAXfyXEDNrtr9czG5iTvBynzSXh/O3fiP8OJiK2gvEYdxKaGA3lSnf6f/+/12Z2JMhbm05ak1ZEismANquPhYogv5gBiKx9JkOTDfCTfQ74uCm8af7pCgOkBFxStc5OfEdE9P7lk9SxLoRpYMVYPIsy7IogEQWx0zDMAAyNJvkI4w/wtUkTuE/QiaT/soJ9P6EQtcOLMTZ2jnt6ngPnMUdESWWu2g54JjPfP8QVdqb6AARLygWGFZ8xx5/bu9R15GZ1Zi+qIr/hQE2MLCtlMaROzIKGqReEdp7Wc+a0zL3p9kWy7W3alnNVCyABRs93HOeXuvqm+rxauvRpB2w5IkDLwhNRRd6niPpQ4Hv0cbm6l5wQ4IfBmIsfdyOsIKL7XItC2y6wwIUi0npaHqT6CSn3jIZMOmvAeKeriA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(376014)(19092799006)(1800799024)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1R4QUJBam1xakVBaGFNeG9oSk9Cd2dTektjeXpYbG1Mc2doeUtXUjhWV2k5?=
- =?utf-8?B?RWVjQkhsNmFyeXJqczd5ZzdnUkFyK2J0WWpDWVdyUlZXRmJDVmJSei9EZ0sy?=
- =?utf-8?B?Y0R5bXkvMGxlOXorYmVYTVFlSVNieS9kRGh2dE10dWRVdm9zZzhWcHZSN0Zq?=
- =?utf-8?B?NjFVVkxLVG0wS2pEWm1MdER2bWREZC82eVQ3dXp1OHpMRHg0S2JMd09xR1U5?=
- =?utf-8?B?ZTZqRWtvc08vSi9ydU9YZzRTZHdRQ3dxWEdVT0VEUlR0WEd5Q1k2VFlaNHJN?=
- =?utf-8?B?S2RYc0dDQ0xRZ2ppbUp0QjdiQjhRWjloUi9HYkdPcWdOaldoZE9qMHgzdnNQ?=
- =?utf-8?B?T3hSMUtVT1BDZ21aZHN1elFkejJrc3NnL09BVnJveFNqT2JMbHBHQnpMRzBX?=
- =?utf-8?B?ZG1XRFRRaDU1UDk4OXQxcnNNVmtpbVhYd2Y5NDBmb0xlejFBeEMycU9UaDZj?=
- =?utf-8?B?dk82YUE4SDJaL010aDZqMlIrOWptZXRSUXVqaFlWcHVTdHhZaHZOZEh5ZG8x?=
- =?utf-8?B?ZERveVNmSG9DTWcvUDI1MEk2YUNUTk5EZEJoNjlvTmV4WWtrSnMxT21hczhY?=
- =?utf-8?B?RVZRTnptZmJEcXlCcDRJNXJrUGlVUDRwVnkvQURHUEFpTlpsMTNtWG5pK3pP?=
- =?utf-8?B?a0YxYy94VGRhWDdlR3pZUW5sWDRxcm9abDNidFI5WnoydXB2d3FWN3gwOVVP?=
- =?utf-8?B?M0h6ZkZnZURmK0w1TFJTZ3ZGdURpY1Y0QndHZGZlVlNWOHo5aTBuK05mN0VG?=
- =?utf-8?B?WHliazgraiszQ01oNEFLcEErdGdob2VHMytINVZMbi9NUE1rdWdzK2hGcnBq?=
- =?utf-8?B?UTJPK2hKYkx5d3lCamwxTG10YnJRNW5WUlc2Z2RLUUVDblZYdnd2cHowcVRW?=
- =?utf-8?B?bklBT2JKM2c3YmtMeHF4N3ZQM1I0ZXNwMnI5TklNV0o0MlRYM2pSLy9Lejg4?=
- =?utf-8?B?NC9vczhNemwwZUxXQmlNU3kzeXUwVzhjdnlGclMrdjNBSjZ1dHhJYVJkNDVK?=
- =?utf-8?B?cXR1bnJ3WVI1U05kWFJGa2l2SzNKRlJYRzhiOGZRazBJOEUwN2pBNi9qejJj?=
- =?utf-8?B?WFA4cGdnb3NvS1BueGIzT01sb3BCTVMySmk1K1d2RUlaWEpDbVlKcTVUc2p2?=
- =?utf-8?B?V21LSE9Lbnh0UmpMMytoVDh5UVpFbGtTRGV0QjBmd1k5WEVSTzY4WHlFdy95?=
- =?utf-8?B?SnB3YUtHK1lrYnYvdkNwYitXZVA2Znpva1lEWEZpdW9STS9Gc0V2cXM0V0tS?=
- =?utf-8?B?QWMyWEo1K1hibGNaYm8yTTFqUkRHN3o3alNqbGNPckxLay9jcWRQa1haNTNO?=
- =?utf-8?B?bWR1MkNDQ0t4UEhXaUQvbnkyYnBZbjRwbHplUzlscmFaSVRoWnkwS3FYODJi?=
- =?utf-8?B?c3V2dzAyTXdNUlQrT09lc0MzbVUxaW5lMmxWODVLSnphQWJ5NmVWK3hTT3ZB?=
- =?utf-8?B?T2M1RW5vbVBvalk4TnBqUU42NDk1NVJ5cjNlb1NWelNCNkJtd0tVeVFXUHho?=
- =?utf-8?B?bVR0dzhaVFF1a2ltdmZFZjN1NnNrSWFFWUw1a1N1alRINzN5WDY1b1lxay9o?=
- =?utf-8?B?dEFJeStRckRNMWhvNGdxdnhGZ3pGQmdSNHljL0c0aGt4djd4VnZJRFlPeHVZ?=
- =?utf-8?B?VkhwbXRZdVdVT3hZQVNSczMvaVFaMXpxZnFCQWViQkU0alpDcFozNGJ4TzY0?=
- =?utf-8?B?UXhFa2FTd3l6VmErNm54dUdPbGQySkovV2RWVHdHYnljS3BSanBSNDRpRXdW?=
- =?utf-8?B?V1JkaEJxV05PZkxBdit2bkpXSmVVbHVDclhzV1k3RTE1eDEyTTRhWFNKNDQ1?=
- =?utf-8?B?c2R1YmxZTWx2YmdDZlduOUduY0J2eHh3WmVWeHZxRk5kUkhKM25vTGo0Umlr?=
- =?utf-8?B?eXFyQkh2Z2ZMYWVaOGR5ZkhRSXZPN1M4N2xyRlppeFBLNytXRzVTUkVDWlB4?=
- =?utf-8?B?dDFFZzdDM0pPVVR0V3d5VFEwazlSanRWeTVObTNjaGtMSkJVTW9WVnJRQlN5?=
- =?utf-8?B?dS9jTEx0a1RydVJoYk82Ny9wNVRSclcvY1hzT1dMdldBbzA5dFI3N2laMFZR?=
- =?utf-8?B?OExTNG55T1Y5dWFsWUF4R3ZhR0RhaG4zV1ZEQ2FORWFSMHFXYWpieFZXUkxD?=
- =?utf-8?B?QXBpUlFUYXcyL3ZkeGwyMTZIV1dIa1RzVnJTdGNWektidGhJdDQ4a09vTDNS?=
- =?utf-8?B?eUpzR2o1V04vMU9HT0xpZFRBYkFwQ3k0ZVFGTG5OZUFWazNpcExkZC83T2Vj?=
- =?utf-8?B?aExHWkVFRDF2NnRqVDlCRk9Uajc3cWFhSHI5NzdUOWZsM2N4R0w2Zm8xYmtj?=
- =?utf-8?B?cU9PYkROa0N2TE1SbzNVVlRRWklnM0V0bVVkaGZaZmhlUkw3UW5YcitPOE5U?=
- =?utf-8?Q?JvVDy7d3hV18EM2UfgefxDpDqpQL20fGwQliz?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 029fa718-0a25-4232-dd0f-08df0921f68d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 18:42:38.8634
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xXAeOviwmvA8XUKl0M/CyXV4geIyCM+HTOTMMsWD9rtIsmYMte6JT3WCULFlSM0bs9mN0WxooFfyDo19lIaATrGEnHTE3SDxfFFeVl5YXieUDsAOpoo2cMJxOh0PAOIu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8040
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_114244_868960_22B6E827 
-X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,33 +72,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider:
 
+Critical: 0 · High: 1 · Medium: 2 · Low: 1
 
-On Fri, 21 Aug 2026 13:43:31 +0800, hongxing.zhu@oss.nxp.com wrote:
-> This patch series fix PCIe non-prefetchable memory window overlap with
-> system DRAM on i.MX9 series SoCs (imx95, imx94, and imx943).
->
-> The current address 0xe0000000 conflicts with DRAM regions. Sashiko
-> reports the potential issue in previous review:
->
-> The fix relocates the PCI bus address to 0x10000000, a reserved and safe
-> range. The other PCI bus address and window size remain unchanged.
->
-> [...]
+- [High] Removing .ndo_select_queue silently disables hardware TSO/USO
+  for most GSO flows on all in-tree stmmac platforms that mark every TX…
+- [Medium] The patch's stated safety property — 'stmmac_features_check()
+  already validates each GSO frame against the capabilities of the queue…
+- [Medium] The patch deletes the hardware fact that the removed comment
+  carried ('There is no way to determine the number of TSO/USO capable…
+- [Low] The commit claims to fix a real user-visible offload defect
+  ('This also fixes the case where queue 0 is not TSO-capable while…
 
-Applied, thanks!
-
-[1/3] arm64: dts: imx95: Avoid 32-bit PCIe window System RAM overlap
-      commit: 9094eb07b3e236233dbaac61ed30cc65be9e9c6c
-[2/3] arm64: dts: imx94: Avoid 32-bit PCIe window System RAM overlap
-      commit: 775ebd246092294432895f8e9bd48e3f0a56714a
-[3/3] arm64: dts: imx943: Avoid 32-bit PCIe window System RAM overlap
-      commit: fff67007ad5403966092006867fe9926aaedda0d
-
-Commit message add discuss link and "Avoid hit this as a P2P transfer[1]."
-
-Best regards,
 --
-Frank Li <Frank.Li@nxp.com>
+
+net: stmmac: drop the queue-0 pinning for GSO frames
+
+This drops stmmac_select_queue() and its .ndo_select_queue entry so GSO
+frames are no longer pinned to TX queue 0. The changelog argues the pinning
+is redundant because stmmac_features_check() already validates each GSO
+frame against the capabilities of the queue it is mapped to. Non-GSO
+traffic keeps going through netdev_pick_tx().
+
+Link: https://lore.kernel.org/r/20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com
+Link: https://lore.kernel.org/r/20260807-stmmac_select_queue-tso-fix-v1-1-4c4787bad02b@oss.qualcomm.com
+
+>From the changelog:
+
+> This also fixes the case where queue 0 is not TSO-capable while other
+> queues are, which previously forced all TSO traffic into software GSO.
+
+[Severity: Low]
+Since this is described as a fix, should it carry a Fixes tag? The queue-0
+pinning being removed came in with commit 4993e5b37e8b ("net: stmmac:
+Re-work the queue selection for TSO packets"), which in turn fixed
+c5acdbee22a1 ("net: stmmac: Send TSO packets always from Queue 0").
+
+The removal also depends on the per-queue checks in
+stmmac_features_check() added by commit b55dfb173ce8 ("net: stmmac: move
+check for hardware checksum supported") and the surrounding series. Without
+those, backporting this alone removes the only thing that steered GSO
+frames to a capable queue.
+
+Could the changelog name those prerequisites so stable triage has
+something to work from?
+
+The claimed defect itself looks describable from DT, via
+stmmac_mtl_setup():
+
+	plat->tx_queues_cfg[queue].coe_unsupported =
+		of_property_read_bool(q_node, "snps,coe-unsupported");
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 66ae365e1c89f..25121d6d84995 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6428,24 +6428,6 @@ static int stmmac_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+>  	}
+>  }
+>  
+> -static u16 stmmac_select_queue(struct net_device *dev, struct sk_buff *skb,
+> -			       struct net_device *sb_dev)
+> -{
+> -	int gso = skb_shinfo(skb)->gso_type;
+> -
+> -	if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6 | SKB_GSO_UDP_L4)) {
+> -		/*
+> -		 * There is no way to determine the number of TSO/USO
+> -		 * capable Queues. Let's use always the Queue 0
+> -		 * because if TSO/USO is supported then at least this
+> -		 * one will be capable.
+> -		 */
+> -		return 0;
+> -	}
+
+[Severity: High]
+Does this lose hardware TSO/USO for most GSO flows on the in-tree
+platforms that mark every TX queue above queue 0 as TBS?
+
+dwmac-intel.c, dwmac-imx.c, dwmac-mediatek.c, dwmac-qcom-ethqos.c and
+stmmac_pci.c all do the equivalent of intel_mgbe_common_data():
+
+	/* Default TX Q0 to use TSO and rest TXQ for TBS */
+	if (i > 0)
+		plat->tx_queues_cfg[i].tbs_en = 1;
+
+That becomes STMMAC_TBS_AVAIL at open time in __stmmac_setup_dma_desc(),
+with no ETF qdisc involved:
+
+	int tbs_en = priv->plat->tx_queues_cfg[chan].tbs_en;
+
+	/* Setup per-TXQ tbs flag before TX descriptor alloc */
+	tx_q->tbs |= tbs_en ? STMMAC_TBS_AVAIL : 0;
+
+and stmmac_tso_channel_permitted() then returns false for those channels:
+
+	/* TSO and TBS cannot co-exist */
+	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
+
+The commit message says stmmac_features_check() "validates each GSO frame
+against the capabilities of the queue it is mapped to", but the check only
+demotes the frame, it does not move it:
+
+	if (skb_is_gso(skb)) {
+		if (!stmmac_tso_channel_permitted(priv, queue) ||
+		    !stmmac_tso_valid_packet(skb))
+			features &= ~NETIF_F_GSO_MASK;
+
+So with the selector gone, netdev_pick_tx() hashes GSO flows over all N
+queues and roughly (N-1)/N of TCP/UDP-GSO flows on these boards end up
+segmented in software by validate_xmit_skb() rather than by the MAC. Is
+that intended, and if so could the changelog mention the throughput and
+CPU cost instead of describing the change as removing something that is
+"no longer needed"?
+
+Would a capability-aware queue selection (or a per-queue TSO map consulted
+by the selector) be needed to keep the "Q0 is the TSO queue" contract those
+platforms document?
+
+> -
+> -	return netdev_pick_tx(dev, skb, NULL) % dev->real_num_tx_queues;
+> -}
+> -
+
+[Severity: Medium]
+The deleted comment records a hardware fact: there is no way to determine
+which TX DMA channels were synthesized with the TSO data path. DWMAC and
+XGMAC only expose a single global TSOEN bit, surfaced as
+priv->dma_cap.tsoen, and stmmac_hw_setup() programs TSE from it for every
+non-TBS channel without any readback:
+
+	if (priv->dma_cap.tsoen && priv->plat->flags & STMMAC_FLAG_TSO_EN) {
+		for (chan = 0; chan < tx_cnt; chan++) {
+			if (!stmmac_tso_channel_permitted(priv, chan))
+				continue;
+
+			stmmac_enable_tso(priv, priv->ioaddr, 1, chan);
+		}
+	}
+
+stmmac_features_check() only knows about tx_queues_cfg[queue].coe_unsupported
+and TBS, so on a part where only a subset of channels implement TSO it
+cannot clear NETIF_F_GSO_MASK, and stmmac_xmit() then hands the frame to
+stmmac_tso_xmit() on a channel whose DMA does not implement TSE. That
+programs an MSS context descriptor plus TDES3 in TSE/THL/payload-length
+form on a channel that decodes those bits as CIC and frame length.
+
+Is there evidence that all channels are TSO-capable on the supported parts?
+If not, would a per-queue tso capability consulted by
+stmmac_features_check() be the replacement for the removed workaround?
+
+>  static int stmmac_set_mac_address(struct net_device *ndev, void *addr)
+>  {
+>  	struct stmmac_priv *priv = netdev_priv(ndev);
+> @@ -7302,7 +7284,6 @@ static const struct net_device_ops stmmac_netdev_ops = {
+>  	.ndo_eth_ioctl = stmmac_ioctl,
+>  	.ndo_get_stats64 = stmmac_get_stats64,
+>  	.ndo_setup_tc = stmmac_setup_tc,
+> -	.ndo_select_queue = stmmac_select_queue,
+
+[Severity: Medium]
+Does the "features_check validates the queue it is mapped to" argument hold
+on the AF_PACKET PACKET_QDISC_BYPASS path? __dev_direct_xmit() runs the
+feature validation before assigning the real queue:
+
+net/core/dev.c:__dev_direct_xmit() {
+	...
+	skb = validate_xmit_skb_list(skb, dev, &again);
+	if (skb != orig_skb)
+		goto drop;
+
+	skb_set_queue_mapping(skb, queue_id);
+	...
+}
+
+and with .ndo_select_queue gone, packet_pick_tx_queue() takes the else
+branch, so queue_id can be any queue:
+
+net/packet/af_packet.c:packet_pick_tx_queue() {
+	...
+	skb_record_rx_queue(skb, cpu % dev->real_num_tx_queues);
+	if (ops->ndo_select_queue) {
+		queue_index = ops->ndo_select_queue(dev, skb, NULL);
+		queue_index = netdev_cap_txqueue(dev, queue_index);
+	} else {
+		queue_index = netdev_pick_tx(dev, skb, NULL);
+	}
+	...
+}
+
+The mapping stmmac_features_check() reads via skb_get_queue_mapping() is
+therefore (cpu % real_num_tx_queues) + 1, not queue_id. When the evaluated
+queue is TSO-permitted but the queue actually used is not, NETIF_F_GSO_MASK
+survives and stmmac_xmit() dispatches unconditionally:
+
+	if (skb_is_gso(skb))
+		return stmmac_tso_xmit(skb, dev);
+
+Before this patch the same ordering existed but was harmless, because
+packet_pick_tx_queue() consulted ndo_select_queue and GSO frames always
+went out on queue 0. Is something needed to close that now?
+
+Separately, that mapping can be real_num_tx_queues itself when
+cpu % real_num_tx_queues == real_num_tx_queues - 1. Can this read past
+priv->plat->tx_queues_cfg[] and priv->dma_conf.tx_queue[] in
+stmmac_features_check() when real_num_tx_queues == MTL_MAX_TX_QUEUES?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85%40oss.qualcomm.com
 
