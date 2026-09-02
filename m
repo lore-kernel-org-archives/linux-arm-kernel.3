@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47ACBC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607B9C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Tecc3lQIKN0K3LRzH2AlzBhyqwFHt3ICutJHGbXQZ0=; b=IbD12r/kaNVxg3QkuNfwEaTTSe
-	FR19qh2NWR3d5aol7B+H7446XZDIkmBxmrUrLhlqUhggSJGSSpRc38pDVeuhkhl/P1azpNbXDWBe/
-	EovFbSIn+Eos5qC+IATD5w4YwM35viSqvFFuoUp3bCOXOo+wEdumNsvtmdPigbglWrsVEzosQUYRp
-	048HePEHD1G6W8hc1DDdnQvAfH5WxEOQgxyVUvMFyo17XNnwvDtgeaoJxCprJ2bRYQ2e/r1Xjb/O2
-	rZo3rSR6UKNqgvBkIRw/KGajG1BXBQHsEZ3JFaJdroTlOzNr4YB9f7UV4NUdeGlmEnCLjHMg0MQSR
-	cV8SxYGg==;
+	bh=ME+JoqIPzpQnc5fuMzerFlTVEsF/6L8eeADCljTJz44=; b=Fop9K5pdvWnOCa6AFfF6DIQ/Rk
+	q5MhlGQKf1CfFG2UKCAp3yTeXS1S4sR7RrT3BWCfLD1HQqEA0DC1p1bK6Q7Hn5YUxJDAwlgamHAK/
+	RPOkM2BBFP+WZgqgXHbspCZweKLesnaNw3ryeeY1YmnSHis1uW+f/mY+qXhCtvttBWQJ2pnmkaibD
+	sTGtuDaiSlxpH7qgAxSBNxh8QCBa8Enx5CeM874EkA6rDVr33twyFeUq0nZoxkZo5zWw6BGZscRjh
+	VAODiQWvADn2G2zPvxSyS8pCom0DO7NGrdeGkr3w5dFqsO1KGk2cIey9qu77DDA/WJZYiDODp+GfM
+	LkfiZXng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oK2-0000000FKw7-1GW2;
-	Wed, 02 Sep 2026 17:00:26 +0000
+	id 1x1oKB-0000000FL7u-0agQ;
+	Wed, 02 Sep 2026 17:00:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oJz-0000000FKsV-4AuL;
-	Wed, 02 Sep 2026 17:00:24 +0000
+	id 1x1oK6-0000000FKyH-1h3f
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Sep 2026 17:00:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=9Tecc3lQIKN0K3LRzH2AlzBhyqwFHt3ICutJHGbXQZ0=; b=m5vRNzWP5SbMCsqK0W7+afzLIr
-	iYi8LiizMZk4zBura08nlZCc61YdMIvJvfsfAcge2w1l4dbOb0/HTNViq+ekwqS+PCPTpJdh70SSE
-	ImDaoXVhwGXyHrR/nEKLAU0hzYCF8bV/pipESxaipdjOkhWaZVF3l4D6xaXde7KW8Eq9Rigw/xKZs
-	O37kRBzR6xzEKgJATaey6itD5aM780tNyp7CMM6ubO+Kbqp1/D3VHdlAvfgpg556l4eTFGLVspupE
-	9sJq1GXDRHW+UTArRA/mk3fym+BIw+nyP8goVohNbVHrAJPG/AClt3tUwx+216UF01q8HyfumC0pl
-	bhhYBt5w==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	bh=ME+JoqIPzpQnc5fuMzerFlTVEsF/6L8eeADCljTJz44=; b=atKPULsoRYJksJzjq3UjbDlqEX
+	urMObli1EXUaKUU5/CdeeVx9H1v3sQGK5DDr/I8deL1S3HNvRMWFcx4JR5xsGJPd5XcMHSyEGQw9s
+	cCrDi+9ZeqSXgNPou8V57GKLEssjl2SljCaxS6Dc4/bLQcHOeYdK9FDxJpA+BP5d11lsnR1hgGtaM
+	lsQ4sUfHzQUX3O2tYXdajzTCnkl04FMz0BAVmJ/jNPs7LQherYj0p1OwxPy2eV3vlSTFmAO+SN9db
+	rBrs4OGfwObJfpuDbDpsAKAb797Qgud3a359dX7EQt/cmj0ax2FquhWF3fLW9Dxek8D4s3phtAcra
+	4fM8L5Jw==;
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x1oJt-0000000CEfn-3r2T;
-	Wed, 02 Sep 2026 17:00:22 +0000
+	id 1x1oK2-0000000CEke-3dII
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 17:00:29 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 773FD1A1968;
-	Wed,  2 Sep 2026 17:00:06 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3696A4E414EB;
+	Wed,  2 Sep 2026 17:00:26 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 43A016053C;
-	Wed,  2 Sep 2026 17:00:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3C97211C798E5;
-	Wed,  2 Sep 2026 18:59:59 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0342A6053C;
+	Wed,  2 Sep 2026 17:00:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 24A4A11C79FCB;
+	Wed,  2 Sep 2026 19:00:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788368401; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1788368420; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=9Tecc3lQIKN0K3LRzH2AlzBhyqwFHt3ICutJHGbXQZ0=;
-	b=zoXiIQQZJfVaEmZz+d1TvymlW4piF4Vox1rtYWnBZ36d+jsyCUBc3J1Tl/J4/cMHHxaG6w
-	eErXxyqh3X7ueCbqHnKFkF+xLi2jd5MNpCR3jrsG1ZWHI6sUsKw8tT1UEMxfnToKHp+54/
-	ZE7xIstnI5+0yRPXmVWyIsDHyyuKHDnDya53RTv7L1ZmdTHXm9aCnJQH+Pg4lE13MGp9zi
-	fu+0X/IyQy1uuMKbK0+OBhqC4k8wFqYfxeYQKCiB2ekaKfdC9CH68cMCZBs91h/lt+xOj5
-	Lc9WKCFb8bVN+fOclRmnm4BBvzNNKAXyvaJ1qfM1X0qJP2UO+9PAWm8EOxym3w==
+	bh=ME+JoqIPzpQnc5fuMzerFlTVEsF/6L8eeADCljTJz44=;
+	b=Kw54CsqaXD4VRIP+574cVJ6MR0Mr30KQoC7Kbk8TM+iEmSDo/exICGliNrv2n0p0tF5D27
+	H2KBlWX3U524s0vu376iwlFoAU/D4wN735sXneBwc5qmP2O8TPRlxmCQgyGi1FGKae3qaF
+	XX/VZw1YpWOVenYTzyE1/BpxD1E13JaBiWrqnDYoewv4dquWFn5JBzF//spU5yYpCRDLCv
+	CUXVg3mjuRxMe99uWRB5vl9akCEMcVyuWeyRwk0ysx0DgK2uEcI9mpHOKFADWOZbRRQtFe
+	UWyq7WPyn/GyjeyrgQZuPUge73oMKpgzutqwh1FvuVart39v20nqae7BbSIxDA==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 02 Sep 2026 18:59:20 +0200
-Subject: [PATCH v4 06/25] mtd: spi-nor: Move the fixup flags into the fixup
- list
+Date: Wed, 02 Sep 2026 18:59:25 +0200
+Subject: [PATCH v4 11/25] mtd: spi-nor: winbond: Add support for
+ W25Q64RV-Q/N
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-6-779d35303dff@bootlin.com>
+Message-Id: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-11-779d35303dff@bootlin.com>
 References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
 To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
@@ -82,8 +84,8 @@ Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_180018_153112_9F26A23D 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20260902_180027_263534_CE2CC608 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,370 +100,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The idea of the fixup flags is to enable fixups without having to repeat
-the same fixup function over and over again. It overall reduces the
-boilerplate with a similar intent: fixing our knowledge of the flash.
+There is an ID collision with the chip of same density from the JV
+family. Both chips are very similar in practice, it is mostly a matter
+of electrical differences (mostly power consumption being lower).
 
-Move the fixup_flags field as well as the associated flag definitions to
-the spi_nor_fixup structure and enable them based on the IDs.
+As a significant difference, RV chips identify themselves as supporting
+the new SFDP (rev F) field which forces an alternate write SR2
+opcode (0x31).
 
-No functional change.
-
-Suggested-by: Michael Walle <mwalle@kernel.org>
+Reviewed-by: Takahiro Kuwano <takahiro.kuwano@infineon.com>
+Reviewed-by: Michael Walle <mwalle@kernel.org>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/spi-nor/core.c       | 27 +++++++++++++++++++--------
- drivers/mtd/spi-nor/core.h       | 30 ++++++++++++++----------------
- drivers/mtd/spi-nor/gigadevice.c |  4 ++--
- drivers/mtd/spi-nor/issi.c       |  8 ++++----
- drivers/mtd/spi-nor/macronix.c   |  4 ++--
- drivers/mtd/spi-nor/micron-st.c  | 21 ++++++++++++---------
- drivers/mtd/spi-nor/sfdp.c       |  6 +++---
- drivers/mtd/spi-nor/spansion.c   |  6 +++---
- 8 files changed, 59 insertions(+), 47 deletions(-)
++ cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
+ef4017
++ cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
+winbond
++ xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+534644500a0101ff00080117800000ff84010102e00000ffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+ffffffffffffffffe520f3ffffffff0344eb086b083b42bbfeffffffffff
+0000ffff44eb0c200f5210d80000d639a50081d614c3e96376337a757a75
+f7a4d55c39de6dffe970f9a50000000000002c000000000066ffffff0000
+00000000000000000000ffffffffff0a00fe21ffdcff
++ sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+c7fa99bdcdef9a930e609215704dd349dbed161487dee0ece8ea1b25d2d4dd25  /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
++ cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
+Supported read modes by the flash
+ 1S-1S-1S
+  opcode	0x13
+  mode cycles	0
+  dummy cycles	0
+ 1S-1S-2S
+  opcode	0x3c
+  mode cycles	0
+  dummy cycles	8
+ 1S-2S-2S
+  opcode	0xbc
+  mode cycles	2
+  dummy cycles	2
+ 1S-1S-4S
+  opcode	0x6c
+  mode cycles	0
+  dummy cycles	8
+ 1S-4S-4S
+  opcode	0xec
+  mode cycles	2
+  dummy cycles	4
+ 4S-4S-4S
+  opcode	0xec
+  mode cycles	2
+  dummy cycles	4
 
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index a9360998d34b..77d28c99c33b 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -2367,7 +2367,7 @@ int spi_nor_post_bfpt_fixups(struct spi_nor *nor,
- 	fixups = nor->manufacturer->fixups;
- 
- 	for (i = 0; i < nor->manufacturer->nfixups; i++) {
--		if (fixups[i].fixups->post_bfpt &&
-+		if (fixups[i].fixups && fixups[i].fixups->post_bfpt &&
- 		    spi_nor_fixup_match(nor, &fixups[i])) {
- 			ret = fixups[i].fixups->post_bfpt(nor, bfpt_header, bfpt);
- 			if (ret)
-@@ -2667,7 +2667,7 @@ static void spi_nor_manufacturer_init_params(struct spi_nor *nor)
- 	fixups = nor->manufacturer->fixups;
- 
- 	for (i = 0; i < nor->manufacturer->nfixups; i++) {
--		if (fixups[i].fixups->default_init &&
-+		if (fixups[i].fixups && fixups[i].fixups->default_init &&
- 		    spi_nor_fixup_match(nor, &fixups[i]))
- 			fixups[i].fixups->default_init(nor);
- 	}
-@@ -2799,13 +2799,24 @@ static void spi_nor_init_flags(struct spi_nor *nor)
-  */
- static void spi_nor_init_fixup_flags(struct spi_nor *nor)
- {
--	const u8 fixup_flags = nor->info->fixup_flags;
-+	const struct spi_nor_fixup *fixups;
-+	unsigned int i;
- 
--	if (fixup_flags & SPI_NOR_4B_OPCODES)
--		nor->flags |= SNOR_F_4B_OPCODES;
-+	if (!nor->manufacturer || !nor->manufacturer->fixups)
-+		return;
- 
--	if (fixup_flags & SPI_NOR_IO_MODE_EN_VOLATILE)
--		nor->flags |= SNOR_F_IO_MODE_EN_VOLATILE;
-+	fixups = nor->manufacturer->fixups;
-+
-+	for (i = 0; i < nor->manufacturer->nfixups; i++) {
-+		if (!fixups[i].fixup_flags ||
-+		    !spi_nor_fixup_match(nor, &fixups[i]))
-+			continue;
-+
-+		if (fixups[i].fixup_flags & SPI_NOR_4B_OPCODES)
-+			nor->flags |= SNOR_F_4B_OPCODES;
-+		if (fixups[i].fixup_flags & SPI_NOR_IO_MODE_EN_VOLATILE)
-+			nor->flags |= SNOR_F_IO_MODE_EN_VOLATILE;
-+	}
- }
- 
- /**
-@@ -2830,7 +2841,7 @@ static int spi_nor_late_init_params(struct spi_nor *nor)
- 		fixups = nor->manufacturer->fixups;
- 
- 		for (i = 0; i < nor->manufacturer->nfixups; i++) {
--			if (fixups[i].fixups->late_init &&
-+			if (fixups[i].fixups && fixups[i].fixups->late_init &&
- 			    spi_nor_fixup_match(nor, &fixups[i])) {
- 				ret = fixups[i].fixups->late_init(nor);
- 				if (ret)
-diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
-index 32a2d485d31d..1533f79b9039 100644
---- a/drivers/mtd/spi-nor/core.h
-+++ b/drivers/mtd/spi-nor/core.h
-@@ -450,11 +450,25 @@ struct spi_nor_fixups {
-  * @id:		(optional) flash ID this fixup applies to, may only match the
-  *		ID prefix, eg. just the first few bytes to match a whole family
-  * @match:	(optional) custom match function (can be used together with @id)
-+ * @fixup_flags: flags that indicate support that can be discovered via SFDP
-+ *		 ideally, but can not be discovered for this particular flash
-+ *		 because the SFDP table that indicates this support is not
-+ *		 defined by the flash. In case the table for this support is
-+ *		 defined but has wrong values, one should instead use a
-+ *		 post_sfdp() hook to set the SNOR_F equivalent flag.
-+ *
-+ *	SPI_NOR_4B_OPCODES: use dedicated 4byte address op codes to support
-+ *			    memory size above 128Mib.
-+ *	SPI_NOR_IO_MODE_EN_VOLATILE: flash enables the best available I/O mode
-+ *				     via a volatile bit.
-  * @fixups:	the fixup hooks to apply when this entry matches
-  */
- struct spi_nor_fixup {
- 	const struct spi_nor_id *id;
- 	bool (*match)(const struct spi_nor *nor);
-+	u8 fixup_flags;
-+#define SPI_NOR_4B_OPCODES		BIT(0)
-+#define SPI_NOR_IO_MODE_EN_VOLATILE	BIT(1)
- 	const struct spi_nor_fixups *fixups;
- };
- 
-@@ -519,22 +533,10 @@ struct spi_nor_id {
-  *   SPI_NOR_OCTAL_DTR_READ:  flash supports octal DTR Read.
-  *   SPI_NOR_OCTAL_DTR_PP:    flash supports Octal DTR Page Program.
-  *
-- * @fixup_flags:    flags that indicate support that can be discovered via SFDP
-- *                  ideally, but can not be discovered for this particular flash
-- *                  because the SFDP table that indicates this support is not
-- *                  defined by the flash. In case the table for this support is
-- *                  defined but has wrong values, one should instead use a
-- *                  post_sfdp() hook to set the SNOR_F equivalent flag.
-- *
-- *   SPI_NOR_4B_OPCODES:      use dedicated 4byte address op codes to support
-- *                            memory size above 128Mib.
-- *   SPI_NOR_IO_MODE_EN_VOLATILE: flash enables the best available I/O mode
-- *                            via a volatile bit.
-  * @mfr_flags:      manufacturer private flags. Used in the manufacturer fixup
-  *                  hooks to differentiate support between flashes of the same
-  *                  manufacturer.
-  * @otp_org:        flash's OTP organization.
-- * @fixups:         part specific fixup hooks.
-  */
- struct flash_info {
- 	char *name;
-@@ -566,10 +568,6 @@ struct flash_info {
- #define SPI_NOR_OCTAL_DTR_READ		BIT(6)
- #define SPI_NOR_OCTAL_DTR_PP		BIT(7)
- 
--	u8 fixup_flags;
--#define SPI_NOR_4B_OPCODES		BIT(0)
--#define SPI_NOR_IO_MODE_EN_VOLATILE	BIT(1)
--
- 	u8 mfr_flags;
- 
- 	const struct spi_nor_otp_organization *otp;
-diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigadevice.c
-index f76fd0dedd0a..6a2e6ebda148 100644
---- a/drivers/mtd/spi-nor/gigadevice.c
-+++ b/drivers/mtd/spi-nor/gigadevice.c
-@@ -64,7 +64,6 @@ static const struct flash_info gigadevice_nor_parts[] = {
- 		.id = SNOR_ID(0xc8, 0x40, 0x19),
- 		.name = "gd25q256",
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
+Supported page program modes by the flash
+ 1S-1S-1S
+  opcode	0x12
+ 1S-1S-4S
+  opcode	0x34
++ cat /sys/kernel/debug/spi-nor/spi0.0/params
+name		(null)
+id		ef 40 17 00 00 00
+size		8.00 MiB
+write size	1
+page size	256
+address nbytes	4
+flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | SOFT_RESET | NO_WP | HAS_SR2_CMP_BIT6
+
+opcodes
+ read		0xec
+  dummy cycles	6
+ erase		0xdc
+ program	0x34
+ 8D extension	repeat
+
+protocols
+ read		1S-4S-4S
+ write		1S-1S-4S
+ register	1S-1S-1S
+
+erase commands
+ 21 (4.00 KiB) [1]
+ dc (64.0 KiB) [3]
+ c7 (8.00 MiB)
+
+sector map
+ region (in hex)   | erase mask | overlaid
+ ------------------+------------+---------
+ 00000000-007fffff |     [   3] | no
+
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007fffff | unlocked | 64
++ dd 'if=/dev/urandom' 'of=./spi_test' 'bs=1M' 'count=2'
+[    7.803395] random: crng init done
+2+0 records in
+2+0 records out
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ hexdump spi_read
+0000000 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0200000
++ sha256sum spi_read
+4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
++ mtd_debug write /dev/mtd0 0 2097152 spi_test
+Copied 2097152 bytes from spi_test to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_read
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_test
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_test
++ mtd_debug info /dev/mtd0
+mtd.type = MTD_NORFLASH
+mtd.flags = MTD_CAP_NORFLASH
+mtd.size = 8388608 (8M)
+mtd.erasesize = 65536 (64K)
+mtd.writesize = 1
+mtd.oobsize = 0
+regions = 0
+
++ alias 'show_sectors=grep -A4 "locked sectors" /sys/kernel/debug/spi-nor/spi0.0/params'
++ flash_lock -u /dev/mtd0
++ flash_lock -i /dev/mtd0
+Device: /dev/mtd0
+Start: 0
+Len: 0x800000
+Lock status: unlocked
+Return code: 0
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug write /dev/mtd0 0 2097152 spi_test
+Copied 2097152 bytes from spi_test to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_read
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_test
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007fffff | unlocked | 64
++ flash_lock -l /dev/mtd0
++ flash_lock -i /dev/mtd0
+Device: /dev/mtd0
+Start: 0
+Len: 0x800000
+Lock status: locked
+Return code: 1
++ mtd_debug erase /dev/mtd0 0 2097152
+Erased 2097152 bytes from address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read
++ sha256sum spi_read spi_test
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_read
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_test
++ dd 'if=/dev/urandom' 'of=./spi_test2' 'bs=1M' 'count=2'
+2+0 records in
+2+0 records out
++ mtd_debug write /dev/mtd0 0 2097152 spi_test2
+Copied 2097152 bytes from spi_test2 to address 0x00000000 in flash
++ mtd_debug read /dev/mtd0 0 2097152 spi_read2
+Copied 2097152 bytes from address 0x00000000 in flash to spi_read2
++ sha256sum spi_read spi_read2 spi_test spi_test2
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_read
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_read2
+eca2ec05a4fbf9f14490a0147e43c8f3616298bf8f6e2b59f5c5e5076c1cfd02  spi_test
+64f4a5c5a05eae4a6dffb9e76171d97328257a96110214f52222870681b7b28c  spi_test2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007fffff |   locked | 64
++ flash_lock -u /dev/mtd0
++ cat /sys/class/mtd/mtd0/size
++ size=8388608
++ cat /sys/class/mtd/mtd0/erasesize
++ bs=65536
++ grep unlocked /sys/kernel/debug/spi-nor/spi0.0/params
++ sed -e 's/.*unlocked | //'
++ nsectors=64
++ ss=131072
++ bps=2
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 8126464 4
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007bffff | unlocked | 62
+ 007c0000-007fffff |   locked | 2
++ flash_lock -u /dev/mtd0 8126464 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007dffff | unlocked | 63
+ 007e0000-007fffff |   locked | 1
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 0 4
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0003ffff |   locked | 2
+ 00040000-007fffff | unlocked | 62
++ flash_lock -u /dev/mtd0 131072 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0001ffff |   locked | 1
+ 00020000-007fffff | unlocked | 63
++ all_but_one=126
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 131072 126
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0001ffff | unlocked | 1
+ 00020000-007fffff |   locked | 63
++ flash_lock -u /dev/mtd0 131072 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-0003ffff | unlocked | 2
+ 00040000-007fffff |   locked | 62
++ flash_lock -u /dev/mtd0
++ flash_lock -l /dev/mtd0 0 126
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007dffff |   locked | 63
+ 007e0000-007fffff | unlocked | 1
++ flash_lock -u /dev/mtd0 8126464 2
++ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
+locked sectors
+ region (in hex)   | status   | #sectors
+ ------------------+----------+---------
+ 00000000-007bffff |   locked | 62
+ 007c0000-007fffff | unlocked | 2
+---
+ drivers/mtd/spi-nor/winbond.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/mtd/spi-nor/winbond.c b/drivers/mtd/spi-nor/winbond.c
+index 14ab26abe0eb..1864ad27e5e3 100644
+--- a/drivers/mtd/spi-nor/winbond.c
++++ b/drivers/mtd/spi-nor/winbond.c
+@@ -254,7 +254,7 @@ static const struct flash_info winbond_nor_parts[] = {
+ 		.no_sfdp_flags = SECT_4K,
+ 		.flags = SPI_NOR_QUAD_PP | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_CMP,
  	}, {
- 		.id = SNOR_ID(0xc8, 0x60, 0x16),
- 		.name = "gd25lq32",
-@@ -87,7 +86,8 @@ static const struct flash_info gigadevice_nor_parts[] = {
- };
- 
- static const struct spi_nor_fixup gigadevice_fixups[] = {
--	{ .id = SNOR_ID(0xc8, 0x40, 0x19), .fixups = &gd25q256_fixups },
-+	{ .id = SNOR_ID(0xc8, 0x40, 0x19), .fixups = &gd25q256_fixups,
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
- };
- 
- const struct spi_nor_manufacturer spi_nor_gigadevice = {
-diff --git a/drivers/mtd/spi-nor/issi.c b/drivers/mtd/spi-nor/issi.c
-index 7af850eea9ff..2f057d731df2 100644
---- a/drivers/mtd/spi-nor/issi.c
-+++ b/drivers/mtd/spi-nor/issi.c
-@@ -101,7 +101,6 @@ static const struct flash_info issi_nor_parts[] = {
- 	}, {
- 		.id = SNOR_ID(0x9d, 0x60, 0x19),
- 		.name = "is25lp256",
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}, {
- 		.id = SNOR_ID(0x9d, 0x70, 0x16),
- 		.name = "is25wp032",
-@@ -121,7 +120,6 @@ static const struct flash_info issi_nor_parts[] = {
- 		.id = SNOR_ID(0x9d, 0x70, 0x19),
- 		.name = "is25wp256",
- 		.flags = SPI_NOR_QUAD_PP,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}
- };
- 
-@@ -146,8 +144,10 @@ static bool issi_pm25lv_match(const struct spi_nor *nor)
- static const struct spi_nor_fixup issi_fixup_list[] = {
- 	{ .fixups = &issi_fixups },
- 	{ .match = issi_pm25lv_match, .fixups = &pm25lv_nor_fixups },
--	{ .id = SNOR_ID(0x9d, 0x60, 0x19), .fixups = &is25lp256_fixups },
--	{ .id = SNOR_ID(0x9d, 0x70, 0x19), .fixups = &is25lp256_fixups },
-+	{ .id = SNOR_ID(0x9d, 0x60, 0x19), .fixups = &is25lp256_fixups,
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
-+	{ .id = SNOR_ID(0x9d, 0x70, 0x19), .fixups = &is25lp256_fixups,
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
- };
- 
- const struct spi_nor_manufacturer spi_nor_issi = {
-diff --git a/drivers/mtd/spi-nor/macronix.c b/drivers/mtd/spi-nor/macronix.c
-index 04b431bf5f13..94e553724fc9 100644
---- a/drivers/mtd/spi-nor/macronix.c
-+++ b/drivers/mtd/spi-nor/macronix.c
-@@ -140,7 +140,6 @@ static const struct flash_info macronix_nor_parts[] = {
- 	}, {
- 		/* MX66L51235F */
- 		.id = SNOR_ID(0xc2, 0x20, 0x1a),
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}, {
- 		/* MX66L1G45G */
- 		.id = SNOR_ID(0xc2, 0x20, 0x1b),
-@@ -328,7 +327,8 @@ static const struct spi_nor_fixups macronix_nor_fixups = {
- static const struct spi_nor_fixup macronix_fixups[] = {
- 	{ .fixups = &macronix_nor_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x19), .fixups = &mx25l25635_fixups },
--	{ .id = SNOR_ID(0xc2, 0x20, 0x1a), .fixups = &macronix_qpp4b_fixups },
-+	{ .id = SNOR_ID(0xc2, 0x20, 0x1a), .fixups = &macronix_qpp4b_fixups,
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x1b), .fixups = &macronix_qpp4b_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x20, 0x1c), .fixups = &macronix_qpp4b_fixups },
- 	{ .id = SNOR_ID(0xc2, 0x25, 0x3a), .fixups = &macronix_qpp4b_fixups },
-diff --git a/drivers/mtd/spi-nor/micron-st.c b/drivers/mtd/spi-nor/micron-st.c
-index 2aabd6d487ba..53ae9533f50f 100644
---- a/drivers/mtd/spi-nor/micron-st.c
-+++ b/drivers/mtd/spi-nor/micron-st.c
-@@ -205,12 +205,10 @@ static const struct flash_info micron_nor_parts[] = {
- 		/* MT35XU512ABA */
- 		.id = SNOR_ID(0x2c, 0x5b, 0x1a),
- 		.mfr_flags = USE_FSR,
--		.fixup_flags = SPI_NOR_IO_MODE_EN_VOLATILE,
- 	}, {
- 		/* MT35XU01GBBA */
- 		.id = SNOR_ID(0x2c, 0x5b, 0x1b),
- 		.mfr_flags = USE_FSR,
--		.fixup_flags = SPI_NOR_IO_MODE_EN_VOLATILE,
- 	}, {
- 		.id = SNOR_ID(0x2c, 0x5b, 0x1c),
- 		.name = "mt35xu02g",
-@@ -218,7 +216,6 @@ static const struct flash_info micron_nor_parts[] = {
- 		.size = SZ_256M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_OCTAL_READ,
- 		.mfr_flags = USE_FSR,
--		.fixup_flags = SPI_NOR_4B_OPCODES | SPI_NOR_IO_MODE_EN_VOLATILE,
- 	},
- };
- 
-@@ -403,7 +400,6 @@ static const struct flash_info st_nor_parts[] = {
- 		.name = "mt25ql256a",
- 		.size = SZ_32M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 		.mfr_flags = USE_FSR,
- 	}, {
- 		.id = SNOR_ID(0x20, 0xba, 0x19),
-@@ -416,7 +412,6 @@ static const struct flash_info st_nor_parts[] = {
- 		.name = "mt25ql512a",
- 		.size = SZ_64M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 		.mfr_flags = USE_FSR,
- 	}, {
- 		.id = SNOR_ID(0x20, 0xba, 0x20),
-@@ -472,7 +467,6 @@ static const struct flash_info st_nor_parts[] = {
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_4BIT_BP |
- 			 SPI_NOR_BP3_SR_BIT6,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 		.mfr_flags = USE_FSR,
- 	}, {
- 		.id = SNOR_ID(0x20, 0xbb, 0x19),
-@@ -661,13 +655,22 @@ static const struct spi_nor_fixups micron_st_nor_fixups = {
- 
- static const struct spi_nor_fixup micron_fixups[] = {
- 	{ .fixups = &micron_st_nor_fixups },
--	{ .id = SNOR_ID(0x2c, 0x5b, 0x1a), .fixups = &mt35xu512aba_fixups },
--	{ .id = SNOR_ID(0x2c, 0x5b, 0x1b), .fixups = &mt35_two_die_fixups },
--	{ .id = SNOR_ID(0x2c, 0x5b, 0x1c), .fixups = &mt35_two_die_fixups },
-+	{ .id = SNOR_ID(0x2c, 0x5b, 0x1a), .fixups = &mt35xu512aba_fixups,
-+	  .fixup_flags = SPI_NOR_IO_MODE_EN_VOLATILE },
-+	{ .id = SNOR_ID(0x2c, 0x5b, 0x1b), .fixups = &mt35_two_die_fixups,
-+	  .fixup_flags = SPI_NOR_IO_MODE_EN_VOLATILE },
-+	{ .id = SNOR_ID(0x2c, 0x5b, 0x1c), .fixups = &mt35_two_die_fixups,
-+	  .fixup_flags = SPI_NOR_4B_OPCODES | SPI_NOR_IO_MODE_EN_VOLATILE },
- };
- 
- static const struct spi_nor_fixup st_fixups[] = {
- 	{ .fixups = &micron_st_nor_fixups },
-+	{ .id = SNOR_ID(0x20, 0xba, 0x19, 0x10, 0x44, 0x00),
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
-+	{ .id = SNOR_ID(0x20, 0xba, 0x20, 0x10, 0x44, 0x00),
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
-+	{ .id = SNOR_ID(0x20, 0xbb, 0x19, 0x10, 0x44, 0x00),
-+	  .fixup_flags = SPI_NOR_4B_OPCODES },
- 	{ .id = SNOR_ID(0x20, 0xba, 0x21), .fixups = &n25q00_fixups },
- 	{ .id = SNOR_ID(0x20, 0xba, 0x22), .fixups = &mt25q02_fixups },
- 	{ .id = SNOR_ID(0x20, 0xbb, 0x20, 0x10, 0x44, 0x00), .fixups = &mt25qu512a_fixups },
-diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
-index 39cb8ac3a037..87b2d0a0e9f4 100644
---- a/drivers/mtd/spi-nor/sfdp.c
-+++ b/drivers/mtd/spi-nor/sfdp.c
-@@ -736,7 +736,7 @@ static void spi_nor_smpt_read_dummy_fixups(const struct spi_nor *nor,
- 	fixups = nor->manufacturer->fixups;
- 
- 	for (i = 0; i < nor->manufacturer->nfixups; i++) {
--		if (fixups[i].fixups->smpt_read_dummy &&
-+		if (fixups[i].fixups && fixups[i].fixups->smpt_read_dummy &&
- 		    spi_nor_fixup_match(nor, &fixups[i]))
- 			fixups[i].fixups->smpt_read_dummy(nor, read_dummy);
- 	}
-@@ -773,7 +773,7 @@ static void spi_nor_smpt_map_id_fixups(const struct spi_nor *nor, u8 *map_id)
- 	fixups = nor->manufacturer->fixups;
- 
- 	for (i = 0; i < nor->manufacturer->nfixups; i++) {
--		if (fixups[i].fixups->smpt_map_id &&
-+		if (fixups[i].fixups && fixups[i].fixups->smpt_map_id &&
- 		    spi_nor_fixup_match(nor, &fixups[i]))
- 			fixups[i].fixups->smpt_map_id(nor, map_id);
- 	}
-@@ -1430,7 +1430,7 @@ static int spi_nor_post_sfdp_fixups(struct spi_nor *nor)
- 	fixups = nor->manufacturer->fixups;
- 
- 	for (i = 0; i < nor->manufacturer->nfixups; i++) {
--		if (fixups[i].fixups->post_sfdp &&
-+		if (fixups[i].fixups && fixups[i].fixups->post_sfdp &&
- 		    spi_nor_fixup_match(nor, &fixups[i])) {
- 			ret = fixups[i].fixups->post_sfdp(nor);
- 			if (ret)
-diff --git a/drivers/mtd/spi-nor/spansion.c b/drivers/mtd/spi-nor/spansion.c
-index f3862eb1a23a..5f4ce042ef2c 100644
---- a/drivers/mtd/spi-nor/spansion.c
-+++ b/drivers/mtd/spi-nor/spansion.c
-@@ -976,19 +976,16 @@ static const struct flash_info spansion_nor_parts[] = {
- 		.name = "s25fl064l",
+-		/* W25Q64JV-Q/N */
++		/* W25Q64JV-Q/N, W25Q64RV-Q/N */
+ 		.id = SNOR_ID(0xef, 0x40, 0x17),
+ 		.name = "w25q64",
  		.size = SZ_8M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}, {
- 		.id = SNOR_ID(0x01, 0x60, 0x18),
- 		.name = "s25fl128l",
- 		.size = SZ_16M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}, {
- 		.id = SNOR_ID(0x01, 0x60, 0x19),
- 		.name = "s25fl256l",
- 		.size = SZ_32M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
--		.fixup_flags = SPI_NOR_4B_OPCODES,
- 	}, {
- 		.id = SNOR_ID(0x04, 0x2c, 0xc2, 0x7f, 0x7f, 0x7f),
- 		.name = "cy15x104q",
-@@ -1157,6 +1154,9 @@ static const struct spi_nor_fixup spansion_fixups[] = {
- 	{ .fixups = &spansion_nor_fixups },
- 	{ .id = SNOR_ID(0x01, 0x02, 0x20, 0x4d, 0x00, 0x81), .fixups = &s25fs_s_nor_fixups },
- 	{ .id = SNOR_ID(0x01, 0x20, 0x18, 0x4d, 0x01, 0x81), .fixups = &s25fs_s_nor_fixups },
-+	{ .id = SNOR_ID(0x01, 0x60, 0x17), .fixup_flags = SPI_NOR_4B_OPCODES },
-+	{ .id = SNOR_ID(0x01, 0x60, 0x18), .fixup_flags = SPI_NOR_4B_OPCODES },
-+	{ .id = SNOR_ID(0x01, 0x60, 0x19), .fixup_flags = SPI_NOR_4B_OPCODES },
- 	{ .id = SNOR_ID(0x34, 0x2a, 0x1a, 0x0f, 0x03, 0x90), .fixups = &s25hx_t_fixups },
- 	{ .id = SNOR_ID(0x34, 0x2a, 0x1b, 0x0f, 0x03, 0x90), .fixups = &s25hx_t_fixups },
- 	{ .id = SNOR_ID(0x34, 0x2a, 0x1c, 0x0f, 0x00, 0x90), .fixups = &s25hx_t_fixups },
 
 -- 
 2.54.0
