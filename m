@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CD4C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC17C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hh9j/pEmKDaJiT1wmv/X91uEhhqIkV0D2bx6x4Y2JZY=; b=1K87NYwwhbqo0ZBI9Ze9BiLbGf
-	zt4PQPujUpDy3R/NqKhnjeBPYdicogq4358gxBOMfbF3BnMLXnrf/vSysGuiBgOOIbhv5wGMvPQrK
-	x19grhSBxJrNn3Ay2viA+hCKRd1+3gf/7yuXRIq/+BO0g5+Yb9oiwiszrOAg2eLj0B8x2j1yG4zmG
-	75975TtcUi/HA+RkGE4KRluy62zhrbrFBqfQ4JP/i+3bXpUkjVSEpefQ4CiRK3/Qa9TTvBpL34IIj
-	8BkgSDVcG64YZS9gM6a5PJ1D0vw1mhDha9bplzfWvwhjZDsGwweJxtvcr29C48bwtrka4Wc/3j+2r
-	7WGFYdTw==;
+	bh=GsUggKmep337k/nWMUInlaOzHuc790L78TJyJtJD4Js=; b=iEygOhG7afusQvcEAbLxnQ8/84
+	7oLs7ChvS823dVkjkSBIaTOP9gbkJFZF9udPetiD3F/1pBNtHdPa78lKoPFotVn65adA3hNli5o9p
+	VBj8fFRwf7BpSzHrt2+jGbMYCCzdd5k20zESHqrjngvP8rcOqYOqon3r/AaRfmfw4fVfTxDjFQ1EV
+	e9H3NBOJoTUMSZ3Cm7QCk2DbZomXbUH+ANWBwzlCvdm5rACgFgBYzncje8XRmUcWRoENbWJuUou+F
+	6bACGmJUJEYBIGFuGPUAYq72LRP6vAl5/Ahrkiqh8nLy48TXzvzkhARcn8rIYA5DHnvb3Zq7npKBv
+	VjpU/vNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lBg-0000000EpUa-1BkO;
-	Wed, 02 Sep 2026 13:39:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lBf-0000000EpUN-1chV
+	id 1x1lIZ-0000000EqRo-37q2;
+	Wed, 02 Sep 2026 13:46:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1lIX-0000000EqRN-3TYl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:39:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2C7C600D1;
-	Wed,  2 Sep 2026 13:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 699DC1F000E9;
-	Wed,  2 Sep 2026 13:39:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788356374;
-	bh=hh9j/pEmKDaJiT1wmv/X91uEhhqIkV0D2bx6x4Y2JZY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BegnjX+7LchNCBTRxj2iaw+WaH2IIhbvx+Ew1BmjUPv+o7Cxb91fzLtreneZe3IDZ
-	 hbLu1Arw9Xewbc340s7/OyhPErC2bfwdaNX4+J3USENmEUU7JWy2Gs5Emp7cQ4khLY
-	 9q0c902dVNfhyhEVENpqDw/T/GlcUoSgVkmn/3iQjXvubS/owoCIkEBSfQjXeCP7bl
-	 tjjSoEagBTlZDzbuS7zk77tvOx3DlZ6z9ci38g6ask7Wck0MT7el6MDneTsHNmfpN9
-	 bIndMyTKLJH8ls4BGP4fz0lP0/QIuG5C0peCBmhKBDDgbdivjX5U/4ftQgNj8eM4b1
-	 4xooTzJgpUvmw==
-Date: Wed, 2 Sep 2026 14:39:31 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
-	Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH v3 3/9] firmware: arm_scmi: Convert OF-only paths to
- generic fwnode in SCMI core
-Message-ID: <20260902-funky-tarsier-of-competence-0ae6ab@sudeepholla>
-References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
- <20260813-acpi_scmi_pcc-v3-3-cb6b88b4ebb3@kernel.org>
- <20260824103929.00004912@oss.qualcomm.com>
+	Wed, 02 Sep 2026 13:46:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7644165C;
+	Wed,  2 Sep 2026 06:46:35 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64D7D3F673;
+	Wed,  2 Sep 2026 06:46:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788356799; bh=luQwKBwF/mx0OlYkAeYieEObOYYQKo9O4fAy3WqvBNg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t4X1qn8ooarx22djTGEjA46dyi3s+VVIuxF9lKFH7PaIZzctpsytRMziSLhofuO1C
+	 Q+jJWov3t9/fMk0QHe5OzoxYNj6YJPx++RsSVg7r7FzPZss0QTBx49aQ2HzPvlGi9J
+	 E8w7FxpQ9uuTizsOiKuuwqHDPwYrGmL72ENxU6es=
+Date: Wed, 2 Sep 2026 14:46:36 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Bradley Morgan <brads@mainlining.org>
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/7] arm64: head: correct comment for init_kernel_el()
+Message-ID: <apgovCGT-D7OWbSE@J2N7QTR9R3.cambridge.arm.com>
+References: <20260825205839.14571-1-brads@mainlining.org>
+ <20260825205839.14571-3-brads@mainlining.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260824103929.00004912@oss.qualcomm.com>
+In-Reply-To: <20260825205839.14571-3-brads@mainlining.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_064641_910196_1EA11052 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,137 +72,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 10:39:29AM -0700, Jonathan Cameron wrote:
-> On Thu, 13 Aug 2026 12:32:58 +0100
-> Sudeep Holla <sudeep.holla@kernel.org> wrote:
+On Tue, Aug 25, 2026 at 08:58:34PM +0000, Bradley Morgan wrote:
+> The comment above init_kernel_el() still says the function configures
+> the CPU to execute at the highest reachable EL, but that stopped being
+> true a while back. Ever since commit ae4b7e38e9a94798 ("arm64: Allow
+> sticky E2H when entering EL1"), init_kernel_el() always drops to EL1,
+> and it is finalise_el2() that brings us back up to EL2 when we want it.
 > 
-> > Switch SCMI core plumbing from struct device_node * to struct
-> > fwnode_handle * so the core can describe SCMI instances and protocols using
-> > firmware nodes rather than OF nodes directly.
-> > 
-> > This change:
-> >   - Replaces core OF property lookups with fwnode_property_*() helpers.
-> >   - Switches child enumeration to
-> >     fwnode_for_each_available_child_node_scoped().
+> Update the comment to match what the code actually does.
 > 
-> Why the scoped version? See inline for more on this.  Probably just needs
-> a comment here (or use the non _scoped variant)
-> 
+> Signed-off-by: Bradley Morgan <brads@mainlining.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kernel/head.S | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 
-Sure
+This looks to be my patch [1], but with a (partially) rewritten commit
+message, and my S-o-B dropped.
 
-> >   - Plumbs fwnode through the SCMI device creation and channel setup paths.
-> >   - Updates transport ->chan_available() callbacks to take a fwnode.
-> >   - Stores per-protocol child fwnodes in info->active_protocols so the core
-> >     can later locate the descriptor for a given protocol ID.
-> >   - Updates mailbox/optee/smc/virtio transports to accept fwnodes and map
-> >     back to OF nodes where their existing parsing remains DT-specific.
-> > 
-> > DT-only transports such as mailbox, OP-TEE and SMC still parse DT
-> > properties by mapping the fwnode back to an OF node. On non-DT systems
-> > these transports report no channel available.
-> > 
-> > This is a mechanical step towards firmware-node neutrality and prepares the
-> > SCMI core for non-DT transports, such as an ACPI/PCC transport. DT users
-> > continue to work unchanged; no non-DT transport is enabled by this patch.
-> > 
-> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> 
-> A few minor things - with those cleaned up.  Only the cleanup.h one really
-> matters.
-> 
+There was admittedly one typo in that commit message that needed to be
+fixed, but I don't think the rest of the changes were necessary, and I
+don't think it's approriate to drop my S-o-B.
 
-Fixed now.
+I think similar is true for the rest of the series. The patch fixing the
+_cpu_resume() only seems to have a paraphrased commit message.
 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> 
-> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> > index ef29fd223287..9014723e0f7f 100644
-> > --- a/drivers/firmware/arm_scmi/driver.c
-> > +++ b/drivers/firmware/arm_scmi/driver.c
-> 
-> ...
-> 
-> > @@ -3352,10 +3354,10 @@ static int scmi_probe(struct platform_device *pdev)
-> >  
-> >  	scmi_enable_matching_quirks(info);
-> >  
-> > -	for_each_available_child_of_node(np, child) {
-> > +	fwnode_for_each_available_child_node_scoped(dev_fwnode(dev), child) {
-> 
-> There are no early exits yet and I can't see any added later in the series.
-> So the scoped bit is irrelevant.  I don't mind the change on basis of
-> hardening or similar but it needs a comment in the patch description to 
-> justify that.
-> 
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=ee4323ff6a2ba4c3989b38f13b2c1a516d6c27e4
 
-This is mainly to release the reference taken in
-fwnode_get_next_available_child_node(). It is taken explicitly via
-fwnode_handle_get() before scmi_create_protocol_devices() as discussed
-below.
-
-> >  		u32 prot_id;
-> >  
-> > -		if (of_property_read_u32(child, "reg", &prot_id))
-> > +		if (fwnode_property_read_u32(child, "reg", &prot_id))
-> >  			continue;
-> >  
-> >  		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
-> > @@ -3370,8 +3372,8 @@ static int scmi_probe(struct platform_device *pdev)
-> >  		}
-> >  
-> >  		/*
-> > -		 * Save this valid DT protocol descriptor amongst
-> > -		 * @active_protocols for this SCMI instance/
-> > +		 * Save this valid fwnode protocol descriptor amongst
-> > +		 * @active_protocols for this SCMI instance.
-> >  		 */
-> >  		ret = idr_alloc(&info->active_protocols, child,
-> >  				prot_id, prot_id + 1, GFP_KERNEL);
-> > @@ -3381,7 +3383,7 @@ static int scmi_probe(struct platform_device *pdev)
-> >  			continue;
-> >  		}
-> >  
-> > -		of_node_get(child);
-> > +		fwnode_handle_get(child);
-> >  		scmi_create_protocol_devices(child, info, prot_id, NULL);
-> 
-> Give this is handing over ownership I'd make that explicit and do
-> 
-> 		scmi_create_protcol_devices(fwnode_handle_get(child), info,
-> 					    prot_id, NULL);
-> but that is a slightly unrelated change - so I don't mind if you don't change
-> this one.
-
-Agreed, I can change this if it help readability.
-
-[...]
+Mark.
 
 > 
-> > diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-> > index 1fce3ccdeb7f..1079cd01190b 100644
-> > --- a/drivers/firmware/arm_scmi/transports/smc.c
-> > +++ b/drivers/firmware/arm_scmi/transports/smc.c
-> > @@ -84,10 +84,15 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
-> >  	return IRQ_HANDLED;
-> >  }
-> >  
-> > -static bool smc_chan_available(struct device_node *of_node, int idx)
-> > +static bool smc_chan_available(struct fwnode_handle *fwnode, int idx)
-> >  {
-> > -	struct device_node *np __free(device_node) =
-> > -					of_parse_phandle(of_node, "shmem", 0);
-> > +	struct device_node *of_node = to_of_node(fwnode);
-> > +	struct device_node *np __free(device_node) = NULL;
-> 
-> See guidance in cleanup.h.  Basically says constructor and destructor
-> must be together (that was after some grumpy replies from Linus to early
-> cleanup.h users!)
-> 
-
-Thanks, fixed locally now.
-
--- 
-Regards,
-Sudeep
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 87a822e5c4ca..c6301557eee1 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -254,9 +254,9 @@ SYM_FUNC_END(__primary_switched)
+>  	.section ".idmap.text","a"
+>  
+>  /*
+> - * Starting from EL2 or EL1, configure the CPU to execute at the highest
+> - * reachable EL supported by the kernel in a chosen default state. If dropping
+> - * from EL2 to EL1, configure EL2 before configuring EL1.
+> + * Starting from EL2 or EL1, configure the CPU to execute at EL1.
+> + * If dropping from EL2 to EL1, configure EL2 before configuring EL1.
+> + * To use VHE we'll upgrade back to EL2 later in finalise_el2().
+>   *
+>   * Since we cannot always rely on ERET synchronizing writes to sysregs (e.g. if
+>   * SCTLR_ELx.EOS is clear), we place an ISB prior to ERET.
+> -- 
+> 2.47.3
 
