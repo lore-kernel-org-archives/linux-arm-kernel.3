@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4547BC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B976C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTb31aJyYEihExlJbMTmTBFJ0xHAaFSqcXJx0OH+m38=; b=XskB5TsoVpGDgOlo7j51UR8Hjq
-	tU5nOiWsoZIzNGCk4OJ8ZLhiSYb0gkhihBwBuoQuw39vegDp50FtXugwQTyhivDdO4LODeyCdnQSB
-	k12RvoRkPwsVs0KXbDMA30s7DvpYoy3x2X0WuHp2wXQpuc4Z3j7X9Um4f3XP+OQAVrnLRcP4691Vy
-	UMpKKtMF0CKgej8GiSti9+dw47b3Mbehrbk9A2Ng164ZluFOvJzXJuD6LQEJ8uxOpf+BcnRqbGQCP
-	T4pzamlBBIj7oa0tLED9NBa893ivsJVPpfwxEKXVWR0jQ4M3Wr7zi3nTnd4q5RretDvNst984XMSn
-	BGw+GFWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6u2dskLwsFp3RaJUgt1/pKQoZpVju/VbValCvllVzDM=; b=vQqQ/X7E5VROKZw8NbbyAO0IJK
+	BwYYSfIsQZVXCuZGoEXnjuRfUFuJUBD2u2uIg9m4m/n5mFGsClwVi8eV7upmgFgDblTIBi5sLFahv
+	mt6KFd5mBwam1yDkePr7s5jG9nZsyRAag8TPw6dF0lzuUoV/y5WTE5ZRS5cx3n7qV+e9lpyqH7z7a
+	rPSBuXO/eWYXbPVGevrCCosZCZHbYWiSGypTwEBNpBtVDRZZP7NTud5iKQIsSVGPvfJZ/qqqiY0ln
+	Forzh9rvxdHeFZd9WSLZOGcxtr0F4OwPe0kvN/Si14S5gvnRW5LCQpSE3Dcqo2/6iczf+1sD0cofC
+	vYzbVGEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oaD-0000000FPss-0bqJ;
-	Wed, 02 Sep 2026 17:17:09 +0000
-Received: from out-235.mta0.migadu.com ([2001:41d0:1004:224b::eb] helo=mta0.migadu.com)
+	id 1x1obG-0000000FQ2C-1GIm;
+	Wed, 02 Sep 2026 17:18:14 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oaA-0000000FPs8-47qB
+	id 1x1obC-0000000FQ1Q-2gCM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:17:08 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=kbN2T3HRxTE8CcU7FkVYnjiHCvTMBx8FujkNyQbwo6o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788369424; v=1; x=1788974224;
- b=mJISh18usSyksGynG0cxc4RIvEDwxbD6UZO69me3t4fCYcBkAmhFblRH4MCX8MCclmC7v3ET
- pvDcw9yrjAovso+kk3C6MLJEbCisS7NOzPaHAr/3PGhpHYA/wOo/i1vEgrFTenEwTKWrGmfibHg
- xnUSzwLfKPw8DyAEK3Y3wukI=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by mta10.migadu.com with ESMTPS id 29a99734ea6f9c70;
-	Wed, 02 Sep 2026 17:17:04 +0000
-X-Mizu-Trace-ID: 29a99734ea6f9c70
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 2 Sep 2026 19:16:57 +0200
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: atmel-tdes - sync output bounce buffer before DMA
-Message-ID: <aphaCSSkk_pDjyqz@linux.dev>
-References: <20260829045316.92931-1-kmehltretter@gmail.com>
+	Wed, 02 Sep 2026 17:18:12 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b8be0409fso10282345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 10:18:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788369489; x=1788974289; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6u2dskLwsFp3RaJUgt1/pKQoZpVju/VbValCvllVzDM=;
+        b=bC9THaLpcuaVCr5pUVcmWxd0IDX0IagQz5OxWQjM1pcdOIIcq/DVBzVJgACYd/UkdC
+         eipezI1z8P18XrV61YEiFJbC4boR9dg5Ga2oEgxw2wpguIWwaRPu6rfDzWh7qlxWwBsj
+         8GGht8xADyr3OhEpEd8RT6pe+WJ9PKhAy+wCUxtRD5A7jQ/CAgoET1KTQP/s2qa2ow9F
+         J9IqkieCs/XWYOZttQa48VpdvPj0vYG8jKPfnc+n+KKnI14L4KxgeKpVia0iyUPavb7A
+         AiOqbA3jOdShS3HuxaDaNRe6IY6AMBcApRYFWbr8TO9CfH0vNC9PeDx5I/MZ87lqh1pr
+         ZJOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788369489; x=1788974289;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6u2dskLwsFp3RaJUgt1/pKQoZpVju/VbValCvllVzDM=;
+        b=JaBv0y7eLTtSMpkkwOKyTsTUL05YnpzULt9HRTQPlvgNWAU/5MCoEiaHKNz7alUgxQ
+         YiPQ1zWNfd03EK/VarwAbcrnWgOt8KRotZWos4/VADczyJEy+ZOKbqEOyuf6umWErLsi
+         Z0y0VWJ7h+gTQ7LVnGx2fOL3vawzsSehsCKKkB1bvoo/hYv2n36zpbvRfM6Z+X7PbGHZ
+         Hw3PxEqNzj+/tuYFrn3FRFzJROM2GhsWIVx/ts1rwI39niK2auBQe259wA/lP5QxFYih
+         FY2RQrD5dgtgwQUb0MCf6yrG+ZtCSZnEzJodQFxFmJMqWLtbxGmcncKjWSKCAJSUTfXE
+         orcQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqGrGaW9XamXIon7KUi0Zyvwj4SEbnF1tQuk+TWlBniLJallCMkyk7IhoRwHYgy0zWeNgHvKRQivD1vR3ieXRKA@lists.infradead.org
+X-Gm-Message-State: AFuF++lW0/HT3nzOdvFC7WrpnVOeAIoCmh5lgOVm2sdokfnOLYshx3j0
+	OMyODfvF9NpIaaLBdTivmNIH6cYMHVkvVcX094LswHkj76cJlRGz0xmq
+X-Gm-Gg: AR+sD103ROmTnxKdmOfU8FIVGRtJ4KALQx7cyfFAPRb4Scg4zqIit7nt2T7J+j60DOb
+	fcGVOgkSSeKxTlcV1j+luZ3kaRzxH13w+eDIFaAIaCaYJt4eO1j2SKkovmA6YTlkUC9LVb2lj99
+	J2vyTd3Z2OPFV/U5OCrwbQgSE0ZI6yC/VtCSZvfBVbdBVLE1MS7aiOPr8PdVjdZu5K28p/dTnRz
+	kFVZcvQykTd2EZdZc+msPnpc58JprMWlUaW7ZpWLdQQN6xfN1vVmfVbAbPKoEbW07CA3J61Jpq/
+	f9tqZGUQo1VHAsKgT5fJNNSh+PLYiYpAjq2uSzB1W+qDfEp77pC3tbm/s1aVfS6f7ob82BvdfJf
+	NtM8v0T9DKqYrkxRYVmsdgQnKilljpsGynoP1q51ivwU8XSXE3NjueiAj4Gzsx37KLHStrdZZOc
+	ke2yov0niUUYpnxy9fSceww/2aetrc5NhTG2JPrZyruWS82NiPA5qe54lZqEK/TSmD3/Fa/VG2b
+	6gw
+X-Received: by 2002:a05:600c:4f88:b0:499:d366:f572 with SMTP id 5b1f17b1804b1-49ce58388demr95277025e9.10.1788369488491;
+        Wed, 02 Sep 2026 10:18:08 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e80020sm8076593f8f.10.2026.09.02.10.18.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 10:18:07 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>,
+	sashiko-bot@kernel.org
+Subject: Re: [PATCH v3 1/2] pinctrl: imx: answer OUTPUT_ENABLE/INPUT_ENABLE queries from the pad register
+Date: Wed,  2 Sep 2026 19:18:06 +0200
+Message-ID: <20260902171806.4141524-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260902155931.38FCC1F000E9@smtp.kernel.org>
+References: <20260902154525.4090276-2-mehmet.fide@gmail.com> <20260902155931.38FCC1F000E9@smtp.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260829045316.92931-1-kmehltretter@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_101707_181322_306AEBE7 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20260902_101810_723738_79542CDA 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +110,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 29, 2026 at 06:53:16AM +0200, Karl Mehltretter wrote:
-> The slow path DMAs into a bounce buffer mapped once at probe with
-> DMA_FROM_DEVICE.  On reuse, nothing invalidates the CPU cache for it
-> before the DMA writes, so the copy-out can read stale data.
-> 
-> This was hidden by the copy-out calling dma_sync_single_for_device()
-> instead of dma_sync_single_for_cpu(): on ARM the misplaced for_device call
-> invalidates the cache, which is exactly what the missing pre-DMA sync
-> should have done.  Commit c8a9a647532f ("crypto: atmel-tdes - fix DMA sync
-> direction") corrected that call.  On ARM926 dma_unmap_area is a no-op, so
-> for_cpu does not invalidate and the SAM9X60 and SAM9X7 parts lost their
-> only invalidate.
-> 
-> With CONFIG_CRYPTO_SELFTESTS=y all four DES/TDES algorithms now fail on
-> SAM9X75:
-> 
->   alg: skcipher: atmel-ecb-tdes encryption test failed (wrong result) on
->   test vector 2, cfg="unaligned buffer, offset=1"
-> 
-> Sync the output buffer for the device before starting the DMA, in both
-> the PDC and DMA engine paths.
-> 
-> Fixes: c8a9a647532f ("crypto: atmel-tdes - fix DMA sync direction")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Tested on top of:
-> 
->   crypto: atmel-tdes - zero-initialize device state
->   https://lore.kernel.org/r/20260829035821.67220-1-kmehltretter@gmail.com/
-> 
-> Without that fix, on the tested SAM9X75 the DES/TDES self-tests hang on
-> their first requests before reaching this test vector, so the failure
-> fixed here is not observable on an otherwise unpatched tree.
-> 
-> The two patches are independent and apply in either order.
-> 
->  drivers/crypto/atmel-tdes.c | 4 ++++
->  1 file changed, 4 insertions(+)
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-The code change looks correct to me.
+> [Severity: High]
+> This isn't a bug introduced by this patch, but since you are adding bounds
+> checking here, does imx_pinconf_set() also need this verification?
+>
+> Without validation, a malformed gpio-ranges property in the device tree could
+> translate to an invalid pin_id. Since imx_pinconf_set() lacks the
+> if (pin_id >= info->npins) check, this unvalidated pin_id could cause an
+> out-of-bounds array access in imx_pinconf_set_mmio():
+>
+> 	const struct imx_pin_reg *pin_reg = &ipctl->pin_regs[pin_id];
+>
+> Could the same missing bounds check also cause out-of-bounds array accesses to
+> ipctl->pin_regs in the GPIO direction callbacks like imx_pmx_gpio_set_direction()
+> and vf610_pmx_gpio_set_direction()?
 
-However, I find the first two paragraphs of the changelog difficult to
-understand. Could you please reword those and consistently use full
-function names with trailing parentheses?
+No. Everything that reaches the driver through a gpio range goes through
+pinctrl_gpio_request() first, and pin_request() looks the pin up with
+pin_desc_get(), which fails for a pin the controller does not have. A bad
+gpio-ranges entry therefore fails the GPIO request, and the direction and
+config callbacks never see that index.
 
-Thanks,
-Thorsten
+Which also means the npins check I added in this version is redundant
+and its commit message overstates the problem. I can drop it in a v4 or
+keep it as a cheap guard, whichever Bartosz and Linus prefer.
+
+> [Severity: High]
+> This is another pre-existing issue, but does imx_pinctrl_parse_pin_mmio() also
+> lack bounds checking for *pin_id during device tree parsing?
+>
+> The pin_id is derived algebraically from raw device tree properties:
+>
+> 	*pin_id = (mux_reg != -1) ? mux_reg / 4 : conf_reg / 4;
+> 	pin_reg = &ipctl->pin_regs[*pin_id];
+> 	pin->pin = *pin_id;
+> 	pin_reg->mux_reg = mux_reg;
+> 	pin_reg->conf_reg = conf_reg;
+>
+> If the parsed *pin_id exceeds info->npins, this uses the unverified index
+> directly on the ipctl->pin_regs array, leading to an immediate out-of-bounds
+> memory write.
+>
+> Does imx_pinctrl_parse_pin_scu() have a similar vulnerability when indexing the
+> info->pins array with an unverified pin->pin?
+
+Yes, that is the one real hole, and it is where the fsl,pins value is
+turned into an index. As said on v2, I will send a separate bounds check
+for the parsers after this series.
+
+> [Severity: High]
+> This is a pre-existing issue, but can concurrent driver probes cause
+> hardware state corruption of the shared input_reg in imx_pmx_set_one_pin_mmio()?
+>
+> There is an unprotected read-modify-write on shared general-purpose IOMUXC
+> registers:
+>
+> 	val = readl(ipctl->base + pin_mmio->input_reg);
+> 	val &= ~mask;
+> 	val |= select << shift;
+> 	writel(val, ipctl->base + pin_mmio->input_reg);
+>
+> If two drivers concurrently request pinctrl states that share the same
+> general-purpose register, and the pinctrl core calls pinmux_enable_setting()
+> locklessly, will these RMW operations race and overwrite each other's
+> configurations?
+
+The core does call set_mux without a lock and the driver has none around
+that read-modify-write, so in principle yes. This series does not touch
+the mux path and I have not seen it on Vybrid, so I leave that one to
+the i.MX maintainers.
+
+Mehmet
 
