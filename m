@@ -4,92 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FEEC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 21:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA25DC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 21:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6zMLlM2fX1xLcX/WTGlvxUY5Z2fLG31XCRQQllFSHGs=; b=xicHxypxKN9zNBHJho1yva9URb
-	PLhFrv4v/X7wUHwD91cvnDzLQnGqtCDu8tE5clO4epGJS/M1H/5UNAU/c65BBXE5xYu5/LuKFNL4n
-	aNEnLXbHw7g8B9JboEB8/SuWrEqmSc2QcooNtMRih2qu9qa4srkqGIayHAti8MalVDyQ+oE72puzM
-	Ne//Rm395Xcb0Hbmb6moX9MCkquKhmu1MRFF6mRtAbdA4BLFyMATS8/EpDTVJJjrcSpdGV9BE41U9
-	TmZ5pqSIoaEeX6Eqre8fgwu2tN5Reyg5v1RaPQ91PnzAbP/WktPYLEiR8frknisSzpPdtZszIfbXc
-	Zyq9W7tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJ2suCguM5lzL3bZ9tFqiTyZTRiCMFpmZv1RaIrLjgQ=; b=Ln5BmghQrilaF/INFozlArHxiu
+	JgLjmYKO0FJb54Sn5lbTwSrDAVzVtajaAn+RssLkSpxigEY7BNAry0nHQk2YrMq54g4EKj3Zc3Mtm
+	GaoBniR91oouU/bFS0dya/glPFSz/iqMbFjPXeiWHLQsutj0bmcY2Ou8U04Ww9yfQxbdA3lb9nJ1/
+	SwHQYmvueHnT+C+jFWncS4Msd3tFGv5WS13GtvP+kegtVOhepuX9ucE09U0z6vzuWTuQOKGjI14yc
+	UIpG3FRb5Hy5M0bx2VUIpKOWxu1RCxvZt0n15Cm4uRA7npYTgrMuLEuCreno8zPwOJDTUcEcBw/Bn
+	U2YmLsZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1s6X-0000000FuL1-1VcY;
-	Wed, 02 Sep 2026 21:02:45 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1x1s8M-0000000FuY5-2q7n;
+	Wed, 02 Sep 2026 21:04:38 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1s6V-0000000FuKM-2KiT
+	id 1x1s8H-0000000FuWG-407N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 21:02:44 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2d94c868ea5so16712075ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 14:02:42 -0700 (PDT)
+	Wed, 02 Sep 2026 21:04:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A8DMJpy9/l2cY8NrnUFL1i3kTZVpYqaGnHFfLtdkO1FV2bgU1bG9vrgS8JQBLZlyx3UeqFsIDtzWyzuYI2xUMYzvu53sn+rfNsg8+Dn702Pc9ewcwiEy9DVsERDERXwKd/UngFtq7SjIA2j5kNUL8vv9v9Qt+dJf3i2MqBWs9BBmO3mc04mj9rkNzfe3vuGBgWGP6UKYigZw2yjjrCnO/huv9jme4exx4FDQfkmnUJazZ01GiCW5foBJaO3cr9izCODt8xOHt1xVpiGxm2SVLOy9WRU4LKBeCagSs0Nu5iEvH18wqGgOFS6YUsG0ACMF8dDl5U38H0znXVW5HpoAag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qJ2suCguM5lzL3bZ9tFqiTyZTRiCMFpmZv1RaIrLjgQ=;
+ b=ID+OuAsWSwhTJdK+v/NGOSahiatn/vQiy7rBW7hdZlx8VOwi5o+x4WISC5b9TBTxd1pKzgEDaoLkGs70LEQc1nBhXCknFhoufIfDMB7o7o8qhzeVTttp4lUeiYAGRf5Fa+GywQr4sb9O0YiNf7rakND7DEwc/7ygrk3PMmvEbJga3Qzma+2rZg05UfuRxzv6iUcrA7EkcxX9VHneVZbEErs+i513JID8WxKjDUBPk/LobJLNtw6FMU2HdbRSTsGDiUwLlulvgxeSNR+w92N/EO1zvp10GFWT4B6zi6KmaYfb86c4o6fAkrOisS4/yzmJkJe1oS4FI9vk8u7J8HRZpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788382962; x=1788987762; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6zMLlM2fX1xLcX/WTGlvxUY5Z2fLG31XCRQQllFSHGs=;
-        b=Svpy+rf2kYmUly4SPh3lSsBq/Alj7XzXyOuBUR5O9bijhn5odNUa9bpX6Hcm5SsKEk
-         GculqozhdcP95Vt3H++RnJnObpnakPK2HUIz7TDlyg52AoNV7t8e2edBAm84fc+LW4t+
-         RYDpVP4MCOf+ohqVSHE31n/dnc4Q+Zh+85Mb9fDUu0aH/Q9qKN+M0O/ukZkF0no4w3zs
-         mhCkaBfJO2Hy0fxG+FKB5GWzzIzylMvplhvaRuZC8czjO+s9DV6zsQDHhsCAQJd9bJ1P
-         IhiblbhoDUjWEz6Pqqxa5wisSwSG1R+YTRIvC/T9eyj2Mw9SaxYsVrkJR85QssT3hzv6
-         W/BQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788382962; x=1788987762;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6zMLlM2fX1xLcX/WTGlvxUY5Z2fLG31XCRQQllFSHGs=;
-        b=oAwuCz/vHHpCRuF8g202sCIaUxsaFFdGpWrCuJ43sGEOdA7obSUnDRo4jpFcEcKdkM
-         UVbA/HtHsyaFJhubn8+T/t3FybNUIAi6f/xXaq8wSp7pOhgNwO0P5bDdXunZ7hjw3m5j
-         osEOCwtOs1Q96X6u0M0wYuZqFqqL7pTywF8YCe+0KVHS4ZL8wtGZvWs+jsrTwepjKZGq
-         dAWgmxbSGUXdDF8CNhs+Si+rflb8fhvtiXzRZMiotuY+3O7TQR9NBhO+9AfOuOfj8+XH
-         bYEA0XYtjw6YJn09JWrAl8axJweEg5sDkSpp6mjtCfVHKTHnHesS0OeQKuFpyueA5aTr
-         sicA==
-X-Forwarded-Encrypted: i=1; AKwUvBxrudi3wCbjD1Iishf7lfZFxMnrOzTJNWoERsiVG7ypUateW1sFu2TkA98KUh+DFnqDOSPTtTj1tm8QHUUKYfpG@lists.infradead.org
-X-Gm-Message-State: AFuF++mkO5H8y72O8Q5/fL8SAskvEfchRAY1bO/V2xp1m2XkpqfPrEgh
-	7rfPbgsThoJ7Xew0qikH3gvfbU0DSSnheZvhMagF/27j8DcZnbvlP0mA
-X-Gm-Gg: AYBFou3uyiKdK4xXashVCwoFbO3L0gKmLob95IhrI4YA+74+y4me/U8Sz9ihH21UW+a
-	5DkrK+Z4teLafYk7YQ6pZ+JSOCGTu+4eo4g2ofpQ+OGHxM5a+UN6G7BeoJ6vPo9znrwZTvWe+J3
-	1E/P6HoFurRnOibvqkRKvR/BXAOdBTGIlnpYob26Xbw3fq7miFR/tdmeRBglA5St6uxqOKQs1AP
-	dKoq0CokbypgEuA26REXwpLilehBFOFSBJpeJwm2EB0GxzIAipxUuBMRosYNLtuW22foUoWr7W5
-	ztJJlC9fpZBKwEe4eZlT3PA4vDt4XOYbNJ7ArzPpEIP3Mn5SaKtVh5dCoKHsWQ9Tooy8iNwQjBS
-	9+eJDnmqbGwO9fUSPLYBOLEks1+YX0+YumTfPhw0HRgxMDhaPOaaMNLpslIxpU1fYT6hhM/DigP
-	Jvyxj7+wr6phMa8CNlsmZUeDnMlmHyGwNsCd8uKOoS9LLpVNZgMXS2bMKgGri9VM/JDiXkWUv60
-	d9Syt7HDDQkkfim1Bb91Ax9okjdMS4jxj3VC1OpCtb7QX8A+c3+c17wL8GVwc4/6vrNZUlUDAtZ
-	r+Bnk3TLrmzic4sVJwUV9uagqP1tA7bTGq0Xsw==
-X-Received: by 2002:a17:90b:2d83:b0:38f:5801:dc0e with SMTP id 98e67ed59e1d1-39aee049464mr12342955a91.15.1788382961730;
-        Wed, 02 Sep 2026 14:02:41 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b083f04d1sm1141515a91.8.2026.09.02.14.02.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 14:02:39 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Esben Haabendal <esben@geanix.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2 net] net: ll_temac: Return actual error from of_get_mac_address()
-Date: Wed,  2 Sep 2026 14:02:38 -0700
-Message-ID: <20260902210238.283494-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qJ2suCguM5lzL3bZ9tFqiTyZTRiCMFpmZv1RaIrLjgQ=;
+ b=SKJfPK9TRwuBbHWr3NfOuJHMWmuY2N636VeZa35F9/ElCClMDKMylb/bgApH7+bjFnwbFdooGrWIrMEYi7+ozsi01nmc3aqBbJqBbvd6DxUVd0aofMEdWbcHQ+gkM2WDMo0KdSRUX/NRuh0akd1XJz62IJZ4ACn2j5Ys31hop48=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH8PR01MB994612.prod.exchangelabs.com (2603:10b6:510:3b3::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.7; Wed, 2 Sep 2026 21:04:26 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
+ 21:04:25 +0000
+Message-ID: <ea42bc79-5c60-4437-a8ed-8803f4cf4e6d@os.amperecomputing.com>
+Date: Wed, 2 Sep 2026 14:04:22 -0700
+User-Agent: Mozilla Thunderbird
+From: Yang Shi <yang@os.amperecomputing.com>
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+To: Usama Anjum <usama.anjum@arm.com>, cl@gentwo.org, dennis@kernel.org,
+ tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ ryan.roberts@arm.com, david@kernel.org, akpm@linux-foundation.org,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <afe6eac4-c8db-4ec7-98be-1c7cb0d3c1de@arm.com>
+Content-Language: en-US
+In-Reply-To: <afe6eac4-c8db-4ec7-98be-1c7cb0d3c1de@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR03CA0189.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef::14) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH8PR01MB994612:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8bc5907-42f0-4d8b-9da6-08df0935c533
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|921020|10067099003|11063799006|4143699003|56012099006|18002099003|55112099003|6133799003|3023799007|22082099003;
+X-Microsoft-Antispam-Message-Info: m3V4N+ypQr8qpKyjCoJmxQ9hBrfPqprKWrKHg1fxsKKNMlWqL9vfyBs+/jim/5ECfWgN2ygojH5vyg3w7lYjdiTMer+53mf+xbylzV/jRofJQ750y0nd+uWshn2agDVDvW8EqV6xqgdrpgvCb9uz4ICxJT8qrmuwIoVMy1MAj9Xkhp8m2lf3IU2xlr92DV6CKu1eY2yEe1MQBedRxkgIrE+NOQmyh3yF8TzUS6z3fZtKwMa5kVU5l41wxQdtAsFomNdxd+uzp/zXxfCAC5+SNZMt6lUqUHIXn2NIQVqe1W3cgRPYXdvMzRoz34ObSmfR4WNpky2jPJ1+Eylq3VewXkaECrUIZElJvNW+NP1b3n/Q4wjaNewXXSnKNY30hf6JgjM2PB6BSTJyjuRxuoyeoONytTvXm1/IScR8M6sEdwrMNMNumioHBML8tm606KxDFbe/tE2naet3LjITE0El8CklhsUK75/PapbAwwpUsD4u23dNPd2qk5k8ntj77jWjr4QFoEsruw0vypOUMvni2zSE1mpTFTx5tFNtvGzJocm+D9uq9xWIGkYZHllJPAGZ0WE66IsWoOoVdFZbchw9RbrBMn+pZKAodx9ldR9hePPW6z61UFwZPzYkpdlgmaFtQVmaRkLjyix10Yw8gEYxgKX1nSZrpdoE+XVHkTdlqzbikCuAsa0S4g905ncaWeZu1ueiverl+H0exopxPhB31A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(921020)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(55112099003)(6133799003)(3023799007)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QmQ4MStFR0RkcDRycUhmK2FjZ3MwUWFidDU3TnFYUlgyVGdFRTNxYTlpRmUx?=
+ =?utf-8?B?SGdQdUQ0YlRsclcwMmZrVDFpNlBTNU5sdXFmcmZuc3UvNDh1UytjaVhPRXJs?=
+ =?utf-8?B?WVpGWUVuM0dpbDdWTjJocTBhNHNTOGFGaUptSXdPcWE2TnVXS1QvUDAwNUp3?=
+ =?utf-8?B?bEFHL1drMFZWOERHeWgybDdFSG9WdHI3bGpYTWZBL0ZlVy9DL2VLVi95OEFz?=
+ =?utf-8?B?RHRjMnJzTE1ocTBHUFNHZytPTHRrSGREL0RtL2dLbGpPeUYxU1ZNMnlpdEx3?=
+ =?utf-8?B?bUFKNjJKVnNlZnV3cXZUVGoxWS9xQmhJSFRCVCtLaGgyYStONEhqUXQ1YkZJ?=
+ =?utf-8?B?ckt6TllLR1NDL3BSbFhKeEZGWm5ibjhVU1pIcjBLZGxkTS9MZ2xZQ29XQ1hs?=
+ =?utf-8?B?bXJhNmM3dlB2NFJBQlRRUTc5VkxRMFFleUs3cExXdk8vdmdicFFESmdYYkZM?=
+ =?utf-8?B?K0pDQ3VjZlFXWmg5bDdoNkZOWmxOOThIZncxbmpvTW45elRqaWphTWk3L0lt?=
+ =?utf-8?B?N3JNQzJCdWVUNzJDNEZEdnVqYk8rcHJ3LzNVMm1kbk1ZOUJJcVB6c2RHMlA4?=
+ =?utf-8?B?amJTbU5aTk9uQ0JVa3N5bm0yeFQvNFFUdXdGc3o1WkNMc0tqbG5DWVNMc1kx?=
+ =?utf-8?B?ZGhSZWZ2NnhLWDFUM29FYUlETnB5bkNrd3VteTBVMzdRZDJPYnVtQkxNdHA2?=
+ =?utf-8?B?UENwL01sUkVidEJqTmFRaFZzR1N1QTRIWGk2cDlCcGRTNHplelhxbVFwTFNE?=
+ =?utf-8?B?cENjZjloYmdlbkdmU2dyMjgyZXoyVUhqWGJQKzNBSFhtRUU1eW1yL3lBeEZ4?=
+ =?utf-8?B?Q0FESGZpQVdndm5GNkxPZW9ld0g0MGFkTUpMcDBIaGZmZmRkOFNIMldwaGZs?=
+ =?utf-8?B?N3E2VmZnVGxkb0dPbnBoWGxTdXhyMUwxS3ZnSHIwY2t4aDlSbDBFSHJMU25F?=
+ =?utf-8?B?a2Mxd25Fa2dHSE12bTFBNy83OFNMSDZEeGRERFVNUG9CWU5uSFB1ZmM2dTd2?=
+ =?utf-8?B?OTFsanlVbndXN3VPTm11S3ZOQWJnSnhTdzh6MlAxOVdVajlpa0J4VWRXa2Q3?=
+ =?utf-8?B?ckhiZEpUU0ptOUliZHlMbUE1Mk91K3hBdVpCUzNOS05iektGdmVEZnh4am9a?=
+ =?utf-8?B?YWV0Ukw0dnNxTmk2K0hTN29hcWJScXVxeGhPRE1ZZ200WHMwZ2cxeTBDLzV4?=
+ =?utf-8?B?d3hXci9FS1JyZE5IRHhOY25jNkcrRmdteW04ZWVIdjFkdHdNdWovaWtOMkxz?=
+ =?utf-8?B?SGlab2YwQkl0SENVNW43emkvWms3bzFRL2czYm43Mjh1MEtWdnRaOFFKWTVY?=
+ =?utf-8?B?ay9VbjZlRUkzRlh2SGxneElFUGc0Qjl0eXZCR1hMbnFEZWRRbzZkeE9mOXRL?=
+ =?utf-8?B?MFgvaVQ4YlptYkhPN3lhUFhObk96aVVHc3JwNFM3Vi95T1p0L1hmMHkwY2Rp?=
+ =?utf-8?B?RGlDRHptSjRkd0dycE40TVlLWnlrdE1pb2NuRzh4Z3dwaXVsbnZUUkt2ZkRD?=
+ =?utf-8?B?ZkExME1tSHhqZVhBNUYwemF0M081K1E5ZGFTdGFLMkFJWVJ6ZkdlczNMaWpZ?=
+ =?utf-8?B?UWlOTFZsZnhaRm80WWxhUmtTVUgwMGlSM2JFSVBITmM1amNLamd6NmpSTVd6?=
+ =?utf-8?B?ZnIxaE1sQVM3a2gweDhqS3Vjd3E3RXZrbU9oZnUwUm8weGxsenNlak04VVMx?=
+ =?utf-8?B?eTBSZjVKcXU4eUJzNEZvOWtUT2dxczMyZU9lSGl1TFRlZlBhN2syNlhnQUJ1?=
+ =?utf-8?B?aFJ4SXpScGduaW1JTk03b0RQUVZ5aVdVR2Vwc3grNVBrYlVuR0pmUjBEdVhv?=
+ =?utf-8?B?OEJNSGhTa25yTE1YaDFlbnRGOVNkVTlDeVRNaElWaWxTMS91S1NZeEFBQ0pI?=
+ =?utf-8?B?TCtOdGdYTGVkNU1kNlVtYVBQdHliUDBBbllOUVNCdzh0d0FSZXdFS1hZMFpZ?=
+ =?utf-8?B?Mzk2b0hCWERjM0JhSnVFb3h1WU5SSmd6TDZWVTliczNuSGo5RmNrWFJ3cm5M?=
+ =?utf-8?B?VUlmK01yVVJXdnVJYXc4YS9yNkVTR25USWxmR1EvenVUak4wSkhFN2dVaDlS?=
+ =?utf-8?B?dVFCSGZIMkZreCs5R0pGT0dHY2RQMTU0RkZjR0lxSk5kWXpKazF3NU11cDhz?=
+ =?utf-8?B?ek02YzUvTHd5MklJNFlKcUxLNzlVcEltb3NFOXBCc1BMUnpDeVBiaGVTNDhy?=
+ =?utf-8?B?encyajNhQUI2L0hCOXR6N0xXOGN4MXUwcTY3ZHVpMTgxTHJxZWJCZmJCUHZJ?=
+ =?utf-8?B?U0Ewb3lMeGpmVTErWTFsVFk2MjAwYlZjd205VXNvWUhVazB0Z0dYYzllYmhR?=
+ =?utf-8?B?SERwWGppNjhDUXhzSGVGL2VFMGgrWHl0aW1MSVZmaFgyOS85V3JUVU9QUm5H?=
+ =?utf-8?Q?YNUUuCvpmNcod4Cs=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8bc5907-42f0-4d8b-9da6-08df0935c533
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 21:04:25.8393
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VRbsiEmiG51bRbdvpsAE88gLHuW72CxURX0hfUzYUTA9wRzNtnG7DMIFZf6C9VN//YpsnYxV+YtyqQGDkcogP4VP0xwhS0vL7a9NC+M9bug=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR01MB994612
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_140243_597744_F2102F7B 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260902_140434_190560_A4DADE3B 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,39 +153,534 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When of_get_mac_address() fails, return the actual error code (rc)
-instead of the hardcoded -ENODEV. This preserves the original error
-information, which may be more specific (e.g., -EINVAL, -EPROBE_DEFER)
-and helps callers handle the failure appropriately.
 
-Use dev_err_probe() to avoid printing an extra error message in case of
--EPROBE_DEFER.
 
-Fixes: 8425c41d1ef7 ("net: ll_temac: Extend support to non-device-tree platforms")
-Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/net/ethernet/xilinx/ll_temac_main.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+On 9/2/26 4:51 AM, Usama Anjum wrote:
+> On 15/07/2026 7:04 pm, Yang Shi wrote:
+>> Hi,
+>>
+>> This is v2 RFC. In v2 a lot problems found out by Sashiko were fixed and more
+>> feature gaps were closed (please see the below changelog for the details).
+>> Although there are still some open issues, for example, it just can support
+>> 48 bits VA (for 4K and 64K) and 47 bits VA (for 16K), KPTI support has not
+>> been solved yet, etc, but I think the delta should be big enough and worth
+>> a new RFC to gather comments in order to make sure I'm on the right track.
+>>
+>> Some more benchmarks were done, for example, some latency related benchmarks
+>> that I mentioned at LSFMM because I thought responsiveness should be improved
+>> due to the removal of preempt_disable. Collected more PMU counters as well.
+>> Please refer to the benchmark section for more details.
+>>
+>> Look forward to comments.
+>>
+>>
+>> Changelog
+>> v2: * Added 3-level and 2-level page table support.
+>>      * Tested with 16K and 64K page size. But we just support 48 bits VA (4K
+>>        and 64K) and 47 bits VA with 16K for now.  Please refer to the below
+>>        "known issue" section for the detail reason.
+>>      * Added support for memory hotplug.
+>>      * Added support for KASAN (generic).
+>>      * Treated percpu and local percpu area address as vmalloc address.
+>>      * Fixed build failure for x86.
+>>      * Fixed build failure for !CONFIG_NUMA.
+>>      * Added KASAN support for local percpu area.
+>>      * Some other misc bug fixes found out by Sashiko.
+>>      * More code refactor and cleanup.
+>>      * Regorganized the patches.
+>>      * More benchmarks, refer to benchmark section for more details.
+>>      * Rebased to v7.2-rc1.
+>>
+>>
+>> Introduction
+>> ============
+>> This patch series implemented the LSFMM 2026 proposal for optimizing
+>> this_cpu_*() ops on ARM64. For the details of the proposal, Please refer to:
+>> https://lore.kernel.org/linux-mm/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
+>> I didn't repeat it in the cover letter because there is no change to the
+>> proposal.
+>>
+>> The series is based on 7.1-rc1. It is basically minimum viable patches.
+>> There are still a few hacks in this series and it may break something,
+>> for example, KPTI, SMT machines which shared TLB, etc. But it shoule be
+>> good enough for now to demonstrate the core idea. The main purpose of the
+>> RFC is to gather feedback, figure out missing parts and risks, and make sure
+>> we are on the right track, as well as hopefully it can help the discussion
+>> for the upcoming LSFMM.
+>>
+>> I broke the patches down to arch-dependent and arch-independent parts so that
+>> hopefully the interested persons can do experiments on other architectures,
+>> for example, S390, easier.
+>>
+>> A new kernel config is introduced, HAVE_LOCAL_PER_CPU_MAP. The architectures
+>> which can support this feature will select it. Allocating and freeing percpu
+>> local mapping is protected by this config so that others won't pay the cost.
+>>
+>>   
+>> Known Issues
+>> ============
+>> 1. KPTI
+>> -------
+>> We need determine what CPU we are on, then switch to the right page table.
+>> Currently arm64 kernel fetches tramp_pg_dir via swapper_pg_dir - fixed_offset,
+>> and fetches swapper_pg_dir from ttbr1. But ttbr1 may not hold swapper_pg_dir
+>> anymore except CPU #0. So we need to figure out the other way to handle it.
+>> Switching to tramp_pg_dir should be easy, but the reverse seems harder because
+>> tramp_pg_dir just maps the trampoline vectors.
+>> Maybe we can do two steps switch. Switch to swapper_pg_dir at the first step,
+>> then switch to per cpu page table (for entry) or tramp page table (for exit).
+>> Nobody should call this_cpu_*() at either userspace -> kernel entry stage or
+>> kernel -> userspace exit stage.
+>>
+>> 2. SW PAN
+>> ---------
+>> Has the similar issue as KPTI. It installs reserved_pg_dir to TTBR0 when running
+>> in kernel space, but fetching reserved_pg_dir via swapper_pg_dir - fixed_offset.
+>> Maybe we can save the physical address of swapper_pg_dir in a variable, then load
+>> it from that variable instead of ttbr1.
+>>
+>> 3. Shared TLB machines
+>> ----------------------
+>> Some machines may share TLB between CPUs, for example, SMT machines may share
+>> TLB between the two hardware threads in one core.
+>> The per cpu page table just can't work with it. Maybe we need a new
+>> cpufeature to indicate whether per cpu page table is allowed or not. Then
+>> just enable it for not-shared-TLB machines.
+>>
+>> 4. Don't support all VA bits
+>> ----------------------------
+>> We just support 48 bits VA (4K and 64K) and 47 bits VA (16K) for now. For 4K
+>> and 64K, supporting other VA bits is not hard, we just need to determine the
+>> size for percpu and local percpu area.
+>> But it is harder for supporting 48 bits VA + 16K page size. We just have two
+>> top level kernel page table entries with this configuration, but we assume we
+>> just need to sync up kernel page table at the top level for now. We need to
+>> sync up kernel page table at the second level in order to support it. I'm not
+>> sure whether it is worth it or not.
+>>
+>>
+>> Benchmark
+>> =========
+>> The benchmarks are done on 160 core AmpereOne machine. The baseline is
+>> v7.2-rc1 kernel.
+>>
+>> 1. Reduction of kernel text size
+>> --------------------------------
+>> The patchset can reduce at least 11 instructions for this_cpu_*() ops. Both
+>> preempt_disable() and preempt_enable() need 4 instructions to manipulate
+>> the preempt count, and preempt_enable() needs more instructions (compare +
+>> READ + compare) to determine whether reschedule is needed or not.
+>> Because this_cpu_*() ops are inlined and called in a lot of places so we
+>> can save a lot of instructions.
+>>
+>> The size of kernel text is reduced by ~184KB with default Fedora kernel
+>> config. This also helps reduce kernel icache miss rate and stalled frontend
+>> cycles as kernel build benchmark result showed.
+>>
+>> 2. Kernel Build
+>> ---------------
+>> Run kernel build (make -j160) with the default Fedora kernel config in a
+>> memcg.
+>> 13% - 18% sys time improvment
+>> 3% - 7% wall time improvement
+>>
+>> 5% fewer kernel icache miss, 5% fewer executed kernel instructions and
+>> 15% fewer stalled frontend cycles for kernel.
+>>
+>> 3. stress-ng vm ops
+>> -------------------
+>> stress-ng --vm 160 --vm-bytes 128M --vm-ops 100000000
+>> 8.5% improvement
+>>
+>> 4. stress-ng vm ops + fork
+>> --------------------------
+>> stress-ng --mmapfork 160 --mmapfork-bytes 128M --mmapfork-ops 500
+>> 15% improvement
+>>
+>> 5. Specjbb
+>> ----------
+>> The specjbb test latency curves showed the patched kernel has consistently
+>> lower p99 latency (the lower the better) than the baseline.
+>>
+>> 2.5% improvement on max-jOPS and 4% - 5% improvement on critical-jOPS.
+>> The specjbb benchmark is quite sensitive to latency and responsiveness,
+>> particularly critical-jOPS result. The patches are supposed to improve the
+>> responsiveness due to the reduction of preempt-disabled critical sections.
+>>
+>> 6. MySQL
+>> --------
+>> 1% - 2% gains on read-only test, 2% - 4% gains on write-only test. Also see
+>> 15% decrease on frontend cache stall.
+> tl;dr
+> Comparing GPR approach [1] with this series gives 8 improvements and 3 regressions.
+>
+> Fastpath is a Linux kernel performance benchmarking service. The table
+> compares the both patched kernels: positive values are faster, negative
+> values are slower, and (I)/(R) indicate statistically significant
+> improvements/regressions. Unmarked differences are not significant after
+> accounting for confidence and noise thresholds.
+>
+> +---------------------------------+--------------------+-----------------+-----------------------+
+> | Benchmark                       | percpu-pgtable [2] |   gpr-fixup [3] |         gpr-fixup [3] |
+> |                                 |    vs baseline [1] | vs baseline [1] | vs percpu-pgtable [2] |
+> +=================================+====================+=================+=======================+
+> | lmbench/lat-mem-rd              |             -0.26% |       (I) 1.24% |             (I) 1.50% |
+> | micromm/fork                    |          (I) 1.10% |       (I) 2.46% |             (I) 1.35% |
+> | micromm/munmap                  |         (I) 18.10% |      (I) 19.78% |             (I) 1.43% |
+> | micromm/vmalloc                 |         (I) 11.92% |      (I) 14.68% |             (I) 2.47% |
+> | mmtests/hackbench               |              0.27% |       (I) 1.09% |                 0.81% |
+> | mmtests/kernbench               |          (I) 1.19% |       (I) 1.18% |                -0.01% |
+> | mmtests/sysbench-cpu            |              0.01% |           0.06% |                 0.05% |
+> | mmtests/sysbench-mutex          |             -0.85% |          -0.14% |                 0.72% |
+> | mmtests/sysbench-thread         |         (R) -4.49% |       (I) 3.02% |             (I) 7.86% |
+> | perf/futex                      |              0.55% |      (R) -2.80% |            (R) -3.34% |
+> | perf/sched                      |          (I) 1.61% |          -0.39% |            (R) -1.97% |
+> | perf/syscall                    |          (I) 1.54% |           0.98% |                -0.55% |
+> | pts/memtier-benchmark           |          (I) 2.37% |       (I) 2.51% |                 0.14% |
+> | pts/nginx                       |              0.42% |           0.96% |                 0.54% |
+> | pts/perl-benchmark              |          (I) 1.83% |       (I) 1.63% |                -0.20% |
+> | pts/pgbench                     |             -0.09% |           0.55% |                 0.65% |
+> | pts/pybench                     |             -0.05% |          -0.07% |                -0.02% |
+> | pts/redis                       |             -0.00% |          -0.04% |                -0.04% |
+> | pts/sqlite-speedtest            |              0.15% |           0.44% |                 0.28% |
+> | repro-collection/mysql-workload |              0.73% |           0.25% |                -0.48% |
+> | schbench/thread-contention      |              0.42% |       (I) 1.04% |                 0.61% |
+> | sockperf/echo-lat-tcp           |          (I) 2.88% |       (I) 1.69% |            (R) -1.16% |
+> | sockperf/echo-lat-udp           |          (I) 3.93% |       (I) 5.11% |             (I) 1.14% |
+> | sockperf/packet-tp-tcp          |             -0.41% |       (I) 1.37% |             (I) 1.79% |
+> | sockperf/packet-tp-udp          |          (I) 1.45% |       (I) 1.49% |                 0.04% |
+> | specjbb/composite               |          (I) 1.39% |       (I) 1.65% |                 0.26% |
+> | speedometer/v2.0                |         (R) -1.04% |      (R) -1.04% |                 0.00% |
+> | speedometer/v2.1                |             -0.10% |           0.10% |                 0.20% |
+> | syscall/getpid                  |             -0.98% |           0.52% |             (I) 1.51% |
+> | syscall/getppid                 |             -0.43% |           0.14% |                 0.57% |
+> | syscall/invalid                 |          (I) 3.06% |       (I) 3.56% |                 0.48% |
+> +---------------------------------+--------------------+-----------------+-----------------------+
+>
+> [1] v7.2
+> [2] v7.2-percpu-pgtable (this series)
+> [3] v7.2-percpu-gpr [1] (Based on email review, we fixed SDEI to restore x26
+>      instead of corrupting x22, and adjusted this_cpu_write() helpers to
+>      avoid GCC overflow warnings.)
+>
+> The constraints/workarounds for the per-CPU page-table series were supplied as
+> this Kconfig fragment for all the different runs.
+>
+> CONFIG_EXPERT=y
+> CONFIG_ARM64_4K_PAGES=y
+> CONFIG_ARM64_VA_BITS_48=y
+> CONFIG_ARM64_VA_BITS_39=n
+> CONFIG_ARM64_VA_BITS_52=n
+> CONFIG_ARM64_PA_BITS_48=y
+> CONFIG_ARM64_PA_BITS_52=n
+> CONFIG_UNMAP_KERNEL_AT_EL0=n
+> CONFIG_ARM64_SW_TTBR0_PAN=n
+> CONFIG_KASAN=n
+>
+> [1]https://lore.kernel.org/all/20260804170503.3513916-19-mark.rutland@arm.com/
 
-diff --git a/drivers/net/ethernet/xilinx/ll_temac_main.c b/drivers/net/ethernet/xilinx/ll_temac_main.c
-index 711ed9c2631b..7a4890e45eb1 100644
---- a/drivers/net/ethernet/xilinx/ll_temac_main.c
-+++ b/drivers/net/ethernet/xilinx/ll_temac_main.c
-@@ -1579,10 +1579,8 @@ static int temac_probe(struct platform_device *pdev)
- 	if (temac_np) {
- 		/* Retrieve the MAC address */
- 		rc = of_get_mac_address(temac_np, addr);
--		if (rc) {
--			dev_err(&pdev->dev, "could not find MAC address\n");
--			return -ENODEV;
--		}
-+		if (rc)
-+			return dev_err(&pdev->dev, rc, "could not find MAC address\n");
- 		temac_init_mac_address(ndev, addr);
- 	} else if (pdata) {
- 		temac_init_mac_address(ndev, pdata->mac_addr);
--- 
-2.55.0
+Hi Usama,
+
+Thank you for running the benchmarks. I'm done some benchmarks and 
+wrapped up the results too. I did run some same benchmarks as yours, 
+like perf bench and kernel build. I also did some profiling for some 
+benchmarks and did some investigation about where the performance 
+difference came from. This is why the work took longer than I expected 
+in the first place.
+
+
+Test Environment
+===========
+Hardware
+--------
+1P AmpereOne machine with 192 cores, 512GB memory.
+
+Kernel
+------
+v7.2 based.
+I applied the first 6 patches from Mark's v2 series, which are some 
+common micro optimization IIRC, on top of my percpu page table series. 
+I'm not sure whether they can make measurable difference or not, but I 
+think I'd better do it because we were benchmarking some subtle 
+difference (4 instructions difference in some hot path) so we can have 
+some apple to apple comparison.
+
+4K page size + 48 VA bits.
+
+Result Analysis
+-------------
+I use ministat (https://github.com/leahneukirchen/ministat), which is a 
+small tool to do the statistics legwork on benchmarks, to process the 
+benchmark results. It should help us rule out the misleading noises.
+
+The ministat output looks like:
+     N           Min           Max        Median           Avg Stddev
+x   10         46998         48366         48192     47986.333  499.14714
++   10         48438         49333         49030     48952.333  304.42711
+Difference at 95.0% confidence
+     966 +/- 531.791
+     2.01307% +/- 1.10821%
+     (Student's t, pooled s = 413.415)
+
+I use the percpu page table series as baseline, which is shown as "x" 
+row in ministat output. The "+" row is Mark's series. The column "N" 
+means the number of samples (basically equals to the number of run 
+iterations). Other columns are quite self-explained. But I will just 
+show the percentage reported by ministat in this email.
+
+
+Benchmarks
+========
+I have done some different benchmarks which cover from macro to micro 
+benchmarks and different type of applications (kernel build, Java, 
+database, networking, etc). They are:
+   - Kernel text size (just compare the kernel text size for the two 
+kernels)
+   - Kernel build
+   - Specjbb
+   - MySQL (sysbench)
+   - Memcached (via Mellanox NIC)
+   - iperf (localhost)
+   - perf bench
+   - will-it-scale (page fault and mmap)
+
+Because we are benchmarking some subtle code difference, so all the 
+benchmarks were run multiple times (the number of iterations depend on 
+benchmarks duration and variance) and a couple of reboots in order to 
+rule out reboot by reboot spread (I did see some significant reboot by 
+reboot spread for some test cases). I also bind the tests to some 
+specific CPUs if they don't use all CPUs in order to minimize the 
+core-to-core latency variance and scheduler interference.
+
+Basically I didn't see measurable difference for the most benchmarks 
+listed above (ministat showed no difference), I think this aligned with 
+your results too. But some benchmarks showed regressions for Mark's 
+series. Please see the below for the details (just the regressed 
+benchmarks).
+
+Kernel text size
+-------------
+With the same kernel configuration (the default Fedora config), the 
+kernel text size for the percpu page table series is 92K smaller than 
+Mark's series. This is kind of expected because all this_cpu ops are 
+basically inlined and are called quite frequently, so even small 
+difference could make big impact.
+
+
+Kernel build
+----------
+Ran kernel build with "make -j192" in a memcg with cold page cache. 
+"Drop cache" is called for each run before building kernel.
+
+I did 5 runs. The percpu page table series has roughly 2% better sys 
+time (the smaller the better).
+Difference at 95.0% confidence
+     966 +/- 531.791
+     2.01307% +/- 1.10821%
+     (Student's t, pooled s = 413.415)
+
+And slightly better wall time.
+Difference at 95.0% confidence
+     2.2 +/- 1.92934
+     0.553877% +/- 0.485735%
+     (Student's t, pooled s = 1.32288)
+
+
+perf sched pipe
+-------------
+Bind two threads to CPU 78 and 79 (randomly picked) in order to avoid 
+core-2-core latency variance and some scheduler overhead. I did 200 
+runs. The percpu page table series is better. I didn't see measurable 
+difference with process mode.
+
+Throughput (The bigger the better)
+Difference at 95.0% confidence
+     -24549.2 +/- 4900.32
+     -9.73769% +/- 1.78314%
+     (Student's t, pooled s = 25001.6)
+
+Latency (The smaller the better)
+Difference at 95.0% confidence
+     0.377888 +/- 0.0753446
+     9.37686% +/- 2.01494%
+     (Student's t, pooled s = 0.384411)
+
+
+perf futex wake-parallel (wake up one thread from 192 waiters)
+------------------------------------------------------
+The result shows the wake up latency. I did 1000 runs. It is the smaller 
+the better.
+Difference at 95.0% confidence
+     0.0009767 +/- 0.000134466
+     17.0749% +/- 2.53593%
+     (Student's t, pooled s = 0.00153406)
+
+The histograms showed obvious long tail latency from Mark's series for 
+both perf bench pipe and perf futex wake-parallel.
+
+I also did some profiling for the above two benchmarks. The profiling 
+showed the percpu page table series has lower overhead in schedule(). I 
+got the profiling with pseudo NMI which has extra overhead, it may 
+distort the profiling a little bit. The profiling showed 
+finish_task_switch() as the hot spot. But it actually doesn't do too 
+many things other than enabling IRQ. This is a typical misleading 
+profiling due to not supported NMI on ARM64. But anyway both profiling 
+results (w/ pseudo NMI and w/o it) show the overhead is in schedule().
+
+
+perf bench fork
+-------------
+The result is the smaller the better. I did 20 runs. And the profiling 
+showed the percpu page table series spent less time in 
+__percpu_add_case_64().
+Difference at 95.0% confidence
+     48.5027 +/- 4.16055
+     1.93944% +/- 0.167849%
+     (Student's t, pooled s = 6.50039)
+
+
+will-it-scale/page fault
+--------------------
+All the page fault micro benchmarks from will-it-scale were run with one 
+single thread and bound to the same CPU in order to minimize the 
+overhead from page allocator and all the VM locks (for example, lru 
+lock, zone lock, etc). I did 100 runs for each test case. The result is 
+the bigger the better.
+
+page_fault1 (Anon page fault)
+-------------------------
+The percpu page table series is slightly better.
+Difference at 95.0% confidence
+     -13391.9 +/- 944.563
+     -1.67893% +/- 0.117849%
+     (Student's t, pooled s = 3407.69)
+
+page fault2 (CoW page fault)
+------------------------
+The percpu page table series is slightly better.
+Difference at 95.0% confidence
+     -4736.52 +/- 438.185
+     -1.16333% +/- 0.10686%
+     (Student's t, pooled s = 1580.83)
+
+page fault3 (tmpfs page fault)
+-------------------------
+The percpu page table series is slightly better.
+Difference at 95.0% confidence
+     -21667.9 +/- 1352.51
+     -1.91305% +/- 0.1186%
+     (Student's t, pooled s = 4879.44)
+
+The profiling for all the page fault benchmarks showed the percpu page 
+table series spent less time in __percpu_add_case_64().
+
+
+will-it-scale/mmap
+----------------
+Like page fault tests, the mmap benchmarks were run with one single 
+thread and bound to the same CPU in order to minimize the overhead from 
+VM locks. I did 50 runs for each. The results are the bigger the better.
+
+mmap1
+------
+The percpu page table series is better.
+Difference at 95.0% confidence
+     -15916.4 +/- 6094.58
+     -3.53615% +/- 1.32214%
+     (Student's t, pooled s = 15509.2)
+
+mmap2
+------
+The percpu page table series is better.
+Difference at 95.0% confidence
+     -14662.4 +/- 9359.95
+     -3.91005% +/- 2.44462%
+     (Student's t, pooled s = 23588.6)
+
+
+Thanks,
+Yang
+
+>> Regression test
+>> ===============
+>> 1. memcg creation
+>> -----------------
+>> Create 10K memcgs. Each memcg creation needs to allocate multiple percpu
+>> variables, for example, percpu refcnt, rstat and objcg percpu refcnt.
+>>
+>> Consumed 2112K more virtual memory for percpu “local mapping” and a few
+>> more mega bytes consumed by per cpu page tables.
+>> No noticeable regression was found for elapsed time.
+>>
+>> 2. fork test
+>> ------------
+>> stress-ng --fork 160 --fork-ops 10000000
+>> fork() needs to allocate multiple percpu variables, for example, rss
+>> counters and mm_cid_cpu.
+>>
+>> Roughly 1% regression was found. However stress-ng fork test has quites
+>> small address space, the real life workloads typically have much larger
+>> address space and do more complicated works. The stress-ng mmapfork
+>> benchmark saw 15% improvement.
+>>
+>>
+>> The organization of patches
+>> ===========================
+>> The refactor and prepatory patches (patch 1 - patch 4)
+>> Percpu page table support patches (patch 5 - patch 8)
+>> Local percpu area support patches (patch 7 - patch 15)
+>> Use local percpu area for this_cpu ops (patch 16)
+>>
+>>
+>> Yang Shi (16):
+>>        drivers: arch_numa: move percpu set up code to arch
+>>        arm64: kconfig: make percpu related configs not depend on NUMA
+>>        mm: pgalloc: introduce {pud|pmd}_populate_sync()
+>>        vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
+>>        arm64: mm: enable percpu kernel page table
+>>        arm64: mm: defined {pud|pmd}_populate_sync()
+>>        arm64: mm: sync percpu page table for memory hotplug/unplug
+>>        arm64: kasan: sync up kasan shadow area page table
+>>        arm64: mm: define percpu virtual space area
+>>        mm: percpu: prepare to use dedicated percpu area
+>>        arm64: mm: map local percpu first chunk
+>>        mm: percpu: set up first chunk and reserve chunk
+>>        arm64: mm: introduce __per_cpu_local_off
+>>        mm: percpu: allocate and free local percpu vm area
+>>        arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
+>>        arm64: percpu: use local percpu for this_cpu_*() APIs
+>>
+>>   arch/arm64/Kconfig                   |  12 +++++++---
+>>   arch/arm64/include/asm/mmu.h         |   5 ++++
+>>   arch/arm64/include/asm/mmu_context.h |   9 +++++++-
+>>   arch/arm64/include/asm/percpu.h      |  37 ++++++++++++++++++++++++++++-
+>>   arch/arm64/include/asm/pgalloc.h     |  24 +++++++++++++++++++
+>>   arch/arm64/include/asm/pgtable.h     |  37 ++++++++++++++++++++++++++---
+>>   arch/arm64/kernel/setup.c            |   3 +++
+>>   arch/arm64/kernel/smp.c              |  44 +++++++++++++++++++++++++++++++++++
+>>   arch/arm64/mm/kasan_init.c           |  47 +++++++++++++++++++++++--------------
+>>   arch/arm64/mm/mmu.c                  | 165 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------
+>>   arch/arm64/mm/ptdump.c               |   4 ++++
+>>   arch/riscv/kernel/smp.c              |  51 ++++++++++++++++++++++++++++++++++++++++
+>>   drivers/base/arch_numa.c             |  51 +---------------------------------------
+>>   include/linux/mm.h                   |  11 +++++++++
+>>   include/linux/percpu.h               |   4 +++-
+>>   include/linux/pgalloc.h              |  13 +++++++++++
+>>   include/linux/vmalloc.h              |   3 +++
+>>   mm/Kconfig                           |   9 ++++++++
+>>   mm/internal.h                        |   5 +++-
+>>   mm/kmsan/hooks.c                     |  14 +++++------
+>>   mm/percpu-internal.h                 |  14 +++++++++++
+>>   mm/percpu-vm.c                       |  94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>   mm/percpu.c                          |  58 +++++++++++++++++++++++++++++++++++++---------
+>>   mm/sparse-vmemmap.c                  |   4 ++--
+>>   mm/vmalloc.c                         | 138 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+>>   25 files changed, 712 insertions(+), 144 deletions(-)
+>>
+>>
+>> Thanks,
+>> Yang
+>>
+>>
 
 
