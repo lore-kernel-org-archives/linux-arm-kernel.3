@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8ECC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10789C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8Dfh++0Ud+IxXdfXwfXS9P60ggh+Cfx9Hb6zf15cRc=; b=W3Zifc12yAhK1M5a4DipxxqX2n
-	DnM9ok/c5P2jUZcFvodBsUFs8qBboi6QX9ShlV9fynOyM5ufj2sorqT9FsxQGcDMDVhE8N3qmAYOi
-	y9LVmI2k1nQPrrDWZmGwaRwS8Z1Gm6uJ6sVwz9AowZakJ616m1FSWd0JEwiJ7svD9Ee/U/9j/brRi
-	CYJ0StCmrv1nOdN/2ol9E/tEeUscZR+5umuffBosrxp4j4rneCBc4EMsZNLJOU5m0AozF2C2agwr+
-	dGKiXH4/ImzykEuT/CfpIjUbARryn40Y1oktwHUETwqbaYatJ7Gtk5MKWB4N36xzj388x1M1Dhmyh
-	x0iEiz/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XEAVGW99jRYpfKK+i5q1QjOfB2bMJtHxW0mUFyR7MIM=; b=mq4c1I0Xl7eg53ejzx/8n7LNnW
+	W69bV/2A2woKxKiDCYzTKV38fym/Uq03wU/puYz50eXM5qWa1iT6lN0ByFE3Px6j4+J/QLFQUsHcp
+	qLber/DImVSl3rgyj6kzine1DLaOIFL6ls1a7fTy/bJsj7q8s4vSf9bxzqFtcyc0RGuskG6oPFlLZ
+	chfbwb2KI64aMF9Iz/dKPheEth69ChIDYhxLFfokc88zSAbPX9lsCx1mMyQIRwFa1F3BvgduET7pi
+	cmxXcO7YH3uZRJQzt2UiQem9L3k2Jsni70orcdxUystR01ZC1WCNgQ7YUE3VLPWREDon8Q2RRzDsU
+	PpvxB7lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jLs-0000000EXNT-1ya8;
-	Wed, 02 Sep 2026 11:42:00 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1x1jPD-0000000EXtk-3CCS;
+	Wed, 02 Sep 2026 11:45:27 +0000
+Received: from mail-pj1-f44.google.com ([209.85.216.44])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jLq-0000000EXMu-1YA4
+	id 1x1jPB-0000000EXtM-1NCp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:41:59 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6a68279dd86so801406a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:41:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788349316; x=1788954116; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z8Dfh++0Ud+IxXdfXwfXS9P60ggh+Cfx9Hb6zf15cRc=;
-        b=ZzepruNldp91yMHDI91QlZmXZ2NLsHghYmuafWub2VXPK6ZRgd8siT5ZzRwor1o0Qs
-         XCsI5KLMRCK7Uot7uAGBE+amu/E/EVMKXh9pofRc8IFqAQSsGgWDP6FQAgDhMD84qzFY
-         7k8KLekDUQxxSDN8YvM30ZfV4pQH4cho3/SI73+nSNfQdglZMvd4gGmNwCCWRxVRU7mC
-         Nkb44KrppRgzEBv5gxvLXMIqSc0Qkqj85/l8Nqg0COAdG8QxzMxKZQDZoZc+VslfHKN5
-         D5KKD4WLxNERendO/LXGqezX1z8v70lFmw76En/oxdfve4+Q7d/KWIs/yhqAZCGTtp7t
-         O9uA==
+	Wed, 02 Sep 2026 11:45:26 +0000
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3964dfb5a69so1206597a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:45:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788349316; x=1788954116;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z8Dfh++0Ud+IxXdfXwfXS9P60ggh+Cfx9Hb6zf15cRc=;
-        b=g2S7cSccG+U1evCola4hZImDLApQAZzM2aKzCwvMiYsceo2ta6102NPCsS9n4bPEaS
-         wcSuy/C7qBjDpGS93hLWlyCHwmzxuMBXvKTwBaGeRmfR/fzhwGdObdiP6vZuvhkNvfsK
-         JrlKV+LV4zz562iP6DIjbEYGRL51GtMfEhZyafsDqF5hAbDhBk9tpoMrGgmxsYyPSpgF
-         ZT2TsEfSjj0Bs7WEGojqeZwXNs8m6jdCpT14Aqzuh85476Tt7xWHswZEjY7FFx5bp/DH
-         T227etj8rUNCOxUSSbEf/CRKflFBJXofKKD+T548PrfH14aYBRol81ZkwwtgVwY9s0K3
-         8X9Q==
-X-Forwarded-Encrypted: i=1; AKwUvByajYb1NxbaLXjPG7Dzs/dyoEp+9it/MYAoIyK5oFzxLBKx0kATQlkkeLE7OlQqfF60sqayNgc58ZCIOFbN/7X/@lists.infradead.org
-X-Gm-Message-State: AFuF++molY+/zxjWhwG0S7aRYybvK1oa3vYapNXMDFNI0ThJmxZeAolK
-	gmCMtHoRZSirxvSNHCE8b9oXaMktE5QDzTRcYavKAqyrWSaeAa4LUfHz
-X-Gm-Gg: AYBFou2hvKEdFgQEhNvJndxS7MF/xLHuDNQl/Ia3y/Z6v+soVLaG6lDHi6r5xZUNGvE
-	fEM+WXDYBgDStpjpMkmkKpLGWIVALG0p37Q9ilxoVqKhmFQlFCgFfR0KOwgE/VFXYRobR5CYvNj
-	OsRHW84V/QI2LnvmyTRFP3BiXWS0GmdEg+lhxDrWvoB5gwn41UG9ZnKYjCH8sDzaoV+9G3AblNi
-	sg/rmS+QhTxe7TKYwfpzykpLJbmF5DCdiWaEM6/zGzclx5HZGjKzz+sVu5p5/ouFui6dnFx29Pg
-	9VIvilS0xy/wme9SyJq+KXBk+vGuGif0fT86FbAxy1ze2SbxylS5V23T7fCslzoAW6gp3dIaapd
-	BMan51EaU6PbPnfHysCun9sEXgZWxXYaXsyCze9Yz9GKFKFmVMgKyIBj2QwMrd3RjzLNYClMmSM
-	i90f0GtVAyWDdRnHqC0cNrFKrSdHN5I3MlafjqmkmM3K50sVBol18KzsGKzmMkvXaiYZF9cPOWx
-	gPMDn31FUimgIlATLUh2QI=
-X-Received: by 2002:a05:6402:3608:b0:6a6:32f5:556f with SMTP id 4fb4d7f45d1cf-6a682ac0a4amr2806106a12.17.1788349316334;
-        Wed, 02 Sep 2026 04:41:56 -0700 (PDT)
-Received: from [192.168.1.89] (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c25d044d776sm117567566b.62.2026.09.02.04.41.55
+        d=1e100.net; s=20251104; t=1788349524; x=1788954324;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XEAVGW99jRYpfKK+i5q1QjOfB2bMJtHxW0mUFyR7MIM=;
+        b=Hh7jh9/w43c9ENMLavzIR6k+nALD75jWaLX0VukVcVhXRC7pS5xiye25LvAXolOVVG
+         oZTCbnNFFkaG/8JwHoJbKSkj0SJzbn7kV38fqSCOaHxzZ5BhItFKTdNCfahKebOBQJf0
+         mAmW2ToCVB7y3Yvi50Pu2XkFiG4KRYHNXqiSM4P8Y/GujSV1tJgbecF51MYoEoHjoaVO
+         RIZ91Tcoxi+05LHFUGfTzMmaO3DjA9rR9e3F5LvCT75ghlrZUus6C1b6IscNqCYRlnxA
+         ryaTHIX0eb15GErNgd2nNQjgU53/0KZpjP6dAbRWWXobHArIeqqfv0IfjIBfN3U0ehh8
+         V/Lw==
+X-Gm-Message-State: AFuF++miO6fcoC5k3ubUDcHZmSkrVsqEQhn+YQN+LJ9KL2zh26zPBOr5
+	bKPAqsUJIKPuCGtaEQr+RcDKsK7Lk8ZSFxbQ/6Smo9jemRF8xsBCHtZdiU2242G8
+X-Gm-Gg: AYBFou2k2lOQVo6VWYAckM2IQOSibJ4VYiuRL+FyII7oyfc/+LbzZPeeaXJMSzb+chF
+	3RunbIv71Zpg0LUittMX0oSf6eVEDIAmOPJco1YSOGR1nxzd6667/lw/AeIJdUL1klMhQOVRR+4
+	W6sM93I44zrrs1PmWpBXpKKzVPMXHO3UjXfeRprsfRJ9SXBrS8BYdrZqToto7sz68W9tvwC6t7r
+	JBv/fFc+6wAW+HB/n9+6SLxQHCdc2YOASDXWpspyCuK090fwjg725L00c4BTdaGNPmSJnPtA5Gl
+	U47eFtGdeIu9qBRiqwjUX1qRlbUUg+EUUYwOqVKw9gGVPlHURr8mto+AHvLrF/z4OwWDsKny1ex
+	WyDn1HjSF+BwEemIXGBTm7zC/+tITiHVZM7gK9Dfw5pplmm9gEafE69We/FesJ/7XczLRB8gVCL
+	39dBoZtnzKf15rLQcth7LkCHA/oMUqTfoSmP1GXP61KcwnfjbcJpEom/KC3PX5M4Z7WmzvxlnjQ
+	1rblcIxEpLjlQ0du5KrYRLT7hvKlQ==
+X-Received: by 2002:a17:90b:39ad:b0:38e:9eb2:9d43 with SMTP id 98e67ed59e1d1-39aee13cbc2mr5377920a91.16.1788349523808;
+        Wed, 02 Sep 2026 04:45:23 -0700 (PDT)
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com. [209.85.214.170])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39ae0f2a321sm5757059a91.7.2026.09.02.04.45.23
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Sep 2026 04:41:55 -0700 (PDT)
-Message-ID: <9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
-Date: Wed, 2 Sep 2026 13:41:54 +0200
+        Wed, 02 Sep 2026 04:45:23 -0700 (PDT)
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2d7200b2e15so10354285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:45:23 -0700 (PDT)
+X-Received: by 2002:a05:6102:faa:b0:785:bfc7:26f5 with SMTP id
+ ada2fe7eead31-78a1f33dfd3mr1197143137.12.1788349174855; Wed, 02 Sep 2026
+ 04:39:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-From: Eli Billauer <eli.billauer@gmail.com>
-Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
- kmalloc()
-To: Mike Rapoport <rppt@kernel.org>
-Cc: David Laight <david.laight.linux@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Simek <michal.simek@amd.com>, Ritu Agarwal <rituagar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org
-References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
- <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
- <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
- <20260831123937.32255a49@pumpkin> <apaF1HUtJnstuUN4@kernel.org>
- <1729fb06-6beb-f8ef-3e71-47fc3f00345d@outbound.gmail.com>
- <apcPg_y-HsMki7we@kernel.org>
-Content-Language: en-US
-In-Reply-To: <apcPg_y-HsMki7we@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260809200429.843212-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260809200429.843212-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 2 Sep 2026 13:39:23 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUCRF_r3TXCRYZs_-AAn9WL36HUF4_VjGs4Y8Y4T2uRTA@mail.gmail.com>
+X-Gm-Features: AcwNN1XYp2AmohzI9M0wS5P-4B-ztdbPdhzMYLGxaK77VTrG86b4xj0U-T2WG1g
+Message-ID: <CAMuHMdUCRF_r3TXCRYZs_-AAn9WL36HUF4_VjGs4Y8Y4T2uRTA@mail.gmail.com>
+Subject: Re: [PATCH v5] arm64: dts: renesas: r8a779g0: Add GICv3 ITS and
+ update PCIe nodes
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_044158_429037_FF8DC2B2 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260902_044525_363823_193816E7 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2026 19:46, Mike Rapoport wrote:
->> * Does vmalloc() guarantee that non-pageable physical RAM is allocated when
->> it returns?
-> It's not pageable in the sense of demand paging. Some architectures lazily
-> synchronize vmalloc page tables and this can cause page faults that will
-> take care of the page table synchronization.
-> 
+On Sun, 9 Aug 2026 at 22:04, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
+> SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
+> and add msi-map into PCIe controller node.
+>
+> The GIC ITS does have master interface to issue transactions to RAM.
+> The interface does support cacheable transactions, however, it does
+> not support shareable attribute, because the AXI port signals are tied
+> to inactive in this implementation. Therefore, add "dma-noncoherent"
+> DT property into the GIC ITS subnode.
+>
+> The GIC redistributor does not have cacheable/shareable, therefore
+> add "dma-noncoherent" DT property into the GIC node.
+>
+> Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Thanks for this clarification.
+LGTM, so
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.4.
 
-This sounds like a showstopper to me. Immediately after the allocation 
-of these buffers, data from the USB device can arrive at 400 MB/s. If 
-the data flow is throttled as a result of handling page faults while 
-trying to write the data to these buffers, this could lead to an 
-overflow in the USB device's own RAM buffers. This is because the USB 
-device is an FPGA, where RAM is an expensive resource.
+Gr{oetje,eeting}s,
 
-So using vmalloc() may result in a malfunction in the data transport 
-where the __get_free_pages() would have been successful. This outweighs 
-the benefit of a somewhat higher probability of success in allocating 
-very large buffers, and surely the improved aesthetics of the kernel code.
+                        Geert
 
-Regards,
-    Eli
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
