@@ -4,131 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B80C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2549CC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=; b=Qdzb0dc9UBmRhao6ET0oKjgQWS
-	1+V7cuiHLbfswMZZr9x8R6/yy7zqKSHrPIAjixb5Qqn7yKou05eK5BXN6fttOIYz6F7Xln9StxA1o
-	HvK2D+rDbUQMnc7hZ9A37Xiz50b/o4ybmXg0bnZwrxJaTkZ1+XWYQVhM+uFqN6d5AjELiIgGI9VEC
-	49W5gkYZ0A7R6PvVecm3NLIWewGkEwflOpS58aII7ht6uZkwivubZ1yhR7jqLpl+dF4UijFp1Zt3P
-	MmiqOZiBQ6aFgdmpDgGwkvEsfzQKE8ZKpyT5PfFIYZY2GUDFAQ/UDcIlvxBGA9wm+OwSiJMBUMJaY
-	Iolp+DIQ==;
+	bh=sjVl9xzFfNgY952LphDWb8k5JraTM7MAooStXeF8NfA=; b=0AyyajHvdfrrotgyujKOIrYtgp
+	0biS8uVUBGyr5QPsZrhofLfb5YcDoAOaZGnH/cXA62LkuAyN1b11oDWXM1dmoqIqGIV2k98oO7gqD
+	A74SM8zO/kZ2FR/RX0HTfEmzNvVt3UJMVbc9tfEsjIy/xeKgvrc/7JIOGf38bGqbJeRwyCLnRDu2B
+	YjR3R2r+63dC8XvT4MNjmlgB87OK1eANwX3aFzm4DyZ+NI5m6WNu8Yjo85LyFGgkuWeCjjsNfeGv6
+	85XJ14AATM+RmZtxZTBXF5oTpY8SnqszaEpETOOSamQ8vs9gMifHv5qKQ2vpGuEQmJ9NtiOlGRJd1
+	J4vkiDcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1miH-0000000F3wf-2hQK;
-	Wed, 02 Sep 2026 15:17:21 +0000
-Received: from mail-northeuropeazon11012016.outbound.protection.outlook.com ([52.101.66.16] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x1mrd-0000000F4dj-3CC9;
+	Wed, 02 Sep 2026 15:27:01 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1miF-0000000F3w7-1vaQ
+	id 1x1mra-0000000F4dH-1kx2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 15:17:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ScNEANp6OsA6AFT0lmwkIpCscnaR1tM5BEJ+uyq5AJ4fjjzmr8V+wnLJmGkePXDGOvsjvD4QnP2a2yS4qVvxWBeQxTweTYhjnbcyBsSEWk7QNk3/UXTXZ2YvNPFG1E2qve+j3S9tPYvA2WKg+155X3HQFJkYnJ+MSUjAyUJzsOulPk0C4jtSH5TMdwSpS85QmP7Irmi5NlKtxx7XmDTVdlmvVfwopqjsQU5ZTSS1jLSvtknIRAwTGj5bjTckUGf08JfLFv49rzRiJihukTzSOOk0lZAf/4Zy5CTYn/2fMWU3WLpZaVmBofefDP/xZEZZtnaLt3rxlevX7Cr1pEvmiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=;
- b=NloXi2Pp7X/RqYylmwqgFrEOjzdO8BqYK+PF4TocBTvPNyCZtvF0zPJxCjLavjSfuenRGERY6sbmLWskbi5VzA6viWooSckxQMQ6teRjFIKKo1zZ2PeRxwKZDRnppVw1qItJLc9J4DSzU/lYStkxL+m/43LMDXMWoCeLXTTGZoFOTcKHQ4I2UuCidMNsOxJFJC11KuPBR6hUnJ8xOx964ay08Up4lZwzBq1XJ+ohFKY+ZQYd7zJYIXCr8mSZ2DLg+V2YGrmKL/XW4NwayIfs2hWEnu6VTTJirLAcoEVacMTMXtv7molWDGMmO7l5vikkdnxhyzmvdtbwdGjyx4xjww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oPYQcGyvxjcbqDZERIoebLK6AARepcIpO7CoPvs5LCE=;
- b=Rmqx9LyXt6m8vgxe+sFp5F4zoMKKoOC1cIRbBqZeVpiMJA1MtTsGsQBK12o9NBZVXkmp6HaDHgGe5DbeRlp/l7E/ErvIiIAGGRRW7DDXrYvC1W5pcViZY+de4x2smcx4QruwxbGxH/2JLtHS8sZNtYDaZA0Ii155fbHotNKlksUIE0jtX1h8g+0ey+/Krz1CIePfthINssIaOxX+CJ4+VNDbvYN8WnzYwlazdqKXzUjiACX/fwOK4WP41b9pGo4XPMDOEiXHSIZgB6rQNKDN+ZAXaWR/v+fx/9U/De4bLXDzxppz3z85eQri4j3N27sfyYEsU3GKY2hKkaNsiY+oeQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB12129.eurprd04.prod.outlook.com (2603:10a6:10:643::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 15:17:15 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 15:17:15 +0000
-Date: Wed, 2 Sep 2026 11:17:06 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Allen Pais <allen.lkml@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 08/34] dmaengine: imx-dma: flip per-chan tasklet to
- dmaengine BH
-Message-ID: <apg98idPGhorwZ9p@lizhi-Precision-Tower-5810>
-References: <cover.1785183549.git.allen.lkml@gmail.com>
- <cover.1786384168.git.allen.lkml@gmail.com>
- <787938bdaef4c3530b4bf0296386a33928b877f0.1786384168.git.allen.lkml@gmail.com>
+	Wed, 02 Sep 2026 15:27:00 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so11922915e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:26:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788362816; x=1788967616; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sjVl9xzFfNgY952LphDWb8k5JraTM7MAooStXeF8NfA=;
+        b=MVgA90usT5fLzK3KcFA5lBBewoiwWwRO6YKQaB7CCWvKV3Fy+RERFbSfqmAFVnS+Fi
+         Rn6mzd78thiHjEFOb/9xi+Cwuw2upybQmKdG+3QagU+anIi8rHv1B7TVEudQB0t6rZnI
+         AZWaoNtgyLzzzfMNysswVk8fyqX98YpPGaklHvwYsUjtoYJPEAEsYqBg9NBdnOX/VDiy
+         y5zhtvfRwepAxeA7utpeacRgkEzcrs06frjNHT5NLyT1Kw8NviObfsJUsLCz3A/dQwN6
+         VSDMjgg61+JfuH2igccFh+75iAOc+D+6zdwvnmWiBXzq9QJJI1RQUfv0IiW08D/hfOQe
+         zKDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788362816; x=1788967616;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sjVl9xzFfNgY952LphDWb8k5JraTM7MAooStXeF8NfA=;
+        b=XgWx+2LfqEAmN/QMtzhlTO8lLNmyILWdsWyiUBfRTS9VYwMxDiM/op3xJGKF8odf4J
+         iUrFdjkM1HblWhgRGAkfO8S7Gtwo0oxiHoJbYLmHsQVJHPAOriFiKudwtQKe/uXAqAZA
+         9xVLrs2cVP3WzQTEAxLFRaY5i+M98yDlRwlXu0JkZaz8yvWv74eZDBTjS4ld5IOtXV9P
+         EU7V32KifqJTwHZGXfhEgcvE+n/oHM/45W6sRk93sjwhoY21DiseBFj8hfXN76jrnV/W
+         aMDFWG/tPACvjSHrE22TPFx5yia1n5cURIgN8BMt0KQvjLkfDaJ42K7F/DvhU1fe6BkW
+         n4DA==
+X-Forwarded-Encrypted: i=1; AHgh+RqalxMIPnTQdfqGLVc1mSo6AzHBBCnbuUDAJn9noj0WTldT8BThfRlhbRgh3q3Fh18JU3QbP5qo/Cz723RCjvsY@lists.infradead.org
+X-Gm-Message-State: AFuF++lyNOI5D9OTYK6Z9MfVlBXymftzdfZ3NeGVkJcuKerZIv+sDkEm
+	W53k/FKsuA94s6A/XNuLQlTeaxuw07k+mfrLBHiWBRBtzI7jxFUi7ii3X38gIrznOw==
+X-Gm-Gg: AR+sD12AtPvFajSma177fZ2X3xc+zTWvjdQ6/RC8WL3WyyRJ04xTlcGrGWi7PdnJvw8
+	ZJJzH0acchpOsEWxEZxznpOP80+cNk6l1+SqFPzZiGh4qBELcMvVOI2m7p6Xpvi4sItSgAXJsvV
+	Ch2e43S4OWhFNXYhsR2yUL8RN0r7vRaj1k3LCiYIZa4SV1RjcrvUcL6DNLtHyiG0hVM8Mrg1kZU
+	4NCzEyp+xWfnDZIQzKzA0h4ikH9AeK71BMQQFOhIWC4nCCMzklSwumKz2B3sCRFPFzf/MIUnoHe
+	uk7jXQmcd5Wk0iyioZWH5x7aMB6lecbmBJ+pRo9FgYbHkQ0pEwtxcVVzeVFJuc8f8SnF3E9/mZQ
+	hVbB2golmMyzxohQwUC8BdtmuxXaRSByxcfoFG/j3X7u9iIwSVBwuL6anRRCB6+DrLecfds0Nsi
+	9oBmQV1F5Q1e3PPuHb3e+WZpRsOSer+geGbIJBURWwbMK6iOJXdpMgWi6NS+txUlAQdD6CbcUiu
+	ve+D++hrY8kQYJIXPCBurL2m1taIOPgBJhxQDXgNJU=
+X-Received: by 2002:a05:600c:1906:b0:499:8b13:3a98 with SMTP id 5b1f17b1804b1-49ce57e7a9dmr97272945e9.4.1788362815816;
+        Wed, 02 Sep 2026 08:26:55 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce4642235sm77916425e9.2.2026.09.02.08.26.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 08:26:54 -0700 (PDT)
+Date: Wed, 2 Sep 2026 16:26:51 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 05/17] KVM: arm64: Skip fixed-feature state flush for
+ protected vCPUs
+Message-ID: <aphAO_nmoTzI6Yvf@google.com>
+References: <20260831163421.272420-1-fuad.tabba@linux.dev>
+ <20260831163421.272420-6-fuad.tabba@linux.dev>
+ <apg7KNpamnpYi-kl@google.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <787938bdaef4c3530b4bf0296386a33928b877f0.1786384168.git.allen.lkml@gmail.com>
-X-ClientProxiedBy: PH7PR03CA0013.namprd03.prod.outlook.com
- (2603:10b6:510:339::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB12129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 21d0fbec-17d7-4834-a39d-08df09054569
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|22082099003|18002099003|56012099006|11063799006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: EaatEmSB0qeG56rvzpQ2jtyvP/BrXFF8PTw9vnblWfeWBL4kvflZWi9WyH92iJAaI8keOO1durj988uGC1KdZprsHW01qszTctzhN/GqaOp+C41iifAHcjSSFdQeAp5pRfS4p2x8lKL8YtCrz+wRYJkzgVzC2RQzAgNmgOIXWnPgCVC75KoxNJqNFD27izZ1mQhC+q+eL85RDyU7/PM94LsXTnemhHYx31UX9gY7DXs4kGoRnZYDJcYj0xrj2naoE0N0eJXftw0F0W2lbEn94EOFwxLF+1/hYWxhci8+J2BL0ocFAf8MBZs9wtOGQ+asTsBllVbPj6YAGo0c1JkSTZlzzv/jKejWkDBoSssJ5xsiHoRPVTWOYlbXSzKR1fLSmQqiDt1HBs+o8K+kMPKEg9BeYBkDWcoNYnPL/oXKg5wnLFQ8IMDhlSJ+gx6aWrab/EUHssPuhhfSasg+JEmuYkTZ6ciRRpN/sNqJvgFDloOzKwFRukN3a7u94dtaSVqCrjf3hvXbUiIrMaTa2Hj2SvGRwnQLPv9/LQYmckgWDRIMuNWkqUwnZHaxzkvZjZY7HQo6/2jOGyAs9kIduj5R/dlkujj7F4hUeBcpgklKAxbxBG8WvPJ5PsJhIDEy/Pd54N4b+9k31RpZRGT812DuO1C+Tknz8Dh40Z3R9sAJ7eo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nf8rGl4UJ1Jy/GEg4XROpRqo9eeT0ETUdHwBQgClTAL1pw+J989RxaXOvlv4?=
- =?us-ascii?Q?Kr3cigcPfODPoL2s2SbS2EIFtyrhUIyuafTQKJEJYaE1ILwfDfhQ1hpG1V8I?=
- =?us-ascii?Q?kjRJt5tQQMVMw+AMlOp/gNZvcgcwfW0T+4wacwASF/D17KYJe1zkWXEkyjKC?=
- =?us-ascii?Q?pWh5EZYlv5dPWnTWDtcuKLF5IXbQfwPSArOnt/hvIzSP6XUhqdNefUHzQ6jl?=
- =?us-ascii?Q?KWoUFNihB/9GTNMB6tq8C01rYI92CMsU9/BMUZoK+ysWpI05jcF0eb5UIg1g?=
- =?us-ascii?Q?VoiOnnScMuDy1uwvllLuFv9c+3kYuVtLihnbGNyj8ihKLyL0M22HSgKxTv/6?=
- =?us-ascii?Q?9lwTokj5QqSG7HAkxTXJ1WIg6iX15TULbMk1ceqqj2KPwdcXwlW80/ChAR98?=
- =?us-ascii?Q?zVn6HOxSI5IzJTlZeEKM73rdabkVW4ve+fFY/+MBr3dzlxMrHReWT1KI+ix4?=
- =?us-ascii?Q?O8LXg63N0f8uIBp6FSXNoTRRcvFqZPhV9Xwjkz5wssUOGyezQdlMV7n1xI2O?=
- =?us-ascii?Q?NQfeWBkv0JnrvaTaAi3CPeY2JoT68Yj9haIF+xC5WM98JI6fNDzRSP0GiERn?=
- =?us-ascii?Q?2uOcMZEZOWtXD98aLumxmD2unrwFWM6OW3imVmmZi+6NBl96VurNxyTiHepx?=
- =?us-ascii?Q?R74qWrNjvD/92R/FPvmJaBZrZ9YmCHrC3JMVCyu7vnNyNC/7L1ZUKC/0nZWV?=
- =?us-ascii?Q?GuzBcCjkgsOTpssWIK/ey/I3GCV/hijvqFS2sAzFjn1N1xAeZoP3Vm+wbblV?=
- =?us-ascii?Q?GCGjrNUaU2a0jxr+KsHJv0kNGD63aUAy7R1ArHdO8gVSy0/c7hszAQ8rASe0?=
- =?us-ascii?Q?KmkIyNPV2Zh+4+lHd9U+8EA7KQ8Pt/c6xTvqSYphpHWhOgwVDmwadt4lkhTh?=
- =?us-ascii?Q?FlX4DF9iGv81REu8CnZwyn9KZWI249WE8IjCxgH4NLABIVX5Evl4sWCQqA3x?=
- =?us-ascii?Q?gv+nsjt1dh6sr2SDaHLTDzYbhYZE74B1jdBbrxBqBAw09f5+KPtFMqM3WeWU?=
- =?us-ascii?Q?YpEza5jBmEt3PStqW6tFR+4tjXUzyvNo2fgoH1MoQdrqVvUb4s3E9m79GjeR?=
- =?us-ascii?Q?xaXBE9E9zrY/xnumbxSd6Ps4vcPh86koPIgYVgNwUAjn6ZnbKIjLY0jEYTbq?=
- =?us-ascii?Q?dRjo1ywztk82FHwrKtlwwuGON7mOtjzEcgJvnlzjRLyfl3unma9qjg1GOWrE?=
- =?us-ascii?Q?jPUKlT2NtYTvVOvBjOXWx+gSCxj/gUWVZaH14LUMLF0iOH5RUIf24ClgqIvM?=
- =?us-ascii?Q?qa6mxFS8iPJDSjCjmf6NN7mZHMzQL9N/INKpog62zrTR3MJ0j9P3evSiDT8l?=
- =?us-ascii?Q?nbh8D5s5zZoTYHt47/m+imudzQddSvyHtGhYbsAWwDuO5bedEZVlRfeMMGkE?=
- =?us-ascii?Q?BWa8PBZ5eupyyaKl60XcJPQQS5Kl7rpn1UWqpydOjM7A7c44FgriBW7R1lu9?=
- =?us-ascii?Q?QXJN7CXz13qxK6sXHld6cm5wC1NgS8VBlaRyVRFu1wthCanHcSGHy2SdVg+N?=
- =?us-ascii?Q?DqLYtsl/5+8Tawci/5BuNm5XVvkoimn1TJmvMqCNqC5dt5dYlawbpxW6ZTg7?=
- =?us-ascii?Q?RzRJj3NYj4s+6d8L5IsOQLdgRiJfO8BkTC5ZU4g22rATg7SuWw2x0QY2tr7S?=
- =?us-ascii?Q?oNQxmxUil261BZ1j/KmcEicBlH/McZA/6IE3rjga/vy/ssevYC3tHBE5Y+Zb?=
- =?us-ascii?Q?3ZoBGPLziV3gl9HkL3OyXmROa2PLYp0g4FvaMrnb/5IqeQg4Af4zBQdReccN?=
- =?us-ascii?Q?+f7lfYF1L9ihb9R/Ne7yL68YWmfwXUC3+JAOeWT7m7za+3TiTh6x?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21d0fbec-17d7-4834-a39d-08df09054569
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 15:17:15.5273
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JbWRNeGzNhR3QhiOElrJ68wq5Z7DPNHqShTcUdmlftLsUO4rlVf19gkcppfdnsXhEYFe/Kwo2WhdUM64R612oNzjEQZ36Z/LzQZ5E6yD/bj9F9CQ10Cki1LylbbMTCsd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12129
+In-Reply-To: <apg7KNpamnpYi-kl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_081719_528067_43332343 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20260902_082658_493117_5B3D3C3D 
+X-CRM114-Status: GOOD (  30.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,107 +110,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 11:09:09AM -0700, Allen Pais wrote:
-> Replace the per-channel tasklet with the shared dmaengine BH helper.
-> The handler continues to run in softirq context while dmaengine owns
-> the common scheduling and teardown mechanism.
->
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
+On Wed, Sep 02, 2026 at 04:05:12PM +0100, Vincent Donnefort wrote:
+> On Mon, Aug 31, 2026 at 05:34:09PM +0100, Fuad Tabba wrote:
+> > flush_hyp_vcpu() copies the host's mdcr_el2, TWI/TWE and debug state
+> > into the hyp vCPU on every entry, so for a protected vCPU the host's
+> > trap configuration overrides the one pkvm_vcpu_init_traps() computed
+> > at EL2. Move those copies into the non-protected branch, and sync the
+> > debug state back for non-protected vCPUs only: a protected guest's
+> > debug registers are hypervisor-owned, and it takes the host's TWI/TWE
+> > at vCPU load. MDCR_EL2.TDA traps only the guest's own accesses; it
+> > does not stop the world switch from loading host-supplied breakpoints
+> > and MDSCR_EL1.
+> > 
+> > EL2's mdcr_el2 starts from 0, and HPMN == 0 is reserved without
+> > FEAT_HPMN0. Set HPMN to the CPU's event counter count at vCPU load,
+> > the value the host's copy carried; a protected guest's PMU accesses
+> > trap regardless.
+> > 
+> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 31 +++++++++++++++++++-----------
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  2 +-
+> >  2 files changed, 21 insertions(+), 12 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > index ca7122b0bccdd..14e847b122abf 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > @@ -231,7 +231,6 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> >  	u8 esr_ec;
+> >  
+> >  	fpsimd_sve_flush();
+> > -	flush_debug_state(hyp_vcpu);
+> >  
+> >  	/*
+> >  	 * If we deal with a non-protected guest and the state is potentially
+> > @@ -241,7 +240,14 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> >  	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> >  		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
+> >  			flush_hyp_vcpu_state(hyp_vcpu);
+> > +
+> > +		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+> > +		hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > +							 (HCR_TWI | HCR_TWE);
+> > +
+> > +		hyp_vcpu->vcpu.arch.mdcr_el2 = host_vcpu->arch.mdcr_el2;
+> >  		hyp_vcpu->vcpu.arch.iflags = host_vcpu->arch.iflags;
+> > +		flush_debug_state(hyp_vcpu);
+> >  	} else {
+> >  		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
+> >  	}
+> > @@ -249,17 +255,13 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> >  	/* __hyp_running_vcpu must be NULL in a guest context. */
+> >  	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
+> >  
+> > -	hyp_vcpu->vcpu.arch.mdcr_el2	= host_vcpu->arch.mdcr_el2;
+> >  	/*
+> > -	 * HCR_EL2.VSE is host-owned (a pending virtual SError to inject), not a
+> > -	 * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
+> > -	 * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
+> > +	 * A host-injected vSError is masked by the guest's own PSTATE.A, so it
+> > +	 * applies to protected guests too.
+> >  	 */
+> > -	hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
+> > -	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > -						 (HCR_TWI | HCR_TWE | HCR_VSE);
+> > -
+> > -	hyp_vcpu->vcpu.arch.vsesr_el2	= host_vcpu->arch.vsesr_el2;
+> > +	hyp_vcpu->vcpu.arch.hcr_el2 &= ~HCR_VSE;
+> > +	hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) & HCR_VSE;
+> > +	hyp_vcpu->vcpu.arch.vsesr_el2 = host_vcpu->arch.vsesr_el2;
+> >  
+> >  	flush_hyp_vgic_state(hyp_vcpu);
+> >  
+> > @@ -288,7 +290,8 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu, u32 exit_reason)
+> >  	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> >  
+> >  	fpsimd_sve_sync(&hyp_vcpu->vcpu);
+> > -	sync_debug_state(hyp_vcpu);
+> > +	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> > +		sync_debug_state(hyp_vcpu);
+> 
+> nit: We can't use the else arm below?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+or actually could we move the check into sync_debug_state() just like
+sync_hyp_timer_state() does?
 
->  drivers/dma/imx-dma.c | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/dma/imx-dma.c b/drivers/dma/imx-dma.c
-> index 81c6276436f8..308fe407fe16 100644
-> --- a/drivers/dma/imx-dma.c
-> +++ b/drivers/dma/imx-dma.c
-> @@ -145,7 +145,6 @@ struct imxdma_channel {
->  	struct imxdma_engine		*imxdma;
->  	unsigned int			channel;
->
-> -	struct tasklet_struct		dma_tasklet;
->  	struct list_head		ld_free;
->  	struct list_head		ld_queue;
->  	struct list_head		ld_active;
-> @@ -344,8 +343,8 @@ static void imxdma_watchdog(struct timer_list *t)
->
->  	imx_dmav1_writel(imxdma, 0, DMA_CCR(channel));
->
-> -	/* Tasklet watchdog error handler */
-> -	tasklet_schedule(&imxdmac->dma_tasklet);
-> +	/* BH watchdog error handler */
-> +	dmaengine_schedule_bh(&imxdmac->chan);
->  	dev_dbg(imxdma->dev, "channel %d: watchdog timeout!\n",
->  		imxdmac->channel);
->  }
-> @@ -390,8 +389,8 @@ static irqreturn_t imxdma_err_handler(int irq, void *dev_id)
->  			imx_dmav1_writel(imxdma, 1 << i, DMA_DBOSR);
->  			errcode |= IMX_DMA_ERR_BUFFER;
->  		}
-> -		/* Tasklet error handler */
-> -		tasklet_schedule(&imxdma->channel[i].dma_tasklet);
-> +		/* BH error handler */
-> +		dmaengine_schedule_bh(&imxdma->channel[i].chan);
->
->  		dev_warn(imxdma->dev,
->  			 "DMA timeout on channel %d -%s%s%s%s\n", i,
-> @@ -448,8 +447,8 @@ static void dma_irq_handle_channel(struct imxdma_channel *imxdmac)
->  			imx_dmav1_writel(imxdma, tmp, DMA_CCR(chno));
->
->  			if (imxdma_chan_is_doing_cyclic(imxdmac))
-> -				/* Tasklet progression */
-> -				tasklet_schedule(&imxdmac->dma_tasklet);
-> +				/* BH progression */
-> +				dmaengine_schedule_bh(&imxdmac->chan);
->
->  			return;
->  		}
-> @@ -462,8 +461,8 @@ static void dma_irq_handle_channel(struct imxdma_channel *imxdmac)
->
->  out:
->  	imx_dmav1_writel(imxdma, 0, DMA_CCR(chno));
-> -	/* Tasklet irq */
-> -	tasklet_schedule(&imxdmac->dma_tasklet);
-> +	/* Schedule the IRQ BH */
-> +	dmaengine_schedule_bh(&imxdmac->chan);
->  }
->
->  static irqreturn_t dma_irq_handler(int irq, void *dev_id)
-> @@ -592,9 +591,10 @@ static int imxdma_xfer_desc(struct imxdma_desc *d)
->  	return 0;
->  }
->
-> -static void imxdma_tasklet(struct tasklet_struct *t)
-> +static void imxdma_tasklet(struct dma_chan *chan)
->  {
-> -	struct imxdma_channel *imxdmac = from_tasklet(imxdmac, t, dma_tasklet);
-> +	struct imxdma_channel *imxdmac = container_of(chan, struct imxdma_channel,
-> +						      chan);
->  	struct imxdma_engine *imxdma = imxdmac->imxdma;
->  	struct imxdma_desc *desc, *next_desc;
->  	unsigned long flags;
-> @@ -1142,7 +1142,7 @@ static int __init imxdma_probe(struct platform_device *pdev)
->  		INIT_LIST_HEAD(&imxdmac->ld_free);
->  		INIT_LIST_HEAD(&imxdmac->ld_active);
->
-> -		tasklet_setup(&imxdmac->dma_tasklet, imxdma_tasklet);
-> +		dmaengine_init_bh(&imxdmac->chan, imxdma_tasklet);
->  		imxdmac->chan.device = &imxdma->dma_device;
->  		dma_cookie_init(&imxdmac->chan);
->  		imxdmac->channel = i;
-> @@ -1211,7 +1211,7 @@ static void imxdma_free_irq(struct platform_device *pdev, struct imxdma_engine *
->  		if (!is_imx1_dma(imxdma))
->  			disable_irq(imxdmac->irq);
->
-> -		tasklet_kill(&imxdmac->dma_tasklet);
-> +		dmaengine_kill_bh(&imxdmac->chan);
->  	}
->  }
->
-> --
-> 2.43.0
->
+> 
+> >  
+> >  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> >  		host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
+> > @@ -329,6 +332,12 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+> >  		/* Propagate WFx trapping flags */
+> >  		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
+> >  		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
+> > +
+> > +		/* HPMN == 0 is reserved without FEAT_HPMN0. */
+> > +		if (system_supports_pmuv3())
+> > +			u64p_replace_bits(&hyp_vcpu->vcpu.arch.mdcr_el2,
+> > +					  FIELD_GET(ARMV8_PMU_PMCR_N, read_sysreg(pmcr_el0)),
+> > +					  MDCR_EL2_HPMN);
+> >  	} else {
+> >  		memcpy(&hyp_vcpu->vcpu.arch.fgt, hyp_vcpu->host_vcpu->arch.fgt,
+> >  		       sizeof(hyp_vcpu->vcpu.arch.fgt));
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 459bd9eb7e4bc..e85f13233da08 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -102,7 +102,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+> >  
+> >  	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP)) {
+> >  		val |= MDCR_EL2_TPM | MDCR_EL2_TPMCR;
+> > -		val &= ~(MDCR_EL2_HPME | MDCR_EL2_MTPME | MDCR_EL2_HPMN_MASK);
+> > +		val &= ~(MDCR_EL2_HPME | MDCR_EL2_MTPME);
+> >  	}
+> >  
+> >  	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DebugVer, IMP))
+> > -- 
+> > 2.39.5
+> > 
+
+-- 
+Vincent
 
