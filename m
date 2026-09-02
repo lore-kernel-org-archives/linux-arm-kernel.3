@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04684C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FA2C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YhPSIXHdToiGcaqd79fdmw3XU7GLfIRh50kF9qU1jso=; b=gwn2R4uGnxUyxBLKJysreulHUr
-	F+dQ9Ab52ye4ffEbH3yNVa7fj8Yh9CUOc8qKQlby4F0aa/FGnsFB1x1sichL4ZC4RJu16tFxxGO7h
-	8aaq0MkVtIspH4vraj83uZXW5dvOxjkrsnfTOe5eiCyAEdW5yC3V+vSO+RKxh//6aUKduQvOmX3ih
-	TFRkHjCkGBozf9sy8PydxbPNg3exFC/HiQ24wYePtQlJrrtPFjZYQbzFBVeMpTbrEXXY6mofBhaRm
-	sd5BDcsAFxD2h8jKXWyCq21g7ZDNIAHJ3M1h5fJlVnv1vX/CIoNw4mrJoi0iqHIyJ0b95v41Cej+W
-	NlIV8vAQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFh9YtmuRxf4eh9UDdIrcg+KHXLK5k10/OU6AZkVzew=; b=Y3SqTH0J3LBlcvERbrWAUBz8Fx
+	3zI1qIbmhaBaWwq8w4SxTOkK/9ZMzMJ1Kvn0vx4lhz8nIdDqJAC65OsrDZW+5meicNNtvjkvg2hUe
+	A/f9jTb5j02mNL7qvFfaIRqImEdFxsxfqUKE/BtfN3Fmc0H/4zXJH+zyrSIoV0vfQUf339WQVG8ty
+	AbZwpxolu3jGNJqOMIrvustXyxTFlvKGuvoC0iWkIiJnBE7V83aSiDkxtf+LQPYXj+EVhPYlt1vOi
+	zOdMBoBy7mAuPEmWfGbNgdcmT8vcTwlRVNRVLlmJGIiQVaA2FFue71B55aDQAWeiBZBphJH5sx2SP
+	IrTCZmRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1juy-0000000EdbM-16hF;
-	Wed, 02 Sep 2026 12:18:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1jv2-0000000Edcb-1boV;
+	Wed, 02 Sep 2026 12:18:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jux-0000000EdbA-2ozk
+	id 1x1jv1-0000000Edc2-09C9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:18:15 +0000
+	Wed, 02 Sep 2026 12:18:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0B2A600D9;
-	Wed,  2 Sep 2026 12:18:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 591FB1F000E9;
-	Wed,  2 Sep 2026 12:18:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49234600C8;
+	Wed,  2 Sep 2026 12:18:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6A821F00A3E;
+	Wed,  2 Sep 2026 12:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788351494;
-	bh=YhPSIXHdToiGcaqd79fdmw3XU7GLfIRh50kF9qU1jso=;
-	h=From:To:Cc:Subject:Date;
-	b=Q1ghggeiKqvI9NApI9GNsQFSKe1CI1FmKgSIKkolKnCvtp5+o7lXNGMxBPyWvuI23
-	 3D63PZCabagZRyTWYW574OhVJW5P0HEPxKuJW//6Pf0KpPyrieENeSLD+DN+58eJHm
-	 7bKt6sc8z8aVDU05mlxY5G86uYBM3yyie7byUHDI9FNEJWP4iQiP2EizaTJ+jYUf3K
-	 aaiYNp1x3eyeBq105F3EBffZ0xF4VHA/Oz5RNwAbWstaYoVgoLKdiHDhP3/l857CFY
-	 vEO/41LfwQtV9zg2pa1yU9xFhGtbgmKoAWCBOt01YrBJAvPumgNrK7x/fbf6vOFXcB
-	 FDz+9sPn3inww==
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 8A52B1980047;
-	Wed,  2 Sep 2026 08:18:10 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 02 Sep 2026 08:18:12 -0400
-X-ME-Sender: <xms:ARSYaiWBKoWrKeZFf-PSFHd57k_mCh3jyrl-I7FRVrO7atAw5Rkacw>
-    <xme:ARSYaliYHxySxbd2Ifnm7q2ntVpCFKuUL32v_RaVznfT0IvP_RA4t8XrTnUQaxW0V
-    VER6VH3eNUIZ5iqlG7Xj3MhnDWT5Yhxa-CO8sWLEw-sH1B7lextP1Q1>
-X-ME-Received: <xmr:ARSYarc_Ys8Dixp7XFnIhB2qCDRA-zErOop1h6Mz8jYYd5l5YIK-1U7epoI>
-X-ME-Proxy-Cause: dmFkZTFxcxWBUMmCGUYTzHIBFXChJL048yU1tUCJoUmE055C1DdrJJMKYdvMxSf8ayH7Oc
-    WW99ucrNMnMi72vDOcOYanv1/fCOMldtkrN+Nq9epu/39Bs4Z7ovcMCCC5o1Mkvg68ueYu
-    Gv4V97g/rvY2ll3V8dMTPAiXaZ17SKE6JVLkqIRrVw9QkMnnw84ktuMpGsQ71VAtkeSdKx
-    cs3VUx7NI/0LSdHtPryG8sWhkT5L3NUF1B1iUxGHiy48on7QctR9fZ3yF7JGxYTSgCNs42
-    60hHQ8L03nbINRMwYss+QHjZR1hdcKgX/73T0stkq4GpB71mFHJl8+BoWFu3zosA8PkpMi
-    CUdoUtbPaVqIz9mjHDjDpYQhJaOVyv3HAsW970BOSljTDTlixU7+NdcXzlFF+ThfegapWr
-    r4xIt8x25tAYpDVomeJNgkUUOdcyjOlu1jhC/UtPRJYT/1WvQFL76l8NpvRmB4K1lTDSqL
-    7cNiP3ZyKqYEVI/kkpy2CFSbLXNJM7n4dQb6EWwWqq+JG4cI3pmuIK7R+zqvXlLhz6dE59
-    evWHprf4PWKmpARnGR97qfr4N7w8KVAoYVpAKCDPwCCR/gIxtDaCWb4yHMqviVe4i5Jpa7
-    h2tXcuKhcJ5HzR2oYgVaYbhG5eDIVfekE44IFcLBooYYPkSJePSpo8zVEsXA
-X-ME-Proxy: <xmx:AhSYagfDfSUc66x6h2oPERZxttSZ_hdr2o00tR5sBUaMoWADzYyR2Q>
-    <xmx:AhSYanVIl-qoAaNOi1UVRy1CHU6Bqar3jkOdLECXumHP3AcyXDpQ9g>
-    <xmx:AhSYakfPMIzb9BCoifNYOaP9coHX1s5SFO8-UW2u3nVZBWWm2R8W4A>
-    <xmx:AhSYar9TwmVgcUEYRD0LlZto_xA3-tQMI88pKIz4Q_cvKki7SbvdIA>
-    <xmx:AhSYajmREp2ekNjshg3WYPuG0GZpHck0pnHNzq3edDWYNdTPAOM_Bmex>
+	s=k20260515; t=1788351498;
+	bh=IFh9YtmuRxf4eh9UDdIrcg+KHXLK5k10/OU6AZkVzew=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=MigvAUEzA2aDVaVXDVkmh7QVts7LHEdW9HXsOLthq4g6Ysq1TNjpv7ddnrnFQ8slu
+	 Kpf9jM1J5HXwDbPe03dMiv+d4ZwxiBm0uWB2YbU/yzZnUydGnClGpV5rEK0qpoREpj
+	 xUELejHZdKUrL6GX24NH1hEqKTW94JD/WWHBvpPoHuPtBwAzxC5qkSBYpFgIuyyZBE
+	 0bSMPCnTS/OTapJqgrcRxtfQN3p7qAWgUAcHJYo+FJ+9Z5UHQ0eZXmjHVWryebTm+H
+	 lWfvaXRRSqMlgsM62Vn997Om4rTfXir+joOryU2w+vhAJg7xcVB+wQ2zYqVQTpJOO5
+	 PgG4SIOOyU+4g==
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 36313198004A;
+	Wed,  2 Sep 2026 08:18:14 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Wed, 02 Sep 2026 08:18:15 -0400
+X-ME-Sender: <xms:BRSYakVGvdfKBZVx8nDh5jNSuuYUh5QhXo27le4r4FmmMRM_MbIkpQ>
+    <xme:BRSYaqA7RDhRUAv75LW3yu8wWgYNndp-nBgDt70Xh8PeBraQr-VKQ8FTBkgwakjiv
+    qrdQ_hXkrHTZ0blEKPk_-jNaX3RFeOGzteTxdiwFiJEooldzVwJ84k>
+X-ME-Received: <xmr:BRSYajxb1R4qSyn92YRXnF_B19cwGdI8lFZSoaSprdDcBdfX7oqn_ublQAM>
+X-ME-Proxy-Cause: dmFkZTEXUpnCPuNV+2RXO89bJBzt4DT2UHlbCRCgM3H3femH/cw0lQ3qMUt20S/eAB+4J7
+    iCaYJ5/K2JKOFbtN+ZbuperC7KlXF9+UEwTC9jegMZ9EKKwUKtedsborn38YXPNdlIFhn5
+    8yR8pn5ZMAt7HfPjC9fJduXSS5GFb7KCir/ruu+hNM8Se2kuXS4kwTxk+QMNsiz+Iox9Fx
+    Mv4zalhvjCm/q9/A7354UFOhJSCoU64B4kqmawSE3+O5l7rE5y4GJp7x4WQThnpB8pEDVG
+    kdoS9tsZorczMO3BcsQTS31CT66MhUAezHkJ6n3d0Vd2ceKrMqxzcaAkir6ZUwSRiiCAXT
+    X5O4t6GQEG84cEuJR1O6/u0vHdGvcaTEdJsl3R6fleuQGjFAopm4n/DUORsny3kAxHS5WE
+    YcpvpP0Z5XIlHZdSsBRx284k6U9xMYtZSYdcCX72OtrxiNShc7lwqc6Q7ufbb6pVWQyAgE
+    NVi9qUzG8lADzZkro7IsbxbWhznfBHU5Ukhm8/pTzQwXBPBa51tBwAnfXalJV8Tqva5Omo
+    NbZf6QGvx5opUIC0IroDVY5I7MllpUaJPEEsnv3YzFMl3nTcvaqRFBfk/AgfeQO/unS/Xk
+    JImaoK5VMpoe+XntCM8jNP6fWoJVZ+8PgUQRX1R99GbLYVqwH+ji9uVc9xHg
+X-ME-Proxy: <xmx:BRSYaga1fg5B7Sza_8TEG-2RPdoQq8qDEOMp_TsWRHWXomYM0WJGiQ>
+    <xmx:BRSYagRP8JSJ6lEfwpVsnhcgqYTkv7qzylg6PvE90BdrHNkCo32eJQ>
+    <xmx:BRSYajiFS9Rr33LP11sJcq7Ox7q8MK0LO-iFysFBflB1UGy6WgJk5w>
+    <xmx:BRSYar5Xe3nsfU5GPRsr2vUnBC5VeYbSLzspvMOsc9DkQsGkmLfb1Q>
+    <xmx:BRSYaun2lDpk6neIKvCunNwgC0zfDQnv3L5RYUnC_4kc9TwxI2yYNzjj>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 2 Sep 2026 08:18:09 -0400 (EDT)
+ 2 Sep 2026 08:18:13 -0400 (EDT)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
 To: Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -89,10 +89,12 @@ Cc: Jason Gunthorpe <jgg@nvidia.com>,
 	linux-tegra@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH v4 0/2] iommu/arm-smmu-v3: Make the queue depths tunable, and shrink them in a kdump kernel
-Date: Wed,  2 Sep 2026 13:17:22 +0100
-Message-ID: <20260902121724.3494954-1-kas@kernel.org>
+Subject: [PATCH v4 1/2] iommu/arm-smmu-v3: Add a cmdq_entries module parameter
+Date: Wed,  2 Sep 2026 13:17:23 +0100
+Message-ID: <20260902121724.3494954-2-kas@kernel.org>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260902121724.3494954-1-kas@kernel.org>
+References: <20260902121724.3494954-1-kas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -109,52 +111,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The queues are sized from the IDR1 maxima and allocated at probe, costing
-megabytes per queue per SMMU instance. A kdump capture kernel pays that out
-of a small crashkernel reservation, for queues it barely uses and two of
-which it switches off anyway.
+The command queue depth comes straight from the maximum the hardware
+advertises in IDR1, which reaches megabytes of coherent DMA per queue.
+A system with several SMMUv3 instances pays that per instance, and the
+Tegra241 CMDQV pays it again for every VCMDQ it preallocates.
 
-v3 clamped every queue to a page under is_kdump_kernel(). Review wanted a
-general mechanism instead, so patch 1 adds a cmdq_entries module parameter
-at the max_n_shift initialisation in arm_smmu_device_hw_probe() (Robin),
-command queue only (Will), floored at one page (Jason). Patch 2 then has a
-kdump kernel default all three depths to one page through the same helper,
-with no command line needed (Jason). An explicit cmdq_entries still wins.
+Queue depth only bounds how many commands may be in flight before a sync.
+A machine driving a handful of devices, or one with a tight memory budget,
+has no use for the maximum, and no way to say so.
 
-The v3 Reviewed-by from Breno, Pranjal, Jason and Nicolin, and Nicolin's
-Tested-by, are dropped: this is not the patch they were given to.
+Add cmdq_entries, an upper bound on the number of command queue entries.
+Apply it where the depth is decided, alongside the IDR1 maxima in
+arm_smmu_device_hw_probe(), so the queue is allocated at the requested
+size rather than allocated large and trimmed afterwards. The Tegra241
+CMDQV sizes its VCMDQs from IDR1 itself, so route that through the same
+helper.
 
-Measured per instance under QEMU on -M virt,iommu=smmuv3, through a real
-panic and kexec into a capture kernel:
+Round the request down to a power of two and floor it at one page worth of
+entries. Coherent DMA is page granular, so a shallower queue occupies the
+same memory as one that fills the page, and the retry loop in
+arm_smmu_init_one_queue() already stops at a page. On every page size arm64
+supports, that floor leaves the queue well above CMDQ_BATCH_ENTRIES, so
+command batching keeps working whatever is asked for.
 
-                        4K page          64K page
-      cmdq         1 MB -> 4 KB      8 MB -> 64 KB
-      evtq         1 MB -> 4 KB     16 MB -> 64 KB
-
-Every clamped queue lands on exactly one page. cmdq_entries moves the
-command queue alone and beats the kdump default; the capture kernel
-attached four devices with no CMD_SYNC timeout, GERROR or context fault, so
-batching survives the floor. QEMU exposes no PRI queue, which takes the
-same path. Also build-tested across 4K/16K/64K, TEGRA241_CMDQV=n,
-CRASH_DUMP=n and =m, every commit warning-free.
-
-The kdump stream table adoption series drops the event and PRI allocations
-outright as of its v10. This sits on the same base, applies on top with no
-conflict, and sizes the command queue that series leaves alone.
-
-v3: https://lore.kernel.org/all/20260706084708.8072-1-kas@kernel.org/
-
-Kiryl Shutsemau (Meta) (2):
-  iommu/arm-smmu-v3: Add a cmdq_entries module parameter
-  iommu/arm-smmu-v3: Default queue depths to one page in a kdump kernel
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 61 +++++++++++++++++--
+Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Assisted-by: Claude-Code:claude-opus-5
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 42 ++++++++++++++++++-
  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
- .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  5 +-
- 3 files changed, 59 insertions(+), 8 deletions(-)
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  5 ++-
+ 3 files changed, 44 insertions(+), 4 deletions(-)
 
-
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 5732f3ba0122..b371e9ddbfcc 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -40,6 +40,11 @@ module_param(disable_msipolling, bool, 0444);
+ MODULE_PARM_DESC(disable_msipolling,
+ 	"Disable MSI-based polling for CMD_SYNC completion.");
+ 
++static unsigned int cmdq_entries;
++module_param(cmdq_entries, uint, 0444);
++MODULE_PARM_DESC(cmdq_entries,
++	"Upper bound on the number of command queue entries, rounded down to a power of two. Zero means the hardware maximum.");
++
+ static const struct iommu_ops arm_smmu_ops;
+ static struct iommu_dirty_ops arm_smmu_dirty_ops;
+ 
+@@ -4412,6 +4417,38 @@ static struct iommu_dirty_ops arm_smmu_dirty_ops = {
+ };
+ 
+ /* Probing and initialisation functions */
++
++/**
++ * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
++ * @hw_shift: log2 depth the hardware allows, capped for natural alignment
++ * @ent_sz_shift: log2 of the queue entry size in bytes
++ * @want: number of entries asked for, or zero to use @hw_shift
++ *
++ * @want is rounded down to a power of two. It never sizes a queue below one
++ * page, because coherent DMA is page granular: a shallower queue occupies the
++ * same memory as one that fills the page, and arm_smmu_init_one_queue() stops
++ * shrinking at a page too.
++ */
++static u32 arm_smmu_queue_max_n_shift(u32 hw_shift, u32 ent_sz_shift, u32 want)
++{
++	u32 page_shift = PAGE_SHIFT - ent_sz_shift;
++
++	if (!want)
++		return hw_shift;
++
++	return min(hw_shift, max(ilog2(want), page_shift));
++}
++
++/*
++ * Command queues are also allocated by the Tegra241 CMDQV for its VCMDQs, which
++ * need the same depth decision.
++ */
++u32 arm_smmu_cmdq_max_n_shift(u32 hw_shift)
++{
++	return arm_smmu_queue_max_n_shift(hw_shift, CMDQ_ENT_SZ_SHIFT,
++					  cmdq_entries);
++}
++
+ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+ 			    struct arm_smmu_queue *q, void __iomem *page,
+ 			    unsigned long prod_off, unsigned long cons_off,
+@@ -5048,6 +5085,7 @@ static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
+ 
+ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ {
++	u32 hw_shift;
+ 	u32 reg;
+ 	bool coherent = smmu->features & ARM_SMMU_FEAT_COHERENCY;
+ 
+@@ -5156,8 +5194,8 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 		smmu->features |= ARM_SMMU_FEAT_ATTR_TYPES_OVR;
+ 
+ 	/* Queue sizes, capped to ensure natural alignment */
+-	smmu->cmdq.q.llq.max_n_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT,
+-					     FIELD_GET(IDR1_CMDQS, reg));
++	hw_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, reg));
++	smmu->cmdq.q.llq.max_n_shift = arm_smmu_cmdq_max_n_shift(hw_shift);
+ 	if (smmu->cmdq.q.llq.max_n_shift <= ilog2(CMDQ_BATCH_ENTRIES)) {
+ 		/*
+ 		 * We don't support splitting up batches, so one batch of
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 50f8321e979c..a8cb6a69f03b 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1165,6 +1165,7 @@ static inline void arm_smmu_domain_inv(struct arm_smmu_domain *smmu_domain)
+ 
+ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+ 			      struct arm_smmu_cmdq *cmdq);
++u32 arm_smmu_cmdq_max_n_shift(u32 hw_shift);
+ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+ 			    struct arm_smmu_queue *q, void __iomem *page,
+ 			    unsigned long prod_off, unsigned long cons_off,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 6644075c1431..3fe1075a11a1 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -655,6 +655,7 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+ 	struct arm_smmu_cmdq *cmdq = &vcmdq->cmdq;
+ 	struct arm_smmu_queue *q = &cmdq->q;
+ 	char name[16];
++	u32 hw_shift;
+ 	u32 regval;
+ 	int ret;
+ 
+@@ -662,8 +663,8 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+ 
+ 	/* Cap queue size to SMMU's IDR1.CMDQS and ensure natural alignment */
+ 	regval = readl_relaxed(smmu->base + ARM_SMMU_IDR1);
+-	q->llq.max_n_shift =
+-		min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
++	hw_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
++	q->llq.max_n_shift = arm_smmu_cmdq_max_n_shift(hw_shift);
+ 
+ 	/* Use the common helper to init the VCMDQ, and then... */
+ 	ret = arm_smmu_init_one_queue(smmu, q, vcmdq->page0,
 -- 
 2.54.0
 
