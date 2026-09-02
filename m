@@ -4,150 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978E5C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E9FC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=; b=SWcxsSK/tcfQVpF+CsSzgQ3+lj
-	NaCXM4gXT4kvcHaRPz+yBRFu0+8kGj8waD8KDZvzkdIBZ1md/kn2QmWkby1KJvd7A1srEo7VB21aF
-	Wqi2fYXouunTJc6R3aZHRtIEwO5hGlvRm4d7Z10UNZNGDb3fizFmOdAn5AIK2N8HeGSGzbiM/OvE+
-	W5NeK3IdrlemhKRUOryb/UbPxLMsvq/ZTkqbjoa3R+9El069k6QFCAebnbrk+64K5hTM2ZdZxPO8e
-	6e/RT9U+DV9PI0PM17zvbmTp/FrAfrLFE++RvmqedHYp4iz0gxP2+zyzcxsww0P5yQQM5RePCwZAD
-	jgF1Abpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gYVnLyOaTgHPP6xz/UHsXg+cvDAjK8CW3IzfuxYWXPc=; b=bL38fjB4lATdY80dmWhs0W+fIw
+	L+3bWvRLZhHcGauA8QAXJwpY0YKuooZPd5O6g70TyHiZ8wzbygBKuNf85CGwkNC1qauiAcH6SLtxl
+	+wLy/FkLpvdez6u0TRoMAckBYjmCNpYtVE3fZhnyHp6t7q8eE8DFhrku91Cq4XAY9cYa67mqYg8Uh
+	KUZmK30XvswYTnOdWn8W/Actf6fjT1XbIzSvPg32fNFzLj9dVbai0otjtYTiNwwR9nWfeuNpql/IS
+	RDUq93Iu8gYcAm60o+jc4g5TVcCyN7GbHex+wqu6qG7mMpaV0B/hCVBYQbCFEcuDnThs8l54G4Rtj
+	9NYxcdvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ndw-0000000FBaB-1Wv8;
-	Wed, 02 Sep 2026 16:16:56 +0000
-Received: from mail-westeuropeazon11013046.outbound.protection.outlook.com ([52.101.72.46] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nds-0000000FBVY-3vG5
+	id 1x1ndz-0000000FBcs-2PbO;
+	Wed, 02 Sep 2026 16:16:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1ndw-0000000FBYH-0Qwr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 16:16:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YopgNsceZHoAva7y6m3pkUQ8SbPijDtc94XhbVvln6vcpSZxSW4DrUl/ARAKdtVP7zK/ojOBUI+uwu84z1KUqhgHWfaqTgv6Dti+8RCVFqBzhXXcMHBl5J+Srncqt6k7vc9Cr46AvnSNxnLP5qfk7UYAfeY1za58hWyLoQC71XaQSOkatYV4KKGG8QRCbCGbZWfTi5g8sMkhf8+yCk0pQgV6zRpWnCBfwak4bL8d59aA23FrTxr1tuc2kOGA7q7WEXxioAJh4BWeek4WFCroLashaha4t4G7gDBSb/CXbwDQJ8rACQoch3pGSOKFninhMbAEGGYPUKGUWP5AnPXBWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=;
- b=mTcDIeXy5YXCzWjQubp7vKefnpTfr2Vuiabe32YmQRIqxwjAF9SOm14+kWepkhVcxHfLap6meCp+tJJcfEgpOHkH65hSxYHiWMv8QiBnM7ra2OODakZa5cDP9iypjZQTs7BxumHHiOVAY08lWjEDLhyK7XHjmy2wbGRfynuZFQfomWt1uFYtsTmwReaDDHoa5p3Zhq4Wsq8U0wKqSI7FCqCZZoRMTvI2qCfr0LpsC+axBJu5K4arUiuwnAA6AB0KmVKAMyxW+faf417HcEA42BCggui6b9x/KIyMuCIhNnY9iIRaOv7B0KyoACd69RPP0OiLEcltMms8aGcj37qYxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=777BBndEZWN0pQ0+ExXhYlFGeXGjovNqwjmxa9SC7PY=;
- b=TWXSfH+zaGYRBfve1Pz9f2zlkyE/3+yiPflyVZuDGgFM1lrt4F/3jlfLahPjHAOa1fFDDXK5HuWQ4+Mh8kwbKLLNLKmKIEiYiidhlxPsMtCZuG4HIMWWilI+ZK65d8N3jjtdumKfrFcPEZIUU85owMmqBHFtZ68KZJwQGQ4n5rbizYs/cgnih9akXkej8lufRDWBwcFyckGuMvd/tEttArgKNKceEr8ErmLJQYODawYb0lVQuRtj18EX9pNr2rGaInFJBcPkUz/i4qtX/ECnVHiTq+idqgTm+Y2f0i9PBdkI/mJSrCYZ+CkC9g6qlLPfEkT9ZxoUlsxpyWI6jGhULg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by PAXPR04MB8392.eurprd04.prod.outlook.com (2603:10a6:102:1c5::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 16:16:47 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
- 16:16:47 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Thu, 03 Sep 2026 03:16:14 +0530
-Subject: [PATCH v46 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-imx-se-if-v46-7-aefaab525034@nxp.com>
-References: <20260903-imx-se-if-v46-0-aefaab525034@nxp.com>
-In-Reply-To: <20260903-imx-se-if-v46-0-aefaab525034@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788385573; l=2500;
- i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
- bh=LA5pZ8YRZFeVk56nd//uP0RHiwT4E6voL97vzkkh9tk=;
- b=hp+VLHckSvlm+Oi7hDY0i9cciPAUj3oZtum9ODk1+VULZWiN6xfsU3n3IgbexpueAWNEFB26K
- K2nXhs7P+bLB9bZeVaUNHfSLLb1bL5TULGc0EENFP5jHmsnw/0qCMzl
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
-X-ClientProxiedBy: SG2PR01CA0181.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::13) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Wed, 02 Sep 2026 16:16:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9862165C;
+	Wed,  2 Sep 2026 09:16:48 -0700 (PDT)
+Received: from [10.57.81.239] (unknown [10.57.81.239])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CC9B3F882;
+	Wed,  2 Sep 2026 09:16:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788365812; bh=gSEvBp+KCkXzHc8dbTVfAUkWIju2bmeIwgUNZoB5Jt0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GzQ39Llny2ZuYBIRxqfmTLFB8+xgcnuApQeVF7Znpj2TjYxDzgeaV37nuH25mn0rx
+	 KqEIpkSwP29+sHWsyfh1SSc4Iuv7/CcNnzDIC/mdocDoDWU2tgWauk+y1MvmzYSMU+
+	 40g6i1Xs00gK1gmyV5Y8FC4PEHfJOL8ZxTLS8jno=
+Message-ID: <8e9f7967-710d-4548-89c4-8e5ba46d8714@arm.com>
+Date: Wed, 2 Sep 2026 17:16:45 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|PAXPR04MB8392:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7208057a-3f7a-411d-3043-08df090d9664
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|7416014|376014|1800799024|921020|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: s7X5FZM+1JTFA1zPksOxx/sL+qUtKgulw+JvFiicF1VlNrjUVoVarWrhLA+zmnHNe3RZuSuaFDrwXwge2xyqZFApWeiyatAKmOtYFF3Z8F8RcWN4s1hmhH7zDuCOG9jAU8G+B3zvKHBIzzwl1+iJtA6lK0N0jfFkCAqLWVCLJUN2GEn4PKwx9FSww6ccvAsnW9fw1lFwz02P46FSk/MScvJwwxIq5o/JM+8ZBppREmnube9NmOn3efU8hG25Z60CrJm9lEdLiiaPBSS77gRSFo3tGP50i6FuEwVqNRRYiLhFSwlO8DUQDiFimv7OTKZ9ObB5hmpedV0FkHn/FqwinZRgAkDiGYvO4r9YWWOgW9V8mrGjRrTFqW/HyIpm9wqmxa5hncxCqR0RCGTE4D0jbxqMzHHbMpUI7I3FaxCGpi4t7Ex2VEcoQdJCYUSl1VmKkhkpoH1adOW/3UYX4FHpSi4e6bg1suePnsZfZsQN+dhQ0rwlqy14PNiFJOgMU1KBKNudUHq3IYEjb8KOPxmQcXhRaGK6u+1mBrb5uqdKNqj8bU4K8M7vSfuggv5dZA0tf8ZC+IpRRQyxXGvwZHzkgjCHu0l14P++HZQDV/+I/opiFJlcioZLybdCycl7egnlts8VdKPsgN/vORIZT9UQvkJuiMQDJ1dklc4fPG5ut3FiAuTD6UjF53NkM9FjZ6RbSNbXxKqqRZc56/ocBS7nlA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(7416014)(376014)(1800799024)(921020)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ek90Nzd1cUFaeUJsVHBGYW8wN1BCd1Z1MmdxRjAzVHBkVDk2dStIbkpuRmNu?=
- =?utf-8?B?SkVUVkkzOEY2cTVIM1VWS3lOdDdjT0FzdlRwR0l4d205ejlBM0dvWUxNaHB2?=
- =?utf-8?B?dVhmK2pUVHBtNm1Lb0lOY2NXMzRRRE9WWEZNbjZhMHo2eVY4OURtY2JpcW9T?=
- =?utf-8?B?VHNxdGVJT3dVcUNLWThFNE5UdjJEcXVFclpPbXM2dXpPMkcvZFlvc0prZ3kx?=
- =?utf-8?B?b3hyK05CSDA0MjErM3JOc3VQT0hOK0t1a0JLNzY1UlZDbVVWZ3Yxb3EvKytO?=
- =?utf-8?B?c1k3TGtPamZSOHBrYXpXSXZndy9STjZtZnh4Y0piTHNZNEs3Qjh4SENZSjJF?=
- =?utf-8?B?OGpDZ0pKRVU4TkNPa25md0FTVVp1WEVzTW51QUVscEk5bVlVUHpUZVFQQk9J?=
- =?utf-8?B?NTZQZ1c2Z0cxM3hVb0ZvbVhRRDRtNVhSbUZPeURkRlpLNjNibEJyWVI2MzFG?=
- =?utf-8?B?VlpSdUk2YzZGbGhFM1h2REhnRlN4bW9KaXNjWVcvM3FseUxBRGpwT3BIVm1w?=
- =?utf-8?B?S2NSSThTM2EzMitrQ1dsa2x4YW9UZnFvT3ZVditoUkZ5bGpqQ1dIeTB1Ukow?=
- =?utf-8?B?U2tCU2h1TmtLMVlFSEJyeUhqbnBYYWwwbTB6Ny9hZzhjd0NiUFFUY2VMMmc3?=
- =?utf-8?B?RWxacWVtRm95S3hleEVURUF4ZTI1ZHdTUXdYSWhSbHFjVy92OGpZOFdwWU1R?=
- =?utf-8?B?VEhKOHY1SDY0NmUxL2d3VUo4U0Y3STl1ampKbElhdXdaVEJPa0IrY1hNay83?=
- =?utf-8?B?S3RnRW1zZlZNTlF4dWpwWjhaUGxseStrSDR2RXJYTDc1clhNVkl6QjFNaWhh?=
- =?utf-8?B?S0Vub1RKOVpka2VXSWpxODdSRDZvbDY0ZVZDelFDcUdUdzY0LzVNU3lHT2hL?=
- =?utf-8?B?elVJa2tQeUJEd2VoYUFmdFpqL0pYRWMyV1BXUjBZckJ2aUdOcEdmMVFtTHdo?=
- =?utf-8?B?ZFdsOWZMRDJrREgwQ3NpQlhoN3VxSmxSMTFvVkV0blpaYmcyVnM3aFN3anlt?=
- =?utf-8?B?YlJIL25DYkxCUGpmNDQ3T0ZiUXFkc2p3NTUzWjVpUDd5dTg5Yzd0YngveFpt?=
- =?utf-8?B?QmpLNEttYmlUQzQ5NlhlRzlIcGZqbkdTeGQ1am96UkVBYmI0WUdzMEdzd2FU?=
- =?utf-8?B?QnNVNVZjZ1dZaVhuSnY0MU9DaU9oUVNQajFpVTNyeFdWODQwKzRZUHRZU0JD?=
- =?utf-8?B?VjZGKzZXUzNiWSt4Mi9TbjFWUlpCOFV0c0w5YU13TVBrZW1GNUU0NWx3SThG?=
- =?utf-8?B?Vjlpenl1RkZ6VmdWMStHSHdmemNXbmgyRCtyTWJtT3VkUWRpRnNpZ1pUZGo1?=
- =?utf-8?B?MDFUVVluc05zT1FzQXJnYzAzS1ptZ1FiR3ZTZ2VOeDNkZWNib0VoU0oycldT?=
- =?utf-8?B?enlXQWJ1UHJ6QVRBak1hTENXT3d0QWU0cXlRUnZaOHQ3MjR0NlVWekp1cmJV?=
- =?utf-8?B?ZmVGdWRCMFFOVFZIWEo3M3VabUEzWk1rM0tQYzlQam1MU3A4SjVtL0N1Nmgz?=
- =?utf-8?B?eXVzN1hKS1Rza1BQenkxVjAxdDUzeXFqdHdKd0JDeVBHVnJod2JTUDlUYzBw?=
- =?utf-8?B?Sk9KSGZsRVpuOFlZcDhMaW5iamRMMmpONll0aHZDcVdoRjNOMFdWand0d2Ez?=
- =?utf-8?B?NEFtdEg5OXRCNXpGN3AyaGp4OUY2VDZjdmI4bm43V25tT2IwdUhub2dYcVVr?=
- =?utf-8?B?bG5IRHJ5MzJSRXh3dVVBSkhzT2pHclVTVDVXSDloTUw2U3ZuR00vUEtwcWRX?=
- =?utf-8?B?MGs3d1FsSmVZZHZ0NEsvTTlQL2YxZ0hJUlVLOTZhdkJ3N0dsVHc1bTJhUi9Y?=
- =?utf-8?B?cGdyMTZ2U1dtMFBrc280SkpsNVlBQUZiNFJQeTcybEg3V09hM011MFFRUkpV?=
- =?utf-8?B?TkRCUGZMSUQxVDQxWXVOdFpVM1lLSkpVNkNrZXMvc016NWRNVmsyU1ZOelli?=
- =?utf-8?B?azhCb216N3VDd3E2OHcxb0NoeThpY2JLSTZUN2E3SEUrVEFTNWNPRHFSY0xj?=
- =?utf-8?B?UzlzeVZYNllKQlNSVUtPQkNud1Fsd3ZXbXpMUzNRNGRxaFA5VUJwWnF6eEFs?=
- =?utf-8?B?WWJCQnBPRGFUUzBoSFU0SGIvRDlvT0xzY1Y4OXNsSEZDeEFFZ2FvV1dOZ0wy?=
- =?utf-8?B?bEk1MGhrSUtzMXU5VnJXUnUzdEpDY0Z2emFaT2xSdXdncjFVY0NCekthLzRo?=
- =?utf-8?B?ZXhZR1pXMXM5Rzh3MkxqOVJLUjZVUmJQRlJVeVVPSXlSZklqOWd6RHBmUjdx?=
- =?utf-8?B?RVMxS1VjZjVSOXhueS9mVlR2S1ppSTNLSzB3ZllhWTk3Y0ZFU01OWlRSYUxO?=
- =?utf-8?B?SlViWGFjSzgrWStKYWdBM1p4MjdRK1RsNzhOQVFpQmM3UGxwMi9wQ1F2Mmx4?=
- =?utf-8?Q?XJhE0xmIvmtKpFJABjWDiRb6btzhhvXW/iQwI?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7208057a-3f7a-411d-3043-08df090d9664
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 16:16:47.3329
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +jJ6/s/IkHgq8gpT63cG5ztp8lNOl3p9iqBKA3DP6vhaAYtopRon2ftqsSoqiylFKuX0o7GcOudnK6JvraheN1G6nbE46EqMVY5CqbTkYuCXkdYNn3sjerGxD5GK3Y3W
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8392
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
+To: Dev Jain <dev.jain@arm.com>, Karl Mehltretter <kmehltretter@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+ David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20260901131823.15799-1-kmehltretter@gmail.com>
+ <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_091652_980758_F694100E 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20260902_091656_300949_09C23372 
+X-CRM114-Status: GOOD (  31.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,83 +77,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+On 02/09/2026 15:46, Dev Jain wrote:
+> 
+> 
+> On 01/09/26 6:48 pm, Karl Mehltretter wrote:
+>> huge_ptep_modify_prot_start() clears a hugetlb entry before changing its
+>> permissions. For contiguous PTE mappings, break-before-make (BBM)
+>> requires a TLB invalidation after clearing the set and before making any
+>> entry valid again.
+>>
+>> Commit fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from
+>> get_clear_flush()") removed this invalidation, relying on the deferred
+>> flush from the core code. Commit 410982303772 ("arm64: hugetlb: Restore
+>> TLB invalidation for BBM on contiguous ptes") restored it for
+>> huge_ptep_set_{access_flags,wrprotect}(), since a deferred flush is too
+>> late for the break step. The modify-prot path has the same problem.
+>>
+>> Use huge_ptep_clear_flush() for contiguous entries so that the TLB is
+>> invalidated during the break step. Leave huge_ptep_get_and_clear()
+>> unchanged because it is also used by teardown paths, where the deferred
+>> flush is sufficient.
+>>
+>> Fixes: fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from get_clear_flush()")
+>> Assisted-by: LLM
+>> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+>> ---
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+Is there a user-visible bug here? Or is this just AI-assisted hypothesising?
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+> 
+> The transition happening here is:
+> 
+> old_prot+cont -> zero -> new_prot+cont ... (i)
+> and then TLB flush.
+> 
+> Arm Arm rule R_JQQTC says:
+> "For a TLB lookup in a contiguous region mapped by translation table entries
+> that have consistent values for the Contiguous bit, but have the OA, attributes,
+> or permissions misprogrammed, that TLB lookup is permitted to produce an OA,
+> access permissions, and memory attributes that are consistent with any one
+> of the programmed translation table values."
+> 
+> This implies that a live update like
+> old_prot+cont -> new_prot+cont then TLB flush ... (ii)
+> 
+> is safe. Which should also imply that the transition (i) is safe,
+> since the configurations the PE can observe for (ii) is the same
+> for (i), except that in (ii) the PE can fault too, which is fine.
+> 
+> Upon discussing with Ryan I got to know, he was implementing the
+> contpte stuff for non-hugetlb user mappings and that basically
+> drove a clarification on the semantics of contiguous bit and
+> this rule was added.
+> 
+> If you see currently for non-hugetlb mprotect() we do not flush
+> during contpte teardown.
+> 
+> So if the above reasoning makes sense, I can infact audit and
+> remove the flushes in the hugetlb helpers.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 4b925832bb66..5fe58a025cfd 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,12 +1,13 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include <dt-bindings/input/input.h>
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+I agree with this analysis. I believe it is safe to elide the intermediate flush
+in this case (as is done in contpte_wrprotect_ptes()). And I agree that we can
+likely remove some existing TLB maintenance in hugetlb helpers.
 
--- 
-2.43.0
+Thanks,
+Ryan
+
+> 
+>> An instrumented QEMU detected the missing break-step TLBI on an unpatched
+>> kernel and none with this change. A fork() control exercising
+>> huge_ptep_set_wrprotect() remained clean. No user-visible failure was
+>> reproduced.
+>>
+>> The QEMU checker was exercised with 4K and 64K base-page kernels. The
+>> patched kernel passed the LTP hugetlb tests with both -cpu max and -cpu
+>> cortex-a72 (16 TPASS and no failures).
+>>
+>> Testing on Neoverse N1 hardware would be welcome, as it can use the
+>> contiguous hint and can be configured to report TLB conflicts.
+>>
+>>  arch/arm64/mm/hugetlbpage.c | 7 ++++++-
+>>  1 file changed, 6 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+>> index 8e799c1fe0aa..bb53a04b73b2 100644
+>> --- a/arch/arm64/mm/hugetlbpage.c
+>> +++ b/arch/arm64/mm/hugetlbpage.c
+>> @@ -517,6 +517,11 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
+>>  pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+>>  {
+>>  	unsigned long psize = huge_page_size(hstate_vma(vma));
+>> +	pte_t pte = __ptep_get(ptep);
+>> +
+>> +	/* The break step for contiguous PTEs must include the TLB flush. */
+>> +	if (pte_cont(pte))
+>> +		return huge_ptep_clear_flush(vma, addr, ptep);
+>>  
+>>  	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+>>  		/*
+>> @@ -524,7 +529,7 @@ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr
+>>  		 * when the permission changes from executable to non-executable
+>>  		 * in cases where cpu is affected with errata #2645198.
+>>  		 */
+>> -		if (pte_user_exec(__ptep_get(ptep)))
+>> +		if (pte_user_exec(pte))
+>>  			return huge_ptep_clear_flush(vma, addr, ptep);
+>>  	}
+>>  	return huge_ptep_get_and_clear(vma->vm_mm, addr, ptep, psize);
+>>
+>> base-commit: 786262be6048deab760f68c8acc2c85607165894
+> 
 
 
