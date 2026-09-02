@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC867C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A606DC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 17:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8EuB+xwdBiQ3yRsV0/rIKejmsH9u9MdHF8N5+qFAzg=; b=zY+K5D/BDWF6T588mEb3u9CjBe
-	V5SYlDxMVL6X4QBSM2qathpM/GxWsq9n+2JAkdNgHMAKgKjHVAMpgBJMuUc87voXtDPwKvptBbsvm
-	YxuU+ohgJajz+L79IhWUd3NjSf5nc0Qrx0hkHMBd3k8iWLlr8p35/KA2AVnLKO8pKyFtBG43VL1fl
-	GOSCS3AiwFnS1M1LJ5uhJutaOX/X6C9mPis0INQwMkWDNdKtJC48H6uLI4p5Xobzuv93V/SvUgWT0
-	KhH9Hy5t4+3J/mmd3macJSUXG+r87HqZ3e2kZoiiDNOJShSZ85KrmOLkvyJ6IqUbaS4dxlV+DPR9P
-	eIVB0uHA==;
+	bh=BF1vDy5egjT7wK7AaB8z1mWQl1XgoL8p6zRqn0fvwPQ=; b=fM8UF4NmAOyRuYqA9jACyG9Ilf
+	ScyRPBi3/qMtlR+PyNL7dZN6Wb01878gGLJjDuh3hjCu8Vi16obLPS/fc0TOxFEjiTcVtKSBig+Ju
+	hRWvdlTtx0e8+uz2nhRJ+mnyCskBQPojJvOGWrD5zVbYU9qGwcMLTF+0oMlL2+2ONmUILHQUyIIXg
+	naVbhAQvccRKkcETuIpgPz25i9YjLUtIGk6D4i1oHjGQzGs44YfvGL+vOSTYaw3RKqE2BUBcEKYuU
+	S32/FoAY3lHKAwCW9V83BH6knZ0n8okpImBiLDIsuCJ039sflpiqlK6pL1agUJLgWPM4BLSFN1GQ9
+	HqIL/PBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oMA-0000000FNin-11cz;
-	Wed, 02 Sep 2026 17:02:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1oNx-0000000FO0E-1vgf;
+	Wed, 02 Sep 2026 17:04:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1oM9-0000000FNiO-0N5M
+	id 1x1oNv-0000000FO02-3igy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 17:02:37 +0000
+	Wed, 02 Sep 2026 17:04:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79FDC43941;
-	Wed,  2 Sep 2026 17:02:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159A01F000E9;
-	Wed,  2 Sep 2026 17:02:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 25FAB600D9;
+	Wed,  2 Sep 2026 17:04:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D9A1F000E9;
+	Wed,  2 Sep 2026 17:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788368556;
-	bh=r8EuB+xwdBiQ3yRsV0/rIKejmsH9u9MdHF8N5+qFAzg=;
+	s=k20260515; t=1788368666;
+	bh=BF1vDy5egjT7wK7AaB8z1mWQl1XgoL8p6zRqn0fvwPQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FaW5qLroJgZhCyK0BQQx/WuLJIx2VmI4fpgSiaX0ifyLF1ANFcjmOQPKqwryEEOoC
-	 5wfQ9qJaStKFbjSfO4Hh2aGa2TPOzBjS6rXuQOzB+rnm27jQWJYSqWeufKnopDiWmt
-	 /zm1tIxvN8QcPLR1gfvwA3lBB9RvnQzN4Ieii7gk+jOnhZgMIpRAVnIF3Z56YAUpvb
-	 vJmnDwR6QNNQXn0DrLLkbU33scYJaPedbf96ekQVm6/J0gU6S7J+RRjpKIkl2Q3OEp
-	 48njzjuOkZOH7J6WNZFefd8IFI3XZowRfqd6iffHQsuMMkPHl+U6ZqIY94fs3DYOGj
-	 m9OgmuvpTvFpw==
-Date: Wed, 2 Sep 2026 18:02:32 +0100
+	b=LP/2g6ONzXchC5R52wUOvmYJrPFHCSaxn95nBH+9awsyIickuT42kz+bC/jUcyGJV
+	 X7w3T7K5N1MTjqfeL+LuIIY28FBXrIY23Xa3n9KGfsEPiBTi1Lop0cBwkoje/V5peV
+	 XBcdZZoxfFFZNPVhdRtckiqSvGG3nVbzP2YRBHJRjrnLB3NthXRvTzrFk3h+B687w1
+	 +d5XgGb9ua7c6w4tICVJQHqUO63bx2+KTezRXpfZP7e3TguPYtbV3Dh98VMUCDz6ZS
+	 4etg8G85ur2T78HLcB0X+G6Du4J4jlX460nUzzdt1RP9neomf1R04CzM38Jvuu1tDW
+	 wKOHjKUNOG57g==
+Date: Wed, 2 Sep 2026 18:04:22 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org, fabrice.gasnier@foss.st.com,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v9 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
-Message-ID: <20260902-astonish-revolver-8941f0c60e60@spud>
-References: <20260901-t603x-spmi-v9-0-09e702e3b153@chaosmail.tech>
- <20260901-t603x-spmi-v9-1-09e702e3b153@chaosmail.tech>
- <20260901-clapped-fled-2ae6126df5cc@spud>
- <F6BE1957-CB62-4D6A-ACA1-1521A14A3E23@chaosmail.tech>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
+	Yannick Fertre <yannick.fertre@foss.st.com>,
+	devicetree@vger.kernel.org, kernel@dh-electronics.com,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: stm32: Document
+ st,stm32mp23/25-syscfg subnodes and cells
+Message-ID: <20260902-dubbed-showdown-fe35274613cc@spud>
+References: <20260902124018.606544-1-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QsaiTKcPGEfme9KB"
+	protocol="application/pgp-signature"; boundary="oU6Ws+W7UKePY0JM"
 Content-Disposition: inline
-In-Reply-To: <F6BE1957-CB62-4D6A-ACA1-1521A14A3E23@chaosmail.tech>
+In-Reply-To: <20260902124018.606544-1-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---QsaiTKcPGEfme9KB
+--oU6Ws+W7UKePY0JM
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Sep 01, 2026 at 08:24:19PM +0200, Sasha Finkelstein wrote:
+On Wed, Sep 02, 2026 at 02:39:49PM +0200, Marek Vasut wrote:
+> The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
+> represent the USB 2.0 FEMTO-PHY. Document subnodes pattern properties and
+> address/size cells.
 >=20
->=20
-> > On Sep 1, 2026, at 19:41, Conor Dooley <conor@kernel.org> wrote:
-> >> +if:
-> >> +  properties:
-> >> +    compatible:
-> >> +      contains:
-> >> +        enum:
-> >> +          - apple,t8122-spmi
-> >> +          - apple,t6030-spmi
-> >> +          - apple,t6031-spmi
-> >> +then:
-> >> +  required:
-> >> +    - interrupt-controller
-> >> +    - "#interrupt-cells"
-> >> +    - interrupts
-> >=20
-> > else: false?
-> > Or do the existing devices also support these?
->=20
-> Yes, they do, we are just not planning to use that.
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---QsaiTKcPGEfme9KB
+--oU6Ws+W7UKePY0JM
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaphWqAAKCRB4tDGHoIJi
-0kYWAQDCaly+eWPzS6GEIOlVd02ekQEv+WMJFDuYSDVpupn9pgEAz5H9mytVUf2y
-Guy1zykFRTknUaIwH5FGKrb3QLC7QgQ=
-=FNAi
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaphXFgAKCRB4tDGHoIJi
+0qS1AQDHcYddGZziqomcQ98fOBIT7MZWZgQ/5EwurTOZzgjuFwD+Oqcdork48p7x
+q0zGEHQN8C0Gpyip7JMTuw7QsSfxdwc=
+=pVYf
 -----END PGP SIGNATURE-----
 
---QsaiTKcPGEfme9KB--
+--oU6Ws+W7UKePY0JM--
 
