@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33290C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F09BC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AzXtSV/WWtydTYO3EmejDkL+S0H/FVtNGv1YBW4SI2s=; b=rCK7zN4iOm1QmB2uim8b9AcTec
-	AEt/44DbR64spJRTM11J35YYAl9Nzd5M5/ZODGEqsPafksBD2sTTvuKc4RpoztCrK1w3AUPDgHhSG
-	bNIXx6tOYBeGuV6nOeXfsMhhtzSzpwSFosYnZpBk74zvpNkHKjzWKx9eG0iZrzc9amLd/5IacLWxH
-	J0cqilGPhIURropxLr/X7yeu6TRrwMawCMZqo3eIy0R3VjvgXTL5Ev5cC9Gi/Fq4VVi7lOQkVAG0q
-	lo3c+nd/sie0XUSC76IEbtul+k0P07zQL9VZmjQ7y8uibCjjhFiCs0Wse4bLFILwoH0nMtWRJ9mm8
-	HBkbB+qQ==;
+	bh=5pBRbhbzo1PcOFREec6Gs1n8ea1WgM8d8Z6/KvlnlrA=; b=PNXH5KAXbNF/bbpgZU7CzlDpL5
+	BzUrwtaK4ICpuOnvV01pcahbrKeoQGKSDiZpUhoxULcs6o4v2Abyfi0jFhxSrn9sJR6d6EBZnzqoS
+	WMGIQg+EZURVvdLxf9hYX+tPKwNEfGIoGUMHy18G99Q2kk26pWB311Hgn/4H/58CCb5pg7NiyInHQ
+	zdnwMC3WxWZ5+peO48AZ0iDCYwrKNlWTvHd2HKl0PH2HvX5CPHbtt6sAH8gnrKMu2Tw8BVyxvsRcq
+	MNvCXk5HxyxUe3MeehD05cJrhcJIV3jJDsfaIzUx/peWgKREVF4yaD0c3uCckY7U2HDme15w1jBH4
+	FijNUUxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rOO-0000000FqKM-2xO3;
-	Wed, 02 Sep 2026 20:17:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x1rOU-0000000FqMf-3PL4;
+	Wed, 02 Sep 2026 20:17:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rOL-0000000FqJD-3wW8
+	id 1x1rOS-0000000FqLn-3B1m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 20:17:07 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682KH5g62581012
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:17:05 GMT
+	Wed, 02 Sep 2026 20:17:14 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682KHCtm2523726
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:17:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=AzXtSV/WWty
-	dTYO3EmejDkL+S0H/FVtNGv1YBW4SI2s=; b=CvbVC+q9kQRRtFSCnNcyzsAX5tj
-	yTWXuwhhl+7w/PCwuugp+uPc+vbrzE7anfZtzqn3uf46kLo72QjQf86fmd1F4AHh
-	YZz5UIP4/Sl0EbR391MOBU/DWnz+wNtMd2+J6UiEf06DeZJ9UcSFFesMDBHrLTuo
-	nyo+CJtNOEw4++m2/oAxc2OmlDoocqY5bhZkHlq6VkXFFqQrcYA3RFW8MxWkdwy5
-	u4Daiw3zhz6A0Wd1VQbtsPS+efAub9dHQaYctpfIgSP8G4jPWB0Umbn3Ul2wHZvW
-	Cnp59SwGnFPZwPQ09iNce1ycNwr4B7tBac3ES/O25zXm9HWjJ9tn9m4Zt7w==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gej2cagwf-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=5pBRbhbzo1P
+	cOFREec6Gs1n8ea1WgM8d8Z6/KvlnlrA=; b=YH71TVQXwSMcn3Fu/Uff9SK4nzC
+	54IULE63yNKCuMTPEd49MGBUR9KKNNIN/QVTquPXtzIjMppcDurhMW02H3mw/HoK
+	QpIWWpHShP1aC26/5Elx8gXqpOsaRWjvdKkLXCUSyLf1mZfjfZiZSS4H+mV1c8Id
+	88ruhQ6RqKJIryjdqDsY4tS8gLQX3HTIOvazfZQQPjxVQiBY+Ozb/umbSbvelZan
+	fwT6i3hl7FkpHSIJoP7vd8T9SpNtUG5AcXWPwBduK7YLtF34TKGVzNjoOtZ3ZMdN
+	eB2EhtinE7Jy1HoAhoeMJRx0yJorifYNZ8msk5ykeSvB8lt2qUSCYqN0DjA==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gepv5s4jb-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:17:01 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-398d7e0f3b4so2058270a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:17:01 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:17:11 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cbb20f82a0eso1078150a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:17:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788380221; x=1788985021; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788380231; x=1788985031; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=AzXtSV/WWtydTYO3EmejDkL+S0H/FVtNGv1YBW4SI2s=;
-        b=Pvsl93FgjEslZ4hfCYP8Ds80355ku6XsX5dypWDGVj3OKfpXchHLN6DFIlRk2KaKPI
-         DrqWI8pI9KZlmvKOsjmdkUw02bddbHr7RTXESsTSR7VIwTt/+Gkq7CLD4aaNKWOXLzP1
-         RdqbloMpu5Q7B4uYZHLWGrleo4GGu7CJWnqFqvi0HxmSCqR1+cPdCU6lKIa2wQBkgXRZ
-         shAgLhyLmR0Qhz1SG3Hz81NGPmwSirfcXR2VBCC89/30lgi5rIjgZ+b/aNsCBlqWWIhB
-         NaDoXlJrxu/tEtI5n9iMdhX7fIEVfD3x2nCLQKXiByMMkB8MIG2kUNk+bpZKD5RyQTL4
-         gb6Q==
+        bh=5pBRbhbzo1PcOFREec6Gs1n8ea1WgM8d8Z6/KvlnlrA=;
+        b=hq/mq92yP2baMAisKLEjM9Kqj/xTTJKY6xK+rWfzCk1GHhUn4ZZxzx1aLnq7HsnTGQ
+         y1YHKIXf8bCYX9LsiQsakwJxxR6RCGhn/2+g1dtdbBQkRA7dZsNQfh9Vj+9f8DcDWBeS
+         BrXDv6HDFCYHgllNkj/vIDV4oHjTB6eBdYw18HrBVQ9ZQyQcG6bDNXE7sWJ1G+X8znE9
+         GGto6qfB8c+KIvuD51fPjUv7um/BgPnFca0j5lyk8/fUcUoMEFmU5ckSvzBiL//4EO+c
+         JSnvc4hjQrt5Ox0k1aYazIvH9RnriAW6pMioNm++7I4MR2+T7i3lrDP9xiVxwa3ew4iK
+         /3cA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788380221; x=1788985021;
+        d=1e100.net; s=20251104; t=1788380231; x=1788985031;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AzXtSV/WWtydTYO3EmejDkL+S0H/FVtNGv1YBW4SI2s=;
-        b=TnxZUpYFmnzrO1mdz8a3FKA022AdQuHq41mAtgp8dBTm/DgilN5Hq1peW+ww43TFrs
-         fmBG4bF8qY+jAtst+B0NelVTrVexzbi/sVNANIjavQ46TOWCfLK/Mom4LwWtmNsk80F4
-         i19obzsyFwZ6Ubu6iho5HzIXjtz/ZuKFA79KVOfXVt6YR2k5drbTHNhv3wocTKHYJOxw
-         hEq6UCq2agPz+Mpd7aOgEz0lP69N/bMUqCLnUM+/IqPzWSg9LyORvvG2iMFOw+bJK9Nt
-         nwX4sGbnHNgxYgSY2WJRfPDkWX8IxlxTYp72LRU71CZw7KBNmmbRjJ8WyUCiQKZQOhaT
-         1E+w==
-X-Forwarded-Encrypted: i=1; AKwUvBwNF7YT7u2On8lh7Y6dlqz/0o20ynpCxQhoxLVq2yr0FJAw7lmu8QstKX07MDOgFsnB+6WExFhJ3Wuv/N/dBvDe@lists.infradead.org
-X-Gm-Message-State: AFuF++lf4SsmP/CohMr+adkYvoREtTd+8bZz5Res5KTrVWpE01rLU602
-	QHIFn2Gd0xs2zw7mPuum2bp4XxQi0BWd6J7mS5KopItxoG/j2uQJPZlq3Chcpph29W3QmllB8fH
-	zmYKbydxEp+wFsg972YovyNNCpxBOK6Jy93D9HmCgAqloiYeXA3iPcsp4ukTu/Mpl9/AivWJxfr
-	J/kw==
-X-Gm-Gg: AYBFou0CuKfx/Dbv3avNpD73D0PipKY/0KhFP1a49UkJy8k2jsH3tV8dLp9+QTlskCF
-	7htIRrhosZYBwEZbZ0oTBF93XJvtOR/QhWmGcdwW/IJgMyZP+I+G7DQXRwVXJUrYTwMr0NHH+n0
-	LhFEsGP+tAMY5K83iEUCj9/wZMvBpBW8NnxdHlljFIr13xGNt0kQF5Xedm15A9KgLSWz29JdAk/
-	F1PRJX5rm5HVhRNMGFwwgpopkjm0eQPsu/5foJ2JAQdJhEmjPlWypFLDmZvg3VPbjTq7Us/Dte1
-	9ErGszBTcs2KANU/1xNgb7E5yrXEzXcTgafesPqWy3rzUqaOUDebZdtDPq2bHloZPqVXzb85i0F
-	FD/g44pCmOEYW3DLrE4tb0grmIlI=
-X-Received: by 2002:a17:90b:3907:b0:381:11eb:d78e with SMTP id 98e67ed59e1d1-39aee066e04mr8860764a91.14.1788380220867;
-        Wed, 02 Sep 2026 13:17:00 -0700 (PDT)
-X-Received: by 2002:a17:90b:3907:b0:381:11eb:d78e with SMTP id 98e67ed59e1d1-39aee066e04mr8860691a91.14.1788380220414;
-        Wed, 02 Sep 2026 13:17:00 -0700 (PDT)
+        bh=5pBRbhbzo1PcOFREec6Gs1n8ea1WgM8d8Z6/KvlnlrA=;
+        b=kzpHEv1Q+LJB+yx+qwV+yqEQSyv66FzvPBrbo5mbiB9Nwhur5nWm0269EBRLht2SQH
+         x/paX6ARsMQrG8Hfyb6cbrvxSuj/MU3EE+NDOR2cJp/rtCEn1mDf5oHG+wrmo0sdp0ej
+         o7XdTCMK9BVv9D+jygVIaLtPHGrsUF2eHU40ISOcXJ+Q2qiDzGt1TU7bYyWxY86ovOa3
+         L4WJislEDL4IVvxyhP1VpFMiA1jFon8xpDnh8XBA2GlhQg4Y+I1BKVwVX0vH6nSyRARM
+         UEc290YMMRZFVDx8pPg1uPLdotrNGUF5Dh7QOFg6PQxxHCnu/EuXeRFbsBQlTCHnEnw1
+         g+dA==
+X-Forwarded-Encrypted: i=1; AKwUvBxP/rtMyeHm3I0xO4TaZv520e9P6QGn8DrVbSgm0kAdB72+XlgEiIaT5OvOtVfYfoVZ2LndARTJVLmn4o3FRF3h@lists.infradead.org
+X-Gm-Message-State: AFuF++lkxYcTOPUfUwXkQRr24nU4dvydxYmc9i+zVhFTY+UtylWa1v7n
+	qC2qFGMff+bU+DsrcP47XqbKcFsAkbAe9Ly+W7GrJS5hwZlklXhUypD6ipZQJq+qx27IuLTxloM
+	lVhvcQvcQtrsm6NQ11BPtUVhBWKYJNoQVoO9KBS1z95t8u9u04fAwQVdC3cZMB2ij+EGWLSkF4j
+	DC/w==
+X-Gm-Gg: AYBFou2fp38220tB0V5vN8dNE+XcvBl76mRB6k0d914euU6a/VwN7gQrDoYBxTjTNSj
+	e8+im9qG4jLh5hqLHacS8CAqArXqAIlB3H59xAxGhPmbwv9/5C/MB3KnnnrF/L6L5jQ2XxV/NXw
+	6oCdTPdHwQz+ID+ZySeEqNVOxYbFdcxUVnDYBodlcCC7Xs1wfGk+haj19Xd02uyC2CZKVSOlR0L
+	aHi/QvtAkkdedTKLEGp6zqgGmSRsWjDUspoGF7vMLPXTYaryp1+2C5Kiut2ExhRwP8m+VAxTedl
+	k5Re2YSe2wfOs/64ieqTmM7MaU4DJZsnmfr2x9UJIV7HBTiyGbrgpxNn0d87vdCXUWETMazFMrs
+	rl2HbBV5CMGgF3oUFeKQR5Z5nfBE=
+X-Received: by 2002:a17:90b:2785:b0:396:5cdc:4bea with SMTP id 98e67ed59e1d1-39aedeb83e0mr11608242a91.5.1788380230694;
+        Wed, 02 Sep 2026 13:17:10 -0700 (PDT)
+X-Received: by 2002:a17:90b:2785:b0:396:5cdc:4bea with SMTP id 98e67ed59e1d1-39aedeb83e0mr11607901a91.5.1788380228811;
+        Wed, 02 Sep 2026 13:17:08 -0700 (PDT)
 Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33256414c60sm497205eec.24.2026.09.02.13.16.52
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33256414c60sm497205eec.24.2026.09.02.13.17.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 13:16:59 -0700 (PDT)
+        Wed, 02 Sep 2026 13:17:08 -0700 (PDT)
 From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 To: Liviu Dudau <liviu.dudau@arm.com>,
         Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -112,43 +112,45 @@ Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
         linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
         linux-mips@vger.kernel.org, linux-sunxi@lists.linux.dev,
         Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH v2 1/11] drm: logicvc: Use devm_of_reserved_mem_device_init()
-Date: Thu,  3 Sep 2026 01:46:30 +0530
-Message-ID: <20260902201640.2024648-2-mukesh.ojha@oss.qualcomm.com>
+Subject: [PATCH v2 2/11] drm: hdlcd: Use devm_of_reserved_mem_device_init()
+Date: Thu,  3 Sep 2026 01:46:31 +0530
+Message-ID: <20260902201640.2024648-3-mukesh.ojha@oss.qualcomm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260902201640.2024648-1-mukesh.ojha@oss.qualcomm.com>
 References: <20260902201640.2024648-1-mukesh.ojha@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX7LoFm47+QCAf
- m1ptsne6Ucma4rwvPoDhuwaK8plEuQS6y/ZNKNZMyJk1Mr6tw/Xb28X64HfTvZyssl4HIE46S/W
- TEz30s8YORHwMOBAE83lQiPOg/R2Z6k=
-X-Authority-Analysis: v=2.4 cv=G+ss1dk5 c=1 sm=1 tr=0 ts=6a98843d cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Authority-Analysis: v=2.4 cv=T8y8ifKQ c=1 sm=1 tr=0 ts=6a988447 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
- a=ReI0EElcLHst8dYcsfAA:9 a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-GUID: WoguV3x8NvpMrHwtNs9ezh6yI5xxt1E_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfXz2J0JszDhqnf
- iLQI7OCvyTk2F50cSjImjILs0UDyYsEw6HmYbgY2Ay2DYpFjfqwAoUcV3yR8cwqAJuyzTF5N2/r
- y0uRngwyi3XpByFHfygOFqt39r3+ruv0G3QA82nML0547QdVve4xw54ezzXaYPwrtZRHhwVjGbH
- LEkx3uvoY/ELqdqj3nI2kFmzKCUVEVAH0xt8w1+dMHTffrQM8yPvJENTQovEQAbSfP4I+rvFBA+
- k08Y8x6KETm1fC4f3MfGr8KJ/SzUZVlbK/y9D0Sv+acqi25Rm2PQOvXftE29P2BlnavSr67GuAu
- UcdQyXah3SZDe+CDLdsIPkimRfStc8ftji9RmawYCtFrYsWzt0Bv4yBg92nuwp/jr4eezNNyOM6
- XzlJ0Wdk8t9G0P7LdSAb1BNSsT4mrtn19rykyp28298Ahd1m1P+cpQV4gxoxwULrTkfDwpl/Vem
- t7tLxabbwoiMSLsD2/Q==
-X-Proofpoint-ORIG-GUID: WoguV3x8NvpMrHwtNs9ezh6yI5xxt1E_
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=7CQSdrXTAAAA:8
+ a=EUspDBNiAAAA:8 a=zu8Q1U5i7KxegdXecekA:9 a=bFCP_H2QrGi7Okbo017w:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: aAC9B925g4RfED5PAobtZHeDOvmOAXh5
+X-Proofpoint-ORIG-GUID: aAC9B925g4RfED5PAobtZHeDOvmOAXh5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX5YSTfl+kXOho
+ mgweETLl4O47q9PDvdZfS9hehKmAt+Ppn08XOqrI808GktYGKs6RWFC2tyTXQiDBg2hW1umNrZw
+ pnqcWY2OgehFgns4/8pO7Sy2bZFPiZXfQ++fCcRRRRx06YTsNK1KCbc/lXQCH9IaZS7lUHBud9o
+ C3TBXQ1OLsrMKbWahK/36G1qzAM+79knk6B5ws6skn3YL2pwaLFZ+h3kcY0RF79LE2VWf7iMHCK
+ 6b+W1Nj1vSY0exK4BM8Gb2tSrCyGoQn3yQPhUG0fCrl1h/uYvFzmrDcG/m3tNxf78ktHNNoO+sq
+ wROd77gA9+EWTsCJ8Pznt5h31iCWNkv5o7N/Igg9mIDflsELjviHiv0y2HuCQsa9UF1Iv0EYHUf
+ jlRaUBNKpzG5Uap/E3L/p9euY9Piw74pnhofr8W/SEcKpK5mutgi2H4Cr0xb9/NLWyaYKILLOAj
+ Z4XtrmQKj4nJHM5KUUg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OSBTYWx0ZWRfX8PbX+an4vqC8
+ WWCwDc6gt6Ex0/BPt7bd4B8w3eUGFaAttQdUCfN2TxWyR5Lh44fHFufc7fGnkw3KzL0NAwBqCpt
+ LyetzOWvivfXqZpaIGzFlf0TnZwnMao=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-02_04,2026-09-02_04,2025-10-01_01
+ definitions=2026-09-02_05,2026-09-02_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 malwarescore=0 suspectscore=0 bulkscore=0
- impostorscore=0 lowpriorityscore=0 phishscore=0 adultscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020179
+ malwarescore=0 phishscore=0 impostorscore=0 adultscore=0 spamscore=0
+ clxscore=1015 suspectscore=0 lowpriorityscore=0 priorityscore=1501
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609020179
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_131705_988541_3EAAA51F 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20260902_131712_915106_91139AE8 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,110 +167,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Switch to devm_of_reserved_mem_device_init() so the reserved memory
 region is released automatically on probe failure or device unbind.
-Replace all error paths that jumped to error_reserved_mem: with
-error_early: since the manual cleanup label is no longer needed, and
-remove the explicit of_reserved_mem_device_release() call in the remove
-function.
+Remove the three explicit of_reserved_mem_device_release() calls in
+the setup_fail error path, the bind error path, and hdlcd_drm_unbind().
 
-Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
-Acked-by: Paul Kocialkowski <paulk@sys-base.io>
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 ---
- drivers/gpu/drm/logicvc/logicvc_drm.c | 21 ++++++++-------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+ drivers/gpu/drm/arm/hdlcd_drv.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/logicvc/logicvc_drm.c b/drivers/gpu/drm/logicvc/logicvc_drm.c
-index bbebf4fc7f51..d6dbe52ff0a9 100644
---- a/drivers/gpu/drm/logicvc/logicvc_drm.c
-+++ b/drivers/gpu/drm/logicvc/logicvc_drm.c
-@@ -306,7 +306,7 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- 	int irq;
- 	int ret;
+diff --git a/drivers/gpu/drm/arm/hdlcd_drv.c b/drivers/gpu/drm/arm/hdlcd_drv.c
+index 81d45f2dd6a7..67466fd441d5 100644
+--- a/drivers/gpu/drm/arm/hdlcd_drv.c
++++ b/drivers/gpu/drm/arm/hdlcd_drv.c
+@@ -134,7 +134,7 @@ static int hdlcd_load(struct drm_device *drm, unsigned long flags)
+ 		version & HDLCD_VERSION_MINOR_MASK);
  
--	ret = of_reserved_mem_device_init(dev);
-+	ret = devm_of_reserved_mem_device_init(dev);
- 	if (ret && ret != -ENODEV) {
- 		dev_err(dev, "Failed to init memory region\n");
- 		goto error_early;
-@@ -327,14 +327,14 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- 		ret = of_address_to_resource(of_node, 0, &res);
- 		if (ret) {
- 			dev_err(dev, "Failed to get resource from address\n");
--			goto error_reserved_mem;
-+			goto error_early;
- 		}
+ 	/* Get the optional framebuffer memory resource */
+-	ret = of_reserved_mem_device_init(drm->dev);
++	ret = devm_of_reserved_mem_device_init(drm->dev);
+ 	if (ret && ret != -ENODEV)
+ 		return ret;
  
- 		base = devm_ioremap_resource(dev, &res);
- 		if (IS_ERR(base)) {
- 			dev_err(dev, "Failed to map I/O base\n");
- 			ret = PTR_ERR(base);
--			goto error_reserved_mem;
-+			goto error_early;
- 		}
- 
- 		logicvc_drm_regmap_config.max_register = resource_size(&res) -
-@@ -345,21 +345,21 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- 		if (IS_ERR(regmap)) {
- 			dev_err(dev, "Failed to create regmap for I/O\n");
- 			ret = PTR_ERR(regmap);
--			goto error_reserved_mem;
-+			goto error_early;
- 		}
- 	}
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0) {
- 		ret = -ENODEV;
--		goto error_reserved_mem;
-+		goto error_early;
- 	}
- 
- 	logicvc = devm_drm_dev_alloc(dev, &logicvc_drm_driver,
- 				     struct logicvc_drm, drm_dev);
- 	if (IS_ERR(logicvc)) {
- 		ret = PTR_ERR(logicvc);
--		goto error_reserved_mem;
-+		goto error_early;
- 	}
- 
- 	platform_set_drvdata(pdev, logicvc);
-@@ -371,7 +371,7 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- 	caps = logicvc_drm_caps_match(logicvc);
- 	if (!caps) {
- 		ret = -EINVAL;
--		goto error_reserved_mem;
-+		goto error_early;
- 	}
- 
- 	logicvc->caps = caps;
-@@ -382,7 +382,7 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- 	ret = logicvc_clocks_prepare(logicvc);
- 	if (ret) {
- 		drm_err(drm_dev, "Failed to prepare clocks\n");
--		goto error_reserved_mem;
-+		goto error_early;
- 	}
- 
- 	ret = devm_request_irq(dev, irq, logicvc_drm_irq_handler, 0,
-@@ -450,9 +450,6 @@ static int logicvc_drm_probe(struct platform_device *pdev)
- error_clocks:
- 	logicvc_clocks_unprepare(logicvc);
- 
--error_reserved_mem:
--	of_reserved_mem_device_release(dev);
+@@ -164,8 +164,6 @@ static int hdlcd_load(struct drm_device *drm, unsigned long flags)
+ irq_fail:
+ 	drm_crtc_cleanup(&hdlcd->crtc);
+ setup_fail:
+-	of_reserved_mem_device_release(drm->dev);
 -
- error_early:
  	return ret;
  }
-@@ -469,8 +466,6 @@ static void logicvc_drm_remove(struct platform_device *pdev)
- 	logicvc_mode_fini(logicvc);
  
- 	logicvc_clocks_unprepare(logicvc);
--
+@@ -316,7 +314,6 @@ static int hdlcd_drm_bind(struct device *dev)
+ 	of_node_put(hdlcd->crtc.port);
+ 	hdlcd->crtc.port = NULL;
+ 	hdlcd_irq_uninstall(hdlcd);
+-	of_reserved_mem_device_release(drm->dev);
+ err_free:
+ 	dev_set_drvdata(dev, NULL);
+ 	return ret;
+@@ -338,7 +335,6 @@ static void hdlcd_drm_unbind(struct device *dev)
+ 	pm_runtime_put(dev);
+ 	if (pm_runtime_enabled(dev))
+ 		pm_runtime_disable(dev);
 -	of_reserved_mem_device_release(dev);
+ 	dev_set_drvdata(dev, NULL);
  }
  
- static void logicvc_drm_shutdown(struct platform_device *pdev)
 -- 
 2.55.0
 
