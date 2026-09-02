@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B916C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B69EC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMURx36GlLDD+dvoyTlP38y6Qfch1n09cZ58c3w5MCE=; b=i8XmZ0z0iBUp72/wjUSgg9wSXT
-	vEWFHmoNoc7aJOBGqkUxpl8TGHlu0Qa/unUg3KQfHKFuEH6efARt0yZV48Q2NxrNTe6SFrFTQVkVA
-	WkyVDTiotoDfHofpVb2ww9iPYmgAg0por6D0zPeG3lrrJUcPpCxIlIznP2YNjMjyQspRs3S7/2+aa
-	S4sA50nhAoh+ES3OGVdoWODGPcBRq4ISQlgPhtv6pWm1F9GITp8JUD8LrpO6SqsoOibXbc0kOeqzU
-	NZ8kmLjG/724Yh4mys80BkIsqF4P/rkijG9jdP5ndA03QbhnLCij78+bdcDmUSxw4jKtVV1lhW1fb
-	U5eA6GVw==;
+	bh=ONPSI/VlMp5H2rLzLONUVgKvb9Ot4bxmMLHTzduPPbQ=; b=BIzuthnM4RB9QWJTMoNDziDDNc
+	+iSiszcygYQ1gFpsCR6nSJ8i2p2o6lOw6ucZb3p1YZawQYPUbCQ4IJXe3jo51Mo8Yfxzsjs6fswpz
+	d/S6N3aB5ByKCAnqde+wCBa2wAyJGRKQhzobY5jN6Abo7wvtUAGtz+PgJFtEyjBU9ErM4tistK+45
+	Ga3dYl3vRU1h283lOQJHkaNB5HJauOj0jx2OV1pjsK3qJTsu4nuka9q2SxHHk6gRLTY/fsNbgSaZk
+	r6bdtLUHp5daCxPAXRlvTAOKCItQvBsxPCCz873w+oxGkRASJInjcV6uybUOKq632fjvFSU7ueGSN
+	t0V92cuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAG-0000000EUyl-27D9;
-	Wed, 02 Sep 2026 11:30:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1jAM-0000000EV2D-2old;
+	Wed, 02 Sep 2026 11:30:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jAF-0000000EUyD-3Y4A
+	id 1x1jAL-0000000EV19-1x7u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:29:59 +0000
+	Wed, 02 Sep 2026 11:30:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 423A0434F6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B1F441893;
+	Wed,  2 Sep 2026 11:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98EE11F000E9;
 	Wed,  2 Sep 2026 11:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C357D1F00A3A;
-	Wed,  2 Sep 2026 11:29:53 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,9 +61,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v3 03/12] firmware: arm_scmi: Add scmi_get_base_info()
-Date: Wed,  2 Sep 2026 13:29:19 +0200
-Message-ID: <59241a6714353aa7ff180368b5a733b3db00012f.1788338320.git.geert+renesas@glider.be>
+Subject: [PATCH v3 04/12] of: property: fw_devlink: Add support for renesas,scmi-firmware
+Date: Wed,  2 Sep 2026 13:29:20 +0200
+Message-ID: <1d5c56c80291e447208ac8777aaf90ad6f0a4f4d.1788338320.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1788338320.git.geert+renesas@glider.be>
 References: <cover.1788338320.git.geert+renesas@glider.be>
@@ -83,103 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently non-SCMI drivers cannot find out what the specific versions of
-each SCMI provider implementation on the running system are.
+Let fw_devlink create device links between consumers and suppliers of
+SCMI firmware on Renesas platforms, and enforce these dependencies.
 
-However, different versions may use different ABIs (e.g. different clock
-IDs), provide different abstractions, or behave different, requiring
-remapping or workarounds in other drivers.
-
-Add a public function to obtain base protocol information for the
-selected SCMI provider.  This will be used by the R-Car X5H Clock Pulse
-Generator and Module Controller drivers, to map hardware descriptions in
-DT to SCMI abstractions offered by the SCMI firmware implementation
-present.
+This prevents probing of drivers before the firmware they depend on
+becomes available, thus avoiding unneeded probe deferrals.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v3:
-  - No changes,
+  - s/firmware/renesas,scmi-firmware/,
 
 v2:
-  - Add that SCMI may provide different abstractions,
-  - Add missing asterisk to blank kerneldoc line,
-  - Return -EPROBE_DEFER or -EOPNOTSUPP instead of -ENOENT.
+  - No changes.
 ---
- drivers/firmware/arm_scmi/driver.c | 33 ++++++++++++++++++++++++++++++
- include/linux/scmi_protocol.h      |  8 ++++++++
- 2 files changed, 41 insertions(+)
+ drivers/of/property.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index ef29fd223287dd58..478f25ae0587e422 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3525,6 +3525,39 @@ int scmi_inflight_count(const struct scmi_handle *handle)
- 	}
- }
+diff --git a/drivers/of/property.c b/drivers/of/property.c
+index 72cf12907de034e9..e79cd3cce4e2e41a 100644
+--- a/drivers/of/property.c
++++ b/drivers/of/property.c
+@@ -1417,6 +1417,7 @@ DEFINE_SIMPLE_PROP(power_supplies, "power-supplies", NULL)
+ DEFINE_SIMPLE_PROP(mmc_pwrseq, "mmc-pwrseq", NULL)
+ DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
+ DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
++DEFINE_SIMPLE_PROP(renesas_scmi_firmware, "renesas,scmi-firmware", NULL)
  
-+/**
-+ * scmi_get_base_info() - Get SCMI base protocol information
-+ *
-+ * @of_node: pointer to a device node for an SCMI provider
-+ * @version: pointer to write base protocol information
-+ *
-+ * Check if an SCMI device has been instantiated for the passed device node
-+ * pointer, and, if found, return its base info.
-+ *
-+ * Return: 0 on Success,
-+ *         -EPROBE_DEFER if the SCMI provider is not ready yet,
-+ *         -EOPNOTSUPP if SCMI support is disabled.
-+ */
-+int scmi_get_base_info(struct device_node *of_node,
-+		       struct scmi_base_info *version)
-+{
-+	int ret = -EPROBE_DEFER;
-+	struct scmi_info *info;
-+
-+	mutex_lock(&scmi_list_mutex);
-+	list_for_each_entry(info, &scmi_list, node) {
-+		if (info->dev->of_node == of_node) {
-+			*version = info->version;
-+			ret = 0;
-+			break;
-+		}
-+	}
-+	mutex_unlock(&scmi_list_mutex);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(scmi_get_base_info);
-+
- static int __init scmi_driver_init(void)
- {
- 	scmi_quirks_initialize();
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 5ab73b1ab9aa4fa8..fd2d648964f68f53 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -971,6 +971,8 @@ struct scmi_driver {
- int scmi_driver_register(struct scmi_driver *driver,
- 			 struct module *owner, const char *mod_name);
- void scmi_driver_unregister(struct scmi_driver *driver);
-+int scmi_get_base_info(struct device_node *of_node,
-+		       struct scmi_base_info *version);
- #else
- static inline int
- scmi_driver_register(struct scmi_driver *driver, struct module *owner,
-@@ -980,6 +982,12 @@ scmi_driver_register(struct scmi_driver *driver, struct module *owner,
- }
- 
- static inline void scmi_driver_unregister(struct scmi_driver *driver) {}
-+
-+static inline int scmi_get_base_info(struct device_node *of_node,
-+				     struct scmi_base_info *version)
-+{
-+	return -EOPNOTSUPP;
-+}
- #endif /* CONFIG_ARM_SCMI_PROTOCOL */
- 
- #define scmi_register(driver) \
+ static struct device_node *parse_pinctrl_n(struct device_node *np,
+ 					   const char *prop_name, int index)
+@@ -1574,6 +1575,7 @@ static const struct supplier_bindings of_supplier_bindings[] = {
+ 	{ .parse_prop = parse_regulators, },
+ 	{ .parse_prop = parse_gpio, },
+ 	{ .parse_prop = parse_gpios, },
++	{ .parse_prop = parse_renesas_scmi_firmware, },
+ 	{
+ 		.parse_prop = parse_post_init_providers,
+ 		.fwlink_flags = FWLINK_FLAG_IGNORE,
 -- 
 2.43.0
 
