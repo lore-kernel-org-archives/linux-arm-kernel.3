@@ -4,62 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC820C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F30C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 11:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adsSQxYfF/J3n4w7pf0UDM1LQF011MuhCMak8/JCl2U=; b=peo4uYoZb2VlH+HvprdwBT+FGL
-	1GZPbifmqrAoZlkz+ENvnrV9QpH0bzkcVH1kbIp2T6a7ujGQxvi1GXJaXhjhDI+S2r3NXFJVi60F0
-	fvRq2RBFzSubuH+hS11ua+izw/beCUBkLF8PRWLP1uVYLXiWttsy/0+L0kFZ9IRUBgeA4QTnJgeU6
-	T7cPIMqRgEpX8E/ff3qkSVraCTGD7LdysarV4gwfikLQjsradzSrk+XENaiP6Zbj8Tzu3vXrhFiSP
-	1uL7/4H32Wy1anLr5jzhOIA2ejw2oU1v8hW/+ILImlBut7m9WwqPUqTjVMZuWoUyYIGfyr/liQjyf
-	PfM/oyIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d33A2cRSMy14qLiB29N4dNiBSipjfdSlz1gXIdUUM+M=; b=fiiGvvchTwLsDSduCB1gFzbSsG
+	GcIeo4S8xV1tRGumU8cAWMGg9B5jZWBoOSDtR45r05BrzvOhKfzguCRBwh02EVF7Y1r/q8Bz6sFsp
+	RYsJxczgFELxX6c7lYLLhG95Kzwb73+qvhtK2AKy6BMa+deSpIpHJ5qdoh+dlV6SDtcyOXjTZJTLt
+	7Op6WSWcMsGYB5dYg6Ii0KCc9DtyTbypEwmoXkVoic8eD3y+hgVRYEiM/wweWINi/19gAAzzYL77v
+	p3QRKnrj4dkI0rh5ifnS4SOev+8NGhuxavQpxX2h7sjfYe6E6uo/Ag1O7dDSB518OuabWyYTWwm1h
+	q9O1tyKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jVN-0000000EYV3-3uwo;
-	Wed, 02 Sep 2026 11:51:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jVL-0000000EYUa-3ihr
+	id 1x1jW4-0000000EYci-0mVf;
+	Wed, 02 Sep 2026 11:52:32 +0000
+Received: from mail-qk1-f177.google.com ([209.85.222.177])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1jW1-0000000EYbq-1DDF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 11:51:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E86A1596;
-	Wed,  2 Sep 2026 04:51:41 -0700 (PDT)
-Received: from [10.2.198.93] (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF1183F85F;
-	Wed,  2 Sep 2026 04:51:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788349904; bh=OjkabxlGKBl4aBEOm+nXp42/GtJAc32K6YElqplzSCg=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=utU69EawSHaIa7SifqAKJTpR/T+bsUhLWBR5ZKDTTro4gizFsDJp84nnp/c6rT1g/
-	 KXukxy0jCqxIlB9g/21gg997lnhA5oFhGl4LMkVGHiLaXosfvT49e6vfe9+RX91dW2
-	 GBKKtOLaBMm9VvvsIRdmomZxT8uVg7leae7lIwQQ=
-Message-ID: <afe6eac4-c8db-4ec7-98be-1c7cb0d3c1de@arm.com>
-Date: Wed, 2 Sep 2026 12:51:41 +0100
+	Wed, 02 Sep 2026 11:52:31 +0000
+Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-936e393176fso81844785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:52:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788349948; x=1788954748;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=d33A2cRSMy14qLiB29N4dNiBSipjfdSlz1gXIdUUM+M=;
+        b=pSGowrsMhU12Zy99AOl8rzJYQA6n9lkILhy9AGN8z5mpGiHcBKNVwc/0qX5TeDQzDj
+         FgUQ5ouDEABHTB+AQlpmykbHkP4LgVQT9wKfbs8GFkTKFEmX5WZpxpG3mY9kJkI2zLZ3
+         xtP/UB6TL1uQNq8JTbpfPRUEoGjIOovn1ed56yU3PZP1/XcOa91I8fAiOfF+S+gLWt6a
+         bU7s72/pYiE8GFFAjov4vq08P6hJviy/qUMa8cN/uCWaGLsMsl7Hde+xikQxmdrx5Ofp
+         sfXmWoalF0FC0zAczabWxPfsdHixhKxFzQpr4rRmyBmFCmuS2/FmmI9KGYBYDCuOuAw7
+         cdfg==
+X-Forwarded-Encrypted: i=1; AHgh+RrRL0T1f4omdBUn7tQ+HQBwVzOczdYAcrEYx032boDyq3imtRrfCiSrqPs3WcjpDYuObpqEkdQd8bnCTW05qpWt@lists.infradead.org
+X-Gm-Message-State: AFuF++la3D1gG1BJLfwOGi+3gfKbz54vjS38zYNl/2Go3tlofML1VEed
+	C1pPKTMMMtQYMw6CQC2nupFLQCrybVm2dHjght3grYdXyPRIkUvzhZid2070tc5Q
+X-Gm-Gg: AR+sD10GfHWzqz4bFp88PlYrk3aeOpzRXUwH2M5s+pTqIqlsGKhvG4FZyNOQK46VLeL
+	BKBhVz/AnFyujAfMKTNKQyNnlB0Lexsx1/fFNvuA8PrWf8PSWiQ31cgUG4mRQS00o65zjgHWT6x
+	zK7y2hZhI+KhAEzARqNFZZcNkBwy2QE7LglQAgI1DVo+y4DHj2yyPkbl4VL2beaVYFnLLUmPntL
+	yxbVpawlfmo8KTTAsavSVEiGRZ279t07r288yYfZsPsSxVsOaD8s86JhVFilE+LBEEjz6QBrK4h
+	TFKcKOzX8P7s678Q/nUkB+Ylo4xxHGykzcVLYmi/8HduBnFiTQZ02P7VVe/C2en3yL7bvAB77EW
+	kh8dWy2zGXrncDL4XM06YVlSUGa8cVotCsMcQEtsDgi6PzBkQUkuKYeUsfCaiv4H1x3u/KGgzo9
+	1dkx5bG4BeqjZAsPJ+hePxqC9etln6JRXOTuYTki+jlDDizP26kZMv5NSHNDOVgrDiem2jTXQCo
+	8q3U0i7WHvdO1ilckwBSZppeTkdVA==
+X-Received: by 2002:a05:620a:27c1:b0:939:2bbb:b266 with SMTP id af79cd13be357-93960ccd7b1mr487402785a.8.1788349947745;
+        Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com. [209.85.160.182])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9395f1aa0a3sm191112885a.17.2026.09.02.04.52.27
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5300bdf61d9so10425361cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 04:52:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoO7FIlhfK1sVTAHvVHlmIdiKcc5GqpfH+lu5absHhLUs8SPwwd/Lw3Q7A7w/ypkP/EEAghNryR29M88Ohqowtf@lists.infradead.org
+X-Received: by 2002:a05:6102:2997:b0:784:a169:194a with SMTP id
+ ada2fe7eead31-78a1f437b62mr1623913137.10.1788349475087; Wed, 02 Sep 2026
+ 04:44:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org, dennis@kernel.org,
- tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- ryan.roberts@arm.com, david@kernel.org, akpm@linux-foundation.org,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
-From: Usama Anjum <usama.anjum@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <cover.1788338320.git.geert+renesas@glider.be> <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
+In-Reply-To: <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 2 Sep 2026 13:44:24 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVstZYufZWdD-ajwg74kU6pWtQE3WueCg-XUw9Lye5DAA@mail.gmail.com>
+X-Gm-Features: AcwNN1UuztEnaQfQ-OMWO4Fx0VqCWe7sLpxq0iVHzvAi1AhVOPaRJUxDUVxmfIc
+Message-ID: <CAMuHMdVstZYufZWdD-ajwg74kU6pWtQE3WueCg-XUw9Lye5DAA@mail.gmail.com>
+Subject: Re: [PATCH v3 07/12] reset: Add reset_control_get_from_provider_exclusive()
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Saravana Kannan <saravanak@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Vinod Koul <vkoul@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clegoffic@baylibre.com>, 
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_045148_009845_4F52EB2B 
-X-CRM114-Status: GOOD (  49.81  )
+X-CRM114-CacheID: sfid-20260902_045229_352016_984C20E4 
+X-CRM114-Status: GOOD (  38.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,314 +109,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 7:04 pm, Yang Shi wrote:
-> 
-> Hi,
-> 
-> This is v2 RFC. In v2 a lot problems found out by Sashiko were fixed and more
-> feature gaps were closed (please see the below changelog for the details).
-> Although there are still some open issues, for example, it just can support
-> 48 bits VA (for 4K and 64K) and 47 bits VA (for 16K), KPTI support has not
-> been solved yet, etc, but I think the delta should be big enough and worth
-> a new RFC to gather comments in order to make sure I'm on the right track.
-> 
-> Some more benchmarks were done, for example, some latency related benchmarks
-> that I mentioned at LSFMM because I thought responsiveness should be improved
-> due to the removal of preempt_disable. Collected more PMU counters as well.
-> Please refer to the benchmark section for more details. 
-> 
-> Look forward to comments.
-> 
-> 
-> Changelog
-> v2: * Added 3-level and 2-level page table support.
->     * Tested with 16K and 64K page size. But we just support 48 bits VA (4K
->       and 64K) and 47 bits VA with 16K for now.  Please refer to the below
->       "known issue" section for the detail reason.
->     * Added support for memory hotplug.
->     * Added support for KASAN (generic).
->     * Treated percpu and local percpu area address as vmalloc address.
->     * Fixed build failure for x86.
->     * Fixed build failure for !CONFIG_NUMA.
->     * Added KASAN support for local percpu area.
->     * Some other misc bug fixes found out by Sashiko.
->     * More code refactor and cleanup.
->     * Regorganized the patches.
->     * More benchmarks, refer to benchmark section for more details.
->     * Rebased to v7.2-rc1.
-> 
-> 
-> Introduction
-> ============
-> This patch series implemented the LSFMM 2026 proposal for optimizing
-> this_cpu_*() ops on ARM64. For the details of the proposal, Please refer to:
-> https://lore.kernel.org/linux-mm/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
-> I didn't repeat it in the cover letter because there is no change to the
-> proposal.
-> 
-> The series is based on 7.1-rc1. It is basically minimum viable patches.
-> There are still a few hacks in this series and it may break something,
-> for example, KPTI, SMT machines which shared TLB, etc. But it shoule be
-> good enough for now to demonstrate the core idea. The main purpose of the
-> RFC is to gather feedback, figure out missing parts and risks, and make sure
-> we are on the right track, as well as hopefully it can help the discussion
-> for the upcoming LSFMM.
-> 
-> I broke the patches down to arch-dependent and arch-independent parts so that
-> hopefully the interested persons can do experiments on other architectures,
-> for example, S390, easier.
-> 
-> A new kernel config is introduced, HAVE_LOCAL_PER_CPU_MAP. The architectures
-> which can support this feature will select it. Allocating and freeing percpu
-> local mapping is protected by this config so that others won't pay the cost.
-> 
->  
-> Known Issues
-> ============
-> 1. KPTI
-> -------
-> We need determine what CPU we are on, then switch to the right page table.
-> Currently arm64 kernel fetches tramp_pg_dir via swapper_pg_dir - fixed_offset,
-> and fetches swapper_pg_dir from ttbr1. But ttbr1 may not hold swapper_pg_dir
-> anymore except CPU #0. So we need to figure out the other way to handle it.
-> Switching to tramp_pg_dir should be easy, but the reverse seems harder because
-> tramp_pg_dir just maps the trampoline vectors.
-> Maybe we can do two steps switch. Switch to swapper_pg_dir at the first step,
-> then switch to per cpu page table (for entry) or tramp page table (for exit).
-> Nobody should call this_cpu_*() at either userspace -> kernel entry stage or
-> kernel -> userspace exit stage.
-> 
-> 2. SW PAN
-> ---------
-> Has the similar issue as KPTI. It installs reserved_pg_dir to TTBR0 when running
-> in kernel space, but fetching reserved_pg_dir via swapper_pg_dir - fixed_offset.
-> Maybe we can save the physical address of swapper_pg_dir in a variable, then load
-> it from that variable instead of ttbr1.
-> 
-> 3. Shared TLB machines
-> ----------------------
-> Some machines may share TLB between CPUs, for example, SMT machines may share
-> TLB between the two hardware threads in one core.
-> The per cpu page table just can't work with it. Maybe we need a new
-> cpufeature to indicate whether per cpu page table is allowed or not. Then
-> just enable it for not-shared-TLB machines.
-> 
-> 4. Don't support all VA bits
-> ----------------------------
-> We just support 48 bits VA (4K and 64K) and 47 bits VA (16K) for now. For 4K
-> and 64K, supporting other VA bits is not hard, we just need to determine the
-> size for percpu and local percpu area.
-> But it is harder for supporting 48 bits VA + 16K page size. We just have two
-> top level kernel page table entries with this configuration, but we assume we
-> just need to sync up kernel page table at the top level for now. We need to
-> sync up kernel page table at the second level in order to support it. I'm not
-> sure whether it is worth it or not.
-> 
-> 
-> Benchmark
-> =========
-> The benchmarks are done on 160 core AmpereOne machine. The baseline is
-> v7.2-rc1 kernel.
-> 
-> 1. Reduction of kernel text size
-> --------------------------------
-> The patchset can reduce at least 11 instructions for this_cpu_*() ops. Both
-> preempt_disable() and preempt_enable() need 4 instructions to manipulate
-> the preempt count, and preempt_enable() needs more instructions (compare +
-> READ + compare) to determine whether reschedule is needed or not.
-> Because this_cpu_*() ops are inlined and called in a lot of places so we
-> can save a lot of instructions.
-> 
-> The size of kernel text is reduced by ~184KB with default Fedora kernel
-> config. This also helps reduce kernel icache miss rate and stalled frontend
-> cycles as kernel build benchmark result showed.
-> 
-> 2. Kernel Build
-> ---------------
-> Run kernel build (make -j160) with the default Fedora kernel config in a
-> memcg.
-> 13% - 18% sys time improvment
-> 3% - 7% wall time improvement
-> 
-> 5% fewer kernel icache miss, 5% fewer executed kernel instructions and
-> 15% fewer stalled frontend cycles for kernel.
-> 
-> 3. stress-ng vm ops
-> -------------------
-> stress-ng --vm 160 --vm-bytes 128M --vm-ops 100000000
-> 8.5% improvement
-> 
-> 4. stress-ng vm ops + fork
-> --------------------------
-> stress-ng --mmapfork 160 --mmapfork-bytes 128M --mmapfork-ops 500
-> 15% improvement
-> 
-> 5. Specjbb
-> ----------
-> The specjbb test latency curves showed the patched kernel has consistently
-> lower p99 latency (the lower the better) than the baseline.
-> 
-> 2.5% improvement on max-jOPS and 4% - 5% improvement on critical-jOPS.
-> The specjbb benchmark is quite sensitive to latency and responsiveness, 
-> particularly critical-jOPS result. The patches are supposed to improve the
-> responsiveness due to the reduction of preempt-disabled critical sections.
-> 
-> 6. MySQL
-> --------
-> 1% - 2% gains on read-only test, 2% - 4% gains on write-only test. Also see
-> 15% decrease on frontend cache stall.
+On Wed, 2 Sept 2026 at 13:30, Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+> When stacking two reset controllers, the upper one should go through the
+> proper channels: request exclusive reset controls and use them via the
+> reset_control_*() APIs.  However, unlike the clock subsystem, which has
+> of_clk_get_from_provider(), the reset subsystem does not offer a way to
+> lookup and obtain a reset from a reset provider.
+>
+> Hence add a public helper reset_control_get_from_provider_exclusive()
+> to lookup and obtain an exclusive reference to a reset controller, based
+> on the recently introduced __reset_control_get_from_provider() helper.
+> This will be used by the R-Car X5H Module Controller driver.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> v3:
+>   - Replace reset_controller_get_provider() by
+>     reset_control_get_from_provider_exclusive(),
+>   - Add kerneldoc,
+>
+> v2:
+>   - No changes.
+> ---
+>  drivers/reset/core.c  | 37 ++++++++++++++++++++++++++++++++-----
+>  include/linux/reset.h |  8 ++++++++
+>  2 files changed, 40 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/reset/core.c b/drivers/reset/core.c
+> index 8af7cd2e8a5029df..6d4c95b3edb18248 100644
+> --- a/drivers/reset/core.c
+> +++ b/drivers/reset/core.c
+> @@ -1141,6 +1141,7 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
+>                                   bool gpio_fallback,
+>                                   enum reset_control_flags flags)
+>  {
+> +       struct fwnode_handle *fwnode = consumer ?: args->fwnode;
+>         struct reset_control *rstc = ERR_PTR(-EINVAL);
+>         struct reset_controller_dev *rcdev;
+>         int rstc_id = -EINVAL;
+> @@ -1154,18 +1155,26 @@ __reset_control_get_from_provider(const struct fwnode_reference_args *args,
+>         if (WARN_ON(args->nargs != rcdev->fwnode_reset_n_cells))
+>                 return ERR_PTR(-EINVAL);
+>
+> -       if (rcdev->of_xlate && is_of_node(consumer)) {
+> -               struct device_node *np = to_of_node(consumer);
+> +       if (rcdev->of_xlate && is_of_node(fwnode)) {
+> +               struct device_node *np = to_of_node(fwnode);
+>                 struct of_phandle_args of_args;
+>                 int ret;
+>
+> -               ret = of_parse_phandle_with_args(np,
+> +               if (consumer) {
+> +                       ret = of_parse_phandle_with_args(np,
+>                                          gpio_fallback ? "reset-gpios" : "resets",
+>                                          gpio_fallback ? "#gpio-cells" : "#reset-cells",
+>                                          gpio_fallback ? 0 : index,
+>                                          &of_args);
+> -               if (ret)
+> -                       return ERR_PTR(ret);
+> +                       if (ret)
+> +                               return ERR_PTR(ret);
+> +               } else {
+> +                       of_args.np = of_node_get(np);
+> +                       of_args.args_count = args->nargs;
+> +
+> +                       for (unsigned int i = 0; i < args->nargs; i++)
+> +                               of_args.args[i] = args->args[i];
+> +               }
+>
+>                 rstc_id = rcdev->of_xlate(rcdev, &of_args);
+>                 of_node_put(of_args.np);
+> @@ -1257,6 +1266,24 @@ struct reset_control *__reset_control_get(struct device *dev, const char *id,
+>  }
+>  EXPORT_SYMBOL_GPL(__reset_control_get);
+>
+> +/**
+> + * reset_control_get_from_provider_exclusive - Lookup and obtain an exclusive
+> + *                                            reference to a reset controller.
+> + * @args: Reference to the reset controller provider with all the args like
+> + *       reset number
+> + *
+> + * Returns a struct reset_control or IS_ERR() condition containing errno.
+> + * If this function is called more than once for the same reset control it will
+> + * return -EBUSY.
+> + */
+> +struct reset_control *
+> +reset_control_get_from_provider_exclusive(const struct fwnode_reference_args *args)
+> +{
+> +       return __reset_control_get_from_provider(args, NULL, 0, false,
+> +                                                RESET_CONTROL_EXCLUSIVE);
+> +}
+> +EXPORT_SYMBOL_GPL(reset_control_get_from_provider_exclusive);
+> +
+>  int __reset_control_bulk_get(struct device *dev, int num_rstcs,
+>                              struct reset_control_bulk_data *rstcs,
+>                              enum reset_control_flags flags)
+> diff --git a/include/linux/reset.h b/include/linux/reset.h
+> index 9c391cf0c82298a0..09ee47b27f88d3b1 100644
+> --- a/include/linux/reset.h
+> +++ b/include/linux/reset.h
+> @@ -90,6 +90,8 @@ struct reset_control *__fwnode_reset_control_get(struct fwnode_handle *fwnode,
+>                                      const char *id, int index, enum reset_control_flags flags);
+>  struct reset_control *__reset_control_get(struct device *dev, const char *id,
+>                                           int index, enum reset_control_flags flags);
+> +struct reset_control *reset_control_get_from_provider_exclusive(
+> +                               const struct fwnode_reference_args *args);
+>  void reset_control_put(struct reset_control *rstc);
+>  int __reset_control_bulk_get(struct device *dev, int num_rstcs,
+>                              struct reset_control_bulk_data *rstcs,
+> @@ -173,6 +175,12 @@ static inline struct reset_control *__reset_control_get(
+>         return optional ? NULL : ERR_PTR(-ENOTSUPP);
+>  }
+>
+> +static inline struct reset_control *reset_control_get_from_provider_exclusive(
+> +                               const struct fwnode_reference_args *args)
+> +{
+> +       return NULL;
 
+As reported by Sashiko, this dummy should return ERR_PTR(-ENOTSUPP)
+instead.
 
-tl;dr
-Comparing GPR approach [1] with this series gives 8 improvements and 3 regressions.
+> +}
+> +
+>  static inline int
+>  reset_control_bulk_reset(int num_rstcs, struct reset_control_bulk_data *rstcs)
+>  {
 
-Fastpath is a Linux kernel performance benchmarking service. The table
-compares the both patched kernels: positive values are faster, negative
-values are slower, and (I)/(R) indicate statistically significant
-improvements/regressions. Unmarked differences are not significant after
-accounting for confidence and noise thresholds.
+Gr{oetje,eeting}s,
 
-+---------------------------------+--------------------+-----------------+-----------------------+
-| Benchmark                       | percpu-pgtable [2] |   gpr-fixup [3] |         gpr-fixup [3] |
-|                                 |    vs baseline [1] | vs baseline [1] | vs percpu-pgtable [2] |
-+=================================+====================+=================+=======================+
-| lmbench/lat-mem-rd              |             -0.26% |       (I) 1.24% |             (I) 1.50% |
-| micromm/fork                    |          (I) 1.10% |       (I) 2.46% |             (I) 1.35% |
-| micromm/munmap                  |         (I) 18.10% |      (I) 19.78% |             (I) 1.43% |
-| micromm/vmalloc                 |         (I) 11.92% |      (I) 14.68% |             (I) 2.47% |
-| mmtests/hackbench               |              0.27% |       (I) 1.09% |                 0.81% |
-| mmtests/kernbench               |          (I) 1.19% |       (I) 1.18% |                -0.01% |
-| mmtests/sysbench-cpu            |              0.01% |           0.06% |                 0.05% |
-| mmtests/sysbench-mutex          |             -0.85% |          -0.14% |                 0.72% |
-| mmtests/sysbench-thread         |         (R) -4.49% |       (I) 3.02% |             (I) 7.86% |
-| perf/futex                      |              0.55% |      (R) -2.80% |            (R) -3.34% |
-| perf/sched                      |          (I) 1.61% |          -0.39% |            (R) -1.97% |
-| perf/syscall                    |          (I) 1.54% |           0.98% |                -0.55% |
-| pts/memtier-benchmark           |          (I) 2.37% |       (I) 2.51% |                 0.14% |
-| pts/nginx                       |              0.42% |           0.96% |                 0.54% |
-| pts/perl-benchmark              |          (I) 1.83% |       (I) 1.63% |                -0.20% |
-| pts/pgbench                     |             -0.09% |           0.55% |                 0.65% |
-| pts/pybench                     |             -0.05% |          -0.07% |                -0.02% |
-| pts/redis                       |             -0.00% |          -0.04% |                -0.04% |
-| pts/sqlite-speedtest            |              0.15% |           0.44% |                 0.28% |
-| repro-collection/mysql-workload |              0.73% |           0.25% |                -0.48% |
-| schbench/thread-contention      |              0.42% |       (I) 1.04% |                 0.61% |
-| sockperf/echo-lat-tcp           |          (I) 2.88% |       (I) 1.69% |            (R) -1.16% |
-| sockperf/echo-lat-udp           |          (I) 3.93% |       (I) 5.11% |             (I) 1.14% |
-| sockperf/packet-tp-tcp          |             -0.41% |       (I) 1.37% |             (I) 1.79% |
-| sockperf/packet-tp-udp          |          (I) 1.45% |       (I) 1.49% |                 0.04% |
-| specjbb/composite               |          (I) 1.39% |       (I) 1.65% |                 0.26% |
-| speedometer/v2.0                |         (R) -1.04% |      (R) -1.04% |                 0.00% |
-| speedometer/v2.1                |             -0.10% |           0.10% |                 0.20% |
-| syscall/getpid                  |             -0.98% |           0.52% |             (I) 1.51% |
-| syscall/getppid                 |             -0.43% |           0.14% |                 0.57% |
-| syscall/invalid                 |          (I) 3.06% |       (I) 3.56% |                 0.48% |
-+---------------------------------+--------------------+-----------------+-----------------------+
+                        Geert
 
-[1] v7.2
-[2] v7.2-percpu-pgtable (this series)
-[3] v7.2-percpu-gpr [1] (Based on email review, we fixed SDEI to restore x26
-    instead of corrupting x22, and adjusted this_cpu_write() helpers to
-    avoid GCC overflow warnings.)
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-The constraints/workarounds for the per-CPU page-table series were supplied as
-this Kconfig fragment for all the different runs.
-
-CONFIG_EXPERT=y
-CONFIG_ARM64_4K_PAGES=y
-CONFIG_ARM64_VA_BITS_48=y
-CONFIG_ARM64_VA_BITS_39=n
-CONFIG_ARM64_VA_BITS_52=n
-CONFIG_ARM64_PA_BITS_48=y
-CONFIG_ARM64_PA_BITS_52=n
-CONFIG_UNMAP_KERNEL_AT_EL0=n
-CONFIG_ARM64_SW_TTBR0_PAN=n
-CONFIG_KASAN=n
-
-[1] https://lore.kernel.org/all/20260804170503.3513916-19-mark.rutland@arm.com/
-
-> 
-> 
-> Regression test
-> ===============
-> 1. memcg creation
-> -----------------
-> Create 10K memcgs. Each memcg creation needs to allocate multiple percpu
-> variables, for example, percpu refcnt, rstat and objcg percpu refcnt.
-> 
-> Consumed 2112K more virtual memory for percpu “local mapping” and a few
-> more mega bytes consumed by per cpu page tables.
-> No noticeable regression was found for elapsed time.
-> 
-> 2. fork test
-> ------------
-> stress-ng --fork 160 --fork-ops 10000000
-> fork() needs to allocate multiple percpu variables, for example, rss
-> counters and mm_cid_cpu.
-> 
-> Roughly 1% regression was found. However stress-ng fork test has quites
-> small address space, the real life workloads typically have much larger
-> address space and do more complicated works. The stress-ng mmapfork
-> benchmark saw 15% improvement.
-> 
-> 
-> The organization of patches
-> ===========================
-> The refactor and prepatory patches (patch 1 - patch 4)
-> Percpu page table support patches (patch 5 - patch 8)
-> Local percpu area support patches (patch 7 - patch 15)
-> Use local percpu area for this_cpu ops (patch 16)
-> 
-> 
-> Yang Shi (16):
->       drivers: arch_numa: move percpu set up code to arch
->       arm64: kconfig: make percpu related configs not depend on NUMA
->       mm: pgalloc: introduce {pud|pmd}_populate_sync()
->       vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
->       arm64: mm: enable percpu kernel page table
->       arm64: mm: defined {pud|pmd}_populate_sync()
->       arm64: mm: sync percpu page table for memory hotplug/unplug
->       arm64: kasan: sync up kasan shadow area page table
->       arm64: mm: define percpu virtual space area
->       mm: percpu: prepare to use dedicated percpu area
->       arm64: mm: map local percpu first chunk
->       mm: percpu: set up first chunk and reserve chunk
->       arm64: mm: introduce __per_cpu_local_off
->       mm: percpu: allocate and free local percpu vm area
->       arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
->       arm64: percpu: use local percpu for this_cpu_*() APIs
-> 
->  arch/arm64/Kconfig                   |  12 +++++++---
->  arch/arm64/include/asm/mmu.h         |   5 ++++
->  arch/arm64/include/asm/mmu_context.h |   9 +++++++-
->  arch/arm64/include/asm/percpu.h      |  37 ++++++++++++++++++++++++++++-
->  arch/arm64/include/asm/pgalloc.h     |  24 +++++++++++++++++++
->  arch/arm64/include/asm/pgtable.h     |  37 ++++++++++++++++++++++++++---
->  arch/arm64/kernel/setup.c            |   3 +++
->  arch/arm64/kernel/smp.c              |  44 +++++++++++++++++++++++++++++++++++
->  arch/arm64/mm/kasan_init.c           |  47 +++++++++++++++++++++++--------------
->  arch/arm64/mm/mmu.c                  | 165 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------
->  arch/arm64/mm/ptdump.c               |   4 ++++
->  arch/riscv/kernel/smp.c              |  51 ++++++++++++++++++++++++++++++++++++++++
->  drivers/base/arch_numa.c             |  51 +---------------------------------------
->  include/linux/mm.h                   |  11 +++++++++
->  include/linux/percpu.h               |   4 +++-
->  include/linux/pgalloc.h              |  13 +++++++++++
->  include/linux/vmalloc.h              |   3 +++
->  mm/Kconfig                           |   9 ++++++++
->  mm/internal.h                        |   5 +++-
->  mm/kmsan/hooks.c                     |  14 +++++------
->  mm/percpu-internal.h                 |  14 +++++++++++
->  mm/percpu-vm.c                       |  94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  mm/percpu.c                          |  58 +++++++++++++++++++++++++++++++++++++---------
->  mm/sparse-vmemmap.c                  |   4 ++--
->  mm/vmalloc.c                         | 138 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
->  25 files changed, 712 insertions(+), 144 deletions(-)
-> 
-> 
-> Thanks,
-> Yang
-> 
-> 
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
