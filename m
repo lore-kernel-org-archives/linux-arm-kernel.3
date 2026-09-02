@@ -4,69 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172DEC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C168C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 15:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m91ilKKuAyyzrrYKwKekM260QNNWazUKyIcIGqf2N2A=; b=fGL3i0Nx28JVytYNk2WQ/suGio
-	0KMgMhFPRdOaLjuoi3qVtwZa8t7j5e8dRTvGuaImonrPYY1cel8isiIs2f9eDc8+BJsUDpffsVlnJ
-	kWOQ6WKl+aQAw5jwRekZho0hqPsRplnmCADZdYFowOSxwmrcv8CH6tL4mZk4lUfVH1r3HJZmbCgi3
-	KKMpAnXsNvaiP4Klz8rGnzz6MY6fAvjg3ZFYrtOO3IBToNr0Hkx0VVWmc8+MoL8yPtUKyUzlS1V9V
-	kTuEYJlWvDdbzz+QafBO2E+BPXhK/ZUcT7biP0A4a0LkTJ2eJTjjPTXmXkRRPjySMbew+eSn8HGlC
-	YSTUH41Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iifnVROFuGR73huGix8dN3oep1hsUbsaiTtiz5TVano=; b=wEeyJQVDURof5kXGmN7mufxk/7
+	Fey0auyqIM/tmURHNFxRQYNpGiaonzZEvR1PQBqHruWHZAHdCgDNAPIiAcvCTJx2vzrlq4MI9zmSG
+	M+xcqymjoA3CjK5bT54UZFO8iRCn5Wq5OP+drzRCinupjo3pNUhoUxlbMPSTNJANJjF92PR0DhcDq
+	WqUmldM3cXQKlnp3QYgFw3HK5f/53ufc2vmTT8rUWney5hH9rZhewKmVdCCLUkslQ3yZbw0T05mGS
+	bIm0AyAAjAqpH+q2b/59VZteAcuDJSP+brpZn5+zV5upkHwUEOgmfefTdRUoFQEdsUvzSuAz4DenS
+	zaAYYpHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n0R-0000000F6YX-25pu;
-	Wed, 02 Sep 2026 15:36:07 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1x1n0a-0000000F6fj-3SkE;
+	Wed, 02 Sep 2026 15:36:16 +0000
+Received: from mail-norwayeastazon11013029.outbound.protection.outlook.com ([40.107.159.29] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1n0L-0000000F6Uc-32Fy
+	id 1x1n0Z-0000000F6dh-0lDD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 15:36:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 134002058E3;
-	Wed, 02 Sep 2026 17:35:54 +0200 (CEST)
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <jre@pengutronix.de>)
-	id 1x1n0D-004bxm-3D;
-	Wed, 02 Sep 2026 17:35:54 +0200
-From: Jonas Rebmann <jre@pengutronix.de>
-Date: Wed, 02 Sep 2026 17:35:44 +0200
-Subject: [PATCH 2/5] spi: spi-sun4i: sun4i_spi_fill_fifo(): always apply
- A10 FIFO fill level workaround
+	Wed, 02 Sep 2026 15:36:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hSuoKy26nVtY/6GeVLagsjC1OB2SXKLf6I2+trrXhrO4P2mWixPFEjX1C7l8v+kb9hQEbYkZVZvadSiEoyOgwTUa0jrh7Yxe0Q6UwOtGC2kb/2Pb3gzYePhqpRBFQseSFt9Um5nAUHngzA0WdSCKNFuTlQbqfPVsVRNtPP5yd8+ldJvb9aTBo6TXm7CyiEx6F2/oOjrEIRsT1TxFhkLd9mTnN2ckqq9zPYxzjC2Ws2L17m9HZ/anp86NlYNgOocefj4P7zfvWlgnza7EDPMEZYzv1x332EZehB61aWEDV6mll3c7YtHHYJX0Kp44V5eC6KIXO5B1Rja6Atia8arBIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iifnVROFuGR73huGix8dN3oep1hsUbsaiTtiz5TVano=;
+ b=j9JXalIYkmi6LKE6sGojrkHbtX5hkvnf15x1nEPyVnHywmpOcEWJ9Yz8n6DSLOQgBObRLH/G4rtqsFcVzltSTZluwKlUJK4di/wKFfauL8GDeUkXsZCbkGNFHsKirWuxx7J/hoqWhvQEqIp4ZAw18enLd119U1ycZ76JPGp8qQPtsj9N+CFibUa/Itg9Scx9L422mhq1X5eTnUEGeky5HBQKRfnZcqbO4yv3miSMkggZSj/KgpLCHJnplHvl+E3eZVv6kPwrijPvebMc3WXF2WrCV6zsurbOSMpldTHlakWVeKTvq0TWfaqbMBK7kYaUgk0i0oGmaJ46J9IQLHi5pg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iifnVROFuGR73huGix8dN3oep1hsUbsaiTtiz5TVano=;
+ b=lsiBU86cwISf2pCF0BZ3o7atXugVi/N4oq18bFhpYPbQ99Vqoje3OKwWBIseGvSDqkb0qsMfsulgmU9+G64CrbTP/h8IzHPrAzYILEcZNNuEHRlBzKoNP49BwMQ9r4pl4mfdsNXHW9gHU0wh5ZltKFWsOMwh4CZJR7PPMXkWDO0OKcV9AjEi9ljANbiJH6PmKc/Kucc199OrURGgUS5st5pKjrOizhDk/PatWdBM4a1s05nKBXpZQJz1bh05Qa0EZfWNaiQ0ziXo6qNGf/jERlZENHetChvseoBFrUVPXNCbCODNeYybFeAWRCqqcnMpmJFdrzswZW2DdfXXeRujdw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB10898.eurprd04.prod.outlook.com (2603:10a6:150:214::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
+ 2026 15:36:07 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Wed, 2 Sep 2026
+ 15:36:07 +0000
+Date: Wed, 2 Sep 2026 11:35:58 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Allen Pais <allen.lkml@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Suraj Gupta <suraj.gupta2@amd.com>,
+	Marek Vasut <marex@nabladev.com>,
+	Folker Schwesinger <dev@folker-schwesinger.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 19/34] dmaengine: xilinx-dma: use dmaengine BH instead
+ of tasklets
+Message-ID: <aphCXtVkfbicBiBC@lizhi-Precision-Tower-5810>
+References: <cover.1785183549.git.allen.lkml@gmail.com>
+ <cover.1786384168.git.allen.lkml@gmail.com>
+ <67afeabe4a9cc241704b36875e766d7d129465ec.1786384169.git.allen.lkml@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <67afeabe4a9cc241704b36875e766d7d129465ec.1786384169.git.allen.lkml@gmail.com>
+X-ClientProxiedBy: PH8PR02CA0021.namprd02.prod.outlook.com
+ (2603:10b6:510:2d0::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260902-spi-sun4i-fixes-v1-2-19985ef75673@pengutronix.de>
-References: <20260902-spi-sun4i-fixes-v1-0-19985ef75673@pengutronix.de>
-In-Reply-To: <20260902-spi-sun4i-fixes-v1-0-19985ef75673@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Alexandru Gagniuc <mr.nuke.me@gmail.com>, 
- Olliver Schinagl <o.schinagl@ultimaker.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@linaro.org>, kernel@pengutronix.de, 
- Marc Kleine-Budde <mkl@pengutronix.de>, Jonas Rebmann <jre@pengutronix.de>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2965; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=TyIg6fa906BvVGJmUbL2uFkFKtz0nx9DEAKb+ItgMx8=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsia4RQ+4Xrodu8HlxVVLhXde9cvvOPvljyVa+q/BA+rL
- FXcMu3EnY5SFgYxLgZZMUWWWDU5BSFj/+tmlXaxMHNYmUCGMHBxCsBEvs9jZHg5a0LcLa3tGXo/
- uP4daat4MTnVhlmujmOW30zW9et+fDJn+MPF3y5iOll2xyzj5mffUlbd8pov/Wf+lJqfHL8SJ8Y
- 1erMBAA==
-X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
- fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10898:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6ce5c53-e9c8-4b36-b3e9-08df0907e83e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|19092799006|10067099003|56012099006|4143699003|11063799006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: QGqvXddS85WNNFSJE4EWT4Ha4tyxSaTxdW8wmGOx/yBCXRn+Yff3PREk1XxveB+ej6QXvsb2YbvAMpvV4G1eriFjzSG2V+mAZkY794tWouTxmVxIh/idt3yY22xHub0agwaTdZy4HJzDtIiK7eXb+80IAEtdDlwGTyNIls1nPzKbAWAeRmdLB7Obsiy650YtxK8GpKb+3/eNe7QXiw9m0Eq72mDR26KoZunAL+QRT7BTnLV6NjgaGjih1Zp/JdyqPWq1/4SMTI8NVvyeXXi2x7QT5a3IyiKvP66DW8LLB7V2QIwUQuHHzJlCC81TphC5tQliy7r+05+AQmAnMQY/oFtD3vZXOU1SSy/5vvPBz6rCFdMpMFsFCYK/NKboWk/Cu9R/hN80zV/r0DcSuinewtNHNFsM3d0qBc73cBQx02j2KKWwC+maO9oNhMpNjeYUKtq/9jEnNFuUcnfR8rSgkgVoClQOBzeUf4NIUJ/Gf7feVm51ymwyzdCkDyK6fXg5d+deAZbCcCDFkE4QQG0U+EKrxpyynVDWW6Wlz4SEv8so04G8IZqV0WWsmxGEtNNctJR4PJYE8l+dafK+bn2GASWkWDSPocECWGidOY9p/PpXgo7kUkBq8mRx5vOyCAnoAFybmCipbxWFyR56msw6GJHIC3BjXNoQPFBYMc8FsOs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(19092799006)(10067099003)(56012099006)(4143699003)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?00DIaSXExcgvTDcaYozhF3n3UnoRzYPZBe+1Vqwe2HAtyEIrWk/dVFOL8qb9?=
+ =?us-ascii?Q?skf/DEKOZHQ1UL+s+feL9ojM5gMBM5GAcobRQcMFKEhMM97XEy9o+XrOz1FM?=
+ =?us-ascii?Q?nGZFWNU2i8fsUytOT3y1sdjxvYxidnmgw/cU/TrMbEbWO3pCABl4+6zEgjqM?=
+ =?us-ascii?Q?9IxS8S5f+N+BJiJSdguvliXEFs8EBoRvt+SANBWO84+/ucXPsbGfdsGmVSGT?=
+ =?us-ascii?Q?AFoQPdQASxFCcmvqVkj4+mUxwd717lc7YnRt7k3FTf6CG91GKizc0E9lgSDo?=
+ =?us-ascii?Q?7NpmD+Ux0MHvEXYnD/JkhuDEsVHGn7YqW8R8MDxLCqcW5ZPU9qB/sqY0YmH8?=
+ =?us-ascii?Q?NUT1j8VZJAVsySKWfQyGWASOfccEINf763LDsNS/boBghTNQKd8v+ZaPb8Fi?=
+ =?us-ascii?Q?jN8h1NRNM8WQCcbcI/ufNNcOvdrVYArAJd/nEcrSa9gbGIX2hMzxD0LQUbVe?=
+ =?us-ascii?Q?RPIpn+HniXVjX65LHlTIITYvwgJ60ikgmWBL5dQUqyGidxVOln3MVt8M/ckU?=
+ =?us-ascii?Q?txzF/09brhvfIVGMEZrqMsUw3osPcfYCypp4kuTi8iEYybRGpuc5JPZxH+zy?=
+ =?us-ascii?Q?MnHsYpUxsLEC0nUwuN6Jhe+GhxMhuAETPBeRvMo0wy23sCNTHAsiihsVizsM?=
+ =?us-ascii?Q?0aPS3UWUhYxiUaFa6+7MHpsqffv+ltwAzQzliFX+kHUCi0teiIQ5c58YPBIL?=
+ =?us-ascii?Q?1Plc+ssz/u55M6hwBW1w3nsH/4PvDzETLMlcJIaF04AlSH/2YuPXDHIX+ecD?=
+ =?us-ascii?Q?mJvwEFM9OceusNEAB5fAUfZTBV0zCSagrb8a8teF7nU/aOl4tv6pT1OPzZie?=
+ =?us-ascii?Q?BTEpie0iJyII/ViLvDboszykaNtqWRodE4n2PwJTTZhPh73JrizMzQPT0pGQ?=
+ =?us-ascii?Q?ern1nKupnDAYAN69M1/DkvWS1MHVf9pUuDW7A1cCAgvfow6a1hGcJb4j3RS4?=
+ =?us-ascii?Q?73+4iWAVbN6m+WTln/3IdCtxuqDk0Pd0LLujLk80aVYifoqF9zO4GWcAt8Bq?=
+ =?us-ascii?Q?JVJ7s62g3ISsx0sCquRpTD3izqFtxpB5VY8ASW6mbcfA/xvj3H1pzh2281lh?=
+ =?us-ascii?Q?sDd9uVwN9hj6JlqUX+IiYi9sKmKioUR06Bkemd9Hm5Rm2JymRr+W9kRXIno9?=
+ =?us-ascii?Q?V5dAIxjkF4CbegsWhYvEqBF/5n94kJTPZO+a1Sm8JcLALwpOOSCQnPIXlP6v?=
+ =?us-ascii?Q?z30J2mShpNRgABPWVR0UU7M+M5dYOf0NjGv8lNkQYs9Hywo762NPK8CWlmvf?=
+ =?us-ascii?Q?jywLjwLOZhgV9xx97c4Xusr3sTs1UwnrAWBz8MpjrSaFZPitfX8bXUUTUW/K?=
+ =?us-ascii?Q?RuyA699reX7U4oR4QeenLfHLX1CReZc1vx7Nziwy1E1Z9+yn8oFZvsGacdgE?=
+ =?us-ascii?Q?h7pZeDLMv1WfhoNzuK9NdDt7pTDvpYuEjvefXhqlbYtfgL0aHQl9n/rmAgWh?=
+ =?us-ascii?Q?00jyYkmg2q9i2A+tXmKhJ668j02+FJ66Witl2gAQp8nmgOP8odGWIVjegEVx?=
+ =?us-ascii?Q?P9utGkb6j8E5AmnXFsYdroT9/Zguh81mU4+cmj1d3vsZ8cM7dEmcDdxtZfN3?=
+ =?us-ascii?Q?9xvNBf93V/iBmvW7uXBNAleveD5K+UeV10/D2PPvUXv0QD2rmnOrxKyqBjBT?=
+ =?us-ascii?Q?xdqVK7cPaYKvHL7bIMbRBx51I0cizfsgpw6/39rHPRSX740HH7rbNS8JcJbu?=
+ =?us-ascii?Q?yMMBxpPAt/tm5Ag5i+EwFoZ8i29SmOJjhjVsAeVezsqdiBwn+xfhmpWRaPM3?=
+ =?us-ascii?Q?phpz3oYw1l7Uyh6ZKHr1lSt9/1Ka+S6ly8lVTGwx8tj1pb50WaZQ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6ce5c53-e9c8-4b36-b3e9-08df0907e83e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 15:36:07.8758
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mxRyqzIYeklNCZ14dGlN1Ywh3POHoW6Vh/HhxerWbqzTK1SClAtzh1ySjIxk/BHXx7aQFacG3+PWyZ9JiClgl5j0OX7pAyLFLrW8W9ut4bfBANeBVIwaoRaQQZvrINIa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10898
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_083601_923111_49FB409F 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20260902_083615_228278_DB314057 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,90 +146,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Kleine-Budde <mkl@pengutronix.de>
+On Mon, Aug 10, 2026 at 11:09:20AM -0700, Allen Pais wrote:
+> Replace the per-channel tasklet with the shared dmaengine BH helper.
+> The handler continues to run in softirq context while dmaengine owns
+> the common scheduling and teardown mechanism.
+>
+> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
+> ---
 
-In commit 6d9fe44bd73d ("spi: sun4i: fix FIFO limit"), the TX FIFO is
-filled max to SUN4I_FIFO_DEPTH - 1 (= 63) bytes to work around
-timeouts observed on A10s SoCs.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Commit 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO
-size") added support for transfers larger than the FIFO size. This
-commit did not consider the A10 workaround (limit the TX FIFO fill
-size to SUN4I_FIFO_DEPTH - 1 (= 63) bytes) for refilling the TX FIFO
-in the IRQ handler.
-
-To apply the workaround independent from where sun4i_spi_fill_fifo()
-is called, remove the length argument from the function and directly
-take the max fill level of SUN4I_FIFO_DEPTH - 1 into account when
-calculating the free space in the FIFO.
-
-Due to the lack of HW this patch has not been tested on an A10 SoC,
-but on an A20 SoC. It was not possible to reproduce the timeout on the
-A20.
-
-Fixes: 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO size")
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
- drivers/spi/spi-sun4i.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
-index 2e2324453905..3649bcabcc9a 100644
---- a/drivers/spi/spi-sun4i.c
-+++ b/drivers/spi/spi-sun4i.c
-@@ -142,15 +142,21 @@ static inline void sun4i_spi_drain_fifo(struct sun4i_spi *sspi, int len)
- 	}
- }
- 
--static inline void sun4i_spi_fill_fifo(struct sun4i_spi *sspi, int len)
-+static inline void sun4i_spi_fill_fifo(struct sun4i_spi *sspi)
- {
- 	u32 cnt;
-+	int len;
- 	u8 byte;
- 
--	/* See how much data we can fit */
--	cnt = SUN4I_FIFO_DEPTH - sun4i_spi_get_tx_fifo_count(sspi);
-+	/*
-+	 * See how much data we can fit
-+	 *
-+	 * Filling the FIFO fully causes timeout for some reason
-+	 * at least on spi2 on A10s
-+	 */
-+	cnt = SUN4I_FIFO_DEPTH - 1 - sun4i_spi_get_tx_fifo_count(sspi);
- 
--	len = min3(len, (int)cnt, sspi->len);
-+	len = min_t(int, cnt, sspi->len);
- 
- 	while (len--) {
- 		byte = sspi->tx_buf ? *sspi->tx_buf++ : 0;
-@@ -311,12 +317,8 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
- 	sun4i_spi_write(sspi, SUN4I_BURST_CNT_REG, SUN4I_BURST_CNT(tfr->len));
- 	sun4i_spi_write(sspi, SUN4I_XMIT_CNT_REG, SUN4I_XMIT_CNT(tx_len));
- 
--	/*
--	 * Fill the TX FIFO
--	 * Filling the FIFO fully causes timeout for some reason
--	 * at least on spi2 on A10s
--	 */
--	sun4i_spi_fill_fifo(sspi, SUN4I_FIFO_DEPTH - 1);
-+	/* Fill the TX FIFO */
-+	sun4i_spi_fill_fifo(sspi);
- 
- 	/* Enable the interrupts */
- 	sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TC |
-@@ -373,7 +375,7 @@ static irqreturn_t sun4i_spi_handler(int irq, void *dev_id)
- 
- 	/* Transmit FIFO 3/4 empty */
- 	if (status & SUN4I_INT_CTL_TF_E34) {
--		sun4i_spi_fill_fifo(sspi, SUN4I_FIFO_DEPTH);
-+		sun4i_spi_fill_fifo(sspi);
- 
- 		if (!sspi->len)
- 			/* nothing left to transmit */
-
--- 
-2.55.0.123.gf60db8d575
-
+>  drivers/dma/xilinx/xilinx_dma.c | 20 +++++++++-----------
+>  1 file changed, 9 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 404235c17353..b142c9c0583c 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -402,7 +402,6 @@ struct xilinx_dma_tx_descriptor {
+>   * @err: Channel has errors
+>   * @idle: Check for channel idle
+>   * @terminating: Check for channel being synchronized by user
+> - * @tasklet: Cleanup work after irq
+>   * @config: Device configuration info
+>   * @flush_on_fsync: Flush on Frame sync
+>   * @desc_pendingcount: Descriptor pending count
+> @@ -441,7 +440,6 @@ struct xilinx_dma_chan {
+>  	bool err;
+>  	bool idle;
+>  	bool terminating;
+> -	struct tasklet_struct tasklet;
+>  	struct xilinx_vdma_config config;
+>  	bool flush_on_fsync;
+>  	u32 desc_pendingcount;
+> @@ -1115,11 +1113,12 @@ static void xilinx_dma_chan_desc_cleanup(struct xilinx_dma_chan *chan)
+>
+>  /**
+>   * xilinx_dma_do_tasklet - Schedule completion tasklet
+> - * @t: Pointer to the Xilinx DMA channel structure
+> + * @c: Pointer to the Xilinx DMA channel structure
+>   */
+> -static void xilinx_dma_do_tasklet(struct tasklet_struct *t)
+> +static void xilinx_dma_do_tasklet(struct dma_chan *c)
+>  {
+> -	struct xilinx_dma_chan *chan = from_tasklet(chan, t, tasklet);
+> +	struct xilinx_dma_chan *chan = container_of(c,
+> +			struct xilinx_dma_chan, common);
+>
+>  	xilinx_dma_chan_desc_cleanup(chan);
+>  }
+> @@ -1898,7 +1897,7 @@ static irqreturn_t xilinx_mcdma_irq_handler(int irq, void *data)
+>  		spin_unlock(&chan->lock);
+>  	}
+>
+> -	tasklet_hi_schedule(&chan->tasklet);
+> +	dmaengine_schedule_bh(&chan->common);
+>  	return IRQ_HANDLED;
+>  }
+>
+> @@ -1955,7 +1954,7 @@ static irqreturn_t xilinx_dma_irq_handler(int irq, void *data)
+>  		spin_unlock(&chan->lock);
+>  	}
+>
+> -	tasklet_schedule(&chan->tasklet);
+> +	dmaengine_schedule_bh(&chan->common);
+>  	return IRQ_HANDLED;
+>  }
+>
+> @@ -2654,7 +2653,7 @@ static void xilinx_dma_synchronize(struct dma_chan *dchan)
+>  {
+>  	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
+>
+> -	tasklet_kill(&chan->tasklet);
+> +	dmaengine_kill_bh(&chan->common);
+>  }
+>
+>  /**
+> @@ -2745,7 +2744,7 @@ static void xilinx_dma_chan_remove(struct xilinx_dma_chan *chan)
+>  	if (chan->irq > 0)
+>  		free_irq(chan->irq, chan);
+>
+> -	tasklet_kill(&chan->tasklet);
+> +	dmaengine_kill_bh(&chan->common);
+>
+>  	list_del(&chan->common.device_node);
+>  }
+> @@ -3075,8 +3074,7 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
+>  			str_enabled_disabled(chan->has_sg));
+>  	}
+>
+> -	/* Initialize the tasklet */
+> -	tasklet_setup(&chan->tasklet, xilinx_dma_do_tasklet);
+> +	dmaengine_init_bh(&chan->common, xilinx_dma_do_tasklet);
+>
+>  	/*
+>  	 * Initialize the DMA channel and add it to the DMA engine channels
+> --
+> 2.43.0
+>
 
