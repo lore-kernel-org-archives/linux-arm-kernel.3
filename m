@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4F9C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519D0C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRDozR9CA5cf4MGXA2Vmt/BC/L2ZUVuUBfpnwpPiwyo=; b=CHAjWfGCJ4PEfD4f5G6pVtxlB6
-	LLA2lDpLYB7dJ9vy6QHKTXhqfCfXJdtWLF3EZmmCAiFa7QV9zHDWHQI0GDHrfS+sugdzSHXh4H3ru
-	LGMbvekbkMszBDFChFK2O/ZXhqfT6B7eHPkmbjEfEI0WVtdj5lL0ZSQoInLoGA/OWQxtpD3yuRpfS
-	WolcjrJkG6KCnjC2I58Sj0K9JvrKzMZdSdMs5OEWIWXAptGeO7ozAB6LhtRj5pqBXcCUbqNL0Kcnz
-	FERF4o+WDuZEgKGv1w7ELcCrCxCysVupWOIykax3DNBkgOiP/19tfYywE3rQ6GKF6hYn7wwhwG4lI
-	PtOQOhXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jIXfuktxBX9npVbn29PNwEDcICMHnTCbs+iOm5eKoxw=; b=SMAltDtOB9ZJLHGM9p6c3oTXfz
+	2CIdM5xdFgfHJ8cehEklNrq1Utb0UxN4XPfwtiJcFvBOtAh4y8BVjfwm02lHkxAoAb5uq5l33ImHI
+	jj84jur1jp5zo+2gO78t9m3yOLoz8a0LYQwfX1H6Kw/1JWkkmu5NOO79GFal7dWbMUJ1wDaMWNs5h
+	ge3X6CYdTaihiZgaoNOLahsMqDIgV4oc5hVWZHSt5Tie/szWJacTtUweZlnEbrovOWvN8Q21ctbs8
+	/glxIol8yznSY74PDzU17gyG8Ezg9yt5acQHp8FWTcbAvjQY0GK9W3BriPgBK8V2gcooIi8kj+Wuy
+	opy9zpkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jgW-0000000EcHb-24ID;
-	Wed, 02 Sep 2026 12:03:20 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1x1jmw-0000000EcoZ-10V2;
+	Wed, 02 Sep 2026 12:09:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1jgU-0000000EcGc-1Chn
+	id 1x1jmu-0000000Eco8-3Ych
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:03:19 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3AE31107AF4;
-	Wed, 02 Sep 2026 14:02:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788350584;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=yRDozR9CA5cf4MGXA2Vmt/BC/L2ZUVuUBfpnwpPiwyo=;
-	b=gyEFGtjERqBwEL/tao6ohapRRXoTPIu00k14Jc+WAiivcGlbvP/MvMnaPZnResbCMxpPgv
-	ScSzSFCilANDS7CGXlSCeajqbmQV1cEP3agJu1q7t1RWlatD9Hn7GvRo3buLPY2cUMAaZI
-	E0SWnkCi6XmwrbdGmbhI+PwDHSq4iSzq/g8WOx+2zR6lou9zZymVrjPB3l+bFECjLfCeer
-	xU94yNLvWYHsIk440NnxuX9PxYgjPRtQKPxzq4y9QyuwNfCeQM9I2d5vU7waFhzQ4MrMvb
-	1dyPvawnbFr6VouFfEIC8/fVIDAEmhIR4B6rG3csNkenYTKkYZIZvZt312R4rA==
-Message-ID: <88c63929-611e-44f8-b18a-360d173c8925@nabladev.com>
-Date: Wed, 2 Sep 2026 14:02:58 +0200
+	Wed, 02 Sep 2026 12:09:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 387DC43AF5;
+	Wed,  2 Sep 2026 12:09:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35051F00A3D;
+	Wed,  2 Sep 2026 12:09:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788350996;
+	bh=jIXfuktxBX9npVbn29PNwEDcICMHnTCbs+iOm5eKoxw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CQFuAyuNHerDnWsaFITNdyKdYk0CDRDVo85WOXqItPK45gd2qprMEyHWZtia5OZSD
+	 F+oNuD69Rox5filuXKINVTARp9sP3eAtoharI+a3M2Rss1fvn2x2VqC6o2bnFRH5lX
+	 sWfvLXb1DLtYNwb7jeTUmS/hQ/87QH/5c2hyMiXPXNLunXSDqWjqqIHT7fx0mtt1cb
+	 p1IfB55BWUQcWZ/99vYKL/i24P6KmHe42oWKm5A/Bq3divRGIFn/AZs9yj28TGXlGE
+	 TBOPKGpJU+vTbGBPFq8cP7Iz3+tYBQsIeMQbIxlczwpxE4pmP+9v23ctQP2IEoPg8k
+	 nC6gFCN9OuuFA==
+Date: Wed, 2 Sep 2026 15:09:47 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Eli Billauer <eli.billauer@gmail.com>
+Cc: David Laight <david.laight.linux@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Ritu Agarwal <rituagar@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
+ kmalloc()
+Message-ID: <apgSCyj-h2xVc2ss@kernel.org>
+References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
+ <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
+ <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
+ <20260831123937.32255a49@pumpkin>
+ <apaF1HUtJnstuUN4@kernel.org>
+ <1729fb06-6beb-f8ef-3e71-47fc3f00345d@outbound.gmail.com>
+ <apcPg_y-HsMki7we@kernel.org>
+ <9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH v5 1/2] dt-bindings: arm: stm32: Document
- st, stm32mp23/25-syscfg subnodes and cells
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- Yannick Fertre <yannick.fertre@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- devicetree@vger.kernel.org, kernel@dh-electronics.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
-References: <20260831231359.136475-1-marex@nabladev.com>
- <43ea0c7e-44f2-4ec0-ae82-ee60203c8842@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <43ea0c7e-44f2-4ec0-ae82-ee60203c8842@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_050318_542395_EFCFE906 
-X-CRM114-Status: GOOD (  16.37  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/2/26 10:55 AM, Fabrice Gasnier wrote:
-
-Hello Fabrice,
-
->> @@ -57,10 +68,17 @@ allOf:
->>     - if:
->>         properties:
->>           compatible:
->> -          const: st,stm32mp25-syscfg
->> +          contains:
->> +            enum:
->> +              - st,stm32mp23-syscfg
->> +              - st,stm32mp25-syscfg
->>       then:
->>         required:
->>           - "#clock-cells"
->> +        - "#address-cells"
->> +        - "#size-cells"
->> +        - phy@2400
->> +        - phy@2800
+On Wed, Sep 02, 2026 at 01:41:54PM +0200, Eli Billauer wrote:
+> On 01/09/2026 19:46, Mike Rapoport wrote:
+> > > * Does vmalloc() guarantee that non-pageable physical RAM is allocated when
+> > > it returns?
+> > It's not pageable in the sense of demand paging. Some architectures lazily
+> > synchronize vmalloc page tables and this can cause page faults that will
+> > take care of the page table synchronization.
+> > 
 > 
-> Hi Marek,
+> Thanks for this clarification.
 > 
-> Is just saw the discussing on V4 with Conor. That's mainly a thought:
-> I'm not sure USB is required, e.g. mandatory for a product, even if not
-> so likely (I don't know if this could exist out there).
+> This sounds like a showstopper to me. Immediately after the allocation of
+> these buffers, data from the USB device can arrive at 400 MB/s. If the data
+> flow is throttled as a result of handling page faults while trying to write
+> the data to these buffers, this could lead to an overflow in the USB
+> device's own RAM buffers. This is because the USB device is an FPGA, where
+> RAM is an expensive resource.
+> 
+> So using vmalloc() may result in a malfunction in the data transport where
+> the __get_free_pages() would have been successful. This outweighs the
+> benefit of a somewhat higher probability of success in allocating very large
+> buffers, and surely the improved aesthetics of the kernel code.
 
-I assume you have two use cases in mind:
-A) A wall-mount HMI device with only display/touchscreen (No USB plug)
-B) A RPi form evaluation kit with all kinds of plugs (Yes USB plug)
-?
+kmalloc() still works, just like __get_free_pages()
+ 
+> Regards,
+>    Eli
+> 
 
-> Still, the nodes
-> could be tweaked (deleted) in a board, to reduce dtb size in such case.
-> I'd relax, e.g. let these 4 props as optional. Do you see any drawback ?
-> That can also be relaxed later, if the case is seen.
-DT is a hardware description. The PHY IP is not removed from the chip 
-silicon only because the USB signals are not used on that specific 
-product. Therefore, for device type:
-
-A) without USB plug - no action is necessary, the PHYs are already 
-disabled by default in SoC DTSI
-B) with USB plug - board DT sets status = "okay" on the PHYs and 
-controllers.
-
-As for reducing the DT size, removing DT nodes for hardware that is 
-present in the silicon negatively impacts the ability to apply DTOs 
-outside of the kernel build process, so I would argue against 
-preemptively removing any DT nodes from DTs to reduce size.
-
-One exception is U-Boot, which adds additional generic bootph-* 
-properties to a subset of DT nodes which should be available early on, 
-and also contains a mechanism which reduces DT size for its U-Boot SPL 
-which operates in severely size constrained environment. However, this 
-is a special case, where removal of nodes from the DT is justified, 
-because in that case, it is certain that those nodes would not and could 
-not be used, and would only waste time.
-
-On the contrary, the DTs that are used to boot Linux should be complete, 
-because the user might enable an IP in there by setting status = "okay" 
-after reaching U-Boot shell, and before booting Linux.
+-- 
+Sincerely yours,
+Mike.
 
