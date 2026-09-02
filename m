@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B81C624D5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE20C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncn6nEjTd/VSMpTYs+agV/Z974c9d5sxAMfBOFW/qiU=; b=YLjM934eDL8eKlLMC9oGEAdi/y
-	RzfvGI0Wzq47VM8yfWSqf3YeWXmkCYwrTPhaW03Bi/Z8g3pNcUyr6+S/uB6KxbOJ4C5t1o7V1y5m+
-	N/yHD88NczpDBxlFmwunWlKEmJkr/19/KvLIjV3iFE39GkeoU3D0Mfk6/4o6t1zf0xyTakydPenHj
-	X4QGEVru5lkFRWMgzZAr1UCtzmYNrY91w7sBkfgQTdZIa5PTAAEuicDxX4IxM61Wgy/jv02wN0VqO
-	CFLNgZIFCclSM3sJR/TJ9g8rkOF8Yzaej6uW9tKdyiNlrbUcL3T41SbigFHmmWHLHmGIAJD/LFP+7
-	f0RqPvQQ==;
+	bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=; b=mH5OhqP9eDlmqSokgte0A+Dtr0
+	F2Pv1Tb0kLeHAbL2FBSFc8pePtFnFV05AU/35Rre0Sr5FXVBIfceuG73/y4zo77yXn/RP4FGiQeFN
+	s14Ie0YKcngtlPDhXJRYCIVM+c0pzK5M9g7/BjGxB8QS69iNn2Y3F8H3n4BV8TxtSbN63wo3LbnAI
+	dYt1Kwl48vQ3gv8bpJhBhfoCF7KXaXecDJUjyqI+yPxEwWWao78kbR7BUyYeEDe2dzqmfjUQUxt4W
+	Lddrr9YUC39hCjPgGxBumrz0qnyzPAOFCvQDbHi4BrsVW6iBozbnB4ditfElhCE93YAZQfyZMKpvT
+	h3kLblqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1i75-0000000EKbL-2W21;
-	Wed, 02 Sep 2026 10:22:39 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1x1i77-0000000EKeY-1AXL;
+	Wed, 02 Sep 2026 10:22:41 +0000
+Received: from mail-centralusazon11011051.outbound.protection.outlook.com ([52.101.62.51] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1i70-0000000EKXP-3aQr
+	id 1x1i73-0000000EKZA-1l9c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 10:22:37 +0000
+	Wed, 02 Sep 2026 10:22:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Hkd32MqBRaloeESLwBAxkbxTa+KOx/ycZRWzBwdfSQBIKhxsMDthmu5HK33xLC/wkKAhnpIaq0TDdlPiqIQ+fJ9RNgLBRNdTx9/FSRpNjmfDHOthN4Zkm9rZdsNmD0OhVwoBEYR6Ki461MkJ4PoZFZejFytLl8vfdLc499aW3Ta0Wq3JsAk12wcUouCJPmKresLC7Ekx9g7+8PF/ncTsGA7SBmGTuDcjVcpKlHZB9Kgs0SU2cdhzYgIIoEfLnLcQMIvy6Z54qauO9p9ElDe77B4voyELrdsVDzEgmvED2sfZggAY7r91YLEm4qvJOKdGao0MGcCnjWKqBJt5Iv0zKA==
+ b=SQZLYht0AQkBr1wyFS8CXxE8JU6aQLmIaQVIuSwuco2roasmzNSUc5SDApVvcZ7P7sxhSG7Gwlk33kUx3DDnqiYMC+N39B1Ub3A1auKImY8K7yKN1ulNKkPPctLzEY9nBLqLVvL7mB0oqq2xDpveU/7A1QlIQKDQFDfOCb5eknYHSYuNWKdmu5WoYshJyysTMpW0ryJjiiTy3V4v2Zped/6hN7AdZhv0QLoN/GmdCDwEY9UPWF36uBRRye0HLH7QKVi0Hc0p1HRa3rvegrcR4Vcu8Rx/AqPgN6ILoO7AIFGQUru/+wrUuKwjYL8xXIqrYOE6XqGVNTKsiTXBI7sGwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ncn6nEjTd/VSMpTYs+agV/Z974c9d5sxAMfBOFW/qiU=;
- b=Lt3hq3Nu/ipdDnN47UEg937h1gDogdgY0hB+g7fdcKfckap2TvRLSU8/SqdTRi/9LRdt41VC9ZMaqvZiz3/KoxVbohHB2udfASm6o45k77Mbk1JT2tVFJptuH673XilI8X6/7TKkROTXlU304NZU6ZTey8O+KAG5mnewA7RRmyqyTTjn3a30pwzAZecgdEgt/H7TfbwzbAd46Swp6VXVzpPidndpaZMwmQQhHp6sb1ZrSLdqAcewnHrHIyfzPj245cj3UKGvyFyZGOJlKehE6wot/6iN3gGhwle+2oDgiR80xiELA0iy7dJHkXXs8P4X20ls3BBxryzs4Mi2+HE1rA==
+ bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=;
+ b=i6rhrn7vMLW66GkH5GcRG9YEEWsQa/MjFUGawSp62kQcI0xAI3I43NmDLoPU+FJpvAhniOErUOW8mZOahKSXnKxRUYXPTj8FmvYOo6xhXWZpoi/Ohc56PCg7XjVjJhZ4NzwEk74narvgtiEU5fLIuzCyhLebqHoI5+7J+QmaKL41LmxWzaAelr1GuIVqg6jUSM+4T15z7TVFPUu46sY4Kp2FV3Ep18IExL8pn2kAmmypF2L3oCeSEqhXc4WxFzzDfzMcsNfiCg/kxoalKRmSvB6dEbev7ox7mSR2al1ZO10uLPCHvkVkvmyiV9BwtmjbUlhBDExf7+c05CY5IfCiEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=aspeedtech.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ncn6nEjTd/VSMpTYs+agV/Z974c9d5sxAMfBOFW/qiU=;
- b=A8NhcyhLHSAUl6FgBOIpdcefyRitQe94pUcAEfqgUjjB35EdgMhc8AZxZRC1xDuOfuu/rSm7Xn1kM0WTenXg73OOPayZLHotIAXgGjav34S4qsO1Lo4in05CMlOvOcfph5oi1TGwUcsa5fp+dL6cDvbdNWYXSeVuvn50pc5GSTY=
-Received: from BN0PR02CA0038.namprd02.prod.outlook.com (2603:10b6:408:e5::13)
- by DM3PR12MB9287.namprd12.prod.outlook.com (2603:10b6:8:1ac::18) with
+ bh=EMgFVzONncenVzajSBplgoSS+5bazk53iesp/vegqe8=;
+ b=ovhOqfvLpN0j4vM9/zga+wiYiK/9DJMpv61a7463/rspjjjZ0fhxRG2IEhW02HEgmCd2/P0NuJK5B4DvuYG8eFy5dAw7fWJsPF3R7TCmB1tcIFDykGafU03lLseXh7VpHLTLE6Esou86sw3osIntaq+B9x7cR7BhWUj1oUDvIfI=
+Received: from BY3PR05CA0052.namprd05.prod.outlook.com (2603:10b6:a03:39b::27)
+ by DS2PR12MB9711.namprd12.prod.outlook.com (2603:10b6:8:275::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 10:22:14 +0000
-Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
- (2603:10b6:408:e5:cafe::e) by BN0PR02CA0038.outlook.office365.com
- (2603:10b6:408:e5::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed, 2
- Sep 2026 10:22:14 +0000
+ 2026 10:22:31 +0000
+Received: from SJ1PEPF000023CD.namprd02.prod.outlook.com
+ (2603:10b6:a03:39b:cafe::41) by BY3PR05CA0052.outlook.office365.com
+ (2603:10b6:a03:39b::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Wed, 2
+ Sep 2026 10:22:31 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000023CD.mail.protection.outlook.com (10.167.244.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 10:22:14 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 10:22:31 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 2 Sep
- 2026 05:22:11 -0500
+ 2026 05:22:30 -0500
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Wed, 2 Sep 2026 05:22:08 -0500
+ Transport; Wed, 2 Sep 2026 05:22:27 -0500
 From: Colin Huang <colin.huang2@amd.com>
-Date: Wed, 2 Sep 2026 18:21:15 +0800
-Subject: [PATCH v8 03/11] ARM: dts: aspeed: anacapa: Add DVT devicetree
- inheriting EVT2
+Date: Wed, 2 Sep 2026 18:21:21 +0800
+Subject: [PATCH v8 09/11] ARM: dts: aspeed: anacapa: Add LPDB fuse monitor
+ GPIO expander
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260902-anacapa-devlop-phase-devicetree-v8-3-69c8eb2a7cda@gmail.com>
+Message-ID: <20260902-anacapa-devlop-phase-devicetree-v8-9-69c8eb2a7cda@gmail.com>
 References: <20260902-anacapa-devlop-phase-devicetree-v8-0-69c8eb2a7cda@gmail.com>
 In-Reply-To: <20260902-anacapa-devlop-phase-devicetree-v8-0-69c8eb2a7cda@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -85,39 +85,40 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Billy Tsai <billy_tsai@aspeedtech.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>
+	<colin.huang2@amd.com>, Colin Huang <u8813345@gmail.com>, Rex Fu
+	<rex.fu.amd@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788344509; l=5821;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788344509; l=3698;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=AQ5iLkgP6NLAtcRqZ6tcsMzjF1xEYDqVB0kQ/nuplqc=;
- b=0cFc2zWeed6lqE3bWnjKswhvjdrE3pAqWHtwmDPmup3bUHwZ+IV4CG71VVhLXiMXOA+GkW4oK
- Z8G4TbThBV3ChkPo77GgvRZED6hECQgZSNPJj4WDJUD9+wJslGDjLSa
+ bh=8kEAvGR4wHD+buKRoFqsooBUH7WFB3+NHrtadmWVUT0=;
+ b=WB0w8QQWniqUwRCv/utf898ZGrIHJHPN7kbyXUXkvso5VJAzH1f/VWyz4yLtR3ceJcTDiqIcr
+ FeifRUqFLtgBqCWvSfVRDednav6RLc5QxjrzAmoVgxjFlMSlzq5u+V0
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|DM3PR12MB9287:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0c15d0b-f8f2-4e18-14f5-08df08dc0ede
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CD:EE_|DS2PR12MB9711:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c767eef-a742-4249-f2a2-08df08dc18c1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|376014|7416014|6133799003|22082099003|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: ALzAp8TQbfyZkXllYzanNZ8xv/H8mSe4PDi7NteCCnn9V+FLPRmOFINSJFmw0efs/UnFlduO/p/ldvlJTwkNZzNYPaetW1zNjiZ7C1OmZXqlfEOC3FJAUMpnNoKrg3vA5KlZvpjzRwlh2oJtA8YPW9AFVnrn22ynjCJuUK39RFV2Pfnl2JSfFQ8BiExBw8asGenaIwVfJ65y1kBoe4+E7r/xGGQwHtmkDfOYuSP7p+487nTlNMzGoGW6V/B847KL+FZ9JKRdFPPlXZ67RU/lUXA8O+LeoYImtlZkk1v67opodlFA0VqOIoX941esUHLXSMV1uB9YbUVfxihkJvC2DjQbknejIMeUNwVGrbMnjbMbyItTyLvquAP7NsZT0PcIgnGEkrBZoY2BP2lbWJTiYpktbOYk+1jEUMTeeDugk9K7mckKSrpy3HBL6uNFtFm6E+sEDiCTttoHWRx8BfVSNkNWQP+UyYg1jDD8QrBgyMWRxRRvVvuNSJKTWzOwYorlEqIlxmtiAJExquGhNkuEXLh+9bvy7kngPsSJNfcf3E+6mK9/xlg7QRJ3LhtSlXn/FVtGZaW78iZDFJQWQQ7spdIrS9RpxQg1luDyXy/lwoTW5HKzBmCYoPxaw8V099w+1PQ9JohMapZG6gPG6BUi/9AHDELa6pVdkfD5f9fz23M8sNeAdjvxWrjhM27Hr98zihDF5SGF0ZBXqWKRUVYzFw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(376014)(7416014)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|36860700016|82310400026|1800799024|11063799006|10067099003|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: GznoEqso1lnsE6YMt2lLysH3/zMSw2MBR5vvX1G6wSley8Qmr3CN+WuSVoWP1j0ItJxmdoT60obK1m/oLOOn0v5BfC0v0gMmj2uxuJ62AW+k/N0TbeVLdqAGDMu7rClaqay0j0JF9llrvtfLZDSnqSVdgVCQVK3gngaFb52XOQOYBySVLU3q07q/6ZBEoX0Uf6yrOsUlMpbeBG9P8A86iKIVzGlKb3JVN73+vXy88kLaNphuTiw6upp3fH9Vo68Q/ZH9dI1XKYD9HxKV3sxE7bgbBtWhaV5K0cztMDHJfvWNnyWSoVYzewV0K30FvvHg135WVQXfktLHTO4tLsXAhELH0mFnfpEMhqmdeJydbWm86hd1UONk3HvrYp28f/IpnMxnGfbHRr/QF/At38/+nhCW92m+3PTVOKKL1YvQ2wwXu3DrDYBqQ6+KlMEQYXuCy0jIaoyFSXEY7Sj7slDOcit64iM0eVd8kC4eon2tntFErHVkljg4NaUfrMto8EH7s1h8DIA/OMUHGDOAzTGHRD9ozK44ueDfJRLgZzSzt4Xs8D+IudTBWVP+AZOi6TFRBEB26VnGpTK97PdC53ichBM/GQ20dngWgKZGIcnckU6ZIT7syH4cL/yrozXgZ8VK7CgBT/rleCowgI+a0ByuRUfkw6OucJidneTMtYyss4++a1yZfCi8tUl+3HZ9zh9+CasPo/xwpE9AxJfMG2rTqg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(36860700016)(82310400026)(1800799024)(11063799006)(10067099003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Dk36W93pWtW7drv4KCEQj0c6GSnMoSDYMTJ8usTYXwiYqjE1CymMQT1WkJNSHevvBW2uN+6PQx+Pfoeo9RrDpOhfqibZ1fb+8fpappyCFjyvO700JheJEQ+neYzIlb7cI3SDiGOeG8+nnYo+1zrqyz46zwOjtdbSsAKzvqhKxMHQ116iXPiaUlUkiCKLYsdF4fHGFKwail9qbfi1naqFJ4YVHECI8h1L1HoENzXStVs8EAkg7PEY0N4WuX667TN218pKpLD62pbSBRx3iXz33634EjC0/PKX2F08V/ukb+AmpLXIIyRiQbTeCkgTRS285QdT92PTT3Wt51suMX0o/t7aYndgBiUs+l8My3d6yc7FuUpY4M4AW3Yy6XjxYN8f6CD9AVuFnGo4nev2rgq1oUePp/8w2eA8XPMU45jmvqZy/cryCwk0mQqC9looZ5U6
+X-MS-Exchange-AntiSpam-MessageData-0: jI/xx4fEVr800gtHCUVfH5a3/tPpRA1FFkWCN4p/dtFSCKm8FkGJTKNqmQ7BBThI+3XP65NvsxFJGEXi+lmdRZNAHrb0/hrChE8zKi0B4eDb8KGQAoY7qdmWlgZ+ltelImwvC0YN0p4WtFy2C94Fpg8SbF1Q3eNiBlnDHPb8lKTTFM9FSYFjrl24siotzQaddbQklMyaw92hdcuFk/5tCr/G2IO1AhccKqYolwf4rIUUSQI/YYRHL3eM0kNxP5Y4tIXJkF25MDXBgSPO/ruhY2BB9q1Q8cZXl8vafQNTO8rvI/ah8zUwdEjYnvOrL+cyJvSVsEYHzszH1kDbbmtf5aoSTOEImE/9EiM8unN1/wh+vQ7jfuIOkesaz1AFZ/b/7VWate6amrP8VbBPYCDl1ubuNYFtuz+d9JQgulG2icPs5nrtRtwqWEXd0E7Xj5A7
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 10:22:14.4753
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 10:22:31.0350
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0c15d0b-f8f2-4e18-14f5-08df08dc0ede
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c767eef-a742-4249-f2a2-08df08dc18c1
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CD.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9287
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9711
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_032234_905842_25470D48 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20260902_032238_355295_8AB327FF 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,201 +133,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Colin Huang <u8813345@gmail.com>
+From: Rex Fu <rex.fu.amd@gmail.com>
 
-Add a development-phase devicetree for the Facebook Anacapa BMC DVT
-hardware revision and update the Anacapa wrapper DTS to reference
-it.
+Add PCA9554 GPIO expanders for PDB fuse monitor signals on the
+Anacapa DVT board.
 
-Signed-off-by: Colin Huang <u8813345@gmail.com>
+The patch adds GPIO expander definitions for both the left and
+right PDBs under the i2c8 multiplexer and updates the associated
+gpio-line-names to reflect the final signal assignments.
+
+Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    | 167 +++++++++++++++++++++
- .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     |   2 +-
- 2 files changed, 168 insertions(+), 1 deletion(-)
+ .../aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi    | 92 ++++++++++++++++++++++
+ 1 file changed, 92 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-new file mode 100644
-index 000000000000..0509bc8bb9cd
---- /dev/null
+index 0509bc8bb9cd..2fd7e46daa63 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dtsi
-@@ -0,0 +1,167 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
-+
-+&sgpiom0 {
-+	gpio-line-names =
-+	/*in - out */
-+	/* A0-A7 line 0-15 */
-+	"L_FNIC_FLT", "FM_CPU0_SYS_RESET_N",
-+	"L_BNIC0_FLT", "CPU0_KBRST_N",
-+	"L_BNIC1_FLT", "FM_CPU0_PROCHOT_trigger_N",
-+	"L_BNIC2_FLT", "FM_CLR_CMOS_R_P0",
-+	"L_BNIC3_FLT", "Force_I3C_SEL",
-+	"L_RTM_SW_FLT", "SYSTEM_Force_Run_AC_Cycle",
-+	"", "",
-+	"", "",
-+
-+	/* B0-B7 line 16-31 */
-+	"Channel0_leakage_EAM3", "FM_CPU_FPGA_JTAG_MUX_SEL",
-+	"Channel1_leakage_EAM0", "FM_SCM_JTAG_MUX_SEL",
-+	"Channel2_leakage_Manifold1", "FM_BRIDGE_JTAG_MUX_SEL",
-+	"Channel5_leakage_present_EAM1", "FM_CPU0_NMI_SYNC_FLOOD_N",
-+	"Channel4_leakage_Manifold2", "BMC_AINIC0_WP_R2_L",
-+	"Channel5_leakage_EAM1", "BMC_AINIC1_WP_R2_L",
-+	"Channel6_leakage_CPU_DIMM", "CPLD_BUF_R_AGPIO330",
-+	"Channel7_leakage_EAM2", "CPLD_BUF_R_AGPIO331",
-+
-+	/* C0-C7 line 32-47 */
-+	"RSVD_RMC_GPIO3", "RTM_MUX_L",
-+	"LEAK_DETECT_RMC_N", "RTM_MUX_R",
-+	"HDR_P0_NMI_BTN_BUF_R_N", "FPGA_JTAG_SCM_DBREQ_N",
-+	"Channel6_leakage_present_CPU_DIMM", "whdt_sel",
-+	"R_EAM0_NIC_CBL_PRSNT_L", "JTAG_CPLD_TRST_R_N",
-+	"R_EAM1_NIC_CBL_PRSNT_L", "",
-+	"L_EAM0_NIC_CBL_PRSNT_L", "",
-+	"L_EAM1_NIC_CBL_PRSNT_L", "",
-+
-+	/* D0-D7 line 48-63 */
-+	"Channel0_leakage_present_EAM3", "",
-+	"Channel1_leakage_present_EAM0", "",
-+	"Channel2_leakage_present_Manifold1", "",
-+	"Channel4_leakage_present_Manifold2", "",
-+	"AMC_BRD_PRSNT_CPLD_L", "",
-+	"Channel7_leakage_present_EAM2", "",
-+	"", "",
-+	"", "",
-+
-+	/* E0-E7 line 64-79 */
-+	"L_PRSNT_B_FENIC_R2_N", "",
-+	"L_PRSNT_B_BENIC0_R2_N", "",
-+	"L_PRSNT_B_BENIC1_R2_N", "",
-+	"L_PRSNT_B_BENIC2_R2_N", "",
-+	"L_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+
-+	/* F0-F7 line 80-95 */
-+	"R_PRSNT_B_FENIC_R2_N", "SGPIO_READY",
-+	"R_PRSNT_B_BENIC0_R2_N", "",
-+	"R_PRSNT_B_BENIC1_R2_N", "",
-+	"R_PRSNT_B_BENIC2_R2_N", "",
-+	"R_PRSNT_B_BENIC3_R2_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+
-+	/* G0-G7 line 96-111 */
-+	"L_PRSNT_EDSFF0_N", "",
-+	"L_PRSNT_EDSFF1_N", "",
-+	"R_PRSNT_EDSFF2_N", "",
-+	"R_PRSNT_EDSFF3_N", "",
-+	"HPM_EDSFF_PG", "",
-+	"", "",
-+	"P12V_PWR_CABLE_PRSNT_L_R", "FM_BMC_READY_PLD",
-+	"PRSNT_NFC_BOARD_R", "",
-+
-+	/* H0-H7 line 112-127 */
-+	"R_FNIC_FLT", "",
-+	"R_BNIC0_FLT", "",
-+	"R_BNIC1_FLT", "",
-+	"R_BNIC2_FLT", "",
-+	"R_BNIC3_FLT", "",
-+	"R_RTM_SW_FLT", "",
-+	"RBB_Cable_Present", "",
-+	"LBB_Cable_Present", "",
-+
-+	/* I0-I7 line 128-143 */
-+	"EAM0_BRD_PRSNT_R_L", "",
-+	"EAM1_BRD_PRSNT_R_L", "",
-+	"EAM2_BRD_PRSNT_R_L", "",
-+	"EAM3_BRD_PRSNT_R_L", "",
-+	"FM_TPM_PRSNT_R_N", "",
-+	"PDB_L_PRSNT_R_N", "",
-+	"PRSNT_EDSFF_BOOT_N", "",
-+	"PRSNT_CPU0_N", "",
-+
-+	/* J0-J7 line 144-159 */
-+	"PRSNT_L_BRIDGE_R", "",
-+	"PRSNT_R_BRIDGE_R", "",
-+	"BRIDGE_L_MAIN_PG_R", "",
-+	"BRIDGE_R_MAIN_PG_R", "",
-+	"BRIDGE_L_STBY_PG_R", "",
-+	"BRIDGE_R_STBY_PG_R", "",
-+	"IRQ_NFC_BOARD_R", "",
-+	"RSMRST_N", "",
-+
-+	/* K0-K7 line 160-175 */
-+	"ADC_I2C_ALERT_N", "",
-+	"TEMP_I2C_ALERT_R_L", "",
-+	"CPU0_VR_SMB_ALERT_CPLD_N", "",
-+	"COVER_INTRUDER_R_N", "",
-+	"HANDLE_INTRUDER_CPLD_N", "",
-+	"IRQ_MCIO_CPLD_WAKE_R_N", "",
-+	"APML_CPU0_ALERT_R_N", "",
-+	"PDB_ALERT_R_N", "",
-+
-+	/* L0-L7 line 176-191 */
-+	"L_EDSFF0_PG", "",
-+	"L_EDSFF1_PG", "",
-+	"R_EDSFF2_PG", "",
-+	"R_EDSFF3_PG", "",
-+	"HPM_CPLD_HEART_BIT", "",
-+	"RBB_CPLD_HEART_BIT", "",
-+	"LBB_CPLD_HEART_BIT", "",
-+	"FM_BIOS_POST_CMPLT_R_N", "",
-+
-+	/* M0-M7 line 192-207 */
-+	"EAM0_SMERR_CPLD_R_L", "",
-+	"EAM1_SMERR_CPLD_R_L", "",
-+	"EAM2_SMERR_CPLD_R_L", "",
-+	"EAM3_SMERR_CPLD_R_L", "",
-+	"CPU0_SMERR_N_R", "",
-+	"CPU0_NV_SAVE_N_R", "",
-+	"PDB_PWR_LOSS_CPLD_N", "",
-+	"IRQ_BMC_SMI_ACTIVE_R_N", "",
-+
-+	/* N0-N7 line 208-223 */
-+	"AMCROT_BMC_S5_RDY_R", "",
-+	"AMC_RDY_R", "",
-+	"AMC_STBY_PGOOD_R", "",
-+	"CPU_AMC_SLP_S5_R_L", "",
-+	"AMC_CPU_EAMPG_R", "",
-+	"DIMM_PMIC_PG_TIMEOUT", "",
-+	"EAM_MOD_PWR_GD_TIMEOUT", "",
-+	"CPLD_AMC_STBY_PWR_EN", "",
-+
-+	/* O0-O7 line 224-239 */
-+	"HPM_PWR_FAIL", "Port80_b0",
-+	"FM_DIMM_IP_FAIL", "Port80_b1",
-+	"FM_DIMM_AH_FAIL", "Port80_b2",
-+	"AMC_THERMTRIP_ASSERT", "Port80_b3",
-+	"CPU_THERMTRIP_ASSERT", "Port80_b4",
-+	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
-+	"CPLD_SGPIO_RDY", "Port80_b6",
-+	"FM_MAIN_PWREN_RMC_EN_ISO", "Port80_b7",
-+
-+	/* P0-P7 line 240-255 */
-+	"CPU0_SLP_S5_N_R", "NFC_VEN",
-+	"CPU0_SLP_S3_N_R", "",
-+	"FM_CPU0_PWRGD", "",
-+	"PWRGD_RMC", "",
-+	"FM_RST_CPU0_RESET_N", "RBB_CPLD_RISCV_RST",
-+	"FM_PWRGD_CPU0_PWROK", "LBB_CPLD_RISCV_RST",
-+	"AMC_FAIL", "HPM_CPLD_RISCV_RST",
-+	"S0_ON", "";
-+};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-index 606dacb605c5..1eee0d84c0a8 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
-@@ -1,4 +1,4 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
+@@ -2,6 +2,98 @@
  
- /dts-v1/;
--#include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
-+#include "aspeed-bmc-facebook-anacapa-dvt.dtsi"
+ #include "aspeed-bmc-facebook-anacapa-evt2.dtsi"
+ 
++// MB - PDB
++&i2c8 {
++	i2c-mux@72 {
++		i2c@0 {
++			gpio@22 {
++				gpio-line-names =
++					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TMP432_U8_ALERT_R_N",
++					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
++					"RPDB_FAN_CT_FAN_FAIL_R_N", "RPDB_VERID_A0",
++					"RPDB_VERID_A1", "RPDB_VERID_A2",
++					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
++					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
++					"RPDB_P12V_MB_VRM_ALERT_R_N",
++					"RPDB_P12V_STBY_VRM_ALERT_R_N",
++					"RPDB_PGD_P3V3_STBY_PWRGD_R",
++					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
++			};
++
++			gpio@24 {
++				gpio-line-names =
++					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
++					"RPDB_PWRGD_P50V_HSC4_SYS_R",
++					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
++					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
++					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
++					"RPDB_SKU_ID0", "RPDB_FAN5_PRSNT_N_R",
++					"", "RPDB_FAN6_PRSNT_N_R",
++					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
++					"", "";
++			};
++
++			gpio@38 {
++				compatible = "nxp,pca9554";
++				reg = <0x38>;
++				#gpio-cells = <2>;
++				gpio-controller;
++
++				gpio-line-names =
++					"RPDB_P50V_FUSE2_TVS1", "RPDB_P50V_FUSE2_TVS2",
++					"RPDB_P50V_FUSE3_TVS1", "RPDB_P50V_FUSE3_TVS2",
++					"RPDB_P50V_FUSE4_TVS1", "",
++					"", "";
++
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++			};
++		};
++
++		i2c@1 {
++			gpio@22 {
++				gpio-line-names =
++					"LPDB_FAN_FULL_SPEED_R_N", "LPDB_I2C_TEMP75_U8_ALERT_R_N",
++					"LPDB_I2C_TMP432_U29_ALERT_R_N", "LPDB_GLOBAL_WP",
++					"LPDB_FAN_CT_FAN_FAIL_R_N", "LPDB_VERID_A0",
++					"LPDB_VERID_A1", "LPDB_VERID_A2",
++					"LPDB_ALERT_P50V_HSC0_R_N", "LPDB_ALERT_P50V_HSC1_R_N",
++					"LPDB_ALERT_P50V_HSC5_R_N", "LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
++					"LPDB_EAM0_PRSNT_MOS_N_R", "LPDB_EAM1_PRSNT_MOS_N_R",
++					"LPDB_PWRGD_P50V_HSC5_SYS_R", "BARKLIP_PRSNT_N_R3";
++			};
++
++			gpio@24 {
++				gpio-line-names =
++					"LPDB_P50V_FAN0_R2_PG", "LPDB_P50V_FAN1_R2_PG",
++					"LPDB_P50V_FAN2_R2_PG", "LPDB_P50V_FAN3_R2_PG",
++					"LPDB_P50V_FAN4_R2_PG", "LPDB_FAN0_PRSNT_N_R",
++					"LPDB_FAN1_PRSNT_N_R", "LPDB_FAN2_PRSNT_N_R",
++					"LPDB_FAN3_PRSNT_N_R", "LPDB_FAN4_PRSNT_N_R",
++					"LPDB_SKU_ID0", "",
++					"", "",
++					"", "LPDB_PG_P3V3_R";
++			};
++
++			gpio@38 {
++				compatible = "nxp,pca9554";
++				reg = <0x38>;
++				#gpio-cells = <2>;
++				gpio-controller;
++
++				gpio-line-names =
++					"LPDB_P50V_FUSE0_TVS1", "LPDB_P50V_FUSE0_TVS2",
++					"LPDB_P50V_FUSE1_TVS1", "LPDB_P50V_FUSE1_TVS2",
++					"LPDB_P50V_FUSE5_TVS1", "",
++					"", "";
++
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++			};
++		};
++	};
++};
++
+ &sgpiom0 {
+ 	gpio-line-names =
+ 	/*in - out */
 
 -- 
 2.34.1
