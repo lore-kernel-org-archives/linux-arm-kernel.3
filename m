@@ -4,100 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F53C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD15C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00lmFy+N2N/bnyvL+i6kv3lyZlzEYxH3S/gtp4CE5WY=; b=S+MXdCULOkrI8P5q9G5WYg4Ip+
-	f5/iQ3PUt4d79DLD8NUQ/noVFYZYSEWZiGjDIT612PAzlRBFDJ4057M9EdjZWPK5RMCQ0E87rceQx
-	VKbhOnqKWtEwrEC9PwYJp0gVyGmzUOEURjgXFWFetmhxx8n46xmHpN4Kx9OfnFVFM7doF3pNCMdOS
-	vfqbMUO8ky/HD+vw8b/xU7lHLzwXkzyRNUFqxoy5VWYlIhbfxvJreWL8Ud9UH3+I9Me3WvaFgFm60
-	8B5IvPGk4F+LSkFb5hs33eKOgFjY52cJ05RwMy4ey00e5gjA1sO1e7ILp5OEPRkDAQQBEsJ3Bj7qh
-	2H2uEwrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uqh7w91txZTQYrpWUrn/NFHyUOyhPOiuy/kbhGuZ5eE=; b=k3ndYtvx0NPlQUMEau9YTCqX1g
+	2qFWBoQLP2Mr195lMYBHlLOr9HHrYHHrolgdRShQr9+kcxtOIuAx5vUzw00X7mbOLH1lEmeVhGeaR
+	Nvd9k8h307sBG6oHg7a+hORlMOItEYrHnfA39cHfyr3NQTm56eI+SvX/dQEjKyFXfH8EOApHe8n/u
+	LPKJQq2m5xrE3Ta9Skm/0hxiasaDXAm67tIM+fEpotHmC9JRK9hLqv2BjF9xX29UWMU99ZLpfWJ8C
+	lFnT3j7Ak6Qd7b+4tOYo2GtiD2kpCARwWvxTbAKiHYUsT5rxuLSAukkDERm7pooMcewGL9N2R6AKz
+	ooJzFiVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gJw-0000000E5og-2zxZ;
-	Wed, 02 Sep 2026 08:27:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1gRG-0000000E6vb-2206;
+	Wed, 02 Sep 2026 08:35:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gJv-0000000E5oO-33HI
+	id 1x1gRD-0000000E6uY-3AlD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 08:27:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 795AD43DFF;
-	Wed,  2 Sep 2026 08:27:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B9011F000E9;
-	Wed,  2 Sep 2026 08:27:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788337667;
-	bh=00lmFy+N2N/bnyvL+i6kv3lyZlzEYxH3S/gtp4CE5WY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hoFabAGnzh5HePnKfAeMgoIY07ZZ3DKA+IMSrNEhccurnvOkcKhirNJPIjXpF4S4C
-	 +RytmcHUdXHkSoSEyrCXGbm6ergJDagwGuYZ06XOXUgha+iSF7nO9G7nwdxL5fL8/R
-	 6f4Z7eU3BmvCKBoM1Omou/wyajH5jNT2oimFnaorXYdx98O29rOv+mXcnjNl8WqVVP
-	 f72PcG8eTpMdEYvsQzKchwlRxmenmAKOK/hcNGt9PokNoZpWSPMqj8kMGhHhnWktHV
-	 TS5MGtIqXEVqJeBYiDEDCLhtLNAW4ipeTpungXqBc+pOd2qo9G1Amgit5XryiJ6wJa
-	 LFsTzQt5K1gng==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x1gJs-00000003mfI-2MWI;
-	Wed, 02 Sep 2026 08:27:45 +0000
-Date: Wed, 02 Sep 2026 09:30:17 +0100
-Message-ID: <87ik4om4x2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v7 03/23] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
-In-Reply-To: <apdwHcdy2iYRTrww@google.com>
-References: <20260831144802.834315-1-seiden@linux.ibm.com>
-	<20260831144802.834315-4-seiden@linux.ibm.com>
-	<apdwHcdy2iYRTrww@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seanjc@google.com, seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 02 Sep 2026 08:35:21 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6826Vd8Z758754
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 08:35:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	uqh7w91txZTQYrpWUrn/NFHyUOyhPOiuy/kbhGuZ5eE=; b=Y5J5G6Uj49qg8dCS
+	OL12tnKb7BByLHCnzkaw54zOLjwmqimeJ1CL/WZoZRJsUDk/0CDPPFunhfN/YUjM
+	OsU4LafWAJD9gQB/PySzrllEnvoK9qEHX7mfMBb0HueEGW8+lO/b7mBVHtcnn+xw
+	7NO9aQzgqLc2YzFWA4pCun6TymPalUZtTmTD+4CYnH/IW4oZEyt8lD5TKkPWB1+d
+	UvFQ0s4llECibPUvI23DYRrIYNE5Y2aylU1Ys2IKWPZrCA9MfwHxhsAg2LpKVRhz
+	3kZF+VWU8BWYy0vprpGEQHG1NmZpySWO4guILYHXrfe9/+D1TgFGYxxdPSnxhmO/
+	MLbp4A==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ge37j2xxn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 08:35:19 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso1050240a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 01:35:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788338118; x=1788942918; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uqh7w91txZTQYrpWUrn/NFHyUOyhPOiuy/kbhGuZ5eE=;
+        b=YXE1260yxLjFdpN7jE1QnGt+Q7rsNYZwZiUlCyqIeanBZINbk6xrMTMDqm/FxWVqZ4
+         YuT+UXGnZFPkl0SEnd+f5gFZkOR7vK2zT30/Wh51pfZnQBrM+ahPvi3Th9gFrhQ/YcCS
+         N+lEsfFMkMj7Cs/3/rqCAqbuYD2BQcUSv48aysQUhH8h9ghufOfQBL24lW+ymeXOVchD
+         SkV1c/RH4rD1Wj+ixqSCNaZpl06mIgxYwnb0WKOvzsYaqSGxI6kK9Vivf8luCZiraMQz
+         52/pnoqHw9kpgkL8demZJnxPe53lczIa30j6+Qh8S5/Xa3IOOfFPmcNC0S5KdT2D+bbn
+         B0Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788338118; x=1788942918;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uqh7w91txZTQYrpWUrn/NFHyUOyhPOiuy/kbhGuZ5eE=;
+        b=k5FSkWNA/2f1pq1HSHNWIb4aW247OydVdNYFiq0hM8nIr2tn2zm4TQQPgWhoFztWET
+         uQQgGzkjnIud2uSdBqQQhOqwm+Yl0IWKPD1WEhLPa31H2XN8hJTpV88Z1JIjEI0zsu32
+         qeIHqstV6Qkr38q+Zhxq3gzjKmabikT+bC0HmKz0UCbrRXBgmp3J6bJPCXdqTw2tns1C
+         rbhdFF4GfhFbF4J0q8su6luiOcON0isNDhsRQTQMi75hhh3X5TXF/TS0trSqWG1CjU2C
+         O0xgU2m4WjOK0YamScUbAO/UM3Pu0X6DVsL4mlWKN4K0fLi7clcmPfJv3cHgi0t5oISv
+         UyOA==
+X-Forwarded-Encrypted: i=1; AKwUvByd/1bAXJiXm4/oHL/8ue4Us33oYz/2ZAtC5IqWBawUtxpd4QWJIoAg0BMafSL5WA5KuTEJuJvLJTLgYmXLO9wq@lists.infradead.org
+X-Gm-Message-State: AFuF++noM7OUwpYZZbZqt081YkC6H6gvFpv9wA4xrilVSBfwz9Zl8OFh
+	dfOtvPpn0e0xPyq3luuiYUrQqc3rWTz5j1UzMrVfyv/c3tB8NxUgaiRNq8DftWo+KBzI0qCV/bG
+	amoy+L2aoRiT4PuUWg/sRnk5TZOZgMYNAEaNF879dCa5LM4axoc1cT3FZ+kETqUw0vKi4KMDJNK
+	+d8A==
+X-Gm-Gg: AYBFou1oa1oYyYT0IpjIrIhcqHnuF/tlFPY48uTCQCDENwT+7+LpXtp85EX/d4L1cFA
+	FKFAVzEKa6TLsFaNhxcS2337JUtwgo1HD4iQuOFqthf1ASgfHPodMLj6QUg8uXpk9zDpNdgbh+Z
+	IRotcE6GLdTwc1NAqx+52/5EInPJEEyhPvzUDf7WYWUokt+grbouB81PfD9H5yGiOOnIUxVDWi9
+	W4jQAp/j+SrNhlor+u5hUn1/8VRl2j7ZSC2O3xNTt/OLNqyi8ElIlIqIJyi7jWtNH+Cy8OpksNO
+	MRGcLAfm4iHDzEz5mgYpZlK4rPZ7++6DupvfsaR3uc6+pjP0piS8nQKi/fVmd65YmgJxOzL/xsM
+	pkT2nZ2IQRwucK3x8/d8s
+X-Received: by 2002:a17:90b:164d:b0:398:c16e:69d3 with SMTP id 98e67ed59e1d1-39aedeb9aecmr4837755a91.1.1788338118501;
+        Wed, 02 Sep 2026 01:35:18 -0700 (PDT)
+X-Received: by 2002:a17:90b:164d:b0:398:c16e:69d3 with SMTP id 98e67ed59e1d1-39aedeb9aecmr4837690a91.1.1788338118013;
+        Wed, 02 Sep 2026 01:35:18 -0700 (PDT)
+Received: from [10.64.68.243] ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39ae0f2a315sm5013948a91.8.2026.09.02.01.35.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Sep 2026 01:35:17 -0700 (PDT)
+Message-ID: <28d5c8bf-87b1-4172-94a8-0e1b7ba1f083@oss.qualcomm.com>
+Date: Wed, 2 Sep 2026 16:35:11 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: fix trace ID search skipping pass-through NoC
+ devices
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Richard Cheng <icheng@nvidia.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260817-fix-trace-id-assign-issue-v1-1-b2164e33f9fa@oss.qualcomm.com>
+ <20260902082209.GT8904@e132581.arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260902082209.GT8904@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 7w9QwLcpGggDQOlT9x0MVv8EayBKp7ZW
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDA3NSBTYWx0ZWRfXy6nvwWW3GeAZ
+ RKWbBFCj2dLL7J+mYKcPuW+hzkCsoylC9AyJmdkzsK4uVORVtQksFnISsmXjgS9vfvuMDfKWfYN
+ /8BxOY07z6nYBVCpRq/qMuCoKTWnKW0=
+X-Proofpoint-ORIG-GUID: 7w9QwLcpGggDQOlT9x0MVv8EayBKp7ZW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDA3NSBTYWx0ZWRfX/zTCVXVfODKg
+ zPD4ueg2fOVdHFgMDXxgZh3ETpYQA+tYeXCkq9DDppy7mDMPodrYvaVfhxiWkaIRkARJytOwQKw
+ KH736BCR/JSUpz1JrQY5/PAxTimkKMR+/sIDrf7pD/BvofpOCRqrcaXVoFx8uYmvwdl8U4+7tgw
+ ENa5855Htl0oRFyOSONCcJCc93lnZo18rzTY2ui4RzBJ5WEW5Ahsf1dxLdiDoM7Vb0YsPKZ6NqO
+ Se92wJp2z16I5ck9cWtS4/XJ366JK0E8NtBcI0dZW3yzp/HTxGfW0waHoEduhIUKhlEkpxWnsFF
+ p7dBG1E9AhIIKDpsZ44hwZVICxFkGglNJ8xuUCRazV5uzV3e7psgJtqzRcZBea1edWk/DYTi73v
+ sGx+6gQGP0u3T+WD+AB/Z8X+t6q9F3hjPFM4l86HzLpsrgdWni4njzNVQOx3QHrjVhOoEklK9md
+ hY0zu/b92wT+2tZP/gA==
+X-Authority-Analysis: v=2.4 cv=PKg/P/qC c=1 sm=1 tr=0 ts=6a97dfc7 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=e4JKUqTIyT31dI7uBdsA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-02_01,2026-09-01_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 impostorscore=0 phishscore=0 clxscore=1015
+ lowpriorityscore=0 bulkscore=0 spamscore=0 adultscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020075
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_013519_803698_A0EA02D0 
+X-CRM114-Status: GOOD (  26.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,258 +155,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Sep 2026 01:38:53 +0100,
-Sean Christopherson <seanjc@google.com> wrote:
+
+
+On 9/2/2026 4:22 PM, Leo Yan wrote:
+> Hi Jie,
 > 
-> On Mon, Aug 31, 2026, Steffen Eiden wrote:
-> > Only defining KVM_MMIO is not flexible enough for multi-KVM systems
-> > where one KVM implements MMIO but others do not. Solve this by
-> > additionally testing for the non-existence of KVM_NO_MMIO before
-> > including MMIO code to KVM.
+> On Mon, Aug 17, 2026 at 04:50:15PM +0800, Jie Gan wrote:
 > 
-> Ewwwww.  IIUC, s390 ends up with two KVM modules, i.e. there really are two different
-> KVMs being built.  Rather than have a KVM_MMIO and NO_KVM_MMIO, I vote very
-> strongly to drop CONFIG_KVM_MMIO entirely and replace it with __KVM_HAVE_ARCH_MMIO,
-> a la __KVM_HAVE_ARCH_VM_FREE and others.  Tracking two separate macros is going
-> to be annoying to maintain, and will definitely be confusing for non-s390 people.
+> [...]
 > 
-> It'll mean linking in an emtpy coalesced_mmio.o on s390 when building without arm64
-> support, but I'm guessing that won't be at all common for s390 builds.
+>> @@ -953,8 +953,12 @@ int coresight_path_assign_trace_id(struct coresight_path *path,
+>>   		/* Assign a trace ID to the path for the first device that wants to do it */
+>>   		trace_id = coresight_get_trace_id(nd->csdev, mode, sink);
+>>   
+>> -		/* 0 means the device has no ID assignment, so keep searching */
+>> -		if (trace_id == 0)
+>> +		/*
+>> +		 * 0 means the device has no ID assignment, and -EOPNOTSUPP
+>> +		 * means the device explicitly declines to assign one (e.g. a
+>> +		 * pass-through NoC) - in both cases keep searching downstream.
+>> +		 */
+>> +		if (trace_id == 0 || trace_id == -EOPNOTSUPP)
+>>   			continue;
+> 
+> Based on IS_VALID_CS_TRACE_ID(), I see 0 is for no ID assignment,
+> could you improve a bit tnoc.c instead?
+> 
+> If so, We don't need to add a new error for the same purpose.
 > 
 
-I ended-up doing something very similar locally, because I couldn't
-really make head or tail of the logic while being in holiday mode
-(which doesn't help). However, I kept the negative logic, so that we
-don't need to add anything to any architecture but S390 (they are the
-odd one out here).
+Hi Leo,
 
-Untested hack follows.
+Thanks for the suggestion.
 
-	M.
+I will fix this in the TNOC driver. I agree that there is no need to use 
+additional error codes to report the failure.
 
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index 449154f9a4852..dd138b730217e 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -22,7 +22,6 @@ menuconfig KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
--	select KVM_MMIO
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select KVM_VFIO
-diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
-index 15da2d88c0c10..f03872ba0ba8c 100644
---- a/arch/loongarch/kvm/Kconfig
-+++ b/arch/loongarch/kvm/Kconfig
-@@ -28,7 +28,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
-index b1b9a1d677581..c65596fdf54f4 100644
---- a/arch/mips/kvm/Kconfig
-+++ b/arch/mips/kvm/Kconfig
-@@ -22,7 +22,6 @@ config KVM
- 	select EXPORT_UASM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
--	select KVM_MMIO
- 	select KVM_GENERIC_HARDWARE_ENABLING
- 	select HAVE_KVM_READONLY_MEM
- 	help
-diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
-index b6bc2fc86dca6..c5565d6fb27e4 100644
---- a/arch/powerpc/kvm/Kconfig
-+++ b/arch/powerpc/kvm/Kconfig
-@@ -30,7 +30,6 @@ config KVM_BOOK3S_HANDLER
- config KVM_BOOK3S_32_HANDLER
- 	bool
- 	select KVM_BOOK3S_HANDLER
--	select KVM_MMIO
- 
- config KVM_BOOK3S_64_HANDLER
- 	bool
-@@ -38,7 +37,6 @@ config KVM_BOOK3S_64_HANDLER
- 
- config KVM_BOOK3S_PR_POSSIBLE
- 	bool
--	select KVM_MMIO
- 
- config KVM_BOOK3S_HV_POSSIBLE
- 	bool
-@@ -201,7 +199,6 @@ config KVM_E500V2
- 	depends on PPC_E500 && !PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	help
- 	  Support running unmodified E500 guest kernels in virtual machines on
- 	  E500v2 host processors.
-@@ -216,7 +213,6 @@ config KVM_E500MC
- 	depends on PPC_E500MC
- 	depends on !CONTEXT_TRACKING_USER
- 	select KVM
--	select KVM_MMIO
- 	select KVM_BOOKE_HV
- 	help
- 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
-diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
-index ec2cee0a39e01..3aea8d4939d2e 100644
---- a/arch/riscv/kvm/Kconfig
-+++ b/arch/riscv/kvm/Kconfig
-@@ -28,7 +28,6 @@ config KVM
- 	select KVM_COMMON
- 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
- 	select KVM_GENERIC_HARDWARE_ENABLING
--	select KVM_MMIO
- 	select VIRT_XFER_TO_GUEST_WORK
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-index cd692f8fb7643..3c65c52d6682b 100644
---- a/arch/s390/include/asm/kvm_host_s390.h
-+++ b/arch/s390/include/asm/kvm_host_s390.h
-@@ -34,6 +34,8 @@
- 
- #define KVM_S390_MANAGES_S390_GUEST 1
- 
-+#define __KVM_NO_MMIO
-+
- /*
-  * These seem to be used for allocating ->chip in the routing table, which we
-  * don't use. 1 is as small as we can get to reduce the needed memory. If we
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index 538ed1e803326..48ca567b0a846 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -32,7 +32,6 @@ config KVM_X86
- 	select VHOST_TASK
- 	select KVM_ASYNC_PF
- 	select USER_RETURN_NOTIFIER
--	select KVM_MMIO
- 	select SCHED_INFO
- 	select PERF_EVENTS
- 	select GUEST_PERF_EVENTS
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 03bfc92864b6e..dc9b68793f0d7 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -833,7 +833,7 @@ struct kvm {
- 	struct kvm_vm_stat stat;
- 	struct kvm_arch arch;
- 	refcount_t users_count;
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 	struct kvm_coalesced_mmio_ring *coalesced_mmio_ring;
- 	spinlock_t ring_lock;
- 	struct list_head coalesced_zones;
-diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
-index c3c0ee253fc77..c012f30127e38 100644
---- a/virt/kvm/Kconfig
-+++ b/virt/kvm/Kconfig
-@@ -40,9 +40,6 @@ config NEED_KVM_DIRTY_RING_WITH_BITMAP
- 	bool
- 	depends on HAVE_KVM_DIRTY_RING
- 
--config KVM_MMIO
--       bool
--
- config KVM_ASYNC_PF
-        bool
- 
-diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
-index d047d4cf58c9f..c4fb1e01d0c89 100644
---- a/virt/kvm/Makefile.kvm
-+++ b/virt/kvm/Makefile.kvm
-@@ -5,9 +5,8 @@
- 
- KVM ?= ../../../virt/kvm
- 
--kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
-+kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/coalesced_mmio.o $(KVM)/binary_stats.o
- kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
--kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
- kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
- kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
- kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
-diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
-index 6b1d901610998..6bd4157b3ef41 100644
---- a/virt/kvm/coalesced_mmio.c
-+++ b/virt/kvm/coalesced_mmio.c
-@@ -15,6 +15,8 @@
- #include <linux/slab.h>
- #include <linux/kvm.h>
- 
-+#ifndef __KVM_NO_MMIO
-+
- #include "coalesced_mmio.h"
- 
- static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
-@@ -188,3 +190,4 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
- 	 */
- 	return 0;
- }
-+#endif
-diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
-index 36f84264ed257..77b811dee27c2 100644
---- a/virt/kvm/coalesced_mmio.h
-+++ b/virt/kvm/coalesced_mmio.h
-@@ -11,7 +11,7 @@
-  *
-  */
- 
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 
- #include <linux/list.h>
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 65eb26a0520d8..2f25b75dbfd44 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -4059,7 +4059,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
- 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->arch.pio_data);
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
- #endif
-@@ -4900,7 +4900,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- 	case KVM_CAP_ENABLE_CAP_VM:
- 	case KVM_CAP_HALT_POLL:
- 		return 1;
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 	case KVM_CAP_COALESCED_MMIO:
- 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
- 	case KVM_CAP_COALESCED_PIO:
-@@ -5241,7 +5241,7 @@ static long kvm_vm_ioctl(struct file *filp,
- 		break;
- 	}
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 	case KVM_REGISTER_COALESCED_MMIO: {
- 		struct kvm_coalesced_mmio_zone zone;
- 
-@@ -5563,7 +5563,7 @@ static long kvm_dev_ioctl(struct file *filp,
- #ifdef CONFIG_X86
- 		r += PAGE_SIZE;    /* pio data page */
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#ifndef __KVM_NO_MMIO
- 		r += PAGE_SIZE;    /* coalesced mmio ring page */
- #endif
- 		break;
+I will post the new fix patch after below patch[1] to be applied to 
+avoid conflict.
 
--- 
-Jazz isn't dead. It just smells funny.
+[1] 
+https://lore.kernel.org/all/20260710-fix-tracenoc-probe-issue-v6-2-41eb36fef8d9@oss.qualcomm.com/
+
+Thanks,
+Jie
+
+> ---8<---
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> index 9e8de4323d28..bf221c1e5c48 100644
+> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -51,8 +51,8 @@ static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+>   {
+>          u32 val;
+> 
+> -       /* No valid ATID, simply enable the unit */
+> -       if (drvdata->atid == -EOPNOTSUPP) {
+> +       /* 0 means no ID assignment, simply enable the unit */
+> +       if (!drvdata->atid) {
+>                  writel(TRACE_NOC_CTRL_PORTEN, drvdata->base + TRACE_NOC_CTRL);
+>                  return;
+>          }
+> @@ -130,10 +130,8 @@ static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+>   {
+>          int atid;
+> 
+> -       if (!dev_is_amba(drvdata->dev)) {
+> -               drvdata->atid = -EOPNOTSUPP;
+> +       if (!dev_is_amba(drvdata->dev))
+>                  return 0;
+> -       }
+> 
+>          atid = coresight_trace_id_get_system_id();
+>          if (atid < 0)
+
 
