@@ -4,83 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40BAC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39710C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXYNobdVsuK2ipdiyYhs8Xo2vpnw68oVO9etWQ0Zmlc=; b=05aCEkiXX/dhWUnXa2NEef0TXt
-	vPMjenpt+BImhvdV5LwDM5JwCyD/dPIeAaTqOo7WoheXUpnx9yhZjZHK7L8BK7TVWEgCynSyo7GSB
-	9KMBoYqZwoMFBNb9tV0/hCidxa5ofOtyhO/fhd1hTCu0bWZNiVDRIma+EcwUrha1MHfqbnrP5gnDf
-	8//P4Ehn7GZ6xiDEeY2qEHkQiFUp24YRQLhS8S46YnjoHnwtUw8vK7MTtYTIaSs1vuvYCYamrVtAU
-	AmJoVFrA/KhmxHkJs78vt6C1nh+Oq59tq5qPT6XFAkq/1JFj4z5Je+LnyRYklV7x0+qNvMXzrzMoY
-	nLAxWloA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIy9w1/7l+YPH2gFOr27PV6p4ska6UcSUlBoAUwTOLk=; b=4VEeJBGmn6aaEHBxtIpJQ/AKCP
+	DTb++TGXbg9yqSTkepW+hCwsmJjj2Xqf9l4KD/WuHkb/ymT+wDVQ6yYr4S5KHqeqhH3tqHW8T4LfG
+	UN+uQw1MTU4skrTPoFEkBGVBa++PztJTxfJpOkvF7BJAJpULrc9MRtMkQuWtl0QrM+8JF4mat5VOn
+	/hik9sdIR6SzhQV+Xq2vfnvHY1otY54d/yHEhFCm5ZwNmgr38Jfe8FAIWn8lQx/TZC5T1GDnGcIUa
+	0LjD/wNp1gcgJ3mYxxVGiwYHwslZzb3NHb4hZviV4lduoYJ7ay6Nav4zwFhD8Yb5AJtDhtrEBjbuo
+	2+zjGitg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pGf-0000000FWol-0Okx;
-	Wed, 02 Sep 2026 18:01:01 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x1pKu-0000000FXWK-37DQ;
+	Wed, 02 Sep 2026 18:05:24 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1pGd-0000000FWnL-0d1v;
-	Wed, 02 Sep 2026 18:01:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788372054;
-	bh=RFGuLr+hSZX4q95E8FmOb9I0Oj/VY5jMv/JY+fIYb70=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kM8qFYh5ALIzTeH3UbstMxl+7wLpe4Bu2oDWFRouwXe8W1lQ2GcXh+oO+gqLoidmZ
-	 HQMSqjKsWcNXbvTSuuxlb1faCUJMb8G8Q2KjH+S5nlOxiyhKfua21QDEf3ybTPMDn/
-	 3kJolpG+4VJaUhI1Prg5LGUz+oDvMBVHfkRpy3tPaE4Oc2xDfbl3QO4+RJPRPqQXJx
-	 E+FrN7SHhoB92fRWYYh9euh+0JLQRU4+nvzQNDFtaktWHWuZv56boO33PhpQou+Bnp
-	 oJwFxRsjPWxC2hXEzrUrOBvYHt84IFXkSAraUfM8Nohm2jmh7IyExwzXcC9rsQspUj
-	 tbeVQmjFUg3PA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7E3417E0260;
-	Wed, 02 Sep 2026 20:00:53 +0200 (CEST)
-Message-ID: <c40863d0-663c-4a29-9298-d9647393b4c1@collabora.com>
-Date: Wed, 2 Sep 2026 21:00:53 +0300
+	id 1x1pKs-0000000FXV7-2QHQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 18:05:23 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3990fe066ebso1114493a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 11:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788372321; x=1788977121; darn=lists.infradead.org;
+        h=content-type:mime-version:references:message-id:date:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mIy9w1/7l+YPH2gFOr27PV6p4ska6UcSUlBoAUwTOLk=;
+        b=PuCaPRW/QVNgvt3V4HGNaA40SBkfx0hCDEI0+0BIbtZiGO74GfNMJyks9mLSHYMJD6
+         u2LJJzGUT9Ia+t4HUUuNTyu/LOMHrdbarAcLqPmQ7CGLePigFbjywd+tHJ+HUP2sZDzM
+         AoI/ZIy42MP/Z4UgOPre/XJvo/s3DSfSxJ13vbBliXDnudGUTf7xftVwZDNCGCfuOrQl
+         MmpSMnF2bnTXw5bsL1Lf74naqrJVcwOiPYehbsCT56bvcxogZlyMyw/2/xO8SU/89nHv
+         MO/I8R92XrVdSHh7lcHfemTfpzlJopDkWMVQ3lKt7FCZtX7h+eeWJumGWuqveqohMbyP
+         tfEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788372321; x=1788977121;
+        h=content-type:mime-version:references:message-id:date:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mIy9w1/7l+YPH2gFOr27PV6p4ska6UcSUlBoAUwTOLk=;
+        b=HyPSYbhFR0gd6LCYEAjSwvQ1fsqlvMHzrt3xtlep6fFJBmXD59zQGMLBx5kJkmMjh8
+         XIV+bLzoeiQQftPNIxmMq6q+TzLAqFgsaDgVGJpmQ0uERW6vMBeeqLuRm1Q5yRl+PLc+
+         3U+CxanwgBwZPGCT99atyW45mU+MEFGqU9r6yVc7KF9Cy4Xe2oh0t+AMFsbLgfOv0yv4
+         g7Y0/cqMT7hhb5USJh+6h7oEpbsWgXjl7hlaOR4g5/4u2TVBFXBIQ6LeJfPYp7n6k2UV
+         uI9pI0xLINq5HYVmzvhxzkMEMeTXpvudE7csvvN4RvxgER6gc6xHOQoEwmeEoAw7GUxF
+         +nDQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwETA0dR7ipXlXQU1OyKRTA/PT5fWPIy2fQKZ5W7BJg9i/gOErAmadkwyYlvH1QRv40GEHnp2kvcoY//RcNLaWy@lists.infradead.org
+X-Gm-Message-State: AFuF++n6xK434BemjBrDgi9YYkKHZNSfcxn/zl4tdZBJVECONnWYqj2I
+	46BANtxEEvonWOqtck7gxpbosXYigTszWrzmdmGY64OomWKfrzu/UvAT
+X-Gm-Gg: AYBFou0OOUqw37Fk6mCMHBqZ4rjLYqALXOJfVbethgRqVhU02H87lCnKOex7jCyb6s+
+	+SNv+zQqDib3tcsvOYO0rLMf0VTst3zQEJyJO99ebzlsZYYYlEQ1nDQO7K3VHp7egg4bZ46x9pp
+	lBsShECNjBxDFdb5y5mZN9LyHA6dM1WJqIeNAx8mquVP2oQXu2Tb660KXbtYZuLLYr6GoAPDVhj
+	k2iW820tU2/l0P5/d+hnNS4fuqjhPX+H/DJ+3rdniWb4HAZ+G4DeQaIwEZp85LY1Q+6znAC3uQy
+	4zN5wznFut3R3uZG0GI9o/41Pxah+9NULVn+95KdyV9mGBie+fve4HakM50Epfxf2DK9CqShfep
+	zuW8BE3uePCj943piF70amnYkfBZzU+x36Gy+YsKYG1ue5uWMzg/piQ6Vn651JtNLh+8Z5mxFcL
+	R8ttuv/IlclmSFFHvkdp+w/j0BcbedJmoaEtHPDRr/IdWFAIETW+oAQjDbVq0CbQq/OC3F4aTp0
+	wUG0WFibR9ZJueScBqeemzNAH6S8iI3aiqiaQkncCw9
+X-Received: by 2002:a17:90b:4b89:b0:398:c3ca:1ebc with SMTP id 98e67ed59e1d1-39aee105a46mr9138561a91.18.1788372321290;
+        Wed, 02 Sep 2026 11:05:21 -0700 (PDT)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32f07b79cf9sm9808273eec.18.2026.09.02.11.05.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 11:05:20 -0700 (PDT)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Sean Christopherson <seanjc@google.com>, Gautam Menghani <gautam@linux.ibm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, 
+	David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>, 
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH 00/20] KVM: selftests: PPC pre-enabling
+In-Reply-To: <aphioo_KTboUCtZd@google.com>
+Date: Wed, 02 Sep 2026 23:29:06 +0530
+Message-ID: <h5k7ttzp.ritesh.list@gmail.com>
+References: <20260826230511.972824-1-seanjc@google.com> <aphhKDm7Vx7G5ivr@Gautams-MacBook-Pro.local> <aphioo_KTboUCtZd@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 00/74] Add HDMI 2.0 support to DW HDMI QP TX
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, mcanal@igalia.com,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Raphael Gallais-Pou <rgallaispou@gmail.com>, Sandy Huang
- <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>,
- Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>,
- Phong LE <ple@baylibre.com>, Helge Deller <deller@gmx.de>,
- kernel@collabora.com, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Diederik de Haas <diederik@cknow-tech.com>,
- Maud Spierings <maud_spierings@hotmail.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260901-dw-hdmi-qp-scramb-v11-0-bc12954a0688@collabora.com>
- <20260902152838.5771-1-royalnet026@gmail.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260902152838.5771-1-royalnet026@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_110059_348459_F20BFABB 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20260902_110522_622236_9189D596 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +112,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+Sean Christopherson <seanjc@google.com> writes:
 
-On 9/2/26 6:28 PM, Igor Paunovic wrote:
-> Hi Cristian,
-> 
->> This has been tested on the following boards:
-> 
-> One more, with a sink pair your boards cannot cover:
-> 
-> Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588 Orange Pi 5 Plus, dual HDMI
-> 
-> Setup: whole v11 on its stated base (drm-misc-next 47b823940e38),
-> both SoC HDMI ports driven at once: a Samsung with HF-VSDB (max
-> TMDS character rate 600 MHz, SCDC present) and a Sony limited to
-> 300 MHz TMDS.
-> 
-> 1) HDMI 2.0 path: the Samsung now offers and runs 3840x2160@60 RGB
->    with a 594 MHz pixel clock (modetest-confirmed). Without the
->    series the same port tops out at 4K@30. A stable picture at
->    594 MHz is only possible with scrambling and the 1/40 TMDS ratio
->    active; it stayed stable across boot, mode changes and hotplug.
-> 
-> 2) Non-2.0 fallback: the Sony keeps its 297 MHz 4K@30 modes.
->    No regression.
-> 
-> 3) The result I care most about: this Sony in standby keeps EDID/5V
->    up but drops the link, and on my 7.2 stack that generates a
->    storm of detect/modeset cycles - measured 119-194 per hour,
->    enough to make the desktop stutter. On v11, twenty minutes of
->    standby produced ZERO events, and wake restored both sinks by
->    itself. Whatever share of that the cached-status detect and the
->    SCDC-loss handling each take - thank you.
-> 
-> 4) Hotplug on both ports: clean detach and reattach, no storms.
-> 
-> 5) Audio on a dead link: this morning my 7.2 stack took an SError
->    panic (regmap read in dw_hdmi_qp_bridge_clear_audio_infoframe
->    when a PCM was closed on a link whose SCDC never came up - full
->    UART trace available if useful). On v11 I could not reproduce
->    the class: six open/close cycles against the standby sink plus
->    one natural prepare-failure-then-close during replug all
->    survived cleanly. Caveat: different base kernels, so this is
->    not a clean A/B on the series alone.
+> On Wed, Sep 02, 2026, Gautam Menghani wrote:
+>> 
+>> + linuxppc-dev
+>
+> Ah, shoot, I *just* posted v2.  I'll add linuxppc-dev to that cover letter.
+>
+> https://lore.kernel.org/all/20260902164123.2546762-1-seanjc@google.com
 
-Thanks for the detailed testing report!
+Thanks Sean for sharing these changes.
 
-> Scope: RGB output only (the YUV420 output series is separate), no
-> USB-C DP on this base, VC4 side not exercised.
+Thought of sharing an interim update:
+I have rebased PPC KVM selftests support on top of this series and the
+initial tests ran fine. I am currently looking info few findings though
+- but will soon rebase those changes on top of your v2, review that &
+update the results.
 
-I will manually apply your T-b on the relevant patches before submitting a new
-revision.
 
-Cristian
+-ritesh
+
 
