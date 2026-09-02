@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEC0C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07B4C624D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 16:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z0JXN1Qg8SKT1PqQszVSTrjn1xMyP8kvqiPKrKavDZM=; b=ac7oLwjtIBWCNJrn0kWyvnNid7
-	TsXLJaALRh3zfHE3XILpQCaqYXjH+5vTUBymbSsQZSOcKtw3x0iGP8hQZlyXVcb9dq8cJaDkMxrt5
-	7BaXQQZmZXe6tHRrGpy1/QxbBVlqm7oM+4ZlNnJ8Ht/jNy0OvCCvPv5sT8F+bBLPQH2fZJ+CSmrUM
-	NnImuMlx4gHrQUcKUrxmlprsBgSyOy1DoTmm+AYFZjpIsL3Y16AA9qnkw/haO3HCBERAyX8SsuGEC
-	n3F/L++kEJfG0lgm/KBtTl9la1Ffj72xI58CY10ATobkrvxtWeHUkfcEuEJwRRVvEO1suNwF+BMGu
-	9LhYs53A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=frOgBPC40pi3x0hlZEdVguNDXI4epigXANzoQJEvIq8=; b=mDwNLATTNpHJBwYjD4kEYgR8/L
+	fLrhMMUaCpSFhKEMUlcb7l8HJRmmhP3ee5vUMnMiDYlstkto4dmJCe6MMAOVGa88FuH7bbXRtP4uO
+	0fVbIISYDC7R/4SLmDEHF6fO1MCDVEaEFhsIQdEEY8NbjQLTvGTgtH99TqcZLNXe0WrCQ+AsoZGGA
+	I4XiTgjUzpYrFiOMRG/nrbZg6YcecVbpnnvuXQcs02tZKncLOs0c6FuSDeL+J0TCTx+RX8WxFdYs/
+	T+pKSL4innHy9L4UFQvpIQKe7jHZw2xKShAa3MbsYgvyBAQlmmVZX7d8kNgnrhVPub8Hc5WEYa6LI
+	YbWDGBmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nzm-0000000FDh0-1Rzw;
-	Wed, 02 Sep 2026 16:39:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1o1g-0000000FE4F-3cSI;
+	Wed, 02 Sep 2026 16:41:28 +0000
+Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1nzk-0000000FDgK-3EUJ
+	id 1x1o1e-0000000FE1h-0Lbr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 16:39:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7329600D1;
-	Wed,  2 Sep 2026 16:39:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE6161F000E9;
-	Wed,  2 Sep 2026 16:39:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788367167;
-	bh=z0JXN1Qg8SKT1PqQszVSTrjn1xMyP8kvqiPKrKavDZM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=LDQvRkCfft8OKugaNahjcHj8SPwPbh0Lsgz1FJf2bdguoDCEOmR60ruh6hw4HoZ4f
-	 lkWCRjdQ6pdsTbghaNmiDzCl18HInwe4FMqj+Yn/gs4UyhvzpvjVFzE/9H7xOvXSPt
-	 rSl3MVuAjgd1j0lNArjOmMS8VQDPLG55oNCJuzNAj1cQFT3zMs0QEFZSHy5KstIYS4
-	 5oqTIzogNUJSCUe/ib2V9vZ1wo1CNG/jbQar1twhHlw8zr8okeQDvl/JPTNirSKPBp
-	 b+AkHnbQLqcvkPxwgCW4rCWeQ+YKJiNl/76NHbcO8x6lfjduRo0gswP1nCsBMo5qkl
-	 /nmD2hapvphsQ==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-In-Reply-To: <yq5aik4nztdt.fsf@kernel.org>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com> <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org> <20260901143445.GC56830@ziepe.ca>
- <yq5a8q5kkoz3.fsf@kernel.org> <20260902121700.GC2890729@ziepe.ca>
- <yq5aik4nztdt.fsf@kernel.org>
-Date: Wed, 02 Sep 2026 22:09:15 +0530
-Message-ID: <yq5aecfbzjyk.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Wed, 02 Sep 2026 16:41:27 +0000
+Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-381250979d5so1655939a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 09:41:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788367285; x=1788972085; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=frOgBPC40pi3x0hlZEdVguNDXI4epigXANzoQJEvIq8=;
+        b=UyUJVE8gObMLpCyIbjQ4gFZkjDJu6tCUccQ4ubTGcHN5q5TqV1AeuuU0d8gWqpDqpU
+         0b1OJN6O38wNlRofUAx+R2znrjdaKGwrKGBRfWJlPst2Ta3Jsn0F4jW8Ojl8U7QBiekf
+         TCTZ613oJ6NK4K2cXL3aflvIYOB/2P1fKnDNaksc7LILNgh9VEZ770n1g+8Q3XMvmrF3
+         fenTs0oWXa0Zq9mdzXbiEFho+GJ7szyiHDiy7od09e0ZZjHWlDf6t/Xh8zEvA8801eEP
+         rtUgtN6uMmHq5sscmWtbp1atAKgDGu53QqfYp6y83+drSU1y86BU2Knj+K+Klxj3/YMP
+         /+1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788367285; x=1788972085;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=frOgBPC40pi3x0hlZEdVguNDXI4epigXANzoQJEvIq8=;
+        b=qLK9nCj/bcRFcsGy5mJ/PY6+wkM9cq5rShe8mgDpcShsN+PJiNNJO7OXfX8moB0+P/
+         BeLQh8c8uhBIgn0Db5GiffrRWnXBdghgAGKa+d0oF5TN+eCFOYq8dglMCbsdPI0BoNvH
+         Qid3wSvcUN+8Jfp2u3hw/xAoqfpQnAE8igR4C0sStBR/EEy5N6k350tJtIeqLcKak349
+         81M7Qu+Bg9PueY9Rj+dqW5LTMiZlcrx7aJs/dlp5m+6C34T7CYYV1PNagZizge6BSju/
+         VxBYjtJ6WXgGnphIkghm1fLmslcTw49iNotpsAv1u8lQ89J2FCgAoO/v4b7rjxPTA/Xt
+         fCpQ==
+X-Forwarded-Encrypted: i=1; AKwUvByXHtD1ifBUB85mer+NSnC/o8WykNccVA/P6wV2iQFZ/U+QjWkaDNzE9Q/VnlIHSGHqUeKPs7FwzjTTuXmcpVW0@lists.infradead.org
+X-Gm-Message-State: AFuF++kzG2qxSa04pJoOFRjosG7Hi7rBkvpVhQaerFcPQV5hXsJo3Q2L
+	WJvrv9QRjFwGv+wCGPRDjsZd6G7VpxcDxONIqgC66uB4lu+p8RPoRsGynXd0ZUaS84E17S86jTt
+	v8L2rkg==
+X-Received: from pjbbh12.prod.google.com ([2002:a17:90b:48c:b0:381:171e:961c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2d4f:b0:37f:e1b6:4c7d
+ with SMTP id 98e67ed59e1d1-39aedf1aec2mr9689222a91.6.1788367284482; Wed, 02
+ Sep 2026 09:41:24 -0700 (PDT)
+Date: Wed,  2 Sep 2026 09:41:03 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.966.g6673acef38-goog
+Message-ID: <20260902164123.2546762-1-seanjc@google.com>
+Subject: [PATCH v2 00/20] KVM: selftests: PPC pre-enabling
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+	Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_094126_127824_A547E366 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,144 +96,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
+This is a big pile of cleanups and refactoring to prepare for PPC support in
+KVM selftests.  PPC has paging modes that require multi-page page tables, and
+those page tables need to be naturally aligned.  The original proposal was to
+plumb in an @align param to the page allocators[*], but I didn't love the idea
+of adding another rarely used param to the allocators.
 
-> Jason Gunthorpe <jgg@ziepe.ca> writes:
->
->> On Wed, Sep 02, 2026 at 02:30:00PM +0530, Aneesh Kumar K.V wrote:
->>> Jason Gunthorpe <jgg@ziepe.ca> writes:
->>> 
->>> > On Tue, Sep 01, 2026 at 03:36:37PM +0530, Aneesh Kumar K.V wrote:
->>> >
->>> >> @@ -463,14 +460,13 @@
->>> >>  	vsmmu->vmid = s2_parent->s2_cfg.vmid;
->>> >>  
->>> >>  	if (viommu->type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3) {
->>> >> +		if (arm_smmu_is_realm_viommu(viommu))
->>> >> +			return arm_realm_smmu_v3_init(viommu, user_data);
->>> >> +
->>> >
->>> > I think the realm vsmmu is going to require a different info struct
->>> > than the normal psmmu case, isn't it?
->>> >
->>> > If so it needs its own enum value.
->>> >
->>> > It would be nice to see a draft patch showing how the real vsmmu works
->>> > on top of the RMM spec for it. If we are using a viommu object then
->>> > non-vsmmu case should be identical just with an option in the info
->>> > struct to not create the vsmmu object.
->>> 
->>> Based on feedback on other emails in this thread, I have now implemented
->>> this without using a vdevice or viommu. This should make the CCA and
->>> non-CCA cases similar.
->>
->> That wasn't the feedback. The feedback was to use the viommu and not
->> make a bunch of new stuff..
->>
->
-> That rework was done before I saw your discussion with Nicolin.
->
-> To reiterate, for this configuration:
->
-> - The viommu will use a stage-1 bypass configuration.
-> - A new IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 type will create the viommu.
->   The psmmu will be activated at this point to avoid creating psmmu
->   objects early. We will reference-count it to ensure that the same
->   psmmu is shared across realm guests.
-> - Creating a vdevice will invoke SMC_RMI_PSMMU_ST_L2_CREATE.
->
-> I am unclear about the vdev_create suggestion. Creating a vdevice
-> requires an RD, which is created later in the flow above. How do you
-> suggest linking vdevice_alloc to vdev_create?
->
+v2:
+ - Collect tags. [Itaru, Bibo]
+ - Use 0x180000 as the min GPA for page table pages on LoongArch, instead of
+   changing every other arch to use 0x200000. [Sashiko, Bibo]
+ - Opportunistically move the vGIC LPI stress test's global "gpa_base" variable
+   into setup_memslot(). [Sashiko]
+
+v1: https://lore.kernel.org/all/20260826230511.972824-1-seanjc@google.com
+
+[*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
+
+Nicholas Piggin (1):
+  KVM: selftests: Use goto instead of do-while to retry finding unused
+    physical pages
+
+Sean Christopherson (19):
+  KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
+    regions/segments
+  KVM: selftests: Use the common minimum GPA for page tables on
+    LoongArch
+  KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
+    tables
+  KVM: selftests: Rename "num" param to "nr_pages" for physical page
+    allocators
+  KVM: selftests: Extend page allocator to support naturally aligned
+    allocations
+  KVM: selftests: Make the single-page allocator APIs static inline
+  KVM: selftests: Use the innermost page allocator API in the memslot
+    perf test
+  KVM: selftests: Use the innermost page allocator API in s390's IRQ
+    routing test
+  KVM: selftests: Add a wrapper API to allocate multiple page table
+    pages
+  KVM: selftests: Initialize vm->memslots[] with invalid memslots during
+    creation
+  KVM: selftests: Add APIs to override memory region types with custom
+    memslots
+  KVM: selftests: Add TEST_EXTRA memory region type for "special"
+    memslots
+  KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
+  KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
+  KVM: selftests: Use TEST_EXTRA region in set memory region test
+  KVM: selftests: Take the memory region type, not memslot, in page
+    allocators
+  KVM: selftests: Use TEST_ASSERT(), not assert(), in
+    vm_get_mem_region()
+  KVM: selftests: Automatically pick min_gpa for allocations based on
+    region type
+  KVM: selftests: Add arch hook to force page tables to be naturally
+    aligned
+
+ .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  21 ++-
+ .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
+ tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
+ .../selftests/kvm/lib/arm64/processor.c       |   4 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
+ .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
+ .../selftests/kvm/lib/riscv/processor.c       |   4 +-
+ .../selftests/kvm/lib/s390/processor.c        |   7 +-
+ .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
+ .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
+ tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
+ .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+ .../selftests/kvm/set_memory_region_test.c    |   8 +-
+ .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
+ 15 files changed, 221 insertions(+), 129 deletions(-)
 
 
-I was able to prototype the following flow:
+base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
+-- 
+2.55.0.966.g6673acef38-goog
 
- - The viommu uses a stage-1 bypass configuration.
- - A new IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3 type creates the viommu.
-   The pSMMU is activated at this point to avoid creating pSMMU objects
-   early. It is reference-counted so that the same pSMMU can be shared
-   across realm guests.
- - The realm is created during viommu allocation, ensuring that the
-   vSMMU can be created here.
- - Creating a vdevice invokes SMC_RMI_PSMMU_ST_L2_CREATE.
- - This is followed by tsm_bind() if the device has an established TSM
-   link.
-
-static int arm_realm_smmu_v3_vdevice_init(struct iommufd_vdevice *vdev)
-{
-	struct device *dev = iommufd_vdevice_to_device(vdev);
-	struct kvm *kvm = vdev->viommu->kvm_file->private_data;
-	struct arm_smmu_device *smmu;
-	struct arm_smmu_stream *stream;
-	struct arm_smmu_master *master;
-	unsigned long rmi_ret = 0;
-	unsigned long l2_sid;
-	int ret;
-
-	if (!tsm_is_configured(dev))
-		return 0;
-
-	master = dev_iommu_priv_get(dev);
-	/* FIXME which stream to pick */
-	/* At this moment, iommufd only supports PCI device that has one SID */
-	stream = &master->streams[0];
-	smmu = master->smmu;
-
-	l2_sid = ALIGN_DOWN(stream->id, STRTAB_NUM_L2_STES);
-
-	{
-		guard(mutex)(&smmu->realm.mutex);
-
-		if (!arm_realm_smmu_active(smmu))
-			return -EINVAL;
-
-		ret = rmi_psmmu_st_l2_create(smmu->base_phys, l2_sid,
-					     &rmi_ret);
-		if (ret || rmi_ret) {
-			if (!ret)
-				return -EIO;
-			if (RMI_RETURN_STATUS(rmi_ret) != RMI_ERROR_PSMMU_ST ||
-			    RMI_RETURN_INDEX(rmi_ret) != 2) {
-				dev_warn(dev, "failed to create realm stream mapping\n");
-				return -EIO;
-			}
-			/* The L2 stream table already exists. */
-		}
-	}
-
-	vdev->destroy = arm_realm_smmu_v3_vdevice_destroy;
-	return tsm_bind(dev, kvm, vdev->virt_id);
-}
-
- - tsm_bind() calls cca_tsm_bind(), which in turn calls vdev_create().
- - After boot, the guest locks the device. This generates an RHI request
-   that reaches cca_tsm_guest_req() with RHI_DA_TDI_CONFIG_LOCKED.
- - cca_tsm_guest_req() now handles TSM_REQ_SET_TDI_STATE requests for
-   the unlocked, locked, and running states.
-
-@@ -513,10 +514,16 @@ static ssize_t cca_tsm_guest_req(struct pci_tdi *tdi,
- 		if (copy_from_user((void *)&req_obj, req.user, req_len))
- 			return -EFAULT;
- 
--		if (req_obj.tdi_state != RHI_DA_TDI_CONFIG_RUN)
-+		switch (req_obj.tdi_state) {
-+		case RHI_DA_TDI_CONFIG_UNLOCKED:
-+			return cca_vdev_device_unlock(pdev);
-+		case RHI_DA_TDI_CONFIG_LOCKED:
-+			return cca_vdev_device_lock(pdev);
-+		case RHI_DA_TDI_CONFIG_RUN:
-+			return cca_vdev_device_start(pdev);
-+		default:
- 			return -EINVAL;
--
--		return cca_vdev_device_start(pdev);
-+		}
- 	}
- 
--aneesh
 
