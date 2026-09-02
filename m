@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA745C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 03:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6169DC61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 03:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5qp/1tLbmRpVusogjo+SBt+4hrWyvtZXYZWQyBVWfs=; b=fHYNMfaX9MAZ3eq/dBqFAInOxe
-	USFCF6hMI+s1R39zzfLhz4/xnQ9LPUJJhTJldvJRvcKSq2YBfZZsG3a+lj8f6ToZ42GZeuMu/tyGR
-	pJikks9eQ4E+dg2OR+3I+DV3esaKavf+YUGD4lLMzOzwdoRDiBM8RhBaOuCBTB33euIyOZFHDHnJX
-	4zFOCyrZfqzmKz5fz26G0A6rPTUrnCx6fB2vCpY2l+HsMXb0E5dDSqStT2nOzT+ibjqgM8H65JZs0
-	p6i2AJCkYTvNNI8V4rudI4ibdmJlElostwk6LA6Z553uQhUmaqs7n9XK5Cb+xkOoqaU+n5fbPeXzI
-	cylb/89Q==;
+	bh=eO9EKqCmJNfj/s/4A4JryqayHbddHlXAMJmfe1dVe0A=; b=mpb+LdBaJkqCA2gzVMuK/iVUB3
+	niPVQq5HlduQ2MDkWtVLwrVxFkMkzrXZBiaE6CE3z4Yi4v5YiKQrnTL2jWqxaHAnSMvtvKABu1ybC
+	gw23n9+u2lGbSa6KXBpCgvZmWlVObxbBgr507UdtTAmaslorTkHkhN54Gvju8mtnhwgCsLEnWedFY
+	IFRlwNmA6drXCcW+G/H+UP/I126/p9d3eXgnOhTHuGzadGAKn+ltmV17yLjhKzh2Ypj0VNccNyiX2
+	dqzqnfItcBI9o+X6iAd3wBrBOKm452aHu7d5dqQn6SRKwL7kkvbsYppy0wcNcYzo5TkqcYBy2Wyiz
+	zr80jyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1brJ-0000000DjHL-2fpR;
-	Wed, 02 Sep 2026 03:41:57 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1x1bzs-0000000DjYE-2MOA;
+	Wed, 02 Sep 2026 03:50:48 +0000
+Received: from mail-m16023653254.xmail.ntesmail.com ([160.236.53.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1brE-0000000DjGo-3HB5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 03:41:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Y5qp/1tLbmRpVusogjo+SBt+4hrWyvtZXYZWQyBVWfs=;
-	b=apudg3fMEwrmT5Hy7usbj0TCKIHLezzw0xYnNt3GVB/3U1iWyjDy/N7SecSkuy6cGTsSqchL3
-	XRTXSQHZKFxrEpjnN5mG9OmXEd46D0m+z1+1zNFVt6WlERSFO0rQW7BUPgcWWUhwwExdYfNAKk7
-	S++BIDtspilGrGTJhewLJmU=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hZSsr1ynQz12LHv;
-	Wed,  2 Sep 2026 11:30:24 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id A1A8040575;
-	Wed,  2 Sep 2026 11:41:40 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 2 Sep 2026 11:41:39 +0800
-Message-ID: <c8a6b6ac-aa4a-4cbc-b4f0-8dd6f4f02341@huawei.com>
-Date: Wed, 2 Sep 2026 11:41:39 +0800
+	id 1x1bzn-0000000DjXR-2kM8;
+	Wed, 02 Sep 2026 03:50:46 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4c3421b99;
+	Wed, 2 Sep 2026 11:50:36 +0800 (GMT+08:00)
+Message-ID: <02c265f6-0898-4f11-9954-df7d99d082a0@rock-chips.com>
+Date: Wed, 2 Sep 2026 11:50:34 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/5] KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
-To: Leonardo Bras <leo.bras@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver
- Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
-	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-References: <20260901171558.2674031-1-leo.bras@arm.com>
- <20260901171558.2674031-5-leo.bras@arm.com>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <20260901171558.2674031-5-leo.bras@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH 2/2] drm/rockchip: vop: don't round the pixel clock when
+ the encoder owns the PLL
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+References: <20260901234351.190506-1-anarsoul@gmail.com>
+ <20260901234351.190506-2-anarsoul@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Heiko Stuebner <heiko@sntech.de>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+In-Reply-To: <20260901234351.190506-2-anarsoul@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+X-HM-Tid: 0aa0603d78cf03a7kunmd4641de6777468
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCHk5LVkNDHkgdTE5DT0hJSVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=hXkxYRGUTNJ+EBFYZebUMPOQYzzXe0YgsR8/U+uLudyOlqvb6h4/nQ3d0FlZP/epUPQcRw2jCIwm4l27p20zvzXm383NwFlzVKkBUJS9rIgpL8STUGEzZAovXw7AkVWlO8yUJa9wk1tUqUlk0/w1deu7s0LqsKAjsG9tRtPiyT4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=eO9EKqCmJNfj/s/4A4JryqayHbddHlXAMJmfe1dVe0A=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_204153_609178_D8CE8A9D 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20260901_205044_321556_AE45D60E 
+X-CRM114-Status: GOOD (  35.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,97 +78,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Vasily,
 
+On 9/2/2026 7:42 AM, Vasily Khoruzhick wrote:
+> On RK3399 the HDMI reference clock is VPLL, a dedicated PLL that is a
+> parent of the VOP dclk. dw_hdmi_rockchip_mode_valid() accepts a mode
+> only if VPLL can produce its pixel clock, and encoder mode_set() then
+> programs VPLL to that rate. However vop_crtc_mode_fixup() ran first,
+> in the check phase, and rounded adjusted_mode->clock through
+> clk_round_rate() on the dclk. At that point VPLL still sits at its
+> previous rate, so the dclk composite picks whichever of VPLL/CPLL/GPLL
+> gets closest at its *current* rate and stores that inexact value.
+> 
 
-On 9/2/2026 1:15 AM, Leonardo Bras wrote:
-> Add a vcpu request to exit guest, reload Stage2, and then come back to
-> guest.
+Why did vop_crtc_mode_fixup() run first? Within drm_atomic_helper_check_modeset(), 
+mode_valid() is executed before mode_fixup().
+
+> For 1366x768 (85.5 MHz) this yields GPLL/7 = 84.857 MHz. mode_set()
+> then requests 84.857 MHz from VPLL, which the PLL rate table snaps
+> down to 74.25 MHz, and the VOP ends up on GPLL/7. The panel receives a
+> timing 0.75% slow, which some monitors misdetect (e.g. as 1195x768)
+> and display distorted. Only modes whose clock happens to be an exact
+> GPLL or CPLL fraction (74.25, 148.5, 297 MHz, ...) were unaffected.
+>
+
+Did you designate VPLL as the parent clock of the VOP dclk in the DTS?
+
+> Let the encoder tell the CRTC, via a new rockchip_crtc_state flag set
+> in its atomic_check, that it will program a dedicated dclk parent to
+> exactly the requested pixel clock. Move the rounding from mode_fixup
+> to atomic_check, which runs after the encoder's atomic_check as
+> recommended by the DRM documentation, and skip it when the flag is
+> set. With VPLL then set to the exact rate before the VOP enables,
+> clk_set_rate() on the dclk finds an exact match on VPLL.
 > 
-> This will be used on future patches that enable S2 HAFDBS and HDBSS, as
-> they may need to change VTCR bits for enabling/disabling the feature when
-> the vcpus are still running.
+> The flag is only meaningful within the check that sets it and is
+> cleared when the state is duplicated, so it cannot leak into a later
+> modeset on the same CRTC with a different encoder. Behaviour for
+> encoders without a dedicated PLL is unchanged.
 > 
-> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
 > ---
->   arch/arm64/include/asm/kvm_host.h | 2 ++
->   arch/arm64/kvm/arm.c              | 8 ++++++++
->   2 files changed, 10 insertions(+)
+>  drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c |  8 ++++++-
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.h |  9 ++++++++
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 25 +++++++++++++++------
+>  3 files changed, 34 insertions(+), 8 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 27fe0cd5b2d7..00fe169f239f 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -48,20 +48,22 @@
->   #define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
->   #define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
->   #define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
->   #define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
->   #define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
->   #define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
->   #define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
->   #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
->   #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
->   #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-> +#define KVM_REQ_RELOAD_STAGE2 \
-> +	KVM_ARCH_REQ_FLAGS(12, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
->   
->   #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
->   				     KVM_DIRTY_LOG_INITIALLY_SET)
->   
->   #define KVM_HAVE_MMU_RWLOCK
->   
->   /*
->    * Mode of operation configurable with kvm-arm.mode early param.
->    * See Documentation/admin-guide/kernel-parameters.txt for more information.
->    */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8b080804bc90..1e528d53d093 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1164,20 +1164,28 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
->   
->   		if (kvm_check_request(KVM_REQ_RESYNC_PMU_EL0, vcpu))
->   			kvm_vcpu_pmu_restore_guest(vcpu);
->   
->   		if (kvm_check_request(KVM_REQ_SUSPEND, vcpu))
->   			return kvm_vcpu_suspend(vcpu);
->   
->   		if (kvm_dirty_ring_check_request(vcpu))
->   			return 0;
->   
-> +		if (kvm_check_request(KVM_REQ_RELOAD_STAGE2, vcpu)) {
-> +			unsigned long flags;
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> index b6e154c35e7c..ece44c6ec95c 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> @@ -300,8 +300,8 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+>  				      struct drm_crtc_state *crtc_state,
+>  				      struct drm_connector_state *conn_state)
+>  {
+> -	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+>  	struct rockchip_hdmi *hdmi = to_rockchip_hdmi(encoder);
+> +	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+>  	union phy_configure_opts opts = {};
+>  	u32 bus_format;
+>  
+> @@ -327,6 +327,12 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+>  
+>  	s->output_type = DRM_MODE_CONNECTOR_HDMIA;
+>  	s->bus_format = bus_format;
+> +	/*
+> +	 * The reference clock (e.g. VPLL on RK3399) is a parent of the VOP
+> +	 * dclk, and mode_set() programs it to the pixel clock, which
+> +	 * mode_valid() already guaranteed it can produce.
+> +	 */
+> +	s->dclk_exact = !!hdmi->ref_clk;
+> 
+
+What about RK3328? It uses hdmi->hdmiphy_clk.
+
+
+>  	if (!hdmi->phy || !conn_state->hdmi.tmds_char_rate)
+>  		return 0;
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> index 4705dc6b8bd7..8cb828ae9af6 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> @@ -57,6 +57,15 @@ struct rockchip_crtc_state {
+>  	u32 bus_format;
+>  	u32 bus_flags;
+>  	int color_space;
+> +	/*
+> +	 * Set by an encoder's atomic_check when it owns a dedicated PLL that
+> +	 * feeds the CRTC's dclk and will program it to exactly
+> +	 * adjusted_mode->clock at mode_set time. The CRTC must then not
+> +	 * round the pixel clock against the current clock tree, which does
+> +	 * not reflect that PLL's future rate. Only valid within one check,
+> +	 * it is cleared when the state is duplicated.
+> +	 */
+> +	bool dclk_exact;
+>  };
+>  #define to_rockchip_crtc_state(s) \
+>  		container_of(s, struct rockchip_crtc_state, base)
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+> index 0090d8ff0c79..73a92ccbcb94 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+> @@ -1207,11 +1207,9 @@ static enum drm_mode_status vop_crtc_mode_valid(struct drm_crtc *crtc,
+>  	return MODE_OK;
+>  }
+>  
+> -static bool vop_crtc_mode_fixup(struct drm_crtc *crtc,
+> -				const struct drm_display_mode *mode,
+> -				struct drm_display_mode *adjusted_mode)
+> +static void vop_crtc_adjust_clock(struct vop *vop,
+> +				  struct drm_display_mode *adjusted_mode)
+>  {
+> -	struct vop *vop = to_vop(crtc);
+>  	unsigned long rate;
+>  
+>  	/*
+> @@ -1245,8 +1243,6 @@ static bool vop_crtc_mode_fixup(struct drm_crtc *crtc,
+>  		rate = clk_round_rate(vop->dclk,
+>  				      adjusted_mode->clock * 1000 + 999);
+>  	adjusted_mode->clock = DIV_ROUND_UP(rate, 1000);
+> -
+> -	return true;
+>  }
+>  
+>  static bool vop_dsp_lut_is_enabled(struct vop *vop)
+> @@ -1558,6 +1554,19 @@ static int vop_crtc_atomic_check(struct drm_crtc *crtc,
+>  	s = to_rockchip_crtc_state(crtc_state);
+>  	s->enable_afbc = afbc_planes > 0;
+>  
+> +	/*
+> +	 * Round the pixel clock to what the dclk can really produce, unless
+> +	 * the encoder will program a dedicated dclk parent PLL to exactly
+> +	 * this rate at mode_set time. In that case the clock tree seen here
+> +	 * (with that PLL still at its old rate) would pick a worse, inexact
+> +	 * source and bake that rate into adjusted_mode, defeating the PLL.
+> +	 *
+> +	 * Same condition the atomic helpers use for the mode_fixup callback.
+> +	 */
+> +	if ((crtc_state->mode_changed || crtc_state->connectors_changed) &&
+> +	    !s->dclk_exact)
+> +		vop_crtc_adjust_clock(vop, &crtc_state->adjusted_mode);
 > +
-> +			local_irq_save(flags);
-> +			__load_stage2(vcpu->arch.hw_mmu);
-> +			local_irq_restore(flags);
-> +		}
+>  	return 0;
+>  }
+> 
+
+What about other display interfaces? For example, the .mode_fixup 
+corresponding to cdn-dp will not be called.
+
+> @@ -1623,7 +1632,6 @@ static void vop_crtc_atomic_flush(struct drm_crtc *crtc,
+>  
+>  static const struct drm_crtc_helper_funcs vop_crtc_helper_funcs = {
+>  	.mode_valid = vop_crtc_mode_valid,
+> -	.mode_fixup = vop_crtc_mode_fixup,
+>  	.atomic_check = vop_crtc_atomic_check,
+>  	.atomic_begin = vop_crtc_atomic_begin,
+>  	.atomic_flush = vop_crtc_atomic_flush,
+> @@ -1643,6 +1651,9 @@ static struct drm_crtc_state *vop_crtc_duplicate_state(struct drm_crtc *crtc)
+>  	if (!rockchip_state)
+>  		return NULL;
+>  
+> +	/* Only valid within the check phase that sets it. */
+> +	rockchip_state->dclk_exact = false;
 > +
->   		check_nested_vcpu_requests(vcpu);
->   	}
->   
->   	return 1;
->   }
->   
->   static bool vcpu_mode_is_bad_32bit(struct kvm_vcpu *vcpu)
->   {
->   	if (likely(!vcpu_mode_is_32bit(vcpu)))
->   		return false;
-Hi Leo,
+>  	__drm_atomic_helper_crtc_duplicate_state(crtc, &rockchip_state->base);
+>  	return &rockchip_state->base;
+>  }
 
-Thanks for sending this out. I actually implemented a similar request in
-my v5 HDBSS series to reload VTCR on enable/disable, but I named it
-KVM_REQ_HDBSS_RELOAD_VTCR.
-
-Without such a request, the new VTCR value only takes effect on the next
-vcpu_load, which means enable/disable could be delayed indefinitely if
-the vCPU never goes through a load/put cycle. So I think this request is
-necessary for HDBSS as well.
-
-Since your KVM_REQ_RELOAD_STAGE2 is more generic, I'd like to rebase on
-top of your patch and reuse it in v5. Would that work for you? Or do you
-prefer to keep them separate for now?
-
-Thanks,
-Tian
+-- 
+Best, 
+Chaoyi
 
