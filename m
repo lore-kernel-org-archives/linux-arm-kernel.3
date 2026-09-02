@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E26BC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 03:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA745C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 03:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PCd37bUtBEqv1gFYGYVEnb5d1bwivJr+yX7tE1LZVU=; b=XhtJiD4wyP9SZ2PTa1Ph94uVrR
-	P7yqIUsMT2zMmrznjTVMW7xQItQAeIqrmR5FAIYC78oCift1Lyb7i5OtBY6xkSOwG2B6wCtcRK0mr
-	mYzHWF3zekqTfXqy6Ns7Cteu24T/lGkSzFaHjxD9ulOtWUh7OuBM7IevTW9w/S/VeQxzkGVIn5zTQ
-	P0rTtGNO3EeTanohA1Lc4fr4GiauxnYZTAyrTBTs4NddzPvJYGvFaMmiIuoD9UoKtgCgZlRQ8a6it
-	K5FiY9hFcc4Wjn0D9Hr45eYUWdglboW4olURyhKEjUptnHWf9gsfZB6jfJjcqGHVF7QOeZF7Oy+Xj
-	3MYIUAQQ==;
+	bh=Y5qp/1tLbmRpVusogjo+SBt+4hrWyvtZXYZWQyBVWfs=; b=fHYNMfaX9MAZ3eq/dBqFAInOxe
+	USFCF6hMI+s1R39zzfLhz4/xnQ9LPUJJhTJldvJRvcKSq2YBfZZsG3a+lj8f6ToZ42GZeuMu/tyGR
+	pJikks9eQ4E+dg2OR+3I+DV3esaKavf+YUGD4lLMzOzwdoRDiBM8RhBaOuCBTB33euIyOZFHDHnJX
+	4zFOCyrZfqzmKz5fz26G0A6rPTUrnCx6fB2vCpY2l+HsMXb0E5dDSqStT2nOzT+ibjqgM8H65JZs0
+	p6i2AJCkYTvNNI8V4rudI4ibdmJlElostwk6LA6Z553uQhUmaqs7n9XK5Cb+xkOoqaU+n5fbPeXzI
+	cylb/89Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1bgd-0000000Disg-1Vcq;
-	Wed, 02 Sep 2026 03:30:55 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1x1brJ-0000000DjHL-2fpR;
+	Wed, 02 Sep 2026 03:41:57 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1bgZ-0000000DirA-34zv
+	id 1x1brE-0000000DjGo-3HB5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 03:30:54 +0000
+	Wed, 02 Sep 2026 03:41:55 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=2PCd37bUtBEqv1gFYGYVEnb5d1bwivJr+yX7tE1LZVU=;
-	b=FaVGjP1Q7NfGGgo8JXMhEjjDW0Eg4lk6xn5ToA4TV1G2UCOAIEiqUifFXYuvajR6tBY4PKe6L
-	bsaCCYZwdOdExuBgFdaMe9R3h06PF93SoU+WO7kSF8RGIKha4PyFcSAZUg8SvJrCXKzeAkp+5c8
-	88u2AOlm9MGsLC7EBv7MSxg=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hZSdh1zRTz1K9Ws;
-	Wed,  2 Sep 2026 11:19:52 +0800 (CST)
-Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4039A4048B;
-	Wed,  2 Sep 2026 11:30:42 +0800 (CST)
-Received: from [10.67.120.233] (10.67.120.233) by
- whupemo200004.china.huawei.com (7.152.184.18) with Microsoft SMTP Server
+	bh=Y5qp/1tLbmRpVusogjo+SBt+4hrWyvtZXYZWQyBVWfs=;
+	b=apudg3fMEwrmT5Hy7usbj0TCKIHLezzw0xYnNt3GVB/3U1iWyjDy/N7SecSkuy6cGTsSqchL3
+	XRTXSQHZKFxrEpjnN5mG9OmXEd46D0m+z1+1zNFVt6WlERSFO0rQW7BUPgcWWUhwwExdYfNAKk7
+	S++BIDtspilGrGTJhewLJmU=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hZSsr1ynQz12LHv;
+	Wed,  2 Sep 2026 11:30:24 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id A1A8040575;
+	Wed,  2 Sep 2026 11:41:40 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 2 Sep 2026 11:30:39 +0800
-Message-ID: <08e19f22-f0e7-4c79-8938-110e5150b507@huawei.com>
-Date: Wed, 2 Sep 2026 11:30:38 +0800
+ 15.2.2562.45; Wed, 2 Sep 2026 11:41:39 +0800
+Message-ID: <c8a6b6ac-aa4a-4cbc-b4f0-8dd6f4f02341@huawei.com>
+Date: Wed, 2 Sep 2026 11:41:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] hwtracing: hisi_ptt: Add pattern PMU config for
- trace format selection
-To: Yushan Wang <wangyushan12@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <wuzongyu1@huawei.com>
-References: <20260827140442.2031128-1-liusizhe5@huawei.com>
- <20260827140442.2031128-8-liusizhe5@huawei.com>
- <c00d649f-aa24-40a8-849e-789ce1a6aca9@huawei.com>
-From: Sizhe Liu <liusizhe5@huawei.com>
-In-Reply-To: <c00d649f-aa24-40a8-849e-789ce1a6aca9@huawei.com>
+Subject: Re: [RFC PATCH 4/5] KVM: arm64: Add KVM_REQ_RELOAD_STAGE2
+To: Leonardo Bras <leo.bras@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver
+ Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly
+	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Raghavendra Rao Ananta <rananta@google.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20260901171558.2674031-1-leo.bras@arm.com>
+ <20260901171558.2674031-5-leo.bras@arm.com>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <20260901171558.2674031-5-leo.bras@arm.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.233]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- whupemo200004.china.huawei.com (7.152.184.18)
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_203052_402833_0526CAD9 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20260901_204153_609178_D8CE8A9D 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,122 +83,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/9/1 9:31, Yushan Wang wrote:
-> On 8/27/2026 10:04 PM, Sizhe Liu wrote:
->> Introduce a `pattern` PMU config field (config:36-39) that controls
->> which TLP header format the hardware traces. bit[3:1] are reserved for
->> future extension and only bit0 is used currently:
->>
->> - pattern=0 (default, compatibility mode): the driver sets bit[8] of
->>     HISI_PTT_TRACE_CTRL so the hardware traces the data in compatibility
->>     mode.
->> - pattern=1: the driver clears bit[8] of HISI_PTT_TRACE_CTRL so the
->>     hardware traces the data pattern including some bitfields of the TLP
->>     header defined in PCIe r6.4 sec 2.2.1.2.
->>
->> Note that bit[8] of HISI_PTT_TRACE_CTRL is inverted with respect to the
->> `pattern` value: bit[8]=1 selects the legacy format, bit[8]=0 selects
->> the new format. Bit[11:9] is still reserved, which is consistent with the
->> PMU config field. The driver validates the 4-bit value in
->> hisi_ptt_trace_valid_pattern() and applies it in hisi_ptt_trace_start().
->>
->> Document the new parameter in Documentation/trace/hisi-ptt.rst.
->>
->> Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
->> ---
->>    Documentation/trace/hisi-ptt.rst | 25 +++++++++++++++++++++++--
->>    drivers/hwtracing/ptt/hisi_ptt.c | 25 ++++++++++++++++++++++++-
->>    drivers/hwtracing/ptt/hisi_ptt.h |  4 ++++
->>    3 files changed, 51 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/trace/hisi-ptt.rst b/Documentation/trace/hisi-ptt.rst
->> index f6a2655f99e5..c95eaa12f4d3 100644
->> --- a/Documentation/trace/hisi-ptt.rst
->> +++ b/Documentation/trace/hisi-ptt.rst
->> @@ -255,7 +255,28 @@ directly from the TLP header.
->>         DW2 [                     Header DW2                            ]
->>         DW3 [                     Header DW3                            ]
->>
->> -5. Memory Management
->> +5. Trace pattern
->> +-----------------
->> +
->> +You can control whether the trace is taken with the new version of the
->> +TLP header format by specifying the `pattern` parameter. The default
->> +value is 0, which means the legacy format is used for backward
->> +compatibility. The parameter value is 4 bit and bit[3:1] are currently
->> +reserved for extension. Current supported values are shown below:
->> +
->> +- 4'b0000: legacy trace format
->> +    DW2 and DW3 are printed with generic field names only, and
->> +    no message-type-basedfield decoding.
->> +- 4'b0001: trace format v1
->> +    DW2 and DW3 are decoded according to the TLP message type (MWr,
->> +    Msg, Atomic, IO, CPL, Cfg) with detailed field names. It is recommended to
->> +    use trace format v1 when the current PCIe link generation is higher than
->> +    PCIe 6.0.
->> +
->> +For trace data recorded by an older tracer without the `pattern` parameter,
->> +the decoder will work as `pattern` forced to 0.
->> +
->> +6. Memory Management
->>    --------------------
->>
->>    The traced TLP headers will be written to the memory allocated
->> @@ -274,7 +295,7 @@ will commit the AUX buffer first and then apply for a new one with
->>    the same size. The size of AUX buffer is default to 16MiB. User can
->>    adjust the size by specifying the `-m` parameter of the perf command.
->>
->> -6. Decoding
->> +7. Decoding
->>    -----------
->>
->>    You can decode the traced data with `perf report -D` command (currently
->> diff --git a/drivers/hwtracing/ptt/hisi_ptt.c b/drivers/hwtracing/ptt/hisi_ptt.c
->> index 94c371c49135..1696c30ac4c9 100644
->> --- a/drivers/hwtracing/ptt/hisi_ptt.c
->> +++ b/drivers/hwtracing/ptt/hisi_ptt.c
->> @@ -233,6 +233,10 @@ static int hisi_ptt_trace_start(struct hisi_ptt *hisi_ptt)
->>         val |= FIELD_PREP(HISI_PTT_TRACE_CTRL_TARGET_SEL, hisi_ptt->trace_ctrl.filter);
->>         if (!hisi_ptt->trace_ctrl.is_port)
->>                 val |= HISI_PTT_TRACE_CTRL_FILTER_MODE;
->> +     if (!ctrl->pattern)
->> +             val |= HISI_PTT_TRACE_CTRL_PATTERN;
->> +     else
->> +             val &= ~HISI_PTT_TRACE_CTRL_PATTERN;
-> 
-> Hi Sizhe,
-> 
-> This hunk seems not able to be applied to mainstream cleanly, otherwise
-> this series LGTM.
-> 
-> Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
-> 
-Hi Yushan,
 
-I will fix it in v3. Thanks for your Reviewed-by tag.
 
-Regards,
-Sizhe >>
->>
->>         /* Start the Trace */
->>         val |= HISI_PTT_TRACE_CTRL_EN;
->> @@ -805,12 +809,14 @@ PMU_FORMAT_ATTR(filter,         "config:0-19");
->>    PMU_FORMAT_ATTR(direction,   "config:20-23");
->>    PMU_FORMAT_ATTR(type,                "config:24-31");
->>    PMU_FORMAT_ATTR(format,              "config:32-35");
->> +PMU_FORMAT_ATTR(pattern,             "config:36-39");
->>
->>    static struct attribute *hisi_ptt_pmu_format_attrs[] = {
->>         &format_attr_filter.attr,
->>         &format_attr_direction.attr,
->>         &format_attr_type.attr,
->>         &format_attr_format.attr,
->> +     &format_attr_pattern.attr,
->>         NULL
->>    };
->>
+On 9/2/2026 1:15 AM, Leonardo Bras wrote:
+> Add a vcpu request to exit guest, reload Stage2, and then come back to
+> guest.
 > 
-> [...]
+> This will be used on future patches that enable S2 HAFDBS and HDBSS, as
+> they may need to change VTCR bits for enabling/disabling the feature when
+> the vcpus are still running.
+> 
+> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_host.h | 2 ++
+>   arch/arm64/kvm/arm.c              | 8 ++++++++
+>   2 files changed, 10 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7..00fe169f239f 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -48,20 +48,22 @@
+>   #define KVM_REQ_VCPU_RESET		KVM_ARCH_REQ(2)
+>   #define KVM_REQ_RECORD_STEAL		KVM_ARCH_REQ(3)
+>   #define KVM_REQ_RELOAD_GICv4		KVM_ARCH_REQ(4)
+>   #define KVM_REQ_RELOAD_PMU		KVM_ARCH_REQ(5)
+>   #define KVM_REQ_SUSPEND			KVM_ARCH_REQ(6)
+>   #define KVM_REQ_RESYNC_PMU_EL0		KVM_ARCH_REQ(7)
+>   #define KVM_REQ_NESTED_S2_UNMAP		KVM_ARCH_REQ(8)
+>   #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+>   #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+>   #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+> +#define KVM_REQ_RELOAD_STAGE2 \
+> +	KVM_ARCH_REQ_FLAGS(12, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+>   
+>   #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+>   				     KVM_DIRTY_LOG_INITIALLY_SET)
+>   
+>   #define KVM_HAVE_MMU_RWLOCK
+>   
+>   /*
+>    * Mode of operation configurable with kvm-arm.mode early param.
+>    * See Documentation/admin-guide/kernel-parameters.txt for more information.
+>    */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8b080804bc90..1e528d53d093 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1164,20 +1164,28 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+>   
+>   		if (kvm_check_request(KVM_REQ_RESYNC_PMU_EL0, vcpu))
+>   			kvm_vcpu_pmu_restore_guest(vcpu);
+>   
+>   		if (kvm_check_request(KVM_REQ_SUSPEND, vcpu))
+>   			return kvm_vcpu_suspend(vcpu);
+>   
+>   		if (kvm_dirty_ring_check_request(vcpu))
+>   			return 0;
+>   
+> +		if (kvm_check_request(KVM_REQ_RELOAD_STAGE2, vcpu)) {
+> +			unsigned long flags;
+> +
+> +			local_irq_save(flags);
+> +			__load_stage2(vcpu->arch.hw_mmu);
+> +			local_irq_restore(flags);
+> +		}
+> +
+>   		check_nested_vcpu_requests(vcpu);
+>   	}
+>   
+>   	return 1;
+>   }
+>   
+>   static bool vcpu_mode_is_bad_32bit(struct kvm_vcpu *vcpu)
+>   {
+>   	if (likely(!vcpu_mode_is_32bit(vcpu)))
+>   		return false;
+Hi Leo,
 
+Thanks for sending this out. I actually implemented a similar request in
+my v5 HDBSS series to reload VTCR on enable/disable, but I named it
+KVM_REQ_HDBSS_RELOAD_VTCR.
+
+Without such a request, the new VTCR value only takes effect on the next
+vcpu_load, which means enable/disable could be delayed indefinitely if
+the vCPU never goes through a load/put cycle. So I think this request is
+necessary for HDBSS as well.
+
+Since your KVM_REQ_RELOAD_STAGE2 is more generic, I'd like to rebase on
+top of your patch and reuse it in v5. Would that work for you? Or do you
+prefer to keep them separate for now?
+
+Thanks,
+Tian
 
