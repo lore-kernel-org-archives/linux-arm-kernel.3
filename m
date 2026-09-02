@@ -4,68 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC74C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09333C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=No/gj0mTlHy4OPEirMqFngNNcLyxd3oSOl4Nf/LqO2Q=; b=XkaoJ/MXz4nGi2f7VW0ye20IGZ
-	lnUWIdHw812HLPaK8T8FjmRBz2Fh0uNP3X8nsxigXH0F2sM3L/cDxJ9IO3hzlYLzpLA+emWwSyQi1
-	WowSyxX7I0ydsucUxpkv8SwnIB8i2YrWisWpxMg+Uy7TTczNQXYybebmJezCznkQppbK74xmJ7sAh
-	+0MLs3m3K9h6XhAsZTS26CB3WbmZJlnoxDENqecA71LjITsvNhDfReToy1t3yTxIkvXh6UppA9Emv
-	XKWS8XfsCdNc8wvgGXEnweh7VLOhxsLcYAf2UK5XxQ9CWcbSt1B3C8o6TH+WiYNllrhaBj+Fk2tX8
-	GmCtiq4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JJ0BVlV8QKs+WA/tePpiGO8JNKHAiKPvkno1I9nLxqA=; b=bHDDC/Sdr1KWhw5fKl+GpbGqV2
+	JsZDC4D8/PWD1W+NpNK/qFS9WqH1tho+qhFzHAzUwy7gFY5td4Qpx8lfKysmHaA7h/asKC8RaiWOr
+	BQDLBC75WhKQLTokbhe6ZdLqCx91NQ16ZFDp7pKtUjXPxdCw0XK+xVlIdMoSvw4vCVtng8K3DV7bo
+	Lk/TSHw6kr/mT0nGJpyuyVYWC6YcHpZ9T6G1sl9mDubxjcJwzf1k/5i25vUt6u9ErTKfv79dKx+2T
+	WEXXmcIay6eAi9SAdAEU828mHwoFFUdKT8Slx0cS8Z2Ky8p6S4knUrYyPccb/ASDRjq+smVakl7wM
+	c/On2VkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gj9-0000000E9eM-0qZC;
-	Wed, 02 Sep 2026 08:53:51 +0000
-Received: from out-92.mta0.migadu.com ([2001:41d0:1004:224b::5c] helo=mta0.migadu.com)
+	id 1x1glC-0000000E9zn-2r67;
+	Wed, 02 Sep 2026 08:55:58 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gj4-0000000E9cC-37vA
+	id 1x1gl8-0000000E9z5-2nX7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 08:53:49 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=9DBxz8SjbKas7ulbguz4S6hfquD61Gb0V+1JSuE4lts=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788339224; v=1; x=1788944024;
- b=jkGgGwDFcsh5IgUuq9lO8368ZNk39TwWdOwICFfJLX+pp1HT+OCk5/n3sQgcn+M6Fhty7N8/
- qWtNEQOBiMF7Sg4928eIFy+WvmfZhTozlFP+VNJCA+UMWx367MsxNW7vFedIBd0CaKQ5c15WD1/
- k6SgTZe4tqOQ2oLUmh3P0Kw8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by mta11.migadu.com with ESMTPS id 67a4514beb846ad3;
-	Wed, 02 Sep 2026 08:53:44 +0000
-X-Mizu-Trace-ID: 67a4514beb846ad3
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 2 Sep 2026 16:53:34 +0800
-From: Baoquan He <baoquan.he@linux.dev>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
-	saravanak@kernel.org, akpm@linux-foundation.org, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
-	alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev,
-	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
-Message-ID: <apfkDlcMYrgiuGYA@fedora>
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
+	Wed, 02 Sep 2026 08:55:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zQ9NKax5GHhBuO3yX7UQbMi5RcWkwHHYCC1AM6R7j4frOUhPuzczWTPRCAXiNhYdKg+Zh+yLavkxVG2aL/eKkXpHXLP2uoFVy+H8lnGCaWxfmcpiDGLehooGc67BiFJ569JvBJdMepBdcupabfP06P2Bj2YhiJpmcMAHPNhkwzCAm9UxdDIcJtXoYlWq4ZBXxJlM7OPjvyBROWQXwDN2qk5GdbOgsKUy192RdasoQYpGVLh0pak0XsPqIA0G/x8cJ3TUA/TRMmF6i49/oL78K5peZzv/Fe9UFhwt5lc9kAG5pgHIq0x6dzJ0nYPzg0rlVZ7XRLNv+mKws6BBYF+cNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JJ0BVlV8QKs+WA/tePpiGO8JNKHAiKPvkno1I9nLxqA=;
+ b=ArdcDy+m1hQfQKNWejWt1w9o5IiF/arCY9Z4Cwriv38m71UFX+2aFCF9WCQMK+Wh2X2r4UYJyCGbcugyCD89meb/tIs8eOAZQmqbElYdtWKlK0267kttYjhdff4MLT218EZ2VCOzJmf/JvqYT/chiM/wT9j2KmqIROoJnzh9VAInpU74YzWtlfbh1NIMZptOkqP8mhSGnHu9pUDjzcoLMC5TT1mXiphFExR89WOU33eoJsRSnEaRx9MKykALrVRrcOGbveXbpxyKohfIeA4XvCfDyhlPtb7bMcTNmQfLRs+Es2Eh3I3dou1/7zKBe5XJRTWOR/262WWjyKpj76oX9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.87) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JJ0BVlV8QKs+WA/tePpiGO8JNKHAiKPvkno1I9nLxqA=;
+ b=HgBE5iLPcQ8vr8G0RqZwVLlCnt8Tr+DuT1kgI2QdNOudDTSbYzn27hIMmZ/t2j8d4qnx+baPpsW9LgnxJ2LXcNXHeuCbIDmrCYQzJCwMrp+PfwCosGgZr2W5GNqQ5ANvHwgHlDjRSV0Sih2F14+cGmRfibwrQ4IZsAre49sHHxbs1d6icz0Iipiw/cEhqNI/5DDGfbg0xryyXxQ9s2RNrCktTcujc9tIQSjXzui6U4qKK3Z7bxrUX8Xh+YGjG5sxBVhZkKDvo0duu5eRkMV56Ot5woQIS/SnljcHujqxMpNT2y3sW825ryNxft0wsAe5z1vWYaHh94ho9q2QYLwCYQ==
+Received: from DU7P190CA0015.EURP190.PROD.OUTLOOK.COM (2603:10a6:10:550::9) by
+ AM0PR10MB3697.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:155::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Wed, 2 Sep
+ 2026 08:55:48 +0000
+Received: from DB1PEPF000509EF.eurprd03.prod.outlook.com
+ (2603:10a6:10:550:cafe::9b) by DU7P190CA0015.outlook.office365.com
+ (2603:10a6:10:550::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed, 2
+ Sep 2026 08:55:48 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.87)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.87 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.87; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.87) by
+ DB1PEPF000509EF.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 08:55:48 +0000
+Received: from ENXDAG1NODE4.st.com (10.75.129.197) by smtpo365.st.com
+ (10.250.44.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 2 Sep
+ 2026 10:57:44 +0200
+Received: from [10.48.86.251] (10.48.86.251) by ENXDAG1NODE4.st.com
+ (10.75.129.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 2 Sep
+ 2026 10:55:47 +0200
+Message-ID: <43ea0c7e-44f2-4ec0-ae82-ee60203c8842@foss.st.com>
+Date: Wed, 2 Sep 2026 10:55:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260902073116.802752-1-chenwandun1@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH v5 1/2] dt-bindings: arm: stm32: Document
+ st, stm32mp23/25-syscfg subnodes and cells
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Conor Dooley <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+	Yannick Fertre <yannick.fertre@foss.st.com>,
+	<linux-stm32@st-md-mailman.stormreply.com>, Christophe Roullier
+	<christophe.roullier@foss.st.com>, <devicetree@vger.kernel.org>,
+	<kernel@dh-electronics.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+References: <20260831231359.136475-1-marex@nabladev.com>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20260831231359.136475-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To ENXDAG1NODE4.st.com
+ (10.75.129.197)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509EF:EE_|AM0PR10MB3697:EE_
+X-MS-Office365-Filtering-Correlation-Id: ae09b595-8c1d-44ba-c06b-08df08cffbbe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|376014|1800799024|7416014|13003099007|56012099006|11063799006|10067099003|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ig9Fxglh5KgdezAJKp0/JE9HKx3YvPxdDaN5tSkqcWw6XFz4i35/1CTKAS6ff0d+GDNoY8fVgPv825SMzFCsI2RZ8fJuDD/TFcHsOxXaIUJ0z2G6SxO2MPwPAEW+9LwIu5/Pc9PMmkmEZ+uTURl8yG9zmnKmIr4bE0HazWHr6lOwty+In0KhwXoeNkUAJdyfVUhUt8l2SxsN5KsU5Htu5R7dkgFvA30Yo9xWemSC5LS9vei1ycG9bTVOrc/hbNb/qqZ9RkTjflVUHkCyJuDQRqhmGIDRFO/Os/jY7oHiqBe9xdJPU97ZE2df53b0jJHCT9eNqLNvaU6pVwb/ppaAF/XWoC+uVPkv59poIgGlmXZ3kyh9COWZFY19R2w9D9Hv3tCAnUottdmFOx8wNyaYqTb0lwKDtb75OLAy4q3UGIxaM4jat7FzSILk2d93Y/9SlAi515pgnKoLpotlz4ZT3f4/rr/JpCRZefDifSrIPCSog1rS0eNehRkFb4TvEr8Xrw6HDQ/6wWmzdMIKwhJYQHgw/LF1SHAdNhfTDi+s6wP4k4DbqIT2h0LWpEGY6+L+fYLySw8+UPZHiO3qdc09osOaIB0DWMkMU5vcPLM0mO3Qz3jtFzGB1c3UAys9SxgV2VrQ3BWEvGv8bNrm5pf2ZZV5Ny7qNZaIISL9Q9kvmqFe1huZDVZ3QMkZ7q0eYOnEdk43lwzaAAvRARSYV0dBFg==
+X-Forefront-Antispam-Report: CIP:164.130.1.87;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(376014)(1800799024)(7416014)(13003099007)(56012099006)(11063799006)(10067099003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: gS+V1StxB4G5OPa5CUKPNIO7UUGIoL1BEf1BxPimWTJiUWVDcl/MC9VIKcslmONQjh/jCFMsLS4HkrzegMNcoFCqpB3xW75WjMH+ziY5dfF2vgmhWWZzsALHDPMVTrvuE0117FMBa48s9nm0C4XbvtTVWOzfcFzVDN1I4OcamWvh/OQ4YYIxG7P+SpyGrEimMmFwIUzF2lbhte7tyxQmnW4ASkL+JJj5B1CTaFJNDNSS85+PY5p6L2UzJCsfIlPqIXwmNtUbyde1G2mfcAcHnOjyLl6V6Q/wGDejMkJstQARvJ7rmXn8+JPG3KayWItarBw/QLzwExddCY0pV4VUCt3fTm/618m9GdKnTrY+fdX5JmtWgZHx90JQplp2arlZ73s8w3BERXS1aPa0HK0ulSvLWPA/wD0jangw9mzJ2NImfe9/dZ5wY6f2wAwxAlOg
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 08:55:48.3527
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae09b595-8c1d-44ba-c06b-08df08cffbbe
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.87];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EF.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3697
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_015346_923272_022F56F4 
-X-CRM114-Status: GOOD (  29.63  )
+X-CRM114-CacheID: sfid-20260902_015555_013337_69176734 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,140 +131,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wandun,
+On 9/1/26 01:13, Marek Vasut wrote:
+> The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
+> represent the USB 2.0 FEMTO-PHY. Document subnodes pattern properties and
+> address/size cells.
+> 
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Christophe Roullier <christophe.roullier@foss.st.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Marek Vasut <marex@nabladev.com>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yannick Fertre <yannick.fertre@foss.st.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+> V2: New patch
+> V3: Fix the bindings
+> V4: - Undo simple-mfd in favor of dedicated SYSCFG SoC driver
+>     - Update commit message to match, this used to be patch
+>       dt-bindings: arm: stm32: Switch st,stm32mp23/25-syscfg into simple-mfd
+>     - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
+>       https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
+> V5: - Add missing contains: into conditional
+>     - Add phy subnodes into required list for stm32mp23-syscfg/stm32mp25-syscfg
+> ---
+>  .../bindings/arm/stm32/st,stm32-syscon.yaml   | 20 ++++++++++++++++++-
+>  1 file changed, 19 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> index 95d2319afe235..2cce174004fe0 100644
+> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> @@ -39,6 +39,17 @@ properties:
+>    "#clock-cells":
+>      const: 0
+>  
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +patternProperties:
+> +  "^phy@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/phy/st,stm32-usb2phy.yaml
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -57,10 +68,17 @@ allOf:
+>    - if:
+>        properties:
+>          compatible:
+> -          const: st,stm32mp25-syscfg
+> +          contains:
+> +            enum:
+> +              - st,stm32mp23-syscfg
+> +              - st,stm32mp25-syscfg
+>      then:
+>        required:
+>          - "#clock-cells"
+> +        - "#address-cells"
+> +        - "#size-cells"
+> +        - phy@2400
+> +        - phy@2800
 
-On 09/02/26 at 03:31pm, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
-> 
-> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> camera ISP, ...), kdump currently dumps those carveouts as part of
-> system RAM even though their contents are firmware state that is not
-> useful for kernel crash analysis.
-> 
-> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
-> reusable CMA regions are different because their pages are handed back
-> to the buddy allocator and may carry crash-relevant data.
-> 
-> ACPI systems already filter reserved memory out of the vmcore through
-> their existing path; only DT-based systems currently fail to filter these
-> regions, which is what this series addresses. The flag lives in memblock
-> itself rather than in a DT-only structure, so the mechanism is generic and
-> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
+Hi Marek,
 
-Thanks for the effort. I am not against this patchset, and I haven't
-went through it carefully. Just from the cover letter, you mentioned
-generic, I am wondering if this can be generic for excluding other
-memory regions. Asking this because I try to find a way to exclude
-unwanted memory regions too, please check below link where there's
-the relevant discussion. We definitely don't like inventing wheels
-time after time. Do you think this memblock region excluding can
-be used in other places of kernel?
+Is just saw the discussing on V4 with Conor. That's mainly a thought:
+I'm not sure USB is required, e.g. mandatory for a product, even if not
+so likely (I don't know if this could exist out there). Still, the nodes
+could be tweaked (deleted) in a board, to reduce dtb size in such case.
+I'd relax, e.g. let these 4 props as optional. Do you see any drawback ?
+That can also be relaxed later, if the case is seen.
 
-https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
+Thanks & BR,
+Fabrice
 
-> 
-> Since the reserved memory regions are filtered out, the vmcore is
-> smaller in size and faster to produce. 
-> 
-> The series is based on linux-next and is organized as follows:
-> 
-> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
->              flagname, switch riscv crash_mem to memblock, fold the
->              duplicated per-arch memblock walks into the weak
->              defaults, and serialize crash header preparation against
->              memory hotplug.
-> Patches 5-9: NODUMP infrastructure: switch crash_core to
->              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
->              flag, add a dumpable flag to struct reserved_mem, and
->              mark /reserved-memory and /memreserve/ entries with
-> 	     MEMBLOCK_NODUMP flag.
-> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
->              header.
-> 
-> In v5, Sashiko found some pre-existing issues related to reserved-memory,
-> and has no dependency on this series, so these issues have been addressed
-> in a separate series [2].
-> 
-> v5 --> v6:
-> 1. Serialize crash header preparation against memory hotplug to avoid
->    out-of-bounds or use-after-free issues.
-> 
-> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
->    avoiding a panic from too few regions before resize is permitted.
-> 
-> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
-> 
-> 
-> v4 --> v5:
-> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
->    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
->    DT-only struct reserved_mem.
-> 2. Switch the riscv vmcore elf header preparation to use memblock
->    instead of the resource tree, aligning it with arm64 and loongarch,
->    so riscv also can exclude reserved memory from vmcore.
-> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
->    loongarch open-coded the same logic, so fold it into shared
->     __weak defaults in crash_core.
-> 4.  Drop the v4 patch that saved /memreserve/ entries into the
->     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
->     directly.
-> 
-> v3 --> v4:
-> 1. Rebase this series on v7.2-rc1.
-> 2. Add two cleanup patches (patch 02/03).
-> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
->    NULL multiple times, suggested by Rob.
-> 
-> v2 --> v3:
-> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
-> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> 3. Add some prepare patches.
-> 
-> v1 --> v2:
-> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->    feedback [3], v2 drop that property and exclude reserve memory
->    by default.
-> 2. Split some prepared patches from the original patches.
-> 3. Address coding-style comments on patch 5 from Rob.
-> 
-> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
-> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
-> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
-> 
-> Meijing Zhao (1):
->   mm: memblock: add missing HugeTLB flag name
-> 
-> Wandun Chen (9):
->   riscv: build crash_mem ranges from memblock instead of resource tree
->   crash_core: fold duplicated memblock arch hooks into the weak default
->   crash_core: serialize crash header preparation against hotplug
->   crash_core: replace for_each_mem_range() with for_each_mem_region()
->   memblock: introduce MEMBLOCK_NODUMP flag
->   of: reserved_mem: add dumpable flag to opt-in vmcore
->   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
->   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
->   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
->     header
-> 
->  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
->  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
->  arch/riscv/Kconfig                         |  2 +-
->  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
->  arch/x86/kernel/crash.c                    |  2 +-
->  drivers/of/fdt.c                           |  2 +
->  drivers/of/of_private.h                    |  2 +
->  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
->  include/linux/crash_core.h                 |  2 +
->  include/linux/memblock.h                   |  9 ++++
->  include/linux/of_reserved_mem.h            |  1 +
->  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
->  kernel/dma/contiguous.c                    |  1 +
->  mm/memblock.c                              | 17 ++++++++
->  14 files changed, 131 insertions(+), 95 deletions(-)
-> 
-> -- 
-> 2.43.0
-> 
+>  
+>  additionalProperties: false
+>  
+
 
