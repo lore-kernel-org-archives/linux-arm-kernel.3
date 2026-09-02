@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141FDC624D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D79C624DA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1wC9u3twhPNjqquLWPyT5Y0R6x/ILvd7DMTdNgZ19s=; b=a7rU8CrFO8V7+zpWUS8DWwW35Q
-	JCPNF9DXDp6lYyABAzbRJJ9NIdseER9iGI8s+Cc96AU7lCmDI0zGB1BU0KpT96E4fc9zsESMdngU6
-	h/n4Zm0jKPXVPq5r/Skn7ImI6CN9GBVVy2JdXCEoIkPhaGwDyNIwd+358NXxL1grc1AtRjV7Y1+uC
-	knNPCRhiYtGzd0hiqTnjQTgMcUUi9uwIamG0qx1MqWIdCBUkfQLuUdmpeJXXa/yBN1v6K5DCPqbU9
-	mhnZgSY4lqZf4UxS/FWGPqA2XdVPciYXVfaU4OZdhjtZdYeHGxeh/jL2zsnksBG0eNeTbYs+ZbIic
-	N7PWRBnQ==;
+	bh=TNWZLpQFf8So7isbdfRHNiNRkktdYQTRcSFjKmsQSY0=; b=sC0VVoAWXiKSfukyYuhh4ICz+b
+	hTJlvLcnxv5uXNnNrX4SIGNrn2hGkPOj4l6adyupRS/I4r8ssFU7z4QySaJqTAbfKReR6oab69FZz
+	mvNNnPhck6Rfe6eccV2/RXLwihT9hUIWS2b5A1apg4NkZFnHYp6ly3yVPBw8yaE0j92wjW5xhjPOp
+	pONkIq68JW5kCMTDgSpFhNhp01y8128a88CC7bRrH0eS8xRlFJr66okU5VA0j4lJvwB4PlaXsKlzU
+	C3B7v+oH571N3Whyv2Aso6niu8q1xx20Yj2U/P20hL5cEJVI/tp5gPcMxp+WqzuVqdT+8wrqyM2Lq
+	z+LIPYFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iYt-0000000EP6G-43KH;
-	Wed, 02 Sep 2026 10:51:23 +0000
+	id 1x1iYr-0000000EP2o-1xY4;
+	Wed, 02 Sep 2026 10:51:21 +0000
 Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iYq-0000000EP0E-497V
+	id 1x1iYn-0000000EOvu-3wcs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 10:51:22 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4994cf6cdb9so6533845e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:51:20 -0700 (PDT)
+	Wed, 02 Sep 2026 10:51:19 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-495474a5fbcso7828715e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:51:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788346279; x=1788951079; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1788346275; x=1788951075; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=w1wC9u3twhPNjqquLWPyT5Y0R6x/ILvd7DMTdNgZ19s=;
-        b=SPwwb4WDe3O6slpG6N/oWTmhvlU4nOG4LsbT7x6PoG1Da9cHbg2aqunImeLoIV4c6I
-         jH340USVrmy2yFur2lm5grmPcO4TzZ6tFnB/HpHBNVNz1jzVwbu1D6hw10olO1GRPrXC
-         2GbVEYxIruo0b7tgaVsvKYmNdLCW/ckajASwS4LwSqbu8RhrHMVlRsHpjpN7av5Zsq5L
-         VaphUIV0jN7lMbKC/IR4T5yzaLqWUDCH5T5H5C95MeejGGGT/zU+sr8WLx76Qz8RUn7q
-         RvBN9joangNKECbpwsWMfqGMKMJinwSmGsFYhKzJ5PkZ4iI8zLcmxf9ipfyta4W63Xfb
-         wJTQ==
+        bh=TNWZLpQFf8So7isbdfRHNiNRkktdYQTRcSFjKmsQSY0=;
+        b=f3KRyq/shY9hM1p2K2spD5SSiFEZOpU/BjzAY6H8ejdkbyxdPSmgZ4irHnqLj5bTx6
+         D9UOgJj+kIG/0C3pFNCphNX9p3sK1JjgdD7HEx5fzhvV+HbzkPYfOeiYXPgBI6+ttXBo
+         sH5ceZdqjhaT3MhsJJtR6Xq9pCeTvRgD4tS9zar2lmYKTZlOL1nai/odQXP+QMCpe482
+         ojhswqiQO5RhzjdSgv+V/oKsXVGyPaM7vNmw36Eh/9xypRmvUfV0XcQPMCJip+HRIOWj
+         kdJbTYQwjPFwExX/6q2HxiOPKe+fmYlU+tL99ibBMqecEJZyZUtLAu9Ey/e1IT+wvVwq
+         OAzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788346279; x=1788951079;
+        d=1e100.net; s=20251104; t=1788346275; x=1788951075;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=w1wC9u3twhPNjqquLWPyT5Y0R6x/ILvd7DMTdNgZ19s=;
-        b=mkhXtwH1q8rBasilGtwbbi3dnukkXj5sWCTSptMhvDpb27uSxLcmUOvyQbqguYpK8b
-         5kHVvpMFreXamU1iuRqczVQ8qAxc2tnLYMGcg/9PXOlxdha4Fl736YtUTDt7q1X1KfHi
-         en/f1yEiI1MultrExsC2zu/bxk7CGjqL+mUeIE0vE9zRZdiIwTWpeVNq9pRz2J0sf0W4
-         WsAOhU+tY6/D2H/1s4p1yoQ1Wr8KPk+E7bpg/iPS8LQP61HMnGIEkTRXRUOMaPxuBi2P
-         ikftiWIi5mZlujQE7ETl9PMFvI7y/ZZFPQbxDQUkSOKQ+ax7cY5HygHHL1VB3hRyILb6
-         zP7Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqLSZllLa8g4IvpYem/p/JZbEbAYByBXuZf8KlBbe6UrRiYW/iii9jGhcU1jiGujYJ/TIiS/TxdCk56KlAgbQh2@lists.infradead.org
-X-Gm-Message-State: AFuF++nmIRsG4RPBiHCRlg8YJm/yQdbey2jqTmIJXem1pr6KLaRBlzpb
-	OvZbvhVD/iBXvloPVhVt/6REY6hzSBIvq3zGU5jcCTnyWY0I90fXpMdEV702Ns3xJbalg/vSJUX
-	UCgjhBhDYDpFxYjZEtEHXKg==
-X-Received: from wmqy14.prod.google.com ([2002:a05:600c:364e:b0:49c:ca29:c0ed])
+        bh=TNWZLpQFf8So7isbdfRHNiNRkktdYQTRcSFjKmsQSY0=;
+        b=CFgoUe7AbBMsejJAMw1QN1HzxkMtYQqhXmzKtyu89FvGYpaOMSYRR3/zU6fPVjzjmf
+         ftAshKRdmqW7xhgrfEDWtfzQyA8Mzt1oOgWn2JDJb2CPhYY+CvKvd3e62TPRvOA7djT1
+         in4NrRT+PqgBZ200x7SoElf9A9QIEJ8UeoQYAGEKa6FP+l2cCPKfVzs17/ztdzcTP42m
+         jpXzBnGu/PrfyMzQBHFiZJtDvrj/J8iUMCT7zGFUakw4DPoM93yy9YdIOha15QQhGKL2
+         qf/lG+c4pR+TjfFgUYUYJgoyRpCMzGc2kpW0a2mcb2hXjSKkUoTs62aNw93fyJgcTwow
+         jwSw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqhw+QE6xxLuAjilsuKhlFYZ0NtqPrPDwx5o5KzmCtr5QNWzuTcArgjnwPhAoiHQ0bl4wMbn0uPML+EGAZQAckr@lists.infradead.org
+X-Gm-Message-State: AFuF++nWDfd0ftLMSXVAFdoHTU6gfydmPhTyT2rKUKWg52J6Hjr2GRLh
+	vumT6WkBm4yVZwqUpx8RY+BZVQYjVA6wCotWkBqegwN13Ra/ckq1Ncv6PUbG1r6/1N2vd2hwdST
+	zHEtrQ16oSJqzx/JqWNp9Vg==
+X-Received: from wrpe17.prod.google.com ([2002:adf:f351:0:b0:484:3204:23be])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5653:b0:49c:eb17:cf3b with SMTP id 5b1f17b1804b1-49ceb17cff4mr15337645e9.8.1788346278647;
- Wed, 02 Sep 2026 03:51:18 -0700 (PDT)
-Date: Wed,  2 Sep 2026 11:47:12 +0100
+ 2002:a05:600c:4e93:b0:499:cd34:100d with SMTP id 5b1f17b1804b1-49ce57f5235mr66954815e9.7.1788346275192;
+ Wed, 02 Sep 2026 03:51:15 -0700 (PDT)
+Date: Wed,  2 Sep 2026 11:47:09 +0100
 In-Reply-To: <20260902104712.2399797-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260902104712.2399797-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.970.g62bdec98f9-goog
-Message-ID: <20260902104712.2399797-11-vdonnefort@google.com>
-Subject: [PATCH v9 10/10] optee: Add support for arm,ffa-lend-pool
+Message-ID: <20260902104712.2399797-8-vdonnefort@google.com>
+Subject: [PATCH v9 07/10] arm64: Implement __set_direct_map*()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: catalin.marinas@arm.com, will@kernel.org, rppt@kernel.org, 
 	akpm@linux-foundation.org, sudeep.holla@kernel.org, jenswi@kernel.org, 
@@ -79,8 +79,9 @@ Cc: mark.rutland@arm.com, sumit.garg@kernel.org, ardb@kernel.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_035121_056382_605AF43E 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260902_035118_001387_9CD43E98 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,183 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hook OP-TEE dynamically allocated protected memory pools to the
-"arm,ffa-lend-pool" driver. While the SMC transport platform device
-resolves the pool through its DT "memory-region" property, the FF-A
-transport lacks a device tree node and binds via ffa_lend_pool_attach().
+Add implementation for the unsafe functions __set_direct_map*(). They do
+not verify for can_set_direct_map() and expect the caller to do so
+beforehand.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
-index 633715b98625..4d6555171918 100644
---- a/drivers/tee/optee/ffa_abi.c
-+++ b/drivers/tee/optee/ffa_abi.c
-@@ -979,6 +979,7 @@ static void optee_ffa_remove(struct ffa_device *ffa_dev)
+diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
+index 1a37f4ef130b..080a40846bbe 100644
+--- a/arch/arm64/include/asm/set_memory.h
++++ b/arch/arm64/include/asm/set_memory.h
+@@ -16,6 +16,10 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
  
- 	mutex_destroy(&optee->ffa.mutex);
- 	rhashtable_free_and_destroy(&optee->ffa.global_ids, rh_free_fn, NULL);
-+	ffa_lend_pool_detach(&optee->teedev->dev);
+ int set_direct_map_invalid_noflush(struct page *page);
+ int set_direct_map_default_noflush(struct page *page);
++int __set_direct_map_invalid_noflush(struct page *page);
++#define __set_direct_map_invalid_noflush __set_direct_map_invalid_noflush
++int __set_direct_map_default_noflush(struct page *page);
++#define __set_direct_map_default_noflush __set_direct_map_default_noflush
+ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
+ bool kernel_page_present(struct page *page);
  
- 	kfree(optee);
- }
-@@ -1042,13 +1043,21 @@ static int optee_ffa_protmem_pool_init(struct optee *optee, u32 sec_caps)
- 	int rc = 0;
- 
- 	if (sec_caps & OPTEE_FFA_SEC_CAP_PROTMEM) {
-+		rc = ffa_lend_pool_attach(&optee->teedev->dev);
-+		if (rc && rc != -ENODEV)
-+			return rc;
-+
- 		pool = optee_protmem_alloc_dyn_pool(optee, id);
--		if (IS_ERR(pool))
-+		if (IS_ERR(pool)) {
-+			ffa_lend_pool_detach(&optee->teedev->dev);
- 			return PTR_ERR(pool);
-+		}
- 
- 		rc = tee_device_register_dma_heap(optee->teedev, id, pool);
--		if (rc)
-+		if (rc) {
- 			pool->ops->destroy_pool(pool);
-+			ffa_lend_pool_detach(&optee->teedev->dev);
-+		}
- 	}
- 
- 	return rc;
-diff --git a/drivers/tee/optee/protmem.c b/drivers/tee/optee/protmem.c
-index be3abf6e8aa6..9b64db9b4e64 100644
---- a/drivers/tee/optee/protmem.c
-+++ b/drivers/tee/optee/protmem.c
-@@ -42,14 +42,6 @@ static int init_dyn_protmem(struct optee_protmem_dyn_pool *rp)
- 		goto err_null_protmem;
- 	}
- 
--	/*
--	 * TODO unmap the memory range since the physical memory will
--	 * become inaccesible after the lend_protmem() call.
--	 *
--	 * If the platform supports a hypervisor at EL2, it will unmap the
--	 * intermediate physical memory for us and stop cache pre-fetch of
--	 * the memory.
--	 */
- 	rc = rp->optee->ops->lend_protmem(rp->optee, rp->protmem,
- 					  rp->mem_attrs,
- 					  rp->mem_attr_count, rp->use_case);
-diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-index b8a2bdac3208..5949aa717cad 100644
---- a/drivers/tee/optee/smc_abi.c
-+++ b/drivers/tee/optee/smc_abi.c
-@@ -19,6 +19,7 @@
- #include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/of_platform.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/platform_device.h>
- #include <linux/rpmb.h>
- #include <linux/sched.h>
-@@ -1528,6 +1529,8 @@ static void optee_smc_remove(struct platform_device *pdev)
- 	if (optee->smc.memremaped_shm)
- 		memunmap(optee->smc.memremaped_shm);
- 
-+	of_reserved_mem_device_release(&optee->teedev->dev);
-+
- 	kfree(optee);
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index c59ef17eb0d0..28adab0edace 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -294,28 +294,38 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
+ 					__pgprot(PTE_PRESENT_VALID_KERNEL));
  }
  
-@@ -1712,16 +1715,22 @@ static int optee_protmem_pool_init(struct optee *optee)
- 	if (!protm && !dyn_protm)
+-int set_direct_map_invalid_noflush(struct page *page)
++int __set_direct_map_invalid_noflush(struct page *page)
+ {
+ 	pgprot_t clear_mask = __pgprot(PTE_PRESENT_VALID_KERNEL);
+ 	pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
+ 
++	return update_range_prot((unsigned long)page_address(page),
++				 PAGE_SIZE, set_mask, clear_mask);
++}
++
++int set_direct_map_invalid_noflush(struct page *page)
++{
+ 	if (!can_set_direct_map())
  		return 0;
  
-+	of_reserved_mem_device_init_by_idx(&optee->teedev->dev,
-+					   dev_of_node(optee->teedev->dev.parent), 0);
- 	if (protm)
- 		pool = static_protmem_pool_init(optee);
- 	if (dyn_protm && IS_ERR(pool))
- 		pool = optee_protmem_alloc_dyn_pool(optee, heap_id);
--	if (IS_ERR(pool))
-+	if (IS_ERR(pool)) {
-+		of_reserved_mem_device_release(&optee->teedev->dev);
- 		return PTR_ERR(pool);
-+	}
- 
- 	rc = tee_device_register_dma_heap(optee->teedev, heap_id, pool);
--	if (rc)
-+	if (rc) {
- 		pool->ops->destroy_pool(pool);
-+		of_reserved_mem_device_release(&optee->teedev->dev);
-+	}
- 
- 	return rc;
- }
-@@ -1833,14 +1842,14 @@ static int optee_probe(struct platform_device *pdev)
- 	    (sec_caps & OPTEE_SMC_SEC_CAP_RPMB_PROBE))
- 		optee->in_kernel_rpmb_routing = true;
- 
--	teedev = tee_device_alloc(&optee_clnt_desc, NULL, pool, optee);
-+	teedev = tee_device_alloc(&optee_clnt_desc, &pdev->dev, pool, optee);
- 	if (IS_ERR(teedev)) {
- 		rc = PTR_ERR(teedev);
- 		goto err_free_optee;
- 	}
- 	optee->teedev = teedev;
- 
--	teedev = tee_device_alloc(&optee_supp_desc, NULL, pool, optee);
-+	teedev = tee_device_alloc(&optee_supp_desc, &pdev->dev, pool, optee);
- 	if (IS_ERR(teedev)) {
- 		rc = PTR_ERR(teedev);
- 		goto err_unreg_teedev;
-diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-index 6742b3579c86..49a9b2993c83 100644
---- a/drivers/tee/tee_shm.c
-+++ b/drivers/tee/tee_shm.c
-@@ -3,6 +3,7 @@
-  * Copyright (c) 2015-2017, 2019-2021 Linaro Limited
-  */
- #include <linux/anon_inodes.h>
-+#include <linux/arm_ffa.h>
- #include <linux/device.h>
- #include <linux/dma-buf.h>
- #include <linux/dma-mapping.h>
-@@ -43,6 +44,7 @@ static void tee_shm_release(struct tee_device *teedev, struct tee_shm *shm)
- 
- 		dma_mem = container_of(shm, struct tee_shm_dma_mem, shm);
- 		p = dma_mem;
-+		ffa_lend_reclaimed(&teedev->dev, shm->paddr, shm->size);
- 		dma_free_pages(&teedev->dev, shm->size, dma_mem->page,
- 			       dma_mem->dma_addr, DMA_BIDIRECTIONAL);
- #endif
-@@ -288,6 +290,7 @@ struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
- 	struct tee_shm_dma_mem *dma_mem;
- 	dma_addr_t dma_addr;
- 	struct page *page;
-+	int ret;
- 
- 	if (!tee_device_get(teedev))
- 		return ERR_PTR(-EINVAL);
-@@ -297,9 +300,13 @@ struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
- 	if (!page)
- 		goto err_put_teedev;
- 
-+	ret = ffa_prepare_lend(&teedev->dev, page_to_phys(page), page_count * PAGE_SIZE);
-+	if (ret && ret != -ENODEV)
-+		goto err_free_pages;
++	return __set_direct_map_invalid_noflush(page);
++}
 +
- 	dma_mem = kzalloc_obj(*dma_mem);
- 	if (!dma_mem)
--		goto err_free_pages;
-+		goto err_map_pages;
++int __set_direct_map_default_noflush(struct page *page)
++{
++	pgprot_t set_mask = __pgprot(PTE_PRESENT_VALID_KERNEL | PTE_WRITE);
++	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
++
+ 	return update_range_prot((unsigned long)page_address(page),
+ 				 PAGE_SIZE, set_mask, clear_mask);
+ }
  
- 	refcount_set(&dma_mem->shm.refcount, 1);
- 	dma_mem->shm.ctx = ctx;
-@@ -313,6 +320,8 @@ struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
+ int set_direct_map_default_noflush(struct page *page)
+ {
+-	pgprot_t set_mask = __pgprot(PTE_PRESENT_VALID_KERNEL | PTE_WRITE);
+-	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
+-
+ 	if (!can_set_direct_map())
+ 		return 0;
  
- 	return &dma_mem->shm;
+-	return update_range_prot((unsigned long)page_address(page),
+-				 PAGE_SIZE, set_mask, clear_mask);
++	return __set_direct_map_default_noflush(page);
+ }
  
-+err_map_pages:
-+	ffa_lend_reclaimed(&teedev->dev, page_to_phys(page), page_count * PAGE_SIZE);
- err_free_pages:
- 	dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dma_addr,
- 		       DMA_BIDIRECTIONAL);
+ static int __set_memory_enc_dec(unsigned long addr,
 -- 
 2.55.0.970.g62bdec98f9-goog
 
