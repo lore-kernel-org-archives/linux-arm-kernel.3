@@ -4,60 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B785DC624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F53C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 08:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4cjnEZHVqF64iKTgnAiV3FLLJ82RwZm/qh1EbR5VhY=; b=B7NnbifbolgD7mZfxlBpsLUOjX
-	BhilFu2+9aDJzZrdKVgZsXaD3eyXjIt0PiNExH4NKyLOL0kiTTVw9NKCpCG3479apF54E83Jq+oJz
-	RKt9dYCWJ7SwZX88UnDxxoVitTelGYR6ZZifjdSnnmvVlILrQG8ADsjJnxQsX8EU5e5f6/UDRfmFp
-	0AP4oySGdyQudDnxWth9ZeT8znZSm32iGZkY5+ltWW6atsAHPxjUwi5tPif806UmCK4Yes8LgGY5k
-	Y9N+sHD5NDbazUh6l0iihtgc3OXFJTaNYG4GCVLS2YvRG64Nk4KIrgQoR4m86RSOZuFhWrAgMczTU
-	3X86ZrYQ==;
+	bh=00lmFy+N2N/bnyvL+i6kv3lyZlzEYxH3S/gtp4CE5WY=; b=S+MXdCULOkrI8P5q9G5WYg4Ip+
+	f5/iQ3PUt4d79DLD8NUQ/noVFYZYSEWZiGjDIT612PAzlRBFDJ4057M9EdjZWPK5RMCQ0E87rceQx
+	VKbhOnqKWtEwrEC9PwYJp0gVyGmzUOEURjgXFWFetmhxx8n46xmHpN4Kx9OfnFVFM7doF3pNCMdOS
+	vfqbMUO8ky/HD+vw8b/xU7lHLzwXkzyRNUFqxoy5VWYlIhbfxvJreWL8Ud9UH3+I9Me3WvaFgFm60
+	8B5IvPGk4F+LSkFb5hs33eKOgFjY52cJ05RwMy4ey00e5gjA1sO1e7ILp5OEPRkDAQQBEsJ3Bj7qh
+	2H2uEwrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gHc-0000000E5Rs-08Jq;
-	Wed, 02 Sep 2026 08:25:24 +0000
+	id 1x1gJw-0000000E5og-2zxZ;
+	Wed, 02 Sep 2026 08:27:48 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1gHa-0000000E5RZ-20LF
+	id 1x1gJv-0000000E5oO-33HI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 08:25:22 +0000
+	Wed, 02 Sep 2026 08:27:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FED4414C9;
-	Wed,  2 Sep 2026 08:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F39701F000E9;
-	Wed,  2 Sep 2026 08:25:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 795AD43DFF;
+	Wed,  2 Sep 2026 08:27:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B9011F000E9;
+	Wed,  2 Sep 2026 08:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788337522;
-	bh=V4cjnEZHVqF64iKTgnAiV3FLLJ82RwZm/qh1EbR5VhY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kSHjCpCOSziJ58UY/b8x/YAN0OUlrlTv+OxsWT9VE/ubKOWxLVQ/NlvDnTUs9YyoX
-	 aeJ0qMF09xV/0lAedo/xJEjVsMG2Flf9nznaor0+zGRGPxHdhMFOlLqbS5/mZOOOv1
-	 IitvzX/03CInPoKuYomZXLmzoCYwZzZ0BVCbMPQ83cCD/TcLc1JxUbYWaXlTVHfQ7J
-	 8IsMu1TOghCiRSkWfMNsfJYIAVpXN8n0dyoJLQQLQueMTAEyJRev5M+/bBmOvpvFKy
-	 wUcHPwJ2/MxD8JVuu6y+8bYLj22N0h1M22qeE4h0uafCqf/EUMnDtW+1BeIJn5/X9b
-	 3aWpGTanNbXBQ==
-Date: Wed, 2 Sep 2026 09:25:19 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
-	Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH v3 9/9] firmware: arm_scmi: Validate PCC shared memory
- signature
-Message-ID: <20260902-miniature-bullfinch-of-agreement-4e15fd@sudeepholla>
-References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
- <20260813-acpi_scmi_pcc-v3-9-cb6b88b4ebb3@kernel.org>
- <20260824132450.000045ca@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824132450.000045ca@oss.qualcomm.com>
+	s=k20260515; t=1788337667;
+	bh=00lmFy+N2N/bnyvL+i6kv3lyZlzEYxH3S/gtp4CE5WY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=hoFabAGnzh5HePnKfAeMgoIY07ZZ3DKA+IMSrNEhccurnvOkcKhirNJPIjXpF4S4C
+	 +RytmcHUdXHkSoSEyrCXGbm6ergJDagwGuYZ06XOXUgha+iSF7nO9G7nwdxL5fL8/R
+	 6f4Z7eU3BmvCKBoM1Omou/wyajH5jNT2oimFnaorXYdx98O29rOv+mXcnjNl8WqVVP
+	 f72PcG8eTpMdEYvsQzKchwlRxmenmAKOK/hcNGt9PokNoZpWSPMqj8kMGhHhnWktHV
+	 TS5MGtIqXEVqJeBYiDEDCLhtLNAW4ipeTpungXqBc+pOd2qo9G1Amgit5XryiJ6wJa
+	 LFsTzQt5K1gng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x1gJs-00000003mfI-2MWI;
+	Wed, 02 Sep 2026 08:27:45 +0000
+Date: Wed, 02 Sep 2026 09:30:17 +0100
+Message-ID: <87ik4om4x2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v7 03/23] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
+In-Reply-To: <apdwHcdy2iYRTrww@google.com>
+References: <20260831144802.834315-1-seiden@linux.ibm.com>
+	<20260831144802.834315-4-seiden@linux.ibm.com>
+	<apdwHcdy2iYRTrww@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +112,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 01:24:50PM -0700, Jonathan Cameron wrote:
-> On Thu, 13 Aug 2026 12:33:04 +0100
-> Sudeep Holla <sudeep.holla@kernel.org> wrote:
+On Wed, 02 Sep 2026 01:38:53 +0100,
+Sean Christopherson <seanjc@google.com> wrote:
 > 
-> > Validate the PCC shared memory signature when setting up an SCMI PCC
-> > channel.
-> > 
-> > Reject channels whose shared memory signature does not encode
-> > PCC_SIGNATURE combined with the PCC subspace ID, so misconfigured
-> > firmware is caught before the transport starts using the shared memory
-> > region.
-> > 
-> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> Interesting there aren't more checks on this in the various PCC users.
-> Question for another day perhaps.
+> On Mon, Aug 31, 2026, Steffen Eiden wrote:
+> > Only defining KVM_MMIO is not flexible enough for multi-KVM systems
+> > where one KVM implements MMIO but others do not. Solve this by
+> > additionally testing for the non-existence of KVM_NO_MMIO before
+> > including MMIO code to KVM.
 > 
-
-Tried cleaning up all but some platforms like Hisilicon kunpeng complained
-it will break their platforms. So added a warning in the core but I want
-to enforce stricter check here for SCMI PCC.
-
-> Seems correct to me.
+> Ewwwww.  IIUC, s390 ends up with two KVM modules, i.e. there really are two different
+> KVMs being built.  Rather than have a KVM_MMIO and NO_KVM_MMIO, I vote very
+> strongly to drop CONFIG_KVM_MMIO entirely and replace it with __KVM_HAVE_ARCH_MMIO,
+> a la __KVM_HAVE_ARCH_VM_FREE and others.  Tracking two separate macros is going
+> to be annoying to maintain, and will definitely be confusing for non-s390 people.
 > 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> It'll mean linking in an emtpy coalesced_mmio.o on s390 when building without arm64
+> support, but I'm guessing that won't be at all common for s390 builds.
 > 
 
-Thanks!
+I ended-up doing something very similar locally, because I couldn't
+really make head or tail of the logic while being in holiday mode
+(which doesn't help). However, I kept the negative logic, so that we
+don't need to add anything to any architecture but S390 (they are the
+odd one out here).
+
+Untested hack follows.
+
+	M.
+
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 449154f9a4852..dd138b730217e 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -22,7 +22,6 @@ menuconfig KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+-	select KVM_MMIO
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select KVM_VFIO
+diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
+index 15da2d88c0c10..f03872ba0ba8c 100644
+--- a/arch/loongarch/kvm/Kconfig
++++ b/arch/loongarch/kvm/Kconfig
+@@ -28,7 +28,6 @@ config KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+-	select KVM_MMIO
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
+index b1b9a1d677581..c65596fdf54f4 100644
+--- a/arch/mips/kvm/Kconfig
++++ b/arch/mips/kvm/Kconfig
+@@ -22,7 +22,6 @@ config KVM
+ 	select EXPORT_UASM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+-	select KVM_MMIO
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+ 	select HAVE_KVM_READONLY_MEM
+ 	help
+diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
+index b6bc2fc86dca6..c5565d6fb27e4 100644
+--- a/arch/powerpc/kvm/Kconfig
++++ b/arch/powerpc/kvm/Kconfig
+@@ -30,7 +30,6 @@ config KVM_BOOK3S_HANDLER
+ config KVM_BOOK3S_32_HANDLER
+ 	bool
+ 	select KVM_BOOK3S_HANDLER
+-	select KVM_MMIO
+ 
+ config KVM_BOOK3S_64_HANDLER
+ 	bool
+@@ -38,7 +37,6 @@ config KVM_BOOK3S_64_HANDLER
+ 
+ config KVM_BOOK3S_PR_POSSIBLE
+ 	bool
+-	select KVM_MMIO
+ 
+ config KVM_BOOK3S_HV_POSSIBLE
+ 	bool
+@@ -201,7 +199,6 @@ config KVM_E500V2
+ 	depends on PPC_E500 && !PPC_E500MC
+ 	depends on !CONTEXT_TRACKING_USER
+ 	select KVM
+-	select KVM_MMIO
+ 	help
+ 	  Support running unmodified E500 guest kernels in virtual machines on
+ 	  E500v2 host processors.
+@@ -216,7 +213,6 @@ config KVM_E500MC
+ 	depends on PPC_E500MC
+ 	depends on !CONTEXT_TRACKING_USER
+ 	select KVM
+-	select KVM_MMIO
+ 	select KVM_BOOKE_HV
+ 	help
+ 	  Support running unmodified E500MC/E5500/E6500 guest kernels in
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index ec2cee0a39e01..3aea8d4939d2e 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -28,7 +28,6 @@ config KVM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+-	select KVM_MMIO
+ 	select VIRT_XFER_TO_GUEST_WORK
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
+index cd692f8fb7643..3c65c52d6682b 100644
+--- a/arch/s390/include/asm/kvm_host_s390.h
++++ b/arch/s390/include/asm/kvm_host_s390.h
+@@ -34,6 +34,8 @@
+ 
+ #define KVM_S390_MANAGES_S390_GUEST 1
+ 
++#define __KVM_NO_MMIO
++
+ /*
+  * These seem to be used for allocating ->chip in the routing table, which we
+  * don't use. 1 is as small as we can get to reduce the needed memory. If we
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index 538ed1e803326..48ca567b0a846 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -32,7 +32,6 @@ config KVM_X86
+ 	select VHOST_TASK
+ 	select KVM_ASYNC_PF
+ 	select USER_RETURN_NOTIFIER
+-	select KVM_MMIO
+ 	select SCHED_INFO
+ 	select PERF_EVENTS
+ 	select GUEST_PERF_EVENTS
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 03bfc92864b6e..dc9b68793f0d7 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -833,7 +833,7 @@ struct kvm {
+ 	struct kvm_vm_stat stat;
+ 	struct kvm_arch arch;
+ 	refcount_t users_count;
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 	struct kvm_coalesced_mmio_ring *coalesced_mmio_ring;
+ 	spinlock_t ring_lock;
+ 	struct list_head coalesced_zones;
+diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+index c3c0ee253fc77..c012f30127e38 100644
+--- a/virt/kvm/Kconfig
++++ b/virt/kvm/Kconfig
+@@ -40,9 +40,6 @@ config NEED_KVM_DIRTY_RING_WITH_BITMAP
+ 	bool
+ 	depends on HAVE_KVM_DIRTY_RING
+ 
+-config KVM_MMIO
+-       bool
+-
+ config KVM_ASYNC_PF
+        bool
+ 
+diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
+index d047d4cf58c9f..c4fb1e01d0c89 100644
+--- a/virt/kvm/Makefile.kvm
++++ b/virt/kvm/Makefile.kvm
+@@ -5,9 +5,8 @@
+ 
+ KVM ?= ../../../virt/kvm
+ 
+-kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
++kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/coalesced_mmio.o $(KVM)/binary_stats.o
+ kvm-$(CONFIG_KVM_VFIO) += $(KVM)/vfio.o
+-kvm-$(CONFIG_KVM_MMIO) += $(KVM)/coalesced_mmio.o
+ kvm-$(CONFIG_KVM_ASYNC_PF) += $(KVM)/async_pf.o
+ kvm-$(CONFIG_HAVE_KVM_IRQ_ROUTING) += $(KVM)/irqchip.o
+ kvm-$(CONFIG_HAVE_KVM_DIRTY_RING) += $(KVM)/dirty_ring.o
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 6b1d901610998..6bd4157b3ef41 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,6 +15,8 @@
+ #include <linux/slab.h>
+ #include <linux/kvm.h>
+ 
++#ifndef __KVM_NO_MMIO
++
+ #include "coalesced_mmio.h"
+ 
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -188,3 +190,4 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
++#endif
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 36f84264ed257..77b811dee27c2 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
+ 
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 65eb26a0520d8..2f25b75dbfd44 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4059,7 +4059,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4900,7 +4900,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5241,7 +5241,7 @@ static long kvm_vm_ioctl(struct file *filp,
+ 		break;
+ 	}
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
+ 
+@@ -5563,7 +5563,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#ifndef __KVM_NO_MMIO
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
 
 -- 
-Regards,
-Sudeep
+Jazz isn't dead. It just smells funny.
 
