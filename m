@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8FBC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CF2C61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 07:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vi97MWhfZddiqmimgtB8vYuipDLussxDN6BUz0TYMFc=; b=Odwkc3QkPSOo6RmLWHZJ12B3kO
-	yqwQkcPZCHp5tM+5vcZgS1fVDFd5vFdPjsB3nD6tGp51dOnPkSHfhhlxOH3cr9RQ1X/GoiwJDn4yJ
-	toII/60yZacvbDO4tZQM31PvuLvgYGBRk81GiSdswb33bUHiL1WmmhyEO+U4TdfSO6weTwrp7qPDL
-	jF1GWDeX8BuQlecJv6645lPtWMysncOPY+vQaThcqiViTN8TKov5KUSnXzgFlLVd3EBC7kuhxhyC2
-	pvOdw793tgdUuelJo8hpWyiinKRTQD2cLJ0A9jPLS5nf8wqSK9sgvcbyoLXRYaUC96TVPbXVqPN8Q
-	CZlNFOgA==;
+	bh=c+6c1mxNeRcK5OGJwTOV8Umz+CvUvEErlItanMxKc4I=; b=DDBerFKLQMvuk78HkvQWmYxSu/
+	iQCiWGPesd9LmLqFL5s49HsXKFGVrcl+Yyf1RcbVNnSpeNGqcIM/Jzw6x7nO47PHMimGGHWGv1qAo
+	MtjQphLEpB+t23uPcBz5w4BsICjwXMxbvL0CvWnWwaci8PJyfr4eOXwFLJ9Oi35n5TjqqrCLJWuyV
+	sSrX5YJ034Mq5j4Rhcnt/IXBdDPRlySm4XNzwaP+wAZQ9fcWk5bwsJpFqp545hRGB4f56Ej5zNi4f
+	ZEvc1hQFKxY/A/RnT0A3d5Q6gveW9/cLrV/oa4aHW5Zzf/Ab83SwEvNnKAPsIm+1qggy9/dOsxOVB
+	HjF2FBQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fSs-0000000DwXa-0Cds;
-	Wed, 02 Sep 2026 07:32:58 +0000
-Received: from mail-pz2-x0a.google.com ([2607:f8b0:4864:3b::a])
+	id 1x1fT7-0000000DwkW-2twR;
+	Wed, 02 Sep 2026 07:33:13 +0000
+Received: from mail-pz2-x0b.google.com ([2607:f8b0:4864:3b::b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1fSk-0000000DwQY-423h
+	id 1x1fSx-0000000DwcU-1SCQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 07:32:54 +0000
-Received: by mail-pz2-x0a.google.com with SMTP id 41be03b00d2f7-cc1d7f6f26aso411263a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 00:32:50 -0700 (PDT)
+	Wed, 02 Sep 2026 07:33:08 +0000
+Received: by mail-pz2-x0b.google.com with SMTP id 41be03b00d2f7-cc1cb94b583so255028a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 00:33:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788334370; x=1788939170; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788334382; x=1788939182; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Vi97MWhfZddiqmimgtB8vYuipDLussxDN6BUz0TYMFc=;
-        b=F0Q2WI90kCmV5i/mmBfxV2h6wAuCPPhQrWjdSW7WfVluoe4B8Y0bO7iyRQisb8Uj/7
-         pGxffmpeaOnTVBnEm6O33c9JdaFVm5axHGPJyUPpEnX12yxzzENPaDn7//TvBoJbt6kG
-         CAOvnImfSh0IEwJ3rih8gw8F6PSPtOX/3lggJOc+ZIp2qrqSWyiY5HW6vF5nTX6IHgZF
-         WrXNSZsPmcyjgpNZum4r1FGM7BS6kYBsUPhxo0mQHEm42JSS2RvwsvcZoVt6A9fAsEL1
-         E1Llw6jxFouxmuCkZTPC54jmhTAHvmRxFPeXifF7CT9EWDC6uI53dSj3td/cQrhbzDUQ
-         xctw==
+        bh=c+6c1mxNeRcK5OGJwTOV8Umz+CvUvEErlItanMxKc4I=;
+        b=ShAOYPZ46RZ5qlU2XX11f3xwwq/fmd25Jsl+NyA1p8IgjEboR+CM9tFRod+9pCoPi2
+         iyzbvWXgpi3ImSUdp28sPTdOZ9dEowH6RTecit0rdizYrPOfPO4IrWqxFxWaALqEGsQs
+         xe3dpLvBH+NdObj6BRw2ls7UQyE4/n4M8PGKXARRgWywNG6bq7QGreRncVNnBJovUISI
+         EHz6tAuZ7L9PMgXgC8WOztnqpZKZkEwCeMa0ylC6oacXxJAiW90Tl9LMJxKsif9MaA14
+         8KsWoZ9rBkxi4naIjsnO6xUphlsxQo57Y619Xe2ClzN5FSdDw41THp+ipGTe4x8XF5Z9
+         JgRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788334370; x=1788939170;
+        d=1e100.net; s=20251104; t=1788334382; x=1788939182;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vi97MWhfZddiqmimgtB8vYuipDLussxDN6BUz0TYMFc=;
-        b=FrqLefzv2S/T/nx+Nq2sleN6mXSShbZ8kjViFUanh6kNhOO+R0lYcOm0Cr56mmHk/b
-         DpVy8noOV0ermnkisLxIwfDHz8SkNA52metdIWnIkaTdhPRfuOQOY4gsyjPes0F5ywEZ
-         BmV2dD3HEPpYBWC2sqZ0q0WX3R54VJ7cNii/K4tnjpHKdydXbkmm1jEHNpoRFFi2yKmt
-         7aY3ZYKGjR1IoF/twG8VxWsC7u6PFU+FfSsqz0wO4GvOhAR2F6Qzt+9e45Py+ZiHxuCU
-         Ng2GNXzbbUfplVUMilslnaP5dY6ifK9JvtZY+MKQLS00ZZPSP2tTFk9Yb4BTxPjUboDF
-         8nQw==
-X-Forwarded-Encrypted: i=1; AKwUvBxZ4smfxoiTMSdZ6fVVkBugL9ruNaMXe7+LrXgDikwqt4J8MzBXazHx4mIxezp+u1cEgmU90WazEWLLYoqb691W@lists.infradead.org
-X-Gm-Message-State: AFuF++mnfNOOtbCy6QOrLFPzSeATPHA6pGDVScov4OBtF/Xtraceah2H
-	LPziFeNgSvmsjxNvU/Bp1LdKNnyLNjvnYCvI57Rxw1suNibrDb121Cra
-X-Gm-Gg: AYBFou3qAnk6yJGGaqQBrXDGml0HoR/b767pPlmu+4LWx5ahyzZNpNtec724jjNGExK
-	nteL/9XmFbiYh2jNeGCi1j1c6MOV45tSUNqONnvQ1cJy4da4mLR5jQnnM/qLgfT5SDkmtHgoj8F
-	lA5dpgQpz1J/stFYdx1VHVbJkaUR5e5EiJIzxUBZHa2MK6MH28bLsCRdphgt03K0BeLr5/pLdOY
-	zEW0nOO3XG1R00IKpLk4Dz5G2ELH7phVmqOtqZANXFKmwS9lZeXzjo7aANloOw1I51YzoajjMMb
-	+k51xuTzMbDKgj6szz7vewaL8ygBNM76zM1dVhHrWZZEzhNZEKdG4i3gsgeCpTkl3a3o+Xjvh8i
-	z6mmrwkBMwMdBOdvhxem6pc66Mb8pRtiyUtdZa3GgL/pzmANfu+ZDvK3jkAoMbJASdQyp+4XNFn
-	kxD2OH0mmcx9H8pEJNenj2g8TGUVv3TlpycW2LkqrY/XWrwtgUTalfqIsPFIGJm20WY1c5KzZA
-X-Received: by 2002:a05:6a00:8017:b0:851:ba04:ca02 with SMTP id d2e1a72fcca58-85ed398adccmr5532767b3a.16.1788334370199;
-        Wed, 02 Sep 2026 00:32:50 -0700 (PDT)
+        bh=c+6c1mxNeRcK5OGJwTOV8Umz+CvUvEErlItanMxKc4I=;
+        b=ikmDtnTiDsBC+R2LECksKt8rn1z3yyX0YXst3XVuicCe9WIREvvLYslrENREJ5KvBN
+         LlNNHP2SZ+4pPqlBdwGbEtDf14eNPh/wPAoDwE3v+8idxegAiQJSJpqC0jAONW/GSv5q
+         6I1S4iBAMoE+BRRq7WwsWeK719EKldYhP2F4pZWOv6/brWvoRw0BZiR3I6BYjV1NkZGN
+         4zbJHex22nd1M7mrggfGv48JgP5sJDkaZiUvfOTsAQcVwvkaCOQszJKhFTO0ICRxvKLQ
+         02Kw/HhjOZ40fSpKqjTrMtzg9zYusJnECcz3p7XiyzHLB9k7t9AJj5xFvCQKWtHosGqp
+         svQg==
+X-Forwarded-Encrypted: i=1; AKwUvBwJwMdZhx58tHbiQCM1LH0CfFHvHEbwgkoVeV/vZtIywMexVL5diPMsiRpr52sGjo7DEWTpkTHuzvpuUpv7RS4L@lists.infradead.org
+X-Gm-Message-State: AFuF++nNxd68m9lIYVwvCCNSBWLNeC1SFYwHlkIbsVsZmeEz7soVVB2v
+	GeLNSIGwmcqUUXZa8G5GBI1CgGNJRtGu78jlTR9sGA9Zajr799FkFvnS
+X-Gm-Gg: AYBFou1qosNm/nQcYF7fs8SRgE9k8AmZixy7ZdMbF0jOrbvqnVAafHGSIQWqrQipeel
+	zUeCIgfDA4FlA48Xjx0a1VpoMHIK/zJWCB++IUXTAxELHb88DaPPX9Vph30WSNmQUIDKVbL6/ZR
+	l1HVJe1tGZe8/iE8T9A1wMkWQ5qgsmNXpK5LLs5ZPFxBDab9ksScEFe7SdKQi+8UFss+qQNCnC/
+	WPjoHkBEROgx+63eS13mYj+Tymwx2MchLrDWoz7rwJn5JeR93aD7tnDo1HZNFFciQV1rLzDpbjW
+	+2FXbbNsnmm4oees1jMbtTtxBMAEWA91oJLOrPwNB386L+EoBUQD2gc5AkPOrT6swQkiuq2fQ5Q
+	2Jsp0GCNL3sY4BBbzQLgZzOj/iq9F37XKdHA+sG2Zj0ba7azmF/ANG4zZHze7PmwZ4brlWfRvb3
+	fc1GBWBptbbpxh5Ej0eDOGAv/qOzYcdOEqhaJMf0UsfnOvVKken89HRgmL0SdNB/86eBmKDZ75
+X-Received: by 2002:a05:6a00:330a:b0:857:74ae:ad76 with SMTP id d2e1a72fcca58-85ed4e09b6fmr5077449b3a.26.1788334382541;
+        Wed, 02 Sep 2026 00:33:02 -0700 (PDT)
 Received: from intel.company.local ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db2adcbedsm926914b3a.20.2026.09.02.00.32.38
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-85db2adcbedsm926914b3a.20.2026.09.02.00.32.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 00:32:49 -0700 (PDT)
+        Wed, 02 Sep 2026 00:33:02 -0700 (PDT)
 From: Wandun Chen <chenwandun1@gmail.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -103,17 +103,17 @@ Cc: mark.rutland@arm.com,
 	kexec@lists.infradead.org,
 	linux-mm@kvack.org,
 	iommu@lists.linux.dev
-Subject: [PATCH v6 06/10] memblock: introduce MEMBLOCK_NODUMP flag
-Date: Wed,  2 Sep 2026 15:31:12 +0800
-Message-ID: <20260902073116.802752-7-chenwandun1@gmail.com>
+Subject: [PATCH v6 07/10] of: reserved_mem: add dumpable flag to opt-in vmcore
+Date: Wed,  2 Sep 2026 15:31:13 +0800
+Message-ID: <20260902073116.802752-8-chenwandun1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260902073116.802752-1-chenwandun1@gmail.com>
 References: <20260902073116.802752-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_003251_113894_AA262CB7 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260902_003304_420647_4E8AB59F 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,97 +130,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Wandun Chen <chenwandun@lixiang.com>
 
-Add MEMBLOCK_NODUMP to mark regions that should be excluded from
-kdump vmcores.
+Add a 'dumpable' flag to struct reserved_mem to decide whether a
+reserved area should be included in the kdump vmcore. Non-dumpable
+regions are later marked MEMBLOCK_NODUMP;the filtering itself happens
+in memblock, keeping the arch kdump code independent of the DT API.
 
-The flag is meant for reserved memory that carries no data useful for
-crash analysis. Reusable reserved regions such as CMA may hold useful
-data, so these regions must not be marked MEMBLOCK_NODUMP. Subsequent
-patches wire this up for /reserved-memory and /memreserve/ entries.
+Most reserved regions are owned by devices and do not contain data
+useful for kernel crash analysis, so dumpable default to false.
+Reusable CMA regions are different: their pages are handed back to the
+buddy allocator and may contain key data for crash analysis, so set
+dumpable to true in rmem_cma_setup().
+
+The dumpable flag is also used to check /memreserve/ entries for overlap
+with other dumpable regions.
 
 Suggested-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
 ---
- include/linux/memblock.h |  9 +++++++++
- mm/memblock.c            | 16 ++++++++++++++++
- 2 files changed, 25 insertions(+)
+ include/linux/of_reserved_mem.h | 1 +
+ kernel/dma/contiguous.c         | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index d62db9e776cf..b2fcf11fba2b 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -52,6 +52,8 @@ extern unsigned long long max_possible_pfn;
-  * kernel that we know is good to use. It is the only memory that
-  * allocations may happen from in this phase.
-  * @MEMBLOCK_RSRV_HUGETLB: memory is reserved for hugetlb pages
-+ * @MEMBLOCK_NODUMP: exclude from kdump vmcore. It carries no data useful
-+ * for crash analysis (e.g. firmware carveouts).
-  */
- enum memblock_flags {
- 	MEMBLOCK_NONE		= 0x0,	/* No special request */
-@@ -63,6 +65,7 @@ enum memblock_flags {
- 	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
- 	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
- 	MEMBLOCK_RSRV_HUGETLB	= 0x80, /* memory reserved for hugetlb pages */
-+	MEMBLOCK_NODUMP		= 0x100,/* exclude from kdump vmcore */
+diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
+index 49da515859f2..99c0f3ccc297 100644
+--- a/include/linux/of_reserved_mem.h
++++ b/include/linux/of_reserved_mem.h
+@@ -15,6 +15,7 @@ struct reserved_mem {
+ 	phys_addr_t			base;
+ 	phys_addr_t			size;
+ 	void				*priv;
++	bool				dumpable;
  };
  
- /**
-@@ -160,6 +163,7 @@ int memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t size);
- int memblock_reserved_mark_kern(phys_addr_t base, phys_addr_t size);
- int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size);
- int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size);
-+int memblock_mark_nodump(phys_addr_t base, phys_addr_t size);
+ struct reserved_mem_ops {
+diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+index 66093460584e..caa6a5c66bd0 100644
+--- a/kernel/dma/contiguous.c
++++ b/kernel/dma/contiguous.c
+@@ -567,6 +567,7 @@ static int __init rmem_cma_setup(unsigned long node, struct reserved_mem *rmem)
+ 		dma_contiguous_default_area = cma;
  
- void memblock_free(void *ptr, size_t size);
- void reset_all_zones_managed_pages(void);
-@@ -306,6 +310,11 @@ static inline bool memblock_is_kho_scratch(struct memblock_region *m)
- 	return m->flags & MEMBLOCK_KHO_SCRATCH;
- }
+ 	rmem->priv = cma;
++	rmem->dumpable = true;
  
-+static inline bool memblock_is_nodump(struct memblock_region *m)
-+{
-+	return m->flags & MEMBLOCK_NODUMP;
-+}
-+
- int memblock_search_pfn_nid(unsigned long pfn, unsigned long *start_pfn,
- 			    unsigned long  *end_pfn);
- void __next_mem_pfn_range(int *idx, int nid, unsigned long *out_start_pfn,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index f2952d725c10..2e87f39826dd 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1204,6 +1204,21 @@ __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
- 				    MEMBLOCK_KHO_SCRATCH);
- }
- 
-+/**
-+ * memblock_mark_nodump - Mark a memory region with flag MEMBLOCK_NODUMP.
-+ * @base: the base phys addr of the region
-+ * @size: the size of the region
-+ *
-+ * Mark the region as not to be included in crash dumps.
-+ *
-+ * Return: 0 on success, -errno on failure.
-+ */
-+int __init_memblock memblock_mark_nodump(phys_addr_t base, phys_addr_t size)
-+{
-+	return memblock_setclr_flag(&memblock.memory, base, size, 1,
-+				    MEMBLOCK_NODUMP);
-+}
-+
- static bool should_skip_region(struct memblock_type *type,
- 			       struct memblock_region *m,
- 			       int nid, int flags)
-@@ -2887,6 +2902,7 @@ static const char * const flagname[] = {
- 	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
- 	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
- 	[ilog2(MEMBLOCK_RSRV_HUGETLB)] = "RSV_HUGETLB",
-+	[ilog2(MEMBLOCK_NODUMP)] = "NODUMP",
- };
- 
- static int memblock_debug_show(struct seq_file *m, void *private)
+ 	pr_info("Reserved memory: created CMA memory pool at %pa, size %ld MiB\n",
+ 		&rmem->base, (unsigned long)rmem->size / SZ_1M);
 -- 
 2.43.0
 
