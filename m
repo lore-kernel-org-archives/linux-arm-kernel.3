@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08374C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F82C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwIFfSx+XD5a7sC0XmkVh7YDuYan2JuQeOfx7dPjlyo=; b=Lu5OFpzcIGFSTl52g9/0ylmauf
-	QwTmA46v+5C+TxomRFo+ucI5FsMefwOvJv5HzxyS17TC60OBLRPp4Xpsx0+2oR4MX8Js3bx0ltL6g
-	wzws39/C5VLp2Dcjy++2nfcdG/iX7ESeQuur+FnC1MMI5Y6apMm0/SUHCd083QLW26FUwfIDjDDQi
-	vvsDo6Keij2i8UL6lBSgaQGD4hGgyqasz3Et732GAXB5tae9q1WyL523KsG+TWCxDLSQKIEI3feV7
-	6JrVUJZqTaihJ3M9hCUNT/p5MmnM9NRWGoe2/lN+U6WOg96oN+9C2TsFdV2hgJkBiyI2J34+q+BkV
-	Fr1Vorlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QmFhfm/ycQNvBUk5VmeaGzE4MYZklDOtyKIWou97hTI=; b=zQ0/O12MNIyVw8zTwHpWKaOElE
+	puB7rNckeH4Lv2VTxN8n62FjA4dZp3DT2MnnyZqWk7aBBaPwjs0yD6IXH/JeXKmwM2derBe+UubD+
+	YbY6YFrnH4EjkRbpNCVkkltyDUrNWhiKYUa7ZPNpgpSK4DDUA9ghz9rMmGedsHSw7vOGKO0Fd2HXC
+	P6Le68Clx9fus1sSWWeES2nV/FtYTwLObmPTTS4RtOiWRPlcG2e8VuEzrQOJ3/SSRVqQvduz3yetE
+	Fl+2U/lK5xnyeXxyr46rDrF4Qj+5bRaowdJfA0mEqlvGHiqiysVP5d4Tq3TZA4zyP84vWcW9GRFqa
+	OGv3HuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lNE-0000000ErCk-2sY3;
-	Wed, 02 Sep 2026 13:51:32 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1x1lO5-0000000ErNG-3yI5;
+	Wed, 02 Sep 2026 13:52:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1lNB-0000000ErBJ-3B67
+	id 1x1lO4-0000000ErN1-2prf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:51:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357084; bh=KwIFfSx+XD5a7sC0XmkVh7Y
-	DuYan2JuQeOfx7dPjlyo=; b=Xw263usuTobwVu3ZPe3GlstVM9g/1kVc3YoGnI1soFturQ1jgK
-	gCYoojyovu42EKY+2coXrAakDWF/3uYZrnG0YjxvN4rEHMGYbXP3O0b/TQts/4/RivKgwfv+lyt
-	QgFTWY7I+9nNRug02aXcg6poYp1ZXDzRFrUvvalHuW9c2mjg1//bXxMBnFSzbR6NeI7lLtVJRAI
-	aLSZI4xdCRog2qZFpcO0o51Hp8YXyP1zkMNmcGI0tJJ0CLCVaQXSOtViVJhzGLd8u9czR1CuKNA
-	MRj8ovw2cB/CGt1l10yRWK1fyEL+8HCJe9K4vcrNHr+pmlvyA8q2PgLOU7Kf47MZjWw==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788357084; bh=KwIFfSx+XD5a7sC0XmkVh7Y
-	DuYan2JuQeOfx7dPjlyo=; b=GnxnxnYvr14CijySVZRt67D3Nlk2N6u7awJgjyDCVoGJ0pWF0W
-	4/8R+bVe08vreAyjdhyGW3JFBTpfet9v0oCg==;
-Date: Wed, 02 Sep 2026 14:51:22 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Mark Rutland <mark.rutland@arm.com>
-CC: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
-In-Reply-To: <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com>
-References: <20260825205839.14571-1-brads@mainlining.org> <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com>
-Message-ID: <B23E199A-2D3D-48B4-A7E9-9664371A7361@mainlining.org>
+	Wed, 02 Sep 2026 13:52:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B0B440301;
+	Wed,  2 Sep 2026 13:52:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2D0A1F000E9;
+	Wed,  2 Sep 2026 13:52:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788357143;
+	bh=QmFhfm/ycQNvBUk5VmeaGzE4MYZklDOtyKIWou97hTI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WPinB0zRFnUXHkzus3W+lndLqy3gUIAvGGafThEfeWRaKyFhAvFUIWCxhWmsggHlI
+	 UYy2WVnrMdUjzb2q6eDMEaZbLO//1rl/VPhtBumpVRjJGeslODVe15TZAxTzeP6l1K
+	 5cMig05M7SqaG4G62ayNB/cn8FAYjw1H4crE6FUwg5S5dEFknYHIQhcrSv1MwirDFE
+	 jv4dw/jAhHOQ6XNjRypAVuvZ9TLaokE0ABDf1kBM4HtkRALOEaDQoVSW8yPUzAB/Ee
+	 FJFda+BuMNHY8alySw01d33iRh0GFM+4YM13tZdZq73lsekq0c3PidKEAcrQeOb5F6
+	 aAmXB1C7aMWOg==
+Date: Wed, 2 Sep 2026 14:52:21 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
+	Breno Leitao <leitao@debian.org>
+Subject: Re: [PATCH v3 6/9] firmware: arm_scmi: Refactor protocol device
+ creation logic
+Message-ID: <20260902-cuddly-moose-of-champagne-3d0c87@sudeepholla>
+References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
+ <20260813-acpi_scmi_pcc-v3-6-cb6b88b4ebb3@kernel.org>
+ <20260824104948.0000454b@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_065129_945278_A1773E2F 
-X-CRM114-Status: GOOD (  19.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260824104948.0000454b@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,79 +72,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2 September 2026 14:50:22 BST, Mark Rutland <mark.rutland@arm.com>
-wrote:
->On Tue, Aug 25, 2026 at 08:58:32PM +0000, Bradley Morgan wrote:
->> This comes out of the hibernate resume discussion where Will asked if
->> the restored kernel's hyp vectors are reinstalled before we come back
->> from swsusp_arch_suspend() and free the reserved pages. Rather than
->> answer with a one off fix, this series reworks resume to look like a
->> resume from idle, which makes the answer fall out on its own.
->> 
->> The series leans on Mark Rutland's old work for inspiration, he had the
->> same end goal in a branch from back then:
->> 
->>  
->https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
->
->Most of the series seems to be a rebased of those patches, just with
->paraphrased commit messages and my S-o-B lines dropped. As commented on
->patch 4, I do not think that is appropriate.
+On Mon, Aug 24, 2026 at 10:49:48AM -0700, Jonathan Cameron wrote:
+> On Thu, 13 Aug 2026 12:33:01 +0100
+> Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> 
+> > Move the protocol validation and device creation logic in scmi_probe()
+> > into a reusable scmi_device_check_create() helper.
+> > 
+> > The helper centralizes checks for the protocol ID range, implementation
+> > availability and duplicate activation before invoking
+> > scmi_create_protocol_devices(). This preserves the existing behavior
+> > while allowing the logic to be reused by the ACPI path, where protocol
+> > child fwnodes are absent.
+> > 
+> > No functional change intended.
+> > 
+> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+> A trivial thing and one follow on from earlier.  For that just be consistent
+> with what you choose to do for the earlier comment.
+> 
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
 
-Same question as patch 2
+Thanks!
 
-If you want your S-O-B added, ok fine, but yeah.
+> > ---
+> >  drivers/firmware/arm_scmi/driver.c | 60 ++++++++++++++++++++++----------------
+> >  1 file changed, 35 insertions(+), 25 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > index aad678db0f6e..951ba3df6ba6 100644
+> > --- a/drivers/firmware/arm_scmi/driver.c
+> > +++ b/drivers/firmware/arm_scmi/driver.c
+> > @@ -3244,6 +3244,40 @@ static void scmi_enable_matching_quirks(struct scmi_info *info)
+> >  			   rev->sub_vendor_id, rev->impl_ver);
+> >  }
+> >  
+> > +static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
+> > +				     struct scmi_info *info)
+> > +{
+> > +	int ret;
+> > +	struct device *dev = info->dev;
+> > +	struct scmi_handle *handle = &info->handle;
+> > +
+> > +	if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+> > +		dev_err(dev, "Out of range protocol %d\n", prot_id);
+> > +		return;
+> > +	}
+> > +
+> > +	if (!scmi_is_protocol_implemented(handle, prot_id)) {
+> > +		dev_err(dev, "SCMI protocol %d not implemented\n",
+> > +			prot_id);
+> 
+> Fits on one line. I didn't check if you modify this later in the series
+> though so if this is churn reduction, fine to leave it as it stands.
+> 
 
-Do you think this series itself is good? 
+Fixed locally, must be side-effect of refactoring.
 
->
->I'll take a more in-depth look shortly.
+> > +		return;
+> > +	}
+> > +
+> > +	/*
+> > +	 * Save this valid fwnode protocol descriptor amongst
+> > +	 * @active_protocols for this SCMI instance.
+> > +	 */
+> > +	ret = idr_alloc(&info->active_protocols, fwnode,
+> > +			prot_id, prot_id + 1, GFP_KERNEL);
+> > +	if (ret != prot_id) {
+> > +		dev_err(dev, "SCMI protocol %d already activated. Skip\n",
+> > +			prot_id);
+> > +		return;
+> > +	}
+> > +
+> > +	fwnode_handle_get(fwnode);
+> > +	scmi_create_protocol_devices(fwnode, info, prot_id, NULL);
+> 
+> If you take the suggest I made earlier to make the hand over of ownership
+> slightly more obvious by using the return value of fwmonde_handle_get()
+> then applies here too.
+> 
 
-thanks!
+I will update 3/9, it should be there by 6/9, so no change here other
+that the move itself.
 
->
->Catalin, Will, for the moment please do not pick these up.
->
->Mark.
->
->> The short answer to the question: yes, but only because the rework makes
->> resume look like a resume from idle. We enter cpu_resume() at the
->highest
->> available EL with the MMU off, and the resumed kernel installs its own
->> hyp stub vectors into VBAR_EL2 through init_kernel_el() before anything
->> else runs, so by the time swsusp_free() releases the trans_pgd copies
->> nothing points at them anymore.
->> 
->> The series is structured so the first patch stands alone as a stable
->> worthy fix for the missing hvc arguments. The rest is the cleanup: the
->> stale init_kernel_el() comment gets corrected, MTE tag pages get freed
->> after save instead of leaking on failed hibernates, the fragile
->> _cpu_resume() calling convention gets split, and the last patch reworks
->> hibernate to use the regular cpu_resume() logic end to end.
->> 
->> Everything object compiles and passes checkpatch and sparse. I could not
->> boot or run a hibernate cycle on real hardware here, so that still wants
->> doing before anyone gets excited.
->> 
->> Bradley Morgan (7):
->>   arm64: hibernate: pass HVC_SET_VECTORS args to the resume hvc
->>   arm64: head: correct comment for init_kernel_el()
->>   arm64: hibernate: free MTE tag pages after saving
->>   arm64: hibernate: fix _cpu_resume() calling convention
->>   arm64: hibernate: use dcache_by_myline_op
->>   arm64: hibernate: only clean to PoC
->>   arm64: hibernate: use regular cpu_resume() logic
->> 
->>  arch/arm64/include/asm/suspend.h  |  1 -
->>  arch/arm64/kernel/head.S          |  6 +--
->>  arch/arm64/kernel/hibernate-asm.S | 87 +++++++++++++++++++------------
->>  arch/arm64/kernel/hibernate.c     | 66 +++++++++++------------
->>  arch/arm64/kernel/sleep.S         |  6 +--
->>  5 files changed, 88 insertions(+), 78 deletions(-)
->> 
->> -- 
->> 2.47.3
-
---- Thanks!
-https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
+-- 
+Regards,
+Sudeep
 
