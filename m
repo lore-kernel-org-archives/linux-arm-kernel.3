@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7E0C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0CDC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 10:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyAg+oao2hLSO5MFtf+OUxfyez7940gq4vcJ71Nff6U=; b=4oJniHaTTilbrdk0rSZg+XlTwd
-	ZPFmsr5pnZQfbCwwXM4rs8r2TK6e1qzgNhjLJfGbM/TNNgKDuY+nUsR+6qA2aGQaUtvmstez5Y5HL
-	KFi6QrLo3o5SabMIam8OEAHW316zV3jfHxAi25QlJlOXcoC3/7ZrB2gkpP7CMFyxZu+/yZwr8ATr9
-	NSwxTnYhPtYhlTc9pXKZx0mCFmQYktvhXp7ruu64VjBtdOOP1iOXg3OfZx0Ex6SyE00A1oDgQCooT
-	tUXnsNQSeHB467DWnU/+05lQOGm7XW96z9DUn2DTubneW08MOYPSqg/yZ6yoMJJ965fJzGz3g8B/Z
-	dT4GYsrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=; b=dZ/JtIzFnW4B38G+WxAPIFBX1t
+	tSAtFkyX8xAbqfdSuBROoEcbfbYaj9XRDRw8pPTS/oRaVxGkWso14TpdaRE3mMb/7XUDC0I3VjgOZ
+	sVUqNX1VfFbaF1DgeSUpCNNMuw7CKj+t1742cF83RI1WTH2oECqeqM7re8irQVtZ5QEYqVhX978L7
+	wvOC30sgy4/EDv5eklfPo7sObSjuvbUsk/Nf7gpKQF37uB59dwjHipWd1TEdYsBZ+dPb6FUx5VSUz
+	UL0b0NDAUsHY5Cq18JVxwIa13251ezsQXOh7fpHkDVjCCzH1KqKuwBjDRmtcaypV6vIQsHJjBWIlQ
+	xOpRRFLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iHY-0000000EMVd-0rzg;
-	Wed, 02 Sep 2026 10:33:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1x1iU9-0000000EOEr-2rLn;
+	Wed, 02 Sep 2026 10:46:29 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1iHV-0000000EMRT-1c5K;
-	Wed, 02 Sep 2026 10:33:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788345198;
-	bh=Iy+VUNXDXW8cWtqhoAcajkOwEmooMeEJCbxXu8rQQOs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=POWuk7sdMsPIg1zcWIim2kuet5JxYBmhJG6SFrb9VcEt2CfsK1hM8cI5oK3fJQIvF
-	 5XcgkAR+aYJTiNYVtTHmFcAZtkPj9E4aHvkvs2heFQaBlssCUbTQzIKVIN+J3CUPqg
-	 rlYQqPMqssgCrFzk/kchPsPUGT7lPmqppZ/fd7OOEZg5Lh4KTdxgv6mO74T/DrKdar
-	 yFPEg38BsCY6jhenufqkDlpj0XQx6/S7MMNKaftFCyozJxQGPDXfPraSXaGPeMVBhm
-	 1o2ZWRMsr3y8qEMX4YMFHiz08rs3xNGGq0gloYYZJJZNC3ef86a5SbfQia7ImQqxZz
-	 dPEZDpE3ES/Qw==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 76D0217E11F5;
-	Wed, 02 Sep 2026 12:33:17 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 02 Sep 2026 12:32:46 +0200
-Subject: [PATCH 3/3] arm64: dts: mediatek: mt8395-radxa-nio-12l: Complete
- UFS power supplies
+	id 1x1iU6-0000000EOEL-1dKx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 02 Sep 2026 10:46:28 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954a9e8490so12670445e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 03:46:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1788345984; x=1788950784; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=;
+        b=O5Kao687NgkqQxN1kp7X4i5pm4BJDFDQZNHqOP086hebGhVa3Lwp5Y4nghxIuPub5S
+         jXK98eNP9+xCVcAv5vdaTM51ujrFD1gkHHyX+WaxIivzbXplvKQBD/G9uN7uwpWDYPzD
+         Tal5NpcAzZtZ9DkOIRn44LSZaM5NobQfe+C94f3e5NfO5WWklie73WBWtmpJhMdWpVAM
+         et6AkV/tjdVwndeS76tk8Yr7E4eBodYV8Tn9fT4uWwAFDvjPVyL/z917jzq6qtFvqp7B
+         dbP8JqLJ7QFPb3XDlqhplu1jDyKPY8pNkKGQ15QAJ2lKqf6PvQ+IQeqHfo0dyGR9SZRS
+         o5uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788345984; x=1788950784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=X/zkz19mYdkeVUXbqG+wllW7/Eig24aofKrfzLu9lWI=;
+        b=Dx4NYs5JJALF4Tk85jddw5jWNJaEbD0Fs1/D4R7dl7TSNiXHNFo3Qe2AxRPmKZeZR3
+         4yVfl6RXj0uR+I3QMic5EO6veviSq+HdY/yM+yhtfPqEnZK8x3TVmG8ZOfvtgtqnOQqR
+         PhMYDkyUkcLMEeIs3glOSSSQWiAM/mB94i6qzsFo7eRAGRETupYEqlUFRToZVXXMUFQp
+         5v8DyZHylu6qqYkOVas90IQPwpD02frHXzyf30oKNILlG3Fv3vdn+wMc9NlI0ais0wh4
+         HVO4/IaNb3GaaEy8fRJPncJcZm+vecTR5VHV/CkAjgZTi0FmLbiF1VDmkrr3SRuH5P5q
+         IS1A==
+X-Forwarded-Encrypted: i=1; AHgh+RrEr/nAFbuJ76z3u0uxvMKFvmLwul8WvI9KO/4yeAVjExv+QKYRuJbqJVN4ruC7cPOtybUkagqnB9jMnNHz3sKd@lists.infradead.org
+X-Gm-Message-State: AFuF++mBn9N9VngqotMr3rdBR2/CMddITuk2S4uwCuO8i+IavQdNfmEM
+	nrnLHWL9+YmIbUA9aiR9kBUHBBCzegGDm6CLrGfGqYBpHLMMkZ0GDtgFzgBYbvXVhXU=
+X-Gm-Gg: AR+sD10Jdh/4wl/d8ikHUspVr/pF+Mpyo+BTSGeQrIffwInF5++/0JR6T7rfOY/G21C
+	DoemJbQlfYJZVBxKubrsAaGjNkUNszUQ3/6EOV4GaBGwocDwU+AD3YuzNjXutO2B88FtjtGhhIT
+	pHp1dmoXddtzZST6JBZOnrX2HIJ4tSbjpmrqOreiEuAZq3H2eC2cREVvxpYIGFVqo08NDGcat6I
+	4ML9aQtCSO6YzW82OuCzKR5xp0lFiRd4m8x2de3V6awT1uq2V1kgDzh7XzfoSRaCMjje7wcqfcp
+	hFoZg1HAnSp/leY27WFmQDcLf6F0/JwI1X6e5YY+hNgXhX3MCnlaM9qDswmXQaZsJvkRKz3F32E
+	OvjkddydoArEXkQRiNBeaXd1RKKmE7e10bMHvVgL3G+v3+BqW86blgAvTpvujalga1AUu4TTcaS
+	TVyjdqb0bLS99Hfq0uxXusDvxVdui+ayWSS5A5yDE3wl/xtiBtXV+kxPkJ0SafzUfBnfW3Bx2om
+	n7AE0vMasNLmi6zMBFTJw0=
+X-Received: by 2002:a05:600c:8718:b0:49b:8f5e:51fb with SMTP id 5b1f17b1804b1-49ce7c03f46mr34819935e9.3.1788345983519;
+        Wed, 02 Sep 2026 03:46:23 -0700 (PDT)
+Received: from dev-ag.figment.co.za ([102.33.165.38])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce5936a5esm20127665e9.3.2026.09.02.03.46.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 03:46:22 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: qinjian@cqplus1.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux@armlinux.org.uk,
+	devicetree@vger.kernel.org,
+	Andrew Gaylard <ag@ffroot.co.za>
+Subject: [PATCH 0/2] arm: sunplus: add SP7021 LTPP3G2 board support
+Date: Wed,  2 Sep 2026 12:45:43 +0200
+Message-ID: <20260902104545.67794-1-ag@ffroot.co.za>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260902-mediatek-ufs-cleanup-dts-v1-3-7876e7a27a9d@collabora.com>
-References: <20260902-mediatek-ufs-cleanup-dts-v1-0-7876e7a27a9d@collabora.com>
-In-Reply-To: <20260902-mediatek-ufs-cleanup-dts-v1-0-7876e7a27a9d@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788345194; l=1050;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=Iy+VUNXDXW8cWtqhoAcajkOwEmooMeEJCbxXu8rQQOs=;
- b=c940H5zXtUUgCV2sxRtdhKxlcCdgXiSInmQ1m1p15P0fCc6REDVxahRltrLYYFGv6Z/dWMvKJ
- r3EureIi3lSDVQbsIYWdtnhDJS+zxKJXTxYtS3WtfSyJykNR8tRgN3r
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_033325_776784_4DAB8548 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20260902_034626_679490_3B638022 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8195 UFS host controller dt binding now describes the power supplies
-feeding the host controller, that were previously missing from supply
-description.
+This series adds device tree support for the Tibbo LTPP3G2 board, which
+is based on the Sunplus SP7021 SoC (quad-core ARM Cortex-A7).
 
-So, add in the Radxa NIO-12L board devicetree the regulators used to
-power MT8395 UFS controller on the board.
+Patch 1 adds peripheral device nodes to the SP7021 SoC DTSI for
+peripherals whose drivers are already upstream: PWM, watchdog, eMMC,
+and the L2SW Ethernet switch.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 3 +++
- 1 file changed, 3 insertions(+)
+Patch 2 adds a DTS for the LTPP3G2 board itself, enabling those
+peripherals and configuring the board-specific pinmux and Ethernet
+topology. It also updates the defconfig to enable the relevant drivers.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index 9cf0315da035..7e9cabdd2825 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -1184,6 +1184,9 @@ &uart1 {
- };
- 
- &ufshci {
-+	avdd12-supply = <&mt6359_vrf12_ldo_reg>;
-+	avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
-+	avdd18-supply = <&mt6359_vio18_ldo_reg>;
- 	vcc-supply = <&mt6359_vemc_1_ldo_reg>;
- 	vccq2-supply = <&mt6359_vufs_ldo_reg>;
- 	status = "okay";
+Tested on the Tibbo LTPP3G2 board with linux-next 20260901.
+
+Andrew Gaylard (2):
+  arm: dts: sunplus: add peripheral device nodes to sp7021.dtsi
+  arm: sunplus: add Tibbo LTPP3G2 board support; update defconfig
+
+ arch/arm/boot/dts/sunplus/Makefile            |   5 +-
+ .../dts/sunplus/sunplus-sp7021-ltpp3g2.dts    | 301 ++++++++++++++++++
+ arch/arm/boot/dts/sunplus/sunplus-sp7021.dtsi |  48 +++
+ arch/arm/configs/sp7021_defconfig             |  30 ++
+ 4 files changed, 381 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/sunplus/sunplus-sp7021-ltpp3g2.dts
 
 -- 
-2.55.0
+2.53.0
 
 
