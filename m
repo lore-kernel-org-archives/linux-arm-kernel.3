@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85224C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356E1C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 18:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/co2BbiwEGthBShXRC0EiM5pB4H/+cNPoBpHcBMo+g=; b=1sjQ+TB//6aq7hq5hJREHmc9Nr
-	oNbr32hSZpru/f2Qqcp3JjL15ZUnfuTvTssaXsj3IcjMldKs2FDipv/LETUDR3cjJY1fZIabh4Q2x
-	LJKkXElqjXMmvCEjkcPXbKto3nbTBmyNBLjamumampOv6YMLQDH02WVrD4XJXU++O+4KfH66WO1Gy
-	aya50tfRh+XHxwynD+1JN5rYei4n61LaV5tuEcyIVU9+/MR+woHnBCeH0zHjt08W6VSR+NAMhBI5V
-	csniA8iL9vRLfDk9HrhqhTLaqvZGEuOAMcghIBi16kQlAjmsJSNdE9dv/6ZdTWCoeaMSHTCqJyPCP
-	MaMTKLwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rto/zkmddcXFKDuBMT5owfeFn2l4lHjmJnj+jxGDxQo=; b=ZQVnYtdYwT25eYCLHA0kcMB9fR
+	ju58gXhJCSiXrRzpg9IEdEf5HXkNCv9guclfCxiPo/XSm7RxCbL6XQDoVnkTVCR2hu97RfLcjDuEJ
+	5f8lXZSqyBwvescF5rhIvh8sARUPv41Vg5HFiBQtAo1Pk5QCi63KgWc1TQ1nNtYs5qhiDbP8XOKm/
+	Yd2SCd5fKMzbJE/Roc3js3V282k1EwH2aZakr1PP+UUQtACvr8A/3klVaa5grymkCo7u8nNaC5ssy
+	LtKEXYWgNkDIUPZFab2mZBl/mYq87WuE5MZmpMiT5+rFvyu8LxMuDq1j629oQWiiTy+0wRTv8etAt
+	/AMe5ESQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1q0s-0000000FcSC-0ne6;
-	Wed, 02 Sep 2026 18:48:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x1q39-0000000FcrJ-1v3G;
+	Wed, 02 Sep 2026 18:51:07 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1q0q-0000000FcRn-3HKP
+	id 1x1q36-0000000FcqF-017E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 18:48:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C09FB600C8;
-	Wed,  2 Sep 2026 18:48:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2D071F000E9;
-	Wed,  2 Sep 2026 18:48:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788374923;
-	bh=6/co2BbiwEGthBShXRC0EiM5pB4H/+cNPoBpHcBMo+g=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cQkfPuCbiJJPEZfGHPRJjRakvmDBMzsYExiVJGi56VhwuS1Cq763RmqeLf9X3HPuS
-	 wUA5G1GLYNvfgWlVYO/7UzlD+slDzsOdVil5La4cJVLX+txLYdB9wbBvTDhQsupL9G
-	 kMeL0dkQw2iRWxvoT44gzpIxAM+IX6S00HuyfAQXk/ifidiOCyHxdPp73NgzFW/uGJ
-	 30flVx9b+RJT/HMGFLv0vJvl9087rnu4M2bq3NHRDEVEE8UdRCGCG71nG5oaS3rJs6
-	 MH0jU/iEuoiy8t0++/eeXtQ+5t5mhybtoINbFXu4asB363JYOHf8kkr9AMfHgWbgPA
-	 RS6Ko9nEByatg==
-Subject: Re: [net-next,v3] net: stmmac: drop the queue-0 pinning for GSO frames
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Wed, 02 Sep 2026 18:48:42 +0000
-Message-ID: <178837492226.3394541.13110256562881802796@kernel.org>
-In-Reply-To: <20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85@oss.qualcomm.com>
-References: <20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
+	Wed, 02 Sep 2026 18:51:06 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c1712a04ddaso234405666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 11:51:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1788375061; x=1788979861; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rto/zkmddcXFKDuBMT5owfeFn2l4lHjmJnj+jxGDxQo=;
+        b=doxBnuZ0+5fvR7STL+TiyfZlbXX5WMZdW8DniXRUwaXWE+bu12vHth3LsVT+zlaq9n
+         sNncDDi5fRdxDGiuhXmh9EPUgcPXB/umAY/wtLQLEytz+0wyiNtr2eBe1WZMjjFCwOfu
+         eM48nP5eF+/ObmUuOCoFpwk2WhMdZli9jcYFKgI7s4jI4Yt31FfoBvJdruZu2QyZsVyb
+         ELrW29LHoc17qf7eyKEIsJ9pAU6rwdiLWM1QTb00MBhcrIE97ICPyb+MZYc80I2dIpMO
+         poGUMHZXga/Mj/vETTH6EVRomSBT+ujtdskU5NdJTmEZlej2C7xlJd0VfYLqnWjfVWXn
+         JySg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788375061; x=1788979861;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rto/zkmddcXFKDuBMT5owfeFn2l4lHjmJnj+jxGDxQo=;
+        b=Trcriu2jThIUqPQsxucx3CDeLfmqkXHlm69l9ALRXuq40fG4YpBcdCscHqYfAwo/bw
+         JlAPYufN17doQoGA5yDGsSwt7ph652pWecVfDVBdhhqQ6VoYhrfkXexD+lxzcbBbwlHL
+         NaVCBmpY2/QxzWfMKbe7Ny0zkDF4kfaDpo7sOV7v5FIT+eSkDy/oMb+FBGVA6eXVooiw
+         hONUFrczlvPrh7IwIC5yI/fKFsLhrnBwfaqSHgbBkkl3h2y3J4SKqbaeNheu7ZvHGwPZ
+         b2yboFwKTwJ+6UpXx0VYcx7zdZ+IvGDh8fWSJ5pTxkMSKOFk91wVE0AqLz7zmQjxO+d+
+         w1yA==
+X-Forwarded-Encrypted: i=1; AKwUvByDhYJGWvdfi69s2BZGUCld5syTDI6XNBvowlOq/nvLRG9ydxzKl1q+KhzYJA0gwTK2+JwFecFRYNIut3gvB0mC@lists.infradead.org
+X-Gm-Message-State: AFuF++mW0kqHU2kUSUpMZYXV7o33zbPcJAKh+54cvWLwOPOcq2Y/5yUv
+	cxDxVoAbYyXmk5+DSF1SfMOReGPu4885tzj57k0zOB57gAK1RMmeMZy+6REwSBDVSw==
+X-Gm-Gg: AYBFou1nVv+CnhC73NLIqXIwWxV3DKwkRmnmQMGUkkIgO6/HTYLQnUkKZ5dhP/T3ly2
+	rG6CFXO+t23c5OR+jBc90seY29SaBkAP987Jhm4EHdFHxw0ma5diBeOndYaPHBfKcon+YAuG+Us
+	K3KOk8ffJdDRVtulJ/J1Y1+TdSpUr5p8wYnyjbg/8sAJKidHjHNpiaK63uOkTfXxnPHKVEB+P4m
+	77QDTyP0y0dgTgU33u7Q54vD4/hltYy48aexIahmMUZhPWvnP+A9W5LxR+J0XbdqRSKPdH6rh7C
+	Y1P9p3Rxvvqvzvq1uzPi9i77S/yq7Ho+1yfPgbdi5jLylesxRvwaVlzKHQQH0NCQbyNbskpXYWN
+	Pe+lm2bl1NPQkbzTkBCqtE4XoQDCA2+31QFg/XU3gb1aR3tvHgVaEZAlKFbxrk+0JyZrhfelPh5
+	P+d81Y9QgA+6roRunfQOjnQRLtkDCNCMj/KouBjEqlmEiDS+sdsHrDG/4/6SYxlrPBNr7r/lPBL
+	j4G0T9fyNLtjqeHB7wl8XeacGBHog==
+X-Received: by 2002:a17:907:805:b0:c25:895c:62dc with SMTP id a640c23a62f3a-c25d5496a24mr425850266b.14.1788375060906;
+        Wed, 02 Sep 2026 11:51:00 -0700 (PDT)
+Received: from localhost (5073F89B.static.ziggozakelijk.nl. [80.115.248.155])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c25f4172e44sm200366b.20.2026.09.02.11.51.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Sep 2026 11:51:00 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 02 Sep 2026 20:50:59 +0200
+Message-Id: <DL521SM75B0T.1DGK1GVSH1G51@9elements.com>
+Subject: Re: [PATCH RESEND v2] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is
+ supported
+From: "Michal Gorlas" <michal.gorlas@9elements.com>
+To: "Manivannan Sadhasivam" <mani@kernel.org>, "Richard Zhu"
+ <hongxing.zhu@nxp.com>, "Lucas Stach" <l.stach@pengutronix.de>, "Lorenzo
+ Pieralisi" <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>
+Cc: <linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
+ <178835947957.88571.7553170178358028044.b4-ty@b4>
+ <gayg4xafgxcog7f7jy2i2e3wctds3do2ytttgv74f3y6ed7qtg@mr3xfxugjfeh>
+In-Reply-To: <gayg4xafgxcog7f7jy2i2e3wctds3do2ytttgv74f3y6ed7qtg@mr3xfxugjfeh>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_115104_434181_AFAE34B0 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,214 +110,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider:
+On Wed Sep 2, 2026 at 5:36 PM CEST, Manivannan Sadhasivam wrote:
+> On Wed, Sep 02, 2026 at 04:31:19PM +0200, Manivannan Sadhasivam wrote:
+>>=20
+>> On Thu, 27 Aug 2026 18:51:00 +0200, Michal Gorlas wrote:
+>> > Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+>> > states for devicetree platforms"), ASPM states are force enabled
+>> > on all devicetree platforms. This causes PCI devices on some i.MX SoCs
+>> > (for e.g. i.MX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+>> > though CLKREQ# is not supported (and consequently supports-clkreq is
+>> > not set in pcie controller node of their DT), which causes the device =
+to
+>> > never wake up from L1.
+>> >=20
+>> > [...]
+>>=20
+>> Applied, thanks!
+>>=20
+>> [1/1] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is supported
+>>       commit: 94420d27973f567e5c10b631115ea8b9abc0172e
+>>=20
+>
+> I dropped this patch now as I completely missed that this patch incorrect=
+ly
+> assumed that ASPM L1 is controlled by the 'supports-clkreq' property. Thi=
+s
+> property is supposed to be used only for ASPM L1ss where REFCLK would be =
+cut
+> off.
+>
+> As Krishna explained in v3 [1], you should use 'aspm,no-l1' property in D=
+T and
+> use it to disable ASPM L1.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 1
+Right, 'aspm,no-l1' solves the issue I had. Also forgot to answer
+to Krishna's remark in v3 thread. Sorry.
 
-- [High] Removing .ndo_select_queue silently disables hardware TSO/USO
-  for most GSO flows on all in-tree stmmac platforms that mark every TX…
-- [Medium] The patch's stated safety property — 'stmmac_features_check()
-  already validates each GSO frame against the capabilities of the queue…
-- [Medium] The patch deletes the hardware fact that the removed comment
-  carried ('There is no way to determine the number of TSO/USO capable…
-- [Low] The commit claims to fix a real user-visible offload defect
-  ('This also fixes the case where queue 0 is not TSO-capable while…
+Best,
+Michal
 
---
-
-net: stmmac: drop the queue-0 pinning for GSO frames
-
-This drops stmmac_select_queue() and its .ndo_select_queue entry so GSO
-frames are no longer pinned to TX queue 0. The changelog argues the pinning
-is redundant because stmmac_features_check() already validates each GSO
-frame against the capabilities of the queue it is mapped to. Non-GSO
-traffic keeps going through netdev_pick_tx().
-
-Link: https://lore.kernel.org/r/20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com
-Link: https://lore.kernel.org/r/20260807-stmmac_select_queue-tso-fix-v1-1-4c4787bad02b@oss.qualcomm.com
-
->From the changelog:
-
-> This also fixes the case where queue 0 is not TSO-capable while other
-> queues are, which previously forced all TSO traffic into software GSO.
-
-[Severity: Low]
-Since this is described as a fix, should it carry a Fixes tag? The queue-0
-pinning being removed came in with commit 4993e5b37e8b ("net: stmmac:
-Re-work the queue selection for TSO packets"), which in turn fixed
-c5acdbee22a1 ("net: stmmac: Send TSO packets always from Queue 0").
-
-The removal also depends on the per-queue checks in
-stmmac_features_check() added by commit b55dfb173ce8 ("net: stmmac: move
-check for hardware checksum supported") and the surrounding series. Without
-those, backporting this alone removes the only thing that steered GSO
-frames to a capable queue.
-
-Could the changelog name those prerequisites so stable triage has
-something to work from?
-
-The claimed defect itself looks describable from DT, via
-stmmac_mtl_setup():
-
-	plat->tx_queues_cfg[queue].coe_unsupported =
-		of_property_read_bool(q_node, "snps,coe-unsupported");
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 66ae365e1c89f..25121d6d84995 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6428,24 +6428,6 @@ static int stmmac_setup_tc(struct net_device *ndev, enum tc_setup_type type,
->  	}
->  }
->  
-> -static u16 stmmac_select_queue(struct net_device *dev, struct sk_buff *skb,
-> -			       struct net_device *sb_dev)
-> -{
-> -	int gso = skb_shinfo(skb)->gso_type;
-> -
-> -	if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6 | SKB_GSO_UDP_L4)) {
-> -		/*
-> -		 * There is no way to determine the number of TSO/USO
-> -		 * capable Queues. Let's use always the Queue 0
-> -		 * because if TSO/USO is supported then at least this
-> -		 * one will be capable.
-> -		 */
-> -		return 0;
-> -	}
-
-[Severity: High]
-Does this lose hardware TSO/USO for most GSO flows on the in-tree
-platforms that mark every TX queue above queue 0 as TBS?
-
-dwmac-intel.c, dwmac-imx.c, dwmac-mediatek.c, dwmac-qcom-ethqos.c and
-stmmac_pci.c all do the equivalent of intel_mgbe_common_data():
-
-	/* Default TX Q0 to use TSO and rest TXQ for TBS */
-	if (i > 0)
-		plat->tx_queues_cfg[i].tbs_en = 1;
-
-That becomes STMMAC_TBS_AVAIL at open time in __stmmac_setup_dma_desc(),
-with no ETF qdisc involved:
-
-	int tbs_en = priv->plat->tx_queues_cfg[chan].tbs_en;
-
-	/* Setup per-TXQ tbs flag before TX descriptor alloc */
-	tx_q->tbs |= tbs_en ? STMMAC_TBS_AVAIL : 0;
-
-and stmmac_tso_channel_permitted() then returns false for those channels:
-
-	/* TSO and TBS cannot co-exist */
-	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
-
-The commit message says stmmac_features_check() "validates each GSO frame
-against the capabilities of the queue it is mapped to", but the check only
-demotes the frame, it does not move it:
-
-	if (skb_is_gso(skb)) {
-		if (!stmmac_tso_channel_permitted(priv, queue) ||
-		    !stmmac_tso_valid_packet(skb))
-			features &= ~NETIF_F_GSO_MASK;
-
-So with the selector gone, netdev_pick_tx() hashes GSO flows over all N
-queues and roughly (N-1)/N of TCP/UDP-GSO flows on these boards end up
-segmented in software by validate_xmit_skb() rather than by the MAC. Is
-that intended, and if so could the changelog mention the throughput and
-CPU cost instead of describing the change as removing something that is
-"no longer needed"?
-
-Would a capability-aware queue selection (or a per-queue TSO map consulted
-by the selector) be needed to keep the "Q0 is the TSO queue" contract those
-platforms document?
-
-> -
-> -	return netdev_pick_tx(dev, skb, NULL) % dev->real_num_tx_queues;
-> -}
-> -
-
-[Severity: Medium]
-The deleted comment records a hardware fact: there is no way to determine
-which TX DMA channels were synthesized with the TSO data path. DWMAC and
-XGMAC only expose a single global TSOEN bit, surfaced as
-priv->dma_cap.tsoen, and stmmac_hw_setup() programs TSE from it for every
-non-TBS channel without any readback:
-
-	if (priv->dma_cap.tsoen && priv->plat->flags & STMMAC_FLAG_TSO_EN) {
-		for (chan = 0; chan < tx_cnt; chan++) {
-			if (!stmmac_tso_channel_permitted(priv, chan))
-				continue;
-
-			stmmac_enable_tso(priv, priv->ioaddr, 1, chan);
-		}
-	}
-
-stmmac_features_check() only knows about tx_queues_cfg[queue].coe_unsupported
-and TBS, so on a part where only a subset of channels implement TSO it
-cannot clear NETIF_F_GSO_MASK, and stmmac_xmit() then hands the frame to
-stmmac_tso_xmit() on a channel whose DMA does not implement TSE. That
-programs an MSS context descriptor plus TDES3 in TSE/THL/payload-length
-form on a channel that decodes those bits as CIC and frame length.
-
-Is there evidence that all channels are TSO-capable on the supported parts?
-If not, would a per-queue tso capability consulted by
-stmmac_features_check() be the replacement for the removed workaround?
-
->  static int stmmac_set_mac_address(struct net_device *ndev, void *addr)
->  {
->  	struct stmmac_priv *priv = netdev_priv(ndev);
-> @@ -7302,7 +7284,6 @@ static const struct net_device_ops stmmac_netdev_ops = {
->  	.ndo_eth_ioctl = stmmac_ioctl,
->  	.ndo_get_stats64 = stmmac_get_stats64,
->  	.ndo_setup_tc = stmmac_setup_tc,
-> -	.ndo_select_queue = stmmac_select_queue,
-
-[Severity: Medium]
-Does the "features_check validates the queue it is mapped to" argument hold
-on the AF_PACKET PACKET_QDISC_BYPASS path? __dev_direct_xmit() runs the
-feature validation before assigning the real queue:
-
-net/core/dev.c:__dev_direct_xmit() {
-	...
-	skb = validate_xmit_skb_list(skb, dev, &again);
-	if (skb != orig_skb)
-		goto drop;
-
-	skb_set_queue_mapping(skb, queue_id);
-	...
-}
-
-and with .ndo_select_queue gone, packet_pick_tx_queue() takes the else
-branch, so queue_id can be any queue:
-
-net/packet/af_packet.c:packet_pick_tx_queue() {
-	...
-	skb_record_rx_queue(skb, cpu % dev->real_num_tx_queues);
-	if (ops->ndo_select_queue) {
-		queue_index = ops->ndo_select_queue(dev, skb, NULL);
-		queue_index = netdev_cap_txqueue(dev, queue_index);
-	} else {
-		queue_index = netdev_pick_tx(dev, skb, NULL);
-	}
-	...
-}
-
-The mapping stmmac_features_check() reads via skb_get_queue_mapping() is
-therefore (cpu % real_num_tx_queues) + 1, not queue_id. When the evaluated
-queue is TSO-permitted but the queue actually used is not, NETIF_F_GSO_MASK
-survives and stmmac_xmit() dispatches unconditionally:
-
-	if (skb_is_gso(skb))
-		return stmmac_tso_xmit(skb, dev);
-
-Before this patch the same ordering existed but was harmless, because
-packet_pick_tx_queue() consulted ndo_select_queue and GSO frames always
-went out on queue 0. Is something needed to close that now?
-
-Separately, that mapping can be real_num_tx_queues itself when
-cpu % real_num_tx_queues == real_num_tx_queues - 1. Can this read past
-priv->plat->tx_queues_cfg[] and priv->dma_conf.tx_queue[] in
-stmmac_features_check() when real_num_tx_queues == MTL_MAX_TX_QUEUES?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831-stmmac_select_queue-tso-fix-v3-1-d9c215fe7a85%40oss.qualcomm.com
+>
+> - Mani
+>
+> [1] https://lore.kernel.org/linux-pci/aabc3dbd-3e5b-4272-807f-f0743606e25=
+a@oss.qualcomm.com/
 
