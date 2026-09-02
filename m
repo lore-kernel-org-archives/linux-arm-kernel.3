@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A220C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 04:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23385C624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 04:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TuIAy7R2R+vWDnEH5tOb3LwFoYJyYluhSYrJLbDs80=; b=u7vHWiAub6FjhAUeYwLkHbmayh
-	hqfRzrKojmc24MV90C1Ua0UltJ4Mf5tkhV+O3jZJaeH0KpxrGrCdt9TDFQn+aI2x/ZiAoKqomcHIE
-	stFxXAl2Afanhxmjl7qPo0SkpO6WXsymEOoJaA8TqTCz4IZD0KX2tuQhtIX689aj/SrP63j8o3ux/
-	v4RroGqEdaMUX+hUvB2ILR8m0pr4qoeO2j/ep8VUyPjDXoXgBvyW7ipMKCuZTZYBZeQ0wVffia9h2
-	ZbawuqClpW3D72yvzFu7A3GhnmrkVUxHUqgZo0VZL9mgHNwSi7x6NSXbFS7Qy+6sXSjWRb+i/QytR
-	f8vVRrOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Bq3n+d6CqRiWka+r6Puyq82APtewnlh2hBeOLFbC3w=; b=uMXLuSJQc7xz1gUFaA4OUqv9MF
+	VcwlAAvoMo2C+7eN9vU561W5Za8EJESsHth7xUr7l8nvsmSIePVsvhGSzXr3b7ampK62SO0Xok4+C
+	9CgF0NzcKKXdYK3LwTlhh0UlZI54k+MdlanXVt7FNt3ocXK0xQMtk9PfO0ioypbwFHcDyucPKG9MH
+	q2+52Ol2UGhBOb00EcxUOylF//fPtfyL8cTiIGwGsXSQ7FU2YOA6G3frKlE6gxZ4RNy1l5Kw+P5pa
+	DcwdyGa1+2MzZPWKzWxQHu9ESRmEfFMrJ8H+zKEthdn8lfqA+1j85riD6UraXqKieWMYDaZ1C172w
+	ZggjFBpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1ckc-0000000Dlr0-2wxy;
-	Wed, 02 Sep 2026 04:39:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1cka-0000000DlqR-1uQw
+	id 1x1d0B-0000000Dmo3-2yWz;
+	Wed, 02 Sep 2026 04:55:11 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1d09-0000000Dmnc-2Cxv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 04:39:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78ADE1596;
-	Tue,  1 Sep 2026 21:38:58 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7692D3F7D8;
-	Tue,  1 Sep 2026 21:39:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788323942; bh=lsYDvIHWzI7Z9foYuzRf+3oBreuXwlUShNlsSn4ADPM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uL0K6Pk8Tssm6JHp0t8VZ4HINef7UJdYngfT3+Wl0ltc3Z0oEPcirHdU2lPXKwQTH
-	 Fdq8I9j6i/SHqQ7ILgZ9Bm2Fk1YEoHiN9nlM0NIl7tfOIEzvCErbM5DC0yL0MukMlF
-	 U+5WcylKG0URS5kCkwvLgmPSmzaOPqyRsyPuy6NA=
-Date: Wed, 2 Sep 2026 10:08:58 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Muchun Song <muchun.song@linux.dev>, 
-	Oscar Salvador <osalvador@suse.de>, David Hildenbrand <david@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
-Message-ID: <xwyaihtgvjonk4wqmllsnzkq2ch63bhfzmvh6353ds6tpjuaww@lmu7ltps4il5>
-References: <20260901131823.15799-1-kmehltretter@gmail.com>
+	Wed, 02 Sep 2026 04:55:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1188A11D4B1;
+	Wed, 02 Sep 2026 06:54:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1788324898;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=0Bq3n+d6CqRiWka+r6Puyq82APtewnlh2hBeOLFbC3w=;
+	b=SGde+sPNe3xV7Zvq3omYCHqKEviYf3ImreWf67FsFcpVfK8ba7uKTmKD/t1cdTz7OBrDVr
+	xDwsRYs1brjC8zgueF/G26DeI5AKj0IKpD6k5SwN/0iDw2A4AdE11CpxEsKCEHQbNOjXqN
+	th+7z0KqS1s2tFAVNq1FGi9kifc/xwjMJEyFzJjtnSnQL2RgsdxgHnHVUrzGDlBUvsgkM6
+	4898Cb3e+yA9hcnVgpCpahwgM917+137PJfNH9wQmi8v6qO1m3jTraWv5zq/APdqcQiYQM
+	V2rUwv9+cB7C1dNdcTsHb3LRc3MGi+tKLqLbCLUYG/5T8Xlnuuu2Tyi/9n8EMA==
+Message-ID: <ba70e613-0be8-2655-f750-c96f1e35b87a@nabladev.com>
+Date: Wed, 2 Sep 2026 06:54:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901131823.15799-1-kmehltretter@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: [PATCH v4] driver: fpga: xilinx-selectmap: add csi and rdwr
+ support
+Content-Language: en-US
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-fpga@vger.kernel.org,
+ Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, Moritz Fischer <mdf@kernel.org>,
+ Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>,
+ linux-gpio@vger.kernel.org
+References: <20260810062105.299808-1-hs@nabladev.com>
+From: Heiko Schocher <hs@nabladev.com>
+In-Reply-To: <20260810062105.299808-1-hs@nabladev.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260901_213904_605030_930F7768 
-X-CRM114-Status: GOOD (  29.72  )
+X-CRM114-CacheID: sfid-20260901_215509_923114_EE8032DD 
+X-CRM114-Status: GOOD (  39.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,101 +76,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 03:18:23PM +0200, Karl Mehltretter wrote:
-> huge_ptep_modify_prot_start() clears a hugetlb entry before changing its
-> permissions. For contiguous PTE mappings, break-before-make (BBM)
-> requires a TLB invalidation after clearing the set and before making any
-> entry valid again.
+Hi!
 
-Agreed.
-
+On 10.08.26 08:20, Heiko Schocher wrote:
+> The current driver requests the optional CSI_B and RDWR_B GPIOs but
+> only configures their initial output state and never changes them
+> afterwards. As a result, CSI_B and RDWR_B remain inactive or active
+> throughout the configuration process.
 > 
-> Commit fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from
-> get_clear_flush()") removed this invalidation, relying on the deferred
-> flush from the core code. Commit 410982303772 ("arm64: hugetlb: Restore
-> TLB invalidation for BBM on contiguous ptes") restored it for
-> huge_ptep_set_{access_flags,wrprotect}(), since a deferred flush is too
-> late for the break step. The modify-prot path has the same problem.
-
-The commit 410982303772 ("arm64: hugetlb: Restore TLB invalidation for BBM
-on contiguous ptes") should also have fixed huge_ptep_modify_prot_start()
-while at it ?
-
+> This may work on systems with a single FPGA where these signals do not
+> need to be controlled by software, or where the signals are configured
+> to their active state. But this does not not support systems with
+> multiple FPGAs sharing a SelectMAP interface.
 > 
-> Use huge_ptep_clear_flush() for contiguous entries so that the TLB is
-> invalidated during the break step. Leave huge_ptep_get_and_clear()
-> unchanged because it is also used by teardown paths, where the deferred
-> flush is sufficient.
-
-Makes sense.
-
+> On systems with multiple FPGAs sharing the same SelectMAP data bus,
+> the driver must deassert this signals in probe, and actively control
+> them during configuration.
 > 
-> Fixes: fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from get_clear_flush()")
-
-Probably OK as the earlier commit 410982303772 also blames the same.
-
-> Assisted-by: LLM
-
-So you did not actually see this problem on a system ?
-
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> CSI_B (Chip Select, active low) selects the target FPGA. It is asserted
+> before configuration data is transferred and deasserted afterwards so
+> that only the intended device responds to bus transactions.
+> 
+> RDWR_B (Read/Write, active low) controls the transfer direction on the
+> SelectMAP interface. A low level selects write cycles, while a high
+> level selects read cycles. During FPGA configuration the driver drives
+> RDWR_B low before transferring the bitstream and restores it to its
+> reading (high state) afterwards.
+> 
+> With that info from the datasheet the driver is now changed to:
+> 
+> - deassert the CSI_B and RDWR_B pin on probe and store the
+>    optional GPIO descriptors in private driver data.
+> 
+> - toggle both signals around the configuration data transfer
+> 
+> This allows multiple FPGAs to safely share a single SelectMAP interface.
+> 
+> Signed-off-by: Heiko Schocher <hs@nabladev.com>
 > ---
-> An instrumented QEMU detected the missing break-step TLBI on an unpatched
-> kernel and none with this change. A fork() control exercising
-> huge_ptep_set_wrprotect() remained clean. No user-visible failure was
-> reproduced.
-
-No user-visiable failure was reported even without this change ?
-Missing TLBI as seen in QEMU is the only clue here ?
-
 > 
-> The QEMU checker was exercised with 4K and 64K base-page kernels. The
-> patched kernel passed the LTP hugetlb tests with both -cpu max and -cpu
-> cortex-a72 (16 TPASS and no failures).
+> Changes in v4:
+> - add comments from Xu Yulin
+>    replace wrong gpiod_set_raw_value() with gpiod_set_value()
+>    deassert CSI_B and RDWR_B in probe as in patch version 2
+>    rework commit message (correct the description what current
+>    driver do on probe), why this is not a problem with one
+>    FPGA, and why it needs a change if you have N FPGAs
+>    sharing the same selectmap Interface (clk and data pins).
 > 
-> Testing on Neoverse N1 hardware would be welcome, as it can use the
-> contiguous hint and can be configured to report TLB conflicts.
+> Changes in v3:
+> - use 0 (deasserted state) and 1 (asserted state) in gpio_set_value()
+>    as commented from Micahl
+> - rewrite commit message as requested from Xu Yilun
+>    - describe what rdwr_b and csi_b do, and why this change is needed
+>      for more than one FPGA.
+> - add comment before asserting the signals, why they are asserted
+>    in this order.
+> 
+> Changes in v2:
+> - add comments from Michal
+>    - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
+>      as validate_desc() checks this in gpiod_set_value() call.
+>    - initialize the gpio variables csi_b/rdwr_b immediately with
+>      the return value from devm_gpiod_get_optional(), so we can
+>      drop local gpio variable at all
+> 
+>   drivers/fpga/xilinx-selectmap.c | 36 ++++++++++++++++++++++++---------
+>   1 file changed, 27 insertions(+), 9 deletions(-)
 
-But you have not seen any real TLB conflicts even on custom QEMU ?
+gentle ping.
 
+Any updates, comments on this patch?
+
+Thanks!
+
+bye,
+Heiko
 > 
->  arch/arm64/mm/hugetlbpage.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 8e799c1fe0aa..bb53a04b73b2 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -517,6 +517,11 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
->  pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
->  {
->  	unsigned long psize = huge_page_size(hstate_vma(vma));
-> +	pte_t pte = __ptep_get(ptep);
+> diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
+> index d0cbb5fdfe3a..e9b1d15ca054 100644
+> --- a/drivers/fpga/xilinx-selectmap.c
+> +++ b/drivers/fpga/xilinx-selectmap.c
+> @@ -19,6 +19,8 @@
+>   struct xilinx_selectmap_conf {
+>   	struct xilinx_fpga_core core;
+>   	void __iomem *base;
+> +	struct gpio_desc *csi_b;
+> +	struct gpio_desc *rdwr_b;
+>   };
+>   
+>   #define to_xilinx_selectmap_conf(obj) \
+> @@ -30,16 +32,30 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
+>   	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
+>   	size_t i;
+>   
+> +	/*
+> +	 * Assert CSI_B and select write mode.
+> +	 *
+> +	 * UG570 states in note 4 in Figure "Continuous x8 SelectMAP Data
+> +	 * Loading", RDWR_B should be asserted before CSI_B to avoid
+> +	 * causing an ABORT on the next CCLK.
+> +	 *
+> +	 * To be sure, set first RDWR_B pin before activate CSI_B
+> +	 */
+> +	gpiod_set_value(conf->rdwr_b, 1);
+> +	gpiod_set_value(conf->csi_b, 1);
 > +
-> +	/* The break step for contiguous PTEs must include the TLB flush. */
-
-Probably helpful to mention here that subsequent huge_ptep_get_and_clearI()
-in the function depends on deferred TLB flush mechanism which would not be
-accurate for contig HugeTLB pages.
-
-> +	if (pte_cont(pte))
-> +		return huge_ptep_clear_flush(vma, addr, ptep);
->  
->  	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
->  		/*
-> @@ -524,7 +529,7 @@ pte_t huge_ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr
->  		 * when the permission changes from executable to non-executable
->  		 * in cases where cpu is affected with errata #2645198.
->  		 */
-> -		if (pte_user_exec(__ptep_get(ptep)))
-> +		if (pte_user_exec(pte))
->  			return huge_ptep_clear_flush(vma, addr, ptep);
->  	}
->  	return huge_ptep_get_and_clear(vma->vm_mm, addr, ptep, psize);
+>   	for (i = 0; i < count; ++i)
+>   		writeb(buf[i], conf->base);
+>   
+> +	gpiod_set_value(conf->csi_b, 0);
+> +	gpiod_set_value(conf->rdwr_b, 0);
+> +
+>   	return 0;
+>   }
+>   
+>   static int xilinx_selectmap_probe(struct platform_device *pdev)
+>   {
+>   	struct xilinx_selectmap_conf *conf;
+> -	struct gpio_desc *gpio;
+>   	void __iomem *base;
+>   
+>   	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
+> @@ -55,16 +71,18 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
+>   				     "ioremap error\n");
+>   	conf->base = base;
+>   
+> -	/* CSI_B is active low */
+> -	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
+> -	if (IS_ERR(gpio))
+> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
+> +	/* CSI_B is active low, deassert signal */
+> +	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
+> +					      GPIOD_OUT_LOW);
+> +	if (IS_ERR(conf->csi_b))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
+>   				     "Failed to get CSI_B gpio\n");
+>   
+> -	/* RDWR_B is active low */
+> -	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
+> -	if (IS_ERR(gpio))
+> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
+> +	/* RDWR_B is active low, deassert signal */
+> +	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
+> +					       GPIOD_OUT_LOW);
+> +	if (IS_ERR(conf->rdwr_b))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
+>   				     "Failed to get RDWR_B gpio\n");
+>   
+>   	return xilinx_core_probe(&conf->core);
+> ---
+> base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
 > 
-> base-commit: 786262be6048deab760f68c8acc2c85607165894
-> -- 
-> 2.53.0
 
-Overall LGTM but will need some more testing.
+-- 
+Nabla Software Engineering
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Geschäftsführer : Stefano Babic
 
