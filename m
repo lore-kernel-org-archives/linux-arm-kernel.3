@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280DFC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA95EC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 12:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bS7MkkCR+PKshdBB6qeSv27TTzCf00ngXtnP0pfB3X8=; b=PN+4/l6rH1G6Z1u+7QMdFiuNPm
-	6gIl4MofbN9ltIKRNYhixAPMcG7SIVuTkx2lfAPaH0Gv30Rz8KlDgGpBeKSZorQgrxRIC9nazmYnY
-	yBONNS1MUORC7UdQJN+2Y4KdT2R1lNQAPkFtvplr27Fc53aUxl3NoFulb+4ce71ATDYUmT3zzJ4Sc
-	WTOzZ2hk1kuJYqNjq77EPWkmXh3arSI8+T0WeV8xb+SVw0qnOzOkymiN5FeWvHXD6OP/OupZrSlHv
-	kZFRg0sXu06ULaNiN6BtozpyTe3mG7OrsFroeOJ6UYc9f/YXHCdNDW4O/l5pfvS4ttjkn3b/5xaTV
-	h9GuZ0RA==;
+	bh=DqIr+thPrbep/O0pQIu8oOVm6WAFx0khwrPGH8+faaI=; b=lOmHAy09q9+LDvQUUvdscNYqBe
+	5uKRdtC5Q16jcrEp+sToyOVRAi2h9FNkGVEo95HHyDlLVuPC5RCUUuvgTt23mkURehvFbfGF8qZIn
+	n8OlPYgV74w+6DI7ipkX7eGEWU+yuX1lrCFv4rdMpqSpT+TxXzLKemTXKyzUPnwaCmo2sCgF28j1S
+	BiuI4xQVv2wXQnWZSkhJx7lPZO6eguIgKXj6oWtYAE6elL1oU/gCVP+V8yamu8WRRcP2jePdHPIyy
+	hKKnw2vfFWaq5m8T3N+hu0JkIIeFqHhlF+8BIxJazBn8AD1LzoNRc93UdBsc42ss89FUE9IQFaxW0
+	UJpPv7MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1k6x-0000000EgJS-3tmV;
-	Wed, 02 Sep 2026 12:30:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x1kB1-0000000Egli-1R4R;
+	Wed, 02 Sep 2026 12:34:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1k6v-0000000EgIM-1q4k
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 12:30:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3510443E14;
-	Wed,  2 Sep 2026 12:30:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6761C1F00A3A;
-	Wed,  2 Sep 2026 12:30:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788352237;
-	bh=bS7MkkCR+PKshdBB6qeSv27TTzCf00ngXtnP0pfB3X8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NDzKzbS2E1xK2bZorD5wu6HVkaPvBliwe++LusjUF9qhyU3DBEC4SAsJ2cxOvvA/b
-	 7PevAGdtvwZxYi1IVsSyXPpaDepjqOelDoGfUPTC23pKrdaEnOwgwyu7Msd2Z4M5ia
-	 7u8UQzB21dRsfck8QwFXN2R3vkp/NQU3eD8bG4n+smeZ3h+xlS/0I+XZZj6CN2t0OI
-	 kP1zABynjQraPpqNbVm0ndNUOHigbxp5/3GZmgrM8kZ5P70EsI5QrT1aoontEFDda+
-	 r4+XHlfoBxmSLFY3UtFdvSc8Ec5DZmpTDN23yL04s2k0fgxWa5aoqjanJ5xQNY04Vq
-	 Ro36MaLUnCD3Q==
-Subject: Re: [net,2/2] net: stmmac: preserve FPE preemption class across qdisc
- replacement
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo.bianconi@oss.qualcomm.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 0x1207@gmail.com,
- olteanv@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Wed, 02 Sep 2026 12:30:36 +0000
-Message-ID: <178835223600.3394541.1445796464059666967@kernel.org>
-In-Reply-To: <20260829-stmmac-fix-graft-overwrite-v1-2-a4f84c4c264e@oss.qualcomm.com>
-References: <20260829-stmmac-fix-graft-overwrite-v1-2-a4f84c4c264e@oss.qualcomm.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x1kAz-0000000Egks-0Xxk;
+	Wed, 02 Sep 2026 12:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=DqIr+thPrbep/O0pQIu8oOVm6WAFx0khwrPGH8+faaI=; b=hp03u8THC/bL/aO0tZNb/guAdj
+	6JE1X0XikSOzaUI55ijxAp09/JKsp8VYSxaBtCILzK3/necMgjMbyUS8KowWKVI2++f5v2jYh/SFR
+	ft1e9Zn2OCyYQFzftb9gGc0MIseKxQTQiZiDR/nfi2Xv9NdenQD3jOd4KSUxGwsZAgHU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x1kAc-002W90-LK; Wed, 02 Sep 2026 14:34:26 +0200
+Date: Wed, 2 Sep 2026 14:34:26 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v5 0/9] net: dsa: mt7530: modernise register
+ access and add two DSA ops
+Message-ID: <e3b0d41a-ff23-4dc2-aa8e-3fc279f750fa@lunn.ch>
+References: <cover.1788190568.git.daniel@makrotopia.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1788190568.git.daniel@makrotopia.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_053449_183232_FD09D294 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,266 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider:
+On Mon, Aug 31, 2026 at 04:37:43PM +0100, Daniel Golle wrote:
+> The mt7530 driver carries its own register accessors that predate the
+> regmap conversion and now largely duplicate what regmap already
+> provides, including locking. Most of this series removes that layer.
+> 
+> It first moves the MDIO bus locking into the switch regmap via
+> .lock/.unlock callbacks, matching the PCS regmaps, so any path reaching
+> the regmap is serialised automatically. With the wrappers no longer
+> adding locking, the thin mt7530_mii_* indirection is folded away and the
+> remaining accessors are replaced mechanically with the plain regmap API,
+> using the coccinelle semantic patches included in the commit messages.
+> The two remaining reset polls are converted to
+> regmap_read_poll_timeout() and the then-unused dummy poll machinery is
+> dropped. Open-coded register fields are converted to
+> FIELD_GET/FIELD_PREP. None of this is intended to change behaviour.
+> 
+> The last two patches implement .port_fast_age, which flushes dynamically
+> learned MAC entries on topology changes, and .port_change_conduit, which
+> moves a user port's CPU-port affinity at runtime.
+> 
+> The swallowed MDIO errors Sashiko flagged on v4 5/8 have meanwhile been
+> fixed in tree by "fix swallowed MDIO read errors" and "fix remaining
+> swallowed MDIO access errors", both merged into net-next. This respin is
+> rebased on top of them: regmap_* return values are no longer ignored,
+> which is what most of the semantic patches had to be reworked for.
 
-Critical: 0 · High: 2 · Medium: 2 (1) · Low: 0
+I only had a quick look at the series, but it seems O.K. to me.
 
-- [High] Incomplete fix: ownership of the FPE preemption class (and of
-  the EST block) is tracked per qdisc *kind* (priv->qdisc_type) instead…
-- [High] The patch also gates netdev_reset_tc() and the
-  netif_set_real_num_tx_queues(ndev, priv->plat->tx_queues_to_use)…
-- [Medium] Reordering regression on XGMAC: in stmmac_reset_tc_mqprio()
-  the stmmac_fpe_map_preemption_class(priv, ndev, extack, 0) call is now…
-- [Medium] Lost error-path rollback in tc_taprio_configure(): the
-  `disable:` tail now resets the FPE preemption class only when…
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Pre-existing issues:
-- [Medium] struct stmmac_ops::fpe_map_preemption_class is declared as
-  returning int (drivers/net/ethernet/stmicro/stmmac/hwif.h:411-413),…
-
---
-
-net: stmmac: preserve FPE preemption class across qdisc replacement
-
-The patch adds a priv->qdisc_type field recording which root qdisc policy
-(mqprio or taprio) is currently offloaded, and uses it to skip clearing the
-FPE preemption class during teardown when the qdisc being destroyed is not
-the one that programmed it. The mqprio reset path is additionally gated on
-the same field.
-
-A few questions about the new ownership tracking below.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> index 7582fca63741..957317ec1461 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> @@ -258,6 +258,12 @@ struct stmmac_msi {
->  	char int_name_tx_irq[MTL_MAX_TX_QUEUES][IFNAMSIZ + 18];
->  };
->  
-> +enum stmmac_qdisc_type {
-> +	STMMAC_QDISC_NONE = 0,
-> +	STMMAC_QDISC_MQPRIO,
-> +	STMMAC_QDISC_TAPRIO,
-> +};
-> +
-
-[Severity: High]
-Is tracking the qdisc kind enough to identify the owner here?  The create-
-then-destroy ordering the commit message describes also happens for a
-same-kind replace when a different handle is used.  In
-net/sched/sch_api.c:__tc_modify_qdisc():
-
-	if (!q || !tcm->tcm_handle || q->handle != tcm->tcm_handle) {
-		if (tcm->tcm_handle) {
-			...
-			q = qdisc_lookup(dev, tcm->tcm_handle);
-			if (!q)
-				goto create_n_graft;
-
-so tc qdisc replace dev X root handle 8002: mqprio ... over an mqprio
-installed at handle 8001: creates and offloads the new instance first and
-destroys the old one afterwards, with both instances reporting the same
-kind.
-
-For mqprio -> mqprio, the new tc_setup_dwmac510_mqprio() stores
-STMMAC_QDISC_MQPRIO, and the old instance's teardown then reaches
-stmmac_reset_tc_mqprio() with qdisc_type == STMMAC_QDISC_MQPRIO, so it
-clears the live qdisc's FPE class, calls netdev_reset_tc() and restores the
-queue count, leaving qdisc_type == STMMAC_QDISC_NONE.
-
-For taprio -> taprio, the new REPLACE stores STMMAC_QDISC_TAPRIO and the old
-instance's TAPRIO_CMD_DESTROY satisfies the new guard, so
-FPE_MTL_PREEMPTION_CLASS is cleared for the live qdisc.  The unconditional
-disable: tail in tc_taprio_configure() also runs for that DESTROY:
-
-	if (priv->est) {
-		mutex_lock(&priv->est_lock);
-		priv->est->enable = false;
-		stmmac_est_configure(priv, priv, priv->est,
-				     priv->plat->clk_ptp_rate);
-
-which switches EST off (and zeroes the per-queue taprio stats) after the
-replacing taprio has programmed its gate control list.  Would per-instance
-identity (handle or a cookie/generation) be needed instead of the kind, and
-should EST ownership be covered too?
-
->  struct stmmac_priv {
->  	/* Frequently used values are kept adjacent for cache effect */
->  	u32 tx_coal_frames[MTL_MAX_TX_QUEUES];
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index be8ddda2aa76..7fe587b47d52 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-
-[ ... ]
-
-> @@ -1120,7 +1122,11 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  		mutex_unlock(&priv->est_lock);
->  	}
->  
-> -	stmmac_fpe_map_preemption_class(priv, priv->dev, extack, 0);
-> +	if (priv->qdisc_type == STMMAC_QDISC_TAPRIO &&
-> +	    qopt->cmd == TAPRIO_CMD_DESTROY) {
-> +		stmmac_fpe_map_preemption_class(priv, priv->dev, extack, 0);
-> +		priv->qdisc_type = STMMAC_QDISC_NONE;
-> +	}
-
-[Severity: Medium]
-Does the added cmd == TAPRIO_CMD_DESTROY term drop the rollback on the
-error path?  The disable: label is also reached with cmd ==
-TAPRIO_CMD_REPLACE:
-
-	ret = stmmac_est_configure(priv, priv, priv->est,
-				   priv->plat->clk_ptp_rate);
-	mutex_unlock(&priv->est_lock);
-	if (ret) {
-		netdev_err(priv->dev, "failed to configure EST\n");
-		goto disable;
-	}
-
-est_configure() in stmmac_est.c can return -EINVAL when ptp_rate is 0, and
--ETIMEDOUT via the readl_poll_timeout() inside est_write().  For a failing
-REPLACE on an already offloaded taprio (qdisc_type == STMMAC_QDISC_TAPRIO),
-the block now disables EST but leaves the previously programmed
-FPE_MTL_PREEMPTION_CLASS mask in the hardware, while taprio_change() has
-already installed the new num_tc/tc_to_txq mapping.  Before the patch that
-mask was cleared unconditionally.
-
-Would the ownership test alone (qdisc_type == STMMAC_QDISC_TAPRIO) be
-sufficient for the case described in the commit message?
-
->  
->  	return ret;
->  }
-> @@ -1266,9 +1272,15 @@ static void stmmac_reset_tc_mqprio(struct net_device *ndev,
->  {
->  	struct stmmac_priv *priv = netdev_priv(ndev);
->  
-> -	netdev_reset_tc(ndev);
-> -	netif_set_real_num_tx_queues(ndev, priv->plat->tx_queues_to_use);
-> -	stmmac_fpe_map_preemption_class(priv, ndev, extack, 0);
-> +	if (priv->qdisc_type != STMMAC_QDISC_TAPRIO)
-> +		stmmac_fpe_map_preemption_class(priv, ndev, extack, 0);
-> +
-> +	if (priv->qdisc_type == STMMAC_QDISC_MQPRIO) {
-> +		netdev_reset_tc(ndev);
-> +		netif_set_real_num_tx_queues(ndev,
-> +					     priv->plat->tx_queues_to_use);
-> +		priv->qdisc_type = STMMAC_QDISC_NONE;
-> +	}
->  }
-
-[Severity: High]
-Can this leave real_num_tx_queues permanently reduced?  The commit message
-only mentions gating the FPE preemption class, but the queue-count restore
-is now gated too.
-
-On an mqprio -> taprio root replace the taprio REPLACE offload runs first
-and sets qdisc_type = STMMAC_QDISC_TAPRIO.  The old mqprio teardown
-(mqprio_destroy() -> mqprio_disable_offload() with num_tc == 0 ->
-stmmac_reset_tc_mqprio()) then takes neither branch, so the value programmed
-earlier by tc_setup_dwmac510_mqprio() stays in place:
-
-	ndev_num_tx_queues = ndev->real_num_tx_queues;
-	err = netif_set_real_num_tx_queues(ndev, num_tx_queues);
-
-where num_tx_queues is the sum of qopt->count[i], which
-mqprio_validate_queue_counts() allows to be smaller than
-plat->tx_queues_to_use.
-
-Nothing appears to restore it afterwards: taprio_destroy() in
-net/sched/sch_taprio.c only calls netdev_reset_tc(dev) and never touches
-real_num_tx_queues, and the stmmac taprio DESTROY path only clears the FPE
-class.  Recovery then requires an interface down/up so that
-stmmac_hw_setup() re-runs netif_set_real_num_tx_queues().  Later tc
-configurations would also be validated against the stale
-dev->real_num_tx_queues.
-
-Should the netdev TC/queue-count restore be kept independent of the FPE
-ownership state, since the two resources have different owners?
-
-[Severity: Medium]
-Does the reordering here break the XGMAC default TXQ-to-TC restore?  The
-FPE clear is now issued before netdev_reset_tc(ndev), while previously the
-order was netdev_reset_tc() -> netif_set_real_num_tx_queues() -> FPE clear.
-
-dwxgmac3_fpe_map_preemption_class() in stmmac_fpe.c restores the default
-mapping only when the netdev already has no traffic classes:
-
-	int num_tc = netdev_get_num_tc(ndev);
-
-	if (!num_tc) {
-		/* Restore default TC:Queue mapping */
-		for (u32 i = 0; i < priv->plat->tx_queues_to_use; i++) {
-			val = readl(priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(i));
-			writel(u32_replace_bits(val, i, XGMAC_Q2TCMAP),
-			       priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(i));
-		}
-	}
-
-and the qdisc core does not clear dev->num_tc for an offloaded mqprio:
-
-net/sched/sch_mqprio.c:mqprio_destroy() {
-	if (priv->hw_offload && dev->netdev_ops->ndo_setup_tc)
-		mqprio_disable_offload(sch);
-	else
-		netdev_set_num_tc(dev, 0);
-}
-
-So on tc qdisc del dev X root with an offloaded mqprio, num_tc is still
-non-zero when the callback runs, the restore branch is skipped, and the MTL
-Q2TCMAP keeps the grouping of the mqprio that is being torn down.  Could the
-FPE clear stay after netdev_reset_tc()?
-
->  
->  static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
-> @@ -1318,6 +1330,8 @@ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
->  	if (err)
->  		goto error_reset_num_tx_queues;
->  
-> +	priv->qdisc_type = STMMAC_QDISC_MQPRIO;
-> +
-
-[Severity: Medium]
-This isn't a problem introduced by this patch, but can err here ever be
-non-zero?  struct stmmac_ops declares
-
-	int (*fpe_map_preemption_class)(struct net_device *ndev,
-					struct netlink_ext_ack *extack,
-					u32 pclass);
-
-while the accessor in hwif.h goes through the void variant:
-
-	#define stmmac_fpe_map_preemption_class(__priv, __args...) \
-		stmmac_do_void_callback(__priv, mac, fpe_map_preemption_class, __args)
-
-stmmac_do_void_callback() discards the callback result and evaluates to 0
-whenever the pointer is set.  dwmac5_fpe_map_preemption_class() does return
-an error before programming FPE_MTL_PREEMPTION_CLASS:
-
-	if (priv->plat->tx_sched_algorithm == MTL_TX_ALGORITHM_SP) {
-		NL_SET_ERR_MSG_MOD(extack, ALG_ERR_MSG);
-		return -EINVAL;
-	}
-
-so with an SP scheduler (or mismatched TXQ weights inside a TC) the mapping
-is rejected but reported as success.  With this patch, qdisc_type is then set
-to STMMAC_QDISC_MQPRIO (and likewise to STMMAC_QDISC_TAPRIO in
-tc_taprio_configure()) for a mapping that was never written to the hardware,
-so the new ownership state describes hardware state that does not exist.
-Would routing the accessor through stmmac_do_callback(), or making the ops
-member void, be preferable before building ownership tracking on the return
-value?
-
->  	return 0;
->  
->  error_reset_num_tx_queues:
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e%40oss.qualcomm.com
+    Andrew
 
