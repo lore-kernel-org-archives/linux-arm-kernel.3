@@ -4,155 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5913C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 23:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D85AC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 23:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3njgz9rqLz/snE4bZmzziBWQoLAdqrbyVgCfoTyS8RU=; b=fZ3YIJgg9ts3eXbPehDSu55LOA
-	mzbmm3uPBv5wVClfS0EiFUXWT8JTyNVm/2Fz3lj7TRBYRq8Y9E27mhPgzFNgyFsh2YZSxvG86bL8G
-	4tlMAcDd2CrWxhHiJD6zExThtbI/oRSDuhkw9eVBz3IhAFIKkOmqVIwFfHBrbURBBD++dn4i7xlAo
-	qMDLWLmp54mG7SwNNM5OrvHT4K35D3zYC9EI9+/wJzgMKoMbk/XokJIEsMrBa+2NhUmNo0QPJvDLT
-	fSXx93P77fgHTkUgsh9oSiyrL/ni6/jfyWhzwROYooBE5uqci9QRS8fMz2IaO7DsVvvz7VtL3M7Gw
-	jiFBx2Kw==;
+	bh=n6WRl72qX4p4AIksXc6/fkyLqK6Pf1Fvu45PrE/pF5g=; b=fEbd2LOYQk1bZ6PSepfe21Q8Hn
+	de4uznUzleCos/SuMAIa8gQ8U3MuZc9u1PScNWZZFe9QDwaWj/CEcJ1mxKtfDE0CozAhMfxSQ/aSk
+	HlI5LFSPU4Tj9mL+cS+9ZkGh78fCrj6GGZNxTuWbDEagTqHSH36KxJYyBkwRHK3kzEV4B9taiwquq
+	A11bPjF5qrht6W+2KcAhVf1yJGsxQPxQcltZiEH90xRKF4o0cG+ZO2Nb7GWA9aohG7+KW8ycBo3KG
+	vHcwbwRtUZJt1cTrk5D8yhZ+BQJA5xUxtGiTP7H6z1hX1aNEcFUB0EaUr1uP38OSg24kqa8t5WJSz
+	MrHiv0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1uLz-0000000G5LP-3kjw;
-	Wed, 02 Sep 2026 23:26:51 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x1uON-0000000G5Wp-14YB;
+	Wed, 02 Sep 2026 23:29:19 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1uLx-0000000G5L2-1QtU
+	id 1x1uOL-0000000G5WS-2Meg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 23:26:50 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682NHjoL1768673
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 23:26:48 GMT
+	Wed, 02 Sep 2026 23:29:18 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682NHfT63435171
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 23:29:16 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3njgz9rqLz/snE4bZmzziBWQoLAdqrbyVgCfoTyS8RU=; b=gaV05CQDIXeIayc6
-	ArOpHeepH7gPfPDdzosrDr8iw8RcGHvjqK19NpSh1Ddq8qG0nYa32PjRJ6h4jnMr
-	hUf8BxUkjIOwvuYCCKGHjaITgMuefrqHTNsoKI4hCy7lJDhw3tkfUvLCuDlp4rn1
-	yfc+T8bSaawf+fD1CmHY0siB5JqOH35ouoySDYkGgoFJ5akdHpcutFRmIf2p+mjx
-	y5mriJKXEYRAkgGSYTrXX1KLut9qZO5SKmfGGklTYNvN4xqpcLi9SbXh8L89WQvo
-	gXx/uBl76tMjHvOTj5VROfncD6aFIR//Ypt+yk3pzov9WydMOKY4jblJXLhDearT
-	VVPdhA==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gemja2ngp-1
+	n6WRl72qX4p4AIksXc6/fkyLqK6Pf1Fvu45PrE/pF5g=; b=A2DvgDMKzHTOt5un
+	aO9p6yLPTPDlW/3zYBXyIiUgMEh7OfiyYis2QUDlVvddUfkBpMzgT86R/70Q5NQ+
+	F1vUjMI/6iqLi+vkw1yomQhqRVtgvpS9f3EFrvpqPqd7SFgYDIHXGnHQI9k1k5kF
+	Bs0UYJpWV1/s7r2yzXQtrGabXjFYFae8Z+rygXt7Xr7nXvLzShYf978t1R6k3hGZ
+	KBXq1ZftY3B1E4QefQLvIguplwYSXscH2kwJGg8//bWrK6g8ujJBW5ZGPKwm39Uu
+	p8Q8uJMeqMdiYJp2hnTs00iX/MQzMdf4IO7nDT8UME8DEg9JJCl8enzHAg6tEBTj
+	TgwXPA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4geguy3mkn-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 23:26:48 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3968dfff779so569307a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 16:26:48 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 23:29:16 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38ec0f510a9so3761345a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 16:29:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788391607; x=1788996407; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788391755; x=1788996555; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=3njgz9rqLz/snE4bZmzziBWQoLAdqrbyVgCfoTyS8RU=;
-        b=imt8x4axCZUb/8pKj0dvG1YZ5CNT0w9qfHjQWRoOy5iFaUT4BjbHqBPeiimSwEOe82
-         0Wvvg1V+DF75EdXw98kjjE7U3NEnQeFTfwn8gS6IoGUrvpoz6JuX2khznXsMCVoRxyRe
-         ILUUbTHjYEThhQOu1A7HojJBKQUPZ1GF24U4qrfUtHrVbJvDKUfpXC7zSaBapau0EfgK
-         dp+SKyr1cb3B9dHDRyCoStliEOdnlNDyWQGCQL1bzIxw/SCSawpm9pVIUblvGPeIUhgH
-         0X/2xshRoy331h8fFSaavLEIe8EQlVHQ9jZTolktk5KboVCrKwwnCbx9IcpZFJZXJuwU
-         UZkA==
+        bh=n6WRl72qX4p4AIksXc6/fkyLqK6Pf1Fvu45PrE/pF5g=;
+        b=dTO3qtDqRnUDC/RDb7/2JJ6ZxagboagLFpxNtaGuNkRSkNXjPe5M13lIQBtbhJK7GB
+         7ZP7FcV5dnlDqoKMvbdauUTR6hyIraAs0UI7F2v4NWbkxDd+YPmmQGuiNnEvfWZkCwsh
+         qK5DuUCrK3AyFzTowVNwz/CAtt22++uHbSCkv+OrUFx7Vy8HLAJzH5DfcLv2CZbGgRlr
+         yFWJs51yGc4rSmKD4R8UBE30umVJTW5Oq9t8l/HrYFMqQnidfhz98M+NyD6/9JXiFcYc
+         9s3L6rCA6vU9sSU/M81SAt86LkvyLgNND+pzTWrqOITNIAJViWqsk+YQ7HS7W3eS/WRS
+         CSsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788391607; x=1788996407;
+        d=1e100.net; s=20251104; t=1788391755; x=1788996555;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3njgz9rqLz/snE4bZmzziBWQoLAdqrbyVgCfoTyS8RU=;
-        b=b72IM7oGBDUoBf4k4IRnZ6IvfQgfppGvmty43kBbszqR25va7p8/1bcLCR/JEnCHAX
-         LbdaFL3G6UypuLmLNpNFA7kzRZfr56HdDUh0fBAbGfgJvzuk82jZJ1IcrfKejq0qK12K
-         psAU+srMs/IptVgE2VKK47HCwbYMhipXif1nSsAV9LPLSgNdCYb7ZgTLB4iP1Qbn113+
-         cyNQJE/dPYZKTqgP4KPyzQVZy3PjlfPBIFP8rt6mXwkOX1S4PWGQzvRckRAhLAY1d/IN
-         KUt6cpaMDXAucCa2oMbNVuq0HRz9jthMO20S9uKA4isl16Hz1v7680xZ/tnw1xm8D/AZ
-         f9CQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwlVHMaPm1W34qeMKIThZdLu4mG+1mBFq7WryOEPr4MCCixuXvG/2HVcjRhhoyP1V5I80nM/Noc5mQTIuCl6Etm@lists.infradead.org
-X-Gm-Message-State: AFuF++nFnEuGnTaB+Tw4kCopZKHkgFA4IuRe5EiYqusufim8pbvUVFOJ
-	V/2Xl58iRs67LrkLu2Mi4aBi0XEiXtDhFFd3VGXkTWcjjTAaW32U+tk2mYDwkE2KTqW16a41bIy
-	albiD3/LsJj46S0ekFcsL26VFKc7XpoPOwLnO3ube2iCBh7v5hl5ZLVzV4xBwpmnvysy9m4AlFw
-	MewA==
-X-Gm-Gg: AYBFou1rJD3/P6OR26x/O2quRaZYQGLpF9Zn7r7XtEnajTZv7YP1agj//4fx0/cmF6p
-	sAer++2GKrZO4laO4D1x8FszD0GtxOPgVQPls2y4Wh4p7L8uZmGEqZZGpArSTrGa01i00LLehS4
-	Z5I1/SBpkk3ow9wpqvIEBp7c8eYzfJXpt/5qZrFWthISSAf+YkP5eht1x/O3X4Zktr3JQfKasNB
-	VEW6GVVD5UV3mMakNWwWyaZ8Qyhg9vGbwd8nIhfxUnlC+R5m9ItaKN26Yb8SaYsBcW834KVLO7r
-	Kxy8PD3fpOJ9iaf4Edy8imeG3LdysTyNixeZAqw4GBAArepf6OKeZ0fanbacW6k8QJDLb4JqRa7
-	axDPNZudLyTRsOY8UiC9n1fYLN+8=
-X-Received: by 2002:a17:90b:2249:b0:396:d28e:b53 with SMTP id 98e67ed59e1d1-39b0865350amr2327212a91.20.1788391607413;
-        Wed, 02 Sep 2026 16:26:47 -0700 (PDT)
-X-Received: by 2002:a17:90b:2249:b0:396:d28e:b53 with SMTP id 98e67ed59e1d1-39b0865350amr2327172a91.20.1788391606962;
-        Wed, 02 Sep 2026 16:26:46 -0700 (PDT)
+        bh=n6WRl72qX4p4AIksXc6/fkyLqK6Pf1Fvu45PrE/pF5g=;
+        b=Bn8AxtO16od9NmEUYs2FDINzsBNOeVDYPsj19Wg2hAHm4ACpogJTxMmYq4SNnCiDmo
+         8Q9K83B9jMTIWzJWxVJoRS0vnV/bNLUxsRh10wzRlHi5DeaRJcsD+MH27EPFJ1d9oVlx
+         aQfWVH5WzokyI6pzmjhCgcUIhaJYX7I671J18TqpJ3XT0H9wszgzXnKYAXLrn9v4SMVL
+         oEkpw4MeWu2eyEIwNcc6Yd+ouSb23EGe6ChpXJDXt7mASS5PGcxiNciQ+ncBTgAnzptI
+         dTLJH/DFns/TB80FV0gIX0KMkNzjMRpqzFbhxGU5ADoWY//bpu6jTzLmAQGULp4rZu2K
+         Fbww==
+X-Forwarded-Encrypted: i=1; AKwUvBwiCLJVPJsxSRH1Brs8zCf7+fkR3ue6EZlekpC7zRKo2IN1D4LA03t67jD8cQq3EOFCWkAfo7JyySn98LOiQWCt@lists.infradead.org
+X-Gm-Message-State: AFuF++nYkcx4aPngggf59pzFohSMOdpKAkbobE9s5XgjNnicaJNpy4RS
+	/t0LZbVmq87qBzdZoKMmWdpnpTvXHR4/H+TEbOD6AngPXxh8Wk2uClY8ajRtSErsA03Nfryj2iF
+	ZfLCqImcidITipHh6pa/3gc+J4yN4miXwru5Mf15E9xH1CHuVIvEjOfEl9eymNJh7eKLBr/aND3
+	1xdMuERkQM2g==
+X-Gm-Gg: AYBFou3JciXBXAC5OFr/WjOMJouiJB0bd5stgn/M87WiwC+Wbbye6G30uaKT6B6kZcB
+	PVc/tWWWIqMH7QSzhXsFDvLaWuYOzlg64+SlQSiVfWiOfoum0ftEjvrqqzm75Qff+EMyPoRBGFj
+	4dO1ECfDuM46qIyJf7JjfKd/h5ph4TVri/AJrW0Qfvy2uXJlro++LqOIHFl6b6MkkMsUU5y0jEj
+	GWe2wr/ijiqS4xdxXk371WGCr07reKXrJIaCjgsXKNvac0FXoFHCVuROjrb4jR6xEYO2w/Uh4eo
+	0E1k4l8CCCcBB/FIbUXYkmeBe1gh9ONjLzX97lTmT2kRdOew/4MVGVhXqJjrSUt1f3GahWT2R7m
+	LdGXyLBsBUaupCKNqZfy/iw6PzLM=
+X-Received: by 2002:a17:90b:2b45:b0:38e:4f41:83df with SMTP id 98e67ed59e1d1-39aee16515bmr12870228a91.15.1788391755186;
+        Wed, 02 Sep 2026 16:29:15 -0700 (PDT)
+X-Received: by 2002:a17:90b:2b45:b0:38e:4f41:83df with SMTP id 98e67ed59e1d1-39aee16515bmr12870158a91.15.1788391754734;
+        Wed, 02 Sep 2026 16:29:14 -0700 (PDT)
 Received: from localhost ([50.35.44.179])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33256414c60sm1332213eec.24.2026.09.02.16.26.45
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3325534c50dsm1363747eec.7.2026.09.02.16.29.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 16:26:46 -0700 (PDT)
-Date: Wed, 2 Sep 2026 16:26:42 -0700
+        Wed, 02 Sep 2026 16:29:14 -0700 (PDT)
+Date: Wed, 2 Sep 2026 16:29:11 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>
 Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
         Breno
- Leitao <leitao@debian.org>,
-        Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>,
-        Daniel Scally <djrscally@gmail.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Sakari Ailus
- <sakari.ailus@linux.intel.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "=?UTF-8?Q?=E2=80=9CRafael?= J.
- =?UTF-8?Q?Wysocki=E2=80=9D?=" <rafael@kernel.org>,
-        Danilo Krummrich
- <dakr@kernel.org>
-Subject: Re: [PATCH v3 1/9] firmware: arm_scmi: Set fwnode for the generated
- SCMI platform device
-Message-ID: <20260902162642.000008d9@oss.qualcomm.com>
-In-Reply-To: <20260902-tireless-steadfast-mongoose-cccac7@sudeepholla>
+ Leitao <leitao@debian.org>
+Subject: Re: [PATCH v3 3/9] firmware: arm_scmi: Convert OF-only paths to
+ generic fwnode in SCMI core
+Message-ID: <20260902162911.0000761f@oss.qualcomm.com>
+In-Reply-To: <20260902-funky-tarsier-of-competence-0ae6ab@sudeepholla>
 References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
-	<20260813-acpi_scmi_pcc-v3-1-cb6b88b4ebb3@kernel.org>
-	<20260824095121.00001b9c@oss.qualcomm.com>
-	<20260902-tireless-steadfast-mongoose-cccac7@sudeepholla>
+	<20260813-acpi_scmi_pcc-v3-3-cb6b88b4ebb3@kernel.org>
+	<20260824103929.00004912@oss.qualcomm.com>
+	<20260902-funky-tarsier-of-competence-0ae6ab@sudeepholla>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: llBD6u3viaVR6QMb0RUqBkQxa8GOVJtc
-X-Authority-Analysis: v=2.4 cv=FeAHAp+6 c=1 sm=1 tr=0 ts=6a98b0b8 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
+X-Authority-Analysis: v=2.4 cv=UZthjqSN c=1 sm=1 tr=0 ts=6a98b14c cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=aNnz9XPx1a4JIXSYt2cE/A==:17
  a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=VwQbUJbxAAAA:8 a=bmWpZdXelV54CUJQUpYA:9 a=CjuIK1q_8ugA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDIwOCBTYWx0ZWRfXwQ7hbFspzJTV
- D3b+C4Ce1fKFtauYXwwFqLOIQUCVmF1AZ2pD6e5pHW8D4ToztNw2b5Q4ZFr7oQDsNc8JHuNi2sD
- /ixgJ6Ato3vYghA5xZ6edEhcusdxYTs=
-X-Proofpoint-ORIG-GUID: llBD6u3viaVR6QMb0RUqBkQxa8GOVJtc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDIwOCBTYWx0ZWRfX2Ifru0lcA4L4
- uhteUOPJxTfzWqT2D8ZewPteZACaChsENNV8UfSTEV3iPC/aFVuZIXfZsN2WWV+Dr6EzXjgNVDR
- xMv8ZKMKvE2oL+5l6DOHwSz8UmAOw6wC/bW0+rFmSbOhT9QkEi0mKLIvqOc9qiUu1wwMfqOFYJS
- VLSXjd2PcTeGVG1er+3fFUsl95f1n2EroKgccxwV2cx8Djz4mUP/Y23mB/4gJVky/dnM64o0PwH
- ClkJI3bb7dwzZ1H6n+IiDLzWmBvQlZfx/EtpO7vFMiy1gXwkmLzvPNb0u5lacpSvDmOZ/tapXVr
- pYg9EDiOcyJZysRg20mFglYI+ocT3QxqVwBGRY6DbvmC/7g0bsJltnantepRRS1AS5FMLjv8IxM
- sKL5sh0IBjSJ1vZ2GQfi3HVTwE09npU+hX0ijNDQf/tytG84HcF50GnEiFp0az1OaxUR8kb1m1T
- 0EwL6PjIzORClCEU8yQ==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=BGMOuxRx6cLfrRdBKbIA:9 a=CjuIK1q_8ugA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-GUID: D6J5QMH7lRF3c0EUWDL65q2NhhWFAg83
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDIwOCBTYWx0ZWRfX38EAegZ4NEUL
+ 3qLKqpAfDCfykRlLvt2QhOsgl+YZp1GExzTCpcjFmPQnZj9mUhuEsR/e6hv8hGT/GERvanKt941
+ AzYwZvLHL8PyrhgudPpw+fd6CyjagWg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDIwOCBTYWx0ZWRfXw0JYIo9bq2W/
+ YDcDOX7cEWQOtOtPGx24Y46XM/geBWxZQf0nAxmQ+Apdz1TFSdnwzIQJJMcZpcnmIG+8tqnOFMG
+ 0X0pTdpZ2mqiSzReh8oA/ZLOm6Uu9lyALlW8A/dX8Iih8NIa/t5ZY6In1AzatQLjfqOTym7UVz1
+ b+JW89ZtCTAzX9+MYcLY/B6TrQtBwT91+A1UB8D+MaNKTD2oLtmx4Cma/F+sVcu7qqD8q3CCqHP
+ QwX759oOMIpkDs2ZVUSMvn0sPWeclcrGigVP0Xo7KRQHDybUEUVwIFDXZQnhTnA8AgFBTwDYgmD
+ 4uJjKS9/QK6SrbkKMUYgvLwvynU9F2YHFBA9WujtedJ/5Oae0oNK/JRvAoFPmQ4WWMhkD9dfJ6a
+ pl/dgT+kpAbjDIGJwj8a3ai2zG2xlDI/50CwMi0cIYK50JG85viLzKlkt9srPfvPe+YHU8bWi5G
+ EGsi6EdlA/oIKSPxDpw==
+X-Proofpoint-ORIG-GUID: D6J5QMH7lRF3c0EUWDL65q2NhhWFAg83
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-02_06,2026-09-02_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 clxscore=1015 spamscore=0
+ suspectscore=0 bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 spamscore=0 clxscore=1015 phishscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_162649_425787_2739AE8A 
-X-CRM114-Status: GOOD (  44.02  )
+X-CRM114-CacheID: sfid-20260902_162917_726233_97899A45 
+X-CRM114-Status: GOOD (  34.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,91 +154,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Sep 2026 08:51:10 +0100
+On Wed, 2 Sep 2026 14:39:31 +0100
 Sudeep Holla <sudeep.holla@kernel.org> wrote:
 
-> On Mon, Aug 24, 2026 at 09:51:33AM -0700, Jonathan Cameron wrote:
-> > On Thu, 13 Aug 2026 12:32:56 +0100
+> On Mon, Aug 24, 2026 at 10:39:29AM -0700, Jonathan Cameron wrote:
+> > On Thu, 13 Aug 2026 12:32:58 +0100
 > > Sudeep Holla <sudeep.holla@kernel.org> wrote:
 > >   
-> > > Add a call to device_set_node() in the SCMI probe helper to associate
-> > > generated SCMI platform device with the firmware node of its supplier
-> > > transport device.
+> > > Switch SCMI core plumbing from struct device_node * to struct
+> > > fwnode_handle * so the core can describe SCMI instances and protocols using
+> > > firmware nodes rather than OF nodes directly.
 > > > 
-> > > This complements device_set_of_node_from_dev() and ensures that
-> > > firmware node information is propagated correctly for both Device Tree
-> > > and non-DT (e.g. ACPI) based systems.  
+> > > This change:
+> > >   - Replaces core OF property lookups with fwnode_property_*() helpers.
+> > >   - Switches child enumeration to
+> > >     fwnode_for_each_available_child_node_scoped().  
 > > 
-> > Hi Sudeep,
+> > Why the scoped version? See inline for more on this.  Probably just needs
+> > a comment here (or use the non _scoped variant)
 > >   
 > 
-> Hi Jonathan,
+> Sure
 > 
-> Thanks for all the reviews. I was away for a while and started to look at
-> addressing these now.
-> 
-> > When you say 'complement' I'd like to see a little more.  The guts
-> > of both calls includes setting dev->ofnode() adn the extra bit
-> > in device_set_of_node_from_dev() is about ensuring we drop existing
-> > node reference (there isn't one) and increment the reference for what
-> > is the parent of_node.
-> >   
-> 
-> Yes I agree. At the time, when I hacked this up, I was supposed to take
-> a look at it again which I never did.
-> 
-> > I may be wrong, but I think that is unnecessary and if I'm wrong I'd
-> > like to see more info here on why it is needed.
-> >   
-> 
-> No your concerns are valid. For reference-counted non-OF fwnodes like ACPI or
-> software node, platform_device_release() drops the fwnode reference,
-> but device_set_node() does not acquire one.
-> 
-> > Also, if this is commonly needed why doesn't device_set_node() include
-> > that dance?
-> >   
-> 
-> I think there are new helpers added recently in the tree, thinking of using
-> then. See below.
-> 
-> > Unless I fumbled the command, a grep suggests there are no instances
-> > in tree of these both being called near each other.
-> >   
-> 
-> I did that too before adding but somehow kept it for future investigation.
-> 
-> 
-> > Jonathan
-> >   
+> > >   - Plumbs fwnode through the SCMI device creation and channel setup paths.
+> > >   - Updates transport ->chan_available() callbacks to take a fwnode.
+> > >   - Stores per-protocol child fwnodes in info->active_protocols so the core
+> > >     can later locate the descriptor for a given protocol ID.
+> > >   - Updates mailbox/optee/smc/virtio transports to accept fwnodes and map
+> > >     back to OF nodes where their existing parsing remains DT-specific.
 > > > 
-> > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> > > ---
-> > >  drivers/firmware/arm_scmi/common.h | 1 +
-> > >  1 file changed, 1 insertion(+)
+> > > DT-only transports such as mailbox, OP-TEE and SMC still parse DT
+> > > properties by mapping the fwnode back to an OF node. On non-DT systems
+> > > these transports report no channel available.
 > > > 
-> > > diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-> > > index fe8c22cfb9f7..cc7d11c3c1f3 100644
-> > > --- a/drivers/firmware/arm_scmi/common.h
-> > > +++ b/drivers/firmware/arm_scmi/common.h
-> > > @@ -650,6 +650,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
-> > >  	}								       \
-> > >  									       \
-> > >  	device_set_of_node_from_dev(&spdev->dev, dev);			       \
-> > > +	device_set_node(&spdev->dev, dev_fwnode(dev));			       \  
+> > > This is a mechanical step towards firmware-node neutrality and prepares the
+> > > SCMI core for non-DT transports, such as an ACPI/PCC transport. DT users
+> > > continue to work unchanged; no non-DT transport is enabled by this patch.
+> > > 
+> > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>  
+> > 
+> > A few minor things - with those cleaned up.  Only the cleanup.h one really
+> > matters.
+> >   
 > 
-> How about something like this instead of above 2 lines:
+> Fixed now.
 > 
-> if (is_of_node(dev_fwnode(dev)))
-> 	platform_device_set_of_node_from_dev(spdev, dev);
-> else
-> 	platform_device_set_fwnode(spdev, dev_fwnode(dev));
+> > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> >   
+> > > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > > index ef29fd223287..9014723e0f7f 100644
+> > > --- a/drivers/firmware/arm_scmi/driver.c
+> > > +++ b/drivers/firmware/arm_scmi/driver.c  
+> > 
+> > ...
+> >   
+> > > @@ -3352,10 +3354,10 @@ static int scmi_probe(struct platform_device *pdev)
+> > >  
+> > >  	scmi_enable_matching_quirks(info);
+> > >  
+> > > -	for_each_available_child_of_node(np, child) {
+> > > +	fwnode_for_each_available_child_node_scoped(dev_fwnode(dev), child) {  
+> > 
+> > There are no early exits yet and I can't see any added later in the series.
+> > So the scoped bit is irrelevant.  I don't mind the change on basis of
+> > hardening or similar but it needs a comment in the patch description to 
+> > justify that.
+> >   
 > 
+> This is mainly to release the reference taken in
+> fwnode_get_next_available_child_node(). It is taken explicitly via
+> fwnode_handle_get() before scmi_create_protocol_devices() as discussed
+> below.
 
-To me, if the reference counting is useful (and I'm a bit doubtful about that)
-platform_device_set_fwnode() should be doing it. +CC those who might have
-more insight on this.
+When the loop continues to normal termination the puts are all there
+anyway as part of the iterators.  The _scoped case just deals with
+early exits via break or return.
 
-Jonathan
-
+> 
+> > >  		u32 prot_id;
+> > >  
+> > > -		if (of_property_read_u32(child, "reg", &prot_id))
+> > > +		if (fwnode_property_read_u32(child, "reg", &prot_id))
+> > >  			continue;
+> > >  
+> > >  		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
 
