@@ -4,114 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E51C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66594C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 14:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nZoYau2WBD6IZMmGu3u7wBhLPz0DgKCouySyNxSkIQc=; b=wEcJw7h2GpQDVR9Dd6C9bNXWgA
-	HZa6/nwLYlsU7qWkmi/7JRFgOso7rH/y4lss/MPnzZ0KYKTBmDoeUKvhUKiEEdvg6oQRdLNPB5C06
-	axnIQ7K0/Nw1ImqjHkNf1pINvE5RWXtgrVg+aZ5Y2Z6fYN8WZeOzyiEt/3noV8tQoemZ47IKHzDWh
-	/ezL0q2Zh5vM+PDK2ffkjnj0vYvscdHURXAMn+29kY/iAp80xa7Hy/QXgNTustviCZmicJXNjKKZ2
-	sxLy97Q7JoXqc70ByO3XVDuHmdIgAt9jcW0EP3nbTi6Z3/R6c6BOjBUeqwifVeO0Oh0AseRKS6j0g
-	CnJ9kxJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kKyP0KBxakTaDA9ZOZgXWO84xJnxt16TUKmmMmMWZ5o=; b=0ArzzP0Mfg2Su/OTbWlJ+dVuNT
+	f91h77Uz4EamgIvtFWa5G/Ig10s0tll1Ege10RPr7AOIuuEzuboz8y/k/7mPjBi9JmH7FVuzPN7TB
+	CkLqs6SL+obooM5S6koP6FUUlS5kMUpFDAV2xJ9xf5NeWlmxi25YStuYb/7/wMONX2qqoAhcEH2yl
+	XVLVuYE0N8oRYbaieAKv3EL9Z4KyCUGkLN3Ge+MksACKnr+JDrL3oF5rFDB3TSQC4N3w4KXgg1uP9
+	sGwAu6XgmQZtaLYClYjwaj9Ol/MCKDDut2FB80lz1OpEetrBxL73u26npdQYuEdks6lI0WyeD6x5y
+	U38K2l2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mF6-0000000F0TQ-2f4a;
-	Wed, 02 Sep 2026 14:47:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x1mGo-0000000F0uU-0bli;
+	Wed, 02 Sep 2026 14:48:58 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1mF4-0000000F0QR-0NcK
+	id 1x1mGj-0000000F0t1-2rO3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 14:47:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788360429;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nZoYau2WBD6IZMmGu3u7wBhLPz0DgKCouySyNxSkIQc=;
-	b=M70n2HDdIFxCgd/NTbNnDpwSvKTty9V0ksMBiyiE3/OHbYxYPM1UvpfZKsgdY5sjPwlKV4
-	4neFRruoU+dz1hLyHoI9P+eRkSsU+vqad8AlVH62b7WucGPIFki8pHHCtk57flZJHVztSu
-	G04t1QeCo5TnnOEHq216w1VKZxg3I9M=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-501-6y8aj7x6Pwq6ejExRIcZDg-1; Wed,
- 02 Sep 2026 10:47:04 -0400
-X-MC-Unique: 6y8aj7x6Pwq6ejExRIcZDg-1
-X-Mimecast-MFC-AGG-ID: 6y8aj7x6Pwq6ejExRIcZDg_1788360419
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6C6DE19539B7;
-	Wed,  2 Sep 2026 14:46:59 +0000 (UTC)
-Received: from wsxc.redhat.com (unknown [10.96.134.11])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id F080B1800643;
-	Wed,  2 Sep 2026 14:46:47 +0000 (UTC)
-From: Ricardo Robaina <rrobaina@redhat.com>
-To: audit@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	bpf@vger.kernel.org
-Cc: paul@paul-moore.com,
-	eparis@redhat.com,
-	sgrubb@redhat.com,
-	oleg@redhat.com,
-	richard.henderson@linaro.org,
-	mattst88@gmail.com,
-	linmag7@gmail.com,
-	linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	guoren@kernel.org,
-	monstr@monstr.eu,
-	tsbogend@alpha.franken.de,
-	jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com,
-	James.Bottomley@HansenPartnership.com,
-	deller@gmx.de,
-	ysato@users.sourceforge.jp,
-	dalias@libc.org,
-	glaubitz@physik.fu-berlin.de,
-	davem@davemloft.net,
-	andreas@gaisler.com,
-	richard@nod.at,
-	anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	tglx@kernel.org,
-	peterz@infradead.org,
-	luto@kernel.org,
-	Ricardo Robaina <rrobaina@redhat.com>
-Subject: [PATCH v2 13/13] xtensa: pass pt_regs to audit_syscall_entry()
-Date: Wed,  2 Sep 2026 11:43:46 -0300
-Message-ID: <c484b749374ae3768e57f4e7148324c4a730bef2.1788351089.git.rrobaina@redhat.com>
-In-Reply-To: <cover.1788351089.git.rrobaina@redhat.com>
-References: <cover.1788351089.git.rrobaina@redhat.com>
+	Wed, 02 Sep 2026 14:48:56 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BF7B14E414E4;
+	Wed,  2 Sep 2026 14:48:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 906B96053C;
+	Wed,  2 Sep 2026 14:48:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3940111C792AB;
+	Wed,  2 Sep 2026 16:48:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788360524; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=kKyP0KBxakTaDA9ZOZgXWO84xJnxt16TUKmmMmMWZ5o=;
+	b=cFage9wxV+lKQQXdLrZPivLydFioAXSPdrLl0Pf+32Fetbt/c5BEtAhB+vPCCYWgMVmI8A
+	PLatga4yHA5lIzIKK7WujwrK+Fj3zEZLkcQDRumqloRMOonQf7JFjEULM1Gcyo6di/x7KC
+	wnESG53ex/2gbearIlyjse8Gdygg7vf7+32f+yLOEUIkBOX7mIAach54O8aqrkr1xJPdao
+	DmYyisTQ3WnBZDubMVgixx4ijrWmhrBQWd3VslYqgJrIVC1iQMzxocwI2nKc4gmPv0pcyv
+	S7DJFHF6+lH8ge3Cmkm5eVfhiXq4KY0Tvjg1f8ntvIp+T4Rxo0Gri5CmyltJ2A==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: <Takahiro.Kuwano@infineon.com>
+Cc: <pratyush@kernel.org>,  <mwalle@kernel.org>,  <richard@nod.at>,
+  <vigneshr@ti.com>,  <nicolas.ferre@microchip.com>,
+  <alexandre.belloni@bootlin.com>,  <claudiu.beznea@tuxon.dev>,
+  <corbet@lwn.net>,  <skhan@linuxfoundation.org>,  <STLin2@winbond.com>,
+  <hsinyi@chromium.org>,  <thomas.petazzoni@bootlin.com>,
+  <linux-mtd@lists.infradead.org>,  <linux-arm-kernel@lists.infradead.org>,
+  <linux-kernel@vger.kernel.org>,  <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v3 13/23] mtd: spi-nor: winbond: Add support for
+ W25Q01RV-Q/N
+In-Reply-To: <4d7597839fc542ea846fe0ddb3eb6683@infineon.com> (Takahiro
+	Kuwano's message of "Thu, 20 Aug 2026 06:15:08 +0000")
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
+	<20260813-winbond-v7-1-spi-nor-rv-addition-v3-13-b637cf120d5c@bootlin.com>
+	<4d7597839fc542ea846fe0ddb3eb6683@infineon.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 02 Sep 2026 16:48:38 +0200
+Message-ID: <87se3r7lq1.fsf@bootlin.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: YwIC6DDfH7hWUxp6CnVVoe3APg8U5A1qnZ6HifuSf4Q_1788360419
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_074710_195454_8BFB6C84 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260902_074853_858867_77CA2063 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-audit_syscall_entry() now takes a pointer to pt_regs and extracts
-the syscall arguments itself via syscall_get_arguments(). Drop the
-individual argument registers from the call and pass regs instead.
+On 20/08/2026 at 06:15:08 GMT, <Takahiro.Kuwano@infineon.com> wrote:
 
-Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
----
- arch/xtensa/kernel/ptrace.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+> Hi Miquel,
+>
+>> There is an ID collision with the chip of same density from the JV
+>> family. Both chips are very similar in practice, it is mostly a matter
+>> of electrical differences (mostly power consumption being lower).
+>>=20
+>> As a significant difference, RV chips identify themselves as supporting
+>> the new SFDP (rev F) field which forces an alternate write SR2
+>> opcode (0x31).
+>>=20
+>> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+>> ---
+>> + cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
+>> ef4020
+>
+> ef4021?
+> I think you copied wrong log (this looks same as patch #12).
 
-diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
-index 364e4fdabb00..327e00c2ebde 100644
---- a/arch/xtensa/kernel/ptrace.c
-+++ b/arch/xtensa/kernel/ptrace.c
-@@ -561,9 +561,7 @@ int do_syscall_trace_enter(struct pt_regs *regs)
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
- 		trace_sys_enter(regs, syscall_get_nr(current, regs));
- 
--	audit_syscall_entry(regs->syscall, regs->areg[6],
--			    regs->areg[3], regs->areg[4],
--			    regs->areg[5]);
-+	audit_syscall_entry(regs->syscall, regs);
- 	return 1;
- }
- 
--- 
-2.55.0
+Correct! I just made a new acquisition and fixed the logs.
 
+Thanks!
+Miqu=C3=A8l
 
