@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D5CC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60855C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 20:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNFPGVLFvx/AoejV7EuP46spvaHGIWdJXEE92/o9lnU=; b=se7HOTK+pOrG//2ynCzxibOBG+
-	1bpjT63CC09YoWXZCDZ3fKaZlENJSkrr0P4b8UCGCY2B8sdMSZ9xqe38jYvNel5bahzeRWQS+ayPQ
-	2PxpBp39oqTbC20t4kFYcCd1a2e58ssL8vCmYVwNERYI8bELF7y6F6nbLOcSR1f8/b92jJzqFXsXy
-	cwuxWKPpzhHxMzcUJ7d1TDV6xSFlJl3MIjQtQeuGW2n5Qbflae21pBx2C2fjexhOcKaZQaHoYuovW
-	BDDqDdRSFHyva01yY/9AwivKTUy2CFZ7CaBp1zEAylDejJyGC4h48OhM0TJGiEtgUExaRLh7lylgp
-	QxW5P8wQ==;
+	bh=V62NrpgUOu9gE+yVRqH4AGEITpcms2N1p3z2wjAcl1Y=; b=0ZfBkseKpOwFgO/qT8bTO2Y5ov
+	vw59fzodGzZPjoyqXNMaPVfcxQxrskv0f7IojVg9SxTGCaW75NzkApDijEjKOMWEalxm3Rt88kfPn
+	JfWJoPCHqyUXF2RTDF5MqTNHRmty6OE7OIGT14PVCSCA5bQUrOGl/psOKC8X9QMH78QxcLvK1Kdjp
+	pwPM3muUCgYmQn5kAMPx2I+G/WbAtcES4Wy0AMqaI476IInAt0bPBcQRTC8fEODhIkZNeebgV3WNy
+	7XLCVEPVnyryabYQ11gElUrvALAj8oYRAtL0D9p+9cyrbRf0JCDb+UP/iI3zXqzKBLrn54NfdrVfA
+	+sOj7PKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rFV-0000000Fp9h-0YsE;
-	Wed, 02 Sep 2026 20:07:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x1rFh-0000000FpFx-1Tbh;
+	Wed, 02 Sep 2026 20:08:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1rFS-0000000Fp8E-3uM2
+	id 1x1rFd-0000000FpDt-3jWT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 20:07:56 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682HrFpf2976075
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:07:54 GMT
+	Wed, 02 Sep 2026 20:08:07 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682HqtwI1650594
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 2 Sep 2026 20:08:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=nNFPGVLFvx/
-	AoejV7EuP46spvaHGIWdJXEE92/o9lnU=; b=RkLi7WnJT32eVWIHPuqGyOBqrKx
-	lRcdCPBgHIjmgPf3yvBqtGbaQixnj6ftcYW0RJFHwL1GxlPgt8fDs7l5XahvDSXv
-	GBzLzbnu6xQhFr9WEDKDxSv5ov5rp0a2WbO3TpWzXL2SluF/ACdKwDJ//vR0sczS
-	dlp7itw01lxD0F0CYFvVxThG3wBhuSnbxhVD3HCV9DzZZwH9kFX9l0w2JiCQUvOh
-	9B5OowQg2lXl+5sIheMW/+4e3m8E4zXF/O5piBworS15amrwo81Cl99TqwmFfXPT
-	UxdW7ISqBefM7BMGUp2qga0M4hsnsK05gBLNm3AWfehEX8FVad/Q6GKSY9A==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=V62NrpgUOu9
+	gE+yVRqH4AGEITpcms2N1p3z2wjAcl1Y=; b=Tz3iT1Z08cE3L1Tsg6uwOfDDlUn
+	OlK172bribh74PRXIRNSvRLnJcuTmAmGXtzeJq5+oXtGDt24T0SgWNFTKMUvsN2c
+	o3xyvGkqECHDErCIEqxM99+VAwarBlIDHogFfV74HBGoCmSh/+CnU44qEFsEgMc0
+	LpF2U7coKzkS1YPs0gz7Hbj/JooKnj6bCPL8V1vKhdMaLff6/5fMHjACVdDv2QJu
+	tO6X72JpKItRX+1tQrpTgNjGGbGiD905GrptgN/0LH1HTDuNsrLJCjw3enNv9gfP
+	TCtWu6AsZWs5xIO4Z0Gu480RmSQw51flp895ecr+MPU1PEDsQtnsH27/A+g==
 Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gerdn8q17-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gemj4sqrb-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:07:54 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d94a158dc8so23346635ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:07:54 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:08:04 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2d94a158dc8so23349475ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 13:08:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788379674; x=1788984474; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788379684; x=1788984484; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nNFPGVLFvx/AoejV7EuP46spvaHGIWdJXEE92/o9lnU=;
-        b=ReBEtpx2fKX9BIuYOw0sj1sDh37Cy8Ik+MpiJDmATpoGvIcL4bQ9FwVHYTa5FJs2+X
-         +FO1DtzQTJR8xVQ7hK5DGjdg3uR3tGG4v6X+VrH/cI77NcEpecpnZnfghtIqefxmAgKF
-         zITCuL62IJ1Z9IAn4JfIA+AO3GZr36G8xU+JglAmeZAd0tziHsRdGkoIRC6BXigBbKof
-         j+tm6950e48b1+QAhcd3v0FH1A0Uhsp2une/8PrlO3CwEBLmh4BklLTonDY8t0Vi8ruG
-         lLLjgYNOZ3Wm44kyTt+NBOzP2fO1AR7cxDR6yW67quJSLXCN1ZMSyc8h/g90q4ecvDd4
-         wtLQ==
+        bh=V62NrpgUOu9gE+yVRqH4AGEITpcms2N1p3z2wjAcl1Y=;
+        b=kZxCaLzQ9Zfkx4Hj8SoHhI6V8N/6btb71FHuOAFSQTbjWjFK1qD76JbUtS4adjilfe
+         +t72cWb/NAhy6QPMjpgvecgfl7V3HdQM9M+/sG756LyfX1eZD3AklSNDw4SH3SO8dQoZ
+         qBvmKe9+54REC0thgYW9hLt7MDzQiw/jsn5Rjxg9/Dr5/dees7pG5JRyMFoqKS/QNY9N
+         8v9hwZJ40cPngmRXdobNaxQpJWqn4P7Dm+Ox8gwKzlvrLX4etcF/706H4XXvh+dqP54q
+         atUBUjshL5Dv4K+SYE8MnlMERwULgBGQ+Rwl2RGRCJMZXWkzb/CE5dM2RHGcbtUeY7et
+         zAGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788379674; x=1788984474;
+        d=1e100.net; s=20251104; t=1788379684; x=1788984484;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nNFPGVLFvx/AoejV7EuP46spvaHGIWdJXEE92/o9lnU=;
-        b=XjnFMw7uynhevn4NsDbQGlUdB4XuWLYs6nJvtKMKbzWTtToEcaKOu3ZgoKvSJeXd0V
-         Oe6TrE9QMSCLiriFoMMtY8vYq7vPQ32fJApxlW7aE45WffsovCdtmLWqmjNvDRI7wK2p
-         Qnx+Wr7wl51B/aATrc02HoI+4uiDok2fkQ/WEGTENjBdxYhYzd2GEHAGT1swvU2tJU4P
-         qTyiWf4XvbVdaaWnKXKXfO9Cl1awl6c3bGD+H1U5p3BNHSgALE+0OgVlkIYGZRuD1KYC
-         1+R/Q6uAq6Co1B8UBSfRv2R1sBLj5M7BxGJskepWqYjIiwfcbZSf+gFKBh9IhxC3WUkh
-         fHiQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzqEb0nadl/PsAx/wgQho813O0SdtuhqHSjA+oODby8UmJzZ6ZleOzaIH5CYt5i1rm3BscMnAhqt9agpEvn9x/F@lists.infradead.org
-X-Gm-Message-State: AFuF++lVecJyTdaT5arvKgKuOfCP9Vydwt3Et8+gUgS3l5F68khpAH4d
-	C6vsCRfYC7jxkCewVB/pOzXWOOs3yhR1Roh167AAS28CBQroTDHQwRnahceTOb17QgJVmade7vR
-	THM9ZV6IvIYMEO3YmXHPEgqJLO1H2RDO5L6Y/xTScxoMAw+6aGvsrZ9NymlcQoVAf1PZ3ucwgly
-	RIsg==
-X-Gm-Gg: AYBFou3dNhukzowGQZ31LmxnN/Zoe3Lb27QA3lJWPgoU1TLqv5AosECCOls/fBxJNcQ
-	wsxobLxD83Ec8dWS3V5D98p4zb0pa0VyGfzmcfvi8anCghASiYHK8XMcU19RL2XAy4OKeFRsuVz
-	DCi/OpH3mpkF3+90/TqHKPjSzANacZO0jwEqSwBmVOJRFCyVjFnd9dH6/IZqxTSDmBykzymaDjy
-	tfgwLWqGS1XU3vGiKsNVnZPp1Vqm98pfRCQs9Bon/reQa9IaBGoxo33QWhZ1BASfXa6x3s+szY3
-	LlqiB8+9yz15gf9UkzTsqqfwIFnZ+bsqH+JBKS0ZNC/To1VlQKUBRKyUHhrwVMebMRnatyb0hWX
-	LGVQAF9YSh/1CZWlWiLm/IUtcxeU=
-X-Received: by 2002:a17:903:1a30:b0:2d9:2688:8be6 with SMTP id d9443c01a7336-2daec71ddddmr99505705ad.19.1788379673743;
-        Wed, 02 Sep 2026 13:07:53 -0700 (PDT)
-X-Received: by 2002:a17:903:1a30:b0:2d9:2688:8be6 with SMTP id d9443c01a7336-2daec71ddddmr99504475ad.19.1788379673206;
-        Wed, 02 Sep 2026 13:07:53 -0700 (PDT)
+        bh=V62NrpgUOu9gE+yVRqH4AGEITpcms2N1p3z2wjAcl1Y=;
+        b=X+YR27aAM1fPbf8AT2zBc66UXkMFqK58j6aQ9KS843eO8YVCM5QhDTZqY+mXYilN/r
+         0e2SBHjIeuRy93blmyFVvJKl5wJ+ehXErsfn7sNx1IKkppF66KJ7C0RamUUxG0g64LrW
+         z2xko3vyvmlz9w0Mr2a3KXntpvbZSdTcZ39XEHu3edOz+ggSpbsUIfGkuzKhOIi4PK2q
+         rMokisBgut6aKicza218DFIuYpx9FRVhO/gApYBuvQ7m0lk8eNnG2xX6PvwN2Km6oGF6
+         XhMOirlNEbDO9Dl2y5XGvvCY84lUAOG1B8ajgAEB9SOV4kGUPD8PfP0SZ0PyxGxZViCH
+         Df7A==
+X-Forwarded-Encrypted: i=1; AKwUvBwUQVJyDdvMn0mXL9LsEUqP9FfSsoIyPBcooZyBRI8JGRHlb3uusc59qXh2hoEHK6yNdZ/SSv/rq9EZkPvVkA5v@lists.infradead.org
+X-Gm-Message-State: AFuF++mLWeNzLYeeH2jtRtzkGE7DPoxQuZ+Ss+C5FqbEOufNVv17AK6j
+	t4fpbx/sasaM6p4B/Y3WX4MIQgY/w4Kcgq7aCicH76llSh6hYh7Ys9Z6yquaPCqWpnyN74LC5aU
+	ZjayRTayCiEu9IQJBCZrUjDFJl5JCB+5uPD9Ud9P471e2WhKzWBuiqOEPib3wfpIEFfTdolUG8G
+	XPZw==
+X-Gm-Gg: AYBFou0nwezIQMJKIt/iwxRBp6lXNMDL1RCRgxrr5LtRJQaBC2uhIJy9Qbc6wwDa/s6
+	pXLEv+iSjDVzbIaNu/+/Nl30z+YNOOma4gVa+yHuBISrWzcWJmHBm0xLEFfxUlMBcNV2XO9eQyG
+	4UgfpkpeQymNJkN4HcXOIaEQrVmbqzQHPbMMK29uBmfiyrUcp8aJ4g0lByGUzOhtfPS87pNaCmY
+	htyO137oquuaDcJI6gRQ2UsYEPZxWFfq1bIV5YlKo5lhUy8r6IdZf/n2CxI3qJh+3hnZb8LcRDH
+	Wce+P+7aOZrwpaGoY6LwDQao6Bkp4yyVsscOFZsBy+8Dlwr9MB/Y6w93XATpTm9bNLL3qC+PpzV
+	sOskYzeO+l/Md/zf/oa8FhKcH0Vw=
+X-Received: by 2002:a17:903:283:b0:2ce:faa6:7cbb with SMTP id d9443c01a7336-2daec5ad515mr80445855ad.4.1788379683910;
+        Wed, 02 Sep 2026 13:08:03 -0700 (PDT)
+X-Received: by 2002:a17:903:283:b0:2ce:faa6:7cbb with SMTP id d9443c01a7336-2daec5ad515mr80445245ad.4.1788379683366;
+        Wed, 02 Sep 2026 13:08:03 -0700 (PDT)
 Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33255f2981dsm434360eec.19.2026.09.02.13.07.43
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33255f2981dsm434360eec.19.2026.09.02.13.07.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 13:07:52 -0700 (PDT)
+        Wed, 02 Sep 2026 13:08:02 -0700 (PDT)
 From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 To: Daniel Scally <dan.scally@ideasonboard.com>,
         Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
@@ -116,44 +116,43 @@ Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
         linux-mediatek@lists.infradead.org, kernel@collabora.com,
         linux-staging@lists.linux.dev, linux-sunxi@lists.linux.dev,
         Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH v2 3/6] media: nuvoton: npcm-video: Use devm_of_reserved_mem_device_init()
-Date: Thu,  3 Sep 2026 01:37:00 +0530
-Message-ID: <20260902200703.2016410-4-mukesh.ojha@oss.qualcomm.com>
+Subject: [PATCH v2 4/6] media: arm: mali-c55: Use devm_of_reserved_mem_device_init()
+Date: Thu,  3 Sep 2026 01:37:01 +0530
+Message-ID: <20260902200703.2016410-5-mukesh.ojha@oss.qualcomm.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260902200703.2016410-1-mukesh.ojha@oss.qualcomm.com>
 References: <20260902200703.2016410-1-mukesh.ojha@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=YcmNIQRf c=1 sm=1 tr=0 ts=6a98821a cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OCBTYWx0ZWRfX19CrCQ0qWduI
+ loGXvFsamhvJkE/P/2bmQrViIwe5oNk3MSVn7YxhLCQv2572lDAslAcoAArsVC4xLi6yI7FGu4a
+ Z4M5Tv+SthA/eywT0zCoSO/+Y74KrxACG4YgtQl+HhSJFEoisvh834mOKU31wZy9xuSFvXI+Ycx
+ JwUqj23pi0UxmATxU5HDx2g43zPA6WmOYs+t8UIG+6uOg826irrodLMR2FVYVzoMhftW/MEDm/T
+ V5qne4eTyQttKwFVD5Z/7O3arjbEM0jlilj5A2x2WKDDBxMmTmL8fWPEVSqRXrRz9UsGX7m+X1c
+ VriWt8Znnswk9+bx3f3egdiGi6K7I7qJYbu+16lu8GB0nIu4OhkwQAvAkdtsmTjnFURAHdCA0Nm
+ QZw0mOo+IQP7xI24zxQ1OnNl2R+M4wHPlDPMRHNj+9eEc6v/4V09rihr1cgFCCKYEA0EjG/t2sH
+ UMnVLSBH0J+ZAS+1/QQ==
+X-Proofpoint-ORIG-GUID: tS6kajORpAOsrAV7KBtLGNh3LpedKOyJ
+X-Authority-Analysis: v=2.4 cv=MdhcfZ/f c=1 sm=1 tr=0 ts=6a988224 cx=c_pps
  a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8
- a=iFm4xv_JmjgOdRhw77YA:9 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OCBTYWx0ZWRfX6Gs/UeVwmMWA
- HPPNlfRlDfI6Qju2wU/ycXep79YYPWkyNU5Q+zqgk6jJ8GKJD7ufFUSMFc0ZJ+RLCJsoW8IOBwa
- QuGfNpz+opFoPTzxSVjlXdgeyMmojf4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAyMDE3OCBTYWx0ZWRfX28vP1Mv8iwsn
- hX7Pwd6CQA6S/UMos0J9BrHqGP/AQddK0hgaNZcHdAi2HyIDZfeKvftIK7828ufx/aLgLP9R5gn
- 7OJKIhxbh8IG7xNQMdjX69RijYccmkkNmWarfX9Yq7oRvTNI3Q1esDB14hulTdNXpJwwC41M2jy
- mdzrFo8RDENSFNLunca91+flFIi9M/BbBfT20RUoTa5R9rD26+3wjNIGJfwaE2sHkYqiOMAIs+s
- Df05ORvKTKuC2yW5CrS9sHfesmjPmTGrasMy/z5Brm7yUnACIio5N3SccGL9LFtFSWWuhwVWqEI
- JcsNHlmoUvLW5rP/9tZAiVo51a5dJRfSgpT3tqJ6ejyIEyBm2hf3L+O5RMgPoaOIbD270fHhgCa
- TNXE6QzxzI+d2SvmS5I7Uvk3Rf226oOmnjMm+AjprHeVA9LEHNaD2pH9qycFQtmDW/MQMZkUTis
- qrqeX2gnkx+dvtCvI4g==
-X-Proofpoint-GUID: p8tcGlTLF4Gg0hyLSq9k2Obf_JknNQzb
-X-Proofpoint-ORIG-GUID: p8tcGlTLF4Gg0hyLSq9k2Obf_JknNQzb
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
+ a=YVK2hjuZJVh9DdmUNrMA:9 a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-GUID: tS6kajORpAOsrAV7KBtLGNh3LpedKOyJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAyMDE3OCBTYWx0ZWRfX7Uy1w5k0dp/8
+ bB2o33Ph8wE6MjIpNveSUVMZjGcMr6TpbxLb2yusoXpeZUqsNQk4z5Ful8ivYxlddtxb8wS2KEr
+ Wbrzh+KxrYgYawi8Wo7mF7qhmPSWE+U=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-09-02_04,2026-09-02_04,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- adultscore=0 phishscore=0 impostorscore=0 spamscore=0 suspectscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609020178
+ priorityscore=1501 bulkscore=0 adultscore=0 suspectscore=0 malwarescore=0
+ phishscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609020178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_130754_978620_941A92C7 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20260902_130806_044013_50F4C6DC 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,62 +167,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to devm_of_reserved_mem_device_init() so the reserved memory
-region is released automatically on probe failure or device removal.
-Remove the four explicit of_reserved_mem_device_release() calls and
-collapse the now-empty err_release_mem label into err_free.
+Use the devres-managed devm_of_reserved_mem_device_init() instead of
+the manual of_reserved_mem_device_init()/of_reserved_mem_device_release()
+pair, letting the device resource manager handle cleanup automatically.
 
 Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
 ---
- drivers/media/platform/nuvoton/npcm-video.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ drivers/media/platform/arm/mali-c55/mali-c55-core.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/media/platform/nuvoton/npcm-video.c b/drivers/media/platform/nuvoton/npcm-video.c
-index 52505af35c08..6786736c8f07 100644
---- a/drivers/media/platform/nuvoton/npcm-video.c
-+++ b/drivers/media/platform/nuvoton/npcm-video.c
-@@ -1715,17 +1715,15 @@ static int npcm_video_init(struct npcm_video *video)
- 		return rc;
- 	}
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-core.c b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+index f28e9f4354ac..3d37cd446583 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-core.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+@@ -803,14 +803,12 @@ static int mali_c55_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to acquire resets\n");
  
 -	of_reserved_mem_device_init(dev);
 +	devm_of_reserved_mem_device_init(dev);
- 	rc = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
- 	if (rc) {
- 		dev_err(dev, "Failed to set DMA mask\n");
--		of_reserved_mem_device_release(dev);
- 		return rc;
- 	}
+ 	vb2_dma_contig_set_max_seg_size(dev, UINT_MAX);
  
- 	rc = npcm_video_ece_init(video);
- 	if (rc) {
--		of_reserved_mem_device_release(dev);
- 		dev_err(dev, "Failed to initialize ECE\n");
- 		return rc;
- 	}
-@@ -1789,13 +1787,11 @@ static int npcm_video_probe(struct platform_device *pdev)
- 
- 	rc = npcm_video_setup_video(video);
- 	if (rc)
+ 	ret = __mali_c55_power_on(mali_c55);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "failed to power on\n");
 -		goto err_release_mem;
-+		goto err_free;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to power on\n");
  
- 	dev_info(video->dev, "NPCM video driver probed\n");
- 	return 0;
- 
+ 	ret = mali_c55_check_hwcfg(mali_c55);
+ 	if (ret)
+@@ -849,9 +847,6 @@ static int mali_c55_probe(struct platform_device *pdev)
+ 	kfree(mali_c55->context.registers);
+ err_power_off:
+ 	__mali_c55_power_off(mali_c55);
 -err_release_mem:
--	of_reserved_mem_device_release(&pdev->dev);
- err_free:
- 	kfree(video);
- 	return rc;
-@@ -1814,7 +1810,6 @@ static void npcm_video_remove(struct platform_device *pdev)
- 	if (video->ece.enable)
- 		npcm_video_ece_stop(video);
- 	kfree(video);
 -	of_reserved_mem_device_release(dev);
+-
+ 	return ret;
  }
  
- static const struct of_device_id npcm_video_match[] = {
+@@ -866,7 +861,6 @@ static void mali_c55_remove(struct platform_device *pdev)
+ 	}
+ 	pm_runtime_disable(&pdev->dev);
+ 	kfree(mali_c55->context.registers);
+-	of_reserved_mem_device_release(&pdev->dev);
+ }
+ 
+ static const struct of_device_id mali_c55_of_match[] = {
 -- 
 2.55.0
 
