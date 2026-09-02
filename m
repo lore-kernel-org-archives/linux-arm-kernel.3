@@ -4,116 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33CCC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9ADC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=; b=KGsNGEPRsnmHShRb59++NlbSiL
-	SljkwxndcUA9rNLSSP9RGhvuPpAca+sDncsX1CNHianip3mgadb94w9b7f+btDV7MShaxwQ5vRYUk
-	SRKepUEtlTr+jSMR5pN9v0mwV9CEvTSdFPYYL3BM1ZrrC33B6GHrtGT4anPvNzbF1KZj+qb6ZMSTB
-	qX8vAaAqQTLRAD4oBdiG3Vvdb/YfD8nY2WeouyCwqyTv3vP/IV5J0yRMWII29xrfcjq7YAu3BX6fs
-	45kZFJEuwiV3v/rB1Wnzcu8t38/MNlgBEaG307TI2+YC3ZXyXKSW2Copr5MdRxyxDRC9vAHkT9Pxq
-	PfF3GxtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8DPgleNV1mcmkYCtomqFOVp2FJYHws+GGArnvOsd8h8=; b=Wt3DDwzMoUL6HQ/1X9tVUB6PRq
+	Wz/ZHEUzh2fiynUehNJLdh1NdCPa48YU5ZiDDSWg/FNxTtlH+epGdqX824XGpuVBWy7CBajQhpwma
+	v8vzg9JxYnF1DDDY1E0orPkIYrTZljRJ/XQ/9vAqPSr5oH+Ty1J7UkV5CkO+O18lthKWSSQ2BEALI
+	gUIqKsTNT03xFl0cqOQZFAlU0dCl7A/zejrEUappGuS4GzOSM7L2zeoNjQXX2qmTbL3v2S9rKmEc5
+	ooU6iAmVWd/+M1/cIgEKkiz3eAgD3rsqTScwYKIqYh35zFikmY+gQi3dxiICBrJWuZ230CJpqZFfM
+	yPRAJ4hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kb1-0000000EkAe-3Dlj;
-	Wed, 02 Sep 2026 13:01:43 +0000
-Received: from mail-westus3azon11012042.outbound.protection.outlook.com ([40.107.209.42] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1x1kgc-0000000EkuZ-09pV;
+	Wed, 02 Sep 2026 13:07:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kay-0000000Ek8a-39dw
+	id 1x1kga-0000000EkuI-1Lhg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 02 Sep 2026 13:07:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=8DPgleNV1mcmkYCtomqFOVp2FJYHws+GGArnvOsd8h8=; b=cKOQnU1jqH6Zhs9mwtejIhhAwx
+	ytmie12nOQ81Y1Z/nlmh7VV+un4PHdh2ScYZIHY+dr5xiWAoRyfZo3Fue4yzF7YacEDRxSSp7a4zh
+	TmVw/sfTLw6H4nMpx9m/cilSoUBhfohVIwAptBqcaEFQFmbQcukpDPse+0K2sSqBE1knfCFo7wG6e
+	iqaT6hJggK9Zam78TfYmjuckkS11MExlYkaPSeLqqyXxuWsPXUwfKIM44haE4ScBYCAtqTG10/MyG
+	Gn7WeNqQ1ubFUFYVknhVnAE16jM1Vb2hFlktNNUN2EgJDkUpng/KP2KjDc8/wcY51xpCdNcuhcFxU
+	geMZp7hw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x1kgW-0000000C1Cw-0dba
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:01:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qaujxe9++KxTlL+7OH6zxUykksxIAIFu+0Ny8vI4i1ANSP7H4WsSeEq+RTbjQTAc4xqR2YC/k9gJeHuRoAT9qVFyTuhlxnWuxMrJaLYcfFWNIxE49gdvXg9YvcHqizvFsnxSpKqEUKSuSz8AF24M1syoyhLYiqSXX9fFUox7WZeKOxS600qAsQe4T7lAFbmi7xnSYzbplNhvIjnbCL8YXnyXMFi8RBHcc94tGF48oGpq5h3DOpZOdN9hueYxMVpqoRZXWKtUKRg56x/9V/ZVBxNYpnw3bwQB72EDNw73Y9zAskhHri/zpjXYCasgK9S+90JlkJWy/IVewGCM0ZFBjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=;
- b=XsTH0fL9+TPYhWxGuQHJBxxXnk4DTcbIuQ/2/V0dWmkkyIKrOaw8GjypVfmb9wOcWpDqJtar9nTdbaVAqFnv334pbK2hcQuDQSZjUvYTHak305Q4FUTdZvMmfMQOTMVHOgIBKj4ucVmSeTvl3mPQzHEjvZwXNivpNIE1BRUjzCfJS46AAOVUzNctp8lna0Dpxo0oaZFp+3/kNlmoAYQkGMRn+um9eqfYad8k9n8B7MH+pQJQk1rt1oLXNMjcV6zL9PZqbMv/fwYylRt5qBgwJ47v4CisL3nEhmrpG4swnkUUMX+WVO9fR7HiNN39QnILV6PPSDfUXgUKMitwr2zX4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
- pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hISnVxC+UF1TuMOVBU8FODxzoVA+suR5aIVTwxAvSD0=;
- b=HIlMyMN3SAWC25rsQWLntIMwmuBqGpojCErz+1AbPNUVxdBgMAF8kLuQHg3eW0Bk1VeVDXhydGxq3ZJ4P28ctLvrW0gHM5KyUwF3RoFFJeXisrMsfr3ASHb/u/8G1M5xGsPGdr/5vPyryBIdPBgA6A/J/L7Mi0m4jgubYDvGalRNHDrZyDUcjzal4MznPrL+QoI9DiVP8GxUA9QiVlj1GyIwcfwVR8sdwqiuWuX7lTaScmK2Nb7gYohASqPqwZeyfJB2jZwxPmBC1X+zYLC1/h+A5LadgfTj81y7nXkrVCFi34pqCY8FWj/6HXaHSFvd5KUDxGZs1PPmNWnIG5N2Dg==
-Received: from CH0PR03CA0255.namprd03.prod.outlook.com (2603:10b6:610:e5::20)
- by LV8PR22MB5699.namprd22.prod.outlook.com (2603:10b6:408:267::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Wed, 2 Sep
- 2026 13:01:28 +0000
-Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
- (2603:10b6:610:e5:cafe::6c) by CH0PR03CA0255.outlook.office365.com
- (2603:10b6:610:e5::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Wed, 2
- Sep 2026 13:01:25 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
- smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
-Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
- not designate 165.85.157.49 as permitted sender)
- receiver=protection.outlook.com; client-ip=165.85.157.49;
- helo=atlrelay1.compute.ge-healthcare.net;
-Received: from atlrelay1.compute.ge-healthcare.net (165.85.157.49) by
- CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Wed, 2 Sep 2026 13:01:25 +0000
-Received: from zeus.fihel.lab.ge-healthcare.net (zoo13.fihel.lab.ge-healthcare.net [10.168.174.111])
-	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id 2622119249;
-	Wed,  2 Sep 2026 16:01:22 +0300 (EEST)
-From: Ian Ray <ian.ray@gehealthcare.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Ian Ray <ian.ray@gehealthcare.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/3] ARM: dts: imx: bx50v3: ignore HDMI rxsense
-Date: Wed,  2 Sep 2026 16:01:15 +0300
-Message-ID: <20260902130117.2731-3-ian.ray@gehealthcare.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20260902130117.2731-1-ian.ray@gehealthcare.com>
-References: <20260902130117.2731-1-ian.ray@gehealthcare.com>
+	Wed, 02 Sep 2026 13:07:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81ADE165C;
+	Wed,  2 Sep 2026 06:07:17 -0700 (PDT)
+Received: from [10.1.34.165] (e121487-lin.cambridge.arm.com [10.1.34.165])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F4B63F85F;
+	Wed,  2 Sep 2026 06:07:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788354441; bh=+t9sN4LSyRGw93rnNyg1v4R/ipYdpl7x/UgrrcH7gJ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pUh63RT4V/KPBB2O88F3YMOGtx1JdWvSj/QqmaJhB2Dh1R0LEM2yxJgti11F4tlKD
+	 VjyoK1EM1DGgjvYFEW2m4OcN165RFcHiXm/tdxOC3doeLbPfpm9+hdC9RHqRnXJ03e
+	 dVsghQvw8nk6GylnkSTuazEKzneEDBg0Swpideho=
+Message-ID: <5058854b-6e68-44b2-b4f7-6e2f666c4caf@arm.com>
+Date: Wed, 2 Sep 2026 14:07:17 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: hibernate: pass HVC_SET_VECTORS args to the resume
+ hvc
+To: Will Deacon <will@kernel.org>
+Cc: Bradley Morgan <include@grrlz.net>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maz@kernel.org, james.morse@arm.com
+References: <20260809213615.11646-1-include@grrlz.net>
+ <anr28wUlKjci8JPn@willie-the-truck>
+ <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
+ <anszjQ7jBeYDqesp@willie-the-truck>
+ <7ca33f92-2ded-4749-ab67-2fb564919b99@arm.com>
+ <aoxl1ri43eEAsxlR@willie-the-truck>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <aoxl1ri43eEAsxlR@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD76:EE_|LV8PR22MB5699:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 95b8c148-ec75-433d-69eb-08df08f24bdc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|10067099003|11063799006|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 7baRqnGRIXlC3qPIDmgw0aMqEnjb4xbdKBI3gCl2sPtqbzrigUCpaX3JUbgWYPwQeQonshQOTowypQ5WlJTbu62ax04zy+SYAIA9MvOiVvjDdFwJWleY6FN5VsTjTR7XfQdjb0ANErjulywMTBmknzKuaWl3iDMIniSkFKJDO5mhPaFJH9/lTJV16YwvUbelCUwtR23T5t5Y/ivDnD1CE0IwN26R+AyYmDQd/9H+tslCquoOFdGwYE7ooSFxjATULY8dz+c7MUBIk+oJCvLZDn4TL/zSt0ZTcnK011CWn5iGSmoDAFkRe9D5IE5qdCOoNEzJGNzzSgRnEo3L/Zv28SmY1Rv++RneST0RtVwnLkldG702pfHh3Sj4uh0Xz6b3lkOEbQLAdMYov5aQN6H/pIM1kMxHz49d81nHECddcCusfIoFXXczEqUfjnw+IuYpp+xdmi0XtgmjvlXRwHsgH7fJYqSb8EPErUjv+3fCnQg7jproXdnqaJLHTfVU0qHBB+Wp5xx8sDt2rmwlLOoQbEnca/gvxBnzbp2QIcetlQLDbzuCQhNj9IMRZ41c4y6xEjHIqIu7CSge82kFyqea2vmxXJZW8yGEhMU0276vjRDl12CUnoeBhY4Tp5syxpUQMqmwxV5uaYE2JMMEqcTmd53+2ipiec3J9T1Neqg5QAknUhmhGMR9ycFl7dnX3AiDoMqXrtYoxvryv00qpTtKTQ==
-X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay1.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(10067099003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oV6bDXkdIO4I84d7D6fhBtH3AsHWUMzrAVIqtdMNOVRWxevsYJKH8wykv/oD+CdQwA0wArZEGokdGfAtExvomW3GqfC49mSUg9SZ2m+i0/nUpZRWvovzLNDMxQLFs+OTjZkUfnLP2Zyc8s32DmR1AIDBlxgE6Fa5PWEIFK8h7jQ4AwfLGoHKeqyamM8F/UW6LEP+/NMxFGbDduDJNpDzKmRAxYwPaIW2bdXM8PdAyW8E5N5wIw9BDR7yuFWXITQAvhHH8lJmMyG7FYKtARJvpQJ1dmtw5OxkDtfmNciKqI1UJTpbZuNl4/ctAg4j1M64bof6FoxPWWEpLTMKdlyvIM9SjelURvBK6Fh08raD71Vs7iK3+shZIqfN+sokp/DdB8HTeMPz8J2iRAbMnP+Vj4h2E9+VdvmjfgB5oGvYg6u9j5F2Jch+nXVXEb8U32ne
-X-OriginatorOrg: gehealthcare.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Sep 2026 13:01:25.3376
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95b8c148-ec75-433d-69eb-08df08f24bdc
-X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay1.compute.ge-healthcare.net]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CH1PEPF0000AD76.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR22MB5699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_060140_808325_1215176F 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20260902_140725_318794_2E8AFAF1 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +95,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HDMI is converted to DP in the B450, B650, and B850 boards; as such the
-rxsense must be ignored for hotplug detect to work.
+Hi Will,
 
-Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
----
- arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+On 8/24/26 16:40, Will Deacon wrote:
+> Hi Vladimir,
+> 
+> On Mon, Aug 17, 2026 at 02:06:20PM +0100, Vladimir Murzin wrote:
+>> On 8/11/26 15:37, Will Deacon wrote:
+>>> I think I probably need to spend some time understanding how all this is
+>>> supposed to work. I can't currently tell how we end up with the stub
+>>> vectors installed to start with nor why we can't do all this from C code.
+> I finally got back to this...
+> 
+>> Here is my understanding of how things work. Assuming nVHE mode, we
+>> restore the previously saved image X from the currently running kernel Y.
+>> I’ll use the suffixes _X and _Y for addresses belonging to the respective
+>> images.
+> Nice, thanks for the walkthrough!
+> 
+>> On the resume path, KVM teardown sets VBAR_EL2 to __hyp_stub_vectors_Y.
+>>
+>> swsusp_arch_resume() then temporarily (re)sets VBAR_EL2 to trans_pgd_stub_vectors
+>> while transitioning to image X:
+>>
+>> |        if (el2_reset_needed())
+>> |                __hyp_set_vectors(el2_vectors);
+>>
+>>
+>> Currently, swsusp_arch_suspend_exit() attempts to restore VBAR_EL2 to
+>> __hyp_stub_vectors_X:
+>>
+>>
+>> |       cbz     x24, 3f         /* Do we need to re-initialise EL2? */
+>> |       hvc     #0
+>>
+>> where x24 is resume_hdr.__hyp_stub_vectors (in other words snapshot of
+>> __hyp_stub_vectors from image X)
+>>
+>> However, that request is ignored, so VBAR_EL2 remains pointing to
+>> trans_pgd_stub_vectors
+>>
+>> We re-enter the kernel X.
+>>
+>> During KVM initialisation, we call __hyp_reset_vectors(). This is
+>> handled by trans_pgd_stub_vectors, but ignored since HVC_RESET_VECTORS
+>> is not recognised. We then call __hyp_set_vectors(), which is also
+>> handled by trans_pgd_stub_vectors, but this time VBAR_EL2 get set to
+>> __kvm_hyp_init_X.
+>>
+>> From that point on, __kvm_hyp_init_X handles subsequent HVC calls,
+>> including the later call that redirects VBAR_EL2 to
+>> __kvm_hyp_host_vector_X during KVM setup.
+>>
+>> The memory containing trans_pgd_stub_vectors is freed later by
+>> swsusp_free(). That perhaps explains why we do not see any crash.
+> I was trying to figure out if we end up initialising VBAR_EL2 before we
+> "return" from swsusp_arch_suspend() and free the reserved pages.
+> However, it looks like we run _cpu_resume() instead of cpu_resume() so
+> I still can't tell why this hasn't exploded. AFAICT, the active hyp
+> vectors will have been freed (and possibly poisoned) long before KVM
+> initialises.
+> 
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-index 2c8d2ab8cda1..8e129b1bdbbf 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-@@ -174,6 +174,11 @@ m25_eeprom: eeprom@0 {
- 	};
- };
- 
-+&hdmi {
-+	/* converted to DP using STDP2600 */
-+	ignore-rxsense;
-+};
-+
- &i2c1 {
- 	pinctrl-names = "default", "gpio";
- 	pinctrl-1 = <&pinctrl_i2c1_gpio>;
--- 
-2.47.3
+My apologies. I managed to confuse myself (but hopefully not you) with the
+order of operations. Indeed, swsups_free() happens *before* KVM initialisation
+which eventually happens later via syscore_resume().
+
+I can now reproduce the problem with CONFIG_PAGE_POISONING=y and page_poison=on
+
+# swapon /dev/vdb
+[   55.330849] Adding 2097148k swap on /dev/vdb.  Priority:-1 extents:1 across:2097148k 
+# echo test_resume > /sys/power/disk
+# echo disk > /sys/power/state
+[   62.534444] PM: hibernation: hibernation entry
+[   62.578411] Filesystems sync: 0.021 seconds
+[   62.579550] Freezing user space processes
+[   62.585909] Freezing user space processes completed (elapsed 0.005 seconds)
+[   62.586835] OOM killer disabled.
+[   62.588332] Freezing remaining freezable tasks
+[   62.591318] Freezing remaining freezable tasks completed (elapsed 0.002 seconds)
+[   62.593983] PM: hibernation: Preallocating image memory
+[   62.972326] PM: hibernation: Allocated 25745 pages for snapshot
+[   62.973119] PM: hibernation: Allocated 102980 kbytes in 0.37 seconds (278.32 MB/s)
+[   63.011607] Disabling non-boot CPUs ...
+[   63.021633] virtio_blk virtio0: 1/0/0 default/read/poll queues
+[   63.025486] virtio_blk virtio3: 1/0/0 default/read/poll queues
+[   63.035080] hibernate: Hibernating on CPU 0 [mpidr:0x0]
+[   63.039859] PM: Using 1 thread(s) for lzo compression
+[   63.040459] PM: Compressing and saving image data (23314 pages)...
+[   63.041558] PM: Image saving progress:   0%
+[   63.247947] PM: Image saving progress:  10%
+[   63.455279] PM: Image saving progress:  20%
+[   63.619264] PM: Image saving progress:  30%
+[   63.785097] PM: Image saving progress:  40%
+[   63.924669] PM: Image saving progress:  50%
+[   64.018580] PM: Image saving progress:  60%
+[   64.116893] PM: Image saving progress:  70%
+[   64.286410] PM: Image saving progress:  80%
+[   64.490785] PM: Image saving progress:  90%
+[   64.618506] PM: Image saving progress: 100%
+[   64.621388] PM: hibernation: Wrote 93256 kbytes in 1.58 seconds (59.02 MB/s)
+[   64.622108] PM: Image size after compression: 32298 kbytes
+[   64.622702] PM: Image saving done
+[   64.624592] PM: S|
+[   64.777608] PM: Using 1 thread(s) for lzo decompression
+[   64.778448] PM: Loading and decompressing image data (23314 pages)...
+[   64.779237] hibernate: Hibernated on CPU 0 [mpidr:0x0]
+[   64.877435] PM: Image loading progress:   0%
+[   65.172066] PM: Image loading progress:  10%
+[   65.273214] PM: Image loading progress:  20%
+[   65.345142] PM: Image loading progress:  30%
+[   65.454007] PM: Image loading progress:  40%
+[   65.521889] PM: Image loading progress:  50%
+[   65.595804] PM: Image loading progress:  60%
+[   65.659942] PM: Image loading progress:  70%
+[   65.720256] PM: Image loading progress:  80%
+[   65.788729] PM: Image loading progress:  90%
+[   65.851162] PM: Image loading progress: 100%
+[   65.852057] PM: Image loading done
+[   65.853050] PM: hibernation: Read 93256 kbytes in 1.07 seconds (87.15 MB/s)
+[   65.900987] Disabling non-boot CPUs ...
+[   63.012805] hibernate: Restored 0 MTE pages
+[   63.012805] PM: hibernation: free pages cleared after restore
+
+... hang here ...
+
+GDB shows that we are executing code that looks like it came from the poisoned page.
+
+Program received signal SIGINT, Interrupt.
+0x000000004d158000 in ?? ()
+1: x/i $pc
+=> 0x4d158000:  orn     x10, x21, x10, asr #42
+
+With the patch applied I do not see hang anymore so you can add
+
+Tested-by: Vladimir Murzin <vladimir.murzin@arm.com>
+
+
+> Speaking off-list to Mark R, he pointed me at some old rework he had for
+> all of this:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
+> 
+> one of the patches there is very similar (identical?) to this one, but
+> his series gets us to a point where we _do_ resume at cpu_resume() and,
+> tbh, the whole thing ends up making a lot more sense.
+> 
+> If somebody could dust off that two-year old (!) stack, that would be
+> great.
+> 
+> Will
+> 
 
 
