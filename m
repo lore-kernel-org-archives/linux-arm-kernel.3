@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEA6C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989BCC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 13:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZHue06ttO7W/vGqVbXWmhoXrVl0ujlXMWK0E0DYjQQ=; b=LKTCaOo0pXaxOLeyRQVBZ+vqRD
-	attFJ3fg0G/yU6qM2iD3fxzgoASIAZ1se50KPtG/yg1lm6Wpnkr2FPaBqMF+prDzNWogy8GSfCdPW
-	1JoViJJvd7F3Ezumvaxd+Y51tHcxD/tR/jFJa5dJtNBOoOQ4BIGLlCbwjEoJJfLKQh0xqdZ6L22jJ
-	HDNCbgI400miQl5bMUDT8F+1hNLUJHTbfoLPWFYlSaoKvZDXNd2IKOQur6ndQDagcZSgYgI9G/fde
-	fqDLGWjv8TqMzeG/ORXB/ya9+L5rYfSKRloPjnuzM58/BEiWZ3dE1lmham0DBz6pOjb//AKNbmiMl
-	tzzQhc7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpZHhDtMEGc3JLMXKQwgWRW08IpO1s/vNjepdgWkdhs=; b=cBfdV+0C5LBfwIFT6DeR5YARy9
+	ja/VScWY+MGc+shujRGKQ24cEfHE9Z8A+EcWnoWdmZhl490nqwsYQotVtsKF1G8DTZkfc/qFdSmVr
+	IN9LDJC1RdoNC3tQu6QcLjlxTvzGhlavKErFrLd7JUdCyO0IXOIUxCz4ZXNtSzu/TxH9PQEbnO37s
+	P5J1iyKSwKwsn+U+TCSnay+5h+Vk07U8uoJRkutH6tGq7WB29E3MPgMMMUjmCBl2MXHLweewFEWiu
+	fkIBpbpyc54lFYQdhk1crUoWkAb5BlbXbWOJIeKVGecbbsH3uqmnvfqwdoocprlSDCRNeVnA4MyqC
+	A9Yhv3Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kpv-0000000EmiW-2KnK;
-	Wed, 02 Sep 2026 13:17:07 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1x1kvZ-0000000EnA7-3smm;
+	Wed, 02 Sep 2026 13:22:58 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1kps-0000000EmhG-1S09
+	id 1x1kvW-0000000En9i-2qM0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 13:17:05 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c2544ff970dso140665866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 06:17:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788355022; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QwqXBAb595Q22XluSDU1HpSdnUsf2ECeM2TzdbwrZ8pyiEDl4NRpXsW3nJ4sdsYugs
-         8dNctiXJfqscbsWi53oz0l3+3Uu+TeRfc6FuimfZ+SsOx1IWvkXdt9c5IoZHi1dboCCv
-         efQB77UANm9i674PzA9QoOJuwUXggvZaf2F4w2r26gL44kH8hS2BePR4HgijhpE8yWFd
-         MSWiJtbLU5GJG2U352/ynwIsthAB/zQZdqwekbg9WG1s4lTtqVCyIvr7rMcj9VYnYs8P
-         jrgjgUDcZFuX4lBY+4ueWLCfzpbKbejdzY7/rzYGQVqmOOlrh1ZCgawFBa0LZ3GSlxLw
-         UrsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KZHue06ttO7W/vGqVbXWmhoXrVl0ujlXMWK0E0DYjQQ=;
-        fh=680oKj0uOw19WbBsGd27zdPirPHykwo7MGzeZekxBic=;
-        b=Sh3SODIDlzyNSUHegmmeIdtbxjDuZFlryMLT2m8Qz9Xv2WyWIQ9fVMAh5WMOr/lYvJ
-         4cLKHrZKzZ9poQ0f2EWD1qiYvibiQzT+Z8h6KKnwtSit6u2RKZVu2sQ8d8nCL1T6wkwi
-         d9/mbibxdU14RzzA2PV6Ix42ZUpkpLVDXUSWA63QE3b2HRJNUs75EAhnTQvnrzApA+9X
-         2hWN+Gf1T7YUn1H7Z/FtbHKMzCHP9CfKSCfGPF+UEjhIAPUx3wGqkpFQBOYfAM3b1Xj2
-         yqqRs9+7WN0/kjSLszT3GaJk6MZKxlycR7AAaGb1YSVfwKMtBpMF3NZfYy8H717AxZQY
-         475Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 02 Sep 2026 13:22:56 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c252c7270faso147714866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 06:22:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788355022; x=1788959822; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=google.com; s=20251104; t=1788355372; x=1788960172; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=KZHue06ttO7W/vGqVbXWmhoXrVl0ujlXMWK0E0DYjQQ=;
-        b=j5Wl3LHykxe3UaOrxBm5sqBXmma302icRcdtggndegdLzoxLfuL9SJN3snYLc2+uV4
-         fGS7f//8yehlz5mjaO0Mj5NNxmlkNTIGxIGXMlEpA7csWeFvKvpeA9PTaWAqu2bNPev/
-         nEc22RvIDgxcMpjhKBwXVw3rgKEYiBwuVbNH4UTwZrtiErW3i6qsTxQDlYxomukpEt5M
-         tGhKIivkaQllyyjY6aqNJBenVopwf9OM+UIMmVQpxrVG4xB+J5xWdxlZQe5EuT1O/9vP
-         jRpT+FnhMZ6nAX54t7HiH47+375byuqBdwcvPUd45H6DYrv/tEh3be7Rg8/0kiFmnT1E
-         r35A==
+        bh=UpZHhDtMEGc3JLMXKQwgWRW08IpO1s/vNjepdgWkdhs=;
+        b=U0yDR7HqOcH862EuXR50Pw1spm1gDSS1PlzUihie50rNlwBL/7DY2b29+PvWOzW+Ze
+         pn7GKMR6Fw5WvDzA+eJ8xBrzKEfWE25L9e1UTVoxT4BlDdIqt+ooPqV24mQEdScQ6aFK
+         q1RQ6IX1MnROVb3L5S/aUt0wBQqh3fsqGaz49gX5YvsGdyds44E3q6MdhakgjmsR5fdY
+         MdwdnC5FyyFb+L4ISVst0ZhWiKjXlwc8XBVzVqZFc5Tb6tWgRB9N99F15kkMge5IH9uP
+         DOA7UwwbojHfGiMJ6cQH61l/VELDzd/HGlcJcXJvgTPYpw0dUgoFWGbaq3q/LAPWpxyg
+         oIHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788355022; x=1788959822;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1788355372; x=1788960172;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KZHue06ttO7W/vGqVbXWmhoXrVl0ujlXMWK0E0DYjQQ=;
-        b=VzI5sCwbialrYQ7MI24JBku+D54IB1caBOYxbsm/TvF38qT/GnTugspiqjDWaLaCi4
-         KaC3c3C79rvIwgeSS8W61ei0JPigDAPOeWm4qwfi79hJVHVNiJsciVrkffgksKrArDCM
-         Q5DtKJUP1nZi4W14LxzX2w3Agrn4J8o3N6xswGS93tv1jMmS8hoj2AWjQCcIZ4d9ywUO
-         rZUJ3uYbCup+E3btK4JVycgLmqqECx9YKH6pErpu5A3PcAzuygVEDJnhkxmJlh1pKzP2
-         2ZjqqyV8Z7JZ0jmOQslRqM3u7UPIZ7Xd8lEvDh0I/Znh1EVInuwwC42hU7YmmIS2MQuu
-         ImFA==
-X-Forwarded-Encrypted: i=1; AKwUvBzghJiYxdz/k63DLgvSX5zZkd6UAqSe4Bol98uKuPX4In0bqv02tvU2GObi2ONNx8mrQhVNaUord0RbpJY6PIWd@lists.infradead.org
-X-Gm-Message-State: AFuF++lGXk8m97zmACdBybREYmeODW64G94iyTdwX4fftXAYlQIRok/W
-	oT3nWUzgz02sNjvlv/hqAaTIdn90ErnixN48frjPfViQtUL8NCRsJGxaIdVxL1PG6OzX7GKZ5TJ
-	fg3mqgYLSsJKfEg2soQOV674c2ZFYbzA=
-X-Gm-Gg: AYBFou2I/cmyCkSqXT/yDkT3zu1AZQR3OQeDsgIahhKmEC0s7SM9H/BfaY8dKQ4//jt
-	Q/u7xD+BlWLkUN7o95E2FfiG9C/bdc0rOnESNKq9KOdvtU1LWidUfYqahBWbu/V0ZtiTBvLS0o+
-	xgznJxjirjldyfsSxFOBEUpfivZw51wzS06J4ouyL19NHZh6T13E0Z1swnVRKHkaHr7CrIC22iU
-	pXkk/qtRnjwrHRYc3K7Y0xMdnH5IqdQ9LVj7w12Wowqg5sVvnA87WXx2f/Pje+tJ/HhuK6UJ6gd
-	zrbR2Td1ONPVDSrjw+u6L4xF5KVC4qyjRr80QOxEKpNH6FhZ1SOC6LP+8Y+PRUWC8UII2/BRTSH
-	LbFh/6eHRWGOBtYTgTQHBsGvp3kAkVD7Nfs9P/7Q7ZL+dBd98sLJTwHE8huVraOs=
-X-Received: by 2002:a17:907:d38b:b0:c25:8c74:71ea with SMTP id
- a640c23a62f3a-c25d5287112mr273668066b.4.1788355021756; Wed, 02 Sep 2026
- 06:17:01 -0700 (PDT)
+        bh=UpZHhDtMEGc3JLMXKQwgWRW08IpO1s/vNjepdgWkdhs=;
+        b=AJbkyhLESq/HCI8xGoYN16TpX1GVMgcxBjZUxbZeSZQ7bwVcLI/o25hdn3iEph1Xm3
+         CVjYnd1IwOSWzBS3DxqVXKzTFqfVvLUNwBpP1I9+awIXOpnRlvu1yLsekeX8G1N1Rv0S
+         JYNUySO/2/kRpxZMWFKoEQfU2L/ILNdccrewF7916JT+pRf39SG+/Zpi2jObMQe3+aFN
+         p1nib0QecFpynT3YKdH9bv5qaLEaf71MvijvmCzDXmReITaDLHBhI4j6ty7r7HiVq/We
+         fiKM+7INm/sWCkYs0aQ2WJv3lR0t2DEX1UM3rpo6NqUYGXQgSVMW5kP1b1K09sPQOJky
+         WLsg==
+X-Forwarded-Encrypted: i=1; AKwUvBxNfkT5zVexN2bq/4fyZo7S5YxBQt3dQlBeHjJwscP9/2slk7po5alZUUQbjsGjSnM9/4MLI7AFA4dwgK1RqilW@lists.infradead.org
+X-Gm-Message-State: AFuF++lKHEq+BJjjRZo1moy+BA4MlMSDifjyoMyT0SKybpvMQT0QMGuj
+	Q2ZPE4ANLq8PRMWiRIdAk/DFfTz7NdplqPvqeImh6/bwbVAfPk3FcF+IB7hglYjjIQ==
+X-Gm-Gg: AYBFou3EQl957rPd2NBh+p2jR4trxGxz2c12qjBLJXQ94yqt5u5/09uouL6LKcNrQzH
+	OEG+IQpkd2uDOZNUyqVD3oZSGxkthbbDA0C/c9SXx1dc3JUYp0Ep+HOjIBebMxdddlRBkSo6asQ
+	8Yury/m7gMdFdCeBhbDCuGwn2kdrU5gi/ggO9V3BR9GDZPlfIA6Xpjdy4490+yXpX1G3qAGRrGt
+	kc+HthgHSIvAFTChg9Sp0Mqtjk7zl8eYUCS+/IgNtGnWZH6hmm8eYhRFp/8S4J9q7IDWcf0lx8R
+	KsgsMh6gqUtRp6TpebzGx4PG9EiWwMz2Tg+psHEYq6JeLbrguUsRWBOR/HFmTohkfcaDCT6Js/q
+	h7ihcFIETEUr+hNn5RLrXhOCWW3IPA0xvVPbgr+nTPQRSWM7YdyWUdLUNwsuQFswLQD5pv7YALA
+	G9SyVI8sCw+7AVlLICkkUeomolQhSZKOdXocBKQnq5QqhZrGkcHwi/H+TqO1Wtr9zFX0KVlWiMn
+	gRhua9RGU6ZUCNNqU3nrXX5sOEonEYe
+X-Received: by 2002:a17:906:ba8b:b0:c25:c14d:1c4d with SMTP id a640c23a62f3a-c25d52b2913mr236962466b.7.1788355370944;
+        Wed, 02 Sep 2026 06:22:50 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c25d042efa4sm131923066b.56.2026.09.02.06.22.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2026 06:22:49 -0700 (PDT)
+Date: Wed, 2 Sep 2026 14:22:45 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 02/17] KVM: arm64: Advertise the capabilities that
+ protected VMs support
+Message-ID: <apgjJVg0PmS3OudU@google.com>
+References: <20260831163421.272420-1-fuad.tabba@linux.dev>
+ <20260831163421.272420-3-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-References: <20260828-b4-arm64-trans-pgd-va52-v1-1-a66644372673@debian.org>
-In-Reply-To: <20260828-b4-arm64-trans-pgd-va52-v1-1-a66644372673@debian.org>
-From: Yury MonZon <yurymonzon@gmail.com>
-Date: Wed, 2 Sep 2026 15:16:49 +0200
-X-Gm-Features: AcwNN1VtfmfTbIoiDKjqPuoUjg950MVEE4mAz3ATKtFCufnsCk6vjiJLDipjCqY
-Message-ID: <CAKJryhb6Ey2tmTLPnPgB+PCA+0tDKX3fR=chH+BYijjeDjr38A@mail.gmail.com>
-Subject: Re: [PATCH] arm64: trans_pgd: clone only the linear map that exists
- at runtime
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-team@meta.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831163421.272420-3-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_061704_408438_05AF2C38 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20260902_062254_752480_4CAC04BC 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,80 +109,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I was trying to optimize that exact spot when I ran into your patch.
-Thanks a ton, huge help!
-
-Tested on Rockchip RK3576 (no FEAT_LPA2), 8GB, VA_BITS=3D52, 4K pages, load=
-ing a
-39MB image with kexec_load():
-
-  trans_pgd_create_copy()    2.231s -> 0.132s
-  page table pages                51276  -> 4110
-  whole kexec -l                     2.65s  -> ~0.42s
-  memory held while loaded ~300MB -> 87MB
-
-I did 5 kexec jumps, including images whose device tree is assembled from a=
-n
-overlay so the segments land elsewhere, all booted fine.
-
-before  2.416 2.428 2.466 2.635 2.693
-after     0.408 0.414 0.414 0.417 0.419
-
-Tested-by: Yury Smirnov <yurymonzon@gmail.com>
-
-Thanks,
-Yury
-
-
-On Fri, Aug 28, 2026 at 11:28=E2=80=AFAM Breno Leitao <leitao@debian.org> w=
-rote:
->
-> kexec_file_load() fails on arm64 if we have CONFIG_ARM64_VA_BITS_52 but
-> it runs on a !FEAT_LPA2 host (such as my loving Grace machine).
->
-> That is because trans_pgd_create_copy() uses the compile time
-> PAGE_OFFSET (VA 52) instead of the actual VA size (48 -- due to the lack
-> of LPA2). With the fifth level folded, pgd_none() is always false, so
-> the walk cannot skip the 15 extra PGDIR_SIZE slots, and they all alias
-> back to the same table: the whole kernel page table gets cloned 16
-> times, KASAN shadow included. Without KASAN it does not blow up, it just
-> wastes ~RAM/32 in page tables.
->
-> Fix it by copying the linear map that is the actual one, not the
-> compiled one.
->
-> Fixes: a6bbf5d4d9d1 ("arm64: mm: Add definitions to support 5 levels of p=
-aging")
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+On Mon, Aug 31, 2026 at 05:34:06PM +0100, Fuad Tabba wrote:
+> kvm_pkvm_ext_allowed() denies every capability it does not name, so a
+> protected VM reports 0 for interfaces it implements: KVM_CHECK_EXTENSION
+> denies KVM_CAP_ONE_REG while KVM_{GET,SET}_ONE_REG stage the guest's
+> boot state.
+> 
+> Allow the capabilities that work for a protected guest, the vGIC and
+> the I/O bus being host-managed, subject to the restrictions the rest of
+> this series adds.
+> 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->  arch/arm64/kernel/machine_kexec.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machin=
-e_kexec.c
-> index c5693a32e49b0..8f9bc2327dc85 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -129,7 +129,8 @@ int machine_kexec_post_load(struct kimage *kimage)
->         }
->
->         /* Create a copy of the linear map */
-> -       rc =3D trans_pgd_create_copy(&info, &trans_pgd, PAGE_OFFSET, PAGE=
-_END);
-> +       rc =3D trans_pgd_create_copy(&info, &trans_pgd,
-> +                                  _PAGE_OFFSET(vabits_actual), PAGE_END)=
-;
->         if (rc)
->                 return rc;
->         kimage->arch.ttbr1 =3D __pa(trans_pgd);
->
-> ---
-> base-commit: b8809969e1d7a591e0f49dd464a5d04b3cf02ab1
-> change-id: 20260826-b4-arm64-trans-pgd-va52-0bb9b44dd896
->
-> Best regards,
-> --
-> Breno Leitao <leitao@debian.org>
->
->
+>  arch/arm64/include/asm/kvm_pkvm.h | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index beea00e693a0a..c4c834d55e503 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -42,6 +42,15 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+>  	case KVM_CAP_ARM_VM_IPA_SIZE:
+>  	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
+>  	case KVM_CAP_ARM_PTRAUTH_GENERIC:
+> +	case KVM_CAP_ONE_REG:
+
+Shouldn't we bring the VCPU_PKVM_FINALIZED restriction in kvm_arch_vcpu_ioctl()
+first before we allow SET_ONE_REG/GET_ONE_REG?
+
+> +	case KVM_CAP_MP_STATE:
+> +	case KVM_CAP_VCPU_EVENTS:
+> +	case KVM_CAP_VCPU_ATTRIBUTES:
+> +	case KVM_CAP_IMMEDIATE_EXIT:
+> +	case KVM_CAP_IOEVENTFD:
+> +	case KVM_CAP_IRQFD_RESAMPLE:
+> +	case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
+> +	case KVM_CAP_ARM_INJECT_SERROR_ESR:
+>  		return true;
+>  	case KVM_CAP_ARM_MTE:
+>  		return false;
+> -- 
+> 2.39.5
+> 
 
