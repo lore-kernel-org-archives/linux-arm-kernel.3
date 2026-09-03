@@ -4,91 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA55BC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742E4C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UE7/jFAn49MwhEKSvcSISMlSrbk246mSQRE6/IFk4zo=; b=q2dRNUALRCED37cx63lkya/+i/
-	RHS4kp/buAtfrbMBzmUOoCxpEzfhtGEMX+dadnEivtogBbfmIK3hWIiOj9xMZfLgL6w8WaZkOFmGi
-	nOnCvvS8wZby4HbTA1Uw5B+8YzT3HkK0eAFW+lOHmV3szg8KSJu687K/kAbSE6O06c1nWJIc7S3tC
-	rCxI+KiW4jzuCtl4gx17tWmATmVTXKMJyw6aQHeBsJNuAr6fQEJF3mH+7+q4Ypy3vCJL826fGxstF
-	GPYD1eY1z7/yoGVtCv9J6A6T7qSOJADe/DPm+AW01hYspT8+zEwpKQcRseQibGBzdUsQE3MGG1lSa
-	ItcOObgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yishPGcJ2aBgX8f7/aGf43YSeYKU1vTSOdEz/UOhz0Q=; b=I3bnL6t7mOZ4msgt1jtxrtcy7f
+	3rwWjyLQwroxTCT0F7+JENVQ98MAX5CO262QvKJ1pzZnS+KWZI3JPqxbkEd5VxgmoZf87QTrg+q28
+	RROt0i3oaEshp3kakkMxJ3dxkFm5afzL+d6ulrGYu59rM17vvRbovH4yblBdReVXyCLz+6VltNOTb
+	msAYSWvHA+/N/g8NKsORhdPYCoa2V4U2WGMtXVIEJVtH5Pkf0OHzVnz7bhQ7vD5ehFto0vosQY3/L
+	maHL80XOPaaig6Jp949RJsPjpWYQZosAfV3LK8NEyPSQ/JIDi2YEVEM6Vyv6JcOfJAyp6/+4jCVpT
+	QSs3jGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28E4-0000000HUcC-24pD;
-	Thu, 03 Sep 2026 14:15:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x28JY-0000000HV8N-0mYZ;
+	Thu, 03 Sep 2026 14:21:16 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28E4-0000000HUc1-06EV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 14:15:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5C2B960A58;
-	Thu,  3 Sep 2026 14:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D311F00A3A;
-	Thu,  3 Sep 2026 14:15:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788444935;
-	bh=UE7/jFAn49MwhEKSvcSISMlSrbk246mSQRE6/IFk4zo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IxGr5sBnn/BwgE3c1VWnCfnxjrsAJuxl6sS3JZPalmfVbK70Gd/6kgMHNHOhPAPsr
-	 71SOs/AVXOFPUxbrpSaLULvAh1tXLYtFaiaV0fW0tib648YorOAYydvNN+EsN20iSg
-	 iLtRcbb3rvgYmuWxiYwKixfClalVCe1qrnvL1+y/C02/9sPaqBLo1Fa84lSOzMLkHm
-	 gAe7m4Oq7AptlmGcCe+xPrs4s4ujkKj0J8cMW6IzBC24+EuSMRUowzBA69n8cbIcax
-	 pdAOIcbsP1OZWWcUq/FkYAtJttH5dosnQmcGT0oGB+Tzw0kYys0oZOFBARH7cSW0xt
-	 OUqFLkjN4RXzQ==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 7E69D1980050;
-	Thu,  3 Sep 2026 10:15:29 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Thu, 03 Sep 2026 10:15:32 -0400
-X-ME-Sender: <xms:AIGZaiLscKq84t9mQusL2tubKQctaCsE3fjku3XF92kPgOyQtKqJbA>
-    <xme:AIGZaoqr828WVqa1-2HBI11GpmruKAscwOkyF7b3V36-kGmsNBp1zgFZJhv42vXq7
-    1OYfkj-9z_50TrcNX-cUDuZKdbQBHQAkN4BXEzMj1RGWQ__Xn9tpRt0>
-X-ME-Received: <xmr:AIGZao4-BwLkjwwSxsKhktDFDp3hG9NL_nJ_oR68RGw4aqO5E2QwHATxJ54>
-X-ME-Proxy-Cause: dmFkZTErKF92w5SraCU0RjI5fWKGdJ1jFpZ8UDsC3ehiQy3rh+22MaN3Xc61sskS5EqzAB
-    r022D56DV39ZXrDjT4BaLM5p2OKuCfmU4aE3hvk3pfG56CK5K+YYs7WUX3RnPQ3qZ5Zq0D
-    pm+z4LI5Mynpo3TfH15iJ6+cHXlprfVp+KQg/zi+rQ1kN9NUx7Xam52RAMWfCPdSW/tP9h
-    sY3vahhqM6g9Ih5HOISLJjA1RqCvxztgIy7Lz2rbXMUF6ShZJJ7JZjM+lADeaz2cCAWodq
-    sYLdYR54UTFkDktGXnSaDFaBd9bSdPWYtIRCSR+ZZX6ACDp9EVxYffNHoadIlURNvITFQ4
-    LEPimdr/p7nz4uTaLDQzPPBVlGqoa7x4Wz8qBCa7tVrjsIe/76PKLAn9FrLx2EdN28S07B
-    pi1u9kc8nLHK3T04HZc7dgXpt0KFgX0IjAkXDMlR10EU2p0MUXMyGo11jUQwVRDR68JVdZ
-    FkuDT4uMnBsOb4HOEOsaEuiUzBH5N7x6w1XMnNAJCCPtFEPPWy9QU9OKb/AUAjQVTppQjw
-    NQWU4Q6wXLbMBt+Qzv4iOrVjiChQ6LhZ9ACIWBNGn7ml//LmD7ocKFqH0pv/0nNTz7Gdod
-    f7CRh0u/5iL9sVq4ghKd0/2fHBvfvoohpfxYwQJv8jzqdTI5yM0welR2woAQ
-X-ME-Proxy: <xmx:AIGZasLidSv0DXFxh5JPvrH5Ux1qY_aQl4u22nbqCF9GZ3kucGim6A>
-    <xmx:AIGZanj3AtD1m37ZXq-jKYDCRqWooy_CblfBEDB6TmhDV7OkK3MKwg>
-    <xmx:AIGZamE06pqtIuoh4IP8aQr-5RT7BbR0q5gg9Ole010yWLx2NRa7WQ>
-    <xmx:AIGZahK7njsyz9hMrYSumJcVgs6cd7-LBvmsCrhVZ6tx29XgaE3zGQ>
-    <xmx:AYGZau-96BT_qVQxXb8inT1hClOKq08StbYnWVF-ykZPH1tJdu53fNbT>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 3 Sep 2026 10:15:28 -0400 (EDT)
-Date: Thu, 3 Sep 2026 15:15:27 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
-	Usama Arif <usama.arif@linux.dev>, kernel-team@meta.com, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] iommu/arm-smmu-v3: Add a cmdq_entries module
- parameter
-Message-ID: <aplvJIuarj_ZrAx9@thinkstation>
-References: <20260902121724.3494954-1-kas@kernel.org>
- <20260902121724.3494954-2-kas@kernel.org>
- <aphbV1FSoop1YGOQ@nvidia.com>
+	id 1x28JU-0000000HV7V-1FPj;
+	Thu, 03 Sep 2026 14:21:14 +0000
+Received: from omf05.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 0EA638028D;
+	Thu,  3 Sep 2026 14:21:08 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id 1F52B20010;
+	Thu,  3 Sep 2026 14:21:06 +0000 (UTC)
+Date: Thu, 3 Sep 2026 10:22:09 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, Chunfeng
+ Yun <chunfeng.yun@mediatek.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH] USB: mtu3: tracing: fix pointers dereferencing
+Message-ID: <20260903102209.7aa79164@gandalf.local.home>
+In-Reply-To: <20260804100531.88576-1-m.szyprowski@samsung.com>
+References: <CGME20260804100540eucas1p24c59c891e91eeeeea8032d1c80312ea3@eucas1p2.samsung.com>
+	<20260804100531.88576-1-m.szyprowski@samsung.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aphbV1FSoop1YGOQ@nvidia.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 1F52B20010
+X-Stat-Signature: bbffphg7oxa6e7rpsgix55ra4nbtu7w1
+X-Rspamd-Server: rspamout07
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/iTf2W3ORymql+pkUYrTwc+8yFoyHdvsA=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=yishPGcJ2aBgX8f7/aGf43YSeYKU1vTSOdEz/UOhz0Q=; b=OeTVx8p2lxSQogYJ26E1ZhG3n3KKks5OHbZci2y9SKKWyKD0Rrldj5ZjxLjBpvlDgdpkm5WgLfgbRKajQHCn2eD55bDuEuD4vBO8hpYWi3QdZYLkGtNvz509LeLzEkfa+1qCbnN5wnYFCPj56e/Oqa2C65ipdz0ZqHjz3atyD60=
+X-HE-Tag: 1788445266-583183
+X-HE-Meta: U2FsdGVkX19X7ugC+vbhQ7lmiL4dr1fOYRS9OljPxV5GOhRyMDiZnXFW++NBw5Xkzwgds5f0z5EsyCnNZw8p/UQpt8MK3ohX44nVVlpxESuwo2n6R7Fgm/2eWaSnr5LaeeW5H62kssDdqx/CngttlxmQiA+OszTXiz8C3KLm830NrLGUsrzz6x/lhTlxQelVPtn5U5OM/0SsHPk/JgA93j84x8gXz7D1aHVfOw91L2ostFcRYo3YllfTi9E8odywsm12vTfc5sjM+gXBJ98r4n6PbSsH4uU52wmAIMpo7PcpVh6V1YOjsJ9xHsyola0bEuLv9WGO65W8TKj++sINsyXY6Z3CnGmfY6irKnL0jdnhD1SZD0sSfSX3/ryfM7N9WQenyaqo4uEcsuyuvDlQ2Q==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_072112_512996_E7442812 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +72,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 10:22:31AM -0700, Nicolin Chen wrote:
-> On Wed, Sep 02, 2026 at 01:17:23PM +0100, Kiryl Shutsemau (Meta) wrote:
-> > +/**
-> > + * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
-> > + * @hw_shift: log2 depth the hardware allows, capped for natural alignment
-> > + * @ent_sz_shift: log2 of the queue entry size in bytes
-> > + * @want: number of entries asked for, or zero to use @hw_shift
-> > + *
-> > + * @want is rounded down to a power of two. It never sizes a queue below one
-> > + * page, because coherent DMA is page granular: a shallower queue occupies the
-> > + * same memory as one that fills the page, and arm_smmu_init_one_queue() stops
-> > + * shrinking at a page too.
+On Tue,  4 Aug 2026 12:05:30 +0200
+Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+
+> Commit b5cc230af5e5 ("tracing: Warn when an event dereferences a pointer
+> in TP_printk()") added a warning then printing an event dereferences
+
+            s/then/when/
+
+> a pointer, because it might be already freed that time.
+
+                                        freed at that time
+
 > 
-> Well, since we want the cmdq depth, why not name the parameter
-> "max_cmdq_depth"? Then, no rounding and more straightforward.
+> MTU3 driver is one of the drivers triggering this warning. Fix it by
+> storing also the DMA address in the event structure to avoid
 
-The max_ prefix is better, thanks. cmdq_entries does not say it is a
-ceiling.
+        s/also//
 
-On the units, the page floor has to stay whatever we call the parameter.
+> dereferencing gpd_ring pointer during event printing.
+> 
+> Fixes: 83374e035b62 ("usb: mtu3: add tracepoints to help debug")
+> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> ---
+>  drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+> index 89870175d635..b24c6411a8cf 100644
+> --- a/drivers/usb/mtu3/mtu3_trace.h
+> +++ b/drivers/usb/mtu3/mtu3_trace.h
+> @@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>  		__field(unsigned int, flags)
+>  		__field(unsigned int, direction)
+>  		__field(struct mtu3_gpd_ring *, gpd_ring)
+> +		__field(dma_addr_t, gpd_ring_dma)
+>  	),
+>  	TP_fast_assign(
+>  		__assign_str(name);
+> @@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+>  		__entry->flags = mep->flags;
+>  		__entry->direction = mep->is_in;
+>  		__entry->gpd_ring = &mep->gpd_ring;
+> +		__entry->gpd_ring_dma = __entry->gpd_ring->dma;
+>  	),
+>  	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+>  		__get_str(name), usb_ep_type_string(__entry->type),
+>  		__entry->maxp, __entry->slot,
+>  		__entry->mult, __entry->maxburst,
+> -		__entry->gpd_ring, &__entry->gpd_ring->dma,
+> +		__entry->gpd_ring, &__entry->gpd_ring_dma,
+>  		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+>  		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+>  		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
 
-Ask for 8 entries and max_n_shift comes out as 3, which the
-CMDQ_BATCH_ENTRIES check in arm_smmu_device_hw_probe() rejects with
--ENXIO. The floor gives you 256 entries on a 4K kernel instead of a failed
-probe.
+Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
 
-So log2 removes the rounding but not the flooring, and the number asked for
-still is not always the number you get. I would rather keep entries than
-make people convert.
+Thanks for fixing this!
 
-The rounding is not silent, either: arm_smmu_init_one_queue() already
-prints "allocated %u entries for cmdq", so the effective depth lands in
-dmesg whichever unit the parameter takes.
-
-On the name itself, "depth" reads to me as a number of entries rather than
-its log2, so max_cmdq_depth=8 meaning 256 seems more surprising than the
-rounding it replaces.
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+-- Steve
 
