@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78299C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 23:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF58C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 23:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YzkNSVmu73Wg+xMwKSV7/J3QFwDq8+WVAzCbtfpU41A=; b=JsOe2WmQMr5tkn
-	byfvXRh1DhLVHknJN8RGWvEMz95vWQCfz920G+3seOJ3puQrzNbJrmLbtIa9CETAJm3q8pNCxmJCw
-	JxwATWC0zpMxcTLLsnvisIhtwY1P1Hcpb3dVJxm0r+8tqLx3t/AUzeEgwf9gMyQ7fymcWRexeoXlU
-	fcz/uuOmDUgtMIx7Dyzltu/zLx4/uOKZ2sg6bRrwOhSi9RbsdM0olBkGknh/5wOgOT6HWj/Rc2rsL
-	IL0hFFTqcLjnPjx03U+TzS9QpsEotNKFQ0xDrqdENFtmir+O8HgRc9lCSOm18NjWXAt45Z0slp0R/
-	kvHdeIiyLfZB+BwnmGJg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFXug7lt8O1DzPVNSLJUroR3QNnmHPKu1MT97rRTHaI=; b=OrtkIQ2jNPPNqeFZtle++qoQZ/
+	E5LPxx6YkaYpz/fI7tZh1ep+3JsTY8R7KfJpGxUMl93Azu7mjhs8413PkwYPXW1M7t62u41GDA1wG
+	6OXTxxn40Dq7PQAgapHPQ3AXqqvbqgxGJsO1vmXS6Zff9FGeO/jUyxeDBAQctrJKaK9EiuUGhzwpe
+	L1SquuXlohHjjb4dRMv470UNdPyA1HhM0Ez/6A2OYjY9s9wfiO8/1S2YpU122wQzxa30GhVaGIiU+
+	Z/AvJm3ADD7YMbr97jPxlr0Nq0YgJhuCNEnzYWcsh20pHS2MqeheU7QcjF0e+9nGJDAfB1yocv9pk
+	guc0bUrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GfS-00000000l3N-1GG4;
-	Thu, 03 Sep 2026 23:16:26 +0000
+	id 1x2GfV-00000000l48-1jRj;
+	Thu, 03 Sep 2026 23:16:29 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GfR-00000000l3H-104x
+	id 1x2GfT-00000000l3f-2xkd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 23:16:25 +0000
+	Thu, 03 Sep 2026 23:16:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69D2E40BC3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DBCD43D3B;
+	Thu,  3 Sep 2026 23:16:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B86731F00A3D;
 	Thu,  3 Sep 2026 23:16:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53611F000E9;
-	Thu,  3 Sep 2026 23:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788477384;
-	bh=YzkNSVmu73Wg+xMwKSV7/J3QFwDq8+WVAzCbtfpU41A=;
-	h=From:Subject:Date:To:Cc;
-	b=ZimDhuxIWEmdWVNEsbR7+NVKKoiKvhETMmtTv//OPz/xTShu3AvNPTAq5t18ukNOq
-	 jywIOAY/HgZai7tut5ht08FvumtFWKJWCkZkSQphgkaHe72jlgQTPmwo5wzE36yENH
-	 ThMoix0IQ2oJoZUx2tcEpq34eSoId0WtRx9vHTTnDBNOjABzxfhSgv+GMS8OGguG4x
-	 n0c5K4Oz+wxoMzqj9SWgvUdYnnI6VZ/av9X3wV30VgHy60ukiacCVxM7ejXERdvgjJ
-	 nBpV2miOyBEndKdtYq9rCY3kTfxRkhgIvulcu2fSZSj90MlVOcChII7okwIJVjLDDy
-	 pyasgMg8rEDtQ==
+	s=k20260515; t=1788477387;
+	bh=IFXug7lt8O1DzPVNSLJUroR3QNnmHPKu1MT97rRTHaI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Nt6kkVtA9GEBFnhLv5rntBAtwXiFyMBlvFGneZw/deS78alUdT3x0vc84DvuE403a
+	 uYiwheisInO80mYHppExAc6Zy7R4U+I/XABcMKLEmvHs5OGKLL9gBAwBcZu9OeY7hY
+	 5OCUZHdO3MijyIG/RFROkPbbuIylJVBYpP3D+lERVIeu7jviba4Ey6g11LOwghh8EA
+	 EBGPqVCvxYPQiR/J3SUd8YAyoQ7X3cVs9TTl9jAilZA0SP9vDH883zV1pfZgbv00vs
+	 vJoYAj6df6fSDfny+y9THzsWSg6IYynIJkv7K68tx5TblDEwoYGMvgngW1CbAvtHpb
+	 gIIblV5JlnP8g==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 0/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
-Date: Fri, 04 Sep 2026 00:14:40 +0100
-Message-Id: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+Date: Fri, 04 Sep 2026 00:14:41 +0100
+Subject: [PATCH 1/2] KVM: arm64: Initialise TCR2_EL2 for nVHE mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGD/mWoC/yXMQQ6CMBBG4auQWTMJNKRWrmJYtPVHRkIlLTQmh
- Ltbdfkt3jsoIQoS9dVBEVmSvEJBW1fkJxseYLkXk2qUbowyPOeFbVx0xyFP4FXA3hntu/YyXmG
- phGvEKO/f9Db8nXb3hN++JzrPDwerKCJ2AAAA
-X-Change-ID: 20260828-kvm-arm64-nvhe-pie-cb86c417f9ea
+Message-Id: <20260904-kvm-arm64-nvhe-pie-v1-1-29d59f245e6c@kernel.org>
+References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+In-Reply-To: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
  Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
  Steffen Eiden <seiden@linux.ibm.com>, 
@@ -63,15 +61,15 @@ To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1213; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Kqp3K7FfT78LyAqnNA+N+3rE5LyP7h9v+UWaBdZW9L8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqmf/BrIDaGAlklwATNnNXtoreOYeo86LT6Bzc6
- 9DZsNdIAa+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapn/wQAKCRAk1otyXVSH
- 0K0SB/9H9SLSIF1wblTncMr48qmLLBv+ArWZx2kw3fXOEb4aC0/wV0Tuk5CUFiyxEODntvt6Utg
- zRKs0/1B7+C0AWhjMpfIVH8+79e1Djv0/zI/oL282624SXOAVICCqzZxf2qT428ExxqFqDprSmy
- gSRwm5U6BQx/JPu4rH1C3cXgRQ7Ei4rcA56OYrDVrzLjLLj5FEjXu9OBGmcvryWF36z61WeCfHb
- RGilypEQGg8MUDE5+hK/WLnU0WBwUuo/eb9mCIRgogjDQanPAT0llxmBKltbphyj9DCvuShGo5g
- Qi1Cnq0SRkQAnSxZuwieb8rz0aFKrWI7mqQHNfCjS/GeM4th
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3946; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=m2xwmDCjNgWapd/DEecgRupRw6i0Ywty5yfM9Aq18Uk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqmf/CUtTD7h0oTf9EXg27od/qlpYCgCmNjCV3J
+ HePuiZ+yiWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapn/wgAKCRAk1otyXVSH
+ 0ObDB/9hgGOVRyo/uPUF/+4Mo1doU0+FGEjbCtpUX7IaL8wc2xbegIwVwesJfM2K9Jilr7Lq+xf
+ lOWkYaTmbkh8fryhSLXwly8DBfAYcTAs21QXD008RptY5vkdPvKanUdT28OSIWtCVS7FRrOcPiy
+ KdOwzQXtgGTK/pSyNVWLsWcUkDfxMAyLTUbFhyykzeTLeYWz7vINz2x8h7CF2+Ge6la3HbrCdN8
+ J/YkHzlksjPXWTs+/8DQGEWPdoGTxqYqiTnZBxLonYQRWz21CvGCXhrPZe4B3iiv9jHvZhXuZOC
+ f6rSUxNkxOpjZO4I/rwhVu/k1JEPMmOtaaINHUml2bLhomy3
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,33 +86,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When Stage 1 Permission Indirection (FEAT_S1PIE) support was merged KVM
-was updated to enable it in the VHE hypervisor but we do not currently
-use it in the nVHE hypervisor.  Update the nVHE hypervisor to use it as
-well, as with the initial merge of the S1PIE this should have no
-immediate practical impact but it makes the nVHE and VHE hypervisors
-more consistent and will be required for use of features like D128 and
-GCS which depend on permission indirection.
+We currently only configure TCR2_EL2 in VHE mode, this is done in
+__finalise_el2 which only runs for VHE. While all systems with TCR2_EL2
+should have VHE support users may wish to run them in nVHE mode, for
+example in order to use protected VMs.
+
+Determine the value to load for TCR2_EL2 in C code in a similar manner to
+TCR_EL2, further patches will configure some bits in the register. When
+resetting back to the hypervisor stub clear all bits in the register in
+case something without support for TCR2_EL2 runs later.
+
+The only practical impact should be if we are started with a misconfigured
+TCR2_EL2.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Mark Brown (2):
-      KVM: arm64: Initialise TCR2_EL2 for nVHE mode
-      KVM: arm64: Enable S1PIE for nVHE and hVHE
+ arch/arm64/include/asm/kvm_asm.h   |  1 +
+ arch/arm64/kernel/asm-offsets.c    |  1 +
+ arch/arm64/kvm/arm.c               |  5 ++++-
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S | 18 ++++++++++++++++--
+ 4 files changed, 22 insertions(+), 3 deletions(-)
 
- arch/arm64/include/asm/kvm_asm.h     |  2 ++
- arch/arm64/include/asm/kvm_pgtable.h | 26 ++++++++++++++++++++++++++
- arch/arm64/kernel/asm-offsets.c      |  2 ++
- arch/arm64/kvm/arm.c                 | 13 ++++++++++++-
- arch/arm64/kvm/hyp/nvhe/hyp-init.S   | 24 ++++++++++++++++++++++--
- arch/arm64/kvm/hyp/pgtable.c         |  7 +++++++
- 6 files changed, 71 insertions(+), 3 deletions(-)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260828-kvm-arm64-nvhe-pie-cb86c417f9ea
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index e5b92ac09e69..eb796436d6eb 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -208,6 +208,7 @@ extern void *__vhe_undefined_symbol;
+ struct kvm_nvhe_init_params {
+ 	unsigned long mair_el2;
+ 	unsigned long tcr_el2;
++	unsigned long tcr2_el2;
+ 	unsigned long tpidr_el2;
+ 	unsigned long stack_hyp_va;
+ 	unsigned long stack_pa;
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index 9c853ed3ceab..baffe58015d6 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -118,6 +118,7 @@ int main(void)
+   DEFINE(HOST_DATA_CONTEXT,	offsetof(struct kvm_host_data, host_ctxt));
+   DEFINE(NVHE_INIT_MAIR_EL2,	offsetof(struct kvm_nvhe_init_params, mair_el2));
+   DEFINE(NVHE_INIT_TCR_EL2,	offsetof(struct kvm_nvhe_init_params, tcr_el2));
++  DEFINE(NVHE_INIT_TCR2_EL2,	offsetof(struct kvm_nvhe_init_params, tcr2_el2));
+   DEFINE(NVHE_INIT_TPIDR_EL2,	offsetof(struct kvm_nvhe_init_params, tpidr_el2));
+   DEFINE(NVHE_INIT_STACK_HYP_VA,	offsetof(struct kvm_nvhe_init_params, stack_hyp_va));
+   DEFINE(NVHE_INIT_PGD_PA,	offsetof(struct kvm_nvhe_init_params, pgd_pa));
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 8b080804bc90..88eb0459ad4b 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2158,7 +2158,7 @@ static int kvm_init_vector_slots(void)
+ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+ {
+ 	struct kvm_nvhe_init_params *params = per_cpu_ptr_nvhe_sym(kvm_init_params, cpu);
+-	unsigned long tcr;
++	unsigned long tcr, tcr2;
+ 
+ 	/*
+ 	 * Calculate the raw per-cpu offset without a translation from the
+@@ -2186,6 +2186,9 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+ 	tcr |= TCR_T0SZ(hyp_va_bits);
+ 	params->tcr_el2 = tcr;
+ 
++	tcr2 = 0;
++	params->tcr2_el2 = tcr2;
++
+ 	params->pgd_pa = kvm_mmu_get_httbr();
+ 	if (is_protected_kvm_enabled())
+ 		params->hcr_el2 = HCR_HOST_NVHE_PROTECTED_FLAGS;
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index 0b3e0b28dfc7..a39de9c20d27 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -137,8 +137,13 @@ alternative_if ARM64_HAS_CNP
+ alternative_else_nop_endif
+ 	msr	ttbr0_el2, x2
+ 
+-	ldr	x0, [x0, #NVHE_INIT_TCR_EL2]
+-	msr	tcr_el2, x0
++	ldr	x1, [x0, #NVHE_INIT_TCR_EL2]
++	msr	tcr_el2, x1
++
++alternative_if ARM64_HAS_TCR2
++	ldr	x1, [x0, #NVHE_INIT_TCR2_EL2]
++	msr	REG_TCR2_EL2, x1
++alternative_else_nop_endif
+ 
+ 	isb
+ 
+@@ -250,6 +255,15 @@ reset:
+ 	mov_q	x5, INIT_SCTLR_EL2_MMU_OFF
+ 	pre_disable_mmu_workaround
+ 	msr	sctlr_el2, x5
++
++alternative_if ARM64_HAS_TCR2
++	/*
++	 * Disable any features we enabled in case the next user doesn't
++	 * have TCR2_EL2 support.
++	 */
++	msr	REG_TCR2_EL2, xzr
++alternative_else_nop_endif
++
+ 	isb
+ 
+ 	/* Install stub vectors */
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.47.3
 
 
