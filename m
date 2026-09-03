@@ -4,118 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5F2C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60729C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edjXy2PN+mcza+3kZSGSQQ3aYOZGZOPTwjWGFZXSb74=; b=iTT7/DyUx0yzxc+IT+CjUSCvzw
-	6eqEYaCvhhGKNVxTI512RiXO95dxFeK7q+37stvo9yfePhYV18t+/0r9M/57tEcGolknTlF/XJa3O
-	PISf429alCPSZshmAL04by9rgC/IF31O8yx0+zYvaDAbL1z6xI1G/XOXhmGzg42FwMXyHkuStlx5+
-	ZrYL78MceSet/CanzqRzG8xKH/kmaB1WKEEKv7eR9TTPthsV9xqE1PVBAa3JZRL0KYmhQZFgT2zi+
-	5YvO8Ix4qw9M8dOvbJHACRJOqFMatobXishC7VW1HoM5ypg4Irc7iadxz1fLE44RXO2rxB66YScli
-	rK6e5eng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+NIOLbVSdtD9xC/mViEpaZph0MzATZYojJF4Y2F0Gjs=; b=WwaZz/PwCFcgyOe3lZvDQTegk2
+	aAsPCakywaM8uV2Wn8PpnoqadiOxIpPoHwc6S1vGJAMsuNdQzsmGgOP5KtR2/aeWMFuRGytDDMu1w
+	PVKFfuzSvoBurHMT3xXDP7sohuhzpRb9lQo1k4dGNwdc3HcqQ4yOCPye4HaL42y4amNOO2X+sRkqW
+	TOSnp6+upVMAcHke8zf7b0PhyxtigqGljwOPd8M8u7X5xvJzUhFRgtgsCy6XwnDPHux3alX/FvRhr
+	S0VpubKQK6PzvnBU7la2wKnQpzLOKA5RLji9IwmC4tFOuscCXINU9TZ7xrzf8lR4z6LOSINI6o163
+	pBJWmYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Am-0000000GqqO-06ap;
-	Thu, 03 Sep 2026 08:51:52 +0000
-Received: from mail-ed2-x00.google.com ([2a00:1450:4864:33::])
+	id 1x23Bv-0000000Gr5S-0oRG;
+	Thu, 03 Sep 2026 08:53:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Ag-0000000Gqm8-1XvY
+	id 1x23Bt-0000000Gr4l-3bYD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 08:51:48 +0000
-Received: by mail-ed2-x00.google.com with SMTP id 4fb4d7f45d1cf-6a5f79c6c4fso1026048a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 01:51:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788425504; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DLe8Ib/pjJy4VU2IbQf+gyb7CUGxtMcVU4GnOLCuIsIhb5I2/UNuBvqu9n9ZXj+L8V
-         DYaHa4tzA24ukWQEUJZInDVMs75x1w9s3/EwVuPBU2ULQ+ZwLyoZ5EjooJ6QJxwVULhV
-         wBi5QWgZ7a4bivX3nJpv1ICsKO9kmiXN+01lfA6tm50DlImVuJ83cRDN4GVUR4oU6YEL
-         nCoJcHd+EB+2Nx+R64BB78VTy/J7QEznYTq3P+E3+pLe/Z3+qmS6QjC+Al2Rrasv9moL
-         8WOiiEiQpAacF26WI6Aa0o7wXhYksIEdjOU16z0v0UHGiGYwViMaNuuDpAtv+1iBFM3h
-         CmUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=edjXy2PN+mcza+3kZSGSQQ3aYOZGZOPTwjWGFZXSb74=;
-        fh=V9/eGsou/k1DiL1eE028d9m+MLsSNGtnQBnZk9hBAEg=;
-        b=isuQR8R/y4bQkO5z6I0oYcTy/irPpdlt4as1mHxKGcRo32MCkCpxTjpRpmreS95Ogf
-         IFQyaQe+MkJnf2o3X3ebbJK2fDTb4zDN6jy6hYVz9ZHXCTV4qO/vY0tCzJIVwRVpwZsT
-         U2rE8h9tQtuZxHef5QA6FjXnw9VZXZLjMWnAAwACgfH+Y2J6TIU/mSuxjKMCadtJo3kM
-         fj1xaHRDuS+fzxeDj5QHdT+3KtCQ0EQXxyQV1FVUywQ8uxguN0q0SCxk1PHDuNl8T/nw
-         fYpm3rKiHT+vNdG8PIbFKZvQ+n7Wt8Emq8Dm3vECBPS85aDkcdws8am92kjNjYSH979v
-         n2uw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788425504; x=1789030304; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=edjXy2PN+mcza+3kZSGSQQ3aYOZGZOPTwjWGFZXSb74=;
-        b=QgF24gNPjgGB8rybzkCGGV0Ckk4IpikO0hgnT8N8TpjYoBRYRofc9kmC0qwlSe4IO+
-         EHBvsJb9ENXWPeczhvZg2g459BQrjwyRsBgSf9hGBIcZ3bEwGhzmPLwTb6Ub71c2tvWy
-         IFNwJTUd8jY8pLFMviCY4iosKlIk29X+H69VQnD8owLGY1SjZXr9CKT+afX/bPhoPSQv
-         XwQDXHV+4mfyjYUt5wSCKZ1foQM0OYd6D58mr5sR5SgsVckLnJgjFM8oDdnmnQmhE0Mk
-         cI26KwY6TXMt5Ut+UD+3+SyKJj9z0AbndwxVw7PpkWSVsev4ybZY8X5HGg9LTnicuUEg
-         ioJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788425504; x=1789030304;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=edjXy2PN+mcza+3kZSGSQQ3aYOZGZOPTwjWGFZXSb74=;
-        b=Pk6VRWY9LfF7hous+sIb093QWPAI5TvVRXhgHo7gsrLc+l7FgDaFNhH48r9JuRfrCk
-         TLRMy6uRLdWrJUe3KwL5v2w0ED93Ys/EjmsRrQHD5U1ISYVkPwdPZtfAUjo5XcVHmCSK
-         iKnybHXUtb2c7QHUPOwIBpm+Xq0UBGWzFQxXibfKGX94HA0ZcgfYBQiBGM23/85una6S
-         DFCdY8jxmhJoFHx8u341ytmZIXM40h9a9Z8CgdzM2kemZAimOaNdWPNc+rByEA9XTxwr
-         wvar6N6QAQ6SyC7KhORGG0pGnzV7uslVOtZvW0e+XC1QAZ8FAotU0EvZneu39DZ6HVVA
-         Wovg==
-X-Forwarded-Encrypted: i=1; AKwUvBwTZ0Q2Iz5Jz1BktaRjCob6JstPoxpZ8nU9BoF1EF//8imqJa+QQcNncrBetC94+BpwCr6a3zOqAwBfIiHvljgV@lists.infradead.org
-X-Gm-Message-State: AFuF++mpUC1AzMEfSS2m23Li3GWTk+hV3J4uX0ooeohKeQqo/bk1EpmK
-	mCZQyE69FC3hHGg1FAnUTgx4KuxI/rQrIR69ljzvGI5sAekgE5IdR/JRduhiIxCHK8THe9CQL1C
-	/e9DguKrBnZSuyq0cCLXh3NB4lQYn5t4=
-X-Gm-Gg: AYBFou2BfeT6Ypnhr7oaaUBrGHNsAQzNfNSyKvKYqMvDW9Q8hPVzvnQlPQbR+V/buYd
-	6wVHsG4QfZk6BLLtiOoTGIJDAwkJS0Qisb+ozkUqj0T6ad1X3InkRFP545yfhSIS+PDViO9fC45
-	4z5ShLSSF3grmhF90JemwH3HvzzQAp7yAnPo97lFIRrGRjhqKx3w8PW+pFPCl1bF3UvvNH10anv
-	tLP3W2hCoDPAHn96kkJufZvheT3HXNQo1BsSuB2DjOY0neCW6r2aoNHbA9jPJzZ4z806U2jM5rj
-	tViA8GXqdlf/ZOnWOk7ueImxztTqYEvJQRrh53L43BF2DeC7T8KdRtGZj28=
-X-Received: by 2002:a05:6402:460c:b0:6a3:87b7:b516 with SMTP id
- 4fb4d7f45d1cf-6a68313fb0cmr6808251a12.6.1788425504326; Thu, 03 Sep 2026
- 01:51:44 -0700 (PDT)
+	Thu, 03 Sep 2026 08:53:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01242600C8;
+	Thu,  3 Sep 2026 08:53:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 171501F000E9;
+	Thu,  3 Sep 2026 08:52:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788425580;
+	bh=+NIOLbVSdtD9xC/mViEpaZph0MzATZYojJF4Y2F0Gjs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Z/VHVvaXXGNq5eWgAGggJ5dcRik5/rmwz31m13V6pp/I9Sxp8SyGbteSRpXmVtUKD
+	 GG+FxfHzitEE/M70c7KsLVTO/px4zMPOVh5bsqxyiLexmK3Cx6CE7q695amjBB74bc
+	 fEBL6W6v9GlMReJvynaYQ//XbXouE7CUKwzq2kGTzUp8tG9nkb1kmvgRSH8zwaX3Mb
+	 q4XAZXvlIFj24ZfiflRq7L6krDmsYPdQQO3fIvJle3EP1frNpOawT8W269wMLrvy/U
+	 fGnldtS2a5nal/dUxAI+XZu8SY5GHlYMw9lYZf7kDlPHsMf8leIc2F6/UAowOvegUM
+	 0Grvgsnx6sn5Q==
+X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
+In-Reply-To: <178794567779.4159892.8785590655735217125.b4-review@b4>
+References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
+ <20260805063255.1638614-2-aneesh.kumar@kernel.org>
+ <178794567779.4159892.8785590655735217125.b4-review@b4>
+Date: Thu, 03 Sep 2026 14:22:51 +0530
+Message-ID: <yq5ay0diyavw.fsf@kernel.org>
 MIME-Version: 1.0
-References: <20260901150111.141037-1-coiaprant@gmail.com> <20260901150111.141037-2-coiaprant@gmail.com>
- <0dec5462-f6d5-4ef9-9d02-5fdf7f3090a0@bootlin.com>
-In-Reply-To: <0dec5462-f6d5-4ef9-9d02-5fdf7f3090a0@bootlin.com>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Thu, 3 Sep 2026 16:51:31 +0800
-X-Gm-Features: AcwNN1VVEgAP8GgA8LdwjKHcWBmFmP5U9Mjud48d0pq7C7tHDzymcLYpjmHugJk
-Message-ID: <CALj3r0i2msRXH-uqA2QX=cRkQwM_H2bFH9GiroEys2NfEbTtCQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 01/10] net: stmmac: move XPCS lifetime
- management to platform drivers
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_015146_426888_E9B49099 
-X-CRM114-Status: GOOD (  15.68  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,40 +82,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maxime Chevallier <maxime.chevallier@bootlin.com> =E4=BA=8E2026=E5=B9=B49=
-=E6=9C=883=E6=97=A5=E5=91=A8=E5=9B=9B 16:32=E5=86=99=E9=81=93=EF=BC=9A
+Jason Gunthorpe <jgg@nvidia.com> writes:
+
+>> [ ... 143 lines skipped ... ]
+>> +struct arm_smccc_device *arm_smccc_device_register(const char *name)
+>> +{
+>> +	int id, ret;
+>> +	struct arm_smccc_device *smccc_dev;
+>> +
+>> +	if (!name)
+>> +		return ERR_PTR(-EINVAL);
+>> +
+>> +	id = ida_alloc_min(&arm_smccc_bus_id, 1, GFP_KERNEL);
+>> +	if (id < 0)
+>> +		return ERR_PTR(id);
+>> +
+>> +	smccc_dev = kzalloc_obj(*smccc_dev);
+>> +	if (!smccc_dev) {
+>> +		ida_free(&arm_smccc_bus_id, id);
+>> +		return ERR_PTR(-ENOMEM);
+>> +	}
+>> +
+>> +	smccc_dev->id = id;
+>> +	if (strscpy(smccc_dev->name, name) < 0) {
+>> +		kfree(smccc_dev);
+>> +		ida_free(&arm_smccc_bus_id, id);
+>> +		return ERR_PTR(-EINVAL);
+>> +	}
+>> +	smccc_dev->dev.bus = &arm_smccc_bus_type;
+>> +	smccc_dev->dev.release = arm_smccc_release_device;
+>> +
+>> +	ret = dev_set_name(&smccc_dev->dev, "%s-%d", smccc_dev->name, id);
 >
-> Hi again,
+> The bus seems well constructed, but this is a little bit odd, was it
+> deliberate?
 >
-> Sorry I had a second look at that after a good night's sleep, and actuall=
-y here
-> we may regress. The original logic checked for "pcs-handle" presence, the=
-n
-> for the pcs mask, but if no PCS is found we didn't error out, we returned=
- 0.
+> For identifying the module alias and labeling the bus devices it is
+> typical to use a fixed HW value, because it tends to turn into
+> uAPI. So the hex func_id would have been a logical choice:
 >
-> This is making it mandatory to have a PCS. Please handle gracefully the "=
-there's no
-> PCS" case :(
+> 		.func_id        = SMC_RSI_ABI_VERSION,
 >
+> Ie 0xc4000190 as the device label.
 >
-> Maxime
+> For example lets imagine that ARM defines a call to give a list of
+> (func_id, version) for everything the FW supports. This would be
+> great, then no need to probe every item in the table anymore. However
+> if you define strings here then it doesn't work so well, the string
+> table all has to be built in..
+>
+> Though handling ARM's version scheme could be tricky.
+>
+> Not opposed to this, but think about it carefully since this is
+> basically making a uABI decision that probably cannot be taken back.
+> comment about that above the table at least.
+>
+> What is this idr and name mangling doing? The names have to
+> be unique because they are 1:1 with func_id, which must be unique by
+> how SMCCC works, so what is the purpose of the IDR?
+>
+> Now instead of getting a machine stable device name like c4000190 or
+> even arm-rsi-dev we get arm-rsi-dev.X where X is unpredictable and
+> might change on kernel upgrades. That's not cool.
+>
+> smccc_dev->id isn't used for anything else. Drop it?
+>
+>> [ ... 47 lines skipped ... ]
+>> +struct arm_smccc_device {
+>> +	int id;
+>> +	char name[ARM_SMCCC_NAME_SIZE];
+>> +	struct device dev;
+>> +};
+>
+> It is common practice to put the containing struct at the top and is a
+> micro optimization since container_of becomes a NOP. Same for the
+> driver below.
+>
+> Why have two copies of name? dev->name is already enough?
+>
 
-Hi,
+I have updated the bus to match devices using func_id.
 
-This change covers all callbacks that use `select_pcs`. Drivers
-without `select_pcs` callbacks will not have their pcs used by
-Phylink.
+static int arm_smccc_bus_match(struct device *dev,
+		const struct device_driver *drv)
+{
+....
+	id_table = to_arm_smccc_driver(drv)->id_table;
+	if (!id_table)
+		return 0;
 
-Currently, only the Intel mgbe driver uses xpcs, and Intel has also
-set a mask for pcs-handle not set.
+	while (id_table->func_id) {
+		if (smccc_dev->func_id == id_table->func_id)
+			return 1;
+		id_table++;
+	}
+...
 
-This means that on Intel platforms, the parts that implement
-`select_pcs` always require xpcs to exist.
+file2alias.c now have
 
-I think there shouldn't be any problems here, but I agree with you,
-regression issues can indeed easily occur here.
-
-Best,
-Coia
+modified    scripts/mod/file2alias.c
+@@ -1351,9 +1351,9 @@
+ 
+ static void do_arm_smccc_entry(struct module *mod, void *symval)
+ {
+-	DEF_FIELD_ADDR(symval, arm_smccc_device_id, name);
++	DEF_FIELD(symval, arm_smccc_device_id, func_id);
+ 
+-	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "%s", *name);
++	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "f%08X", func_id);
+ }
+ 
+ /*
 
