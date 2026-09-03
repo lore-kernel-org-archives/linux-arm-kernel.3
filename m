@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4034DC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE832C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJhY/LLxze6/C4vFouS2rlXgLYWhmWyrhw9PO0Xdt/I=; b=mLLyN6fAwhZA0bCcwL+LZGF/al
-	nz5p69iAx1SWjsLPu73tgkdtb936cPG7vazcgOTAN4QdawIClXe01ZQ7qu49WN6Qv0RKYOLZJnI0+
-	K3tJFgdaqRLVXUUBpOt34ghPGfxOkTNPQphUrUuh1kjeXZsOreq3CeSkos8MdegqQtF75IhCn+c+M
-	kLINcSVWJ9pwx/kBPAhu4JcGnzFxiIQNWfQuVEUQqew7yI9YY6hDNK2eEYlNWDuJrUj1X4h7MaHFW
-	rQlfSo19w3KJk4BkcScpCRmZK+MaIFEppe6J37c9tQrSzPUUApn/OzNia3prJWUrIF7ulo4/wveto
-	VM8qoCsw==;
+	bh=W4k8gpB3IOAIIjG8UTpBirOTQDvbIToA9Mf39j4z3bA=; b=dAYmSb9cVWLTrZuuWJK+KSsZAP
+	7P3O6miwoAY22VnOUiLEpKeknUrsT0UfgTTN/EDofk6+9MeIBGtj+kldQV4j6KN8Iue4jWXtI2AZF
+	ecLhOZd/9zdxucrsfA/glEuRDr+CsZzo9unsQUoTv+FHBSiY5UfpaP25cYPEFM0dN+2w8sU8nLW6u
+	bnW+8Bo1dsQ5sTsp8hySIs1CVaa+s4o3aqV3keZMcJQd2rFSTfWujHQ/xq1f5ylJNHlDDt0pXAbUt
+	1Xf8GEwVgN11sARoEF5YNgBldidzL6VqiR0lb+sNNlETLNT5Kq1cSbWzWutj6mGj2lExHJy5YAo/D
+	kx6CuXYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23kj-0000000GwX0-01MI;
-	Thu, 03 Sep 2026 09:29:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x23kt-0000000GwfP-1Sz3;
+	Thu, 03 Sep 2026 09:29:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23kh-0000000GwW7-49WH;
-	Thu, 03 Sep 2026 09:29:00 +0000
+	id 1x23kr-0000000GwdW-36Rn;
+	Thu, 03 Sep 2026 09:29:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7EF9141ACD;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F7F7600D1;
+	Thu,  3 Sep 2026 09:29:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58871F000E9;
 	Thu,  3 Sep 2026 09:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71C111F00A3D;
-	Thu,  3 Sep 2026 09:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788427739;
-	bh=bJhY/LLxze6/C4vFouS2rlXgLYWhmWyrhw9PO0Xdt/I=;
+	s=k20260515; t=1788427748;
+	bh=W4k8gpB3IOAIIjG8UTpBirOTQDvbIToA9Mf39j4z3bA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kvGUm0MiVrWc44SB3atJmrKskdsgB+xhnX0hruGashawEDHD/QVsPbyy7KprG/8ZE
-	 BS9PmQYMBNAQsLr55nz3Bzs68mggaKckz6sK4u2yAdNaApWoYDtLoqEJ10IRUHCNAG
-	 8ygkoNniX3OSmRgfBOd0y5JjygJMJM45E76llZtQKymOV6OvJE6cw0M6M63buMOfnT
-	 AWjDxnKzI3V4HFoUmMzR2sMo8Dvype3bEmrojXDAR1dQxqiScXqIR/5uufmylbqQWI
-	 fnv4nfLZD/txHoHH8QtI5LaCYJ3L7ox1yqTEgPPIgEJMkDH9dso642uH5MlYasd2hi
-	 hWVdUu0Wsm41g==
+	b=EmZYbLMtgCfKR5SC0SQMKuy6UTCmihOaKfsjvsBiuS/XG7+bmTa0BttU4UQ8j7cdf
+	 vlK1dC3HchMglytuOJLBFLTyRcNQdP+8ieRosdoaP3VM+qhi/JXSJgB9O2up6Q1cc9
+	 dRF/zDGzuuK1aNW6SVIpMm/UtcIHCyGVBYN7VibK+4507rTi1xQ91nix1xb5JkwGBu
+	 eFN0D1Me4+48CIg7BPzVdmq60AYdlg16dPhyhgO/Z7ijOZIcJlmmMweRgb+nq5ucgP
+	 FcEhOb+cZpfl0fq+hYVBaIWbbUbVucc5yFPSZCZwxRRJs6GayaVzjn467NYhrYwBXC
+	 ooT5d1FoGG3bg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 03 Sep 2026 12:28:28 +0300
-Subject: [PATCH v3 2/6] mm/vmalloc: set area's page_order after allocation
- succeeds
+Date: Thu, 03 Sep 2026 12:28:29 +0300
+Subject: [PATCH v3 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-execmem-set-vm-perms-v0-2-v3-2-949b64a9f755@kernel.org>
+Message-Id: <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
 References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
 In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -91,63 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__vmalloc_area_node() calls set_vm_area_page_order() to set area's
-page_order before actually allocating pages to populate the area.
+get_vm_area_page_order() and vm_area_page_order() do not need to modify
+struct vm_struct passed to them.
 
-If allocation of large pages in HUGE_VMAP case fails midway, this leaves
-the area with elevated page_order throughout the cleanup path.
-
-There is no actual issue with this because the only place that currently
-relies on area->page_order on the cleanup path is the loop calculating
-the direct map alias range in vm_reset_perms() and it anyway skips
-unpopulated pages.
-
-But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
-makes things very obscure, hard to reason about and error prone against
-future changes of the cleanup path.
-
-Move the call to set_vm_area_page_order() just before the successful
-return from __vmalloc_area_node() where page order is guaranteed.
-
-While on it, initialize local page_order variable with its declaration.
+Constify the parameter.
 
 Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/vmalloc.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ mm/vmalloc.c | 4 ++--
+ mm/vmalloc.h | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 0380917392e68..22aa554d123f5 100644
+index 22aa554d123f5..5506b180f5c27 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -3879,7 +3879,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 	unsigned long size = get_vm_area_size(area);
- 	unsigned long array_size;
- 	unsigned long nr_small_pages = size >> PAGE_SHIFT;
--	unsigned int page_order;
-+	unsigned int page_order = page_shift - PAGE_SHIFT;
- 	unsigned int flags;
- 	int ret;
+@@ -3130,7 +3130,7 @@ EXPORT_SYMBOL(vm_map_ram);
  
-@@ -3907,9 +3907,6 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 		goto fail;
- 	}
+ static struct vm_struct *vmlist __initdata;
  
--	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
--	page_order = vm_area_page_order(area);
--
- 	/*
- 	 * High-order nofail allocations are really expensive and
- 	 * potentially dangerous (pre-mature OOM, disruptive reclaim
-@@ -3964,6 +3961,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 		goto fail;
- 	}
+-static inline unsigned int vm_area_page_order(struct vm_struct *vm)
++static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+ {
+ #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
+ 	return vm->page_order;
+@@ -3139,7 +3139,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+ #endif
+ }
  
-+	set_vm_area_page_order(area, page_order);
- 	return area->addr;
+-unsigned int get_vm_area_page_order(struct vm_struct *vm)
++unsigned int get_vm_area_page_order(const struct vm_struct *vm)
+ {
+ 	return vm_area_page_order(vm);
+ }
+diff --git a/mm/vmalloc.h b/mm/vmalloc.h
+index 8866ddcff6681..211869f365095 100644
+--- a/mm/vmalloc.h
++++ b/mm/vmalloc.h
+@@ -12,7 +12,7 @@ void __init vmalloc_init(void);
+ int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages,
+ 		unsigned int page_shift, gfp_t gfp_mask);
+-unsigned int get_vm_area_page_order(struct vm_struct *vm);
++unsigned int get_vm_area_page_order(const struct vm_struct *vm);
+ #else
+ static inline void vmalloc_init(void) {}
  
- fail:
 
 -- 
 2.53.0
