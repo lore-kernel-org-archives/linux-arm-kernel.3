@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5EAC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F14C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PE4M5bZ8qa5ONlWyjoO6PT9YT/rm032gR13k1+hQA+s=; b=tzHkS3IQnMJmxjFcbzrh8KEz2b
-	gzDmoqQ61FUg40Jy75rXT56pdwWS+1yaZHTiiw8vnK2FrS4xld15HeugNQqrkqdE39ahUFvoFQy5B
-	IQmRcHzylfCH8mhYOe9+GbuX2QPvYfsS3w/sqcaW0dw/ooeN15zfzLY/fnv5SE3YT2clnKr1kJxrQ
-	WIv63w59gCaTCsiWZ02/FRGYN+STgLmPW2ycKSC/ZNElTWB2pnKmAn3qRPFgoLLJBmFq3JraVRAVS
-	BOl69/aNwTgezRpMdasi0bupHO8hzrog4SrRVE6wTVlOynwQ9c14qneiG0eY6olSIEC0NkSt8LTRZ
-	jSi6ALwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q3Oj8C9xs7OwFXcRq/GkyZSIdSxyR3ySBcFgGRhzAoc=; b=xHvEk280CkwDj5uIDCGZyP4CCd
+	NWzvQk+hSVwW3GGPaxVjKjyEnyJAzCpOmlrhD2fZcpuihpBCcDCc2BvoKNuhcb6U7Be3/y+55i/FO
+	GSFjoMm1w+no+H05zf8N2WAyjRFK3FdU2WGxkAiEEtgsA/OQqgbEYq+77+4zkYIasd7mSmFjvbf37
+	XsQGS9Rt34iu5NRqeRDwO90xM4K/CipijBx7CWVN25joGq+ajOwZ7tRx1H1h/n7krxKiBBSXT3Fjv
+	/qi6k5rHp5TO7Icqgzq2aYaEcdN2/zSooAyfjr1FPaGyUZvrEYB++z0gLdhNBiQOQ6PpLV5y2qqp2
+	XGAnkSuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AbF-00000000D21-1t7W;
-	Thu, 03 Sep 2026 16:47:41 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1x2AbN-00000000D3X-2OUo;
+	Thu, 03 Sep 2026 16:47:49 +0000
+Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AbC-00000000D1K-0OfR
+	id 1x2AbK-00000000D2J-0CUE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:47:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PE4M5bZ8qa5ONlWyjoO6PT9YT/rm032gR13k1+hQA+s=; b=I23Lcsn3E+BTZqmu+d5CGfgHwK
-	3qS6wiCrS19b//RLzh7QxvWrqznkylmRe1kmkX2xuzrC1DhZrPi+XVYTpkPfwh+4CAAfHo+/iPG1g
-	X3wTaXN/QJ6sKW7EmH9x50yocWgsxMCxGEXX1+TQUR6JZZcSX6wGKgBaQFVQc3ZGNMOkOlRVU4bbC
-	oef/ChSoq+1JtplljCZYXw/S8hk1QUnR9AHu8CzVdiMaLPu61MKtQgZt+4faKdoy0dO91k0lnwfrx
-	eOOA+mxx+nnaHy7Lhg0GuOeZN9zcCmj+X+fZ09c3I5MPrQfLBT2df/qW+bDfqxrGafoaGcqBoOGhB
-	m9uNY41g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43748)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1x2Ab3-0000000013P-2RN0;
-	Thu, 03 Sep 2026 17:47:29 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1x2Aay-000000007Y3-2v7X;
-	Thu, 03 Sep 2026 17:47:24 +0100
-Date: Thu, 3 Sep 2026 17:47:24 +0100
-From: Russell King <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
-	Ian Rogers <irogers@google.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
-	Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>
-Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
- task_work()
-Message-ID: <apmknG55qFAn8EPf@shell.armlinux.org.uk>
-References: <20260814085118.OPEA_Ssn@linutronix.de>
- <20260903160710.vVf4gEL2@linutronix.de>
+	Thu, 03 Sep 2026 16:47:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1788454057;
+	bh=Q3Oj8C9xs7OwFXcRq/GkyZSIdSxyR3ySBcFgGRhzAoc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=SD6FLgKjZpg7hBVajIRSjlIeyxNnrdbaAniY2MdOiH9XjdQGPBzH3l97XwmV1VXvi
+	 qSWmKP7pVsNbuWHFC5T1k1m/8ZyeGd1f2tRO+xN56BOp4eeI0ZacvHP83YyVdgvXZU
+	 n5ae9Jsl711day4PMifqv/l/f+ztHgx3g77eZUbU=
+Received: from LAPTOP-TKBJAGN4.localdomain ([2408:8256:2d01:e2b1:6136:e6c:8ed6:40aa])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id BDE212BE; Fri, 04 Sep 2026 00:47:30 +0800
+X-QQ-mid: xmsmtpt1788454050t17u7474c
+Message-ID: <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
+X-QQ-XMAILINFO: Nxj8FBgDHLvaAaHkTKbSIgNvPfh8cGOvp34W9fJQbK2woihxsiz3NmCGd+4qRs
+	 cNZ58dn8flAQJit9kcgrCCVl3vX8RO6wA+6PBgHLoOCMhIGE/9CPIb9aQnhUyBYzGVO0GXU1dtV8
+	 lHCWCeis5QgvEwQKJEF1Z9pblTUSGojqiPzAgm7esIjUHiAd4ydLZHjTlMRaCcwKZu0T6wHjx1N+
+	 2MGOlqYx+WzUcvwIKWKmYefZvbHQpORQfYlB3Q1VCd7WKt7BkcQGIlK66EEGCJyjtCxe7rUSw78k
+	 Sun3zlRh0/XhbMwIqRMplGsJWdBwb8SYorBIHR9ffFlsei3LIz1syEuo/wIXjAZPygmLk3hNg2ZI
+	 pP2XMOsceMMYjS+RSGrK2Bs0gC9GKG+/E/N9ZmI1/o7SW/cR4ojp6cSVl/G46rda3xZ943IsR1rM
+	 Uhl87uZyRAraaIgQiFbWO22w6rQpc0TsevuCa6PR+/NACfPN0mT8rzbXzbYMjNAuDVcZJLjriVV4
+	 FPEjI45vgbgJQkgWEQ/lisD26HsxeWpD1LXQQW6lopLv6WcucNDYAHaFlv6SpeVxOh8k0YBLZ3gr
+	 4Nw3Ep3llkgqdxFy3HWAnBB7Dld/kp42XoSPCLsHZqThOstOqIN2lPxf4ivP+wMicVIssrMJAbiG
+	 8Aj5nNZVaCH786EcaRNp70wBgTc4llljPER3sVAqwpyNFLzndpNGRWV5d5An86echixihCRvMcCN
+	 XovNGyKesvSnT3bX83FkL4HklJZbVQ/pmt7awmfuiJrEQLyv1sQeP2MHcvz7s0zGzfpLp3NzQwam
+	 fqF4G8Y2OInVA8nXM29gxqK5qg8uEonMdaj/SZJDvb9YXBCPo8GA77nGkLDNpnSpLJp5eyYej7zK
+	 u12vdBxrYbFFYqBgX3weDyhew7rthdLE9nteduQo8UYF00lXx1H1jBZBlwUVdLFfRNwhn3PaPs+o
+	 5xVYsFHkjfKPyz48uloF6aapnhrr8eqgjr+PKgoB+Rd4J2sXLG16hFWJCA5ZYf4toPk+zulwzw73
+	 KgNzLHCJ5dmUuFVUALcu6nskT9/a1qQK9ZB8in9WE7Yk492OyzKK5mXZDsWHg00LcdqH+YrMv5yv
+	 f9yyzP9WmOOjJXOgJajEgRQmCCJpXHURiMt+sXkHIjlccBm7Gl3kCCgZLcbg==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Haobin Jiang <lemonoutput@foxmail.com>
+To: carlos.song@oss.nxp.com
+Cc: Frank.Li@nxp.com,
+	andi.shyti@kernel.org,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	lemonoutput@foxmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	o.rempel@pengutronix.de,
+	s.hauer@pengutronix.de
+Subject: Re: [PATCH v2] i2c: imx: honour I2C_M_IGNORE_NAK
+Date: Fri,  4 Sep 2026 00:47:00 +0800
+X-OQ-MSGID: <20260903164700.3298-1-lemonoutput@foxmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
+References: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903160710.vVf4gEL2@linutronix.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094738_432298_77B64FF4 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20260903_094746_649983_26A756D2 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +94,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 06:07:10PM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-08-14 10:51:18 [+0200], To linux-arm-kernel@lists.infradead.org wrote:
-> > Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
-> > "sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
-> > delivered with disabled interrupts and perf intrastrucure expects
-> > disabled interrupts while the overflow callback is invoked.
-> > 
-> > The callback then sends a SIGTRAP signal for which it acquires
-> > sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
-> > must not be acquired in atomic context.
-> > 
-> > Delay the event callback until the return to userland.
-> > Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
-> > actual callback invocation to task_work_add() callback. This callback
-> > invokes the architecture defines callback arch_hwbp_send_sig().
-> > This requires struct callback_head and the functions require
-> > ARCH_NEED_PERF_HW_NOTIF to be defined.
-> > 
-> > This was reported against ARM64. ARM and LongARCH follow the same
-> > pattern are also converted.
-> > 
-> > Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-> > Reported-by: Waiman Long <longman@redhat.com>
-> > Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
-> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> 
-> Did this get lost, should I repost it or is there something obviously
-> wrong with it and nobody wanted to hurt my feelings by telling me?
+Hi Carlos,
 
-What do you expect to happen with this? Which arch maintainer should
-apply this patch that affects three different independently maintained
-architectures?
+Thanks for the review, and sorry for the confusion my v2 caused on
+several points. Let me answer your questions.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Are you using AI to make this patch?
+
+Yes, I did use an AI tool while preparing this patch, and I
+apologise for not stating that upfront. I will describe how it was
+used in the v3 changelog, as described in
+Documentation/process/generated-content.rst.
+
+> Have you meet one issue on one real platform? Can you share the
+> detail about your devices and platform?
+
+Yes, an i.MX6ULL on an ALIENTEK i.MX6ULL mini board, with an
+ATECC608A at 0x60 on I2C1. I am writing an out-of-tree ECDSA driver
+for it that reuses the wake pattern of the upstream atmel-i2c
+helper (drivers/crypto/atmel-i2c.c): a wake token sent with
+I2C_M_IGNORE_NAK through i2c_transfer_buffer_flags(). On i2c-imx
+the transfer aborts with -ENXIO at the first, expected NAK because
+the flag is silently dropped, so my driver had to fall back to
+bit-banging SDA over GPIO to wake the chip. I will verify the bus
+behaviour on that board with a logic analyzer and include the
+results and captures with v3.
+
+> After meet NACK, can i2c-imx controller continue to write or read
+> data from FIFO, after NACK normally stop or repeat start, so I am
+> not sure the i2c-imx controller HW will work normally, do you test
+> this?
+
+I will cover this with the tests attached to v3.
+
+> Always goto the PIO path with I2C_M_IGNORE_NAK flag, it is better
+> "return i2c_imx_acked(i2c_imx, false);"?
+
+Agreed, v3 will do that.
+
+> You don't really support the I2C_M_STOP in the code and
+> intentionally ignore I2C_M_STOP check to avoid breaking the
+> imx6qdl-ds,right? Do you work on this platform?
+
+No, I don't have an imx6qdl-ds. The ov2659/SCCB reasoning in the v2
+changelog came from reading the DT and driver code, not from
+hardware, and it will be removed from v3. I2C_M_STOP will stay
+rejected, as in patch [4].
+
+While checking the code I found that patch [4] rejects
+I2C_M_STOP, and in-tree ov2659 on imx6qdl-ds sets I2C_CLIENT_SCCB
+(I2C_M_IGNORE_NAK | I2C_M_STOP) on every message, including the
+chip-ID read at probe, so after [4] lands that probe might fail
+with -EOPNOTSUPP. This is only from reading the code and I might be
+wrong. Similarly, rejecting I2C_M_IGNORE_NAK might affect the
+ATECC508A wake token on imx6qdl-gw5904.
+
+> So can you please rebase your patch on patch[4]?
+
+Yes, v3 will be rebased on top of [4].
+
+I will also fix the sentence spacing in the changelog and comments
+as you asked.
+
+Regards,
+Haobin
+
 
