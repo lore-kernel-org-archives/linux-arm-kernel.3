@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB815C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75387C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGVy22n2k2x8Vmi+YjiPo8Onst4nWhBMCSM53hHrhOk=; b=2bazhBSHepAJlpKsE5LNfeKmum
-	wto2AgdYDPM1guD3pw1JfesrypRdSCSblbFpBBFbZI8s/Q2JZkZ6G0BQ5jG2TrlVbj3zZO9pnZD3W
-	XTrye7ZXctaj1zwPPn96hq5VQLvdjQ+UxuEZSNlpql5n26mq6UYv55l7NlKvR8a1I9MfrIK0kRoIi
-	N7QOJLx5RwFZe+mB7uni5EyUdD7+bnQCahZvt8wPi3LhWU/oMkP0pOAxvZoS5khCNkgVT9EzasIAD
-	aLQeKgcG7iKAA0hPK+2rQ5JU0Swh8edDiyJhjQu9N9tSINX9M5/v9L2L/DJMIBr+WDbUW7BhdYP5V
-	qLyuzotw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J0fI1G9VBFnj8InEKvK4DsehhiDycgGE9ciYpMnZc1Y=; b=h8ZRpo9Kpc8TxXOVazA0SHVJv3
+	6uG9ql7j6b789DAxUOso4NwAZzE28ZDFpWCp5tIsfTMCDokJ4oDsXBe/e8Nl1P7SfH/BCElckPAYh
+	zdlz+H22tqD8c12LNiflhpiTs83DwpqUNPEmy5puMqEpk65X4ZY4TaWJZxZCH6wOyNZJkza/CZiZ9
+	o4JMibb9bVH1JI9fIIsoGrrjnqPIvQ4ZISPXC6QeM6VPn5xqEsNIOoYShXEcPtmTUpDxNByuI/TRd
+	cEh7JuOuQPbDt+RSCWCAZ1Xz9iuEVt+N42DOmZCcuOmnbwGdbsnIjnh7GnpPq/a/4oPKlOD8XxpX9
+	WKxeeegw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22MY-0000000GiiG-3EEA;
-	Thu, 03 Sep 2026 07:59:58 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1x22RA-0000000GjTj-1dyu;
+	Thu, 03 Sep 2026 08:04:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22MV-0000000Giex-3IB0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:59:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49954b88fffso15690925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 00:59:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788422394; x=1789027194; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yGVy22n2k2x8Vmi+YjiPo8Onst4nWhBMCSM53hHrhOk=;
-        b=tKVyVlt3EToY6qCbMTNhIcQgBSE5UNwr/7vnhWRklSLZhX0I6+oLz+IkMPPx3Sh06M
-         l/voPXaTAB/B3Vrs2Moo8FDiP7/PRbP/sk+z0xc+zFt2YYzYJT7Dxum+CYlwsmHZsLSF
-         dGXsbPYdoY+6/Sa/6+1anROpyYv0i91zXcM0FQVKdyVmJdWMgwcH4WXn9EED3i60d4LL
-         msBappyVLm0uKxDYFa97ZwizhZlyiqCDn7NIX3qwz2yAWcIz9ifIA5vmXzDqvWP15zHF
-         aWEEGYgwgEI80oEZGuPmPIxHCks8CksMnFjD8+9nll/+/e2/W9oxytNcZwdW3eiqfMAv
-         dBFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788422394; x=1789027194;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yGVy22n2k2x8Vmi+YjiPo8Onst4nWhBMCSM53hHrhOk=;
-        b=VVQJCuF6EbAjGwmmDmO1QIP62cTY619aeWIl4H5em+5tAWavDbwlWJkj8YgACvHGoY
-         PpLt3Ia8EbEffXQxZainCzFPgGoNcV4/YMpiacCXMzWm+2uAkMpBvnp495Q5OrVW2Gez
-         TagTwhpRQcAtLLwmRlygduccaQNDOcmCe72osQWiFYOxRuZbMm4uWwg49C8fUes6R3q1
-         53NlZiUjrGy4QYn+fXtsu/4X7USYdM39Ldsu3jd/uY6fqOo3qDVcmLd0qVwF7Lm9ZImH
-         NZuL6ccWNtrq1FEAkL3mxeIVihR+b6j1WoMw/F9vdUZzucZJz0SRPseFsXVt1VpkGwC5
-         2jrQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw95XSsRb4Ph/klLct37qLONc62Tc4u2sjGHbuhBY8jE+bhm71uR/KB6UD1u7Qq1S0NTyb7tNmsSrZt8f/aALOm@lists.infradead.org
-X-Gm-Message-State: AFuF++keHlLxsRe9+B4lhocEhgvIBBI723Mbam7YohGpl+szTKQPxv4A
-	7p3k7wIqehzfzDJtJ1bx8WNUTPYFXqZpLYX7DXr25d6BxW9SqRGnBxtI
-X-Gm-Gg: AYBFou0N8uaP654zbCbrbht3sk6VEVpnhpZQmwWTlMfXwMkxxTbfJ1io1Q9LpewYka1
-	RAmj9gMPAAjbic+L7rzjsNISFrPjWi+if+ROuTa5rIeq1MhHEBj0p744IG3uIw4NBHD7G5wl2an
-	732thQd7s8BBSqj/c4nzolvr0iuvEPcAK3zWq5PCq8y83b0EZ8xyTZqGhRIBp1UHVNg79tARpFR
-	KBje6WhzBx9PM4RkD83Uy7UK7EDpaYzQ9E35ADYW+X3WHv5H7JfHzRpz24in/4gS0QyF+Cf3k/N
-	E0hDIwlh1qDwY1UpQ1oUuaBmoHurETw+OsQTjS+KW/PDRmN0X+Pu+7Y4r64jxuYD1Ej/Bw3AdNR
-	QpQlcCrwfhKOSo+8o62PHVWSOLRZZ5b9nkaYcu7HOLmgWirtaxQ/6HtPyhxFcTS5Y2w/X9OQ+3V
-	MDtLORQkw0qoXIlv1Ib3tzQYR81oGpw4peSUhtPzRYt9FJbY7KCTBO3PUeJSWJN/doRQ==
-X-Received: by 2002:a05:600c:621b:b0:499:dbae:86be with SMTP id 5b1f17b1804b1-49ce58352ccmr202005745e9.14.1788422385163;
-        Thu, 03 Sep 2026 00:59:45 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee3b0af8sm52373275e9.0.2026.09.03.00.59.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 00:59:44 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
+	id 1x22R8-0000000GjSL-3goH;
+	Thu, 03 Sep 2026 08:04:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=J0fI1G9VBFnj8InEKvK4DsehhiDycgGE9ciYpMnZc1Y=; b=q1c6kf4cE6g/EJRT+os940ozb+
+	oFi2aT//iWqCD2aQ8nBykONzDNfrdnqS5bEe3Piv/Y8kKVcWhOC2s22xd5bjLcoCaZ9c2fzrMEBvH
+	P4x2U7c9gEafEMtzydvHbvrilm9gTj6CKD0REw2pB/o5veoP956RxlrJJOy8JAV8PAzragfnUCz+w
+	sMuxZh4aMb6AJOOGdCbEzd1XlaYAO2TE6Gya0N6dEydmJOxLzmqD4Vo3uHeElJQYm9ALd0bbI+mYC
+	pKbQM5H+Ws6c+G3vAT7H8o410KpeRpff04CCIdApaliNNmm3CMLnlEeh/5vtzhhRkZ1W/L+ZJaN3i
+	oIAQDv8Q==;
+Received: from mout.gmx.net ([212.227.15.19])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x22R5-0000000Cpo0-2owR;
+	Thu, 03 Sep 2026 08:04:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1788422671; x=1789027471; i=wahrenst@gmx.net;
+	bh=J0fI1G9VBFnj8InEKvK4DsehhiDycgGE9ciYpMnZc1Y=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=UKOy3cZZIawX6sO+cQ2Jd/NrLdcSLkyZY3hG01weXB6x9UGLfiqVWJKyJd65f513
+	 832wMs643cjXSYAQd1LYHXJvNxrWBtmnQ98a5dhOA4B/LziYdsAmQGHerk/SGAN97
+	 M6K5QfBPR5xDUzz/IC1hJWyq62fWTFWj8AwLz0y90Ezlsc2BA3xO1tmSoZqybpKGI
+	 CR4TVQscPpg5wtal77bzGmZnXs3zL2XNG4WDbFs1CFc8M3H95HS3xfrqILA/Gm4mP
+	 6r+8ri2KMDpYxMaFIdtlxV7e0yQe2/+ShdNQ0AkYTDcUAy5DjPJb9/zXOg4S+U3+C
+	 GcqeF6/1+D5Cexu+OA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mo6v3-1wVQW40DV5-00qRVA; Thu, 03
+ Sep 2026 10:04:31 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Frank Li <Frank.Li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Aswath Govindraju <a-govindraju@ti.com>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>,
 	linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: [PATCH v5 3/3] gpio: mmio: track the direction of chips without direction registers
-Date: Thu,  3 Sep 2026 09:59:40 +0200
-Message-ID: <20260903075940.2089367-4-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260903075940.2089367-1-mehmet.fide@gmail.com>
-References: <20260903075940.2089367-1-mehmet.fide@gmail.com>
+	devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH V4 0/4] arm64: dts: freescale: Add chargebyte Charge Control Y
+Date: Thu,  3 Sep 2026 10:04:23 +0200
+Message-ID: <20260903080427.6103-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:1vpaWW1r+8dSCRmQI6ZJhZxnXDTtWbFuB+oClctzOYkpSOS4FS3
+ eKSbNNH7SxbuOhCOGIplGnKL1Fj7SNCdXS0MJuB//6k6jUpZm6dFVzEDRvWnyCLP3Cr3Vgd
+ PmvzGiTjBcOnqHHH487s85FMEvavT+fPCht+EqNqehZin6D11jJx7GvU11rtRVK5r89AgVU
+ SAV8OHW/luOmMmw8472SA==
+UI-OutboundReport: notjunk:1;M01:P0:z3zOdtkk4LM=;L12zLCZwL8+hc9WH/H0SCtx8nqC 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_005955_841736_D6CD5254 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20260903_090440_088339_152526FE 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,142 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+This series adds support for the chargebyte Charge Control Y, which is
+an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
+Charging System) charging stations.
 
-A generic chip with GPIO_GENERIC_PINCTRL_BACKEND and no direction
-registers sets the direction through pinctrl but has no get_direction
-callback, so every gpiod_get_direction() call trips the WARN in gpiolib
-and the direction gpiolib reports is whatever it assumed. On a Vybrid
-Colibri module that is 21 backtraces per boot.
+sashiko reported in the first version of the series [1] that X_nRST_LAN
+is available via GPIO line names, but there is no reset mechanismn in the
+device tree. This finding is valid. Since the reset line feature isn't
+implemented for LAN8651 driver yet, I like to proceed with the current
+version. The LAN8651 handles reset via SPI commands and in rare cases
+we still have the possibility to control the reset from userspace.
+Btw the pin has a pull resistor in hardware, so it's not floating.
 
-Keep the direction of such a chip in the existing shadow: the direction
-setters update sdir under the chip lock, and get_direction() is the
-shadow-reading path already used for unreadable direction registers.
-That keeps the callback usable in atomic context, which it has to be:
-gpiochip_lock_as_irq() calls it for !can_sleep chips from
-gpiochip_irq_domain_activate(), under the irq descriptor lock.
+[1] - https://lore.kernel.org/linux-devicetree/20260818093147.E556C1F000E9=
+@smtp.kernel.org/
 
-The pad's actual state is read once, in process context, when a line is
-requested: gpiolib calls request() right before get_direction() for a
-new line, so the shadow is seeded there from PIN_CONFIG_OUTPUT_ENABLE
-through the chip's get_config(), which is gpiochip_generic_get_config()
-for the pinctrl backend, and the line reports what the pin controller
-says. Lines pinctrl cannot answer for keep the input default, which is
-what gpiolib assumed before.
+Changes in V4:
+- prepend constrains fix for ti,tcan104x-can binding (reported by sashiko)
 
-Suggested-by: Bartosz Golaszewski <brgl@kernel.org>
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
----
- drivers/gpio/gpio-mmio.c | 60 +++++++++++++++++++++++++++++++++++++---
- 1 file changed, 56 insertions(+), 4 deletions(-)
+Changes in V3:
+- add Acked-by's from Conor
+- add missing SD2_VSELECT to default pinctrl of SD interface (reported by =
+sashiko)
+- clarify LAN8651 GPIO usage in device tree (suggested by Frank Li)
+- move X_nRST_LAN into dedicated pinctrl group to make it more self-explai=
+ning
 
-diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
-index 7e4b3e8d609f..0709ffaab4de 100644
---- a/drivers/gpio/gpio-mmio.c
-+++ b/drivers/gpio/gpio-mmio.c
-@@ -49,6 +49,7 @@ o        `                     ~~~~\___/~~~~    ` controller in FPGA is ,.`
- #include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/pinctrl/consumer.h>
-+#include <linux/pinctrl/pinconf-generic.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
- #include <linux/spinlock.h>
-@@ -372,7 +373,17 @@ static int gpio_mmio_dir_in_err(struct gpio_chip *gc, unsigned int gpio)
- 
- static int gpio_mmio_simple_dir_in(struct gpio_chip *gc, unsigned int gpio)
- {
--	return gpio_mmio_dir_return(gc, gpio, false);
-+	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-+	int ret;
-+
-+	ret = gpio_mmio_dir_return(gc, gpio, false);
-+	if (ret)
-+		return ret;
-+
-+	guard(raw_spinlock_irqsave)(&chip->lock);
-+	chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
-+
-+	return 0;
- }
- 
- static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
-@@ -384,9 +395,19 @@ static int gpio_mmio_dir_out_err(struct gpio_chip *gc, unsigned int gpio,
- static int gpio_mmio_simple_dir_out(struct gpio_chip *gc, unsigned int gpio,
- 				    int val)
- {
-+	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-+	int ret;
-+
- 	gc->set(gc, gpio, val);
- 
--	return gpio_mmio_dir_return(gc, gpio, true);
-+	ret = gpio_mmio_dir_return(gc, gpio, true);
-+	if (ret)
-+		return ret;
-+
-+	guard(raw_spinlock_irqsave)(&chip->lock);
-+	chip->sdir |= gpio_mmio_line2mask(gc, gpio);
-+
-+	return 0;
- }
- 
- static int gpio_mmio_dir_in(struct gpio_chip *gc, unsigned int gpio)
-@@ -601,20 +622,51 @@ static int gpio_mmio_setup_direction(struct gpio_generic_chip *chip,
- 			gc->direction_input = gpio_mmio_dir_in_err;
- 		else
- 			gc->direction_input = gpio_mmio_simple_dir_in;
-+
-+		if (cfg->flags & GPIO_GENERIC_PINCTRL_BACKEND) {
-+			chip->dir_unreadable = true;
-+			gc->get_direction = gpio_mmio_get_dir;
-+			gc->get_config = gpiochip_generic_get_config;
-+		}
- 	}
- 
- 	return 0;
- }
- 
-+static void gpio_mmio_seed_dir_from_pinctrl(struct gpio_chip *gc,
-+					    unsigned int gpio)
-+{
-+	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-+	unsigned long config;
-+
-+	if (!gc->get_config || chip->reg_dir_out || chip->reg_dir_in)
-+		return;
-+
-+	config = pinconf_to_config_packed(PIN_CONFIG_OUTPUT_ENABLE, 0);
-+	if (gc->get_config(gc, gpio, &config))
-+		return;
-+
-+	guard(raw_spinlock_irqsave)(&chip->lock);
-+	if (config)
-+		chip->sdir |= gpio_mmio_line2mask(gc, gpio);
-+	else
-+		chip->sdir &= ~gpio_mmio_line2mask(gc, gpio);
-+}
-+
- static int gpio_mmio_request(struct gpio_chip *gc, unsigned int gpio_pin)
- {
- 	struct gpio_generic_chip *chip = to_gpio_generic_chip(gc);
-+	int ret;
- 
- 	if (gpio_pin >= gc->ngpio)
- 		return -EINVAL;
- 
--	if (chip->pinctrl)
--		return gpiochip_generic_request(gc, gpio_pin);
-+	if (chip->pinctrl) {
-+		ret = gpiochip_generic_request(gc, gpio_pin);
-+		if (ret)
-+			return ret;
-+		gpio_mmio_seed_dir_from_pinctrl(gc, gpio_pin);
-+	}
- 
- 	return 0;
- }
--- 
-2.54.0
+Changes in V2:
+- drop phy-can-transceiver changes and make MCP2542 compatible to TI TCAN1=
+042
+  as suggested by Marc Kleine-Budde & Frank Li
+- implemented SD2_nRESET as vmmc supply for SD card interface
+  (reported by sashiko)
+- add UHS support for SD card interface
+- dropped downstream property ti,leds-polarity (reported by sashiko)
+- fix GPIO line name of X_LAN_nCS (reported by sashiko)
+- drop unconnected pins (X_TDI, X_TMS_SWDIO, X_TDO) from GPIO line names=
+=20
+
+Stefan Wahren (4):
+  dt-bindings: phy: ti,tcan104x-can: Fix property constrains
+  dt-bindings: arm: fsl: Add chargebyte Charge Control Y
+  dt-bindings: phy: ti,tcan104x-can: Document Microchip MCP2542
+  arm64: dts: freescale: Add chargebyte Charge Control Y
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ .../bindings/phy/ti,tcan104x-can.yaml         |  10 +-
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx93-charge-control-y.dts  | 439 ++++++++++++++++++
+ .../boot/dts/freescale/imx93-phycore-som.dtsi |   2 +-
+ 5 files changed, 448 insertions(+), 5 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-charge-control-y.d=
+ts
+
+=2D-=20
+2.43.0
 
 
