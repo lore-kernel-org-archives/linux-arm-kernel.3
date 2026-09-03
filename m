@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB05BC79F81
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5304C624DE
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/pD42JPz9w41he7m9JGqlBsNJR67TIhtx7nAJkGXi8=; b=g9ISj7iNmXfqGuoCe/Z1I7eAfI
-	bsEM34PhXE3d4BmHZyvTQgms1VL4m1cm51ygRE0QLQQJy/uATN7IhLGtURQWDybUEs14aEOwjC1mg
-	KpmhI7SKDIf7hJZlddxJE0dK021AMrnrYVuAMA4HR2TNByQh8+ruHgc1dXTSirIEF1sP+YUGucYTc
-	/CbIQV0OouckZgthB1iVejLGuKYVB3iLjaQtjd97rRgbB/iN//FcQzMuaO4IrCDa/RAUq2CdZsiIv
-	ISWLpo5PpZ/p59d/VSr3c41bI/6W50aLhW0l+iWxNoWqosgHXKJn457UDbCbCT+khMpNAUIA8q7HC
-	nhgHf2bg==;
+	bh=16GO9nI+z9h3lP3iWDNg0HC9DHfO6KEMTyKs16sIM3o=; b=kXWf5Yzh2A7XmRjQXWwL9oWBO1
+	NAZCWle4VpMYLiRNqhIW/z35mXGPdF/3bbcXsu7WPzmWkZ4w2W16Af0GnQIYMXUX/0Mj0FvT0Rytk
+	EC8Ryz2w2s9GZ3j08C//xvGJfrcUgig3M//QWqdYjyEygcXlLrOtO5bGTrAFCjzkafpclDWPKvLB3
+	iOdpdoRoUKJpyWfkaCdCtTzzWhBHey4eIwzXfDPxXi0B+Wkqj+jUPssYRNa7gzqqKYec3/Ry/RvOc
+	pxTUS+jyl0U1RTCER/QqUmVx+BqBd7LiKrf4i+wNVvFfOXfHp3mH2KI/AD7GakmT37+k/uqtSwHGj
+	Pie4veBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Fv-0000000Gh5U-2MH2;
-	Thu, 03 Sep 2026 07:53:07 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x22Fz-0000000Gh99-04Fh;
+	Thu, 03 Sep 2026 07:53:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Fs-0000000Gh1v-02EF
+	id 1x22Fx-0000000Gh7C-3zTH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 03 Sep 2026 07:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=16GO9nI+z9h3lP3iWDNg0HC9DHfO6KEMTyKs16sIM3o=; b=j28rxaNr7kiKutbZ4d9pQ7Nwyx
+	TtRpbqkYVuOQ50+WFtr9M4xL/Rh8q5UZ6KIfTxLXhaljd2BYNkZreRYJj/f2mdj+cVc7++X9HZTUi
+	Y/smMJ4sRs0k7MI+py/vNyheMiNkyBSyv8jsY9gFU6c7sGpWvUnaoFWHVfcwvkgQ4EAWjStj6l+h5
+	/yw+NzsQRgcSeiM5o+rsnqXfcNpzQUdAjZPIc6sudoRiYE2Zr6bkcjh9PqEjmiSl6VUxgw8Z3gWSo
+	SAuXSzclIUligb2bk8gfhpz+Xhm+9vsnmgsQ/xhynJGVWWLD0GbLBaGd5eESFp3nC+7cMbvuGsaIQ
+	VMN9f4iw==;
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x22Fs-0000000Coos-33tU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:53:05 +0000
+	Thu, 03 Sep 2026 07:53:08 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=s/pD42JPz9w41he7m9JGqlBsNJR67TIhtx7nAJkGXi8=;
-	b=cQ0MRwE6o87Q8lmYCxmGVUzCYVcADUssmfi0SfXCLNz/34M6tuTT0qaJrOyAJ1K5OkvfXRFU1
-	KRkyg73VPCjJhGcuu3V69BGcq49UKQIFJz4dovwdL94wzYWgK1F7cpLNS+ABugnXZVRYzkXzFIk
-	oEkTmtcfhvRCikM7mOBHOJ8=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hbBPt2JmSzLlTg;
-	Thu,  3 Sep 2026 15:42:10 +0800 (CST)
+	bh=16GO9nI+z9h3lP3iWDNg0HC9DHfO6KEMTyKs16sIM3o=;
+	b=N9HRA88Ako3kNVoQrRVKt31rjfcmDS4XKLKCK5pk15NcIehh5pqQ+xDUhWv6ar0CghtyKACML
+	wyML2sAgs9fx+IfQRva95aYsE0tnYw7A+UAaTBK0wD9AdgohrPMYEeuGdLG79eZolv/PBRTY6iO
+	qUMED4xvPb90DsYUt/I1DKQ=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hbBPb2Bgfz1prlh;
+	Thu,  3 Sep 2026 15:41:55 +0800 (CST)
 Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id D781340565;
-	Thu,  3 Sep 2026 15:53:00 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 8AE9540575;
+	Thu,  3 Sep 2026 15:52:47 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
  (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
- 2026 15:52:58 +0800
+ 2026 15:52:45 +0800
 From: Sizhe Liu <liusizhe5@huawei.com>
 To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
 	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
@@ -59,9 +74,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
-Subject: [PATCH v3 7/8] hwtracing: hisi_ptt: Add pattern PMU config for trace format selection
-Date: Thu, 3 Sep 2026 15:52:40 +0800
-Message-ID: <20260903075241.1445338-8-liusizhe5@huawei.com>
+Subject: [PATCH v3 1/8] perf hisi-ptt: Abstract trace data buf and offset
+Date: Thu, 3 Sep 2026 15:52:34 +0800
+Message-ID: <20260903075241.1445338-2-liusizhe5@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260903075241.1445338-1-liusizhe5@huawei.com>
 References: <20260903075241.1445338-1-liusizhe5@huawei.com>
@@ -72,8 +87,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_005304_357924_C6CE122E 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20260903_085305_649524_C983A49A 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,182 +103,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a `pattern` PMU config field (config:36-39) that controls
-which TLP header format the hardware traces. bit[3:1] are reserved for
-future extension and only bit0 is used currently:
-
-- pattern=0 (default, compatibility mode): the driver sets bit[8] of
-  HISI_PTT_TRACE_CTRL so the hardware traces the data in compatibility
-  mode.
-- pattern=1: the driver clears bit[8] of HISI_PTT_TRACE_CTRL so the
-  hardware traces the data pattern including some bitfields of the TLP
-  header defined in PCIe r6.4 sec 2.2.1.2.
-
-Note that bit[8] of HISI_PTT_TRACE_CTRL is inverted with respect to the
-`pattern` value: bit[8]=1 selects the legacy format, bit[8]=0 selects
-the new format. Bit[11:9] is still reserved, which is consistent with the
-PMU config field. The driver validates the 4-bit value in
-hisi_ptt_trace_valid_pattern() and applies it in hisi_ptt_trace_start().
-
-Document the new parameter in Documentation/trace/hisi-ptt.rst.
+Abstract the base address, current offset, length and packet type of
+analysing trace data into structure hisi_ptt_pkt_buf and move the step
+of current offset into the corresponding functions.
 
 Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
 Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
 ---
- Documentation/trace/hisi-ptt.rst | 25 +++++++++++++++++++++++--
- drivers/hwtracing/ptt/hisi_ptt.c | 25 ++++++++++++++++++++++++-
- drivers/hwtracing/ptt/hisi_ptt.h |  4 ++++
- 3 files changed, 51 insertions(+), 3 deletions(-)
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 42 +++++++++----------
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   |  9 +++-
+ tools/perf/util/hisi-ptt.c                    | 20 ++++-----
+ 3 files changed, 37 insertions(+), 34 deletions(-)
 
-diff --git a/Documentation/trace/hisi-ptt.rst b/Documentation/trace/hisi-ptt.rst
-index f6a2655f99e5..c95eaa12f4d3 100644
---- a/Documentation/trace/hisi-ptt.rst
-+++ b/Documentation/trace/hisi-ptt.rst
-@@ -255,7 +255,28 @@ directly from the TLP header.
-      DW2 [                     Header DW2                            ]
-      DW3 [                     Header DW3                            ]
- 
--5. Memory Management
-+5. Trace pattern
-+-----------------
-+
-+You can control whether the trace is taken with the new version of the
-+TLP header format by specifying the `pattern` parameter. The default
-+value is 0, which means the legacy format is used for backward
-+compatibility. The parameter value is 4 bit and bit[3:1] are currently
-+reserved for extension. Current supported values are shown below:
-+
-+- 4'b0000: legacy trace format
-+    DW2 and DW3 are printed with generic field names only, and
-+    no message-type-basedfield decoding.
-+- 4'b0001: trace format v1
-+    DW2 and DW3 are decoded according to the TLP message type (MWr,
-+    Msg, Atomic, IO, CPL, Cfg) with detailed field names. It is recommended to
-+    use trace format v1 when the current PCIe link generation is higher than
-+    PCIe 6.0.
-+
-+For trace data recorded by an older tracer without the `pattern` parameter,
-+the decoder will work as `pattern` forced to 0.
-+
-+6. Memory Management
- --------------------
- 
- The traced TLP headers will be written to the memory allocated
-@@ -274,7 +295,7 @@ will commit the AUX buffer first and then apply for a new one with
- the same size. The size of AUX buffer is default to 16MiB. User can
- adjust the size by specifying the `-m` parameter of the perf command.
- 
--6. Decoding
-+7. Decoding
- -----------
- 
- You can decode the traced data with `perf report -D` command (currently
-diff --git a/drivers/hwtracing/ptt/hisi_ptt.c b/drivers/hwtracing/ptt/hisi_ptt.c
-index 52f168f8b459..b63985c2b30e 100644
---- a/drivers/hwtracing/ptt/hisi_ptt.c
-+++ b/drivers/hwtracing/ptt/hisi_ptt.c
-@@ -232,6 +232,10 @@ static int hisi_ptt_trace_start(struct hisi_ptt *hisi_ptt)
- 	val |= FIELD_PREP(HISI_PTT_TRACE_CTRL_TARGET_SEL, hisi_ptt->trace_ctrl.filter);
- 	if (!hisi_ptt->trace_ctrl.is_port)
- 		val |= HISI_PTT_TRACE_CTRL_FILTER_MODE;
-+	if (!ctrl->pattern)
-+		val |= HISI_PTT_TRACE_CTRL_PATTERN;
-+	else
-+		val &= ~HISI_PTT_TRACE_CTRL_PATTERN;
- 
- 	ctrl->started = true;
- 
-@@ -806,12 +810,14 @@ PMU_FORMAT_ATTR(filter,		"config:0-19");
- PMU_FORMAT_ATTR(direction,	"config:20-23");
- PMU_FORMAT_ATTR(type,		"config:24-31");
- PMU_FORMAT_ATTR(format,		"config:32-35");
-+PMU_FORMAT_ATTR(pattern,		"config:36-39");
- 
- static struct attribute *hisi_ptt_pmu_format_attrs[] = {
- 	&format_attr_filter.attr,
- 	&format_attr_direction.attr,
- 	&format_attr_type.attr,
- 	&format_attr_format.attr,
-+	&format_attr_pattern.attr,
- 	NULL
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+index 72a877fd7236..ef72223d3854 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+@@ -75,16 +75,17 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
+ 	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
  };
  
-@@ -941,6 +947,15 @@ static int hisi_ptt_trace_valid_format(u32 val)
- 	return -EINVAL;
- }
- 
-+static int hisi_ptt_trace_valid_pattern(u32 val)
-+{
-+	/* Currently only bit0 is used, bit[3:1] are reserved for extension. */
-+	if (val <= 1)
-+		return 0;
-+
-+	return -EINVAL;
-+}
-+
- static int hisi_ptt_trace_valid_filter(struct hisi_ptt *hisi_ptt, u64 config)
+-static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *desc)
++static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
++			       const char *desc)
  {
- 	unsigned long val, port_mask = hisi_ptt->port_mask;
-@@ -991,6 +1006,9 @@ static void hisi_ptt_pmu_init_configs(struct hisi_ptt *hisi_ptt, struct perf_eve
+ 	const char *color = PERF_COLOR_BLUE;
+ 	uint8_t byte;
+ 	uint32_t dw;
+ 	int i;
  
- 	val = FIELD_GET(HISI_PTT_PMU_FORMAT_MASK, event->attr.config);
- 	ctrl->format = val;
-+
-+	val = FIELD_GET(HISI_PTT_PMU_PATTERN_MASK, event->attr.config);
-+	ctrl->pattern = val;
+-	dw = get_unaligned_le32(buf + pos);
++	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
+ 	printf(".");
+-	color_fprintf(stdout, color, "  %08x: ", pos);
++	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
+ 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
+ 		byte = (dw >> (24 - i * 8)) & 0xFF;
+ 		color_fprintf(stdout, color, "%02x ", byte);
+@@ -92,36 +93,36 @@ static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *de
+ 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
+ 		color_fprintf(stdout, color, "   ");
+ 	color_fprintf(stdout, color, "  %s\n", desc);
++	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
  }
  
- static int hisi_ptt_pmu_event_init(struct perf_event *event)
-@@ -1025,7 +1043,12 @@ static int hisi_ptt_pmu_event_init(struct perf_event *event)
- 		return ret;
+-static int hisi_ptt_8dw_pkt_desc(const unsigned char *buf, int pos)
++static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	int i;
  
- 	val = FIELD_GET(HISI_PTT_PMU_FORMAT_MASK, event->attr.config);
--	return hisi_ptt_trace_valid_format(val);
-+	ret = hisi_ptt_trace_valid_format(val);
-+	if (ret < 0)
-+		return ret;
-+
-+	val = FIELD_GET(HISI_PTT_PMU_PATTERN_MASK, event->attr.config);
-+	return hisi_ptt_trace_valid_pattern(val);
+ 	for (i = 0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
+ 		/* Do not show 8DW check field and reserved fields */
+ 		if (i == HISI_PTT_8DW_CHK_AND_RSV0 || i == HISI_PTT_8DW_RSV1) {
+-			pos += HISI_PTT_FIELD_LENGTH;
++			pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+ 			continue;
+ 		}
+ 
+-		hisi_ptt_print_pkt(buf, pos, hisi_ptt_8dw_pkt_field_name[i]);
+-		pos += HISI_PTT_FIELD_LENGTH;
++		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_8dw_pkt_field_name[i]);
+ 	}
+ 
+ 	return hisi_ptt_pkt_size[HISI_PTT_8DW_PKT];
  }
  
- static void *hisi_ptt_pmu_setup_aux(struct perf_event *event, void **pages,
-diff --git a/drivers/hwtracing/ptt/hisi_ptt.h b/drivers/hwtracing/ptt/hisi_ptt.h
-index 46030aa88081..584f65ba1e32 100644
---- a/drivers/hwtracing/ptt/hisi_ptt.h
-+++ b/drivers/hwtracing/ptt/hisi_ptt.h
-@@ -41,6 +41,7 @@
- #define   HISI_PTT_TRACE_CTRL_RST	BIT(1)
- #define   HISI_PTT_TRACE_CTRL_RXTX_SEL	GENMASK(3, 2)
- #define   HISI_PTT_TRACE_CTRL_TYPE_SEL	GENMASK(7, 4)
-+#define   HISI_PTT_TRACE_CTRL_PATTERN	BIT(8)
- #define   HISI_PTT_TRACE_CTRL_DATA_FORMAT	BIT(14)
- #define   HISI_PTT_TRACE_CTRL_FILTER_MODE	BIT(15)
- #define   HISI_PTT_TRACE_CTRL_TARGET_SEL	GENMASK(31, 16)
-@@ -89,6 +90,7 @@
- #define HISI_PTT_PMU_DIRECTION_MASK	GENMASK(23, 20)
- #define HISI_PTT_PMU_TYPE_MASK		GENMASK(31, 24)
- #define HISI_PTT_PMU_FORMAT_MASK	GENMASK(35, 32)
-+#define HISI_PTT_PMU_PATTERN_MASK	GENMASK(39, 36)
+-static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
++static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	const char *color = PERF_COLOR_BLUE;
+ 	uint8_t byte;
+ 	uint32_t dw;
+ 	int i;
  
- /**
-  * struct hisi_ptt_tune_desc - Describe tune event for PTT tune
-@@ -127,6 +129,7 @@ struct hisi_ptt_dma_buffer {
-  * @filter:    filter value for tracing the TLP headers
-  * @format:    format of the TLP headers to trace
-  * @type:      type of the TLP headers to trace
-+ * @pattern:   pattern of the TLP headers to trace
-  */
- struct hisi_ptt_trace_ctrl {
- 	struct hisi_ptt_dma_buffer *trace_buf;
-@@ -139,6 +142,7 @@ struct hisi_ptt_trace_ctrl {
- 	u32 filter:16;
- 	u32 format:1;
- 	u32 type:4;
-+	u32 pattern:1;
+-	dw = get_unaligned_le32(buf + pos);
++	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
+ 	printf(".");
+-	color_fprintf(stdout, color, "  %08x: ", pos);
++	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
+ 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
+ 		byte = (dw >> (24 - i * 8)) & 0xFF;
+ 		color_fprintf(stdout, color, "%02x ", byte);
+@@ -139,27 +140,26 @@ static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
+ 		      "SO", FIELD_GET(HISI_PTT_HEAD0_4DW_SO, dw),
+ 		      "Length", FIELD_GET(HISI_PTT_HEAD0_4DW_LEN, dw),
+ 		      "Time", FIELD_GET(HISI_PTT_HEAD0_4DW_TIME, dw));
++
++	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+ }
+ 
+-static int hisi_ptt_4dw_pkt_desc(const unsigned char *buf, int pos)
++static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	int i;
+ 
+-	hisi_ptt_4dw_print_dw0(buf, pos);
+-	pos += HISI_PTT_FIELD_LENGTH;
++	hisi_ptt_4dw_print_dw0(pkt_buf);
+ 
+-	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++) {
+-		hisi_ptt_print_pkt(buf, pos, hisi_ptt_4dw_pkt_field_name[i]);
+-		pos += HISI_PTT_FIELD_LENGTH;
+-	}
++	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++)
++		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
+ 
+ 	return hisi_ptt_pkt_size[HISI_PTT_4DW_PKT];
+ }
+ 
+-int hisi_ptt_pkt_desc(const unsigned char *buf, int pos, enum hisi_ptt_pkt_type type)
++int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+-	if (type == HISI_PTT_8DW_PKT)
+-		return hisi_ptt_8dw_pkt_desc(buf, pos);
++	if (pkt_buf->pkt_type == HISI_PTT_8DW_PKT)
++		return hisi_ptt_8dw_pkt_desc(pkt_buf);
+ 
+-	return hisi_ptt_4dw_pkt_desc(buf, pos);
++	return hisi_ptt_4dw_pkt_desc(pkt_buf);
+ }
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
+index 3b349fcc24ae..6747878b030e 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
+@@ -38,6 +38,13 @@ static int hisi_ptt_pkt_size[] = {
+ 	[HISI_PTT_8DW_PKT]	= 32,
  };
  
- /*
+-int hisi_ptt_pkt_desc(const unsigned char *buf, int pos, enum hisi_ptt_pkt_type type);
++struct hisi_ptt_pkt_buf {
++	const unsigned char *buf;
++	size_t pos;
++	size_t len;
++	enum hisi_ptt_pkt_type pkt_type;
++};
++
++int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf);
+ 
+ #endif
+diff --git a/tools/perf/util/hisi-ptt.c b/tools/perf/util/hisi-ptt.c
+index e73c57f9e8a4..ea659947c27f 100644
+--- a/tools/perf/util/hisi-ptt.c
++++ b/tools/perf/util/hisi-ptt.c
+@@ -57,22 +57,18 @@ static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
+ 			  unsigned char *buf, size_t len)
+ {
+ 	const char *color = PERF_COLOR_BLUE;
+-	enum hisi_ptt_pkt_type type;
+-	size_t pos = 0;
+-	int pkt_len;
++	struct hisi_ptt_pkt_buf pkt_buf;
+ 
+-	type = hisi_ptt_check_packet_type(buf, len);
+-	len = round_down(len, hisi_ptt_pkt_size[type]);
++	pkt_buf.buf = buf;
++	pkt_buf.pos = 0;
++	pkt_buf.pkt_type = hisi_ptt_check_packet_type(buf, len);
++	pkt_buf.len = round_down(len, hisi_ptt_pkt_size[pkt_buf.pkt_type]);
+ 	color_fprintf(stdout, color, ". ... HISI PTT data: size %zu bytes\n",
+-		      len);
++		      pkt_buf.len);
+ 
+-	while (len > 0) {
+-		pkt_len = hisi_ptt_pkt_desc(buf, pos, type);
+-		if (!pkt_len)
++	while (pkt_buf.pos < pkt_buf.len) {
++		if (!hisi_ptt_pkt_desc(&pkt_buf))
+ 			color_fprintf(stdout, color, " Bad packet!\n");
+-
+-		pos += pkt_len;
+-		len -= pkt_len;
+ 	}
+ }
+ 
 -- 
 2.33.0
 
