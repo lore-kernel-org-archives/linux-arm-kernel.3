@@ -4,92 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACE6C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26E6C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1jpsWQtqNEl1O8ST2vTlmcJR/phkOG8gheLQGm0LM9M=; b=o8UMXvTyjPFlquvQyZax0HAm3y
-	48zgttdBhYFgaFHwe6MANZag6HFgzEB0kxXwhkdDVlnGH+ZNPXvGYdSduVxBwedLpBKG8n66rysmG
-	7Xr4nBbuGe4M9FlkKZrtrVPr2W8kCCUk0Dc+Hr4s/TqtUmWkKWthNWnVXN/Rcpeztgpl0xksjyl7/
-	jKGOZQq8r8J9svE5vEiux/o3gPbz3MwOwckIDIxDyDrJFntILosHvyHALglf40eVOC7eyI0vFHwuG
-	awLUS+EK3ogl7vVT+ZxNX3RMahBBp+rMNfjNfbMFmGT5Myh+07FHRzYY2tTX1Fxzk7Z+g9mZji7YU
-	7RrVbgXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hGrB9f7DjLu6cDd5Ib9pvL2PAo84lAV08rjfm0+WddU=; b=LN1tlRPK07jTkPZ0qU1nmxcj0C
+	GkCytxqSEioxPUiPoGl7AVMXUw4U4TJuVEsiFoAPvhbP0RGv9Sp21Ch/x6Hc5bUJTgUA+ZTjiMm01
+	sr6E3GSSz3V17IObKP8p2sFewC/0YHK97060pArP35xEBK99wjNvMRYn3Nl9jiJXSdHijfT+UC3U1
+	zrRGmcBen0AI1mT1SBlHX9cpVFWNkYLyvQeu3Adib+RFfALs26SAjfLPM1MpNk3OVY/r3sfJfWAE0
+	m1M5GA9eGVRcijoF5EDQOjeN928t7q7bevJtKfprppUNLEzLDdveBpij26NKNZblVFYKcS+luO7N6
+	Vnuw/GBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2F3A-00000000f5V-3XHm;
-	Thu, 03 Sep 2026 21:32:48 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1x2F5D-00000000fEl-0lIu;
+	Thu, 03 Sep 2026 21:34:55 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2F38-00000000f5B-0gND
+	id 1x2F5A-00000000fE1-3a37
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 21:32:47 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cc891373e0so3181125ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 14:32:45 -0700 (PDT)
+	Thu, 03 Sep 2026 21:34:53 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-90cbff85fa9so4600846d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 14:34:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788471291; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TAEVpTBL+EVqPYMiuapULo0wXZIGtE/zJaQjDy48TTmuqC/rcNvF7uLldSmV8mgZsa
+         Wq3d9wuo/okwROnx3G1N7WMa18fGCPCXyXuv4iVIsV4Ff8rWTMkh1J6NaBWmcUnhVzUP
+         n/SfHH2I1IMMVXAJo7POQb/jtYZd1EEovFY3RGo6UBe6dUzmjP9EwIhdqkNCDy1gU0l5
+         1nA6eAoMl6sk32LI6OZJX08qeWlAP3BvwRPoP7G1nsmcnW5/5IRSS8JXGfSitQ7S5QJ6
+         HIKcOqTofnv9xM1ZlWSCVOouIp5mRtrvh1GFQQiZRUCZoUi61VMH6b30gAGwdlZa6qwr
+         BqPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=hGrB9f7DjLu6cDd5Ib9pvL2PAo84lAV08rjfm0+WddU=;
+        fh=h/UwiJOmCQ4JdDoOXgv4I4OPRD0MkG+P6AYHs1wgUfk=;
+        b=Eg4psROh99RRb1TxaRXFIpvb9G6qaCfs8oQ42Tt1Uh63IxRdzVLt4Kofk0m/2V1gC/
+         OvOwbitS1wqCkpkcpSOBr2oP9mOG6CLr7ZMOX4k6mJQUXw8lucOZmo+A+T+4YcpijXAG
+         Kl19m6LvocGh3fquJfrvTCwtWVbbuubcsNuLW+kG1MLMCg36VMZ7gwGkDlddx8rM1ImG
+         i+xrbZlzRAERQvSJraNPybTNM+Eayt8Ussau+k6N4YlCGWWrS46y7iwtCjnfPIekiW6X
+         Twu7+QAlZ8QoU8KdFowKaxJj9PPpDV++IH++wFEwyIvkWisLPU/CojKWvyR6ccIiJEFS
+         eypA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788471164; x=1789075964; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1jpsWQtqNEl1O8ST2vTlmcJR/phkOG8gheLQGm0LM9M=;
-        b=XM03qHUxrsGW2AupEddHQ3lTcmaw+yodJGhaRl3VhUgAD5xuyRDUHSsVBx7uQDncXv
-         LhW+YBb/Dzgj8aQUld6aPYzw/TxlH7ylVuV2JASjRhIcH4mzZLamd01e1awj5aTRubQS
-         TnSp8mwr/ENKmhZja3xYcIBs9uLpxS7qKvRpgCT+TfQb3FVAk2WGCfz0mEscuIxPAVBx
-         3z4BWa5KRmzC81rU/uP5GYGn+zugzCocBjhzKNk0ptP1eNZ40uC+CmXXHlNLacfMtFGg
-         PZM/s8sfBP2iYAw//JRykiDbyCw8Ams221JOa9ufskUcJGblwQrLfvanIP0WoPq/3N8/
-         q8jQ==
+        d=gmail.com; s=20251104; t=1788471291; x=1789076091; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hGrB9f7DjLu6cDd5Ib9pvL2PAo84lAV08rjfm0+WddU=;
+        b=gQC1rohxc5t8medCyLlW53jwhkFL2No10LDjLniXiggV74V8spFzWf8Qsc6qpRGgsS
+         We9Fvjc/2ZWWmKmlgdk+Mt2u7LvazqN8N0N7zdUTVpNB685kuWUYh0yFF73+YBjY4dM4
+         szfPKdZZRhSmwg2gtfv+ve/l0yE/p/7gSD9yGmGBynaZzf/wVp0s8WEVPjRBEOFrKcn8
+         uwJNwxSzsuu2tN/IUPu4DoJLs0nZr5Ci5y6I1eXx2nSNBg26iLflmticiptzqu8RpyJN
+         W6E+5Q1cc7o48MoO+5cccXMO8qsFr/FS3Y05QpYb4n+fPB6yQSctrRyit5XMYB34fPkq
+         +2sQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788471164; x=1789075964;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1jpsWQtqNEl1O8ST2vTlmcJR/phkOG8gheLQGm0LM9M=;
-        b=cSngPzn6QYMjz5GtkCnMWre4JqShSs6UCD1RrbVUrbqnRQ6ZJm1Rc6cLNAw+JmZbGs
-         ln0/U2vHl0PcDEhUOF73MXyRlCW3ZjWURkkmU/7jhEC0I9Y9bxNn8uo0w71iC3Wjwaib
-         qiI8lADVH1KOu8VXJy3NAgdSsxMmbd8m6SPXj8xacA9cAOHI4kRpQaqr8TtDhJN0AfQI
-         QgxnPV6pGUJadVGBcPREHapnB0pmxpiMGWIjF3l8dCqlpbeL/BTUBIU29s6RCEAl2fLD
-         MzeJgiC7/YjM7EhTnTM3Ih4OTqLKPFsuGWvG1l/5VLNuDCr455rr68/EaxgpybJnvBr4
-         aqkA==
-X-Forwarded-Encrypted: i=1; AKwUvBzAK0fScmKRbLZ8WP7k2chFsbZOSCH8ubmN0DVcsVRNrQXVrkZ9ArpyB7SfNnkrNGNxru6++ZX1wS2sTp1IG+nA@lists.infradead.org
-X-Gm-Message-State: AFuF++ljHEq2Anb6T598WsskoS3HBkhjmzvFnR6JO52h8AytNtWHbriz
-	muc9AoCua+mxYWAsHnS8SDqWIAyBJGKaZ8tLHb/LRAZVCXLuiAruWF96
-X-Gm-Gg: AYBFou3awQKwJt52vHUXigslvk+hFJqEIHG0LiehfWQu83hPeMRpOgiTi54ew04IGOZ
-	jw5ab9m85BuQBQh2ERwnS3VdabiLzLQmxKNNLxEyvYs+/MjRJ2QqnKrkKlU/2LImgStue54Gw4B
-	/t6UM/ZptdjPvrcrGKq6WYJo5lnq7juxHbVaVhuk/0Z18NLtv9FiQPQY76jLiiVEjgmNrTmgcfi
-	DlOjmVGEwd2UtjtE1Rpz4Mx5vw4Wgc6GRAO/6+ebZsIyJC0ZLU9nR8enMnSAcI3i34bICeM9zoC
-	pute0MqLpgUEoZEkYVqOYqJe728n+h0BUMJrtLLwTGt7vUBhIIIiCq+e7WHfGPHngoqQFtn9Rfe
-	P47GzW78EbAFphmh+6CrK+UqvtulRIOPdcN3asDXTzSlRlipYRnbMexqZ2iXAocCiy2buAC9FqY
-	vTvRMpXTv7PNDpxga/ImXx0L79zPYQ2qG2QyV3jaiZhzfEyJ5eD+SzcAEgcQlrPyRPhFpQrnX73
-	ilXa3KuztIXq469Dyqm1fcVnE1w86L1L/lMihe6Os7jQRThY93zK1UllvI36J2chf70hvyTLJGd
-	ov8GHIQuK10EPDlRwD/QBtHekxsTd0ggKJlPXA==
-X-Received: by 2002:a17:903:3c64:b0:2d5:2f49:b3de with SMTP id d9443c01a7336-2db1212f15amr28987405ad.0.1788471164358;
-        Thu, 03 Sep 2026 14:32:44 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db14845142sm1296195ad.5.2026.09.03.14.32.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 14:32:43 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Esben Haabendal <esben@geanix.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv3 net] net: ll_temac: Return actual error from of_get_mac_address()
-Date: Thu,  3 Sep 2026 14:32:41 -0700
-Message-ID: <20260903213241.1040204-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20251104; t=1788471291; x=1789076091;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=hGrB9f7DjLu6cDd5Ib9pvL2PAo84lAV08rjfm0+WddU=;
+        b=r1Y8SfkRPfqbHmvxc7EOmVqzF2tckW7f3gtHUh3Cyn7XtmwQlAMJZUkV7+N/I+qJP6
+         pyK5vYBple5RDyDDkOuO5vpy8ycFB8xhXfUtu3vivEaREZCh43NTo67jMwAHXqkDe5e4
+         W+qdJld21raYL5uEPCvXeEAlb3s+kNa8qBXSxJi0w/fkHFyNhB+jGdesFMxZzxS6Yf6A
+         TRFACWhqb6aKOWlhXdaBDYR82S1lQgFUE89hcVeIsk8RyACLOt6KmbZivEB/tVYJfINY
+         FsLYlUPZT4b2MESWA2cWXTUv8Pb9D+KeyhwfgRI+c3XM8XIvXuiZollK62Df8H93rHSO
+         WccQ==
+X-Forwarded-Encrypted: i=1; AKwUvByB0UruacaLFbWgRiGV+gw05uaOwrKWzG8mUsMiuxYk1gaa36RtSnRSYZAh3JtdUY63NVGc4gEsuO62MquEVxXM@lists.infradead.org
+X-Gm-Message-State: AFuF++mKCPFOKy/6HU5Z18sHpLqR489ISRlRI8MQC0SXpUNUqx0zd2OJ
+	25tAn4+FWZcnT99AwgA97Oyus51RKGn99XgwcKEX6WMF3DSv11+bRWlZsR86Mj+QEmVlGr+cI3f
+	g1QfLyT4EIOiDgUf3R1GCnp8EWkWJyUSEBA==
+X-Gm-Gg: AYBFou1BIx38OIH/nYWGIb8KaZBCjv1/2/ZDsgAJdbMVBrSTakGWRWldngUkg0S7hJv
+	6+Khssaeh+5ei86DkN+xWKGpDI/Hr2m2v+Hy95quH3QGRfkatomH3yk0RkiK7kBtH1MFPHN6/vK
+	LwpbgQX9G0Rr09qv1OYeg3hjknUayHrOHNy9FaGa0rKDt3Vgkf7Je4Lg4EKazxX16uFGXBkg450
+	NCuRdnGw0XJkZXzKCr8TiWXKtli6FrUOe+UCu/1kr9cGHCTwgY3QX2fub36JML0HiNd+oJbHH6G
+	mM8Wl6UwQJAxCHmpTaIJeV8eaeu55h+qNRPOanMYNC74ZBR8EORDerArtRmwgMuQ0KFKkPbALZG
+	P3xklUvTjkK/ZWU46jPSSNYgwbjEGkEL3qiJpKBCtbG2T6gJXOFBEjKZvTRh8MtseDLbSiWZalw
+	VYSCniK/Wk1T209nxloT7TJwX53Syhar9vxvihXsA=
+X-Received: by 2002:ad4:5e89:0:b0:910:3903:5155 with SMTP id
+ 6a1803df08f44-9103ef2b2e8mr27924686d6.12.1788471291386; Thu, 03 Sep 2026
+ 14:34:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260802145109.728793-1-pbrobinson@gmail.com> <20260802145109.728793-3-pbrobinson@gmail.com>
+ <apl6RddLcPz8Q2-O@apocalypse> <CALeDE9NCSb_-DugUBkpa3iBBXbFxccfpt3gKw0-fN8czwnurSw@mail.gmail.com>
+ <8f948621-fbeb-4807-a4c2-0214ce5d3bc3@gmx.net> <4c67126b-798d-40d9-9ab6-8fc876fc5630@broadcom.com>
+ <CALeDE9Mr4asKmQaQ3yRfnf5B4cvVkZuDTB+8BesPUy6djpkmVg@mail.gmail.com> <636a448a-0711-4844-af62-4b38ed7cce86@broadcom.com>
+In-Reply-To: <636a448a-0711-4844-af62-4b38ed7cce86@broadcom.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Thu, 3 Sep 2026 22:34:38 +0100
+X-Gm-Features: AcwNN1Uv2D9v_pw-GfsGiOZWG3HscrogeRdJ_FG015jSQ-YyAbQg2DlcsnVPCoA
+Message-ID: <CALeDE9OCZJBKpsAhNJdN9yZTv009PxbLtprg4ErivhQ+boQo-A@mail.gmail.com>
+Subject: Re: [PATCH 2/3] arm64: dts: broadcom: bcm2712: Add thermal monitor
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Andrea della Porta <andrea.porta@suse.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Phil Elwell <phil@raspberrypi.com>, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_143246_202942_1C9D37C0 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260903_143452_897610_42486855 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +124,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When of_get_mac_address() fails, return the actual error code (rc)
-instead of the hardcoded -ENODEV. This preserves the original error
-information, which may be more specific (e.g., -EINVAL, -EPROBE_DEFER)
-and helps callers handle the failure appropriately.
+On Thu, 3 Sept 2026 at 22:17, Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> On 9/3/26 13:55, Peter Robinson wrote:
+> > On Thu, 3 Sept 2026 at 19:55, Florian Fainelli
+> > <florian.fainelli@broadcom.com> wrote:
+> >>
+> >> On 9/3/26 11:47, Stefan Wahren wrote:
+> >> [snip]
+> >>>>> Doesn't seem to apply cleanly on v7.3-rc1, could you please rebase?
+> >>>> It should apply cleanly against Florian's next branch here:
+> >>>> https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next
+> >>> this branch based on 7.2-rc1, not sure this is intended.
+> >>
+> >> It is intended to be based upon the last -rc1 that was released.
+> >> v7.3-rc1 is not cut yet, but when it is, I will rebase all of the /next
+> >> branch on top.
+> >
+> > But  v7.3-rc1 was cut on Sunday 30th Aug IE 4 days ago ;-)
+>
+> All of the /next branches have now been rebased against v7.3-rc1.
 
-Use dev_err_probe() to avoid printing an extra error message in case of
--EPROBE_DEFER.
-
-Fixes: 8425c41d1ef7 ("net: ll_temac: Extend support to non-device-tree platforms")
-Assisted-by: opencode:big-pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v3: actually use dev_err_probe()
- v2: use dev_err_probe()
- drivers/net/ethernet/xilinx/ll_temac_main.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/ll_temac_main.c b/drivers/net/ethernet/xilinx/ll_temac_main.c
-index 711ed9c2631b..ea0f54e4df27 100644
---- a/drivers/net/ethernet/xilinx/ll_temac_main.c
-+++ b/drivers/net/ethernet/xilinx/ll_temac_main.c
-@@ -1579,10 +1579,8 @@ static int temac_probe(struct platform_device *pdev)
- 	if (temac_np) {
- 		/* Retrieve the MAC address */
- 		rc = of_get_mac_address(temac_np, addr);
--		if (rc) {
--			dev_err(&pdev->dev, "could not find MAC address\n");
--			return -ENODEV;
--		}
-+		if (rc)
-+			return dev_err_probe(&pdev->dev, rc, "could not find MAC address\n");
- 		temac_init_mac_address(ndev, addr);
- 	} else if (pdata) {
- 		temac_init_mac_address(ndev, pdata->mac_addr);
--- 
-2.55.0
-
+Awesome, thanks, much appreciated.
 
