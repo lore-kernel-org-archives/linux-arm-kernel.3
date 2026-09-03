@@ -4,65 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E46BC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D86C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCMUqh6ANgvQ3Pwx5RlqzkheOtUmmalNv6/kwBMPNcQ=; b=PNN/LXDF81UXcWy2kztASbpMy/
-	qG2hK6hYwNEOhnJbwRC6wGWQiKtCTCCBiCzPTIL4bGxA2zPjTa7osM3/uujoC83CDwCCZE1Hc+hvi
-	Ls3Zdo+fSp0+5h+uUdl5rmMkrS6Poen7i2TZ5ownvF43X1cGteEpIL6oOtVuycQsVoOZ3k00vAm4k
-	6t7wJ3aVSZdw39ycYi7DFG+xuLXRYDWEqxEaJ67Jfyff0EdK21oW2+sShj+Uc+SR2ZsOlIiXZCfF0
-	gmW7+l84Z/5ZbLYWck29mxcKf/aubZoewT7X2plM2MwtuuTlt+vMAnLBmAnUxIbCUUaNl3WBOH+07
-	XNbdYRfg==;
+	bh=lVbFDdYMTBCjcAyPvBikVlQ8KJoqAqw46vpMHvZC7mM=; b=L3PHdmylDCjBqs7potj5gFsWDy
+	l0tiTj9VTTvg4unEu1Qubl0dQJj4ru7vdyo1Pk3KHFUM6japjUrbaK5e1OpwpDUsQTrhdvEAKBqYZ
+	/BTfRcp2FrusAURX5w4T1vdA7hFs1jf+uwiC8axcnbN6i+Ka5JTF7iW9ojBIP/vd/UhvetLFyZWjB
+	r/mNmjDU6uwqkwf8cDgd5uY/vPZSB/8w2yfE6g+GcMpsUq11/42xa5Ct2dwvKfZQOP0BLU5ugvpFr
+	S8gzILEPD+jvVcItcqdNWVEkyHWF7hJi81KMIvd2kv5nBlv/CmsMyKC0LvPsvRqdSXwD4pnQvjQQ8
+	cEO5rUrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29dS-000000002pr-2R7W;
-	Thu, 03 Sep 2026 15:45:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x29e8-000000002zZ-3k4H;
+	Thu, 03 Sep 2026 15:46:36 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29dR-000000002pU-2qH2;
-	Thu, 03 Sep 2026 15:45:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B70236053D;
-	Thu,  3 Sep 2026 15:45:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B771F000E9;
-	Thu,  3 Sep 2026 15:45:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788450352;
-	bh=yCMUqh6ANgvQ3Pwx5RlqzkheOtUmmalNv6/kwBMPNcQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RShHivsJHdQYENIAXi57A6y92sj/SKI64hzjlD+CpHniAIzXmEJphBiTvmrNl/Vot
-	 3Y0GFG1uKzoPSt5EUSrrJJ3zR28vBI4mDG6hAB6ZgGKWoUwblt8vqNEwRvU4FnJ69Z
-	 zemYcX3EYv1CWiICaujZowbPBgt5zgDDWX//759uPwefwK4tR8PECY2+w492cmgEmh
-	 7m7EzvBTZMiZBqNS2cclfG7ngmVxjPTEqargjpLRYBULmyL6i9XiO3hwAgc88eXIi/
-	 bjWPwueSBU2ZsmTIiVW2e1yah5PWZ4WHtxIY4yerUbHSf9sWMzAiwssJS7S8tNvmWc
-	 +JzTasZSy8BPQ==
-Date: Thu, 3 Sep 2026 17:45:50 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v5] net: airoha: add HW GRO offload support
-Message-ID: <apmWLtgcUXRrOTFj@lore-desk>
-References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
- <fce0ee5a-476a-4867-9dd2-08e55993bd90@redhat.com>
- <aplpllPidmCjhSmA@lore-desk>
- <1ef90408-99b6-42fb-a7c6-7e5bca20c46d@redhat.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NDvggmcI2CoJ2jcY"
+	id 1x29e6-000000002yp-2KxR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 15:46:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WsfPZb1Bs3uQQp2G+F7+G/zMOW/nxSYtkQoaeFoWBKWuIDbLZOheFVW2vwAWp/fWe7XdGu5dmgqTFo3v8htRXsDdE0u5kZ2WIQ3ERsMR/9QEdiZqaKrSzKZg5vqb7z4NKUuczHP7i32RjcfXzY4YHDOx5m3+ILNFL73XjDrlTP97m/QdaSkT/R00Me1QT9vqut/MD9oYR8FGtzt7SSjX7V1RachPjLtoy5U9ckvXekjYcuwStk/1ka5J0g1buYGNSC3X3bhvMYv3ws9y+yc+y3FoGOQ1EA59QTPFdeOIpKXpsnZnn4qvwkzMP89+hj/s9gFmdW2IUlFRWrU0mvg6Jw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lVbFDdYMTBCjcAyPvBikVlQ8KJoqAqw46vpMHvZC7mM=;
+ b=TO7pKEydaPcGAShaKLhrI5OBd+GfoBLWh75xLi81vI5P4ZnQPt4NT0sLHXrdNnaxORc9sJRDOtXAW7jZJOm1fB63ngfsohcFwJi6ecBnPknINv59d8EawMOUkrosXEZLIFOklsvk+ZFrW0nza92DmZCTyzZLlMfLaRxkODx2uUd7KSRSXzM2W7P2+2dj1Ti7ViHwIi7blm5atI2h0TpgQlsT2nEs4wpciBQvEk7fQmuI6/Lfd790ipT8HewxH6UXrCBSR814FndlicSYqA9trFDlkDsGmDhOoqk/77aYnAVplpR+PbgieTWQPQBj5czA8MjlI3rdZtbQMiKmjpQQ7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lVbFDdYMTBCjcAyPvBikVlQ8KJoqAqw46vpMHvZC7mM=;
+ b=GFTR4jfflhlhKd9zJgme+Jo2okrCslvPkHSeDvU+eq+XJSiRy8tyOxl6x3jqCYLCVMrQXaUENJENuQ7LO96DIbSmas+Gb1zt3DeMhtunZAyq33uz7hdpm8FPvvBVLZHCJ4etpfcqE8fKLfQHEAL0bgMDErUZnBAPR6xUjfTHO71tRW+Z61ekkRZgfdiobUzuq1a6eRtTds5vMmrWZQGCOwJPDlj5/W2YzbMQQoaXEpwu1G++yOxySdCjXemPWrREkXCPCFGAGONgjDldCWKYPz9zTJHk2whaWUcZbRg1Mq4uQr/HGrhR5t94d33h66LL0plu2xyC00NgDNPlokWtGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS6PR12MB600424.namprd12.prod.outlook.com (2603:10b6:8:499::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Thu, 3 Sep
+ 2026 15:46:27 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
+ 15:46:27 +0000
+Date: Thu, 3 Sep 2026 12:46:26 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260903154626.GL4157646@nvidia.com>
+References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
+ <20260805063255.1638614-2-aneesh.kumar@kernel.org>
+ <178794567779.4159892.8785590655735217125.b4-review@b4>
+ <yq5ay0diyavw.fsf@kernel.org>
+ <20260903125718.GI4157646@nvidia.com>
+ <yq5av78mxv0j.fsf@kernel.org>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1ef90408-99b6-42fb-a7c6-7e5bca20c46d@redhat.com>
+In-Reply-To: <yq5av78mxv0j.fsf@kernel.org>
+X-ClientProxiedBy: YT1PR01CA0086.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:2d::25) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS6PR12MB600424:EE_
+X-MS-Office365-Filtering-Correlation-Id: b64090bf-e389-4f19-d5a7-08df09d283f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|22082099003|18002099003|56012099006|11063799006|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: ZYEWZOsdMDchbqr9lVBniN1+OQTF6VZ8wcxNJcyBfhAxekhzRL7I/Iu3jE4g4kUW6aK9qet8XibUO5jCYgMBkb4YPbQPtbOkkITICJs5tJUAPXzwmKfmW4SVNB/dAmMJPyaKHWDgTE7A2+Q0S7kG42MGrdB4gEAJMHBGsDI7vyvbeB53fCvTTTCtTtznm2evyipr7mBG0oHiVkCX92EvutDHl4V6hP4E7lqqc2n4tnhXLbvbMz+IjWGmnVAlufCc3snxaZTwKxY6CfHnvBKeuASN97468e7Kp8wsI+D9QrV8qJGHa8dbQgCqjO98CJJYXjLTMk/vQR09R/95GuMILQEwnX/LW8RUqU5rTOKwDwkXEKFaSVS+qAgHeCU7Dn/uxyHXvgYqMw3+Bi9YgCoYqws70BPcrPMNVc8QuDhCaXSB4s4pvyHASlya3wTUyfg0LFQJiDX1HsDpMI0CiHWqolBt7HEeoSVwynLWy78ZlkLCMv82kfsLT3S9ewlK2lS5Zx9FjMVnSqMq3bYj73T3BFUXnS0pUaQlUweo8hpSwAZiCploGpJTsL9qR1pO0g7afeUwarcnlMj/T+NccQlmB2O2k1E4xYmQn8vrwbbAYuZA53qYd41V/s65iQfKtZrom9XSrCTqrFEgNSvhBwRrXlrIE5qvWhaaatu3FNygDKA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xL5B9j7iClWPj7bymG2QnAkrIzKBDYJa5rf94uounbuh2CL4ZYUQKoEeQ0/t?=
+ =?us-ascii?Q?IIt8r+s1QGBGQqpHRDR6Si4gfnbD/JDOJVeJe3mPUwPyAB0gRQRs0RKuF4+4?=
+ =?us-ascii?Q?g/1yAPxYUXDRVjkI5DZHbmJrcVCaIpjY7Sfzv94/kLT/L3ZHDxYNKMiFccFC?=
+ =?us-ascii?Q?Y3FLKkgpmWrIvaPM6v45vPRRX6V1ZDoS+i6QIwsYizNvemJsT6JMO2/sqaEi?=
+ =?us-ascii?Q?yRTe0RRvPcfIk/GP2GT2MIyKAW7Bd6O1TECY0th8ku+l6vMA3/wYEFwy13Rs?=
+ =?us-ascii?Q?aiVRJBUkd4X5PnR2J4oemK4C8qUKPuPWZXjXHjz9TF+Y1b1+bmeGt48w9L/Q?=
+ =?us-ascii?Q?LYXE4qEx/Cx3MzN+bVvNlZxNYaLt7vJAjMGq4eL1jA4kTsWnFpsD1IDz+ccl?=
+ =?us-ascii?Q?uMOk34YitF2ZRXVIKkwEZPmnb5NEp8YseG9i8JzLBJ2hoRGi4BlzwehJc7OV?=
+ =?us-ascii?Q?4Xyp5eIInQa300z4Ui2+G6rbwCW1eG53l6mozjW6M3FUJ24mikId/g9N0R/K?=
+ =?us-ascii?Q?reGeEBcNgJe26/HO4+cbxHqZeAaK19zkSLMHIAXcLwmyBIEZ3OR5AXQQIzl6?=
+ =?us-ascii?Q?qa9n4SQFUkuowhaFxyoMkAwnUMHpVbaCTOju3ulT1PtCk/IrKp5oNy61a6mw?=
+ =?us-ascii?Q?BucdQ49Zxtin18Sc6JmyW9ZC+PuOACxynLSyAFL5ji3x7dT96wVe9YMldE81?=
+ =?us-ascii?Q?tCrAcuVOflNl4jUQeVAEfFtMtL6eqoUZaKwO6AykeFXZioy6MHNLEvUAkXEe?=
+ =?us-ascii?Q?BEiVAii4DTjFVpct6gXf3Ryil9LddunHuLGKkl6jZN1ofrgok4Czkyo2euVW?=
+ =?us-ascii?Q?L0vuRHGep4aMpb4Sqfj+oTX7eDmronU5IWPIRM0sq/Mq1llcPDZUciHjypsD?=
+ =?us-ascii?Q?U86nJNp/stfCoXeE191R4NuGugVJ5FfW6/iwUc1tP0BxlOohkX+RlTvB/epY?=
+ =?us-ascii?Q?srfoZi2qJHqFlnS+eUgpdrBjlH6hJjt0rVu1nPGtRyraBqVafo5QJhyhm1YH?=
+ =?us-ascii?Q?PBsp0hsF948iJvs0z/5bxiP64Ceh3jhzFs/9nu2qGaoeHbkdx6dvUZbgEnRl?=
+ =?us-ascii?Q?S+yB2pcblLY3zl/l08Kh2QpH4Fft+/qOntDmEN0TbWGAmNsBHZelSUpK6LoG?=
+ =?us-ascii?Q?xQqhDeiTTLJa5l+qP8A5+LhAKKALDQgDYQy/7sfo0byoXaucHONMdybh17ZN?=
+ =?us-ascii?Q?hEEUSJ+7f0Ltao09bQYjgiKTP+8BseaESlf4s59MYKqm4/WkX8ndnlgKFkQl?=
+ =?us-ascii?Q?zwKBLvYrIe8QsGFLb1bhMiy8prWWKNzjljzoc8PpIIa42OLViO1sqHApA8jM?=
+ =?us-ascii?Q?cQVCeuoJOB2jn7ujsOYAU0R2Wa+64exLt2Am5bdn53KLK7lBy+aQAe0xmyxp?=
+ =?us-ascii?Q?WdC5FiNMRAm8ihbkxKh33lkb/Aj7YhYbOnLFlhsfy8L5+TuXBUl78zRo1dcg?=
+ =?us-ascii?Q?c4MVnv03m5GJ5TgoQ7xh9qHa712Ehj5LT3d0hRuipvyB5pYmOKee+jGhDAkP?=
+ =?us-ascii?Q?P8jOo1okbkrmp1/OO4knubI8hjwAqbyioZcU2WBGXVbRyxLgRVAB6b/59Lb6?=
+ =?us-ascii?Q?KN1LZ9RzrFjPTuIgu87VUDo+GKB8lcmQsBXhjH2nV58DMsb//XJszF4BubkL?=
+ =?us-ascii?Q?vAHP5utL653y9mkLxUCqPNkE3fj4ng6jX8+gBv3rbWeRreUWypgOP5L8e3XV?=
+ =?us-ascii?Q?Zo7Cp+a4QBiA5KSdJkAo9HLwCyXXG1IEYOFo5teYhjKs8b2m?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b64090bf-e389-4f19-d5a7-08df09d283f8
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 15:46:27.3520
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JKIOhABhMYDJXv458yzX6UGd6g2CqzeKr5tJvLfaHwCpRK63kTODdzR6rRASkvnj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR12MB600424
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_084634_595254_81B9D157 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,116 +150,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---NDvggmcI2CoJ2jcY
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Sep 03, 2026 at 08:05:40PM +0530, Aneesh Kumar K.V wrote:
+> Jason Gunthorpe <jgg@nvidia.com> writes:
+> 
+> > On Thu, Sep 03, 2026 at 02:22:51PM +0530, Aneesh Kumar K.V wrote:
+> >
+> >> I have updated the bus to match devices using func_id.
+> >
+> > Did you have any thoughts on how to handle ARM's versioning scheme
+> > too?
+> >
+> > I'm not sure what the rules are but it seems like if the major changes
+> > then the API is incompatible? So shouldn't every driver advertise a
+> > supported major, and the major be in the modalias and checked by match
+> > too?
+> 
+> I expect a single driver to handle the RSI features and determine the
+> version range it supports. I don't think we want multiple drivers, each
+> handling a different major version of the RMM release. 
 
-On Sep 03, Paolo Abeni wrote:
-> On 9/3/26 2:35 PM, Lorenzo Bianconi wrote:
-> >> On 8/31/26 8:34 AM, Lorenzo Bianconi wrote:
-> >>> Add hardware GRO offload support to the airoha_eth driver, leveraging
-> >>> the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
-> >>> queues 24-31. HW GRO offloading does not support Scatter-Gather (SG) =
-so
-> >>> it is required to increase the page_pool allocation order to 2 for RX
-> >>> queues 24-31 (LRO queues).
-> >>> Since HW GRO is configured per-QDMA and shared across all devices usi=
-ng
-> >>> it, HW GRO is mutually exclusive with multiple devices bound to the
-> >>> same QDMA block. Call airoha_update_netdev_features() in
-> >>> airoha_dev_set_qdma() so that NETIF_F_GRO_HW availability is re-evalu=
-ated
-> >>> whenever the QDMA user count changes (device registration and runtime=
- QDMA
-> >>> migration).
-> >>> Set CHECKSUM_PARTIAL with pseudo-header checksum on aggregated packets
-> >>> so that L3-forwarded traffic is correctly handled by the GSO/TSO path
-> >>> on the egress device.
-> >>> The HW does not report the per-segment MSS (msg3[31:16] only reports
-> >>> the max aggregated size), so the gso_size of an aggregated packet is
-> >>> just an approximation computed as DIV_ROUND_UP(data_len, agg_count).
-> >>
-> >> What is the <max aggregated size> exactly? I read it as the maximum si=
-ze
-> >> of the aggregated segments, am I correct?
-> >=20
-> > Hi Paolo,
-> >=20
-> > with "max aggregated size" I refer to the length of the aggregated TCP
-> > packet (composed by multiple segments). This value is reported via
-> > QDMA_DESC_LEN_MASK field in the DMA descriptor. Moreover, the hw reports
-> > the exact number of the aggregated segments via QDMA_ETH_RXMSG_AGG_COUN=
-T_MASK
-> > field.
-> >=20
-> >>
-> >> Also any more details on how the aggregation engine works? i.e. can it
-> >> aggregate "random" segment sizes (i.e. 200 - 300 - 400) or does it
-> >> respect HW_GRO layout? (i.e. all segments except the last one must have
-> >> equal size, the can be smaller).
-> >=20
-> > The hw engine, for each LRO queue, is configured with:
-> >=20
-> > - CDM_LRO_AGG_NUM_MASK: max number of segments for each aggregated TCP =
-packet
-> >                         (64 in the current configuration).
-> > - CDM_LRO_AGG_SIZE_MASK: max size of the aggregated TCP packet (compose=
-d by
-> >                          multiple segments). 16KB in the current config=
-uration.
-> > - CDM_LRO_AGG_TIME_MASK: max timeout to compose the aggregated TCP pack=
-et.
-> >=20
-> > In order to validate the scenario, I run the following test:
-> >=20
-> > TCP client:
-> > ------------
-> > - disable TSO/GSO
-> > - set MSS to 256 bytes (iperf3 -M option)
-> >=20
-> > I can see multiple 310 bytes TCP segments on the wire
-> >=20
-> > TCP server: (where rx-gro-hw is enabled):
-> > -------------------------------------------
-> > - the engine aggregates ~64 segments in a ~16Kbyes TCP packet
-> >=20
-> >   so gso_size ~ 16KB / 64 ~ 256B
-> >=20
-> > I guess this would be the behaviour even if the original packets
-> > have different size (not sure if it is a real use-case).
-> Lacking more details from the vendor, I think you need to use a
-> pktdrill-like sender, explicitly sets the segment lengths to some not
-> mergeable (like, i.e. 200-300-400) but otherwise fitting a GRO packet
-> (i.e. same hdr except for the sequence number and push flag allowed only
-> in the last packet), ensure that the aggregation timeout lasts long
-> enough to receive all of them, and check if the engine really aggregates
-> them or not.
+I thought the plan was we are only going to support RMM V2 and there
+will, never, ever be a V3. :) So RMM is maybe a bit different..
 
-I think in the example you pointed out (length 200,300,400) the hw engine w=
-ill
-create a single TCP packet composed by 3 segments (with gso_size =3D 300) w=
-hile
-sw GRO will just push sigle skbs. I agree this is just a GRO approximation.
-If it is not enough I am fine to switch back to LRO implementation.
+> Given that, wouldn't it be sufficient for the driver's probe routine
+> to check the supported version range and return -ENODEV if it is
+> unsupported?
 
-Regards,
-Lorenzo
+It is sufficient, but is that what you want? Every driver needs to
+manually check these version things, do they? Do we want this
+duplication? Missing a check means FW upgrades might become Linux
+breaking.
 
->=20
-> /P
->=20
-
---NDvggmcI2CoJ2jcY
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapmWLgAKCRA6cBh0uS2t
-rANwAPsF+NTXOkcRL4V1CRL7a/tEjI+S8Ac2hcZ3NwATud1NygD8DBFi90ndS7yk
-KCWzgZIqDHNgBnbbx2iTecwOVYlALg8=
-=kEaq
------END PGP SIGNATURE-----
-
---NDvggmcI2CoJ2jcY--
+Jason
 
