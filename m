@@ -4,134 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D2EC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D36FC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8U+otGqZ4X4lHVqvG0g0N4yJExgb42yXgS3ZaxTrOlE=; b=ZwFTHXXIrEqLsB6nvt5j35nSEL
-	hHEgTX1kmc09So2lFSEbQbh1Mq0HEnWr0X/Mx38J2LE/K28z4K6n77z6K+74m8HbUgxL7pTqxIjFl
-	vGaAybQYZDZreCvs7g18XgwWVMkm+En1IVw5alAG7BucqibpKUdYSZFW94gT+FPDsaM0N2G6a54Py
-	zTgqPUdfgzpN/FpPFw9wEFJsPSgYP/9Ekq/KVetdFCE0XZNq6G1NrpU74BfKq1xz0hBzT9fawRZvZ
-	6St1qfUn5kgQAJnBohNWFrMWGmQ4pqTttvEOYnsoMvePDWzIclLrQBdwZsZmF6qD0oF8ZPbA6ViD5
-	Dca1vofw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/BlaVq8bikWvPCaZvzm7IB1Sd1ddd+GZl/KuLldScHU=; b=wa2vsixTLUdovC2tnzmixysrOa
+	c0ckQnpk18fpQRnUevgG4ZmWAD2NR89THgrJfHtcTCEpnOqAhCHs+85Vw8yxbdAAvEhlAUFBFD14S
+	aHB0Luq1hoEBb192K5aN7STEZVJhX8/qqbvH+FvY2zT22z0NFVyiRr1gXl4UE33StQqVrYFuMbk+T
+	aEnE/q3K9IPs26+4+ShZBxKIYKu3ebt2/F5cTWJzPn/CnJHugrBqbs5PlMruqkod9EdejWDDJMYg3
+	DAS+EMv6s97SbAGkNu9Uos6Tb0akpcO4vR5V0hv1rkBjdkML3D9Dsio5A6i00mVRr8d8v+c0tIgWk
+	tBf92KKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28qs-0000000HZ1O-0pyT;
-	Thu, 03 Sep 2026 14:55:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x295J-0000000Ha2F-39Ez;
+	Thu, 03 Sep 2026 15:10:37 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28qp-0000000HZ0g-2NuV
+	id 1x295H-0000000Ha1d-1GOv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 14:55:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788447337;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=8U+otGqZ4X4lHVqvG0g0N4yJExgb42yXgS3ZaxTrOlE=;
-	b=Sw3NEcf0xJN0pNXa7O+vK0GRbxJcziF01cztIKIIxDi/U3ddrO4QSAX8adbclqLrRp9IAo
-	UioudroS9VjEcslOhNolZF8ZR+A60Xorfgorl/1spQNkwwi4Rffzh4N6F7ylyaXruUf9pb
-	FoqTMZD2wUYNmq7jCK0xRgpbajW/Jfo=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-117-SizS3z2WMpmA6MXGV8OdaA-1; Thu,
- 03 Sep 2026 10:55:30 -0400
-X-MC-Unique: SizS3z2WMpmA6MXGV8OdaA-1
-X-Mimecast-MFC-AGG-ID: SizS3z2WMpmA6MXGV8OdaA_1788447327
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 92F3B195FDD0;
-	Thu,  3 Sep 2026 14:55:25 +0000 (UTC)
-Received: from [100.90.56.12] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2F3227D7;
-	Thu,  3 Sep 2026 14:55:15 +0000 (UTC)
-Message-ID: <19d4feb1-d703-4c62-8622-a6d5e9d6394c@redhat.com>
-Date: Thu, 3 Sep 2026 16:55:11 +0200
+	Thu, 03 Sep 2026 15:10:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fh5mhI8Ac8OgDkIgGC1MCKOHZpgPvWDsDl9Jcf+PdtgxLwxgYw4iCxiuoJ2QIpbMV7ymrjfRsTXRg8JyoEv/PsGUbl5SqFaCNqkkEpqDMt/vkbMdtd7Fwkn1aStOnSTUnbS7e+OPltBz89CvJLO3Cy2TKZ+b1TRbuw4NUEQj487bkyaW4WRuvkcnuRspEwjEmsuOfirexm3lpe/VaNukufucsHBbC30twUKoHmK2VtCRqXckjFozGFLv9auCAwp2BqxqPlX7n4UYFLHl1nhUFQpDHOW+I4HG5bVEk5kasMw/40n/75OvnR23px6Mq7V5fHpg9ZvLTy8zyp+0pTaCpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/BlaVq8bikWvPCaZvzm7IB1Sd1ddd+GZl/KuLldScHU=;
+ b=OkQedakLVrHKsJm7P37f8i15pbSo089V23N9ztnlhy1U6f+ItOqFsCGu+w4eZvUFZLW4BKigJr774Zo4StcC9cUcfBf+oycTR9jqrfqYDa1EV45qEnhXxTp+oVeDJDeuwYz7cAzpQGRQ7q0nPCvCN9ETJ6DML1dziiySw954Oz3AAvGTGCMcrX/AXpeTtfqbfvwAs1w1ep/f9iii/wVxQVyHIv4qig0/SWJouu+mha1OsdG9CoSa8PI3fLBmKHthK3XAWyvgnfXV3cYdXaMYqgkOUbXmgRim/jzIXy4XfaijEu9rr7dljPhVYL8wcpK0XBdfF++CfKqgtpu6NNFkVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/BlaVq8bikWvPCaZvzm7IB1Sd1ddd+GZl/KuLldScHU=;
+ b=ic7ZfKOvGnSsYrPSPepRYde2Lwrbtr1225mJQdLXNTgQgi8vLxu9CCMlBHtV8sKAsfWh48hIxgCAJV/ajFpKDLsUxP/wcmu5aDiKZ+cJDr4O9yV6O3CYx6V0V9vItuJSrCYIVUbdkXnZCPVIBpN1YMNq4zjQNOrJuBoWSuPEm9W93VqmPYlyn1A1WoIQ531SC71fFfaNfX4ho1nKaliHXkMT8uyhMwC2DW8FP8O6GMiMAPuQ9nZPxDWD2CX/845q4JylL+vxbvFmbWis8oXxzMgw/wdiVjbrRqILJ4EMoKF5xELPPeLojKoYbgfLFtNNNCo0JH/87885qVH9tZUEvA==
+Received: from BN9PR03CA0411.namprd03.prod.outlook.com (2603:10b6:408:111::26)
+ by SA1PR12MB6702.namprd12.prod.outlook.com (2603:10b6:806:252::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 15:10:24 +0000
+Received: from BL6PEPF0001AB4B.namprd04.prod.outlook.com
+ (2603:10b6:408:111:cafe::15) by BN9PR03CA0411.outlook.office365.com
+ (2603:10b6:408:111::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Thu, 3
+ Sep 2026 15:10:24 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0001AB4B.mail.protection.outlook.com (10.167.242.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 15:10:24 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 3 Sep
+ 2026 08:09:57 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 3 Sep
+ 2026 08:09:57 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Thu, 3 Sep 2026 08:09:56 -0700
+Date: Thu, 3 Sep 2026 08:09:55 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Kiryl Shutsemau <kas@kernel.org>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>, "Pranjal
+ Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	"Thierry Reding" <thierry.reding@kernel.org>, Krishna Reddy
+	<vdumpa@nvidia.com>, Jonathan Hunter <jonathanh@nvidia.com>, Breno Leitao
+	<leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, Usama Arif
+	<usama.arif@linux.dev>, <kernel-team@meta.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 1/2] iommu/arm-smmu-v3: Add a cmdq_entries module
+ parameter
+Message-ID: <apmNw4hMrkYqyD3j@nvidia.com>
+References: <20260902121724.3494954-1-kas@kernel.org>
+ <20260902121724.3494954-2-kas@kernel.org>
+ <aphbV1FSoop1YGOQ@nvidia.com>
+ <aplvJIuarj_ZrAx9@thinkstation>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-To: Sean Christopherson <seanjc@google.com>,
- Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- David Hildenbrand <david@kernel.org>, Friedrich Welter
- <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
- Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Hendrik Brueckner <brueckner@linux.ibm.com>,
- Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>,
- Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
- Nico Boehr <nrb@linux.ibm.com>,
- Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
- Oliver Upton <oupton@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>
-References: <20260831144802.834315-1-seiden@linux.ibm.com>
- <20260831144802.834315-3-seiden@linux.ibm.com> <apdweRfqt4dTxcU9@google.com>
- <20260902075028.231001-D-seiden@linux.ibm.com> <aphLXQL1H2zYZgTi@google.com>
- <20260903114241.33034-C-seiden@linux.ibm.com> <apmEi1NmOUvmUBFP@google.com>
- <apmFClPZ2WcDINmT@google.com> <apmIGgMEN8w-kQAm@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <apmIGgMEN8w-kQAm@google.com>
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-X-Mimecast-MFC-PROC-ID: NrQ9RHn4OoXDbPUdBK_4GMPHYDD-vm-Xd9ttMqbP6A8_1788447327
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aplvJIuarj_ZrAx9@thinkstation>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4B:EE_|SA1PR12MB6702:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2612337-e9d0-4e81-c00b-08df09cd7b08
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|23010399003|82310400026|1800799024|22082099003|18002099003|56012099006|10067099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: 7219CtuWN6XyetBBIozqkq/WNG8CLuFLrHGw9wj6VBn/z83beTuDNcKtL62xame+qCS2ms7/NyuxL4mkavYZsrSezvM+SJseQZlufEDP+o0P+dHoalvUvOkdrozBprrcWTbdeypMNpzUO9A57+KnDhK0kXxpsoPurj8TGm+U0k/CuXwe9doGzKCI+92X7uLAex+NRdfO3ZY4dv2jl+TaI2scPQM+UIfYWZCPzbvu8mN70WKNTwAzrI3/3vHhutz0NCe/zb0PtJHEcLLv4eik8rEdGBP0LmOa17/JmmgtSp3EiUU5TlDJOATuE4ilQaw6u0Y0zZ4fSzoeeOaXD4gijEUh4su+TE4OXnfvsLUcF5uAkWtQRv+K8wJg+0ZHy3nAUYVe3HbUwW13ETua3wGqvVRlJs0LcZxg9BTgmfPuy5uNu4aM06KT2JRa6xDlqmiGOnC3/wIArDcRg0m1E53NW3VX8D9wN+bKuzns/w4Bb/tfcKzV3BPirIqo2k4WBWQoLlDuXcQT9zn6woOvVznNyHEmyzHfgzb90F/Ih5w1kZcAhtCLVNnUkr/j/1n0/y7T6VHUEDyAd6CRevQ4jValmS2FvmUooM7phW+7oIx2fEO5S5+/pCPJhGcsX1NedWYRU9UflOnljuxhiXZD6aq91qzUL12BAkZRPwQXp0bfq05Zq9PkLe3y/ASTJ6QkowFsirvYs3LPzNzRzQSg3FLPkg==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(23010399003)(82310400026)(1800799024)(22082099003)(18002099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: HlC24yZVs++fceGgNSNJhb2c5u3gGLdtOTp84lcurUDo6j1IqgFBHh3hIzugSOQHi9u/c3zT3a5OBlkx4lXGI4q+WETlv12mH1K4dBrhQXzZnZpu0+Kf1yCpNufR7t/701j607XnX1Qf327ZNRh2XXCbfoOaUlkMzGKJuCtA6Cs7LVeI70FGxPBjEoa3CDNjsharjvVHlcl1Hj8vOmHi2MAz/dgUyFH+WJfEQMvrfxbDPm54fsmGKYNFO18ehQD70rur1EfTUMvfcik4OgqNO50TjE1TzrRhbR10DB6tvAo16CkFnb3R/R8HnEQWaQuz2rRT+XMtC1Qbec9FOypyTfhmehLwc3y82xN7vS209c8FyNLVvWgk8WbCi8ggTf9lk9YTiFIZxGYlzWVUTa1m1YqBKQm3XYjJ5rylOhS3SLQLbLYa5jZgftToA6DK2mGh
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 15:10:24.5164
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2612337-e9d0-4e81-c00b-08df09cd7b08
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6702
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_075539_683526_DD400B2D 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20260903_081035_340810_4D123FAB 
+X-CRM114-Status: GOOD (  23.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,72 +137,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/3/26 16:45, Sean Christopherson wrote:
-> On Thu, Sep 03, 2026, Sean Christopherson wrote:
->> On Thu, Sep 03, 2026, Sean Christopherson wrote:
->>> On Thu, Sep 03, 2026, Steffen Eiden wrote:
->>>> On Wed, Sep 02, 2026 at 09:14:21AM -0700, Sean Christopherson wrote:
->>>>> And taking things a few steps further, we can solve the MMIO issue in a more
->>>>> elegant way, and eliminate the runtime string building in this patch (after looking
->>>>> more closely, that code needs to be jettisoned no matter what, there's simply no
->>>>> reason to specify the names at runtime since they're separate compilation units).
->>>>>
->>>>> Rather than splatter #defines throughout header files, deal with the bulk of the
->>>>> pain in Makefile.kvm.  By feeding conditionals into Makefile.kvm, the s390+arm64
->>>>> build can easily omit coalesced_mmio.o and async_pf.o, define __KVM_HAVE_ARCH_MMIO
->>>>> programatically without having to change other architectures, and solve the naming
->>>>> stuff.
->>>>
->>>> Yes, this is a great idea. Thank you. I second you, this looks more clean
->>>> and stable than the stuff we came up with :)
->>>
->>> Looking more at arch/s390/kvm/Kconfig and virt/kvm/Kconfig, we might need/want to
->>> to build out infrastructure to handle this sort of thing in a more generic fashion?
->>>
->>> Which probably isn't that much infrastructure?  It's more just changing how arch
->>> code communicates with common KVM?  I.e. instead of providing boolean configs in
->>> virt/kvm/Kconfig, formalize communicating HAVE-type macros through the Makefile.
->>> That might even be a net positive in the long run, as it will make it easier to
->>> provide defaults for the common cases.
->>>
->>> I say that because unless there's magic I'm unaware of these Kconfigs also needs
->>> to be configured per-KVM, not per-kernel:
->>>
->>>    - KVM_MMU_LOCKLESS_AGING, otherwise aging on arm64 will unintentionally be done
->>>      outside of mmu_lock.
->>>
->>>    - KVM_GENERIC_PRE_FAULT_MEMORY, so that arm64 doesn't need to provide a stub
->>>      for something it doesn't support
->>>
->>>    - HAVE_KVM_MSI, because presumably it's needed for arm64 support.
->>>
->>>    - HAVE_KVM_READONLY_MEM, same story as HAVE_KVM_MSI.
->>
->> And in the opposite direction, HAVE_KVM_VCPU_RUN_PID_CHANGE also falls into this
->> category.  That one is probably better handled as a #define in header files?
+On Thu, Sep 03, 2026 at 03:15:27PM +0100, Kiryl Shutsemau wrote:
+> On Wed, Sep 02, 2026 at 10:22:31AM -0700, Nicolin Chen wrote:
+> > On Wed, Sep 02, 2026 at 01:17:23PM +0100, Kiryl Shutsemau (Meta) wrote:
+> > > +/**
+> > > + * arm_smmu_queue_max_n_shift() - pick the log2 depth of a queue
+> > > + * @hw_shift: log2 depth the hardware allows, capped for natural alignment
+> > > + * @ent_sz_shift: log2 of the queue entry size in bytes
+> > > + * @want: number of entries asked for, or zero to use @hw_shift
+> > > + *
+> > > + * @want is rounded down to a power of two. It never sizes a queue below one
+> > > + * page, because coherent DMA is page granular: a shallower queue occupies the
+> > > + * same memory as one that fills the page, and arm_smmu_init_one_queue() stops
+> > > + * shrinking at a page too.
+> > 
+> > Well, since we want the cmdq depth, why not name the parameter
+> > "max_cmdq_depth"? Then, no rounding and more straightforward.
 > 
-> Continuing the conversation with myself, add in HAVE_KVM_NO_POLL and
-> HAVE_KVM_INVALID_WAKEUPS (which reminds me, valid_wakeup should really be moved
-> into s390's kvm_vcpu_arch).
+> The max_ prefix is better, thanks. cmdq_entries does not say it is a
+> ceiling.
+> 
+> On the units, the page floor has to stay whatever we call the parameter.
+> 
+> Ask for 8 entries and max_n_shift comes out as 3, which the
+> CMDQ_BATCH_ENTRIES check in arm_smmu_device_hw_probe() rejects with
+> -ENXIO. The floor gives you 256 entries on a 4K kernel instead of a failed
+> probe.
+> 
+> So log2 removes the rounding but not the flooring, and the number asked for
+> still is not always the number you get. I would rather keep entries than
+> make people convert.
+> 
+> The rounding is not silent, either: arm_smmu_init_one_queue() already
+> prints "allocated %u entries for cmdq", so the effective depth lands in
+> dmesg whichever unit the parameter takes.
+> 
+> On the name itself, "depth" reads to me as a number of entries rather than
+> its log2, so max_cmdq_depth=8 meaning 256 seems more surprising than the
+> rounding it replaces.
 
-Yes, these three can be handled in a similar way as this in 
-arch/x86/include/asm/atomic64_64.h:
+Well, maybe "cmdq_max_n_shift" is a better one over "depth".
 
-#define arch_atomic64_xchg arch_atomic64_xchg
+Given CMDQ_BATCH_ENTRIES is used, I think cmdq_max_entries works.
 
-and then a #ifndef replaces the "#ifdef CONFIG_*".  Do this, and moving 
-vcpu->valid_wakeup to vcpu->arch comes almost for free.
-
->>> Actually, thinking about this more, what I've proposed here, plus the pattern of
->>> #define-ing macros in arch-specific kvm_host.h files, should suffice.  For things
->>> like __KVM_HAVE_ARCH_VM_FREE, it absolutely makes sense to #define the macro in
->>> kvm_host.h since it's very directly tied to an arch callback.  Whereas with KVM_MIO
->>> and KVM_ASYNC_PF, because they enable compilation of C files, it makes sense to
->>> define them in Makefiles.
-Ugh, defining CONFIG symbols in Makefiles sucks.  I don't want KVM to be 
-the one that does things differently *once more*.  I'd prefer to stub 
-out the contents of the .c files instead.
-
-Paolo
-
+Nicolin
 
