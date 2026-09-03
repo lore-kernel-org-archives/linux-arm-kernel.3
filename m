@@ -4,167 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B713C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C1AC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yScHecepnSl77oXyawtJTt41FqDWSM6OqAv9e7/J2Vs=; b=XXawyHFBj2r4q93/Yq644/QFvt
-	zFUgo4C5T4BWxMFI/UucDT07EA+q7xB37JW1yzgktUaQam6mewvywAio+TDKqIEsbZMWkOo0zXoDO
-	xzWtwqnX9TEmvveFvFn3zHJa1tHmMf8TzxjZenG4DMtmRU3vQDJNXipy/rHzfkHuJR6xQTS6LBUzl
-	jIcXWhkRLWWCZtj8aTVOhXObcwJj8PrJGuAZbR5PxMBP6bzZKmpXlnf/LWQAtes9e5Jd6mKAFNRTj
-	72z4abPo23z+JM2xtraxHSwGZXtxu/ckiDjahfLG1/mBrJJCE3HT5tM2FgoEwsKzFLzskZZKbOzoT
-	Ob6+eFyA==;
+	bh=H9qD0sFZ2P4s6++zHyN8ZE8Rd94yZI/MQR/y8ugP8/g=; b=DRSyMkbtbVYVnukxWGkFRdxSkv
+	9T3gMb2WTq3SSlG6QianeW+kFSMYuVImW6a+/wB352fPxp09lr3wc3MZn0I9AKyTo2nRbdV6KIMBT
+	hTd8Z4AVhP9wnDkuqUn18ifFm7Oe8zK8+NLnaxolzArSOw0uwjRXnIrC9wDomiSIfr4ydGfe1y2aG
+	yzDPS7MmeNbBR1Hs0lVWMAFlJ+kWNwEU9iKptYyfyswCXRA4KOfO9bvhuq0Ibjc54SKv5nDP65D0i
+	LLsyiYP+/T0bFO9cOA47UAtNqJW3x0wRRUNn/PUlgHMqqhcHVcISkOphQUtf6LqjOsoAGh+4iHLJI
+	r9m+GMZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23ZB-0000000Guqq-0Vfb;
-	Thu, 03 Sep 2026 09:17:05 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x23ZX-0000000Guyo-1JJi;
+	Thu, 03 Sep 2026 09:17:27 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Z8-0000000GupP-0UuR
+	id 1x23ZU-0000000Guwk-13gf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 09:17:04 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 68391CHO3302174;
-	Thu, 3 Sep 2026 04:16:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=yScHecepnSl77oXyawtJTt41FqDWSM6OqAv9e7/J2
-	Vs=; b=MxBxVvTbl0rG7Q6cplMQjBLdDxNJ0iYb9CfROywG3keTA1VfcuwTgb/nB
-	J93ywKglsBHrI0JlFj6VrMWEC9i4kTAGMoGP8NlNhT+qRBjrcQrlyiUsTPOrbQZY
-	z0DroRAYPNMsKQ+UpoRy2s5TYXj7IxGqSw6wfvup1G+O6lyQbv9UI2iPaPpRZtCX
-	5RV7uOGSdSyPUNNQUCOnyAeLxE+q8jbRrXZiwnm1AXzBzscG1C5I7/PjpuPfyfBR
-	QgSoA+04woD9Bb9Tc5mbl8hbw+Mgw1+OBKkNlM0lcaeLl4EFSKYd0vW9Vjx4TsfU
-	HJ2zVoWT5K+XaeS3YUItobqeimiFw==
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010026.outbound.protection.outlook.com [52.101.56.26])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gf0jv1vk1-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 04:16:55 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H4GZx56cTNrRAsui2LFreWm22ho75S7GWdQ+dJZW9nFU7F+quLXmMTvaSaizTBWLI1cIjFwiv6v3wqQbJKzsdwDXUgAXc+J53Mb+4M0Oh3iwiIQ5Ngq4GgL6Z/aY+nXdLGxn2Fe+yqvh46rsEvY4UqU4J19lrp+YQ352YPuEm+40GtblB+4rdSiC0hHRc16W7qefT/tWHdtZ9UykzRCnOOJG/pIyLc4J6FS0GQSrQd2PT41TwUsMe+DprZV8T4Rgu1t5/mrAPbfPcU1nqLTynXAlPyFDQKEGyOQVmbtyHlrkw2u+8wzmv5vNlFZHXt9aLANq25T7IiVoxv/ycdeCgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yScHecepnSl77oXyawtJTt41FqDWSM6OqAv9e7/J2Vs=;
- b=Tlx1Sc3KB0bCovMQyw1L2/Az1EPeMopePXwtt01HL1mpTleMesa+e6dffCdntJBYcqxqjaVF6/ydXoyYnbYOcrGk9wZPQBukfcsrt81NUtFytPyf2eT6Br5yBa1J6NGZyfCVv+UhyheIqTK6gFpJNkIGEstH15Af6gGPulEob+c491ul2uWaNFQAUwPx0feGdC1/q8c6hj54pFG9SIA4Om364IfVeOQ5K+Ce9A47GLjzzp78Z0ZQk6NJBQ/kDnbI893rg6qpm0FOYcOGHtOTXMnzMrIr7oBzsFaUDwv6ijmPMqwgowlP52hpV1nH+fgMBs9a1CseHQZZZbs/qBaLZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yScHecepnSl77oXyawtJTt41FqDWSM6OqAv9e7/J2Vs=;
- b=ZanRQedTAurkwwXN9y2JEYF7i5oSdNkE0cve+J1Lw+qyamdL89JBdjhcZQ7V2XraJ7XqOo0IABAVZryQQXhEX8olAZpYTa3QMqbTS1FLU+NoFMTQjRgynJESuhzmd4EHS1l8apGcLeciFct5GJmGRpeGbNm+tsPUWnBMuxqgvws=
-Received: from BLAPR03CA0091.namprd03.prod.outlook.com (2603:10b6:208:32a::6)
- by CHAPR10MB997745.namprd10.prod.outlook.com (2603:10b6:610:2f7::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Thu, 3 Sep
- 2026 09:16:41 +0000
-Received: from BN2PEPF000044AC.namprd04.prod.outlook.com
- (2603:10b6:208:32a:cafe::28) by BLAPR03CA0091.outlook.office365.com
- (2603:10b6:208:32a::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
- Sep 2026 09:16:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BN2PEPF000044AC.mail.protection.outlook.com (10.167.243.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 09:16:41 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
- 2026 04:16:20 -0500
-Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
- 2026 04:16:20 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Thu, 3 Sep 2026 04:16:20 -0500
-Received: from [10.24.52.205] (a0512632.dhcp.ti.com [10.24.52.205])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6839GGq01268955;
-	Thu, 3 Sep 2026 04:16:17 -0500
-Message-ID: <25d22caf-c971-4a6b-887a-7770a0bfb6c4@ti.com>
-Date: Thu, 3 Sep 2026 14:46:15 +0530
+	Thu, 03 Sep 2026 09:17:25 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-482dd6ee390so2025626f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 02:17:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wirenboard.com; s=google; t=1788427042; x=1789031842; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=H9qD0sFZ2P4s6++zHyN8ZE8Rd94yZI/MQR/y8ugP8/g=;
+        b=D2AAWZ3blAa9hYTJyxVU70JLl6kbAUuCjEzoNXi49S/4ZafO1yTDUi2MAkHEw+sik4
+         RA5k7BSM50BIseNzot4pJloCdUItM8kUrXHuIwOOvd5Gvt5gkYzfYt/gKXIl0DfG/0kG
+         PtMwe4KviKhOwECjanmZz46Qk7+SNKUozXWlkK6qOYPAO0QSOrUDWxUoviKA4tSHv08+
+         /xDocHmaBsOOYpC/fBgG658D58Y+wtEkVFdRbmUzv54XfbdyO39iYgLbKnccW6vqM+F2
+         fvQxDNz+IKVcqEy8pJDVg3I9Ne65qws9/DrXdII2QAgp1xmTDFqmIAExAMF+Vg6czX57
+         u+Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788427042; x=1789031842;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=H9qD0sFZ2P4s6++zHyN8ZE8Rd94yZI/MQR/y8ugP8/g=;
+        b=D98hWTY6AfjKeKi6VqduTplUe5t8cBFs3XLEszJcUVqRvL98c0QxQKyE7B3s8ZuOzu
+         1hbnAYGvBTCjsGwJU5hrexFWX2MO8/21KKws30Yw3al3pm0oWEE+NPTTGYqVOoVPcXK2
+         rI7MYZIRxNXMXQV14NFAhTzScLpYwzdu2IhPnuLnOTSlkjKkbtMr+c+SNq9YjyBzHiyE
+         75hSnLnN/0af++7QVIDrRF/cB5jBTvDZV3IAnFdYKY/OmNIZzLxmdCIZBKd5kQdSye/D
+         HxptJTHrSRkOLYGORIMadyr9lGMFDgGV5VHUHqfc44YHWNo/XCfE/imNCiY730Vn8VkF
+         ChZg==
+X-Forwarded-Encrypted: i=1; AKwUvBzj26xTnW9LBVwTZNGJl7J0EOFlxemnoll2RUfwTtPXjsF5BpuR250Iq9nOZAu4n2nT8nHrZT/NgmjrX0DliMey@lists.infradead.org
+X-Gm-Message-State: AFuF++kKJbGgfPAh8kZyknpCMvWjd102L8bsD36hn9m5l2WhqRWmLmMp
+	6NsL8MIIycao2kZvVhkyZLxvc6kRSK4rnEczmfDkrvSKtmG+U7/xeAvmKL4BrXrbGu2tmm+DyJ2
+	t3zFjpbpbNw==
+X-Gm-Gg: AYBFou1vstMTcLBLUDuY1dglBaD5sRnAmuBJTtfm4EvknCSM7dqdhUZjTn+teIc3pZM
+	MsrbRzIaafoLGcd+3a5mY/tJ723vDpf5ipEvWzTaUi9AWiHXXOQYzpxhRD/1zqiBGoAesgeo4vu
+	b6nCg+ZstrdScGfb9uQutg6I2nuOkRxxjE1qtK9L25KETKmC/IqkJ1IIQAJqw5xvJ9mFH+jC6Ll
+	JEhlgQaG/IfzRO6Btuc4UKLGg2z9KebFWJ+sapFtLNRDXEM7Kcrr1K8Y3aF+3krwdTo0AQzgl28
+	P5wxnaIsuoBWBD4UlzwdcjOKOBsuay6fjTaHbmWz0fhyFsQlpeVJ/c/2HDPRfwOO0fN0x7s1KcR
+	w0oxqPWMccIbFn9g6BDfRA5JB5qH9iYdumkTX9lvj6Hx7P0JowflBtLE/WPHYiO9lIfozeuww6y
+	Sj5LyYEKCdBNXBk2/cpfo1YbBm3iWop+eWsoXLkV/I6vrubbEfXpPea9N66ckOkO356vFyY1ZAL
+	PTTr50bHFNgnBSMc7q+5lNo4UtWhxb7
+X-Received: by 2002:a05:6000:471a:b0:484:3311:3176 with SMTP id ffacd0b85a97d-48488f22290mr20813888f8f.23.1788427041742;
+        Thu, 03 Sep 2026 02:17:21 -0700 (PDT)
+Received: from localhost.localdomain ([85.137.25.106])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e72f02sm12073755f8f.3.2026.09.03.02.17.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 03 Sep 2026 02:17:21 -0700 (PDT)
+From: Ilya Titov <ilya.titov@wirenboard.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	=?UTF-8?q?Emilio=20L=C3=B3pez?= <emilio@elopez.com.ar>,
+	linux-gpio@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ilya Titov <ilya.titov@wirenboard.com>
+Subject: [PATCH v2] pinctrl: sunxi: keep a shadow copy of the data register output latches
+Date: Thu,  3 Sep 2026 12:17:18 +0300
+Message-ID: <20260903091718.44042-1-ilya.titov@wirenboard.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260812120114.32501-1-ilya.titov@wirenboard.com>
+References: <20260812120114.32501-1-ilya.titov@wirenboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add DSS support for AM62L SoC
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, <nm@ti.com>,
-        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devarsht@ti.com>, <praneeth@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20260811130822.2324438-1-s-jain1@ti.com>
- <5727ba42-4469-4a12-ab70-9f85089dc6c1@ideasonboard.com>
-Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <5727ba42-4469-4a12-ab70-9f85089dc6c1@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044AC:EE_|CHAPR10MB997745:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99f042ab-1372-426d-9928-08df099c10d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|23010399003|376014|10067099003|3023799007|56012099006|4143699003|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: Dlv+SeLgnoJMaBxhtP+jO9wS+FroobDrZSJwn8c6THzwTl2DsjsDRVIZ6LEUy8LixkiAe89BArl6pttYpg3WJ2+v2WpYGM18YhclAiai4MHGRai7IfnSJYnXqU3GamQDtgBrGRu4QETAtFB7YSZYOBNs7DMVsOGVi3evwrI6viMyuTYjxaUlZLDa6JZSdFly0cic9Fq8ZjysthOh44nutNx18wuvqYYd066aZKkINVbMr0Z06AgbfjASaOFQ6JjK6yBuF5EqwBWdZCJoZXD/J167wLY+nl81IjyAYcHQfLmBXt5Lf4l/N1P/MOkpg/JJg/H3aiELH66piHTll/a0lVGXyVK1ZV2rX9KoGDJdyxw4kA5hAlUvWgeEb2AJbDc5UI0rV8YcsY/hqqhYBcb171oDNNeCd0LUpRdmmclyU6YQX3I3HyQsuXQ/dJrJsr5fQ4EuH4csuw/Uetf3CPYbeHNzIuwEiqWSScF+ZGT3snrpibbkbj0RPjvR+j9do9xaPyBiZItqXOA6JxnGkmXfLRyVphbXKDbJpgnsEM/Z1+nEE91JKG6QuAaT0hPbhhVQDuqxzBaHc00yjSa0TCC8UUleA0e+ya9McfV7KkdgafXkfTnJ+D3ytNOLm+Bz3wliteFXFgZgnI17FggBscgJqOtfopea5AJA8zAXD1YeyivYahM6orYafdscz60LUObFZVdsV7R3zH2jPJCiTkMC6Q==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(23010399003)(376014)(10067099003)(3023799007)(56012099006)(4143699003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6D5jzNv3sobfDR2azkIOJ2gcLOWZ3pcTcKF5VnADbTXJa4cple0LkDOFbkgClBNGRUOSWRhKGgV7WxVCbGO8TI2ECOdSzIps8SZb0OprBIQFwJg8hbtFHprzmmOjLMcXdaKN2npxOVYmj+4F1LW1OyAs/N3G7aHjBlQIVI1h5+pxa5lJPWLsXBHvMkh1woWv6+yjgBqCqoUAYQ6g8GBdxW1aph4gW7wrtULE9579mfV91VB8Dbd07gil55Dpb1RdRyatRNipcP/cEoqnORLltnFDFYEVNvN8AcP4UJWzAvdWwI2GLJL98s1qd1uJo/ayxsrthRnMLh5+oauyKrgLynITyL2aldbRQL5yaA7Ec3WttQ4Me0kr76LvSKguRCPYPqXoKQgLDJ3avkUz+lAIq+Aj4g2+xFZw0ncGhjCzi+6v6tKLufugf4w/6Es7xHBx
-X-Exchange-RoutingPolicyChecked: 5nUJ6cZjILClBIIEZ0EtlevQ7wUUCvtPYRfzKP/L1h6joq3kGi3Dspp3+3NFApapSEoyUWAoaqibbut965VQnlZF1YwtmhUeV/AY0q6gHtupab9Tg/HzRCN/87Yh4XmIxezAfSlSCmBY+ARACzzZYMIJLn9yVOl44wwPrger2TJhGRumcg1vOEdQQxEeAfoOjtgyiNZIBmgDI18pcS/0pV9etOQmLdd5tnKRlwly7xq50lxmT8pV5LL5rKMcw0Z7tsDvq2GkkXV1ffLh1oKcRCeN5hZPh9WqRyK9RbSts8R3W1jtGF18cK/4vwfD7uye+BUtCGTru6u1X9JFHwbe9w==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 09:16:41.0518
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99f042ab-1372-426d-9928-08df099c10d1
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AC.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHAPR10MB997745
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDA3OSBTYWx0ZWRfX4hEOYdPUKOBu
- mGLwsewmqvUeyLvZLmAtOq8LP7ymg93R/uP+2smKHqGekO2/x1AD8bgFvasZIBZMq7u1ZzAHnOS
- L+jvQMX6g3nJ0TKaoxaTGr9B0W2ydj4=
-X-Authority-Analysis: v=2.4 cv=J6eaKgnS c=1 sm=1 tr=0 ts=6a993b07 cx=c_pps
- a=zHP1L1ZDY46t+2XtVYLmoA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
- a=P1BnusSwAAAA:8 a=Bdq-GAt1Ba0-0Rc_Fw8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: xUvyWa_5M9qg4YHbHXXC4migUrRr6bUE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDA3OSBTYWx0ZWRfX7qLsCjKmMsF/
- sHEGU1pb7ijjBBwbLW49e5cyDC9mZTt+6JxPENs5g9yGp4t+m4K03xBb6/aOJEHcCzP/Uz7mnyE
- k5jkIMVh3IjFc57j2evbUWpR5KVBADhOShkU+4Dvc7D7ZQ8Z255zhTCQFMG9Z2bTk/GmF68CgMu
- Y++fJz58Ca+RwC2aZN3WLyNf+BMw7HrbCwXf1hW8l5ZggbItYQwePV/K/f9XtYp+rZY+9dswqNx
- /S4vbShCX0ECnsjIFXYZs1mpYsSpXw+kFcQFMFyisJaRxVbqo/Tu2OPBkeLtJ/60OMvUNxqTpnP
- yiO89KqX0cI3TPpJI1bWIWfgXUcBZIKjUGFIpuce8XLmg6ZkObiRr2GzXUwPWgfFuQ4ndoRRbiP
- JKIKjRApjhXu3xmLsoCgIuHQlCFcrEVQuV15tll/v/Atl/B1zayS0LLr3gT7G3/jQMoCgTNnBDP
- 51y9kKCEKJ2HtEmuIiQ==
-X-Proofpoint-ORIG-GUID: xUvyWa_5M9qg4YHbHXXC4migUrRr6bUE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_02,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 clxscore=1015 adultscore=0 bulkscore=0
- impostorscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_021702_290231_3E3C9927 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260903_021724_348189_50647812 
+X-CRM114-Status: GOOD (  34.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,33 +111,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
+On Allwinner SoCs, reading a bank's data register returns the pin level,
+not the output latch, for pins that are muxed as inputs.  Writing a GPIO
+therefore corrupts the output latches of all input-muxed pins in the
+same bank: the read-modify-write in sunxi_pinctrl_gpio_set() reads back
+their pin levels and writes those into their latches.
 
-On 8/21/26 14:32, Tomi Valkeinen wrote:
-> Hi,
-> 
-> On 11/08/2026 16:08, Swamil Jain wrote:
->> This series:
->> - Adds base support to enable Display on TI AM62L[1] SoCs
->> - Adds base support for DSI output
->> - Enbales HDMI output out-of-box
->>
->> [1]: https://www.ti.com/product/AM62L
+This breaks emulated open-drain lines (e.g. a bit-banged I2C bus from
+i2c-gpio).  Such a line is released high by muxing it as input and
+letting the pull-up raise it, so any concurrent GPIO write in the same
+bank stores 1 into its latch.  Driving the line low afterwards is a
+non-atomic data-then-mux sequence in sunxi_pinctrl_gpio_direction_output();
+if the poisoning write lands between the two steps, the pin actively
+drives high (push-pull) instead of low.
 
-Thanks for reviewing the patch.
+Observed in practice as sporadic glitches on a T507 board bit-banging
+I2C on port E while other PE GPIOs are toggled.  On a scope the failure
+is unmistakable: on a clock pulse where SCL should fall to GND, the line
+instead steps *above* its idle high level for the whole low phase — the
+pad drives a strong push-pull 3.3 V high, higher than the level the
+pull-up sustains on the loaded bus — before the next transition recovers
+it.  The same can hit SDA, corrupting data instead of clocks.
 
-> Do we really need bootph-all? In any case:
->
+Steps to reproduce on any sunxi board with a bit-banged (i2c-gpio) bus:
 
-We need it to enable splash-screen.
+  # background: toggle any other GPIO of the same bank, e.g. line 21
+  gpioset -c <chip> --toggle 100us 21=0 &
 
-Regards,
-Swamil
+  # foreground: keep the bit-banged bus busy
+  while :; do i2cdetect -y <bus> 0x50 0x57; done
 
+  # watch SCL/SDA with a scope or logic analyzer: sporadic clock-low
+  # phases driven high (above the pull-up level) instead of low
 
-> Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> 
->   Tomi
-> 
+The bank spinlock cannot help: the racing write is a perfectly valid
+whole-register RMW that faithfully writes back what the hardware
+returned.  There are no set/clear registers on this IP to write a single
+bit atomically.
+
+Fix it the same way gpio-mmio handles hardware whose data register read
+does not return the output latch: keep a shadow copy of each bank's
+latches, base the read-modify-write on the shadow, and only write the
+register.  The shadow is seeded from the hardware at probe time so pins
+left in output mode by the bootloader keep their state.  Pins that reach
+output mode through the gpiolib paths write their value (and thereby
+their shadow bit) before the mux switch in
+sunxi_pinctrl_gpio_direction_output(); pins muxed to gpio_out directly
+through a pinmux node bypass that path, so sunxi_pmx_set() refreshes
+their shadow bit from the latch (readable once the pin is in output
+mode) to keep them driving their pre-existing level.
+
+Seeding the shadow reads the PIO registers at probe time, which requires
+the bus clock to be enabled.  The clock was only requested at the very
+end of probe, after devm_pinctrl_register() had already claimed the pin
+hogs described in the device tree - which mux pins, and thus access
+registers, with the clock still gated.  Move the request ahead of both.
+Boards whose bootloader leaves the PIO clock running are unaffected,
+which is why the pre-existing hog problem has gone unnoticed since
+commit 950707c0eb5c ("pinctrl: sunxi: add clock support").
+
+Fixes: df7b34f4c3d2 ("pinctrl: sunxi: Fix gpio_set behaviour")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ilya Titov <ilya.titov@wirenboard.com>
+---
+v2:
+ - compute nbanks with DIV_ROUND_UP(last_pin + 1 - pin_base, PINS_PER_BANK)
+   instead of round_up(last_pin, PINS_PER_BANK).  last_pin is the highest
+   pin number, not a count, so the old form allocated one bank too few
+   whenever it was an exact multiple of PINS_PER_BANK, which would let
+   sunxi_pmx_set() write past the end of dat_shadow.  No current SoC hits
+   this (the closest are PL1 on h616-r and PN1 on a80-r), but a bank with
+   a single pin in a future table would.  Reported by Sashiko AI review.
+   The allocation size is unchanged for every SoC description in tree.
+
+Tested on a Wiren Board 8.5.1 (Allwinner T507) against a 6.18-based
+kernel, where the problem was found: the bit-banged ATECC/RTC bus on
+port E survives 200 probe rounds while another PE line is toggled every
+100 us in the background, which reliably corrupted transfers before.
+
+The mainline port has not been re-tested on that hardware; it was build
+tested on v7.2-rc7 with arm64 allmodconfig and arm allmodconfig (all 28
+PINCTRL_SUN* variants, W=1), both without new warnings, and sparse
+(v0.6.5) reports nothing for the driver.
+
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 76 +++++++++++++++++++++------
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++
+ 2 files changed, 68 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 25489beeb312..2881a83be99c 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -837,6 +837,21 @@ static void sunxi_pmx_set(struct pinctrl_dev *pctldev,
+ 	writel((readl(pctl->membase + reg) & ~mask) | config << shift,
+ 	       pctl->membase + reg);
+ 
++	/*
++	 * A pin muxed to gpio_out directly through a pinmux node bypasses
++	 * sunxi_pinctrl_gpio_set() and drives whatever its output latch
++	 * holds.  Now that the pin is in output mode the data register
++	 * reads back the latch, so refresh the shadow to keep such pins
++	 * driving their pre-existing level.
++	 */
++	if (config == SUN4I_FUNC_OUTPUT) {
++		u32 *shadow = &pctl->dat_shadow[pin / PINS_PER_BANK];
++
++		sunxi_data_reg(pctl, pin, &reg, &shift, &mask);
++		*shadow = (*shadow & ~mask) |
++			  (readl(pctl->membase + reg) & mask);
++	}
++
+ 	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+ }
+ 
+@@ -1017,21 +1032,29 @@ static int sunxi_pinctrl_gpio_set(struct gpio_chip *chip, unsigned int offset,
+ 				  int value)
+ {
+ 	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+-	u32 reg, shift, mask, val;
++	u32 *shadow = &pctl->dat_shadow[offset / PINS_PER_BANK];
++	u32 reg, shift, mask;
+ 	unsigned long flags;
+ 
+ 	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
+ 
+ 	raw_spin_lock_irqsave(&pctl->lock, flags);
+ 
+-	val = readl(pctl->membase + reg);
+-
++	/*
++	 * Reading the data register returns the pin level, not the output
++	 * latch, for pins muxed as inputs.  A read-modify-write based on
++	 * the register would therefore corrupt the latches of input-muxed
++	 * pins in the same bank (e.g. an emulated open-drain I2C line
++	 * released high), making them drive the wrong level once switched
++	 * to output.  Base the read-modify-write on a shadow copy of the
++	 * latches instead.
++	 */
+ 	if (value)
+-		val |= mask;
++		*shadow |= mask;
+ 	else
+-		val &= ~mask;
++		*shadow &= ~mask;
+ 
+-	writel(val, pctl->membase + reg);
++	writel(*shadow, pctl->membase + reg);
+ 
+ 	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+ 
+@@ -1572,7 +1595,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	struct pinctrl_pin_desc *pins;
+ 	struct sunxi_pinctrl *pctl;
+ 	struct pinmux_ops *pmxops;
+-	int i, ret, last_pin, pin_idx;
++	int i, ret, last_pin, pin_idx, nbanks;
+ 	struct clk *clk;
+ 
+ 	pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+@@ -1610,6 +1633,37 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	if (!pctl->irq_array)
+ 		return -ENOMEM;
+ 
++	/*
++	 * The bus clock has to be enabled before the pinctrl device
++	 * registers, as the pin hogs claimed from there access registers.
++	 */
++	ret = of_clk_get_parent_count(node);
++	clk = devm_clk_get_enabled(&pdev->dev, ret == 1 ? NULL : "apb");
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
++	/*
++	 * Seed the output latch shadow from the hardware so pins the
++	 * bootloader left in output mode keep their state; see
++	 * sunxi_pinctrl_gpio_set() for why a shadow is needed.  This must
++	 * happen before the pinctrl device registers, as pin hogs can mux
++	 * pins to gpio_out and thereby update the shadow.
++	 */
++	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
++	nbanks = DIV_ROUND_UP(last_pin + 1 - pctl->desc->pin_base,
++			      PINS_PER_BANK);
++	pctl->dat_shadow = devm_kcalloc(&pdev->dev, nbanks,
++					sizeof(*pctl->dat_shadow), GFP_KERNEL);
++	if (!pctl->dat_shadow)
++		return -ENOMEM;
++
++	for (i = 0; i < nbanks; i++) {
++		u32 reg, shift, mask;
++
++		sunxi_data_reg(pctl, i * PINS_PER_BANK, &reg, &shift, &mask);
++		pctl->dat_shadow[i] = readl(pctl->membase + reg);
++	}
++
+ 	ret = sunxi_pinctrl_build_state(pdev);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "dt probe failed: %d\n", ret);
+@@ -1665,7 +1719,6 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	if (!pctl->chip)
+ 		return -ENOMEM;
+ 
+-	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
+ 	pctl->chip->owner = THIS_MODULE;
+ 	pctl->chip->request = gpiochip_generic_request;
+ 	pctl->chip->free = gpiochip_generic_free;
+@@ -1699,13 +1752,6 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 			goto gpiochip_error;
+ 	}
+ 
+-	ret = of_clk_get_parent_count(node);
+-	clk = devm_clk_get_enabled(&pdev->dev, ret == 1 ? NULL : "apb");
+-	if (IS_ERR(clk)) {
+-		ret = PTR_ERR(clk);
+-		goto gpiochip_error;
+-	}
+-
+ 	pctl->irq = devm_kcalloc(&pdev->dev,
+ 				 pctl->desc->irq_banks,
+ 				 sizeof(*pctl->irq),
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 0daf7600e2fb..498e88a19f71 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -85,6 +85,7 @@
+ #define IO_BIAS_MASK		GENMASK(3, 0)
+ 
+ #define SUN4I_FUNC_INPUT	0
++#define SUN4I_FUNC_OUTPUT	1
+ #define SUN4I_FUNC_IRQ		6
+ #define SUN4I_FUNC_DISABLED_OLD 7
+ #define SUN4I_FUNC_DISABLED_NEW 15
+@@ -175,6 +176,12 @@ struct sunxi_pinctrl {
+ 	int				*irq;
+ 	unsigned			*irq_array;
+ 	raw_spinlock_t			lock;
++	/*
++	 * Output latch shadow, one word per bank.  Seeded lockless at
++	 * probe before the pinctrl device registers, protected by @lock
++	 * afterwards.
++	 */
++	u32				*dat_shadow;
+ 	struct pinctrl_dev		*pctl_dev;
+ 	unsigned long			flags;
+ 	u32				bank_mem_size;
+
+base-commit: f5bbbfec59b4e2fb7520a91de3df8a6174325d6a
+-- 
+2.50.1 (Apple Git-155)
 
 
