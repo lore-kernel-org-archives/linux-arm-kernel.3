@@ -4,86 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E34C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A690AC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMyNnEe2VO29svGA0dfmwKzLJS9xqVqR88SLj5rL67k=; b=ZxCmA3DTyqcepaUAm7LzyNKZfd
-	vFV5Q9L8zhutjWLeNkqcWzfdwzZYiJPIcTuzApJWZoWU+TRlYq8KUh7LI5ViLpUeLT4nwsX9z1V1X
-	nRBnKRale+uk76xL5M1MvxCjDzwqspd5Wo70DDkgmL06wN5EggL5786sbccSeGciZ/ZkUwCyHwmmK
-	yj/HpOGvolyEpJP9NtAQWoSEblTcNotuLSnW//nHSODukAKL3rnTyqo1ftQEblo0gtcT7winzmH6g
-	gqf5mZW/u6sb4mDNZR8na9j/SlCH0p7cY1jCxBC4E3Lpz8Z/bn0Lbx3Q/tlL5uHfX9XPVlbWlH0R9
-	Hwj2VM/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tHiaQ888icqV4SM1/pHe1jcHxEopUP69dKqnOSBwCIQ=; b=3Nc9Y5/VwwuDEu
+	Xi1lW6awpUbAe9onMA1e95wdNR66H6+G5q2HzileCm9f35PJjO56FHBL2EDRIfLOL/f16jsz72WOj
+	4zP670ipm/yd5S32tPFGRJ5CqIOBW57W6jomvYZuTTYFZqllDWMmk/oMOsblHl5IP5mfbzvJtfjK9
+	o+ThligViW40VuXwusJNOdtSWHkjiRotk1fk3xCMWZvYTAsgZ/KeNzasNEHCO0rIrmWGFEgRWjsiW
+	tZRFu9XBpcHA0hQaWJBuFcsMzYHlPBJ68jWHapMnlEAS4mQZoqUR7nAik1GbBW8tSfhvM/rGFyOxv
+	uMl2a7fr5cmXD1aDG8vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27kM-0000000HR5l-18w8;
-	Thu, 03 Sep 2026 13:44:54 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1x26kC-0000000HK4H-3I9f;
+	Thu, 03 Sep 2026 12:40:40 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27kI-0000000HR4Q-3pLs;
-	Thu, 03 Sep 2026 13:44:53 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260903134447euoutp0275bc74c23dab134a89925deaae7eed9d~R04MYc5ZA1805318053euoutp02L;
-	Thu,  3 Sep 2026 13:44:47 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260903134447euoutp0275bc74c23dab134a89925deaae7eed9d~R04MYc5ZA1805318053euoutp02L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788443087;
-	bh=qMyNnEe2VO29svGA0dfmwKzLJS9xqVqR88SLj5rL67k=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=U8EUbmYyR7YXputAFXW91F6pkDdqiKeau6Up/U569s86JZGZrjQ2JLsNl05H6K5/r
-	 0hFYlwS+j8R9Od3vZKWGF0/0pyHsL9U0sl/AurlvAS43GNjIeUqLwAbBAiyOZXRYZY
-	 doo6ZexuZGwqH5fluJw0qhX9JE+CwIG8TWpKrGjQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903134446eucas1p1999879348f53db4f5dff6cea9a73aee8~R04MCdR2p0462604626eucas1p1n;
-	Thu,  3 Sep 2026 13:44:46 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260903134444eusmtip25a6f7671740df53786ab8867ebd33067~R04KVfPcM2229722297eusmtip2R;
-	Thu,  3 Sep 2026 13:44:44 +0000 (GMT)
-Message-ID: <9bd2e8bf-472a-42b8-a259-901062f32cdf@samsung.com>
-Date: Thu, 3 Sep 2026 15:44:44 +0200
+	id 1x26kA-0000000HK3B-0dni
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 12:40:39 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4957eefd361so16420835e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1788439236; x=1789044036; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tHiaQ888icqV4SM1/pHe1jcHxEopUP69dKqnOSBwCIQ=;
+        b=GM4JHRRIqf5YsRUr46ynk6a1C18HDMF+PjJbf4fN4gYd3c2s4LBxUsG3ZeXSiz3DrZ
+         ybTXkY4vdZbphK9w3LgX41bjlwGX11I4aFy/6pEPVyUIBwdVpnhIkMLHpwlu0iYsqrse
+         spoTcA8jIP776xTAsjfCo9nqVP13Uu/iFnRYgGkKMNGGiI527SHH+1t7xHRvo/Y+abza
+         0QC+0+LV/tW6rFhz6TFVJLNeOix7rbFqMMMt4M+cgHk0Nf5N0R7MCegjrntX3dUzK33x
+         3Kt/H14iqMELyKe1RV+fBBhfR/LZrnzULTbFBBekeW9AXmqcTcOYzFwbAZ8L6/V8mSq0
+         DMqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788439236; x=1789044036;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tHiaQ888icqV4SM1/pHe1jcHxEopUP69dKqnOSBwCIQ=;
+        b=Tpi/ZTOXr7sFzvR8a1OyJROg75ieSQEfnchYYi0es42vL6rv7pmU8pLDIlISkWDPOC
+         /usrbqCiQ9e+yfSwn4v673Qzj8UFjv8+sbvOfgKVcVDVlON9B5Yf8UWxZwe9aLwh99zB
+         vBRD7kEKt/fhi/5ys+SIMtMN5YqsAYKMfGCH9Mex4+7K7U6tVWaKD4xZieNt7/1WCKDE
+         lbug5yQckJ2q4pHf+lvqS2ssAzuTKtXpRTdXUsYa4vjZXlJAAjTt8xU0oUsub4LdJlOS
+         LahyOJodQ8hfHVKwb6YmJFRpaom+sVoSqT4/Ofw7suyNQrGyiEgaTLG1J8mGkVhlGDDO
+         Ivqg==
+X-Forwarded-Encrypted: i=1; AKwUvBy5qKuOrDlsr4ECeVaadarMfrXnXRtWjr9iMe4elMUF6bWDxymYIWmy4Wy8xABBCnVX3PnYYTeBrYI180+mKVP4@lists.infradead.org
+X-Gm-Message-State: AFuF++kzZjUpk7CaCze1Q4rBA7a/oHA+dgf3+FqApNwFVCyTnJO8VPB3
+	lXyfS6bnngmCihredH5wIe/aab0o77SuQgp7832Jn4HZomLUmH1cWPWvujACKcCcYS8=
+X-Gm-Gg: AYBFou04LSkhzRVOq2OJp/1YFbW+wyJB8fjJS7hv2KihWA3TFOC3qFQrI4bP+qPEgjF
+	oW0eKEBNujG9dZeDshJ6SI4lOA1NgD+kKHvsMXgNfr+HDPRIiTGk4KUfLB7qrjydqybm/6kmLs7
+	LzSOvuBH9hRQXR1Fr2VVZ6l9rUISqCyLDvYbPHgAsApC2PvJgDoBZNuzHW8PAxyzw8LGr0xzk9H
+	pCBgZxqBosxzpL/G5dYozsnb9SonPheC1uZuEeBlKDsycnRDqCbqCgtGiYklR0r6vFAKVCcX+U+
+	4GqVJ4g2J9vADsGlSxQJInHkpEQr1ChbQtz5lAxBj/a/W2c/8j1KMqwTUyxW2aTAG9KWeem/5lO
+	9E/zwtJvRIPxupYA744mS5bIQpS9aoKVFBNAcYOs1mIGsjaAiAGkR9+XFn4slPde3zq6lUM/vEH
+	fajMWGY0mlLQCWzwpu2Vr5dZ2QSM4hoQ3avaBjyRdMliGg4OZz1UBtU98LSQ==
+X-Received: by 2002:a05:600c:8b88:b0:495:5890:8f6c with SMTP id 5b1f17b1804b1-49ce581a0a0mr258896585e9.7.1788439235569;
+        Thu, 03 Sep 2026 05:40:35 -0700 (PDT)
+Received: from localhost ([2001:4090:a244:80d4:4373:6c2f:4372:b8ac])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee5dec54sm82228145e9.12.2026.09.03.05.40.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 05:40:35 -0700 (PDT)
+From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Subject: [PATCH v8 0/9] arm64: dts: ti: Split wkup R5F memory region for
+ IO+DDR resume
+Date: Thu, 03 Sep 2026 14:39:21 +0200
+Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-To: Maud Spierings <maud_spierings@murena.io>
-Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com, alex@ghiti.fr,
-	andrzej.hajda@intel.com, andy.yan@rock-chips.com, andyshrk@163.com,
-	aou@eecs.berkeley.edu, bmasney@redhat.com, conor+dt@kernel.org,
-	conor@kernel.org, db@domibel.de, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, hal.feng@starfivetech.com, heiko@sntech.de,
-	hello@big-grey.co.uk, jernej.skrabec@gmail.com, jonas@kwiboo.se,
-	kernel@esmil.dk, krzk+dt@kernel.org, lee@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	luca.ceresoli@bootlin.com, m.szyprowski@samsung.com,
-	maarten.lankhorst@linux.intel.com, maudspierings@gocontroll.com,
-	mfd@lists.linux.dev, mripard@kernel.org, mturquette@baylibre.com,
-	neil.armstrong@linaro.org, p.zabel@pengutronix.de, palmer@dabbelt.com,
-	pjw@kernel.org, rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org,
-	simona@ffwll.ch, tzimmermann@suse.de, uwu@icenowy.me, vkoul@kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260903134446eucas1p1999879348f53db4f5dff6cea9a73aee8
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260830141726eucas1p2c9fe77236f7114b376fabc752f368521
-X-EPHeader: CA
-X-CMS-RootMailID: 20260830141726eucas1p2c9fe77236f7114b376fabc752f368521
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
-	<0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-	<CGME20260830141726eucas1p2c9fe77236f7114b376fabc752f368521@eucas1p2.samsung.com>
-	<e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHlqmWoC/4XRS27DIBAG4KtErEsFA2ZwVr1H1QUM0CA1cYQtq
+ 1HkuxenC0eVRZf/LL553dkYS44jOx7urMQ5j3m41GBfDoxO7vIZeQ41MxBgBEjBp+GaibuzAcf
+ zEELhYeKz4bLnIjhECcLKgKwC1xJT/n7g7x81n/I4DeX26DXLtfrLKqFa7Cy54BJSRPBeiwBv3
+ t2+si/xlYYzW+UZnjQJTQ2qppA8UoxkOrujqWfNNjVVNdJSoyIPitSOpjdNQ9/UdNUSAQbjCDt
+ FO1q3aUbIptatm9rOOAHKpbR3N/OstWcz6xeMS971mHwUOxpuGv4zG1Yt9sFbL40F6f5oy7L8A
+ M7ah1ibAgAA
+X-Change-ID: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
+ Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
+ Beleswar Padhi <b-padhi@ti.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>, 
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
+ "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6189; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=yN8gGAydvF8dMrF0qIa8h7tvCnuX+gk98CcSM8AfETw=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWY3Kci+qj9679NHk+UkWru+3zl5vjdi/rmGB3bLd0
+ 1SKFZ1vdZSyMIhxMciKKbJ0Joam/ZffeSx50bLNMHNYmUCGMHBxCsBEjgcz/FMIFw89r2CvL2Tv
+ KLnRVLK66iDvPzXFyzHN78wefbHsOMvIsFnKg3eq8o7LH55f0XyRd42lqEpoQtjrlfNz2OrKJty
+ wZwcA
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_064451_547927_00E3C1C6 
-X-CRM114-Status: GOOD (  27.64  )
+X-CRM114-CacheID: sfid-20260903_054038_232843_BEDBF3CB 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,247 +130,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+Split the firmware memory region in more specific parts so it is better
+described where which information is stored. Specifically the LPM metadata
+region is important as bootloader software like U-Boot has to know where
+that data is to be able to read that data and resume from RAM.
 
-On 8/30/26 16:17, Maud Spierings wrote:
-> I was still having some glitching happening on the display, but I've found the way to fix that, the question is what is actually happening here.
-> 
-> With just the changes mentioned in my previous email the screen flickers and is very unpleasant. After doing 2 reg writes it behaves as expected:
->   0x29590000 <- 0x00000061
-> is 0x00000075 before, difference is v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS in drivers/gpu/drm/bridge/inno-hdmi.c, these bits always get set but that seems to break this display so there must be some way to detect that these should not be set: v_VCLK_NOT_INV | v_REG_CLK_SOURCE_TMDS
+The bindings are already applied. The remaining patches use the new
+layout for the platforms that are capable to support IO+DDR. For IO+DDR
+the new layout is necessary as it defines the location of the LPM
+metadata.
 
-I'd rather not hardcode this per board in DT if it can be avoided since
-the right value looks like it depends on what is attached rather than on
-the board wiring. If Andy can confirm from the datasheet what selects the
-register clock source, detecting it at runtime would be the better fix.
+Additionally the two important devicetree nodes for resuming from IO+DDR
+have the bootph-pre-ram flag added as this data needs to be read before
+the RAM is in use.
 
-Either way I don't think this should hold up the series, since it is
-pre existing behaviour in the generic inno-hdmi driver rather than
-something this patchset introduces.
+The changes in this series were suggested as part of the IO+DDR u-boot series:
+  https://lore.kernel.org/r/814c211f-a9eb-4311-bb84-165b1a69755f@ti.com
 
-> 
->   0x29590020 <- 0x00000005
-> This one I have no idea, it is 0x00000009 with this patch series but with the vendor kernel I get the value above. When I hook up my external display (regular 1440p) this becomes 0x0000000D on the vendor kernel.
-> 
-> But I can't find this register being written to anywhere there?
-> 
-> Andy, you are credited on the inno-hdmi driver, do you have a datasheet that gives some further info?
-> 
-> kind regards,
-> Maud
-> 
-> On 8/29/26 20:54, Maud Spierings wrote:
->> Hi Michal,
->>
->> Small request for an eventual v3
->>
->>> Add the HDMI PHY driver for the StarFive JH7110.
->>>
->>> This driver binds to the starfive,jh7110-inno-hdmi-phy node and
->>> gets its regmap from the parent. It has no dependencies on voutcrg, only
->>> on its refoclk (xin24m), which breaks the probe-time circular
->>> dependency.
->>>
->>> This driver provides two main functions:
->>>  - Clock Provider: It registers clk_ops to provide the variable pixel
->>>    clock (hdmi_pclk). The .set_rate operation configures the Pre-PLL
->>>    registers (0x1a0+) based on the requested rate.
->>>
->>>  - PHY Provider: It registers phy_ops for the controller. The .power_on
->>>    op configures and enables the Post-PLL and other analog blocks (BIAS,
->>>    LDO, Serializer, etc.).
->>>
->>> The JH7110 instantiates the same Innosilicon IP as the Rockchip RK3328,
->>> with the PHY register block shifted by 0x100 because it sits behind the
->>> HDMI controller in the shared register space. The pre-PLL programming
->>> therefore comes from the common Innosilicon helpers; this driver adds
->>> the JH7110 pixel clock table, the post-PLL and the analog configuration.
->>>
->>> Co-developed-by: Dominique Belhachemi <db@domibel.de>
->>> Signed-off-by: Dominique Belhachemi <db@domibel.de>
->>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->>> ---
->>>  drivers/phy/starfive/Kconfig                |  20 +
->>>  drivers/phy/starfive/Makefile               |   1 +
->>>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c | 567 +++++++++++++++++++ +++++++++
->>>  3 files changed, 588 insertions(+)
->>>
->>
->> [snip]
->>
->>> +
->>> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
->>> +    { 25175000, 25175000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0xF55555 },
->>> +    { 25200000, 25200000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0 },
->>> +    { 27000000, 27000000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0 },
->>> +    { 27027000, 27027000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0x170A3D },
->>> +    { 28320000, 28320000, 1, 28, 2, 1, 1, 3, 0, 3, 4, 0, 0x51EB85 },
->>> +    { 30240000, 30240000, 1, 30, 2, 1, 1, 3, 0, 3, 4, 0, 0x3D70A3 },
->>> +    { 31500000, 31500000, 1, 31, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 33750000, 33750000, 1, 33, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 36000000, 36000000, 1, 36, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 40000000, 40000000, 1, 80, 2, 2, 2, 12, 2, 2, 2, 0, 0 },
->>> +    { 46970000, 46970000, 1, 46, 2, 1, 1, 3, 0, 3, 4, 0, 0xF851EB },
->>> +    { 49500000, 49500000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 49000000, 49000000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 50000000, 50000000, 1, 50, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 54000000, 54000000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 54054000, 54054000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0x0DD2F1 },
->>> +    { 57284000, 57284000, 1, 57, 2, 1, 1, 3, 0, 3, 4, 0, 0x48B439 },
->>> +    { 58230000, 58230000, 1, 58, 2, 1, 1, 3, 0, 3, 4, 0, 0x3AE147 },
->>> +    { 59341000, 59341000, 1, 59, 2, 1, 1, 3, 0, 3, 4, 0, 0x574BC6 },
->>> +    { 59400000, 59400000, 1, 99, 3, 1, 1, 1, 3, 3, 4, 0, 0 },
->>> +    { 65000000, 65000000, 1, 130, 2, 2, 2, 12, 0, 2, 2, 0, 0 },
->>> +    { 68250000, 68250000, 1, 68, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
->>> +    { 71000000, 71000000, 1, 71, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 74176000, 74176000, 1, 98, 1, 2, 2, 1, 2, 3, 4, 0, 0xE6AE6B },
->>> +    { 74250000, 74250000, 1, 99, 1, 2, 2, 1, 2, 3, 4, 0, 0 },
->>> +    { 75000000, 75000000, 1, 75, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 78750000, 78750000, 1, 78, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 79500000, 79500000, 1, 79, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 83500000, 83500000, 2, 167, 2, 1, 1, 1, 0, 0, 6, 0, 0 },
->>> +    { 83500000, 104375000, 1, 104, 2, 1, 1, 1, 1, 0, 5, 0, 0x600000 },
->>> +    { 85500000, 85500000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 85750000, 85750000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 85800000, 85800000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCCCCCC },
->>> +    { 88750000, 88750000, 1, 88, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 89910000, 89910000, 1, 89, 2, 1, 1, 3, 0, 3, 4, 0, 0xE8F5C1 },
->>> +    { 90000000, 90000000, 1, 90, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 101000000, 101000000, 1, 101, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 102250000, 102250000, 1, 102, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
->>> +    { 106500000, 106500000, 1, 106, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 108000000, 108000000, 1, 90, 3, 0, 0, 5, 0, 2, 2, 0, 0 },
->>> +    { 119000000, 119000000, 1, 119, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 131481000, 131481000, 1, 131, 2, 1, 1, 3, 0, 3, 4, 0, 0x7B22D1 },
->>> +    { 135000000, 135000000, 1, 135, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 136750000, 136750000, 1, 136, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 147180000, 147180000, 1, 147, 2, 1, 1, 3, 0, 3, 4, 0, 0x2E147A },
->>> +    { 148352000, 148352000, 1, 98, 1, 1, 1, 1, 2, 2, 2, 0, 0xE6AE6B },
->>> +    { 148500000, 148500000, 1, 99, 1, 1, 1, 1, 2, 2, 2, 0, 0 },
->>> +    { 154000000, 154000000, 1, 154, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 156000000, 156000000, 1, 156, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 157000000, 157000000, 1, 157, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 162000000, 162000000, 1, 162, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>> +    { 174250000, 174250000, 1, 145, 3, 0, 0, 5, 0, 2, 2, 0, 0x355555 },
->>> +    { 174500000, 174500000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 174570000, 174570000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x91EB84 },
->>> +    { 175500000, 175500000, 1, 175, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 185590000, 185590000, 1, 185, 2, 1, 1, 3, 0, 3, 4, 0, 0x970A3C },
->>> +    { 187000000, 187000000, 1, 187, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->>
->> add:
->> { 235690000, 235690000, 1, 235, 2, 1, 1, 3, 0, 3, 4, 0, 0xB0A3D6},
+Note that concerns about uboot fixup of memory region fixups were
+discussed here:
+  https://lore.kernel.org/r/DJD1Y3G9S1SP.2GHOZ5X4RYJFA@baylibre.com
 
-Sure that is no problem, thank you for debugging the issue.
+Best
+Markus
 
->>
->> This matches one of the framework 13 displays (fml13v01 board)
->>
->> source: [1]
->>
->> edid:
->>
->> edid-decode (hex):
->>
->> 00 ff ff ff ff ff ff 00 09 e5 5f 09 00 00 00 00
->> 17 1d 01 03 80 1c 13 78 02 de 50 a3 54 4c 99 26
->> 0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
->> 01 01 01 01 01 01 11 5c d0 18 81 e0 2d 50 30 20
->> 36 00 1d be 10 00 00 1a a7 49 d0 18 81 e0 2d 50
->> 30 20 36 00 1d be 10 00 00 1a 00 00 00 fe 00 42
->> 4f 45 20 43 51 0a 20 20 20 20 20 20 00 00 00 fe
->> 00 4e 45 31 33 35 46 42 4d 2d 4e 34 31 0a 01 21
->>
->> 02 03 19 c1 44 83 10 02 01 23 09 07 07 83 01 00
->> 00 67 03 0c 00 10 00 00 44 11 5c d0 18 81 e0 2d
->> 50 30 20 36 00 1d be 10 00 00 1a 00 00 00 00 00
->> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
->> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
->> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
->> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
->> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
->>
->> ----------------
->>
->> Block 0, Base EDID:
->>    EDID Structure Version & Revision: 1.3
->>    Vendor & Product Identification:
->>      Manufacturer: BOE
->>      Model: 2399
->>      Made in: week 23 of 2019
->>    Basic Display Parameters & Features:
->>      Digital display
->>      Maximum image size: 28 cm x 19 cm
->>      Gamma: 2.20
->>      Monochrome or grayscale display
->>      First detailed timing is the preferred timing
->>    Color Characteristics:
->>      Red  : 0.6396, 0.3291
->>      Green: 0.2998, 0.5996
->>      Blue : 0.1494, 0.0595
->>      White: 0.3125, 0.3281
->>    Established Timings I & II: none
->>    Standard Timings: none
->>    Detailed Timing Descriptors:
->>      DTD 1:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 MHz (285 mm x 190 mm)
->>                   Hfront   48 Hsync  32 Hback  200 Hpol P
->>                   Vfront    3 Vsync   6 Vback   36 Vpol N
->>      DTD 2:  2256x1504   47.998302 Hz   3:2     74.349 kHz    188.550000 MHz (285 mm x 190 mm)
->>                   Hfront   48 Hsync  32 Hback  200 Hpol P
->>                   Vfront    3 Vsync   6 Vback   36 Vpol N
->>      Alphanumeric Data String: 'BOE CQ'
->>      Alphanumeric Data String: 'NE135FBM-N41'
->>    Extension blocks: 1
->> Checksum: 0x21
->>
->> ----------------
->>
->> Block 1, CTA-861 Extension Block:
->>    Revision: 3
->>    Underscans IT Video Formats by default
->>    Basic audio support
->>    Native detailed modes: 1
->>    Video Data Block:
->>      VIC   3:   720x480    59.940060 Hz  16:9     31.469 kHz 27.000000 MHz (native)
->>      VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz 148.500000 MHz
->>      VIC   2:   720x480    59.940060 Hz   4:3     31.469 kHz 27.000000 MHz
->>      VIC   1:   640x480    59.940476 Hz   4:3     31.469 kHz 25.175000 MHz
->>    Audio Data Block:
->>      Linear PCM:
->>        Max channels: 2
->>        Supported sample rates (kHz): 48 44.1 32
->>        Supported sample sizes (bits): 24 20 16
->>    Speaker Allocation Data Block:
->>      FL/FR - Front Left/Right
->>    Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
->>      Source physical address: 1.0.0.0
->>      Maximum TMDS clock: 340 MHz
->>    Detailed Timing Descriptors:
->>      DTD 3:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 MHz (285 mm x 190 mm)
->>                   Hfront   48 Hsync  32 Hback  200 Hpol P
->>                   Vfront    3 Vsync   6 Vback   36 Vpol N
->> Checksum: 0x01  Unused space in Extension Block: 84 bytes
->>
->>
->>> +    { 241500000, 241500000, 1, 161, 1, 1, 1, 4, 0, 2, 2, 0, 0 },
->>> +    { 241700000, 241700000, 1, 241, 2, 1, 1, 3, 0, 3, 4, 0, 0xB33332 },
->>> +    { 262750000, 262750000, 1, 262, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->>> +    { 296500000, 296500000, 1, 296, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->>> +    { 296703000, 296703000, 1, 98, 0, 1, 1, 1, 0, 2, 2, 0, 0xE6AE6B },
->>> +    { 297000000, 297000000, 1, 99, 0, 1, 1, 1, 0, 2, 2, 0, 0 },
->>> +    { 594000000, 594000000, 1, 99, 0, 2, 0, 1, 0, 1, 1, 0, 0 },
->>> +    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
->>> +};
->>> +
->>
->> kind regards,
->> Maud
->>
->> [1]: https://protect2.fireeye.com/v1/url?k=9e0a6938-c19113c6-9e0be277-000babff250c-ea88914414736a98&q=1&e=54b09ed3-c7be-440b-ace0-db9bfc392036&u=https%3A%2F%2Fgithub.com%2FDC-DeepComputing%2Ffml13v01-linux%2F blob/97c64fe2832b6826914b6da7aa4febcdd4d3d444/drivers/gpu/drm/ verisilicon/inno_hdmi.c#L112
-> 
-> 
+Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+---
+Changes in v8:
+- Rebase to v7.3-rc1
+- Increase the AM62A wkup R5F memory region to end at 0x9e700000 to
+  also fit the edgeai DM firmware as requested by Paresh
+- Move the memory region definitions back into the base board dts files
+  of all AM62A and AM62P boards
+- Added bootph-pre-ram to the memory regions are merged into the
+  bootph-pre-ram at the end of the series
+- Link to v7: https://lore.kernel.org/r/20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com
+
+Changes in v7:
+- Rebase to v7.1-rc1
+- Fix commit messages
+- Link to v6: https://lore.kernel.org/r/20260609-topic-am62a-ioddr-dt-v6-19-v6-0-16afba97fbe0@baylibre.com
+
+Changes in v6:
+- Added fixes for the length of the wkup_r5fss0_core0_memory_region.
+  Thanks Francesco for pointing that out. am62a firmware is shorter than
+  am62p firmware. I calculated both and fixed all devicetrees using
+  them. All patches have different Fixes tags so I kept them separate.
+- Fixed the length of the split memory layout as well.
+- Removed the double definition of memory regions for the var-som board.
+- Link to v5: https://lore.kernel.org/r/20260601-topic-am62a-ioddr-dt-v6-19-v5-0-3856a023aff2@baylibre.com
+
+Changes in v5:
+- Move all changes into k3-am62a/p-ti-ipc-firmware.dtsi
+- Dropped the patch that adds bootph-pre-ram to k3-am62a stuff as it is
+  already present in k3-am62d2-evm.dts and got moved into the
+  firmware.dtsi file which covers am62a as well then.
+- Link to v4: https://lore.kernel.org/r/20260429-topic-am62a-ioddr-dt-v6-19-v4-0-fc27d6ac753c@baylibre.com
+
+Changes in v4:
+- Rebased to v7.1-rc1
+- Dropped all already applied patches that are the bindings and the
+  initial introduction of memory-region-names
+- Link to v3: https://lore.kernel.org/r/20260318-topic-am62a-ioddr-dt-v6-19-v3-0-c41473cb23c3@baylibre.com
+
+Changes in v3:
+- Squash the enforcement of the memory-region-names requirement in the
+  patch adding the memory-region-names, as suggested.
+- Link to v2: https://lore.kernel.org/r/20260312-topic-am62a-ioddr-dt-v6-19-v2-0-37cb7ceec658@baylibre.com
+
+Changes in v2:
+- Make memory-region-names required if memory-region is present
+- Fixup memory-region and memory-region-names conditions. Require either
+  2 or 6 regions for memory-region and memory-region-names
+- Reword and restructure the binding documentation for memory-region and
+  memory-region-names
+- Add memory-region-names to all uses of memory-region
+- Link to v1: https://lore.kernel.org/r/20260303-topic-am62a-ioddr-dt-v6-19-v1-0-12fe72bb40d2@baylibre.com
+
+To: Nishanth Menon <nm@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+To: Tero Kristo <kristo@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+To: Bill Wendling <morbo@google.com>
+To: Justin Stitt <justinstitt@google.com>
+To: Andrew Davis <afd@ti.com>
+To: Judith Mendez <jm@ti.com>
+To: Daniel Schultz <d.schultz@phytec.de>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Bryan Brattlof <bb@ti.com>
+To: Paresh Bhagat <p-bhagat@ti.com>
+To: Devarsh Thakkar <devarsht@ti.com>
+To: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Beleswar Padhi <b-padhi@ti.com>
+To: Francesco Dolcini <francesco.dolcini@toradex.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev
+Cc: Hari Nagalla <hnagalla@ti.com>
+
+---
+Markus Schneider-Pargmann (TI) (9):
+      arm64: dts: ti: k3-am62a-phycore-som: Fix wkup R5F memory region size
+      arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F memory region size
+      arm64: dts: ti: k3-am62a7-sk: Fix wkup R5F memory region size
+      arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F memory region size
+      arm64: dts: ti: k3-am62p5-sk: Fix wkup R5F memory region size
+      arm64: dts: ti: var-som-am62p: Fix wkup R5F memory region size
+      arm64: dts: ti: k3-am62a: Split r5f memory region
+      arm64: dts: ti: k3-am62p: Split r5f memory region
+      arm64: dts: ti: Add wkup R5F nodes to pre-ram bootphase
+
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi   | 29 ++++++++++++++++++--
+ .../boot/dts/ti/k3-am62a-ti-ipc-firmware.dtsi      | 11 ++++++--
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            | 29 ++++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts           | 32 ++++++++++++++++++----
+ .../boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi      | 11 ++++++--
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 29 ++++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 29 ++++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi      | 29 ++++++++++++++++++--
+ 8 files changed, 179 insertions(+), 20 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260210-topic-am62a-ioddr-dt-v6-19-0da7712081d7
 
 Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+--  
+Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+
 
