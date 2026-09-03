@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44129C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AA7C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJtCxr6SsmG+7oqPAO3/fjLakFwcn/sSc05iILsC2RU=; b=nCM4PembjZriD0ZsbqB5dgL+V9
-	7s5FungbjynkxBC2inQUYkKNq8ggkARh0WYvMaNEIOB8rgs0+2STLq006u4S6vzaEYcbLaMoxAmgo
-	I5OVpnQ1mgpi1yYcRSqsKbsgD0yVjHtK/rvWho7vsDkX7YP3cC2DmDnhfzgnHp5N2I+5JGW69sOih
-	Cv05A9wqxM8/Khcsk+jnjNSeJTxi7ySpuGm2z1mdh1xglWmBtBMGH0pShze8/CrpqGOITIgmRmcD5
-	cecykZnKbvAxjJbV4Bon2rCB79ztBYMscX4UWHcii0MKEyT0Br0vZJSEioxAtyTQXcYsMoKHghCDz
-	lLGAd/iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cVItOS3d+HSRZzTz2ZIRSaQZZ8Kvrk+kbPyv2r6g/i0=; b=fclSrvY/DlniAUsput1LwazSdg
+	LpZ5lMV+WQpbRkwmER5UuQV+SSe3ZUxlmOvuswiQW3ZEZRxAKdU2Qbg22IIlRY42GmQEo2ChCkkCy
+	o19I86Jen4eE7Ju3aNbiI1jKK8pOgQgTvoWku6UG3i2THreovDZSFyujIv9WLZ8zUEffhprv0XDQT
+	+FIOEiXzIlZPsL0vViTTsAFx9s/5tUKG45YKAUum8LNb1i1qVXKBq0vUSkWmueTgj0Jzu2uZBAuu6
+	pivOCTMPAxt/RxisPmEVchRSEnC9Ijjh6hxr0sw+pPYA/LtIUBRfM7DwI5DDGU2wnNchd8DTeRZVL
+	VUUO6ARg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24x4-0000000H7kH-2TRe;
-	Thu, 03 Sep 2026 10:45:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24x3-0000000H7kA-3t46
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:45:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C422600C8;
-	Thu,  3 Sep 2026 10:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 621DC1F000E9;
-	Thu,  3 Sep 2026 10:45:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788432348;
-	bh=KJtCxr6SsmG+7oqPAO3/fjLakFwcn/sSc05iILsC2RU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oGh3WhUToaQ5eeaXV1j2TAW1tA+oR/lSfzzF+1AQPmatJDqSYxP+bvGRp+w+NpWt5
-	 78mjd3UYllWUZ/OiCqark7/aQmfpiprMWu61PvYCxedV45JUjvOdl/OD3GOAJFk35K
-	 BHLHxoDosBmZ+b8042lQDw2C6ZvwYEgt1gpfrKIxP/zZglsAHR3JoVdPeCSfBvQQwu
-	 Te/fNBfGKwOL7PzqhdfYGQHDLJDsRnntRlDJLRDODBTVKA0r1BGfgBoNL5u/v9Umeh
-	 BRDFpmTPMobmUQMehL1zRLUWObxFxaCwQ+fklPJxkVSYazAvDG0AqA+XpIVbxxoy3T
-	 KcP6xVcG0N0dA==
-Date: Thu, 3 Sep 2026 11:45:42 +0100
-From: Will Deacon <will@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: hugetlb: fix BBM for mprotect() on contiguous PTEs
-Message-ID: <aplP1oUjx96O_I69@willie-the-truck>
-References: <20260901131823.15799-1-kmehltretter@gmail.com>
- <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
+	id 1x24xC-0000000H7mP-2xgY;
+	Thu, 03 Sep 2026 10:45:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x24xA-0000000H7lP-1m5q;
+	Thu, 03 Sep 2026 10:45:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B2FD1596;
+	Thu,  3 Sep 2026 03:45:51 -0700 (PDT)
+Received: from [10.164.19.53] (unknown [10.164.19.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B13C3F673;
+	Thu,  3 Sep 2026 03:45:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788432354; bh=B2EGgiinFjR7PIuJDjwPP8zw52e7kf6hQY7DC+ox1r0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mmq3evjbS8hafbKWyN6WfvB9UfVySk+qoHqsF1QzrHYtoeRp/5znyDeIxQ0XWmzpM
+	 HmppJc+wsmOrkjn5ugj5vuGdbtya+eR9c57C4aB5SNws+Twq1UmKFOoPZzxS2fmElr
+	 iaXr3Hj7l3p0cwNUfXzOQlwUrYPQgaUrPZbbaJFc=
+Message-ID: <f4de678d-de34-482e-85c6-0d168af62563@arm.com>
+Date: Thu, 3 Sep 2026 16:15:42 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <551663b9-d031-4755-af7f-dc6c22524b35@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-3-949b64a9f755@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_034556_537828_2F5BD943 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +93,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 08:16:36PM +0530, Dev Jain wrote:
-> 
-> 
-> On 01/09/26 6:48 pm, Karl Mehltretter wrote:
-> > huge_ptep_modify_prot_start() clears a hugetlb entry before changing its
-> > permissions. For contiguous PTE mappings, break-before-make (BBM)
-> > requires a TLB invalidation after clearing the set and before making any
-> > entry valid again.
-> > 
-> > Commit fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from
-> > get_clear_flush()") removed this invalidation, relying on the deferred
-> > flush from the core code. Commit 410982303772 ("arm64: hugetlb: Restore
-> > TLB invalidation for BBM on contiguous ptes") restored it for
-> > huge_ptep_set_{access_flags,wrprotect}(), since a deferred flush is too
-> > late for the break step. The modify-prot path has the same problem.
-> > 
-> > Use huge_ptep_clear_flush() for contiguous entries so that the TLB is
-> > invalidated during the break step. Leave huge_ptep_get_and_clear()
-> > unchanged because it is also used by teardown paths, where the deferred
-> > flush is sufficient.
-> > 
-> > Fixes: fb396bb459c1 ("arm64/hugetlb: Drop TLB flush from get_clear_flush()")
-> > Assisted-by: LLM
-> > Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> > ---
-> 
-> The transition happening here is:
-> 
-> old_prot+cont -> zero -> new_prot+cont ... (i)
-> and then TLB flush.
-> 
-> Arm Arm rule R_JQQTC says:
-> "For a TLB lookup in a contiguous region mapped by translation table entries
-> that have consistent values for the Contiguous bit, but have the OA, attributes,
-> or permissions misprogrammed, that TLB lookup is permitted to produce an OA,
-> access permissions, and memory attributes that are consistent with any one
-> of the programmed translation table values."
-> 
-> This implies that a live update like
-> old_prot+cont -> new_prot+cont then TLB flush ... (ii)
-> 
-> is safe. Which should also imply that the transition (i) is safe,
-> since the configurations the PE can observe for (ii) is the same
-> for (i), except that in (ii) the PE can fault too, which is fine.
 
-I'm not sure I agree. As written, the text above says that if the
-permissions are misprogrammed (which they are in this case) then the TLB
-can produce an OA consistent with any of the entries. Hopefully it just
-needs some further clarification.
 
-There are probably also cases where we're changing the attributes and the
-permissions at the same time, so it's not clear to me that it's safe to
-allow those to be inconsistent (e.g. tagged/guarded vs read/write). If
-I was going from untagged read/write -> tagged read-only then I presumably
-wouldn't expect to see a tag check fault on a write?
+On 03/09/26 2:58 pm, Mike Rapoport (Microsoft) wrote:
+> get_vm_area_page_order() and vm_area_page_order() do not need to modify
+> struct vm_struct passed to them.
+> 
+> Constify the parameter.
+> 
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
 
-Will
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+
+>  mm/vmalloc.c | 4 ++--
+>  mm/vmalloc.h | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 22aa554d123f5..5506b180f5c27 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3130,7 +3130,7 @@ EXPORT_SYMBOL(vm_map_ram);
+>  
+>  static struct vm_struct *vmlist __initdata;
+>  
+> -static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+> +static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
+>  	return vm->page_order;
+> @@ -3139,7 +3139,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+>  #endif
+>  }
+>  
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm)
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  	return vm_area_page_order(vm);
+>  }
+> diff --git a/mm/vmalloc.h b/mm/vmalloc.h
+> index 8866ddcff6681..211869f365095 100644
+> --- a/mm/vmalloc.h
+> +++ b/mm/vmalloc.h
+> @@ -12,7 +12,7 @@ void __init vmalloc_init(void);
+>  int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages,
+>  		unsigned int page_shift, gfp_t gfp_mask);
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm);
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm);
+>  #else
+>  static inline void vmalloc_init(void) {}
+>  
+> 
+
 
