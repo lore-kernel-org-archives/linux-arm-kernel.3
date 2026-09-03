@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD06C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E46BC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=; b=WoRZ7vmQ3ala9shuvIorqxyJfb
-	P15/gBzoGkzOziUenru2DTVL0qj6+Z+iebNQVPFN0fs3ldYCcwdoUw6WzWmbnWfTwJlnuo4N6Dl3D
-	Iv1xfCWqkeEqTSz7ZyzcekJGtDxrOW/MM0W3Rl9dl2RiGWWmT11zb8faYZYrHvxdP0jJdbQSYNNTJ
-	rNt7AEVY4E6d2KALvYO/ii5dEqxINKR/iKxdKYCZqNu9zfE7qCfCp4GSljr26SYD++jO2zXdTH7lg
-	1oKrklDApkUCQlqLEiuXibs2fLjNhBx8p4oFPZtYUwp9urOmEm45kcDcxoSeb57OOv25xMBpRcgdJ
-	ATUYrTaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCMUqh6ANgvQ3Pwx5RlqzkheOtUmmalNv6/kwBMPNcQ=; b=PNN/LXDF81UXcWy2kztASbpMy/
+	qG2hK6hYwNEOhnJbwRC6wGWQiKtCTCCBiCzPTIL4bGxA2zPjTa7osM3/uujoC83CDwCCZE1Hc+hvi
+	Ls3Zdo+fSp0+5h+uUdl5rmMkrS6Poen7i2TZ5ownvF43X1cGteEpIL6oOtVuycQsVoOZ3k00vAm4k
+	6t7wJ3aVSZdw39ycYi7DFG+xuLXRYDWEqxEaJ67Jfyff0EdK21oW2+sShj+Uc+SR2ZsOlIiXZCfF0
+	gmW7+l84Z/5ZbLYWck29mxcKf/aubZoewT7X2plM2MwtuuTlt+vMAnLBmAnUxIbCUUaNl3WBOH+07
+	XNbdYRfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29bo-000000002Vt-1HzQ;
-	Thu, 03 Sep 2026 15:44:12 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1x29dS-000000002pr-2R7W;
+	Thu, 03 Sep 2026 15:45:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29bm-000000002Uz-2FJX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 15:44:11 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so127705e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 08:44:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788450249; x=1789055049; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=;
-        b=XKWL+v2ZLcGw9LVPNA1/VY7DrFZYj1L4DPGJTDOpW4iPj8xj3BYYfDl40db5crIl+l
-         kD8Wb2Kj1wgeUnEd/lx2TFhKPZnFOyIrS1fcL+FQp0ILzUT8rBeos2P1zjp65z29uN7B
-         GMdin6/YZsUEIW5yazDA71ZXv8hhLBtcE8UNbXoC6PJN7ita+iEyJT/7bH20Zq9ZwIVD
-         /mCOfjCfZv9ZWA94xQgQAAhaKuvsXKTX8m3ZeCVMc8oCP3QMvU7s4jRITZi9VEUKp/yc
-         ic/gm++UDpfla/CYgLnFwVrSBoiG53oVW/6fHQYfZjBxY0azApJCLOMJYhZZhoqAvcZ+
-         B09g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788450249; x=1789055049;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=;
-        b=L0PfXpjQTi8lT32/GlKaL58Phles+wPzWnE1RgrfFrWLTiG8gM7Hu2qL0USa71dSOe
-         tZyT7mFe+yqSRY+L3Qf7dPxOPqJ91x2AtDzaAiVLZOfHn9gC9Z2ZJJjZjWwm0AD47BGL
-         P2AbGZgi/wh17VFPaXt6gYL/gL4zj9nNes6LipAcfQmYdN/TrZLtSfwvUfGkba0ZuLxy
-         M5npQz/Z05LH4XhnTnIxQf2iPbZ2/5Vf4INra9ywhRMrbVhnRZoOZBM1LiTDmIL4J6g7
-         8WQB9gssKXLWWggQaR4tkR3nP1yT9XZgbBQCNjlyY2w5AD+lh+jMXTRDWGJf0v1tDWr8
-         OLsA==
-X-Forwarded-Encrypted: i=1; AKwUvBwSDGJZ3oxqYi0PZOWUtP/3RmOQ9rfSTgNd+goYgCaRRiETCFNKsI30i7VxP+YEYP/+GAzpT5Ri/MBz19MK++yl@lists.infradead.org
-X-Gm-Message-State: AFuF++lRIlx7NiPlxHKM1Bl5cG6mVVCR91Dza+LFBj8vnl5kiVv4qZOV
-	mOhAGFI7rz5bE+nzmdhXEwJOjQPe6qmpun5a5bA2HNKx5ugmjooBMFrn
-X-Gm-Gg: AYBFou29F1ioQ3Z3idFeEn8okAduzJg8wkLHHEm6BvtLDIa+6e+ngzxZ5XfB5qZizxr
-	w4O1FiTOCndc23H0MbVaSwmZpsCM2aHzr41uslpBVyp5n7KXGrn0Pxb2ghbBCkVsWV1QQEACron
-	eoazKYLGJe3shbFNF0727e+++iVTyRn1gE6Qe8SzTNtNZNyfYWu7PbsFxSjLVzEyMUyUavciUNR
-	FDhZA6pm7eZa8nSv/3amazPkHT4bQXSgOkp3hKS+k9LteNcUbf1k03TjiICqoDkeW5Mz+pUXuYA
-	ZVjUiXENTMJdRWAr0fbZbl2swrj5u67PLVL1nj0dIpbdc9BxNSfPIIwj0tyCsytsABUKnXBf8Ex
-	No9AWejnp6QcZw/X1GHevwC4/k2/nBmoTo6cBbL9ii5DD6l9ZsYkLBAdt6PtnxyS5nERINunjTF
-	cPTVYVENpPfZ7T8F1WSdxnWVsFPB0rZOJ7+Agj6+b5VNfxi1YMME7Acd+pU8Q=
-X-Received: by 2002:a05:600c:6c4a:b0:49c:edd8:ba35 with SMTP id 5b1f17b1804b1-49cf5baafc7mr14910805e9.6.1788450248541;
-        Thu, 03 Sep 2026 08:44:08 -0700 (PDT)
-Received: from localhost ([5.83.201.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce47b9817sm121063135e9.1.2026.09.03.08.44.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 08:44:07 -0700 (PDT)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
+	id 1x29dR-000000002pU-2qH2;
+	Thu, 03 Sep 2026 15:45:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B70236053D;
+	Thu,  3 Sep 2026 15:45:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B771F000E9;
+	Thu,  3 Sep 2026 15:45:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788450352;
+	bh=yCMUqh6ANgvQ3Pwx5RlqzkheOtUmmalNv6/kwBMPNcQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RShHivsJHdQYENIAXi57A6y92sj/SKI64hzjlD+CpHniAIzXmEJphBiTvmrNl/Vot
+	 3Y0GFG1uKzoPSt5EUSrrJJ3zR28vBI4mDG6hAB6ZgGKWoUwblt8vqNEwRvU4FnJ69Z
+	 zemYcX3EYv1CWiICaujZowbPBgt5zgDDWX//759uPwefwK4tR8PECY2+w492cmgEmh
+	 7m7EzvBTZMiZBqNS2cclfG7ngmVxjPTEqargjpLRYBULmyL6i9XiO3hwAgc88eXIi/
+	 bjWPwueSBU2ZsmTIiVW2e1yah5PWZ4WHtxIY4yerUbHSf9sWMzAiwssJS7S8tNvmWc
+	 +JzTasZSy8BPQ==
+Date: Thu, 3 Sep 2026 17:45:50 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] wifi: mt76: mt7996: Fix spelling mistake "retriving" -> "retrieving"
-Date: Thu,  3 Sep 2026 16:42:04 +0100
-Message-ID: <20260903154204.20872-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v5] net: airoha: add HW GRO offload support
+Message-ID: <apmWLtgcUXRrOTFj@lore-desk>
+References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+ <fce0ee5a-476a-4867-9dd2-08e55993bd90@redhat.com>
+ <aplpllPidmCjhSmA@lore-desk>
+ <1ef90408-99b6-42fb-a7c6-7e5bca20c46d@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_084410_590354_119FE78A 
-X-CRM114-Status: GOOD (  10.39  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NDvggmcI2CoJ2jcY"
+Content-Disposition: inline
+In-Reply-To: <1ef90408-99b6-42fb-a7c6-7e5bca20c46d@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +77,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are multiple spelling mistakes in dev_warn messages. Fix them.
+--NDvggmcI2CoJ2jcY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
----
- drivers/net/wireless/mediatek/mt76/mt7996/npu.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+On Sep 03, Paolo Abeni wrote:
+> On 9/3/26 2:35 PM, Lorenzo Bianconi wrote:
+> >> On 8/31/26 8:34 AM, Lorenzo Bianconi wrote:
+> >>> Add hardware GRO offload support to the airoha_eth driver, leveraging
+> >>> the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
+> >>> queues 24-31. HW GRO offloading does not support Scatter-Gather (SG) =
+so
+> >>> it is required to increase the page_pool allocation order to 2 for RX
+> >>> queues 24-31 (LRO queues).
+> >>> Since HW GRO is configured per-QDMA and shared across all devices usi=
+ng
+> >>> it, HW GRO is mutually exclusive with multiple devices bound to the
+> >>> same QDMA block. Call airoha_update_netdev_features() in
+> >>> airoha_dev_set_qdma() so that NETIF_F_GRO_HW availability is re-evalu=
+ated
+> >>> whenever the QDMA user count changes (device registration and runtime=
+ QDMA
+> >>> migration).
+> >>> Set CHECKSUM_PARTIAL with pseudo-header checksum on aggregated packets
+> >>> so that L3-forwarded traffic is correctly handled by the GSO/TSO path
+> >>> on the egress device.
+> >>> The HW does not report the per-segment MSS (msg3[31:16] only reports
+> >>> the max aggregated size), so the gso_size of an aggregated packet is
+> >>> just an approximation computed as DIV_ROUND_UP(data_len, agg_count).
+> >>
+> >> What is the <max aggregated size> exactly? I read it as the maximum si=
+ze
+> >> of the aggregated segments, am I correct?
+> >=20
+> > Hi Paolo,
+> >=20
+> > with "max aggregated size" I refer to the length of the aggregated TCP
+> > packet (composed by multiple segments). This value is reported via
+> > QDMA_DESC_LEN_MASK field in the DMA descriptor. Moreover, the hw reports
+> > the exact number of the aggregated segments via QDMA_ETH_RXMSG_AGG_COUN=
+T_MASK
+> > field.
+> >=20
+> >>
+> >> Also any more details on how the aggregation engine works? i.e. can it
+> >> aggregate "random" segment sizes (i.e. 200 - 300 - 400) or does it
+> >> respect HW_GRO layout? (i.e. all segments except the last one must have
+> >> equal size, the can be smaller).
+> >=20
+> > The hw engine, for each LRO queue, is configured with:
+> >=20
+> > - CDM_LRO_AGG_NUM_MASK: max number of segments for each aggregated TCP =
+packet
+> >                         (64 in the current configuration).
+> > - CDM_LRO_AGG_SIZE_MASK: max size of the aggregated TCP packet (compose=
+d by
+> >                          multiple segments). 16KB in the current config=
+uration.
+> > - CDM_LRO_AGG_TIME_MASK: max timeout to compose the aggregated TCP pack=
+et.
+> >=20
+> > In order to validate the scenario, I run the following test:
+> >=20
+> > TCP client:
+> > ------------
+> > - disable TSO/GSO
+> > - set MSS to 256 bytes (iperf3 -M option)
+> >=20
+> > I can see multiple 310 bytes TCP segments on the wire
+> >=20
+> > TCP server: (where rx-gro-hw is enabled):
+> > -------------------------------------------
+> > - the engine aggregates ~64 segments in a ~16Kbyes TCP packet
+> >=20
+> >   so gso_size ~ 16KB / 64 ~ 256B
+> >=20
+> > I guess this would be the behaviour even if the original packets
+> > have different size (not sure if it is a real use-case).
+> Lacking more details from the vendor, I think you need to use a
+> pktdrill-like sender, explicitly sets the segment lengths to some not
+> mergeable (like, i.e. 200-300-400) but otherwise fitting a GRO packet
+> (i.e. same hdr except for the sequence number and push flag allowed only
+> in the last packet), ensure that the aggregation timeout lasts long
+> enough to receive all of them, and check if the engine really aggregates
+> them or not.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-index b8006b8729a1..3fb9f39c2f61 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-@@ -283,7 +283,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan rx ring0 addr\n");
-+			 "failed retrieving NPU wlan rx ring0 addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND0].regs->desc_base);
-@@ -292,7 +292,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan rx ring2 addr\n");
-+			 "failed retrieving NPU wlan rx ring2 addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND2].regs->desc_base);
-@@ -302,7 +302,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan msdu pg ring addr\n");
-+			 "failed retrieving NPU wlan msdu pg ring addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND0].regs->desc_base);
-@@ -311,7 +311,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan msdu pg ring addr\n");
-+			 "failed retrieving NPU wlan msdu pg ring addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND1].regs->desc_base);
-@@ -320,7 +320,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan msdu pg ring addr\n");
-+			 "failed retrieving NPU wlan msdu pg ring addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND2].regs->desc_base);
-@@ -330,7 +330,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan ind_cmd ring addr\n");
-+			 "failed retrieving NPU wlan ind_cmd ring addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_IND].regs->desc_base);
--- 
-2.55.0
+I think in the example you pointed out (length 200,300,400) the hw engine w=
+ill
+create a single TCP packet composed by 3 segments (with gso_size =3D 300) w=
+hile
+sw GRO will just push sigle skbs. I agree this is just a GRO approximation.
+If it is not enough I am fine to switch back to LRO implementation.
 
+Regards,
+Lorenzo
+
+>=20
+> /P
+>=20
+
+--NDvggmcI2CoJ2jcY
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapmWLgAKCRA6cBh0uS2t
+rANwAPsF+NTXOkcRL4V1CRL7a/tEjI+S8Ac2hcZ3NwATud1NygD8DBFi90ndS7yk
+KCWzgZIqDHNgBnbbx2iTecwOVYlALg8=
+=kEaq
+-----END PGP SIGNATURE-----
+
+--NDvggmcI2CoJ2jcY--
 
