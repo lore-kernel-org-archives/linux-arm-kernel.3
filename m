@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96411C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 17:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE6BC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 17:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoLH/hhN9t2gCsFXAHpa1BHsHfqKZHWk++1GVr4n0bI=; b=A2i3OjKqE7Bt+zTYsOgk9R66kt
-	VOG4m+TVBOlcUgcH9h/O7IoX7Yu93m82jwjJjRkxG8f5ILw/YdcRBiKqbmHVJsbIIsUvz+8jHEEW7
-	we4sJPE3i8CbOyr91fWChctknExshPqEzhu+iUl5BkA5n1oVbpygJ6+OpO0gIztb1uwWpTdIuAQXH
-	Hckdt5K0YlqGqywzYQ1jkZ+Y624FC3GrenZJIZvchwcgC7d8wv8NERW4OiVIGrY5845vtcJt+8yZ7
-	NhpRVYWDFUGMfDCSqMcL6nFKXukLGj7b1hwvHAwV/wMU44s2wlHBZg2nW1NR6WG2iDIMyCXmv3ix6
-	C2H75E4A==;
+	bh=DilgdbLi0RvprvJJDhqDDjROWxRbnzwuVzagfLzpeH4=; b=OW7w6ctGgVqQpIhk18bbYhFpAp
+	8OXIdy37OxUOeSucaJzrhrDUYvGFp6dFuwqAKn0d7DwU5hjfc/R14H6A6u96xjx4FCWiFJOuRUCp7
+	jT06FMvBKnd8lJGtVdv2CI6C4VOVpdgTJOjh+1Wq302rLBYjwiBFDx4RJAumEU7yrhwP7WyBKkQlJ
+	KeuuvndcLmC69auQOpvcugVFxxmxcFL0frWV+G2p8uM6QB5AL+TdcuPcoKoEyDL//wHYl8LbbcxTu
+	T3CQ0aOtqMlCWycBbBFuOBoAhpq3Mw74Bbodh8Zbc/phalbFgmEqvWz6QBA2MAVayZDDbnPluYI6M
+	2rHHkF9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ark-00000000Eah-44bh;
-	Thu, 03 Sep 2026 17:04:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2Arv-00000000EfL-0f5l;
+	Thu, 03 Sep 2026 17:04:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Arj-00000000EZz-3LlT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 17:04:43 +0000
+	id 1x2Aru-00000000Eeh-0uV5;
+	Thu, 03 Sep 2026 17:04:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E1DB6053B;
-	Thu,  3 Sep 2026 17:04:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AE451F000E9;
-	Thu,  3 Sep 2026 17:04:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A077944516;
+	Thu,  3 Sep 2026 17:04:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72A211F00A3D;
+	Thu,  3 Sep 2026 17:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788455082;
-	bh=IoLH/hhN9t2gCsFXAHpa1BHsHfqKZHWk++1GVr4n0bI=;
+	s=k20260515; t=1788455093;
+	bh=DilgdbLi0RvprvJJDhqDDjROWxRbnzwuVzagfLzpeH4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=oBnv8rhEodtCXyDWfOzmRB+rnPeUQjUPhuJpegQHEHhth2Hav0I1W1aABsNjvhneB
-	 8rJvbS36xEMorJ2FF8z5CG9Hued3/lPeq6vxDdBXkb3LaLwITN/2mFDCE89m4Lk5EJ
-	 liEYUzYROIsOE+NxhB8y5jD90xGQq4Ui+HwhYeYBQxbxRmC76+p4FwygalW1wYN29h
-	 d7Sovp+Q1y2krd3i3bRPR8QawhZQnixEWEc4J859QqMMXPbJEf4HqpDqifLSoxRRPR
-	 ZaaLuEO5iGQCY396f3THhdu5UoquFFKgRMhFKO8h1GeC+a2HgGw3NYZ8Fc4BmiBnPs
-	 HMpIPw/6VP9mw==
+	b=jtOJsKw1Z6E1n2jwe18GTnTVkKTS2vbKwew94YlpSdbjnegpMFp+73VObcU5yL9bq
+	 gAeS1O+aFWl4/HN1uL0kpq5C+u5SuWU4kB8prn8W9P860OGN4r2HTW4LyXWYscsQIL
+	 yiZvFWdcZazUZgQqvdp1pzQJDUvnEx1cPS6mmXOP22X/vzE9ozU0SZEXM7hN7Ut9dL
+	 n/4gZsX6OeMhdgiUqpO+An/opUPBNL4Cp5uRcb+JumsjijOMhT57j8+Qz0xO/sUn6n
+	 5aeZPXM1JaA0uLv+trQFkCSSb8dHuFoqD3Ol2mGG48048P59DSLu16ZydCP/WdUYCJ
+	 P2WZaoZQCsMQQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: ludovic.desroches@microchip.com, Frank.Li@kernel.org, 
- tudor.ambarus@linaro.org, nicolas.ferre@microchip.com, 
- Hongling Zeng <zenghongling@kylinos.cn>
-Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org, zhongling0719@126.com, sashiko-bot@kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20260727061705.45169-1-zenghongling@kylinos.cn>
-References: <20260727061705.45169-1-zenghongling@kylinos.cn>
-Subject: Re: [PATCH RESEND v6] dma: at_hdmac: Fix use-after-free by proper
- tasklet cleanup
-Message-Id: <178845507904.1711546.7183586519826680915.b4-ty@kernel.org>
-Date: Thu, 03 Sep 2026 22:34:39 +0530
+To: Sean Wang <sean.wang@mediatek.com>, Frank Li <Frank.Li@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Myeonghun Pak <mhun512@gmail.com>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ijae Kim <ae878000@gmail.com>
+In-Reply-To: <20260804153924.49627-1-mhun512@gmail.com>
+References: <aj1RSj5ZXvc-9yu7@lizhi-Precision-Tower-5810>
+ <20260804153924.49627-1-mhun512@gmail.com>
+Subject: Re: [PATCH v2 RESEND] dmaengine: mediatek: hsdma: fix runtime PM
+ leak on init failure
+Message-Id: <178845509001.1711546.16011623641876129813.b4-ty@kernel.org>
+Date: Thu, 03 Sep 2026 22:34:50 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,25 +75,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 27 Jul 2026 14:17:05 +0800, Hongling Zeng wrote:
-> Current cleanup paths have a use-after-free vulnerability:
-> - vchan_init() creates tasklets that access at_dma_chan memory
-> - free_irq() only waits for IRQ handler, NOT tasklets
-> - atdma is devm-managed and freed after probe/remove
-> - Running tasklets accessing freed memory → Use-After-Free!
+On Wed, 05 Aug 2026 00:39:24 +0900, Myeonghun Pak wrote:
+> mtk_hsdma_hw_init() enables runtime PM and gets a runtime PM reference
+> before enabling the HSDMA clock. It currently ignores failures from
+> pm_runtime_get_sync(); if runtime resume fails, the usage count remains
+> held. If clk_prepare_enable() then fails, the usage count remains held.
 > 
-> The fix requires careful ordering:
-> - free_irq() FIRST to synchronize with running IRQ handlers and prevent
->   them from scheduling new tasklets
-> - Then kill tasklets to wait for already-scheduled ones to complete
-> - Only then free other resources
+> Use devm_pm_runtime_enable() to manage runtime PM enablement, and use
+> pm_runtime_resume_and_get() so resume failures do not leak the usage count.
+> If clk_prepare_enable() fails after a successful runtime resume, drop the
+> runtime PM reference before returning.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dma: at_hdmac: Fix use-after-free by proper tasklet cleanup
-      commit: 00c5236057e36e88d3aca7246dd891cb56b513a7
+[1/1] dmaengine: mediatek: hsdma: fix runtime PM leak on init failure
+      commit: b616eb4ef1e9358296a88a2fa7230dcfac52b53e
 
 Best regards,
 -- 
