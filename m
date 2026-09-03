@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF848C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330F8C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=; b=uyRF+TTEcA7e4AHGq4qOIeJX6q
-	Rk6lL4U+enXH4wcqZFxHzvpTS47VflolbaK07ksj1TRp6hwIAqINtAnCmrtsQs3VnS1mslcnIHnml
-	R79H2nWS/DJCi5pB74NBl1WutJ0W8RkFtLJKwngSV6XJWotrYqn88b3EHwQJEZtd6BdRoGktj81hI
-	NfsLAeDOIG5MYScnUWyqawyPbHVYhfyurhjHFn169+WPuY6y/AQrlW6T518TCCp9pPmwGLhxioOzN
-	qNsdb0HYEXIPpV1lZTCc+/J5ynuysdL9UsLswqgNpJnZFfa32rgxKXD7ToENb0bdWVFNAhVhUV3ty
-	vb6aJ/Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYA4JnxbTf0JCzdYr9ZqvkjonlZytGF2uNItx0EAGxw=; b=U+AzzMOpxutNOTekpUusb74XlV
+	WE/OkvAcGRIzRIDoLSeYg0MH8dhMES7MwjcbujKPvS6PsDCyCupHsYs31Ca0Qx+yKv7YlLpfi6mzF
+	9y4ebu//LVAzfHok+LddO//RCqkG2XPRiFwrWk72EAirhuXp/JjVY/8xLxNnsDw5phSDIvoCvkbR1
+	8MVMGpEpL4LQs2XxocW8iFNL14+H9Lvk+nMpekHCM13W9To5aoOa5Yt1Qvq71o1fmwcep6LcGg2aH
+	aatWDYYTkTnKf3Hxw+kTbEMFgyhsiTcw/pO+HHmnKMEvW+YaVnS15J8HJqvdrvvnJIxR/5uivpI7g
+	1gCyz3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AVO-00000000Bx6-1ELD;
-	Thu, 03 Sep 2026 16:41:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AVM-00000000BwI-0aSp
+	id 1x2AVY-00000000BzS-1krZ;
+	Thu, 03 Sep 2026 16:41:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2AVW-00000000ByZ-0N4G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:41:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788453694;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=;
-	b=bFN9NjMB1PGgROZP967lUpqy3JJf2a4AmMd4ONO5zYagyE2tW8LqlwAUNbApu20qbMSV2f
-	j9lTNQw+G685Ct/Ud2hgJhgLS/M6hnFTgg+vX3xTCAi2+infDng6QbGEyjuyuPZPWpUCWz
-	1VY7BgbOqa5DuyKc3geMZZWmQahgarM=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-187-1X1zazIpOeKt5QoIf_hlhQ-1; Thu, 03 Sep 2026 12:41:33 -0400
-X-MC-Unique: 1X1zazIpOeKt5QoIf_hlhQ-1
-X-Mimecast-MFC-AGG-ID: 1X1zazIpOeKt5QoIf_hlhQ_1788453692
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4843227cfcfso739868f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 09:41:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788453692; x=1789058492;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=;
-        b=HbpWyQsIOFivAvge/Fir812+sAYQdP+pRdh8lNvg6/bqhrAEl+wqwdfMntm+rcRfgp
-         opV2Wejsco88tcg0V9a0FdxHF4jLjMlolnI/r+UC/YS6/qb+4EY+9qHAD6EL4Ow+nTvX
-         yUaU0RGPwb4gifFY10pUJoCmi6ptGBDHZ1WzFrstEn2SgnF+rFP56p4UjfCAnwMsQFHC
-         g+Josb8ztc62eTFpJnb+RSLyWxRkmKZh5BxbY/SmQXOuuwdoji2uNSIufBBDyYodqfbR
-         BOm6d1z3jWdc11n/kyQEGD3j8yk6dNIKQzOVJ79yBcwNp7jKFzsT4VpooydJ3Oy9dBV+
-         mv7w==
-X-Forwarded-Encrypted: i=1; AKwUvBzFfwuFKa6drFBn7HmNntJeAeKhUYBUXYjoziWQ29OBhiTyrMz1eItSkQv5S/nFG4QEfbAKMD5QmgZLaZ7jZRON@lists.infradead.org
-X-Gm-Message-State: AFuF++lXPABMG35PQ4IPdKjqiMhiOzP62QiyBumWIoDMInCdugEeB5Rn
-	6CBDgDQrBqdMTIc7517kcUwCZTCNCwLgbsVLz/7/0NXnQpmFx86hovR0ckkXON8aQ310wLbhzkK
-	w8sm0aZSLTD70sE5eGGe2td6mwK4hqdhszlqqAbyEOx+BXzoiC1u+YP2wzh/kvx3NVwxuKgA4ks
-	hzSJ2Mk4Bg0k+D4i8CGQ2VCPt/eoL95XsOjyh8He6B6cdcIzaz42g=
-X-Gm-Gg: AYBFou0WbPjdLgXR6ypCiw86d1FLUogzeLShwu8fArL5cTTaPBFDmYhJzwVZ63XgLBZ
-	c509BZtCoKbaL7ORN8dnwCF+NcOvo2lQP3sLtV+aEqOut9R4GIX5TE2Xi1Tjk49V1LAJGd8dOH9
-	/U8a9o368k84I+i8sqIVUE8bX9PUXJSigAZwuNcdOoeF59oJ2261pYNDs/EaO3I3CQZM+9J+A0L
-	ZULRSMUbwLoYG3FAXrYTKPWmoAZf8iB8dL/O7qWlM5n0w==
-X-Received: by 2002:a05:6000:22c2:b0:484:3147:49c9 with SMTP id ffacd0b85a97d-48582315a47mr5571233f8f.2.1788453691895;
-        Thu, 03 Sep 2026 09:41:31 -0700 (PDT)
-X-Received: by 2002:a05:6000:22c2:b0:484:3147:49c9 with SMTP id
- ffacd0b85a97d-48582315a47mr5571189f8f.2.1788453691502; Thu, 03 Sep 2026
- 09:41:31 -0700 (PDT)
+	Thu, 03 Sep 2026 16:41:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F4E81596;
+	Thu,  3 Sep 2026 09:41:39 -0700 (PDT)
+Received: from [10.57.6.2] (unknown [10.57.6.2])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9A193F673;
+	Thu,  3 Sep 2026 09:41:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788453702; bh=fMTmPuGTue6HNbPKyeiunkqMe/FTnn9ZFj8qnYLsnh4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JRoxl9E+QrX+IO3atrSghjI9x/qg48SBeUoB1iHXHkCx7rak+q7DUoHyAtcB2PWYV
+	 hmycgMaqDchkjeaR2c2OvTp7h462MRv11iGZ4k/gz8RFYH0JjEvEaYuMwxBYfLXZdP
+	 a/vAsnGfvbfQ8np3IkFUOQE1xCeEA50NtIZsQ9qE=
+Message-ID: <66270f42-931f-4043-b24c-edcc4cad74b8@arm.com>
+Date: Thu, 3 Sep 2026 18:41:33 +0200
 MIME-Version: 1.0
-References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-24-seiden@linux.ibm.com>
- <aphMx5hsoXwIpNjt@google.com> <20260903083857.33034-B-seiden@linux.ibm.com>
- <apmHrnxRLl9BuVhn@google.com> <20260903154317.246414-A-seiden@linux.ibm.com> <apmhX8H-WUc3U4_N@google.com>
-In-Reply-To: <apmhX8H-WUc3U4_N@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 3 Sep 2026 18:41:18 +0200
-X-Gm-Features: AcwNN1UO9-vCqk6RvEI48oEKpR6Wrb2Fp2swzaiyckPlKKdzDRVW5sMiBpGtdhU
-Message-ID: <CABgObfYUYCRtmJkh1Ns4VBbWqk3ggnDu294G9rZ6tva56=F11Q@mail.gmail.com>
-Subject: Re: [PATCH v7 23/23] KVM: s390: arm64: Add KVM_S390_ARM64 Kconfig and Makefile
-To: Sean Christopherson <seanjc@google.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm <kvm@vger.kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Grapentin <gra@linux.ibm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	David Hildenbrand <david@kernel.org>, Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
-	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 749e0gxLHpuaib2vekysoeToXADbEjMRliRBXx2Z1u4_1788453692
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v9 02/25] set_memory: Introduce set_memory_pkey() stub
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-2-743ad31b2c8f@arm.com>
+ <apbiQtt-cAlLkDqV@a079125.arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <apbiQtt-cAlLkDqV@a079125.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094136_244105_E397D079 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260903_094146_219038_46371783 
+X-CRM114-Status: GOOD (  23.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il gio 3 set 2026, 18:33 Sean Christopherson <seanjc@google.com> ha scritto:
+On 01/09/2026 16:33, Linu Cherian wrote:
+> Kevin,
 >
-> How many people are running distro kernels on s390 hardware?  And how many distros
-> actually change the default KVM settings, e.g. to build KVM as a module instead of
-> baking it into the kernel?  My guess is "not many" and "almost none", i.e. the
-> actual impact on downstream users is likely miniscule.
+> On Tue, Aug 18, 2026 at 03:08:44PM +0100, Kevin Brodsky wrote:
+>> Introduce a new function, set_memory_pkey(), which sets the
+>> protection key (pkey) of pages in the specified linear mapping
+>> range. Architectures implementing kernel pkeys (kpkeys) must
+>> provide a suitable implementation; an empty stub is added as
+> Could you make it explicit here why we are restricting this only
+> to the linear mapping range ? Would be helpful to add the reasoning
+> in the commit message and as comments.
+>
+> Essentially we are also making a assumption here that there are no
+> aliases to the linear map ?
 
-RHEL and SLES *are* distros, and I am not sure which bank or insurance
-company would be running non-distro kernels. :) So I assume you mean
-"how many people are running non-distro kernels on s390".
+We're not assuming this, this function is called on pages that are also
+mapped as part of the kernel image. But indeed it ignores aliases,
+unlike e.g. set_memory_ro(). Really its name is wrong as discussed below.
 
-At least RHEL builds KVM as a module for s390x, but it's not a
-problem. I agree with you that having the equivalent of INTEL/AMD, if
-possible, is a desirable self-check.
+>> fallback.
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>>  include/linux/set_memory.h | 7 +++++++
+>>  1 file changed, 7 insertions(+)
+>>
+>> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+>> index 3030d9245f5a..7b3a8bfde3c6 100644
+>> --- a/include/linux/set_memory.h
+>> +++ b/include/linux/set_memory.h
+>> @@ -84,4 +84,11 @@ static inline int set_memory_decrypted(unsigned long addr, int numpages)
+>>  }
+>>  #endif /* CONFIG_ARCH_HAS_MEM_ENCRYPT */
+>>  
+>> +#ifndef CONFIG_ARCH_HAS_KPKEYS
+>> +static inline int set_memory_pkey(unsigned long addr, int numpages, int pkey)
+>> +{
+>> +	return 0;
+>> +}
+>> +#endif
+> Would be better to make this (linar map range)constraint on the API name or that passed
+> as a boolean flag ?
 
-Paolo
+Indeed, in fact I've been thinking about renaming this function for a
+while and I've already done it locally :) It'll be set_direct_map_pkey()
+in the next version.
 
+> Also, it would be better to have the __is_lm_address checks in this generic wrapper which
+> then calls arch_set_memory_pkey ?
+
+That's not unreasonable, but such pattern isn't used by other functions
+in set_memory.h and I'd rather not deviate too much without a good reason.
+
+- Kevin
 
