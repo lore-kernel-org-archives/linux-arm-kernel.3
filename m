@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCF5C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE85EC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pnDx8fNJobN9rbe3wNwxHqZd8eR6bqb/8fO1Oo1YFE=; b=xpGusmGlaTFuP7oH50YQk+PLSc
-	zCaz3gOqeUd670Ve5YPhtJOWFTBSyi5e9Z2KHL9+pb+ZuFAhuwxgTBsP4rqYf9wbBFDusgjIJJvPy
-	TeJJbnN9km5DHPwxK/DOwSLFeFI1Mz36fkGIXABTvo/RgoRMN/929KdsQBJo1Lic2jJwpXVhlfa8f
-	Pyb0yBN8V/A4VIvHzIwzBxjFfG4WO0zDIX6QAiUvwJlMNySAqGaPpDoKSn7DJYLRY+CX2jpUWOeqh
-	9ixrmrEz4MisBepJD3QiCShxmhtLSiddll5fV0PvQbs97ISJuXYgtpQdgcTWr2vNg14/6jPRTZftI
-	LxCjKYrQ==;
+	bh=dccCzEuEh91JJr7dSASJ482QV1CaMg8i/UVv42TMhjI=; b=SZ/4Wt147UBybecc2aMOu/5E2N
+	cKZCHJMdA9V0FYZ2Gvk/SRgKKHRwDXdhfjzpKMYQ8U+4OWKcpDvXTI36fcE5iIC8amJZKRmcDxYj3
+	JrYdGHedyyCR7RHBLoMrWh0HrLgE+BxF7atwMEUyCCDBs27lspaAicmpMOZDrejg1Gr61fLVlYvAM
+	azvq17eYqgrUpm0N0o/UapYnjnfgA6yxJUqM3Kq8Qr5uwZINqj1TtgmVIuoaGt4JhHv90LrUhGDPG
+	A23EnYSDVVLXFHJ7yhnNFw4+srIHwoxs5Di66OsuswCa32iiPuADql9LuSBYZwJ1q3MPc3lHtNJfd
+	SwBD5ugA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2E6G-00000000YSg-2jOT;
-	Thu, 03 Sep 2026 20:31:56 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x2EFa-00000000ZQV-2Q03;
+	Thu, 03 Sep 2026 20:41:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2E6D-00000000YRt-2ak0;
-	Thu, 03 Sep 2026 20:31:55 +0000
-Date: Thu, 3 Sep 2026 22:31:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788467509;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6pnDx8fNJobN9rbe3wNwxHqZd8eR6bqb/8fO1Oo1YFE=;
-	b=N8QAsxcWwwdlcbXC/1gZYHLdz20tGbSKaPShPKii8yExQeiJbkjDjign6PQZaIuZqhLBpd
-	tj46UtpqaA6LZZkvyRuIAnz3/9STTfU4hlsVQcSv6Cbvhu+AplU2IzSycqQ8ctF0NxJVLZ
-	FFsYcw3gq/zyH4nA5ChVxCy+sEUrzXh78CM+hT4yLhRi5oB44BVGk7G9WNEJj/AnjlcRsW
-	7XAtQDDVTC4Xl3+vy4wuvZvApizApuHmRyttbFd6nO42jbwnj9MzVunGbDjTT7zm0Nn8uR
-	MAEZeAQn2a0iRzek6mgEz9b7+J/gZvfbDF51yuqeoJDHC371ft1Jcbtka9Nxng==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788467509;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6pnDx8fNJobN9rbe3wNwxHqZd8eR6bqb/8fO1Oo1YFE=;
-	b=QknhE9zhIuoEYMZn/xI0i+3CR53zw1LZpaisgIVS4XOEU011yFIRRgVTc3vL22wfINo1mE
-	4W0YI2+fPhMRo8DA==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH RESEND v3 3/4] firmware: raspberrypi: Add reboot mode
- support
-Message-ID: <a35cclkfw7w5b5dqgitnewfrw56ouwymkra3jmxbbtynrojghc@bzkz4xnrztur>
-References: <20260903-rpi-tryboot-v3-0-ce94c347e932@linutronix.de>
- <20260903-rpi-tryboot-v3-3-ce94c347e932@linutronix.de>
- <f85ebc81-c9e8-4014-bfed-66f9570eb1d2@gmx.net>
+	id 1x2EFZ-00000000ZQK-2X6A
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 20:41:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8680E41494;
+	Thu,  3 Sep 2026 20:41:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8D0D1F000E9;
+	Thu,  3 Sep 2026 20:41:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788468092;
+	bh=dccCzEuEh91JJr7dSASJ482QV1CaMg8i/UVv42TMhjI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JR2UQdMedKz3s+eb+c1UCQQBjsKsBHzJlHuFj2Ndy9O43ymWj5x3mOfKb1Q5JvXNE
+	 KjOkRK/WycgPVOuiZ8U86TarsmBu34sUO2A/9O8ocEWdbYgnwxsD4j17EZOK3p8yv0
+	 bJduA9CcV1S7EvYXaf84BGRJU0pNPD6Qjg1U3nQypI6UyOgce4QkyFMbJl9wh71+Kd
+	 vORJuMOxPeYUbYM5QX/BgkU0V6rV4zloEh9sBjA9nzoLXTvmKAMevGibSGQl2yeE4j
+	 pkVy5b43uQ2Sp2VjQcwkKUfXpRQ6oDNQleOE44v5J58v70mqD/mcN4J2lIM6EzaBK8
+	 y/knE4VmtEqcg==
+Date: Thu, 3 Sep 2026 21:41:26 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <d2659ac3-2f00-4fc4-8f9e-0585691a4ba2@sirena.org.uk>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
+ <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
+ <apmfx08vccSd2MXw@gremlin>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ww7DzEmaeFudEMkX"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f85ebc81-c9e8-4014-bfed-66f9570eb1d2@gmx.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_133153_803922_37B0123C 
-X-CRM114-Status: GOOD (  23.86  )
+In-Reply-To: <apmfx08vccSd2MXw@gremlin>
+X-Cookie: One picture is worth 128K words.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +84,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:08:22PM +0200, Stefan Wahren wrote:
-> Hi Gregor,
-> 
-> Am 03.09.26 um 16:48 schrieb Gregor Herburger:
-> > The Raspberry Pi firmware has a tryboot mode where it tries to boot from
-> > another partition. This can be used to create a A/B update scheme.
-> > 
-> > To enable this on the next boot, the RPI_FIRMWARE_SET_REBOOT_FLAGS
-> > message must be sent to the firmware. Add support for this by
-> > registering a reboot mode driver.
-> > 
-> > Furthermore, safely registering the reboot mode requires adjusting the
-> > teardown sequence. Replace the manually called rpi_firmware_put() with a
-> > devres-managed called (devm_add_action_or_reset). Without this, the
-> > cleanup function of devm_reboot_mode_register() would trigger a
-> > use-after-free error by attempting to access the firmware context after
-> > it had already been freed by rpi_firmware_remove().
-> > 
-> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> > ---
-> >   drivers/firmware/Kconfig                   |  2 ++
-> >   drivers/firmware/raspberrypi.c             | 40 ++++++++++++++++++++++++++----
-> >   include/soc/bcm2835/raspberrypi-firmware.h |  2 ++
-> >   3 files changed, 39 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> > index bbd2155d84838..34605bf7c9734 100644
-> > --- a/drivers/firmware/Kconfig
-> > +++ b/drivers/firmware/Kconfig
-> > @@ -115,6 +115,8 @@ config ISCSI_IBFT
-> >   config RASPBERRYPI_FIRMWARE
-> >   	tristate "Raspberry Pi Firmware Driver"
-> >   	depends on BCM2835_MBOX
-> > +	select POWER_RESET
-> > +	select REBOOT_MODE
-> >   	help
-> >   	  This option enables support for communicating with the firmware on the
-> >   	  Raspberry Pi.
-> > 
-> this part doesn't apply anymore. Did you rebased against 7.3-rc1 ?
-I have not rebased. I just sent the series out again to get some feedback. I
-will rebase it and send it again. Sashiko found an issue anyways.
 
-> 
-> Best regards
+--ww7DzEmaeFudEMkX
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+On Thu, Sep 03, 2026 at 07:13:17PM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Tue, Sep 01, 2026 at 10:47:01PM +0100, Mark Brown wrote:
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
+> > GCS introduces a number of system registers, on systems with GCS we need
+> > to context switch them and expose them to VMMs to allow guests to use
+> > GCS.
 
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+> > +				ctxt_sys_reg(ctxt, GCSCR_EL1)	=3D read_sysreg_el1(SYS_GCSCR);
+> > +			}
+
+> I had AI check this (and I think sashiko also hit on) it but this is a ch=
+ain of:
+
+> 	ctxt_has_tcrx() -> ctxt_has_s1pie() -> ctx_has_gcs()
+
+> Is it correct to make the gcs stuff conditional on tcrx + s1pie + gcs?
+
+There are architectural dependencies which mean it is not valid to
+configure GCS without S1PIE, and S1PIE depends on TCRX.  I had
+originally written the code without expressing this dependency but on a
+previous version Marc asked for this nesting as an optimisation.  Since
+it's about optimisastion adding checks that don't otherwise exist on the
+restore path would doubtless get the similar complaints.  Exactly the
+same concerns were raised on v19.
+
+> And it seems like that feature depends on ctxt_has_tcrx() so _architectur=
+ally_
+> fine, but it doesn't seem like KVM enforces the dependency at all and so =
+in
+> theory somebody could KVM_SET_ONE_REG a GCS, !S1PIE configuration.
+
+> And nicer to be consistent everywhere also I think (+ shut sashiko up! :)
+
+FWIW I do agree but I'm not sure how else to implement Marc's feedback
+here. =20
+
+We could do checking of the ID registers at vCPU creation so we could
+avoid worrying about them in the fast path but there was also feedback
+about not doing that.  One idea I had was to generate feature
+combination validation from the MRS, I think the main complaint was
+about open coding things rather than having the validation per se but
+ICBW.  Last I heard we were very near to having code for working with
+the MRS released which will help a lot with uses like that.  There is
+the possibility that people are relying on doing architecturally
+invalid configurations though.
+
+> And it seems like it makes it possible for a silly VMM which sets up the
+> registers wrong + some unfortunate guest behaviour -> oops via:
+
+> el1h_64_sync_handler() -> el1_gcs() -> do_el1_gcs()
+
+> Because the host's restore is skipped for s1pie=3D0, gcs=3D1, so a naught=
+y guest can
+> set gcsr_el1.pcrsel=3D1 and some value in gcspr_el1, then the host will g=
+et a
+> mismatch and trigger the kernel die().
+
+Yes, that's possible.  GCSCR_EL1.EXLOCKEN would create similar issues.
+
+--ww7DzEmaeFudEMkX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqZ23UACgkQJNaLcl1U
+h9Al2Qf9ELbi7FMrvb55gE/GD2/KOEk1DQNXY0/pdhRkKK5qem9JnkbO+L14rCTr
+UAItGA0GK83uI0GsfGMcj+oMPSMdbYvXFkruxoB9rq15icQhDSJ23bs7AAfowinc
+kkURT3oHz+G5t1sjwqswxdDjgVnIBF1f1Wy6UGOLNDGubJC1N8Gg+5tkHSQbz44j
+i2T04NdcyfXNQ6Zauee2wDnDG7ER2rPCRQVs0bKbiKG5DGkY1qLKgz/wunubw5Qd
+sS+p5dbX963skXH+nupEIW2HmAGu1cnU8hN9uOQw8JrsNJF743QHBNO+HPQqX4M6
+1M/aypWp/LTSHMquahmBniNSxNWzlQ==
+=1LHo
+-----END PGP SIGNATURE-----
+
+--ww7DzEmaeFudEMkX--
 
