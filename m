@@ -4,101 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412ECC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA2BC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPr0Tiyi9ufsaoMkecG9LBvmdZ8IsvdK2aRx8FqQP84=; b=uxdRKh5LDzAsiw3ZuVC2pctw3Y
-	rJR1YrGi3yNS7UmPnl2QFgys9x5ahPakbujcLSZNkEFLL2XTO2k2LfUUlOwXULjTxdcT4EXlK9NhD
-	EDwe+C0Zs3h/YIs7sR7YkY/0dYpN1t2s3NNNzedSdQi0pG77nSM2zcKz9xbbL+SRpWNQRE70EccF4
-	XkV/fJcJ7tB1l/6NMUQHT/RQxXoGG3jvJvk2ttZUfAtoigaYviPUoFWyZ4spiUVcDezqiaA8Fz1JO
-	2jojaYdYcoVxjxH75fe68ZRLNro11lfgbufGHtZjxgCws60LW0SYLbbx6CBdzQu48zKHkoAhv9GEv
-	vE3+F+0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f12J5Rz/9eHW3yt3/ueF6OVukjlaxuCuUKukykU73N8=; b=3NiKThQepHePvI
+	wVO0RpM3hEBK9LIX8pVc4HqUnZzDxAZdUaZsicwmmMwIraMwKFKr+l5g6lyxy58UTXgrKjXOGr1RC
+	GE0azwu6cE61mCalHay5hnYxPA83SB4PBUvgtFa9h16lz3hQeW1FjD54bgzTHCOTYWe0KsQBUCsSp
+	Vhh+y0RTr0U9YoF2A+P0YvuNsZaehWAzxbuA4m+o85pqxyqgL7auRYn/qDwYUMaOlM4bNmCFkfNI3
+	yjUHVzE2M0aqXRFbZAI6uFoRbXnMftFn/Pq14rWRd0dCXfCgRIkasi4eI0+dxhZsbb422qOGu0Cfn
+	hYhVpCH7OWYj+NWd+noA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21WL-0000000GWZ2-1sSa;
-	Thu, 03 Sep 2026 07:06:01 +0000
-Received: from mail-pj2-x0b.google.com ([2607:f8b0:4864:39::b])
+	id 1x21aG-0000000GWub-1uw2;
+	Thu, 03 Sep 2026 07:10:04 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21WI-0000000GWXh-1Etn
+	id 1x21aD-0000000GWsm-3Ha1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:05:59 +0000
-Received: by mail-pj2-x0b.google.com with SMTP id 98e67ed59e1d1-38de693676dso1208041a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 00:05:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788419157; x=1789023957; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bPr0Tiyi9ufsaoMkecG9LBvmdZ8IsvdK2aRx8FqQP84=;
-        b=jw+LEBMFRjL/MLyA3D0nGu7jJYdXg0/4gf9Lhibb1ru0M6BEP0MPXxztW8rSDhhCNl
-         coH1+zn9JPhVtjq9PF/QcCXtFnDD5AOL808HldVhXrPJK7Zo/YnjxL9YRUznWy4XQVIb
-         2F5ac0vmcIrXx2kLuNBoU+IrJvrirIA8JYAMhLUY1dtUdc3DAcKRN/hjWVbS0PoBb8fY
-         ai8UZcbJzh15xATP8wWplKWyIMlnXjkOC2PshyZjPYEMUpjXnzIDgtUDdnv7aR7DBSYU
-         79Ou2T6fU0QmMCdPfRSLDWM22pg795bkNlw/KenfNYggorO6w82XEwNHJCk1KC66mHS5
-         vLgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788419157; x=1789023957;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bPr0Tiyi9ufsaoMkecG9LBvmdZ8IsvdK2aRx8FqQP84=;
-        b=aVxlyaQrjMCqPnKyM2DwHW2FKt/Y1ILpKPkucNQfrNWVRJNZ4eu6L6JEhePp1PwXXg
-         9TY1DFhfBW4+SmAorSZZJC+b0vz46HT8S/Dd+QyfAo/+t4VaO2lcZ3RFBwedxGk++9aH
-         o3ApgmQXFVSAmapS4Hm5EBn6QqVaH3oR31UBMY19Qb394mhDzyTrh0v/VzXje//sHd7c
-         u93QsrT9yu5GTwuuEdXdsSpoWeafoBRrfv5/1w3eezpHD4jm55qwWes9U5gv1w5h60Da
-         SeFjvSAoi1UjHfP51yTmvWZGAbtKhhGlkj8D1v0KiPKmOltxV7x/JLIzmFZhcSrqDlM/
-         XPQg==
-X-Forwarded-Encrypted: i=1; AKwUvBwPC2R8uL0tX5R09fqYVBj2XtjLB7PEFFEQTYzXMbWdwdXAqnAFEPY5gw8BywQNXzwyeW1Sx3qeJUtdPMOKNvGL@lists.infradead.org
-X-Gm-Message-State: AFuF++nhPHJUNiA7pC2T7SuTSvAC0f8oJi4JgcrcOjbmj1VaBMezRkog
-	LZpudSy+NIgdGPTfXH643o7D+QhJOziNev33Nllarw2V5JnVSwYOPaK8
-X-Gm-Gg: AYBFou13jOjPGmil49sSBRaFFl9I+W7KUPR2s2qTyWnv7j6dHMnzIu7VzBwlsG/5/pb
-	eKXyDdNxus1NpUFboozx5jVoUuYguAvujD8kseLwyAYxdNuONw5b9ZJd7ijvO+KYI7wmHmF48m4
-	HM88Uci8drCtXY61ZVXDO4vzilMf/jic8gYuxaNUkD7g6tQtNkqxpRwfIEdNYC3FEMbUeho185E
-	b8KGr4ODv7+QD7yEIoHZ67BQbB7heHnsRr083CZ9UCfddSZMwHIU8N0e9jmlAmna5mFIAk+uEYM
-	H499uC3hUUa6ghV9pzKddnIOrKgrlYcUNcT0EKVIORSxUC2wTVctk7yWE1gjLEXe9+TjupyMDH8
-	G3zQ41Akjd21aDJChzEDU7W3u7ZDkT2jLgMEHwEuXsSZrW4QKuryp3OhmFF5FXK0GxE1QsfB8KF
-	97bmTW8dafzVKhgfjh9+Up5RjQf/TjQELbqBjcKSQ9XDHJ0lTRaR+ccFWzY+Xd2hpWpu8Np8BP7
-	tLZok8=
-X-Received: by 2002:a17:90b:2b46:b0:39a:e002:f192 with SMTP id 98e67ed59e1d1-39aee26d6c3mr16239819a91.22.1788419157335;
-        Thu, 03 Sep 2026 00:05:57 -0700 (PDT)
-Received: from [10.125.112.20] ([122.11.210.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm3382844a91.0.2026.09.03.00.05.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 00:05:56 -0700 (PDT)
-Message-ID: <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
-Date: Thu, 3 Sep 2026 15:05:44 +0800
+	Thu, 03 Sep 2026 07:10:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dJpIps9LadbzldBWm39kG3j6xnFyTV0AKaP51X+7G0QUaJVNPPwVaX39hfZWQcMOIVmNwilVARrQL7I0ZJvetCSH76JOj/uo7khR6OqWqmeiMT+vIiOgFUZM496KwLIe76RgWAJDtfIWvLoA0SGXGM1CRaummDxmrlnS2jn6iuhdRM1RBSta9+D3AF4jBPuYX8e+n1yiBMgI2GGxRw8C/TZcSho4vNjMerAgbshKSbNzuXr7+Cm0W9ScRJXb+Vtbri3eMoQAhk+6RF/KnM1bcUIXo5hUCEqJwAuhQx7RERNIfyeZaDVLFpl6ipg4DqqLP6nFfpt7tFgcVBu+n1qYCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f12J5Rz/9eHW3yt3/ueF6OVukjlaxuCuUKukykU73N8=;
+ b=XUFcNHltYv+H838h8BMAp9XqVHsw8MAs/sA45dFtbiA9wRHNDNksUTzLrLGsda5wkvHkS/cjDmSjB5i7WaFMBGocd7r8Xw0ZKa/rjsCsj66+5ciC/PFyQVxe9dqxkhexYukv3VkiRj6ipxjnBOO7EyfvrZZ6mFeMyLyoacSFndiMxgKXvglSHRm4Prgwb72irza90Mu1EFNPbXxVh0nlTcWLLVopkLLktwqB6KUaCibGk/lxcmPD/roY59O5AlqSvpFMlSXnHj8laG4N5ZXomleJpL8O1NK466M1fzZZ+w/riOCDxhcudaNlsjjEN0YmLZlN6HDbjN4wPMBobBDrQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f12J5Rz/9eHW3yt3/ueF6OVukjlaxuCuUKukykU73N8=;
+ b=GHh5cEarNyvixOjAkvRJUZYQcEx4FAcvFFP/D+C6UjrYo+dUu9wHyHCNb8CDetb2qarc+MUY2t7gu6tfdQOLBhlfUbSAIZMqBVqy4huqxHSS9+6qbd3g69ffW5bjBHLDpwAISlXFosmJ4Oh191vyL0IW+oND9PdjAosUCcpuIF95F27YUAD4KNHLMpaRWJgQ1oq28D6sEPFftNp6jRc5gyRTX0sPFmuRxvbR1Qzp9FleV/hzvZcPnTokfxqRBjzrn+mBxGZD/8uXThsP3vDEe58EDBwylBM1ybXpxbF2XXQeYAzSs52RVfgWOfNnay65i3b9XunWzHHDbSxtzRtFyA==
+Received: from BN9PR03CA0950.namprd03.prod.outlook.com (2603:10b6:408:108::25)
+ by DS4PPF96A509F30.namprd18.prod.outlook.com (2603:10b6:f:fc00::ab2) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 07:09:52 +0000
+Received: from BN1PEPF00005FFC.namprd05.prod.outlook.com
+ (2603:10b6:408:108:cafe::3c) by BN9PR03CA0950.outlook.office365.com
+ (2603:10b6:408:108::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
+ Sep 2026 07:09:52 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BN1PEPF00005FFC.mail.protection.outlook.com (10.167.243.228) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Thu, 3 Sep 2026 07:09:51 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 123F04186B51;
+	Thu,  3 Sep 2026 00:09:51 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Subject: [PATCH 0/2] hwmon: Add Axiado AX3000 TSADC driver
+Date: Thu, 03 Sep 2026 00:09:46 -0700
+Message-Id: <20260903-axiado-ax3000-tsadc-v1-0-a8a0f3b251f5@axiado.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
-To: Baoquan He <baoquan.he@linux.dev>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
- alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
- iommu@lists.linux.dev
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <apfkDlcMYrgiuGYA@fedora>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <apfkDlcMYrgiuGYA@fedora>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADodmWoC/yXMMQ6DMAyF4asgz0QyoELoVVAHJzHgDlDFKUJC3
+ L0pTE/f8P4DlKOwwrM4IPImKuuSUZUF+JmWiY2EbKixbtFW1tAuFNY8DSKapBS86dk63z/caDu
+ C/PxEHmW/qsPrtn7dm336p+A8fzMpx0R3AAAA
+X-Change-ID: 20260818-axiado-ax3000-tsadc-9e8bc95bf87a
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>, 
+ Karthikeyan Mitran <kmitran@axiado.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, openbmc@lists.ozlabs.org, 
+ Petar Stepanovic <pstepanovic@axiado.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788419391; l=1656;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=AWTDGP+Y3GMJuXhjAj9aQs35vNsykrdoOaZQxfZLj3s=;
+ b=IE8UFEQa35degBnaEioVGdxWEQ2swNSln0ysCPv5BCzJTynGiSEa93JWWi73Mp1cNnZhgXaZb
+ 3HcNNO4VLxeB/3n+kBBJiguZ8J6SQOxIm8SjG6bf6EuBK6cEA/BG+Jz
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00005FFC:EE_|DS4PPF96A509F30:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2e5e8c1-3899-4b93-7547-08df098a5971
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|36860700016|82310400026|921020|56012099006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: /CRU4Kschyftp7LMhPB3oWJkaRxt6tS8m1kiFA4gPCBQj+HKXTkockKpBhOlH4YEnyuucmN+64HeYjQ+CNwR7JNZzOINKwl8phYD/PVmIHxAweDwasYKe87473XqijPd2klFribRPbONoNcyqsmgOlIGs3FZiLT9DxjLKVZ6xb/6KiE8fWE6Jpd5qbpHQg8My3kAzB9JM2C7FIWbTyuEMeDexGkdu/FfNadwaw2H/BOzaHr2cS5D2MkaVuOVBFyO0ftiXNTokqf/0UVBTjqBxuiOOkFHd7AyHV0Bs40xf9AI9l3HDycWpRUJCzM3Sw0cgWuZNdjNdkJ4EolZVBh0ZXY79m7aDMT6X4qUILefpa3JSj0KKwRNG1ZEcxK3vwbkfBS+Dsy4tQ7gQGbAW6WnamTHyK2NexQVUoS8o84nOJfWGILJ/Y9kgzA7PCWpaIPVnbuWnZjG2pNymgQYY4OwdkIFWEpRhGvA93GRY+i3h/Xe0ubi7umdtfgPWVxus8z5uhKPuFXt77FHWusEaHuTtT1EzZIEhDTB39ekUy/EJb3SbHd1w0cR31L5zsaBjCNcWB4pr6dRNsH1vvGxxuo6javW2/jDci4Lrakfxs9KPJ+y0+TcwIFtvabRG859IapYHSD55QkwebLujFoZZ4IEvIjJNEyk+BQoROJQcYo/U5gFS/shMVribfIMkXHAZVgoBUX1e01hGj+DIxrnbWEqpD5avyRqYut/F4Gs/u6eW+i25TLKbhquOBjbwxS7DC/Z
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(36860700016)(82310400026)(921020)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yXt4Bq6Tvokx7ZN+pxYFwQQ4dQfYjxC5u50HjSF1oJH71B2kOEf0NCQctmm08XwxMnve9mQbWbj9MYzS0r6tmfEVdNYxSEWDZ7v928HX+MCGs1GI/qTbtwazQF5OFt91xT2t/2/JeCnp1Hxr5kOBYbHBRhLp7Z9jj9mIn7hPA5V77NbF8LzdbPHpv85x9IER2gLHTVrdWgyyXMIblNUvDk5ygA046J1SPpoDwxbJB2zkHX6GDmQC0VKF8RFdF1+JY8XLPfUb7H7a0fNRvyQ1MdDOFfZSvUy0tc5bkVlobVZlFKGslKR9qzOf44t2kPOKdSgUBK0MAbAckR/jOrSS8mDai2UN0qTTqsDK/6om4gMlYulmkB7JlALupHl1+7zmiBzqUiQZtPL5DnX+aLb0SiZMMvQCB9+hgirjMM1qwNfHe7uNZkMgE15fpVqp3OFB
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:09:51.8976
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2e5e8c1-3899-4b93-7547-08df098a5971
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00005FFC.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF96A509F30
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_000558_372244_121F07A9 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20260903_001001_828095_2C5509E7 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,165 +135,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds support for the temperature sensor ADC (TSADC)
+controller found on the Axiado AX3000 and AX3005 SoCs. The controller
+measures temperature at locations within the SoC silicon die.
 
+AX3005 uses the same programming model as AX3000 and uses
+"axiado,ax3000-tsadc" as its fallback compatible.
 
-On 9/2/26 16:53, Baoquan He wrote:
-> Hi Wandun,
-> 
-> On 09/02/26 at 03:31pm, Wandun Chen wrote:
->> From: Wandun Chen <chenwandun@lixiang.com>
->>
->> On SoCs that carve out large firmware-owned reserved memory (GPU,
->> camera ISP, ...), kdump currently dumps those carveouts as part of
->> system RAM even though their contents are firmware state that is not
->> useful for kernel crash analysis.
->>
->> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
->> reserved memory on DT-based architectures (arm64, riscv, loongarch).
->> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
->> reusable CMA regions are different because their pages are handed back
->> to the buddy allocator and may carry crash-relevant data.
->>
->> ACPI systems already filter reserved memory out of the vmcore through
->> their existing path; only DT-based systems currently fail to filter these
->> regions, which is what this series addresses. The flag lives in memblock
->> itself rather than in a DT-only structure, so the mechanism is generic and
->> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
-> 
-> Thanks for the effort. I am not against this patchset, and I haven't
-> went through it carefully. Just from the cover letter, you mentioned
-> generic, I am wondering if this can be generic for excluding other
-> memory regions. Asking this because I try to find a way to exclude
-> unwanted memory regions too, please check below link where there's
-> the relevant discussion. We definitely don't like inventing wheels
-> time after time. Do you think this memblock region excluding can
-> be used in other places of kernel?
-> 
-> https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
+Each TSADC controller is represented by a separate Devicetree node and
+registered as a separate hwmon device exposing one read-only temperature
+channel.
 
+The sensor is configured for continuous conversion during probe. The
+averaged 12-bit ADC code is converted to millidegrees Celsius using a
+lookup table with linear interpolation between adjacent entries. Raw
+values outside the characterized lookup-table range are clamped to the
+nearest supported temperature.
 
-Thanks for taking a look, and for the pointer to the crash-wipe thread.
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+---
+Petar Stepanovic (2):
+      dt-bindings: hwmon: Add Axiado AX3000 TSADC
+      hwmon: axiado-tsadc: Add AX3000/AX3005 TSADC support
 
-To answer your question directly: the exclusion mechanism in this series
-is already generic, memblock_mark_nodump() is the entry point. Any code
-that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
-preparing vmcore elf header by walking memblock, these regionss are skipped;
-This series is simply one caller, marking the DTS /reserved-memory and
-/memreserve/ regions with MEMBLOCK_NODUMP.
+ .../bindings/hwmon/axiado,ax3000-tsadc.yaml        |  45 ++++
+ Documentation/hwmon/axiado-tsadc.rst               |  41 +++
+ Documentation/hwmon/index.rst                      |   1 +
+ MAINTAINERS                                        |  10 +
+ drivers/hwmon/Kconfig                              |  11 +
+ drivers/hwmon/Makefile                             |   1 +
+ drivers/hwmon/axiado-tsadc.c                       | 275 +++++++++++++++++++++
+ 7 files changed, 384 insertions(+)
+---
+base-commit: 8ce12a5ddf8b86bc5b92c454e85591b1729b78e3
+change-id: 20260818-axiado-ax3000-tsadc-9e8bc95bf87a
 
-x86 currently builds the vmcore elf header from iomem_resource, not
-memblock; it could be switched to memblock, but that would bring no
-benefit for the problem this series solves, so this series makes no
-x86 change. I'd personally be in favor of switching to memblock for
-a unified implementation across architectures.
-
-Best regards
-Wandun
-
-
-> 
->>
->> Since the reserved memory regions are filtered out, the vmcore is
->> smaller in size and faster to produce. 
->>
->> The series is based on linux-next and is organized as follows:
->>
->> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
->>              flagname, switch riscv crash_mem to memblock, fold the
->>              duplicated per-arch memblock walks into the weak
->>              defaults, and serialize crash header preparation against
->>              memory hotplug.
->> Patches 5-9: NODUMP infrastructure: switch crash_core to
->>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
->>              flag, add a dumpable flag to struct reserved_mem, and
->>              mark /reserved-memory and /memreserve/ entries with
->> 	     MEMBLOCK_NODUMP flag.
->> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
->>              header.
->>
->> In v5, Sashiko found some pre-existing issues related to reserved-memory,
->> and has no dependency on this series, so these issues have been addressed
->> in a separate series [2].
->>
->> v5 --> v6:
->> 1. Serialize crash header preparation against memory hotplug to avoid
->>    out-of-bounds or use-after-free issues.
->>
->> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
->>    avoiding a panic from too few regions before resize is permitted.
->>
->> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
->>
->>
->> v4 --> v5:
->> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
->>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
->>    DT-only struct reserved_mem.
->> 2. Switch the riscv vmcore elf header preparation to use memblock
->>    instead of the resource tree, aligning it with arm64 and loongarch,
->>    so riscv also can exclude reserved memory from vmcore.
->> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
->>    loongarch open-coded the same logic, so fold it into shared
->>     __weak defaults in crash_core.
->> 4.  Drop the v4 patch that saved /memreserve/ entries into the
->>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
->>     directly.
->>
->> v3 --> v4:
->> 1. Rebase this series on v7.2-rc1.
->> 2. Add two cleanup patches (patch 02/03).
->> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
->>    NULL multiple times, suggested by Rob.
->>
->> v2 --> v3:
->> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
->> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
->> 3. Add some prepare patches.
->>
->> v1 --> v2:
->> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
->>    feedback [3], v2 drop that property and exclude reserve memory
->>    by default.
->> 2. Split some prepared patches from the original patches.
->> 3. Address coding-style comments on patch 5 from Rob.
->>
->> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
->> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
->> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
->>
->> Meijing Zhao (1):
->>   mm: memblock: add missing HugeTLB flag name
->>
->> Wandun Chen (9):
->>   riscv: build crash_mem ranges from memblock instead of resource tree
->>   crash_core: fold duplicated memblock arch hooks into the weak default
->>   crash_core: serialize crash header preparation against hotplug
->>   crash_core: replace for_each_mem_range() with for_each_mem_region()
->>   memblock: introduce MEMBLOCK_NODUMP flag
->>   of: reserved_mem: add dumpable flag to opt-in vmcore
->>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
->>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
->>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
->>     header
->>
->>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
->>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
->>  arch/riscv/Kconfig                         |  2 +-
->>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
->>  arch/x86/kernel/crash.c                    |  2 +-
->>  drivers/of/fdt.c                           |  2 +
->>  drivers/of/of_private.h                    |  2 +
->>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
->>  include/linux/crash_core.h                 |  2 +
->>  include/linux/memblock.h                   |  9 ++++
->>  include/linux/of_reserved_mem.h            |  1 +
->>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
->>  kernel/dma/contiguous.c                    |  1 +
->>  mm/memblock.c                              | 17 ++++++++
->>  14 files changed, 131 insertions(+), 95 deletions(-)
->>
->> -- 
->> 2.43.0
->>
+Best regards,
+--  
+Petar Stepanovic <pstepanovic@axiado.com>
 
 
