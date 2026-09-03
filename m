@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593AAC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776B0C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+akosZFQ5QP41YaxubimVNRHS2agBcw9WOA6mSrv7M=; b=Vle1B9qgoZv/xrujF1ubIAXzWe
-	1fACH9CbAyzlMAj/BDf2Egjekpw9mSU46grEs8xubTcQ6NiobwVN4KyVZxIFrS6mJ/RaaHDTJ7S1O
-	q4w+G5rpvOSHVDYDaZ0Whu/XRcERq3sGmKwTissmKnZS5X5XhrofRqxd8i3pnEk2kO2QU7XSRd9fo
-	YEfqTr31qF9HhiAGtZAOb9p2tPCIjgswzL3jKFVd00itgvAh4c99f5v1jkXI5vmhPg/RiK/uCEaXb
-	pFIHPwvyhCvNGdDvW9KBmAMn7JXvDML0KMDbchcLj/RrOIhphY+Dw8t4NuATeHbZOQNT9y8LOgsi/
-	1UDmFOnA==;
+	bh=3LUDBf5QxkKa+Esogmub7/Ta96yoX6znI4eeTq8O4IA=; b=n1GTYmOSBgpkczGwsuVyFeGoEd
+	35Rs8CbyckcdfKo53smCy0G1MRhoN/57Saqlak5vY13GjKpRmgA8MB5Mnyiy+/LpadvxEKJk5i88z
+	1sjktNImQ44bJZLlFJp+bfjeWGa+JoAdX3gER2Et3HrbHOzI7w6QJQrBqj7gCJXKk4BrYN1JSnWl7
+	QdofX+KY0eYAVA5SUIkgteyi+3ksPtBV0vk+sHaaiT96qRChGCJ5m5bgbj72s5iCdyN62amLJcfor
+	L3/Q0hBvPspccfD6Mo9jZMOBroM3Uspuo67XbJxjX9k2/yHdtBQtmXJheI/GfIu/5+Rf5bPJXM5HE
+	2Sj8KlZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29xu-000000005ND-3EIr;
-	Thu, 03 Sep 2026 16:07:02 +0000
+	id 1x29y4-000000005gC-3VAF;
+	Thu, 03 Sep 2026 16:07:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29xr-000000005HE-0nqJ
+	id 1x29y1-000000005YR-1mrq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:07:00 +0000
+	Thu, 03 Sep 2026 16:07:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9688E1596;
-	Thu,  3 Sep 2026 09:06:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 442AF1D34;
+	Thu,  3 Sep 2026 09:07:05 -0700 (PDT)
 Received: from e140010.cambridge.arm.com (e140010.arm.com [10.2.213.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72D7A3F673;
-	Thu,  3 Sep 2026 09:06:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39E9C3F673;
+	Thu,  3 Sep 2026 09:07:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788451618; bh=NEnXjfVv5d/CW7ayeMoAbfKpJ6fBprkZdANWXzbIgpQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HivrD1ADxk/dZI56V1/dQ6we5f+wPenrdOfH3Y8PKx+1wpWVhVN5ZvHnPT3vVNqN7
-	 WgOzZbxEoHz4b+sDoqoD0M5tbyUwTM+AevVtsCTTs1vGprJHGqN0m6p026g4eyWwNA
-	 /2QXeyRQin1SF71xGOtpSg7BWpp7UEbl/LhfdhJ8=
+	t=1788451629; bh=Qb3oPBwz4t17T1L/tcpkYmtgjbpA5m9YfiFEjNuQMo8=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=hQbkiO1tKYU1XOrbchK4lQWMbmXZo65sDm9oPpw2MOsawZEgsbsm8tNFDdaQpSitQ
+	 WTsbLDl2ipkACZpm9hVwzkdEpiRdsDdqd8hlXv7UoLnsNiIizlnSZpKQN0ag/iqPOL
+	 Ay+JLmYGOQ/tFJQT4hORMNQpah8y9eAiRzyRrm2k=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -54,18 +54,17 @@ To: maz@kernel.org,
 	linux-perf-users@vger.kernel.org,
 	catalin.marinas@arm.com,
 	james.clark@linaro.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Subject: [RFC PATCH v7 11/28] KVM: arm64: Add a new VCPU device control group for SPE
-Date: Thu,  3 Sep 2026 17:06:06 +0100
-Message-ID: <20260903160623.315525-12-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v7 16/28] KVM: arm64: Add SPE system registers to VCPU context
+Date: Thu,  3 Sep 2026 17:06:11 +0100
+Message-ID: <20260903160623.315525-17-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260903160623.315525-1-alexandru.elisei@arm.com>
 References: <20260903160623.315525-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_090659_376877_A5D550C0 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260903_090709_556029_B39959CC 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,148 +79,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sudeep Holla <sudeep.holla@arm.com>
+Add the SPE registers to the VCPU context. Guest writes to the service bit,
+which change the state of the SPE maintenance interrupt, will be handled in
+a subsequent patch.
 
-Add a new VCPU device control group to control various aspects of KVM's SPE
-emulation. Functionality will be added in later patches.
+Only the buffer registers are trapped, because KVM will need to keep track
+of the buffer enabled state for dirty page logging, errata handling and to
+sanitise writes to PMBLIMITR_EL1 based on the features exposed to the VM.
 
-[ Alexandru E: Major rework ]
-
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- Documentation/virt/kvm/devices/vcpu.rst |  5 +++++
- arch/arm64/include/asm/kvm_spe.h        | 17 +++++++++++++++++
- arch/arm64/include/uapi/asm/kvm.h       |  1 +
- arch/arm64/kvm/guest.c                  | 10 ++++++++++
- arch/arm64/kvm/spe.c                    | 15 +++++++++++++++
- 5 files changed, 48 insertions(+)
+ arch/arm64/include/asm/kvm_host.h | 13 +++++++
+ arch/arm64/include/asm/kvm_spe.h  | 11 ++++++
+ arch/arm64/kvm/spe.c              | 29 ++++++++++++++++
+ arch/arm64/kvm/sys_regs.c         | 56 ++++++++++++++++++++++++-------
+ 4 files changed, 96 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
-index deb5c51bc00c..e0a7fa35dfd2 100644
---- a/Documentation/virt/kvm/devices/vcpu.rst
-+++ b/Documentation/virt/kvm/devices/vcpu.rst
-@@ -302,3 +302,8 @@ From the destination VMM process:
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 10fa223bdbda..b92b19229c36 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -483,6 +483,19 @@ enum vcpu_sysreg {
+ 	PMOVSSET_EL0,	/* Overflow Flag Status Set Register */
+ 	PMUSERENR_EL0,	/* User Enable Register */
  
- 7. Write the KVM_VCPU_TSC_OFFSET attribute for every vCPU with the
-    respective value derived in the previous step.
++	/* SPE registers */
++	PMSCR_EL1,
++	PMSNEVFR_EL1,
++	PMSICR_EL1,
++	PMSIRR_EL1,
++	PMSFCR_EL1,
++	PMSEVFR_EL1,
++	PMSLATFR_EL1,
++	PMBLIMITR_EL1,
++	PMBPTR_EL1,
++	PMBSR_EL1,
++	PMSDSFR_EL1,
 +
-+5. GROUP: KVM_ARM_VCPU_SPE_CTRL
-+===============================
-+
-+:Architectures: ARM64
+ 	/* Pointer Authentication Registers in a strict increasing order. */
+ 	APIAKEYLO_EL1,
+ 	APIAKEYHI_EL1,
 diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-index e452da82666d..1327064d0984 100644
+index 4bae3e6b05c8..56dc9e660bef 100644
 --- a/arch/arm64/include/asm/kvm_spe.h
 +++ b/arch/arm64/include/asm/kvm_spe.h
-@@ -11,6 +11,10 @@ bool kvm_supports_spe(void);
+@@ -37,6 +37,9 @@ int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
  
- #define vcpu_has_spe(vcpu)					\
- 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_SPE))
+ bool kvm_spe_pmu_set(struct kvm *kvm);
+ u8 kvm_spe_get_pmsver(struct kvm *kvm);
 +
-+int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-+int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-+int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
++bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val);
++u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg);
  #else
- static __always_inline bool kvm_supports_spe(void)
+ struct kvm_spe {
+ };
+@@ -81,6 +84,14 @@ static inline u8 kvm_spe_get_pmsver(struct kvm *kvm)
  {
-@@ -18,6 +22,19 @@ static __always_inline bool kvm_supports_spe(void)
+ 	return 0;
  }
- 
- #define vcpu_has_spe(vcpu)	false
-+
-+static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++static inline bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
 +{
-+	return -ENXIO;
++	return true;
 +}
-+static inline int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++static inline u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
 +{
-+	return -ENXIO;
-+}
-+static inline int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
-+{
-+	return -ENXIO;
++	return 0;
 +}
  #endif /* CONFIG_KVM_ARM_SPE */
  
  #endif /* __ARM64_KVM_SPE_H__ */
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index f7f751c00e6f..e8a68e34be63 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -446,6 +446,7 @@ enum {
- #define   KVM_ARM_VCPU_TIMER_IRQ_HPTIMER	3
- #define KVM_ARM_VCPU_PVTIME_CTRL	2
- #define   KVM_ARM_VCPU_PVTIME_IPA	0
-+#define KVM_ARM_VCPU_SPE_CTRL		3
- 
- /* KVM_IRQ_LINE irq field index values */
- #define KVM_ARM_IRQ_VCPU2_SHIFT		28
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index b01d6622b872..56c5f937fcdb 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -25,6 +25,7 @@
- #include <asm/kvm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_nested.h>
-+#include <asm/kvm_spe.h>
- #include <asm/sigcontext.h>
- 
- #include "trace.h"
-@@ -918,6 +919,9 @@ int kvm_arm_vcpu_arch_set_attr(struct kvm_vcpu *vcpu,
- 	case KVM_ARM_VCPU_PVTIME_CTRL:
- 		ret = kvm_arm_pvtime_set_attr(vcpu, attr);
- 		break;
-+	case KVM_ARM_VCPU_SPE_CTRL:
-+		ret = kvm_spe_set_attr(vcpu, attr);
-+		break;
- 	default:
- 		ret = -ENXIO;
- 		break;
-@@ -941,6 +945,9 @@ int kvm_arm_vcpu_arch_get_attr(struct kvm_vcpu *vcpu,
- 	case KVM_ARM_VCPU_PVTIME_CTRL:
- 		ret = kvm_arm_pvtime_get_attr(vcpu, attr);
- 		break;
-+	case KVM_ARM_VCPU_SPE_CTRL:
-+		ret = kvm_spe_get_attr(vcpu, attr);
-+		break;
- 	default:
- 		ret = -ENXIO;
- 		break;
-@@ -964,6 +971,9 @@ int kvm_arm_vcpu_arch_has_attr(struct kvm_vcpu *vcpu,
- 	case KVM_ARM_VCPU_PVTIME_CTRL:
- 		ret = kvm_arm_pvtime_has_attr(vcpu, attr);
- 		break;
-+	case KVM_ARM_VCPU_SPE_CTRL:
-+		ret = kvm_spe_has_attr(vcpu, attr);
-+		break;
- 	default:
- 		ret = -ENXIO;
- 		break;
 diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index 00908aa2576b..fe45ad4c703a 100644
+index 4426d614a9e0..6a00a44c73ed 100644
 --- a/arch/arm64/kvm/spe.c
 +++ b/arch/arm64/kvm/spe.c
-@@ -58,3 +58,18 @@ bool kvm_supports_spe(void)
- 	guard(mutex)(&spe_pmus_lock);
- 	return !list_empty(&spe_pmus);
+@@ -7,6 +7,7 @@
+ #include <linux/kvm_host.h>
+ #include <linux/perf/arm_spe_pmu.h>
+ 
++#include <asm/kvm_emulate.h>
+ #include <asm/kvm_spe.h>
+ #include <asm/sysreg.h>
+ 
+@@ -82,6 +83,34 @@ void kvm_spe_destroy_vm(struct kvm *kvm)
+ 	module_put(spe_pmu->pmu.module);
  }
-+
-+int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 
++bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
 +{
-+	return -ENXIO;
++	switch (reg) {
++	case PMBLIMITR_EL1:
++	case PMBSR_EL1:
++	case PMBPTR_EL1:
++		__vcpu_assign_sys_reg(vcpu, reg, val);
++		break;
++	default:
++		WARN_ON_ONCE("unexpected trap");
++	}
++
++	return true;
 +}
 +
-+int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
++u64 kvm_spe_read_sysreg(struct kvm_vcpu *vcpu, int reg)
 +{
-+	return -ENXIO;
++	switch (reg) {
++	case PMBLIMITR_EL1:
++	case PMBSR_EL1:
++	case PMBPTR_EL1:
++		return __vcpu_sys_reg(vcpu, reg);
++	default:
++		WARN_ON_ONCE("unexpected trap");
++		return 0;
++	}
 +}
 +
-+int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ bool kvm_spe_pmu_set(struct kvm *kvm)
+ {
+ 	return !!kvm->arch.kvm_spe.spe_pmu;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index a6bb6884b965..89b01b6ac783 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1554,6 +1554,28 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 	return 0;
+ }
+ 
++static unsigned int spe_visibility(const struct kvm_vcpu *vcpu,
++				   const struct sys_reg_desc *r)
 +{
-+	return -ENXIO;
++	if (vcpu_has_spe(vcpu))
++		return 0;
++
++	return REG_HIDDEN;
 +}
++
++static bool access_spe_reg(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++			   const struct sys_reg_desc *r)
++{
++	u64 val = p->regval;
++	int reg = r->reg;
++
++	if (p->is_write)
++		return kvm_spe_write_sysreg(vcpu, reg, val);
++
++	p->regval = kvm_spe_read_sysreg(vcpu, reg);
++	return true;
++}
++
+ /* Silly macro to expand the DBG{BCR,BVR,WVR,WCR}n_EL1 registers in one go */
+ #define DBG_BCR_BVR_WCR_WVR_EL1(n)					\
+ 	{ SYS_DESC(SYS_DBGBVRn_EL1(n)),					\
+@@ -1586,6 +1608,14 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 	  .reset = reset_pmevtyper,					\
+ 	  .access = access_pmu_evtyper, .reg = (PMEVTYPER0_EL0 + n), }
+ 
++#define SPE_SYS_REG(name)						\
++	SYS_DESC(SYS_##name), .reg = name, .access = access_spe_reg,	\
++	.reset = reset_val, .val = 0, .visibility = spe_visibility
++
++#define SPE_UNTRAPPED_REG(name)						\
++	SYS_DESC(SYS_##name), .reg = name, .access = undef_access,	\
++	.reset = reset_val, .val = 0, .visibility = spe_visibility
++
+ /* Macro to expand the AMU counter and type registers*/
+ #define AMU_AMEVCNTR0_EL0(n) { SYS_DESC(SYS_AMEVCNTR0_EL0(n)), undef_access }
+ #define AMU_AMEVTYPER0_EL0(n) { SYS_DESC(SYS_AMEVTYPER0_EL0(n)), undef_access }
+@@ -3525,19 +3555,19 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_FAR_EL1), access_vm_reg, reset_unknown, FAR_EL1 },
+ 	{ SYS_DESC(SYS_PAR_EL1), NULL, reset_unknown, PAR_EL1 },
+ 
+-	{ SYS_DESC(SYS_PMSCR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSNEVFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSICR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSIRR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSFCR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSEVFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSLATFR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSIDR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
+-	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
+-	/* PMBIDR_EL1 is not trapped */
++	{ SPE_UNTRAPPED_REG(PMSCR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSNEVFR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSICR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSIRR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSFCR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSEVFR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSLATFR_EL1) },
++	{ SYS_DESC(SYS_PMSIDR_EL1), .access = undef_access },
++	{ SPE_SYS_REG(PMBLIMITR_EL1) },
++	{ SPE_SYS_REG(PMBPTR_EL1) },
++	{ SPE_SYS_REG(PMBSR_EL1) },
++	{ SPE_UNTRAPPED_REG(PMSDSFR_EL1) },
++	/* PMBIDR_EL1 is not trapped and read-only */
+ 
+ 	{ PMU_SYS_REG(PMINTENSET_EL1),
+ 	  .access = access_pminten, .reg = PMINTENSET_EL1,
 -- 
 2.43.0
 
