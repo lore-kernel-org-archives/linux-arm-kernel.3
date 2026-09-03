@@ -4,83 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9562C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6A9C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TwwfU6hpks+YXRJ6fCld9MUwDFdNClhk4U3xLbF7LOo=; b=cRWopIanoaNDbPQabz97kKAH52
-	tGLzEliqk2X4mIrFOkSZPSU0q6QltdnBMYlAVQTQxSj6jiCpzOpY98OAkCCN/HTYdUIjBZNaDKydl
-	fShDr9vWU7gzOQb2DalDFtzxBZcw9ruLBAhCrL0q9uNJemJNLs3XvrxNb5UTLyh6qjSpWBStJhYQu
-	YSMFf96H99v1jQrQg7vcK+TUmtgE/kIkLO8zR1hGJsrUN2r4tkS46KbEAE03y9hREFTqMMVSBbtim
-	vmjtvA5ha+1CpTVgXRNfgHfKd/5zmn+DsmhTmo6tLXDpkuUmQi9eOXQTIOR4fHg+TaGmTZj+8pZBX
-	JLpTKfhg==;
+	bh=x84L8D3771uX1JRAz3DeEhkLMS/d3fFl7+pMbK1JIwc=; b=G9tcZgm+RgFfgdklFvTdEubiqY
+	PzfjTR6H4VdznDThtpW13ZobCMGK2PmXZRFkntR4dBSexduxEmYwaHFaHZtMsbimmxl0TnSijP8yq
+	/0b9R9mTji22AhHv+17L/GiVbeIjcXEP4edecxBvfNAwwCujAbJgjyk996kqgBsQ2cA7QsbKUjXd8
+	RZJmeavfaIOo0vARlcBJ9gPLtVZerqTIjxwnhffOsuDWwCd1yeFdRW9flj8sLPKJuRkUqW36pLJ0d
+	g0r/X20SIvLY2armcx+BuOkhSDvF57GS9Rp9zoQv70ELhPdNN8nkrFSmX/95wyoDcM/FDQykA81Xx
+	azrzH0SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x264d-0000000HFPS-0kar;
-	Thu, 03 Sep 2026 11:57:43 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1x267T-0000000HFjK-2T0y;
+	Thu, 03 Sep 2026 12:00:39 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x264Y-0000000HFNz-1kKE
+	id 1x267R-0000000HFiw-0HCP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 11:57:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=TwwfU6hpks+YXRJ6fCld9MUwDFdNClhk4U3xLbF7LOo=; b=i
-	X4QWfdzCIGfg7Ms8Zvw0g05r1YDsVi+LDnWP81i2YQkoCXDVA4W/ZLwgF1b4Ps8o
-	7/OtBS09LE6KcDhLST0EbJ7VDcGNmNx2GT1kif/+pBCmUAmTDkTFYwTCygqHW+yx
-	baBl36AzpoimswmhjAiCxqYpOEEwG1TWTj41jtNGjw=
-Date: Thu, 3 Sep 2026 19:56:17 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>
-Cc: longzhao <longzhao@ambarella.com>, "Arnd Bergmann" <arnd@arndb.de>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
-	soc <soc@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>,
-	"Stephen Boyd" <sboyd@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
-	"Jiri Slaby" <jirislaby@kernel.org>,
-	"Catalin Marinas" <catalin.marinas@arm.com>,
-	"Will Deacon" <will@kernel.org>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>,
-	linux-gpio <linux-gpio@vger.kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	"Brian Masney" <bmasney@redhat.com>, "Lee Jones" <lee@kernel.org>,
-	mfd <mfd@lists.linux.dev>
-Subject: Re:Re: Re: [PATCH v5 10/12] serial: 8250: add Ambarella UART driver
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <aplcxoINt0YAjvxL@ashevche-desk.local>
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-10-7bbb12f0360f@ambarella.com>
- <aoRpc2RK2_X3CdAi@ashevche-desk.local>
- <162c0385.2c076.1a018b82fa7.Coremail.zl020895@163.com>
- <aplcxoINt0YAjvxL@ashevche-desk.local>
-X-NTES-SC: AL_Qu2TCviYuU0s4SCRZekcn0wRhug/UMa4u/sm3YNXc+sEmyb9wCAKQntjBXjy8euBCTqVrACdWgFHxf1WZpRSWZYdwgSvePe0abAvWg2oAg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Thu, 03 Sep 2026 12:00:38 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d7200b2e15so25778085ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:00:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788436836; x=1789041636; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=x84L8D3771uX1JRAz3DeEhkLMS/d3fFl7+pMbK1JIwc=;
+        b=kWN4PkKHL7frP8hexV1Ekg3TmMA4rSL9GkpUSGdoyFWsHvyDp+CTUj5Mulj0aQjeZv
+         Dl0cdKbzSSB8xfjKIeb5Ru1h9W8Jotv6R0SUDDZotxf9X9Y/H1kMML7IoI+9tHtsRw0+
+         zwhK//y0tEgF/VWeMJp2uwK5RBr0LsoHm8O1AZIZCn5mXQm7UyowiS8MV8N/pDjAgB+h
+         tjr9PaL1x+JglzSYcJv/TtXg3SPkNfcRqzjj32b/8qHf1iO6uIId59LLxh1MNbSa/aJS
+         QFunQ8o5kVH9899yC1zdSshM165f7rGCBr61a/iat0OsDMQnyqdEgfODY5YwcoGc8WTc
+         ertQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788436836; x=1789041636;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x84L8D3771uX1JRAz3DeEhkLMS/d3fFl7+pMbK1JIwc=;
+        b=WXFRQZi1qJtB9VX+EL+pVsdXUMZT2plIvowjPupdJf/3Hi/bpo2FxI2GZIhr4aE4Q6
+         Y+DCZZt6D7tgK4vrDCB0wnXxkMz9On1l2HvTQo7IB/TmsTcmsEvBJWHDl/nNd5SjeXEn
+         ytbuLxT7NQPa6suoFOld+Bkgp/9ZiGMLPQwkz4rPdzPUhNSCCs0HQJQRd7R+GsK5qsvc
+         XF6L0V/vp93bESNDtnnB3k2z3aur5gQy7ANgo3Xrpa9N4QX6jZ7YapmHeFEAR+1KEMV9
+         CpEj8y1IcYICEz+cl9tts7/xVPxlhEDPoE5WrBote4E/lIvTudQtDf4vc0pec93awOfR
+         D0iQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwTjXM4D6HAnTKoPz0Ss9b2aFj12Twfhg7MxpTUpOfigN/OYMSQXXdvSR4FKCFnhjc9D+pXif8iM8Euodtl5TIc@lists.infradead.org
+X-Gm-Message-State: AFuF++kGrFYhRBpHbL1DrJ41hRqgW+SpUplYQ3NwRlc4Rx4mE5N6x8Lv
+	i3ERuqhJlsLC6iBu/Jn68ej3OAmKb60ZmjwLjRovYKWSCIeXR6I68X9Z
+X-Gm-Gg: AYBFou2ZF810SyfJYiqF0uiBV6B19mKf0ztEm72HZhq2kAH3Rmk/awGXvjZYwvSU4Dg
+	eVV27Futw9xR6+eFCCwGT2Lr6L3+Vkbsr1Zzi15IRyz4JNXEyKBt3dGYlceJi8yC7X1oJdlXfgA
+	2Vl4TMtIx/ugtbcqENrhg7xh7V9/y4prVsBnVj728pCmGW/N/FAzpqLxFuykkDHZn2G+am1OnX3
+	fHMdWF62Ln6GagBbg6fp3RiezwVtmYIQn40q5EbWZqhB61ikeBHs1c1J2bgIE3INKF++ULBUg39
+	HsitbMxjn9N82hFXHfrzTCIBR4dKzL3/0jewxyzZYUp+pTuVM2QDdIZc7KwZl1ndiBHHHCYvcuO
+	zNGC8bzuGu4r0RzTV+ovNqLOPO6SfHB+KcZ0ajXArIUHGf08PjCWBl8IInLlstr5j0XV2x6sdGq
+	M5M2xk3R//QDcsHNEsaS83M0RphDveWbWJk+0qywvmDwd5ck1l0eALFh4+3ZXkAg80fMmEV/JxH
+	5ElOEdVnCbwakWpgOkTv6RFIfeZ06sXwApCbASBIkTTfjATgg==
+X-Received: by 2002:a17:903:26c6:b0:2d8:d4cc:be67 with SMTP id d9443c01a7336-2daec73f1d2mr160598335ad.20.1788436835424;
+        Thu, 03 Sep 2026 05:00:35 -0700 (PDT)
+Received: from ?IPV6:2406:7400:56:e503:ad72:fda5:83e8:be95? ([2406:7400:56:e503:ad72:fda5:83e8:be95])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db01c4204csm8037835ad.66.2026.09.03.05.00.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 05:00:35 -0700 (PDT)
+Message-ID: <c00f266d-b6c3-4988-a2b9-72c5e0389317@gmail.com>
+Date: Thu, 3 Sep 2026 17:30:28 +0530
 MIME-Version: 1.0
-Message-ID: <709278f9.9699.1a067207b4c.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: ZCgvCgD3vyZhYJlquTA_AA--.3357W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgExomqZYGHZZAAA3b
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] pmdomain: core: Rename genpd_status_on()
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
+Cc: Abel Vesa <abel.vesa@oss.qualcomm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Christian Loehle <christian.loehle@arm.com>,
+ Maulik Shah <maulik.shah@oss.qualcomm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260901111441.122436-1-ulf.hansson@oss.qualcomm.com>
+ <20260901111441.122436-2-ulf.hansson@oss.qualcomm.com>
+Content-Language: en-US
+From: Dhruva G <goledhruva@gmail.com>
+In-Reply-To: <20260901111441.122436-2-ulf.hansson@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_045738_868975_167F93CC 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260903_050037_115054_840969D7 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +114,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5keSwKClRoYW5rcyBmb3IgdGhlIGNvbmZpcm1hdGlvbi4gCkkgd2lsbCBrZWVwIDgyNTBf
-YW1iYXJlbGxhIGFuZCB1cGRhdGUgdGhlIGNvbW1pdCBtZXNzYWdlIGFzIHlvdQpzdWdnZXN0ZWQu
-CgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwoKQXQgMjAyNi0wOS0wMyAxOTo0MDo1NCwgIkFuZHkg
-U2hldmNoZW5rbyIgPGFuZHJpeS5zaGV2Y2hlbmtvQGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj5P
-biBXZWQsIEF1ZyAxOSwgMjAyNiBhdCAwMjozMTo1OVBNICswODAwLCB6bDAyMDg5NSB3cm90ZToK
-Pj4gCj4+IFRoYW5rcyBmb3IgdGhlIHJldmlldy4KPgo+PiBUaGlzIGlzIEFtYmFyZWxsYSA4MjUw
-LWNvbXBhdGlibGUgSVAsIG5vdCBTeW5vcHN5cyBEZXNpZ25XYXJlLiBXZQo+PiBmaXJzdCB0cmll
-ZCA4MjUwX2R3IGFmdGVyIExpbnVzIGFza2VkIHVzIHRvIG1vdmUgdG8gdGhlIDgyNTAgbGlicmFy
-eTsKPj4geW91IHRoZW4gdG9sZCB1cyBub3QgdG8gdG91Y2ggODI1MF9kdyBhbmQgdG8gdXNlIDgy
-NTBfYW1iYXJlbGxhCj4+IGluc3RlYWQuIFRoYXQgaXMgd2hhdCB0aGlzIHBhdGNoIGlzLgo+PiBC
-YWNrZ3JvdW5kOgo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yL0NBRCsrakxtNkh6RVUxVE0t
-Yz1WdGp2M0ZKRUJlY1ZQN1R5eFNncV9RMHpGLVl3VDZOQUBtYWlsLmdtYWlsLmNvbS8KPj4gaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtc2VyaWFsL2FuOEt2dkhXWDBuYUgzWHdAYXNoZXZj
-aGUtZGVzay5sb2NhbC8KPj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtc2VyaWFsLzdF
-Nzc0MzA1LTM5MjAtNEJCNy1CQTQ2LUUwNzcyRDZCRUQ4NEBhbWJhcmVsbGEuY29tLwo+PiBJIHdp
-bGwgYWxzbyBzd2l0Y2ggdG8gdWFydF9yZWFkX3BvcnRfcHJvcGVydGllcygpIGFuZCB0cmltIHRo
-ZQo+PiA4MjUwX2R3LWRlcml2ZWQgYm9pbGVycGxhdGUuCj4KPlRoYW5rcyBmb3IgdGhlIHJlZ2lz
-dGVyIGRlc2NyaXB0aW9ucywgaXQgd2FzIGhlbHBmdWwuIEFmdGVyIGdvaW5nIHRocm91Z2ggdGhl
-bQo+aXQgc2VlbXMgdGhlIHYzIGFzIHlvdSBtYWRlIGl0IGlzIGdvb2QgZW5vdWdoIChzb3JyeSBm
-b3IgZ29pbmcgYmFjayBhbmQgZm9ydGgpLgo+V2hhdCBpdCBuZWVkcyBpcyBiZXR0ZXIgY29tbWl0
-IG1lc3NhZ2UgZXhwbGFpbmluZyB0aGF0IHdoaWxlIGl0J3Mgbm90IGEgU3lub3BzeXMKPkRXIElQ
-LCBpdCB3YXMgbWFkZSB0byBiZSBxdWl0ZSBjb21wYXRpYmxlIHdpdGggdGhhdCAob24gcmVnaXN0
-ZXIgbGV2ZWwpIGFuZCBoZW5jZQo+bm8gbmV3IGRyaXZlciBpcyByZXF1aXJlZCwganVzdCBhIHNt
-YWxsIHF1aXJrLgo+Cj4tLSAKPldpdGggQmVzdCBSZWdhcmRzLAo+QW5keSBTaGV2Y2hlbmtvCj4K
+Hi Ulf,
+
+On 01-09-2026 16:44, Ulf Hansson wrote:
+> Let's rename the internal function genpd_status_on() to
+> genpd_status_on_unlocked() to clarify its use.
+> 
+> Suggested-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+> Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+> ---
+
+Optional:
+An additional line explaining why this otherwise unnecessary rename exists:
+
+Rename the accessor to leave genpd_status_on() available for a lock-taking wrapper
+introduced in a future commit.
+
+
+> 
+> Changes in v2:
+> 	- New patch.
+> 
+> ---
+>  drivers/pmdomain/core.c | 25 +++++++++++++------------
+>  1 file changed, 13 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 842c4169e290..6ac1ce18fda3 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -173,7 +173,7 @@ static const struct genpd_lock_ops genpd_raw_spin_ops = {
+>  #define genpd_lock_interruptible(p)	p->lock_ops->lock_interruptible(p)
+>  #define genpd_unlock(p)			p->lock_ops->unlock(p)
+>  
+> -#define genpd_status_on(genpd)		(genpd->status == GENPD_STATE_ON)
+> +#define genpd_status_on_unlocked(genpd)	(genpd->status == GENPD_STATE_ON)
+>  #define genpd_is_irq_safe(genpd)	(genpd->flags & GENPD_FLAG_IRQ_SAFE)
+>  #define genpd_is_always_on(genpd)	(genpd->flags & GENPD_FLAG_ALWAYS_ON)
+>  #define genpd_is_active_wakeup(genpd)	(genpd->flags & GENPD_FLAG_ACTIVE_WAKEUP)
+> @@ -771,7 +771,7 @@ EXPORT_SYMBOL_GPL(dev_pm_genpd_rpm_always_on);
+>   * @dev: Device to get the current power status
+>   *
+>   * This function checks whether the generic power domain associated with the
+> - * given device is on or not by verifying if genpd_status_on equals
+> + * given device is on or not by verifying if genpd_status_on_unlocked equals
+>   * GENPD_STATE_ON.
+
+Since we're fixing this anyway, It should describe comparing genpd->status with GENPD_STATE_ON, not the macro
+which expands to that logic ;)
+
+Anyway, nits only, LGTM otherwise.
+
+Reviewed-by: Dhruva Gole <goledhruva@gmail.com>
+
 
 
