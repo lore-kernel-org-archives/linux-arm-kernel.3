@@ -4,114 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3E1C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  2 Sep 2026 23:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D590C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 00:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHkE0KygFhIS9HXgLrJJS0y5ES5oOeyv4LpvZ/FUmdg=; b=JMrqRjQFCSDJat547uIFLuL7cY
-	oq/XQZoVQQeQM+XNiE9RU9rWD2gNmJ8zMKSx+OjDBBsxvH7mw8Sf4KbmzBpRsatkU5NAODFm57HuP
-	L2VoLEzcIWlU0TAsTQQ1ug5zg69CY2rKSqcBdkBZFjHECcfQhR+qNbO7NwPOs+STqf8BiJ9mjSPoe
-	Jwt8rqTV01yOHBGx1qO/EcY8sLDaqiKjSVhqX6XJVfr4bUXaFaDp96ngeBESjITv2AFtUcGwFJw2W
-	SFeU81e7m5HPDbOowZqTaCeOQPKGuyiAvO9VGXigK0cAdUyJvLut92kHTkU+J9RTj4mwdhLFn4N06
-	jo9s0yow==;
+	bh=x2qNbvy1T2SnAes3F/wQppFd+FrV00UggrHHdFmIYeg=; b=Crwa5VUiuSSijZniNURF3puUFe
+	CjJsyL54fCCkuXpyHW+9ZjHvnrxeXXBm4c2At9pT81CH7CLY+BT5MbqVhwj8+zpZDgov5EWC+GVek
+	z3VR2LlkxxS8f9NLi3wxG1o+rZR+gl/iJ5lZfGaLPhoYcrhHHcw15YBzhVbv8HB87NbvjmTAnBFgA
+	caZY4iOc9Mamy9sr1fLeIXGpiqUuVT+e1qDXnN4ai6yoXb/CYiIrIBxeCDppAFMDDSHNmvdX4rP1H
+	g18sh1R81mjfE74rbH+uCisLoaHHzoC/GvkpxwY+wksOWf8tc1PEUVveaC8uvMJIztymYL+PoY0rK
+	Jf9NVZmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1uoQ-0000000G6c0-1BUS;
-	Wed, 02 Sep 2026 23:56:14 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1x1vR7-0000000G7hm-0uay;
+	Thu, 03 Sep 2026 00:36:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1uoO-0000000G6bd-1VtM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 02 Sep 2026 23:56:13 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-9390dd46b45so125164585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 16:56:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1788393371; x=1788998171; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JHkE0KygFhIS9HXgLrJJS0y5ES5oOeyv4LpvZ/FUmdg=;
-        b=bbh4+XE5rNIfqr6tDpSu0yTCGSzy7DwHs0UHJe6Wq4d0SSIz619YkFIkGqVMHErVg/
-         gDgpfZMcGBjjrhAPQzlIjiOAlNa0airGpQeZUuBKK+4bmikRKMpVgo/nYd+FNoaJXzgr
-         PWiFoovmiTj56QIgL+T/K6tTSWA/kMuBL4JOLRKVFcGf/kDxVf6C+PU9M+buolvJdJXN
-         KHj9UN5Dip4INJ1SDVDt//5OSS7fLjhGaJ1S/3FUXQCrnywIElD7ixW0m4r7KPGeFBEQ
-         xDEJQBD1t1jiLTkzbNI9jNpjgKcSkrjgwLtumoKqVa20A8GcVcXUzdNdSh7eE/yQpeR1
-         TZjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788393371; x=1788998171;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JHkE0KygFhIS9HXgLrJJS0y5ES5oOeyv4LpvZ/FUmdg=;
-        b=BiBYVnUGrO6owvC7BeLyYkuk7qPpu6Dnbuf/185FfPh4mPgabvvxZtV0EmsMbZ9+K3
-         Ur77RSYYXjZUVEyo68zLlVoecUgH6HSzE+/D/DPr5Mg+fpJCZ5aNDVreTsEev/ECzBGj
-         yhYh1bdmObF3ZNLz+v4SF8OLVdmW6nOi0z2jwHxd4l7je2gO5KN/+3lVELag3kdouBUk
-         yYg5tpanffX0XPUc7tsmAryw/W61HtBitzeFYuAPBMWZTtzD2D2ChTIA7AxPLXU4Bxsn
-         qsjpafX5JiOzXWfI/+yVM0YILm1eK74qUlGpsu9dva1CRBz2dX+MR39SZ+C5g+GQbCEW
-         3Snw==
-X-Forwarded-Encrypted: i=1; AKwUvByXWo0rBj+etIyHdefeL60iZm+ABw5IMeRfWrfGbJ6XD4DCRQYEhGQt3AHK1VcyTImDbl26cYodhjwzU9Z6Ojf6@lists.infradead.org
-X-Gm-Message-State: AFuF++k7uIZXsH5u9nK+d3JJklzkCJ0Y5xcjf/ei1+onAzcUypJ8Yl6l
-	gKzf86pT+Jn2XiomNvpj2W3yT8aO1GxvMI/feO3l/MYb5zf9SkjOc/NRCJYY8Y5nDLOwixbnD2/
-	R1LBu
-X-Gm-Gg: AYBFou2H5pwcb/qPK6F/zIIeUPRy45Ve/SjRkxRsfdL+mmWN+FEAjAsXRELPB+B5Qg6
-	nPM8aNl2itrqmj3Cc9lcSHrxLOIyW06uDbrMgQSBLwwKwT+kGy7vZ9/0g77Qdjj7Fzi+Rr+3oI6
-	piHoVQEOP3tZ+nBl9vA78RHCGb/uHiVi7nQ7fMy8xzr7qjw8QFsN7WSHmFBRqFWB8WIYC3SIasJ
-	YmwNkvu4ZS8KfpEbPPWBTRbqstB7e9yiGyLsaV5cnCTwu/mSki7PBAvNay2knwj4Khsz8GnSFjB
-	rYiYDJ2cFDIs3FFqznT7oiC9Mv+c9x5NOgJh6jyFWkuXghF7Bm0tJKMI3UxEfgomxFM1m7qwQDl
-	44/q6oU/FeNmFmUfKQf622WqEwFABU0oXtbVCMmz2L0MUAztVXNIbK6uEtkPyj3WYxcezL31bOD
-	50XP4Zjwe95NJ63kBfiP/udEh8kHpjDjUmqrKJb8mQPjsbnrdVc1xBu81kQ+5LvZZV93PuyCAm8
-	/67jEMB2veX9/cbtH9D/7T/3eAFWMkkBppcwfomjexCBA==
-X-Received: by 2002:a05:620a:8c98:b0:92e:7ba3:73e5 with SMTP id af79cd13be357-939610139b3mr758596785a.42.1788393370920;
-        Wed, 02 Sep 2026 16:56:10 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9395f3dd7easm362448885a.45.2026.09.02.16.56.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Sep 2026 16:56:10 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1x1uoL-0000000FTW5-1KK8;
-	Wed, 02 Sep 2026 20:56:09 -0300
-Date: Wed, 2 Sep 2026 20:56:09 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Ortiz <sameo@rivosinc.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
-Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
- viommu plumbing
-Message-ID: <20260902235609.GG2890729@ziepe.ca>
-References: <20260427085344.941627-1-aneesh.kumar@kernel.org>
- <20260427085344.941627-4-aneesh.kumar@kernel.org>
- <apM6dOHcEI2ztWS0@nvidia.com>
- <yq5a8q5lz5yn.fsf@kernel.org>
- <yq5aecfdnv4i.fsf@kernel.org>
- <20260901143445.GC56830@ziepe.ca>
- <yq5a8q5kkoz3.fsf@kernel.org>
- <20260902121700.GC2890729@ziepe.ca>
- <yq5aik4nztdt.fsf@kernel.org>
- <yq5aecfbzjyk.fsf@kernel.org>
+	id 1x1vR5-0000000G7hO-1t37;
+	Thu, 03 Sep 2026 00:36:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D13C600C8;
+	Thu,  3 Sep 2026 00:36:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14ED1F000E9;
+	Thu,  3 Sep 2026 00:36:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788395770;
+	bh=x2qNbvy1T2SnAes3F/wQppFd+FrV00UggrHHdFmIYeg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=amxqXOaVVe9Eq3ryHurCwJ9xMvkiw03drQaDa0HowYQkLxd73aX8AcA9Nsg7NXAC0
+	 c+rH3TNwHooCCWUXqmta3Nru8s+8f2wkPjkpv3AyB2Ama7T7d1veTN2YFHLVjfTXhP
+	 UPBiCtbjQuVMPaFhQr0jJcKD802DBMNuXixQ2u6Ofjm53vLnm2wF2DoIgyhyF2dtRM
+	 NQ0fNROlfD0klqJECOLHwBx0fCwaIVzVb5IP2wEJGgciIT4pg4S9K6g9QR0CxjzzzG
+	 V2J8JyHcQRQHou6vEwTfCbl2ZjcRbE+D6vQRVsZ/ETAkhrCdnzsDnsJLrpJCnfihFr
+	 a6qGOoOLqvJdw==
+Subject: Re: [net-next,v5] net: airoha: add HW GRO offload support
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, madhur.agrawal@airoha.com
+Date: Thu, 03 Sep 2026 00:36:09 +0000
+Message-ID: <178839576918.3394541.6887762855417310645@kernel.org>
+In-Reply-To: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5aecfbzjyk.fsf@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_165612_513795_B6D90716 
-X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,115 +70,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 10:09:15PM +0530, Aneesh Kumar K.V wrote:
-> static int arm_realm_smmu_v3_vdevice_init(struct iommufd_vdevice *vdev)
-> {
-> 	struct device *dev = iommufd_vdevice_to_device(vdev);
-> 	struct kvm *kvm = vdev->viommu->kvm_file->private_data;
-> 	struct arm_smmu_device *smmu;
-> 	struct arm_smmu_stream *stream;
-> 	struct arm_smmu_master *master;
-> 	unsigned long rmi_ret = 0;
-> 	unsigned long l2_sid;
-> 	int ret;
-> 
-> 	if (!tsm_is_configured(dev))
-> 		return 0;
-> 
-> 	master = dev_iommu_priv_get(dev);
-> 	/* FIXME which stream to pick */
-> 	/* At this moment, iommufd only supports PCI device that has one SID */
-> 	stream = &master->streams[0];
-> 	smmu = master->smmu;
-> 
-> 	l2_sid = ALIGN_DOWN(stream->id, STRTAB_NUM_L2_STES);
-> 
-> 	{
-> 		guard(mutex)(&smmu->realm.mutex);
-> 
-> 		if (!arm_realm_smmu_active(smmu))
-> 			return -EINVAL;
-> 
-> 		ret = rmi_psmmu_st_l2_create(smmu->base_phys, l2_sid,
-> 					     &rmi_ret);
-> 		if (ret || rmi_ret) {
-> 			if (!ret)
-> 				return -EIO;
-> 			if (RMI_RETURN_STATUS(rmi_ret) != RMI_ERROR_PSMMU_ST ||
-> 			    RMI_RETURN_INDEX(rmi_ret) != 2) {
-> 				dev_warn(dev, "failed to create realm stream mapping\n");
-> 				return -EIO;
-> 			}
-> 			/* The L2 stream table already exists. */
-> 		}
-> 	}
-> 
-> 	vdev->destroy = arm_realm_smmu_v3_vdevice_destroy;
-> 	return tsm_bind(dev, kvm, vdev->virt_id);
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider:
 
-I think we should drop tsm_bind() as an abstraction. It doesn't make
-sense to take that round about path when we are calling RMIs directly
-above. It was intended to be an abstraction, but it isn't working out
-with this viommu based abstraction.
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
-> @@ -513,10 +514,16 @@ static ssize_t cca_tsm_guest_req(struct pci_tdi *tdi,
->  		if (copy_from_user((void *)&req_obj, req.user, req_len))
->  			return -EFAULT;
->  
-> -		if (req_obj.tdi_state != RHI_DA_TDI_CONFIG_RUN)
-> +		switch (req_obj.tdi_state) {
-> +		case RHI_DA_TDI_CONFIG_UNLOCKED:
-> +			return cca_vdev_device_unlock(pdev);
-> +		case RHI_DA_TDI_CONFIG_LOCKED:
-> +			return cca_vdev_device_lock(pdev);
-> +		case RHI_DA_TDI_CONFIG_RUN:
-> +			return cca_vdev_device_start(pdev);
-> +		default:
->  			return -EINVAL;
-> -
-> -		return cca_vdev_device_start(pdev);
-> +		}
->  	}
+- [High] LRO RX ring 31 is programmed as an active hardware-LRO
+  destination but is bound to no IRQ bank, so it is never polled.
+- [Medium] The driver advertises NETIF_F_GRO_HW while it cannot satisfy
+  the documented rx-gro-hw contract, because the hardware does not…
 
-This stuff cannot flow through sysfs. The VMM must support running in
-a sandbox so it cannot easially call out to sysfs while the VM is
-running. That makes the sandboxing more complex and ugly. The flow we
-have now relies on fd passing from the launcher into the sandbox to
-get things like vfio and iommufd into the VMM.
+--
 
-So these actions really should work the same way unless there is a
-strong reason to do otherwise.
+net: airoha: add HW GRO offload support
 
-Given these are all acting on bound devices, and those can only be
-created by iommufd, it makes more sense to feed the operations through
-iommufd into the viommu and vdevice ops. AMD wanted to create such
-general command ops anyhow for their viommu emulation (non cc).
+This adds hardware GRO (LRO) offload to airoha_eth, mapping the 8 LRO
+hardware contexts onto RX queues 24-31, bumping the page_pool order for
+those queues and disabling scatter-gather on them.  Aggregated frames get
+their network headers copied into a linear skb, the payload attached as a
+frag, CHECKSUM_PARTIAL with a pseudo-header checksum, and GSO metadata
+derived from the descriptor aggregation count.
 
-And.. then you don't need struct pci_tdi. The vdevice is effectively
-the tdi and the existing locking scheme in iommufd for vdevice takes
-care of everything the tsm code was trying to do, except in a way that
-applies to every viommu out there.. This actually makes a lot of sense
-because the tdi is not really separable from vfio. You cannot have a
-tdi without a kvm and you cannot link a pci dev to a kvm without vfio.
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 64619e9a704dd..57b19d7b5bd79 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
 
-Finally, there is really nothing about the viommu_ops that has much to
-do with smmuv3. It would be fairly straightforward for the tsm_ops to
-be able to create the viommu and provide the viommu_ops. We can get
-there based on the IOMMU_VIOMMU_TYPE_ARM_REALM_SMMUV3.
+[ ... ]
 
-This then would open up a much nicer split where arm-cca-guest.ko can
-provide a realm smmuv3, and inside those viommu_ops are all the realm
-& tdi related ops, psmmu, vsmmu, vdevice, "guest req".
+> @@ -491,6 +493,88 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
+>  				 CDM_CRSN_QSEL_Q1));
+>  }
+>
+> +static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_id,
+> +				     int lro_queue_index, int qid,
+> +				     int buf_size)
+> +{
 
-The arm-cca-guest can just make a simple function call to SMMUv3 to
-get the phys and interrupts. Somehow I think Will would like this
-better than adding to SMMUv3.
+[ ... ]
 
-Now that the viommu stuff is more developed on the iommufd end, and
-the RMM spec is more complete with vsmmu, I think this arrangement
-becomes visible.
+> +	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
+> +		      LRO_RXQ_MASK(lro_queue_index),
+> +		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
+> +	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
+> +}
 
-What do you think?
+[ ... ]
 
-Jason
+> +static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
+> +{
+> +	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
+> +	struct airoha_eth *eth = qdma->eth;
+> +	int qdma_id = qdma - &eth->qdma[0];
+> +	int i, lro_queue_index = 0;
+> +
+> +	if (airoha_fe_lro_is_enabled(eth, qdma_id))
+> +		return;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+> +		struct airoha_queue *q = &qdma->q_rx[i];
+> +		u32 size;
+> +
+> +		if (!q->ndesc)
+> +			continue;
+> +
+> +		if (!airoha_qdma_is_lro_queue(q))
+> +			continue;
+> +
+> +		size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
+> +		size = min_t(u32, size, AIROHA_MAX_RX_SIZE);
+> +		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
+> +					 size);
+> +		lro_queue_index++;
+> +	}
+> +}
+
+[Severity: High]
+Can traffic steered to LRO context 7 be dropped here?  This loop enables an
+LRO context for every RX ring selected by airoha_qdma_is_lro_queue(), and
+AIROHA_RXQ_LRO_EN_MASK is GENMASK(31, 24), so ring 31 gets LRO context 7 and
+BIT(7) is set in REG_CDM_LRO_EN.
+
+RX ring 31 does not appear in any IRQ bank pin mask in airoha_eth.h:
+
+	#define RX_IRQ0_BANK_PIN_MASK			0x839f
+	#define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
+	#define RX_IRQ2_BANK_PIN_MASK			0x20
+	#define RX_IRQ3_BANK_PIN_MASK			0x40
+
+The union of those four masks covers queues 0-4, 7, 8, 15 and 21-30, but not
+BIT(31).  Since airoha_qdma_hw_init() derives the RX interrupt enables from
+those masks:
+
+	airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX2,
+			       INT_RX2_MASK(RX_IRQ_BANK_PIN_MASK(i)));
+
+RX31_DONE is never enabled in any bank, and airoha_irq_handler() masks the
+status with irq_bank->irqmask, so q_rx[31]'s NAPI is never scheduled.  The
+re-arm loop in airoha_qdma_rx_napi_poll() is also a no-op for that qid:
+
+	if (!(BIT(qid) & RX_IRQ_BANK_PIN_MASK(i)))
+		continue;
+
+The ring is still created and filled by airoha_qdma_fill_rx_queue(), so once
+its descriptors are consumed by the LRO engine it is never drained or
+refilled again.  Would either restricting the mask to GENMASK(30, 24) or
+adding BIT(31) to one of the bank pin masks be the intended fix?  The v4
+changelog in this posting lists "Enable rx interrupt for queue 31", but that
+change does not seem to be present in this version of the patch.
+
+[ ... ]
+
+> @@ -657,12 +742,191 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
+>  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+>  }
+>
+> +static struct sk_buff *airoha_qdma_lro_rx_skb(struct airoha_queue *q,
+> +					      struct airoha_qdma_desc *desc,
+> +					      struct airoha_queue_entry *e,
+> +					      u32 msg1, u32 msg2, u32 len,
+> +					      u32 agg_count)
+> +{
+
+[ ... ]
+
+> +	page = virt_to_head_page(e->buf);
+> +	data_len = len - data_off;
+> +	shinfo = skb_shinfo(skb);
+> +	skb_add_rx_frag(skb, shinfo->nr_frags, page,
+> +			e->buf + data_off - page_address(page), data_len,
+> +			q->buf_size);
+> +
+> +	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
+> +	/* HW does not report the per-segment MSS, so approximate it as
+> +	 * the average segment size. The LRO engine always aggregates
+> +	 * n-1 MSS-sized TCP segments plus one shorter tail for an
+> +	 * aggregate of n segments, so this still re-segments into
+> +	 * exactly agg_count segments, keeping gso_size/gso_segs and the
+> +	 * packet accounting coherent, while never overestimating the MSS.
+> +	 */
+> +	shinfo->gso_size = DIV_ROUND_UP(data_len, agg_count);
+> +	shinfo->gso_segs = agg_count;
+
+[Severity: Medium]
+Is NETIF_F_GRO_HW the right feature bit given this approximation?
+Documentation/networking/netdev-features.rst says for rx-gro-hw:
+
+	A packet stream merged by Hardware GRO must
+	be re-segmentable by GSO or TSO back to the exact original packet stream.
+
+With gso_size computed as the average payload size, the aggregate cannot be
+re-segmented into the original stream whenever the tail segment is shorter
+than the MSS, which the commit message describes as the normal case:
+
+	The LRO engine always aggregates n-1 MSS-sized TCP segments plus one
+	shorter tail for an aggregate of n segments
+
+For a two-segment aggregate of 1460 + 1000 bytes, gso_size becomes 1230, and
+GSO/TSO emits 1230 + 1230 rather than 1460 + 1000.  On the L3-forwarding path
+this patch targets, airoha_dev_xmit() writes that value straight into the TX
+descriptor MSS field:
+
+	__be16 csum = cpu_to_be16(skb_shinfo(skb)->gso_size);
+
+	tcp_hdr(skb)->check = (__force __sum16)csum;
+	msg0 |= FIELD_PREP(QDMA_ETH_TXMSG_TSO_MASK, 1);
+
+so forwarded flows end up with a reduced MSS.  Would NETIF_F_LRO be the more
+accurate advertisement for an irreversible merge?
+
+A related question on gso_segs: agg_count comes from
+FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) and is only bounded above by
+AIROHA_RXQ_LRO_MAX_AGG_COUNT, while data_len has no lower bound beyond 1.  If
+the engine ever aggregates segments that are not uniformly MSS-sized (for
+example 64 segments totalling 100 payload bytes, giving gso_size 2 and 50
+emitted segments), gso_segs would overstate the number of segments actually
+produced, which feeds qdisc pkt_len accounting.  Is the uniform-segment
+property guaranteed by the hardware for all aggregates?
+
+[ ... ]
+
+> @@ -3430,11 +3781,9 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+>  	netdev->ethtool_ops = &airoha_ethtool_ops;
+>  	netdev->max_mtu = AIROHA_MAX_MTU;
+>  	netdev->watchdog_timeo = 5 * HZ;
+> -	netdev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM | NETIF_F_TSO6 |
+> -			      NETIF_F_IPV6_CSUM | NETIF_F_SG | NETIF_F_TSO |
+> -			      NETIF_F_HW_TC;
+> -	netdev->features |= netdev->hw_features;
+> -	netdev->vlan_features = netdev->hw_features;
+> +	netdev->hw_features = AIROHA_HW_FEATURES | NETIF_F_GRO_HW;
+> +	netdev->features |= AIROHA_HW_FEATURES;
+> +	netdev->vlan_features = AIROHA_HW_FEATURES;
+>  	SET_NETDEV_DEV(netdev, eth->dev);
+
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index fa9a8edce22ff..84cadbb538666 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -45,6 +45,18 @@
+>  	 (_n) == 15 ? 128 :		\
+>  	 (_n) ==  0 ? 1024 : 16)
+>
+> +#define AIROHA_LRO_PAGE_ORDER		get_order(SZ_16K)
+> +#define AIROHA_MAX_NUM_LRO_QUEUES	8
+> +#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
+
+[ ... ]
+
+>  #define PSE_RSV_PAGES			128
+>  #define PSE_QUEUE_RSV_PAGES		64
+
+[ ... ]
+
+> @@ -714,6 +728,18 @@ static inline bool airoha_is_7583(struct airoha_eth *eth)
+>  	return eth->soc->version == 0x7583;
+>  }
+>
+> +static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
+> +{
+> +	struct airoha_qdma *qdma = q->qdma;
+> +	int qid = q - &qdma->q_rx[0];
+> +
+> +	/* EN7581 SoC supports at most 8 LRO rx queues */
+> +	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
+> +		     AIROHA_MAX_NUM_LRO_QUEUES);
+> +
+> +	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
+> +}
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831-airoha-eth-lro-v5-1-6b0f50401121%40kernel.org
 
