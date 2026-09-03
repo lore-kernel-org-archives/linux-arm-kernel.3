@@ -4,176 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F8AC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0291EC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sxDkxiJK/QeXuJHYSDNK6iclrFuAKVRs9r/jqz88BD8=; b=4hrubYueXZI3Ivk6juBdlokYr3
-	PHoL56oJjSnUFvSF6vKo22/UnDyXYlg/+fBDRK7RtLX7+oho/hTzt0ov9+EGW/l4APNhNZCaU8tfM
-	pTcxU/Jf2HpbjuMrb7pIUaNC1yHAkjQ5irpQIAV/qCR21VHwAepkt7OR8SK02UJLF88zGdmXW/eTb
-	JaisSpNRU4Nzvht0tHAg+/p/HbVIcpLszQpn4oyOThJV/PM5zoQpWQLScEiML+pqaUrt9mKkheXWv
-	5zaI9PDVF8afEWH7VQnobCzgCPYSqeD2cR9d/v3rV1zObJj3pQwaxOZqhQCMBPgGNztVuW2uOSXay
-	W6h0Ey9g==;
+	bh=PmHR9VMSgZvTyS5Rd9T+V8oik7z2Cr4I+UuO+iaoSDc=; b=gzk0oaQ1dLE4F72wHSMfS7gNgm
+	M7W99881oAuo24BgnkYS9tN+KH3GQXxnqXqx9Z5XTo/CKVRqyZ//CjUT6c7SAy77dePdB1zdRD5GS
+	3yirnhrgekLhxZIbagsAzcHhEjuBkJeMEYR/STmVVod7nv8Sj9I4arn4ONXX+6LlZI4zaRJgbx6gt
+	a5BsoosuehrQreer17mnhLmeRSBQgBhjXIOHoI5h9r+VEw+R6tPA6nWfxkFDxQldba26TwrkbM48e
+	yE2gJLS5qP4eONWb1KwlALL03CT85eBfM4uzxlrxfKEr4RpZ5pTug8nzbjtG1/UsGr736AET3L0LP
+	QACdKGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29eN-0000000034C-06Fp;
-	Thu, 03 Sep 2026 15:46:51 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1x29g7-000000003Ma-1qGq;
+	Thu, 03 Sep 2026 15:48:39 +0000
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29eJ-0000000032s-47b6
+	id 1x29g6-000000003MB-0WSN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 15:46:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788450408; x=1819986408;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=5SwRQqUgNL4sdyYZ2m7kUh8FJ3ZyKfa2d3F8WvNOu6Y=;
-  b=NM+ObWZwnMcUDZ/4tRFleTmuLatmXHVsdn4rgk+FjEDpvrbhEZIeN2gw
-   TqelYVpQfT3AuDKYjO/xD6CxbWyhHuNSVmWWJB6YAlS86ES4I1skULWEW
-   tjfHh+MXE48A7qkftvcic3qRYf7Ja27d6DStP89f5S0V/4sqbYJsAHr4o
-   T4Vc1AT+iSBaoeJUVm3k16tBcsv1QZrbaAcAorBTvfVZmlI3ahnY0Z103
-   Jq78NbjQNNqWwt3mJdAAPKE5jlYXZtdUUPBHK/BFEmPm8GLtVO+yXjBwD
-   zMIYCpKf4644niUG0iODRy2GlMT+o7WimAiIcOom9XQ8GOPl2Brp/KpNc
-   Q==;
-X-CSE-ConnectionGUID: R45LZ0k6Tvyufatbw5iwfw==
-X-CSE-MsgGUID: MPmpCqKpQWy4LRLKAE33aw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="88991388"
-X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
-   d="scan'208";a="88991388"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:46:46 -0700
-X-CSE-ConnectionGUID: 2CKmUskARMKl4PqzwSH0KA==
-X-CSE-MsgGUID: V91VxnRqTqSr00GE9rXyeg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
-   d="scan'208";a="293268082"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:46:46 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 3 Sep 2026 08:46:46 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Thu, 3 Sep 2026 08:46:46 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.69)
- by edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 3 Sep 2026 08:46:44 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LfBwAUuoIF80WC4lOHpirxgJmUKtMn1F6/gzCuYgREPkhPIyTVNHkdXsi1gPZEgFjT0P4hJiOrJSbeIshaMqs2JF+HeDX6qVIR8LBz3M7AxUmD3BxQODS0SjmOBLjJ9XMo76tH9embYrTddG9nScPUmGwNCoSYG2qUzLu6P1e9VXuPOBNWmR5WoTbNbVVMT/uzEMtj4wPRvERTctqahII2GEX0IjffnabwFJyLh6McwvNCb+HQCH0eSFqMyGZwTCAt8GH/Ctyw2EZJADlyMq1ZryL47HF/5mwDDz4aWviUNm69c+epoCK6Ly9/8qh7hGuSX6cFIYSMjUduq8P1WTSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sxDkxiJK/QeXuJHYSDNK6iclrFuAKVRs9r/jqz88BD8=;
- b=N5deBw2u6FJdTj4EhJO5Rm9hh/qlyrype8BZH6oRFeL/lCHENidss0TZJA6wdnfreksHJJRfeRg79wY97EbcdItWn8RBq02rsxaxqAG24WmMBm7mMWIxod6b1kyRO5TsBycD3gSmV14YFwi+amJRvaw6Q+huTwtg6jEpzZsjX03SBTweWcNDbRdqE/nqTF29OZEpLE8KzmDbLxk2lTnZ0CTERxGPnxzW4fajOHbdYiq+14Q+G1p3mhydNWiNd5vNrDBzI22z5gBVYgQLb7nM+KPgHSLVzzjgHunt+1/NWfu1CMJSchrYLOSQukrRNPs4PY5ap2lWhDLZMxbcNC05mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by SA1PR11MB9827.namprd11.prod.outlook.com (2603:10b6:806:4d8::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 15:46:42 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
- 15:46:42 +0000
-Message-ID: <9181c643-4b6d-4a08-b0aa-4fd5099717b9@intel.com>
-Date: Thu, 3 Sep 2026 08:46:39 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] selftests/resctrl: Add dynamic linked list
- management for IMC counters
-To: Yifan Wu <wuyifan50@huawei.com>, <tony.luck@intel.com>,
-	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
-	<shuah@kernel.org>, <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
-	<ben.horgan@arm.com>, <zengheng4@huawei.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linuxarm@huawei.com>
-CC: <prime.zeng@hisilicon.com>, <wangyushan12@huawei.com>,
-	<xuwei5@huawei.com>, <wangzhou1@hisilicon.com>, <xiaqinxin@huawei.com>
-References: <20260801092429.533956-1-wuyifan50@huawei.com>
-From: Reinette Chatre <reinette.chatre@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260801092429.533956-1-wuyifan50@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4P221CA0028.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:303:8b::33) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SA1PR11MB9827:EE_
-X-MS-Office365-Filtering-Correlation-Id: 073ea5f9-9cc4-494a-eca4-08df09d28cc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|10067099003|6133799003|11063799006|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: POilxMp5K2dQ9E87R0yW8lDthGr4QGeNUBr3u6ufCgN2FwUWzZnEiR+UVtm+fVnJFK9MSJcbO/5R1C+Z/+nXb/W1GzQri/+gk/0ansFULAR7S1aXa8sLTIX+xs6fpLun/SSoSP6JAKKccSFEtFhmqjcPCl1uX2UhvAA6Okk8670S6dYyY6s5tx729Jc+443YrVFiTRWt8UwIb1Hc0OLMYXOajfDE74kYfQ7+2S0b44tdBNs2g/rDYel5u2JVTtvKl6DJAhisEveXcq93wbPEGefk7CtEizXA0F7vkNUwuURHVwU9D5FRmMt/9BPDyp1QBmh3Ggzzi0GniLdNUnpuosE3Xag2FFKcWq4r8Mm5DfAyZTI2BkJblmrVL9Ma4kVZ3IHm2YNCDqZHApsJWA1PhHE+OkgP+K7QQaZaC+k2wSE8iIcST0bkpeanS/OclELz7RAI5vnMxYlADbGg37/yFVjCjA1gO8za+4tqkdmVPk9RfqerU6MMqfdUoduqSOeNqQUuIiGWSrllE79vhqVB6wVtOSpGb5WrPDj83Y1GXxY0JFTlJzjkUy9hRDOn7i6vBtra+YZQVMkVL0glYePmUICA9lJoXCmY5M0Iw1jijPbWXrqsFECkMe6/pf5YFqUPsYt8x0QQeVOdA2DIFnQcaJJqPHauLwkiTklnLWvoGshTtdeWknTNw0gPyWvyolDhOAOZpgw8uW8XjLlayiqzPQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(10067099003)(6133799003)(11063799006)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Wjk1dkZlRHlRTFhteDZjVll6ZVcveFlqeHNuZndOeHQrb0J2RkFzUTN1SzVZ?=
- =?utf-8?B?Qm9ScjNkbUR6TTJvendYR2FDZVZsOWtLbFNWWWhvZ3hxbHAzdExudHJHYmVP?=
- =?utf-8?B?bkUvWlpPcFVLTldlTktWR0gxZ1pLZjM4cklkN1BTWWRCNmtybjFYRGZDZUVi?=
- =?utf-8?B?dFVDemRsYlZwMS81enZsUmM2REpSYXYyWlJRU1JjUWJvZnd2TTZ4V0RhNFdC?=
- =?utf-8?B?UXFOdVpvVlJUbXpjRXd1SW5yR3FFRzRITS9jTXNabnBNV2JnbmIxMG1JZFFG?=
- =?utf-8?B?TGsyOGIxWlFVUU1hL042bms2SytDdVFQakhqL2NuTko3cUdWZG8zUi9Rdlhn?=
- =?utf-8?B?SFFsaWlWaHkyMnVIdmNYRlVrWjk2OWljMTVKNXBNL3JpR3dzR1haL2dlV1g4?=
- =?utf-8?B?RHdKZE00NjVpWDJTcEZmM0I0QUZGL01SbkNKSU83elJ6anVyRlBJVksvYWI3?=
- =?utf-8?B?TUNoM1p0dForQXdMWWc5SG41VnQvY016a01RRENiZUxSUkd3cEtiSmtQbklU?=
- =?utf-8?B?Rkh1ZENPeS9xVFpwWDUvNm1zcElTMWhIeWNndGVDRDk0UmRxVUtMdHpMa05B?=
- =?utf-8?B?VGxEcW41RUhZTitEWEppOEpWSmpBTEovemRubXB2QjVSaHhZQ2hnaGRGTmUx?=
- =?utf-8?B?KzVRUDZyYjE3SWZQamJNR3FuQlVrQis0N08zY29hVmJ0d3dNc1BlYW1QYWNF?=
- =?utf-8?B?NC8waGJ3bUlFalQwUTZsQlJUeUZuc3pkRHdjLzBiSGNHeDdBZW5QUEpXWFJy?=
- =?utf-8?B?ZXVxNFNHSEZHNnNQOHJjUnhacWlRZDNqa1FjbHBHZWVCNFFMdnlUaEh4dGtX?=
- =?utf-8?B?ZFhIdnhUUkxEbC9saEQzdzhIWjFteUFFMXRDUS9lVm9KWDFBK0hsTm9CZDdu?=
- =?utf-8?B?TEFyZXMvNGlmb2RJTFFuRWV6TkkvaEZyMTR2N0tMV21CWVFWTFNYOUdIeHJO?=
- =?utf-8?B?SUlwZ0RRRGphNk5tN2cwUzdFVzQ4QkhVMk9RVTI5QTNTZkxrMm5ZT3RXNHU3?=
- =?utf-8?B?V2dsOFFiSXlZMXdWdStwZ0RFbk42SERuSXdzQ0JFWGdPTzRHOU80MkNYdEpa?=
- =?utf-8?B?ajdUc1AvNVNoemxTMEQwR1hNb1VaeGt0M00zcWRWRklxU1BIT2JrQ05hb3RM?=
- =?utf-8?B?eVhjSEpkK2lCdE5hd25JVU14c1RnaW5vc2JSQ1A2WVdBUWEwc1pIZmlwYU1m?=
- =?utf-8?B?QXcyZk9JeGRaTWRYQnVaQkxBd1lBV1JvU3hWRm1adWJFY0VJSnFhbnRyY0xj?=
- =?utf-8?B?dVBxbnZNTkhucyt6STU2UmtCeUxqKzNYYjQzUkorVWFwc1JBdXJQWjFGZnBa?=
- =?utf-8?B?d0hKT1diRzBzNmtZaGFPQ0Nlb3FTUWx3R3JFam9OTVZ1cDV0S3ZwRU1RcjBN?=
- =?utf-8?B?TjN5ZEJJZ2xiNHN1SkNiditZb2dvbUQ4M3JBUHhSRjZyZFVyelVYZHo0VHQz?=
- =?utf-8?B?b25sWGZseDZXeFJmRlQ0elpxekFBK2o0Y3c4WHlJRUp5bXFIQnBVbHIydUlv?=
- =?utf-8?B?QzhSYUVPKzNtL2IrWGhQM3RZZmJqZ3pOQmNsRDZJb3RDblJ1M2dpcFZTMDZX?=
- =?utf-8?B?WmFrVkNHOGtpMFFFM0FQQXlUaE1aaU82OE5ibERKRkNoS3F3RGFldGhuQnBO?=
- =?utf-8?B?bzA3b1VOM3hZZnhaeVRidDhEcDlZWEFMNlNzUnpHSXNNWFhoRkV1RllZdm55?=
- =?utf-8?B?WFViTE9DUWc0SXJ1Y1RhUkYwVW5xRkVaV2hKd1llQXRadGdPOFovMFkwS2FT?=
- =?utf-8?B?Z2llNjcvcVlWb0R5UmJYNkpyUmRtOWhzYi92OTd1eWtManhsanNUU0hHOC9l?=
- =?utf-8?B?YUhNZHp1U2p1c3NjZGlsNzJNZGI5VHNSek9HcTQrekNkKzk5QzhvdEx5VW5N?=
- =?utf-8?B?Y2xIdE1pajlGMFA3aEcyekgwbWNHODJhZTVBemEyVEN5ZkJaVXliUEJvVWha?=
- =?utf-8?B?cDVkZWVHODNpSDF1YTRDc3dwTFBHdDY5L09VbGlhL1g1YW1SWit5MVJYUmNm?=
- =?utf-8?B?YVJ0NytUclpOS2ZXZmxxZWdQVWRpSWxxdWd5VXFVZlpDems2cEgyNEpidWph?=
- =?utf-8?B?bjcxam1pREpNdjZXSFcrNFJWRE9xL0J4eXVGNC9OWmRnNTk0a3FKTFpWL2pY?=
- =?utf-8?B?T2dGN1hMNUxqUldzVkdhdDVxUHJqcW1xcWpqN1VncVhsYjZaL1BudWo2anFR?=
- =?utf-8?B?MmdsUjNRcmRqVnBNTW1Ma2RWS3UvSi9tYUV0V2JzQUp6UTdqNFcxbmFTVnNa?=
- =?utf-8?B?Y1NwRDI5ZU1KQXJqZzhha1BhbExqMWdzR3BVQ3lVWVFhSjB1VEhOYk1qWVMr?=
- =?utf-8?B?Z0Rpb1B2OEI0YkJobUJDNm1taytvY01EQXBROUplTDYxQS9kVEdaTWRrZlJx?=
- =?utf-8?Q?tghqr07IIMMMH4/Q=3D?=
-X-Exchange-RoutingPolicyChecked: F8Iv4DO74qyCeSGNbRAc9V1JSfni3p1zCqlBWXHlkx7hCQ32ci6R2VioKO2hTMdjY7CxW+xBmfYBQ1QqGlzJuNAzPc9RU4j6Vb+UNm34BqM6//jpPNIqfVviLWGOvETNJtA8vRY9oPMVe7EKeqkrc+8fx1FXW20P9+4YoXWJhdCwXX90qzfwOcXsPSXqnug8tuBBLCmevqDy2EuaDZszsg0pDO5xcQQDzgniPn9QwKhJ6E3RqK75orfRtb37MNqqkRmz9600gw1LB8fUjrczvBVJJd4ohJz4q3p353ewjEkPejy/EYVnPeECIgaMVnFmQ85gA7RkM5S43OQAkJt6HA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 073ea5f9-9cc4-494a-eca4-08df09d28cc6
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 15:46:42.1730
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GM00m5kw+718upvoCMGPcBafs9syf3FsjpIQlRcqrLWdXxCaUPz+rnswa6pOBVShYqUTLM7PyiiFXdLmlzRwZFhlFFhk9K1C811oW1epxZQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB9827
-X-OriginatorOrg: intel.com
+	Thu, 03 Sep 2026 15:48:39 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d52734fc41so45760855ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 08:48:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1788450517; x=1789055317; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PmHR9VMSgZvTyS5Rd9T+V8oik7z2Cr4I+UuO+iaoSDc=;
+        b=jREumQ9Vg6PfaowE3dEz4ruqAZ3Br41b0V+rl3bjVq31S0dWhs6yoY/HtpEauvkEWI
+         vU1kLg1zUgPR2zdy6RGD+cAeB1pEUApPkXWXFfSLCqa5LMgTXOn5o0TQto/KNQ+6OB/4
+         +vVqYeGNz5w+nToP37RgTMyypNqRLTAp1w9U//h+i1TbumAhhYRt4cqUJAvowrEZkDc9
+         3DqTSqB3FErlHAhcN40JOISbdLFbnw3mjySQvN02EsRnbO5CFMe5CDYet4nIGc/vrT2Y
+         2VCPfTsc8clEw6x2YVO+kZxIUw/DlYoSL5972wloNHRUyizz4FtsomPWKIHCodJPLT4u
+         zd+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788450517; x=1789055317;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PmHR9VMSgZvTyS5Rd9T+V8oik7z2Cr4I+UuO+iaoSDc=;
+        b=fWd7wyJkVoz/T43TXEUGBOZ9nYi9H9RCAkN++bNWS7wLeQC/179x6xzB+F7CrcF0+g
+         w5pHEt0H7NB6aTqDFurPMpIsepPRm2kjj+QZY8NMNnQVJ95FIKRibfSSzAoENUL79ZOm
+         7aU3vyQcrAXx6BojpZvxe376TTemngTNWLfDk9iKzygklJZ6A7kdD0fjmRXYoymO4sNA
+         YEXr7jn0FzHMJAVK9+7iHx0EOSoCMYcwFP6nJogB9T9kG0YEdgzD1kK/M4wQRQo57ZI9
+         8Tr/NUrb1lb09mygQxLinQAu53Oym6dIjp+C25u5ytguM+yz9fLuI5wPzFd7n0xXaQvr
+         5GUQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw92Jp0dv3wcALE6HUknJDmyA0Xw0M5GU0sTo1QHpRo1MPkbyR73PSJ+D6dadQMgyBH0rDwPM9URrqCQF+uOZj3@lists.infradead.org
+X-Gm-Message-State: AFuF++k3xjprW3dfRdXDYYTAR6gkXkwmIWiNAS1/qYZ5DVZENCcpQ0/g
+	tWT7Mr/PDWBFOgSrEabuYyU3NA13G8BOiZVxT6fp5DxDOA+mjV4Lxy5h6zGAZBGrKc3aN4Ku1p9
+	JVrrseA==
+X-Received: from plce19.prod.google.com ([2002:a17:902:f1d3:b0:2d9:2fc7:bb3d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f78c:b0:2c9:df1b:e948
+ with SMTP id d9443c01a7336-2daec5dfa20mr199165855ad.4.1788450516176; Thu, 03
+ Sep 2026 08:48:36 -0700 (PDT)
+Date: Thu, 3 Sep 2026 08:48:35 -0700
+In-Reply-To: <20260903114241.33034-C-seiden@linux.ibm.com>
+Mime-Version: 1.0
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
+ <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
+ <aphLXQL1H2zYZgTi@google.com> <20260903114241.33034-C-seiden@linux.ibm.com>
+Message-ID: <apmW0xFe7zgzheGe@google.com>
+Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
+From: Sean Christopherson <seanjc@google.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_084648_076206_A75BBD36 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260903_084838_172626_17A1C45A 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,56 +104,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shuah,
+On Thu, Sep 03, 2026, Steffen Eiden wrote:
+> On Wed, Sep 02, 2026 at 09:14:21AM -0700, Sean Christopherson wrote:
+> > On Wed, Sep 02, 2026, Steffen Eiden wrote:
+> > > On Tue, Sep 01, 2026 at 05:40:25PM -0700, Sean Christopherson wrote:
+> > > > On Mon, Aug 31, 2026, Steffen Eiden wrote:
+> > > > > Allow KVM implementations to choose alternative device names. This is
+> > > > > especially useful for architectures providing multiple KVM
+> > > > > implementations simultaneously. Architectures providing multiple KVM
+> > > > > implementations must compile the KVM common code once per
+> > > > > implementation and mange symbols.
+> > > > 
+> > > > What about tracepoints?  Or do those show up as "kvm" and "kvm-arm64"?
+> > > 
+> > > Yes, I want them to show up as kvm and  kvm-arm64.
+> > > 
+> > > Thanks for pointing that out - I just noticed that I forgot to switch
+> > > the trace system to kvm-arm64 for the common tracepoints in
+> > > trace/events/kvm.h
+> > > I only did it for the arch-local traces in PATCH 21.
+> > > 
+> > > I would just do the following:
+> > > 
+> > > diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
+> > > index b282e3a86769..5d4f8a0693a3 100644
+> > > --- a/include/trace/events/kvm.h
+> > > +++ b/include/trace/events/kvm.h
+> > > @@ -5,7 +5,11 @@
+> > >  #include <linux/tracepoint.h>
+> > > 
+> > >  #undef TRACE_SYSTEM
+> > > +#ifdef KVM_S390_ARM64
+> > 
+> > Side topic, I recommend choosing a macro name that doesn't have a near-collision
+> > with CONFIG_KVM_S390_ARM64.  This *looks* like a typo, i.e. it looks like you
+> > forgot the CONFIG_ prefix.  Especially since the macro is defined in the Makefile
+> > and won't show up with e.g. "git grep -w KVM_S390_ARM64". E.g. KVM_S390_BUILD_ARM64
+> > or something?
+> 
+> Interesting. The name was deliberately chosen to be similar. But I
+> see that it could be confusing.
+> 
+> I am not totally happy with KVM_S390_BUILD_ARM64 but I cannot find a
+> better name either.
 
-Could you please consider this series for inclusion into kselftest's "next"?
-
-Thank you very much
-
-Reinette
-
-On 8/1/26 2:24 AM, Yifan Wu wrote:
-> Hi all,
-> 
-> This patch series introduces dynamic linked list management for IMC
-> counters, enabling the tests to use all available counters detected by
-> hardware instead of a fixed upper limit, without the need for array
-> bounds checking.
-> 
-> This series is based on Reinette's patch series aimed at fixing the
-> resctrl tests, available at:
-> https://lore.kernel.org/lkml/cover.1775266384.git.reinette.chatre@intel.com/
-> 
-> Changes in v4:
-> - Fix the style under Reinette's review and add Reviewed-by tags.
-> 
-> Changes in v3:
-> - Rename functions and update comments.
-> - Split the patches into incremental changes.
-> - Explicitly release memory after failing to parse the imc config.
-> 
-> Changes in v2:
-> - Fix code style and variable names.
-> - Integrate linked list initialization and cleanup into patch 1.
-> - Split the conversion from arrays to linked list across the remaining
->   patches.
-> - Remove the IMC count and the global imcs variable.
-> 
-> v3: https://lore.kernel.org/all/20260522090540.444554-1-wuyifan50@huawei.com/
-> v2: https://lore.kernel.org/all/20260410093352.3988125-1-wuyifan50@huawei.com/
-> v1: https://lore.kernel.org/all/20260324125034.1509177-1-wuyifan50@huawei.com/
-> 
-> Yifan Wu (3):
->   selftests/resctrl: Introduce linked list management for IMC counters
->   selftests/resctrl: Replace counter index references with pointers
->   selftests/resctrl: Enable dynamic management of IMC counters via
->     linked list
-> 
->  tools/testing/selftests/resctrl/mba_test.c    |   1 +
->  tools/testing/selftests/resctrl/mbm_test.c    |   1 +
->  tools/testing/selftests/resctrl/resctrl.h     |   2 +
->  tools/testing/selftests/resctrl/resctrl_val.c | 169 +++++++++---------
->  4 files changed, 92 insertions(+), 81 deletions(-)
-> 
-
+Y'all need to pick *one* method.  KVM_S390_MANAGES_S390_GUEST was already added
+by a07276d5d188 ("KVM: s390: gmap: Make storage keys optional"), and then this
+series effectively adds another macro to provide the inversion of that, except
+they're not even tied together.
 
