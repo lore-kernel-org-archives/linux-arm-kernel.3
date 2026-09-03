@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D35C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68519C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qjAsvAsIopDSNBZub+7Mzfif4bOB6ySUi0hXqRqFMrk=; b=Vp93BR08aMErl8jEpXYu2/i/if
-	6wXF5ME2JA7tOUL/9BsQcoVPh+31yEzMzezG8ysB+tJsSb9FcvxHBW+S84De6jIoR9nC++40pbdiD
-	YjxPPBQCXVcECSlQe4C2JbYLHaiy89fhLQan9Obyk3Vp+5Xx2+inUB2C136kHETNcKedOX7zsn63L
-	5Hej46FZMT7CkeCr6Q7DxzxijBNehhDIAmK/OYdhXMbXKw0KSvqXBxiG82s2cCYWIFTECcaEk6sxx
-	Bp1DLKuMP5vXe2qUou90XGJz/y8Y6gXlWUpK5mtJTsyfY4rIDLCm05qOuidmYSVzpp4U6xlVrHV53
-	z/lI6S3g==;
+	bh=mjFZmudxAh+ySTUFXLrbiWaAvGo3ICyw/TH1dxTohxw=; b=fv3NvFhxGb1Qtc8zBXyejkwYEx
+	Lx8u5N2kDknyv+lzp+YVWKHbPTCU83GZgkSB/dck062qZOvNvabmx9qlujcordYq3wqhr0Q2Tj+9F
+	7xLqU1WWDWLSr/Dvwtzh6yFbj2YILDfdVJ7Y1di5mJl4HWdxllMquMFlRs6K3YIzWbGFCKX644ulz
+	9DwsqqewMCtspGmDkfuLYZD58i0+k8HLIATi+CnPFf3NhrLcqIuAJUvQUa/KIX+PCiMQA0b7ThE1N
+	/MQvMrggjnGA3xLfiL5LgK+owwSoOxv8H9DWi6bIUkB8fbubgldAjUb1fH1Wm6SFva8eXGydHgWk8
+	Pk3mbN/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kK-0000000HKAm-1f6S;
+	id 1x26kK-0000000HKAV-1AKx;
 	Thu, 03 Sep 2026 12:40:48 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kG-0000000HK5t-0ZL7
+	id 1x26kE-0000000HK5K-2wng
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 12:40:45 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4843e9c5960so2268604f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:43 -0700 (PDT)
+	Thu, 03 Sep 2026 12:40:44 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49b392ccaacso34307535e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788439242; x=1789044042; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788439241; x=1789044041; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qjAsvAsIopDSNBZub+7Mzfif4bOB6ySUi0hXqRqFMrk=;
-        b=ZL+ZzkalHrsLyJKffYROOWElZ+tEcOuvM0L91qhBLpiBjFeTBLpOiUpcf5OoHddXHE
-         8xSAXQCqYMd1mkk712txSe74SGuCbvBij6/LSnY2RL7tU+/fwYPJ9cY9AU83TEpgPdSV
-         RmytGPBj0i8V9Df/tL5WWNe0WOwnS2Uc9AqDIHTvRwrmBtKRKyK2LscFGG3c/WUu2/Bs
-         tCVZQGIHUQEt0jO3Vftr+1+vv1rj3LP++wcGSR8HBN6HlljD1cusmAAIC9rMAC2qH3Jo
-         26/ggjy1pFBdAXPgFoKEpExl/eEhv7NwITbVWMHsgGaS2nN1KlbG0R/dtMXAt2XcArAJ
-         j1CQ==
+        bh=mjFZmudxAh+ySTUFXLrbiWaAvGo3ICyw/TH1dxTohxw=;
+        b=TmD4cBztuxTXZebhukM6RTrtnTBwNeumJZjzx/D/qS+98npm/AP+Tbfjn28nnw1/0F
+         MH/fpm7kk5MS1AkGUYfxHGNB3xcitYtZNibSF1iRhF7ilm1Dh5xtNlhczhbyf5VP1CQl
+         3caaJRk5QEWYgiIKaU9zkFjksL57J/oKG1NguJkGfdSqkFX68kDdsWz4eq80O6bIIFeq
+         YYoqSk84+VD2XMzxeJ12xwCpDhY23VUcJIJoEG41VvRe9oPJTD3HanRZ5NdDPYttUK/t
+         PET3Vr83E/yLUo9o4OrmOz59CjW7HWy6iVkvyGl7SNmeYu+UnGC278TYIfMvUJ1znd0k
+         fcfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788439242; x=1789044042;
+        d=1e100.net; s=20251104; t=1788439241; x=1789044041;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=qjAsvAsIopDSNBZub+7Mzfif4bOB6ySUi0hXqRqFMrk=;
-        b=qXeyWNU1ScUUWV7rPdriy7PNSvJbGY4kG+uk9LNlCfGvOvZYKikI2smPdVqDUIKXx9
-         2dBt+Ib6p6q6YAFKMhmw0X7q707eRZRp5RSjsSjxuC6stZX7c5IfI6MvLx0LuKqFVcya
-         Yz3Omr7qG8qmd7rshBH6rE6+8iLOd6A31M7LmYtmBKZd6E/fnpiDuL3fhiWke5amiLi1
-         rw9J/8ibLbK1X8/VqldYwxY8BLGGZHtxk1F5/DLTkKb4O7CJP+Cez9KnCDP2D65nOVHE
-         ZcFjCFwuyTpiRusvts8RTzuicTVuTI+d3I/AP3Ax+ex3Tlw1w2aDK3E4rUY49+ytOeak
-         j+ug==
-X-Forwarded-Encrypted: i=1; AKwUvBzSvvlJiMF1QN3VamhlBXWirJg18+64koBTzZqJCJjLvNErfdNI1CymNhROL2w1LMBb0ryNWydfECuFt8slrk+a@lists.infradead.org
-X-Gm-Message-State: AFuF++nHlQ/6c98ebRUAiawlylYu95AVOwoJJB/8zz+oaxHg7/ppF/om
-	KaUw44NZgFZlRcETsj0/mrTZA5Jo7haDlX17Ec7N98D1U8BcAyqI2pAj/lpAVA+1E18=
-X-Gm-Gg: AYBFou3N/pYOr5NCI12UeKIQLbvXALnCSup0Cwd2NqpoDF3mq/2c655xH7qGfuyWJRl
-	+LEU1nDehF0Db5AY8tgDzBEYYIi8335Y1M5Q70HrMDHLipi8x8ROJbNcQon7FyyfZIbf+uD2MAS
-	P9QPRrIRT04ZGtRKX3HlG8rgGPP0DilDZQYI8A6FBqxrFtNLv/l8p9kKnA4Hf32iGwHwK3x4d9C
-	lc59asw+8ljcT4wGoe3EZ41xy5nrFDz8VYdOB2u5CQfh1dMzU6Iq9OJZzb/ENVAiqIEvHovvpEl
-	sf4fEusjFN6i7vX9egOrDvDKKK/gN2qAIlFrzW4Nj4XljVn1sfyiWnTDvFXBWb9Qzd1joWmqEIB
-	TjLhylZh8ab+SvE5yav+1sAU26p+o4fRE3ThPr6v0GqlqcLIb2psVmJRt+yxlTu9khW6k4Z/knd
-	uot0kHzSVr52FfBtq56RXrMCGwooGfpR1pFGmjEEgmVFotOKI2N3t0i0IBGg==
-X-Received: by 2002:a05:6000:2c0a:b0:482:de48:c445 with SMTP id ffacd0b85a97d-48488f07dc5mr19505275f8f.11.1788439242322;
-        Thu, 03 Sep 2026 05:40:42 -0700 (PDT)
+        bh=mjFZmudxAh+ySTUFXLrbiWaAvGo3ICyw/TH1dxTohxw=;
+        b=sEsKx0yDiZd4HZbihN0QYfRuPR8ciKjwiAc5Bw8hZKLIwtlk6GVENQalg/14reHKQA
+         TAO2eWumH/MlgB6zeAtm1EGw87v3gLtdMNdbx6e00tq1g6aiqJnMPaPWeNvk7Bly3Ewd
+         5CO3tcptQ/wEWKpVCK0YpY0+PXxbZ6ysw0+yPiIJxgLxujwCgY4N22sC/NysYuG/eTd5
+         SFaRbW9eEE5rStdy1xeDh4HOGukKQajTJhwzguSomyhRtpjbN+uVOIpmVL2SenSiltXd
+         a97xVQH0kbgOh9GHKZ2pRH4KWnON/Yz/avxgXWMDioxGRgDp1K3LyPlQguc31tYcDhp4
+         pVTQ==
+X-Forwarded-Encrypted: i=1; AKwUvBzf77POqLhXaj9FVhF4DpU6kWf0NsQTuiP4T2iHNhmRNALkxaC0q+b7Kd9UPBpmWh26+1komKsm4a6IoTAnTyXE@lists.infradead.org
+X-Gm-Message-State: AFuF++ngxqAxD2yh42MNSF5nJzvlUl5rtt8e71lEP/J3BJo3rhngdobS
+	Tm8H16oRY+LKBeI02HHdxotIAVz4wFSyx3Qor5zyPB71a3HgA9lpv1JnxX9fv5r7Yyw=
+X-Gm-Gg: AYBFou2m86dnLfc8DxR21cfI8SPPSEypwxHzf306q0rGK7c1jIL3thoerp9Ww06uFsa
+	cjxmSUVeOjE1h3vU0txVn+2zf3thw+atDBoPpIWmgictkohJEp3rcbcN3qevS/RQ3LDcyvk4B90
+	N/3X1o+P0khuRYdsMmzaNUlBCfMXIILkUxSzGOWPfQLudCahTsWWVjcvM9MAKHQ//D552evl/By
+	QN8zJ4KhjkBIU4vL8VMf2GNHT/EbBGATGU24t6+TI1CbDoP9gtI1z4CabVGBYsatfzxhxYcKVOl
+	iglOuq/7NfB+B+THN/XOpn6CCy35HkyfZ3kf+al1s30PFDYnINX1a/x7huPsmTfnnQMp4ccBMoh
+	UNc+QBR7NfiTymIJkslR6QggaMj42FhHK6e1p/3bYR6SLK/wCSTWLIqj9CLLor6jrN6smUpegjV
+	Hz1L4qxq1T9N9nN5dDZ/+a6xcHzXMGqXcGD2hvJ2nNWMehw4DtkWtPl9+RpgXHRYb6SHBj
+X-Received: by 2002:a05:600c:34c2:b0:499:7219:122f with SMTP id 5b1f17b1804b1-49ce581f2d9mr233935795e9.4.1788439240973;
+        Thu, 03 Sep 2026 05:40:40 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:80d4:4373:6c2f:4372:b8ac])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448ed2e9fsm13847089f8f.20.2026.09.03.05.40.41
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce4761dd1sm88257445e9.0.2026.09.03.05.40.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 05:40:41 -0700 (PDT)
+        Thu, 03 Sep 2026 05:40:40 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Thu, 03 Sep 2026 14:39:26 +0200
-Subject: [PATCH v8 5/9] arm64: dts: ti: k3-am62p5-sk: Fix wkup R5F memory
- region size
+Date: Thu, 03 Sep 2026 14:39:25 +0200
+Subject: [PATCH v8 4/9] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F
+ memory region size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-5-74c650dfdea6@baylibre.com>
+Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-4-74c650dfdea6@baylibre.com>
 References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -101,17 +101,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
  "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1438; i=msp@baylibre.com;
- h=from:subject:message-id; bh=MzLoYwkeZwxcJvYp9xUeN2jYUVgOx/RH2raq9hcPIQ8=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWXNnyy58wzOx8QufXPfrYMnz8S9Pd/zelbPiir+Ww
- rM57oe1O0pZGMS4GGTFFFk6E0PT/svvPJa8aNlmmDmsTCBDGLg4BWAics8ZGZ4Eve7sexM1mfX2
- mibeSZvvttsoqpiz2Db0Zs+OWMNkOo/hn7rl4ZnStcuOXL+/7Dj7xKUTzT9cLvXv6r//t8dpwRv
- BSn4A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1439; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=QsWsNZTIkr67WF9AjDgtYRNQrYQN536HF4RLuL9T4IA=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWdNFzSayXi4SfJp8vNTrucnBI8nzJm1uVQ5mMvL0n
+ bAhQ/BBRykLgxgXg6yYIktnYmjaf/mdx5IXLdsMM4eVCWQIAxenAEwkbxrDP6Wo3EkqE9Vqzuzc
+ 6Nd13e8hM9Omr7aTb8sznCxPLjBnEWf4p8lTm1r9T/Pw+iMtLbryr67bFlnNd3iqMX/HgYvSHel
+ HGQE=
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_054044_209098_422321A2 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260903_054042_771098_96441635 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,8 +126,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wkup_r5fss0_core0_memory_region was reserved with only
-0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
+The wkup_r5fss0_core0_memory_region was reserved with
+0x01e00000 but the MCU SDK linker for the wkup R5F firmware on
 AM62P defines the DM code/data DDR footprint differently:
 
     /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
@@ -139,25 +139,25 @@ starts at 0x9c900000 this means a length of:
     0x9e608000 - 0x9c900000 = 0x1d08000
 
 Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: b05a6c145001 ("arm64: dts: ti: k3-am62p5-sk: Enable IPC with remote processors")
+Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index b770ed82be9d..b8af9ec81b0c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -57,7 +57,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 7ee894d59113..8a5ff5c45757 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -170,7 +170,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  
  		wkup_r5fss0_core0_memory_region: memory@9c900000 {
  			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			reg = <0x00 0x9c900000 0x00 0x1d08000>;
+-			reg = <0x00 0x9c900000 0x00 0x01e00000>;
++			reg = <0x00 0x9c900000 0x00 0x01d08000>;
  			no-map;
  		};
- 
+ 	};
 
 -- 
 2.55.0
