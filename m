@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63937C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFB3C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kf3srD7fS2u+LExYvQV3AaH8PE0aJrD98efi0HfByYg=; b=NNU6UNQ7LMadl5kyIgODGuUEfh
-	7FVVvCEY9CcV+VqmxsxaWuzqUAeSWXD9SmZ5kToFj6o+dcXOsfDtHIV0aqYOKh0knQnydxe3ThlvJ
-	gKRAdAzfwNnJ3A2Uh1PRtYAGH5nnspYjdBIWejphaExv0g+9c/OIZLJnpGKDf9WVvjSU2nF+ggKFW
-	efX2V0FsaZ26oHMfO+lBFgVb6QNUkoh9R9ROR0xNYVnj81wFzemmPdqr8VyXpIeDgjgWhckeXaaTd
-	TKdPQpeT6WRhxTm+yuZYbkmkxWTQg5io4CMNGoh4X+ev52zGrN+5+WXQcgmh1XZBQvh+DaiVPUlUe
-	o3VA7xgw==;
+	bh=xPKOB+wmvKHfT71ToWp2DBu/JFiXBk04+MQSH1C7GE4=; b=k/pA1JTWEU3vj8qi8klrg+14SS
+	Urj5/aTfz3PLrAGBliaXPt92FJ1lsKX/UzndAJiKzJ18r3MQXmihDq7Ap5ABQzz9lMFVJOcgwi7bJ
+	elMD88OTdopCe/Q6latXlqaTe6SJxZeH5aaEqcYs13hfbPIkAEn8hrvUx5yQ0btnumhZknZrJ0T6B
+	OWizy/q8PuBFeRwA9O7YyZyl0B77Iv84IzEE/aC1Wbm4JiNAnj7afa7TZ9EvcLLGGMIvj+UkhMalI
+	ahTOQm2GO0illAbGd8u3vXf+9kUaPqGdSflUd79ll8/Pcs823dU/z4+Rw/1BMlg8RIpHqMk+6tf8i
+	JPXGD8gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kF-0000000HK5y-0Gct;
-	Thu, 03 Sep 2026 12:40:43 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1x26kC-0000000HK4a-3fWW;
+	Thu, 03 Sep 2026 12:40:40 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kC-0000000HK3q-12pO
+	id 1x26kA-0000000HK3N-3aeb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 12:40:41 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49cdc81f40eso16643885e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:39 -0700 (PDT)
+	Thu, 03 Sep 2026 12:40:40 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-48436251906so2413679f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788439238; x=1789044038; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788439237; x=1789044037; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Kf3srD7fS2u+LExYvQV3AaH8PE0aJrD98efi0HfByYg=;
-        b=n9f3bC1PRuNQzHCXrRRtUz7FUKYwsgqZFsJTZNGEUVOM6GUfKXG2c+MFDOeMHwGXjX
-         QzQR4bs5mKSP7mCIH3+Isiy2iZW4Z2kECd6GJDORJ1+2YDXX8bWllXgYTaxOTK5urn0J
-         dIdJxz6F0B4d/Gmdz8EcDWOBQVqclMA7TvKqGbaCjoMhHeSIA+sq7z7WDJJu3PBX/8uD
-         65g4u0FLD8vVqU3KkxCqNxtnkPoJiadyVz5eflQvi570giy9Hhs7CM01SkVdvFqpGmMF
-         cNG6ujtcY5iEq7zlpVH+14lPMBqU2ruMzkkHlL1mJmyJPcQU/xFBhwNj8Fr+W4Q8ir3g
-         IgIQ==
+        bh=xPKOB+wmvKHfT71ToWp2DBu/JFiXBk04+MQSH1C7GE4=;
+        b=nwudI8ty7I2IoBtWuN3Vk0WUBm4w2UEc6pFbnOaiRwSoOQ06eTXf3UfimdVc+WNMSC
+         7yrojFPF2RLIty4XFe7ydtERPeUTw9zCiHdaR1Ew/4MQSt/ojL1OjY+rMN/GCgzFOBUX
+         ctSyNVl71o0fOMHvMLQwZ1WaWQNM6Ogg0C8fpunpnJAimRneevcTPnFyGMhYmqr387pM
+         RNz5+Is65kIwOfUeeWf1xOfMrMnMGZOyp+2KiI3Yno4do7uMU2ArPwhF+SctgdEzlkNG
+         jV2L5ykD3khnveQUXdvcgNrDaZ36oabRy0YBAVZE0b9eVfSRzNRUg1S1UtAcEsiqA7LI
+         PtHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788439238; x=1789044038;
+        d=1e100.net; s=20251104; t=1788439237; x=1789044037;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Kf3srD7fS2u+LExYvQV3AaH8PE0aJrD98efi0HfByYg=;
-        b=CxIm9/Vwr3aLBaAC+K3Jl7dOCfkuqZHBYTQlI+yXBpE/LLWUtmUpS3T17RytLklJ/F
-         pOt9LuqOmSwXXyUC3iA2Q3/BNpZQcsELVsTuvr7O1NYHW/O31TaW1PHsVkvDTjXt2dPK
-         QaH5mVdTkcasdQEHJFE57UC0pkv0YSyLji2CwVpIzCeuxPl2IglyopEZDm65l3UBhA7s
-         1vYmeelfcP2W7HNKZeOnXicKSAMZuBC78toRLd2l5uInWcF/sguRercTncK0sjTsEIfn
-         FOjz70+bdenlFsp40QT2EyHYKJtJxpX4f18NwhfjiRuWzYEEvb9yr3sr9FSpDRRGiHcZ
-         6vcQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxpdOdcxI6jt3nm+j2bl7HlZyZjihDvl0cy0cJcvdZ2tkmh9AXfL2F8s6BHCcuXeQm4GPQFFctFfBO/165/3NQ2@lists.infradead.org
-X-Gm-Message-State: AFuF++kjZO9mqRiVib7+lQbqvrb+FB/I2aymkjLPD2a2PfS5YWuHcVny
-	bqUqTsPL4G1gw60vwDhgX9oM4eQeR7KqDfD7s3XG4W2h95EUFcUMgSzyik8jbwXNftQ=
-X-Gm-Gg: AYBFou3KCp05Z0/8XM9dXLX7fDJsMOjkx3txbAL8emRV/TDirR2OcEvNHFDBADZzSzg
-	FVO/q2H5X2jHFFRydWZOi5iPMqJxoBDxfYox44M5OLNViSkTc66qfbhoZIjAy6mD+K9KJL7qhNL
-	gVudvfjPz3SfUd/37dYVo4wPhD64FoDmFdqSMeBZ3S6rRiTBRXCrcXqZimhLhsK0SdqjSKNUEva
-	y7UufGbLVaf4qDQAPqOK5ocvDybesKbq0qA5aRQUCmZ1Iw9AwtJGZxxNm8oOUsNw3j3c6nFvrwE
-	4cHsyiofPt9RR3MX/UJ53Hvzym0IQU7C17GqS5ENEPyMQwpGbVjRrIUmvcznfOBJeldggGL/0EH
-	K0j+cUTITxGXbp+a+ztdAZrAWqq1aIAbxzy29inSRiDw+r/09M0Q5pQrZv9oIAA3EHAeUJamzYH
-	rlNM7FBZEN702w5MyLWNNtyuBrdFiils11/ZbhgcO4b5as2MxAH1kVxM2bPg==
-X-Received: by 2002:a05:600c:3e0a:b0:499:a277:e8b5 with SMTP id 5b1f17b1804b1-49ce5810b5dmr269244445e9.3.1788439238198;
-        Thu, 03 Sep 2026 05:40:38 -0700 (PDT)
+        bh=xPKOB+wmvKHfT71ToWp2DBu/JFiXBk04+MQSH1C7GE4=;
+        b=mc6nXLz3XTkPCV7i/7kXPU3ipCW4D1nV27ilK5Fyb0KXXf3EllH3aNDQ2KaTxx3V2M
+         fwo5deM4jqCfW+6/SGb6OBb+qshQZHIPL7RoPQQcUbW5Zll1RKu/6EFZDTyNQDhs4vjE
+         MmQ8ENr1Xp0uccrfM/LF810WChAxmUG3KiBPud0HJ1FebQUjHC8n+uXYgZ+5NBBTYLMv
+         e/do6g09qXIzfWpZ0u6tpIeJ093XpCT9Z44fZ1f/5aJZ9SS52furK8jTWWkryP9hFvN6
+         Bb0V2j0S4Vs9dJ7ogkp7//Rhnk5Tns3e+tQr2bTXY1ZH2Rmb/rpdOHAgT1Ynvnwe0J6J
+         zW4g==
+X-Forwarded-Encrypted: i=1; AKwUvBwExo2VHB8IELmjyPpyQUjKXuP1D1WLA4Plt2TjgurPfluZEjMs3wBHCFS4rsD7tl3s+7PiYFhWsSAKWOdA6Qrj@lists.infradead.org
+X-Gm-Message-State: AFuF++n3wQ4GiP3vtZbFtaMwGAX2JTUZqKgnXa3I1dpSy7fxf99WRWM5
+	m0ex/u9RE1LURqGSRxQJMWZVP+4gZn7fqu/6PHwp3Mw5bkoCXyrnqesu4JQk5xDR0kM=
+X-Gm-Gg: AYBFou0wf6MVypLcSMfjDFU9cttJXPfPKMgxSvzGqRs1oXbaSo9TW6b5QMHHQaNTGWK
+	nm8FXYajOTS7nm1hrfNZQlBDdQh6LalPHdT+OgquvRRiRG4p1FaRhGCHgM77S9ny8Oqc1GdL4v7
+	cfGt5Om8o9dL/I1x6o8KhsrBVsFzq/8DKS/3LVKtPd4nx6H7MPBXEdIV/P9C3oqWSSWn40gJt55
+	fXIdWJGe2NIr/YqmdFlVYKazj6P8IOOFZ4y8Ps6q1jiFDrVocoqsS7zlsQ0mT1+uVzu9jYd4iF/
+	3maLsbO1f02Nca1XnFbOvcMpYn95HyluSqAV77QntlM3sxyik1qTLz/eaLlDed11k8oqEvT7xzt
+	D2GYupkTDl13W1lDsyndw0ZNHf8UJg04WV4mdAyZw33EmFe/7hAjicTsbzoV4cvC7R9r1p0fDmG
+	ywBf6cGFwUtMOg6pmyi2PuuiPeVHXWY0XX9sEZYu8pYX8x98fyy+OHJBmPow==
+X-Received: by 2002:a05:6000:220b:b0:485:8313:9f47 with SMTP id ffacd0b85a97d-4858313a27emr5841765f8f.10.1788439236867;
+        Thu, 03 Sep 2026 05:40:36 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:80d4:4373:6c2f:4372:b8ac])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee6023d6sm67325465e9.8.2026.09.03.05.40.37
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e72c28sm14692339f8f.6.2026.09.03.05.40.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 05:40:37 -0700 (PDT)
+        Thu, 03 Sep 2026 05:40:36 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Thu, 03 Sep 2026 14:39:23 +0200
-Subject: [PATCH v8 2/9] arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F memory
- region size
+Date: Thu, 03 Sep 2026 14:39:22 +0200
+Subject: [PATCH v8 1/9] arm64: dts: ti: k3-am62a-phycore-som: Fix wkup R5F
+ memory region size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-2-74c650dfdea6@baylibre.com>
+Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-1-74c650dfdea6@baylibre.com>
 References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -101,17 +101,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
  "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1623; i=msp@baylibre.com;
- h=from:subject:message-id; bh=Fwl8ObuLky5qFvdgJbDIgRGjpmOwOd7ZlgsEnJiZjoE=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWX13m38JvXyxaOLpF8sv9T1mFyhlVLg7f8/H89XW9
- 6ac09Wa2VHKwiDGxSArpsjSmRia9l9+57HkRcs2w8xhZQIZwsDFKQATib3AyLB3b/u3p7cOyDzI
- PHJdzf+pusOLH1fXNLbt/3nzTpPn8yv+DP/UK7O5j8ed923TiFWVste9n/qrbPPpCy+V90SFFGq
- 33GEAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1661; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=uvwgPyWrOw9KmR0c/X2PNXzypQy3m3KL8GwzpX2fqTE=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWZ3Xb3rEzHwTLcBk3zdX1pPhQcRpM8nwXSeWTNNSY
+ T+Qrreno5SFQYyLQVZMkaUzMTTtv/zOY8mLlm2GmcPKBDKEgYtTACYisYLhD9+37a+NXBY7bmXT
+ E+E2T9w1l3exxxWvf5sdZl/+nyWZfpbhf2SGeO2sNd0qNzXPbdzPy/cm95KaiKB6eNSNkyecT3Z
+ uZgUA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_054040_306969_E8A58389 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260903_054038_912258_54FEBAB3 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,16 +144,16 @@ section end address reaches 0x9e700000, so the region should end there:
     0x9e700000 - 0x9c900000 = 0x1e00000
 
 Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: 1544bca2f188 ("arm64: dts: ti: Add support for AM62D2-EVM")
+Fixes: 8dd0ac27fcd1 ("arm64: dts: ti: k3-am62a-phycore-som: Enable Co-processors")
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 2 +-
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index f5ceb6a1b5de..a8c794d07343 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+index de4048a3564b..53c096da68b5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
 @@ -67,7 +67,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  
  		wkup_r5fss0_core0_memory_region: memory@9c900000 {
@@ -161,8 +161,8 @@ index f5ceb6a1b5de..a8c794d07343 100644
 -			reg = <0x00 0x9c900000 0x00 0xf00000>;
 +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
  			no-map;
- 			bootph-pre-ram;
  		};
+ 
 
 -- 
 2.55.0
