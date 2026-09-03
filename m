@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0B8C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DAFC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L632ql4Sd/RozUuu0s8fdwZF7MOouQPT9rB6yRaOm7Q=; b=Ns/oP++Ds7bo9s+R+5JmmmkO3m
-	8zL0/9YpCWbS9L/bs1EUbT4jPWvvwgjoT0Tg6u36rMbis2sqoF5p8fthJZ1Epi+d21U53xGLUiE+G
-	FUTw1kWhFT6liKzxq0+ewxjB/6FZFGbGFDYI8Y7/63CR5fp5xkM9PseJjPL9SrqZlJH5Vp6QSGPoj
-	ISsk2mFvdONgmpwU4pyRg5yuYfvAqJvrnVtTnWE6Y99UgG9rVIsZeB5GpBvbJ/5dxuIKB/2jYP5NN
-	+ZCbxCePnedTb45YvxQ83WN0CQs415rEAZfYAmkc9lkKF+Ul3iSc0bSlW40EaxcKy7dFdZOWTJRY7
-	Ku2PdlhQ==;
+	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=; b=JnOZimLJWrp3HLMQWPscketbw8
+	9Q8L/crk+21qujwRFPFJoso5DsEL5zAVoOFngG+9xCo6Mwha+cBrO0BZuW4zKPnlOQfOs7u+SL7RX
+	MN9wYenQ0FUD9KfzM7y0Z/4Nqqc865YMvFJSk4Zlp3Vqo6fLu4l9yOYssTF2Srwt7f7lzf5YkLB/U
+	Fe64D/pacAyqzecAQ1G/oWLjOH9L95Xi9FWL2lP4xzvCXgKAkYkHSPGNtBJ2L1FdYg/sPlPo1iigl
+	cR0b6/IattdZIhi2NGSURarrd+Ch/Sfn64Kq7eLmE4Y4OFQLf+B6/aEOjHKUVU4Dg78HwnYFksodj
+	2SRU6Fnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EVq-00000000bCJ-1KNs;
-	Thu, 03 Sep 2026 20:58:22 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1x2EVu-00000000bDR-1gNU;
+	Thu, 03 Sep 2026 20:58:26 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EVn-00000000bBr-3Gnb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 20:58:20 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d6f80c76e6so4663155ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 13:58:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788469098; x=1789073898; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=L632ql4Sd/RozUuu0s8fdwZF7MOouQPT9rB6yRaOm7Q=;
-        b=RhZp1g9BJm6zF1FiE5uDjerwII3W5ySaFtmJVVPAJxRjJogc7yFxRitxcPhGVHCoDr
-         qyClLHjGPNLTbZT62/y+4oXkERtc1Hy7bqBLL2jdI3tqroGxefRHJFWHPZqa6q/Toenm
-         Uwna5M4P/TErCXbXhKQ8mTlnhrr5tmMohOCvXdOIg4SVZ1YKMEuxZcK70K8Vc4kStDaz
-         NfCU2ND6rc/A6eIUJKBcbRzypM+KUaFYIbY4YQgGyx7M77t7R+4vttPKq5KhSm8UOGnL
-         6U+4g4dGTjdnzALOiTBAIpHfIUx4CHPe4WKlL3sdzviH7ELXcA/nOLRXsVKQ2yx3/H+v
-         jUUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788469098; x=1789073898;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L632ql4Sd/RozUuu0s8fdwZF7MOouQPT9rB6yRaOm7Q=;
-        b=GW0hD0rIwFRT/dx6H+NUUS4899Wn379LBfLJhK0QVXRUYJUMjY8z+C/wKeYGNYKyut
-         QqJTO/Ks1Epd10H+Fk8vMCl47hTWKU9nf8uFm5oWS48HyieQG1XN3EEFsqEzzOi1DhAt
-         n7wZO+Ngx0RMsh7ZoNNqHZQVypJhZXz5KQKCLt/qJeWTh3mXmk1yg6mNSDA4Ml83Ltc1
-         eXEWBzoPOQbhgdTdRx/y2a35G34+I6Rf3dbMN6+FH8vdWKwWJlVanCybSCWXg553DGLg
-         rNRFh8jMBywu1ew8BmfeLPRnXnRLe7zMGicSiyhNoAhPetEjClBfBPvPPZ+SesxnhcrL
-         Ryeg==
-X-Forwarded-Encrypted: i=1; AKwUvBzLiv/9uLuRgxh6aIwvZs25dP9pA9adQS0CVF8CyzKml8XDNpblnMeLBxJWcH9s36pyclTRZAojWhpfdVU3k/VL@lists.infradead.org
-X-Gm-Message-State: AFuF++llaZlkBCKlpJ+5o8GZANVpHa3C+3umyGfZGLvwgnoWtEcaMofd
-	qq75ASkxjzf69BFBtKl6XP4nScg4+AcbrKK4t0bRW5PBHlT8sNV+wNa7WeJ3mE3OVpSsMjbHtJx
-	VyfiD+A==
-X-Received: from plxj7.prod.google.com ([2002:a17:902:da87:b0:2d9:1c43:7134])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:120d:b0:2d8:d4cc:be65
- with SMTP id d9443c01a7336-2db12873c1fmr17910145ad.18.1788469097697; Thu, 03
- Sep 2026 13:58:17 -0700 (PDT)
-Date: Thu, 3 Sep 2026 13:58:17 -0700
-In-Reply-To: <CABgObfZL-qNSaNkNZDj0Kk41zw6UZ30vkSxc6T8wb-pOKab9Wg@mail.gmail.com>
-Mime-Version: 1.0
-References: <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
- <aphLXQL1H2zYZgTi@google.com> <20260903114241.33034-C-seiden@linux.ibm.com>
- <apmEi1NmOUvmUBFP@google.com> <apmFClPZ2WcDINmT@google.com>
- <apmIGgMEN8w-kQAm@google.com> <19d4feb1-d703-4c62-8622-a6d5e9d6394c@redhat.com>
- <apmYPMMPCNzK9ZEA@google.com> <CABgObfZL-qNSaNkNZDj0Kk41zw6UZ30vkSxc6T8wb-pOKab9Wg@mail.gmail.com>
-Message-ID: <apnfaeWZoZTIsoZS@google.com>
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
-	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
-	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1x2EVr-00000000bCI-0f9o;
+	Thu, 03 Sep 2026 20:58:24 +0000
+Date: Thu, 3 Sep 2026 22:58:19 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1788469100;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=;
+	b=B7/WRPfBfjfmwBzOzIgig7Kl95rP6c+s5VisJc0Zey7gf3liJKOgu5BNMObp3Uhh732l5B
+	LEwMz8J6Osovp+XoQgAwBODrbmV9kC9WC/xbaZgUCPz3x1IFu9nbq18DRnK4IqebrUhjBw
+	k2RVUQSLvuZo1sx0raqyS1dyh9vs9vAhDdqxNq93GDY3+ydadlr1ODfs2qYymFKPc58NnC
+	CaXPcaNL8t9USO7AjKV9O84+mV6V1ugRIVp46WNZfVpqTw3CBJfPHxbzd3JJsP0Tziet7C
+	3JD3DJ7qUDDaOmjxSd4xnBNyj6WQv2PHQ8nc4SeM96pWMKfUEwAJr/8OnDvJyg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1788469100;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=;
+	b=VZrSnuTuOcjcBb6FSC5SVK0IX0F+vYHhmZrg0oqoQfFwXMGoqCA1uMo6zOoDdbzJ4NE80Z
+	hxzivuQsfZk9+qDg==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
+ interface
+Message-ID: <gzc6sljogjijrlz5jdwxbbf352xigfpuaxeo542zcsq72dncqb@lltv7los5lie>
+References: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
+ <20260811-bcm2712-spi-v1-2-4c1708d354bb@linutronix.de>
+ <apmfqyeWahoR0wab@apocalypse>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <apmfqyeWahoR0wab@apocalypse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_135819_818362_684C7D2D 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20260903_135823_360090_D8CED01D 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +83,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026, Paolo Bonzini wrote:
-> On Thu, Sep 3, 2026 at 5:54=E2=80=AFPM Sean Christopherson <seanjc@google=
-.com> wrote:
-> > > I don't want KVM to be the. one that does things differently *once mo=
-re*.
-> >
-> > Too late :-D
-> >
-> > arch/arm64/kvm/hyp/nvhe/Makefile:ccflags-y :=3D -D__KVM_NVHE_HYPERVISOR=
-__ -D__DISABLE_EXPORTS -D__DISABLE_TRACE_MMIO__
-> > arch/arm64/kvm/hyp/vhe/Makefile:ccflags-y :=3D -D__KVM_VHE_HYPERVISOR__
->=20
-> Sure, VHE/nVHE is fair game because the nVHE case is in the same boat
-> as vDSO, arch/*/boot, and so on.
->=20
-> Looking at a grep for (cflags|CFLAGS).*\-D most are -DDEBUG,
-> -DDISABLE_BRANCH_PROFILING, -DDEFAULT_SYMBOL_NAMESPACE, etc. and in
-> most cases they seem like a bad idea. Don't do it for KVM please;
-> requiring -D for all architectures and for random pieces of config,
-> when you can put it in asm/kvm_host.h, is just as bad if not worse.
+On Thu, Sep 03, 2026 at 06:26:19PM +0200, Andrea della Porta wrote:
+> Hi Gregor,
+> 
+> On 18:04 Tue 11 Aug     , Gregor Herburger wrote:
+> > The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
+> > Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
+> > the spi interface.
+> > 
+> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> > ---
+> >  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 16 ++++++++++++++++
+> >  1 file changed, 16 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > index 0fc57e72632ed..81aec81c5ce12 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > @@ -69,6 +69,14 @@ usb_vbus_default_state: usb-vbus-default-state {
+> >  		groups = "vbus1";
+> >  	};
+> >  
+> > +	rp1_spi0_default_state: rp1-spi0-default-state {
+> > +		function = "spi0";
+> > +		groups = "spi0";
+> > +		bias-disable;
+> > +		drive-strength = <12>;
+> > +		slew-rate = <1>;
+> > +	};
+> > +
+> >  	rp1_i2c4_default_state: rp1-i2c4-default-state {
+> >  		function = "i2c4";
+> >  		groups = "i2c4_2";
+> > @@ -94,6 +102,14 @@ &rp1_i2c6 {
+> >  	pinctrl-names = "default";
+> >  };
+> >  
+> > +&rp1_spi0 {
+> > +	pinctrl-0 = <&rp1_spi0_default_state>;
+> 
+> Is there any reason to avoid defining the CS pins as pulled-up gpios
+> in the rp1_gpio node and then referencing it in pinctrl-0?
+No there is no reason for this. I will try it and send a new version.
+> Something like thie following:
+> 
+> rp1_spi0_cs_default_state: rp1-spi0-cs-default-state {
+> 	function = "gpio";
+> 	pins = "gpio7", "gpio8";
+> 	bias-pull-up;
+> };
+> 
+> &rp1_spi0 {
+> 	...
+> 	pinctrl-0 = <&rp1_spi0_default_state &rp1_spi0_cs_default_state>;
+> 	...
+> };
+> 
+> 
+> Many thanks,
+> Andrea
+> 
+> > +	pinctrl-names = "default";
+> > +
+> > +	num-cs = <2>;
+> > +	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
+> > +};
+> > +
+> >  &rp1_usb0 {
+> >  	pinctrl-0 = <&usb_vbus_default_state>;
+> >  	pinctrl-names = "default";
+> > 
+> > -- 
+> > 2.47.3
+> > 
 
-Boo, it's never fun when a parent shows up and takes away your toys :-D
+-- 
+Gregor Herburger
+Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
+Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+
+Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
+can be found here): https://linutronix.de/legal/data-protection.php
+
+Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
+Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
+806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
+Katharina Kopp, Alexander Gieringer
 
