@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F3FC624DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A29C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ra7IVCkWuPaYE58YBy2u4tVccX4wVFTrsAKPrrP920Q=; b=OIoN2i3tRCWDMV+53vafcsBr1t
-	psS+BEjTnlEzR+0U74B7LyE4fgC5TaQO0GJxw8lTQW1jEtAIparkEUOqLOuoBxFUnMV9WyHhTQW9z
-	A+chbi7UA5nX4g6hU0+M0eNIuJBbDp7FmoRWM4/socyUtpw6x3S31EqTLg28MXpWWAaF6m8zlCS+5
-	WQC5dwvt60qt5eyonYmIHnaACItZJ1NrPjJqN2Vae48djTbI3ab9673n8ZM5KnfCaiuguuIZfnzuT
-	hOMfhpOVCn/QZjYOkf9bzYjyw/0UEn6nENS+Kk2MDnVcOQIExijrOHa4JrFsEycHELLFAn9Q4x0i4
-	2G2legpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jq6fh3uaqWlLcsUsKG9lBjftr3yW7KpXO+JuhvHERfw=; b=4EuA9P6c4FbADibNXSkbW4SkUj
+	fps1dV3qpRzFU+j7VPuPMu6hNXK4330IazyPDUic7ddz4Wlv4N6exWK5VuWUK4K2hPqs2kxBg9FPj
+	gqqd+y+G+XtQ/NEh0fVNEwZENk07bH64cogIDZL2Pr9ZpWR1g6qoF/UeFDEcoOeMJbRb46L+KBRDM
+	rVYx5L//7adXrThb56JFBoX1/+9yNYoDaIUE4x9s5TSzvXOGCy4jXBVxOfQcQYsyOT1S7pKwdmEH6
+	LQUiiW4FGELXairdRoldwj0VuKqPNMbYPSs81HaCmhgcIHAPknMUc3OtB8ejICz/Hvlb4txS4jE5v
+	Qnnq/UOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Cxh-00000000SPK-2FJs;
-	Thu, 03 Sep 2026 19:19:01 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x2Cxu-00000000Sis-22pz;
+	Thu, 03 Sep 2026 19:19:14 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2CxW-00000000SCs-3Pfm
+	id 1x2Cxr-00000000Sd6-2Bgu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 19:18:52 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683G38JC927725;
-	Thu, 3 Sep 2026 19:18:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ra7IVCkWuPaYE58YBy2u4tVccX4wVFTrsAKPrrP920Q=; b=KIKohKdgCpsbEAQd
-	Lj+o5+B9ZsBQdPo+6YbkYtQHxiMG/pPZEpmxi+7I0v6ZiwXOJ7xvC62iRZGmcR6d
-	xfGSOgAXjpFPxyM5wJ7d2yUr0kxuch6JAKnPc8cRB0w4yH7U98s0W7AFutMfqf7S
-	1dZs1m+DszcLoK8F6EkQKCOaV7inI316+4pBjYXyY+1AOyGCC/OinQR5JoGcCgMC
-	I7/QzS4LgOtRERikpS18xAIhaLgmSEj2Wdd0Bnqnonsi0K7JqtQkzEigoojpX4nV
-	p8ttGCMmB3RNCTX+cGZ++pWIdKMtjLUtxrOPLpaHyoXPn57AdrRa4TfxCLzf7PDQ
-	kf1Xow==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gf6tx2f6e-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 19:18:36 +0000 (GMT)
-Received: from pps.filterd (nalasppmta05.qualcomm.com [127.0.0.1])
-	by NALASPPMTA05.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 683JIZTZ3214824;
-	Thu, 3 Sep 2026 19:18:35 GMT
-Received: from hu-devc-lv-u24-a.qualcomm.com (hu-jcameron-lv.qualcomm.com [10.81.84.69])
-	by NALASPPMTA05.qualcomm.com (PPS) with ESMTPS id 683JIZXM3214814
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 19:18:35 +0000 (GMT)
-Received: from hu-jcameron-lv.qualcomm.com (localhost [127.0.0.1])
-	by hu-devc-lv-u24-a.qualcomm.com (Postfix) with ESMTP id 633FE22A92;
-	Thu,  3 Sep 2026 12:18:35 -0700 (PDT)
+	Thu, 03 Sep 2026 19:19:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1788463142; x=1789067942; i=wahrenst@gmx.net;
+	bh=jq6fh3uaqWlLcsUsKG9lBjftr3yW7KpXO+JuhvHERfw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=fc7wbEOYwvLCsOuQV/w54JsxIfNPON7YI3PKEUC32ZALGLn5LA+kWKueXOwVBba2
+	 dWSTxGf5dg55PZKwac+OLNvsaJdTMd0b16amZOFyhzFnzGqtP+jF/sAZc3+VmrhX9
+	 QM8btjIxxtqoJya2g+ySR8DXGJjd0Lf50AsmX3tVUK1bDvFrCAXicB7dLSXugeMNl
+	 HnSxDEle49oeqwD7kv4GPVE86/mdObrks2wYUk9zOcXJTYn+ZvDFhb3mxYPEUgEmF
+	 PgZ/Got5yCrzphJFeLY82O22K+ZSQ8pu0h8f3RTu6eDUpOxn5EPQJ129Crwow2Rso
+	 yp4OmorNmM1rKE/Lmg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MJmGZ-1xHFwV2WFt-00HtGE; Thu, 03
+ Sep 2026 21:19:02 +0200
+Message-ID: <e661adf9-626d-4b76-9f2a-dc363e5bea26@gmx.net>
+Date: Thu, 3 Sep 2026 21:19:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 03/13] iommu/arm-smmu-v3: Drain in-flight fault
- events on domain detach
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
-        bhelgaas@google.com, praan@google.com, kevin.tian@intel.com,
-        kees@kernel.org, smostafa@google.com, baolu.lu@linux.intel.com,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-        skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
-        bbiber@nvidia.com, harsha.v@oss.qualcomm.com
-In-Reply-To: <8717f3329313f40308cff20006066283ebbb3a56.1788222485.git.nicolinc@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <8717f3329313f40308cff20006066283ebbb3a56.1788222485.git.nicolinc@nvidia.com>
-Date: Thu, 03 Sep 2026 12:18:33 -0700
-Message-Id: <178846311316.1308030.6266899352044838554.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-GUID: P8CdFX83cmwPHD-hm_KK9XDm2mq3yTJq
-X-Authority-Analysis: v=2.4 cv=TqjWQjXh c=1 sm=1 tr=0 ts=6a99c80c cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
- a=Ikd4Dj_1AAAA:8 a=EUspDBNiAAAA:8 a=5E8cN6LfZOETjOzBigwA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: P8CdFX83cmwPHD-hm_KK9XDm2mq3yTJq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDE2OCBTYWx0ZWRfX/x7ObPDJp0pN
- Av+qnrblfs97f0jRMbVhfDkHmtlf2pInT3XzjatGXW2L7YQ+PdIEO9ku+IJqawcBo2qg0INxyuP
- qWByYrFtUXPboGEZzFzMzPC+BAf05LhPIXnHqLuxF4oApVsg4DqGAh0vyeYpMLc2zf+I2ErGfoD
- BbVJPq3vpSwysJ2opnULWs3eYMgZPeVFcpEsClaNiiPmZfjlh0quCoOa2KbQ0/J9+v0CcFBfVvC
- Curo4a6JJxlAmIOwdE+9PEpKr/RtOvQ2gq/GIdal6utLLS4ikNj/BYbyrr9Bt5abtx/AIfro+Nk
- jY5ywvz3vYHSCx9g+a0DoFWWVm5nPU8y3EYO+/eCMfMad7Kw4od2Dz9grHKGyce7eJKsSfbfXS+
- ZeJZy3JiYsG9OCb1O35jHATpWNJf2+u4rIWLzb+ZFjcWI+TeYtrDXRE84AnB/Isc8Rw7+ze11ny
- yNiYV5thHjQh6cR+zIQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDE2OCBTYWx0ZWRfX5mppCfGFpokC
- DU6CAlWJMg8fb0uq5atRDH6smQ2YmkQYPZAGcF1sDUFilkjGN5FjJyUMjWcB/mZ9OXyIM53I9Gp
- GJ4NdF4ZbPFBwN0eyOKvRjkcrnb4s2I=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_05,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
- clxscore=1011 malwarescore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030168
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Maxime Ripard <mripard@kernel.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+Subject: rpi: suspicious log messages from vc4_hdmi & raspberrypi-power
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:g5eq/T+97uT7+6HsKmJXlX2SVFgZGPCIysGp1eqijmSjg104MuL
+ HxTiLgLUX4ygmjakBU4EUbfAFk0ettB2zB0EZLjKmed1tfgalHqNyCxmntoF0P14Ma0XIZv
+ QpueY7kGgYQtigrsYDkTrs4h2kCgRaabqHGZN1L+I3XHWZZlbPWC8Gg9dk3hRMo0XGCHTVD
+ lLm7DU9Bwx7QOdDVlav+Q==
+UI-OutboundReport: notjunk:1;M01:P0:0J7cbHP8Pts=;0uvhnPJxNi4vdnzFW1U44GchXCF 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 hmhcsJEgs5dsA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_121850_987534_C09112C0 
-X-CRM114-Status: GOOD (  45.85  )
+X-CRM114-CacheID: sfid-20260903_121911_868734_FB7EB2B3 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,179 +91,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> When a device is switching away from a domain, either through a detach or a
-> replace operation, in-flight stall events for the old domain might still be
-> on the SMMU's hardware event queue or on the IOMMU core's IOPF queue. Thus,
-> if the IOMMU core swaps the device's attach_handle and frees the old domain
-> before those handlers complete, the IOPF work might hit use-after-free.
-> 
-> Two queues need to be drained: the SMMU hardware event queue and the IOMMU
-> core IOPF software workqueue. Start with the former: add a counting-based
-> arm_smmu_drain_queue() helper, and poll the evtq on a domain detach, so a
-> pending IRQ won't let the threaded handler run after the drain and queue a
-> fault referencing the domain being freed. Its until_empty mode serves the
-> suspend and runtime PM routines that would drain the CMDQ. Any timed-out
-> drain fires a WARN_ON as well, since reaching the timeout would take some
-> stuck consumer in any realistic case.
-> 
-> The existing queue_poll() API is not reusable for such a drain: it is the
-> atomic busy-wait for the command issuing paths, and it assumes a hardware
-> consumer making progress. A drain caller is sleepable, in contrast, while
-> the EVTQ/PRIQ consumer is a threaded IRQ handler that needs the CPU: such
-> a busy wait would starve the handler throughout an entire timeout, whenever
-> the waiter and the handler shared one CPU on a non-preemptible kernel. So,
-> this new sleeping helper is marked with a might_sleep() as well, given that
-> an atomic-context misuse would otherwise hide behind an empty queue.
-> 
-> Note that a drained event is dequeued, but not necessarily handled, since
-> queue_remove_raw() moves the MMIO CONS before the threaded IRQ handler gets
-> to push the event onto the IOPF workqueue. A subsequent change will invoke
-> synchronize_irq() and iopf_queue_flush_dev() to close that gap, and it will
-> act on the errno of a timed-out drain too.
-> 
-> The drain runs before the IOMMU core swaps the device's attach handle, so a
-> fault event generated on the new STE during this window resolves to the old
-> handle, completing with IOMMU_PAGE_RESP_INVALID that resumes the stall with
-> abort: the impact is bounded to that one failed transaction.
-> 
-> Also run the drain for every stall-capable master, even when the departing
-> attachment did not enable IOPF: such a stall event has to be aborted while
-> it still resolves to the old attach handle, otherwise the threaded handler
-> could pick it up right after the handle swap, mistakenly resuming it as if
-> it were a valid page fault against a new domain.
->
+Hi,
+while testing my old Raspberry Pi 3 B Plus with a mostly recent mainline=
+=20
+kernel, I noticed some suspicious messages in the log, which are new to=20
+my eyes:
 
-Useful perhaps to call out if this has been seen in real systems or
-not. I agree with the analysis but would rather hope drivers are
-well behaved in ensuring all traffic is done, adn this is hardeninging
-/ handling of naught hardware activity (all good if so!)
+[=C2=A0 =C2=A0 0.000000] Booting Linux on physical CPU 0x0
+[=C2=A0 =C2=A0 0.000000] Linux version 7.2.0-14759-gf6ce17b2c3b2 (stern@sc=
+henker)=20
+(arm-linux-gnueabihf-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, GNU ld=
+=20
+(GNU Binutils for Ubuntu) 2.42) #60 SMP Thu Sep=C2=A0 3 20:31:50 CEST 2026
+[=C2=A0 =C2=A0 0.000000] CPU: ARMv7 Processor [410fd034] revision 4 (ARMv7=
+),=20
+cr=3D10c5383d
+[=C2=A0 =C2=A0 0.000000] CPU: div instructions available: patching divisio=
+n code
+[=C2=A0 =C2=A0 0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT ali=
+asing=20
+instruction cache
+[=C2=A0 =C2=A0 0.000000] OF: fdt: Machine model: Raspberry Pi 3 Model B Pl=
+us Rev 1.3
+...
+[=C2=A0 =C2=A0 0.619485] raspberrypi-firmware firmware:rpi-firmware: Attac=
+hed to=20
+firmware from 2024-05-24T15:31:28
+...
+NEW [=C2=A0 =C2=A012.637746] raspberrypi-power firmware:rpi-firmware:power=
+:=20
+sync_state() pending due to 3f806000.vec
+NEW [=C2=A0 =C2=A012.645164] raspberrypi-power firmware:rpi-firmware:power=
+:=20
+sync_state() pending due to 3f902000.hdmi
+NEW [=C2=A0 =C2=A012.652442] raspberrypi-power firmware:rpi-firmware:power=
+:=20
+sync_state() pending due to 3fc00000.v3d
+...
+[=C2=A0 =C2=A028.835362] vc4-drm gpu: bound 3f400000.hvs (ops 0xbf2c6984)
+NEW [=C2=A0 =C2=A028.839062] vc4_hdmi 3f902000.hdmi: DTS/ACPI name 'rx' no=
+t found,=20
+legacy failed (-19)
+...
+NEW [=C2=A0 =C2=A028.879525] vc4_hdmi 3f902000.hdmi: Could not create devi=
+ce link=20
+to hdmi-audio-codec.1.auto
+...
+[=C2=A0 =C2=A028.889098] input: vc4-hdmi HDMI Jack as=20
+/devices/platform/soc/3f902000.hdmi/sound/card0/input2
+...
+[=C2=A0 =C2=A028.901895] vc4-drm gpu: bound 3f902000.hdmi (ops 0xbf2c3fb8)
+[=C2=A0 =C2=A028.902040] vc4-drm gpu: bound 3f806000.vec (ops 0xbf2c6498)
+[=C2=A0 =C2=A028.902164] vc4-drm gpu: bound 3f004000.txp (ops 0xbf2c7720)
+[=C2=A0 =C2=A028.902240] vc4-drm gpu: bound 3f206000.pixelvalve (ops 0xbf2=
+c20ec)
+[=C2=A0 =C2=A028.902323] vc4-drm gpu: bound 3f207000.pixelvalve (ops 0xbf2=
+c20ec)
+[=C2=A0 =C2=A028.902394] vc4-drm gpu: bound 3f807000.pixelvalve (ops 0xbf2=
+c20ec)
+[=C2=A0 =C2=A028.911383] vc4-drm gpu: bound 3fc00000.v3d (ops 0xbf2c7c54)
 
-> Fixes: cfea71aea921 ("iommu/arm-smmu-v3: Put iopf enablement in the domain attach path")
-> Cc: stable@vger.kernel.org # v6.16
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
->
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e00b6c88214f..d255ff2519f9 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -948,6 +948,86 @@ static int arm_smmu_cmdq_batch_submit(struct arm_smmu_device *smmu,
->  					   cmds->num, true);
->  }
->  
-> +/**
-> + * arm_smmu_drain_queue - Drain an SMMU queue
-> + * @smmu: the SMMU device
-> + * @q: the queue to drain
-> + * @until_empty: target selection
-> + *
-> + * With @until_empty == true (for CMDQ), exit once the queue is observed empty:
-> + *
-> + *   cons0                cons                                prod
-> + *     |                   |                                   |
-> + *  ---+###################+=====================+=============+--->
-> + *                         |<--------- undrained==0? --------->|
-                                                    ^
-What is the + indicating?  Seems where prod0 that isn't relevant here
-would have been - that is a little confusing so maybe drop?
+Is it worth to investigate or expected?
 
-> + *
-> + * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
-> + * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
-> + *
-> + *   cons0                cons                 prod0         (prod)
-> + *     |<---- drained ---->|                     |             |
-> + *  ---+###################+=====================+=============+--->
-> + *     |<--------------- pending --------------->|
-> + *
-> + * Note that a drained entry is dequeued, but not necessarily handled: the
-> + * EVTQ/PRIQ callers must follow up with a synchronize_irq() to wait for the
-> + * threaded IRQ handler to finish handling the dequeued entries.
-> + *
-> + * Context: Process context; may sleep.
-> + * Return: 0 on success or a negative errno on timeout.
-> + */
-> +static int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
-> +				struct arm_smmu_queue *q, bool until_empty)
-
-That name suggests this is doing the draining rather than waiting
-for it to happen elsewhere.
-
-> +{
-> +	ktime_t timeout = ktime_add_us(ktime_get(), ARM_SMMU_POLL_TIMEOUT_US);
-> +	u32 cons, prod, prev, undrained;
-> +	u32 drained = 0, pending;
-
-Pet irritation. Prefer splitting the elements that assign and those
-that don't onto seeprate lines.  Here that just means moving pending
-up one line.
-
-> +
-> +	might_sleep();
-> +
-> +	cons = readl_relaxed(q->cons_reg);
-> +	prod = readl_relaxed(q->prod_reg);
-> +	/* The exit target: the number of entries in the queue at entry */
-> +	pending = Q_POS(&q->llq, prod - cons);
-
-Applying a macro called Q_POS to a difference is a bit confusing to
-me given the output isn't a position of anything. Maybe just needs
-a wrapper Q_DIFF(q->llq, prod, cons)  Can use Q_POS underneath
-but avoid that naming out here well away from the macro definitions.
-
-> +
-> +	while (true) {
-
-Maybe pull defintion of prev and undrained in here so it is clear
-they aren't state maintained across iternations.
-
-> +		/* Accumulate the entries consumed since the last poll */
-> +		prev = cons;
-> +		cons = readl_relaxed(q->cons_reg);
-> +		drained += Q_POS(&q->llq, cons - prev);
-> +
-> +		prod = readl_relaxed(q->prod_reg);
-> +		undrained = Q_POS(&q->llq, prod - cons);
-> +
-> +		/* Exit on an empty queue, regardless of until_empty */
-> +		if (!undrained)
-
-Given you don't use undrained again (maybe in later patches, in which
-case ignore me.)
-		if (Q_DIFF(&q->llq, prod, cons) == 0)
-perhaps.  This one entirely up to you as maybe the named local does
-help with readability a little.
-
-> +			return 0;
-> +
-> +		/* Snapshot mode: exit once the pending entries are drained */
-> +		if (!until_empty && drained >= pending)
-> +			return 0;
-> +
-> +		/*
-> +		 * A timeout means the consumer might be stuck. In theory, if it
-> +		 * moves 2 * qsize entries or more within a single poll interval
-> +		 * Q_POS() would wrap and undercount drained: that could trigger
-> +		 * a spurious warning too, if the queue was never once observed
-> +		 * empty. Yet, that much consumption in such a short interval is
-> +		 * unrealistic. WARN it only, as a stuck consumer is a real bug.
-
-I don't like 'unrealisitic' based defenses (even though I agree it is pretty
-unlikely).  Is there a way to bound this?  Maybe future systems will
-be much quicker.
-
-> +		 */
-> +		if (WARN_ON(ktime_compare(ktime_get(), timeout) > 0))
-
-Why WARN_ON here then a dev_warn_ratelimited() below? 
-
-> +			break;
-> +
-> +		/* The consumer might be a threaded IRQ handler. Yield to it */
-> +		usleep_range(100, 200);
-
-fsleep() perhaps then we don't get to argue why that slack.
-
--- 
-Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Best regards
 
