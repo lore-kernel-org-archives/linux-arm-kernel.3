@@ -4,87 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52AE2C624DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 02:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E16C624DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 02:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jZRbPTlJQ2oU3N5reiU/R1oleIxZE7zMycKAHKHmwY=; b=T+SEd3+Ay22VKZKXk+nLM6fPsd
-	ptqL/rjesG3arSMVlLJTKjF8GHkRGfDysI5wfo9ntnaYVXB9TgZn+5TiU20UT46pMD6FRR3QzrTb7
-	+McVCJVnR+dz6ku2FTdsYWQpXnSEL936pCAo7ZzUlwRMKXjN1Sg18pcS1/joZP1Vkr3JZfumW3XM2
-	8PNmIG1j+s1xidcrs1nCwuG3TP8hNmRWHrMEUsDoTPZu/GAvkIK/yRJwO+J9StcP4FH8MNKfLFdIM
-	g3r934BXOnZXFzkizXhMIu98f7jTA4SpSLkqLZCL6xlt/E660HAR3HVtRzbL1oYU8NYV+IVKWz50M
-	HAygkrCw==;
+	bh=N91JwVNEQV4gdLCyEaKofpyelvUaY0smONssn1gvwfw=; b=TvPSGHQ4pr69BxHyMb2QsX4AZN
+	nEF7dIgWDgxb7oR7nYSrDLeRddIPtr+zR4xnRwlG/A6zYBtjEpb4eg6nEnMOs0RCJZofWdzyDK1A+
+	ljgcUG4hmU1m2thyR1/BhlppJTOuHpn1IM0lsFzeusHkDvzgpRgeF3CDxVJOClcV44F91Q1BcuFI/
+	F+HAheEdBP2EyAygirvxi9344ioZqcV46sHRVk9P0pw37qpkkdYGIrIpZM6+IaTKzdaAJbF/cgusd
+	3i0OyHzyURya6IKEmx/radRCtRHGpBbMLMJUvos0HYmlbmAIcz3VTqR3Y+66DfI/JzEWwZWOnxzjt
+	DxSRJ88A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xI8-0000000GDDB-19eM;
-	Thu, 03 Sep 2026 02:35:04 +0000
-Received: from mail-pj1-x1045.google.com ([2607:f8b0:4864:20::1045])
+	id 1x1xIn-0000000GDdL-05ux;
+	Thu, 03 Sep 2026 02:35:45 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xI4-0000000GD94-20NY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 02:35:01 +0000
-Received: by mail-pj1-x1045.google.com with SMTP id 98e67ed59e1d1-38f5ac7416eso2720081a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 19:34:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788402899; x=1789007699; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3jZRbPTlJQ2oU3N5reiU/R1oleIxZE7zMycKAHKHmwY=;
-        b=u0YdjbGr/1uwvqJT3SjSjCSQjAs2e6q0xVzptBCo+Py9bxTIocVB7u7gcailzWZJyT
-         6OV21UKtQdPBLL+uzmC8pN5HQYcroonIyns+xYDUr2vn3U1Dqf5hFIculypvl02ycQwe
-         HxRsVyD4Kbogm1L1Y0O63STdQ6vqbfZLzpmnlu4jpDm9OIV56jPkQk8DvxDjZg86PXmG
-         LBGJgP2HdtbhbEae67PeaedyWjbqt+t0ad40qMX7kMdx/9FdcEsbqcTLf9AiFt839fvH
-         nFAxpEcrznXLbkOZmsvTg0DqNtI5ZU5AAj6lP+nbQIbBhbyV3OoRWZaCZQV/whb0i7Xh
-         kNnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788402899; x=1789007699;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3jZRbPTlJQ2oU3N5reiU/R1oleIxZE7zMycKAHKHmwY=;
-        b=q5mHZkMZK6eXgrBXggt9u/iQSihI0b7FQwV3m9IqTbpWguiQOaaDI1N1v1AdNTP4ae
-         mFlmnFtJTwwD9OVRYwWIrt9FtdTqmlyE2yCUHpTD4ojJdP2QYQKB2GIQBV9NoS53qvN5
-         Xm3R5scADjmWjQHdp9+8Mh986u0vt3IY/M85RWvOengGbAyejNnSX9SCg5dDQX9CIe4J
-         hKHR/RKEa7HPUqHRBUXOE4dMe3dtIy8af9NxMAh+TfKrcK9JluwDYyGgPzxvjCpZvKOc
-         yq50F8IWBF3ls2Bw4LUwR3+H7NhrDQ6zEwj1RWzQmwIIKtBNKO9BX25rmCcsl0Fl4S1j
-         6zHg==
-X-Forwarded-Encrypted: i=1; AKwUvBytSeZIZgBJ8Pzbtz57WSEpKiOuxfj1s+Xx25sBCpuxGAupI+2OJu0zafwfaGYnkyGUFI9I1hxsQCbiYVshhuLN@lists.infradead.org
-X-Gm-Message-State: AFuF++mQRauu1yQqPR0VTOOzkVlECDFA5N8utbwQIakO+sMitKJxFLEO
-	LLvWgtpeqW2xOMfLt5vyx7Uv5wLtOcZ1jDoIPw2gWJJrcVmlLDhw1VlJR0i5hRAEGFd1E5FnJVq
-	iTmQug7TY4ucc3FaFjY0tPg==
-X-Received: from dyboc22.prod.google.com ([2002:a05:7301:3f16:b0:32b:1306:42ad])
- (user=loganodell job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:288a:b0:380:21b7:e727 with SMTP id 98e67ed59e1d1-39aee0848bbmr14352175a91.14.1788402898410;
- Wed, 02 Sep 2026 19:34:58 -0700 (PDT)
-Date: Wed,  2 Sep 2026 19:34:52 -0700
-In-Reply-To: <20260903023452.721732-1-loganodell@google.com>
-Mime-Version: 1.0
-References: <20260903023452.721732-1-loganodell@google.com>
-X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-Message-ID: <20260903023452.721732-4-loganodell@google.com>
-Subject: [RFC PATCH 3/3] luo: memfd: Move to feature flags instead of
- compatibility strings
-From: Logan Odell <loganodell@google.com>
-To: arnd@arndb.de, pasha.tatashin@soleen.com, rppt@kernel.org, 
-	pratyush@kernel.org, graf@amazon.com, akpm@linux-foundation.org, 
-	pbonzini@redhat.com, maz@kernel.org, oupton@kernel.org, seanjc@google.com, 
-	bhelgaas@google.com, alex@shazbot.org, jgg@nvidia.com, kevin.tian@intel.com, 
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, joro@8bytes.org, 
-	will@kernel.org, robin.murphy@arm.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-mm@kvack.org, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-pci@vger.kernel.org, iommu@lists.linux.dev, 
-	Logan Odell <loganodell@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1x1xIh-0000000GDYo-1YaD;
+	Thu, 03 Sep 2026 02:35:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DBnzxpmhLJKUgQWoq6+3sfaCbzQDqLd7PtQ0dd0jflCmOuxk034g+A5ldeX+REdpd2GsVja51NRW2KNA8YPFJPezTXS486bzz3itCyHFLTEqW/hHlE/qcCUAExBzUcBoT/LsVUyX1BYXph3QcsVy4lQenOXGafJgW/AeZMmPL0TyWyd1C7Ge1flrphRKYQZ2cpgI+vw+QH7/404XwcPQzk3wwJ5EeLmM9ma9sFy3WsI7qyAtZdHatIMTeX7e2ndL5EBW1GBscXpibXHfel1YJ/jNpH7NEGc9WdgDkpvh2FQHajvQ1odvoh55uYMcLRumZyvXSM9hl5yCiHaxqHWzqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N91JwVNEQV4gdLCyEaKofpyelvUaY0smONssn1gvwfw=;
+ b=pFqRIBRcS71hQuYMtWkhClCvbupupO7sZ7PHMDNwo8TtqKRGh2Da17dVteJNe4NDqvEncSOM8d0AKd+uf5SBU7mU7kzItO1ZYsvnzNXdaOn4tFJqMF643VKh5/CbUFwrkZwRnaKEN80Gs0SwbGpkr+Nayl2AmvzdZ8rJaT5qexda8LWW37mODCDM+xzhjohYsNkh6rCYqTMTwlCRHDYi/6KGn7U2seceCytTRIAyDM1yHhK/uTNaB+xyBn5g8YoGXKmpVmcmdzoyJTQqg7px7TLqHf9HM2h4Tg1fjvO2QFQjlM92qaSndRQRxtu2NmPNxTZ0Nd+5akZ5ijR83JwlwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from OS7PR01CA0033.jpnprd01.prod.outlook.com (2603:1096:604:257::18)
+ by TYZPR06MB6214.apcprd06.prod.outlook.com (2603:1096:400:333::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 02:35:23 +0000
+Received: from OSA0EPF000000CB.apcprd02.prod.outlook.com
+ (2603:1096:604:257:cafe::66) by OS7PR01CA0033.outlook.office365.com
+ (2603:1096:604:257::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
+ Sep 2026 02:35:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CB.mail.protection.outlook.com (10.167.240.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 02:35:22 +0000
+Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id B3BF14092108;
+	Thu,  3 Sep 2026 10:35:21 +0800 (CST)
+From: Hongliang Yang <hongliang.yang@cixtech.com>
+To: krzk@kernel.org
+Cc: cix-kernel-upstream@cixtech.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	fugang.duan@cixtech.com,
+	gregkh@linuxfoundation.org,
+	hongliang.yang@cixtech.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	neil.armstrong@linaro.org,
+	p.zabel@pengutronix.de,
+	pawell@cadence.com,
+	peter.chen@kernel.org,
+	robh@kernel.org,
+	rogerq@kernel.org,
+	vkoul@kernel.org
+Subject: [PATCH v3 0/5] Add CIX Sky1 USB3/USBSSP support
+Date: Thu,  3 Sep 2026 10:35:16 +0800
+Message-ID: <20260903023521.2064986-1-hongliang.yang@cixtech.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <503e87d9-3311-413a-98c0-e02a02c4a354@kernel.org>
+References: <503e87d9-3311-413a-98c0-e02a02c4a354@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CB:EE_|TYZPR06MB6214:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: edab8750-f036-4883-059e-08df0964013e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|376014|7416014|1800799024|18002099003|22082099003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: THlmZFIectaFPenHSlzbqZrloJPUeJl2W++qjuVzcf4o+pkEih2PMejnJrh/YeVUbmFTV2QW5MeR80+Pe2CK0Y9tO8Fl8Kc7bIWTgzqQe/3sXbXaIHFy+CkvWUaaaachj0HFvDx14XpiyjUPxIFzKwUuOsZIAf5sg1+TDXreGqrHrRSBQiLTLvp+nzo5nB3p/bu+gOJRPD+zlTk225cJlRIzpgx2lYkA71oNpSbW4kbz2mEZicVpEMsqW6No0kVfsvBpImCj2SY5mnXyzO2lg2u878maTPRl6/nyOszIMDSc9O2a2pwb7wj+0hD3IT2eUSqFbKIWoGsqYwfXCA87fAMcA8VEh1UIYowMwUHJYN4p/d5mFEP+4/Jk0oyTXv/nv08sBYIW/kIKF33Ndx9UkHaQErKYAP/cF+OsrSrR9LuV5F7uYhjzaF+BNL601DC/nU94thD7jGTgJpsyrKNPGnmluffpBZSaAnKWbIsVd03zO7EtQQvag2PExsLUcDns/nN4lG9YfKqTt/4MTyjC83sXwgL3skUvZn/1F/81KWB3JGpDczJbRobFo3/BmBMnV9UUivA78vJtTeZM2/+oG8vX6FYg5+121FwIYkFRBhwXtSCaETGsXtd1dxx0Pjx49MRcvJpVr9jd3nxER2EcJazVPIWpZaunaoYC9iPvDHQv7JgjzcdbANWut5jXWhW0zcs05K5haiDmjeddGtPcYw==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RtWe+GAno4Q8owC1hqWpuMhO2L3IHjYurePv7hP5B1MTQrHplN0Sn3ksjwM2sG+tC+RpTItxrtvb6fdZr2H3oGkNaYsjK5GRRBl/2N9rB410ef+TI8pPJ67kKYrRQoWMt3dY/TWZNqZURUandz9cswmXVhvnWJY0g9KMGOPf7HNR4pJA7UYqFamOmiagec9LDP1i00Juop6R8FCgxa7AMe613c5ZMkDXGJjBOmJYQAEUCiaPONwhLyD38Mr9bua/9jkIJnA6Hsudj6T5S1u8iJn6jlKRzHI1ppJCGXBc72dnbMs0SjuMR3Gqyoz5E09VvbWVFnjBYmEn90EA6RRlsaJ9qPpsnnsNXbKIYXuuErBkTmxyRQtGN8kEyNqOVzjkFU6BXrkYyJqSnwmNE+Ep9OrWlUOeLIidyJccCS1uesEd0ctZPp+8SmX8PCLyXFYm
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 02:35:22.9841
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: edab8750-f036-4883-059e-08df0964013e
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CB.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6214
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_193500_570963_A3EA0BEF 
-X-CRM114-Status: GOOD (  30.28  )
+X-CRM114-CacheID: sfid-20260902_193539_428053_4BEF45C8 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,391 +127,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update struct memfd_luo_ser to embed struct luo_feature_hdr features.
-Define feature flags for memfd (MEMFD_LUO_FEATURE_SEALS and
-MEMFD_LUO_FEATURE_FOLIOS), emit the liveupdate feature entry for memfd,
-and validate required features and active flags during deserialization.
-Also replace the version bump requirement for seals with
-MEMFD_LUO_BASE_SEALS to allow new seals to be introduced granularly as
-feature bits.
+Add USB3 PHY binding and driver, Cadence USBSSP glue binding and
+driver, and USB4/USB5 device tree nodes for the CIX Sky1 SoC.
 
-Signed-off-by: Logan Odell <loganodell@google.com>
----
- include/linux/kho/abi/luo.h   |  8 +++---
- include/linux/kho/abi/memfd.h | 41 ++++++++++++++++++++----------
- include/linux/liveupdate.h    | 10 ++++----
- kernel/liveupdate/luo_file.c  | 28 ++++++++++-----------
- kernel/liveupdate/luo_flb.c   |  2 +-
- lib/tests/liveupdate.c        |  2 +-
- mm/memfd_luo.c                | 47 +++++++++++++++++++++++++----------
- 7 files changed, 87 insertions(+), 51 deletions(-)
+This series adds support for the USB4 and USB5 controllers (based on
+Cadence USBSSP DRD) found on the CIX Sky1 SoC, along with their
+associated multi-port USB3 PHY.
 
-diff --git a/include/linux/kho/abi/luo.h b/include/linux/kho/abi/luo.h
-index 5b25e1b48cf5..450a0e40e2ab 100644
---- a/include/linux/kho/abi/luo.h
-+++ b/include/linux/kho/abi/luo.h
-@@ -132,18 +132,18 @@ struct luo_ser {
- 	u64 flbs_pa;
- } __packed;
- 
--#define LIVEUPDATE_HNDL_COMPAT_LENGTH	48
-+#define LIVEUPDATE_HNDL_NAME_LENGTH	48
- 
- /**
-  * struct luo_file_ser - Represents the serialized preserves files.
-- * @compatible:  File handler compatible string.
-+ * @name:        File handler name.
-  * @data:        Private data
-  * @token:       User provided token for this file
-  *
-  * If this structure is modified, `LUO_ABI_COMPATIBLE` must be updated.
-  */
- struct luo_file_ser {
--	char compatible[LIVEUPDATE_HNDL_COMPAT_LENGTH];
-+	char name[LIVEUPDATE_HNDL_NAME_LENGTH];
- 	u64 data;
- 	u64 token;
- } __packed;
-@@ -256,7 +256,7 @@ struct liveupdate_ver_hdr {
-  * @active:     Bitmask of active features.
-  */
- struct liveupdate_feature_entry {
--	char name[LIVEUPDATE_HNDL_COMPAT_LENGTH];
-+	char name[LIVEUPDATE_HNDL_NAME_LENGTH];
- 	u32 feat_bytes;
- 	u32 reserved;
- 	u64 supp;
-diff --git a/include/linux/kho/abi/memfd.h b/include/linux/kho/abi/memfd.h
-index 08b10fea2afc..9961df5be423 100644
---- a/include/linux/kho/abi/memfd.h
-+++ b/include/linux/kho/abi/memfd.h
-@@ -11,6 +11,8 @@
- #ifndef _LINUX_KHO_ABI_MEMFD_H
- #define _LINUX_KHO_ABI_MEMFD_H
- 
-+#include <linux/bits.h>
-+#include <linux/kho/abi/luo.h>
- #include <linux/types.h>
- #include <linux/kho/abi/kexec_handover.h>
- 
-@@ -23,11 +25,20 @@
-  * The state is serialized into a packed structure `struct memfd_luo_ser`
-  * which is handed over to the next kernel via the KHO mechanism.
-  *
-- * This interface is a contract. Any modification to the structure layout
-- * constitutes a breaking change. Such changes require incrementing the
-- * version number in the MEMFD_LUO_FH_COMPATIBLE string.
-+ * This interface is a contract. Any changes should be additive using feature
-+ * flags to ensure backwards compatibility.
-  */
- 
-+#define MEMFD_LUO_FEATURE_SEALS		BIT_ULL(0)
-+#define MEMFD_LUO_FEATURE_FOLIOS	BIT_ULL(1)
-+
-+#define MEMFD_LUO_FEATURES_SUPP		(MEMFD_LUO_FEATURE_SEALS | \
-+					 MEMFD_LUO_FEATURE_FOLIOS)
-+#define MEMFD_LUO_FEATURES_REQ		(MEMFD_LUO_FEATURE_SEALS | \
-+					 MEMFD_LUO_FEATURE_FOLIOS)
-+#define MEMFD_LUO_FEATURES_ACTIVE	(MEMFD_LUO_FEATURE_SEALS | \
-+					 MEMFD_LUO_FEATURE_FOLIOS)
-+
- /**
-  * MEMFD_LUO_FOLIO_DIRTY - The folio is dirty.
-  *
-@@ -57,18 +68,21 @@ struct memfd_luo_folio_ser {
- } __packed;
- 
- /*
-- * The set of seals this version supports preserving. If support for any new
-- * seals is needed, add it here and bump version.
-+ * The set of base seals supported by MEMFD_LUO_FEATURE_SEALS.
-+ * If support for new seals is needed, define a dedicated feature bit
-+ * (e.g. MEMFD_LUO_FEATURE_SEAL_<NAME>) to allow granular compatibility.
-  */
--#define MEMFD_LUO_ALL_SEALS (F_SEAL_SEAL | \
--			     F_SEAL_SHRINK | \
--			     F_SEAL_GROW | \
--			     F_SEAL_WRITE | \
--			     F_SEAL_FUTURE_WRITE | \
--			     F_SEAL_EXEC)
-+#define MEMFD_LUO_BASE_SEALS	(F_SEAL_SEAL | \
-+				 F_SEAL_SHRINK | \
-+				 F_SEAL_GROW | \
-+				 F_SEAL_WRITE | \
-+				 F_SEAL_FUTURE_WRITE | \
-+				 F_SEAL_EXEC)
-+#define MEMFD_LUO_ALL_SEALS	MEMFD_LUO_BASE_SEALS
- 
- /**
-  * struct memfd_luo_ser - Main serialization structure for a memfd.
-+ * @features:  Bit mask of supported, required, and active features.
-  * @pos:       The file's current position (f_pos).
-  * @size:      The total size of the file in bytes (i_size).
-  * @seals:     The seals present on the memfd. The seals are uABI so it is safe
-@@ -79,6 +93,7 @@ struct memfd_luo_folio_ser {
-  *             struct memfd_luo_folio_ser.
-  */
- struct memfd_luo_ser {
-+	struct luo_feature_hdr features;
- 	u64 pos;
- 	u64 size;
- 	u32 seals;
-@@ -87,7 +102,7 @@ struct memfd_luo_ser {
- 	struct kho_vmalloc folios;
- } __packed;
- 
--/* The compatibility string for memfd file handler */
--#define MEMFD_LUO_FH_COMPATIBLE	"memfd-v2"
-+/* The name for memfd file handler */
-+#define MEMFD_LUO_FH_NAME	"memfd"
- 
- #endif /* _LINUX_KHO_ABI_MEMFD_H */
-diff --git a/include/linux/liveupdate.h b/include/linux/liveupdate.h
-index e058df23fed1..4489e344f76f 100644
---- a/include/linux/liveupdate.h
-+++ b/include/linux/liveupdate.h
-@@ -90,10 +90,10 @@ struct liveupdate_file_ops {
- /**
-  * struct liveupdate_file_handler - Represents a handler for a live-updatable file type.
-  * @ops:                Callback functions
-- * @compatible:         The compatibility string (e.g., "memfd-v1", "vfiofd-v1")
-- *                      that uniquely identifies the file type this handler
-- *                      supports. This is matched against the compatible string
-- *                      associated with individual &struct file instances.
-+ * @name:               The name (e.g., "memfd", "vfiofd") that uniquely
-+ *                      identifies the file type this handler supports. This
-+ *                      is matched against the name associated with individual
-+ *                      &struct file instances.
-  *
-  * Modules that want to support live update for specific file types should
-  * register an instance of this structure. LUO uses this registration to
-@@ -102,7 +102,7 @@ struct liveupdate_file_ops {
-  */
- struct liveupdate_file_handler {
- 	const struct liveupdate_file_ops *ops;
--	const char compatible[LIVEUPDATE_HNDL_COMPAT_LENGTH];
-+	const char name[LIVEUPDATE_HNDL_NAME_LENGTH];
- 
- 	/* private: */
- 
-diff --git a/kernel/liveupdate/luo_file.c b/kernel/liveupdate/luo_file.c
-index dbae0715220b..775484af0750 100644
---- a/kernel/liveupdate/luo_file.c
-+++ b/kernel/liveupdate/luo_file.c
-@@ -480,13 +480,13 @@ int luo_file_freeze(struct luo_file_set *file_set,
- 		err = luo_file_freeze_one(file_set, luo_file);
- 		if (err < 0) {
- 			pr_warn("Freeze failed for token[%#0llx] handler[%s] err[%pe]\n",
--				luo_file->token, luo_file->fh->compatible,
-+				luo_file->token, luo_file->fh->name,
- 				ERR_PTR(err));
- 			goto err_unfreeze;
- 		}
- 
--		strscpy(file_ser->compatible, luo_file->fh->compatible,
--			sizeof(file_ser->compatible));
-+		strscpy(file_ser->name, luo_file->fh->name,
-+			sizeof(file_ser->name));
- 		file_ser->data = luo_file->serialized_data;
- 		file_ser->token = luo_file->token;
- 	}
-@@ -732,7 +732,7 @@ static int luo_file_deserialize_one(struct luo_file_set *file_set,
- 
- 	down_read(&luo_register_rwlock);
- 	list_private_for_each_entry(fh, &luo_file_handler_list, list) {
--		if (!strcmp(fh->compatible, ser->compatible)) {
-+		if (!strcmp(fh->name, ser->name)) {
- 			if (try_module_get(fh->ops->owner))
- 				handler_found = true;
- 			break;
-@@ -741,9 +741,9 @@ static int luo_file_deserialize_one(struct luo_file_set *file_set,
- 	up_read(&luo_register_rwlock);
- 
- 	if (!handler_found) {
--		pr_warn("No registered handler for compatible '%.*s'\n",
--			(int)sizeof(ser->compatible),
--			ser->compatible);
-+		pr_warn("No registered handler for name '%.*s'\n",
-+			(int)sizeof(ser->name),
-+			ser->name);
- 		return -ENOENT;
- 	}
- 
-@@ -774,9 +774,9 @@ static int luo_file_deserialize_one(struct luo_file_set *file_set,
-  * in-memory linked list of 'struct luo_file' instances.
-  *
-  * For each serialized entry, it performs the following steps:
-- *   1. Reads the 'compatible' string.
-+ *   1. Reads the 'name' string.
-  *   2. Searches the global list of registered file handlers for one that
-- *      matches the compatible string.
-+ *      matches the name.
-  *   3. Allocates a new 'struct luo_file'.
-  *   4. Populates the new structure with the deserialized data (token, private
-  *      data handle) and links it to the found handler. The 'file' pointer is
-@@ -870,7 +870,7 @@ void luo_file_set_destroy(struct luo_file_set *file_set)
-  * liveupdate_register_file_handler - Register a file handler with LUO.
-  * @fh: Pointer to a caller-allocated &struct liveupdate_file_handler.
-  * The caller must initialize this structure, including a unique
-- * 'compatible' string and a valid 'fh' callbacks. This function adds the
-+ * 'name' string and valid 'fh' callbacks. This function adds the
-  * handler to the global list of supported file handlers.
-  *
-  * Context: Typically called during module initialization for file types that
-@@ -893,11 +893,11 @@ int liveupdate_register_file_handler(struct liveupdate_file_handler *fh)
- 	}
- 
- 	down_write(&luo_register_rwlock);
--	/* Check for duplicate compatible strings */
-+	/* Check for duplicate handler names */
- 	list_private_for_each_entry(fh_iter, &luo_file_handler_list, list) {
--		if (!strcmp(fh_iter->compatible, fh->compatible)) {
--			pr_err("File handler registration failed: Compatible string '%s' already registered.\n",
--			       fh->compatible);
-+		if (!strcmp(fh_iter->name, fh->name)) {
-+			pr_err("File handler registration failed: Handler name '%s' already registered.\n",
-+			       fh->name);
- 			err = -EEXIST;
- 			goto err_unlock;
- 		}
-diff --git a/kernel/liveupdate/luo_flb.c b/kernel/liveupdate/luo_flb.c
-index cd715a7c1d99..cb8c15f181e0 100644
---- a/kernel/liveupdate/luo_flb.c
-+++ b/kernel/liveupdate/luo_flb.c
-@@ -337,7 +337,7 @@ static void luo_flb_unregister_one(struct liveupdate_file_handler *fh,
- 
- 	if (!found) {
- 		pr_warn("Failed to unregister FLB '%s': not found in file handler '%s'\n",
--			flb->compatible, fh->compatible);
-+			flb->compatible, fh->name);
- 		return;
- 	}
- 
-diff --git a/lib/tests/liveupdate.c b/lib/tests/liveupdate.c
-index 4c08a7c6fb78..d3a8573a648e 100644
---- a/lib/tests/liveupdate.c
-+++ b/lib/tests/liveupdate.c
-@@ -135,7 +135,7 @@ void liveupdate_test_register(struct liveupdate_file_handler *fh)
- 	}
- 
- 	pr_info("Registered %d FLBs with file handler: [%s]\n",
--		TEST_NFLBS, fh->compatible);
-+		TEST_NFLBS, fh->name);
- }
- 
- MODULE_LICENSE("GPL");
-diff --git a/mm/memfd_luo.c b/mm/memfd_luo.c
-index 59de210bee5f..36ee503672a2 100644
---- a/mm/memfd_luo.c
-+++ b/mm/memfd_luo.c
-@@ -52,8 +52,8 @@
-  *
-  * Seals
-  *   File seals set on the memfd are preserved and re-applied on restore.
-- *   Only seals known to this LUO version (see ``MEMFD_LUO_ALL_SEALS``) may
-- *   be present; preservation fails with ``-EOPNOTSUPP`` otherwise.
-+ *   Only base seals supported by this LUO version (see ``MEMFD_LUO_BASE_SEALS``)
-+ *   may be present; preservation fails with ``-EOPNOTSUPP`` otherwise.
-  *
-  * Non-Preserved Properties
-  * ========================
-@@ -273,6 +273,10 @@ static int memfd_luo_preserve(struct liveupdate_file_op_args *args)
- 		goto err_unlock;
- 	}
- 
-+	ser->features.supp = MEMFD_LUO_FEATURES_SUPP;
-+	ser->features.req = MEMFD_LUO_FEATURES_REQ;
-+	ser->features.active = MEMFD_LUO_FEATURES_ACTIVE;
-+
- 	seals = memfd_get_seals(args->file);
- 	if (seals < 0) {
- 		err = seals;
-@@ -352,8 +356,9 @@ static void memfd_luo_unpreserve(struct liveupdate_file_op_args *args)
- 
- 	ser = phys_to_virt(args->serialized_data);
- 
--	memfd_luo_unpreserve_folios(&ser->folios, args->private_data,
--				    ser->nr_folios);
-+	if (LUO_FEATURE_IS_ACTIVE(ser, MEMFD_LUO_FEATURE_FOLIOS) && ser->nr_folios)
-+		memfd_luo_unpreserve_folios(&ser->folios, args->private_data,
-+					    ser->nr_folios);
- 
- 	kho_unpreserve_free(ser);
- 	inode_unlock(inode);
-@@ -401,7 +406,7 @@ static void memfd_luo_finish(struct liveupdate_file_op_args *args)
- 	if (!ser)
- 		return;
- 
--	if (ser->nr_folios) {
-+	if (LUO_FEATURE_IS_ACTIVE(ser, MEMFD_LUO_FEATURE_FOLIOS) && ser->nr_folios) {
- 		folios_ser = kho_restore_vmalloc(&ser->folios);
- 		if (!folios_ser)
- 			goto out;
-@@ -526,12 +531,21 @@ static int memfd_luo_retrieve(struct liveupdate_file_op_args *args)
- 	if (!ser)
- 		return -EINVAL;
- 
--	/* Make sure the file only has seals supported by this version. */
--	if (ser->seals & ~MEMFD_LUO_ALL_SEALS) {
-+	if (ser->features.req & ~MEMFD_LUO_FEATURES_SUPP) {
-+		pr_err("Unsupported required memfd feature (req: 0x%llx, supp: 0x%llx)\n",
-+		       ser->features.req, (u64)MEMFD_LUO_FEATURES_SUPP);
- 		err = -EOPNOTSUPP;
- 		goto free_ser;
- 	}
- 
-+	if (LUO_FEATURE_IS_ACTIVE(ser, MEMFD_LUO_FEATURE_SEALS)) {
-+		/* Make sure the file only has seals supported by this version. */
-+		if (ser->seals & ~MEMFD_LUO_ALL_SEALS) {
-+			err = -EOPNOTSUPP;
-+			goto free_ser;
-+		}
-+	}
-+
- 	/*
- 	 * The seals are preserved. Allow sealing here so they can be added
- 	 * later.
-@@ -543,16 +557,18 @@ static int memfd_luo_retrieve(struct liveupdate_file_op_args *args)
- 		goto free_ser;
- 	}
- 
--	err = memfd_add_seals(file, ser->seals);
--	if (err) {
--		pr_err("failed to add seals: %pe\n", ERR_PTR(err));
--		goto put_file;
-+	if (LUO_FEATURE_IS_ACTIVE(ser, MEMFD_LUO_FEATURE_SEALS)) {
-+		err = memfd_add_seals(file, ser->seals);
-+		if (err) {
-+			pr_err("failed to add seals: %pe\n", ERR_PTR(err));
-+			goto put_file;
-+		}
- 	}
- 
- 	vfs_setpos(file, ser->pos, MAX_LFS_FILESIZE);
- 	i_size_write(file_inode(file), ser->size);
- 
--	if (ser->nr_folios) {
-+	if (LUO_FEATURE_IS_ACTIVE(ser, MEMFD_LUO_FEATURE_FOLIOS) && ser->nr_folios) {
- 		folios_ser = kho_restore_vmalloc(&ser->folios);
- 		if (!folios_ser) {
- 			err = -EINVAL;
-@@ -601,9 +617,14 @@ static const struct liveupdate_file_ops memfd_luo_file_ops = {
- 	.owner = THIS_MODULE,
- };
- 
-+LIVEUPDATE_FEATURE_ENTRY(memfd_luo, MEMFD_LUO_FH_NAME,
-+			 MEMFD_LUO_FEATURES_SUPP,
-+			 MEMFD_LUO_FEATURES_REQ,
-+			 MEMFD_LUO_FEATURES_ACTIVE);
-+
- static struct liveupdate_file_handler memfd_luo_handler = {
- 	.ops = &memfd_luo_file_ops,
--	.compatible = MEMFD_LUO_FH_COMPATIBLE,
-+	.name = MEMFD_LUO_FH_NAME,
- };
- 
- static int __init memfd_luo_init(void)
+The two wrapper nodes each carry two 4-byte register windows: these
+are per-controller RCSU control/status registers (AXI cache attribute
+and clock-status) that live inside the shared RCSU aperture, so they
+cannot be expressed as a syscon; the OTG mode straps live in the S5
+system control block and are referenced through the cix,usb-syscon
+phandle.  This was discussed during review of v1 [1].
+
+Changes in v3:
+
+Device tree:
+- Fix the interrupt specifiers of the usb4/usb5 child nodes: the Sky1
+  GICv3 interrupt controller uses 4 cells, so add the missing fourth
+  (empty) cell to every entry.  Without it the controller IRQs cannot
+  be resolved (platform_get_irq_byname() returns -ENXIO).
+
+USB3 PHY driver:
+- Assert the hardware resets before registering the PHY provider, so a
+  consumer cannot race with the probe-time assertion.
+- Disable the clocks in LIFO order (ref before apb) in phy_exit().
+- Reorder the error unroll path of phy_init() to assert the resets
+  before disabling the clocks, matching the teardown sequence, and fix
+  the goto targets so clocks that were never enabled are not disabled.
+- Check fwnode_get_name() for NULL and only match "usb-port@" child
+  nodes exactly, instead of any name with a "usb-port" or "USB" prefix.
+
+USBSSP glue driver:
+- Add error cleanup to the probe paths: unmap the xhci/dev registers,
+  assert the resets and disable the clocks.
+- Replace the static of_dev_auxdata array with a probe-local one and
+  allocate the platform data with devm_kzalloc(), so repeated probes
+  cannot corrupt shared state or leak the allocation.
+- Quiesce the hardware on remove: assert (not deassert) the resets
+  before disabling the clocks, and balance the runtime PM usage count
+  with pm_runtime_disable()/pm_runtime_set_suspended()/
+  pm_runtime_put_noidle().
+- Check cdns->host_dev for NULL before dereferencing it in the
+  platform suspend callback.
+- Drop the reference of the OF node returned by of_get_next_child().
+- Stop clearing the clock pointers in the enable error paths, which
+  left NULL pointers in the driver state on later resume attempts.
+- Take device references in the shutdown child-iteration callbacks and
+  drop them after use to avoid a use-after-free.
+- Use BIT(31) instead of a signed 1 << 31 shift.
+- Assign the system sleep callbacks with SYSTEM_SLEEP_PM_OPS() and
+  pm_sleep_ptr() instead of a plain dev_pm_ops behind #ifdef.
+
+[1] https://lore.kernel.org/linux-phy/20260902032306.1182941-1-hongliang.yang@cixtech.com/
+
+Hongliang Yang (5):
+  dt-bindings: phy: Add CIX Sky1 USB3 PHY
+  dt-bindings: usb: Add CIX Sky1 USBSSP controller
+  phy: cix: Add CIX Sky1 USB3 PHY driver
+  usb: cdns3: Add CIX Sky1 glue driver
+  arm64: dts: cix: Add USB4/USB5 nodes for Sky1
+
+ .../bindings/phy/cix,sky1-usb3-phy.yaml       | 107 +++
+ .../bindings/usb/cix,sky1-usbssp.yaml         | 137 ++++
+ MAINTAINERS                                   |   3 +
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  54 ++
+ arch/arm64/boot/dts/cix/sky1.dtsi             | 118 +++
+ drivers/phy/Kconfig                           |   1 +
+ drivers/phy/Makefile                          |   1 +
+ drivers/phy/cix/Kconfig                       |  20 +
+ drivers/phy/cix/Makefile                      |   6 +
+ drivers/phy/cix/phy-cix-usb3.c                | 410 +++++++++++
+ drivers/phy/cix/phy-cix-usbdp.h               | 310 ++++++++
+ drivers/usb/cdns3/Kconfig                     |  13 +
+ drivers/usb/cdns3/Makefile                    |   1 +
+ drivers/usb/cdns3/cdnsp-sky1.c                | 696 ++++++++++++++++++
+ drivers/usb/cdns3/cdnsp-sky1.h                | 127 ++++
+ 15 files changed, 2004 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/cix,sky1-usb3-phy.yaml
+ create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+ create mode 100644 drivers/phy/cix/Kconfig
+ create mode 100644 drivers/phy/cix/Makefile
+ create mode 100644 drivers/phy/cix/phy-cix-usb3.c
+ create mode 100644 drivers/phy/cix/phy-cix-usbdp.h
+ create mode 100644 drivers/usb/cdns3/cdnsp-sky1.c
+ create mode 100644 drivers/usb/cdns3/cdnsp-sky1.h
+
 -- 
-2.55.0.979.g7e5102b832-goog
+2.54.0
 
 
