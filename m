@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D53C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90877C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZsPjDcuWHDiqyFJRnZ38FCfKi+o0wZF0/7VYknh1dg=; b=yzH5ph2OqYWuWqsCTwtqu0SlbP
-	ADC0/mzgy9LREBrdWQl69hYdcmbaajQ+Tigy0woCjvIoxf8e2bLjDDI9oDAS+1DBLGmrgC7YG1S7c
-	pif4nccns/dhAhFjb8qyN39qRsgCvISBUt7n7UKTOu/Rd8z4sbXqabLDrGH9A6Fq0edOoLDDd5gHw
-	lxhKBzaEzMRk7SVKTwj86I5M1uG5QL4MQrI5qhWSaMhtWAelyS+duZcpfDiN53jRCH61TQi5FqtVB
-	88fjFk0nFofUQrWItl/6y+RyXFtrlxCWdzIq7xenKNjtvwqj9EBEzuziKXKfrnLHpUMXarypFry6E
-	lnbRJeQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d9KwlyMIe2ffPTieEcQ159G8mFBwDIrli9vBOYObo7I=; b=U9IA0F9uwl0wEKFKgerAMbTrJ/
+	HgfYM7gZ9kdY06/nMY96zukJP6RxgCYkOAySZMLPaQxlxXbaxJ6jGwSqhColy9YGaC/jO5WF/uKwr
+	1ZzpOrk8Imy3NETDEpl1erePa8AAjrDQtQbelxYfqmp3WaFIRVkOtGfNRlwAlbFKSTT4b4khrFM0/
+	Aq8VQ5WV5R2zb3joej51pTZmB7fCcAo+y+FyfOnvmZD4kZfux+VboDXFgiVd7eNiiep2T43KgX2HB
+	qIqpMIVkMFrhJwItssjwI4WEJa5QnqoUw9BkLDKEv4wSqKfLW6nwBFa7C3N90toeU6gBPUArnL/Sm
+	Gt+MF5tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21vX-0000000GZzv-083d;
+	id 1x21vX-0000000Ga0N-1AGb;
 	Thu, 03 Sep 2026 07:32:03 +0000
-Received: from out-52.mta1.migadu.com ([95.215.58.52] helo=mta1.migadu.com)
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21vH-0000000GZvd-2FGF
+	id 1x21vI-0000000GZvp-2LZg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:31:58 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=NC0fL+3z3CsRseYh+wLnv3kKCfUxQED7UU0UKSGeaAM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788420703; v=1; x=1789025503;
- b=LXsH8Q+D/8BO9v7k3BJJ+jwYjFjDbm7V8y0uYJTM0V60gH2X/r58rvYLdyr2f1Szs87nVh/k
- vIzrB0wBWiWtBxABGi5LJ9inda+bwS50QsqI0bOa7FSgpGCQsUzkNT4Zgf6dUuzSEmVk0E7yiLy
- ZMoMeFwqfpHjeHtDNZfD8GZ0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by mta12.migadu.com with ESMTPS id 75b7dedc017cd645;
-	Thu, 03 Sep 2026 07:31:43 +0000
-X-Mizu-Trace-ID: 75b7dedc017cd645
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 3 Sep 2026 15:31:39 +0800
-From: Baoquan He <baoquan.he@linux.dev>
-To: Wandun <chenwandun1@gmail.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
-	saravanak@kernel.org, akpm@linux-foundation.org, rppt@kernel.org,
-	pasha.tatashin@soleen.com, pratyush@kernel.org,
-	m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
-	alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev,
-	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
-Message-ID: <apkiW8gn9Z5XaVQh@fedora>
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
- <apfkDlcMYrgiuGYA@fedora>
- <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
+	Thu, 03 Sep 2026 07:32:01 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4980fe6b3beso5044885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 00:31:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788420706; x=1789025506; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=d9KwlyMIe2ffPTieEcQ159G8mFBwDIrli9vBOYObo7I=;
+        b=KZ/tFuSq/U4S70S46zzaQoqPFpSKxyN1xfPGrWL674Z15S7pFQWtnqqgtEfFZfMhLP
+         ztdX4s7opBo2zm3ljVfYqIOI+rvLTSUjWZcIiu0GqHVVC3JGI9IQZe4TyhkUog6RWbsU
+         8Qb9m4U37hggZND+eIxx3K/BjTzb7fxkFIM+PvV3H8wSJDJ8iaBCZ8fgpnW7Imp4oYxh
+         nS0SS2HPs4iJZLUbiVU10VKblADie3uKbTk0Z15Bd0rflPCxnZdMMEVRv+LEiMeCWrgq
+         JWFI9VBugNRSA2wGKpjV9D/Gi39W1x3k1gu6mOsm5c0h5FV/khOKYNdACkVMT1Tnza7f
+         6XbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788420706; x=1789025506;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=d9KwlyMIe2ffPTieEcQ159G8mFBwDIrli9vBOYObo7I=;
+        b=ma4e/FswP23WeioU/K3szdm29DyZibXQEEVvUv9CtgFp7a6ifcq6M7/c/tDINA6ymL
+         JsGvmG2VGhbcSEV4594HSZQQbVLvHQvkvjWmqERR7xfF0GK2LEU2wpGP9/5VJCaHgF90
+         +SlamEdPFmASP2CxOvVEZclIHP5CstNKtpPCjzNmkgpOVTHhzrNS1XztoyZm2XMr51Nf
+         MErPbSGP9+czZH4XiOdD2axqRCwA5A2Km/WgGGCXwgy2Smi2kigcyufp1G/B1w28hgJJ
+         1hObRqDWovJRqbEfaOESXEetQMAAFTWhev7T2yBPooVgb0+2PHzBye8KkyAEtBqvc70v
+         Qpsw==
+X-Forwarded-Encrypted: i=1; AKwUvByXOEivYngwSTnbijGjNYfyg9rnLOs6vw0ZMhEH7PV3De4lS8iy5XPrm2EQK56MFGOCggGZ/Yuypsg7DHtpXunW@lists.infradead.org
+X-Gm-Message-State: AFuF++mvWGa/NZW1QmaDOE0bwpdQDtAUrX9q22O1PMv5UMEdDYr0t5Ms
+	osVg9qr9retWciwipbTbu73nUu+I5TzeJFXtMI+kWBvmTzZndJ55tlxV
+X-Gm-Gg: AYBFou1kfyHBnzbZp6VuMpgGQhHwrtzubBc1NLYGrEAvy3CqyWOCy9ZutTJ/18Xob8w
+	ndCyPNa98vJjM2b/njdL0tjrFLMSVv1EjgAe0PY7duc7iQcIRlAWA9btVYBSUYbrlKiK4sSPFW8
+	qb+o1FJ6P2uZzLfswLs/HtkoBotOO2au0ToWuMgW56djG2p7PyHbMWprZxmuDj93CBX0N0VsODa
+	9qdlDkjTIugokiPFJW9kULjG4eaxrebfwdSqjK/3q/NYgRu7u0Cp+O5MRVBqUqlsK+WRLGPMIHp
+	rHYMCXRQxor4MAsIc+S8Lni8H/kAV3aeVZ0BD+6hTcRWTn8yWccAb0fpGTX1UJluGH8Bes3QMPN
+	R7lCjwNul2EeRVwefd/bcMchrT0dEfzxG8KUYM+yvMnB0HZfe2QIfKBzhpHHI1vzE5xb6oukRaS
+	mUg1uYIIQ77S42676Qw/NF/vxSPDMs8KUaKW3TRdWGoUkseji1mPSbpgTuQeCFWdrYrw==
+X-Received: by 2002:a05:600d:4445:20b0:499:59fd:dbfc with SMTP id 5b1f17b1804b1-49cf1577d23mr12892375e9.1.1788420705978;
+        Thu, 03 Sep 2026 00:31:45 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce551bf7asm69369455e9.2.2026.09.03.00.31.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 00:31:45 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: [PATCH v4 0/3] gpio: mmio: report the line direction on chips without direction registers
+Date: Thu,  3 Sep 2026 09:31:40 +0200
+Message-ID: <20260903073143.2068494-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_003147_874318_1E58F7EB 
-X-CRM114-Status: GOOD (  40.65  )
+X-CRM114-CacheID: sfid-20260903_003148_719841_68294F16 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,170 +105,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/03/26 at 03:05pm, Wandun wrote:
-> 
-> 
-> On 9/2/26 16:53, Baoquan He wrote:
-> > Hi Wandun,
-> > 
-> > On 09/02/26 at 03:31pm, Wandun Chen wrote:
-> >> From: Wandun Chen <chenwandun@lixiang.com>
-> >>
-> >> On SoCs that carve out large firmware-owned reserved memory (GPU,
-> >> camera ISP, ...), kdump currently dumps those carveouts as part of
-> >> system RAM even though their contents are firmware state that is not
-> >> useful for kernel crash analysis.
-> >>
-> >> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
-> >> reserved memory on DT-based architectures (arm64, riscv, loongarch).
-> >> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
-> >> reusable CMA regions are different because their pages are handed back
-> >> to the buddy allocator and may carry crash-relevant data.
-> >>
-> >> ACPI systems already filter reserved memory out of the vmcore through
-> >> their existing path; only DT-based systems currently fail to filter these
-> >> regions, which is what this series addresses. The flag lives in memblock
-> >> itself rather than in a DT-only structure, so the mechanism is generic and
-> >> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
-> > 
-> > Thanks for the effort. I am not against this patchset, and I haven't
-> > went through it carefully. Just from the cover letter, you mentioned
-> > generic, I am wondering if this can be generic for excluding other
-> > memory regions. Asking this because I try to find a way to exclude
-> > unwanted memory regions too, please check below link where there's
-> > the relevant discussion. We definitely don't like inventing wheels
-> > time after time. Do you think this memblock region excluding can
-> > be used in other places of kernel?
-> > 
-> > https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
-> 
-> 
-> Thanks for taking a look, and for the pointer to the crash-wipe thread.
-> 
-> To answer your question directly: the exclusion mechanism in this series
-> is already generic, memblock_mark_nodump() is the entry point. Any code
-> that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
-> preparing vmcore elf header by walking memblock, these regionss are skipped;
-> This series is simply one caller, marking the DTS /reserved-memory and
-> /memreserve/ regions with MEMBLOCK_NODUMP.
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Thanks, for memory not allocated from memblock, e.g buddy, is it still
-good?
+Hi Bartosz, Linus,
 
-> 
-> x86 currently builds the vmcore elf header from iomem_resource, not
-> memblock; it could be switched to memblock, but that would bring no
-> benefit for the problem this series solves, so this series makes no
-> x86 change. I'd personally be in favor of switching to memblock for
-> a unified implementation across architectures.
-> 
-> Best regards
-> Wandun
-> 
-> 
-> > 
-> >>
-> >> Since the reserved memory regions are filtered out, the vmcore is
-> >> smaller in size and faster to produce. 
-> >>
-> >> The series is based on linux-next and is organized as follows:
-> >>
-> >> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
-> >>              flagname, switch riscv crash_mem to memblock, fold the
-> >>              duplicated per-arch memblock walks into the weak
-> >>              defaults, and serialize crash header preparation against
-> >>              memory hotplug.
-> >> Patches 5-9: NODUMP infrastructure: switch crash_core to
-> >>              for_each_mem_region(), introduce the MEMBLOCK_NODUMP
-> >>              flag, add a dumpable flag to struct reserved_mem, and
-> >>              mark /reserved-memory and /memreserve/ entries with
-> >> 	     MEMBLOCK_NODUMP flag.
-> >> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
-> >>              header.
-> >>
-> >> In v5, Sashiko found some pre-existing issues related to reserved-memory,
-> >> and has no dependency on this series, so these issues have been addressed
-> >> in a separate series [2].
-> >>
-> >> v5 --> v6:
-> >> 1. Serialize crash header preparation against memory hotplug to avoid
-> >>    out-of-bounds or use-after-free issues.
-> >>
-> >> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
-> >>    avoiding a panic from too few regions before resize is permitted.
-> >>
-> >> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
-> >>
-> >>
-> >> v4 --> v5:
-> >> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
-> >>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
-> >>    DT-only struct reserved_mem.
-> >> 2. Switch the riscv vmcore elf header preparation to use memblock
-> >>    instead of the resource tree, aligning it with arm64 and loongarch,
-> >>    so riscv also can exclude reserved memory from vmcore.
-> >> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
-> >>    loongarch open-coded the same logic, so fold it into shared
-> >>     __weak defaults in crash_core.
-> >> 4.  Drop the v4 patch that saved /memreserve/ entries into the
-> >>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
-> >>     directly.
-> >>
-> >> v3 --> v4:
-> >> 1. Rebase this series on v7.2-rc1.
-> >> 2. Add two cleanup patches (patch 02/03).
-> >> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
-> >>    NULL multiple times, suggested by Rob.
-> >>
-> >> v2 --> v3:
-> >> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
-> >> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
-> >> 3. Add some prepare patches.
-> >>
-> >> v1 --> v2:
-> >> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
-> >>    feedback [3], v2 drop that property and exclude reserve memory
-> >>    by default.
-> >> 2. Split some prepared patches from the original patches.
-> >> 3. Address coding-style comments on patch 5 from Rob.
-> >>
-> >> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
-> >> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
-> >> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
-> >>
-> >> Meijing Zhao (1):
-> >>   mm: memblock: add missing HugeTLB flag name
-> >>
-> >> Wandun Chen (9):
-> >>   riscv: build crash_mem ranges from memblock instead of resource tree
-> >>   crash_core: fold duplicated memblock arch hooks into the weak default
-> >>   crash_core: serialize crash header preparation against hotplug
-> >>   crash_core: replace for_each_mem_range() with for_each_mem_region()
-> >>   memblock: introduce MEMBLOCK_NODUMP flag
-> >>   of: reserved_mem: add dumpable flag to opt-in vmcore
-> >>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
-> >>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
-> >>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
-> >>     header
-> >>
-> >>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
-> >>  arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
-> >>  arch/riscv/Kconfig                         |  2 +-
-> >>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
-> >>  arch/x86/kernel/crash.c                    |  2 +-
-> >>  drivers/of/fdt.c                           |  2 +
-> >>  drivers/of/of_private.h                    |  2 +
-> >>  drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
-> >>  include/linux/crash_core.h                 |  2 +
-> >>  include/linux/memblock.h                   |  9 ++++
-> >>  include/linux/of_reserved_mem.h            |  1 +
-> >>  kernel/crash_core.c                        | 51 ++++++++++++++++++++--
-> >>  kernel/dma/contiguous.c                    |  1 +
-> >>  mm/memblock.c                              | 17 ++++++++
-> >>  14 files changed, 131 insertions(+), 95 deletions(-)
-> >>
-> >> -- 
-> >> 2.43.0
-> >>
-> 
+this replaces the gpiolib guard patch [1], along the lines Bartosz
+suggested there: instead of teaching gpiod_get_direction() to stay quiet
+when a chip has no get_direction(), give gpio-mmio one and let the pin
+controller tell it what the pad does.
+
+The user is the Vybrid GPIO block (gpio-vf610, a generic mmio chip with
+GPIO_GENERIC_PINCTRL_BACKEND and no direction registers, the direction
+lives in the iomuxc pad as the OBE bit). Today every
+gpiod_get_direction() there trips the WARN in gpiolib, 21 backtraces per
+boot on a Colibri VF61/VF50.
+
+Patch 1 is the pinctrl-imx side. Bartosz asked whether the raw register
+coming back from pin_config_get() is a bug in pinctrl-imx: it is, the
+callback never looked at which parameter was requested. It now answers
+PIN_CONFIG_OUTPUT_ENABLE and PIN_CONFIG_INPUT_ENABLE on SoCs that say
+where those bits live (Vybrid: OBE bit 1, IBE bit 0) and -ENOTSUPP for
+everything else, the SCU based SoCs included; the debugfs dump, the only
+raw-register user, reads the register through its own helper. The set
+callback stays raw, as the fsl,pins binding requires. Converting the
+driver fully to generic pinconf is a bigger job than this fix needs.
+
+Patch 2 is what Linus asked for on v3: an optional get_config() in
+struct gpio_chip and gpiochip_generic_get_config() as its pin control
+backed implementation, the mirror of gpiochip_generic_config(). No
+consumer API.
+
+Patch 3 keeps the direction in gpio-mmio's existing shadow and installs
+the shadow-reading get_direction() for the "pinctrl backend, no
+direction registers" combination. The pad is asked once, from request(),
+in process context, through gc->get_config(), so it is safe for the
+gpiochip_lock_as_irq() path that calls get_direction() under the irq
+descriptor lock.
+
+Tested on a Colibri VF61 (Iris carrier) on top of gpio/for-next, with
+DEBUG_ATOMIC_SLEEP and PROVE_LOCKING enabled: no backtraces, and
+/sys/kernel/debug/gpio shows the right direction for every requested
+line (the hogs, the SD card detect input, the USB VBUS regulator
+output). Lines the pin controller cannot answer for keep the input
+default gpiolib assumed before, so nothing that worked before is
+affected. The initial direction scan in gpiochip_add_data_with_key()
+runs before the pin ranges exist and still guesses; only requested lines
+get the real answer.
+
+Patch 1 was also booted on a Verdin iMX8MP (gprarray, 6.12.107): the
+pinconf-pins and pinconf-groups debugfs dumps are byte for byte the same
+as before the patch, and nothing else changed.
+
+Patch 3 needs patch 1 to give correct answers; taking all three through
+one tree, with an ack from the other side, avoids the window.
+
+[1] https://lore.kernel.org/linux-gpio/20260813193715.2346477-1-mehmet.fide@gmail.com/
+
+Changes in v4:
+- new patch 2: get_config() in struct gpio_chip and
+  gpiochip_generic_get_config() (Linus)
+- patch 3: seed the shadow through gc->get_config(), no pinctrl call
+  and no CONFIG_PINCTRL check in gpio-mmio (Linus)
+- patch 1: drop the npins check, pin_request() already rejects a pin
+  the controller does not have
+
+Changes in v3:
+- patch 1: return -ENOTSUPP for the SCU based SoCs instead of letting
+  the firmware call hand back the raw pad value (Sashiko review)
+- patch 1: -EINVAL for a pin the device tree never configured, -ENOTSUPP
+  only for unsupported parameters and SoCs
+- patch 1, 2: drop two comments that only restated the code
+
+Changes in v2:
+- patch 1: decode the requested parameter instead of returning the raw
+  register; debugfs group dump reads the register through its own helper
+- patch 2: keep the direction in the gpio-mmio shadow, ask pinctrl once
+  from request() instead of from get_direction()
+
+Mehmet Fide (3):
+  pinctrl: imx: answer OUTPUT_ENABLE/INPUT_ENABLE queries from the pad
+    register
+  gpiolib: add get_config() and gpiochip_generic_get_config()
+  gpio: mmio: track the direction of chips without direction registers
+
+ Documentation/driver-api/gpio/driver.rst  |  6 +++
+ drivers/gpio/gpio-mmio.c                  | 60 +++++++++++++++++++++--
+ drivers/gpio/gpiolib.c                    | 23 +++++++++
+ drivers/pinctrl/freescale/pinctrl-imx.c   | 54 ++++++++++++++++++--
+ drivers/pinctrl/freescale/pinctrl-imx.h   |  4 ++
+ drivers/pinctrl/freescale/pinctrl-vf610.c |  2 +
+ include/linux/gpio/driver.h               |  9 ++++
+ 7 files changed, 150 insertions(+), 8 deletions(-)
+
+
+base-commit: 1900b5a41493e7050c68c1e62780d6fb9a209457
+-- 
+2.54.0
+
 
