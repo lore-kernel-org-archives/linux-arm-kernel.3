@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32374C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 22:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26938C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 22:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DhGerqxK/QM75//01MhplOsQVgwGpiUbFZaCJT3sfQs=; b=s5QhcTNDX7DDM38BUMroFFsMkv
-	rslsjKTKb/0YJuwBHTuPGM5K5Hiqau7WnXSHXo2IAMAfBpCwfHq/tzm+Q1NLvXf88c0ItGiw71XlQ
-	uZHCcB3HQ2HqufCNAKfwvqTSRQKHUZb8suByW1dC36qRuqC7A9K4uBYWACSd9aONzSG03/LWUq77K
-	7ZaD9LwCxY59bqje5AD8l3NL573k0NuTC4Zc99fOBGE1IfhOsp5YHdT5Zh9/10mbyKGafjUcKcAIA
-	28Y3ZEzNd0w3KxPC23UrHcaoAQrglvZHMSJt1NVfoVoNbzgI4ZK/LfWz8xq/AWAgkzns7bITUn+47
-	eC9OLUxA==;
+	bh=/s6nvcJwx7Ifs5qcA8T+nQv2xmeJ2s33utca3H2YozM=; b=TRKCNOhgBug6LEx9mcp/nBdDaS
+	yV1MuG7ijO3WLKZCnaixcDkfRjB5njm1shdrEdWiUft4oiR//dybJjb39sjlsGw8nZ1sTYyxp53ii
+	qAmr6aWAwR+F8b4YR4Jq3+7m7W33yq8GGJOxQCYYdHxOmUY+TRHxg/rcNxO+NSNq7A1UmXwrcU9Ss
+	LAf0tWHXHUwYQyC+hGf305uih3fG9u4uUQjjFalHV3tGA0UO86EzYQYkQSUZlfUmNBsW9/3PMPjKl
+	N0zC8m39T3lmmKaSKYpEzTFgD61gx1wJ/vf8nkwNqMpw4cUeR9q96mjzTqS0EBPgQ4wG0uk0K49t3
+	EDhL0aLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GPA-00000000k23-2o90;
+	id 1x2GPA-00000000k1k-2OUd;
 	Thu, 03 Sep 2026 22:59:36 +0000
 Received: from mail-wr1-f47.google.com ([209.85.221.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GP3-00000000jva-2XXU
+	id 1x2GP2-00000000ju9-3jQ1
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 03 Sep 2026 22:59:30 +0000
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-482e067e908so371859f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 15:59:29 -0700 (PDT)
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4843f205a5bso275918f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 15:59:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788476368; x=1789081168;
+        d=1e100.net; s=20251104; t=1788476367; x=1789081167;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DhGerqxK/QM75//01MhplOsQVgwGpiUbFZaCJT3sfQs=;
-        b=PqUGp05BGRXobmestEdKwV2JE30m4D3/NaoX0kpdOP280ndVgsqX1sX88T+0DPVtaX
-         T2ByqHgnmnEivXIEIYdKRNC700QPKMCb8aXhYnrNQfKWxgNjcAqLnjr5S3GnTVbJ1rzr
-         EYp0QTWNV6164Ofrtn7eEvTWXbYMEG7jNdb2jVF/9OupLEfead5xslfAP0C79HDiJ3PF
-         sMq18vZNW9tx2nlQgZWAMcPjaeBK9u/GlVw7POlK2UbGBELJNexxw0CWnqjyXGYKlUr+
-         Z5OZx+dq4KawxKrs2Fa3NIDKSK3VrTpJiI6P04uABj/DPjxLDlCcxq9YtR7xHQXHXsNX
-         r4tQ==
-X-Forwarded-Encrypted: i=1; AKwUvBx4ArdtbueVSWHb8A36uhuObOfNoXnCi3rfEMvX/XG5y2BpJGLzf+GBtUOG7Abfa0adJP7nMgCMYTNioVk2x7L0@lists.infradead.org
-X-Gm-Message-State: AFuF++kqK2/cjnQfaKbgdVNB15QbefF4lrkSvRSiyF3ALa+Dn2GtDzo0
-	wBA+qkkLEh5WOFwOn6/c+pyYh/AELGlfryyLNiXQKyq1RdljTFMNT+Oq
-X-Gm-Gg: AYBFou1Aez1AVw84y3MPEfzkJVeGdxRJqOuKXLL1zOezPhSNNxL9L6NR6FWvr8lzfp2
-	0NCnJ79Tgw0F3EQlCTwWvFYwLeNR3K8D+P18qUw7K4ZWXxFwJVCcI/R/Ojs6iMrJ66scGM3vQOw
-	PAkTi3tfvbhNjqUHYRowFprP3EE3ScU27Au1VSFJXkTX6C102CJaa4CyxU6BO8BFZu36rmtIaN1
-	t0atHkiS8S1so06mlPhsCgk5o4z0avj9AuV14ivzyPM/2nTlffP+oPpQlTpV02CmwEMW0kxlRYY
-	Ba5414xvrl1ACBLlvzsqRhVgllP//oMLDbx1tTufJqwmRrphs1z9JfS8WpQWN6WzTLsDPm+3IBI
-	YkgSYszFBrBpKQ4jPeEW5zLi7J59kpsxkKx61nPpETwJAfJJLPBZ3h0VIv94KZYSHwnXwQavciD
-	rvB2xzunVKlAP4M1nVXGQkAHBKxiCvrd8+/nlan5Tl66N+4xSYC4Qo3xvWlG+3d8r3Ev69KuUn1
-	NuqzaVUEMqV1ia+aXYOFuhwhQ==
-X-Received: by 2002:a5d:5f51:0:b0:485:8a46:704b with SMTP id ffacd0b85a97d-4858a467215mr292343f8f.29.1788476367923;
-        Thu, 03 Sep 2026 15:59:27 -0700 (PDT)
+        bh=/s6nvcJwx7Ifs5qcA8T+nQv2xmeJ2s33utca3H2YozM=;
+        b=bAd7K8dRf/o+Zakecns7iMsciqKC63fg0/VsA/eispaE4NcthEtzBDa3BXcNKbkqTf
+         6LWyqhvMazgzHhGQbAKQuFSDemEXuIQEie5JRggoeb1YlO90PQTN5isdIGHLry7QLTLd
+         9gNzjwIBauxi0Cwv69FhAbhlKP1Osvde/USS/sopdbDTuWwujqfEJ88LURs+qg5nF7Lp
+         5Pbr7Y83CVMmmo52X5TZ9hshfYjh3t+SwEh7jV6MwwpoQUJ3R53BEci8UORBcytbNsie
+         Y2dXzoPobyE9vT+o8q79rI39ujhl+5asUq17cOuO6y7BWA89aZlTQz2NApmdqnx4YXyM
+         e4Ig==
+X-Forwarded-Encrypted: i=1; AKwUvBxWh8cX2AzrXBHM5AfBeqiVjRr04wezELDb4p0BFf1TqUXs+TqD3/hClLbrnT9wXfY3so3otHpBU1Fg8CiAdBQ4@lists.infradead.org
+X-Gm-Message-State: AFuF++knIHdbaaDEhEm+DSr1kFww4Fv3PdiIhbW9FZHcotrAmKF3G1Sd
+	oRgD5SlfKEAJ1XeORQWwoAqJ0/l3rTuK/X/mjF5xRG9RwlwVwlpf56Dd
+X-Gm-Gg: AYBFou1vHtBYAke3SrcBTdKk0XK7JVQCaQLCTlTlMTifO2BmplOiwLh105x0ltgDYaG
+	gNf0UnjlLKzvOQZXnFSw9LyNk7Y0KorYK8FiofkIcAF5Ifh+y0WnbNUNe4OteY5aayokqQgJUIR
+	dSLtB7J9y4pOrCUWKxRSRAKHQEkrZwdOogc7ophvrap6/rHqh3su3Gx49vkSU/7aJE33gqltm4a
+	R3Fka+dftp6SQ0L6lLqDbdg4VU/Qd5PFM0vZVVdAszRj9BtWpgVlCQFhN0AUuJwBHSxfkF/ticz
+	S/Y2cC/yBhkSaq0OoAkPrabUDxXTnI/084hH4JB/QYrmFlGnCfBAx4kev619rC+mgx5KAVEOhs/
+	RcANbhN1E+5F4qkozyDWewFNTK4coaH5jLVP9qrtq92xxpxtl7ze9XhjZ1k1ITBHmXYLQ0Eckus
+	kmYIsE6pXryg+3AkFq7q6GxUzXiDiTHUvXs39pLD3YGri5SnlDjFhJrNIIAsYyRNDALHXE4Wjuj
+	qC31cqCun2xbydtdwXiWoCiu/K1QGNVCCTUcVQ=
+X-Received: by 2002:a05:6000:2505:b0:485:8ad5:f965 with SMTP id ffacd0b85a97d-4858ad5ff97mr104210f8f.2.1788476366934;
+        Thu, 03 Sep 2026 15:59:26 -0700 (PDT)
 Received: from threads.localdomain ([84.68.179.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885c5bbdsm1686142f8f.36.2026.09.03.15.59.27
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885c5bbdsm1686142f8f.36.2026.09.03.15.59.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 15:59:27 -0700 (PDT)
+        Thu, 03 Sep 2026 15:59:26 -0700 (PDT)
 From: Lucas Tanure <tanure@linux.com>
 To: Ulf Hansson <ulfh@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -79,17 +79,17 @@ Cc: Brian Masney <bmasney+clk@redhat.com>,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Claude Fable 5 <noreply@anthropic.com>
-Subject: [PATCH 3/4] arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
-Date: Thu,  3 Sep 2026 23:59:20 +0100
-Message-ID: <20260903225921.2290441-4-tanure@linux.com>
+Subject: [PATCH 2/4] mmc: meson-gx: enable the bus pipeline clock on T7
+Date: Thu,  3 Sep 2026 23:59:19 +0100
+Message-ID: <20260903225921.2290441-3-tanure@linux.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260903225921.2290441-1-tanure@linux.com>
 References: <20260903225921.2290441-1-tanure@linux.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_155929_664966_3816D97A 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260903_155928_947345_AFFFF3DC 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,61 +104,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SD/eMMC controllers reach the DRAM through a pipeline stage that
-the hardware design inserts in the bus path to the NIC_MATRIX fabric,
-clocked by CLKID_SYS_AMPIPE_NAND. When that clock is disabled, a
-controller that starts a DMA transfer can never complete it.
+On the T7 SoC, the bus path between the SD/eMMC controllers and the
+NIC_MATRIX fabric goes through a pipeline stage inserted by the hardware
+design to help timing closure. The stage has its own gate clock and,
+when that clock is disabled, a controller that starts a DMA transfer can
+never complete it, hanging the storage devices and, from there, the
+whole system.
 
-Reference the clock from the three MMC controller nodes so the driver
-keeps it running, instead of relying on the clock being marked critical
-in the clock controller.
+Add a dedicated match data for the amlogic,t7-mmc compatible that makes
+the driver claim and enable the "pipeline" clock for as long as the
+device is bound.
+
+The clock is deliberately not optional: the hardware cannot do DMA
+without it, and failing the probe with a clear error is preferable to
+booting and hitting an undiagnosable DMA hang later.
 
 Assisted-by: Claude Fable 5 <noreply@anthropic.com>
 Signed-off-by: Lucas Tanure <tanure@linux.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+ drivers/mmc/host/meson-gx-mmc.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 719e111bc3dd..8f3f1c0579a0 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -762,8 +762,9 @@ sd_emmc_a: mmc@88000 {
- 				interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_A>,
- 					 <&clkc_periphs CLKID_SD_EMMC_A>,
--					 <&scmi_clk CLKID_FCLK_DIV2>;
--				clock-names = "core", "clkin0", "clkin1";
-+					 <&scmi_clk CLKID_FCLK_DIV2>,
-+					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
-+				clock-names = "core", "clkin0", "clkin1", "pipeline";
- 				resets = <&reset RESET_SD_EMMC_A>;
- 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_A_SEL>;
- 				assigned-clock-parents = <&xtal>;
-@@ -776,8 +777,9 @@ sd_emmc_b: mmc@8a000 {
- 				interrupts = <GIC_SPI 177 IRQ_TYPE_EDGE_RISING>;
- 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_B>,
- 					 <&clkc_periphs CLKID_SD_EMMC_B>,
--					 <&scmi_clk CLKID_FCLK_DIV2>;
--				clock-names = "core", "clkin0", "clkin1";
-+					 <&scmi_clk CLKID_FCLK_DIV2>,
-+					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
-+				clock-names = "core", "clkin0", "clkin1", "pipeline";
- 				resets = <&reset RESET_SD_EMMC_B>;
- 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_B_SEL>;
- 				assigned-clock-parents = <&xtal>;
-@@ -790,8 +792,9 @@ sd_emmc_c: mmc@8c000 {
- 				interrupts = <GIC_SPI 178 IRQ_TYPE_EDGE_RISING>;
- 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_C>,
- 					 <&clkc_periphs CLKID_SD_EMMC_C>,
--					 <&scmi_clk CLKID_FCLK_DIV2>;
--				clock-names = "core", "clkin0", "clkin1";
-+					 <&scmi_clk CLKID_FCLK_DIV2>,
-+					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
-+				clock-names = "core", "clkin0", "clkin1", "pipeline";
- 				resets = <&reset RESET_SD_EMMC_C>;
- 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_C_SEL>;
- 				assigned-clock-parents = <&xtal>;
+diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-mmc.c
+index 694bb443d5f3..68566d7eccc7 100644
+--- a/drivers/mmc/host/meson-gx-mmc.c
++++ b/drivers/mmc/host/meson-gx-mmc.c
+@@ -52,6 +52,7 @@
+ #define   CLK_RX_DELAY_MASK(h)		(h->data->rx_delay_mask)
+ #define   CLK_ALWAYS_ON(h)		(h->data->always_on)
+ #define   CLK_IRQ_SDIO_SLEEP(h)		(h->data->irq_sdio_sleep)
++#define   CLK_PIPELINE(h)		(h->data->has_pipeline_clk)
+ 
+ #define SD_EMMC_DELAY 0x4
+ #define SD_EMMC_ADJUST 0x8
+@@ -139,6 +140,7 @@ struct meson_mmc_data {
+ 	unsigned int always_on;
+ 	unsigned int adjust;
+ 	unsigned int irq_sdio_sleep;
++	bool has_pipeline_clk;
+ };
+ 
+ struct sd_emmc_desc {
+@@ -1204,6 +1206,15 @@ static int meson_mmc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(core_clk))
+ 		return PTR_ERR(core_clk);
+ 
++	if (CLK_PIPELINE(host)) {
++		struct clk *pipe_clk;
++
++		pipe_clk = devm_clk_get_enabled(&pdev->dev, "pipeline");
++		if (IS_ERR(pipe_clk))
++                      return dev_err_probe(&pdev->dev, PTR_ERR(pipe_clk),
++					   "missing pipeline clock\n");
++	}
++
+ 	ret = meson_mmc_clk_init(host);
+ 	if (ret)
+ 		return ret;
+@@ -1322,12 +1333,22 @@ static const struct meson_mmc_data meson_axg_data = {
+ 	.irq_sdio_sleep	= CLK_V3_IRQ_SDIO_SLEEP,
+ };
+ 
++static const struct meson_mmc_data meson_t7_data = {
++	.tx_delay_mask	= CLK_V3_TX_DELAY_MASK,
++	.rx_delay_mask	= CLK_V3_RX_DELAY_MASK,
++	.always_on	= CLK_V3_ALWAYS_ON,
++	.adjust		= SD_EMMC_V3_ADJUST,
++	.irq_sdio_sleep	= CLK_V3_IRQ_SDIO_SLEEP,
++	.has_pipeline_clk = true,
++};
++
+ static const struct of_device_id meson_mmc_of_match[] = {
+ 	{ .compatible = "amlogic,meson-gx-mmc",		.data = &meson_gx_data },
+ 	{ .compatible = "amlogic,meson-gxbb-mmc", 	.data = &meson_gx_data },
+ 	{ .compatible = "amlogic,meson-gxl-mmc",	.data = &meson_gx_data },
+ 	{ .compatible = "amlogic,meson-gxm-mmc",	.data = &meson_gx_data },
+ 	{ .compatible = "amlogic,meson-axg-mmc",	.data = &meson_axg_data },
++	{ .compatible = "amlogic,t7-mmc",		.data = &meson_t7_data },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, meson_mmc_of_match);
 -- 
 2.55.0
 
