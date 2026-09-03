@@ -4,91 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14076C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D629C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wr/fjBFmkGiUNcHN/04HABTtx4e0N/soNsKKmlZjqps=; b=tmLcGKmzcR4LYR
-	y8nADJGENkYBuObxsFHxdxS9H81b0Sz6zeNVFIq9ngU6t4OfRCCkuQwGfcrUsXWvAxTiQno3vU51N
-	meiOQ9uUoJfBWchflgu52+nVMguhnTBsdHdwXt7dAHUlbos4Q9vCbekvlZUt4XtJ+9q5i6A+OsSFt
-	FScSNFeY6bjpt6/Pldad0EiZsYQVLc8vAy8aauVjHHvjk8TdfMjCpFyRX0i99WzarxZe6y+GlwTdz
-	+JmSncG3f29NqwSrZ99N7y1uQc7cYI9cuu32+4o0kAN4JZcZMxNLHke1nkuhqZG0+G47VI6qfHoZd
-	/mnKbacOISNfJmpkg7sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DWwrRCUaQMd13jrkgTL7dC4SUzFnWzdzuMg8vGXTBg4=; b=0aP8vKqKdkGUEgmzq7tYbwAxRm
+	asurFIpN+XFWhLKJ7CLHANoUIThRGwd7QPgpwsbsQTfXDbMCH7GkStytupio0EpcfLY7ERgInLIwm
+	Md3tKhpmvdov0J/e31/sYZ6VhI+QnKVzD2zMlkw5JPeD6HQ5qRmwLR1AcWDo1oi1yiCK7yukrSYvf
+	AO11A7KlSJVA0SpKBnCIJ5iHlhrFwqqLjHwVRBmt7uhL6eWvEs1+Zm2hYru70wrvxvx+OGiwVQIRK
+	z2NwqxQ0z8OXE2QjAbie3JX7+e/re6QaCG9iklx5jtotNojYG5ArbCXR7v6pCVIZlR6WgdL4j3fwI
+	vA6TSxsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24X7-0000000H43D-3U4e;
-	Thu, 03 Sep 2026 10:19:01 +0000
-Received: from hqu.edu.cn ([210.34.240.11])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24X2-0000000H41U-4AcU;
-	Thu, 03 Sep 2026 10:18:59 +0000
-Received: from [127.0.1.1] (unknown [27.42.228.181])
-	by cmweb (Coremail) with SMTP id C_Ai0gAXe9qFSZlqyEUHAA--.14896S2;
-	Thu, 03 Sep 2026 18:18:47 +0800 (CST)
-From: YuChia-Kan <raspberrykan@stu.hqu.edu.cn>
-Subject: [PATCH v3 0/2] Add initial device tree support for the Xiaomi Mi
- Box 4 (MDZ-21-AA), an Amlogic S905L based TV box.
-Date: Thu, 03 Sep 2026 18:18:44 +0800
-Message-Id: <20260903-mibox4-dt-v3-0-1a8e395d923c@stu.hqu.edu.cn>
+	id 1x24Xp-0000000H4IS-19z1;
+	Thu, 03 Sep 2026 10:19:45 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x24Xn-0000000H4HG-03PT;
+	Thu, 03 Sep 2026 10:19:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uyj1l1RIAPwFDURSdrmMQhj1HO18L28jpJhP2QgTWYjIrzZR6bTk7Hwn+Ijjal6M/RAFLTjLuB2MN5TFYPOuKOsbzEFOYqe+aNE0+88uAqIcyvxzuosV/9CE+hZm+EVF/qSfR4YAVc43UwEBHHegfHp8W6G9xuAhXZt/FuEIQJBpa+ewTSO3A1y5wpMGVCQbdFaFDE1SCO6DK874/DW3KAkQy+cpcUX+2k7IKlUXd26kj345gme31zNV1GBtlRu0F4s8pZmjjrIb1GGRXvVYDURSXuuH9Zqc7Fhm9/B76NFY2krVqs+f3obiJNeuuY5RRWV25LPpiahvMQ5uoWwbbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DWwrRCUaQMd13jrkgTL7dC4SUzFnWzdzuMg8vGXTBg4=;
+ b=OuHLTwwk+EJhVm+GeSvALgcPzAI3z16vVzhzrwiSUu89s1pMDqc7XQS58ETcALvgIKjb4JUoK0MeEtnSPmzA+lDGd3jFWsl7JNCrNvqmGDN4WXg8O6m09koXBwaFQ9ozM/f7rNm7QxAfDZQxR7VzDEiUJyjFrk6MciXnbxpvwsv3cviSjqtyl4282SQXEBndgbVy0jxHv+OFqglW+GIrgPzzV7IxFRiw1R3ra6OYHFz7r8EkIkQ/b8eMn3YJp8v24NBJM/yDE039DGW0LDncUAajYRVpKQdSKrigMv8gyIYsloBgMeuziKCqd7JJc+XJArZ6oDWjyOHQRYgzgxP9Tg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.88) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DWwrRCUaQMd13jrkgTL7dC4SUzFnWzdzuMg8vGXTBg4=;
+ b=Iq06QDItacyE0sAXS2zSnqbjKNNxed7Zrvm+q1efHQhjzKUAtrL3MzDI02lL0Ns7UaPsB19rPbbvEuYG9oHoiYyRXRx8SzD/F85H+Q6ZLB8hWIsh0Da2X2In6h1+qvB5o/pED1skocqPBFTdxKBJzDnbpFLnc62tKNXjhQdkUOR4rPGwr5/2dfFAqO5QFwjBhZGX6Vm3SC/vKmDF5UQ9WBbY13idCsyzyYt+XRQK2C9WKYcdSrEIG8r3HByeES/gwQx+y7BtnYh5HIxLqJoejHPjUAU59BgbAaSqVWouaWSVxsgLaJ8FfX9ON5RxXihkKidsEXo/jemZRSX9MEifSA==
+Received: from AS8PR04CA0210.eurprd04.prod.outlook.com (2603:10a6:20b:2f3::35)
+ by GV4PR10MB9596.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:2eb::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 10:19:32 +0000
+Received: from AMS0EPF00000192.eurprd05.prod.outlook.com
+ (2603:10a6:20b:2f3:cafe::98) by AS8PR04CA0210.outlook.office365.com
+ (2603:10a6:20b:2f3::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
+ Sep 2026 10:19:32 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.88)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.88 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.88; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.88) by
+ AMS0EPF00000192.mail.protection.outlook.com (10.167.16.218) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 10:19:31 +0000
+Received: from ENXDAG1NODE4.st.com (10.75.129.197) by smtpo365.st.com
+ (10.250.44.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 3 Sep
+ 2026 12:16:49 +0200
+Received: from [10.48.86.251] (10.48.86.251) by ENXDAG1NODE4.st.com
+ (10.75.129.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 3 Sep
+ 2026 12:19:29 +0200
+Message-ID: <34e63564-0191-406a-973a-eb601292b255@foss.st.com>
+Date: Thu, 3 Sep 2026 12:19:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOyw6CMBBFf4V0bclQGh6u/A/jorRTqYmgfQVD+
- HdbXKrLk9xzZlbi0Bp05FisxGI0zsxTgvpQEDmK6YrUqMSEAWugh5rezTAvnCpPdcOBcwUchCJ
- p/7CozbK3zpcPuzDcUPocyIvROD/b134sVnn3qxsrClSzXlfYsU6K+uR8KMdnKFGFUk4kxyP7q
- 7OsD9jK9F3LRPulb9v2Bgu5e6v4AAAA
-X-Change-ID: 20260903-mibox4-dt-f64044d040ad
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- YuChia-Kan <raspberrykan@stu.hqu.edu.cn>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2346;
- i=raspberrykan@stu.hqu.edu.cn; h=from:subject:message-id;
- bh=gvEjdanZCaiyNVusHMgfL+FsHqRb76jX1oJE4DHX5EQ=;
- b=owEBbQKS/ZANAwAKAZoNcluxItUHAcsmYgBqmUmGrqmaWwoSf3aCbXHllzVTMr9rKZxKSVDCp
- jyRE3+UuA6JAjMEAAEKAB0WIQTDd02egjFwFlgfDD2aDXJbsSLVBwUCaplJhgAKCRCaDXJbsSLV
- B8t0D/9s8RA8FZe0V/ceiRvoyobBKHJ34vwxVOsx2iqa96G/NqWyd9KoKgznf1yyLKEjrXRQ9bh
- DCKhvxCmFUBJPdkvMz2AoJ2VhGE+Nu11cb9LFuW9kenQWANyXZOVQcDdvubFH77tmyK4rK2Koyz
- +30f8yrPh6Qm+lxeFzxlECCw3XHpXdxStk9WEmZIEb6fAdlFyDCYXSuNi9x8kV3gN484hSnfj6h
- LPwyxx+BaLko7doonTer1CDaADFVIzVM3C70gV54bigpBfDqVhAWECn2dPmdFpgw4NK5oZD6+4+
- q+DDeGE8gE7ioxF2zPh7enVubwD2yd+bTyvb1x/OTu12gh4BKqWRa+4vCqQG7rtEPcUYN8rdNIi
- ymD6r3qLCd08kx7niafoYEZo86iunZT/y87ouKNDrtZDjsWDdS8Xhm2jYEBgtK9JsEpgVJvoYl8
- 0FmIi9xiU5wkRA8yFMIr66ep+EO8k8KXoGEIxpOAOV1r+GGPT6GO5Lcy6zKKDwBk0xTOfggW+qk
- eg5HVbLOIURKq1K5gn/1ikA63N92nKKPxP09U7ZWa+8A5KpYQyWAZmBORKk9swUjLWnB42ZB7mA
- rLwC6tkS9zvKQGV0g8LTKj6NVQs6SjD+bP3Wv7cuYZIYwfU3z0BrX2i9Q1F/10u6A/8rmQrTbUb
- mieVnC0yqQTfDqQ==
-X-Developer-Key: i=raspberrykan@stu.hqu.edu.cn; a=openpgp;
- fpr=C3774D9E82317016581F0C3D9A0D725BB122D507
-X-CM-TRANSID: C_Ai0gAXe9qFSZlqyEUHAA--.14896S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4UJrWrJr15Jw4xJw1rCrg_yoW8KF45pF
-	WxuFyrKFZ3tF1Skws3J3WxuFWrXa1kAF4jyry2gw15Xr13Jw10q39YvFsavry3CF98uF17
-	tFyUXr1Yqw4DC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvKb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kI
-	c2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbV
-	WUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF
-	67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42
-	IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF
-	0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxh
-	VjvjDU0xZFpf9x07bOlk3UUUUU=
-X-CM-SenderInfo: ysvskiyqsqlko6vw3hxktxhvlgxou0/1tbiAQASBGqYO2MCOAAJsO
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+To: Marek Vasut <marex@nabladev.com>, <linux-phy@lists.infradead.org>
+CC: Pankaj Dev <pankaj.dev@st.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>, Rahul Kumar <rahul.kumar05@st.com>,
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>, Christian Bruel
+	<christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Patrice Chotard <patrice.chotard@foss.st.com>,
+	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, Vinod Koul
+	<vkoul@kernel.org>, <devicetree@vger.kernel.org>,
+	<kernel@dh-electronics.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20260902141312.649406-1-marex@nabladev.com>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20260902141312.649406-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To ENXDAG1NODE4.st.com
+ (10.75.129.197)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000192:EE_|GV4PR10MB9596:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83109a49-9883-4d54-d962-08df09a4d856
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|23010399003|376014|7416014|10067099003|3023799007|6133799003|56012099006|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: T5P8j8MN2qKgrfPD4zjR1+GerB0BUGMPn9VKK2aqDT9wu3J48dJ7fb0YmUt1baEA/6pLpCCYC22XJYevnyQceHiNjbtLezo5uFDG7CxStfWaU0WyEj0JsPThkeLvU9xKm2OhBhsyqwYW6zdpkupVtNc+scSepoAlRvJTXrDxNnT0wUDYEKtg+WFPLu3MlZQLkRLC27NOqSqC2j2JbasgvdeLwg74j1SyYIqFb3zDCUOHBPE/AaC6QcPLGU6wmMVzHoJaPc4gvQIHCZUBz9uzmXCyPGm5MGAsDONsX4HgtyQlZm8HdDS7gVlkQw8yKVK1wSRx8fZisuIYykterwW84euTfiPsi2W1FKspOFipiq9UN/JEldNtn3RL8a5FaxLGP2ZEeQ33O9VpZfhcuLZ2saB/263iUZ/L3ETHotJtWrOtgBP4aqrhMSbPyYj60YX/chgoudQNDg5yEUVaV3zS+u2MjOfdZ4SiM2BelL7Da0et8dcO9GahYtBWo7qvTHq9NRirvKU27dqU3rNRY+yFyuJ4Gu/ObLIDn+sJrSIAxWHwGlmyhrpbD+e/Nukvqf1GqYTSs4zi/+/HO9mJIy3647xQRWuvENW925QXDjv4e2TwunE2ALK/8TkciXywdeSndwSm5g3Qk/CIiO1wYVJiIA==
+X-Forefront-Antispam-Report: CIP:164.130.1.88;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(23010399003)(376014)(7416014)(10067099003)(3023799007)(6133799003)(56012099006)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6fUT0CwICTzxUpjQQehgXElTps+XOEYNZUyo2bVPU3cUrddn7q1cywnpvb8zN+C6hRLzcKtEkzfYjxql+MrXbxQSStyxp09qXKF0zzNvBXT6PDVqrG6f6r7RjQ1V3I7pX/Gc+D/VKbD1zl5oyQFxBX0bPKYhlts4R9JQmLAx4XUWx7I7DZ3kutXYqpFFLwPr1mcM5JYUzVJitk/Nkxk19anCLmQOBQD+HcualahiFIP67nDeSiBRLLEtekvWZQD8ZNi9dNOA2fiXldjCA5nUheQVOcsd1+3b339kbHBWtdDD4SR3viGoeSmcCX+G8NBHqmWe28Zv5w3SOfvV8vCdSvc7VvuPijnBh8FP0ddJLL7+9aimNfKPaEiXyGiMzXcbBR5vp9iJeKvEy4RLIR7HcGefJziJC+NTZcDTnwSACkm//X+KN8oGE3YqqnrLI6kT
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 10:19:31.7927
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83109a49-9883-4d54-d962-08df09a4d856
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.88];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000192.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR10MB9596
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_031857_523252_A00059C7 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260903_031943_214671_0C67E329 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,69 +136,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series adds the board device tree and enables the main on-board hardware, including eMMC, RTL8723DS Wi-Fi, HDMI output, HDMI CEC, USB host, power LED, audio, Mali GPU and the Amlogic video decoder.
+On 9/2/26 16:13, Marek Vasut wrote:
+> From: Pankaj Dev <pankaj.dev@st.com>
+> 
+> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+> Two such PHYs in total are present in STM32MP25 SoC, they both are
+> slightly different, therefore they use different compatible string
+> to discern them.
 
-Bluetooth is currently not described in the device tree. The device firmware uses the H4 UART protocol, while the current mainline RTL8723DS Bluetooth support expects H5.
+Hello Marek,
 
-Tested:
+I'm not sure if/how this fit with all below tags. For all the
+contributions you've made, you can add my:
+Reviewed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
-* SMP (4 CPU cores)
-* 2 GiB RAM
-* eMMC
-* RTL8723DS Wi-Fi
-* HDMI output
-* HDMI CEC
-* USB 2.0 host
-* Power LED
-* Mali GPU
-* Amlogic VDEC
+BR,
+Fabrice
 
-Also verified that the sound card is correctly registered.
-
-Not tested:
-
-* CVBS / analog AV output, due to lack of compatible test equipment
-
-Signed-off-by: YuChia-Kan <raspberrykan@stu.hqu.edu.cn>
----
-Changes in v3:
-- Rename the DTS to meson-gxlx-s905l-xiaomi-mibox4.dts to follow the existing Meson DT naming convention.
-- Remove the IR receiver node, as this hardware variant does not have an IR receiver.
-- Link to v2: https://patch.msgid.link/20260903-mibox4-dt-v2-0-fbe7c04472a7@stu.hqu.edu.cn
-
-Changes in v2:
-- Drop the LED label and use the standard color property.
-- Drop the redundant Mali GPU definition inherited from the common DTSI.
-- Document the custom Mi Box 4 efuse layout.
-- Link to v1: https://patch.msgid.link/20260903-mibox4-dt-v1-0-f29f1e828ca3@stu.hqu.edu.cn
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-To: Kevin Hilman <khilman@baylibre.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-amlogic@lists.infradead.org
-
----
-YuChia-Kan (2):
-      dt-bindings: arm: amlogic: add Xiaomi Mi Box 4
-      arm64: dts: amlogic: add Xiaomi Mi Box 4 support
-
- Documentation/devicetree/bindings/arm/amlogic.yaml |   1 +
- arch/arm64/boot/dts/amlogic/Makefile               |   1 +
- .../dts/amlogic/meson-gxlx-s905l-xiaomi-mibox4.dts | 333 +++++++++++++++++++++
- 3 files changed, 335 insertions(+)
----
-base-commit: ae77d827fb0e6fb2faf8186f075c6c337f2dcf08
-change-id: 20260903-mibox4-dt-f64044d040ad
-
-Best regards,
---  
-YuChia-Kan <raspberrykan@stu.hqu.edu.cn>
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+> Co-developed-by: Rahul Kumar <rahul.kumar05@st.com>
+> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
+> Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Co-developed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Co-developed-by: Marek Vasut <marex@nabladev.com>
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Christian Bruel <christian.bruel@foss.st.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Pankaj Dev <pankaj.dev@st.com>
+> Cc: Patrice Chotard <patrice.chotard@foss.st.com>
+> Cc: Rahul Kumar <rahul.kumar05@st.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Rosen Penev <rosenp@gmail.com>
+> Cc: Vinod Koul <vkoul@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-phy@lists.infradead.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+> V2: - Fix up Sob/Cdb lines
+>     - Fix up compatible string in example
+>     - Use additionalProperties: false
+>     - Expand description:
+>     - Use clock-cells = <1> to discern OSC and future PLL clock from the PHY
+> V3: - Move clock-cells next to PHY cells
+>     - Fix the bindings
+>     - Fix up Sob/Cdb lines further
+> V4: - Reorder the properties: list, put #...cells at the end, reg after compatible
+>     - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB support
+>       https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.com/
+> V5: Add RB from Krzysztof
+> ---
+>  .../bindings/phy/st,stm32-usb2phy.yaml        | 68 +++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+> new file mode 100644
+> index 0000000000000..c76e94c044e67
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+> @@ -0,0 +1,68 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/st,stm32-usb2phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STMicroelectronics STM32 MPU High-Speed USB PHY
+> +
+> +description:
+> +  USB2 PHY block in STM32 is attached to USB 2.0 Host controller and
+> +  USB 2.0 side of DWC3 DRD controller, and provides the USB LS/FS/HS
+> +  connectivity. Both PHYs are the FEMTO-PHY, but their configuration
+> +  bits in the system control register are different for each variant.
+> +
+> +maintainers:
+> +  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> +  - Marek Vasut <marex@nabladev.com>
+> +  - Pankaj Dev <pankaj.dev@st.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - st,stm32mp25-usb2phy1
+> +      - st,stm32mp25-usb2phy2
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  vdd33-supply:
+> +    description: Phandle to regulator providing 3V3 power supply to the USB2 HS PHY
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - resets
+> +  - vdd33-supply
+> +  - "#clock-cells"
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +
+> +    usb-phy@2400 {
+> +        compatible = "st,stm32mp25-usb2phy1";
+> +        reg = <0x2400 0x24>;
+> +        #phy-cells = <0>;
+> +        #clock-cells = <1>;
+> +        clocks = <&rcc CK_KER_USB2PHY1>;
+> +        resets = <&rcc USB2PHY1_R>;
+> +        vdd33-supply = <&vdd33usb>;
+> +    };
 
 
