@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D443C624D6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 609DFC624DB
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 05:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3vqEOSCHdzH1bKgUUjeMU5Tre2E4mlpV47mZxSd3DE=; b=FrPUPuD4Y/t20sg7DFHvwjlnLo
-	TAosvST3XTdT8sWU/RppvubR1H6NcXR5Nzeq6Xiu2PwhnWvarzmLLsCJcAweHcPZEHk8dWtaAcM0v
-	r9qcnUVXwWBwXy9jEfrhWJW1NEXUgB7i0KT2GPec4kX0swnQStqQzrqz1Wd1sKK/H2GbOAZ0OnVno
-	M1Sy/RE/ukr0HZayfFtmCBOIaa4Xb3vG3M6D+gogt7RcP2SaYqUlSNgPLc49iGA8slFCjb41NyJrg
-	cCyUV63RzJB+NArGEAf2kl3Ex8GObpUQsK61xMpZa3GBrSigi3EFr79IGrTG/XE3effuB78O3AD21
-	3yObJBDw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e0L5I00LVPm1n5KknkVUHbQar9pWV7FvX71s/9jXU4U=; b=PnUTJdg7lubzCX
+	iQi/A6CpLULPDSzpldmy4r27qdDgVNdnCuERnXBVSWvVYC82gfZVaLWaC9zL45K6RSlfl7t+1GvIw
+	PoOvNSXcIbrVkq1Ib1cJmCBra/Jqhn5CEhKXofTBr0PmIRQMJDuSU99NhcANVS9VYeCMHQymxrOdj
+	Y7pA8iwmfp17pvfwZTQnHfpH87tAt4z+PEnJkx0O2WU49RLAP9PAXMKblEjCBGqe3SwazNAYe7Ly+
+	0dB+GsML3BSDvWCoBtlbRUD+LQvkKtEB9qzj/btuqXHK2T0owEUy283UnqM516eA+u1/RjIi+k95k
+	I6YnA7DvRMlLaEKeb2+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x20A7-0000000GPaJ-3t9Q;
-	Thu, 03 Sep 2026 05:38:59 +0000
+	id 1x209u-0000000GPMA-2fTq;
+	Thu, 03 Sep 2026 05:38:46 +0000
 Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x209w-0000000GPJi-0b5G
+	id 1x209p-0000000GPJi-0kcG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 05:38:51 +0000
+	Thu, 03 Sep 2026 05:38:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1788413928; x=1819949928;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=HlYAVuM9vZLFTesP9pfThfI3jTZfqm2p6kxvhhe8OIs=;
-  b=JXA3qy3g11etOvEQ3ApCQDIYWEWTFArx0QsjNmUq/UGpVUe2jJsJ+E8j
-   FFTtP1wIJ/8paOzjDwLrsr61MyTW3ZRtpblAQ4zKzThKaJDCb+acWHAFL
-   7YRkHS8vnMrdBw3BniIm4K437jC2SWxUGsOjsO+q8Rs0xpF9HqlXEvVJx
-   pcfkaQL6PzuDV4UBorFJVTPB9g7IeB6Uxhl5xXTXNRuh9HzZyJ1hftvb8
-   ZRNC6epNZ/C5jCtOE8LTTdy32wLfxlrdUaf2UiRUrYoF5p0K8yjokwrbt
-   0cO/by+whDj97QK+BT6uz4bPoE9smHgZNooDSlPGNADZtaDs2tker+YYq
-   Q==;
+  t=1788413921; x=1819949921;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=DGHMa0elmHe7zroIZqViDotdXzPUEOAZSse6uP5DSf8=;
+  b=rRSInq62k4yz9tf0WeM7nRm4WUbNsV+4jlh7G9Ii+mtjRso3My5GqPl0
+   9x8jI8EM3kJtojrAQqPGy+gOoCpOJUu/k5aStfxNfx/0agvxNSdHuk+N3
+   fFncF+s/flqfWXC1Qf8HngfDxY9YjR47XcMW/qh6DW3v/bLTJp+bwpnxx
+   0PfdBts57cTzu8cZjpNaqfaHUjUaoeDigHv8zgdQzGYHGTdx2Y2misLXV
+   zDcohNse1BhmgcPlsNcBGdTriP3OpX3sHiV9P1Syk3zr5Gn+gA72GJFdC
+   Xkn4Z4Ac4olYpZrBrIM4N/S9rvX8+vBwULzHu71ldaQ+tswkqJ6GxRVMn
+   w==;
 X-CSE-ConnectionGUID: HwvXeYcWThWecnr8u3ngag==
-X-CSE-MsgGUID: /AU/EbUrQla8nE5rUGWt8Q==
+X-CSE-MsgGUID: eAjQHc2aQXO0OmiFZTH/9g==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
 Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:38:47 +0300
-X-CSE-ConnectionGUID: DGlRIx87RHqxRAx0DKNZDQ==
-X-CSE-MsgGUID: /Qj9nrTdRMmiTWGdE7nxiw==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
-  by ces03_data.me-corp.lan with SMTP; 03 Sep 2026 08:45:15 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 03 Sep 2026 08:38:46 +0300
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:38:37 +0300
+X-CSE-ConnectionGUID: 1R5tgvQmQ1eeiTDezhVfyQ==
+X-CSE-MsgGUID: DRImNC4JT0mItxgK7dbeRw==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces03_data.me-corp.lan with SMTP; 03 Sep 2026 08:45:04 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 03 Sep 2026 08:38:35 +0300
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 03 Sep 2026 08:38:17 +0300
-Subject: [PATCH v2 10/12] i2c: designware: stop transfer if spurious STOP
- is detected
+Subject: [PATCH v2 00/12] I2C - detailed transfer reporting in case of a
+ fault
+Date: Thu, 03 Sep 2026 08:38:07 +0300
+Message-Id: <20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-i2c-fault-reporting-v2-10-fedeb91792e6@mobileye.com>
-References: <20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com>
-In-Reply-To: <20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com>
+X-B4-Tracking: v=1; b=H4sIAL8HmWoC/32NQQqDMBBFryKz7hQzQtCueo/iIsaJDqiRJJWKe
+ PemHqDL9+C/f0DkIBzhURwQeJMofslAtwLsaJaBUfrMQCXpUlOFQhadeU8JA68+JFkGbKjStjH
+ OWeohL9fATj5X9dVmHiUmH/brZFM/+7+3KSxR950ytTGdU/Vz9p1MvPPd+hna8zy/ranRl7kAA
+ AA=
+X-Change-ID: 20260623-i2c-fault-reporting-9236c9affc2d
 To: Andi Shyti <andi.shyti@kernel.org>, 
  Steven Rostedt <rostedt@goodmis.org>, 
  Masami Hiramatsu <mhiramat@kernel.org>, 
@@ -74,8 +77,8 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_223850_513751_A2E3645E 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260902_223841_701454_AADA8CB0 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +93,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In `i2c_dw_process_transfer()`, if STOP_DET flag is set while read or
-write is in progress, the transfer should be aborted. If this flag is
-handled the same interrupt as TX_EMPTY flag, the driver first handles
-TX_EMPTY flag and transmits the following messages, and only afterwards
-checks STOP_DET flag.
+The existing API has function `i2c_xfer` that transfers one or more
+messages, and it only returns a single error code if the transfer was
+failed. It doesn't allow to know how many of the messages were
+transferred successfully, neither how many bytes were transferred in the
+message that caused the fault, and also it drops all data received from
+target device before the fault. There is a comment about this in
+drivers/i2c/i2c-core-base.c: "REVISIT the fault reporting model here is
+weak".
 
-Also, if STOP_DET flag is set, interrupts are not masked, so if TX_EMPTY
-interrupts arrives later, the driver will also send further messages.
+This patch series implements new API function `i2c_xfer_v2` that does
+the same as `i2c_xfer` but also returns detailed transfer report, including
+number of messages and bytes transferred before the fault. This also allows
+client to get the bytes read from the target before the fault occurred.
 
-To abort transmitting data after spurious STOP, check STOP_DET flag
-before TX_EMPTY flag, and if STOP_DET flag is set while transfer is in
-progress, disable interrupts as it is done in case of TX_ABRT flag set.
+For user space clients, new ioctl `I2C_RDWR_V2` is introduced.
+
+Patch for `i2c-tools` user space utility that introduces support of this
+feature:
+
+https://lore.kernel.org/linux-i2c/20260623-i2c_detailed_report-v1-1-b67259a31a9d@mobileye.com/
+
+A usage example (the first message changes the target address, so the
+second message is not ACKed):
+
+    # i2ctransfer -r -y 0 w2@0x20 0 0x55 r1
+    Error: No such device or address at message 1
+    1 out of 2 messages sent
+    #
+
+In this patchset, the introduced functionality is implemented in
+`i2c-nomadik` and `i2c-designware` drivers. Several other improvements in
+these drivers related to fault handling are also included in this patchset.
+
+`i2c-nomadik` driver has been tested on EyeQ6H.
+
+`i2c-designware` driver has been tested on EyeQ6L+.
+
+The implementation is split up into patches:
+
+Patch #1 Introduce callback `xfer_v2` in struct `i2c_algorithm`,
+	 function `i2c_xfer_v2`, ioctl `I2C_RDWR_V2`, structures for I2C
+	 transfer reporting and implement all driver-independent functionality.
+Patch #2 Optimize struct layout in `i2c-nomadik`.
+Patch #3 Remove automatic retransfer in `i2c-nomadik`.
+Patch #4 Fix error codes returned by `xfer` callback in `i2c-nomadik`.
+Patch #5 Replace `dev_err` with `dev_dbg` on I2C faults in `i2c-nomadik`.
+Patch #6 Add quirks that describe some limitations of `i2c-nomadik`.
+Patch #7 Add support for `xfer_v2` in `i2c-nomadik`.
+Patch #8 Fix error codes returned by `xfer` callback in
+	  `i2c-designware`.
+Patch #9 Reset SMBUS_READ_BLOCK_DATA bit in functionality mask for
+	  `designware` variants without EMPTYFIFO_HOLD_MASTER feature.
+Patch #10 Terminate transfer if spurious STOP is detected in
+	  `i2c-designware` driver.
+Patch #11 Separate `i2c_algorithm` structure for AMD_NAVI_GPU variant of
+	  designware controller.
+Patch #12 Add support for `xfer_v2` in `i2c-designware` driver.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/busses/i2c-designware-master.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Changes in v2:
+- Add support for detailed transfer reporting in designware driver (patches
+  #8..#12).
+- Change `unsigned char` into `u8` in patch #2.
+- Added code-review trailers for patches #3..#7.
+- Rebase on new kernel version (no conflicting code changes).
+- Link to v1: https://lore.kernel.org/r/20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com
 
-diff --git a/drivers/i2c/busses/i2c-designware-master.c b/drivers/i2c/busses/i2c-designware-master.c
-index 76f28e1696bdc81326cf149dfe88c52dd2f0731f..936b9150754e85a1bac2d17a0fa65f6963e4ef3e 100644
---- a/drivers/i2c/busses/i2c-designware-master.c
-+++ b/drivers/i2c/busses/i2c-designware-master.c
-@@ -651,17 +651,19 @@ static void i2c_dw_process_transfer(struct dw_i2c_dev *dev, unsigned int stat)
- 	if (stat & DW_IC_INTR_RX_FULL)
- 		i2c_dw_read(dev);
- 
--	if (stat & DW_IC_INTR_TX_EMPTY)
--		i2c_dw_xfer_msg(dev);
--
- 	/* Abort if we detect a STOP in the middle of a read or a write */
- 	if ((stat & DW_IC_INTR_STOP_DET) &&
- 	    (dev->status & (STATUS_READ_IN_PROGRESS | STATUS_WRITE_IN_PROGRESS))) {
- 		dev_err(dev->dev, "spurious STOP detected\n");
- 		dev->rx_outstanding = 0;
- 		dev->msg_err = -EIO;
-+		__i2c_dw_write_intr_mask(dev, 0);
-+		goto tx_aborted;
- 	}
- 
-+	if (stat & DW_IC_INTR_TX_EMPTY)
-+		i2c_dw_xfer_msg(dev);
-+
- 	/*
- 	 * No need to modify or disable the interrupt mask here.
- 	 * i2c_dw_xfer_msg() will take care of it according to
+---
+Dmitry Guzman (12):
+      i2c: core: add I2C_XFER_V2 - support for detailed transfer reporting
+      i2c: nomadik: optimize struct layout, change unsigned char into u8
+      i2c: nomadik: do not try to retransmit I2C message series on errors
+      i2c: nomadik: return proper fault codes
+      i2c: nomadik: change print level for fault messages to debug
+      i2c: nomadik: add quirks max_len=2047 and no_zero_len_read
+      i2c: nomadik: add support for I2C_XFER_V2 - detailed fault reporting
+      i2c: designware: return proper fault codes
+      i2c: designware: no SMBUS_READ_BLOCK_DATA without EMPTYFIFO_HOLD_MASTER
+      i2c: designware: stop transfer if spurious STOP is detected
+      i2c: designware: use separate `i2c_algorithm` for AMD_NAVI_GPU
+      i2c: designware: add support for I2C_XFER_V2 - detailed fault reporting
 
+ Documentation/i2c/dev-interface.rst        |  46 +++++++++
+ drivers/i2c/busses/i2c-designware-common.c |  23 ++++-
+ drivers/i2c/busses/i2c-designware-core.h   |  14 ++-
+ drivers/i2c/busses/i2c-designware-master.c | 160 ++++++++++++++++++++++++++---
+ drivers/i2c/busses/i2c-nomadik.c           | 111 ++++++++++++++------
+ drivers/i2c/i2c-core-base.c                | 107 +++++++++++++------
+ drivers/i2c/i2c-dev.c                      |  79 +++++++++++---
+ include/linux/i2c.h                        |  12 +++
+ include/trace/events/i2c.h                 |   6 +-
+ include/uapi/linux/i2c-dev.h               |   9 ++
+ include/uapi/linux/i2c.h                   |  21 ++++
+ 11 files changed, 489 insertions(+), 99 deletions(-)
+---
+base-commit: 940de590b839f71d6dc846160534bf202401b8b7
+change-id: 20260623-i2c-fault-reporting-9236c9affc2d
+
+Best regards,
 -- 
-2.43.0
+Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 
 
