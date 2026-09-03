@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF60C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692C2C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Rh82UpIZQ7NIonfNGs8YTQqWSqGT+MHCSLTl6BXJFs=; b=FHhaYbhMErFRNeMi1wFqg2b4WS
-	QkEocWpSGaZillyONop+5bAkHe72TUACuaFEqxdTV3pOvavoHyvwqWjDDvhjzN2S4E3wyRQrTH4a4
-	HKZNK2bF3hIowJsDO7iQp/O65Y4EPu04o9N9DQOBBJT8sgSwO/XuJYS8lywDfbEGMTH1yCEtfGsRL
-	rk+DobB09648Sy9CtXC3m5/lG7nAVBSbLl3Ck2TcQkj4IMgSIjnpP1KYZhTkuPg1ecp8mqZbBd/nc
-	nzjdUsi5q/q0cHPVUVvl99WXqk9RPfbCoM5pj4/5vQiImCBQ5Lyk3bi3Ikr2ZyGs5qzuhFdjbnRWv
-	t6lErX3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XD10siGyv2UXcVcAX66uMHAbJieFBJyM178WgyCpFQo=; b=Yl2geC9gjj3RYREdvjdN3riuB4
+	c9adMpx+94Lfk8YYTiS0Sq2Y2Bo0k6ArmkwqNryGtfG8yW8W2MLAVhyrga4kbsrSjL/GOXMYGHBki
+	HKzc5xWuBBVkVkXQBxjCQCeEdTS/Cqu7zu39HaAppV5J6cYZdypAa0ld/tvQ0vW067JzXCdJakqdQ
+	9kGjTzI8vSWMLglCcIoISjJnWxbIV8MLSqIHkNFN+4xAwje35xcurWYorNWMtFanhOfPP/RpiNn5r
+	INRr+IWUqhl2hom+GVOFDasrzwgg+5n7TfTmT0G7ZknBK0LVVQA2COYl482XSddfzu7x2mrJv20AW
+	qXX4zWdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21wZ-0000000Gac6-2Yzf;
-	Thu, 03 Sep 2026 07:33:07 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x21wh-0000000GajN-3afA;
+	Thu, 03 Sep 2026 07:33:15 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21wV-0000000GaXv-1GKT;
-	Thu, 03 Sep 2026 07:33:05 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260903073300euoutp01f932cc3b5b8312ed22b276d0d0ac5943~RvzldRbJd3111131111euoutp01L;
-	Thu,  3 Sep 2026 07:33:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260903073300euoutp01f932cc3b5b8312ed22b276d0d0ac5943~RvzldRbJd3111131111euoutp01L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788420780;
-	bh=4Rh82UpIZQ7NIonfNGs8YTQqWSqGT+MHCSLTl6BXJFs=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=bQV1zXZ4+kSUiD1UtpA8m7+DEFdp3b+UJT/x0X50HERkYva4J2b8M/D3zL6qOxYy5
-	 6lfDF3e+/r2d8teE3hZUKOHqLhKuqFmsKNY1MOeHj8gIqcQh65i9ERtw7Ct1LVadGN
-	 is0YSAfIOwuPbjiTdffjbCDzJGY3smVOZSHQSVyY=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903073259eucas1p1129fec57788d227a159662ed4bbd4068~Rvzk9e9k82315423154eucas1p1i;
-	Thu,  3 Sep 2026 07:32:59 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903073256eusmtip1b94b6b13230ed6f62847ad6ac2a1cf65~RvzhrjUza3241332413eusmtip1J;
-	Thu,  3 Sep 2026 07:32:56 +0000 (GMT)
-Message-ID: <859ff0c6-6c3f-47c1-95f5-0428d06f0b87@samsung.com>
-Date: Thu, 3 Sep 2026 09:32:55 +0200
+	id 1x21wg-0000000GahX-0KH3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 07:33:15 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-398b3c37877so2470275a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 00:33:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788420793; x=1789025593; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XD10siGyv2UXcVcAX66uMHAbJieFBJyM178WgyCpFQo=;
+        b=UVKwSs6iDMt4rt8shCBgxBfXKQqX2BwgyWE0ze6ZHshOwqqtJSCwMC2o1Zn/V5+2Fd
+         093nvh1fStHYthPEVhnDBox82VeHJbvWG9pdGbs3NNFsAsv4THQdf8IPP98Gtb36LWpy
+         hOYystw8TTZ+qs4SzHegdEp5SmTvQZek2t2ImesIVMOPp8I+RM2mNI1tPzqunoOwfmD3
+         qnaCpg5NWpp6ufVmhqeBQCXQPXZeFB6YgzrbsaaII0vhJD0+odBbwX0SeKFRP/GM2c3+
+         BiFrEMlqPTP3iFd5EytiZjaDh5h2e3v6G/fMzew+lYobBstflJrA/CcJ4NJwM1LvnxR+
+         2iiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788420793; x=1789025593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XD10siGyv2UXcVcAX66uMHAbJieFBJyM178WgyCpFQo=;
+        b=bf2fumOPsfWIeuDAYl7IhlB8xd4zvCM4DTL364HDsIQ3Efsh9jIPeQudJdw6q/1KmG
+         3AIIEsuv7vXNga6O45SqLt3BiCZlyGzscHtAAkFx/HP6lgVJ0HMc9QMW48GROD5JPwU2
+         qd4XFQcOvxFhrEsChFyPHgKjOB8KTFDCBNbxHq5O9J7/1tvXvUhujeWGta1YDFnMyS0/
+         E0VQMuVVeBD7gVolYMSAEiLPswZsGw1/0Qn7DqBjG1z7R11bwktqHxcZgdFAPGBAarmE
+         z3togcfgcB/PTxo9G9cYGvtu7ZA4wE2SwKdirlxpBIlCk269NAWisi/9qbrH4UwW1xxn
+         94bQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxJKvtEP8XntMFghuRnOQT0zcO8T5iWADHmQeIi42z+k267b8HXR6oZr6vCX0irndfzaNENL8rDQl3HNLJiV665@lists.infradead.org
+X-Gm-Message-State: AFuF++mjk+0M8iKkGbPXSwO8F8plJ35gBAJmfcRkOhjN5uWqimVBrB5e
+	PHI4Gz9pofw6cITXyqG7GVtu7Ms2aacRE7Ls8dql3cfOLhP5oSWXtyX9
+X-Gm-Gg: AYBFou0asxTHOXbVyfIrCmpPFZvRKb0QAswhOTTg+vWnfWPcmopX0PiEwQAdI7GKU7d
+	49ZrjHlNQl7SVEW8EtPQtT7KweEG26Jkm59lb6xzw9RsWOk+Z9Sm7t0a3SUIvwdvj9tGgwNx71I
+	3MG7A4byjFD8Oob4m2jLuM+n5SJCisswzYxY6HgSS0OMyHFZwsGwMdw387dD4xz2eWYzztYWjms
+	Cc1KeAzkGIvxaVdfYXpfeWeAv4a5erdelRpZnUb5DWau9bgKvZw1qv3PiZC0WrpG3xRCq3Qhgr0
+	235NaH2spEaacHUYFai9mTB4dh8zgu03XYY9gPhv2Gsw2ZdLmGogcKijGMqNLU35ziw7ySXAaqA
+	a71xgoCmHBCeSe7l7VfHj0VGyy3yY0Fhq4GMkJU5lyPfDh/bAmGQ2V/pPcIrA9Kjlb5+bTdw8WF
+	ZeVFYZ5YYKbLuJHCvEHa5byH4zRpnKMx6hb4JmVCEHShnivLtPWfs+mo65ZFlWhZLGb0sItM9+c
+	Cpj3RBGrWcPfS+vH5KZN+s13sKkdfJzEu7aPC9NaBizXAgR+YOCWExAwe87A9hta52dl+UcsXNU
+	oeNQYWJ3CZcajqU=
+X-Received: by 2002:a17:90b:2d8f:b0:398:9beb:5c17 with SMTP id 98e67ed59e1d1-39aee13d992mr17057325a91.18.1788420792882;
+        Thu, 03 Sep 2026 00:33:12 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08624f11sm3606813a91.11.2026.09.03.00.33.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 00:33:12 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Simon Horman <horms@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Robert Hancock <hancock@sedsystems.ca>,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH net-next v5 0/3] net: xilinx: axienet: Fix IRQ error handling
+Date: Thu,  3 Sep 2026 14:32:49 +0700
+Message-ID: <20260903073252.339250-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v6 09/10] of: reserved_mem: mark /memreserve/ entries as
- MEMBLOCK_NODUMP
-To: Wandun Chen <chenwandun1@gmail.com>, catalin.marinas@arm.com,
-	will@kernel.org, chenhuacai@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, robh@kernel.org,
-	saravanak@kernel.org, akpm@linux-foundation.org, baoquan.he@linux.dev,
-	rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org
-Cc: mark.rutland@arm.com, kernel@xen0n.name, alex@ghiti.fr, hpa@zytor.com,
-	ruirui.yang@linux.dev, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
-	iommu@lists.linux.dev
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260902073116.802752-10-chenwandun1@gmail.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260903073259eucas1p1129fec57788d227a159662ed4bbd4068
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260902073334eucas1p1b0e997e1f1c9752bc9f48229d7922443
-X-EPHeader: CA
-X-CMS-RootMailID: 20260902073334eucas1p1b0e997e1f1c9752bc9f48229d7922443
-References: <20260902073116.802752-1-chenwandun1@gmail.com>
-	<CGME20260902073334eucas1p1b0e997e1f1c9752bc9f48229d7922443@eucas1p1.samsung.com>
-	<20260902073116.802752-10-chenwandun1@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_003303_607810_1E94DCB8 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20260903_003314_120040_A64EC2D2 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,99 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02.09.2026 09:31, Wandun Chen wrote:
-> From: Wandun Chen <chenwandun@lixiang.com>
->
-> The /memreserve/ entries are memory reservations made by the bootloader
-> or firmware, their contents are not needed for kernel crash analysis,
-> so mark them MEMBLOCK_NODUMP to have kdump omit them from the vmcore.
->
-> Entries that overlap a dumpable region (such as CMA) are left unmarked,
-> because the pages of a dumpable region may carry crash-relevant data.
->
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-> Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Hi all,
 
-> ---
->  drivers/of/fdt.c             |  1 +
->  drivers/of/of_private.h      |  1 +
->  drivers/of/of_reserved_mem.c | 33 +++++++++++++++++++++++++++++++++
->  3 files changed, 35 insertions(+)
->
-> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> index 286fd4db6312..9a727941b5af 100644
-> --- a/drivers/of/fdt.c
-> +++ b/drivers/of/fdt.c
-> @@ -1286,6 +1286,7 @@ void __init unflatten_device_tree(void)
->  	/* Save the statically-placed regions in the reserved_mem array */
->  	fdt_scan_reserved_mem_late();
->  	fdt_mark_reserve_mem_nodump();
-> +	fdt_mark_memreserve_nodump();
->  
->  	/* Populate an empty root node when bootloader doesn't provide one */
->  	if (!fdt) {
-> diff --git a/drivers/of/of_private.h b/drivers/of/of_private.h
-> index 505735732c13..6497404ec751 100644
-> --- a/drivers/of/of_private.h
-> +++ b/drivers/of/of_private.h
-> @@ -188,6 +188,7 @@ static inline struct device_node *__of_get_dma_parent(const struct device_node *
->  int fdt_scan_reserved_mem(void);
->  void __init fdt_scan_reserved_mem_late(void);
->  void __init fdt_mark_reserve_mem_nodump(void);
-> +void __init fdt_mark_memreserve_nodump(void);
->  
->  bool of_fdt_device_is_available(const void *blob, unsigned long node);
->  
-> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-> index f29a07e8fb23..a42cf6eac55b 100644
-> --- a/drivers/of/of_reserved_mem.c
-> +++ b/drivers/of/of_reserved_mem.c
-> @@ -251,6 +251,39 @@ static void __init __rmem_check_for_overlap(void)
->  	}
->  }
->  
-> +void __init fdt_mark_memreserve_nodump(void)
-> +{
-> +	u64 base, size;
-> +	int n;
-> +	const void *fdt = initial_boot_params;
-> +
-> +	if (!IS_ENABLED(CONFIG_CRASH_DUMP))
-> +		return;
-> +
-> +	if (!fdt)
-> +		return;
-> +
-> +	for (n = 0; ; n++) {
-> +		int i;
-> +
-> +		if (fdt_get_mem_rsv(fdt, n, &base, &size))
-> +			break;
-> +		if (!size)
-> +			break;
-> +
-> +		for (i = 0; i < reserved_mem_count; i++) {
-> +			struct reserved_mem *rmem = &reserved_mem[i];
-> +
-> +			if (rmem->dumpable &&
-> +			    base < (u64)rmem->base + (u64)rmem->size &&
-> +			    (u64)rmem->base < base + size)
-> +				break;
-> +		}
-> +		if (i == reserved_mem_count)
-> +			memblock_mark_nodump(base, size);
-> +	}
-> +}
-> +
->  /**
->   * fdt_scan_reserved_mem_late() - Scan FDT and initialize remaining reserved
->   * memory regions.
+This series fixes IRQ error handling in the Xilinx AXI Ethernet driver
 
-Best regards
+Handle errors from optional IRQ lookup and preserve the original error
+codes instead of returning -ENOMEM.
+
+The changes were found by manual code inspection and compile-tested
+only.
+
+Link v1 : 
+https://lore.kernel.org/all/20260811034715.6034-1-phucduc.bui@gmail.com/
+Link v2 : 
+https://lore.kernel.org/all/20260813042012.17631-1-phucduc.bui@gmail.com/
+Link v3 :
+https://lore.kernel.org/all/20260817105241.63345-1-phucduc.bui@gmail.com/
+Link v4 :
+https://lore.kernel.org/all/20260821123249.41527-1-phucduc.bui@gmail.com/
+
+Changes in v2 : 
+ - Split one patch from v1 into two patches.
+Changes in v3 :
+ - Move the lp->eth_irq check below instead of handling it immediately 
+   after platform_get_irq_optional()
+ - Add error handling for platform_get_irq()
+Changes in v4 : 
+ - Add Reviewed-by tags
+ - Add error handling for irq_of_parse_and_map()
+Changes in v5 : 
+ - Change the error code returned when irq_of_parse_and_map() fails 
+   from -ENOMEM to -EINVAL.
+
+Best regards,
+Phuc
+
+bui duc phuc (3):
+  net: xilinx: axienet: Propagate errors from optional IRQ lookup
+  net: xilinx: axienet: Handle optional IRQ return value correctly
+  net: xilinx: axienet: Fix IRQ error handling
+
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+2.43.0
 
 
