@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A94C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD900C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W65ZNRPEmcbNMi7U9IIGGMHb8CAjInAzmkGtNRzRCow=; b=tAG/8/OeoVhovXf+7UwNEMmn/9
-	xHzM9NhG2T1jagy6WqxAiUSK1Kz7mJnYtqBVb2YlsipyfSrcK8giOcZhgn4IT5UC/Y2BXaQ9wnFVO
-	vMBp41stuKkuU0lMJr/OiPCxDzjFNwT+CGnVib72CIAaeTYo1frW39tBp466CRn8KsASX/lxiXQwS
-	2iLeGzs/0wghSKgCks2EiqUpGIhqVXakZ6KeiI7gE7nWutwLe4rT8FtL+7gKlvlnwbmJn3Oo9IJvC
-	kPocKIvRAWtFZag5MuU5DGBMvQuTgv3EEziXNDc64LdHiKK3wUiXZPlcxAxIVC4PQ/BhyQ0tIKSS1
-	K+VURMRg==;
+	bh=Gzpf1OJ3Rg0tl/VwErP7akFjhIt41l87hgHFrPCCF7Y=; b=v2Et8hhRSabgOPQfqkzE9dOEVu
+	OdRzTzR8f1xMhS2Wy8C2d24kiy83nPvQJyWGD5039Lrh+nF4uqUpnA+1StFhPDgsXdfQ/9pWo5cZ4
+	t1daB7F1XpsoWDAeEkECewJb26l307bVk7FKWTEqQBNpteL41wZXsNu+nKaFvphF9ZvkpXDwqc5JX
+	EPoyDm5SwzvDvrEsaiWBmm874D3FU73AeRIQgVRiSCrSNc6nMtTsPmIPXNCKUWExbYjX8eyDPxpuF
+	Zz8NWyYFIXi7Z+HKzn7+VJPDDifG8SG8Guov+jzLraPqstt3ZMo/NuoMYzXI84Mppv+cz/UpomjEo
+	pK2ZFYjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24io-0000000H65t-3Rco;
-	Thu, 03 Sep 2026 10:31:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x24l8-0000000H6Qx-0j7g;
+	Thu, 03 Sep 2026 10:33:30 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24in-0000000H65I-2AsK;
-	Thu, 03 Sep 2026 10:31:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10E7F40519;
-	Thu,  3 Sep 2026 10:31:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E55E51F000E9;
-	Thu,  3 Sep 2026 10:31:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788431464;
-	bh=W65ZNRPEmcbNMi7U9IIGGMHb8CAjInAzmkGtNRzRCow=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=OrgdujeEpZ2zTyi3PEuWNgcwgCV/bmsydX4SxC9rBRTKiSiAzz3wFwlaJpwDHC5Is
-	 tzbpGhMVNjVjP3jT3iXt0Tedg8sfZkhv15HQwe4pHdY8NJbAYpY1zUP5XEJWaXw/dj
-	 toJRQf3Bwmd5GHsZkHo6EcpAUyfi2tBDxY8PwpeDUHBdb3UTW8MsL29UWJQEM4auWE
-	 Eh09q9JJ/Yr06BiF4ft8kE/JI7f2pwgpSktbQprw35J9JfNiGgfc6JDnGoSB3bdWtu
-	 J25N9MGVavgGSDrI+fyRMSey/MIKu3I5IMVlEAbhf+iM+btkXLvbFmLWtJihkkwOy4
-	 jTayLArmL92Kg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93A033811967;
-	Thu,  3 Sep 2026 10:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1x24l3-0000000H6QH-1xiv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 10:33:29 +0000
+X-UUID: de4f0758a78211f19a56ed5b684f684d-20260903
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:8894f43c-2d59-48e3-9529-0f9be7bbfd96,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:7db8b62,CLOUDID:a7b6a4cc6a1ce0a7371aea852b224a30,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|83|102|850|865|898,TC:nil,Content:0|15|50|99
+	,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: de4f0758a78211f19a56ed5b684f684d-20260903
+X-User: yijiangshan@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <yijiangshan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 418386978; Thu, 03 Sep 2026 18:33:14 +0800
+From: Jiangshan Yi <yijiangshan@kylinos.cn>
+To: maz@kernel.org
+Cc: 13667453960@163.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lpieralisi@kernel.org,
+	radu@rendec.net,
+	tglx@kernel.org,
+	yijiangshan@kylinos.cn
+Subject: Re: Re: [PATCH] irqchip/gic-v5: Install root IRQ handler last in gicv5_init_common()
+Date: Thu,  3 Sep 2026 18:33:11 +0800
+Message-Id: <20260903103311.580671-1-yijiangshan@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <87fqzrmywu.wl-maz@kernel.org>
+References: <87fqzrmywu.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v5] net: gro: Fix nesting of TCP GSO SKBs in
- skb_gro_receive_list()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178843140634.3256648.8035373141485573563.git-patchwork-notify@kernel.org>
-Date: Thu, 03 Sep 2026 10:30:06 +0000
-References: <20260901082312.14596-1-zhaoping.shu@mediatek.com>
-In-Reply-To: <20260901082312.14596-1-zhaoping.shu@mediatek.com>
-To: =?utf-8?b?Wmhhb3BpbmcgU2h1ICjoiJLlj6zlubMpIDx6aGFvcGluZy5zaHVAbWVkaWF0ZWsu?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	=?utf-8?b?Y29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: edumazet@google.com, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- dsahern@kernel.org, willemb@google.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- haijun.liu@mediatek.com, xiayu.zhang@mediatek.com, lambert.wang@mediatek.com,
- Iven.Yang@mediatek.com, nbd@nbd.name, hw.he@mediatek.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_033325_806722_F4F1FC22 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, 02 Sep 2026 16:54:41 +0100, Marc Zyngier wrote:
+> I don't think that's a massive problem. If you can't enable the IRS,
+> you can't do much at all. Your system is already completely dead.
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Fair enough, I'll drop the Fixes tag and reword the commit log.
 
-On Tue, 1 Sep 2026 16:23:12 +0800 you wrote:
-> From: HW He <hw.he@mediatek.com>
-> 
-> Fraglist GRO and hardware GRO can create an fraglist of
-> HW-GRO packets. This cannot be segmented back into
-> the original form on TCP tethering scenario.
-> 
-> Avoid constructing such a GSO packet, by flushing an already
-> built fraglist GRO packet if a hardware GRO packet arrives.
-> 
-> [...]
+> Under which circumstance can this fail? There should be none. So if
+> this ever returns an error, we should immediately stop with a panic.
+> No need to clean anything up, just die on the spot.
 
-Here is the summary with links:
-  - [net,v5] net: gro: Fix nesting of TCP GSO SKBs in skb_gro_receive_list()
-    https://git.kernel.org/netdev/net/c/66817a979426
+OK, v2 will panic() on failure and drop the out_handle label along
+with the no-op set_handle_irq(NULL).
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Thanks for the review.
 
-
+Jiangshan
 
