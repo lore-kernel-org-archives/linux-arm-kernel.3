@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62298C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF848C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRpxcHTybT23tsGpTTcr6sjQFQILQ8gOaqnkdcmha+s=; b=FcNgCfxCGQS0NcSHhVSkxbyRhG
-	LvoZ1bdguiO5mxDnF27CpsPB76mpjByraGoIJBIniyTEHCj5tCdX+Yp+up4leaXPrIMlmyhXtusf2
-	mjWXHmUanEryh1526rDcx/kjVkSE0++RStv36LaKQIrbjwJP9wBAM6IykQyAYvln5d5/QsoXk7z45
-	A7fbtOiWRtwY7aKNxwORvwa6P72o+KwYXmrc6e9+9krgM+GQg/PR5xMdeujpOphLLpW8f/8h36e2Y
-	bBbgfep05ZqFrnQCp2CYVVpEP0F7m9ZOBTSbqG6YYCKm0SD3tAAumADE9/KIcWh+g2K6eCw8gvHhK
-	7VHou3eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=; b=uyRF+TTEcA7e4AHGq4qOIeJX6q
+	Rk6lL4U+enXH4wcqZFxHzvpTS47VflolbaK07ksj1TRp6hwIAqINtAnCmrtsQs3VnS1mslcnIHnml
+	R79H2nWS/DJCi5pB74NBl1WutJ0W8RkFtLJKwngSV6XJWotrYqn88b3EHwQJEZtd6BdRoGktj81hI
+	NfsLAeDOIG5MYScnUWyqawyPbHVYhfyurhjHFn169+WPuY6y/AQrlW6T518TCCp9pPmwGLhxioOzN
+	qNsdb0HYEXIPpV1lZTCc+/J5ynuysdL9UsLswqgNpJnZFfa32rgxKXD7ToENb0bdWVFNAhVhUV3ty
+	vb6aJ/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AUO-00000000Bm1-0Vs2;
-	Thu, 03 Sep 2026 16:40:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AUL-00000000BlZ-0Jin
+	id 1x2AVO-00000000Bx6-1ELD;
+	Thu, 03 Sep 2026 16:41:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2AVM-00000000BwI-0aSp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:40:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60DB81596;
-	Thu,  3 Sep 2026 09:40:28 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA2103F673;
-	Thu,  3 Sep 2026 09:40:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788453632; bh=OSr2gscj+kDjyAWXtxyYR/gs/bwGrqEaiRW5/qbCIZA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fYFwU0f7t6o4OCU+/iylAHc5e01pAfXn4Gh0P5mqIl+Sb4zHG9QVJVGQ1d6dhtck0
-	 L7K4Q4qXmw/xDige6jYLIjc/+39VF/2q5nlJpYLyPikD7Bny43n60HrtNgxy7sJZ7N
-	 nCbU4IyZYpUdBVwZ8bPNza82EQkkJDTWxGsbwMSc=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v20 05/14] KVM: arm64: Set PSTATE.EXLOCK when entering an exception
-Date: Thu,  3 Sep 2026 17:40:12 +0100
-Message-ID: <apmi7HD54qGVVB7J@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <0c1c0d26-4e96-4076-8863-b4e871e38e67@sirena.org.uk>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org> <20260901-arm64-gcs-v20-5-f31750bdfadb@kernel.org> <apmDRXBvS-XOi1NJ@LeoBrasDK> <0c1c0d26-4e96-4076-8863-b4e871e38e67@sirena.org.uk>
+	Thu, 03 Sep 2026 16:41:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788453694;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=;
+	b=bFN9NjMB1PGgROZP967lUpqy3JJf2a4AmMd4ONO5zYagyE2tW8LqlwAUNbApu20qbMSV2f
+	j9lTNQw+G685Ct/Ud2hgJhgLS/M6hnFTgg+vX3xTCAi2+infDng6QbGEyjuyuPZPWpUCWz
+	1VY7BgbOqa5DuyKc3geMZZWmQahgarM=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-187-1X1zazIpOeKt5QoIf_hlhQ-1; Thu, 03 Sep 2026 12:41:33 -0400
+X-MC-Unique: 1X1zazIpOeKt5QoIf_hlhQ-1
+X-Mimecast-MFC-AGG-ID: 1X1zazIpOeKt5QoIf_hlhQ_1788453692
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4843227cfcfso739868f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 09:41:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788453692; x=1789058492;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=96jSKrblNa/MGHlSRt22d1bqrg1HZKp/dYSrKcWfd2w=;
+        b=HbpWyQsIOFivAvge/Fir812+sAYQdP+pRdh8lNvg6/bqhrAEl+wqwdfMntm+rcRfgp
+         opV2Wejsco88tcg0V9a0FdxHF4jLjMlolnI/r+UC/YS6/qb+4EY+9qHAD6EL4Ow+nTvX
+         yUaU0RGPwb4gifFY10pUJoCmi6ptGBDHZ1WzFrstEn2SgnF+rFP56p4UjfCAnwMsQFHC
+         g+Josb8ztc62eTFpJnb+RSLyWxRkmKZh5BxbY/SmQXOuuwdoji2uNSIufBBDyYodqfbR
+         BOm6d1z3jWdc11n/kyQEGD3j8yk6dNIKQzOVJ79yBcwNp7jKFzsT4VpooydJ3Oy9dBV+
+         mv7w==
+X-Forwarded-Encrypted: i=1; AKwUvBzFfwuFKa6drFBn7HmNntJeAeKhUYBUXYjoziWQ29OBhiTyrMz1eItSkQv5S/nFG4QEfbAKMD5QmgZLaZ7jZRON@lists.infradead.org
+X-Gm-Message-State: AFuF++lXPABMG35PQ4IPdKjqiMhiOzP62QiyBumWIoDMInCdugEeB5Rn
+	6CBDgDQrBqdMTIc7517kcUwCZTCNCwLgbsVLz/7/0NXnQpmFx86hovR0ckkXON8aQ310wLbhzkK
+	w8sm0aZSLTD70sE5eGGe2td6mwK4hqdhszlqqAbyEOx+BXzoiC1u+YP2wzh/kvx3NVwxuKgA4ks
+	hzSJ2Mk4Bg0k+D4i8CGQ2VCPt/eoL95XsOjyh8He6B6cdcIzaz42g=
+X-Gm-Gg: AYBFou0WbPjdLgXR6ypCiw86d1FLUogzeLShwu8fArL5cTTaPBFDmYhJzwVZ63XgLBZ
+	c509BZtCoKbaL7ORN8dnwCF+NcOvo2lQP3sLtV+aEqOut9R4GIX5TE2Xi1Tjk49V1LAJGd8dOH9
+	/U8a9o368k84I+i8sqIVUE8bX9PUXJSigAZwuNcdOoeF59oJ2261pYNDs/EaO3I3CQZM+9J+A0L
+	ZULRSMUbwLoYG3FAXrYTKPWmoAZf8iB8dL/O7qWlM5n0w==
+X-Received: by 2002:a05:6000:22c2:b0:484:3147:49c9 with SMTP id ffacd0b85a97d-48582315a47mr5571233f8f.2.1788453691895;
+        Thu, 03 Sep 2026 09:41:31 -0700 (PDT)
+X-Received: by 2002:a05:6000:22c2:b0:484:3147:49c9 with SMTP id
+ ffacd0b85a97d-48582315a47mr5571189f8f.2.1788453691502; Thu, 03 Sep 2026
+ 09:41:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-24-seiden@linux.ibm.com>
+ <aphMx5hsoXwIpNjt@google.com> <20260903083857.33034-B-seiden@linux.ibm.com>
+ <apmHrnxRLl9BuVhn@google.com> <20260903154317.246414-A-seiden@linux.ibm.com> <apmhX8H-WUc3U4_N@google.com>
+In-Reply-To: <apmhX8H-WUc3U4_N@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Thu, 3 Sep 2026 18:41:18 +0200
+X-Gm-Features: AcwNN1UO9-vCqk6RvEI48oEKpR6Wrb2Fp2swzaiyckPlKKdzDRVW5sMiBpGtdhU
+Message-ID: <CABgObfYUYCRtmJkh1Ns4VBbWqk3ggnDu294G9rZ6tva56=F11Q@mail.gmail.com>
+Subject: Re: [PATCH v7 23/23] KVM: s390: arm64: Add KVM_S390_ARM64 Kconfig and Makefile
+To: Sean Christopherson <seanjc@google.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm <kvm@vger.kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>, linux-s390 <linux-s390@vger.kernel.org>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Grapentin <gra@linux.ibm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	David Hildenbrand <david@kernel.org>, Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 749e0gxLHpuaib2vekysoeToXADbEjMRliRBXx2Z1u4_1788453692
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094033_180029_475A34C8 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260903_094136_244105_E397D079 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +117,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 05:20:32PM +0100, Mark Brown wrote:
-> > > +	// PSTATE.EXLOCK is set to 0 upon any exception to a higher
-> > > +	// EL, or to GCSCR_ELx.EXLOCKEN for an exception to the same
-> > > +	// exception level.  See ARM DDI 0487 R_WTXBY.
-> > > +	new |= compute_exlock(vcpu, mode, target_mode);
-> 
-> > Same nit: am I really setting one bit here? or could be 
-> > more stuff depending on the parameters? Having an "if (cond) new |= bit"
-> > seems more clear to what is being done, without needing to read the comment 
-> > above.
-> 
-> The goal with the comment is to explain the rule that the code is
-> implementing in a style similar to all the other field updates in the
-> same function.
+Il gio 3 set 2026, 18:33 Sean Christopherson <seanjc@google.com> ha scritto:
+>
+> How many people are running distro kernels on s390 hardware?  And how many distros
+> actually change the default KVM settings, e.g. to build KVM as a module instead of
+> baking it into the kernel?  My guess is "not many" and "almost none", i.e. the
+> actual impact on downstream users is likely miniscule.
 
-Oh, right, to be clear:
-I am not questioning the usefulness of the comment here.
+RHEL and SLES *are* distros, and I am not sure which bank or insurance
+company would be running non-distro kernels. :) So I assume you mean
+"how many people are running non-distro kernels on s390".
 
-It's more about "new |= function()" thing, as it's not immediately clear 
-what is being set unless I read the comment or read the function, as in the 
-case "if (function()) new |= bit" I may not immediately see the condition 
-but I know whatever it can be, it will only decide if I do or don't set 
-this given bit.
+At least RHEL builds KVM as a module for s390x, but it's not a
+problem. I agree with you that having the equivalent of INTEL/AMD, if
+possible, is a desirable self-check.
 
-Thanks!
-Leo
+Paolo
+
 
