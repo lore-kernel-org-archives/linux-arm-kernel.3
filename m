@@ -4,98 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588BDC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79504C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cm4uXra2L9WOBsP9ackTlqi/Ub+9G7ZP+SENv4y3Q0o=; b=Eo64cpGv1IHbT4gFo6HnssqYlI
-	5+vbNY6YsMAIQfaVPdNECxaZIkpYj8szBDfAKPqxCoV+3ijXDjw2/oUez1Jv3KC9eJzlWVgHuec8P
-	C2Vx/a2cpsGWveKHde9F3ILnmpWI2MXiEYtOZn21ahjJxV4F0RBjrefNTe/4B3T0AG8KF+ydjC8yT
-	aDg2DOBrhEIbfKyurGrci1f+MQrQnSsXXvAY+PBSCLJbRj6zEud4GQuSoOwSaMILycahyXbh2sPS4
-	Jv7icXDbYUF8nWbN5sqdgQHktNGHj+DFTeb7txdi7uRBl0ouk75VofnGoY1mIRjzpKlng8yfBeCmw
-	N6PEgXAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L4stFt9H8QyxSprfIhTJP/lSPIHGIy6M91G2b9UrAtA=; b=YeADQcdLnCCs1ICNyAHf9LBelM
+	Zikc+4XkYLE6EExH9sL70Slj/ewA7lSjJfgYdYHBseyJ8ITH0yfjI60lUyeWqIsqPWmiogv1opb22
+	thTyOb/U4g9HCl1LTIYAarwAk9D4eTo+TYFez0eeW8sHzxFoCDmimomr7aLXgkPHZAYH0zvdZDw9m
+	fP+A1kii/hTRS16fgZnhddA4Nx9Y9QkpJCQ2LMVGnvrHBCisZQoaGX5KuCxDSozh9/xEsWVNz2/CO
+	T2ALMG5Yk+NR2eOScxTrQubbgmdylLgg/Pr/Efm3Q5OsXACbvX6eZ/MfZuMvkPPNxQXaqNZWCd/0Y
+	bW7TzpGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29Wq-000000001nW-1PVq;
-	Thu, 03 Sep 2026 15:39:04 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1x29Yf-00000000263-2uD7;
+	Thu, 03 Sep 2026 15:40:57 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29Wo-000000001lt-0yci
+	id 1x29Yd-0000000025Z-0FkQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 15:39:03 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-48433e9562bso593395f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 08:39:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1788449940; x=1789054740; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cm4uXra2L9WOBsP9ackTlqi/Ub+9G7ZP+SENv4y3Q0o=;
-        b=Bcbc755fS25J+a110RGn0+Hqmt4mzb+xozuTw+UHvvTPOVixMm4fUvpLPZyc054sgo
-         sFYtN1zSpwhxuc7c5rmsX6CCxU8aFfZ4NLcUNXW8OkJUzW13JtQKV3DB32Vdu0hXdO/M
-         wjQY/oStubN9xGEFs8oKvOlTcDhZARDjSh2fI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788449940; x=1789054740;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cm4uXra2L9WOBsP9ackTlqi/Ub+9G7ZP+SENv4y3Q0o=;
-        b=mV4Jg/tfyNPBgDbL2Imxmtk8Nx5WcaNuCXOndlUUgSkFJj1YzGQyI1hE9YeY8+S3WM
-         RiMFwcDcCkDp2wUBMXev3bKOZsDSmS8gpWNzB/EjvfHIEnm6GgySwWChJSJZHXhps4ED
-         8qOMvnCNTKtIBHUK/DD3ob6/PbWue33qskcpZK4bTpX2ojSE36jc9rN0w2sUQ/jiLO4v
-         GbMykRj3qSgDcE6mVL2RveETXECOhU/Jdtw9ByKArdASiSz81E33lySg8QKajqrt1REx
-         dCwGk0TfCaqGKVS3ODyiB2NxcJEsE9amnDLBhS/ToyiMY0YVEIvJWJWDy7B5QZzSdb0B
-         UU5A==
-X-Forwarded-Encrypted: i=1; AKwUvBzknYNoTJWlbRRj7WLIY28vnFA2IBmDb7dJHVkMSDDOZIgFfkguqzf+hYg7VWX7f3jdZo7k/LVvJJl0i5r0hqOu@lists.infradead.org
-X-Gm-Message-State: AFuF++khNSFaY54ooOIyXAEfEHsl1Jcn1ShGHnDF6dTrjH/cri1OhAji
-	/TnQvKArt8/sQfYQ0fvjuARsL4ZGMbRO39qHyWIQSoTqIxCZl2lcMakCXu5yggJ3EZI=
-X-Gm-Gg: AYBFou1XoJweNPKmR1E2R0BLFRJgy9tG5l9b/w5dnfaU5UPnUtp16/jswlgQDqOIuzP
-	RRoZLtCk4Te2eiQtskV3uID11iHZGlLk0R+ks1aUCisenBAajkYL/oh5yXu16bm9oEQf/Jlu02/
-	918n/Dk131d6PC77Ao8v+jpRXpf8/SDEUZXiH1SoWEW6PqtodgW/yBIgw1oOrVJgTeuGWVHSlTt
-	gS96uDqNLObO0COeGR8u+7WNmKHvVuXMcRsCrKpAVncD3d5VDcklkENQeWz9BdDu8go6RtoIlxe
-	OLBZGxgcxNN5NW6x60ShXCrPRQAT+ouWdAnJ60642sV+vPkpGMi6BmixnWPA3kl7HnQpGF3DSjJ
-	bd7YyR4wN/5hT2wK2tBvqZXPKgW8TwXvEztPg04jpCbq+xT3GWxQc7dbL1fwjVqeHoJxSP8C/Zp
-	xDPEvav+Vg6DbvpKmGHbPDokqVdzNR5hu4+bBDMLu/wGOtg6n2Dk+VdjGY9IzYipqdfsVtCd8VN
-	jfQkQ75GM0hJlqg0DgkjXNZ25O+xgaf3EAg4Afzmz5H0aWgWpxl3Bl/UMSLLNhhOE7i11RcRoFc
-	hBwkYjKIS4nkjbG6OQBPA+dJPcoS3Xbpc/uZ+75593YQFQaRpmGM16MITi4qhsDADZE=
-X-Received: by 2002:a05:6000:2210:b0:47f:ec8a:214f with SMTP id ffacd0b85a97d-48488f0f6c6mr22597779f8f.15.1788449940413;
-        Thu, 03 Sep 2026 08:39:00 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com (host-95-245-93-90.retail.telecomitalia.it. [95.245.93.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e72df2sm15366301f8f.1.2026.09.03.08.38.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 08:38:59 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: michael@amarulasolutions.com,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v13 4/4] clk: imx: pll14xx: support spread spectrum clock generation
-Date: Thu,  3 Sep 2026 17:32:16 +0200
-Message-ID: <20260903153836.373267-5-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260903153836.373267-1-dario.binacchi@amarulasolutions.com>
-References: <20260903153836.373267-1-dario.binacchi@amarulasolutions.com>
+	Thu, 03 Sep 2026 15:40:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788450055; x=1819986055;
+  h=message-id:date:subject:from:to:cc:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=ap/8Ifir1dnQLy+vrblDVsN5MCiYJdaXtx4l46anGKg=;
+  b=jwDN0twmA6wUDJsM9kyu7B64QIZHUqvOnRos1M6eWmE356MxFAwdcP8B
+   +z2z6nxZHrpLRDTYwEhdqIXG/4jQuobKYSodnQcSr5gxBC2UNtpE5WLIR
+   ZDc4d4tNnvmU6tPFObdcyvtVDtd7Sl++v/O9i2SVGApNZUpCZMDr+UOL7
+   Zfc/ziMkCxS7TNG13QxDgaWr/Qm5z3leg/tEICg/wN/dlnOkDMe0nM45O
+   uFR7ISefO5b8b5OIE3I+7hPF/qRP6pyS9d/xTDAYhjCwwdF/iZbFIVPqh
+   803izqjKMf7zIBFcmB8ECjzEWc26MKz16qRzoD9aWQucvVrL7zL1aTiAL
+   A==;
+X-CSE-ConnectionGUID: w74+8I5NSK+e67M4xTRTDw==
+X-CSE-MsgGUID: a9/kVzoLRB2BBwYW2goYWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="92805422"
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="92805422"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:40:54 -0700
+X-CSE-ConnectionGUID: m4KtjjMOSVq6ucqLEL4CBw==
+X-CSE-MsgGUID: nC/X1iMTR2KZlwlo3RayPw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="269752298"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:40:54 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 3 Sep 2026 08:40:53 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46 via Frontend Transport; Thu, 3 Sep 2026 08:40:53 -0700
+Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.8) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 3 Sep 2026 08:40:53 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vlMVGsva+3Q9gaAXA1UBVG9tJgqWCO6X8m09ic7jLUc/bZp5lhe0aMsSs/1zp1JJKz8StxoT7Xo2vyP8/R3zNeTMUOVxVTcnXX4XEhsMJf9oPehfo+L+LQJai16pHQofDQ6xKSmygYUHiK0y/DDGWw8UCCWd3nC8hbNOmwdj0EDneH1U1fmVa2J8NdQ+4cksE6G0BJTPkH3aF2bAzjRQoO+ZwRrrPZVGekoXI8c0FwsBlPRzMH7oCEhKx6fRMvfe9FqVxbrFCtXFPSE1dFobVIaibgEHyINw1Tlt544/rl/EYSojCy5qpKDwO1TtTkRFGYGvyZW1BNxp1nzTa4g8zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L4stFt9H8QyxSprfIhTJP/lSPIHGIy6M91G2b9UrAtA=;
+ b=g5oMUDqUSJ6lnbGAVBPz/5EI5FspmDC8smm2RCrZZK274hzpX65rfu9fEL5aYV3hU4a9TaWj5H9vdZ1XC1cmj1wfPabVInDFKwC+FKYyAkMmaHHvSpNrWP6qjb4aIF/cd2D3iBuVXfkRmvu5RWGGjg7PGzBwGsStxGR6pSEfzsnNkztmSnzFoV0Ri4lGAJeg8MK5hxSq7MawcJCYC5P5qkokRHY65Dv+Mn/+c41mX9vzlHAogKWZBKNOJ2Kt7zGf5M5KbblystXcvL8ycNuJXCIzeAYobjiEIEbbqXrg/gUHfsa37U9DyuQNiislSUUOzAwVQOncepNfuGUS8GIeog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by CO1PR11MB4788.namprd11.prod.outlook.com (2603:10b6:303:97::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 15:40:50 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
+ 15:40:50 +0000
+Message-ID: <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
+Date: Thu, 3 Sep 2026 08:40:48 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
+ conversion to be per-arch
+From: Reinette Chatre <reinette.chatre@intel.com>
+To: Ben Horgan <ben.horgan@arm.com>, <bp@alien8.de>, <x86@kernel.org>
+CC: <james.morse@arm.com>, <fenghuay@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<tglx@linutronix.de>, <mingo@redhat.com>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <corbet@lwn.net>, <linux-doc@vger.kernel.org>,
+	<dave.martin@arm.com>
+References: <20260709093111.367851-1-ben.horgan@arm.com>
+ <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
+Content-Language: en-US
+In-Reply-To: <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0011.namprd03.prod.outlook.com
+ (2603:10b6:303:8f::16) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|CO1PR11MB4788:EE_
+X-MS-Office365-Filtering-Correlation-Id: 206b1e70-6000-4f68-3d45-08df09d1bb65
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|4143699003|11063799006|10067099003|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: m9TSDWEcu7Ob/4KpY3EcmxTpjsxH0Hn5dNkMfmRXj8tZlynS5fffiyi/YJYHhwTCqaQR65Opt+TjkNpqvq9tYWMjrVry7dHfu4f+10KKyTr/cfeo9/jLsFrrTaPnosGNtGyAnWsVzki9U9PXu+PKDNZz6H1MQ4J5TKizQuM19bE1fDYSubB/OeJV0n3Q/dYH2SkbT3GfAj8QJXCAF28kiay161ROHEJJI9J/ziBEBAniZJCJ5PPgMB0aEfkfGcA4afkvK4ZkH+pVDUMPJpWWA+ZCWxRhbnabwgug3V64jnfImStp339L7EWBLXiFvIWaLJ99/VhmJpcNPDniYWLjGAoFPHxQPE8DfLrkMPvrSAXZE+uZVnZMDiAKRfZILYQPFxys4EWgKVYjF744BVDUyZAhIUyZYk3dRWmwm6tlg1+5Mir5rmCh7jw2Qxok1I4dccpD9jESfu1Y7OY3SLEqlswQ7kC8QNTs3XyHCgsbkCPH0NmvrUEIsiCKLiKpioiRh7zcc1liigSvraky9BCTt/0xxpx93P7p2JbLZ50AyB54B0QCQCmEQJ1STLQSnnxtWeqfrUoRLlgJiHuVFe2MFfCdsWtpx+JT/w0jxudoTNpfXm6in/ePgb8uvHjbnEWtLzrR09hgKe7urTvZwQlGrzldPQUSt5HYpwz8eWKM3m0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SmtodzBVZHc5S0NzanVkQVlYN2hoWmcwK3pLd201YVlFMXVOVXQ0QWhteUVW?=
+ =?utf-8?B?WFpwM0c3eGN5VWNvQ2Vxa0lpYVhCZCtqbmIxTDNXVTZtK2pCY1ZqNmNDTDhN?=
+ =?utf-8?B?QUNVLzlCVFVtR0s2djR0YXQwaGh2K1BSNkJVUHovODIrc29xclNqbENRWCsw?=
+ =?utf-8?B?bFdCKzlkL3NJK0NUSmtyUTZHcURYb0Frc0lVUi9nT1Q3OXNsVWZxWWY2ekov?=
+ =?utf-8?B?cGhEb0VjaitsSllQeTVRTzJPdjErd09pZDFxcFNjcEpqK1JBWTBWSXlhaEZL?=
+ =?utf-8?B?N3c1SjVmZzlxczdsSFZiY3BpbFdKUS82cEVLSUdkSFgwQ0R1NEhuUVloNzBD?=
+ =?utf-8?B?ZzFPZi92b0s3MGV4QWNFalkzM3FRbjVvSG9HYUFMcmxZMmRObE5PdjMvMWdX?=
+ =?utf-8?B?K3E5MHFHbEJTZ3lOKzZFb25Tdk1XNW8vRm1OTjFpdzRiVFRGdzJ2UEJtVFdr?=
+ =?utf-8?B?a01adDB5M3BkS2RSMXhHSFMvMjRYVmVCYTNoY1JKS2FIamtQNDJhN01TZ216?=
+ =?utf-8?B?MjFrdVVCTHAwd1YrUmpXT0w0ZWdRNGZzNDZKL1VsdHRMVDBnYWxyT0dZNnk3?=
+ =?utf-8?B?VEFabmJVczRXdmlZc3ZFd3M0TnJkS2RwT1JuMm9sL0dsSW9reVEydEJnejA2?=
+ =?utf-8?B?K1hweFpYR1VkUG5SYVRlaTVOSW1vc0Q5LzkycEdRZlloYTUzWTIrV1RKN3pF?=
+ =?utf-8?B?YTF5QmNrNEhzNlZ2YktGaTBGK25WYU1ZeXp2SzFKM0NCUmZxOUNwNWZML2t1?=
+ =?utf-8?B?dndxd1lFQ2lXT2c2TzJsV3lGMEZRcjNOL1ZJbWJOMTU4T1VxR004Rjk4aHVs?=
+ =?utf-8?B?RzdPWndlOFNsZlo4RmZwcllja21ESFpZZ2VKTk03cHRVekhwYzR1ckVLcGx1?=
+ =?utf-8?B?T0hoU09FY0FaaTN0cTcwWmlMUWg3TkdvRUJ6QlBORElXdWw4VU9CcWQ0L2VE?=
+ =?utf-8?B?L0pBR045K1puTExCUDdiOG9FRVJZY2ZSSzVOaFlCbDNJVUR3SkVpQzNWSEwv?=
+ =?utf-8?B?S3Y0Q3grNkN3WXQ4UUgyT2FkVjZHeGtZa2gyZ3BDay9NQkRQVkRRV1NkdXQ5?=
+ =?utf-8?B?UForNSs2NjRGQm9meEJ2d2V2N1M1MFYxc2ZpSzVxZ2F3QmljZHhieC9DN3E0?=
+ =?utf-8?B?LzBwOGRJeWZPL0J4dFU0UGJZNzI5b3M2WDlDcVgzb1c5cHNaN1pJMzg3Um9D?=
+ =?utf-8?B?bGFTV2dFeDJYd1dIODJrR2FuK1N0eUZHMFZ4S1lYRmlCbUV5cnB6SUJmamhC?=
+ =?utf-8?B?L3NPMGNCV1FKMXNiTWMrWHBubUp2dE44WVNvbGNtSllMWmpsSnVNU0ZKMy9z?=
+ =?utf-8?B?UTB6UnRiMW1zUlowb3h4ZUtYR3lYQ2NrbXNpUHQwNlNITGFqTzhOd3FjSk9l?=
+ =?utf-8?B?Q1UxMHNKNkZyOVdnZ2pEWHhMRjczRm00Y0lDdThRQWlkb084TngxTThmS1Vx?=
+ =?utf-8?B?QXVRbmxjZDJDSit1UUtjcGVDRjNCdkM2cGc0S1lVb2pLdHRVSDlMTVFxSGsz?=
+ =?utf-8?B?YkJIWXVXa0pDdVFTSjJleEowdjBCY3JvdlZPYmZHajlvd2dTVEVZUnJTYXN5?=
+ =?utf-8?B?WFJ4K2dOelB5VVU1Q1Q2WjVFQ0hEWjgwYlZzbmdtV2dyQmo4YUttWUVyd2pN?=
+ =?utf-8?B?TUdUUjJTeWNCaFRTK1VLeDQ5Z0JtcWtkcmRJNzdxcTJCVU9MQWFvTVczUkd6?=
+ =?utf-8?B?UUhyaHRDWHk0OU94TGM1SVhmTVFDRk1oK2hRbTVnVzBERDFnTjVNUHNqK1ZH?=
+ =?utf-8?B?YzNLQi8vbHp5OWdTYUF5N0IxcXpSWmZiTC9TYVVHQjdFOVIvT0ZaU0p3dldz?=
+ =?utf-8?B?OEFUT2hCazdIWVNqWTJSKzN6Q2VHUHk4L0hMUktHK3M1ZzFLK0JlaEd0MkRt?=
+ =?utf-8?B?UTYwNGlQMlpTNFdtY0hXVUw1K05rSWFORHI0N0x2eWpwbkZzZTV1MmpKRUU3?=
+ =?utf-8?B?dXF5SGZtWFlXTDB2WmpUemFNZ3c3TTg3dzU2TElMaUxhMzhiY1ZPNjN3bEZx?=
+ =?utf-8?B?UStpYzB4ZUFIUTlreUZtR0R1UVBGalg0eTBiM25RSzFodnExVWhZajl5ZHVh?=
+ =?utf-8?B?NFhJZlBwVDIxeTRZL0o0TDlIa2NRTS9Jdnp3N1l1ckJSNm5FaVhiQ1hyQ0Nq?=
+ =?utf-8?B?c3VjZ1RsZWpKY3dYNDhjSUpZSGdMZVZiSWp6VExlVGtVZzJaVDVqYUtZenIz?=
+ =?utf-8?B?dTQwS3JJdjU5R05UT0tIRUVTdW9SVmViS3hvNUdHb3RhdkpWSk9EZWxranNp?=
+ =?utf-8?B?T21PL3ErTXFwL254bmNmRGg2QzlYbXQzUHBKSnBXMDBYR0FyeDZ6T1ZheUtw?=
+ =?utf-8?B?cTZWYmdId0lmMjVQOURXR3NuM3k2ZGpsUEFHTGxUT1FvdWp3b01qQVRuTW15?=
+ =?utf-8?Q?E3Wzm6fn70Ob8SnI=3D?=
+X-Exchange-RoutingPolicyChecked: ixOpJJsbywr6tTLIUcFC8nfRcc5TxcDppZcnyRVteDOwkUzxNCUPWlAaKGkaLAP06poSUwSwmZ7C2FSY4lpu/B1EvBRWu/CPOIcc/BLumJGf1jacsx3LLX3biGb+5Jw9iGesgq6jUEiDyzwSj0XChjJp4conoVI5BvHzG5XB95pltJXohbjfZp6ukmxeji769hlV6+P0G776IZ3MXEoUNf2zi4igSDshLl52zA4aJNjVXY5nA0P9T/Pw00x8caujFrqZA8Auz7/GxFVUojCIG0aU5+5XLfVwRxD7L+2+9NjCMqx9VtUG4mAqLXGlwodtxgZOfUOekn5di7sQ+E/tAA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 206b1e70-6000-4f68-3d45-08df09d1bb65
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 15:40:50.8010
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xgeoGR1AItToOy53qWR/TXxWejnX/WdgJp7YE7rZpIwtJU4Jr7o+NPexbGO16z4MaZncBUR4v27PxGEGJGU2ruPMN2tjwAu9BbDei1tAnHk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4788
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_083902_311684_4846B0C6 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20260903_084055_143937_90307DF6 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,216 +187,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for spread spectrum clock (SSC) generation to the pll14xx
-driver.
+Dear x86 maintainers,
 
-Tested on the video PLL of i.MX8MN and i.MX8MP based boards.
+On 7/14/26 10:45 AM, Reinette Chatre wrote:
+> Dear x86 maintainers,
+> 
+> Could you please consider this series for inclusion? It applies cleanly on top
+> of x86/cache with HEAD at
+> 	 2566b5cd6a27 ("fs/resctrl: Fix UAF from worker threads when domains are removed")
+> 
+> Please note that this is the first instance of a series that touches resctrl fs, x86, and
+> Arm. Since this is a resctrl fs API change these patches should stay together. You will
+> find in Ben's message below that patch routing via tip is supported by Arm.
+> 
+> Thank you very much
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Could you please consider this series for inclusion during this cycle? It applies cleanly on
+top of v7.3-rc1.
 
----
+Please do let us know if you have a preference for how changes touching all parts
+of resctrl (filesystem, x86, Arm) should be handled.
 
-(no changes since v12)
+Thank you very much
 
-Changes in v12:
- - Apply the SSC settings also from the set_spread_spectrum() callback
-   to handle the case the clock framework skips set_rate() if the
-   requested rate is unchanged.
-
-Changes in v11:
- - Drop the dt-bindings/clock/clock.h include and use the enum
-   clk_ssc_method values from clk-provider.h, as clk-scmi-oem.c does.
- - Disable SSC and clear the modulation fields in SSCG_CTRL when no
-   spread method is configured, so that a setup left enabled by the
-   bootloader is not kept active.
- - Skip the SSC setup instead of dividing by zero when modfreq_hz is
-   zero or mfr truncates to zero.
- - Reject mfr and mrr values that do not fit the MFREQ_CTL and MRAT_CTL
-   register fields instead of letting FIELD_PREP silently truncate
-   them. This also prevents the 10000 * mfr multiplication from
-   overflowing.
- - Compute the mfr divisor in 64-bit arithmetic, as the 32-bit product
-   could wrap with out of range modfreq_hz values.
-
-Changes in v10:
-- Drop 'Reviewed-by' tag of Peng Fan.
-- Adapt the driver to the new infrastructure. Implement the
-  set_spread_spectrum() and get the modulation parameters from
-  struct clk_spread_spectrum.
-
-Changes in v9:
-- Add 'Reviewed-by' tag of Peng Fan.
-
- drivers/clk/imx/clk-pll14xx.c | 99 +++++++++++++++++++++++++++++++++++
- 1 file changed, 99 insertions(+)
-
-diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-index b6f1cc9f5700..5b187101c558 100644
---- a/drivers/clk/imx/clk-pll14xx.c
-+++ b/drivers/clk/imx/clk-pll14xx.c
-@@ -13,6 +13,7 @@
- #include <linux/export.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/math64.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/jiffies.h>
-@@ -22,6 +23,8 @@
- #define GNRL_CTL	0x0
- #define DIV_CTL0	0x4
- #define DIV_CTL1	0x8
-+#define SSCG_CTRL	0xc
-+
- #define LOCK_STATUS	BIT(31)
- #define LOCK_SEL_MASK	BIT(29)
- #define CLKE_MASK	BIT(11)
-@@ -33,6 +36,13 @@
- #define KDIV_MASK	GENMASK(15, 0)
- #define KDIV_MIN	SHRT_MIN
- #define KDIV_MAX	SHRT_MAX
-+#define SSCG_ENABLE	BIT(31)
-+#define MFREQ_CTL_MASK	GENMASK(19, 12)
-+#define MRAT_CTL_MASK	GENMASK(9, 4)
-+#define SEL_PF_DOWN_SPREAD	0
-+#define SEL_PF_UP_SPREAD	1
-+#define SEL_PF_CENTER_SPREAD	2
-+#define SEL_PF_MASK	GENMASK(1, 0)
- 
- #define LOCK_TIMEOUT_US		10000
- 
-@@ -44,6 +54,7 @@ struct clk_pll14xx {
- 	int rate_count;
- 	s16 delta_k;
- 	spinlock_t lock;
-+	struct clk_spread_spectrum ss_conf;
- };
- 
- #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
-@@ -366,6 +377,58 @@ static int clk_pll1416x_set_rate(struct clk_hw *hw, unsigned long drate,
- 	return 0;
- }
- 
-+static void __clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
-+					       unsigned long parent_rate,
-+					       unsigned int pdiv,
-+					       unsigned int mdiv)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
-+	struct clk_spread_spectrum *conf = &pll->ss_conf;
-+	u32 sscg_ctrl, mfr, mrr, sel_pf;
-+
-+	sscg_ctrl = readl_relaxed(pll->base + SSCG_CTRL);
-+	sscg_ctrl &= ~(SSCG_ENABLE | MFREQ_CTL_MASK | MRAT_CTL_MASK | SEL_PF_MASK);
-+
-+	switch (conf->method) {
-+	case CLK_SPREAD_CENTER:
-+		sel_pf = SEL_PF_CENTER_SPREAD;
-+		break;
-+	case CLK_SPREAD_UP:
-+		sel_pf = SEL_PF_UP_SPREAD;
-+		break;
-+	case CLK_SPREAD_DOWN:
-+		sel_pf = SEL_PF_DOWN_SPREAD;
-+		break;
-+	default:
-+		/* No spread: disable modulation and clear any stale state */
-+		goto out;
-+	}
-+
-+	if (!conf->modfreq_hz || !parent_rate || !pdiv)
-+		goto out;
-+
-+	mfr = div64_u64(parent_rate, (u64)conf->modfreq_hz * pdiv * BIT(5));
-+	if (!mfr || mfr > FIELD_MAX(MFREQ_CTL_MASK)) {
-+		pr_warn("%s: SSC disabled, modulation frequency (%u Hz) out of range\n",
-+			clk_hw_get_name(hw), conf->modfreq_hz);
-+		goto out;
-+	}
-+
-+	mrr = (conf->spread_bp * mdiv * BIT(6)) / (10000 * mfr);
-+	if (!mrr || mrr > FIELD_MAX(MRAT_CTL_MASK)) {
-+		pr_warn("%s: SSC disabled, spread (%u permyriad) out of range\n",
-+			clk_hw_get_name(hw), conf->spread_bp);
-+		goto out;
-+	}
-+
-+	sscg_ctrl |= SSCG_ENABLE | FIELD_PREP(MFREQ_CTL_MASK, mfr) |
-+		FIELD_PREP(MRAT_CTL_MASK, mrr) |
-+		FIELD_PREP(SEL_PF_MASK, sel_pf);
-+
-+out:
-+	writel_relaxed(sscg_ctrl, pll->base + SSCG_CTRL);
-+}
-+
- static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 				 unsigned long prate)
- {
-@@ -390,6 +453,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 		writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
- 			       pll->base + DIV_CTL1);
- 
-+		__clk_pll1443x_set_spread_spectrum(hw, prate, rate.pdiv,
-+						   rate.mdiv);
-+
- 		spin_unlock_irqrestore(&pll->lock, flags);
- 
- 		return 0;
-@@ -411,6 +477,8 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 
- 	writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv), pll->base + DIV_CTL1);
- 
-+	__clk_pll1443x_set_spread_spectrum(hw, prate, rate.pdiv, rate.mdiv);
-+
- 	spin_unlock_irqrestore(&pll->lock, flags);
- 
- 	/*
-@@ -437,6 +505,36 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 	return 0;
- }
- 
-+static int clk_pll1443x_set_spread_spectrum(struct clk_hw *hw,
-+					    const struct clk_spread_spectrum *ss_conf)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
-+	struct clk_hw *parent = clk_hw_get_parent(hw);
-+	unsigned long parent_rate = parent ? clk_hw_get_rate(parent) : 0;
-+	unsigned long flags;
-+	u32 div_ctl0;
-+
-+	spin_lock_irqsave(&pll->lock, flags);
-+
-+	pll->ss_conf = *ss_conf;
-+
-+	/*
-+	 * Apply the configuration to the hardware right away, using the
-+	 * current PLL dividers: the clock framework does not call set_rate()
-+	 * if the requested rate is unchanged, so relying on it would leave
-+	 * the SSC settings unapplied when the PLL is already at the target
-+	 * rate (e.g. configured by the bootloader).
-+	 */
-+	div_ctl0 = readl_relaxed(pll->base + DIV_CTL0);
-+	__clk_pll1443x_set_spread_spectrum(hw, parent_rate,
-+					   FIELD_GET(PDIV_MASK, div_ctl0),
-+					   FIELD_GET(MDIV_MASK, div_ctl0));
-+
-+	spin_unlock_irqrestore(&pll->lock, flags);
-+
-+	return 0;
-+}
-+
- static int clk_pll14xx_prepare(struct clk_hw *hw)
- {
- 	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
-@@ -509,6 +607,7 @@ static const struct clk_ops clk_pll1443x_ops = {
- 	.recalc_rate	= clk_pll14xx_recalc_rate,
- 	.determine_rate = clk_pll1443x_determine_rate,
- 	.set_rate	= clk_pll1443x_set_rate,
-+	.set_spread_spectrum = clk_pll1443x_set_spread_spectrum,
- };
- 
- struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
--- 
-2.43.0
+Reinette
 
 
