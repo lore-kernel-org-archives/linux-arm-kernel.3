@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C51DC61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFE8C624A4
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3m12KdqvLdOYCeeOW1IC7fta/r0Kp5AgvKtb2vRw+c=; b=FEs1P/W57uuosvTm3ifvdkTgI2
-	zLgVhT3L4kicVB3FcIv3UtTV0J0kv5YmrKlSMTH+PCHetHdZfjFdOd46ypeAdKV4KajEYKfvrEvmE
-	q2CUuDErIugSy+4WBNLqKLVzXeMdKKhyN9qOtqOPOn8CO7HvokoVlIHCEzJ9ObcRKOy7y/V1aQ3o1
-	K0B3rkZhDW/jsn5ZjvX3ZKb6HRUVn6VAMEku4tPkOX2VieIY3QHgky8O2eiQW4qV74xE+udcDkwch
-	YUaWMIqjlnBmiKdYS71iEXxcBt0KAWOuppF0KCiRPhsf/9os1k613naU00+l48OG3b5dTVFsCV343
-	nLA9i/fg==;
+	bh=I1glEjn3Vicew24sw+6aw3oZ6QxHJJbj38sCRZ1pUms=; b=JQeHRO+I6DMVHYG4WvnrnSeIXI
+	7zygdo3Nzb4sAPf7ebdA9cQl4hYqKqlyl+ySzdT4LxyGytuh2CNuD1CZGgdVzK3y99Lv+ZWqDLTYn
+	EEj42aAva8NopGG5R4mXxy6UD1g5+rrR9t38+qZE36Xc4Ukipu1zYoxW8kByCIgf0iCrYvIuXL2UF
+	PVEeSmQiLMWnv5y/11W18Nc3s+L8xDtn8t08H+4TYMynNKzEDBLdlVBaJ8xa/iiHkII4o07QW2kvY
+	e78GnLsXQZR2UW+O1+aXG1gI6ctVE46DWpTxFtDUC28ZzJrLp/Na0tLxux+/14ipsz5qEsjvRo+Yt
+	nEvwIiXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29yX-000000006ck-2pe8;
-	Thu, 03 Sep 2026 16:07:41 +0000
+	id 1x29yd-000000006lZ-1LJ0;
+	Thu, 03 Sep 2026 16:07:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29yK-000000005ys-0IIP
+	id 1x29yQ-00000000674-3TkO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:07:38 +0000
+	Thu, 03 Sep 2026 16:07:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEC5E1FC4;
-	Thu,  3 Sep 2026 09:07:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 278391F60;
+	Thu,  3 Sep 2026 09:07:30 -0700 (PDT)
 Received: from e140010.cambridge.arm.com (e140010.arm.com [10.2.213.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6A3D3F673;
-	Thu,  3 Sep 2026 09:07:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DD4F3F673;
+	Thu,  3 Sep 2026 09:07:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788451647; bh=pFtVEZ2dhq5smjJX4KiK2ggzIgj0EsmQQlo0I05g5Vc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cclb8IAxJYcTBznChszZY9BsNWNZGkaQFyqm8nr1EZ8pJ53k665yKYHcVHqy4eZmW
-	 EKqqfGwbBGOF989Nt7eV2VyuttIVcKIl0u8QJvJB3U8urkC3vQ6a4PZj/xxkkDnXi6
-	 AQx7htBRVBDKML7vol5EvWVWcmTJlK5ZJmKq3huI=
+	t=1788451653; bh=U+rws8ncwi/1wkVpb63POq0o8EKKy0KoxPOz8nkpieE=;
+	h=From:To:Subject:Date:In-Reply-To:References:From;
+	b=Liev/w0Iu/6EmrygmtTnUunzJIhWUHrQ2R5os86hWdDuXxaUMjtKdfi/IPYqwTiOp
+	 agQw37H3yDq+Jzydau7AEG78scr7kUz5Rv94aLD3/+/rWZ1S5NTRM+w8UKsRfgJjnV
+	 zcJwwxxnHKgNAz2zAPLlUSwKSiUuOEBqPbs4lq1I=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -54,18 +54,17 @@ To: maz@kernel.org,
 	linux-perf-users@vger.kernel.org,
 	catalin.marinas@arm.com,
 	james.clark@linaro.org
-Cc: James Morse <james.morse@arm.com>
-Subject: [RFC PATCH v7 25/28] KVM: arm64: at: Use callback for reading descriptor
-Date: Thu,  3 Sep 2026 17:06:20 +0100
-Message-ID: <20260903160623.315525-26-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v7 28/28] KVM: arm64: Allow the creation of a SPE enabled VM
+Date: Thu,  3 Sep 2026 17:06:23 +0100
+Message-ID: <20260903160623.315525-29-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260903160623.315525-1-alexandru.elisei@arm.com>
 References: <20260903160623.315525-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_090728_183401_A00A2FFC 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20260903_090734_935047_5927F373 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow callers of __kvm_translate_va() to use a custom function for reading
-the translation table descriptor from guest memory. This will be useful for
-handling stage 2 faults reported by SPE, to map the stage 1 translation
-tables at stage 2.
+Everything is in place, allow userspace to enable SPE for a virtual
+machine.
 
-Suggested-by: James Morse <james.morse@arm.com>
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/include/asm/kvm_nested.h |  7 +++++++
- arch/arm64/kvm/at.c                 | 22 ++++++++++++++--------
- arch/arm64/kvm/nested.c             |  7 ++++---
- 3 files changed, 25 insertions(+), 11 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 2 +-
+ arch/arm64/kvm/Kconfig            | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 1ed708335809..d812137dcd9e 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -350,8 +350,15 @@ struct s1_walk_filter {
- 	void	*priv;
- };
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index ff77f6ac3adf..32b30ffdcf77 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -40,7 +40,7 @@
  
-+typedef int (*read_desc_fn)(struct kvm_vcpu *, u64, u64 *,
-+			    struct s1_walk_info *);
-+
-+int kvm_vcpu_read_s1_desc(struct kvm_vcpu *vcpu, u64 pa, u64 *desc,
-+			  struct s1_walk_info *wi);
-+
- struct s1_walk_info {
- 	struct s1_walk_filter	*filter;
-+	read_desc_fn		read_s1_desc;
- 	u64	     		baddr;
- 	enum trans_regime	regime;
- 	unsigned int		max_oa_bits;
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 0926426b8798..6e77beced96c 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -224,6 +224,9 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 	unsigned int stride, x;
- 	bool va55, tbi, lva, upper_range;
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
  
-+	if (!wi->read_s1_desc)
-+		return -EINVAL;
-+
- 	va55 = va & BIT(55);
- 	upper_range = va55 && wi->regime != TR_EL2;
+-#define KVM_VCPU_MAX_FEATURES 10
++#define KVM_VCPU_MAX_FEATURES 11
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
  
-@@ -427,8 +430,8 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 	return -EFAULT;
- }
+ #define KVM_REQ_SLEEP \
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 2bc8e34c538d..a285b18eb1cc 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -106,9 +106,9 @@ endif # NVHE_EL2_DEBUG
  
--static int kvm_read_s1_desc(struct kvm_vcpu *vcpu, u64 pa, u64 *desc,
--			    struct s1_walk_info *wi)
-+int kvm_vcpu_read_s1_desc(struct kvm_vcpu *vcpu, u64 pa, u64 *desc,
-+			  struct s1_walk_info *wi)
- {
- 	u64 val;
- 	int r;
-@@ -513,7 +516,7 @@ static int walk_s1(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 				return ret;
- 		}
  
--		ret = kvm_read_s1_desc(vcpu, ipa, &desc, wi);
-+		ret = wi->read_s1_desc(vcpu, ipa, &desc, wi);
- 		if (ret) {
- 			fail_s1_walk(wr, ESR_ELx_FSC_SEA_TTW(level), false);
- 			return ret;
-@@ -1324,6 +1327,7 @@ static int handle_at_slow(struct kvm_vcpu *vcpu, u32 op, u64 vaddr, u64 *par)
- 	bool perm_fail = false;
- 	int ret, idx;
- 
-+	wi.read_s1_desc = kvm_vcpu_read_s1_desc;
- 	wi.regime = compute_translation_regime(vcpu, op);
- 	wi.as_el0 = (op == OP_AT_S1E0R || op == OP_AT_S1E0W);
- 	wi.pan = (op == OP_AT_S1E1RP || op == OP_AT_S1E1WP) &&
-@@ -1657,9 +1661,10 @@ int __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
- }
- 
- /*
-- * Translate a VA for a given EL in a given translation regime, with
-- * or without PAN. This requires wi->{regime, as_el0, pan} to be
-- * set. The rest of the wi and wr should be 0-initialised.
-+ * Translate a VA for a given EL in a given translation regime, with or without
-+ * PAN. This requires wi->{regime, as_el0, pan, read_s1_desc} to be set.
-+ * Setting wi->filter is optional. The rest of the wi and wr should be
-+ * 0-initialised.
-  */
- int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 		       struct s1_walk_result *wr, u64 va)
-@@ -1716,8 +1721,9 @@ int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa, int *level)
- 			.fn	= match_s1_desc,
- 			.priv	= &dm,
- 		},
--		.as_el0	= false,
--		.pan	= false,
-+		.read_s1_desc	= kvm_vcpu_read_s1_desc,
-+		.as_el0		= false,
-+		.pan		= false,
- 	};
- 	struct s1_walk_result wr = {};
- 	int ret;
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 17123f0b6dab..e3e71628f8c5 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1435,9 +1435,10 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
- 			invalidate_vncr(vcpu->kvm, vt);
- 
- 		vt->wi = (struct s1_walk_info) {
--			.regime	= TR_EL20,
--			.as_el0	= false,
--			.pan	= false,
-+			.read_s1_desc	= kvm_vcpu_read_s1_desc,
-+			.regime		= TR_EL20,
-+			.as_el0		= false,
-+			.pan		= false,
- 		};
- 		vt->wr = (struct s1_walk_result){};
- 	}
+ config KVM_ARM_SPE
+-	bool
++	bool "Support SPE in guest"
+ 	depends on KVM && ARM_SPE_PMU
+-	default n
++	default y
+ 	help
+ 	  Adds support for Statistical Profiling Extension (SPE) in virtual
+ 	  machines.
 -- 
 2.43.0
 
