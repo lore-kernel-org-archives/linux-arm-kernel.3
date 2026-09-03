@@ -4,95 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76299C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C32C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21XK8ouXwSbTKoSgpNp9PTnpZIppeDeeNUFwSv6ef0I=; b=3YK1BcrvjVqcf3XVQc21da9lmN
-	iN+7WKDt/uSiItwVFWIkqA5c02vkCxJIvlblH/xKkc8K/J8O4A4A6edasNFLEGtitbtxR/cK0IzQU
-	ov/Em1CPdY1BhSXtbOQL+Qoz0+Lnsx+OrsPfwfkD7eZqdt5FNlw8tEtQUVzQ6SJZQ/AV7MBJyyxBf
-	JmPr3for7IyDH/hqMDDstWQQy61UVFVi9FdzXlAO4FCLk+fGNrKoG9WyORyy5DB8rOQ6v+NVGFNDy
-	xPrzde6l9lPgef0WfOTwbUfB1rAUGwyd3Sm61o6+ibB3rz8W4VUa5tmthJqKvZTu7zkMGOr+JYRZS
-	KlfmtCLg==;
+	bh=59Wj+J6S9wt/dcmTRFnqS+5MGklja5S5ehnxj0FnuDo=; b=NrM+9fQV0HGfZYaI7JbA8BGWiL
+	l6j4ZEwyx/POCb+0z1SRwJLpvb1ObDyshXptNUG0emanXGbfv/Lcy6MwJ5hASdCL0pIwkn0qTKfdX
+	8Eb5tRyLIZ2jUnogQ9j56oP1+6SRiPjzcxyvoNgLdMv2No4/Vv/e5SAdu3XOvhVWz2jB66PcMMTuw
+	akWIovUb+eP5jqEjmkqxN58Ao0+lN5zTWxubnKI6Jhu4leiN3/JVXrpGd8pATsogpOfSTh241ohDs
+	iedXlcP1RBK83v5kxsCsk4cFaeIucHPO2HSL6n0M+R/iURTagja7feVRXMPSgenl0oAwsorhMI5Sh
+	OpcKL88w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26sf-0000000HLa8-0n6B;
-	Thu, 03 Sep 2026 12:49:25 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x26tL-0000000HLmE-2PUt;
+	Thu, 03 Sep 2026 12:50:07 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26sb-0000000HLZ1-2IqF;
-	Thu, 03 Sep 2026 12:49:23 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260903124916euoutp01c70c3377e9531d0b4effba39237e9f0d~R0Humhg0D2837828378euoutp01a;
-	Thu,  3 Sep 2026 12:49:16 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260903124916euoutp01c70c3377e9531d0b4effba39237e9f0d~R0Humhg0D2837828378euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788439756;
-	bh=21XK8ouXwSbTKoSgpNp9PTnpZIppeDeeNUFwSv6ef0I=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=A84uFu5vC7oRa7UYvp4kb1qaFuO04d7y8EFyNaPGxT8vRYtNhTEAf1v8qbCTK1g9c
-	 ErZ7MNjb63emnIqANJbVFtycOFms2nxzltkpKWI+k2FVQDNvhQLzokz+RsiTTZD/sZ
-	 tbFgIVRs1iU0Hx2ZDAjgQWZBvVwu/E+5h3lOiTJE=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260903124916eucas1p2046caac892ee377927f97ac1ed022764~R0HuWwHQ41235012350eucas1p2O;
-	Thu,  3 Sep 2026 12:49:16 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260903124914eusmtip1c88b35a3579efd350fc5d28e52aac15c~R0HsrL5_S2573525735eusmtip1u;
-	Thu,  3 Sep 2026 12:49:14 +0000 (GMT)
-Message-ID: <113c3906-56c1-4940-9857-d611edc64361@samsung.com>
-Date: Thu, 3 Sep 2026 14:49:14 +0200
+	id 1x26tJ-0000000HLlF-0q5u
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 12:50:06 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-499b10c86edso913865e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:50:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788439803; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TtyLTKdLvRh6SRlfSfBWjqNQtFKZCQBb3yL8w7pbnXcEsjrmFXMAUTyTLgrhWPb5IB
+         WudEQ1rAq9HH8LRWB4kr+yplcDLNi8mWLQDOQNKBcIf/aFor/qHf1n5HvPQpva9rG4eU
+         c3oyFXCzx7WaKIXdWrVwZdIrd7985rbB/WbDwm+2FNRs0II9Hyf3VD2xn5f0rBVf21X3
+         bNmCEwnfhCVPWN7AF8yxfRIYRWhz1yq1w1poodoX7tlvz/6h24GMc0CF4vjxd6ey5ws0
+         FBlT6eTgJbeSp0pCn1omV090P1T/bVuPAPe06F0Z+2TPmho43asaP4y7Zkb6+PALJmSP
+         upMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=59Wj+J6S9wt/dcmTRFnqS+5MGklja5S5ehnxj0FnuDo=;
+        fh=fhzBzoEkB2ZbA+C7BlhEGrzwugZyC6s79wzTs+CtStA=;
+        b=LJfzSGv2vOS/EzLXKk0rND50LTqhdhvByfUGQtLXO5wbfeT3S69dJkLFQ+ZIGxcB0T
+         lo3uH+kxHEHxee1Nn4whYoSQPk+pw9hz4ni2m9oXGxxTbnu4nE51RvqAIOvQZXjq43CZ
+         NdDDnzvw7cRqK43zXY6SOM0Fi8qTxUh1/mOKaYnUeOJmDj9rUh939daUQPoPAQg0of+/
+         2c8yLFZDIj8nAO6FQ3V5c57LyaTtcH0vVpbrog29aBxgjjNtskm8bycFgHRhLYOlLRNr
+         SV0z6eahkLthDXOYEvN/nyEnOAKyN32FubgIMkPJaq/u8wKlj9FO72HLVPb6vwb1VlDv
+         ot6g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788439803; x=1789044603; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=59Wj+J6S9wt/dcmTRFnqS+5MGklja5S5ehnxj0FnuDo=;
+        b=gHGN519x3ed+DIpr2w2olFPAmrVMU7BuYizOkp4z1rYvKjb3mifdpDwwwBXHMg7aFa
+         BWYyUjHK6Y5xDX8LJK0sucE99Db2wdkn8kV0LEUTTR8JrfV6IQTLJkulCVPCWmq+fExz
+         dsuv+y+yMX5XXkuLDMUtuc13D+O7WSoUkMXBq8fwr8xrETlgkqXpero09BPodtpE0Ucw
+         7oT8BKyPPyJ+2ry4/xuGWp0fIxEO9LmQmpMN7Ukk94uEWhaqRtDBwtdkr+02uDdrrQvC
+         JNAXSQF75FMWiFIer6HLdfZPcNpx9aOSdoNbsFlAMmfYdW5UwqBPn/LvNSDltI1lPxYA
+         hPFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788439803; x=1789044603;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=59Wj+J6S9wt/dcmTRFnqS+5MGklja5S5ehnxj0FnuDo=;
+        b=fqMy8u7IGlD+XrcQsvX2zHn34S5lvQKuynoTap8ImYSnXBsRlc/Du5hgBiZxuBbZom
+         kHt9GI/Aptqu/dQSkb4ZIwrMz/mPDTApn9aceO33aMm/TjcvxhUEbDSKZhlM8pgnBlge
+         ePJCjAVJvtz22zLlERkMwuFvWbBGqWVWJpi6IrBY8miZxJOZt4fAeqfvkdOsdGTh1Aw8
+         r9ArvZTqMVVKK6a6wXOjXYi4rpYNP57g1/JU+b/+KeVkXcrZqby7sMeYLK5no1b0j4N2
+         rk2GNb8HVVnShjDZbxrjBuFfj0gBwZvMJgvTwgAPqnmOCU6JqurxK7Aq3f09uDSP6lst
+         bwLA==
+X-Forwarded-Encrypted: i=1; AKwUvBwcCEjhcINg9hFifw6i0ddqwk5GcqpM3KfKsjmf3/zBHhPPUyUU77UFH9KEqB3vsVxemAjhd/PO5zfMpuOmV7hO@lists.infradead.org
+X-Gm-Message-State: AFuF++nQvuHFTgzzMSdukpmZuVn09gNHLuS6/atl4IMd80gX7Bpsctqa
+	9q2rvG/BcTdcOBsJ/OqvrK15SiMxe/00yQz2v0RyV2IEtZyRGNhKW1ziVUvrLj/G5vwG4laMRb2
+	hMWexcwydq1gSygs6fvwGxazMLVuPi7c=
+X-Gm-Gg: AYBFou2kEl28TBU0ZtbIqUbZSYbXUXKOngCpmS0tfxVEMo6iUgIJXY0Gs3JOqO+6kbx
+	I0HRjWsjTbxnq36yC7/ynXZME0D6InX7Y9fA9BjI3/9PhKAt0SDFiGFIjVsk8NjofZ/98PYDFyO
+	v79flJoCbwnIXXFPdy/y768ocYZmuee1R9tD8YexvaJ3qy6REIuSJUaYHKtrs8j8oBFu6A8ICmf
+	LGh1Q/Vpc9ZR1lKppgfQaoqFD7i5dYdXhlRKjVicLwYR6XmjhTgUC6xK2Y0OW6aM7Hqlf8yCUYR
+	gZjkNRVseFw6WOAJIEsP5GafhovgoA4LAk9q1xWqY7kl0euAS8pe8wH2yQy6oeHtwRBo7+HWSD9
+	/s0fekkD3/bww4iuA6bdMNg14469+
+X-Received: by 2002:a05:600c:530c:b0:499:cef6:104c with SMTP id
+ 5b1f17b1804b1-49ce58369f4mr98184805e9.1.1788439802952; Thu, 03 Sep 2026
+ 05:50:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/15] dt-bindings: display: bridge: Add
- starfive,jh7110-inno-hdmi-controller
-To: Conor Dooley <conor@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
-	Lee Jones <lee@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, Philipp
-	Zabel <p.zabel@pengutronix.de>, Emil Renner Berthing <kernel@esmil.dk>, Hal
-	Feng <hal.feng@starfivetech.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
-	<bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Dominique
-	Belhachemi <db@domibel.de>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, mfd@lists.linux.dev,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Icenowy
-	Zheng <uwu@icenowy.me>, Andy Yan <andyshrk@163.com>, Marek Szyprowski
-	<m.szyprowski@samsung.com>, Maud Spierings <maudspierings@gocontroll.com>,
-	Graham Markall <hello@big-grey.co.uk>
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20260828-stylus-bonfire-b71cbfe8b983@spud>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260903124916eucas1p2046caac892ee377927f97ac1ed022764
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134817eucas1p2e2756deff8871be4ea8bb5c65f9c179d@eucas1p2.samsung.com>
-	<20260828-jh7110-clean-send-v2-2-331680c8b9d1@samsung.com>
-	<20260828-stylus-bonfire-b71cbfe8b983@spud>
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <apk8ZRr6do_YAlzf@kernel.org>
+In-Reply-To: <apk8ZRr6do_YAlzf@kernel.org>
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Date: Thu, 3 Sep 2026 20:49:52 +0800
+X-Gm-Features: AcwNN1UgFTYq7ea9-qGswA9Jf4fWjx8u_UTgGqrDxE_25OvzBaj7okOUxHJIdeg
+Message-ID: <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: Mike Rapoport <rppt@kernel.org>
+Cc: akpm@linux-foundation.org, david@kernel.org, ljs@kernel.org, 
+	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com, 
+	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com, 
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev, kas@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, tglx@kernel.org, mingo@redhat.com, 
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_054922_189181_CA7B9A66 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20260903_055005_269436_BC18FD22 
+X-CRM114-Status: GOOD (  31.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,194 +126,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 3, 2026 at 5:22=E2=80=AFPM Mike Rapoport <rppt@kernel.org> wrot=
+e:
+>
+> On Tue, Sep 01, 2026 at 11:18:16PM +0800, Xueyuan Chen wrote:
+> > The persistent huge zero folio is shared globally and should stay zero
+> > after initialization. As Jann Horn pointed out [1], kernel bugs have
+> > ended up writing to pages that were meant to be read-only, including in
+> > security-sensitive cases. Making the folio read-only in the direct map
+> > turns such writes into faults instead of silent zero-page corruption.
+> >
+> > Add a page-based helper consistent with the existing direct-map interfa=
+ces.
+> > Handle TLB invalidation in the architecture implementation; unsupported
+> > architectures retain their current behavior.
+> >
+> > Protect the folio after initialization. Skip highmem folios, which have=
+ no
+> > permanent direct-map mapping.
+> >
+> > Inspired by Jann Horn's read-only zero page work [1] and follow-up
+> > discussion [3] with Yang Shi.
+> >
+> > Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@=
+google.com [1]
+> > Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@ke=
+rnel.org [2]
+> > Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=3DjDx9E6dL=
+OULohnhBguvi9A@mail.gmail.com [3]
+> >
+> > Suggested-by: David Hildenbrand <david@kernel.org>
+> > Suggested-by: Usama Arif <usama.arif@linux.dev>
+> > Co-developed-by: Lance Yang <lance.yang@linux.dev>
+> > Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> > ---
+> >  include/linux/set_memory.h | 17 +++++++++++++++++
+> >  mm/huge_memory.c           | 13 ++++++++++---
+> >  2 files changed, 27 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+> > index 3fe293cfed8c..ed9ce04b18a1 100644
+> > --- a/include/linux/set_memory.h
+> > +++ b/include/linux/set_memory.h
+> > @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
+> >  #endif
+> >  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+> >
+> > +#ifndef set_direct_map_ro
+> > +/**
+> > + * set_direct_map_ro - make a direct-map range read-only
+> > + * @page: first page in the direct-map range
+> > + * @nr: number of pages in the range
+> > + *
+> > + * Make the direct-map range starting at @page read-only and invalidat=
+e stale
+> > + * writable translations before returning.
+> > + *
+> > + * Return: 0 on success, or a negative error code on failure.
+> > + */
+> > +static inline int set_direct_map_ro(struct page *page, unsigned int nr=
+)
+> > +{
+> > +     return 0;
+> > +}
+> > +#endif
+> > +
+> >  #ifdef CONFIG_X86_64
+> >  int set_mce_nospec(unsigned long pfn);
+> >  int clear_mce_nospec(unsigned long pfn);
+> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> > index 54494c3fa983..742283b36d74 100644
+> > --- a/mm/huge_memory.c
+> > +++ b/mm/huge_memory.c
+> > @@ -42,6 +42,7 @@
+> >  #include <linux/pgalloc_tag.h>
+> >  #include <linux/pagewalk.h>
+> >  #include <linux/cleanup.h>
+> > +#include <linux/set_memory.h>
+> >
+> >  #include <asm/tlb.h>
+> >  #include "internal.h"
+> > @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
+> >       huge_zero_folio =3D alloc_huge_zero_folio();
+> >       if (!huge_zero_folio) {
+> >               pr_warn("Allocating persistent huge zero folio failed\n")=
+;
+> > -     } else {
+> > -             huge_zero_pfn =3D folio_pfn(huge_zero_folio);
+> > -             count_vm_event(THP_ZERO_PAGE_ALLOC);
+> > +             return 0;
+> >       }
+> > +
+> > +     huge_zero_pfn =3D folio_pfn(huge_zero_folio);
+> > +     count_vm_event(THP_ZERO_PAGE_ALLOC);
+> > +
+> > +     /* Highmem folios have no permanent direct-map mapping to protect=
+. */
+> > +     if (!folio_test_highmem(huge_zero_folio))
+> > +             set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_P=
+MD_NR);
+>
+> Sorry, I don't remember if it was discussed previously, but why can't we
+> use the existing set_memory_ro() here?
 
+Hi Mike,
 
-On 8/28/26 18:47, Conor Dooley wrote:
-> On Fri, Aug 28, 2026 at 03:47:26PM +0200, Michal Wilczynski wrote:
->> Add the dt-binding for the StarFive JH7110 Innosilicon HDMI controller
->> (DRM bridge).
->>
->> This device is the second child of the starfive,jh7110-hdmi-subsystem node.
->> It consumes register access clocks (sys, mclk, bclk) from the voutcrg and
->> both the pixel clock (pclk) and the PHY from its hdmi_phy sibling.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 109 +++++++++++++++++++++
->>  1 file changed, 109 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..0e584e7b756e24e2f99a62daab3117bbf4b472b6
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml
->> @@ -0,0 +1,109 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: https://protect2.fireeye.com/v1/url?k=af8ec5c4-ce05d0f2-af8f4e8b-74fe485cbff1-93a4f693847d5818&q=1&e=48120ebb-9eda-4ddc-b580-e20f8c69d005&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fdisplay%2Fbridge%2Fstarfive%2Cjh7110-inno-hdmi-controller.yaml%23
->> +$schema: https://protect2.fireeye.com/v1/url?k=4b8c4737-2a075201-4b8dcc78-74fe485cbff1-8caced678494fd92&q=1&e=48120ebb-9eda-4ddc-b580-e20f8c69d005&u=http%3A%2F%2Fdevicetree.org%2Fmeta-schemas%2Fcore.yaml%23
->> +
->> +title: StarFive JH7110 Innosilicon HDMI Controller
->> +
->> +maintainers:
->> +  - Michal Wilczynski <m.wilczynski@samsung.com>
->> +
->> +description:
->> +  The controller portion of the StarFive JH7110 INNO HDMI IP.
->> +
->> +properties:
->> +  compatible:
->> +    const: starfive,jh7110-inno-hdmi-controller
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: System clock for register access
->> +      - description: Module clock
->> +      - description: Bus clock
->> +      - description: Pixel clock from PHY
->> +
->> +  clock-names:
->> +    items:
->> +      - const: sys
->> +      - const: mclk
->> +      - const: bclk
->> +      - const: pclk
-> 
-> "module" "bus" "pixel" would be more informative than spending most of
-> your characters regurgitating what these are by definition?
+We want to change the linear map here, but arm64 set_memory_ro() only
+works on vmalloc addresses.
+So a new helper is needed on arm64, and x86 implements the same
+helper to keep the two architectures consistent. On x86 it is
+basically set_memory_ro() minus the alias check.
 
-So I've reread the TRM and mclk and bclk are named as such there and they
-are audio clocks: section 5.3 lists a "four channel I2S transmitter bit
-clock" among the display subsystem's clock sources, and that is this bclk.
-The already merged starfive,jh7110-voutcrg.yaml names the same input
-"i2stx0_bclk". So I've kept the names and put the information in the
-descriptions instead:
+Thanks,
+Xueyuan
 
- - description: The HDMI controller main clock
- - description: Audio master clock
- - description: Audio bit clock, from the I2S transmitter
- - description: The pixel clock, generated by the PHY
-
-pclk was wrong. In this binding pclk is the register clock, as in
-rockchip,inno-hdmi.yaml, and the generic inno-hdmi driver looks it up by
-that name, holds it enabled for its lifetime and derives the DDC divider
-from its rate. We had it bound to the pixel clock so the pre-PLL stayed
-powered from probe and the divider was sized from 297 MHz instead of
-49.5 MHz, putting the DDC bus at 17 kHz. Slow but not broken which
-is why it went unnoticed.
-
-So in v3 the register clock takes "pclk" and the PHY clock is named
-"pixel".
-
-> 
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  reset-names:
->> +    const: hdmi_tx
->> +
->> +  phys:
->> +    maxItems: 1
->> +
->> +  phy-names:
->> +    const: hdmi-phy
-> 
-> With the trend of ?pointless? -names properties, I'm surprised you don't
-> have interrupt-names? I'd ditch 'em all where there's only a single
-> clock. The _ rather than - in the reset name triggers my OCD.
-> pw-bot: changes-requested
-
-Will do. reset-names and phy-names will be gone which takes the
-underscore in hdmi_tx with them.
-
-Note that in v3 the vout subsystem parent node will be back on Icenowy's
-review, so there will be three new DT patches: bindings for
-starfive,jh7110-vout-subsystem and starfive,jh7110-vout-syscon, and
-starfive,jh7110-dc8200 added to verisilicon,dc.yaml
-
-> 
->> +
->> +  ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +    description:
->> +      A graph node with one input port and one output port.
->> +
->> +required:
->> +  - compatible
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +  - resets
->> +  - reset-names
->> +  - phys
->> +  - phy-names
->> +  - ports
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  # Shown as a child of the HDMI subsystem node; see
->> +  # Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
->> +  # for the full node.
->> +  - |
->> +    #include <dt-bindings/clock/starfive,jh7110-crg.h>
->> +    #include <dt-bindings/reset/starfive,jh7110-crg.h>
->> +
->> +    controller {
-> 
-> "controller" seems over generic for a node, but I guess if the parent is
-> "hdmi-subsystem" or something it makes sense in that context.
-> 
-> Cheers,
-> Conor.
-> 
-> 
->> +        compatible = "starfive,jh7110-inno-hdmi-controller";
->> +        clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
->> +                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
->> +                 <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
->> +                 <&hdmi_phy>;
->> +        clock-names = "sys", "mclk", "bclk", "pclk";
->> +        interrupts = <99>;
->> +        phys = <&hdmi_phy>;
->> +        phy-names = "hdmi-phy";
->> +        resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
->> +        reset-names = "hdmi_tx";
->> +
->> +        ports {
->> +            #address-cells = <1>;
->> +            #size-cells = <0>;
->> +
->> +            port@0 {
->> +                reg = <0>;
->> +
->> +                endpoint {
->> +                    remote-endpoint = <&dpu_out_dpi0>;
->> +                };
->> +            };
->> +
->> +            port@1 {
->> +                reg = <1>;
->> +
->> +                endpoint {
->> +                    remote-endpoint = <&hdmi_con_in>;
->> +                };
->> +            };
->> +        };
->> +    };
->> +
->> +...
->>
->> -- 
->> 2.34.1
->>
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+>
+> > +
+> >       return 0;
+> >  }
+> >
+> > --
+> > 2.47.3
+> >
+>
+> --
+> Sincerely yours,
+> Mike.
 
