@@ -4,158 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48F4C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6D7C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=; b=lK5RYV9Zho47RqN9pNkP0dcFr9
-	Lot0R0MO/oSnqVj+prGnqkAEIj7yvWeKNu3X3Kb6jToGNbODscO8djwih9sZ7Rd7GEz7ym+tshiRP
-	YIecMY8z3yygGZGqPheFkSMKfxcAhEXOp5Ig/ZSeDzirnDUXZ0pVAvsjYsWZBNtTR4ZMzL+IZ1XHk
-	1bKuuBEOFJqDV3kq/jj9nboYwj3YRMzXmQexjzdU9BsKt7pNsU+ag7MDAi2Qc5uquqNcHDyidSVHF
-	WeBhl7tbNIV73j1/w6m8+6yxsy8IqJuQI2gOylJBCcAr/ha80eWshKTffgShPXmNE6FRToxDk9Hae
-	fl+y5z8g==;
+	bh=tpdQx2CvqU6WPDOftr8e7dSxiX7jnDIBtfbgFNc6/cg=; b=m3tKWE2YvVjM/KDqwSanTB9Qvv
+	Sn024xzBJ7zA4AyIU9WsfVz5EqutKSQ2+MnzdsdLZ9/n8CaEKX+Z8lyYRwl0frpldEyJKo2m8Bsj1
+	gpw65m4QeMiIKIFw96oqW3JMnL80fWDNq0v9nwFt+fxLoewgn6bZzYUBT4XlOGuMYmY/DvBfn9SyG
+	1QB9oy6JNa1hamKceqSkuU/ZfXNUFA4XpYuCBy1evTLnIy0XRRqlR9ncMnaxDt0QGrqy+PCPhLHSc
+	aVQPdH7AU9wRnLW34IDcVxLT1hLps+0iLXS/TObqJd/yjB06HTaDWfOe400T4DcQacrnlaVN26MrW
+	/i2yjIRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x258X-0000000H9Qz-3jaJ;
-	Thu, 03 Sep 2026 10:57:41 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x258V-0000000H9QO-1JZv
+	id 1x25Az-0000000H9d0-0tBs;
+	Thu, 03 Sep 2026 11:00:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x25Aw-0000000H9cZ-2b3Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:57:40 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683AHAgi3782252
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 3 Sep 2026 10:57:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=; b=SRdpJMIiq9NDmrdv
-	UAWcFDzUt9xsWYnKUJBQih4QlR5E/gTEnhcGm3caq99WQZrQfjKC8gIORrj/7c2w
-	ef9TqPTSXkvHfFVvSoOValzb/SEQbSiuSWMLO9nwCHOh+mmoooW8F6fO93Ut13JP
-	HlA2nXYEACjWPT8HSIzcJu93IHMuDpz+/Vdf5fgnzzOgU/ayi0NinCCNLWYF1ZS+
-	5RYtUlNt1eeGFBDEaMLvyCICVJul0NEQb6wz+I+fYqpuNRrUn1dyPuvbV0Gy8FFQ
-	w9HXAjqH4pS8y+xB5HlapeQoKl2h+DVezAApTWD/60X2z5vjNv9r6eP4nrYj4FCj
-	ppkyZQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gf5pdrhqx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 10:57:37 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52d7ef17031so2249701cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 03:57:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788433057; x=1789037857; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=;
-        b=VscjeKL0rGtjtJlJHzeSrtuWQYbeMdBp8LvVexanBSB6jWTACauNMeSLnPWudmxgRt
-         dqkJc6Y7dzoIMTvhJQRmmGpNV3KBCMytgCD+StmOXYyPNmtsca3cVo9+xzzFlDM8ti+8
-         44gOTmhMMbhsW20ugamqlpGvudr5NmpvdErg0qei1Idfc9WkSTtbuX68N4Rs2o0lybRa
-         R+7st7fAyHOIbuNW+v3OV+F/JOm5ZqiI8isDzqupPRe9oTutqqDSjQt47ZGmsbidZ53Q
-         lg+sX5suMf4nkpvM5hNFS5TTcLmoXlwHyEsqCCtwnB2Ubyxo/umgYp3tHQnwioM5SxYz
-         Y/KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788433057; x=1789037857;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=;
-        b=Rq9PoyLoqFt/HeCcd9u3xUaHO9t9kT6xtQMAWB7aPUiQD9EBPYaFxJ4L3D5w+EUgwv
-         JpFjJRpyTsG0hsMWCWzhQfrS+mzvGAsG//VvAVCn7mydO4FiE95wO0FbP1DElX+TOqk/
-         UpbG3mViv860b9TmflH+Ivch3q1n3hcMgyp9mABn315MiSElGCOiC2ORn7oPftcI5WYO
-         g2UiWOkZnQHk/7gb5ByesnRxPHmn0Ad3cnV1j+eu82RTFR02gs7m80p7QuLn1Ft0acHS
-         qptLRWoTwfcX7H052tx9WWAlQOvgbkvgSEYsHCnVmoinufTJBHu+kT2tWdLJzfTwdaok
-         gEgA==
-X-Forwarded-Encrypted: i=1; AKwUvBwYestPg4OUl0h9Y41vED5Phcc9TKF6VlFajcaLQwX400YhkmC0aTWfSta5F6NuUOB0nqDGpPqSlaLNq7JDs1C8@lists.infradead.org
-X-Gm-Message-State: AFuF++nxfxDGbIrjVdj6O4vxpL9/F7bN63ynVGvwrguuMsL7fDj3KkGo
-	/VcdAhduxXBzK3R89ML2O9dKB5O8KoxoeiW7xH4YwvUZw8GsDkfnelG3WSryzZWv8854J818MQZ
-	CrhAkzRtGkeqRRfIiM3arNaxVrrPrUF4QAtJN5vR5FGD8Lo5Kuy/x6CV/OplWGb2E0ENYNwFkNE
-	ssHQ==
-X-Gm-Gg: AYBFou0KYg6oScOCIoMpnX9P9hWFdYTkFmPRXK3Ez3ALKWtosTke4KsZG7QcDmW5xOW
-	4pbwz/rOgIraLxS2c5rZXMIz08zIuw6QipShcA6pTMe4up5BYY8YHnDBqhpGAGY8YUM7yLVhoVm
-	gWq6Lrcmyxl2aG01tQi/R8+gmhEMVxbWhQtVDBBkso8H+qjyyAOCnVD0MalaX/CGugUS6gOnqmB
-	dt8TIxWpzevpZLB9RndZOkq10V8J8LUBIclg9pXWzRM0grGJY1dCK7YANhkvA8gW15LLK5xmLPF
-	hBpZLhLSbyj7d+3pt+r2fNN+kEq0xgx4MG7aLVmz6UhgRZtrv5iRkxmnkIMWgQ5CRz4JewDpV6A
-	vGXUVtf13AH2CwRQjrS7jWA==
-X-Received: by 2002:ac8:7d44:0:b0:52e:467e:ea8a with SMTP id d75a77b69052e-53036b33098mr86032391cf.1.1788433056711;
-        Thu, 03 Sep 2026 03:57:36 -0700 (PDT)
-X-Received: by 2002:ac8:7d44:0:b0:52e:467e:ea8a with SMTP id d75a77b69052e-53036b33098mr86031871cf.1.1788433056291;
-        Thu, 03 Sep 2026 03:57:36 -0700 (PDT)
-Received: from [192.168.202.12] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f8bc496sm2173512a12.11.2026.09.03.03.57.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 03:57:35 -0700 (PDT)
-Message-ID: <97fd5a30-9469-482b-be0c-0ed6da6424e8@oss.qualcomm.com>
-Date: Thu, 3 Sep 2026 12:57:31 +0200
+	Thu, 03 Sep 2026 11:00:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13F611596;
+	Thu,  3 Sep 2026 04:00:04 -0700 (PDT)
+Received: from [192.168.178.6] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37EB83F673;
+	Thu,  3 Sep 2026 04:00:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788433207; bh=l/WLiFAWZGavTCOOkKCUj7KqObYJmvameChFjiTD1Yw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Pt6UJRbW6eyrmqq6KoqUnuw1zRAmNRf5RDLIQWQvl9LUSJ4SZxmf5cHJWIUaXPzOB
+	 G6sWHKuAEo7iSNg4v1RWHFia1nDmCrn/12ZRhuzy2cyMflWa8/mhAUyyS5erPl+XKP
+	 O8gOun+PhScYTZ2Mfq812xj+BTLWJxV0LawkjFlo=
+Message-ID: <0d02e284-9a07-4f54-bf63-8edaa5e224e5@arm.com>
+Date: Thu, 3 Sep 2026 12:59:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 15/15] ARM: dts: qcom: Add initial device tree for Kuno
- SoC
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Georgi Djakov <djakov@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
-        Guru Das Srinagesh <linux@gurudas.dev>,
-        Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-gpio@vger.kernel.org,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>
-References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
- <20260827-kuno-soc-support-v5-15-6d47636a8f09@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260827-kuno-soc-support-v5-15-6d47636a8f09@oss.qualcomm.com>
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
+ selection
+To: Andrea Righi <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Mark Rutland
+ <mark.rutland@arm.com>, Christian Loehle <christian.loehle@arm.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Phil Auld <pauld@redhat.com>,
+ Breno Leitao <leitao@debian.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260831181800.1668646-1-arighi@nvidia.com>
+ <20260831181800.1668646-3-arighi@nvidia.com>
+Content-Language: en-GB
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+In-Reply-To: <20260831181800.1668646-3-arighi@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDA5NSBTYWx0ZWRfX6TnSnGLkqyql
- IFBmqwup4lgCEXDkR4Rh1gSOLjo4vsIdlQ98ISw9P+mwF2nRVWgjbrm6Jp+QdfZxq1EfTYie2jb
- k/I1kH8/+X9dbzpeZuJpt8LiTI4guyQ=
-X-Proofpoint-ORIG-GUID: QzNAyZgWKFdpinReH6ntqyXSn4nODTsN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDA5NSBTYWx0ZWRfX9ogteo9Q9ion
- a+QT32IURQ9iwCQ11DPMtS2Vb57JDZ4Q+M4KhJNpJgDgBbf/5d9ta9L+I/nEN3KGaPxPRQ5P5ye
- UNgYBmaOL7jTTyO824rfQ28AlmIz+mdRcg5cNuj+eMf3Yr8XWjMdlZOJ/sJz9upB90RgwLrv90y
- YJ2/rT1xSfELG3juhnl1QEBijQRXGTEywr4jQsUeKkqrI9VfEBmPns8ru0kAJRC/lZLAP9a9Uv7
- lH8PUcKziBSixSr2byIoZUSZ7cx8ME021jzsxQVXogocJzMHm+gURNwsVEutnW0k/cXwkzaSNuo
- OJSaobHbsXGqLGMBIHS8WGX6tpIlN16pcfJVhuIsF6zTNc0v+mn3mLTH9S4wFWzqB4lOwwQVKVQ
- B3t+wHzscZ7pk3JkCntx9/sZkJDSzmc/p6U1Bm8PBMelVIn+Ku8limzU3R9cy8F4GhynoFMk/Pf
- 3gwIMzOUQrNeYQw1J/w==
-X-Authority-Analysis: v=2.4 cv=RsL16imK c=1 sm=1 tr=0 ts=6a9952a1 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=OHs8NuuX1ptjo3lIKY8A:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-GUID: QzNAyZgWKFdpinReH6ntqyXSn4nODTsN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 priorityscore=1501 suspectscore=0 clxscore=1015
- lowpriorityscore=0 adultscore=0 bulkscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_035739_468835_5123C938 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20260903_040010_736400_D9D1CB5F 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,48 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/27/26 7:51 PM, Hardeep Sharma wrote:
-> Add SoC-level DTSI (qcom-kuno.dtsi) and IDP board DTS
-> (qcom-kuno-idp.dts) for the Qualcomm Kuno SoC.
-> 
-> Peripherals included in this initial set:
->   - Single Cortex-A7 CPU with PSCI idle states
->   - RPMh RSC with clock controller, power domains, and BCM voter
->   - GCC (Global Clock Controller)
->   - TLMM pin controller (110 GPIOs)
->   - Interconnect (aggre-noc, cnoc-main)
->   - GENI UART console (QUP SE3)
->   - SMEM, hardware spinlocks (TCSR mutex)
-> 
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-> ---
+On 31.08.26 20:10, Andrea Righi wrote:
+> SD_ASYM_PACKING orders CPUs that share an SMT core, but idle CPU
+> selection does not consult that order. A task can therefore wake on an
+> arbitrary sibling and remain there until load balancing corrects the
+> placement. On SMT implementations where changing the active sibling
+> repartitions core resources, that initial choice can cause a large and
+> persistent performance loss.
+
+I assume this sentence refers to Olympus/Vera and Power7?
 
 [...]
 
-> +	soc: soc@0 {
-> +		compatible = "simple-bus";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0 0 0xffffffff>;
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index 8dff37059faf7..3c49aa63742cb 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -8587,6 +8587,65 @@ static inline bool test_idle_cores(int cpu)
+>  	return false;
+>  }
+>  
+> +/*
+> + * Return true when @cpu has a higher asymmetric-packing priority than @other in their SMT
+> + * scheduling domain.
+> + */
+> +static bool sched_smt_asym_prefer(int cpu, int other)
+> +{
+> +	struct sched_domain *sd;
+> +
+> +	for_each_domain(cpu, sd) {
+> +		/*
+> +		 * Only honor priorities declared at shared-capacity SMT levels.
+> +		 * SD_ASYM_PACKING at higher levels may describe core ordering.
+> +		 */
+> +		if (!(sd->flags & SD_SHARE_CPUCAPACITY))
+> +			break;
+> +
+> +		if ((sd->flags & SD_ASYM_PACKING) && cpumask_test_cpu(other, sched_domain_span(sd)))
 
-that's just "ranges;"
+Looks like 'other' is always part of the mask?
+
+> +			return sched_asym_prefer(cpu, other);
+> +	}
+> +
+> +	return false;
+> +}
+
+SMT will always the lowest SD, so for_each_domain() is not necessary:
+
+static bool sched_smt_asym_prefer(int cpu, int other)
+{
+        struct sched_domain *sd = rcu_dereference_all(cpu_rq(cpu)->sd);
+
+        if (sd && ((sd->flags & (SD_SHARE_CPUCAPACITY |
+SD_ASYM_PACKING)) == (SD_SHARE_CPUCAPACITY | SD_ASYM_PACKING)))
+                return sched_asym_prefer(cpu, other);
+
+        return false;
+}
 
 [...]
 
-> +		qup0: geniqup@9c0000 {
-> +			compatible = "qcom,geni-se-qup";
-> +			reg = <0x009c0000 0x2000>;
-> +			clocks = <&gcc GCC_QUPV3_WRAP_0_M_AHB_CLK>,
-> +				 <&gcc GCC_QUPV3_WRAP_0_S_AHB_CLK>;
-> +			clock-names = "m-ahb", "s-ahb";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges = <0x0 0x0 0x0 0x0 0x1000000>;
+> @@ -8668,7 +8727,7 @@ static int select_idle_smt(struct task_struct *p, struct sched_domain *sd, int t
+>  		if (!cpumask_test_cpu(cpu, sched_domain_span(sd)))
+>  			continue;
+>  		if (choose_idle_cpu(cpu, p))
+> -			return cpu;
+> +			return select_idle_smt_priority(p, cpu);
 
-likewise here, you don't need to precisely limit this.
+This one is weird for SMT2. AFAICS, select_idle_smt() is called when
+there are no idle cores. So if you find an idle CPU this is what you
+will return anyway.
 
-Konrad
+I guess your tests on Olympus/Vera do wakeups via select_idle_capacity()
+so you haven't touched this one.
+
+[...]
 
