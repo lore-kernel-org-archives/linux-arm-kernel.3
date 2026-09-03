@@ -4,106 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4D5C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F7EC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=444nNZztaKWrtZLx1q7kQKh1w+9LbHm/QlTHTnrzmNI=; b=LvpsTi/zOMMIV2qsOqXwdvgeOl
-	2DfscvIbfBCuTwtC+Jh/Tgs9S/BbRF4oO/xIxmEjf9EGj5gLeic6Ye5ZG2BWBl0JItlvEwiLIkV18
-	QXOZa290mEOe4v/QI39U99kqx24YyMiERx3OXHaKqC9/91NGQXuPiG/RfnC/o6luRd4QDCk2ECw4g
-	ebRqVfvICQwGxv6e2psMAh04CXFs43Gvi/qQ7cmV004uDHRRVtHVMBQ54ZC6hCKkJ4TiWZ2fsiTBP
-	ml0yyJ+8LFCo8mVjcdlRXMbwPmsdYWIZJfWQ2WL4Gxt8Idfg8XwYhznwoaq/lfh/j3zUK8GjeYKSR
-	qgNgvobw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1XdyeznFhql9EgOoZF6ZIKOla/L9yi5hCmaRt5yqyeU=; b=1y/I4kPYXz9mT4t8IJDoCbsRHT
+	4/Uq7K1JzVaed+ueGirHmMorcKfCOcbPp5zSyov7yMnk7HDGJCayzE+QO41ImbRpoDUBZiSGlDmOv
+	ukh3g3ymCXLXIT4A0xQ0aJurktrf+LBGq7GfyGNc2rBN1yTTRS04vCqF0+rWVmWf4bZ97EyAPotif
+	pjQxdBC/U+J+ZiYR78Ik7oeUadB5GcaNimB1JsE1oC0rZFAp7o9vyMkSsEpQ4MgJzmVuCBuZaS57k
+	ccygPYZ8ijhUTGLNuoJktcPKO5L60WDxNSUfWo4iOZksOukCHyCB4vu18EQ3o1M/82dRbhFIKAHJK
+	n6YKnk8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26al-0000000HInB-0BjP;
-	Thu, 03 Sep 2026 12:30:55 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1x26fK-0000000HJGo-30MG;
+	Thu, 03 Sep 2026 12:35:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26ai-0000000HImE-3WQJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 12:30:53 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a7e0ff423dso676867a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:30:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788438650; x=1789043450; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=444nNZztaKWrtZLx1q7kQKh1w+9LbHm/QlTHTnrzmNI=;
-        b=Ye+LzxPvGbW66H9vS4rj0ZBb6nbSaXCHppZ+Dz8H+zLo6qQJqwn244Pv6mdM1nwMaB
-         0B3gQaHFM8Ix5RRRNNGsosT/W0CUMeTdY7BYxGterr6L/ZTOGoqr7xO6NGa1nC+x9Sjk
-         dlnDTwmO2jClllLd3FVuLeKSPIvGvGD/BiSXU8Yo6n9D4ETs6SCEwwHP8jVMN6fqQfS2
-         XWOOAvsOorjerABWmB4HDvKQ6yvflynf3UOab/ysUjvZL2LjhTqQA10Qy9a1l/mXFZHb
-         O75xDdGIwV1Mu/T8MeoIinivmB4DNisYgClqABIp1OR/9BcZhuAkGWyGVCAbO4tprkL2
-         XhJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788438650; x=1789043450;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=444nNZztaKWrtZLx1q7kQKh1w+9LbHm/QlTHTnrzmNI=;
-        b=Kv20p84ch2r8bGa3Gy0DxmoWQWS6V5ypWwb4sDka5fhb+a3uA1odkpEPwIMWzYJmWZ
-         M/ZiYQ9AsXYOdn8IezfEC10kJ91rB8dOxt05qn/F1MCXcbYlziq1P6W8mmjnx15qqP0M
-         FUGVMvePu55fUI0aqH8X6KuprfzZ2V8/7SxIdvWY3n403LyhXvhcw7bSzwTFTF0bls6f
-         Gxxh8gfb5Q1KQBU2Mh+7ew9SDEWMCpB+/4n10ivj0rgU/Kn6eRAZNqZQcXkW0L+Oy0oC
-         tFykmVaXuSSZBbVldxEH1+pepHHBiKwnyXJL9SuHPhPtG8DjyseUw2t7yYtHvk7VK3aY
-         WPfg==
-X-Forwarded-Encrypted: i=1; AKwUvBx6PLPyypbPkMCD9pzi5+vUCkG9qYXVGVWMo6AZNlHffGC9veNqv8ystkEynX2PSi2uY3FXixfO1ldmFMcO9hz+@lists.infradead.org
-X-Gm-Message-State: AFuF++lbrl9ehVgEz7tauYu3MDDvZSviV6dZFPRuESIOF/P87JiIteX2
-	V1+LriYvxqWc9MgWGhYi13o2wcwAaEKQAmyuaL1p8/v8u3TsBhvNuDO9
-X-Gm-Gg: AYBFou3gAj7HwufLD2YQ05pky99M/Bu6/0m2FFWbWFx2zqBOOJwLbp6nbeNfs4JUCUL
-	B7vHXYUXHC/VAP6dE+eI4pbqknCU/VUxmVxrzRyj5CiUF6bAMByNJRD8lohZoY2Z7chdDofGvQJ
-	lOYz3BXqDeaaLAb04sKxMudnlrprRPBb/8niojjfGNvWnjH0Q0s4GskIh9WaKnKVuEXuJAA2pZQ
-	bEtdiuoM7qhlHt9AuzoiSZYlJD0mM5R9qxzIMh7T6ty4a2tqQG1JeEZtTeO5V0238MdIPejhp6u
-	v1M7Qoy80n1qq6QPKcIjsumO0KI5CyI5lZzXp1axXHmPuNPaDmF5paqpFzKPRJsujtiQS7LxKci
-	sww2iGImf6wGfRHDvzvfOay6v+RKshAz/nzkprmsFZBFhjlVpHWYe0ulEWuD11I65UMt/izPwBs
-	6FM+HhI4zBf3N3ml3vvV5fUOr5HGHJ6xcNshmFB/HRUVqpqhL8DWTJ0WbsQpCcqZmIXsSGbfrW/
-	/jNGMs4Mva/IUul96jJNQA=
-X-Received: by 2002:a17:907:8323:b0:c25:f7dc:2e0 with SMTP id a640c23a62f3a-c25f7dc0985mr85901366b.33.1788438650154;
-        Thu, 03 Sep 2026 05:30:50 -0700 (PDT)
-Received: from [192.168.1.89] (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f895d68sm2265294a12.4.2026.09.03.05.30.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 05:30:49 -0700 (PDT)
-Message-ID: <1d7f8806-f4a0-fda0-a361-a011460ef308@outbound.gmail.com>
-Date: Thu, 3 Sep 2026 14:30:46 +0200
+	id 1x26fJ-0000000HJGf-1xVs;
+	Thu, 03 Sep 2026 12:35:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2E0142DB0;
+	Thu,  3 Sep 2026 12:35:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29F701F000E9;
+	Thu,  3 Sep 2026 12:35:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788438936;
+	bh=1XdyeznFhql9EgOoZF6ZIKOla/L9yi5hCmaRt5yqyeU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mKp5TvjNoeGSv27DDg/j6XMUIt65JwtrMSbNG2SS9Jy1NEivmw3yqT/HHLqPv/8YW
+	 v+nBzQ/MugMFCPRU2WkuyxSnx0qsZ8N4nEOHRTCkPZWxk/f/5TEQUJLeV7a/qi0xo8
+	 waloM/Y6OlNim4+DDqtiX88n9MDliqjzFZbvywEdMhaKWkdIhaLKBEzpSyerAXZKJr
+	 0vx1+nnOpjJJGfZUlLArp+g76nw7e34WwZzbDfH0jsQXt/cQbEuoQZwzqjWLGEvtQV
+	 MIBY9ETaoI77bLkikG25WrW8CLajC8RdtBhU2df1sYJUjzxXwL+aRUeNWh28VcqXfY
+	 8QZQuhcbl33sQ==
+Date: Thu, 3 Sep 2026 14:35:34 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v5] net: airoha: add HW GRO offload support
+Message-ID: <aplpllPidmCjhSmA@lore-desk>
+References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+ <fce0ee5a-476a-4867-9dd2-08e55993bd90@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-From: Eli Billauer <eli.billauer@gmail.com>
-Subject: Re: [PATCH 2/4] char: xillybus: replace __get_free_pages() with
- kmalloc()
-To: Mike Rapoport <rppt@kernel.org>
-Cc: David Laight <david.laight.linux@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michal Simek <michal.simek@amd.com>, Ritu Agarwal <rituagar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org
-References: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
- <20260830-char-misc-v1-2-05e2ce44f291@kernel.org>
- <f6001085-9234-4025-ff34-6cc4a66c293a@outbound.gmail.com>
- <20260831123937.32255a49@pumpkin> <apaF1HUtJnstuUN4@kernel.org>
- <1729fb06-6beb-f8ef-3e71-47fc3f00345d@outbound.gmail.com>
- <apcPg_y-HsMki7we@kernel.org>
- <9a3d6a08-339c-3315-cc81-46907d0836ad@outbound.gmail.com>
- <apgSCyj-h2xVc2ss@kernel.org>
-Content-Language: en-US
-In-Reply-To: <apgSCyj-h2xVc2ss@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_053052_916718_66AA6D54 
-X-CRM114-Status: GOOD (  19.22  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="EF3/+5Ej5nc/qA39"
+Content-Disposition: inline
+In-Reply-To: <fce0ee5a-476a-4867-9dd2-08e55993bd90@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,48 +75,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2026 14:09, Mike Rapoport wrote:
->> So using vmalloc() may result in a malfunction in the data transport where
->> the __get_free_pages() would have been successful. This outweighs the
->> benefit of a somewhat higher probability of success in allocating very large
->> buffers, and surely the improved aesthetics of the kernel code.
-> kmalloc() still works, just like __get_free_pages()
->   
+--EF3/+5Ej5nc/qA39
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-After these few days of discussion, this is what I make of this topic.
+> On 8/31/26 8:34 AM, Lorenzo Bianconi wrote:
+> > Add hardware GRO offload support to the airoha_eth driver, leveraging
+> > the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
+> > queues 24-31. HW GRO offloading does not support Scatter-Gather (SG) so
+> > it is required to increase the page_pool allocation order to 2 for RX
+> > queues 24-31 (LRO queues).
+> > Since HW GRO is configured per-QDMA and shared across all devices using
+> > it, HW GRO is mutually exclusive with multiple devices bound to the
+> > same QDMA block. Call airoha_update_netdev_features() in
+> > airoha_dev_set_qdma() so that NETIF_F_GRO_HW availability is re-evaluat=
+ed
+> > whenever the QDMA user count changes (device registration and runtime Q=
+DMA
+> > migration).
+> > Set CHECKSUM_PARTIAL with pseudo-header checksum on aggregated packets
+> > so that L3-forwarded traffic is correctly handled by the GSO/TSO path
+> > on the egress device.
+> > The HW does not report the per-segment MSS (msg3[31:16] only reports
+> > the max aggregated size), so the gso_size of an aggregated packet is
+> > just an approximation computed as DIV_ROUND_UP(data_len, agg_count).
+>=20
+> What is the <max aggregated size> exactly? I read it as the maximum size
+> of the aggregated segments, am I correct?
 
-The memory allocation in fifo_init() is somewhat ugly, but this driver 
-has been out there for five years, and no complaints from users.
+Hi Paolo,
 
-The vmalloc() option may be successful sometimes where the current 
-allocation will not. On the other hand, there is a possibility that it 
-will cause real trouble with page faults. Plus, a large allocation with 
-vmalloc() may be a weak spot on a platform to which the kernel is 
-partially or poorly ported.
+with "max aggregated size" I refer to the length of the aggregated TCP
+packet (composed by multiple segments). This value is reported via
+QDMA_DESC_LEN_MASK field in the DMA descriptor. Moreover, the hw reports
+the exact number of the aggregated segments via QDMA_ETH_RXMSG_AGG_COUNT_MA=
+SK
+field.
 
-With __get_free_pages(), there is no doubt that usable memory is 
-allocated right away, and that it will work that way on every single 
-esoteric platform. vmalloc() leaves us with "we're pretty sure there is 
-probably no problem".
+>=20
+> Also any more details on how the aggregation engine works? i.e. can it
+> aggregate "random" segment sizes (i.e. 200 - 300 - 400) or does it
+> respect HW_GRO layout? (i.e. all segments except the last one must have
+> equal size, the can be smaller).
 
-So I vote against vmalloc().
+The hw engine, for each LRO queue, is configured with:
 
-As for replacing __get_free_pages() with kmalloc(), it's a matter of 
-taste. I think that if you're after a buffer that has a power-of-two 
-number of pages, __get_free_pages() is the natural choice, and using it 
-makes it easier for the reader to understand what you're doing. 
-Replacing it with a kmalloc() is confusing in my opinion, and requires 
-that the reader is aware that kmalloc() falls back to __get_free_pages() 
-in this case. So we actually want __get_free_pages(), but call kmalloc() 
-instead and let it fall back to __get_free_pages() so we don't have a 
-cast and don't need to save the order, and assume that everyone knows 
-that this is equivalent.
+- CDM_LRO_AGG_NUM_MASK: max number of segments for each aggregated TCP pack=
+et
+                        (64 in the current configuration).
+- CDM_LRO_AGG_SIZE_MASK: max size of the aggregated TCP packet (composed by
+                         multiple segments). 16KB in the current configurat=
+ion.
+- CDM_LRO_AGG_TIME_MASK: max timeout to compose the aggregated TCP packet.
 
-So I vote against the kmalloc() thing as well.
+In order to validate the scenario, I run the following test:
 
-If this patch is part of a larger kernel cleanup, I suppose my votes 
-don't count for much. But for the record, this is my opinion.
+TCP client:
+------------
+- disable TSO/GSO
+- set MSS to 256 bytes (iperf3 -M option)
 
-Thanks and regards,
-    Eli
+I can see multiple 310 bytes TCP segments on the wire
+
+TCP server: (where rx-gro-hw is enabled):
+-------------------------------------------
+- the engine aggregates ~64 segments in a ~16Kbyes TCP packet
+
+  so gso_size ~ 16KB / 64 ~ 256B
+
+I guess this would be the behaviour even if the original packets
+have different size (not sure if it is a real use-case).
+
+Regards,
+Lorenzo
+
+>=20
+> In the 'good' scenario, than by definition gso_size =3D=3D <max aggregated
+> size> - <total hdr len>, and you are better off computing the gso_size
+> from <max aggregated size>.
+>=20
+> Otherwise I think we can't call this HW_GRO - even if it would be more
+> convenient for the driver.
+>=20
+> /P
+>=20
+
+--EF3/+5Ej5nc/qA39
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaplplgAKCRA6cBh0uS2t
+rB0ZAP48zGsaOahQ/7/+9gWRoFOHmwQovjU85XOK+X6Ze2iYSwEA7uS7OT9h3/au
+H2hDKAHz6p1VAg1AFLFT0LQdDqVX2gQ=
+=gEmT
+-----END PGP SIGNATURE-----
+
+--EF3/+5Ej5nc/qA39--
 
