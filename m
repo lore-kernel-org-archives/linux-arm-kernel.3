@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9025AC79F8C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645CBC61DD3
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WWPzpTNHUglcu++XhvDDhKRO52uAtHvUOsLxn0S/mMQ=; b=jh1z/uyx+QuO7UhB62weGA8TtO
-	VKy3pnf258F5bSLyimEoeueF9loOLxES0pspb8HzwBbCevGxEfpNCOTyy2pZQFzyvB4Ey127l1EPX
-	YxUj3XFRsipYuc0LbdmCELSJeoshaNOBnRjc5Yi17BtgnGCf7ypuZaLWr0LshUevR2DARulS+IOjO
-	s6Fe9RWSV7Lm5JgnrbD5W35+CfamhsuTyZItsJPdqNQOTA01pNMfsVwtOVozOXCaDWrNHREh6xoXG
-	ffn4vYzWHHRVt2w6Jc9ESEzy44K0yzrRnbzOo/UIV5wiGTOJOHIB7AeM/YsDR0VrYBx16DTrS1nsN
-	paENTT5Q==;
+	bh=TqQOe8MfzuC8spsP7Zqy3hWAWRQHTjK1NFcKHUE4s0E=; b=UKDOiEmvKzCbUf7Jp+sleFo+E2
+	ioDZ50Ef3xZ+XyUj61YsanMO9oERCCMHvzLA7cRdkQ9fdLpKxJb4F1se4SX0AkzOPFbO0fxbWyWqa
+	IQmUMuc9oukCKaDEQ2KEeJ6+EoRE/NpftaXm3RNQvcXfTFVHMEnlOXKID3qqfEKrAroFmr2fkESJz
+	uzbPvsDAmDqM+/h3rfAHQ2A4nhSMF/1ZfLez6xXA1NpfAxQRBg3lReZX/2/Fr8vhob/d8cy9vLGYo
+	fXqV4jvpCs5u7le/3JsMAjLoB0IFRYYnleQk5xcLGgz0oOeWJJb4MIhme0FvNjXS7G2CjsCTa5nYM
+	QIapbjiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EuT-00000000dHu-3gnv;
-	Thu, 03 Sep 2026 21:23:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2EuS-00000000dFC-2DNO;
+	Thu, 03 Sep 2026 21:23:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EuR-00000000dDQ-1bMp;
+	id 1x2EuR-00000000dCs-0F9T;
 	Thu, 03 Sep 2026 21:23:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 15041447D2;
-	Thu,  3 Sep 2026 21:23:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E010FC2BCFB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D5BE447B6;
+	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 638A8C32782;
 	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788470626;
-	bh=gCiljD7HuwVIRElKOkIDrAXsyLYvmWEvZcTHgpjZJDs=;
+	bh=TV1Nlu/Lb5aFsrXrysuPrkDA+HDo36n/f0fYgi+xaYI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=I6Do3de/9AOPC7ll38+85bKceAhW5KEWERFkSqlk8XP53tbHuh9nKLVTVPp+spzQT
-	 2lK9eNoGrjlVnv6rQodMNIBIJYPFt3kFsXYGLQbvxN+IVn20T7NSoE0/RS5YCBuT+j
-	 mdfOhan14M4MI57ZXaVS6aUH5WICr4n9BfGTO/3dnnzVmNz2a2Zh6q5oqYtU5dw95g
-	 qC3UhT9Yl2954nIhJPL8ZdF4pXqTTlozH+x6qmNj/fZG/IdFVxwVlDHM8MZb3BJBVU
-	 4KB2wROhLDEWSLKkNg4y+qVVYztdpNGu9srkf7zSD1vzvGn7kNppJb2qsC/p/GRrkN
-	 yS0JwIuvc+IQw==
+	b=tjSjEtnPW2V0qt58oNLO8K8RtlD8T+iuO3KIvnhL9tiYkuwz2/rpilXwTmLhSh8OW
+	 AOWcuKnFT+EjC/afCtRqtgBleLLGHrvuliU8nLJnbaBEr40QrbXuebFvGJt/dQzxwF
+	 fD/BzErxtpncsqE6SyhqRMxzGCvxcxPNgJkxt4Q+lY191qMr5zwVFzMQnaAxp+FrZw
+	 iZrxVCruS32hjX23SLt7WZ/eXtx1vyaCrZkgOOfVBdpAYAljP+8Eoax+C3KP3xTXu6
+	 WnCFkSEezCA5b29JzR8zQCv6DDxLZwqp97jrMRbQ6vJ9neM938qW2r2hsaIL4sgjEl
+	 anQ179mABjWQg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CE709C61DD3;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52661C79F82;
 	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Thu, 03 Sep 2026 23:23:24 +0200
-Subject: [PATCH v6 12/12] arm64: dts: rockchip: add support for NanoPi M6
- board
+Date: Thu, 03 Sep 2026 23:23:17 +0200
+Subject: [PATCH v6 05/12] arm64: dts: rockchip: rk3588s-nanopi-r6:
+ pcie2x1l2: add clkreq
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-nanopi-m6-v6-12-37416bbd6862@gmail.com>
+Message-Id: <20260903-nanopi-m6-v6-5-37416bbd6862@gmail.com>
 References: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
 In-Reply-To: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,11 +60,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
  jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788470612; l=6266;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788470611; l=850;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=x3CfHDpDBSxDSGGXiExRq5llcOaV+tvEdoAjbj5G8tw=;
- b=4OIlSzvZjO0P3ZUda0QP8mIN/oA78EJn+tHV0NHh30gBzd60QSFAlW12N6HDjcvnvdnJGvcXP
- wLmRFGi21vtAGBX5tPMnv19MkUkfd/jrdpfzgis5bY7jr9kIs68hIH4
+ bh=zZZsCZdGw1nc36iqIT9VghSAmTcEW35W4wGMmfXzvks=;
+ b=+Pgvt1M3/eFQOQ0W4BVgJQFU7UzERa5QjsQbnUH6IMH24JzyPaVzFCKAg8FbagY34JnHHXgbh
+ wsXGPqJ9efkDVdjVzy4jmfn6l05lxgiqsZB3JChibspIAh5aB6AZplu
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -87,244 +87,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-The NanoPi M6 (V1) board shares most of the features of the R6 boards.
-
-Main differences:
-* M.2 M-key slot with PCIe (Also present on R6C)
-* M.2 E-key slot with PCIe and USB (from hub)
-* 1 additional USB 2.0 port from an on-board USB hub
-* RT5616 audio CODEC
+The clkreq is present on the board, so hook it up in DT.
 
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi | 142 +++++++++++++++++++++
- .../boot/dts/rockchip/rk3588s-nanopi-m6v1.dts      |  57 +++++++++
- 3 files changed, 200 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index e7936a21c118..be2c8cc810b7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -229,6 +229,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-gameforce-ace.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-indiedroid-nova.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-khadas-edge2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-lubancat-4.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-m6v1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi
-new file mode 100644
-index 000000000000..6644d3b72c9c
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi
-@@ -0,0 +1,142 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include "rk3588s-nanopi.dtsi"
-+
-+/ {
-+	adc-keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "Recovery";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1800>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		sys_led: led-0 {
-+			label = "sys_led";
-+			gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&sys_led_pin>;
-+		};
-+
-+		user_led: led-1 {
-+			label = "user_led";
-+			gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&user_led_pin>;
-+		};
-+	};
-+
-+	vcc_3v3_pcie: regulator-vcc-3v3-pcie {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pcie2_2_pwren>;
-+		regulator-name = "vcc_3v3_pcie";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&typec5v_pwren>;
-+		regulator-name = "vcc5v0_usb_otg0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vdd_mpcie_3v3: regulator-vdd-mpcie-3v3 {
-+		compatible = "regulator-fixed";
-+		/* Controlled by EXT_EN on RK806 */
-+		regulator-name = "vdd_mpcie_3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&i2c7 {
-+	clock-frequency = <200000>;
-+	status = "okay";
-+};
-+
-+&i2s0_8ch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2s0_lrck
-+		     &i2s0_mclk
-+		     &i2s0_sclk
-+		     &i2s0_sdi0
-+		     &i2s0_sdo0>;
-+	status = "okay";
-+};
-+
-+&pcie2x1l1 { /* M.2 E-key 2230 */
-+	vpcie3v3-supply = <&vdd_mpcie_3v3>;
-+};
-+
-+&pcie2x1l2 { /* M.2 M-key 2280 */
-+	pinctrl-0 = <&pcie20x1_2_perstn_m0>, <&pcie20x1m0_clkreqn>, <&pcie20x1m0_waken>;
-+	vpcie3v3-supply = <&vcc_3v3_pcie>;
-+};
-+
-+&pinctrl {
-+	gpio-leds {
-+		sys_led_pin: sys-led-pin {
-+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		user_led_pin: user-led-pin {
-+			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	headphone {
-+		hp_det: hp-det {
-+			rockchip,pins = <1 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie2_2_pwren: pcie2-2-pwren {
-+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		typec5v_pwren: typec5v-pwren {
-+			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&u2phy3 {
-+	status = "okay";
-+};
-+
-+&u2phy3_host {
-+	phy-supply = <&vcc5v0_host_20>;
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts
-new file mode 100644
-index 000000000000..2a22435f46c8
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6v1.dts
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include "rk3588s-nanopi-m6.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPi M6";
-+	compatible = "friendlyarm,nanopi-m6", "rockchip,rk3588s";
-+
-+	analog-sound {
-+		compatible = "audio-graph-card";
-+		label = "rk3588s-rt5616";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hp_det>;
-+		hp-det-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_LOW>;
-+
-+		dais = <&i2s0_8ch_p0>;
-+		routing =
-+			"Headphones", "HPOL",
-+			"Headphones", "HPOR",
-+			"MIC1", "Microphone Jack",
-+			"Microphone Jack", "micbias1";
-+		widgets =
-+			"Headphone", "Headphones",
-+			"Microphone", "Microphone Jack";
-+	};
-+};
-+
-+&i2c7 {
-+	audio-codec@1b {
-+		compatible = "realtek,rt5616";
-+		reg = <0x1b>;
-+		assigned-clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		assigned-clock-rates = <12288000>;
-+		clocks = <&cru I2S0_8CH_MCLKOUT_TO_IO>;
-+		clock-names = "mclk";
-+		#sound-dai-cells = <0>;
-+
-+		port {
-+			rt5616_p0: endpoint {
-+				remote-endpoint = <&i2s0_8ch_p0_0>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	i2s0_8ch_p0: port {
-+		i2s0_8ch_p0_0: endpoint {
-+			dai-format = "i2s";
-+			mclk-fs = <256>;
-+			remote-endpoint = <&rt5616_p0>;
-+		};
-+	};
-+};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+index f2b15e03d5ef..b120dd98241f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+@@ -369,7 +369,8 @@ &pcie2x1l1 {
+ 
+ &pcie2x1l2 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie20x1_2_perstn_m0>;
++	pinctrl-0 = <&pcie20x1_2_perstn_m0>, <&pcie20x1m0_clkreqn>;
++	supports-clkreq;
+ 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
+ 	status = "okay";
 
 -- 
 2.55.0
