@@ -4,133 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2FCC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01E6C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7qbQTNUzj+jV5r6cRQjR4MwCZrcYayGUDiPOWPEzmQ=; b=gf1x0c5pqR8u4DcZquIeQJ5q0f
-	n0evzeYON+sKaiKCDejiK5MtYQdeTkd2UjAbrNGqNgjFdPNvIzT3CqZ+hHO368ruWb1FNDect5s7F
-	r4S2RqIId49yLSTfbscR0lF5fkOAesdzZBGYAQKbSXl+fxd8HkOp8Po6ztKCa9ryI5V5AUQuOloMS
-	tjxlcYoubX5HTge7j/ok+wmufYZ1tMOXYztcXvVZVd89bDokt+1jbipH/dK0Lwj2EVfnaW47HprLT
-	0qT9KXtYHU7O3FVKGg+EedQxfYa4sL22mrZF5B4gOubXVnHPlGV1zv43vzd0HV9VqUvu44KNideO6
-	vM4wHq8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=; b=IQ2GqJam9sUgbyzqzZE3pB+N87
+	81DznQH+VUGF+8t9MuLtKFhaDWeR8mujc0STQX7kkb+O79mo0VvEH8hKzJFAhEnRdHpZKEKk+5zdx
+	gPgOczJOID1LDbwCmBbIwy8pGCzxGgQhAMwwJ3pCAtzK/Ix/XJ9qmfhzIG1UimNpLT/iQ/vsSPc3Q
+	psJORjUPh+i6NbhrSM7IIMccfEnYga+w7zg9n9fPXy1a50KnmN/J/KNCb1AMdiVjSIecmnHsLAh4i
+	YvVYHTiZpbFDnw4dnDQ8TIlifDLmb4FQZZmzQaXWOOq0oLCsfhghdj5yKiO5BWeROe8TKyomcC6sK
+	BOuUoACA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Cpz-00000000Rer-2RXr;
-	Thu, 03 Sep 2026 19:11:03 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1x2Csf-00000000RoC-3WQL;
+	Thu, 03 Sep 2026 19:13:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Cpx-00000000ReV-1MjA
+	id 1x2Csc-00000000Rnq-3NNg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 19:11:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DQp7+ajo0hw3Wf258QT1O15FMDQAFT0rzGI6wTnTM+ofsELMJJOZwfiG0ZGPVx7V2GV4z25Z8w0Vrjqa1BKuChO2/mgBtw8X6C86GtmOsKorLHskq2H/gLvqgQKIk5DdJQzDe/qaGHxr3PHhopkyvUo5OWn4UAAQwlHyRsDKQpIyrZ9aBHAGJK0pcUiU7q9q7wNr54kUeI5CM7xM1+xOhnedALL1Sy2pqSDhWZzVRH4yibnjT5t3Et7VMkRtGaqqvFwyKsoeJVrqJnYa94gyhgelM67oh5hBqfWLt8xR6mzpT3qHLG7Y2nUsx4kmg3N/QOhFf1eVkRL5/N21fyKMtA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V7qbQTNUzj+jV5r6cRQjR4MwCZrcYayGUDiPOWPEzmQ=;
- b=j/4/BdCwTdz5DyE7NHmvTEBLSdBjlg6Rp4kRBeA1pFE127RtyRKaCa5dPUROynlj2sbAlGAIgh5A3K9ct7CeMlGyxF4tFMFASBfDm9cgOBKHa+F8XQZpqbi4zpIUhmX+kMoCQ0xSWxQlYIeUdEdWLesZDekgAMTArXg+98wHlVBv2UJGcFt9jaO50J17K9T1YInNIgOQGcFp2QZTY/YXKfoeUW8LeU0shCU/5+M0Vy2QLdmv9/EX32yA/3kmKatLwDa4Fu6i+MvYWJi1wExdZ+UnVnWMaoNtbKRcIZ0dM4TMDUnrNRX6tm0c7d2qyvBG0DQGcueQ3hE0uacxj1av0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V7qbQTNUzj+jV5r6cRQjR4MwCZrcYayGUDiPOWPEzmQ=;
- b=Vxx+rT6j5LJOcbAEH9li0gKUbAq0FaQf6flkSDtYTLptbXPVuDe9f9dspOyAVSDWCoJMlnkEGJ17i5yBR9HToUl4O5RN3A49k5HMy2fJedaXYGFrPfQIhVu0VOCs20I+7KeDBTcgxj8o092DhSU2Xj0dCQrrB3Sw+WPOTvqsnxdZTstoRGhlHLAWfqjOkZPSGLpnfD4veAJAxrP+9l3ctAgWd0h6yAQZnDeH7ZuriqO/pLIQYQ78IvV0bZz9MpOoV6hD0e2yngO1gUasOYzq8sp8uPTS/VGN016xxlFaZKaU/umBNV7uhaHrtdONpWMlZQvc72LU/QRoPuN2eXMlqw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8561.eurprd04.prod.outlook.com (2603:10a6:20b:420::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 19:10:56 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
- 19:10:56 +0000
-Date: Thu, 3 Sep 2026 14:10:45 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Zhijian Han <hanzhijian1991@gmail.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, sashiko-bot@kernel.org
-Subject: Re: [PATCH v6] PCI: imx6: fix resource leaks in probe error paths
-Message-ID: <apnGNctUMNtaROtr@SMW015318>
-References: <20260903160342.3282199-1-hanzhijian1991@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260903160342.3282199-1-hanzhijian1991@gmail.com>
-X-ClientProxiedBy: CY5PR15CA0008.namprd15.prod.outlook.com
- (2603:10b6:930:14::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 03 Sep 2026 19:13:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788462825;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=;
+	b=cwdSFHGUB5A4gw2DrXzNUj8QNSk5NRzKQXNlNBKl5gcyW8AbIIsQ3VXAg8cy9jZEkGboev
+	VknJLN50cEM5kARqRg1jo4r1mWl/2NBSuDGwQxOClWnRO3NdwiFK8kvJm5GYS7U6Pqm3C6
+	7FyygcPNYD+HUEUocketHZue9RCBi+g=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-121-GvwbRNxbPsCWHxTL0gWPKw-1; Thu, 03 Sep 2026 15:13:43 -0400
+X-MC-Unique: GvwbRNxbPsCWHxTL0gWPKw-1
+X-Mimecast-MFC-AGG-ID: GvwbRNxbPsCWHxTL0gWPKw_1788462822
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-47d81cf0c4cso127618f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 12:13:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788462822; x=1789067622;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=;
+        b=jd9Kt+bQIwDB236oVe1OBWxKcJh8twrzYcrDzW0wqY/dDjIV4j+Ascad2TGdFUBqGl
+         INdOT2EhcuVzN3qRfl46VsyUsPuiKEmbnDEr7ch4xOl1PJ29kQp49UwLC5/YskVYzISX
+         4r7MeCJ8p0bogvJVqfuKu1DlhyXIAxDcuYcB+83Sv9m9WsgtOCSatPGD14f6vIicWCN3
+         /b2uURsf73pNANF2bdMl2RTH3S9cDpVk7RmKzRirBOgGdMnVzuHN+4Nv/6l4Z7jwk32E
+         edhIE7o9m18GdmAXs2BVnXxM8gGhb9a6wD+i8PiEmVTka5tX3GiC10Yfb1zzcMtyAK8P
+         PJRw==
+X-Forwarded-Encrypted: i=1; AKwUvBwCvUeGFaJeEt3RuRtU9OhwrFhEF8k7J5XlWtIebgTP+qjUKWG9JbhI0PoSl1GT6VKnx+n95gsJttLBeuG9JKQC@lists.infradead.org
+X-Gm-Message-State: AFuF++lyZpr9xyL+nYY8dYjlCoQfEGJqmtKmMezJG2HVuJqWr3XaiEcz
+	G5hqD0Vt7vZgECCnBwEB5GPCB7HZFJXlpPjWgL4inBCqAzpS9sqdjUAZ4LULXpZY3ZMa0hzdsH9
+	LCSUrSxsD0/JxCbYYuQ1lqy0jItmovEs8faQSPKV1a5ahL2y5LoDCfCcL7UVmQbm8aN7bGhODLP
+	uVnV2QYU8KC4gsdXSnbZb1QSVLjj43/mPkJt3An5CF6nGD04X0lac=
+X-Gm-Gg: AYBFou27t5usYU1HSQK24UYyA9BbZyrHdaduGQikaEMJGYQxCBtQD+Cd+juZKZvl6Zv
+	ovlOIFlAHZpUeO1z6NiyIp3gsCmlucKsSC6JSsB3GIA77/tZw8GktJSGL3LSmy+Ze690EKkrzQV
+	2JVhU/ZV0KMVc7hhyYCwSI6VSIUiMhlouDFDdql50dXixoZKEk0yx+LA+9QOVubtKB0H11gaziR
+	qq66XKcly18I8d4RzeLGQAYrArfF00+PxYnllgc0n9SkKyZHMtWGJAIGadu
+X-Received: by 2002:a05:6000:2084:b0:482:f0ee:1390 with SMTP id ffacd0b85a97d-48587289c5bmr2438692f8f.22.1788462822432;
+        Thu, 03 Sep 2026 12:13:42 -0700 (PDT)
+X-Received: by 2002:a05:6000:2084:b0:482:f0ee:1390 with SMTP id
+ ffacd0b85a97d-48587289c5bmr2438609f8f.22.1788462821985; Thu, 03 Sep 2026
+ 12:13:41 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8561:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3a8452da-4d51-4bfb-addb-08df09ef14bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|11063799006|6133799003|10067099003|5023799004|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: RqivAUtbVVfOp+VRxGSpPbUc84wM52xFPCG7XLbeRe8BZskbmrbvWPwZxn4BPAaiRXrb/o7rYvKi28e59DBre6Z4EUlM9/VgWa65s0xS0OLPKm05YzX7uNFWtnSBzY5KT3Ld84Ld3mwD1S0ztO127TZdw/2PCMljB1+NBRu0uO17VziT5JOkLehvApF+9QbmmWKGqOHmZMNowfq9qsNF8O6Kp1EL1BWWuE+sm+jwwkAkMx4qPeKZBuMXUA2Xor1PqyguThsXJ2821oWz8UgPSj1STCtDQdF2GHbqI2T4AhjS59ShJ2Zyg4PQmIxUKT8OibUvLaT1JDYdbnI6RSUrMAnKZvr2YRe97jp7ZFH6scs3fBGVxlbrWakfwp3lvnfM8B6gWRI9bshYsRBGoAuMo2KwvOk8wYtAgQfgoz1Pl26oo6rguNpO5pqVgQUEkgexePQNdfHNJwcJhlErUBbeQgXPaQ5v0/ron2Hut2EDt6zeVdvpr97WnVRFURGelbYpST50qF5apC8jpcXlTkPVySjetIkpuvQd70tbbdQlS6di2uWtE46ue18jqEvAufvEC3LdeVNkkteiQFGIfzeyJ/FElWOIlCGDtZtqTy76vrtI6Xkov1/xvKTgK4sRiOgQ7rZQn4iDPPeyvfgnKuHyHKtEeRmr2kwbvpYCNy5bQus=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(11063799006)(6133799003)(10067099003)(5023799004)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gMEd+UFy+tf5qsfinI7L3cw5VzYrjLgATcVIzhpShRcl+TiUdk3t4Iw/h6Ve?=
- =?us-ascii?Q?Hf957du4VBHB/Lp5rlRwZJPom2IL7D9e3Vp0iX3W4kJcR+xoV6HOAdLHslrn?=
- =?us-ascii?Q?4wGFvSbcekhS+TI8dQ0uw4ACmWd/ds0v1ti5di2Spxu9R2zTKiuUlDqCxQ9E?=
- =?us-ascii?Q?Oco46pWMxRbAWcLbhgeZmF34pKGVAlBJGn8+4cojJJRlSSq1jhrQ625ILmrg?=
- =?us-ascii?Q?fwJu9OypjW7cDmlhxhzOAjSWcCKz3Y9icg9mT6SrUNtafurpXcnROEZPw1si?=
- =?us-ascii?Q?OdEN95Mq0FqzIyFmDbycRQF57GJwhkDTjwNhk+OLwdAPwr4jTOHQJgl9GlhM?=
- =?us-ascii?Q?IsE+nVDCE2KT1oBj6cHIP5EFIDR8q2y7BShjEY93supN56prwv3HxucshoSe?=
- =?us-ascii?Q?HwDfYQmhsjbeG+Qd7Yp3DhfPu3Un6vuzv4IuNkpkBf4DenZOhcgNuWni0m0w?=
- =?us-ascii?Q?fT0eD1ag/e7W5Rcfzc65qra0DL3eaNF9CnhW1mg9SzZtkJY/pKeS19Gx4ta9?=
- =?us-ascii?Q?clYfdxDEmPws7WRRw4jE5+lZ6P5YCSBj0RPjUKphwmUljPx+2E4mfLUpJlH5?=
- =?us-ascii?Q?jM48fptH7cnlc8rn5lUcnt6tRfdl/1yEmOQN61ZxWQ5jprfygFC56X/7Ebl/?=
- =?us-ascii?Q?9q4h5+k6Q2R4CWrRp9y//bmDRGn928qo5VzvwgooWO2OrYQ6VZR0I2VlYDf/?=
- =?us-ascii?Q?kEtmRbzpuBWr2RsmSvQgNa3yPzRMf0ja98MInZTIASC2h4r8fW3FpPRgMbNO?=
- =?us-ascii?Q?u+xdR8253ktKgPGvTnrNhD9/yI60Pc7VbCDD1EWOV6q/ROYqQGu4ZnMyOtuX?=
- =?us-ascii?Q?DT+SmFAhBpCPukkVoR57KQCWrN6Lhnw9xB/PvNURahYODZ+IbZ3g39dYvsf0?=
- =?us-ascii?Q?XlqerxkvxSnvhKKHIDU6QNulwNg1JngdRqFPCiuPyyiPxXlmkpRErPq0dRyU?=
- =?us-ascii?Q?HVLQ5cKZjzantTln2yiy8RahtMSLy7pILF+PA1F9e9uITlEBWoOrM9jRcFpM?=
- =?us-ascii?Q?uTEiWf2pYoVGModAf1hgpGeY3kJgXUAVt+4u2IefaovaTCx/S3SMOuboiDjI?=
- =?us-ascii?Q?qF+4vTB5/XxDQvdm1WM5Z2wJyqozaz38zcV1ZJsIkRmO5UVDMZmovq3h9etE?=
- =?us-ascii?Q?sWvFxq2mYM41bJBfayLWC/PB9j1MdIcNzd/pniLergy7rPalFkZ6rRRpv2Dy?=
- =?us-ascii?Q?A/EkSh4uAHE1rCiaG/UiSygSh5GW7AxHPGpuseC1rp2l2Elgdx9ixaIiLRds?=
- =?us-ascii?Q?h3EebMSIxDOwrfu7ATI+kxkxwt9Z2zs4yG6hLH3gy4IIgAM3bjfdlNaYgOoL?=
- =?us-ascii?Q?WMU2pf0nWslL34DKCsEU83ULYO3CyirO5gm+1sSY4RZy2WpZR9F9FNr0Nl2t?=
- =?us-ascii?Q?ouyiqmDivl0m77i8aXUyu0MXIEh0Xm+gtFZtP//ExR5I2Zil+iBjBwiey5Ls?=
- =?us-ascii?Q?0Od78UtkC5hUex7sJlhqO/+y+SH+0hAwkXYOKzs04cxs+EWyhQC8EpcFpHmY?=
- =?us-ascii?Q?P669BN8NsaPM8MQfByI4yTxFwKhrjqBIJKtOflcdKNvf/A8QinXGRWaZVxtU?=
- =?us-ascii?Q?8KV+KcoS2uSbMpLZE1HaVopNjnnP4nv44dUyfjFS3YIlGXtrP3BOBR7hm+i9?=
- =?us-ascii?Q?8mXJiMElracj/EtrpXOWR+iX7fe14S9I9T1DJe2jXYgr8bWBhmrE0BtfIGRY?=
- =?us-ascii?Q?fPb4RilFNRCSaAhijJQ4M4ftYACCBgJu2siFQpxJMaQQ3DPwMGp2RrjEmims?=
- =?us-ascii?Q?+2k0GXP4WZxsKlwXrZ2TfW8z9Z+3N3IfIS3ZtLE8rPffckcruYD3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3a8452da-4d51-4bfb-addb-08df09ef14bc
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 19:10:56.2908
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G3penp/pgh9TOo4bXab9HHRi3heSevi6wd24waXZADU0ZCpusEV3hqAYblNqZfqKdFatPbqdWce6+rJ86l8EcWQbdn/tJp/d3swrncx05Rh+hBALssQrL+wrHjiy/Ncz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8561
+References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
+ <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
+ <aphLXQL1H2zYZgTi@google.com> <20260903114241.33034-C-seiden@linux.ibm.com>
+ <apmEi1NmOUvmUBFP@google.com> <apmFClPZ2WcDINmT@google.com>
+ <apmIGgMEN8w-kQAm@google.com> <19d4feb1-d703-4c62-8622-a6d5e9d6394c@redhat.com>
+ <apmYPMMPCNzK9ZEA@google.com>
+In-Reply-To: <apmYPMMPCNzK9ZEA@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Thu, 3 Sep 2026 21:13:28 +0200
+X-Gm-Features: AcwNN1VM-0Sta_usKYpoIMa4PlVb-9vByCd46nQw98qW4Zt-Pg_0xPWbP_VjwBM
+Message-ID: <CABgObfZL-qNSaNkNZDj0Kk41zw6UZ30vkSxc6T8wb-pOKab9Wg@mail.gmail.com>
+Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
+To: Sean Christopherson <seanjc@google.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: NYSmlaGIIKwZfJnceG4TBiT9qU6qtmEP5OTBY5u3ygA_1788462822
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_121101_377156_16FAFCA8 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20260903_121346_937944_ABDF372F 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,163 +123,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 12:03:42AM +0800, Zhijian Han wrote:
-> imx_pcie_probe() leaks both pwrctrl devices and power domains on failure:
+On Thu, Sep 3, 2026 at 5:54=E2=80=AFPM Sean Christopherson <seanjc@google.c=
+om> wrote:
 >
-> - imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
->   and adds device links to them, but nothing detaches the domains or
->   removes the links on probe failure or deferral, so they leak.
+> On Thu, Sep 03, 2026, Paolo Bonzini wrote:
+> > On 9/3/26 16:45, Sean Christopherson wrote:
+> > > > > Actually, thinking about this more, what I've proposed here, plus=
+ the pattern of
+> > > > > #define-ing macros in arch-specific kvm_host.h files, should suff=
+ice.  For things
+> > > > > like __KVM_HAVE_ARCH_VM_FREE, it absolutely makes sense to #defin=
+e the macro in
+> > > > > kvm_host.h since it's very directly tied to an arch callback.  Wh=
+ereas with KVM_MIO
+> > > > > and KVM_ASYNC_PF, because they enable compilation of C files, it =
+makes sense to
+> > > > > define them in Makefiles.
+> > Ugh, defining CONFIG symbols in Makefiles sucks.
 >
-> - A failure of devm_pm_runtime_set_active_enabled() returns directly
->   without destroying the pwrctrl devices.
->
-> - A partial failure inside imx_pcie_attach_pd() leaks the power domains
->   that were already attached.
->
-> Add imx_pcie_detach_pd() to remove the device links and detach the power
-> domains in reverse order of acquisition and register it with
-> devm_add_action_or_reset() so they are released automatically on probe
-> failure.
->
-> Reported-by: sashiko-bot@kernel.org
-> Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
-> Fixes: 2c5768344f88 ("PCI: imx6: Move pci_pwrctrl_create_devices() to imx_pcie_probe()")
-> Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
-> ---
-> Changes in v6:
-> - Keep the device links stateless and remove them with device_link_del()
->   in imx_pcie_detach_pd() instead of using DL_FLAG_AUTOREMOVE_CONSUMER,
->   which creates managed links to power-domain devices that never bind a
->   driver and would trigger a WARN_ON in device_links_driver_bound()
->
-> Changes in v5:
-> - Register imx_pcie_detach_pd() with devm_add_action_or_reset() instead
->   of calling it manually on the error paths
->
->  drivers/pci/controller/dwc/pci-imx6.c | 58 ++++++++++++++++++++++-----
->  1 file changed, 48 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 39790e66b98d..7dd22b4f826a 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -180,8 +180,12 @@ struct imx_pcie {
->  	struct imx_lut_data	luts[IMX95_MAX_LUT];
->  	/* power domain for pcie */
->  	struct device		*pd_pcie;
-> +	/* device link for pcie power domain */
-> +	struct device_link	*pd_link;
->  	/* power domain for pcie phy */
->  	struct device		*pd_pcie_phy;
-> +	/* device link for pcie phy power domain */
-> +	struct device_link	*pd_phy_link;
->  	struct phy		*phy;
->  	const struct imx_pcie_drvdata *drvdata;
->
-> @@ -639,10 +643,34 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
->  }
->  #endif
->
-> +static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
-> +{
-> +	if (!IS_ERR_OR_NULL(imx_pcie->pd_phy_link)) {
-> +		device_link_del(imx_pcie->pd_phy_link);
-> +		imx_pcie->pd_phy_link = NULL;
-> +	}
-> +	if (!IS_ERR_OR_NULL(imx_pcie->pd_link)) {
-> +		device_link_del(imx_pcie->pd_link);
-> +		imx_pcie->pd_link = NULL;
-> +	}
-> +	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie_phy)) {
-> +		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
-> +		imx_pcie->pd_pcie_phy = NULL;
-> +	}
-> +	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie)) {
-> +		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
-> +		imx_pcie->pd_pcie = NULL;
-> +	}
-> +}
-> +
-> +static void imx_pcie_detach_pd_action(void *data)
-> +{
-> +	imx_pcie_detach_pd(data);
-> +}
-> +
->  static int imx_pcie_attach_pd(struct device *dev)
->  {
->  	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
-> -	struct device_link *link;
->
->  	/* Do nothing when in a single power domain */
->  	if (dev->pm_domain)
-> @@ -654,25 +682,31 @@ static int imx_pcie_attach_pd(struct device *dev)
->  	/* Do nothing when power domain missing */
->  	if (!imx_pcie->pd_pcie)
->  		return 0;
-> -	link = device_link_add(dev, imx_pcie->pd_pcie,
-> -			DL_FLAG_STATELESS |
-> +	imx_pcie->pd_link = device_link_add(dev, imx_pcie->pd_pcie,
-> +					    DL_FLAG_STATELESS |
->  			DL_FLAG_PM_RUNTIME |
->  			DL_FLAG_RPM_ACTIVE);
-> -	if (!link) {
-> +	if (!imx_pcie->pd_link) {
->  		dev_err(dev, "Failed to add device_link to pcie pd\n");
-> +		imx_pcie_detach_pd(imx_pcie);
->  		return -EINVAL;
->  	}
->
->  	imx_pcie->pd_pcie_phy = dev_pm_domain_attach_by_name(dev, "pcie_phy");
-> -	if (IS_ERR(imx_pcie->pd_pcie_phy))
-> -		return PTR_ERR(imx_pcie->pd_pcie_phy);
-> +	if (IS_ERR(imx_pcie->pd_pcie_phy)) {
-> +		int ret = PTR_ERR(imx_pcie->pd_pcie_phy);
-> +
-> +		imx_pcie_detach_pd(imx_pcie);
-> +		return ret;
-> +	}
->
-> -	link = device_link_add(dev, imx_pcie->pd_pcie_phy,
-> -			DL_FLAG_STATELESS |
-> +	imx_pcie->pd_phy_link = device_link_add(dev, imx_pcie->pd_pcie_phy,
-> +						DL_FLAG_STATELESS |
->  			DL_FLAG_PM_RUNTIME |
->  			DL_FLAG_RPM_ACTIVE);
-> -	if (!link) {
-> +	if (!imx_pcie->pd_phy_link) {
->  		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
-> +		imx_pcie_detach_pd(imx_pcie);
->  		return -EINVAL;
->  	}
->
-> @@ -1955,6 +1989,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->
-> +	ret = devm_add_action_or_reset(dev, imx_pcie_detach_pd_action, imx_pcie);
-> +	if (ret)
-> +		return ret;
-> +
+> Sure, but IMO wrapping entire files in an #ifdef that comes from an arch =
+header
+> sucks more.  And technically, these aren't CONFIG symbols.
 
-because there is safe guide in imx_pcie_detac_pd_action(), if move it before
-imx_pcie_attach_pd(),  Needn't call imx_pcie_detach_pd() in error path.
+True it wouldn't be -DCONFIG_ (fortunately). But even if technically
+correct is the best kind of correct...
 
-Or use goto in for error handle in imx_pcie_attach_pd() instead of duplicate
-call each error branch.
-
-Frank
-
->  	ret = pci_pwrctrl_create_devices(dev);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "failed to create pwrctrl devices\n");
-> @@ -1975,7 +2013,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  			pm_runtime_no_callbacks(dev);
->  			ret = devm_pm_runtime_set_active_enabled(dev);
->  			if (ret < 0)
-> -				return ret;
-> +				goto err_pwrctrl_destroy;
->  		}
+> > I don't want KVM to be the. one that does things differently *once more=
+*.
 >
->  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+> Too late :-D
 >
+> arch/arm64/kvm/hyp/nvhe/Makefile:ccflags-y :=3D -D__KVM_NVHE_HYPERVISOR__=
+ -D__DISABLE_EXPORTS -D__DISABLE_TRACE_MMIO__
+> arch/arm64/kvm/hyp/vhe/Makefile:ccflags-y :=3D -D__KVM_VHE_HYPERVISOR__
+
+Sure, VHE/nVHE is fair game because the nVHE case is in the same boat
+as vDSO, arch/*/boot, and so on.
+
+Looking at a grep for (cflags|CFLAGS).*\-D most are -DDEBUG,
+-DDISABLE_BRANCH_PROFILING, -DDEFAULT_SYMBOL_NAMESPACE, etc. and in
+most cases they seem like a bad idea. Don't do it for KVM please;
+requiring -D for all architectures and for random pieces of config,
+when you can put it in asm/kvm_host.h, is just as bad if not worse.
+
+Paolo
+
+> And I think there's value in deliberately being different, because CONFIG=
+s are
+> kernel-wide things, whereas the thingies in question are KVM-local macros=
+.  I.e.
+> IMO, having the behavior stand out is a good thing.
+>
+> > I'd prefer to stub out the contents of the .c files instead.
+>
+
 
