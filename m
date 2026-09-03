@@ -4,134 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E19AC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A20DC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oLkw0qjqO4GI99RoguIDq2Of1fwQfbYDfKvR2b2tKM=; b=jCLUAg3rmunYPzY70LdfFU7F5+
-	zFhFPuDdNvDDWn3/COT5MWJg8UtB9DCCGkhpYfJAbRYTl2rC7FxNwu8x2yiu4OtGpODAcBr9GBdC7
-	xLjl8GNKqOPJGDLsPaOzIZhpkYbyW4OLA3g68T7ul51rVgZGMRhDDBjdtMqPaeTfZR7d/zX4x5VBo
-	UvJ3XNGwwwo5HN/q4/X8ygkcSjeVOlhCHQbUlAlskLpbiIpaNrVk40SDJmSrMsVIWd3xs4JngzCU2
-	ACTv5AFXrlP+nBEbV0gJSk5A3g9JJvgwYh7hGqNXG6ttP6dqhQgMByNa3xwxji4P7h0+bnbwjgGiJ
-	NAd/hvYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zg08WXWOXsJ2QVUn2MD0H7hbFnvg8gqIUMqRHXTyYHs=; b=NgjYSHSax4IHneKXqksvm2DOZA
+	8+R54c/aYQMyKBu3CLPByeZUuDIfP49tkg9HmPQWD5+NVtqBbmj+Zk2hDFMvQXzg6CkGTAuaYZfgF
+	t9bVJH9daSmf8ogwUO05MLRRUUYyyhmiibs1DQOYNWpDCB25aRrjBA9uiB8WRCPS/hDW/apjbO5xS
+	wS1xEQwCA818XL4LQP4vQTzqrHMDkXDJ4H0SUtjAprbBrcU9m/hJ48adyxnF0lCVUxJR119NWxzLF
+	eia70Mr9xPd2oNFzFX8iCHlOB5Kd0WyyQ8TDWTo77+BJ7Vi5k3ecBPp4A+I4GoYGWkb3HESdhyiuT
+	ulD8Nmew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x25qS-0000000HECw-47l6;
-	Thu, 03 Sep 2026 11:43:04 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1x25qZ-0000000HEFu-0tN4;
+	Thu, 03 Sep 2026 11:43:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x25qQ-0000000HEBs-2y1T
+	id 1x25qV-0000000HEDY-2ap0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 11:43:03 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683AVdb82788612;
-	Thu, 3 Sep 2026 11:42:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=9oLkw0qjqO4GI99RoguIDq2Of1fwQf
-	bYDfKvR2b2tKM=; b=DhmA2OlbGLz7GEK7kiDWIF4IAi/NILmTDomo0TFAlGFHYB
-	KSBRpb745sgCXhVbDqoHnrruxZwZazgfAewAwe+DNLAZeiar3doff+n+NZil7l4Z
-	NGh5jbCEb2Xybon06LggFN59wHOS4+asVFQuKc1BdWDiWUVWxh8iXmO0ig69KbIe
-	K6R7sOSOElBYFPPnuUVVRC1z6ibyYJvAJx/TApIMIC8GFuOXwTSOAyeiE4fK+Yci
-	OWZZ4HnI22dhJUNyPQzp+tJF+MLnXW/wTWYT1MR/XeMSMPNB6i0qH/+BWYDopddU
-	RnkECX5KJRxY67oueIpSOpVyXLVyeaWeqp8dddhw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq2tm0p0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 11:42:48 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 683BfFVY021696;
-	Thu, 3 Sep 2026 11:42:47 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gc9rqqmb1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 11:42:47 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 683Bgi6a37159326
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 3 Sep 2026 11:42:44 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E8B1D2004D;
-	Thu,  3 Sep 2026 11:42:43 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EFAFC2004B;
-	Thu,  3 Sep 2026 11:42:42 +0000 (GMT)
-Received: from osiris (unknown [9.111.48.84])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu,  3 Sep 2026 11:42:42 +0000 (GMT)
-Date: Thu, 3 Sep 2026 13:42:41 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-Message-ID: <20260903114241.33034-C-seiden@linux.ibm.com>
-References: <20260831144802.834315-1-seiden@linux.ibm.com>
- <20260831144802.834315-3-seiden@linux.ibm.com>
- <apdweRfqt4dTxcU9@google.com>
- <20260902075028.231001-D-seiden@linux.ibm.com>
- <aphLXQL1H2zYZgTi@google.com>
+	Thu, 03 Sep 2026 11:43:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788435786;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Zg08WXWOXsJ2QVUn2MD0H7hbFnvg8gqIUMqRHXTyYHs=;
+	b=R5bMt+bEvzfVcccNix6PClZLSVoDu3HBgyM6fuWy5USxRBvrN45DfGRCMN8LrgVtUdgBFm
+	M+KWXhjrDSpapz8skw1Q3xKIfSj2S19Ecq8QjIoXTpQVPQ9qgeS2Nsx3hOnROqRX9vYvEM
+	c7ZhsvbIi3xwlb5oRlXJmq47sDD1IuE=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-632-hqf8WD-UMZiTWdHl0ftOUg-1; Thu, 03 Sep 2026 07:43:03 -0400
+X-MC-Unique: hqf8WD-UMZiTWdHl0ftOUg-1
+X-Mimecast-MFC-AGG-ID: hqf8WD-UMZiTWdHl0ftOUg_1788435782
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49b8c651ac0so26449145e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 04:43:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788435782; x=1789040582;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Zg08WXWOXsJ2QVUn2MD0H7hbFnvg8gqIUMqRHXTyYHs=;
+        b=GRBHQ5IJipj8rLx8eJRFFkDbMuThs6jYTuEwA40eU2KaWC2J6N3+dsHEk40umBEVsa
+         qEz5MWaq4AcUnxEt/wz83OhArJxDEHlqU1Zt8/goH8pLgeS6WO1rQDH3hUrI9z0Ofs/+
+         jvVJ4lCPSLgJzxQxKctpamNQrQfNHxsadhShuRW3lLQd0Xvh0rxSJWFEIKMDBbdf8Gf2
+         QJ6D945HP5upLruDn0gzwp2I/eDN2htk4E1dCZ1na6zR3eyMpA8d/sJ1yg/1pyHYDRas
+         T94BtdSq9vSgrkJl5LT9miF2KwQadzz8deu2zqEGwyrhZERmk5NhgIAxsPhj2TwSnaK6
+         hMyg==
+X-Forwarded-Encrypted: i=1; AKwUvBzYThzixVAuYbZLeaBSaU2gdm7L2lYt9cK8mvnBTR7Z9+F3qdin04OJYIXSQkDyaF8Qc8Y6MzzvadSadgplWzQQ@lists.infradead.org
+X-Gm-Message-State: AFuF++l0b4Eb7kbYT5wB/jyzs1sLua6YxLzErqVOKNT3rinx3NMlDQGh
+	x247xGaPjVCxl+V5cu4CACkCWUDqvPbppmV4b2ud5Y5epuG3fg2n6PEEglS+KD4GVlD8SLbpmEQ
+	r9Stw5zafVTJ+YvDnzU5etGnVKBLstQQ1/3orcMP9rvrxXsYUG8jCwXaNOUQ4EGW8Mz3IRMcrj1
+	Tz
+X-Gm-Gg: AYBFou3rP3AhXUVGUymfcj6UhUjb8gKPWAdLIqC6kJy9d+if9p4Rwt4LdprDRwkr5Ek
+	LVWjHvd8E6hmlogsFrCMO6GXKhK+azqsBanaHRyf1l31G+p/W3ZbKzXTcnHKGaMYkc/zUw4OkMt
+	L5jEMUfOmC84PCTLWxdKzVl/heDJ5xekcbzxCGmBmc2IsgNSHTrwd3RDhotzfxkB9bqtWrUGZS7
+	fvpl8chPX82PwBbL3nUZdqM8oQnGkcelic3IHr0FdgwZUL+CA5+OYRJrGaBvS0uyBWtfpIiz+ki
+	dzNT1JA+2Gnddob4E6KmMREoGsVz8JATQqxKH1Ul0j13/8PdwEmFPUGlnGG0+KkkOaGM0caUfE4
+	uvt6ogv/Giz9UmwDEcuxNUwyr4eOP/iDPv0OU8mDQ0qgb+TNAgCDE7U5ri3TWJIeZzmAf8cmcZw
+	==
+X-Received: by 2002:a05:600c:4743:b0:49c:e3b1:d826 with SMTP id 5b1f17b1804b1-49ce58195b0mr176370355e9.13.1788435781734;
+        Thu, 03 Sep 2026 04:43:01 -0700 (PDT)
+X-Received: by 2002:a05:600c:4743:b0:49c:e3b1:d826 with SMTP id 5b1f17b1804b1-49ce58195b0mr176369365e9.13.1788435781291;
+        Thu, 03 Sep 2026 04:43:01 -0700 (PDT)
+Received: from [192.168.188.218] (ip232-47-231-195.pool-bba.aruba.it. [195.231.47.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e7f8f9sm13297052f8f.9.2026.09.03.04.42.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 04:42:59 -0700 (PDT)
+Message-ID: <fce0ee5a-476a-4867-9dd2-08e55993bd90@redhat.com>
+Date: Thu, 3 Sep 2026 13:42:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aphLXQL1H2zYZgTi@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=bc1bluPB c=1 sm=1 tr=0 ts=6a995d39 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=OuOidQGzm_B0OR8t9-sA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDEwMCBTYWx0ZWRfX6I//yFMP1cvb
- 2NSO8UtcbS/jeQvugs8aSITFHUubx5IDuYFtrPh776Rm440IrrG9V06vQwZk4Apbqql1Mo/zmhQ
- Kbu98tkJDhVTrcay/2quJr5yzNARM8c=
-X-Proofpoint-ORIG-GUID: PFKHzACBWoaNkpsFvvSuoBR3lbObVU9R
-X-Proofpoint-GUID: Z39W2fnS2iSIUk0mKJtmPKWfITGpItDI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDEwMCBTYWx0ZWRfX5yoMhPcW5hld
- BSYUovIRTMpBfqaI5PY8NfO/hznkg14OqthzmsfqRtis/roYxWNnMh0UeE5A3A9mINIYzataINO
- m5mbnK0N17WYfJ4w4V3VSHXkKWPDyhAJchPu0ncyQL1t/hEfis116Pu5/ZIQuGr72yGXUomuO05
- qar4zin8TnoRPRhkvif4leyWJI1RA1T55RQ/+5qVgtyyfSb+oDH16eA6IyLWkDdaMQHVhqxjW4N
- rh7OZ7aYsuS0dYbbycwpP/ObNh/kQuhi8yc1QygjxFzUuLnlkGs7MmXt0wpPoNnOmFQoFPwlbnR
- Xio5HUs82IsLmULN+4kmxpRagb3nMBp9SNjMR+defDYovoRq0HhjhdYnOFXYA9/v8IS17ZTwdkX
- RJ/Rfootf80xDNOUceFSdXfcUKgSpSDxe2JFUp+HXb6aWwPWkVDm7oQWxDY51HWX1e27KlJ3/RU
- xaJxHFYeIifbL/hYI0w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0 spamscore=0
- lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609030100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v5] net: airoha: add HW GRO offload support
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>
+Cc: Alexander Lobakin <aleksander.lobakin@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
+References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: r-p5fNiQBXqPsO6AfYfUglNasYdbxO4J8EwA-zFk2CM_1788435782
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_044302_864516_435A271D 
-X-CRM114-Status: GOOD (  45.53  )
+X-CRM114-CacheID: sfid-20260903_044308_396601_194A97F0 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,96 +115,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 09:14:21AM -0700, Sean Christopherson wrote:
-> On Wed, Sep 02, 2026, Steffen Eiden wrote:
-> > On Tue, Sep 01, 2026 at 05:40:25PM -0700, Sean Christopherson wrote:
-> > > On Mon, Aug 31, 2026, Steffen Eiden wrote:
-> > > > Allow KVM implementations to choose alternative device names. This is
-> > > > especially useful for architectures providing multiple KVM
-> > > > implementations simultaneously. Architectures providing multiple KVM
-> > > > implementations must compile the KVM common code once per
-> > > > implementation and mange symbols.
-> > > 
-> > > What about tracepoints?  Or do those show up as "kvm" and "kvm-arm64"?
-> > 
-> > Yes, I want them to show up as kvm and  kvm-arm64.
-> > 
-> > Thanks for pointing that out - I just noticed that I forgot to switch
-> > the trace system to kvm-arm64 for the common tracepoints in
-> > trace/events/kvm.h
-> > I only did it for the arch-local traces in PATCH 21.
-> > 
-> > I would just do the following:
-> > 
-> > diff --git a/include/trace/events/kvm.h b/include/trace/events/kvm.h
-> > index b282e3a86769..5d4f8a0693a3 100644
-> > --- a/include/trace/events/kvm.h
-> > +++ b/include/trace/events/kvm.h
-> > @@ -5,7 +5,11 @@
-> >  #include <linux/tracepoint.h>
-> > 
-> >  #undef TRACE_SYSTEM
-> > +#ifdef KVM_S390_ARM64
-> 
-> Side topic, I recommend choosing a macro name that doesn't have a near-collision
-> with CONFIG_KVM_S390_ARM64.  This *looks* like a typo, i.e. it looks like you
-> forgot the CONFIG_ prefix.  Especially since the macro is defined in the Makefile
-> and won't show up with e.g. "git grep -w KVM_S390_ARM64". E.g. KVM_S390_BUILD_ARM64
-> or something?
+On 8/31/26 8:34 AM, Lorenzo Bianconi wrote:
+> Add hardware GRO offload support to the airoha_eth driver, leveraging
+> the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
+> queues 24-31. HW GRO offloading does not support Scatter-Gather (SG) so
+> it is required to increase the page_pool allocation order to 2 for RX
+> queues 24-31 (LRO queues).
+> Since HW GRO is configured per-QDMA and shared across all devices using
+> it, HW GRO is mutually exclusive with multiple devices bound to the
+> same QDMA block. Call airoha_update_netdev_features() in
+> airoha_dev_set_qdma() so that NETIF_F_GRO_HW availability is re-evaluated
+> whenever the QDMA user count changes (device registration and runtime QDMA
+> migration).
+> Set CHECKSUM_PARTIAL with pseudo-header checksum on aggregated packets
+> so that L3-forwarded traffic is correctly handled by the GSO/TSO path
+> on the egress device.
+> The HW does not report the per-segment MSS (msg3[31:16] only reports
+> the max aggregated size), so the gso_size of an aggregated packet is
+> just an approximation computed as DIV_ROUND_UP(data_len, agg_count).
 
-Interesting. The name was deliberately chosen to be similar. But I
-see that it could be confusing.
+What is the <max aggregated size> exactly? I read it as the maximum size
+of the aggregated segments, am I correct?
 
-I am not totally happy with KVM_S390_BUILD_ARM64 but I cannot find a
-better name either.
+Also any more details on how the aggregation engine works? i.e. can it
+aggregate "random" segment sizes (i.e. 200 - 300 - 400) or does it
+respect HW_GRO layout? (i.e. all segments except the last one must have
+equal size, the can be smaller).
 
-> 
-> Side topic #2, this entire approach seems extremely brittle unless you make it
-> all but impossible for non-KVM code to get at KVM structure definitions.  Outside
-> of KVM, all compilation units will see the s390 version of KVM structures.  Which
-> is "fine", but obviously dangerous and IMO asking for maintenance issues down the
-> road.
-> 
-> > +#define TRACE_SYSTEM kvm-arm64
-> > +#else
-> >  #define TRACE_SYSTEM kvm
-> > +#endif /* KVM_S390_ARM64 */
-> > 
-> >  #define ERSN(x) { KVM_EXIT_##x, "KVM_EXIT_" #x }
-> > 
-> > 
-> > This would leak a bit of arm on s390 into common KVM but I do not see
-> > another way.
-> 
-> Morpheus: Stop trying to use macros, and use macros!
-> 
-> The most annoying thing is that macro shenanigans don't play well with hyphens,
-> but that can be handled either by using a different macro for the trace name, or
-> by creating /dev/kvm_arm64 instead of /dev/kvm-arm64.  My vote would be to have
-> the device be /dev/kvm_arm64, assuming that doesn't cause problems elsewhere.
+In the 'good' scenario, than by definition gso_size == <max aggregated
+size> - <total hdr len>, and you are better off computing the gso_size
+from <max aggregated size>.
 
-I am not aware of any problems that could cause. It was just a personal
-preference IIRC. 
+Otherwise I think we can't call this HW_GRO - even if it would be more
+convenient for the driver.
 
-> And taking things a few steps further, we can solve the MMIO issue in a more
-> elegant way, and eliminate the runtime string building in this patch (after looking
-> more closely, that code needs to be jettisoned no matter what, there's simply no
-> reason to specify the names at runtime since they're separate compilation units).
-> 
-> Rather than splatter #defines throughout header files, deal with the bulk of the
-> pain in Makefile.kvm.  By feeding conditionals into Makefile.kvm, the s390+arm64
-> build can easily omit coalesced_mmio.o and async_pf.o, define __KVM_HAVE_ARCH_MMIO
-> programatically without having to change other architectures, and solve the naming
-> stuff.
+/P
 
-Yes, this is a great idea. Thank you. I second you, this looks more clean
-and stable than the stuff we came up with :) 
-
-I'll integrate it into the series and send it with the next round.
-
-Thank you for your input. Very much appreciated.
-
-	Steffen
-
-...
 
