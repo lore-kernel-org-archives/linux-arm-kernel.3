@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30812C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 06:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C952EC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 06:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jtYaKiA8HJ9BiT0A6YR6Axd0K61gbVEHIO71vjCnhLU=; b=DBYRn9bAQa7GHCuHaolUvJggdL
-	3P0VPZBg7TbKq8XAp4ojd6BqfLpO74rDnjoCIuXz3HTRaxzmQnBDnoPEvgNvWPfdhfvnLoiehevSv
-	79kVv3qYiknN+8tR2/ZgW+ZcbgULWGVDePQkthPy5Gr4W5ONua/fvvoJVwdlPnRDny/GuCzYLYX8i
-	NIK7Y0eMIs6n0byFLJh+yPAGDkPijxvTpYvFFtEI72Q12E5huqoHe8KwiCH1FLj+OVdqSR8O4PucG
-	gAYzN3OfaWDLPPCHK6re44j2uCiJAYbbJt2hXPib3gYcrJNO5TkqbtQXDkX1EsaBwRMbtwJikwUEh
-	jVqNXg/g==;
+	bh=a6pfM6xEo4INvwse6gyrlBAaMdMxHVhvCkb2KpLjGTA=; b=kYL8JP+sBJ4R1AIbfVYISbWyjB
+	H7w1b04QVImLd+YJpM01ZU3tSGXNk/v8jOYhWcjTsY7qykn+iwwi1d9iA3nqAgSX64OBqqdIYybvY
+	rkF0rJHhBtEYmQ8Pq8xcMuGGu0lFPt4gGXNril9AHktIaTJgGMHFgVSxqJkymrYoVcgBHiN/nF6dK
+	Gb9/sqFaRBCpdpSzOtqztY7E9F6tL1AD/4Q/FuRcsp1Mf+PsC1eq4QGBW2N2ie9Vlw6l/E8SEciAk
+	iJiNnpItqeFmcpY2VgD7E9oJJiNFlGLAnuKvOAaTgNXJFLlVk5biJh9tO0bdtNITJ8GacWb6WvlUm
+	YEjkTtEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x20hO-0000000GSqN-1spK;
-	Thu, 03 Sep 2026 06:13:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x20p1-0000000GTOZ-1HOd;
+	Thu, 03 Sep 2026 06:21:15 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x20hN-0000000GSq2-2ZlV;
-	Thu, 03 Sep 2026 06:13:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 208F1405EE;
-	Thu,  3 Sep 2026 06:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BADA1F00A3A;
-	Thu,  3 Sep 2026 06:13:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788416001;
-	bh=jtYaKiA8HJ9BiT0A6YR6Axd0K61gbVEHIO71vjCnhLU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jh1ZpTG8N1Bp4gbhoUIyLVnFGifMBYMjMTg5fdamSKgIzV7rk7evz4B4zAeo7vXtu
-	 3nK5roZve0Yh8NWyDptK1SkuXBCHvGljwgt02I09mg4oxpgguPD+AmPU8Czz2Wox2b
-	 A7BWU7t/XK1sJwLlNLSXnvrP6FcCln6KcyMI5W8u5KsOo6JMqsf1vSTFkTj0ZF+s0a
-	 YLWhRaEk72iQaE/DXJfBInqBcZtH/6agfB15u6LTt6xxrrBB6QkWqrhaf+fd05V9Vi
-	 irLSfpR9etc5Y6urjc4+ittqg0IEbjDbQDwRIqKOOq5aXDfoN718x73MJZDrNUYJHW
-	 zYbNcVcEsdNzw==
-Date: Thu, 3 Sep 2026 08:13:18 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	madhur.agrawal@airoha.com
-Subject: Re: [net-next,v5] net: airoha: add HW GRO offload support
-Message-ID: <apkP_n7q85Y6pni6@lore-desk>
-References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
- <178839576918.3394541.6887762855417310645@kernel.org>
+	id 1x20oy-0000000GTNI-32s8;
+	Thu, 03 Sep 2026 06:21:13 +0000
+X-UUID: a601d89ea75f11f1acbe4559397dec65-20260902
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=a6pfM6xEo4INvwse6gyrlBAaMdMxHVhvCkb2KpLjGTA=;
+	b=dyDMGbzChpduyyp3hgO9YdMkrIkQrIfRXn+9v8DU5lf8VMm6AQsV3dlE2iAFOn6LqEAiaJ5uYtsMnZpNi1NmxWSYpNuXUe64xdudGcQYOsDzFssscNXDj37a/WB2G0/IGaCmMBE/KVsnKOjippN0OgrKX9P5GfjoLMyrM7Bcsds=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:096d36e6-4ccf-4901-839a-41a281912bfa,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:fb4bc50b-079b-435d-86f5-6a8271106506,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a601d89ea75f11f1acbe4559397dec65-20260902
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <justin.yeh@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 65785129; Wed, 02 Sep 2026 23:21:07 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 3 Sep 2026 14:21:04 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 3 Sep 2026 14:21:04 +0800
+From: Justin Yeh <justin.yeh@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, Justin Yeh <justin.yeh@mediatek.com>
+Subject: [PATCH 1/2] regulator: core: Export helpers used by regulator couplers
+Date: Thu, 3 Sep 2026 14:20:46 +0800
+Message-ID: <20260903062056.1024263-2-justin.yeh@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20260903062056.1024263-1-justin.yeh@mediatek.com>
+References: <20260903062056.1024263-1-justin.yeh@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0dJzZuvLUcSBUXl7"
-Content-Disposition: inline
-In-Reply-To: <178839576918.3394541.6887762855417310645@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_232112_783522_33BAB80E 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,311 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0dJzZuvLUcSBUXl7
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+regulator_check_voltage(), regulator_check_consumers(),
+regulator_do_balance_voltage() and regulator_coupler_register() are
+already declared in include/linux/regulator/coupler.h for regulator
+coupler implementations to use, but none of them is exported. That
+limits couplers to being built into the kernel.
 
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider:
->=20
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
->=20
-> - [High] LRO RX ring 31 is programmed as an active hardware-LRO
->   destination but is bound to no IRQ bank, so it is never polled.
-> - [Medium] The driver advertises NETIF_F_GRO_HW while it cannot satisfy
->   the documented rx-gro-hw contract, because the hardware does not=E2=80=
-=A6
->=20
-> --
->=20
-> net: airoha: add HW GRO offload support
->=20
-> This adds hardware GRO (LRO) offload to airoha_eth, mapping the 8 LRO
-> hardware contexts onto RX queues 24-31, bumping the page_pool order for
-> those queues and disabling scatter-gather on them.  Aggregated frames get
-> their network headers copied into a linear skb, the payload attached as a
-> frag, CHECKSUM_PARTIAL with a pseudo-header checksum, and GSO metadata
-> derived from the descriptor aggregation count.
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 64619e9a704dd..57b19d7b5bd79 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
->=20
-> [ ... ]
->=20
-> > @@ -491,6 +493,88 @@ static void airoha_fe_crsn_qsel_init(struct airoha=
-_eth *eth)
-> >  				 CDM_CRSN_QSEL_Q1));
-> >  }
-> >
-> > +static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_=
-id,
-> > +				     int lro_queue_index, int qid,
-> > +				     int buf_size)
-> > +{
->=20
-> [ ... ]
->=20
-> > +	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
-> > +		      LRO_RXQ_MASK(lro_queue_index),
-> > +		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
-> > +	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
-> > +}
->=20
-> [ ... ]
->=20
-> > +static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
-> > +{
-> > +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
-> > +	struct airoha_eth *eth =3D qdma->eth;
-> > +	int qdma_id =3D qdma - &eth->qdma[0];
-> > +	int i, lro_queue_index =3D 0;
-> > +
-> > +	if (airoha_fe_lro_is_enabled(eth, qdma_id))
-> > +		return;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-> > +		struct airoha_queue *q =3D &qdma->q_rx[i];
-> > +		u32 size;
-> > +
-> > +		if (!q->ndesc)
-> > +			continue;
-> > +
-> > +		if (!airoha_qdma_is_lro_queue(q))
-> > +			continue;
-> > +
-> > +		size =3D SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
-> > +		size =3D min_t(u32, size, AIROHA_MAX_RX_SIZE);
-> > +		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
-> > +					 size);
-> > +		lro_queue_index++;
-> > +	}
-> > +}
->=20
-> [Severity: High]
-> Can traffic steered to LRO context 7 be dropped here?  This loop enables =
-an
-> LRO context for every RX ring selected by airoha_qdma_is_lro_queue(), and
-> AIROHA_RXQ_LRO_EN_MASK is GENMASK(31, 24), so ring 31 gets LRO context 7 =
-and
-> BIT(7) is set in REG_CDM_LRO_EN.
->=20
-> RX ring 31 does not appear in any IRQ bank pin mask in airoha_eth.h:
->=20
-> 	#define RX_IRQ0_BANK_PIN_MASK			0x839f
-> 	#define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
-> 	#define RX_IRQ2_BANK_PIN_MASK			0x20
-> 	#define RX_IRQ3_BANK_PIN_MASK			0x40
->=20
-> The union of those four masks covers queues 0-4, 7, 8, 15 and 21-30, but =
-not
-> BIT(31).  Since airoha_qdma_hw_init() derives the RX interrupt enables fr=
-om
-> those masks:
->=20
-> 	airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX2,
-> 			       INT_RX2_MASK(RX_IRQ_BANK_PIN_MASK(i)));
->=20
-> RX31_DONE is never enabled in any bank, and airoha_irq_handler() masks the
-> status with irq_bank->irqmask, so q_rx[31]'s NAPI is never scheduled.  The
-> re-arm loop in airoha_qdma_rx_napi_poll() is also a no-op for that qid:
->=20
-> 	if (!(BIT(qid) & RX_IRQ_BANK_PIN_MASK(i)))
-> 		continue;
->=20
-> The ring is still created and filled by airoha_qdma_fill_rx_queue(), so o=
-nce
-> its descriptors are consumed by the LRO engine it is never drained or
-> refilled again.  Would either restricting the mask to GENMASK(30, 24) or
-> adding BIT(31) to one of the bank pin masks be the intended fix?  The v4
-> changelog in this posting lists "Enable rx interrupt for queue 31", but t=
-hat
-> change does not seem to be present in this version of the patch.
+Export them so that coupler drivers can be built as loadable modules.
 
-I think this issue has been already fixed in the following patch:
-https://lore.kernel.org/netdev/20260830-airoha-rxdone-rxq31-v1-1-830a91503f=
-2f@kernel.org/
+Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+---
+ drivers/regulator/core.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
->=20
-> [ ... ]
->=20
-> > @@ -657,12 +742,191 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, =
-struct airoha_qdma_desc *desc)
-> >  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
-> >  }
-> >
-> > +static struct sk_buff *airoha_qdma_lro_rx_skb(struct airoha_queue *q,
-> > +					      struct airoha_qdma_desc *desc,
-> > +					      struct airoha_queue_entry *e,
-> > +					      u32 msg1, u32 msg2, u32 len,
-> > +					      u32 agg_count)
-> > +{
->=20
-> [ ... ]
->=20
-> > +	page =3D virt_to_head_page(e->buf);
-> > +	data_len =3D len - data_off;
-> > +	shinfo =3D skb_shinfo(skb);
-> > +	skb_add_rx_frag(skb, shinfo->nr_frags, page,
-> > +			e->buf + data_off - page_address(page), data_len,
-> > +			q->buf_size);
-> > +
-> > +	shinfo->gso_type =3D ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
-> > +	/* HW does not report the per-segment MSS, so approximate it as
-> > +	 * the average segment size. The LRO engine always aggregates
-> > +	 * n-1 MSS-sized TCP segments plus one shorter tail for an
-> > +	 * aggregate of n segments, so this still re-segments into
-> > +	 * exactly agg_count segments, keeping gso_size/gso_segs and the
-> > +	 * packet accounting coherent, while never overestimating the MSS.
-> > +	 */
-> > +	shinfo->gso_size =3D DIV_ROUND_UP(data_len, agg_count);
-> > +	shinfo->gso_segs =3D agg_count;
->=20
-> [Severity: Medium]
-> Is NETIF_F_GRO_HW the right feature bit given this approximation?
-> Documentation/networking/netdev-features.rst says for rx-gro-hw:
->=20
-> 	A packet stream merged by Hardware GRO must
-> 	be re-segmentable by GSO or TSO back to the exact original packet stream.
->=20
-> With gso_size computed as the average payload size, the aggregate cannot =
-be
-> re-segmented into the original stream whenever the tail segment is shorter
-> than the MSS, which the commit message describes as the normal case:
->=20
-> 	The LRO engine always aggregates n-1 MSS-sized TCP segments plus one
-> 	shorter tail for an aggregate of n segments
->=20
-> For a two-segment aggregate of 1460 + 1000 bytes, gso_size becomes 1230, =
-and
-> GSO/TSO emits 1230 + 1230 rather than 1460 + 1000.  On the L3-forwarding =
-path
-> this patch targets, airoha_dev_xmit() writes that value straight into the=
- TX
-> descriptor MSS field:
->=20
-> 	__be16 csum =3D cpu_to_be16(skb_shinfo(skb)->gso_size);
->=20
-> 	tcp_hdr(skb)->check =3D (__force __sum16)csum;
-> 	msg0 |=3D FIELD_PREP(QDMA_ETH_TXMSG_TSO_MASK, 1);
->=20
-> so forwarded flows end up with a reduced MSS.  Would NETIF_F_LRO be the m=
-ore
-> accurate advertisement for an irreversible merge?
+diff --git a/drivers/regulator/core.c b/drivers/regulator/core.c
+index 6a4008f387b5..6b7e613fbaaa 100644
+--- a/drivers/regulator/core.c
++++ b/drivers/regulator/core.c
+@@ -462,6 +462,7 @@ int regulator_check_voltage(struct regulator_dev *rdev,
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(regulator_check_voltage);
+ 
+ /* return 0 if the state is valid */
+ static int regulator_check_states(suspend_state_t state)
+@@ -502,6 +503,7 @@ int regulator_check_consumers(struct regulator_dev *rdev,
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(regulator_check_consumers);
+ 
+ /* current constraint check */
+ static int regulator_check_current_limit(struct regulator_dev *rdev,
+@@ -4468,6 +4470,7 @@ int regulator_do_balance_voltage(struct regulator_dev *rdev,
+ out:
+ 	return ret;
+ }
++EXPORT_SYMBOL_GPL(regulator_do_balance_voltage);
+ 
+ static int regulator_balance_voltage(struct regulator_dev *rdev,
+ 				     suspend_state_t state)
+@@ -5797,6 +5800,7 @@ int regulator_coupler_register(struct regulator_coupler *coupler)
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(regulator_coupler_register);
+ 
+ static struct regulator_coupler *
+ regulator_find_coupler(struct regulator_dev *rdev)
+-- 
+2.45.2
 
-It is correct that the merged skb is not byte-exact re-segmentable since the
-hw does not report the per-segment MSS and it is only possible to estimate =
-the
-gso_size using the following formula:
-      =20
-       gso_size =3D DIV_ROUND_UP(data_len, agg_count)
-
-However the RX path builds a genuine GSO skb (SKB_GSO_TCPV4/V6,
-gso_size, gso_segs, CHECKSUM_PARTIAL) handed to napi_gro_receive()
-which is re-segmentable by GSO/TSO and further mergeable by software GRO.
-That is the defining property of NETIF_F_GRO_HW.
-Moreover, gso_size never exceeds the original MSS, so re-segmentation cannot
-emit a segment larger than the path MTU.
-Switching to LRO will disable the capability to forward/bridge the packet
-between two different interfaces.
-
->=20
-> A related question on gso_segs: agg_count comes from
-> FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) and is only bounded above =
-by
-> AIROHA_RXQ_LRO_MAX_AGG_COUNT, while data_len has no lower bound beyond 1.=
-  If
-> the engine ever aggregates segments that are not uniformly MSS-sized (for
-> example 64 segments totalling 100 payload bytes, giving gso_size 2 and 50
-> emitted segments), gso_segs would overstate the number of segments actual=
-ly
-> produced, which feeds qdisc pkt_len accounting.  Is the uniform-segment
-> property guaranteed by the hardware for all aggregates?
-
-I do not think the above example can occur since the hw will aggregate n-1
-MSS-sized segments plus one shorter tail. With this assumption gso_segs mat=
-ches
-the number of segments actually emitted since:
-
-      data_len >=3D (n - 1) * MSS
-      agg_count =3D ceil(data_len / gso_size) --> gso_segs
-
-Regards,
-Lorenzo
-
->=20
-> [ ... ]
->=20
-> > @@ -3430,11 +3781,9 @@ static int airoha_alloc_gdm_device(struct airoha=
-_eth *eth,
-> >  	netdev->ethtool_ops =3D &airoha_ethtool_ops;
-> >  	netdev->max_mtu =3D AIROHA_MAX_MTU;
-> >  	netdev->watchdog_timeo =3D 5 * HZ;
-> > -	netdev->hw_features =3D NETIF_F_IP_CSUM | NETIF_F_RXCSUM | NETIF_F_TS=
-O6 |
-> > -			      NETIF_F_IPV6_CSUM | NETIF_F_SG | NETIF_F_TSO |
-> > -			      NETIF_F_HW_TC;
-> > -	netdev->features |=3D netdev->hw_features;
-> > -	netdev->vlan_features =3D netdev->hw_features;
-> > +	netdev->hw_features =3D AIROHA_HW_FEATURES | NETIF_F_GRO_HW;
-> > +	netdev->features |=3D AIROHA_HW_FEATURES;
-> > +	netdev->vlan_features =3D AIROHA_HW_FEATURES;
-> >  	SET_NETDEV_DEV(netdev, eth->dev);
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
-ernet/airoha/airoha_eth.h
-> > index fa9a8edce22ff..84cadbb538666 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> > @@ -45,6 +45,18 @@
-> >  	 (_n) =3D=3D 15 ? 128 :		\
-> >  	 (_n) =3D=3D  0 ? 1024 : 16)
-> >
-> > +#define AIROHA_LRO_PAGE_ORDER		get_order(SZ_16K)
-> > +#define AIROHA_MAX_NUM_LRO_QUEUES	8
-> > +#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
->=20
-> [ ... ]
->=20
-> >  #define PSE_RSV_PAGES			128
-> >  #define PSE_QUEUE_RSV_PAGES		64
->=20
-> [ ... ]
->=20
-> > @@ -714,6 +728,18 @@ static inline bool airoha_is_7583(struct airoha_et=
-h *eth)
-> >  	return eth->soc->version =3D=3D 0x7583;
-> >  }
-> >
-> > +static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
-> > +{
-> > +	struct airoha_qdma *qdma =3D q->qdma;
-> > +	int qid =3D q - &qdma->q_rx[0];
-> > +
-> > +	/* EN7581 SoC supports at most 8 LRO rx queues */
-> > +	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
-> > +		     AIROHA_MAX_NUM_LRO_QUEUES);
-> > +
-> > +	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
-> > +}
->=20
-> --=20
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20260831-airoha-eth-lro-v5-1-6b0f50401121%40kernel.org
-
---0dJzZuvLUcSBUXl7
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapkP/gAKCRA6cBh0uS2t
-rIDoAQCulrw4FAc3wmMeCnXUOEsUqkEI2oHQNzhKjYBqKUTNTwD/aRRzhwBZdIz3
-dKJT0H9wCWHvkMIB3GSHuHCZgXjPXQ8=
-=MftG
------END PGP SIGNATURE-----
-
---0dJzZuvLUcSBUXl7--
 
