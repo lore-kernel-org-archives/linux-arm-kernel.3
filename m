@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A97C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7BBC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJAN7rIhmTBHo7d66DHo1t6JV1NbndkXBoxyqopysks=; b=Uvy6X5bTIJ4cn2hCcUkngLH4e1
-	985s9i9YnBiRnYqkHjjJFHaDJWwbDqqmF1V/0MWBD3ZoETPVKvaorZzFOvkFdh3oZ6WMK63VnjNiA
-	qitb3sSgBkcJeh60WGKRO6kmyDWb5IJFANRcCKx8KWM+pvpyGqQ6klJmIhwvFGNjcJx1Aq3AtElwI
-	sQvWcZBlUfrtQtIeC/2UyPDQLM4+xErDvw01Pkny1PMNsEWNmYv1XvpuWiCuM5czPQqrE6Zhg1wCh
-	xJkWXI9Jq0TgHJR4kPLaXyq4am+w7xM8tnsjvmi6bK05AMcdj7tbl0cxwdXQDrkJhgCvWtf4AMsBh
-	3pslqt6A==;
+	bh=/UG7zMVZVaj57JKaT/NgSm3yz88db2K0TI/06GsPpNc=; b=SleUCTD+czM4LfL+NyF1z+6r8t
+	Hl6y1v7Mdz2zT54/OuDiUbwGul0ci+GEobUznHg4+sjEcF1t82P4+SA1AaAfNhGokRGKMCkO+tpJd
+	5WBE147VKBP2hy50JQn6RidLXUZA9rHalUET8LOq8hWjqcY5Zy50/O52UtF8n/HG0zQx0ec+nIHw+
+	P7VZEGPA+wne2tgK1Mgoe5iX9sThO9B3lgmwIXhkpapigq8Lv46TlysqWIkd4vFuOmBAMhiSR4asJ
+	CUgwAQbq8LxOuMnLnUz38NT7zznQyKXbChNyUYw+CFEJavmkGBG2Iqvi17hKsJfWvSsLv8QqSdWuk
+	99Q4EqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Jf-0000000GsUf-3wsb;
-	Thu, 03 Sep 2026 09:01:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x23Jl-0000000GsZm-0CJc;
+	Thu, 03 Sep 2026 09:01:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Je-0000000GsTu-34wC;
-	Thu, 03 Sep 2026 09:01:02 +0000
+	id 1x23Jk-0000000GsYd-0CJC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 09:01:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FC31600D1;
-	Thu,  3 Sep 2026 09:01:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB501F00A3A;
-	Thu,  3 Sep 2026 09:00:58 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Brian Masney <bmasney@redhat.com>
-Subject: [PATCH net-next v2 3/3] net: phy: air_en8811h: Make sure clk_init_data is fully initialized
-Date: Thu,  3 Sep 2026 11:00:41 +0200
-Message-ID: <0e869f49c910ce054aa22ae84480aab69420bb92.1788425654.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1788425654.git.geert+renesas@glider.be>
-References: <cover.1788425654.git.geert+renesas@glider.be>
+	by sea.source.kernel.org (Postfix) with ESMTP id CA34742EB7;
+	Thu,  3 Sep 2026 09:01:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7F91F000E9;
+	Thu,  3 Sep 2026 09:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788426067;
+	bh=/UG7zMVZVaj57JKaT/NgSm3yz88db2K0TI/06GsPpNc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=A4YDmv6dvoVogcMTXsrbyKW5pUL5wkQ7Mh/n/Kpq3gW2iN11xBWFcLhgFTZXkbj05
+	 RAmoL7fZ/nbRUw6CgmlI7z9QUpDBmN3lYMA3YCH/6JaQEdFZ1RPYrYACv6/ntH5ph7
+	 arm2nm+OJKhR/tlbPXVrvoZ+a/PVO0kPRtmR5jkbQl64TIGm7j0E0C6QCH4tdVGFf6
+	 Czw6Bd0etlvE9tYErEpV6rtmhAnm0mXCOf+bocoOOBDGnXNV6MIvnNubm8G3w3pUoM
+	 RFuAlsCeieY6D8os01ZUdn6CnQ9YMDY49y6YO/UO2Ztbp+LVJK7CbCPd1EELPj1Dhp
+	 0GqqEqLv52NZg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 62B133811961;
+	Thu,  3 Sep 2026 09:00:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/2] net: stmmac: dwmac4: Auto-discover UC filter
+ size
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178842600911.3208873.5559894421239346742.git-patchwork-notify@kernel.org>
+Date: Thu, 03 Sep 2026 09:00:09 +0000
+References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
+ edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux@armlinux.org.uk, thomas.petazzoni@bootlin.com,
+ alexis.lothore@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clk_init_data structure contains several mutually-exclusive members
-for different methods to specify the possible parents of a clock,
-prompting drivers to initialize only the members they need.  However,
-not initializing all members may cause subtle issues, which are only
-exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
-enabled.
+Hello:
 
-Make sure all members are fully initialized, to avoid such bugs, and to
-prevent future breakage when converting drivers to a different method
-for specifying the parents.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
----
-Compile-tested only.
+On Mon, 31 Aug 2026 09:01:18 +0200 you wrote:
+> Following my attempts to get clean ethtool selftests runs on stmmac [1],
+> several issues were found with the unicast filtering.
+> 
+> [1]: https://lore.kernel.org/netdev/20260827134004.45ffb57e@kernel.org/
+> 
+> This lead to the discovery that on dwmac4 platforms, the unicast filter
+> size is always falling back to the default value of 1 entry. On older
+> variants, the size comes from devicetree.
+> 
+> [...]
 
-v2:
-  - Add Reviewed-by.
----
- drivers/net/phy/air_en8811h.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Here is the summary with links:
+  - [net-next,1/2] net: stmmac: dwmac4: Read the UC filter size from hardware capabilities
+    https://git.kernel.org/netdev/net-next/c/384ee2379a66
+  - [net-next,2/2] net: stmmac: dwmac4: Use the full perfect filter ability for UC filter
+    https://git.kernel.org/netdev/net-next/c/6815415d68b9
 
-diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
-index 0eeb7b9a4e260bcb..429231949120c7c8 100644
---- a/drivers/net/phy/air_en8811h.c
-+++ b/drivers/net/phy/air_en8811h.c
-@@ -932,7 +932,7 @@ static const struct clk_ops an8811hb_clk_ops = {
- 
- static int an8811hb_clk_provider_setup(struct device *dev, struct clk_hw *hw)
- {
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	int ret;
- 
- 	if (!IS_ENABLED(CONFIG_COMMON_CLK))
-@@ -1031,7 +1031,7 @@ static const struct clk_ops en8811h_clk_ops = {
- 
- static int en8811h_clk_provider_setup(struct device *dev, struct clk_hw *hw)
- {
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	int ret;
- 
- 	if (!IS_ENABLED(CONFIG_COMMON_CLK))
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
