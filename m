@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2DD5C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 02:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72423C624DA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 02:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GXH7bv9aJkeOANT8bK6lhnGui/IjjqhBwvUQoUluYJM=; b=WAyo68FdH686VVbUGfsAlb/OIb
-	tgrng5ggdr1iw8GfI8I0rPwDFXktQ2n+GqvhW0lYP9P4CZmkR15Wx6E8ooxNxPkrsHXQ5P6Ia5+xa
-	CpEY3ZeFNDxMlP8jRsktPCMhw27i0wl9wJq1rrJJl1pRjXFWSIp4uTWq8MsfMsFyt808S6FjiViVO
-	r3BNwC3r1gMNjxwqmQQn5W0XaCwZ+nuYprxKGTWCH6VqMIZItkjJstjbQGDoAAVDkK0D1r80+8Xay
-	gtYtNET68ke5oFYP6ALZQaiU7x9kOU1HRw9FKQS2AUj32lTQOsrIjER6b3dEFB5sIvx9K8kEsHZAI
-	trH4PPkg==;
+	bh=4oH1RvRMjxEH6ZqlTsao5HpMzwPE+IlOegNHjbSOc0c=; b=lilxi1C7feL35NDS4wv8ebooWl
+	P/tMps4MP7n5MBHofm4abvK2sUPPRm06J+yil+1f4Iq4/b33IIg03pw8eOtQe2Q4ooBn1YbU9arPC
+	ZA0ReG+7LpVV44w/klZFYQCtuZETR0KMl3jdXDBs8gfcE/p11Uu7GZoQHM9jjK1K0GfsFVCGAQ8Mq
+	E0iOQ4zSYu90CWPM2+OizZh0DIiBepxFjCe3388xiOOkCnPRh+0nxPnVkbHzDVggKEQEN6FeNsMt6
+	SWR8QAkokCMgmvbXV3dMKlPy7aFGkY1aJl5gN4ZyQCgpzfFxwhqrfG8BKodx4Ez2DQ1bifao+pv4E
+	s+gNa8DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xIq-0000000GDiJ-3N0X;
-	Thu, 03 Sep 2026 02:35:48 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1x1xIv-0000000GDno-2kbV;
+	Thu, 03 Sep 2026 02:35:53 +0000
+Received: from mail-japanwestazon11022102.outbound.protection.outlook.com ([40.107.75.102] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xIn-0000000GDcx-2j3V;
-	Thu, 03 Sep 2026 02:35:47 +0000
+	id 1x1xIp-0000000GDeU-0yr3;
+	Thu, 03 Sep 2026 02:35:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PcJg19S+W7+SFLbsM3eawM8a5KnmdUelyJ2dHnzsR6QjE6EhIt13FBVJWWRAXXdGJLib5kVTyAC3+Qg1ysb3zhoec0wx+xmBnrt0EqS8KWOjQzFlxZAPVPmicmdqiapbRTrqqtM2PfCKNgV8FhCtUghPcnmOZz51iTZ4r73EywbK6L3GYM/A9gJXBBIYAj0PPitGi+SgGCxiQNLcZRIBPSmVcEO/UgyHy3erEBwPdZzBzePl9GW9BiKE2VlO6zZxpP8kVeVv1SDdsBGF8Ke6SWRcc5pyI33xYYA2rZRbrHPE+uCTlfZiDlkhkTk14cZ2pkXQEjijnoV3OaxLKxP25w==
+ b=GUQgcjZMuYP3cuvoK968P6Mo1mBlq2928sBnMLY99o/KpbuyvvJO+8IGlORpKaLrzmaUWMlJYdnfhfNWWPRYlziDkopej07FjAd2yGa9XZFGNIMrm0eLeHiQ4WTGVX+xqny3DkUPsDH1t1fX7Nepez+YRqIo/PjmdhhV1dCMHB6cwgtphtGdl83jneqXyylGDaS/6kLScRzV9roXhvEsZFkt+IN7So365HsbWFRJy/al0sAsrSi/LQvmADh68uuJEiVzO9GTWe28t6stFFfqLzgSKwE3JrH19QAgeYo6bSCmYwccJal6g4uYDYWr2Rje0w5KIiDka6llBASz3kzWGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GXH7bv9aJkeOANT8bK6lhnGui/IjjqhBwvUQoUluYJM=;
- b=asEHA6J/ggr0SgSusGFaOmuzg77Shw/pDyc2HaBOlFNDwbD9RpnOxMoDAHtsutWfBHeQNZ2YCDUbSILAWNmWp/7XXYA3evMPFhvHGldj3WfpKdu1DPZeAN5RXxmRePfog+mHEfBTrD8Nro8P6VpssCfFldJ/jbgPuC6ItWWdecHXvjTQcS6R+pGZqEjeMJWObpoCDwzvbc5bi65x3rR6ch9lCNndeISM45CvvqKJ6W19RgQBBTkB2lQg2BaQVU7Xyb65eZ96ugiiel2cPBbMz6GgCVqCZZwazb378+FBvANhW0GpNftM7YDDjrA2eFkknjN+D6wiJtQt30j6A+UJyQ==
+ bh=4oH1RvRMjxEH6ZqlTsao5HpMzwPE+IlOegNHjbSOc0c=;
+ b=Km0sx7TzNy2c2mQRsaN0dqnlmAJXOiSavI5G1LBOQ+LElSW6COi4yHhrVTZtQLQJGXEPx3XHdLy3Rn7hqvoXy8uiO3CislpuN3WvOGPkEiC7EfaaIE6sxHC/2vXylje6pqrehpV5LNf36uNkEYpzBELJGyHBU0dz08rPBMxMfiOx3bnEuLqa+WSk8K/yGUkPfbm857E039VtD6J3LkzZlheMSDPR6nYy8aaucvr6AOdXEpwKBMRp5T/dKAmFmsW/eVR/WfCd7sxqskrizND+mqqEViUTnMkoKwhjTy7mJfl/PblYDGN8RetMMC78sxKmmxPsAtewF/t9UBvJxmjyFQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from TY6PR01CA0008.jpnprd01.prod.outlook.com (2603:1096:405:3bc::19)
- by TYZPR06MB5300.apcprd06.prod.outlook.com (2603:1096:400:1f3::6) with
+Received: from SI2PR02CA0021.apcprd02.prod.outlook.com (2603:1096:4:195::10)
+ by TY8PR06MB9295.apcprd06.prod.outlook.com (2603:1096:405:3ac::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 02:35:25 +0000
-Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
- (2603:1096:405:3bc:cafe::88) by TY6PR01CA0008.outlook.office365.com
- (2603:1096:405:3bc::19) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 02:35:26 +0000
+Received: from OSA0EPF000000CD.apcprd02.prod.outlook.com
+ (2603:1096:4:195:cafe::29) by SI2PR02CA0021.outlook.office365.com
+ (2603:1096:4:195::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
- Sep 2026 02:35:25 +0000
+ Sep 2026 02:35:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -54,12 +54,12 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
+ OSA0EPF000000CD.mail.protection.outlook.com (10.167.240.59) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 02:35:24 +0000
+ 15.21.382.8 via Frontend Transport; Thu, 3 Sep 2026 02:35:25 +0000
 Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 27D624092114;
-	Thu,  3 Sep 2026 10:35:23 +0800 (CST)
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 2C9E94092108;
+	Thu,  3 Sep 2026 10:35:24 +0800 (CST)
 From: Hongliang Yang <hongliang.yang@cixtech.com>
 To: krzk@kernel.org
 Cc: cix-kernel-upstream@cixtech.com,
@@ -80,9 +80,9 @@ Cc: cix-kernel-upstream@cixtech.com,
 	robh@kernel.org,
 	rogerq@kernel.org,
 	vkoul@kernel.org
-Subject: [PATCH v3 3/5] phy: cix: Add CIX Sky1 USB3 PHY driver
-Date: Thu,  3 Sep 2026 10:35:19 +0800
-Message-ID: <20260903023521.2064986-4-hongliang.yang@cixtech.com>
+Subject: [PATCH v3 5/5] arm64: dts: cix: Add USB4/USB5 nodes for Sky1
+Date: Thu,  3 Sep 2026 10:35:21 +0800
+Message-ID: <20260903023521.2064986-6-hongliang.yang@cixtech.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260903023521.2064986-1-hongliang.yang@cixtech.com>
 References: <503e87d9-3311-413a-98c0-e02a02c4a354@kernel.org>
@@ -91,29 +91,30 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|TYZPR06MB5300:EE_
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CD:EE_|TY8PR06MB9295:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: d3585309-e752-446c-58ea-08df09640216
+X-MS-Office365-Filtering-Correlation-Id: 3e945f27-47a6-4fa0-8437-08df096402cf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|376014|23010399003|36860700016|22082099003|18002099003|4143699003|56012099006|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: ssVyo4mX6aKdYweEJxQGeN5Zk9nR1AZlNVssTb8LxxSqQs22meAPwMFkV/FevJdrZgvxh+OnHrqrFhdCfGeFMQYWN/R1e3T3l6U3m0QWV+DHW+hq/UwBeskq26/LWkliUsf2en7HiYgoBGJPahAK3VtDeJXJwVsXeUuAC3i/F2mE5kVvXVTs80kQh0DzCaYMDzT9CbK6vEch1l0bq1XCbVMavGEAmheYHyhWO/1MBUvseUGx2ODFLlLTsMa7PXmT4R5KVd9n0KfhEQ5TG2sHkBRL4PXHRa44gJXG92uLB2ALtD40DKkIhdX5heXCE+0dPPctGCio/k/5xsIlv8Xm/KgxvauQF50X4E63S5kaXx0w2jeQO3eOss8EKZ18ApIi7UiM37tTnnM1UJkoKdqUR0rlrvgsUSuCFcEvQGgZJt5FQN7FQzaANIrHI7BoRUiA9kqspfUPrQYNuShdiLVVpZVe/Y0hDMw5+UgdTEzqJMpXYeuU4ESOFA4lEVGZLzE2bybRmVi5FbNX/yVuu2BYlIopLoIr3bPv/g0qp8s6nA2d6blJLjXE7wi3t7qFp/i0zPgBsCuehDO6C9YLHxMlySrR1AtGwkh7OUUlScRWSvoJAkn1oLvfjLr98TgYkd+CDbT0K5TrfDB7PN3Ugdfk8gstNal/M4ykFPexQou3lOiYZM16+GmGTaDSEe/xjDqiZcaKw2j0b/DsjCxp7jJTTg==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(376014)(23010399003)(36860700016)(22082099003)(18002099003)(4143699003)(56012099006)(6133799003)(10067099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|376014|23010399003|36860700016|18002099003|22082099003|56012099006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: ew2vEtyNM7zwHKPSxFsxMB5KZfrU47lgXGnL57hBBdEzkHTUgbXnncjlBkxEM2TVrxOzQEhOrUidQZHxSBDpP1xosEBwOdbV5TYtLxpLNddJs8UWcG6XSWvjqtF71maQ7fVYaY8MaMQ6vJNxUxjuW4g0v2NgoQAz00ej4qVYtKgJIjqFZDMYNjXQ/8AI1Ap4uKu5ohkjrZxHXNNuyvtwsqMmNU2KBMyg74SuXZHaV6fjgyh9s7eeczEwZlOe6Ak2/KiNNrfY2IdpvY0AwStikaVtwyjpq7l+VtXoTqyJL8V7jfkm2rS87nREhdoH6cSo7fQuu7DYiog1UJd8k6EUwQRluh9SitIonC67GXtYlunmV3QYG1UfzDuCEHEYmK/Ae5ZIFEtZa7R6tPLEdZc8bG70ReehbI5ekOlsekZEJYdpEUJRO1tVPbG3gz4Ms4RpZ982R8U66KBbyAcz/1aCunmRHHJILHGlvL/7P+HZan78NcDIUPELXwykwhmKGfvtmybFj1i6j1dCcKUND3Eo99gg0VUhogtLiFGR8AUp5a+SkFRADnNOLUWR48LxiTVbVutgBM9xErg+HqChtLapUPHBF5Cm+qGUw/5JFh6xpkfO+XharVKSKduQGNkcz7Gqhddvn7b0k0u3WN24SnDzjakHx+hyanmIdygtHAoEc/7ICHT9sruYkvlv4P6cpstOaWQz9e5oIuC74X7v+yNJsQ==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(376014)(23010399003)(36860700016)(18002099003)(22082099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Puchv6e1b+jqE4JU7e2G6kG3k1jhl1EXRjO1r0SUCU6wbwOtJgMHTt4Px4CWAE8viOqfByVmra+FTBigQK5JcnvIHzBEcfGYa56jrItzrAMHf+g4NDgV12JTpURQvzMTJxo7CLsEqYEBbn2H7PYZhVZks089rF84uq7ruMj43YLqyaXcxKY4WcFpJyuqmDQq/9sHi0bmyEgMCPeOYZUCzcNS3bD1+C8w/ven0j4mHFX8e8ilJ7mQEYd7MGz15SNqGmJbZRYHTq9ADq+rBvjc1cRcAC0MMNSBxDiyExjNfycOvE5M3nud0bPb3lMyG/xRMmfZIMpvbAdnTJwC/mjuhPkJtDWgQK8HzPVYuH5kiwwlR/dPvQ8oTm00N3GJx6POj5NxtNmEWAANxpbS+VinQqloISc0fNEC2maKaI+E+Xia/NWgBsotDIJ//EwvQgPu
+X-MS-Exchange-AntiSpam-MessageData-0: Oa+HZPGhBsR/iqOjGQUJCHODQIpYPka5BQcJjSQZc2k20j5w7SnaEko+ocxxxaL3G+++uMQaW2vWfqzwrReZFbBOyVRInWYo91YneWG4eQZtHbFx6n8IBKAkD7zEbFLL+2YhYSFqZCGt1c+6bpT1B0X/b6NAZRFGNQ4zxwD9dF3j+NYiUytPQWZbjCt79QiVvd8AJwcBUczErbAsruAqmYgihEnpRwdmxK28iZBkA4k+CwHajCC+NCe/7n57YbS5myc3sennHJzj81+o1X/8heT0/PogQiFIW/sIbkBs2CQPNPcQlbzaUQ0KhcJgxH3invBOk2lq5kbfucydKmCijfFfiKLolB/Ud7DOvJHwP8CK1fqQbiJ8hTOsgu4IAN1ADvqv9oCHbINIU4pD+Xs8T/Wk3mP6KT2f0acU1sxHuSiYgYcuKsVCzk2YkYqIEmY6
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 02:35:24.4044
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 02:35:25.4783
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3585309-e752-446c-58ea-08df09640216
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e945f27-47a6-4fa0-8437-08df096402cf
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB83.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CD.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5300
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY8PR06MB9295
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_193545_815166_0954AE54 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260902_193547_308433_E36A42B3 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,818 +129,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PHY driver for the USB3 PHY found on CIX Sky1 SoCs. The driver
-handles initialization, reset, and clock management for the
-multi-port USB3 PHY.
+Add USB4 and USB5 controller nodes and their associated USB3 PHY nodes
+for the CIX Sky1 SoC. Enable USB4 and USB5 in host mode on the Radxa
+Orion O6 board.
 
 Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
 ---
- drivers/phy/Kconfig             |   1 +
- drivers/phy/Makefile            |   1 +
- drivers/phy/cix/Kconfig         |  20 ++
- drivers/phy/cix/Makefile        |   6 +
- drivers/phy/cix/phy-cix-usb3.c  | 410 ++++++++++++++++++++++++++++++++
- drivers/phy/cix/phy-cix-usbdp.h | 310 ++++++++++++++++++++++++
- 6 files changed, 748 insertions(+)
- create mode 100644 drivers/phy/cix/Kconfig
- create mode 100644 drivers/phy/cix/Makefile
- create mode 100644 drivers/phy/cix/phy-cix-usb3.c
- create mode 100644 drivers/phy/cix/phy-cix-usbdp.h
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  54 ++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi         | 118 ++++++++++++++++++++++
+ 2 files changed, 172 insertions(+)
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 19f3b7d12b7d..cb0d4be47628 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -175,6 +175,7 @@ source "drivers/phy/axiado/Kconfig"
- source "drivers/phy/broadcom/Kconfig"
- source "drivers/phy/cadence/Kconfig"
- source "drivers/phy/canaan/Kconfig"
-+source "drivers/phy/cix/Kconfig"
- source "drivers/phy/eswin/Kconfig"
- source "drivers/phy/freescale/Kconfig"
- source "drivers/phy/hisilicon/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index d7aa516bcc49..6fd0f3910018 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -27,6 +27,7 @@ obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
- 					   broadcom/	\
- 					   cadence/	\
- 					   canaan/	\
-+					   cix/		\
- 					   eswin/	\
- 					   freescale/	\
- 					   hisilicon/	\
-diff --git a/drivers/phy/cix/Kconfig b/drivers/phy/cix/Kconfig
-new file mode 100644
-index 000000000000..aaa2eb9d4552
---- /dev/null
-+++ b/drivers/phy/cix/Kconfig
-@@ -0,0 +1,20 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for Cix PHYs
-+#
+diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+index e39c87774c12..4f47e8cd70fc 100644
+--- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
++++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+@@ -80,6 +80,22 @@ pins {
+ 
+ 		};
+ 	};
 +
-+if ARCH_CIX || COMPILE_TEST
++	pinctrl_usb4: usb4-power-on-cfg {
++		pins {
++			bias-pull-down;
++			drive-strength = <8>;
++			pinmux = <CIX_PAD_GPIO041_FUNC_USB_DRIVE_VBUS4>;
++		};
++	};
 +
-+config PHY_CIX_USB3
-+	tristate "Cix USB3 PHY Driver"
-+	depends on OF && HAS_IOMEM
-+	select GENERIC_PHY
-+	help
-+	  Enable this to support the CIX USB3 PHY for TYPEA Connection.
++	pinctrl_usb5: usb5-power-on-cfg {
++		pins {
++			bias-pull-down;
++			drive-strength = <8>;
++			pinmux = <CIX_PAD_GPIO042_FUNC_USB_DRIVE_VBUS5>;
++		};
++	};
+ };
+ 
+ &pcie_x8_rc {
+@@ -117,3 +133,41 @@ &s5_gpio2 {
+ &uart2 {
+ 	status = "okay";
+ };
 +
-+	  This driver provides initialization and power management for
-+	  the USB3 PHY found on CIX Sky1 SoCs.
++&usb4 {
++	pinctrl-0 = <&pinctrl_usb4>;
++	pinctrl-names = "default";
 +
-+	  If unsure, say N.
-+
-+endif # ARCH_CIX || COMPILE_TEST
-diff --git a/drivers/phy/cix/Makefile b/drivers/phy/cix/Makefile
-new file mode 100644
-index 000000000000..b46b1059b2ab
---- /dev/null
-+++ b/drivers/phy/cix/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Makefile for the Cix phy drivers.
-+#
-+
-+obj-$(CONFIG_PHY_CIX_USB3)	+= phy-cix-usb3.o
-diff --git a/drivers/phy/cix/phy-cix-usb3.c b/drivers/phy/cix/phy-cix-usb3.c
-new file mode 100644
-index 000000000000..0f074af84e90
---- /dev/null
-+++ b/drivers/phy/cix/phy-cix-usb3.c
-@@ -0,0 +1,410 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * phy driver for cdn_sd0803_t7g_typea
-+ *
-+ * Author: Hongliang Yang <hongliang.yang@cixtech.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+#include "phy-cix-usbdp.h"
-+
-+struct cix_u3phy;
-+
-+struct cix_u3phy_cfg {
-+	int (*u3phy_init)(struct cix_u3phy *u3phy);
-+	int (*u3phy_exit)(struct cix_u3phy *u3phy);
++	status = "okay";
 +};
 +
-+static const struct reg_sequence sky1_u3phy_conf[] = {
-+	{CMN_SSM_BIAS_TMR,                  0x0018},
-+	{CMN_PLLSM0_PLLPRE_TMR,             0x0030},
-+	{CMN_PLLSM0_PLLLOCK_TMR,            0x00f0},
-+	{CMN_PLLSM1_PLLPRE_TMR,             0x0030},
-+	{CMN_PLLSM1_PLLLOCK_TMR,            0x00f0},
-+	{CMN_BGCAL_INIT_TMR,                0x0078},
-+	{CMN_BGCAL_ITER_TMR,                0x0078},
-+	{CMN_IBCAL_INIT_TMR,                0x0018},
-+	{CMN_TXPUCAL_INIT_TMR,              0x001d},
-+	{CMN_TXPDCAL_INIT_TMR,              0x001d},
-+	{CMN_RXCAL_INIT_TMR,                0x02d0},
-+	{CMN_SD_CAL_PLLCNT_START,           0x0137},
-+	{RX_SDCAL0_INIT_TMR_LANE0,          0x0018},
-+	{RX_SDCAL0_INIT_TMR_LANE1,          0x0018},
-+	{RX_SDCAL0_ITER_TMR_LANE0,          0x0078},
-+	{RX_SDCAL0_ITER_TMR_LANE1,          0x0078},
-+	{RX_SDCAL1_INIT_TMR_LANE0,          0x0018},
-+	{RX_SDCAL1_INIT_TMR_LANE1,          0x0018},
-+	{RX_SDCAL1_ITER_TMR_LANE0,          0x0078},
-+	{RX_SDCAL1_ITER_TMR_LANE1,          0x0078},
-+	{TX_RCVDET_ST_TMR_LANE0,            0x0960},
-+	{TX_RCVDET_ST_TMR_LANE1,            0x0960},
++&usbss_4 {
++	dr_mode = "host";
 +
-+	{PHY_PLL_CFG_0803,                  0x0000},
-+	{CMN_PDIAG_PLL0_CLK_SEL_M0,         0x8600},
-+	{XCVR_DIAG_HSCLK_SEL_LANE0,         0x0000},
-+	{XCVR_DIAG_HSCLK_SEL_LANE1,         0x0000},
-+	{XCVR_DIAG_HSCLK_DIV_LANE0,         0x0001},
-+	{XCVR_DIAG_HSCLK_DIV_LANE1,         0x0001},
-+	{XCVR_DIAG_PLLDRC_CTRL_LANE0,       0x0041},
-+	{XCVR_DIAG_PLLDRC_CTRL_LANE1,       0x0041},
-+	{CMN_PLL0_DSM_DIAG_M0,              0x0004},
-+	{CMN_PLL1_DSM_DIAG_M0,              0x0004},
-+	{CMN_PDIAG_PLL1_ITRIM_M0,           0x003f},
-+	{CMN_PDIAG_PLL0_CP_PADJ_M0,         0x0b17},
-+	{CMN_PDIAG_PLL1_CP_PADJ_M0,         0x0b17},
-+	{CMN_PDIAG_PLL0_CP_IADJ_M0,         0x0e01},
-+	{CMN_PDIAG_PLL1_CP_IADJ_M0,         0x0e01},
-+	{CMN_PDIAG_PLL0_FILT_PADJ_M0,       0x0d05},
-+	{CMN_PDIAG_PLL1_FILT_PADJ_M0,       0x0d05},
-+	{CMN_PLL0_INTDIV_M0,                0x01a0},
-+	{CMN_PLL1_INTDIV_M0,                0x01a0},
-+	{CMN_PLL0_FRACDIVL_M0,              0xaaab},
-+	{CMN_PLL1_FRACDIVL_M0,              0xaaab},
-+	{CMN_PLL0_FRACDIVH_M0,              0x0002},
-+	{CMN_PLL1_FRACDIVH_M0,              0x0002},
-+	{CMN_PLL0_HIGH_THR_M0,              0x0116},
-+	{CMN_PLL1_HIGH_THR_M0,              0x0116},
-+	{CMN_PDIAG_PLL0_CTRL_M0,            0x1002},
-+	{CMN_PDIAG_PLL1_CTRL_M0,            0x1002},
-+	{CMN_PLL0_SS_CTRL1_M0,		    0x0001}, /* SSC enabled */
-+	{CMN_PLL0_VCOCAL_INIT_TMR,          0x00f0},
-+	{CMN_PLL1_VCOCAL_INIT_TMR,          0x00f0},
-+	{CMN_PLL0_VCOCAL_ITER_TMR,          0x0004},
-+	{CMN_PLL1_VCOCAL_ITER_TMR,          0x0004},
-+	{CMN_PLL0_VCOCAL_REFTIM_START,      0x02f8},
-+	{CMN_PLL1_VCOCAL_REFTIM_START,      0x02f8},
-+	{CMN_PLL0_VCOCAL_PLLCNT_START,      0x02f8},
-+	{CMN_PLL1_VCOCAL_PLLCNT_START,      0x02f8},
-+	{CMN_PLL0_VCOCAL_TCTRL,             0x0003},
-+	{CMN_PLL1_VCOCAL_TCTRL,             0x0003},
-+	{CMN_PLL0_LOCK_REFCNT_START,        0x00bf},
-+	{CMN_PLL1_LOCK_REFCNT_START,        0x00bf},
-+	{CMN_PLL0_LOCK_PLLCNT_START,        0x00bf},
-+	{CMN_PLL1_LOCK_PLLCNT_START,        0x00bf},
-+	{CMN_PLL0_LOCK_PLLCNT_THR,          0x0003},
-+	{CMN_PLL1_LOCK_PLLCNT_THR,          0x0003},
-+	{PHY_PIPE_USB3_GEN2_PRE_CFG0_0803,  0x0a0a},
-+	{PHY_PIPE_USB3_GEN2_POST_CFG0_0803, 0x1000},
-+	{PHY_PIPE_USB3_GEN2_POST_CFG1_0803, 0x0010},
-+	{CMN_CDIAG_CDB_PWRI_OVRD,           0x8200},
-+	{CMN_CDIAG_XCVRC_PWRI_OVRD,         0x8200},
-+	{TX_PSC_A0_LANE0,                   0x02ff},
-+	{TX_PSC_A0_LANE1,                   0x02ff},
-+	{TX_PSC_A1_LANE0,                   0x06af},
-+	{TX_PSC_A1_LANE1,                   0x06af},
-+	{TX_PSC_A2_LANE0,                   0x06ae},
-+	{TX_PSC_A2_LANE1,                   0x06ae},
-+	{TX_PSC_A3_LANE0,                   0x06ae},
-+	{TX_PSC_A3_LANE1,                   0x06ae},
-+	{RX_PSC_A0_LANE0,                   0x0d1d},
-+	{RX_PSC_A0_LANE1,                   0x0d1d},
-+	{RX_PSC_A1_LANE0,                   0x0d1d},
-+	{RX_PSC_A1_LANE1,                   0x0d1d},
-+	{RX_PSC_A2_LANE0,                   0x0d00},
-+	{RX_PSC_A2_LANE1,                   0x0d00},
-+	{RX_PSC_A3_LANE0,                   0x0500},
-+	{RX_PSC_A3_LANE1,                   0x0500},
-+	{TX_TXCC_CTRL_LANE0,                0x2a82},
-+	{TX_TXCC_CTRL_LANE1,                0x2a82},
-+	{TX_TXCC_CPOST_MULT_01_LANE0,       0x0014},
-+	{TX_TXCC_CPOST_MULT_01_LANE1,       0x0014},
-+	{TX_TXCC_MGNFS_MULT_000_LANE0,      0x0002},
-+	{TX_TXCC_MGNFS_MULT_000_LANE1,      0x0002},
-+	{RX_SIGDET_HL_FILT_TMR_LANE0,       0x0013},
-+	{RX_SIGDET_HL_FILT_TMR_LANE1,       0x0013},
-+	{RX_REE_GCSM1_CTRL_LANE0,           0x0000},
-+	{RX_REE_GCSM1_CTRL_LANE1,           0x0000},
-+	{RX_REE_ATTEN_THR_LANE0,            0x0c02},
-+	{RX_REE_ATTEN_THR_LANE1,            0x0c02},
-+	{RX_REE_SMGM_CTRL1_LANE0,           0x0330},
-+	{RX_REE_SMGM_CTRL1_LANE1,           0x0330},
-+	{RX_REE_SMGM_CTRL2_LANE0,           0x0300},
-+	{RX_REE_SMGM_CTRL2_LANE1,           0x0300},
-+	{XCVR_DIAG_PSC_OVRD_LANE0,          0x0003},
-+	{XCVR_DIAG_PSC_OVRD_LANE1,          0x0003},
-+	{RX_DIAG_SIGDET_TUNE_LANE0,         0x1004},
-+	{RX_DIAG_SIGDET_TUNE_LANE1,         0x1004},
-+	{RX_DIAG_NQST_CTRL_LANE0,           0x00f9},
-+	{RX_DIAG_NQST_CTRL_LANE1,           0x00f9},
-+	{RX_DIAG_DFE_AMP_TUNE_2_LANE0,      0x0c01},
-+	{RX_DIAG_DFE_AMP_TUNE_2_LANE1,      0x0c01},
-+	{RX_DIAG_DFE_AMP_TUNE_3_LANE0,      0x0002},
-+	{RX_DIAG_DFE_AMP_TUNE_3_LANE1,      0x0002},
-+	{RX_DIAG_PI_CAP_LANE0,              0x0000},
-+	{RX_DIAG_PI_CAP_LANE1,              0x0000},
-+	{RX_DIAG_PI_RATE_LANE0,             0x0031},
-+	{RX_DIAG_PI_RATE_LANE1,             0x0031},
-+	{RX_CDRLF_CNFG_LANE0,               0x018c},
-+	{RX_CDRLF_CNFG_LANE1,               0x018c},
-+	{RX_CDRLF_CNFG3_LANE0,              0x0003},
-+	{RX_CDRLF_CNFG3_LANE1,              0x0003}
++	status = "okay";
 +};
 +
-+struct cix_u3phy {
-+	struct device *dev;
-+	void __iomem *base;
-+	struct regmap *phy_regmap;
-+	struct reset_control *preset;
-+	struct reset_control *reset;
-+	struct clk *apb_clk;
-+	struct clk *ref_clk;
-+	struct mutex mutex; /* mutex to protect access to individual PHYs */
-+	bool init;
-+	int init_count;
-+	const struct cix_u3phy_cfg *cfg;
++&usb5 {
++	pinctrl-0 = <&pinctrl_usb5>;
++	pinctrl-names = "default";
++
++	status = "okay";
 +};
 +
-+static int sky1_u3phy_exit(struct cix_u3phy *u3phy)
-+{
-+	u3phy->init_count--;
-+	if (u3phy->init && u3phy->init_count == 0) {
-+		reset_control_assert(u3phy->reset);
-+		reset_control_assert(u3phy->preset);
-+		clk_disable_unprepare(u3phy->ref_clk);
-+		clk_disable_unprepare(u3phy->apb_clk);
-+		u3phy->init = false;
-+	}
-+	return 0;
-+}
++&usbss_5 {
++	dr_mode = "host";
 +
-+static int sky1_u3phy_init(struct cix_u3phy *u3phy)
-+{
-+	int ret;
-+
-+	if (!u3phy->init) {
-+		/* usb rcsu reset is default deassert */
-+		reset_control_assert(u3phy->reset);
-+		reset_control_assert(u3phy->preset);
-+		ret = clk_prepare_enable(u3phy->apb_clk);
-+		if (ret) {
-+			dev_err(u3phy->dev, "Failed to prepare_enable u3phy apb clock\n");
-+			return ret;
-+		}
-+		ret = clk_prepare_enable(u3phy->ref_clk);
-+		if (ret) {
-+			dev_err(u3phy->dev, "Failed to prepare_enable u3phy ref clock\n");
-+			goto disable_apb_clk;
-+		}
-+		reset_control_deassert(u3phy->preset);
-+		ret = regmap_multi_reg_write(u3phy->phy_regmap, sky1_u3phy_conf,
-+					     ARRAY_SIZE(sky1_u3phy_conf));
-+		if (ret) {
-+			dev_err(u3phy->dev, "Failed to write the reg sequence\n");
-+			goto assert_reset_preset;
-+		}
-+		u3phy->init = true;
-+		reset_control_deassert(u3phy->reset);
-+	}
-+	u3phy->init_count++;
-+	return 0;
-+
-+assert_reset_preset:
-+	reset_control_assert(u3phy->preset);
-+	reset_control_assert(u3phy->reset);
-+	clk_disable_unprepare(u3phy->ref_clk);
-+disable_apb_clk:
-+	clk_disable_unprepare(u3phy->apb_clk);
-+	return ret;
-+}
-+
-+static const struct cix_u3phy_cfg sky1_u3phy_cfg = {
-+	.u3phy_init = sky1_u3phy_init,
-+	.u3phy_exit = sky1_u3phy_exit
++	status = "okay";
 +};
 +
-+static int u3phy_regmap_write(void *context, unsigned int reg, unsigned int val)
-+{
-+	struct cix_u3phy *u3phy = context;
-+	u32 offset = reg << 2;
++&usb3_phy4 {
++	status = "okay";
 +
-+	writel(val, u3phy->base + offset);
-+	return 0;
-+}
++	usb-port@0 {
++		status = "okay";
++	};
 +
-+static int u3phy_regmap_read(void *context, unsigned int reg, unsigned int *val)
-+{
-+	struct cix_u3phy *u3phy = context;
-+	u32 offset = reg << 2;
-+
-+	*val = readl(u3phy->base + offset);
-+	return 0;
-+}
-+
-+static const struct regmap_config cix_u3phy_regmap_cfg = {
-+	.reg_bits = 32,
-+	.reg_stride = 1,
-+	.val_bits = 16,
-+	.fast_io = true,
-+	.reg_write = u3phy_regmap_write,
-+	.reg_read = u3phy_regmap_read,
++	usb-port@1 {
++		status = "okay";
++	};
 +};
-+
-+static int cix_usb3_phy_power_on(struct cix_u3phy *u3phy)
-+{
-+	int ret;
-+	const struct cix_u3phy_cfg *phy_cfgs = u3phy->cfg;
-+
-+	if (phy_cfgs->u3phy_init) {
-+		ret = phy_cfgs->u3phy_init(u3phy);
-+		if (ret) {
-+			dev_err(u3phy->dev, "failed to init udphy\n");
-+			return ret;
-+		}
-+	}
-+	return 0;
-+}
-+
-+static int cix_usb3_phy_power_off(struct cix_u3phy *u3phy)
-+{
-+	int ret;
-+	const struct cix_u3phy_cfg *phy_cfgs = u3phy->cfg;
-+
-+	if (phy_cfgs->u3phy_exit) {
-+		ret = phy_cfgs->u3phy_exit(u3phy);
-+		if (ret) {
-+			dev_err(u3phy->dev, "failed to exit udphy\n");
-+			return ret;
-+		}
-+	}
-+	return 0;
-+}
-+
-+static int cix_u3phy_init(struct phy *phy)
-+{
-+	struct cix_u3phy *u3phy = phy_get_drvdata(phy);
-+	int ret = 0;
-+
-+	mutex_lock(&u3phy->mutex);
-+	ret = cix_usb3_phy_power_on(u3phy);
-+	mutex_unlock(&u3phy->mutex);
-+	return ret;
-+}
-+
-+static int cix_u3phy_exit(struct phy *phy)
-+{
-+	struct cix_u3phy *u3phy = phy_get_drvdata(phy);
-+	int ret = 0;
-+
-+	mutex_lock(&u3phy->mutex);
-+	ret = cix_usb3_phy_power_off(u3phy);
-+	mutex_unlock(&u3phy->mutex);
-+	return ret;
-+}
-+
-+static const struct phy_ops cix_u3phy_ops = {
-+	.init		= cix_u3phy_init,
-+	.exit		= cix_u3phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int cix_u3phy_probe(struct platform_device *pdev)
-+{
-+	struct cix_u3phy *u3phy;
-+	struct device *dev = &pdev->dev;
-+	struct phy_provider *phy_provider;
-+	struct device_node *np = dev->of_node;
-+	struct device_node *child_np;
-+	struct phy *phy;
-+	int ret;
-+
-+	u3phy = devm_kzalloc(dev, sizeof(*u3phy), GFP_KERNEL);
-+	if (!u3phy)
-+		return -ENOMEM;
-+	dev_set_drvdata(dev, u3phy);
-+	u3phy->dev = dev;
-+	u3phy->cfg = device_get_match_data(dev);
-+	if (!u3phy->cfg) {
-+		dev_err(dev, "no OF data can be matched with %p node\n", np);
-+		return -EINVAL;
-+	}
-+	u3phy->reset = devm_reset_control_get_exclusive(dev, "core");
-+	if (IS_ERR(u3phy->reset)) {
-+		dev_err(dev, "failed to get reset\n");
-+		return PTR_ERR(u3phy->reset);
-+	}
-+	u3phy->preset = devm_reset_control_get_exclusive(dev, "apb");
-+	if (IS_ERR(u3phy->preset)) {
-+		dev_err(dev, "failed to get preset\n");
-+		return PTR_ERR(u3phy->preset);
-+	}
-+	u3phy->apb_clk = devm_clk_get(dev, "apb");
-+	if (IS_ERR(u3phy->apb_clk)) {
-+		dev_err(dev, "phy apb clock not found\n");
-+		return PTR_ERR(u3phy->apb_clk);
-+	}
-+	u3phy->ref_clk = devm_clk_get(dev, "ref");
-+	if (IS_ERR(u3phy->ref_clk)) {
-+		dev_err(dev, "phy ref clock not found\n");
-+		return PTR_ERR(u3phy->ref_clk);
-+	}
-+	u3phy->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(u3phy->base))
-+		return PTR_ERR(u3phy->base);
-+	u3phy->phy_regmap = devm_regmap_init(dev, NULL, u3phy, &cix_u3phy_regmap_cfg);
-+	if (IS_ERR(u3phy->phy_regmap)) {
-+		dev_err(dev, "failed to remap phy register\n");
-+		return PTR_ERR(u3phy->phy_regmap);
-+	}
-+	mutex_init(&u3phy->mutex);
-+	device_for_each_child_node_scoped(dev, child_fn) {
-+		const char *name = fwnode_get_name(child_fn);
-+
-+		if (!name)
-+			continue;
-+		/* only the usb-port@N lane nodes describe PHY ports */
-+		if (strncmp(name, "usb-port", 8) || name[8] != '@')
-+			continue;
-+		child_np = to_of_node(child_fn);
-+		phy = devm_phy_create(dev, child_np, &cix_u3phy_ops);
-+		if (IS_ERR(phy)) {
-+			ret = PTR_ERR(phy);
-+			dev_err(dev, "failed to create phy: %s\n", name);
-+			return ret;
-+		}
-+		phy_set_drvdata(phy, u3phy);
-+	}
-+
-+	/* keep the PHY in reset until a consumer calls phy_init() */
-+	reset_control_assert(u3phy->reset);
-+	reset_control_assert(u3phy->preset);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+	if (IS_ERR(phy_provider)) {
-+		ret = PTR_ERR(phy_provider);
-+		dev_err(dev, "failed to register phy provider\n");
-+		return ret;
-+	}
-+	return 0;
-+}
-+
-+static const struct of_device_id cix_u3phy_dt_match[] = {
-+	{
-+		.compatible = "cix,sky1-usb3-phy",
-+		.data = &sky1_u3phy_cfg
-+	},
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, cix_u3phy_dt_match);
-+
-+static struct platform_driver cix_usb3_phy_driver = {
-+	.probe		= cix_u3phy_probe,
-+	.driver		= {
-+		.name	= "cix-usb3-phy",
-+		.of_match_table = cix_u3phy_dt_match,
-+	},
-+};
-+
-+module_platform_driver(cix_usb3_phy_driver);
-+
-+MODULE_AUTHOR("Hongliang Yang <hongliang.yang@cixtech.com>");
-+MODULE_DESCRIPTION("Cix USB3 Only PHY driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/phy/cix/phy-cix-usbdp.h b/drivers/phy/cix/phy-cix-usbdp.h
-new file mode 100644
-index 000000000000..6ec7eb5c81aa
---- /dev/null
-+++ b/drivers/phy/cix/phy-cix-usbdp.h
-@@ -0,0 +1,310 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _PHY_CIX_USBDP_H
-+#define _PHY_CIX_USBDP_H
-+
-+#define CMN_SSM_BIAS_TMR             0x0022
-+#define CMN_PLLSM0_PLLPRE_TMR        0x002a
-+#define CMN_PLLSM0_PLLLOCK_TMR       0x002c
-+#define CMN_PLLSM1_PLLPRE_TMR        0x0032
-+#define CMN_PLLSM1_PLLLOCK_TMR       0x0034
-+#define CMN_BGCAL_INIT_TMR           0x0064
-+#define CMN_BGCAL_ITER_TMR           0x0065
-+#define CMN_IBCAL_INIT_TMR           0x0074
-+#define CMN_PLL0_SS_CTRL1_M0         0x0098
-+#define CMN_PLL0_SS_CTRL2_M0         0x0099
-+#define CMN_PLL0_SS_CTRL3_M0         0x009a
-+#define CMN_PLL0_SS_CTRL4_M0         0x009b
-+#define CMN_PLL1_SS_CTRL1_M0         0x00d8
-+#define CMN_PLL1_SS_CTRL2_M0         0x00d9
-+#define CMN_PLL1_SS_CTRL3_M0         0x00da
-+#define CMN_PLL1_SS_CTRL4_M0         0x00db
-+#define CMN_TXPUCAL_INIT_TMR         0x0104
-+#define CMN_TXPDCAL_INIT_TMR         0x010c
-+#define CMN_RXCAL_INIT_TMR           0x0114
-+#define CMN_SD_CAL_PLLCNT_START      0x0128
-+#define CMN_PDIAG_PLL1_ITRIM_M0      0x01c3
-+#define CMN_DIAG_GPANA_0             0x01f0
-+
-+#define RX_SDCAL0_INIT_TMR_LANE0     0x8044
-+#define RX_SDCAL0_INIT_TMR_LANE1     0x8244
-+#define RX_SDCAL0_INIT_TMR_LANE2     0x8444
-+#define RX_SDCAL0_INIT_TMR_LANE3     0x8644
-+
-+#define RX_SDCAL0_ITER_TMR_LANE0     0x8045
-+#define RX_SDCAL0_ITER_TMR_LANE1     0x8245
-+#define RX_SDCAL0_ITER_TMR_LANE2     0x8445
-+#define RX_SDCAL0_ITER_TMR_LANE3     0x8645
-+
-+#define RX_SDCAL1_INIT_TMR_LANE0     0x804c
-+#define RX_SDCAL1_INIT_TMR_LANE1     0x824c
-+#define RX_SDCAL1_INIT_TMR_LANE2     0x844c
-+#define RX_SDCAL1_INIT_TMR_LANE3     0x864c
-+
-+#define RX_SDCAL1_ITER_TMR_LANE0     0x804d
-+#define RX_SDCAL1_ITER_TMR_LANE1     0x824d
-+#define RX_SDCAL1_ITER_TMR_LANE2     0x844d
-+#define RX_SDCAL1_ITER_TMR_LANE3     0x864d
-+
-+#define TX_RCVDET_ST_TMR_LANE0       0x4123
-+#define TX_RCVDET_ST_TMR_LANE1       0x4323
-+#define TX_RCVDET_ST_TMR_LANE2       0x4523
-+#define TX_RCVDET_ST_TMR_LANE3       0x4723
-+
-+#define CMN_PDIAG_PLL0_CLK_SEL_M0    0x01a1
-+#define CMN_PDIAG_PLL1_CLK_SEL_M0    0x01c1
-+
-+#define XCVR_DIAG_HSCLK_SEL_LANE0    0x40e6
-+#define XCVR_DIAG_HSCLK_SEL_LANE1    0x42e6
-+#define XCVR_DIAG_HSCLK_SEL_LANE2    0x44e6
-+#define XCVR_DIAG_HSCLK_SEL_LANE3    0x46e6
-+
-+#define XCVR_DIAG_HSCLK_DIV_LANE0    0x40e7
-+#define XCVR_DIAG_HSCLK_DIV_LANE1    0x42e7
-+#define XCVR_DIAG_HSCLK_DIV_LANE2    0x44e7
-+#define XCVR_DIAG_HSCLK_DIV_LANE3    0x46e7
-+
-+#define XCVR_DIAG_PLLDRC_CTRL_LANE0  0x40e5
-+#define XCVR_DIAG_PLLDRC_CTRL_LANE1  0x42e5
-+#define XCVR_DIAG_PLLDRC_CTRL_LANE2  0x44e5
-+#define XCVR_DIAG_PLLDRC_CTRL_LANE3  0x46e5
-+
-+#define XCVR_DIAG_BIDI_CTRL_LANE0    0x40ea
-+#define XCVR_DIAG_BIDI_CTRL_LANE1    0x42ea
-+#define XCVR_DIAG_BIDI_CTRL_LANE2    0x44ea
-+#define XCVR_DIAG_BIDI_CTRL_LANE3    0x46ea
-+
-+#define CMN_PLL0_DSM_DIAG_M0         0x0094
-+#define CMN_PLL1_DSM_DIAG_M0         0x00d4
-+#define CMN_PDIAG_PLL0_CP_PADJ_M0    0x01a4
-+#define CMN_PDIAG_PLL1_CP_PADJ_M0    0x01c4
-+
-+#define CMN_PDIAG_PLL0_CP_IADJ_M0    0x01a5
-+#define CMN_PDIAG_PLL1_CP_IADJ_M0    0x01c5
-+#define CMN_PDIAG_PLL0_FILT_PADJ_M0  0x01a6
-+#define CMN_PDIAG_PLL1_FILT_PADJ_M0  0x01c6
-+
-+#define CMN_PLL0_INTDIV_M0           0x0090
-+#define CMN_PLL1_INTDIV_M0           0x00d0
-+#define CMN_PLL0_FRACDIVL_M0         0x0091
-+#define CMN_PLL1_FRACDIVL_M0         0x00d1
-+
-+#define CMN_PLL0_FRACDIVH_M0         0x0092
-+#define CMN_PLL1_FRACDIVH_M0         0x00d2
-+#define CMN_PLL0_HIGH_THR_M0         0x0093
-+#define CMN_PLL1_HIGH_THR_M0         0x00d3
-+
-+#define CMN_PDIAG_PLL0_CTRL_M0       0x01a0
-+#define CMN_PDIAG_PLL1_CTRL_M0       0x01c0
-+
-+#define CMN_PLL0_VCOCAL_TCTRL        0x0082
-+#define CMN_PLL1_VCOCAL_TCTRL        0x00c2
-+
-+#define CMN_PLL0_VCOCAL_INIT_TMR     0x0084
-+#define CMN_PLL1_VCOCAL_INIT_TMR     0x00c4
-+
-+#define CMN_PLL0_VCOCAL_ITER_TMR     0x0085
-+#define CMN_PLL1_VCOCAL_ITER_TMR     0x00c5
-+
-+#define CMN_PLL0_VCOCAL_REFTIM_START 0x0086
-+#define CMN_PLL1_VCOCAL_REFTIM_START 0x00c6
-+
-+#define CMN_PLL0_VCOCAL_PLLCNT_START 0x0088
-+#define CMN_PLL1_VCOCAL_PLLCNT_START 0x00c8
-+
-+#define CMN_PLL0_LOCK_REFCNT_START   0x009c
-+#define CMN_PLL1_LOCK_REFCNT_START   0x00dc
-+
-+#define CMN_PLL0_LOCK_PLLCNT_START   0x009e
-+#define CMN_PLL1_LOCK_PLLCNT_START   0x00de
-+
-+#define CMN_PLL0_LOCK_PLLCNT_THR     0x009f
-+#define CMN_PLL1_LOCK_PLLCNT_THR     0x00df
-+
-+#define PHY_PMA_LANE_MAP             0xc010
-+#define PHY_LANE_OFF_CTRL            0xc011
-+
-+#define PHY_PIPE_USB3_GEN2_PRE_CFG0  0xc018
-+#define PHY_PIPE_USB3_GEN2_POST_CFG0 0xc01a
-+#define PHY_PIPE_USB3_GEN2_POST_CFG1 0xc01b
-+
-+#define CMN_CDIAG_CDB_PWRI_OVRD      0x0041
-+#define CMN_CDIAG_XCVRC_PWRI_OVRD    0x0047
-+
-+#define TX_PSC_A0_LANE0              0x4100
-+#define TX_PSC_A0_LANE1              0x4300
-+#define TX_PSC_A0_LANE2              0x4500
-+#define TX_PSC_A0_LANE3              0x4700
-+
-+#define TX_PSC_A1_LANE0              0x4101
-+#define TX_PSC_A1_LANE1              0x4301
-+#define TX_PSC_A1_LANE3              0x4701
-+
-+#define TX_PSC_A2_LANE0              0x4102
-+#define TX_PSC_A2_LANE1              0x4302
-+#define TX_PSC_A2_LANE2              0x4502
-+#define TX_PSC_A2_LANE3              0x4702
-+
-+#define TX_PSC_A3_LANE0              0x4103
-+#define TX_PSC_A3_LANE1              0x4303
-+#define TX_PSC_A3_LANE2              0x4503
-+#define TX_PSC_A3_LANE3              0x4703
-+
-+#define RX_PSC_A0_LANE0              0x8000
-+#define RX_PSC_A0_LANE1              0x8200
-+#define RX_PSC_A0_LANE2              0x8400
-+#define RX_PSC_A0_LANE3              0x8600
-+
-+#define RX_PSC_A1_LANE0              0x8001
-+#define RX_PSC_A1_LANE1              0x8201
-+#define RX_PSC_A1_LANE2              0x8401
-+
-+#define RX_PSC_A2_LANE0              0x8002
-+#define RX_PSC_A2_LANE1              0x8202
-+#define RX_PSC_A2_LANE2              0x8402
-+#define RX_PSC_A2_LANE3              0x8602
-+
-+#define RX_PSC_A3_LANE0              0x8003
-+#define RX_PSC_A3_LANE1              0x8203
-+#define RX_PSC_A3_LANE2              0x8403
-+#define RX_PSC_A3_LANE3              0x8603
-+
-+#define RX_PSC_CAL_LANE0             0x8006
-+#define RX_PSC_CAL_LANE1             0x8206
-+#define RX_PSC_CAL_LANE2             0x8406
-+#define RX_PSC_CAL_LANE3             0x8606
-+
-+#define TX_TXCC_CTRL_LANE0           0x4040
-+#define TX_TXCC_CTRL_LANE1           0x4240
-+#define TX_TXCC_CTRL_LANE2           0x4440
-+#define TX_TXCC_CTRL_LANE3           0x4640
-+
-+#define TX_TXCC_CPOST_MULT_00_LANE0  0x404c
-+#define TX_TXCC_CPOST_MULT_00_LANE1  0x424c
-+#define TX_TXCC_CPOST_MULT_00_LANE2  0x444c
-+#define TX_TXCC_CPOST_MULT_00_LANE3  0x464c
-+
-+#define TX_TXCC_CPOST_MULT_01_LANE0  0x404d
-+#define TX_TXCC_CPOST_MULT_01_LANE1  0x424d
-+#define TX_TXCC_CPOST_MULT_01_LANE3  0x464d
-+
-+#define TX_TXCC_MGNFS_MULT_000_LANE0 0x4050
-+#define TX_TXCC_MGNFS_MULT_000_LANE1 0x4250
-+#define TX_TXCC_MGNFS_MULT_000_LANE2 0x4450
-+#define TX_TXCC_MGNFS_MULT_000_LANE3 0x4650
-+
-+#define TX_DIAG_ACYA_LANE0           0x41E7
-+#define TX_DIAG_ACYA_LANE1           0x43E7
-+#define TX_DIAG_ACYA_LANE2           0x45E7
-+#define TX_DIAG_ACYA_LANE3           0x47E7
-+
-+#define DRV_DIAG_TX_DRV_LANE0        0x40c6
-+#define DRV_DIAG_TX_DRV_LANE1        0x42c6
-+#define DRV_DIAG_TX_DRV_LANE2        0x44c6
-+#define DRV_DIAG_TX_DRV_LANE3        0x46c6
-+
-+#define RX_SIGDET_HL_FILT_TMR_LANE0  0x8090
-+#define RX_SIGDET_HL_FILT_TMR_LANE1  0x8290
-+#define RX_SIGDET_HL_FILT_TMR_LANE2  0x8490
-+
-+#define RX_REE_GCSM1_CTRL_LANE0      0x8108
-+#define RX_REE_GCSM1_CTRL_LANE1      0x8308
-+#define RX_REE_GCSM1_CTRL_LANE2      0x8508
-+#define RX_REE_GCSM1_CTRL_LANE3      0x8708
-+
-+#define RX_REE_GCSM2_CTRL_LANE0      0x8110
-+#define RX_REE_GCSM2_CTRL_LANE1      0x8310
-+#define RX_REE_GCSM2_CTRL_LANE2      0x8510
-+#define RX_REE_GCSM2_CTRL_LANE3      0x8710
-+
-+#define RX_REE_PERGCSM_CTRL_LANE0    0x8118
-+#define RX_REE_PERGCSM_CTRL_LANE1    0x8318
-+#define RX_REE_PERGCSM_CTRL_LANE2    0x8518
-+#define RX_REE_PERGCSM_CTRL_LANE3    0x8718
-+
-+#define RX_REE_ATTEN_THR_LANE0       0x8149
-+#define RX_REE_ATTEN_THR_LANE1       0x8349
-+#define RX_REE_ATTEN_THR_LANE2       0x8549
-+
-+#define RX_REE_SMGM_CTRL1_LANE0      0x8177
-+#define RX_REE_SMGM_CTRL1_LANE1      0x8377
-+#define RX_REE_SMGM_CTRL1_LANE2      0x8577
-+
-+#define RX_REE_SMGM_CTRL2_LANE0      0x8178
-+#define RX_REE_SMGM_CTRL2_LANE1      0x8378
-+#define RX_REE_SMGM_CTRL2_LANE2      0x8578
-+
-+#define XCVR_DIAG_PSC_OVRD_LANE0     0x40eb
-+#define XCVR_DIAG_PSC_OVRD_LANE1     0x42eb
-+#define XCVR_DIAG_PSC_OVRD_LANE2     0x44eb
-+
-+#define RX_DIAG_SIGDET_TUNE_LANE0    0x81e8
-+#define RX_DIAG_SIGDET_TUNE_LANE1    0x83e8
-+#define RX_DIAG_SIGDET_TUNE_LANE2    0x85e8
-+
-+#define RX_DIAG_NQST_CTRL_LANE0      0x81e5
-+#define RX_DIAG_NQST_CTRL_LANE1      0x83e5
-+#define RX_DIAG_NQST_CTRL_LANE2      0x85e5
-+
-+#define RX_DIAG_DFE_AMP_TUNE_2_LANE0 0x81e2
-+#define RX_DIAG_DFE_AMP_TUNE_2_LANE1 0x83e2
-+#define RX_DIAG_DFE_AMP_TUNE_2_LANE2 0x85e2
-+
-+#define RX_DIAG_DFE_AMP_TUNE_3_LANE0 0x81e3
-+#define RX_DIAG_DFE_AMP_TUNE_3_LANE1 0x83e3
-+#define RX_DIAG_DFE_AMP_TUNE_3_LANE2 0x85e3
-+
-+#define RX_DIAG_PI_CAP_LANE0         0x81f5
-+#define RX_DIAG_PI_CAP_LANE1         0x83f5
-+#define RX_DIAG_PI_CAP_LANE2         0x85f5
-+
-+#define RX_DIAG_PI_RATE_LANE0        0x81f4
-+#define RX_DIAG_PI_RATE_LANE1        0x83f4
-+#define RX_DIAG_PI_RATE_LANE2        0x85f4
-+
-+#define RX_DIAG_ACYA_LANE0           0x81ff
-+#define RX_DIAG_ACYA_LANE3           0x87ff
-+
-+#define RX_CDRLF_CNFG_LANE0          0x8080
-+#define RX_CDRLF_CNFG_LANE1          0x8280
-+#define RX_CDRLF_CNFG_LANE2          0x8480
-+
-+#define RX_CDRLF_CNFG3_LANE0         0x8082
-+#define RX_CDRLF_CNFG3_LANE1         0x8282
-+#define RX_CDRLF_CNFG3_LANE2         0x8482
-+
-+#define PHY_PMA_PLL_CTRL             0xe003
-+
-+#define PHY_PMA_ISO_PLL_CTRL0        0xe005
-+#define PHY_PMA_ISO_PLL_CTRL1        0xe006
-+
-+/* Bits */
-+
-+#define PHY_PLL_CFG_0803              0xC00E
-+/* 0803 phy register */
-+#define PHY_PIPE_USB3_GEN2_PRE_CFG0_0803	0xc01c
-+#define PHY_PIPE_USB3_GEN2_POST_CFG0_0803	0xc01e
-+#define PHY_PIPE_USB3_GEN2_POST_CFG1_0803	0xc01f
-+
-+/* gop status address */
-+#define GOP_STATUS_ADDRESS 0x83E05000
-+#define GOP_STATUS_SIZE 0x04
-+
-+struct gop_status {
-+	unsigned char phy_status[4];
-+};
-+
-+/*
-+ * 0: usb
-+ * 1: 2 lane usb+ 2 lane dp
-+ * 2: usb device
-+ * 3: usb2.0 + 4 lane dp
-+ */
-+enum phy_role {
-+	USB_ROLE_NONE,
-+	USB_ROLE_HOST,
-+	USB_ROLE_DEVICE,
-+	USB_ROLE_HOST_20,
-+};
-+
-+#endif
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index a77c52296ebd..e8febb9c558b 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -6,6 +6,8 @@
+ 
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/cix,sky1.h>
++#include <dt-bindings/phy/phy.h>
++#include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+ #include "sky1-power.h"
+ 
+ / {
+@@ -13,6 +15,11 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	aliases {
++		usb4 = &usb4;
++		usb5 = &usb5;
++	};
++
+ 	cpus {
+ 		#address-cells = <2>;
+ 		#size-cells = <0>;
+@@ -574,6 +581,117 @@ mbox_ap2sfh: mailbox@80a0000 {
+ 			cix,mbox-dir = "tx";
+ 		};
+ 
++		usb4: usb@91c0314 {
++			compatible = "cix,sky1-usbssp";
++			reg = <0x00 0x091c0314 0x00 0x4>,
++			      <0x00 0x091c0400 0x00 0x4>;
++			reg-names = "axi", "controller";
++			ranges;
++			#address-cells = <2>;
++			clocks = <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
++			         <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
++			         <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
++			         <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
++			clock-names = "sof", "axi", "lpm", "apb";
++			resets = <&s5_syscon SKY1_USBC_SS2_PRST_N>,
++			         <&s5_syscon SKY1_USBC_SS2_RST_N>;
++			reset-names = "apb", "core";
++			#size-cells = <2>;
++			cix,usb-syscon = <&s5_syscon>;
++
++			status = "disabled";
++
++			usbss_4: usb@91d0000 {
++				compatible = "cdns,usb3";
++				reg = <0x00 0x91d0000 0x00 0x4000>,
++				      <0x00 0x91d8000 0x00 0x8000>,
++				      <0x00 0x91d4000 0x00 0x4000>;
++				reg-names = "otg", "xhci", "dev";
++				dr_mode = "otg";
++				interrupts = <GIC_SPI 252 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 252 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 253 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 252 IRQ_TYPE_LEVEL_HIGH 0>;
++				interrupt-names = "host", "peripheral",
++				                  "otg", "wakeup";
++				maximum-speed = "super-speed-plus";
++				phys = <&usb3_phy4_0>;
++				phy-names = "cdns3,usb3-phy";
++
++				status = "disabled";
++			};
++		};
++
++		usb5: usb@91c0324 {
++			compatible = "cix,sky1-usbssp";
++			reg = <0x00 0x091c0324 0x00 0x4>,
++			      <0x00 0x091c0410 0x00 0x4>;
++			reg-names = "axi", "controller";
++			ranges;
++			#address-cells = <2>;
++			clocks = <&scmi_clk CLK_TREE_USB3A_H1_CLK_SOF>,
++			         <&scmi_clk CLK_TREE_USB3A_1_AXI_GATE>,
++			         <&scmi_clk CLK_TREE_USB3A_H1_CLK_LPM>,
++			         <&scmi_clk CLK_TREE_USB3A_1_APB_GATE>;
++			clock-names = "sof", "axi", "lpm", "apb";
++			resets = <&s5_syscon SKY1_USBC_SS3_PRST_N>,
++			         <&s5_syscon SKY1_USBC_SS3_RST_N>;
++			reset-names = "apb", "core";
++			#size-cells = <2>;
++			cix,usb-syscon = <&s5_syscon>;
++
++			status = "disabled";
++
++			usbss_5: usb@91e0000 {
++				compatible = "cdns,usb3";
++				reg = <0x00 0x91e0000 0x00 0x4000>,
++				      <0x00 0x91e8000 0x00 0x8000>,
++				      <0x00 0x91e4000 0x00 0x4000>;
++				reg-names = "otg", "xhci", "dev";
++				dr_mode = "otg";
++				interrupts = <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 258 IRQ_TYPE_LEVEL_HIGH 0>,
++				             <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH 0>;
++				interrupt-names = "host", "peripheral",
++				                  "otg", "wakeup";
++				maximum-speed = "super-speed-plus";
++				phys = <&usb3_phy4_1>;
++				phy-names = "cdns3,usb3-phy";
++
++				status = "disabled";
++			};
++		};
++
++		usb3_phy4: usb-phy@9210000 {
++			compatible = "cix,sky1-usb3-phy";
++			reg = <0x00 0x09210000 0x00 0x40000>;
++			#address-cells = <1>;
++			clocks = <&scmi_clk CLK_TREE_USB3A_PHY3_GATE>,
++			         <&scmi_clk CLK_TREE_USB3A_PHY_x2_REF>;
++			clock-names = "apb", "ref";
++			resets = <&s5_syscon SKY1_USBPHY_SS_RST_N>,
++			         <&s5_syscon SKY1_USBPHY_SS_PST_N>;
++			reset-names = "core", "apb";
++			#size-cells = <0>;
++
++			status = "disabled";
++
++			usb3_phy4_0: usb-port@0 {
++				reg = <0>;
++				#phy-cells = <0>;
++
++				status = "disabled";
++			};
++
++			usb3_phy4_1: usb-port@1 {
++				reg = <1>;
++				#phy-cells = <0>;
++
++				status = "disabled";
++			};
++		};
++
+ 		pcie_x8_rc: pcie@a010000 {
+ 			compatible = "cix,sky1-pcie-host";
+ 			reg = <0x00 0x0a010000 0x00 0x10000>,
 -- 
 2.54.0
 
