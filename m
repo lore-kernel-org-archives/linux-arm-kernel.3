@@ -4,66 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9277C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 742F3C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gwcOaLjnfGRXuIW66wEpFWYwG1/TE5MickAibh96L3s=; b=Bf4V0cvRstzQ/xsafr8RBmkFvo
-	ERyfQQvJxu/K+9ekhiJmeRVCYPNnq+rzlruDGnJx24wEYB086kEbI/VjQF2XpI4Gi78jZyaDTKmrq
-	XVoCKtNfeYM45WhbDQXKIPHinFK4WTU7E7yACyW5P54G6+dpIWl9oEmoMbWACXrfd7Xg53RUI3ISy
-	tebbpmrkCdg7KpWeHWb29ds2en+ck56NXVg4EuUSmzLDU2qxWLKLmtLRjhHhgzoxgiB8qUhJLjSqV
-	fS4KRWRMUar2FqA/FxoG7azmvD/3tlSFOC7lIqt/hUHpAUfyIbljmA9MmTEhg+NQLokAAWSTP6l9b
-	6+N/6JIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sB2LZifEeupjsxCHsRGx0RoKXBpeYPjdfUIFuUgunMM=; b=COsIWP7/ZZrN9c
+	8ZBjrejZUPOa4zrx/scICDViVLZl3yZT6jLAca76tc7qXjTB7FQkvboG0plXchczvvSWWRtg1vjiQ
+	9hz6YKZUvVXx3TUkImlKGjEnswi2kPPNhdDwJ0Ar0Ov3sDJJyyiuERfQEFQZUTA1HK+j2TJN75KFk
+	u5FCPH1NII61ycwPFFID8UOcp7ELdeTRMn32XtkHblCkcALyBeIa6fqtPDvieG8+TOt602imRqRA+
+	l3+46UMjb70if9+JeIVYX33TGsld3pjAX4U6XS18Nd8zz0/ysFnw6cXh/nRHfmEIeafZHEFpcqzYI
+	QLFp/1kqPvKvQzrVMn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24IC-0000000H1cU-3w5G;
-	Thu, 03 Sep 2026 10:03:36 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1x24Jv-0000000H1z5-1r2M;
+	Thu, 03 Sep 2026 10:05:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24IA-0000000H1au-0rIg
+	id 1x24Ju-0000000H1yj-06mn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 03 Sep 2026 10:05:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:Reply-To:In-Reply-To:References:
+	MIME-Version:Sender:Content-ID:Content-Description;
+	bh=sB2LZifEeupjsxCHsRGx0RoKXBpeYPjdfUIFuUgunMM=; b=pdvzsGZ+KHwA0fTcvyoagIHJ+0
+	D65L65PqM495j6pDqSpBrCKe+m0oW0MwH/3XB4WUzY/WTSBgGlxb7w6f45deUaYQAUjomlhSMRQak
+	NPvmAK9y7E3Onw6GvctDZZTvLgoqbCn7WhwgCOlFwcqnNCU4AFbXdWgM35DoAz0HGG8BXqVlL6c2O
+	CQmiV9AxCxH9MkFcfnbZ2vlf16t87epVUIiZNWs2UFND7QBKc/SGxzL2N269koc7bVdYDMpbRj1/Y
+	z0/SN/G3EM+/26VxEJXdZyfBBJ6/7EthuNSzF7Mgg++qBRUwkLx5lUgAT5Ol3J47R1a6kb6JYQMtN
+	OfMMiJwg==;
+Received: from mail-yw1-f170.google.com ([209.85.128.170])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x24Jq-0000000CxVf-31tn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:03:35 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 83FE620177F;
-	Thu, 03 Sep 2026 12:03:32 +0200 (CEST)
-Message-ID: <9d734e555e9f074ffd93791a73c054ce92212f67.camel@pengutronix.de>
-Subject: Re: [PATCH v3 07/12] reset: Add
- reset_control_get_from_provider_exclusive()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Stephen Boyd	 <sboyd@kernel.org>, Brian Masney
- <bmasney+clk@redhat.com>, Jerome Brunet	 <jbrunet+clk@baylibre.com>, Sudeep
- Holla <sudeep.holla@kernel.org>, Cristian Marussi
- <cristian.marussi@arm.com>, Saravana Kannan <saravanak@kernel.org>, Ulf
- Hansson	 <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Marek
- Vasut	 <marek.vasut+renesas@mailbox.org>, Bartosz Golaszewski	
- <bartosz.golaszewski@oss.qualcomm.com>, Konrad Dybcio	
- <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>,
- Vinod Koul <vkoul@kernel.org>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Kuninori Morimoto	
- <kuninori.morimoto.gx@renesas.com>, =?ISO-8859-1?Q?Cl=E9ment?= Le Goffic	
- <clegoffic@baylibre.com>
-Cc: devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 03 Sep 2026 12:03:32 +0200
-In-Reply-To: <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
-References: <cover.1788338320.git.geert+renesas@glider.be>
-	 <619a6e41495adfdae3e2e6c0fee97e0550a5c404.1788338320.git.geert+renesas@glider.be>
+	Thu, 03 Sep 2026 10:05:20 +0000
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-86d43cdee51so19582817b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 03:05:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788429914; x=1789034714;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sB2LZifEeupjsxCHsRGx0RoKXBpeYPjdfUIFuUgunMM=;
+        b=i9n/J8qEfd3Vrr91UjlBUVyxhwaXqZtC+YCgiXGXpO3DTvSkI+0+V2ITz8jMdvW1pW
+         xcpli0TOGCP/GDS13DglOrhcegNxGXYBvlVAd0glMyWZok3hiDXFMllg/zr0ltiVayON
+         bVZzfqIzq78JPBslAi6SyNup5KUCbrZI4Vk0oSffQKJepB/vTHM0NtQ9BvBPMhJNgX+z
+         dF77SzYpycuy3u4fnA8l1+EkTZmvABwtCrVtvboYYp3OTB0VCxaL521DTO9nOYUx53hp
+         7t8OE6nfAR+tedFHHF7Nfj78hSDo+AlG7OZ5uGcBqdYJOe2sL/qfcduqtyU+k1ezQV8R
+         iXqg==
+X-Forwarded-Encrypted: i=1; AKwUvByMZw+M0Edt7KTw45dWbVPwY6Z7xgQvTRgRhGxld9+K2txHkHLf6TQ24CeLaqNrlt1VD/Zo7j9x4Q4PjSq183cQ@lists.infradead.org
+X-Gm-Message-State: AFuF++kPZyEOrWaWOYoN4mmwScsAA9tHLYTb/GQeEP3sO3nX3tVahVEq
+	LRIORPtGUIenO7FPf5jCME+beVXLcCPXo4Sn5neASdEHpLxFvP3lo6uWegKI2r7bSR8=
+X-Gm-Gg: AYBFou1+DrmaGsQiKdnfS5m5AGn3c0a0yRv3LN46+xzPaX4ExypS3mVoP3Me4IN58nH
+	tuMa09b4EjxsDPIg2MKCZOcOaDv2YYdIeo0dORgGG7u93dJ7fJ9hR/xmoxw5Rz/EBeEIodLOuup
+	QfrxzMqn8D/SboA1rFJFJXaAvA0ja9bQKPN8Li8UfWvAMxlC4bq1+Q18LDdZ3tDSamUbj+BZfDD
+	aOOXRPoV+9FFjkpEBnafPMng44iNjHC0/0iWE694F++I5ojIwPiN/H8HKPvWGgc4fPPh8gXzf7T
+	3nVS9Lakw+zAN0dxlA8WPqoLxA01pcxehirIVBWE/EJkLQP1HBIhniRX2OLmO4Ii2ihQnBZ2Vq/
+	OFf4FhO/EGubCglySDL81z9rY6D6y9LoGghjRR++Arg/T9OvpVB318Uk3lFsg3OJflFNN20PzzC
+	VVhfgEiIHrJ0eQGbMxcvGLe7l2GEAdTrlK2ybi0ZZzp64IHvd87d7fclEOtPZHv8vbA38ub4Rxt
+	ylTXh5vrUGd/0I6WVvtv5gi6AO4XgNshVv3rZrRLvfUZO7uQArt5n0nfhTCcXA=
+X-Received: by 2002:a05:690c:6d84:b0:860:607a:93d2 with SMTP id 00721157ae682-86c478e734bmr58039127b3.0.1788429914403;
+        Thu, 03 Sep 2026 03:05:14 -0700 (PDT)
+Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com. [74.125.224.46])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-86c1918d51fsm36431217b3.45.2026.09.03.03.05.14
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 03:05:14 -0700 (PDT)
+Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-66bd7857841so2976858d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 03:05:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxN3wWaFMKEWBlnDwq+p0dw2T7Yv9XefF/kwALUUClwUOnCK/Kpj4nBG9d1J+ZLEy3oLCbetZ0pUdj6cE+PwrUN@lists.infradead.org
+X-Received: by 2002:a05:690e:4890:20b0:66f:afdc:b49b with SMTP id
+ 956f58d0204a3-66fafdcb54bmr290871d50.0.1788429913913; Thu, 03 Sep 2026
+ 03:05:13 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260829094758.23248-1-tanure@linux.com> <178818026093.2318126.3676223463693214854.b4-ty@b4>
+In-Reply-To: <178818026093.2318126.3676223463693214854.b4-ty@b4>
+From: Lucas Tanure <tanure@linux.com>
+Date: Thu, 3 Sep 2026 11:05:02 +0100
+X-Gmail-Original-Message-ID: <CAJX_Q+17CLQ_4-rcj0KD6kzPWnChQfD3irCR7-h1bGH9hWiD7A@mail.gmail.com>
+X-Gm-Features: AcwNN1VRB2D0FTXRpcvHAcbTlWB5xZQpxaG0zutz7J3nfFbo_PpnG2ATadEMYz8
+Message-ID: <CAJX_Q+17CLQ_4-rcj0KD6kzPWnChQfD3irCR7-h1bGH9hWiD7A@mail.gmail.com>
+Subject: Re: (subset) [PATCH 0/4] arm64: amlogic: t7: describe the VIM4
+ supplies and keep the fabric clocks running
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Jian Hu <jian.hu@amlogic.com>, 
+	Ronald Claveau <linux-kernel-dev@aliel.fr>, Brian Masney <bmasney@redhat.com>, 
+	Chuan Liu <chuan.liu@amlogic.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_030334_389802_37B39BB4 
-X-CRM114-Status: GOOD (  25.33  )
+X-CRM114-CacheID: sfid-20260903_110518_991776_EB81CFE1 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,116 +116,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanure@linux.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-09-02 at 13:29 +0200, Geert Uytterhoeven wrote:
-> When stacking two reset controllers, the upper one should go through the
-> proper channels: request exclusive reset controls and use them via the
-> reset_control_*() APIs.  However, unlike the clock subsystem, which has
-> of_clk_get_from_provider(), the reset subsystem does not offer a way to
-> lookup and obtain a reset from a reset provider.
->=20
-> Hence add a public helper reset_control_get_from_provider_exclusive()
-> to lookup and obtain an exclusive reference to a reset controller, based
-> on the recently introduced __reset_control_get_from_provider() helper.
-> This will be used by the R-Car X5H Module Controller driver.
->=20
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v3:
->   - Replace reset_controller_get_provider() by
->     reset_control_get_from_provider_exclusive(),
->   - Add kerneldoc,
->=20
-> v2:
->   - No changes.
-> ---
->  drivers/reset/core.c  | 37 ++++++++++++++++++++++++++++++++-----
->  include/linux/reset.h |  8 ++++++++
->  2 files changed, 40 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/reset/core.c b/drivers/reset/core.c
-> index 8af7cd2e8a5029df..6d4c95b3edb18248 100644
-> --- a/drivers/reset/core.c
-> +++ b/drivers/reset/core.c
-> @@ -1141,6 +1141,7 @@ __reset_control_get_from_provider(const struct fwno=
-de_reference_args *args,
->  				  bool gpio_fallback,
->  				  enum reset_control_flags flags)
->  {
-> +	struct fwnode_handle *fwnode =3D consumer ?: args->fwnode;
->  	struct reset_control *rstc =3D ERR_PTR(-EINVAL);
->  	struct reset_controller_dev *rcdev;
->  	int rstc_id =3D -EINVAL;
-> @@ -1154,18 +1155,26 @@ __reset_control_get_from_provider(const struct fw=
-node_reference_args *args,
->  	if (WARN_ON(args->nargs !=3D rcdev->fwnode_reset_n_cells))
->  		return ERR_PTR(-EINVAL);
-> =20
-> -	if (rcdev->of_xlate && is_of_node(consumer)) {
-> -		struct device_node *np =3D to_of_node(consumer);
-> +	if (rcdev->of_xlate && is_of_node(fwnode)) {
-> +		struct device_node *np =3D to_of_node(fwnode);
->  		struct of_phandle_args of_args;
->  		int ret;
-> =20
-> -		ret =3D of_parse_phandle_with_args(np,
-> +		if (consumer) {
-> +			ret =3D of_parse_phandle_with_args(np,
->  					 gpio_fallback ? "reset-gpios" : "resets",
->  					 gpio_fallback ? "#gpio-cells" : "#reset-cells",
->  					 gpio_fallback ? 0 : index,
->  					 &of_args);
-> -		if (ret)
-> -			return ERR_PTR(ret);
-> +			if (ret)
-> +				return ERR_PTR(ret);
-> +		} else {
-> +			of_args.np =3D of_node_get(np);
-> +			of_args.args_count =3D args->nargs;
-> +
-> +			for (unsigned int i =3D 0; i < args->nargs; i++)
-> +				of_args.args[i] =3D args->args[i];
+On Mon, Aug 31, 2026 at 1:44=E2=80=AFPM Neil Armstrong
+<neil.armstrong@linaro.org> wrote:
+>
+> Hi,
+>
+> On Sat, 29 Aug 2026 10:47:54 +0100, Lucas Tanure wrote:
+> > The Khadas VIM4 has needed clk_ignore_unused to boot reliably. Without =
+it
+> > the board hangs at random, loses storage and corrupts memory, and the
+> > failures move around from boot to boot.
+> >
+> > Six of the SoC's PWM outputs drive the board's voltage regulators: the
+> > always-on domain, both CPU clusters, the GPU, the NPU and the DRAM. Non=
+e
+> > of them were described, so Linux saw the outputs as unused and switched
+> > them off about a second into boot. The regulators then drifted away fro=
+m
+> > the levels the bootloader had set, which is where the corruption and th=
+e
+> > random hangs came from.
+> > Thanks to Chuan Liu from Amlogic for helping me indetify which clocks a=
+re
+> > critical.
+> >
+> > [...]
+>
+> Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogi=
+c/linux.git (v7.3/fixes)
+>
+> [2/4] arm64: dts: amlogic: t7: fix the pin groups of two PWM outputs
+>       https://git.kernel.org/amlogic/c/ae7be5c58a819259e5eb98a3abfa608424=
+78f2ae
+> [3/4] arm64: dts: amlogic: t7: khadas-vim4: add the PWM-driven supplies
+>       https://git.kernel.org/amlogic/c/1e5a53bd16ac501e68463e84023d1bff54=
+3cc696
+> [4/4] arm64: dts: amlogic: t7: fix the pin groups of the vsync PWM
+>       https://git.kernel.org/amlogic/c/406292fd75f95aa3010fec95b5beb5a8b7=
+e3ba3a
+>
+> These changes has been applied on the intermediate git tree [1].
+>
+> The v7.3/fixes branch will then be sent via a formal Pull Request to the =
+Linux SoC maintainers
+> for inclusion in their intermediate git branches in order to be sent to L=
+inus during
+> the next merge window, or sooner if it's a set of fixes.
+>
+> In the cases of fixes, those will be merged in the current release candid=
+ate
+> kernel and as soon they appear on the Linux master branch they will be
+> backported to the previous Stable and Long-Stable kernels [2].
+>
+> The intermediate git branches are merged daily in the linux-next tree [3]=
+,
+> people are encouraged testing these pre-release kernels and report issues=
+ on the
+> relevant mailing-lists.
+>
+> If problems are discovered on those changes, please submit a signed-off-b=
+y revert
+> patch followed by a corrective changeset.
+>
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+> [3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>
+> --
+> Neil
+>
+Hi,
+Please don't take this. I will submit a better version.
+sys_ampipe_nand should not be critical.
 
-This should error out if args->args[i] > U32_MAX.
-
-> +		}
-> =20
->  		rstc_id =3D rcdev->of_xlate(rcdev, &of_args);
->  		of_node_put(of_args.np);
-> @@ -1257,6 +1266,24 @@ struct reset_control *__reset_control_get(struct d=
-evice *dev, const char *id,
->  }
->  EXPORT_SYMBOL_GPL(__reset_control_get);
-> =20
-> +/**
-> + * reset_control_get_from_provider_exclusive - Lookup and obtain an excl=
-usive
-> + *					       reference to a reset controller.
-> + * @args: Reference to the reset controller provider with all the args l=
-ike
-> + *	  reset number
-
-It is implied, but should this explicitly mention that this must not be
-a reference to a GPIO provider?
-
-> + *
-> + * Returns a struct reset_control or IS_ERR() condition containing errno=
-.
-> + * If this function is called more than once for the same reset control =
-it will
-> + * return -EBUSY.
-> + */
-> +struct reset_control *
-> +reset_control_get_from_provider_exclusive(const struct fwnode_reference_=
-args *args)
-> +{
-> +	return __reset_control_get_from_provider(args, NULL, 0, false,
-> +						 RESET_CONTROL_EXCLUSIVE);
-> +}
-> +EXPORT_SYMBOL_GPL(reset_control_get_from_provider_exclusive);
-
-regards
-Philipp
+Thanks,
+Lucas
 
