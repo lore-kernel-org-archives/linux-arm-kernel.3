@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6527EC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 18:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741D3C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 18:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JnUgB1eMhX6Cp0XziuCeHm+S3ex9lO3radlwsfAGueU=; b=fRq+JPcpzMfONk5DSmS0yLTwq6
-	8QbHnG2WaTuTxC7pCigIL8C8M9FNXWVO/GTIKx6iM/BguJxAPNqRDWZRuuEqR6jL+giI6mNqmUaal
-	R15G2XvrrYXBxQ+357QDPIgIvDaaY1ZbzmngVnWQK5id9jPHtf59R8t3lq0hkoUC+wOH/xEWV0pe2
-	jVAhV0ChTHvPGlpCKfXJ7fCYWG4vQJllk2/VWbt+PeTO6d+mrFfSDrRDKUKFJdgqn3PAdSGX4XWcx
-	J7fJl16PS46ACG1JWRQJAoI+4NITdVeMZGA1PbzsmvKT4qHSUIhrsZms4i6SWJzKtKw2nAM6sKOG+
-	ivj656ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RiqoPoWH3M2TPB1Mg+9tfuZHHhDEDmfQsRpo7pGnISc=; b=eNXPsmwVVrh0704Upo1M/rP+wQ
+	8aB0bOrq+LlcpHceGIUNRB1dEVELCgbrs8vHlrX9GB75S9CzDZX0VQgZB4SY8cG9RfMzNvNmPpe5s
+	N2Jm4VBnWWdz7QMl2ChWsf0gV2AGZ60JEHu3gyHPMkjoz2D2f6SgsJCvZWc+DC48gjrdYxk2wxaEZ
+	uOBCQc5r9L7Qa62FVyl7Sdo7kjNmfgCN4C1lk3BKADPEsfmQIN40ea193LMC4D8htebAPs2RjOhLF
+	6H7t36/NmtwYxtGepIgE71+eLIHdI4lx7XlmrjkArswtBmNb2jPvMJVK+jVE46CaiRJwtjNPSnmnU
+	22MTaiRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BrS-00000000L0P-1SlJ;
-	Thu, 03 Sep 2026 18:08:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x2BwF-00000000LPu-10NA;
+	Thu, 03 Sep 2026 18:13:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BrQ-00000000Kzz-1xmI;
-	Thu, 03 Sep 2026 18:08:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=JnUgB1eMhX6Cp0XziuCeHm+S3ex9lO3radlwsfAGueU=; b=kqbbMa+CxfCvL263Ln3x1sr3MY
-	dt1Bb/zxJrWh/pNAN3TfW2OzAho7T4NYeEJDpYu5c66gFADgZJYVdoLx6+/NDr3+9tL/6EgBrze27
-	TqQLm/51ZcrGBrbpKt+eaYuLKX28uK3qcqIDSiBI4O6FfKIr588HusWyx0gy4jbUHHAfxGfOGG5Ks
-	R/5/KhjGeGnW+vtt07FKabUVNzFJ82JiBUKFCJbGD/jB0qmac3ikyLM8lAOIbhs62EJxex1QKn9si
-	3qF9Iw0RvuWWg4bSK+N1yPHHYxO9ixTsM5HP/O/YriSFq7C5Gp7Fk1Vj91JOnEKYnO1NlD6Oo3Jcg
-	sCVmrVDg==;
-Received: from mout.gmx.net ([212.227.15.19])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x2BrN-0000000DM9g-1cqm;
-	Thu, 03 Sep 2026 18:08:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1788458903; x=1789063703; i=wahrenst@gmx.net;
-	bh=JnUgB1eMhX6Cp0XziuCeHm+S3ex9lO3radlwsfAGueU=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=nYpWZzbErXE3CGEZBOpy2ncsdFCC1NuTLOh3q1P+0n524qfR4ankErZspOYykScZ
-	 mhj+LcYJ6YqT779DcwFeBd54Y2kxsix915ssckKpzUvrLjOfUFLNsTgpB3o4nAgjI
-	 A4w1hDwrd+eu/55L3DjSwgqHm1khqmMpwDw2/Xgid9NDBibMqyL4E/2zuwuE2ms9L
-	 50K/VlbbYO6omIbYVlVFdqPNaQ1d4grIRWzZYjU18Odi1dSgEjeObkd0sYmh8mw8+
-	 J3m/iUBhA0aEzVSatDJyiPJuDMTCdnyv4FftimWw8kz24cJRQmtNYwx8H1/QvUr9R
-	 SG2fG5kK8HcRqSlmtA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N63Ra-1wmgBT1O2a-017p9D; Thu, 03
- Sep 2026 20:08:23 +0200
-Message-ID: <f85ebc81-c9e8-4014-bfed-66f9570eb1d2@gmx.net>
-Date: Thu, 3 Sep 2026 20:08:22 +0200
+	id 1x2BwD-00000000LPl-3zgn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 18:13:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5314343338;
+	Thu,  3 Sep 2026 18:13:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43D741F000E9;
+	Thu,  3 Sep 2026 18:13:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788459205;
+	bh=RiqoPoWH3M2TPB1Mg+9tfuZHHhDEDmfQsRpo7pGnISc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jbU7XTkGgvubbKVP+L6cBViHFceXpv6Gu24OGwpZuJbFbMvcIe/w0xY4AAugxUUaM
+	 F1ICHfPJ2bmanMV0CB5LRskVtYRsypRFCNVxHXcpheX0eEqvtDDQKFLo0uQROK+uXk
+	 UhBvzp1rY8pLCDTOtNgl/sV5OD7xVz2NmOAkUfM4QXOZGB9Xd4un6flhh9A9RtTw2P
+	 Bf8TA7xocv1Efm9jZtu0yrabZZVtm+OyOPPY0xN62OwMPn3urnE1D98Uf7IzRwYvrn
+	 vQRuNw1gufu9qmxiatmgBIRa6c+3suP2ahkSKBBZvHtg7pQcFVJg4ez4ckseHHtVgU
+	 bNfiK35N1phGQ==
+Date: Thu, 3 Sep 2026 19:13:17 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <apmfx08vccSd2MXw@gremlin>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
+ <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 3/4] firmware: raspberrypi: Add reboot mode
- support
-To: Gregor Herburger <gregor.herburger@linutronix.de>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260903-rpi-tryboot-v3-0-ce94c347e932@linutronix.de>
- <20260903-rpi-tryboot-v3-3-ce94c347e932@linutronix.de>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260903-rpi-tryboot-v3-3-ce94c347e932@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:jNskIaBMKDcTzo3Zl6I9/I1cCpX/O0N//R/K4nCGTC9UJSm5anF
- V+P/FcKXLxpK6XQkuDRV+4U+i9xyEBm6Jadxg8DNGD+30JDYh2khRn/PMk/xj/sRY3sVFID
- lqPLkNhtANSuqUr2qANdKTnA3D4A9rZEtgpWiXOqKl3jmrrWUU9jF+xMJ8oK7lL+PD7Q6Bx
- ZjDjYlnl6KvYA2++oMvCA==
-UI-OutboundReport: notjunk:1;M01:P0:hOVo7hDy6Wg=;Vu2YyreP2Uji5l8Nkyx5xP8JtVo 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 sejK6e8OK53Z6exqtEvDj8qUPIvuu1d/POA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_190825_598664_42466090 
-X-CRM114-Status: GOOD (  18.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,45 +75,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gregor,
-
-Am 03.09.26 um 16:48 schrieb Gregor Herburger:
-> The Raspberry Pi firmware has a tryboot mode where it tries to boot from
-> another partition. This can be used to create a A/B update scheme.
+On Tue, Sep 01, 2026 at 10:47:01PM +0100, Mark Brown wrote:
+> GCS introduces a number of system registers, on systems with GCS we need
+> to context switch them and expose them to VMMs to allow guests to use
+> GCS.
 >
-> To enable this on the next boot, the RPI_FIRMWARE_SET_REBOOT_FLAGS
-> message must be sent to the firmware. Add support for this by
-> registering a reboot mode driver.
+> In order to allow guests to use GCS we also need to configure
+> HCRX_EL2.GCSEn, if this is not set GCS instructions will be noops and
+> CHKFEAT will report GCS as disabled.
 >
-> Furthermore, safely registering the reboot mode requires adjusting the
-> teardown sequence. Replace the manually called rpi_firmware_put() with a
-> devres-managed called (devm_add_action_or_reset). Without this, the
-> cleanup function of devm_reboot_mode_register() would trigger a
-> use-after-free error by attempting to access the firmware context after
-> it had already been freed by rpi_firmware_remove().
->
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
->   drivers/firmware/Kconfig                   |  2 ++
->   drivers/firmware/raspberrypi.c             | 40 ++++++++++++++++++++++++++----
->   include/soc/bcm2835/raspberrypi-firmware.h |  2 ++
->   3 files changed, 39 insertions(+), 5 deletions(-)
+>  arch/arm64/include/asm/kvm_emulate.h       |  3 +++
+>  arch/arm64/include/asm/kvm_host.h          | 14 ++++++++++
+>  arch/arm64/include/asm/vncr_mapping.h      |  2 ++
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 28 ++++++++++++++++++++
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c         | 11 ++++++++
+>  arch/arm64/kvm/sys_regs.c                  | 42 ++++++++++++++++++++++++++++++
+>  6 files changed, 100 insertions(+)
 >
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index bbd2155d84838..34605bf7c9734 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -115,6 +115,8 @@ config ISCSI_IBFT
->   config RASPBERRYPI_FIRMWARE
->   	tristate "Raspberry Pi Firmware Driver"
->   	depends on BCM2835_MBOX
-> +	select POWER_RESET
-> +	select REBOOT_MODE
->   	help
->   	  This option enables support for communicating with the firmware on the
->   	  Raspberry Pi.
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index a3c1928bdf74..0cd91b3d6c82 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -712,6 +712,9 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>  		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
 >
-this part doesn't apply anymore. Did you rebased against 7.3-rc1 ?
+> +		if (kvm_has_gcs(kvm))
+> +			vcpu->arch.hcrx_el2 |= HCRX_EL2_GCSEn;
 
-Best regards
+
+So as per [0] this is GCS Enable so it makes sense that this enables it :)
+
+[0]: https://support.arm.com/documentation/ddi0601/2026-06/AArch64-Registers/HCRX-EL2--Extended-Hypervisor-Configuration-Register?lang=en
+
+> +
+>  		/*
+>  		 * NV3 is a host-specific extension, and we always use
+>  		 * it when present and that the guest uses NV. It may
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 27fe0cd5b2d7..6aba1bcb8ee7 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -500,6 +500,10 @@ enum vcpu_sysreg {
+>
+>  	POR_EL0,	/* Permission Overlay Register 0 (EL0) */
+>
+> +	/* Guarded Control Stack registers */
+> +	GCSCRE0_EL1,	/* Guarded Control Stack Control (EL0) */
+
+Ack as per
+https://support.arm.com/documentation/111107/2026-06/AArch64-Registers/GCSCRE0-EL1--Guarded-Control-Stack-Control-Register--EL0-?lang=en
+
+(these urls are big :)
+
+> +	GCSPR_EL0,	/* Guarded Control Stack Pointer (EL0) */
+
+
+And:
+https://support.arm.com/documentation/111107/2026-06/AArch64-Registers/GCSPR-EL0--Guarded-Control-Stack-Pointer-Register--EL0-?lang=en
+
+> +
+
+So this seems in general to be exposing these as system registers.
+
+>  	/* FP/SIMD/SVE */
+>  	SVCR,
+>  	FPMR,
+> @@ -520,6 +524,8 @@ enum vcpu_sysreg {
+>  	PIRE0_EL2,	/* Permission Indirection Register 0 (EL2) */
+>  	PIR_EL2,	/* Permission Indirection Register 1 (EL2) */
+>  	POR_EL2,	/* Permission Overlay Register 2 (EL2) */
+> +	GCSCR_EL2,	/* Guarded Control Stack Control Register (EL2) */
+
+Similarly
+
+https://support.arm.com/documentation/111107/2026-06/AArch64-Registers/GCSCR-EL2--Guarded-Control-Stack-Control-Register--EL2-?lang=en
+
+> +	GCSPR_EL2,	/* Guarded Control Stack Pointer Register (EL2) */
+
+And
+
+https://support.arm.com/documentation/111107/2026-06/AArch64-Registers/GCSPR-EL2--Guarded-Control-Stack-Pointer-Register--EL2-?lang=en
+
+>  	SPSR_EL2,	/* EL2 saved program status register */
+>  	ELR_EL2,	/* EL2 exception link register */
+>  	AFSR0_EL2,	/* Auxiliary Fault Status Register 0 (EL2) */
+> @@ -592,6 +598,10 @@ enum vcpu_sysreg {
+>  	VNCR(VDISR_EL2),
+>  	VNCR(VSESR_EL2),
+>
+> +	/* Guarded Control Stack registers */
+> +	VNCR(GCSPR_EL1),	/* Guarded Control Stack Pointer (EL1) */
+> +	VNCR(GCSCR_EL1),	/* Guarded Control Stack Control (EL1) */
+> +
+
+And the VNCR entries for the EL1 registers.
+
+>  	VNCR(HFGRTR_EL2),
+>  	VNCR(HFGWTR_EL2),
+>  	VNCR(HFGITR_EL2),
+> @@ -1654,6 +1664,10 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+>  #define kvm_has_sctlr2(k)				\
+>  	(kvm_has_feat((k), ID_AA64MMFR3_EL1, SCTLRX, IMP))
+>
+> +#define kvm_has_gcs(k)					\
+> +	(system_supports_gcs() &&			\
+> +	 kvm_has_feat((k), ID_AA64PFR1_EL1, GCS, IMP))
+> +
+
+OK can see bits 47-44 are for a GCS feature check as per:
+
+https://support.arm.com/documentation/ddi0601/2026-06/AArch64-Registers/ID-AA64PFR1-EL1--AArch64-Processor-Feature-Register-1?lang=en
+
+And ID_AA64PFR1_EL1_GCS_IMP == 0b0001 -> the documented enabled value.
+
+
+>  static inline bool kvm_arch_has_irq_bypass(void)
+>  {
+>  	return true;
+> diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
+> index 9e8a49fa8b63..e589adccc2f3 100644
+> --- a/arch/arm64/include/asm/vncr_mapping.h
+> +++ b/arch/arm64/include/asm/vncr_mapping.h
+> @@ -97,6 +97,8 @@
+>  #define VNCR_PMSNEVFR_EL1       0x850
+>  #define VNCR_PMSDSFR_EL1        0x858
+>  #define VNCR_TRFCR_EL1          0x880
+> +#define VNCR_GCSPR_EL1		0x8C0
+
+I see NVMem(0x8C0) in
+
+https://support.arm.com/documentation/ddi0601/2026-06/AArch64-Registers/GCSPR-EL1--Guarded-Control-Stack-Pointer-Register--EL1-?lang=en
+
+So LGTM :)
+
+
+> +#define VNCR_GCSCR_EL1		0x8D0
+
+And I see NVMem(0x8D0) in
+
+https://support.arm.com/documentation/111107/2026-06/AArch64-Registers/GCSCR-EL1--Guarded-Control-Stack-Control-Register--EL1-
+
+So also LGTM :)
+
+>  #define VNCR_MPAM1_EL1          0x900
+>  #define VNCR_MPAMHCR_EL2        0x930
+>  #define VNCR_MPAMVPMV_EL2       0x938
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> index c382848d3194..d26802aa455e 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+> @@ -17,6 +17,7 @@
+>  #include <asm/kvm_mmu.h>
+>
+>  static inline bool ctxt_has_s1poe(struct kvm_cpu_context *ctxt);
+> +static inline bool ctxt_has_gcs(struct kvm_cpu_context *ctxt);
+>
+>  static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
+>  {
+> @@ -67,6 +68,11 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>  	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
+>  	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
+> +
+> +	if (ctxt_has_gcs(ctxt)) {
+> +		ctxt_sys_reg(ctxt, GCSPR_EL0) = read_sysreg_s(SYS_GCSPR_EL0);
+> +		ctxt_sys_reg(ctxt, GCSCRE0_EL1)	= read_sysreg_s(SYS_GCSCRE0_EL1);
+> +	}
+>  }
+>
+>  static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
+> @@ -131,6 +137,14 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
+>  	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
+>  }
+>
+> +static inline bool ctxt_has_gcs(struct kvm_cpu_context *ctxt)
+> +{
+> +	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
+> +
+> +	return kvm_has_gcs(kern_hyp_va(vcpu->kvm));
+> +
+
+Function looks sensible, but extra newline?
+
+> +}
+> +
+>  static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+>  {
+>  	ctxt_sys_reg(ctxt, SCTLR_EL1)	= read_sysreg_el1(SYS_SCTLR);
+> @@ -144,6 +158,10 @@ static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+>  		if (ctxt_has_s1pie(ctxt)) {
+>  			ctxt_sys_reg(ctxt, PIR_EL1)	= read_sysreg_el1(SYS_PIR);
+>  			ctxt_sys_reg(ctxt, PIRE0_EL1)	= read_sysreg_el1(SYS_PIRE0);
+> +			if (ctxt_has_gcs(ctxt)) {
+> +				ctxt_sys_reg(ctxt, GCSPR_EL1)	= read_sysreg_el1(SYS_GCSPR);
+> +				ctxt_sys_reg(ctxt, GCSCR_EL1)	= read_sysreg_el1(SYS_GCSCR);
+> +			}
+
+I had AI check this (and I think sashiko also hit on) it but this is a chain of:
+
+	ctxt_has_tcrx() -> ctxt_has_s1pie() -> ctx_has_gcs()
+
+Is it correct to make the gcs stuff conditional on tcrx + s1pie + gcs?
+
+In vcpu_set_hcrx() settings HCRX_EL2 is gated only on kvm_has_gcs():
+
+	if (kvm_has_gcs(kvm))
+		vcpu->arch.hcrx_el2 |= HCRX_EL2_GCSEn;
+
+And gcs_visiblity() is:
+
+static unsigned int gcs_visibility(const struct kvm_vcpu *vcpu,
+				   const struct sys_reg_desc *r)
+{
+	if (kvm_has_gcs(vcpu->kvm))
+		return 0;
+
+	return REG_HIDDEN;
+}
+
+So gated on kvm_has_gcs() alone.
+
+But then on register save it's gated on ctxt_has_tcrx() +
+ctxt_has_s1pie() + ctx_has_gcs()
+
+So it seems to be a mismatch, and this should be unnested?
+
+Buuut I see in el2_setup.h:
+
+	/* GCS depends on PIE so we don't check it if PIE is absent */
+
+And it seems like that feature depends on ctxt_has_tcrx() so _architecturally_
+fine, but it doesn't seem like KVM enforces the dependency at all and so in
+theory somebody could KVM_SET_ONE_REG a GCS, !S1PIE configuration.
+
+And nicer to be consistent everywhere also I think (+ shut sashiko up! :)
+
+And it seems like it makes it possible for a silly VMM which sets up the
+registers wrong + some unfortunate guest behaviour -> oops via:
+
+el1h_64_sync_handler() -> el1_gcs() -> do_el1_gcs()
+
+Because the host's restore is skipped for s1pie=0, gcs=1, so a naughty guest can
+set gcsr_el1.pcrsel=1 and some value in gcspr_el1, then the host will get a
+mismatch and trigger the kernel die().
+
+>  		}
+>
+>  		if (ctxt_has_s1poe(ctxt))
+> @@ -210,6 +228,11 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
+>  {
+>  	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
+>  	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
+> +	if (ctxt_has_gcs(ctxt)) {
+> +		write_sysreg_s(ctxt_sys_reg(ctxt, GCSPR_EL0), SYS_GCSPR_EL0);
+> +		write_sysreg_s(ctxt_sys_reg(ctxt, GCSCRE0_EL1),
+> +			       SYS_GCSCRE0_EL1);
+> +	}
+>  }
+>
+>  static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+> @@ -243,6 +266,11 @@ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+>  		if (ctxt_has_s1pie(ctxt)) {
+>  			write_sysreg_el1(ctxt_sys_reg(ctxt, PIR_EL1),	SYS_PIR);
+>  			write_sysreg_el1(ctxt_sys_reg(ctxt, PIRE0_EL1),	SYS_PIRE0);
+> +
+> +			if (ctxt_has_gcs(ctxt)) {
+> +				write_sysreg_el1(ctxt_sys_reg(ctxt, GCSPR_EL1),	SYS_GCSPR);
+> +				write_sysreg_el1(ctxt_sys_reg(ctxt, GCSCR_EL1),	SYS_GCSCR);
+> +			}
+
+Similarly this is gated the same as the save.
+
+>  		}
+>
+>  		if (ctxt_has_s1poe(ctxt))
+> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> index 0c4ef1ce32ae..08b5d939a6c5 100644
+> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+> @@ -59,10 +59,14 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
+>  			if (ctxt_has_s1pie(&vcpu->arch.ctxt)) {
+>  				__vcpu_assign_sys_reg(vcpu, PIRE0_EL2, read_sysreg_el1(SYS_PIRE0));
+>  				__vcpu_assign_sys_reg(vcpu, PIR_EL2, read_sysreg_el1(SYS_PIR));
+> +
+> +				if (ctxt_has_gcs(&vcpu->arch.ctxt))
+> +					__vcpu_assign_sys_reg(vcpu, GCSCR_EL2, read_sysreg_el1(SYS_GCSCR));
+
+
+Similar comment to above tcrx -> s1pie -> gcs
+
+>  			}
+>
+>  			if (ctxt_has_s1poe(&vcpu->arch.ctxt))
+>  				__vcpu_assign_sys_reg(vcpu, POR_EL2, read_sysreg_el1(SYS_POR));
+> +
+
+Extra newline?
+
+>  		}
+>
+>  		/*
+> @@ -86,6 +90,8 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
+>  	__vcpu_assign_sys_reg(vcpu, SP_EL2,	 read_sysreg(sp_el1));
+>  	__vcpu_assign_sys_reg(vcpu, ELR_EL2,	 read_sysreg_el1(SYS_ELR));
+>  	__vcpu_assign_sys_reg(vcpu, SPSR_EL2,	 read_sysreg_el1(SYS_SPSR));
+> +	if (ctxt_has_gcs(&vcpu->arch.ctxt))
+> +		__vcpu_assign_sys_reg(vcpu, GCSPR_EL2, read_sysreg_el1(SYS_GCSPR));
+
+For VEL2, GCSPR_EL2 is gated on gcs alone for save.
+
+>
+>  	if (ctxt_has_sctlr2(&vcpu->arch.ctxt))
+>  		__vcpu_assign_sys_reg(vcpu, SCTLR2_EL2, read_sysreg_el1(SYS_SCTLR2));
+> @@ -138,6 +144,11 @@ static void __sysreg_restore_vel2_state(struct kvm_vcpu *vcpu)
+>  		if (ctxt_has_s1pie(&vcpu->arch.ctxt)) {
+>  			write_sysreg_el1(__vcpu_sys_reg(vcpu, PIR_EL2), SYS_PIR);
+>  			write_sysreg_el1(__vcpu_sys_reg(vcpu, PIRE0_EL2), SYS_PIRE0);
+> +
+> +			if (ctxt_has_gcs(&vcpu->arch.ctxt)) {
+> +				write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSCR_EL2), SYS_GCSCR);
+> +				write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSPR_EL2), SYS_GCSPR);
+> +			}
+
+But for restore both GCSCR_EL2 and GCSPR_EL2 are gated on tcrx -> s1pie -> gcs.
+
+>  		}
+>
+>  		if (ctxt_has_s1poe(&vcpu->arch.ctxt))
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 44aae52c473d..c5ce18b3f7d8 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -109,6 +109,8 @@ static enum sr_loc_attr locate_direct_register(const struct kvm_vcpu *vcpu,
+>  	case PIR_EL1:
+>  	case PIRE0_EL1:
+>  	case POR_EL1:
+> +	case GCSCR_EL1:
+> +	case GCSPR_EL1:
+>  	case ESR_EL1:
+>  	case AFSR0_EL1:
+>  	case AFSR1_EL1:
+> @@ -135,6 +137,8 @@ static enum sr_loc_attr locate_direct_register(const struct kvm_vcpu *vcpu,
+>  	case DACR32_EL2:
+>  	case IFSR32_EL2:
+>  	case DBGVCR32_EL2:
+> +	case GCSCRE0_EL1:
+> +	case GCSPR_EL0:
+>  		/* These registers are always loaded, no matter what */
+>  		return SR_LOC_LOADED;
+>
+> @@ -198,6 +202,8 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+>  		MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
+>  		MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
+>  		MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
+> +		MAPPED_EL2_SYSREG(GCSCR_EL2,   GCSCR_EL1,   NULL             );
+> +		MAPPED_EL2_SYSREG(GCSPR_EL2,   GCSPR_EL1,   NULL             );
+>  		MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
+>  		MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
+>  		MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
+> @@ -253,6 +259,10 @@ static u64 read_sr_from_cpu(enum vcpu_sysreg reg)
+>  	case TCR2_EL1:		val = read_sysreg_s(SYS_TCR2_EL12);	break;
+>  	case PIR_EL1:		val = read_sysreg_s(SYS_PIR_EL12);	break;
+>  	case PIRE0_EL1:		val = read_sysreg_s(SYS_PIRE0_EL12);	break;
+> +	case GCSPR_EL0:		val = read_sysreg_s(SYS_GCSPR_EL0);	break;
+> +	case GCSCRE0_EL1:	val = read_sysreg_s(SYS_GCSCRE0_EL1);	break;
+> +	case GCSCR_EL1:		val = read_sysreg_s(SYS_GCSCR_EL12);	break;
+> +	case GCSPR_EL1:		val = read_sysreg_s(SYS_GCSPR_EL12);	break;
+>  	case POR_EL1:		val = read_sysreg_s(SYS_POR_EL12);	break;
+>  	case ESR_EL1:		val = read_sysreg_s(SYS_ESR_EL12);	break;
+>  	case AFSR0_EL1:		val = read_sysreg_s(SYS_AFSR0_EL12);	break;
+> @@ -293,6 +303,10 @@ static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
+>  	case PIR_EL1:		write_sysreg_s(val, SYS_PIR_EL12);	break;
+>  	case PIRE0_EL1:		write_sysreg_s(val, SYS_PIRE0_EL12);	break;
+>  	case POR_EL1:		write_sysreg_s(val, SYS_POR_EL12);	break;
+> +	case GCSCRE0_EL1:	write_sysreg_s(val, SYS_GCSCRE0_EL1);	break;
+> +	case GCSPR_EL0:		write_sysreg_s(val, SYS_GCSPR_EL0);	break;
+> +	case GCSCR_EL1:		write_sysreg_s(val, SYS_GCSCR_EL12);	break;
+> +	case GCSPR_EL1:		write_sysreg_s(val, SYS_GCSPR_EL12);	break;
+>  	case ESR_EL1:		write_sysreg_s(val, SYS_ESR_EL12);	break;
+>  	case AFSR0_EL1:		write_sysreg_s(val, SYS_AFSR0_EL12);	break;
+>  	case AFSR1_EL1:		write_sysreg_s(val, SYS_AFSR1_EL12);	break;
+> @@ -3089,6 +3103,21 @@ static unsigned int cnthv_visibility(const struct kvm_vcpu *vcpu,
+>  	return REG_HIDDEN;
+>  }
+>
+> +static unsigned int gcs_visibility(const struct kvm_vcpu *vcpu,
+> +				   const struct sys_reg_desc *r)
+> +{
+> +	if (kvm_has_gcs(vcpu->kvm))
+> +		return 0;
+> +
+> +	return REG_HIDDEN;
+> +}
+> +
+> +static unsigned int gcs_el2_visibility(const struct kvm_vcpu *vcpu,
+> +				       const struct sys_reg_desc *rd)
+> +{
+> +	return __el2_visibility(vcpu, rd, gcs_visibility);
+> +}
+> +
+>  static bool access_mdcr(struct kvm_vcpu *vcpu,
+>  			struct sys_reg_params *p,
+>  			const struct sys_reg_desc *r)
+> @@ -3493,6 +3522,13 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  	PTRAUTH_KEY(APDB),
+>  	PTRAUTH_KEY(APGA),
+>
+> +	{ SYS_DESC(SYS_GCSCR_EL1), NULL, reset_val, GCSCR_EL1, 0,
+> +	  .visibility = gcs_visibility },
+> +	{ SYS_DESC(SYS_GCSPR_EL1), NULL, reset_unknown, GCSPR_EL1,
+> +	  .visibility = gcs_visibility },
+> +	{ SYS_DESC(SYS_GCSCRE0_EL1), NULL, reset_val, GCSCRE0_EL1, 0,
+> +	  .visibility = gcs_visibility },
+> +
+>  	{ SYS_DESC(SYS_SPSR_EL1), access_spsr},
+>  	{ SYS_DESC(SYS_ELR_EL1), access_elr},
+>
+> @@ -3618,6 +3654,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  		    CTR_EL0_DminLine_MASK |
+>  		    CTR_EL0_L1Ip_MASK |
+>  		    CTR_EL0_IminLine_MASK),
+> +	{ SYS_DESC(SYS_GCSPR_EL0), NULL, reset_unknown, GCSPR_EL0,
+> +	  .visibility = gcs_visibility },
+>  	{ SYS_DESC(SYS_SVCR), undef_access, reset_val, SVCR, 0, .visibility = sme_visibility  },
+>  	{ SYS_DESC(SYS_FPMR), undef_access, reset_val, FPMR, 0, .visibility = fp8_visibility },
+>
+> @@ -3861,6 +3899,10 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  	EL2_REG_FILTERED(VNCR_EL2, bad_vncr_trap, reset_val, 0,
+>  			 vncr_el2_visibility),
+>
+> +	EL2_REG_FILTERED(GCSCR_EL2, access_rw, reset_val, 0,
+> +			 gcs_el2_visibility),
+> +	EL2_REG_FILTERED(GCSPR_EL2, access_rw, reset_val, 0,
+> +			 gcs_el2_visibility),
+>  	{ SYS_DESC(SYS_DACR32_EL2), undef_access, reset_unknown, DACR32_EL2 },
+>  	EL2_REG_VNCR_FILT(HDFGRTR2_EL2, fgt2_visibility),
+>  	EL2_REG_VNCR_FILT(HDFGWTR2_EL2, fgt2_visibility),
+>
+> --
+> 2.47.3
+>
+>
+
+--
+Cheers, Lorenzo
 
