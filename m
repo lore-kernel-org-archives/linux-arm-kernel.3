@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BD9C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1797C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sd6gEu45kL7QVkA3QJVyGVItKAS2nyT21y+/hoFhCyw=; b=aG7lLr/JORXaEnToPLHwyYdS4S
-	fVEub4TMHgMDzi6IebOhsMKUsCon9eYrWIaTVPiB06OKuRxDTnBD4/mN+dPvZQ6cHDDsn0UcvGNaG
-	ZVmvGwJHMd/hFsA/E6kN6XGb8vYdr/TDa1hbFdyEsI66ub/EWD99313268/WbA+1ukN52Wn47coS1
-	X2e96JJVUTTDCqS/GMbb+q4wKnEjin4qx20MI+oWbbcPJFFfBYbskS1VeNobq0d2fi9A8h+RGUtru
-	fArjHxXzbgiyI5TQ//K1Td+2t71vU9Dj7PJdM8fjs8yhQiv37cGlFV0yaI8ubAOEmPds4TdjmEPk7
-	RqE3c4bQ==;
+	bh=fbIaSZueJ9L7aZ2SFykAsrRHq34CEJ8hDtg94f4lxLA=; b=Cw+mDpSVrlak0hCNaqgzDZOWUI
+	gHusD43f5+kzzYIEexogxhILkzHkPkKC1eaSdYEJUCaFxXOYSPsyX/NqZW3tfQDrMrAEXuoPpKaNZ
+	l/dO+E5lDPG+r0k+RK88f4u648GyDdJkaezoHYz1NYoyZQqipo1ygs565k5x/S91/O0IJXNQk/IU+
+	0GguQtO3rQDgnjaxI/wQvA494+mCqxz3XzDEHWLxo+/c6ttlebpmvWkn5KzuVvQ/G6F0Ug+DGhWUU
+	HIyDVKRF98lRanTpo4Oisy77/UDmPVeDuzV5pIRlRDWWSlz6tT0FVvlyXpEr+iGu5Z6NpSLwTo3bf
+	3h4lS1qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22iI-0000000GmIn-0fxL;
-	Thu, 03 Sep 2026 08:22:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x22kh-0000000Gmcp-2DPA;
+	Thu, 03 Sep 2026 08:24:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22iH-0000000GmIa-1aoG;
-	Thu, 03 Sep 2026 08:22:25 +0000
+	id 1x22kg-0000000GmcY-0OZA;
+	Thu, 03 Sep 2026 08:24:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB1E1601FB;
-	Thu,  3 Sep 2026 08:22:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EF2F1F00A3A;
-	Thu,  3 Sep 2026 08:22:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7867360229;
+	Thu,  3 Sep 2026 08:24:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 349611F000E9;
+	Thu,  3 Sep 2026 08:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788423744;
-	bh=sd6gEu45kL7QVkA3QJVyGVItKAS2nyT21y+/hoFhCyw=;
+	s=k20260515; t=1788423893;
+	bh=fbIaSZueJ9L7aZ2SFykAsrRHq34CEJ8hDtg94f4lxLA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gq9cd/CTw4krLSlM6xfxyByPn+d9o9AHDucF1BZ0uIAQoLLXP39WKotfWt+0vaOQ2
-	 nzQAl7UFgXIDhuCtbKhGZ2nkN0XaOElgOmruowZVAczze7sgMMBMDKCY5/qwCsA2c0
-	 VFrIYsi+TpXhPCv2Diwq2ZCkVH7vfOEZ92b/obiZ2EFvXnWRD9/RVQdBDgIWwWzXtV
-	 yk2671K9lffJrRZ7mLsndIGYpdD6nZMEAsaNsvdbucN49dU6JsmXDkLhuZ9tu+FURd
-	 Z0mdSO4fmgk0AE6pEWzHv5TZ915nDk5byuw9kIqq75tr/yAM6xKWlHa9jkCXEGVb+6
-	 f3W8Rp2Nt6rdw==
-Date: Thu, 3 Sep 2026 09:22:14 +0100
-From: Will Deacon <will@kernel.org>
-To: Ricardo Robaina <rrobaina@redhat.com>
-Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, bpf@vger.kernel.org,
-	paul@paul-moore.com, eparis@redhat.com, sgrubb@redhat.com,
-	oleg@redhat.com, richard.henderson@linaro.org, mattst88@gmail.com,
-	linmag7@gmail.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
-	guoren@kernel.org, monstr@monstr.eu, tsbogend@alpha.franken.de,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@hansenpartnership.com,
-	deller@gmx.de, ysato@users.sourceforge.jp, dalias@libc.org,
-	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
-	andreas@gaisler.com, richard@nod.at,
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
-	chris@zankel.net, jcmvbkbc@gmail.com, tglx@kernel.org,
-	peterz@infradead.org, luto@kernel.org
-Subject: Re: [PATCH v2 04/13] arm64: pass pt_regs to audit_syscall_entry()
-Message-ID: <apkuNj1paR_GO3x9@willie-the-truck>
-References: <cover.1788351089.git.rrobaina@redhat.com>
- <b4ab47d2551d090520b4fa81a884b5988b9655c7.1788351089.git.rrobaina@redhat.com>
+	b=Zla5GHHcxSaHYLPcV7hDLgmsoz99LeWBz4LNzJGRDna/m4IQQN+EEDM1op7tVD2Lm
+	 OkYqsNGRl2ZFvclRMCzqO2geS3EHyWwFGN9eiVXLz7ibSjlrS3aG2y8AdsdVklpXql
+	 TTCs5EEVlAsYYTAW8jVLHvBJhfWPjsZlmwcw6noz/kePfzDRDtqWJLnQpu7WHT3HCw
+	 Z6S/3xlKd/iXYSekmNL+Mw3yDWCk4PYvN4YpDsoV4YwO15Enzpz5iRIl1yxaX6NG7i
+	 tFu1e6SBmaaR/dgf0DovIlUEEj4uwNpL3AD7HhyPHNg5GqLnxEXVSNkuw66CgjO+5H
+	 EgwDen6DuDT7A==
+Date: Thu, 3 Sep 2026 10:24:49 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Julien Massot <julien.massot@collabora.com>, Val Packett <val@packett.cool>, 
+	Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v10 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
+Message-ID: <20260903-normal-electronic-bonobo-3f71eb@quoll>
+References: <20260902193351.185771-1-l.scorcia@gmail.com>
+ <20260902193351.185771-2-l.scorcia@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <b4ab47d2551d090520b4fa81a884b5988b9655c7.1788351089.git.rrobaina@redhat.com>
+In-Reply-To: <20260902193351.185771-2-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 11:43:37AM -0300, Ricardo Robaina wrote:
-> audit_syscall_entry() now takes a pointer to pt_regs and extracts
-> the syscall arguments itself via syscall_get_arguments(). Drop the
-> individual argument registers from the call and pass regs instead.
+On Wed, Sep 02, 2026 at 09:25:37PM +0200, Luca Leonardo Scorcia wrote:
+> Describe the MT6392 PMIC and its RTC and regulator devices. This device
+> is mostly based on MT6323 with some similarities to MT6397 and is usually
+> found on boards using the MT8516/MT8167 SoC.
 > 
-> Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
->  arch/arm64/kernel/ptrace.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+> Previous version of this patch had the PMIC device declared with a
+> fallback compatible to "mediatek,mt6323". Sashiko pointed out in [1]
+> that it would have been wrong as the fallback device is not really
+> compatible with the new PMIC.
 > 
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index f743cbec1c3a..65532b2a8cd4 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2476,8 +2476,7 @@ int syscall_trace_enter(struct pt_regs *regs)
->  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
->  		trace_sys_enter(regs, regs->syscallno);
->  
-> -	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
-> -			    regs->regs[2], regs->regs[3]);
-> +	audit_syscall_entry(regs->syscallno, regs);
+> Since the change is significant I have not included the Reviewed-by tag
+> that Krzysztof Kozlowski kindly provided in v9 of this patch, I hope
+> this is the right thing. I really want to get the bindings right as they
+> are harder to fix in later commits if the need arises.
+> 
+> [1] https://sashiko.dev/#/message/20260820125850.3B34D1F000E9%40smtp.kernel.org
+> 
+>  .../bindings/mfd/mediatek,mt6397.yaml         | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
 
-Acked-by: Will Deacon <will@kernel.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks for doing this.
+Best regards,
+Krzysztof
 
-Will
 
