@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38E3C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 22:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32374C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 22:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gUDONbWsQf4g8On4R7HSZLyPEP705AHSMo8bYRBit5E=; b=TA7O2sGU8X/KUkVxDG9p1u6sSI
-	YEvQtb8ULTYXiQOxqxLT3zdnJKyRJzdQ94wXT58cluVFPm3V6T0dWfUIVSf3A7aoNZhN5XCZzwJPm
-	xrU4EI9ucYU3f6AGTPnS47q+cHF44irRH0xavZegHvXQNjsoqBPJ2Y4MrrnzkKKq4pGHfTXmp7WRL
-	sBQxvW6GdbvfU2hGMrJ0sXv3/G+J0421hkm+dBQ1X7YErKGn+UPwdvCzHVKZTKK7q8Fnyr9kzIM8c
-	US4WmuPmDCOqesSIXmphXOGzCqdKzZjgKTJ9ulup7AgNQ5/3C5E2zwVM8ip0rNyy3pLrKex8r2nBC
-	8agMtMNw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DhGerqxK/QM75//01MhplOsQVgwGpiUbFZaCJT3sfQs=; b=s5QhcTNDX7DDM38BUMroFFsMkv
+	rslsjKTKb/0YJuwBHTuPGM5K5Hiqau7WnXSHXo2IAMAfBpCwfHq/tzm+Q1NLvXf88c0ItGiw71XlQ
+	uZHCcB3HQ2HqufCNAKfwvqTSRQKHUZb8suByW1dC36qRuqC7A9K4uBYWACSd9aONzSG03/LWUq77K
+	7ZaD9LwCxY59bqje5AD8l3NL573k0NuTC4Zc99fOBGE1IfhOsp5YHdT5Zh9/10mbyKGafjUcKcAIA
+	28Y3ZEzNd0w3KxPC23UrHcaoAQrglvZHMSJt1NVfoVoNbzgI4ZK/LfWz8xq/AWAgkzns7bITUn+47
+	eC9OLUxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GP3-00000000jxK-3sop;
-	Thu, 03 Sep 2026 22:59:29 +0000
-Received: from mail-wr1-f52.google.com ([209.85.221.52])
+	id 1x2GPA-00000000k23-2o90;
+	Thu, 03 Sep 2026 22:59:36 +0000
+Received: from mail-wr1-f47.google.com ([209.85.221.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2GP0-00000000jt9-3Azw
+	id 1x2GP3-00000000jva-2XXU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 22:59:28 +0000
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48589798dbbso91373f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 15:59:25 -0700 (PDT)
+	Thu, 03 Sep 2026 22:59:30 +0000
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-482e067e908so371859f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 15:59:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788476364; x=1789081164;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gUDONbWsQf4g8On4R7HSZLyPEP705AHSMo8bYRBit5E=;
-        b=smRI27ev/baTk7KUXbw73/R5Xla/b+bgwgRABf8kON9Hx9ck4V8lNOaWru1PcoHaTp
-         MMHR/fda+xTdrNTeB228Uip1aJ5h4FGVi2/530UDB6lf5PaPWSXdRqyyafwI011U4Zsi
-         GjMGe3wwrShwc8jsIkpRMQvbF8Ve2Ienyw/mb3PPnPeWnK8rq9QkNmvqNtOtsSnidilc
-         clZogy2DH/1PJWU/b3kBxFO1OEdrbz1QAUYOkHJaz02/Y2NN9KOkd8S3Y1z8th/mmNOg
-         UO3MjHTcctJfla5hhk7ekef1T7GfRDWlcXzmcR5tgFwHjvy6lin5pu2UMAXirolytO5G
-         d9Pw==
-X-Forwarded-Encrypted: i=1; AKwUvBw6K0omRBERyYuEeQODL8DOS/VFv0hrLC8OCgQve7aY31PhnCXPfea0vFU447OHGHUGdLc16+R8kQGJJ4SWPBA7@lists.infradead.org
-X-Gm-Message-State: AFuF++mKgh6TGW5MKobYrYLDcFKnwVlM5Ug1UM+9f8KZgIK96o6EGgiT
-	GcAFdZlx3qZfWHEoTiUVZ3K+xcP5bt4UBaEThyTD/pdjkkFAfGV9w89c
-X-Gm-Gg: AYBFou2vADWLBpgK3kDjKRqgPtU8BKFbmGpb8WcFtABMmtahrgshWyIYEUdy8CWS5e+
-	2aTxD+VP9qG9BSl9/e71Za3prqAxNLKkvta/KyOzXIXfpgX5E2S3qYoZC+c6sLlV9MBwMyH/EDy
-	L4jaX+rmVb0GdS85/Qd8UZMZYYgh0ALTZoNilL5Xg+8zExMBb1vN6CepqVjiTZMbUnSmh2ACtoG
-	DbBu+9RnRi1iFryNBxZuCtz3G2GEPYyMBUze1JP9yvrf5eD2wRfkYbBdIZjryujpmNPR5HIo4OW
-	Vo+rUoFnunaQEHoZwj5lf38ZAiUaEc7+HAA6CWqaYOOHuyzUWwdryencP2BFgn9n+g4PN9m93SQ
-	jtJeMwtNdiXKSQtGbKTg+G8x748fNgPv2R776iuVlfiCNFRpeV6e5vJkHKHjqLqF2e4b8m+ftA6
-	xbF+xSMfjn3U+cO/qeefdci1hMsS9M7GTBBWMpjmEQEwLBNgQ430vjiU7ES/SvMMrgamvS+kTVb
-	j/L+exOGZI0aDLQFazIOVqAPQ==
-X-Received: by 2002:a5d:5f50:0:b0:485:8a46:7059 with SMTP id ffacd0b85a97d-4858a4672acmr372086f8f.43.1788476364181;
-        Thu, 03 Sep 2026 15:59:24 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788476368; x=1789081168;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DhGerqxK/QM75//01MhplOsQVgwGpiUbFZaCJT3sfQs=;
+        b=PqUGp05BGRXobmestEdKwV2JE30m4D3/NaoX0kpdOP280ndVgsqX1sX88T+0DPVtaX
+         T2ByqHgnmnEivXIEIYdKRNC700QPKMCb8aXhYnrNQfKWxgNjcAqLnjr5S3GnTVbJ1rzr
+         EYp0QTWNV6164Ofrtn7eEvTWXbYMEG7jNdb2jVF/9OupLEfead5xslfAP0C79HDiJ3PF
+         sMq18vZNW9tx2nlQgZWAMcPjaeBK9u/GlVw7POlK2UbGBELJNexxw0CWnqjyXGYKlUr+
+         Z5OZx+dq4KawxKrs2Fa3NIDKSK3VrTpJiI6P04uABj/DPjxLDlCcxq9YtR7xHQXHXsNX
+         r4tQ==
+X-Forwarded-Encrypted: i=1; AKwUvBx4ArdtbueVSWHb8A36uhuObOfNoXnCi3rfEMvX/XG5y2BpJGLzf+GBtUOG7Abfa0adJP7nMgCMYTNioVk2x7L0@lists.infradead.org
+X-Gm-Message-State: AFuF++kqK2/cjnQfaKbgdVNB15QbefF4lrkSvRSiyF3ALa+Dn2GtDzo0
+	wBA+qkkLEh5WOFwOn6/c+pyYh/AELGlfryyLNiXQKyq1RdljTFMNT+Oq
+X-Gm-Gg: AYBFou1Aez1AVw84y3MPEfzkJVeGdxRJqOuKXLL1zOezPhSNNxL9L6NR6FWvr8lzfp2
+	0NCnJ79Tgw0F3EQlCTwWvFYwLeNR3K8D+P18qUw7K4ZWXxFwJVCcI/R/Ojs6iMrJ66scGM3vQOw
+	PAkTi3tfvbhNjqUHYRowFprP3EE3ScU27Au1VSFJXkTX6C102CJaa4CyxU6BO8BFZu36rmtIaN1
+	t0atHkiS8S1so06mlPhsCgk5o4z0avj9AuV14ivzyPM/2nTlffP+oPpQlTpV02CmwEMW0kxlRYY
+	Ba5414xvrl1ACBLlvzsqRhVgllP//oMLDbx1tTufJqwmRrphs1z9JfS8WpQWN6WzTLsDPm+3IBI
+	YkgSYszFBrBpKQ4jPeEW5zLi7J59kpsxkKx61nPpETwJAfJJLPBZ3h0VIv94KZYSHwnXwQavciD
+	rvB2xzunVKlAP4M1nVXGQkAHBKxiCvrd8+/nlan5Tl66N+4xSYC4Qo3xvWlG+3d8r3Ev69KuUn1
+	NuqzaVUEMqV1ia+aXYOFuhwhQ==
+X-Received: by 2002:a5d:5f51:0:b0:485:8a46:704b with SMTP id ffacd0b85a97d-4858a467215mr292343f8f.29.1788476367923;
+        Thu, 03 Sep 2026 15:59:27 -0700 (PDT)
 Received: from threads.localdomain ([84.68.179.181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885c5bbdsm1686142f8f.36.2026.09.03.15.59.22
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885c5bbdsm1686142f8f.36.2026.09.03.15.59.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 15:59:23 -0700 (PDT)
+        Thu, 03 Sep 2026 15:59:27 -0700 (PDT)
 From: Lucas Tanure <tanure@linux.com>
 To: Ulf Hansson <ulfh@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -77,17 +77,19 @@ Cc: Brian Masney <bmasney+clk@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] amlogic: t7: give the MMC bus pipeline clock real consumers
-Date: Thu,  3 Sep 2026 23:59:17 +0100
-Message-ID: <20260903225921.2290441-1-tanure@linux.com>
+	linux-kernel@vger.kernel.org,
+	Claude Fable 5 <noreply@anthropic.com>
+Subject: [PATCH 3/4] arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
+Date: Thu,  3 Sep 2026 23:59:20 +0100
+Message-ID: <20260903225921.2290441-4-tanure@linux.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260903225921.2290441-1-tanure@linux.com>
+References: <20260903225921.2290441-1-tanure@linux.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_155926_800178_C6D7064D 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_155929_664966_3816D97A 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +104,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous series [2] for the intermittent boot hangs on the VIM4
-marked sys_ampipe_nand as critical. But as Chuan Liu from Amlogic
-explained [1], sys_ampipe_nand clocks a pipeline stage that the
-hardware design inserts in the bus path between the SD/eMMC
-controllers and the NIC_MATRIX fabric to help timing closure.
+The SD/eMMC controllers reach the DRAM through a pipeline stage that
+the hardware design inserts in the bus path to the NIC_MATRIX fabric,
+clocked by CLKID_SYS_AMPIPE_NAND. When that clock is disabled, a
+controller that starts a DMA transfer can never complete it.
 
-So the clock has real consumers: reference it from the three MMC
-controller nodes and drop CLK_IS_CRITICAL instead.
+Reference the clock from the three MMC controller nodes so the driver
+keeps it running, instead of relying on the clock being marked critical
+in the clock controller.
 
-The series crosses three trees; patch 4 (clk) must only land after
-patches 1-3, otherwise the DMA hangs fixed by 43e1705ecab9 come back.
+Assisted-by: Claude Fable 5 <noreply@anthropic.com>
+Signed-off-by: Lucas Tanure <tanure@linux.com>
+---
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
 
-[1] https://lore.kernel.org/linux-amlogic/ (RFC: clk: meson: t7:
-    Intermittent boot instability and memory corruption on VIM4)
-[2] https://lore.kernel.org/linux-amlogic/ (arm64: amlogic: t7:
-    describe the VIM4 supplies and keep the fabric clocks running)
-
-Thanks,
-Lucas
-
-Lucas Tanure (4):
-  dt-bindings: mmc: amlogic,meson-gx-mmc: document the T7 pipeline clock
-  mmc: meson-gx: enable the bus pipeline clock on T7
-  arm64: dts: amlogic: t7: add the pipeline clock to the MMC controllers
-  clk: meson: t7: don't mark sys_ampipe_nand as critical
-
- .../bindings/mmc/amlogic,meson-gx-mmc.yaml    | 29 ++++++++++++++++++-
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   | 15 ++++++----
- drivers/clk/meson/t7-peripherals.c            | 10 +++----
- drivers/mmc/host/meson-gx-mmc.c               | 21 ++++++++++++++
- 4 files changed, 63 insertions(+), 12 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 719e111bc3dd..8f3f1c0579a0 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -762,8 +762,9 @@ sd_emmc_a: mmc@88000 {
+ 				interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_A>,
+ 					 <&clkc_periphs CLKID_SD_EMMC_A>,
+-					 <&scmi_clk CLKID_FCLK_DIV2>;
+-				clock-names = "core", "clkin0", "clkin1";
++					 <&scmi_clk CLKID_FCLK_DIV2>,
++					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
++				clock-names = "core", "clkin0", "clkin1", "pipeline";
+ 				resets = <&reset RESET_SD_EMMC_A>;
+ 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_A_SEL>;
+ 				assigned-clock-parents = <&xtal>;
+@@ -776,8 +777,9 @@ sd_emmc_b: mmc@8a000 {
+ 				interrupts = <GIC_SPI 177 IRQ_TYPE_EDGE_RISING>;
+ 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_B>,
+ 					 <&clkc_periphs CLKID_SD_EMMC_B>,
+-					 <&scmi_clk CLKID_FCLK_DIV2>;
+-				clock-names = "core", "clkin0", "clkin1";
++					 <&scmi_clk CLKID_FCLK_DIV2>,
++					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
++				clock-names = "core", "clkin0", "clkin1", "pipeline";
+ 				resets = <&reset RESET_SD_EMMC_B>;
+ 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_B_SEL>;
+ 				assigned-clock-parents = <&xtal>;
+@@ -790,8 +792,9 @@ sd_emmc_c: mmc@8c000 {
+ 				interrupts = <GIC_SPI 178 IRQ_TYPE_EDGE_RISING>;
+ 				clocks = <&clkc_periphs CLKID_SYS_SD_EMMC_C>,
+ 					 <&clkc_periphs CLKID_SD_EMMC_C>,
+-					 <&scmi_clk CLKID_FCLK_DIV2>;
+-				clock-names = "core", "clkin0", "clkin1";
++					 <&scmi_clk CLKID_FCLK_DIV2>,
++					 <&clkc_periphs CLKID_SYS_AMPIPE_NAND>;
++				clock-names = "core", "clkin0", "clkin1", "pipeline";
+ 				resets = <&reset RESET_SD_EMMC_C>;
+ 				assigned-clocks = <&clkc_periphs CLKID_SD_EMMC_C_SEL>;
+ 				assigned-clock-parents = <&xtal>;
 -- 
 2.55.0
 
