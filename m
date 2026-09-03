@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0836EC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2261CC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TfEMK0a33NS2jaUvlauAHM7l7SnnnIidRASqMeaGC3E=; b=zCoqCKjxjm8c/z3T9JQ5uCAsLT
-	etlYhW2SEC2g7uy61TiLx8ArWhpdqdNSFEsNsfgi/gt5JyNKq4H9+Wyy7/0XkQ4IJx9kQqVrgFoSc
-	k7fW4nIDorLh0UqVZzaFogMOmDwklc3S8N02tp4Y7L9cYZJxYSLgEJ6F68nHQ2/EWGnMMO9qcSB0T
-	cEAajYlrUn+wDIqbrY6MABcWQxGXhlI5RIL08dvI8shF71ajlvtzIcNJxEeV2hzwumee3W4fYtttt
-	eOR61fB7+PpU1+sCWakB1BlhKHby2+WLJy4w3J4KcnOdO2zBkJh5XeI7vhaUNA92micT2T2AGU7Uq
-	ENvB7/cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VUxWm/z7xLtLP5dz8f8UFkQB4ImA8Yg4bPohYdRPwwA=; b=BvblQfUX2Zx3naUBtPw4IXk4ob
+	7ETfjYPXN9lpeoJ1CM6FQ8zt/8OvyMeJbEsnyhSepBdcARD6kN9tpAgzkilqILL7bbRwz4fJVit+H
+	mVFlHvzWuPgOVRdqYw1UxJj3HrLqSjxVFmA43WjV3d2ZPHUwseuYnlJwyX9rf7lbVnuUbwtKE4ar4
+	9Swg/mmtRaEhsI8FqhACI1MkNEwzbeB1FQFMaZWPJa28NUPkCrWuReQhqD3UUZb0lXqFoDGT27KJp
+	6vMap/tWZo7ZDz5tga4rvkngym3YLpkLXtbSSYJePcTnbvOh1MD52kG+v8OKk6ynonmCgEJ649cGk
+	qpx9c/Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Sg-0000000Gk7N-2dUn;
-	Thu, 03 Sep 2026 08:06:18 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x22To-0000000GkLD-43uz;
+	Thu, 03 Sep 2026 08:07:28 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Se-0000000Gk6S-2E4r;
-	Thu, 03 Sep 2026 08:06:18 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C61B91A1983;
-	Thu,  3 Sep 2026 08:06:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 97DCF602B8;
-	Thu,  3 Sep 2026 08:06:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1907411C79B6F;
-	Thu,  3 Sep 2026 10:06:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788422772; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=TfEMK0a33NS2jaUvlauAHM7l7SnnnIidRASqMeaGC3E=;
-	b=B3MGEt7o91rWgG+OB/jZ1KGIDkbGvXO5at21Ffhuhwy1BLzE7/eEvyCrcrZCz3B6PmJYwI
-	c2Kbsow6FPwqH6sYJflF0L917opYPsrVJEsRKMdIc0/3e2Wv1Ze0laRume828yiEgzxFVN
-	UBPjeyIziLfZJv7MggpfPWQIVKVKHgUxSlXqAL5vD2/yNgtNGXMvQ+IJJavF6S0cn4A6pT
-	4xolGMxPMlR0m/S4/mpwcwUThfNmj1pykbu5gApMlog13rrejTdvNibxWewkwdVg/avr4Z
-	mV9svE0JBMYT05Gj0Ay4yAPcbTPABP4VJyLxL8rZRhcelcHfjOubopJnlJClAA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Srinivas Kandagatla <srini@kernel.org>,  Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>,  Heiko Stuebner <heiko@sntech.de>,  Michael Walle
- <michael@walle.cc>,  Finley Xiao <finley.xiao@rock-chips.com>,  Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  stable@vger.kernel.org
-Subject: Re: [PATCH 1/4] nvmem: rockchip-otp: Serialize reads
-In-Reply-To: <CAKTNdwF_wY8JSoQs=auK_9YNGT+hwQ=dAhcRVsf1E1CVvFs-XA@mail.gmail.com>
-	(Alexey Charkov's message of "Wed, 2 Sep 2026 16:40:16 +0400")
-References: <20260901-rk3576-otp-cpuid-mac-v1-0-ea9135270fc2@flipper.net>
-	<20260901-rk3576-otp-cpuid-mac-v1-1-ea9135270fc2@flipper.net>
-	<87ecfc81e9.fsf@bootlin.com>
-	<CAKTNdwH5S3MxgR=5s2LXPquCFRXE-61LTTsZoHP9+YmXo_P4Ag@mail.gmail.com>
-	<87y0dk6jpn.fsf@bootlin.com>
-	<CAKTNdwF_wY8JSoQs=auK_9YNGT+hwQ=dAhcRVsf1E1CVvFs-XA@mail.gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 03 Sep 2026 10:06:08 +0200
-Message-ID: <87bjae7o9b.fsf@bootlin.com>
+	id 1x22Tm-0000000GkKZ-40zt;
+	Thu, 03 Sep 2026 08:07:28 +0000
+X-UUID: 7c3b4ea0a76e11f1acbe4559397dec65-20260903
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=VUxWm/z7xLtLP5dz8f8UFkQB4ImA8Yg4bPohYdRPwwA=;
+	b=Ia38we6LlI+wABzWxX23BxBJppS59a5DnVbxZewmYM6xkGgTPNJjlAP293x7atIzUG3URT+TIrHlE9YqhgPsNkhN/W18fuxmXMvkTaKeMdi2Xl3c2d4Iq8iUTKzCOh2N+b1qYnaOCArPoq/um9UTfJZrBeeaxQFk91AKMvPsnIM=;
+X-CID-CACHE: Type:Local,Time:202609030057-07,HitQuantity:1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:359fee17-5616-4df0-a3e8-f72b1c79aaa0,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:d2596df2-6b5d-4016-ba8d-9f799a78b7e4,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 7c3b4ea0a76e11f1acbe4559397dec65-20260903
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <ot_jingcheng.ji@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 842416545; Thu, 03 Sep 2026 01:07:19 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 3 Sep 2026 16:07:17 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 3 Sep 2026 16:07:16 +0800
+From: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioachino.delregno@collabora.com>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Jingcheng Ji
+	<ot_jingcheng.ji@mediatek.com>
+Subject: [PATCH v2] spi: spi-mtk-nor: Get clocks from devicetree in bulk
+Date: Thu, 3 Sep 2026 16:07:09 +0800
+Message-ID: <20260903080709.3049832-1-ot_jingcheng.ji@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260821090046.2353986-1-ot_jingcheng.ji@mediatek.com>
+References: <20260821090046.2353986-1-ot_jingcheng.ji@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_010616_703248_C6AB54FC 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_010727_032891_BE857AAE 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +88,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+The driver currently gets a fixed set of clock inputs by name. This ties
+the driver to the clock names used by existing devicetrees. It also means
+that a future binding extension which adds controller clock inputs needs a
+matching driver change to enable them.
 
->> I haven't seen Sashiko's answer but isn't the goal of guards to just be
->> released whatever the actual return path?
->
-> I believe it's based on the guidance in [1]. In this particular case,
-> gotos don't jump outside the scope where I put the guard, so the
-> scope-based guard is still correct. However, stylistically, it is
-> indeed uncommon to see scope-based guards in functions using gotos.
-> Explicit lock/unlock is easy in this case, anyway.
->
-> [1] https://elixir.bootlin.com/linux/v7.2.2/source/include/linux/cleanup.=
-h#L148-L153
+Get every clock described by the devicetree with
+devm_clk_bulk_get_all() and enable the resulting set as a group. Keep
+looking up the "spi" input to derive the transfer rate, and verify that
+the required "sf" input is present. Obtain the clock inputs before
+allocating the SPI controller so a deferred clock probe fails early.
 
-I never read that paragraph before, but okay, makes sense.
+For non-DT platform devices, retain the existing named clock lookups so
+clkdev users continue to work.
 
-Thanks,
-Miqu=C3=A8l
+This prepares the driver for future binding extensions without requiring
+another driver change. Existing platforms' behavior is unchanged.
+
+Signed-off-by: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
+---
+v2:
+- Rebase onto current spi/for-next and reuse its existing IRQ error cleanup
+  path.
+- Preserve named clock lookup for non-DT platform devices.
+- Clarify that this prepares for a future binding extension.
+
+ drivers/spi/spi-mtk-nor.c | 151 +++++++++++++++++++++++---------------
+ 1 file changed, 91 insertions(+), 60 deletions(-)
+
+diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
+index 63f5139176c8..c0a47f3a8dbd 100644
+--- a/drivers/spi/spi-mtk-nor.c
++++ b/drivers/spi/spi-mtk-nor.c
+@@ -16,6 +16,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/slab.h>
+ #include <linux/spi/spi.h>
+ #include <linux/spi/spi-mem.h>
+ #include <linux/string.h>
+@@ -116,10 +117,8 @@ struct mtk_nor {
+ 	void __iomem *base;
+ 	u8 *buffer;
+ 	dma_addr_t buffer_dma;
+-	struct clk *spi_clk;
+-	struct clk *ctlr_clk;
+-	struct clk *axi_clk;
+-	struct clk *axi_s_clk;
++	struct clk_bulk_data *clks;
++	int num_clks;
+ 	unsigned int spi_freq;
+ 	bool wbuf_en;
+ 	bool has_irq;
+@@ -703,42 +702,12 @@ static int mtk_nor_transfer_one_message(struct spi_controller *host,
+ 
+ static void mtk_nor_disable_clk(struct mtk_nor *sp)
+ {
+-	clk_disable_unprepare(sp->spi_clk);
+-	clk_disable_unprepare(sp->ctlr_clk);
+-	clk_disable_unprepare(sp->axi_clk);
+-	clk_disable_unprepare(sp->axi_s_clk);
++	clk_bulk_disable_unprepare(sp->num_clks, sp->clks);
+ }
+ 
+ static int mtk_nor_enable_clk(struct mtk_nor *sp)
+ {
+-	int ret;
+-
+-	ret = clk_prepare_enable(sp->spi_clk);
+-	if (ret)
+-		return ret;
+-
+-	ret = clk_prepare_enable(sp->ctlr_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		return ret;
+-	}
+-
+-	ret = clk_prepare_enable(sp->axi_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		return ret;
+-	}
+-
+-	ret = clk_prepare_enable(sp->axi_s_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		clk_disable_unprepare(sp->axi_clk);
+-		return ret;
+-	}
+-
+-	return 0;
++	return clk_bulk_prepare_enable(sp->num_clks, sp->clks);
+ }
+ 
+ static void mtk_nor_init(struct mtk_nor *sp)
+@@ -807,34 +776,92 @@ static const struct of_device_id mtk_nor_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, mtk_nor_match);
+ 
++static struct clk *mtk_nor_get_clk(struct clk_bulk_data *clks, int num_clks,
++				   const char *id)
++{
++	int i;
++
++	for (i = 0; i < num_clks; i++) {
++		if (clks[i].id && !strcmp(clks[i].id, id))
++			return clks[i].clk;
++	}
++
++	return NULL;
++}
++
++static int mtk_nor_get_named_clks(struct device *dev,
++				  struct clk_bulk_data **clks)
++{
++	struct clk_bulk_data *bulk;
++	struct clk *clk;
++	int num_clks = 2;
++
++	bulk = devm_kcalloc(dev, 4, sizeof(*bulk), GFP_KERNEL);
++	if (!bulk)
++		return -ENOMEM;
++
++	bulk[0].id = "spi";
++	bulk[0].clk = devm_clk_get(dev, bulk[0].id);
++	if (IS_ERR(bulk[0].clk))
++		return PTR_ERR(bulk[0].clk);
++
++	bulk[1].id = "sf";
++	bulk[1].clk = devm_clk_get(dev, bulk[1].id);
++	if (IS_ERR(bulk[1].clk))
++		return PTR_ERR(bulk[1].clk);
++
++	clk = devm_clk_get_optional(dev, "axi");
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++	if (clk) {
++		bulk[num_clks].id = "axi";
++		bulk[num_clks++].clk = clk;
++	}
++
++	clk = devm_clk_get_optional(dev, "axi_s");
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++	if (clk) {
++		bulk[num_clks].id = "axi_s";
++		bulk[num_clks++].clk = clk;
++	}
++
++	*clks = bulk;
++
++	return num_clks;
++}
++
+ static int mtk_nor_probe(struct platform_device *pdev)
+ {
+ 	struct spi_controller *ctlr;
+ 	struct mtk_nor *sp;
+ 	struct mtk_nor_caps *caps;
+ 	void __iomem *base;
+-	struct clk *spi_clk, *ctlr_clk, *axi_clk, *axi_s_clk;
+-	int ret, irq;
++	struct clk_bulk_data *clks;
++	struct clk *spi_clk;
++	int num_clks, ret, irq;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	spi_clk = devm_clk_get(&pdev->dev, "spi");
+-	if (IS_ERR(spi_clk))
+-		return PTR_ERR(spi_clk);
+-
+-	ctlr_clk = devm_clk_get(&pdev->dev, "sf");
+-	if (IS_ERR(ctlr_clk))
+-		return PTR_ERR(ctlr_clk);
+-
+-	axi_clk = devm_clk_get_optional(&pdev->dev, "axi");
+-	if (IS_ERR(axi_clk))
+-		return PTR_ERR(axi_clk);
+-
+-	axi_s_clk = devm_clk_get_optional(&pdev->dev, "axi_s");
+-	if (IS_ERR(axi_s_clk))
+-		return PTR_ERR(axi_s_clk);
++	if (dev_of_node(&pdev->dev))
++		num_clks = devm_clk_bulk_get_all(&pdev->dev, &clks);
++	else
++		num_clks = mtk_nor_get_named_clks(&pdev->dev, &clks);
++	if (num_clks < 0)
++		return dev_err_probe(&pdev->dev, num_clks,
++				     "failed to get clocks\n");
++	if (!num_clks)
++		return dev_err_probe(&pdev->dev, -EINVAL, "no clocks defined\n");
++
++	spi_clk = mtk_nor_get_clk(clks, num_clks, "spi");
++	if (!spi_clk)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "missing \"spi\" clock\n");
++	if (!mtk_nor_get_clk(clks, num_clks, "sf"))
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "missing \"sf\" clock\n");
+ 
+ 	caps = (struct mtk_nor_caps *)of_device_get_match_data(&pdev->dev);
+ 
+@@ -867,10 +894,8 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	sp->wbuf_en = false;
+ 	sp->ctlr = ctlr;
+ 	sp->dev = &pdev->dev;
+-	sp->spi_clk = spi_clk;
+-	sp->ctlr_clk = ctlr_clk;
+-	sp->axi_clk = axi_clk;
+-	sp->axi_s_clk = axi_s_clk;
++	sp->clks = clks;
++	sp->num_clks = num_clks;
+ 	sp->caps = caps;
+ 	sp->high_dma = caps->dma_bits > 32;
+ 	sp->buffer = dmam_alloc_coherent(&pdev->dev,
+@@ -886,9 +911,15 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 
+ 	ret = mtk_nor_enable_clk(sp);
+ 	if (ret < 0)
+-		return ret;
+-
+-	sp->spi_freq = clk_get_rate(sp->spi_clk);
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to enable clocks\n");
++
++	sp->spi_freq = clk_get_rate(spi_clk);
++	if (!sp->spi_freq) {
++		dev_err(&pdev->dev, "invalid spi clock rate\n");
++		ret = -EINVAL;
++		goto err_disable_clk;
++	}
+ 
+ 	mtk_nor_init(sp);
+ 
+-- 
+2.45.2
 
