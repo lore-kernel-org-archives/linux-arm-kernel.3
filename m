@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20EFC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC773C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9R75c4B3rs0HbxR41cROos6qACJLvEn0XkD6Iroq3k=; b=U1NU1ZdMD9FPKZZpofGGffsLuI
-	+uv0Bpprim0OxOHstU3ejUxnJ+wmIrs0P3O257aAJBnBJHEDibBiy3dVvins+QvSPuOfbpkO3RO7D
-	INjKXem7gpQiHvOfkr2cZqIQFV3ajm5nHNSE7vTWJREkIbdKQfbkD0VdUs4G5Jf7UHplVhyQLmTNp
-	AMW6BqlT3o5mJm67jK1qaaIG/ArHmWh9E4qsszfUE3DlYS3PtPrHSxQKx+gOV2DwN2wWLLMY43Qua
-	qAB1jZLQYe09VqC+5iOqQLvAwEyGwARWXohwp2hQ2ZuPT0u+70gxSaoTy33ddvdcFof3S/SBDLG8v
-	5XDoT/Kw==;
+	bh=yuJ09dY19nMU5wcxIHt6wddh7HIKlNAVB137+0NMIxA=; b=IL0KACo7iuEc8RaA1YZ3q93DgR
+	2dmXLYvRLvdETl1Axy8V9Bp/VKlZmIn8nSMG2CZzCpIlU64QOs0bFdf57yQEfbGjKz7O4brjY9Lw+
+	XUeezvy/4He/EVy5N6PL0a7ySbLvD+MGYBDxMvMKgI2S9h9kuRSMIks1e/Maaw75G8s0UPTMldkcV
+	p83eC6NH/XakrBQeAvGW5XeoDFdTIRsyJLQQBt/coIl39r1wmJ3eObjhJkdIJpKEG4EWi9ejcT6IL
+	ETrO1f3NPvF/yvNdqveZj5dtN+4hswA2phMX/8WVQaEIDIFru/2mAJ8GAhREx1VxJzuAeex4D8gJD
+	/kUdrWqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yS-0000000HSCF-2I3m;
-	Thu, 03 Sep 2026 13:59:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x27yV-0000000HSD5-2bl8;
+	Thu, 03 Sep 2026 13:59:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yR-0000000HSC7-1H9m
+	id 1x27yU-0000000HSCO-13Mr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:59:27 +0000
+	Thu, 03 Sep 2026 13:59:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6ACFF60546;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A2DD6053C;
+	Thu,  3 Sep 2026 13:59:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC191F00A3F;
 	Thu,  3 Sep 2026 13:59:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAE5F1F00A3E;
-	Thu,  3 Sep 2026 13:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788443966;
-	bh=Z9R75c4B3rs0HbxR41cROos6qACJLvEn0XkD6Iroq3k=;
+	s=k20260515; t=1788443968;
+	bh=yuJ09dY19nMU5wcxIHt6wddh7HIKlNAVB137+0NMIxA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CzrLb7FOXo7LE9TEMuSOSpVB1Bk0Syd308DdfBN+D+WxXqIBZmlJZA+P+JT97RuGk
-	 NGli60ocgfW0acoqKWsxvuZf6MaWVynSQS8Xqf69N29HQPF7yOhC2+XBkBTstMZucL
-	 htMuf7dTWabNK+9vb9Bz6ZebYnWRBIqESwPYy1wcYQnhnGSHpCzEg+rsBHHHEZTf0G
-	 tWNZdvZ+tldcU5SnCCjxWE8gdt/Jw9Xk5sdzDBtsoooyZd00tnotF3CyhJWHtbTDD/
-	 UNprbj82ekQUWATlwBIDphH+jcANINIDP+a7v17tsziAPh1BRp1PmAAp+vB8Ty99E1
-	 lr7TobbkZhifA==
+	b=fnGrS1+MxAIWviV6xD291f8jK61LVrxNBOzdoQxxJGgEIvDxL/FRxPlLWWb/n6ZAT
+	 WZ1vOvKwVxf+D7CvaM47JTSA6EZEWeJFfwVh2NZuoZJ7eIbMhOFi3b5XCvYEsW4D2v
+	 eUXhqXo/MTaClj+88RFQvkg4aZnOxFlAKE7IVOFtPLZBaOvjiv/Ix4APwnU7CZ1cdu
+	 1i6/rgzivjGhSR0qBVO4Dh8qYGh2wguJXbB/lwGGKxSJQKXpVrBocMIoOoJCHIVsbc
+	 CS7HRseUb4ItE3OHlwFwnSTfvBWMsImIVFSH3J0koy0QLCKfXK7wVrRx3a2PjXsn2s
+	 OutH9UPO4gwPQ==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Fuad Tabba <fuad.tabba@linux.dev>
+	Khushit Shah <khushit.shah@nutanix.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] arm64: Don't read GMID_EL1 when MTE is disabled
-Date: Thu,  3 Sep 2026 14:59:15 +0100
-Message-ID: <178844061613.4163758.10275612375567336111.b4-ty@kernel.org>
+	Marc Zyngier <maz@kernel.org>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: errata: pass REVIDR when matching target implementation CPUs
+Date: Thu,  3 Sep 2026 14:59:16 +0100
+Message-ID: <178844052241.4162712.13748055327957568318.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260827185937.1369099-1-fuad.tabba@linux.dev>
-References: <20260827185937.1369099-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260831105444.4065831-1-khushit.shah@nutanix.com>
+References: <20260831105444.4065831-1-khushit.shah@nutanix.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,22 +77,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Aug 2026 19:59:37 +0100, Fuad Tabba wrote:
-> __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-> ID_AA64PFR1_EL1, so it reads the register even when the kernel has
-> disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets HCR_EL2.TID5
-> in that case, and pKVM injects an UNDEF the host cannot handle:
+On Mon, 31 Aug 2026 10:54:44 +0000, Khushit Shah wrote:
+> When target implementation CPUs are provided, is_affected_midr_range()
+> accidentally passed the MIDR as both arguments to __is_affected_midr_range(),
+> so the REVIDR mask check operated on the wrong register.
 > 
->   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
->   pc : __cpuinfo_store_cpu+0xf4/0x264
->   Kernel panic - not syncing: Attempted to kill the idle task!
+> Pass REVIDR as intended.
+> 
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64: Don't read GMID_EL1 when MTE is disabled
-      https://git.kernel.org/arm64/c/5445d6419962
+[1/1] arm64: errata: pass REVIDR when matching target implementation CPUs
+      https://git.kernel.org/arm64/c/5541432e09dc
 
 Cheers,
 -- 
