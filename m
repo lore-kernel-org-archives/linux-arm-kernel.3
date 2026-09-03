@@ -4,134 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54923C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD06C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:44:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWerPAyDUDODY4bzH6HwfhgrgXW1pLfFq/LiqQBYcJs=; b=FyU/te0cIcyKTfGqPSKJ0+YL0q
-	CbLecf8TqnKhejRMUn0YhaPXvXTIKLX0hiPzyN7V8o3z9hVMmaCLjQTwUexEhY1QXDp22M+yQo/O5
-	wwBJu5qdPTOEDQ1GHkYWWQDlpTp1SzlldUp1vwHUVGdE8W4xXiB6J1K5YJI498z3lHDNw1J3FiFhU
-	RK48Dh9jCKi0N9rrr6YBli83uxydeDsSR5YTNNW4tOO4lvYOGMmt3Be6NgddInDaWhKNcnc8WOYGG
-	BOhB+Num7QyxRDTzfkDcT2mSti9UExs8bd1BSwMn7naIWh5lKBFPX/m3I7q07WtUG0twPINsXyD8G
-	vLpyCeKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=; b=WoRZ7vmQ3ala9shuvIorqxyJfb
+	P15/gBzoGkzOziUenru2DTVL0qj6+Z+iebNQVPFN0fs3ldYCcwdoUw6WzWmbnWfTwJlnuo4N6Dl3D
+	Iv1xfCWqkeEqTSz7ZyzcekJGtDxrOW/MM0W3Rl9dl2RiGWWmT11zb8faYZYrHvxdP0jJdbQSYNNTJ
+	rNt7AEVY4E6d2KALvYO/ii5dEqxINKR/iKxdKYCZqNu9zfE7qCfCp4GSljr26SYD++jO2zXdTH7lg
+	1oKrklDApkUCQlqLEiuXibs2fLjNhBx8p4oFPZtYUwp9urOmEm45kcDcxoSeb57OOv25xMBpRcgdJ
+	ATUYrTaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29bJ-000000002PZ-0KOm;
-	Thu, 03 Sep 2026 15:43:41 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x29bo-000000002Vt-1HzQ;
+	Thu, 03 Sep 2026 15:44:12 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29bH-000000002Ov-0OLc
+	id 1x29bm-000000002Uz-2FJX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 15:43:40 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683DVYJ73109269;
-	Thu, 3 Sep 2026 15:43:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=DWerPAyDUDODY4bzH6HwfhgrgXW1pL
-	fFq/LiqQBYcJs=; b=qq24X760XG8SoNn1gFX3oshVvnMjFEOOpcHiPJvHzMytMk
-	9A1DdWNuD6WTrMor7DuMsBdoyMWRCWsAIFdY5nfUmh8LRDwQ9nxys+JBwydX44Fi
-	31Y0XmohUmw7JDOre5wCb/be6CgpRNRyxkX7K/drbUnYKkWiowPOTbIIyDMpiate
-	EfuuJwqIggzkhsp15O3EZn2OvxOUxvTJxCGjag/SFGyoXZDEMilrnNWCNiDFIg8G
-	LsuVv9XSBU5aQRC1A2MfqzLJWKUCj0CngpB97bOooDf1JpZspwGuDj9HUrdKFGaF
-	9dC+khEmvnMAKnR7RVE/O2/fLS/HvXYqYZAJB6LA==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq555rf0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 15:43:25 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 683FfOT3022323;
-	Thu, 3 Sep 2026 15:43:24 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcarkgakn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 03 Sep 2026 15:43:23 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 683FhK5L45285742
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 3 Sep 2026 15:43:20 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E201D20043;
-	Thu,  3 Sep 2026 15:43:19 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E5D5420040;
-	Thu,  3 Sep 2026 15:43:18 +0000 (GMT)
-Received: from osiris (unknown [9.111.48.84])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu,  3 Sep 2026 15:43:18 +0000 (GMT)
-Date: Thu, 3 Sep 2026 17:43:17 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v7 23/23] KVM: s390: arm64: Add KVM_S390_ARM64 Kconfig
- and Makefile
-Message-ID: <20260903154317.246414-A-seiden@linux.ibm.com>
-References: <20260831144802.834315-1-seiden@linux.ibm.com>
- <20260831144802.834315-24-seiden@linux.ibm.com>
- <aphMx5hsoXwIpNjt@google.com>
- <20260903083857.33034-B-seiden@linux.ibm.com>
- <apmHrnxRLl9BuVhn@google.com>
+	Thu, 03 Sep 2026 15:44:11 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so127705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 08:44:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788450249; x=1789055049; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=;
+        b=XKWL+v2ZLcGw9LVPNA1/VY7DrFZYj1L4DPGJTDOpW4iPj8xj3BYYfDl40db5crIl+l
+         kD8Wb2Kj1wgeUnEd/lx2TFhKPZnFOyIrS1fcL+FQp0ILzUT8rBeos2P1zjp65z29uN7B
+         GMdin6/YZsUEIW5yazDA71ZXv8hhLBtcE8UNbXoC6PJN7ita+iEyJT/7bH20Zq9ZwIVD
+         /mCOfjCfZv9ZWA94xQgQAAhaKuvsXKTX8m3ZeCVMc8oCP3QMvU7s4jRITZi9VEUKp/yc
+         ic/gm++UDpfla/CYgLnFwVrSBoiG53oVW/6fHQYfZjBxY0azApJCLOMJYhZZhoqAvcZ+
+         B09g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788450249; x=1789055049;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mry3nYNEPrZxqkxatWuTZFq3w4sR1ZqgrHlSjI3OqFs=;
+        b=L0PfXpjQTi8lT32/GlKaL58Phles+wPzWnE1RgrfFrWLTiG8gM7Hu2qL0USa71dSOe
+         tZyT7mFe+yqSRY+L3Qf7dPxOPqJ91x2AtDzaAiVLZOfHn9gC9Z2ZJJjZjWwm0AD47BGL
+         P2AbGZgi/wh17VFPaXt6gYL/gL4zj9nNes6LipAcfQmYdN/TrZLtSfwvUfGkba0ZuLxy
+         M5npQz/Z05LH4XhnTnIxQf2iPbZ2/5Vf4INra9ywhRMrbVhnRZoOZBM1LiTDmIL4J6g7
+         8WQB9gssKXLWWggQaR4tkR3nP1yT9XZgbBQCNjlyY2w5AD+lh+jMXTRDWGJf0v1tDWr8
+         OLsA==
+X-Forwarded-Encrypted: i=1; AKwUvBwSDGJZ3oxqYi0PZOWUtP/3RmOQ9rfSTgNd+goYgCaRRiETCFNKsI30i7VxP+YEYP/+GAzpT5Ri/MBz19MK++yl@lists.infradead.org
+X-Gm-Message-State: AFuF++lRIlx7NiPlxHKM1Bl5cG6mVVCR91Dza+LFBj8vnl5kiVv4qZOV
+	mOhAGFI7rz5bE+nzmdhXEwJOjQPe6qmpun5a5bA2HNKx5ugmjooBMFrn
+X-Gm-Gg: AYBFou29F1ioQ3Z3idFeEn8okAduzJg8wkLHHEm6BvtLDIa+6e+ngzxZ5XfB5qZizxr
+	w4O1FiTOCndc23H0MbVaSwmZpsCM2aHzr41uslpBVyp5n7KXGrn0Pxb2ghbBCkVsWV1QQEACron
+	eoazKYLGJe3shbFNF0727e+++iVTyRn1gE6Qe8SzTNtNZNyfYWu7PbsFxSjLVzEyMUyUavciUNR
+	FDhZA6pm7eZa8nSv/3amazPkHT4bQXSgOkp3hKS+k9LteNcUbf1k03TjiICqoDkeW5Mz+pUXuYA
+	ZVjUiXENTMJdRWAr0fbZbl2swrj5u67PLVL1nj0dIpbdc9BxNSfPIIwj0tyCsytsABUKnXBf8Ex
+	No9AWejnp6QcZw/X1GHevwC4/k2/nBmoTo6cBbL9ii5DD6l9ZsYkLBAdt6PtnxyS5nERINunjTF
+	cPTVYVENpPfZ7T8F1WSdxnWVsFPB0rZOJ7+Agj6+b5VNfxi1YMME7Acd+pU8Q=
+X-Received: by 2002:a05:600c:6c4a:b0:49c:edd8:ba35 with SMTP id 5b1f17b1804b1-49cf5baafc7mr14910805e9.6.1788450248541;
+        Thu, 03 Sep 2026 08:44:08 -0700 (PDT)
+Received: from localhost ([5.83.201.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce47b9817sm121063135e9.1.2026.09.03.08.44.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 08:44:07 -0700 (PDT)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] wifi: mt76: mt7996: Fix spelling mistake "retriving" -> "retrieving"
+Date: Thu,  3 Sep 2026 16:42:04 +0100
+Message-ID: <20260903154204.20872-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <apmHrnxRLl9BuVhn@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDEzNSBTYWx0ZWRfX+tCRhA6sSIdG
- wH3YsOZWUu6AQ/wbZMy8/8ghxOMLr1JxUYI+F1OuGF3kGMSyFosb1yyEw0Y7SkcdnViRSIGYST3
- ZKzsuk/yTqkbV86fiBlmnquLGrE/lVjUqJoxxitxftnkHOk9tg0lf6UwUpP94HGjN1haIu/bhvZ
- vOjQqtsKKo3dH3KxPYftRTR6hCAXVZpNywqL9ZPSpumpJiusj9HVTq0eQdDyz3eQ1Y+gGxJro8l
- V2dWzLn9xp09A0JVmcSAwV5VZkpGjRK8hm3znkN8FXKMdHOmzNczDGuN9kP/yvuCNwH57VbneZM
- WEDh5Ny5+ief11kwh0eU7+kEY7iwpp9c1n+1CClsNVzgNsl+fZbs6Pd5fvFvzq6se5TMWk43mLh
- uszJimiwEQpCccZNeyi83N0rlUhjKo2WddPiM755LR8fWAqvO5pRdcfFJgQxorwDdCF16OL+1fQ
- UEO/8fVhwbjCETjz5gQ==
-X-Proofpoint-ORIG-GUID: 6z-LCHu0Gt_XtkyXQSEc2p12x2-m7GXw
-X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a99959d cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=Jmw6T6Sfydnll6L029oA:9
- a=_V_nbmSO25lDuQpK:21 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: 06nC8yppQ2lADCC-CvXlhYKMn3c0SHeb
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDEzNSBTYWx0ZWRfXwZdhsr6ocdVw
- ZR7eud7oQqfLtMVdQYGpum3xVFBPSPw1xK66LdD+ib0PYULKbLIrhBbbCd9swU012WkLAvvNJ10
- yXfvzYmcZAkKdMmaJwVBzlHe/P2gUkw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_04,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
- priorityscore=1501 clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030135
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_084339_138386_DA4EA7C5 
-X-CRM114-Status: GOOD (  57.24  )
+X-CRM114-CacheID: sfid-20260903_084410_590354_119FE78A 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,174 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 07:43:58AM -0700, Sean Christopherson wrote:
-> On Thu, Sep 03, 2026, Steffen Eiden wrote:
-> > On Wed, Sep 02, 2026 at 09:20:23AM -0700, Sean Christopherson wrote:
-> > > On Mon, Aug 31, 2026, Steffen Eiden wrote:
-> > > > diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
-> > > > index 8d3ee17a1bcb..9c69ea16031e 100644
-> > > > --- a/arch/s390/kvm/Kconfig
-> > > > +++ b/arch/s390/kvm/Kconfig
-> > > > @@ -53,4 +53,33 @@ config KVM_S390_UCONTROL
-> > > >  
-> > > >  	  If unsure, say N.
-> > > >  
-> > > > +config KVM_S390_ARM64
-> > > > +	def_tristate y
-> > > > +	prompt "KVM support for hardware accelerated arm64 guests"
-> > > > +	depends on HAS_IOMEM
-> > > > +	depends on KVM
-> > > 
-> > > Is this actually necessary?  I.e. does kvm.ko need to be *loaded* in order for
-> > > kvm-arm64.ko to be loaded?
-> > > 
-> > > If kvm-arm64.ko does indeed have a hard dependency on kvm.ko, then I think it
-> > > makes sense to not have redundant "select" statements below.  As an outsider,
-> > > it's super confusing because the KVM_S390_ARM64 are incomplete, e.g. are lacking
-> > > things like VIRT_XFER_TO_GUEST_WORK (at least, I assume those are lacking), and
-> > > makes it hard to see what is actually unique to kvm-arm64.ko.
-> > > 
-> > > If kvm-arm64.ko doesn't have a dependency on kvm.ko, e.g. to initialize hardware
-> > > or something, then this "depends on" should go away.
-> > 
-> > 
-> > It is a bit more complicated unfortunately. KVM_S390_ARM64 depends on
-> > KVM as there is code around in the kernel & drivers (arch and common)
-> > which depends on CONFIG_KVM we need as well. I did not want to leak arch
-> > local configs to common code if I can avoid that.
-> > I could change it to select KVM ? Do you have another idea on how to
-> > solve this issue?
-> 
-> I would do something similar to what KVM x86 does.
-> 
-> > The two modules are completely independent at compile and runtime. So
-> > kvm does not have to be loaded for kvm-arm64 to work.
-> > 
-> > VIRT_XFER_TO_GUEST_WORK is only lacking for now. I will add it later.
-> > Currently the kvm-arm64 module is incomplete anyways but I did not want
-> > to send a 60+patches series and rather stage the introduction over
-> > multiple series.
-> > 
-> > I will remove the duplicated config selections. Thanks for pointing it
-> > out. In previous series I had an explicit KVM_S390 config. Both KVM_S390
-> > and KVM_ARM64 selected KVM. But this created too much churn around the
-> > whole tech-stack 
-> 
-> LOL, what exactly are you expecting to happen?  You're trying to squeeze support
-> in for a completely different architecture, of course there's going to be churn.
-> 
-> This absolutely needs to be as precisely and correct as possible, otherwise it'll
-> be painfully difficult to maintain,  And to some extent, just for others to review.
-> E.g. as is, it's at all not clear to me which of the IS_ENABLED(CONFIG_KVM) checks
-> in arch/s390 apply to both flavors of virtualization, versus which are specific to
-> "native" s390 virtualization.
-> 
-> I realize this is outside of my immediate scope, but getting this "right" isn't
-> just an s390 thing, because these details bleed into common KVM, and even affect
-> other architectures, e.g. when trying to make "treewide" KVM changes.
+There are multiple spelling mistakes in dev_warn messages. Fix them.
 
-I want to find the 'right' way as well - any ideas are welcome.
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/npu.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-> 
-> And FWIW, while it might seem daunting, from my perspective it's not actually that
-> much churn to do things "right".  Provide KVM_S390_NATIVE, and then have KVM reflect
-> the "weakest" of S390_NATIVE vs. S390_ARCH.  I.e. make KVM=m if either of the "real"
-> KVMs will be a module.  That requires some creative shenanigans, but it's not hard,
-> just weird.
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+index b8006b8729a1..3fb9f39c2f61 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+@@ -283,7 +283,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan rx ring0 addr\n");
++			 "failed retrieving NPU wlan rx ring0 addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND0].regs->desc_base);
+@@ -292,7 +292,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan rx ring2 addr\n");
++			 "failed retrieving NPU wlan rx ring2 addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND2].regs->desc_base);
+@@ -302,7 +302,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan msdu pg ring addr\n");
++			 "failed retrieving NPU wlan msdu pg ring addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND0].regs->desc_base);
+@@ -311,7 +311,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan msdu pg ring addr\n");
++			 "failed retrieving NPU wlan msdu pg ring addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND1].regs->desc_base);
+@@ -320,7 +320,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan msdu pg ring addr\n");
++			 "failed retrieving NPU wlan msdu pg ring addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_MSDU_PAGE_BAND2].regs->desc_base);
+@@ -330,7 +330,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan ind_cmd ring addr\n");
++			 "failed retrieving NPU wlan ind_cmd ring addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_IND].regs->desc_base);
+-- 
+2.55.0
 
-FYI the first versions of this series had a 3 configs approach very
-similar to yours. 
-
-IIRC it was not so much the churn we have in (upstream) kernel code but
-more on the distro side and to everyone building the kernel in their
-favourite architecture (s390 :))
-Suddenly the KVM config changed its behaviour (effectively becoming a noop)
-
-I am starting to think that having no separate config option for arm on
-s390 might be the easisest way. Just KVM and guard both modules behind
-it. It reduces the config space bloat and I do not see a reason why somoeone
-should only compile one KVM module but not the other. kvm-arm64 won't
-load if you do not have the hardware anyways.
-
-But I am not opposed to the x86 approach. Just thinking loud.
-
-Anyways, I am off for vacation expect a reduced reply frequency from my
-side :) 
-
-	Steffen
-> 
-> > (default config change, s390 is the odd one out for the KVM config meaning, ...).
-> 
-> Nah, x86 is the odd one, where CONFIG_KVM=m doesn't even guarantee kvm.ko gets
-> built :-)
-> 
-> E.g. something like this, which probably doesn't compile and isn't the desired
-> end state, as several of the Kconfig selections need to be reworked into #defines
-> provided by header files, but AFAICT it does what I want/intend.
-> 
-> config KVM
-> 	def_tristate m if (KVM_S390_NATIVE = m || KVM_S390_ARM64 = m)
-> 	select HAVE_KVM_CPU_RELAX_INTERCEPT
-> 	select KVM_COMMON
-> 	select HAVE_KVM_IRQCHIP
-> 	select HAVE_KVM_IRQ_ROUTING
-> 	select KVM_VFIO
-> 	select VIRT_XFER_TO_GUEST_WORK
-> 
-> config KVM_S390_NATIVE
-> 	def_tristate y
-> 	prompt "Kernel-based Virtual Machine (KVM) support"
-> 	select KVM if (y && KVM_S390_ARM64 != m)
-> 	select KVM_ASYNC_PF
-> 	select KVM_ASYNC_PF_SYNC
-> 	select HAVE_KVM_NO_POLL
-> 	select KVM_MMU_LOCKLESS_AGING
-> 	select KVM_GENERIC_PRE_FAULT_MEMORY
-> 	select HAVE_KVM_INVALID_WAKEUPS
-> 	help
-> 	  Support hosting paravirtualized guest machines using the SIE
-> 	  virtualization capability on the mainframe. This should work
-> 	  on any 64bit machine.
-> 
-> 	  This module provides access to the hardware capabilities through
-> 	  a character device node named /dev/kvm.
-> 
-> 	  To compile this as a module, choose M here: the module
-> 	  will be called kvm.
-> 
-> 	  If unsure, say N.
-> 
-> config KVM_S390_UCONTROL
-> 	bool "Userspace controlled virtual machines"
-> 	depends on KVM
-> 	help
-> 	  Allow CAP_SYS_ADMIN users to create KVM virtual machines that are
-> 	  controlled by userspace.
-> 
-> 	  If unsure, say N.
-> 
-> config KVM_S390_ARM64
-> 	def_tristate y
-> 	prompt "KVM support for hardware accelerated arm64 guests"
-> 	depends on HAS_IOMEM
-> 	select KVM if (y && KVM_S390_NATIVE != m)
-> 	select GUEST_PERF_EVENTS if PERF_EVENTS
-> 	select HAVE_KVM_VCPU_RUN_PID_CHANGE
-> 	select HAVE_KVM_IRQ_BYPASS
-> 	select KVM_MMIO
-> 	select SCHED_INFO
-> 	select XARRAY_MULTI
-> 	help
-> 	  Enable support for hosting virtualized, hardware-accelerated arm64
-> 	  virtual machines on s390 systems using the Start ARM Execution (SAE)
-> 	  instruction. This requires hardware models that support the Arm
-> 	  execution facility (AEF).
-> 
-> 	  The module provides a character device named /dev/kvm-arm64 to expose
-> 	  the hardware capabilities.
-> 
-> 	  To compile this driver as a module, choose M here. The module will
-> 	  be called kvm-arm64.
-> 
-> 	  If unsure, say N.
 
