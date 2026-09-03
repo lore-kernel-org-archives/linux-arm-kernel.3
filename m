@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DAFC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB99C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=; b=JnOZimLJWrp3HLMQWPscketbw8
-	9Q8L/crk+21qujwRFPFJoso5DsEL5zAVoOFngG+9xCo6Mwha+cBrO0BZuW4zKPnlOQfOs7u+SL7RX
-	MN9wYenQ0FUD9KfzM7y0Z/4Nqqc865YMvFJSk4Zlp3Vqo6fLu4l9yOYssTF2Srwt7f7lzf5YkLB/U
-	Fe64D/pacAyqzecAQ1G/oWLjOH9L95Xi9FWL2lP4xzvCXgKAkYkHSPGNtBJ2L1FdYg/sPlPo1iigl
-	cR0b6/IattdZIhi2NGSURarrd+Ch/Sfn64Kq7eLmE4Y4OFQLf+B6/aEOjHKUVU4Dg78HwnYFksodj
-	2SRU6Fnw==;
+	bh=Jn4fU7y77lECs7I6hTxfYjF0J9XYYojKqt6y7PNxEWI=; b=W06RjhPC9kITbD0omJZQnGfxGe
+	8/ns5oa9AMUsEPBAqINMNuXFEmKSjrk2wakk6nNsByZvx8RBWwoZU9a9X2x0tA4Tv1Fq1OWiJCZgC
+	JoL1EWlEPDPmG3FqC4WQSl8E3Dxv6Ql8yUsjGPDCAOj7kjN1uvlBZN1qbcaPaBAmqUu4Y934eJ/+l
+	e49rI0PUoi2+MN+r0du0Rwhyl8O0wMRuoh1udkQ9TRC+aOdleTlQhHkvrZAMWXwvPoYdAi8rTD9At
+	/nrpMxYpnPyTlt9HNjbgBj9+e2oqnaORXtJogYfNUjj973ek4hjEpaqiXY/mdr7DXaZKy/uRRAwz5
+	2z5t7hkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EVu-00000000bDR-1gNU;
-	Thu, 03 Sep 2026 20:58:26 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1x2Eh3-00000000byV-4Bl7;
+	Thu, 03 Sep 2026 21:09:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EVr-00000000bCI-0f9o;
-	Thu, 03 Sep 2026 20:58:24 +0000
-Date: Thu, 3 Sep 2026 22:58:19 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788469100;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=;
-	b=B7/WRPfBfjfmwBzOzIgig7Kl95rP6c+s5VisJc0Zey7gf3liJKOgu5BNMObp3Uhh732l5B
-	LEwMz8J6Osovp+XoQgAwBODrbmV9kC9WC/xbaZgUCPz3x1IFu9nbq18DRnK4IqebrUhjBw
-	k2RVUQSLvuZo1sx0raqyS1dyh9vs9vAhDdqxNq93GDY3+ydadlr1ODfs2qYymFKPc58NnC
-	CaXPcaNL8t9USO7AjKV9O84+mV6V1ugRIVp46WNZfVpqTw3CBJfPHxbzd3JJsP0Tziet7C
-	3JD3DJ7qUDDaOmjxSd4xnBNyj6WQv2PHQ8nc4SeM96pWMKfUEwAJr/8OnDvJyg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788469100;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W477L/II8FxU5jV4Gwnwh9dbk0oImJX38o52mJuSnwY=;
-	b=VZrSnuTuOcjcBb6FSC5SVK0IX0F+vYHhmZrg0oqoQfFwXMGoqCA1uMo6zOoDdbzJ4NE80Z
-	hxzivuQsfZk9+qDg==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
- interface
-Message-ID: <gzc6sljogjijrlz5jdwxbbf352xigfpuaxeo542zcsq72dncqb@lltv7los5lie>
-References: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
- <20260811-bcm2712-spi-v1-2-4c1708d354bb@linutronix.de>
- <apmfqyeWahoR0wab@apocalypse>
+	id 1x2Eh1-00000000bxs-14sY;
+	Thu, 03 Sep 2026 21:09:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Jn4fU7y77lECs7I6hTxfYjF0J9XYYojKqt6y7PNxEWI=; b=rHE/PaMWwEQJHJqpiFRbjAmxov
+	H82kIeKRs6/bXHDWJZNT8gfDziefluhXSWk/oBJu/qlFwhCD18Nh3jpgb1kEi3igslJvIgl1cVTk7
+	k6xcPxk3f5gGof/gUfxFZanoLSh3VrFmtnqabn2OiJU17+yWOjWEWXQCJzz1YHRtZ5qp3riHreGUR
+	8ZN0ET0Xg6UWBWpKSjcmvW+Y0SfufXtWdVP+Ii/P3x6FlRnQuwKECbRrqu3Z0o/cljfeES/ZLghaM
+	kx5hpxb3paAjFaq4DWpgMgIamX8cTLBzKYtnJNsCeQVBmsfi5qdrutLeYpQliXhI+HmjGSsnNPHBW
+	/li1+feA==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Johan Jonker <jbx6244@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ =?UTF-8?B?SMO8c2V5aW4=?= BIYIK <boogiepop@gmx.com>
+Subject: Re: [PATCH v2] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc()
+ API
+Date: Thu, 03 Sep 2026 23:09:38 +0200
+Message-ID: <4592222.hdfAi7Kttb@diego>
+In-Reply-To: <afde7cfa-bd1e-40d2-9315-d3d88abb7606@gmail.com>
+References: <20260824-drm-v2-1-7f9273c6020b@gmail.com> <2814844.6tgchFWduM@diego>
+ <afde7cfa-bd1e-40d2-9315-d3d88abb7606@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <apmfqyeWahoR0wab@apocalypse>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_135823_360090_D8CED01D 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20260903_140955_317987_FB322C87 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 06:26:19PM +0200, Andrea della Porta wrote:
-> Hi Gregor,
-> 
-> On 18:04 Tue 11 Aug     , Gregor Herburger wrote:
-> > The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
-> > Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
-> > the spi interface.
-> > 
-> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> > ---
-> >  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 16 ++++++++++++++++
-> >  1 file changed, 16 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > index 0fc57e72632ed..81aec81c5ce12 100644
-> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> > @@ -69,6 +69,14 @@ usb_vbus_default_state: usb-vbus-default-state {
-> >  		groups = "vbus1";
-> >  	};
-> >  
-> > +	rp1_spi0_default_state: rp1-spi0-default-state {
-> > +		function = "spi0";
-> > +		groups = "spi0";
-> > +		bias-disable;
-> > +		drive-strength = <12>;
-> > +		slew-rate = <1>;
-> > +	};
-> > +
-> >  	rp1_i2c4_default_state: rp1-i2c4-default-state {
-> >  		function = "i2c4";
-> >  		groups = "i2c4_2";
-> > @@ -94,6 +102,14 @@ &rp1_i2c6 {
-> >  	pinctrl-names = "default";
-> >  };
-> >  
-> > +&rp1_spi0 {
-> > +	pinctrl-0 = <&rp1_spi0_default_state>;
-> 
-> Is there any reason to avoid defining the CS pins as pulled-up gpios
-> in the rp1_gpio node and then referencing it in pinctrl-0?
-No there is no reason for this. I will try it and send a new version.
-> Something like thie following:
-> 
-> rp1_spi0_cs_default_state: rp1-spi0-cs-default-state {
-> 	function = "gpio";
-> 	pins = "gpio7", "gpio8";
-> 	bias-pull-up;
-> };
-> 
-> &rp1_spi0 {
-> 	...
-> 	pinctrl-0 = <&rp1_spi0_default_state &rp1_spi0_cs_default_state>;
-> 	...
-> };
-> 
-> 
-> Many thanks,
-> Andrea
-> 
-> > +	pinctrl-names = "default";
-> > +
-> > +	num-cs = <2>;
-> > +	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
-> > +};
-> > +
-> >  &rp1_usb0 {
-> >  	pinctrl-0 = <&usb_vbus_default_state>;
-> >  	pinctrl-names = "default";
-> > 
-> > -- 
-> > 2.47.3
-> > 
+Hi Johan,
 
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+Am Donnerstag, 3. September 2026, 22:44:57 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Johan Jonker:
+> On 9/3/26 17:12, Heiko St=C3=BCbner wrote:
+> > Am Montag, 24. August 2026, 12:21:19 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Johan Jonker via B4 Relay:
+> >> From: H=C3=BCseyin BIYIK <boogiepop@gmx.com>
+> >>
+> >> The function devm_drm_bridge_alloc() is the new API for allocating DRM=
+ bridges.
+> >> This conversion was missed during the initial conversion of all bridge=
+s to
+> >> the new API.
+> >>
+> >> Signed-off-by: H=C3=BCseyin BIYIK <boogiepop@gmx.com>
+> >> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+> >> ---
+> >>  drivers/gpu/drm/rockchip/rk3066_hdmi.c | 8 ++++----
+> >>  1 file changed, 4 insertions(+), 4 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/=
+rockchip/rk3066_hdmi.c
+> >> index f28d6a883e09..39c65ee07caa 100644
+> >> --- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> >> +++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> >> @@ -703,7 +703,6 @@ rk3066_hdmi_register(struct drm_device *drm, struc=
+t rk3066_hdmi *hdmi)
+> >>  			 DRM_MODE_ENCODER_TMDS, NULL);
+> >> =20
+>=20
+> >>  	hdmi->bridge.driver_private =3D hdmi;
+>=20
+> Can this be removed?
+> See link/comment below.
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
+that is what I meant. bridge.container holds the same information and
+bridge.private_data is not used in the rk3066_hdmi driver at all.
 
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+So if some future function needs to access the struct rk3066_hdmi it can
+do so via the container field.
+
+
+> and hdmi->bridge.funcs are redundant by this change?
+>=20
+> Not redundant, just funcs are attached in a common function __devm_drm_br=
+idge_alloc()
+
+that's exactly wat I meant. As they are attached already in the common
+function, there is no need to do it _again_ in rk3066_hdmi_register()
+
+>=20
+> Please advise what changes are needed?
+> RK3066_hdmi is broken since somewhere 2025-05.
+
+So both should be dropped.
+
+Heiko
+
+
 
