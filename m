@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88661C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2610EC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 12:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2v0qNgBoH1TXRaPo8shpK7bVX+93ymH+IULfi7N/1i8=; b=VROjqIwJ2gbF4o1iqgngbr0p6G
-	JD2R+4TkvkRcgLAxCv52DMK3OLm5MKtNrNVhTfoEbeiEKQZkqHghTs/WUKa8EckOW0PcVx08ICDsE
-	5zuj11y+xsLSPaSte02XuzI099lImShmvblAx7n1aZOcJCKjNcMNhmOpJgNpxlwlxAHEVvG8lt5mV
-	hUyj8SVjblIv0yVaIk9nPivG/FHvdc/e1qI8G4RRNXBS2XHe8p4HLIDZEqqQio/avJTNfyQee9RNS
-	TG6Duy4u8tPQfByWGhIyQZWbIxM52dfREo9HR/nO5FqV+1sGgK05DMtEuZk0G/4K5L3h9jIAhzCgf
-	Jl8mpRdw==;
+	bh=qbzsY/FQUhuAGeeioamOWte0zZ4sj9lGHGXUa9x4qgM=; b=IGTBrMIODm3X1xLNdL198nsOpb
+	ehE39SeNHuuCIWvDmXp6GFx2XiRD1FJpI8CPcD9nzBKd2dIvTwt80+w17O8hLlhxGYyRD2xFMLnZY
+	0KwIBd7dy16JBu4OTdD7ijZdnqGzsK1YGEQG2Ja+U6agkq74C2IlILJQ4Yy0f9Z+N/7RUDeW5W4aj
+	TXKMC9TGf/tqCwS1SIDviVOOThEqtKLRZK2xq/Ry4kSovExO91SPztgoR0FCsRAYhzUorWY5HaevR
+	5vpGR2WsoChtiZGriGAjBoNY5qu3NkQqFaDZRS8L1v6CHm/ObeaVJi464+NXj/yHO1TPELXT5MwXD
+	UwyfbJ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kK-0000000HKBH-2M86;
-	Thu, 03 Sep 2026 12:40:48 +0000
+	id 1x26kN-0000000HKEY-3afS;
+	Thu, 03 Sep 2026 12:40:51 +0000
 Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x26kH-0000000HK7M-0i02
+	id 1x26kJ-0000000HK9K-37kx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 12:40:46 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47fe89fb333so1509790f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:44 -0700 (PDT)
+	Thu, 03 Sep 2026 12:40:48 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so2208378f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 05:40:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1788439243; x=1789044043; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1788439246; x=1789044046; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2v0qNgBoH1TXRaPo8shpK7bVX+93ymH+IULfi7N/1i8=;
-        b=USHAShhR5zao2hVWbqT59YMX1NuNfRx1Sk0w8SmVOSsDwXXmVi0HIr+rQqqt2gYX1r
-         zcdV8LhtmYt1FxVJypmcGBUVKGDC55hgKcAKip4NHAWtYtplVpJyz96JgZo//XRUi2um
-         6PW2tuPvrNgP22b5n1arUUN3/D+k2qM6hOpsvBIkPcjF9tI0gFZrTSFaeDxmdFQtXR4n
-         WSTYfcvAUYBCIHxm3qB01SgD3cpWKqw10rX0xhetXdZS0mJi5jjz86hTly0b18MZlSAu
-         /h4vUmH21JBl88KpfH5fGXzOC6sc+1bK/J9730PFvLZ607yjpMgPzBwiRad/tt0GA6+w
-         mq/w==
+        bh=qbzsY/FQUhuAGeeioamOWte0zZ4sj9lGHGXUa9x4qgM=;
+        b=A+amMOtwTQ6lBruwh7/dU2lVfdKx+T09sEPTlVSCgCvVG+9g8fwKF1WeoK3/VmnPbl
+         NoY59rlKX1HdMPmT81OnGil6RrO/Fc2LSsdiaMujOmAQnIJnY+0rg7JrMmsM3JgFK0Zs
+         /B75BuGdEhAdayXQXnk11HfRFYuj5WzeJmaGlVzFx7Eabqgg1ZIGucZPv2sXkNboTJOT
+         yTfTaUIoC1cdsU3uxEH6oFHZR96Ra8Nwls1nZ+9iCcrVJIJw4sbPhZEJkLisMmjiF27d
+         yTVlU93HARLRw0VK2PBywQ0bF/3oWnmOPilyvRVwvnvsAROioxsItCfiqlMHHjqo9rvM
+         EqOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788439243; x=1789044043;
+        d=1e100.net; s=20251104; t=1788439246; x=1789044046;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2v0qNgBoH1TXRaPo8shpK7bVX+93ymH+IULfi7N/1i8=;
-        b=OYV/amQj2DIjFwWOzX74bXvX45Z6yEmCKoa5+TbhmdWrDVvmJidg5jXaUPV1rSUJgb
-         84zy5UCL/bRVaMsomNiSzUsgR8V37ZQpBSufIt+7/W1zcHBv8u3tNknrxIk1v+vaI/J7
-         fWAwnyjlgUCZoyk2MIygLzYdX8eJskEoCqIUYNwHHocBJl7O64TfVNX8J2W9+tSSv7Lt
-         VlCkHXeP57/l2tGZAT8B6Qo2uCZ1LBOzRocHPmLHDp6I2MLpdZD1NeJdXn6xVG+ocAoB
-         eUYt9kKBk/E/Wsn6b4l96d8/Yox8n6ZLVJnrXHwG84XDo6jaGyZKie+DRA4mSmvRYStR
-         kQqQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxIO1PhfrhXlWoIDstHqYEuGD3WTWxd1lvi7eE6HUl4qmoBJLi40eD2O1mauTJ07xh9PDz9t9EpyNRqR6Ln7ouW@lists.infradead.org
-X-Gm-Message-State: AFuF++kSJoEfsgpdwydYhI2VDgiro4Dnk++5OX0uRKODWrhwEiYdghV/
-	k/hOZ7+mfQnVu/Q4UKmqhCpL74wPnprl85/rRQ+NXaSMZH37BH9hj49Z8WZ5pQ77XZ4=
-X-Gm-Gg: AYBFou2OCS2GPYZWXpwjoE2s99glJ78R14Unc0NXnZ4DOzMKM9M2+BNBXa6i7Qd2f+T
-	9GSa/nPl+HrVMIp9Qunf4Qhe3AGjPNUYgTb44/IX+3mASB/ocOJ4x9mSj8J8ioXI6YU3Tuur/k0
-	uGOlrSsf+ZsYssh0pgsaAM+bi/Tkx5UvP3kHLkIqb1zO5EcwnGGaYdooIW4D95of1kz+Fj323AS
-	s/rvLHrnIzOAJGytQl58hNwPEWedfP7k1xx42OBzpt3iGhARjHh45TrFooXXIsszHPwy6Rj/t9Q
-	nL72AcGUi4MNvfqEoDWvSlT8Sh0CB460i/CiGVZaK5VdcV8aS11W55kiLw1GKqlkc2mG8hk/NY7
-	YhsTA7hqM51IHSJh+WvVnOqCoBkG4Gb1e4PgKLYt/MDMx2YvbsXClfcL55QtVClksV6RJmzqR8z
-	l9FYXikrijxMKCWZU5fGM5SsLjvUpuf9ozNLtAAZ3RQholoqXkBLDm4kZJHQ==
-X-Received: by 2002:a05:6000:41d8:b0:484:3621:6341 with SMTP id ffacd0b85a97d-484913b97fbmr25937634f8f.15.1788439243626;
-        Thu, 03 Sep 2026 05:40:43 -0700 (PDT)
+        bh=qbzsY/FQUhuAGeeioamOWte0zZ4sj9lGHGXUa9x4qgM=;
+        b=N2tZcS64xfqbBXMkO6okYExBWGqqvFv7yGzpWJP2XdPA4uWrxaoLP4KsYo+Cybuvyn
+         uNReSBjB31MtSIWY+SvZsyi3XQDmBTv7D1irnX93g6+RBeD2jaYU1y8zoFlzpBYSUjkF
+         JE3jy/aLI/Em5pR72IOCKqZFOr3ctKVmINxGHVBOHNmLb2SUziWuKR6Y9Dk6qrzRo0CB
+         DAhFH79We1VFu26diFEGiQGyaa/SJ84UPLwzngQZ6Qtypn+vVBqCd1Sh2/GEkCGvZsng
+         O8wHNbZsjQ4Y3NKVBKtXvLq2IncCOVGpSD0UTwBRfJPJBhSYfcPESJOcFZP9kaKpGD0e
+         Ip2g==
+X-Forwarded-Encrypted: i=1; AKwUvBwmf4j5Q+/JCXkBo5BzOrq/ezisJktePGi7+q2AUwhJE2W6O/uoDNK6RVcGR5EqqWuHT4sSn0vLKq4R89/HYtgI@lists.infradead.org
+X-Gm-Message-State: AFuF++nvXvfsHHpNgpeUkjHRZVgLw8SWIfZFlSndIRy0G5++QdDlf68R
+	LOMr1vxy9rMLs+JToyP4r5WQOrqINP6g6cxv0caJRG2VulApmr+jS14gbPsR8x5Voks=
+X-Gm-Gg: AYBFou32yoq2xhYnh4Re3/9wBhGLQ8gGhts978JSd3daNHCseuaW9Vbiyn/O0TOVCXL
+	lXrIRh159q1SM5CxxB9ZS+JdkxVPWnJ4ImUV0OH4bdmJtfgACjb+mUxjj3IUujjZtdiL58z4rgb
+	Y9d4iqCNvRsana/ezYcrJ348+4pBTWXLmJVmDSYAZrWFh6/CPzYO9f2GFP3Stb4RpyDt+EsaKIK
+	rD41Pak7KTGWmT0Coyq1qMhTV5IWM1mXBWMvnU3mKMDUCqnJzOWBc07naK5gJuvs7LlJQxF8z9J
+	gm0Zqv8MRlU0mjP2zHGdIM/dy27j+5/iK5gxITZFD1A63d9ZdlhwnRHgh2cqeqvgwT8P3FXCvts
+	xxw736arr6peI/WllU76BHAfa1c/6wOambqsoK1Y0th1v8hT6QqkY05yrDc51m52xINRfHXqItj
+	5sOrnRPU4S0eTbiAVGtjExbgEHxz1a1z9fo2Lmmp+1Zv+Psib5jVpHFLxj7g==
+X-Received: by 2002:a05:6000:4913:b0:483:ca4a:504b with SMTP id ffacd0b85a97d-48488dfa19fmr24924311f8f.7.1788439246099;
+        Thu, 03 Sep 2026 05:40:46 -0700 (PDT)
 Received: from localhost ([2001:4090:a244:80d4:4373:6c2f:4372:b8ac])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48448e7fddbsm12989384f8f.11.2026.09.03.05.40.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-484492ce236sm15801863f8f.35.2026.09.03.05.40.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 05:40:43 -0700 (PDT)
+        Thu, 03 Sep 2026 05:40:45 -0700 (PDT)
 From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Thu, 03 Sep 2026 14:39:27 +0200
-Subject: [PATCH v8 6/9] arm64: dts: ti: var-som-am62p: Fix wkup R5F memory
- region size
+Date: Thu, 03 Sep 2026 14:39:29 +0200
+Subject: [PATCH v8 8/9] arm64: dts: ti: k3-am62p: Split r5f memory region
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-6-74c650dfdea6@baylibre.com>
+Message-Id: <20260903-topic-am62a-ioddr-dt-v6-19-v8-8-74c650dfdea6@baylibre.com>
 References: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 In-Reply-To: <20260903-topic-am62a-ioddr-dt-v6-19-v8-0-74c650dfdea6@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -101,17 +100,17 @@ Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
  llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
  "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1471; i=msp@baylibre.com;
- h=from:subject:message-id; bh=ZwJXMA+1QA5TucBLp3r/RzMpy1IYlsUW+V3ZnaKwxIY=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWYvKTfdd5hBzeW4ieFW+qNR3z9lQ5qnZXP17jQyd5
- tzz33yjo5SFQYyLQVZMkaUzMTTtv/zOY8mLlm2GmcPKBDKEgYtTACYSU87wz/jCsTNnDzlIzmWQ
- UX7RohDwqKEkcu5ygxm3Nyx7aP8z4wDD/0Lt3VXK/InqnK/+Sy6e/ffjY/vz0WZP1qg8u5DtGfX
- TkwEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5362; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=UUUoF3s09RiDXoX7/gGcmRjq03IW0OJaVw01lmbJgnU=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhqyZWTtcb6sWKt+6nOdyegdripPis9Mz+2UUvp6Ya2D1L
+ bDy0C72jlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZjINXmGf9aRNX/nbWq2MHzV
+ bltuy8X73jXshHDLXF4VtZPLlgT9yWNkmLhVJmwGyx7zXYq7O1fsPl58PWPWh3DLX0e0Z/beaJn
+ rxwsA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_054045_251805_771A59F1 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260903_054047_821119_B1D12DF0 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +125,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wkup_r5fss0_core0_memory_region was reserved with
-0x01e00000 but the MCU SDK linker for the wkup R5F firmware on
-AM62P defines the DM code/data DDR footprint differently:
+Split the firmware memory region in more specific parts so it is better
+described where to find which information. Specifically the LPM metadata
+region is important as bootloader software like U-Boot has to know where
+that data is to be able to read that data.
 
-    /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
-    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B63000
-
-which results in an end at 0x9e608000. For this memory region which
-starts at 0x9c900000 this means a length of:
-
-    0x9e608000 - 0x9c900000 = 0x1d08000
-
-Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: 571562e76458 ("arm64: dts: ti: Add support for Variscite VAR-SOM-AM62P")
 Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi      | 10 ++++++--
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi        | 28 ++++++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            | 28 ++++++++++++++++++++--
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi      | 28 ++++++++++++++++++++--
+ 4 files changed, 86 insertions(+), 8 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+index 5d7f701420e2..84dfbfd1986c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+@@ -44,8 +44,14 @@ &wkup_r5fss0 {
+ &wkup_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+ 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+-			<&wkup_r5fss0_core0_memory_region>;
+-	memory-region-names = "dma", "firmware";
++			<&wkup_r5fss0_core0_ipc_region>,
++			<&wkup_r5fss0_core0_lpm_fs_stub_region>,
++			<&wkup_r5fss0_core0_lpm_metadata_region>,
++			<&wkup_r5fss0_core0_lpm_rest_region>,
++			<&wkup_r5fss0_core0_dm_region>;
++	memory-region-names = "dma", "ipc", "lpm-stub",
++			      "lpm-metadata", "lpm-context",
++			      "dm-firmware";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 8a5ff5c45757..45ab9d947b3a 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -168,9 +168,33 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+ 			no-map;
+ 		};
+ 
+-		wkup_r5fss0_core0_memory_region: memory@9c900000 {
++		wkup_r5fss0_core0_ipc_region: memory@9c900000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01d08000>;
++			reg = <0x00 0x9c900000 0x00 0x100000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_fs_stub_region: memory@9ca00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca00000 0x00 0x8000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_metadata_region: memory@9ca08000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca08000 0x00 0x1000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_rest_region: memory@9ca09000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca09000 0x00 0x97000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_dm_region: memory@9caa0000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9caa0000 0x00 0x1b68000>;
+ 			no-map;
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index b8af9ec81b0c..bb027c65eddd 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -55,9 +55,33 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+ 			no-map;
+ 		};
+ 
+-		wkup_r5fss0_core0_memory_region: memory@9c900000 {
++		wkup_r5fss0_core0_ipc_region: memory@9c900000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x1d08000>;
++			reg = <0x00 0x9c900000 0x00 0x100000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_fs_stub_region: memory@9ca00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca00000 0x00 0x8000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_metadata_region: memory@9ca08000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca08000 0x00 0x1000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_rest_region: memory@9ca09000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca09000 0x00 0x97000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_dm_region: memory@9caa0000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9caa0000 0x00 0x1b68000>;
+ 			no-map;
+ 		};
+ 
 diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-index 8a8dec80cb30..3d1a2c5bc464 100644
+index 3d1a2c5bc464..31f670fdd91d 100644
 --- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
 +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -71,7 +71,7 @@ wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+@@ -69,9 +69,33 @@ wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+ 			no-map;
+ 		};
  
- 		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+-		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
++		wkup_r5fss0_core0_ipc_region: r5f-memory@9c900000 {
  			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-+			reg = <0x00 0x9c900000 0x00 0x01d08000>;
+-			reg = <0x00 0x9c900000 0x00 0x01d08000>;
++			reg = <0x00 0x9c900000 0x00 0x100000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_fs_stub_region: r5f-memory@9ca00000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca00000 0x00 0x8000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_metadata_region: r5f-memory@9ca08000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca08000 0x00 0x1000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_lpm_rest_region: r5f-memory@9ca09000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9ca09000 0x00 0x97000>;
++			no-map;
++		};
++
++		wkup_r5fss0_core0_dm_region: r5f-memory@9caa0000 {
++			compatible = "shared-dma-pool";
++			reg = <0x00 0x9caa0000 0x00 0x1b68000>;
  			no-map;
  		};
  
