@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F92C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1F0C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 21:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XH8ARSFVh26ype3ZsitV4AdBuAIZH+69K0LjD2wm/zA=; b=IAGhTHHmTF/e7sbAIsi9qU4Yln
-	anq+A6V2wGgtfOesAtPChQOv9F8NinZ5XrJERiFCStqoPElPvTVuCECTLLQqdTcGfqAsb+7FFs3iz
-	EaoyD5a9woxDOi/N+kO+sI0kc7UDMwJrmQyjy3OyyPUVTvD6q4P7c7owAw8y0GP/VJZ1NFUuX8GCm
-	tW7bX2aYg1+ANXYcn/RbHPSUUutGx5p9JYWLzd6+HgNVVToggtfopv0mxctd3I8SA3M3BDVPrurxX
-	AlfIx7VCOGPFGL/YgIaVdOyu/b6eoJ1I9fdSLuiF8+mJrJw8wrz4hnsYbuHdHDhnGJgBWjqvsRSQG
-	WsGYhhUQ==;
+	bh=Ssa8/RJp8NzHnWgep503LaUFBdCKt7n208Abhsx7hRg=; b=XodHIRsvSr9CLhszbf9TZ1UDac
+	ExLbyTvSuuOgPSoGFbN+85ijTvnvh0WW8AKfO7FOOrWuYye+Wo27f8r0guMQzZR+oA3r9ncb+zZ5P
+	R10LjZnlXaOlJws2uqzGy4kdpsCdvcT4ap8LhOutSQ5yzYtF+sQwvrL2WUJTC1Ae4RKNbCelYY1qI
+	RzzwncnlrVQjx9pY5p3u5uKnMdFLR3E7g34o6sAp55tkYlK78oa7TXLXNQ+Z5fJzyz3nIVzT97hOs
+	DpdkZrspNfsB2JD82IIDa5BPDBT7arXHfg0/vH8PIptKCm5W35fVVO1iJjmdnmLGEONNRos2pURjf
+	KJQnKuhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EuT-00000000dFe-0Djv;
-	Thu, 03 Sep 2026 21:23:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2EuS-00000000dFW-3Yqf;
+	Thu, 03 Sep 2026 21:23:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EuR-00000000dDB-0p4p;
+	id 1x2EuR-00000000dCs-0ZX3;
 	Thu, 03 Sep 2026 21:23:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0E1B447C1;
+	by sea.source.kernel.org (Postfix) with ESMTP id C3730447C9;
 	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 83429C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A6E8AC2BCFF;
 	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788470626;
-	bh=bjuAYcTAYsvD4EG8NTxGwBNM7nTpamPPGahbx2pLdsU=;
+	bh=fhzYdWjUhIfYBbHLD/ytOg92HFn/RMJtf4eZNN9JChU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PYn7WAgqU6Lv98d1gvRwVzYqz6amDWDqsw1v83AP0bu08hRMvZFtMPwBklmU+xYPh
-	 d3Uyd6iTU9cOnGd58NWI47IMeXW2jY6YodM00oQf4wnaai52jN/Z48gpw4BAwnDJ9n
-	 ZFQDVOJ1y3DMtE9l044ueH8x4WuDvlc77GTgHccJ12EaNLSiBmV2ws4Z7KPfgfGMVp
-	 uTJEWHOWJ2HdibZoN5yzSuenzxV89ZrDVW3mSSUQCxsfIUlMVF3zmmmK+EV8dltb8q
-	 dtINqmLE0W3ebUbkuxKbwM/mQJiTdJEVrjHwiqwLlABEiOwJUMZJWLcWwhZR2Z/qi6
-	 bFyVBbfpid/Hg==
+	b=AL9rWPu8vammIJos/COvcwcXkHdpu+vG2b+zmJQTIwYXyTioQPYLrLp564nSJaZWO
+	 U+RhH7NcB0KuGdu2YNgOtg0lz58Gzft3ks9/RrzIW6KBo9ge2Iy9i3BsuAZCrlSwg/
+	 3MNrjukSyzb8ClZh7iLzYcKNqid36jpx3EwfrrvI7WqgReJltgQLT6DzoRDLG3BTzO
+	 /ryjVwXqBnotUqOaEx750XRh1OxZIXEGp/hZAhDczGwmecKgP+eeCG8cdYmImaQw3n
+	 +5/Zd4HIh7ju5iaM4fivDyHhf3DKgLbiDAltZi/MccH0x4rArpoZsGfFKYnctEWIhf
+	 +AkgCFBodxKXQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 717C8C624DE;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 933C6C61DD3;
 	Thu,  3 Sep 2026 21:23:46 +0000 (UTC)
 From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Thu, 03 Sep 2026 23:23:19 +0200
-Subject: [PATCH v6 07/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove
- useless vcc_3v3_pcie20
+Date: Thu, 03 Sep 2026 23:23:21 +0200
+Subject: [PATCH v6 09/12] arm64: dts: rockchip: rk3588s-nanopi-r6: remove
+ bogus vcc5v0_usb regulator
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-nanopi-m6-v6-7-37416bbd6862@gmail.com>
+Message-Id: <20260903-nanopi-m6-v6-9-37416bbd6862@gmail.com>
 References: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
 In-Reply-To: <20260903-nanopi-m6-v6-0-37416bbd6862@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
- jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788470611; l=1725;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788470612; l=1672;
  i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=w2cXBopYBKJ6Vf2I5uUHUSmKKAcZ+ftsSxy14dp/jMA=;
- b=Y3KCbLcxa4SGSbJwcG6IrelFcY9Mn97PWJKnVc4TAbqEzioJaAh4LatldDFMUYZJKtkGm0GxQ
- U+WyBTHq3p+BUOevcjk7djjH/barv4LENZdAyTjXalucX52Hw+YnI9L
+ bh=UrZzPlopCnQpNaQi4ZiWK7IzfEGC03e+DmeotQv9vOE=;
+ b=SHIGGORnp9eNhgq5k+zmhGlRPnOjWU8Oecf3DrRDw4tN4XA6TWoXbBtnej6n9LS9S+WE8WQdB
+ 5l8ye/74Y7gALK2NonhfjgdhvVWajMJm/OC5m4MNiUEPd52caXtMX+S
 X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
  pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
 X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
@@ -88,52 +87,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-There is no separate regulator for boards with RTL8125BG MACs.
-The power is only separated from VCC_3V3_S3 with a ferrite bead.
+All USB regulators (power switches) are feed from the main vcc5v0
+supply. There is no regulator or switch in between.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
 ---
  arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 14 ++------------
  1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index 8953dcebb93e..50af092f9cfa 100644
+index 206cc88fdaa1..5a42e7dadc92 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
 @@ -131,16 +131,6 @@ vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
  		vin-supply = <&vcc_3v3_s3>;
  	};
  
--	vcc_3v3_pcie20: regulator-vcc3v3-pcie20 {
+-	vcc5v0_usb: regulator-vcc5v0-usb {
 -		compatible = "regulator-fixed";
--		regulator-name = "vcc_3v3_pcie20";
+-		regulator-name = "vcc5v0_usb";
 -		regulator-always-on;
 -		regulator-boot-on;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		vin-supply = <&vcc_3v3_s3>;
+-		regulator-min-microvolt = <5000000>;
+-		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_sys>;
 -	};
 -
- 	vcc5v0_usb: regulator-vcc5v0-usb {
+ 	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
  		compatible = "regulator-fixed";
- 		regulator-name = "vcc5v0_usb";
-@@ -361,7 +351,7 @@ &pcie2x1l1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie20x1_1_perstn_m2>;
- 	reset-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
--	vpcie3v3-supply = <&vcc_3v3_pcie20>;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
- 	status = "okay";
- };
+ 		enable-active-high;
+@@ -150,7 +140,7 @@ vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
+ 		regulator-name = "vcc5v0_usb_otg0";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_usb>;
++		vin-supply = <&vcc5v0_sys>;
+ 	};
  
-@@ -370,7 +360,7 @@ &pcie2x1l2 {
- 	pinctrl-0 = <&pcie20x1_2_perstn_m0>, <&pcie20x1m0_clkreqn>;
- 	supports-clkreq;
- 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
--	vpcie3v3-supply = <&vcc_3v3_pcie20>;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
- 	status = "okay";
+ 	vcc5v0_host_20: regulator-vcc5v0-host-20 {
+@@ -162,7 +152,7 @@ vcc5v0_host_20: regulator-vcc5v0-host-20 {
+ 		regulator-name = "vcc5v0_host_20";
+ 		regulator-min-microvolt = <5000000>;
+ 		regulator-max-microvolt = <5000000>;
+-		vin-supply = <&vcc5v0_usb>;
++		vin-supply = <&vcc5v0_sys>;
+ 	};
  };
  
 
