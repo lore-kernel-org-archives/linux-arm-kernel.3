@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12FBC624DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F08C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Aq7Yc9yLHAAzo2a1VLGYdmtVCdrsptbcUOw8CUCd9/0=; b=zBDqYlv7OTMbyHlRPG+2miuqU3
-	+okANOOvw402KrVQXwJfpUXLCowxXnvTiPjTz61ypPJZvtO3PLvdjf9uO2AolWg5qaVCbnjXrk4lb
-	j1GDNOyMbvRTQ4nllZZmHmaKHWQm0Od7xl6wWIuEtlhxl0VcHCcl2zDj2P1CVEQlsH+owkld05poE
-	tNBPFMwSTl/4mGSvOi68ipLJlGKYz0vmh3ZK1Y3LAqc/hf/5ijAMUrlEcIDTzybuI0c3s6cplHjuD
-	Ae/qbO4T9S5B34K+iyhtCcReYAIb4WAvwVezQ7ysC4JgzElrMjAhs342fjaiR0QgAhBqmjw7es/Nb
-	tmKDY2Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jZ5ikIPdtrsw5VYyqaHGjiwcB1Oj6QXBAQanMarXMYE=; b=cNwwfNHYMvKeWhK/Dd9X28uzl5
+	Ers7dgLz8i9sKN6YX58YwqZHlwatqPMtT/hFlB7Qbr/IFhE7Zgid4A4/sO3Dfg5sq3YyoeEX3LpW2
+	6ZflbGrKP27B+81INkkl5h3w6fl/3tvGyQWSV1nHGpiBV7Dyf1tgq473QsNKmcQbRp9MjlEUUdLDq
+	+CqpXC8SXTCypRpyZzXP6EUGXDpQpz0mhsZLBK+sAKuEfHP95oZ5NJ+XRPDykUTNtrc2slNe+EoT4
+	AM8qpdozrauSEqXQpxoC+m9qsWhL/NaUZx/Qygd+CVXQOQV+Po7w+3mz95z3hIDlF4GVQLWdwhRQT
+	H0mwVFug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x253Q-0000000H8e6-2ltm;
-	Thu, 03 Sep 2026 10:52:24 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1x2554-0000000H8t2-3cho;
+	Thu, 03 Sep 2026 10:54:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x253N-0000000H8bI-0cUC
+	id 1x2553-0000000H8sW-1SLO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:52:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1788432674;
-	bh=Aq7Yc9yLHAAzo2a1VLGYdmtVCdrsptbcUOw8CUCd9/0=;
-	h=From:Date:Subject:MIME-Version:Message-Id:To;
-	b=p1Svzqv8gv+RKj8d1M7VxVNAopAnvmvPzgruku0XTxRiqPA7iZ6COKRcr+OJcViU+
-	 ZdMxdntmdn4JCMfT5V14SMjWUVcy2RBTjSHb8EDsx45MwFNXXr9NpZIhrEF0SEKspa
-	 R4M6MFSBXPkWBk2KC0sveHgfY5vKxi7cCs2JfW+M=
-X-QQ-mid: esmtpgz14t1788432668tb6cc9c0f
-X-QQ-Originating-IP: tF6196t+vWc8kb7gFg0WDvqAQUR9MwK+wQ/rZGZNce8=
-Received: from [10.10.7.69] ( [124.126.19.250])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 03 Sep 2026 18:50:55 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 12566516252046344313
-EX-QQ-RecipientCnt: 16
-From: ZhaoJinming <zhaojinming@uniontech.com>
-Date: Thu, 03 Sep 2026 18:50:35 +0800
-Subject: [PATCH] net: stmmac: clear dma_conf on MTU change failure
+	Thu, 03 Sep 2026 10:54:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B5A1F43522;
+	Thu,  3 Sep 2026 10:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE9171F000E9;
+	Thu,  3 Sep 2026 10:54:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788432844;
+	bh=jZ5ikIPdtrsw5VYyqaHGjiwcB1Oj6QXBAQanMarXMYE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fV01/3mlZ/6mEninu+ZZoxUqHyhZS/GDz3zW0DCZ+bQzicyuedWOJx6onxgCoQOXu
+	 02L00SCN+AxvCsUapErpvho+g+10FCPYI6xnMwTWh0T3cCQiPj9lcHbFfGVc+VD6lO
+	 MqWjQkfmSn9bau6NgeKCWO63A2cEQdNfitT99HxZxWKDk86GjI0jAGK4fDknp7ZmFw
+	 YaJYY8LGlzgWYtoxdm4FOIKwqU7ZnO4jLiAlw3ww8IetAWat+kuz95hGDVRUSp4US9
+	 CRFQXmOsrcs3MLdwQGfK9AenFAgPaKr0UjvnzgElCcmiWJwEUmX9Q/Flg4ZI1HU5fW
+	 WSIsNeGRs+a0g==
+Date: Thu, 3 Sep 2026 11:53:59 +0100
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Bradley Morgan <brads@mainlining.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Morse <james.morse@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
+Message-ID: <aplRx8f5NprO9dSU@willie-the-truck>
+References: <20260825205839.14571-1-brads@mainlining.org>
+ <apgpnjnJ4suhHh-v@J2N7QTR9R3.cambridge.arm.com>
+ <B23E199A-2D3D-48B4-A7E9-9664371A7361@mainlining.org>
+ <apgsm92KtXA7xh6H@J2N7QTR9R3.cambridge.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-fix-stmmac-mtu-change-use-after-free-v1-1-c81dc7d6d18a@uniontech.com>
-X-B4-Tracking: v=1; b=H4sIAPpQmWoC/y2NQQrCMBBFr1Jm7UBsJFCvIi4m6cRmkSgzaRFK7
- +4oLh+8//4OylJY4TrsILwVLc9mcD4NkBZqD8YyG8PoxuAm5zGXN2qvlRLWvuJfWpWRcmfBLMw
- YJj9T4Hgh78BSL2Hb/W5ud+NI5kehlpZvvJLaFI7jA9jxgfmPAAAA
-X-Change-ID: 20260903-fix-stmmac-mtu-change-use-after-free-693da6eb4a30
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Simon Horman <horms@kernel.org>, Christian Marangi <ansuelsmth@gmail.com>, 
- Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- ZhaoJinming <zhaojinming@uniontech.com>
-X-Mailer: b4 0.14.2
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: M5SVnYpRxpvK6D7rw/EZ7cJsQ+xGvu8eqQcIaJfOJcol+5RAioyc8sc6
-	mOzuWpA9sLAAgmqE4cTAFC/I7xGtRvaHD2HB1qBbAK3WjV1iN32LKLpqYCdTZT96IrQhPnP
-	QAnbpaAKJlFFRRsv4LI2uyyHGzm3LjQYbszHc+EOGsFokS+Bmofrb3iyaQyU71vX3gpcPwU
-	U7GtYT9gfyq9m/JS5CgB54Q3qS9ggysrPjmDFYTFy2P25Ef0W1fJjiIHAveSA7XLXELqChx
-	C/5D6UOQuXZgE2hVMAhZNSCVuSwakHji9q1r4yZ2fWZX/CGxvUkAdCzCTSRLcYqDLBKbQfV
-	p5p0qM5joeKkM/RJy7HTs9YVi43L7lLgbA8/Ns9F5kj/BuD9Dg8SrlhzyFHg0WKaSQp0mw9
-	vMBs23F/79Q93mIUOIUfuZGtwjb3JIpeR5nHAjvL3cymPmfdECzd/MR2GMDL0M95kJmp7+k
-	OODngc4a7+XtJHiniQ+0KxUd2TTrSKOzykfNhdLVxWLNS5YuncGuLfiqO1JiUL1/1nHX9xK
-	FlvZIZ5v3IVNS9pQsGhP+1JPfoq6zXLtTO7/81elp99229i1CG0Yc8M41CP9XPPS7q+7+QE
-	TfJrz5s4PfBQnCFHFp+LPRzc1aqH0hX3IqtR+qYMmRiwFx6S/+go7LEFL8+zPvea56cIaDq
-	OThiXLcDaxSf2agVvcMvN5FSejZPH8juMfmteXKj2bLWyqrA+b5Sl9GsRedWMnpkI6BdHQn
-	Ri539BQX4c58RCfr7cR4mTad/oxtcwwfqbNTLxk65HCME1fjNVv8D1J2N1arae7zXcEDwjq
-	Vy+49fNXiKx8bTOsqe2xWElgt8L7HAKBjyYsViZH8UkHjK4Hsk/pHfrD/bmjY8bkQDFzKoK
-	3Zl5hUvNhP/9cvNZ+amsOPKli9BRNIASeCLBbQx+2mwAEGNTUhNhXINRLgsp4hfXIcZIhKC
-	IILhxiVOrYvSDAQ40JMC4lfbmy2EB4ZEKtD1apGCj21arW/x6NrdAnACBOCxhwgqX4fpnNo
-	u3gM6Brqlfh5EElHAM
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_035221_711705_5D2A272A 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apgsm92KtXA7xh6H@J2N7QTR9R3.cambridge.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_change_mtu() releases the current DMA configuration and then
-reopens the interface with a freshly allocated dma_conf.  __stmmac_open()
-copies that dma_conf into priv->dma_conf via memcpy() before it can fail
-(e.g. in stmmac_request_irq()).  When it does fail, the error path frees
-the dma_conf descriptor resources and the struct itself, but priv->dma_conf
-still holds pointers to those freed resources.  The interface remains
-running, so a subsequent stmmac_release() or another MTU change releases
-those resources a second time, a use-after-free.
+On Wed, Sep 02, 2026 at 03:03:07PM +0100, Mark Rutland wrote:
+> On Wed, Sep 02, 2026 at 02:51:22PM +0100, Bradley Morgan wrote:
+> > On 2 September 2026 14:50:22 BST, Mark Rutland <mark.rutland@arm.com>
+> > wrote:
+> > >On Tue, Aug 25, 2026 at 08:58:32PM +0000, Bradley Morgan wrote:
+> > >> This comes out of the hibernate resume discussion where Will asked if
+> > >> the restored kernel's hyp vectors are reinstalled before we come back
+> > >> from swsusp_arch_suspend() and free the reserved pages. Rather than
+> > >> answer with a one off fix, this series reworks resume to look like a
+> > >> resume from idle, which makes the answer fall out on its own.
+> > >> 
+> > >> The series leans on Mark Rutland's old work for inspiration, he had the
+> > >> same end goal in a branch from back then:
+> > >> 
+> > >>  
+> > >https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/suspend/cleanup
+> > >
+> > >Most of the series seems to be a rebased of those patches, just with
+> > >paraphrased commit messages and my S-o-B lines dropped. As commented on
+> > >patch 4, I do not think that is appropriate.
+> > 
+> > Same question as patch 2
+> > 
+> > If you want your S-O-B added, ok fine, but yeah.
+> 
+> As on patch 2, please read the documentation before continuing futher.
+> 
+> > Do you think this series itself is good? 
+> 
+> No. At present I think it's in a worse state than it was in my branch,
+> because portions have changed, with no rationale and no clear benefit.
+> 
+> Hence my ask to Catalin and Will to NOT pick this up for now.
 
-Zero out priv->dma_conf after freeing the failed configuration so the
-stale pointers are not released again.
+I wasn't going to pick them up with the incorrect authorship, but it's
+worth noting that Bradley's patch _does_ fix one of the hibernation
+problems and has been tested by Vladimir:
 
-Fixes: 30134b7c47bd2 ("net: ethernet: stmicro: stmmac: fix possible memory leak in __stmmac_open")
-Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 +
- 1 file changed, 1 insertion(+)
+https://lore.kernel.org/all/20260809213615.11646-1-include@grrlz.net/
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f2fc89176654ed07dafc30ea1dd481d9f08fb120..9d4b93a64e32f375ef9ee4917f60c40ce2409f07 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6132,6 +6132,7 @@ static int stmmac_change_mtu(struct net_device *dev, int new_mtu)
- 		if (ret) {
- 			free_dma_desc_resources(priv, dma_conf);
- 			kfree(dma_conf);
-+			memset(&priv->dma_conf, 0, sizeof(priv->dma_conf));
- 			netdev_err(priv->dev, "failed reopening the interface after MTU change\n");
- 			return ret;
- 		}
+I would prefer to take your complete set of patches, but if you don't
+want that then should I just take the above for now? Prior to this
+series, there has been no activity for nearly two years on your branch,
+so I'd prefer to get _something_ in, even if it only fixes some of the
+problems.
 
----
-base-commit: 940de590b839f71d6dc846160534bf202401b8b7
-change-id: 20260903-fix-stmmac-mtu-change-use-after-free-693da6eb4a30
-
-Best regards,
--- 
-ZhaoJinming <zhaojinming@uniontech.com>
-
+Will
 
