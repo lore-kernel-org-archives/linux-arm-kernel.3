@@ -4,77 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DD4C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862F6C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpIyHBMuPpbjAnx97BPXthrcY+hpLbMXJmomqpqPlsc=; b=QIvPu/J/ESNnAKSga8Fx0AJSIF
-	8W5KrcrQ85kx4QeJkO6G6ipAIimGVNDgLwU35gloPGKuKLY8yroL6dY9drt3jRiMsdAsHXiFus3Mr
-	RWHULujZQENDrhicRvhEM6XnMIk3X1iX5KEizn3eWX2NkYuutxWBP4yUe7mJOvDKJUtCGsERA9gIj
-	Fk1c5fH8QHnTFk6WurPGJbILqNNp0vvlniH8dHiKS5IsoujrftWATkMHEMaTQIDeSa/2Tpwq3fNgQ
-	LnJwsq/dY6jbTTWoBS9+WzC/Rh8pDZoRy+pbDTV8MpJ9iYPhOrcWUjuhB1Fs9glSeC+6A5Ac4Ylse
-	WXbPb7cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tPmhGFVhzsX/eNvethW0/UVQcKFKSMvaxttR0hcC59I=; b=Tgjljmq0BhkEyMcjaFEDZCFaP0
+	t+C3EnE5siSGxBtzsMLRRbJNHF6YUHGMHziOcuA4dDBu05AkKDulrzJkIu9N3Q06bbC7v6N2/R1uu
+	SJCHMBd9QevudoJsdymPxUxAlhHHgPrfqOYDPt1ZjRyUUR0J8rGIC0dWpvg70qKTfWHEtk0yHXyuX
+	SwNfH7TS/BfVrWrYirTT/flwWurPSyqr3U/CGIm2PW51N+LZvn3fn2icHLdUnxy4dtTuaiqPSx0P2
+	NkmMDqyY3dLzfIYL3HysGWDFaUylLhOSDnyQxDlWaw9ctAZdj2p/hVLG8oEy9iv4nzcAqhlujoXOH
+	WpQhRUqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Abd-00000000D7J-2u00;
-	Thu, 03 Sep 2026 16:48:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Abb-00000000D6Z-1ZGm
+	id 1x2AiA-00000000Dpb-3DF4;
+	Thu, 03 Sep 2026 16:54:50 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2Ai8-00000000Don-3qGr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:48:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC3F71596;
-	Thu,  3 Sep 2026 09:47:57 -0700 (PDT)
-Received: from [10.57.6.2] (unknown [10.57.6.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A3283F673;
-	Thu,  3 Sep 2026 09:47:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788454081; bh=FmovFpZo43JwPnG5o8GR9kxo0GqzPlOEUnziiqr2YBY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J5m3OkD+YOZz0+n5qB7t/n+c86nO4npM4vtmrEMzr87cSyilKLjH5mbi7+22sJcZA
-	 zlxUnGZtCYsyqCIxOiJ1WsTc9Ygg9uVHYIAgX66ev7T2DUrtAWAfRswWZoClkfVYzR
-	 XJb1wBn1DvE4OnD5l/iDI4yMICViiKvNhb+ETGec=
-Message-ID: <43382882-0e7b-4255-9c34-99cec5b0bbbc@arm.com>
-Date: Thu, 3 Sep 2026 18:47:50 +0200
+	Thu, 03 Sep 2026 16:54:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FD79NWkdCvvzIbU9R/KQUefFdKE2KgdghcKlsrNIUracpR0frQC8+GcRMgr4SVPnbnj+I4SuYxmW5qUtqsoSU+wGlEAquoP+CisGJlJVTyc5UnyL99k8ddqbGNadltNcJIFm/fs0w9WAxzR8sMsKkfV54Hsr4ZYegi7VPvd/G0we8nRzyxkrE0vpTqf4i/t4FE896jjjab3PheL1xLk/AoVKnStQcm+Ux9s5QDdaA4xJPXZPHcnAcAlgEIJ8weDMnUXdN/VqL0TOWGxeJoBfChLFQqmw25RVttXieIKa3qUu6IE2z57YpGbu45U0/FwAOqacfLg6PTgrZQCjJ0YP7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tPmhGFVhzsX/eNvethW0/UVQcKFKSMvaxttR0hcC59I=;
+ b=YJlW8VKv56xDSFpCYgvaXlJkxSoacyp6JH87S86aiCisKNZejUUDhjBj7MYxsecKDOpMScb5PPCJOOrq3xnHp7H0+m01rq0iFH4NWp6EJQ58eNpytv9GRuNBfhsE+7Z+ozGhr3jGF1sqOVc6mJc6QturQ00CrdSpb0zT933rANCmLeFGXVxHcxAVHtHLXurQ0lZpodRLZq5HOYZ9psvvOA7o/RylTnQT2lZhyt7bWkx1CzKHZu8d5TWL8XWxw6zVIyfVPfPmlcwuYVDrN/WBbTt54g4bMw3ob3xhdXWtqQKiFQiEbjeOQHvX8oc40mjZW0S4iTjyvafeusiZWSJImA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tPmhGFVhzsX/eNvethW0/UVQcKFKSMvaxttR0hcC59I=;
+ b=t0fa7f6s8PeIE7ri9OHLjRa+cLcpG1YPC0qWpj15U+jJoN2BqPnd/qg8KsEJR0gG98Ou7SwDhMKCByc/P+TRw7v3vZKa2fDXL3JDW2uG60SmRJkXGNt0aupLnytbkbCVcMNiwZRX2pR4W7nw5+KHJfQosSlQPq/0CGPX3k0J2PRgf3XLVlQMHAL85OR7gz2KAz7DTV+Cp8rZ9sedToYswrqsdi7LzF/gvdfRxUknI0j8z2GJvtMb9sVJ4YGxl3fjE6tkOOctfqISlrPqaHPCqftimom1Ohdc2rTMavhF9OrfGMZKqEx6pMs8mtLfpigQwMXUhuNOdJUvtQhuDq1Kgg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM0PR04MB11915.eurprd04.prod.outlook.com (2603:10a6:20b:701::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 16:54:41 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
+ 16:54:40 +0000
+Date: Thu, 3 Sep 2026 11:54:30 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:NXP i.MX CLOCK DRIVERS" <linux-clk@vger.kernel.org>,
+	"open list:NXP i.MX CLOCK DRIVERS" <imx@lists.linux.dev>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/FREESCALE IMX / MXC / LAYERSCAPE ARM ARCHIT..." <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] dt-bindings: clock: imx5: add assigned-clock*
+ properties
+Message-ID: <apmmRsFTqSIxvfi3@SMW015318>
+References: <20260901193720.1066686-1-Frank.Li@oss.nxp.com>
+ <20260902-wonderful-tangible-warthog-d927f3@quoll>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260902-wonderful-tangible-warthog-d927f3@quoll>
+X-ClientProxiedBy: CY5PR16CA0027.namprd16.prod.outlook.com
+ (2603:10b6:930:10::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
-To: Linu Cherian <linu.cherian@arm.com>
-Cc: linux-hardening@vger.kernel.org, Andrew Morton
- <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <apbgDNjQPLBdsUe0@a079125.arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <apbgDNjQPLBdsUe0@a079125.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB11915:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3efac39-6f9e-403f-8105-08df09dc0b95
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|7416014|1800799024|366016|4143699003|10067099003|11063799006|6133799003|18002099003|22082099003|56012099006|3023799007;
+X-Microsoft-Antispam-Message-Info: 59of2igAhTmM3lxsRJtUGPIyKbj7Qb1KB34GnoMaX2yqsLmD4XbzIzddL5wuDlz/oWyDEeKQwDvt1yitZqlo02EKljEFjPRZeSH5+IJ6lzcAQl9r7LsrMXjuL7VHxyI5izHJstiB10Q9FyudgnpJeJYJ+FR7izGjcn6Dzk77d7AFt0/G16v7TPXmPZv/miIkyD132CZd9Vv3vjonkUgvSPidC7YOHpLZXguK1Qx2Oz6ztpyX2rNbRQYH7TNfm+oSglv58KC4fcuNrtBKCQqjpcSv0I7OvGm2rPalw6Vik/fx+zKLvpaWH9wH3omWv62vbwpBIdE/bouv+ScQesVIa24s8gu5xa5UQuCeeSFdsIvwtWe9TrX9TyeRWLfc8z+GHUHCKlzDnZ1yfq4EaBqkHWMVzUBQzkZ2mH7phUDEUsrB7KhwveeVJa3SG9tolkGRCLplGz2gE1XsTYfBu0NADXalO8afQCCQrN0EUJ8ao585Pa+em9uzYx0WExhbQyTl5ZnWtRR1WeSwN8VNkUQe8b5cF0+E3kzgPzXPtAay/2qqGzbhprmFzh2fiVaM8Tu3JV/WGy5cdV3Yny6lUDmM/iV/WWbj3lIC4h6xuX5xI/yWw4QWbqz+ewqgs0AIP9gq/tnUanF9BNT3LhRMXIjxq4GWN7DjQD7RCgAeOT/cKf8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(7416014)(1800799024)(366016)(4143699003)(10067099003)(11063799006)(6133799003)(18002099003)(22082099003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vpp+ynTLjV5y9Yh/xXqkWBcuPl8K1bt06W6XqaDH233BbIMbuVZStcNlSCGW?=
+ =?us-ascii?Q?8TE0z65LoD/93FkF4fviHlaifGE01q2mUkjzgiaG5JDAVrGjzzp6KQZ0IXaT?=
+ =?us-ascii?Q?JIVwGuawHRioHJA3kUHkyGquwK30APxBl3LrEv3ai7JZlPk8Y7i0jjxDYc+0?=
+ =?us-ascii?Q?W16M6pjWUNC4iTIi6flhRQGDQyAXn9t/OJ2khkx3fiBq/30ATXO/1s6uMyi5?=
+ =?us-ascii?Q?HnwSAsiJt29F5viUlFR3R+qg6RaHwbnQ4LObGbeVuS90wHL2Qj0Hin1bDt0E?=
+ =?us-ascii?Q?ZJ+D1auaG89A8Uuy5fzC6UBauQPLULY48nIQalQiJkOpq5pXxPhXVEBGOQ/5?=
+ =?us-ascii?Q?VPdHkOcRqhkHs/M1bOdZJQBZD2qJAGCZfW4ZhcFOf/BcLKfPHC7QbWRpD1kH?=
+ =?us-ascii?Q?WWbazoysgbyQcjSbGZ8AmW/nHSbMr88ljX8w25TAbHi8w1YbrWhci+suQgJd?=
+ =?us-ascii?Q?Gq5ookAcC6LhM4JoO0BNe/ZLl65UPbzhA5euPvne5QNnACRVFjDqZF7xwfFQ?=
+ =?us-ascii?Q?Gkpyg05Z9e+kmy7uKARm/HybpJgq2BB5fPaCT5joEZ6sFODraJWc56ORKyAd?=
+ =?us-ascii?Q?LxsxAGZ/mVt65Gt54ETF7wGHdzO4Ym0kIWwhsVeKibYrFFsF++vQ13FOyz2V?=
+ =?us-ascii?Q?d9Q1RxUqdZZJrnWaqmHh4DHwAVsq36es36PXdabImvod+0bZYBH/fK+Npxce?=
+ =?us-ascii?Q?hqkE4Tq4qr93v4k3hl+fPuMtx04dCUzZeJx7WyDPeGF1OVphSCpDEwaQS2PD?=
+ =?us-ascii?Q?aQN3rfJ9YT0+tMPjg/rd0rPr582LDqlOQwLA7sL92ijiy0B1LPJKldeECYhN?=
+ =?us-ascii?Q?xTKeRudeeSNjMhKbwtYyWWg08zaeNovtJGfv1/ss/iVbrD6/h8W1X4650Ktj?=
+ =?us-ascii?Q?PpTJ7GlKePq+t08iKt1WYMYhxVxZn1tA3P8uQ0DhjNVWsyowPKaDQ0mI5+oG?=
+ =?us-ascii?Q?VJUviCtkxHo66jlev9E3DTQn4ark7DtMXP/upv07trB6sSQrHWGQfwjzrhv5?=
+ =?us-ascii?Q?tLh/TceQS9zQdKS4lC+J6dJOIWj1OQ9KRwMjZ2kYO4QEWcKoG3yO26E8HU63?=
+ =?us-ascii?Q?mEqU6/BvPCWem8snEw/IplxZ2LeQOTFtt5H0OI+ATR8vvujkef/GGogAHFYH?=
+ =?us-ascii?Q?zf/0NNKVJiUTtfntiokNqzrO2tL35sPGLT4SR1ZgpyoPn4o31IXvFx7a6keh?=
+ =?us-ascii?Q?6hycH0PtbNlatwOaZBBsR5OIpdzyqOzSNhLDpRfFKd9AL1KvPh+9rohZnjjp?=
+ =?us-ascii?Q?TnhmIScUsY5/3se+mv5UnWfwr+UKyP+Ut97301V8utpQKajwgZi1NjZf2hVb?=
+ =?us-ascii?Q?impFRdPo/NfHBUJnuqSBKqfRWEjv82686wAT74oG6jXe6dRIzKPg6/6CC6Pv?=
+ =?us-ascii?Q?qiKP062ujgCV12hawzoyx0Q83BoJObRSFAcAmBjoa99Vq2DV03z3c3LQyX5c?=
+ =?us-ascii?Q?r7UAeMby8rnK8DjeQOy0752Zh8APSD4k8jYCLglrwEN0IvN9Sr8A6Gp1D9tv?=
+ =?us-ascii?Q?vtKLz9XqzpkIb87ZNNZ3QkKwVh97/iowrov0jmm98Xyw/iylOvOmq8f0on+l?=
+ =?us-ascii?Q?qE9LYmb/sOVKCiqYQsTJ4+ycJsbg0+kCBRSTcUNr2+Hxd5FUKymLuVNYTc7c?=
+ =?us-ascii?Q?tIb803yfVkce/4+IQKWemYTNtao858pogSZEgRQ2+qQYQzu8f9mVrIz/AX0Q?=
+ =?us-ascii?Q?NRLYpoHxItfdlA+cBpVZvqEIhAZHIQ3dcNfhgwhFhJFwAPHw2N/cTxOVjFvC?=
+ =?us-ascii?Q?K+OQXYNaL08ezqmBdAirTm9xar9y+rQGoOkiQxTgspix2lQrSHtj?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3efac39-6f9e-403f-8105-08df09dc0b95
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 16:54:40.5878
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aOAChDn9gm7vUJT5WMnBA+8XKD30snEhCJBpAJb1o9QdvxuI4m/Ny+na2Z8lZCVAMSZOd9z7CVfd/lpVsdRCR+u0TO+daPg+h/U9iFGJjUXDFHB2S2yFYC/k5loItsAf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11915
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094803_502953_A66970C0 
-X-CRM114-Status: GOOD (  42.04  )
+X-CRM114-CacheID: sfid-20260903_095448_963959_F2983775 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,191 +150,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2026 16:24, Linu Cherian wrote:
-> Hi Kevin,
+On Wed, Sep 02, 2026 at 08:14:46AM +0200, Krzysztof Kozlowski wrote:
+> On Tue, Sep 01, 2026 at 03:37:19PM -0400, Frank.Li@oss.nxp.com wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> >
+> > The i.MX5 CCM is a pure clock provider with no 'clocks' consumer
+> > property in its binding. The dtschema framework only merges the
+> > clocks.yaml meta-schema properties (which include assigned-clocks,
+> > assigned-clock-parents, and assigned-clock-rates) into a binding
+> > when the binding itself declares 'clocks:'.
+> >
+> > For example, imx53-m53menlo.dts configures the CKO1 output clock
+> > by setting assigned-clocks on the &clks node:
+> >
+> >   &clks {
+> >     assigned-clocks = <&clks IMX5_CLK_CKO1_SEL>, ...;
+> >     assigned-clock-parents = <&clks IMX5_CLK_AHB>;
+> >     assigned-clock-rates = <133333334>, <33333334>, <33333334>;
+> >   };
+> >
+> > Without explicit declarations this triggers a dtbs_check error:
+> >   arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dtb: ccm@53fd4000 (fsl,imx53-ccm): 'assigned-clock-parents', 'assigned-clock-rates', 'assigned-clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
+> >
+> > Assisted-by: Claude:claude-sonnet-4.6
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 >
-> On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
->> [Sending during the merge window in case reviewers have spare
->> cycles; I'm not aiming to have this series merged in v7.3.]
->>
->> This is a proposal to leverage protection keys (pkeys) to harden
->> critical kernel data, by making it mostly read-only. The series includes
->> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
->> as well as a page table hardening feature based on that framework,
->> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
->> concept, but they are designed to be compatible with any architecture
->> that supports pkeys.
->>
->> The proposed approach is a typical use of pkeys: the data to protect is
->> mapped with a given pkey P, and the pkey register is initially
->> configured to grant read-only access to P. Where the protected data
->> needs to be written to, the pkey register is temporarily switched to
->> grant write access to P on the current CPU.
->>
->> The key fact this approach relies on is that the target data is
->> only written to via a limited and well-defined API. This makes it
->> possible to explicitly switch the pkey register where needed, without
->> introducing excessively invasive changes, and only for a small amount of
->> trusted code.
->>
->> Page tables are chosen as an initial target because of their especially
->> critical nature - a single write may result in arbitrary pages becoming
->> accessible to any context (including userspace). In order to keep the
->> series digestible for reviewers, this version focuses on functionality
->> rather than performance, making it most suitable as a debug feature. The
->> key trade-off is the requirement to PTE-map the linear map - see section
->> "Protected page table allocation" for details.
->>
->> This series has similarities with the "PKS write protected page tables"
->> series posted by Rick Edgecombe a few years ago [1] but it is not
->> specific to x86/PKS - the approach is meant to be generic.
->>
->> This proposal (as of RFC v5) was presented at Linux Security Summit
->> Europe 2025 [2].
->>
->> [Table of contents]
->>
->> * kpkeys
->>   - pkey register management
->>
->> * kpkeys_hardened_pgtables
->>   - Protected page table allocation
->>   - kpkeys context switching
->>   - Performance
->>   - Limitations
->>
->> * This series
->>   - Branches
->>
->> * Threat model
->>
->> * Further use-cases
->>
->> * Open questions
->>
->> kpkeys
->> ======
->>
->> The use of pkeys involves two separate mechanisms: assigning a pkey to
->> pages, and defining the pkeys -> permissions mapping via the pkey
->> register. This is implemented through the following interface:
->>
->> - Pages are assigned a pkey in the linear map using set_memory_pkey().
->>   This is sufficient for this series, but it is also plausible for
->>   higher-level allocators to support marking allocations with a given
->>   pkey.
->>
->> - The pkey register is configured based on a *kpkeys context*. kpkeys
->>   contexts are represented as simple integers that correspond to a given
->>   configuration, for instance:
->>
->>   KPKEYS_CTX_DEFAULT:
->>         RW access to KPKEYS_PKEY_DEFAULT
->>         RO access to any other KPKEYS_PKEY_*
->>
->>   KPKEYS_CTX_<FEAT>:
->>         RW access to KPKEYS_PKEY_DEFAULT
->>         RW access to KPKEYS_PKEY_<FEAT>
->>         RO access to any other KPKEYS_PKEY_*
->>
->>   Only pkeys that are managed by the kpkeys framework are impacted;
->>   permissions for other pkeys are left unchanged (this allows for other
->>   schemes using pkeys to be used in parallel, and arch-specific use of
->>   certain pkeys).
+> Then the DTS is wrong. If this device does not have a parent clock
+> input, then assigning clock parents is wrong because it is either
+> contradictory (you said no parents) or misplaced (clock consumer should
+> set it).
+
+Make sense, CLKO may just use for debug to measure one of internal clock.
+
+The boards is too old, not sure if it is really used for some periphal.
+
+Frank
+
 >
-> - Adding some basic details on what a scheme and context is quite helpful.
+> Best regards,
+> Krzysztof
 >
->  - Giving some hints (may be an example) on how multiple schemes and multiple contexts
->   play together would be quite helpful.
-
-"scheme" doesn't mean anything precise, it's only the notion that pkeys
-that aren't reserved for kpkeys (i.e. anything but 0 or 1 in this
-series) may be used for other purposes. Happy to reword if you have a
-suggestion.
-
-"kpkeys context" is what is described above this paragraph, it's really
-just a set of permissions for the managed pkeys. Transitioning between
-context is described below.
-
-> Adding a documentation that covers these aspects would be much
-> appreciated.
-
-For sure, I am planning to have a documentation patch in a subsequent
-version.
-
-> My understanding is that pkeys are being partitioned across different
-> contexts. But then the introduction of the term "scheme" looks bit confusing to me.
-
-I wouldn't say pkeys are partitioned across contexts. Every context has
-a set of permissions for all the pkeys managed by kpkeys. Any other pkey
-is ignored (permissions left unchanged) by this framework.
-
->>   The current kpkeys context is changed by calling
->>   kpkeys_enter_context(), which will set the pkey register
->>   accordingly and return the original state. A
->>   subsequent call to kpkeys_leave_context() restores the original
->>   state (and thus the original kpkeys context). The numeric value of
->>   KPKEYS_CTX_* (kpkeys context) is purely symbolic and thus generic,
->>   however each architecture is free to define non-default pkeys
->>   values (KPKEYS_PKEY_*).
->>
-> ..snip
->
->> Open questions
->> ==============
->>
->> A few aspects in this RFC that are debatable and/or worth discussing:
->>
->> - There is currently no restriction on how kpkeys contexts map to pkeys
->>   permissions. A typical approach is to allocate one pkey per context and
->>   make it writable in that context only. As the number of contexts
-> Probably to avoid the assumption, may be we can we have something like
-> below 
->
-> For a pkey P, we could define
-> PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
-> PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
->
-> With the assumption of one pkey mapped for every context,
-> the permission for the default context would look something like,
->
-> PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
-> PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
-> PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
-> ...(for all valid contexts)
->
-> where,
-> Permission key, PKEY_DEF is associated with context DEFAULT,
-> Permission key, PKEY_CT0 is associated with context CT0,
-> Permission key, PKEY_CT1 is associated with context CT1
-
-This adds assumptions rather than avoiding them. *Typically* when adding
-a context you'd allocate a pkey that's only writable by this context,
-but it doesn't have to be this way.
-
-The configuration space is more easily understood by considering the
-other use-cases we've investigated (struct cred protection and eBPF
-isolation, linked further down). For instance, for cred protection, we
-had KPKEYS_LVL_UNRESTRICTED with write access to all pkeys, and for eBPF
-isolation, we need a level that is less privileged and therefore does
-*not* have write access to pkey 0.
-
->>   increases, we may however run out of pkeys, especially on arm64 (just
->>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->>   use the same pkey for the data associated to multiple contexts.
-> Lets say two contexts A and B, use the same pkey P as their permission matches.
-> But then, when we enter context A, permission for pkey P gets
-> relaxed, then that would relax permission for pages associated with
-> context B as well which is unintended ?
-
-That may be exactly what is intended, it all depends on the use-case. C1
-may have a private pkey P1, and C2 P2, and then P3 that is shared by C1
-and C2 (writable by both)
- 
-> As the hardware supports 16 pkeys, should we consider removing the limit
-> of 8 pkeys so that we can have unique pkeys for each context ?
-
-FEAT_S1POE only supports 4-bit pkeys when using 128-bit page tables.
-
-- Kevin
 
