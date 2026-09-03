@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B50C624DA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6905C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0hUFJlCRHNZ0Ud0cF+rJ65LwA+zz/K73VpaRG4jFP4=; b=QmahRoEMa66LMy0Id6fqJDZ3Vp
-	sdt72mOxdweJN+C2kVSgX6d4Ry+DQB+IZ2lzyVUZr5QQRgzHyIOf/XooRYt1qrd7K73/N9ODmYHEG
-	eB3pODMSLK3WQQ3lqX9Otc5szIWBj7XtnQLeqNyPdYExCH7KV0y1RhSt+dV2j835oun9jh2Auz5TO
-	ccF7GlvLj7495Mfk/SSpKqEOdbrY0Yl5wJrz20ViDWiProJFph0D8ieW5WvOf7GHJYDw9QnACBi49
-	Pwa3YLujtvNPaFdS1Snh8617URRQqRlkDoyd+8sjJSrWTRveoC7sX2BfuxJf9LBR5X1Hu7an69lZB
-	Ox81UlTQ==;
+	bh=8rNOQjVW9B7UE3k2110qULAmhJnJclVzdTqOCKzRpKQ=; b=uJ30PKoSvkIARXCRG5EZvXlPmm
+	NZB5UGE6yFZBE3Fy1K231JZr1aZDcliwTBdJm4XXydgFady9u5vqCGcGQi8Lof5Q8dZfrWIbngaI4
+	7ZBAkT0hTnJPcKlfVCDSkjCW1p52JH5Kmwnmz59lvP5sB0rq6WDhGxXObGTlD7x4qUXENdLp+8RRV
+	h7UaYR4TXjvnZRDOmmzdaRHGL1Uc7oAAgPLsum7M7K1UmIfiMj7p/z/8Msd6xkTZLAS0qtEmOTS6X
+	bKOqJ1fMJLKvWMrU188zlQlAdMw6Q48eiN5xXI9P5jrLuiGJC48azNtHal8bz1FeFKTM/x5qEcV57
+	+FI54vaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29y2-000000005bM-2i3t;
-	Thu, 03 Sep 2026 16:07:10 +0000
+	id 1x29yC-000000005us-09z1;
+	Thu, 03 Sep 2026 16:07:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29xz-000000005VN-1rjf
+	id 1x29y9-000000005q0-3DAe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:07:08 +0000
+	Thu, 03 Sep 2026 16:07:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3350C1650;
-	Thu,  3 Sep 2026 09:07:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F9BE1D34;
+	Thu,  3 Sep 2026 09:07:13 -0700 (PDT)
 Received: from e140010.cambridge.arm.com (e140010.arm.com [10.2.213.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AA6D3F673;
-	Thu,  3 Sep 2026 09:07:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 788183F673;
+	Thu,  3 Sep 2026 09:07:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788451626; bh=S4HD9+Ke4sw7LBfkgVxbyFDReWqLVnICY+GtDEoF53c=;
+	t=1788451637; bh=vC2GmX5lShpPOLIG9D+l2W7lA1Il59WbD1YRpxDaZSY=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=vX1U75rckJdFR/4pIMUvvaBctaV+frznxzELmzDhFlAxKmk05ZTO9mE5cci3Ndusm
-	 wr1KV0wmC0NHjKHNEwypwBMV0NM1Wa5IUI0nAH90LUZCpO2XpzCl0u9HRpViLiEacp
-	 nP4LV6ylOfuSAQfa4oY0cRR3pdNXrSe6gQkakla8=
+	b=GyTBAtlH3l9LjIY3HWGWEiq/Y4rK06FIhVDmI2yqfHZNfgzKVgJTiKhUuKAEaPns3
+	 xdhvntpAObpDP3xz2TKYRqKp6Fczyz5B0tuA7u4VlIMcR8RKTgwVsEQwQv7oCcfo14
+	 hDju8vdzK6yT48afW/97/LbOdf5A3liTY4MjEKt4=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -54,17 +54,17 @@ To: maz@kernel.org,
 	linux-perf-users@vger.kernel.org,
 	catalin.marinas@arm.com,
 	james.clark@linaro.org
-Subject: [RFC PATCH v7 15/28] KVM: arm64: Use PMSVer from the assigned SPE instance
-Date: Thu,  3 Sep 2026 17:06:10 +0100
-Message-ID: <20260903160623.315525-16-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v7 20/28] KVM: arm64: Allow guest SPE physical timestamps only if kernel allows it
+Date: Thu,  3 Sep 2026 17:06:15 +0100
+Message-ID: <20260903160623.315525-21-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260903160623.315525-1-alexandru.elisei@arm.com>
 References: <20260903160623.315525-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_090707_560293_BC1BAC54 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20260903_090717_890494_AF0C7649 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,123 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM allows SPE to be virtualized on heterogeneous system, where hardware
-can implement multiple SPE instances for different CPUs, or where SPE
-might even be missing on some of the physical CPUs.
-
-KVM resets the VCPU ID registers following a KVM_ARM_VCPU_INIT ioctl.
-Using the value for ID_AA64DFR0_EL1.PMSVer on the physical CPU where the
-ioctl is executing is unreliable, since userspace might want to later
-assign a different SPE instance, with a different PMSVer value. Worse yet,
-it is be possible that the VCPU reset is being performed on a physical CPU
-without SPE. Be consistent and use PMSVer for the SPE instance assigned to
-the VM to initialize ID_AA64DFR0_EL1.PMSVer.
+The SPE driver allows userspace to use physical timestamps for records only
+if the kernel allows it, do the same for a virtual machine.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/include/asm/kvm_spe.h | 10 ++++++++++
- arch/arm64/kvm/spe.c             | 24 ++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c        |  8 +++++++-
- 3 files changed, 41 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_spe.h | 1 +
+ arch/arm64/kvm/hyp/vhe/spe-sr.c  | 5 +++--
+ arch/arm64/kvm/spe.c             | 8 ++++++++
+ 3 files changed, 12 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-index a6999709b298..4bae3e6b05c8 100644
+index ad0ad6ace93c..8a55ea0de4e5 100644
 --- a/arch/arm64/include/asm/kvm_spe.h
 +++ b/arch/arm64/include/asm/kvm_spe.h
-@@ -29,11 +29,14 @@ bool kvm_supports_spe(void);
- int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
- void kvm_spe_destroy_vm(struct kvm *kvm);
- 
-+void kvm_spe_finalize_idregs(struct kvm *kvm);
-+
- int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
- int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
- int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
- 
- bool kvm_spe_pmu_set(struct kvm *kvm);
-+u8 kvm_spe_get_pmsver(struct kvm *kvm);
- #else
+@@ -15,6 +15,7 @@ struct arm_spe_pmu;
  struct kvm_spe {
+ 	struct arm_spe_pmu *spe_pmu;
+ 	u64 pmblimitr_el1_res0_mask;
++	u64 guest_pmscr_el2;
  };
-@@ -55,6 +58,9 @@ static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
- static inline void kvm_spe_destroy_vm(struct kvm *kvm)
- {
- }
-+static inline void kvm_spe_finalize_idregs(struct kvm *kvm)
-+{
-+}
- static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
- {
- 	return -ENXIO;
-@@ -71,6 +77,10 @@ static inline bool kvm_spe_pmu_set(struct kvm *kvm)
- {
- 	return false;
- }
-+static inline u8 kvm_spe_get_pmsver(struct kvm *kvm)
-+{
-+	return 0;
-+}
- #endif /* CONFIG_KVM_ARM_SPE */
  
- #endif /* __ARM64_KVM_SPE_H__ */
-diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index fa87d224c8af..4426d614a9e0 100644
---- a/arch/arm64/kvm/spe.c
-+++ b/arch/arm64/kvm/spe.c
-@@ -87,6 +87,30 @@ bool kvm_spe_pmu_set(struct kvm *kvm)
- 	return !!kvm->arch.kvm_spe.spe_pmu;
- }
- 
-+void kvm_spe_finalize_idregs(struct kvm *kvm)
-+{
-+	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.spe_pmu;
-+	u64 reg;
-+
-+	if (!spe_pmu)
-+		return;
-+
-+	reg = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
-+	reg &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-+	reg |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer, spe_pmu->pmsver);
-+	kvm_set_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1, reg);
-+}
-+
-+u8 kvm_spe_get_pmsver(struct kvm *kvm)
-+{
-+	struct arm_spe_pmu *spe_pmu = kvm->arch.kvm_spe.spe_pmu;
-+
-+	if (!spe_pmu)
-+		return 0;
-+
-+	return spe_pmu->pmsver;
-+}
-+
- static int kvm_spe_update_supported_cpus(struct kvm *kvm, cpumask_t *spe_cpus)
+ struct kvm_vcpu_spe {
+diff --git a/arch/arm64/kvm/hyp/vhe/spe-sr.c b/arch/arm64/kvm/hyp/vhe/spe-sr.c
+index 978620ad99fa..3c32a1338cc8 100644
+--- a/arch/arm64/kvm/hyp/vhe/spe-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/spe-sr.c
+@@ -107,6 +107,7 @@ static bool __kvm_spe_profiling_buffer_enabled(u64 pmblimitr, u64 pmbsr)
+  */
+ void __kvm_spe_restore_guest_state_vhe(struct kvm_vcpu *vcpu, struct kvm_cpu_context *guest_ctxt)
  {
- 	return kvm_update_supported_cpus(kvm, NULL, spe_cpus);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 44aae52c473d..a6bb6884b965 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2220,8 +2220,11 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- 		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMUVer,
- 				      kvm_arm_pmu_get_pmuver_limit());
++	struct kvm *kvm = vcpu->kvm;
+ 	u64 pmblimitr, pmbsr;
  
--	/* Hide SPE from guests */
-+	/* Only initialize the SPE version if the vCPU has the feature. */
- 	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-+	if (vcpu_has_spe(vcpu))
-+		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer,
-+				      kvm_spe_get_pmsver(vcpu->kvm));
- 
- 	/* Hide BRBE from guests */
- 	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
-@@ -5928,6 +5931,9 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
- 		kvm_vgic_finalize_idregs(kvm);
+ 	pmbsr = ctxt_sys_reg(guest_ctxt, PMBSR_EL1);
+@@ -120,10 +121,10 @@ void __kvm_spe_restore_guest_state_vhe(struct kvm_vcpu *vcpu, struct kvm_cpu_con
+ 		write_sysreg_s(pmbsr, SYS_PMBSR_EL1);
  	}
  
-+	if (vcpu_has_spe(vcpu))
-+		kvm_spe_finalize_idregs(kvm);
+-	__kvm_spe_restore_sampling_regs(vcpu->kvm, guest_ctxt);
++	__kvm_spe_restore_sampling_regs(kvm, guest_ctxt);
+ 
+ 	write_sysreg_el1(ctxt_sys_reg(guest_ctxt, PMSCR_EL1), SYS_PMSCR);
+-	write_sysreg_el2(0, SYS_PMSCR);
++	write_sysreg_el2(kvm->arch.kvm_spe.guest_pmscr_el2, SYS_PMSCR);
+ }
+ NOKPROBE_SYMBOL(__kvm_spe_restore_guest_state_vhe);
+ 
+diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+index af1e19cb8e9a..68b751bdb384 100644
+--- a/arch/arm64/kvm/spe.c
++++ b/arch/arm64/kvm/spe.c
+@@ -3,9 +3,11 @@
+  * Copyright (C) 2021 - ARM Ltd
+  */
+ 
++#include <linux/capability.h>
+ #include <linux/cpumask.h>
+ #include <linux/kvm_host.h>
+ #include <linux/perf/arm_spe_pmu.h>
++#include <linux/perf_event.h>
+ 
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_spe.h>
+@@ -97,6 +99,12 @@ int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+ 	if (!kvm_spe->pmblimitr_el1_res0_mask)
+ 		kvm_spe_compute_pmblimitr_el1_res0_mask(kvm);
+ 
++	if (kvm_vm_has_ran_once(kvm))
++		return 0;
++
++	if (perf_allow_kernel())
++		kvm_spe->guest_pmscr_el2 = PMSCR_EL2_PCT_PHYS;
 +
  	return 0;
  }
