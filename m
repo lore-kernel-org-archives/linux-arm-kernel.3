@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9784C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9982C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ewhUnryhb1VtoEUD03QhlWRXSYNd6vUN7hHGsE/QNA=; b=KtuZdYLj2sVtajQc3xuz92nXra
-	uJX9Yl4kvdfkt125IJxzjG0LksSe+L7fDdkTNwp0g/4RIDiLMWK1AGQC+y9x52KdvEWgdZuc66H0H
-	qMt12DsEtUbGDGohufy4GzTVm+SWTWUUqrfyPMOxfwFcAyGUAl8eBrEAlodHgDKS5Ktanw1EnZfpt
-	r2Dcvt2sjO9s2dAv5/60vN91ugP0j7DvCpzfASUozrOo6KV1FfA+3C5qMZeRhSkwICz9ldwSRRHNy
-	sZLLT1dSNeBS/meNROxm0znBvPGpLl/ikTJAgIuHCZ5A93S+PJWkSobwGWEPIzEegJDtzRELVCWJo
-	+tJrVXtw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nzFxd0gdFcwvirEZ59tyd8qcmxTEk9rocqV5RMamIoU=; b=vRwlKMWBovs3Dz
+	lTOkiEGKh7Uu/Taqn8KSmo5S3PoPsyiBnSl2sbZhvbu449jFtR/7ODG4ydkuvika9GgnFdX7UNTIs
+	ezntK/uVo5CqN1GWqO6sjJX80inDOqg0y5jDPCCechOGyw4LfpaeD9oNGHGs/POmEmOmUsegpVROg
+	kSoQv7jpJXslYZj3XUsTo+bZljzpq7HM+dWjvIsW84zGYerdGuB8eylg8y34zab5irwiR4FanFFuV
+	AoLoxMUk5ausneTPgIaPJx6GuQO5/ncTLMIMi+aJWfbhxyd6YcplTcvPwpGuNIt+1cunAqTVo44+X
+	paZMS2VOLQ3yXqkBti1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21bx-0000000GXVM-0Mnp;
-	Thu, 03 Sep 2026 07:11:49 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1x21c6-0000000GXZP-0nV4;
+	Thu, 03 Sep 2026 07:11:58 +0000
+Received: from mail-westus3azon11020096.outbound.protection.outlook.com ([52.101.201.96] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21bu-0000000GXTq-3ANE
+	id 1x21c3-0000000GXXZ-1foT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:11:48 +0000
+	Thu, 03 Sep 2026 07:11:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bn3Kv38I4HGFumTSsww0K3AUgCZillgkeQSZHe7KihkXgUvg/+CMcI//PRxsSCr06Q7d4den+VBj0LekA/5mDKTKOaH8vLtw7fYBBM91GgcVM1k+Hb0/4hcW5dDWNop2ZmkR8O6ArIPXWZeq6szFfd78Dhn3B/xqcf/d5mkgnMNlXsCOWA+umtFmH9j9GPeIc2ywc0KlcVuey73Hvx5v46du+cDmp7aeR90Y9AHpp9DBmQwQyrInyJORgvXkfDl4rRaNQlWtXT6zIni5kR2uWFuOUfK9tO2gwASuMtwTBtos+73KyhVV54uiVLpexg9Pgcz5QN8YBaAXKOO25BjIbA==
+ b=DC/Zwzq0Zoevb02mj1EgQEoejDY+kMn5ka3MwDvSDyUKnIkcStn0Ks6oDicP8cwqymXhMo/lDmfswGKlCnTIsT3UIoCOPTCBjNJcWQXizEW4huYgsZc9yXQvj2hSIvf0I1nIqPVZk4h6mHoC45/McBrLRSzVRSo5Y3Kk1vUSA1d08IpWQ7n0S+2XhVR7lhsBAZungxTb6C1fuFxgRB8BErR/SjfWt+WTQOkQpfQKDBK2qwXuxTu/tYp9x4YRxKyXd0pu1LfKE537JZmUIwfzSLwFVx2gDdbtBtK2ZpgljU1X3xk+gQtCnkr+WYcDsjaxrGeCc26VzGcsQy/EAqs8cw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0ewhUnryhb1VtoEUD03QhlWRXSYNd6vUN7hHGsE/QNA=;
- b=YYpL3jPNhdO0Zji8ryJzGNGFDCf84L0OlKN3RnMRDSl1QK2GLCswbMdULOF7gFyYAUnWXG2n/Frw96lUnX/XeOCKlU5CRK+qQQO15xnCwRBUuTNH02fAxd14Q45FW9Ks73JSL8gBhEiBkeMIT4MsApidpuPK1rZrdbe2kTM0Q3Jx2BrFsMmH76bWSQUcD/1YqvI/+/YxQtjRosEpXmf5kE/foFfYHxI1CSDs4k4VwTaftx21NW+kkiAbh20Pl1IRX30ycDjlE3jqqtFqDRHfDQ+yZ5ZMLiKYVzVOkJEPgsqwwEBjysZnUemZfgOYQBVJhl6vxYKl7IICa38wJAJg0w==
+ bh=nzFxd0gdFcwvirEZ59tyd8qcmxTEk9rocqV5RMamIoU=;
+ b=qJFNpfRYFr8914QGg/56RYGGagpHJAxJgeq0ry/rVmQMw36CgCVNSLcBjFEvvo5ZeuLL7cZKTF2f8Yj1+PEtKMIkZWiDVZvwOKLt7siZePlIYSG4ilP0qCf9hUkUfM7HwmUjTAw53eDxlQ+skVpynxiw4GD3B9rNpdNr3Nz4QtNqmwOr3pzG0Pwq2kx2sTajdSR5vHtbL8nM7z4AOwesD2Nn/4TOf5oC2YJBq4VOisveDgaA4e4oYYoKKFFbKQfP6yPeAKV+aJHMGFk2jWpex0MOmFQsLRRR/k8jTY+UxfA97AI0rcay2T0X54MDnYf3IvbtcRznrDAA33Nnfr4JvQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
  dmarc=none action=none header.from=axiado.com; dkim=none (message not
@@ -41,16 +41,15 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0ewhUnryhb1VtoEUD03QhlWRXSYNd6vUN7hHGsE/QNA=;
- b=NMHQeNFXSupgEiGzBisKeqfH6yVMhO9Emyka2N6LvhsFsMftG/Qm/O/0R0wlEbbkeEkwCek5l8LvCD4rxPvY8XbEXA+wlqD4a/vqXT5JDssdLXV9rWzo+7qsDrhwCIHV/iFJpslWXw6YyyaGIZ5H6vyhUau+HOKrcXYgu7pA/O0HNySmmI7P1j0Ama4oWqRG5ZcxqQOnI+XiaGjAXDU011dnae5mTqTf33RYk5JX2qSLGj+fsaN3F0OlE0IP445de+A6ajC0fvpSYHv2ePZmW5ZEn5eJESeT2NCdjCap/dZA3LI0ljaQf8ttO3fXBnXBSxcwpumzB3aMQLWa0Vi7iQ==
-Received: from BN0PR03CA0048.namprd03.prod.outlook.com (2603:10b6:408:e7::23)
- by SA3PR18MB5390.namprd18.prod.outlook.com (2603:10b6:806:2f2::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 07:11:34 +0000
-Received: from BN1PEPF00018072.namprd04.prod.outlook.com
- (2603:10b6:408:e7:cafe::99) by BN0PR03CA0048.outlook.office365.com
- (2603:10b6:408:e7::23) with Microsoft SMTP Server (version=TLS1_3,
+ bh=nzFxd0gdFcwvirEZ59tyd8qcmxTEk9rocqV5RMamIoU=;
+ b=FeMCumeN4/DGQr/dU6hGICaoA45g8nknwlSLFV3r3BUiV/vk+orRmX2H3aYOVwH2FIk2rVPZJd9d7m5WBYqKnGSRwQRylEMnDxUiq+RdVQ/r/YJM6CLzlixNEBzleau7bC8JiWg3tzl1n5tH6je61e2vH4bFdu+Oc7iInWKTaQsJTuqibBmjtkrlvwjFwOyF9NdbZb5kECzLo7gRN5ZAf/g3XIJKgQ8EhMVKFDq7nPm0McdIMaC40NnFalBcbo8drOPMA8B7cRTzjZUoUf53QzaGdDouI1IUb0uPaWdE2QLltZleFSlj/sYmySTkuc4CmVOl86GV0aS/jn1R+hWZaA==
+Received: from DS7P221CA0026.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:25c::13) by
+ DS0PR18MB5504.namprd18.prod.outlook.com (2603:10b6:8:162::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.13; Thu, 3 Sep 2026 07:11:34 +0000
+Received: from DS1PEPF00017091.namprd03.prod.outlook.com
+ (2603:10b6:8:25c:cafe::6a) by DS7P221CA0026.outlook.office365.com
+ (2603:10b6:8:25c::13) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Thu, 3
  Sep 2026 07:11:34 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
@@ -60,22 +59,25 @@ Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
  designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
  client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
 Received: from smtp.corp.axiado.com (64.62.143.114) by
- BN1PEPF00018072.mail.protection.outlook.com (10.167.245.200) with Microsoft
+ DS1PEPF00017091.mail.protection.outlook.com (10.167.17.133) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
  via Frontend Transport; Thu, 3 Sep 2026 07:11:33 +0000
 Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id 368394186B5D;
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 173DC4186B51;
 	Thu,  3 Sep 2026 00:11:33 -0700 (PDT)
 From: Petar Stepanovic <pstepanovic@axiado.com>
-Date: Thu, 03 Sep 2026 00:11:32 -0700
-Subject: [PATCH v3 1/2] dt-bindings: gpio: add Axiado AX3005 SGPIO
+Subject: [PATCH v3 0/2] gpio: Add support for Axiado AX3005 SGPIO
  controller
+Date: Thu, 03 Sep 2026 00:11:31 -0700
+Message-Id: <20260903-axiado-ax3000-sgpio-controller-v3-0-b30820e1b858@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-axiado-ax3000-sgpio-controller-v3-1-b30820e1b858@axiado.com>
-References: <20260903-axiado-ax3000-sgpio-controller-v3-0-b30820e1b858@axiado.com>
-In-Reply-To: <20260903-axiado-ax3000-sgpio-controller-v3-0-b30820e1b858@axiado.com>
+X-B4-Tracking: v=1; b=H4sIAKMdmWoC/4XNTQqDMBAF4KuUrJsy+Wlsuuo9SheajBqwRhIJF
+ vHujbooXbka3sD73kwiBoeR3E8zCZhcdL7PQZxPxLRl3yB1NmfCgSsQHGg5udL6fAQA0NgMzlP
+ j+zH4rsNAAWqFzFbKoCYZGQLWbtoGnq+cWxdHHz7bXmLrd6clk0d0YhRodTUFSsNR6eqxFy7Gv
+ 8lqJ/7zCq4PPZ49XahaomVMituftyzLF6e1T9UdAQAA
+X-Change-ID: 20260320-axiado-ax3000-sgpio-controller-00f6e1db6ce9
 To: Petar Stepanovic <pstepanovic@axiado.com>, 
  Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
  Prasad Bolisetty <pbolisetty@axiado.com>, Linus Walleij <linusw@kernel.org>, 
@@ -88,37 +90,37 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  openbmc@lists.ozlabs.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788419493; l=5006;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788419493; l=5315;
  i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=ANrmja0bW//C1aSsKiaexrS8S2QFRohDOTirNeLM2d8=;
- b=BGkdGBuIGkjcm6Cmov4is0D4xRNnSu23u1tiE26yW50tj296IX1Nm9PfOnVuqLBvYvr5ALZ/L
- xBGv3KW0OWsAcYxxnTc2ui0rUA1ENOJgYvr1hohn9kFTpSxUVRT2HqD
+ bh=DXKI6RsoR2hikcTY0iRxF321i1OzVLOpM4p7z0FEqwQ=;
+ b=goKS6Scva2K3HAUSMsHecrUvDwUgwpgkMSxJkL4NkcejV2Fu0NIsAL0N5nzhhRa5kJL8NXzbo
+ CKWKLmbfPVFClIXQFmENaSF1+FHAYaoTH6O5+nCORWrGU8JnOXg7Nk6
 X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
  pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018072:EE_|SA3PR18MB5390:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc40d291-a60d-4747-3338-08df098a963b
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017091:EE_|DS0PR18MB5504:EE_
+X-MS-Office365-Filtering-Correlation-Id: e0ce25cf-a4ca-4ad5-e168-08df098a961a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|23010399003|10067099003|56012099006|5023799004|3023799007|13003099007|921020|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: BRKRNZDcMdkYJFkMwZgYHhgnWEYnYpzo/LhIjRCwXnz2Xf8TypJ44vOXrAEmcYo9ojoR1vm/9bjO3M91SCBZ6yXjMPS9y7B0NYoEJWfmpFgkDHqZsmxcPjGIx227Em6ykLaDtEfNP6QuHUmUfsx+1ijSPFbKQbZOD+MRtqcXEl5IEEcSt6hE6Kz40q0brfNFzCLw8Hpudy9hDRnb8dLGhJ6xkH5l8lFwkrDXtJES//iz5DG6WUgG/qUBcR3drT1+lwfGSMTAatMGeCwD3u3mzy49of7zmdluOuQ9CyDvMYf2twHhDVtxazr1zxgJjTaHJCxwTUzz80439JKlNxJDRDvjpDZuF9iPXh3MM/DqP721a9x+OkrfuPO3OeUSl/4F5ka7Fxg5aaRHHCz9LiCHEusDSOQq1w7HtklkgAiBEEYUJxuDR0n5tMMhNI0EB+f3xgwVY3MyA0a1j2jcV+B7huikLbbZXXyCrvjciMbOL6PWc+pjaBgrbgFLyrE124ylsb8f/1aA+I/ky57QEBYD8UrZU9aMkUTG1es1quLo+zvszHNeUctnphrq1okP4jFPvsDjoiszRHEyPw8ZLQD2i0EyNIVteYuMz6z6mNhiQQj7avO7pUZmul5gzG0rAfh9kTMdC0UDb86ObrvjlHi5Xi730tM11YeUIHOIK+hyuiXGOAdEZHXH6O0py9tIaW41
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(23010399003)(10067099003)(56012099006)(5023799004)(3023799007)(13003099007)(921020)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|7416014|18002099003|13003099007|56012099006|3023799007|10067099003|6133799003|5023799004|921020;
+X-Microsoft-Antispam-Message-Info: iai8Mv+K2Lzxt7Hh1cVFPRFXvwVVc0IR3/UGseOei+bOJZtHZLSyaS160qXiJNn0q8tT0kaNT33oNnD4+GfHLXnPFm0vmT8zNKkKsW9/xvnvE3KrI4g4+lURFRx5hoIWmyKegoLtcd+ZUwFBKjuVzIwJM+U3WfIwc99uRatLtW5SyGNPYscSoGWUuuW6qnUFTUBjmwPtD9XFZI7iUQHqXf831TqMWB5Z8PntgBg/pqGVuEXZerwiS5RdB7uMO0GFOk9iwWYHtAMWoIijNPgKxmGUp2NTTzK9QhWHfoIekZMMEuvnJfNQh1HtRGBmvMt0w70PRYB5u1iWqt8ruPRRfHprkqsgiDUJRGEwhmaslYIM7Lg9k829idTs1KhHNLcUwSsd5FcDW3BGdn5v8bdVgf2Qz5l5a4NIT4H0zLPdCY1mTcKkL6Ypb0MpnHRLyg48sB8dkvFhKFXTHGn8Iasw442SmzfSnCa4lfJJRMnb41nVUOnjxGt8NRACSFeCbc25jw9M0bO0Xgh70RJ1VgjH+uXwnpXPOnqJo0d5FdfTp2IsnjOU8L0Fl4uDL8Vi/3zN0IMbLTrQ+ju8zlFwfpabejgnlafNRbHYourlDyGYQa2nqCfPK2pmAyJ/rtiKRpwd2VMBdmzM969ySEYJnz5CYX7G9jUFA4V7XdTB7x/P/e+JLxl25YkNDgEYUo4v2+m3dRE2ViowX98v3kVRhPVhLmDDd+PERp5DSC/hg4DtuhKhWBxzZpF16b/KyL6o5VIX
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(7416014)(18002099003)(13003099007)(56012099006)(3023799007)(10067099003)(6133799003)(5023799004)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: N8xXq8+t4VKRrnlxRkz+DMNF94YSNTn7gtOHOfE5EJYA1QxiUwYXS+ZVmmlaTvqU0zwvLvajxhGQLggkxEzTWwTCfpdDwATOXgnCuN51yLiQV1QGvK5qQ8+QlBvKKWiuZ3UoTCq90S83tRNP6Fzuf6Fdi5gr0MBwiXnixXjfDvmAoy0aXxI9c0jZUhWS5ytf7Pt0/JoMFXQs3KtmzFei4N0dl/xq8GC/ji7r1zBbMQhVbtLXnlaEXjjgCTdPPGQVu1LEjvpD3FnXjjL6dBXLLxy6zQNxDkIV2jX1CdogFua4l+D3R7FNtKsYBydRpJkGCcV8qxh92y+bM/XgI7X7lpr9aIuuhnYvtbZ4cVqzFSE8yGAySUOXDYZzJ2HLbs0kOmjHWt5osAYzp7WpuCc32LUyqAI07gLBd2b/hMc+pjvGqqvT1djxAslQ7tWCwv/L
+X-MS-Exchange-AntiSpam-MessageData-0: 2j7bBVB5sU7Ke/xOJYjgl/6iGhsnqC8lEMYnep+DALPVKFndPhOl/FfsSyyq+TaRPIOXL43ZGny8v4CXxictzDHByjPzxKhUdSAAbZmvbbvjukjwiUBdMwtaY74eTqV0pElSxIDM0xNSSBfeSrKywaquepujcEE8sk3wDYfVkbKTYc8+BFXE8T1Xfx2X5cNhCeaD8MPMAwG8PqPx0G/WDp0ZYmacf/xrB48qfuCHUcKoJw7ywMxNJb6QB4nHPpHDb+1CR7twNo4V0qR6wegbrEzu2VcBD3n6WqDyXTzBwSTWqUc4Q5PlctSWxJKBlNDnuF919cVzuGq35q5tFwAm09TgOrWfalGVNbspvz3lzLZkRG9hRLISllOJPSX32SDha8isJH7MinWy7jT1wnMf5wt76NW9B1p+UvvORzyc+lEMITojy5XmN7sEZXsxPdpl
 X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:11:33.8824
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:11:33.7126
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc40d291-a60d-4747-3338-08df098a963b
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0ce25cf-a4ca-4ad5-e168-08df098a961a
 X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018072.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017091.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR18MB5390
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR18MB5504
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_001146_830765_C0CBC74D 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260903_001155_452368_32312370 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,161 +135,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a Devicetree binding for the SGPIO controller found on the
-Axiado AX3005 SoC.
+Each SGPIO position provides one input GPIO and one output GPIO with
+fixed directions, along with interrupt support for input GPIOs.
 
-Each SGPIO position provides one fixed-direction input GPIO and one
-fixed-direction output GPIO. Input GPIOs support edge-triggered
-interrupts.
+This series adds support for the SGPIO controller found on the Axiado
+AX3005 SoC.
 
-The controller serializes output values and samples input values over
-dedicated data, clock, and latch signals.
+The series includes:
+- Devicetree binding documentation
+- GPIO driver implementation
+
+The driver uses gpio-regmap for GPIO operations and provides
+controller-specific interrupt handling.
+
+Tested on Axiado AX3005 platforms.
+
+---
+Patch 1: dt-bindings: gpio: add Axiado AX3005 SGPIO controller
+Patch 2: gpio: axiado: add AX3005 SGPIO controller support
 
 Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+
 ---
- .../bindings/gpio/axiado,ax3005-sgpio.yaml         | 112 +++++++++++++++++++++
- MAINTAINERS                                        |   8 ++
- 2 files changed, 120 insertions(+)
+Changes in v3:
+- Dropped AX3000 support.
+- Renamed the series to reflect AX3005-only support.
+- Removed AX3000-specific compatible, match data, and register-layout
+  handling.
+- Reworked GPIO operations to use `gpio-regmap` with fixed GPIO
+  directions and custom register/mask translation.
+- Changed `ngpios` to represent the total number of Linux GPIO lines,
+  with each SGPIO position contributing one input and one output line,
+  and allowed any even count up to the hardware limit.
+- Reworked interrupt handling to use a dedicated managed IRQ domain and
+  the `gpio-regmap` IRQ resource helpers.
+- Added IRQ lockdep classes and restricted IRQ mappings to input GPIOs.
+- Reworked software edge detection using input shadow state and dynamic
+  bitmaps for rising, falling, and unmasked interrupts.
+- Updated input shadow handling so transitions occurring while an IRQ is
+  masked are not replayed after it is unmasked.
+- Added regmap caching for the write-only output shadow registers and
+  marked live and interrupt-status registers appropriately.
+- Reworked SoC match data to explicitly describe bank count, input-bank
+  alignment.
+- Reworked hardware initialization to check register-access errors, use
+  named register fields and masks, and correctly handle partial banks.
+- Added managed hardware shutdown so the shift engine and interrupts are
+  disabled on probe failures and device removal.
+- Simplified resource management and removed the custom GPIO data
+  shadowing and locking used by the previous implementation.
+- Clarified the binding description of SGPIO positions, fixed
+  input/output directions, and interrupt capabilities.
+- Link to v2: https://lore.kernel.org/r/20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com
 
-diff --git a/Documentation/devicetree/bindings/gpio/axiado,ax3005-sgpio.yaml b/Documentation/devicetree/bindings/gpio/axiado,ax3005-sgpio.yaml
-new file mode 100644
-index 000000000000..47ae1285d482
---- /dev/null
-+++ b/Documentation/devicetree/bindings/gpio/axiado,ax3005-sgpio.yaml
-@@ -0,0 +1,112 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/gpio/axiado,ax3005-sgpio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axiado AX3005 SGPIO Controller
-+
-+maintainers:
-+  - Petar Stepanovic <pstepanovic@axiado.com>
-+  - SriNavmani A <srinavmani@axiado.com>
-+  - Prasad Bolisetty <pbolisetty@axiado.com>
-+
-+description: |
-+  The Axiado SGPIO controller provides a serial GPIO expansion interface
-+  that multiplexes multiple GPIO signals over a small set of physical lines.
-+
-+  The controller serializes output values on a data output line (DOUT) and
-+  samples input values from a data input line (DIN) in synchronization with
-+  a shift clock (SCLK). A latch signal (LATCH) updates the output states
-+  after each transfer cycle.
-+
-+  SGPIO positions are organized in banks of 32, with registers controlling
-+  output values, input sampling, and interrupt status. The number of SGPIO
-+  positions supported depends on the controller configuration.
-+
-+  The controller detects changes on input GPIOs. Interrupt events are
-+  aggregated and signaled through a single interrupt line to the parent
-+  interrupt controller.
-+
-+  Register access is performed over the APB bus. The SGPIO shift clock is
-+  derived from the APB clock using a programmable divider.
-+
-+  Each SGPIO position provides one input and one output, and both are
-+  exposed as GPIO lines. Position N is described by two consecutive lines:
-+  line 2 * N is the input and line 2 * N + 1 is the output. Directions are
-+  fixed by the hardware, so even lines are always inputs and odd lines are
-+  always outputs.
-+
-+  Only input lines can generate interrupts. Rising, falling, and both-edge
-+  interrupts are supported.
-+
-+properties:
-+  compatible:
-+    const: axiado,ax3005-sgpio
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    description: APB interface clock
-+    maxItems: 1
-+
-+  bus-frequency:
-+    description: Desired SGPIO shift clock frequency in Hz
-+    minimum: 1
-+
-+  gpio-controller: true
-+
-+  '#gpio-cells':
-+    const: 2
-+
-+  interrupt-controller: true
-+
-+  '#interrupt-cells':
-+    const: 2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  ngpios:
-+    description: |
-+      Total number of GPIO lines provided by the controller. Each SGPIO
-+      position wired up on the board contributes one input and one output
-+      line, so this is twice the number of positions and must be even. It
-+      may be lower than the maximum supported by the hardware.
-+    minimum: 2
-+    maximum: 1024
-+    multipleOf: 2
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - bus-frequency
-+  - gpio-controller
-+  - '#gpio-cells'
-+  - interrupts
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+  - ngpios
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    gpio@33201c00 {
-+        compatible = "axiado,ax3005-sgpio";
-+        reg = <0x33201c00 0x400>;
-+        clocks = <&apb_clk>;
-+        bus-frequency = <1000000>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+        interrupt-parent = <&gic500>;
-+        interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>;
-+        ngpios = <256>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 77159f279621..5bec6ea50c70 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4406,6 +4406,14 @@ S:	Orphan
- F:	Documentation/devicetree/bindings/sound/axentia,*
- F:	sound/soc/atmel/tse850-pcm5142.c
- 
-+AXIADO SGPIO DRIVER
-+M:	Petar Stepanovic <pstepanovic@axiado.com>
-+M:	SriNavmani A <srinavmani@axiado.com>
-+M:	Prasad Bolisetty <pbolisetty@axiado.com>
-+L:	linux-gpio@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/gpio/axiado,ax3005-sgpio.yaml
-+
- AXIS ARTPEC ARM64 SoC SUPPORT
- M:	Jesper Nilsson <jesper.nilsson@axis.com>
- M:	Lars Persson <lars.persson@axis.com>
+Changes in v2:
+- Split the series into two patches: the binding and `MAINTAINERS`
+  update, followed by the SGPIO driver.
+- Added SoC-specific compatibles for AX3000 and AX3005 and selected
+  hardware limits and register layouts through match data.
+- Reworked clock handling to use one APB clock and calculate the SGPIO
+  divider from `bus-frequency`.
+- Removed the custom `design-variant`, `dout-init`, `apb-frequency`,
+  and clock-source selection properties from the previous design.
+- Added validation for the GPIO count, clock rates, and SGPIO divider
+  calculation.
+- Added fixed GPIO direction handling: even offsets are inputs and odd
+  offsets are outputs.
+- Fixed child IRQ mapping for the interleaved input/output GPIO layout
+  and restricted interrupts to input GPIOs.
+- Reworked interrupt handling to support rising, falling, and both-edge
+  detection through software filtering.
+- Initialized the input cache before enabling interrupts to prevent
+  false edge events during probe.
+- Serialized output cache updates and register writes with a mutex to
+  prevent lost concurrent updates.
+- Updated GPIO IRQ handling to use GPIO IRQ resource helpers and
+  threaded nested interrupts.
+- Added managed hardware cleanup for probe failures and device removal.
+- Updated the Kconfig regmap dependency for the MMIO-backed variant.
+- Simplified resource management and error handling and performed
+  general coding-style cleanup.
+- Link to v1: https://lore.kernel.org/r/20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com
 
--- 
-2.34.1
+To: Petar Stepanovic <pstepanovic@axiado.com>
+To: SriNavmani A <srinavmani@axiado.com>
+To: Prasad Bolisetty <pbolisetty@axiado.com>
+To: Linus Walleij <linusw@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Tzu-Hao Wei <twei@axiado.com>
+To: Karthikeyan Mitran <kmitran@axiado.com>
+To: Michael Walle <mwalle@kernel.org>
+Cc: linux-gpio@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Petar Stepanovic (2):
+      dt-bindings: gpio: add Axiado AX3005 SGPIO controller
+      gpio: axiado: add AX3005 SGPIO controller support
+
+ .../bindings/gpio/axiado,ax3005-sgpio.yaml         | 112 ++++
+ MAINTAINERS                                        |   9 +
+ drivers/gpio/Kconfig                               |  21 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-axiado-sgpio.c                   | 737 +++++++++++++++++++++
+ 5 files changed, 880 insertions(+)
+---
+base-commit: 818bebeb63dd6bf5f4e07e145f6cdbace520a34c
+change-id: 20260320-axiado-ax3000-sgpio-controller-00f6e1db6ce9
+
+Best regards,
+--  
+Petar Stepanovic <pstepanovic@axiado.com>
 
 
