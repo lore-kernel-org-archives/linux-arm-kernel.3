@@ -4,93 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4F5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE87C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzI1smX7/IMyEGD/fNZX1tdlHe3Ey7XN1U8MbWwGg2c=; b=C/aD6sXTMIz9mdrbfX9IRc50Ds
-	g2GjI+5xmMQtrXtxODnW6B1QsdWSgfMlVXdXHZwV6uxpyq6aDokdtMb0+nmtIw8XrYo663URMur8X
-	oug2Abb/CMmG5MSmbp/eqIxxTsXziZgXoTVSXowEcIwvJJDcLBSQbY20qVPCaSwAnDwwGCnZTEKyw
-	aLRLXQ2/9gKZVMcjpYdA5d3ehFKz2qv1gTtN+VV5n+QdgIi4MpQFcFsbTIefLf/SAmMbpJ+bA6OS1
-	FBjKpnnKOR31bSlFLbuqYQl2VH0Ujubn2QZwov8eGgcTeke/kWallgqtwbV/fYfJ0qBcK2F5wluj4
-	v/ucEuBA==;
+	bh=4QmS2bFUIAw9Owot8+v10VgE/MAeq6BqPd7i1PWMP/Q=; b=RUjRk0QJs/pUvcqpvRRxCA//aX
+	e5Ig4asXrOpp6lUvFFSBNkRW85wvRTkh+vKfBfMnWqwE8I5tNs+RVzajf/sZ+gxTEHdGVm2w2a8gT
+	1PwXU/RduC7iGMuZh3/CvxFa3Jt4IYMt4fFtbjjBex6D+2hDnj1cBtvQdokDyRcoFr2zZvQcKtKu+
+	eAKsJmVKMKNDGj5ANBRC3IC5hBc8zcpEGrAs71lSJJZx7vEfOU/f4Ex+ItK8gIf80/msDhBA+Urg9
+	KpGtcL6VnGZdiyJNOGj1zLKrOZ4oOdvKDt6aoSDQlTFb8FFCoN9r1Ax+hYLDSul/TuzeWAu5/VNTH
+	syi1qU5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28hL-0000000HXlZ-31Tx;
-	Thu, 03 Sep 2026 14:45:51 +0000
-Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
+	id 1x28j0-0000000HY52-0biw;
+	Thu, 03 Sep 2026 14:47:34 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x28hJ-0000000HXkr-0qHk
+	id 1x28iy-0000000HY4H-2JFd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 14:45:50 +0000
-Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cb11535e6a1so4616a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 07:45:48 -0700 (PDT)
+	Thu, 03 Sep 2026 14:47:33 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-52fa6005224so21833931cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 07:47:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788446748; x=1789051548; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CzI1smX7/IMyEGD/fNZX1tdlHe3Ey7XN1U8MbWwGg2c=;
-        b=IQJOecPrZ0PmDVaLiOR+KQ/hORhLzg2V9T1pl/jEw+yd9quFneyhsxAZMRsSNAHTIK
-         iXX5ASM96vNIB/T4OJYTS1e22u5qlBRVTbo7C/26Eynr4xVqeT4+0dI4liChv7lcAuoV
-         OUDwzmIh5gNIS3N/YzJWdCfzwW8gxj+cPzHH/hZNpWGaQ7JzC/NbLosd/5TDz9HtK60r
-         Gh2mxxSq2JFdyP2SAP2646oqO6lja9h298Fp4sXo5mTywPDME7w1KjxEfR9G2iyFyFdt
-         kUf/e1Q+o0hcZ4nFQHBUexI8ZO8Sh6kdzUinERdk+giEY6Hwy+emqeFUjN7WA1yPFmth
-         EDmg==
+        d=ziepe.ca; s=google; t=1788446851; x=1789051651; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4QmS2bFUIAw9Owot8+v10VgE/MAeq6BqPd7i1PWMP/Q=;
+        b=gZvBgtu6b9JDQUZuT+kdU+oe98SSHbjG/M57rAJAxmw7BS+3y6x0TDcXTBlKs5JZ8y
+         oDjIbqK0vK+e1Y0tgz07Hegf2YDcQamcolOS+XR5KfZtZTKV2Q8ZQgdMHP8No8QGNuBe
+         ndKJ/2nJLUBMUXLDb2BuBgIZ3QUlDo7yygD6Vt1HJAZGTLL9v8+mNgY68uoMNcLMBdWh
+         Z0+TRDAMoQ54mSmwPLhv4He6ITTXs5PIgjXLeJZ9E55SWZAJ/rVE+2kzx3ZZClp+Limb
+         BOpI4gMvgITxUYOEHHlk3OXm9dqB5m+nZcDt4k6NO4p02Y+WlOzmFV4dVhgd/gDmb/bF
+         rsnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788446748; x=1789051548;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CzI1smX7/IMyEGD/fNZX1tdlHe3Ey7XN1U8MbWwGg2c=;
-        b=Rog48DgVPKKH9X/9w7dKIN3qvNDVZe1cKC5T+J+aQB/AP6XeNr2gFaQWgpH7kYeHVO
-         XDcdrIK6Kc7q6bEoRuFZYeS/2wMtSRtbDv8O9qLbl7PgUF58Md6LZglpm4bbHxFmqhpX
-         cU6LorU/KKQ8Be8nuCvkyg/zcLAklSOpMXQddlstf+DTJOg8S7AB7OTGkl2iS5bW+VC4
-         AoW/7jyuJfWzWK3Acl2kOA33G0w8XfFqTeajudyUmGaPc/o+BTZgtlf8pWMBxJh2A1F/
-         O88Bj7WIYWS9njz5yuDJjPx32r3x0nrsu+ZYh4B5C56ucENkkUJeV7vcBNBPyO7V9rR5
-         12dQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw1Ko9eNh8HRysequb43bzdK5UR2fr52m9GKtd8IjQiXO49ltAWvHddlnR/lxpxGIRBE500fnfwAUmQ6BhgrBJL@lists.infradead.org
-X-Gm-Message-State: AFuF++mtB61C7r/NPLCH2+qHSCdM+mB6Vi9s++ZxCQ98z0CTxycGBNjE
-	h9Ga5cRaYHBvTtcJD4P41wJMHgyim/EYGtTfeBvV6/u4BSWm2T+2c9XcOtnv+uaaVBCzxn9+KgX
-	PLUXtpA==
-X-Received: from pgcv12.prod.google.com ([2002:a05:6a02:530c:b0:cc1:57f5:f8fc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4408:b0:857:4dea:e2fe
- with SMTP id d2e1a72fcca58-85ed8ed8414mr20185879b3a.13.1788446747432; Thu, 03
- Sep 2026 07:45:47 -0700 (PDT)
-Date: Thu, 3 Sep 2026 07:45:46 -0700
-In-Reply-To: <apmFClPZ2WcDINmT@google.com>
-Mime-Version: 1.0
-References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
- <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
- <aphLXQL1H2zYZgTi@google.com> <20260903114241.33034-C-seiden@linux.ibm.com>
- <apmEi1NmOUvmUBFP@google.com> <apmFClPZ2WcDINmT@google.com>
-Message-ID: <apmIGgMEN8w-kQAm@google.com>
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-From: Sean Christopherson <seanjc@google.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
-	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
-	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20251104; t=1788446851; x=1789051651;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4QmS2bFUIAw9Owot8+v10VgE/MAeq6BqPd7i1PWMP/Q=;
+        b=pSQG7iV0gsnPY8ECEEs3OlXpqy7XhmP/PGwc6fEo+JLjTOdiIbE4vTVxOvKs8oxXXn
+         OiRiUFmWlGfaM8cs/z9lnXDR771ATLWi+2VNDSecVyBYnxy1sWG1566RlKWjSsNp/5uX
+         97xwGPSqerfPCQO4bohQ9UOhEQisSI45rlhRPwKrFzc9O2XbIpFq4G1Z0imWp5GBtDbZ
+         vOMkHynr/6UjvVby/KcRZn9u+AuQ279xNZbxvg1pOH45epPS/qai1pp0Tw5m9RsJ0wn2
+         LKxPajnrfI+WW8Pdfx+/6J9H+72LzBV7lgpgvnI78jPWmOVQc1lTU1+Q8zKu3t7svW0y
+         +Ffw==
+X-Forwarded-Encrypted: i=1; AKwUvBxGI9bRKCkW/FSb0bs3mOQ/jRG1DOXRVPYVdmo2ntXsAS2WEKItr0VP0s+vIo5sdXLLjJlapeBdHT8yubjqadjC@lists.infradead.org
+X-Gm-Message-State: AFuF++l77Kvmh90RdOTw2QcX40TlS/Z4++NoRI6jMsN05DcvrMSyjprM
+	x0GIVktwE0iXs5zZfrbn8jbVkVlfKuTQe53pjv8irzRdz/sjwO4i/GTLcnt1FIqOxRQ=
+X-Gm-Gg: AYBFou2+YQBHboIgQsymoIh0Rm94hIfBNsZx/Tb5t1+e69M6wlaCV6Z+4QMByAuD5t8
+	sRbse9Cy6i6cuJdFY0fvlrQviQ2e4CLaImlGJ3yLIOVvEEl+LitLFvXiDaPCrXjS/j8Zi2G6vTS
+	86A8jq4rRFrXFcNl31fwXaP5iTtJ9xiIH/P+7GZtmbSCUqzDOMkT002xbpp4EfB+J6wYB7c5WE9
+	LDs31wx/Rufz5EudQYMGsEXtFY4KYx9PlEYqpDBfbF5rPvG32fvo+GE8+o+aKjiPzHUBM0GdycY
+	Y7JGxatcX9u/RlNlFB7lDm6UwJOMPCdnh8u7lADfIDab7AjutO7RnAFnKe0r8HiGcoI86iQ8b5g
+	Z/yNURTlBF8JkS4qZDx1Ycnx8+8XVsEsTSJ/POwGFhhw27SPgAPAhtfPGpHth82CnCctxi9vGHn
+	n7H6zDNaGGH2m0HP9GVKy/xqEOGJJ+MqWpF5e1X6abzETmCI2F8EnAfYG/ehX1pOOTC1bF6iBv/
+	Lg4goOEVzxfyfpgorN30z32ASZQQOpZmvC5d7GR6B0pn+bp5Ah0VcgO
+X-Received: by 2002:a05:622a:1455:b0:51b:f40b:2fb3 with SMTP id d75a77b69052e-53036be6a5cmr143516721cf.9.1788446850990;
+        Thu, 03 Sep 2026 07:47:30 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5303301ddcdsm44166831cf.9.2026.09.03.07.47.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 07:47:30 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1x28iv-0000000HFle-2ikl;
+	Thu, 03 Sep 2026 11:47:29 -0300
+Date: Thu, 3 Sep 2026 11:47:29 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Joerg Roedel <joro@8bytes.org>, Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Xu Yilun <yilun.xu@linux.intel.com>
+Subject: Re: [RFC PATCH v4 03/16] iommu/arm-smmu-v3: Add initial pSMMU realm
+ viommu plumbing
+Message-ID: <20260903144729.GJ2890729@ziepe.ca>
+References: <20260427085344.941627-4-aneesh.kumar@kernel.org>
+ <apM6dOHcEI2ztWS0@nvidia.com>
+ <yq5a8q5lz5yn.fsf@kernel.org>
+ <yq5aecfdnv4i.fsf@kernel.org>
+ <20260901143445.GC56830@ziepe.ca>
+ <yq5a8q5kkoz3.fsf@kernel.org>
+ <20260902121700.GC2890729@ziepe.ca>
+ <yq5aik4nztdt.fsf@kernel.org>
+ <20260902193014.GF2890729@ziepe.ca>
+ <yq5abjaezyxl.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5abjaezyxl.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_074549_266533_6EAE7C60 
-X-CRM114-Status: GOOD (  36.31  )
+X-CRM114-CacheID: sfid-20260903_074732_597369_971D3E04 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,68 +125,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026, Sean Christopherson wrote:
-> On Thu, Sep 03, 2026, Sean Christopherson wrote:
-> > On Thu, Sep 03, 2026, Steffen Eiden wrote:
-> > > On Wed, Sep 02, 2026 at 09:14:21AM -0700, Sean Christopherson wrote:
-> > > > And taking things a few steps further, we can solve the MMIO issue in a more
-> > > > elegant way, and eliminate the runtime string building in this patch (after looking
-> > > > more closely, that code needs to be jettisoned no matter what, there's simply no
-> > > > reason to specify the names at runtime since they're separate compilation units).
-> > > > 
-> > > > Rather than splatter #defines throughout header files, deal with the bulk of the
-> > > > pain in Makefile.kvm.  By feeding conditionals into Makefile.kvm, the s390+arm64
-> > > > build can easily omit coalesced_mmio.o and async_pf.o, define __KVM_HAVE_ARCH_MMIO
-> > > > programatically without having to change other architectures, and solve the naming
-> > > > stuff.
-> > > 
-> > > Yes, this is a great idea. Thank you. I second you, this looks more clean
-> > > and stable than the stuff we came up with :) 
-> > 
-> > Looking more at arch/s390/kvm/Kconfig and virt/kvm/Kconfig, we might need/want to
-> > to build out infrastructure to handle this sort of thing in a more generic fashion?
-> > 
-> > Which probably isn't that much infrastructure?  It's more just changing how arch
-> > code communicates with common KVM?  I.e. instead of providing boolean configs in
-> > virt/kvm/Kconfig, formalize communicating HAVE-type macros through the Makefile.
-> > That might even be a net positive in the long run, as it will make it easier to
-> > provide defaults for the common cases.
-> > 
-> > I say that because unless there's magic I'm unaware of these Kconfigs also needs
-> > to be configured per-KVM, not per-kernel:
-> > 
-> >   - KVM_MMU_LOCKLESS_AGING, otherwise aging on arm64 will unintentionally be done
-> >     outside of mmu_lock.
-> > 
-> >   - KVM_GENERIC_PRE_FAULT_MEMORY, so that arm64 doesn't need to provide a stub
-> >     for something it doesn't support
-> > 
-> >   - HAVE_KVM_MSI, because presumably it's needed for arm64 support.
-> > 
-> >   - HAVE_KVM_READONLY_MEM, same story as HAVE_KVM_MSI.
+On Thu, Sep 03, 2026 at 10:58:06AM +0530, Aneesh Kumar K.V wrote:
+> > Do you mean the SMMUv3 driver triggers RD creation? That feels
+> > wrong. Did you mean the VMM just does it earlier?
 > 
-> And in the opposite direction, HAVE_KVM_VCPU_RUN_PID_CHANGE also falls into this
-> category.  That one is probably better handled as a #define in header files?
+> Currently, CCA creates the realm lazily as part of another operation.
+> Realm creation is triggered by kvm_arm_rmi_populate() or
+> kvm_arch_vcpu_run_pid_change()
 
-Continuing the conversation with myself, add in HAVE_KVM_NO_POLL and
-HAVE_KVM_INVALID_WAKEUPS (which reminds me, valid_wakeup should really be moved
-into s390's kvm_vcpu_arch).
+Okay, that's not what I would have guessed. But critically is there
+some way for userspace to specify any realm creation parameters (like
+rpv, ats_plane and so one) prior to the lazy creation?
 
-> > Which isn't _that_ many knobs, but add in KVM_MMIO, KVM_ASYNC_PF, and
-> > KVM_ASYNC_PF_SYNC, and it's enough that I think we should think about the big
-> > picture and not play whack-a-mole.
-> > 
-> > Actually, thinking about this more, what I've proposed here, plus the pattern of
-> > #define-ing macros in arch-specific kvm_host.h files, should suffice.  For things
-> > like __KVM_HAVE_ARCH_VM_FREE, it absolutely makes sense to #define the macro in
-> > kvm_host.h since it's very directly tied to an arch callback.  Whereas with KVM_MIO
-> > and KVM_ASYNC_PF, because they enable compilation of C files, it makes sense to
-> > define them in Makefiles.
-> > 
-> > So I think the "gap" is purely that the four knobs listed above need handling
-> > (and arguably KVM_MMU_LOCKLESS_AGING is ok as-proposed).  But I do think we should
-> > try our best to be more thoughtful than we usually are when deciding how to enable
-> > common code, because obviously s390+arm64 is adding wrinkles no one has had to deal
-> > with before.
-> > 
+Why lazy? Why not just have userspace provide the creation parameters
+and create the RD right then?
+
+Jason
 
