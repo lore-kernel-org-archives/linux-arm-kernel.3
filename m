@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3513C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9C6C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 11:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DSDRRDoLPHiKnDrwS7cordsPoUIfThuJ85SX43JJJA=; b=hRiW3xdPGYEWnpjHITHiON1fDG
-	jGTVy9KwPyU1OM9dWxztzvF9yhZdkbEw/zge4Dy6BJBgSRsXWIn26N7WVx0MtKDE0BfApKNng53yI
-	VrLLhPPhH/dAPFupmvXOaw7DG7i+/aJU7jfHW/ey6G/+XsWWNak1Tke1oAEWtz0tO8nvvvxdfm2eX
-	mM1l4nxDAd1QLwdF7G5Gm2A/oS7q9n70WXRQwSN9jm03Nh+nG501sFusZ3eK6tSDaS8NVYp/APlpJ
-	5MY5vGts0y3+svynlIiUGiX64sFutcHcTF2klDIiiDFrw4Uyk/0vmsZmc19Y32yUiIvVFAJwNS88q
-	wN/JaTMg==;
+	bh=GI67CPM8yi0ZXHmIKGRDTSpV4PxMt/Uk06vuw2OahkI=; b=JUHymguIbfSKQt0ESNBc7aoI1N
+	+WG0McJVRdmJiR4vXWDkLdz6bc5yhnZlvylH81KMD3YwoW+UJw2G/mvzgisGlBm9qYSnFuiVny5Un
+	OQ06oYge5byrq22LEs0zzrJUp7JLHVET5f1/zqujmdJFMRLl/z2IJRkRNw4xVPToqUJaoSUAGnbVh
+	Ep99ItvONw8qXMUvcA63gEiDOhTw+RoKatD/ZoN9+IMDTuhNSfsKxUQDiu+0gYBKW08tV/KxtwQxB
+	aK66J/v4LUu34qLkXoJsez9YCkZUWvpjaIQaqacdgCwdZCFCWFvRZtcEUYev3hc9lyrButzAYLw5P
+	5hJ0ALyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x25bw-0000000HChR-1Kfk;
-	Thu, 03 Sep 2026 11:28:04 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1x25j2-0000000HDW7-0NaR;
+	Thu, 03 Sep 2026 11:35:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x25bu-0000000HCft-15QQ
+	id 1x25j1-0000000HDW0-10KH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 11:28:03 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8541875f596so1022845b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 04:28:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788434881; x=1789039681; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6DSDRRDoLPHiKnDrwS7cordsPoUIfThuJ85SX43JJJA=;
-        b=Zm7cx+p61l7a7ENPfcKW+UC9ophd0YVuLdzXyzicThqLO6N4+IQixgG3kluUg6BAQ2
-         Z25wbT9/sCkR64pr/ox/7AqmILtjiuhym0r0v58MugQvfcA82wEKoGWJ3ZTK1o82CpH6
-         SfqPkc3nS6RI6MPuVBJuV6Ta2knp79DXAZyFcD9EiKR3eZN3QL1BOt+cCHmhonCa0sig
-         2l1hQOGmyBjxG/IwdqpzoHfRsIXVBHDxZrjBdNZSx99A/nxvNwJKmKF25YbY/WIPOe3o
-         mKXKMiBzO9pvYBW8Kvum9bkCoEdr54SLrKCoRUZVS17eK5+GoinfwEtu1Ci4DwWHiTZo
-         WbZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788434881; x=1789039681;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6DSDRRDoLPHiKnDrwS7cordsPoUIfThuJ85SX43JJJA=;
-        b=nFP1mkR3pRTf74NX/bS8q1c+ANk5rJWwa4hx5ER2pDuc0qQOo6taOt0uk5nM9C7A3l
-         zgwcznXrwp5LLq1y3fhToegzlWmzTkEjgubcIehPiAFvzhcA2z4dm4m+vQLTjvRd+B6W
-         9lT37XE0m+clTOsre4GDSd6Bqpvwlg7QkVa/PH+aYAcU29GrPF7VPB9ZeZU1VIUAIv7i
-         rmnsvNP8JEc7igyQMK9kXwx9ERUuHpO1i10CcK/TaMUpJX+HwhHzBWvO5taglFk59v5n
-         1QdzBqvTfLZs5KQf+FwcEREZPTL8uCTl0mZzVx4yc/7sHWtBFwmOYgg9ZPKCMeBJQH0+
-         s6Mw==
-X-Forwarded-Encrypted: i=1; AKwUvBy2CJOhL+4as9MYGXQ5GApCYmJAW/X5eE9lMYyZIsySU2hepuqjfdfGTLcls2E2ZlOd4JXk6LZ4zlo6SeL1zCma@lists.infradead.org
-X-Gm-Message-State: AFuF++llT69dQXERd5aS96+KcE52kcbEzzF54AWq3by8uz40nhYMwHh7
-	84gB6EoNZbiE2I5NGozsM26snTPcTN4COz90gXUtrGgAr4CQ3+w4RNGN
-X-Gm-Gg: AYBFou24uiDjxXnoiidf+yp9r+VI2Hg4gShqTXnOAL711TxHzsE+/MZKURvTqSftC4A
-	nBInCXx6yLeNHvifs6RUdVWPYUcb8J3yAgMkLiWMNF2bHM+BcAvtZ7Fg9YhDEsJf4jDPDdigf33
-	9oKuhJ9AF+r9ZqPLpTkLDZUg9CANtxJq/3W4yviW08eQ455NNvHKn3XfwVRBJChJac8KQ2shZF1
-	p1rKmmwDh38F4fW0yo7RBv01QpoFCnrfX2Aae6z4V4s4TUfw3z07DHzVntior6fjtUMu9IP7/Lw
-	tar4v8p/dRZwSSzDMvo0jOZqhMmIUaTKCldBWMuztrIgGsK7eAHXzvp1hh4slVwYXZtGl4YjXxP
-	5w+n5xXSx6UtfVuMEIVsG8fTOrFLZiemFwpSQscxZY2ySnbKBsje3klF5ssMCaqEHXjiDE5wGtQ
-	hK8U8A6h9jqu53kwfo3xEO/jkDRDjL2W8ZrSKSxBmF6elO+kGfNmWFJvCH8ssnahx8J342fOCmV
-	BdrAu9lGoz3WNIqbhuME5NXJ2TArw43npoC3AFIHQqsyn1oBUsEEz7YE1THH6A/CkNXG/vA0+24
-	Cpz2
-X-Received: by 2002:a05:6a21:9e0f:b0:3d0:9590:7148 with SMTP id adf61e73a8af0-3d9adcc7c15mr18547929637.17.1788434881320;
-        Thu, 03 Sep 2026 04:28:01 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc43d467134sm856084a12.30.2026.09.03.04.27.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 04:28:01 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Sugar Zhang <sugar.zhang@rock-chips.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 2/2] ASoC: rockchip: rockchip_i2s: Handle runtime PM resume failures in set_fmt
-Date: Thu,  3 Sep 2026 18:27:39 +0700
-Message-ID: <20260903112739.373621-2-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260903112739.373621-1-phucduc.bui@gmail.com>
-References: <20260903112739.373621-1-phucduc.bui@gmail.com>
+	Thu, 03 Sep 2026 11:35:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9BE0437D1;
+	Thu,  3 Sep 2026 11:35:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F9A31F00A3A;
+	Thu,  3 Sep 2026 11:35:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788435322;
+	bh=GI67CPM8yi0ZXHmIKGRDTSpV4PxMt/Uk06vuw2OahkI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=O2IlCtuMNbakoyXY2D31P0E159cHIcVJigxX8w1haBC94Qr6S6epMXjHIa6zRKBcI
+	 OE+3f+rxDwwrGfsAD39fX4eezjvDMWYQsiEBdjcI2ykCvpuYqCZaATkfJtH49cQ18l
+	 krxnRw67DEnZu6K+iHbcYVCl8cpwh6T+2TyVgAZ1f3p50VYIJOnhiW6vlOJB77V4Ko
+	 bG6Ibq/G59tGMPHPCGWYjsKzLdkjHjjnOyo4mBexT8oQGRPZLzX6I9LxqSU40yLiBI
+	 6ioEwGaIon7j50uKjJMCzEfi2pGebyH9VSRHP603iIbFtQsc0r2t+s5gmnlXTPVxsg
+	 JAvkM9kZDFz6A==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id E4DBF1980047;
+	Thu,  3 Sep 2026 07:35:19 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Thu, 03 Sep 2026 07:35:19 -0400
+X-ME-Sender: <xms:dVuZaovR-c4KRU0bTmDyoCGKVMfDysb6kHC1eD5iZo1XHtRzHLg5MA>
+    <xme:dVuZagTuUyST6iT-SQLgc4S5CPheVwCXWPsq_mLPsKpOjysyPxS8RjXzOtmsnJIsE
+    R0PLVOL7-kSEieR9iijT3rSlPzPfP4Uw1qparPP_tnFvwZYqtGYWTHQ>
+X-ME-Proxy-Cause: dmFkZTE35Cj2o9w6o+pggtHOOqOz+sFl03EWpmd0tgzo6J4wCd8a6EDhiYd49BIPNtsWXQ
+    0iMYBwpT31vuwS1JR8RCBFTjzAOhlfyq3ma8jZDDtkEvhBXicIKS9OZnuxqiHsod5f97xV
+    J8FuqC6e1eFexwdHQ5OjGxcGDKBn7IryT10wtxIaC4dZKH5cEiidOl7qSUhty7IyZid1Fl
+    fJ0P/6Mj3V5MrBQ8WAroV/0glwDye2vhVcP3ViBaNekQHcc/o76j8jjKJ02MtH+5zbHJSw
+    +wpKAV5qAtjs+NgZNC3uSWYGjXjfwAGnlPYRQsAVCbM4H1PPFRNi5pfmReEaN61S6yq6m/
+    m2p+KCzk8ukGUj/kpko5dgEeh1qnctYJ9br2Pae92FQF+tYhovlKnfL2iqeYktjPnfAk/m
+    QjD5Bzno//eaVQPd+UzOzdmPZgjpenScHoY+Trtdb2FKlTvt0XEgWaQ5kDNUaGo1qGjiwo
+    nlswmSKj5eQT7TsC7UUKNsL+u8qbVBS/QO6Ds8ZwXRRCiIlcAfYe+la8gV/Tovgl2NjQOO
+    dweU/H5/dm2ZtkVoyH71W94LMdRNNDu5RgOWguqkAVYgC4NDPF2qmjcSI6JU9aBDfc5FPQ
+    nhqY/ZXhVMXQQ6ujvQfC/dRftD41+DoPW3t84Fqh1lJN4xRWiI6VMF5Jrbwg
+X-ME-Proxy: <xmx:d1uZalmMn24bZvw6ZcLzuvbcrJAKUgXdzzzS8Ud0C6nXYA5EVSPc0Q>
+    <xmx:d1uZariQuCSm2xXM69lE3G6vkzqSsl66MJ4aSRGJ0xZNmHI3CWwIlg>
+    <xmx:d1uZaiSh-nrRtvN90zTY6qN6k34XEQY-5mUsY52qudIhz0_2VpP38g>
+    <xmx:d1uZagiQ1esEatnM-Y_IcDnASzPxDyVKHWkMTHuTWVtpIJAbsM8j7g>
+    <xmx:d1uZauiiVEu2LLn_6b5rQDBKimEFB2v8DRx7K80_-fufnxKLOWw9oQim>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 12337F8007A; Thu,  3 Sep 2026 07:35:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_042802_303327_0D14CD6D 
-X-CRM114-Status: GOOD (  13.27  )
+Date: Thu, 03 Sep 2026 13:34:56 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Sven Peter" <sven@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Sudeep Holla" <sudeep.holla@kernel.org>, "Janne Grunau" <j@jannau.net>,
+ "Neal Gompa" <neal@gompa.dev>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+ asahi@lists.linux.dev
+Message-Id: <9c53cfd7-e193-4441-83ca-7710060225b7@app.fastmail.com>
+In-Reply-To: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
+References: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
+Subject: Re: [PATCH RFC 0/6] PSCI-via-EFI to support firmware and kernel sharing EL2
+ for Apple Silicon
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,37 +104,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Hi Sven,
 
-rockchip_i2s_set_fmt() calls pm_runtime_get_sync() before accessing
-hardware registers, but ignores its return value.
-If the runtime resume fails, the function continues to perform register
-accesses while the device state is undefined.
-Replace pm_runtime_get_sync() with pm_runtime_resume_and_get() and
-return early on failure to avoid unpowered register accesses.
+On Wed, 8 Jul 2026, at 09:15, Sven Peter wrote:
+> Hi,
+>
+> Usually, idle and sleep state are implemented in firmware running in
+> e.g. EL3 with the kernel trapping into that from EL2. Unfortunately,
+> there's no EL3 on Apple Silicon machines and we'd rather not run the
+> kernel in EL1 since this would result in losing KVM support.
+>
+> While the shallower states could be implemented inside a custom cpuidle
+> driver (like we do downstream, see [1]) the deeper states result in a
+> complete loss of state and require bootstraping the cores again which is
+> quite involved. So instead we need some way to call back into our
+> open-source firmware to be able to handle that. This is even more
+> important for M4+ which don't even support the architectural wfi anymore
+> and always lose state when that instruction is executed.
+>
+> Luckily, EFI runtime services provide much of scaffolding we need,
+> namely a way to keep some code and data mapped and the ability to jump
+> into there from inside the kernel.
+>
+> This series adds a custom EFI table that points to a PSCI entry point
+> (plus some other stuff that has to be available before EFI runtime
+> services are set up) and adds support for this new conduit to the psci
+> code. We can't directly use the normal EFI runtime path because that one
+> takes a sleeping lock and we need to be able to call into PSCI from
+> atomic context during e.g. cpu bringup or during idle.
+> It also adds support for specifying the specific MAIR attributes for EFI
+> runtime mappings as defined in the latest UEFI spec since Apple Silicon
+> is rather allergic to using Device-nGnRnE vs. Device-nGnRE for its MMIO.
+>
+> This all results in a surprisingly small diffstat. I believe this
+> approach was originally suggested in some IRC discussion years ago,
+> possibly by Ard, but I can't find the old logs anymore.
+> Happy to add a Suggested-by tag though if anyone remembers.
+>
+> The firmware implementation I used for testing can be found at [2] and
+> the full kernel tree with this series applied at [3].
+>
+> Best,
+>
+> Sven
+>
+> [1] 
+> https://github.com/AsahiLinux/linux/blob/asahi/drivers/cpuidle/cpuidle-apple.c
+> [2] https://github.com/AsahiLinux/m1n1/tree/psci-via-efi
+> [3] 
+> https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git/log/?h=efi-psci
+>
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+> Sven Peter (6):
+>       dt-bindings: arm: psci: Add EFI conduit
+>       arm64/efi: Add and parse custom PSCI EFI configuration table
+>       efi: Add EFI_MEMORY_ISA_{MASK,VALID}
+>       arm64/efi: Honor EFI_MEMORY_ISA_MASK for Device-nGnRnE vs -nGnRE
+>       firmware/psci: Add EFI runtime conduit
+>       arm64: dts: apple: t8103: Add PSCI and CPU idle states
+>
 
-Fixes: 53ca9b9777b9 ("ASoC: rockchip: i2s: Fix regmap_ops hang")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/rockchip/rockchip_i2s.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I've picked up patches #3 and #4, which are useful in their own right.
 
-diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
-index 261f36d4c2fd..e7ea71783e37 100644
---- a/sound/soc/rockchip/rockchip_i2s.c
-+++ b/sound/soc/rockchip/rockchip_i2s.c
-@@ -244,7 +244,9 @@ static int rockchip_i2s_set_fmt(struct snd_soc_dai *cpu_dai,
- 	unsigned int mask = 0, val = 0;
- 	int ret = 0;
- 
--	pm_runtime_get_sync(cpu_dai->dev);
-+	ret = pm_runtime_resume_and_get(cpu_dai->dev);
-+	if (ret)
-+		return ret;
- 	mask = I2S_CKR_MSS_MASK;
- 	switch (fmt & SND_SOC_DAIFMT_CLOCK_PROVIDER_MASK) {
- 	case SND_SOC_DAIFMT_BP_FP:
--- 
-2.43.0
+I'm not sure if the arm64 maintainers will want to consider this, but
+I think it's a reasonable compromise, as it puts the abstraction in
+the right place.
+
+I take it this will be contributed to u-boot if it gets accepted here?
+
+
 
 
