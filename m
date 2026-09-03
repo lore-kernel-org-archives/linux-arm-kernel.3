@@ -4,59 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C29C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180C9C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkxJ54lLa7UyJpsWCW4xrgS9S6PmuGVbCHPuaNKsEG4=; b=O5e59O5je43sWk4pHVqv4poaiz
-	C73Ujj2b/faGsLRiZuJtnzSWh2tu//w2f5NMunr5GrJNnRMo++u8kW7VvTvsYrRQ72q+H6e7cz7z1
-	gH1W5PgYb9aRlklyFp4P4r9qNhOM+EdRzukth/FS118MZAyDYe6ybSIXrd7Ab2/EkH0GRybSoShF5
-	lhFxqWYayYtLOFpVsU8LUucUtawUFSHwxHtJKtvBFjJLKagMC1VDMxIBMDIC37/RidKC+58jYwSNK
-	EIlFT+aG+pBhYA4rJ5nK93Z3bIzyTXu/PzUgnXez/eTbCo8bOCkRPBlYOTOTYAoP7UwGCZRltoO2V
-	W1rzksvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a9dLB9qMC1VWxr88frK7ML0Lzec5YHO8OL8Ql9y1Xn4=; b=msetYyVpQwIX/s0B3boKKtuAEf
+	rF5mN3U5cCpmR4db6FzOV7qUIFIAT1N19y5gAKEQx/a/iwmQRlJvqBzP7i7UohWXmITVz6ZGyY2d5
+	p/xvbYazgxvDQ3cT/6JOGB9Hlv+RxnY1z5eb0zOTsfz3F1otfY4Ue0Hc2Xy23JJfPqjFuGzbMG+ar
+	SWoIPUVgIdpJnNVBqwT/gPWL7unnSSjcFn4EdxxtWBFSjqPC5Kx0+ftSV2UOZwuZHgNoWEOmEdWEp
+	B2PCKtl4s/ty0NlClIsll01wU50+m+a5vJKeWFS4Tscz3hO422x5dfFD1Fbwm1bPptqP0JJoh7rkn
+	hs0r3eaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2468-0000000GzqK-0ApF;
-	Thu, 03 Sep 2026 09:51:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x249Q-0000000H0V6-3WOl;
+	Thu, 03 Sep 2026 09:54:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2467-0000000Gzpl-2MjW;
-	Thu, 03 Sep 2026 09:51:07 +0000
+	id 1x249P-0000000H0Uy-0awU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 09:54:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0CF2600C8;
-	Thu,  3 Sep 2026 09:51:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 653581F000E9;
-	Thu,  3 Sep 2026 09:51:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788429066;
-	bh=bkxJ54lLa7UyJpsWCW4xrgS9S6PmuGVbCHPuaNKsEG4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=cCiYQ0kdK+jvzDycJdh7ASVvlsp5IFdadQUlLhoPglE8C4BdzWlC+W6dyDClnDT8b
-	 gO5f8tgNgMSsUqVoEI0TQyGzQ+I1kiV97pLqVtln5YH0s860hf5jVdG8uiAPOQUCyq
-	 Q/ib87eKIcqzgKp+lj9npoqG5Cr27EdPZ8hQ51p+5k7ndaOXrv6VJT2XwLchwxbD9W
-	 NmuSbWoQxO+RZjldfjetbcVrhDGuHAV5eGdxbt/AVHNKGVH7rYlIyNn5fwkaTo718G
-	 YaDkTVgViRzxRthTA0NrKOwdvKGXYg8X5v+D8XFJNFfspbainCxc+Vpf8HKQBeUu10
-	 KfwojBIUgv36A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 198433811965;
-	Thu,  3 Sep 2026 09:50:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F889600C8;
+	Thu,  3 Sep 2026 09:54:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ECD71F000E9;
+	Thu,  3 Sep 2026 09:54:28 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] firmware: arm_scmi: Merge scmi_reset_proto_ops.name_get() and .latency_get()
+Date: Thu,  3 Sep 2026 11:54:25 +0200
+Message-ID: <77c9651a11715013c0eaa8a56dbbc7dc3d9ddeec.1788429130.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: enable RX_DONE interrupt for RX queue 31
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178842900765.3234406.8351313053019359790.git-patchwork-notify@kernel.org>
-Date: Thu, 03 Sep 2026 09:50:07 +0000
-References: <20260830-airoha-rxdone-rxq31-v1-1-830a91503f2f@kernel.org>
-In-Reply-To: <20260830-airoha-rxdone-rxq31-v1-1-830a91503f2f@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,31 +59,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The SCMI reset domain protocol operations structure does not provide a
+.info_get() method, unlike most other protocols.  Instead, it provides
+two separate methods to get a domain's name and reset latency.
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Merge the .name_get() and .latency_get() methods into a single
+.info_get() method, to increase uniformity.
 
-On Sun, 30 Aug 2026 14:28:27 +0200 you wrote:
-> RX queue 31 has always been allocated and filled by airoha_qdma_init_rx()
-> since RX_DONE_INT_MASK spans queues 0-31, but none of the RX_IRQ*
-> _BANK_PIN_MASK values covered BIT(31). As a consequence the RX_DONE
-> interrupt for queue 31 was never enabled, airoha_qdma_rx_process() never
-> ran on that queue and its buffers were never reaped.
-> 
-> Route RX queue 31's RX_DONE interrupt to IRQ bank 1 so that the queue
-> is drained and its buffers returned to the page pool.
-> 
-> [...]
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+There are no callers of the .name_get() and .latency_get() methods.
+---
+ drivers/firmware/arm_scmi/reset.c | 36 ++++++++++---------------------
+ include/linux/scmi_protocol.h     | 13 ++++++-----
+ 2 files changed, 19 insertions(+), 30 deletions(-)
 
-Here is the summary with links:
-  - [net] net: airoha: enable RX_DONE interrupt for RX queue 31
-    https://git.kernel.org/netdev/net/c/7db28abbea0f
-
-You are awesome, thank you!
+diff --git a/drivers/firmware/arm_scmi/reset.c b/drivers/firmware/arm_scmi/reset.c
+index 4bc5c24c2d72d398..2cdddc28ba47a2b4 100644
+--- a/drivers/firmware/arm_scmi/reset.c
++++ b/drivers/firmware/arm_scmi/reset.c
+@@ -60,8 +60,7 @@ struct scmi_reset_issued_notify_payld {
+ struct reset_dom_info {
+ 	bool async_reset;
+ 	bool reset_notify;
+-	u32 latency_us;
+-	char name[SCMI_MAX_STR_SIZE];
++	struct scmi_reset_domain_info info;
+ };
+ 
+ struct scmi_reset_info {
+@@ -134,10 +133,10 @@ scmi_reset_domain_attributes_get(const struct scmi_protocol_handle *ph,
+ 		if (pinfo->notify_reset_cmd)
+ 			dom_info->reset_notify =
+ 				SUPPORTS_NOTIFY_RESET(attributes);
+-		dom_info->latency_us = le32_to_cpu(attr->latency);
+-		if (dom_info->latency_us == U32_MAX)
+-			dom_info->latency_us = 0;
+-		strscpy(dom_info->name, attr->name, SCMI_SHORT_NAME_MAX_SIZE);
++		dom_info->info.latency_us = le32_to_cpu(attr->latency);
++		if (dom_info->info.latency_us == U32_MAX)
++			dom_info->info.latency_us = 0;
++		strscpy(dom_info->info.name, attr->name, SCMI_SHORT_NAME_MAX_SIZE);
+ 	}
+ 
+ 	ph->xops->xfer_put(ph, t);
+@@ -149,7 +148,7 @@ scmi_reset_domain_attributes_get(const struct scmi_protocol_handle *ph,
+ 	if (!ret && PROTOCOL_REV_MAJOR(ph->version) >= 0x3 &&
+ 	    SUPPORTS_EXTENDED_NAMES(attributes))
+ 		ph->hops->extended_name_get(ph, RESET_DOMAIN_NAME_GET, domain,
+-					    NULL, dom_info->name,
++					    NULL, dom_info->info.name,
+ 					    SCMI_MAX_STR_SIZE);
+ 
+ 	return ret;
+@@ -162,28 +161,16 @@ static int scmi_reset_num_domains_get(const struct scmi_protocol_handle *ph)
+ 	return pi->num_domains;
+ }
+ 
+-static const char *
+-scmi_reset_name_get(const struct scmi_protocol_handle *ph, u32 domain)
++static const struct scmi_reset_domain_info *
++scmi_reset_info_get(const struct scmi_protocol_handle *ph, u32 domain)
+ {
+ 	struct reset_dom_info *dom_info;
+ 
+ 	dom_info = scmi_reset_domain_lookup(ph, domain);
+ 	if (IS_ERR(dom_info))
+-		return "unknown";
+-
+-	return dom_info->name;
+-}
+-
+-static int scmi_reset_latency_get(const struct scmi_protocol_handle *ph,
+-				  u32 domain)
+-{
+-	struct reset_dom_info *dom_info;
+-
+-	dom_info = scmi_reset_domain_lookup(ph, domain);
+-	if (IS_ERR(dom_info))
+-		return PTR_ERR(dom_info);
++		return NULL;
+ 
+-	return dom_info->latency_us;
++	return &dom_info->info;
+ }
+ 
+ static int scmi_domain_reset(const struct scmi_protocol_handle *ph, u32 domain,
+@@ -241,8 +228,7 @@ scmi_reset_domain_deassert(const struct scmi_protocol_handle *ph, u32 domain)
+ 
+ static const struct scmi_reset_proto_ops reset_proto_ops = {
+ 	.num_domains_get = scmi_reset_num_domains_get,
+-	.name_get = scmi_reset_name_get,
+-	.latency_get = scmi_reset_latency_get,
++	.info_get = scmi_reset_info_get,
+ 	.reset = scmi_reset_domain_reset,
+ 	.assert = scmi_reset_domain_assert,
+ 	.deassert = scmi_reset_domain_deassert,
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index fd2d648964f68f53..06914851c4620979 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -528,22 +528,25 @@ struct scmi_sensor_proto_ops {
+ 			  u32 sensor_id, u32 sensor_config);
+ };
+ 
++struct scmi_reset_domain_info {
++	char name[SCMI_MAX_STR_SIZE];
++	u32 latency_us;
++};
++
+ /**
+  * struct scmi_reset_proto_ops - represents the various operations provided
+  *	by SCMI Reset Protocol
+  *
+  * @num_domains_get: get the count of reset domains provided by SCMI
+- * @name_get: gets the name of a reset domain
+- * @latency_get: gets the reset latency for the specified reset domain
++ * @info_get: gets the information of the specified reset domain
+  * @reset: resets the specified reset domain
+  * @assert: explicitly assert reset signal of the specified reset domain
+  * @deassert: explicitly deassert reset signal of the specified reset domain
+  */
+ struct scmi_reset_proto_ops {
+ 	int (*num_domains_get)(const struct scmi_protocol_handle *ph);
+-	const char *(*name_get)(const struct scmi_protocol_handle *ph,
+-				u32 domain);
+-	int (*latency_get)(const struct scmi_protocol_handle *ph, u32 domain);
++	const struct scmi_reset_domain_info __must_check *(*info_get)
++		(const struct scmi_protocol_handle *ph, u32 domain);
+ 	int (*reset)(const struct scmi_protocol_handle *ph, u32 domain);
+ 	int (*assert)(const struct scmi_protocol_handle *ph, u32 domain);
+ 	int (*deassert)(const struct scmi_protocol_handle *ph, u32 domain);
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
