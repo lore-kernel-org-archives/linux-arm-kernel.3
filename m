@@ -4,62 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DBDCC624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48F4C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBG+i64jz1mBd1WZ/ZCtHsQOSaH5mD8NPD8LMZ8Y+BM=; b=eRbFw2kcnc5cxeOAnCV5reYGfo
-	jhAI2bd7tvN+UUc7LoZzlhAtJszc4R1xFezpGC7HpdFFkSOoAlIs79veeL3P3/m22cJq8sxYT/tEA
-	P21Lo3AAB25k06aUK8azLHFwoyNPtTJ7hWi0LO2g/Jiq57wSGV15+e5ABIf5f67/M8aq7j7ZElZdg
-	ZWpX34DLFzvOQU+7U7/Yxe4cgijmsIgDijn0RknTeuYXlTkuz1QOxp7gTz2WdhjPRL/KOcKgEa0u6
-	Eedu1UjyHRiYOibiuaTi55PpF2ApRkFe8BesNcCqu4iPPfDJVqNwrnA1k27NYIJLMfYyCyZNZfkAu
-	ygjidvaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=; b=lK5RYV9Zho47RqN9pNkP0dcFr9
+	Lot0R0MO/oSnqVj+prGnqkAEIj7yvWeKNu3X3Kb6jToGNbODscO8djwih9sZ7Rd7GEz7ym+tshiRP
+	YIecMY8z3yygGZGqPheFkSMKfxcAhEXOp5Ig/ZSeDzirnDUXZ0pVAvsjYsWZBNtTR4ZMzL+IZ1XHk
+	1bKuuBEOFJqDV3kq/jj9nboYwj3YRMzXmQexjzdU9BsKt7pNsU+ag7MDAi2Qc5uquqNcHDyidSVHF
+	WeBhl7tbNIV73j1/w6m8+6yxsy8IqJuQI2gOylJBCcAr/ha80eWshKTffgShPXmNE6FRToxDk9Hae
+	fl+y5z8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2577-0000000H9Da-1hUv;
-	Thu, 03 Sep 2026 10:56:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x258X-0000000H9Qz-3jaJ;
+	Thu, 03 Sep 2026 10:57:41 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2576-0000000H9DR-2koE;
-	Thu, 03 Sep 2026 10:56:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B10E408F7;
-	Thu,  3 Sep 2026 10:56:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01FD71F00A3A;
-	Thu,  3 Sep 2026 10:56:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788432972;
-	bh=CBG+i64jz1mBd1WZ/ZCtHsQOSaH5mD8NPD8LMZ8Y+BM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QLyjsnhxK2Jp0T/3aoYXiMyYRsUfTsbmXaAv2i10ZIedIYvdntz6dTIIz9MdiJjTB
-	 AKOMYYqvKkwASmSFYDOnOhkSEVuz3B53QwR1Kj+Kv3hweE1OGEybpUh8v+paxwUUCA
-	 vMWcGNyv206JdumSMsE4to13raChtU5jCjtUIFlsqodXvxWBEuD9Q4NzQvQaoSZJip
-	 SIJi/QSBuqf8yRxlHFG4cK+FAMOJfdzIdrZhJLfViksDyPJkDvHPtEUWdp3ruZZNPo
-	 wiW8Sb70mKmdvIAtpCyao/EJRmq5ogu7zAmkZJOhdqz93V+s+XqgGUN5JszPMthqZT
-	 9GrrduZkUJF1w==
-Date: Thu, 3 Sep 2026 11:56:07 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, aleksander.lobakin@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	madhur.agrawal@airoha.com
-Subject: Re: [net-next,v5] net: airoha: add HW GRO offload support
-Message-ID: <20260903105607.GL396647@horms.kernel.org>
-References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
- <178839576918.3394541.6887762855417310645@kernel.org>
- <apkP_n7q85Y6pni6@lore-desk>
+	id 1x258V-0000000H9QO-1JZv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 10:57:40 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683AHAgi3782252
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 3 Sep 2026 10:57:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=; b=SRdpJMIiq9NDmrdv
+	UAWcFDzUt9xsWYnKUJBQih4QlR5E/gTEnhcGm3caq99WQZrQfjKC8gIORrj/7c2w
+	ef9TqPTSXkvHfFVvSoOValzb/SEQbSiuSWMLO9nwCHOh+mmoooW8F6fO93Ut13JP
+	HlA2nXYEACjWPT8HSIzcJu93IHMuDpz+/Vdf5fgnzzOgU/ayi0NinCCNLWYF1ZS+
+	5RYtUlNt1eeGFBDEaMLvyCICVJul0NEQb6wz+I+fYqpuNRrUn1dyPuvbV0Gy8FFQ
+	w9HXAjqH4pS8y+xB5HlapeQoKl2h+DVezAApTWD/60X2z5vjNv9r6eP4nrYj4FCj
+	ppkyZQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gf5pdrhqx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 10:57:37 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52d7ef17031so2249701cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 03:57:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788433057; x=1789037857; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=;
+        b=VscjeKL0rGtjtJlJHzeSrtuWQYbeMdBp8LvVexanBSB6jWTACauNMeSLnPWudmxgRt
+         dqkJc6Y7dzoIMTvhJQRmmGpNV3KBCMytgCD+StmOXYyPNmtsca3cVo9+xzzFlDM8ti+8
+         44gOTmhMMbhsW20ugamqlpGvudr5NmpvdErg0qei1Idfc9WkSTtbuX68N4Rs2o0lybRa
+         R+7st7fAyHOIbuNW+v3OV+F/JOm5ZqiI8isDzqupPRe9oTutqqDSjQt47ZGmsbidZ53Q
+         lg+sX5suMf4nkpvM5hNFS5TTcLmoXlwHyEsqCCtwnB2Ubyxo/umgYp3tHQnwioM5SxYz
+         Y/KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788433057; x=1789037857;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hnH4y9oFKK/g7NAxKawFtUfKKGQ9b2LE6XjrMUqzw7I=;
+        b=Rq9PoyLoqFt/HeCcd9u3xUaHO9t9kT6xtQMAWB7aPUiQD9EBPYaFxJ4L3D5w+EUgwv
+         JpFjJRpyTsG0hsMWCWzhQfrS+mzvGAsG//VvAVCn7mydO4FiE95wO0FbP1DElX+TOqk/
+         UpbG3mViv860b9TmflH+Ivch3q1n3hcMgyp9mABn315MiSElGCOiC2ORn7oPftcI5WYO
+         g2UiWOkZnQHk/7gb5ByesnRxPHmn0Ad3cnV1j+eu82RTFR02gs7m80p7QuLn1Ft0acHS
+         qptLRWoTwfcX7H052tx9WWAlQOvgbkvgSEYsHCnVmoinufTJBHu+kT2tWdLJzfTwdaok
+         gEgA==
+X-Forwarded-Encrypted: i=1; AKwUvBwYestPg4OUl0h9Y41vED5Phcc9TKF6VlFajcaLQwX400YhkmC0aTWfSta5F6NuUOB0nqDGpPqSlaLNq7JDs1C8@lists.infradead.org
+X-Gm-Message-State: AFuF++nxfxDGbIrjVdj6O4vxpL9/F7bN63ynVGvwrguuMsL7fDj3KkGo
+	/VcdAhduxXBzK3R89ML2O9dKB5O8KoxoeiW7xH4YwvUZw8GsDkfnelG3WSryzZWv8854J818MQZ
+	CrhAkzRtGkeqRRfIiM3arNaxVrrPrUF4QAtJN5vR5FGD8Lo5Kuy/x6CV/OplWGb2E0ENYNwFkNE
+	ssHQ==
+X-Gm-Gg: AYBFou0KYg6oScOCIoMpnX9P9hWFdYTkFmPRXK3Ez3ALKWtosTke4KsZG7QcDmW5xOW
+	4pbwz/rOgIraLxS2c5rZXMIz08zIuw6QipShcA6pTMe4up5BYY8YHnDBqhpGAGY8YUM7yLVhoVm
+	gWq6Lrcmyxl2aG01tQi/R8+gmhEMVxbWhQtVDBBkso8H+qjyyAOCnVD0MalaX/CGugUS6gOnqmB
+	dt8TIxWpzevpZLB9RndZOkq10V8J8LUBIclg9pXWzRM0grGJY1dCK7YANhkvA8gW15LLK5xmLPF
+	hBpZLhLSbyj7d+3pt+r2fNN+kEq0xgx4MG7aLVmz6UhgRZtrv5iRkxmnkIMWgQ5CRz4JewDpV6A
+	vGXUVtf13AH2CwRQjrS7jWA==
+X-Received: by 2002:ac8:7d44:0:b0:52e:467e:ea8a with SMTP id d75a77b69052e-53036b33098mr86032391cf.1.1788433056711;
+        Thu, 03 Sep 2026 03:57:36 -0700 (PDT)
+X-Received: by 2002:ac8:7d44:0:b0:52e:467e:ea8a with SMTP id d75a77b69052e-53036b33098mr86031871cf.1.1788433056291;
+        Thu, 03 Sep 2026 03:57:36 -0700 (PDT)
+Received: from [192.168.202.12] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a67f8bc496sm2173512a12.11.2026.09.03.03.57.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 03:57:35 -0700 (PDT)
+Message-ID: <97fd5a30-9469-482b-be0c-0ed6da6424e8@oss.qualcomm.com>
+Date: Thu, 3 Sep 2026 12:57:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <apkP_n7q85Y6pni6@lore-desk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 15/15] ARM: dts: qcom: Add initial device tree for Kuno
+ SoC
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>,
+        Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-gpio@vger.kernel.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+ <20260827-kuno-soc-support-v5-15-6d47636a8f09@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260827-kuno-soc-support-v5-15-6d47636a8f09@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDA5NSBTYWx0ZWRfX6TnSnGLkqyql
+ IFBmqwup4lgCEXDkR4Rh1gSOLjo4vsIdlQ98ISw9P+mwF2nRVWgjbrm6Jp+QdfZxq1EfTYie2jb
+ k/I1kH8/+X9dbzpeZuJpt8LiTI4guyQ=
+X-Proofpoint-ORIG-GUID: QzNAyZgWKFdpinReH6ntqyXSn4nODTsN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDA5NSBTYWx0ZWRfX9ogteo9Q9ion
+ a+QT32IURQ9iwCQ11DPMtS2Vb57JDZ4Q+M4KhJNpJgDgBbf/5d9ta9L+I/nEN3KGaPxPRQ5P5ye
+ UNgYBmaOL7jTTyO824rfQ28AlmIz+mdRcg5cNuj+eMf3Yr8XWjMdlZOJ/sJz9upB90RgwLrv90y
+ YJ2/rT1xSfELG3juhnl1QEBijQRXGTEywr4jQsUeKkqrI9VfEBmPns8ru0kAJRC/lZLAP9a9Uv7
+ lH8PUcKziBSixSr2byIoZUSZ7cx8ME021jzsxQVXogocJzMHm+gURNwsVEutnW0k/cXwkzaSNuo
+ OJSaobHbsXGqLGMBIHS8WGX6tpIlN16pcfJVhuIsF6zTNc0v+mn3mLTH9S4wFWzqB4lOwwQVKVQ
+ B3t+wHzscZ7pk3JkCntx9/sZkJDSzmc/p6U1Bm8PBMelVIn+Ku8limzU3R9cy8F4GhynoFMk/Pf
+ 3gwIMzOUQrNeYQw1J/w==
+X-Authority-Analysis: v=2.4 cv=RsL16imK c=1 sm=1 tr=0 ts=6a9952a1 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=OHs8NuuX1ptjo3lIKY8A:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: QzNAyZgWKFdpinReH6ntqyXSn4nODTsN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-03_03,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 priorityscore=1501 suspectscore=0 clxscore=1015
+ lowpriorityscore=0 adultscore=0 bulkscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030095
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_035739_468835_5123C938 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,218 +170,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:13:18AM +0200, Lorenzo Bianconi wrote:
-> > Thank you for your contribution! Sashiko AI review found 2 potential
-> > issue(s) to consider:
-> > 
-> > Critical: 0 · High: 1 · Medium: 1 · Low: 0
-> > 
-> > - [High] LRO RX ring 31 is programmed as an active hardware-LRO
-> >   destination but is bound to no IRQ bank, so it is never polled.
-> > - [Medium] The driver advertises NETIF_F_GRO_HW while it cannot satisfy
-> >   the documented rx-gro-hw contract, because the hardware does not…
-> > 
-> > --
-> > 
-> > net: airoha: add HW GRO offload support
-> > 
-> > This adds hardware GRO (LRO) offload to airoha_eth, mapping the 8 LRO
-> > hardware contexts onto RX queues 24-31, bumping the page_pool order for
-> > those queues and disabling scatter-gather on them.  Aggregated frames get
-> > their network headers copied into a linear skb, the payload attached as a
-> > frag, CHECKSUM_PARTIAL with a pseudo-header checksum, and GSO metadata
-> > derived from the descriptor aggregation count.
-> > 
-> > > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> > > index 64619e9a704dd..57b19d7b5bd79 100644
-> > > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > 
-> > [ ... ]
-> > 
-> > > @@ -491,6 +493,88 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
-> > >  				 CDM_CRSN_QSEL_Q1));
-> > >  }
-> > >
-> > > +static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_id,
-> > > +				     int lro_queue_index, int qid,
-> > > +				     int buf_size)
-> > > +{
-> > 
-> > [ ... ]
-> > 
-> > > +	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
-> > > +		      LRO_RXQ_MASK(lro_queue_index),
-> > > +		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
-> > > +	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
-> > > +}
-> > 
-> > [ ... ]
-> > 
-> > > +static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
-> > > +{
-> > > +	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
-> > > +	struct airoha_eth *eth = qdma->eth;
-> > > +	int qdma_id = qdma - &eth->qdma[0];
-> > > +	int i, lro_queue_index = 0;
-> > > +
-> > > +	if (airoha_fe_lro_is_enabled(eth, qdma_id))
-> > > +		return;
-> > > +
-> > > +	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-> > > +		struct airoha_queue *q = &qdma->q_rx[i];
-> > > +		u32 size;
-> > > +
-> > > +		if (!q->ndesc)
-> > > +			continue;
-> > > +
-> > > +		if (!airoha_qdma_is_lro_queue(q))
-> > > +			continue;
-> > > +
-> > > +		size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
-> > > +		size = min_t(u32, size, AIROHA_MAX_RX_SIZE);
-> > > +		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
-> > > +					 size);
-> > > +		lro_queue_index++;
-> > > +	}
-> > > +}
-> > 
-> > [Severity: High]
-> > Can traffic steered to LRO context 7 be dropped here?  This loop enables an
-> > LRO context for every RX ring selected by airoha_qdma_is_lro_queue(), and
-> > AIROHA_RXQ_LRO_EN_MASK is GENMASK(31, 24), so ring 31 gets LRO context 7 and
-> > BIT(7) is set in REG_CDM_LRO_EN.
-> > 
-> > RX ring 31 does not appear in any IRQ bank pin mask in airoha_eth.h:
-> > 
-> > 	#define RX_IRQ0_BANK_PIN_MASK			0x839f
-> > 	#define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
-> > 	#define RX_IRQ2_BANK_PIN_MASK			0x20
-> > 	#define RX_IRQ3_BANK_PIN_MASK			0x40
-> > 
-> > The union of those four masks covers queues 0-4, 7, 8, 15 and 21-30, but not
-> > BIT(31).  Since airoha_qdma_hw_init() derives the RX interrupt enables from
-> > those masks:
-> > 
-> > 	airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX2,
-> > 			       INT_RX2_MASK(RX_IRQ_BANK_PIN_MASK(i)));
-> > 
-> > RX31_DONE is never enabled in any bank, and airoha_irq_handler() masks the
-> > status with irq_bank->irqmask, so q_rx[31]'s NAPI is never scheduled.  The
-> > re-arm loop in airoha_qdma_rx_napi_poll() is also a no-op for that qid:
-> > 
-> > 	if (!(BIT(qid) & RX_IRQ_BANK_PIN_MASK(i)))
-> > 		continue;
-> > 
-> > The ring is still created and filled by airoha_qdma_fill_rx_queue(), so once
-> > its descriptors are consumed by the LRO engine it is never drained or
-> > refilled again.  Would either restricting the mask to GENMASK(30, 24) or
-> > adding BIT(31) to one of the bank pin masks be the intended fix?  The v4
-> > changelog in this posting lists "Enable rx interrupt for queue 31", but that
-> > change does not seem to be present in this version of the patch.
+On 8/27/26 7:51 PM, Hardeep Sharma wrote:
+> Add SoC-level DTSI (qcom-kuno.dtsi) and IDP board DTS
+> (qcom-kuno-idp.dts) for the Qualcomm Kuno SoC.
 > 
-> I think this issue has been already fixed in the following patch:
-> https://lore.kernel.org/netdev/20260830-airoha-rxdone-rxq31-v1-1-830a91503f2f@kernel.org/
+> Peripherals included in this initial set:
+>   - Single Cortex-A7 CPU with PSCI idle states
+>   - RPMh RSC with clock controller, power domains, and BCM voter
+>   - GCC (Global Clock Controller)
+>   - TLMM pin controller (110 GPIOs)
+>   - Interconnect (aggre-noc, cnoc-main)
+>   - GENI UART console (QUP SE3)
+>   - SMEM, hardware spinlocks (TCSR mutex)
 > 
-> > 
-> > [ ... ]
-> > 
-> > > @@ -657,12 +742,191 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
-> > >  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
-> > >  }
-> > >
-> > > +static struct sk_buff *airoha_qdma_lro_rx_skb(struct airoha_queue *q,
-> > > +					      struct airoha_qdma_desc *desc,
-> > > +					      struct airoha_queue_entry *e,
-> > > +					      u32 msg1, u32 msg2, u32 len,
-> > > +					      u32 agg_count)
-> > > +{
-> > 
-> > [ ... ]
-> > 
-> > > +	page = virt_to_head_page(e->buf);
-> > > +	data_len = len - data_off;
-> > > +	shinfo = skb_shinfo(skb);
-> > > +	skb_add_rx_frag(skb, shinfo->nr_frags, page,
-> > > +			e->buf + data_off - page_address(page), data_len,
-> > > +			q->buf_size);
-> > > +
-> > > +	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
-> > > +	/* HW does not report the per-segment MSS, so approximate it as
-> > > +	 * the average segment size. The LRO engine always aggregates
-> > > +	 * n-1 MSS-sized TCP segments plus one shorter tail for an
-> > > +	 * aggregate of n segments, so this still re-segments into
-> > > +	 * exactly agg_count segments, keeping gso_size/gso_segs and the
-> > > +	 * packet accounting coherent, while never overestimating the MSS.
-> > > +	 */
-> > > +	shinfo->gso_size = DIV_ROUND_UP(data_len, agg_count);
-> > > +	shinfo->gso_segs = agg_count;
-> > 
-> > [Severity: Medium]
-> > Is NETIF_F_GRO_HW the right feature bit given this approximation?
-> > Documentation/networking/netdev-features.rst says for rx-gro-hw:
-> > 
-> > 	A packet stream merged by Hardware GRO must
-> > 	be re-segmentable by GSO or TSO back to the exact original packet stream.
-> > 
-> > With gso_size computed as the average payload size, the aggregate cannot be
-> > re-segmented into the original stream whenever the tail segment is shorter
-> > than the MSS, which the commit message describes as the normal case:
-> > 
-> > 	The LRO engine always aggregates n-1 MSS-sized TCP segments plus one
-> > 	shorter tail for an aggregate of n segments
-> > 
-> > For a two-segment aggregate of 1460 + 1000 bytes, gso_size becomes 1230, and
-> > GSO/TSO emits 1230 + 1230 rather than 1460 + 1000.  On the L3-forwarding path
-> > this patch targets, airoha_dev_xmit() writes that value straight into the TX
-> > descriptor MSS field:
-> > 
-> > 	__be16 csum = cpu_to_be16(skb_shinfo(skb)->gso_size);
-> > 
-> > 	tcp_hdr(skb)->check = (__force __sum16)csum;
-> > 	msg0 |= FIELD_PREP(QDMA_ETH_TXMSG_TSO_MASK, 1);
-> > 
-> > so forwarded flows end up with a reduced MSS.  Would NETIF_F_LRO be the more
-> > accurate advertisement for an irreversible merge?
-> 
-> It is correct that the merged skb is not byte-exact re-segmentable since the
-> hw does not report the per-segment MSS and it is only possible to estimate the
-> gso_size using the following formula:
->        
->        gso_size = DIV_ROUND_UP(data_len, agg_count)
-> 
-> However the RX path builds a genuine GSO skb (SKB_GSO_TCPV4/V6,
-> gso_size, gso_segs, CHECKSUM_PARTIAL) handed to napi_gro_receive()
-> which is re-segmentable by GSO/TSO and further mergeable by software GRO.
-> That is the defining property of NETIF_F_GRO_HW.
-> Moreover, gso_size never exceeds the original MSS, so re-segmentation cannot
-> emit a segment larger than the path MTU.
-> Switching to LRO will disable the capability to forward/bridge the packet
-> between two different interfaces.
-> 
-> > 
-> > A related question on gso_segs: agg_count comes from
-> > FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) and is only bounded above by
-> > AIROHA_RXQ_LRO_MAX_AGG_COUNT, while data_len has no lower bound beyond 1.  If
-> > the engine ever aggregates segments that are not uniformly MSS-sized (for
-> > example 64 segments totalling 100 payload bytes, giving gso_size 2 and 50
-> > emitted segments), gso_segs would overstate the number of segments actually
-> > produced, which feeds qdisc pkt_len accounting.  Is the uniform-segment
-> > property guaranteed by the hardware for all aggregates?
-> 
-> I do not think the above example can occur since the hw will aggregate n-1
-> MSS-sized segments plus one shorter tail. With this assumption gso_segs matches
-> the number of segments actually emitted since:
-> 
->       data_len >= (n - 1) * MSS
->       agg_count = ceil(data_len / gso_size) --> gso_segs
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
 
+[...]
 
-Thanks Lorenzo,
+> +	soc: soc@0 {
+> +		compatible = "simple-bus";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0 0 0xffffffff>;
 
-I agree that no action is required here.
+that's just "ranges;"
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+[...]
 
+> +		qup0: geniqup@9c0000 {
+> +			compatible = "qcom,geni-se-qup";
+> +			reg = <0x009c0000 0x2000>;
+> +			clocks = <&gcc GCC_QUPV3_WRAP_0_M_AHB_CLK>,
+> +				 <&gcc GCC_QUPV3_WRAP_0_S_AHB_CLK>;
+> +			clock-names = "m-ahb", "s-ahb";
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+> +			ranges = <0x0 0x0 0x0 0x0 0x1000000>;
 
+likewise here, you don't need to precisely limit this.
+
+Konrad
 
