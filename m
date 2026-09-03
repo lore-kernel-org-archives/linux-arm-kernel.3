@@ -4,110 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F5EC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 02:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA15DC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 03:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9JyJMF/geV1z6omONvEP0twAdQNCLLyw0zl1sl3pjk=; b=IhgPcG/Ra8ZR2vTipSKMbCVgnm
-	0jEhqs7vkoEULdm824gH5PAZreD60FpUnikV0MfdPtfGVEJnh7p6zV85aJFu7xd7DvMYNiEyqgUSl
-	qT0UMvTRsrkyAd3fMCT08qISSxTXScUWVW4aynGmGXvVqWJo7dYc1WwNjpTngsgACmnAoaIrJJExK
-	xpRliqfpJpvox76AOwNPVdWkxxE7AgY/nst0167Kg5wBomSps5Nxgc5KqCRrYYeR7CQSkEBG5JRMY
-	XV4MsquxtLBaiyd9awdJww8BakZz9ktiodkYSqDD02U7iZBjSp6sVPdox+YhNTa9TkXU/iiv5CkUV
-	hMtSl8yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SnzwBfRZpBf2cJeykyMmu4E583GVHfgU8A+PMrUbmFE=; b=CrfsTUQ4zMlrMA20H1yK8pxohF
+	Fk/8USUAQEvHtjEWuk5BFxzt/hBpnpX3fw28EXZ3GEOna1+6Re7MNDvhZqjMbecyPgw5AkF784+fC
+	rouhkasGWKmBMZwqt4qH/PMIyF8tTJxCTFP8epG3QNdxeeYZCJdnedq1wqypzr8UEa/jBd7dyVU76
+	IrMKJ1EWJFc4NU7tli0G5XBmG9o9wU48tcmy3FhHYfCS7gqDqgaNmhPnt9SqUbo//sQ5XRfnWeKBE
+	na4ioPRwqRA5lPPn6v8Ta+3Ih6ijmu1UVt8GF1PIWxplTfvPe0zKiqURtIqW2MfFsIXdisxkhUmIF
+	g5eYFxdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xf5-0000000GFQW-3Ds5;
-	Thu, 03 Sep 2026 02:58:47 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1x1xoK-0000000GFuZ-36qn;
+	Thu, 03 Sep 2026 03:08:20 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1xf2-0000000GFPl-2LoS
+	id 1x1xoH-0000000GFtK-3CXx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 02:58:45 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so2217463a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 19:58:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788404323; cv=none;
+	Thu, 03 Sep 2026 03:08:19 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-857ff9fef54so19724927b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 02 Sep 2026 20:08:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788404896; cv=none;
         d=google.com; s=arc-20260327;
-        b=pVJLxYWSMo6Ct1vMOHQH8AMQMJYcs3RXBcq/B1y5HhyjQzYHmMV3yhxpXjM/V40+gV
-         BtOaMzOez8Dbf79q9WIo8AHYDLwPyCZYLDw+1psNkRejvDIa5kCEsi5w48UOWp3xPU1C
-         HeCis4tRdhKKzt4L8GQ5Qg1OrWHZLUu6UFcDmFo9rTzdQLR0P69aj2twm06RbLOY+j2+
-         yW+clAGnmUCFhH+st1fDRnNVMlK20Sjotcgn2AI55G/Jeym28H3rFmfjj1VrYExNthSI
-         A9+81r881mNhr4hzKd4DQwNKkSoSeWflgi8TZdPvkB6fJdjTl9EYlpxybhX73BaMD0Mm
-         RSwQ==
+        b=B718ZfKVM3Jm9T1qhuE63XeYXKuDAbQJRHY0vH4+BFs5e4DLHlVJPfKdeqC02rZgXp
+         Nn7DcqYqGa3vjuXJ8nXt0mU4+Bw2n+YvL/fs5O9bwNDIdAPzJAkWMDD0sOY5m4o/Jw2v
+         jl/IihTMOqBXmOZ71dkuAw041G2s/FY3JOqxjskxOfGT0MIYVOQQreg1+i5YedUs+Fcg
+         p8Amvyk839/Y1luIhMY4v0jzAhvb55y+J6VYQM6lfu1EibJbC6wm27BQW8wmzwhRv2Ow
+         pEdLeKHyY/FfBBcrzewju3Gq4bahpMsMd+vbohFZ9wWEqhObXCfDsuKfNevgWAeqYXpx
+         rLng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=a9JyJMF/geV1z6omONvEP0twAdQNCLLyw0zl1sl3pjk=;
-        fh=86WCzfBavSSzv3rSuTf8ZebjpkymYSVxJkjeX/8oAhM=;
-        b=VuAXcFdObg+SruE551sm97nJzVssYWXqOVOPKUL+BpZsOqjNYwrCESVbYs+kV+61Tw
-         p5P9DA/a/jbdr/HrkYb+2nsobiRqqGFnlxi82Xbur7d4kGcgvKj1NlVJMtihezqZalFh
-         T/rd3RLWGzogBjOypyVcvxvyiHcD+g3lvZI5QLME7/gS1PjKNfRUKAROoLmpNCsHMO/u
-         3vNjejwjJSAPE355XznCXgNpAbbI6ydsRP81Oa3iKXOP0NVVD036HFP+Jqn44ivkEHJg
-         tApWAeSXbTu2fdtQQX2m1SwZ/8hbp6/Jdx24vXlLQaMeuUQtwn7N2BSxpUH7ysD6mkHd
-         Goew==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SnzwBfRZpBf2cJeykyMmu4E583GVHfgU8A+PMrUbmFE=;
+        fh=9oiSAVqy/TN0yiSANsiGmchFfmmElnhtu8jI1ca0unU=;
+        b=f02U4b6j1b9giF7ulAcwtcxUzSdGTRzcnHmzH8iw0cX3TucC96t5FRHkxnFhGIDQup
+         AuqV65pZ6plIe4M+xMIPm3lSooD2T3nPxbLOn3zUgNoIKKld5zpxdFbqFR9xW6PcW9xh
+         fQag+zGIqYS1ozTG0tii18jC4joWm8IvSom69BDpW2R/vNXBAfIWBbnrLksKkiLd0UYi
+         PUW2O7cSNKUt7mBH6yzxcW9T4ozfOUEj7wiaMSRBWxTLeIOy5C/k2hT1rCo7Nad/KrYf
+         ytdnxRKg5+6FHwRZn3jPp605Xw15YzH7u56b3RlAHiI7pv7u8IvCvQY8q5AacG8L1sgT
+         6arQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788404323; x=1789009123; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a9JyJMF/geV1z6omONvEP0twAdQNCLLyw0zl1sl3pjk=;
-        b=RgODpQGWcy+wx+0B4mY0BJPUNgMTgDXLg+CP6xz4OM/aJqOTvJpPom8sdIEJOopzLK
-         pOnkNuJRemGwOeggjwEXGg9/ZBLsu5S5dY5w7kWVa4xH1UgtxoIkxYR73/XVlaDw3EXJ
-         pedC526aSL+cb3lv+jgI3DDAcgnbf5cvBD5E8t20Nwno+QqfYuYkuVr07XNkV13RvFSD
-         Sx+K2wEdhSlw6BRa40HIccWV77FB0MONwS1vuKMfztDbM3Rr0AcQ0fvoIjIp2cDLchYj
-         E9YconLzTe7LWWdlcyokjmjFlSVGbjiN36TOKFvA2XwNHbweKhVJiNa/8LsmrBNThLr9
-         iF/A==
+        d=chromium.org; s=google; t=1788404896; x=1789009696; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SnzwBfRZpBf2cJeykyMmu4E583GVHfgU8A+PMrUbmFE=;
+        b=dpG3c5ozWNUcI6pq7zd1SEz/0oLhPINTxqfBNME8BzC4D5XixlH1h58izMLjuBtEYw
+         qTys8HpNqUaN7bqCYfPzU+++qeLXsshImzLrWbWNa38gREQ1myv2wxgTK7CE5GbTtytD
+         K1B+nql+tR/WJdOZTscdSkJVzdxFUtA5GY1RI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788404323; x=1789009123;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=a9JyJMF/geV1z6omONvEP0twAdQNCLLyw0zl1sl3pjk=;
-        b=EuILntkmEOFA8uSPTWIFHygo/dxEsTrSeBJCqOzys926z+M98fjfcZwTQt4EMJFZm8
-         USlu1CbVq5hPSLJYKcWtSH8tsTYPP8AWbPMtUy1bP+wwIwcaCnoiveTgxOy003Uo9838
-         CXY7ScnMsqB8d18WyTMhRq9MTlQEJbyxerERYrl+Us/Gg5++CLA1IFYpR3dDCR+fEwLd
-         4ggMyMR37HQLnmlwzvnEbp+lH88cOVYqBr2epNrGH4RhmylgN2g6CjYdrdRnnIL1DNsE
-         2tGOTSyUfsYi7PB6iOVvq01mScfhUpXctCipwkDr2gLImmxk4tJ8mBqmq65Y4w7b4dUG
-         3S2A==
-X-Forwarded-Encrypted: i=1; AKwUvBxh09ypTl3Hv9uxCQRoA3wz2Kf6uVt3kxZu9TEqr9tfu3bNUMG1j/J9UjTY9Ib8YnVSRFs6J98kjksJB3PbRUun@lists.infradead.org
-X-Gm-Message-State: AFuF++ki6F0odoGkqV541R+3SqPHxKSDEoJ12AnViVmKjY9oe8aqkG27
-	jvFFYFf75TXwTbaAo43zEoVrEWAjPxraQP3RIX/G7pMkx+U2xBFCeA8OdDArEFY9NhdbQp5ipPk
-	m+aaqw8SvOwLC2UVRY1ym2Aon9LTm30A=
-X-Gm-Gg: AYBFou0fnHcpqfzyX0ZwlOEuGtUKoZlcEoa2IigWEYMmLNDZsFiL7uIPYuumKiwf7MK
-	aTOhfAtQt9LudRMzuFwlIuU1T6CyoVKaIqw9VsT8xyFzz+i/UleJtf6ACPLr62S5SOdK/q9caEi
-	+u2ti40Bn7xoVhkMUfvNHYgfqbul5xLp5aTsLXq//4yETetg1nKgnUFmtU/UbnSyLvs4WQNR7QD
-	C2cbfotCyQZm1qOSooP4TucmRth19JflVbRv8/NNi8tK6PsyKnYFBT80akJVUOYxXaNm1WaGjXD
-	Isau3zLuKrtA/Dzp3/Z9M8pNGU8WoOqgdTDgr3IaWuQ7L2bdieKPqEMDVPrrUhqSFKaHNtmSt4F
-	8usWDNzvrNfXU2K6vnxv2D1na6ZRoO399DMqQnvNAjRNMDSRh2t6iInWIwuwLQFJKJg4S
-X-Received: by 2002:a05:6a00:10d5:b0:852:38ff:b4b6 with SMTP id
- d2e1a72fcca58-85ed3f6cd26mr11933247b3a.17.1788404323051; Wed, 02 Sep 2026
- 19:58:43 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788404896; x=1789009696;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SnzwBfRZpBf2cJeykyMmu4E583GVHfgU8A+PMrUbmFE=;
+        b=GINH5QIGiOnXs0Ly7deSYAcHwLLPABe/spL3joE449CFaBnoijFbQCADfao2AdNRm5
+         3YLcHhaylUbBG/qavRb5THZ9snJuS5SvibxxltIOuIxYGpk8PSOjkk4cldNBq90tAfpm
+         Pwdk7sORsVuqUVttf1n+AvcwcTyh3BiOQ+OAHaVeSnP1BoLUZuwiRY6tW08V8g+P0W1K
+         0oib11BUU1Oje4GURb5bblKCnjjikv1GfVFSulOzPpyPx8XN6ui2OIGfPbVu5C0noFk9
+         BYcloL7vEsbiZn1O0ovCbZpO+/kc6RVveaiOfkcfbXosftbBboQKsqlFSAnkxFaudIUN
+         +AhA==
+X-Forwarded-Encrypted: i=1; AKwUvBx7dF3L4gSMWyyed0SAkMvKTLSBu3dwCJS5HORNPR++4zGR4Bk/fvG3EpM3icEGHWVRCGHRBDkHFNyhCj0sfsKW@lists.infradead.org
+X-Gm-Message-State: AFuF++m45d70Oy3dDZJxykaepHOMCNJMVmtlpzkBd1epD4NQxDLMgWUn
+	Y1xefIpBcM869YAEGZ5r7cu+g3nQJnYR7uAf4YKmJJ4zb4ZdLTQUF85IvCwbTYoChN+MfbWHOoC
+	hdDzSftZvUtZrgrHZ+W9dePUMCqRXlQB5AMBr9OGp
+X-Gm-Gg: AYBFou3PPl/DjKYin7sAdHWxz9ry1f2xj1OndGwdDp67joTEU++NHzEgMsNQFGGZOMg
+	a8ZtZF6mUPUg2hkCKWbTuJnofHu4rTPyTkskZAdp5icmb5+v5b5Har3Syx3tHmp7FAfsUDTZPK2
+	NUvJndXiSLcgS7h18knACmtGZse5/kOUpZJpnckmyez1h0NQ7/kPdk0ZfiLhrwCs0W4hAhfegXD
+	Ihkf6rjmgA74U2D3CS74ezrMZi0gfCIBrBu5/t/njb8T+fkz7J9FZLvcmSrckxCpglw4Y4Z49Yc
+	e504vgo3janL7fgqt4Vg+N4fzJHA4YbOJrQ4o/P0JLOcWhNTy9nlLAK2pP8JLO1o7HEKVHTJqRE
+	=
+X-Received: by 2002:a05:690e:400f:b0:66d:113a:3928 with SMTP id
+ 956f58d0204a3-66f9bb6f3famr3574226d50.12.1788404894746; Wed, 02 Sep 2026
+ 20:08:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260828050526.590761-1-phucduc.bui@gmail.com>
- <20260828050526.590761-3-phucduc.bui@gmail.com> <d8d06f35-56bc-4cf7-be2e-c6a3acb725b6@intel.com>
-In-Reply-To: <d8d06f35-56bc-4cf7-be2e-c6a3acb725b6@intel.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Thu, 3 Sep 2026 09:58:31 +0700
-X-Gm-Features: AcwNN1U5zeKxmI35EGDwvUZzgzhqsl97lW_cejqy0aA9Qkk84c4bJui1c3m3NJ8
-Message-ID: <CAABR9nH5dcpaxDSyo3jjimorTJ35nf_OjFF067Mr63aiCO3Q+Q@mail.gmail.com>
-Subject: Re: [PATCH v3 2/5] ASoC: mediatek: mt8183: Fix clock handling in mux
- disable path
-To: Cezary Rojewski <cezary.rojewski@intel.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>
+References: <20260902200703.2016410-1-mukesh.ojha@oss.qualcomm.com> <20260902200703.2016410-6-mukesh.ojha@oss.qualcomm.com>
+In-Reply-To: <20260902200703.2016410-6-mukesh.ojha@oss.qualcomm.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 3 Sep 2026 11:08:02 +0800
+X-Gm-Features: AcwNN1Wn32BWTc7gvrI5NCynGubfvPlrWgUmvLkoMfGnpAB8yTnTJoIOOvbhgBM
+Message-ID: <CAGXv+5E9zs7LsK=d08NB6QcuHkaPw4GcifuDuMDz0CVB6gB=8A@mail.gmail.com>
+Subject: Re: [PATCH v2 5/6] media: mediatek: vpu: Use devm_of_reserved_mem_device_init()
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Eddie James <eajames@linux.ibm.com>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
+	Houlong Wei <houlong.wei@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+	Tiffany Lin <tiffany.lin@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Joseph Liu <kwliu@nuvoton.com>, 
+	Marvin Lin <kflin@nuvoton.com>, Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
+	Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com, linux-staging@lists.linux.dev, 
+	linux-sunxi@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_195844_603306_B9ECE09B 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20260902_200817_806769_9F6CBF43 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,38 +131,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cezary,
-
-Thanks for the review and the suggestion.
-
+On Thu, Sep 3, 2026 at 4:08=E2=80=AFAM Mukesh Ojha <mukesh.ojha@oss.qualcom=
+m.com> wrote:
 >
-> I was thinking off a typical teardown procedure - everything is permissive:
+> Use the devres-managed devm_of_reserved_mem_device_init() instead of
+> the manual of_reserved_mem_device_init()/of_reserved_mem_device_release()
+> pair, letting the device resource manager handle cleanup automatically.
 >
-> // the disable path:
->         ret = clk_set_parent(CLK_TOP_MUX_AUD_ENG2)
->         if (ret)
->                 // just error reporting
->         ret = clk_disable_unprepare(CLK_TOP_MUX_AUD_ENG2)
->         if (ret)
->                 // just error reporting
->         ret = clk_set_parent(CLK_TOP_MUX_AUD_2)
->         if (ret)
->                 // just error reporting
->         ret = clk_disable_unprepare(CLK_TOP_MUX_AUD_2)
->         if (ret)
->                 // just error reporting
+> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+> ---
+>  drivers/media/platform/mediatek/vpu/mtk_vpu.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 >
-> or, if one wants to do this properly: split apll1/2_mux_setting()
-> functions into:
->         void apll1/2_mux_disable()
->         int apll1/2_mux_enable()
+> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/medi=
+a/platform/mediatek/vpu/mtk_vpu.c
+> index 8d8319f0cd22..557bffb2c2f1 100644
+> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> @@ -888,7 +888,7 @@ static int mtk_vpu_probe(struct platform_device *pdev=
+)
+>         dev_info(dev, "4GB mode %u\n", vpu->enable_4GB);
 >
-> You do not have to go for the split, the first option is just fine.
+>         if (vpu->enable_4GB) {
+> -               ret =3D of_reserved_mem_device_init(dev);
+> +               ret =3D devm_of_reserved_mem_device_init(dev);
+
+There are non-devm calls before this. Inserting a devm call in here
+messes up the unwind order and leads to confusion. In other words
+this is a bad idea.
 
 
-I will follow the first approach and use a typical teardown procedure,
-where all steps are allowed to proceed and any errors are only reported.
+OOTH, the remove function is missing a release call.
 
-Best regards,
-Phuc
+>                 if (ret)
+>                         dev_info(dev, "init reserved memory failed\n");
+>                         /* continue to use dynamic allocation if failed *=
+/
+> @@ -930,7 +930,6 @@ static int mtk_vpu_probe(struct platform_device *pdev=
+)
+>  free_d_mem:
+>         vpu_free_ext_mem(vpu, D_FW);
+>  remove_debugfs:
+> -       of_reserved_mem_device_release(dev);
+>  #ifdef CONFIG_DEBUG_FS
+>         debugfs_remove(vpu_debugfs);
+>  #endif
+> --
+> 2.55.0
+>
+>
 
