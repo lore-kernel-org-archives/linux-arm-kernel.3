@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FFFC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194ACC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CVH46s0TiBnSL1nhlyLYQT7Nebe0o5BJiT5/S7ZnuZY=; b=e1CE941Xosq8Ab7FgLbBTCwMNk
-	WNerL0oYhDrh36+d/Be404x1jRgCsln/qDJ1MZdkJu5jufuDF50Lga1joxiKbN77GGCCwQWpC3sQz
-	ppxQFZDnl7yBOzMoQgLHjVtGbOixe7wIYHeL8dKbhLQbdz678tnFAUFMuhijczsn/lekJSwi5Rwz4
-	n0UP4r2HJujTC036jNAm1oKOOCakx7HeAijMxxLOY5wzIjhyTvK+gfapu+UnzTC0l/RGpMUOf6ppH
-	jTcF02etvggfMkL4Ter2Le+G4ey8bxhFkfACdY5chkb3Nx2c0ratrf0EIApzAqQ4bDG3uurde/EDZ
-	S0fFKujg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ey992VJ59vkyhnjjAc3vc3uxfb9JDJ9GYvnBCB4zM0s=; b=hVwwCIvU/bclSr
+	WtIb2qE8PsP7pmJ0lT8jU1UGR6N5GAIvj0u0oGspt8Hh0eAvdH8kq2/8b+DVoQCL8i0AF3oa0qE7x
+	CHGPA55pQH93xcerp6XAy6BJJZPhHqo2tcP/xu3I5Zbwp2x50DkKPeXT1U9kSlvn0QD87qy4xRckw
+	z3lcg7umbAqfN4t+gEeeCTS2pCNnD+LJeV8Qtm/R6Ue7LrHJCb7cyE6+PnMhik31AWCT/s8LWcgCR
+	yiFtRI55iXeD5fLOcyXeoc1H7NHr0TU2cvAfcRzNbYmebbD/1JcpU8EcYV7bNRH9K6bD5qo3K7K1D
+	0d3kYOWRt/YkabJn6N6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23es-0000000Gvcd-1aZs;
-	Thu, 03 Sep 2026 09:22:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x23kR-0000000GwN2-1zkk;
+	Thu, 03 Sep 2026 09:28:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23er-0000000GvcJ-1QMG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 09:22:57 +0000
+	id 1x23kP-0000000GwMh-2Dlc;
+	Thu, 03 Sep 2026 09:28:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE3EB42B20;
-	Thu,  3 Sep 2026 09:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 969871F000E9;
-	Thu,  3 Sep 2026 09:22:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 81DA3600D1;
+	Thu,  3 Sep 2026 09:28:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F7C1F00A3A;
+	Thu,  3 Sep 2026 09:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788427376;
-	bh=CVH46s0TiBnSL1nhlyLYQT7Nebe0o5BJiT5/S7ZnuZY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CsLTmwDYUQuPdEGJ2URh4YYrVQjku/PYtQd8szB9HFBHKuxNiHG8jlkrL7gi1baJv
-	 baOlP721yc+Gapvn+co/bsCE+vzOe7wj38uGpYqZPkxomRAwIz0bQTUhRLhTAuqqra
-	 dcAYfgKFIupV+om73sgPaweqXIGMwkg5fWtKJMpvY7FG1n04OkQOJYThS8OWkrXRF/
-	 6d+zCI/PEFFnvI3TBktpF/UQ7XAfs6aQrSu5o0XLNpvLlz/KIh0d4q4F8mng6kmC35
-	 gHgYzeK4HV1Zw3Tpumbe8aupeoEBK6jboDtDlQeHq19XetZJxR/N2esfUJW+ShNiZf
-	 qTij8AvQ7COkA==
-Date: Thu, 3 Sep 2026 12:22:45 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, ljs@kernel.org,
-	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
-	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com,
-	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
-	kas@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-Message-ID: <apk8ZRr6do_YAlzf@kernel.org>
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
+	s=k20260515; t=1788427720;
+	bh=ey992VJ59vkyhnjjAc3vc3uxfb9JDJ9GYvnBCB4zM0s=;
+	h=From:Subject:Date:To:Cc;
+	b=RjYdGsba5HHZrGO3OCHTmn5IC/N6RTyFrp8Z5Ubj7a/i8bjv42piN/UnRLS/1Bh0f
+	 T6WY+xo9hTACaiHWVLL1I64700TyI6CpONHAAc7NH1wFG8764Rix/yvus0e02RzHwJ
+	 6lVfVHzvDDFZZPilK+iLbOrh5eOBUwY4cU1HWIxlQloKPJ5EF4Fp2HIhI0ZgNnmusl
+	 YeF8CNVhBIJ2OM4LcTF0AHaHbrzgx1W2NTXtc9Jgo1VCc736L9QnA67+/FqNahfDAB
+	 9puZjLKz3xoy7Jn4nRKUELzui6VgXVpeuLgM+vcsR88ND3i+tLMGGRuBI2XxCjpjEV
+	 lNZ7OCD0gXGpw==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Subject: [PATCH v3 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Date: Thu, 03 Sep 2026 12:28:26 +0300
+Message-Id: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43OTQ6CMBAF4KuYrh0pbcOPK+9hXLQwQNUCabHBE
+ O4uBRe6MS7f5M2XNxGHVqMjx91ELHrtdNcuge93pGhkWyPocsmEUZbQLE4ARywMGnA4gDfQozU
+ OPAUGSmImUimqRFRk+e8tVnpc7fNly+6hrlgMAQwNJR2CsrItmnB605Hf9JWO1o7nod5oN3T2u
+ W71cWD/meVjoJDTXAjJZSl4dbqhbfF+6GxNwi7PPijGf1FsoRSNueRpmQnFv6h5nl/7jJ1fTwE
+ AAA==
+X-Change-ID: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, 
+ Will Deacon <will@kernel.org>, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ loongarch@lists.linux.dev
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,106 +95,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 11:18:16PM +0800, Xueyuan Chen wrote:
-> The persistent huge zero folio is shared globally and should stay zero
-> after initialization. As Jann Horn pointed out [1], kernel bugs have
-> ended up writing to pages that were meant to be read-only, including in
-> security-sensitive cases. Making the folio read-only in the direct map
-> turns such writes into faults instead of silent zero-page corruption.
-> 
-> Add a page-based helper consistent with the existing direct-map interfaces.
-> Handle TLB invalidation in the architecture implementation; unsupported
-> architectures retain their current behavior.
-> 
-> Protect the folio after initialization. Skip highmem folios, which have no
-> permanent direct-map mapping.
-> 
-> Inspired by Jann Horn's read-only zero page work [1] and follow-up
-> discussion [3] with Yang Shi.
-> 
-> Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@google.com [1]
-> Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org [2]
-> Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com [3]
-> 
-> Suggested-by: David Hildenbrand <david@kernel.org>
-> Suggested-by: Usama Arif <usama.arif@linux.dev>
-> Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  include/linux/set_memory.h | 17 +++++++++++++++++
->  mm/huge_memory.c           | 13 ++++++++++---
->  2 files changed, 27 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> index 3fe293cfed8c..ed9ce04b18a1 100644
-> --- a/include/linux/set_memory.h
-> +++ b/include/linux/set_memory.h
-> @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
->  #endif
->  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
->  
-> +#ifndef set_direct_map_ro
-> +/**
-> + * set_direct_map_ro - make a direct-map range read-only
-> + * @page: first page in the direct-map range
-> + * @nr: number of pages in the range
-> + *
-> + * Make the direct-map range starting at @page read-only and invalidate stale
-> + * writable translations before returning.
-> + *
-> + * Return: 0 on success, or a negative error code on failure.
-> + */
-> +static inline int set_direct_map_ro(struct page *page, unsigned int nr)
-> +{
-> +	return 0;
-> +}
-> +#endif
-> +
->  #ifdef CONFIG_X86_64
->  int set_mce_nospec(unsigned long pfn);
->  int clear_mce_nospec(unsigned long pfn);
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index 54494c3fa983..742283b36d74 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -42,6 +42,7 @@
->  #include <linux/pgalloc_tag.h>
->  #include <linux/pagewalk.h>
->  #include <linux/cleanup.h>
-> +#include <linux/set_memory.h>
->  
->  #include <asm/tlb.h>
->  #include "internal.h"
-> @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
->  	huge_zero_folio = alloc_huge_zero_folio();
->  	if (!huge_zero_folio) {
->  		pr_warn("Allocating persistent huge zero folio failed\n");
-> -	} else {
-> -		huge_zero_pfn = folio_pfn(huge_zero_folio);
-> -		count_vm_event(THP_ZERO_PAGE_ALLOC);
-> +		return 0;
->  	}
-> +
-> +	huge_zero_pfn = folio_pfn(huge_zero_folio);
-> +	count_vm_event(THP_ZERO_PAGE_ALLOC);
-> +
-> +	/* Highmem folios have no permanent direct-map mapping to protect. */
-> +	if (!folio_test_highmem(huge_zero_folio))
-> +		set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_PMD_NR);
+Recent discussion about implementation of execmem's ROX caches on arm64
+revealed a confusion about how set_direct_map_valid_noflush()
+implemented on different architectures.
 
-Sorry, I don't remember if it was discussed previously, but why can't we
-use the existing set_memory_ro() here?
+On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
+not present.
 
-> +
->  	return 0;
->  }
->  
-> -- 
-> 2.47.3
-> 
+On other architectures it's a range version of
+set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
 
--- 
+Unlike arm64::set_direct_map_valid_noflush(),
+set_direct_map_default_noflush() not only marks PTE as present, but also
+sets its default protection mode.
+
+Other than that, initial design of execmem ROX caches didn't rely on
+restoration of large mappings that's now available on x86, but
+completely removed the memory allocated for the ROX cache from the
+direct map to ensure that large mappings are not split. This precluded
+usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
+execmem to implement manipulation of the direct map alias.
+
+Current implementation of ROX caches does not remove the direct map
+alias but simply calls set_memory_rox() that updates the permissions in
+both vmalloc address space and the direct map and relies on
+collapse_large_pages() in x86 CPA to keep large mappings.
+
+This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
+with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
+behaviour: adding number of pages parameter to set_direct_map APIs and
+making resetting of the direct map permissions in vmalloc VMAP_HUGE
+friendly.
+
+Implement these adjustments, make execmem always use VM_FLUSH_RESET_PERMS
+and revert set_direct_map_valid_noflush() changes.
+
+This applies on the current mm-unstable with v2 reverted, the base-commit
+b4 lists is bogus.
+
+[1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
+
+---
+This version does not address sashiko comments about the preexiting
+issues, it only changes how VM_FLUSH_RESET_PERMS is set for ROX cache
+areas. 
+
+The fixes for pre-exising issues sashiko found are coming soon :)
+
+v3 changes:
+* set VM_FLUSH_RESET_PERMS to allocated area just before flipping the
+  permissions rather than at allocation time
+
+v2: https://lore.kernel.org/all/20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org
+* move setting of VM area order back to __vmalloc_area_node()
+* add tags, thanks!
+
+v1: https://patch.msgid.link/20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org
+
+---
+Mike Rapoport (Microsoft) (6):
+      set_memory: add number of pages parameter to set_direct_map APIs
+      mm/vmalloc: set area's page_order after allocation succeeds
+      mm/vmalloc: constify vm parameter of get_vm_area_page_order()
+      mm/vmalloc: make set_area_direct_map HUGE_VMAP friendly
+      mm/execmem: use VM_FLUSH_RESET_PERMS for ROX cache allocations
+      Revert "arch: introduce set_direct_map_valid_noflush()"
+
+ arch/arm64/include/asm/set_memory.h     |  5 ++---
+ arch/arm64/mm/pageattr.c                | 24 ++++----------------
+ arch/loongarch/include/asm/set_memory.h |  5 ++---
+ arch/loongarch/mm/pageattr.c            | 27 ++++------------------
+ arch/riscv/include/asm/set_memory.h     |  5 ++---
+ arch/riscv/mm/pageattr.c                | 23 ++++---------------
+ arch/s390/include/asm/set_memory.h      |  5 ++---
+ arch/s390/mm/pageattr.c                 | 20 ++++-------------
+ arch/x86/include/asm/set_memory.h       |  5 ++---
+ arch/x86/mm/pat/set_memory.c            | 16 ++++---------
+ include/linux/set_memory.h              | 12 ++++------
+ kernel/power/snapshot.c                 |  4 ++--
+ mm/execmem.c                            | 40 ++++++---------------------------
+ mm/secretmem.c                          |  6 ++---
+ mm/vmalloc.c                            | 26 +++++++++++----------
+ mm/vmalloc.h                            |  2 +-
+ 16 files changed, 61 insertions(+), 164 deletions(-)
+---
+base-commit: d7bc5ce72091180aef05d001dc05c90f6b14c18d
+change-id: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+
+--
 Sincerely yours,
 Mike.
+
 
