@@ -4,109 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8588EC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8768C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBine+VGUispbbJYZQl5o9VIXDJ1/236RlFhB9q5Dow=; b=rdSarkqMw/rq2aFh2jqAk3kRWT
-	yIG1sPT+csWzR5UTXvwGdY13O0wHNV04FIvzZykyAy6sG7hYwKX67WVoLdUh5DdVzzMvQAkLITDAs
-	fm1hzcGUo07gyqjgzhaES0jZJ1ukE1LH3h88ArwAFFZcXUGed5NvZKCBF6UmvjDB3uRQ2VY5+Y25k
-	qya48wv/ZqPrTbczNpFoYYMI5VerpheYwzZ8seVlmLUaJ4NdPuR1zoXmV7PELMBuXImadoqUYJeAY
-	wv5a5w175QP+P2hUapPCnGFDNDMINGr8Y9yFEx79gnXispSinYxjKq1bsCuYJEtgocuoW5DQSxfPL
-	Y3ZrwAqQ==;
+	bh=0GHlpZjfbjH0Zch5AMd58KrvSY6G7xu6Z9gu+flHuC4=; b=JulD0jyeh1/Uq0sCYtLd5pX6fb
+	06e+1rcd9miDleJ/SFLZJhYpd9MuvqdpAz718SNTi+M27ArIeZObmr7mOBlIhoQO9ECF1ydMzx1kN
+	DdZcrqhacbi6fUR3846smIpZr4/PvHvkR3PpWSbvKLi4daQr3qTTPwH1OJfTF3Fa4cOpidC1R/0br
+	+7fbd2pxlAvYQBdsiV9TRlNwA6ax7Hky4GYlLlZZiry3r4LCwSkGOiMlB4ypH11Bdk3p0i0dsTavI
+	bX3XAGgpzjPyJmmgGVmBoxe+qqG2nX+nQ5qdKpjLMFjfRXx6dRhyqB6rECNg0mRjZUKMLDfXp55z3
+	oVIffSHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yf-0000000HSIH-0QdQ;
-	Thu, 03 Sep 2026 13:59:41 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1x27ya-0000000HSEq-3fmn;
+	Thu, 03 Sep 2026 13:59:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yc-0000000HSFE-0flP
+	id 1x27yY-0000000HSDn-0Y5L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:59:39 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id DE53D14000F5;
-	Thu,  3 Sep 2026 09:59:36 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Thu, 03 Sep 2026 09:59:36 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1788443976;
-	 x=1788530376; bh=sBine+VGUispbbJYZQl5o9VIXDJ1/236RlFhB9q5Dow=; b=
-	YRERS4gp1KBcvCaGkUKZBp7zjpVA+cG+9OUxMgTbOfm/WoDiTstBqw56c3289NeZ
-	M92RLGyomtGVpwTL4YxXuIqT6+L0OLerXIeW9FHupdV0c3z6ywr2MrwIKdB4WHil
-	By5es/KEY5M1apYLY3WP++hvzBTVWFZObiGvnHIFsPnfN+MSurj4j3uTvUOH52Et
-	oXCa1oYlwBdvTy3CYZA+pzvEv6dEh2CxjXvPOHDqCDBMFi05CNMPUympf45LuaKb
-	XCj0HJFuq3pbK0uwGbz2ZeM4HJXbrk0umOPOj9ZpkdBEHzohJnPCGFJo3qmkec6S
-	+pQv2gv0ZqowjIPRWzbZog==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788443976; x=
-	1788530376; bh=sBine+VGUispbbJYZQl5o9VIXDJ1/236RlFhB9q5Dow=; b=A
-	MpWVWj1hRvqDXXew8MzRZZVYD8SFyQEOnS9lt/MJds7Psb3maGib26VoO5Jy0oF5
-	eJ4fpom9MmD+2r+HqECtymslUDdDjnRv5+8fQ0OHA48fZKyTUWue7WxKqVH9+pw4
-	hS92PL56HJ6HWuiqIB4n/mEX0uNMluaLbVom4OzD7iW+dws2DEZt5KehFvDAwYJP
-	N9XLEadmD1y2en6ZijtMhAePktHNxraHVgSHbewEwvbzHkHOsq0H+Su9j682466+
-	Uw5T+bn7PcOQglkC2Yv0H6V8jac+8VDGNZrA4n+E4beWhurJbI5YB2LQLBd+Z0vm
-	nPnhLvcY3sx0kfPWcCRKA==
-X-ME-Sender: <xms:SH2ZaiwEXjxSFOwaSiJCraec91L-TZ4Fd45mK1Jjrgf2t7RwMZd5JA>
-    <xme:SH2ZaqG5iOkypIk-M1loVQInnl8UmG_Zn_apRUhJvsg2Kpj_Z9Q5r6B9cPmJJgNz5
-    rHdVjczg9QqcPSGkZdUiNkGLBGw1yoI6FzGXRDWXJA-Wwiv-YXYSF8>
-X-ME-Received: <xmr:SH2ZavvouswJ_msP8cGDcJCW6xwjFBh6TEppxS-RlramO1mkAPv3AnUz8m-sT8wo6GpkHc64Aok_62Lh4lyYjlQw7baCj6OnHw8rAg>
-X-ME-Proxy-Cause: dmFkZTEIYzIeAqti25ZE1E1v/teuEWoWHdBGF9H6h1LlXnmo2R4EOE7VsCk1odudTIRvm6
-    eFOD5Mzpiu++QVbazB15zOz7x78D6TrVj+MRoE6GWdsrgwhGvsWp//oRGZgcNrTQHmsZsD
-    6EMECrQXWGNUBjE6Lz2aC6Mm6PlUUg6prWJ1te6HWPd/TwVQfquQNgxNGqHmAtfmOH+Mib
-    5jimAPqGOjLutrFHdJgt6a4HXl0HbB79QwoEalQxPR6LIK/aiy80/UOn42xgHOI6oc8jpF
-    BjB4vrjIQnYLCBx2i6bYEv1/2tiG2Nk0dSzRkL7vamhK7Swptm44Mzpwg9NHc32FMWNSgg
-    JNGMm0QIFdpV3zmtRwiL5r8q4JFGlJYZ2NHFazmJ9QzzHHo0fp3rl1q0kCUtF4kascevAr
-    8E5p5n6bgOe1J9acd6dGPXMfxbDWZ/DrS7cS/2DcYPpQ6i3MEu8rP3tDU36tz3lb4YbQpL
-    goPy5iJ/zuOt1m/tO+u7nZCJchZTaDBfgYQfXh20FUGzhKJyNRPrIqAWlpW7QGt/sb1uLY
-    9rc7uwbipixJBeLPcQrOnRi0x2xwywP7SB9/Rz26yOFjuvX59Ob6w8If0e+JR92L/VyCxO
-    ednM4qBvBV4NONU5+I6H7O2OMhSkAo9YnOp7jg98p3I59nybH9KLYRilEimA
-X-ME-Proxy: <xmx:SH2ZaiDy-LzbLbSCZuc9PuUVPLrQ70QgtGsLYYudX_V_TiY14QatJA>
-    <xmx:SH2ZaiBukluwgcazG2TVPQWU87dfg0flzGZiXdjcwu_N67_Wq8_pJw>
-    <xmx:SH2Zakp1yPzTB0ekBSXCHNLYcrz4nePlaBXcDo3MAqNFrDUOo_zfWw>
-    <xmx:SH2ZalF6i9DpCpegcajV9MrN2GBZgVl6uW2z19VZ3yfjaUnfMdq2TQ>
-    <xmx:SH2ZaheKizGr2j8PzWiGrIGQoG9LNZhnGX9bmA93qYHG68KW0MOWpD69>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 3 Sep 2026 09:59:36 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 03 Sep 2026 15:59:32 +0200
-Subject: [PATCH 1/3] arm64: dts: apple: Fix style issues for t600x multi
- die .dtsi
+	Thu, 03 Sep 2026 13:59:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 94B066057A;
+	Thu,  3 Sep 2026 13:59:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADF701F00AC4;
+	Thu,  3 Sep 2026 13:59:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788443973;
+	bh=0GHlpZjfbjH0Zch5AMd58KrvSY6G7xu6Z9gu+flHuC4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=fwc6+cOFW4oYHmvSGh/miUqeEF5R/qMCnirDUCEFBrBMqZ9Arcxt0keICcT8cm175
+	 heMvQmCN0ltVOKhxX48u65Cf/lOZOl5QzjnqyiabNPNMGrRhrmsB7DVwfNuaZHcJBh
+	 NbezFbViBaKrqvXEiIftJbATfp29ScyxeMBfTT1k0jMYmXZhZceV5mKLM0D6vG0HKw
+	 QEl7Hb2eyIgWLrixQZZs3AtbntVtJO1Oy+rE2zPXmoS10KYvGyqiqnKwtkabo+dzLO
+	 sMH7CeA2mk4/gMZewGzcXNoDPIwUkqjXcxxdvkO0Am9TA2/aLH24lVS2+RxqqJ7x6/
+	 3HMjnFjzmFctQ==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Breno Leitao <leitao@debian.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH] arm64: trans_pgd: clone only the linear map that exists at runtime
+Date: Thu,  3 Sep 2026 14:59:18 +0100
+Message-ID: <178844047586.4162266.2394578462363547662.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260828-b4-arm64-trans-pgd-va52-v1-1-a66644372673@debian.org>
+References: <20260828-b4-arm64-trans-pgd-va52-v1-1-a66644372673@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-apple-soc-multi-die-style-v1-1-eeb05ea0c187@jannau.net>
-References: <20260903-apple-soc-multi-die-style-v1-0-eeb05ea0c187@jannau.net>
-In-Reply-To: <20260903-apple-soc-multi-die-style-v1-0-eeb05ea0c187@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>, Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4174; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=SQINWDUj6JgqHfaw6SAgmrPkNaAA7STObGtyHJjbY9I=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqyZtS5L5FZOv3ch8X2f/IpDfwv7LFPEJSTWznbbJpka3
- 6xltVyzo5SFQYyLQVZMkSVJ+2UHw+oaxZjaB2Ewc1iZQIYwcHEKwES8HjIyLGqcf9axWKHSZCdb
- hIuh397CnEciZ/+aH1MLuK+5WEGUneF/6ivB7e8C5tXujblzbN+pn4V5Mi22ji8jtVOviFSHP9j
- ACgA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_065938_317509_D47DFCE8 
-X-CRM114-Status: GOOD (  10.86  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,148 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M1 Pro/Max/Ultra .dtsi files containing most MMIO nodes are a
-collection of nodes without parent. The proper embedding inside a
-"simple-bus" parent only happens in t6001.dtsi and t6002.dtsi.
-Fix these dt style issue by using a define for their parent soc node and
-bracket those MMIO nodes inside it.
+On Fri, 28 Aug 2026 02:28:18 -0700, Breno Leitao wrote:
+> kexec_file_load() fails on arm64 if we have CONFIG_ARM64_VA_BITS_52 but
+> it runs on a !FEAT_LPA2 host (such as my loving Grace machine).
+> 
+> That is because trans_pgd_create_copy() uses the compile time
+> PAGE_OFFSET (VA 52) instead of the actual VA size (48 -- due to the lack
+> of LPA2). With the fifth level folded, pgd_none() is always false, so
+> the walk cannot skip the 15 extra PGDIR_SIZE slots, and they all alias
+> back to the same table: the whole kernel page table gets cloned 16
+> times, KASAN shadow included. Without KASAN it does not blow up, it just
+> wastes ~RAM/32 in page tables.
+> 
+> [...]
 
-Link: https://lore.kernel.org/asahi/e2365307-32d6-4ef9-9919-55ba69786741@kernel.org/
-Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- arch/arm64/boot/dts/apple/t6001.dtsi      | 11 +++++------
- arch/arm64/boot/dts/apple/t6002.dtsi      | 18 ++++++++----------
- arch/arm64/boot/dts/apple/t600x-die0.dtsi |  3 ++-
- arch/arm64/boot/dts/apple/t600x-dieX.dtsi |  2 ++
- arch/arm64/boot/dts/apple/t600x-nvme.dtsi |  2 ++
- 5 files changed, 19 insertions(+), 17 deletions(-)
+Applied to arm64 (for-next/fixes), thanks!
 
-diff --git a/arch/arm64/boot/dts/apple/t6001.dtsi b/arch/arm64/boot/dts/apple/t6001.dtsi
-index 4fb934d7e71f..e0acf2ba078b 100644
---- a/arch/arm64/boot/dts/apple/t6001.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6001.dtsi
-@@ -35,18 +35,17 @@ soc {
- 
- #define DIE
- #define DIE_NO 0
-+#define SOC_NODE {/soc}
- 
--&{/soc} {
--	#include "t600x-die0.dtsi"
--	#include "t600x-dieX.dtsi"
--	#include "t600x-nvme.dtsi"
--};
--
-+#include "t600x-die0.dtsi"
-+#include "t600x-dieX.dtsi"
-+#include "t600x-nvme.dtsi"
- #include "t600x-gpio-pins.dtsi"
- #include "t600x-pmgr.dtsi"
- 
- #undef DIE
- #undef DIE_NO
-+#undef SOC_NODE
- 
- 
- &aic {
-diff --git a/arch/arm64/boot/dts/apple/t6002.dtsi b/arch/arm64/boot/dts/apple/t6002.dtsi
-index 0f81fc612a2a..91ce9a665cab 100644
---- a/arch/arm64/boot/dts/apple/t6002.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6002.dtsi
-@@ -254,30 +254,28 @@ die1: soc@2200000000 {
- 
- #define DIE
- #define DIE_NO 0
-+#define SOC_NODE die0
- 
--&die0 {
--	#include "t600x-die0.dtsi"
--	#include "t600x-dieX.dtsi"
--};
--
-+#include "t600x-die0.dtsi"
-+#include "t600x-dieX.dtsi"
- #include "t600x-pmgr.dtsi"
- #include "t600x-gpio-pins.dtsi"
- 
- #undef DIE
- #undef DIE_NO
-+#undef SOC_NODE
- 
- #define DIE _die1
- #define DIE_NO 1
-+#define SOC_NODE die1
- 
--&die1 {
--	#include "t600x-dieX.dtsi"
--	#include "t600x-nvme.dtsi"
--};
--
-+#include "t600x-dieX.dtsi"
-+#include "t600x-nvme.dtsi"
- #include "t600x-pmgr.dtsi"
- 
- #undef DIE
- #undef DIE_NO
-+#undef SOC_NODE
- 
- &aic {
- 	affinities {
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index 49b23f3da980..122a566e75d1 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -6,7 +6,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
--
-+&SOC_NODE {
- 	nco: clock-controller@28e03c000 {
- 		compatible = "apple,t6000-nco", "apple,nco";
- 		reg = <0x2 0x8e03c000 0x0 0x14000>;
-@@ -537,3 +537,4 @@ port03: pci@3,0 {
- 			status = "disabled";
- 		};
- 	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-index 9676d5127039..7ab60873faf1 100644
---- a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-@@ -6,6 +6,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
-+&SOC_NODE {
- 	DIE_NODE(cpufreq_e): cpufreq@210e20000 {
- 		compatible = "apple,t6000-cluster-cpufreq", "apple,t8103-cluster-cpufreq", "apple,cluster-cpufreq";
- 		reg = <0x2 0x10e20000 0 0x1000>;
-@@ -331,3 +332,4 @@ DIE_NODE(atcphy3): phy@1303000000 {
- 		mode-switch;
- 		power-domains = <&DIE_NODE(ps_atc3_usb)>;
- 	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t600x-nvme.dtsi b/arch/arm64/boot/dts/apple/t600x-nvme.dtsi
-index 7dff738d317e..3a8e2299eac4 100644
---- a/arch/arm64/boot/dts/apple/t600x-nvme.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-nvme.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
-+&SOC_NODE {
- 	DIE_NODE(ans_mbox): mbox@38f408000 {
- 		compatible = "apple,t6000-asc-mailbox", "apple,asc-mailbox-v4";
- 		reg = <0x3 0x8f408000 0x0 0x4000>;
-@@ -40,3 +41,4 @@ DIE_NODE(nvme): nvme@393cc0000 {
- 		power-domain-names = "ans", "apcie0", "apcie1";
- 		resets = <&DIE_NODE(ps_ans2)>;
- 	};
-+};
+[1/1] arm64: trans_pgd: clone only the linear map that exists at runtime
+      https://git.kernel.org/arm64/c/1537e55728ec
 
+Cheers,
 -- 
-2.55.0
+Will
 
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
