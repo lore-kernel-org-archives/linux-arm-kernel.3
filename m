@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F42C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AB3C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=S1oi9GGIsgZ2P8Tczx0UeD6Kle7fzhfF+EvPEUkjmtc=; b=mYrTihT+z+Ub4f
-	88CHvj2vpRnMUmmFAJt7ynkOBoYn954cQi0bLr5EBaZL2Yhun1KnyLgEHWBCqJkU2PfuZpDMZfanN
-	pAFpcTKnSB45oTvUBmdFw/3AHDm5JXliTJEAAjKBGcJyZyfVuow34wXj59ISYHQhPShypiIWouP2E
-	ocndgyYXhMpJ/1qvyge2sA18AOZKpwwx7P0BgfdCeS1IAGJNYw2IRRenuqzn63alEVxtTLjaYkWpD
-	s1oNOd6Udf8WZ29ClImFBAzAa8ihfENpxtxGqO1U0oYiAgEhTeX/bCzFH+w/YyJOf36nRS+XjmLEu
-	RagKl30Nob/+f+YfiyHg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=; b=QFFAjP41DOYkSCJVljJAjnj2TR
+	d3yD6w7EszXioW3L9buyYPpplDJEWuLoZSbwgVEqZkfukt9cJ5n30vxfeurCo4+HMyjh3NvRwVESl
+	JAwwy6vfSuEjLvPvypxU9BX+pGKJOyTuIUYO8ZkeEOHPbVy/Wi5FvBGf610yuydiZYKLunHXZrOR8
+	h2nfnFeoJLsKM+HLHVwVSmG5hcgKaaypr3P7W5EMv2YGPzil5YENvNmXLf8hI+1iCw+reWRh/S/YB
+	GLzqAsgU0f/b6IUsYK1SwOVIRT/D3vYe5K8yhLGJ7U7k3td++1Nwd++QWokg2U4XdmfHOtRwQM5kP
+	QXCsAwYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21i5-0000000GYOr-07hA;
+	id 1x21i5-0000000GYP9-0knq;
 	Thu, 03 Sep 2026 07:18:09 +0000
-Received: from mail-northcentralusazon11020122.outbound.protection.outlook.com ([52.101.193.122] helo=CH1PR05CU001.outbound.protection.outlook.com)
+Received: from mail-eastus2azon11020142.outbound.protection.outlook.com ([52.101.56.142] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21hy-0000000GYMW-3nzN
+	id 1x21i0-0000000GYNC-39kx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:18:04 +0000
+	Thu, 03 Sep 2026 07:18:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DpNf6Sv6kPIho4Ikd2n7pW4a/lmzzcKB7sUsML/KODfJMwvrjFGtmKECCn5uyRtfaTOQqdEtyY2GNT2kurP4tUf2RO83UEg1oarDwaA4EOAT181My8RG5tVf5fYwVnQZkYqo+yNKIchUbCH9UgV1aBb76Ktk4qe4b67V5dPGkiebrQ8YkrPdBVm4ZGVF+0m28jm287oVQTqxfJOr598RUavod7t8uP09oZGcUCpDymR+0OavHzQq0qzw8M/pWvUhMEU4nRqYOFAq/kWcEWwHjl5Ufg1w6K2GoNDQ/l+npZEZ8kVdJy8Gc3C3LqUYsOE4ZOD2V4h8sO+Lsb1MmssOVw==
+ b=IoiMIKW53n2T2nrJb0swy6HI6kY1Rp7sFTv1RIN0/cb/eBsOUtqnYcFL/SFtEA2KySMYqVaQcCIzw+Tirxs517ViC9hqmmf3+35V0j+Pyqz6Lb2eUkTBM8jqeuOi3U4Q2MrI8DrvzvzGp9uffVWusSq4rqTI24DJADF1HvhqJi36xEqGebzFyyhe5d65/1tEsUmRbkGDvVWg8iNF6dqXoGndhsZFEkHdhbPyAvY85XcPV6A0mCrsFZ4dH2Z5HpORktghsEfhb/NR2hnW6odySXdGVFaASptgXYrVfoq4adwNyQUkbL838EuT32puBSqx3gkjZL9J2Q3BtqbUTDYKOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S1oi9GGIsgZ2P8Tczx0UeD6Kle7fzhfF+EvPEUkjmtc=;
- b=Ck79veLMKeDFoxsv9XW1GmKdCgiBjh3N54r4Zzqkcxqhw38B7XONFlUcZTpSeeFTFM/tEJTSs0ZGQ0/hnDtTZ1EZU8bPXN05xGEf6qBuPSJq+b+uKnFzd9wrP+kSFBMvKDASzbnGDvKF55xSpJr3sYzlpMun4h61kyHoxZPbSKdl3ujf5ofEwqjG0sENG03uCqREoZBfXV4q3oa6rDZutTgHR1vGldK2kB9DUHFDgYpk8F03CN7ukx5OCzPpzYkYl101JAtrfT0QUPDf+3xiyf1w8r6EdxZOhtwrrY96pWFBtNrpPleURB35wVcbOjSmphLux1dAoTd42asRe5d+Vw==
+ bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=;
+ b=GQxjS95m0+OeEQ0Im5XKjBOGR7va3ejo/b3+xY62P/DO7mlDMScI8RQNR45UUSazapkla6Qzl+aRtZDiRj2sg9qWd4/BR8ytLzHKFbtv34tIBD8OXm1LZhknJHHHPvbyw4IHAA20XdLxQmxeyEgtlil5w1CQQt9GqF6zLHUj0ghlBxCj+iHrLx9DCT9+vb/BcpfGFCQJH9i/KbRoKb2smaJvJ2ETgjA1KprgofweRwHi32rpZ8MEa1ssKS8TACGuNBPcbHu4ihS9BqLYTmDcIIafZNVXTaddjsbXqnuJHzImkM1s4XbT/kU9Ax5G63569niK7qL41K8GLRTUYrstCQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
  dmarc=none action=none header.from=axiado.com; dkim=none (message not
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S1oi9GGIsgZ2P8Tczx0UeD6Kle7fzhfF+EvPEUkjmtc=;
- b=baa0U1IvolH8YeGgxRYdysp7DkPJIzx0xVZJOGoviDsQcwKAx7cCyTjel7rf4Z5zuYyIjcWhH/OR72kp3s2yYTqD1fZTZH6AR7fUrGi+jADnnaTQa0dDVtHkZKuzPgFcKDJVC1aSV8F7f2tZwHJYVh/XdBIQgZLh9HhpxCxvZmeO0Pcf+iQ4qcKh3DReHRn8JkcPGipWj0QNj7oz6e8a0COiybkro6f/+kq4QzparYfWNnU28WoOZDjAIVTBxoHj2aTIim/pnUjj237XSo6YcqunrxngoOa2XCWzF8dFWZlv8ZnrMdXJHQiThbMV/v7NnqtFw6EJqJglG2QAoULTSA==
-Received: from BN9P223CA0015.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::20)
- by DM6PR18MB3586.namprd18.prod.outlook.com (2603:10b6:5:2a1::7) with
+ bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=;
+ b=PnFGj9ERl84ZSXdCyzlQ2TcaNJdB3bOiBk4zyT9CN3FMarqMKNmOFNFUsakwM2Or0DjGq/96W5RdhWZHuwM/MqQpPyS/g4323PkHcZWNo5JGqMtitVPy7HLG0lok2Jq10GF0AF1VKM+7HMraSM0WWcWLUof64JiFE/9YEhKgASSh8KrzzYp9ipui6TsiYWnZXkqPVGqyOKRb0aNTIKvhckryZ+ULGEVdKsAbb/m2OPCxjd20avJ1wzl3DItdMzmCfAWhzmbOLQnGImv+VEOu3+Wpk+jbUEvO8A815sxlisSLJMmtOy3+ajcm84v96BaAXj2LjjHROcJB3Nx5FOXFuA==
+Received: from BN9P223CA0014.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::19)
+ by LV8PR18MB5782.namprd18.prod.outlook.com (2603:10b6:408:1f2::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Thu, 3 Sep
- 2026 07:17:55 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 07:17:54 +0000
 Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
- (2603:10b6:408:10b:cafe::45) by BN9P223CA0015.outlook.office365.com
- (2603:10b6:408:10b::20) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:408:10b:cafe::6a) by BN9P223CA0014.outlook.office365.com
+ (2603:10b6:408:10b::19) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Thu, 3
- Sep 2026 07:17:55 +0000
+ Sep 2026 07:17:54 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
  smtp.mailfrom=axiado.com; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=axiado.com;
@@ -64,61 +64,57 @@ Received: from smtp.corp.axiado.com (64.62.143.114) by
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
  via Frontend Transport; Thu, 3 Sep 2026 07:17:54 +0000
 Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTPS id 884984186B51;
+	by smtp.corp.axiado.com (Postfix) with ESMTPS id B9EBF4186B5D;
 	Thu,  3 Sep 2026 00:17:53 -0700 (PDT)
 From: Swark Yang <syang@axiado.com>
-Subject: [PATCH 0/2] mailbox: axiado: fix RX handling and debugfs name
- truncation warning
-Date: Thu, 03 Sep 2026 00:17:51 -0700
-Message-Id: <20260903-axiado-mailbox-fixes-v1-v1-0-f44cba251254@axiado.com>
+Date: Thu, 03 Sep 2026 00:17:52 -0700
+Subject: [PATCH 1/2] mailbox: axiado: fix RX frame draining and error
+ handling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAB8fmWoC/x3LQQqAIBBA0avErBtQs6iuEi20xhqoDIUQwrsnL
- R+f/0KkwBRhrF4I9HBkfxXIuoJlN9dGyGsxKKE60TcCTWKzejwNH9YndJwo4iNRKzs4TU43toV
- y34H+VuZpzvkDLaWKbGkAAAA=
-X-Change-ID: 20260830-axiado-mailbox-fixes-v1-42b9f4ef43b5
+Message-Id: <20260903-axiado-mailbox-fixes-v1-v1-1-f44cba251254@axiado.com>
+References: <20260903-axiado-mailbox-fixes-v1-v1-0-f44cba251254@axiado.com>
+In-Reply-To: <20260903-axiado-mailbox-fixes-v1-v1-0-f44cba251254@axiado.com>
 To: Krishnakumar Kesavan <kkesavan@axiado.com>, 
  Prasad Bolisetty <pbolisetty@axiado.com>, 
  Jassi Brar <jassisinghbrar@gmail.com>, Tzu-Hao Wei <twei@axiado.com>, 
  Karthikeyan Mitran <kmitran@axiado.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Swark Yang <syang@axiado.com>, 
- kernel test robot <lkp@intel.com>
+ openbmc@lists.ozlabs.org, Swark Yang <syang@axiado.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1715; i=syang@axiado.com;
- h=from:subject:message-id; bh=7GF96wyDjm8VKRMjKjrxgHRMQAooTzkoRlIQRyu3WLU=;
- b=owGbwMvMwCHWlWK8+EozbyzjabUkhqyZ8oociUfuzZn6XMnQsmGyy/1ZnVJtcbGKLblXRN5lm
- y69uDGyo5SFQYyDQVZMkeWrzrf8k7na9zr3riyFmcPKBDKEgYtTACZS94GRYcKBHzsMAk4t5DvN
- onZ52tdzEYafrkg8M9ivs67xwvVP964w/DP+MUVd6trMs7P3rS3RPdGS+pp7tXrjBv2CQr+OJY7
- y8RwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9185; i=syang@axiado.com;
+ h=from:subject:message-id; bh=OzmvMEaPNupmiK8rOFM2AXPUVD5Amto3/+uOipy5Um8=;
+ b=owGbwMvMwCHWlWK8+EozbyzjabUkhqyZ8op13/9rvVngMv/yx/0aZ6xPLK4SlF/MbHRsz/nnJ
+ asM63e+6ShlYRDjYJAVU2T5qvMt/2Su9r3OvStLYeawMoEMYeDiFICJHKhl+B/L+NjNJXqf6asC
+ p5w6Dq2SQF7WJr/HP/13f7hhu2njWidGhoMbO/k/p0zI+jjXy8uUyfXG0TaVi933s2Wbxac9P7U
+ zgB8A
 X-Developer-Key: i=syang@axiado.com; a=openpgp;
  fpr=F52CF66FC96D2BDE89BDA9758A6433A3D4830D5D
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|DM6PR18MB3586:EE_
-X-MS-Office365-Filtering-Correlation-Id: 476445c3-358c-4110-39ce-08df098b7900
+X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|LV8PR18MB5782:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3d1ac84-528e-42ab-25aa-08df098b7906
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|6133799003|56012099006|10067099003|18002099003;
-X-Microsoft-Antispam-Message-Info: xWTnNs2xQ7ZJ5f/waCIzKVED8vjuqq9e6Aj3nIiqIqbxBrgeX94MYCVIsYZTXFMwU3kAKFUgK8Ql4QIHbZG5JNzNMtPKkcCIzGnRsYMEYhQm/A4/uLn2AWKb0WYlGwmU3RWbqCnrxRbRQOlqBDlHHdiyDl6S8Pw9yHeYhCnKd+C9XSSkAoRynGxFBbYeeh3nIuUQUZLgjIZIpH1wr64xeCEa1kVbExPpjwutaaN/vYkKB5NX97yHv05zyodXWdwTccHyxQ1chCHvh24u/2IJkdJyKc7iWaQQEEjrcUfKou45uC8PO7R1gOwF/NBhcngiG20sP+EyZ0hhZJIK2RhKFasQngcpx7DSUBCfouM+UrLZC0EK1DhCp77gYoeaHJPkT3ihGdIMy1bEsTltab2EBuK/r8HY8FAeB6+tpZcWDxFozHPO46uq9auirz8nH181j4SqFyxrHsaXijwrdrJgI93NMsyZDYSoCeyn5+cin5jnV3MpESEDC+ws61jb2G9NzByD3XTXZUCk9qySl9aIqfhoJNUTmVYccDRVnRlkTEMz/1KZ0MBgUx0ZSyRsk/GZMd/PaRwnv0ulvsVUONgxr/+QjxwgmHdAgXwndAguWbK1riDZQkMTl2IzUv4sYr+kMFaKWFFEj+XHRGWkoWxA/RXJHZqoNvNj88kyPb746aFTzyDzXmNybxhWJpi6SkymHm7ILXcmHR643J28SztpnA==
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(6133799003)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|10067099003|6133799003|5023799004|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 6r9ZyQ/cwaeJntWnfZhs9rLhGJ4LyJnEOrTb7kBwz8E/MlIToCyzXg9Tr+Svv+sjjj2Y4APX4j2f7KnSRtCIGPoB4XfUHif2dUVbgZ2PtVm4GY9oXiGUWGGRy/Kj9pPfE1Yp62ImrKOPe3Iz+OMLg3uLcnc3Mr020rbh64bk9686vBPc+a1kx3qoCDz1RijrVz7sL1oWh7KvZhIZ5bUNZNTA0N767tNe24GVQ6hukWt6wU9MGRzLfdBUb5vRuVKBZSVXiZR18/e9HNg4qGCgR/QzZ7lodyVXXNb2TYDqCqx59PbTyMSABWSYR/CvkuJuMAhqdAvV2HnglYGN785autAlnP/mI68DsC2wUG3jEacopaiyLxZMct76uIvdxd3Mv2a9FU/8yfLgnJfrOjekjn3sn3iCdtI2TsqIiZhCFoAqqdcDG/3tQw1nUX7cfKTaXgPsxsMMDYxNInLRSrO+c1JK3twBKloJ46s/x2Le9+E4t5DQs5b7T8NJGRF8Z6b8VK7Qu6v5Ex0RG52jfI+jprbZxbKk1IMrZ2wg0uwiMwedJHfYKc9cqxEbsMGCW2MY+6h7C71/V4c10ij8IXYBIfdirlggrF8UCezryxdAG9ye6zIF0PaxNET0q6UO1SmexdHFTfbkUQTMKb9pP24w2bA12JVKBQDzBTzt/D4qkZTWbnURu3bTUM0lqk9J9FnGljiy1zQ7p85quJ9YpWL9TA==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(10067099003)(6133799003)(5023799004)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GjtY5KmD+6wy2cXkK3IxmL3sPzzkSrJcfYO3SZgk9oyYi219i7B9WY788P547p1jh99BaV8DpJAXHMkkhlK1+EjRmGQwvQ/2Sk0aanUAtgVyLad2WcYhJZBIwxyBuHYAvTB+Yrqn8c0krxZKkVzySxliPnsDLpIY3H4QgUWjs2/d+iVBz+W4hQVXfZorPhjJ5BFdhanOEnBABW8UdJBSQKUgcuCP9bSc/Zba+FM95pItZVUG1NnkcIkxdkCXRpVGHz2KHbYwM35RBE1KK70iyd3PNM9qdtTMpT0vgMjX766dDZJntPE0w7DMyZ7VqArNKMRllb3OaQ8OtY+VkzZA5C4EYQq5q19Dj/D4BOSbzp/Xr97GHroYE3zPwXcv8fw2zjANug2eJOYAlS4fekFutPA7RddH2DO72r73a7Lp1rnLERPJq4XPTyygE2LnPuI1
+X-MS-Exchange-AntiSpam-MessageData-0: EeSbuLjjQmw1279+127zy/zVu7fFOnRhXBQAiggiqtsXWmkt3oaW+YAGRaZ5D6kSgC3bFgFnkkXdhmUuvSw+hEkirIC6A3iBIzRxl+uiNY53z2YxvSTrlJ662oy6xLD0GnVSI9+/o8lTQJNNMKjo6wJrt726/Z5gJHjura3pHhauehoNNEqVaU+wyUjy8BTwFjl7GDTf/ogQhqrlhH74dp2PH3QPec2BCSPSNRuSgzTtmUYGw9zx4zW0zaYqVSNidwPBrgWk0IJKYbORJua0liAU3m7Opc4o+C6Qo9OMp+mc5/xqeHs8fbevujrCSEL9D/DK9EovUHW/r8DpYgiHIKSUtaPa++95b2vmHwwwtHGP+e1LpgsaiyZ1Hrdbol1PfsJBDPSJ4/2H9jno/C2U1mFw4uMFr2nvL8jPZ8xxvE9+shS8LQiyD+7QKUJ268Hi
 X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:17:54.3393
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:17:54.3786
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 476445c3-358c-4110-39ce-08df098b7900
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3d1ac84-528e-42ab-25aa-08df098b7906
 X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
 X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR18MB3586
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR18MB5782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_001802_951619_7A1EA811 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_001804_873141_49D31A64 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,50 +129,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes two independent issues in the Axiado AX3005 mailbox
-driver introduced by commit 14af7a96afa3 ("mailbox: add Axiado AX3005
-mailbox driver"):
+Two RX-path bugs found during bring-up:
 
-Patch 1 fixes two RX-path correctness issues found during bring-up.
-The threaded IRQ handler previously consumed only one frame per
-invocation even when additional frames were already queued, and the
-RX polling logic could mistake a FIFO error for completion of an
-incomplete frame. It also corrects IRQ handled accounting and uses a
-stream accessor for the RX FIFO payload.
+1. axiado_rx_thread() previously consumed only one frame per
+   invocation. Multiple frames can accumulate in the FIFO while the
+   threaded handler is running. Split the single-frame handling into
+   axiado_mbox_receive_one_frame() and drain all currently queued
+   frames before returning from the handler. A cond_resched() in the
+   drain loop prevents a continuously-fed channel from monopolizing
+   the CPU.
 
-Patch 2 fixes a -Wformat-truncation warning reported by the kernel
-test robot for the debugfs entry-name buffer.
+2. readl_poll_timeout() waiting for the remainder of a frame can
+   return success either because the required FIFO level was reached
+   or because a FIFO error appeared -- it does not distinguish the
+   two. The old code did not check for that case and could therefore
+   enter the read loop without enough words actually being present.
+   Explicitly inspect the error status after the poll: if an error
+   occurs while waiting for the remainder of an already-started
+   frame, treat that frame as unusable and flush the FIFO to
+   resynchronize, rather than risk delivering incomplete or garbage
+   data to the client.
 
-The two patches are independent and can be applied/reviewed
-separately.
+While here:
 
-Testing:
+ - Track whether the handler actually serviced a hardware condition,
+   such as clearing a FIFO error or consuming frame data. Return
+   IRQ_HANDLED whenever something was serviced, even if the FIFO is
+   empty afterward, instead of reporting IRQ_NONE after handling a
+   hardware condition.
 
-Both patches build cleanly with the aarch64 cross-compiler and pass
-checkpatch.pl. The originally reported -Wformat-truncation warning is
-no longer present.
+ - Use readsl() for the RX FIFO payload. The destination is the
+   driver-owned rx_buffer allocated by devm_kzalloc(), so it has
+   suitable alignment for the stream accessor. readsl() is
+   appropriate for copying a sequence of words from the FIFO into
+   that buffer. The TX path intentionally stays on
+   get_unaligned_le32()/writel(): its buffer is supplied by an
+   external mailbox client, the mailbox API gives no guarantee that
+   buffer is naturally aligned, and the TX path also explicitly
+   handles a partial final word.
 
-As a runtime regression check, Patch 2 was also verified on AX3005
-hardware, where the debugfs directory correctly exposes chan0-errors
-through chan15-errors.
+mbox_free_channel() invokes ->shutdown() before chan->cl is cleared,
+and axiado_mbox_shutdown() calls disable_irq(), which waits for the
+in-flight threaded handler to complete, so no functional change is
+needed for that path.
 
-Patch 1 was regression-tested with live mailbox traffic on AX3005
-using a development kernel carrying the platform devicetree support.
+Verified: builds clean with the aarch64 cross-compiler, passes
+checkpatch.pl, and was regression-tested with live mailbox traffic on
+AX3005.
 
+Fixes: 14af7a96afa3 ("mailbox: add Axiado AX3005 mailbox driver")
 Signed-off-by: Swark Yang <syang@axiado.com>
 ---
-Swark Yang (2):
-      mailbox: axiado: fix RX frame draining and error handling
-      mailbox: axiado: fix debugfs name truncation warning
+ drivers/mailbox/axiado-mailbox.c | 114 ++++++++++++++++++++++++++++++---------
+ 1 file changed, 89 insertions(+), 25 deletions(-)
 
- drivers/mailbox/axiado-mailbox.c | 116 ++++++++++++++++++++++++++++++---------
- 1 file changed, 90 insertions(+), 26 deletions(-)
----
-base-commit: 66498c75b4f8017f62d720d9b59675bdf3abce91
-change-id: 20260830-axiado-mailbox-fixes-v1-42b9f4ef43b5
+diff --git a/drivers/mailbox/axiado-mailbox.c b/drivers/mailbox/axiado-mailbox.c
+index 3a3cf7421863..aa1dcc1b267d 100644
+--- a/drivers/mailbox/axiado-mailbox.c
++++ b/drivers/mailbox/axiado-mailbox.c
+@@ -15,6 +15,7 @@
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
++#include <linux/sched.h>
+ #include <linux/slab.h>
+ #include <linux/unaligned.h>
+ 
+@@ -36,6 +37,12 @@
+ #define AXIADO_MBOX_CSR_ERRORS		(AXIADO_MBOX_CSR_OVERFLOW | \
+ 					 AXIADO_MBOX_CSR_UNDERFLOW)
+ 
++enum axiado_mbox_frame_result {
++	AXIADO_MBOX_FRAME_EMPTY,
++	AXIADO_MBOX_FRAME_OK,
++	AXIADO_MBOX_FRAME_BAD,		/* malformed/incomplete; FIFO flushed */
++};
++
+ struct axiado_mbox_data {
+ 	u8 num_chans;
+ 	u16 msg_size;
+@@ -116,6 +123,13 @@ static int axiado_mbox_send_data(struct mbox_chan *chan, void *data)
+ 		return -EBUSY;
+ 	}
+ 
++	/*
++	 * Per-word get_unaligned_le32()/writel(), not writesl(): @data is
++	 * supplied by whatever client calls mbox_send_message(), and
++	 * mbox_chan_ops.send_data(void *data) makes no alignment guarantee
++	 * for that buffer. writesl() dereferences it as a native u32 *,
++	 * which is unsafe unless alignment is known.
++	 */
+ 	for (offset = 0; offset + sizeof(u32) <= msg_len;
+ 	     offset += sizeof(u32))
+ 		writel(get_unaligned_le32(buf + offset), priv->mbox_reg);
+@@ -131,31 +145,42 @@ static int axiado_mbox_send_data(struct mbox_chan *chan, void *data)
+ 	return 0;
+ }
+ 
+-static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
++/*
++ * Read and, if valid, deliver exactly one length-prefixed frame currently
++ * at the head of the RX FIFO. Does not loop -- the caller decides whether
++ * to call this again. May clear a pending FIFO error at several points
++ * below, wherever a new one could plausibly have appeared since the last
++ * check; each check is a cheap readl() when nothing is pending.
++ */
++static enum axiado_mbox_frame_result axiado_mbox_receive_one_frame(struct axiado_channel_data *priv,
++								    bool *serviced)
+ {
+-	struct axiado_channel_data *priv = dev_id;
+ 	struct mbox_chan *chan = priv->chan;
+ 	struct axiado_mbox *mb = dev_get_drvdata(chan->mbox->dev);
+ 	u8 *buf = priv->rx_buffer;
+ 	unsigned int num_words;
+ 	unsigned int remaining;
+-	unsigned int i;
+ 	u32 msg_len;
+ 	u32 word;
+ 	u32 csr;
+ 	int ret;
+ 
+ 	/*
+-	 * Clear and log/count any pending errors, but don't discard data
+-	 * on their account alone: a rejected overflow write doesn't
+-	 * corrupt what was already safely queued ahead of it, so let the
+-	 * length-based read below decide whether what's here is usable.
++	 * Don't discard data on a cleared error's account alone: a rejected
++	 * overflow write doesn't corrupt what was already safely queued
++	 * ahead of it, so let the length-based read below decide whether
++	 * what's here is usable. Count clearing a real error as @serviced
++	 * so the handler reports IRQ_HANDLED whenever it actually handled
++	 * a hardware condition.
+ 	 */
+-	axiado_mbox_clear_fifo_errors(priv);
++	if (axiado_mbox_clear_fifo_errors(priv))
++		*serviced = true;
+ 
+ 	csr = readl(priv->csr_reg);
+ 	if (csr & AXIADO_MBOX_CSR_EMPTY)
+-		return IRQ_NONE;
++		return AXIADO_MBOX_FRAME_EMPTY;
++
++	*serviced = true;
+ 
+ 	/*
+ 	 * The first word contains the total message length in bytes,
+@@ -165,8 +190,12 @@ static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
+ 	msg_len = word;
+ 	put_unaligned_le32(word, buf);
+ 
+-	if (msg_len < sizeof(u32) || msg_len > mb->drv_data->msg_size)
+-		goto invalid_message;
++	if (msg_len < sizeof(u32) || msg_len > mb->drv_data->msg_size) {
++		dev_warn_ratelimited(chan->mbox->dev,
++				     "Channel %u invalid frame length %u (max %u)\n",
++				     priv->channel_num, msg_len, mb->drv_data->msg_size);
++		goto bad_frame;
++	}
+ 
+ 	num_words = DIV_ROUND_UP(msg_len, sizeof(u32));
+ 	remaining = num_words - 1;
+@@ -182,33 +211,68 @@ static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
+ 					  remaining,
+ 					  AXIADO_MBOX_RX_POLL_US,
+ 					  AXIADO_MBOX_RX_TIMEOUT_US);
+-		if (ret)
+-			goto incomplete_message;
++		/*
++		 * The wait condition above is satisfied by EITHER the
++		 * expected word count landing OR a FIFO error appearing.
++		 * ret == 0 only means "didn't time out" - it does not mean
++		 * the words are actually there. Check @csr for the error
++		 * bit explicitly; otherwise an underflow can present as
++		 * "success" and the read loop below pulls words that were
++		 * never pushed, handing the client garbage.
++		 */
++		if (ret || (csr & AXIADO_MBOX_CSR_ERRORS)) {
++			dev_warn_ratelimited(chan->mbox->dev,
++					     "Channel %u incomplete frame: got %lu/%u words (%s)\n",
++					     priv->channel_num,
++					     FIELD_GET(AXIADO_MBOX_CSR_LEVEL, csr),
++					     num_words,
++					     (csr & AXIADO_MBOX_CSR_ERRORS) ?
++					     "FIFO error" : "timed out");
++			goto bad_frame;
++		}
+ 
+ 		axiado_mbox_clear_fifo_errors(priv);
+ 	}
+ 
+-	for (i = 1; i < num_words; i++) {
+-		word = readl(priv->mbox_reg);
+-		put_unaligned_le32(word, buf + i * sizeof(u32));
+-	}
++	/*
++	 * readsl() streams the payload words directly into rx_buffer, which
++	 * is allocated by this driver via devm_kzalloc() and therefore has
++	 * suitable alignment for a stream accessor.
++	 */
++	readsl(priv->mbox_reg, buf + sizeof(u32), remaining);
+ 
+ 	axiado_mbox_clear_fifo_errors(priv);
+ 
+ 	if (READ_ONCE(priv->active))
+ 		mbox_chan_received_data(chan, priv->rx_buffer);
+ 
+-	return IRQ_HANDLED;
++	return AXIADO_MBOX_FRAME_OK;
+ 
+-incomplete_message:
+-	dev_warn_ratelimited(chan->mbox->dev,
+-			     "Channel %u received an incomplete message\n",
+-			     priv->channel_num);
+-
+-invalid_message:
++bad_frame:
++	axiado_mbox_clear_fifo_errors(priv);
+ 	writel(AXIADO_MBOX_CSR_FLUSH, priv->csr_reg);
+ 
+-	return IRQ_HANDLED;
++	return AXIADO_MBOX_FRAME_BAD;
++}
++
++static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
++{
++	struct axiado_channel_data *priv = dev_id;
++	enum axiado_mbox_frame_result result;
++	bool handled = false;
++
++	/*
++	 * Drain all frames currently queued in the FIFO before returning.
++	 * Multiple frames may accumulate while the threaded handler is
++	 * running. cond_resched() prevents a continuously-fed channel from
++	 * monopolizing the CPU.
++	 */
++	do {
++		result = axiado_mbox_receive_one_frame(priv, &handled);
++		cond_resched();
++	} while (result == AXIADO_MBOX_FRAME_OK);
++
++	return handled ? IRQ_HANDLED : IRQ_NONE;
+ }
+ 
+ static int axiado_mbox_startup(struct mbox_chan *chan)
 
-Best regards,
 -- 
-Swark Yang <syang@axiado.com>
+2.34.1
 
 
