@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D6EC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94311C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMgipE/4nB1yPB2hqAikydF1lygzlHpLyy2FzymIpC0=; b=SvEsbZkx1lr5KwRi9lIGFXMLb0
-	HXuhivu7392K5S8j8nGC+9raHxz9y4OggcLFGhK3zlI1UbLPIGvyDOXpfk1zhXUwoAPbybqXl4IQX
-	B7euw0Q3Ges/kQ9aO35L2W2Lpm1mgW/4m1Fs056KtArIe9v8vaeOHRYMhrtfmBX9VsF9KWT8Ts0nf
-	UdGSe8QBl/O9BNjbZaoD7QFAtNKltEcEh/w2qHvguxp2grgMJPi2gZChtjrGBXipDTYZzYAbJHNY+
-	7GeQQ678j1VgBRbX1ZQ5PGaV2rnhaPfnJj2xbiCr77Fb/ggTARLaLTezJHEL42yrbTNDX9xukzf/d
-	GySeTcpw==;
+	bh=vucpTji7QLeT4Yt7+x1nVopNJbqPPRcEBC9CkZ2GXhk=; b=xHQwZatymPWDiE+IUJlNrz3nqW
+	Rw/RhNEhon4w1kNeK1/39mrPlUd/MJBCUuDS1KmG8zMHxzcbiOaAws+zYByOxbK0ZTDoJAcDLSfrv
+	IuLFBt2bUH5RntUX1r1z+GoeRdvktBtLAS7NJhooOYq/dzhM6q2SEQjXfntjxuJDkxtEFEIJUJGie
+	RtSp4IOMhxEefwstUsiHD16yBGM4q0AG+66XNBbxv+YCFSayHcNA0kw9C4oy1BdQEqwp97FXCHW4c
+	gA8/erkrdJTrFi8qvbkg5cNY2TB5zEpXiWbC8e05dIXd+mTHd6Pzpg7BkMNBmboqKizW6Oj3Lflfn
+	Dks02aYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27Ua-0000000HOyw-1lLZ;
-	Thu, 03 Sep 2026 13:28:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27UX-0000000HOx6-1PBY
+	id 1x27WA-0000000HPKS-3JTx;
+	Thu, 03 Sep 2026 13:30:14 +0000
+Received: from aposti.net ([185.119.170.32])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x27W7-0000000HPI4-0ej6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:28:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 559CE1596;
-	Thu,  3 Sep 2026 06:28:26 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4B203F7D8;
-	Thu,  3 Sep 2026 06:28:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788442110; bh=+jGgT7hK4TtDO3DhbLQAW1lvQ0wVzLhxVC4xl/JmQdM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KQAQFGxlsIdiiIPgPxKshJUIDgxfHsawpgx+YXV51nBSHdspWkkH+n8yWYWo1uwVQ
-	 /IOWGMiClJCeeP2I/cej/Hg7orK7DY0FV8m9WW6IddxyOtvlCMl8epntHnudof3KYk
-	 rS0Yz3IaIOMVOdAgxSjyzEth+kGeZuGhAzWPQW8Q=
-Date: Thu, 3 Sep 2026 14:28:16 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>, Wang Han <wanghan@linux.alibaba.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, 
-	ljs@kernel.org, itaru.kitayama@fujitsu.com
-Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
- map (new data structure)
-Message-ID: <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
-References: <20260810205038.118843-1-weilin.chang@arm.com>
- <20260902163500.1841671-1-wanghan@linux.alibaba.com>
- <877bl26aqg.wl-maz@kernel.org>
+	Thu, 03 Sep 2026 13:30:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=crapouillou.net;
+	s=mail; t=1788442199;
+	bh=Iqe9spGh3XTkMw0WgH0pZdCzQfIL8GSoVCT8n0qhZk4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=U/hK9O8sx/Ej3wJEDLagfRm90spdB8oagI/tMQa+wm4eHs6IxoZsNSk44TMPsnRII
+	 /Xpg3qvDhSglx+uQdaOfQ+mf9mO8K77agxy8r7yceDxqPdlYw/uCEbZKye4SHxIb6C
+	 4IV0ndZQwdxyW+o8x/50o0Ry2UA5eoDqJZDvl1p4=
+Message-ID: <1666390417d0d9b8f58a7bdad1b8ecb475ba0d4f.camel@crapouillou.net>
+Subject: Re: [PATCH v2] ARM: dts: samsung: exynos4210-i9100: Enable RTS/CTS
+ in Bluetooth node
+From: Paul Cercueil <paul@crapouillou.net>
+To: Marek Szyprowski <m.szyprowski@samsung.com>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin	 <peter.griffin@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Thu, 03 Sep 2026 15:29:57 +0200
+In-Reply-To: <6e319291-72b8-4a43-b953-8a9f0a6049c8@samsung.com>
+References: <CGME20260829101532eucas1p29f4e04d4dfd169377793c276221059a6@eucas1p2.samsung.com>
+		<20260829101509.138284-1-paul@crapouillou.net>
+	 <6e319291-72b8-4a43-b953-8a9f0a6049c8@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <877bl26aqg.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_062833_525041_68F650DD 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20260903_063011_377386_2FD6AF84 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,71 +69,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:43:35AM +0100, Marc Zyngier wrote:
-> On Wed, 02 Sep 2026 17:35:00 +0100,
-> Wang Han <wanghan@linux.alibaba.com> wrote:
-> > 
-> > Hi Wei-Lin,
-> > 
-> > I tested this series on a Yitian 710 system with an ARM Neoverse-N2 CPU
-> > (128 CPUs, 2 NUMA nodes).
-> > 
-> > Test environment
-> > ----------------
-> > 
-> >   L0 kernel: Linux v7.2-rc6
-> >   L1 guest: Ubuntu 26.04 LTS, kernel 7.0.0-27-generic (aarch64)
-> >   QEMU: 10.2.3
-> > 
-> > L0 NUMA balancing was enabled (`/proc/sys/kernel/numa_balancing=1`).
-> > The host was booted with `kvm_arm.mode=nested`.
-> > 
-> > This series fixes a functional hang that is exposed when NUMA balancing is
-> > enabled.  The previous nested stage-2 unmap path is too slow for this
-> > workload, making the performance problem user-visible: NUMA balancing can
-> > leave the L1 guest unable to make progress and eventually hang during boot.
-> >
-> > The L1 was started with 8 vCPUs and 32 GiB of RAM using:
-> > 
-> >   qemu-system-aarch64 -smp 8 -m 32G \
-> >     -machine virt,accel=kvm,gic-version=3,virtualization=on \
-> >     -cpu host -nographic -enable-kvm \
-> >     -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
-> >     -drive if=pflash,format=raw,file=pflash1_bak.img \
-> >     -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
-> >     -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
-> >     -serial mon:stdio
-> > 
-> 
-> Puzzling. If you are only running an L1 in VHE mode, there is no
-> shadow S2, and therefore nothing to unmap. For shadow S2s to be built
-> and affect the MMU notifiers, you need to run an L2.
+Hi Marek,
 
-I was thinking the same at first, but realized even with L1 in VHE mode
-there is a small period of time where L1 runs in its EL1 during boot, so
-one nested MMU will become valid for each vCPU. That causes
-kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
-(-smp 8).
+Le mercredi 02 septembre 2026 =C3=A0 10:36 +0200, Marek Szyprowski a =C3=A9=
+crit=C2=A0:
+> On 29.08.2026 12:15, Paul Cercueil wrote:
+> > The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-
+> > rtscts'
+> > property.
+> >=20
+> > Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+>=20
+>=20
+> Indeed the CTS/RTS pins are used for BT on most of the ARM=C2=A0Exynos
+> boards,
+> as the "<&uartX_fctl>" property is assigned for pinctl-0. This is not
+> really
+> specific to i9100, so maybe this property should be added to other
+> dts?
 
-What I am curious about is whether one single notifier unmap is enough
-to hang L1, or were there multiple notifier unmaps.
+I can add it to all exynos4 boards that use the "uartX_fctl" property.
 
-QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
-1024  (4KB pages,  unmapping 1GB per iteration)
-32768 (16KB pages, unmapping 32MB per iteration)
-2048  (64KB pages, unmapping 512MB per iteration)
-iterations for each page size. There aren't many mappings in each
-iteration too. Does this really take that long on real hardware (even if
-this must be done 8 times)?
 
-Thanks,
-Wei-Lin Chang
+> However I wonder if Samsung UART driver actually use this "uart-has-
+> rtscts"
+> DT property? A quick "git grep uart-has-rtscts drivers/tty" shows
+> nothing
+> related to Samsung Exynos...
 
-> 
-> So what are your actual test conditions?
-> 
-> 	M.
-> 
-> -- 
-> Jazz isn't dead. It just smells funny.
+It looks like it does not. I still think the DT property should be here
+but I won't fight over this.
+
+Cheers,
+-Paul
+
+>=20
+> > ---
+> >=20
+> > Notes:
+> > =C2=A0=C2=A0=C2=A0 Changes:
+> > =C2=A0=C2=A0=C2=A0=20
+> > =C2=A0=C2=A0=C2=A0 V1 was: "ARM: dts: samsung: exynos4210-i9100: Fix Bl=
+uetooth
+> > node"
+> > =C2=A0=C2=A0=C2=A0=20
+> > =C2=A0=C2=A0=C2=A0 -v2: Drop max-speed property. It's only supposed to =
+be used in
+> > some
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cases, which don't app=
+ly here. As this was the "fix" for
+> > getting
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Bluetooth to work on m=
+y device, which will be applied to
+> > the
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 driver instead, the Fi=
+xes: tag was removed.
+> >=20
+> > =C2=A0arch/arm/boot/dts/samsung/exynos4210-i9100.dts | 1 +
+> > =C2=A01 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> > b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> > index 8a635bee59fa..95964be7daa8 100644
+> > --- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> > +++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+> > @@ -875,6 +875,7 @@ &serial_0 {
+> > =C2=A0	status =3D "okay";
+> > =C2=A0
+> > =C2=A0	pinctrl-names =3D "default";
+> > +	uart-has-rtscts;
+> > =C2=A0	pinctrl-0 =3D <&bt_en>, <&bt_res>, <&uart0_data>,
+> > <&uart0_fctl>;
+> > =C2=A0
+> > =C2=A0	bluetooth {
+>=20
+> Best regards
 
