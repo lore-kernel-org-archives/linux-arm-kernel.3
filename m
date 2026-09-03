@@ -4,117 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AB3C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F89CC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=; b=QFFAjP41DOYkSCJVljJAjnj2TR
-	d3yD6w7EszXioW3L9buyYPpplDJEWuLoZSbwgVEqZkfukt9cJ5n30vxfeurCo4+HMyjh3NvRwVESl
-	JAwwy6vfSuEjLvPvypxU9BX+pGKJOyTuIUYO8ZkeEOHPbVy/Wi5FvBGf610yuydiZYKLunHXZrOR8
-	h2nfnFeoJLsKM+HLHVwVSmG5hcgKaaypr3P7W5EMv2YGPzil5YENvNmXLf8hI+1iCw+reWRh/S/YB
-	GLzqAsgU0f/b6IUsYK1SwOVIRT/D3vYe5K8yhLGJ7U7k3td++1Nwd++QWokg2U4XdmfHOtRwQM5kP
-	QXCsAwYA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8MY7PnwVmu/gEhUahNDDwC7ZqCJxgd/Hx/DEmiiGPk=; b=pbo2R49klKW3U62TJ9IyV4GSKt
+	RRiqDIZ44rQtyNfjS40H4bBp/m5J6AvO1vlxBJBVXelAa128TVfgC1obEg02O2KksiOYjLcaBY3qM
+	KW9f7I97sLtMm7F6fsSgWQ1WGl1iiR8SOcSVeA3YSweY3Bu8C/CnARNtZK58VInG5G8U8RB5besIA
+	IX/YiNSRNqP5XOutIR3c015TdwapEr/0iUbpl2QkZ8Ir2VkSFuWF1u8kLDgNtCq2r1QQqXkUW8AhG
+	y6PR65E1ME7gXs1STtRLMuGRBWQY7rUeN412KMPABNPIy4I8w+egvzNpBd5PaIP8+kU30JxvNZrTk
+	iaNqtWBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21i5-0000000GYP9-0knq;
-	Thu, 03 Sep 2026 07:18:09 +0000
-Received: from mail-eastus2azon11020142.outbound.protection.outlook.com ([52.101.56.142] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1x21k6-0000000GYqB-2kl5;
+	Thu, 03 Sep 2026 07:20:14 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x21i0-0000000GYNC-39kx
+	id 1x21k4-0000000GYoa-2WMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:18:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IoiMIKW53n2T2nrJb0swy6HI6kY1Rp7sFTv1RIN0/cb/eBsOUtqnYcFL/SFtEA2KySMYqVaQcCIzw+Tirxs517ViC9hqmmf3+35V0j+Pyqz6Lb2eUkTBM8jqeuOi3U4Q2MrI8DrvzvzGp9uffVWusSq4rqTI24DJADF1HvhqJi36xEqGebzFyyhe5d65/1tEsUmRbkGDvVWg8iNF6dqXoGndhsZFEkHdhbPyAvY85XcPV6A0mCrsFZ4dH2Z5HpORktghsEfhb/NR2hnW6odySXdGVFaASptgXYrVfoq4adwNyQUkbL838EuT32puBSqx3gkjZL9J2Q3BtqbUTDYKOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=;
- b=GQxjS95m0+OeEQ0Im5XKjBOGR7va3ejo/b3+xY62P/DO7mlDMScI8RQNR45UUSazapkla6Qzl+aRtZDiRj2sg9qWd4/BR8ytLzHKFbtv34tIBD8OXm1LZhknJHHHPvbyw4IHAA20XdLxQmxeyEgtlil5w1CQQt9GqF6zLHUj0ghlBxCj+iHrLx9DCT9+vb/BcpfGFCQJH9i/KbRoKb2smaJvJ2ETgjA1KprgofweRwHi32rpZ8MEa1ssKS8TACGuNBPcbHu4ihS9BqLYTmDcIIafZNVXTaddjsbXqnuJHzImkM1s4XbT/kU9Ax5G63569niK7qL41K8GLRTUYrstCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nmheS9HNDhzg5lWWVQxnTYnpBh4yyvng1wy68Nvv6RM=;
- b=PnFGj9ERl84ZSXdCyzlQ2TcaNJdB3bOiBk4zyT9CN3FMarqMKNmOFNFUsakwM2Or0DjGq/96W5RdhWZHuwM/MqQpPyS/g4323PkHcZWNo5JGqMtitVPy7HLG0lok2Jq10GF0AF1VKM+7HMraSM0WWcWLUof64JiFE/9YEhKgASSh8KrzzYp9ipui6TsiYWnZXkqPVGqyOKRb0aNTIKvhckryZ+ULGEVdKsAbb/m2OPCxjd20avJ1wzl3DItdMzmCfAWhzmbOLQnGImv+VEOu3+Wpk+jbUEvO8A815sxlisSLJMmtOy3+ajcm84v96BaAXj2LjjHROcJB3Nx5FOXFuA==
-Received: from BN9P223CA0014.NAMP223.PROD.OUTLOOK.COM (2603:10b6:408:10b::19)
- by LV8PR18MB5782.namprd18.prod.outlook.com (2603:10b6:408:1f2::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 07:17:54 +0000
-Received: from BN2PEPF0000449D.namprd02.prod.outlook.com
- (2603:10b6:408:10b:cafe::6a) by BN9P223CA0014.outlook.office365.com
- (2603:10b6:408:10b::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Thu, 3
- Sep 2026 07:17:54 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- BN2PEPF0000449D.mail.protection.outlook.com (10.167.243.148) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
- via Frontend Transport; Thu, 3 Sep 2026 07:17:54 +0000
-Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTPS id B9EBF4186B5D;
-	Thu,  3 Sep 2026 00:17:53 -0700 (PDT)
-From: Swark Yang <syang@axiado.com>
-Date: Thu, 03 Sep 2026 00:17:52 -0700
-Subject: [PATCH 1/2] mailbox: axiado: fix RX frame draining and error
- handling
+	Thu, 03 Sep 2026 07:20:13 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4998b5a63e2so20003145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 00:20:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1788420010; x=1789024810; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z8MY7PnwVmu/gEhUahNDDwC7ZqCJxgd/Hx/DEmiiGPk=;
+        b=TqgFiUzFkEevN7MJS3bPHdAuOuuB/bDFBcNITTq5p3JI66yKWw0TXqoRmdd2vqw4+K
+         YuuFF8rnZClsI8o/886Cr7XbzVAh3Dnh0EGl9/9ljrWxu/yKz2VZQvCOxOnnrk/Cz95T
+         UbuKEtwea9UPXEx5LyxYCy3Uiu6lN2KwXlmue2umKoPwBNdUENab527UoXCyZhB0b4WU
+         rPZDNa4gXskexef4wN5BXBrtWnd5GAEksbFrt7Z7557gh2ggEdXnsg1z4dqiduHW8W9B
+         dn7kyCysFvp/WDaM7cL2mzpbYnxpa+mq/Q38ejyo/IcT/IC+rjUUrqQpnIv+jJm6DWeb
+         5zUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788420010; x=1789024810;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z8MY7PnwVmu/gEhUahNDDwC7ZqCJxgd/Hx/DEmiiGPk=;
+        b=Gag/REphUbzAR0gAyx/Ma+E+ebPLZKAg8CLYfHzQobhGzdiv+1nt5YjBfThdpJJZC8
+         B9e8Usn3m80teZm3DMCrvyBIhjvaE6byQVT1yzZ6TmVQyfPe5y1IkfnFJ2LL8wLMrGvg
+         Qe4FxUzRkaAnqo1FKcQXwG8jbAU+ikD11Kw5ZG4kuJGHtkgvpGtYZwOGck7qekpsy5/n
+         XlpkPCsCC8OnQyk0CPYubQ6E7evwcDIt/Ztz3jw7O2NshLDUq1pIHk4VTRUkZ9QbBFZN
+         nT6WULbLp/178ZWkHGXVQq3oRvdhFKEE6/2PnqsTyIAN3Kr7SlpYdp5SRQ0I7OQ/PnIj
+         rZbQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxFr1vcBqFSXqaPWDNggUqI1X2f7vUB5hY6MVNplKa5KprWu7wfrGvb+ZBkr8lXGbl7kOWxYjC8qRag663a7fUh@lists.infradead.org
+X-Gm-Message-State: AFuF++mBpfn0wPauNzReLMLtFiF/V+gpFN+T0Zzm6U1mal6zNhKTyU4R
+	Cg2WlUbf/LWWu2l7jzRdouuhwhr1F272FtiZOil5Mc1xxMDRjUIuJY5DUA+U7Gp1Asg=
+X-Gm-Gg: AYBFou1ObSgmsL9X5zPjyMJvTffRqX7tb4f0YR7U+GIE2375RJhqHJaJSr3yooFUGH+
+	oqbxhIIFV1QW5f9t/nHu9xA/0QRog4vlQpLN1zk7Sskn14oNqGfE1bHWotzQvN9OASv2FGbyMD1
+	hkmSJKvpJhXYpCK/pw0Ie9tkxnRiNf371e32cJXxZBJlLo0NUCyDaxsHQ2rNsCulmNECm8dg9Nz
+	YPlHsOYFCH1u7uKk9x7sg5TKbLXF8ptfqcATMyS60u+3mdnX8PXt7LeAz4sDU17UFoj5ysdmfug
+	txuwT2r1+AR0ayzk01ThgZFruHNgDzZS1r0zSDusxdg2N19y59HEOj2+wR1D2vUHuyC4hb6D9E6
+	qjN5fhM7VD1/Q514mfZOzKuM2WcaBEdfZs7nUK1/80wVZibRO0bgpu3fMc8IZDenp8XbeyFdgyv
+	kJmjnlTY2KT/sZpwAtQdFBftIC24ryEWAtROBOcl1GLuwEB+zRbVN6ufcKbuxHiW2GbDX4tA+Gh
+	5gTPdwiaYA/IAbk7X2EapSQ0zBiYIRNz7O0/u/c0sk=
+X-Received: by 2002:a05:600c:83c4:b0:499:8ff5:8ecc with SMTP id 5b1f17b1804b1-49ce58268afmr184260015e9.15.1788420008556;
+        Thu, 03 Sep 2026 00:20:08 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:bc03:561f:5dac:f48f? ([2a01:e0a:106d:1080:bc03:561f:5dac:f48f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee60d8a6sm47704275e9.10.2026.09.03.00.20.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Sep 2026 00:20:07 -0700 (PDT)
+Message-ID: <28a9c801-92a6-431c-aa54-1f203e3d2a6e@linaro.org>
+Date: Thu, 3 Sep 2026 09:20:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 2/2] arm64: dts: amlogic: add Xiaomi Mi Box 4 support
+To: YuChia-Kan <raspberrykan@stu.hqu.edu.cn>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20260903-mibox4-dt-v1-0-f29f1e828ca3@stu.hqu.edu.cn>
+ <20260903-mibox4-dt-v1-2-f29f1e828ca3@stu.hqu.edu.cn>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260903-mibox4-dt-v1-2-f29f1e828ca3@stu.hqu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-axiado-mailbox-fixes-v1-v1-1-f44cba251254@axiado.com>
-References: <20260903-axiado-mailbox-fixes-v1-v1-0-f44cba251254@axiado.com>
-In-Reply-To: <20260903-axiado-mailbox-fixes-v1-v1-0-f44cba251254@axiado.com>
-To: Krishnakumar Kesavan <kkesavan@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Tzu-Hao Wei <twei@axiado.com>, 
- Karthikeyan Mitran <kmitran@axiado.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- openbmc@lists.ozlabs.org, Swark Yang <syang@axiado.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9185; i=syang@axiado.com;
- h=from:subject:message-id; bh=OzmvMEaPNupmiK8rOFM2AXPUVD5Amto3/+uOipy5Um8=;
- b=owGbwMvMwCHWlWK8+EozbyzjabUkhqyZ8op13/9rvVngMv/yx/0aZ6xPLK4SlF/MbHRsz/nnJ
- asM63e+6ShlYRDjYJAVU2T5qvMt/2Su9r3OvStLYeawMoEMYeDiFICJHKhl+B/L+NjNJXqf6asC
- p5w6Dq2SQF7WJr/HP/13f7hhu2njWidGhoMbO/k/p0zI+jjXy8uUyfXG0TaVi933s2Wbxac9P7U
- zgB8A
-X-Developer-Key: i=syang@axiado.com; a=openpgp;
- fpr=F52CF66FC96D2BDE89BDA9758A6433A3D4830D5D
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000449D:EE_|LV8PR18MB5782:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3d1ac84-528e-42ab-25aa-08df098b7906
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|10067099003|6133799003|5023799004|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6r9ZyQ/cwaeJntWnfZhs9rLhGJ4LyJnEOrTb7kBwz8E/MlIToCyzXg9Tr+Svv+sjjj2Y4APX4j2f7KnSRtCIGPoB4XfUHif2dUVbgZ2PtVm4GY9oXiGUWGGRy/Kj9pPfE1Yp62ImrKOPe3Iz+OMLg3uLcnc3Mr020rbh64bk9686vBPc+a1kx3qoCDz1RijrVz7sL1oWh7KvZhIZ5bUNZNTA0N767tNe24GVQ6hukWt6wU9MGRzLfdBUb5vRuVKBZSVXiZR18/e9HNg4qGCgR/QzZ7lodyVXXNb2TYDqCqx59PbTyMSABWSYR/CvkuJuMAhqdAvV2HnglYGN785autAlnP/mI68DsC2wUG3jEacopaiyLxZMct76uIvdxd3Mv2a9FU/8yfLgnJfrOjekjn3sn3iCdtI2TsqIiZhCFoAqqdcDG/3tQw1nUX7cfKTaXgPsxsMMDYxNInLRSrO+c1JK3twBKloJ46s/x2Le9+E4t5DQs5b7T8NJGRF8Z6b8VK7Qu6v5Ex0RG52jfI+jprbZxbKk1IMrZ2wg0uwiMwedJHfYKc9cqxEbsMGCW2MY+6h7C71/V4c10ij8IXYBIfdirlggrF8UCezryxdAG9ye6zIF0PaxNET0q6UO1SmexdHFTfbkUQTMKb9pP24w2bA12JVKBQDzBTzt/D4qkZTWbnURu3bTUM0lqk9J9FnGljiy1zQ7p85quJ9YpWL9TA==
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(10067099003)(6133799003)(5023799004)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EeSbuLjjQmw1279+127zy/zVu7fFOnRhXBQAiggiqtsXWmkt3oaW+YAGRaZ5D6kSgC3bFgFnkkXdhmUuvSw+hEkirIC6A3iBIzRxl+uiNY53z2YxvSTrlJ662oy6xLD0GnVSI9+/o8lTQJNNMKjo6wJrt726/Z5gJHjura3pHhauehoNNEqVaU+wyUjy8BTwFjl7GDTf/ogQhqrlhH74dp2PH3QPec2BCSPSNRuSgzTtmUYGw9zx4zW0zaYqVSNidwPBrgWk0IJKYbORJua0liAU3m7Opc4o+C6Qo9OMp+mc5/xqeHs8fbevujrCSEL9D/DK9EovUHW/r8DpYgiHIKSUtaPa++95b2vmHwwwtHGP+e1LpgsaiyZ1Hrdbol1PfsJBDPSJ4/2H9jno/C2U1mFw4uMFr2nvL8jPZ8xxvE9+shS8LQiyD+7QKUJ268Hi
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 07:17:54.3786
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3d1ac84-528e-42ab-25aa-08df098b7906
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF0000449D.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR18MB5782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_001804_873141_49D31A64 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20260903_002012_720160_E4EABE01 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,254 +130,391 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two RX-path bugs found during bring-up:
+Hi,
 
-1. axiado_rx_thread() previously consumed only one frame per
-   invocation. Multiple frames can accumulate in the FIFO while the
-   threaded handler is running. Split the single-frame handling into
-   axiado_mbox_receive_one_frame() and drain all currently queued
-   frames before returning from the handler. A cond_resched() in the
-   drain loop prevents a continuously-fed channel from monopolizing
-   the CPU.
+On 9/3/26 09:09, YuChia-Kan wrote:
+> Add initial device tree support for the Xiaomi Mi Box 4
+> (MDZ-21-AA), based on the Amlogic S905L SoC.
+> 
+> Enable the main on-board peripherals including eMMC, Wi-Fi,
+> HDMI, CEC, USB, IR, audio, power LED, GPU and video decoder.
+> 
+> Signed-off-by: YuChia-Kan <raspberrykan@stu.hqu.edu.cn>
+> ---
+>   arch/arm64/boot/dts/amlogic/Makefile              |   1 +
+>   arch/arm64/boot/dts/amlogic/meson-gxlx-mibox4.dts | 340 ++++++++++++++++++++++
+>   2 files changed, 341 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 57bc440fa55c..9f357df5fc54 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -72,6 +72,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905x-nexbox-a95x.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905x-p212.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905x-vero4k.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxlx-s905l-p271.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-gxlx-mibox4.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-gt1-ultimate.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-khadas-vim2.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-gxm-mecool-kiii-pro.dtb
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-gxlx-mibox4.dts b/arch/arm64/boot/dts/amlogic/meson-gxlx-mibox4.dts
+> new file mode 100644
+> index 000000000000..db774efb2898
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-gxlx-mibox4.dts
+> @@ -0,0 +1,340 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +// Copyright (c) 2026 YuChia-Kan <mail@raspberrykan.dev>
+> +
+> +/dts-v1/;
+> +
+> +#include "meson-gxl-s905x.dtsi"
+> +
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/sound/meson-aiu.h>
+> +
+> +/ {
+> +	compatible = "xiaomi,mibox4", "amlogic,s905l", "amlogic,meson-gxlx";
+> +	model = "Xiaomi Mi Box 4 (MDZ-21-AA)";
+> +
+> +	aliases {
+> +		serial0 = &uart_AO;
+> +		mmc0 = &sd_emmc_c;
+> +		mmc1 = &sd_emmc_a;
+> +		/delete-property/ mmc2;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	av_mute: analog-audio-mute {
+> +		compatible = "simple-audio-amplifier";
+> +		sound-name-prefix = "AV";
+> +		enable-gpios = <&gpio GPIOH_5 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	memory@0 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x0 0x0 0x80000000>;
+> +	};
+> +
+> +	hdmi_connector: hdmi-connector {
+> +		compatible = "hdmi-connector";
+> +		type = "a";
+> +
+> +		port {
+> +			hdmi_connector_in: endpoint {
+> +				remote-endpoint = <&hdmi_tx_tmds_out>;
+> +			};
+> +		};
+> +	};
+> +
+> +	cvbs_connector: cvbs-connector {
+> +		compatible = "composite-video-connector";
+> +
+> +		port {
+> +			cvbs_connector_in: endpoint {
+> +				remote-endpoint = <&cvbs_vdac_out>;
+> +			};
+> +		};
+> +	};
+> +
+> +	hdmi_usb_5v: regulator-hdmi-usb-5v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "HDMI_USB_5V";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		gpio = <&gpio_ao GPIOAO_4 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +	};
+> +
+> +	vddio_boot: regulator-vddio-boot {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDIO_BOOT";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+> +
+> +	vddao_3v3: regulator-vddao-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDAO_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +
+> +	vddio_ao18: regulator-vddio-ao18 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VDDIO_AO18";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+> +
+> +	vcc_3v3: regulator-vcc-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +
+> +	emmc_pwrseq: emmc-pwrseq {
+> +		compatible = "mmc-pwrseq-emmc";
+> +		reset-gpios = <&gpio BOOT_9 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	wifi32k: wifi32k {
+> +		compatible = "pwm-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+> +		pwms = <&pwm_ef 0 30518 0>;
+> +	};
+> +
+> +	wifi_pwrseq: wifi-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&gpio GPIOX_9 GPIO_ACTIVE_LOW>;
+> +		clocks = <&wifi32k>;
+> +		clock-names = "ext_clock";
+> +		post-power-on-delay-ms = <200>;
+> +	};
+> +
+> +	leds: leds {
+> +		compatible = "gpio-leds";
+> +
+> +		power_led: power-led {
+> +			label = "mibox4:power";
 
-2. readl_poll_timeout() waiting for the remainder of a frame can
-   return success either because the required FIFO level was reached
-   or because a FIFO error appeared -- it does not distinguish the
-   two. The old code did not check for that case and could therefore
-   enter the read loop without enough words actually being present.
-   Explicitly inspect the error status after the poll: if an error
-   occurs while waiting for the remainder of an already-started
-   frame, treat that frame as unusable and flush the FIFO to
-   resynchronize, rather than risk delivering incomplete or garbage
-   data to the client.
+Drop the label, add the color attribute.
 
-While here:
+> +			function = LED_FUNCTION_POWER;
+> +			gpios = <&gpio GPIOX_6 GPIO_ACTIVE_HIGH>;
+> +			default-state = "on";
+> +		};
+> +	};
+> +
+> +	sound {
+> +		compatible = "amlogic,gx-sound-card";
+> +		model = "Xiaomi-Mi-Box-4";
+> +		audio-aux-devs = <&av_mute>;
+> +		audio-widgets = "Line", "Lineout";
+> +		audio-routing = "AV INL", "ACODEC LOLN",
+> +				"AV INR", "ACODEC LORN",
+> +				"Lineout", "AV OUTL",
+> +				"Lineout", "AV OUTR";
+> +
+> +		clocks = <&clkc CLKID_MPLL0>,
+> +			 <&clkc CLKID_MPLL1>,
+> +			 <&clkc CLKID_MPLL2>;
+> +		assigned-clocks = <&clkc CLKID_MPLL0>,
+> +				  <&clkc CLKID_MPLL1>,
+> +				  <&clkc CLKID_MPLL2>;
+> +		assigned-clock-rates = <294912000>, <270950400>, <393216000>;
+> +
+> +		dai-link-0 {
+> +			sound-dai = <&aiu AIU_CPU CPU_I2S_FIFO>;
+> +		};
+> +
+> +		dai-link-1 {
+> +			sound-dai = <&aiu AIU_CPU CPU_I2S_ENCODER>;
+> +			dai-format = "i2s";
+> +			mclk-fs = <256>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&aiu AIU_HDMI CTRL_I2S>;
+> +			};
+> +
+> +			codec-1 {
+> +				sound-dai = <&aiu AIU_ACODEC CTRL_I2S>;
+> +			};
+> +		};
+> +
+> +		dai-link-2 {
+> +			sound-dai = <&aiu AIU_HDMI CTRL_OUT>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&hdmi_tx>;
+> +			};
+> +		};
+> +
+> +		dai-link-3 {
+> +			sound-dai = <&aiu AIU_ACODEC CTRL_OUT>;
+> +
+> +			codec-0 {
+> +				sound-dai = <&acodec>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&apb {
+> +	mali: gpu@c0000 {
+> +		interrupts = <GIC_SPI 160 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
+> +			<GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "gp", "gpmmu", "pp", "pmu",
+> +			"pp0", "ppmmu0", "pp1", "ppmmu1",
+> +			"pp2", "ppmmu2";
+> +	};
+> +};
 
- - Track whether the handler actually serviced a hardware condition,
-   such as clearing a FIFO error or consuming frame data. Return
-   IRQ_HANDLED whenever something was serviced, even if the FIFO is
-   empty afterward, instead of reporting IRQ_NONE after handling a
-   hardware condition.
+Drop this, it's already defined in arch/arm64/boot/dts/amlogic/meson-gx-mali450.dtsi
 
- - Use readsl() for the RX FIFO payload. The destination is the
-   driver-owned rx_buffer allocated by devm_kzalloc(), so it has
-   suitable alignment for the stream accessor. readsl() is
-   appropriate for copying a sequence of words from the FIFO into
-   that buffer. The TX path intentionally stays on
-   get_unaligned_le32()/writel(): its buffer is supplied by an
-   external mailbox client, the mailbox API gives no guarantee that
-   buffer is naturally aligned, and the TX path also explicitly
-   handles a partial final word.
+> +
+> +&acodec {
+> +	AVDD-supply = <&vddio_ao18>;
+> +	status = "okay";
+> +};
+> +
+> +&aiu {
+> +	status = "okay";
+> +};
+> +
+> +&cec_AO {
+> +	status = "okay";
+> +	pinctrl-0 = <&ao_cec_pins>;
+> +	pinctrl-names = "default";
+> +	hdmi-phandle = <&hdmi_tx>;
+> +};
+> +
+> +&cvbs_vdac_port {
+> +	cvbs_vdac_out: endpoint {
+> +		remote-endpoint = <&cvbs_connector_in>;
+> +	};
+> +};
+> +
+> +/delete-node/ &eth_mac;
+> +/delete-node/ &sn;
+> +/delete-node/ &bid;
 
-mbox_free_channel() invokes ->shutdown() before chan->cl is cleared,
-and axiado_mbox_shutdown() calls disable_irq(), which waits for the
-in-flight threaded handler to complete, so no functional change is
-needed for that path.
+Add a comment stating the nvmem layout is custom
 
-Verified: builds clean with the aarch64 cross-compiler, passes
-checkpatch.pl, and was regression-tested with live mailbox traffic on
-AX3005.
-
-Fixes: 14af7a96afa3 ("mailbox: add Axiado AX3005 mailbox driver")
-Signed-off-by: Swark Yang <syang@axiado.com>
----
- drivers/mailbox/axiado-mailbox.c | 114 ++++++++++++++++++++++++++++++---------
- 1 file changed, 89 insertions(+), 25 deletions(-)
-
-diff --git a/drivers/mailbox/axiado-mailbox.c b/drivers/mailbox/axiado-mailbox.c
-index 3a3cf7421863..aa1dcc1b267d 100644
---- a/drivers/mailbox/axiado-mailbox.c
-+++ b/drivers/mailbox/axiado-mailbox.c
-@@ -15,6 +15,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-+#include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/unaligned.h>
- 
-@@ -36,6 +37,12 @@
- #define AXIADO_MBOX_CSR_ERRORS		(AXIADO_MBOX_CSR_OVERFLOW | \
- 					 AXIADO_MBOX_CSR_UNDERFLOW)
- 
-+enum axiado_mbox_frame_result {
-+	AXIADO_MBOX_FRAME_EMPTY,
-+	AXIADO_MBOX_FRAME_OK,
-+	AXIADO_MBOX_FRAME_BAD,		/* malformed/incomplete; FIFO flushed */
-+};
-+
- struct axiado_mbox_data {
- 	u8 num_chans;
- 	u16 msg_size;
-@@ -116,6 +123,13 @@ static int axiado_mbox_send_data(struct mbox_chan *chan, void *data)
- 		return -EBUSY;
- 	}
- 
-+	/*
-+	 * Per-word get_unaligned_le32()/writel(), not writesl(): @data is
-+	 * supplied by whatever client calls mbox_send_message(), and
-+	 * mbox_chan_ops.send_data(void *data) makes no alignment guarantee
-+	 * for that buffer. writesl() dereferences it as a native u32 *,
-+	 * which is unsafe unless alignment is known.
-+	 */
- 	for (offset = 0; offset + sizeof(u32) <= msg_len;
- 	     offset += sizeof(u32))
- 		writel(get_unaligned_le32(buf + offset), priv->mbox_reg);
-@@ -131,31 +145,42 @@ static int axiado_mbox_send_data(struct mbox_chan *chan, void *data)
- 	return 0;
- }
- 
--static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
-+/*
-+ * Read and, if valid, deliver exactly one length-prefixed frame currently
-+ * at the head of the RX FIFO. Does not loop -- the caller decides whether
-+ * to call this again. May clear a pending FIFO error at several points
-+ * below, wherever a new one could plausibly have appeared since the last
-+ * check; each check is a cheap readl() when nothing is pending.
-+ */
-+static enum axiado_mbox_frame_result axiado_mbox_receive_one_frame(struct axiado_channel_data *priv,
-+								    bool *serviced)
- {
--	struct axiado_channel_data *priv = dev_id;
- 	struct mbox_chan *chan = priv->chan;
- 	struct axiado_mbox *mb = dev_get_drvdata(chan->mbox->dev);
- 	u8 *buf = priv->rx_buffer;
- 	unsigned int num_words;
- 	unsigned int remaining;
--	unsigned int i;
- 	u32 msg_len;
- 	u32 word;
- 	u32 csr;
- 	int ret;
- 
- 	/*
--	 * Clear and log/count any pending errors, but don't discard data
--	 * on their account alone: a rejected overflow write doesn't
--	 * corrupt what was already safely queued ahead of it, so let the
--	 * length-based read below decide whether what's here is usable.
-+	 * Don't discard data on a cleared error's account alone: a rejected
-+	 * overflow write doesn't corrupt what was already safely queued
-+	 * ahead of it, so let the length-based read below decide whether
-+	 * what's here is usable. Count clearing a real error as @serviced
-+	 * so the handler reports IRQ_HANDLED whenever it actually handled
-+	 * a hardware condition.
- 	 */
--	axiado_mbox_clear_fifo_errors(priv);
-+	if (axiado_mbox_clear_fifo_errors(priv))
-+		*serviced = true;
- 
- 	csr = readl(priv->csr_reg);
- 	if (csr & AXIADO_MBOX_CSR_EMPTY)
--		return IRQ_NONE;
-+		return AXIADO_MBOX_FRAME_EMPTY;
-+
-+	*serviced = true;
- 
- 	/*
- 	 * The first word contains the total message length in bytes,
-@@ -165,8 +190,12 @@ static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
- 	msg_len = word;
- 	put_unaligned_le32(word, buf);
- 
--	if (msg_len < sizeof(u32) || msg_len > mb->drv_data->msg_size)
--		goto invalid_message;
-+	if (msg_len < sizeof(u32) || msg_len > mb->drv_data->msg_size) {
-+		dev_warn_ratelimited(chan->mbox->dev,
-+				     "Channel %u invalid frame length %u (max %u)\n",
-+				     priv->channel_num, msg_len, mb->drv_data->msg_size);
-+		goto bad_frame;
-+	}
- 
- 	num_words = DIV_ROUND_UP(msg_len, sizeof(u32));
- 	remaining = num_words - 1;
-@@ -182,33 +211,68 @@ static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
- 					  remaining,
- 					  AXIADO_MBOX_RX_POLL_US,
- 					  AXIADO_MBOX_RX_TIMEOUT_US);
--		if (ret)
--			goto incomplete_message;
-+		/*
-+		 * The wait condition above is satisfied by EITHER the
-+		 * expected word count landing OR a FIFO error appearing.
-+		 * ret == 0 only means "didn't time out" - it does not mean
-+		 * the words are actually there. Check @csr for the error
-+		 * bit explicitly; otherwise an underflow can present as
-+		 * "success" and the read loop below pulls words that were
-+		 * never pushed, handing the client garbage.
-+		 */
-+		if (ret || (csr & AXIADO_MBOX_CSR_ERRORS)) {
-+			dev_warn_ratelimited(chan->mbox->dev,
-+					     "Channel %u incomplete frame: got %lu/%u words (%s)\n",
-+					     priv->channel_num,
-+					     FIELD_GET(AXIADO_MBOX_CSR_LEVEL, csr),
-+					     num_words,
-+					     (csr & AXIADO_MBOX_CSR_ERRORS) ?
-+					     "FIFO error" : "timed out");
-+			goto bad_frame;
-+		}
- 
- 		axiado_mbox_clear_fifo_errors(priv);
- 	}
- 
--	for (i = 1; i < num_words; i++) {
--		word = readl(priv->mbox_reg);
--		put_unaligned_le32(word, buf + i * sizeof(u32));
--	}
-+	/*
-+	 * readsl() streams the payload words directly into rx_buffer, which
-+	 * is allocated by this driver via devm_kzalloc() and therefore has
-+	 * suitable alignment for a stream accessor.
-+	 */
-+	readsl(priv->mbox_reg, buf + sizeof(u32), remaining);
- 
- 	axiado_mbox_clear_fifo_errors(priv);
- 
- 	if (READ_ONCE(priv->active))
- 		mbox_chan_received_data(chan, priv->rx_buffer);
- 
--	return IRQ_HANDLED;
-+	return AXIADO_MBOX_FRAME_OK;
- 
--incomplete_message:
--	dev_warn_ratelimited(chan->mbox->dev,
--			     "Channel %u received an incomplete message\n",
--			     priv->channel_num);
--
--invalid_message:
-+bad_frame:
-+	axiado_mbox_clear_fifo_errors(priv);
- 	writel(AXIADO_MBOX_CSR_FLUSH, priv->csr_reg);
- 
--	return IRQ_HANDLED;
-+	return AXIADO_MBOX_FRAME_BAD;
-+}
-+
-+static irqreturn_t axiado_rx_thread(int irq, void *dev_id)
-+{
-+	struct axiado_channel_data *priv = dev_id;
-+	enum axiado_mbox_frame_result result;
-+	bool handled = false;
-+
-+	/*
-+	 * Drain all frames currently queued in the FIFO before returning.
-+	 * Multiple frames may accumulate while the threaded handler is
-+	 * running. cond_resched() prevents a continuously-fed channel from
-+	 * monopolizing the CPU.
-+	 */
-+	do {
-+		result = axiado_mbox_receive_one_frame(priv, &handled);
-+		cond_resched();
-+	} while (result == AXIADO_MBOX_FRAME_OK);
-+
-+	return handled ? IRQ_HANDLED : IRQ_NONE;
- }
- 
- static int axiado_mbox_startup(struct mbox_chan *chan)
-
--- 
-2.34.1
-
+> +
+> +&efuse {
+> +	wifi_mac: mac-address@c {
+> +		reg = <0x0c 0x06>;
+> +	};
+> +};
+> +
+> +&ethmac {
+> +	status = "disabled";
+> +};
+> +
+> +&hdmi_tx {
+> +	status = "okay";
+> +	pinctrl-0 = <&hdmi_hpd_pins>, <&hdmi_i2c_pins>;
+> +	pinctrl-names = "default";
+> +	hdmi-supply = <&hdmi_usb_5v>;
+> +};
+> +
+> +&hdmi_tx_tmds_port {
+> +	hdmi_tx_tmds_out: endpoint {
+> +		remote-endpoint = <&hdmi_connector_in>;
+> +	};
+> +};
+> +
+> +&ir {
+> +	status = "okay";
+> +	pinctrl-0 = <&remote_input_ao_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&pwm_ef {
+> +	status = "okay";
+> +	pinctrl-0 = <&pwm_e_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&saradc {
+> +	compatible = "amlogic,meson-gxlx-saradc", "amlogic,meson-saradc";
+> +	status = "okay";
+> +	vref-supply = <&vddio_ao18>;
+> +};
+> +
+> +&sd_emmc_a {
+> +	status = "okay";
+> +	pinctrl-0 = <&sdio_pins>;
+> +	pinctrl-1 = <&sdio_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	cap-sdio-irq;
+> +	max-frequency = <50000000>;
+> +	non-removable;
+> +	no-mmc;
+> +	no-sd;
+> +	disable-wp;
+> +	keep-power-in-suspend;
+> +	sd-uhs-sdr12;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+> +	vmmc-supply = <&vddao_3v3>;
+> +	vqmmc-supply = <&vddio_boot>;
+> +
+> +	rtl8723ds: wifi@1 {
+> +		reg = <1>;
+> +		nvmem-cells = <&wifi_mac>;
+> +		nvmem-cell-names = "mac-address";
+> +		interrupt-parent = <&gpio_intc>;
+> +		interrupts = <GPIOX_7 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "host-wake";
+> +	};
+> +};
+> +
+> +&sd_emmc_b {
+> +	status = "disabled";
+> +};
+> +
+> +&sd_emmc_c {
+> +	status = "okay";
+> +	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
+> +	pinctrl-1 = <&emmc_clk_gate_pins>;
+> +	pinctrl-names = "default", "clk-gate";
+> +	bus-width = <8>;
+> +	cap-mmc-highspeed;
+> +	max-frequency = <100000000>;
+> +	non-removable;
+> +	disable-wp;
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	mmc-hs400-1_8v;
+> +	mmc-pwrseq = <&emmc_pwrseq>;
+> +	vmmc-supply = <&vcc_3v3>;
+> +	vqmmc-supply = <&vddio_boot>;
+> +};
+> +
+> +&uart_AO {
+> +	status = "okay";
+> +	pinctrl-0 = <&uart_ao_a_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&usb {
+> +	status = "okay";
+> +	dr_mode = "host";
+> +};
+> +
+> +&usb2_phy0 {
+> +	phy-supply = <&hdmi_usb_5v>;
+> +};
+> +
+> +&vdec {
+> +	compatible = "amlogic,gxlx-vdec", "amlogic,gx-vdec";
+> +};
+> 
 
