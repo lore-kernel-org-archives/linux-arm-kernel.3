@@ -4,57 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BF9C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 00:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFB5C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 01:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+EzJoDEG9W5tYl5Q0IYEK/9+yw3B8m1JuHAL+Fe8n4=; b=nPjoYaDl1+2B+sSNQd1NAau9kO
-	CrWeC4YcmyDxf0h4XQh2cKohmCizo6L8PrOuAg9xQYfvGRhPVcd4azTEgu09wUHCv7QOTYRp9m3Nd
-	WolYYq41OnBBzeyiRE4zwRhPT+I64qvlqjB4OLTFMaySWSd9qtbhDoYNBmCTa7ntYJs/1qo7+M64K
-	s99czVqpNFR12P45w/C23KiKbGbw9k5nl3KVRjRdltggiDrM42EwT2HqIbrHp3yE6YXMV0OOO+PRj
-	R/CBTRYQwYymsSZMfJ6lviHHP2trhQulisjnze6B62oyvXV5bUaDR064+TmvBR0MSxkTdQY0+zPjN
-	9f3NQLdQ==;
+	bh=VIRv+z3mPNZFa1bmE43M/kgaKBia3XUx5hcUcZMH5lg=; b=e+/wiyhM9w7HxlaQGLVN7u2ivc
+	qICmPV3qDM1ed7ECSKcwpzLjJQcfYA1gvDU/s88gmfOQrAZidKc/YRV2IwVYoQw3dMeL7JT0OYB7E
+	zgNJtq5gVyhr5ocgDt3tUEqtKfxtV4HLEY7Mc7w5TrZUFHZSwgJw80sKHaPvBl8q5FXyFBZi2yGOc
+	6Qv4KTTdRrpaqFnx64D5EaSVWxJDAVymhfuqr/LBfhbDBsK5jO59eFn+eaTkIRujBRDUdrwVjRD89
+	4NH/gqtZL2zCYDWQMIJMDQO3bPnTGQB+P+Pgyt/nZ9MA8qkanMcvBur/BVO+6EAfLw4mQ4mwkyDhO
+	E8DkzOig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vW6-0000000G83G-3npE;
-	Thu, 03 Sep 2026 00:41:22 +0000
-Received: from mail-24424.protonmail.ch ([109.224.244.24])
+	id 1x1vq2-0000000G8nL-2ZqH;
+	Thu, 03 Sep 2026 01:01:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vW3-0000000G82e-1rbw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 00:41:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1788396074; x=1788655274;
-	bh=u+EzJoDEG9W5tYl5Q0IYEK/9+yw3B8m1JuHAL+Fe8n4=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=q/l4gws5khHQ9usVFhNy0enBWgX0xFWS+I2k5m6cemWpTllDUVh3FPqKFH8kVKUFv
-	 iJCxo5xmaJF+T33gO56nzM7+LirON14zZOmfgnX9JdJBdMq8YRUi7Dl9PINoAXXBDA
-	 CHyjVhOvu9EFUqZf3EzDPcGbjjys17oJptaYdcENSeL1uWc5x4/mMpDFTVfAUC1tOf
-	 AXs7UG7ZU3NxoN1+Jvc6c94MFtb1zh2t3Qz2FiHVehtm4DKGHsJu7CfVsE8VPshLVE
-	 BTwxh8DLOlnd2/zxsGGvi7jYMIV7Wj0nl6XWHZsxLKJ9agb+4coRDXNwH8Gtyc66aj
-	 nbozTG5nVArDA==
-Date: Thu, 03 Sep 2026 00:41:10 +0000
-To: aidenisik@member.fsf.org
-From: Aiden Isik <aidenisik@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Aiden Isik <aidenisik+git@member.fsf.org>
-Subject: Re: [PATCH 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy Watch FE
-Message-ID: <4nry_0LYAWEUI1glONRapkF3AXjNNot6Rl4lQ91urHXgWoZKDAnfgn-VhZFPFqp9NPpuKAzYiaH9r2sVCcDgrp4hP6lsUWtcQuEB4vU5Vnc=@protonmail.com>
-In-Reply-To: <20260817-for-next-lucky7-v1-2-42ffb2b71ba2@member.fsf.org>
-References: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org> <20260817-for-next-lucky7-v1-2-42ffb2b71ba2@member.fsf.org>
-Feedback-ID: 46524699:user:proton
-X-Pm-Message-ID: 84627e5c69c68b7676b45132793d9da796719d27
+	id 1x1vq1-0000000G8my-0Vuh;
+	Thu, 03 Sep 2026 01:01:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=VIRv+z3mPNZFa1bmE43M/kgaKBia3XUx5hcUcZMH5lg=; b=RvHCfdH3QVzTyy081zRM1gAbDO
+	n6QmCbiMyAI9Ifamg9FQdfvtPYDp+0W8GJAfE01p3ocP796sLiU8Wzjpbn8UEJ9RI5eGb3LJJI2QV
+	3yu31P+0GXbPnwR8JyIeyg38K84AcYjpdNy4aACSm20rhVkpjUFccdRToU/lSlZVCpqpW63KyEOlM
+	ePt+k3wEOHP+yrAP91LSnUWZmLbiNeoAg9iyGvJNhH/RHK783KYcZdP2ASBF1m8AflpC3gHAJLiKk
+	xVRwPSKVH5NAU+ga0XfyEeE2NbVwR45IImyjFyC62MCm2bygHfiUWzT4P0mTFn/YBulbsZfm6+Xq7
+	NqE0Nsig==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x1vpw-00000008KeR-1HTv;
+	Thu, 03 Sep 2026 01:01:55 +0000
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8CxQNH3xphq0P8HAA--.22980S3;
+	Thu, 03 Sep 2026 09:01:43 +0800 (CST)
+Received: from [10.20.42.62] (unknown [10.20.42.62])
+	by front1 (Coremail) with SMTP id qMiowJDxRs30xphqzu0ZAA--.42143S2;
+	Thu, 03 Sep 2026 09:01:41 +0800 (CST)
+Subject: Re: [PATCH v2 02/20] KVM: selftests: Use the common minimum GPA for
+ page tables on LoongArch
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>,
+ Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Ritesh Harjani <ritesh.list@gmail.com>
+References: <20260902164123.2546762-1-seanjc@google.com>
+ <20260902164123.2546762-3-seanjc@google.com>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <170acb36-7542-e6f8-d834-250816ddfbfc@loongson.cn>
+Date: Thu, 3 Sep 2026 09:01:24 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260902164123.2546762-3-seanjc@google.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qMiowJDxRs30xphqzu0ZAA--.42143S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7ZF43uFy8JrWDCF15CFWUJrc_yoW8CrWUpa
+	ykAryY9r4rGr17KFZ7WwnYqFy8Wa97GFWxAr1S9ryDurnrAry2gFWxKasrXFy5Z39Yq34S
+	v3WI93W5Za1kZwbCm3ZEXasCq-sJn29KB7ZKAUJUUUUd529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2kKe7AKxVWUtVW8ZwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUtVWr
+	XwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jw0_GFylx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI
+	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUShiSDUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_174119_639753_68294557 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260903_020152_974008_C1C60034 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,163 +114,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, August 17th, 2026 at 11:37 AM, Aiden Isik via B4 Relay <devnull+=
-aidenisik.member.fsf.org@kernel.org> wrote:
 
-> From: Aiden Isik <aidenisik@member.fsf.org>
->=20
-> The Samsung Galaxy Watch FE (SM-R861/SM-R866), codenamed lucky7, is a
-> smartwatch developed by Samsung and released in 2024. It has 1.5GiB RAM,
-> 16GiB of eMMC storage, an Exynos5515 (W920) SoC, and a 396x396 display.
->=20
-> Support for the following is added by this device tree:
-> - Bootloader framebuffer
-> - Memory
->=20
-> Only the lowest 490MiB and highest 512MiB of memory are used for now.
-> The 488MiB between the addresses of 0x9ea00000 and 0xbe680000 is excluded
-> from the memory node due to a bug where if the kernel even knows about
-> the existence of this memory, one or both cores will lock up and cause
-> an RCU stall.
 
-This used to work fine on my 7.0 and 7.1-based branches, so I did a bit
-of bisecting and found that the issue was introduced in commit
-7b9f263909a57e2463c6a543d72651e00a3fd0d6
-(of: reserved_mem: only support one <base size> entry in reg property).
-
-This explains why hiding the memory from the kernel worked, I *was*
-reserving this memory but in a way which this commit discontinued.
-
-I initially thought this was some randomly-occurring "heisenbug", which
-is why I submitted the memory-hiding fix instead as it definitely worked,
-but now I know the real problem I will fix the reserved-memory node.
-
-I will fix this in the next version of this patchset, next merge window.
-
->=20
-> Signed-off-by: Aiden Isik <aidenisik+git@member.fsf.org>
-> ---
->  arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts | 106 +++++++++++++++++=
-++++++
->  1 file changed, 106 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts b/arch/arm6=
-4/boot/dts/exynos/exynos5515-lucky7.dts
-> new file mode 100644
-> index 000000000000..f91ea7e44cf8
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
-> @@ -0,0 +1,106 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Samsung Galaxy Watch FE (lucky7/SM-R861/SM-R866) device tree source
-> + *
-> + * Copyright (c) 2026 Aiden Isik <aidenisik+git@member.fsf.org>
-> + */
-> +
-> +/dts-v1/;
-> +#include "exynos5515.dtsi"
-> +
-> +/ {
-> +=09compatible =3D "samsung,lucky7", "samsung,exynos5515";
-> +=09chassis-type =3D "watch";
-> +=09model =3D "Samsung Galaxy Watch FE (SM-R861/SM-R866)";
-> +
-> +=09chosen {
-> +=09=09ranges;
-> +=09=09#address-cells =3D <2>;
-> +=09=09#size-cells =3D <1>;
-> +
-> +=09=09framebuffer@9e0cf000 {
-> +=09=09=09compatible =3D "simple-framebuffer";
-> +=09=09=09reg =3D <0x0 0x9e0cf000 (396 * 396 * 4)>;
-> +=09=09=09format =3D "a8r8g8b8";
-> +=09=09=09height =3D <396>;
-> +=09=09=09stride =3D <(396 * 4)>;
-> +=09=09=09width =3D <396>;
-> +=09=09};
-> +=09};
-> +
-> +=09memory@80000000 {
-> +=09=09/*
-> +=09=09 * Use the lowest 490MiB and highest 512MiB of memory.
-> +=09=09 * The 488MiB between the addresses of 0x9ea00000 and
-> +=09=09 * 0xbe680000 is currently unused due to any memory accesses
-> +=09=09 * in several ranges between those addresses causing the core
-> +=09=09 * performing the accesses to stall.
-> +=09=09 */
-> +=09=09reg =3D <0x0 0x80000000 0x1ea00000>,
-> +=09=09      /* Crashing memory at 0x9ea00000-0xbe680000 */
-> +=09=09      /* Memory hole at 0xbe680000-0xc0000000 */
-> +=09=09      <0x0 0xc0000000 0x20000000>;
-> +=09=09device_type =3D "memory";
-> +=09};
-> +
-> +=09reserved-memory {
-> +=09=09ranges;
-> +=09=09#address-cells =3D <2>;
-> +=09=09#size-cells =3D <1>;
-> +
-> +=09=09framebuffer@9e0cf000 {
-> +=09=09=09reg =3D <0x0 0x9e0cf000 (396 * 396 * 4)>;
-> +=09=09=09no-map;
-> +=09=09};
-> +
-> +=09=09misc-rmem {
-> +=09=09=09/*
-> +=09=09=09 * Some of these regions belong to memory-mapped
-> +=09=09=09 * devices, and will be assigned to drivers as support
-> +=09=09=09 * is added.
-> +=09=09=09 *
-> +=09=09=09 * Other regions belong to the TrustZone firmware
-> +=09=09=09 * and should never be touched.
-> +=09=09=09 */
-> +=09=09=09reg =3D <0x0 0x87000000 0x200000>,
-> +=09=09=09      <0x0 0x87fff000 0x1000>,
-> +=09=09=09      <0x0 0x8a000000 0x31000>,
-> +=09=09=09      <0x0 0x8d800000 0x180000>,
-> +=09=09=09      <0x0 0x8ffff000 0x33000>,
-> +=09=09=09      <0x0 0x90100000 0x200000>,
-> +=09=09=09      <0x0 0x98a00000 0x600000>,
-> +=09=09=09      <0x0 0x9a000000 0xc00000>,
-> +=09=09=09      <0x0 0x9b000000 0x400000>,
-> +=09=09=09      <0x0 0x9bd00000 0x208000>,
-> +=09=09=09      <0x0 0x9c000000 0x20000>,
-> +=09=09=09      <0x0 0xa0000000 0x10000>,
-> +=09=09=09      <0x0 0xa0010000 0x400000>,
-> +=09=09=09      <0x0 0xa0510000 0x1000>,
-> +=09=09=09      <0x0 0xa0900000 0x2000>,
-> +=09=09=09      <0x0 0xa0902000 0x1000>,
-> +=09=09=09      <0x0 0xa0910000 0x3c000>,
-> +=09=09=09      <0x0 0xb0000000 0x200000>,
-> +=09=09=09      <0x0 0xb1000000 0x200000>,
-> +=09=09=09      <0x0 0xbbfff000 0x1000000>,
-> +=09=09=09      <0x0 0xbcfff000 0x1000>,
-> +=09=09=09      <0x0 0xbd430000 0x1250000>,
-> +=09=09=09      <0x0 0xd0000000 0x5d00000>,
-> +=09=09=09      <0x0 0xdc444000 0x2bbc000>,
-> +=09=09=09      <0x0 0xdf005000 0x1000>,
-> +=09=09=09      <0x0 0xdf008000 0x1000>,
-> +=09=09=09      <0x0 0xdf009000 0x12000>,
-> +=09=09=09      <0x0 0xdf01b000 0x21000>,
-> +=09=09=09      <0x0 0xdf03c000 0x1000>,
-> +=09=09=09      <0x0 0xdf03d000 0xfc3000>;
-> +=09=09=09no-map;
-> +=09=09};
-> +=09};
-> +};
-> +
-> +&oscclk {
-> +=09clock-frequency =3D <26000000>;
-> +};
-> +
-> +&watchdog {
-> +=09status =3D "okay";
-> +};
->=20
-> --
-> 2.54.0
->=20
->=20
+On 2026/9/3 上午12:41, Sean Christopherson wrote:
+> Use the common minimum GPA for page tables (0x180000) on LoongArch instead
+> of LoongArch's custom minimum of 0x200000, so that LoongArch can use
+> vm_alloc_page_table() instead of open coding a rough equivalent.  There are
+> no known reasons why LoongArch can't use a lower, less-aligned minimum.
+> The more-aligned value was originally selected to support huge pages for
+> the guest, but that only requires the address of the final allocation to be
+> aligned, the addresses of page table pages is irrelevant on that front.
 > 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   tools/testing/selftests/kvm/lib/loongarch/processor.c | 3 +--
+>   1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/loongarch/processor.c b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> index 47bbde3e205a..057a77713542 100644
+> --- a/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> @@ -9,7 +9,6 @@
+>   #include "processor.h"
+>   #include "ucall_common.h"
+>   
+> -#define LOONGARCH_PAGE_TABLE_PHYS_MIN		0x200000
+>   #define LOONGARCH_GUEST_STACK_VADDR_MIN		0x200000
+>   
+>   static gpa_t invalid_pgtable[4];
+> @@ -57,7 +56,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>   	child = table = 0;
+>   	for (i = 0; i < vm->mmu.pgtable_levels; i++) {
+>   		invalid_pgtable[i] = child;
+> -		table = vm_phy_page_alloc(vm, LOONGARCH_PAGE_TABLE_PHYS_MIN,
+> +		table = vm_phy_page_alloc(vm, KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+>   				vm->memslots[MEM_REGION_PT]);
+>   		TEST_ASSERT(table, "Fail to allocate page tale at level %d\n", i);
+>   		virt_set_pgtable(vm, table, child);
+> 
+Reviewed-by: Bibo Mao <maobibo@loongson.cn>
+
 
