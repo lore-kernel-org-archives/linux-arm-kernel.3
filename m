@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E2EC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C10C6C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbQ9UdREJ/WWisdiQ1Got7ahhLovVEcdSUeHC5P/jK8=; b=SCorjAkJU0jv0rqG0pJjwSWWnv
-	Xe0tUKGjVqkusPhyYRLRFkIF7oeIFUdLRoBXifSIGODYj9ahEb5Aq/n/+bvvyXo17w8shBbX43NkO
-	2TEzeDsEmxTnOyNZrZ229tGqZ/62DkYt471BgvhbNEPSrBI7u1HZGnGz6jAAAAnGvEI1AqmfS/EDp
-	3dZIzKeYlv7gCWzvBIGneGHrfRTtyqduYZxORsqAfNvFE683AN1Ctm8IqLmbG0+qgLuR/oVagnN+u
-	bN6SJdaMibWMdiUSI/1OIZ3tUfdmcagYCIFZTBUErWuAqS0dS1Ta+wCPQQ/3UMwotLgHyuiSkZsZ8
-	Bq5BGsqA==;
+	bh=PT6fZaLiypq7Y1/xhUfGKsjNYTruNOINhDDVg2b5xms=; b=B6rrjYLQg0wBHM3xbvpHYmoRuv
+	fFHPF1QbHf6+51ezqhKzi/TcbkuoNJ4HEwCJ5WZiWlfOH4u61UipDmXNUyW0Do35MS/sLTZYN1VhH
+	Zr53VhQ2vePlqJsfAFRpz9c2LzjZMDBh002p0FzSoia84WbuhZcxhvzta37SHP+lvkXa/jmkvhwFO
+	o59F5U+ReZQ4rVJygd5ZFzIPhtmJ04QNWS0wZT9bz3VRzrvF5jDVptrDYkRW409O3SZ0sn0n90J7m
+	1EXu3iSN3jobrjuIvkrkyt+uE7v5lC7lH50aqng5M9jy7T/Jm3IIGOzQje6M1FsVjjR43HxCC4ab+
+	hOEUWDqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AD6-000000009Ut-3QVo;
-	Thu, 03 Sep 2026 16:22:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1x2ADE-000000009Y0-44Fs;
+	Thu, 03 Sep 2026 16:22:52 +0000
+Received: from out-39.mta0.migadu.com ([2001:41d0:1004:224b::27] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AD4-000000009Th-2wMV
+	id 1x2ADD-000000009Wo-0KPs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:22:43 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49b0d8bc2aaso787715e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 09:22:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1788452561; x=1789057361; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NbQ9UdREJ/WWisdiQ1Got7ahhLovVEcdSUeHC5P/jK8=;
-        b=aHmgU2c5j1Q9sTLCAakWvYLHi/XL1hFWZLlpP/mccO9GU5c9j6AIbzfUhCCJCrOFCu
-         Tr3vJUgPext0WwHauB+J5PEmefSPUkl+QZNK5qyPw3eRmN6h+FwfdJIfa525a43N3e9T
-         R+rMpl4sboaLsvHphGnaNhSktmq6B+1aNKpPQET3UD6hePTC0YwXSjVcNjAmYWVrHBXo
-         unVuK6TL5+n8IpIGsQU23p0KcOoBSIjH3WVIaMdKe9yRpFq3DL9+37p3gnfjsSNO3EOq
-         kLlq3IbtNpSxTiof6wZszxUM/q7coXopdl75UU30kNgP1OZH2ICSXpzXsnB+sR+aG+Cp
-         QzwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788452561; x=1789057361;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NbQ9UdREJ/WWisdiQ1Got7ahhLovVEcdSUeHC5P/jK8=;
-        b=RpJkGF8gcjzTyq+EBrNU2anrfl9wqEEZqG0kPOLzawd3o1TDFnwgQVm9dAhOQV8/8O
-         I1zXDYJpft632CtUMUIMoLgSDWYkm9rufhbXAXLjLwMC7ETjbyu1SLtlrJzwLpE+wuSf
-         bPrqeOqvlWAC/fRa9aHzv41yh8h3Xjpr1Ul1z20BjYy2NnrTmbkSKt3EJmZyJu0DOa89
-         CaFUr9JegmDybMEwVc2AEqzpVqyfyZxQc41fSzNJ0A0kT76+etjnpj7ZJb7UEtp+WHxO
-         H5GpM2xIzpNqsC/foY/OMun65fLOSyuksY4p67jn4XgKsEt3rOrpTGLxfpbhDULksC6o
-         yJ0Q==
-X-Forwarded-Encrypted: i=1; AKwUvBw7raSRMjKLIofdWlAWTmEL4lcfiV/qGHMxMNI3piJAxT5w2VeNtNM+oYmA7UVdVhYt249YNZUTUallhHmgYZaT@lists.infradead.org
-X-Gm-Message-State: AFuF++kHq1Z+u/HXmtnHx3GeBFT/Ux9sUpb7InJTimiuH6N6u2Ixsx8P
-	NsGPTSAM46xEHK5PoSM20hwj3waWd8VvZPJnrmz8dy+rFP8Vvdt+VQwQklDcSBfxZwo=
-X-Gm-Gg: AYBFou0YOadayab55ZuK0/1aTIS0QU070f8yq7pspnXxziZmudLTx5UfKn1d+x1C/Ac
-	+5h5u98OKcLD5XSJun7SR8XBjyY0enozOjXjRnoeOwqtYffCZpbpKp8N7wM1eNSkgAy0tqfP/65
-	nN3iIBtaTp1PxF9euoMHE4UTQJ2bKpLgFmWA5sUfzNX5V6yw9w6+8wXgcRWLFP7YzV2MfATTWFK
-	MjyVS84/LQgssv9+01yZilcG7NX11eXAsjvnjJZB6x7jJsBSiiwbUfm/W5tf/wAKYzIq8IXTYjz
-	4cs3LbleVYnavTBOsWtSNw+OLMQBiKDL1LfHsf3mSK/aoIjVI9dnfeGCP+4uewRHzigMdiieSiF
-	BSz6VZSlMLHRER5Zx9zViozYtFPzRdc8OU1YF+nqJTp9l2jIjjDqByodECcsiiSrego9Q9UxScv
-	DE0yq3QEa3F5pUPbEK5rkp6kdI4lG2sidTkpqYo/IxDrmWFYlvOIw2QNcXVnPURoCOBbvF
-X-Received: by 2002:a05:600c:5309:b0:499:79b9:e220 with SMTP id 5b1f17b1804b1-49cf5bd3418mr25301905e9.10.1788452560717;
-        Thu, 03 Sep 2026 09:22:40 -0700 (PDT)
-Received: from localhost ([194.183.24.73])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce5563c6csm110440525e9.4.2026.09.03.09.22.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 09:22:40 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 3 Sep 2026 18:26:19 +0200
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
- interface
-Message-ID: <apmfqyeWahoR0wab@apocalypse>
-References: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
- <20260811-bcm2712-spi-v1-2-4c1708d354bb@linutronix.de>
+	Thu, 03 Sep 2026 16:22:52 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=yAWEaoHlzAByy1p/MfIorhvFlDICqbscs9jfE/luEfA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788452569; v=1; x=1789057369;
+ b=jSF5KFdzCmwXAjJ+rNC6ldOa0QesGJIYvPSEewqiLhRWlBK7Lt8wCdmC0HEG1dEr+YX08mHA
+ Rfn+U7KFijuPxq8ltuobo+jR8H7ttbReKn8smG3Tne5C/U/65KwTqJ/QT83gZge/W8FVyW9n3XP
+ 2rYMRghUIm393B3U3hz9+TeI=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id dd77787337117ed9;
+	Thu, 03 Sep 2026 16:22:49 +0000
+X-Mizu-Trace-ID: dd77787337117ed9
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so8417e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 09:22:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwwiUwXRiBKbx18JtKIPDyiXuJF7RGBVZ4EEVwad9timDHrxintP92byWHTdg/jv9Eg90JA0dFs2ZU0qRLvvsGl@lists.infradead.org
+X-Gm-Message-State: AFuF++lyCU2aVV7vXY9dFoK5jlAbYCvYZ0oyTf++34zcFguzfUUynEhw
+	TEX5ktjhTWrq3K4f6bdXdAgJeRKWm5RKTfjvNY+UJQiKsnAlkiKrqo25d65wmDPRDJ7W9I41YPa
+	DwUkvwhDFTcjUQh/dIlLgMhE34IfZcUhHOx+tg7r8
+X-Received: by 2002:ac2:4c51:0:b0:5b4:9dba:7403 with SMTP id
+ 2adb3069b0e04-5b60f977efamr153962e87.13.1788452567982; Thu, 03 Sep 2026
+ 09:22:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811-bcm2712-spi-v1-2-4c1708d354bb@linutronix.de>
+References: <20260831163421.272420-1-fuad.tabba@linux.dev> <20260831163421.272420-6-fuad.tabba@linux.dev>
+ <apg7KNpamnpYi-kl@google.com> <aphAO_nmoTzI6Yvf@google.com>
+In-Reply-To: <aphAO_nmoTzI6Yvf@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 3 Sep 2026 17:22:11 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyQciNWyaMr3rogsz53D_JJQGUXtv5jBJtSd4pajfv+8g@mail.gmail.com>
+X-Gm-Features: AcwNN1XA72CBM17Z_CeCSMDbmKPDC8n6403MdwU3XpedWw0uwZihTsZDnm-yw0s
+Message-ID: <CA+EHjTyQciNWyaMr3rogsz53D_JJQGUXtv5jBJtSd4pajfv+8g@mail.gmail.com>
+Subject: Re: [PATCH 05/17] KVM: arm64: Skip fixed-feature state flush for
+ protected vCPUs
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_092242_757287_90BC9528 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260903_092251_261581_F69C715D 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,75 +85,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gregor,
+On Wed, 2 Sept 2026 at 16:26, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Wed, Sep 02, 2026 at 04:05:12PM +0100, Vincent Donnefort wrote:
+> > On Mon, Aug 31, 2026 at 05:34:09PM +0100, Fuad Tabba wrote:
+> > > flush_hyp_vcpu() copies the host's mdcr_el2, TWI/TWE and debug state
+> > > into the hyp vCPU on every entry, so for a protected vCPU the host's
+> > > trap configuration overrides the one pkvm_vcpu_init_traps() computed
+> > > at EL2. Move those copies into the non-protected branch, and sync the
+> > > debug state back for non-protected vCPUs only: a protected guest's
+> > > debug registers are hypervisor-owned, and it takes the host's TWI/TWE
+> > > at vCPU load. MDCR_EL2.TDA traps only the guest's own accesses; it
+> > > does not stop the world switch from loading host-supplied breakpoints
+> > > and MDSCR_EL1.
+> > >
+> > > EL2's mdcr_el2 starts from 0, and HPMN == 0 is reserved without
+> > > FEAT_HPMN0. Set HPMN to the CPU's event counter count at vCPU load,
+> > > the value the host's copy carried; a protected guest's PMU accesses
+> > > trap regardless.
+> > >
+> > > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 31 +++++++++++++++++++-----------
+> > >  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  2 +-
+> > >  2 files changed, 21 insertions(+), 12 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > index ca7122b0bccdd..14e847b122abf 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > @@ -231,7 +231,6 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > >     u8 esr_ec;
+> > >
+> > >     fpsimd_sve_flush();
+> > > -   flush_debug_state(hyp_vcpu);
+> > >
+> > >     /*
+> > >      * If we deal with a non-protected guest and the state is potentially
+> > > @@ -241,7 +240,14 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > >     if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> > >             if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
+> > >                     flush_hyp_vcpu_state(hyp_vcpu);
+> > > +
+> > > +           hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE);
+> > > +           hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > > +                                                    (HCR_TWI | HCR_TWE);
+> > > +
+> > > +           hyp_vcpu->vcpu.arch.mdcr_el2 = host_vcpu->arch.mdcr_el2;
+> > >             hyp_vcpu->vcpu.arch.iflags = host_vcpu->arch.iflags;
+> > > +           flush_debug_state(hyp_vcpu);
+> > >     } else {
+> > >             hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
+> > >     }
+> > > @@ -249,17 +255,13 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > >     /* __hyp_running_vcpu must be NULL in a guest context. */
+> > >     hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
+> > >
+> > > -   hyp_vcpu->vcpu.arch.mdcr_el2    = host_vcpu->arch.mdcr_el2;
+> > >     /*
+> > > -    * HCR_EL2.VSE is host-owned (a pending virtual SError to inject), not a
+> > > -    * trap-control bit, so it must flow to the hyp vCPU alongside TWI/TWE
+> > > -    * for the vSError to be delivered. sync_hyp_vcpu() reflects it back.
+> > > +    * A host-injected vSError is masked by the guest's own PSTATE.A, so it
+> > > +    * applies to protected guests too.
+> > >      */
+> > > -   hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWI | HCR_TWE | HCR_VSE);
+> > > -   hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) &
+> > > -                                            (HCR_TWI | HCR_TWE | HCR_VSE);
+> > > -
+> > > -   hyp_vcpu->vcpu.arch.vsesr_el2   = host_vcpu->arch.vsesr_el2;
+> > > +   hyp_vcpu->vcpu.arch.hcr_el2 &= ~HCR_VSE;
+> > > +   hyp_vcpu->vcpu.arch.hcr_el2 |= READ_ONCE(host_vcpu->arch.hcr_el2) & HCR_VSE;
+> > > +   hyp_vcpu->vcpu.arch.vsesr_el2 = host_vcpu->arch.vsesr_el2;
+> > >
+> > >     flush_hyp_vgic_state(hyp_vcpu);
+> > >
+> > > @@ -288,7 +290,8 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu, u32 exit_reason)
+> > >     struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> > >
+> > >     fpsimd_sve_sync(&hyp_vcpu->vcpu);
+> > > -   sync_debug_state(hyp_vcpu);
+> > > +   if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> > > +           sync_debug_state(hyp_vcpu);
+> >
+> > nit: We can't use the else arm below?
+>
+> or actually could we move the check into sync_debug_state() just like
+> sync_hyp_timer_state() does?
 
-On 18:04 Tue 11 Aug     , Gregor Herburger wrote:
-> The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
-> Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
-> the spi interface.
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
->  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> index 0fc57e72632ed..81aec81c5ce12 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> @@ -69,6 +69,14 @@ usb_vbus_default_state: usb-vbus-default-state {
->  		groups = "vbus1";
->  	};
->  
-> +	rp1_spi0_default_state: rp1-spi0-default-state {
-> +		function = "spi0";
-> +		groups = "spi0";
-> +		bias-disable;
-> +		drive-strength = <12>;
-> +		slew-rate = <1>;
-> +	};
-> +
->  	rp1_i2c4_default_state: rp1-i2c4-default-state {
->  		function = "i2c4";
->  		groups = "i2c4_2";
-> @@ -94,6 +102,14 @@ &rp1_i2c6 {
->  	pinctrl-names = "default";
->  };
->  
-> +&rp1_spi0 {
-> +	pinctrl-0 = <&rp1_spi0_default_state>;
-
-Is there any reason to avoid defining the CS pins as pulled-up gpios
-in the rp1_gpio node and then referencing it in pinctrl-0?
-Something like thie following:
-
-rp1_spi0_cs_default_state: rp1-spi0-cs-default-state {
-	function = "gpio";
-	pins = "gpio7", "gpio8";
-	bias-pull-up;
-};
-
-&rp1_spi0 {
-	...
-	pinctrl-0 = <&rp1_spi0_default_state &rp1_spi0_cs_default_state>;
-	...
-};
+Will do, and there's another case of this in the series that gets fixed with it.
 
 
-Many thanks,
-Andrea
+/fuad
 
-> +	pinctrl-names = "default";
-> +
-> +	num-cs = <2>;
-> +	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &rp1_usb0 {
->  	pinctrl-0 = <&usb_vbus_default_state>;
->  	pinctrl-names = "default";
-> 
-> -- 
-> 2.47.3
-> 
+>
+> >
+> > >
+> > >     if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> > >             host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
+> > > @@ -329,6 +332,12 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+> > >             /* Propagate WFx trapping flags */
+> > >             hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
+> > >             hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
+> > > +
+> > > +           /* HPMN == 0 is reserved without FEAT_HPMN0. */
+> > > +           if (system_supports_pmuv3())
+> > > +                   u64p_replace_bits(&hyp_vcpu->vcpu.arch.mdcr_el2,
+> > > +                                     FIELD_GET(ARMV8_PMU_PMCR_N, read_sysreg(pmcr_el0)),
+> > > +                                     MDCR_EL2_HPMN);
+> > >     } else {
+> > >             memcpy(&hyp_vcpu->vcpu.arch.fgt, hyp_vcpu->host_vcpu->arch.fgt,
+> > >                    sizeof(hyp_vcpu->vcpu.arch.fgt));
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > index 459bd9eb7e4bc..e85f13233da08 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > @@ -102,7 +102,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+> > >
+> > >     if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMUVer, IMP)) {
+> > >             val |= MDCR_EL2_TPM | MDCR_EL2_TPMCR;
+> > > -           val &= ~(MDCR_EL2_HPME | MDCR_EL2_MTPME | MDCR_EL2_HPMN_MASK);
+> > > +           val &= ~(MDCR_EL2_HPME | MDCR_EL2_MTPME);
+> > >     }
+> > >
+> > >     if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, DebugVer, IMP))
+> > > --
+> > > 2.39.5
+> > >
+>
+> --
+> Vincent
 
