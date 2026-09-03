@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F14C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DD4C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3Oj8C9xs7OwFXcRq/GkyZSIdSxyR3ySBcFgGRhzAoc=; b=xHvEk280CkwDj5uIDCGZyP4CCd
-	NWzvQk+hSVwW3GGPaxVjKjyEnyJAzCpOmlrhD2fZcpuihpBCcDCc2BvoKNuhcb6U7Be3/y+55i/FO
-	GSFjoMm1w+no+H05zf8N2WAyjRFK3FdU2WGxkAiEEtgsA/OQqgbEYq+77+4zkYIasd7mSmFjvbf37
-	XsQGS9Rt34iu5NRqeRDwO90xM4K/CipijBx7CWVN25joGq+ajOwZ7tRx1H1h/n7krxKiBBSXT3Fjv
-	/qi6k5rHp5TO7Icqgzq2aYaEcdN2/zSooAyfjr1FPaGyUZvrEYB++z0gLdhNBiQOQ6PpLV5y2qqp2
-	XGAnkSuA==;
+	bh=ZpIyHBMuPpbjAnx97BPXthrcY+hpLbMXJmomqpqPlsc=; b=QIvPu/J/ESNnAKSga8Fx0AJSIF
+	8W5KrcrQ85kx4QeJkO6G6ipAIimGVNDgLwU35gloPGKuKLY8yroL6dY9drt3jRiMsdAsHXiFus3Mr
+	RWHULujZQENDrhicRvhEM6XnMIk3X1iX5KEizn3eWX2NkYuutxWBP4yUe7mJOvDKJUtCGsERA9gIj
+	Fk1c5fH8QHnTFk6WurPGJbILqNNp0vvlniH8dHiKS5IsoujrftWATkMHEMaTQIDeSa/2Tpwq3fNgQ
+	LnJwsq/dY6jbTTWoBS9+WzC/Rh8pDZoRy+pbDTV8MpJ9iYPhOrcWUjuhB1Fs9glSeC+6A5Ac4Ylse
+	WXbPb7cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AbN-00000000D3X-2OUo;
-	Thu, 03 Sep 2026 16:47:49 +0000
-Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AbK-00000000D2J-0CUE
+	id 1x2Abd-00000000D7J-2u00;
+	Thu, 03 Sep 2026 16:48:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2Abb-00000000D6Z-1ZGm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:47:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1788454057;
-	bh=Q3Oj8C9xs7OwFXcRq/GkyZSIdSxyR3ySBcFgGRhzAoc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SD6FLgKjZpg7hBVajIRSjlIeyxNnrdbaAniY2MdOiH9XjdQGPBzH3l97XwmV1VXvi
-	 qSWmKP7pVsNbuWHFC5T1k1m/8ZyeGd1f2tRO+xN56BOp4eeI0ZacvHP83YyVdgvXZU
-	 n5ae9Jsl711day4PMifqv/l/f+ztHgx3g77eZUbU=
-Received: from LAPTOP-TKBJAGN4.localdomain ([2408:8256:2d01:e2b1:6136:e6c:8ed6:40aa])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id BDE212BE; Fri, 04 Sep 2026 00:47:30 +0800
-X-QQ-mid: xmsmtpt1788454050t17u7474c
-Message-ID: <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
-X-QQ-XMAILINFO: Nxj8FBgDHLvaAaHkTKbSIgNvPfh8cGOvp34W9fJQbK2woihxsiz3NmCGd+4qRs
-	 cNZ58dn8flAQJit9kcgrCCVl3vX8RO6wA+6PBgHLoOCMhIGE/9CPIb9aQnhUyBYzGVO0GXU1dtV8
-	 lHCWCeis5QgvEwQKJEF1Z9pblTUSGojqiPzAgm7esIjUHiAd4ydLZHjTlMRaCcwKZu0T6wHjx1N+
-	 2MGOlqYx+WzUcvwIKWKmYefZvbHQpORQfYlB3Q1VCd7WKt7BkcQGIlK66EEGCJyjtCxe7rUSw78k
-	 Sun3zlRh0/XhbMwIqRMplGsJWdBwb8SYorBIHR9ffFlsei3LIz1syEuo/wIXjAZPygmLk3hNg2ZI
-	 pP2XMOsceMMYjS+RSGrK2Bs0gC9GKG+/E/N9ZmI1/o7SW/cR4ojp6cSVl/G46rda3xZ943IsR1rM
-	 Uhl87uZyRAraaIgQiFbWO22w6rQpc0TsevuCa6PR+/NACfPN0mT8rzbXzbYMjNAuDVcZJLjriVV4
-	 FPEjI45vgbgJQkgWEQ/lisD26HsxeWpD1LXQQW6lopLv6WcucNDYAHaFlv6SpeVxOh8k0YBLZ3gr
-	 4Nw3Ep3llkgqdxFy3HWAnBB7Dld/kp42XoSPCLsHZqThOstOqIN2lPxf4ivP+wMicVIssrMJAbiG
-	 8Aj5nNZVaCH786EcaRNp70wBgTc4llljPER3sVAqwpyNFLzndpNGRWV5d5An86echixihCRvMcCN
-	 XovNGyKesvSnT3bX83FkL4HklJZbVQ/pmt7awmfuiJrEQLyv1sQeP2MHcvz7s0zGzfpLp3NzQwam
-	 fqF4G8Y2OInVA8nXM29gxqK5qg8uEonMdaj/SZJDvb9YXBCPo8GA77nGkLDNpnSpLJp5eyYej7zK
-	 u12vdBxrYbFFYqBgX3weDyhew7rthdLE9nteduQo8UYF00lXx1H1jBZBlwUVdLFfRNwhn3PaPs+o
-	 5xVYsFHkjfKPyz48uloF6aapnhrr8eqgjr+PKgoB+Rd4J2sXLG16hFWJCA5ZYf4toPk+zulwzw73
-	 KgNzLHCJ5dmUuFVUALcu6nskT9/a1qQK9ZB8in9WE7Yk492OyzKK5mXZDsWHg00LcdqH+YrMv5yv
-	 f9yyzP9WmOOjJXOgJajEgRQmCCJpXHURiMt+sXkHIjlccBm7Gl3kCCgZLcbg==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Haobin Jiang <lemonoutput@foxmail.com>
-To: carlos.song@oss.nxp.com
-Cc: Frank.Li@nxp.com,
-	andi.shyti@kernel.org,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	lemonoutput@foxmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	o.rempel@pengutronix.de,
-	s.hauer@pengutronix.de
-Subject: Re: [PATCH v2] i2c: imx: honour I2C_M_IGNORE_NAK
-Date: Fri,  4 Sep 2026 00:47:00 +0800
-X-OQ-MSGID: <20260903164700.3298-1-lemonoutput@foxmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
-References: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
+	Thu, 03 Sep 2026 16:48:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC3F71596;
+	Thu,  3 Sep 2026 09:47:57 -0700 (PDT)
+Received: from [10.57.6.2] (unknown [10.57.6.2])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A3283F673;
+	Thu,  3 Sep 2026 09:47:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788454081; bh=FmovFpZo43JwPnG5o8GR9kxo0GqzPlOEUnziiqr2YBY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J5m3OkD+YOZz0+n5qB7t/n+c86nO4npM4vtmrEMzr87cSyilKLjH5mbi7+22sJcZA
+	 zlxUnGZtCYsyqCIxOiJ1WsTc9Ygg9uVHYIAgX66ev7T2DUrtAWAfRswWZoClkfVYzR
+	 XJb1wBn1DvE4OnD5l/iDI4yMICViiKvNhb+ETGec=
+Message-ID: <43382882-0e7b-4255-9c34-99cec5b0bbbc@arm.com>
+Date: Thu, 3 Sep 2026 18:47:50 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v9 00/25] pkeys-based page table hardening
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <apbgDNjQPLBdsUe0@a079125.arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <apbgDNjQPLBdsUe0@a079125.arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094746_649983_26A756D2 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20260903_094803_502953_A66970C0 
+X-CRM114-Status: GOOD (  42.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,69 +89,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+On 01/09/2026 16:24, Linu Cherian wrote:
+> Hi Kevin,
+>
+> On Tue, Aug 18, 2026 at 03:08:42PM +0100, Kevin Brodsky wrote:
+>> [Sending during the merge window in case reviewers have spare
+>> cycles; I'm not aiming to have this series merged in v7.3.]
+>>
+>> This is a proposal to leverage protection keys (pkeys) to harden
+>> critical kernel data, by making it mostly read-only. The series includes
+>> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
+>> as well as a page table hardening feature based on that framework,
+>> "kpkeys_hardened_pgtables". Both are implemented on arm64 as a proof of
+>> concept, but they are designed to be compatible with any architecture
+>> that supports pkeys.
+>>
+>> The proposed approach is a typical use of pkeys: the data to protect is
+>> mapped with a given pkey P, and the pkey register is initially
+>> configured to grant read-only access to P. Where the protected data
+>> needs to be written to, the pkey register is temporarily switched to
+>> grant write access to P on the current CPU.
+>>
+>> The key fact this approach relies on is that the target data is
+>> only written to via a limited and well-defined API. This makes it
+>> possible to explicitly switch the pkey register where needed, without
+>> introducing excessively invasive changes, and only for a small amount of
+>> trusted code.
+>>
+>> Page tables are chosen as an initial target because of their especially
+>> critical nature - a single write may result in arbitrary pages becoming
+>> accessible to any context (including userspace). In order to keep the
+>> series digestible for reviewers, this version focuses on functionality
+>> rather than performance, making it most suitable as a debug feature. The
+>> key trade-off is the requirement to PTE-map the linear map - see section
+>> "Protected page table allocation" for details.
+>>
+>> This series has similarities with the "PKS write protected page tables"
+>> series posted by Rick Edgecombe a few years ago [1] but it is not
+>> specific to x86/PKS - the approach is meant to be generic.
+>>
+>> This proposal (as of RFC v5) was presented at Linux Security Summit
+>> Europe 2025 [2].
+>>
+>> [Table of contents]
+>>
+>> * kpkeys
+>>   - pkey register management
+>>
+>> * kpkeys_hardened_pgtables
+>>   - Protected page table allocation
+>>   - kpkeys context switching
+>>   - Performance
+>>   - Limitations
+>>
+>> * This series
+>>   - Branches
+>>
+>> * Threat model
+>>
+>> * Further use-cases
+>>
+>> * Open questions
+>>
+>> kpkeys
+>> ======
+>>
+>> The use of pkeys involves two separate mechanisms: assigning a pkey to
+>> pages, and defining the pkeys -> permissions mapping via the pkey
+>> register. This is implemented through the following interface:
+>>
+>> - Pages are assigned a pkey in the linear map using set_memory_pkey().
+>>   This is sufficient for this series, but it is also plausible for
+>>   higher-level allocators to support marking allocations with a given
+>>   pkey.
+>>
+>> - The pkey register is configured based on a *kpkeys context*. kpkeys
+>>   contexts are represented as simple integers that correspond to a given
+>>   configuration, for instance:
+>>
+>>   KPKEYS_CTX_DEFAULT:
+>>         RW access to KPKEYS_PKEY_DEFAULT
+>>         RO access to any other KPKEYS_PKEY_*
+>>
+>>   KPKEYS_CTX_<FEAT>:
+>>         RW access to KPKEYS_PKEY_DEFAULT
+>>         RW access to KPKEYS_PKEY_<FEAT>
+>>         RO access to any other KPKEYS_PKEY_*
+>>
+>>   Only pkeys that are managed by the kpkeys framework are impacted;
+>>   permissions for other pkeys are left unchanged (this allows for other
+>>   schemes using pkeys to be used in parallel, and arch-specific use of
+>>   certain pkeys).
+>
+> - Adding some basic details on what a scheme and context is quite helpful.
+>
+>  - Giving some hints (may be an example) on how multiple schemes and multiple contexts
+>   play together would be quite helpful.
 
-Thanks for the review, and sorry for the confusion my v2 caused on
-several points. Let me answer your questions.
+"scheme" doesn't mean anything precise, it's only the notion that pkeys
+that aren't reserved for kpkeys (i.e. anything but 0 or 1 in this
+series) may be used for other purposes. Happy to reword if you have a
+suggestion.
 
-> Are you using AI to make this patch?
+"kpkeys context" is what is described above this paragraph, it's really
+just a set of permissions for the managed pkeys. Transitioning between
+context is described below.
 
-Yes, I did use an AI tool while preparing this patch, and I
-apologise for not stating that upfront. I will describe how it was
-used in the v3 changelog, as described in
-Documentation/process/generated-content.rst.
+> Adding a documentation that covers these aspects would be much
+> appreciated.
 
-> Have you meet one issue on one real platform? Can you share the
-> detail about your devices and platform?
+For sure, I am planning to have a documentation patch in a subsequent
+version.
 
-Yes, an i.MX6ULL on an ALIENTEK i.MX6ULL mini board, with an
-ATECC608A at 0x60 on I2C1. I am writing an out-of-tree ECDSA driver
-for it that reuses the wake pattern of the upstream atmel-i2c
-helper (drivers/crypto/atmel-i2c.c): a wake token sent with
-I2C_M_IGNORE_NAK through i2c_transfer_buffer_flags(). On i2c-imx
-the transfer aborts with -ENXIO at the first, expected NAK because
-the flag is silently dropped, so my driver had to fall back to
-bit-banging SDA over GPIO to wake the chip. I will verify the bus
-behaviour on that board with a logic analyzer and include the
-results and captures with v3.
+> My understanding is that pkeys are being partitioned across different
+> contexts. But then the introduction of the term "scheme" looks bit confusing to me.
 
-> After meet NACK, can i2c-imx controller continue to write or read
-> data from FIFO, after NACK normally stop or repeat start, so I am
-> not sure the i2c-imx controller HW will work normally, do you test
-> this?
+I wouldn't say pkeys are partitioned across contexts. Every context has
+a set of permissions for all the pkeys managed by kpkeys. Any other pkey
+is ignored (permissions left unchanged) by this framework.
 
-I will cover this with the tests attached to v3.
+>>   The current kpkeys context is changed by calling
+>>   kpkeys_enter_context(), which will set the pkey register
+>>   accordingly and return the original state. A
+>>   subsequent call to kpkeys_leave_context() restores the original
+>>   state (and thus the original kpkeys context). The numeric value of
+>>   KPKEYS_CTX_* (kpkeys context) is purely symbolic and thus generic,
+>>   however each architecture is free to define non-default pkeys
+>>   values (KPKEYS_PKEY_*).
+>>
+> ..snip
+>
+>> Open questions
+>> ==============
+>>
+>> A few aspects in this RFC that are debatable and/or worth discussing:
+>>
+>> - There is currently no restriction on how kpkeys contexts map to pkeys
+>>   permissions. A typical approach is to allocate one pkey per context and
+>>   make it writable in that context only. As the number of contexts
+> Probably to avoid the assumption, may be we can we have something like
+> below 
+>
+> For a pkey P, we could define
+> PKEY_P_PERM_CTXT_OTHERS	 //permission for pkey p in other contexts
+> PKEY_P_PERM_CTXT_SELF	 //permission for pkey p in self context
+>
+> With the assumption of one pkey mapped for every context,
+> the permission for the default context would look something like,
+>
+> PKEY_DEF_PERM_CTXT_SELF << PKEY_DEF_PKEY_SHIFT |
+> PKEY_CT0_PERM_CTXT_OTHERS << PKEY_CT0_PKEY_SHIFT | 
+> PKEY_CT1_PERM_CTXT_OTHERS << PKEY_CT1_PKEY_SHIFT |
+> ...(for all valid contexts)
+>
+> where,
+> Permission key, PKEY_DEF is associated with context DEFAULT,
+> Permission key, PKEY_CT0 is associated with context CT0,
+> Permission key, PKEY_CT1 is associated with context CT1
 
-> Always goto the PIO path with I2C_M_IGNORE_NAK flag, it is better
-> "return i2c_imx_acked(i2c_imx, false);"?
+This adds assumptions rather than avoiding them. *Typically* when adding
+a context you'd allocate a pkey that's only writable by this context,
+but it doesn't have to be this way.
 
-Agreed, v3 will do that.
+The configuration space is more easily understood by considering the
+other use-cases we've investigated (struct cred protection and eBPF
+isolation, linked further down). For instance, for cred protection, we
+had KPKEYS_LVL_UNRESTRICTED with write access to all pkeys, and for eBPF
+isolation, we need a level that is less privileged and therefore does
+*not* have write access to pkey 0.
 
-> You don't really support the I2C_M_STOP in the code and
-> intentionally ignore I2C_M_STOP check to avoid breaking the
-> imx6qdl-ds,right? Do you work on this platform?
+>>   increases, we may however run out of pkeys, especially on arm64 (just
+>>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
+>>   use the same pkey for the data associated to multiple contexts.
+> Lets say two contexts A and B, use the same pkey P as their permission matches.
+> But then, when we enter context A, permission for pkey P gets
+> relaxed, then that would relax permission for pages associated with
+> context B as well which is unintended ?
 
-No, I don't have an imx6qdl-ds. The ov2659/SCCB reasoning in the v2
-changelog came from reading the DT and driver code, not from
-hardware, and it will be removed from v3. I2C_M_STOP will stay
-rejected, as in patch [4].
+That may be exactly what is intended, it all depends on the use-case. C1
+may have a private pkey P1, and C2 P2, and then P3 that is shared by C1
+and C2 (writable by both)
+ 
+> As the hardware supports 16 pkeys, should we consider removing the limit
+> of 8 pkeys so that we can have unique pkeys for each context ?
 
-While checking the code I found that patch [4] rejects
-I2C_M_STOP, and in-tree ov2659 on imx6qdl-ds sets I2C_CLIENT_SCCB
-(I2C_M_IGNORE_NAK | I2C_M_STOP) on every message, including the
-chip-ID read at probe, so after [4] lands that probe might fail
-with -EOPNOTSUPP. This is only from reading the code and I might be
-wrong. Similarly, rejecting I2C_M_IGNORE_NAK might affect the
-ATECC508A wake token on imx6qdl-gw5904.
+FEAT_S1POE only supports 4-bit pkeys when using 128-bit page tables.
 
-> So can you please rebase your patch on patch[4]?
-
-Yes, v3 will be rebased on top of [4].
-
-I will also fix the sentence spacing in the changelog and comments
-as you asked.
-
-Regards,
-Haobin
-
+- Kevin
 
