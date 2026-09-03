@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A7BBC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E753C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 09:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/UG7zMVZVaj57JKaT/NgSm3yz88db2K0TI/06GsPpNc=; b=SleUCTD+czM4LfL+NyF1z+6r8t
-	Hl6y1v7Mdz2zT54/OuDiUbwGul0ci+GEobUznHg4+sjEcF1t82P4+SA1AaAfNhGokRGKMCkO+tpJd
-	5WBE147VKBP2hy50JQn6RidLXUZA9rHalUET8LOq8hWjqcY5Zy50/O52UtF8n/HG0zQx0ec+nIHw+
-	P7VZEGPA+wne2tgK1Mgoe5iX9sThO9B3lgmwIXhkpapigq8Lv46TlysqWIkd4vFuOmBAMhiSR4asJ
-	CUgwAQbq8LxOuMnLnUz38NT7zznQyKXbChNyUYw+CFEJavmkGBG2Iqvi17hKsJfWvSsLv8QqSdWuk
-	99Q4EqIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aECgqs6JZ6BZsxQ6mCtynd9VQxvrPgGlkCeCbvLdpQI=; b=tXE4tfgI0FKCrJYN1YOT4ycMwE
+	nen2jbrCyFmNpPsvw4mk/8wvQD91yXmy9KptTdTrez5ae/tm0J5TJzcAy89hrC+p9mrvOxq5n9Vy3
+	hC/3GS66y3AxSSxc+NXxqsGsYCg6IQSPS+rlnCfgjY4uwZXcN+gCTGYGDHsp/va26yfKeyra3uZh0
+	q/HJ53Re5b3u0b4OXIrE1DxzwFTY16NZwHw/LYQdWUvzK9WvfIZigdDvCRTuN7EiDdtgkKmjpcKn7
+	878E1qOoRrYBES8lCkDkxzpy+G8XBpV93sIU8fLF9jijQq35qOBRsk5XG3jwgjoPAL0wCDl2a4w8L
+	FEg0zSxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Jl-0000000GsZm-0CJc;
-	Thu, 03 Sep 2026 09:01:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x23Ml-0000000GtCq-34zo;
+	Thu, 03 Sep 2026 09:04:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x23Jk-0000000GsYd-0CJC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 09:01:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA34742EB7;
-	Thu,  3 Sep 2026 09:01:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7F91F000E9;
-	Thu,  3 Sep 2026 09:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788426067;
-	bh=/UG7zMVZVaj57JKaT/NgSm3yz88db2K0TI/06GsPpNc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=A4YDmv6dvoVogcMTXsrbyKW5pUL5wkQ7Mh/n/Kpq3gW2iN11xBWFcLhgFTZXkbj05
-	 RAmoL7fZ/nbRUw6CgmlI7z9QUpDBmN3lYMA3YCH/6JaQEdFZ1RPYrYACv6/ntH5ph7
-	 arm2nm+OJKhR/tlbPXVrvoZ+a/PVO0kPRtmR5jkbQl64TIGm7j0E0C6QCH4tdVGFf6
-	 Czw6Bd0etlvE9tYErEpV6rtmhAnm0mXCOf+bocoOOBDGnXNV6MIvnNubm8G3w3pUoM
-	 RFuAlsCeieY6D8os01ZUdn6CnQ9YMDY49y6YO/UO2Ztbp+LVJK7CbCPd1EELPj1Dhp
-	 0GqqEqLv52NZg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 62B133811961;
-	Thu,  3 Sep 2026 09:00:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1x23Mj-0000000GtCG-06XV;
+	Thu, 03 Sep 2026 09:04:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788426249; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=L1MFU3XGjQR3xnEmm/yOzXINoJasZTga1rCeK4laB3qEHzHB/D+vvXXibA7CEPdTDb9oRjRTOaBtA1KU2XoQyKzo3wVAWS0KVy5UvjAG3TUcxoMCEwP7wmZaE28bwbcBPLAVO2gBrCji2LZcTy9IetQw1pq5t7mzN3mrb4Xww58=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788426249; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=aECgqs6JZ6BZsxQ6mCtynd9VQxvrPgGlkCeCbvLdpQI=; 
+	b=DTpdkBW74euXRal9u1UOinYclu9NIp0dTz+WnXvr+hE/RXmZkW7XSYKCDowWlTkpbJl5CCf+/B7NDXJFqCnvFDjmSlsy7B6SzKg/3gB5ZReOIWwo3caXr+mBeWN/PgBvljrAEzlJKAf7ybitsYIpJU+dyox9oPaLbwFjy0gTaMI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
+	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788426249;
+	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=aECgqs6JZ6BZsxQ6mCtynd9VQxvrPgGlkCeCbvLdpQI=;
+	b=NtirWF7a0Cc0Lh1qAbupCDbyhSss1cFAHIGDmN0w2pFsGHTLTRxCQLcjd8cF/n49
+	AwqVpUMcmweeNyTf/wqZ5uswcM7EsKaJPczjzMFptgivpiGlKEfz91y2BaKcD8Lw2Aq
+	ui55znASyqR06/I+Tw4rIw5k94afctSVbMdBECAI=
+Received: by mx.zohomail.com with SMTPS id 1788426248393643.0972373499999;
+	Thu, 3 Sep 2026 02:04:08 -0700 (PDT)
+Message-ID: <2c8405eac9e72409154c98bb31b3fbed10be5755.camel@collabora.com>
+Subject: Re: [PATCH] drm/mediatek: mtk_hdmi_v2: fix VID_DOWNSAMPLE_CONFIG
+ register offset
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: Julien Stephan <jstephan@baylibre.com>, Chun-Kuang Hu	
+ <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, David
+ Airlie	 <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Matthias
+ Brugger	 <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Tommy
+ Chen	 <tommyyl.chen@mediatek.com>
+Date: Thu, 03 Sep 2026 11:04:03 +0200
+In-Reply-To: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+References: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
+Organization: Collabora Ltd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] net: stmmac: dwmac4: Auto-discover UC filter
- size
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178842600911.3208873.5559894421239346742.git-patchwork-notify@kernel.org>
-Date: Thu, 03 Sep 2026 09:00:09 +0000
-References: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
-In-Reply-To: <20260831070121.349778-1-maxime.chevallier@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, thomas.petazzoni@bootlin.com,
- alexis.lothore@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_020413_147563_3DB9E8F9 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Julien,
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+On Fri, 2026-08-28 at 14:10 +0200, Julien Stephan wrote:
+> According to the datasheet, VID_DOWNSAMPLE_CONFIG is at offset 0x8f0;
+> 0x8d0 is the VID_CSC_COEFF_0 register.
+>=20
+> Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for
+> MT8195/MT8188")
+> Signed-off-by: Julien Stephan <jstephan@baylibre.com>
+> ---
+> =C2=A0drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h | 2 +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+>=20
+I've checked in the MT8370, MT8390 (MT8188 variants) and MT8395 (MT8195
+variants) datasheets and 0x8f0 offset is indeed the correct one.
 
-On Mon, 31 Aug 2026 09:01:18 +0200 you wrote:
-> Following my attempts to get clean ethtool selftests runs on stmmac [1],
-> several issues were found with the unicast filtering.
-> 
-> [1]: https://lore.kernel.org/netdev/20260827134004.45ffb57e@kernel.org/
-> 
-> This lead to the discovery that on dwmac4 platforms, the unicast filter
-> size is always falling back to the default value of 1 entry. On older
-> variants, the size comes from devicetree.
-> 
-> [...]
+So,
+Reviewed-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Here is the summary with links:
-  - [net-next,1/2] net: stmmac: dwmac4: Read the UC filter size from hardware capabilities
-    https://git.kernel.org/netdev/net-next/c/384ee2379a66
-  - [net-next,2/2] net: stmmac: dwmac4: Use the full perfect filter ability for UC filter
-    https://git.kernel.org/netdev/net-next/c/6815415d68b9
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Regards,
+Louis-Alexis
 
