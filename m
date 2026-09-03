@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86B4C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81ECBC624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpShxvzMAomyKuqDbWZLQNfx9r/OvhIXet3IXrxtWVw=; b=UiGac+o7dzJ9Q6JIVvo2vGZosY
-	e8AJMe4PJLBo8Gg3ZVKxJfm8QbHqmOPLgYat6zqzH1qGYxb1FWj+6hO4OYKcaUtI0ioiNxRcX8rR3
-	c9axdeCZD2PefDaCT1VAcmuZq/ZtkSWZnRyuCWqjlcSC7GSP9g9aZQbmYCarS47+9qjyEqQSwKB6J
-	M/rdh1LV+LZFnQYpFkAI+4KO3XoRdK6ypMsNKSeGhXTJAnMLTk0F7L3W91NXj0IyT704SxPIsa26e
-	isXS+0XihSVQPWKrfbNzwdZXoZvqRxyO5xLBEYFZ8AClbdPhf02iJ0YR9SjgxRqw3QV6bv6g8wE2H
-	WNScrYNQ==;
+	bh=G0AqwHA4KBPISqYUXaBI7KsS8Jx16vEs3ep12Vts8NA=; b=KGrMQOBYizUKfIS4JwVavO05eH
+	5V2MmYtp+9j//XoR65dOzLJbjcc7J/74nwZ7vo7k9quhOurltv1ITZNG8nPWxWMfrMBk+wssEXVdD
+	bg0nh55wJW6ZPMQ08gPN1OVqFTvMb6HzNoRqMstRktShZlR52OqRIntlV8kbd1Ua7+8VFGMFHsRDY
+	zGLHhhCB/FRKZahqkv3HLfsR0hjZ9GxrB8pW1iRKysXjpbSgz7BEwybeAbIxkET5ZF3yY4HsIya8q
+	75qRN4cQ412PyTebj8gFQPx2U29ydlrdai9cnt5zSLWTswxElpUJjE0aczSVjQMhusadbYx3Nkk0o
+	fopI4bmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24LS-0000000H2HF-3Kbj;
-	Thu, 03 Sep 2026 10:06:58 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24LP-0000000H2GD-2roI
+	id 1x24MN-0000000H2Ro-3vd0;
+	Thu, 03 Sep 2026 10:07:55 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x24ML-0000000H2Qg-0Hep
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:06:57 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 03 Sep 2026 19:06:52 +0900
-Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id 65C3520914A3;
-	Thu,  3 Sep 2026 19:06:52 +0900 (JST)
-Received: from iyokan3.css.socionext.com ([172.31.9.53]) by m-FILTER with ESMTP; Thu, 3 Sep 2026 19:06:52 +0900
-Received: from [10.212.247.149] (unknown [10.212.247.149])
-	by iyokan3.css.socionext.com (Postfix) with ESMTP id 6510A10A004;
-	Thu,  3 Sep 2026 19:06:51 +0900 (JST)
-Message-ID: <a08151f3-3f3c-45ec-b21e-4bfab0eacee5@socionext.com>
-Date: Thu, 3 Sep 2026 19:06:54 +0900
+	Thu, 03 Sep 2026 10:07:54 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A9F39C36;
+	Thu,  3 Sep 2026 12:06:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1788429977;
+	bh=RvysufoL/j8UuHfJ6vysrlkcWB6T2CcmZl4Cm5gGEtQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jdk+/xzvswyZLB0VE80yHyUjcNSKPdO5a+VOXTn4phvvb1eOG2dztcYe6oy6L7ybp
+	 Xc/mQaBHDqFSwIAecWQ677/+SOeralmdyFyydnogJ1x1FNwaBHiBFlJKWp0V/LMBCF
+	 Vn3a4x0F6x58iLpBhGAy4jjV7DdU3JXCfNwThdRs=
+Message-ID: <bfdf98d4-e3f3-42ff-a0b4-55c67790e4d0@ideasonboard.com>
+Date: Thu, 3 Sep 2026 13:07:45 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Support AM62P silicon revision detection via
- uniphier-efuse
-To: Judith Mendez <jm@ti.com>, Srinivas Kandagatla <srini@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260902222759.736124-1-jm@ti.com>
+Subject: Re: [PATCH] media: xilinx: vtc: Dynamically calculate pixel clock
+To: Rajesh Gugulothu <rajesh.gugulothu@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>
+References: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Content-Language: en-US
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-In-Reply-To: <20260902222759.736124-1-jm@ti.com>
+In-Reply-To: <20260729101808.3904212-1-rajesh.gugulothu@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_030655_848216_885EE7C3 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20260903_030753_255172_8878848E 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,44 +70,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Judith,
+Hi,
 
-On 2026/09/03 7:27, Judith Mendez wrote:
-> This series adds support for reading AM62P silicon revision from the
-> efuse GP_SW register. The solution reuses the  existing uniphier-efuse
-> driver by adding ti,am62p-efuse as a compatible string. The three patches
-> update the devicetree binding to document the new compatible, configure
-> the driver as mandatory builtin for K3 architectures, and extend the
-> driver
-> to support AM62P devices. The uniphier-efuse driver is simple enough to be
-> reused for efuse register reads on the AM62P SoC.
+On 29/07/2026 13:18, Rajesh Gugulothu wrote:
+> This update enables the vtc to set the pixel clock based on the
+> specified timing parameters. A new fps field is added to struct
+> xvtc_config and the pixel rate is computed as fps * hsize * vsize.
+> After setting the rate, the actual clock rate is read back and a
+> warning is emitted if it deviates beyond a small tolerance.
 > 
-> Patches have been tested on AM62p SK hardware using SR1.0, SR1.1 and SR1.2
-> silicon.
+> The pixel rate is computed in unsigned long arithmetic to avoid a 32-bit
+> overflow in the fps * hsize * vsize product.
 > 
-> Changes since rfc:
-> - rebase against next
-> - update cover letter
+> Signed-off-by: Rajesh Gugulothu <rajesh.gugulothu@amd.com>
+> ---
+>   drivers/media/platform/xilinx/xilinx-vtc.c | 19 +++++++++++++++++++
+>   drivers/media/platform/xilinx/xilinx-vtc.h |  1 +
+>   2 files changed, 20 insertions(+)
 > 
-> Link to rfc:
-> https://lore.kernel.org/all/20260812154442.3379851-1-jm@ti.com/
-> 
-> Judith Mendez (3):
->    dt-bindings: nvmem: uniphier-efuse: Add ti,am62p-efuse compatible
->    nvmem: uniphier-efuse: Enable for K3 SoCs
->    nvmem: uniphier-efuse: Add ti,am62p-efuse compatible
-> 
->   .../devicetree/bindings/nvmem/socionext,uniphier-efuse.yaml   | 4 +++-
->   drivers/nvmem/Kconfig                                         | 3 ++-
->   drivers/nvmem/uniphier-efuse.c                                | 1 +
->   3 files changed, 6 insertions(+), 2 deletions(-)
-Looks good to me.
+> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.c b/drivers/media/platform/xilinx/xilinx-vtc.c
+> index 92fec7bb4..695eb2a46 100644
+> --- a/drivers/media/platform/xilinx/xilinx-vtc.c
+> +++ b/drivers/media/platform/xilinx/xilinx-vtc.c
+> @@ -141,6 +141,9 @@
+>   
+>   #define XVTC_GENERATOR_GLOBAL_DELAY		0x0104
+>   
+> +/* Value of 1 = .01% */
+> +#define XVTC_CLK_MAX_PCT_ERR			1
+> +
+>   /**
+>    * struct xvtc_device - Xilinx Video Timing Controller device structure
+>    * @xvip: Xilinx Video IP device
+> @@ -175,10 +178,26 @@ int xvtc_generator_start(struct xvtc_device *xvtc,
+>   			 const struct xvtc_config *config)
+>   {
+>   	int ret;
+> +	unsigned long s_rate;
+> +	unsigned long g_rate;
+> +	unsigned long clk_err;
+>   
+>   	if (!xvtc->has_generator)
+>   		return -ENXIO;
+>   
+> +	s_rate = (unsigned long)config->fps * config->hsize * config->vsize;
+> +	ret = clk_set_rate(xvtc->xvip.clk, s_rate);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	/* Verify that the clock is within a reasonable tolerance. */
+> +	g_rate = clk_get_rate(xvtc->xvip.clk);
+> +	clk_err = (abs(g_rate - s_rate) * 10000) / (s_rate);
+> +	if (clk_err > XVTC_CLK_MAX_PCT_ERR)
+> +		dev_warn(xvtc->xvip.dev,
+> +			 "Failed to set clk rate: %lu, actual rate: %lu\n",
+> +			 s_rate, g_rate);
+> +
+>   	ret = clk_prepare_enable(xvtc->xvip.clk);
+>   	if (ret < 0)
+>   		return ret;
+> diff --git a/drivers/media/platform/xilinx/xilinx-vtc.h b/drivers/media/platform/xilinx/xilinx-vtc.h
+> index 855845911..0f360ed55 100644
+> --- a/drivers/media/platform/xilinx/xilinx-vtc.h
+> +++ b/drivers/media/platform/xilinx/xilinx-vtc.h
+> @@ -27,6 +27,7 @@ struct xvtc_config {
+>   	unsigned int vsync_start;
+>   	unsigned int vsync_end;
+>   	unsigned int vsize;
+> +	unsigned int fps;
+>   };
+>   
+>   struct xvtc_device *xvtc_of_get(struct device_node *np);
 
-Reviewed-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+In upstream there's a single user for the VTC: the TPG driver. It 
+doesn't set the fps field, so the above code would always try to set the 
+rate to 0, wouldn't it?
 
-Thank you,
+What is "reasonable tolerance", why did you arrive to .01%? Also, the 
+actual result is not visible to the user.
 
----
-Best Regards
-Kunihiko Hayashi
+I think this is a slightly bigger topic than a single VTC patch. There 
+should be a userspace API to set the FPS, and the user should see what 
+was the actual rate he got via the API (instead of a dev_warn when the 
+rate is off more than an arbitrary tolerance).
+
+  Tomi
+
 
