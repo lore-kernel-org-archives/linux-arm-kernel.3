@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A5FC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97B4C624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jQ0aXMP6t5YSdC5YLpojXv5IWRACmAD43ZSMM6wlng=; b=FjNQTzzubFb/FFu4L/D0k2CDHx
-	B2ulCpq0XQCS04ZVpogwNeP2ZFhlYd1JyNk9KcaH9Li0I4gIen7o1huum/mCceNtazD1Osq7BJOKn
-	tMZneMrTRctvYVxUVaH89+3SYvDJwMB42qA107dM2PJowNg5F+/RVEU6Yu7nSFTADQYKGc8giZ7Jb
-	bzFCEKebl0cKQf7AfzQfLmPbs/xw7Y++12oSxJZ9QNStCQH3LoBpxhBP+GQGHyZe1jEmKBmWYUBIo
-	ktD7kSj4ccu7aNH/2YRPe6nJbZWz20Om3v11ka5o3HGPk5oPJEbLbUiE6s9T6fOHFqKyRDRV2kAEm
-	IJpFc4tQ==;
+	bh=Xv8kU3YffON8Ozf7DGMXDIg87Ei8uRdSwSmJrlELC8Y=; b=enej7WAAd4fCgRyNq/UDR+reYs
+	UUA9Vs2W7MH8gnHlNmBCP4xJWNbly2AvPeQtgChgJ1ZNC0jB4wmKitUEtN4AcPmNe+xqzSX+atBDa
+	zTC4xrinGrrcojGwfROg3CaukcNyWbk7lvHt9yEJE32qZNDZ38MuwGAVoVr17S2aye1kxblCnJH44
+	DTplRjCKPmzJaOpm6qZvXHf9hAFJ/XeLtJ+5z+C/kNwIv4CuGzV9H8oSzZ3uudk8UPCk1WBnowQ1K
+	UA8rJplvxpJqEM5vuTo9HzR4pmAQFn+P5c95NgZKdr/72rNG576ynAdWjt7FZxp8Vfy1eywE5e933
+	7NFmh65Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29yU-000000006XJ-1j1S;
-	Thu, 03 Sep 2026 16:07:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29yT-000000006Tm-1Iv5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 03 Sep 2026 16:07:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=1jQ0aXMP6t5YSdC5YLpojXv5IWRACmAD43ZSMM6wlng=; b=CoWBJ66QeW26Qyjjs8Wu77EWYX
-	QsS71tSNCosEKPo8ZkywhGTj6H8Uc9Hne3P5aaStc9rokGHpDixmM9j4e8NHRQ6Ql5DZTqKl4Ur/0
-	j9mNiZ6biJYmkxG1g9jjyoBhD23vN5hACFjbeJNCe3Ecbvm4p3Cn0ZunS52yPSuYL70LHqDEwvoqa
-	spQiSTNXTzETp66wcnUgeepJTcN7+0T8bKhQbsZPpZKXcu8Zas3ZID+2NoWRJFA14iuevz3/6kXWm
-	MLLLAydOZ4soeo2Jx+rT7vHX3EuiU8nDWFPIpk+4LTypV2lo0dOoigi6eh6buTeoOsztWw4dz6fNI
-	tTy5rXRw==;
+	id 1x29yQ-000000006Ow-0wn0;
+	Thu, 03 Sep 2026 16:07:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x29yO-0000000DGGc-1iZX
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x29yI-00000000674-05jz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:07:36 +0000
+	Thu, 03 Sep 2026 16:07:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 054C01650;
-	Thu,  3 Sep 2026 09:07:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFF71F60;
+	Thu,  3 Sep 2026 09:07:21 -0700 (PDT)
 Received: from e140010.cambridge.arm.com (e140010.arm.com [10.2.213.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2BFF3F673;
-	Thu,  3 Sep 2026 09:07:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B73DD3F673;
+	Thu,  3 Sep 2026 09:07:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788451649; bh=PK5crTw8zKz3/t5phMfei5GslsZNl9FLUzgfhq/0CrQ=;
+	t=1788451645; bh=Ylegp9Ly/fHt+npy6sCxg7xBOnZSmibnjwlqSWKyQZg=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=u3qR9/qbvovkMevqzb6sBLXQI8Eof/hbGj6C9mL1kd1qN6Ej2IIn5eSfIhaPpUtKV
-	 I2RWEL3Uu6XJsKhxhFHUE8mSpYiX11J68GShmL5GhjjCIAh82vidPka/99EXDENGsf
-	 tp2KRbxAlnx5ONmRLatKxxT4unNZPvXLxfwu7etU=
+	b=GpU0+H/YF13gVFQfuV3BShNrGU1a7RIybDsEfit9S5Afs9RdvNMoFl6ltLTx9gFC7
+	 shzdH5jHEygSX0NYhCcVfAWwyK+P18DnzZa4ghKlBnvFP0HbSgQgmV25p0SYJ0JDVZ
+	 DYnhMp8kFZAzCOqgwTp8rSteTWWvDsdkZdNLoe64=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -69,17 +54,17 @@ To: maz@kernel.org,
 	linux-perf-users@vger.kernel.org,
 	catalin.marinas@arm.com,
 	james.clark@linaro.org
-Subject: [RFC PATCH v7 26/28] KVM: arm64: Map memory on a SPE stage 2 fault
-Date: Thu,  3 Sep 2026 17:06:21 +0100
-Message-ID: <20260903160623.315525-27-alexandru.elisei@arm.com>
+Subject: [RFC PATCH v7 24/28] arm64: errata: Don't enable guest buffer if misprogrammed
+Date: Thu,  3 Sep 2026 17:06:19 +0100
+Message-ID: <20260903160623.315525-25-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260903160623.315525-1-alexandru.elisei@arm.com>
 References: <20260903160623.315525-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_170732_796993_3E2BE182 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20260903_090726_171792_33479513 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,234 +79,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure SPE in a guest can make progress even if something goes terribly
-wrong in KVM by mapping the memory on stage 2 fault SPE buffer management
-event.
+When PMBPTR_EL1 is programmed to be equal to or greater than
+PMBLIMITR_EL1.Limit, SPE is enabled and PMBSR_EL1.S is zero, the CPU might
+deadlock.
+
+This doesn't affect correctly written software, like the SPE driver, but a
+buggy KVM guest might trigger the erratum. The workaround for KVM is not to
+enable the hardware buffer, and, as a consequence, profiling. According
+to ARM DDI0487M.c, rule R_PGGHS, this is one of the acceptable
+behaviours when the buffer is misprogrammed.
+
+Several parts are affected:
+
+* ARM Neoverse-N1 (MP050), SDEN v35, erratum 1978083
+  https://support.arm.com/documentation/SDEN-885747/35-0
+* ARM Neoverse-V1 (MP076), SDEN v23, erratum 1978082
+  https://support.arm.com/documentation/SDEN-1401781/23-0
+* ARM Cortex-X1 (MP077), SDEN v25, erratum 2004055
+  https://support.arm.com/documentation/SDEN-1401782/25-0
+* ARM Cortex-X1C (MP136), SDEN v20, erratum 2004056
+  https://support.arm.com/documentation/SDEN-1707914/20-0
+* ARM Cortex-A78 (MP102), SDEN v25, erratum 2004055
+  https://support.arm.com/documentation/SDEN-1401784/25-0
+* ARM Cortex-A78AE (MP105), SDEN v22, erratum 2004059
+  https://support.arm.com/documentation/SDEN-1707912/22-0
+* ARM Cortex-A78C (MP138), SDEN v20, erratum 2004056
+  https://support.arm.com/documentation/SDEN-1707916/20-0
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +
- arch/arm64/kvm/arm.c              |  4 +-
- arch/arm64/kvm/mmu.c              | 53 ++++++++++++++++++
- arch/arm64/kvm/spe.c              | 93 ++++++++++++++++++++++++++++++-
- 4 files changed, 148 insertions(+), 4 deletions(-)
+ Documentation/arch/arm64/silicon-errata.rst | 14 +++++++++++
+ arch/arm64/Kconfig                          | 25 ++++++++++++++++++++
+ arch/arm64/include/asm/kvm_spe.h            |  1 +
+ arch/arm64/kernel/cpu_errata.c              | 26 +++++++++++++++++++++
+ arch/arm64/kvm/hyp/vhe/spe-sr.c             |  6 +++--
+ arch/arm64/kvm/spe.c                        | 22 +++++++++++++++++
+ arch/arm64/tools/cpucaps                    |  1 +
+ drivers/perf/arm_spe_pmu.c                  |  3 +++
+ include/linux/perf/arm_spe_pmu.h            |  1 +
+ 9 files changed, 97 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 81abfb705aeb..31be131c8486 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1464,6 +1464,8 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val);
- #define kvm_guest_owns_debug_regs(vcpu)		\
- 	((vcpu)->arch.debug_owner == VCPU_DEBUG_GUEST_OWNED)
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index a29f8fbc16a8..a5477cae7d70 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -151,10 +151,14 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A78      | #3031174        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A78      | #2004055        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A78AE    | #4193793        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A78AE    | #3031175        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A78AE    | #2004059        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A78C     | #3324346,       | ARM64_ERRATUM_3194386       |
+ |                |                 | #3324347        |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
+@@ -163,6 +167,8 @@ stable kernels.
+ | ARM            | Cortex-A78C     | #3031176,       | ARM64_ERRATUM_3023823       |
+ |                |                 | #3031177        |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-A78C     | #2004056        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A710     | #2119858        | ARM64_ERRATUM_2119858       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-A710     | #2054223        | ARM64_ERRATUM_2054223       |
+@@ -189,12 +195,16 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1       | #3031174        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-X1       | #2004055        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1C      | #3324346        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1C      | #4193792        | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X1C      | #3031176        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Cortex-X1C      | #2004056        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X2       | #2119858        | ARM64_ERRATUM_2119858       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Cortex-X2       | #2224489        | ARM64_ERRATUM_2224489       |
+@@ -233,6 +243,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N1     | #3023823        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-N1     | #1978083        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N2     | #2139208        | ARM64_ERRATUM_2139208       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-N2     | #2067961        | ARM64_ERRATUM_2067961       |
+@@ -255,6 +267,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V1     | #3028884        | ARM64_ERRATUM_3023823       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-V1     | #1978082        | ARM64_ERRATUM_2004055       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V2     | #3324336        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V2     | #4193787        | ARM64_ERRATUM_4118414       |
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index ca6759d16d27..d9b27ee90ab5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1494,6 +1494,31 @@ config ARM64_ERRATUM_3023823
  
-+int kvm_map_gpa(struct kvm_vcpu *vcpu, u64 gpa, u8 fsc, bool s1ptw);
-+
- int kvm_arm_vcpu_arch_set_attr(struct kvm_vcpu *vcpu,
- 			       struct kvm_device_attr *attr);
- int kvm_arm_vcpu_arch_get_attr(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 689fa175f5f4..7c7d0616db53 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1421,8 +1421,6 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		if (kvm_vcpu_has_pmu(vcpu))
- 			kvm_pmu_sync_hwstate(vcpu);
+ 	  If unsure, say Y.
  
--		kvm_spe_sync_hwstate(vcpu);
--
- 		/*
- 		 * Sync the vgic state before syncing the timer state because
- 		 * the timer code needs to know if the virtual timer
-@@ -1472,6 +1470,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
++config ARM64_ERRATUM_2004055
++	bool "Incorrect programming of PMBPTR_EL1 might result in a deadlock"
++	depends on KVM_ARM_SPE
++	default y
++	help
++	  This option adds a workaround for the following errata:
++
++	  * ARM Neoverse-N1 erratum 1978083
++	  * ARM Neoverse-V1 erratum 1978082
++	  * ARM Cortex-X1 erratum 2004055
++	  * ARM Cortex-X1C erratum 2004056
++	  * ARM Cortex-A78 erratum 2004055
++	  * ARM Cortex-A78AE erratum 2004059
++	  * ARM Cortex-A78C errata 2004056
++
++	  When PMBPTR_EL1 is programmed to be equal to or greater than
++	  PMBLIMITR_EL1.Limit, SPE is enabled and PMBSR_EL1.S is zero, the CPU
++	  might deadlock.
++
++	  The work around is for KVM to behave as if profiling is disabled when
++	  the buffer is enabled, PMSBSR_EL1.S is zero and
++	  PMBPTR_EL1.PTR >= PMBLIMITR_EL1.Limit.
++
++	  If unsure, say Y.
++
+ endmenu # "ARM errata workarounds via the alternatives framework"
  
- 		preempt_enable();
+ choice
+diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+index 385b1157e578..88f8b1bb6864 100644
+--- a/arch/arm64/include/asm/kvm_spe.h
++++ b/arch/arm64/include/asm/kvm_spe.h
+@@ -23,6 +23,7 @@ struct kvm_vcpu_spe {
+ 	int irq_num;		/* Buffer management interrupt number */
+ 	bool initialized;	/* SPE initialized for the VCPU */
+ 	bool irq_level;		/* Virtual buffer management interrupt level */
++	bool buffer_misprogrammed;
+ };
  
-+		kvm_spe_sync_hwstate(vcpu);
-+
- 		/*
- 		 * The ARMv8 architecture doesn't give the hypervisor
- 		 * a mechanism to prevent a guest from dropping to AArch32 EL0
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9ba86450fe4a..d7e7365c5c5a 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -2796,3 +2796,56 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
+ bool kvm_supports_spe(void);
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index ab0558fbd5b2..0b9620893763 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -648,6 +648,25 @@ static const struct midr_range erratum_3023823_list[] = {
+ };
+ #endif
  
- 	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
- }
++#ifdef CONFIG_ARM64_ERRATUM_2004055
++static const struct midr_range erratum_2004055_list[] = {
++	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
++	/* Neoverse-V1 r0p0 to r1p1 */
++	MIDR_RANGE(MIDR_NEOVERSE_V1, 0, 0, 1, 1),
++	/* Cortex-X1 r0p0 to r1p1 */
++	MIDR_RANGE(MIDR_CORTEX_X1, 0, 0, 1, 1),
++	/* Cortex-X1 r0p0 */
++	MIDR_REV(MIDR_CORTEX_X1C, 0, 0),
++	/* Cortex-A78 r0p0 to r1p1 */
++	MIDR_RANGE(MIDR_CORTEX_A78, 0, 0, 1, 1),
++	/* Cortex-A78 r0p0 to r1p1 */
++	MIDR_RANGE(MIDR_CORTEX_A78AE, 0, 0, 0, 1),
++	/* Cortex-A78C r0p0 */
++	MIDR_REV(MIDR_CORTEX_A78C, 0, 0),
++	{},
++};
++#endif
 +
-+int kvm_map_gpa(struct kvm_vcpu *vcpu, u64 gpa, u8 fsc, bool s1ptw)
-+{
-+	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
-+	struct kvm_vcpu_fault_info fault_backup = *fault_info;
-+	struct kvm_s2_fault_desc s2fd = {
-+		.vcpu		= vcpu,
-+		.fault_ipa	= gpa,
-+	};
-+	struct kvm_memory_slot *memslot;
-+	struct kvm *kvm = vcpu->kvm;
-+	gfn_t gfn;
-+	hva_t hva;
-+	int ret;
-+
-+	lockdep_assert(srcu_read_lock_held(&kvm->srcu));
-+
-+	if (WARN_ON_ONCE(is_protected_kvm_enabled() || vcpu_has_nv(vcpu)))
-+		return -EOPNOTSUPP;
-+
-+	if (esr_fsc_is_access_flag_fault(fsc)) {
-+		handle_access_fault(vcpu, gpa);
-+		return 0;
-+	}
-+
-+	gfn = gpa_to_gfn(gpa);
-+	memslot = gfn_to_memslot(kvm, gfn);
-+	if (!memslot)
-+		return -ENOENT;
-+	hva = gfn_to_hva_memslot(memslot, gfn);
-+	if (kvm_is_error_hva(hva))
-+		return -EFAULT;
-+
-+	s2fd.memslot = memslot;
-+	s2fd.hva = hva;
-+
-+	fault_info->esr_el2 = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_DABT_LOW) |
-+			      ESR_ELx_IL | FIELD_PREP(ESR_ELx_FSC, fsc);
-+	if (s1ptw)
-+		fault_info->esr_el2 |= ESR_ELx_S1PTW;
-+	else
-+		fault_info->esr_el2 |= ESR_ELx_WNR;
-+	fault_info->hpfar_el2 = FIELD_PREP(HPFAR_EL2_FIPA, gpa >> 12);
-+
-+	if (kvm_slot_has_gmem(memslot))
-+		ret = gmem_abort(&s2fd);
-+	else
-+		ret = user_mem_abort(&s2fd);
-+
-+	*fault_info = fault_backup;
-+
-+	return ret;
-+}
+ #ifdef CONFIG_AMPERE_ERRATUM_AC03_CPU_38
+ static const struct midr_range erratum_ac03_cpu_38_list[] = {
+ 	MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+@@ -1012,6 +1031,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		ERRATA_MIDR_RANGE_LIST(erratum_3023823_list),
+ 	},
+ #endif
++#ifdef CONFIG_ARM64_ERRATUM_2004055
++	{
++		.desc = "Incorrect programming of PMBPTR_EL1 leads to deadlock",
++		.capability = ARM64_WORKAROUND_2004055,
++		ERRATA_MIDR_RANGE_LIST(erratum_2004055_list),
++	},
++#endif
+ #ifdef CONFIG_ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+ 	{
+ 		.desc = "ARM errata 2966298, 3117295",
+diff --git a/arch/arm64/kvm/hyp/vhe/spe-sr.c b/arch/arm64/kvm/hyp/vhe/spe-sr.c
+index df35025db19a..ec991f4cc348 100644
+--- a/arch/arm64/kvm/hyp/vhe/spe-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/spe-sr.c
+@@ -112,7 +112,8 @@ void __kvm_spe_restore_guest_state_vhe(struct kvm_vcpu *vcpu, struct kvm_cpu_con
+ 
+ 	pmbsr = ctxt_sys_reg(guest_ctxt, PMBSR_EL1);
+ 	pmblimitr = ctxt_sys_reg(guest_ctxt, PMBLIMITR_EL1);
+-	if (__kvm_spe_profiling_buffer_enabled(pmblimitr, pmbsr)) {
++	if (__kvm_spe_profiling_buffer_enabled(pmblimitr, pmbsr) &&
++	    !vcpu->arch.vcpu_spe.buffer_misprogrammed) {
+ 		write_sysreg_s(ctxt_sys_reg(guest_ctxt, PMBPTR_EL1), SYS_PMBPTR_EL1);
+ 		isb();
+ 		write_sysreg_s(pmblimitr, SYS_PMBLIMITR_EL1);
+@@ -150,7 +151,8 @@ void __kvm_spe_save_guest_state_vhe(struct kvm_vcpu *vcpu, struct kvm_cpu_contex
+ 	 * Update PMBPTR_EL1 and PMBSR_EL1 only if profiling was enabled
+ 	 * when the guest state was resumed.
+ 	 */
+-	if (__kvm_spe_profiling_buffer_enabled(pmblimitr, pmbsr)) {
++	if (__kvm_spe_profiling_buffer_enabled(pmblimitr, pmbsr) &&
++	    !vcpu->arch.vcpu_spe.buffer_misprogrammed) {
+ 		psb_csync();
+ 		dsb(nsh);
+ 		write_sysreg_s(0, SYS_PMBLIMITR_EL1);
 diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-index ef138562f939..e5f3d0dea7c5 100644
+index 3e82edc8be85..ef138562f939 100644
 --- a/arch/arm64/kvm/spe.c
 +++ b/arch/arm64/kvm/spe.c
-@@ -10,6 +10,7 @@
- #include <linux/perf_event.h>
- 
- #include <asm/kvm_emulate.h>
-+#include <asm/kvm_nested.h>
- #include <asm/kvm_spe.h>
- #include <asm/sysreg.h>
- 
-@@ -242,17 +243,105 @@ static void kvm_spe_update_irq_level(struct kvm_vcpu *vcpu, bool level)
- 		vcpu_spe->irq_level = level;
+@@ -170,6 +170,25 @@ u64 kvm_spe_reset_sysreg(struct kvm_vcpu *vcpu, int reg)
+ 	return 0;
  }
  
-+static bool kvm_spe_should_handle_fault(struct kvm_vcpu *vcpu)
++static void kvm_spe_apply_workaround_2004055(struct kvm_vcpu *vcpu)
 +{
-+	u64 pmbsr = vcpu->arch.vcpu_spe.hw_pmbsr_el1;
-+	u64 pmbsr_ec = FIELD_GET(PMBSR_EL1_EC, pmbsr);
++	u64 pmblimitr_el1 = __vcpu_sys_reg(vcpu, PMBLIMITR_EL1);
++	u64 pmbsr_el1 = __vcpu_sys_reg(vcpu, PMBSR_EL1);
++	u64 ptr, limit;
 +
-+	if (pmbsr_ec != PMBSR_EL1_EC_FAULT_S2)
-+		return false;
-+
-+	if (FIELD_GET(PMBSR_EL1_EA, pmbsr))
-+		return false;
-+
-+	if (esr_fsc_is_translation_fault(pmbsr) ||
-+	    esr_fsc_is_permission_fault(pmbsr) ||
-+	    esr_fsc_is_access_flag_fault(pmbsr))
-+		return true;
-+
-+	return false;
-+}
-+
-+static int kvm_spe_read_s1_desc(struct kvm_vcpu *vcpu, u64 gpa, u64 *desc,
-+				struct s1_walk_info *wi)
-+{
-+	u64 pmbsr = vcpu->arch.vcpu_spe.hw_pmbsr_el1;
-+	int ret;
-+
-+	ret = kvm_vcpu_read_s1_desc(vcpu, gpa, desc, wi);
-+	if (ret)
-+		return ret;
-+
-+	/* TODO: this should be a hardware capability check */
-+	if (kvm_has_feat(vcpu->kvm, ID_AA64DFR2_EL1, SPE_EXC, IMP) &&
-+	    !(FIELD_GET(ESR_ELx_S1PTW, pmbsr)))
-+		return 0;
-+
-+	/*
-+	 * No choice but to assume that the s2 fault happened on a s1 table
-+	 * walk.
-+	 */
-+	return kvm_map_gpa(vcpu, gpa, FIELD_GET(ESR_ELx_FSC, pmbsr), true);
-+}
-+
-+static int kvm_handle_spe_fault(struct kvm_vcpu *vcpu)
-+{
-+	struct s1_walk_info wi = {
-+		.read_s1_desc	= kvm_spe_read_s1_desc,
-+		.regime		= TR_EL10,
-+		.as_el0		= false,
-+		.pan		= false,
-+	};
-+	struct s1_walk_result wr = {};
-+	u64 pmbptr = __vcpu_sys_reg(vcpu, PMBPTR_EL1);
-+	u64 pmbsr = vcpu->arch.vcpu_spe.hw_pmbsr_el1;
-+	int ret;
-+
-+	guard(srcu)(&vcpu->kvm->srcu);
-+
-+	ret = __kvm_translate_va(vcpu, &wi, &wr, pmbptr);
-+	if (ret == -EAGAIN)
-+		return 0;
-+	if (ret)
-+		return ret;
-+
-+	/* Stage 2 fault on a table walk was handled during the translation. */
-+	/* TODO: this should be a hardware capability check */
-+	if (kvm_has_feat(vcpu->kvm, ID_AA64DFR2_EL1, SPE_EXC, IMP) &&
-+	    FIELD_GET(ESR_ELx_S1PTW, pmbsr))
-+		return 0;
-+
-+	return kvm_map_gpa(vcpu, wr.pa, FIELD_GET(ESR_ELx_FSC, pmbsr), false);
-+}
-+
- void kvm_spe_sync_hwstate(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_vcpu_spe *vcpu_spe = &vcpu->arch.vcpu_spe;
-+	u64 hw_pmbsr_el1;
-+	int ret;
- 
- 	if (!vcpu_has_spe(vcpu))
- 		return;
- 
--	if (!FIELD_GET(PMBSR_EL1_S, vcpu_spe->hw_pmbsr_el1))
-+	hw_pmbsr_el1 = vcpu_spe->hw_pmbsr_el1;
-+	if (!FIELD_GET(PMBSR_EL1_S, hw_pmbsr_el1))
- 		return;
- 
--	__vcpu_assign_sys_reg(vcpu, PMBSR_EL1, vcpu_spe->hw_pmbsr_el1);
-+	if (kvm_spe_should_handle_fault(vcpu)) {
-+		pr_debug("SPE stage 2 fault PMBSR_EL1=0x%llx PMBPTR_EL1=0x%llx",
-+			 hw_pmbsr_el1, __vcpu_sys_reg(vcpu, PMBPTR_EL1));
-+		ret = kvm_handle_spe_fault(vcpu);
-+		if (ret)
-+			goto reinject;
-+		/* Let the guest know about the partial record. */
-+		if (FIELD_GET(PMBSR_EL1_DL, hw_pmbsr_el1))
-+			goto reinject;
-+		vcpu_spe->hw_pmbsr_el1 = 0;
++	if (FIELD_GET(PMBSR_EL1_S, pmbsr_el1) ||
++	    !FIELD_GET(PMBLIMITR_EL1_E, pmblimitr_el1))
 +		return;
-+	}
 +
-+reinject:
-+	__vcpu_assign_sys_reg(vcpu, PMBSR_EL1, hw_pmbsr_el1);
- 	vcpu_spe->hw_pmbsr_el1 = 0;
- 	kvm_spe_update_irq_level(vcpu, true);
- }
++	ptr = FIELD_GET(PMBPTR_EL1_PTR, __vcpu_sys_reg(vcpu, PMBPTR_EL1));
++	limit = FIELD_GET(PMBLIMITR_EL1_LIMIT, pmblimitr_el1) << 12;
++
++	if (ptr >= limit)
++		vcpu->arch.vcpu_spe.buffer_misprogrammed = true;
++	else
++		vcpu->arch.vcpu_spe.buffer_misprogrammed = false;
++}
++
+ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+ {
+ 	struct kvm_spe *kvm_spe = &vcpu->kvm->arch.kvm_spe;
+@@ -186,6 +205,9 @@ bool kvm_spe_write_sysreg(struct kvm_vcpu *vcpu, int reg, u64 val)
+ 		WARN_ON_ONCE("unexpected trap");
+ 	}
+ 
++	if (unlikely(kvm_spe->spe_pmu->has_workaround_2004055))
++		kvm_spe_apply_workaround_2004055(vcpu);
++
+ 	if (reg == PMBSR_EL1) {
+ 		val = __vcpu_sys_reg(vcpu, PMBSR_EL1);
+ 		kvm_spe_update_irq_level(vcpu, FIELD_GET(PMBSR_EL1_S, val));
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 5f997851b6d7..e001a6ea5564 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -133,3 +133,4 @@ WORKAROUND_SPECULATIVE_AT
+ WORKAROUND_SPECULATIVE_SSBS
+ WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+ WORKAROUND_3023823
++WORKAROUND_2004055
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 928ea94f2ed6..bca8cd3bca16 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -1201,6 +1201,9 @@ static void __arm_spe_pmu_dev_probe(void *info)
+ 	if (this_cpu_has_cap(ARM64_WORKAROUND_3023823))
+ 		spe_pmu->has_workaround_3023823 = true;
+ 
++	if (this_cpu_has_cap(ARM64_WORKAROUND_2004055))
++		spe_pmu->has_workaround_2004055 = true;
++
+ 	dev_info(dev,
+ 		 "probed SPEv1.%d for CPUs %*pbl [max_record_sz %u, align %u, features 0x%llx]\n",
+ 		 spe_pmu->pmsver - 1, cpumask_pr_args(&spe_pmu->supported_cpus),
+diff --git a/include/linux/perf/arm_spe_pmu.h b/include/linux/perf/arm_spe_pmu.h
+index edf58c51fb94..d5c510ebf785 100644
+--- a/include/linux/perf/arm_spe_pmu.h
++++ b/include/linux/perf/arm_spe_pmu.h
+@@ -46,6 +46,7 @@ struct arm_spe_pmu {
+ 	u16					align;
+ 	struct perf_output_handle __percpu	*handle;
+ 	bool					has_workaround_3023823;
++	bool					has_workaround_2004055;
+ };
+ 
+ #define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
 -- 
 2.43.0
 
