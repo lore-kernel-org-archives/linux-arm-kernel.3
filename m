@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CE0C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2F5C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3guYpEVe0jojtjWvcu73KPb7DZ8REKqlzshck7w5p0=; b=OXbcU0mkz6V4bvPeFqMSnw99PD
-	5M0a5wlnVsUfPxwndL2KCIztcCR0lp+GYQNMeoDl4PU1xIisHotHyf7RWCEmL+TxSBbD4+57AGu9c
-	FCgeyYqtnFL8Z6I7HfbjNZCEaMwCDFGWvK3C9uV9URzqpRfJ6a6mn16hoJtik1kcE0fAkYIjgVWfK
-	tRwdtMG7Wu04TJtmO2PGEFJ0ZNYM4breJxsvQpZlFjwJ5kbfkS+DYs1BSYVErmPKUWmKK8d08SQB+
-	YG69d7yMSyH4HZ5ux6QjCoO3uHcOSh/bAnPaquZRRd5VXiJLUPwFjsVSexARM+AXSXZAEwAlkbUS5
-	3YXOgLlQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CwaKpZhY+U1YQ2Z3sLZB+CgUEjk+uqaSTrCtONQLkzo=; b=gCLidLXJejr6JJCLJjZVTNT9GQ
+	nGLrAMe63FnyH7Rl7mZ8gGlE3gl357l9tc14qrdKNNIXFUenkjm+WHFynl4OfMoC/HYO06akG8F65
+	lz4UW1lDyyrQp8kQsJjQHzCnqcdbDeFzXhqQfPhHS/St7IOwOXPZi0li0VD11xFfDwlWN94v97AUp
+	tZKH4SjBlZqb0V9J+N6H+gZgiu+Qt8PFabBspNlYDFZOMot/eFZlp5FcCoONbfxDqXQDv3s+AHJc+
+	2U0591N5v/oYh2M+VCQDGlouH5S2p/ck4rjl0fRj/MyIC7n2bEM+FD6D5x4ML6XGnetqLaxdzl/7z
+	eU8tZWDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EJ0-00000000Zox-2RMx;
-	Thu, 03 Sep 2026 20:45:06 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1x2EJq-00000000a0h-43ct;
+	Thu, 03 Sep 2026 20:45:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EIw-00000000Zm9-3mwP
+	id 1x2EJp-00000000a0Y-2Oa5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 03 Sep 2026 20:45:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=CwaKpZhY+U1YQ2Z3sLZB+CgUEjk+uqaSTrCtONQLkzo=; b=O0gr2o2+imiogTWuhBohgX8cxg
+	wsNEZpbe34lMMpx8VrDP4tgXLSyfdCvrTYEsWH0KYI9Pf3NsfgW3gIQVOEhLwc+YiYSmHYDOl0/N0
+	zCzqR50R17mZh5+DJZRqGDXz+PedPASypee0Enm98TaBQpim9WjqLVWAlKprrC6rD2wV994CbAhfF
+	HlmvZEGNd+mfkm+os0Syjzh9B9nP/2RPVs7GhLUoH6WW2v7Tlcp5TgnUzMG6WNd8YY4J3uN6wie8I
+	ppJ2/uWBkPjs6KRWAhfHN8gwjSZwxfFu1nmp0ORGDxQwXyqY+RX1rNLzc9ko90j0oSZk3hvkfiUDv
+	P2Gceh7A==;
+Received: from smtp-73.smtpout.orange.fr ([80.12.242.73] helo=smtp.smtpout.orange.fr)
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2EJn-0000000AwIf-09P9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 20:45:05 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a5d42684d7so23541a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 13:45:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788468300; x=1789073100; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X3guYpEVe0jojtjWvcu73KPb7DZ8REKqlzshck7w5p0=;
-        b=rLh2n31A1pRphJCMXf43KMRoepA8ooAidn/Pl2fXMGKyiO9jsc7gWgGJjqMnBUFgsB
-         AiLDhrHVlp8W+J/9C/7FiDJyF6O8FyVoCutdRxIL+mHwmobUVUaKNkMupxc4EFzTC6Z2
-         6hG34KymSkI0VCqcKWeQ/9OGenWgm4UyyrMcpXcISgW8ceLrfNLrQGDwHMVfryW0U733
-         YVIurqMT82wZy834FMdxssz6o3z4I6ggrdY4/MvqURHaBF7VB9DsmxD6HBuGiCtaIKQg
-         Bv6f0eD3+VrYj+6wS31mXiSAW1X3eiokszAP6YwqMHwsgyrl9cDfvlE8GZtwBS1rVrPd
-         cEaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788468300; x=1789073100;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=X3guYpEVe0jojtjWvcu73KPb7DZ8REKqlzshck7w5p0=;
-        b=AeCEiN+f25ei/oYyf0e5A3A8Ig+x9jv6WPE9VRVZZjKo/3JNKCaJA0jWVgTyIN9cR0
-         bMh4LVnqdkKsTXO6KJUvT5E8QiLkZ4KVOXuLKaLT3FrX3iM/HOCBDG8Btb7ThdR0SsSF
-         Vz1rhSw8blWYnluz91dYsOW400lPUqPwVWPYSVWqxm6HOZjYdv8FV4tj+LBxiMw9XdEH
-         tkLIXBVLfID1k65aVXJY6tnDYB4/ja9gTkYuQ9KcSlLedMrVGTWWA9MukFTzZqZChd75
-         slPPJttXY5PLbwK03URTXq1y93fJmmomdoY8vhGe3XfkNZLQjMttPq1iK81ktD1wMp1o
-         gutQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy8NjCP79ei7Mp0qQm6BV0Md4mnxDGUUaO7noqqKGj6vMthEdHtgeNQdpM3Ei6AZFjp4Ki/nFp9nFdTaHzozqlU@lists.infradead.org
-X-Gm-Message-State: AFuF++maShz1+NdduriHKKRehUdmFNtrIxv3Yi4pJ8bwGVhj5+afdBOX
-	86FIyxZuUzUA80SX1rdKkq6yie+RgOexNPp91nxi2ePSgb2QChPDRn4T
-X-Gm-Gg: AYBFou2tRdTzBaxH1j5GdXVKue3PfmZoH2xC8dvGwBbzv5KDUmm94Z3L2blE2YeEjEm
-	gUfiBuVtN7YWVYzeRJRqoTjVqL5Mv7L55JXvKzoEqTzKSbJtZGBd+REi3/F7LvLvHPZjMOf3uqS
-	YD39/9Odlvx2AtqlP9Gqb7N28Rf1KCx5PMdY1BXvw9M886Qii7ELqx8mg3QMX03ezLIJXm7N3yK
-	mYQoIMVz2U2oHiPRKZYL3utc+AJukVTqMqs7yK4GSxJb8WuUD+xYLno4zO86dSA0BAR07c7vIx3
-	4eeO/ZycRZHpDd0sEZXkJU12CVFQ19qRzWAhKz+IZ93GOVHJ+zFHDmuvsXnhpD7CoeRKrrpFNGd
-	4lhEUui/6BhUoNBiSe9/SPdwDWoV7xLLo+lr3VlmL718hPTV3oXYB5fPej0uOQIPiLpEFfaVEQy
-	Pwm4g15Rb2rgWXkL0nrKAyT9juQhiDTpveN4m2HDULTudskw3647ytapDR0lFO7uU+XeEYozI4a
-	5AaNCarUpLLs1+B8DXCg26LXxlTAihhZfFLfw==
-X-Received: by 2002:a05:6402:1d48:b0:6a0:d411:930d with SMTP id 4fb4d7f45d1cf-6a7e8d9b328mr180296a12.2.1788468300064;
-        Thu, 03 Sep 2026 13:45:00 -0700 (PDT)
-Received: from ?IPV6:2a02:a449:4071:0:32d0:42ff:fe10:6983? ([2a02:a449:4071:0:32d0:42ff:fe10:6983])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a7e68a6a1dsm233448a12.7.2026.09.03.13.44.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Sep 2026 13:44:59 -0700 (PDT)
-Message-ID: <afde7cfa-bd1e-40d2-9315-d3d88abb7606@gmail.com>
-Date: Thu, 3 Sep 2026 22:44:57 +0200
+	Thu, 03 Sep 2026 20:45:56 +0000
+Received: from [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e] ([10.65.86.62])
+	by smtp.orange.fr with ESMTP
+	id 2EBCx0f4jFRaz2EBCxA3CX; Thu, 03 Sep 2026 22:37:02 +0200
+Received: from [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
+ ([IPv6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e])
+	by smtp.orange.fr with ESMTPSA
+	id 2EB8xKXgh2arj2EB8xJSGR; Thu, 03 Sep 2026 22:37:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1788467822;
+	bh=CwaKpZhY+U1YQ2Z3sLZB+CgUEjk+uqaSTrCtONQLkzo=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=TJDYEztgMBZr5D+XpbvrUmYthbWh3TsgoaTswh87ZevYrHpSZk7puA/GvTLiGfzRp
+	 WLPJJ158Kq2q9AgfFG3m1CXjpTdi5kHg/M1zk7I1Ja6j6QfOGMet5wwl1YzvQbNSq3
+	 p7/uQLH1BAgihqSP+0g0KRN/JxTTOZu4S5YfAj0dMuXa576wIR9ILVg4oE3LhjkZhB
+	 xwiqdZYgRcgGG4RTDdT4buFeCs18f1OI7xtvU3pRFBWtiefvmIkzlWkeSvE2KXO3qR
+	 HTO/cKEio50iZEA7RgC4r87APvZHUW32JC+MCMQmVAcQh4xawDKumgLdL4XBks9EIA
+	 aMVAcnfgAZ9Tw==
+X-ME-Helo: [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Thu, 03 Sep 2026 22:37:02 +0200
+X-ME-IP: 2a01:cb10:785:b00:26fb:aefb:6cd2:db0e
+Message-ID: <46772551-207f-4795-89d5-6c02a0b85410@wanadoo.fr>
+Date: Thu, 3 Sep 2026 22:36:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/rockchip: rk3066_hdmi: convert to
- devm_drm_bridge_alloc() API
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- =?UTF-8?Q?H=C3=BCseyin_BIYIK?= <boogiepop@gmx.com>
-References: <20260824-drm-v2-1-7f9273c6020b@gmail.com>
- <2814844.6tgchFWduM@diego>
-Content-Language: en-US, ar-EG
-From: Johan Jonker <jbx6244@gmail.com>
-In-Reply-To: <2814844.6tgchFWduM@diego>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v7 2/3] pwm: rp1: Add RP1 PWM controller driver
+To: Andrea della Porta <andrea.porta@suse.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>,
+ Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com,
+ Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>
+References: <cover.1784539788.git.andrea.porta@suse.com>
+ <a83d65b2d91865eb722337c547c94dce175e6086.1784539788.git.andrea.porta@suse.com>
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Content-Language: en-US, fr-FR
+In-Reply-To: <a83d65b2d91865eb722337c547c94dce175e6086.1784539788.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_134502_971015_E6C79ECE 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20260903_214555_131680_92E86D06 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,150 +103,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Le 20/07/2026 à 11:44, Andrea della Porta a écrit :
+> From: Naushir Patuck <naush@raspberrypi.com>
+> 
+> The Raspberry Pi RP1 southbridge features an embedded PWM
+> controller with 4 output channels, alongside an RPM interface
+> to read the fan speed on the Raspberry Pi 5.
+> 
+> Add the supporting driver.
+> 
+> Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+
 Hi,
 
-On 9/3/26 17:12, Heiko Stübner wrote:
-> Am Montag, 24. August 2026, 12:21:19 Mitteleuropäische Sommerzeit schrieb Johan Jonker via B4 Relay:
->> From: Hüseyin BIYIK <boogiepop@gmx.com>
->>
->> The function devm_drm_bridge_alloc() is the new API for allocating DRM bridges.
->> This conversion was missed during the initial conversion of all bridges to
->> the new API.
->>
->> Signed-off-by: Hüseyin BIYIK <boogiepop@gmx.com>
->> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
->> ---
->>  drivers/gpu/drm/rockchip/rk3066_hdmi.c | 8 ++++----
->>  1 file changed, 4 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> index f28d6a883e09..39c65ee07caa 100644
->> --- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> +++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
->> @@ -703,7 +703,6 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
->>  			 DRM_MODE_ENCODER_TMDS, NULL);
->>  
+...
 
->>  	hdmi->bridge.driver_private = hdmi;
+> +static int rp1_pwm_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	unsigned long clk_rate;
+> +	struct pwm_chip *chip;
+> +	void __iomem	*base;
+> +	struct rp1_pwm *rp1;
+> +	int ret;
+> +
+> +	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
+> +	if (IS_ERR(chip))
+> +		return PTR_ERR(chip);
+> +
+> +	rp1 = pwmchip_get_drvdata(chip);
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	rp1->regmap = devm_regmap_init_mmio(dev, base, &rp1_pwm_regmap_config);
+> +	if (IS_ERR(rp1->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(rp1->regmap), "Cannot initialize regmap\n");
+> +
+> +	rp1->clk = devm_clk_get(dev, NULL);
 
-Can this be removed?
-See link/comment below.
+Could it be devm_clk_get_enabled() to simplify the error handling path 
+as done above with other devm function?
+...
 
+> +	if (IS_ERR(rp1->clk))
+> +		return dev_err_probe(dev, PTR_ERR(rp1->clk), "Clock not found\n");
+> +
+> +	ret = clk_prepare_enable(rp1->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to enable clock\n");
 
->> -	hdmi->bridge.funcs = &rk3066_hdmi_bridge_funcs;
->>  	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT |
->>  			   DRM_BRIDGE_OP_EDID |
->>  			   DRM_BRIDGE_OP_HDMI |
->> @@ -747,9 +746,10 @@ static int rk3066_hdmi_bind(struct device *dev, struct device *master,
->>  	int irq;
->>  	int ret;
->>  
->> -	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
->> -	if (!hdmi)
->> -		return -ENOMEM;
->> +	hdmi = devm_drm_bridge_alloc(dev, struct rk3066_hdmi, bridge,
->> +				     &rk3066_hdmi_bridge_funcs);
->> +	if (IS_ERR(hdmi))
->> +		return PTR_ERR(hdmi);
-> 
+... this also saves these 3 lines.
 
-> If I'm reading things correctly, the parts in rk3066_hdmi_register setting
-> hdmi->bridge.driver_private (should use the container field of struct
-> drm_bridge instead) 
+> +	rp1->clk_enabled = true;
+> +
+> +	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to get exclusive rate\n");
+> +		goto err_disable_clk;
+> +	}
+> +
+> +	clk_rate = clk_get_rate(rp1->clk);
+> +	if (!clk_rate) {
+> +		ret = dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
+> +		goto err_disable_clk;
+> +	}
+> +	/*
+> +	 * To prevent u64 overflow in period calculations:
+> +	 * mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC)
+> +	 * If clk_rate > 1 GHz, the result can overflow.
+> +	 */
+> +	if (clk_rate > HZ_PER_GHZ) {
+> +		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
+> +		goto err_disable_clk;
+> +	}
+> +	rp1->clk_rate = clk_rate;
+> +
+> +	chip->ops = &rp1_pwm_ops;
+> +	chip->atomic = true;
+> +
+> +	platform_set_drvdata(pdev, chip);
+> +
+> +	ret = pwmchip_add(chip);
 
-The driver_private line was added with this patch:
+Could it be devm_pwmchip_add() to simplify the error handling path as 
+done above with other devm function?
 
-[PATCH] drm/rockchip: rk3066_hdmi: switch to drm bridge
-https://lore.kernel.org/all/20250428102309.1501986-1-andyshrk@163.com/
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to register PWM chip\n");
+> +		goto err_disable_clk;
+> +	}
+> +
+> +	ret = of_syscon_register_regmap(np, rp1->regmap);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Failed to register syscon\n");
+> +		goto err_remove_chip;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_remove_chip:
+> +	pwmchip_remove(chip);
+> +err_disable_clk:
+> +	clk_disable_unprepare(rp1->clk);
+> +
+> +	return ret;
+> +}
+...
 
-and hdmi->bridge.funcs are redundant by this change?
-
-Not redundant, just funcs are attached in a common function __devm_drm_bridge_alloc()
-
-https://elixir.bootlin.com/linux/v7.2.2/source/drivers/gpu/drm/drm_bridge.c#L383
-
-void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t offset,
-			      const struct drm_bridge_funcs *funcs)
-{
-	void *container;
-	struct drm_bridge *bridge;
-	int err;
-
-	if (!funcs) {
-		dev_warn(dev, "Missing funcs pointer\n");
-		return ERR_PTR(-EINVAL);
-	}
-
-	container = kzalloc(size, GFP_KERNEL);
-	if (!container)
-		return ERR_PTR(-ENOMEM);
-
-	bridge = container + offset;
-	INIT_LIST_HEAD(&bridge->list);
-	bridge->container = container;
-	bridge->funcs = funcs;
-	kref_init(&bridge->refcount);
-
-	err = devm_add_action_or_reset(dev, drm_bridge_put_void, bridge);
-	if (err)
-		return ERR_PTR(err);
-
-	return container;
-}
-EXPORT_SYMBOL(__devm_drm_bridge_alloc);
-
-===========
-
-Other example from sti:
-
-https://lore.kernel.org/all/ce9c6aa3-5372-468f-a4bf-5a261259e459@samsung.com/
-
->>>> It looks like you don't set bridge->driver_private anymore. Is it on purpose?
->>> This looks correct to me. In current code, driver_private is used to
->>> hold a pointer to the driver private struct (struct
->>> analogix_dp_device). With devm_drm_bridge_alloc() container_of() is now
->>> enough, no pointer is needed. With the patch applied, driver_private
->>> becomes unused.
->> Then we should remove it from the structure if it's unused.
-
-
-drm/sti: hdmi: convert to devm_drm_bridge_alloc() API
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac4531424d907f3983e919a7bda2b90ea0cede4f
-
-============
-
-This serie was missing a few bridges too many.
-
-drm: convert all bridges to devm_drm_bridge_alloc()
-https://patchwork.freedesktop.org/series/148229/
-
-====
-
-Please advise what changes are needed?
-RK3066_hdmi is broken since somewhere 2025-05.
-
-Johan
-
-
-> 
-> 
-> Heiko
-> 
-> 
-> 
->>  
->>  	hdmi->dev = dev;
->>  	hdmi->drm_dev = drm;
->>
->> ---
->> base-commit: 2709dd5ae32f0828f386327c76bba9f39f63a1c6
->> change-id: 20260824-drm-e4689f65ab8c
->>
->> Best regards,
->>
-> 
-> 
-> 
-> 
-
+CJ
 
