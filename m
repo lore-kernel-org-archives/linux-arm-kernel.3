@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC87C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B6DC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aZut8kA+4chJGGwM3gCf5+HQ533NpmMKcsyR+MQing=; b=bC4fc14XxXsVn+XBVTGscQkQea
-	iRI1ST7Zbmc+5OBtV+BL+Pq9XQU1iljjgZSgHjrRokD8fO3y4+/W3/FX+mQZQdDxs3u2JaoESqHmf
-	rpOBObMxPKSKvS4V8bCeOOfCy+zi6TJONjErfHymi5qjXQRvJLlkkNG6udajKZXiLdlqrnnrZbvdx
-	W8CL+Jy/SRc+tEbpix2BAweKTcNPB8vd0mG1EVkaGOH4l4ngS9E7muM/fx6cTS6C/KpTmnfGZPpMl
-	x7cfAEs86fshKev6V81hb0c8QCbe2XUAQki05NFYOZGkWTuE5denTYkjWgki2dOd80DX8hiPfgOQA
-	cjGvKx2g==;
+	bh=acT7QjZNdUmpfnBE9uBNeofdPEPn+BimCrNJZCbn/To=; b=pO/Qp5PXX0fTAPxnSNoNviuFyy
+	/TTaJG33+qA7jAc2HGHfj6xoqRLVTfWMVZIiOBv6upeonwyFUIyuat88GJWHWIl4MOSBobaz/mxTb
+	BVB4VuZU99sKsLzN4J7G26JUUnKErkrUvXvaI0w2bjF2CcdKg2ZGbvmgA+2vc1+K69zJdwHnqbwgc
+	+WUH0fb+P2Q7w921gIeFTVmj6OEgmhu7koDBsIBorkOY4DKctGRBBqO3ZTCivkauj2/YQ062PrAZF
+	czSGBAsuxbxXU988ihqDzFWwIZ7MV5xd2A4wSb7E6xJYROTbr8mN5OqmHp+U5EbTxsoVfdiJ2ma8E
+	yZDfO7sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2255-0000000GdOB-3Z2A;
-	Thu, 03 Sep 2026 07:41:55 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x2253-0000000GdG0-1ax4;
+	Thu, 03 Sep 2026 07:41:53 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x224q-0000000Gcpo-2xm4;
-	Thu, 03 Sep 2026 07:41:50 +0000
+	id 1x224p-0000000Gcnf-04QA;
+	Thu, 03 Sep 2026 07:41:44 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1788421298;
+	s=2020; t=1788421297;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0aZut8kA+4chJGGwM3gCf5+HQ533NpmMKcsyR+MQing=;
-	b=2n1aEsewcEY2O/4HmcehE0YE0VieS3W2Gs7Xi6wKvR4tHUFLZZdAgWR7QSYOOUkhJPQYgK
-	Kf2YukB5g2gEpDitBxuqTpqVK1ts0CgTyVz6Ft/ZacoKjUo1xHG5dq9fA1bxtdIte/vSMa
-	58oCWjCpgyI39K14Qkp11rzvyd7YXsrvwZGArqXZ/wa7XZbFvsNdzIviRN6F3eu02VelMS
-	0IR+KoFKvbjgJLQBuTr2jCrJ0mmGsc4gS7EcrDz4+L54rrwo5R2h8w1UoisMF/Lh8uc4m0
-	RuqlyQoxX8m9GiTcSRlUh4IIaO/IBeLdHZwcZlUEiN865f/h5LeGkrWqIAfMTw==
+	bh=acT7QjZNdUmpfnBE9uBNeofdPEPn+BimCrNJZCbn/To=;
+	b=3jP4QdtfvdGKafZk4gV8HAs0JKCcq1g5wS/L1M3Qb1c7h/bp22yYQ4TGtOpk0Mr1S/c40K
+	vezg61PPYZqPkMIMi0P+MeWnhIYlWcTdnwH+SRrFrQj+nHm3Q7XiGS+vPJ4prnY7NtnqS4
+	Xcm7eDuut8ABcFWFXYthMXqf5wGy9Ccz9usV3DQF9udUqTs+ZSL1h0G/e/uPiHShZ/Ewxu
+	mmqEjU6o4o8g1buldyiSf74wUiAqSpfnewCZQA6Jv6yvahNkaYBKs1k4bYgN+RF3gqYYZY
+	9mJxAv66dqtq8g2IiUO/pUOHIbenwPQiYRyIjphamnJW3UILkPOqYRUhshZy9Q==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1788421298;
+	s=2020e; t=1788421297;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0aZut8kA+4chJGGwM3gCf5+HQ533NpmMKcsyR+MQing=;
-	b=amGLpWRCPzszmWf2agPqW3Fg7V59XzpRILVaIxSaD3ICIskVDU9Cfpi1H6/i1xn+cRW6Jq
-	FawyH8+8sQE1GjBg==
-Date: Thu, 03 Sep 2026 09:41:30 +0200
-Subject: [PATCH v2 15/15] auxvec.h: Drop fallback AT_VECTOR_SIZE_ARCH
+	bh=acT7QjZNdUmpfnBE9uBNeofdPEPn+BimCrNJZCbn/To=;
+	b=s2g2u1zE4MoDzQePYnFomJgqRmXe5nRTN2VoD8bDtfLrzofrwt3d1WEshMMUnT7M9XzlRA
+	0xw/D3K/rl1yL3Bw==
+Date: Thu, 03 Sep 2026 09:41:28 +0200
+Subject: [PATCH v2 13/15] sh: Remove AT_VECTOR_SIZE_ARCH from UAPI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260903-at-vector-size-arch-v2-15-5bc32a71e3d8@linutronix.de>
+Message-Id: <20260903-at-vector-size-arch-v2-13-5bc32a71e3d8@linutronix.de>
 References: <20260903-at-vector-size-arch-v2-0-5bc32a71e3d8@linutronix.de>
 In-Reply-To: <20260903-at-vector-size-arch-v2-0-5bc32a71e3d8@linutronix.de>
 To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
@@ -64,17 +64,16 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
  linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788421286; l=772;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788421286; l=1608;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=h0d3/9vi5+RkvDv34sEYqTWGje2TjQ5iv2oSp1yFOKY=;
- b=JaGBRkuyra1orRqWHzX95kpMA0xW4S8rfsJ0pler5rGlI0La87KEeut8woUGbU1ptSxEISgz0
- Ljvg0UEOZ/ZBH8ervfYSiUK0bZeaLfogWTUGiQhqsWdwyQWXx54SvJ8
+ bh=YKN2r1KwV0S2heb/8Y+Jhhyff24Np1SwL0Bw1UDwB4U=;
+ b=useSqq1PQgc5jzt7dwdzir5U98FAJIkoH55nFNQGYdoiuFZAdgXYdssF8gR1E00nS8bRYsyyN
+ V4+Vyu8LX0EAHidn3hUqdF1MdUf5WBlzeDxA5S/zQiX92l2UKGbW/Vx
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_004140_922688_5868DD7E 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_004139_214026_CD7C7473 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All asm headers now define this constant.
+There is nothing userspace can do with this value. In the kernel is
+always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
+userspace and also changes from time to time.
+
+Move the symbol to a kernel-internal header.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Reviewed-by: Kees Cook <kees@kernel.org>
 ---
- include/linux/auxvec.h | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/sh/include/asm/auxvec.h      | 7 +++++++
+ arch/sh/include/uapi/asm/auxvec.h | 8 +++-----
+ 2 files changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/include/linux/auxvec.h b/include/linux/auxvec.h
-index de1c33c4a256..f7ddea1dbc8e 100644
---- a/include/linux/auxvec.h
-+++ b/include/linux/auxvec.h
-@@ -9,10 +9,6 @@
- #define AT_VECTOR_SIZE_BASE 24 /* NEW_AUX_ENT entries in auxiliary table */
-   /* number of "#define AT_.*" above, minus {AT_NULL, AT_IGNORE, AT_NOTELF} */
+diff --git a/arch/sh/include/asm/auxvec.h b/arch/sh/include/asm/auxvec.h
+new file mode 100644
+index 000000000000..f0830808eb19
+--- /dev/null
++++ b/arch/sh/include/asm/auxvec.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_SH_AUXVEC_H
++#define __ASM_SH_AUXVEC_H
++
++#define AT_VECTOR_SIZE_ARCH 5 /* entries in ARCH_DLINFO */
++
++#endif /* __ASM_SH_AUXVEC_H */
+diff --git a/arch/sh/include/uapi/asm/auxvec.h b/arch/sh/include/uapi/asm/auxvec.h
+index 63fcc39e2c6a..cf0f13da977a 100644
+--- a/arch/sh/include/uapi/asm/auxvec.h
++++ b/arch/sh/include/uapi/asm/auxvec.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+-#ifndef __ASM_SH_AUXVEC_H
+-#define __ASM_SH_AUXVEC_H
++#ifndef __UAPI_ASM_SH_AUXVEC_H
++#define __UAPI_ASM_SH_AUXVEC_H
  
--#ifndef AT_VECTOR_SIZE_ARCH
--#define AT_VECTOR_SIZE_ARCH 0
--#endif
+ /*
+  * Architecture-neutral AT_ values in 0-17, leave some room
+@@ -30,6 +30,4 @@
+ #define AT_L1D_CACHESHAPE	35
+ #define AT_L2_CACHESHAPE	36
+ 
+-#define AT_VECTOR_SIZE_ARCH 5 /* entries in ARCH_DLINFO */
 -
- #define AT_VECTOR_SIZE (2*(AT_VECTOR_SIZE_ARCH + AT_VECTOR_SIZE_BASE + 1))
- 
- #endif /* _LINUX_AUXVEC_H */
+-#endif /* __ASM_SH_AUXVEC_H */
++#endif /* __UAPI_ASM_SH_AUXVEC_H */
 
 -- 
 2.55.0
