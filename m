@@ -4,95 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9822DC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AAFC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1azHr/pFB85CwC7zH3lRMPgTlUgrQQX8vJrLWV7gSGU=; b=j/h4ZOQ8DH/rmdYJsWilUb4pu9
-	FJ4Z5bxUIQnp/kvRUtEGPbrQlmAlHirjj85UCK6QKiMrqNmTL5Q3nL0mpt6kXLx1NKDE9tH3BSi50
-	sueYQ6SVhAHoRXyLAqFn7RSBJotd8Tv86naxcA4fUp9PJfStiOWxcMAUUvt4W3ROA11WlqowPEHoK
-	fFM49xfElLhLQ7/cWw4OJ/XY643RnVHwDcyutBFlka+aVgDUBdnHliC8LEmm6ictQV9P6rzN759x2
-	23mr9GtWfGQFljbyK0kWkX0b7ymBXEowg2CGr8esFKdQxjzlFVBTQw2K/OPZjDt+4Iog40/jiVENk
-	pioyCp/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FS5+rJblKYEfHvwn3uJ9BzAl/oWa4dPgbHxuamJmb0s=; b=E225gXALYMDemAf+6pj6xT9fns
+	kmD7gJ7qhbQdAbvD122wBdrC6uwshd0ZKTFLiBGnoQOpbm7dh/gCU86quWUHKBNgdxm2NnQRSAASZ
+	jkuxMlbnrZL5+hzf8kQyzw6M8V/9HuMcNkSHANufh3VS4+J4LUiXhBXKa+IAmKOBGFFZSGKQbbsEm
+	lj9cN13mTApdG22DB1Q3xwRXjap6J0XMqO9PpKQDtiNZ/4HUTVYgc5myEnoa/78jkg5523C0bOzv9
+	4KcUKAKZNnL21T2JuoLTtoR17F/qTLd6vjxIAtRZ4P3vuX1JSO7gq9bkoart0XHm+vzZWG63hTHYQ
+	c17LRhPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27Rb-0000000HOWP-1hqS;
-	Thu, 03 Sep 2026 13:25:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x27SQ-0000000HObw-3Axv;
+	Thu, 03 Sep 2026 13:26:22 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27Ra-0000000HOWJ-2nBo
+	id 1x27SO-0000000HOag-30LL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:25:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E76044781;
-	Thu,  3 Sep 2026 13:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BF701F00AC4;
-	Thu,  3 Sep 2026 13:25:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788441930;
-	bh=1azHr/pFB85CwC7zH3lRMPgTlUgrQQX8vJrLWV7gSGU=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=iAScSK95bfJe+nKYfXcOiKnM4KisHtUhGA+EturTjomDTIr4BnzSTRK8OrKh7rQZa
-	 +qNnkB8/KnXPk4a3UpOfEzbTV2lL+LVfGkoB9D/avwcXIBmI5bnKSgB/Tocb/4q4NX
-	 /EwvjO5Dzmi4vA4kfKHkv3atdg4JsxQWSvxLImqzRVBBGV1s2myp8FGlKc5OPkxEjr
-	 qoe2V+4QHK10sVjGdfXb7Tnjaufa31M28N6/Cn1CGBDbrlsvb/UxwSso2CQ1Ljvksg
-	 JP6u7ziLCN86hAb3w98fdqocurNPVLmnjDZQjrViTpksRD2PIeGWWzt1rx1Ow+wmL+
-	 HI9Oad3TBBO0g==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id A95751980054;
-	Thu,  3 Sep 2026 09:25:27 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 03 Sep 2026 09:25:27 -0400
-X-ME-Sender: <xms:RHWZavYfB9IcqusGjjKg9YIjxTlGMDDVrZvksuer_zpwFsHeyaTzMQ>
-    <xme:RHWZapNzFnoX2Q_vFyeWpTgHR63mSfzpYfEI8YU1p1B9UyyqCtKPM3A_2ClDO_hGf
-    l15SZ62eBgDJHQ5GzSqmVtvmhiNm3uToZuJfS4eUM-it5ZAXI3MEmNE>
-X-ME-Proxy-Cause: dmFkZTEBFahIaOgOchPvaJwkXi7OrDv/Fnn0kYaKRFOEQRaWDfkT+vLtdbOL8paoS8OOHH
-    K5JclVIP75Um7tw21sHpu+ivQkbbHsI9NinbZp2VtxElur3ErbPWsd6GhM5viQMbvfjg+A
-    0XA5KuxNYyJUpb3RQMWjV9dfEbe7zol+JOpzrfHexm/Zy8IMysnQ3g8NCXY3aBUMyTlH8Q
-    2hHgvvWDRqoe1QAV1OHtiEtJreU+h+Ei6lPFEuruNeGyrouHtVol380KIeytBS08KTdbcG
-    eTRvwCZXSYmlUrz/ZhWxvNyCaPPXouWq5siTiP7ZtiK9NrhcKLq+g7VGX9CXhLRQAZgdrN
-    SksStJUoSUqOHF01TnOJeBjyug63zIvag1oGTCTXpZNrIu+sDDXZhKpj/XMg6QrHLfqcNk
-    1dzRN0rwUXSm4CQXQ8xbwhs6hbwM2Y5OZ61HUEaP8ZZqbE++tDYWO0U/ws3fN4vf9L/0IG
-    DGM502U78C15At/aU9FhO5tDI7eQW+2hAJjkZWxty2R6i/ODgDtgee0PsW8SnNTcm1QHzg
-    hurkRkTMCkNKqNC3n0hsHopDmQI5V7LDIFVxRWYvQ1KMrdvmRS/NsVFFL3RkYnzFXKYlAd
-    0cIV1/ixTMoY05S07kcAgmRv81f+iTKXId23IsEE53rjXVTmjxECGtRCd7MA
-X-ME-Proxy: <xmx:R3WZanwLas00yLMNlYOuic2WR4zFwZzmBuwtPUx2G-dtfVTJJ9bCYg>
-    <xmx:R3WZap8kbv0kRlsByFuEDBcQwUm-SQy43hkfLRp6CceCgdmauGLPDQ>
-    <xmx:R3WZan8kII6MPPoPwX_T-ZQT1cRBfC528oFpLUqi9lbpvMmk5RqqBQ>
-    <xmx:R3WZasc_tsgnbDREW1sS2PsNW3bpJqfMruw51VLAwCTvKgCAngPrkg>
-    <xmx:R3WZajsR-dqZDeJSqnSl5cvXn04GCZ9y20d62gSDhBDPvnzwNO3qvdBg>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id AC653F8007A; Thu,  3 Sep 2026 09:25:24 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 03 Sep 2026 13:26:21 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-930c0f9c1b1so254614885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 06:26:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1788441979; x=1789046779; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FS5+rJblKYEfHvwn3uJ9BzAl/oWa4dPgbHxuamJmb0s=;
+        b=LfdAZinMoQWvTNM8WZ8HLWtUTUWs1W3AxS6vgR7IF20ZlAmehzb8+2t2BagB7F6Yrl
+         juJGADHD7yNLSRpQ8e8l4K6RGq5pW1i3hfxRKox1yp3TIhkmk+/L+xjH/qoqfVscp4nu
+         g5OvoQXakJHAMO7H5+30yU0g2UUjwqx5M8YH2WzrIu1WT89cv9r+uLobZNx8JwZe7oee
+         IF3yH8XzVabY4J9p6JWgrrocPlYpZ7uRCEV69Y98wbNrnIpvFjJcj+JLqlqXvK6uhQHF
+         BulPKSVlGWE+Ez70wqfgozN7CmIz6msiITnilfqRWIWjyOaYCRT+kniPns7x0exa/gqJ
+         FBBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788441979; x=1789046779;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FS5+rJblKYEfHvwn3uJ9BzAl/oWa4dPgbHxuamJmb0s=;
+        b=sAhy96WnCUxBenIuuuq8nLECPshfN6gHcDVKRhwVWyhEDHTUa/qjFGRrEMZW+xYHw8
+         yhdKgUdOiJiKpL8A3OG1D0hGnWgJtheRF3iSVXy+Q0HM0ifdFaPOD4IZV4fN43Fw+xSP
+         tsbcvzEJHy1vt8XMPSAOCCptuegKi5WHoBDCTVO+nbjL4AMsq7lefYL8IbgSrzjsJsd4
+         aFfSxAn3Ar5EzDtU1dbW3pNlcTHOQ+ZvHm8GqLMPi65E0XG1EesEJ1wSWhV1nkS+q674
+         fuCbKHvC7JH1hkQ0mWEc10oQXQ135xdta1BeohPwl9isJr4IFis5ihk0YTgJQsnARSHN
+         hNGA==
+X-Forwarded-Encrypted: i=1; AKwUvBzeHoY1bKdbrHREVSYGKsOUP2Rj3jshbYttcbPnQuUcYkeGrfIbk33eBaHA3attflHcgXikf5giCohRiG9qoM+k@lists.infradead.org
+X-Gm-Message-State: AFuF++l0SNYg8sCIojZT697nwIRL7rtNsw1LP2XCrGb5GvR36gezghuw
+	GMTKYQxQrkXZCMk792Mb2WUpn87s8JlURLoKl3SGuthhG2aNZUOj9puUT8gPhvo4S6U=
+X-Gm-Gg: AYBFou0B9mrX/5DhEZz/au+qTJQKJ/qMfMwED4zNw0rZyhr/jdEFPYioAopG68HN55U
+	HjXjDgclo5G8PurD4Ap8VUYn7rECd/F4I3LrBq8TMLiGD4BKyrgNy2WwxozoWjFA8WIDZbcwBEC
+	vpZxqsAo5gSbzhJ2vfmmjLrhVXVzlgSsAEVP/5lMO4D0ED9vKIvPcW3K6lcLWcrKS/Ka02Q+seK
+	l2ppUHCb9PLh9MoNUPeHMmHJSRaLi4Zn+DCGMA4NWLhIMW2H9qwOlC3vYRYQHbIUNfMarlct/q7
+	OaLMic72llF7D1VCyMYDm8ELSzCgRGinfFlfUTk1juH0QVDh5c8hCrQMZJgPPtpSd9VssR0BRNW
+	p426n+vs7VLe8iiQHFNf/rr5E4cXAgYqH54C0+9ha5HHik63+4JgspkXC3amNOZNU6irr6VlR+7
+	yQzNBWhwwSQocg/+jDDUciUis7wPhoj+VsyDWUAmz/Acb2fKviEX4J9lhohR3VWEfj
+X-Received: by 2002:a05:620a:4387:b0:937:2e9f:70a8 with SMTP id af79cd13be357-9396e48bd68mr677603885a.39.1788441976610;
+        Thu, 03 Sep 2026 06:26:16 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:15:e221::c41? ([2606:6d00:15:e221::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9395f1539f0sm486856785a.10.2026.09.03.06.26.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 06:26:15 -0700 (PDT)
+Message-ID: <e7aef28efd9860e80b8be8865dd04268ee2fd786.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: mediatek: jpeg: Avoid context access after job
+ finish
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Kazuki Hanai <hnkz.64@gmail.com>, Bin Liu <bin.liu@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@kernel.org>,  Tomasz Figa <tfiga@chromium.org>, Xia Jiang
+ <xia.jiang@mediatek.com>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Date: Thu, 03 Sep 2026 09:26:13 -0400
+In-Reply-To: <20260902112230.452176-1-hnkz.64@gmail.com>
+References: <20260902112230.452176-1-hnkz.64@gmail.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-9FOa56BBGzqoLxtHjz2i"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Date: Thu, 03 Sep 2026 15:25:04 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>
-Cc: "Sven Peter" <sven@kernel.org>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Sudeep Holla" <sudeep.holla@kernel.org>, "Janne Grunau" <j@jannau.net>,
- "Neal Gompa" <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, asahi@lists.linux.dev
-Message-Id: <eb75b82a-8910-4198-b89a-5c8b487c0fd5@app.fastmail.com>
-In-Reply-To: <aplk2hHRB7Yw9FWW@willie-the-truck>
-References: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
- <9c53cfd7-e193-4441-83ca-7710060225b7@app.fastmail.com>
- <apldL6Ml91GW-tE9@J2N7QTR9R3.cambridge.arm.com>
- <aplk2hHRB7Yw9FWW@willie-the-truck>
-Subject: Re: [PATCH RFC 0/6] PSCI-via-EFI to support firmware and kernel sharing EL2
- for Apple Silicon
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_062620_771092_480E4A13 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +119,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Sep 2026, at 14:15, Will Deacon wrote:
-> On Thu, Sep 03, 2026 at 12:42:39PM +0100, Mark Rutland wrote:
->> On Thu, Sep 03, 2026 at 01:34:56PM +0200, Ard Biesheuvel wrote:
->> > On Wed, 8 Jul 2026, at 09:15, Sven Peter wrote:
->> > > This series adds a custom EFI table that points to a PSCI entry point
->> > > (plus some other stuff that has to be available before EFI runtime
->> > > services are set up) and adds support for this new conduit to the psci
->> > > code. We can't directly use the normal EFI runtime path because that one
->> > > takes a sleeping lock and we need to be able to call into PSCI from
->> > > atomic context during e.g. cpu bringup or during idle.
->> > > It also adds support for specifying the specific MAIR attributes for EFI
->> > > runtime mappings as defined in the latest UEFI spec since Apple Silicon
->> > > is rather allergic to using Device-nGnRnE vs. Device-nGnRE for its MMIO.
->> 
->> > >       dt-bindings: arm: psci: Add EFI conduit
->> > >       arm64/efi: Add and parse custom PSCI EFI configuration table
->> > >       efi: Add EFI_MEMORY_ISA_{MASK,VALID}
->> > >       arm64/efi: Honor EFI_MEMORY_ISA_MASK for Device-nGnRnE vs -nGnRE
->> > >       firmware/psci: Add EFI runtime conduit
->> > >       arm64: dts: apple: t8103: Add PSCI and CPU idle states
->> > >
->> > 
->> > I've picked up patches #3 and #4, which are useful in their own right.
->> > 
->> > I'm not sure if the arm64 maintainers will want to consider this, but
->> > I think it's a reasonable compromise, as it puts the abstraction in
->> > the right place.
->> 
->> Sorry for the late reply; I've been away almost all of August and I'm
->> slowly catching up on things.
->> 
->> As with last time this was proposed (in abstract), I am not happy about
->> bodging an EFI conduit into PSCI, given that the manner in which state
->> is managed is completely different from SMCCC.
->> 
->> If we need a mechanism for doing hotplug and/or idle without HVC/SMC,
->> that's one thing we can consider. I don't think we should pretend that
->> it is PSCI.
->
-> What do you have in mind for an alternative mechanism? I understand your
-> objection to this proposal, but at least it keeps the interface fairly
-> high-level and avoids opening the flood gates for a bunch of SoC-specific
-> idle routines. Are you thinking of extensions to the PSCI spec or
-> something else?
->
 
-I can't speak for Mark, of course, but I could imagine EFI being used as a
-conduit to provide a callable set of interfaces (with a rigorously defined
-set of constraints such as the ones in this patch, i.e., reentrancy, no FP
-or SIMD, not relying on ISA features that the OS needs to know about and
-enable, etc).
+--=-9FOa56BBGzqoLxtHjz2i
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-There is prior art here in ACPI PRM, which does something similar, and this
-also relies on EFI runtime services.
+Le mercredi 02 septembre 2026 =C3=A0 20:22 +0900, Kazuki Hanai a =C3=A9crit=
+=C2=A0:
+> v4l2_m2m_job_finish() publishes job completion and wakes waiters
+> before it returns. A concurrent file release can therefore finish
+> v4l2_m2m_ctx_release() and free the context while the single-core IRQ
+> handler continues with its tail.
+>=20
+> Both handlers only need the device for the matching runtime PM put.
+> Use the IRQ-owned jpeg pointer instead of dereferencing ctx after
+> completion has been published. This preserves the get/put pairing and
+> removes the post-completion context access.
+>=20
+> Fixes: 45f13a57d813 ("media: platform: Add jpeg enc feature")
+> Fixes: 5827e4b14ee7 ("media: platform: Improve power on and power off flo=
+w")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Codex:gpt-5
+> Signed-off-by: Kazuki Hanai <hnkz.64@gmail.com>
 
-You'd still need to implement the CPU ops and a cpuidle driver afaict (no
-expert here), but at least those would be coded against an interface that
-the kernel itself specified, and can be made as generic as we choose to.
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Not saying this is all great, but it might be a worthwhile compromise to
-consider.
+> ---
+>  drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index d147ec4830811..9010e7b1108fa 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1574,7 +1574,7 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpe=
+g_dev *jpeg)
+>  	v4l2_m2m_buf_done(src_buf, buf_state);
+>  	v4l2_m2m_buf_done(dst_buf, buf_state);
+>  	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+> -	pm_runtime_put(ctx->jpeg->dev);
+> +	pm_runtime_put(jpeg->dev);
+>  	return IRQ_HANDLED;
+>  }
+> =20
+> @@ -1855,7 +1855,7 @@ static irqreturn_t mtk_jpeg_dec_irq(int irq, void *=
+priv)
+>  	v4l2_m2m_buf_done(src_buf, buf_state);
+>  	v4l2_m2m_buf_done(dst_buf, buf_state);
+>  	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+> -	pm_runtime_put(ctx->jpeg->dev);
+> +	pm_runtime_put(jpeg->dev);
+>  	return IRQ_HANDLED;
+>  }
+> =20
 
+--=-9FOa56BBGzqoLxtHjz2i
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCapl1dQAKCRDZQZRRKWBy
+9DhIAP9oMCJ3+qbEiROH2krc0Am+crQeWpa/pbhLHgt1o6oPXAD/WXV6nBJA6ZC+
+UGQHbSlMl2Vy9ERh3f8kD3KvuG+zCwE=
+=FjHo
+-----END PGP SIGNATURE-----
+
+--=-9FOa56BBGzqoLxtHjz2i--
 
