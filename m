@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7ABC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB38C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWP5fc4YMZTsJ2HevoqYoNs057Br9v2hg14ZFf8XlCw=; b=nWTL9P+nCSpLtwKd+QmH8GScQT
-	At32Nfp8oNrua9PbamGnxmPWbA/wntNtVxx3M6ESdBPUfHhBNgyfct7m1MNepOLa5w3CitXIj17b7
-	LSPVdCNsHC+kDMTdpK4zNAH1UfeDkYeS0ziynemxmDuy03rv4leM5U0aZpTc7rPRLtj8kP/fu49l3
-	CpcmCJULs0vRSqNfoAeGOYDOLWoXNCO6FyFmzl6SOuaz7DW/Z4dmhRJ4Yy5M5kGAVqyStFxPQyh3/
-	7ZQi8MQ1QLYvYSzENO9OHnE6qV0Tx1Qg4aAdrHcEu98xY9xXgi+m74ZxJIo6bvEDV//Uq3nYm7Ife
-	fRQIm+4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gRxS2mTzMBPIBR5gZXW3kazvJ7L04Mgb6fWxJCrrjGE=; b=n+BI6TCgoQXSONSPLqDE6781Py
+	7UbGF+16e6oRmAJBKXopYAQR93Hg3zSkwm93mfLDxzo/ubGMSfVltHYqJYjB8t6oq5OWsGkNXJFct
+	sB0eS14YjdBDu1o1W8ovqTyrPPYAK0lz85Ar/fBHZK8HDGa6sSbGwKvflDkPqPoq0aPXfcY7k9I7Z
+	oVPhTF/6VWjg/NGwRQzmdA1OlfeilFFfGL8rFUd/hae8xeuEOTyUr3eK1iN9/TXG43DnQrMKD19e6
+	TtybpJBvfiepWChkVOrUZwzBDwQRsdukXJH0cCsIcXFQ1bQjz1FuMD0EadqkYWvGV3tubKTz0JTg2
+	fpCue+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Ai-0000000Gg8K-0tu8;
-	Thu, 03 Sep 2026 07:47:44 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Af-0000000Gg6k-1KYc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 07:47:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=XWP5fc4YMZTsJ2HevoqYoNs057Br9v2hg
-	14ZFf8XlCw=; b=XIksORlvpCW8Qp157igN4uvjHDCx7UroW+HtKw7U6vHU4GKE7
-	CrMGn6wsWAv70Fkrqz0cqrEwTEP0iJ46FYZVE2DpMZlPZIJkuw1OwsvMt8FIipyz
-	AS2haRt2DEHQVuX+gkFHyOUKOhQRDmsJkMVLPDk8VGxDZRB5UQ/S+IL/GY=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwD3vwYDJplq5jUAAA--.234S2;
-	Thu, 03 Sep 2026 15:47:15 +0800 (CST)
+	id 1x22Da-0000000GgbM-2W5d;
+	Thu, 03 Sep 2026 07:50:42 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x22DX-0000000GgaB-3jxX;
+	Thu, 03 Sep 2026 07:50:41 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 45462200571;
+	Thu, 03 Sep 2026 09:50:35 +0200 (CEST)
+Message-ID: <0ffb792adfafd06a0d7fc65153707e3c728fe0ac.camel@pengutronix.de>
+Subject: Re: [PATCH v2 08/15] soc: starfive: Add jh7110-hdmi-subsystem driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
+ <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, David Airlie	 <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, Maarten Lankhorst	
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
+ Yan <andy.yan@rock-chips.com>, Emil Renner Berthing <kernel@esmil.dk>, Hal
+ Feng <hal.feng@starfivetech.com>, Michael Turquette	
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney	
+ <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley	
+ <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt	
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti	
+ <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>, Andy Yan	
+ <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Maud
+ Spierings	 <maudspierings@gocontroll.com>, Graham Markall
+ <hello@big-grey.co.uk>
+Date: Thu, 03 Sep 2026 09:50:35 +0200
+In-Reply-To: <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
+References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
+		<CGME20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e@eucas1p1.samsung.com>
+	 <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add UltraRISC DP1000 GMAC
- support
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jia Wang <wangjia@ultrarisc.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <910be156-b631-4b62-972a-79d9a9e38697@lunn.ch>
-References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
- <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
- <910be156-b631-4b62-972a-79d9a9e38697@lunn.ch>
-Date: Thu, 03 Sep 2026 15:47:04 +0800
-Message-Id: <178842162417.2701756.3296149694160507506.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788421624; l=2832;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=DybwMHnu9HH3kbXlnUcPstvbk79t201Lu98vpXdj4uE=;
- b=MTwdQIZFMkbeENF4A3judwSQZ9jZW/LS8/4WqBqpP51EXKsVSTV1O35Wdj31d9QzgGdwSGhEW
- WDM3zfrjERlD1bVKIuFiLEpxKaocgEZ4bgWhaExPvNWV7vILKknfe3/
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwD3vwYDJplq5jUAAA--.234S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXr45ZrW8CF17Ary3GrW5Awb_yoW5Xw4rpF
-	ZrCFW3tFyDGr13Ka97Xw4DZFWIvr1xKrW7tr18tw1ayasIvr93X3WkK3y5u3Z7AFWDuw12
-	ya1jvFZrua90qFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQASEWqXx6QADgALsZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_004741_905257_188A5A5C 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20260903_005040_084989_7F3B5B0F 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,87 +85,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-01 15:48 +0200, Andrew Lunn wrote:
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
-> > @@ -0,0 +1,54 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * UltraRISC DWMAC platform driver
-> > + *
-> > + * Copyright (C) 2026 UltraRISC Technology (Shanghai) Co., Ltd.
-> > + */
-> > +
-> > +#include <linux/module.h>
-> > +#include <linux/phy.h>
-> > +#include <linux/platform_device.h>
-> > +
-> > +#include "stmmac_platform.h"
-> > +
-> > +static int ultrarisc_dwmac_probe(struct platform_device *pdev)
-> > +{
-> > +	struct plat_stmmacenet_data *plat_dat;
-> > +	struct stmmac_resources stmmac_res;
-> > +	struct device *dev = &pdev->dev;
-> > +	int ret;
-> > +
-> > +	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to get resources\n");
-> > +
-> > +	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-> > +	if (IS_ERR(plat_dat))
-> > +		return dev_err_probe(dev, PTR_ERR(plat_dat), "failed to parse DT parameters\n");
-> > +
-> > +	plat_dat->phy_interface =
-> > +		phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface, true, true);
-> > +	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_NA)
-> > +		return dev_err_probe(dev, -EINVAL, "unsupported phy interface mode\n");
-> > +
-> > +	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-> > +}
-> > +
-> > +static const struct of_device_id ultrarisc_dwmac_match[] = {
-> > +	{ .compatible = "ultrarisc,dp1000-gmac" },
-> > +	{ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, ultrarisc_dwmac_match);
-> > +
-> > +static struct platform_driver ultrarisc_dwmac_driver = {
-> > +	.probe = ultrarisc_dwmac_probe,
-> > +	.driver = {
-> > +		.name = "ultrarisc-dwmac",
-> > +		.pm = &stmmac_pltfr_pm_ops,
-> > +		.of_match_table = ultrarisc_dwmac_match,
-> > +	},
-> > +};
-> > +module_platform_driver(ultrarisc_dwmac_driver);
-> > +
-> > +MODULE_DESCRIPTION("UltraRISC DWMAC platform driver");
-> > +MODULE_LICENSE("GPL");
-> 
-> This looks to be 90% identical to dwmac-sophgo.c.
-> 
-> Do you expect any further changes to this driver? Is everything
-> supported? Are there more clocks? A GPIO for WoL?
-> 
-> I'm just wondering if the common code should be pulled out, or even
-> dwmac-sophgo.c made generic so it can handle all plain boring devices
-> which have RGMII delays and not a lot else.
-> 
+On Fr, 2026-08-28 at 15:47 +0200, Michal Wilczynski wrote:
+> Add the parent driver for the monolithic JH7110 HDMI IP block.
+>=20
+> This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps the
+> shared register block, creates a regmap, and calls
+> devm_of_platform_populate() to create its hdmi_phy and hdmi_controller
+> child devices, which retrieve the shared regmap from this parent.
+>=20
+> The NoC display-bus clock and reset gate access to the whole vout registe=
+r
+> region, and this subsystem's PHY child is the first device there to touch
+> registers. Enable the bus before populating the children; PD_VOUT is
+> handled by genpd through the power-domains property.
+>=20
+> Co-developed-by: Dominique Belhachemi <db@domibel.de>
+> Signed-off-by: Dominique Belhachemi <db@domibel.de>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/soc/Kconfig                          |   1 +
+>  drivers/soc/Makefile                         |   1 +
+>  drivers/soc/starfive/Kconfig                 |  27 +++++++
+>  drivers/soc/starfive/Makefile                |   2 +
+>  drivers/soc/starfive/jh7110-hdmi-subsystem.c | 114 +++++++++++++++++++++=
+++++++
+>  5 files changed, 145 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c b/drivers/soc/s=
+tarfive/jh7110-hdmi-subsystem.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..d893c1c29f98b072b09d26134=
+3d3317dbf4c75fe
+> --- /dev/null
+> +++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
+> @@ -0,0 +1,114 @@
+[...]
+> +static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct reset_control *bus_rst;
+> +	void __iomem *regs;
+> +	struct regmap *regmap;
+> +	struct clk *bus_clk;
+> +	int ret;
+> +
+> +	/*
+> +	 * The NoC display-bus clock and reset gate access to the whole vout
+> +	 * register region, and this subsystem's PHY child is the first device =
+in
+> +	 * that region to touch registers. Bring the bus up here before
+> +	 * populating the children; PD_VOUT is powered on by genpd through the
+> +	 * power-domains property.
+> +	 */
+> +	bus_clk =3D devm_clk_get(dev, NULL);
+> +	if (IS_ERR(bus_clk))
+> +		return dev_err_probe(dev, PTR_ERR(bus_clk),
+> +				     "Failed to get NoC bus clock\n");
+> +
+> +	ret =3D clk_prepare_enable(bus_clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to enable NoC bus clock\n");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, starfive_hdmi_subsys_clk_disable,=
+ bus_clk);
+> +	if (ret)
+> +		return ret;
 
-The probe boilerplate is indeed largely similar because both drivers
-use the common stmmac platform helpers. However, their platform-specific
-requirements differ: Sophgo requires additional TX clock handling and
-other configuration, while DP1000 requires fixed TX and RX delay
-handling. ACPI support under development is also intended to use the
-UltraRISC glue driver.
+You can simplify this with devm_clk_get_enabled().
 
->       Andrew
-> 
+> +	bus_rst =3D devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(bus_rst))
+> +		return dev_err_probe(dev, PTR_ERR(bus_rst),
+> +				     "Failed to get NoC bus reset\n");
+> +
+> +	ret =3D reset_control_deassert(bus_rst);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to deassert NoC bus reset\n");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, starfive_hdmi_subsys_rst_assert, =
+bus_rst);
+> +	if (ret)
+> +		return ret;
 
-Best regards,
-Jia Wang
+You can simplify this with
+devm_reset_control_get_exclusive_deasserted().
 
-
+regards
+Philipp
 
