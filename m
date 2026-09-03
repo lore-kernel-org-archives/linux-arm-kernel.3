@@ -4,175 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79504C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54923C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 15:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L4stFt9H8QyxSprfIhTJP/lSPIHGIy6M91G2b9UrAtA=; b=YeADQcdLnCCs1ICNyAHf9LBelM
-	Zikc+4XkYLE6EExH9sL70Slj/ewA7lSjJfgYdYHBseyJ8ITH0yfjI60lUyeWqIsqPWmiogv1opb22
-	thTyOb/U4g9HCl1LTIYAarwAk9D4eTo+TYFez0eeW8sHzxFoCDmimomr7aLXgkPHZAYH0zvdZDw9m
-	fP+A1kii/hTRS16fgZnhddA4Nx9Y9QkpJCQ2LMVGnvrHBCisZQoaGX5KuCxDSozh9/xEsWVNz2/CO
-	T2ALMG5Yk+NR2eOScxTrQubbgmdylLgg/Pr/Efm3Q5OsXACbvX6eZ/MfZuMvkPPNxQXaqNZWCd/0Y
-	bW7TzpGg==;
+	bh=DWerPAyDUDODY4bzH6HwfhgrgXW1pLfFq/LiqQBYcJs=; b=FyU/te0cIcyKTfGqPSKJ0+YL0q
+	CbLecf8TqnKhejRMUn0YhaPXvXTIKLX0hiPzyN7V8o3z9hVMmaCLjQTwUexEhY1QXDp22M+yQo/O5
+	wwBJu5qdPTOEDQ1GHkYWWQDlpTp1SzlldUp1vwHUVGdE8W4xXiB6J1K5YJI498z3lHDNw1J3FiFhU
+	RK48Dh9jCKi0N9rrr6YBli83uxydeDsSR5YTNNW4tOO4lvYOGMmt3Be6NgddInDaWhKNcnc8WOYGG
+	BOhB+Num7QyxRDTzfkDcT2mSti9UExs8bd1BSwMn7naIWh5lKBFPX/m3I7q07WtUG0twPINsXyD8G
+	vLpyCeKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29Yf-00000000263-2uD7;
-	Thu, 03 Sep 2026 15:40:57 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1x29bJ-000000002PZ-0KOm;
+	Thu, 03 Sep 2026 15:43:41 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x29Yd-0000000025Z-0FkQ
+	id 1x29bH-000000002Ov-0OLc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 15:40:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788450055; x=1819986055;
-  h=message-id:date:subject:from:to:cc:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=ap/8Ifir1dnQLy+vrblDVsN5MCiYJdaXtx4l46anGKg=;
-  b=jwDN0twmA6wUDJsM9kyu7B64QIZHUqvOnRos1M6eWmE356MxFAwdcP8B
-   +z2z6nxZHrpLRDTYwEhdqIXG/4jQuobKYSodnQcSr5gxBC2UNtpE5WLIR
-   ZDc4d4tNnvmU6tPFObdcyvtVDtd7Sl++v/O9i2SVGApNZUpCZMDr+UOL7
-   Zfc/ziMkCxS7TNG13QxDgaWr/Qm5z3leg/tEICg/wN/dlnOkDMe0nM45O
-   uFR7ISefO5b8b5OIE3I+7hPF/qRP6pyS9d/xTDAYhjCwwdF/iZbFIVPqh
-   803izqjKMf7zIBFcmB8ECjzEWc26MKz16qRzoD9aWQucvVrL7zL1aTiAL
-   A==;
-X-CSE-ConnectionGUID: w74+8I5NSK+e67M4xTRTDw==
-X-CSE-MsgGUID: a9/kVzoLRB2BBwYW2goYWw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="92805422"
-X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
-   d="scan'208";a="92805422"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:40:54 -0700
-X-CSE-ConnectionGUID: m4KtjjMOSVq6ucqLEL4CBw==
-X-CSE-MsgGUID: nC/X1iMTR2KZlwlo3RayPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
-   d="scan'208";a="269752298"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:40:54 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 3 Sep 2026 08:40:53 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46 via Frontend Transport; Thu, 3 Sep 2026 08:40:53 -0700
-Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.8) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 3 Sep 2026 08:40:53 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vlMVGsva+3Q9gaAXA1UBVG9tJgqWCO6X8m09ic7jLUc/bZp5lhe0aMsSs/1zp1JJKz8StxoT7Xo2vyP8/R3zNeTMUOVxVTcnXX4XEhsMJf9oPehfo+L+LQJai16pHQofDQ6xKSmygYUHiK0y/DDGWw8UCCWd3nC8hbNOmwdj0EDneH1U1fmVa2J8NdQ+4cksE6G0BJTPkH3aF2bAzjRQoO+ZwRrrPZVGekoXI8c0FwsBlPRzMH7oCEhKx6fRMvfe9FqVxbrFCtXFPSE1dFobVIaibgEHyINw1Tlt544/rl/EYSojCy5qpKDwO1TtTkRFGYGvyZW1BNxp1nzTa4g8zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L4stFt9H8QyxSprfIhTJP/lSPIHGIy6M91G2b9UrAtA=;
- b=g5oMUDqUSJ6lnbGAVBPz/5EI5FspmDC8smm2RCrZZK274hzpX65rfu9fEL5aYV3hU4a9TaWj5H9vdZ1XC1cmj1wfPabVInDFKwC+FKYyAkMmaHHvSpNrWP6qjb4aIF/cd2D3iBuVXfkRmvu5RWGGjg7PGzBwGsStxGR6pSEfzsnNkztmSnzFoV0Ri4lGAJeg8MK5hxSq7MawcJCYC5P5qkokRHY65Dv+Mn/+c41mX9vzlHAogKWZBKNOJ2Kt7zGf5M5KbblystXcvL8ycNuJXCIzeAYobjiEIEbbqXrg/gUHfsa37U9DyuQNiislSUUOzAwVQOncepNfuGUS8GIeog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by CO1PR11MB4788.namprd11.prod.outlook.com (2603:10b6:303:97::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
- 2026 15:40:50 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
- 15:40:50 +0000
-Message-ID: <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
-Date: Thu, 3 Sep 2026 08:40:48 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-From: Reinette Chatre <reinette.chatre@intel.com>
-To: Ben Horgan <ben.horgan@arm.com>, <bp@alien8.de>, <x86@kernel.org>
-CC: <james.morse@arm.com>, <fenghuay@nvidia.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<tglx@linutronix.de>, <mingo@redhat.com>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <corbet@lwn.net>, <linux-doc@vger.kernel.org>,
-	<dave.martin@arm.com>
-References: <20260709093111.367851-1-ben.horgan@arm.com>
- <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
-Content-Language: en-US
-In-Reply-To: <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0011.namprd03.prod.outlook.com
- (2603:10b6:303:8f::16) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	Thu, 03 Sep 2026 15:43:40 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683DVYJ73109269;
+	Thu, 3 Sep 2026 15:43:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=DWerPAyDUDODY4bzH6HwfhgrgXW1pL
+	fFq/LiqQBYcJs=; b=qq24X760XG8SoNn1gFX3oshVvnMjFEOOpcHiPJvHzMytMk
+	9A1DdWNuD6WTrMor7DuMsBdoyMWRCWsAIFdY5nfUmh8LRDwQ9nxys+JBwydX44Fi
+	31Y0XmohUmw7JDOre5wCb/be6CgpRNRyxkX7K/drbUnYKkWiowPOTbIIyDMpiate
+	EfuuJwqIggzkhsp15O3EZn2OvxOUxvTJxCGjag/SFGyoXZDEMilrnNWCNiDFIg8G
+	LsuVv9XSBU5aQRC1A2MfqzLJWKUCj0CngpB97bOooDf1JpZspwGuDj9HUrdKFGaF
+	9dC+khEmvnMAKnR7RVE/O2/fLS/HvXYqYZAJB6LA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq555rf0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 03 Sep 2026 15:43:25 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 683FfOT3022323;
+	Thu, 3 Sep 2026 15:43:24 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcarkgakn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 03 Sep 2026 15:43:23 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 683FhK5L45285742
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 3 Sep 2026 15:43:20 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E201D20043;
+	Thu,  3 Sep 2026 15:43:19 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E5D5420040;
+	Thu,  3 Sep 2026 15:43:18 +0000 (GMT)
+Received: from osiris (unknown [9.111.48.84])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu,  3 Sep 2026 15:43:18 +0000 (GMT)
+Date: Thu, 3 Sep 2026 17:43:17 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v7 23/23] KVM: s390: arm64: Add KVM_S390_ARM64 Kconfig
+ and Makefile
+Message-ID: <20260903154317.246414-A-seiden@linux.ibm.com>
+References: <20260831144802.834315-1-seiden@linux.ibm.com>
+ <20260831144802.834315-24-seiden@linux.ibm.com>
+ <aphMx5hsoXwIpNjt@google.com>
+ <20260903083857.33034-B-seiden@linux.ibm.com>
+ <apmHrnxRLl9BuVhn@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|CO1PR11MB4788:EE_
-X-MS-Office365-Filtering-Correlation-Id: 206b1e70-6000-4f68-3d45-08df09d1bb65
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|7416014|376014|4143699003|11063799006|10067099003|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: m9TSDWEcu7Ob/4KpY3EcmxTpjsxH0Hn5dNkMfmRXj8tZlynS5fffiyi/YJYHhwTCqaQR65Opt+TjkNpqvq9tYWMjrVry7dHfu4f+10KKyTr/cfeo9/jLsFrrTaPnosGNtGyAnWsVzki9U9PXu+PKDNZz6H1MQ4J5TKizQuM19bE1fDYSubB/OeJV0n3Q/dYH2SkbT3GfAj8QJXCAF28kiay161ROHEJJI9J/ziBEBAniZJCJ5PPgMB0aEfkfGcA4afkvK4ZkH+pVDUMPJpWWA+ZCWxRhbnabwgug3V64jnfImStp339L7EWBLXiFvIWaLJ99/VhmJpcNPDniYWLjGAoFPHxQPE8DfLrkMPvrSAXZE+uZVnZMDiAKRfZILYQPFxys4EWgKVYjF744BVDUyZAhIUyZYk3dRWmwm6tlg1+5Mir5rmCh7jw2Qxok1I4dccpD9jESfu1Y7OY3SLEqlswQ7kC8QNTs3XyHCgsbkCPH0NmvrUEIsiCKLiKpioiRh7zcc1liigSvraky9BCTt/0xxpx93P7p2JbLZ50AyB54B0QCQCmEQJ1STLQSnnxtWeqfrUoRLlgJiHuVFe2MFfCdsWtpx+JT/w0jxudoTNpfXm6in/ePgb8uvHjbnEWtLzrR09hgKe7urTvZwQlGrzldPQUSt5HYpwz8eWKM3m0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(7416014)(376014)(4143699003)(11063799006)(10067099003)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SmtodzBVZHc5S0NzanVkQVlYN2hoWmcwK3pLd201YVlFMXVOVXQ0QWhteUVW?=
- =?utf-8?B?WFpwM0c3eGN5VWNvQ2Vxa0lpYVhCZCtqbmIxTDNXVTZtK2pCY1ZqNmNDTDhN?=
- =?utf-8?B?QUNVLzlCVFVtR0s2djR0YXQwaGh2K1BSNkJVUHovODIrc29xclNqbENRWCsw?=
- =?utf-8?B?bFdCKzlkL3NJK0NUSmtyUTZHcURYb0Frc0lVUi9nT1Q3OXNsVWZxWWY2ekov?=
- =?utf-8?B?cGhEb0VjaitsSllQeTVRTzJPdjErd09pZDFxcFNjcEpqK1JBWTBWSXlhaEZL?=
- =?utf-8?B?N3c1SjVmZzlxczdsSFZiY3BpbFdKUS82cEVLSUdkSFgwQ0R1NEhuUVloNzBD?=
- =?utf-8?B?ZzFPZi92b0s3MGV4QWNFalkzM3FRbjVvSG9HYUFMcmxZMmRObE5PdjMvMWdX?=
- =?utf-8?B?K3E5MHFHbEJTZ3lOKzZFb25Tdk1XNW8vRm1OTjFpdzRiVFRGdzJ2UEJtVFdr?=
- =?utf-8?B?a01adDB5M3BkS2RSMXhHSFMvMjRYVmVCYTNoY1JKS2FIamtQNDJhN01TZ216?=
- =?utf-8?B?MjFrdVVCTHAwd1YrUmpXT0w0ZWdRNGZzNDZKL1VsdHRMVDBnYWxyT0dZNnk3?=
- =?utf-8?B?VEFabmJVczRXdmlZc3ZFd3M0TnJkS2RwT1JuMm9sL0dsSW9reVEydEJnejA2?=
- =?utf-8?B?K1hweFpYR1VkUG5SYVRlaTVOSW1vc0Q5LzkycEdRZlloYTUzWTIrV1RKN3pF?=
- =?utf-8?B?YTF5QmNrNEhzNlZ2YktGaTBGK25WYU1ZeXp2SzFKM0NCUmZxOUNwNWZML2t1?=
- =?utf-8?B?dndxd1lFQ2lXT2c2TzJsV3lGMEZRcjNOL1ZJbWJOMTU4T1VxR004Rjk4aHVs?=
- =?utf-8?B?RzdPWndlOFNsZlo4RmZwcllja21ESFpZZ2VKTk03cHRVekhwYzR1ckVLcGx1?=
- =?utf-8?B?T0hoU09FY0FaaTN0cTcwWmlMUWg3TkdvRUJ6QlBORElXdWw4VU9CcWQ0L2VE?=
- =?utf-8?B?L0pBR045K1puTExCUDdiOG9FRVJZY2ZSSzVOaFlCbDNJVUR3SkVpQzNWSEwv?=
- =?utf-8?B?S3Y0Q3grNkN3WXQ4UUgyT2FkVjZHeGtZa2gyZ3BDay9NQkRQVkRRV1NkdXQ5?=
- =?utf-8?B?UForNSs2NjRGQm9meEJ2d2V2N1M1MFYxc2ZpSzVxZ2F3QmljZHhieC9DN3E0?=
- =?utf-8?B?LzBwOGRJeWZPL0J4dFU0UGJZNzI5b3M2WDlDcVgzb1c5cHNaN1pJMzg3Um9D?=
- =?utf-8?B?bGFTV2dFeDJYd1dIODJrR2FuK1N0eUZHMFZ4S1lYRmlCbUV5cnB6SUJmamhC?=
- =?utf-8?B?L3NPMGNCV1FKMXNiTWMrWHBubUp2dE44WVNvbGNtSllMWmpsSnVNU0ZKMy9z?=
- =?utf-8?B?UTB6UnRiMW1zUlowb3h4ZUtYR3lYQ2NrbXNpUHQwNlNITGFqTzhOd3FjSk9l?=
- =?utf-8?B?Q1UxMHNKNkZyOVdnZ2pEWHhMRjczRm00Y0lDdThRQWlkb084TngxTThmS1Vx?=
- =?utf-8?B?QXVRbmxjZDJDSit1UUtjcGVDRjNCdkM2cGc0S1lVb2pLdHRVSDlMTVFxSGsz?=
- =?utf-8?B?YkJIWXVXa0pDdVFTSjJleEowdjBCY3JvdlZPYmZHajlvd2dTVEVZUnJTYXN5?=
- =?utf-8?B?WFJ4K2dOelB5VVU1Q1Q2WjVFQ0hEWjgwYlZzbmdtV2dyQmo4YUttWUVyd2pN?=
- =?utf-8?B?TUdUUjJTeWNCaFRTK1VLeDQ5Z0JtcWtkcmRJNzdxcTJCVU9MQWFvTVczUkd6?=
- =?utf-8?B?UUhyaHRDWHk0OU94TGM1SVhmTVFDRk1oK2hRbTVnVzBERDFnTjVNUHNqK1ZH?=
- =?utf-8?B?YzNLQi8vbHp5OWdTYUF5N0IxcXpSWmZiTC9TYVVHQjdFOVIvT0ZaU0p3dldz?=
- =?utf-8?B?OEFUT2hCazdIWVNqWTJSKzN6Q2VHUHk4L0hMUktHK3M1ZzFLK0JlaEd0MkRt?=
- =?utf-8?B?UTYwNGlQMlpTNFdtY0hXVUw1K05rSWFORHI0N0x2eWpwbkZzZTV1MmpKRUU3?=
- =?utf-8?B?dXF5SGZtWFlXTDB2WmpUemFNZ3c3TTg3dzU2TElMaUxhMzhiY1ZPNjN3bEZx?=
- =?utf-8?B?UStpYzB4ZUFIUTlreUZtR0R1UVBGalg0eTBiM25RSzFodnExVWhZajl5ZHVh?=
- =?utf-8?B?NFhJZlBwVDIxeTRZL0o0TDlIa2NRTS9Jdnp3N1l1ckJSNm5FaVhiQ1hyQ0Nq?=
- =?utf-8?B?c3VjZ1RsZWpKY3dYNDhjSUpZSGdMZVZiSWp6VExlVGtVZzJaVDVqYUtZenIz?=
- =?utf-8?B?dTQwS3JJdjU5R05UT0tIRUVTdW9SVmViS3hvNUdHb3RhdkpWSk9EZWxranNp?=
- =?utf-8?B?T21PL3ErTXFwL254bmNmRGg2QzlYbXQzUHBKSnBXMDBYR0FyeDZ6T1ZheUtw?=
- =?utf-8?B?cTZWYmdId0lmMjVQOURXR3NuM3k2ZGpsUEFHTGxUT1FvdWp3b01qQVRuTW15?=
- =?utf-8?Q?E3Wzm6fn70Ob8SnI=3D?=
-X-Exchange-RoutingPolicyChecked: ixOpJJsbywr6tTLIUcFC8nfRcc5TxcDppZcnyRVteDOwkUzxNCUPWlAaKGkaLAP06poSUwSwmZ7C2FSY4lpu/B1EvBRWu/CPOIcc/BLumJGf1jacsx3LLX3biGb+5Jw9iGesgq6jUEiDyzwSj0XChjJp4conoVI5BvHzG5XB95pltJXohbjfZp6ukmxeji769hlV6+P0G776IZ3MXEoUNf2zi4igSDshLl52zA4aJNjVXY5nA0P9T/Pw00x8caujFrqZA8Auz7/GxFVUojCIG0aU5+5XLfVwRxD7L+2+9NjCMqx9VtUG4mAqLXGlwodtxgZOfUOekn5di7sQ+E/tAA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 206b1e70-6000-4f68-3d45-08df09d1bb65
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 15:40:50.8010
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xgeoGR1AItToOy53qWR/TXxWejnX/WdgJp7YE7rZpIwtJU4Jr7o+NPexbGO16z4MaZncBUR4v27PxGEGJGU2ruPMN2tjwAu9BbDei1tAnHk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4788
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apmHrnxRLl9BuVhn@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDEzNSBTYWx0ZWRfX+tCRhA6sSIdG
+ wH3YsOZWUu6AQ/wbZMy8/8ghxOMLr1JxUYI+F1OuGF3kGMSyFosb1yyEw0Y7SkcdnViRSIGYST3
+ ZKzsuk/yTqkbV86fiBlmnquLGrE/lVjUqJoxxitxftnkHOk9tg0lf6UwUpP94HGjN1haIu/bhvZ
+ vOjQqtsKKo3dH3KxPYftRTR6hCAXVZpNywqL9ZPSpumpJiusj9HVTq0eQdDyz3eQ1Y+gGxJro8l
+ V2dWzLn9xp09A0JVmcSAwV5VZkpGjRK8hm3znkN8FXKMdHOmzNczDGuN9kP/yvuCNwH57VbneZM
+ WEDh5Ny5+ief11kwh0eU7+kEY7iwpp9c1n+1CClsNVzgNsl+fZbs6Pd5fvFvzq6se5TMWk43mLh
+ uszJimiwEQpCccZNeyi83N0rlUhjKo2WddPiM755LR8fWAqvO5pRdcfFJgQxorwDdCF16OL+1fQ
+ UEO/8fVhwbjCETjz5gQ==
+X-Proofpoint-ORIG-GUID: 6z-LCHu0Gt_XtkyXQSEc2p12x2-m7GXw
+X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a99959d cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=Jmw6T6Sfydnll6L029oA:9
+ a=_V_nbmSO25lDuQpK:21 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: 06nC8yppQ2lADCC-CvXlhYKMn3c0SHeb
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDEzNSBTYWx0ZWRfXwZdhsr6ocdVw
+ ZR7eud7oQqfLtMVdQYGpum3xVFBPSPw1xK66LdD+ib0PYULKbLIrhBbbCd9swU012WkLAvvNJ10
+ yXfvzYmcZAkKdMmaJwVBzlHe/P2gUkw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-03_04,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
+ priorityscore=1501 clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_084055_143937_90307DF6 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260903_084339_138386_DA4EA7C5 
+X-CRM114-Status: GOOD (  57.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,29 +146,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear x86 maintainers,
-
-On 7/14/26 10:45 AM, Reinette Chatre wrote:
-> Dear x86 maintainers,
+On Thu, Sep 03, 2026 at 07:43:58AM -0700, Sean Christopherson wrote:
+> On Thu, Sep 03, 2026, Steffen Eiden wrote:
+> > On Wed, Sep 02, 2026 at 09:20:23AM -0700, Sean Christopherson wrote:
+> > > On Mon, Aug 31, 2026, Steffen Eiden wrote:
+> > > > diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+> > > > index 8d3ee17a1bcb..9c69ea16031e 100644
+> > > > --- a/arch/s390/kvm/Kconfig
+> > > > +++ b/arch/s390/kvm/Kconfig
+> > > > @@ -53,4 +53,33 @@ config KVM_S390_UCONTROL
+> > > >  
+> > > >  	  If unsure, say N.
+> > > >  
+> > > > +config KVM_S390_ARM64
+> > > > +	def_tristate y
+> > > > +	prompt "KVM support for hardware accelerated arm64 guests"
+> > > > +	depends on HAS_IOMEM
+> > > > +	depends on KVM
+> > > 
+> > > Is this actually necessary?  I.e. does kvm.ko need to be *loaded* in order for
+> > > kvm-arm64.ko to be loaded?
+> > > 
+> > > If kvm-arm64.ko does indeed have a hard dependency on kvm.ko, then I think it
+> > > makes sense to not have redundant "select" statements below.  As an outsider,
+> > > it's super confusing because the KVM_S390_ARM64 are incomplete, e.g. are lacking
+> > > things like VIRT_XFER_TO_GUEST_WORK (at least, I assume those are lacking), and
+> > > makes it hard to see what is actually unique to kvm-arm64.ko.
+> > > 
+> > > If kvm-arm64.ko doesn't have a dependency on kvm.ko, e.g. to initialize hardware
+> > > or something, then this "depends on" should go away.
+> > 
+> > 
+> > It is a bit more complicated unfortunately. KVM_S390_ARM64 depends on
+> > KVM as there is code around in the kernel & drivers (arch and common)
+> > which depends on CONFIG_KVM we need as well. I did not want to leak arch
+> > local configs to common code if I can avoid that.
+> > I could change it to select KVM ? Do you have another idea on how to
+> > solve this issue?
 > 
-> Could you please consider this series for inclusion? It applies cleanly on top
-> of x86/cache with HEAD at
-> 	 2566b5cd6a27 ("fs/resctrl: Fix UAF from worker threads when domains are removed")
+> I would do something similar to what KVM x86 does.
 > 
-> Please note that this is the first instance of a series that touches resctrl fs, x86, and
-> Arm. Since this is a resctrl fs API change these patches should stay together. You will
-> find in Ben's message below that patch routing via tip is supported by Arm.
+> > The two modules are completely independent at compile and runtime. So
+> > kvm does not have to be loaded for kvm-arm64 to work.
+> > 
+> > VIRT_XFER_TO_GUEST_WORK is only lacking for now. I will add it later.
+> > Currently the kvm-arm64 module is incomplete anyways but I did not want
+> > to send a 60+patches series and rather stage the introduction over
+> > multiple series.
+> > 
+> > I will remove the duplicated config selections. Thanks for pointing it
+> > out. In previous series I had an explicit KVM_S390 config. Both KVM_S390
+> > and KVM_ARM64 selected KVM. But this created too much churn around the
+> > whole tech-stack 
 > 
-> Thank you very much
+> LOL, what exactly are you expecting to happen?  You're trying to squeeze support
+> in for a completely different architecture, of course there's going to be churn.
+> 
+> This absolutely needs to be as precisely and correct as possible, otherwise it'll
+> be painfully difficult to maintain,  And to some extent, just for others to review.
+> E.g. as is, it's at all not clear to me which of the IS_ENABLED(CONFIG_KVM) checks
+> in arch/s390 apply to both flavors of virtualization, versus which are specific to
+> "native" s390 virtualization.
+> 
+> I realize this is outside of my immediate scope, but getting this "right" isn't
+> just an s390 thing, because these details bleed into common KVM, and even affect
+> other architectures, e.g. when trying to make "treewide" KVM changes.
 
-Could you please consider this series for inclusion during this cycle? It applies cleanly on
-top of v7.3-rc1.
+I want to find the 'right' way as well - any ideas are welcome.
 
-Please do let us know if you have a preference for how changes touching all parts
-of resctrl (filesystem, x86, Arm) should be handled.
+> 
+> And FWIW, while it might seem daunting, from my perspective it's not actually that
+> much churn to do things "right".  Provide KVM_S390_NATIVE, and then have KVM reflect
+> the "weakest" of S390_NATIVE vs. S390_ARCH.  I.e. make KVM=m if either of the "real"
+> KVMs will be a module.  That requires some creative shenanigans, but it's not hard,
+> just weird.
 
-Thank you very much
+FYI the first versions of this series had a 3 configs approach very
+similar to yours. 
 
-Reinette
+IIRC it was not so much the churn we have in (upstream) kernel code but
+more on the distro side and to everyone building the kernel in their
+favourite architecture (s390 :))
+Suddenly the KVM config changed its behaviour (effectively becoming a noop)
 
+I am starting to think that having no separate config option for arm on
+s390 might be the easisest way. Just KVM and guard both modules behind
+it. It reduces the config space bloat and I do not see a reason why somoeone
+should only compile one KVM module but not the other. kvm-arm64 won't
+load if you do not have the hardware anyways.
+
+But I am not opposed to the x86 approach. Just thinking loud.
+
+Anyways, I am off for vacation expect a reduced reply frequency from my
+side :) 
+
+	Steffen
+> 
+> > (default config change, s390 is the odd one out for the KVM config meaning, ...).
+> 
+> Nah, x86 is the odd one, where CONFIG_KVM=m doesn't even guarantee kvm.ko gets
+> built :-)
+> 
+> E.g. something like this, which probably doesn't compile and isn't the desired
+> end state, as several of the Kconfig selections need to be reworked into #defines
+> provided by header files, but AFAICT it does what I want/intend.
+> 
+> config KVM
+> 	def_tristate m if (KVM_S390_NATIVE = m || KVM_S390_ARM64 = m)
+> 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+> 	select KVM_COMMON
+> 	select HAVE_KVM_IRQCHIP
+> 	select HAVE_KVM_IRQ_ROUTING
+> 	select KVM_VFIO
+> 	select VIRT_XFER_TO_GUEST_WORK
+> 
+> config KVM_S390_NATIVE
+> 	def_tristate y
+> 	prompt "Kernel-based Virtual Machine (KVM) support"
+> 	select KVM if (y && KVM_S390_ARM64 != m)
+> 	select KVM_ASYNC_PF
+> 	select KVM_ASYNC_PF_SYNC
+> 	select HAVE_KVM_NO_POLL
+> 	select KVM_MMU_LOCKLESS_AGING
+> 	select KVM_GENERIC_PRE_FAULT_MEMORY
+> 	select HAVE_KVM_INVALID_WAKEUPS
+> 	help
+> 	  Support hosting paravirtualized guest machines using the SIE
+> 	  virtualization capability on the mainframe. This should work
+> 	  on any 64bit machine.
+> 
+> 	  This module provides access to the hardware capabilities through
+> 	  a character device node named /dev/kvm.
+> 
+> 	  To compile this as a module, choose M here: the module
+> 	  will be called kvm.
+> 
+> 	  If unsure, say N.
+> 
+> config KVM_S390_UCONTROL
+> 	bool "Userspace controlled virtual machines"
+> 	depends on KVM
+> 	help
+> 	  Allow CAP_SYS_ADMIN users to create KVM virtual machines that are
+> 	  controlled by userspace.
+> 
+> 	  If unsure, say N.
+> 
+> config KVM_S390_ARM64
+> 	def_tristate y
+> 	prompt "KVM support for hardware accelerated arm64 guests"
+> 	depends on HAS_IOMEM
+> 	select KVM if (y && KVM_S390_NATIVE != m)
+> 	select GUEST_PERF_EVENTS if PERF_EVENTS
+> 	select HAVE_KVM_VCPU_RUN_PID_CHANGE
+> 	select HAVE_KVM_IRQ_BYPASS
+> 	select KVM_MMIO
+> 	select SCHED_INFO
+> 	select XARRAY_MULTI
+> 	help
+> 	  Enable support for hosting virtualized, hardware-accelerated arm64
+> 	  virtual machines on s390 systems using the Start ARM Execution (SAE)
+> 	  instruction. This requires hardware models that support the Arm
+> 	  execution facility (AEF).
+> 
+> 	  The module provides a character device named /dev/kvm-arm64 to expose
+> 	  the hardware capabilities.
+> 
+> 	  To compile this driver as a module, choose M here. The module will
+> 	  be called kvm-arm64.
+> 
+> 	  If unsure, say N.
 
