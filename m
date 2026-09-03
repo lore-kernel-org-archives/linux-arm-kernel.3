@@ -4,57 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94311C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 815C4C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vucpTji7QLeT4Yt7+x1nVopNJbqPPRcEBC9CkZ2GXhk=; b=xHQwZatymPWDiE+IUJlNrz3nqW
-	Rw/RhNEhon4w1kNeK1/39mrPlUd/MJBCUuDS1KmG8zMHxzcbiOaAws+zYByOxbK0ZTDoJAcDLSfrv
-	IuLFBt2bUH5RntUX1r1z+GoeRdvktBtLAS7NJhooOYq/dzhM6q2SEQjXfntjxuJDkxtEFEIJUJGie
-	RtSp4IOMhxEefwstUsiHD16yBGM4q0AG+66XNBbxv+YCFSayHcNA0kw9C4oy1BdQEqwp97FXCHW4c
-	gA8/erkrdJTrFi8qvbkg5cNY2TB5zEpXiWbC8e05dIXd+mTHd6Pzpg7BkMNBmboqKizW6Oj3Lflfn
-	Dks02aYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y8j/ITVlOQxPRVqu5jSrEwrkx7x0SuDALimgCrujisk=; b=PkqClIpvna3kumuV2U6loFML3k
+	sDI+ML3s3bw28YMBZPlHdiGoBxmS7m7hJiJjYWf/kxEqoDdUy6bbRikOHPJwdD9kRX5/Tq92pI711
+	BPsYyc4+gzR/7uRj3ZDZnbpEFHYu3vKB3joSfxo4t6HMQ/E5be30VbnuZEYlSLlnz+cDgsFJfdBei
+	hKmlOYCXTE35Ka2K3gWEmpoocqpHANP0nC0PKIXy454+sk1iq9X6oX/ItrFSK8CG2CP6t+vVqhNm+
+	n2pOtuymyAdm7AxTaMB5ArSIZWRQXP/Rk1z8wg6NJGMy1jirIrE2/iPO+gI+WPilLUUgTOi0fvOhL
+	/8ZJsskw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27WA-0000000HPKS-3JTx;
-	Thu, 03 Sep 2026 13:30:14 +0000
-Received: from aposti.net ([185.119.170.32])
+	id 1x27fg-0000000HQKx-40wq;
+	Thu, 03 Sep 2026 13:40:04 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27W7-0000000HPI4-0ej6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:30:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=crapouillou.net;
-	s=mail; t=1788442199;
-	bh=Iqe9spGh3XTkMw0WgH0pZdCzQfIL8GSoVCT8n0qhZk4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=U/hK9O8sx/Ej3wJEDLagfRm90spdB8oagI/tMQa+wm4eHs6IxoZsNSk44TMPsnRII
-	 /Xpg3qvDhSglx+uQdaOfQ+mf9mO8K77agxy8r7yceDxqPdlYw/uCEbZKye4SHxIb6C
-	 4IV0ndZQwdxyW+o8x/50o0Ry2UA5eoDqJZDvl1p4=
-Message-ID: <1666390417d0d9b8f58a7bdad1b8ecb475ba0d4f.camel@crapouillou.net>
-Subject: Re: [PATCH v2] ARM: dts: samsung: exynos4210-i9100: Enable RTS/CTS
- in Bluetooth node
-From: Paul Cercueil <paul@crapouillou.net>
-To: Marek Szyprowski <m.szyprowski@samsung.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin	 <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 03 Sep 2026 15:29:57 +0200
-In-Reply-To: <6e319291-72b8-4a43-b953-8a9f0a6049c8@samsung.com>
-References: <CGME20260829101532eucas1p29f4e04d4dfd169377793c276221059a6@eucas1p2.samsung.com>
-		<20260829101509.138284-1-paul@crapouillou.net>
-	 <6e319291-72b8-4a43-b953-8a9f0a6049c8@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1x27fd-0000000HQJy-2162;
+	Thu, 03 Sep 2026 13:40:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=Y8j/ITVlOQxPRVqu5jSrEwrkx7x0SuDALimgCrujisk=; b=MYVdmgaktCtsAPnBXcEec/G3MY
+	NxorhytiJ0rz4vfZR8d5ztfXHixOFjQqNFb0FkhZihK9n6T4HtTtotpaDZcuSaPld+ASw8hrT2ITC
+	RCXAcXlnJfhY9/GtktBhfVfL3/AuquN2Ors0H+6+gCLzypjcq1Z0/x8AM3onQkENgRYaxbq2vGzcG
+	voUJNaWFZw4i62eEk2HeZWnXyHC85rrX+BsBdZXW3OW10/ZW//Ypo4Qs8gebFzynXEkmu4okehvTx
+	fQ9SnaMfzhOhy/M3TbMj12OIetYhQnsZVW7frOQvDneKD3kNYZ8qCtHZNgDLXkdn/SKe395/SvGHx
+	H8/tesPg==;
+Received: from [179.105.94.163] (helo=[192.168.0.6])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1x27eq-00EO8X-3D; Thu, 03 Sep 2026 15:39:12 +0200
+Message-ID: <a096712c-8bc6-4cb5-94ca-6a82525f1bad@igalia.com>
+Date: Thu, 3 Sep 2026 10:39:05 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] drm/vc4: Reset the V3D block through the reset
+ controller
+To: Maxime Ripard <mripard@kernel.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_063011_377386_2FD6AF84 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20260903_064001_869841_B0F529C1 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,79 +103,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Hi,
 
-Le mercredi 02 septembre 2026 =C3=A0 10:36 +0200, Marek Szyprowski a =C3=A9=
-crit=C2=A0:
-> On 29.08.2026 12:15, Paul Cercueil wrote:
-> > The BCM4330 is connected using CTS/RTS too, so add the 'uart-has-
-> > rtscts'
-> > property.
-> >=20
-> > Signed-off-by: Paul Cercueil <paul@crapouillou.net>
->=20
->=20
-> Indeed the CTS/RTS pins are used for BT on most of the ARM=C2=A0Exynos
-> boards,
-> as the "<&uartX_fctl>" property is assigned for pinctl-0. This is not
-> really
-> specific to i9100, so maybe this property should be added to other
-> dts?
+Florian, Stefan and other Broadcom engineers, any thoughts about this
+series?
 
-I can add it to all exynos4 boards that use the "uartX_fctl" property.
+Best regards,
+- Maíra
 
+On 16/08/26 11:05, Maíra Canal wrote:
+> vc4_reset() recovers a hung GPU by dropping the runtime PM usage count to
+> zero so that the V3D power domain goes down, and then taking it again.
+> Forcing the count to zero only works if the driver knows exactly how many
+> references it holds, which is why vc4 unconventionaly wraps every
+> pm_runtime_get_sync() call in a private refcount and mutex, making the
+> code cumbersome.
+> 
+> The BCM2835 PM block has exposed a reset line for the V3D block since
+> commit 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains
+> under a new binding."), added for exactly this reason, but vc4 never
+> picked it up. This series switches vc4 over to it and drops the private
+> refcount, leaving vc4_v3d_pm_get/put() as plain runtime PM wrappers.
+> 
+> The reset line is optional, so device trees that do not describe one keep
+> working: they get the driver-side recovery in vc4_irq_reset() while the
+> hardware is left untouched. Of the two in-tree platforms,
+> 
+>    1. BCM2835 gains the property in PATCH 4.
+>    2. Cygnus has no V3D power domain to begin with, so the power-cycle
+>       only ever gated its clock there.
+> 
+> PATCH 1 is an independent cleanup. "brcm,vc4-v3d" was never documented
+> and was never used by any in-tree device tree, so it is a candidate for
+> removal on its own. It can be dropped from the series if it turns out
+> to be contentious.
+> 
+> This series was tested on the Raspberry Pi 3B and 3B+.
+> 
+> Best regards,
+> - Maíra
+> 
+> ---
+> Maíra Canal (4):
+>        drm/vc4: Drop the undocumented brcm,vc4-v3d compatible
+>        dt-bindings: display: bcm2835-v3d: Add an optional reset line
+>        drm/vc4: Use the reset controller to recover from a GPU hang
+>        ARM: dts: bcm2835: Add the V3D reset line
+> 
+>   .../bindings/display/brcm,bcm2835-v3d.yaml         |  3 ++
+>   arch/arm/boot/dts/broadcom/bcm2835-common.dtsi     |  1 +
+>   drivers/gpu/drm/vc4/vc4_drv.c                      |  1 -
+>   drivers/gpu/drm/vc4/vc4_drv.h                      | 13 ++++---
+>   drivers/gpu/drm/vc4/vc4_gem.c                      | 40 +++++++++++++---------
+>   drivers/gpu/drm/vc4/vc4_irq.c                      |  7 ++--
+>   drivers/gpu/drm/vc4/vc4_v3d.c                      | 37 +++++++-------------
+>   7 files changed, 51 insertions(+), 51 deletions(-)
+> ---
+> base-commit: 09b47186a4164f3aaa3591313f80794443117342
+> change-id: 20260812-vc4-reset-control-cddf3eb8a9e9
+> 
 
-> However I wonder if Samsung UART driver actually use this "uart-has-
-> rtscts"
-> DT property? A quick "git grep uart-has-rtscts drivers/tty" shows
-> nothing
-> related to Samsung Exynos...
-
-It looks like it does not. I still think the DT property should be here
-but I won't fight over this.
-
-Cheers,
--Paul
-
->=20
-> > ---
-> >=20
-> > Notes:
-> > =C2=A0=C2=A0=C2=A0 Changes:
-> > =C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 V1 was: "ARM: dts: samsung: exynos4210-i9100: Fix Bl=
-uetooth
-> > node"
-> > =C2=A0=C2=A0=C2=A0=20
-> > =C2=A0=C2=A0=C2=A0 -v2: Drop max-speed property. It's only supposed to =
-be used in
-> > some
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cases, which don't app=
-ly here. As this was the "fix" for
-> > getting
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Bluetooth to work on m=
-y device, which will be applied to
-> > the
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 driver instead, the Fi=
-xes: tag was removed.
-> >=20
-> > =C2=A0arch/arm/boot/dts/samsung/exynos4210-i9100.dts | 1 +
-> > =C2=A01 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-> > b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-> > index 8a635bee59fa..95964be7daa8 100644
-> > --- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-> > +++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
-> > @@ -875,6 +875,7 @@ &serial_0 {
-> > =C2=A0	status =3D "okay";
-> > =C2=A0
-> > =C2=A0	pinctrl-names =3D "default";
-> > +	uart-has-rtscts;
-> > =C2=A0	pinctrl-0 =3D <&bt_en>, <&bt_res>, <&uart0_data>,
-> > <&uart0_fctl>;
-> > =C2=A0
-> > =C2=A0	bluetooth {
->=20
-> Best regards
 
