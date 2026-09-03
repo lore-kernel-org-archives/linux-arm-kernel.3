@@ -4,152 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05CAC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04594C624D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 10:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWzDrNxzthWPdsVZldsnWvMx9IcczP+HYo1LJtEAQps=; b=QUeXjVen6L59udWbxGmq3Vv4IX
-	476Tbw15ljtcOedYOqKfJJ7Q49Df5VBhqX2MXIiQN5/rmd4GERoXxJjCkF12hv04WXYoZ7PqlRlMY
-	QNRrKkXj+bhauP8GpJJ2lO5wEykRCFZ5s6NvUFFT/rZUWrPGkX7/7ft9lH2iyMJn5z6wQ1O1iNHJ9
-	aDpgTKx1TJMC3A0ItI9zi6UPn9RaPeiY+b6SDvryAqzhX90pIdcxTXrmwR0hGSiPGMwqZcDnjLEuL
-	pcw6V9DGp7t8DvlYk7j2mGU5j37/Cg0ZkgQGQxVYmsnL0ynVJHDNZC5HRuTK/nuGauxtc13y23hgr
-	K+6Hizow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqlCfc/odtqtQ4f+gwFdaIYfMSb13BJawJICIco6etk=; b=Z7z/9H7YRV8NYGEk/hSEVWh0g4
+	ZKs42Hzp9KdYLtE5XD81hgNTiJtsc/9QKqFoJsyfOAhwvR3XmHyKekL78FSJF9FUDpsuMXoiWGSWP
+	nalBom8pKtosa2TDYtydq+cvToD8o0GOWiYtc9IMAXvh8Y3gK+KjZzkn5qGo3Z7wkQ6/oGuRUqoFN
+	txyTQ1mS6i6Irk9Zq6Hfmv/Kp8zNAFtKKBjK6Nq5OELwt4mLR1Vz4iaFPdb7o+/HielROM4ERBmQL
+	33LXNwOUVDVu9k13CEhsvxEcKvd2Pwle/kGYQx55plKnmQ4ZWdMXv4c+eVkK9fxPevYoesaTPB7VQ
+	8ONQ+bOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24al-0000000H4tx-1o6U;
-	Thu, 03 Sep 2026 10:22:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x24aj-0000000H4ta-1ncp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 10:22:46 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683AHABM212406
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 3 Sep 2026 10:22:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=MWzDrNxzthWPdsVZldsnWvMx
-	9IcczP+HYo1LJtEAQps=; b=E/t0/AIQJNXxavIvF4DSXyZj0XFMxzjyKFoBboju
-	8R6N1Darux0BmyjgQfyvsnYAbW88jDZ7/pMCxRBwQq73SRc0dKaeRXwoRvx4oU69
-	xYnX4LRp+pFaJqQJ/hXZWq7B7/KqK4Haa6o6ClZv4ZzJbrgzFYLuzG86M4ivfKzz
-	XR466xDjYKLFSGmrfvDG21XyL4wP9hQxCmouI8W7tvI6qYo6XovD8cD9inVfgmqg
-	Nio5fA/LHms+iuYTVX9x1HgmlOcKicjFFZhW8nA70nFniMJ5/CFchnI3w7vE1sUW
-	3To+/4/ZTDrHbDajvLFfE0A2Tc1w10AR+/bJy76HS7MFVA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gf1pyhdv2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 10:22:44 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9308eafb465so570247285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 03:22:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788430964; x=1789035764; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MWzDrNxzthWPdsVZldsnWvMx9IcczP+HYo1LJtEAQps=;
-        b=GyImWcebiw+WiSBUjX2PumwKrSwV6zmbiOuFeGRMTvmKkEc5hlAfyKKQTBDyqziy/e
-         bn/kUmswYpHq7TX8ileBSWEG8bexm3dcc0hIAk4LyA6DmOZWNN57jqgWzIW4KIrMUxBX
-         6134TU8PMnW57Yrmy39HGJsT41ZE16/DziJuiegCHsC5ku24oFc4pdyPOjic8o1A9mLx
-         jcsvRbunOoDWWoInGJGlqX1Q4D7ej6w+dTO0Is/xfAV712N2/blG2ixIwhj1aNq5rjx0
-         hK7tCColVedYJDfz4z+YNRQkyyDh+478/83RuNIdMbu4EMXBOPmSYQQdJO85Mq1HrKwb
-         fMGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788430964; x=1789035764;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MWzDrNxzthWPdsVZldsnWvMx9IcczP+HYo1LJtEAQps=;
-        b=QegjlxnM33lHxv8WErO6xmosjCSZvvtc1GJhK+6Hld1oAl1AeYSFr86Do3UdLtjfiN
-         UpG8xoe0EQ3jk7ZOrlbBGUVFdBB4fVSOzS81/0BmXQHb6YmOXx1u5g29sPNodeTIlOP3
-         LQ6+Vtv6q7+iFBUdNkzOYhyNS4XxIREi5K/gnjOzhJSh7Aik6pNKjH7i9iOd8vmt4MMq
-         Uqih3+oz7dVdWFomPBtxa4cZmYcA5fvdpKwIbdnnU1/zAdrwPAnJZbWdr+IuRxQFFjR5
-         12QMz0zkWRcYfi77aTKqk2XA7XMb3JJk7lY7n7WnE543XRZaJlpYf1vYy0tUll3+kMBS
-         qmLw==
-X-Forwarded-Encrypted: i=1; AKwUvBwbiFtW4HagJNcN8b+uuqZvyRE7/WPTJS1A8o0ngymXO0KC5U6sNtiQLjEC8Pl42KEQ7Np/KnftA0RrEppyMB66@lists.infradead.org
-X-Gm-Message-State: AFuF++nhhE62fzyBx6P2+n6OC3Zi32Bmp8lgAYPwclzWY/YnlGYAVvct
-	kktv2ApRb+zQ5yQ/lejRO+Ftc0ilIKeWZ3v1fZfzI+SITmUXZZUfmieeD7ni6H2Q/iUAkZQAn0G
-	phno59anZuARGFxOZhs0+b2Bz53rvPsL7Cl3lF3tZ6ge9HolY6rDMea01I8JJbm9WG/ldtgksIo
-	m0Zg==
-X-Gm-Gg: AYBFou3SFJe+OpUvcu7dEXuk+8zexNvvZL8m4YjX9wFh2bPE2U4A47AVjsmWHe90cel
-	sppNkrXB7gt4k5zySfvMHfrR/u5Rj6JQxrnC3SR134GbGE8tWh4XmgTZpyri48oV5uWMxTmFY05
-	kkuW3TVXBZC6cGIIV7xyep9g6zBhph5uIZRIBup+BVJDAvBto+x+S2Y2w5UmVitAA3C5wK4HIA0
-	BTp02hF+dTwQxGOSj0TtkKKXktCCOgOKO0A0m7MRO0v4Ynly4gS0vdtuvjHz8GV1BYbJ7dHNW6e
-	olRq08ptD18H4AeO4Mjdhx1ZrINzo6TfVBb+F7thF/EUo/WpYSR+TSfalizi8nBq70oA3C/Uy1j
-	v3BWnfq2DzIuuSw==
-X-Received: by 2002:a05:620a:6010:b0:939:6132:62cc with SMTP id af79cd13be357-93961326388mr1435826785a.27.1788430963429;
-        Thu, 03 Sep 2026 03:22:43 -0700 (PDT)
-X-Received: by 2002:a05:620a:6010:b0:939:6132:62cc with SMTP id af79cd13be357-93961326388mr1435820785a.27.1788430962820;
-        Thu, 03 Sep 2026 03:22:42 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.170.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cee5e589bsm55667075e9.13.2026.09.03.03.22.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 03:22:40 -0700 (PDT)
-Date: Thu, 3 Sep 2026 13:22:37 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Georgi Djakov <djakov@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
-        Guru Das Srinagesh <linux@gurudas.dev>,
-        Taniya Das <taniya.das@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-gpio@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v5 07/15] interconnect: qcom: Add Kuno interconnect
- provider driver
-Message-ID: <xkyj7x2chonmrovnwaosd7sci2txi7bsbpvv522uzxdonkke7y@5kpqjal3i6nm>
-References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
- <20260827-kuno-soc-support-v5-7-6d47636a8f09@oss.qualcomm.com>
+	id 1x24bH-0000000H4zR-2Hca;
+	Thu, 03 Sep 2026 10:23:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x24bF-0000000H4yW-0HZz;
+	Thu, 03 Sep 2026 10:23:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEEC01596;
+	Thu,  3 Sep 2026 03:23:10 -0700 (PDT)
+Received: from [10.164.19.53] (unknown [10.164.19.53])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4FE2E3F673;
+	Thu,  3 Sep 2026 03:23:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788430994; bh=iUywY2IiysJfGPAbilGGDVIEIyRtSo6UGII8tss/bb0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EqxlNHGTD3e9aQqDNFqnK+pMnPi2j8ej/8JGUW+djmFF3bt0d5I2VtIs0GgjASjO3
+	 cxcu8w8nRwPZbX3asa0BnIJkvLxgpsVdKvWfRLKvulXt2387yNxUQU58hZZgNcxGvt
+	 zERHDI1EDorHtjtwpyhBIGPdC5Ajwhh57/jwuGlw=
+Message-ID: <0e9c9426-9b52-485e-b3b6-1fe19c8c2bb2@arm.com>
+Date: Thu, 3 Sep 2026 15:53:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260827-kuno-soc-support-v5-7-6d47636a8f09@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDA4OSBTYWx0ZWRfX1KrKnlQ0Hfpw
- aN7661w6Bw8CsMXxM20nj0xojrn8yPpElJy9AhwIp7xIzqfeGuhywd2+X4GJ0cgfqwb9lu8sBJg
- Xdi8pHhMr2HWcA9i6na/gh+Sq9l+/mdic2lGEh0oNz3svfQk8MTSHUs6fQHg2XoiLLA6OlR4wko
- iBrBZKds9PB4e3WzEnEKvkF11Wgqk8Nw+WcDNQuw+uIBaz512nIGzc69JqaCz3QgTW9k8MZhMp9
- pfgxK03KHyLqf7/IJvkxbO0Lws2snXi6FuAHn/noNaMomB6MJrNI/GnZUgVIZHsfAEqkwuu88kA
- 8cjvkVrjOiJnZlESUjVeDoAtSNxN7aYDrMdjCrnUujrIK7d56fL7Dtc8hyC/F4i1FMg+lQcZnUq
- QlP6PKOXxFFfpYqghyfJh0RdP9tSFT+jMhtHW0V0cG5EJIKjb5yh3jdyy0uVZW5DwoAzUUTBfQd
- p30meCLfoB81dkD/jHQ==
-X-Proofpoint-ORIG-GUID: -nEAebwTkuloC2VtTzjSEUoycdPpz9oG
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDA4OSBTYWx0ZWRfX2kf1xV11Kw+L
- 9amZf8di7MOMN6yIRfcEeMdmZOX1pttfIm3pcZt5FhuQZN3Hths2z2NlyZYVJRhDkG0BCKfJM6C
- ZBhBDLsug1ZK73JE9F9mDsId14TkAS4=
-X-Proofpoint-GUID: -nEAebwTkuloC2VtTzjSEUoycdPpz9oG
-X-Authority-Analysis: v=2.4 cv=DMO/JSNb c=1 sm=1 tr=0 ts=6a994a74 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=q7XEBjOi5DRkXzmV0jSBjQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=pe0felBmJweB1gBNqhwA:9 a=CjuIK1q_8ugA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-03_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 bulkscore=0 priorityscore=1501 clxscore=1015
- lowpriorityscore=0 suspectscore=0 adultscore=0 impostorscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030089
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/6] mm/vmalloc: set area's page_order after allocation
+ succeeds
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@kernel.org>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+ <20260903-execmem-set-vm-perms-v0-2-v3-2-949b64a9f755@kernel.org>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-2-949b64a9f755@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_032245_523093_D0B8AA4C 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260903_032317_194497_F27E1D4C 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,16 +93,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-08-27 23:21:10, Hardeep Sharma wrote:
-> Add the interconnect provider driver for the Qualcomm Kuno SoC to
-> enable bus bandwidth voting on the platform. This includes the
-> aggre-noc and cnoc-main NoC instances with their associated BCM
-> nodes.
+
+
+On 03/09/26 2:58 pm, Mike Rapoport (Microsoft) wrote:
+> __vmalloc_area_node() calls set_vm_area_page_order() to set area's
+> page_order before actually allocating pages to populate the area.
 > 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> If allocation of large pages in HUGE_VMAP case fails midway, this leaves
+> the area with elevated page_order throughout the cleanup path.
+> 
+> There is no actual issue with this because the only place that currently
+> relies on area->page_order on the cleanup path is the loop calculating
+> the direct map alias range in vm_reset_perms() and it anyway skips
+> unpopulated pages.
+> 
+> But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
+> makes things very obscure, hard to reason about and error prone against
+> future changes of the cleanup path.
+> 
+> Move the call to set_vm_area_page_order() just before the successful
+> return from __vmalloc_area_node() where page order is guaranteed.
+> 
+> While on it, initialize local page_order variable with its declaration.
+> 
+> Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  mm/vmalloc.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 0380917392e68..22aa554d123f5 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3879,7 +3879,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
+>  	unsigned long size = get_vm_area_size(area);
+>  	unsigned long array_size;
+>  	unsigned long nr_small_pages = size >> PAGE_SHIFT;
+> -	unsigned int page_order;
+> +	unsigned int page_order = page_shift - PAGE_SHIFT;
+>  	unsigned int flags;
+>  	int ret;
+>  
+> @@ -3907,9 +3907,6 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
+>  		goto fail;
+>  	}
+>  
+> -	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
+> -	page_order = vm_area_page_order(area);
 
-Looks OK now, so:
+vm_area_page_order() returns zero in case !CONFIG_HAVE_ARCH_HUGE_VMALLOC. So
+it may happen that after this patch the page_shift passed to the page-allocator
+is > PAGE_SHIFT but that got rejected by vm_area_page_order.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+But that won't happen because for page_shift > PAGE_SHIFT to be passed to
+__vmalloc_area_node(), we need "vmap_huge" to be true, which needs
+CONFIG_HAVE_ARCH_HUGE_VMALLOC.
+
+Writing this out because CONFIG_HAVE_ARCH_HUGE_VMALLOC and CONFIG_HAVE_ARCH_HUGE_VMAP
+along with mixing variable names with vmap is extremely confusing.
+
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+> -
+>  	/*
+>  	 * High-order nofail allocations are really expensive and
+>  	 * potentially dangerous (pre-mature OOM, disruptive reclaim
+> @@ -3964,6 +3961,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
+>  		goto fail;
+>  	}
+>  
+> +	set_vm_area_page_order(area, page_order);
+>  	return area->addr;
+>  
+>  fail:
+> 
+
 
