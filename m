@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0A5C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5EAC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 16:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrUmjCwjo5DIxJ+vg0Sk0kvs/Wk7ygJAVHNpsizTEFY=; b=lgTQoBjNfkKmvPZMpJTyE+oXeB
-	x4LZfml15H/3/iXNkbjEJFk/aujXe+WL9QbrSeH4GOyAk/qidXVKx2M3s9MeuUQPH/9V0Me24/R2b
-	aVQuSuuY39rQK8BOur7XUqpgu6Q/3yplPkZzcZ2Cqona8u3N9hX6FO16C0XUsFxtvlkHbLY0lzLFT
-	/9Mk09Cb27kIrIzfGuCXE9iLlSRnH/hBNkxcZjIhbpvsCYBCvfh5/U4/l0KjXEXlXtKy5n0ccSEqW
-	YBIC/XRVayJAGPaNqOOvQ9NsSQI/wegn44elFVIE98pyRb5IthR3IBng/OCjyaiqexHT2W9PH/WBW
-	7W2RxiFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PE4M5bZ8qa5ONlWyjoO6PT9YT/rm032gR13k1+hQA+s=; b=tzHkS3IQnMJmxjFcbzrh8KEz2b
+	gzDmoqQ61FUg40Jy75rXT56pdwWS+1yaZHTiiw8vnK2FrS4xld15HeugNQqrkqdE39ahUFvoFQy5B
+	IQmRcHzylfCH8mhYOe9+GbuX2QPvYfsS3w/sqcaW0dw/ooeN15zfzLY/fnv5SE3YT2clnKr1kJxrQ
+	WIv63w59gCaTCsiWZ02/FRGYN+STgLmPW2ycKSC/ZNElTWB2pnKmAn3qRPFgoLLJBmFq3JraVRAVS
+	BOl69/aNwTgezRpMdasi0bupHO8hzrog4SrRVE6wTVlOynwQ9c14qneiG0eY6olSIEC0NkSt8LTRZ
+	jSi6ALwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AZS-00000000Ctd-0JT3;
-	Thu, 03 Sep 2026 16:45:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2AZP-00000000Csw-1mmF
+	id 1x2AbF-00000000D21-1t7W;
+	Thu, 03 Sep 2026 16:47:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2AbC-00000000D1K-0OfR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 16:45:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9D931596;
-	Thu,  3 Sep 2026 09:45:42 -0700 (PDT)
-Received: from [10.57.6.2] (unknown [10.57.6.2])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FBA83F673;
-	Thu,  3 Sep 2026 09:45:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788453946; bh=/CRbtrA+vjZ5tpi+PPVd9H6w5y8wPTba5LjyadUSSnA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SR7TXHUzQxDvckWQXIc+kCOdTYGWt1Gaj//NszCiurRY4Z6SAdqDJlunSvSprXTnD
-	 G+ho6hqXrCwCQrp/yne6kVlqaExRdp+vclcF/zIL/zaHD1NzPhiw1MEKzTFaOYDgfu
-	 46QXLVXyg1Xi5s2nfL5Qn/gtPRKd+Mye1S/UAGRw=
-Message-ID: <139b273a-d868-4d82-92b6-cccfb0048c44@arm.com>
-Date: Thu, 3 Sep 2026 18:45:36 +0200
+	Thu, 03 Sep 2026 16:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PE4M5bZ8qa5ONlWyjoO6PT9YT/rm032gR13k1+hQA+s=; b=I23Lcsn3E+BTZqmu+d5CGfgHwK
+	3qS6wiCrS19b//RLzh7QxvWrqznkylmRe1kmkX2xuzrC1DhZrPi+XVYTpkPfwh+4CAAfHo+/iPG1g
+	X3wTaXN/QJ6sKW7EmH9x50yocWgsxMCxGEXX1+TQUR6JZZcSX6wGKgBaQFVQc3ZGNMOkOlRVU4bbC
+	oef/ChSoq+1JtplljCZYXw/S8hk1QUnR9AHu8CzVdiMaLPu61MKtQgZt+4faKdoy0dO91k0lnwfrx
+	eOOA+mxx+nnaHy7Lhg0GuOeZN9zcCmj+X+fZ09c3I5MPrQfLBT2df/qW+bDfqxrGafoaGcqBoOGhB
+	m9uNY41g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43748)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1x2Ab3-0000000013P-2RN0;
+	Thu, 03 Sep 2026 17:47:29 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1x2Aay-000000007Y3-2v7X;
+	Thu, 03 Sep 2026 17:47:24 +0100
+Date: Thu, 3 Sep 2026 17:47:24 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
+	Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
+	Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>
+Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <apmknG55qFAn8EPf@shell.armlinux.org.uk>
+References: <20260814085118.OPEA_Ssn@linutronix.de>
+ <20260903160710.vVf4gEL2@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 08/25] arm64: Initialize POR_EL1 register on
- cpu_resume()
-To: Linu Cherian <linu.cherian@arm.com>
-Cc: linux-hardening@vger.kernel.org, Andrew Morton
- <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-8-743ad31b2c8f@arm.com>
- <apkMDaRKqX3TTINV@a079125.arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <apkMDaRKqX3TTINV@a079125.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903160710.vVf4gEL2@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_094547_551531_08885F81 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260903_094738_432298_77B64FF4 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +97,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2026 07:56, Linu Cherian wrote:
-> Kevin,
->
-> On Tue, Aug 18, 2026 at 03:08:50PM +0100, Kevin Brodsky wrote:
->> From: Yeoreum Yun <yeoreum.yun@arm.com>
->>
->> The POR_EL1 register is reset to an unknown value after cpu_suspend().
->> Since POR_EL1 always holds POR_EL1_INIT when entering cpu_suspend(),
->> initialize POR_EL1 with POR_EL1_INIT before cpu_do_resume().
->>
->> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> ---
->>  arch/arm64/kernel/sleep.S | 12 ++++++++++++
->>  1 file changed, 12 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
->> index f093cdf71be1..e0a6ad85cd24 100644
->> --- a/arch/arm64/kernel/sleep.S
->> +++ b/arch/arm64/kernel/sleep.S
->> @@ -3,6 +3,7 @@
->>  #include <linux/linkage.h>
->>  #include <asm/asm-offsets.h>
->>  #include <asm/assembler.h>
->> +#include <asm/kpkeys.h>
->>  #include <asm/smp.h>
->>  
->>  	.text
->> @@ -134,6 +135,17 @@ SYM_FUNC_START(_cpu_resume)
->>  	/* load sp from context */
->>  	ldr	x2, [x0, #CPU_CTX_SP]
->>  	mov	sp, x2
->> +
->> +#ifdef CONFIG_ARM64_POE
->> +alternative_if_not ARM64_HAS_S1POE
->> +	b	.Lskip_por_set
->> +alternative_else_nop_endif
->> +	mov_q	x2, POR_EL1_INIT
->> +	msr_s	SYS_POR_EL1, x2
->> +	/* isb can be skipped since cpu_do_resume() will do it. */
->> +.Lskip_por_set:
->> +#endif /* CONFIG_ARM64_POE */
-> Would it be better to move this under__cpu_setup ?
+On Thu, Sep 03, 2026 at 06:07:10PM +0200, Sebastian Andrzej Siewior wrote:
+> On 2026-08-14 10:51:18 [+0200], To linux-arm-kernel@lists.infradead.org wrote:
+> > Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
+> > "sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
+> > delivered with disabled interrupts and perf intrastrucure expects
+> > disabled interrupts while the overflow callback is invoked.
+> > 
+> > The callback then sends a SIGTRAP signal for which it acquires
+> > sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
+> > must not be acquired in atomic context.
+> > 
+> > Delay the event callback until the return to userland.
+> > Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
+> > actual callback invocation to task_work_add() callback. This callback
+> > invokes the architecture defines callback arch_hwbp_send_sig().
+> > This requires struct callback_head and the functions require
+> > ARCH_NEED_PERF_HW_NOTIF to be defined.
+> > 
+> > This was reported against ARM64. ARM and LongARCH follow the same
+> > pattern are also converted.
+> > 
+> > Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+> > Reported-by: Waiman Long <longman@redhat.com>
+> > Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
+> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> 
+> Did this get lost, should I repost it or is there something obviously
+> wrong with it and nobody wanted to hurt my feelings by telling me?
 
-I didn't think about that, that's quite neat as it avoids having to take
-care of the resume path separately. It also feels fairly logical as
-POR_EL1 should be configured very early (since it impacts all accesses
-once enabled). Will do in the next version, thanks!
+What do you expect to happen with this? Which arch maintainer should
+apply this patch that affects three different independently maintained
+architectures?
 
-I was concerned about accesses to POR_EL1 being trapped, but in fact
-there is no EL1 control to trap it so no concern there. I realised I
-forgot to set HFGRT{R,W}_EL2.nPOR_EL1 though... I'll fix that up in the
-next version. (This has no effect when running at EL2 with VHE so I
-didn't notice that beforehand.)
-
-- Kevin
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
