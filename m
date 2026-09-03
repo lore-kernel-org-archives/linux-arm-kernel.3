@@ -4,104 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE0BC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 17:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4485C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 17:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oBzdii0EUHFGQFKd8zeKRUm0f/svlYti0FerJr5HoZQ=; b=mRU7DkbTyRgEoyGZMDmxUJdNe4
-	BatmKBBoKB9+ivOmgd1v9HI4UMcsSyARBu0Uyld8+DrBYEjgMFhIMzj5w5FC/pOgbya6TXsGCVktF
-	uNSXIZB9Z60ylIAoUB8slBfpOkW6QmuGfXlVmd9zWwnMYvHt3X8lRymDPXe9PCdRa4LCv+69DtsC6
-	cy0O57+3Bo/ZnGry7rlXSHhvpCBf6iynO4vFNHcP4IttEt+XCDRy1qb1oCEj+qpmnVIX/Dq10LH9r
-	QW/2eQjbMKX2tOqkc9tFt0WKCbsxi2G9l4iFKSeedqhxsVngElT23BnpdbW7CdHnvzTJzAAnkQ2MD
-	7U0O1m4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MgMZfjHtJWGskJ7iDZWmY8Oed8R/GMs4VyOX/TuiH1U=; b=YA78ha05hkBqHFtaJL74ujIhOA
+	oxmGzoceGuC3j4QlfSjpreSrd5yiW3cq3VRYCwsEX3v22SurmFWbRy6ftfos1yK/f0Dn2Ai5S8rS1
+	pZKGTooFIOSbfxMrKJvuwSio7vkpyZqKFIsq0bR37yiLOLazPwxnmdYmM5Popyp2xGLST29z0e25g
+	C/RxJC5QCGajwBwzJGjjxDRY5h0kkRfkn3O3xs+MItb+/Ymey2SGWR9tPA0GW4DmeVG6qJ0GHBITl
+	AtN6vEzaWlY1TiJJu7dVMG7MmmKAf8e14A2pZ533saQHk9pbIbv+0V1+XpeNZPDR5A3rF1oLZVcsu
+	gGOEqdLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BGR-00000000HQ2-1lY1;
-	Thu, 03 Sep 2026 17:30:15 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1x2BH6-00000000HWn-2aJo;
+	Thu, 03 Sep 2026 17:30:56 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BGO-00000000HPN-0z9N
+	id 1x2BH4-00000000HWE-0Lyq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 17:30:13 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2d91518a63fso794385ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 10:30:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1788456610; x=1789061410; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=oBzdii0EUHFGQFKd8zeKRUm0f/svlYti0FerJr5HoZQ=;
-        b=Ezcc4OBhuWVD/eENezZQyD5POZnU8oCou84DsS4AZrNKK2bh/3R+K9KmMuwmiFU5HK
-         VeuA2Q9Qi+vEj+dy0Krs5fCN7/ZR9/4WpYygMq/dC1MM9WChuFU10wgG/1OhtQIyvotX
-         Ygc40UPF0gSTjDGxumDo9DLvMDAEiet7aKLvTqBRelgpPfqy0PmNk48c4Rmmn0S8Aau4
-         7hkWQAtLj4lF5hr9JzADoA4VMj5TydP/PIH8KwSxuTFkQ04RuGlyAv9J09L6mXjnTPYu
-         O2Y7dXsFfkRRhryBxfrO0qq57wGHUqVW1tDuCCghjxS4lYtGnZm7rlUwGIT0FqfxFGao
-         LMbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788456610; x=1789061410;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oBzdii0EUHFGQFKd8zeKRUm0f/svlYti0FerJr5HoZQ=;
-        b=GzEHm1CM3PvytaCbv56dxo83ky0Usbe0EMD1ACMv8/9iCDdu38i+3nTQ79DkHb8j9C
-         wxzyBv4ObvDD15OIp8din/Msi9GCU8ADbb0mf3u/cRa9MvgI+xlrC1+YXnqU3sIdmTV5
-         5JGbC6jNxBmy5fjOTMuURe2RG6+YvXbXfXSU29e7P1z3rCuRSPXn5kgDcRy5p2rdFE1+
-         h9eYhbzV24/HsMSPahVIoyoG2TfjiSeqIt79HxYejtPgQvpOovWo1tdyXhO8xMw8UYH+
-         AEuyQBNa8pUJ/6iBESao7Xb+Rqe+LyN4tfxSd3uvP7JS6350aO9Vk9dArdfNgSK2bG3f
-         LAJQ==
-X-Forwarded-Encrypted: i=1; AKwUvBxJVdGr7fI5+eqnvXHm2KBoHhhDDP2HqbtcQv2SstYQi/Tc+PgC4lRExDfkpL4V7MfllNjzmzWpzzbSYUqMnVju@lists.infradead.org
-X-Gm-Message-State: AFuF++nIU0waBDA6EotL31daQWHgWzT1FtU4Q1S21JI3/NQaLGg/ySsw
-	K1HzVBaINGCicBAD62+3qAs5gpGad+SwyYAyRHb40X1ietllzOvGA69n4u7uQWNaR5E=
-X-Gm-Gg: AYBFou1wbAx1LsQ8IUEOlO53lxyGh0m8hIdtqGHGeFQq/ZSaUHfPt4Xakk0gl/05ib7
-	x8+3lhlvatKQSJeNm2H4iiQMX0lQYkRknLL+hqsnQW0+5yldeBLIo3rTuupw5opg7UgCoPVVyGX
-	RF9MIsb4FcVSfGg4AJ1i20vFJGJI2X11VHW8+Byt85U/8mgXPos0r1VJqOnqnjGK6CyNO+dVBfi
-	a/8ll+xIIrODsJxv1a6TFeV0Ltiy9KoCXoA4QMdV41W/p0DxILMZvyUDUXUiMilVElxhbGZyll/
-	rjwIuKN/P78qidux9Gphs/L6MM8jLbIbVwPVy5Xtd3cTSlHv8AJHN8iYyfQ/nHHabUp3beqcAev
-	9EcAegnjWcDx50Kh5jclckYwkIRSZxls3WoXeewqsJgrGLSoZ1JkBbUqrz/amPktK4IQs4wcQeq
-	yEZ1X00xLCnlkEQZ/qEi4dN3MEsGumD48kBiSAsws2gAeBSf7iEhP8p2ATdcrhGZ6QGrAD0fXZT
-	Pc=
-X-Received: by 2002:a17:903:3848:b0:2d9:56dd:f804 with SMTP id d9443c01a7336-2db125f00c7mr7573775ad.13.1788456608541;
-        Thu, 03 Sep 2026 10:30:08 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:40c0:ec33:6266:c275])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2dafed70184sm13249205ad.75.2026.09.03.10.30.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 10:30:07 -0700 (PDT)
-Date: Thu, 3 Sep 2026 11:30:04 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: robh@kernel.org, krzk+dt@kernel.org
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-imx@nxp.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	b-padhi@ti.com, Andrew Lunn <andrew@lunn.ch>,
-	viresh.kumar@linaro.org
-Subject: Re: [PATCH v15 2/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
- subnode support
-Message-ID: <apmunD8bkKOu5_Vm@p14s>
-References: <20260721204704.400781-1-shenwei.wang@oss.nxp.com>
- <20260721204704.400781-3-shenwei.wang@oss.nxp.com>
+	Thu, 03 Sep 2026 17:30:55 +0000
+Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id 3D481A4684;
+	Thu,  3 Sep 2026 17:30:48 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 362BB1B;
+	Thu,  3 Sep 2026 17:30:43 +0000 (UTC)
+Date: Thu, 3 Sep 2026 13:31:46 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+ loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>, Ian Rogers
+ <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, "Luis Claudio
+ R. Goncalves" <lgoncalv@redhat.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, James Clark <james.clark@linaro.org>, Huacai
+ Chen <chenhuacai@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Oleg
+ Nesterov <oleg@redhat.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Waiman Long <longman@redhat.com>, WANG
+ Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Clark Williams
+ <clrkwllms@kernel.org>
+Subject: Re: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <20260903133146.07095885@gandalf.local.home>
+In-Reply-To: <apmknG55qFAn8EPf@shell.armlinux.org.uk>
+References: <20260814085118.OPEA_Ssn@linutronix.de>
+	<20260903160710.vVf4gEL2@linutronix.de>
+	<apmknG55qFAn8EPf@shell.armlinux.org.uk>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260721204704.400781-3-shenwei.wang@oss.nxp.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: q5rtu1fiqy3jfjswxfikew81wiyencsm
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: 362BB1B
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19SQN1/iG251VKiSvCm90J/LH6Jif8jlZI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=MgMZfjHtJWGskJ7iDZWmY8Oed8R/GMs4VyOX/TuiH1U=; b=qqcyYnkg3p5F+UTVr/cgexJ1tZY0fAWBiki/WGjHsZ4h16riO0oLZP/UfGe0xdxU3KW71p1uZSD7oYxxFDSgdWxLofSFJMJqQc/uaEYXNDRZWgh/UmAbFyYg8nP9CFLA5mBn8hJD5OJy3yIsgkoNMnzTnL7skByDfjwMvD2e0vM=
+X-HE-Tag: 1788456643-677296
+X-HE-Meta: U2FsdGVkX18UDoUfH7MFH18LwOE6g10qW7dTkby7HjdB9X7BAG5qm8DxHVQQTPdtxGKneSZa9RInj6HuOfgU1jrR8yX6yW3K7fnvEf1/MlRgMD8jOUBQx2YsgQNEjrBWUvVSNqdIiYbJjJkh1E2120a+kJoPNZZT/6uir5B8TTX2BRq8V1KcQNPBobM5W6B+YvVAD/4d87POi8pasBUVzpHtLQvIraki2FkTv9BVPzITzzujsbAHvurHpIl46Ow6Cp6gV9QxwlxCX/VatqdB+E3ir7R0pC9W2Vd/V6ov65gCFH6Ja9hHLtsOf44MNChOQq5BQmWAckwdYllkNqTRN9/3dNiQVT0GA4ajriVWf566cpaX5UWqBgeoslbvLntd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_103012_290541_3B89EFFC 
-X-CRM114-Status: GOOD (  32.38  )
+X-CRM114-CacheID: sfid-20260903_103054_293928_163AEECB 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,251 +85,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof and Rob - I'm seeking your advice on the best way to define bindings
-for this use case.
+On Thu, 3 Sep 2026 17:47:24 +0100
+Russell King <linux@armlinux.org.uk> wrote:
 
-Here is some background:
+> What do you expect to happen with this? Which arch maintainer should
+> apply this patch that affects three different independently maintained
+> architectures?
 
-The transport mechanic between the kernel and remote processors can take
-different forms.  As of this writing we have 'glink' and 'virtio'.  The protocol
-that runs on top of the transport mechanic is RPMSG.  All this is already
-implemented and stable.
+Looks like the patch should be broken up into a 4 part series.
 
-In this use case, we have GPIO controllers connected to the remote processor and
-we want to make them available to the kernel.  We also want to use the existing
-virtio-gpio protocol on top of RPMSG, allowing the kernel to interface with the
-GPIO controllers as if they were virtio-gpios.  This patchset is about providing
-a driver that will enact the virtio-gpio procotol on top of the mechanic used
-between the kernel and remote processor.
+One to add the ARCH_NEED_PERF_HW_NOTIF code to the generic code.
 
-Shenwei has proposed some bindings (below).  I think they can be improved to
-take into account the transport mechanic and be closer to what virtio-gpio
-currently does.  I'm proposing something like this:
+Then one for each architecture to add the code needed to set that.
 
-                        $(transport) {
-                                compatible = "$(transport),rpmsg";
-                                #address-cells = <1>;
-                                #size-cells = <0>;
+Then the architecture maintainers could ack their patch and the perf
+maintainer can pull it all in.
 
-                                gpio {
-                                        compatible = "virtio,device29";
-                                        reg = <3>
-                                        gpio-controller;
-                                        #gpio-cells = <2>;
-                                        interrupt-controller;
-                                        #interrupt-cells = <2>;
-                                };  
-                                gpio {
-                                        compatible = "virtio,device29";
-                                        reg = <4>
-                                        gpio-controller;
-                                        #gpio-cells = <2>;
-                                        interrupt-controller;
-                                        #interrupt-cells = <2>;
-                                };  
-                        }
-
-A complete example with a virtio transport mechanic would look like:
-
-m4_rproc: m4@10000000 {
-                        compatible = "st,stm32mp1-m4";
-                        reg = <0x10000000 0x40000>,
-                              <0x30000000 0x40000>,
-                              <0x38000000 0x10000>;
-                        resets = <&rcc MCU_R>;
-                        reset-names = "mcu_rst";
-                        st,syscfg-holdboot = <&rcc 0x10C 0x1>;
-                        st,syscfg-pdds = <&pwr_mcu 0x0 0x1>;
-                        st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
-                        st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
-                        status = "disabled";
-
-                        virtio {
-                                compatible = "virtio,rpmsg";
-                                #address-cells = <1>;
-                                #size-cells = <0>;
-
-                                gpio {
-                                        compatible = "virtio,device29";
-                                        reg = <3>
-                                        gpio-controller;
-                                        #gpio-cells = <2>;
-                                        interrupt-controller;
-                                        #interrupt-cells = <2>;
-                                };  
-                                gpio {
-                                        compatible = "virtio,device29";
-                                        reg = <4>
-                                        gpio-controller;
-                                        #gpio-cells = <2>;
-                                        interrupt-controller;
-                                        #interrupt-cells = <2>;
-                                };  
-                        }   
-                };  
-        };
-
-Let me know what you think.
-
-Thanks,
-Mathieu
-
-
-On Tue, Jul 21, 2026 at 03:46:45PM -0500, Shenwei Wang wrote:
-> From: Shenwei Wang <shenwei.wang@nxp.com>
-> 
-> Remote processors may announce multiple GPIO controllers over an RPMSG
-> channel. These GPIO controllers may require corresponding device tree
-> nodes, especially when acting as providers, to supply phandles for their
-> consumers.
-> 
-> Define an RPMSG node to work as a container for a group of RPMSG channels
-> under the imx_rproc node. Each subnode within "rpmsg" represents an
-> individual RPMSG channel. The name of each subnode corresponds to the
-> channel name as defined by the remote processor.
-> 
-> All remote devices associated with a given channel are defined as child
-> nodes under the corresponding channel node.
-> 
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  | 55 +++++++++++++++++++
->  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 53 ++++++++++++++++++
->  2 files changed, 108 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> new file mode 100644
-> index 000000000000..41eb2e149942
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> @@ -0,0 +1,55 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/gpio-rpmsg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Generic RPMSG GPIO Controller
-> +
-> +maintainers:
-> +  - Shenwei Wang <shenwei.wang@nxp.com>
-> +
-> +description:
-> +  On an AMP platform, some GPIO controllers are exposed by the remote processor
-> +  through the RPMSG bus. The RPMSG GPIO transport protocol defines the packet
-> +  structure and communication flow between Linux and the remote firmware. Those
-> +  controllers are managed via this transport protocol. For more details of the
-> +  protocol, check the document below.
-> +  Documentation/driver-api/gpio/gpio-rpmsg.rst
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - fsl,rpmsg-gpio
-> +          - const: rpmsg-gpio
-> +      - const: rpmsg-gpio
-> +
-> +  reg:
-> +    description:
-> +      The reg property represents the index of the GPIO controllers. Since
-> +      the driver manages controllers on a remote system, this index tells
-> +      the remote system which controller to operate.
-> +    maxItems: 1
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  gpio-controller: true
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#gpio-cells"
-> +  - gpio-controller
-> +
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio.yaml#
-> +
-> +unevaluatedProperties: false
-> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> index c18f71b64889..b9b559b186af 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> @@ -88,6 +88,34 @@ properties:
->        This property is to specify the resource id of the remote processor in SoC
->        which supports SCFW
->  
-> +  rpmsg:
-> +    type: object
-> +    additionalProperties: false
-> +    description:
-> +      Represents the RPMSG bus between Linux and the remote system. Contains
-> +      a group of RPMSG channel devices running on the bus.
-> +
-> +    properties:
-> +      rpmsg-io:
-> +        type: object
-> +        additionalProperties: false
-> +        properties:
-> +          '#address-cells':
-> +            const: 1
-> +
-> +          '#size-cells':
-> +            const: 0
-> +
-> +        patternProperties:
-> +          "^gpio@[0-9a-f]+$":
-> +            type: object
-> +            $ref: /schemas/gpio/gpio-rpmsg.yaml#
-> +            unevaluatedProperties: false
-> +
-> +        required:
-> +          - '#address-cells'
-> +          - '#size-cells'
-> +
->  required:
->    - compatible
->  
-> @@ -150,5 +178,30 @@ examples:
->                  &mu 3 1>;
->        memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
->        syscon = <&src>;
-> +
-> +      rpmsg {
-> +        rpmsg-io {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          gpio@0 {
-> +            compatible = "rpmsg-gpio";
-> +            reg = <0>;
-> +            gpio-controller;
-> +            #gpio-cells = <2>;
-> +            #interrupt-cells = <2>;
-> +            interrupt-controller;
-> +          };
-> +
-> +          gpio@1 {
-> +            compatible = "rpmsg-gpio";
-> +            reg = <1>;
-> +            gpio-controller;
-> +            #gpio-cells = <2>;
-> +            #interrupt-cells = <2>;
-> +            interrupt-controller;
-> +          };
-> +        };
-> +      };
->      };
->  ...
-> -- 
-> 2.43.0
-> 
+-- Steve
 
