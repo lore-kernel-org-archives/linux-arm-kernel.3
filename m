@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED230C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A7FC624DD
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 05:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L/zImZ6Sky7PwJWMPoWYX+vFO7OVXM9QKWIMA4fdEu8=; b=K5k4m4Rw3qQ6+b6b9qJEHgOLJi
-	/vKQzdt9QBFOz2c4hwD4FNczQg+rDVIPmFk6+l0dwTaR96uQ4mzhhkaU3GAfdAVJI3hXTwulRWoRP
-	LGhhzgBCuRHaer2zhJmE7GrOQcKsAamB8Dfh2KFUWMSRYGnUgtkujijNvjJXuU0hAT3oCZRc/+3UT
-	pOTxdrZry8q92julc4E0pjRyXJ/yvmaGQ0sk9AH13qeOO58G5Zfetpz/zH5FW3a7rHEGXaysi1zXX
-	HXDjhn6+T/GY84O1rIKbzt6m33AgG+7pWMrMoqcEtYEOc/g6o25gUjT05E1/ETNmc01I2N++tjXNa
-	E7c/V/SQ==;
+	bh=FwRfAN4FTJEPQqNsTQb4hJlAd0NIugy+RxUVr0Kzamk=; b=5EjbsZO7o0iZm2aYsJVjiVW1Kx
+	c3XIBqdtFV08CHrmA30ByJ4ghMZ3yS3vMWshH75heWpZUatTGxm0AaF3/htakWpJp+zfl00mp20uy
+	zO4qJQN52qxtNenKQrCZh9gIk1dKAMIR8WdrvTsQyTD2q9XOAKAIMQZoGqKcunnw7de9eOmNpn7Yj
+	iCvrR4I8zB4IoIlsoRTTxB8r3fA3/kVCPSucVekXnEl9+2u39Ty6sDpMR20jNSwAnKqkAxLQUwuJb
+	9eO9tz4NqJTVRIZSvPdcJ5VzBQ15k184H6SpEOtUvYNm1irX8hNY5e0Tz5rqaSBi3qT+b2fm2l3G2
+	M+X5iUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x20A8-0000000GPah-07I4;
-	Thu, 03 Sep 2026 05:39:00 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1x20A0-0000000GPQy-2eoh;
+	Thu, 03 Sep 2026 05:38:52 +0000
+Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x209y-0000000GPNd-1JEh
+	id 1x209s-0000000GPL3-3qIl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 05:38:51 +0000
+	Thu, 03 Sep 2026 05:38:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1788413930; x=1819949930;
+  t=1788413925; x=1819949925;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=eHmFtsWU5LjiwnO3niytJNP8sUYds/84ZFFIoQLM9gk=;
-  b=EFO5Y+UrFGIA440FEJLWKvGe4tE/5za+qmFZW49X0ExkQsl7zDF4hggf
-   zPIOgFj2lNXMpuJAPydojApCfcSuRQ0kJcETp5xGLg4YJb/zTHFyPF4XG
-   n+XVk2A+Jf9tlsLoCAfn7zWrXEWfaHsdfsrcW+EWzE64aj2azh6CxtPrO
-   IkYFoulWDZezUIoMp2px9zB1Nyf0/UbM6l3Os7kA6ep7MIbvFZd9rs8da
-   xxSNcjR4sRamP2KLNZ+opH0ZaFFRgypTtbLAzm9m3ncUrooELxWbLlpW8
-   4Efw9MH1E2ejItKb3Rz5zvkimRo2pyyDcscKB51spOe7C8IK+TW5/ao3k
+  bh=ngGDtfpm/5mhvpzqlcomRG1s4PNkluY8gIbRm8fwLA8=;
+  b=MPqFalqWKnrwQmRiqL21saY0VlksNPWgt//le8VExfXnMXUlY+mmXHFw
+   2snVxnjBYPTeoNu/eed+Ddniv2WtdgJt4EGQ9MFYHu+w+RKI+jvEFPaEB
+   0P32KhayRh381YbCv8UYI8+Am1klgRxUqyUoIUVeka6x7VAlyWJs6AUFR
+   iIcJUzYXrPuXLLWeSEHsJHZusVPPp9s9R+u0YX2ZEdZAsLi9VFvFNeNyI
+   U+JTZtIwJRnWFluDV+KxyD1zs96tNewRNObWt29Y9ch9FJ1djcD5BS+ad
+   E92o9zCYPgKYngbDtbe/PAKPqwPZ1baFoSLrMCEyeFM246z7PT50xb5eO
    w==;
-X-CSE-ConnectionGUID: HEUEMwveRnCWUrp8fs3GKg==
-X-CSE-MsgGUID: qBSeXy1OSCOZfkEsJKkYoQ==
+X-CSE-ConnectionGUID: DDf9oXC3TC2X0gsorOsd2A==
+X-CSE-MsgGUID: dMScLluUQ+ObmEElTn2C0Q==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:38:48 +0300
-X-CSE-ConnectionGUID: 5S1lyqeURkuJKJFGaAW5FQ==
-X-CSE-MsgGUID: IQLGvVf4RLesE2UPXjvhPA==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.3])
-  by ces01_data.me-corp.lan with SMTP; 03 Sep 2026 08:45:29 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 03 Sep 2026 08:38:47 +0300
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 08:38:43 +0300
+X-CSE-ConnectionGUID: NsHN44qGTJiJHqU79igiIA==
+X-CSE-MsgGUID: AHHKGvs0QmqFFmKhMvwnVg==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces04_data.me-crop.lan with SMTP; 03 Sep 2026 08:45:18 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Thu, 03 Sep 2026 08:38:42 +0300
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Thu, 03 Sep 2026 08:38:18 +0300
-Subject: [PATCH v2 11/12] i2c: designware: use separate `i2c_algorithm` for
- AMD_NAVI_GPU
+Date: Thu, 03 Sep 2026 08:38:13 +0300
+Subject: [PATCH v2 06/12] i2c: nomadik: add quirks max_len=2047 and
+ no_zero_len_read
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-i2c-fault-reporting-v2-11-fedeb91792e6@mobileye.com>
+Message-Id: <20260903-i2c-fault-reporting-v2-6-fedeb91792e6@mobileye.com>
 References: <20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com>
 In-Reply-To: <20260903-i2c-fault-reporting-v2-0-fedeb91792e6@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -74,8 +74,8 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260902_223850_696960_BDDBA437 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20260902_223845_239034_F5D0F2AA 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,86 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD_NAVI_GPU variant of designware I2C controller uses its own
-implementation of `xfer` method. Instead of checking flags in runtime,
-create a separate `i2c_algorithm` structure and put pointer to
-`amd_i2c_dw_xfer_quirk` directly into it.
+In Nomadik I2c controller, register I2C_MCR has 11-bit wide LENGTH
+field. Its maximum value is 2047, so this is the maximum length of a
+single message. It is less than the common maximum I2C message length in
+I2C subsystem (8192), so define a quirk in order to report the
+unsupported message without any attempt to transfer it.
 
+Zero length reading doesn't work properly on this controller, so add
+`I2C_AQ_NO_ZERO_LEN_READ` quirk flag.
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/busses/i2c-designware-common.c | 14 +++++++++++++-
- drivers/i2c/busses/i2c-designware-core.h   |  1 +
- drivers/i2c/busses/i2c-designware-master.c |  6 ++----
- 3 files changed, 16 insertions(+), 5 deletions(-)
+ drivers/i2c/busses/i2c-nomadik.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/i2c/busses/i2c-designware-common.c b/drivers/i2c/busses/i2c-designware-common.c
-index e934bcbe766042483874b3e43d10ffff30c59e04..4274bf809b3f4bff90139d186447256b01317951 100644
---- a/drivers/i2c/busses/i2c-designware-common.c
-+++ b/drivers/i2c/busses/i2c-designware-common.c
-@@ -886,6 +886,15 @@ static const struct i2c_algorithm i2c_dw_algo = {
- #endif
+diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
+index 9c7658148bd45ecdaef1f998558315580233555d..c36e9961e0a39e76386a6e20f6e0b6fec3d5b5a9 100644
+--- a/drivers/i2c/busses/i2c-nomadik.c
++++ b/drivers/i2c/busses/i2c-nomadik.c
+@@ -79,6 +79,9 @@
+ #define I2C_MCR_STOP		BIT(14)		/* Stop condition */
+ #define I2C_MCR_LENGTH		GENMASK(25, 15)	/* Transaction length */
+ 
++/* Controller hardware limitation of the message length */
++#define I2C_MAX_MSG_LENGTH	(I2C_MCR_LENGTH >> 15)
++
+ /* Status register (SR) */
+ #define I2C_SR_OP		GENMASK(1, 0)	/* Operation */
+ #define I2C_SR_STATUS		GENMASK(3, 2)	/* controller status */
+@@ -238,6 +241,12 @@ static int fault_codes[] = {
+ 	EIO
  };
  
-+static const struct i2c_algorithm i2c_dw_amd_navi_gpu_algo = {
-+	.xfer = amd_i2c_dw_xfer_quirk,
-+	.functionality = i2c_dw_func,
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	.reg_slave = i2c_dw_reg_slave,
-+	.unreg_slave = i2c_dw_unreg_slave,
-+#endif
++static const struct i2c_adapter_quirks nmk_i2c_quirks = {
++	.flags = I2C_AQ_NO_ZERO_LEN_READ,
++	.max_read_len  = I2C_MAX_MSG_LENGTH,
++	.max_write_len = I2C_MAX_MSG_LENGTH,
 +};
 +
- static const struct i2c_adapter_quirks i2c_dw_quirks = {
- 	.flags = I2C_AQ_NO_ZERO_LEN,
- };
-@@ -922,7 +931,10 @@ int i2c_dw_probe(struct dw_i2c_dev *dev)
- 		strscpy(adap->name, "Synopsys DesignWare I2C adapter");
- 
- 	adap->retries = 3;
--	adap->algo = &i2c_dw_algo;
-+	if ((dev->flags & MODEL_MASK) == MODEL_AMD_NAVI_GPU)
-+		adap->algo = &i2c_dw_amd_navi_gpu_algo;
-+	else
-+		adap->algo = &i2c_dw_algo;
- 	adap->quirks = &i2c_dw_quirks;
- 	adap->dev.parent = dev->dev;
- 	i2c_set_adapdata(adap, dev);
-diff --git a/drivers/i2c/busses/i2c-designware-core.h b/drivers/i2c/busses/i2c-designware-core.h
-index 025311c8662c612aaaf772fb223af38278217c90..9f3492717e18fe104d307cfc65293ae4b41251f0 100644
---- a/drivers/i2c/busses/i2c-designware-core.h
-+++ b/drivers/i2c/busses/i2c-designware-core.h
-@@ -316,6 +316,7 @@ extern void i2c_dw_configure_master(struct dw_i2c_dev *dev);
- extern int i2c_dw_probe_master(struct dw_i2c_dev *dev);
- 
- int i2c_dw_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num);
-+int amd_i2c_dw_xfer_quirk(struct i2c_adapter *adap, struct i2c_msg *msgs, int num_msgs);
- 
- #if IS_ENABLED(CONFIG_I2C_SLAVE)
- extern void i2c_dw_configure_slave(struct dw_i2c_dev *dev);
-diff --git a/drivers/i2c/busses/i2c-designware-master.c b/drivers/i2c/busses/i2c-designware-master.c
-index 936b9150754e85a1bac2d17a0fa65f6963e4ef3e..f029aa1eadbf83d304fc73b038e92f258e2148a1 100644
---- a/drivers/i2c/busses/i2c-designware-master.c
-+++ b/drivers/i2c/busses/i2c-designware-master.c
-@@ -291,8 +291,9 @@ static int i2c_dw_status(struct dw_i2c_dev *dev)
-  * Initiate and continue master read/write transaction with polling
-  * based transfer routine afterward write messages into the Tx buffer.
-  */
--static int amd_i2c_dw_xfer_quirk(struct dw_i2c_dev *dev, struct i2c_msg *msgs, int num_msgs)
-+int amd_i2c_dw_xfer_quirk(struct i2c_adapter *adap, struct i2c_msg *msgs, int num_msgs)
+ static inline void i2c_set_bit(void __iomem *reg, u32 mask)
  {
-+	struct dw_i2c_dev *dev = i2c_get_adapdata(adap);
- 	int msg_wrt_idx, msg_itr_lmt, buf_len, data_idx;
- 	int cmd = 0, status;
- 	u8 *tx_buf;
-@@ -926,9 +927,6 @@ int i2c_dw_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
- {
- 	struct dw_i2c_dev *dev = i2c_get_adapdata(adap);
- 
--	if ((dev->flags & MODEL_MASK) == MODEL_AMD_NAVI_GPU)
--		return amd_i2c_dw_xfer_quirk(dev, msgs, num);
--
- 	return i2c_dw_xfer_common(dev, msgs, num);
- }
+ 	writel(readl(reg) | mask, reg);
+@@ -1161,6 +1170,7 @@ static int nmk_i2c_probe(struct amba_device *adev, const struct amba_id *id)
+ 	adap->class = I2C_CLASS_DEPRECATED;
+ 	adap->algo = &nmk_i2c_algo;
+ 	adap->timeout = usecs_to_jiffies(priv->timeout_usecs);
++	adap->quirks = &nmk_i2c_quirks;
+ 	snprintf(adap->name, sizeof(adap->name),
+ 		 "Nomadik I2C at %pR", &adev->res);
  
 
 -- 
