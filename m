@@ -4,71 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E020BC624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C593C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 20:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBZx/5TmNAnkduMjh1UcTzxesGmjDXOANosYgLsKvPE=; b=KBqfO2+GyOQ6RmGjopDRaliDcm
-	oAMPA0eO5SDNR7FSeDa1QI4TboQzlxe4px0W87JtfCNkyinLoeFekdOOY4MaseG0x4O4vT7vSudPW
-	PUhE6E33A0RWNf0IQG3A9OeXzaQGw/ondTSyYcZqlK7VJftsOqYqYGdKEbO4CyijGMm4kZ4hgAqEu
-	oX2sA6l0G1tBS3bccDFIIimlGY+MCf5VHwLeaO5rkaooDdhQVcW5n1RlY6M6osYUd1jQo2tksLksX
-	pQ1hnn1+dQxr/uT0qm/3lKlKbLkIFDpq9Sbkd+66jA1BzL5JN+seaPml2a8mtyyw6Yiwl8lLpi7q3
-	iXKAKK1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Gz3n2RVE7BmPd0DVNq4a26JaULSgZ6NIwQYbKNOjTac=; b=upWt/n31oI6LKWG3oUgLlIkmKS
+	/NysJ+m3wxQ6W2MLQ5rnwk55OAogGMmxsCXEE/Uikfzw7xr2QHUayW7M6FrYRcM4n0aX+toIt32Ul
+	zjTBNpZW4kxiOeb2fhJXuaX2qowmrRiXbu3HzptTMEtXM1rRnmCYWHVhx+lf6nStbig/vAiwzlYdy
+	WZo3Y62BwYZeu6i1LoPEfCKHCfkExlf1jLnqTDPUkAZJ5pFVNg0xQngGpHrEY1Z2M2YZ/zOGfUgpi
+	YSm+Uoq8BOvbmEPsHcE0InHUyGHFZqlDWWpzYBYIEMUfoQjTMIfKjicp3ikc2dM5BgcxlUlwJ6NXS
+	AB8qoncg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EQK-00000000aMZ-0J6H;
-	Thu, 03 Sep 2026 20:52:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2ERD-00000000aSq-10YU;
+	Thu, 03 Sep 2026 20:53:35 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2EQJ-00000000aMF-0RJX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 20:52:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEE2F60A65;
-	Thu,  3 Sep 2026 20:52:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9368D1F000E9;
-	Thu,  3 Sep 2026 20:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788468757;
-	bh=dBZx/5TmNAnkduMjh1UcTzxesGmjDXOANosYgLsKvPE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nB/FEiJqkpHK1N3H92xfIy700HdmhJUQKLxIYwEYMsszR5vSt4VYdsw283/uEjlOg
-	 RTv7cHY6OVkv1E/I/hf8ZQ/WDjjxLeTxEpu7PAcrB2WOkzpmUajGI33wy/Q08GJQmL
-	 /zcUauYC5EuCNt0HJdxvSvNx5GnYU1G3wqzvOIgrW2v3Oe7B0qJ0hBAW0zFD8oSSDQ
-	 MjTgNA+bEhfZclKvbpGERr2SzNiLvYBMPu/kJ5yib7YvBRwj46yoDCHpE1JSU8Uy3T
-	 oEfQLqJkf+QG0mLj39lUhTXqe5TTJXK0uUtxkBzjih0oVJ0MLdaRpIkT0JdBRy8YKI
-	 R0LlOPg/B0INQ==
-Date: Thu, 3 Sep 2026 21:52:32 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v20 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <06c7edc2-d000-4fd6-9568-a692f61dbf90@sirena.org.uk>
-References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
- <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
- <aphSYqKrgUq5Qycu@LeoBrasDK>
+	id 1x2ERA-00000000aS8-1njM;
+	Thu, 03 Sep 2026 20:53:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h+PnUTa+iJWAZtjVzig3Sgdp8bv/Fok9JP+MDQs6AKl9VkVfmKlvqM/HeVXPpjYGzEvPHrGSTJ9ra9/kCVY9Y8FY6zckSLVTdqJaYPNoGEG4D2zFr4HGKiSHa0Xc6Nze1jyymoMOCGXuBcJfi8EqNAM1q+gfu6kVgfGoy6+9DJ3KO90Eb8oa1i+EyRGJQtO7gXpatxQE2E8wmOqQxvlXR/0gHxPoD8rY6IjErRKaTLLNdTt4M5sID18oY6VzM8wOqzVJgOC9/VA3IJ00QCx0yqnPICQodr6jjw59sFKos4V+1yOaoru2uVMNXL9h8Um9XkHdHwqptRLsDhfJQCZ0KA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gz3n2RVE7BmPd0DVNq4a26JaULSgZ6NIwQYbKNOjTac=;
+ b=HqEc1KnA8HAua5SGgf4UZJAH2c7HSjFFNAooiH7yHuUIhal0i7tkQ+5kfSU1B9Hte+0c17VRn8aZ+nESjlFSl0j6hlhrP1Zje27LRfcNAfrHtA386vyc1lWF+vCR3G69yhJM9ANFR5Xmom4m/HakmEYju+LgO6n3AY+bHFu1WAIwAdTghRaXAfklnlHM610i4ntTHx8/i+aJ+TFDUdxS9d947Wov4Z+V41uZEB5nFw6cHbSSbQf1jjpQgxAPgPLWHJhaaRYtKteyOTFbWwTyzeFm3R3ENcEZzUcHKB7LR/8EGCwZqTtUtp+rfEVY+F8jZpKDLFHS1hwAWjzDUEJwSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gz3n2RVE7BmPd0DVNq4a26JaULSgZ6NIwQYbKNOjTac=;
+ b=f9D/PCcW1dJEzLoxgippF8Bee5aBx6rRmlXnXmK2yuZEHvgBOy5KgOhEY7MM+RxM7NoFKCMg0t0k+rtU2g0v44nbx0YSBvrQwk+lv7LEPirFwo3s+RnmvwC/6ceVZiaZeNkXjUdrFqUqjnQQ69SZuUT778qiMfFdhkmsH48hHIkKRkOjYXYKKqXokJ8i5Z42UPORrWfF+tvPCPwd3M8S3kBjyZvZchg7KU84gBioQIhaHYmu4nB8obRULyTMVrfUTpBSFFsc4XCJbTAvd78qlDFadrAT3r/PEzYYByJ0gu18smpTms2kndy78q8RFrXiseZ5hpIQI1CBgoz5FYhQdw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV4PR04MB11894.eurprd04.prod.outlook.com (2603:10a6:150:2ed::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 20:53:22 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 3 Sep 2026
+ 20:53:21 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH v2 0/3] dmaengine: rename dma_chan::dev to
+ dma_chan::chan_dev for clarity
+Date: Thu, 03 Sep 2026 16:53:10 -0400
+Message-Id: <20260903-dma-chan_dev-rename-v2-0-0db305b6c716@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADbemWoC/32NTQ7CIBBGr9LM2jFAU6quvIdpDMLUYgI0UElN0
+ 7tb6t7ly/fzFkgULSW4VAtEyjbZ4DcQhwr0oPyT0JqNQTAh2YkLNE5hSe6GMkbyyhFKKWStdEN
+ Kn2FbjpF6O++vt+7H6f14kZ7KVWkMNk0hfnZt5qX335A5MlSy5TXvW9NocfXzeNTBQbeu6xfNY
+ aO+xgAAAA==
+X-Change-ID: 20260812-dma-chan_dev-rename-66263ac5eac9
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Cercueil <paul@crapouillou.net>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Binbin Zhou <zhoubinbin@loongson.cn>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, 
+ =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Ludovic Desroches <ludovic.desroches@microchip.com>, 
+ Viresh Kumar <vireshk@kernel.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
+ =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Kelvin Cao <kelvin.cao@microchip.com>, 
+ Logan Gunthorpe <logang@deltatee.com>, 
+ Laxman Dewangan <ldewangan@nvidia.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788468796; l=3460;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=l+osikCun3Zm+swb7L9wZEvg8yEhPBGmEz72oosk4AQ=;
+ b=Sx9E6Ir5MDXdk30Pz2W5MomnGzx8FBC0au2T9/+OzpnPeg9v8sEZuPCrDV9sV3k/3ecy4V9sR
+ OG8C3TNWbquD6a4+9iW/hrf1u2TyElxkKgnIwTAD3hYr3a0wEOsSjEy
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH8PR07CA0016.namprd07.prod.outlook.com
+ (2603:10b6:510:2cd::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="R4LfhzhDcG0c3nsQ"
-Content-Disposition: inline
-In-Reply-To: <aphSYqKrgUq5Qycu@LeoBrasDK>
-X-Cookie: One picture is worth 128K words.
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV4PR04MB11894:EE_
+X-MS-Office365-Filtering-Correlation-Id: b68a4915-b095-48a3-5588-08df09fd63ba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|23010399003|1800799024|921020|11063799006|10067099003|56012099006|18002099003|41080700001;
+X-Microsoft-Antispam-Message-Info: P8iFSfMz/BlkQcneA1gZRoE1I2LLW96Jw5bay21i6zr+nMO6miwXfaRB5bXI9uwLgIH9Ez+gwq1CrLn6jSPUaj25P2PmINF2HlHT1UPcm0CAWY7dXJKHYahKQRMG+yfnWtnhTep096U1l4oAPJijHqQGfh1yybMXnvUKLrB1oJKDfqgexu01lTmzdthAigW+Bn6b1nMkid80B8ZyKjTrIHPjUjGSLlCv91yMdXjC99kPF/gV9bF3Ix8F5d81QWvpgWhfNCbR1eVW7zZo6y2J8oUyLVIYn7axW7qm2ZJk0h0FUmoqIFuESZzaNQMgfgJSw2Xsb+tgBzrvyseH1hFYiUe3XS6+OmUXj9QReugyCuw71Rii9KptcWTnpPUg/TMWoE9QBP6H8TjO4zRSPCZI9mpa+NJFlnkqjx41GiirX25bDUu8ja+QYTyCM7/CcTj1Vp0crHgrr7GI67whrpwmNczxgoN6dLvGBXAnU+tdA79LhNSjfYkice/7SzlkuDQVlJcYKTQlkrA2YOcKyoHJ+ygRnYos6vYYa47DAzdN4e4hkmpvRwX0EBJyXpP7rlsrNvIXSPlBcCyFBaEMA86bxKQI97NXFohcHJSmOv5SvqFStJ3tTD/8a0BNhYbtYgzYAVStvIEJ3EkKVG6XvTBeJJ6el+dchi/IMKVa/3o7rVqNAuAivjfgGZIALb0K2jzR
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(23010399003)(1800799024)(921020)(11063799006)(10067099003)(56012099006)(18002099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eC92QmZjalp3VS9uTUljekRKczc1UTVwekNnNU1NaGtGU0FIcVozazhGS3hP?=
+ =?utf-8?B?WThFWXpOMTR6MGVCZFdFRmd3WXZvNjY2czhLUVEzK3pHbEVSWU0yOUNUdGtl?=
+ =?utf-8?B?Ukw3bmlLN1p0RnFsN1BWb1FNUWw4UEd6KzRyQkdNQSsrcGV3ZGtseGpjVW8w?=
+ =?utf-8?B?TU1meXZCU3VwZStLQ1hVaGFGa244blVlamF0UEV2L3ZRTEd0RWMyRjBRelVm?=
+ =?utf-8?B?SE9mcEgzMXRNZFZtYzFXd3pubkpSRTNoSXg3a1RLeW5XTURyZkNuRDAyczFB?=
+ =?utf-8?B?VzVndjRFL3dQTFh1SmM5SHVLbGx5S200Unc1TS9mVlNUN01ELzNpdThUNjhX?=
+ =?utf-8?B?V094dE1KMkJCMHpPTG51aWNuTUFRQzVGalBVQVJORWFPb2gwR0N2azd2bks2?=
+ =?utf-8?B?NGhLdnFuc3ZpNTQ2UGE3a29haUIyQm1qNzRubmRQa1NkTEVwQ2hpOGE0Rzht?=
+ =?utf-8?B?Ly8vdjN3NWpMWDF0T1RlMDducmtzRzRoK2JvcjZJVmxMQTgrUEhZTHZMeU9p?=
+ =?utf-8?B?b2xNUFBoTnJ3NlpLTzBDcFNtMEVBbjVuU2U0aVU5cFljRlprMzVVQkxDamk1?=
+ =?utf-8?B?blh2cXdmWUVEUlJ4RDlTR3M3TCt6THBLUXBiK3VKS2cySktTa1hYZ3RrM3lF?=
+ =?utf-8?B?RlQxVGFpOERPR1I0ZGE5b2dNbTg3RmxZRXJRNHRJZXBYVExDL2N5NG42M0hD?=
+ =?utf-8?B?UlRFdy9rNVp5MFpiQVpIbG9Qb3lvTjUvZmV6ZWJPWVNHSnZOekhXNW1YWmpq?=
+ =?utf-8?B?WThpRkYrQlI5SFdsMWFPTDQzblVxS3BNSWt6Rk56ZWlhTDBTWEpsczZYMlVT?=
+ =?utf-8?B?YWw0dDZXTjVTTjFwdHJZQUhGc0g4Y0xnakRTbGNlSHcrU0NZM2FiM1EzMDIz?=
+ =?utf-8?B?T09jRE5ZbnpvTXJHMElMaFF5NmFKMUsvZEx1SWxDdzJHTkZ3d21jMTFPRHZC?=
+ =?utf-8?B?YU1SY3UyK3JkdURzTVRoMXlFQlY3VGZxdkFQaEJYL3NFR1hxYmtLRXVpc3Fh?=
+ =?utf-8?B?QWlpc2plNjNidmQrcHZlNWVFaElXajJraUhPRVJBcjl2WXZVVXIyQWVlWWFR?=
+ =?utf-8?B?bW1yL3FwRjNCdXRwZ0VLOWJKaTFReDVtM0RMNGpBVXBSY1U4SzkvSEdGWlNu?=
+ =?utf-8?B?T1p1MFZ1Y1MrdjVFNXB0Z3hHYS9nbE9Gdkx0ano4SlZ0eVE5bS96RTFpV01i?=
+ =?utf-8?B?djdtVkVQWXc0ajhvQVlsRS9hMk1rODRFc3VPTy9ubzlNQnc0TFd1VTlVV3Mw?=
+ =?utf-8?B?eGVPWmFMT3l4UTFlejFCOVdIZTBpZmN2ZEdKdyt2Z0lHa2Qxa0laUlB4Yzky?=
+ =?utf-8?B?TXdtZElOSVd0UVM4RmNJaXc3Y1VZUnlSMFJBYjBxTWlyM002QnJCWHhOM21R?=
+ =?utf-8?B?Nll1L2NqdzhWcmgvSXpXbVRYRFdnMERNOUY4RFQ2Q2lLcWlnN1JXc2tmTXBl?=
+ =?utf-8?B?YUhVbXhiSERCQXR6QjB4VjByT2lBczVjOEFmcFpQSUJZNXAzQ1JLVStVdTJE?=
+ =?utf-8?B?REozaEhydE9ObzIwUXhOYzZJcHJGTUV3ZlR4TEtSY0Rkc0NyZVRzYU5td09U?=
+ =?utf-8?B?dHd0T0EyTk1laGxUTnhzbGk1VDZwdnVYTWF2YlpwN2pPUDh2RytLNUN3OTJm?=
+ =?utf-8?B?WllaUWx6NDJkWm44Q1lRM2NoRzNGS1VPeUJ5cjJ2N1AycnBRRjRJSE9lK2RK?=
+ =?utf-8?B?RDV5UlRudWVhbXNIdGUvN0gvRnRjVndpOEorNWtzd0k3MFduUnpEMlhlSTJ0?=
+ =?utf-8?B?T0QwMTJVdzM0NmhSdURUU3V3eVlYbXphZzROcUNCWERwUDdFRDNvWlh3ZW4w?=
+ =?utf-8?B?cXFzSjNRTEZUTGxlR2F3a2ZzdTcrSi9hRnhTSUtSTDczQUl2SEE2S29weEQ2?=
+ =?utf-8?B?R3B0U0ZzcDZpWERxMVYxNUhZREZ5aUMwN1ZXanF5Zmx3Rk92d0YwelBHTmc3?=
+ =?utf-8?B?dktpTDZGMWdkcUdZSnZWVUFxRmJydW1qekFMQzVFdWhtSG9BdUlQQkxUNllr?=
+ =?utf-8?B?Mklnc3h3bC9xZWhWOTdSUFlKcnVOT3c1YlRVdnFaOWdieXV0RmlwTTFSbHVr?=
+ =?utf-8?B?cmdiazRHZStSY1pTRy92T3NuamdHL2hOMThvTEhCby9ldkxLZ1VvZ2ExT05D?=
+ =?utf-8?B?RDg5dm5ranBoNE5JNVBQNXpvTldNTzBkWVV6WlMrWEVPaHFqTXpsd3B6ZlVj?=
+ =?utf-8?B?YWdGVGVyRjM1SDVWOUV1TXFUQnVUMjhUYUJJeEIwSElJcVp0UGtuMnRNT21F?=
+ =?utf-8?B?ZFFsSWh3OHFXNHo3ZmpaTWU2cnUveGkzcE5QaytUY3E5NUdSUU8vazRWb0s2?=
+ =?utf-8?B?eXAxNEhBcktqNHY4Rjc5UDVVUGNYc0xCR25pYUo3VFpjR05Qd1UrS1FtMmRG?=
+ =?utf-8?Q?N7w9gB9FGpjRBYcbQ/+HlBO1asKhV+83nVbvT?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b68a4915-b095-48a3-5588-08df09fd63ba
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 20:53:21.7007
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Q0lANi75yFcrM0JU1tWtsZbtvngELMhzAwHyt5+dayt/5661NrD0cqx0RSBmx53suTmjv9NibJCC20WZVGW2FpEnjBJGLY29zNZoi0p5XlVzjPX82H60eJeyAmn0lM5e
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11894
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_135332_475294_4B0CB327 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +185,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The current dma_chan structure contains both "device" and "dev". So
 
---R4LfhzhDcG0c3nsQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+    chan->device->dev refers to the DMA engine device.
+    chan->dev->device refers to the per-channel device instance.
 
-On Wed, Sep 02, 2026 at 05:44:18PM +0100, Leonardo Bras wrote:
+Their similar naming makes the distinction unclear and increases reader
+confusion.
 
-> Reading this patch, it feels like it should have been two different=20
-> patches: one for adding the registers to kvm infra, and the other for=20
-> loading/saving it in the code (with GCSEn). If you later decide to split=
-=20
-> it, feel free to add my R-b in both of them.
+Add union dma_chan::chan_dev to make its purpose explicit and clearly
+identify it as the per-channel device. After all user switch to chan_dev,
+union and dma_chan::dev will be removed.
 
-This seems to be a fairly standard idiom for KVM feature serieses, and
-there is a competing series length concern.
+Update the kernel-doc accordingly. Besides its sysfs usage, the per-channel
+device is also used by some DMA engine drivers for IOMMU mapping and
+therefore deserves a more accurate description.
 
---R4LfhzhDcG0c3nsQ
-Content-Type: application/pgp-signature; name="signature.asc"
+1st patch use existing helper dma_chan_name() to reduce rename difference.
+2nd rename drivers/dma
 
------BEGIN PGP SIGNATURE-----
+Need following patch to clean other dma engineer driver, which is not
+in drivers/dma
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqZ3g8ACgkQJNaLcl1U
-h9Dm3gf/dktFZyCaPM2JTPMAToRowclYvGxtdCMiMDHpBMNRouJADsGcjPKIE/JV
-eKzl4K6qmaVS3h9+/KQfh8n8rkk6cLBzTrsCw+Jt0UCmA3fzcfgfaDHKN5modVGC
-rc7lOxVAzXAEQeJLBi/lzY9o04K5eBxOEiT0vFUu4KODs83al43Jsj4CP7T3QvBd
-YPGgF7WREduHPBGd+2KJXoAUEv6gJEfz6yuqjM6NNOEhKUEqv2evqJz+HU3qpYEc
-oOiyx1YggFsHUhcpB6XvxmGQMVrdPMbbIyECF/gbRSpJW+xI2yiNHeMpvJuMuPH6
-ET5clDzcTa27EQCPCmaGCkRM3SEM+w==
-=bULZ
------END PGP SIGNATURE-----
+After complete all rename work, dma_chan::dev can be removed.
 
---R4LfhzhDcG0c3nsQ--
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v2:
+- rebase to dmaengine/next
+- add vchan_chan_name() help function for vchan case.
+- Link to v1: https://patch.msgid.link/20260812-dma-chan_dev-rename-v1-0-a67131f7d5c2@nxp.com
+
+---
+Frank Li (3):
+      dmaengine: vchan: add vchan_chan_name() to get channel device name
+      dmaengine: use dma_chan_name() helper to get per-channel device name
+      dmaengine: add union chan_dev for dma_chan::dev for clarity
+
+ drivers/dma/arm-dma350.c                       |  2 +-
+ drivers/dma/at_hdmac.c                         |  2 +-
+ drivers/dma/at_xdmac.c                         |  2 +-
+ drivers/dma/dma-jz4780.c                       | 10 ++---
+ drivers/dma/dmaengine.c                        | 34 ++++++++---------
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c |  2 +-
+ drivers/dma/dw-axi-dmac/dw-axi-dmac.h          |  4 +-
+ drivers/dma/dw/core.c                          |  2 +-
+ drivers/dma/ep93xx_dma.c                       |  2 +-
+ drivers/dma/idma64.c                           |  4 +-
+ drivers/dma/loongson/loongson1-apb-dma.c       |  2 +-
+ drivers/dma/loongson/loongson2-apb-cmc-dma.c   |  4 +-
+ drivers/dma/loongson/loongson2-apb-dma.c       |  4 +-
+ drivers/dma/mmp_pdma.c                         |  2 +-
+ drivers/dma/nbpfaxi.c                          |  2 +-
+ drivers/dma/owl-dma.c                          |  2 +-
+ drivers/dma/pch_dma.c                          |  2 +-
+ drivers/dma/pxa_dma.c                          | 52 +++++++++++++-------------
+ drivers/dma/st_fdma.c                          |  2 +-
+ drivers/dma/stm32/stm32-dma.c                  |  4 +-
+ drivers/dma/stm32/stm32-dma3.c                 |  8 ++--
+ drivers/dma/stm32/stm32-mdma.c                 |  4 +-
+ drivers/dma/sun6i-dma.c                        |  2 +-
+ drivers/dma/switchtec_dma.c                    | 14 +++----
+ drivers/dma/tegra186-gpc-dma.c                 |  4 +-
+ drivers/dma/tegra20-apb-dma.c                  |  2 +-
+ drivers/dma/ti/k3-udma.c                       |  6 +--
+ drivers/dma/timb_dma.c                         |  2 +-
+ drivers/dma/virt-dma.h                         | 11 ++++++
+ include/linux/dmaengine.h                      | 18 ++++++---
+ include/trace/events/tegra_apb_dma.h           |  6 +--
+ 31 files changed, 118 insertions(+), 99 deletions(-)
+---
+base-commit: 5c7962210474adbd9874227bc5096dbc11501d34
+change-id: 20260812-dma-chan_dev-rename-66263ac5eac9
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
+
 
