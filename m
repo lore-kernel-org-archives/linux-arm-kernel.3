@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD67C624D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7CDC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5civeCmFlsTmh7Zmp8863J7mWtdO/2OROIoAbGbr9Y=; b=WYVbsx9SWutGXSdxhvFhE/4evf
-	/AXEMW30j9VNJ4UsFaVtV/8g//s6h+aTqWoiT96rb8WRC6lkgl5dpFqT6rTWtq5puaoLqd2KG4a+Y
-	PFvs8wipb3R+geb9DymJ1INJDeHFu96rkq5J+w+xaCp+OdBDzHHpxzAEklS/kjTT/xXyL8D3qgwfW
-	Lh3JqHul3SNmIMxN7wzH/N7mTRklH7D+sNKlZPUAihoLoqx996UXQmUK3DnR+VDMHuBnKBa8vs/44
-	1TwGSPiSzjwgTTOIL693T9CWMv1C74bg9+0BN3aQ5GnMiwzwpKzH0F2qc9vZ25v9nLjIwUIs9te4u
-	6v/la/Pw==;
+	bh=Ld3UdOgdvBnm8A+opQbKY0dHc+fqnHELUYTu0DuqKTk=; b=X9RBftIBTkbp3jfitqMKmtRcir
+	GdSMXTp751Em2wOIm9ZgHanpFNrtJDv6uujlq9cMALIVuIL4NxbIk7OJVLG5lVCoLUOQJD1VkGSYd
+	hEAf9oRlzFvB7LxH5CSLfSp5Pde+1OdrZxpKdABE06Og1hNeMjTMeZO3jYfaFVEJ8P083OB4XUNLz
+	sboCoqFZ/glutOMwtsU9x9Rhi2F6fFCkB/FXy8nyib6yRW0bzS24vJ5c5FgTrG5ygRy2Sl1a05nMa
+	0qfaBiA3HgvZowCzY/SasdO8RFW2srQN4dTkvDATrhz/wni9IBbHTumAdoDZ3aPnG+62kX3KIZSw+
+	tIzuj90Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2DNi-00000000VJm-2NR8;
-	Thu, 03 Sep 2026 19:45:54 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	id 1x2DNz-00000000VMn-36bw;
+	Thu, 03 Sep 2026 19:46:11 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2DNf-00000000VJM-3gzx;
-	Thu, 03 Sep 2026 19:45:53 +0000
+	id 1x2DNx-00000000VMC-1Dqt;
+	Thu, 03 Sep 2026 19:46:10 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 534F9C0000E0;
-	Thu,  3 Sep 2026 12:45:49 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 534F9C0000E0
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 1A475C0000FE;
+	Thu,  3 Sep 2026 12:46:08 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 1A475C0000FE
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1788464749;
-	bh=yt3VLOBBwuy+nvp951odgPQGWGf1+Q+4ara129mGyTQ=;
+	s=dkimrelay; t=1788464768;
+	bh=+URqbLxuDKgSD6CyxEGLNYWoSOkrCtwhEz54gzj0VZ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r2O6d2Sfl0xbQJ7xDtWxfdaGOG35EsSuR4aaSkZqCXq4nSi49W9mBOvh2xTh4VcKt
-	 WgIIUe0GcnPicwUkDQKwA6DMFf99Ra22jBplhdL3qZPAEOyZeK60wzgyc73MEJbqT7
-	 SxKhrcKKUoPH94zsC5gN/x7XEURLN7/rouNyY7zU=
+	b=rhV2MIW8RqQnlBJxUwjzAcRDiwg9h/WHeA413q1L6MIdnWTvMjolddE6aFVqhXOKK
+	 AtXwFPX/aWJmoAIRoqWLE7mI3SbtTJNrUMSHlV3z5gxd9MJ+6vDxwh4SwddIQlv2Ia
+	 N3945bn/2PsDqBw36uvE9o24pgcM5+1impPI1INM=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 1B953A9A;
-	Thu,  3 Sep 2026 12:45:49 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id E39C1A9A;
+	Thu,  3 Sep 2026 12:46:07 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Gregor Herburger <gregor.herburger@linutronix.de>,
@@ -60,17 +60,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: bcm2835: Add 2712-d0 Stepping
-Date: Thu,  3 Sep 2026 12:45:48 -0700
-Message-ID: <20260903194548.2038308-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add compatible
+Date: Thu,  3 Sep 2026 12:46:07 -0700
+Message-ID: <20260903194607.2038438-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260810-bcm2712-d-stepping-compatible-v4-1-73f74479539c@linutronix.de>
-References: <20260810-bcm2712-d-stepping-compatible-v4-0-73f74479539c@linutronix.de> <20260810-bcm2712-d-stepping-compatible-v4-1-73f74479539c@linutronix.de>
+In-Reply-To: <20260810-bcm2712-d-stepping-compatible-v4-2-73f74479539c@linutronix.de>
+References: <20260810-bcm2712-d-stepping-compatible-v4-0-73f74479539c@linutronix.de> <20260810-bcm2712-d-stepping-compatible-v4-2-73f74479539c@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_124551_984347_0F48F49F 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260903_124609_349793_3DE8A566 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,13 +87,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Mon, 10 Aug 2026 13:46:33 +0200, Gregor Herburger <gregor.herburger@linutronix.de> wrote:
-> The bcm2712 SoC, found on the Raspberry Pi 5, is available in a d
-> Stepping and in a c Stepping. The two steppings are not compatible.
+On Mon, 10 Aug 2026 13:46:34 +0200, Gregor Herburger <gregor.herburger@linutronix.de> wrote:
+> The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
+> and in a c Stepping. There are two separate dts files. The
+> bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
+> the d Stepping. The d stepping does not set its own compatible/model
+> string but uses "raspberrypi,5-model-b" through its include.
 > 
-> Introduce a new SoC compatible string together with a new board
-> compatible string.
+> These two steppings are not compatible. Booting with the wrong dtb file
+> causes a crash at boot.
 > 
+> Add a compatibles string "raspberrypi,5-model-b-d0" together with a
+> "bcm2712-d0" string to allow us to distinguish between those two
+> steppings.
+> 
+> Fixes: 44839e2ac8ec ("arm64: dts: broadcom: Add DT for D-step version of BCM2712")
 > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 > ---
 
