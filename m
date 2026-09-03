@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1797C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25ACCC624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbIaSZueJ9L7aZ2SFykAsrRHq34CEJ8hDtg94f4lxLA=; b=Cw+mDpSVrlak0hCNaqgzDZOWUI
-	gHusD43f5+kzzYIEexogxhILkzHkPkKC1eaSdYEJUCaFxXOYSPsyX/NqZW3tfQDrMrAEXuoPpKaNZ
-	l/dO+E5lDPG+r0k+RK88f4u648GyDdJkaezoHYz1NYoyZQqipo1ygs565k5x/S91/O0IJXNQk/IU+
-	0GguQtO3rQDgnjaxI/wQvA494+mCqxz3XzDEHWLxo+/c6ttlebpmvWkn5KzuVvQ/G6F0Ug+DGhWUU
-	HIyDVKRF98lRanTpo4Oisy77/UDmPVeDuzV5pIRlRDWWSlz6tT0FVvlyXpEr+iGu5Z6NpSLwTo3bf
-	3h4lS1qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uD4nTk1nDi6/4v9OLXfMGR/tGEoZqnYV3jwiBiqPF9U=; b=v2LHfk5jGLjeSEXtncCe2sJfru
+	y9O4V6ETEFoXQx7VybDBJEnDj16p++HxW/8XZkVWcbhkzDkSkhAbicz0OH7k3cnz2Tr7X5MsJQtk4
+	WWLYAQou9yy4bTXo9Ja2sP4GWNSMYcVZmwsYhCL78mxrtaGwga4bpzxFLbquQi9aIlC+/GpWRjPX4
+	hyt1yd+29sPnYb5iuiNJcXpnXTAuHuaMejok5BRT0f+jYZJ7FxECyBU8d/IM8Hz2FS/ZjZV65IhoF
+	ProJmsOVHTnXjg14IJHyMKhhZzx4JvUaw23cErg07irAGOYrt43IiV9gUZbLR+y3pAxqQf6l6ENid
+	i3IDejtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22kh-0000000Gmcp-2DPA;
-	Thu, 03 Sep 2026 08:24:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x22nH-0000000GmxW-2zJD;
+	Thu, 03 Sep 2026 08:27:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22kg-0000000GmcY-0OZA;
-	Thu, 03 Sep 2026 08:24:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7867360229;
-	Thu,  3 Sep 2026 08:24:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 349611F000E9;
-	Thu,  3 Sep 2026 08:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788423893;
-	bh=fbIaSZueJ9L7aZ2SFykAsrRHq34CEJ8hDtg94f4lxLA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zla5GHHcxSaHYLPcV7hDLgmsoz99LeWBz4LNzJGRDna/m4IQQN+EEDM1op7tVD2Lm
-	 OkYqsNGRl2ZFvclRMCzqO2geS3EHyWwFGN9eiVXLz7ibSjlrS3aG2y8AdsdVklpXql
-	 TTCs5EEVlAsYYTAW8jVLHvBJhfWPjsZlmwcw6noz/kePfzDRDtqWJLnQpu7WHT3HCw
-	 Z6S/3xlKd/iXYSekmNL+Mw3yDWCk4PYvN4YpDsoV4YwO15Enzpz5iRIl1yxaX6NG7i
-	 tFu1e6SBmaaR/dgf0DovIlUEEj4uwNpL3AD7HhyPHNg5GqLnxEXVSNkuw66CgjO+5H
-	 EgwDen6DuDT7A==
-Date: Thu, 3 Sep 2026 10:24:49 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Julien Massot <julien.massot@collabora.com>, Val Packett <val@packett.cool>, 
-	Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, mfd@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v10 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
-Message-ID: <20260903-normal-electronic-bonobo-3f71eb@quoll>
-References: <20260902193351.185771-1-l.scorcia@gmail.com>
- <20260902193351.185771-2-l.scorcia@gmail.com>
+	id 1x22nF-0000000GmwI-1M7z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 03 Sep 2026 08:27:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=uD4nTk1nDi6/4v9OLXfMGR/tGEoZqnYV3jwiBiqPF9U=; b=OsSXBVx8e6ZvTUALtB2Mjj0Bsg
+	BUjfIb4vlcCoNfl4QcHsSAsQOU0anlZZ7mfHQGpdOC2IOOeggZDhZmE6a88yOqklBxvOPJs7KkfZi
+	OMzYaGOC0rHccextxwQH+3zvO73PkVXAmRu8VEc/UPa+9iGq7GYsr7erbE2xHwwE87mEdG984z9/g
+	mjdprtG4+2Fm1xDoY48a6qgDqtNV2Ar6typNX+Hxx6+TLzVVp/prTX1K194J03Qz7yRbr3GrCFX+I
+	jTh6JY7bhvFRU3ZyEalmRlHdyPuyjDB4Mi/39qmmfvPt2++6/XBYIebFr/TV/4QFxlqIHplqUkdNA
+	x4QYFlnA==;
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x22nC-0000000CrXL-2qUl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 08:27:32 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-8568e3ed034so1753863b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 01:27:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788424048; x=1789028848; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uD4nTk1nDi6/4v9OLXfMGR/tGEoZqnYV3jwiBiqPF9U=;
+        b=F+U57ZyLmFiCmnlWbvQyPSwqhy0npjXdHYcDWDlqeNJaiozjdfxGnJ36cKWpy4r8Ja
+         o27YDOxLcWONB6cvbNNLLbUKrajBcwuizvcanwMHvQmsjiAnWReA2MwVG6tdZ6KACml3
+         VVfTpUz4z656Ggl0hRm/ydYQVJ1fZFFjLbZPYsRPK0YaghcOKfTacYq5LIK+XU22wpHy
+         i9Eee69UOGAa4De8TewFTF+/LN6kMpvA8CHghp/Lwt/zJ1M3O53xlP/Mmw3G0stPl4st
+         Gu+8Ibm+W5jB2N+OIKFvDCULTtGLkPYZu0c6N3JkiBvD/Bk6HBCLvoABm3h63oypf3jg
+         X8AA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788424048; x=1789028848;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uD4nTk1nDi6/4v9OLXfMGR/tGEoZqnYV3jwiBiqPF9U=;
+        b=c3BqJOYjFzpojsxUd8NefP3Q2lFEnW75qcXuRCFDEE5ZEyN5gXahuWQPXJp/ion0Ff
+         qbEA8YjhYqrhPDjsuS5brl6pXmi8cGVX4jJFc4CFkEIadvv0ncZ7qLB5KlWBpliQnL1g
+         Lg8Oxi2SZRrtY9aXW707H2mrYbE2LmuuXt/ApSkudTt5LaYr8WQnRbbHogZLuze2Nwhl
+         MT6iKQAI0aAP9fCJQ5gb2LkGyyqoK/xwCHAhgEVnN9Vb5eeO408C8lWtMatgQvXxXK4Z
+         3N+4muvFmqmrlakrz+/l9Y/JCmTi2wJvzLS++qXx8vtKTmNM2xyPjGh4mEZkLCRU9gyN
+         gCYg==
+X-Forwarded-Encrypted: i=1; AKwUvBzT+YeYcNoqkKaS96CDAy60vrvKjB3Vl4FAi7ZpIxFvyksUC0ZH2wN4i8OO5j7h21S81FlEmxlCu0jxmQiPE1Kr@lists.infradead.org
+X-Gm-Message-State: AFuF++nmywbFWQvWO4aUvuXd8oDmUBWGust9mnKSuLXKRVpMtj7RpSAy
+	SUV+EGbN04cXqD/wLl6Deo0ASrsP38Ph7nnzAQGzz1Wnnti2AZT9kB2JXjLbft/8
+X-Gm-Gg: AYBFou1ZjzKLEYwz1DmnvPTb1YWdQrArlec69gxu4lARnUkBmtRhYCC6QRBhrxXoIYP
+	C2LYevEiVAqfxTJ4z/q2GEbqdkV8x/ACATIRfhdYv4OTyaE01egc9jNl0rEiB16ZCFBmx1/jku7
+	RIB65KBjN+Z+c0oNFrDhPCsU/FZQJxazDUM78qJmQwMloQzlGpoLSMCmde6eF9ScCVHLzVWVnKT
+	qE1kACVhLfYzMDbkRtFhXnQoKslUpY7fK+w9qDgPSskeQuNWXx2zZIjJm6H/j7LMRVA2QB4+bpz
+	FAC8NxXyfEJTEOWaOg3TtnqgrvFUG3Z5HTH5xqmiRY+Je+x68KpiekBLWhvBnW/aw+uo2q3L+KQ
+	xQ9qBoTW+MdxRAG0gie1JaWpKSJB1UUSQGW5R1QGDVrPD2jW5lC7ndlczuJoF0z3QIqCSvcXcNG
+	tTNOYXAC8BuPlivQRRHsxHex5zBtRPFgL2ShT4MoY1sTwueCIj6YDjox5mVcSJdWg16wEDcKTEF
+	w==
+X-Received: by 2002:a05:6a21:114d:b0:3d1:ae83:6fc2 with SMTP id adf61e73a8af0-3d9adac29bamr18789422637.9.1788424048363;
+        Thu, 03 Sep 2026 01:27:28 -0700 (PDT)
+Received: from Aaron-M6 ([188.253.120.162])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1431f86504fsm2135193c88.4.2026.09.03.01.27.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 01:27:27 -0700 (PDT)
+From: Yaozhong Li <yaozhonguwl@gmail.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yaozhong Li <yaozhonguwl@gmail.com>
+Subject: [PATCH 2/2] arm64: dts: rockchip: enable HDMI audio on rk3399-firefly
+Date: Thu,  3 Sep 2026 16:27:13 +0800
+Message-ID: <20260903082713.192-2-yaozhonguwl@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.3
+In-Reply-To: <20260903082713.192-1-yaozhonguwl@gmail.com>
+References: <20260903082713.192-1-yaozhonguwl@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260902193351.185771-2-l.scorcia@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_092730_831821_B3E044BA 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +115,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 09:25:37PM +0200, Luca Leonardo Scorcia wrote:
-> Describe the MT6392 PMIC and its RTC and regulator devices. This device
-> is mostly based on MT6323 with some similarities to MT6397 and is usually
-> found on boards using the MT8516/MT8167 SoC.
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
-> Previous version of this patch had the PMIC device declared with a
-> fallback compatible to "mediatek,mt6323". Sashiko pointed out in [1]
-> that it would have been wrong as the fallback device is not really
-> compatible with the new PMIC.
-> 
-> Since the change is significant I have not included the Reviewed-by tag
-> that Krzysztof Kozlowski kindly provided in v9 of this patch, I hope
-> this is the right thing. I really want to get the bindings right as they
-> are harder to fix in later commits if the need arises.
-> 
-> [1] https://sashiko.dev/#/message/20260820125850.3B34D1F000E9%40smtp.kernel.org
-> 
->  .../bindings/mfd/mediatek,mt6397.yaml         | 72 +++++++++++++++++++
->  1 file changed, 72 insertions(+)
+The Firefly-RK3399 exposes audio over its HDMI 2.0 connector, but
+hdmi_sound is left disabled, so the only outputs available are the
+analog rt5640 jacks and S/PDIF.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Enable it. This depends on i2s0 no longer being enabled, otherwise
+i2s2 cannot get a DMA channel for capture and the card fails to
+probe.
 
-Best regards,
-Krzysztof
+Tested on a Firefly-RK3399 board with a 1920x1080 display attached:
+the hdmi-sound card is registered and plays at both 44.1 and 48 kHz,
+alongside the existing rt5640 and S/PDIF cards.
+
+Signed-off-by: Yaozhong Li <yaozhonguwl@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-firefly.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
+index fa1b8b8..3d1f84f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-firefly.dts
+@@ -311,6 +311,10 @@ &hdmi {
+ 	status = "okay";
+ };
+ 
++&hdmi_sound {
++	status = "okay";
++};
++
+ &i2c0 {
+ 	clock-frequency = <400000>;
+ 	i2c-scl-rising-time-ns = <168>;
+-- 
+2.55.0.windows.3
 
 
