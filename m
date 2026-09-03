@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB38C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59661C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 07:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gRxS2mTzMBPIBR5gZXW3kazvJ7L04Mgb6fWxJCrrjGE=; b=n+BI6TCgoQXSONSPLqDE6781Py
-	7UbGF+16e6oRmAJBKXopYAQR93Hg3zSkwm93mfLDxzo/ubGMSfVltHYqJYjB8t6oq5OWsGkNXJFct
-	sB0eS14YjdBDu1o1W8ovqTyrPPYAK0lz85Ar/fBHZK8HDGa6sSbGwKvflDkPqPoq0aPXfcY7k9I7Z
-	oVPhTF/6VWjg/NGwRQzmdA1OlfeilFFfGL8rFUd/hae8xeuEOTyUr3eK1iN9/TXG43DnQrMKD19e6
-	TtybpJBvfiepWChkVOrUZwzBDwQRsdukXJH0cCsIcXFQ1bQjz1FuMD0EadqkYWvGV3tubKTz0JTg2
-	fpCue+Fw==;
+	bh=SHFtsegYkSXAAQ6VLTBIGRfXAcm81uMjTTor0MXHuTI=; b=ETbGuiB626hMBAwQ9LM0JJdheZ
+	IY8H6KJ1zgokZzX6GOymyCc0qozs6oDjxHZrOASWuGhNcc3LSR/4fKinAlUe0CQk3GpO5CuSvPdlz
+	soR64mL3gYVDnOGnS/6KEPulYfzfyAn4B5EhNNUlCxzwYLHz/d5DhfX9SwecrseOTiHQlZ7Nbjl7n
+	Z/h5OwGzcVFmIAcfNwImtQWxVSNZ8/TA8w09aXErfzqvJvtROxCY77j9pDotXm8f3vxpIJcCwDB68
+	jIAgPy59wZpWKUabw+auoJNWhIIy2ZFfbQM8CyU14KB6NaZ6a+Kb7ZwG3EpCTqLFdtCN2DLyQXXUp
+	OXDSMe+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Da-0000000GgbM-2W5d;
-	Thu, 03 Sep 2026 07:50:42 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1x22Fo-0000000Gh1O-0RPy;
+	Thu, 03 Sep 2026 07:53:00 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22DX-0000000GgaB-3jxX;
-	Thu, 03 Sep 2026 07:50:41 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 45462200571;
-	Thu, 03 Sep 2026 09:50:35 +0200 (CEST)
-Message-ID: <0ffb792adfafd06a0d7fc65153707e3c728fe0ac.camel@pengutronix.de>
-Subject: Re: [PATCH v2 08/15] soc: starfive: Add jh7110-hdmi-subsystem driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Vinod Koul
- <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Andrzej Hajda	 <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart	
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, David Airlie	 <airlied@gmail.com>, Simona
- Vetter <simona@ffwll.ch>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Lee Jones <lee@kernel.org>, Andy
- Yan <andy.yan@rock-chips.com>, Emil Renner Berthing <kernel@esmil.dk>, Hal
- Feng <hal.feng@starfivetech.com>, Michael Turquette	
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney	
- <bmasney@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley	
- <conor@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt	
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti	
- <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>, Andy Yan	
- <andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Maud
- Spierings	 <maudspierings@gocontroll.com>, Graham Markall
- <hello@big-grey.co.uk>
-Date: Thu, 03 Sep 2026 09:50:35 +0200
-In-Reply-To: <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-		<CGME20260828134828eucas1p1b4061de1538ef0d3322dc32f3db6140e@eucas1p1.samsung.com>
-	 <20260828-jh7110-clean-send-v2-8-331680c8b9d1@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1x22Fk-0000000Gh0g-1KFC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 07:52:58 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=SHFtsegYkSXAAQ6VLTBIGRfXAcm81uMjTTor0MXHuTI=;
+	b=KWuF6IC6bGKi3ranAbI8gv4Ii8gUY2i6kQGwdMJTdCvr84XKLmPVUEiqnlsqQezcuJF0YoE9V
+	n+IXuXFtWfSPpwbhu1sHzejM/vwmpPiFHKShH/JP3LT0DdkhFBdE+eZ0at7vhrFHa4xhAltw2w9
+	zzRxS6N5Gufcj4+3IEI7YS8=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hbBPB0Gy3z12LDV;
+	Thu,  3 Sep 2026 15:41:34 +0800 (CST)
+Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
+	by mail.maildlp.com (Postfix) with ESMTPS id BF95B40591;
+	Thu,  3 Sep 2026 15:52:49 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
+ (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 3 Sep
+ 2026 15:52:47 +0800
+From: Sizhe Liu <liusizhe5@huawei.com>
+To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
+	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
+	<wuzongyu1@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
+Subject: [PATCH v3 2/8] perf hisi-ptt: Complete the field names for 4DW and 8DW packets
+Date: Thu, 3 Sep 2026 15:52:35 +0800
+Message-ID: <20260903075241.1445338-3-liusizhe5@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260903075241.1445338-1-liusizhe5@huawei.com>
+References: <20260903075241.1445338-1-liusizhe5@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_005040_084989_7F3B5B0F 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260903_005257_039436_7D19FDEA 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,92 +88,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-08-28 at 15:47 +0200, Michal Wilczynski wrote:
-> Add the parent driver for the monolithic JH7110 HDMI IP block.
->=20
-> This driver binds to the starfive,jh7110-hdmi-subsystem node. It maps the
-> shared register block, creates a regmap, and calls
-> devm_of_platform_populate() to create its hdmi_phy and hdmi_controller
-> child devices, which retrieve the shared regmap from this parent.
->=20
-> The NoC display-bus clock and reset gate access to the whole vout registe=
-r
-> region, and this subsystem's PHY child is the first device there to touch
-> registers. Enable the bus before populating the children; PD_VOUT is
-> handled by genpd through the power-domains property.
->=20
-> Co-developed-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Dominique Belhachemi <db@domibel.de>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  drivers/soc/Kconfig                          |   1 +
->  drivers/soc/Makefile                         |   1 +
->  drivers/soc/starfive/Kconfig                 |  27 +++++++
->  drivers/soc/starfive/Makefile                |   2 +
->  drivers/soc/starfive/jh7110-hdmi-subsystem.c | 114 +++++++++++++++++++++=
-++++++
->  5 files changed, 145 insertions(+)
->=20
-[...]
-> diff --git a/drivers/soc/starfive/jh7110-hdmi-subsystem.c b/drivers/soc/s=
-tarfive/jh7110-hdmi-subsystem.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d893c1c29f98b072b09d26134=
-3d3317dbf4c75fe
-> --- /dev/null
-> +++ b/drivers/soc/starfive/jh7110-hdmi-subsystem.c
-> @@ -0,0 +1,114 @@
-[...]
-> +static int starfive_hdmi_subsys_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct reset_control *bus_rst;
-> +	void __iomem *regs;
-> +	struct regmap *regmap;
-> +	struct clk *bus_clk;
-> +	int ret;
-> +
-> +	/*
-> +	 * The NoC display-bus clock and reset gate access to the whole vout
-> +	 * register region, and this subsystem's PHY child is the first device =
-in
-> +	 * that region to touch registers. Bring the bus up here before
-> +	 * populating the children; PD_VOUT is powered on by genpd through the
-> +	 * power-domains property.
-> +	 */
-> +	bus_clk =3D devm_clk_get(dev, NULL);
-> +	if (IS_ERR(bus_clk))
-> +		return dev_err_probe(dev, PTR_ERR(bus_clk),
-> +				     "Failed to get NoC bus clock\n");
-> +
-> +	ret =3D clk_prepare_enable(bus_clk);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to enable NoC bus clock\n");
-> +
-> +	ret =3D devm_add_action_or_reset(dev, starfive_hdmi_subsys_clk_disable,=
- bus_clk);
-> +	if (ret)
-> +		return ret;
+Add the missing HISI_PTT_4DW_HEAD0 entry to the 4DW field name table
+and add the HISI_PTT_8DW_CHK_AND_RSV0/HISI_PTT_8DW_RSV1 entries to
+the 8DW field name table so that all DW indices have corresponding
+names.
 
-You can simplify this with devm_clk_get_enabled().
+Reviewed-by: Yushan Wang <wangyushan12@huawei.com>
+Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
+---
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 20 +++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-> +	bus_rst =3D devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(bus_rst))
-> +		return dev_err_probe(dev, PTR_ERR(bus_rst),
-> +				     "Failed to get NoC bus reset\n");
-> +
-> +	ret =3D reset_control_deassert(bus_rst);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to deassert NoC bus reset\n");
-> +
-> +	ret =3D devm_add_action_or_reset(dev, starfive_hdmi_subsys_rst_assert, =
-bus_rst);
-> +	if (ret)
-> +		return ret;
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+index ef72223d3854..766665414ad8 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+@@ -54,6 +54,7 @@ enum hisi_ptt_8dw_pkt_field_type {
+ };
+ 
+ enum hisi_ptt_4dw_pkt_field_type {
++	HISI_PTT_4DW_HEAD0,
+ 	HISI_PTT_4DW_HEAD1,
+ 	HISI_PTT_4DW_HEAD2,
+ 	HISI_PTT_4DW_HEAD3,
+@@ -61,15 +62,18 @@ enum hisi_ptt_4dw_pkt_field_type {
+ };
+ 
+ static const char * const hisi_ptt_8dw_pkt_field_name[] = {
+-	[HISI_PTT_8DW_PREFIX]	= "Prefix",
+-	[HISI_PTT_8DW_HEAD0]	= "Header DW0",
+-	[HISI_PTT_8DW_HEAD1]	= "Header DW1",
+-	[HISI_PTT_8DW_HEAD2]	= "Header DW2",
+-	[HISI_PTT_8DW_HEAD3]	= "Header DW3",
+-	[HISI_PTT_8DW_TIME]	= "Time"
++	[HISI_PTT_8DW_CHK_AND_RSV0]	= "CHK & RSV0",
++	[HISI_PTT_8DW_PREFIX]		= "Prefix",
++	[HISI_PTT_8DW_HEAD0]		= "Header DW0",
++	[HISI_PTT_8DW_HEAD1]		= "Header DW1",
++	[HISI_PTT_8DW_HEAD2]		= "Header DW2",
++	[HISI_PTT_8DW_HEAD3]		= "Header DW3",
++	[HISI_PTT_8DW_RSV1]		= "RSV1",
++	[HISI_PTT_8DW_TIME]		= "Time"
+ };
+ 
+ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
++	[HISI_PTT_4DW_HEAD0]	= "Header DW0",
+ 	[HISI_PTT_4DW_HEAD1]	= "Header DW1",
+ 	[HISI_PTT_4DW_HEAD2]	= "Header DW2",
+ 	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
+@@ -100,7 +104,7 @@ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	int i;
+ 
+-	for (i = 0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
++	for (i = HISI_PTT_8DW_CHK_AND_RSV0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
+ 		/* Do not show 8DW check field and reserved fields */
+ 		if (i == HISI_PTT_8DW_CHK_AND_RSV0 || i == HISI_PTT_8DW_RSV1) {
+ 			pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+@@ -150,7 +154,7 @@ static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ 
+ 	hisi_ptt_4dw_print_dw0(pkt_buf);
+ 
+-	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++)
++	for (i = HISI_PTT_4DW_HEAD1; i < HISI_PTT_4DW_TYPE_MAX; i++)
+ 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
+ 
+ 	return hisi_ptt_pkt_size[HISI_PTT_4DW_PKT];
+-- 
+2.33.0
 
-You can simplify this with
-devm_reset_control_get_exclusive_deasserted().
-
-regards
-Philipp
 
