@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6807EC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 18:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5ED4C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 18:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEeb2/7YL2GUruftN094qZjMqYgKj+V79G341wEwVdU=; b=26aFmtkpTfOSjC7JjD2ukZAtYQ
-	QOB/4IgIc4o22B4OEq8vmJVC5cTBe5Ju1Zi69vCzhzLzfmg6ve44Ab8jRmGkjcXP8ln8YsdpalQn0
-	MkmiDKg4lHs4arv4qnEgPv41Uwl33nq21zopKMjoQJmgA0X2GnGLex553nprQwNeSfx3mDtg8tjpj
-	p3G7WWjJj3Ve942xg6YN9jwDBbNs0rpj2tUoJrLda8byWNZXa+P6MtxDlsFg4FsKKx4B9FXjPC040
-	iJwgXh54hZHF8IiZ/UVPdCG4IlIMT43hfW8v0G+2FR+55x8/K30n+7Hh8t0w2sGWzYd+Nt5HTPY2X
-	ScRoBZGQ==;
+	bh=5A1QYfa6A6TwbHZ40DsvlwxTmcMjlVcOQHbaH73blu0=; b=ML2Qv8V+jdM7kbqkp+QzZu75b+
+	GRyINUI7Lg18OYf8iILB4ojl/kBVUlpV3yKTu2dxGfFDbBM0WxC3IJosLtT6H7XhbIoLrQhl23h0n
+	Xifh+crdZKoB9KVmuByjq1QEcpRaxCkSAcAOeOIPW5XAdBplUTtWyqK8BhdvsSuACMCBnbRuzJlKL
+	v+1t0t6tPwMYeIqGKrZx0UVClL9wV9q6kR+CMC7XEWkCIu4V9AvbyhAm4dkNpAWnVUFVrC1cYoBxC
+	oofFsnd7BsnlaYbuE3FW68ebEhMJMxk9GNqUotXwqj4fp3Te/xjEypbCftFtQT7npI2F4xxKUY+ns
+	O1FSbHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BkF-00000000KEx-1lws;
-	Thu, 03 Sep 2026 18:01:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2Bl5-00000000KOq-2p0X;
+	Thu, 03 Sep 2026 18:01:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BkE-00000000KES-0Hoe
+	id 1x2Bl4-00000000KOc-2yA6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 18:01:02 +0000
+	Thu, 03 Sep 2026 18:01:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3486F6020C;
-	Thu,  3 Sep 2026 18:01:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D001F000E9;
-	Thu,  3 Sep 2026 18:00:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0801541983;
+	Thu,  3 Sep 2026 18:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C7551F000E9;
+	Thu,  3 Sep 2026 18:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788458460;
-	bh=MEeb2/7YL2GUruftN094qZjMqYgKj+V79G341wEwVdU=;
+	s=k20260515; t=1788458513;
+	bh=5A1QYfa6A6TwbHZ40DsvlwxTmcMjlVcOQHbaH73blu0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JQ6eEQpLEQTSNseCXtideIHM0n5SqjYMDYyFNDnN0/8XuxsTRlS8+mge9KN7HIay+
-	 5O4d3vhBL/pOlKfCr9/CHTruSa1blpEhYYi881KEeCtC5ummkoHJ5Cr77Tamd0QSsA
-	 Lt7LZdDFQGaNckPhwnYMZRkDOvUT9HfDgWxy3aUhmWVB3RHdmBNkRosImK9GACRr3q
-	 YuAMnyaVbBhKmUS0WqhdNH47R4Gm+dwHrg2O5EhGAkvEAnvOVUHxTcdgK1V/caeFPG
-	 tIQctEFBTfTCIDwHgYJWCbWmTKhpHH7SgrbYhuVM0CTfd9HMtzpL0Fv083xSd8nlJV
-	 Yj2EV9DxosC4w==
-Date: Thu, 3 Sep 2026 19:00:56 +0100
+	b=LGgqy440wXjW4z+2ej4u2b4i0GXg+WhbIy3OSPK2T8EnQeTv97lOTo1HBuZExQuau
+	 utxcsrjiFdtV4uH20iMAjhw1GOpdVjC+WYCkI3iTsEEaooKBp5NIopFiAJuhSXzzBW
+	 qhAEGu/OFRIvC/9nxFafESHVsu46agx8gOidMyyQTTtbF8eeHuPV+PaHzyV/rQJWe2
+	 oO28qKDpDKvQL/4fPa+gIxMT90aQMSGuLCqYsbbInWGv+QIhEJu8EiLdZElSx9eVlW
+	 Thvhw+++DDOz+yk1mWOMjTR2XmERgyPfSXGGZ2YjzDyOC38YXiXX1njmx/g4QA/aNz
+	 FPdhl7ut8vxPg==
+Date: Thu, 3 Sep 2026 19:01:49 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Judith Mendez <jm@ti.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: nvmem: uniphier-efuse: Add
- ti,am62p-efuse compatible
-Message-ID: <20260903-sandfish-likewise-820d64daae2b@spud>
-References: <20260902222759.736124-1-jm@ti.com>
- <20260902222759.736124-2-jm@ti.com>
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: iommu: dart: Support specifying the
+ DMA aperture
+Message-ID: <20260903-uptight-lifter-fa7519487839@spud>
+References: <20260902-iommu-apple-dart-aperture-v3-0-252ce55b7001@jannau.net>
+ <20260902-iommu-apple-dart-aperture-v3-1-252ce55b7001@jannau.net>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ovc8qnl0w6j+I93l"
+	protocol="application/pgp-signature"; boundary="P9Nxr44pFcdtpVBU"
 Content-Disposition: inline
-In-Reply-To: <20260902222759.736124-2-jm@ti.com>
+In-Reply-To: <20260902-iommu-apple-dart-aperture-v3-1-252ce55b7001@jannau.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Ovc8qnl0w6j+I93l
+--P9Nxr44pFcdtpVBU
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Sep 02, 2026 at 05:27:57PM -0500, Judith Mendez wrote:
-> Add ti,am62p-efuse as a compatible string to the uniphier-efuse binding.
-> The uniphier-efuse driver can be used to read AM62P efuse registers as
-> well for GP_SW silicon revision detection.
->=20
-> Signed-off-by: Judith Mendez <jm@ti.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Why is a fallback compatible not suitable here?
-Either it is, and you should add one, or you need to explain in hte
-commit message why it is not.
-
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
-> ---
->  .../devicetree/bindings/nvmem/socionext,uniphier-efuse.yaml   | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/nvmem/socionext,uniphier-e=
-fuse.yaml b/Documentation/devicetree/bindings/nvmem/socionext,uniphier-efus=
-e.yaml
-> index e27cbae2d63a0..5e1b90fc1ae45 100644
-> --- a/Documentation/devicetree/bindings/nvmem/socionext,uniphier-efuse.ya=
-ml
-> +++ b/Documentation/devicetree/bindings/nvmem/socionext,uniphier-efuse.ya=
-ml
-> @@ -16,7 +16,9 @@ allOf:
-> =20
->  properties:
->    compatible:
-> -    const: socionext,uniphier-efuse
-> +    enum:
-> +      - socionext,uniphier-efuse
-> +      - ti,am62p-efuse
-> =20
->    reg:
->      maxItems: 1
-> --=20
-> 2.34.1
->=20
-
---Ovc8qnl0w6j+I93l
+--P9Nxr44pFcdtpVBU
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapm12AAKCRB4tDGHoIJi
-0mEIAP9Wg4TCyWqgwIeAjMW/q5Hh+9wLEALXbKS4v0y+J//NagD7BS/4ZyWf+Mzo
-iz4cPCS7+6UGINi0ZS4J8+DsBF6ONAc=
-=IYI1
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapm2DQAKCRB4tDGHoIJi
+0uC4AQDQIi8jH2g1PVdYyk/QAhScZWhhLt/8d1AAueQhbMe9zQEAzmP/bNMIrhWH
+QzUpM1skvbDONjwjgUjC3gF28M/4qw4=
+=gvlv
 -----END PGP SIGNATURE-----
 
---Ovc8qnl0w6j+I93l--
+--P9Nxr44pFcdtpVBU--
 
