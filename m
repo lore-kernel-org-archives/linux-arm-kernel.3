@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D590C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 00:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BF9C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 00:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2qNbvy1T2SnAes3F/wQppFd+FrV00UggrHHdFmIYeg=; b=Crwa5VUiuSSijZniNURF3puUFe
-	CjJsyL54fCCkuXpyHW+9ZjHvnrxeXXBm4c2At9pT81CH7CLY+BT5MbqVhwj8+zpZDgov5EWC+GVek
-	z3VR2LlkxxS8f9NLi3wxG1o+rZR+gl/iJ5lZfGaLPhoYcrhHHcw15YBzhVbv8HB87NbvjmTAnBFgA
-	caZY4iOc9Mamy9sr1fLeIXGpiqUuVT+e1qDXnN4ai6yoXb/CYiIrIBxeCDppAFMDDSHNmvdX4rP1H
-	g18sh1R81mjfE74rbH+uCisLoaHHzoC/GvkpxwY+wksOWf8tc1PEUVveaC8uvMJIztymYL+PoY0rK
-	Jf9NVZmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u+EzJoDEG9W5tYl5Q0IYEK/9+yw3B8m1JuHAL+Fe8n4=; b=nPjoYaDl1+2B+sSNQd1NAau9kO
+	CrWeC4YcmyDxf0h4XQh2cKohmCizo6L8PrOuAg9xQYfvGRhPVcd4azTEgu09wUHCv7QOTYRp9m3Nd
+	WolYYq41OnBBzeyiRE4zwRhPT+I64qvlqjB4OLTFMaySWSd9qtbhDoYNBmCTa7ntYJs/1qo7+M64K
+	s99czVqpNFR12P45w/C23KiKbGbw9k5nl3KVRjRdltggiDrM42EwT2HqIbrHp3yE6YXMV0OOO+PRj
+	R/CBTRYQwYymsSZMfJ6lviHHP2trhQulisjnze6B62oyvXV5bUaDR064+TmvBR0MSxkTdQY0+zPjN
+	9f3NQLdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vR7-0000000G7hm-0uay;
-	Thu, 03 Sep 2026 00:36:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x1vW6-0000000G83G-3npE;
+	Thu, 03 Sep 2026 00:41:22 +0000
+Received: from mail-24424.protonmail.ch ([109.224.244.24])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1vR5-0000000G7hO-1t37;
-	Thu, 03 Sep 2026 00:36:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D13C600C8;
-	Thu,  3 Sep 2026 00:36:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14ED1F000E9;
-	Thu,  3 Sep 2026 00:36:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788395770;
-	bh=x2qNbvy1T2SnAes3F/wQppFd+FrV00UggrHHdFmIYeg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=amxqXOaVVe9Eq3ryHurCwJ9xMvkiw03drQaDa0HowYQkLxd73aX8AcA9Nsg7NXAC0
-	 c+rH3TNwHooCCWUXqmta3Nru8s+8f2wkPjkpv3AyB2Ama7T7d1veTN2YFHLVjfTXhP
-	 UPBiCtbjQuVMPaFhQr0jJcKD802DBMNuXixQ2u6Ofjm53vLnm2wF2DoIgyhyF2dtRM
-	 NQ0fNROlfD0klqJECOLHwBx0fCwaIVzVb5IP2wEJGgciIT4pg4S9K6g9QR0CxjzzzG
-	 V2J8JyHcQRQHou6vEwTfCbl2ZjcRbE+D6vQRVsZ/ETAkhrCdnzsDnsJLrpJCnfihFr
-	 a6qGOoOLqvJdw==
-Subject: Re: [net-next,v5] net: airoha: add HW GRO offload support
-From: netdev-bot+sashiko@kernel.org
-To: lorenzo@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, aleksander.lobakin@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, madhur.agrawal@airoha.com
-Date: Thu, 03 Sep 2026 00:36:09 +0000
-Message-ID: <178839576918.3394541.6887762855417310645@kernel.org>
-In-Reply-To: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
-References: <20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1x1vW3-0000000G82e-1rbw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 00:41:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1788396074; x=1788655274;
+	bh=u+EzJoDEG9W5tYl5Q0IYEK/9+yw3B8m1JuHAL+Fe8n4=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=q/l4gws5khHQ9usVFhNy0enBWgX0xFWS+I2k5m6cemWpTllDUVh3FPqKFH8kVKUFv
+	 iJCxo5xmaJF+T33gO56nzM7+LirON14zZOmfgnX9JdJBdMq8YRUi7Dl9PINoAXXBDA
+	 CHyjVhOvu9EFUqZf3EzDPcGbjjys17oJptaYdcENSeL1uWc5x4/mMpDFTVfAUC1tOf
+	 AXs7UG7ZU3NxoN1+Jvc6c94MFtb1zh2t3Qz2FiHVehtm4DKGHsJu7CfVsE8VPshLVE
+	 BTwxh8DLOlnd2/zxsGGvi7jYMIV7Wj0nl6XWHZsxLKJ9agb+4coRDXNwH8Gtyc66aj
+	 nbozTG5nVArDA==
+Date: Thu, 03 Sep 2026 00:41:10 +0000
+To: aidenisik@member.fsf.org
+From: Aiden Isik <aidenisik@protonmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Aiden Isik <aidenisik+git@member.fsf.org>
+Subject: Re: [PATCH 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy Watch FE
+Message-ID: <4nry_0LYAWEUI1glONRapkF3AXjNNot6Rl4lQ91urHXgWoZKDAnfgn-VhZFPFqp9NPpuKAzYiaH9r2sVCcDgrp4hP6lsUWtcQuEB4vU5Vnc=@protonmail.com>
+In-Reply-To: <20260817-for-next-lucky7-v1-2-42ffb2b71ba2@member.fsf.org>
+References: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org> <20260817-for-next-lucky7-v1-2-42ffb2b71ba2@member.fsf.org>
+Feedback-ID: 46524699:user:proton
+X-Pm-Message-ID: 84627e5c69c68b7676b45132793d9da796719d27
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260902_174119_639753_68294557 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,235 +69,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider:
+On Monday, August 17th, 2026 at 11:37 AM, Aiden Isik via B4 Relay <devnull+=
+aidenisik.member.fsf.org@kernel.org> wrote:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+> From: Aiden Isik <aidenisik@member.fsf.org>
+>=20
+> The Samsung Galaxy Watch FE (SM-R861/SM-R866), codenamed lucky7, is a
+> smartwatch developed by Samsung and released in 2024. It has 1.5GiB RAM,
+> 16GiB of eMMC storage, an Exynos5515 (W920) SoC, and a 396x396 display.
+>=20
+> Support for the following is added by this device tree:
+> - Bootloader framebuffer
+> - Memory
+>=20
+> Only the lowest 490MiB and highest 512MiB of memory are used for now.
+> The 488MiB between the addresses of 0x9ea00000 and 0xbe680000 is excluded
+> from the memory node due to a bug where if the kernel even knows about
+> the existence of this memory, one or both cores will lock up and cause
+> an RCU stall.
 
-- [High] LRO RX ring 31 is programmed as an active hardware-LRO
-  destination but is bound to no IRQ bank, so it is never polled.
-- [Medium] The driver advertises NETIF_F_GRO_HW while it cannot satisfy
-  the documented rx-gro-hw contract, because the hardware does not…
+This used to work fine on my 7.0 and 7.1-based branches, so I did a bit
+of bisecting and found that the issue was introduced in commit
+7b9f263909a57e2463c6a543d72651e00a3fd0d6
+(of: reserved_mem: only support one <base size> entry in reg property).
 
---
+This explains why hiding the memory from the kernel worked, I *was*
+reserving this memory but in a way which this commit discontinued.
 
-net: airoha: add HW GRO offload support
+I initially thought this was some randomly-occurring "heisenbug", which
+is why I submitted the memory-hiding fix instead as it definitely worked,
+but now I know the real problem I will fix the reserved-memory node.
 
-This adds hardware GRO (LRO) offload to airoha_eth, mapping the 8 LRO
-hardware contexts onto RX queues 24-31, bumping the page_pool order for
-those queues and disabling scatter-gather on them.  Aggregated frames get
-their network headers copied into a linear skb, the payload attached as a
-frag, CHECKSUM_PARTIAL with a pseudo-header checksum, and GSO metadata
-derived from the descriptor aggregation count.
+I will fix this in the next version of this patchset, next merge window.
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 64619e9a704dd..57b19d7b5bd79 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-
-[ ... ]
-
-> @@ -491,6 +493,88 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
->  				 CDM_CRSN_QSEL_Q1));
->  }
->
-> +static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_id,
-> +				     int lro_queue_index, int qid,
-> +				     int buf_size)
-> +{
-
-[ ... ]
-
-> +	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
-> +		      LRO_RXQ_MASK(lro_queue_index),
-> +		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
-> +	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
-> +}
-
-[ ... ]
-
-> +static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
-> +{
-> +	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
-> +	struct airoha_eth *eth = qdma->eth;
-> +	int qdma_id = qdma - &eth->qdma[0];
-> +	int i, lro_queue_index = 0;
+>=20
+> Signed-off-by: Aiden Isik <aidenisik+git@member.fsf.org>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts | 106 +++++++++++++++++=
+++++++
+>  1 file changed, 106 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts b/arch/arm6=
+4/boot/dts/exynos/exynos5515-lucky7.dts
+> new file mode 100644
+> index 000000000000..f91ea7e44cf8
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/exynos5515-lucky7.dts
+> @@ -0,0 +1,106 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Samsung Galaxy Watch FE (lucky7/SM-R861/SM-R866) device tree source
+> + *
+> + * Copyright (c) 2026 Aiden Isik <aidenisik+git@member.fsf.org>
+> + */
 > +
-> +	if (airoha_fe_lro_is_enabled(eth, qdma_id))
-> +		return;
+> +/dts-v1/;
+> +#include "exynos5515.dtsi"
 > +
-> +	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-> +		struct airoha_queue *q = &qdma->q_rx[i];
-> +		u32 size;
+> +/ {
+> +=09compatible =3D "samsung,lucky7", "samsung,exynos5515";
+> +=09chassis-type =3D "watch";
+> +=09model =3D "Samsung Galaxy Watch FE (SM-R861/SM-R866)";
 > +
-> +		if (!q->ndesc)
-> +			continue;
+> +=09chosen {
+> +=09=09ranges;
+> +=09=09#address-cells =3D <2>;
+> +=09=09#size-cells =3D <1>;
 > +
-> +		if (!airoha_qdma_is_lro_queue(q))
-> +			continue;
+> +=09=09framebuffer@9e0cf000 {
+> +=09=09=09compatible =3D "simple-framebuffer";
+> +=09=09=09reg =3D <0x0 0x9e0cf000 (396 * 396 * 4)>;
+> +=09=09=09format =3D "a8r8g8b8";
+> +=09=09=09height =3D <396>;
+> +=09=09=09stride =3D <(396 * 4)>;
+> +=09=09=09width =3D <396>;
+> +=09=09};
+> +=09};
 > +
-> +		size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
-> +		size = min_t(u32, size, AIROHA_MAX_RX_SIZE);
-> +		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
-> +					 size);
-> +		lro_queue_index++;
-> +	}
-> +}
-
-[Severity: High]
-Can traffic steered to LRO context 7 be dropped here?  This loop enables an
-LRO context for every RX ring selected by airoha_qdma_is_lro_queue(), and
-AIROHA_RXQ_LRO_EN_MASK is GENMASK(31, 24), so ring 31 gets LRO context 7 and
-BIT(7) is set in REG_CDM_LRO_EN.
-
-RX ring 31 does not appear in any IRQ bank pin mask in airoha_eth.h:
-
-	#define RX_IRQ0_BANK_PIN_MASK			0x839f
-	#define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
-	#define RX_IRQ2_BANK_PIN_MASK			0x20
-	#define RX_IRQ3_BANK_PIN_MASK			0x40
-
-The union of those four masks covers queues 0-4, 7, 8, 15 and 21-30, but not
-BIT(31).  Since airoha_qdma_hw_init() derives the RX interrupt enables from
-those masks:
-
-	airoha_qdma_irq_enable(&qdma->irq_banks[i], QDMA_INT_REG_IDX2,
-			       INT_RX2_MASK(RX_IRQ_BANK_PIN_MASK(i)));
-
-RX31_DONE is never enabled in any bank, and airoha_irq_handler() masks the
-status with irq_bank->irqmask, so q_rx[31]'s NAPI is never scheduled.  The
-re-arm loop in airoha_qdma_rx_napi_poll() is also a no-op for that qid:
-
-	if (!(BIT(qid) & RX_IRQ_BANK_PIN_MASK(i)))
-		continue;
-
-The ring is still created and filled by airoha_qdma_fill_rx_queue(), so once
-its descriptors are consumed by the LRO engine it is never drained or
-refilled again.  Would either restricting the mask to GENMASK(30, 24) or
-adding BIT(31) to one of the bank pin masks be the intended fix?  The v4
-changelog in this posting lists "Enable rx interrupt for queue 31", but that
-change does not seem to be present in this version of the patch.
-
-[ ... ]
-
-> @@ -657,12 +742,191 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
->  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
->  }
->
-> +static struct sk_buff *airoha_qdma_lro_rx_skb(struct airoha_queue *q,
-> +					      struct airoha_qdma_desc *desc,
-> +					      struct airoha_queue_entry *e,
-> +					      u32 msg1, u32 msg2, u32 len,
-> +					      u32 agg_count)
-> +{
-
-[ ... ]
-
-> +	page = virt_to_head_page(e->buf);
-> +	data_len = len - data_off;
-> +	shinfo = skb_shinfo(skb);
-> +	skb_add_rx_frag(skb, shinfo->nr_frags, page,
-> +			e->buf + data_off - page_address(page), data_len,
-> +			q->buf_size);
+> +=09memory@80000000 {
+> +=09=09/*
+> +=09=09 * Use the lowest 490MiB and highest 512MiB of memory.
+> +=09=09 * The 488MiB between the addresses of 0x9ea00000 and
+> +=09=09 * 0xbe680000 is currently unused due to any memory accesses
+> +=09=09 * in several ranges between those addresses causing the core
+> +=09=09 * performing the accesses to stall.
+> +=09=09 */
+> +=09=09reg =3D <0x0 0x80000000 0x1ea00000>,
+> +=09=09      /* Crashing memory at 0x9ea00000-0xbe680000 */
+> +=09=09      /* Memory hole at 0xbe680000-0xc0000000 */
+> +=09=09      <0x0 0xc0000000 0x20000000>;
+> +=09=09device_type =3D "memory";
+> +=09};
 > +
-> +	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
-> +	/* HW does not report the per-segment MSS, so approximate it as
-> +	 * the average segment size. The LRO engine always aggregates
-> +	 * n-1 MSS-sized TCP segments plus one shorter tail for an
-> +	 * aggregate of n segments, so this still re-segments into
-> +	 * exactly agg_count segments, keeping gso_size/gso_segs and the
-> +	 * packet accounting coherent, while never overestimating the MSS.
-> +	 */
-> +	shinfo->gso_size = DIV_ROUND_UP(data_len, agg_count);
-> +	shinfo->gso_segs = agg_count;
-
-[Severity: Medium]
-Is NETIF_F_GRO_HW the right feature bit given this approximation?
-Documentation/networking/netdev-features.rst says for rx-gro-hw:
-
-	A packet stream merged by Hardware GRO must
-	be re-segmentable by GSO or TSO back to the exact original packet stream.
-
-With gso_size computed as the average payload size, the aggregate cannot be
-re-segmented into the original stream whenever the tail segment is shorter
-than the MSS, which the commit message describes as the normal case:
-
-	The LRO engine always aggregates n-1 MSS-sized TCP segments plus one
-	shorter tail for an aggregate of n segments
-
-For a two-segment aggregate of 1460 + 1000 bytes, gso_size becomes 1230, and
-GSO/TSO emits 1230 + 1230 rather than 1460 + 1000.  On the L3-forwarding path
-this patch targets, airoha_dev_xmit() writes that value straight into the TX
-descriptor MSS field:
-
-	__be16 csum = cpu_to_be16(skb_shinfo(skb)->gso_size);
-
-	tcp_hdr(skb)->check = (__force __sum16)csum;
-	msg0 |= FIELD_PREP(QDMA_ETH_TXMSG_TSO_MASK, 1);
-
-so forwarded flows end up with a reduced MSS.  Would NETIF_F_LRO be the more
-accurate advertisement for an irreversible merge?
-
-A related question on gso_segs: agg_count comes from
-FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) and is only bounded above by
-AIROHA_RXQ_LRO_MAX_AGG_COUNT, while data_len has no lower bound beyond 1.  If
-the engine ever aggregates segments that are not uniformly MSS-sized (for
-example 64 segments totalling 100 payload bytes, giving gso_size 2 and 50
-emitted segments), gso_segs would overstate the number of segments actually
-produced, which feeds qdisc pkt_len accounting.  Is the uniform-segment
-property guaranteed by the hardware for all aggregates?
-
-[ ... ]
-
-> @@ -3430,11 +3781,9 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
->  	netdev->ethtool_ops = &airoha_ethtool_ops;
->  	netdev->max_mtu = AIROHA_MAX_MTU;
->  	netdev->watchdog_timeo = 5 * HZ;
-> -	netdev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM | NETIF_F_TSO6 |
-> -			      NETIF_F_IPV6_CSUM | NETIF_F_SG | NETIF_F_TSO |
-> -			      NETIF_F_HW_TC;
-> -	netdev->features |= netdev->hw_features;
-> -	netdev->vlan_features = netdev->hw_features;
-> +	netdev->hw_features = AIROHA_HW_FEATURES | NETIF_F_GRO_HW;
-> +	netdev->features |= AIROHA_HW_FEATURES;
-> +	netdev->vlan_features = AIROHA_HW_FEATURES;
->  	SET_NETDEV_DEV(netdev, eth->dev);
-
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-> index fa9a8edce22ff..84cadbb538666 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -45,6 +45,18 @@
->  	 (_n) == 15 ? 128 :		\
->  	 (_n) ==  0 ? 1024 : 16)
->
-> +#define AIROHA_LRO_PAGE_ORDER		get_order(SZ_16K)
-> +#define AIROHA_MAX_NUM_LRO_QUEUES	8
-> +#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
-
-[ ... ]
-
->  #define PSE_RSV_PAGES			128
->  #define PSE_QUEUE_RSV_PAGES		64
-
-[ ... ]
-
-> @@ -714,6 +728,18 @@ static inline bool airoha_is_7583(struct airoha_eth *eth)
->  	return eth->soc->version == 0x7583;
->  }
->
-> +static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
-> +{
-> +	struct airoha_qdma *qdma = q->qdma;
-> +	int qid = q - &qdma->q_rx[0];
+> +=09reserved-memory {
+> +=09=09ranges;
+> +=09=09#address-cells =3D <2>;
+> +=09=09#size-cells =3D <1>;
 > +
-> +	/* EN7581 SoC supports at most 8 LRO rx queues */
-> +	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
-> +		     AIROHA_MAX_NUM_LRO_QUEUES);
+> +=09=09framebuffer@9e0cf000 {
+> +=09=09=09reg =3D <0x0 0x9e0cf000 (396 * 396 * 4)>;
+> +=09=09=09no-map;
+> +=09=09};
 > +
-> +	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
-> +}
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831-airoha-eth-lro-v5-1-6b0f50401121%40kernel.org
+> +=09=09misc-rmem {
+> +=09=09=09/*
+> +=09=09=09 * Some of these regions belong to memory-mapped
+> +=09=09=09 * devices, and will be assigned to drivers as support
+> +=09=09=09 * is added.
+> +=09=09=09 *
+> +=09=09=09 * Other regions belong to the TrustZone firmware
+> +=09=09=09 * and should never be touched.
+> +=09=09=09 */
+> +=09=09=09reg =3D <0x0 0x87000000 0x200000>,
+> +=09=09=09      <0x0 0x87fff000 0x1000>,
+> +=09=09=09      <0x0 0x8a000000 0x31000>,
+> +=09=09=09      <0x0 0x8d800000 0x180000>,
+> +=09=09=09      <0x0 0x8ffff000 0x33000>,
+> +=09=09=09      <0x0 0x90100000 0x200000>,
+> +=09=09=09      <0x0 0x98a00000 0x600000>,
+> +=09=09=09      <0x0 0x9a000000 0xc00000>,
+> +=09=09=09      <0x0 0x9b000000 0x400000>,
+> +=09=09=09      <0x0 0x9bd00000 0x208000>,
+> +=09=09=09      <0x0 0x9c000000 0x20000>,
+> +=09=09=09      <0x0 0xa0000000 0x10000>,
+> +=09=09=09      <0x0 0xa0010000 0x400000>,
+> +=09=09=09      <0x0 0xa0510000 0x1000>,
+> +=09=09=09      <0x0 0xa0900000 0x2000>,
+> +=09=09=09      <0x0 0xa0902000 0x1000>,
+> +=09=09=09      <0x0 0xa0910000 0x3c000>,
+> +=09=09=09      <0x0 0xb0000000 0x200000>,
+> +=09=09=09      <0x0 0xb1000000 0x200000>,
+> +=09=09=09      <0x0 0xbbfff000 0x1000000>,
+> +=09=09=09      <0x0 0xbcfff000 0x1000>,
+> +=09=09=09      <0x0 0xbd430000 0x1250000>,
+> +=09=09=09      <0x0 0xd0000000 0x5d00000>,
+> +=09=09=09      <0x0 0xdc444000 0x2bbc000>,
+> +=09=09=09      <0x0 0xdf005000 0x1000>,
+> +=09=09=09      <0x0 0xdf008000 0x1000>,
+> +=09=09=09      <0x0 0xdf009000 0x12000>,
+> +=09=09=09      <0x0 0xdf01b000 0x21000>,
+> +=09=09=09      <0x0 0xdf03c000 0x1000>,
+> +=09=09=09      <0x0 0xdf03d000 0xfc3000>;
+> +=09=09=09no-map;
+> +=09=09};
+> +=09};
+> +};
+> +
+> +&oscclk {
+> +=09clock-frequency =3D <26000000>;
+> +};
+> +
+> +&watchdog {
+> +=09status =3D "okay";
+> +};
+>=20
+> --
+> 2.54.0
+>=20
+>=20
+> 
 
