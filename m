@@ -4,111 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01E6C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF314C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 19:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=; b=IQ2GqJam9sUgbyzqzZE3pB+N87
-	81DznQH+VUGF+8t9MuLtKFhaDWeR8mujc0STQX7kkb+O79mo0VvEH8hKzJFAhEnRdHpZKEKk+5zdx
-	gPgOczJOID1LDbwCmBbIwy8pGCzxGgQhAMwwJ3pCAtzK/Ix/XJ9qmfhzIG1UimNpLT/iQ/vsSPc3Q
-	psJORjUPh+i6NbhrSM7IIMccfEnYga+w7zg9n9fPXy1a50KnmN/J/KNCb1AMdiVjSIecmnHsLAh4i
-	YvVYHTiZpbFDnw4dnDQ8TIlifDLmb4FQZZmzQaXWOOq0oLCsfhghdj5yKiO5BWeROe8TKyomcC6sK
-	BOuUoACA==;
+	bh=1KAhXVaxLdCjSi8v1isN8MOQkuFeoI805kch4NCeY5g=; b=VliegqBjjuwVXLsefoCzuYEq94
+	+5UG6lzCjwpH9BNlErlDlebq/MpqVSjDdZkfjxXrMeQ835VAHaSOsHgtpNIgDeB7xzwgezKbJuUpC
+	xID5F6GlwAGev+w9JdyhOUYVLS2HgurlxdQBc1na+MzCXYiRyGXDIKjjZacixe6883s8voNwd2ksP
+	45YU/8isZ3bOdjDRdDzQlJZyAtetH8c4FtE7cULsnvkJMVh7+YIQhA3rbdzU1gwCe/WMn82XT2pXj
+	vDpnljM6NgzRlB86wmfj/9btIsGkuP/BQUfXFZi0uz43kgPS/gEHMupVVt/1LNbwZWK5P3ABvY3/8
+	/rJ/5sMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Csf-00000000RoC-3WQL;
-	Thu, 03 Sep 2026 19:13:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x2CxV-00000000SBc-1qDC;
+	Thu, 03 Sep 2026 19:18:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Csc-00000000Rnq-3NNg
+	id 1x2CxT-00000000S9w-13wt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 19:13:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788462825;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=;
-	b=cwdSFHGUB5A4gw2DrXzNUj8QNSk5NRzKQXNlNBKl5gcyW8AbIIsQ3VXAg8cy9jZEkGboev
-	VknJLN50cEM5kARqRg1jo4r1mWl/2NBSuDGwQxOClWnRO3NdwiFK8kvJm5GYS7U6Pqm3C6
-	7FyygcPNYD+HUEUocketHZue9RCBi+g=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-121-GvwbRNxbPsCWHxTL0gWPKw-1; Thu, 03 Sep 2026 15:13:43 -0400
-X-MC-Unique: GvwbRNxbPsCWHxTL0gWPKw-1
-X-Mimecast-MFC-AGG-ID: GvwbRNxbPsCWHxTL0gWPKw_1788462822
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-47d81cf0c4cso127618f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 12:13:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788462822; x=1789067622;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ftgzyujbx9F68uHjOCU1/tri9c4N8S6xaXNJtzq3Flg=;
-        b=jd9Kt+bQIwDB236oVe1OBWxKcJh8twrzYcrDzW0wqY/dDjIV4j+Ascad2TGdFUBqGl
-         INdOT2EhcuVzN3qRfl46VsyUsPuiKEmbnDEr7ch4xOl1PJ29kQp49UwLC5/YskVYzISX
-         4r7MeCJ8p0bogvJVqfuKu1DlhyXIAxDcuYcB+83Sv9m9WsgtOCSatPGD14f6vIicWCN3
-         /b2uURsf73pNANF2bdMl2RTH3S9cDpVk7RmKzRirBOgGdMnVzuHN+4Nv/6l4Z7jwk32E
-         edhIE7o9m18GdmAXs2BVnXxM8gGhb9a6wD+i8PiEmVTka5tX3GiC10Yfb1zzcMtyAK8P
-         PJRw==
-X-Forwarded-Encrypted: i=1; AKwUvBwCvUeGFaJeEt3RuRtU9OhwrFhEF8k7J5XlWtIebgTP+qjUKWG9JbhI0PoSl1GT6VKnx+n95gsJttLBeuG9JKQC@lists.infradead.org
-X-Gm-Message-State: AFuF++lyZpr9xyL+nYY8dYjlCoQfEGJqmtKmMezJG2HVuJqWr3XaiEcz
-	G5hqD0Vt7vZgECCnBwEB5GPCB7HZFJXlpPjWgL4inBCqAzpS9sqdjUAZ4LULXpZY3ZMa0hzdsH9
-	LCSUrSxsD0/JxCbYYuQ1lqy0jItmovEs8faQSPKV1a5ahL2y5LoDCfCcL7UVmQbm8aN7bGhODLP
-	uVnV2QYU8KC4gsdXSnbZb1QSVLjj43/mPkJt3An5CF6nGD04X0lac=
-X-Gm-Gg: AYBFou27t5usYU1HSQK24UYyA9BbZyrHdaduGQikaEMJGYQxCBtQD+Cd+juZKZvl6Zv
-	ovlOIFlAHZpUeO1z6NiyIp3gsCmlucKsSC6JSsB3GIA77/tZw8GktJSGL3LSmy+Ze690EKkrzQV
-	2JVhU/ZV0KMVc7hhyYCwSI6VSIUiMhlouDFDdql50dXixoZKEk0yx+LA+9QOVubtKB0H11gaziR
-	qq66XKcly18I8d4RzeLGQAYrArfF00+PxYnllgc0n9SkKyZHMtWGJAIGadu
-X-Received: by 2002:a05:6000:2084:b0:482:f0ee:1390 with SMTP id ffacd0b85a97d-48587289c5bmr2438692f8f.22.1788462822432;
-        Thu, 03 Sep 2026 12:13:42 -0700 (PDT)
-X-Received: by 2002:a05:6000:2084:b0:482:f0ee:1390 with SMTP id
- ffacd0b85a97d-48587289c5bmr2438609f8f.22.1788462821985; Thu, 03 Sep 2026
- 12:13:41 -0700 (PDT)
+	Thu, 03 Sep 2026 19:18:48 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 683ICiEb566366;
+	Thu, 3 Sep 2026 19:18:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	1KAhXVaxLdCjSi8v1isN8MOQkuFeoI805kch4NCeY5g=; b=Z+/iiKq4p4x5nuix
+	MtXjlj2lEbMewEEK06TDvFQlLX3g3HQwdyp6prv/g9iQPuQ1+2SEppZtLfZEw8Kt
+	lmmED3pY5fYnKlq0JFxzWl+pRCe5I69j67hwkLoBYu/rp57ZmWklfE2IHO299Jxl
+	zJ7o6qAf6PimzBSYQFZwZAAt9+W7ZShGFiAHb7NJ4qhEI3lrLf9qi3O6yO1+u7qr
+	nQm5RkqxMHow/WhNOwMQG64JZ1s8mXeYrF0kJYUBmUz8QdZNuLeN+pDJsmRVILV/
+	6P8fBIhrAw4oF+JNJWEG0oyKfNWdqzL9XrO4PpsvBHKIJVlrfb5BeDGIGFo0rKcL
+	1dpUQg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gfdyp0997-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 03 Sep 2026 19:18:36 +0000 (GMT)
+Received: from pps.filterd (nalasppmta01.qualcomm.com [127.0.0.1])
+	by NALASPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 683JIa113232800;
+	Thu, 3 Sep 2026 19:18:36 GMT
+Received: from hu-devc-lv-u24-a.qualcomm.com (hu-jcameron-lv.qualcomm.com [10.81.84.69])
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 683JIZ1N3232778
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 03 Sep 2026 19:18:36 +0000 (GMT)
+Received: from hu-jcameron-lv.qualcomm.com (localhost [127.0.0.1])
+	by hu-devc-lv-u24-a.qualcomm.com (Postfix) with ESMTP id 77C6524DD7;
+	Thu,  3 Sep 2026 12:18:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260831144802.834315-1-seiden@linux.ibm.com> <20260831144802.834315-3-seiden@linux.ibm.com>
- <apdweRfqt4dTxcU9@google.com> <20260902075028.231001-D-seiden@linux.ibm.com>
- <aphLXQL1H2zYZgTi@google.com> <20260903114241.33034-C-seiden@linux.ibm.com>
- <apmEi1NmOUvmUBFP@google.com> <apmFClPZ2WcDINmT@google.com>
- <apmIGgMEN8w-kQAm@google.com> <19d4feb1-d703-4c62-8622-a6d5e9d6394c@redhat.com>
- <apmYPMMPCNzK9ZEA@google.com>
-In-Reply-To: <apmYPMMPCNzK9ZEA@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 3 Sep 2026 21:13:28 +0200
-X-Gm-Features: AcwNN1VM-0Sta_usKYpoIMa4PlVb-9vByCd46nQw98qW4Zt-Pg_0xPWbP_VjwBM
-Message-ID: <CABgObfZL-qNSaNkNZDj0Kk41zw6UZ30vkSxc6T8wb-pOKab9Wg@mail.gmail.com>
-Subject: Re: [PATCH v7 02/23] KVM: Make device name configurable
-To: Sean Christopherson <seanjc@google.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
-	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
-	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NYSmlaGIIKwZfJnceG4TBiT9qU6qtmEP5OTBY5u3ygA_1788462822
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 13/13] iommu/arm-smmu-v3: Enable PRI for PCI device
+ in arm_smmu_probe_device()
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+        bhelgaas@google.com, praan@google.com, kevin.tian@intel.com,
+        kees@kernel.org, smostafa@google.com, baolu.lu@linux.intel.com,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+        skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
+        bbiber@nvidia.com, harsha.v@oss.qualcomm.com
+In-Reply-To: <b0442ba9eb1598bf07782b14fbcad284bcefbe40.1788222486.git.nicolinc@nvidia.com>
+References: <cover.1788222485.git.nicolinc@nvidia.com>
+ <b0442ba9eb1598bf07782b14fbcad284bcefbe40.1788222486.git.nicolinc@nvidia.com>
+Date: Thu, 03 Sep 2026 12:18:33 -0700
+Message-Id: <178846311320.1308030.2192800704181905560.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: lapXz9Lcf-Qfq54ReHLXWEO3vwYtFmfz
+X-Proofpoint-GUID: lapXz9Lcf-Qfq54ReHLXWEO3vwYtFmfz
+X-Authority-Analysis: v=2.4 cv=Q5XiJY2a c=1 sm=1 tr=0 ts=6a99c80c cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=Ikd4Dj_1AAAA:8
+ a=EUspDBNiAAAA:8 a=EIqCPuMYCVkQZYwhltEA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDE2OCBTYWx0ZWRfX/DpWtldwLDs9
+ 3vU7LoBF1hILaCVkKBNnd61LoiHnxSZFWNHoaARCBeFZUov62YzH6p1yzCeJxy8o1xTzSK35ic0
+ tvAuYi1VDiTRTuoC4ifAOK5Kq7Sj4HwUp/yGt2XQm+2Yh9nnATVU2EFNq5n5JOVjKSApvml/54I
+ V3HLCsUMT82IMZITOBx97FBGWxyR+nLySLmSnEcn3f0YzydDT2F2+vzEjtcoF4FfmdKma4z8vPV
+ y6o5ubwv9cwKP+cD9zBzV6fOE1X6NNmDDamk26zFhAdWU8dZhed76G+l1CEAvJmdIFQRyY94n2/
+ 3qZshzui4v71HaaEGD7Y51jzDQ8SplORsULAkZA3AftLk/xhe8LBChsLlpmwzJnwwSCe7Sd+FTR
+ kvq1xMJjvg57EntPu4b8RT1F/y7hTy5qdt3/wvJ+DZHfEPBfyT92ss05bRA4NWFQGRGvxFGJ3gN
+ mTUYg7YbBMDViXacAlQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDE2OCBTYWx0ZWRfX75KocQD0vcNm
+ frvcpoyEPo6KtSa/pEWsJKeSXWy8LSWileHqSdzJ0CXoA3AYR7F0n8Ogaxw6Tkm8M1KsVn/tjJ3
+ /ZtwE7QXmEAj/ZGvNBjFc2I2ptDFkwM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-03_05,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1011 impostorscore=0 adultscore=0 bulkscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609030168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_121346_937944_ABDF372F 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20260903_121847_324828_B8890946 
+X-CRM114-Status: GOOD (  31.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +121,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 3, 2026 at 5:54=E2=80=AFPM Sean Christopherson <seanjc@google.c=
-om> wrote:
+> Now PRI requests can be correctly handled. Enable the PCI cap when probing
+> a PCI device. Also flush the priq in arm_smmu_attach_release().
+> 
+> Drain the priq for any PRI-enabled master following the same rationale as
+> the eventq drain: a stale page request must be answered while it can still
+> resolve to the old attach handle, even when the old attachment did not set
+> up IOPF, or else the threaded handler could route it to the next domain.
+> 
+> Note that PRI is enabled at the probe time, while ATS gets toggled by the
+> attach/detach routines, so a master could have PRI enabled when its ATS is
+> disabled. PCIe (Base 6.3, Table 10-14) sets no ATS precondition on the PRI
+> Enable bit. Its only ordering rule is that the interface must have gotten
+> successfully Stopped prior to an enabling, which pci_enable_pri() already
+> checks using PCI_PRI_STATUS_STOPPED. Also, a PRI-enabled device would not
+> issue a page request until it starts to use ATS.
+> 
+> Set the per-device outstanding request budget to the full priq depth, same
+> as intel-iommu's per-device PRQ_DEPTH choice. A fixed per-device cap won't
+> prevent multiple PRI-capable devices from potentially exceeding the priq's
+> capacity; priq overflow is recoverable per the SMMUv3 spec, and it is rare
+> in practice.
+> 
+> Select PCI_PRI in Kconfig like other IOMMUs, gated on PCI so the build can
+> stay clean for non-PCI ARM SMMUv3 configurations.
+> 
+> SMMUv3 forbids the Stall model on PCIe streams. Refuse to enable PRI on a
+> PCIe master that came with stall_enabled, so page_response() can dispatch
+> on master state unambiguously.
+
+As earlier, we have exceptions in tree for Stall mode on PCIe streams
+(lets not reopen that fun arguement) so I'd focus this on PRI not
+making any sense if stall mode is in use as that has alternative
+handling for page faults.
+
+
+> 
+> Refuse to enable PRI as well on any master reporting num_streams != 1, as
+> arm_smmu_enable_iopf() rejects multi-stream masters, so IOPF cannot be set
+> up for them; keeping PRI enabled would let a PRI request arrive on an alias
+> StreamID and get a PRI_RESP_DENY issued against streams[0] by the driver's
+> error-response path.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+A few minor things in here.
+
+Thanks,
+Jonathan
+
 >
-> On Thu, Sep 03, 2026, Paolo Bonzini wrote:
-> > On 9/3/26 16:45, Sean Christopherson wrote:
-> > > > > Actually, thinking about this more, what I've proposed here, plus=
- the pattern of
-> > > > > #define-ing macros in arch-specific kvm_host.h files, should suff=
-ice.  For things
-> > > > > like __KVM_HAVE_ARCH_VM_FREE, it absolutely makes sense to #defin=
-e the macro in
-> > > > > kvm_host.h since it's very directly tied to an arch callback.  Wh=
-ereas with KVM_MIO
-> > > > > and KVM_ASYNC_PF, because they enable compilation of C files, it =
-makes sense to
-> > > > > define them in Makefiles.
-> > Ugh, defining CONFIG symbols in Makefiles sucks.
->
-> Sure, but IMO wrapping entire files in an #ifdef that comes from an arch =
-header
-> sucks more.  And technically, these aren't CONFIG symbols.
+> diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+> index b848a4253677..a31d04f5b031 100644
+> --- a/drivers/iommu/arm/Kconfig
+> +++ b/drivers/iommu/arm/Kconfig
+> @@ -80,6 +80,7 @@ config ARM_SMMU_V3
+>  	select IOMMU_IO_PGTABLE_LPAE
+>  	select IOMMU_IOPF
+>  	select GENERIC_MSI_IRQ
+> +	select PCI_PRI if PCI
+>  	select IOMMUFD_DRIVER if IOMMUFD
+>  	help
+>  	  Support for implementations of the ARM System MMU architecture
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 47c95b691503..d35d814900cb 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3509,6 +3509,17 @@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
+>  			synchronize_irq(smmu->combined_irq);
+>  	}
+>  
+> +	/* Same as the eventq drain above, for the hardware priq */
+> +	if (master->pri_enabled) {
+> +		ret |= arm_smmu_drain_queue(smmu, &smmu->priq.q, false);
+> +		/* Ensure pending requests have reached the IOPF queue */
+> +		if (!ret && smmu->priq.q.irq)
 
-True it wouldn't be -DCONFIG_ (fortunately). But even if technically
-correct is the best kind of correct...
+Similar to before, I'd factor out the if (!ret)
+Using |= on return values is never particularly nice though safe
+as used here.  Still I'd use another variable to store that things
+timed out already so we are skipping these.
 
-> > I don't want KVM to be the. one that does things differently *once more=
-*.
->
-> Too late :-D
->
-> arch/arm64/kvm/hyp/nvhe/Makefile:ccflags-y :=3D -D__KVM_NVHE_HYPERVISOR__=
- -D__DISABLE_EXPORTS -D__DISABLE_TRACE_MMIO__
-> arch/arm64/kvm/hyp/vhe/Makefile:ccflags-y :=3D -D__KVM_VHE_HYPERVISOR__
+> +			synchronize_irq(smmu->priq.q.irq);
+> +		/* Pending requests might be in the combined_irq handler */
+> +		if (!ret && smmu->combined_irq)
+> +			synchronize_irq(smmu->combined_irq);
+> +	}
+> +
+>  	/*
+>  	 * Only IOPF-enabled attachments queue fault work, and such work
+>  	 * references the old domain via its attach handle. Flush it, as
+> @@ -4446,6 +4457,40 @@ static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
+>  	return arm_smmu_alloc_cd_tables(master);
+>  }
+>  
+> +static void arm_smmu_master_enable_pri(struct arm_smmu_master *master)
+> +{
+> +	struct arm_smmu_device *smmu = master->smmu;
+> +	struct pci_dev *pdev;
+> +	unsigned int reqs;
+> +
+> +	if (!(smmu->features & ARM_SMMU_FEAT_PRI) || !smmu->evtq.iopf)
+> +		return;
+> +	if (!dev_is_pci(master->dev))
+> +		return;
+> +	pdev = to_pci_dev(master->dev);
+> +
+> +	if (!pci_pri_supported(pdev))
+> +		return;
+> +
+> +	/* SMMUv3 forbids the Stall model on PCIe streams */
 
-Sure, VHE/nVHE is fair game because the nVHE case is in the same boat
-as vDSO, arch/*/boot, and so on.
+Again, I'd tweak the wording given we have quite a few examples
+in tree that do stall mode on PCIe smelling streams.
 
-Looking at a grep for (cflags|CFLAGS).*\-D most are -DDEBUG,
--DDISABLE_BRANCH_PROFILING, -DDEFAULT_SYMBOL_NAMESPACE, etc. and in
-most cases they seem like a bad idea. Don't do it for KVM please;
-requiring -D for all architectures and for random pieces of config,
-when you can put it in asm/kvm_host.h, is just as bad if not worse.
-
-Paolo
-
-> And I think there's value in deliberately being different, because CONFIG=
-s are
-> kernel-wide things, whereas the thingies in question are KVM-local macros=
-.  I.e.
-> IMO, having the behavior stand out is a good thing.
->
-> > I'd prefer to stub out the contents of the .c files instead.
->
-
+-- 
+Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 
