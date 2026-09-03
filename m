@@ -4,87 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E012DC624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 17:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FD8C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 18:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3roe8Ng4NJTO16r4A3+rVJKovF7kyFWXB/Do7RUIUeE=; b=q7OgB1ftVHLaRI7s52rteNTSGy
-	8dgSMOEUtE5ogdaSrajehs8b8HuBS3VhxkmQVSUO57rlhv8MGXxyY9GVr8ayDv0wwRcQaNbl8YqRO
-	K4+KNsYp1L99FM9nHT6I7D9smzplxwaqPuDbdz24si/uoTGMj4+4RCssEYr/VF9y45saGjwc5kFkO
-	j9IaMt8ZkVi3b62yeADLAaihUUbLf8vOutFASEhXdSbh9QT471nVfWWZSB0CwiGpZTZLsudH9yFGU
-	v5HI2I9HCnPjMclY87SPsXCpZEtNiV5n+X4YPRwxzoEy4dwCOWgrf6D7Zg+SoSCNzyUeAfOCtUrU0
-	zIdRz4TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tfXSvzDXEK2PwTU3AjwlPjarjl+mPyko733dLts40vo=; b=jN14Shl0i/oTs+tEDe3qnALVYW
+	8JBq5Z5pOC0l7EgjS8sYkPFLMqN0oxLZaoKIA9a2k+oA7qR4XZk085A84sngXeHLMBJWnN9PAWB0m
+	xx+zZCLJ1tf6l477IWRwF5xMPxwBVTCMJHnv2XFBKMf8mC9QvaTZBjWw43GfkqQWETAr6C5nv/9wn
+	K6oG4xY4YJRFUpwH9Qlnfr+cChBlFCuJk/s0ZFqrYhpHNSR5Blx0Z87LExr/6nJ56tBkKYHza3z8c
+	4sShg2rpnH2Zqt8bfR0CG4OZRzXBdJdbSZ+/Ddbx1CNeBFTTYYVJI6SyyNrMfkQdAxsCNpO1tAb9E
+	A6SR1N3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BfW-00000000Jfo-1NFX;
-	Thu, 03 Sep 2026 17:56:10 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1x2Bk3-00000000KBD-3Urn;
+	Thu, 03 Sep 2026 18:00:51 +0000
+Received: from mail-pj1-x1063.google.com ([2607:f8b0:4864:20::1063])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2BfS-00000000Jey-2t3d;
-	Thu, 03 Sep 2026 17:56:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1788458154; x=1789062954; i=wahrenst@gmx.net;
-	bh=3roe8Ng4NJTO16r4A3+rVJKovF7kyFWXB/Do7RUIUeE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=mFjQFi3i4QiAxv3jY4F98BrA5CT6YvD9swpDedd9/oSSGfDSziT+oTcSJyVjrzts
-	 d1evph9SDul/aa+NhQdg7eR/CA89ILpUx65P/99zCXTq58vkLWShlBJS0cdSHKEJi
-	 xS7uBl0NkSQt/LlMaKoCJC7sSdctKKBqRJoEo6fCV5Tkqn5ID5hNs2zRndCYYEdFP
-	 l6tbDsQCW0jCEPdpCIhPb0pCwREzRSrZ6SpREoeSu1uIFC+IPBymPmbQ9jbqRjsmL
-	 rHrlmUD7BzYC2rCFJ070ZaOo06zgkQ4jRcY88dNWiLU1IVFg8WuJy3U25FE2xSiIs
-	 JON5TZRfpoPHOrzubw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MiJV6-1wQ5AF3tFm-00eYsx; Thu, 03
- Sep 2026 19:55:54 +0200
-Message-ID: <95058f69-9d38-4367-aa8c-dffb0ea0ee54@gmx.net>
-Date: Thu, 3 Sep 2026 19:55:53 +0200
+	id 1x2Bk0-00000000KAU-0X4s
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 03 Sep 2026 18:00:50 +0000
+Received: by mail-pj1-x1063.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso85287a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 11:00:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788458447; x=1789063247;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tfXSvzDXEK2PwTU3AjwlPjarjl+mPyko733dLts40vo=;
+        b=r2Q96HpWq9I9QVPRa3Gv5kKl14yta6Ku/DZaXRDapkQAHyYP9JLnrr8XebaMdfU8qb
+         LBJbGE48jA5nEpH9ogilt4Dd2NjunEUulL4t5IqpJMcUNd3yowOv2KzEmZYBxPT8Hej3
+         DY7L75HoH0ESqTZ8sCI7k0q1KRgwsj2WXa8Ks8c5jCLmKj2I21+bCMw0vRdZb7FAm2dG
+         9q5s7LWbMS6ImZgNHkjqP8cMtaPNzPs9iKecifcWO1YGvTXKGG7izv0svTBuR/wq6rba
+         gnq747ofFAIw5ykaQPJ3HvHm5eRblnbeWnfloySvKgQQWlNqWMSh8OLXjkUneXlf+OuZ
+         gKfQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy045K1InssBn2NNlTkTDhFODkjX5GdglwXdX/ZOSjBmqei1vP5qXL/kRWGGi0nVyEifB1L+Zgg7Ah/eF9/iNP+@lists.infradead.org
+X-Gm-Message-State: AFuF++nF4ZyaohKfWb5H5U4xmQE0C6NRbKaS3BBWCcZpr1+9FLyXEgz8
+	lnpMlKRvb6zmTSYJ5QAl48DcmcgJLfgv/rhgAHKHrFZfJ7QZP9JY1UqS3lOEfV1MeTSK+pU+FwG
+	WbFmvA+5dZ5sT+5UdZsbjUQhSWE6Ap7fWpZQnHXr/u3/LMwEeZ0M0vidyzWPGAT7fogMXjvc96g
+	EtjszpiSayoy5WSfvF+tMfQmbi7FREg5B51q9vbtEG3Hx4sTCS5eIk95k7569OMe7EWcWYZEmi1
+	+0/oVYUPzM09TQmRftzBydQQ/9fyEU=
+X-Gm-Gg: AYBFou2Umwnhxq08vWyRNQ/9fSxS4fYYkg4bMRb7mkmYb726NHPBE8LtPu76oljPpR1
+	a6EE8sGNLX8p9umcuawFNms/uqwAyPHBnfkl+IUf6Vz5XIAGlNhhljf685bq6dR21rlOGlcaD5w
+	jjh+idGdqmjAhJK8KJzXITc7JmRerCXA+JUX7WoE7sEBYSU4Y1A4MgSSAQMHnpkbClW09ylMvUL
+	XltIHjBKYgXXbZ/2Y6wc/435OETgNNNqgoopMD0QYUsN0QpX5TBipM80wwCXxL7TNWfgV776GSq
+	R54gXgncvQbX51UESkzYyHhJL/GQHl8G2CKECESOXXOVMbXONTb4G5WXpJRiccZ2lrEQZ9TIx45
+	XQD98AoDBTEWyVFdhKgYhKGeytVeoHjk872tHFPeUC+FecIZHkbGy3TmEmI1KSwMbGmCh4LtGca
+	eyyqcZoMQco9LK3DEsMZPAQ2aOj7NSZglZGkpWRGc=
+X-Received: by 2002:a17:90b:2687:b0:395:4290:46e0 with SMTP id 98e67ed59e1d1-39b2609f768mr384247a91.5.1788458444240;
+        Thu, 03 Sep 2026 11:00:44 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-125.dlp.protect.broadcom.com. [144.49.247.125])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-33398958384sm9028eec.3.2026.09.03.11.00.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 03 Sep 2026 11:00:44 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c252c2ffeb8so6862666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 11:00:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1788458442; x=1789063242; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tfXSvzDXEK2PwTU3AjwlPjarjl+mPyko733dLts40vo=;
+        b=LU74bMl1Dp7RLVJ6Yf3GdqM+zN9LTeK2ouYQSCzkmD0ubGEA4HM72D9TwF/Yp5Wc5p
+         q+Ts9He3MqZTh+HPsm+JIDwS8i2cqfpgfdnGyu/vuYTL4esZIK6tj84scPm7XklMhVKK
+         Ou4eWVFBkKoh+w5UdErzuCFqV1WpfPIXq4Hrg=
+X-Forwarded-Encrypted: i=1; AKwUvBy+VcYADAAOTKZ/W1Q8JtQfEMeUNN4jxHOvN/VREs9r4CK8tTtEVslKob7xzktqeb2bENMKyRBx9QW9c5MQnCIb@lists.infradead.org
+X-Received: by 2002:a17:907:3ccc:b0:c20:f4ee:7c97 with SMTP id a640c23a62f3a-c260c7b0d7dmr26732266b.5.1788458441658;
+        Thu, 03 Sep 2026 11:00:41 -0700 (PDT)
+X-Received: by 2002:a17:907:3ccc:b0:c20:f4ee:7c97 with SMTP id
+ a640c23a62f3a-c260c7b0d7dmr26727066b.5.1788458441097; Thu, 03 Sep 2026
+ 11:00:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3 3/4] firmware: raspberrypi: Add reboot mode
- support
-To: Gregor Herburger <gregor.herburger@linutronix.de>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>
-Cc: linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260903-rpi-tryboot-v3-0-ce94c347e932@linutronix.de>
- <20260903-rpi-tryboot-v3-3-ce94c347e932@linutronix.de>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260903-rpi-tryboot-v3-3-ce94c347e932@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:1sD70n8RviNjaoPpNOlqZON7E6GWVg/L24jNbZziqNLUHRrejJy
- hPna4Xcou4bjAzK9o7uKjBZfzgvpAM/zKglBdld+LzwIIL4Z57Tw2hbr7zqQ+rU4w/K2Dpc
- qgNPUa8zbBXYeEbDfdRp2+5YM+jxFgh7eTptneiY5OBsuKv3cXi4U7i5qNuNceNqDfz6Rec
- Ru9NygTT1oa7MKZj8aFCw==
-UI-OutboundReport: notjunk:1;M01:P0:/4772Nq1n/I=;iil9k5jZXbUB2b+yil5S04iZiCn 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
+References: <20260902-bcm2712-iommu-submit-v4-0-9dbb657578c1@reactivated.net>
+ <20260902-bcm2712-iommu-submit-v4-4-9dbb657578c1@reactivated.net> <9bb0ee66-d313-4a07-af4c-ffd002b55dee@reactivated.net>
+In-Reply-To: <9bb0ee66-d313-4a07-af4c-ffd002b55dee@reactivated.net>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Thu, 3 Sep 2026 14:00:26 -0400
+X-Gm-Features: AcwNN1VMo-0BYjVu68L0XfVw7bX-kJ59Q0HCAFBRY1zIeWvOzLTYqbeos_EFI-4
+Message-ID: <CA+-6iNxksLtrYPMSMYxeFGfDPh+ZVKANQSUtWNC9CZO-0OMpig@mail.gmail.com>
+Subject: Re: [PATCH v4 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
+To: Daniel Drake <dan@reactivated.net>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	nick.hollinghurst@raspberrypi.com, Jason Gunthorpe <jgg@ziepe.ca>
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000228d63065a97ee7e"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_105607_015431_8622A480 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20260903_110048_168917_9AD8AA7D 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,175 +118,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gregor,
+--000000000000228d63065a97ee7e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Am 03.09.26 um 16:48 schrieb Gregor Herburger:
-> The Raspberry Pi firmware has a tryboot mode where it tries to boot from
-> another partition. This can be used to create a A/B update scheme.
+On Wed, Sep 2, 2026 at 6:15=E2=80=AFPM Daniel Drake <dan@reactivated.net> w=
+rote:
 >
-> To enable this on the next boot, the RPI_FIRMWARE_SET_REBOOT_FLAGS
-> message must be sent to the firmware. Add support for this by
-> registering a reboot mode driver.
-sorry for the delay.
+> On 02/09/2026 18:57, Daniel Drake wrote:
+> > +static int bcm2712_iommu_blocking_attach(struct iommu_domain *blocking=
+_domain,
+> > +                                      struct device *dev,
+> > +                                      struct iommu_domain *old)
+> > +{
+> > +     struct bcm2712_iommu *mmu =3D dev_iommu_priv_get(dev);
+> > +     int ret =3D 0;
+> > +
+> > +     scoped_guard(spinlock_irqsave, &mmu->hw_lock) {
+> > +             /*
+> > +              * Completely block DMA by disabling both the bypass wind=
+ow
+> > +              * and the translation aperture.
+> > +              */
+> > +             bcm2712_iommu_writel(mmu, MMMU_BYPASS_START_OFFSET, 0);
+> > +             bcm2712_iommu_writel(mmu, MMMU_BYPASS_END_OFFSET, 0);
+> > +             bcm2712_iommu_writel(mmu, MMMU_ADDR_CAP_OFFSET,
+> > +                                  MMMU_ADDR_CAP_ENABLE);
+> > +             bcm2712_iommu_writel(mmu, MMMU_ILLEGAL_ADR_OFFSET, 0);
+> > +             ret =3D bcm2712_iommu_clear_and_enable(mmu);
+> > +             mmu->domain =3D NULL;
+> > +     }
+>
+> My understanding is that when the IOMMU is enabled, the address cap
+> represents the highest permittable memory address; requests for anything
+> higher would abort. So I had hoped to achieve blocking mode by setting
+> ENABLE | 0 in ADDR_CAP, thinking that would set a cap of 0, and hence
+> memory accesses would fail.
+>
+> But a Sashiko review pointed out that actually this value would produce
+> a translation aperture of 256MB, because of the way the register works.
+> And I confirmed this experimentally, Sashiko is right.
+>
+> I also confirmed experimentally that setting value 0 to ADDR_CAP (i.e.
+> dropping the enable bit too), with the IOMMU enabled, results in a full
+> unrestricted bypass/identity mode.
+>
+> So unless someone from RPi/Broadcom can inform otherwise, I'm going to
+> conclude that the hardware doesn't support blocking mode and remove the
+> blocking domain implementation.
 
-Do you know the consequences in case the firmware doesn't support=20
-RPI_FIRMWARE_SET_REBOOT_FLAGS ?
+Hi Daniel,
+IIRC, the value in this register field -- let's call it X -- is in
+256M-sized pages.  An access is blocked/capped if  iova[39:28] > X.
+So it still passes some accesses even if X=3D=3D0.
+Regards,
 
-Best regards
+Jim Quinlan
+Broadcom
 >
-> Furthermore, safely registering the reboot mode requires adjusting the
-> teardown sequence. Replace the manually called rpi_firmware_put() with a
-> devres-managed called (devm_add_action_or_reset). Without this, the
-> cleanup function of devm_reboot_mode_register() would trigger a
-> use-after-free error by attempting to access the firmware context after
-> it had already been freed by rpi_firmware_remove().
+> This will cause the iommu layer to fall back to creating an empty paging
+> domain when blocking mode is requested, which seems appropriate if the
+> hardware doesn't offer a more direct way of blocking all memory access.
 >
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
->   drivers/firmware/Kconfig                   |  2 ++
->   drivers/firmware/raspberrypi.c             | 40 ++++++++++++++++++++++=
-++++----
->   include/soc/bcm2835/raspberrypi-firmware.h |  2 ++
->   3 files changed, 39 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index bbd2155d84838..34605bf7c9734 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -115,6 +115,8 @@ config ISCSI_IBFT
->   config RASPBERRYPI_FIRMWARE
->   	tristate "Raspberry Pi Firmware Driver"
->   	depends on BCM2835_MBOX
-> +	select POWER_RESET
-> +	select REBOOT_MODE
->   	help
->   	  This option enables support for communicating with the firmware on =
-the
->   	  Raspberry Pi.
-> diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberry=
-pi.c
-> index 0aa322e9a2e73..2a0c40b8052e5 100644
-> --- a/drivers/firmware/raspberrypi.c
-> +++ b/drivers/firmware/raspberrypi.c
-> @@ -14,6 +14,7 @@
->   #include <linux/of.h>
->   #include <linux/of_platform.h>
->   #include <linux/platform_device.h>
-> +#include <linux/reboot-mode.h>
->   #include <linux/slab.h>
->   #include <soc/bcm2835/raspberrypi-firmware.h>
->  =20
-> @@ -29,6 +30,7 @@ struct rpi_firmware {
->   	struct mbox_client cl;
->   	struct mbox_chan *chan; /* The property channel. */
->   	struct completion c;
-> +	struct reboot_mode_driver reboot_mode;
->   	u32 enabled;
->  =20
->   	struct kref consumers;
-> @@ -273,10 +275,37 @@ static void devm_rpi_firmware_put(void *data)
->   	rpi_firmware_put(fw);
->   }
->  =20
-> +static int rpi_firmware_reboot_mode_write(struct reboot_mode_driver *re=
-boot,
-> +					  unsigned int magic)
-> +{
-> +	struct rpi_firmware *fw =3D container_of(reboot, struct rpi_firmware,
-> +					       reboot_mode);
-> +	__le32 fw_magic =3D cpu_to_le32(magic);
-> +
-> +	if (!magic)
-> +		return 0;
-> +
-> +	return rpi_firmware_property(fw, RPI_FIRMWARE_SET_REBOOT_FLAGS,
-> +				     &fw_magic, sizeof(fw_magic));
-> +}
-> +
-> +static void rpi_register_reboot_mode(struct device *dev, struct rpi_fir=
-mware *fw)
-> +{
-> +	int ret;
-> +
-> +	fw->reboot_mode.dev =3D dev;
-> +	fw->reboot_mode.write =3D rpi_firmware_reboot_mode_write;
-> +	ret =3D devm_reboot_mode_register(dev, &fw->reboot_mode);
-> +	if (ret)
-> +		dev_err(dev, "Failed to register reboot mode: %d\n", ret);
-> +
-> +}
-> +
->   static int rpi_firmware_probe(struct platform_device *pdev)
->   {
->   	struct device *dev =3D &pdev->dev;
->   	struct rpi_firmware *fw;
-> +	int ret;
->  =20
->   	/*
->   	 * Memory will be freed by rpi_firmware_delete() once all users have
-> @@ -292,7 +321,7 @@ static int rpi_firmware_probe(struct platform_device=
- *pdev)
->  =20
->   	fw->chan =3D mbox_request_channel(&fw->cl, 0);
->   	if (IS_ERR(fw->chan)) {
-> -		int ret =3D PTR_ERR(fw->chan);
-> +		ret =3D PTR_ERR(fw->chan);
->   		kfree(fw);
->   		return dev_err_probe(dev, ret, "Failed to get mbox channel\n");
->   	}
-> @@ -302,9 +331,14 @@ static int rpi_firmware_probe(struct platform_devic=
-e *pdev)
->  =20
->   	platform_set_drvdata(pdev, fw);
->  =20
-> +	ret =3D devm_add_action_or_reset(dev, devm_rpi_firmware_put, fw);
-> +	if (ret)
-> +		return ret;
-> +
->   	rpi_firmware_print_firmware_revision(fw);
->   	rpi_register_hwmon_driver(dev, fw);
->   	rpi_register_clk_driver(dev);
-> +	rpi_register_reboot_mode(dev, fw);
->  =20
->   	return 0;
->   }
-> @@ -321,14 +355,10 @@ static void rpi_firmware_shutdown(struct platform_=
-device *pdev)
->  =20
->   static void rpi_firmware_remove(struct platform_device *pdev)
->   {
-> -	struct rpi_firmware *fw =3D platform_get_drvdata(pdev);
-> -
->   	platform_device_unregister(rpi_hwmon);
->   	rpi_hwmon =3D NULL;
->   	platform_device_unregister(rpi_clk);
->   	rpi_clk =3D NULL;
-> -
-> -	rpi_firmware_put(fw);
->   }
->  =20
->   static const struct of_device_id rpi_firmware_of_match[] =3D {
-> diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bc=
-m2835/raspberrypi-firmware.h
-> index 66cc5a426c3c5..f905bff0fb3ea 100644
-> --- a/include/soc/bcm2835/raspberrypi-firmware.h
-> +++ b/include/soc/bcm2835/raspberrypi-firmware.h
-> @@ -81,6 +81,7 @@ enum rpi_firmware_property_tag {
->   	RPI_FIRMWARE_GET_POE_HAT_VAL =3D                        0x00030049,
->   	RPI_FIRMWARE_SET_POE_HAT_VAL =3D                        0x00030050,
->   	RPI_FIRMWARE_NOTIFY_XHCI_RESET =3D                      0x00030058,
-> +	RPI_FIRMWARE_GET_REBOOT_FLAGS =3D                       0x00030064,
->   	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =3D                    0x00030066,
->   	RPI_FIRMWARE_SET_CLOCK_STATE =3D                        0x00038001,
->   	RPI_FIRMWARE_SET_CLOCK_RATE =3D                         0x00038002,
-> @@ -92,6 +93,7 @@ enum rpi_firmware_property_tag {
->   	RPI_FIRMWARE_SET_SDHOST_CLOCK =3D                       0x00038042,
->   	RPI_FIRMWARE_SET_GPIO_CONFIG =3D                        0x00038043,
->   	RPI_FIRMWARE_SET_PERIPH_REG =3D                         0x00038045,
-> +	RPI_FIRMWARE_SET_REBOOT_FLAGS =3D                       0x00038064,
->  =20
->   	/* Dispmanx TAGS */
->   	RPI_FIRMWARE_FRAMEBUFFER_ALLOCATE =3D                   0x00040001,
+> Daniel
 >
 
+--000000000000228d63065a97ee7e
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+P6nIShznyqOL2EoCa0IXujxvXUo0pANFYsDhrCVF5JOVPeEL3Y2m+4flRtOI+YlRQoepb+TEVdkY
+/g1rlWG7GIYrtHxrFFRvn2/Iqqpv/x5kzJgoTYFOyTTGlXIqGkKTqCWFrN09kJWzhhmxhxtJprJs
+KveDLF8yhHSbqmXfKTkT+CIrynXXDro+80qXEXC8CM9W9d+2lDDM+hWTlC6Pt/ikMYf/ZB4K2Nr8
+VFruDYGZfAHhh9/lqK3SpS2Z/8cB88K62U+Eb1yNAgMBAAGjggHeMIIB2jAOBgNVHQ8BAf8EBAMC
+BaAwDAYDVR0TAQH/BAIwADCBkwYIKwYBBQUHAQEEgYYwgYMwRgYIKwYBBQUHMAKGOmh0dHA6Ly9z
+ZWN1cmUuZ2xvYmFsc2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjZzbWltZWNhMjAyMy5jcnQwOQYIKwYB
+BQUHMAGGLWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMzBlBgNV
+HSAEXjBcMAkGB2eBDAEFAwMwCwYJKwYBBAGgMgEoMEIGCisGAQQBoDIKAwIwNDAyBggrBgEFBQcC
+ARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wQQYDVR0fBDowODA2oDSg
+MoYwaHR0cDovL2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3I2c21pbWVjYTIwMjMuY3JsMCUGA1Ud
+EQQeMByBGmphbWVzLnF1aW5sYW5AYnJvYWRjb20uY29tMBMGA1UdJQQMMAoGCCsGAQUFBwMEMB8G
+A1UdIwQYMBaAFAApNp5ceroPry1QLdugI4UYsKCSMB0GA1UdDgQWBBQiuRLoBkhIaas+1j3yf23P
+ffVFcjANBgkqhkiG9w0BAQsFAAOCAgEAp1y0fznw9Uo7UzExANVpYjj+OG1c3C7MhWOvAd7LvfPX
+BSFisMaabop5Pyfc/sWzb/jCNfVkkDW5Ij2mzpUsUca2qpILoFhOUT9b0d+nc48MCZ4/Wj6vX5QJ
+i9VdYeuv3DYASZsQdH8iYnV5X5YCYo1AO/pyW+M4gG022Nsji9+3A9zkx8JRPDIXkPaDLrzcGD9L
+rEVIYnnSK9b/4VHzITVgEmSsUTAIzOD6M6TzgrSoJZFmKNMXlAqo+m1nlNyJkM4OyOvaDx5y+2hA
+mp4tzD9gJNU9TzQpQRZFz53+c8BkCpzvcHqT8lMluRlCrIYWqaSOUDHX9HPYvzbtO4iYV+irMdGN
+2PBz6Wtfaoi1xTfFSKK9ON1mvxACK+E4B5gycSoZcOBADTbGXLDMqiygl7Wz0oooAPqZpUnaD1nc
+x/pX7N8Ff6YK+iN3vVah34vLkE1CMFyDQMtyTCzQPW+7XCTxCL9ML3LBAF+eNAtKpPOsrGIdRHy5
+6oQr+2ZquSMvWj447q4v3sk1LHs7ata+sP8/kmcPKn3WPXQ/4xMevqFVyv2VIFrBK9ZnOZ//fz8R
+7SjJ7t2kOITvbWcMkizMc33S9hfmYiXaVTjIi89NiO3EXCJouYShpptgGNG6mpYHcddnfdKiILOS
+06KlKNuHO4IpRmaGrzcDjsUQQSn8amMxggJXMIICUwIBATBiMFIxCzAJBgNVBAYTAkJFMRkwFwYD
+VQQKExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBD
+QSAyMDIzAgwHM7pH5w7o7Qb7yXUwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEINnR
+r7YiwGU2VYIXJLqv4AwmE2KugyjQ6M/RVaH+rb9wMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEw
+HAYJKoZIhvcNAQkFMQ8XDTI2MDkwMzE4MDA0MlowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQME
+ASowCwYJYIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJ
+YIZIAWUDBAIBMA0GCSqGSIb3DQEBAQUABIIBAI5nJWcQpf24EgwefaYf/p+TaNJ4TEBzw82038/3
+6Yj2qoZU5Mj40+Q1u+lEaneVqo5vP86hILSF9BFFWH3zxuQUCKH4TBTod0kqqhVRrZnD3bIuLZij
+for1YRrhPd1XjxF72hDWz3hNVxv1zAb1ZJLR8dYZIv4yto/6p4sWu4ndw1xbqKYC2OwO3/+CJxun
+rfpum/OxQ+pAwnk7NzzwNhaAsB7ItZG0qRhIyteJWUmBXJP2rXpin6VfiYlZ7jcm9+WzSlZM/cNj
+k9ALOf7DWDl954q5CsvJ0aGoO2Ft8Stsy0SVhUKsWB+0NjnVVObMmAxMHKf7zOWXjuG9h29oMjs=
+--000000000000228d63065a97ee7e--
 
