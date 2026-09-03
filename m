@@ -4,109 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F73C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 13:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8127C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 14:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A28Wf9L2n/V5TpFU7VZJAIMyJkq07hXUIHCEXp8fTXU=; b=rDJTXHxqXW4gIq51EFX8lafcMO
-	bRSY+mNRUwnF8IAkhhEvg7CTdd6jKyoUVeFXfYJIxwb9RQbH01oKa6ADbIkxifMj0T/tPt+A9+QmM
-	RT7JhzMPtJq2xP6XtESgIV27I89GjSbloqOsGsMhA8htgyM+o6OY8pc9UeuC/QsAqBBAXCHRrLh2H
-	VbGK/mDY36ZnL+nk7utfxmmxw4cPd6Wm34Ow8axWyOfm+0o4kRL5juglnz4AOIFhNiWO1Rcm6Lpbh
-	35Mo2gcGaHrlc6Gv1nntEUFo1W23eP0R5Au5RUudsMIap4XqWvLDN7iwzcEqgMHH+k0OdCwbC3yG0
-	g0w8rNOQ==;
+	bh=tPplquRMc965lVo/zHjvE6qYYPupXg2TboHflXCrSzI=; b=4vB8DDLw4y0A+82g1rvCnXmcpA
+	wmte7p8MNWGiU9syK7xZsYZchXHzs6z+sDmC1zZ2vVQkH+ESxkwj2iuj2c4X2TghDmkgn9udNAEwD
+	IevVMCnPP75LvxJxmCUoivWgnUx0PoYu2207kVZL30wBMPfhh5hb+LZ6DBWQ2fuRSgjBy6rAJunc9
+	SPmMnPcM1LSTJXwVNIC2VtAdusZ/AV5V3s1b8DZ129ll7BustoAd2rWVCaEWzKf0ix25E/laKuBja
+	pL6+lK9pRJyMTUifGTvXoXLU+YWvzpBaa8f0FrqaKae8z0JSUHrW6LxLaSfnBWUp9rJrUeujZszDE
+	FfsE4u5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yi-0000000HSLX-1QHY;
-	Thu, 03 Sep 2026 13:59:44 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1x287t-0000000HTLN-2yYB;
+	Thu, 03 Sep 2026 14:09:13 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x27yd-0000000HSH3-2pLq
+	id 1x287r-0000000HTKi-1c6L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 03 Sep 2026 13:59:41 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id E9F9DEC02A0;
-	Thu,  3 Sep 2026 09:59:38 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Thu, 03 Sep 2026 09:59:38 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1788443978;
-	 x=1788530378; bh=A28Wf9L2n/V5TpFU7VZJAIMyJkq07hXUIHCEXp8fTXU=; b=
-	Iz68H69EnfhOQ5deFEYWWoXcHd50Xg6xueW2CVicAbp+9G+UCJgqkwA1gO3zDSVf
-	k0HJ3Zv0iwA7RkR3rdepnUgKjKgdrps+Hwv/0+LYt8HmICTw+OZW9pAAvJhvbxDh
-	tShoGCOWt/uTZPYCJK4W6CVAd2aRHgxCIgAgq85o9SdGG/N2v7PZ3LCBV8+BMdyx
-	xXXGyn38gyx5qoqhLi3AhvTR+hntUGScsbShPDyN/zKLs3J1xQXr5m8mWzG8xgMU
-	/dSIQniynK2L6GF4sNczCEtLAzQC+oYolFApoJAHXP2SbeUf06twoXzJS8CeT9jZ
-	4GlmUfCBz7fZYwrUY2+ZkA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788443978; x=
-	1788530378; bh=A28Wf9L2n/V5TpFU7VZJAIMyJkq07hXUIHCEXp8fTXU=; b=N
-	iv5AA8a8AMYYr3hOhmnQ06dsz/TmblGH3Z8AuPtNyWGRc50cPach08bI2FJI8bN2
-	eabmbVKt27jcJoR+Zdb2O7XaQXsdZ3oGVTizE9F9VutTUxp5Zh56yvbME21mT1Hs
-	FeOQUExAMH5dHuLuduS5xh1zEyONg1zKd/R4eWGTE7WshNDr/ahFOYcRdPF0cLJq
-	8+mPQC3esmRSeRFv5mul+P2BE1c91wKGC8pMlbDWBsyEV/NtuadtpvNEJqKzfJK8
-	Kc/1lOQ+oxz6IW9akVFISL0eAWDbCPd6mUWMzgUs1vrQdIqTbKbkTwcNWDIfKjVI
-	rmuVG3YGhr2KckzRnKTJA==
-X-ME-Sender: <xms:Sn2ZaqrZ8TnE6Vx-ce3YtO4AiS-bywPD_HHZmSFhHYiQ-HbTotbT6w>
-    <xme:Sn2ZakfUccdQYygr2Crfv_b_0rXZUldvEQ4YObQWts1OaloNWTxq2opFj3vkJIsXD
-    aeb_GlH5FcPq7Cn4kuds2WUol1_QetMQsoieTDDIWvALBCE9p8Vp3g>
-X-ME-Received: <xmr:Sn2Zaqll9Duvv-EAYyTR_QFE8V-iOHpjVsOWLOQC_JZSRls9gQIZ03qL7M6cfOZhWAuGw-c_yt-4KvcJ_q9p81zCEJaUBEh1IJLggQ>
-X-ME-Proxy-Cause: dmFkZTEIYzIeAqti25ZE1E1v/teuEWoWHdBGF9H6h1LlXnmo2R4EOE7VsCk1odudTIRvm6
-    eFOD5Mzpiu++QVbazB15zOz7x78D6TrVj+MRoE6GWdsrgwhGvsWp//oRGZgcNrTQHmsZsD
-    6EMECrQXWGNUBjE6Lz2aC6Mm6PlUUg6prWJ1te6HWPd/TwVQfquQNgxNGqHmAtfmOH+Mib
-    5jimAPqGOjLutrFHdJgt6a4HXl0HbB79QwoEalQxPR6LIK/aiy80/UOn42xgHOI6oc8jpF
-    BjB4vrjIQnYLCBx2i6bYEv1/2tiG2Nk0dSzRkL7vamhK7Swptm44Mzpwg9NHc32FMWNSp4
-    g7uwTX4KIDW7PUSFkW4dMflX1iseksjWuY9f/peQBNfrARFlUDFxwh/EythR3SxK3EAWVj
-    iqUgUMs286yISj2hOSVMQRCX5xuMxutt69qKsV4RvKPyUh3ud+tgbPkIQis4M5UWUQCFW4
-    nNyQevgOj/XA0w+WQ+ai3Dm+K0gP8Y3hTkrFwvR6mI21rXG71AWVcSpLXLnWJQx9AKqcyw
-    eIuJxzP8koP5D0LS1PxFkV08vn4UU+d7s2dUkDImTa58GYYj3MSkgIzf9mvL9kyIj0kz79
-    KPT8cdnf/5ZbQL88li6mt1vaSTEVRMqVt1SiqubscMIgbaO0IbZaQPdWvQaQ
-X-ME-Proxy: <xmx:Sn2ZajZc35LwhQt6o9-uQ7EoGKeQXhPLhvwxESYzG2vxXMbUICIhDQ>
-    <xmx:Sn2Zan5dRVKLTZ450pxOsr2t8oO8cLtlbEgu0n4ghyKd78xGJ17PXA>
-    <xmx:Sn2ZalDUrvgTxooMdia1pnM67UKz3V0-wR7TDCVDQ_gb3kvMExolEQ>
-    <xmx:Sn2Zat9TidhcoIsEAsBIAOu2jlgtjbE_2J69BRDB9DkKwTV8BiO5DQ>
-    <xmx:Sn2Zau3JL020k4IYoqdB90lZK0g0YoNQ4_JtdgZQtZkaRCQtI2frkTU_>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 3 Sep 2026 09:59:38 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 03 Sep 2026 15:59:33 +0200
-Subject: [PATCH 2/3] arm64: dts: apple: Fix style issues for t602x multi
- die .dtsi
+	Thu, 03 Sep 2026 14:09:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788444552; x=1819980552;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=OTjNezSxFLwvnnT9iv3PCVJ+8+JAE+Ed7X8Y6VFEHCM=;
+  b=NEMdakYwR87+VjAscDsqtSlhwNCg2VayPfAVfMoINTxL6HVrAx4zehFb
+   Dtp+i/BgCbyHV+y3yFF8GcdtD4VVGHxG3V5nQbbfKBsdfj+LsYIG3sTrf
+   PcjMB4QExFzF3iURE3Jb5zuQdR8UuazLlYg71QyZjIvEcqJlZt1nd8q2m
+   QyvUU16OK7RczxNOHD4mxbcdC03W6X9HqutPquU6MVLF0n35oB8nEjCJz
+   xfHeuqyhVJIHUNMrLhvDs9SgNzX5zOM2F7Lx6JMm4iO5ULMm01eBDqGOg
+   /GvYrAwzROO3BOCXWUWFdpbURJSeSBBRpf6x4bTSmERpWBThmHh3oeO0E
+   w==;
+X-CSE-ConnectionGUID: wtlSwzLKRLyiOUfygwVGcg==
+X-CSE-MsgGUID: 3WZDo50EQgeD5QQ2bXPULg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="88952395"
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="88952395"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 07:09:11 -0700
+X-CSE-ConnectionGUID: sqkLtLQkSrG19ohlwpkNug==
+X-CSE-MsgGUID: NhEX0h3dQKKL3kmHczyrDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="299605415"
+Received: from jmaxwel1-mobl.amr.corp.intel.com (HELO [10.125.110.172]) ([10.125.110.172])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Sep 2026 07:09:10 -0700
+Message-ID: <1aa2b2a6-b068-4856-97ef-91ab848f01c3@intel.com>
+Date: Thu, 3 Sep 2026 07:09:09 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
+ david@kernel.org, ljs@kernel.org, usama.arif@linux.dev, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, liam@infradead.org, nico.pache@linux.dev,
+ ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org,
+ lance.yang@linux.dev, kas@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+ tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, luto@kernel.org,
+ peterz@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
+ <5026dbec-0b71-4408-a78a-484a4b8e77dd@intel.com>
+ <apk775HfHg_DXpiW@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <apk775HfHg_DXpiW@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260903-apple-soc-multi-die-style-v1-2-eeb05ea0c187@jannau.net>
-References: <20260903-apple-soc-multi-die-style-v1-0-eeb05ea0c187@jannau.net>
-In-Reply-To: <20260903-apple-soc-multi-die-style-v1-0-eeb05ea0c187@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>, Krzysztof Kozlowski <krzk@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4167; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=gV+6atf6ncS6fsyXv7xAArWLeduGgxbT0Q5oOMKjwo4=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqyZtS4/Oi7pe4R4PL/c/vZUSkfo8nvb167cWqy1Z+VO+
- 8rK7e9bO0pZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAExEv47hNwsP15mtybpebx+5
- h9Vs/fcgL/ji56bPTVeaHMTSOQ/axjAyLJ3l6fz7VUltz4obW8+6MER3/Tn7oILx/BXdpWYKNgm
- 32AA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_065939_789915_8F58338A 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260903_070911_467043_94E97CA9 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,143 +138,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The M2 Pro/Max/Ultra .dtsi files containing most MMIO nodes are a
-collection of nodes without parent. The proper embedding inside a
-"simple-bus" parent only happens in t6021.dtsi and t6022.dtsi.
-Fix these dt style issue by using a define for their parent soc node and
-bracket those MMIO nodes inside it.
+On 9/3/26 02:20, Mike Rapoport wrote:
+> On Wed, Sep 02, 2026 at 01:59:15PM -0700, Dave Hansen wrote:
+>> On 9/1/26 08:18, Xueyuan Chen wrote:
+>>> +static inline int set_direct_map_ro(struct page *page, unsigned int nr)
+>>> +{
+>>> +	return 0;
+>>> +}
+>> I still really think the stub here needs to return an error *or* the
+>> thing needs to just be void and tell folks that they can't know whether
+>> it worked or not.
+> All other stubs return 0 here when an arch does not support set_direct_map.
+> I'm for keeping them all consistent and fixing that technical debt as a
+> whole rather than creating a one-off here.
 
-Link: https://lore.kernel.org/asahi/e2365307-32d6-4ef9-9919-55ba69786741@kernel.org/
-Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- arch/arm64/boot/dts/apple/t6021.dtsi      | 10 ++++------
- arch/arm64/boot/dts/apple/t6022.dtsi      | 18 ++++++++----------
- arch/arm64/boot/dts/apple/t602x-die0.dtsi |  2 ++
- arch/arm64/boot/dts/apple/t602x-dieX.dtsi |  2 ++
- arch/arm64/boot/dts/apple/t602x-nvme.dtsi |  2 ++
- 5 files changed, 18 insertions(+), 16 deletions(-)
+Oof. I didn't realize the set_direct_map_*() functions all did this.
 
-diff --git a/arch/arm64/boot/dts/apple/t6021.dtsi b/arch/arm64/boot/dts/apple/t6021.dtsi
-index 5175797baf62..3cddc1697e14 100644
---- a/arch/arm64/boot/dts/apple/t6021.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6021.dtsi
-@@ -35,13 +35,11 @@ soc {
- 
- #define DIE
- #define DIE_NO 0
-+#define SOC_NODE {/soc}
- 
--&{/soc} {
--	#include "t602x-die0.dtsi"
--	#include "t602x-dieX.dtsi"
--	#include "t602x-nvme.dtsi"
--};
--
-+#include "t602x-die0.dtsi"
-+#include "t602x-dieX.dtsi"
-+#include "t602x-nvme.dtsi"
- #include "t602x-gpio-pins.dtsi"
- #include "t602x-pmgr.dtsi"
- 
-diff --git a/arch/arm64/boot/dts/apple/t6022.dtsi b/arch/arm64/boot/dts/apple/t6022.dtsi
-index 7585fd609d34..0feda70568ee 100644
---- a/arch/arm64/boot/dts/apple/t6022.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6022.dtsi
-@@ -294,32 +294,30 @@ die1: soc@2200000000 {
- 
- #define DIE
- #define DIE_NO 0
-+#define SOC_NODE die0
- 
--&die0 {
--	#include "t602x-die0.dtsi"
--	#include "t602x-dieX.dtsi"
--};
--
-+#include "t602x-die0.dtsi"
-+#include "t602x-dieX.dtsi"
- #include "t602x-pmgr.dtsi"
- #include "t602x-gpio-pins.dtsi"
- 
- #undef DIE
- #undef DIE_NO
-+#undef SOC_NODE
- 
- #define DIE _die1
- #define DIE_NO 1
-+#define SOC_NODE die1
- 
--&die1 {
--	#include "t602x-dieX.dtsi"
--	#include "t602x-nvme.dtsi"
--};
--
-+#include "t602x-dieX.dtsi"
-+#include "t602x-nvme.dtsi"
- #include "t602x-pmgr.dtsi"
- 
- /delete-node/ &ps_pmp_die1;
- 
- #undef DIE
- #undef DIE_NO
-+#undef SOC_NODE
- 
- &aic {
- 	affinities {
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index c33623f0e27a..05819755a18f 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -6,6 +6,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
-+&SOC_NODE {
- 	nco: clock-controller@28e03c000 {
- 		compatible = "apple,t6020-nco", "apple,t8103-nco";
- 		reg = <0x2 0x8e03c000 0x0 0x14000>;
-@@ -590,3 +591,4 @@ pcie0_dart_3: iommu@597000000 {
- 		power-domains = <&ps_apcie_gp_sys>;
- 		status = "disabled";
- 	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-index ae3d535c5acb..4044c4f21795 100644
---- a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
-+&SOC_NODE {
- 	DIE_NODE(cpufreq_e): cpufreq@210e20000 {
- 		compatible = "apple,t6020-cluster-cpufreq", "apple,t8112-cluster-cpufreq";
- 		reg = <0x2 0x10e20000 0 0x1000>;
-@@ -338,3 +339,4 @@ DIE_NODE(atcphy3): phy@1303000000 {
- 		mode-switch;
- 		power-domains = <&DIE_NODE(ps_atc3_usb)>;
- 	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t602x-nvme.dtsi b/arch/arm64/boot/dts/apple/t602x-nvme.dtsi
-index 590cec8ac804..d1f4267a6cd2 100644
---- a/arch/arm64/boot/dts/apple/t602x-nvme.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-nvme.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright The Asahi Linux Contributors
-  */
- 
-+&SOC_NODE {
- 	DIE_NODE(ans_mbox): mbox@347408000 {
- 		compatible = "apple,t6020-asc-mailbox", "apple,asc-mailbox-v4";
- 		reg = <0x3 0x47408000 0x0 0x4000>;
-@@ -40,3 +41,4 @@ DIE_NODE(nvme): nvme@34bcc0000 {
- 		power-domain-names = "ans", "apcie0", "apcie1";
- 		resets = <&DIE_NODE(ps_ans2)>;
- 	};
-+};
-
--- 
-2.55.0
-
+I do think it's generally a bad idea, and I'm also OK if it is not fixed
+up here.
 
