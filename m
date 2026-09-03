@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92CDBC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB224C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  3 Sep 2026 08:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUxWm/z7xLtLP5dz8f8UFkQB4ImA8Yg4bPohYdRPwwA=; b=quitnEfC1Uw2K60xi91frEDamj
-	zaa1uijwQRQJ2sBj/YIZde5rBKjKgj0GZBNioBq8dMsr7n8449UClrVEZiDohPuZ4fJXNe1Py1NO4
-	WEz8PcmnGafenfCoeWxbsRQw+tMiDQsrC0NpL0WvcIEwm87xBoveIsyfbqPYU4qKQ2vx8jsQIAKK+
-	iSjBQZVEnUq+WVDaTDF8NuR2OjeoPEdWQm7n4d64+3ebJeT49UcBMm5LFmO1i3S+GlC2E5W1umSf7
-	en+awwemOpyKROWe5872r2YoT9vpt5Wt61GEEppqWq+OvlDiPSSx/yXc2stGhwsAIwB/5mzr85YX3
-	bdZ4cKXg==;
+	bh=0p9MAmMqYQA+pB3vITqVC9F/6eE2jvI8gIptx42Zmls=; b=d489v7zeAGafzuKnA2SvLvSHHE
+	kWCH9wX93CTLb6Y6bTLwnOO0zY7cDSwVRreppaZ6YtpivlJQ+GdgegwBd2/tZkaCVDAnsCbXDn9GG
+	4y4ANQqWK7cbfFWf2/AmYddY8uh3t7D6gtpS033y3Gy+Q+DCI0Bfy8ZnFGpTzU4Gm7ed3HEgsjFA7
+	KkERTSjXYcB2CPJ5d3g0vlFDZ/1Q9HCaCLvSZGyUWUniYh3ywTa0Mxko3eU0KXssKElhs5f0gcwza
+	KVViLLVKFVlp4wLmA4dApy4/sDo5jAD9EMcM8MdmBYqSUsEz/xVApq0Rlegzrde2xi8cTRwrZMYs+
+	lPHtfJ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22Ya-0000000Gl3O-2oba;
-	Thu, 03 Sep 2026 08:12:24 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1x22hs-0000000GmBu-01IO;
+	Thu, 03 Sep 2026 08:22:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x22YY-0000000Gl2t-1hGe;
-	Thu, 03 Sep 2026 08:12:23 +0000
-X-UUID: 09a67fc8a76d11f1acbe4559397dec65-20260903
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=VUxWm/z7xLtLP5dz8f8UFkQB4ImA8Yg4bPohYdRPwwA=;
-	b=eTgNq9UU8TMCTdc+1G15PvdPz81fa6GTv6IipmFkabOmuvJ0QkqvAjsqtLzfj2vawmZXVavoHbVWFoD/lwB5txp4S0bBWCgG8/4GnCNQjMc7O62ILnjGfelR00e1a5g73vGDOnYCccLfApk15cTC4DxpnywcfjncwF7YcRU6o+E=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:77595a2f-9a3f-426b-8c18-265e80b333a1,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:7db8b62,CLOUDID:d2596df2-6b5d-4016-ba8d-9f799a78b7e4,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 09a67fc8a76d11f1acbe4559397dec65-20260903
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <ot_jingcheng.ji@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 508344800; Thu, 03 Sep 2026 00:56:58 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 3 Sep 2026 15:56:55 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 3 Sep 2026 15:56:54 +0800
-From: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogiochino.delregno@collabora.com>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Jingcheng Ji
-	<ot_jingcheng.ji@mediatek.com>
-Subject: [PATCH v2] spi: spi-mtk-nor: Get clocks from devicetree in bulk
-Date: Thu, 3 Sep 2026 15:56:28 +0800
-Message-ID: <20260903075628.3047914-1-ot_jingcheng.ji@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260821090046.2353986-1-ot_jingcheng.ji@mediatek.com>
-References: <20260821090046.2353986-1-ot_jingcheng.ji@mediatek.com>
+	id 1x22hr-0000000GmBb-11n7;
+	Thu, 03 Sep 2026 08:21:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D0B88600C8;
+	Thu,  3 Sep 2026 08:21:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4170E1F000E9;
+	Thu,  3 Sep 2026 08:21:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788423717;
+	bh=0p9MAmMqYQA+pB3vITqVC9F/6eE2jvI8gIptx42Zmls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IKrxZNXHTN0f9gmnSG/t1VXsGHT2QgKcCOBJS0IZ7bMJBjaJf/QTC84q4CilAtIVf
+	 3L1sOIKBxl/m266LpzBQITvbyL5pabZyT1RZgvCakcI1Zf0nzxoerhWMe9Q4s72+lb
+	 3zRM+gxShR6cic2hBlse2WRIZPsvaL4xY5aslfw05KRNhHaMCO4R5+JK8YPTpbPq7Q
+	 Y7LIMc5fw8bkQ6wvpLwML5sVH6VJkSHMJPH4M3TSOQO+VDjfk7253/ikZbWgvyu6sb
+	 7nLqyK8JT3eO6niqBQqEuCwwzRlXK2lNuQZqjjPirPijR9x72CIN8YX469mspH2i2v
+	 7CZNV3dW0o2ZA==
+Date: Thu, 3 Sep 2026 09:21:46 +0100
+From: Will Deacon <will@kernel.org>
+To: Ricardo Robaina <rrobaina@redhat.com>
+Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, bpf@vger.kernel.org,
+	paul@paul-moore.com, eparis@redhat.com, sgrubb@redhat.com,
+	oleg@redhat.com, richard.henderson@linaro.org, mattst88@gmail.com,
+	linmag7@gmail.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
+	guoren@kernel.org, monstr@monstr.eu, tsbogend@alpha.franken.de,
+	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com, James.Bottomley@hansenpartnership.com,
+	deller@gmx.de, ysato@users.sourceforge.jp, dalias@libc.org,
+	glaubitz@physik.fu-berlin.de, davem@davemloft.net,
+	andreas@gaisler.com, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	chris@zankel.net, jcmvbkbc@gmail.com, tglx@kernel.org,
+	peterz@infradead.org, luto@kernel.org
+Subject: Re: [PATCH v2 01/13] audit: log all six syscall arguments in the
+ SYSCALL record
+Message-ID: <apkuGoWQwLJ7AcUC@willie-the-truck>
+References: <cover.1788351089.git.rrobaina@redhat.com>
+ <b30076994d49fa393251c836b5a57a725f218572.1788351089.git.rrobaina@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_011222_442795_97A3D16B 
-X-CRM114-Status: GOOD (  20.54  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b30076994d49fa393251c836b5a57a725f218572.1788351089.git.rrobaina@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,246 +85,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver currently gets a fixed set of clock inputs by name. This ties
-the driver to the clock names used by existing devicetrees. It also means
-that a future binding extension which adds controller clock inputs needs a
-matching driver change to enable them.
+On Wed, Sep 02, 2026 at 11:43:34AM -0300, Ricardo Robaina wrote:
+> The SYSCALL record currently logs only four of the six syscall
+> arguments (a0-a3). The remaining two are captured but silently
+> discarded before reaching the audit context. This leads to the
+> need for auxiliary records when audit-relevant data lands in the
+> 5th or 6th argument of a syscall.
+> 
+> Extend the SYSCALL record to log all six arguments, by adding
+> arguments a4 and a5 (5th and 6th syscall arguments respectively)
+> inline within the existing record. Also add the two new args to
+> the audit rules switch case, so audit rules can filter on them.
+> 
+> Rather than plumbing two more register arguments through every
+> architecture's syscall entry path, change __audit_syscall_entry()
+> to take a pointer to pt_regs and use syscall_get_arguments() to
+> retrieve all six arguments.
+> 
+>  audit-testsuite# make test
+>  audit-testsuite# ausearch -i -m SYSCALL
+>  ...
+>  type=SYSCALL ... syscall=sendto success=yes exit=1088 a0=0x4
+>   a1=0x7ffe43518b60 a2=0x440 a3=0x0 a4=7ffe43518b4c a5=c
+>  type=SYSCALL ... syscall=openat2 success=yes exit=4 a0=0x3
+>   a1=0x7fffc74692c8 a2=0x7fffc7467390 a3=0x18 a4=0 a5=7fffc74674f8
+>  type=SYSCALL ... syscall=openat success=yes exit=3 a0=AT_FDCWD
+>   a1=0x557ced4141a2 a2=O_RDWR|O_NONBLOCK a3=0x0 a4=0 a5=0
+>  ...
+> 
+> Suggested-by: Will Deacon <will@kernel.org>
+> Link: https://lore.kernel.org/audit/CAHC9VhSjEt_-Bsra4AEqWv+Daw5Ff=gqy7dX4Ah11RVhdyCBUQ@mail.gmail.com/T/#t
+> Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
+> ---
+>  include/linux/audit.h         | 13 ++++---------
+>  include/uapi/linux/audit.h    |  2 ++
+>  kernel/audit.h                |  2 +-
+>  kernel/auditfilter.c          |  2 ++
+>  kernel/auditsc.c              | 19 ++++++++-----------
+>  kernel/entry/syscall-common.c |  4 +---
+>  6 files changed, 18 insertions(+), 24 deletions(-)
+> 
+> diff --git a/include/linux/audit.h b/include/linux/audit.h
+> index 45abb3722d30..9ce5962bc537 100644
+> --- a/include/linux/audit.h
+> +++ b/include/linux/audit.h
+> @@ -323,8 +323,7 @@ extern int  audit_alloc(struct task_struct *task);
+>  extern void __audit_free(struct task_struct *task);
+>  extern void __audit_uring_entry(u8 op);
+>  extern void __audit_uring_exit(int success, long code);
+> -extern void __audit_syscall_entry(int major, unsigned long a0, unsigned long a1,
+> -				  unsigned long a2, unsigned long a3);
+> +extern void __audit_syscall_entry(int major, struct pt_regs *regs);
+>  extern void __audit_syscall_exit(int ret_success, long ret_value);
+>  extern void __audit_getname(struct filename *name);
+>  extern void __audit_inode(struct filename *name, const struct dentry *dentry,
+> @@ -373,12 +372,10 @@ static inline void audit_uring_exit(int success, long code)
+>  	if (unlikely(audit_context()))
+>  		__audit_uring_exit(success, code);
+>  }
+> -static inline void audit_syscall_entry(int major, unsigned long a0,
+> -				       unsigned long a1, unsigned long a2,
+> -				       unsigned long a3)
+> +static inline void audit_syscall_entry(int major, struct pt_regs *regs)
+>  {
+>  	if (unlikely(audit_context()))
+> -		__audit_syscall_entry(major, a0, a1, a2, a3);
+> +		__audit_syscall_entry(major, regs);
+>  }
 
-Get every clock described by the devicetree with
-devm_clk_bulk_get_all() and enable the resulting set as a group. Keep
-looking up the "spi" input to derive the transfer rate, and verify that
-the required "sf" input is present. Obtain the clock inputs before
-allocating the SPI controller so a deferred clock probe fails early.
+Won't this (temporarily) break the build? Maybe you need to introduce a
+new helper e.g. audit_syscall_entry_regs(), then convert everybody over
+to that, then rename it to audit_syscall_entry() at the end to keep the
+series bisectable.
 
-For non-DT platform devices, retain the existing named clock lookups so
-clkdev users continue to work.
-
-This prepares the driver for future binding extensions without requiring
-another driver change. Existing platforms' behavior is unchanged.
-
-Signed-off-by: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
----
-v2:
-- Rebase onto current spi/for-next and reuse its existing IRQ error cleanup
-  path.
-- Preserve named clock lookup for non-DT platform devices.
-- Clarify that this prepares for a future binding extension.
-
- drivers/spi/spi-mtk-nor.c | 151 +++++++++++++++++++++++---------------
- 1 file changed, 91 insertions(+), 60 deletions(-)
-
-diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
-index 63f5139176c8..c0a47f3a8dbd 100644
---- a/drivers/spi/spi-mtk-nor.c
-+++ b/drivers/spi/spi-mtk-nor.c
-@@ -16,6 +16,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/slab.h>
- #include <linux/spi/spi.h>
- #include <linux/spi/spi-mem.h>
- #include <linux/string.h>
-@@ -116,10 +117,8 @@ struct mtk_nor {
- 	void __iomem *base;
- 	u8 *buffer;
- 	dma_addr_t buffer_dma;
--	struct clk *spi_clk;
--	struct clk *ctlr_clk;
--	struct clk *axi_clk;
--	struct clk *axi_s_clk;
-+	struct clk_bulk_data *clks;
-+	int num_clks;
- 	unsigned int spi_freq;
- 	bool wbuf_en;
- 	bool has_irq;
-@@ -703,42 +702,12 @@ static int mtk_nor_transfer_one_message(struct spi_controller *host,
- 
- static void mtk_nor_disable_clk(struct mtk_nor *sp)
- {
--	clk_disable_unprepare(sp->spi_clk);
--	clk_disable_unprepare(sp->ctlr_clk);
--	clk_disable_unprepare(sp->axi_clk);
--	clk_disable_unprepare(sp->axi_s_clk);
-+	clk_bulk_disable_unprepare(sp->num_clks, sp->clks);
- }
- 
- static int mtk_nor_enable_clk(struct mtk_nor *sp)
- {
--	int ret;
--
--	ret = clk_prepare_enable(sp->spi_clk);
--	if (ret)
--		return ret;
--
--	ret = clk_prepare_enable(sp->ctlr_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		return ret;
--	}
--
--	ret = clk_prepare_enable(sp->axi_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		clk_disable_unprepare(sp->ctlr_clk);
--		return ret;
--	}
--
--	ret = clk_prepare_enable(sp->axi_s_clk);
--	if (ret) {
--		clk_disable_unprepare(sp->spi_clk);
--		clk_disable_unprepare(sp->ctlr_clk);
--		clk_disable_unprepare(sp->axi_clk);
--		return ret;
--	}
--
--	return 0;
-+	return clk_bulk_prepare_enable(sp->num_clks, sp->clks);
- }
- 
- static void mtk_nor_init(struct mtk_nor *sp)
-@@ -807,34 +776,92 @@ static const struct of_device_id mtk_nor_match[] = {
- };
- MODULE_DEVICE_TABLE(of, mtk_nor_match);
- 
-+static struct clk *mtk_nor_get_clk(struct clk_bulk_data *clks, int num_clks,
-+				   const char *id)
-+{
-+	int i;
-+
-+	for (i = 0; i < num_clks; i++) {
-+		if (clks[i].id && !strcmp(clks[i].id, id))
-+			return clks[i].clk;
-+	}
-+
-+	return NULL;
-+}
-+
-+static int mtk_nor_get_named_clks(struct device *dev,
-+				  struct clk_bulk_data **clks)
-+{
-+	struct clk_bulk_data *bulk;
-+	struct clk *clk;
-+	int num_clks = 2;
-+
-+	bulk = devm_kcalloc(dev, 4, sizeof(*bulk), GFP_KERNEL);
-+	if (!bulk)
-+		return -ENOMEM;
-+
-+	bulk[0].id = "spi";
-+	bulk[0].clk = devm_clk_get(dev, bulk[0].id);
-+	if (IS_ERR(bulk[0].clk))
-+		return PTR_ERR(bulk[0].clk);
-+
-+	bulk[1].id = "sf";
-+	bulk[1].clk = devm_clk_get(dev, bulk[1].id);
-+	if (IS_ERR(bulk[1].clk))
-+		return PTR_ERR(bulk[1].clk);
-+
-+	clk = devm_clk_get_optional(dev, "axi");
-+	if (IS_ERR(clk))
-+		return PTR_ERR(clk);
-+	if (clk) {
-+		bulk[num_clks].id = "axi";
-+		bulk[num_clks++].clk = clk;
-+	}
-+
-+	clk = devm_clk_get_optional(dev, "axi_s");
-+	if (IS_ERR(clk))
-+		return PTR_ERR(clk);
-+	if (clk) {
-+		bulk[num_clks].id = "axi_s";
-+		bulk[num_clks++].clk = clk;
-+	}
-+
-+	*clks = bulk;
-+
-+	return num_clks;
-+}
-+
- static int mtk_nor_probe(struct platform_device *pdev)
- {
- 	struct spi_controller *ctlr;
- 	struct mtk_nor *sp;
- 	struct mtk_nor_caps *caps;
- 	void __iomem *base;
--	struct clk *spi_clk, *ctlr_clk, *axi_clk, *axi_s_clk;
--	int ret, irq;
-+	struct clk_bulk_data *clks;
-+	struct clk *spi_clk;
-+	int num_clks, ret, irq;
- 
- 	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	spi_clk = devm_clk_get(&pdev->dev, "spi");
--	if (IS_ERR(spi_clk))
--		return PTR_ERR(spi_clk);
--
--	ctlr_clk = devm_clk_get(&pdev->dev, "sf");
--	if (IS_ERR(ctlr_clk))
--		return PTR_ERR(ctlr_clk);
--
--	axi_clk = devm_clk_get_optional(&pdev->dev, "axi");
--	if (IS_ERR(axi_clk))
--		return PTR_ERR(axi_clk);
--
--	axi_s_clk = devm_clk_get_optional(&pdev->dev, "axi_s");
--	if (IS_ERR(axi_s_clk))
--		return PTR_ERR(axi_s_clk);
-+	if (dev_of_node(&pdev->dev))
-+		num_clks = devm_clk_bulk_get_all(&pdev->dev, &clks);
-+	else
-+		num_clks = mtk_nor_get_named_clks(&pdev->dev, &clks);
-+	if (num_clks < 0)
-+		return dev_err_probe(&pdev->dev, num_clks,
-+				     "failed to get clocks\n");
-+	if (!num_clks)
-+		return dev_err_probe(&pdev->dev, -EINVAL, "no clocks defined\n");
-+
-+	spi_clk = mtk_nor_get_clk(clks, num_clks, "spi");
-+	if (!spi_clk)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "missing \"spi\" clock\n");
-+	if (!mtk_nor_get_clk(clks, num_clks, "sf"))
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "missing \"sf\" clock\n");
- 
- 	caps = (struct mtk_nor_caps *)of_device_get_match_data(&pdev->dev);
- 
-@@ -867,10 +894,8 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 	sp->wbuf_en = false;
- 	sp->ctlr = ctlr;
- 	sp->dev = &pdev->dev;
--	sp->spi_clk = spi_clk;
--	sp->ctlr_clk = ctlr_clk;
--	sp->axi_clk = axi_clk;
--	sp->axi_s_clk = axi_s_clk;
-+	sp->clks = clks;
-+	sp->num_clks = num_clks;
- 	sp->caps = caps;
- 	sp->high_dma = caps->dma_bits > 32;
- 	sp->buffer = dmam_alloc_coherent(&pdev->dev,
-@@ -886,9 +911,15 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 
- 	ret = mtk_nor_enable_clk(sp);
- 	if (ret < 0)
--		return ret;
--
--	sp->spi_freq = clk_get_rate(sp->spi_clk);
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to enable clocks\n");
-+
-+	sp->spi_freq = clk_get_rate(spi_clk);
-+	if (!sp->spi_freq) {
-+		dev_err(&pdev->dev, "invalid spi clock rate\n");
-+		ret = -EINVAL;
-+		goto err_disable_clk;
-+	}
- 
- 	mtk_nor_init(sp);
- 
--- 
-2.45.2
+Will
 
