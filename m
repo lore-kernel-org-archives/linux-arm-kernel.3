@@ -4,112 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC45C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 21:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90535C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 21:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kue2/Pm3HbmZQzjeKahvdcnYX4KwQ6G8saPWSb5Rn6g=; b=CXvUa0Iv/oVEkLscJlosB7JoKs
-	T1rNaQdZVlk7DsEfmA1FOU6gKM5xB6lST1ulF+7MrsvzFmXOYMggLxIixJxO37NnO3CnW7N91BkUO
-	KlHlWkeuQ61kTMiEMKtUO/Or6Yh9YFEEDTpxctk06MbDr6TB/2Ulg/95QTBzBZaXtsajiHif2T8F7
-	whShnQExhfpnNRMFy9Ug3SyNHQuyaf9poIcULd/HRHtPV6zNZXHcnS9C2ebOHd3OgeCt8OVyvhSdJ
-	TT/9B9i89L9Wri4BgxVzF3j6P2HPsqNbNXZ04htFL6TVJ0/GsWA9qcLf00N44tzEnzTuIoku5/OOs
-	5d914FAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DNDtMp8O1f5/RjnvNdJtIo4LKUolLOXAiPzCUJDt5XE=; b=3slyJXS+uZhRNYTq0E1JefczW5
+	YhvTLAIKg0C0q0a8scRkcHxYZk//5m3ODJuk2INsvYaZUD/FHdXDB+IUuNA9oVYc31jG+coOg2z08
+	zxsNPSf+8QxI2k2VU4ex0Fx82DGr6/gMO/m3u0FxwlZ5vgtYYENAySnO2zJCPHbsxWZnf8KeyAMwY
+	vYlnGW5vzjb9yGU4MwCog9l/cGfoLi1aVfl4xLXHr7MT8FuNgAcg8IIRJFlxLj8b7e+CIdoINsZ4v
+	R+2OHo7VT50dSNGkALB+Z0A56M6DYlcbbR8b5PN8mLnYgq6XYnQFcVVnoPp8/bPPHEUWQSL8roriv
+	JmggiAIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2bfM-00000003L2G-0ZaW;
-	Fri, 04 Sep 2026 21:41:44 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1x2bhB-00000003LBM-1hyT;
+	Fri, 04 Sep 2026 21:43:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2bfK-00000003L1b-0lOS
+	id 1x2bhA-00000003LBG-1Bye
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 04 Sep 2026 21:43:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DNDtMp8O1f5/RjnvNdJtIo4LKUolLOXAiPzCUJDt5XE=; b=VHWytm87uuJgWnBgulqOd1/MYh
+	coohKmtcfIhQhJTEppy6W1QZA3NOnwNNN5CVWzlyZOwS167ndAEgQZZur9+vU7IjcKX/SC/POmD1U
+	eXIZ1MK6HgmEI1IOg6Rl1PJBq0v3sz4do3Q1ZUVVbrWldJ94vDehhRaNW8LExG39MuJ1ETW79o2JC
+	+gmgmSRlcYtqqIYnbftvKms7YrtLNgWf19V3yBejKDm1cLeh2ARf0oohgFmr8y1autQYayUtQK1km
+	d28RS3SXfuE6wg7evzAcdxY1mRLdpZNk64hyn7f7qcg/CNDQDaUDED20JpmU93iMuCkBL2KR5dzZy
+	2YD+c0rQ==;
+Received: from mail-southcentralusazon11012015.outbound.protection.outlook.com ([40.93.195.15] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x2bgz-0000000EWvg-0BiE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 21:41:43 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a5e392b2b3so2399615a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 14:41:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788558099; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QCUoQq17PeDJ0UnSY7c5jiYJOjT+XL8qokXMwETwYQ+aPhOaYeyBB8aUyl2S8waScq
-         IJnlmQgYp6yQtKsvSYjCa7R/9/h1PRZeyjpJ4iCjc0PQquL+3ujRY3gy9NpUpT6O0tjB
-         GRfVHtHJiOi6fxmVW3pmIZ8lnbj0awaMjjcQtBWy/zkP2iNexhOtT/i/6tBU9N7v6HPB
-         U/58j9NUwDxsDzsbeb3vgPqntN+owjxdDb1sMzUy9WgABnR6VNMvSwZ3Do9su3nmtZlW
-         e7SZDAdq1usufO6/BDa5ae64VwdmPiJwig2MPCHeAr7p33D4p4ww9sAuvq4TOTyhwGQc
-         A8Iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kue2/Pm3HbmZQzjeKahvdcnYX4KwQ6G8saPWSb5Rn6g=;
-        fh=DlFdfwHQ83CI9gssfDOAQRGrh1qqlsyG5ZMKhlAelnU=;
-        b=bo1heXu7gOAOhAO/br3Z+mg5QAZuz7eiwDx+pE9ewplQHqpjlFH0V8fmaRJgPuVzAY
-         eaSSgNhqPOUn0PpEV9cd0BCT2n1FBgf5fEVK+sdBndSdqXMejIZwZIJ6V8Gjda5CL6kn
-         UZxtvfilc1dqALhw4ZNS0nb28+j8bmR4XQTHOHynDrIJm3k5EXmiC33HuI8SfpDy9PPa
-         tywMn+zmvBdMclG0lCBcQWSBqueNRhNEYfs2wGk3H6UA2+cTe37HKWPAQbSvD6DxLsa2
-         X8lFWay6JeS1b4qOqHbpT37iTQWl/Ae6W5UdytN7JU68gw3cUXO687uY2f9lCJHWFwUk
-         9h4Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788558099; x=1789162899; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kue2/Pm3HbmZQzjeKahvdcnYX4KwQ6G8saPWSb5Rn6g=;
-        b=SPSzU6/CnA6vnRGXi6d3FQG+jgydnlD5NYk6OT6kC0Mw/CtwXUkgXM0tTeBm5rPSEW
-         yjihMHz5NavoY1kL6ky/O25ya95Xz4AFNqoFTeirTivvmbWz/jvVm2WrJ35Ki8LV7N1w
-         lx842zj5va4gibMgn3LMoztzOPdolXYZf+zOHyV2LZa3SUSB0nODd9Li60GzXStfo9qs
-         uzKtGTpVpUK8ug1ByUDbXkbwTKD1u3WrxSyJy7cqZURMuzrdBipo4doTp+VJ8Cjq7ihY
-         DDc2GIMeKT8aTPw9ULyVRYOxuM5PJgSFzfnMdv/UJlQrShdHG2PqHSYmEhpowDhnscaI
-         OSfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788558099; x=1789162899;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kue2/Pm3HbmZQzjeKahvdcnYX4KwQ6G8saPWSb5Rn6g=;
-        b=ggHdKR3P3DGPDZzPWW4JL+mh7iT/TnSgQqn0e8g44ORqw5j/Eo2XYVWL48mQjwFMz3
-         L1SJ6G0J0sJUbBU4QmN/rRER6BUzkuJaOx2/C5wNlPF/hFTTdNBzRUfLTnRCA3ESu/s0
-         mPEbXsaTy3wByDJCJWv2ocDssnxH9xoJue9zu0FzlDfoRxx+zI68hU9DipoS/PhlhD0U
-         78kees/8q9dl+cLIh/jVkDYkHyO87cbrc62/g5SkamrhiSUvsWOAc51YrUPbA+losbI8
-         VewRj62/V2TeiIJrRy8Cc2f7EIP1TdOFSbxabPIg3faO48Ff/jV2f1lu0oZuhF5kVTvV
-         lCHw==
-X-Forwarded-Encrypted: i=1; AKwUvBz1kFbwC4A8j24C/X1gWLmFW+TZQtWVWCKVHsexbi1GHXDhl4OQ4ZHN9qXvnizJbci3q8esMYaLmQZNX283X+g9@lists.infradead.org
-X-Gm-Message-State: AFuF++mlHjRFhHIoKM/4NHYqdRTEudLjfCC1HjODDJXK4uyMpl9xxdkC
-	LMuFTUZMEdJoxMQbAVQnTzFmGXWFM7yD/W31qJB6ceD54ivAX+1IM4ZSgmKkfGb4554jLxY11xp
-	mLg+ZMVIJgHkn0jyWcf7CSAMnupZ3/Qg=
-X-Gm-Gg: AYBFou3JpANUEZ0TJQnTviIk9+Rad2cljYGS89YvmgJ56imdmp4QBaek3ovDJNpgE7W
-	kduXvyX0gS8FPjWs7jNKNNF3tlErrOhzF4YwHZZHdo6JN6x39yhWDdAyhe83MjlC+gh4z2aJeI1
-	xd2PhA5p6FjC8fb3GKywekMKDDQFEAXvq0CRE69UGggxmXSAWVs9Pew333tqBOKk2eEu4F+InBT
-	QqpqMaug6u1HwRYYvpW0l+JlmJLJ5uBYMCbuRiqJnF3mGlRjXymuU2r9uv9hctite+9mtDXgPou
-	HrENZY67+xmGCjGYiw/DrUIBw1jRGIXO7ANwLqfT0Su0uKGIluQbBvnbk8cjaihxKbjpZWSeeWH
-	JRy8tfJb0NQ6PmEUavXVDOiEjZe26plznezCDTPBuNhE1PUMc29F0RWx6B2ynLGsr4haj1XTYtn
-	dU5714R3fzBJdbx4EMPi8W5DTtegZg/pu3NvWUZVjW8HWQfk9Hf/9AYhBKf1Nj/bzYoA==
-X-Received: by 2002:a05:6402:2752:b0:6a7:ea54:376 with SMTP id
- 4fb4d7f45d1cf-6a7ea541ef3mr2147241a12.30.1788558099252; Fri, 04 Sep 2026
- 14:41:39 -0700 (PDT)
+	Fri, 04 Sep 2026 21:43:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q0QOn9skyYaTc5crsdNhltoTZxXVZ6QRw2qWquugP1DwIbaBM8iSXp9xfVEy0Y4GYuJi5lwaYVANKfducb9tRS5aLbHAcwjujGRoyvMHmZt+TqoHL5XPQtFR12U+VXzMG4TK/8NN5qnueL9ZKupH1tavWYQyRVggTuKJGs9Wz3usU7hD0MNclQQqhTu17vuL9L60+M4cGR0t3STvqbSPx6FE9yOs2aWwksSEHIknusrLjHB6iaeWx2C14XALyrpirse63k1cLU9R7OQXoVFLSIoNgvZroz7proLXgj1KjTma5kRId+YcOuUUwc/16A6vJ9EPW9YEYKIi8Npxx6myCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DNDtMp8O1f5/RjnvNdJtIo4LKUolLOXAiPzCUJDt5XE=;
+ b=HExWSD9SQsu3E46X8MxqljHz+Quv3OwYX4SfUO1dkZz6UsQ8jyC9fU20UGQEZtnvhiYajbpaVAyRmRnVfOsu+hIeduzjgOyPqtqsGUGD3NPWkjx3+F9J/6j51Wl7j00dBu/j7jGr6ch3imiYQc6npAe0ksCAV9ESnGxKwVQlVD8TiON0tUUM6kZSEIgpTm1ugI8DMIZZz1ZaYHNcvMelynTbd1zjUKXbFegcGf9/1XKOQ+aL999kKTi+42EOc4fnz1zVMZpzp45jRHRAqKJJxQdOuo3DDiPQWwRX0cENigRXGh2NIIxJphx8VHoWTodQV5FYObC/pxC2MHuteXN6IQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DNDtMp8O1f5/RjnvNdJtIo4LKUolLOXAiPzCUJDt5XE=;
+ b=glOV3U6SY8UO7OBbflh5LMRPH3BMOq6u1FXpPemuxAkVkH7oEueGj3kGFheGcLnrTOl/CTBxDO9fcqZzf7Mac6qH2TmNlQjFIgUjE7a7VqkiEKyuqbWiWPo1tvp0KGYwp6Kd8rujAOj5DOB63hKQh23/r11Jm4X2J8LMlMa8V2dSB73JLoNR2H/vsp/cacHGNe5Df1Pq/XZKjSM1nWmjTyLjtP2PWYdQLymamOU9ioAigMS1lkHLjWPESGTL3+0Wccl8hw25Iz9r3uWLB6JEkAlE+jh03QOeF5i7OjEGI2oBtwMT5VdgD7ihh1GBjUbiciYD8fhIMWVfeooR1p1veQ==
+Received: from DM6PR02CA0113.namprd02.prod.outlook.com (2603:10b6:5:1b4::15)
+ by PH7PR12MB5711.namprd12.prod.outlook.com (2603:10b6:510:1e2::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 21:43:07 +0000
+Received: from CY4PEPF0000EE3E.namprd03.prod.outlook.com
+ (2603:10b6:5:1b4:cafe::28) by DM6PR02CA0113.outlook.office365.com
+ (2603:10b6:5:1b4::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Fri, 4
+ Sep 2026 21:43:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY4PEPF0000EE3E.mail.protection.outlook.com (10.167.242.16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Fri, 4 Sep 2026 21:43:06 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
+ 2026 14:42:46 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
+ 2026 14:42:45 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Fri, 4 Sep 2026 14:42:42 -0700
+Date: Fri, 4 Sep 2026 14:42:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
+	<joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
+	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
+	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
+Subject: Re: [PATCH v3 03/13] iommu/arm-smmu-v3: Drain in-flight fault events
+ on domain detach
+Message-ID: <aps7UJktq3IlO5lT@nvidia.com>
+References: <cover.1788222485.git.nicolinc@nvidia.com>
+ <8717f3329313f40308cff20006066283ebbb3a56.1788222485.git.nicolinc@nvidia.com>
+ <178846311316.1308030.6266899352044838554.b4-review@b4>
 MIME-Version: 1.0
-References: <20260511032252.361906-1-rosenp@gmail.com> <agH-ivEdw12_3OJz@redhat.com>
- <CAKxU2N-nEx-=KFh9djQRGZVTR_HJTSrJYzAa8NR+4QcNvbkxqw@mail.gmail.com> <agI_ANymmPyyWxuE@redhat.com>
-In-Reply-To: <agI_ANymmPyyWxuE@redhat.com>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Fri, 4 Sep 2026 14:41:27 -0700
-X-Gm-Features: AcwNN1VOkSQ_1hll8MMht--OgvQL0IoR_OsYRYOz3Zmp855n0-aj2ZBGahPJ2b8
-Message-ID: <CAKxU2N8YimZyKFoWtHT+FZwzD1R+MzvaXoCu0MhVEzvGHd9VhA@mail.gmail.com>
-Subject: Re: [PATCH] clk: rockchip: Use flexible array for clock table
-To: Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <178846311316.1308030.6266899352044838554.b4-review@b4>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3E:EE_|PH7PR12MB5711:EE_
+X-MS-Office365-Filtering-Correlation-Id: 885deb12-6ca6-42bc-04ad-08df0acd81b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|7416014|376014|18002099003|22082099003|56012099006|3023799007|10067099003|6133799003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: k4FHx6bzZpZOc4ZETFtH0Ue45ER0rqt8OAu/oyITylyj65qtDzJmDXYb7P5Dr9lSnqcwMPWHqZzy2m+1Z3QHs9YiGF3GIbWc3A/oC4TPRE4SdTozWur6Ylvl8OTPUdInqgUeks7itnapiAINkDfAo7bNKmdL0nd8FwST/ZP1tfDJVNK33vhN2tIQkeZKn5teXNY+BwjxVf3/MdsOg4mo3cZBwo3WJxNip8ElYdMfNk4oJqe91H1BVV4HDtyDvTYYVkm7BGTILcNpGcHoDOkFirTtokhGlWZS+gsmaFPTmcx8e3TuaKOxQ3ge+HwGlrnXk/h8u6I5Y1NWWhhbA0vmbBwGXzaESaUV2AoRA3bYq26+dVrGv/TuUm9WGFgG/ldStBaUtnvyEW5bGiG6+v31pqM6Ko5K5v1p3MiDcNYvOvb6OSWTpysSKvZype20xTQc8PPDGO6TGoarnB59zl+dBLuv//Rkcecr6BvqBwUCXPoPRnggo5ynskhUPheZds/8ZZhNr2aHNo80uP/Jw2igDslRA7PvguoSvJ/OlSioDSbLC0lMtWz9vb1cKwvthJbiucwfTrYJySwyEylxqnxlunRVoU1ULHcXhpsBA+dikpaAyy8rgZ5r5jSNaO6KKANpVdPaS1Q5C1GUJAbVP9apWatbxtS98xZY2o6dQwlAVpdi7ssWTfWztHHauLuRp/vYnx/1BZuhO46Df3wh34OJtA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(7416014)(376014)(18002099003)(22082099003)(56012099006)(3023799007)(10067099003)(6133799003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4J2PcwpPcUXnbe9kf1YibqE5ofpdnNK000/hwBOxSHgCRI/PIHbyUQR+2PUAlC2IahUSggJyJ+24oMt1Kmi8GRoXCdDjHXrXP23KXGK5W52MO1PTjqPHE0TC4mQu/QpGKvr9NyY6zUC3G6sIFB4POqlj7TlZSEI0e4O9op0zX+EH5VzZJdQ2d0r2Dcfmq4kusd3rnN6MEkscCH7AJNUQdy8x1fmpISdj/k032pecS+J5apZDd+hd7zWmIpA7BmgxNe30YJVN/SeN0NFIInnKKuiyv85UCTjDWkVYjFmO7u/Oewwmk1XXKxSeC1EkfmnZWKK+/g+XwBI3hb0l76QsQq6ICiQKW9It0S7CATe761D0r7d11+Nb+MghIbMNydz2WmOdZkMXVvf5IW6p3R+sl2f1Ox/xGD9kwZUGrR7o0Mq7jIwD8umEgNmNCde5C+P3
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 21:43:06.9468
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 885deb12-6ca6-42bc-04ad-08df0acd81b9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3E.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5711
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_144142_254200_80F394AB 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20260904_224325_295149_D79E6B1C 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,80 +149,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 1:41=E2=80=AFPM Brian Masney <bmasney@redhat.com> w=
-rote:
->
-> + Gustavo
->
-> On Mon, May 11, 2026 at 12:08:56PM -0700, Rosen Penev wrote:
-> > On Mon, May 11, 2026 at 9:06=E2=80=AFAM Brian Masney <bmasney@redhat.co=
-m> wrote:
-> > >
-> > > Hi Rosen,
-> > >
-> > > On Sun, May 10, 2026 at 08:22:52PM -0700, Rosen Penev wrote:
-> > > > Store the clock lookup table in the Rockchip clock provider
-> > > > allocation instead of allocating it separately.
-> > > >
-> > > > This ties the table lifetime directly to the provider and removes a
-> > > > separate allocation failure path while preserving the clk_onecell_d=
-ata
-> > > > lookup interface.
-> > > >
-> > > > Assisted-by: Codex:GPT-5.5
-> > > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > > ---
-> > > >  drivers/clk/rockchip/clk.c | 17 ++++-------------
-> > > >  drivers/clk/rockchip/clk.h |  2 ++
-> > > >  2 files changed, 6 insertions(+), 13 deletions(-)
-> > > >
-> > > > diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.=
-c
-> > > > index ee8c79b938d3..dbb4b6f33abb 100644
-> > > > --- a/drivers/clk/rockchip/clk.c
-> > > > +++ b/drivers/clk/rockchip/clk.c
-> > > > @@ -359,26 +359,21 @@ static struct rockchip_clk_provider *rockchip=
-_clk_init_base(
-> > > >               unsigned long nr_clks, bool has_late_clocks)
-> > > >  {
-> > > >       struct rockchip_clk_provider *ctx;
-> > > > -     struct clk **clk_table;
-> > > >       struct clk *default_clk_val;
-> > > >       int i;
-> > > >
-> > > >       default_clk_val =3D ERR_PTR(has_late_clocks ? -EPROBE_DEFER :=
- -ENOENT);
-> > > >
-> > > > -     ctx =3D kzalloc_obj(struct rockchip_clk_provider);
-> > > > +     ctx =3D kzalloc_flex(*ctx, clk_table, nr_clks);
-> > > >       if (!ctx)
-> > > >               return ERR_PTR(-ENOMEM);
-> > > >
-> > > > -     clk_table =3D kzalloc_objs(struct clk *, nr_clks);
-> > > > -     if (!clk_table)
-> > > > -             goto err_free;
-> > > > -
-> > > >       for (i =3D 0; i < nr_clks; ++i)
-> > > > -             clk_table[i] =3D default_clk_val;
-> > > > +             ctx->clk_table[i] =3D default_clk_val;
-> > > >
-> > > > -     ctx->reg_base =3D base;
-> > > > -     ctx->clk_data.clks =3D clk_table;
-> > > >       ctx->clk_data.clk_num =3D nr_clks;
-> > > > +     ctx->clk_data.clks =3D ctx->clk_table;
-> > >
-> > > Where's the __counted_by? Also struct clk_onecell_data is embedded
-> > > inside struct rockchip_clk_provider, and I'm not sure offhand how
-> > > that'll work.
-> > Not present. __counted_by does not work with embedded struct members.
-> > No need to add one IMO.
->
-> I'll be honest that I'm not sure what's correct here. I added Gustavo
-> since I saw comments from him before about these types of changes.
-Anything else? The comments AFAIK were about descriptions of why the
-counting variable assignment was moved. There's no counting variable
-here.
->
-> Brian
->
+On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
+> > +/**
+> > + * arm_smmu_drain_queue - Drain an SMMU queue
+> > + * @smmu: the SMMU device
+> > + * @q: the queue to drain
+> > + * @until_empty: target selection
+> > + *
+> > + * With @until_empty == true (for CMDQ), exit once the queue is observed empty:
+> > + *
+> > + *   cons0                cons                                prod
+> > + *     |                   |                                   |
+> > + *  ---+###################+=====================+=============+--->
+> > + *                         |<--------- undrained==0? --------->|
+>                                                     ^
+> What is the + indicating?  Seems where prod0 that isn't relevant here
+> would have been - that is a little confusing so maybe drop?
+
+Yes. I drew the other graph first that has prod0, and forgot to
+drop it here with prod0 after I copied.
+
+> > + *
+> > + * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
+> > + * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
+> > + *
+> > + *   cons0                cons                 prod0         (prod)
+> > + *     |<---- drained ---->|                     |             |
+> > + *  ---+###################+=====================+=============+--->
+> > + *     |<--------------- pending --------------->|
+> > + *
+> > + * Note that a drained entry is dequeued, but not necessarily handled: the
+> > + * EVTQ/PRIQ callers must follow up with a synchronize_irq() to wait for the
+> > + * threaded IRQ handler to finish handling the dequeued entries.
+> > + *
+> > + * Context: Process context; may sleep.
+> > + * Return: 0 on success or a negative errno on timeout.
+> > + */
+> > +static int arm_smmu_drain_queue(struct arm_smmu_device *smmu,
+> > +				struct arm_smmu_queue *q, bool until_empty)
+> 
+> That name suggests this is doing the draining rather than waiting
+> for it to happen elsewhere.
+
+I changed it to "arm_smmu_wait_for_queue_drained".
+
+> > +{
+> > +	ktime_t timeout = ktime_add_us(ktime_get(), ARM_SMMU_POLL_TIMEOUT_US);
+> > +	u32 cons, prod, prev, undrained;
+> > +	u32 drained = 0, pending;
+> 
+> Pet irritation. Prefer splitting the elements that assign and those
+> that don't onto seeprate lines.  Here that just means moving pending
+> up one line.
+
+Done.
+
++       u32 cons, prod, pending;
++       u32 drained = 0;
+
+> > +
+> > +	might_sleep();
+> > +
+> > +	cons = readl_relaxed(q->cons_reg);
+> > +	prod = readl_relaxed(q->prod_reg);
+> > +	/* The exit target: the number of entries in the queue at entry */
+> > +	pending = Q_POS(&q->llq, prod - cons);
+> 
+> Applying a macro called Q_POS to a difference is a bit confusing to
+> me given the output isn't a position of anything. Maybe just needs
+> a wrapper Q_DIFF(q->llq, prod, cons)  Can use Q_POS underneath
+> but avoid that naming out here well away from the macro definitions.
+
+Sure:
+
++/* Entries between two positions, i.e. how far @b leads @a */
++#define Q_DIFF(llq, a, b)              Q_POS(llq, (b) - (a))
+
+[...]
+
++       /* The exit target: the number of entries in the queue at entry */
++       pending = Q_DIFF(&q->llq, cons, prod);
+
+[...]
+
++               cons = readl_relaxed(q->cons_reg);
++               drained += Q_DIFF(&q->llq, prev, cons);
++
++               prod = readl_relaxed(q->prod_reg);
++               undrained = Q_DIFF(&q->llq, cons, prod);
+
+
+> > +
+> > +	while (true) {
+> 
+> Maybe pull defintion of prev and undrained in here so it is clear
+> they aren't state maintained across iternations.
+
+Done.
+
++               u32 prev, undrained;
+
+> > +		/* Accumulate the entries consumed since the last poll */
+> > +		prev = cons;
+> > +		cons = readl_relaxed(q->cons_reg);
+> > +		drained += Q_POS(&q->llq, cons - prev);
+> > +
+> > +		prod = readl_relaxed(q->prod_reg);
+> > +		undrained = Q_POS(&q->llq, prod - cons);
+> > +
+> > +		/* Exit on an empty queue, regardless of until_empty */
+> > +		if (!undrained)
+> 
+> Given you don't use undrained again (maybe in later patches, in which
+> case ignore me.)
+> 		if (Q_DIFF(&q->llq, prod, cons) == 0)
+> perhaps.  This one entirely up to you as maybe the named local does
+> help with readability a little.
+
+It's indeed for readability: this matches the graph in the kdocs.
+
+> > +			return 0;
+> > +
+> > +		/* Snapshot mode: exit once the pending entries are drained */
+> > +		if (!until_empty && drained >= pending)
+> > +			return 0;
+> > +
+> > +		/*
+> > +		 * A timeout means the consumer might be stuck. In theory, if it
+> > +		 * moves 2 * qsize entries or more within a single poll interval
+> > +		 * Q_POS() would wrap and undercount drained: that could trigger
+> > +		 * a spurious warning too, if the queue was never once observed
+> > +		 * empty. Yet, that much consumption in such a short interval is
+> > +		 * unrealistic. WARN it only, as a stuck consumer is a real bug.
+> 
+> I don't like 'unrealisitic' based defenses (even though I agree it is pretty
+> unlikely).  Is there a way to bound this?  Maybe future systems will
+> be much quicker.
+
+I can't see one..
+
+I think this is already an extreme corner case. Sashiko found it,
+FWIW.
+
+If you have a better word than "unrealistic", I can change that.
+
+> > +		 */
+> > +		if (WARN_ON(ktime_compare(ktime_get(), timeout) > 0))
+> 
+> Why WARN_ON here then a dev_warn_ratelimited() below? 
+
+I dropped WARN_ON.
+
++               if (ktime_compare(ktime_get(), timeout) > 0)
++                       break;
+
+> > +		/* The consumer might be a threaded IRQ handler. Yield to it */
+> > +		usleep_range(100, 200);
+> 
+> fsleep() perhaps then we don't get to argue why that slack.
+
+Done.
+
++               /* The consumer might be a threaded IRQ handler. Yield to it */
++               fsleep(100);
+
+Thanks
+Nicolin
 
