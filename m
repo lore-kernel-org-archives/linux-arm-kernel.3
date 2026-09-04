@@ -4,110 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A42C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5607CC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2E5WMWcIyJZoE2GE8k1ComnlqCfp2hy8iFWq+cBj4jU=; b=oqyVbqHn2Y449RlJ8S/hxCqNkY
-	VPs6PKzhvqJrYm49aWUo++3wJK0vUivs1odlVvnhzX/Ua7pimg3AJXQCq70R5WkcGxIxDnA9IQp+j
-	yu9Pod0zmlgwgtZ8kCfWy3TI8AegFggTt85cSn8fpKrA5UCbcS8Q/SMJqPvqzu1KtVzuMK1Pz17Qd
-	Ql1UyUaDsXNAK6KWc4lCUyqpokhAO6VwIjGE62kf8P0bFGgTU7HYKHVxuX9M6FIGof4SAoKOOJr18
-	Bq0SVCLZpaSF6OVqqgc/5TRZp07flh+1wiM2b54PkdxJiwkah57+hBUCJ7KpV5BNAmOCMpOqVKTp2
-	ykbbOdrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQINUiEIBmxWm4jUjj2x1mv0YkR8MOhXHW5nUWYE+pM=; b=AoN9t9/pYHEBBGg085JHydl8fo
+	ewqo4bpYUWd40ucf2yx8djMCZ+GQMcy7kA1tfKBNvc5Pzs/msvHlkAWH8J+sx1xKYv3iTLMsESOCW
+	EiQmQaTVUuTKO9T9lR6cGO/KtDejUIj/kBaSA0QIXikXQuWJngZoTzrnjchWiHJAv9zulosz7GReh
+	G++jrqj5bWyQblNr9v1Sr6KhCyYoruTA1DpzpTiy5e+jHnctgg0J/0WT798+GhuvvwyTWuY+vIBqe
+	7vDiPj75wNHenDt3skK6PLbONp70Ak2lD1tHXTCZwbaTftHQIrYf3w/Q8eVFOu9I1QAdyWVjYJKcD
+	hxO9U+1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SIH-00000001s89-1nkj;
-	Fri, 04 Sep 2026 11:41:17 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1x2SIj-00000001sNx-1R9y;
+	Fri, 04 Sep 2026 11:41:45 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SI7-00000001s3a-0JQr
+	id 1x2SIe-00000001sLD-2ffE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 11:41:11 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-6b35cc0a8c3so756046eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 04:41:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788522066; x=1789126866; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2E5WMWcIyJZoE2GE8k1ComnlqCfp2hy8iFWq+cBj4jU=;
-        b=o8Oc4GR08EYaseh9NE9702ayVX2veOifpoyMZBTe0lIN6th2aqMlU4EPqktqh+19y/
-         QwxdFM8d4UXKY43kuPtog2/izV590QCn9mpogIW46QGnZEktFkyX2g5W6Uq9VvAfvL7j
-         O7JTL/+AO4Sz2DysH9/HZdZpfE+37Mw+Xpvz2A7JCpM5icy8xEeUFazCcwp7rA+ztafz
-         mqqqDv2v45GUEejOtIoQWeHIIDJzvxi5+QHdBIDTm5TaITtzzMQ5jTN5SMmwLjeJLODp
-         K4PoqB1MFLYi+nG7yq6AIXPC3tzX7Fm2E2PaLqKnZDyzwYuWC5MY/xKPfyVzDGlnE6VF
-         gjVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788522066; x=1789126866;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2E5WMWcIyJZoE2GE8k1ComnlqCfp2hy8iFWq+cBj4jU=;
-        b=BVsHG7uq8WzUk6YuZ1GmQqaz4Q9KpngoRECKsZ81yY5cgdKhBueeqTCGvrejJ1npBk
-         bD/uM6LwCygtvHtUzqlcZd1Zx/KEYNoripBgJxNujfR7b8qn+L7tJp68yPyJGGRpYuTU
-         iVcZov3JOE0YFcHqjj+CgtzWo3gq4KZLQDT6J6+M3mcsNTotqs0sJBjiuM2cbeoHVsTm
-         +/lmrkqzN6/Vld8/hYopd3BoykFikJhpZYU9EXVZuhyMJr1zm8VcQVdSPw0Fz95CXlUU
-         vJTsC6nfzI8bNFlCWfa8dfLp6XRkBwrF6ZInPR45jP+uYe3/pHppJaGszRb2T1o722QR
-         bZeg==
-X-Forwarded-Encrypted: i=1; AKwUvBy/QJT7Jm8bGyfGu82pSBaF48WiG8JfZqRyQDb/ebWVB46DdF3nBcaxp1UWC7oovE1VA/NZKH0nwmkIg+rDktBo@lists.infradead.org
-X-Gm-Message-State: AFuF++kK+dSD8Gn63ZC8qOTwX4ikJORpSAM9JlfSiS9MUk3wgofaWfE/
-	KBr6p04pciskh1sWYVYOL9YQUYuwcm3g3gw6RSdlGxekwmmG+L6KHTTg
-X-Gm-Gg: AYBFou2taC6F2B39+vgY23ChcJh0VMBI70kGjzLcgkK6TyV+atTwEw07QzmV1AX11l2
-	4LMJo/7L8/dWZOO6L8Ibite0N3C8SaeD7gTWTyUYSl5fsY0RjDTgsIRg2E0SFUCMMReYmaTTTEv
-	8tdyncuR57oABpvcGl2YJyJZC2TrSbpyt2PBkafP2tOsS05MqVph515IX33oYveQHuVSW6ot2YG
-	thnB0B7b45MD+i/CEkUFPoANcmmm5dDYrCttQQG0HYtjvEa+oQ2nqsCkBivYeEyrez0znsrdNOD
-	yTBe28zmvYH1XHAPUmhnEVrwkStEMsGmcCmED+mTnjD7bnVjFY+4vy2JDEkOOxvkhVZWpwqguqN
-	RLD12wDrw4Ggu6oVccSk0wR/JoQlHE/fy+Oz+1+9sZDMDL+QbmzOy+XXpWQDLZfJKd0CkABbThJ
-	F0GBd5HR9pVKYN0nYA2r920FC7QqQHeG8J3d16PNuvuno/jvblfNw+oB/bVUTqiyt5gAfGnqFdB
-	GfBKNt6r6KUIaMYurhgbhoabKw=
-X-Received: by 2002:a05:6820:4b08:b0:6b7:46fc:1db with SMTP id 006d021491bc7-6b746fc0298mr2235475eaf.58.1788522065747;
-        Fri, 04 Sep 2026 04:41:05 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33450e140d3sm2695292eec.4.2026.09.04.04.40.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 04:41:05 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Matthieu CASTET <castet.matthieu@free.fr>,
-	Stanislaw Gruszka <stf_xl@wp.pl>,
-	Chas Williams <3chas3@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Justin Chen <justin.chen@broadcom.com>,
-	Al Cooper <alcooperx@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Thomas Winischhofer <thomas@winischhofer.net>,
-	Bin Liu <b-liu@ti.com>,
-	Oliver Neukum <oneukum@suse.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Badhri Jagan Sridharan <badhri@google.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-atm-general@lists.sourceforge.net,
-	netdev@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-scsi@vger.kernel.org,
-	usb-storage@lists.one-eyed-alien.net
-Subject: [PATCH 1/2] usb: fix typos in comments
-Date: Fri,  4 Sep 2026 17:10:37 +0530
-Message-ID: <20260904114046.24048-2-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260904114046.24048-1-hemanth.selam@gmail.com>
-References: <20260904114046.24048-1-hemanth.selam@gmail.com>
+	Fri, 04 Sep 2026 11:41:43 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=lEpeli7V4cCjhvgeE9RxBAActuUVX29XkT6k7ftN/XR69PtAUw4xHLnfFsqT9XmASIIppshLE0LSE4MJ6PRCV0pk+C57Bus4+Ams3yZ7w1/tArdxSrujLWJe0OU2Sc1zPxCm/isJiueO+DuJMKNHLf+M+sXBsImtvoXoAZAR9WsV4PXokWiDFKdo6pj/mW/nyjfXz59pDAq153e8ajGcOLt1UtfmxpbowMZ3w52soBUP1PfnxfuqrbMT3WBSHo3W6MEqQfbh8Pi0w0uvZss+wsq4AjsJNe+iWVtUolrBQyXS3V+oaqBqtIOyoQaMc6B1GftsKjZn6cCmiPgddAORfw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VQINUiEIBmxWm4jUjj2x1mv0YkR8MOhXHW5nUWYE+pM=;
+ b=TQmyDkCX9SikMlhPtKzQvkB8+tr81ui+OmS/pH2geWpV8tbjhgvYxnwniDBkSOCxvNAMuN5YSqJ3FPjL5LDfbpeXN2VfrU3p3pmnDficVXFP11vPp90G3GhC1jxd6lB0DMriwM9JW3qquaGOCqho4Lpho/tWAJEtbtKo1fOvwatXmTYlDp/SWPtE2UZXKK5wBHplscWz0Wmui3uO9jl6IpRkah0cOWJgWVB9hclWmqhPLoUCbRFQkUbwXWa1ubGDlDPmjbTVwsViTPLyMyihNP9nrI8C/eqEfl1luCEKaruObztnZQFejER4HPVyhraM8a6MiqhzYSi7TGo0FgsBwA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VQINUiEIBmxWm4jUjj2x1mv0YkR8MOhXHW5nUWYE+pM=;
+ b=dJn9CmqEnqVgWWe1YKcgnsajId62jBSFaVNgLIFEXOZREKW2c7kN06iEG49rP3xhg4FqXME/lqdGkBhSlXbMo9GE6w4JrWzNSBNnIw62UtoVz1TLY3aZIH2dBZ5NcYCLj2B/0DsOvpVD4CFap9Uq9rpdFCPhlVdIzUgf+DLyw74=
+Received: from VIXP296CA0005.AUTP296.PROD.OUTLOOK.COM (2603:10a6:800:2a9::9)
+ by AS2PR08MB9023.eurprd08.prod.outlook.com (2603:10a6:20b:5ff::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:41:29 +0000
+Received: from ZR1PEPF0000E464.eurprd04.prod.outlook.com
+ (2603:10a6:800:2a9:cafe::ab) by VIXP296CA0005.outlook.office365.com
+ (2603:10a6:800:2a9::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Fri, 4
+ Sep 2026 11:41:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ ZR1PEPF0000E464.mail.protection.outlook.com (10.167.241.57) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Fri, 4 Sep 2026 11:41:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wIQbL6kMhrOxDjx58PcxBKn+ly8MmXjYsX4O15yhAjbyqih/nZg60cCnV9sB1EEO+NUQs2CuZeSlSiGc/ejkMOpDMXCXWj1x0jlIjSmhs0GV5pa2P6UD9rjMWRVOgcXRYTJlB0QZeWhYVWFLNgVD+d7FEQAlNrrJ7bhAgVLsBPuksIcwg/y8V76ULmoKG2fojlFITQ7nS8dB3Wz1dkfFW1cu19VceV8N0ldFnzDLnQUNjX5IGmFi7HYLVw3ZWA1G0s0zoRyeISJLQaHIlYHM0A07NB5msjURp4IYX3Uo/PMLlCyPuMnIb6MgyGiV1wFL6YzUbKFJRjbJazHo6dRoBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VQINUiEIBmxWm4jUjj2x1mv0YkR8MOhXHW5nUWYE+pM=;
+ b=EyJp1/XqxyV+AUo1ujtwo6h8EeDBVTLRCRoF1DIZtPR/Z5AUWm4oXefY6neA5QLFuRleF0HfmtlIWEE2zRYhm0HsxFVPh7RQ3s0/ouw65aRWUVVW/srEMOXL7eWUs/LuKq12YCMucQ32Haa34FCVI2dhYTQyuMX4NoAqU1VsoMQrBrx23TcBl2bSBuPNu7wMGshUjwRwicTbIIh0ISYArwl/nhOSKQZY/g0WVa/0f1vDzJbPBLwvHXoGIqbixDyKQqr75gIGgcZ7sJlk0WyIEPSdBCRC7ooi2ROtA80C/cyt6uE/BxCjmQ4m/8OTGZkvH5B75Bgsi7Y3RZBWSLD1QA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VQINUiEIBmxWm4jUjj2x1mv0YkR8MOhXHW5nUWYE+pM=;
+ b=dJn9CmqEnqVgWWe1YKcgnsajId62jBSFaVNgLIFEXOZREKW2c7kN06iEG49rP3xhg4FqXME/lqdGkBhSlXbMo9GE6w4JrWzNSBNnIw62UtoVz1TLY3aZIH2dBZ5NcYCLj2B/0DsOvpVD4CFap9Uq9rpdFCPhlVdIzUgf+DLyw74=
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
+ by GVXPR08MB10864.eurprd08.prod.outlook.com (2603:10a6:150:154::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:40:53 +0000
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
+ 11:40:53 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v6 13/49] KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
+Thread-Topic: [PATCH v6 13/49] KVM: arm64: gic-v5: Implement VPE IRS MMIO Ops
+Thread-Index: AQHdPGI9jrxj1THEDk6rPk28ILpv4w==
+Date: Fri, 4 Sep 2026 11:40:53 +0000
+Message-ID: <20260904113404.4051341-14-sascha.bischoff@arm.com>
+References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|GVXPR08MB10864:EE_|ZR1PEPF0000E464:EE_|AS2PR08MB9023:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0c574fa-2bd9-477d-7763-08df0a7974c0
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|6133799003|10067099003|3023799007|11063799006|22082099003|56012099006|38070700021|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: xEqP73eAGh+tkNRDQnI7ZB5ulGwlhY5YR+fowvnlRmdieslOvOFlmqgCwWbpbH/R9zhZ5OIRMSrtzAeOYnb63ejmkqqtBFOs6D7Z+jTYTo9lhOVBQ/u7qKQ4Y42uSjaoqGfWZvwPrGRbh1AlFx5tV2T5WA9i82EwcyNi/pC0p3b/6Mm9WCX7qHHDZ6awgJpPEdrYl7PXDXWeBBiUmgju1BDCBdkCjdkjCdclg67zl5D7/cFiaOJ3FO7Mnmqh2PqCgHbXKacQSONEziX9+taqSeN1jh50D5s4glRz37MZEtPslU+b9Z+mmg9E7+wXBnD7a8GaNMQkOG6/3FqZvejEjUGpZus/Iqk3pEKD000pfNgqFWtqLPvJ/Gs9uDY12V13vyUGCjYyTZgDhBgCzxldAxow2roOwOmM7nF//Z6oHFEpPAMDvL4ajZO9mOY7DsgOFzs95vjMNdfQdKy2ua69uoaJzXRQVVXtrUBN1B8tmiwNYkeiRhYcNdbUf8+1aZuZx3x7UkzJL8gn/i85xNJrB9il4OXc/dUpu+U2yFCQzDQpHeooqdGZuM27+YNms/llMmMY7yxf/CS2AYvO0/Ne+AvFicYKVstKZ42BhsWTO8pwsyph0rf7opMunMFa9zM2MHQBrSoU6ePMEe9fggX0Fb+R0dxX6DHh90y2BCAIvl6b6NOMmDfeuKvc/YVyr+9FwQr+KHwhByBejyTnGkWR6ZKDZv812A4m65wjsQNMFYw=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(6133799003)(10067099003)(3023799007)(11063799006)(22082099003)(56012099006)(38070700021)(18002099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: JeI8CtHQABh6nav+DX1QS5UWQBTHIULxXdfKrIZHBUhyDYr17e4jMFdE7wga85c9zzNg6KMckZvDTOl/nR94tMl42KDOPWaDgnZipi3eMigX/Ztut5jmka6JXOmQY3fXL4Jgx25CcND2OE0RbhX67VKsrEtt0lw0Q8AcGS9H/JK1ioMNu7hF4GrDEw6/ICskpT90v+eUkF0yD25EQBxJDoeTJkmsUL/sO6wK90ZAxNGMebRJ26BP9hj2xhen49nY9gC+jX298A1FMC53sgLv8KQhAdt979RiciALEBnKSGhoQLvPsH2RZoYx9xj4/eFp8FoT2Cgjg7x7iBb8eJcS0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10864
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: ZR1PEPF0000E464.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 51068bb3-6ce6-4cb2-d028-08df0a796048
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|36860700016|82310400026|1800799024|14060799003|23010399003|10067099003|56012099006|11063799006|3023799007|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 0fUtyAQYAKNqOM3gcrFD50DtLAWb1C2KHZ5v9gk4eFRG7Jwdesz3IxprYKuE4eB0E4fN03TxuCQOuKsX/DXtrg98ilp8qdZOUjx1D/oyU4atdQePwaAb9nh5nRLjIM6Wx+jGFaYlc6d1hokCNzbwOui7mAGsghKpF7B7J6z6BPEldIOHuyfWrpIQ7rz4JaAnkVttr3EeU7AMp3QPQvuO6PcJoHjKxGNxhI0Yoxd7N+DgApI8YIJ4vu/UJOWdj2FjjXD6FNwrHN2zZ7WaAWXqA8II+2y/PP86GG54IONGY6hJmKLfBiaxeq4wQBAAI8tMJCsCpi8acVkd1IayL2YkY86kbKDRx2rRGiY76/RgCWqdMUL5deOHJyGUNwXEziKBYsUldUFZmFntalPXWhOHYHX1UcBcuZt4Ikp8U8F8mvyiYE+BI4hxARbvUzNhETJwG1QpxtA9fDFxBi/1YjxFsLFrOA97tTAVO0pXyfcOQGAh82gQ0vI2oSVeQ5ly85q6+K/dmXsAoC7QrSXewM25ei+f2c8Nvdf7iqusWUpGcDBXL4dVNnxEjQi56LQFr6mJl3bKbgTtAMJArIYxSGPC6XTaNnZL+/j/vB33Q43Sog4FzieBsFcf9Hxy5GAxGo5K4eXHVvTTFI6mw96g6hnliXrZx6sYfod8XyT5+NuLH58=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(36860700016)(82310400026)(1800799024)(14060799003)(23010399003)(10067099003)(56012099006)(11063799006)(3023799007)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7KkP8YvZQ1Ng+Kmv0MT4BEQAyNepoismvatOhwE4fKIvLpyOFmb+6bz/BxmJEQry1UjuZF6mSRx+4cMymowuN6O97bbl2677GoOYCQcJKZqjsJ0EYaCfk/JkZMM1QK8gj5ZtEwsnMoDMLMLqPmte9pPvFtVD8WoxMe3OflzjvvbpxlAgboZpCQ+7wAl6rw4wO8cnVsA1mE+6uxa8EiEUACmmCKhMywGn85+0MhssL2u2tJAJxRcjMTWmiXmA8YoyYjLaGl9LQ16YUjCcnGuFACft+oX81rDjj8XkZIS9pzflvMe6SKcsLRkUv6zFJ0O5Kv0sAffmNO586dnDmPLdyk3yG7IiSCoksMKZ+5ab10BgaVJrSTerSKl23K3ygaqbl3a+JN7PLkCT0Vxpm+8b65wlhBlBKvtC0FDuh6i/xnlJ08sdgrmD5/Ow8UhzQf3V
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 11:41:27.4205
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0c574fa-2bd9-477d-7763-08df0a7974c0
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: ZR1PEPF0000E464.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_044107_215862_EF9C91F1 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20260904_044140_850370_8B73001B 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,614 +162,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+Introduce interfaces to make VPEs valid, and to configure them, via
+the host's IRS. As with the other valid bits in the GICv5 VM tables,
+VPEs cannot be made valid directly, and instead are made valid via an
+IRS MMIO Op.
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+Additionally, some of the VPE configuration takes place via the IRS
+MMIO interface too (via the IRS_VPE_CR0, IRS_VPE_DBR). VPE doorbells
+are, for example, configured via this interface.
+
+The existing VPE-doorbell-based commands are extended with:
+
+        VPE_MAKE_VALID - Make the VPE valid in the VPET
+
+Note: There is no VPE_MAKE_INVALID as VPEs are only made invalid on
+teardown, at which point the whole VMTE is marked as invalid. Hence,
+it is not required.
+
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- drivers/usb/atm/ueagle-atm.c           | 2 +-
- drivers/usb/c67x00/c67x00-ll-hpi.c     | 8 ++++----
- drivers/usb/c67x00/c67x00-sched.c      | 2 +-
- drivers/usb/class/cdc-wdm.c            | 2 +-
- drivers/usb/core/hub.c                 | 2 +-
- drivers/usb/fotg210/fotg210-hcd.h      | 2 +-
- drivers/usb/gadget/configfs.c          | 2 +-
- drivers/usb/gadget/function/f_hid.c    | 2 +-
- drivers/usb/gadget/function/f_uac2.c   | 4 ++--
- drivers/usb/gadget/legacy/inode.c      | 2 +-
- drivers/usb/gadget/udc/bdc/bdc_core.c  | 2 +-
- drivers/usb/gadget/udc/bdc/bdc_ep.c    | 2 +-
- drivers/usb/gadget/udc/core.c          | 4 ++--
- drivers/usb/gadget/udc/fsl_qe_udc.h    | 2 +-
- drivers/usb/gadget/udc/fsl_udc_core.c  | 4 ++--
- drivers/usb/gadget/udc/lpc32xx_udc.c   | 2 +-
- drivers/usb/gadget/udc/pch_udc.c       | 4 ++--
- drivers/usb/gadget/udc/r8a66597-udc.c  | 2 +-
- drivers/usb/gadget/udc/snps_udc_plat.c | 2 +-
- drivers/usb/gadget/udc/udc-xilinx.c    | 4 ++--
- drivers/usb/host/fhci-q.c              | 2 +-
- drivers/usb/host/fhci-tds.c            | 2 +-
- drivers/usb/host/oxu210hp-hcd.c        | 2 +-
- drivers/usb/host/xhci.c                | 8 ++++----
- drivers/usb/image/mdc800.c             | 2 +-
- drivers/usb/misc/sisusbvga/sisusbvga.c | 4 ++--
- drivers/usb/musb/tusb6010.c            | 2 +-
- drivers/usb/musb/ux500.c               | 2 +-
- drivers/usb/phy/phy-fsl-usb.c          | 2 +-
- drivers/usb/renesas_usbhs/mod_gadget.c | 2 +-
- drivers/usb/renesas_usbhs/mod_host.c   | 2 +-
- drivers/usb/storage/uas.c              | 2 +-
- drivers/usb/typec/tcpm/fusb302.c       | 2 +-
- drivers/usb/typec/tcpm/tcpm.c          | 2 +-
- include/linux/usb/cdc.h                | 2 +-
- 35 files changed, 47 insertions(+), 47 deletions(-)
+ arch/arm64/kvm/vgic/vgic-v5.c      | 84 ++++++++++++++++++++++++++++++
+ include/linux/irqchip/arm-gic-v5.h |  1 +
+ 2 files changed, 85 insertions(+)
 
-diff --git a/drivers/usb/atm/ueagle-atm.c b/drivers/usb/atm/ueagle-atm.c
-index 61723e7ab351..d569ee93b493 100644
---- a/drivers/usb/atm/ueagle-atm.c
-+++ b/drivers/usb/atm/ueagle-atm.c
-@@ -2189,7 +2189,7 @@ static void uea_stop(struct uea_softc *sc)
- 	release_firmware(sc->dsp_firm);
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index e1571d1788a60..455161e52f81b 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -201,6 +201,18 @@ static int vgic_v5_irs_wait_for_vm_op(void)
+ 					NULL);
  }
- 
--/* syfs interface */
-+/* sysfs interface */
- static struct uea_softc *dev_to_uea(struct device *dev)
+=20
++/*
++ * Wait for completion of a change in any of IRS_VPE_SELR, IRS_VPE_DBR,
++ * IRS_VPE_CR0.
++ */
++static int vgic_v5_irs_wait_for_vpe_op(void)
++{
++	return gicv5_wait_for_op_atomic(irs_caps.irs_base,
++					GICV5_IRS_VPE_STATUSR,
++					GICV5_IRS_VPE_STATUSR_IDLE,
++					NULL);
++}
++
+ static int vgic_v5_irs_write_vm_mmio_reg(u64 val, u32 offset)
  {
- 	struct usb_interface *intf;
-diff --git a/drivers/usb/c67x00/c67x00-ll-hpi.c b/drivers/usb/c67x00/c67x00-ll-hpi.c
-index 7a214a3a6cc7..f2225174f7df 100644
---- a/drivers/usb/c67x00/c67x00-ll-hpi.c
-+++ b/drivers/usb/c67x00/c67x00-ll-hpi.c
-@@ -113,7 +113,7 @@ static void hpi_write_word(struct c67x00_device *dev, u16 reg, u16 value)
+ 	int ret;
+@@ -308,10 +320,73 @@ static int vgic_v5_irs_set_vist_invalid(u16 vm_id, bo=
+ol spi_ist)
+ 	return __vgic_v5_irs_update_vist_validity(vm_id, spi_ist, true);
  }
- 
- /*
-- * Only data is little endian, addr has cpu endianess
-+ * Only data is little endian, addr has cpu endianness
-  */
- static void hpi_write_words_le16(struct c67x00_device *dev, u16 addr,
- 				 __le16 *data, u16 count)
-@@ -131,7 +131,7 @@ static void hpi_write_words_le16(struct c67x00_device *dev, u16 addr,
- }
- 
- /*
-- * Only data is little endian, addr has cpu endianess
-+ * Only data is little endian, addr has cpu endianness
-  */
- static void hpi_read_words_le16(struct c67x00_device *dev, u16 addr,
- 				__le16 *data, u16 count)
-@@ -397,7 +397,7 @@ int c67x00_ll_reset(struct c67x00_device *dev)
- 
- /*
-  * c67x00_ll_write_mem_le16 - write into c67x00 memory
-- * Only data is little endian, addr has cpu endianess.
-+ * Only data is little endian, addr has cpu endianness.
-  */
- void c67x00_ll_write_mem_le16(struct c67x00_device *dev, u16 addr,
- 			      void *data, int len)
-@@ -436,7 +436,7 @@ void c67x00_ll_write_mem_le16(struct c67x00_device *dev, u16 addr,
- 
- /*
-  * c67x00_ll_read_mem_le16 - read from c67x00 memory
-- * Only data is little endian, addr has cpu endianess.
-+ * Only data is little endian, addr has cpu endianness.
-  */
- void c67x00_ll_read_mem_le16(struct c67x00_device *dev, u16 addr,
- 			     void *data, int len)
-diff --git a/drivers/usb/c67x00/c67x00-sched.c b/drivers/usb/c67x00/c67x00-sched.c
-index ae6c94f41cb3..3697a45b3cf1 100644
---- a/drivers/usb/c67x00/c67x00-sched.c
-+++ b/drivers/usb/c67x00/c67x00-sched.c
-@@ -37,7 +37,7 @@ struct c67x00_ep_data {
- /*
-  * struct c67x00_td
-  *
-- * Hardware parts are little endiannes, SW in CPU endianess.
-+ * Hardware parts are little endiannes, SW in CPU endianness.
-  */
- struct c67x00_td {
- 	/* HW specific part */
-diff --git a/drivers/usb/class/cdc-wdm.c b/drivers/usb/class/cdc-wdm.c
-index 7556c0dac908..1745d9f51a1c 100644
---- a/drivers/usb/class/cdc-wdm.c
-+++ b/drivers/usb/class/cdc-wdm.c
-@@ -1189,7 +1189,7 @@ static int wdm_probe(struct usb_interface *intf, const struct usb_device_id *id)
-  *
-  * The subdriver will manage the given interrupt endpoint exclusively
-  * and will issue control requests referring to the given intf. It
-- * will otherwise avoid interferring, and in particular not do
-+ * will otherwise avoid interfering, and in particular not do
-  * usb_set_intfdata/usb_get_intfdata on intf.
-  *
-  * The return value is a pointer to the subdriver's struct usb_driver.
-diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
-index 3345b3298daf..54e0d4f61f00 100644
---- a/drivers/usb/core/hub.c
-+++ b/drivers/usb/core/hub.c
-@@ -6393,7 +6393,7 @@ int usb_reset_device(struct usb_device *udev)
- 	 * is included in current configuration. The easist
- 	 * approach is to do it for every device reset,
- 	 * because the device 'memalloc_noio' flag may have
--	 * not been set before reseting the usb device.
-+	 * not been set before resetting the usb device.
- 	 */
- 	noio_flag = memalloc_noio_save();
- 
-diff --git a/drivers/usb/fotg210/fotg210-hcd.h b/drivers/usb/fotg210/fotg210-hcd.h
-index 13c9342982ee..b7353a89a71a 100644
---- a/drivers/usb/fotg210/fotg210-hcd.h
-+++ b/drivers/usb/fotg210/fotg210-hcd.h
-@@ -283,7 +283,7 @@ struct fotg210_regs {
- #define PORT_RWC_BITS   (PORT_CSC | PORT_PEC)
- 	u32     reserved2[19];
- 
--	/* OTGCSR: offet 0x70 */
-+	/* OTGCSR: offset 0x70 */
- 	u32     otgcsr;
- #define OTGCSR_HOST_SPD_TYP     (3 << 22)
- #define OTGCSR_A_BUS_DROP	(1 << 5)
-diff --git a/drivers/usb/gadget/configfs.c b/drivers/usb/gadget/configfs.c
-index 51df6d1d1487..4e33239bb9e0 100644
---- a/drivers/usb/gadget/configfs.c
-+++ b/drivers/usb/gadget/configfs.c
-@@ -326,7 +326,7 @@ static ssize_t gadget_dev_desc_max_speed_store(struct config_item *item,
- 
- 	mutex_lock(&gi->lock);
- 
--	/* Prevent changing of max_speed after the driver is binded */
-+	/* Prevent changing of max_speed after the driver is bound */
- 	if (gi->composite.gadget_driver.udc_name)
- 		goto err;
- 
-diff --git a/drivers/usb/gadget/function/f_hid.c b/drivers/usb/gadget/function/f_hid.c
-index 3c6b43d06a6d..a946f0030109 100644
---- a/drivers/usb/gadget/function/f_hid.c
-+++ b/drivers/usb/gadget/function/f_hid.c
-@@ -353,7 +353,7 @@ static ssize_t f_hidg_intout_read(struct file *file, char __user *buffer,
- 	list->pos += count;
- 
- 	/*
--	 * if this request is completely handled and transfered to
-+	 * if this request is completely handled and transferred to
- 	 * userspace, remove its entry from the list and requeue it
- 	 * again. Otherwise, we will revisit it again upon the next
- 	 * call, taking into account its current read position.
-diff --git a/drivers/usb/gadget/function/f_uac2.c b/drivers/usb/gadget/function/f_uac2.c
-index d8cf710085a0..f9ca07dec17e 100644
---- a/drivers/usb/gadget/function/f_uac2.c
-+++ b/drivers/usb/gadget/function/f_uac2.c
-@@ -206,7 +206,7 @@ static struct uac2_input_terminal_descriptor io_in_it_desc = {
- 	.bmControls = cpu_to_le16(CONTROL_RDWR << COPY_CTRL),
- };
- 
--/* Ouput Terminal for USB_IN */
-+/* Output Terminal for USB_IN */
- static struct uac2_output_terminal_descriptor usb_in_ot_desc = {
- 	.bLength = sizeof usb_in_ot_desc,
- 	.bDescriptorType = USB_DT_CS_INTERFACE,
-@@ -220,7 +220,7 @@ static struct uac2_output_terminal_descriptor usb_in_ot_desc = {
- 	.bmControls = cpu_to_le16(CONTROL_RDWR << COPY_CTRL),
- };
- 
--/* Ouput Terminal for I/O-Out */
-+/* Output Terminal for I/O-Out */
- static struct uac2_output_terminal_descriptor io_out_ot_desc = {
- 	.bLength = sizeof io_out_ot_desc,
- 	.bDescriptorType = USB_DT_CS_INTERFACE,
-diff --git a/drivers/usb/gadget/legacy/inode.c b/drivers/usb/gadget/legacy/inode.c
-index db961aaa3740..c8b71afb4e15 100644
---- a/drivers/usb/gadget/legacy/inode.c
-+++ b/drivers/usb/gadget/legacy/inode.c
-@@ -1958,7 +1958,7 @@ static const struct file_operations ep0_operations = {
- 
- 
- /* FIXME PAM etc could set this security policy without mount options
-- * if epfiles inherited ownership and permissons from ep0 ...
-+ * if epfiles inherited ownership and permissions from ep0 ...
-  */
- 
- static unsigned default_uid;
-diff --git a/drivers/usb/gadget/udc/bdc/bdc_core.c b/drivers/usb/gadget/udc/bdc/bdc_core.c
-index a8dbaef54aba..dfdb4c2948da 100644
---- a/drivers/usb/gadget/udc/bdc/bdc_core.c
-+++ b/drivers/usb/gadget/udc/bdc/bdc_core.c
-@@ -361,7 +361,7 @@ int bdc_reinit(struct bdc *bdc)
- 	return ret;
- }
- 
--/* Allocate all the dyanmic memory */
-+/* Allocate all the dynamic memory */
- static int bdc_mem_alloc(struct bdc *bdc)
+=20
++static int vgic_v5_irs_set_up_vpe(u16 vm_id, u16 vpe_id,
++				  irq_hw_number_t db_hwirq)
++{
++	u64 vmap_vper, dbr, selr;
++	u32 statusr, cr0;
++	int ret;
++
++	lockdep_assert_held(&vgic_v5_irs_lock);
++
++	/* Make sure that we are idle to begin with */
++	ret =3D vgic_v5_irs_wait_for_vm_op();
++	if (ret)
++		return ret;
++
++	/* Mark the VPE as valid */
++	vmap_vper =3D FIELD_PREP(GICV5_IRS_VMAP_VPER_VPE_ID, vpe_id) |
++		    FIELD_PREP(GICV5_IRS_VMAP_VPER_VM_ID, vm_id) |
++		    GICV5_IRS_VMAP_VPER_M;
++	irs_writeq_relaxed(vmap_vper, GICV5_IRS_VMAP_VPER);
++
++	/* Wait for the VPE to be marked valid in the VPET */
++	ret =3D vgic_v5_irs_wait_for_vm_op();
++	if (ret)
++		return ret;
++
++	selr =3D FIELD_PREP(GICV5_IRS_VPE_SELR_VPE_ID, vpe_id) |
++	       FIELD_PREP(GICV5_IRS_VPE_SELR_VM_ID, vm_id) |
++	       GICV5_IRS_VPE_SELR_S;
++	irs_writeq_relaxed(selr, GICV5_IRS_VPE_SELR);
++
++	ret =3D vgic_v5_irs_wait_for_vpe_op();
++	if (ret)
++		return ret;
++
++	statusr =3D irs_readl_relaxed(GICV5_IRS_VPE_STATUSR);
++	if (!FIELD_GET(GICV5_IRS_VPE_STATUSR_V, statusr))
++		return -EINVAL;
++
++	/* Set targeted only routing (disable 1ofN vPE selection) */
++	cr0 =3D GICV5_IRS_VPE_CR0_DPS;
++	irs_writel_relaxed(cr0, GICV5_IRS_VPE_CR0);
++
++	ret =3D vgic_v5_irs_wait_for_vpe_op();
++	if (ret)
++		return ret;
++
++	/*
++	 * The VPE has not yet run. Therefore, make sure that all interrupts
++	 * will generate a doorbell.
++	 */
++	dbr =3D FIELD_PREP(GICV5_IRS_VPE_DBR_INTID, db_hwirq) |
++	      GICV5_IRS_VPE_DBR_DBV;
++	irs_writeq_relaxed(dbr, GICV5_IRS_VPE_DBR);
++
++	ret =3D vgic_v5_irs_wait_for_vpe_op();
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
+ static int vgic_v5_db_set_vcpu_affinity(struct irq_data *data, void *vcpu_=
+info)
  {
- 	u32 page_size;
-diff --git a/drivers/usb/gadget/udc/bdc/bdc_ep.c b/drivers/usb/gadget/udc/bdc/bdc_ep.c
-index a7a22e5ec47b..608edd4ae5dd 100644
---- a/drivers/usb/gadget/udc/bdc/bdc_ep.c
-+++ b/drivers/usb/gadget/udc/bdc/bdc_ep.c
-@@ -298,7 +298,7 @@ static int bd_available_ep(struct bdc_ep *ep)
- 		return bd_list->max_bdi - bd_list->num_tabs;
- 
- 	/*
--	 * Depending upon where eqp and dqp pointers are, caculate number
-+	 * Depending upon where eqp and dqp pointers are, calculate number
- 	 * of avaialble bd's
- 	 */
- 	if (bd_list->hwd_bdi < bd_list->eqp_bdi) {
-diff --git a/drivers/usb/gadget/udc/core.c b/drivers/usb/gadget/udc/core.c
-index f6da12b553a0..fa2022e9bc60 100644
---- a/drivers/usb/gadget/udc/core.c
-+++ b/drivers/usb/gadget/udc/core.c
-@@ -1101,7 +1101,7 @@ int usb_gadget_ep_match_desc(struct usb_gadget *gadget,
- EXPORT_SYMBOL_GPL(usb_gadget_ep_match_desc);
- 
- /**
-- * usb_gadget_check_config - checks if the UDC can support the binded
-+ * usb_gadget_check_config - checks if the UDC can support the bound
-  *	configuration
-  * @gadget: controller to check the USB configuration
-  *
-@@ -1524,7 +1524,7 @@ EXPORT_SYMBOL_GPL(usb_add_gadget_udc_release);
- /**
-  * usb_get_gadget_udc_name - get the name of the first UDC controller
-  * This functions returns the name of the first UDC controller in the system.
-- * Please note that this interface is usefull only for legacy drivers which
-+ * Please note that this interface is useful only for legacy drivers which
-  * assume that there is only one UDC controller in the system and they need to
-  * get its name before initialization. There is no guarantee that the UDC
-  * of the returned name will be still available, when gadget driver registers
-diff --git a/drivers/usb/gadget/udc/fsl_qe_udc.h b/drivers/usb/gadget/udc/fsl_qe_udc.h
-index 53ca0ff7c2cb..de3c9deb7409 100644
---- a/drivers/usb/gadget/udc/fsl_qe_udc.h
-+++ b/drivers/usb/gadget/udc/fsl_qe_udc.h
-@@ -329,7 +329,7 @@ struct qe_udc {
- 
- 	u32 max_pipes;          /* Device max pipes */
- 	u32 max_use_endpts;     /* Max endpointes to be used */
--	u32 bus_reset;          /* Device is bus reseting */
-+	u32 bus_reset;          /* Device is bus resetting */
- 	u32 resume_state;       /* USB state to resume*/
- 	u32 usb_state;          /* USB current state */
- 	u32 usb_next_state;     /* USB next state */
-diff --git a/drivers/usb/gadget/udc/fsl_udc_core.c b/drivers/usb/gadget/udc/fsl_udc_core.c
-index 20392409afb1..9c82713abbc4 100644
---- a/drivers/usb/gadget/udc/fsl_udc_core.c
-+++ b/drivers/usb/gadget/udc/fsl_udc_core.c
-@@ -1398,7 +1398,7 @@ __acquires(udc->lock)
- 
- 	udc_reset_ep_queue(udc, 0);
- 
--	/* We process some stardard setup requests here */
-+	/* We process some standard setup requests here */
- 	switch (setup->bRequest) {
- 	case USB_REQ_GET_STATUS:
- 		/* Data+Status phase from udc */
-@@ -1831,7 +1831,7 @@ static void reset_irq(struct fsl_udc *udc)
- 
- 	if (fsl_readl(&dr_regs->portsc1) & PORTSCX_PORT_RESET) {
- 		dev_vdbg(udc->dev, "Bus reset\n");
--		/* Bus is reseting */
-+		/* Bus is resetting */
- 		udc->bus_reset = 1;
- 		/* Reset all the queues, include XD, dTD, EP queue
- 		 * head and TR Queue */
-diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
-index 044c31869cfb..7348704a9fc4 100644
---- a/drivers/usb/gadget/udc/lpc32xx_udc.c
-+++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
-@@ -2743,7 +2743,7 @@ static irqreturn_t lpc32xx_usb_lp_irq(int irq, void *_udc)
- 		/* All types of errors, from cable removal during transfer to
- 		 * misc protocol and bit errors. These are mostly for just info,
- 		 * as the USB hardware will work around these. If these errors
--		 * happen alot, something is wrong. */
-+		 * happen a lot, something is wrong. */
- 		udc_protocol_cmd_w(udc, CMD_RD_ERR_STAT);
- 		tmp = udc_protocol_cmd_r(udc, DAT_RD_ERR_STAT);
- 		dev_dbg(udc->dev, "Device error (0x%x)!\n", tmp);
-diff --git a/drivers/usb/gadget/udc/pch_udc.c b/drivers/usb/gadget/udc/pch_udc.c
-index 99b3ce28210f..bf673e7faf37 100644
---- a/drivers/usb/gadget/udc/pch_udc.c
-+++ b/drivers/usb/gadget/udc/pch_udc.c
-@@ -319,7 +319,7 @@ struct pch_vbus_gpio_data {
-  * @ep:			array of endpoints
-  * @lock:		protects all state
-  * @stall:		stall requested
-- * @prot_stall:		protcol stall requested
-+ * @prot_stall:		protocol stall requested
-  * @suspended:		driver in suspended state
-  * @connected:		gadget driver associated
-  * @vbus_session:	required vbus_session state
-@@ -846,7 +846,7 @@ static inline u32 pch_udc_read_ep_interrupts(struct pch_udc_dev *dev)
- }
- 
- /**
-- * pch_udc_write_ep_interrupts() - Clear endpoint interupts
-+ * pch_udc_write_ep_interrupts() - Clear endpoint interrupts
-  * @dev:	Reference to structure of type pch_udc_regs
-  * @val:	The value to be written to interrupt register
-  */
-diff --git a/drivers/usb/gadget/udc/r8a66597-udc.c b/drivers/usb/gadget/udc/r8a66597-udc.c
-index d190e16d43fc..105638d47c79 100644
---- a/drivers/usb/gadget/udc/r8a66597-udc.c
-+++ b/drivers/usb/gadget/udc/r8a66597-udc.c
-@@ -652,7 +652,7 @@ static int sudmac_alloc_channel(struct r8a66597 *r8a66597,
- 		change_bfre_mode(r8a66597, ep->pipenum, 1);
- 	}
- 
--	/* set r8a66597_ep paramters */
-+	/* set r8a66597_ep parameters */
- 	ep->use_dma = 1;
- 	ep->dma = dma;
- 	ep->fifoaddr = D0FIFO;
-diff --git a/drivers/usb/gadget/udc/snps_udc_plat.c b/drivers/usb/gadget/udc/snps_udc_plat.c
-index 0ee3ed185d9c..4b0c907b0f76 100644
---- a/drivers/usb/gadget/udc/snps_udc_plat.c
-+++ b/drivers/usb/gadget/udc/snps_udc_plat.c
-@@ -36,7 +36,7 @@ static void stop_udc(struct udc *udc)
- 
- 	spin_lock(&udc->lock);
- 
--	/* Flush the receieve fifo */
-+	/* Flush the receive fifo */
- 	reg = readl(&udc->regs->ctl);
- 	reg |= AMD_BIT(UDC_DEVCTL_SRX_FLUSH);
- 	writel(reg, &udc->regs->ctl);
-diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-index bef06fe7543b..e6b9233ccdf9 100644
---- a/drivers/usb/gadget/udc/udc-xilinx.c
-+++ b/drivers/usb/gadget/udc/udc-xilinx.c
-@@ -128,7 +128,7 @@ struct xusb_req {
-  * @name: name of the endpoint
-  * @epnumber: endpoint number
-  * @maxpacket: maximum packet size the endpoint can store
-- * @buffer0count: the size of the packet recieved in the first buffer
-+ * @buffer0count: the size of the packet received in the first buffer
-  * @buffer1count: the size of the packet received in the second buffer
-  * @curbufnum: current buffer of endpoint that will be processed next
-  * @buffer0ready: the busy state of first buffer
-@@ -311,7 +311,7 @@ static void xudc_epconfig(struct xusb_ep *ep, struct xusb_udc *udc)
-  * Return: 0 on success, error code on failure
-  *
-  * This function starts DMA transfer by writing to DMA source,
-- * destination and lenth registers.
-+ * destination and length registers.
-  */
- static int xudc_start_dma(struct xusb_ep *ep, dma_addr_t src,
- 			  dma_addr_t dst, u32 length)
-diff --git a/drivers/usb/host/fhci-q.c b/drivers/usb/host/fhci-q.c
-index 669c240523fe..b13ad02454e1 100644
---- a/drivers/usb/host/fhci-q.c
-+++ b/drivers/usb/host/fhci-q.c
-@@ -208,7 +208,7 @@ void fhci_urb_complete_free(struct fhci_hcd *fhci, struct urb *urb)
- }
- 
- /*
-- * caculate transfer length/stats and update the urb
-+ * calculate transfer length/stats and update the urb
-  * Precondition: irqsafe(only for urb-?status locking)
-  */
- void fhci_done_td(struct urb *urb, struct td *td)
-diff --git a/drivers/usb/host/fhci-tds.c b/drivers/usb/host/fhci-tds.c
-index d7482dc0604e..a52bddb45bb7 100644
---- a/drivers/usb/host/fhci-tds.c
-+++ b/drivers/usb/host/fhci-tds.c
-@@ -367,7 +367,7 @@ static void fhci_td_transaction_confirm(struct fhci_usb *usb)
-  * Arguments:
-  * usb          A pointer to the USB structure
-  * pkt          A pointer to the user frame structure
-- * trans_type   Transaction tyep - IN,OUT or SETUP
-+ * trans_type   Transaction type - IN,OUT or SETUP
-  * dest_addr    Device address - 0~127
-  * dest_ep      Endpoint number of the device - 0~16
-  * trans_mode   Pipe type - ISO,Interrupt,bulk or control
-diff --git a/drivers/usb/host/oxu210hp-hcd.c b/drivers/usb/host/oxu210hp-hcd.c
-index ca96067e6d6d..25c857efaa08 100644
---- a/drivers/usb/host/oxu210hp-hcd.c
-+++ b/drivers/usb/host/oxu210hp-hcd.c
-@@ -882,7 +882,7 @@ static void ehci_hub_descriptor(struct oxu_hcd *oxu,
-  */
- static int oxu_buf_alloc(struct oxu_hcd *oxu, struct ehci_qtd *qtd, int len)
- {
--	int n_blocks;	/* minium blocks needed to hold len */
-+	int n_blocks;	/* minimum blocks needed to hold len */
- 	int a_blocks;	/* blocks allocated */
- 	int i, j;
- 
-diff --git a/drivers/usb/host/xhci.c b/drivers/usb/host/xhci.c
-index a9e47e178c28..4f1943fbd6ca 100644
---- a/drivers/usb/host/xhci.c
-+++ b/drivers/usb/host/xhci.c
-@@ -406,7 +406,7 @@ static void compliance_mode_recovery(struct timer_list *t)
-  * The quirk creates a timer that polls every 2 seconds the link state of
-  * each host controller's port and recovers it by issuing a Warm reset
-  * if Compliance mode is detected, otherwise the port will become "dead" (no
-- * device connections or disconnections will be detected anymore). Becasue no
-+ * device connections or disconnections will be detected anymore). Because no
-  * status event is generated when entering compliance mode (per xhci spec),
-  * this quirk is needed on systems that have the failing hardware installed.
-  */
-@@ -1178,7 +1178,7 @@ int xhci_resume(struct xhci_hcd *xhci, bool power_lost, bool is_auto_resume)
- 		/* Delete all remaining commands */
- 		xhci_cleanup_command_queue(xhci);
- 
--		/* Clear data which is re-initilized during runtime */
-+		/* Clear data which is re-initialized during runtime */
- 		xhci_for_each_ring_seg(xhci->interrupters[0]->event_ring->first_seg, seg)
- 			memset(seg->trbs, 0, sizeof(union xhci_trb) * TRBS_PER_SEGMENT);
- 
-@@ -4296,7 +4296,7 @@ int xhci_alloc_dev(struct usb_hcd *hcd, struct usb_device *udev)
- 		pm_runtime_get_noresume(hcd->self.controller);
- 
- 	/* Is this a LS or FS device under a HS hub? */
--	/* Hub or peripherial? */
-+	/* Hub or peripheral? */
- 	return 1;
- 
- disable_slot:
-@@ -4512,7 +4512,7 @@ static int xhci_enable_device(struct usb_hcd *hcd, struct usb_device *udev)
- 
- /*
-  * Transfer the port index into real index in the HW port status
-- * registers. Caculate offset between the port's PORTSC register
-+ * registers. Calculate offset between the port's PORTSC register
-  * and port status base. Divide the number of per port register
-  * to get the real index. The raw port number bases 1.
-  */
-diff --git a/drivers/usb/image/mdc800.c b/drivers/usb/image/mdc800.c
-index ca287b770e8c..5ff509a7e402 100644
---- a/drivers/usb/image/mdc800.c
-+++ b/drivers/usb/image/mdc800.c
-@@ -59,7 +59,7 @@
-  * has been removed.
-  *
-  * version 0.6.0
-- * Rewrite of this driver: The Emulation of the rs232 protocoll
-+ * Rewrite of this driver: The Emulation of the rs232 protocol
-  * has been removed from the driver. A special executeCommand function
-  * for this driver is included to gphoto.
-  * The driver supports two kind of communication to bulk endpoints.
-diff --git a/drivers/usb/misc/sisusbvga/sisusbvga.c b/drivers/usb/misc/sisusbvga/sisusbvga.c
-index 3e75a7c24828..5a86962d86c0 100644
---- a/drivers/usb/misc/sisusbvga/sisusbvga.c
-+++ b/drivers/usb/misc/sisusbvga/sisusbvga.c
-@@ -590,7 +590,7 @@ static int sisusb_send_bridge_packet(struct sisusb_usb_data *sisusb, int len,
-  * This means that
-  *   - the write routines expect "data" in machine endianness format.
-  *     The data will be converted to leXX in sisusb_xxx_packet.
-- *   - the read routines can expect read data in machine-endianess.
-+ *   - the read routines can expect read data in machine-endianness.
-  */
- 
- static int sisusb_write_memio_byte(struct sisusb_usb_data *sisusb, int type,
-@@ -946,7 +946,7 @@ static int sisusb_write_mem_bulk(struct sisusb_usb_data *sisusb, u32 addr,
- 	return ret ? -EIO : 0;
- }
- 
--/* Remember: Read data in packet is in machine-endianess! So for
-+/* Remember: Read data in packet is in machine-endianness! So for
-  * byte, word, 24bit, long no endian correction is necessary.
-  */
- 
-diff --git a/drivers/usb/musb/tusb6010.c b/drivers/usb/musb/tusb6010.c
-index 1d9571f24a56..6a86bebc24ca 100644
---- a/drivers/usb/musb/tusb6010.c
-+++ b/drivers/usb/musb/tusb6010.c
-@@ -941,7 +941,7 @@ static void tusb_musb_enable(struct musb *musb)
- 	musb_writel(tbase, TUSB_DMA_INT_MASK, 0x7fffffff);
- 	musb_writel(tbase, TUSB_GPIO_INT_MASK, 0x1ff);
- 
--	/* Clear all subsystem interrups */
-+	/* Clear all subsystem interrupts */
- 	musb_writel(tbase, TUSB_USBIP_INT_CLEAR, 0x7fffffff);
- 	musb_writel(tbase, TUSB_DMA_INT_CLEAR, 0x7fffffff);
- 	musb_writel(tbase, TUSB_GPIO_INT_CLEAR, 0x1ff);
-diff --git a/drivers/usb/musb/ux500.c b/drivers/usb/musb/ux500.c
-index 8c2a43d992f5..6858beed1ac4 100644
---- a/drivers/usb/musb/ux500.c
-+++ b/drivers/usb/musb/ux500.c
-@@ -80,7 +80,7 @@ static void ux500_musb_set_vbus(struct musb *musb, int is_on)
- 	/*
- 	 * Devctl values will be updated after vbus goes below
- 	 * session_valid. The time taken depends on the capacitance
--	 * on VBUS line. The max discharge time can be upto 1 sec
-+	 * on VBUS line. The max discharge time can be up to 1 sec
- 	 * as per the spec. Typically on our platform, it is 200ms
- 	 */
- 	if (!is_on)
-diff --git a/drivers/usb/phy/phy-fsl-usb.c b/drivers/usb/phy/phy-fsl-usb.c
-index 1986f7e9d9be..96f206351c3f 100644
---- a/drivers/usb/phy/phy-fsl-usb.c
-+++ b/drivers/usb/phy/phy-fsl-usb.c
-@@ -166,7 +166,7 @@ static void fsl_otg_drv_vbus(struct otg_fsm *fsm, int on)
- }
- 
- /*
-- * Pull-up D+, signalling connect by periperal. Also used in
-+ * Pull-up D+, signalling connect by peripheral. Also used in
-  * data-line pulsing in SRP
-  */
- static void fsl_otg_loc_conn(struct otg_fsm *fsm, int on)
-diff --git a/drivers/usb/renesas_usbhs/mod_gadget.c b/drivers/usb/renesas_usbhs/mod_gadget.c
-index 0c7fe109d5c7..92f4f35f8bb1 100644
---- a/drivers/usb/renesas_usbhs/mod_gadget.c
-+++ b/drivers/usb/renesas_usbhs/mod_gadget.c
-@@ -852,7 +852,7 @@ static int usbhsg_try_start(struct usbhs_priv *priv, u32 status)
- 	usbhs_pipe_config_update(dcp->pipe, 0, 0, 64);
- 
- 	/*
--	 * system config enble
-+	 * system config enable
- 	 * - HI speed
- 	 * - function
- 	 * - usb module
-diff --git a/drivers/usb/renesas_usbhs/mod_host.c b/drivers/usb/renesas_usbhs/mod_host.c
-index f7ef3a9f82a4..c6a9d916135f 100644
---- a/drivers/usb/renesas_usbhs/mod_host.c
-+++ b/drivers/usb/renesas_usbhs/mod_host.c
-@@ -1468,7 +1468,7 @@ static int usbhsh_start(struct usbhs_priv *priv)
- 	usbhsh_pipe_init_for_host(priv);
- 
- 	/*
--	 * system config enble
-+	 * system config enable
- 	 * - HI speed
- 	 * - host
- 	 * - usb module
-diff --git a/drivers/usb/storage/uas.c b/drivers/usb/storage/uas.c
-index 265162981269..0a3ffe15d26d 100644
---- a/drivers/usb/storage/uas.c
-+++ b/drivers/usb/storage/uas.c
-@@ -426,7 +426,7 @@ static void uas_data_cmplt(struct urb *urb)
- 	if (status) {
- 		if (status != -ENOENT && status != -ECONNRESET && status != -ESHUTDOWN)
- 			uas_log_cmd_state(cmnd, "data cmplt err", status);
--		/* error: no data transfered */
-+		/* error: no data transferred */
- 		scsi_set_resid(cmnd, sdb->length);
- 		set_host_byte(cmnd, DID_ERROR);
- 	} else {
-diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-index 3319f6a2b0c9..d3258675fdbc 100644
---- a/drivers/usb/typec/tcpm/fusb302.c
-+++ b/drivers/usb/typec/tcpm/fusb302.c
-@@ -448,7 +448,7 @@ static int tcpm_get_current_limit(struct tcpc_dev *dev)
- 
- 	/*
- 	 * USB2 Charger detection may still be in progress when we get here,
--	 * this can take upto 600ms, wait 800ms max.
-+	 * this can take up to 600ms, wait 800ms max.
- 	 */
- 	timeout = jiffies + msecs_to_jiffies(800);
- 	do {
-diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index a8cd1959c426..15a3cae27b6c 100644
---- a/drivers/usb/typec/tcpm/tcpm.c
-+++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -2504,7 +2504,7 @@ static int tcpm_pd_svdm(struct tcpm_port *port, struct typec_altmode *adev,
- 			/*
- 			 * PD2.0 Spec 6.10.3: respond with NAK as DFP (data host)
- 			 * PD3.1 Spec 6.4.4.2.5.1: respond with NAK if "invalid field" or
--			 * "wrong configuation" or "Unrecognized"
-+			 * "wrong configuration" or "Unrecognized"
- 			 */
- 			if ((port->data_role == TYPEC_DEVICE || svdm_version >= SVDM_VER_2_0) &&
- 			    port->nr_snk_vdo) {
-diff --git a/include/linux/usb/cdc.h b/include/linux/usb/cdc.h
-index 0af0db51bc89..861fdfa984dc 100644
---- a/include/linux/usb/cdc.h
-+++ b/include/linux/usb/cdc.h
-@@ -10,7 +10,7 @@
- #include <uapi/linux/usb/cdc.h>
- 
- /*
-- * inofficial magic numbers
-+ * unofficial magic numbers
-  */
- 
- #define CDC_PHONET_MAGIC_NUMBER		0xAB
--- 
-2.48.1
-
+ 	struct vgic_v5_vm *vm =3D data->domain->host_data;
+ 	enum gicv5_vcpu_cmd *cmd =3D vcpu_info;
++	/* Our VPE ID is the index within the doorbell domain */
++	u16 vpe_id =3D data->hwirq;
+=20
+ 	guard(raw_spinlock_irqsave)(&vgic_v5_irs_lock);
+=20
+@@ -322,6 +397,15 @@ static int vgic_v5_db_set_vcpu_affinity(struct irq_dat=
+a *data, void *vcpu_info)
+ 		return vgic_v5_irs_set_vm_valid(vm->vm_id);
+ 	case VMTE_MAKE_INVALID:
+ 		return vgic_v5_irs_set_vm_invalid(vm->vm_id);
++	case VPE_MAKE_VALID:
++		/*
++		 * We need the actual LPI ID which lives in the top-most parent
++		 * domain. This hwirq won't include the type (LPI) but that's
++		 * not required for the IRS_VPE_DBR.
++		 */
++		while (data->parent_data)
++			data =3D data->parent_data;
++		return vgic_v5_irs_set_up_vpe(vm->vm_id, vpe_id, data->hwirq);
+ 	case SPI_VIST_MAKE_VALID:
+ 		return vgic_v5_irs_set_vist_valid(vm->vm_id, true);
+ 	case LPI_VIST_MAKE_VALID:
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm=
+-gic-v5.h
+index 24949b6045311..299e75bc95255 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -661,6 +661,7 @@ enum gicv5_vcpu_cmd {
+ 	VMT_L2_MAP,		/* Map in a L2 VMT - *may* happen on VM init */
+ 	VMTE_MAKE_VALID,	/* Make the VMTE valid */
+ 	VMTE_MAKE_INVALID,	/* Make the VMTE (et al.) invalid */
++	VPE_MAKE_VALID,		/* No corresponding invalid */
+ 	SPI_VIST_MAKE_VALID,	/* No corresponding invalid */
+ 	LPI_VIST_MAKE_VALID,	/* Triggered by a guest */
+ 	LPI_VIST_MAKE_INVALID,	/* Triggered by a guest */
+--=20
+2.34.1
 
