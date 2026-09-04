@@ -4,69 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E454C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42140C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zB0abRnB96aVBzXq/f6eZ5Kbz/HGeo7yyqOhSey8KzU=; b=FjqVxjoQ1yT9Zw
-	0z1MbIsYFSpSzQdiOSOyPcPa6KaeejYq28dn88umRbDeYA8+UMNBlY384qV+kqLyaYmoFcgx/QgSO
-	kEX50Le11XlSXb9MMJWlpa1MutPzPg+u5jikqV8aGI3sI1GkDOnS50E/7oHuSyKxUVop1QzU4WbaP
-	F9N1bEZG+omcaitkrR8/gNQg2lBR3/EbgzLZwU0gf01zv43WXJNQkrkbSLz5DfoQEIkoDzdPRnk7j
-	l+HeOrYMzTux53qZ6Y4id7s3aCt5xqqckJeswlyROnhYx1q5l//0GliLtZU7zQBA2264uWjhsT5Iv
-	KlcfsYwXFtGHMPhJF0zw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=; b=dRDor1l5P73wO4+MlwEFPleM2S
+	8uI4HrKrqE3qXJywYiq2toeecrezRiS3QsujbMlLBnouvzarlEJcRP+3AQCxZY/2aGdgawsPUu/Nh
+	ArqDEZZeRZC1FZV+o7bP7uRx0lEKDf+CeEScyIfJumopsVbstHxv+YTYpFNiWs9EhmuKYNsLw27LH
+	MNNukhcpf5P4HOStC/3wEYgf+5CPoN+W8sQY7nQJHoJi3/Hhp4dlgKwHNjSXo++JivBJgZUYnFyjA
+	Ym3XYKA7BFlChF9GNpaWf6VZWOZiyxVk749lb2IGHV0KUeZZMoIv4xTaCToM+SSXA/v1ePt6pnjcU
+	vwM+YLxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wda-00000002hsz-2tFh;
-	Fri, 04 Sep 2026 16:19:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x2Wkj-00000002jBB-1qjw;
+	Fri, 04 Sep 2026 16:26:57 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WdX-00000002hnG-16Mo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 04 Sep 2026 16:19:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zB0abRnB96aVBzXq/f6eZ5Kbz/HGeo7yyqOhSey8KzU=; b=AfQKXKP/kOo71LEgzmL3JRJp+w
-	ild2W50akldTqbxaW1kTmFZZDPlXaKQYQ2q+z5VFCvWX0gCwwwppSuCRhPJpyiUIDc6/wuyDNRDeK
-	uOWOflF4Mx8b/patFCsGjs2CEv4HXla5h+xxPGkVxt8Mj5azSiT6NkqhO3Ttz8iY2c5hOVXpYMlrZ
-	WWPlnd0hFXJu3Ihd9DiMZP76iVVEQkyiNHUJiDvKaHI3ttei/nnNS4jXn3g917KG+t9t/lU1oh+tb
-	kYcOD2lztnwp6zBFyloYngA2vws5elugbHgev2elNAvW30Y41thw/M7AujYGSuuWaIX8DeHLiFcsa
-	qkWh2XHw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x2WdQ-0000000EHXj-3N6s
+	id 1x2Wkg-00000002jAo-17a3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:19:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1928D1BCA;
-	Fri,  4 Sep 2026 09:19:09 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C5E503F673;
-	Fri,  4 Sep 2026 09:19:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788538752; bh=weSg9lKsIHE/83qMW/SyU4ojYrTWn2q+C4WdqveaRvg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a4hap3h3C5OV/1PtxcADwm+sdkgAHNCMw6GTY0aLOrd78pYQBCnfUlLXLTf+WNgQv
-	 vDxUMotFxfUDGdz1UdbnLaPOdzCMSyLUidtRSlHb0R3p4jY+/SiJ8mV7NRNC0SiTAi
-	 SsaDtQDHYxXYtZKwgBpM0uzTdsCssq1vqmH1IkJ4=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 19/21] arm64: percpu: Implement preemptible CMPXCHG ops
-Date: Fri,  4 Sep 2026 17:17:56 +0100
-Message-Id: <20260904161758.376504-20-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
-References: <20260904161758.376504-1-mark.rutland@arm.com>
+	Fri, 04 Sep 2026 16:26:55 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7f4df360cc9so1474528a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:26:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788539213; x=1789144013; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=;
+        b=hA9o7kbrzkha/gIPPPOT76wjSXnzFpqDf8O/EqKshJGjm2EsMC3AMlYBv4XuFNBLB3
+         aY1v9yRGXAwX1TKTh7ARc1ajmu7kAFayQk0Uy9PR0xvhO/R4xKWoAj9x39/tIwZBrXvQ
+         hAIGuROwyAJnnMHA2/BTj9rmQFhmTmxxy8KDbOtoycqT7XD/5orJZjpB92z7QZHuCbtm
+         zzVNH6GfR4P1upWnHJSlosaDtQeS9CJP5Qz0C7b4TdcGyMZPSc1NvQ44jsDkcs9kPFfr
+         H0wehDXVStmuqly68x+Kucdv63b4RWRUMsJx39zf2Eg0KM2Zo57QJgYr7mkYPXNfqdsJ
+         iZ/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788539213; x=1789144013;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=;
+        b=S0AC3ti44X9fPtzqLu2P3cfPWxpixmQjzwxihmkKhtX9f4W6e47y7UkIrOvsn/G9Dt
+         UGrM3AlVuQ1TyoCYC+bB0P5T3UhyL9MaMtxl34DHHcp0hmKlkwZWGW/0ON7JIhKbcV8q
+         yQTgX0OgPxE5W8zEJgOUScz8q53RoeEFZljcsIV0bXlvBSNfQAt/s52ADaJuvSwdCnsh
+         H8f9HRaHljkVjockGBWO+Zl4GXv+4RzCeMysBAD44Y6Y7bOcA1Mo0kTTkpAn7vWFeLEL
+         AXIF/ZwuCExZbaTPzv5sl82VZ7+0lih6VEMwqAYX7pA2r3P350uDRqTMHnQTJ8lZjKG5
+         C7hg==
+X-Forwarded-Encrypted: i=1; AKwUvBxzkqpQ83S+9SEHrElG2i42m+HnLIH4Zha2UM7ZPElERbxINiI1r7Uo37fYgUD6gvDOs9HCpj1mmKUXLrJJ/2/6@lists.infradead.org
+X-Gm-Message-State: AFuF++ljmQf1iZBI54EbC0BFboXxVBnbL81FiUX7i6ay89RjytPv40/P
+	mBVfWVfEjK11vGW86QkwdTSILuBzpjqWGKH1p5+HEeLQfn6xMLhgvht1
+X-Gm-Gg: AYBFou2xCPE1STVB2UuRuWWw+XJAjxp7MDUH4j4mWNrNbJfTWJjb0j/eMvE23WxXT3G
+	7IGRiYHJBJjOLeQgyCM7cu5X3sn2VVnHoPoU8AnGx1Q1pYeM879xfj5PTqbW+/UdysHBjSBanIz
+	jFR290+FCQsuBtK6t0aawVs6SjJXxu/ZT/2qPxu1r1EQ50hu/A6/E42tpxXSyyVYyhTyX3UvtmP
+	SezUnQEHzNcN3qLojDYjrJT7TWzrOgY/kgHJYv00SMAu+4ZVcf3Fj+xefZvEdBTcJ+kHe1EtqQm
+	hmkUMjjJEAEvw9ITGm8hMTSagAObKFoBfUrQyNLEcXP4ysbO88+knrpEb3jqHKRmaARY1MK8gQ8
+	eSDRT9YflYYOPMv6CrLIprMvfRb5+B5qCrNlWrADfmLSgXxJktoLP4XX0WBWtV4pU1igyijoaIM
+	Zq/+IU3+O3+alKH/XF2MWH8gdd4cSzL55hlZJsJAnsdZs1q3xEHQ2DGTqV+PFwj7BoWOxGxgNpD
+	LSwamMUJ+zjdCugIkKkUKB8bhWSD+IC9MT5D69FlmXg7DOb6g==
+X-Received: by 2002:a05:6830:a20a:10b0:7f4:3f10:7843 with SMTP id 46e09a7af769-7f89bc593b4mr4528909a34.10.1788539212476;
+        Fri, 04 Sep 2026 09:26:52 -0700 (PDT)
+Received: from ?IPV6:2406:7400:56:e503:ad72:fda5:83e8:be95? ([2406:7400:56:e503:ad72:fda5:83e8:be95])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7fa888f614dsm1849437a34.15.2026.09.04.09.26.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Sep 2026 09:26:51 -0700 (PDT)
+Message-ID: <12268d64-08c7-421f-83e2-e6306fde9a88@gmail.com>
+Date: Fri, 4 Sep 2026 21:56:42 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Dhruva G <goledhruva@gmail.com>
+Subject: Re: [PATCH v2 2/5] pmdomain: core: Allow a non-CPU device in a CPU PM
+ domain to do power on
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
+Cc: Abel Vesa <abel.vesa@oss.qualcomm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Christian Loehle <christian.loehle@arm.com>,
+ Maulik Shah <maulik.shah@oss.qualcomm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260901111441.122436-1-ulf.hansson@oss.qualcomm.com>
+ <20260901111441.122436-3-ulf.hansson@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20260901111441.122436-3-ulf.hansson@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_171927_800367_9E219E97 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20260904_092654_338674_0CE401CF 
+X-CRM114-Status: GOOD (  44.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,198 +111,220 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PCPU GPR infrastructure to implement all of the {8,16,32,64}-bit
-cmpxchg ops.
+On 01-09-2026 16:44, Ulf Hansson wrote:
+> A driver for a non-CPU device that is attached to a CPU PM domain (the
+> genpd has the GENPD_FLAG_CPU_DOMAIN configuration set), is currently not
+> able to power on the PM domain. More precisely, to power on a CPU PM domain
+> one of its corresponding CPUs needs to be woken up if they are idle.
+> 
+> The current support for a non-CPU device is that its driver can only
+> prevent an already powered on CPU PM domain from being powered off. This
+> leads to problems for a driver while probing its device or when it needs to
+> call pm_runtime_get_sync() to turn on the power for it. From the driver
+> point of view it looks like it all works fine, but when accessing the
+> device it may end up with various errors as the device may not be fully
+> powered on.
+> 
+> To fix the behavior for these types of devices, let's adjust the behaviour
+> in genpd_power_on() to wake up an idle CPU that belongs to it, in cases
+> when it's needed.
+> 
+> Link: https://lore.kernel.org/all/CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZVYO=38R2cLV8nw@mail.gmail.com/
+> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+> Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+> ---
+> 
+> Changes in v2:
+> 	- Rename a function according to Abel's suggestion.
+> 
+> ---
+>  drivers/pmdomain/core.c | 80 ++++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 75 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 6ac1ce18fda3..97273ed2f825 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/idr.h>
+>  #include <linux/kernel.h>
+>  #include <linux/io.h>
+> +#include <linux/iopoll.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_opp.h>
+>  #include <linux/pm_runtime.h>
+> @@ -19,11 +20,14 @@
+>  #include <linux/slab.h>
+>  #include <linux/err.h>
+>  #include <linux/sched.h>
+> +#include <linux/smp.h>
+>  #include <linux/suspend.h>
+>  #include <linux/export.h>
+>  #include <linux/cpu.h>
+>  #include <linux/debugfs.h>
+>  
+> +#include <trace/events/ipi.h>
+> +
+>  /* Provides a unique ID for each genpd device */
+>  static DEFINE_IDA(genpd_ida);
+>  
+> @@ -32,7 +36,9 @@ static const struct bus_type genpd_provider_bus_type = {
+>  	.name		= "genpd_provider",
+>  };
+>  
+> -#define GENPD_RETRY_MAX_MS	250		/* Approximate */
+> +#define GENPD_RETRY_MAX_MS		250		/* Approximate */
+> +#define GENPD_CPU_ON_POLL_PERIOD_US	100		/* 100us */
+> +#define GENPD_CPU_ON_TIMEOUT_US		5000000		/* 5s */
+>  
+>  #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
+>  ({								\
+> @@ -1027,15 +1033,75 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
+>  	}
+>  }
+>  
+> +static bool genpd_status_on(struct generic_pm_domain *genpd)
+> +{
+> +	bool is_on;
+> +
+> +	genpd_lock(genpd);
+> +	is_on = genpd_status_on_unlocked(genpd);
+> +	genpd_unlock(genpd);
+> +
+> +	return is_on;
+> +}
+> +
+> +static int genpd_wakeup_cpu(struct generic_pm_domain *genpd)
+> +{
+> +	unsigned int cpu;
+> +	bool is_on;
+> +	int ret;
+> +
+> +	/* Find the first online CPU in the genpd's cpumask. */
+> +	cpu = cpumask_first_and(genpd->cpus, cpu_online_mask);
+> +	if (cpu >= nr_cpu_ids)
+> +		return -EAGAIN;
+> +
+> +	genpd_unlock(genpd);
+> +
+> +	/* Send a IPI to wakeup the selected CPU. */
+> +	smp_send_reschedule(cpu);
+> +
+> +	/* Poll to wait for it to complete the power on sequence. */
+> +	ret = readx_poll_timeout(genpd_status_on, genpd, is_on, is_on,
+> +				 GENPD_CPU_ON_POLL_PERIOD_US,
+> +				 GENPD_CPU_ON_TIMEOUT_US);
 
-Note that before this patch, the LL/SC and LSE implementation was chosen
-with an alternative branch. After this patch the implementations are
-patched inline, matching the style of the other percpu ops.
+How is sleeping here made safe for IRQ-safe consumers and child domains?
 
-Test case:
+For a hypothetical example, consider an IRQ-safe SPI controller in an IRQ-safe child domain D,
+whose parent P is a CPU domain. CPU A is outside P, and CPU B belongs to P. Both domains are initially off.
 
-| u64 outline_this_cpu_cmpxchg_u64(u64 __percpu *p, u64 o, u64 n)
-| {
-| 	return this_cpu_cmpxchg(*p, o, n);
-| }
+A runtime-resume request on CPU A follows this path in drivers/pmdomain/core.c:
 
-Generated code before this patch (v7.2-rc4):
+genpd_runtime_resume(SPI device)
+-> lock D
+-> genpd_power_on(D)
+-> lock parent P
+-> genpd_power_on(P)
+-> genpd_wakeup_cpu(P)
 
-| <outline_this_cpu_cmpxchg_u64>:
-|        paciasp
-|        stp     x29, x30, [sp, #-32]!
-|        mrs     x4, sp_el0
-|        mov     x29, sp
-|        ldr     w3, [x4, #8]
-|        add     w3, w3, #0x1
-|        str     w3, [x4, #8]
-|        mrs     x3, tpidr_el1
-|        add     x3, x0, x3
-|        b       4f		// alternative branch
-|        cas     x1, x2, [x3]
-|        mov     x0, x1
-| 1:     mrs     x2, sp_el0
-|        ldr     x1, [x2, #8]
-|        sub     x1, x1, #0x1
-|        str     w1, [x2, #8]
-|        cbz     x1, 2f
-|        ldr     x1, [x2, #8]
-|        cbnz    x1, 3f
-| 2:     str     x0, [sp, #24]
-|        bl      preempt_schedule_notrace
-|        ldr     x0, [sp, #24]
-| 3:     ldp     x29, x30, [sp], #32
-|        autiasp
-|        ret
-| 4:     prfm    pstl1strm, [x3]
-| 5:     ldxr    x0, [x3]
-|        eor     x4, x0, x1
-|        cbnz    x4, 6f
-|        stxr    w4, x2, [x3]
-|        cbnz    w4, 5b
-| 6:     b       1b
+genpd_wakeup_cpu() drops P's lock and sends an IPI to CPU B, but D's spinlock remains held. readx_poll_timeout() 
+can then reach usleep_range() while D’s spinlock is still held.
 
-Generated code after this patch:
+There is also a problem without the child domain: for an IRQ-safe device attached directly to P, __rpm_callback()
+leaves interrupts disabled. Dropping P’s lock restores the already-disabled interrupt state, so readx_poll_timeout()
+still cannot be used with a nonzero sleep interval and timeout.
 
-| <outline_this_cpu_cmpxchg_u64>:
-|        mrs     x4, sp_el0
-|        mov     w6, #0x14c0
-|        strh    w6, [x4, #20]
-|        mrs     x6, tpidr_el1
-|        add     x5, x0, x6
-|        prfm    pstl1strm, [x5]
-| 1:     ldxr    x3, [x5]
-|        eor     x7, x3, x1
-|        cbnz    x7, 2f
-|        stxr    w7, x2, [x5]
-|        cbnz    w7, 1b
-| 2:     strh    wzr, [x4, #20]
-|        mov     x0, x3
-|        ret
+I have not reproduced this on a board; this is a hypothetical configuration illustrating the paths.
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>
----
- arch/arm64/include/asm/percpu.h | 69 +++++++++++++++++++++++++++++++--
- 1 file changed, 65 insertions(+), 4 deletions(-)
+Is there a restriction elsewhere that prevents either configuration? Otherwise, this wait cannot sleep,
+and the parent lock needs to be reacquired with the same nesting depth used by genpd_power_on().
 
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 820340c61d70f..f19a82437b3fd 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -306,12 +306,67 @@ __percpu_xchg_case_##sz(void __percpu *pcp, u##sz val)			\
- 	return ret;							\
- }
- 
-+#define PERCPU_CMPXCHG_OP(w, sfx, sz)					\
-+static inline unsigned long						\
-+__percpu_cmpxchg_case_##sz(void __percpu *pcp,				\
-+			   u##sz old,					\
-+			   u##sz new)					\
-+{									\
-+	/*                                                              \
-+	 * Sub-word sizes require zero extension so that EOR+CBNZ don't	\
-+	 * consume non-zero upper bits of the register containing "old".\
-+	 */								\
-+	xwreg_t(w) cmpval = xwreg_zero_extend(old, w, sz);		\
-+	u16 *gprs = &current_thread_info()->pcpu_gprs;			\
-+	unsigned long addr;						\
-+	unsigned long off;						\
-+	unsigned long tmp;						\
-+	unsigned long oldval;						\
-+									\
-+	asm volatile (							\
-+	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")	\
-+	ARM64_LSE_ATOMIC_INSN(						\
-+	/* LL/SC */							\
-+	"	prfm	pstl1strm, [%[addr]]\n"				\
-+	"1:	ldxr" #sfx "\t%" #w "[oldval], [%[addr]]\n"		\
-+	"	eor	%" #w "[tmp], %" #w "[oldval], %" #w "[old]\n"	\
-+	"	cbnz	%" #w "[tmp], 2f\n"				\
-+	"	stxr" #sfx "\t%w[tmp], %" #w "[new], [%[addr]]\n"	\
-+	"	cbnz	%w[tmp], 1b\n"					\
-+	"2:\n"								\
-+	,								\
-+	/* LSE atomics */						\
-+	"	mov	%" #w "[oldval], %" #w "[old]\n"		\
-+	"	cas" #sfx "\t%" #w "[oldval], %" #w "[new], [%[addr]]\n"\
-+		__nops(4)						\
-+	)								\
-+	__PCPU_GPRS_END("%[gprs]")					\
-+	: [gprs] "=Qo" (*gprs),						\
-+	  [addr] "=&r" (addr),						\
-+	  [off] "=&r" (off),						\
-+	  [tmp] "=&r" (tmp),						\
-+	  [oldval] "=&r" (oldval)					\
-+	: [pcp] "r" (pcp),						\
-+	  [old] "r" (cmpval),						\
-+	  [new] "r" (new)						\
-+	: "memory"							\
-+	);								\
-+									\
-+	return oldval;							\
-+}
-+
- PERCPU_XCHG_OP(w, b, 8)
- PERCPU_XCHG_OP(w, h, 16)
- PERCPU_XCHG_OP(w,  , 32)
- PERCPU_XCHG_OP(x,  , 64)
- 
-+PERCPU_CMPXCHG_OP(w, b, 8)
-+PERCPU_CMPXCHG_OP(w, h, 16)
-+PERCPU_CMPXCHG_OP(w,  , 32)
-+PERCPU_CMPXCHG_OP(x,  , 64)
-+
- #undef PERCPU_XCHG_OP
-+#undef PERCPU_CMPXCHG_OP
- 
- /*
-  * It would be nice to avoid the conditional call into the scheduler when
-@@ -355,6 +410,12 @@ PERCPU_XCHG_OP(x,  , 64)
- 	(typeof(pcp))op(&(pcp), (unsigned long)(val));			\
- })
- 
-+#define _pcp_wrap_cmpxchg(op, pcp, old, new)				\
-+({									\
-+	(typeof(pcp))op(&(pcp), (unsigned long)(old),			\
-+			(unsigned long)(new));				\
-+})
-+
- #define this_cpu_read_1(pcp)		\
- 	_pcp_wrap_return(__percpu_read_8, pcp)
- #define this_cpu_read_2(pcp)		\
-@@ -419,13 +480,13 @@ PERCPU_XCHG_OP(x,  , 64)
- 	_pcp_wrap_xchg(__percpu_xchg_case_64, pcp, val)
- 
- #define this_cpu_cmpxchg_1(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_8, pcp, o, n)
- #define this_cpu_cmpxchg_2(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_16, pcp, o, n)
- #define this_cpu_cmpxchg_4(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_32, pcp, o, n)
- #define this_cpu_cmpxchg_8(pcp, o, n)	\
--	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
-+	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_64, pcp, o, n)
- 
- #define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
- 
--- 
-2.30.2
+
+
+> +
+> +	genpd_lock(genpd);
+> +
+> +	/* Re-check the status as we have released the lock in between. */
+> +	if (ret || !genpd_status_on_unlocked(genpd))
+> +		return -EAGAIN;
+> +
+> +	return 0;
+> +}
+> +
+> +static bool genpd_need_alive_cpu(struct generic_pm_domain *genpd,
+> +				 struct device *dev)
+> +{
+> +	if (!genpd_is_cpu_domain(genpd))
+> +		return false;
+> +
+> +	/* This is not for CPU devices as those are managed differently. */
+> +	if (to_gpd_data(dev->power.subsys_data->domain_data)->cpu >= 0)
+> +		return false;
+> +
+> +	/*
+> +	 * If the current CPU doesn't belong to the genpd's cpumask, we need to
+> +	 * wake up one of those idle CPUs to power on the CPU domain correctly.
+> +	 */
+> +	return !cpumask_test_cpu(smp_processor_id(), genpd->cpus);
+> +}
+> +
+>  /**
+>   * genpd_power_on - Restore power to a given PM domain and its parents.
+>   * @genpd: PM domain to power up.
+> + * @dev: The device that needs the PM domain to power on.
+>   * @depth: nesting count for lockdep.
+>   *
+>   * Restore power to @genpd and all of its parents so that it is possible to
+>   * resume a device belonging to it.
+>   */
+> -static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
+> +static int genpd_power_on(struct generic_pm_domain *genpd, struct device *dev,
+> +			  unsigned int depth)
+>  {
+>  	struct gpd_link *link;
+>  	int ret = 0;
+> @@ -1043,6 +1109,10 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
+>  	if (genpd_status_on_unlocked(genpd))
+>  		return 0;
+>  
+> +	/* Special case for a device attached to a CPU domain. */
+> +	if (genpd_need_alive_cpu(genpd, dev))
+> +		return genpd_wakeup_cpu(genpd);
+> +
+>  	/* Reflect over the entered idle-states residency for debugfs. */
+>  	genpd_reflect_residency(genpd);
+>  
+> @@ -1057,7 +1127,7 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
+>  		genpd_sd_counter_inc(parent);
+>  
+>  		genpd_lock_nested(parent, depth + 1);
+> -		ret = genpd_power_on(parent, depth + 1);
+> +		ret = genpd_power_on(parent, dev, depth + 1);
+>  		genpd_unlock(parent);
+>  
+>  		if (ret) {
+> @@ -1307,7 +1377,7 @@ static int genpd_runtime_resume(struct device *dev)
+>  
+>  	genpd_lock(genpd);
+>  	genpd_restore_performance_state(dev, gpd_data->rpm_pstate);
+> -	ret = genpd_power_on(genpd, 0);
+> +	ret = genpd_power_on(genpd, dev, 0);
+>  	genpd_unlock(genpd);
+>  
+>  	if (ret)
+> @@ -3411,7 +3481,7 @@ static int __genpd_dev_pm_attach(struct device *dev, struct device *base_dev,
+>  
+>  	if (power_on) {
+>  		genpd_lock(pd);
+> -		ret = genpd_power_on(pd, 0);
+> +		ret = genpd_power_on(pd, dev, 0);
+>  		genpd_unlock(pd);
+>  	}
+>  
 
 
