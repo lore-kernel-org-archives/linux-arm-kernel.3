@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4AAC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2814C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lWgrf7yZFJ77B58gypS+MDoL/u/LiBf8lDp/68qUMKU=; b=x2M3+4E69WzhsH9UvPge3NfoOi
-	qolqxgvMEy5tu2siymlKUuzs4FYBX97qNqv9JFryqMi8jpGbsUV/mo6tVPe0fpxMrLtJXLzicVmNq
-	+4qGzhRD5Ex57I3ggKspFWfXRemEkludOT3bmVHYJb4cQFTNakCBroMEEND7gK9WlnABe/4orZNQt
-	nQhKN+ulrAwffGG+NLwyRy3uQjPbUZdvkhVoJJB9O6KRQAy7CjV2C2W50Pqy/st01sdUL4bJ5UYVL
-	MurfwOOjWppwJ1zW0GKdOeYStJ9ypZC18f1Tkv/6t2vi5NNCaatd0l99e/b6yw/QEcP5d0GU5HC52
-	/Ro+LneA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DKGcsNhvQvyX65WRsiWMdw7zbIu6Dm+Ns5yHU/Yl7MQ=; b=oqbeTkw1cmEkxZQkJgQpikRoeH
+	L4WbLmQBHs06RXPwVPAXvB3iD7jN+7DBKfREOK4rEDOmgxavzq55bgrNJp5yHl5ac/buOcTalMhL9
+	O0tbbklvAY0Dj/UtW1ZM3cS0r7Rq4STvvkJ20/qZ50P2fUVbOOHRvS22zadearVDWMNfaWShEIBYG
+	twGRa7LZpDp8yzQPKK8/ku4ihX4gv+5jJrYZekgTTlxqNAm13+EZlOjAgbMXrW4wzISFOhyKPSg3b
+	stIetXfefHQnmI9p7IppCPAIKQv+YakwsIHlcHtW51M3ZPp6iCbmotCN7eDvKqtEUUrTd5cUsiRZD
+	WHLcR+Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RYk-00000001kJZ-1nXG;
-	Fri, 04 Sep 2026 10:54:14 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1x2RZD-00000001kOu-2lWd;
+	Fri, 04 Sep 2026 10:54:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RYh-00000001kIq-309z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:54:12 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso679874a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:54:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788519251; x=1789124051; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lWgrf7yZFJ77B58gypS+MDoL/u/LiBf8lDp/68qUMKU=;
-        b=j/Nu1elnnG8raKn4wZUYeoD9Rz3gP/d7hWQXowhe3e6qmKRh47p92AgZMGLY6kobwI
-         PIMCe3aghD6HOCPcg39lpiXMQt48bgwS1uySZATpIyAXYumSc8J4SCD5+JZ+/32upQ+y
-         LpuFGWg7LVrv/4BjZTRsCK7d1GoS0eUFl6M99FhzPxcZ91MDjJ97yd2b7kMPUXnM3l1w
-         DmFCgi1zE9grqX66beWbOqKCoTcjkMjCcX9hkCKdzt3nMPtXTABrNc4FnEzkR4HQOz33
-         m6oQjZJJ+yGa1d9XNmq2Q9Y7IQ4XvahOC+mHQ0PWkZxinHL7sezfkB+VYfSE/OIT6j8Y
-         J2qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788519251; x=1789124051;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lWgrf7yZFJ77B58gypS+MDoL/u/LiBf8lDp/68qUMKU=;
-        b=i6v6yt9tdCsLF5hAw54xZ7uJKvMooV07/X6BkzkeLqNwEQN0CrNGBQ328ilsY1dz8l
-         Hxba3Mf7brTdbog+vGcOw5yMIJrHwgFUAQeZsVNW2RYYYnJ0aH4Z3ahkDRCtMu53++Mt
-         qZupCMGiwe0QAeRd/s16NcMpCZeNSOFN9aGSNCY+IzDQhseP1fG/25g+kiQ3ix/+4xg7
-         vq/6AKQTvnRqj5h+PRUZOsiUL2rdatWoUrBAN9+nPN/FJQhTO8A7z6zHqwL35w9MySQL
-         89FTs5BzvrK1xbW64CmwuzC59p/JhaBg4jtqfv/sw1tAjo3JzG54ML0G7zuFzqwzCI+r
-         7XKw==
-X-Forwarded-Encrypted: i=1; AKwUvBziwoflx5wCPnVJic8lnIT+4hhHkidqFWkezYlDdcvj5QY1XVEjd1pfsSFzfGB8r4aY7MQ4+Ml0GxSeTe6FYISL@lists.infradead.org
-X-Gm-Message-State: AFuF++mXmiDwL4Ltan3kymqwzcLJ87Xqi687GKu22LWYZUxm7T7CTblr
-	nvHR5tf7il2MuzdmHdUQ+8BdTHQrZlO56JzQVG7aQtUy8BEYRCAeomNh
-X-Gm-Gg: AYBFou0WOCWX4RzowgkNblzlWNAm11GW2lJwLtB5iulfzmKT1JpTC0qGtYqLNuh2e5C
-	HOh3sdUp3f0YGaHBCyOEgcRknoyjoXaYXLTOZX8hUcQZ9XkdNqVD1VwDvhDgPJ4JX0vSn6mN9DV
-	0AaGLgZR9j/h8THexbdhp6sZ3cAPu/soc1FONOZMJ0cVMKpxpSdD5RCvNDMmdLZpfPSoSrTVBBA
-	wB/YFK0YJ01Lwh9jpMZZU5ohfJigJ2SnbLi0SWwLDwgRFqTwpsv9jkqNKkEQjm9XhihZM8hiKu0
-	9fzCrZjZ/+aoYlF+PFRaI2wXtj/7RM7KwJQw/H72wPS6pq57hRh+uwz8ZGknxknZqlVFnTUkN8M
-	Hkg1niED7oGUdKvV68k0TBZM0kjylpiNA7lVMJpHTj9Qd1LXR+hn2fb01vdn/UVUWJRgsotJ7TX
-	mBgiocbTHYe8s7fn1afSM+O1rJfhYPkxfOa4r1PqyYMGW0RnqH4z/urbnkqjfDniLQWZpKYJFUT
-	K1qNrHRpa3SwAs=
-X-Received: by 2002:a17:90b:4fca:b0:38e:5b59:c2ff with SMTP id 98e67ed59e1d1-39b260dd278mr8201848a91.3.1788519250840;
-        Fri, 04 Sep 2026 03:54:10 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-333c9db92b1sm5136836eec.9.2026.09.04.03.54.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 03:54:10 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] stmmac: fix typo "platfrom" in comment
-Date: Fri,  4 Sep 2026 16:24:04 +0530
-Message-ID: <20260904105406.34530-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+	id 1x2RZB-00000001kOK-3JwC;
+	Fri, 04 Sep 2026 10:54:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EB0A4600CB;
+	Fri,  4 Sep 2026 10:54:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD4691F00A3D;
+	Fri,  4 Sep 2026 10:54:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788519280;
+	bh=DKGcsNhvQvyX65WRsiWMdw7zbIu6Dm+Ns5yHU/Yl7MQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BZWtsFD0IFC9WfCLXixG8ZwAduj+OUv14NrmjvbHHnXLd/vlwPgJhqIo0hx5YbqcQ
+	 d6O4zqymS5/JcqhvzwMOvkEFs6JA8iyNBqTCcFkiBsmdB1AzhcKgMK8EHlCW0zia8x
+	 wYYPW137Yg7II5xUM2HeyV4Zwgb6RFfif5WEzhcQjgKAuNNthK5Vtk6MGvdJNvvdeX
+	 s1MbVwtUAsMlBD48Syzww/jsZGFRigCw0bIRY3VF2V7V7z9Xc0XyWF2Of2v7kM9m/s
+	 SL4tV+MUEWwmil52cuC2/qX8a951HyXMHYCyHG2PnfvqzM8svgSADjJX0gr+2gzX4Y
+	 hal71DpIznH8g==
+Date: Fri, 4 Sep 2026 11:54:35 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	afaerber@suse.com, bartosz.golaszewski@oss.qualcomm.com,
+	james.tai@realtek.com, cy.huang@realtek.com,
+	stanley_chang@realtek.com, jyanchou@realtek.com,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org
+Subject: Re: [PATCH 0/3] spi: realtek: Add support for RTD1625 SPI Flash
+ Controller
+Message-ID: <606e580e-b1d6-4dd3-bb3c-e46d20da78eb@sirena.org.uk>
+References: <20260904031252.244280-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_035411_752391_C49B827F 
-X-CRM114-Status: GOOD (  11.25  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tfNF2zAxbgSEaXCh"
+Content-Disposition: inline
+In-Reply-To: <20260904031252.244280-1-eleanor.lin@realtek.com>
+X-Cookie: A is for Apple.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct "platfrom" to "Platform", reported by scripts/checkpatch.pl using
-the misspelling list in scripts/spelling.txt.  Only touches comments, no
-code changes.
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
- include/linux/stmmac.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--tfNF2zAxbgSEaXCh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 4430b967abde..205216473ae3 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -81,7 +81,7 @@
- struct clk;
- struct stmmac_priv;
- 
--/* Platfrom data for platform device structure's platform_data field */
-+/* Platform data for platform device structure's platform_data field */
- 
- struct stmmac_mdio_bus_data {
- 	u32 phy_mask;
--- 
-2.48.1
+On Fri, Sep 04, 2026 at 11:12:49AM +0800, Yu-Chun Lin wrote:
+> Hi all,
+>=20
+> This patch series introduces support for the Realtek RTD1625 SPI Flash
+> controller.=20
+>=20
+> Please note, this series depends on the RTD1625 clock driver patch series,
+> which is currently under review.
 
+This doesn't apply against current code, please check and resend.  I
+think it's just the DTS patches - I'd just drop them from the series for
+now, it'll make life easier.
+
+--tfNF2zAxbgSEaXCh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqao2oACgkQJNaLcl1U
+h9AHVQf/ZGL7zGjqObIWwauUZG3bh6i+a5W+RRbI+yZL7Cp6J9gcBdfMJFPDH22/
+zNVUuIVxFYto+MyS0oNEj0/q2QC2fnTxt2IXcYAvKFDswmxKkc77Maoy03sMkRBc
+0V6o0JiNz/0T8r3v52ZWncKO4+c5ZMxOay1rUwg5GZ/pTKkvXjTDEp1vT8DsdlXt
+lWhkWCdqHksaxa4bijRm85IE7iQw2L4ca1VmDArp5aWMFG6GdkVyYUtu/IJGkKlD
+iYXCQG9+wRmvPQXmgYkNpYf4WZQAgPVzaKqN+WzIQPV10whA0jEOvlTGPfjW/0OK
+jBaIl4NxI1HvyNEPvcrl/MT+RAwYAg==
+=8YF8
+-----END PGP SIGNATURE-----
+
+--tfNF2zAxbgSEaXCh--
 
