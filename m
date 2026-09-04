@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C48C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9547C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uoOzDZAWnJsWiO6JD2emY2QKQ6LRtpmLOtpWO9+xJq8=; b=BzsROrmrKzKAPZgUUpMJLf5qBQ
-	4RlkLMLcE3C/Ey59zwIjtGnsQL08+C+g4IoEM7feqLCuEUihPwc4eaqB8ZYv1ddyN8IJ2p9CZ4agT
-	Z0fTHzRSCnfvaPkxoPIZDgcbEN5G/TJaWYinW/5SnLIgkFoFCytOqfZMcgED30lgFMzbjxMHLHzaz
-	iUBn3Uq6CbsMAyE3ptrBanfJaewledwI2qEYboonRKPiH1xjOSbSRgklsKQSMBTh1q13shM3JMS5I
-	6EjzraSc6/Ca1C9G4z8lfQ0uGKbyk+ueHJNxcJyJhr1ojyDvtFk/5FsW33d62SwvqjhVx0/vV221Y
-	PhPeamUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tie3/C0PVrS1CpLSqsIk6C5A879AcuKONm6oB8gQBfs=; b=c7JWNBe+aDlW7fwBQza8hTCIq3
+	YYt19ugAIOMVu3np58ZhwBUZHqmR5kzaqm5FmPI4RX6v+qnFDblr/dwwrxAH1sZdS/qXLCeBl4tZm
+	cdxCzSEpijdkwmshbCtRb652YA4MK3YKoB/byY097aY4WaZpSZ4sGZVPnAyYv5PcZHyJcMI8xncuA
+	D5fBRDoP9j7p1aSSVjl1txqPIUeyplOPFBr3dE3zBrgQYElLCgC1vmti99Gydpbg8nBp0/rDdBlvu
+	FgO4CNemMdfBxu9GDz8/0mEkFaeqi4XWaihgkQXmknaxcnIlRHCUo/PfUeHD10/NFT0zatjhPMTMM
+	paSkj4ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Qkb-00000001bzs-0GmR;
-	Fri, 04 Sep 2026 10:02:25 +0000
-Received: from out203-205-221-202.mail.qq.com ([203.205.221.202])
+	id 1x2QlD-00000001c3Z-1Th9;
+	Fri, 04 Sep 2026 10:03:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QkX-00000001byq-38wb
+	id 1x2QlC-00000001c3C-39g2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:02:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1788516134; bh=uoOzDZAWnJsWiO6JD2emY2QKQ6LRtpmLOtpWO9+xJq8=;
-	h=From:To:Cc:Subject:Date;
-	b=wVlWozzEeHit9IYGEMHlTPXJfCEx6K690QjWoK2aiG3kA666Xb5W1iHW6kLT5MW+g
-	 CvSVUiHlHh3yQapOK42f9WWBlJ8yUiAhsn8EWrqgsHydg+j5KVJ34yoeKLpWrp6Wds
-	 89pFq5U3gD89nnw2zhmz5uCuj6K/3uoZ7/9GRvvA=
-Received: from ws006419.mbzu.ae ([5.195.0.150])
-	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
-	id 679E487; Fri, 04 Sep 2026 18:01:39 +0800
-X-QQ-mid: xmsmtpt1788516099tz2afw6ez
-Message-ID: <tencent_B0189529F550458590E3BA614EAB800FBF08@qq.com>
-X-QQ-XMAILINFO: MqrcRCpyXC2G804zZZefQ1CweJmOuOcT296XVGv53lkvPGThFIeOAQvAZexdZT
-	 ZF2Q8MdzCBXv+rWpJt9uV6wsp7j1a5NIkhCleh2p/sGxft71k04XZkV+aUnGGLQkfZUbg0YbI2CA
-	 D+ROGP0+oxW0aRzbxtMqncStyzmmDh4v1EvaXmuhHyNHpTANKRfFct3JsDMWJrQd+QkuxkE2ujf1
-	 NJRvE5dXY20JeH+eGz1qd/sQb3x2X+DVn2fxvMGiuRAkSHKiTZaBXFtV+RA91RKuH891/ZD6Is5U
-	 DB4e1cqV95LAVSc1GIQVN5A5brsb8mKiC3hcE2qq/GZ7y+uEGV8Ne0W6QD649yqYsZ82D51ShChC
-	 P+GP58j4Kjq9zukp+C6/F/rPQmPP2lSNXsAko1VXHbXUuGk6dP/iEAFIxCfJiZ6dNDRsZMC/xPb9
-	 UYEzbbsWQmdRC/Cw84q3YhquUfL+sai+SkzjNJFCvrkMEX6caVJRxaY13NUUh4imNxFNYkpD9Vxl
-	 3pjhzLutPE5qjcMf3xMAfqsp3/B6MFBFqSA2cZKZL2ocmiM4nN0h+7WxAqMQp8hS97dWpOrdLyJw
-	 4GbljK6gAGTDe7eWr0Fj0+CKJUwn0kXHJwBI+JxR4HluNxAEWHpR3M+IT2IDywExrgk0zp/pBRQs
-	 FoVR/yk8GLzVkycEvLziQwoJkfw4CNGnsMrwmQJN7ozD/kTQ7gz0cmbL1CNyJ28SidTlMRn5gHqv
-	 fCKCdIf7kcoBpQnQbG5/JLzm6vMmL0tLXmeVG67IsYQrN05MR4V6LhmcjH4BLRBoNbZGzfczAwUg
-	 2pVNTp9fle6GE/HXaJ0udOOVuNQzFhQAC9ZKcHuL/buI5wermR1IvMegFmeZnu6ct4yge+3rSAqb
-	 Z9hUYpPIr3OdTqRip6dKE87o8jZ2XtjzN5ASjJFmhnGEaWLc9tWEiBW4gmzGox9nArXcQYw0xbBA
-	 ALc8sIdQ3H2+EqSDsF7OWXUuLtx9bvROpQ/ecf59uBpMcXv5oA9MLDbT8wPastSOJiXHuZlUqw01
-	 tFWfbVQ241n1p3FAKqbhMpw8e784O1VNKMZPg2PA==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: Jiawen Liu <1298662399@qq.com>
-To: Lukasz Luba <lukasz.luba@arm.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-pm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	stable@vger.kernel.org,
-	Jiawen Liu <1298662399@qq.com>
-Subject: [PATCH v2] memory: exynos5422-dmc: handle clock enable failures
-Date: Fri,  4 Sep 2026 14:01:35 +0400
-X-OQ-MSGID: <20260904100135.251091-1-1298662399@qq.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 04 Sep 2026 10:03:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A2C46020A;
+	Fri,  4 Sep 2026 10:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289D31F00A3E;
+	Fri,  4 Sep 2026 10:02:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788516181;
+	bh=tie3/C0PVrS1CpLSqsIk6C5A879AcuKONm6oB8gQBfs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hjDjaDYVxdvm9qd40cjkEQwK/pP/t1zPYfE7eGdI877A2/idGoHsau16XMRI2lmH/
+	 FRvP/V1xzlPzY6KHbC9F/PS6glRTXp8eQsaMaB3Mi9nZXiBsSC/EZby9z/ZIe+HN8z
+	 hV8FB6e2OKbuqOfHwI8B3A9ppxlxxwql9PeLMqNmdEq27OCgqS4p0GrM9P7Btya5ji
+	 eTgH3LcPK9S9iac+Z8dQmDMgi+eXKosOxMCx4aWrPngZRnjOpcVWeO3jed4XCMqW97
+	 7HBuABzUBQyssJ7+PcRfG7h4+Dqom+tZ7rnzFYr3bNM3DCm72vXZ9E2ybCOAG7I3H+
+	 PX6OzaYr+d6AQ==
+Date: Fri, 4 Sep 2026 11:02:56 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>, linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260904-keen-fiery-fulmar-702fb3@sudeepholla>
+References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
+ <20260805063255.1638614-2-aneesh.kumar@kernel.org>
+ <178794567779.4159892.8785590655735217125.b4-review@b4>
+ <yq5ay0diyavw.fsf@kernel.org>
+ <20260903125718.GI4157646@nvidia.com>
+ <yq5av78mxv0j.fsf@kernel.org>
+ <20260903154626.GL4157646@nvidia.com>
+ <20260903-nonchalant-capable-parrot-539c8b@sudeepholla>
+ <20260903182152.GN4157646@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_030222_097322_B55E6AEE 
-X-CRM114-Status: GOOD (  11.50  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903182152.GN4157646@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +86,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check the return values of clk_prepare_enable() for fout_bpll and
-mout_bpll.
+On Thu, Sep 03, 2026 at 03:21:52PM -0300, Jason Gunthorpe wrote:
+> On Thu, Sep 03, 2026 at 05:18:16PM +0100, Sudeep Holla wrote:
+> 
+> > Oh yes, we need this whatever you term as "duplication". I would argue
+> > against terming it as duplications as if you look at the various SMCCC
+> > based specification, we have zero consistency in how the VERSION command
+> > is expected to work.
+> 
+> Okay, then that pretty much settles it. Nothing to do
+> 
+> > > Missing a check means FW upgrades might become Linux breaking. 
+> > 
+> > Are you referring to the SMCCC bus code or RSI in particular above. I don't
+> > see any issue with SMCCC bus code check as that is the least we can do and
+> > must not change with future versions of the firmware as well.
+> 
+> Just in general, SMCCC drivers have to do something smart with the
+> version.
+> 
+> Like, is this OK:
+> 
+> #define ARM_SMCCC_TRNG_MIN_VERSION	0x10000UL
+> 
+> static inline bool smccc_probe_trng(void)
+> {
+> 	struct arm_smccc_res res;
+> 
+> 	arm_smccc_1_1_invoke(ARM_SMCCC_TRNG_VERSION, &res);
+> 	if ((s32)res.a0 < 0)
+> 		return false;
+> 
+> 	return res.a0 >= ARM_SMCCC_TRNG_MIN_VERSION;
+> }
+> 
+> ?
+> 
 
-If enabling fout_bpll fails, propagate the error. If enabling mout_bpll
-fails, disable fout_bpll before returning. This keeps the clock enable
-count balanced on probe error paths.
 
-Fixes: 6e7674c3c6df ("memory: Add DMC driver for Exynos5422")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiawen Liu <1298662399@qq.com>
----
-Changes in v2:
-- Use the full author name in From and Signed-off-by.
-- Add Fixes and Cc stable tags.
-- Generate the submission with git format-patch.
+So it will be specific to each FID range, then what is smart about
+generic SMCCC logic then ?
 
- drivers/memory/samsung/exynos5422-dmc.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+We already have
+	if (ret != SMCCC_RET_NOT_SUPPORTED)
+		arm_smccc_device_register(..)
 
-diff --git a/drivers/memory/samsung/exynos5422-dmc.c b/drivers/memory/samsung/exynos5422-dmc.c
-index 788d49c688b1..98c319552583 100644
---- a/drivers/memory/samsung/exynos5422-dmc.c
-+++ b/drivers/memory/samsung/exynos5422-dmc.c
-@@ -1297,8 +1297,15 @@ static int exynos5_dmc_init_clks(struct exynos5_dmc *dmc)
- 	if (ret)
- 		return ret;
- 
--	clk_prepare_enable(dmc->fout_bpll);
--	clk_prepare_enable(dmc->mout_bpll);
-+	ret = clk_prepare_enable(dmc->fout_bpll);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dmc->mout_bpll);
-+	if (ret) {
-+		clk_disable_unprepare(dmc->fout_bpll);
-+		return ret;
-+	}
- 
- 	/*
- 	 * Some bootloaders do not set clock routes correctly.
+Not sure what else can be done.
+
+> It means you can never publish a version 2 that is ABI breaking
+> because linux doesn't check for that. Was that ARM's intention with
+> the version API? It's basically a completely pointless check that
+> doesn't effectively do anything.
+
+I didn't get that. The example above checks for minimum TRNG version,
+so it won't break in any way for v2. What am I missing ?
+
+> 
+> My broader, more general point is that if SMCC is being made into a
+> discoverable bus, that's great, but it would be even better if ARM
+> could find a way to progmatically enumerate all the ABIs present on
+> the SMCC interface to populate the bus. That would necessarily include
+> some consistent treatment of versioning for consistent
+> interoperability.
+
+Sure, it can be tried for future SMCCC based specs. We can't ignore the
+inconsistency that exists in the currently used SMCCC based specs. So it
+can't be ideal as you prefer I am afraid.
+
+> 
+> > If lower is also set at v3.0, then I would argue it is firmware upgrade
+> > issue expecting old kernel with old RSI version supported to work. If
+> > that returns v2.0, the driver must work IIUC. Aneesh, hopefully I got this
+> > right ?
+> 
+> There was many long conversations about this and I think the
+> conclusion was RSI will broadly not use versions for any kind of ABI
+> control. It is too coarse to really work in the real world and we must
+> have strong forward/backwards interoperability inside VMs forever.
+> 
+
+OK, I wasn't ware of that.
+
 -- 
-2.34.1
-
+Regards,
+Sudeep
 
