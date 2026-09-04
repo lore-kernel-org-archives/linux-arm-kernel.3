@@ -4,124 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BC8C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828EAC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 23:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPbIgqSkBwQ2KDwgvNvCRhxjM6UlbU5yXmSdqDfrGVk=; b=QLV2c5V5umrU5Lfb32MCLLR4mR
-	QAUQCec2Ns35izZyIG3LPOltSvsdVpn7uUHyoQBjA4GLj5QWM2XNi38MobmIpEcxUl2a8KRfbmkCE
-	5hGsjBda8elE9UpPcj+7P/BMaXf/dyBx7MJ6y7WCYgoNtXojmxA1pZclcw3y85SlYbkjde7IUMPHK
-	tl0k3FuslN5VRxzLKFm9IUWgI/Lz+azbWptXzyAJNeT0wEhHHErLcnZh/YWEHZMJNa5ZmWIV4hwcq
-	OvROkSp0LoX6n+NsTGkQZO84C8uC5VVOJLD+WlhSKHWo9JhaN9ApEyaqVoH+V53rB0aplIRzndy5m
-	GqiXQL3Q==;
+	bh=WvttKtEcaCMI+iTMj6fHxLxcsoxDPGgctjnzDBBojTs=; b=MQO5oVOaxVtMKiFyhk2QALA93c
+	ncodfCHmlLvSc2CzkgHCqCGS87HYzv+SSxmA/eGrrLQO0Xt4bC+qUvCOSAy0VNQWnQoeLm4cHRBCT
+	x1N6q3N5OyStOOEeI9DeICPwfhe+/QQ5KaNyiJG8MGGzcHd4fAHDSvjZzI3V5bmBJ7hd0f3zdLnak
+	LZuY0CQeWWaa1WiHq7ZuiXl0wMIhN5V9kyJYbYEJDFoBBbqKX+vr7xlf3eHUzUKK1nj8Me2tE3oks
+	udJ8gpyV6Og9JkIFJiQZuPiFUC6FA4WfXkjuRXwrnL8AEKfjL1TZclFV9ESjB5gfIdAf7O/JgdpCZ
+	FmIhYFIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cqs-00000003Rcs-4BwU;
-	Fri, 04 Sep 2026 22:57:43 +0000
-Received: from mail-northcentralusazon11010062.outbound.protection.outlook.com ([52.101.193.62] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1x2d0O-00000003SMC-2SiQ;
+	Fri, 04 Sep 2026 23:07:32 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cqq-00000003Rc4-1fWD
+	id 1x2d0K-00000003SLq-49sj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 22:57:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jjmwqpi6o6tA2tbcyxc4fSpc/xWpkNZVD5WR0tIzUWrmJstjgpgO4upjfvdDcUNlOQOgB/LzE+bJEITT32JBJUUI7IQjeYplrMhR4NFLdcpUtmPipKWMC5AiMomMEXgJ8O7M6PmSAAAoem3OyEVwdI2BZeQkoZyIAogl2HdVzMdq5Mowt/H49+1AnvTZLyrSs3edtxx4kjuGQBweLbG3MZ+S3p5wblZAHVDN2c56g3uoxtSlDs+wxY1Ryc2jPvwMtzNptMkVj5udTefF88TxBYglJ/42B2mDTFbGPFExLnLUw+zzh0DyOarqidhW4A1/Bx1gogpvtbGQhJg+B6srcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iPbIgqSkBwQ2KDwgvNvCRhxjM6UlbU5yXmSdqDfrGVk=;
- b=Zt6X64tejzUHQBf8GrggV+VP1OD6idXS1ZPo/gldhqAP4r3BLaDFZ6OXXUV9ovFyIPjJK0O2aMX00JZP1hevdVrAd+3SC655u6d/djoRfTWZWC2i4NuDC4zJ7FNOb30XizkjiitRxanMvaZbEHtBLm//gWiLku/jSHzgReLh5RVrTwtXBhZFtlzhn6lZk/HATloNygCb1ewVgJUgmRe7WcyH5hUCRVSV6Mq6HLCGgf2JJ16i+26tF7ZGTpyb2WCrREH3jNr5kf6H3iAsLRnExqb70iOsJzAFczdYKFm8FkoOoRxQ0WzOMVC8aMEUS+o1WOcguuE3NEvxESmX2KWG8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iPbIgqSkBwQ2KDwgvNvCRhxjM6UlbU5yXmSdqDfrGVk=;
- b=risz1AVu4wOViNhmAHwL6qGYZomz6WUPyaOVkEVCOIQkPntH/6SewMfg6dd9rG1zU10gd2RkolRG9IQPMnN/68qFnIcdSt6RxSCM/AmlWlsleNReKL1DjV8ocpN4XkKBzk4wJANxQg/hoFHvNIiO5ko0kHkjUSss7NC+PONADv+niEvvA49TDwLyF4coMddL4sHFYm7XLuKxBC/EzMS/UtyY/NoPhRDiMiia9uiqMRK8gT3ApvtAxWi8A5ss4C6qsvrxpFBsO9ntuyvLYiqVNweO/3GNzzLg7d8DO+3mmJ9pNPDxhFQxVHspAHXQIhHS1Namp/59MrjPoizD0tzcag==
-Received: from BN1PR13CA0011.namprd13.prod.outlook.com (2603:10b6:408:e2::16)
- by PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 4 Sep 2026
- 22:57:32 +0000
-Received: from BN2PEPF00004FBB.namprd04.prod.outlook.com
- (2603:10b6:408:e2:cafe::3f) by BN1PR13CA0011.outlook.office365.com
- (2603:10b6:408:e2::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.4 via Frontend Transport; Fri, 4
- Sep 2026 22:57:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF00004FBB.mail.protection.outlook.com (10.167.243.181) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Fri, 4 Sep 2026 22:57:32 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 15:57:17 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 4 Sep 2026 15:57:17 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 4 Sep 2026 15:57:14 -0700
-Date: Fri, 4 Sep 2026 15:57:14 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
-	<praan@google.com>, <kevin.tian@intel.com>, <kees@kernel.org>,
-	<smostafa@google.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
-	<bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v3 03/13] iommu/arm-smmu-v3: Drain in-flight fault events
- on domain detach
-Message-ID: <aptMynoQtAf1Jcr5@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <8717f3329313f40308cff20006066283ebbb3a56.1788222485.git.nicolinc@nvidia.com>
- <178846311316.1308030.6266899352044838554.b4-review@b4>
- <20260904140906.GR4157646@nvidia.com>
+	Fri, 04 Sep 2026 23:07:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1788563245; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=WvttKtEcaCMI+iTMj6fHxLxcsoxDPGgctjnzDBBojTs=;
+	b=QtMA2AvaD8LTH1kMmMvttySnxAbK2YVps5+i+iPnnjmkgaldwlNBjlnveFucvEXVzEvDhnlEoKzykLhYwZ8XYkUyxYNbu+Z5t1jFhbvDHKDOwYnfJXoRtDVd0pElPDbtblkgyacwCV7TyIFnc7BCxO5VyQiJ0VJ9T5LLbtDdCuY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0XAJiLbv_1788563243;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0XAJiLbv_1788563243 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 05 Sep 2026 07:07:23 +0800
+Date: Sat, 5 Sep 2026 07:07:23 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Ben Horgan <ben.horgan@arm.com>, Xi Ruoyao <xry111@xry111.site>, 
+	Mark Rutland <mark.rutland@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Gavin Shan <gshan@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Trap guest MPAM accesses whenever MPAM is
+ implemented
+Message-ID: <ans4c7lc4v3ouekqkpxrqyenhsvxoe32zkw2qhqgvtiwsbkaji@rjbgkm3yzq63>
+References: <20260903160819.831518-1-fuad.tabba@linux.dev>
+ <xmhaptfcp2gyoovgus35yhx2uloe2zt3zniwscd2dwnatf2fii@jqobvjdmkqed>
+ <CA+EHjTwNJvqqeGtgxR2q+CRn5DJfigssLRcZxz-zY5XvATwOcQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260904140906.GR4157646@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBB:EE_|PH7PR12MB5685:EE_
-X-MS-Office365-Filtering-Correlation-Id: 936f03ee-d457-4fdb-7010-08df0ad7e739
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|7416014|82310400026|23010399003|18002099003|22082099003|56012099006|5023799004|6133799003|10067099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: kh0sV+nfDsEZk278y1pEsbhL3fcgrP+e2XkXUaxjSAvx9v7ZsMvWSlSR+bnjTd3vhpH6BoP+ybSMx7sbZD7SdfVexl5Rl0/MCmcVCNlrvGEsn4M/dFGzvnQXkTs9m+Wj+WMytU4J0k7sUQcNj3KrcRMcnrRbS23wLIKLeem4yn3sfL9dNjKY/raK+dIZuGpIOo7/qanTjNAPmSnp41o33wVLGyujG2vKFdrQOrDg/nk1xy/f/J4ivmcJdBwPp3MX9cSInh5jvgkF+dFobNc1vJTdxOCTcFQJQg885PnBjuZzAAmXwc5HbxTz08aanDd+C2+56MGlyFnLEjr4f8aD3drAWBcF4twtjIYLmrSzs7xuS7EN1Na3VxBVCipC3knngIN3MM+qUJBPJqYG2k5L729zeIJu+1INyO6CT2b+6Q0ObdGVZlT6XSJOPBA5WR1i6YDzxQFYcxGdPnD+IFBIqdtLveZAzayFBtU2KjoAWP/QWQref3O4tjlI0bB9iyIW1jtEccDC2Ow3kxRWiHF4SAR0/etssprsYqREuVE+tDmtDEY4/2IJwiX1eM3WWsY/zziOkXh3HEIRQ6LYoCK99btSNDwprQ710mvqQnUgyv882sKSn0Y8AMQvicpBBlxQsvwsUx6VIjLL60NTVst8q2ij7MLvu0FclufRAeQziyGbtm3A9cHnSggqfcG61sJNEo3x+kXRnbmCWOdnsSW40A==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(7416014)(82310400026)(23010399003)(18002099003)(22082099003)(56012099006)(5023799004)(6133799003)(10067099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: A4i6VApyHeKvpNRbXFW8ctpt2S1llKQCdwsmgdEtvSmIUKCLwC0YUoP4QnS/HP9D9XYLcB4JA0TDT8oRps5iLZaYtUujVKOhqH0IlioyxYFmPmQeoJds37YxKfhv8fDdcia+zANYiFccMN5VQXGbCo32Oi3rl8HB2+GhdCrPwsqpeUuViIKNLkk47TbUlKPKkq8gna1ZXFLSjMdCt4bnutc6mj2M6OKdxkEahp1uG6iVGk+hUKtx5IwAsPyL0t4T9psC/BHsgVjuii74IYEIv/S824NSLDjyvEMM/7KC9Sxji1vaJWppqDcq5dMzldedSan/gHUqfZFv1GIpDBtJMs3PBmBcyIOPDNB8ukCtgNDkXF1a1X+1RoALItiYc+9n3Q6tShM19XRE5Jbrq3eoh7LRM1sIhtC0UzbPRH7XKVA/a6OmH92TO6OsEfxqxsJH
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 22:57:32.1600
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 936f03ee-d457-4fdb-7010-08df0ad7e739
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBB.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5685
+In-Reply-To: <CA+EHjTwNJvqqeGtgxR2q+CRn5DJfigssLRcZxz-zY5XvATwOcQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_155740_445067_3754392C 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20260904_160729_750531_2D1477D2 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,51 +73,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 11:09:06AM -0300, Jason Gunthorpe wrote:
-> On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > > Also run the drain for every stall-capable master, even when the departing
-> > > attachment did not enable IOPF: such a stall event has to be aborted while
-> > > it still resolves to the old attach handle, 
-> 
-> That isn't the model for fault handling. The fault is delivered
-> unpredictably into either old or new domain. It doesn't matter which
-> one.
-> 
-> Domains have to conclude their fault proceessing before they are
-> destroyed, and attach to the a non-fault domain has to conclude faults
-> before completing the attach.
-> 
-> But there is no requirement to deliver faults to any particular thing.
+On Fri, Sep 04, 2026 at 12:18:00PM +0800, Fuad Tabba wrote:
+> Hi Yuan,
+>
+> > > +static bool
+> > > +test_has_mpam_sysregs(const struct arm64_cpu_capabilities *entry, int __unused)
+> > > +{
+> > > + /* The registers exist whether or not firmware enabled MPAM. */
+> > > + return detect_ftr_has_mpam();
+> > > +}
+> >
+> > My understanding: arm64.nompam affects detect_ftr_has_mpam(),
+> > thus when arm64.nompam = 1 w/ MPAM is supported in hardware,
+> > the KVM's trap setting is skipped yet, and it's possible that
+> > SYS_MPAM2_EL2 and SYS_MPAMHCR_EL2 are configured not trap anything
+> > by firmware, thus guest can still access MPAM registers.
+> >
+> > Do we need check the raw id register values for the real support
+> > state of MPAM here ?
+>
+> Under arm64.nompam, finalise_el2_state skips the MPAM2_EL2 and
+> MPAMHCR_EL2 writes too, via the same check_override, so the kernel
+> does not clear the traps either. What a guest reaches there is
+> whatever EL3 left, UNKNOWN when EL3 is implemented.
 
-Edited:
+That's what I was worried before w/ nompam = 1 for guest can still access
+the MPAM registers. Now it's fine to me w/ limitation on usage of nompam
+described in [1], the limitation on guest behavior described there yet.
+Thanks for the reply! I just not aware [1] before.
 
-Also run the drain for every stall-capable master, even when the departing
-attachment did not enable IOPF. An attachment has to conclude its in-flight
-faults before the attach completes, as the incoming domain might not handle
-a fault at all.
+> This patch is for the case where the kernel cleared the traps itself and
+> never set them again.
 
-> > > could pick it up right after the handle swap, mistakenly resuming it as if
-> > > it were a valid page fault against a new domain.
-> > 
-> > Useful perhaps to call out if this has been seen in real systems or
-> > not. I agree with the analysis but would rather hope drivers are
-> > well behaved in ensuring all traffic is done, adn this is hardeninging
-> > / handling of naught hardware activity (all good if so!)
-> 
-> There is a firm API contract on the iommu drivers, they cannot
-> propogate faults at unexpected times because the consumers cannot deal
-> with it.
-> 
-> We don't reason about well behaved drivers at this level because vfio
-> cannot be trusted to be well behaved. So any nonsense vfio can trigger
-> has to be handled without crashing the kernel.
+Yes next time I will explicitly say want to discuss something may
+related to the patch's main purpose.
 
-Added:
+>
+> Gating on the raw ID registers would make __activate_traps_mpam()
+> write MPAM2_EL2 on guest entry there. AFAICT that traps to EL3
+> wherever MPAM3_EL3.TRAPLOWER is still set, which is the firmware the
+> option is for: 10f885d63a0e ("arm64: Add override for MPAM") added it
+> for firmware that leaves the trap set and does not emulate it.
 
-This is an API contract, not hardening against odd hardware: a detach may
-arrive at any moment from a userspace driver behind VFIO, which cannot be
-trusted to quiesce its device first.
+Make sense, it break the nompam actually on platform need it,
+this isn't good idea.
 
-Thanks
-Nicolin
+For the purpose of this patch:
+
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+
+>
+> The arm64.nompam hazard is documented separately [1].
+>
+> Cheers,
+> /fuad
+>
+> [1] https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
 
