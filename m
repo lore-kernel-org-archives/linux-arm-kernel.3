@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B16C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34443C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5YxDY3gpgXUEyHB4LKpf5sbAqmUcywMUpLTIkNPDeQo=; b=S+iy+tT6hi41HWL1reTf1MrICu
-	ExDJA2u4mWQmCDprerJdxZNymngs63uFQkx5hR86+jkYM9BFURXrfj4hqbLU17roiXuLT+9SPbg0m
-	rHWhV79RsZo3ft0hXYfFs1IeEm6p/VYPAV7lGP24yb9sqrW9QSMvl6I0RwMgfRyCI0Yf8T8MpqrGh
-	IlBc1QGLvayN8nqe/Vpy+XR+uB55cEszYbPVn/HRs93yOYaPHC0sdfXwfouWWmNgN9HP0W5bkJFQd
-	hFGgKmIQcN7JBtT2kR3FYUKwOwgFmZa2IrvMIy3T/oMnTxkrdQ6bi26IbEYDIIJwN01Fq3y9A6BHQ
-	BtKLA8ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9NTVrwlm0T6q5xmXlu/Zj9XfefDzx/FrPXJ+Bp5H3w=; b=cMmgaazUbS1q4DxBX/sS0vEIwI
+	HaVmnSC4R6KI2fjWHmH4vjI7h7qz1QwQSg7t9KqC6FODZBZhTETTtsMd4qEkqsCSr2ilffD3IeDZb
+	LpHCF/nXfxXI19aqfXBANNI+ofcLzkxf9Y3+FOuE2+jCWy7h6aEa80rHW5rW+MrrjQ47YWjg9PVmT
+	D7E3I+vgnJcGzetYdXer0v/FzGHwN+nhdulh5XdrGMdG6kkpRZsETrodSA1lgG7LQxcNywAaCBssN
+	5DJpAUBX9N5uSaeV/TgULuwGFRuawLi1H/Ji6Qss5lTNJwbp98bObOtHw9q68f42XgIE36DKEV914
+	2GSW1SOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cZM-00000003Q9l-1by8;
-	Fri, 04 Sep 2026 22:39:36 +0000
-Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+	id 1x2caf-00000003QOL-02Mr;
+	Fri, 04 Sep 2026 22:40:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cZJ-00000003Q8j-1bqH
+	id 1x2cae-00000003QOF-0jBU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 22:39:34 +0000
-Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-6b145a9623fso861184eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 15:39:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788561572; x=1789166372; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=5YxDY3gpgXUEyHB4LKpf5sbAqmUcywMUpLTIkNPDeQo=;
-        b=VW6NkWfiiuaGZtLhDNbyPLUNMp2w23Wtu05dcOstn6uYXMhpCrif9pUPakzZbjv6B5
-         Kx2V64ukn2ngP+R3PPFuziNPGKm0vDnvYvdMO2cMsXpPg/1SHSYVP2zzK7ZFMPZv9Mvn
-         AB+Onu+gkMgkcoxVsz2pdKjBs8xbDC1lXZ1bhPkekp2Nb7m5nUwitumTWu4hxvHlKmXE
-         CCj/RNVX77SMmSgP24r9N23HvCMmqkfKcsd94kQwafSgzyatINwwcyS72E+5Fwztm8xj
-         Z99Li2qbOFfI2/bR5wr5zWRGxcSHlf3w5rnHzS+CWw7nTTKaGDTzlYzIkkznp8Vo6dJF
-         8AlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788561572; x=1789166372;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=5YxDY3gpgXUEyHB4LKpf5sbAqmUcywMUpLTIkNPDeQo=;
-        b=scAIy1ajLIGd17TKLT0vNBmcYXw26z77MkmF1/1rFF1ebjohYRZCsUvmLXBCy/4165
-         oLEiS9ylhEt/5XSI8IIsgoKQcko2NqbPBefVvlbrHsUOv2PTq5YqJsX6DcdJJfYSUQtN
-         n33Awl+wYKOYQ/qpaitJ3JXPZCrA7Z0Qxl1rIAfPFCGkqpPJyj0qJIPGV9OCD6WnzLoJ
-         90/fXvBw+7QcbsgNjsHzuiSYXyqglpUb3S7Do0yy9zspkGM1puLlPCst01mmaZiRoldn
-         ua7QdHULroV78fOKjYxvLWFTnSkNi8BuuD4ja2XTMzJmCCZ47NITg13y2/CdkntpGaUN
-         Smjw==
-X-Forwarded-Encrypted: i=1; AKwUvBwDKOB1aOJYtSaiKl9P0gUVAscP11Nq5I3bsXtU5fliyCRLNI0k/ED+6a/ytjwz3tCwuj1WLVIfaBXayG+f9Oas@lists.infradead.org
-X-Gm-Message-State: AFuF++kbp+QhsMfWPdtNNLjw4psZw1AemXcsc3ewrhRE857hJQDtY5vj
-	y48B8HOQZiUYCrApCIVuyi667i37tytaI6nmDdu4nAd30giq6l9QnGEs
-X-Gm-Gg: AYBFou2xywYEKL3Mh1/bRj/IMgHLvrtAlYAWDVyjcwF6Pc/FggonCQHEk/++spVx2fw
-	wlH99IsxKPfkovLR2PIp2CofgLnnSZgbKniCGuD4lsrBSVK8KHV5jnNCKm+mfR/hd4LKdpQVH8f
-	+Cc67fXAflJ2DxkVwwAZyeQciaNBhxF2JdLkHYF39E1ffvsTSxETO6Hr6wmuqu/TjXXLSIenAg8
-	LUTxF9U0NEz90UKcTn7CmHuaKDTR9LE1PORcXbnqlVPZu2vqiSmtzhHo8yQ3pfv/lheySTO0t40
-	kLt0CUiiWe67imqaTXFUVQyUoIVF2P4DCySs/+HUcVdPAtQ8IEyvhb4d5iltyST0IXTaybrzbTM
-	BMUWLx2Y8hcY90xAYkb22VDmPaxjyPUuUBA9WpjwO3R5UFdzqD6HLzdnvYtPtVB0yqZ4eq6iSqO
-	k4q7OUV6BVX2GgWOwE06/wtRLBXuJJ2eP/MJfYLxLzXoEDXdwxEjco4pAgDqPGU5SBpAWdW8/S3
-	XaXlh9PQO828z5ZBKZ7qsN8Uk+P1lwQwRK7eORNq5HHeRot3kzC4HYwRdI+simKAkrX/4S1HoCM
-	0DkXG4d1GL6FAsigw5E602fTTJWyKFQZmBzfiEmG+TtRRwMbYsnbQ5JmPeR6f5LHYrM3ok9UPou
-	YDMIYcwnfzNVFyAqVsfE=
-X-Received: by 2002:a05:6820:1c87:b0:6a1:8192:4d89 with SMTP id 006d021491bc7-6b6fe2b1023mr6553755eaf.29.1788561572187;
-        Fri, 04 Sep 2026 15:39:32 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-151-165.hlrn.qwest.net. [184.96.151.165])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-475523da013sm3488655fac.1.2026.09.04.15.39.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 15:39:31 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 04 Sep 2026 16:39:27 -0600
-Subject: [PATCH v2] mtd: rawnand: sunxi: fit maximized ECC step to page
- size
+	Fri, 04 Sep 2026 22:40:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C6EC143FEE
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:40:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD30C1F01563
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:40:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788561655;
+	bh=T9NTVrwlm0T6q5xmXlu/Zj9XfefDzx/FrPXJ+Bp5H3w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=jJ61hFWdmGdAZt3iISMIPITZqY4gxZC3mfJ6sEZet37Mo9rzg9diBibR0s2PjNTCW
+	 0MnxYR2cjA3wpMkcSUSNRIfBtWqT22oCAJczafxHUfqpDsfK3EFw6zV9kEIGlXqG0l
+	 G4F5F25SFoaKA4tiwurpisUO6Un2GRUjjE12QhB6IYLkYPnr8Smgli9czcH3gwYtzv
+	 +5ZgUob8KFI8Qq68HIhw8Atmh5VtcAjc/eRJQoIXoiRxoUcDV0GA/JW1oe1+Ye0I+0
+	 fc5muqsh+s+QV0bcaPffCtNpMmLstM9wcBL1ImobvUU8oJoO+fz5Nj9GWTgAqna2Yo
+	 g38RLP4vOC8bw==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b4a9994c20so1671957e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 15:40:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBw1rNRC21rFbgxN2he3WipInw/XScsQlNDuf3g74t4NyBHUhZSjrpnvVRcLqUaqRIlwkX3QkMV7P40BPT+y8hbm@lists.infradead.org
+X-Gm-Message-State: AFuF++lVizPrdovUHx2ZezyXifuZorce7mLj96+HNbcly/uqNoKm4dcW
+	P0CZEOl9ndzlcFWNMisN1G/+rTaEu7Qj+EgtnhvDVYjvTO5uJ6OMM15lENMviz3QJXU78dFRIS4
+	2nu5xkd1DLvg9jOHe/KSQMHONmTDmi40=
+X-Received: by 2002:a05:6512:3f16:b0:5b6:1a7c:59e6 with SMTP id
+ 2adb3069b0e04-5b61a7c5b4amr952304e87.64.1788561654360; Fri, 04 Sep 2026
+ 15:40:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-submit-sunxi-nand-ecc-step-validation-v2-1-6e3ba6200948@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNQQrCQAyF4auUrA3EwdrqVcTFdCZqRGOZjKVQe
- nejrh7/5nsLGBdhg2OzQOFJTF7qETYNpFvUK6NkbwgU9nSgHdp7eEr10VlQo2bklNAqjzjFh+R
- YXUDitttS3w8td+DWWPgi8+/ndP63Q3dO9YvDun4AApqGjokAAAA=
-X-Change-ID: 20260904-submit-sunxi-nand-ecc-step-validation-0e571088b5e7
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Boris Brezillon <bbrezillon@kernel.org>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_153933_422537_B81401EA 
-X-CRM114-Status: GOOD (  14.75  )
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-4-e918514cb3b1@ambarella.com>
+In-Reply-To: <20260904-cv75-v5-v6-4-e918514cb3b1@ambarella.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 5 Sep 2026 00:40:39 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmVKRobxDb1_U8xCKaH6d5CzLDAn0qe8W=voSUoTtduTA@mail.gmail.com>
+X-Gm-Features: AcwNN1Um3dJHBV2YivCN_BFI8Mitw2Ry9tj9isgsluqoUCSueU7CVUJmlqo5JrE
+Message-ID: <CAD++jLmVKRobxDb1_U8xCKaH6d5CzLDAn0qe8W=voSUoTtduTA@mail.gmail.com>
+Subject: Re: [PATCH v6 04/13] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +89,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When nand-ecc-maximize is set, the driver unconditionally selects a
-1024-byte ECC step. A NAND with a 512-byte page consequently produces
-zero ECC steps before the available OOB bytes are divided by the step
-count.
+On Fri, Sep 4, 2026 at 8:39=E2=80=AFAM Long Zhao via B4 Relay
+<devnull+longzhao.ambarella.com@kernel.org> wrote:
 
-The older sunxi NAND controllers support 512-byte ECC blocks. Select the
-smaller of the page size and the preferred 1024-byte step, using a
-512-byte step for a 512-byte page while retaining 1024-byte steps for
-larger pages. Unsupported smaller steps and controllers without
-512-byte support continue to be rejected by the existing checks.
+> From: Long Zhao <longzhao@ambarella.com>
+>
+> Document the CV75 pin controller binding using generic function and
+> groups properties for pinmux configuration.
+>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 
-Fixes: 4796d8655915 ("mtd: nand: sunxi: Support ECC maximization")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
-Changes in v2:
-- fix ECC maximization at its source by selecting a 512-byte step for
-  512-byte pages instead of validating the derived step count
-- retain 1024-byte steps for larger pages and the existing capability checks
-- rebase on the current MTD nand/next branch
-- Link to v1: https://patch.msgid.link/20260811060651.227431-1-james.hilliard1@gmail.com
----
- drivers/mtd/nand/raw/sunxi_nand.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I think this looks great!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 83666dd6cb2a..de1e6b49f79a 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -2084,7 +2084,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH) {
- 		int bytes = mtd->oobsize;
- 
--		ecc->size = 1024;
-+		ecc->size = min_t(unsigned int, mtd->writesize, 1024);
- 		nsectors = mtd->writesize / ecc->size;
- 
- 		if (!nfc->caps->reg_user_data_len) {
-
----
-base-commit: def559a215699aa2f2d8ef98f30156b9d562a154
-change-id: 20260904-submit-sunxi-nand-ecc-step-validation-0e571088b5e7
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
-
+Yours,
+Linus Walleij
 
