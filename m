@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A32FFC79F82
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3190C624DE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J/4oT28fup/ZxV4pDwkrdWaonCNlbao0KnfbR6NXI0U=; b=d/JCglvXuGqcmm
-	yw85I1AodJdXBzUoqn37JSIgJ3N1532OvXmoWVMvQLE6MTkVTTx/dPfeMPzKKL+2salEt3Fd6vVrw
-	04I3kht+GftaHNoT7IyelarHoPv9ecKyfye1QzIqcO7mu+4ab/LnbHdrZ42N3N2ML0kx03/7f0Usd
-	ZQXj6hLKWQulaIUSXjiha6/8k/dWn+jku6+QHzZB0Ob+ufSlniJmPzkmNAt10CkgP1IxYy3Vx/ne9
-	y5K+nQmwEGKVqodLqOv0UOHxralEfOuyXKtaUMrKpH0uXw6vxXVRKkEDWlqLVWlGzZf6atSRl7bSU
-	a4qScO5rME1RJ6yxzkkA==;
+	List-Owner; bh=dv+MD4RoIv1X1OjNSW2DcFLNrf28KgaRvuQExs0WkWg=; b=LKE4wu2UXMWniw
+	8m6cmnGYKS7pNXVlV5k4gJPEww7MAxTB6KV6rGVDOh0s7m0rmjDZxY+UvCu0Lq8kvwsJumwqeVTpZ
+	sNgOZh4Zh3piq8w/hxTI+BJD2kp2/atVAdjkTWvtc5QFcNNVjUiIK8MjxTfZRUCQSuX9XFKiNaeB4
+	UiqVvx5tfrouQ7tUomCVY6zUMlxvc6fWzT4CWNBVu9H/dXKSX00Oyg6Q01nOkRE7NbhaRGLktrTXf
+	WhAldYcCYV0g3wr8Gp9268daFpRsMjL2L1GvH1bMcHXVlHknhmhbKywx/xlImQ0TagNQtbIMTRli1
+	0J7ltAawKBq6T8DqBR+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wcw-00000002hAP-0I7w;
-	Fri, 04 Sep 2026 16:18:54 +0000
+	id 1x2Wcq-00000002h77-348R;
+	Fri, 04 Sep 2026 16:18:48 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wcq-00000002h6s-2LbL
+	id 1x2Wcn-00000002h5j-3Fit
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:18:50 +0000
+	Fri, 04 Sep 2026 16:18:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C4EB1BCA;
-	Fri,  4 Sep 2026 09:18:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 818B61595;
+	Fri,  4 Sep 2026 09:18:36 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 390853F8D6;
-	Fri,  4 Sep 2026 09:18:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3F1F33FBD2;
+	Fri,  4 Sep 2026 09:18:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788538727; bh=nBixZw3/1BkQyzToGEomClwqPJ2mncw8+26Z2hHqfxo=;
+	t=1788538720; bh=Dku5Deo1eRRXqpsPtgYa4sf2TVZxd3PZhvBhEyKq1EI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SzGq2iA5rQ+zWCWm0tmiIlgMADjCbI/9IFmR9Zpb7wjp8x2zPNPNWRac6iHQxNei/
-	 JbDZ2gO1aGGr6HZukCxwyhgcOw6ZILeA0qpHG9vWnNE6/UyrFVUQW+dnQiDAF60us9
-	 lAYrvwXb7bwVUF74uYYa297Rdqt/viyo8ckDLgpw=
+	b=HL3AgFiaPLEiFmTJz7F1HxgNKFrTuFJMuiLp8Ng7WEz3wOuxClIpuRtDfsS9A/owU
+	 rilQPzsYqVxdlp3s0lXVPey0y0bmJ0WNLJU76OcBUXQiMspFqdruooCWgQB256lk9o
+	 Zf/JKCY8DSbp1WkfduD92kVlXZfr34BVAx/AZIaw=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 08/21] arm64: ptrace: Always inline pt_regs_[read,write}_reg()
-Date: Fri,  4 Sep 2026 17:17:45 +0100
-Message-Id: <20260904161758.376504-9-mark.rutland@arm.com>
+Subject: [PATCH v3 05/21] arm64: cmpxchg128: LSE: Remove redundant operands
+Date: Fri,  4 Sep 2026 17:17:42 +0100
+Message-Id: <20260904161758.376504-6-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
 References: <20260904161758.376504-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_091848_646762_E86DB283 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260904_091845_906420_3E554C16 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +67,128 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@i
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In subsequent patches we'll want to use pt_regs_read_reg() and
-pt_regs_write_reg() in noinstr code.
+The LSE assembly for cmpxhg128*() has redundant operands which cause
+unnecessary register pressure. These operands can be removed without
+adverse effects, as described below.
 
-To ensure noinstr safety, both functions must be inlined into their
-caller. As both functions are marked as 'inline' rather than
-'__always_inline', that's not strictly guaranteed, and the compiler is
-permitted to generate out-of-line copies.
+It is necessary to force specific registers for the 64-bit halves of
+'old' and 'new', as the encoding of CASP[A][L] requires that these
+halves are allocated into even/odd register pairs, and contemporary
+versions of LLVM don't support a mechanism to allocate a value into an
+even/odd register pair for inline assembly. We manually allocate these
+into x0/x1/x2/x3.
 
-Mark both functions as '__always_inline' to ensure this.
+It is not necessary to force the address into a specific register, as
+the encoding of CASP[A][L] can accept this in any GPR or SP. Hence, it
+is not necessary to manually allocate the address into x4 for the
+'[ptr]' operand. The assembly uses the '[v]' operand, and contemporary
+compilers happen to allocate '[v]' into a separate register from
+'[ptr]', meaning that '[ptr]' only serves to create register pressure.
 
-There should be no functional change as a result of this patch.
+It is not necessary to allocate the '[oldval1]' and '[oldval2]'
+operands, as these are not used by the assembly. The assembly uses the
+'[old1]' and '[old2]' operands for both input and output. The
+'[oldval1]' and '[oldval2]' operands only serve to create register
+pressure.
+
+Remove the redundant operands. This saves on register pressure, as
+demonstrated by the test case below. There's still some unfortunate
+register shuffling due to the manual allocation of 'old' and 'new', but
+this should be less prominent within a larger function.
+
+Test case:
+
+| u128 outline_cmpxchg128(u128 *p, u128 old, u128 new)
+| {
+| 	return cmpxchg128(p, old, new);
+| }
+
+Generated code before this patch:
+
+| <outline_cmpxchg128>:
+|        mov     x6, x0
+|        mov     x1, x3
+|        mov     x0, x2
+|        b       1f
+|        mov     x2, x4
+|        mov     x3, x5
+|        mov     x4, x6
+|        mov     x5, x0
+|        mov     x7, x1
+|        caspal  x0, x1, x2, x3, [x6]
+|        ret
+| 1:     prfm    pstl1strm, [x6]
+| 2:     ldxp    x8, x7, [x6]
+|        cmp     x8, x0
+|        ccmp    x7, x3, #0x0, eq
+|        b.ne    3f
+|        stlxp   w2, x4, x5, [x6]
+|        cbnz    w2, 2b
+|        dmb     ish
+| 3:     mov     x0, x8
+|        mov     x1, x7
+|        ret
+
+Generated code after this patch:
+
+| <outline_cmpxchg128>:
+|        mov     x6, x0
+|        mov     x0, x2
+|        b       1f
+|        mov     x1, x3
+|        mov     x2, x4
+|        mov     x3, x5
+|        caspal  x0, x1, x2, x3, [x6]
+|        ret
+| 1:     prfm    pstl1strm, [x6]
+| 2:     ldxp    x8, x7, [x6]
+|        cmp     x8, x0
+|        ccmp    x7, x3, #0x0, eq
+|        3f
+|        stlxp   w2, x4, x5, [x6]
+|        cbnz    w2, 2b
+|        dmb     ish
+| 3:     mov     x0, x8
+|        mov     x1, x7
+|        ret
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: James Morse <james.morse@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/ptrace.h | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/atomic_lse.h | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index f7dc5fb9427d6..f635c3453a858 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -266,7 +266,8 @@ static inline u64 regs_get_register(struct pt_regs *regs, unsigned int offset)
-  * Read a register given an architectural register index r.
-  * This handles the common case where 31 means XZR, not SP.
-  */
--static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
-+static __always_inline unsigned long
-+pt_regs_read_reg(const struct pt_regs *regs, int r)
- {
- 	return (r == 31) ? 0 : regs->regs[r];
- }
-@@ -275,8 +276,8 @@ static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
-  * Write a register given an architectural register index r.
-  * This handles the common case where 31 means XZR, not SP.
-  */
--static inline void pt_regs_write_reg(struct pt_regs *regs, int r,
--				     unsigned long val)
-+static __always_inline void
-+pt_regs_write_reg(struct pt_regs *regs, int r, unsigned long val)
- {
- 	if (r != 31)
- 		regs->regs[r] = val;
+diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
+index afad1849c4cf5..d588af0565331 100644
+--- a/arch/arm64/include/asm/atomic_lse.h
++++ b/arch/arm64/include/asm/atomic_lse.h
+@@ -291,15 +291,13 @@ __lse__cmpxchg128##name(volatile u128 *ptr, u128 old, u128 new)		\
+ 	register unsigned long x1 asm ("x1") = o.high;			\
+ 	register unsigned long x2 asm ("x2") = n.low;			\
+ 	register unsigned long x3 asm ("x3") = n.high;			\
+-	register unsigned long x4 asm ("x4") = (unsigned long)ptr;	\
+ 									\
+ 	asm volatile(							\
+ 	__LSE_PREAMBLE							\
+ 	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
+ 	: [old1] "+&r" (x0), [old2] "+&r" (x1),				\
+ 	  [v] "+Q" (*(u128 *)ptr)					\
+-	: [new1] "r" (x2), [new2] "r" (x3), [ptr] "r" (x4),		\
+-	  [oldval1] "r" (o.low), [oldval2] "r" (o.high)			\
++	: [new1] "r" (x2), [new2] "r" (x3)				\
+ 	: cl);								\
+ 									\
+ 	r.low = x0; r.high = x1;					\
 -- 
 2.30.2
 
