@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF66CC79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670A4C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jUco8k8loeDw75nokYqtCIPRhQuEjxppf2mE5m0ZQ1k=; b=K2/8C0VyVPLa8FU/QwDqqvnFY7
-	JRiOLN3nuWn6udo0nnZApaO5EN2HONzEuATpMWIhKELhxA/twB27d6ohOcUGm0G8z3o+XOupH0xPR
-	8MoQBippRS01QnkPxXEppz+x8VDuxJxq7Ep77JTj9N3PbEDfT4tv8yE5VKpvNlWYb+v9mZra+QUcl
-	OqYP7D2R9pl+4fz7e2JxaeVpj2GZTwB9aN7wXaa5CKcDYXxOtk+vlX0Jei2s0OxhkCX+lXq5kQYAc
-	syOxSvo7jBHX22KFHv92fB/XR86Vwfjis0gRjBnBvAGpWt6y84vvX9UuvCmkxb5HBNNmdwgDyXxX8
-	18WiMWSg==;
+	bh=RQ5BUQyX60lAwoXOtJvq7hs8kBNzpXHT7+FU5vNuJYE=; b=b29VNJugMUXTSY3arAVsmXw6qm
+	fxoPAcnI1DngT2WqY1dg3D+EcyZSJg4eSW4kxvUr6+Q0Wc7uOuiFgD/7afTXAeE1X/ouGRWVyt3v0
+	gxHLnOXRL/Ku2zahTWjkdFMPlbqJsBQE23slmOdTggP9YPj75bASq8O+DtOOnloQWrKAa1DgSSmcf
+	Oy+soXt386me525s5TyZPXk84ChGxDjIBwL1IA8wI3IodrjSQWAExh9aUEfCQKmRY71ALG8Itez0G
+	a6T/hsI6Q6HWu7f/R+jsm/Xjb5tQ+YUniO5jyPa0a2y/dH/SNtm7asMZ7ee5XUIpIMVxrRndKr4Q8
+	kKT3fuug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PVG-00000001Pa0-0J7y;
-	Fri, 04 Sep 2026 08:42:30 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1x2PVL-00000001Pf4-1pBu;
+	Fri, 04 Sep 2026 08:42:35 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PVD-00000001PXs-2U6p
+	id 1x2PVI-00000001PcK-2ply
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:42:28 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d7195706f1so8517685ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:42:27 -0700 (PDT)
+	Fri, 04 Sep 2026 08:42:33 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3964e480f76so935088a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:42:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1788511347; x=1789116147; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1788511352; x=1789116152; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jUco8k8loeDw75nokYqtCIPRhQuEjxppf2mE5m0ZQ1k=;
-        b=RTygDaQqLuRVA6rSx5+V6+3A7ybRSJu7q1vfrufrRTML+4C2Q0nq9Jb3B5T+fN8pvP
-         uLIsYnoFLlAzvZC3G0fvZr3/S0jleIKPe+xHbk2Gd41EZSfUYem5R+8Q+v4yaLLgwFsM
-         zyrgSOgo9akncfX14+II2jSnuR0ajrtwA1QV0=
+        bh=RQ5BUQyX60lAwoXOtJvq7hs8kBNzpXHT7+FU5vNuJYE=;
+        b=MtmsNAesD1/5zGGxGW+DJW60QwikMGkAVJkaFzWLsnEqczKgQuhc35e26dV6d+9lrT
+         8twlzlnJJv/P7r/pwqNhiM3dlDd9Jpoa6j6JOoyeGJKQ5qVX2Ie5maeN8jdo3nUupSjY
+         m5yUA8Qp08kG1wAAJuupwN/f+G9j43I1UiDlU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788511347; x=1789116147;
+        d=1e100.net; s=20251104; t=1788511352; x=1789116152;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jUco8k8loeDw75nokYqtCIPRhQuEjxppf2mE5m0ZQ1k=;
-        b=eU0QZ0/by9FcDMVDlstQuXxRqxzWZhZiXPmsZgYXEm8NSg/qSmhOmkKKGW7NhDT6pe
-         yrsIqNwC0HZyO9mS5KAlStGEVgpbDHdAdawjAKIGlK6+Xv4GBR9p/WSvpRJK+3OS6wBf
-         ZZvzJ0M06aMLH+wxkenSXizk3snpclBaohEyWAt716a+GzjE+rauYL8Dt+M0Fbz9h/Op
-         AKmDOfiO7Q3N8a/lcqXpPHoqdnrhD4i4didwPBm3JAHZLEPq2sajAn7vjgbV5ETCMYSp
-         aL6gQHX88FExKUFaY8NKOAHse7aU7RStRjTfTyY4OuZ2OQW/ouPRxH5cgJgrnfw4EF6M
-         vnSw==
-X-Forwarded-Encrypted: i=1; AKwUvBx7yKigjWEz2G31efNRmsvByz9jvms11mqpqz3rCAOtMexMQsKlCY3wvXkBQvuuvCogpF9Eg2mQKlzeFyyh3a2d@lists.infradead.org
-X-Gm-Message-State: AFuF++mk2Rg730RZxe6+EEGGCklK7FylDUQcSeexWGMmTIR9fKO7QhmF
-	CoQhO+8EgAcUq/vXjZaFuuC3mQkaB3XPhftous6Zdyav0W+hgoCrD+Fzn/hdOCJ15Q==
-X-Gm-Gg: AYBFou1hmQH9/DJ+5ETqobkg3GSxldXV+xA80nhXI/40vTAyyBxxKlXsjwkney9M3d4
-	eX77JisTczpe9RiSS1mzaUwKrRbM1YzBD35//GcB4IIVMHbm1Zfb692zX4E/h3kj9hRskoD+Ioc
-	/M5f+YmYorkkU1eUL8+qpPsyTMBTaTaIMe2JdHIKKKHsgB+nnQWDPH0iFMcWTvDwFlZCuZXlVs0
-	Tx4hjDs+jD/f0SjhQORRAYHeaQUkivdEZgd/5P+CZ4ajtdlXRdarDjzR4Gsjoce16NiDUutpf+K
-	Bz4nPELiPlSFMt1QJdKI53NOqUbOR7zpAC0spFr6+MPgKA9a1AfLbcva+rNAOnA/0/sjSl2AgkJ
-	Xq023I9HpEVGY5PLtzY3z7R20bgW0FfcYWBd6+UBpb7CarwR8ccuwyZcAeyvh4h1YCWeiqmoaiZ
-	r+dniZdJPl5oIki+s0gQFO6okFJp4M6jfS3MK1LJdnrT2CWa4EpKDYchpX68ZKZhY7EE/APdVzH
-	SyppS6GHEQ5mS4foNOR+J7Yjv38xFteTBx/MGXugA5y
-X-Received: by 2002:a17:90b:3a8e:b0:390:8361:a532 with SMTP id 98e67ed59e1d1-39b260d2eb3mr6786889a91.7.1788511346596;
-        Fri, 04 Sep 2026 01:42:26 -0700 (PDT)
+        bh=RQ5BUQyX60lAwoXOtJvq7hs8kBNzpXHT7+FU5vNuJYE=;
+        b=iXpeEuAOvGywsVV8+01Y8LkCknKkROEtlkooYbInzYYx9S6OFurpiF/luWA8GNbL3J
+         SB3QlrfmF4TGyW/SeFPrMK4TIT+AXqo2nvTQXX1MmdgUJ52pVWoSA2d+Sxeq1K4Hfb+o
+         Bi+IljeKMyb1ThPImMGAFKOwhc4tw4BORYDlg34THVv4HKpBxNOGsBNxAjFhslQpL8h0
+         7lANYsY1fRQglsCl7k3bvfpZCQEvEmo/4aPIVLAecmWzRo8qmCJ1Hvw0pmNbd8+zWOdZ
+         Hqk9pI2m8MhSrUO6oP5uOA9mnqyuzsoWCvYU/56ldM2OXujhoFJ0MOB62vknA5jyxSix
+         OZOA==
+X-Forwarded-Encrypted: i=1; AKwUvByM2kAWQAJ740Gamg/qIN0CEB/KOnF584pYL1SekGx3usd/Rdso2Vx0FdWc5NuAOJzvEYrMi9lzCY5tiyHybg5/@lists.infradead.org
+X-Gm-Message-State: AFuF++nccigrnDU4TPJ2Bva8pp5Lwd+BXW8J/fEqjg7hysNqdukE04Zj
+	hVbQ4xbncs+pm87LUwqXMZ4gSwQAYaNW7+JoYVAQ8GSI/8I3BKiybH8IDnlVoKOQ3g==
+X-Gm-Gg: AYBFou1SpuUT+SoO+RbKl8aWqNUASlF/jonwoFw35zH5ISOUerN+iUlJSh09x3t+icc
+	VNM16lJJ3qjsPy/l/accH9r4+ceXSIWpa7NCRovNINjukS2QgHdnUeDHNK2fhPwTVOZu1ekDxbs
+	1G9izFSwosTBu/ubseooogHwh7KxaVeUMaoaaZVUwY+iM8kbi33w7XNAQLmoy3LZiSbpkFze0GZ
+	uVXQt4Aqoh1j/oLoTAzjf2517ievPDTwxsL0SDaHQyCpB7F0bdagI2q6sjlDXx1NpxLptKoZLd/
+	/hfIz18VylnEA7jgKh54I75S2CXKvAtDD6IlSGuEHVC+d6aDhuSqerp+5sKW5LdjSTbbaDcqtBH
+	7rkG0l9wN0ewMXEKN2TmDExChAbr2N0z3/x5vffelYNCZGwAJZjEV4Nbz2agkQGrKb10FqlJEou
+	GGebIpuPd4UvGKtYd+Mo9MNBxW7R1OBduQOYFO5ly1NJf9rTHl6nhSMgo1fan9OEOhaWackQ0E/
+	ooCagcHGunLW60xUZBF5t/Mp9jDDw/9ofYLgZJ2i1yp
+X-Received: by 2002:a17:90b:1d4f:b0:398:9be5:b417 with SMTP id 98e67ed59e1d1-39b26221eb1mr7387796a91.18.1788511351714;
+        Fri, 04 Sep 2026 01:42:31 -0700 (PDT)
 Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:201d:8:343:bf21:3095:9c5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm3343538a91.9.2026.09.04.01.42.21
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm3343538a91.9.2026.09.04.01.42.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 01:42:26 -0700 (PDT)
+        Fri, 04 Sep 2026 01:42:31 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Bartosz Golaszewski <brgl@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -94,19 +94,18 @@ Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
 	linux-kernel@vger.kernel.org,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Subject: [PATCH v8 03/16] power: sequencing: Add pwrseq_get_state()
-Date: Fri,  4 Sep 2026 16:41:42 +0800
-Message-ID: <20260904084158.1341550-4-wenst@chromium.org>
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v8 04/16] usb: hub: Use assign_bit() in usb_hub_set_port_power()
+Date: Fri,  4 Sep 2026 16:41:43 +0800
+Message-ID: <20260904084158.1341550-5-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
 In-Reply-To: <20260904084158.1341550-1-wenst@chromium.org>
 References: <20260904084158.1341550-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_014227_649592_B7C4B3CC 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260904_014232_715152_6D2EC0B0 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,112 +120,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The power sequencing consumer API already does power on state tracking
-internally. Expose the state to consumers through pwrseq_get_state()
-so that they don't have to reimplement it locally.
+usb_hub_set_port_power() open-codes assign_bit(). Just use the
+assign_bit() macro instead. This makes subsequent additions to
+usb_hub_set_port_power() easier to read.
 
-Instead of just on/off and error codes, the function can also return
-"unknown" state. This is in anticipation for "uncontrollable" power
-sequencers (such as GPIOs left unconnected).
+This change does not introduce any functional changes.
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Changes since v7:
-- Adapted to pwrseq_enable/disable() rename
-
-Changes since v6:
-- Changed to pwrseq_get_state() with enum return value
-
-Changes since v5:
-- Reverted back to returning -EINVAL if descriptor is NULL
+Attributing suggestion to Andy, since the change was originally
+requested as part of a review.
 
 Changes since v4:
-- Make pwrseq_power_is_on() return 1 if descriptor is NULL, i.e. if
-  the descriptor is optional, matching the other pwrseq consumer APIs
-
-Changes since v3:
-- Added missing stub function for !POWER_SEQUENCING
-
-Changes since v2:
-- New patch
-
-Needs to go in with "usb: hub: Power on connected M.2 E-key connectors"
-as it is a build time dependency. Bartosz wants the change on an
-immutable branch to pull into the pwrseq tree.
+- New patch (split out from "usb: hub: Power on connected M.2 E-key
+  connectors with power sequencing API") (Andy)
 ---
- drivers/power/sequencing/core.c | 19 +++++++++++++++++++
- include/linux/pwrseq/consumer.h | 12 ++++++++++++
- 2 files changed, 31 insertions(+)
+ drivers/usb/core/hub.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/power/sequencing/core.c b/drivers/power/sequencing/core.c
-index 721e888b658d..dbb2bd2f8864 100644
---- a/drivers/power/sequencing/core.c
-+++ b/drivers/power/sequencing/core.c
-@@ -968,6 +968,25 @@ int pwrseq_disable(struct pwrseq_desc *desc)
- }
- EXPORT_SYMBOL_GPL(pwrseq_disable);
+diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
+index 3345b3298daf..16e03ec8d1ab 100644
+--- a/drivers/usb/core/hub.c
++++ b/drivers/usb/core/hub.c
+@@ -10,6 +10,7 @@
+  * Released under the GPLv2 only.
+  */
  
-+/**
-+ * pwrseq_get_state() - Queries the last requested state of the power sequencer.
-+ * @desc: Descriptor referencing the power sequencer.
-+ *
-+ * This returns the last requested state of the power sequencer.
-+ *
-+ * Returns:
-+ * On success, PWRSEQ_STATE_ON for on and PWRSEQ_STATE_OFF for off;
-+ * negative error number on failure.
-+ */
-+int pwrseq_get_state(struct pwrseq_desc *desc)
-+{
-+	if (!desc)
-+		return -EINVAL;
-+
-+	return desc->powered_on ? PWRSEQ_STATE_ON : PWRSEQ_STATE_OFF;
-+}
-+EXPORT_SYMBOL_GPL(pwrseq_get_state);
-+
- /**
-  * pwrseq_to_device() - Get the pwrseq device pointer from a descriptor.
-  * @desc: Descriptor referencing the power sequencer.
-diff --git a/include/linux/pwrseq/consumer.h b/include/linux/pwrseq/consumer.h
-index 16fad5f3e3ab..e2a2991b20c2 100644
---- a/include/linux/pwrseq/consumer.h
-+++ b/include/linux/pwrseq/consumer.h
-@@ -11,6 +11,12 @@
- struct device;
- struct pwrseq_desc;
++#include <linux/bitops.h>
+ #include <linux/kernel.h>
+ #include <linux/errno.h>
+ #include <linux/module.h>
+@@ -899,10 +900,7 @@ int usb_hub_set_port_power(struct usb_device *hdev, struct usb_hub *hub,
+ 	if (ret)
+ 		return ret;
  
-+enum {
-+	PWRSEQ_STATE_UNKNOWN,
-+	PWRSEQ_STATE_ON,
-+	PWRSEQ_STATE_OFF,
-+};
-+
- #if IS_ENABLED(CONFIG_POWER_SEQUENCING)
- 
- struct pwrseq_desc * __must_check
-@@ -22,6 +28,7 @@ devm_pwrseq_get(struct device *dev, const char *target);
- 
- int pwrseq_enable(struct pwrseq_desc *desc);
- int pwrseq_disable(struct pwrseq_desc *desc);
-+int pwrseq_get_state(struct pwrseq_desc *desc);
- 
- struct device *pwrseq_to_device(struct pwrseq_desc *desc);
- 
-@@ -53,6 +60,11 @@ static inline int pwrseq_disable(struct pwrseq_desc *desc)
- 	return -ENOSYS;
+-	if (set)
+-		set_bit(port1, hub->power_bits);
+-	else
+-		clear_bit(port1, hub->power_bits);
++	assign_bit(port1, hub->power_bits, set);
+ 	return 0;
  }
  
-+static inline int pwrseq_get_state(struct pwrseq_desc *desc)
-+{
-+	return -ENOSYS;
-+}
-+
- static inline struct device *pwrseq_to_device(struct pwrseq_desc *desc)
- {
- 	return NULL;
 -- 
 2.55.0.979.g7e5102b832-goog
 
