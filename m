@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B92B5C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B76C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8welw8q80vDnCkJUseEYjZpwvSnOGyvDMguzpb/7+10=; b=WLV3HDf0No5biZtzPBpLj8NbwC
-	zi0sSFrE+b82XsVMJzkTwRJY3D+gdOBvc/Y3bxsb0tIDrwLbR7A2IH4vY1mxP4IugB/sIchX8bGka
-	Q1+YixkSpqRJbonNBHs0TwUQXM+gxC0MnLR10YooBSHWY9cSAjXq3hapw53DU22/Wa3Buef9G2a9r
-	bMznvy27d1OoUcZ8ZuSEaiNoidllHoya+YnNS3lyF4NBU423BTrIh6Pcbx2vSBeZAZuc09ePFgCLX
-	2jS5zOeN75pjbXRka1bnqXtBuNDiAof5Jw/hVAsWPBjLuL0umCbzyQE6JBrbXm3y958QfBVznU7r2
-	DAHAP+mg==;
+	bh=BDLs56GbfdaghW6+Ojs30rCNMbDvkWBrRf/SwASI79Q=; b=yQXN/h4QzIN0O6vYWJcLR+fkfZ
+	EM+lYq48Sen16UAUpIRd33qY9Zg23mPKTkb4nMmeH9qO/PqWkTERZf+AAarM9NCDpN4NttdZOdMHi
+	aT3DkNtXcwHD0IVM9tFj6MBDGO2bNNMKjdn6Qphy5/zChEVsTjLwQ+uzjXbnUTKGiPMwLDdhbCHP+
+	ptFrSj6oGcydRsc50fVDuhhWrHsNGbonbhMG7MUgyyhxbSWAAKncucF8eZYorQyb5cg/sCe0Hpzgt
+	+yT/OEioHH9Wp5mSySFVwXbVlU6IH8K+ryAalA4eJMtklituZbEtN6cYtI6uCtbIdUxzLPkGB+3+N
+	KMtxzhmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QYz-00000001ZuD-2Rgo;
-	Fri, 04 Sep 2026 09:50:25 +0000
+	id 1x2QZA-00000001ZyG-3qim;
+	Fri, 04 Sep 2026 09:50:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QYy-00000001Ztk-0CTF
+	id 1x2QZA-00000001Zxo-0A7R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:50:24 +0000
+	Fri, 04 Sep 2026 09:50:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F08D60A83;
-	Fri,  4 Sep 2026 09:50:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA66E1F00A3E;
-	Fri,  4 Sep 2026 09:50:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6CF5F60A6F;
+	Fri,  4 Sep 2026 09:50:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900D11F00A3D;
+	Fri,  4 Sep 2026 09:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788515422;
-	bh=8welw8q80vDnCkJUseEYjZpwvSnOGyvDMguzpb/7+10=;
+	s=k20260515; t=1788515435;
+	bh=BDLs56GbfdaghW6+Ojs30rCNMbDvkWBrRf/SwASI79Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=akzgCTCBGKJPAZI09qhodXTWgASlEDdS3PyqAwUbcJ0HePXgzjlGMtvDCSCLIKqT/
-	 YmgcjgutQnAV4awQjdQOoS0YLfZhec5R6KahWrkzYLussnekzlUvtqYWuya4RHzRQ0
-	 1YxaqcCp6/+9XC/1C6zYjqIuQqJgav1WxNAFk6fN/K9F8Rv5axlcy7BOp5F5mAJQVF
-	 rI2sw/Ie02jS+8gU6M4nDAUXuuW+wQSRofrcTVkbyqqzIh+sowKKmODL/Kl/Y15c50
-	 5UPqEvks8RVnXhFnG2bjsiNKowCtE599zQoyGi7/Ya7SDUAA7Aq/UNtrgs/qBDJKRn
-	 hOWllgs+e6hsQ==
+	b=nhiwMjtB4v2fcj21haXQz81pJ7VK3ruv1m+kEMdXjmmK58N0SPHiGdPiNgMZ/ynDK
+	 xbpn8XqvKwPWbzIiWvSPZOmOTdYUN4Ka9YwsfL3ePL9Coez7SRCrtDYeeGsbUM3ool
+	 WU/DfCsWYdNp+UdFYn5izY76UfG0eCkPV6h6FO4F9K5Sz/+U8Aa6L25q/9O+CpoTY3
+	 sIExk9PQmobKZWJeMlks6017srQhxTT+7zgoxavikRoB/Rr9fNoQmU7uq4DYQWqmgr
+	 aGiS2EqHPpmyR3PTM6k9yAx3paGltrITFY7iimNpTo6RFVFrufWrmNZ+LTo00HtlFn
+	 gn8T8d4BXmYQA==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,10 +57,12 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v10 1/7] firmware: smccc: Add an Arm SMCCC bus
-Date: Fri,  4 Sep 2026 15:19:54 +0530
-Message-ID: <20260904095000.1184861-2-aneesh.kumar@kernel.org>
+	Andre Przywara <andre.przywara@arm.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH v10 3/7] firmware: arm_rmm: Move RSI support out of arch/arm64
+Date: Fri,  4 Sep 2026 15:19:56 +0530
+Message-ID: <20260904095000.1184861-4-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
 References: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
@@ -80,330 +82,475 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SMCCC-discovered firmware services are currently represented by separate
-platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
-represent independent DT/ACPI-described platform resources; they are
-features of the SMCCC firmware interface.
+The RSI SMCCC function IDs describe a firmware ABI and are not arm64
+architecture specific definitions. Follow-up changes need to use them from
+non-arch code, including drivers/firmware/smccc and the Arm CCA guest
+driver.
 
-Add an Arm SMCCC bus for services discovered through the SMCCC firmware
-interface. The bus provides SMCCC device and driver registration helpers,
-name-based matching, modalias generation, and a sysfs modalias attribute so
-SMCCC service drivers can bind to discovered firmware services and autoload
-as modules.
+Move the complete Realm Service Interface (RSI) implementation from
+arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
+command helpers are also moved to include/linux so they can be shared by
+architecture code and firmware or driver code. This also keeps the
+firmware interface outside architecture code, as requested [1].
 
-Follow-up changes can then register SMCCC firmware services as arm-smccc
-devices instead of creating independent per-feature platform devices.
+[1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
 
-Based on arm_ffa code
-
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/firmware/smccc/Makefile     |   2 +-
- drivers/firmware/smccc/bus.c        | 151 ++++++++++++++++++++++++++++
- include/linux/arm-smccc-bus.h       |  48 +++++++++
- include/linux/device-id/arm_smccc.h |  15 +++
- include/linux/mod_devicetable.h     |   1 +
- scripts/mod/devicetable-offsets.c   |   3 +
- scripts/mod/file2alias.c            |   8 ++
- 7 files changed, 227 insertions(+), 1 deletion(-)
- create mode 100644 drivers/firmware/smccc/bus.c
- create mode 100644 include/linux/arm-smccc-bus.h
- create mode 100644 include/linux/device-id/arm_smccc.h
+ arch/arm64/Kconfig                            |  1 +
+ arch/arm64/include/asm/io.h                   |  2 +-
+ arch/arm64/include/asm/mem_encrypt.h          |  2 +-
+ arch/arm64/include/asm/pgtable-prot.h         |  2 +-
+ arch/arm64/include/asm/rsi.h                  | 70 -----------------
+ arch/arm64/kernel/Makefile                    |  2 +-
+ arch/arm64/kernel/setup.c                     |  2 +-
+ arch/arm64/mm/init.c                          |  3 +-
+ drivers/firmware/Kconfig                      |  1 +
+ drivers/firmware/Makefile                     |  1 +
+ drivers/firmware/arm_rmm/Kconfig              | 17 ++++
+ drivers/firmware/arm_rmm/Makefile             |  2 +
+ .../kernel => drivers/firmware/arm_rmm}/rsi.c |  2 +-
+ drivers/virt/coco/arm-cca-guest/Kconfig       |  2 +-
+ .../virt/coco/arm-cca-guest/arm-cca-guest.c   |  5 +-
+ .../linux/arm-rsi-cmds.h                      | 77 +++++++++++++++++--
+ .../linux/arm-smccc-rsi.h                     |  6 +-
+ 17 files changed, 108 insertions(+), 89 deletions(-)
+ delete mode 100644 arch/arm64/include/asm/rsi.h
+ create mode 100644 drivers/firmware/arm_rmm/Kconfig
+ create mode 100644 drivers/firmware/arm_rmm/Makefile
+ rename {arch/arm64/kernel => drivers/firmware/arm_rmm}/rsi.c (99%)
+ rename arch/arm64/include/asm/rsi_cmds.h => include/linux/arm-rsi-cmds.h (69%)
+ rename arch/arm64/include/asm/rsi_smc.h => include/linux/arm-smccc-rsi.h (98%)
 
-diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
-index 40d19144a860..68bbff1407b8 100644
---- a/drivers/firmware/smccc/Makefile
-+++ b/drivers/firmware/smccc/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
- #
--obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
-+obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= bus.o smccc.o kvm_guest.o
- obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
-diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b5a51b0ef944..ff9565d3ffa5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -38,6 +38,7 @@ config ARM64
+ 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+ 	select ARCH_HAS_MEM_ENCRYPT
+ 	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
++	select ARCH_SUPPORTS_RMM
+ 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+ 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+ 	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 49a7002661a9..1620537f0332 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -8,6 +8,7 @@
+ #ifndef __ASM_IO_H
+ #define __ASM_IO_H
+ 
++#include <linux/arm-rsi-cmds.h>
+ #include <linux/types.h>
+ #include <linux/pgtable.h>
+ 
+@@ -17,7 +18,6 @@
+ #include <asm/early_ioremap.h>
+ #include <asm/alternative.h>
+ #include <asm/cpufeature.h>
+-#include <asm/rsi.h>
+ 
+ /*
+  * Generic IO read/write.  These perform native-endian accesses.
+diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+index 636f45b4d8af..f03b9d7b83b4 100644
+--- a/arch/arm64/include/asm/mem_encrypt.h
++++ b/arch/arm64/include/asm/mem_encrypt.h
+@@ -2,8 +2,8 @@
+ #ifndef __ASM_MEM_ENCRYPT_H
+ #define __ASM_MEM_ENCRYPT_H
+ 
++#include <linux/arm-rsi-cmds.h>
+ #include <asm/hypervisor.h>
+-#include <asm/rsi.h>
+ 
+ struct device;
+ 
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 09d7c00cf405..58e71e592175 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -66,9 +66,9 @@
+ 
+ #ifndef __ASSEMBLER__
+ 
++#include <linux/arm-rsi-cmds.h>
+ #include <asm/cpufeature.h>
+ #include <asm/pgtable-types.h>
+-#include <asm/rsi.h>
+ 
+ extern bool arm64_use_ng_mappings;
+ extern unsigned long prot_ns_shared;
+diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+deleted file mode 100644
+index 88b50d660e85..000000000000
+--- a/arch/arm64/include/asm/rsi.h
++++ /dev/null
+@@ -1,70 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright (C) 2024 ARM Ltd.
+- */
+-
+-#ifndef __ASM_RSI_H_
+-#define __ASM_RSI_H_
+-
+-#include <linux/errno.h>
+-#include <linux/jump_label.h>
+-#include <asm/rsi_cmds.h>
+-
+-#define RSI_PDEV_NAME "arm-cca-dev"
+-
+-DECLARE_STATIC_KEY_FALSE(rsi_present);
+-
+-void __init arm64_rsi_init(void);
+-
+-bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
+-
+-static inline bool is_realm_world(void)
+-{
+-	return static_branch_unlikely(&rsi_present);
+-}
+-
+-static inline int rsi_set_memory_range(phys_addr_t start, phys_addr_t end,
+-				       enum ripas state, unsigned long flags)
+-{
+-	unsigned long ret;
+-	phys_addr_t top;
+-
+-	while (start != end) {
+-		ret = rsi_set_addr_range_state(start, end, state, flags, &top);
+-		if (ret || top < start || top > end)
+-			return -EINVAL;
+-		start = top;
+-	}
+-
+-	return 0;
+-}
+-
+-/*
+- * Convert the specified range to RAM. Do not use this if you rely on the
+- * contents of a page that may already be in RAM state.
+- */
+-static inline int rsi_set_memory_range_protected(phys_addr_t start,
+-						 phys_addr_t end)
+-{
+-	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
+-				    RSI_CHANGE_DESTROYED);
+-}
+-
+-/*
+- * Convert the specified range to RAM. Do not convert any pages that may have
+- * been DESTROYED, without our permission.
+- */
+-static inline int rsi_set_memory_range_protected_safe(phys_addr_t start,
+-						      phys_addr_t end)
+-{
+-	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
+-				    RSI_NO_CHANGE_DESTROYED);
+-}
+-
+-static inline int rsi_set_memory_range_shared(phys_addr_t start,
+-					      phys_addr_t end)
+-{
+-	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
+-				    RSI_CHANGE_DESTROYED);
+-}
+-#endif /* __ASM_RSI_H_ */
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index d2690c3ec528..21fc3a3d25c9 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
+ 			   cpufeature.o alternative.o cacheinfo.o		\
+ 			   smp.o smp_spin_table.o topology.o smccc-call.o	\
+ 			   syscall.o proton-pack.o idle.o patching.o pi/	\
+-			   rsi.o jump_label.o
++			   jump_label.o
+ 
+ obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
+ 					   sys_compat.o
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 29c6100f0c50..a707deba6ae7 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include <linux/acpi.h>
++#include <linux/arm-rsi-cmds.h>
+ #include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/stddef.h>
+@@ -43,7 +44,6 @@
+ #include <asm/cpu_ops.h>
+ #include <asm/kasan.h>
+ #include <asm/numa.h>
+-#include <asm/rsi.h>
+ #include <asm/scs.h>
+ #include <asm/sections.h>
+ #include <asm/setup.h>
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index fbf215ecc7d0..2a8de20d2b44 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -34,6 +34,8 @@
+ #include <linux/acpi_iort.h>
+ #include <linux/kmemleak.h>
+ #include <linux/execmem.h>
++#include <linux/arm-rsi-cmds.h>
++
+ 
+ #include <asm/boot.h>
+ #include <asm/fixmap.h>
+@@ -43,7 +45,6 @@
+ #include <asm/kvm_host.h>
+ #include <asm/memory.h>
+ #include <asm/numa.h>
+-#include <asm/rsi.h>
+ #include <asm/sections.h>
+ #include <asm/setup.h>
+ #include <linux/sizes.h>
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index b7cc11e4fbfa..62660bf520a8 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -310,5 +310,6 @@ source "drivers/firmware/samsung/Kconfig"
+ source "drivers/firmware/smccc/Kconfig"
+ source "drivers/firmware/tegra/Kconfig"
+ source "drivers/firmware/xilinx/Kconfig"
++source "drivers/firmware/arm_rmm/Kconfig"
+ 
+ endmenu
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index be46f1e1dc77..196a650ccf02 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -39,3 +39,4 @@ obj-y				+= samsung/
+ obj-y				+= smccc/
+ obj-y				+= tegra/
+ obj-y				+= xilinx/
++obj-y				+= arm_rmm/
+diff --git a/drivers/firmware/arm_rmm/Kconfig b/drivers/firmware/arm_rmm/Kconfig
 new file mode 100644
-index 000000000000..caba1a03c997
+index 000000000000..e981e12fdbe6
 --- /dev/null
-+++ b/drivers/firmware/smccc/bus.c
-@@ -0,0 +1,151 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Arm Limited
-+ */
++++ b/drivers/firmware/arm_rmm/Kconfig
+@@ -0,0 +1,17 @@
 +
-+#include <linux/arm-smccc-bus.h>
-+#include <linux/slab.h>
++config ARCH_SUPPORTS_RMM
++	bool
 +
-+static int arm_smccc_bus_match(struct device *dev,
-+		const struct device_driver *drv)
++config ARM_RMM_RSI
++	bool "Realm Service Interface (RSI) Support"
++	depends on ARCH_SUPPORTS_RMM
++	default y
++	help
++	  Enable support for running Linux as a Realm guest under a Realm
++	  Management Monitor (RMM), as defined by the Arm Confidential
++	  Compute Architecture.
++
++	  The RMM exposes the Realm Service Interface (RSI) to Realm guests.
++	  Linux uses RSI to negotiate the interface version, obtain the Realm
++	  configuration, and manage the protected or shared state of guest
++	  memory.
+diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/arm_rmm/Makefile
+new file mode 100644
+index 000000000000..3708b37a9aaf
+--- /dev/null
++++ b/drivers/firmware/arm_rmm/Makefile
+@@ -0,0 +1,2 @@
++
++obj-$(CONFIG_ARM_RMM_RSI)	= rsi.o
+diff --git a/arch/arm64/kernel/rsi.c b/drivers/firmware/arm_rmm/rsi.c
+similarity index 99%
+rename from arch/arm64/kernel/rsi.c
+rename to drivers/firmware/arm_rmm/rsi.c
+index 25ca75ce1a4d..8e716f1c1e31 100644
+--- a/arch/arm64/kernel/rsi.c
++++ b/drivers/firmware/arm_rmm/rsi.c
+@@ -8,11 +8,11 @@
+ #include <linux/psci.h>
+ #include <linux/swiotlb.h>
+ #include <linux/platform_device.h>
++#include <linux/arm-rsi-cmds.h>
+ 
+ #include <asm/io.h>
+ #include <asm/mem_encrypt.h>
+ #include <asm/pgtable.h>
+-#include <asm/rsi.h>
+ 
+ static struct realm_config config;
+ 
+diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
+index 3f0f013f03f1..2582ebb36922 100644
+--- a/drivers/virt/coco/arm-cca-guest/Kconfig
++++ b/drivers/virt/coco/arm-cca-guest/Kconfig
+@@ -1,6 +1,6 @@
+ config ARM_CCA_GUEST
+ 	tristate "Arm CCA Guest driver"
+-	depends on ARM64
++	depends on ARM_RMM_RSI
+ 	select TSM_REPORTS
+ 	help
+ 	  The driver provides userspace interface to request and
+diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+index 0eeddd1ff05b..b741643d1364 100644
+--- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
++++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+@@ -3,7 +3,8 @@
+  * Copyright (C) 2023 ARM Ltd.
+  */
+ 
+-#include <linux/arm-smccc.h>
++#include <linux/arm-rsi-cmds.h>
++#include <linux/arm-smccc-rsi.h>
+ #include <linux/cc_platform.h>
+ #include <linux/kernel.h>
+ #include <linux/device-id/platform.h>
+@@ -12,8 +13,6 @@
+ #include <linux/tsm.h>
+ #include <linux/types.h>
+ 
+-#include <asm/rsi.h>
+-
+ /**
+  * struct arm_cca_token_info - a descriptor for the token buffer.
+  * @granule:		PA of the granule to which the token will be written
+diff --git a/arch/arm64/include/asm/rsi_cmds.h b/include/linux/arm-rsi-cmds.h
+similarity index 69%
+rename from arch/arm64/include/asm/rsi_cmds.h
+rename to include/linux/arm-rsi-cmds.h
+index c1fab41f671e..9e8a8c189ca1 100644
+--- a/arch/arm64/include/asm/rsi_cmds.h
++++ b/include/linux/arm-rsi-cmds.h
+@@ -3,14 +3,36 @@
+  * Copyright (C) 2023 ARM Ltd.
+  */
+ 
+-#ifndef __ASM_RSI_CMDS_H
+-#define __ASM_RSI_CMDS_H
++#ifndef __LINUX_ARM_RSI_CMDS_H_
++#define __LINUX_ARM_RSI_CMDS_H_
+ 
+-#include <linux/arm-smccc.h>
++#include <linux/arm-smccc-rsi.h>
++#include <linux/jump_label.h>
+ #include <linux/string.h>
+ #include <asm/memory.h>
+ 
+-#include <asm/rsi_smc.h>
++#define RSI_PDEV_NAME "arm-cca-dev"
++#ifdef CONFIG_ARM_RMM_RSI
++DECLARE_STATIC_KEY_FALSE(rsi_present);
++
++void __init arm64_rsi_init(void);
++
++bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
++
++static inline bool is_realm_world(void)
 +{
-+	const struct arm_smccc_device_id *id_table;
-+	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
++	return static_branch_unlikely(&rsi_present);
++}
++#else
++static inline void arm64_rsi_init(void) { }
 +
-+	id_table = to_arm_smccc_driver(drv)->id_table;
-+	if (!id_table)
-+		return 0;
++static inline bool arm64_rsi_is_protected(phys_addr_t base, size_t size)
++{
++	return false;
++}
 +
-+	while (id_table->func_id) {
-+		if (smccc_dev->func_id == id_table->func_id)
-+			return 1;
-+		id_table++;
++static inline bool is_realm_world(void) { return false; }
++#endif
+ 
+ #define RSI_GRANULE_SHIFT		12
+ #define RSI_GRANULE_SIZE		(_AC(1, UL) << RSI_GRANULE_SHIFT)
+@@ -88,6 +110,51 @@ static inline long rsi_set_addr_range_state(phys_addr_t start,
+ 	return res.a0;
+ }
+ 
++static inline int rsi_set_memory_range(phys_addr_t start, phys_addr_t end,
++				       enum ripas state, unsigned long flags)
++{
++	unsigned long ret;
++	phys_addr_t top;
++
++	while (start != end) {
++		ret = rsi_set_addr_range_state(start, end, state, flags, &top);
++		if (ret || top < start || top > end)
++			return -EINVAL;
++		start = top;
 +	}
 +
 +	return 0;
 +}
 +
-+static int arm_smccc_bus_probe(struct device *dev)
-+{
-+	struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(dev->driver);
-+
-+	return smccc_drv->probe(to_arm_smccc_device(dev));
-+}
-+
-+static void arm_smccc_bus_remove(struct device *dev)
-+{
-+	struct arm_smccc_driver *smcc_drv = to_arm_smccc_driver(dev->driver);
-+
-+	if (smcc_drv->remove)
-+		smcc_drv->remove(to_arm_smccc_device(dev));
-+}
-+
-+static int arm_smccc_bus_uevent(const struct device *dev,
-+		struct kobj_uevent_env *env)
-+{
-+	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-+
-+	return add_uevent_var(env, "MODALIAS=" ARM_SMCCC_MODULE_PREFIX "f%08X",
-+			      smccc_dev->func_id);
-+}
-+
-+static ssize_t modalias_show(struct device *dev,
-+		struct device_attribute *attr, char *buf)
-+{
-+	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-+
-+	return sysfs_emit(buf, ARM_SMCCC_MODULE_PREFIX "f%08X\n",
-+			  smccc_dev->func_id);
-+}
-+static DEVICE_ATTR_RO(modalias);
-+
-+static struct attribute *arm_smccc_device_attrs[] = {
-+	&dev_attr_modalias.attr,
-+	NULL,
-+};
-+ATTRIBUTE_GROUPS(arm_smccc_device);
-+
-+const struct bus_type arm_smccc_bus_type = {
-+	.name = "arm_smccc",
-+	.match = arm_smccc_bus_match,
-+	.probe = arm_smccc_bus_probe,
-+	.remove = arm_smccc_bus_remove,
-+	.uevent = arm_smccc_bus_uevent,
-+	.dev_groups = arm_smccc_device_groups,
-+};
-+EXPORT_SYMBOL_GPL(arm_smccc_bus_type);
-+
-+int arm_smccc_driver_register(struct arm_smccc_driver *driver,
-+		struct module *owner, const char *mod_name)
-+{
-+	if (!driver->probe || !driver->id_table)
-+		return -EINVAL;
-+
-+	driver->driver.bus = &arm_smccc_bus_type;
-+	driver->driver.name = driver->name;
-+	driver->driver.owner = owner;
-+	driver->driver.mod_name = mod_name;
-+
-+	return driver_register(&driver->driver);
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_driver_register);
-+
-+void arm_smccc_driver_unregister(struct arm_smccc_driver *driver)
-+{
-+	driver_unregister(&driver->driver);
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_driver_unregister);
-+
-+static void arm_smccc_release_device(struct device *dev)
-+{
-+	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-+
-+	kfree(smccc_dev);
-+}
-+
-+struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id)
-+{
-+	int ret;
-+	struct arm_smccc_device *smccc_dev;
-+
-+	if (!name)
-+		return ERR_PTR(-EINVAL);
-+
-+	smccc_dev = kzalloc_obj(*smccc_dev);
-+	if (!smccc_dev)
-+		return ERR_PTR(-ENOMEM);
-+
-+	smccc_dev->func_id = func_id;
-+	smccc_dev->dev.bus = &arm_smccc_bus_type;
-+	smccc_dev->dev.release = arm_smccc_release_device;
-+
-+	ret = dev_set_name(&smccc_dev->dev, "%s", name);
-+	if (ret) {
-+		kfree(smccc_dev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	ret = device_register(&smccc_dev->dev);
-+	if (ret) {
-+		put_device(&smccc_dev->dev);
-+		return ERR_PTR(ret);
-+	}
-+
-+	return smccc_dev;
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_device_register);
-+
-+void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
-+{
-+	if (!smccc_dev)
-+		return;
-+
-+	device_unregister(&smccc_dev->dev);
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
-+
-+static int __init arm_smccc_bus_init(void)
-+{
-+	return bus_register(&arm_smccc_bus_type);
-+}
-+subsys_initcall(arm_smccc_bus_init);
-diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
-new file mode 100644
-index 000000000000..cde268fc2930
---- /dev/null
-+++ b/include/linux/arm-smccc-bus.h
-@@ -0,0 +1,48 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
-+ * Copyright (C) 2026 Arm Limited
++ * Convert the specified range to RAM. Do not use this if you rely on the
++ * contents of a page that may already be in RAM state.
 + */
-+#ifndef __LINUX_ARM_SMCCC_BUS_H
-+#define __LINUX_ARM_SMCCC_BUS_H
++static inline int rsi_set_memory_range_protected(phys_addr_t start,
++						 phys_addr_t end)
++{
++	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
++				    RSI_CHANGE_DESTROYED);
++}
 +
-+#include <linux/device.h>
-+#include <linux/device-id/arm_smccc.h>
-+#include <linux/module.h>
-+
-+struct arm_smccc_device {
-+	struct device dev;
-+	u32 func_id;
-+};
-+
-+#define to_arm_smccc_device(d) container_of(d, struct arm_smccc_device, dev)
-+
-+struct arm_smccc_driver {
-+	struct device_driver driver;
-+
-+	const char *name;
-+	int (*probe)(struct arm_smccc_device *sdev);
-+	void (*remove)(struct arm_smccc_device *sdev);
-+	const struct arm_smccc_device_id *id_table;
-+};
-+
-+#define to_arm_smccc_driver(d) \
-+	container_of_const(d, struct arm_smccc_driver, driver)
-+
-+int arm_smccc_driver_register(struct arm_smccc_driver *driver,
-+		struct module *owner, const char *mod_name);
-+void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
-+struct arm_smccc_device *arm_smccc_device_register(const char *name, u32 func_id);
-+void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
-+
-+#define arm_smccc_register(driver) \
-+	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
-+#define arm_smccc_unregister(driver) \
-+	arm_smccc_driver_unregister(driver)
-+
-+#define module_arm_smccc_driver(__arm_smccc_driver) \
-+	module_driver(__arm_smccc_driver, arm_smccc_register, \
-+		      arm_smccc_unregister)
-+
-+extern const struct bus_type arm_smccc_bus_type;
-+
-+#endif /* __LINUX_ARM_SMCCC_BUS_H */
-diff --git a/include/linux/device-id/arm_smccc.h b/include/linux/device-id/arm_smccc.h
-new file mode 100644
-index 000000000000..537bbf7a7fd5
---- /dev/null
-+++ b/include/linux/device-id/arm_smccc.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __LINUX_DEVICE_ID_ARM_SMCCC_H
-+#define __LINUX_DEVICE_ID_ARM_SMCCC_H
-+
-+#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
-+
-+/**
-+ * struct arm_smccc_device_id - Arm SMCCC bus device identifier
-+ * @func_id: SMCCC function identifier
++/*
++ * Convert the specified range to RAM. Do not convert any pages that may have
++ * been DESTROYED, without our permission.
 + */
-+struct arm_smccc_device_id {
-+	__u32 func_id;
-+};
++static inline int rsi_set_memory_range_protected_safe(phys_addr_t start,
++						      phys_addr_t end)
++{
++	return rsi_set_memory_range(start, end, RSI_RIPAS_RAM,
++				    RSI_NO_CHANGE_DESTROYED);
++}
 +
-+#endif /* __LINUX_DEVICE_ID_ARM_SMCCC_H */
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index a397213bedac..318c4b5c3451 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -16,6 +16,7 @@
- #include "device-id/amba.h"
- #include "device-id/ap.h"
- #include "device-id/apr.h"
-+#include "device-id/arm_smccc.h"
- #include "device-id/auxiliary.h"
- #include "device-id/bcma.h"
- #include "device-id/ccw.h"
-diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-index b4178c42d08f..1492e9fdc7cb 100644
---- a/scripts/mod/devicetable-offsets.c
-+++ b/scripts/mod/devicetable-offsets.c
-@@ -254,6 +254,9 @@ int main(void)
- 	DEVID(auxiliary_device_id);
- 	DEVID_FIELD(auxiliary_device_id, name);
++static inline int rsi_set_memory_range_shared(phys_addr_t start,
++					      phys_addr_t end)
++{
++	return rsi_set_memory_range(start, end, RSI_RIPAS_EMPTY,
++				    RSI_CHANGE_DESTROYED);
++}
++
+ #define RSI_ATTEST_CHALLENGE_MIN_SIZE	32
+ #define RSI_ATTEST_CHALLENGE_MAX_SIZE	64
  
-+	DEVID(arm_smccc_device_id);
-+	DEVID_FIELD(arm_smccc_device_id, func_id);
-+
- 	DEVID(ssam_device_id);
- 	DEVID_FIELD(ssam_device_id, match_flags);
- 	DEVID_FIELD(ssam_device_id, domain);
-diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
-index 8d36c74dec2d..980d7da456bb 100644
---- a/scripts/mod/file2alias.c
-+++ b/scripts/mod/file2alias.c
-@@ -1349,6 +1349,13 @@ static void do_auxiliary_entry(struct module *mod, void *symval)
- 	module_alias_printf(mod, false, AUXILIARY_MODULE_PREFIX "%s", *name);
+@@ -170,4 +237,4 @@ static inline unsigned long rsi_attestation_token_continue(phys_addr_t granule,
+ 	return res.a0;
  }
  
-+static void do_arm_smccc_entry(struct module *mod, void *symval)
-+{
-+	DEF_FIELD(symval, arm_smccc_device_id, func_id);
-+
-+	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "f%08X", func_id);
-+}
-+
- /*
-  * Looks like: ssam:dNcNtNiNfN
-  *
-@@ -1519,6 +1526,7 @@ static const struct devtable devtable[] = {
- 	{"mhi", SIZE_mhi_device_id, do_mhi_entry},
- 	{"mhi_ep", SIZE_mhi_device_id, do_mhi_ep_entry},
- 	{"auxiliary", SIZE_auxiliary_device_id, do_auxiliary_entry},
-+	{"arm_smccc", SIZE_arm_smccc_device_id, do_arm_smccc_entry},
- 	{"ssam", SIZE_ssam_device_id, do_ssam_entry},
- 	{"dfl", SIZE_dfl_device_id, do_dfl_entry},
- 	{"ishtp", SIZE_ishtp_device_id, do_ishtp_entry},
+-#endif /* __ASM_RSI_CMDS_H */
++#endif /* __LINUX_ARM_RSI_CMDS_H_ */
+diff --git a/arch/arm64/include/asm/rsi_smc.h b/include/linux/arm-smccc-rsi.h
+similarity index 98%
+rename from arch/arm64/include/asm/rsi_smc.h
+rename to include/linux/arm-smccc-rsi.h
+index e19253f96c94..fddb77986f70 100644
+--- a/arch/arm64/include/asm/rsi_smc.h
++++ b/include/linux/arm-smccc-rsi.h
+@@ -3,8 +3,8 @@
+  * Copyright (C) 2023 ARM Ltd.
+  */
+ 
+-#ifndef __ASM_RSI_SMC_H_
+-#define __ASM_RSI_SMC_H_
++#ifndef __LINUX_ARM_SMCCC_RSI_H_
++#define __LINUX_ARM_SMCCC_RSI_H_
+ 
+ #include <linux/arm-smccc.h>
+ 
+@@ -190,4 +190,4 @@ struct realm_config {
+  */
+ #define SMC_RSI_HOST_CALL			SMC_RSI_FID(0x199)
+ 
+-#endif /* __ASM_RSI_SMC_H_ */
++#endif /* __LINUX_ARM_SMCCC_RSI_H_ */
 -- 
 2.43.0
 
