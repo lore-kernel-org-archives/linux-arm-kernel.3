@@ -4,74 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0342FC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9664C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHADSBXrcRzI2pjE8Mt5DYoJu2ZeRffm/k2PyoibQUg=; b=VCKvzUrhTWDDKrZDKegwVBkGQg
-	GBwDztbDvCGmonGFvY8I2yNmMUECTtEVJIiRWSTW3zZEbuYvB3tDtr6u85vM2s2esXTKJNwMaSBxP
-	rbv3Y89/xMkGR95RcyeaDpDzCnp51BkECNRk5Apx69PbN354K1pRfbiAF4LFHWdJ+f9JyY82MPtWg
-	yc/f3qD0yQuYdZZh8vykihDNK8XPynZF6N4XWPt+ZhSVk35dD+ZlGlZ6SEuVNWL1dsOaGc3yYE76b
-	1aH4uW5shQveQreWunaHmfs2NjRQwuNkccG3PBCpQxKMuMhEhPY1tbijE24+BRZzOSVvah2tP7pRu
-	nDCOoGMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D8QP+kbZpQDntP1Tn0kRj3eRn2VrXYnQZO0ZaU5rhW8=; b=rvf3msA0EsmgXhV9AUPv1TlLmW
+	MSL4mjsVROqzDtXdHRkMVWQ7lopJuRsS3WDhQfhq5y35HY95wg6iGkOppH/w82VUQiZtMBlDg3dqC
+	6V6Ljt5K7iAcJ63ijOO1H3x4vYMso92oLdtxcgAGx+9AkW9c1l5hKHakgxfOEkdJvkl1gljEZOyj7
+	2VzT3wd6q+SDFRnp1Z3Os5v1Tq7xKlFUNw7POtAsgXARwSSzCV9edoohopdYosIXzRmZg4vUHrQvz
+	4Pk/iigKrdDw9ZTHvJ65aTdNWg91fyg1ojxZu/ZxcVVBU8kupXoAxs6Avem4NbyyZje/NRUlXBRb+
+	lL+mkplg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VAY-00000002Qj1-10Ee;
-	Fri, 04 Sep 2026 14:45:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2VEj-00000002R4P-3Zm4;
+	Fri, 04 Sep 2026 14:49:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VAX-00000002Qif-0GbX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 14:45:29 +0000
+	id 1x2VEj-00000002R4C-0gut;
+	Fri, 04 Sep 2026 14:49:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2BA543593;
-	Fri,  4 Sep 2026 14:45:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B641F00A3D;
-	Fri,  4 Sep 2026 14:45:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E5C2600CB;
+	Fri,  4 Sep 2026 14:49:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F8C91F00A3D;
+	Fri,  4 Sep 2026 14:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788533128;
-	bh=LHADSBXrcRzI2pjE8Mt5DYoJu2ZeRffm/k2PyoibQUg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bKKsQRV+2W8er9W9zPMxZVTQT9FXVczm0YCODHPaQKTW6Idf3VqWYDSXczRD4OOP+
-	 iNbsQJjqHF9WA2hMn1R71omIQ7U5KN5gUaJr0j8OrEBhC5b4RDCR0pXzcA5rXfLHiD
-	 xB5GiekqsUIKLQmk5cG9lWaKNpw3Ggb6kzeEfx3C2YmdiZ1kgrALE0azCLwZZ9raPP
-	 LjQpDBvJRUnlaYc+IUUedU+VLlL1uooExGNgzPeQ1mFshbVv41yzzVUeAqg2P8+duB
-	 RLx1nIUjLnZrsG75K6fKNuMDaF2jX8T6Jr5DPOLQxtAPaR8f7wLXr++b0JWKfePYeX
-	 LcVkugdihZnIQ==
-Date: Fri, 4 Sep 2026 09:45:25 -0500
-From: Rob Herring <robh@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 05/13] dt-bindings: gpio: pl061: add Ambarella CV75
- variant
-Message-ID: <20260904144525.GA582418-robh@kernel.org>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-5-e918514cb3b1@ambarella.com>
+	s=k20260515; t=1788533388;
+	bh=D8QP+kbZpQDntP1Tn0kRj3eRn2VrXYnQZO0ZaU5rhW8=;
+	h=From:To:Cc:Subject:Date;
+	b=HrZrB6+XKVeTKBRp6ZHAm3pMUVe/b+VHffHbaQ1TFnLcC32ptUS5VE6USRIWadLFN
+	 ZT5AJp8VcE65mN4oEiJOcTp8s0+yTarqerV7mKCo4LvvrtlqQaX25R7fQrQMJ8RuWU
+	 s3tWmp2vxZeP5tCwWd9IMXICnSpDXeGWmCPUiTjSe2ARmGu1YJ5a6rODeHs0FA13xO
+	 IuTf3f5fNCaG/djDUVsLv5Ai6BeUgDpLWQo2s0/ADPf8kXmSdvYwaTytkTnTpszC6x
+	 kHaQypMs/4EmSsxJIU2AGQ1DQ/ZpH81vplkqu2n7VE/2RbKdOgagK9SchPns9IwStM
+	 bpyGN0Ouoyxig==
+From: Thomas Gleixner <tglx@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, Anup Patel
+ <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>
+Subject: Interrupt chip driver maintainence
+Date: Fri, 04 Sep 2026 16:49:44 +0200
+Message-ID: <871pb9841j.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904-cv75-v5-v6-5-e918514cb3b1@ambarella.com>
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +65,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 02:38:12PM +0800, Long Zhao wrote:
-> Document the Ambarella CV75 GPIO bank compatible and the synthetic
-> arm,primecell-periphid used with the PL061 binding.
-> 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../devicetree/bindings/gpio/pl061-gpio.yaml       | 32 +++++++++++++++++++---
->  1 file changed, 28 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml b/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> index 4d970e55104b..5a6d95e84df2 100644
-> --- a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-> @@ -15,7 +15,9 @@ select:
->    properties:
->      compatible:
->        contains:
-> -        const: arm,pl061
-> +        enum:
-> +          - arm,pl061
-> +          - ambarella,cv75-gpio
->    required:
->      - compatible
->  
-> @@ -24,9 +26,13 @@ properties:
->      pattern: "^gpio@[0-9a-f]+$"
->  
->    compatible:
-> -    items:
-> -      - const: arm,pl061
-> -      - const: arm,primecell
-> +    oneOf:
-> +      - items:
-> +          - const: arm,pl061
-> +          - const: arm,primecell
-> +      - items:
-> +          - const: ambarella,cv75-gpio
-> +          - const: arm,primecell
+Folks!
 
-items:
-  - enum:
-      - ambarella,cv75-gpio
-      - arm,pl061
-  - const: arm,primecell
+I'm wading through my inbox full of patches for interrupt chip drivers
+and I'm thoroughly annoyed. The way how this works today is not
+sustainable.
+
+Patches end up in my and Radu's inbox and all we can do is go through
+them mostly on a formal basis, but it's out of our scope to look at the
+correctness vs. a particular hardware. In the past I just picked up
+patches when I had the gut feeling they are remotely correct, but I'm
+tired of this.
+
+I've just marked about 20 patches and patch series obsolete due to zero
+feedback from the relevant architecture/SoC people who were on Cc.
+
+And I'm going to do that from now on very consequently. If the
+architecture, SoC experts can't be bothered to look after their stuff,
+then don't expect me to suck all of this crap up and then deal with the
+complaints when it breaks.
+
+I'm still going to pick up obvious and simple bug fixes, but for
+anything which requires deep knowledge on the underlying hardware, I'm
+going to just mark them obsolete when they molded in my inbox unreviewed
+by the people who understand it for six weeks.
+
+Thanks,
+
+        Thomas
 
 
->  
->    reg:
->      maxItems: 1
-> @@ -46,6 +52,10 @@ properties:
->  
->    clock-names: true
->  
-> +  arm,primecell-periphid:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Override for the PrimeCell peripheral ID.
 
-Add a $ref to primecell.yaml at the top level and drop this.
-
-> +
->    "#gpio-cells":
->      const: 2
->  
-> @@ -64,6 +74,20 @@ required:
->    - "#gpio-cells"
->    - gpio-controller
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: ambarella,cv75-gpio
-> +    then:
-> +      properties:
-> +        arm,primecell-periphid:
-> +          const: 0x000e8061
-> +      required:
-> +        - arm,primecell-periphid
-> +        - gpio-ranges
-> +
->  additionalProperties: false
-
-And this will need to be unevaluatedProperties.
-
-Rob
 
