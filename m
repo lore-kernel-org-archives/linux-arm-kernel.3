@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1973DC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6B3C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hz9w3z/OoLk7Gh4v7MHQAOqRI2Q6SCEAbaw1cH6haGk=; b=0bGHbbYIEXQj9kqjqvH5cjxvK0
-	q9dE5X9mmtV5H7TzdZ5RnO6WzHpZzz13jfemM0vHuQGJQJlnxIiA58V4TEbBJMkjgmFEk8zXeN7Xb
-	O/dl+FB1B71L6CSV3dCPOFzvEEJse6dZ/bXpIM7qyXjuxmP9AdkhmS1d4gYNV2bOPV6WZ/GfbAi4T
-	NvwF0KwfJe6gGEffvXJv6X8lPG1K+Nrm0bGhcv8MF2zSEYiJF9h4IubUt+adaWo+4RYUY2gUAgvH4
-	ZiD8X10n+8HfAHPjAYLBYjWw5n7sjDj/rE9aKVbVDsIXE7hJrRuiPKhE9OlMwEcEqE0UpInwzxUBL
-	1Egwe6iw==;
+	bh=Rsx3F22b54j7nOzV6Cd1dVpKZd9BXlB+FemZoo7yI+w=; b=KkNNWMr+cRThvSAtCUv4mH39vA
+	4allwOx51TvxVRQnaKdPRecexhOBeCN6IX+VO4T3KZg4njY6mYdaMSlZEguyHYxdHYapRZRlVY2sy
+	6HA8BzgJqc5h0oRypv+xQNr5KCbgQQ1Ca+TqUBicYrT4jc05D+uCb1GINtENof9/LjTXdRyVW+cEi
+	u12eZq8hBUn+QaTUsaX/Wvxr8YwdEEnX04guX+6gvHNs6BKtZgF3BtZC/vyMGlFxkf4aiL0IfLrcX
+	ae0WZuLZ75maRYFPkY+F3Wm/DG2yPykm354F3V/N2fci/shS3MKcpsyISTyVVvrTC3naBK/ZfpN/T
+	4U0oqKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TxZ-00000002AwS-2jDa;
-	Fri, 04 Sep 2026 13:28:01 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x2Txb-00000002Azl-12XO;
+	Fri, 04 Sep 2026 13:28:03 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Tx0-00000002A02-21q1;
-	Fri, 04 Sep 2026 13:27:29 +0000
+	id 1x2Tx1-00000002A22-46iu;
+	Fri, 04 Sep 2026 13:27:31 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260904132724euoutp016efd9ea601323277ff1cd6aceb27658a~SISTo_-Hu0653306533euoutp01P;
-	Fri,  4 Sep 2026 13:27:24 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260904132724euoutp016efd9ea601323277ff1cd6aceb27658a~SISTo_-Hu0653306533euoutp01P
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260904132725euoutp023b927545ac8fd105a8924be21065423e~SISVFWUtu2507225072euoutp02X;
+	Fri,  4 Sep 2026 13:27:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260904132725euoutp023b927545ac8fd105a8924be21065423e~SISVFWUtu2507225072euoutp02X
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788528444;
-	bh=hz9w3z/OoLk7Gh4v7MHQAOqRI2Q6SCEAbaw1cH6haGk=;
+	s=mail20170921; t=1788528446;
+	bh=Rsx3F22b54j7nOzV6Cd1dVpKZd9BXlB+FemZoo7yI+w=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=hjUmAcNWdbXZB5n+KyHc70+bIS0vRo5420RALuFHalqRb8l99E4aTNks+Xa+7dyRv
-	 zD790x5IBYD/O8VLY0bTr4Tr9bTEySQktRDcWf6tQ3OhpCNzOcrIfgeH61H3AWKUGj
-	 gx4oD4JPNuiZDR9si6hOORCx+AaBy9vzgbZ5LPKg=
+	b=T2rjYjKVkEk/bfmbY7gL+C/9He20gZgv6RzvRP3iZzvwpIdNbw2gIIXyJX5ilRpnB
+	 fxc1WTOvvgpw3CmOagB99e3130j+nJztHdyIPM/8X4MgQclg3tgD7Sbl2xgWT73kXW
+	 lRSjHvNwbEIqOeAjL5dCQ3NLs3LySLmSJ9eEFMSQ=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260904132723eucas1p14cdff81f7ccdc02ec811179c5d401d69~SISTH4Y2s3177031770eucas1p1R;
-	Fri,  4 Sep 2026 13:27:23 +0000 (GMT)
+	20260904132725eucas1p19c8f66b7844108641dec1d2c39989dd5~SISU4JP5_1857218572eucas1p1o;
+	Fri,  4 Sep 2026 13:27:25 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260904132721eusmtip13029b99384470933fe5a29daa46c2513~SISRWwWJl2098420984eusmtip1E;
-	Fri,  4 Sep 2026 13:27:21 +0000 (GMT)
+	20260904132723eusmtip1b6082a36d93cd1731475a3375390118b~SISTLouDv1747217472eusmtip1S;
+	Fri,  4 Sep 2026 13:27:23 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 04 Sep 2026 15:27:09 +0200
-Subject: [PATCH v3 08/19] drm/bridge: inno-hdmi: Allow the register map to
- come from a parent
+Date: Fri, 04 Sep 2026 15:27:10 +0200
+Subject: [PATCH v3 09/19] drm/bridge: inno-hdmi: Add .disable platform
+ operation
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-jh7110-clean-send-v3-8-484f9ae72715@samsung.com>
+Message-Id: <20260904-jh7110-clean-send-v3-9-484f9ae72715@samsung.com>
 In-Reply-To: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
@@ -82,17 +82,17 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	Zheng <zhengxingda@iscas.ac.cn>,  Michal Wilczynski
 	<m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260904132723eucas1p14cdff81f7ccdc02ec811179c5d401d69
+X-CMS-MailID: 20260904132725eucas1p19c8f66b7844108641dec1d2c39989dd5
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260904132723eucas1p14cdff81f7ccdc02ec811179c5d401d69
+X-RootMTR: 20260904132725eucas1p19c8f66b7844108641dec1d2c39989dd5
 X-EPHeader: CA
-X-CMS-RootMailID: 20260904132723eucas1p14cdff81f7ccdc02ec811179c5d401d69
+X-CMS-RootMailID: 20260904132725eucas1p19c8f66b7844108641dec1d2c39989dd5
 References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-	<CGME20260904132723eucas1p14cdff81f7ccdc02ec811179c5d401d69@eucas1p1.samsung.com>
+	<CGME20260904132725eucas1p19c8f66b7844108641dec1d2c39989dd5@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_062726_802802_FE88BCD4 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260904_062729_890371_ADC00324 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,81 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some SoCs the HDMI controller does not own its register window. The
-StarFive JH7110 documents one 64 KB block, u0_hdmitx, that holds both
-the controller and the PHY, so the parent device maps it and owns the
-regmap while the two children share it.
+The Innosilicon HDMI driver supports platform-specific behavior through
+the `inno_hdmi_plat_ops`. While it provides an `.enable` hook for
+platform-specific power up sequences (like enabling PHYs), it lacks a
+corresponding hook for power down.
 
-Use a regmap supplied by the parent device when there is one, and keep
-mapping our own resource when there is not, so platforms that own their
-register window are unaffected.
+This patch adds a new `.disable` op to the `inno_hdmi_plat_ops` struct
+and calls it at the beginning of `inno_hdmi_bridge_atomic_disable()`.
+
+This allows platform specific drivers, such as the StarFive JH7110,
+to implement their own power down sequence (e.g., calling
+phy_power_off() and clk_disable_unprepare()).
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/gpu/drm/bridge/inno-hdmi.c | 31 ++++++++++++++++++++++++++++---
- 1 file changed, 28 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/inno-hdmi.c | 4 ++++
+ include/drm/bridge/inno_hdmi.h     | 1 +
+ 2 files changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index aab474740f7f57aa34007e6dac49e2414561593f..8bd771761180473d221f59d5c0cd2a636e96ac4c 100644
+index 8bd771761180473d221f59d5c0cd2a636e96ac4c..410a9eaa13541dfdacc5c96ba9a4d9dc021bc271 100644
 --- a/drivers/gpu/drm/bridge/inno-hdmi.c
 +++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -397,6 +397,7 @@ struct inno_hdmi {
- 	struct clk *pclk;
- 	struct clk *refclk;
- 	void __iomem *regs;
-+	struct regmap *regmap;
- 	struct regmap *grf;
- 
- 	struct inno_hdmi_i2c *i2c;
-@@ -470,11 +471,25 @@ static int inno_hdmi_find_phy_config(struct inno_hdmi *hdmi,
- 
- static inline u8 hdmi_readb(struct inno_hdmi *hdmi, u16 offset)
+@@ -886,6 +886,10 @@ static void inno_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
+ 					    struct drm_atomic_commit *state)
  {
-+	u32 val;
+ 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
++	const struct inno_hdmi_plat_ops *plat_ops = hdmi->plat_data->ops;
 +
-+	if (hdmi->regmap) {
-+		if (regmap_read(hdmi->regmap, offset * 4, &val))
-+			return 0;
-+
-+		return val;
-+	}
-+
- 	return readl_relaxed(hdmi->regs + (offset) * 0x04);
++	if (plat_ops && plat_ops->disable)
++		plat_ops->disable(hdmi->dev);
+ 
+ 	inno_hdmi_standby(hdmi);
  }
+diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
+index 81da9d9bcd79db8fe26c6dff4569371e484df608..5fca651c56b056d814124aa9c7e91aa7fd7ed1cd 100644
+--- a/include/drm/bridge/inno_hdmi.h
++++ b/include/drm/bridge/inno_hdmi.h
+@@ -16,6 +16,7 @@ struct platform_device;
  
- static inline void hdmi_writeb(struct inno_hdmi *hdmi, u16 offset, u32 val)
- {
-+	if (hdmi->regmap) {
-+		regmap_write(hdmi->regmap, offset * 4, val);
-+		return;
-+	}
-+
- 	writel_relaxed(val, hdmi->regs + (offset) * 0x04);
- }
+ struct inno_hdmi_plat_ops {
+ 	void (*enable)(struct device *pdev, struct drm_display_mode *mode);
++	void (*disable)(struct device *pdev);
+ };
  
-@@ -1095,9 +1110,19 @@ struct inno_hdmi *inno_hdmi_probe(struct platform_device *pdev,
- 	hdmi->dev = dev;
- 	hdmi->plat_data = plat_data;
- 
--	hdmi->regs = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(hdmi->regs))
--		return ERR_CAST(hdmi->regs);
-+	/*
-+	 * On platforms where the controller shares a register space with
-+	 * other blocks, the parent owns the regmap. Fall back to mapping
-+	 * our own resource where it does not.
-+	 */
-+	if (dev->parent)
-+		hdmi->regmap = dev_get_regmap(dev->parent, NULL);
-+
-+	if (!hdmi->regmap) {
-+		hdmi->regs = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(hdmi->regs))
-+			return ERR_CAST(hdmi->regs);
-+	}
- 
- 	hdmi->pclk = devm_clk_get_enabled(hdmi->dev, "pclk");
- 	if (IS_ERR(hdmi->pclk)) {
+ struct inno_hdmi_phy_config {
 
 -- 
 2.34.1
