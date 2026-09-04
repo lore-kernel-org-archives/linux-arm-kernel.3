@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF72C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644E2C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNZN5apO3ih+wp5yA8vfS7lu9ZPmepgW1CjLVvwrgaM=; b=TEmiB3Nz8+nsS2CWvi3aQhRtaP
-	IcqZtO91U49qtUXlZHxXTW3Oe0h+1n26fbR/BXpR4i6ZQpSs9GSwSR+kM6WAxkkXmBhZcF+BRBYr+
-	UUS1mIVslcLyra+hKijmJwZK4zAjdjE7VW3ceehuTWTC1kaJFvS87ukWJI7pJMC4MhBDlGChQ6UA2
-	tsK32qSAGKCILC2HIUTJF099KF2KXYkEH345f4rM1ou1IDhzqyk/us/5E+242eY6oRaDb6pk04Adb
-	qr9FlCHde2qIbHOW0hoeKYP5BPeLwILb1/V6BD7828s4SMS0AyBnuuHwtusmELQKuELKBFbrd5OlZ
-	gCg5c3KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bC9+Z8O8/eDUGiGPsOZTghyv70tTHYewS6bn0ofwswE=; b=WsG+qVnSeWhYJMkU+QH2i5gzsK
+	GU1BNLQaAcgC0V+UEjL8gFd14LRJGgpHN9jYexfEscdrnXnrAqTWVTOkF+oaE7UueexhqJLvyzHU7
+	ANhMWSLA1RwXfb8qu4A+eB4Qbsgas2ZoLfRS5hjJVoJcJitsuxxoh3P+2McWNEZwVDxU6+iyNo5Na
+	t7/20TrjByDQrVaxXSJgRVnQR+71heStwRQjc4T2InMoS502JrkjsKJjVrVm2pfawYEEAGsrr7c70
+	m6olDUFCvMXB8PHR1twtGh5JRdYqwu4aZckyUdGelrpn48F6wfc4KGfNaFrgySEMTf91YIPLyvezh
+	+Kri8Vbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SvE-000000020vK-1RwD;
-	Fri, 04 Sep 2026 12:21:32 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9] helo=mta0.migadu.com)
+	id 1x2SxZ-000000021DL-3S3F;
+	Fri, 04 Sep 2026 12:23:57 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SvB-000000020uM-0t2f
+	id 1x2SxW-000000021Ca-32bo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 12:21:30 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=MWnONv/mcSy1ZzvbBOJBF9sO7kdoah8czNuibP8g/Js=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788524485; v=1; x=1789129285;
- b=nzpy2CRsW44lFLcx0vqWN/MENVWD2ZVkBxTM2cXn66D2697UuZVjrH+n1olm63CojGTjRDzm
- XGKvFxDhiXIG4XzktTiqdFKH97sXoyapzyf0is1LPafX53Hyy2swNN6d11FnTOPtdywRoOUbdcq
- 0vUuYLP2kZ48vCdjbooHXPlE=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 3a4516637a6444d3;
-	Fri, 04 Sep 2026 12:21:25 +0000
-X-Mizu-Trace-ID: 3a4516637a6444d3
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so5632e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:21:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBxB40zEynQM3+4vr27aGDn43gqqgVApu054tnfkmkBkmkM5q0qkaQ4K6qjZZFAcpC2dAx3wFvevB16AMgVD2VHk@lists.infradead.org
-X-Gm-Message-State: AFuF++nzqvqoQUbGHsXAyOAvs6zO9K1sL8Iqx/fD6aYadn94TCA3o+bk
-	/jTfporTtGbzzCqcR3Er2RwncJXSuRz+zLLerZhOxWXC9MU+4msKXlKBlb9T3xcQhivrCjXfvJa
-	LOkNPsPOPRhGnhXZR88orL6/rzfFf/TXsZZjIqWWA
-X-Received: by 2002:a05:6512:a348:b0:5b6:186e:682f with SMTP id
- 2adb3069b0e04-5b6186e6924mr49450e87.0.1788524480459; Fri, 04 Sep 2026
- 05:21:20 -0700 (PDT)
+	Fri, 04 Sep 2026 12:23:55 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-6b1afdf98dfso594745eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:23:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788524633; x=1789129433; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bC9+Z8O8/eDUGiGPsOZTghyv70tTHYewS6bn0ofwswE=;
+        b=lFUiK+4j9Ykqn/7ZXX8bRDGInQY4OSSqW7CLU08dKk+Ll8s4nbVm2dywdIHIfWGDng
+         43H4/cVEzBqCmbmKGyoyfN5JiWiFFlDmxP/vaWtJMlICAuqGxy3MvAk2s6M4ieGiVlqz
+         Ga9u0V90uS1YdW35OE5wXWQzudKWlcd/n1FsResgXT9M4LPAulCq5uS5LeQfcvQov85U
+         Pecz4BzJ/mhG6qwUT50gN1S3mL5km7V+8inrGsnQn6j7W73n5gNWnrYvXpR9t7YbZYoi
+         k7YOtM63apLcnIVE+hSbDMullP39HDnbYEGXedxHo57E5RIdIKbw4nM/GjPSjU9ZIYx+
+         vzZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788524633; x=1789129433;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bC9+Z8O8/eDUGiGPsOZTghyv70tTHYewS6bn0ofwswE=;
+        b=hLVnyjzHVinkpO8UYCxIPdFBRj99sj4fYgTmc5Hq8Y26NGDaZr8CAmG4i36WOIUxwF
+         hkFYRFLecrN8mVohN8IeDA/UJar/yuLA8imewuYzZIdf6dAaJhqMEO/mMkEKs0ZwCI4p
+         lu0JEqqjz8c5ghWOC7M5rptSeXDM3DOznkM99vTywVlbBixTygRb21QU0+ZaWqji8vtK
+         +7GchX1f1EZ4YksXR3XqyXR5imUuaHk2EljwNM8xV9grR7zpUuoomr78WNiaSgyeuK9R
+         nsJta2Vf3NBAechqg+xo91bfYIIUEfJR1qtyXGrum2HCHyCqMXPCYzGnk+6rloUueJH8
+         lLmA==
+X-Forwarded-Encrypted: i=1; AKwUvBzI2Gf3IlIsIGVAWtT2Dzo51WNKtOP3xk27iN6uL1r2TwssfYTjsCqte944sdpp9sX/G3O5ptHeK640mpQ6veJn@lists.infradead.org
+X-Gm-Message-State: AFuF++mBL/9XutCakZfk4+gcF/wZuJSAYJPpjfCpz6gb0og8VixEyMtZ
+	zG42qPqZI5tiIIVM7fByhatWHpHyHSn1XEfPzHtTb6P7k+rL90oPKgPw
+X-Gm-Gg: AYBFou2z5PDE2rRfTCe40SL3lJgtWhO97GC4E8A4kHQzFtbG9NHI9EAOgFsbKH2ahzB
+	en7txo5bOqTw5WbZUx5qDPRZalgKCyP/pM0Vduh97+BFnNAg4YHT6dKb81SYskpPpl8IPfodoRI
+	gJtY0BhM7XHqIAA02WMy+efk82v6IukLhgQcp4Q7n/LX+YEkCaFP/gWZ1X30v6aUKLPjLg3dMVY
+	Qepv37mE+9VeZasS6Jy3gvAdGv+qZOSdcdB/0pSsxQQGv5KzCAXKBsn/XRyE+LhMMVZ/NkmboHL
+	NJaEkX8liYrdRG10osV+cwDNQrHWJOHomyqfaoHkao/M2ztNtBTtkLWy9AK3FeuZM7hh3fupzmO
+	iblQoOvM5jV29kdmJZvYX1WTBFbwmim9PPQCJ+CnOmuCZ4WGjEK8lEuVWq6LtuQKQG26pj7A+Lf
+	akemVF2860yf0POaW91TRese0+gLWWqjYMl+P5Hbjgzu3kuymXSHb4K3KFJjbVGCMDab0BBGg5T
+	TvC6A9Ji+64JwU=
+X-Received: by 2002:a05:6820:f023:b0:6b3:8240:b2e9 with SMTP id 006d021491bc7-6b6fbcd088amr4336612eaf.21.1788524633505;
+        Fri, 04 Sep 2026 05:23:53 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-143240d86c3sm6209359c88.0.2026.09.04.05.23.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 05:23:53 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH 1/2] ARM: mach-s3c: fix typo "capabilites" in comment
+Date: Fri,  4 Sep 2026 17:53:40 +0530
+Message-ID: <20260904122342.30456-2-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20260904122342.30456-1-hemanth.selam@gmail.com>
+References: <20260904122342.30456-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
-References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
- <20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
- <86pkyt4gvt.wl-maz@kernel.org> <eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
- <apqrky27mJmUV9UA@willie-the-truck> <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
-In-Reply-To: <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 4 Sep 2026 13:20:44 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
-X-Gm-Features: AcwNN1XeCRX4giVtMT6c-n59qRC6UqdpZVxqwiiImVnvjhpDgql12CaOGJS8YCo
-Message-ID: <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
-To: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_052129_551927_3C381AC6 
-X-CRM114-Status: GOOD (  22.07  )
+X-CRM114-CacheID: sfid-20260904_052354_763152_0399E498 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Sept 2026 at 12:48, Mark Brown <broonie@kernel.org> wrote:
->
-> On Fri, Sep 04, 2026 at 12:29:23PM +0100, Will Deacon wrote:
-> > On Fri, Sep 04, 2026 at 11:33:24AM +0100, Mark Brown wrote:
->
-> > > What about pKVM, my understanding was that that is very much an ongoing
-> > > concern and uses the nVHE hypervisor?  My expectation was that this
-> > > would only ever get used in hVHE configurations when people enable pKVM
-> > > on modern hardware, actual nVHE mode was mostly just carried along with
-> > > that.
->
-> > pKVM uses hVHE wherever it can nowadays, so I'm fine with only supporting
-> > S1PIE on hVHE and VHE configurations if that's easier to maintain. We
-> > just need to make sure that the failure mode for nVHE results in the
-> > feature being gracefully disabled, rather than e.g. crashing or quietly
-> > doing the wrong thing.
->
-> I figure that if we're supporting hVHE it will end up less complicated
-> to also enable nVHE, it reduces the potential for having bad or missing
-> fallback paths for features downstream of S1POE.  It's not like it's a
-> huge extra bit of code and it seems likely to save hassle down the line.
+Correct "capabilites" to "capabilities", reported by scripts/checkpatch.pl
+using the misspelling list in scripts/spelling.txt.  Only touches comments,
+no code changes.
 
-For pKVM there's no fallback path to get wrong: any CPU with S1PIE has
-VHE, so pKVM runs hVHE on it, and a CPU without VHE has no S1PIE to
-disable. I couldn't construct the protected nVHE plus S1PIE case under
-QEMU at all.
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
+ arch/arm/mach-s3c/gpio-cfg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Where I think it applies is kvm-arm.mode=nvhe on S1PIE hardware. That
-boots, and it's the one configuration where the nVHE side of the patch
-would run.
+diff --git a/arch/arm/mach-s3c/gpio-cfg.h b/arch/arm/mach-s3c/gpio-cfg.h
+index 2dfb0561001e..778103412cd1 100644
+--- a/arch/arm/mach-s3c/gpio-cfg.h
++++ b/arch/arm/mach-s3c/gpio-cfg.h
+@@ -36,7 +36,7 @@ struct samsung_gpio_chip;
+  * @get_config: Read the current configuration for the GPIO
+  *
+  * Each chip can have more than one type of GPIO bank available and some
+- * have different capabilites even when they have the same control register
++ * have different capabilities even when they have the same control register
+  * layouts. Provide an point to vector control routine and provide any
+  * per-bank configuration information that other systems such as the
+  * external interrupt code will need.
+-- 
+2.48.1
 
-Cheers,
-/fuad
 
