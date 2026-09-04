@@ -4,83 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669E9C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 17:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219C4C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 17:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9g3ixuSdmQCpOEGBBcnV25oj0cDJNzVy8Tk+QtmySWs=; b=22Jkz8nvaGmVar2l6eESEry7Fc
-	st7UlXWTYTFN6widR/YGAnBooa2Mv7nG/yNUaiiRMpRd7X1eptlIlm7g9hwCv//3knu7oob7sz66h
-	Pb56CNAShIRksSprkVsztvRakmD8ZRVaykXx1BGrSepSIZVUno9IK04Yxh3r38JJJEld9FTCCDUPp
-	y25q5AePw3DKg6F83F8giPwnN0L9jhwn2FUv4nKgkQKoDH8rO1w20EBBca/0C1+8+wLKof9slD2SZ
-	NyV2YYwrHx5asPAhx+cV2v/3JExXsUhNRM262BDcthiMkMHJIPMUNVsxxvHhY1a7z9y6epxbKhaZA
-	mDGz/QLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xbP84TB5YSyUcPTlSRXVzwOJ5KiLCluO2L3qZFE4rqU=; b=0l/DH9liCYjqc9wgV3mgMi9arn
+	eAbdlD1KcBR/koIYYFOkKxlogr8j9KQ8Xy561apJjVCsqOcM6VN28OJtqQdH0K359cL3Qeyv3MKeg
+	OFoF6K5MHCPvQeoBsnf5Z2nhYtdJ1KfXu8YsU2mkfjFIGWlzH2h3LKqgXPlf2POMaXB0LDEvdeA6R
+	bOC2WLF33f/iqUp2PLo+mo2+Rqei08otJsAgtDYwhZ8aSuKgq8zfoTgjGQC7tkHP1WHKx1ghamT4Z
+	e+oK7aE8S1r487L4xsGSdi1B0uolfuM13XLlf0PK9z+G/k5F00oMemOi12rsRMXX86HuoN+PjeOuy
+	noqK4EJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XWX-00000002qJr-0ixj;
-	Fri, 04 Sep 2026 17:16:21 +0000
-Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
+	id 1x2XbQ-00000002sFP-0Nrm;
+	Fri, 04 Sep 2026 17:21:24 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XWT-00000002qHr-3Ozv
+	id 1x2XbO-00000002sEf-0KG6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 17:16:19 +0000
-Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6a6735afb87so1167501a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 10:16:16 -0700 (PDT)
+	Fri, 04 Sep 2026 17:21:23 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a68aaf4840so2892853a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 10:21:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788542480; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fM5QD6s1MBkob8aj84hjuwIZF2Ap6PtA2XwPsqaBMIzyoXLYVf1rESjzAQnzfcSiE5
+         yQAO8BAov4Z72+XEzd5gcNRBKVe/VfzTKSOsTZ3zMNHRSrdRcBkvAIM41nSRblQHbent
+         JZ77uk7Hme2BMJvEfx1dY7V51xwNEkn8xZXbSgtWivcCcgZCt+75yAHdBXlHzTL52Dj1
+         3oGFhD3iXt3XT/gLCLlMmrhhZrRY/62wFf2xKMH7qYv/wgYCjKWFHDD4zHWEUTqbW/xc
+         bfN54R+1hFaxbOEh1XYCUf8y/ekeKkAbkp5HYEy41u5Hg/1n0BUD2jL8sn58NBvw1tZB
+         2eaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xbP84TB5YSyUcPTlSRXVzwOJ5KiLCluO2L3qZFE4rqU=;
+        fh=yY75oTlZNhNKOChy0NCCmXJlyPBIrStk0sAbI1PhPuA=;
+        b=j+PI9ltS4pRc9mfODxhe/8iXLenAdj4SBa98IOXZ6lJsZZpaWreXQdBPcNwcfBew5s
+         ABtpTk2guTgVDiL1frrgiPRc7u4w8vaDtXKIRGAl7TFMraMwI7TlnFlx4hDjgjiHfT/P
+         Q2zA5aB+oY+IOJpNq24psFcSYIU9eHpJc89OatrG6jsw42rjoNcRfHaw6mVCHVWVDX2c
+         FOPQZDQnL0QOlI7sABIN6TKMbhB4OzTBzuvRTA7o85cMgaY+jB3slLhhAQkRQxeH/76u
+         ztqSbGbh+wA2MXGygBpSmPQK5n4hbClKsgsEbe45Vit2knX40WPvE03ZVZGPuF89ifU3
+         ShzQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788542175; x=1789146975; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9g3ixuSdmQCpOEGBBcnV25oj0cDJNzVy8Tk+QtmySWs=;
-        b=Ufxvg+5svMoONGAMDgPCzZ9vSEnzSaT7jpT4Sdij0UjnMJtpJ43HrDixmJrH9MMlEV
-         /rFcX5G3W/3Uj1Zv/mK2GD6GgEoi4iXkc0PxXgxnZrE2kYozt1SNdVKOrGc+CAo3qSTe
-         FRyMBaWAeqmOnJTHuy9giAHlLYh5r4/s12+k9kKt+d7+Z4/DDdBeBnanIqcuTOSfHIQZ
-         q4s2qoCfnYjvTIuXALnL4Z/2UbmbvfEVNL5iiMa7ghM6DYcdQC9JvySQuOnLoqBwyjo8
-         r74x2WELy85Yt0YTLkXzwpxFwK0AyGkY8h2zJI+23BnOr2XdTEC8U170Zi138f8igEzY
-         P4vw==
+        d=gmail.com; s=20251104; t=1788542480; x=1789147280; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xbP84TB5YSyUcPTlSRXVzwOJ5KiLCluO2L3qZFE4rqU=;
+        b=CEUxXb8VUmHpqJcVXypX1+9IjftQTV2F6TWwLxtV9m3KKDErhxKcF7WkJeKBmEJjFr
+         RTaVrdBz/nVryyYic5SpQQZWekkLYUzq06B596zAlwhVG0/FayJ82yA5s7Fd49AHefm4
+         cePZxRAW5Rz40YOr2hhwyOZZHXthH4gP3nrRgwgR+DYsF+cpBC1wxgo4hBBy5J3uNYE1
+         srmOWhG6VWTD0ouURi8tNJCNg9Loo/HkKgStLq+pi0kJ0pkLoDuKc64xKrNaKL5MCsdn
+         b2+aJAt8jy5H6yYSJFwKYekyelu9QJ8B4gCSJtGz54PNCWbGkmCkN5y5tUD1ZKLWtN6q
+         jUVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788542175; x=1789146975;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9g3ixuSdmQCpOEGBBcnV25oj0cDJNzVy8Tk+QtmySWs=;
-        b=LvzHe6LDxxTwVNmK6cNNwPS3qJYbn26iDYmD86LEmUdzD0MU2hPneY42NI+mE6/zxe
-         oxBNrbI6z4iej9Sh9dRGTpkQhXPtaM/O8WklJuDEkAAUsgbUn9StC3zlzx6XNijluI2b
-         stp+9iyrXnEbcR5Q0SYf+V2JfgUABJcRhwmwltKPsVhuJP6x7GnAXOYeYhu3Bz54KEU+
-         2ceXeYwsjXnd+qXmlRE0pBx+L407uo2I1elHAc3rF1187K6PPop9utQ7WIzGxg3P81F/
-         ZRwETxHGnOYKlpbr1p8twrg+s7VGJziogjgDuE4dYy2XBRR/H1HKMHSM5uGrbU++2Kdw
-         VaQA==
-X-Forwarded-Encrypted: i=1; AKwUvByhq/lHR8Cf2MuwTqceMHH5JLGk9lfvaBlX7LeG0W/LRvcAmM/3VQQD+eeO3024/rmCoPKz+J5afN0TQKzuM507@lists.infradead.org
-X-Gm-Message-State: AFuF++kYPD95VJwZ5iw4BhxGvUDhoSCZZB1G44pa1vGEap7wMHidS2vs
-	5Av4lUGkO/V5m9aGWwDqxYoY/Yp6TdPtRwuL8HloNPb8fjlwR1W0y9ukoKWUb9JAUHMbbmtNzAw
-	EIg9uGux+mkEYhNNztA==
-X-Received: from edgi4-n2.prod.google.com ([2002:a05:6402:a584:20b0:6a5:f01e:c622])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:3203:b0:6a5:f9ab:bdfd with SMTP id 4fb4d7f45d1cf-6a7e8cb104fmr3745516a12.0.1788542175250;
- Fri, 04 Sep 2026 10:16:15 -0700 (PDT)
-Date: Fri,  4 Sep 2026 17:16:08 +0000
-In-Reply-To: <20260904171610.3342398-1-tarunsahu@google.com>
-Mime-Version: 1.0
-References: <20260904171610.3342398-1-tarunsahu@google.com>
-X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
-Message-ID: <20260904171610.3342398-3-tarunsahu@google.com>
-Subject: [PATCH v4 2/3] firmware: edd: Fix kobject reference leak on
- registration failure
-From: Tarun Sahu <tarunsahu@google.com>
-To: Russell King <linux@armlinux.org.uk>, Geoff Levand <geoff@infradead.org>, 
-	Masakazu Mokuno <mokuno@sm.sony.co.jp>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Paul Mackerras <paulus@ozlabs.org>, helgaas@kernel.org, Nicholas Piggin <npiggin@gmail.com>, 
-	sourabhjain@linux.ibm.com
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Tarun Sahu <tarunsahu@google.com>
+        d=1e100.net; s=20251104; t=1788542480; x=1789147280;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xbP84TB5YSyUcPTlSRXVzwOJ5KiLCluO2L3qZFE4rqU=;
+        b=Dnq6coeMCeBeLjPD4VnQz5bBxiFa7q4inXnSKMEij7eqHCqjIYK0DVBCZ6PJkKSW4i
+         cGwVsQ0LqWAG05zjOEXII2kxXBiVzozzZXQTXCeGrCiDGce22Qt9NU7PozqA7G6mrvgm
+         8XovxVrmCIwQE+EV8UGgL0A8qGJFxZvUgmF7Ad/WZJOP5F/GsX9lhDactKd0/N1d8tzf
+         a7Dnh4vGGBOhPLMPYsteaQilxySNC3GjLHcOnkj24W173DISbxct3iYRzuhUMBALkgp7
+         BIhpD46lP+LZiJDAKZAWJzvvpl32oqft4I6yTZ2tqVNQSiJX+Ne6a7CmAiG0Am07lSbc
+         J+HA==
+X-Forwarded-Encrypted: i=1; AKwUvBx/zAbHa4wZrx/FWeJLR5sxvs+I0GApUWD0NO3E/Y5NpjKvVjBU7rK8wQhgle/lmhCn5sZN/Tq/yKFk1MhexoPK@lists.infradead.org
+X-Gm-Message-State: AFuF++nF2yIsSqTlvSksTj24D523ngPKjYV4jWdQyyuBEmFznQwTJOz4
+	2pOlMuIK2wSjy6W88xZ7mcPMKTjhmUQsfczllGvQU9k3ZAGZFuIUZcxJngU63gUqzrgGa6OMqrh
+	L/RXZBTw4oH43SuehLzbbKcAIql41twA=
+X-Gm-Gg: AYBFou1W5kyIBCyCss4rvHV/VwNSgt9Ke9uk+5QF+w4uldkonR9nEeyngKt4JFxLdDj
+	rS3skRcjoLxfBhH1iLXeAv0awoWskXPmtZ1V4py4MYzK99MBddPB/xT5c5rUWRe0bXlNb6NFubT
+	An2RgNzK0DDM38xFgSr8v+bw9AjDk8pzqJZlFangFaRr9sMZrhEWewygzgtHkJ2yliUlxFVl44h
+	5S1QXhiUrrzFHyOjHMP7mTDLJIfFc0zKhC4JrDu7yOZscSwgFz1xesC8TD8LE8Sfgb85T+nqo78
+	Ra3ZszoSmZhCgW6LSZEg+XDHsXr4WyIhhPaHQpzIxWPCl2MgfMFe7Bn90wTiPmK/1N3JDBKGWkO
+	JrnkUzBpAe5N05bFocuULCmQ5M8kpOnU=
+X-Received: by 2002:a05:6402:a252:20b0:6a6:9368:73a0 with SMTP id
+ 4fb4d7f45d1cf-6a696a73aa1mr4363499a12.6.1788542479338; Fri, 04 Sep 2026
+ 10:21:19 -0700 (PDT)
+MIME-Version: 1.0
+References: <cover.1788351089.git.rrobaina@redhat.com> <4ada9fcbb93af8d5c1c9bfe2c83d94fc10bfe327.1788351089.git.rrobaina@redhat.com>
+In-Reply-To: <4ada9fcbb93af8d5c1c9bfe2c83d94fc10bfe327.1788351089.git.rrobaina@redhat.com>
+From: Magnus Lindholm <linmag7@gmail.com>
+Date: Fri, 4 Sep 2026 19:21:07 +0200
+X-Gm-Features: AcwNN1WpEQ0Y6eKbtA6wNzDHeYOBs1Tconhq7C15XjRhFKDXvjk4jMYrR9OFExk
+Message-ID: <CA+=Fv5T4826T2sd0Gbh-nfZsqcWK_phdBKy4BLWOvDTt92t5Eg@mail.gmail.com>
+Subject: Re: [PATCH v2 02/13] alpha: pass pt_regs to audit_syscall_entry()
+To: Ricardo Robaina <rrobaina@redhat.com>
+Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, bpf@vger.kernel.org, paul@paul-moore.com, 
+	eparis@redhat.com, sgrubb@redhat.com, oleg@redhat.com, 
+	richard.henderson@linaro.org, mattst88@gmail.com, linux@armlinux.org.uk, 
+	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, monstr@monstr.eu, 
+	tsbogend@alpha.franken.de, jonas@southpole.se, 
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
+	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_101617_852009_EA4CC5DA 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260904_102122_133803_59A1BA15 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +132,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per kobject_init_and_add() kernel-doc, calling kfree() directly on
-error bypasses reference counting and skips the kobject's release
-callback, leaking the reference.
+Hi Ricardo,
 
-Use kobject_put() instead of kfree() on registration failure to fix
-this.
+On Wed, Sep 2, 2026 at 4:44=E2=80=AFPM Ricardo Robaina <rrobaina@redhat.com=
+> wrote:
+>
+> audit_syscall_entry() now takes a pointer to pt_regs and extracts
+> the syscall arguments itself via syscall_get_arguments(). Drop the
+> individual argument registers from the call and pass regs instead.
+>
+> Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
+> ---
+>  arch/alpha/kernel/ptrace.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/arch/alpha/kernel/ptrace.c b/arch/alpha/kernel/ptrace.c
+> index fc8f6cedbb28..8a39c0473297 100644
+> --- a/arch/alpha/kernel/ptrace.c
+> +++ b/arch/alpha/kernel/ptrace.c
+> @@ -496,8 +496,7 @@ asmlinkage unsigned long syscall_trace_enter(void)
+>         }
+>
+>  #ifdef CONFIG_AUDITSYSCALL
+> -       audit_syscall_entry(syscall_get_nr(current, regs),
+> -               regs->r16, regs->r17, regs->r18, regs->r19);
+> +       audit_syscall_entry(syscall_get_nr(current, regs), regs);
+>  #endif
+>         return syscall_get_nr(current, regs);
+>  }
+> --
+> 2.55.0
+>
+This doesn't apply on top of my "alpha: enable GENERIC_ENTRY" series
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-Signed-off-by: Tarun Sahu <tarunsahu@google.com>
----
- drivers/firmware/edd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+https://lore.kernel.org/linux-alpha/20260902184058.198679-1-linmag7@gmail.c=
+om/T/#t
 
-diff --git a/drivers/firmware/edd.c b/drivers/firmware/edd.c
-index f980c5b56858..763e7b16d517 100644
---- a/drivers/firmware/edd.c
-+++ b/drivers/firmware/edd.c
-@@ -748,7 +748,7 @@ edd_init(void)
- 
- 		rc = edd_device_register(edev, i);
- 		if (rc) {
--			kfree(edev);
-+			kobject_put(&edev->kobj);
- 			goto out;
- 		}
- 		edd_devices[i] = edev;
--- 
-2.55.0.979.g7e5102b832-goog
+That series moves alpha's syscall entry onto the generic entry
+framework and removes syscall_trace_enter() and its direct
+audit_syscall_entry() call entirely - verified with git am against
+GENERIC_ENTRY applied, it fails at exactly this hunk.
+You don't need a replacement alpha patch, though. Once GENERIC_ENTRY
+lands, alpha's syscall entry goes through
+syscall_enter_from_user_mode_randomize_stack(), which already calls
+syscall_enter_audit() as part of the shared entry helpers
+(include/linux/entry-common.h). I applied patch 1/13 alone on top of
+GENERIC_ENTRY and confirmed alpha's entry path already routes through
+the updated __audit_syscall_entry() - no alpha-specific code needed.
+So for alpha, you can drop this patch in the next revision rather
+than rebase it.
 
+Regards
+Magnus
 
