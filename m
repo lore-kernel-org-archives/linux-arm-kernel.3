@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263CCC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0330CC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=; b=uxahExtSlFXmd4R2z5LVTkC+nS
-	hhToj4gnWtAO/Q/xHZlxD/fX0ekTqaWQQ5GQ9NgFCcosoe89nU+XsjpEFL2qL8Xbb9/x3VF3gxvTM
-	aguvKEdIMSHALeuJeSVar5MKGP6sGNP1YjDmIDFUJZvPEqNY+aSdSgQDXP/twcGI9Tgxq/g84jJda
-	wrRSp4MMkg5uvwMXxBmTb9DMsmhyCKPW45E5qofUgOJdnP9quZ/cQ7hmt76dh2hoqxEGaDxrqfJLG
-	DGvvlXnn8tgOz7i1+NObXF6iPIewyGB/+t5a0bqkOjyuZxc13TrchCoLPz2qaHeTCaHjfxroFEAQi
-	Q0a1epZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ImHZfxtU81KZMYiwHk+GpoqZqQbLfpX8wQ5dvb5NL2s=; b=Y5cGIUEYRRVSQH1PRZQs4U0e7f
+	PvQSATxPGZIJjbwb/6Zb6tLe0cWuPy28d9haF3dJmGXji0vK8+AdB+PgVAjpXOaaAdFUtVKB4IIXw
+	2EoNTxxSoU1LpARB20mMs5pQCY4o2uGicGs0jM/p0cY2P/etauHAmdWICBrQiZX5B5QjxuZM7MFm6
+	8YgQbmgcs/Py/t93NbqtN6P/Ksp+41Y8dJYbBIMhT4iYI0BjQM9WVo0uCn1jnjR9O4OzwmWxmqjB7
+	48SgIfC5Ifbeqz+4H41E6FqpI8/3kg0XNXWnBXBcf1D9Ka5Kz4zrbgRPddNzweLoyRqud8rZQtjHd
+	bZn8zjJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2U7N-00000002FFS-0PhO;
-	Fri, 04 Sep 2026 13:38:09 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1x2U7a-00000002FJ8-0pFT;
+	Fri, 04 Sep 2026 13:38:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2U7K-00000002FEz-0lRX
+	id 1x2U7Z-00000002FI8-1B7T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:38:07 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38e58034d05so819489a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:38:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788529085; x=1789133885; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=;
-        b=nE/rT2jo8rQDwgFhpO9SgU6Qf9GIfZ2sWJLJkYqzCJglShky8BfLePuccLyzoe4KHT
-         RYSSIrFnbfko+oXo+NybyA5+1+lPXqzQrCb2CLtw+6j0B41dX2DfNVahET/0E9zMDOdN
-         +AZbr6Nf4/lqLqTCQM8Iif37RgJKx6Xr5LWtMTrc2rDMZ313uVO5D4A1S+lm85YAwQln
-         FRHh9uozzrI1WtM2vgmGw+C8yEo4RJ7nTuPv6xG3DsOASpv3cwdjfaYkJ/6VEkS3Qi+A
-         3k8urVZXavIB51cYvQpzDPe/2MDwFvoPH63UQWjXwMaEgDLRNSNm9NTmPe9GNVQtWJXI
-         iPmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788529085; x=1789133885;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=;
-        b=sb79Haj77TIF1jltxGIHpVk7rpzo0r8lEvpDPM1q2RnWK3O8PN3Imd5NxP66kxXjzj
-         6vmoSWyR4DgLldFEakDxxjOlGlwLzDEJplmtX2EQxlunk7VhnrvgdUzc6919c8T5nxzB
-         I6qc6rBfY8R52n69Rh9JjGuAi6ktpsZN3BDl1MYrrr5S4YhGVgQ1xr6LMCDgKy8a2Wjv
-         y/+JwpFZ6nSUCrdzVu+b//FXz3pWhgiayMGBqx5I7jB52H1s1X5qqKIGkI7suygkDvZp
-         eWyO7SAJcYptpnCVyJKI3I9rXe9fgU1Et4nVcWf9bokocfeIhXCYMiForSFzgh+DL2IR
-         Mtsw==
-X-Forwarded-Encrypted: i=1; AKwUvBzWcvaq38F5VTz5gEmFDBy5av+RJdhgv/mrXYgNVVDMXm0kSgIo6FM0LuJ74++gd7URCa0LHgJ38nhXixagv0SM@lists.infradead.org
-X-Gm-Message-State: AFuF++nMxyLxYmGiaC9vOw5wMkBrPJsyABWC7INjX/LBgFJxio4Z69c3
-	MH+an0wxbTcF/H71b5ea7+EBtnrrKc9CGcXiXcDBVB7W1Mwo6WrXd+l2
-X-Gm-Gg: AYBFou2z5ipav5rnXFaOaYs2lmydUvx/P1DXQprxXDKx63C9fV2spXSpE/p/pJQozhY
-	mwdoKWzlwA+n+5nxYvF+zgsPXVyiy9+PCLIpTJ6F5BSOmZ2wJObzR+rXf868jmamhb/MVCQtrjb
-	67bunQ+TMNTmeQaxy4n97B2Sjv31j+gFH2nLGSvDR0/qNRWAjjiYDQWRpz9d8xpZa9oIX1bADqt
-	VVSiR6BIjAevQd/BS7AoCIgAVVWR0gtYdn/31dLs4NFe4y/yw4lQBw3SvocMJQoiurLPVn95PEh
-	hnO7qB4ODnLirAT3/MGt3dBHg6Z4J9YiNKqfFEvQ+AWPbiV7TnkEuMtypbkmDdQrVQZFs4Pt0i4
-	Ff98VUTzkufggdR9IQ4qBV2Jj/tI1jNSuylMmm3+VE15OGCPO2HziK+Q7nyZUJW7aEZ8EpAafEb
-	RsLBDT3VLf/P9cnBL8gkhNUWXF+Dqy23A8F14tN2XbEwvHOfRwCJ1uIoAAx/WAYnjMVzPhI5IFO
-	5hUXSGiWAZClwFoMugv54nOG8wICbEt69oET+ujklAcmljTa9pP5CA+kJLivOKQpRtutg4Tg6jX
-	YQlgsqGDYQg=
-X-Received: by 2002:a17:90b:2552:b0:398:e6b6:acc1 with SMTP id 98e67ed59e1d1-39b262728cdmr9882239a91.15.1788529084849;
-        Fri, 04 Sep 2026 06:38:04 -0700 (PDT)
-Received: from workstation ([2401:4900:8902:9774:f2e9:38cc:6b1d:1764])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33450e140d3sm3427785eec.4.2026.09.04.06.38.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 06:38:04 -0700 (PDT)
-From: tspamiitesh@gmail.com
-To: suzuki.poulose@arm.com
-Cc: mike.leach@arm.com,
-	james.clark@linaro.org,
-	leo.yan@arm.com,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Amiitesh TSP <tspamiitesh@gmail.com>
-Subject: [PATCH v2] docs: fix typos in Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-Date: Fri,  4 Sep 2026 19:07:56 +0530
-Message-ID: <20260904133756.31938-1-tspamiitesh@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 04 Sep 2026 13:38:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E52B543DF8;
+	Fri,  4 Sep 2026 13:38:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946031F00A3D;
+	Fri,  4 Sep 2026 13:38:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788529100;
+	bh=ImHZfxtU81KZMYiwHk+GpoqZqQbLfpX8wQ5dvb5NL2s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aPBLWKDIH1u2uh9qt1fr5Txmnsj/o7b49sGvzCeJAansVIpptOaBJPmtwJH3TUk4M
+	 T6B2nSrzUwRl5DpUCWqr+HAsHRm00UZexQtxt1aGJSJaRRQFht4hK3YrK01trv7cq6
+	 kZqHmBt0DQuxC3F8LvKawzTu2dOLigtpt3kgAW4aAUr2d+dZ8UX6cjuSWdsP0lIFXX
+	 dAk5/JOzFhjYFHPyhxp/K/NtVHcpDDjitUAUyoqRoass3NbkmeGj/9jBRd594G5kOZ
+	 t1bEZbQT2vInEyleenT5lwprDiFsOnGmNoDRwQjZi/VfxNoiXdU9EegkwRUFwUr5lO
+	 JUnUro9UdV4hg==
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id 30892D8BEB2; Fri, 04 Sep 2026 14:38:07 +0100 (BST)
+Date: Fri, 4 Sep 2026 14:38:07 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
+Message-ID: <aprJv4vkguNJb5vG@sirena.org.uk>
+References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+ <20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
+ <86pkyt4gvt.wl-maz@kernel.org>
+ <eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
+ <apqrky27mJmUV9UA@willie-the-truck>
+ <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+ <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_063806_226048_DFD3BC91 
-X-CRM114-Status: GOOD (  11.84  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UmjJAuB3W22tES9f"
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
+X-Cookie: Orders subject to approval.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amiitesh TSP <tspamiitesh@gmail.com>
 
-Fix typo errors in Documentation/ABI/testing files which were detected by hunspell and manual verification
+--UmjJAuB3W22tES9f
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Amiitesh TSP <tspamiitesh@gmail.com>
----
- Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Fri, Sep 04, 2026 at 01:20:44PM +0100, Fuad Tabba wrote:
+> On Fri, 4 Sept 2026 at 12:48, Mark Brown <broonie@kernel.org> wrote:
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-index 245c322c91f1..4ee6977381e4 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-@@ -2,9 +2,9 @@ What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/enable_source
- Date:		November 2014
- KernelVersion:	3.19
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
--Description:	(RW) Enable/disable tracing on this specific trace entiry.
-+Description:	(RW) Enable/disable tracing on this specific trace entry.
- 		Enabling a source implies the source has been configured
--		properly and a sink has been identidifed for it.  The path
-+		properly and a sink has been identified for it.  The path
- 		of coresight components linking the source to the sink is
- 		configured and managed automatically by the coresight framework.
- 
--- 
-2.55.0
+> > I figure that if we're supporting hVHE it will end up less complicated
+> > to also enable nVHE, it reduces the potential for having bad or missing
+> > fallback paths for features downstream of S1POE.  It's not like it's a
+> > huge extra bit of code and it seems likely to save hassle down the line.
 
+> For pKVM there's no fallback path to get wrong: any CPU with S1PIE has
+> VHE, so pKVM runs hVHE on it, and a CPU without VHE has no S1PIE to
+> disable. I couldn't construct the protected nVHE plus S1PIE case under
+> QEMU at all.
+
+> Where I think it applies is kvm-arm.mode=nvhe on S1PIE hardware. That
+> boots, and it's the one configuration where the nVHE side of the patch
+> would run.
+
+Yes, exactly.  As you say any system with S1PIE would only run actual
+nNVHE mode if it was requested on the command line.  Realistically this
+is something that people end up doing relatively often in development
+even though it is not useful for production, so as Will said it should
+run.  It seemed explicitly excluding supporting the nVHE case was more
+likely to trip people up one way or another.
+
+Marc also started out with a flat no and didn't mention anything
+positive about the hVHE part so it appeared that he was objecting to the
+whole concept of the patch, including the hVHE aspect.  It seems you and
+Will are both OK with the hVHE bit and indifferent to the nVHE case, and
+I can certainly rework to unsupport nVHE mode.
+
+--UmjJAuB3W22tES9f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqayb4ACgkQJNaLcl1U
+h9CFewf+Pe/GdgGreSGkHQC1BpvuxnEK1XKsZA/fuA6yTcpTySfrwg/DYRMk3uVZ
+qnqCmZyh0gVz+wvtAIGdEUm4FyzQCKtIFCXlYRiQyQeErja7FhYQx8hHJae3E1Ow
+Km5lZiibgiRy9noLNRRtXPJPDYcnG10C637ZtRYu13Eor1qXLFY4DgrjthVUHX+p
+S6oHXyi7Br15EhhnlxoTw4UZO5CFa3HT3R9OJeta0F6YMRPwmfsscNnNSAqkVodr
+kS4tVuUCOIGLeMUGZjebaXL9TuCADQW7Y6RYLTvoBKJ3vWILYC93OwxMwU2M0sXE
+PxsugHPRtBkiKW8qog+YpaXXek8PTg==
+=UFWG
+-----END PGP SIGNATURE-----
+
+--UmjJAuB3W22tES9f--
 
