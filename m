@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C73C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28895C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=; b=QwjNgyyOr/Zvf3JiHhZtOUhypb
-	bxoD176+BmBochp1CkKjJYPB1UrKpzO3PkyG3ans3nXlFbmn9ufFe67x/AsF/ji/qVMfcDSwBwT75
-	phRYK+n5n/hAJu2YIwMKMotnde+1vAw3n9gcXzAgJNchDKtz9JI0AmoNrfHCQ2tjaiaYmQRj2UF/C
-	8ANhs9qRqqCUAHx6MwlwNt94ZmdcWhaHO7XwLVjmm1AQNoe8HiLUcB8CCjQCAmN5KkyOcc/1gJXSu
-	lyIU0cw7mEwxR+RZ2EOrwaPwbAAyPoDZHmUenrf2wZbsX1g3pQeb6SkPqeeWgzRsFdq3BJKgIZwYA
-	UHJRuv3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ak3IEV5EuNPQAh0ybs3J8IV2WjKmGgfXZ4hNk/xxyjM=; b=bFHi02Yx5h77I6
+	EzeOz9xJsZfvIF060+gqdlQ6ccRWfRAOTa9KFy89glX2ur8QPW7WLpT5kqtZMIzxXJxkuxwO/+VMn
+	lvkPm250aVzaRy+g1YtoCao9IgeN5ayb1NbPjwVzlHKAd7RcAaMflxbfUfJuaPvQ2aPp7klkMtrse
+	6NhPeJSgKhZgSaDkvi8Z9n1aQ7Xxj5LD2/uzQoYi2ZGi1cQLpSlN5dC563IYpsY//9J88bsw2Ss6b
+	qQ7c0jgei2ipN9aS3bs14ojRIUhl4SljzISCREzdem/BpJJRnpVom//Ppe1zOIb5DSBx1AX7mJb3X
+	DGrxkk5SsYzki/um22Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RBa-00000001fOJ-0RbD;
-	Fri, 04 Sep 2026 10:30:18 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1x2RCG-00000001fXZ-1w8V;
+	Fri, 04 Sep 2026 10:31:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RBX-00000001fNG-17CN
+	id 1x2RCE-00000001fXD-3fpA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:30:16 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b8f86c6deso5465065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:30:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1788517813; x=1789122613; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=;
-        b=f8MDOnUZ4gDntXEoTzJlzgJ+wsKI7N7OrAj4IqeNRXQi02Q1Po7z6aFMkebHS2IzuZ
-         uTOPI6AYCvdKqXju+/wRwguF4sagafg02DQsPM4wQZzP5ujPV2ucInnzvjQreaCxlsY6
-         KNZ573BnQMnBD5ROqGQXnlAO9xrSUjczAjeL5TIHo5km3YAdHpTcKGO9G6z11WH1Jg1u
-         wkPpvHn/7DzxcoEe5HoUOrqMJWHBJ1/PLtKPEfVS3G2UZwxj6K81KwKHDQ9yXJyvcZHG
-         Gf+OTJkDfI0zI0ZjnDzf0UT3u8gxyMlXmpc3LoNvzjN8Xb+Ga/O8u5RRKeMRoA68h1cv
-         KvEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788517813; x=1789122613;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=;
-        b=gq1/ncO3yN+OBUycMUb3ihsBTZurPF3b53Ga9z+TwAFYCG3xunD/rCPW+yz1fqdWZf
-         7KUSHPYGlUhR85HBq1lMDoUDi4GoDezM3R76Q5ce7/WRyNcOG+i3TM/vPINJ+SoL0j6O
-         dxiJ3aak05aqPiBHdCwnYfdJfwgiM9fJmBCRtiu03ldjBeYZeHrYjuqnswZAV1M3bk62
-         MtOadOGgKhibqZXuTOyHW/8+wT+bPxXQdP6gI8+hCwAKzhwI7EOXHEuzgdojnGkicm3l
-         fTXvuFbHRNxMisRS4A1Q/4DN4/p40wyrHx/7lLptP4hVaWbaxmd9zNk4fA/4PQ2zzB1K
-         RcGw==
-X-Forwarded-Encrypted: i=1; AKwUvByXQ7ki7gQ1segKeTp9Xr7L8Axk9K4jP3svC9MtQrqpD9AwcqA2YVsoTXZlODOmGM65GFhKD6DS67aLN8urJvu9@lists.infradead.org
-X-Gm-Message-State: AFuF++mLADOMnYw+ukY2cKqD4TCePxs+wWqYAzAE5yLJ/nUzFpZv0KTv
-	DBmsiQzWL7Agu8RczRU7nJQWKK8DPC+NIEM3eDmgHs9YFW3s9UJjWvyEataemiULMzA=
-X-Gm-Gg: AYBFou2l31ScfNZUMyCCwrhg747A/UDnEL4XtjOZxcoHzlE2yofLrjQa2b/Z8Feie9R
-	oB9AnQiG6KeemtBHO+qWszC92xxI85aVk10WpR0wRgN0WPhrgtF82OJusVZoehtaeETyBont9xY
-	bc6b/FOf9TklTlI3cUBvEU4e/FKV9pMGz9DBU8CKDPoqGGiTJcGjQBEIy4+Fzf1DPKK/SqVj7pj
-	LeFT/Sf+KI8TYvUx8iUpnYnWfHGMlzPNXLEFcRREOXNr25FaoHZj7YVwZBeEuT0gihmy/7exaAH
-	QeNrd1bWiMRxqjLv1+7TxygFCzsaIiaoVkz+GmVOla43ANCluyA/7vY3LQGNSoZvRGLo6Yi24e2
-	iU6OvYI820OCCcYEtx+coEXr39JiXTTUOTJFv/rFnhmfMBllTA1S7PMxQl7teRB8r+GKMV7pxp7
-	If5o0d6U/A1V0u72ArYlDEQL3ljtI7/y1xWhYmMdfzOVV08z4TJJDVTLF6hw==
-X-Received: by 2002:a05:600c:8708:b0:49c:fa21:1c7c with SMTP id 5b1f17b1804b1-49cfa211d48mr27435135e9.17.1788517813094;
-        Fri, 04 Sep 2026 03:30:13 -0700 (PDT)
-Received: from localhost ([194.183.24.73])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c5bc5sm5567744f8f.24.2026.09.04.03.30.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 03:30:12 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 4 Sep 2026 12:33:51 +0200
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
- interface
-Message-ID: <apqej5QyjOHu702A@apocalypse>
-References: <20260904-bcm2712-spi-v2-1-6f8fdfb030bc@linutronix.de>
+	Fri, 04 Sep 2026 10:30:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A3EB43E53
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 10:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71D6B1F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 10:30:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788517858;
+	bh=Ak3IEV5EuNPQAh0ybs3J8IV2WjKmGgfXZ4hNk/xxyjM=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=mUbo86UXxBWE6CTcj70Nt+yzfQL8JPBmPwGRVX2JHufpjDw8QX02IMe5OhvQgptjM
+	 SwShFyYg4okprAeRMJouUbFefoRObxsWzgcKk46mZOJNjgBCYSn0Thhoyva09oRCGZ
+	 oJwnkhQ1qzXwGqTSwBzA8Zr1LzAlg3Ybw+HJcn/+FdH8RxXotFSyH3GhWmE7XVhdF3
+	 JgWIV77yI16EZy6cPlqHQauKysmSHQ1IetZ1LGwnDZT6EhBp/NMi9ozCI/ik2cD8eY
+	 o1uJOoRRgYULksn1fhY/vdzg+SEiuLW/Q8EnU9yO3lbMUIeTE9T0rZ6HCMPZFagkxR
+	 4T+Ka5P7ZGClQ==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3a151eda82dso8376361fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:30:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxaE/Q2fknpaMX8SvTvMrrxCLRKHcbrMkGbQHrhkzzc6fz+bPcfpxW4Q/qzhApPwMITXoLROblKEYKdxc4DTWS1@lists.infradead.org
+X-Gm-Message-State: AFuF++kGojs5jAJSTYeUCdIzvYUG1fazUokYwUcdNeG5JOH0EAUPIAGf
+	ilF49FUeiEGQAAG8SKZNLmvyHfnF3JecEJ0lmVR8/mKceGhbTL1HrCPqYyk0+UFG2ODndCjM/bH
+	rcNsr+1OTqaSC5xctPoiCdry15Bo4h6c=
+X-Received: by 2002:a2e:a7ca:0:b0:3a3:34:865 with SMTP id 38308e7fff4ca-3a371b6dd76mr9445761fa.5.1788517856421;
+ Fri, 04 Sep 2026 03:30:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904-bcm2712-spi-v2-1-6f8fdfb030bc@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_033015_326347_B3839FDC 
-X-CRM114-Status: GOOD (  21.77  )
+References: <20260721065413.2306137-1-wenst@chromium.org> <20260721065413.2306137-7-wenst@chromium.org>
+ <c6526ba0-be08-46c6-a501-1b161939657c@oss.qualcomm.com>
+In-Reply-To: <c6526ba0-be08-46c6-a501-1b161939657c@oss.qualcomm.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 4 Sep 2026 18:30:43 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66c8L20yNNmvj6TaQbS7LnqAyuv0tMQfj+0PSjMUcSByA@mail.gmail.com>
+X-Gm-Features: AcwNN1Xat96btOTDTzU9PGXAhyQrjVXT5ZP9qiHi9N7dj1ScKDZ_5SK_K-nNAtc
+Message-ID: <CAGb2v66c8L20yNNmvj6TaQbS7LnqAyuv0tMQfj+0PSjMUcSByA@mail.gmail.com>
+Subject: Re: [PATCH v6 06/16] usb: hub: Associate port@ fwnode with USB port device
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,90 +89,131 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gregor,
+(dug this out of my kernel.org email)
 
-On 11:24 Fri 04 Sep     , Gregor Herburger wrote:
-> The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
-> Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
-> the spi interface.
+On Fri, Jul 31, 2026 at 10:44=E2=80=AFPM Konrad Dybcio
+<konrad.dybcio@oss.qualcomm.com> wrote:
+>
+> On 7/21/26 8:54 AM, Chen-Yu Tsai wrote:
+> > When a USB hub port is connected to a connector in a firmware node
+> > graph, the port itself has a node in the graph.
+> >
+> > Associate the port's firmware node with the USB port's device,
+> > usb_port::dev. This is used in later changes for the M.2 slot power
+> > sequencing provider to match against the requesting port.
+> >
+> > To avoid potential conflicts with ACPI firmware nodes and then causing
+> > power management issues, only assign the firmware node if the hub's
+> > firmware node is not an ACPI firmware node.
+> >
+> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> > Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> > ---
+>
+> [...]
+>
+> > +     /*
+> > +      * ACPI FW nodes are associated later when device_register() happ=
+ens.
+> > +      * Skip assigning one here to avoid potential conflicts.
+> > +      */
+> > +     if (!is_acpi_node(fwnode)) {
+> > +             struct fwnode_handle *port;
+> > +
+> > +             /*
+> > +              * fwnode_graph_get_port_by_id() returns either a valid f=
+wnode handle
+> > +              * or NULL. Passing NULL to device_set_node() clears any =
+associated
+> > +              * fwnode. It is effectively a no-op here, since no fwnod=
+e has been
+> > +              * assigned to the newly created device yet.
+> > +              */
+> > +             port =3D fwnode_graph_get_port_by_id(fwnode, port1, FWNOD=
+E_GRAPH_DEVICE_DISABLED);
+>
+> This works if the node at the other end of the graph is a
+> USB hub, e.g. from qcom/lemans-evk.dts:
+>
+> usb_hub_3_x: hub@2 {
+>         compatible =3D "usb5e3,625";
+>         reg =3D <2>;
+>
+>         peer-hub =3D <&usb_hub_2_x>;
+>
+>         ports {
+>                 #address-cells =3D <1>;
+>                 #size-cells =3D <0>;
+>
+>                 port@1 {
+>                         reg =3D <1>;
+>
+>                         usb_hub_3_1: endpoint {
+>                                 remote-endpoint =3D <&hd3ss3220_1_out_ep>=
+;
+>                         };
+>                 };
+>
+>                 port@4 {
+>                         reg =3D <4>;
+>
+>                         usb_hub_3_4: endpoint {
+>                         };
+>                 };
+>         };
+> };
+>
+> But something I faced when I was poking at USB4 was that dt-bindings
+> currently assume every controller is effectively single-port and the
+> of_graph ports under it represent HS/SS lanes, i.e. the entire
+> "ports" subnode represents a single USB port
 
-Just a nit-pick: in the comment it's stated that the spi interface is enabled,
-which is not true since rp1_usb inherit status="disabled" from its node
-definition. This is fine because the user would probably want to enable the
-spi interface through some overlay, so no need to resend the patch (at least
-for me), so:
+Which controller is this? AFAIK for xHCI hosts there currently is no
+"ports" node specified in the common usb-hcd.yaml binding. I plan to
+add this separately, as it can already be used for USB A connectors.
 
-Reviewed-by: Andrea della Porta <andrea.porta@suse.com>
+The kernel maps every downstream port of the root hub to a separate
+node. On the XHCI it is more complicated because it has two root hubs,
+one for HS and one for SS. I'm not familiar with the hardware specifics
+but they seem to map into one common namespace, so you probably get
+ports 1~8 for HS and then 9~12 for SS. Note the number of ports is
+different. This is just an example from my x86 workstation. And on
+x86 each port is mapped to a different ACPI node.
 
-Thanks!
+> I think the solution here would be to do ports {} under the controller
+> and have every one of them have 2 endpoints (for HS and SS
+> respectively) - then, each DT-port would correspond to a USB port
+> (sorta like in the hub case, minus the hubs are split for HS/SS so
+> they have just a single endpoint under each port)
 
-Andrea
+But the hardware descriptors actually give two ports, one for HS and one
+for SS. And in the case of dwc3, I suspect that they always come with
+one downstream HS port and (optionally) one downstream SS port. So the
+binding is actually correct, except for the numbering.
 
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
-> The RP1 chip, found on the raspberry Pi 5, has nine spi controllers. The
-> spi0 is routed to the pin header. Add the rp1 nodes and enable it for
-> the Raspberry Pi 5.
-> ---
-> Changes in v2:
-> - Drop first patch as it got already applied: https://lore.kernel.org/lkml/20260903194624.2038562-1-florian.fainelli@broadcom.com/
-> - add cs gpios to rp1_gpio for pinctrl
-> - Link to v1: https://patch.msgid.link/20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de
-> ---
->  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> index 0fc57e72632ed..0de3d78100a5d 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-> @@ -69,6 +69,20 @@ usb_vbus_default_state: usb-vbus-default-state {
->  		groups = "vbus1";
->  	};
->  
-> +	rp1_spi0_default_state: rp1-spi0-default-state {
-> +		function = "spi0";
-> +		groups = "spi0";
-> +		bias-disable;
-> +		drive-strength = <12>;
-> +		slew-rate = <1>;
-> +	};
-> +
-> +	rp1_spi0_cs_default_state: rp1-spi0-cs-default-state {
-> +		function = "gpio";
-> +		pins = "gpio7", "gpio8";
-> +		bias-pull-up;
-> +	};
-> +
->  	rp1_i2c4_default_state: rp1-i2c4-default-state {
->  		function = "i2c4";
->  		groups = "i2c4_2";
-> @@ -94,6 +108,14 @@ &rp1_i2c6 {
->  	pinctrl-names = "default";
->  };
->  
-> +&rp1_spi0 {
-> +	pinctrl-0 = <&rp1_spi0_default_state &rp1_spi0_cs_default_state>;
-> +	pinctrl-names = "default";
-> +
-> +	num-cs = <2>;
-> +	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
-> +};
-> +
->  &rp1_usb0 {
->  	pinctrl-0 = <&usb_vbus_default_state>;
->  	pinctrl-names = "default";
-> 
-> ---
-> base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
-> change-id: 20260811-bcm2712-spi-644b70fee3bf
-> 
-> Best regards,
-> --  
-> Gregor Herburger <gregor.herburger@linutronix.de>
-> 
+I'm looking into the dwc3 case. Changing the numbering might actually
+not break anything. Linux seems to just need one *a* graph connection,
+but doesn't care about the number. I looked through some other projects:
+
+- FreeBSD doesn't use the OF graph for anything
+- U-boot doesn't use the OF graph for USB
+- OpenBSD doesn't support dwc3, only the XHCI in dwc3, and doesn't use the
+  OF graph for USB
+- coreboot doesn't use the OF graph for anything
+- Zephyr doesn't support dwc3
+- TF-A doesn't use the OF graph for anything
+- EDK2 doesn't support dwc3 and doesn't support OF graph
+- OP-TEE doesn't support dwc3 and doesn't support OF graph
+
+> But that comes with a big breakage, as always..
+
+As I mentioned, it probably isn't as large of a breakage.
+
+
+ChenYu
 
