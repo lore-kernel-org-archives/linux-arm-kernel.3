@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E78AC624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 00:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B630C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 01:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1tn9tCG8b2zXx+4CLQfoRK/XdzrLaCJyKbrN2e5OXw=; b=R/IEny64g5MZiePLnWdyLTHqjV
-	THznKQWSrLHABOKDz+oA3zzGGf7k7pprD4HzHI739hedDqmDNMUO6uI0UUq1bvdRMB6ZTd+lCUBaV
-	uoHBjIG2BvczO5BULeHJlGWLB65EAEyWvLZTjshEAclxEWzizVxOsCSgw5d/iQroWygdya2pOVmif
-	SdyL/T9cmxe/RYz5Jm5sn+5CVlkEatZRUX87BGFO2Hoa62nMim3Y4ep8VRLArT70KYfs4QgKwT9XS
-	y6eI/fN9ijFdq+iNxUnof99duRvI2Rj1HdIUCeREGNrUaa7yFTiN7LxWzFom841bdgp1NAMJUrDuv
-	b83jITxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/o/kXfq5hsapgPLqaE+akwK/Xo70wQ7OE8BbPjIqKE=; b=i1he1tMbpSllX0inoT/OQwhYs5
+	nu+AZ1fK//pQ2s/73/WQTQFqKvTv0+qm2WbM8YiuOJAmkW4Eexb/mqLyT+f9yGi+QSDB8zRNOZJhT
+	d6O8DIRxSVxzIw4fkbAdYvQIO4jK2cJtrtzevdZWAsY/oMcTdotrxErIWg2nCvWtpQBAkFekV102r
+	mVObqykbCUDezHXiaGTYynTWZr6JuMj07ICA4QCUFog8YaRolIecqCbRCoWxIB/kAGv00ZO42J5lh
+	WJnb8GY3fRynEP6ywG2YsVFmBFqr5r/eyzplxu0Ft7PN/VOVKI7gGmbmGACltX8+LLk64R+xwJdGz
+	I3/aAh4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2I9G-00000000pAT-02ny;
-	Fri, 04 Sep 2026 00:51:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2IYT-00000000pr3-0ChQ;
+	Fri, 04 Sep 2026 01:17:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2I9E-00000000pA6-1689;
-	Fri, 04 Sep 2026 00:51:16 +0000
+	id 1x2IYR-00000000pqc-1hz3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 01:17:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB06142B6E;
-	Fri,  4 Sep 2026 00:51:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD63E1F00A3D;
-	Fri,  4 Sep 2026 00:51:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 48B3260234;
+	Fri,  4 Sep 2026 01:17:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D6E1F000E9;
+	Fri,  4 Sep 2026 01:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788483074;
-	bh=A1tn9tCG8b2zXx+4CLQfoRK/XdzrLaCJyKbrN2e5OXw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Ax9ViBNA6Ar7XTnhk4bXi3MS98KaXekFSCjFZ7Fw+SaQZASueHBr75AoAK296lSZp
-	 34e4f7A8/q3rNZAiD5MJP3UmAMk5sWRaaNBQghUCaS7zwzDxxVDMja4OvRgGvPLWVk
-	 AGm5N10OuRH3XeXi3uHLGVOVt2z7gtao/eQAOu5a+XAVK4FzIgs7Y3u5JaVHueXH3X
-	 xrPON6e1wVEaoOPp3o+yLw8dTSBeBBclsTw5/pxoXzuCgeG09mk03KA+HX8mQbgsrf
-	 NzJFdbsvos0/d++rhlrKK6B33JtJlIcTyxVEtRFKRtFiBSE8IZYcbGf8hVXdDSb4Cc
-	 rUvb8zjqLq1CQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 2D4F938119E3;
-	Fri,  4 Sep 2026 00:50:17 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3 1/2] net: airoha: handle RX_NO_CPU_DSCP interrupt,
- not just RX_DONE
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178848301589.4094353.8627471932045802930.git-patchwork-notify@kernel.org>
-Date: Fri, 04 Sep 2026 00:50:15 +0000
-References: <17f1beec505b87a4acf16557386a978c98f94b97.1788286284.git.sochnev.v.74@gmail.com>
-In-Reply-To: <17f1beec505b87a4acf16557386a978c98f94b97.1788286284.git.sochnev.v.74@gmail.com>
-To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Cc: lorenzo@kernel.org, netdev@vger.kernel.org, upstream@airoha.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-mediatek@lists.infradead.org,
+	s=k20260515; t=1788484638;
+	bh=d/o/kXfq5hsapgPLqaE+akwK/Xo70wQ7OE8BbPjIqKE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UNJNWShu5iTDsgOXHm/imKBntT0iAgos6mXfVGijDqkxsPMhi00Rct+65kRJGk7pr
+	 h6gDwC57BfMDatxYIxBuuyWppFfvRupNYvY1DUoPEBwmfC/O4MkAO527sA/b5/oGuY
+	 HE/pnDCq7G4Zo0q8l2UUjQJRaKkhLxYknoHHEM8/IOs72DXFtGjfvp4d/+eyYtQMAN
+	 4PwwNCTf4hwl/mVOX8PKZOGcPJPeyBsXJrH04K1Yb+1WjGkPPmSQmYcgfEqJ1EdaQC
+	 WRBNEs1S4uNak0yHo1JR8tm7PoieDBdQff5jQ8miSv//6Yd4iM+QGyEqjjn1cXntbV
+	 qwAfIG2W9OVRQ==
+Subject: Re: [PATCH net-next v4 1/2] net: stmmac: dwxgmac2: add XGMAC
+ timestamp interrupt support
+From: netdev-bot+sashiko@kernel.org
+To: zxyan0222@gmail.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, richardcochran@gmail.com,
+ maxime.chevallier@bootlin.com, muhammad.nazim.amirul.nazle.asmade@altera.com,
+ rohan.g.thomas@altera.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 04 Sep 2026 01:17:16 +0000
+Message-ID: <178848463667.4131868.2082471736382241698@kernel.org>
+In-Reply-To: <20260902131441.322167-2-zxyan0222@gmail.com>
+References: <20260902131441.322167-2-zxyan0222@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +75,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider:
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-On Tue,  1 Sep 2026 19:32:53 +0100 you wrote:
-> airoha_qdma_hw_init() unmasks the per-ring NO_CPU_DSCP interrupt, which
-> fires when an RX ring runs out of free CPU descriptors, but
-> airoha_irq_handler() only extracts the RX_DONE bits from the same status
-> word. The NO_CPU_DSCP bits are acknowledged and dropped.
-> 
-> Once a ring is drained to zero posted descriptors no further RX_DONE can
-> fire for it - nothing is left for hw to receive into - so NAPI is never
-> rescheduled, airoha_qdma_fill_rx_queue() is never called again, and the
-> ring stays dead until the interface is reconfigured.
-> 
-> [...]
+- [High] dwxgmac2_timestamp_interrupt()
+  (drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1157) performs an…
+- [Medium] dwxgmac2_timestamp_interrupt() samples the pending snapshot
+  count from XGMAC_TIMESTAMP_STATUS (dwxgmac2_core.c:1178), reads…
+- [Low] The commit message asserts a concrete pre-existing user-visible
+  defect ("the generic stmmac PTP handler reads the dwmac4 offset…
 
-Here is the summary with links:
-  - [net,v3,1/2] net: airoha: handle RX_NO_CPU_DSCP interrupt, not just RX_DONE
-    (no matching commit)
-  - [net,v3,2/2] net: airoha: grow the small RX rings
-    https://git.kernel.org/netdev/net-next/c/e84b89f17a12
+--
 
-You are awesome, thank you!
+net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
+
+This adds a DWXGMAC2 specific timestamp interrupt handler that reads
+XGMAC_TIMESTAMP_STATUS (0xd20), derives the pending auxiliary snapshot
+count from ATSNS and emits PTP_CLOCK_EXTTS events.  It also adds
+XGMAC_TSIE to XGMAC_INT_DEFAULT_EN and points the DWXGMAC2 and DWXLGMAC2
+hwif entries at the new dwxgmac2_ptp ops instead of &stmmac_ptp.
+
+A couple of questions below, starting with the changelog.
+
+> DWXGMAC2 uses XGMAC_TIMESTAMP_STATUS at offset 0xd20, while the
+> generic stmmac PTP handler reads the dwmac4 offset GMAC_TIMESTAMP_STATUS
+> (0xb20).
+[ ... ]
+> As a result, auxiliary snapshot events were never reported on XGMAC
+> platforms.
+
+[Severity: Low]
+The description here is of previously broken functionality (wrong register
+offset, timestamp interrupt never unmasked), but the patch is titled "add
+... support" and carries no Fixes: tag.  Should one be added so that PTP
+EXTTS breakage on DWXGMAC2/DWXLGMAC2 is bisectable and stable selection is
+unambiguous?
+
+Two candidates that exist in the tree:
+
+  f4da56529da6 ("net: stmmac: Add support for external trigger timestamping")
+  bd7f77dae695 ("net: stmmac: fix incorrect flag check in timestamp interrupt")
+
+Is this intended for net or net-next?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> index f8ab347f7b5b..03cbae326995 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+> @@ -87,7 +87,7 @@
+>  #define XGMAC_TSIE			BIT(12)
+>  #define XGMAC_LPIIE			BIT(5)
+>  #define XGMAC_PMTIE			BIT(4)
+> -#define XGMAC_INT_DEFAULT_EN		(XGMAC_LPIIE | XGMAC_PMTIE)
+> +#define XGMAC_INT_DEFAULT_EN		(XGMAC_LPIIE | XGMAC_PMTIE | XGMAC_TSIE)
+>  #define XGMAC_Qx_TX_FLOW_CTRL(x)	(0x00000070 + (x) * 4)
+>  #define XGMAC_PT			GENMASK(31, 16)
+>  #define XGMAC_TFE			BIT(1)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> index 1a88cbaed70c..891b7ceea2d4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> @@ -1154,6 +1154,49 @@ static int dwxgmac2_get_mac_tx_timestamp(struct mac_device_info *hw, u64 *ts)
+>  	return 0;
+>  }
+>  
+> +void dwxgmac2_timestamp_interrupt(struct stmmac_priv *priv)
+> +{
+> +	u32 ts_status, pending_snapshots, acr_value, channel;
+> +	struct ptp_clock_event event;
+> +	unsigned long flags;
+> +	u64 ptp_time;
+> +	int i;
+> +
+> +	/* Read XGMAC_TIMESTAMP_STATUS to get the AUX snapshot
+> +	 * count.  This read also clears the TSIS bit in
+> +	 * XGMAC_INT_STATUS.
+> +	 * TX timestamp polling may have already cleared TSIS
+> +	 * and AUXTSTRIG, so rely on ATSNS instead.
+> +	 * TXTSC is cleared by XGMAC_TXTIMESTAMP_SEC, not by
+> +	 * this register, so there is no conflict.
+> +	 */
+> +	ts_status = readl(priv->ioaddr + XGMAC_TIMESTAMP_STATUS);
+
+[Severity: High]
+This read of the clear-on-read status register is unconditional, unlike the
+generic handler in stmmac_hwtstamp.c which first checks whether a timestamp
+interrupt is actually pending:
+
+	tsync_int = readl(priv->ioaddr + GMAC_INT_STATUS) & GMAC_INT_TSIE;
+	if (!tsync_int)
+		return;
+
+stmmac_common_interrupt() invokes stmmac_timestamp_interrupt(priv, priv) for
+every xmac core interrupt, and on platforms that do not set
+STMMAC_FLAG_MULTI_MSI_EN the single shared handler runs it ahead of DMA
+processing:
+
+stmmac_interrupt()
+	stmmac_common_interrupt();   /* -> readl(0xd20), clears TSIS */
+
+	/* To handle DMA interrupts */
+	stmmac_dma_interrupt(priv);
+
+The Agilex5 XGMAC is such a platform: socfpga_agilex5_setup_plat_dat() sets
+
+	plat_dat->core_type = DWMAC_CORE_XGMAC;
+
+and never sets STMMAC_FLAG_MULTI_MSI_EN, so it uses the single-IRQ path and
+is one of the two hwif entries switched to &dwxgmac2_ptp here.  Its
+cross-timestamp path detects snapshot completion by polling the very bit
+that this read clears:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c:smtg_crosststamp() {
+	...
+	ret = readl_poll_timeout(priv->ioaddr + XGMAC_INT_STATUS, v,
+				 (v & XGMAC_INT_TSIS), 100, 10000);
+	...
+}
+
+Can this handler consume TSIS behind smtg_crosststamp(), so that
+PTP_SYS_OFFSET_PRECISE fails with -ETIMEDOUT and a netdev_err, or reads
+ATSNS == 0 and returns a zero device timestamp?  With the TSIE unmasking in
+XGMAC_INT_DEFAULT_EN above, plus one handler run per RX/TX interrupt on the
+shared IRQ, this looks like it would happen under ordinary traffic.
+
+The later patch in the series ("net: stmmac: dwmac-socfpga: mask XGMAC_TSIE
+during cross-timestamp") masks XGMAC_TSIE around the snapshot, but at the
+end of the series dwxgmac2_timestamp_interrupt() still reads 0xd20
+unconditionally, so any other MAC or DMA interrupt during the up-to-10 ms
+poll window still clears TSIS.
+
+Would gating this read on XGMAC_INT_STATUS & XGMAC_INT_TSIS, as the dwmac4
+handler does, close that window instead?
+
+> +
+> +	if (!(priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN))
+> +		return;
+> +
+> +	pending_snapshots = FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK, ts_status);
+> +	if (!pending_snapshots)
+> +		return;
+> +
+> +	acr_value = readl(priv->ptpaddr + PTP_ACR);
+> +	channel = FIELD_GET(PTP_ACR_MASK, acr_value);
+> +	if (!channel)
+> +		return;
+> +	channel = ilog2(channel);
+> +
+> +	for (i = 0; i < pending_snapshots; i++) {
+> +		read_lock_irqsave(&priv->ptp_lock, flags);
+> +		stmmac_get_ptptime(priv, priv->ptpaddr, &ptp_time);
+> +		read_unlock_irqrestore(&priv->ptp_lock, flags);
+
+[Severity: Medium]
+The ATSNS count and the PTP_ACR channel mask are sampled once, and the
+auxiliary snapshot FIFO is then popped pending_snapshots times while holding
+only a read lock on priv->ptp_lock, which protects the systime/addend
+registers and does not exclude other readers.
+
+struct stmmac_priv documents a different lock for these registers:
+
+	/* Protects auxiliary snapshot registers from concurrent access. */
+	struct mutex aux_ts_lock;
+
+The process-context writer publishes the enable flag and issues the FIFO
+clear under that mutex, then waits for completion after dropping it:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c:stmmac_enable() {
+	...
+			priv->plat->flags |= STMMAC_FLAG_EXT_SNAPSHOT_EN;
+
+			/* Enable External snapshot trigger */
+			acr_value |= PTP_ACR_ATSEN(rq->extts.index);
+			acr_value |= PTP_ACR_ATSFC;
+	...
+		mutex_unlock(&priv->aux_ts_lock);
+		/* wait for auxts fifo clear to finish */
+		ret = readl_poll_timeout(ptpaddr + PTP_ACR, acr_value,
+					 !(acr_value & PTP_ACR_ATSFC),
+					 10, 10000);
+	...
+}
+
+Since aux_ts_lock is a mutex and this handler runs in hardirq, the two paths
+share no lock at all.  If a timestamp interrupt lands in that window, can it
+see the already-published STMMAC_FLAG_EXT_SNAPSHOT_EN together with a stale
+ATSNS count or channel mask and drain a FIFO that is being flushed or
+re-channelled, reporting stale or mis-indexed PTP_CLOCK_EXTTS events?
+
+PTP_ACR is also read only once outside the loop, so a channel change part
+way through the loop would be reported under the old index.
+
+The same unlocked pattern exists in the dwmac4 and dwmac1000 handlers, but
+this patch creates the new code and makes the path reachable on DWXGMAC2 and
+DWXLGMAC2 by unmasking XGMAC_TSIE and wiring the handler in.
+
+> +
+> +		event.type = PTP_CLOCK_EXTTS;
+> +		event.index = channel;
+> +		event.timestamp = ptp_time;
+> +		ptp_clock_event(priv->ptp_clock, &event);
+> +	}
+> +}
+> +
+
+[ ... ]
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260902131441.322167-1-zxyan0222%40gmail.com
 
