@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D1FC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E454C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ywTnWgAk1b9HTKOBIUFxYsvsdOya3ee26SNlomJm/o4=; b=P5DaXPHKwm899v
-	Fps9ljZLlz0HbSJ1E2EhL4CXjBWabS0keSq2QDh0C+CdgCcd1orWO56ulFxT/66Q5IArpvWCF44Gx
-	YFisvbSJ2zxq5UZS26u2nF2CcO0JzfgQLLuUKXUB9Z6B3VSbWeeXO2/UVPSqOB8c3joooKCdZ7vRP
-	DcVeNNqKir/X3feuX3XFyvc0FX50nao4MaJNXSrBR+0Y4gt1tVxuLF+sAPTg4UyOHmjC98hLvkBRN
-	JQwfxe3dcdaX4qaD2isqMeGJ+TyUIyIW4SKSI1Zqxtrz3JhXnGXTx7J0qU0lCrc0C5e81sKHun/S6
-	O75G0nvWZLVIm/6SMdow==;
+	List-Owner; bh=zB0abRnB96aVBzXq/f6eZ5Kbz/HGeo7yyqOhSey8KzU=; b=FjqVxjoQ1yT9Zw
+	0z1MbIsYFSpSzQdiOSOyPcPa6KaeejYq28dn88umRbDeYA8+UMNBlY384qV+kqLyaYmoFcgx/QgSO
+	kEX50Le11XlSXb9MMJWlpa1MutPzPg+u5jikqV8aGI3sI1GkDOnS50E/7oHuSyKxUVop1QzU4WbaP
+	F9N1bEZG+omcaitkrR8/gNQg2lBR3/EbgzLZwU0gf01zv43WXJNQkrkbSLz5DfoQEIkoDzdPRnk7j
+	l+HeOrYMzTux53qZ6Y4id7s3aCt5xqqckJeswlyROnhYx1q5l//0GliLtZU7zQBA2264uWjhsT5Iv
+	KlcfsYwXFtGHMPhJF0zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WdK-00000002hZE-3Zis;
-	Fri, 04 Sep 2026 16:19:18 +0000
+	id 1x2Wda-00000002hsz-2tFh;
+	Fri, 04 Sep 2026 16:19:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2WdX-00000002hnG-16Mo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 04 Sep 2026 16:19:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=zB0abRnB96aVBzXq/f6eZ5Kbz/HGeo7yyqOhSey8KzU=; b=AfQKXKP/kOo71LEgzmL3JRJp+w
+	ild2W50akldTqbxaW1kTmFZZDPlXaKQYQ2q+z5VFCvWX0gCwwwppSuCRhPJpyiUIDc6/wuyDNRDeK
+	uOWOflF4Mx8b/patFCsGjs2CEv4HXla5h+xxPGkVxt8Mj5azSiT6NkqhO3Ttz8iY2c5hOVXpYMlrZ
+	WWPlnd0hFXJu3Ihd9DiMZP76iVVEQkyiNHUJiDvKaHI3ttei/nnNS4jXn3g917KG+t9t/lU1oh+tb
+	kYcOD2lztnwp6zBFyloYngA2vws5elugbHgev2elNAvW30Y41thw/M7AujYGSuuWaIX8DeHLiFcsa
+	qkWh2XHw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WdD-00000002hPu-0G22
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x2WdQ-0000000EHXj-3N6s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:19:14 +0000
+	Fri, 04 Sep 2026 16:19:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE500152B;
-	Fri,  4 Sep 2026 09:19:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1928D1BCA;
+	Fri,  4 Sep 2026 09:19:09 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 76B193F673;
-	Fri,  4 Sep 2026 09:19:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C5E503F673;
+	Fri,  4 Sep 2026 09:19:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788538750; bh=IkSLmCvkfNucuZa5pjOOMJu7wxmHLN+BpWa/Zg98QUc=;
+	t=1788538752; bh=weSg9lKsIHE/83qMW/SyU4ojYrTWn2q+C4WdqveaRvg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CACXboHwjorluT9f6fvpvYPUAEPxhg5czfb/kIAgfDsSnQpRu18OxG6euH3zhPl/M
-	 /BBk+gSUglLl0dH8rSNp8i5N3kBVQTFSnDpbiB8sOIB7PeTCkUb3yE1YD2QC3+gOP7
-	 9W9I5PqLuxiL41nKrkMCyFNDT0yOdJm1Ii62lRLs=
+	b=a4hap3h3C5OV/1PtxcADwm+sdkgAHNCMw6GTY0aLOrd78pYQBCnfUlLXLTf+WNgQv
+	 vDxUMotFxfUDGdz1UdbnLaPOdzCMSyLUidtRSlHb0R3p4jY+/SiJ8mV7NRNC0SiTAi
+	 SsaDtQDHYxXYtZKwgBpM0uzTdsCssq1vqmH1IkJ4=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 18/21] arm64: percpu: Implement preemptible XCHG ops
-Date: Fri,  4 Sep 2026 17:17:55 +0100
-Message-Id: <20260904161758.376504-19-mark.rutland@arm.com>
+Subject: [PATCH v3 19/21] arm64: percpu: Implement preemptible CMPXCHG ops
+Date: Fri,  4 Sep 2026 17:17:56 +0100
+Message-Id: <20260904161758.376504-20-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
 References: <20260904161758.376504-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_091911_175766_44A92BCC 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260904_171927_800367_9E219E97 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,37 +82,41 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@i
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PCPU GPR infrastructure to implement all of the xchg ops
+Use the PCPU GPR infrastructure to implement all of the {8,16,32,64}-bit
+cmpxchg ops.
+
+Note that before this patch, the LL/SC and LSE implementation was chosen
+with an alternative branch. After this patch the implementations are
+patched inline, matching the style of the other percpu ops.
 
 Test case:
 
-| u64 outline_xchg_name(u64 *p, u64 v)
+| u64 outline_this_cpu_cmpxchg_u64(u64 __percpu *p, u64 o, u64 n)
 | {
-| 	return xchg(p, v);
+| 	return this_cpu_cmpxchg(*p, o, n);
 | }
 
 Generated code before this patch (v7.2-rc4):
 
-| <outline_this_cpu_xchg_u64>:
+| <outline_this_cpu_cmpxchg_u64>:
 |        paciasp
 |        stp     x29, x30, [sp, #-32]!
-|        mrs     x3, sp_el0
+|        mrs     x4, sp_el0
 |        mov     x29, sp
-|        ldr     w2, [x3, #8]
-|        add     w2, w2, #0x1
-|        str     w2, [x3, #8]
-|        mov     x2, x0
-|        mrs     x4, tpidr_el1
-|        add     x2, x2, x4
-|        prfm    pstl1strm, [x2]
-| 1:     ldxr    x0, [x2]
-|        stxr    w5, x1, [x2]
-|        cbnz    w5, 1b
-|        ldr     x1, [x3, #8]
+|        ldr     w3, [x4, #8]
+|        add     w3, w3, #0x1
+|        str     w3, [x4, #8]
+|        mrs     x3, tpidr_el1
+|        add     x3, x0, x3
+|        b       4f		// alternative branch
+|        cas     x1, x2, [x3]
+|        mov     x0, x1
+| 1:     mrs     x2, sp_el0
+|        ldr     x1, [x2, #8]
 |        sub     x1, x1, #0x1
-|        str     w1, [x3, #8]
+|        str     w1, [x2, #8]
 |        cbz     x1, 2f
-|        ldr     x1, [x3, #8]
+|        ldr     x1, [x2, #8]
 |        cbnz    x1, 3f
 | 2:     str     x0, [sp, #24]
 |        bl      preempt_schedule_notrace
@@ -105,21 +124,30 @@ Generated code before this patch (v7.2-rc4):
 | 3:     ldp     x29, x30, [sp], #32
 |        autiasp
 |        ret
+| 4:     prfm    pstl1strm, [x3]
+| 5:     ldxr    x0, [x3]
+|        eor     x4, x0, x1
+|        cbnz    x4, 6f
+|        stxr    w4, x2, [x3]
+|        cbnz    w4, 5b
+| 6:     b       1b
 
 Generated code after this patch:
 
-| <outline_this_cpu_xchg_u64>:
-|        mrs     x3, sp_el0
-|        mov     w5, #0x10a0
-|        strh    w5, [x3, #20]
-|        mrs     x5, tpidr_el1
-|        add     x4, x0, x5
-|        prfm    pstl1strm, [x4]
-| 1:     ldxr    x2, [x4]
-|        stxr    w6, x1, [x4]
-|        cbnz    w6, 1b
-|        strh    wzr, [x3, #20]
-|        mov     x0, x2
+| <outline_this_cpu_cmpxchg_u64>:
+|        mrs     x4, sp_el0
+|        mov     w6, #0x14c0
+|        strh    w6, [x4, #20]
+|        mrs     x6, tpidr_el1
+|        add     x5, x0, x6
+|        prfm    pstl1strm, [x5]
+| 1:     ldxr    x3, [x5]
+|        eor     x7, x3, x1
+|        cbnz    x7, 2f
+|        stxr    w7, x2, [x5]
+|        cbnz    w7, 1b
+| 2:     strh    wzr, [x4, #20]
+|        mov     x0, x3
 |        ret
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
@@ -135,94 +163,112 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/percpu.h | 57 ++++++++++++++++++++++++++++++---
- 1 file changed, 53 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/percpu.h | 69 +++++++++++++++++++++++++++++++--
+ 1 file changed, 65 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 9fe44d04c871b..820340c61d70f 100644
+index 820340c61d70f..f19a82437b3fd 100644
 --- a/arch/arm64/include/asm/percpu.h
 +++ b/arch/arm64/include/asm/percpu.h
-@@ -269,6 +269,50 @@ PERCPU_RET_OP(add, add, ldadd)
- #undef PERCPU_OP
- #undef PERCPU_RET_OP
+@@ -306,12 +306,67 @@ __percpu_xchg_case_##sz(void __percpu *pcp, u##sz val)			\
+ 	return ret;							\
+ }
  
-+#define PERCPU_XCHG_OP(w, sfx, sz)					\
++#define PERCPU_CMPXCHG_OP(w, sfx, sz)					\
 +static inline unsigned long						\
-+__percpu_xchg_case_##sz(void __percpu *pcp, u##sz val)			\
++__percpu_cmpxchg_case_##sz(void __percpu *pcp,				\
++			   u##sz old,					\
++			   u##sz new)					\
 +{									\
++	/*                                                              \
++	 * Sub-word sizes require zero extension so that EOR+CBNZ don't	\
++	 * consume non-zero upper bits of the register containing "old".\
++	 */								\
++	xwreg_t(w) cmpval = xwreg_zero_extend(old, w, sz);		\
 +	u16 *gprs = &current_thread_info()->pcpu_gprs;			\
 +	unsigned long addr;						\
 +	unsigned long off;						\
-+	unsigned int loop;						\
-+	unsigned long ret;						\
++	unsigned long tmp;						\
++	unsigned long oldval;						\
 +									\
 +	asm volatile (							\
 +	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")	\
 +	ARM64_LSE_ATOMIC_INSN(						\
 +	/* LL/SC */							\
 +	"	prfm	pstl1strm, [%[addr]]\n"				\
-+	"1:	ldxr" #sfx "\t%" #w "[ret], [%[addr]]\n"		\
-+	"	stxr" #sfx "\t%w[loop], %" #w "[val], [%[addr]]\n"	\
-+	"	cbnz	%w[loop], 1b\n"					\
++	"1:	ldxr" #sfx "\t%" #w "[oldval], [%[addr]]\n"		\
++	"	eor	%" #w "[tmp], %" #w "[oldval], %" #w "[old]\n"	\
++	"	cbnz	%" #w "[tmp], 2f\n"				\
++	"	stxr" #sfx "\t%w[tmp], %" #w "[new], [%[addr]]\n"	\
++	"	cbnz	%w[tmp], 1b\n"					\
++	"2:\n"								\
 +	,								\
 +	/* LSE atomics */						\
-+	"	swp" #sfx "\t%" #w "[val], %" #w "[ret], [%[addr]]\n"	\
-+		__nops(3)						\
++	"	mov	%" #w "[oldval], %" #w "[old]\n"		\
++	"	cas" #sfx "\t%" #w "[oldval], %" #w "[new], [%[addr]]\n"\
++		__nops(4)						\
 +	)								\
 +	__PCPU_GPRS_END("%[gprs]")					\
 +	: [gprs] "=Qo" (*gprs),						\
 +	  [addr] "=&r" (addr),						\
 +	  [off] "=&r" (off),						\
-+	  [loop] "=&r" (loop),						\
-+	  [ret] "=&r" (ret)						\
++	  [tmp] "=&r" (tmp),						\
++	  [oldval] "=&r" (oldval)					\
 +	: [pcp] "r" (pcp),						\
-+	  [val] "r" (val)						\
++	  [old] "r" (cmpval),						\
++	  [new] "r" (new)						\
 +	: "memory"							\
 +	);								\
 +									\
-+	return ret;							\
++	return oldval;							\
 +}
 +
-+PERCPU_XCHG_OP(w, b, 8)
-+PERCPU_XCHG_OP(w, h, 16)
-+PERCPU_XCHG_OP(w,  , 32)
-+PERCPU_XCHG_OP(x,  , 64)
+ PERCPU_XCHG_OP(w, b, 8)
+ PERCPU_XCHG_OP(w, h, 16)
+ PERCPU_XCHG_OP(w,  , 32)
+ PERCPU_XCHG_OP(x,  , 64)
+ 
++PERCPU_CMPXCHG_OP(w, b, 8)
++PERCPU_CMPXCHG_OP(w, h, 16)
++PERCPU_CMPXCHG_OP(w,  , 32)
++PERCPU_CMPXCHG_OP(x,  , 64)
 +
-+#undef PERCPU_XCHG_OP
-+
+ #undef PERCPU_XCHG_OP
++#undef PERCPU_CMPXCHG_OP
+ 
  /*
   * It would be nice to avoid the conditional call into the scheduler when
-  * re-enabling preemption for preemptible kernels, but doing that in a way
-@@ -306,6 +350,11 @@ PERCPU_RET_OP(add, add, ldadd)
- 	(typeof(pcp))op(&(pcp), ##args);				\
+@@ -355,6 +410,12 @@ PERCPU_XCHG_OP(x,  , 64)
+ 	(typeof(pcp))op(&(pcp), (unsigned long)(val));			\
  })
  
-+#define _pcp_wrap_xchg(op, pcp, val)					\
++#define _pcp_wrap_cmpxchg(op, pcp, old, new)				\
 +({									\
-+	(typeof(pcp))op(&(pcp), (unsigned long)(val));			\
++	(typeof(pcp))op(&(pcp), (unsigned long)(old),			\
++			(unsigned long)(new));				\
 +})
 +
  #define this_cpu_read_1(pcp)		\
  	_pcp_wrap_return(__percpu_read_8, pcp)
  #define this_cpu_read_2(pcp)		\
-@@ -361,13 +410,13 @@ PERCPU_RET_OP(add, add, ldadd)
- 	_pcp_wrap(__percpu_or_case_64, pcp, val)
- 
- #define this_cpu_xchg_1(pcp, val)	\
--	_pcp_protect_return(xchg_relaxed, pcp, val)
-+	_pcp_wrap_xchg(__percpu_xchg_case_8, pcp, val)
- #define this_cpu_xchg_2(pcp, val)	\
--	_pcp_protect_return(xchg_relaxed, pcp, val)
-+	_pcp_wrap_xchg(__percpu_xchg_case_16, pcp, val)
- #define this_cpu_xchg_4(pcp, val)	\
--	_pcp_protect_return(xchg_relaxed, pcp, val)
-+	_pcp_wrap_xchg(__percpu_xchg_case_32, pcp, val)
- #define this_cpu_xchg_8(pcp, val)	\
--	_pcp_protect_return(xchg_relaxed, pcp, val)
-+	_pcp_wrap_xchg(__percpu_xchg_case_64, pcp, val)
+@@ -419,13 +480,13 @@ PERCPU_XCHG_OP(x,  , 64)
+ 	_pcp_wrap_xchg(__percpu_xchg_case_64, pcp, val)
  
  #define this_cpu_cmpxchg_1(pcp, o, n)	\
- 	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
++	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_8, pcp, o, n)
+ #define this_cpu_cmpxchg_2(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
++	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_16, pcp, o, n)
+ #define this_cpu_cmpxchg_4(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
++	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_32, pcp, o, n)
+ #define this_cpu_cmpxchg_8(pcp, o, n)	\
+-	_pcp_protect_return(cmpxchg_relaxed, pcp, o, n)
++	_pcp_wrap_cmpxchg(__percpu_cmpxchg_case_64, pcp, o, n)
+ 
+ #define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
+ 
 -- 
 2.30.2
 
