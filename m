@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF0AC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 17:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7923BC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 17:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4w+spAm0uWWwcup+mfvYNUXNY0jRbWl51yfDyG8aFs4=; b=ociaPKbC1ehOcIsB+9qvdLI2Aj
-	xypmQz3Bj5Z46qsqKPt2Ey2VPkAsLIk9JjNECsHk1ugpALmW4CKQEGL/md9bg/1GyG7Wp+SAS7+Jh
-	YexokdwWvIKTIqXwrJhcHmvR9D4Vc8mC1Qv4+NFGyqcwecsxkl/Oe5c+Vgr723ZuNA+8eV2wMU9Ze
-	lAW4LRpGIu5+5WZx64Hoyr1Qbp+iQ17fOAy/KC0IXUkpc8Mu2ujBvcfirMnrdOmFd6w0uYyaq/obP
-	mT8B6TbKK1U8G/uCfTrFyMjP/0JplYZyBBT+im1THSSHdVok5/7CuNe2pCpMa8i34UQ2nILFKRs6t
-	6c1aPBOA==;
+	bh=VjN1gkM3/MJ3iD53susk88E53ze4Bbb7Yo3K3aqlx7E=; b=ioQ+ZMlOgzbf9JTFD1f82fhQYe
+	JHq0yAUemj2XdyFdHrlDzdRI79+QbRiF5z3usdex/who2tCn0twsnLFgYYpHsXBTOFr6bsAa23Dhs
+	hcPckn0VxWj8hWDoLtdO/Hf2CG0252gJJTAszBnK2T64M+zOXWB/Sn0dm0MQHoxDDWMTyK34MBt6p
+	VXZA7kbrWGfK0XGO9B8zVAJo36vdKyMB8Dqq6abUVSR2+ETXWF1c4K4sYLXpq349Bbl9Z6s3bKGCb
+	JBEsFWGYd09CPcJSt6oAVF4TLyZbnxhXHwE5XYFwovxigdKe1jxBOqRf3/sL/zSfoySumxvYSjWwA
+	deaio5Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XqM-00000002tZB-0g2i;
-	Fri, 04 Sep 2026 17:36:50 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
+	id 1x2XuA-00000002umY-3Xi8;
+	Fri, 04 Sep 2026 17:40:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XqJ-00000002tYM-0Ied
+	id 1x2Xu9-00000002umC-0Nqk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 17:36:49 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 819D340E02C2;
-	Fri,  4 Sep 2026 17:36:41 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id hQ3Yhrf6A5cH; Fri,  4 Sep 2026 17:36:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1788543392; bh=4w+spAm0uWWwcup+mfvYNUXNY0jRbWl51yfDyG8aFs4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SoziP6HbLj77a89rc3xWyhElxy2OnAwmmK+WrgAWWIowVnwNSlV+oP46ADmBwVsnd
-	 yCEKWpz3K2lWB1VolczTE64gpfHrdUl+el0VDrMnsndNuYGmChPaqu5L7dPxINIzzL
-	 iuZWueIvng7XPakfJPeYd2tpu341BU0eVn5SZ68LFkA77z2dtsGXio5ZYkw2nev0ru
-	 O88KY8ucs9tL1wuesqPVECx/dX6fjGRoToFiD4G2c+KIREQpyGnPLbM45xOSveEiWB
-	 +hqfmycEwh+nAegtmwmlXbH0fl+TGhVOFpCJEBL7Hp97ebjtjWm2jkymey1VarA2ow
-	 i6smdbjmsWdEUQiFTqdG79gR7dIlPU3Mdq7MT+ezbk2uvqIn/sTIEFzXqATPY9DPYa
-	 A8BI9unS0kprXvhhQvDdqQtmNjAVvcJHZu7kysAaHn9voLOft+hpxCZpSa4/xbGHxO
-	 ap7SZ+gPS6kEVc3rHPlDaLlIf0NQMfKT8BJc/gVy7CmNZmIVTuHbGfGvoSYPSaWW6H
-	 8nK5X0IEYhHpMIw7Vy6ac0333i/LIuDFycDtPorkXY+qT9Bp7AWrgT845p8BAwGSEe
-	 MSD4u2dXsebxSD2hcn79dCdxNSKCLKIl7j3asJDV7TP6vbLFgNg34+dhJuHygbiROH
-	 s0rJNoKjpmdhxq2T36DCqYGk=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 4DD0440E024B;
-	Fri,  4 Sep 2026 17:36:18 +0000 (UTC)
-Date: Fri, 4 Sep 2026 10:36:15 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Cc: Ben Horgan <ben.horgan@arm.com>, x86@kernel.org, james.morse@arm.com,
-	fenghuay@nvidia.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, tglx@linutronix.de,
-	mingo@redhat.com, dave.hansen@linux.intel.com, hpa@zytor.com,
-	corbet@lwn.net, linux-doc@vger.kernel.org, dave.martin@arm.com
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-Message-ID: <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
-References: <20260709093111.367851-1-ben.horgan@arm.com>
- <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
- <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
- <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
+	Fri, 04 Sep 2026 17:40:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AAD1600D4;
+	Fri,  4 Sep 2026 17:40:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D071F00A3D;
+	Fri,  4 Sep 2026 17:40:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788543644;
+	bh=VjN1gkM3/MJ3iD53susk88E53ze4Bbb7Yo3K3aqlx7E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gXIrg7GmobYPdnyckJvRGQzs9/B5pfELcXUk/lYcSM6f0RJOmCjpfqxjspCfhJDr8
+	 BJUv69D+L1NfImxzer1lyZ1/+5IiGW3sleYy1H4n/sK9az1Mxnd5iNa7qvFkjuobTJ
+	 a39a4Hk/Ek6KWdmJTSrwPvnTT86/tW+V2c8SR3N3gYQazpSajL5c3OxAq6J6rJZ7pv
+	 xB9ErA04HEEvCeKtOAzjMpNVzz0tDQwi9gmTK9eBjLGV2SK/ZlQJVvT3H/LRxFlqcP
+	 npo/nwTVxe0LCncH0ttWplJqa1JPrHfPwC7J/7rnoh0HmyQCU3+hmcsSOoeDpQcPx7
+	 RV942uW+Ywd5A==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 66B941AC52F1; Fri, 04 Sep 2026 18:40:41 +0100 (BST)
+Date: Fri, 4 Sep 2026 18:40:41 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
+Message-ID: <apsCmewuhD9UZWT4@sirena.co.uk>
+References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+ <20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
+ <86pkyt4gvt.wl-maz@kernel.org>
+ <eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
+ <apqrky27mJmUV9UA@willie-the-truck>
+ <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+ <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
+ <aprJv4vkguNJb5vG@sirena.org.uk>
+ <87v78l3yrg.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rBn5QobMDx7UT59k"
 Content-Disposition: inline
-In-Reply-To: <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_103647_781658_3901CAFF 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <87v78l3yrg.wl-maz@kernel.org>
+X-Cookie: My vaseline is RUNNING...
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,21 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:37:51PM -0700, Borislav Petkov wrote:
-> Lemme have a look.
 
-Sashiko has comments:
+--rBn5QobMDx7UT59k
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-https://sashiko.dev/#/patchset/20260709093111.367851-1-ben.horgan%40arm.com
+On Fri, Sep 04, 2026 at 02:57:23PM +0100, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-Please address them: if valid, fix them, if not, explain why they don't need
-to be fixed.
+> > Marc also started out with a flat no and didn't mention anything
+> > positive about the hVHE part so it appeared that he was objecting to the
+> > whole concept of the patch, including the hVHE aspect.
 
-Thx.
+> Then you should read my email again.
 
--- 
-Regards/Gruss,
-    Boris.
+It is true that you only explicitly mentioned nVHE which doesn't exclude
+hVHE, but the silence on hVHE made the position there unclear and the
+tone was rather negative.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+--rBn5QobMDx7UT59k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqbApgACgkQJNaLcl1U
+h9CBkQf+M6gAaAslxrZd1oYFC/YbkP0vFgitN4ZJT1Xrtve/CiKxqhVlngLT4E22
+3eS5rCMou3UAKB2lp+fa3VpeOv0fw8VBRupb6hMPXlpLeUrmI0CDNNc7XJSL/IeA
+5jcwd4ftTBGkkE1p/nAQWDP2FjXtVr22qYTHo3rz+1aNED02060rrrSZMJc+7Y+m
+gduUnHyYroKnIYBf0kO1uhydZsJ92/zbV8MjqcUnFJPUmbzEEfcmxvofn0GD147a
+i95yeBKGDfrK7C5ymNMvfmCq7Hz9oT9/3gFpf0HwVpRxzsaEGWDif/ubHH5vRzbI
+a5QzuIRqkbOVIBSQdMB+3Ef/cyjmeA==
+=q+Ne
+-----END PGP SIGNATURE-----
+
+--rBn5QobMDx7UT59k--
 
