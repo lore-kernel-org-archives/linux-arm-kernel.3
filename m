@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2130CC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4142BC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1mnRUam902TG8+jJPr9DI2ATj88hClkYZ0Txk+HpE6U=; b=L9L9VIaja11gCL
-	kuUpDHC/ENFBtCmYtbG4XCuo/xd3MRjmnFo6e1mCUWsmHLPIxSlpx7/6Iat4Qp74J2iTQJw8BwxdJ
-	b/zi0zszH071L82Hmrn41YGw0Zo6NTMXXDFjluYW+eVsx1ytVsO3G0F6pnNiSeDPs10zq0DjtV4JT
-	ZpDpkucCRaj/Xgr2xpNyoXtbnyu9YhAbMWamqqDCaZNQl9bKc7QjUHDSsiYAhHYDJtVJy83Yx/vUO
-	fhjxSBxgw2kwRxKXSkuhSNz9OZ1c4TbxTFxMQYWdkfn/iwETZlek2VfZI9qcUbpmrdBiNTSJ6krem
-	GRjQKGa1j9jchO/82w9g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D1PdO7b96oZEBitMdoxZM/am5g9LcgR3z7wz5ec3PhU=; b=G5EI8ehElLGvDxcN4GgrbFMqaC
+	DRVr1iSSHf7aPNlsulHRNt5bzM8516HG3PRIM6fciIvTmMMh31DeGiTHQFWRQqlD+bxYm48tyxW/3
+	jH1Cdz3cKcctzDzK02rJx0S8sUGFfj68oDDzT+W6GSQU//a2tigtX0V/Smv6WX9pEZg7erPsRW9hG
+	bPeDhhHmNs9oKEwMXh2hLdooNwHVB/EJ8m130EBkviOoTx784Mp1f19F6VhfDDXTX6Tou4CGSkXtP
+	+UgDZecHu4REBgOwhLKCp+Q/vFF7qD/0jyyGxtcwcdJ/UyDlIElbzIL/NHkbOYmu1VxJXf0zXwKIn
+	nnu31uCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Odb-00000001Gdz-3eZn;
-	Fri, 04 Sep 2026 07:47:03 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1x2OdX-00000001GaB-1ycy;
+	Fri, 04 Sep 2026 07:46:59 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2OdT-00000001GXI-3cte;
-	Fri, 04 Sep 2026 07:46:58 +0000
+	id 1x2OdT-00000001GXD-3S75;
+	Fri, 04 Sep 2026 07:46:57 +0000
 From: Gregor Herburger <gregor.herburger@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1788508013;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1mnRUam902TG8+jJPr9DI2ATj88hClkYZ0Txk+HpE6U=;
-	b=giVOnXWZxiO5DHF73h4PzYJe538ZCmKe1wB27ixUTbFktMDtJ9VEynjwGyPPP/Cav85Fog
-	B2n13/ISwdc7Vf2YxeWZ4e3Sl5b44yt2W7EZypeX7q02UD2khecS8X1ruqBw0OI1gRlmWF
-	05i8Ykp+2A3b3s6g335Ku9Gi9eaxK8rPyCKOKpFtQieN/B03m/S2RhXL93VfuIQg1jQd6s
-	R9sJViRV1w0NzH58soky3xmeUvlk2U7xsNEV+vChOMlufprSd+7Sb9bctr83A1bE5d44QM
-	HuViap9c2Na4eRimwKEnXZUAxTNcOo1hd+lYHoEh3dkhYN9s9R2l+qo/Lbhixg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D1PdO7b96oZEBitMdoxZM/am5g9LcgR3z7wz5ec3PhU=;
+	b=bF7WFeEsT8kmHKHQhjY9iCFz5V0byYZjWwOj/fH+48AUnQjt3k3dMRstbjXC0zYtaKWH2Y
+	Zlu95OV5I2MxjnumjqZY1n4QLsUClBa5IE8CuvQOBAkxHtlAyB2MwzoY49zwnLyQTPUxzT
+	QQtNrRelKtMLreXUAC1d37wIleDlYaWXkocuv0jF/jYMrz6bSz7MT35x/oZSSFzcbJNCJt
+	bbHnC9/8pu6nA1BVV2WTUrjiqNJAZ65bAKNwzgJsDwDr//NWgJVS41OUByEcNQr7MgSgxW
+	uP54l40xWXU2cIc5DKwjMrxsgAwL8HTaB1mUs7rQCjyXPUhRz2OdAbOHgH85zg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1788508013;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1mnRUam902TG8+jJPr9DI2ATj88hClkYZ0Txk+HpE6U=;
-	b=/nnKPpb82xAr3FbYAKDXdDp4UOYKSsXJOV7YpGXXKHYGHx8gEveNNSW5IxytgxmtZj8AR5
-	M7CwtUGwcFcqJ7Cg==
-Subject: [PATCH v4 0/4] firmware: raspberrypi: Add support for the tryboot
- mode
-Date: Fri, 04 Sep 2026 09:46:48 +0200
-Message-Id: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D1PdO7b96oZEBitMdoxZM/am5g9LcgR3z7wz5ec3PhU=;
+	b=MHewjGPmtYcj8ZvRqg4xz7hnipB4HfkJOiZsohayRmZ2RkL+7WMaIVbKYXWVlodbhGlgOI
+	xeJe0+a/so+Z77Dw==
+Date: Fri, 04 Sep 2026 09:46:49 +0200
+Subject: [PATCH v4 1/4] firmware: raspberrypi: reorder
+ rpi_firmware_property_tag enum
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGh3mmoC/23NQQ6CMBCF4auQrq0pQ9OCK+9hXEA7yBhDSVuJx
- nB3KcYoxuVL5vvnwQJ6wsB22YN5HCmQ6+chNxkzXd2fkJOdNwMBSigouB+IR39vnItcQgWmgkZ
- o0GwWg8eWbkvtcHztcG3OaGJKpIuOQnT+vrwb83T3LqtVecy54LISTW6kkZUW+wv11+hdT7etR
- ZbqI3z5Qqw9zL5VpQVrVF2D/ueLj9dCr32RvK1LaFGj1erXT9P0BP501bE8AQAA
-X-Change-ID: 20260623-rpi-tryboot-4292c92b0727
+Message-Id: <20260904-rpi-tryboot-v4-1-fdee8bc53ff7@linutronix.de>
+References: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
+In-Reply-To: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
 To: Florian Fainelli <florian.fainelli@broadcom.com>, 
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
  Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
@@ -67,18 +66,18 @@ To: Florian Fainelli <florian.fainelli@broadcom.com>,
 Cc: linux-rpi-kernel@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788508013; l=2102;
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788508013; l=4658;
  i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=injOFXYCg99MpqtN/NqbI9Hc4Oaro/Dhz9C/CiXUlqo=;
- b=E1Yz8QJbd0SFChekiBWnZdNW4TSfqmfyaIE96cf3vKQiuJeQqIfUXPltTxM9WrpYM17C1t9c/
- yMRISESo3hRAtt/B++nNss8U+IjZVuuSYg6QEAnKQCbFM+hhSA5/Idr
+ bh=JjU0NmyrHjQlVYmu58rWFIQi9wV0Yk0e9whJMEcZGqg=;
+ b=ost2OB3Qt88g8OIHEOl7bVAwsWB4M1WIMH00w5+gBo+XQfbaXFF4XfW4HvZpAgqGWDwaKjNv/
+ UClcw+3TsIFBVlEaAQXJ0BHtva0fxrqZo+EcSNFsa2fO38P6w0qydCP
 X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
  pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_004656_086546_0DFCC075 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260904_004656_043981_BADE22B1 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +92,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds support for the tryboot mode on Raspberry Pis. As there is no
-documentation other than the downstream implementation [0] the
-implementation is based on this.
+The enum was once ordered by tag values. The later added tags were added
+in a different order. Reorder the tags again.
 
-I tested this on Raspberry Pi 5 and therefore I only added the
-properties to this devicetree. But afaik this should work on all
-Raspberry Pis. I will add it to the correspondings dts if I get some
-hardware to test it.
+No functional change intended.
 
-[0] https://github.com/raspberrypi/linux/commit/eb56da0c1925c07e8929ce4c9fe8aeafa7cb8c7b
-
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 ---
-Changes in v4:
-- fix use-after-free error by moving devm_add_action_or_reset before devm_add_action_or_reset 
-- Rebase onto v7.3-rc1
-- Link to v3: https://patch.msgid.link/20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de
+ include/soc/bcm2835/raspberrypi-firmware.h | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-Changes in v3:
-- fix use-after-free error by using devm_add_action_or_reset
-- ensure endianness of magic byte
-- refactor reboot mode registration into separate function
-- Link to v2: https://patch.msgid.link/20260630-rpi-tryboot-v2-0-f68d2dc6aa27@linutronix.de
+diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
+index 975bef529854a..8ad1cdbf5e9f5 100644
+--- a/include/soc/bcm2835/raspberrypi-firmware.h
++++ b/include/soc/bcm2835/raspberrypi-firmware.h
+@@ -72,26 +72,26 @@ enum rpi_firmware_property_tag {
+ 	RPI_FIRMWARE_GET_EDID_BLOCK =                         0x00030020,
+ 	RPI_FIRMWARE_GET_CUSTOMER_OTP =                       0x00030021,
+ 	RPI_FIRMWARE_GET_DOMAIN_STATE =                       0x00030030,
++	RPI_FIRMWARE_GET_GPIO_STATE =                         0x00030041,
++	RPI_FIRMWARE_GET_GPIO_CONFIG =                        0x00030043,
++	RPI_FIRMWARE_GET_PERIPH_REG =                         0x00030045,
+ 	RPI_FIRMWARE_GET_THROTTLED =                          0x00030046,
+ 	RPI_FIRMWARE_GET_CLOCK_MEASURED =                     0x00030047,
+ 	RPI_FIRMWARE_NOTIFY_REBOOT =                          0x00030048,
++	RPI_FIRMWARE_GET_POE_HAT_VAL =                        0x00030049,
++	RPI_FIRMWARE_SET_POE_HAT_VAL =                        0x00030050,
++	RPI_FIRMWARE_NOTIFY_XHCI_RESET =                      0x00030058,
++	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
+ 	RPI_FIRMWARE_SET_CLOCK_STATE =                        0x00038001,
+ 	RPI_FIRMWARE_SET_CLOCK_RATE =                         0x00038002,
+ 	RPI_FIRMWARE_SET_VOLTAGE =                            0x00038003,
+ 	RPI_FIRMWARE_SET_TURBO =                              0x00038009,
+ 	RPI_FIRMWARE_SET_CUSTOMER_OTP =                       0x00038021,
+ 	RPI_FIRMWARE_SET_DOMAIN_STATE =                       0x00038030,
+-	RPI_FIRMWARE_GET_GPIO_STATE =                         0x00030041,
+ 	RPI_FIRMWARE_SET_GPIO_STATE =                         0x00038041,
+ 	RPI_FIRMWARE_SET_SDHOST_CLOCK =                       0x00038042,
+-	RPI_FIRMWARE_GET_GPIO_CONFIG =                        0x00030043,
+ 	RPI_FIRMWARE_SET_GPIO_CONFIG =                        0x00038043,
+-	RPI_FIRMWARE_GET_PERIPH_REG =                         0x00030045,
+ 	RPI_FIRMWARE_SET_PERIPH_REG =                         0x00038045,
+-	RPI_FIRMWARE_GET_POE_HAT_VAL =                        0x00030049,
+-	RPI_FIRMWARE_SET_POE_HAT_VAL =                        0x00030050,
+-	RPI_FIRMWARE_NOTIFY_XHCI_RESET =                      0x00030058,
+-	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
+ 
+ 	/* Dispmanx TAGS */
+ 	RPI_FIRMWARE_FRAMEBUFFER_ALLOCATE =                   0x00040001,
+@@ -107,7 +107,6 @@ enum rpi_firmware_property_tag {
+ 	RPI_FIRMWARE_FRAMEBUFFER_GET_PALETTE =                0x0004000b,
+ 	RPI_FIRMWARE_FRAMEBUFFER_GET_TOUCHBUF =               0x0004000f,
+ 	RPI_FIRMWARE_FRAMEBUFFER_GET_GPIOVIRTBUF =            0x00040010,
+-	RPI_FIRMWARE_FRAMEBUFFER_RELEASE =                    0x00048001,
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_PHYSICAL_WIDTH_HEIGHT = 0x00044003,
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_VIRTUAL_WIDTH_HEIGHT =  0x00044004,
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_DEPTH =                 0x00044005,
+@@ -117,6 +116,7 @@ enum rpi_firmware_property_tag {
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_OVERSCAN =              0x0004400a,
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_PALETTE =               0x0004400b,
+ 	RPI_FIRMWARE_FRAMEBUFFER_TEST_VSYNC =                 0x0004400e,
++	RPI_FIRMWARE_FRAMEBUFFER_RELEASE =                    0x00048001,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_PHYSICAL_WIDTH_HEIGHT =  0x00048003,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_VIRTUAL_WIDTH_HEIGHT =   0x00048004,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_DEPTH =                  0x00048005,
+@@ -125,10 +125,10 @@ enum rpi_firmware_property_tag {
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_VIRTUAL_OFFSET =         0x00048009,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_OVERSCAN =               0x0004800a,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_PALETTE =                0x0004800b,
+-	RPI_FIRMWARE_FRAMEBUFFER_SET_TOUCHBUF =               0x0004801f,
+-	RPI_FIRMWARE_FRAMEBUFFER_SET_GPIOVIRTBUF =            0x00048020,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_VSYNC =                  0x0004800e,
+ 	RPI_FIRMWARE_FRAMEBUFFER_SET_BACKLIGHT =              0x0004800f,
++	RPI_FIRMWARE_FRAMEBUFFER_SET_TOUCHBUF =               0x0004801f,
++	RPI_FIRMWARE_FRAMEBUFFER_SET_GPIOVIRTBUF =            0x00048020,
+ 
+ 	RPI_FIRMWARE_VCHIQ_INIT =                             0x00048010,
+ 
 
-Changes in v2:
-- Remove unnecessary reboot_mode_unregister().
-- dt-binding: restrict to mode-{normal,tryboot} and only allow 32bit value.
-- Link to v1: https://patch.msgid.link/20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de
-
----
-Gregor Herburger (4):
-      firmware: raspberrypi: reorder rpi_firmware_property_tag enum
-      dt-bindings: raspberrypi,bcm2835-firmware: Include 'reboot-mode.yaml'
-      firmware: raspberrypi: Add reboot mode support
-      arm64: dts: broadcom: bcm2712: Add reboot modes to firmware node
-
- .../arm/bcm/raspberrypi,bcm2835-firmware.yaml      |  9 +++++
- .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  2 ++
- drivers/firmware/Kconfig                           |  2 ++
- drivers/firmware/raspberrypi.c                     | 40 +++++++++++++++++++---
- include/soc/bcm2835/raspberrypi-firmware.h         | 22 ++++++------
- 5 files changed, 60 insertions(+), 15 deletions(-)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260623-rpi-tryboot-4292c92b0727
-
-Best regards,
---  
-Gregor Herburger <gregor.herburger@linutronix.de>
+-- 
+2.47.3
 
 
