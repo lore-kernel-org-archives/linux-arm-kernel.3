@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0692BC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68B8C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EARuoU2+4Ppoh54rAYFHVilx3BHYziNxsbRS7f9DEMY=; b=hMKxOgAZFi/VjBBqeH3e5UoihB
-	okwlh8AwA15gVeDP5+RXjzn+FtZDC32g1TS3uA9NQDgn41GWEsVRW6wV1/Wh+peiHgVuTh5tl6vw4
-	G+S4jMphl0noIgzaS9P3bjy+Yfv2BgMmnKSeEuua4nyqLor1v9uvwyCHOFbWvKxNlhw+aghTJzVP/
-	bLIa/skuDfWLWn5UzNxZwwiwW6dQTiMacGPSTmDCKSeFiCjputsDQlukg2h91DOgttTRvkFh08dS7
-	G/N+zTDTyQ000eb8qX1Uz/McdyNCZDXqIsSqFa3ezG5OPDreETii/NALsHcH297DwLCslHo+jEc9X
-	ai2ghcoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=9PIL/kPnMxq3P5cVAkbNzmiNq+J34/FFMbTiuCsg88Q=; b=4OPkybicw94B6M5/Hzgp6K1yaj
+	DXEdbzK57DjKD/axrq31IXUf+jF1Bl5zxZDG+ZqgHlrk5cl+bI7WsowA3SoBbMdkhal7CUcPMAA2m
+	pve7be02NwDYJvBszWiPM0lddYNKaIFMGpAS8h6UPzyx2HTFDpKpKqe9V6iHv0oc694zW3TDNNJ90
+	gFUOve38B7y9AlYfJgPG9+o+itiWRq4SLHXqxA0uLl+hTg5mWR6Oj2f6SJ0I1npYKaR0a8MKvitJS
+	TKCCxrugDp30SugneH9WtuuZ1I5BywdY6z6TpaIOY7bElayALS2kfwL85YoDjMgEU2J7CamFRpx5F
+	YC5kEXhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PPK-00000001OJK-3uzY;
-	Fri, 04 Sep 2026 08:36:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2PQ7-00000001OUb-0ZwN;
+	Fri, 04 Sep 2026 08:37:11 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PPJ-00000001OIv-3a9J
+	id 1x2PQ2-00000001ORg-0XD7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:36:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EDC9660A8D;
-	Fri,  4 Sep 2026 08:36:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C3F91F00A3D;
-	Fri,  4 Sep 2026 08:36:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788510980;
-	bh=EARuoU2+4Ppoh54rAYFHVilx3BHYziNxsbRS7f9DEMY=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=G8qDtKLsfO5uMyax8B940NgODoxvvXXWhkN5OLQuKDcYFhH0CmeyRV2haSxb4LG7r
-	 MWSZsjXuzaG8vD/O/3jJvdMTlxYrsDfDWKGL2W9Q+AcdMqvt77uFbeWDDaasQyJnqU
-	 /ynXB1GjWw6KKQ8SSbsZQ/q43Eah1Qqzl92vO4wz6IlwenlJAPTNU/JYMFJ/Yf0XFC
-	 XAYUXkuVqpq6U/9dsPVEsY7h6ZPQ5DtCOMCIHMBsY5jIhW19m5HplwlhJ+ZAScasti
-	 U+RWvxHTlSJ0G15qbEZn4lU2AAEP+BbdZPg9md32G3USyPeb4oQEC4l6t4RlycdAXI
-	 Zm7UAgNa4yiiQ==
-Message-ID: <66a60c26351f41e6c9660f1f18cea9f5@kernel.org>
-Date: Fri, 04 Sep 2026 08:36:17 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>
-Subject: Re: [PATCH v6 12/13] drm/imx: dc-fu: Get DPR channel
-In-Reply-To: <20260904-imx8-dc-prefetch-v6-12-26643e3f6cb7@nxp.com>
-References: <20260904-imx8-dc-prefetch-v6-12-26643e3f6cb7@nxp.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Conor
- Dooley" <conor+dt@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <lumag@kernel.org>, "Fabio Estevam" <festevam@gmail.com>, "Frank
- Li" <Frank.Li@nxp.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Vasut" <marek.vasut@mailbox.org>, "Maxime
- Ripard" <mripard@kernel.org>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Rob Herring" <robh@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	Fri, 04 Sep 2026 08:37:10 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260904083658euoutp02ba63dfbde58576e7d6c74e73f1dbfe5f~SEUuMiQ392265122651euoutp02M
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 08:36:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260904083658euoutp02ba63dfbde58576e7d6c74e73f1dbfe5f~SEUuMiQ392265122651euoutp02M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1788511018;
+	bh=9PIL/kPnMxq3P5cVAkbNzmiNq+J34/FFMbTiuCsg88Q=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=OcL5ju4AonUTzK9Ge087FQnJstUcn0MPleQ4C5m1FRsL1xv6MKilFPklLZISGAADY
+	 4gpQaeGD9E+gXstRDv42+nA4MUmPAU/kNIF7+fyCbT8qb+cNsZM6wa/Nkp/BfymUcQ
+	 yxul+lYmgUZ5emXDZtoZ8dRXV7mfKcON9pdTTr7s=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea~SEUt8Oz_y2337323373eucas1p1w;
+	Fri,  4 Sep 2026 08:36:57 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260904083657eusmtip28ebc646c943dfc2d88fd5b5d1282e30b~SEUtgfgC_1075010750eusmtip2c;
+	Fri,  4 Sep 2026 08:36:57 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v2] USB: mtu3: tracing: fix pointers dereferencing
+Date: Fri,  4 Sep 2026 10:36:43 +0200
+Message-ID: <20260904083644.2010063-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
+X-EPHeader: CA
+X-CMS-RootMailID: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
+References: <CGME20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea@eucas1p1.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_013706_755349_DC53421D 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,17 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Sep 2026 15:55:02 +0800, Liu Ying wrote:
-> Add a helper dc_fu_get_dprc() to get DPR channel for FetchUnit.
-> And, call it from dc_{fl,fw)_bind() to get DPR channels for
-> FetchLayer and FetchWarp.
-> 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> 
-> [ ... ]
+Commit b5cc230af5e5 ("tracing: Warn when an event dereferences a pointer
+in TP_printk()") added a warning when printing an event dereferences
+a pointer, because it might be already freed at that time.
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+MTU3 driver is one of the drivers triggering this warning. Fix it by
+storing the DMA address in the event structure to avoid dereferencing
+gpd_ring pointer during event printing.
 
-Thanks!
-Maxime
+Fixes: 83374e035b62 ("usb: mtu3: add tracepoints to help debug")
+Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+v2:
+- fixed typos in commit description
+
+v1: https://lore.kernel.org/all/20260804100531.88576-1-m.szyprowski@samsung.com/
+---
+ drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+index 89870175d635..b24c6411a8cf 100644
+--- a/drivers/usb/mtu3/mtu3_trace.h
++++ b/drivers/usb/mtu3/mtu3_trace.h
+@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__field(unsigned int, flags)
+ 		__field(unsigned int, direction)
+ 		__field(struct mtu3_gpd_ring *, gpd_ring)
++		__field(dma_addr_t, gpd_ring_dma)
+ 	),
+ 	TP_fast_assign(
+ 		__assign_str(name);
+@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__entry->flags = mep->flags;
+ 		__entry->direction = mep->is_in;
+ 		__entry->gpd_ring = &mep->gpd_ring;
++		__entry->gpd_ring_dma = __entry->gpd_ring->dma;
+ 	),
+ 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+ 		__get_str(name), usb_ep_type_string(__entry->type),
+ 		__entry->maxp, __entry->slot,
+ 		__entry->mult, __entry->maxburst,
+-		__entry->gpd_ring, &__entry->gpd_ring->dma,
++		__entry->gpd_ring, &__entry->gpd_ring_dma,
+ 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+ 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+ 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+-- 
+2.43.0
+
 
