@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95906C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FA3C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=; b=hIHV/GYNO4qgni6siALb9IveI+
-	KIPdWKr2jpFEq8m2G6/QGd/jidSCEL4cJYT8J31K5887siwTsjsXuWxf1p9KzwWkIJX1tzV3rRvI7
-	o2PA9uv2bktn7K38huKdQxP3XbwqI5TTyQYJEZHiV7JFrEh0LE+wsTwyaw0kPsS9e6N9kQJ9U5Hh8
-	i6uO3ve3+9Z31jLZAkYioiBDbtLLl6sfVC5Mx+M/Hj+yAHgGdRIXmrqVvddqIxBYI4jH3PUC1psE8
-	91bpVkiMt38gYy4040WudxaUXfDKlSUSvzCdN6p0FMUOryryD0/bAu2iW0B9bd5K5VR7WZGax8M2o
-	oa9i7N0w==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4yWaluWTaRodsEDQ/GjAFAAsboEo28v5QKOOY42rfJ0=; b=NtLDWXWAnIHCppfFyoLN98OxRw
+	lhD2lJszT9c85UmOFV0U5RmVcAWCnSsUbk1KSxeZWJieDCusQdueDphWufcg/GffJB9XF3KYpGd8V
+	adLbnJ8xV7D0ylW6ayimaNlamDyHg6gGYJ0vfVQtTc2bcH2YzsKlNqEp1OLJuOZmqJ0tS158jI76L
+	TgDGp3HAeuxdyaG4ZPw2dFUNr2FFLeLJlbfkpDXwrwBhLzhEqt5rjsVkfTiLlH/1xLQs9vSoPZuyw
+	qgOYJIlV+fdBQl4tPngfAdyAbUmb6dFef1LB7/50y8CI2T9KPzxBY3prxGQdqetrtT+UXihdca2u1
+	3eSjz39Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Q4b-00000001VH0-3cLc;
-	Fri, 04 Sep 2026 09:19:01 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1x2Q4m-00000001VKD-1GnD;
+	Fri, 04 Sep 2026 09:19:12 +0000
+Received: from mail-northcentralusazon11012014.outbound.protection.outlook.com ([40.107.200.14] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Q4a-00000001VGY-0O4M
+	id 1x2Q4j-00000001VJ6-3Joc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:19:01 +0000
+	Fri, 04 Sep 2026 09:19:10 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qKdpj5pCYBh9EUoQdwUciE9y3byOFjTcCNULR3PvoPOjW7LjgDSe+RSeHMVHACVGmMnUI+xXHJDHzoRNMkwPnmEw42sQsqdTzbwfTDf8EOGZ2L0iZ+pBbahH6Kwi0vusj5scThO7qSnN9kxelJ3QRr6BHvIvIhXMUzHX80vMjFFzOihTffn5a6xjNmsXbhIcUg5pCIgjD8trz5adwYKS0PIK0CzIyjnWGFGe7mreRmnBTMqZIge+BXCFMV3UV1DD4wyKOuxibj6hh9AtA0qOnicCmeA1A0VWgabCCs4ifKvW/psbrp4UxtAQGTK53t3OnNpO64My7qOA936sNXe6wg==
+ b=hybvY3rrvG3RcnPeK7xNQ2yyJuzaxMxG49+3/unnU0cSkGJWnbwg+N5VM/frrZkLrpQswrFZ3M85DsHRkXW1vJ++qXjWydHqnT9N/RinL1rBbtQQ4iMkPEpBhzDNjYbX7g7gh21jEUINNByyyb046HUeng3L+/v18Ty8HWp8U65WrlWMWJVwO1ElE8Vd98QBtjCVfEKR6d6+1I7fjpOUjJ1v2M6mE/unVCQooW1DP+Wpg5rbFONRODXfnt2e9O7jqZ1xTCGxUOnWC5KSaRjCdk7GC3FIjD7KhkXonuYQ0xJZUs3BhtI91nTWeVGwBzY/XqS7Omr/nliWYRINdddumQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=;
- b=sXTfpAwbeN02GmPukDqrHOYeU483T0iXD45pXyA3V+PkIH0FpfLtW2EI9vHUCbcE5mKzaDxgnhL5P3kNiuBXse9i5mjFBo1NkzGNl29Ptcv9aVK73/LfEa43nBUYQjZNx6Uk7bT4SO9r/W0+Qfv10pPZlDLCsI0+RM8dYvQEfwjVyYVr82f2X07Rt9f+TclUG3Zis83uv01GY85uk6oBheZQNBqzkI6vWopPKOzOhsfkAGSU8pBfOQWaC3PCdH5Uap0UlBJTpt28l8VwThpbmVo+dmxbw2WQafz4BzTw1ad9cEetohOcIq5YdlxDMWxDSycii4lAAuGvb02MlNa91g==
+ bh=4yWaluWTaRodsEDQ/GjAFAAsboEo28v5QKOOY42rfJ0=;
+ b=NNPjqWKq2cWCO+rf6FRgC8eYyCyw+x+kKFRN/yus1Fka1vCwGnRsBqYOWtn2uyH6ujoUCWygukIJp909WI5mKHmjOENR3FAlPl5TVsMRUTJE89nTr+WaBx90TmhqbL3sJ3fGmuFKDgbSSQXotdCWprfZC7N+Oh7wXraTyD90Vtnpekuo4W4A8CFw95xDadU3dw/A+H6kMIDjFw4BrCW3CVn9B5O1qZdzCJSXZPrLB36sRqkJeutzld3c5Yv4mhaiHHfjvBU/tlIczfG42mxj8oWufGBlB/JVvk3veNxapNqQbyOvSaF5ImBgHWO6fbza+e3mHKMo86pMDx3c+jpqWw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=;
- b=qmNCsv46qvCe2WElRwYD2WnXtyqEbLAgTJaDdtmFm0xz4swtk0dYF1KeYgi54Ikka7RVss65p59/EUtDrwkw37TGk/kFjLyUuUhCT9m1SvAfV8/QnAClVuTZaVr9v8jSn26j3I4acfKZw8s4QFGvaDv2Bn6ObCMjgCwFyuTCd58wnNwqFCzs6QVRbVfkwGqrwOsyS6hjsXEMPdBs/+S0LXifohhjYPdO250jpcSfrL9N34f2ZfkgtmMsvvaqS45ac9KVGq+128cxWAEjLzKTpONmDdDOEK6vpr6YMRNoRiUqihrSh6bUSO2uldnSFW3x7KKKdq/S5Y4Vfn9eqgzqZA==
+ bh=4yWaluWTaRodsEDQ/GjAFAAsboEo28v5QKOOY42rfJ0=;
+ b=nNcyV49DGyCbySlQtn+ZTiDlXI8qyIv6Rpqf055hv+rT29J2PLBKzNNdP8AQvPo45A0fQ6wqH1irpumHfwNVYLvAYwb5RJa1M2aKPGYXh/4GCnFyxF93zyVjaCC696fY1VZkKn3dWpKhzvPq5ut1yludAQgGla4q5QLxm1AH2IeaW7ywY5CkWbhsuQuXfynlHw6K/zFdq+unnwmQaPim/iiIJuqfmN78vCAxTjCv8kJTpiIg200mzVwI15lf5WjYzBbN1TdaG1bAC+uth0bo/mL+hm7Ylw/GqeNAMvVV0YrVF+NARHpxm6dR9691HWYTO+DQUvcnvqr1mhxdGhlBHw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
  by MN6PR12MB8490.namprd12.prod.outlook.com (2603:10b6:208:470::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 09:18:54 +0000
+ 2026 09:19:02 +0000
 Received: from DM6PR12MB4827.namprd12.prod.outlook.com
  ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
  ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 09:18:53 +0000
+ 09:19:02 +0000
 From: Andrea Righi <arighi@nvidia.com>
 To: Ingo Molnar <mingo@redhat.com>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -73,69 +73,71 @@ Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
 	Breno Leitao <leitao@debian.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] sched: Enable preferred SMT siblings on NVIDIA Olympus
-Date: Fri,  4 Sep 2026 11:18:03 +0200
-Message-ID: <20260904091838.3617894-1-arighi@nvidia.com>
+Subject: [PATCH 1/2] arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
+Date: Fri,  4 Sep 2026 11:18:04 +0200
+Message-ID: <20260904091838.3617894-2-arighi@nvidia.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260904091838.3617894-1-arighi@nvidia.com>
+References: <20260904091838.3617894-1-arighi@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: MI3PEPF00004E99.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::449) To DM6PR12MB4827.namprd12.prod.outlook.com
+X-ClientProxiedBy: ZR0P278CA0175.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:45::17) To DM6PR12MB4827.namprd12.prod.outlook.com
  (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|MN6PR12MB8490:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9225e4e-7eec-4001-0aa9-08df0a658a25
+X-MS-Office365-Filtering-Correlation-Id: f9ad8182-dd34-4a3b-c55a-08df0a658f4e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|11063799006|10067099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: v1++kCptvmcnJRVJkyyCq+mmUTWw9Mh02eEUFiLKih09Qod0a/AX3TP5APnJwBNszjQEF7Y1B+8DiosjERa8s6K5KbBY7YXhps+OHT6IxD436+LvUlpFVByvCIxZ5CNGEhRZiRZap1hUcvSDPhWxcZygN8QVSttcF4hoYhDvojH0LT/rpOlOBqr9MpU2VrdMUFECEYS4fvyWziUMXy1wdmzzv0GGnIOZU7+9ODBMNc51WHULoJKpT23cBso0zhpBtD1OhVO414X6m/YtCk/JnR+JdhdoDntIj/ctqvWznF635rr+zLpl6PAbvWIH/jfiYbpWOGo/BeD5lR4LsVFdYg6MfAkDs1ljV3O/83KWl0aqO8rR2wRic1CgwQAG2XmSFroOG2JEQ1MY64wMj1ET3TVBofXaJDZO1/ASS45OIp76uRt2urUwK5P7TyiMLrE5+dBIgQlIh3CiZ5L/0QzYzwv3BpVFNZAJMVFrbGB6+wuxLci8Bbq63294sDA+OfLCl6Je7Ct+EVKl1eN7SPT3djNkogrhcNt/8F00xtdZCviltnKRbvZsZFAkhlonbmgFcAaPrIj3uSwu3+PHFyww6s5rBHEYVxHIe8VBpNi3gv5LMI4aTAqIWH5OQbnzMA9UlIIqKY9etfNBsmWoQ6QwBFWgW9952VoGg6pHVNrhD0U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(11063799006)(10067099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|11063799006|10067099003|5023799004|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: qxGdl/zjp9/VMjtxsp5IArUKUOiNlUxLHdaY7ASHPFmMH+5yDnNikgLcdqdKePJOY26cnHU5bUpl9hiCJoQJVXpTH9hoPKErOn9e/JjZikvNgcQYEWgr9XlwFgFP1JMwcwmNxUqrFMRaO8ierDP60RcVCd6gBHiwg6rIY7ce4KYpvkD9WsAMbXiZ5+jgFUKUGgaYxtLChffpVLxKpWddL4OL0XOJJXRjH3u++dh1w/uA/REMwpTzGDKfqPkLk6G5BKUrwf6qKLPN2IKDOsTl9S3JdZUIKHrSXU1hSGlDe14bUN3KJygGUWnh55ZdmpH/tEOp8h4Z8WTgSROXVCI65ryIR87pOEBJAVzNQJzAGpyrAw9yqa5zcNr+BWQ/lxiSzsYvT5dqvyDXHsDq1oph7fRfW2OVPfubJzRrAsvjf7SCJqzuUImtQ+59Zf1U1Xyjrj8BqX+1zEPaTAs9DguFmdKqk89zRRM+eBSgKsvdSFd6Rmm5RMHVOqaGZCtBJrzja5REVtKQv2ir3kJXNoy1ABX4eS5EyTnTm2qBEjTIFgFQSlFWz+5ndaYaOo+J4TO9wOOb0JXF7CtkCNGzsrK+LRtpRwuVADMrrC/BMyUBwGFmAvCfBpTwPC9UOT2WkF1z2GQZ9tfR0VZ6H03RKigu1956b6ZHhjoETlaFPbzY9CE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(11063799006)(10067099003)(5023799004)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7RK+DkVB6wsjtoHNJRPtjcfQo4T0mqa4k+39Es80ooe449YP35rH1I2aJPqV?=
- =?us-ascii?Q?81zBTMfYULoqM2b5JgAwXWFRXuuZ+5r4Yoi39iQliAv73AmhC5D3CmVQLRr/?=
- =?us-ascii?Q?+SUUv7fRqXB7brlmvnICoh4BLXEn5rHKGewSB+DyXk5Mdw1uqjVYelOZwA8X?=
- =?us-ascii?Q?+WV6N806JYVqGVGO8KnNZVMCzgJPL8JVx/nlqZ0y88qeqHj+MY8o59MCMPCQ?=
- =?us-ascii?Q?3VDMJS4BY4vI/S3vH84b8AiXjEK3o6g0nMg/T1xju+oon2l8QiwNvM8YaINn?=
- =?us-ascii?Q?X16sQwAYFuVDHu4T+1S03ZfAbXKu+R1yx4SuwYXrJYZKZwPZcQdjusjR5eHC?=
- =?us-ascii?Q?p12MRqFpo0xPxHfMTZ6eVJSh58QiUJat02rqo4lxb+qtia/wGSoG6oTbMrH1?=
- =?us-ascii?Q?NGCpNcJcBQk717Q0iy45lJkLD1mrdhXLdo+/3ne+MidiswXbO4GQZS32MEG9?=
- =?us-ascii?Q?dDmjleOOJysuo+mZPaxJr84PIEe2e0JGJnK2xPEy7ug2/gBCHR/bO/X06FfU?=
- =?us-ascii?Q?X0eJnLxxUVs/Jb6yQYjAwnJrEqDdbjG1U6ngBEjV2Rd8uk9DEHnsrqOiEvnf?=
- =?us-ascii?Q?PJg2sah7L47UU5om1E3hL9BsMUWnEjFfMi8igFbqVnF09tO3V+6AT369YD8b?=
- =?us-ascii?Q?eZM4+RT+e8Ul3s0lPrZ70r9Twficfybg7jf9M6w2+9v9gbAiPhW6UW8nbD+4?=
- =?us-ascii?Q?A2zu0lwh6z/IwxgN+g7xQV5Tr4llqeuarJIUk2+uz6412GqYDmrRHG3rK6LB?=
- =?us-ascii?Q?xz9RLJCfPEccaSfv6h2XZmpdsBvo/R8eC+YKyq9JryKKtWQW3vXLDreevBJU?=
- =?us-ascii?Q?JSc473QqRta31rMnYxewK90+BaaG3nfzX12qqXUTYlUnEz0MHI7PDs4voX+A?=
- =?us-ascii?Q?Mil4a7sMs3kBG+3HbxcmnKci2KTOuU8ruIZdb7/lEtu7JioCOzKciDWtBbbV?=
- =?us-ascii?Q?Xgw0IKY4jrKwh4Y2yLUeO2CfDNcApx/L6hvUsY977BgwXtV/9F5KhmNT/GUd?=
- =?us-ascii?Q?gNyB62n7GV3+x/k7yXSVFUBXssueif59EIxTXegrr8GHi9UA5kmjx9zTib5I?=
- =?us-ascii?Q?6JQMOpy2ufMIavhxRZuz15I7y1wGu6ZKSuvle16eOYNvwnMH/4SzTrULbiDE?=
- =?us-ascii?Q?5BH0mGtdl+FDHyvfAEY7DXj49H0L086x64VdD8ZJuqzH0FA5SAIqHktpwX1e?=
- =?us-ascii?Q?yk2FZoEHyzpuFi+W6lnYqxgiZq1IuHLJU1721cDCAr122pVmhns0Gxgu0xdn?=
- =?us-ascii?Q?/1PBDsPrC+/7QAl6/Vzy3BjHesLv1LCjp5760xidx9vv+dsz8KrGgAGvJuSe?=
- =?us-ascii?Q?n0wlHuJacGm87DMSFD7KQ1ocFDiD7qXP9sKaHj8wDBC5PISXadUhHoG5c/yq?=
- =?us-ascii?Q?UVgRWHQGJ4wuU/JxnOYRPYMRK4UENyh6DKysCoTSEoDwaUHvVkIqsFXALP15?=
- =?us-ascii?Q?JuRkQUrUVQ7LF/o3cEiZ0S1bxhr1YbZKjdsAaW1shbdplzj2HBoR8/v8A603?=
- =?us-ascii?Q?cEfvyFU4yOAFkLvY8bJ0I/fd5e5vkj4nK5DtBouy1QzI1dQ4xPLCatJePvnA?=
- =?us-ascii?Q?IZGFlTdcY222AEqOrH72jpHI+qE+/divPriTrEKBpvKnHnekVL02IdAtwrNz?=
- =?us-ascii?Q?micv++Uo7zTnsVqo0kuiOxpYfOENyfE9RmSp3GJZGoLGrTI/Iqw2clAqB73y?=
- =?us-ascii?Q?43lNBL+U14puW7GdUDUlYX0sRyXcRt70HluhzNJcjqrGZX+U3iCrHREfm1xv?=
- =?us-ascii?Q?5B4F8NXyrQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d69rPuho5NQ0Rype7N5BlpJZujs4Y9E8Zeg/v4MqjRJS+LlZubsxCCbJCbWT?=
+ =?us-ascii?Q?F4/kCktvkn3Yb+jtSnmrl9vHcOQLKVD4uylnVa8oEu89qmocV9GijJiunRae?=
+ =?us-ascii?Q?vH8oma6NnaAJT/K+iZiZ30YCxKNVu6iMxl76ZRcHpL0UNbnPIrrpvon9J7V/?=
+ =?us-ascii?Q?IFv7SZHHEwFYgsHLBCB6JeOG3oSpcE6fIAe1f5oqBaitSuqQZNdROk5ppWbU?=
+ =?us-ascii?Q?d47AsbPrtlnJ9IDUp0afuyA51tjJhcUsrs9nogwMnDFXOKhfV/ZYShk58Xnw?=
+ =?us-ascii?Q?GfJM6KYsvGCV8xfIAwDwqt2XDfWdWVR8fE47dOhOQa97IB4q1PyCbCpoAke7?=
+ =?us-ascii?Q?bkqTysQ6QTjehENsPxnk6X89kMJZ9C+YrLmC2kt7FXaKV/2o6RfWX5a1PPk8?=
+ =?us-ascii?Q?PUMdadyvUa4g2pn9XE1YvpQrqTXgr7PWuUJ00VUVh9dTrjI/9shYnx69Bn4D?=
+ =?us-ascii?Q?149ckU9jicKo2hzJtBlgEuQWRWwB+dMHXaCbHxFXaHkjhf9xlm7HE22cbiEu?=
+ =?us-ascii?Q?RftGAWp2h/g2jvE+o/8PBTdmt0v3s6v9Z5M1TsNq+On6lR3/ixjzlPJfeMaR?=
+ =?us-ascii?Q?m4LBftHuAqT/FQj1l/Usyv+fv30BLIi8O4BicVPyuqOS/z3YCkY43v0HRBLk?=
+ =?us-ascii?Q?7xonD4Vgb72EFQYMQ69dO55EBnAuPTR+kogXnT+DUAejP8AfwUemHx3qQzh4?=
+ =?us-ascii?Q?gwQXbVbWIR7B8tQISvNJeEpyWC0aHPTskIW6Mo9ptz9KgarzM3C1LCjqZlJX?=
+ =?us-ascii?Q?k/4GFOMin5/t7PozzaqDNSCaJOk4CNh0HOjxpPvB2230rZmxXWEjxMF4f5qt?=
+ =?us-ascii?Q?z2eRATdOJ5MgpmGlYqsntSFsjp41IrUuRpKLc0yYHHQekRHhbjWBbhiBZ+Kv?=
+ =?us-ascii?Q?VB8yxBJk4xXmPwaZHtV15MsnTR7HbHj+IiWurXiMu8Kl9OQIdkO2Gjkt8MF9?=
+ =?us-ascii?Q?GXkd+ZqWKowazXRJPHqWv9vMRg+SYZ439aI0jS4mecw+4VXK3+dLao227cu6?=
+ =?us-ascii?Q?DuivKRbTJWGpv+0B1xZjVhVQyRpk/MvBKGPIfamBPstUD6uiPm5a0m4+Mg/2?=
+ =?us-ascii?Q?81xyCR3aFoyXchrBx41n1vLwcEePc+5xKOB36v+i+5PgFWCPqu/NJYmpcwtH?=
+ =?us-ascii?Q?Zc6WAzbopoMAyBSLEvy8u5V+P3tME1bMrtmWi6VXMarXIpFUVlfR6689L1wo?=
+ =?us-ascii?Q?2PvmvIbxAxaqvpxdu4h6ZAkvSnpBRpERjboAJ2BOILGmyoWR41Tl2kDKd6Ao?=
+ =?us-ascii?Q?pGaIMvcmXZEFWbJULWFmBTy5K57pwC5g4iazOEiIK8vKFdN/Mfj6jaZDVVU5?=
+ =?us-ascii?Q?TU6Y5FlJnSbA2vFF7mCSu3WQmVzMop7CPk+xcDkWJMyClHi/jp0mr4qPLfFu?=
+ =?us-ascii?Q?FcFgUZl/Yp0h5YrjfckJl8JEB6u5bJ1CiY2d8MhcrLzunbNlmdx4qhq+muel?=
+ =?us-ascii?Q?72GSShwYL/9gKhTWB46bQgAQPbIFJ1r+gULt+KwXTIE2FNkvQc7NzRkn7ZQV?=
+ =?us-ascii?Q?QNPSkrG5E6MroXvqcpsBqD+pEqhNrP377mDGhFBdUPN6M4NuSJm0k7yX3iqA?=
+ =?us-ascii?Q?Uk614pfrebscLnSZ3w+sW81mpB/emhgYvg7rABA2HlBAQy/CJAn31hDkiksI?=
+ =?us-ascii?Q?EHJbsbg/CG59Xs+gfl+qpKVTbV+hyjnKWygpo+sHQCWWhzfg1my0YnLURDQQ?=
+ =?us-ascii?Q?mY9uUMtBPMNtl0CuoWwOhpLu06odW/J97E4zQxzDUSfeDj4293Tmjv1kn25k?=
+ =?us-ascii?Q?n3O7Hvg/Mg=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9225e4e-7eec-4001-0aa9-08df0a658a25
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9ad8182-dd34-4a3b-c55a-08df0a658f4e
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:18:53.7523
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:19:02.5271
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9oIliLnJFr7shkRnZ9ezMkMZwgeeJC4yNA7avwiTYRDrMLWCNLgb0uUDsoYd9+Ha8X+H0x0Di6gqbbbgN8bjoA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: IH9Ha1R9jG2ZZNL7sVXoWn/5RmDlwKqcNAR/TG+tcd6D96ABdPrOR5l5Y6PgCWr+bRlj5RfGsBsy0I2hw9cWbQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8490
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_021900_136808_B2E29747 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260904_021909_837475_CC9FDB01 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,69 +152,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
-When only one PE is active, the core operates in single-thread mode and
-that PE can use the full core resources. When both PEs are active, the core
-operates in two-thread mode and the PEs share those resources. This
-behavior is common to SMT implementations, but Olympus is particularly
-sensitive to brief sibling activations because returning from two-thread
-mode to single-thread mode after a sibling becomes idle is not immediate.
-As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
-for NOHZ balancing"):
+NVIDIA Olympus implements spatial SMT with symmetric steady-state PE
+capacity but two different resource modes. One-Thread Active mode gives
+one PE the full core, while waking the other PE restores Two-Thread
+Active mode and partitions decode, issue, cache, TLB, and vector
+resources. Returning to full-resource mode requires the sibling to
+remain in WFI for 10 Ki cycles.
 
-  Briefly activating an otherwise idle sibling can reduce the performance
-  available to the other sibling and this effect does not necessarily end
-  once the activated sibling becomes idle: after the ILB finishes and its
-  CPU enters WFI, full single-thread performance is restored only after the
-  sibling has remained idle for a qualification interval (10 Ki cycles on
-  the tested Vera system).
+Measurements show that pinned workloads perform equally on either PE,
+but freely migratable workloads lose substantial throughput when they
+alternate between PE identities. Consistently selecting PE0 keeps PE1
+idle, avoids repeated SMT repartitioning, and restores one-thread-per-core
+performance.
 
-That change prevents the NOHZ idle load balancer from unnecessarily waking
-a sibling of a busy PE. However, ordinary task placement can still select
-either sibling of an idle core and repeated changes of the active PE can
-keep Olympus cores in two-thread mode despite little or no useful overlap
-between the siblings.
+Describe this scheduling preference with SD_ASYM_PACKING and give PE0,
+identified by MPIDR_EL1.Aff0, the higher arch_asym_cpu_priority(). This is
+independent of SD_ASYM_CPUCAPACITY: SMT siblings retain equal capacity,
+while physical cores with different maximum frequencies are handled by
+a higher scheduling domain.
 
-This series makes PE0 the preferred sibling of an Olympus core using
-SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
-honor asymmetric SMT priority. The scheduler first selects an idle core
-according to its existing placement and capacity rules, then chooses the
-highest-priority available sibling within that core. The generic scheduler
-behavior is enabled only when an architecture supplies an SD_ASYM_PACKING
-SMT domain.
+Firmware currently provides no interface for describing the preferred
+SMT sibling. Detect Olympus by MIDR until such an interface is available.
 
-PE0 and PE1 have equal steady-state capacity, the preference does not
-identify a faster PE. PE0 is used only as a canonical choice when both
-siblings are available. Consistently selecting the same sibling avoids
-alternating the active PE across wakeups, lets PE1 remain idle for longer,
-and allows more cores to remain in, or return to, full-resource
-single-thread mode.
-
-The series was tested on a two-node Vera system using an 88-thread
-single-precision GEMM on the 88 physical cores of NUMA node 0.
-
-With the workload allowed to choose either sibling of every core, observed
-throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
-to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
-became more predictable because the workload consistently settled on PE0
-while PE1 remained quiet.
-
-Changes in v2:
- - Clarify that the generic scheduler change also covers POWER7 (Dietmar
-   Eggemann)
- - Simplify sched_smt_asym_prefer() by inspecting the lowest scheduling
-   domain directly (Dietmar Eggemann)
- - Link to v1: https://lore.kernel.org/r/20260831181800.1668646-1-arighi@nvidia.com
-
-Andrea Righi (2):
-  arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
-  sched/fair: Honor asymmetric SMT priority in idle selection
-
+Signed-off-by: Andrea Righi <arighi@nvidia.com>
+---
  arch/arm64/include/asm/topology.h |  1 +
  arch/arm64/kernel/smp.c           |  1 +
- arch/arm64/kernel/topology.c      | 62 ++++++++++++++++++++++++++++++
- kernel/sched/fair.c               | 79 ++++++++++++++++++++++++++++++++++-----
- kernel/sched/sched.h              |  6 +++
- kernel/sched/topology.c           | 36 ++++++++++++++++++
- 6 files changed, 176 insertions(+), 9 deletions(-)
+ arch/arm64/kernel/topology.c      | 62 +++++++++++++++++++++++++++++++
+ 3 files changed, 64 insertions(+)
+
+diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
+index b9eaf4ad70850..edc1c59b3448d 100644
+--- a/arch/arm64/include/asm/topology.h
++++ b/arch/arm64/include/asm/topology.h
+@@ -18,6 +18,7 @@ int pcibus_to_node(struct pci_bus *bus);
+ #include <linux/arch_topology.h>
+ 
+ void update_freq_counters_refs(void);
++void arm64_init_sched_topology(void);
+ 
+ /* Replace task scheduler's default frequency-invariant accounting */
+ #define arch_scale_freq_tick topology_scale_freq_tick
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index a61dc3016a117..0135ac4eea8bd 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -443,6 +443,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ 	hyp_mode_check();
+ 	setup_system_features();
+ 	setup_user_features();
++	arm64_init_sched_topology();
+ 	mark_linear_text_alias_ro();
+ }
+ 
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index d28438f8b83f1..0dd9eec1c4946 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -19,6 +19,8 @@
+ #include <linux/init.h>
+ #include <linux/percpu.h>
+ #include <linux/sched/isolation.h>
++#include <linux/sched/topology.h>
++#include <linux/smp.h>
+ #include <linux/xarray.h>
+ 
+ #include <asm/cpu.h>
+@@ -44,6 +46,66 @@
+ static DEFINE_PER_CPU_READ_MOSTLY(unsigned long, arch_max_freq_scale) =  1UL << (2 * SCHED_CAPACITY_SHIFT);
+ static cpumask_var_t amu_fie_cpus;
+ 
++/*
++ * Switching the active PE on an NVIDIA Olympus SMT core can keep the core in
++ * two-thread active mode, with resources partitioned between the PEs.
++ *
++ * Prefer PE0 so PE1 can remain idle and the core can stay in full-resource
++ * mode. Firmware does not currently describe this preference, so detect
++ * Olympus by MIDR until a firmware interface is available.
++ */
++static bool olympus_prefer_pe0 __ro_after_init;
++
++#ifdef CONFIG_SCHED_SMT
++static int arm64_smt_flags(void)
++{
++	int flags = cpu_smt_flags();
++
++	if (olympus_prefer_pe0)
++		flags |= SD_ASYM_PACKING;
++
++	return flags;
++}
++#endif
++
++static struct sched_domain_topology_level arm64_asym_smt_topology[] = {
++#ifdef CONFIG_SCHED_SMT
++	SDTL_INIT(tl_smt_mask, arm64_smt_flags, SMT),
++#endif
++#ifdef CONFIG_SCHED_CLUSTER
++	SDTL_INIT(tl_cls_mask, cpu_cluster_flags, CLS),
++#endif
++#ifdef CONFIG_SCHED_MC
++	SDTL_INIT(tl_mc_mask, cpu_core_flags, MC),
++#endif
++	SDTL_INIT(tl_pkg_mask, NULL, PKG),
++	{ NULL, },
++};
++
++void __init arm64_init_sched_topology(void)
++{
++	if (!IS_ENABLED(CONFIG_SCHED_SMT))
++		return;
++
++	if ((read_cpuid_id() & MIDR_CPU_MODEL_MASK) != MIDR_NVIDIA_OLYMPUS)
++		return;
++
++	if (!topology_core_has_smt(smp_processor_id()))
++		return;
++
++	olympus_prefer_pe0 = true;
++	set_sched_topology(arm64_asym_smt_topology);
++	pr_info("Enabling PE0 SMT preference for NVIDIA Olympus\n");
++}
++
++int arch_asym_cpu_priority(int cpu)
++{
++	if (!olympus_prefer_pe0)
++		return 0;
++
++	return MPIDR_AFFINITY_LEVEL(cpu_logical_map(cpu), 0) == 0;
++}
++
+ struct amu_cntr_sample {
+ 	u64		arch_const_cycles_prev;
+ 	u64		arch_core_cycles_prev;
+-- 
+2.55.0
+
 
