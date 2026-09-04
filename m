@@ -4,53 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9664C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B116DC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D8QP+kbZpQDntP1Tn0kRj3eRn2VrXYnQZO0ZaU5rhW8=; b=rvf3msA0EsmgXhV9AUPv1TlLmW
-	MSL4mjsVROqzDtXdHRkMVWQ7lopJuRsS3WDhQfhq5y35HY95wg6iGkOppH/w82VUQiZtMBlDg3dqC
-	6V6Ljt5K7iAcJ63ijOO1H3x4vYMso92oLdtxcgAGx+9AkW9c1l5hKHakgxfOEkdJvkl1gljEZOyj7
-	2VzT3wd6q+SDFRnp1Z3Os5v1Tq7xKlFUNw7POtAsgXARwSSzCV9edoohopdYosIXzRmZg4vUHrQvz
-	4Pk/iigKrdDw9ZTHvJ65aTdNWg91fyg1ojxZu/ZxcVVBU8kupXoAxs6Avem4NbyyZje/NRUlXBRb+
-	lL+mkplg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+A9vTFErWfQT0RtCnGKfq03NBjCr7KCzxcGcktHMDQI=; b=zcPopXPz5DCxOZIy7aqIKCmNiv
+	18xyAu1Nw/usf2UVzw6FHjwRpjKWhaE/2hOad8EzKICzbiPOwr501lDCDP5K5dfZqTv//uG7ektxV
+	vVA+qPMINum6/atI9NH+CMlvHVDTtmEx9PYHvBAdu1e6WOfomWWxJbIZl4OX/QMIr94byoUe0Q+RS
+	f3eOadRPZcSmYgRXjgiQ5PTRetxie6MxTV1ZIAONjNQkLM2piTNk4xPJGkTV8FF4CbbTjMDDSnFZ9
+	lBK7Q8JqdrS4rHJtnpHYKlUKoLZA19R+NdSK/3z7g6jDQelW2sgU4W+kamwZWd/oQObwAyItPu94v
+	ebfgWU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VEj-00000002R4P-3Zm4;
-	Fri, 04 Sep 2026 14:49:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2VFQ-00000002RGU-0k2P;
+	Fri, 04 Sep 2026 14:50:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VEj-00000002R4C-0gut;
-	Fri, 04 Sep 2026 14:49:49 +0000
+	id 1x2VFO-00000002RFw-2PY9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 14:50:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E5C2600CB;
-	Fri,  4 Sep 2026 14:49:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F8C91F00A3D;
-	Fri,  4 Sep 2026 14:49:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA536600C8;
+	Fri,  4 Sep 2026 14:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AAE01F00A3D;
+	Fri,  4 Sep 2026 14:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788533388;
-	bh=D8QP+kbZpQDntP1Tn0kRj3eRn2VrXYnQZO0ZaU5rhW8=;
-	h=From:To:Cc:Subject:Date;
-	b=HrZrB6+XKVeTKBRp6ZHAm3pMUVe/b+VHffHbaQ1TFnLcC32ptUS5VE6USRIWadLFN
-	 ZT5AJp8VcE65mN4oEiJOcTp8s0+yTarqerV7mKCo4LvvrtlqQaX25R7fQrQMJ8RuWU
-	 s3tWmp2vxZeP5tCwWd9IMXICnSpDXeGWmCPUiTjSe2ARmGu1YJ5a6rODeHs0FA13xO
-	 IuTf3f5fNCaG/djDUVsLv5Ai6BeUgDpLWQo2s0/ADPf8kXmSdvYwaTytkTnTpszC6x
-	 kHaQypMs/4EmSsxJIU2AGQ1DQ/ZpH81vplkqu2n7VE/2RbKdOgagK9SchPns9IwStM
-	 bpyGN0Ouoyxig==
-From: Thomas Gleixner <tglx@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, Anup Patel
- <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>
-Subject: Interrupt chip driver maintainence
-Date: Fri, 04 Sep 2026 16:49:44 +0200
-Message-ID: <871pb9841j.ffs@fw13>
+	s=k20260515; t=1788533429;
+	bh=+A9vTFErWfQT0RtCnGKfq03NBjCr7KCzxcGcktHMDQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ERFnMCX2zNVEuOaXAwLazkhogMvrT14LMjH/m83rRv88+dPJLGzjJRh9zjPS1zWXb
+	 OdU+AMylNgfqQbitJvYOm6n9G90SQ6+qXAEH2VhEKfBUP4vKCHLviHFhc+RDBTO+0p
+	 8px9SXQFFy3lvHTUTemU13jnF55xDgxYUju7NigbZPmjxWUlWlnhmJG0kvFmFqzJud
+	 OXKgTeRsIkbxRxQ9az6v163g2nk+JxX21tUsBCIoOJ1Z5jSqaGbSP20kVLo+Wu3Kfi
+	 8gnZUp3C1LG4op9el7Sjq4yvt/i2d6LyO7sa+xxzJ3rN0xI1cW5M8GwMZykaGkVo9q
+	 eEtA7hWBeLEYA==
+Date: Fri, 4 Sep 2026 09:50:27 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Robert Marko <robimarko@gmail.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Ulf Hansson <ulfh@kernel.org>, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Radu Rendec <radu@rendec.net>, Brian Masney <bmasney@redhat.com>,
+	Guru Das Srinagesh <linux@gurudas.dev>,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Georgi Djakov <djakov@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 12/15] dt-bindings: interrupt-controller: qcom,pdc:
+ Add Kuno compatible string
+Message-ID: <178853342626.688235.4218772368232817802.robh@kernel.org>
+References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
+ <20260827-kuno-soc-support-v5-12-6d47636a8f09@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260827-kuno-soc-support-v5-12-6d47636a8f09@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,35 +86,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Folks!
 
-I'm wading through my inbox full of patches for interrupt chip drivers
-and I'm thoroughly annoyed. The way how this works today is not
-sustainable.
+On Thu, 27 Aug 2026 23:21:15 +0530, Hardeep Sharma wrote:
+> Document the Power Domain Controller found on the Qualcomm Kuno SoC.
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Patches end up in my and Radu's inbox and all we can do is go through
-them mostly on a formal basis, but it's out of our scope to look at the
-correctness vs. a particular hardware. In the past I just picked up
-patches when I had the gut feeling they are remotely correct, but I'm
-tired of this.
-
-I've just marked about 20 patches and patch series obsolete due to zero
-feedback from the relevant architecture/SoC people who were on Cc.
-
-And I'm going to do that from now on very consequently. If the
-architecture, SoC experts can't be bothered to look after their stuff,
-then don't expect me to suck all of this crap up and then deal with the
-complaints when it breaks.
-
-I'm still going to pick up obvious and simple bug fixes, but for
-anything which requires deep knowledge on the underlying hardware, I'm
-going to just mark them obsolete when they molded in my inbox unreviewed
-by the people who understand it for six weeks.
-
-Thanks,
-
-        Thomas
-
-
+Applied, thanks!
 
 
