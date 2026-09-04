@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C7CC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C299C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqNcMlH8o98wb+BIZdRuGcY3aOxf7W0cZQypsyRwjdU=; b=MsjkB7ne0zUxVfe9Mzib8Cxw0o
-	DQF667rnQ0MV/uFBa6W8JGOZitryeAmbedLXa+OPh18ndsegbn2fYSggBHr+VPzgICb7ijo7QMFEy
-	Ub5nzD0QJOO9LEslOtuHGO7PVbRYlsV0a7xeW9i/wwtxxuogfHQcCKGhI3p+jJw/GdFrlPzH9WCi8
-	5fnM7fGi7UmQODf0+F0pQywrvhhielPwpeXSp/EFRp93D5ILpGJwlGrSMCM+Gt6zVyTPgv3tY6hub
-	UMVB2PkBue7sosyzaNA2m+ByTEGExUt8H6mAGsiW5BwoCRGKvYp1qUdn4a46ZTK2UI1WjaBK8YofS
-	xmJHgqAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAWyypjbQHQWLV/YSni14l1Mv0PCxp1TF5Y5nrSqlys=; b=J1YJbhNc1in8bg9j4FkSufyjxc
+	hVpub5tK07sXRKQOtXq2uWWdVN0JMX4NhiZv4h9GtTFY5QK8Uv3mHgFK1OMVUTsNpgVeTvzMK73u5
+	k7zX1x83RwxnHyzY/F0F6DIjzwH3QguqFmESVtPLbN7+ybBCOxHOJgXZCMUNLsxWFlUeUBIPIgyKg
+	TQnzScUlDSF1oKQ4o8/lRuwGaLIS2ll8c8++zcRWHwBygFdKD+EwTGV3+VOeGRPWyKVqH6juILF6Y
+	u+qm5jrdu0BfqltjW/mbLBnUXiL82Fn+W9B602LE4KTT21SODGWmw+SQOpwhfmm8NvWo5QEXtUi6w
+	4riurdTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2acv-00000003H4i-4Bl8;
-	Fri, 04 Sep 2026 20:35:10 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1x2awF-00000003Hr4-3IpB;
+	Fri, 04 Sep 2026 20:55:07 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2act-00000003H33-18Zp;
-	Fri, 04 Sep 2026 20:35:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=rqNcMlH8o98wb+BIZdRuGcY3aOxf7W0cZQypsyRwjdU=; b=qEtAqQDE3F0xWrtVdVZTb9sYgM
-	2oZobmJLx6AmyNu4af3S4ZMq+GvzGLqnVRKX8HyozkyUpJHCYzpO7HeBD8h6y3eFH0iBjW7XWXVRF
-	MnzTELHNNGZ5eK+fLEylkTu3QGRK/oou7gOWvTV5yjDcddq+CP9LhPp4WGvrpMDCs0Yg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1x2ac7-00350F-AW; Fri, 04 Sep 2026 22:34:19 +0200
-Date: Fri, 4 Sep 2026 22:34:19 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
-	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
-	sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530
- PHY
-Message-ID: <63a43d4c-f09f-4ca2-9003-7010ba045333@lunn.ch>
-References: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+	id 1x2awC-00000003HqS-2y4z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 20:55:06 +0000
+Message-ID: <3b46906d-8008-429c-a37a-f64ec72f865e@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1788555300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XAWyypjbQHQWLV/YSni14l1Mv0PCxp1TF5Y5nrSqlys=;
+	b=4BNsxlYab9V10uKFF09vZeHyLlPxizM8wGth56loZ2yp6msysDffaEEcB5o2HAupWtld1z
+	HAFQC+SlQrjKGap18I0+O0j2n+JwJmCLnPR5uB/TWOtrXySMcJd5Q2aXZf039Ddqm+4o+z
+	ORzOAs2wOdyjR7Wj7pIAZNGHvMCsEFE=
+Date: Fri, 4 Sep 2026 22:54:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+Subject: Re: [PATCH 2/6] dt-bindings: arm: apple: apple,pmgr: Add t8140
+ compatible
+To: Sven Peter <sven@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-watchdog@vger.kernel.org
+References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
+ <20260904-apple-a18-pro-initial-devicetrees-v1-2-0c25401d165d@cyberchaos.dev>
+ <f73a94c4-80a7-41b0-9671-d9b6ea436174@kernel.org>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <f73a94c4-80a7-41b0-9671-d9b6ea436174@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_133507_309044_7B3A5E55 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20260904_135504_990031_99A1871D 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 11:28:00PM +0300, Vladislav Karmanov wrote:
-> The MT7530 internal GE PHY advertises EEE by hardware default, but its
-> EEE support is defective: with EEE advertised, some link partners fail
-> to establish a stable link. On a 2-pair (4-wire) cable where both ends
-> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
-> falling back to 100 Mbps the port loops, so no link or DHCP lease is
-> ever obtained. MediaTek confirms the hardware is the root cause (Landen
-> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
-> problems, so it is recommended to disable its EEE."
-> 
-> mtk_gephy_config_init() used to clear the EEE advertisement early, but
-> commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
-> advertisement") removed that on the rationale that the DSA subdriver
-> already performs an early disable. That holds for MT7531, whose
-> mt7531_setup() clears MDIO_AN_EEE_ADV on each switch PHY, but not for
-> the MT7530 PHY: neither the MT7621 integrated switch nor the dedicated
-> MT7530 IC ever had such a loop, so removing it left those boards
-> without any working early EEE disable and the link flapping came back.
-> 
-> Since the broken hardware is the PHY, fix it in the PHY driver so it
-> covers all users of this PHY, integrated in a switch or standalone:
-> 
->   - clear MDIO_AN_EEE_ADV in probe(), before anything can negotiate
->     EEE with the link partner;
->   - call phy_disable_eee() so phylib does not write the advertisement
->     back on later renegotiations and userspace cannot re-enable EEE.
-> 
-> Auto-negotiation then falls back to a stable 100 Mbps link instead of
-> looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
-> cable on the WAN port, a single clean 100 Mbps link comes up and a
-> DHCP lease is obtained, where the unpatched driver loops.
-> 
-> Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
-> Suggested-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+On 9/4/26 22:30, Sven Peter wrote:
+> On 04.09.26 21:49, Yureka Lilian wrote:
+>> The PMGR blocks on the Apple silicon A18 Pro SoC (t8140) is compatible
+>> with the M1-M4 SoCs. Add "apple,t8140-pmgr" as A18 Pro specific
+>> compatible.
+>>
+>> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+>> ---
+>>   Documentation/devicetree/bindings/arm/apple.yaml            | 11 
+>> +++++++++++
+>>   Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
+>
+> There's something off with this commit, it's doing two things at once 
+> and the description only mentions the smaller change.
+>
+> Sven
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-    Andrew
+Good catch! I must have added one hunk too much while committing the 
+change. Fixed locally / for v2.
+
+
+Thanks,
+
+- Yureka
+
 
