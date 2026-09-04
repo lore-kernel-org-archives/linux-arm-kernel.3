@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BD9C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C7CC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByVGAz+j9xe5MWNa9XTv6mxh8KuFnEa40VZnZO+yeb0=; b=EFu+2bpzrwtTUGDNKHQ3AF086c
-	0yZ0rDqRg5QoKdgXGmodp+in0Vo/b5qNRJ5v/jy+NjRsZHnDp7K2GAD6K4XONvw1FAkWD0DSk+k21
-	d51tOkhVr3X28ts7ORY8K9nidN8b8CldBDY7CGUGHw1znXWNhClb/VshjcGsjPMDIMlhZrAafdQWq
-	0h3FWPAR7RoHx2b+HLqU36uJtrW2Zns9hvb9JeucOzvTaF3KazrlvObAWXO+oN3W+Bske+IFjXUNZ
-	1mDqU9mI/qBWoOk4E/z1KuzdWjxilPRrjfoI/21YKhS7JmhvBgDHXit5Q0O9bq+MHeoWnjbzjRD3w
-	ilXIL4LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rqNcMlH8o98wb+BIZdRuGcY3aOxf7W0cZQypsyRwjdU=; b=MsjkB7ne0zUxVfe9Mzib8Cxw0o
+	DQF667rnQ0MV/uFBa6W8JGOZitryeAmbedLXa+OPh18ndsegbn2fYSggBHr+VPzgICb7ijo7QMFEy
+	Ub5nzD0QJOO9LEslOtuHGO7PVbRYlsV0a7xeW9i/wwtxxuogfHQcCKGhI3p+jJw/GdFrlPzH9WCi8
+	5fnM7fGi7UmQODf0+F0pQywrvhhielPwpeXSp/EFRp93D5ILpGJwlGrSMCM+Gt6zVyTPgv3tY6hub
+	UMVB2PkBue7sosyzaNA2m+ByTEGExUt8H6mAGsiW5BwoCRGKvYp1qUdn4a46ZTK2UI1WjaBK8YofS
+	xmJHgqAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2acm-00000003H1i-3nnA;
-	Fri, 04 Sep 2026 20:35:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2acv-00000003H4i-4Bl8;
+	Fri, 04 Sep 2026 20:35:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2acl-00000003H17-25zs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 20:34:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED341600C8;
-	Fri,  4 Sep 2026 20:34:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3B6F1F00A3D;
-	Fri,  4 Sep 2026 20:34:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788554098;
-	bh=ByVGAz+j9xe5MWNa9XTv6mxh8KuFnEa40VZnZO+yeb0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gGdhCXql4CzLkGf9OGoZbMxcYFfsZbs1FWEpe6J7eEwlo6Jd+U+0Zn7RhNeiGQLIM
-	 kR+fGiBDjUED7n84d69bzyFTkU8roW2La5EMgTaMUY5XxZ7klVql8BPsJlfrwRL45L
-	 er9JvOoWzJOw4hKz8mF+cELxhlwAomMHUAR3MzNz+mo3M93OtHNZz0YHtidNa56wsJ
-	 pnBr0H76J6rDe1pJ2FTrsLzgtcYZhAHCuXwqdrPrDlzOwkZgVES1BHF5fOq7yZ9Alq
-	 LFazWdo5EsMriw9DWZwRYYEpQP6WoTd0IvAEcM1Z7Qz+/nL1IfCjTSHRITXzGvu0eY
-	 9YX0DgpVqi2Pg==
-Message-ID: <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
-Date: Fri, 4 Sep 2026 22:34:51 +0200
+	id 1x2act-00000003H33-18Zp;
+	Fri, 04 Sep 2026 20:35:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rqNcMlH8o98wb+BIZdRuGcY3aOxf7W0cZQypsyRwjdU=; b=qEtAqQDE3F0xWrtVdVZTb9sYgM
+	2oZobmJLx6AmyNu4af3S4ZMq+GvzGLqnVRKX8HyozkyUpJHCYzpO7HeBD8h6y3eFH0iBjW7XWXVRF
+	MnzTELHNNGZ5eK+fLEylkTu3QGRK/oou7gOWvTV5yjDcddq+CP9LhPp4WGvrpMDCs0Yg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x2ac7-00350F-AW; Fri, 04 Sep 2026 22:34:19 +0200
+Date: Fri, 4 Sep 2026 22:34:19 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Cc: netdev@vger.kernel.org, daniel@makrotopia.org, dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com, hkallweit1@gmail.com,
+	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
+	sean.wang@mediatek.com, olteanv@gmail.com, yangshiji66@outlook.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530
+ PHY
+Message-ID: <63a43d4c-f09f-4ca2-9003-7010ba045333@lunn.ch>
+References: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] arm64: dts: apple: Add minimal MacBook Neo device
- tree
-To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
- Hector Martin <marcan@marcan.st>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-watchdog@vger.kernel.org
-References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_133507_309044_7B3A5E55 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-
-On 04.09.26 21:49, Yureka Lilian wrote:
-> Added a device tree for the MacBook Neo, which uses the t8140 SoC
-> (A18 Pro) also found in the iPhone 16 Pro.
+On Fri, Sep 04, 2026 at 11:28:00PM +0300, Vladislav Karmanov wrote:
+> The MT7530 internal GE PHY advertises EEE by hardware default, but its
+> EEE support is defective: with EEE advertised, some link partners fail
+> to establish a stable link. On a 2-pair (4-wire) cable where both ends
+> advertise gigabit, 1000BASE-T training cannot succeed, and instead of
+> falling back to 100 Mbps the port loops, so no link or DHCP lease is
+> ever obtained. MediaTek confirms the hardware is the root cause (Landen
+> Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
+> problems, so it is recommended to disable its EEE."
 > 
-> The device tree has a minimal set of devices limited to CPU cores,
-> interrupt controller, watchdog, serial and framebuffer.
+> mtk_gephy_config_init() used to clear the EEE advertisement early, but
+> commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+> advertisement") removed that on the rationale that the DSA subdriver
+> already performs an early disable. That holds for MT7531, whose
+> mt7531_setup() clears MDIO_AN_EEE_ADV on each switch PHY, but not for
+> the MT7530 PHY: neither the MT7621 integrated switch nor the dedicated
+> MT7530 IC ever had such a loop, so removing it left those boards
+> without any working early EEE disable and the link flapping came back.
 > 
-> Using the macOS 26.6.2 iBoot/firmware, the machine reliably boots
-> on a single core using the stock kernel.
-> Booting with smp requires avoiding the wfi and wfit instructions
-> in the idle loop and `delay()` respectively, since those instructions
-> cause a loss of architectural state on the secondary cores.
+> Since the broken hardware is the PHY, fix it in the PHY driver so it
+> covers all users of this PHY, integrated in a switch or standalone:
 > 
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+>   - clear MDIO_AN_EEE_ADV in probe(), before anything can negotiate
+>     EEE with the link partner;
+>   - call phy_disable_eee() so phylib does not write the advertisement
+>     back on later renegotiations and userspace cannot re-enable EEE.
+> 
+> Auto-negotiation then falls back to a stable 100 Mbps link instead of
+> looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
+> cable on the WAN port, a single clean 100 Mbps link comes up and a
+> DHCP lease is obtained, where the unpatched driver loops.
+> 
+> Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+> Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
 
-[...]
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-> +
-> +	memory@800000000 {
-
-this doesn't fit the reg you use below.
-
-> +		device_type = "memory";
-> +		reg = <0x100 0 0x2 0>; /* To be filled by loader */
-> +	};
-
-[....]
-
-> +
-> +		aic: interrupt-controller@301000000 {
-> +			compatible = "apple,t8140-aic3", "apple,t8122-aic3";
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +			reg = <0x00000003 0x01000000 0x00000000 0x1cc000>,
-> +			      <0x00000003 0x01040000 0x00000000 0x4000>;
-
-please be consistent and use 0x3 and 0x0 here like for the rest.
-
-
-
-Sven
-
+    Andrew
 
