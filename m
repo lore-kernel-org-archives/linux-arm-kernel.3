@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2913C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B22FC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0kX9+PdQJJyGam7brukkKosFXiiD3H3QIPIZ6Gsaew=; b=0DBYbw/7OZE7CLcF+GOf6ADLnx
-	mr/Vevie8dsZSk2799NBIbKxdJLYq4JLZXRdW2dmCuYFDgdJ5oImNN3+M8mvgrTakYztDAbyVvi80
-	6fMWVyrgDJRDIjPfk0l1R83zSKMqov9m6T0bKfY9eEx+lGxWFUdvwy++nNEd0OGP2AGqlR7FDKY60
-	0kB4qV7/gOHHSQgwCpvV4rlONrxKPr/j7FYIZeW7d8QvuOZf5+pYN6px1QyJ36O/S50g9+1WjGuHH
-	edr68cTYrCT8x3AS0iHnlpNlXYPtTUAYMoVIH9/ndq0Y3naYcTAVydkkBtDedouxYL3ywikr+sZkI
-	BsNi1zfQ==;
+	bh=ub/H5EV5rHEQmVWi3kq9DYUDWf3fOZm8HoE9J/8V61w=; b=l76dnLDBitcjqgiF8CFYQYjtZY
+	ThEValcj9YIxxmqPUfcm/FemQEQz0NmjV1vPspi8RoMWZewQLfE0CjFtdX+03dFgd46XPbiffXFyP
+	BAoiSnk56J1n13mlIaDNXTWA3OOcXNxHd+aRmWBdLhnntbin+f6EzEgIgkLOUPG1+eVO1ijGaFvJw
+	uIOWe/JAyeqksVglqIBCzDCGWFwl/S+AJnCbFtv+jbJqBfS0w8RTSRguflEzms3NM8+kHNzhkIBN/
+	SciMhdTfsF2PrZV8K6I6a3jMEm7qnPlGxqszpYfKOMSd8vzfn80mwRLFtKvao52/oDYuzw1iJ0kDa
+	CPDDl8ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UR7-00000002IuK-3Imf;
-	Fri, 04 Sep 2026 13:58:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2URj-00000002JCy-2DWt;
+	Fri, 04 Sep 2026 13:59:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UR5-00000002Ita-3Hkc
+	id 1x2URi-00000002JBq-1ze1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:58:31 +0000
+	Fri, 04 Sep 2026 13:59:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89F3240F8A;
-	Fri,  4 Sep 2026 13:58:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D081F00A3D;
-	Fri,  4 Sep 2026 13:58:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFFE5600C8;
+	Fri,  4 Sep 2026 13:59:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08B291F00A3D;
+	Fri,  4 Sep 2026 13:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788530311;
-	bh=I0kX9+PdQJJyGam7brukkKosFXiiD3H3QIPIZ6Gsaew=;
+	s=k20260515; t=1788530349;
+	bh=ub/H5EV5rHEQmVWi3kq9DYUDWf3fOZm8HoE9J/8V61w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KtXIzRPBwSheizIaccbFJVmLmGQcP1SMs7wYEV5xoNaJ8XqX+icUvBar/dMq2FUMG
-	 4HH3mO+noIYrw3RrzmU/zv2A3B8c/f+QWefiQfXkgjFiw+IrH82H5dbaHGcJJl8K2y
-	 S9H0iLFi/2sa8D/V17s+TFU0YkHpGG7/56FzXepdTNhBTyy288bmM8c0Z8hVz5wG4f
-	 zo2XBL0mj8ULi2vplEGHM52WUFHYJKYmO3kQCNkO64wUWVSkn0MG1zkwGe21NuYBg9
-	 BQiFkgesLnhfjLFmv9hQxWLvyhdlh+Cj6MuwFKqi7lcRvsSPsF1E1XuAIvlihu3Nx+
-	 RwngWMtQqzU9g==
-Message-ID: <fbd0484d-cb9b-41c7-9ec9-ef9795a61232@kernel.org>
-Date: Fri, 4 Sep 2026 15:58:25 +0200
+	b=nzO6+BFoNZZIGQINVukiMVoYPwdIGleStNPeQoR3GadsebE6Fdzf7Cy2a7RL1IoNd
+	 qM/eTDYDtSw9WmUTdfIPEI/5FWv0ehkLgfw6ZOW7ryZxezKjtqCbsE3nSsFJYC9z+f
+	 jG660LJrQovR+vCBCK6U7cGmFXX3NvOn5bjD8pP9y04igbLen0zyjiZQV88Wcyi5bB
+	 U89zpHWCE18oSmPgNB6XPFi/B0V5e4TRcPVmm/gb9XBMRAMxEZMeChptQqNCn5ICQO
+	 Ng1bf/hzoGto6yHBkvM/rq8UX7PQGNrcKObnV9ztIxnaq7aVOCQ2jx7tqDIgEtDCjq
+	 vJ/xN+60F1vHw==
+Message-ID: <48506863-848c-43c0-9088-40ebe776cedc@kernel.org>
+Date: Fri, 4 Sep 2026 15:58:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: watchdog: samsung-wdt: Add
- exynos5515-wdt compatible
-To: aidenisik@member.fsf.org, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20260818-for-next-lucky7-watchdog-v3-0-2912bd122c57@member.fsf.org>
- <20260818-for-next-lucky7-watchdog-v3-1-2912bd122c57@member.fsf.org>
+Subject: Re: [PATCH v3 07/10] mfd: wm831x: support software nodes for DCDC
+ regulators
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>, Arnd Bergmann
+ <arnd@arndb.de>, Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>, linux-input@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Russell King <linux@armlinux.org.uk>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+References: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
+ <20260711-samsung-kp-v3-7-b2fcaba77aff@gmail.com>
+ <0306eaba-b59c-4f8b-9151-9f39685398ba@kernel.org>
+ <aprLYn4VzSTnZWuw@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260818-for-next-lucky7-watchdog-v3-1-2912bd122c57@member.fsf.org>
+In-Reply-To: <aprLYn4VzSTnZWuw@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,18 +125,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2026 20:03, Aiden Isik via B4 Relay wrote:
-> From: Aiden Isik <aidenisik@member.fsf.org>
+On 04/09/2026 15:46, Dmitry Torokhov wrote:
+> On Fri, Sep 04, 2026 at 03:41:21PM +0200, Krzysztof Kozlowski wrote:
+>> On 12/07/2026 04:12, Dmitry Torokhov wrote:
+>>> Allow passing software nodes to wm831x DCDC regulators via PMIC platform
+>>> data. This is useful for non-DT/non-ACPI platforms that want to
+>>> associate device properties (like DVS GPIOs) with the regulator devices
+>>> using software nodes.
+>>>
+>>> We add 'dcdc_swnodes' to the PMIC platform data 'struct wm831x_pdata' and
+>>> have the MFD core assign these software nodes to the buckv cells.
+>>>
+>>> Assisted-by: Antigravity:gemini-3.5-flash
+>>> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+>>> ---
+>>>  drivers/mfd/wm831x-core.c        | 47 ++++++++++++++++++++++++++++++----------
+>>>  include/linux/mfd/wm831x/pdata.h |  2 ++
+>>>  2 files changed, 37 insertions(+), 12 deletions(-)
+>>
+>> I still need Ack for this from Lee... and the problem is that you did
+>> not Cc him.
 > 
-> Add a dt-binding compatible for the Exynos5515 watchdog timer.
+> Hmm, indeed. not sure wheat happened...
 > 
-> This watchdog requires a syscon phandle, and the cluster index should
-> *not* be specified, as that does not make sense on the Exynos5515 SoC
-> (due to it only having a single core cluster).
+>>
+>> Please resend everything or spin v4 with MFD maintainers included for
+>> acking.
 > 
-> Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
+> Maybe you could take patches 1-6 now and then I'll continue with the
+> rest of cleanups?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Sure, that works for me.
 
 Best regards,
 Krzysztof
