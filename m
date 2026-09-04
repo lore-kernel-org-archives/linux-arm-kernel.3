@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1441AC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13904C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uFsQT1ddKpz+9hW9jtG9cmCPNgQnYsOrVrfp1VEtJc4=; b=Q9fZN2FpP8BsZM5cV0Een1oJbB
-	RVrDCRq3jjMfU6ASPT3ZGi+IOFivr05XmsFCLZ4slfd6D5heLLTe42VDrgS/fmS9aDTeeygmjnK02
-	zoaKkZBPmc0PffSxBN+OMf2nHX7ueHrGyVEgct9U9h5XBYZb5H05l4dKQ1Cux50USCMPpsvAegtCN
-	LziNzxq14JykNlUXhDovRCbJ4jpfYVEMhqTcBEvW8tfUkwMKGj3tSWP6OGlxEk06PMVrEKkpRrszC
-	j/6mOmq8V0BnGl9+9X+XttIemR40ukZZAiD10CXLtKzaqQ9PW0L7BkDsXnymJw5QfUTw45RaupZyP
-	yn29TmBQ==;
+	bh=lfu5acuSb6hmti2ORqa5C7Tlw/+6sL3sZeUeIa2oR8o=; b=NAeCD8nr9IQYL4Tfiper52yAjz
+	kTuN/rPbareEau445bdvA3tUjbPyXINlnTJPZfDp0+TGU6XtOuKAgCuahieB5f3fwTQlJJfj6B3pf
+	KMNKqSY4lOMDnZDrOM4ly7Q4vuF77IzGp3EgLKj9gR0K+YAPS3Me+cI+0DMKdlAFlBW2XLeP/ehlI
+	i5Sso6ZQmAcdwAjqiuG6gjFbg+ZQ93hKRVrsSAadqhkjGD+lyEjPIYy3IT9temPr+JxYFtK2OMi4y
+	7wet/572WTv4cJYnyF7xYgCWgVcLhxoezuT69myGBNjEWnfxJG9qAIMYhwXb5oTNjmhVIwjju8gPO
+	MWz/LsDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PR7-00000001Ohs-0VQT;
-	Fri, 04 Sep 2026 08:38:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2PSE-00000001Oqj-27Ag;
+	Fri, 04 Sep 2026 08:39:22 +0000
+Received: from out-210.mta1.migadu.com ([95.215.58.210] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PR5-00000001Ohe-2ZG5;
-	Fri, 04 Sep 2026 08:38:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57E8643903;
-	Fri,  4 Sep 2026 08:38:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D7B1F00A3E;
-	Fri,  4 Sep 2026 08:38:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788511091;
-	bh=uFsQT1ddKpz+9hW9jtG9cmCPNgQnYsOrVrfp1VEtJc4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BTlQChWz33Ek3tA5QJkL22JROr3Td1RGn8CJeU3WX+vxde2lhWz7dLbiWAQbYp+Bv
-	 piG2ouRCHsd3Qkh0eBC7Z0XYMUtVdiSwkaIHSab4KJb7Lt7GFaxWIDcPXO22P1v+wZ
-	 56SMw1Vc2tFLE+dASjrjdWTpFpcpRMGSOn1zJ4bWhdJcDzbgrajYsyp3mF2IOrl/Fk
-	 D4WuuRwKzqJbzMsCHWYxyWma4DwhsJsfrPztJBvsWGzFjMJMctdJ36+oPPu7U0ZxY8
-	 M0fQOS7B1cWy92qDsmJN7jF0S2HsvPfdu9YbNseSbWnXDTExowbAU6QXOVHuibkfKd
-	 /eS/6uZUBqOzQ==
-Date: Fri, 4 Sep 2026 10:38:08 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
-	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
-	kishon@kernel.org, Frank.Li@nxp.com, lumag@kernel.org, aisheng.dong@nxp.com, 
-	agx@sigxcpu.org, u.kleine-koenig@baylibre.com, marek.vasut@mailbox.org
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-Message-ID: <apqDKdcQrizwAv6U@houat>
-References: <20250414035028.1561475-1-victor.liu@nxp.com>
- <20260714193627.GA9616@francesco-nb>
- <alh4a66fEro05ShA@raspi>
- <20260716062612.GC9973@francesco-nb>
- <alh-6sI4J7vq2drz@raspi>
- <apl4rkHIs9QFuUTE@houat>
- <app836E0_y8lG9T5@raspi>
+	id 1x2PSB-00000001Opq-2HX9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 08:39:21 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ez4hNx4DVEe8KBHqNb84IrBjM+F93g8WM7rAblDyLXo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788511157; v=1; x=1789115957;
+ b=Nr515e14o6jo5iYmFOgF9Ul0KQGsN4/MwD7YQM1jBLzTR2DSJi0ZNDm5ljCFnnKSwVBqI6si
+ +Be1fYxEijBB4EL+C7CLLSyQzOdDY6InG0+NdFBV2+rKqu9ALRwhpDSxoeiy5kF/ZfdHZS4bQCo
+ vMVaSxh/Kxh/Jn8jdR7sDLNQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 9611daeab3faa4bb;
+	Fri, 04 Sep 2026 08:39:17 +0000
+X-Mizu-Trace-ID: 9611daeab3faa4bb
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so3596e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:39:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwp6qEptkTehfhYcUXhgZjWrA2DfH6ZU27QBj4XVilCxKdxAlPns5AMIOfAYGf4KAja2h8j55kz1CH3hQQv4Vj8@lists.infradead.org
+X-Gm-Message-State: AFuF++n4lgvfytyXNT8vZxXW2OKokk6EPXYLavww2Ql3poh9JUBHihJa
+	J5ae0roIcFkNdgYXtEt2EckYkAu2FbAjC1dkf59k5YyDg7TLw9y1faRfOYgSLBasyXetYulyFAZ
+	0Oa3nVTQqh792kZnPJ7kbPinAWnpXw+Pxm3+c3ngr
+X-Received: by 2002:a05:6512:2352:b0:5b4:9dba:7401 with SMTP id
+ 2adb3069b0e04-5b6182512c1mr68725e87.11.1788511156074; Fri, 04 Sep 2026
+ 01:39:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="mwzbtbj3gnfo5lzq"
-Content-Disposition: inline
-In-Reply-To: <app836E0_y8lG9T5@raspi>
+References: <20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com> <20260826-arm64-52bit-va-v1-1-14ec98211363@fujitsu.com>
+In-Reply-To: <20260826-arm64-52bit-va-v1-1-14ec98211363@fujitsu.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 4 Sep 2026 09:38:39 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy6EH-d=O+dtRdWdTUkS0zkXeW=auxiK6N5Dc-yihrYRw@mail.gmail.com>
+X-Gm-Features: AcwNN1Ue3UiJZXsq0JIrKBZUTapvpCHZ2jnrY0FG9kKB_BUUN5ArhPu7u2gQg_E
+Message-ID: <CA+EHjTy6EH-d=O+dtRdWdTUkS0zkXeW=auxiK6N5Dc-yihrYRw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] KVM: selftest: arm64: Support 5-level paging in stage
+ 1 translation table
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Takayuki Okamoto <tokamoto@fujitsu.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_013919_728224_12E7CC98 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,122 +84,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Itaru,
 
---mwzbtbj3gnfo5lzq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-MIME-Version: 1.0
+The usual subject prefix in the tree is "KVM: arm64: selftests:", for
+this patch and the next one.
 
-On Fri, Sep 04, 2026 at 04:10:07PM +0800, Liu Ying wrote:
-> Hi Maxime,
->=20
-> On Thu, Sep 03, 2026 at 03:41:15PM +0200, Maxime Ripard wrote:
-> > On Thu, Jul 16, 2026 at 02:49:14PM +0800, Liu Ying wrote:
-> > > On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
-> > > > On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
-> > > > > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini wrote:
-> > > > > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
-> > > > > > > Hi,
-> > > > > > >=20
-> > > > > > > This patch series aims to add Freescale i.MX8qxp Display Cont=
-roller support.
-> > > > > > >=20
-> > > > > > > The controller is comprised of three main components that inc=
-lude a blit
-> > > > > > > engine for 2D graphics accelerations, display controller for =
-display output
-> > > > > > > processing, as well as a command sequencer.
-> > > > > >=20
-> > > > > > ...
-> > > > > >=20
-> > > > > > >=20
-> > > > > > > To follow up i.MX8qxp TRM, I changed the controller name to "=
-Display Controller"
-> > > > > > > instead of the previous "DPU".  "DPU" is only mentioned in th=
-e SoC block
-> > > > > > > diagram and represents the whole display subsystem which incl=
-udes the display
-> > > > > > > controller and prefech engines, etc.
-> > > > > > >=20
-> > > > > > > With an additional patch[1] for simple-pm-bus.c, this series =
-facilitates
-> > > > > > > testing a LVDS panel on i.MX8qxp MEK.
-> > > > > > >=20
-> > > > > > > Please do NOT merge patch 14-19.  They are only used to facil=
-itate testing
-> > > > > > > the LVDS panel.
-> > > > > >=20
-> > > > > > What's the plan to conclude this work? What's the latest status?
-> > > > > > I am looking forward to have a way to use the i.MX8QXP display =
-with
-> > > > > > mainline, but to my understanding some required changes on the =
-SOC dtsi
-> > > > > > are not merged.
-> > > > > >=20
-> > > > > > Can you help?
-> > > > >=20
-> > > > > I planned to add display controller DT node after prefetch engine=
- support [1]
-> > > > > is picked up so that the prefetch engine could be enabled togethe=
-r with the
-> > > > > display controller.  Just want to avoid a DT that only enables th=
-e display
-> > > > > controller or bypasses the prefetch engine.  It makes the display=
- controller
-> > > > > driver simpler.
-> > > > >=20
-> > > > > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4e=
-cb6c6d4941@nxp.com/
-> > > >=20
-> > > > That series is from October 2025, is there anything blocking to mov=
-e it
-> > > > forward?
-> > >=20
-> > > It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-misc c=
-ommitter
-> > > for every driver patch in that series.  Also, it seems that Marek(Cc'=
-ed) is
-> > > not a big fan of [1](See i.MX95 display support discussion[2]).
-> >=20
-> > I was just pointed at this series, and I'm not sure why it's blocked. It
-> > looks like you were waiting for a Reviewed-by by a drm-misc maintainer,
-> > but I gave mine already and I'm a drm-misc maintainer, sooo... :)
->=20
-> Your Reviewed-by tags were on the initial i.MX8qxp Display Controller dri=
-ver
-> patches.  And, those patches have already landed.
->=20
-> Now, I'm waiting for Acked-by or Reviewed-by tags on those driver patches
-> which add i.MX8qxp Display Controller *prefetch engines* support.
-> 'b4 trailers -u' doesn't include any Reviewed-by from you on those patche=
-s...
-> I sent v6 prefetch engine patch series[1] just now.
-> It would be great to have your Acked-by or Reviewed-by tags on those driv=
-er
-> patches :)
+On Tue, 25 Aug 2026 at 22:18, Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
+>
+> Add p4d_index() for when 5-level paging required, i.e., V52 guest mode
+> IDs. With the index helper function, _virt_pg_map() handles 5-level
 
-It looks like you had a reviewed-by by someone on all these patches
-already, so you could have merged them.
+Only VM_MODE_P52V52_4K has five levels. The 16K and 64K V52 modes get
+four and three, so this is for the 4K granule rather than for V52
+modes as a class.
 
-I do have comments on the series though, see them on your latest
-version.
+...
 
-Maxime
+>  u64 *virt_get_pte_hva_at_level(struct kvm_vm *vm, gva_t gva, int level)
+>  {
+> +       int start_level = 4 - vm->mmu.pgtable_levels;
+>         u64 *ptep;
+>
+> +       TEST_ASSERT(level >= start_level && level <= 3,
+> +                   "Invalid translation level %d, valid range is %d-3",
+> +                   level, start_level);
+> +
+>         if (!vm->mmu.pgd_created)
+>                 goto unmapped_gva;
+>
+>         ptep = addr_gpa2hva(vm, vm->mmu.pgd) + pgd_index(vm, gva) * 8;
+>         if (!ptep)
+>                 goto unmapped_gva;
+> -       if (level == 0)
+> +       /*
+> +        * Stage-1 translation starts at level -1 for a five-level page
+> +        * table, and at levels 0, 1, or 2 for four-, three-, or two-level
+> +        * page tables, respectively.
+> +        */
+> +       if (level == start_level)
 
---mwzbtbj3gnfo5lzq
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+This changes what level means for the existing three-level modes:
+level 0 used to return the top-level entry and now trips the assert,
+level 1 used to return the leaf and now returns the top level. No
+caller in tree asks for either of those two levels, and the new
+numbering matches the architecture.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCapqDbwAKCRAnX84Zoj2+
-dhi0AX9V0v+FF43tk17YKUNo7scfgvGnbACB8czD60jcwTcj64E7k+ij/1JqzbGA
-dYQ5eMcBfAh3EL8ZwNhP4ydctLhqIq8SSEhX9P4/0uHyhBDfXxEvnEbDT0vpBZlH
-aJhlwQhn8g==
-=ts7W
------END PGP SIGNATURE-----
+...
 
---mwzbtbj3gnfo5lzq--
+> @@ -321,12 +356,14 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+>         case VM_MODE_PXXVYY_4K:
+>                 TEST_FAIL("AArch64 does not support 4K sized pages "
+>                           "with ANY-bit physical address ranges");
+> +       case VM_MODE_P52V52_64K:
+
+These VM_MODE_ enumerators arrive in patch 2, so this patch does not
+build on its own:
+
+  lib/arm64/processor.c:359:7: error: use of undeclared identifier
+'VM_MODE_P52V52_64K'; did you mean 'VM_MODE_P52V48_64K'?
+  lib/arm64/processor.c:360:7: error: duplicate case value 'VM_MODE_P52V48_64K'
+
+There are other build errors from the same cause. Could you move the
+enum values and their vm_guest_mode_string()/vm_guest_mode_params[]
+entries into this patch, or a new one altogether?
+
+>         case VM_MODE_P52V48_64K:
+>         case VM_MODE_P48V48_64K:
+>         case VM_MODE_P40V48_64K:
+>         case VM_MODE_P36V48_64K:
+>                 tcr_el1 |= TCR_TG0_64K;
+>                 break;
+> +       case VM_MODE_P52V52_16K:
+>         case VM_MODE_P52V48_16K:
+>         case VM_MODE_P48V48_16K:
+>         case VM_MODE_P40V48_16K:
+> @@ -334,6 +371,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+>         case VM_MODE_P36V47_16K:
+>                 tcr_el1 |= TCR_TG0_16K;
+>                 break;
+> +       case VM_MODE_P52V52_4K:
+>         case VM_MODE_P52V48_4K:
+>         case VM_MODE_P48V48_4K:
+>         case VM_MODE_P40V48_4K:
+> @@ -348,6 +386,9 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+>
+>         /* Configure output size */
+>         switch (vm->mode) {
+> +       case VM_MODE_P52V52_4K:
+> +       case VM_MODE_P52V52_16K:
+> +       case VM_MODE_P52V52_64K:
+>         case VM_MODE_P52V48_4K:
+>         case VM_MODE_P52V48_16K:
+>         case VM_MODE_P52V48_64K:
+> @@ -578,6 +619,42 @@ static u32 max_ipa_for_page_size(u32 vm_ipa, u32 gran,
+>                 return min(vm_ipa, 48U);
+>  }
+>
+> +u32 aarch64_get_supported_va_size(void)
+
+This repeats aarch64_get_supported_page_sizes() below it and builds a
+second probe VM one line after the first. Could it take a u32 *va
+out-param, so both ID registers come off the one vCPU?
+
+VARange is the 52-bit VA indicator for the 64K granule only, so a bare
+52 or 48 reads as granule-independent. The caller in patch 2 only uses
+it for 64K, so nothing is wrong today.
+
+Cheers,
+/fuad
+
+
+> +{
+> +       struct kvm_vcpu_init preferred_init = {};
+> +       int kvm_fd, vm_fd, vcpu_fd, err;
+> +       u64 val;
+> +       u32 va_range;
+> +       struct kvm_one_reg reg = {
+> +               .id     = KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1),
+> +               .addr   = (u64)&val,
+> +       };
+> +
+> +       kvm_fd = open_kvm_dev_path_or_exit();
+> +       vm_fd = __kvm_ioctl(kvm_fd, KVM_CREATE_VM, NULL);
+> +       TEST_ASSERT(vm_fd >= 0, KVM_IOCTL_ERROR(KVM_CREATE_VM, vm_fd));
+> +
+> +       vcpu_fd = ioctl(vm_fd, KVM_CREATE_VCPU, 0);
+> +       TEST_ASSERT(vcpu_fd >= 0, KVM_IOCTL_ERROR(KVM_CREATE_VCPU, vcpu_fd));
+> +
+> +       err = ioctl(vm_fd, KVM_ARM_PREFERRED_TARGET, &preferred_init);
+> +       TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_ARM_PREFERRED_TARGET, err));
+> +
+> +       err = ioctl(vcpu_fd, KVM_ARM_VCPU_INIT, &preferred_init);
+> +       TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_ARM_VCPU_INIT, err));
+> +
+> +       err = ioctl(vcpu_fd, KVM_GET_ONE_REG, &reg);
+> +       TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_GET_ONE_REG, err));
+> +
+> +       va_range = FIELD_GET(ID_AA64MMFR2_EL1_VARange, val);
+> +
+> +       close(vcpu_fd);
+> +       close(vm_fd);
+> +       close(kvm_fd);
+> +
+> +       return va_range >= ID_AA64MMFR2_EL1_VARange_52 ? 52 : 48;
+> +}
+> +
+>  void aarch64_get_supported_page_sizes(u32 ipa, u32 *ipa4k,
+>                                       u32 *ipa16k, u32 *ipa64k)
+>  {
+>
+> --
+> 2.43.0
+>
 
