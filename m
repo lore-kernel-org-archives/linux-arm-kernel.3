@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D068C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8423DC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1PB93PjIFbExPYXFb562jtyWeUXbMaTixHyMSrnpUgI=; b=tf0XnC3qR1rQd5
-	urhGdPBKJ461Z0aMWiPaccWYg+mPwaw0/9aQb8FllECqKkUum374Od++ovhUBWTaHF45eePaxALYh
-	WAHv2OhalRYDkE+he3THhQwNA4y5wF5XiRFfVM556H3RchFq7ugPFUao87Vo+zHt+XkC5bcoDDajw
-	mVLeeATynzpzmAf6fkURtmRYFx6tEipnVL6snHRFpXC1B0D/LPwORqpMzS/k2M//VgK9nO7nk/0/g
-	GZzeV7xiu3JK/4/8SdswdYrS3bqu2Mm5r5G0KaZNR39Bca91m+F4VYaz72Z5nt/VK2fFqPgfnSbel
-	DuiqJh8Z4ijorB2/RgNA==;
+	List-Owner; bh=T2OcsfQB2rXyV+qEnim3LyzT5vfleOs/dQwzAKYIyC8=; b=2gG8H1G4682TkN
+	AN86MCY3F2DVhIP6P7LZcs47AfsPeqjpI7GLkBKoHpMVoC2spIC8P/bqX20ZHl9ZBQ6K87XYYyG+S
+	cMyegqyt1y0P+d1RN7weSkouOf4lFTLy2DlIAoFXo78wWwUnn/Zlry7Ejv7Z93weeKBOXdqfyuBqN
+	2Nbrl8XFjtPtqjakP5DssJNCGmdU5M84Ww+AAUavPmnXtUrAJy6T2rcIwWZ2aDY3xfVkaynTV2V7l
+	c13f3dxE6VxhzQPLHtOGw4M0e9JN5iMh4vBKT1ZqnVybJfEIfuPaQAA03PhwHkXJ/sUNVTLaUGLiL
+	gb/MuWyZVFWccK7s6/gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wd3-00000002hEe-0kT8;
-	Fri, 04 Sep 2026 16:19:01 +0000
+	id 1x2Wd7-00000002hIp-1guy;
+	Fri, 04 Sep 2026 16:19:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wd0-00000002hCe-2yYr
+	id 1x2Wd4-00000002hCe-2D5t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:18:59 +0000
+	Fri, 04 Sep 2026 16:19:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B9D61FC4;
-	Fri,  4 Sep 2026 09:18:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9165153B;
+	Fri,  4 Sep 2026 09:18:52 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D840B3F8D6;
-	Fri,  4 Sep 2026 09:18:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 822F23F8D6;
+	Fri,  4 Sep 2026 09:18:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788538731; bh=w07zAcxGPrwpKNC+UEkyQF6OePGiGiP3sL6U5wQzJsI=;
+	t=1788538736; bh=pUyEkl4bH7bjN7cz2XbK3Pl6rivIm/Z5yqVzikq2V+0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gM/bDQR0GbHmXFnoDfCIxntg9/jiTMGUld1GSVVhLOI655uh4ePdJjINsHtpR7EYk
-	 8/ZBWBG1XkImKS60gBJzKdF9oHS/WsTyjcfb4aOhDMVJyStvGP1H/s/effCLFH0mHf
-	 8KA7b6GDkKdN4a7+D7OYdZuJZ4aqp2PLJhh/Qy1I=
+	b=rQhs7b3FjaUZd3YeBRcvwQCaIPNsMAYiIycOFk7VjmlIpt26wAOPUSLOlThOrUSlx
+	 btY/r2SeucKbi0Dwn5UsfCqT4euj/pDMewj/YEvm7troIiQjoG+90qr4oVV9zJtTjG
+	 MBzAG9jnJAdvmAa8NPinTIQr0iFLEHmbRCiJj6Ds=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 10/21] arm64: gpr-num: Add wxN aliases for wN registers
-Date: Fri,  4 Sep 2026 17:17:47 +0100
-Message-Id: <20260904161758.376504-11-mark.rutland@arm.com>
+Subject: [PATCH v3 12/21] arm64: entry: sdei: Restore all clobberable GPRs
+Date: Fri,  4 Sep 2026 17:17:49 +0100
+Message-Id: <20260904161758.376504-13-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
 References: <20260904161758.376504-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_091858_787065_76D93465 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260904_091902_604294_227D52E0 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,25 +67,13 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@i
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some A64 instructions require a W register name for specific register
-arguments, and will not accept an X register name. For example:
+Currently __sdei_asm_handler() avoids restoring x20 to x27, as these are
+not be clobbered by existing code. This is correct today, but it makes
+it awkward to rework __sdei_asm_handler(). Given the rarity of SDEI
+events, restoring x20 to x27 should not have a measurable impact.
 
-	STRH <Wt>, [<Xn|SP>, (<Wm>|<Xm>){, <extend> {<amount>}}]
-
-This is painful when writing macros for inline assembly, especially
-where a single register is used as both an X register and a W register.
-
-We solved this for plain assembly by adding a wxN alias for each xN
-register in commit:
-
-  4c4dcd3541f83d21 ("arm64: assembler: introduce wxN aliases for wN registers")
-
-Add the same facility for inline assembly, with a new
-__DEFINE_ASM_GPR_ALIASES macro.
-
-As with the other macros in gpr-num.h, different escaping is necessary
-for inline vs non-inline assembly, so we can't share a single definition
-that we stringify().
+Restore x20 to x27 when returning from an SDEI event handler. This will
+free up those GPRs for usage in __sdei_asm_handler() prior to return.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
@@ -100,25 +88,30 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/gpr-num.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/kernel/entry.S | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
-index a114e4f8209b0..240cd25d55c5a 100644
---- a/arch/arm64/include/asm/gpr-num.h
-+++ b/arch/arm64/include/asm/gpr-num.h
-@@ -21,6 +21,11 @@
- "	.equ	.L__gpr_num_xzr, 31\n"				\
- "	.equ	.L__gpr_num_wzr, 31\n"
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index f63049ac32dc6..a6ec5c5a2d29c 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -1044,10 +1044,14 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	bl	__sdei_handler
  
-+#define __DEFINE_ASM_GPR_ALIASES									\
-+"	.irp	n,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30\n"	\
-+"	wx\\n	.req	w\\n\n"										\
-+"	.endr\n"
-+
- #endif /* __ASSEMBLER__ */
+ 	msr	sp_el0, x28
+-	/* restore regs >x17 that we clobbered */
++	/* restore regs >x17 that firmware won't restore */
+ 	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+-	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	x18, x19, [x4, #SDEI_EVENT_INTREGS + 16 * 9]
++	ldp	x20, x21, [x4, #SDEI_EVENT_INTREGS + 16 * 10]
++	ldp	x22, x23, [x4, #SDEI_EVENT_INTREGS + 16 * 11]
++	ldp	x24, x25, [x4, #SDEI_EVENT_INTREGS + 16 * 12]
++	ldp	x26, x27, [x4, #SDEI_EVENT_INTREGS + 16 * 13]
++	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	lr, x1, [x4, #SDEI_EVENT_INTREGS + S_LR]
+ 	mov	sp, x1
  
- #endif /* __ASM_GPR_NUM_H */
 -- 
 2.30.2
 
