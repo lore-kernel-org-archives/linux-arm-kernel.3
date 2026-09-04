@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F18DC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257AFC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hf2+Ic93e5NS9F8YWg601XTrq19GOkYx2bwFIAfD+Rk=; b=qWVNop98uMQU2WNUa3bUIVisOM
-	dcDVg0/0QkALwVDr/j4hzz/iUgnrK3KbqVyN2IJr0vZMAP7B/5xROirjXDcZxBJYIF+uZdX1G5u5c
-	oMyGCGdSkFXqb7ijElC9jOQQS0v140JuHsGJHEMJdzlZ+viofkJV0EkTWkOmLphsdWJybg8cvX+Q2
-	GnmjCqYHU+Ka3cSHikWnXvp3Ate4LPjqP1hAL85EW2W4DSKB2AIbS5iJNIHg55/QaaBQ+i3KZt2ha
-	sDxXy5CchtVTWjkpq6/gXJHRVKUfOUwLrsECGW4zrVP38T70xSb/hzT4d4Kv9YONHC/m34xP6FeT3
-	DBd7GpRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MzSSeYpgZ1cl36kwxauq490fq+r6qAsAHJo6BhOSQ1w=; b=QRXlOm52MM8ZJ5sHHcSUWHCaqB
+	TXv8c1EJfDx8DeQgm+MhEap6fsLZ5+odTDT8AfROOJDjXZDlqJaYWeWASASG7Fz4rkW4ZejTuZecW
+	guk7DWb3dvR44O+1md0mXlzO3ukBbi+elHPpNPVM/aKxdm+p2OqCjEC+r6Z18tYx6bNGKTIjIGhkS
+	mU+0hKyq6PUyaYuZWca+t6TafF3ieywW+25JJKWZDJxjPoh3ZFBd8kEKgVMEIypWmeFcrIWtHbLcQ
+	uiksqnV4WAw6t3ZceGLSnVVvvU/h4iVfLRZQaPgMyaTuYvmAHZR4Jc6907Oyodd5etjWpVxA7LSyU
+	oXhcsPSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PJ7-00000001NKJ-1Xp8;
-	Fri, 04 Sep 2026 08:29:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2PLj-00000001NhJ-40pA;
+	Fri, 04 Sep 2026 08:32:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PJ6-00000001NKA-3WJ2
+	id 1x2PLj-00000001Nh0-0CCO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:29:56 +0000
+	Fri, 04 Sep 2026 08:32:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2203160211;
-	Fri,  4 Sep 2026 08:29:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5147F1F00A3D;
-	Fri,  4 Sep 2026 08:29:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B957D43716;
+	Fri,  4 Sep 2026 08:32:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20F681F00A3D;
+	Fri,  4 Sep 2026 08:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788510595;
-	bh=Hf2+Ic93e5NS9F8YWg601XTrq19GOkYx2bwFIAfD+Rk=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=IOQEwmmgPFvVH8Lb5FfWv7nVkg9Q0tplPkuN+phV0vJrNgEN4v6VYVSDodxo96ZCD
-	 lTgcQ0KFoK2oP13UYjYBSLrmYtFAoQ39pJFPOkrY4G+aNEaYUO7lPjRfOI0MQNjac6
-	 OD7sXULWhSojKhnoTD88Ob5gMdfjI3Q9ssVzJ16OCvGbaz56qY9LuZaFLqgF0PH/St
-	 RTZbgEOAt633G4lO+vuXvWjw7VAkBq+WstleW7Lxl5Cwl/gLeOJzcpcoUxSob7sfYS
-	 v+7NiZnvjHePwFascVaelX+vjIDVzWMx1nuskzELBg4hnZdOM2oKp+IDkxRJ5r7gKt
-	 QXiEF8E4veDOQ==
-Message-ID: <e43d4e34d4a0f76f78877901d53d2f33@kernel.org>
-Date: Fri, 04 Sep 2026 08:29:52 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>
-Subject: Re: [PATCH v6 06/13] drm/imx: dc: Add DPR channel support
-In-Reply-To: <20260904-imx8-dc-prefetch-v6-6-26643e3f6cb7@nxp.com>
-References: <20260904-imx8-dc-prefetch-v6-6-26643e3f6cb7@nxp.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Conor
- Dooley" <conor+dt@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
- Baryshkov" <lumag@kernel.org>, "Fabio Estevam" <festevam@gmail.com>, "Frank
- Li" <Frank.Li@nxp.com>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek Vasut" <marek.vasut@mailbox.org>, "Maxime
- Ripard" <mripard@kernel.org>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Rob Herring" <robh@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1788510758;
+	bh=MzSSeYpgZ1cl36kwxauq490fq+r6qAsAHJo6BhOSQ1w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JFYXZymr1wFshuxLBjvl/iyhixHCkCSdNKcEN4AdpqHPjeNe7OCTSE9W9hyu9xtuR
+	 /THPX4vBmSvJmF3/ZEUA0Da+o6/SwDv3VnW8nLLZ1vZUXCYX7XSUIRIpRRy20QtS1p
+	 LF6EVoW/ugz7TlGexEb7v2M4BXLeUpHamQwlImMuJSyCceHzASAiMD7tjzJyLw4U0g
+	 oQbNYEnp/4CefBvHa+Q+hpYns3elxf245Bc+SIoPF6gG8PcFbHVPHbmm+dQLvN3+G8
+	 g/YEenlDO0dhAt+Ykn56tIdGC+h71gO4vAjFXu8vxm5d3fHugsZfydYpcumgCDAsZ1
+	 Qwq7tPZZNOoKQ==
+Date: Fri, 4 Sep 2026 10:32:35 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v6 07/13] drm/imx: dc: Use TCON operation mode
+Message-ID: <apqBoxjblzSIuG36@houat>
+References: <20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com>
+ <20260904-imx8-dc-prefetch-v6-7-26643e3f6cb7@nxp.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="xjuaddo6esktd3cx"
+Content-Disposition: inline
+In-Reply-To: <20260904-imx8-dc-prefetch-v6-7-26643e3f6cb7@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,17 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 4 Sep 2026 15:54:56 +0800, Liu Ying wrote:
-> Display Prefetch Resolve Channel(DPRC) is a part of a prefetch engine.
-> It fetches display data, transforms it to linear format and stores it
-> to DPRC's RTRAM.  PRG, as the other part of a prefetch engine, acts as
-> a gasket between the RTRAM controller and a FetchUnit.  Add a platform
-> driver to support the DPRC.
-> 
-> [ ... ]
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+--xjuaddo6esktd3cx
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v6 07/13] drm/imx: dc: Use TCON operation mode
+MIME-Version: 1.0
 
-Thanks!
+Hi,
+
+On Fri, Sep 04, 2026 at 03:54:57PM +0800, Liu Ying wrote:
+> @@ -273,7 +285,22 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_commit *state)
+>  	dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
+>  	dc_ed_pec_sync_trigger(dc_crtc->ed_safe);
+>  	dc_fg_shdtokgen(dc_crtc->fg);
+> +
+> +	/* Don't relinquish CPU until TCON is set to operation mode. */
+> +	local_irq_save(flags);
+> +	preempt_disable();
+> +
+>  	dc_fg_enable(dc_crtc->fg);
+> +	/*
+> +	 * Turn TCON into operation mode as soon as the first dumb
+> +	 * frame is generated by DC(we don't relinquish CPU to ensure
+> +	 * this).  This makes DPR/PRG be able to evade the frame.
+> +	 */
+> +	DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(dc_crtc->fg);
+> +	dc_tc_set_operation_mode(dc_crtc->tc);
+> +
+> +	local_irq_restore(flags);
+> +	preempt_enable();
+
+That's really not great... Can you expand on why you need this, and is
+there really no other way to do it?
+
 Maxime
+
+--xjuaddo6esktd3cx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCapqCIgAKCRAnX84Zoj2+
+dir1AYCXpT5cVplY44dNchFSkeexJ/EEll6WarzurZvlyuK4ccEsQLN5u16HB+0M
+d69UP2sBfR04gGdJ/dhDGLj+kSe/MOJTZ8fjbbkfK0hpumFAmqrpXyNhp/ODKajZ
+YtkzHwfDPg==
+=7yGx
+-----END PGP SIGNATURE-----
+
+--xjuaddo6esktd3cx--
 
