@@ -4,84 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22334C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016C2C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+LnYxn6LugYvNdyOdQjROelzsYqUVDn0UISl/V+oKM=; b=uPq4vcOAfssiBXxTwHWQ5QgK2M
-	MWORgCSXpai0XNZg/sZAWQpaqWt8ztNJd1OM8tBrh9ymhLBwz0vJvxsuZCVXL5hF3XVP/Mc2vXbdE
-	GuHmqQN6X8PEWJtDr5Pg24eE8kkxGwMP9jCR0B4l4UerwAd/BnWbugE9oDfLHfgLHKiYjaYXiHIfq
-	pzY9BjQ79ZJwVm4J9INDdX60qD9V63jz7VrbaZNljFPs+clR+1RVFW3f5auGTwz0OxSQBOs1Zpnk3
-	4EzYo5A6Uuj9yIIkA2IZf5mA8qU0ogQ0BPoO5LZAiyiHiGnqLZb5MhcNdq2Xupp1ErcUoFsl1lfJ0
-	7dTV7G1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jQBhXLJf/mtSdCnXS619NgQtvKBCBFo8xA4px58AiJ4=; b=07B6SLqeSn1ftisGuqe+JdK5vM
+	9lzymodcGmdcCEuWOntxvEzbVV0QenhFV7HGqq+MerttQ4FkcLB2F4cy61X40Snv5E7iRDeVdDsX4
+	e93rPiH7hsqQcvaYGvLAINOhYJ2R03//+O2EMW3nQ5WzZz3wri4S8qp66pj05L8RzEx33Qa7+1QOq
+	3nIN4fpAZGi9nUPPmRGPhUCcD5IX7Qf7m7zvIdLia2Ypy5P2HJ3tDpoeUbGLxs00Xf8JZctQ8416I
+	0cTxrCTzkPy2cmv7j6vk/Rt8e+0r5Ivp6D5eqmKqA/mVO0IgmYeeVjLAbj+tcE/QPdizsBA/hhbRZ
+	0fP4dvfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ohw-00000001HLZ-2LIn;
-	Fri, 04 Sep 2026 07:51:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2Ojz-00000001HUX-3lde;
+	Fri, 04 Sep 2026 07:53:39 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ohv-00000001HLT-2fR6
+	id 1x2Ojx-00000001HTf-0Fbw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 07:51:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9CE560211;
-	Fri,  4 Sep 2026 07:51:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B091F00A3D;
-	Fri,  4 Sep 2026 07:51:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788508290;
-	bh=8+LnYxn6LugYvNdyOdQjROelzsYqUVDn0UISl/V+oKM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TLIw0zFgyzyv+MG+Kehh+5Mzp4S8C/RTGA6krixJPZtv5S+h6cAkjLIuSH+BlY5kt
-	 Fc8dgU2AKlSS9HZQLSVtoHZwpmYvcCaNZen2/4P2saZB2oMUJWVu6VOQgRZAueGZmV
-	 aKpanRlBQ412TeKxepE8u7zOSWohx6miD/DcsM7j/Ok6nbsJZBpxVfHRFWLYI+5SUf
-	 VbAyqfD9K2oXadPLIkkb3EQSMe+Cb0dA0dlFrsBVMwgflzU1C5m0hjXzIHGkpcYLyF
-	 lkdjrMyk5G88dNizwjUwiyDLMOazmLut+uvxPZ2IcXU0dezf33erGXckr7FgDs4l78
-	 4KzKLW3zvdsaQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x2Ohs-00000004haK-2Pgw;
-	Fri, 04 Sep 2026 07:51:28 +0000
-Date: Fri, 04 Sep 2026 08:54:02 +0100
-Message-ID: <874ig55u5h.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	Wang Han <wanghan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	oupton@kernel.org,
-	tabba@google.com,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	ljs@kernel.org,
-	itaru.kitayama@fujitsu.com
-Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
-In-Reply-To: <46342b48-550e-42c1-9d9f-e800c72269c2@linux.alibaba.com>
-References: <20260810205038.118843-1-weilin.chang@arm.com>
-	<20260902163500.1841671-1-wanghan@linux.alibaba.com>
-	<877bl26aqg.wl-maz@kernel.org>
-	<wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
-	<46342b48-550e-42c1-9d9f-e800c72269c2@linux.alibaba.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: xueshuai@linux.alibaba.com, weilin.chang@arm.com, wanghan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 04 Sep 2026 07:53:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CkfQi4nSvNoTzLFibIc43HxizHC4SEt8II/34khLFYiZeAOtecLbzLLEBHpybpyGr018ovOXcCRaCIe3xcnCR2B5T6IMBegC80lOjtrQB9/AllQo5/B79oxlFEcamqVtZv1MyL801rVmi/0QoakuZYB8c3L8sdv9vO7b0AjIH6qXzob7Ana8vmzRQtak3Y+PhTovgt1TZKkeB1fzUjgZtWpUocz6LADG5Gvjr3dWd99DFOO0YyCgHTf/YQz4hAEE+qsMSzJN2WMmEoabiv85nZz5gguuPfXPds34xbCHaXfNNo8AhTUDZNp8FAiUBxwQt0iuu2DW3OwmjvUM65X3Mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jQBhXLJf/mtSdCnXS619NgQtvKBCBFo8xA4px58AiJ4=;
+ b=ACxSrRNctMfuvmnnmN/Jx+KznrtHbdFEJE0lf46GWnhsrsfLp3e1EZa0MTgtI7r7UR21Z2wBEHX+lxwpGC+HydTE4aoWEFtmdNJ2iCs9fVI6JilqBxl3+JiAnFhebGIiQLZXADksdMhw4tCccd7Thm4ldpj8cmuDtA/K8DzoSXFyZ81+HtXm01rmNLhkV7k3qWWoZtugZ6XBPkGtZjZQBe0GJN1fVzGxRhLEm3mciqgXO0Uivn7zqeshvHc7ELwVFKHKhUtzVW5WSj48IxBwXNDg3JHcpMU2K/+CMHPkLmFpujN60xgxRTqmiYxDP/OjqbLmemx8TQ3LPBLZKiNemQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jQBhXLJf/mtSdCnXS619NgQtvKBCBFo8xA4px58AiJ4=;
+ b=Cx77mw3rdFgvHIoOyxDwb6lXO3AQiB7UUabWRUXabYYxkWtWiosJVEihBA1eqSgpdKXkBJ7u1sFIeCFHiCzOkWdomyO1IZwnCQGwPXF4z0TkO+8w9LQduju4MSh9SuBgw4S47/beogL1h7mSM6xsZJ9H2CoAxVvk7d1KBMFgP2sOY5h5JFFYLzYzNfOSeuM6hxlooMH/3dm0omHK/1hUp6jkdb3HmyPCxahucQLNQsLxNQrGedyvZf473NOyAlY4ZI7Cu+2KWSZjQUyPd4qqPMih3uFnohql77HAzbkT/TmMdFnBy2okyOOcZqSKJrSqhdNiqK4oTj0ySOULFc6/ow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by AMDPR04MB11702.eurprd04.prod.outlook.com (2603:10a6:20b:719::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 07:53:30 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 07:53:30 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Subject: [PATCH v6 00/13] drm/imx: dc: Use prefetch engine
+Date: Fri, 04 Sep 2026 15:54:50 +0800
+Message-Id: <20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEp5mmoC/23Oz27DIAwG8FepOI/JgCHQU9+j2iGxycKhSZVUK
+ FOVdx+ptPVfjp+t32dfxRTHFCex313FGHOa0tCX4D52grq6/44ycclCg7ZQgZHpNHvJJM9jbOO
+ FOgnaRwPOBkVOFLYu0nyrPH6V3KXpMow/twtZrdO/Mnwvy0qCrDwSmJYd2vbQz+dPGk5ircr6z
+ oPe+CXrwi27wBRq8o195uaRhw1uCidQDA58zayfOf5zBcptcCycW64NVtQYerluH7iuNrgtHCM
+ 1jhxjQHXny7L8AuGOSjmqAQAA
+X-Change-ID: 20250703-imx8-dc-prefetch-028e306591c6
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+ Liu Ying <victor.liu@nxp.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI2PR06CA0001.apcprd06.prod.outlook.com
+ (2603:1096:4:186::21) To MI9PR04MB350878.eurprd04.prod.outlook.com
+ (2603:10a6:290:c0::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|AMDPR04MB11702:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2124e034-9584-4c74-212c-08df0a599c94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|366016|1800799024|23010399003|10067099003|3023799007|18002099003|56012099006|11063799006|5023799004|921020;
+X-Microsoft-Antispam-Message-Info: 7vLlzdEdJzHDOgaLRu7z/lxfIS328YnYe7lGv4c2cnsUNrrH9tZKjA81ZbirZHZFM9dMAhqkEP2Fm4iAHvQJZQ8NsteN2DmEsUJjB1xESkJarCuuYmAQQ8dibcO+aX40k0e//FB107Jj2cyXylvk7OFlyHzcBXiHhM/T/ffZHKZdyx1jhqjoS/88hm+XeO/SIlFeE08FDaNN/kpSYuKmT4VcPZXyleEsEaN//hfkbfDp8DxRosbNM7IVZAfySuxofejoajWkygkwWO5XIn/i5kTMF55hTFU1Fzaq7Qzpvv0LqBlMltb2zhPkDb7A/P2MQxJY3BjQv9LBT2S9gZcJVVx3UUWn5KwmJcwUZpoN+wM3VSbH9s+HBgsShSD7nTzAtVG1ZEKR/b02PTEiupEBcxHwEqoZ7uyiOzXNGQcoqKxaZ+dgh/8NanDKR1A8vp7Dv4eoSI+SmFrdlYj7/f2kTGigaoAh7VyvSEHfpnmGCATjNjhkX3yG0GpCllf3Nv/QnSpxh1hZkMD+Cndn3mgN1dj1GxFJqWXSrU8TStsX/8k2/HVOCondAlN3Oj7XemO2N+XFwH/doVmSl6KmLj4tnX6QwO/P1qmP7p9sYJzuEuAI2tOrKtHns6X/D7y2kO3MR6iMDGZOPTQUdPzPz304QQ+T0WfTFLtdba03LEU+3Xa130yPxgR2aCvgmMFEQ5Sj3aNSMArwZsPK0Fy6+7lscQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(366016)(1800799024)(23010399003)(10067099003)(3023799007)(18002099003)(56012099006)(11063799006)(5023799004)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SXFPNG96RVpPRkhGNS9HVUlxQWFtaVh4SUIyS0pCYVFxWFNPT2lycnYzVTZU?=
+ =?utf-8?B?Ty9wV0JvS0JLTmRyU2d6SXB4eFNlYm9NemFCVDJBb1gxd3U1QlUwMnNxMkJT?=
+ =?utf-8?B?YUVaZUErRnd1RHBsRktGRVU0dThGUS9pMWpYaTJxTnY4RjJLa0kvNTkwN1ln?=
+ =?utf-8?B?S0lDZFZZZldtTmhudzBoYzhkZjFONml4ZmoxUjl4NEozcFJJRzlHa2xCcGVO?=
+ =?utf-8?B?Z1MrQnlOMm9oeEp2WGZvR1dWVzZOUGxaMWFXVGNHNlAvRDNTM210Ly84ejEr?=
+ =?utf-8?B?TndNb0g4MGtzWXpyb3lWS1AzTHMzdnZPbHNqbis2cTFJNEY3TVowU0QvTVhz?=
+ =?utf-8?B?bGpxTURPblRiMUxZNCtPKzg3cG9PaGJNYzQyY3AwaUVGSmxjM3h5dEZNVE9j?=
+ =?utf-8?B?Ynpva0Mra05BVUJ0RUxPeXUxdm5QWmEwL0x1b2E2VFpQQzUwT2hJQjZLanNP?=
+ =?utf-8?B?VEJzejUwQ08xWnZueHdvZ01qUEt2UnVpQ0JHZmhHMC9MZEo0UW9ZblRlR05O?=
+ =?utf-8?B?NW1NTktzR3dKMHJubU9yOG4rVm5NVHNLL0gyOW1LcGVrRHBBSkpQZ20vd0lH?=
+ =?utf-8?B?cTI4LzZnVjE2YkFDUzNGTzBvY2wyTUp5d1hjQUUyWjliNDJJaUsxeGlCRDhl?=
+ =?utf-8?B?Y2g1ZGRvcng1d3NxQ3c3eERURVh0UXkvNExLbXg0b0YyTzl4K293Tkp0aGRt?=
+ =?utf-8?B?UHhLQmxpNWpleDkvWFN2c2NUaGFNYkVYMG5yVjhUUVh5aVVTVlRwQjQwbmZ0?=
+ =?utf-8?B?YzhoaWttc28vU3FTc3lkV1BGV2VyZGtGYVBCUHNsTkJwMUVhZjZVTVJWcFRV?=
+ =?utf-8?B?OTlCSU80azlqUkJDb0c2VS9IcW1DcUxEcVByb0ZZTDZjMlo1OG9nWHg2Nm92?=
+ =?utf-8?B?ZGg2VDVaMUhOVTRlRENxaDhKOHkrNHZmY2Q1ditTcHR3bnFTNE9rZjI5YjFC?=
+ =?utf-8?B?cDdUMjNKZzlBdEM5SVdvNXlMQ3EyQWVQeityR3lqdWNxUW5KZU01MzFIQmtw?=
+ =?utf-8?B?eHd3K1VLbTBrZldVRXcrczVyVnA4d2pFZnBCQkZSd3QzNDc0MkROaVBtK0dK?=
+ =?utf-8?B?TEdmUXN6aTVyTnFsdFNBaXpqcVJHTWN3bXZMdGk4clhlc2RzM01jSUtqRWNC?=
+ =?utf-8?B?eTZ6VUk2TlE0Ny9WeTl2QXpmcytmVEpoaVdTdXM0eGlqRk8wbWVsVzU1Q0Jj?=
+ =?utf-8?B?NTRYOGt6cy9xalAvMlVHSmowWGVFUE5WeCs5VmlOejFqVllsdnJrenFLaC9D?=
+ =?utf-8?B?eE40K2UxcG03ZThRNkxnT3JaMWttWW40cytoaklEYUNpV0NtNDByOXAwY280?=
+ =?utf-8?B?akl1TFAzbmdOaVNnVm1lU013UzhSMnRyZEl6TkdSYlNmY1Q1WUEyeW1Fdndk?=
+ =?utf-8?B?bzhOWUtmenFaajBXNmp0RllLQXVWRXhvak9MNWVSanRpSWRYRi8vMm8zdVlt?=
+ =?utf-8?B?WjF2WjRoNnZzM2dpYXRrZS9OcjUxQUFUSUx5MHNPcnFvOHNFNCtibnA3U1NB?=
+ =?utf-8?B?WFVzcTN3MlJiaTMvbExyQ2V5SnhaU0FQMFVnT1o1ZzZ2RTBlazBiK1pPM2JF?=
+ =?utf-8?B?eHVBMXdpSkdyaUdnbms0NlZwRkY0TjJ4c0Z0UE5VcVVYVmFRTVBPUjJ4ZUxU?=
+ =?utf-8?B?eDRHS1JTbTRwenNtY24wZUlSdTliN3IvMTIwNmNrMnNIcU5OTU14S1R3MllY?=
+ =?utf-8?B?YVBtUTVqU0szQ0tiU3o0RlMxMmdCMFcyZ0lpdk1Zc1V5S0FvQ1BKRURRcmRp?=
+ =?utf-8?B?Ly93MmRqaDJIMFI0MzJZdWxYclhGVHErTTFqeDhIWVNEbUZOOWFpU1RjRHcx?=
+ =?utf-8?B?OWpKTkxUUFV6YTVhb3lWZmEyZW1oTjZRbk1qQnp3WmZLSnlZTGhYT0ZiUHYw?=
+ =?utf-8?B?dUtBbXZYbzM1cFh3Vk5XZDlLY0pkQzJGRmk3U3dMRVo0T0hMM09CdVI3TzhS?=
+ =?utf-8?B?SHErSnVhT2M3Mis0UEcxb1hKcEpqN05Wbmt0K2NmcVVBMDkvQ2Z2cFNPc0lj?=
+ =?utf-8?B?anNqcnhzNDlFQSsrajM5aDBPOVhXVVZHaXloU01wNU5ZVlBVWVNxWjhqZHVF?=
+ =?utf-8?B?OUJ4dEEwTjRjTDN5V3NSMTVCdWJ0akR3NmxNQnVlS0IwM0ZkSllYRlJoYTVq?=
+ =?utf-8?B?ME85cHFya0ZYbFZOc3U4TDhSMlNOTSs0Q2dQTERaZGZwU1owZHJqN21EanhQ?=
+ =?utf-8?B?QjcydCtkMGl2VjhTeGZyYUNyYnZhWkRkdStnYnp3cEgveitZQmNkZGw3UjZ5?=
+ =?utf-8?B?a0Y3WmxGUXptVXJOOHR3QlVnMVFNclpFaWRjZWljNENiTG1Yc01VK1BPTmt2?=
+ =?utf-8?B?MmQrMks1czZUSW4yV1BpdWxjRXZBRjRhMnNZc21JS3puQmNPMWV0UT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2124e034-9584-4c74-212c-08df0a599c94
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 07:53:30.5833
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SvvSjeUNd0YLcETI2vMGg13oUuGd4jq6otOqpP8YxxIRt61MrBdPIrB6WIZ1aFEBEmbFaC9BEsi2B9eFA70Stg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11702
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_005337_259495_1CF391FE 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,111 +160,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 08:01:24 +0100,
-Shuai Xue <xueshuai@linux.alibaba.com> wrote:
-> 
-> 
-> 
-> On 9/3/26 9:28 PM, Wei-Lin Chang wrote:
-> > On Thu, Sep 03, 2026 at 08:43:35AM +0100, Marc Zyngier wrote:
-> >> On Wed, 02 Sep 2026 17:35:00 +0100,
-> >> Wang Han <wanghan@linux.alibaba.com> wrote:
-> >>> 
-> >>> Hi Wei-Lin,
-> >>> 
-> >>> I tested this series on a Yitian 710 system with an ARM Neoverse-N2 CPU
-> >>> (128 CPUs, 2 NUMA nodes).
-> >>> 
-> >>> Test environment
-> >>> ----------------
-> >>> 
-> >>>    L0 kernel: Linux v7.2-rc6
-> >>>    L1 guest: Ubuntu 26.04 LTS, kernel 7.0.0-27-generic (aarch64)
-> >>>    QEMU: 10.2.3
-> >>> 
-> >>> L0 NUMA balancing was enabled (`/proc/sys/kernel/numa_balancing=1`).
-> >>> The host was booted with `kvm_arm.mode=nested`.
-> >>> 
-> >>> This series fixes a functional hang that is exposed when NUMA balancing is
-> >>> enabled.  The previous nested stage-2 unmap path is too slow for this
-> >>> workload, making the performance problem user-visible: NUMA balancing can
-> >>> leave the L1 guest unable to make progress and eventually hang during boot.
-> >>> 
-> >>> The L1 was started with 8 vCPUs and 32 GiB of RAM using:
-> >>> 
-> >>>    qemu-system-aarch64 -smp 8 -m 32G \
-> >>>      -machine virt,accel=kvm,gic-version=3,virtualization=on \
-> >>>      -cpu host -nographic -enable-kvm \
-> >>>      -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
-> >>>      -drive if=pflash,format=raw,file=pflash1_bak.img \
-> >>>      -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
-> >>>      -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
-> >>>      -serial mon:stdio
-> >>> 
-> >> 
-> >> Puzzling. If you are only running an L1 in VHE mode, there is no
-> >> shadow S2, and therefore nothing to unmap. For shadow S2s to be built
-> >> and affect the MMU notifiers, you need to run an L2.
-> > 
-> > I was thinking the same at first, but realized even with L1 in VHE mode
-> > there is a small period of time where L1 runs in its EL1 during boot, so
-> > one nested MMU will become valid for each vCPU. That causes
-> > kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
-> > (-smp 8).
-> > 
-> > What I am curious about is whether one single notifier unmap is enough
-> > to hang L1, or were there multiple notifier unmaps.
-> > 
-> > QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
-> > 1024  (4KB pages,  unmapping 1GB per iteration)
-> > 32768 (16KB pages, unmapping 32MB per iteration)
-> > 2048  (64KB pages, unmapping 512MB per iteration)
-> > iterations for each page size. There aren't many mappings in each
-> > iteration too. Does this really take that long on real hardware (even if
-> > this must be done 8 times)?
-> > 
-> > Thanks,
-> > Wei-Lin Chang
-> > 
-> >> 
-> >> So what are your actual test conditions?
-> >> 
-> >> 	M.
-> >> 
-> 
-> Hi, Wei-Lin and Marc,
-> 
-> I was able to reproduce this issue and capture ftrace evidence that confirms
-> the root cause. Below is the analysis, trace log, and timing data.
+Hi,
 
-[...]
+This patch series aims to use prefetch engine in imx8-dc KMS driver.
 
-> Each set_migration_pte line is a single-page NUMA migration. Yet each
-> migration triggers one full kvm_nested_s2_unmap() that takes 877 ms.
+One prefetch engine consists of one DPR Channel(DPRC) and one or two
+Display Prefetch Resolve Gaskets(PRGs).  It prefetches data from
+DDR, resolves data in tile formats if needed and outputs the result
+data to FetchUnit(s).  When one PRG is used, a prefetch engine supports
+processing pixel formats with one planar, e.g., RGB formats.  When two
+are used, pixel formats with two planars are supported, e.g., NV12.
 
-And why is it taking so long? It should be *empty* after the first
-iteration.
+For now, this patch series only supports prefetch engines with one PRG
+because it is enough for XRGB8888 which is the only pixel format
+supported by imx8-dc plane driver.  Two PRGs would be supported by
+future patches.
 
-[...]
+Patch 1 and 2 add dt-bindings for DPRC and PRG.  They were reviewed
+by Rob[1][2].  I slightly modified the patches' commit message to use
+imperative mood.
 
-> ## Conclusion
-> 
-> The root cause is confirmed: kvm_nested_s2_unmap() performs a full IPA space
-> unmap in the MMU notifier path instead of unmapping only the affected
-> GPA/CPAI range. The interval-tree-based precise range unmap approach is the
-> right fix.
+Patch 3 fixes FetchUnit dimensions as related to prefetch engine function.
 
-No. This just indicates that this is papering over a bigger problem,
-and your AI is jumping to conclusions.
+Patch 4 disables CRTC at boot if needed to support prefetch engine better.
 
-> Please consider applying the patch that replaces the full unmap with
-> kvm_nested_unmap_cipa_range() to avoid scanning the entire nested stage-2
-> page table on every NUMA migration.
+Patch 5 and 6 add PRG and DPRC drivers.
 
-Not until we get to the bottom of this issue.
+Patch 7 to 12 do preparations before using prefetch engine in imx8-dc KMS
+driver.
 
-	M.
+Patch 13 uses prefetch engine in imx8-dc KMS driver.
 
--- 
-Jazz isn't dead. It just smells funny.
+[1] https://lore.kernel.org/lkml/20201207165945.GA430214@robh.at.kernel.org/
+[2] https://lore.kernel.org/lkml/20201207170206.GA434964@robh.at.kernel.org/
+
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+---
+Changes in v6:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&7&13.
+- Include "dc-drv.h" in patch 5&6 to avoid build warnings with C=1.
+- Fix PRG BYPASS programming in patch 5.
+- Link to v5: https://lore.kernel.org/r/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.com
+
+Changes in v5:
+- Squash MAINTAINERS file update into patch 1&2.  (Krzysztof)
+- Link to v4: https://lore.kernel.org/r/20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com
+
+Changes in v4:
+- Rebase onto the latest drm-misc-next and resolve conflicts in patch 4&10.
+- Sort bits and bitfields in descending order for register PRG_CTRL in patch 6.
+- Cc Marek as stakeholder of the driver due to recent i.MX95 DC patches posted.
+- Link to v3: https://lore.kernel.org/r/20250929-imx8-dc-prefetch-v3-0-c01d0608add2@nxp.com
+
+Changes in v3:
+- Call dc_dprc_enable() only when start == true in patch 7.  (Frank)
+- Collect Frank's R-b tags.
+- Link to v2: https://lore.kernel.org/r/20250923-imx8-dc-prefetch-v2-0-5d69dc9ac8b5@nxp.com
+
+Changes in v2:
+- Rebase the patch series onto next-20250922.
+- Collect Alexander's and Frank's R-b tags.
+- Manage PRG's and DPRC's clocks with bulk interfaces in patch 6&7.  (Frank)
+- Sort variables in probe function in reverse Christmas tree fashion in patch 7.  (Frank)
+- Link to v1: https://lore.kernel.org/r/20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com
+
+---
+Liu Ying (13):
+      dt-bindings: display: imx: Add i.MX8qxp/qm PRG binding
+      dt-bindings: display: imx: Add i.MX8qxp/qm DPR channel binding
+      drm/imx: dc-fu: Fix dimensions
+      drm/imx: dc-crtc: Disable at boot
+      drm/imx: dc: Add PRG support
+      drm/imx: dc: Add DPR channel support
+      drm/imx: dc: Use TCON operation mode
+      drm/imx: dc-ed: Support getting source selection
+      drm/imx: dc-lb: Support getting secondary input selection
+      drm/imx: dc-ed: Drop initial source selection
+      drm/imx: dc-lb: Drop initial primary and secondary input selections
+      drm/imx: dc-fu: Get DPR channel
+      drm/imx: dc: Use prefetch engine
+
+ .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 +++++
+ .../bindings/display/imx/fsl,imx8qxp-prg.yaml      |  60 +++
+ MAINTAINERS                                        |   2 +
+ drivers/gpu/drm/imx/dc/Kconfig                     |   1 +
+ drivers/gpu/drm/imx/dc/Makefile                    |   6 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c                   | 200 ++++++++-
+ drivers/gpu/drm/imx/dc/dc-de.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-dprc.c                   | 467 +++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-dprc.h                   |  35 ++
+ drivers/gpu/drm/imx/dc/dc-drv.c                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-drv.h                    |   5 +
+ drivers/gpu/drm/imx/dc/dc-ed.c                     |  27 +-
+ drivers/gpu/drm/imx/dc/dc-fl.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-fu.c                     |  49 ++-
+ drivers/gpu/drm/imx/dc/dc-fu.h                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fw.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-kms.h                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-lb.c                     |  23 +-
+ drivers/gpu/drm/imx/dc/dc-pe.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-plane.c                  |  46 +-
+ drivers/gpu/drm/imx/dc/dc-prg.c                    | 320 ++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-prg.h                    |  39 ++
+ drivers/gpu/drm/imx/dc/dc-tc.c                     | 114 ++++-
+ 23 files changed, 1499 insertions(+), 38 deletions(-)
+---
+base-commit: a9f09b5ea0c3db1e2d4c0f8d3ebdd612d8aa0366
+change-id: 20250703-imx8-dc-prefetch-028e306591c6
+
+Best regards,
+--  
+Regards,
+Liu Ying
+
 
