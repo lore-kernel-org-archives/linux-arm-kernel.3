@@ -4,89 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9F0C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 03:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A97C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 03:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFqQB1vGzxOymVfb+3pRs+tNPb1MczCEqkcXIgwgFfU=; b=b71DdebBl1KoSyMhiG9HTphKYD
-	2qCooanltnplhaoioT8HrM9rxUpW/HR9IrXCsr3ur2/6XjUtR2Zx7mRgyjYS6iwlfwB+umCrlsiaT
-	W+0VoZ7cLqus64jl+VX15Yh95u0cw/7Xlvl+s3JUnID7AXQIDstN9PlMe1S+DwAwvhXptE/ywGuMt
-	IIcvL+6TAJb6G3MgADZFBMkkIVKnzkGBuqRbVX/MqgT+nQ1GhXNqT634jwU2IXuYjPIRwIuCjC78Q
-	DXFyuVk0SVLPTlPoJBYpmrp/e3JvNFbVs4qX2KQetC2M/9/1gJL62yBF/qdQMql8XgrASl4Xko7yo
-	k4M6a81A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YpaNCdk8qOT4pxEFWnuB/KdAsmJR7/mT/BqEQpedxvE=; b=vwShkdDOChYlo1Kq+zNss9gTvS
+	uF3qi65LE03yBiqkk2TVZzGwxx2Hz92CXAC1LqL2FIqLnvrmeO9ua9vhpnIk/ZPGPfBx+84B+TZXF
+	RddSEu69CKNUA4HuwAsUgAK1nw8BmvDTfoqIBgjcgJZLGoFSejzA8HVTgjPRVXSzIbLMln+BrWv5f
+	QV7swREjEvoSqpKHm6G69MBhtwrC/ovjnrzICM/Nhiru6pf4d6UYX7BvfXS5J3wPcf8BLKdHDXt5g
+	MIeM7H7riv2ruclU5IPMJaYypvTGsJ7U/VGPapi8K/wC4SEJyc2/MsLzcG0dil4BKhqIe2RzJNwDV
+	bNlaeWqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KNR-00000000uaS-32rL;
-	Fri, 04 Sep 2026 03:14:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x2KaM-00000000vbT-3K3k;
+	Fri, 04 Sep 2026 03:27:26 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KNQ-00000000uZq-0GCi;
-	Fri, 04 Sep 2026 03:14:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=hFqQB1vGzxOymVfb+3pRs+tNPb1MczCEqkcXIgwgFfU=; b=hDxwVG5npFriBCCBzwnwoHVPn8
-	vclbISpbry5ex4AKt2gXyoauRcbm1UXkhHRV8QWVMFXw+Zqf7MYcIr0EEHzMnEwROUo6Ma62OCkIX
-	5xIP//cov+33o5qzLUmj3atxGc36ZZmMZdeCSKZUlbgVZdbHQqY7+iza+coR2wmd884KMWckvByKm
-	2Sxd5r2R36vZFdjEdkyCEnqMP/BVC+Kb+7m86lGDsi0tApCKpoTMVrhTrFccjtssFKfmpB5ZmHPVr
-	C1xlAlXmQ9yRL58p/Bw5llMxGAfOK9Shlx2gX88KrZGJYSdkFQJPwz3zfiVVnkLJAfPtdHO+zu9/u
-	l3HYSTVA==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x2KN9-0000000Desk-1j8Z;
-	Fri, 04 Sep 2026 03:14:01 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6843CrkW64114203, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1788491573; bh=hFqQB1vGzxOymVfb+3pRs+tNPb1MczCEqkcXIgwgFfU=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=YSYak5yhsAzgpQGUsaP/r37L/zd5t37iJvrSYh4I4r6xmM5otVkCV65tzTjW8t4lj
-	 dOf2MqILdkFqZInxtJ1dd8OEFjNQSZeYfwliDQIzM4IXjdUa2FVrI3Rb6T4SefxCLs
-	 kNeJTS6+c60lfS8npN/JqG7AqwaDW/JQZPxfpK+OyYEVZjSYJRapV7MZhqqdXiyvmC
-	 9A8C4hdTC/+0vcHW2bLfesoAe4hnYEzf8FgRuLdTGAlZ+j0JLLxUlcrpoeKEWBUoqF
-	 tD4K/1YvLLBQrZlIzhBFRT8bmYEQGfq3d2bA9PUkogkpDTO69U7IqdjOL9IJsCI+hD
-	 m55LlKVYDbCuQ==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6843CrkW64114203
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 4 Sep 2026 11:12:53 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Fri, 4 Sep 2026 11:12:53 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Fri, 4 Sep 2026 11:12:53 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.43 via Frontend
- Transport; Fri, 4 Sep 2026 11:12:53 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <broonie@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <afaerber@suse.com>
-CC: <bartosz.golaszewski@oss.qualcomm.com>, <james.tai@realtek.com>,
-	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-	<eleanor.lin@realtek.com>, <jyanchou@realtek.com>,
-	<linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-realtek-soc@lists.infradead.org>
-Subject: [PATCH 2/3] spi: spi-mem: Add Realtek SPI flash controller driver
-Date: Fri, 4 Sep 2026 11:12:51 +0800
-Message-ID: <20260904031252.244280-3-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260904031252.244280-1-eleanor.lin@realtek.com>
-References: <20260904031252.244280-1-eleanor.lin@realtek.com>
+	id 1x2KaJ-00000000vap-36Lc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 03:27:24 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-482e06fda73so58409f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 20:27:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788492441; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IHXTXCzsx7tdVwFOdcZLcXBAaOV7gLOFepnoig1ryP+W4EWxBSpI4prXytrknXvAt/
+         zIV4S0nq10XmT26SAIoRm2Oucpp1g3Lman+Hz8HxBNB+Ia6OWZpC70EtmwEeqKLZ6DWT
+         ucjIyOBlDpM52nYKSv7JoAkSur9L044yNzzZdOzF1FyKloailMoS/tHP9gdKxt8f3MMD
+         iVUbn8HR5ZWY7CnNGzOrwF0T7EgUpHdjDYlUMrLFqRD9wCOlQVjRIrPW/yp9Sp07PK+d
+         t5eZddiUW9l/qgP7oVyJ/yD7PoRKrECjgXr8LHJHCtNdgMAHPQZBBfhyWUDxA0rz2IyJ
+         SZww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YpaNCdk8qOT4pxEFWnuB/KdAsmJR7/mT/BqEQpedxvE=;
+        fh=d45UpqOiYhwaWtW3scHEM1FccRmeCmKGyLyLyzBI9Ik=;
+        b=l7IQkdLmzPNAUkBboh6k85q/Fea7cFtYPkIY6pi4Q7LeefN1NauDjWIwYadHRvrvBd
+         biOlg+rk4zr1e5krlbxqb0is5cVM4CQT9A8Upb4t6DzPmh2qv2Y1ONBx1dBQpHXn8Jt4
+         YHt35Va54m1zkL3+nA7lpMlYbHusy7wOG+AtStNfGLhff0qoh3A5tbqQS8s5AuEtUYe9
+         ogC5QO11shgejOgSFLFoqQwG6YczycRYAVeE9PqEwDjCJQJHCJBE9yBypWswIukb7uyt
+         fEurE2NvGUliH/eKmDxaDsYmksiBvWQDFt7qkrpy8wGRM5rdk81Fwatm65Jyuk98wXtw
+         g2oQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788492441; x=1789097241; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YpaNCdk8qOT4pxEFWnuB/KdAsmJR7/mT/BqEQpedxvE=;
+        b=BSr4H1rk76bQOF04nG+LN+el3KwtSKHSyTN6JRT3Nho6C2TCdVgzPRh35v57yoFIjn
+         CuCIgtYCgecA/haqbemF04vvjgqs3TOtqQ58XHPtFjanQv2nxYYWmyiQBw52OBsHMUhf
+         /8haATDFD1Q14I/0Ajt1eqPKTQ/xvbOH813JPrdFtasmuPy6LbaqranXV7XaKH84R8ga
+         tR3e8HFSlZWkCQVBupkZgarcxnxdbcRXzXkhH+nxu4Vm4+vccjllnfrICGNQG/llHhpt
+         qha6+pGP08pYf7MHYAWfj+5V4/5/pK0b8aNG5k+hpvXQ4ofMQvjlhDoclnF+UEanrorI
+         aJmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788492441; x=1789097241;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YpaNCdk8qOT4pxEFWnuB/KdAsmJR7/mT/BqEQpedxvE=;
+        b=JlkzMHhdPhSJAC5pIGAPeNvMmbqh8YEFQ/ByY1PxetmAk6dqtWFPJoNWW1OJdtrqnf
+         Oe+1fRz4HNBAN5Lue7/wDmLFe7Zf+1ocyphMlHrZ7HojRnyU96yhpyxCKlERcxSKKMG5
+         W8+X4CqygiAzCHzS2rDhxamAPVMyP30/xGbX/G0FG9hCEtT5wQqvE2XkH9ymPENu/uAN
+         qivx5jqxkGdCHK89eAnncKvxNzCm5vOwntOL8V5mTpZ8ti6DJYYYcFCg8WAEs8Ox5CRB
+         Viu8BWa7/iXsRQ0xl6sNkdWZgc3kLkRhmMNt1RCi5/HnhRkY2HxJRGwe/PRs9EmuoiKP
+         GCAw==
+X-Forwarded-Encrypted: i=1; AKwUvBxXXNJOi4+lXIJJVqdcfl/I2mCRQV1uk6cMQ2VLUiUH7CASuatx7/6NTnEomnD3gPxbJFvcQ2A7p3AgbkhrGvVc@lists.infradead.org
+X-Gm-Message-State: AFuF++m9lmmH4NehBWXLMDDUmVfrzP0WMRJoScnH1DHfYbjwhaTO8Gqx
+	GeutEOKJ7l7/KtsMPmKJ5OUHnpBWgurpwNn5He5Fnb2w11RPOWlvyTYRGMgqPWbENmo6fBEWhLW
+	zdFrP/JsQBzWlgNruKUBDI8xtdGeH8RY=
+X-Gm-Gg: AYBFou2X9oGIMuO1mx+hahLkSRmoEfVCS7MlWm41MNmAHQngUE/uAhK1ofwRBuofzlu
+	UO9g+d3uM/oKJH53E0DMfqpRaeFfQWrhQXTE7+PdynLrZpTxIi5vsjJBkV/C+VUowrg7n2b/tTM
+	LxaEBIpCMysxlYfl9j3xOtV2712pgzTAgeCN7pp7RUDBub35paiaDd4h/3vO+9n3SOeu7GIkpzk
+	fEj6957ZkBqh4EcH+KQn3ajTdkcqCxee5DrNn0fV30QysiZbj35FJmyCQvkScXYIAAeJN+jRW3V
+	eqoHOOv6qLtbuCWcCUpAEgrXzDg/6S3h7+Knd9YAyHEAHgqsXZI965f2v80IopdyTAgCTzzHxLY
+	o9QyM01y1yHnIZGM6TcNlyIcW9kVtqIbpJ/ZZen4=
+X-Received: by 2002:a05:600c:a40e:b0:49c:f9b8:bae0 with SMTP id
+ 5b1f17b1804b1-49cf9b8baffmr9477045e9.2.1788492441090; Thu, 03 Sep 2026
+ 20:27:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com> <5026dbec-0b71-4408-a78a-484a4b8e77dd@intel.com>
+ <apk775HfHg_DXpiW@kernel.org> <1aa2b2a6-b068-4856-97ef-91ab848f01c3@intel.com>
+In-Reply-To: <1aa2b2a6-b068-4856-97ef-91ab848f01c3@intel.com>
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Date: Fri, 4 Sep 2026 11:27:10 +0800
+X-Gm-Features: AcwNN1VvYizDBaPoshS173cq9tRkFRCRmLlnTgzXTNcKAb5wasusdZ9mZR0gx2s
+Message-ID: <CA+qSx6wrfKJ+KuRkU_gLwjN+tS3+yv1VqXpsnZk86m2PZg--8A@mail.gmail.com>
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org, david@kernel.org, 
+	ljs@kernel.org, usama.arif@linux.dev, ziy@nvidia.com, 
+	baolin.wang@linux.alibaba.com, liam@infradead.org, nico.pache@linux.dev, 
+	ryan.roberts@arm.com, dev.jain@arm.com, baohua@kernel.org, 
+	lance.yang@linux.dev, kas@kernel.org, catalin.marinas@arm.com, 
+	will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, 
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, hpa@zytor.com, luto@kernel.org, peterz@infradead.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_041352_893349_07E2807E 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20260903_202723_795088_004BB9A3 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,725 +127,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jyan Chou <jyanchou@realtek.com>
+On Thu, Sep 3, 2026 at 10:09=E2=80=AFPM Dave Hansen <dave.hansen@intel.com>=
+ wrote:
+>
+> On 9/3/26 02:20, Mike Rapoport wrote:
+> > On Wed, Sep 02, 2026 at 01:59:15PM -0700, Dave Hansen wrote:
+> >> On 9/1/26 08:18, Xueyuan Chen wrote:
+> >>> +static inline int set_direct_map_ro(struct page *page, unsigned int =
+nr)
+> >>> +{
+> >>> +   return 0;
+> >>> +}
+> >> I still really think the stub here needs to return an error *or* the
+> >> thing needs to just be void and tell folks that they can't know whethe=
+r
+> >> it worked or not.
+> > All other stubs return 0 here when an arch does not support set_direct_=
+map.
+> > I'm for keeping them all consistent and fixing that technical debt as a
+> > whole rather than creating a one-off here.
+>
+> Oof. I didn't realize the set_direct_map_*() functions all did this.
+>
+> I do think it's generally a bad idea, and I'm also OK if it is not fixed
+> up here.
 
-Add a spi-mem driver for the SPI Flash Controller (SFC) found on Realtek
-DHC SoC. SFC supports Dual I/O.
+OK, I'll leave it as-is then.
 
-Implement the exec_op API for regular control commands and the dirmap API
-for hardware-accelerated read/write operations.
-
-The controller is described by three register ranges. The first one (ctrl)
-holds the control registers. The second one (dma) holds the DMA engine
-registers, used to transfer the payload between the flash and main memory.
-The third range is the memory aperture (dirmap) that maps the flash
-contents.
-
-Signed-off-by: Jyan Chou <jyanchou@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
- MAINTAINERS               |   6 +
- drivers/spi/Kconfig       |  10 +
- drivers/spi/Makefile      |   1 +
- drivers/spi/spi-rtk-nor.c | 637 ++++++++++++++++++++++++++++++++++++++
- 4 files changed, 654 insertions(+)
- create mode 100644 drivers/spi/spi-rtk-nor.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 34d5c9a0d562..052feeef386e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22754,6 +22754,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/spi/realtek,rtl9301-snand.yaml
- F:	drivers/spi/spi-realtek-rtl-snand.c
- 
-+REALTEK SPI-NOR
-+M:	Jyan Chou <jyanchou@realtek.com>
-+M:	Yu-Chun <eleanor.lin@realtek.com>
-+S:	Supported
-+F:	drivers/spi/spi-rtk-nor.c
-+
- REALTEK SYSTIMER DRIVER
- M:	Hao-Wen Ting <haowen.ting@realtek.com>
- S:	Maintained
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index 8782514bb89b..4d1e9cd62e43 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -957,6 +957,16 @@ config SPI_RSPI
- 	help
- 	  SPI driver for Renesas RSPI and QSPI blocks.
- 
-+config SPI_RTK_NOR
-+	tristate "Realtek SPI-NOR flash controller"
-+	depends on ARCH_REALTEK || COMPILE_TEST
-+	depends on SPI_MEM
-+	help
-+	  This enables support for the SPI Flash Controller found on Realtek
-+	  DHC SoCs. The controller supports single and dual I/O transfers and
-+	  offloads the payload to an integrated DMA engine.
-+	  Say Y or M here if you are building a kernel for a Realtek DHC SoC
-+
- config SPI_RZV2H_RSPI
- 	tristate "Renesas RZ/V2H RSPI controller"
- 	depends on ARCH_RENESAS || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index 9fa12498ce8c..68f4d3283e0c 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -131,6 +131,7 @@ obj-$(CONFIG_MACH_REALTEK_RTL)		+= spi-realtek-rtl.o
- obj-$(CONFIG_SPI_REALTEK_SNAND)		+= spi-realtek-rtl-snand.o
- obj-$(CONFIG_SPI_RPCIF)			+= spi-rpc-if.o
- obj-$(CONFIG_SPI_RSPI)			+= spi-rspi.o
-+obj-$(CONFIG_SPI_RTK_NOR)		+= spi-rtk-nor.o
- obj-$(CONFIG_SPI_RZV2H_RSPI)		+= spi-rzv2h-rspi.o
- obj-$(CONFIG_SPI_RZV2M_CSI)		+= spi-rzv2m-csi.o
- obj-$(CONFIG_SPI_S3C64XX)		+= spi-s3c64xx.o
-diff --git a/drivers/spi/spi-rtk-nor.c b/drivers/spi/spi-rtk-nor.c
-new file mode 100644
-index 000000000000..0206ea99f3c9
---- /dev/null
-+++ b/drivers/spi/spi-rtk-nor.c
-@@ -0,0 +1,637 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Realtek SPI Nor Flash Controller Driver (SFC)
-+ *
-+ * Copyright (c) 2024-2026 Realtek Technologies Co., Ltd.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/errno.h>
-+#include <linux/iopoll.h>
-+#include <linux/minmax.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+#include <linux/spi/spi.h>
-+#include <linux/spi/spi-mem.h>
-+#include <linux/types.h>
-+
-+#define SFC_OPCODE		0x00
-+#define DUAL_MODE_EN		BIT(9)
-+
-+#define SFC_CTL			0x04
-+#define RW_DATAEN		BIT(4)
-+#define ADDR_EN			BIT(3)
-+
-+#define SFC_SCK			0x08
-+#define FDIV_MASK		GENMASK(7, 0)
-+
-+#define SFC_CE			0x0c
-+#define DESLT_TIME		0x1a
-+#define DESLT_TIME_SHIFT	16
-+#define PH_CNT			0x13
-+#define PH_CNT_SHIFT		8
-+#define PL_CNT			0x7
-+
-+#define WT_PROM_DONE		BIT(8)
-+
-+#define SFC_POS_LATCH		0x14
-+#define FALLING_EDGE_EN		0x0
-+
-+#define SFC_WAIT_WR		0x18
-+#define SFC_EN_WR		0x1c
-+#define WT_PROM_EN		BIT(8)
-+
-+#define SFC_ADR_FOUR_BYTE_EN	0x28
-+
-+#define MD_FDMA_DDR_SADDR	0x0c
-+#define MD_FDMA_FL_SADDR	0x10
-+
-+#define MD_FDMA_CTRL2		0x14
-+#define MAX_XFER_DMA_LEN	(BIT(26) | BIT(27))
-+#define	MAX_XFER_256		BIT(26)
-+#define DMA_TO_FLASH		BIT(25)
-+
-+#define MD_FDMA_CTRL1		0x18
-+#define DMA_W_EN_START		BIT(3)
-+#define	DMA_W_EN		BIT(1)
-+#define DMA_START		BIT(0)
-+
-+#define MD_FDMA_DDR_SADDR1	0x20
-+
-+#define SFC_DMA_TIMEOUT		20000
-+#define SFC_DMA_MAX_LEN		0x100
-+
-+#define SFC_CTL_DMYCNT_MASK	GENMASK(31, 24)
-+#define SFC_CTL_DMYCNT_SHIFT	24
-+#define SFC_SR_WIP		BIT(0)
-+
-+#define DMA_HIGH_BITS_MASK	0x7
-+
-+#define RTK_SPI_OP_RDSR		0x05
-+#define RTK_SPI_OP_WREN		0x06
-+#define RTK_SPI_OP_EN4B		0xb7
-+#define RTK_SPI_OP_EX4B		0xe9
-+
-+#define SFC_AUTOSUSPEND_TIMEOUT	2000
-+
-+struct rtk_spi_host {
-+	struct device		*dev;
-+	struct clk		*clk;
-+	struct reset_control	*rstc;
-+	void __iomem		*regbase;
-+	void __iomem		*iobase;
-+	void __iomem		*mdbase;
-+	void			*buffer;
-+	dma_addr_t		dma_buffer;
-+	resource_size_t		flash_phys_base;
-+};
-+
-+static int rtk_spi_read_status(struct rtk_spi_host *host)
-+{
-+	int timeout = SFC_DMA_TIMEOUT;
-+	u8 status;
-+
-+	while (timeout--) {
-+		writel(RTK_SPI_OP_RDSR, host->regbase + SFC_OPCODE);
-+		writel(RW_DATAEN, host->regbase + SFC_CTL);
-+
-+		status = readb(host->iobase);
-+		if (!(status & SFC_SR_WIP))
-+			return 0;
-+
-+		usleep_range(100, 200);
-+	}
-+
-+	dev_err(host->dev, "Timeout waiting for Flash ready\n");
-+
-+	return -ETIMEDOUT;
-+}
-+
-+static u32 rtk_spi_calc_dummy_cycles(const struct spi_mem_op *op)
-+{
-+	if (!op->dummy.nbytes)
-+		return 0;
-+
-+	return (op->dummy.nbytes * 8) / op->dummy.buswidth;
-+}
-+
-+static void rtk_spi_read_mode(struct rtk_spi_host *host, const struct spi_mem_op *op)
-+{
-+	u32 opcode = op->cmd.opcode;
-+	u32 dummy_cycles, val;
-+
-+	if (op->data.buswidth == 2)
-+		opcode |= DUAL_MODE_EN;
-+
-+	writel(opcode, host->regbase + SFC_OPCODE);
-+
-+	val = readl(host->regbase + SFC_CTL);
-+	val |= RW_DATAEN | ADDR_EN;
-+
-+	dummy_cycles = rtk_spi_calc_dummy_cycles(op);
-+
-+	val &= ~SFC_CTL_DMYCNT_MASK;
-+	val |= (dummy_cycles << SFC_CTL_DMYCNT_SHIFT) & SFC_CTL_DMYCNT_MASK;
-+	writel(val, host->regbase + SFC_CTL);
-+
-+	readl(host->iobase);
-+}
-+
-+static void rtk_spi_write_mode(struct rtk_spi_host *host,
-+			       const struct spi_mem_op *op)
-+{
-+	u32 opcode = op->cmd.opcode;
-+	u32 val;
-+
-+	writel(opcode, host->regbase + SFC_OPCODE);
-+
-+	val = readl(host->regbase + SFC_CTL);
-+	val |= RW_DATAEN | ADDR_EN;
-+	writel(val, host->regbase + SFC_CTL);
-+}
-+
-+static void rtk_spi_enable_auto_write(struct rtk_spi_host *host)
-+{
-+	u32 val;
-+
-+	val = WT_PROM_DONE | RTK_SPI_OP_RDSR;
-+	writel(val, host->regbase + SFC_WAIT_WR);
-+
-+	val = WT_PROM_EN | RTK_SPI_OP_WREN;
-+	writel(val, host->regbase + SFC_EN_WR);
-+}
-+
-+static void rtk_spi_disable_auto_write(struct rtk_spi_host *host)
-+{
-+	writel(RTK_SPI_OP_RDSR, host->regbase + SFC_WAIT_WR);
-+	writel(RTK_SPI_OP_WREN, host->regbase + SFC_EN_WR);
-+}
-+
-+static void rtk_spi_init(struct rtk_spi_host *host)
-+{
-+	u32 val;
-+
-+	val = readl(host->regbase + SFC_SCK);
-+	val &= ~FDIV_MASK;
-+	val |= (3 << 0) & FDIV_MASK;
-+	writel(val, host->regbase + SFC_SCK);
-+
-+	val = (DESLT_TIME << DESLT_TIME_SHIFT) | (PH_CNT << PH_CNT_SHIFT) | PL_CNT;
-+	writel(val, host->regbase + SFC_CE);
-+
-+	writel(FALLING_EDGE_EN, host->regbase + SFC_POS_LATCH);
-+	writel(RTK_SPI_OP_RDSR, host->regbase + SFC_WAIT_WR);
-+	writel(RTK_SPI_OP_WREN, host->regbase + SFC_EN_WR);
-+}
-+
-+static int rtk_spi_command_read(struct rtk_spi_host *host, const struct spi_mem_op *op)
-+{
-+	size_t len = op->data.nbytes;
-+	loff_t offset = op->addr.val;
-+	u8 opcode = op->cmd.opcode;
-+	u32 dummy_cycles, val;
-+
-+	writel(opcode, host->regbase + SFC_OPCODE);
-+
-+	val = readl(host->regbase + SFC_CTL);
-+	val &= ~(SFC_CTL_DMYCNT_MASK | ADDR_EN);
-+	val |= RW_DATAEN;
-+
-+	if (op->addr.nbytes > 0)
-+		val |= ADDR_EN;
-+
-+	dummy_cycles = rtk_spi_calc_dummy_cycles(op);
-+	val |= (dummy_cycles << SFC_CTL_DMYCNT_SHIFT) & SFC_CTL_DMYCNT_MASK;
-+	writel(val, host->regbase + SFC_CTL);
-+
-+	memcpy_fromio(op->data.buf.in, host->iobase + offset, len);
-+
-+	return 0;
-+}
-+
-+static int rtk_spi_do_write_and_cmds(struct rtk_spi_host *host, const struct spi_mem_op *op)
-+{
-+	u8 opcode = op->cmd.opcode;
-+	u32 ctl_val = 0;
-+	int ret = 0;
-+
-+	writel(opcode, host->regbase + SFC_OPCODE);
-+
-+	if (op->data.nbytes > 0)
-+		ctl_val |= RW_DATAEN;
-+	if (op->addr.nbytes > 0)
-+		ctl_val |= ADDR_EN;
-+
-+	writel(ctl_val, host->regbase + SFC_CTL);
-+
-+	if (op->data.nbytes > 0) {
-+		const u8 *buf = op->data.buf.out;
-+		size_t i;
-+
-+		for (i = 0; i < op->data.nbytes; i++)
-+			writeb(buf[i], host->iobase + op->addr.val + i);
-+	} else if (op->addr.nbytes > 0) {
-+		readb(host->iobase + op->addr.val);
-+
-+		/* Wait for internal flash erase/programming to complete */
-+		ret = rtk_spi_read_status(host);
-+	} else {
-+		readb(host->iobase);
-+
-+		/*
-+		 * For pure commands that require internal state synchronization
-+		 * (such as Chip Erase), poll the flash status.
-+		 */
-+		ret = rtk_spi_read_status(host);
-+	}
-+
-+	if (ret) {
-+		dev_err(host->dev, "opcode 0x%02x failed: %d\n", opcode, ret);
-+		return ret;
-+	}
-+
-+	/*
-+	 * Hardware Workaround:
-+	 * The controller's auto-mode engine requires SFC_ADR_FOUR_BYTE_EN to be
-+	 * explicitly updated when the flash enters or exits 4-byte mode via control
-+	 * commands.
-+	 */
-+	if (opcode == RTK_SPI_OP_EN4B)
-+		writel(0x1, host->regbase + SFC_ADR_FOUR_BYTE_EN);
-+	else if (opcode == RTK_SPI_OP_EX4B)
-+		writel(0x0, host->regbase + SFC_ADR_FOUR_BYTE_EN);
-+
-+	return ret;
-+}
-+
-+static void rtk_spi_byte_transfer(struct rtk_spi_host *host, loff_t offset,
-+				  size_t len, unsigned char *buf, bool is_read)
-+{
-+	if (is_read)
-+		memcpy_fromio(buf, host->iobase + offset, len);
-+	else
-+		memcpy_toio(host->iobase + offset, buf, len);
-+}
-+
-+static int rtk_spi_dma_transfer(struct rtk_spi_host *host, loff_t offset,
-+				size_t len, bool is_read)
-+{
-+	u64 dma_buffer, timeout_us = SFC_DMA_TIMEOUT * 100;
-+	u32 flash_phys_addr, val;
-+	int ret;
-+
-+	writel(DMA_W_EN_START | DMA_W_EN, host->mdbase + MD_FDMA_CTRL1);
-+
-+	dma_buffer = host->dma_buffer;
-+
-+	/* Setup MD DDR address and flash address */
-+	writel(lower_32_bits(dma_buffer), host->mdbase + MD_FDMA_DDR_SADDR);
-+	writel(upper_32_bits(dma_buffer) & DMA_HIGH_BITS_MASK,
-+	       host->mdbase + MD_FDMA_DDR_SADDR1);
-+
-+	/* MD_FDMA_FL_SADDR is a 32-bit hardware register */
-+	flash_phys_addr = lower_32_bits(host->flash_phys_base + offset);
-+	writel(flash_phys_addr, host->mdbase + MD_FDMA_FL_SADDR);
-+
-+	if (is_read)
-+		val = MAX_XFER_DMA_LEN | len;
-+	else
-+		val = DMA_TO_FLASH | MAX_XFER_256 | len;
-+
-+	writel(val, host->mdbase + MD_FDMA_CTRL2);
-+
-+	writel(DMA_W_EN | DMA_START, host->mdbase + MD_FDMA_CTRL1);
-+	udelay(1);
-+
-+	ret = readl_poll_timeout(host->mdbase + MD_FDMA_CTRL1, val,
-+				 !(val & DMA_START), 100, timeout_us);
-+	if (ret) {
-+		dev_err(host->dev, "DMA transfer timed out\n");
-+		return ret;
-+	}
-+
-+	return rtk_spi_read_status(host);
-+}
-+
-+static int rtk_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+{
-+	struct rtk_spi_host *host = spi_controller_get_devdata(mem->spi->controller);
-+
-+	if (op->data.dir == SPI_MEM_DATA_IN)
-+		return rtk_spi_command_read(host, op);
-+
-+	return rtk_spi_do_write_and_cmds(host, op);
-+}
-+
-+static bool rtk_spi_supports_op(struct spi_mem *mem,
-+				const struct spi_mem_op *op)
-+{
-+	if (op->cmd.buswidth != 1)
-+		return false;
-+
-+	if (op->cmd.dtr || op->addr.dtr || op->data.dtr)
-+		return false;
-+
-+	if (op->addr.nbytes != 0) {
-+		if (op->addr.buswidth > 1)
-+			return false;
-+		if (op->addr.nbytes < 3 || op->addr.nbytes > 4)
-+			return false;
-+	}
-+
-+	if (op->dummy.nbytes != 0) {
-+		if (op->dummy.buswidth > 1 || op->dummy.nbytes > 7)
-+			return false;
-+	}
-+
-+	if (op->data.nbytes != 0 && op->data.buswidth > 2)
-+		return false;
-+
-+	return spi_mem_default_supports_op(mem, op);
-+}
-+
-+static int rtk_spi_dirmap_create(struct spi_mem_dirmap_desc *desc)
-+{
-+	const struct spi_mem_op *op = desc->info.op_tmpl;
-+
-+	if (op->data.dir == SPI_MEM_DATA_IN && op->addr.nbytes != 3 && op->addr.nbytes != 4)
-+		return -EOPNOTSUPP;
-+
-+	if (op->data.dir != SPI_MEM_DATA_IN && op->data.dir != SPI_MEM_DATA_OUT)
-+		return -EOPNOTSUPP;
-+
-+	return 0;
-+}
-+
-+static ssize_t rtk_spi_dirmap_read(struct spi_mem_dirmap_desc *desc,
-+				   u64 offs, size_t len, void *buf)
-+{
-+	struct rtk_spi_host *host = spi_controller_get_devdata(desc->mem->spi->controller);
-+	const struct spi_mem_op *op = desc->info.op_tmpl;
-+	loff_t addr = desc->info.offset + offs;
-+	size_t chunk_len;
-+	int ret;
-+
-+	/*
-+	 * Handle unaligned address bytes at the beginning of the read operation.
-+	 * The hardware requires 4-byte alignment for DMA transfers.
-+	 */
-+	if (addr & 0x3) {
-+		rtk_spi_read_mode(host, op);
-+		chunk_len = min_t(size_t, 4 - (addr & 0x3), len);
-+		rtk_spi_byte_transfer(host, addr, chunk_len, buf, true);
-+
-+		return chunk_len;
-+	}
-+
-+	rtk_spi_read_mode(host, op);
-+	chunk_len = min_t(size_t, len, SFC_DMA_MAX_LEN);
-+	ret = rtk_spi_dma_transfer(host, addr, chunk_len, true);
-+	if (ret) {
-+		dev_err(host->dev, "DMA read transfer failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	memcpy(buf, host->buffer, chunk_len);
-+
-+	return chunk_len;
-+}
-+
-+static ssize_t rtk_spi_dirmap_write(struct spi_mem_dirmap_desc *desc,
-+				    u64 offs, size_t len, const void *buf)
-+{
-+	struct rtk_spi_host *host = spi_controller_get_devdata(desc->mem->spi->controller);
-+	const struct spi_mem_op *op = desc->info.op_tmpl;
-+	loff_t addr = desc->info.offset + offs;
-+	size_t chunk_len;
-+	int ret = 0;
-+
-+	rtk_spi_enable_auto_write(host);
-+	rtk_spi_write_mode(host, op);
-+
-+	/*
-+	 * Handle unaligned address bytes at the beginning of the write operation.
-+	 * The hardware requires 4-byte alignment for DMA transfers.
-+	 */
-+	if (addr & 0x3) {
-+		chunk_len = min_t(size_t, 4 - (addr & 0x3), len);
-+		rtk_spi_byte_transfer(host, addr, chunk_len, (u8 *)buf, false);
-+
-+		goto out;
-+	}
-+
-+	chunk_len = min_t(size_t, len, SFC_DMA_MAX_LEN);
-+
-+	memcpy(host->buffer, buf, chunk_len);
-+
-+	ret = rtk_spi_dma_transfer(host, addr, chunk_len, false);
-+	if (ret)
-+		dev_err(host->dev, "DMA write transfer failed: %d\n", ret);
-+
-+out:
-+	rtk_spi_disable_auto_write(host);
-+
-+	return ret < 0 ? ret : chunk_len;
-+}
-+
-+static const struct spi_controller_mem_ops rtk_spi_mem_ops = {
-+	.supports_op = rtk_spi_supports_op,
-+	.exec_op = rtk_spi_exec_op,
-+	.dirmap_create = rtk_spi_dirmap_create,
-+	.dirmap_read = rtk_spi_dirmap_read,
-+	.dirmap_write = rtk_spi_dirmap_write,
-+};
-+
-+static int rtk_spi_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct spi_controller *ctrl;
-+	struct rtk_spi_host *host;
-+	struct resource *res;
-+	int ret;
-+
-+	ctrl = devm_spi_alloc_host(dev, sizeof(*host));
-+	if (!ctrl)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, ctrl);
-+	host = spi_controller_get_devdata(ctrl);
-+	host->dev = dev;
-+
-+	host->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(host->clk))
-+		return PTR_ERR(host->clk);
-+
-+	ret = clk_prepare_enable(host->clk);
-+	if (ret)
-+		return ret;
-+
-+	host->rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
-+	if (IS_ERR(host->rstc)) {
-+		ret = PTR_ERR(host->rstc);
-+		goto err_disable_clk;
-+	}
-+
-+	reset_control_assert(host->rstc);
-+	usleep_range(10, 20);
-+	reset_control_deassert(host->rstc);
-+
-+	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(35));
-+	if (ret) {
-+		dev_err(dev, "Failed to set dma mask\n");
-+		goto err_disable_clk;
-+	}
-+
-+	host->buffer = dmam_alloc_coherent(dev, SFC_DMA_MAX_LEN,
-+					   &host->dma_buffer, GFP_KERNEL);
-+	if (!host->buffer) {
-+		ret = -ENOMEM;
-+		goto err_disable_clk;
-+	}
-+
-+	host->regbase = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-+	if (IS_ERR(host->regbase)) {
-+		ret = PTR_ERR(host->regbase);
-+		goto err_disable_clk;
-+	}
-+
-+	host->mdbase = devm_platform_ioremap_resource_byname(pdev, "dma");
-+	if (IS_ERR(host->mdbase)) {
-+		ret = PTR_ERR(host->mdbase);
-+		goto err_disable_clk;
-+	}
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dirmap");
-+	host->iobase = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(host->iobase)) {
-+		ret = PTR_ERR(host->iobase);
-+		goto err_disable_clk;
-+	}
-+
-+	host->flash_phys_base = res->start;
-+
-+	ctrl->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL;
-+	ctrl->bus_num = -1;
-+	ctrl->mem_ops = &rtk_spi_mem_ops;
-+	ctrl->num_chipselect = 1;
-+	ctrl->auto_runtime_pm = true;
-+
-+	rtk_spi_init(host);
-+
-+	pm_runtime_set_autosuspend_delay(dev, SFC_AUTOSUSPEND_TIMEOUT);
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
-+	pm_runtime_get_noresume(dev);
-+
-+	ret = spi_register_controller(ctrl);
-+	if (ret < 0) {
-+		dev_err(dev, "failed to register controller\n");
-+		goto err_pm_disable;
-+	}
-+
-+	pm_runtime_put_autosuspend(dev);
-+
-+	return 0;
-+
-+err_pm_disable:
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
-+
-+err_disable_clk:
-+	clk_disable_unprepare(host->clk);
-+
-+	return ret;
-+}
-+
-+static void rtk_spi_remove(struct platform_device *pdev)
-+{
-+	struct spi_controller *ctrl = platform_get_drvdata(pdev);
-+	struct rtk_spi_host *host = spi_controller_get_devdata(ctrl);
-+	struct device *dev = &pdev->dev;
-+
-+	spi_unregister_controller(ctrl);
-+
-+	pm_runtime_get_sync(dev);
-+	pm_runtime_disable(dev);
-+	clk_disable_unprepare(host->clk);
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_set_suspended(dev);
-+}
-+
-+static const struct of_device_id rtk_spi_dt_ids[] = {
-+	{ .compatible = "realtek,rtd1625-nor" },
-+	{ /* sentinel */ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, rtk_spi_dt_ids);
-+
-+static int rtk_spi_runtime_suspend(struct device *dev)
-+{
-+	struct spi_controller *ctlr = dev_get_drvdata(dev);
-+	struct rtk_spi_host *host = spi_controller_get_devdata(ctlr);
-+
-+	reset_control_assert(host->rstc);
-+
-+	clk_disable_unprepare(host->clk);
-+
-+	return 0;
-+}
-+
-+static int rtk_spi_runtime_resume(struct device *dev)
-+{
-+	struct spi_controller *ctlr = dev_get_drvdata(dev);
-+	struct rtk_spi_host *host = spi_controller_get_devdata(ctlr);
-+	int ret;
-+
-+	ret = clk_prepare_enable(host->clk);
-+	if (ret < 0) {
-+		dev_err(dev, "clk_prepare_enable failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	reset_control_assert(host->rstc);
-+	usleep_range(10, 20);
-+	reset_control_deassert(host->rstc);
-+
-+	rtk_spi_init(host);
-+
-+	return 0;
-+}
-+
-+static int rtk_spi_suspend(struct device *dev)
-+{
-+	return pm_runtime_force_suspend(dev);
-+}
-+
-+static int rtk_spi_resume(struct device *dev)
-+{
-+	return pm_runtime_force_resume(dev);
-+}
-+
-+static const struct dev_pm_ops rtk_spi_pm_ops = {
-+	RUNTIME_PM_OPS(rtk_spi_runtime_suspend, rtk_spi_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(rtk_spi_suspend, rtk_spi_resume)
-+};
-+
-+static struct platform_driver rtk_spi_driver = {
-+	.driver = {
-+		.name = "rtk-spi-nor",
-+		.of_match_table = rtk_spi_dt_ids,
-+		.pm = pm_ptr(&rtk_spi_pm_ops),
-+	},
-+	.probe	= rtk_spi_probe,
-+	.remove	= rtk_spi_remove,
-+};
-+module_platform_driver(rtk_spi_driver);
-+
-+MODULE_DESCRIPTION("Realtek SPI Nor Controller Driver");
-+MODULE_AUTHOR("Jyan Chou <jyanchou@realtek.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
-
+Thanks,
+Xueyuan
 
