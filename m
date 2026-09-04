@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BB5C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C73C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHj7Jl4ER2+DUDGeXhri9eyZ/g0x3N0pfswy8RuEkQ0=; b=cAjGXw4StnXjEEHKRu1BXPAkQD
-	ERdR6F70ExK2Tu3C7UWM9sc0HD1Y7+EojV2eTOFPVt6FcUDvEHR72ON0ZKMhbAhyxXz35zxY2R7t4
-	16Y83GjrrumdKNK+P0HR9gnwOmArO8l8DjY7dmw9K7vvi76uZm14HSP+9lgHWal74HSaYsrgGL8tB
-	4vljQG617JB2CL075M5Q1gS3kmCQmqIbFuUQrz2iohEhWvu0ra8KlE1j/eR1dPtpxxyWdowFgGTDy
-	L7N70Z2TT2GODF01OH+/kw4qYCCJgUYR3wmAhhHGh8QRvFzm5/wjqjrAI8Ymvb8WbgR5c77buOfMY
-	9fsRNkYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=; b=QwjNgyyOr/Zvf3JiHhZtOUhypb
+	bxoD176+BmBochp1CkKjJYPB1UrKpzO3PkyG3ans3nXlFbmn9ufFe67x/AsF/ji/qVMfcDSwBwT75
+	phRYK+n5n/hAJu2YIwMKMotnde+1vAw3n9gcXzAgJNchDKtz9JI0AmoNrfHCQ2tjaiaYmQRj2UF/C
+	8ANhs9qRqqCUAHx6MwlwNt94ZmdcWhaHO7XwLVjmm1AQNoe8HiLUcB8CCjQCAmN5KkyOcc/1gJXSu
+	lyIU0cw7mEwxR+RZ2EOrwaPwbAAyPoDZHmUenrf2wZbsX1g3pQeb6SkPqeeWgzRsFdq3BJKgIZwYA
+	UHJRuv3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2R19-00000001eVB-3i0h;
-	Fri, 04 Sep 2026 10:19:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2RBa-00000001fOJ-0RbD;
+	Fri, 04 Sep 2026 10:30:18 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2R18-00000001eTa-2wJu;
-	Fri, 04 Sep 2026 10:19:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 229BF6020A;
-	Fri,  4 Sep 2026 10:19:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89C2D1F00A3D;
-	Fri,  4 Sep 2026 10:19:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788517169;
-	bh=zHj7Jl4ER2+DUDGeXhri9eyZ/g0x3N0pfswy8RuEkQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DDJwGiQQcGBuD0sr5QOJBi+FgIhBc6LUaQyqvxbdxT16FlQzs1rjs6WEKus4Lnn6A
-	 j60NR7rPgDsW/izsP6g8SwYmgeQcWtkQnzsA17fbOjIpNNwqwDIKSGawoO5zUcrd6P
-	 ROEwa06rDkQUmdUdxMhLSZU43vk2Qwv+Y6pEHSqySVc34BQFt+oam7yM7iIuC4h62s
-	 nlfQok5mVyqLOw4VBO9dCWVtya4Z27wHZi1BX3rnDSQd/dMW6ETJiOZdH5ae15CtD9
-	 55bF4NAMgiET9n38B/U1Z9dQGEFPES5opWTgNAAcPm5CYWSddF/U9QOWcd+tKSmTHF
-	 24urd22gLAZuA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH v3 4/4] dma: swiotlb: Remove SWIOTLB_ANY
-Date: Fri,  4 Sep 2026 15:48:10 +0530
-Message-ID: <20260904101810.1193505-5-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260904101810.1193505-1-aneesh.kumar@kernel.org>
-References: <20260904101810.1193505-1-aneesh.kumar@kernel.org>
+	id 1x2RBX-00000001fNG-17CN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 10:30:16 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-49b8f86c6deso5465065e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:30:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1788517813; x=1789122613; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=;
+        b=f8MDOnUZ4gDntXEoTzJlzgJ+wsKI7N7OrAj4IqeNRXQi02Q1Po7z6aFMkebHS2IzuZ
+         uTOPI6AYCvdKqXju+/wRwguF4sagafg02DQsPM4wQZzP5ujPV2ucInnzvjQreaCxlsY6
+         KNZ573BnQMnBD5ROqGQXnlAO9xrSUjczAjeL5TIHo5km3YAdHpTcKGO9G6z11WH1Jg1u
+         wkPpvHn/7DzxcoEe5HoUOrqMJWHBJ1/PLtKPEfVS3G2UZwxj6K81KwKHDQ9yXJyvcZHG
+         Gf+OTJkDfI0zI0ZjnDzf0UT3u8gxyMlXmpc3LoNvzjN8Xb+Ga/O8u5RRKeMRoA68h1cv
+         KvEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788517813; x=1789122613;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cZQTL/pBpcVt07rJQmd4UdoWGK2B3BL5sj1p+ycgeVo=;
+        b=gq1/ncO3yN+OBUycMUb3ihsBTZurPF3b53Ga9z+TwAFYCG3xunD/rCPW+yz1fqdWZf
+         7KUSHPYGlUhR85HBq1lMDoUDi4GoDezM3R76Q5ce7/WRyNcOG+i3TM/vPINJ+SoL0j6O
+         dxiJ3aak05aqPiBHdCwnYfdJfwgiM9fJmBCRtiu03ldjBeYZeHrYjuqnswZAV1M3bk62
+         MtOadOGgKhibqZXuTOyHW/8+wT+bPxXQdP6gI8+hCwAKzhwI7EOXHEuzgdojnGkicm3l
+         fTXvuFbHRNxMisRS4A1Q/4DN4/p40wyrHx/7lLptP4hVaWbaxmd9zNk4fA/4PQ2zzB1K
+         RcGw==
+X-Forwarded-Encrypted: i=1; AKwUvByXQ7ki7gQ1segKeTp9Xr7L8Axk9K4jP3svC9MtQrqpD9AwcqA2YVsoTXZlODOmGM65GFhKD6DS67aLN8urJvu9@lists.infradead.org
+X-Gm-Message-State: AFuF++mLADOMnYw+ukY2cKqD4TCePxs+wWqYAzAE5yLJ/nUzFpZv0KTv
+	DBmsiQzWL7Agu8RczRU7nJQWKK8DPC+NIEM3eDmgHs9YFW3s9UJjWvyEataemiULMzA=
+X-Gm-Gg: AYBFou2l31ScfNZUMyCCwrhg747A/UDnEL4XtjOZxcoHzlE2yofLrjQa2b/Z8Feie9R
+	oB9AnQiG6KeemtBHO+qWszC92xxI85aVk10WpR0wRgN0WPhrgtF82OJusVZoehtaeETyBont9xY
+	bc6b/FOf9TklTlI3cUBvEU4e/FKV9pMGz9DBU8CKDPoqGGiTJcGjQBEIy4+Fzf1DPKK/SqVj7pj
+	LeFT/Sf+KI8TYvUx8iUpnYnWfHGMlzPNXLEFcRREOXNr25FaoHZj7YVwZBeEuT0gihmy/7exaAH
+	QeNrd1bWiMRxqjLv1+7TxygFCzsaIiaoVkz+GmVOla43ANCluyA/7vY3LQGNSoZvRGLo6Yi24e2
+	iU6OvYI820OCCcYEtx+coEXr39JiXTTUOTJFv/rFnhmfMBllTA1S7PMxQl7teRB8r+GKMV7pxp7
+	If5o0d6U/A1V0u72ArYlDEQL3ljtI7/y1xWhYmMdfzOVV08z4TJJDVTLF6hw==
+X-Received: by 2002:a05:600c:8708:b0:49c:fa21:1c7c with SMTP id 5b1f17b1804b1-49cfa211d48mr27435135e9.17.1788517813094;
+        Fri, 04 Sep 2026 03:30:13 -0700 (PDT)
+Received: from localhost ([194.183.24.73])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c5bc5sm5567744f8f.24.2026.09.04.03.30.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 03:30:12 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Fri, 4 Sep 2026 12:33:51 +0200
+To: Gregor Herburger <gregor.herburger@linutronix.de>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
+ interface
+Message-ID: <apqej5QyjOHu702A@apocalypse>
+References: <20260904-bcm2712-spi-v2-1-6f8fdfb030bc@linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904-bcm2712-spi-v2-1-6f8fdfb030bc@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_033015_326347_B3839FDC 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,144 +108,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SWIOTLB_ANY permits the swiotlb pool to be allocated outside the
-architecture's low address limit. This is already implied when
-SWIOTLB_INIT_ADDRESSING_LIMIT is not set, making SWIOTLB_ANY redundant.
+Hi Gregor,
 
-Use SWIOTLB_INIT_ADDRESSING_LIMIT as the sole indication that the
-default pool and any dynamically allocated pools must reside below
-ARCH_LOW_ADDRESS_LIMIT. Otherwise, allow the pools to use any directly
-mapped memory.
+On 11:24 Fri 04 Sep     , Gregor Herburger wrote:
+> The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
+> Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
+> the spi interface.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- Documentation/core-api/swiotlb.rst |  8 ++++----
- arch/powerpc/mm/mem.c              |  6 ++++--
- arch/s390/mm/init.c                |  2 +-
- arch/x86/kernel/pci-dma.c          |  2 +-
- include/linux/swiotlb.h            |  5 ++---
- kernel/dma/swiotlb.c               | 17 ++++++-----------
- 6 files changed, 18 insertions(+), 22 deletions(-)
+Just a nit-pick: in the comment it's stated that the spi interface is enabled,
+which is not true since rp1_usb inherit status="disabled" from its node
+definition. This is fine because the user would probably want to enable the
+spi interface through some overlay, so no need to resend the patch (at least
+for me), so:
 
-diff --git a/Documentation/core-api/swiotlb.rst b/Documentation/core-api/swiotlb.rst
-index 71b4e4c27eb5..06d9f88fdf7b 100644
---- a/Documentation/core-api/swiotlb.rst
-+++ b/Documentation/core-api/swiotlb.rst
-@@ -148,10 +148,10 @@ may also be adjusted
- due to other conditions, such as running in a CoCo VM, as described above. If
- CONFIG_SWIOTLB_DYNAMIC is enabled, additional pools may be allocated later in
- the life of the system. Each pool must be a contiguous range of physical
--memory. The default pool is allocated below the 4 GiB physical address line so
--it works for devices that can only address 32-bits of physical memory (unless
--architecture-specific code provides the SWIOTLB_ANY flag). In a CoCo VM, the
--pool memory must be decrypted before swiotlb is used.
-+memory. The default pool is allocated below the architecture's low address
-+limit when it is needed for devices with limited DMA addressing. Otherwise,
-+it may be allocated anywhere in directly mapped memory. In a CoCo VM, the pool
-+memory must be decrypted before swiotlb is used.
- 
- Each pool is divided into "slots" of size IO_TLB_SIZE, which is 2 KiB with
- current definitions. IO_TLB_SEGSIZE contiguous slots (128 slots) constitute
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 006ed41097e9..1bdea6c03848 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -295,9 +295,11 @@ void __init arch_mm_preinit(void)
- 		/*
- 		 * Since the guest memory is inaccessible to the host,
- 		 * devices always need to use the SWIOTLB buffer for DMA
--		 * even if dma_capable() says otherwise.
-+		 * even if dma_capable() says otherwise. The hypervisor has
-+		 * no addressing limitation, so the buffer may be allocated
-+		 * anywhere.
- 		 */
--		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+		ppc_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
- 	}
- 
- 	/*
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 78f507e24ceb..ce10292447f1 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -166,7 +166,7 @@ static void __init pv_init(void)
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_ANY);
-+	swiotlb_init(SWIOTLB_VERBOSE);
- 	swiotlb_update_mem_attributes();
- }
- 
-diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-index 3c82ebb5b6e0..e472631a5bd7 100644
---- a/arch/x86/kernel/pci-dma.c
-+++ b/arch/x86/kernel/pci-dma.c
-@@ -84,7 +84,7 @@ static void __init pci_xen_swiotlb_init(void)
- 	x86_swiotlb_enable = true;
- 	/* Xen can use a SWIOTLB pool anywhere in directly mapped memory. */
- 	x86_swiotlb_flags &= ~SWIOTLB_INIT_ADDRESSING_LIMIT;
--	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP | SWIOTLB_ANY;
-+	x86_swiotlb_flags |= SWIOTLB_INIT_REMAP;
- 	swiotlb_init_remap(x86_swiotlb_flags, xen_swiotlb_fixup);
- 	dma_ops = &xen_swiotlb_dma_ops;
- 	if (IS_ENABLED(CONFIG_PCI))
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index be3962a33fc6..b3da751a81dd 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -15,11 +15,10 @@ struct page;
- struct scatterlist;
- 
- #define SWIOTLB_VERBOSE	(1 << 0) /* verbose initialization */
--#define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
--#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
-+#define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 1)
- /* Initialize a default-sized pool that requires architecture remapping. */
--#define SWIOTLB_INIT_REMAP		(1 << 3)
-+#define SWIOTLB_INIT_REMAP		(1 << 2)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index c4611b2c4540..2715833a21f8 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -448,15 +448,10 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	size_t bytes = PAGE_ALIGN(nslabs << IO_TLB_SHIFT);
- 	void *tlb;
- 
--	/*
--	 * By default allocate the bounce buffer memory from low memory, but
--	 * allow to pick a location everywhere for hypervisors with guest
--	 * memory encryption.
--	 */
--	if (flags & SWIOTLB_ANY)
--		tlb = memblock_alloc(bytes, PAGE_SIZE);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		tlb = memblock_alloc_low(bytes, PAGE_SIZE);
-+	else
-+		tlb = memblock_alloc(bytes, PAGE_SIZE);
- 
- 	if (!tlb) {
- 		pr_warn("%s: Failed to allocate %zu bytes tlb structure\n",
-@@ -598,10 +593,10 @@ void __init swiotlb_init_remap(unsigned int flags,
- #ifdef CONFIG_SWIOTLB_DYNAMIC
- 	if (!remap)
- 		io_tlb_default_mem.can_grow = true;
--	if (flags & SWIOTLB_ANY)
--		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
--	else
-+	if (flags & SWIOTLB_INIT_ADDRESSING_LIMIT)
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
-+	else
-+		io_tlb_default_mem.phys_limit = virt_to_phys(high_memory - 1);
- #endif
- 
- 	/* if we have host or guest memory encryption */
--- 
-2.43.0
+Reviewed-by: Andrea della Porta <andrea.porta@suse.com>
 
+Thanks!
+
+Andrea
+
+> 
+> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> ---
+> The RP1 chip, found on the raspberry Pi 5, has nine spi controllers. The
+> spi0 is routed to the pin header. Add the rp1 nodes and enable it for
+> the Raspberry Pi 5.
+> ---
+> Changes in v2:
+> - Drop first patch as it got already applied: https://lore.kernel.org/lkml/20260903194624.2038562-1-florian.fainelli@broadcom.com/
+> - add cs gpios to rp1_gpio for pinctrl
+> - Link to v1: https://patch.msgid.link/20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de
+> ---
+>  arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> index 0fc57e72632ed..0de3d78100a5d 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> @@ -69,6 +69,20 @@ usb_vbus_default_state: usb-vbus-default-state {
+>  		groups = "vbus1";
+>  	};
+>  
+> +	rp1_spi0_default_state: rp1-spi0-default-state {
+> +		function = "spi0";
+> +		groups = "spi0";
+> +		bias-disable;
+> +		drive-strength = <12>;
+> +		slew-rate = <1>;
+> +	};
+> +
+> +	rp1_spi0_cs_default_state: rp1-spi0-cs-default-state {
+> +		function = "gpio";
+> +		pins = "gpio7", "gpio8";
+> +		bias-pull-up;
+> +	};
+> +
+>  	rp1_i2c4_default_state: rp1-i2c4-default-state {
+>  		function = "i2c4";
+>  		groups = "i2c4_2";
+> @@ -94,6 +108,14 @@ &rp1_i2c6 {
+>  	pinctrl-names = "default";
+>  };
+>  
+> +&rp1_spi0 {
+> +	pinctrl-0 = <&rp1_spi0_default_state &rp1_spi0_cs_default_state>;
+> +	pinctrl-names = "default";
+> +
+> +	num-cs = <2>;
+> +	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
+> +};
+> +
+>  &rp1_usb0 {
+>  	pinctrl-0 = <&usb_vbus_default_state>;
+>  	pinctrl-names = "default";
+> 
+> ---
+> base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
+> change-id: 20260811-bcm2712-spi-644b70fee3bf
+> 
+> Best regards,
+> --  
+> Gregor Herburger <gregor.herburger@linutronix.de>
+> 
 
