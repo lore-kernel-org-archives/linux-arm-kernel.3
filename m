@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37229C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9DAC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5bb8hjZGz+CA4fl4HfW3Nb19eVE35fDNkkqntI3KtM=; b=zb6fxDiFAHu7P7dkQ90AxHdhDH
-	nCgg1CilqcZR4DQ2XxUWU04SO8KREmhu8+tqy8H+g2aHT9YeCHRp6D5YS7mwwCPI8wlyblaqjv4QZ
-	02tclbg1/nUItEGyF4nupog+0jSLDrkLbs1E9mZlCkUfAMWnSTvG1czugvMU+M0z6KQCu3xVBF6j/
-	TjUp2jGKBXp/Q6Cx9dHeJmrGzmkt0Wxu9qvLsqXGQQS91ewbZIcxSWCRgVNGwnS5dKi73fCUrxY6Y
-	N0aVyLXUxdQfk5R9yFGc1GfN+IjyDaYoDu+ec9EmH7hoCI4XBysJDL7eN8b46fAoWHaPnBvpZqXIo
-	fWM4LYBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=03eIS2DS8PjcdkHIfXExaV9bsKwUvGke/WEpmxbLmbc=; b=N05USi96soSry9Ti8ss0b01KBl
+	8RHA25oeqg47eg1/8oX9vHQIZo+q/lH6Jda+pfcb1FLnFbWUL4qc2PhPJIjZuzhgeAypl51NdR9Zh
+	eJ/yQAjQ3XCsTrgxvYGKH1xua//44HfMQQ/YYJDicniPGKgjpqsbC5/b00JVS1Bi1xlAw0zqIPPBO
+	ZSPv4BptAQjQJfwoYzGlDdnGOYGWANXyTcMYAphGKCb3NKJhZaAR7J3jrA7Q217eefnRJbeJhel41
+	jAvvnID3qE/T7Py+SLIpvL1oIE/sCLxxp8nKLzinFv3B1CFC3pIy89Lrt47+vTxflnu9xeVaAuP6k
+	u+HNeBVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Obw-00000001GCJ-2qjD;
-	Fri, 04 Sep 2026 07:45:20 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x2OdJ-00000001GUb-0T0U;
+	Fri, 04 Sep 2026 07:46:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Obs-00000001GAJ-1Ymg
+	id 1x2OdH-00000001GUF-4859
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 07:45:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 724411A198F;
-	Fri,  4 Sep 2026 07:45:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 452596057F;
-	Fri,  4 Sep 2026 07:45:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8EE1311C7A549;
-	Fri,  4 Sep 2026 09:44:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788507908; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=K5bb8hjZGz+CA4fl4HfW3Nb19eVE35fDNkkqntI3KtM=;
-	b=BkK5GKVgZp+ghWls98Rz86XOPcLZq9tdZ5JNqERCRh+PVnwdrY2j32Y+fnFA1cGYVSr3m/
-	5Ez8DSypjPeqmU61/HJDruvMoeeumcE20Pzj756efcRVJ1sBIhBo3rkhSNup06TqRY8wcP
-	uLUA4kmZjT7wxXA7e5NnNWq/6r0u1kq4fhsSalqJKrmoovEroULjoOPDtuviv5zKb36N2V
-	VSHtCysQUHCn3SbC0r3afwgWHqG9uZkDrNIEaG73LMv71ddNWSvt+Gsc0IR5OFreembRhB
-	I85QHSwvIrOLN8GsL8S/hcPTg9NhsPC0eQ8E0m7oCLzf9lzQQZuLEQ+hOQrfLg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Vladimir Zapolskiy <vz@kernel.org>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/2] mtd: rawnand: lpc32xx: Remove platform data support
- from drivers
-In-Reply-To: <28de391b-59ed-4495-9b16-fde7b811d6fe@kernel.org> (Vladimir
-	Zapolskiy's message of "Thu, 3 Sep 2026 16:23:20 +0300")
-References: <20260903112425.1904748-1-vz@kernel.org>
-	<878q5i4iz9.fsf@bootlin.com>
-	<28de391b-59ed-4495-9b16-fde7b811d6fe@kernel.org>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 04 Sep 2026 09:44:59 +0200
-Message-ID: <87wlt131fo.fsf@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_004516_551629_A1F6CEE4 
-X-CRM114-Status: GOOD (  12.75  )
+	Fri, 04 Sep 2026 07:46:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8831942A4D;
+	Fri,  4 Sep 2026 07:46:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 692A31F00A3D;
+	Fri,  4 Sep 2026 07:46:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788508003;
+	bh=03eIS2DS8PjcdkHIfXExaV9bsKwUvGke/WEpmxbLmbc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EfFlHyFfqKG6y7UZgTKd2iocNdwfSUvzqahd8EmGsV2i52JgN5UfmRtR98vYT7UrG
+	 SSASpzd1t/jyACeK9wZJWJbzWtwrrqd3z0rtrtcIGFvxhT7pd/PiFBM9pP70F+IKLA
+	 HxygD9c5hDcf847EDo45GBdd1U893ROcDZb88cUBj30MjZQlw3TTjkfHNmHp48E6D2
+	 fF7rraOFUG7YTAFWvJbwk3sKyLLjGMUCIyQt2oWoHVLPxlHdGoukiecvuiwe92g7T9
+	 /vj5tLLsKKTItfpJ2168htwZm3k0fvlUhpbiGCg69OXEbTE5Nvg416Bfafe4s1NDKg
+	 qKxWtcNnTHZKw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x2OdF-00000004hTl-0MOb;
+	Fri, 04 Sep 2026 07:46:41 +0000
+Date: Fri, 04 Sep 2026 08:49:14 +0100
+Message-ID: <875x0l5udh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Wang Han <wanghan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	oupton@kernel.org,
+	tabba@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ljs@kernel.org,
+	itaru.kitayama@fujitsu.com
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
+In-Reply-To: <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+	<20260902163500.1841671-1-wanghan@linux.alibaba.com>
+	<877bl26aqg.wl-maz@kernel.org>
+	<wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, wanghan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vladimir,
+On Thu, 03 Sep 2026 14:28:16 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> On Thu, Sep 03, 2026 at 08:43:35AM +0100, Marc Zyngier wrote:
+> > On Wed, 02 Sep 2026 17:35:00 +0100,
+> > Wang Han <wanghan@linux.alibaba.com> wrote:
+> > > 
+> > > Hi Wei-Lin,
+> > > 
+> > > I tested this series on a Yitian 710 system with an ARM Neoverse-N2 CPU
+> > > (128 CPUs, 2 NUMA nodes).
+> > > 
+> > > Test environment
+> > > ----------------
+> > > 
+> > >   L0 kernel: Linux v7.2-rc6
+> > >   L1 guest: Ubuntu 26.04 LTS, kernel 7.0.0-27-generic (aarch64)
+> > >   QEMU: 10.2.3
+> > > 
+> > > L0 NUMA balancing was enabled (`/proc/sys/kernel/numa_balancing=1`).
+> > > The host was booted with `kvm_arm.mode=nested`.
+> > > 
+> > > This series fixes a functional hang that is exposed when NUMA balancing is
+> > > enabled.  The previous nested stage-2 unmap path is too slow for this
+> > > workload, making the performance problem user-visible: NUMA balancing can
+> > > leave the L1 guest unable to make progress and eventually hang during boot.
+> > >
+> > > The L1 was started with 8 vCPUs and 32 GiB of RAM using:
+> > > 
+> > >   qemu-system-aarch64 -smp 8 -m 32G \
+> > >     -machine virt,accel=kvm,gic-version=3,virtualization=on \
+> > >     -cpu host -nographic -enable-kvm \
+> > >     -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
+> > >     -drive if=pflash,format=raw,file=pflash1_bak.img \
+> > >     -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
+> > >     -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
+> > >     -serial mon:stdio
+> > > 
+> > 
+> > Puzzling. If you are only running an L1 in VHE mode, there is no
+> > shadow S2, and therefore nothing to unmap. For shadow S2s to be built
+> > and affect the MMU notifiers, you need to run an L2.
+> 
+> I was thinking the same at first, but realized even with L1 in VHE mode
+> there is a small period of time where L1 runs in its EL1 during boot, so
+> one nested MMU will become valid for each vCPU. That causes
+> kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
+> (-smp 8).
 
-On 03/09/2026 at 16:23:20 +03, Vladimir Zapolskiy <vz@kernel.org> wrote:
+It should be one nested MMU for the whole VM, not one per vcpu.
+That's assuming they share the same VMID+VTCR.
 
-> Hi Miquel,
->
-> On 9/3/26 15:28, Miquel Raynal wrote:
->> Hello Vladimir,
->> On 03/09/2026 at 14:24:22 +03, Vladimir Zapolskiy <vz@kernel.org>
->> wrote:
->>=20
->>> Since NXP LPC32xx SoC support in the Linux kernel strictly depends on
->>> device tree support, the unused platform data support can be removed
->>> from the LPC32xx NAND MLC and SLC drivers.
->>>
->>> Vladimir Zapolskiy (2):
->>>    mtd: rawnand: lpc32xx_slc: Remove platform data support
->>>    mtd: rawnand: lpc32xx_mlc: Remove platform data support
->>>
->>>   drivers/mtd/nand/raw/lpc32xx_mlc.c | 21 ++-------------------
->>>   drivers/mtd/nand/raw/lpc32xx_slc.c | 21 ++-------------------
->>>   include/linux/mtd/lpc32xx_mlc.h    | 17 -----------------
->>>   include/linux/mtd/lpc32xx_slc.h    | 17 -----------------
->>>   4 files changed, 4 insertions(+), 72 deletions(-)
->>>   delete mode 100644 include/linux/mtd/lpc32xx_mlc.h
->>>   delete mode 100644 include/linux/mtd/lpc32xx_slc.h
->> Sashiko raises a build issue due to the cleanup missing one use of a
->> header. Can you please check?
->>=20
->
-> sure, from its report [1] I see that Sashiko bot verifies the changes
-> against today's outdated v7.2, and therefore it produced a false positive
-> error, since v7.3-rc1 contains the commit d6ef4391897d ("ARM: lpc32xx:
-> remove a few manually populated OF devices").
->
-> There should be no build errors introduced by this series, thanks for rev=
-iew.
->
-> [1] https://sashiko.dev/#/patchset/20260903112425.1904748-1-vz%40kernel.o=
-rg
+> What I am curious about is whether one single notifier unmap is enough
+> to hang L1, or were there multiple notifier unmaps.
+> 
+> QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
+> 1024  (4KB pages,  unmapping 1GB per iteration)
+> 32768 (16KB pages, unmapping 32MB per iteration)
+> 2048  (64KB pages, unmapping 512MB per iteration)
+> iterations for each page size. There aren't many mappings in each
+> iteration too. Does this really take that long on real hardware (even if
+> this must be done 8 times)?
 
-In this case that's all good, thanks for checking!
+This should be close to being at zero cost, so something else is
+amiss.
 
-Miqu=C3=A8l
+Could you please have a look?
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
