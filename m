@@ -4,106 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FF7C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36547C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=14NhbWVwArhRPWoqbEkyydWg2Xn0PWXC+Lz7VEuzIKQ=; b=FyuH/n5QX2Aels19yZRefsFyao
-	IhLlstNg15amBivZJ7wbJoVap5ZybnYFrnaeO+k/4i39DgMY/39U+5fUrpjAex2JWc32QrAf9tVGa
-	hXuyKCvJ2+iDRAIjrxEGnDSs6I7AAoebQQkZ+C0A6JPtemnJcemZf7VCijjQRIWJcfe1v127DVyby
-	Ls/CAoPAVQ3w3ca0jP9SPfB+JMifOEO62njIAXRdpE9vCvztQDYBqCFZ+NyvFJEVVy3eaoJZoP+ym
-	i/+PzkeyegCFBcmlRCBm6e9qW07QQBTid9cHzGI3isItaQ9ggXfg7QA0Xyf2n6vh2BuB2D9OXsAfy
-	B1CFaEIw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JgjLk2Wj4ezNGWQB3j7DpVIqIrI833hmatUkGCCEbj4=; b=lvqvxS3hvofUMToy8upTyGMmUP
+	PhYYeUTi1c5/KxJJ3K1Qz6t1WOj0HRgK6g4YHNRusR2tF9eHRsuVpWJz+BPCkFQUprZuDavJvOao7
+	/U2aHN0SnEVPftHRhmZEmEGmYYlrA3OqK2Say8u20bz0vpNFqthCeZ6LMU819VYQbDN8uq1CWD7+w
+	YLOHQenn5vpIN4zZsDNmGkK3exG6TO/+Swc6tUMXwSecST+IdUqt3sPatXjIbw9ca9f8qXZ9dOLTL
+	kxPY+qDK6gL8f6ajZDOixSYmtuXoRHssm/NSCP+aQ0CMyZs1tM4NadoxvWoJqdsqBK78m6bdM2SQm
+	c3EO3axQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ril-00000001leB-0klD;
-	Fri, 04 Sep 2026 11:04:35 +0000
-Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
+	id 1x2RnK-00000001mQN-0jfE;
+	Fri, 04 Sep 2026 11:09:18 +0000
+Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Rii-00000001ldc-44MS
+	id 1x2RnF-00000001mNE-3FFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 11:04:34 +0000
-Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6b1b1cb72d0so423420eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 04:04:32 -0700 (PDT)
+	Fri, 04 Sep 2026 11:09:16 +0000
+Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2ccbff2e6a7so4332225ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 04:09:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788519872; x=1789124672; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=14NhbWVwArhRPWoqbEkyydWg2Xn0PWXC+Lz7VEuzIKQ=;
-        b=D6/e4BbFGWGNSIJJCcYtfVERilIgfxxuOcrXyLOsKH12g8N3SSyBB/xXQUutwQh3Pt
-         TQFIdomdTIhd327yPH8rhkktAxkbV74IzFK0nlznUdNeSwb9lJoOse2Ms3OdS/a62/ag
-         HCJeYkqPv8SZ2Zy4ukkHw+PQouHAYGkDRBB6ycuLp5qvfO65lNRuO6FfOa9mjtt0/LZX
-         pmXbqpVlkBjTZz+OuwTAF0v33cg7hTo83kVccsVKKZY05Na4KuoiSxQzipDdqIHoStJF
-         rVTxxhG8Ow3y4YVmog/yDY+2swne2wWSmNBBf5zrKKN8CLyaKVKafJHVUtQMblasHK6C
-         3R7Q==
+        d=gmail.com; s=20251104; t=1788520152; x=1789124952; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JgjLk2Wj4ezNGWQB3j7DpVIqIrI833hmatUkGCCEbj4=;
+        b=MzItqUIOcuUj3ih9YSV4bmzIFGg9FvVPPvqrh8Uz7dMygb5g5NtMvYasp9zNmtx4nL
+         zS0JwlxEaSEquHN7FueDMhqBHQKCRqGFr92ZV9+Q38AcV6XX7oupu23m2Lq0DHEJ7ZnB
+         4BCg70k5n1TfJuyBj9XgtbvqHlHJR8RQVOD0vf29xE96TMtWBSqpc9yOojY14/IJlX1M
+         RbndL065j/pRQAigf8XqTS8nhsuYXB2i6fVrzCfZV+n7YzZEy8c0q94O3HA6Sikwo5nc
+         v2qQ6956bbr10BJLqPYCKjRGajwQ36MH9kAwC+ahK1/A4UKf+TWfpnnF6nwrdJqkhXWI
+         1EfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788519872; x=1789124672;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=14NhbWVwArhRPWoqbEkyydWg2Xn0PWXC+Lz7VEuzIKQ=;
-        b=ktsWzD0n9Zs6Iwzekfk0GM46CqMH99+fNl9mQDtr5keNvMBMKfEGQaP5Oeb49PelGe
-         XhBaIapc2PIHyZjyps8mm4J797GKp3LtI2Cy9uvkq9mXTlqcKeDbdRz9cbpvJbyISyPK
-         LfM7SLhCZcx23F12aBN9yx03WL3eXgt73hGTYHa3swkqYY1ZEcKc/KOqH5Wwb7CSvzXM
-         jVVmVkAkX0PkNGxn7yVki6jngP7vKGOtv9hUMPVju4e3rjdH6WHomQiOF2G3Fl0O/LTB
-         lm/OyBdnXV3ltEvtaObin27IcjStIEqSYpVDGf73ZYjD7IWr+Q+qqdy6Wfe83f6QvAsx
-         /Kvw==
-X-Forwarded-Encrypted: i=1; AKwUvBybfW8yt2ygn+95aRmPznIFF9/1n85rykUbAEHZqSW3iErP6sKYyoQ22olrA7lIc22p+X5Q3Vyar4o4ZMJT6J6o@lists.infradead.org
-X-Gm-Message-State: AFuF++l7N+/W55cOE8WWPkb4QkbwLb1NNavwMOlaTZL+r8UP7ya9TDC3
-	sElZVidgL3p4d/hmquTYX2T0fbsUWuPzOaJoGobQ1vePzLgeW6u5hlIv
-X-Gm-Gg: AYBFou1lJWau0DTkpxvf9ep1PcTuat9G+VFg6xx5P7+0igdx2YeCEoTP0yCpUBnAmss
-	D/1kuqb8EUIbxsqeHa8OZeqV6DR0tGCrLQqbSVtU+7MnihGpOUb1zpZGNrAWZ+jwVA5DItrkfU9
-	j69UrGx8HYgv3RLFm3YrCZ2UEDudzQpukMXR6LBb4QdE658G48v52hosznBzfSrohrb/jrB7Mp2
-	8EjBiyg8qVAHDWXHNe6WofE31VOHS6445v9ue7da5M2aI3q18ryqdepYCufRT7dv2f0kftjMsj3
-	TuJepdErJalKh4H3WafGkcc1Nr/U9r0YEliw8xsO67qb1uUW3xUC3bbO4D45AKwDXqu9giBtw6R
-	reOFizUCIWPwKSP0l/gMA8XGksNbbSIsMGIs3P9YYIyuZZOBH1uAIJt4rkGTBH8eQuUIp4tMyl0
-	MdwY8evUufW2wtBDjhentZXxYxCZYjDKHJkZbuH/MPtzuqQJl42Hs5GS2n732KohzfZW/EeLInJ
-	gIWThqrk9ALVQE=
-X-Received: by 2002:a05:6820:81e:b0:6b1:afca:5c78 with SMTP id 006d021491bc7-6b6fddba8bbmr3334490eaf.32.1788519871772;
-        Fri, 04 Sep 2026 04:04:31 -0700 (PDT)
-Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885d29esm6640159eec.2.2026.09.04.04.04.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 04:04:30 -0700 (PDT)
-From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Jonas Gorski <jonas.gorski@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH] spi: fix typos in comments
-Date: Fri,  4 Sep 2026 16:34:16 +0530
-Message-ID: <20260904110420.13707-1-hemanth.selam@gmail.com>
-X-Mailer: git-send-email 2.48.1
+        d=1e100.net; s=20251104; t=1788520152; x=1789124952;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JgjLk2Wj4ezNGWQB3j7DpVIqIrI833hmatUkGCCEbj4=;
+        b=OD6zxIPpyfJC+p9iU/i1nEoeN05ZYIjQwpJ3CFB03/U8WjBCPcH/1/lbGhfKrex9By
+         QULm2Zb9x0Ps9mhToGlqwlfNr9cEnnVeFnX4xdz8iOHZr8W6XqDVy8VHyxa1wUFGtJ6x
+         LogAc0qQcfIOjTdb3To2N2ReBY1yME2syxGfb2t7+IoqhdjIayGtlBMjM+5n5VqCZr0G
+         ZCJm0pQjsNxgGN6TULDmZ0D/8hqR25L9oN/tSgDKjuP+qMoLja+UIc/+Is2wDdoemtEp
+         24yNd/yk5lcuTTYgea992YQWY0KoTf3r0LfZ6NfvuFo5HHJrUDmD0BZq2Qcj6VyhYPsS
+         bR9Q==
+X-Forwarded-Encrypted: i=1; AKwUvBz+p6NUS029jR6hqMGrmZVMrTZ35m3hGGilboquSrPS+5yVUoydE+x7UQJCVEKnI2+7k1wdAngOO4iQRhLt9CFl@lists.infradead.org
+X-Gm-Message-State: AFuF++lfwTo/AvjPZVb6drsazmlMEtWCAYmwqTJPFyEKIpqotWyKwCfI
+	mJ8yKg/2xWHAjQ8AB2Ihj5nJBeTc73BG4UxxgqMqb/SGKdom28sBvey0
+X-Gm-Gg: AYBFou3JqWcUwfCAiIwpEIotiS3SMyPAGMBZwE8+q5MTJViqBWN+pYED3/4gT1E6KY5
+	giTx6hZKKoW+ReXhYYbE7KAjYlBnEbBPRH62xrlN2Y4AhNJsab6/y9LoZsLuDxJuxVdd1P22jTF
+	cd7Onm/cZ1HjE4wPsH6VYvecvRZzNlUvSUL6WUKYsYZPdhAOHhBOqfl/vdoaNJCjFxChFwauGYt
+	kJ71JKNZdHkBZvKzXv+DZpA4GJXdPY0OFTjXUKsnUqTFaKALD28i+sEdwJlZZCOYA4kN5SpxXr/
+	/xUl8IvmtyGEBm85jvkBP2GUAY1Qv54CtCIK3K1L5+Sgfc75XdRNw0gM++ls1384BBsLP8pdOEr
+	g7jb+SAidWpgYTnyOS4tVchHspLXu1XMQ+1//de46dCs51goWEbJmID3X4SVe15l8Nc8Sf+kvSx
+	ONT0HoYZForaZ972OhVLoV5GZbN4r80/OUgxB/UOKsvB5oW2lX7xF6nunqwGNkoQ0v0GSDYjD4V
+	Xeewg8RRV+/MBAt9Q==
+X-Received: by 2002:a17:902:fb48:b0:2d7:203b:9863 with SMTP id d9443c01a7336-2db1232c6a9mr51752645ad.1.1788520152439;
+        Fri, 04 Sep 2026 04:09:12 -0700 (PDT)
+Received: from [10.240.227.78] ([114.111.24.207])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2db148404d1sm8326655ad.6.2026.09.04.04.09.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Sep 2026 04:09:11 -0700 (PDT)
+Message-ID: <a859f6dd-cc65-4bce-b4a0-0b757248f6d2@gmail.com>
+Date: Fri, 4 Sep 2026 19:08:57 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/10] kdump: reduce vmcore size and capture time
+To: Baoquan He <baoquan.he@linux.dev>
+Cc: catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ robh@kernel.org, saravanak@kernel.org, akpm@linux-foundation.org,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ m.szyprowski@samsung.com, mark.rutland@arm.com, kernel@xen0n.name,
+ alex@ghiti.fr, hpa@zytor.com, ruirui.yang@linux.dev, robin.murphy@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org, linux-mm@kvack.org,
+ iommu@lists.linux.dev
+References: <20260902073116.802752-1-chenwandun1@gmail.com>
+ <apfkDlcMYrgiuGYA@fedora> <6aef2f48-1cc5-408d-a5a2-2b4b4d45ad7b@gmail.com>
+ <apkiW8gn9Z5XaVQh@fedora> <edd83cd6-663f-43f5-8058-99e59d941d5b@gmail.com>
+ <aplAA9-NX3pw9Wmb@fedora>
+From: Chen Wandun <chenwandun1@gmail.com>
+In-Reply-To: <aplAA9-NX3pw9Wmb@fedora>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_040433_023347_9EA301D0 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20260904_040913_816574_91455701 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,128 +113,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
 
-Assisted-by: Cursor:claude-opus-5
-Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
----
- drivers/spi/spi-bcm63xx.c     | 2 +-
- drivers/spi/spi-imx.c         | 2 +-
- drivers/spi/spi-omap2-mcspi.c | 2 +-
- drivers/spi/spi-pic32.c       | 2 +-
- drivers/spi/spi-s3c64xx.c     | 2 +-
- drivers/spi/spi-stm32.c       | 2 +-
- drivers/spi/spi-sun6i.c       | 2 +-
- drivers/spi/spi-xilinx.c      | 2 +-
- 8 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/spi/spi-bcm63xx.c b/drivers/spi/spi-bcm63xx.c
-index 1d8e257bad30..3f349c1db581 100644
---- a/drivers/spi/spi-bcm63xx.c
-+++ b/drivers/spi/spi-bcm63xx.c
-@@ -413,7 +413,7 @@ static irqreturn_t bcm63xx_spi_interrupt(int irq, void *dev_id)
- 	struct bcm63xx_spi *bs = spi_controller_get_devdata(host);
- 	u8 intr;
- 
--	/* Read interupts and clear them immediately */
-+	/* Read interrupts and clear them immediately */
- 	intr = bcm_spi_readb(bs, SPI_INT_STATUS);
- 	bcm_spi_writeb(bs, SPI_INTR_CLEAR_ALL, SPI_INT_STATUS);
- 	bcm_spi_writeb(bs, 0, SPI_INT_MASK);
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 79a6c1a60b0a..6f9686df0486 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -673,7 +673,7 @@ static int mx51_ecspi_prepare_message(struct spi_imx_data *spi_imx,
- 	 * propagate into the hardware. It takes exactly one tick of the
- 	 * SCLK clock, but we will wait two SCLK clock just to be sure. The
- 	 * effect of the delay it takes for the hardware to apply changes
--	 * is noticable if the SCLK clock run very slow. In such a case, if
-+	 * is noticeable if the SCLK clock run very slow. In such a case, if
- 	 * the polarity of SCLK should be inverted, the GPIO ChipSelect might
- 	 * be asserted before the SCLK polarity changes, which would disrupt
- 	 * the SPI communication as the device on the other end would consider
-diff --git a/drivers/spi/spi-omap2-mcspi.c b/drivers/spi/spi-omap2-mcspi.c
-index a3355147f5de..90f3990e0060 100644
---- a/drivers/spi/spi-omap2-mcspi.c
-+++ b/drivers/spi/spi-omap2-mcspi.c
-@@ -1244,7 +1244,7 @@ static int omap2_mcspi_transfer_one(struct spi_controller *ctlr,
- 		omap2_mcspi_set_fifo(spi, t, 0);
- 
- out:
--	/* Restore defaults if they were overriden */
-+	/* Restore defaults if they were overridden */
- 	if (par_override) {
- 		par_override = 0;
- 		status = omap2_mcspi_setup_transfer(spi, NULL);
-diff --git a/drivers/spi/spi-pic32.c b/drivers/spi/spi-pic32.c
-index 972128271e4b..8363bc873b03 100644
---- a/drivers/spi/spi-pic32.c
-+++ b/drivers/spi/spi-pic32.c
-@@ -53,7 +53,7 @@ struct pic32_spi_regs {
- #define  TX_FIFO_ALL_EMPTY	0 /* completely empty */
- #define  TX_FIFO_EMPTY		1 /* empty */
- #define  TX_FIFO_HALF_EMPTY	2 /* empty by half or more */
--#define  TX_FIFO_NOT_FULL	3 /* atleast one empty */
-+#define  TX_FIFO_NOT_FULL	3 /* at least one empty */
- 
- #define CTRL_MSTEN	BIT(5) /* enable master mode */
- #define CTRL_CKP	BIT(6) /* active low */
-diff --git a/drivers/spi/spi-s3c64xx.c b/drivers/spi/spi-s3c64xx.c
-index 8d4120cf9df1..3546414dfc70 100644
---- a/drivers/spi/spi-s3c64xx.c
-+++ b/drivers/spi/spi-s3c64xx.c
-@@ -661,7 +661,7 @@ static int s3c64xx_wait_for_pio(struct s3c64xx_spi_driver_data *sdd,
- 	 * loops = length / max fifo size (calculated by using the
- 	 * fifo mask).
- 	 * For any size less than the fifo size the below code is
--	 * executed atleast once.
-+	 * executed at least once.
- 	 */
- 	loops = xfer->len / sdd->fifo_depth;
- 	buf = xfer->rx_buf;
-diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-index be88e62075af..5f5c43ae5096 100644
---- a/drivers/spi/spi-stm32.c
-+++ b/drivers/spi/spi-stm32.c
-@@ -515,7 +515,7 @@ static int stm32h7_spi_get_bpw_mask(struct stm32_spi *spi)
- 
- 	/*
- 	 * The most significant bit at DSIZE bit field is reserved when the
--	 * maximum data size of periperal instances is limited to 16-bit
-+	 * maximum data size of peripheral instances is limited to 16-bit
- 	 */
- 	stm32_spi_set_bits(spi, STM32H7_SPI_CFG1, STM32H7_SPI_CFG1_DSIZE);
- 
-diff --git a/drivers/spi/spi-sun6i.c b/drivers/spi/spi-sun6i.c
-index 4631e9c7ca1d..6b7a05dd0de8 100644
---- a/drivers/spi/spi-sun6i.c
-+++ b/drivers/spi/spi-sun6i.c
-@@ -386,7 +386,7 @@ static int sun6i_spi_transfer_one(struct spi_controller *host,
- 		 * SPI_CLK = MOD_CLK / (2 ^ cdr)
- 		 * Or we can use CDR2, which is calculated with the formula:
- 		 * SPI_CLK = MOD_CLK / (2 * (cdr + 1))
--		 * Wether we use the former or the latter is set through the
-+		 * Whether we use the former or the latter is set through the
- 		 * DRS bit.
- 		 *
- 		 * First try CDR2, and if we can't reach the expected
-diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
-index dc1e968659e1..df4ea99a5427 100644
---- a/drivers/spi/spi-xilinx.c
-+++ b/drivers/spi/spi-xilinx.c
-@@ -460,7 +460,7 @@ static int xilinx_spi_probe(struct platform_device *pdev)
- 	host->num_chipselect = num_cs;
- 
- 	/*
--	 * Detect endianess on the IP via loop bit in CR. Detection
-+	 * Detect endianness on the IP via loop bit in CR. Detection
- 	 * must be done before reset is sent because incorrect reset
- 	 * value generates error interrupt.
- 	 * Setup little endian helper functions first and try to use them
--- 
-2.48.1
+On 9/3/26 5:38 PM, Baoquan He wrote:
+> On 09/03/26 at 03:43pm, Wandun wrote:
+>>
+>>
+>> On 9/3/26 15:31, Baoquan He wrote:
+>>> On 09/03/26 at 03:05pm, Wandun wrote:
+>>>>
+>>>>
+>>>> On 9/2/26 16:53, Baoquan He wrote:
+>>>>> Hi Wandun,
+>>>>>
+>>>>> On 09/02/26 at 03:31pm, Wandun Chen wrote:
+>>>>>> From: Wandun Chen <chenwandun@lixiang.com>
+>>>>>>
+>>>>>> On SoCs that carve out large firmware-owned reserved memory (GPU,
+>>>>>> camera ISP, ...), kdump currently dumps those carveouts as part of
+>>>>>> system RAM even though their contents are firmware state that is not
+>>>>>> useful for kernel crash analysis.
+>>>>>>
+>>>>>> This series introduces a MEMBLOCK_NODUMP flag in memblock to filter
+>>>>>> reserved memory on DT-based architectures (arm64, riscv, loongarch).
+>>>>>> Reserved regions default are marked MEMBLOCK_NODUMP so kdump omits them;
+>>>>>> reusable CMA regions are different because their pages are handed back
+>>>>>> to the buddy allocator and may carry crash-relevant data.
+>>>>>>
+>>>>>> ACPI systems already filter reserved memory out of the vmcore through
+>>>>>> their existing path; only DT-based systems currently fail to filter these
+>>>>>> regions, which is what this series addresses. The flag lives in memblock
+>>>>>> itself rather than in a DT-only structure, so the mechanism is generic and
+>>>>>> both ACPI and DT systems can benefit from it (suggested by Rob, thanks) [1].
+>>>>>
+>>>>> Thanks for the effort. I am not against this patchset, and I haven't
+>>>>> went through it carefully. Just from the cover letter, you mentioned
+>>>>> generic, I am wondering if this can be generic for excluding other
+>>>>> memory regions. Asking this because I try to find a way to exclude
+>>>>> unwanted memory regions too, please check below link where there's
+>>>>> the relevant discussion. We definitely don't like inventing wheels
+>>>>> time after time. Do you think this memblock region excluding can
+>>>>> be used in other places of kernel?
+>>>>>
+>>>>> https://lore.kernel.org/all/aoLFai0gzzH2bGgy@MiWiFi-R3L-srv/T/#u
+>>>>
+>>>>
+>>>> Thanks for taking a look, and for the pointer to the crash-wipe thread.
+>>>>
+>>>> To answer your question directly: the exclusion mechanism in this series
+>>>> is already generic, memblock_mark_nodump() is the entry point. Any code
+>>>> that wants a region out of the vmcore just marks it MEMBLOCK_NODUMP, when
+>>>> preparing vmcore elf header by walking memblock, these regionss are skipped;
+>>>> This series is simply one caller, marking the DTS /reserved-memory and
+>>>> /memreserve/ regions with MEMBLOCK_NODUMP.
+>>>
+>>> Thanks, for memory not allocated from memblock, e.g buddy, is it still
+>>> good?
+>>
+>> Yes, still good, only need to pass the physical range to memblock_mark_nodump().
+> 
+> That's interesting. If drivers or any component allocate memory from
+> buddy, then you will call memblock_mark_nodump() to mark the region
+> specifically (memblock_setclr_flag will split regions if it's a sub
+> region of existing memblock region), it won't impact anything?
+
+IIUC, it won't impact anyting; memblock_mark_nodump() only set
+the MEMBLOCK_NODUMP bit on the matching memblock.memory regions,
+and from the buddy allocator's view, there is nothing changed.
+
+The only effect is the region split you already pointed out: marking
+a sub-range costs up to two extra entries in the memblock.memory
+region array.
+
+
+Best regards,
+Wandun
+
+
+> 
+>>
+>>>
+>>>>
+>>>> x86 currently builds the vmcore elf header from iomem_resource, not
+>>>> memblock; it could be switched to memblock, but that would bring no
+>>>> benefit for the problem this series solves, so this series makes no
+>>>> x86 change. I'd personally be in favor of switching to memblock for
+>>>> a unified implementation across architectures.
+>>>>
+>>>> Best regards
+>>>> Wandun
+>>>>
+>>>>
+>>>>>
+>>>>>>
+>>>>>> Since the reserved memory regions are filtered out, the vmcore is
+>>>>>> smaller in size and faster to produce.
+>>>>>>
+>>>>>> The series is based on linux-next and is organized as follows:
+>>>>>>
+>>>>>> Patches 1-4: Preparation and bugfixes: fix the missing HugeTLB
+>>>>>>               flagname, switch riscv crash_mem to memblock, fold the
+>>>>>>               duplicated per-arch memblock walks into the weak
+>>>>>>               defaults, and serialize crash header preparation against
+>>>>>>               memory hotplug.
+>>>>>> Patches 5-9: NODUMP infrastructure: switch crash_core to
+>>>>>>               for_each_mem_region(), introduce the MEMBLOCK_NODUMP
+>>>>>>               flag, add a dumpable flag to struct reserved_mem, and
+>>>>>>               mark /reserved-memory and /memreserve/ entries with
+>>>>>> 	     MEMBLOCK_NODUMP flag.
+>>>>>> Patch 10:    Exclude MEMBLOCK_NODUMP regions from the vmcore ELF
+>>>>>>               header.
+>>>>>>
+>>>>>> In v5, Sashiko found some pre-existing issues related to reserved-memory,
+>>>>>> and has no dependency on this series, so these issues have been addressed
+>>>>>> in a separate series [2].
+>>>>>>
+>>>>>> v5 --> v6:
+>>>>>> 1. Serialize crash header preparation against memory hotplug to avoid
+>>>>>>     out-of-bounds or use-after-free issues.
+>>>>>>
+>>>>>> 2. MEMBLOCK_NODUMP marking is now done after memblock allows resizing,
+>>>>>>     avoiding a panic from too few regions before resize is permitted.
+>>>>>>
+>>>>>> 3. Reordered the patches, put pre-existing bugfixes earlier in the series.
+>>>>>>
+>>>>>>
+>>>>>> v4 --> v5:
+>>>>>> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>>>>>>     (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>>>>>>     DT-only struct reserved_mem.
+>>>>>> 2. Switch the riscv vmcore elf header preparation to use memblock
+>>>>>>     instead of the resource tree, aligning it with arm64 and loongarch,
+>>>>>>     so riscv also can exclude reserved memory from vmcore.
+>>>>>> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>>>>>>     loongarch open-coded the same logic, so fold it into shared
+>>>>>>      __weak defaults in crash_core.
+>>>>>> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>>>>>>      reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>>>>>>      directly.
+>>>>>>
+>>>>>> v3 --> v4:
+>>>>>> 1. Rebase this series on v7.2-rc1.
+>>>>>> 2. Add two cleanup patches (patch 02/03).
+>>>>>> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>>>>>>     NULL multiple times, suggested by Rob.
+>>>>>>
+>>>>>> v2 --> v3:
+>>>>>> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.
+>>>>>> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+>>>>>> 3. Add some prepare patches.
+>>>>>>
+>>>>>> v1 --> v2:
+>>>>>> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>>>>>>     feedback [3], v2 drop that property and exclude reserve memory
+>>>>>>     by default.
+>>>>>> 2. Split some prepared patches from the original patches.
+>>>>>> 3. Address coding-style comments on patch 5 from Rob.
+>>>>>>
+>>>>>> [1] https://lore.kernel.org/lkml/20260723234126.GA3253409-robh@kernel.org/
+>>>>>> [2] https://lore.kernel.org/lkml/20260818092420.2859026-1-chenwandun1@gmail.com/
+>>>>>> [3] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+>>>>>>
+>>>>>> Meijing Zhao (1):
+>>>>>>    mm: memblock: add missing HugeTLB flag name
+>>>>>>
+>>>>>> Wandun Chen (9):
+>>>>>>    riscv: build crash_mem ranges from memblock instead of resource tree
+>>>>>>    crash_core: fold duplicated memblock arch hooks into the weak default
+>>>>>>    crash_core: serialize crash header preparation against hotplug
+>>>>>>    crash_core: replace for_each_mem_range() with for_each_mem_region()
+>>>>>>    memblock: introduce MEMBLOCK_NODUMP flag
+>>>>>>    of: reserved_mem: add dumpable flag to opt-in vmcore
+>>>>>>    of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>>>>>>    of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>>>>>>    crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>>>>>>      header
+>>>>>>
+>>>>>>   arch/arm64/kernel/machine_kexec_file.c     | 29 ------------
+>>>>>>   arch/loongarch/kernel/machine_kexec_file.c | 27 ------------
+>>>>>>   arch/riscv/Kconfig                         |  2 +-
+>>>>>>   arch/riscv/kernel/machine_kexec_file.c     | 33 --------------
+>>>>>>   arch/x86/kernel/crash.c                    |  2 +-
+>>>>>>   drivers/of/fdt.c                           |  2 +
+>>>>>>   drivers/of/of_private.h                    |  2 +
+>>>>>>   drivers/of/of_reserved_mem.c               | 48 ++++++++++++++++++++
+>>>>>>   include/linux/crash_core.h                 |  2 +
+>>>>>>   include/linux/memblock.h                   |  9 ++++
+>>>>>>   include/linux/of_reserved_mem.h            |  1 +
+>>>>>>   kernel/crash_core.c                        | 51 ++++++++++++++++++++--
+>>>>>>   kernel/dma/contiguous.c                    |  1 +
+>>>>>>   mm/memblock.c                              | 17 ++++++++
+>>>>>>   14 files changed, 131 insertions(+), 95 deletions(-)
+>>>>>>
+>>>>>> -- 
+>>>>>> 2.43.0
+>>>>>>
+>>>>
+>>
 
 
