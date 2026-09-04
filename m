@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A153EC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D78F5C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEw/En/O87IQsmpM3QULNbvX5YJIhymReEbqN49YJbM=; b=hSNBsU71wiOZ1LUKfGLl0wTjtt
-	eQWdebGcB2TPxtvtH7Prx00l3Se3pESXxQ0+wYR8Z/vxkQ61NCjbUkNNHv3GhH1dgt0tSzm/975pu
-	4NIIQXFFqAzIVDr+6N9uNRFQytOHDdtiUPKV5v1972NfmfRse8/G4uqTzhl+iSJzU373WFh8Cqt4K
-	Ud5t0ksdPojxtIa6qgyclrYsY1en4lArafClHy8jM0YD10yh4svTogRk7wRzW2EsoJvOzNLcolnQN
-	aml6vWAH5kW/0xAc+iNOAfMV/59TcT0siojTSJkzpVDN9Ula4mqdIVeBrwgduDvZ3Ly1lDMs60BMV
-	C6iyd/Vw==;
+	bh=TrCji40er+z6R1XNjAPWAWG4RA4rjIlGB1pHkphcM+k=; b=EopQW6yFMKrAK+qjCzDhwQd2O1
+	2y0WmHXJK0k+aB+inCpKQZozr0t4DLuMJ6XMZa2MT5oFjhTHNc051bbIxXq0nyH3rFjZ85lU0kvw9
+	HjE8C8rcPDsMreJAwqoOCPfN3yUOaJJzkpI/HDD90xJn8LMtjVD0SIPKEBftIbt29FwXA9Ush2X3o
+	Hg96GjPjVsb+2dxXGN8CVquref/aXGA/hbLPOwSofLtbNkYaar/c5oikdCXWPD5KjeJo7XioKm8Tg
+	laQRxGeDsgouvnmXkOueO4M+JSrQa+Xd9lVG+fdaOsSJ9O1TRrlE+bBmTt5i7SbqbT0HUUsdj5k6Y
+	fn2/v6Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2NKE-000000017Rt-1M8h;
-	Fri, 04 Sep 2026 06:22:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2NKJ-000000017TI-1vZp;
+	Fri, 04 Sep 2026 06:23:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2NKD-000000017Rc-0s6D
+	id 1x2NKI-000000017T0-0vOm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 06:22:57 +0000
+	Fri, 04 Sep 2026 06:23:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36E3642D5F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C7B360A7A;
+	Fri,  4 Sep 2026 06:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A71101F00A3F;
 	Fri,  4 Sep 2026 06:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8B41F00A3D;
-	Fri,  4 Sep 2026 06:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788502976;
-	bh=ZEw/En/O87IQsmpM3QULNbvX5YJIhymReEbqN49YJbM=;
+	s=k20260515; t=1788502981;
+	bh=TrCji40er+z6R1XNjAPWAWG4RA4rjIlGB1pHkphcM+k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GgCJwBE86MGq43SOSrmyzHhyzdLmVGaDkW8rNyUveZih4hgYuDXmDAdtg56MQ/n4/
-	 Iaot4QGzFRGv7jWSn/cOTzKRb3apJbt9YOWsoENGmZqW4QkLzccpNZnWrozqtwlaMQ
-	 iVX5+CH5VfSiJdmxxNyquPlBAMczp3IkXs0XqPKkKxOWZhif04L/stbAthyrGpl4d/
-	 9+q6/LySzmsKouSSc9nb6JtT0XBqnv1btF5cAfjGyliGpWLzmg+a8LedtoBoPFC6YK
-	 sl5SqJzbNiHhUeYdfJSs7b21xlIK25aLdXGYBfWAHSKDxsVFrciw3BF8QDTFKhDJR3
-	 crPqnHUpH0PsA==
-Message-ID: <b393b193-4160-42d1-8492-baa6a3a45fa4@kernel.org>
-Date: Fri, 4 Sep 2026 08:22:48 +0200
+	b=kTGZIlAmAUmX2nKQaUq1NjHC87lTWWovH+gKkiLMP8L5Un2opXNR4nfhnuE8RONK6
+	 9pVG2UFoOUK4ktNDn3TX6+P76w6h5VMKFtcYIBh885eoII2sCrwBWRGbIiKRevTsef
+	 41LG6DJq52hKmYZ7Vk79hHv+o0dtA7pOsyL/us+9hKgaztFJziMiUXylvYW7JTCSj2
+	 KwcLHqk4kZjJUNyItLL2SC7CZzG6e+kCSjNZ4ko3DviRic6wP66g69yfoNEpIKc/9N
+	 OGjaNrRlbLHdw0muQ/bHaNTtTsBjghsY32cvTeyFDHsvHtbSYWtNPgBfk0IS6sCY31
+	 XNmbJFSsCgBLA==
+Message-ID: <3c8c1465-4b4a-40d4-a247-27218623ecb5@kernel.org>
+Date: Fri, 4 Sep 2026 08:23:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: apple: Fix style issues for t602x multi
+Subject: Re: [PATCH 3/3] arm64: dts: apple: Fix style issues for t6031 multi
  die .dtsi
 To: Janne Grunau <j@jannau.net>, Sven Peter <sven@kernel.org>,
  Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
@@ -54,7 +54,7 @@ To: Janne Grunau <j@jannau.net>, Sven Peter <sven@kernel.org>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20260903-apple-soc-multi-die-style-v1-0-eeb05ea0c187@jannau.net>
- <20260903-apple-soc-multi-die-style-v1-2-eeb05ea0c187@jannau.net>
+ <20260903-apple-soc-multi-die-style-v1-3-eeb05ea0c187@jannau.net>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260903-apple-soc-multi-die-style-v1-2-eeb05ea0c187@jannau.net>
+In-Reply-To: <20260903-apple-soc-multi-die-style-v1-3-eeb05ea0c187@jannau.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -118,15 +118,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/09/2026 15:59, Janne Grunau wrote:
-> The M2 Pro/Max/Ultra .dtsi files containing most MMIO nodes are a
-> collection of nodes without parent. The proper embedding inside a
-> "simple-bus" parent only happens in t6021.dtsi and t6022.dtsi.
+> The M3 Max/Ultra .dtsi files containing most MMIO nodes are a collection
+> of nodes without parent. The proper embedding inside a "simple-bus"
+> parent only happens in t6031.dtsi and t6032.dtsi.
 > Fix these dt style issue by using a define for their parent soc node and
 > bracket those MMIO nodes inside it.
 > 
 > Link: https://lore.kernel.org/asahi/e2365307-32d6-4ef9-9919-55ba69786741@kernel.org/
 > Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
 > Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
