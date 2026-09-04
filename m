@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BA2C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1A5C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZTXMZGnnVv6fSvtGBrE1wHaAf9xygy4G9N0vOtIQdo=; b=a35vW4URMby+TzPXHNachkZXHj
-	cRjSFykUqn3e3GkYPzSf2QYm8dQGI4nWXNPTScFKBdxr1GGGui5a11aDpoRwaaGOMFZagG8ZdFrOt
-	UJPCKkn7p6OAAHBJUPGXQsDmYigE+7XMlN4ihMHHs6/YKG5gSQXyBsOOw/R17HkYkmyo1DNttz7JH
-	5Zp1aCDEFxZNl4tWosH3yTAhqvWtuPHShdC8pxiuDRCNG+WA93rrRUXUTdnnB1xg52nFrR9u0a8EP
-	ZIoi3cGeqeVML8SpLYE0UW8XVNggtJCl+dcmIWbnzmsTLntAwtu9lpAYh7C/DRM+XHlfG9Dy1cbLY
-	jE9DQrCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucsri5sJixf4tXz6IXNLl7zIlSCaXEdxrDX4k/1IHSs=; b=af/zZTfd2Lt1HO4VSLgjCZ5uIg
+	3ANni3eXF6yBDOLxlEoNzc6/shwSGhIId8dj1v1XYh/ImigGg3bLkaEo85MQXYse4uKEHNqu2fpzY
+	hHIzW4JMElo6imDfdI+q0mvOs5EjVZeLHIIPBuZgo+1FH55YWnj7lbtojJ/y23X6V0UYW7edV7uCR
+	lqoGX2x4NWGkaapHglpx7TNY6TouengDQ3UJeww+F0jp3ff3n7CfZQ9idujY3T5RZHVbIWMblKihr
+	mE7pgLoprna9sVqEVWXOPo57WWliaPAqC2nDNOWz7g/8L1RfiEh33bXRuWS7CkjsrF87Mcup+hS3k
+	PVap1Gig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UFm-00000002H1t-18cp;
-	Fri, 04 Sep 2026 13:46:50 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1x2UMl-00000002HuB-0vIO;
+	Fri, 04 Sep 2026 13:54:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UFj-00000002H15-1a7x
+	id 1x2UMj-00000002Htr-3lp1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:46:48 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6b1b1cb72d0so537845eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:46:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788529605; x=1789134405; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MZTXMZGnnVv6fSvtGBrE1wHaAf9xygy4G9N0vOtIQdo=;
-        b=MNzo3Gi7tFnD/R3wW9tlS5URAEXFccOrtpiYIra+TMumhsPAXrEMLEpk66fIE2N9mg
-         fBMw9k4rjl1QpOWiemMY41m+oO7idIZEA/sOSrHOZa7q8hvEXIiv4yyNYadztV8+ThRl
-         uFIvy9Jtdy4GCBYSOPS6iPavxflCUFxLPL/4lN5YVl9SLvFbLzLd0hrpNfrvaZouM8FL
-         wOg2RQlhgKOmWBBmPi8Gm4FguxEwGqktaS1kAQAz29IIs18zRyV7uxxqsTGJ30S91Dlx
-         bDYzdKxsuaYvxN1g+ULdWTXbUr7WLkVwdWv4dyJ+jClsZi8YB/JwCyi9hzrbravEROdT
-         OMUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788529605; x=1789134405;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MZTXMZGnnVv6fSvtGBrE1wHaAf9xygy4G9N0vOtIQdo=;
-        b=dNgEvXDl4G9tMfB36fYiWw/LvX88IwV+ZhPEYtj/Rt+pkbfy6jzLXHUjgt1fbzRUKC
-         aEflMBc28mmJvmVZpXtrjZH70b7y+3xHXfNg/HnXImpgdQ3nHG9Oy92Pcp526FNO9/Od
-         wITFWYfYB8/jNlerOlzhCVkpSD8G2jXcAvdNDL9MpIQsGNHzCt9Jof3Jjbz6QmdZYIOR
-         tDJPGctuZNsfLPJ1yuPC+pbBptlTXDqFu4ND9tvyfdbpEwImGPORsXiqBbf1r10BamuS
-         l2do8xXcuEyT729tDeYCSXu4so7b79jscVj9GSWiBo+dD/bIVZnrt62HGEIIPzbA8KmJ
-         xnVw==
-X-Forwarded-Encrypted: i=1; AKwUvBwzeb9h46icuyJnGsFbPJWH2Ua4UHRTEwn4YJv+lSDzRL3y2x5pQQ/03hKNJ3XJM9ERWq3VROuPscyzDLAqD/jZ@lists.infradead.org
-X-Gm-Message-State: AFuF++kjIWVDxc8+MyFKqGbrm6wvz1g4FYlHG3iCWz0ZvscWcT2DWOXg
-	0h+KCmV6dF7gim5JookOXZGnLwm1FA0h8vquriTZttAofk5ruXQ7Xsos
-X-Gm-Gg: AYBFou2ZcjDKLZ2rLiVIPBDTFgHPzmls22zLBDUNfT6TsSxcMl2IRpIC3K1TmCzxWmo
-	1NsF4/h29jPzsbahCf1XdVmJCMM+C0YAtE1RVz91LiDYDmluUM8JUbNQ7b8BBd9Y8lLh19P3w1L
-	PVH8Fme/IBs1Ovs3aHX+LRAp99EP3XW+s14AsX8KoWqD2Y4dI/llwI22D4Z7QtL+0FRHP5GH6G6
-	S8nL+R7liktntxX5QyPybHT6dujfdClWmbvVijo7aP08WqKbCFGJdygEgJAWCTluU82DjmZgaWT
-	A9ablwqsPJkdRRC3Taquoot0sD3ZUW7aQ5/7kfRJEAIjhrvaCCgJNcTUWrW2cVBCpw+pP/KvKIl
-	cXmUmtGZeKloToV5R+n3MBCQj3OTKnPxZD7GodBuUFsdWuI71jIlXBzJpxJBOtIRAYfbQnWfAmd
-	iibUVNKmcuSG5BpWDwmeMl8Hn0Wvbd2FGlg4nJe5Kq7PjfPkE9VOOHC1YrZNa6MZzj11Z4vvBCC
-	3cMyCVhY7fVKgNSGUSBhDAgQ6U1
-X-Received: by 2002:a05:6820:c86:b0:6b7:46e9:96f7 with SMTP id 006d021491bc7-6b746e9a200mr2294144eaf.39.1788529605201;
-        Fri, 04 Sep 2026 06:46:45 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:3ed6:cbf9:9a8:24d0])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534d25sm7174899eec.5.2026.09.04.06.46.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 06:46:44 -0700 (PDT)
-Date: Fri, 4 Sep 2026 06:46:40 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Russell King <linux@armlinux.org.uk>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Subject: Re: [PATCH v3 07/10] mfd: wm831x: support software nodes for DCDC
- regulators
-Message-ID: <aprLYn4VzSTnZWuw@google.com>
-References: <20260711-samsung-kp-v3-0-b2fcaba77aff@gmail.com>
- <20260711-samsung-kp-v3-7-b2fcaba77aff@gmail.com>
- <0306eaba-b59c-4f8b-9151-9f39685398ba@kernel.org>
+	Fri, 04 Sep 2026 13:54:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 49C65601FB;
+	Fri,  4 Sep 2026 13:54:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2941F00A3D;
+	Fri,  4 Sep 2026 13:53:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788530041;
+	bh=ucsri5sJixf4tXz6IXNLl7zIlSCaXEdxrDX4k/1IHSs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=N1vG3o49TP/NtE32bsvsvToZj31gkeHZjIMvDXXwaLG3kN7D1qG6vqhTfzemDxrlO
+	 nCpM8qmWIoS6SdsgCCHy6ZraPVyn1ui0Ysg3mcgd9+ureVZAXtsn1l9yVzFM0Ul860
+	 5fOUFEB5hBe35xJ5mESjL8cQS7r6sHQ4/EL2aqVvISqx62VU3AaZTC180g/myK5AmO
+	 XqEQUJzJomPSqUb0AM12TQZCkTTQYHvWjCNvFVImjagu5eo3V1x6nVUijJe6tzfoil
+	 JmB9uM5DHVmpffcLF6VXpo7NzRX1fcfj2WGkxRniotN2SXrzUG+MyQJ8D8bf1sLrD7
+	 lphywYoE6Lvpg==
+Message-ID: <69308cfc-c054-42e8-93a2-acc3ac25bb06@kernel.org>
+Date: Fri, 4 Sep 2026 15:53:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0306eaba-b59c-4f8b-9151-9f39685398ba@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_064647_431554_B99AB67D 
-X-CRM114-Status: GOOD (  19.43  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] memory: brcmstb_dpfe: validate firmware section sizes
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, mmayer@broadcom.com
+Cc: Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +115,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 03:41:21PM +0200, Krzysztof Kozlowski wrote:
-> On 12/07/2026 04:12, Dmitry Torokhov wrote:
-> > Allow passing software nodes to wm831x DCDC regulators via PMIC platform
-> > data. This is useful for non-DT/non-ACPI platforms that want to
-> > associate device properties (like DVS GPIOs) with the regulator devices
-> > using software nodes.
-> > 
-> > We add 'dcdc_swnodes' to the PMIC platform data 'struct wm831x_pdata' and
-> > have the MFD core assign these software nodes to the buckv cells.
-> > 
-> > Assisted-by: Antigravity:gemini-3.5-flash
-> > Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> > ---
-> >  drivers/mfd/wm831x-core.c        | 47 ++++++++++++++++++++++++++++++----------
-> >  include/linux/mfd/wm831x/pdata.h |  2 ++
-> >  2 files changed, 37 insertions(+), 12 deletions(-)
+On 15/08/2026 15:45, Pengpeng Hou wrote:
+> The firmware header is read before the image has been shown to contain a
+> complete header. In addition, the final size check adds two
+> firmware-provided u32 section lengths before comparing the result with
+> fw->size, so the addition can wrap.
 > 
-> I still need Ack for this from Lee... and the problem is that you did
-> not Cc him.
-
-Hmm, indeed. not sure wheat happened...
-
+> Reject images shorter than the fixed header and checksum before reading
+> the header. Then derive the available payload length with subtraction and
+> require the two declared sections to fill it exactly.
 > 
-> Please resend everything or spin v4 with MFD maintainers included for
-> acking.
+> Fixes: 2f330caff577 ("memory: brcmstb: Add driver for DPFE")
+> 
 
-Maybe you could take patches 1-6 now and then I'll continue with the
-rest of cleanups?
+There is no blank line around tags.
 
-Thanks.
+> Assisted-by: Codex:gpt-5
 
--- 
-Dmitry
+So if you ask some LLM tools, then ask them how to write correct Linux
+kernel commit, please.
+
+Applied.
+
+Best regards,
+Krzysztof
 
