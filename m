@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7714AC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 00:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CBFC624D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 00:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEjVb0+qxLyWKPnYmSY5giDsCfnGo55jKL5ClAYyGNE=; b=H5NOvohKE4wyKVFP7Op+pK/4jb
-	OmpTHnC9F565tFstqs9BhTuPmA94RJ2YowEAakwii8HaPJuX5mQP+S7kQdwd++6cRseJV1WLidm53
-	DkXmVS+GLlbFLu69kaariIXEazV9LktTOYRuzi7YmgjEo38rPVkcWmDJhEWKlsWCYsZlgsZJSXI+I
-	80vGX5dv+iGa2a3LAM0Tcg2RNL2qfhoud3W9ITtKrnwt/IHrY1bHMPtzdc8prH7gRixG3rxWPtszM
-	+2eQ4a4HGguLLO5BXOSCOorIHmN6DFj4SE42wjqbAKnLphNt3iKsFMvm3UUPfkpQG/bMADtXL+1xu
-	iThywCTA==;
+	bh=QQRaLYDUxy93Hz6VAFpiPT/0NSOIPKw/WnvayVAwG9E=; b=mrimJe+IB3eEdfUCTpWwyKbL7A
+	LQKUsiZoqqb3ZHeTnqK39DRoqM8ym8q+6hLgFCuHe9zmW6C4b3z3JX9/OQqwTuh13lxraELFgs7ri
+	V7DLCS/tzPNiWDYKqOkY56lgGGZss2NLGQZpL2cJvaqUHX0N5cGCVK+P/5FnvT6E93dxwWn9J5gjn
+	B+oMMwCIHZ8o7kyWWpzSegCXbOGtfQJBgaRYcX0megzeSQpQxNC6VkKN2r78lmZlgATDS/6VnBdVh
+	v62EV5P/akxYQIyatz4wTMsCl/UpGVPn9ukr7J8IXxE6OgaZ2tSfIBmk4DkA24xnjP06BiYdC2ehi
+	MYaRaslw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Hhb-00000000neo-01JY;
-	Fri, 04 Sep 2026 00:22:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2HhY-00000000neR-0rtU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 00:22:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C30B2153B;
-	Thu,  3 Sep 2026 17:22:34 -0700 (PDT)
-Received: from [192.168.20.93] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 267F03F673;
-	Thu,  3 Sep 2026 17:22:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788481358; bh=KkqA4JfpC+qZOcDSnPV5aLKF2fE3aJNceKGtVymIhq4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KYh/XthKzWv3g/3lQJv5JF/5Ky5DX9BV4DT9cklnPx5jre4t8JO5Pqpx+ej9aRHLN
-	 NpPWsHrFvZK/YnpCJdAcsJeVqhDgy+Ri1ycxSm4qBtaxcuMsph/jCVrcDsshkl44Gy
-	 +hBfOkMhIuhYtnrGwBfwjTGS5+91RLTb2kIQ3tQ4=
-Message-ID: <bbbc33a1-cfd6-4cac-82c0-253888ca933a@arm.com>
-Date: Thu, 3 Sep 2026 19:22:36 -0500
+	id 1x2Hu2-00000000oFu-05LN;
+	Fri, 04 Sep 2026 00:35:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2Hu0-00000000oFj-48qq;
+	Fri, 04 Sep 2026 00:35:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5804D40822;
+	Fri,  4 Sep 2026 00:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E217D1F000E9;
+	Fri,  4 Sep 2026 00:35:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788482132;
+	bh=QQRaLYDUxy93Hz6VAFpiPT/0NSOIPKw/WnvayVAwG9E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=eNtntJC+ZaU5DuPCGwWC4NMYJuf1+vBiSpsBcsil3YZ/WegGG3own2Hi8iJ3Wcs6U
+	 OXFgcfGVog5BiEDaue56KnV+r4azi9rCX+I2xLDr8298x4u3SFPQJfoI3y0gmEcRrA
+	 bB09BNDPwatvEH9Hr+QStwvfZDfbhyb63XpSFtSI6IfoXwxjD01d1BATqwtNCG4KfS
+	 zWi4QpQdhNTzCfcpe3bVA0MsBgongbtdAX1ADNWrl7hSj8z9LXFa9BeiCpnVT7xaGa
+	 sIMSKIe/Lolj2BSpW/8V2kW8FadSsHEhbr7TGJaoTkIv6O2vs490WAE2fOlLzBd6gs
+	 mIjZPKG9Sxygg==
+Date: Thu, 3 Sep 2026 17:35:29 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, netdev@vger.kernel.org,
+ upstream@airoha.com, Andrew Lunn <andrew+netdev@lunn.ch>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] net: airoha: handle RX_NO_CPU_DSCP
+ interrupt, not just RX_DONE
+Message-ID: <20260903173355.62780188@kicinski-fedora-PF5CM1Y0>
+In-Reply-To: <17f1beec505b87a4acf16557386a978c98f94b97.1788286284.git.sochnev.v.74@gmail.com>
+References: <20260831234701.206021-1-sochnev.v.74@gmail.com>
+	<cover.1788286284.git.sochnev.v.74@gmail.com>
+	<17f1beec505b87a4acf16557386a978c98f94b97.1788286284.git.sochnev.v.74@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] tools: linux/types.h: Add 128-bit integer types
- for arm64 UAPI structures
-To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- Arnaldo Carvalho de Melo <acme@redhat.com>,
- David Matlack <dmatlack@google.com>, stable <stable@vger.kernel.org>
-References: <20260626141730.5976-1-will@kernel.org>
- <20260626141730.5976-2-will@kernel.org>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20260626141730.5976-2-will@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_172240_359940_4849CE0A 
-X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue,  1 Sep 2026 19:32:53 +0100 Vitaliy Sochnev wrote:
+> Whether NO_CPU_DSCP re-latches while the ring is still empty is not
+> documented. If it does, a ring that cannot be refilled (page_pool
+> returning NULL) keeps reasserting it. Masking it until a refill succeeds
+> is worse: a starved ring never fires RX_DONE either, so it would stay
+> dead after the memory pressure clears.
 
-Please consider this for all supported stable/LTS kernels.
-
-Without this commit, older kernel trees will fail to build tools on 
-systems running newer kernel headers.
-
-Upstream commit:
-
-10a47fb67340 ("tools: linux/types.h: Add 128-bit integer types for arm64 
-UAPI structures")
-
-Thanks,
-
-Cc: stable@vger.kernel.org
-
-
-On 6/26/26 9:17 AM, Will Deacon wrote:
-> The arm64 UAPI exposes some 128-bit integer types to represent things
-> such as fpsimd registers in the sigcontext. In preparation for defining
-> these using the '__u128' typedef implemented by uapi/linux/types.h, copy
-> that typedef over to the private linux/types.h header used by the tools
-> directory.
-> 
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
-> Cc: David Matlack <dmatlack@google.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->   tools/include/linux/types.h | 5 +++++
->   1 file changed, 5 insertions(+)
-> 
-> diff --git a/tools/include/linux/types.h b/tools/include/linux/types.h
-> index d41f8a261bce..b6c473b7920d 100644
-> --- a/tools/include/linux/types.h
-> +++ b/tools/include/linux/types.h
-> @@ -23,6 +23,11 @@ typedef enum {
->   	__GFP_HIGH
->   } gfp_t;
->   
-> +#ifdef __SIZEOF_INT128__
-> +typedef __signed__ __int128 __s128 __attribute__((aligned(16)));
-> +typedef unsigned __int128 __u128 __attribute__((aligned(16)));
-> +#endif
-> +
->   /*
->    * We define u64 as uint64_t for every architecture
->    * so that we can print it with "%"PRIx64 without getting warnings.
-
+Since you're not sure you should probably add a timer to retry
+later? Maybe the IRQ is not needed at all, you could just check 
+on allocation failure if the right is completely drained or have 
+a periodic task a'la fbnic_napi_depletion_check()
 
