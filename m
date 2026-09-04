@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76835C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D2F7C79F83
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cAIBUjFQ+3Ly1pIl7XaJ88bzL4A1FyWiRTzQz4fZMtA=; b=Jb32eIBDjOIAB6vSCe0Hf7WeyB
-	Pu0YLNKFfRSRfkXFh+IB9KAIiqlt4Ddir0eYf8D250G7vYzz4n4eNLWF5nC+qHrhagzFEdMlG9CBj
-	8EqprVqXZ2lNrCCmZHBbimjbHyAhGDX4dTSJjTRhRhjy7IWlIvr4lI1t+0oogF4enqFIqWdGXV0/o
-	N78pBv+jLZaoaSlPAb4PN5pU50oXJTycazhxwXnQUS4wMfZFUB9FdDEtbzM7zmJOv5UtmbPvox1aZ
-	JIno4xnh+TmJSEiiy4OlEerPc52QgzWyRwI/ATqDxHdeKN/afBaQhYGU/lj7D4mqzgyDcQZcbhf8N
-	AOKRJwGw==;
+	bh=WpIOvIK2/IKeoBTyPS1FpXMOk28YALsYNxySmYWmBa0=; b=MwpmiZw5GMGyonscM3HkzNGFtw
+	9X8sziOx27Y4jyeJiNPz82+tyxXF3ShGohUL7kDiNDsCl4xhI2oGAit3MFRNo3rGDGlyZ0vfu+/7r
+	XH5KEOstIk1E0JmGJL5aVazmYAEpvmYdBlot8f6rGu0FQdzrm7DUaibpwsYrgg9MX+GZ275z/JFb2
+	tcrOUNxYsk/xBiiAXX6gxsVNZqH7TUv67LcSjP8Qg5vxWQ1IEd9skb3XfEZLpL+CLFD8o6HGnQGqH
+	zSAQR67wDpdOdtS/zYOF+E+FtL0ps5XTLCPr/Qu1HgPlXFwvgJIkHcNkZpfRiFnHvqDD17sc8wpZj
+	ulr7M1qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PgA-00000001Sub-0Og5;
-	Fri, 04 Sep 2026 08:53:46 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1x2PhM-00000001T0d-17Zw;
+	Fri, 04 Sep 2026 08:55:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Pg7-00000001SuE-2AV6
+	id 1x2PhL-00000001T0V-33mO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:53:44 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c9e607d81fcso535882a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:53:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788512022; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kGT+9d5sgudLeI2N+9GLjSLiMwdB4qCz0eX4Oyp/ltxJxArv+ABILrK1QQ7QPs1MnZ
-         iMpzfYhtJ9BXyPMUJlQz7K1V1qbEed91IcPQ9MTEGGUFTCodYKqqi31U4rpQdGxpyCOh
-         cq9qqnhaDDAgLuotqNo7scLcoud8pyM2pohgxJXpD7pwdtRB5jT45jSUjjGvK/bubPuA
-         K94o8LqLZH4GQxMRxjWCvAnzGOos141acHM2bdO0r3HDVN8fJUUCD9YlMizqQUfEW3GJ
-         UUJcVKarTgZZfN4YrJp5HCY6ZQbEyGcAK3isBLioNb2jqWpODITX+UzC+4Mqw0UdszTM
-         xv+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=cAIBUjFQ+3Ly1pIl7XaJ88bzL4A1FyWiRTzQz4fZMtA=;
-        fh=toiuC1FKfatqNeCeZKO5nYQVWUXU86yU+yXFpMTUxwo=;
-        b=kIgDhYocLWIsvW8tyTZMGfJ9TNQwz5B2G3IGnpo7NqRJDeDwkMAlbh156zPFJGuc6q
-         ZOv8mxvHInzsu3cq1hbx3XPgYcXdx09Lbqiwe0xgX0G7628TlNRXZqVJDaFh49Xfkrpd
-         iEt7AnFxyWKTnJsOv4oZo+NnIgNWgLmeb2mWfpMn/4zWwnvCdNEmtk8HRIqaFjtGA7wK
-         1tjoHCOTfwMgzkg+pbKPB+OON3awZP+Wn/rTOdre7kXSwxdOKaDvhFd9RsaGTXh9jWCd
-         +lrOIODILq6xuPwsYwazOSV0GMK1jy+/lDXI27aTFdVKCpsWVs3pmZ5gtmDqU/ynoES0
-         43sg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788512022; x=1789116822; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cAIBUjFQ+3Ly1pIl7XaJ88bzL4A1FyWiRTzQz4fZMtA=;
-        b=Rzy43asji3rs/RYg3ynX/MK6gpotwaN5iq8cbxRZUH0+icUU+yGjxHktTxaAlbdaEn
-         NLjkKR1ajMym8z4uqVaF03FW94F4hDiCch8J7Usle6wreFFh7lu4B1jQDlgpqXvKafr/
-         pjkKFZfon0fiYDdJWUAAZdcEqjcLXxTNExKPK9Hm15i53gFyS19kN2P/tb8CXYhm+EET
-         +c0zSmq3G5hiFUz3cPO6SBmLZBQHwvBGYgcy4AcImQkA9lVOTY6fCzHgFDpPrsLGWgsz
-         piqcpyqaUZTGQhHJvQmaJPfBzM3UVOEgLvQNA482BFQgbs8wMTIptc/yGH/pNuBW1hGw
-         QGuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788512022; x=1789116822;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cAIBUjFQ+3Ly1pIl7XaJ88bzL4A1FyWiRTzQz4fZMtA=;
-        b=psCFrxx/D5uQR3HKXBkTDmEnpQfc1IVMQFPD7Vcj385PedpMWwvvpZRYWdtmeFvKNU
-         q6DJ8NLu0hgvT19SjQq0cKXseyOQoLDvwHTi/0A1L0pIhnlUOCEmGfp0xtKGLfmCLRKh
-         BVIYKCaGCULMmA3dKX6iabnQIfhbiHNpI/bon1gatrK+v5ExF5lrTgMeXWZ5u+kzgA/M
-         EYpE/WnjdL0WS6Kyot00JFLNOwpL89Tni9gkptBIGoCoiswav5tw3aL3V63CH/7OFJfF
-         82aorIOr8Yj8XsaMe3KTvVelCyhO1mAPFK7DBTod4iDPmnoqJfqFaIZ+p4AM1Mp2O+kb
-         F44w==
-X-Forwarded-Encrypted: i=1; AKwUvBwWaA16xudn0/deEAxHmqynwQ5UsKdCtp71B4NMPR0viTFBZx/VRyo9Gn09sjuogfRgLvKDK6PfOgWndoqmL4H5@lists.infradead.org
-X-Gm-Message-State: AFuF++mZn+Gcm7RdTgoF7AXaC3l+C5rtloDf0YVMpvvVZccb7TL4dwiO
-	oe08o+jpkxMq0v9GLK2dmauneQE/hYtqrCr0X+NsLt7Ni0V8IgKVTdM4it8+5rxPllrFJNiTRc6
-	6rQlcomD+wYJH7MHixxQWWyMAvN+X4fY=
-X-Gm-Gg: AYBFou0Loc+CFAAS92O+NUVbZVoNK45Pb0oytL7L8T+63xpZS35+odVfd6U+8TBC8Y1
-	78q23KxKNHJyI0Q1FC+87/XEvP7ce/7sKYLGAwus+WIA18zOab1EMxgLCxLFoyEKwNoHIUJh/tq
-	qxAt+A6/YTzaRis0wptpzlBEl7j6+KqCmwK95vcXU4BpWMu99cPENR6W+LlXYr8yoG9YgeZzbmN
-	nn1gq6141OipNyQKD0vnWHuRFf5WuvjSGBEXVH3BSxdtH/MniUHP6Zpjz1k0gIPcHCShR/cVg1m
-	OhyNxQG0gZ5SUqhLAcard+iEOr4oefQ2aofvPWVy98iTJgHDNkN3Ujlr7vGERDnQMwcmFSmszHM
-	/DvFnFOa9zCKenIUhGHhxoPUAaOLA+Wef0JNRoytz7gAJeamVj5BMCbeD
-X-Received: by 2002:a05:6a21:487:b0:3c3:9df0:2d66 with SMTP id
- adf61e73a8af0-3da39b71849mr6947233637.6.1788512022315; Fri, 04 Sep 2026
- 01:53:42 -0700 (PDT)
+	Fri, 04 Sep 2026 08:54:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A19F60A74;
+	Fri,  4 Sep 2026 08:54:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81D0C1F00A3D;
+	Fri,  4 Sep 2026 08:54:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788512098;
+	bh=WpIOvIK2/IKeoBTyPS1FpXMOk28YALsYNxySmYWmBa0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U8k5Itm+x/8FEuee+UDlCYMbyQoC9MEH9uY7DeCd/yWdxW5+Olbt8r3TiZFAmywCj
+	 Dhh5XXm5KudyPYceHRdeZmOPreIe1u0O50XciqP/5Cl2VV+bdazxBDZOrDLgeYLhfW
+	 AvCaRGpIwy4byAnl6pi1q35onn7+yczkm/inFgMcezZQAe3mRm0P5fqpxpJAy1NNFs
+	 0Up1nSjH9435PPNwoGiPBj5YaRLjhlbp/NFVOXs9U0JEhjWKATJ4uDIGiZzs8aVJ8U
+	 YCruon+cWiSo/OFqECQ2BuSziHTFpDpgeK8itYjZPPl4v10u37BlEEh22mJHkQqINf
+	 VZ+iJTOvWS5ZA==
+Date: Fri, 4 Sep 2026 09:54:51 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <apqA_SuoA6-TyHsS@gremlin>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
+ <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
+ <apmfx08vccSd2MXw@gremlin>
+ <d2659ac3-2f00-4fc4-8f9e-0585691a4ba2@sirena.org.uk>
 MIME-Version: 1.0
-References: <20260810051907.27136-1-phucduc.bui@gmail.com> <fe85bcab-0467-4cab-97e0-8427387358cc@foss.st.com>
-In-Reply-To: <fe85bcab-0467-4cab-97e0-8427387358cc@foss.st.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 4 Sep 2026 15:53:29 +0700
-X-Gm-Features: AcwNN1WTqdbmh2TSlvmQXAuzUgfnu8PThlxFIUq7F0eBJ6BcdpQVRvfvYmsXbIc
-Message-ID: <CAABR9nFsV2dSbw1NSeVwoEPJ9YvNCLD9-D9vin+43LrCaKqWmg@mail.gmail.com>
-Subject: Re: [Linux-stm32] [PATCH] remoteproc: stm32_rproc: Propagate errors
- from optional IRQ lookup
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-remoteproc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_015343_556812_760DC031 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d2659ac3-2f00-4fc4-8f9e-0585691a4ba2@sirena.org.uk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,19 +77,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnaud,
-
-Thank you for the Acked-by tag!
-
-> >
-> > Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+On Thu, Sep 03, 2026 at 09:41:26PM +0100, Mark Brown wrote:
+> On Thu, Sep 03, 2026 at 07:13:17PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Sep 01, 2026 at 10:47:01PM +0100, Mark Brown wrote:
 >
-> Acked-by: Arnaud Pouliquen arnaud.pouliquen@foss.st.com
+> > > GCS introduces a number of system registers, on systems with GCS we need
+> > > to context switch them and expose them to VMMs to allow guests to use
+> > > GCS.
 >
+> > > +				ctxt_sys_reg(ctxt, GCSCR_EL1)	= read_sysreg_el1(SYS_GCSCR);
+> > > +			}
+>
+> > I had AI check this (and I think sashiko also hit on) it but this is a chain of:
+>
+> > 	ctxt_has_tcrx() -> ctxt_has_s1pie() -> ctx_has_gcs()
+>
+> > Is it correct to make the gcs stuff conditional on tcrx + s1pie + gcs?
+>
+> There are architectural dependencies which mean it is not valid to
+> configure GCS without S1PIE, and S1PIE depends on TCRX.  I had
 
-I noticed that the tag is missing the angle brackets around your email address.
-I'll fix that and send v2 shortly.
+Ack yeah I think I note that elsewhere, so it reduces only to the 'users doing
+weird stuff' case :)
 
-Best regards,
-Phuc
+> originally written the code without expressing this dependency but on a
+> previous version Marc asked for this nesting as an optimisation.  Since
+> it's about optimisastion adding checks that don't otherwise exist on the
+> restore path would doubtless get the similar complaints.  Exactly the
+> same concerns were raised on v19.
+
+Could you implement the nesting the same in the cases where there is a bare
+ctx_has_gcs() as an alternative?
+
+So then it'd always be tcrx -> s1pie -> gcs everywhere and that'd resolve things
+also and make things symmetric.
+
+You could also I think express the dependency if it makes sense to.
+
+>
+> > And it seems like that feature depends on ctxt_has_tcrx() so _architecturally_
+> > fine, but it doesn't seem like KVM enforces the dependency at all and so in
+> > theory somebody could KVM_SET_ONE_REG a GCS, !S1PIE configuration.
+>
+> > And nicer to be consistent everywhere also I think (+ shut sashiko up! :)
+>
+> FWIW I do agree but I'm not sure how else to implement Marc's feedback
+> here.
+
+Ack sure of course.
+
+>
+> We could do checking of the ID registers at vCPU creation so we could
+> avoid worrying about them in the fast path but there was also feedback
+> about not doing that.  One idea I had was to generate feature
+
+Could you possibly check in sanitise_id_aa64pfr1_el1(), something like:
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index fb2c9fd42e24..ba8780745987 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2193,7 +2193,8 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+ 	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
+ 		val &= ~ID_AA64PFR1_EL1_RAS_frac;
+
+-	if (!system_supports_gcs())
++	if (!system_supports_gcs() || !kvm_has_tcr2(vcpu->kvm) ||
++	    !kvm_has_s1pie(vcpu->kvm))
+ 		val &= ~ID_AA64PFR1_EL1_GCS;
+
+ 	val &= ~ID_AA64PFR1_EL1_SME;
+--
+
+And that way it slots in next to the system check?
+
+> combination validation from the MRS, I think the main complaint was
+> about open coding things rather than having the validation per se but
+> ICBW.  Last I heard we were very near to having code for working with
+> the MRS released which will help a lot with uses like that.  There is
+
+Yeah that sounds like a really neat way of solving it! And a useful idea in
+general.
+
+> the possibility that people are relying on doing architecturally
+> invalid configurations though.
+
+Yeah, I guess it's possible somebody could think they could just set a single
+register and use it or something.
+
+>
+> > And it seems like it makes it possible for a silly VMM which sets up the
+> > registers wrong + some unfortunate guest behaviour -> oops via:
+>
+> > el1h_64_sync_handler() -> el1_gcs() -> do_el1_gcs()
+>
+> > Because the host's restore is skipped for s1pie=0, gcs=1, so a naughty guest can
+> > set gcsr_el1.pcrsel=1 and some value in gcspr_el1, then the host will get a
+> > mismatch and trigger the kernel die().
+>
+> Yes, that's possible.  GCSCR_EL1.EXLOCKEN would create similar issues.
+
+Yeah :(
+
+--
+Cheers, Lorenzo
 
