@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7939AC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB919C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0myiUlgWF0TZd8+Ku/LAy7GnzKeiD52gDwego64hj0=; b=nvYlnX087FYTF6n9zJbRjB1b4+
-	rgdOXkqNVClOm4aqD/vETkmaRsCwfGOSQuupf/KjxUmuGIk74zI98ZF2c2pb6OBhPoE8M/qkGTPxJ
-	ARjgFqjNVVSoKVFDXCeMR/3RJO3qUB4nXcjl3rdmcbLVb/lOSofAj+ZnJqd5XN7vVuuLT3y99KSRM
-	D2BEZRs6zx7/c3bHO5CvtlEcd3wAUYpXms0xaS+Ra+uDs7k6QOjOD9GQ4jauWcDSzwzFRm4cfx0Ln
-	oE7A2oQSCITqFF8KBoUWwGI/oDRrST9faePQprcvZcgt/9J3LlR0SJgpRbwRZuZIUeoUH4NfEwqQN
-	2DGjkB9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hNWxGUtV2EU2Wd5p5baspv/bibNFUU+yh0RSzTXOsN0=; b=LKUBeAdtA3b1cPz0mA6pUwNy4Y
+	/zF2k3W14P9yMcP38nFx+zYIjcY/GX0u+AN+mzi4iaQsvEGD9mAO/FBY3xOkXgRb7pdgeV+nKXNM0
+	PvzGw2tP+30jTRw6vf7ARIxpC+/f5ZUrvSGrwyk4q34eGsfkXnPd7IgILjPYCbJvPxCMopzV752gb
+	MyzU9aHx8VpVHMGMxbwdTzxHUHh3GeWc8i0vk3LY47MGZ6KMHiHTvLoXq9wPrsAeUtVuOBLLtIrte
+	pKpQdy0XG/HysnoG7co/P3mAOHXfiGthyPQnePeXVxRtLwHSW/5NogKJ5dyGo2wZD+OcS/etZIjKG
+	D+z8YquA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cb6-00000003QRD-0Uzn;
-	Fri, 04 Sep 2026 22:41:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cb5-00000003QR1-0006
+	id 1x2ccE-00000003QYQ-2zpi;
+	Fri, 04 Sep 2026 22:42:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2cc9-00000003QXO-46e0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 22:41:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9721E43DD5
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:41:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 729481F01559
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:41:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788561682;
-	bh=C0myiUlgWF0TZd8+Ku/LAy7GnzKeiD52gDwego64hj0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=naSfCtaR2p6Ey3hc9gr+m0RTXINQIfLmrYVBFP7Zn60Gab+HjxyVPF+1umfmk3kS5
-	 Fr7wiAR8LEGRTHb3HOCmnqiyuxt3nQ/6a557N/lDr5ynq2BWNnEO/2J7W+pe7mWFOP
-	 g6TP5F3+pAJfTtukPstuEhnN7TNhHLtSoab2pApfrAkX8ESqyAI/JkMUUS1Ns2iTgP
-	 6mQMC+O/k3Ntc629UnIZFwKzf4rXE3tkCGbqQoaGgjmntpEpWWMXupYIEJapm38jBT
-	 yvghkqGeMeXd4zVrb2u6/MVXLoCOXIPs/BJRcGhZ60zsODhI2HSEA2lrcRjAwOlrAl
-	 piJ9BErTW9euQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b4ae0b3308so1089980e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 15:41:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzFKTcmifwZ4UdIxM3WvY3yefEJXl4qxOqbFldpZkJA59cvSxCItmp2/wSjcl0Jz12wp2MWvQH3zVbcmZFUzGL5@lists.infradead.org
-X-Gm-Message-State: AFuF++mqu6b8cfqgQZWLW0aedf0EK/OOuPDqung7u02QnYxLuQyhjAVX
-	q3H6Zbks11c1sm9UPiW/JV1I/WonDK9bPmKRO8Oj9pzSTokQyd6vJV2kXLXbr/cWZjxMZYiZq8I
-	91FbAEInnKUmRbbAZnp8DSbB3fWXiCMQ=
-X-Received: by 2002:a05:6512:61a7:b0:5b6:1a7c:aa19 with SMTP id
- 2adb3069b0e04-5b61a7cad0dmr907279e87.49.1788561681149; Fri, 04 Sep 2026
- 15:41:21 -0700 (PDT)
+	Fri, 04 Sep 2026 22:42:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3949D1477;
+	Fri,  4 Sep 2026 15:42:23 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C4CA93F882;
+	Fri,  4 Sep 2026 15:42:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788561746; bh=rR1eH2wW2i/JEuOr8EFz618T5pL01rNqEvXg57Ahkls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LObNHE3LPAhzFKAFLLp09Rc2itWYjVcwjba/VQpDr9oz4nvxxpmGHlFnomJvxVurG
+	 K2Jx2j1ulInTavrbMF53oQknXko3+98UCJgoWLgYYhqcUS1XzJT+e0yatbcdUuxM8Y
+	 IaG6AEBKANyf3Idd2ER+sbkEevrYTNw4ht27eE1U=
+Date: Fri, 4 Sep 2026 23:42:15 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Wang Han <wanghan@linux.alibaba.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
+	suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, 
+	itaru.kitayama@fujitsu.com
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
+ map (new data structure)
+Message-ID: <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260902163500.1841671-1-wanghan@linux.alibaba.com>
+ <877bl26aqg.wl-maz@kernel.org>
+ <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+ <875x0l5udh.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-6-e918514cb3b1@ambarella.com>
-In-Reply-To: <20260904-cv75-v5-v6-6-e918514cb3b1@ambarella.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 5 Sep 2026 00:41:09 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmnkYaXqD7T3ckO7z9g929DvHyuK04j7VKEgVrnF+1C=A@mail.gmail.com>
-X-Gm-Features: AcwNN1VDId_JVjT4HuchtPhHSz9zctXg7JmJYfvX8t2TVwOBsWn_VCTazZMrhFA
-Message-ID: <CAD++jLmnkYaXqD7T3ckO7z9g929DvHyuK04j7VKEgVrnF+1C=A@mail.gmail.com>
-Subject: Re: [PATCH v6 06/13] dt-bindings: serial: snps-dw-apb-uart: add ambarella,cv75-uart
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>, 
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <875x0l5udh.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_154230_285006_F40E4B9E 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,19 +76,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 4, 2026 at 8:39=E2=80=AFAM Long Zhao via B4 Relay
-<devnull+longzhao.ambarella.com@kernel.org> wrote:
+On Fri, Sep 04, 2026 at 08:49:14AM +0100, Marc Zyngier wrote:
 
-> From: Long Zhao <longzhao@ambarella.com>
->
-> Add the Ambarella CV75 compatible string to the Synopsys DW APB UART
-> binding. The block is Ambarella IP with a DW-like register map, so it
-> is described as a DW APB UART variant.
->
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+[...]
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+> > > >
+> > > > The L1 was started with 8 vCPUs and 32 GiB of RAM using:
+> > > > 
+> > > >   qemu-system-aarch64 -smp 8 -m 32G \
+> > > >     -machine virt,accel=kvm,gic-version=3,virtualization=on \
+> > > >     -cpu host -nographic -enable-kvm \
+> > > >     -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
+> > > >     -drive if=pflash,format=raw,file=pflash1_bak.img \
+> > > >     -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
+> > > >     -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
+> > > >     -serial mon:stdio
+> > > > 
+> > > 
+> > > Puzzling. If you are only running an L1 in VHE mode, there is no
+> > > shadow S2, and therefore nothing to unmap. For shadow S2s to be built
+> > > and affect the MMU notifiers, you need to run an L2.
+> > 
+> > I was thinking the same at first, but realized even with L1 in VHE mode
+> > there is a small period of time where L1 runs in its EL1 during boot, so
+> > one nested MMU will become valid for each vCPU. That causes
+> > kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
+> > (-smp 8).
+> 
+> It should be one nested MMU for the whole VM, not one per vcpu.
+> That's assuming they share the same VMID+VTCR.
+> 
+> > What I am curious about is whether one single notifier unmap is enough
+> > to hang L1, or were there multiple notifier unmaps.
+> > 
+> > QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
+> > 1024  (4KB pages,  unmapping 1GB per iteration)
+> > 32768 (16KB pages, unmapping 32MB per iteration)
+> > 2048  (64KB pages, unmapping 512MB per iteration)
+> > iterations for each page size. There aren't many mappings in each
+> > iteration too. Does this really take that long on real hardware (even if
+> > this must be done 8 times)?
+> 
+> This should be close to being at zero cost, so something else is
+> amiss.
+> 
 
-Yours,
-Linus Walleij
+Guess what? I am completely wrong once again.
+
+The complete range of the nested mmus isn't about the value
+supplied by KVM_VM_TYPE_ARM_IPA_SIZE. Instead it is the PARange exposed
+to the guest. That's because the guest hypervisor is allowed to expose
+whatever memory map it likes to its nested guests, as long as it is
+within the guest's PARange. This is explained clearly in
+init_nested_s2_mmu().
+
+Now the PARange exposed to guests should be much larger than 40bits. On
+the neoverse-n2 it should be 48bits (256TB), therefore the iterations
+required for each unmapping would be 256x:
+
+262144  (4KB pages,  unmapping 1GB per iteration)
+8388608 (16KB pages, unmapping 32MB per iteration)
+524288  (64KB pages, unmapping 512MB per iteration)
+
+I think these numbers match the hang time Shuai have shown.
+
+Just to demonstrate the difference I have tried manually limiting
+kvm_ipa_limit to 40, and tested with software emulation. Before the
+manual change a kvm_nested_s2_unmap() finished after 42 seconds, after
+limiting kvm_ipa_limit kvm_nested_s2_unmap() can finish in less than a
+second.
+
+With this, I think there aren't other underlying issues, it just is that
+slow unfortunately..
+
+Thanks,
+Wei-Lin Chang
+
+> Could you please have a look?
+> 
+> 	M.
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
