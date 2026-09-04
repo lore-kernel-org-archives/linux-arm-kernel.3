@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64049C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 03:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2B5C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 04:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puQU8kxmxcVlZJ33kJImb3eTEgEbDYI/ctH1clNKuRE=; b=MHWy069X9xiaciF2OjJPXbr5AL
-	MQ8NJSI7LwyvnBiqNJYXBli6aD7UUhjTlURV83lbx1UBtYI66wfk3ybXBo+oYJWtrMUlQzXqkISGa
-	rU+vcrus3dYA/huZ4olG1M9HYXE9+MNEKtrApY/UrmSn/FURPOebJYIa1a/1r1ABGFD2Y2q/z1SIJ
-	GVQFcQNC9XLtxhlCPMlVgkuSPjgihkIKUDTkNULs9U5E4waJepZb7IfMFnrtG150tK+U4saeFOk7p
-	cA8HRUB/y9Gd+RdEjjThcMYMibk+kF1lh1XGTCb8vWYu/i+IF3DPW9wkILpMcoyOH0cA7FG5XYp+P
-	nfTVCvUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4fxf8J4OmCFyk0Iv5TozrZp37SHzY+6D8S5rOoPdJqQ=; b=pwXB16SQYrR5Tx1PTjT6Yausxd
+	bhZ7Fv4zXoCPHBhSTSZOr6cRM43vUojSLYJJo/Ufy25qw6tUjvk0gULdkUL9oCDzLIJFGopDvuJYP
+	SVNa53TFCVXVyicKgZYgpQAB+Ba9mUKVDPXs6GclerK1oJ9JnM6pZgaAJAxxnAC6ibYdduP1g7Eh7
+	SbvJy1KxEfnLwBkK+dfTa8RWRCCmf1NZlkjSttyun2YCGTtK1vDLJZornbfQcr5oKguwh8uCoM8l9
+	E0bKCIo6U2k5j2KHDGxI4rGkVKn6GgBjLxNuqJuCLp/D0Zg5pWzha7G/WNA8qKGm3DnUFZ8pxw1w7
+	P/RsmnNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KlG-00000000wJK-0GFR;
-	Fri, 04 Sep 2026 03:38:42 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1x2LPB-00000000xc8-3POD;
+	Fri, 04 Sep 2026 04:19:57 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2KlC-00000000wIg-1ZWY
+	id 1x2LP9-00000000xbk-006I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 03:38:40 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3719A40E016C;
-	Fri,  4 Sep 2026 03:38:19 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id OunsccZEpS6a; Fri,  4 Sep 2026 03:38:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1788493089; bh=puQU8kxmxcVlZJ33kJImb3eTEgEbDYI/ctH1clNKuRE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z7s8VEGGVGNdr03uNrd96I2wtGpHKZ8FXvGtwCm89Igi4AoWxSUuxBOrt55qH/wme
-	 52QFiFEO6iavP5aJOq+MTUekz191tC7puYD38DuCcad3FeKhHiORwKjNcQMfxfa1cr
-	 HM4gnLJMn5YfYrDMjH9Tb/GVT2FwhakvbHyMbY9+7qjx+TOyLt+2WrWrwhZAZv/852
-	 /aJAdiXktBL0Ikd/DmOOukjgL8qUDSn0O91/wZhHs1rOLQrqmuI0EZjdJAcz2zPBnI
-	 53feFWzvRaLp0TQQFlEmtz/zzjkOmh6Xgu4iaXfntnUzUnQQLczfNKEZOoLZ+NIoUa
-	 LHX7+Z3h20SzwOU5EmVrwwOv9A3J4cgeXg1AGEn+IlCO9mTNFa3E+h6zN4qxmW9ncr
-	 NcITqx+cfbmv186YVAE6NiV/JU+PmiBr+kQ/+BkYFNJYzL14OnYrvZ7Ac8sCSU754E
-	 PLXGFwKF8o9Ed46XzzqKn3ZD7D4dm68vL2ZRKjBKdbkV0sU3EQ9HLz2SOZWNCbL2te
-	 lu8/AayQg8Pao0P9DUeq//3NP6ZZjCakudWlrisMUaLoTUmmLNQ7HjxuFtYgpPEq/D
-	 HcX8x6MS3hGNC2tWKKHlEVvqOtMXbl9UVuyZhfyDbd67U8GXDRUsULJjwkx332iRze
-	 Fht+vggHmVFBILqhx/V0d+Oc=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 8CBD240E027F;
-	Fri,  4 Sep 2026 03:37:54 +0000 (UTC)
-Date: Thu, 3 Sep 2026 20:37:51 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Reinette Chatre <reinette.chatre@intel.com>
-Cc: Ben Horgan <ben.horgan@arm.com>, x86@kernel.org, james.morse@arm.com,
-	fenghuay@nvidia.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, tglx@linutronix.de,
-	mingo@redhat.com, dave.hansen@linux.intel.com, hpa@zytor.com,
-	corbet@lwn.net, linux-doc@vger.kernel.org, dave.martin@arm.com
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-Message-ID: <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
-References: <20260709093111.367851-1-ben.horgan@arm.com>
- <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
- <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
+	Fri, 04 Sep 2026 04:19:56 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-398b1e63c49so1634803a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 21:19:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788495594; x=1789100394; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4fxf8J4OmCFyk0Iv5TozrZp37SHzY+6D8S5rOoPdJqQ=;
+        b=TbIYuMZCxrmt87N3n6PBPmUViJYd0xG2PhqaCA4moPbu6kxANorileudZX88sL6sa/
+         pr/nWFV7FqI2/OefKdso1OKg7bQVbu3/GwBMUv0NAZd+ZzOeowDe9zSyJv8dK0OZnG54
+         8CJN/iAKwAb3+/WR6ty7UEwjLlxQPHAyBMQmxAcHLq+USODxSXKawKtb2qK3n8Rl4D19
+         8xncGVY4pvscwmAcGLcvVd4cRp6lw57dBu6iMfNXki7YPXzXoDw41j70tRmfMZpD753k
+         6HbWDD0E2TVk8p9hBr3J63j3psB8DE6STL309zI3VoIGtsBymCoImeSSQmzHcIeYdFq2
+         40GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788495594; x=1789100394;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4fxf8J4OmCFyk0Iv5TozrZp37SHzY+6D8S5rOoPdJqQ=;
+        b=OZbFzU6CiMDqOkwioyfC23YqHsZHBxlgUamNnh45Gfws4L1s7iEUXfFYT2HnBcGLe6
+         OWQ0cDha5bX2JiPyDMH26bLToHlfMtbiQfmN5gPFwYbLxmbBrEtoJw4QVXmLu5+aNHj8
+         LrWSklEWOhtNOLSTlGTY9o17wKRGDyvOH6JwI1c9FjOX1HITwPEjhszxP26VwUkUDYmL
+         fG5zy07G8owvNfFyQWdPVZo9VuX18uqjaBgbiCLKXm9upNq17pLflH4Yz4efL2Ok1xiu
+         17TRu0FT36RsrX38eIfHDU0LYFgY9YUHD9xYTeOrQ2aRt1BPEGJEoOJI+dUrPwl+gMwa
+         ZX6A==
+X-Forwarded-Encrypted: i=1; AKwUvBxaCIuhH423ziJ9h68jkXof2QSO5WkLMoKjUpOSVvohj4O+z6wY53kkZyeUUXdFYDYnTp3juwvr9ksg5EpZYXjs@lists.infradead.org
+X-Gm-Message-State: AFuF++l8QOtuA/URjIVuGmi40hrxqDMtJxlxF23Ny4kGN24IIyK/QXaF
+	QvL9DonYAjAcTtmCjkxgVM3805tKT4pR69pImwrbZRRVO01k6BhURyN7
+X-Gm-Gg: AYBFou3RDYdaq2COALt5C3/UPpF9dey2lGwy5BdOr3g6EK9+7xMJIV+8q2On60Snt+S
+	+iWJoOZCEH7eafyQsT9h1B/g1mg7r4rTIc2FA4ZuAF66p0Niy7DSfGa3Ma6jS144dkxpzsSk0nM
+	xw0QSsE2wLi5A1YwpbOgmwR/gOUIiRYIb0QC6kmbmau++HipRcsNuK4KXULGT2pGAPbp8ZwY+AU
+	Ebko6S2Y0JhJWAkS0UFQblLfM9GiZXRfk6wFg4SvMTxH05F71NpEb/GTTRpdWxANoMFUC+XnsV7
+	Dr+TzRhywb8s8X2AQrN2kD+I49tIufLvJA1w1I2AhDMdyeeS+XUcnEvcHG/3Vv5rdRHQyF9OkEA
+	79CRf8Sb3XgHz6ElnlCsLCgbgP2owdXZzTpmLIqlEE+mrzxiwBA0ly2y3gnlJHreicRtoQvayhZ
+	ZQjcigO+++Xao9zC5ZB6FsBjzFuDNUx3/4OTjuabXZ9Sc6q0mxRXAne5IiSrw82kbZubN6zDJR5
+	CvqverW8HX6qZYCZGbqVsELpLL1jSBVCtBspMjCA73pBH6g81KYVpI1B0+Feb+pnZw8nuqCAPws
+	qXVPoggg4DA=
+X-Received: by 2002:a17:90b:5745:b0:396:669c:b5f6 with SMTP id 98e67ed59e1d1-39b0803accdmr11317552a91.12.1788495593587;
+        Thu, 03 Sep 2026 21:19:53 -0700 (PDT)
+Received: from workstation ([2401:4900:8902:9774:f2e9:38cc:6b1d:1764])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14324356931sm5424299c88.4.2026.09.03.21.19.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 21:19:53 -0700 (PDT)
+From: tspamiitesh@gmail.com
+To: suzuki.poulose@arm.com
+Cc: mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Amiitesh TSP <tspamiitesh@gmail.com>
+Subject: [PATCH] docs: fix typos in Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+Date: Fri,  4 Sep 2026 09:49:42 +0530
+Message-ID: <20260904041942.150054-1-tspamiitesh@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_203838_589797_72EF5349 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_211955_066500_BFBA5D5B 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,18 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:40:48AM -0700, Reinette Chatre wrote:
-> Could you please consider this series for inclusion during this cycle? It applies cleanly on
-> top of v7.3-rc1.
-> 
-> Please do let us know if you have a preference for how changes touching all parts
-> of resctrl (filesystem, x86, Arm) should be handled.
+From: Amiitesh TSP <tspamiitesh@gmail.com>
 
-Lemme have a look.
+Fix typos in the CoreSight ETM3x sysfs ABI description file.
+The errors were detected using the hunspell spellchecker and with manual
+verification.
 
+Signed-off-by: Amiitesh TSP <tspamiitesh@gmail.com>
+---
+ Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+index 245c322c91f1..a2e6079ff01e 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+@@ -2,9 +2,9 @@ What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/enable_source
+ Date:		November 2014
+ KernelVersion:	3.19
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+-Description:	(RW) Enable/disable tracing on this specific trace entiry.
++Description:	(RW) Enable/disable tracing on this specific trace entry.
+ 		Enabling a source implies the source has been configured
+-		properly and a sink has been identidifed for it.  The path
++		properly and a sink has been indentified for it.  The path
+ 		of coresight components linking the source to the sink is
+ 		configured and managed automatically by the coresight framework.
+ 
 -- 
-Regards/Gruss,
-    Boris.
+2.55.0
 
-https://people.kernel.org/tglx/notes-about-netiquette
 
