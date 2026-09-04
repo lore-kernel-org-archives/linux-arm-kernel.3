@@ -4,91 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D55C79F83
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A971FC79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k15hnN7udmpZanH1BWHeiOYv5uhgOD9CWICtD7gksog=; b=EhngSMaAd89Tf5BlPMSrg9V9HV
-	snd2QcX70ehVevJUDj+etJUTnBRJQa70hpKvk/ZuTged/8Pf8Lb3ymv2NOFP1UwyB/jn+PKHBwsJ3
-	N5fT1qVZztE3kPZ4E+vgM6zk913hw1TMX6zX2PAyvxWUr9wPJnTgbldaDK32dU/kNj8aLzQF9NOMF
-	KbT+eMeK7kBKZZ9g80bD93wpzxD3gicwSZhGE7/Tl8g9R2irQ/qtV2nRB6nEe+qODAI8N8ZRvTMcE
-	EfJGFXYBuFS2vsU/Wcx/pk6f9GfZLMIMVDF9ttbU8BT31a/VZL6LoghuDk5pZhtX+VwwrIuUuiNOJ
-	MuKrGRTw==;
+	bh=3ivxLTeJMdwaBErkIMwQ7kJuBUP7ccK7B1jti5UgO6c=; b=q6iPMWTxaqWQGBy1i6vVGNLxdI
+	prlHgCvemivrRgTU+16aZrny8U1L3PjLeeuFZrhXiDYxuUQlsgcCiLWTyODB6+zIKmLkVT73oG71V
+	uNYypz8kMiE1ENjwvl1QX5e4rqruyQ92ycAc6mGYwxqwUB2x1Fsl8s4B3A5YLWA++8wbW3gzEKqOR
+	hD+11Nr6Djs8yt492RrS5rZnQtvjU0ltaVLyUDAmZx9FeWYuCE2bFjyIqjGOHg1n4WZUmIJJSEYFx
+	QtZftNAOK3s43XKB+7gMZwkYBW+ZGFDK5NOm57YXAsrVMHMuEwgCj61fD1d2NaxnkuwddpLeB0eky
+	8Xc7OKNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SWU-00000001xki-3nXo;
-	Fri, 04 Sep 2026 11:55:58 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1x2SWQ-00000001xjJ-3KSs;
+	Fri, 04 Sep 2026 11:55:54 +0000
+Received: from mail-norwayeastazon11013070.outbound.protection.outlook.com ([40.107.159.70] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SWQ-00000001xis-0tYt
+	id 1x2SWN-00000001xht-21go
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 11:55:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788522954; x=1820058954;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SQpI4I09fd14R+BxKv83yrD2WKM66SRsC9Z6WdfEhNU=;
-  b=FBD7niyFGUBvRR/kfy0GHYlsX6l5j/utPRm7GtmTSxsLgnDQzURE2w3S
-   l6y0aCsOufuBt4hj0L5pooOi31DTXaAcGurouEN1aiBPf6bNJtDc5c1sF
-   J7EW8mCE3kOBzUHl9ZSy5On4RRGSmxYmGFNL3i5VbteofRdWBJf6Gjqq+
-   FYaiGI3FoZAq5z044fvQKg5PuvwYQNYv2DW5cCsxgeMT7kALPmRXaJUxk
-   9jh6Rww3Wo/a7Ot4XY6gX1CG4x5QtAcunwO+tBTU210E6rHHJp/4WPktT
-   5AUZ6vQ4Qx46+ZWR/48wiU1XQW9RhJCvy/Z3xSwclPtZYgK1b1USaAlwe
-   w==;
-X-CSE-ConnectionGUID: slP80BQIQauw0fwehNfZdQ==
-X-CSE-MsgGUID: ZIV0AIx6SwSG48Rfe0ICmg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="100381148"
-X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
-   d="scan'208";a="100381148"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 04:55:53 -0700
-X-CSE-ConnectionGUID: 0yJ5hwEYTn+ZBPfL4jfyNQ==
-X-CSE-MsgGUID: DK4Sk+7SSmC/yGDtit4SKA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
-   d="scan'208";a="273548667"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 04:55:47 -0700
-Date: Fri, 4 Sep 2026 14:55:45 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
-	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 08/13] gpio: regmap: support write_data_after_dir and
- girq
-Message-ID: <apqxwRgi-uVKkOpr@ashevche-desk.local>
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
- <20260904-cv75-v5-v6-8-e918514cb3b1@ambarella.com>
+	Fri, 04 Sep 2026 11:55:53 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=YQCzQFfli/ieU8DX4bL37RxONYbptWh8BN6Ks+8J2+Z2mYY51lhxCyNxX10gALCGT/3xZlIyKvqQiV+V+fQHpb75BEl9LJ/zNNBE2kUAyZh/u5Q8VnK+IzhOp08Qo3oGXtJBnicpuFas8yp+DnVUtuxgKa5Yphd69T2csCSvBXtK1s+Fj3IWvPXu5pgUQxJ/Go8Zjzf91XAdz/TtOwLm8O0rgsso5Mvq0c0zngxyDGjONyoXQPFgfXq8Yw4SmQcgud83h8X+VyCSYC9ybXAaGIvS/K87pTsVQmqmdkkvx7XKEKNv9K9D1efoUjWhusVM4LddmBMQCbU0J3SmPPIg0Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ivxLTeJMdwaBErkIMwQ7kJuBUP7ccK7B1jti5UgO6c=;
+ b=dFbPz7SG/UIOW4smhDmfEbv98PdDt8Li/jAhmfO1Z51/ba49bB/6XnB6dDD292NR7vtIIuls2+4SmPgWZZ1Oxdxtjxn8yPaZxn6CkIusE/M4bUVzzyH8OW3jo8SbUR3JHm2ef+9gjSNPg7OkCvW/rIU0KupFeD0q8cxo5KBaHBFy2/NNJ6DOaVjXYkcWa0P+iO53zvctavl0TTYFIcN5TlK+2amByhCFpk5KHbsUVeZjl82ActA95h7yKQm7rWST/Eq4krZGyDnQZtpWJxJTYSLD02LxIWBITzCoINSXNq+VLNevep2HfE+DZEmnc27wz9dq+wH6PuVl0TB6C6GZ2w==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ivxLTeJMdwaBErkIMwQ7kJuBUP7ccK7B1jti5UgO6c=;
+ b=ULgQuDEINScV0C2W+dyR4vvOAHuAQHrDdxCnSt3q8fcmyv79baqHjqj/K4DzUXw36Z3rPo1DTOdaMXWbCQq0PeKWi+wdbVxQJW/cjWDPVL4CiXQUwKognlkCtPrDoyeZ1HGObbyFSrPOprmbuqwJdDj8wYtWcugrzmzP6qiJ4Y8=
+Received: from AS4PR10CA0024.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::16)
+ by PAWPR08MB9006.eurprd08.prod.outlook.com (2603:10a6:102:33f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:55:45 +0000
+Received: from AM3PEPF0000A79B.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d8:cafe::56) by AS4PR10CA0024.outlook.office365.com
+ (2603:10a6:20b:5d8::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Fri, 4
+ Sep 2026 11:55:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF0000A79B.mail.protection.outlook.com (10.167.16.106) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Fri, 4 Sep 2026 11:55:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bBQt2NE7xgvEgyzJNRmuVTfuMr3XzcIys/em/9rsf5pml0NNLFdNq4oEpPBew2YS+e7/koscLy/EgD+3L38LmkdQY/2zIxTaeCGB7g/dLiD71Dcf2MpoLkevLsZvaUI/iLpuGTcvDDZ/k1jhJCneTBfRIxr0+CGXX0z2R6pv0z1gTozNF12nvAXnBMyqkej1QEYG24JwG3nhYKPfYNFgP4uvWvlifR4lMfWYn7CIrP81b1UeLuZRDf+yuT0KXRYsXRFlFrzwvIGzSngjbWz7o7bkG/QdzqHqdLyKrS+0MGbcSorOYD3pcPvi/1tsOGlOAhKxDIrIAb2fwh7nOJBgAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3ivxLTeJMdwaBErkIMwQ7kJuBUP7ccK7B1jti5UgO6c=;
+ b=yuTcHRYBTHCiO4cbubVXSNkv9uXSWC/PFgDjw37a/JmdcMJh1j7LPCjwWIi4j8mKWQetDBjswid1VlVeCV0d3sk2FCsB3pnEw6sX8SlVCkfIKzyb3+jSDwCfCkYQVlSz46pcXvnCGeCLWI5zxbPGeEsYzxF6kqf4CsSVkKZCaweZq8eTIC7WBdY8JMr3vrkcB/JfOwMfqibLG+ZkmSKxAVTVAEcFJVLd1rACzrnGKWTvkyQT3E4Qz5tBzavxTSp5iDxTwWkFkvzdwhslcgE3hNG+6O9+k6XYuETgSwV0IGBrSRe1k5nTPugXmjaBy8aOCN/5QsqZ3QWhtZl96ly9iA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3ivxLTeJMdwaBErkIMwQ7kJuBUP7ccK7B1jti5UgO6c=;
+ b=ULgQuDEINScV0C2W+dyR4vvOAHuAQHrDdxCnSt3q8fcmyv79baqHjqj/K4DzUXw36Z3rPo1DTOdaMXWbCQq0PeKWi+wdbVxQJW/cjWDPVL4CiXQUwKognlkCtPrDoyeZ1HGObbyFSrPOprmbuqwJdDj8wYtWcugrzmzP6qiJ4Y8=
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
+ by AS2PR08MB10207.eurprd08.prod.outlook.com (2603:10a6:20b:647::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:55:07 +0000
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
+ 11:55:07 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v6 41/49] KVM: selftests: Add VGICv5 NR_IRQS attribute tests
+Thread-Topic: [PATCH v6 41/49] KVM: selftests: Add VGICv5 NR_IRQS attribute
+ tests
+Thread-Index: AQHdPGQ6cOlw5PezVkC0siqDrVZd5w==
+Date: Fri, 4 Sep 2026 11:55:07 +0000
+Message-ID: <20260904113404.4051341-42-sascha.bischoff@arm.com>
+References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|AS2PR08MB10207:EE_|AM3PEPF0000A79B:EE_|PAWPR08MB9006:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5a8815d9-de36-4ace-e46f-08df0a7b7372
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|10067099003|6133799003|22082099003|11063799006|56012099006|18002099003|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: a/mDIN9cWqhM4Hv6gVYU2R4zRi4wrmqBZH1Rc2+4u39f5YWYxn2pG+jVc8FMxTbA7DXaUoI8x7dplSGJ2ZC7gXBOB+rTPMqAUl9yIDrO6TLwHqKWVN2SyUIyWTCuU15cwIvsaTZXR5bfHR0Ds1TxSrSQSGWnV58ORF61T4iJfm08xnGk8oHk8+GMwi4GyWqdXguaiYvPr07fMknPcuqRPUYH1IlsNpsfnEFLlQvX6MEYcUm5dABoA6q9fUKPjrh05/IiYkkJ/3QoefZvvpfIPFP0ZAG3cup0NV8DvX78AjlgkTiFHvUqDvv1HKUlBedUR7ns2Qjaw9SJcxBPreMB0HzXj6fxtMQJJMuyMVOj7Jd2Kyt6xXSNx2N0GVH7DUvqm4jhbqNrshgjvL0T89IjqhK8ywHeUqNavRpgowOQRzyjRL31o3PvrJP0EifYFOd06PI7wtNWv5iMjXqfjnbIwlPWJCvRgjQqf3wCgWnLVtF5p4zWFerLqfnrCIH8qlzU/mVwqS24IcfZGqUhC1MhwxWMu0CKEydKSFlTFIFtwUGFWtZps9x5pzVZX7SmgLqUcEYjLeHitnNC00toGDMSM8XSddb5lVEHlr+eEIepv/i00Hv55p+lTFhQE0NLo6ZmR+HC4jtieoKB5QF1Z7+s+n0IuApG21GKF5C+yG4xfvAiiLvLvztC3c5CRB9DD+gyoYkkZbeKNbJha69fAgxGZ6aTdqWDQGnLnq/jes8DBLc=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(10067099003)(6133799003)(22082099003)(11063799006)(56012099006)(18002099003)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904-cv75-v5-v6-8-e918514cb3b1@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Exchange-RoutingPolicyChecked: kjkEeOs6Y10Jtg/sH/0bNtFxzTohYiiAYpyLVWdPs294NxgyeHkxPmA3VGbZayn5G2dBMU78fRqv4JqaUXeXfKt32kEQC4GHkGAK/hZ4nxf/lPoqpaNIAI5177K3OFzC64ZSFwW5ifIPs5Wl774lTZIK0MHM1GTYkaIabuCOho3Hpa7TQBvaldst0Hn2of8S8YV39VXfTKIs4yNb9nr1i2YZle4NlbYUQ1OF8la7SC6O48bwx7vrw/D7b6TavHVyd9uRoS2Rf9g5I+w91tMUNlstWUJmgeCv7iJ4A4B3HWP/+sCcFe7SabytQiDZtMCvCE1pcCyHNZGgFFAi/62gAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10207
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A79B.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 6f1bbae4-e6fc-4f69-1127-08df0a7b5d63
+X-Microsoft-Antispam: BCL:0;ARA:13230040|30052699003|23010399003|36860700016|82310400026|376014|1800799024|35042699022|14060799003|56012099006|10067099003|11063799006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: hzYGRTR97uC187zT7xSvwL7uDXmIjA9027RBZ5WYuVYAJI1niGlWQnIo4izkqg6yjNg3RO850yPCU9jrSia6U6fgblV/3W8jWx5G1V+tNNfj+dj6lmnM0GhB/HZNeDyGce8pWbJFlHVJJEEzLM4thycD6frQzsSjRapLfbgfxiruRGryMybuxqfUcmbU5UWCs3zrdalWNWJbqkssJJA4IgHV0arSBH65WXTAC/CBFuHCzP5d8dLzjVC55MDiYMrl9lAz7knycezfGG49nFU32i3oqXT1SNFjf4Vzsrmgg+s7BrKimPkcLGI4dAvQGVR2ZFLg1CSEYaKd9+ET+cp6kWZdLnWcFej6ruwKO73HrTAH+H4e+GC54lA1W9hiZyOjZw75SvWEpjLpkmmF0fIar1xctDCJjfxUAC88KUFKfsyhaUpLnoBqrT3LrseXelRNssQJtj16WyDhBu9LIGD3KoWXyNGytgmSHdaPBNEU7n6q4U40rWvDzQBXNfb5D8tSO7IWcWHyPhER502UL65iUXVdI/iGgVa1x8FzqGRYcqiwuLrC4nnig1EYSI6hG8QLtmK2WM2VJVNAXZtlqX+SIhOOb16aT4mYeMizmDolf3Iqh8iMgHz5DA969fcNuL2SKZuOdQVitT+HwSQrwhW91c+7vQBMGMgVqfNnII+yCSk=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(30052699003)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(35042699022)(14060799003)(56012099006)(10067099003)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: jcf1m2XQBrqpOR8Pg9uvresJlhvX+6E0APjwzYe3ZJUqBt2UZ/Pm9ezz2TXE7Ar4BW12gKM7XtG/JjrouOS3ciW9QcwbM3tvzA13xtYX8T8iQHY9sUmRgmvyskwQfJge+Y0/Rr97eRW7DuvAlgqNv3HP6pgNkemzaggE3Atdx6l5tXsVKAXB5coOv1ip7/LM1XnWKs6JG9kJ281N8agPtoN4u5ItJjrGzct+SBgB1NQ2GsLcIXIHAdyf0o6wwpzKicJrnWrI484UnI0iuHKnnAFNHItxXniLtudcPOFC33wcPffsol3b7Z+o/SFsn4+SBcXUJTJzWo/hlzmzcVtLNKea4zcP3sZkZWoMbpbXN9w5AL4Nt9lweLFoK2ydy/O96MgZsXu64Si8BpOYldEacAo5WGBRSz2yTKEBH8VcgjxUkPkYHNxMP5s+tnhVwMR7
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 11:55:44.3015
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a8815d9-de36-4ace-e46f-08df0a7b7372
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A79B.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_045554_289575_E9DB44E0 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20260904_045552_151590_7AA2145E 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +163,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 02:38:15PM +0800, Long Zhao via B4 Relay wrote:
+Add coverage for the VGICv5 NR_IRQS attribute. VGICv5 exposes a
+userspace-selectable SPI count, and KVM must reject values outside its
+supported range or values that would change the interrupt layout after
+it has been fixed.
 
-Thanks for this change, my comments below.
+Verify that the attribute defaults to zero before initialisation,
+rejects too few SPIs, non-32-aligned counts, and a 32-aligned count
+beyond the 1024-SPI maximum. Also verify that the maximum count is
+accepted and can be initialised, that the selected count is reported,
+that initialisation selects the default count, and that subsequent
+changes are rejected.
 
-> Add an optional write-after-direction-output quirk for controllers
-> that ignore data-register writes while a line is still configured as
-> input,
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ tools/testing/selftests/kvm/arm64/vgic_v5.c | 189 +++++++++++++++-----
+ 1 file changed, 141 insertions(+), 48 deletions(-)
 
-The chips that require this are buggy. Are you going to fix this HW in the next
-version of the SoC?
-
-> and allow drivers to pass an existing gpio_irq_chip through
-> gpio_regmap_register() so IRQ setup can stay with the caller.
-
-This needs to be in a separate update. Also we need to understand why
-it is required. The caller should be able to create the respective IRQ
-domain which is important.
-
-...
-
-> struct gpio_regmap {
->  	unsigned int reg_dir_out_base;
->  	unsigned long *fixed_direction_mask;
->  	unsigned long *fixed_direction_output;
-> +	bool write_data_after_dir;
-
-Is `pahole` happy with the layout?
-
->  #ifdef CONFIG_REGMAP_IRQ
->  	int regmap_irq_line;
-
-...
-
-> static int gpio_regmap_direction_output(struct gpio_chip *chip,
-
->  	gpio_regmap_set(chip, offset, value);
-
-^^^ (see below)
-
->  
-> -	return gpio_regmap_set_direction(chip, offset, true);
-> +	ret = gpio_regmap_set_direction(chip, offset, true);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Some controllers ignore data writes while the line is still an input. */
-> +	if (gpio->write_data_after_dir)
-> +		gpio_regmap_set(chip, offset, value);
-
-This can lead to two writes to the same register, the above needs to be
-conditional as well.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/se=
+lftests/kvm/arm64/vgic_v5.c
+index 51ea2fe7141ad..bbcf0b5d2b22e 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+@@ -13,6 +13,8 @@
+ #include "vgic.h"
+=20
+ #define NR_VCPUS		1
++#define VGIC_V5_DEFAULT_NR_SPIS	32
++#define VGIC_V5_MAX_NR_SPIS	BIT(10)
+=20
+ static u64 max_phys_size;
+=20
+@@ -27,6 +29,63 @@ struct vm_gic {
+ #define GUEST_CMD_IS_AWAKE	12
+ #define GUEST_CMD_IS_READY	13
+=20
++static void guest_irq_handler(struct ex_regs *regs)
++{
++	bool valid;
++	u32 hwirq;
++	u64 ia;
++	static int count;
++
++	/*
++	 * We have pending interrupts. Should never actually enter WFI
++	 * here!
++	 */
++	wfi();
++	GUEST_SYNC(GUEST_CMD_IS_AWAKE);
++
++	ia =3D gicr_insn(CDIA);
++	valid =3D GICV5_GICR_CDIA_VALID(ia);
++
++	GUEST_SYNC(GUEST_CMD_IRQ_CDIA);
++
++	if (!valid)
++		return;
++
++	gsb_ack();
++	isb();
++
++	hwirq =3D FIELD_GET(GICV5_GICR_CDIA_INTID, ia);
++
++	gic_insn(hwirq, CDDI);
++	gic_insn(0, CDEOI);
++
++	GUEST_SYNC(GUEST_CMD_IRQ_DIEOI);
++
++	if (++count >=3D 2)
++		GUEST_DONE();
++
++	/* Ask for the next interrupt to be injected */
++	GUEST_SYNC(GUEST_CMD_IS_READY);
++}
++
++static void guest_code(void)
++{
++	local_irq_disable();
++
++	gicv5_cpu_enable_interrupts();
++	local_irq_enable();
++
++	/* Enable the SW_PPI (3) */
++	write_sysreg_s(BIT_ULL(3), SYS_ICC_PPI_ENABLER0_EL1);
++
++	/* Ask for the first interrupt to be injected */
++	GUEST_SYNC(GUEST_CMD_IS_READY);
++
++	/* Loop forever waiting for interrupts */
++	for (;;)
++		cpu_relax();
++}
++
+ /* we don't want to assert on run execution, hence that helper */
+ static int run_vcpu(struct kvm_vcpu *vcpu)
+ {
+@@ -51,7 +110,7 @@ static const struct vgic_region_attr gic_v5_irs_region =
+=3D {
+ 	.alignment =3D GICV5_IRS_ALIGN,
+ };
+=20
+-static void test_vgic_v5_create(void)
++static void test_vgic_v5_addr_attrs(void)
+ {
+ 	struct kvm_vcpu *vcpu;
+ 	struct vm_gic v;
+@@ -125,60 +184,91 @@ static void test_vgic_v5_create(void)
+ 	vm_gic_destroy(&v);
+ }
+=20
+-static void guest_irq_handler(struct ex_regs *regs)
++static void test_vgic_v5_nr_irqs_attrs(void)
+ {
+-	bool valid;
+-	u32 hwirq;
+-	u64 ia;
+-	static int count;
+-
+-	/*
+-	 * We have pending interrupts. Should never actually enter WFI
+-	 * here!
+-	 */
+-	wfi();
+-	GUEST_SYNC(GUEST_CMD_IS_AWAKE);
+-
+-	ia =3D gicr_insn(CDIA);
+-	valid =3D GICV5_GICR_CDIA_VALID(ia);
+-
+-	GUEST_SYNC(GUEST_CMD_IRQ_CDIA);
+-
+-	if (!valid)
+-		return;
+-
+-	gsb_ack();
+-	isb();
+-
+-	hwirq =3D FIELD_GET(GICV5_GICR_CDIA_INTID, ia);
+-
+-	gic_insn(hwirq, CDDI);
+-	gic_insn(0, CDEOI);
++	struct kvm_vcpu *vcpu;
++	struct vm_gic v;
++	u32 nr_irqs;
++	int ret;
+=20
+-	GUEST_SYNC(GUEST_CMD_IRQ_DIEOI);
++	v.gic_dev_type =3D KVM_DEV_TYPE_ARM_VGIC_V5;
++	v.vm =3D __vm_create(VM_SHAPE_DEFAULT, NR_VCPUS, 0);
++	v.gic_fd =3D kvm_create_device(v.vm, v.gic_dev_type);
+=20
+-	if (++count >=3D 2)
+-		GUEST_DONE();
++	/* Check existing group/attribute */
++	kvm_has_device_attr(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS, 0);
++
++	/* Before userspace sets NR_IRQS, no SPI count has been selected. */
++	nr_irqs =3D 0xbad;
++	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(!ret && nr_irqs =3D=3D 0, "GICv5 NR_IRQS defaults to 0 before=
+ init");
++
++	/* Too few SPIs */
++	nr_irqs =3D VGIC_V5_DEFAULT_NR_SPIS - 1;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 NR_IRQS below minimum");
++
++	/* Not a multiple of 32 */
++	nr_irqs =3D VGIC_V5_DEFAULT_NR_SPIS + 1;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 NR_IRQS not 32-aligned");
++
++	/* Larger than KVM's supported VGICv5 SPI count */
++	nr_irqs =3D VGIC_V5_MAX_NR_SPIS + 32;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(ret && errno =3D=3D EINVAL, "GICv5 NR_IRQS above maximum");
++
++	/* Valid custom SPI count */
++	nr_irqs =3D VGIC_V5_MAX_NR_SPIS;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(!ret, "GICv5 NR_IRQS accepts valid custom SPI count");
++
++	nr_irqs =3D 0xbad;
++	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(!ret && nr_irqs =3D=3D VGIC_V5_MAX_NR_SPIS,
++		    "GICv5 NR_IRQS returns SPI count only");
++
++	/* A second successful configuration attempt must be rejected. */
++	nr_irqs =3D VGIC_V5_DEFAULT_NR_SPIS;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(ret && errno =3D=3D EBUSY, "GICv5 NR_IRQS set twice");
++
++	/* The maximum supported count must also initialize successfully. */
++	vcpu =3D vm_vcpu_add(v.vm, 0, NULL);
++	TEST_ASSERT(vcpu, "Failed to create vCPU");
++	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
++			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
+=20
+-	/* Ask for the next interrupt to be injected */
+-	GUEST_SYNC(GUEST_CMD_IS_READY);
+-}
++	vm_gic_destroy(&v);
+=20
+-static void guest_code(void)
+-{
+-	local_irq_disable();
++	/* If userspace does not set NR_IRQS, init selects the default. */
++	v.vm =3D __vm_create(VM_SHAPE_DEFAULT, NR_VCPUS, 0);
++	v.gic_fd =3D kvm_create_device(v.vm, v.gic_dev_type);
++	vcpu =3D vm_vcpu_add(v.vm, 0, NULL);
++	TEST_ASSERT(vcpu, "Failed to create vCPU");
++	kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
++			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
+=20
+-	gicv5_cpu_enable_interrupts();
+-	local_irq_enable();
++	nr_irqs =3D 0xbad;
++	ret =3D __kvm_device_attr_get(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(!ret && nr_irqs =3D=3D VGIC_V5_DEFAULT_NR_SPIS,
++		    "GICv5 NR_IRQS defaults to 32 SPIs after init");
+=20
+-	/* Enable the SW_PPI (3) */
+-	write_sysreg_s(BIT_ULL(3), SYS_ICC_PPI_ENABLER0_EL1);
++	nr_irqs =3D VGIC_V5_DEFAULT_NR_SPIS * 2;
++	ret =3D __kvm_device_attr_set(v.gic_fd, KVM_DEV_ARM_VGIC_GRP_NR_IRQS,
++				    0, &nr_irqs);
++	TEST_ASSERT(ret && errno =3D=3D EBUSY, "GICv5 NR_IRQS set after init");
+=20
+-	/* Ask for the first interrupt to be injected */
+-	GUEST_SYNC(GUEST_CMD_IS_READY);
++	vm_gic_destroy(&v);
+=20
+-	/* Loop forever waiting for interrupts */
+-	while (1);
+ }
+=20
+ static void test_vgic_v5_ppis(u32 gic_dev_type)
+@@ -294,8 +384,11 @@ int test_kvm_device(u32 gic_dev_type)
+=20
+ void run_tests(u32 gic_dev_type)
+ {
+-	pr_info("Test VGICv5 Creation & Setup\n");
+-	test_vgic_v5_create();
++	pr_info("Test VGICv5 address attrs\n");
++	test_vgic_v5_addr_attrs();
++
++	pr_info("Test VGICv5 NR_IRQS attrs\n");
++	test_vgic_v5_nr_irqs_attrs();
+=20
+ 	pr_info("Test VGICv5 PPIs\n");
+ 	test_vgic_v5_ppis(gic_dev_type);
+--=20
+2.34.1
 
