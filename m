@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10337C79F88
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFE5C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=arK48Wth81d2Y94nIP47R0jEjI8YmCae+AZaxXPSbsE=; b=1UjSmCAJtqwcaf+pAlHCDL72Jx
-	BqzEWBn2gGI1n9+5EOtVihwmyj5DtV+Qi04BZg707lRwU+XSt4uOgvm0/Jk221cHrr4Gj2Dcu5qI6
-	4AYPI9AkjZoPH/y201BETxNCB/QjQyohLDkKffiFFS4gbiG8nnV+k0+TQE+XKPsucMdwETj1GUgA9
-	f7VXzx5F0USpHeeUwdHZZCxWy526qVm/XiVyRCb4MmwcmPNzDr74z4SmFd8suVQMcsVNc5pupuHk7
-	LnpP3dIG5Xr804vXFYYsQCcJqaFAQmtFuQg0RAb94Y8ZZTWKn16l2V+VroP3U9U65EOioTtjTdRvS
-	9HS8zL1A==;
+	bh=jdzEz/TBMgZ/l148KI1rFdEHwnFo1rB79eXMF1AFtbA=; b=M56oiE/mFZXo493FK7TFC0CkbY
+	GeKkX2h6zVEXIsW20tWtOAmJnwtQPAL5PnLDB98ML0x1TZ25cpuqjEwQcANU9BRdugUtyc0QPqVuY
+	0e4gLa/Z1TBdanvVGP+uLl4Vzx51PL5tRok/uK2F9giwSAUd5wvVJ2K+ESvcNijVRq2Jrnk+dNXhW
+	xrh/e2aLeQzzT+5mwl1R0gtVsHpX6BG6LTmZHrjpkajUSxGh6hVKIvZd7d12gS4Bh/MTwfgNLDeaC
+	tl+cH9nRAbDuhas4ZQrNhGfYDPaPSqjOcU2Kn4UnLoLblW5GET5MqiG1BYYmwJ4IWjkDJnkPlhYsk
+	CSdknNLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WJq-00000002bli-3nqU;
-	Fri, 04 Sep 2026 15:59:10 +0000
+	id 1x2WJr-00000002boH-3N3c;
+	Fri, 04 Sep 2026 15:59:11 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WJe-00000002bR9-2GZq;
-	Fri, 04 Sep 2026 15:59:00 +0000
+	id 1x2WJg-00000002bTI-2ozk;
+	Fri, 04 Sep 2026 15:59:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788537531;
-	bh=5biYHUgiVK09q5Z/FaZnJmBpPNku23Weol6v7oo8QhU=;
+	s=mail; t=1788537538;
+	bh=Pun6ZjnCACSM6H6YEIdyZa1UW6LNXui7X4S9jiGkUhs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oirU9K/uLoQaeH/MAO/dY/5E8nVVVfi4da1vHDF+UXvx8wcZbfSxGnqWrccXk+PrB
-	 f6ckbyvwa9sidbVZPWTeXObgAbFPREV3x0c9LNJ2dOSh8PME0mSglIAWYKsSqFsHaK
-	 1ZQZXaswJjJedRchHU9O33HcdO9fjEtsz6LsyxzVX+gtf9JhDg+kB0GyBWMAQTl/Xz
-	 ypS4hKEp6QsBTpJP7K5mEdi4y6o8+J/G9wo3fINHCl8kdQsHswqZmm1+VgNyvF6jfj
-	 4aOsGBfHI87L58AZ5fE8kCbXViSHPg3Eq0F0wy+1bbEbNnRwRj7KCdq0ZX21fUNTYq
-	 w0ye+E8/ExkKg==
+	b=FOHfBg3Wcd4a5qvlsw2+QCrb0I2mCg+E0NRQ+JSLGiA1AopWfTK85axxvJNOvKBFs
+	 TBqt6r4kxPlNXctL/SBXu5dY20/coBX5Uj+frMSm+VC8Cs6Crrv0oYW7V6d34D3Uas
+	 w0P9beWlHhHHeZCrs9WvJFPr50YqaNaSt+5qLq64NLqZH5DuT1Zs5xv7b6uCVxNIis
+	 OVG8IgkyTEybpwm44pAfAZuO/7m5YjUd80sReoA1m3dzfTw3IgAeuCiLnkmcXlMRFm
+	 oU20u1KSBaCBI09j3eXYSNzF2mcB5sJ/60KUCkhmrblgXXRZHM6ybeeyS4+m2MCwGO
+	 KE1HDCMJnyYhA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4028417E0FDB;
-	Fri, 04 Sep 2026 17:58:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71B9F17E092E;
+	Fri, 04 Sep 2026 17:58:57 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 04 Sep 2026 17:58:16 +0200
-Subject: [PATCH v6 05/27] dt-bindings: clock: mediatek: regroup MT8188
- dt-bindings into MT8186
+Date: Fri, 04 Sep 2026 17:58:21 +0200
+Subject: [PATCH v6 10/27] clk: mediatek: pll: Add BAR reset register
+ offsets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-mt8189-clocks-system-base-v6-5-5df247f56938@collabora.com>
+Message-Id: <20260904-mt8189-clocks-system-base-v6-10-5df247f56938@collabora.com>
 References: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
 In-Reply-To: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -65,19 +65,19 @@ To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
 Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>, 
+ Brian Masney <bmasney@redhat.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788537522; l=9313;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788537522; l=3030;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=5biYHUgiVK09q5Z/FaZnJmBpPNku23Weol6v7oo8QhU=;
- b=WIlmlnH/+SRPz5U78ztsRhUY5j9JxVS4kGXTxUeNkZK1dOGkSUk9JCCt2NoktuwyTEPDdJadv
- ihddbZL3u1OBbi11LOvGQ4QFu5nHRZ+Cd9N4YFixwpDFbAm8fYljsYH
+ bh=Pun6ZjnCACSM6H6YEIdyZa1UW6LNXui7X4S9jiGkUhs=;
+ b=iNjRtQ8bEKVg9Fb/PcDszQrR4yYwUcrp0+hvXza6bRDxWpUaPCSTaoHKogN2GQypkBZaLXxbZ
+ sH00hPj3K3tARCpEysbABjvfNKhbAGjcrnRSp8aYNChoTUqv9hwCQ4G
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_085858_754005_A44F566C 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20260904_085901_072867_8AB34A09 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,289 +92,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Regroup the MT8188 clock and system clock dt-bindings into MT8186 ones
-to ease maintainability and have common files for several currently
-supported SoC or new future ones, that have the same kind of clock
-controller design.
+Currently, the register offset to handle BAR reset, for PLLs that
+support it, is hardcoded to CON0.
+On MT8189 SoC, there are separate status, set and clr registers to
+handle this, so differents offsets are needed.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Add the new fields for offsets and addresses to the MTK PLL data
+structure and modify mtk_clk_register_pll_ops function to compute the
+new register addresses so they are available for clock operation usage.
+
+Also, replace reset BAR address computing by its computed address
+from MTK PLL data structure in prepare/unprepare callbacks.
+
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../bindings/clock/mediatek,mt8186-clock.yaml      | 51 +++++++++++-
- .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |  6 +-
- .../bindings/clock/mediatek,mt8188-clock.yaml      | 93 ----------------------
- .../bindings/clock/mediatek,mt8188-sys-clock.yaml  | 58 --------------
- 4 files changed, 55 insertions(+), 153 deletions(-)
+ drivers/clk/mediatek/clk-pll.c | 18 ++++++++++++++----
+ drivers/clk/mediatek/clk-pll.h |  6 ++++++
+ 2 files changed, 20 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-index 756b937bb7c4..6a6ce343fab0 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/clock/mediatek,mt8186-clock.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
+index ee478bc64085..4b0f7e2bfc5a 100644
+--- a/drivers/clk/mediatek/clk-pll.c
++++ b/drivers/clk/mediatek/clk-pll.c
+@@ -249,9 +249,9 @@ int mtk_pll_prepare(struct clk_hw *hw)
+ 	udelay(20);
  
--title: MediaTek Functional Clock Controller for MT8186
-+title: MediaTek Functional Clock Controller for Mediatek SoCs
+ 	if (pll->data->flags & HAVE_RST_BAR) {
+-		r = readl(pll->base_addr + REG_CON0);
++		r = readl(pll->rst_bar_addr);
+ 		r |= pll->data->rst_bar_mask;
+-		writel(r, pll->base_addr + REG_CON0);
++		writel(r, pll->rst_bar_addr);
+ 	}
  
- maintainers:
-   - Chun-Jie Chen <chun-jie.chen@mediatek.com>
-@@ -35,6 +35,29 @@ properties:
-           - mediatek,mt8186-vdecsys
-           - mediatek,mt8186-vencsys
-           - mediatek,mt8186-wpesys
-+          - mediatek,mt8188-adsp-audio26m
-+          - mediatek,mt8188-camsys
-+          - mediatek,mt8188-camsys-rawa
-+          - mediatek,mt8188-camsys-rawb
-+          - mediatek,mt8188-camsys-yuva
-+          - mediatek,mt8188-camsys-yuvb
-+          - mediatek,mt8188-ccusys
-+          - mediatek,mt8188-imgsys
-+          - mediatek,mt8188-imgsys-wpe1
-+          - mediatek,mt8188-imgsys-wpe2
-+          - mediatek,mt8188-imgsys-wpe3
-+          - mediatek,mt8188-imgsys1-dip-nr
-+          - mediatek,mt8188-imgsys1-dip-top
-+          - mediatek,mt8188-imp-iic-wrap-c
-+          - mediatek,mt8188-imp-iic-wrap-en
-+          - mediatek,mt8188-imp-iic-wrap-w
-+          - mediatek,mt8188-ipesys
-+          - mediatek,mt8188-mfgcfg
-+          - mediatek,mt8188-vdecsys
-+          - mediatek,mt8188-vdecsys-soc
-+          - mediatek,mt8188-vencsys
-+          - mediatek,mt8188-wpesys
-+          - mediatek,mt8188-wpesys-vpp0
+ 	return 0;
+@@ -263,9 +263,9 @@ void mtk_pll_unprepare(struct clk_hw *hw)
+ 	u32 r;
  
-   reg:
-     maxItems: 1
-@@ -42,11 +65,37 @@ properties:
-   '#clock-cells':
-     const: 1
+ 	if (pll->data->flags & HAVE_RST_BAR) {
+-		r = readl(pll->base_addr + REG_CON0);
++		r = readl(pll->rst_bar_addr);
+ 		r &= ~pll->data->rst_bar_mask;
+-		writel(r, pll->base_addr + REG_CON0);
++		writel(r, pll->rst_bar_addr);
+ 	}
  
-+  '#reset-cells':
-+    const: 1
+ 	__mtk_pll_tuner_disable(pll);
+@@ -352,6 +352,16 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+ 		pll->en_set_addr = base + data->en_set_reg;
+ 	if (data->en_clr_reg)
+ 		pll->en_clr_addr = base + data->en_clr_reg;
 +
- required:
-   - compatible
-   - reg
-   - '#clock-cells'
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - mediatek,mt8188-camsys-rawa
-+              - mediatek,mt8188-camsys-rawb
-+              - mediatek,mt8188-camsys-yuva
-+              - mediatek,mt8188-camsys-yuvb
-+              - mediatek,mt8188-imgsys-wpe1
-+              - mediatek,mt8188-imgsys-wpe2
-+              - mediatek,mt8188-imgsys-wpe3
-+              - mediatek,mt8188-imgsys1-dip-nr
-+              - mediatek,mt8188-imgsys1-dip-top
-+              - mediatek,mt8188-ipesys
-+    then:
-+      required:
-+        - '#reset-cells'
-+    else:
-+      properties:
-+        '#reset-cells': false
++	if (data->rst_bar_reg)
++		pll->rst_bar_addr = base + data->rst_bar_reg;
++	else
++		pll->rst_bar_addr = pll->base_addr + REG_CON0;
++	if (data->rst_bar_set_reg)
++		pll->rst_bar_set_addr = base + data->rst_bar_set_reg;
++	if (data->rst_bar_clr_reg)
++		pll->rst_bar_clr_addr = base + data->rst_bar_clr_reg;
 +
- additionalProperties: false
+ 	pll->hw.init = &init;
+ 	pll->data = data;
  
- examples:
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-index 6733dafbde16..199eac2034f2 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/clock/mediatek,mt8186-sys-clock.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+index d6d34840c09d..3aaf3a7654b5 100644
+--- a/drivers/clk/mediatek/clk-pll.h
++++ b/drivers/clk/mediatek/clk-pll.h
+@@ -49,6 +49,9 @@ struct mtk_pll_data {
+ 	u32 en_reg;
+ 	u32 en_set_reg;
+ 	u32 en_clr_reg;
++	u32 rst_bar_reg;
++	u32 rst_bar_set_reg;
++	u32 rst_bar_clr_reg;
+ 	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
+ 	u8 pcw_chg_bit;
+ 	u8 fenc_sta_bit;
+@@ -75,6 +78,9 @@ struct mtk_clk_pll {
+ 	void __iomem	*en_set_addr;
+ 	void __iomem	*en_clr_addr;
+ 	void __iomem	*fenc_addr;
++	void __iomem	*rst_bar_addr;
++	void __iomem	*rst_bar_set_addr;
++	void __iomem	*rst_bar_clr_addr;
+ 	const struct mtk_pll_data *data;
+ };
  
--title: MediaTek System Clock Controller for MT8186
-+title: MediaTek System Clock Controller for  Mediatek SoCs
- 
- maintainers:
-   - Chun-Jie Chen <chun-jie.chen@mediatek.com>
-@@ -31,6 +31,10 @@ properties:
-           - mediatek,mt8186-infracfg_ao
-           - mediatek,mt8186-mcusys
-           - mediatek,mt8186-topckgen
-+          - mediatek,mt8188-apmixedsys
-+          - mediatek,mt8188-infracfg-ao
-+          - mediatek,mt8188-pericfg-ao
-+          - mediatek,mt8188-topckgen
-       - const: syscon
- 
-   reg:
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
-deleted file mode 100644
-index 5403242545ab..000000000000
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-clock.yaml
-+++ /dev/null
-@@ -1,93 +0,0 @@
--# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/clock/mediatek,mt8188-clock.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: MediaTek Functional Clock Controller for MT8188
--
--maintainers:
--  - Garmin Chang <garmin.chang@mediatek.com>
--
--description: |
--  The clock architecture in MediaTek like below
--  PLLs -->
--          dividers -->
--                      muxes
--                           -->
--                              clock gate
--
--  The devices provide clock gate control in different IP blocks.
--
--properties:
--  compatible:
--    enum:
--      - mediatek,mt8188-adsp-audio26m
--      - mediatek,mt8188-camsys
--      - mediatek,mt8188-camsys-rawa
--      - mediatek,mt8188-camsys-rawb
--      - mediatek,mt8188-camsys-yuva
--      - mediatek,mt8188-camsys-yuvb
--      - mediatek,mt8188-ccusys
--      - mediatek,mt8188-imgsys
--      - mediatek,mt8188-imgsys-wpe1
--      - mediatek,mt8188-imgsys-wpe2
--      - mediatek,mt8188-imgsys-wpe3
--      - mediatek,mt8188-imgsys1-dip-nr
--      - mediatek,mt8188-imgsys1-dip-top
--      - mediatek,mt8188-imp-iic-wrap-c
--      - mediatek,mt8188-imp-iic-wrap-en
--      - mediatek,mt8188-imp-iic-wrap-w
--      - mediatek,mt8188-ipesys
--      - mediatek,mt8188-mfgcfg
--      - mediatek,mt8188-vdecsys
--      - mediatek,mt8188-vdecsys-soc
--      - mediatek,mt8188-vencsys
--      - mediatek,mt8188-wpesys
--      - mediatek,mt8188-wpesys-vpp0
--
--  reg:
--    maxItems: 1
--
--  '#clock-cells':
--    const: 1
--
--  '#reset-cells':
--    const: 1
--
--required:
--  - compatible
--  - reg
--  - '#clock-cells'
--
--allOf:
--  - if:
--      properties:
--        compatible:
--          contains:
--            enum:
--              - mediatek,mt8188-camsys-rawa
--              - mediatek,mt8188-camsys-rawb
--              - mediatek,mt8188-camsys-yuva
--              - mediatek,mt8188-camsys-yuvb
--              - mediatek,mt8188-imgsys-wpe1
--              - mediatek,mt8188-imgsys-wpe2
--              - mediatek,mt8188-imgsys-wpe3
--              - mediatek,mt8188-imgsys1-dip-nr
--              - mediatek,mt8188-imgsys1-dip-top
--              - mediatek,mt8188-ipesys
--
--    then:
--      required:
--        - '#reset-cells'
--
--additionalProperties: false
--
--examples:
--  - |
--    clock-controller@11283000 {
--        compatible = "mediatek,mt8188-imp-iic-wrap-c";
--        reg = <0x11283000 0x1000>;
--        #clock-cells = <1>;
--    };
--
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8188-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8188-sys-clock.yaml
-deleted file mode 100644
-index db13d51a4903..000000000000
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-sys-clock.yaml
-+++ /dev/null
-@@ -1,58 +0,0 @@
--# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/clock/mediatek,mt8188-sys-clock.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: MediaTek System Clock Controller for MT8188
--
--maintainers:
--  - Garmin Chang <garmin.chang@mediatek.com>
--
--description: |
--  The clock architecture in MediaTek like below
--  PLLs -->
--          dividers -->
--                      muxes
--                           -->
--                              clock gate
--
--  The apmixedsys provides most of PLLs which generated from SoC 26m.
--  The topckgen provides dividers and muxes which provide the clock source to other IP blocks.
--  The infracfg_ao provides clock gate in peripheral and infrastructure IP blocks.
--  The mcusys provides mux control to select the clock source in AP MCU.
--  The device nodes also provide the system control capacity for configuration.
--
--properties:
--  compatible:
--    items:
--      - enum:
--          - mediatek,mt8188-apmixedsys
--          - mediatek,mt8188-infracfg-ao
--          - mediatek,mt8188-pericfg-ao
--          - mediatek,mt8188-topckgen
--      - const: syscon
--
--  reg:
--    maxItems: 1
--
--  '#clock-cells':
--    const: 1
--
--  '#reset-cells':
--    const: 1
--
--required:
--  - compatible
--  - reg
--  - '#clock-cells'
--
--additionalProperties: false
--
--examples:
--  - |
--    clock-controller@10000000 {
--        compatible = "mediatek,mt8188-topckgen", "syscon";
--        reg = <0x10000000 0x1000>;
--        #clock-cells = <1>;
--    };
 
 -- 
 2.55.0
