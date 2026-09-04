@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A1AC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BD9C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2U2cUyn/uK7/+y8yr8gyghlNU8PH5KerGI7TPqKuu8=; b=vFn5pizXJefgsl5AaQMuU0qbFh
-	U7wGmRdXDmiPyKH5eV3qmn7ZdUVgDDn/xUGkBJuSM8ce4pVO0QxpPsFJDUKDAqWNLcq211Lhv6H7E
-	h4foP/wYb32g3B5S+F+BFKlUqpEE7Z1SQV+NJDYb5kU39ctF80GjdMWAOeJtvWweREjXAL6wgIATO
-	63i7GugEokzOWGxOmrsKtv+qzicQ1m+I/zl3WGTvVoK/ZLEFsli1JJ+p87g8nN7gBRwfbpeUyTPjn
-	fbIA1YiCqsaOd459Kl18GqfafZvnPvLLRzhblx3bRbOWP1tESS6BQx7h1hhAyVvw3uecK74/v7i/g
-	pfUru74Q==;
+	bh=ByVGAz+j9xe5MWNa9XTv6mxh8KuFnEa40VZnZO+yeb0=; b=EFu+2bpzrwtTUGDNKHQ3AF086c
+	0yZ0rDqRg5QoKdgXGmodp+in0Vo/b5qNRJ5v/jy+NjRsZHnDp7K2GAD6K4XONvw1FAkWD0DSk+k21
+	d51tOkhVr3X28ts7ORY8K9nidN8b8CldBDY7CGUGHw1znXWNhClb/VshjcGsjPMDIMlhZrAafdQWq
+	0h3FWPAR7RoHx2b+HLqU36uJtrW2Zns9hvb9JeucOzvTaF3KazrlvObAWXO+oN3W+Bske+IFjXUNZ
+	1mDqU9mI/qBWoOk4E/z1KuzdWjxilPRrjfoI/21YKhS7JmhvBgDHXit5Q0O9bq+MHeoWnjbzjRD3w
+	ilXIL4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aYt-00000003GTU-0O0k;
-	Fri, 04 Sep 2026 20:30:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2acm-00000003H1i-3nnA;
+	Fri, 04 Sep 2026 20:35:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aYr-00000003GTE-2OpI
+	id 1x2acl-00000003H17-25zs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 20:30:57 +0000
+	Fri, 04 Sep 2026 20:34:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B389F401F6;
-	Fri,  4 Sep 2026 20:30:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D12D1F00A3D;
-	Fri,  4 Sep 2026 20:30:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED341600C8;
+	Fri,  4 Sep 2026 20:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3B6F1F00A3D;
+	Fri,  4 Sep 2026 20:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788553856;
-	bh=Q2U2cUyn/uK7/+y8yr8gyghlNU8PH5KerGI7TPqKuu8=;
+	s=k20260515; t=1788554098;
+	bh=ByVGAz+j9xe5MWNa9XTv6mxh8KuFnEa40VZnZO+yeb0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=D8kFMqmIALGzBe/uazGT3txbGKSxweOppc+FozSoqxNx/ZQYfV7SoONCHXt2RvmzA
-	 wnxsIKpzlmX6dD3vnpDK6I5Kz7Rerp7b5v1Se/rjHQX026l3P3Dq+U535JwCFtHofd
-	 VngsQM8KokzswiIDB28U3XMIvju5YygYwlXnb4jHPYlNGXc9NnPvcnGT7eW4jze50F
-	 7q7+r252QdRMoCvkpfTLMS+znCWddQ6DM56JZhWpU8RRK5W77OIoWCHlRWESNWf4ag
-	 6oWOqY72Wgsgpnkde7MC8z7Mi41p7LV0MD1zWYMgIOxdMAoWgcPDrJqPgqgMlVDEUI
-	 h+miLVLYXUPWg==
-Message-ID: <f73a94c4-80a7-41b0-9671-d9b6ea436174@kernel.org>
-Date: Fri, 4 Sep 2026 22:30:51 +0200
+	b=gGdhCXql4CzLkGf9OGoZbMxcYFfsZbs1FWEpe6J7eEwlo6Jd+U+0Zn7RhNeiGQLIM
+	 kR+fGiBDjUED7n84d69bzyFTkU8roW2La5EMgTaMUY5XxZ7klVql8BPsJlfrwRL45L
+	 er9JvOoWzJOw4hKz8mF+cELxhlwAomMHUAR3MzNz+mo3M93OtHNZz0YHtidNa56wsJ
+	 pnBr0H76J6rDe1pJ2FTrsLzgtcYZhAHCuXwqdrPrDlzOwkZgVES1BHF5fOq7yZ9Alq
+	 LFazWdo5EsMriw9DWZwRYYEpQP6WoTd0IvAEcM1Z7Qz+/nL1IfCjTSHRITXzGvu0eY
+	 9YX0DgpVqi2Pg==
+Message-ID: <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
+Date: Fri, 4 Sep 2026 22:34:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] dt-bindings: arm: apple: apple,pmgr: Add t8140
- compatible
+Subject: Re: [PATCH 6/6] arm64: dts: apple: Add minimal MacBook Neo device
+ tree
 To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -59,10 +59,10 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-watchdog@vger.kernel.org
 References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-2-0c25401d165d@cyberchaos.dev>
+ <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-2-0c25401d165d@cyberchaos.dev>
+In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,22 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
+
 On 04.09.26 21:49, Yureka Lilian wrote:
-> The PMGR blocks on the Apple silicon A18 Pro SoC (t8140) is compatible
-> with the M1-M4 SoCs. Add "apple,t8140-pmgr" as A18 Pro specific
-> compatible.
+> Added a device tree for the MacBook Neo, which uses the t8140 SoC
+> (A18 Pro) also found in the iPhone 16 Pro.
+> 
+> The device tree has a minimal set of devices limited to CPU cores,
+> interrupt controller, watchdog, serial and framebuffer.
+> 
+> Using the macOS 26.6.2 iBoot/firmware, the machine reliably boots
+> on a single core using the stock kernel.
+> Booting with smp requires avoiding the wfi and wfit instructions
+> in the idle loop and `delay()` respectively, since those instructions
+> cause a loss of architectural state on the secondary cores.
 > 
 > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
->   Documentation/devicetree/bindings/arm/apple.yaml            | 11 +++++++++++
->   Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml |  1 +
 
-There's something off with this commit, it's doing two things at once 
-and the description only mentions the smaller change.
+[...]
+
+> +
+> +	memory@800000000 {
+
+this doesn't fit the reg you use below.
+
+> +		device_type = "memory";
+> +		reg = <0x100 0 0x2 0>; /* To be filled by loader */
+> +	};
+
+[....]
+
+> +
+> +		aic: interrupt-controller@301000000 {
+> +			compatible = "apple,t8140-aic3", "apple,t8122-aic3";
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			reg = <0x00000003 0x01000000 0x00000000 0x1cc000>,
+> +			      <0x00000003 0x01040000 0x00000000 0x4000>;
+
+please be consistent and use 0x3 and 0x0 here like for the rest.
+
+
 
 Sven
-
-
-
 
 
