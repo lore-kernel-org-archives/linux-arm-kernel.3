@@ -4,128 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE58C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 02:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23EDC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 02:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=; b=xgoN1iDm3a/m2vELuDpIAjvnA5
-	t4rDPckKpYFz2fHC7FYYicgj0THqb6Bnonsz0Jy8B1GsQSlrGN/riQDMDDa9v93g4eblEfYXYeMu7
-	B/sFTL2475iOTR3NtAB1P5sjfAQ/QjDX7SUyx8cPfEE69QguFa0TpijDByf6Lh9YkJhbbecsYIJyn
-	TABd3WCB07drEqZg8vDBMEsElwcE9FtWTuqZe8tPRM5A5nKIgY01QIf8Of29m6NsurOBw6tIW4vRn
-	tg7RgCRPrlRUIllDrglygTFAHzJNLbgnVnyaLXtbvuxTKxiR/Oh5YZ22XG8uEJrkAmV9Kre7ymWJO
-	YOJZ2REg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=svFL5GVsyMxjyZIfVZFUtOkSOeDAIlVTUrJgAyi3XSk=; b=qzOzyA4pNe9wRDma/ClKb74Rgm
+	YsbVvdPj2jdIq52MjrxVsQL3NYOE5Kb55duZT9cbw5W2gmQs86oosdlwGJrUmtJEDV5l3jzB1UyDB
+	c/F3dQwEXh0viJhDP8/INrR52CzEYGbvHT0E9xwm6OGHEQhsccouaODupYgephYn4mgdkT15iicsI
+	6AiIm6YGHYVVLBe2Uj2BeydxJbWO9HZY5Mf4YmwAtkYz9fgmhfbd7tpCbJxvRrVZUjUTGSR9Lvb2O
+	2h5m6PwnGOjVuJBenF+R9+QgqiIkt5Dx7tegh0QLpicPJsrifsV/fsVA21wtBMAeN2ivO760NcBF1
+	RrKplutA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2JI2-00000000rVk-10ov;
-	Fri, 04 Sep 2026 02:04:26 +0000
-Received: from mail-swedencentralazon11013018.outbound.protection.outlook.com ([52.101.83.18] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1x2Jw1-00000000t9C-2RIN;
+	Fri, 04 Sep 2026 02:45:45 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2JHz-00000000rVN-1RVJ
+	id 1x2Jvx-00000000t8r-0zxq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 02:04:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FnpqrqZ7Tf1Dkg/rh8yVZM6rSZZG8CC7gQTv9fwXiEF6r3NB2+gZ1OGpa6oZ0x0IpRJ/8sRKoGpZ76A6+GeMEDnz/zOg99z9kdWtlhfRzeyDNKhL6bDsmuWEkuxcYpzaXqez1sIZFfMEiyjykJXUEcFtZUa1wY/3f5WLjmStI4H+IA3ZaIcte/kAGIeY7JrDg8I2cqo9BBHGXXKG1bWDUW1z/sb25JiV2MZB2Qpf7G6KNY/Wp5cHLjcp7fiZqYKaNhsBpi1MpMTWwVvTD8/1Xp7L/KT1f05gMOVPuocJbmxCM26v2Y+LT5pOt1YjT9APqvxJVIyFHNnUkShcnhpS0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=;
- b=K3k3UA+riQvyi5fw5YIla1S4FROyAWHDglU9xwvP/Th/INVaXjq4z7IWkp3WgKIWW2aYldMcBiryLPmsE6rurXV+YzyvRshZQuqG7lGvExYaOL3PiAgM6xDHDolkrP48StEGPJ6YjldVXQlWZKwR9tEWqgHKj2wERf+rPZic74yLK0kMeWTPp0Zor9050Xq1x6zwQCkA40WcjbAH4YQ6crTCu02MTysDY9xcaGzrL80hKPfkKilogms7mVGewzTqWvqv6JOJPL44AzGXlYhw9nJdkr/5nuRcNNoVqWh3XqerIpl6xWjf0Yllkac8Qf6ttBKhUa1oK50h2yr2nZcZoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=;
- b=CqPzUiHWgyCnmPS+52aBnL3CY6+t0FgtFqK9R/QYNcc39kQSw9VR39i/dDvKMHjQQagFydFJalAmPMvjLJVJ+XXF4dFq5VBvljqBduTEamioWfzjGfW9DLmCTmpWHK5SOPStQVnbwKSiJiDHs4gBcWy4oOrLDd97x8DAZEnmdz1blPLM0LGb4OgmOHjDGtVvhrbfEdLJJCFjb/V+U/rJ2dFYAf+vb2fvGe6paC72QtMbnORNpV7iXAFgrvE45i/zW4Y8Ba43GrXAcgvGMbpIu277ymJyPlxc2AkJJVHZAm8nTkKDwvuQCJo0ar5zKseztYOK2zryyncPBLJlLQsS4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by VI0PR04MB10808.eurprd04.prod.outlook.com (2603:10a6:800:261::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 02:04:17 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
- 02:04:17 +0000
-Date: Fri, 4 Sep 2026 10:08:25 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 0/3] dmaengine: Use non-atomic bit ops where safe
-Message-ID: <apooGfaHN5aCO/Gn@shlinux89>
-References: <20260903-dma-mask-v1-0-211ffd12c236@nxp.com>
- <apnKqR6ScF2K3GFo@SMW015318>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <apnKqR6ScF2K3GFo@SMW015318>
-X-ClientProxiedBy: SI3PR01CA0007.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::8) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Fri, 04 Sep 2026 02:45:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=svFL5GVsyMxjyZIfVZFUtOkSOeDAIlVTUrJgAyi3XSk=;
+	b=cINy1kgFclwLdhJA3KbeBlH1oUeCPoLQa8e/26fjaRkyyiDD2TOnlfdkf6We6uYk4b6fV6AC9
+	n6/JPCwwZa0Gxdh72Ayfj8EX49k2wnXcSM4NG5FbTbIh2awM3Rh598vgapeiOnJoEE4Vlr6ImR8
+	ajTzc6Un2pGtwVwidjVZTcQ=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hbgXS4jZgzLlXF;
+	Fri,  4 Sep 2026 10:34:32 +0800 (CST)
+Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
+	by mail.maildlp.com (Postfix) with ESMTPS id B080840578;
+	Fri,  4 Sep 2026 10:45:23 +0800 (CST)
+Received: from [10.67.120.222] (10.67.120.222) by
+ kwepemo100012.china.huawei.com (7.202.195.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Fri, 4 Sep 2026 10:45:22 +0800
+Message-ID: <4f755a7f-0a55-4292-892a-28346ed235a4@huawei.com>
+Date: Fri, 4 Sep 2026 10:45:22 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI0PR04MB10808:EE_
-X-MS-Office365-Filtering-Correlation-Id: 602f5041-ebf0-464e-d567-08df0a28d327
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|6133799003|56012099006|10067099003|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: CNy+4LNrSF6zg0NnFTPh5rR1yiR89hnjhoerNkMnVfz8tHFShiYKPw4p/mZOd+MGLvJ7WBmxHcglbPqqy/deC6rFx3tTDEP0B698yvv5zJ0B5iIEM14DrRTnbndD19qB2CXrrLUa8Dhr+ZtzdESRILd/9IZNJKzUyXRjzebx6DJGcgKBiGOiqxTN+djGqMCgVn6qormE2zs9HMUAWLlR7rA3d+CQhjsBMcBzI6hygWVRFao8mDjZ/EceeFunr5Bmx0y8tsTiXn+dMH37U8b2iRxvQNZ+CIK9IGaGnnAeYu9pJqCO3NZdN31HgRzoCUyaoIbh4tivAuzXw1s+LuQgAkKwW1L5rYtoI6cam9ZRfo9J5iHxIuibp2yi4eJOKPXx6QwqE+i4+iGxrJ/zaJPppVjtFM/ff1j+4g5iuP92MLP7TmWJq1ID+MJed9JJPkppuHCVJKgWddRFKn4d8HuxYVyIeNSXHtw5okVSA/qHazqpx0Cl/aOJJgxtsU1K2c5CiaDNOoUokClrjXVOudRdvp4QFgurzJr6DrqH5f72uaGfC9r2WSjfo97fzRfU/zuNOQFR6LTr2tKC3uvwJyrSrD9K6/zmOHdZs32NuXJaolIucEMMJPvE5h11g/AqHOk2/IXTWCrPKncgB4b4IXl5PQ3BznJmzz/ozwtj8ToLYAg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ilFWU/fGP2Xjzjfxfw1NOHFta/EWjOxcSQFEU4IT8IoNAsVp82EpWcMObYkk?=
- =?us-ascii?Q?XMnw7P/nTxMPJPk7hQU447kdKWanQrqlxOvCtCMSGo9NJiUqJL/6cRqjyaBF?=
- =?us-ascii?Q?FdmyL5P9H/ttxmjPly44y0ZNwR5H6ktpsQXlL5De/z51Z6ea4ToMYUVw22zd?=
- =?us-ascii?Q?McVW4NbfvbKZBEDzidzaHvTiWIY+Q8yQakxmIlgwRU2Q1mRbwfaPNj2c6Enj?=
- =?us-ascii?Q?/yZk+jpPJjsHF4mvM3gdMQdcrxLvH+KNKHAsRM1PSJ+woal1tIvDf0OQB/w2?=
- =?us-ascii?Q?u4MX4g59rtX+Sqq8QPcXxzWICwU+KoR2dLZ0P3tNLKFwPKAfV56rWCBdyA6k?=
- =?us-ascii?Q?kmaorY7heqjiDX5bhX005chb+OAeG7DnXW76YDBXk6pwagyQlGviVGd2CiEF?=
- =?us-ascii?Q?c4NKK5RXq8fNK3AFAaevCDMR3AuaZ2uhhaKbvv3L5NBklHoOnfridGPIXGd4?=
- =?us-ascii?Q?kzUBGyO691GOti+jQ6QyyK7UfbzzZQ0qLxxLsTOh0R2lLM2yw8MWP/XFu0u5?=
- =?us-ascii?Q?CGQkvluycyXMQN1U1WCNm07ii91LGqSIIc6JJhgiHg0nc2tVzdFPktdOQRGY?=
- =?us-ascii?Q?5kXgCn7f7ys9ZUP2Tw23vTK7InMKg0actZYWmYsfWKxtDw5nXCTg5AQFFGNM?=
- =?us-ascii?Q?Q8otZWu4RKKWnpDjkIvbrhcMswd9fS7yDoNfFLEq5yDKzKNq7qVQvNGm4T7u?=
- =?us-ascii?Q?ObjeOI6z3C/N1h3pOip70n7mDP1Qy6phYgrMYDS7YMeSfwlwMl3RKCdAjDf1?=
- =?us-ascii?Q?K8eDOQGf+2heq7XUMFarysvAJYqRuihYZTAT5YRutxvlaRZSjeIDao0WMGgQ?=
- =?us-ascii?Q?NqDo3tyMvJ1uULyDFoa245qgmTQfWPXE2p4WnumT3k9XFgyh/36Xu66h39R+?=
- =?us-ascii?Q?0KsCngCwucQj2A7iCH4asbTGNay7m/4cU/cNrYuQylVmAXdkvm/Iy7l4deaH?=
- =?us-ascii?Q?cjwk9dXWhKYiUAksULzW3hFgtPCiNqaw/4rz1+CFx4uGuS8m6EJJf/vKiB/J?=
- =?us-ascii?Q?xTo17ddlLHtt7lB+MbWed0VParxahket//yreKEapBkr3hZHjeQQJQB4qvTP?=
- =?us-ascii?Q?kPVu7+Spku83ocESbH1TAi8TBKdNfpf6/VfWM0SY5kwNzQ6hngGCgtnYlv5/?=
- =?us-ascii?Q?sMZ8GgPWWJNosOzabUTnCly/YeVdj2aV1C0+ngNW2RPfXjs/rapoGd1Lfjcj?=
- =?us-ascii?Q?3vBR8wrrrv2YHjCmINLAw5FWyHE2X8+zS4yuj4GjCVbjjTfcnTv+pZ1ZxZSc?=
- =?us-ascii?Q?/X1nuLSU4ZYM5NDXFSzhypn6zXzNo65m3TCYYf4tERSglurLLiAbk9g1feNU?=
- =?us-ascii?Q?ItGXq1E+poWPX2Wuw/ycyWn7vPEyBdamMq3wO4izd/ahCmYK3omQOrNYQ+8d?=
- =?us-ascii?Q?b5dZHCAL5AHqBsvPAntyIB226KBiumU2kAEFzocZfZlUbIE9+uqWdQ+K3sR+?=
- =?us-ascii?Q?Di2cWHo5t5/2Yr/t6zPJMXhaCQL8kk+SW2iEtL6Ap/bn+u9I+YCoqA/hRkb8?=
- =?us-ascii?Q?Ox7Vz6R8AzC94Em8j994SfBbJbLGy9plpAd0+sp75Q1LFBfGT1uBqtvaHUdm?=
- =?us-ascii?Q?pWUqbjYi/STvMwzphEElJ2fGoEkvrflVYzsebHaJS2/4+IleBnXugRYJT72Q?=
- =?us-ascii?Q?EHMr2DMlC8ckQ0aPjyfznYowt0j10UKvKp4V0wg84Pbki3Y23QrJcLVk/GzE?=
- =?us-ascii?Q?mMbzcnnXMEPnLxqYhig3uwOkcx0CK7QMlvdpdJ0yYh2lrGW0b77EElnpC/wg?=
- =?us-ascii?Q?6zb428wny3Oh2Zs60ih1cSaeBQWsyJePWA/aTThdHPVUFH7c4+t0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 602f5041-ebf0-464e-d567-08df0a28d327
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 02:04:17.0296
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jICG9hvm4OufAomonDd3tmkBLesrOTgxHBe4uOTwFjPKpj6eRucsI0B+mx5uEHb+YgFBBHy54OiwUHIdDMyOhlL4RraByrqdu1OrDhE1SqFE5BoWVyjl/kb4UUNKh0tz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10808
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/3] perf/core: sched_task() dispatch and branch entry
+ fixes
+To: Puranjay Mohan <puranjay@kernel.org>, Peter Zijlstra
+	<peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de
+ Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
+CC: Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
+ Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, James
+ Clark <james.clark@linaro.org>, Usama Arif <usama.arif@linux.dev>, Will
+ Deacon <will@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Ravi
+ Bangoria <ravi.bangoria@amd.com>, Thomas Gleixner <tglx@kernel.org>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter
+ Anvin" <hpa@zytor.com>, <x86@kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260810133540.1947118-1-puranjay@kernel.org>
+From: wuyifan <wuyifan50@huawei.com>
+In-Reply-To: <20260810133540.1947118-1-puranjay@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.222]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemo100012.china.huawei.com (7.202.195.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_190423_417166_FB3D875A 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20260903_194541_743846_98A4F46F 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,53 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 02:29:45PM -0500, Frank Li wrote:
->On Thu, Sep 03, 2026 at 10:16:11PM +0800, Peng Fan (OSS) wrote:
->> dma_cap_set()/dma_cap_clear() and imx-sdma event_mask setup use atomic
->> set_bit()/clear_bit() in contexts where no concurrent access is
->> possible:
->>
->> - dma_cap_set()/dma_cap_clear() are called exclusively during driver
->>   probe, before dma_async_device_register() makes the device visible.
->> - imx-sdma event_mask[] is zeroed and configured during channel setup
->>   while the channel is disabled.
->>
->> Switch both to non-atomic __set_bit()/__clear_bit() equivalents.
->
->Any benefit to switch?
+Hi Puranjay,
 
-Drop patch 1, I thought there were no cocurrent access.
+On 8/10/2026 9:35 PM, Puranjay Mohan wrote:
+> These three fixes were found while adding BRBE support for
+> bpf_get_branch_snapshot() on arm64 and were carried in that series until
+> v6 [1]. They do not depend on it, so they go on their own; the version
+> number continues from that series to avoid two numbering schemes for the
+> same patches.
+perf record -C <cpu> -b [<command>] triggers a NULL pointer dereference
+in armv8pmu_sched_task().
 
-For patch 2: The driver already uses the non-atomic __set_bit/__clear_bit APIs,
-I think no sense to use atomic APIs in sdma_set_watermarklevel_for_p2p, or
-I may miss something.
+Commit fa9d27773873 ("perf: arm_pmu: Kill last use of per-CPU cpu_armpmu
+pointer") changed armv8pmu_sched_task() from reading the per-CPU
+cpu_armpmu variable to dereferencing pmu_ctx->pmu via
+to_arm_pmu(pmu_ctx->pmu). Meanwhile, commit bd2756811766 ("perf:
+Rewrite core context handling") made __perf_pmu_sched_task() pass
+cpc->task_epc to pmu->sched_task(). cpc->task_epc is only non-NULL
+while a task context is scheduled in; CPU-bound events do not schedule a
+task context, so cpc->task_epc stays NULL. The NULL argument is dereferenced
+and crashes.
 
-For patch 3: Use __assign_bit to save code lines.
+With the patches applied, perf record -C <cpu> -b no longer crashes,
+and system-wide perf record -b -e <event> -a alongside a task-bound event
+on a different CPU runs without any WARN_ON.
 
-Thanks
-Peng
->
->Frank
->
->>
->> Signed-off-by: Peng Fan <peng.fan@nxp.com>
->> ---
->> Peng Fan (3):
->>       dmaengine: Use non-atomic bit ops for cap_mask manipulation
->>       dmaengine: imx-sdma: Use non-atomic __set_bit() for event_mask setup
->>       dmaengine: imx-sdma: Use __assign_bit() for ownership configuration
->>
->>  drivers/dma/imx-sdma.c    | 21 +++++----------------
->>  include/linux/dmaengine.h |  4 ++--
->>  2 files changed, 7 insertions(+), 18 deletions(-)
->> ---
->> base-commit: 89c07d98716a13454ec3fd9f97689e812cc71bd4
->> change-id: 20260903-dma-mask-ddf64d770f7d
->>
->> Best regards,
->> --
->> Peng Fan <peng.fan@nxp.com>
->>
->
->
+Tested-by: Yifan Wu <wuyifan50@huawei.com>
+
 
