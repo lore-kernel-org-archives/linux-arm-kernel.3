@@ -4,131 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3210C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C0EEC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=; b=2Ts8wHYQGMq3t+ZpLZTrj/4vZe
-	8AVWQckApkfMP5iPtM4RRrE9VTq5VWLPTUO+ShOMeqP0vrPnCN+g55HVaX7WgV1cnnAw72OG73m85
-	Lew7faC/03j8Yi8B22X7wkJSydbI5QP1pSecYZhvtzwnH6p2b6OjDpQiiHW2oJQj/ynIviXTXJfi3
-	dnB7py/vkUd9r87Xev9/XbQ06gVsMoPcxHtQ9IzdC8JNscxuAsEHBmSGutTugB1GWlP9/P9sAJE3Q
-	WV7KbujhghabUaZJXJkEBRBZe1sHd26Gny0L8w2zSeVbkj9Nxsrau14ziiLUyO4MKDr6DXBiI11X6
-	XHxUHWJg==;
+	bh=20zlPSRECV/prMcBjc8mTQlsecPP4fstkjGI7hAkh0g=; b=WW6UP8fk01VDuR0gLpMH3gu1gq
+	GTzwbZUqE8rSVtzDsJt8eCzPzlADgAoFKpVStRbp/EWrZdYpiW4COY227Tvpy6waydbzPz0ZHqrUL
+	zRva3+Ht/xTU9QK80DoME62/d/yzFnxu+3ewP7kjBCDoARKEzOkRUI8Y6vyMZ0B07F044GcOCma9a
+	fTo9ojxxSpNm9pp1Z+F7IDyoVaAhTHfssrHWWAioQuV9Y1/61L5k/3V03NJ5sZkWH0CJ5Rkxx1IGr
+	BYIIunt1XcIm67pGIH73POTDgxQD18bAa83nm0HN3oIje3v/K4tqueK2sJg61cllIog/gm0yXFwrI
+	dq4oU9UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Uhn-00000002M2G-3K3i;
-	Fri, 04 Sep 2026 14:15:47 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1x2Ujb-00000002MJt-01CY;
+	Fri, 04 Sep 2026 14:17:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Uhk-00000002M0s-1o4q
+	id 1x2UjY-00000002MJa-0Xjn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 14:15:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ciLePMDH3ecWM1H6IFIqiCu0lNapiKOJJe4qZ523LA7bUXRGFzkg11erFTjwGRmXrscxTSPe9lLbazjPcvRwxNqj3oswvYiMbFl4TeajV3SjCSMchQ9JoX1obupbQfzjTpuIfsRI0IEJnw7PzCTosSPoQQ2JeVWPrGj5hbgV69LHkn/c18Upy+dMRWqxI0qXEQQnm4r6ajxY0fjLpaXCSRkEQBL3YedunA09znvM5BUDaKDLG7sLkOjyRIZHWpO3pDXubmvyPGhcNihz60OwyEeHRybEN+uaGV6KbTmPQ+6PvUskAfkrfBXBHMeR+Zpzzrw+oZSCWRnGPc5KInNhPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=;
- b=lYQKVoKwmTkEPmdA4A5piiAyBzJ4aA3b1T4+9ux/Xb+TY5EZUl3dpRP4IKR1PflMmhffPdSphYnb8mhToUsyqZS3P3trOmwQynpFTdWQnmSpoM2Vfuyq7ARLigKpCa/BOefkQmARfuy9GTAftrk6v2oxSZjEIfQ52BPhxs7wnx24tHe0C2R7Nx6FylkIVmT4+XQjA8U0+x6YG/rwWR6r91ulXgu69JZtb6V5PbvWyfvcWyguWaBO1TBPytBXUhQyNMDnzaie32HZJ7bhHClPmoIMIiHx//QTuzaYciV5RBu3/R8y98ryt0wosbgmoRFP56Ruieoj+ttOf4cMClED6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=;
- b=iRDcEYfODbeqWO2YyfUNnubkj7OUHr7gMjF8p+MFgLryjXCSlVzoCLn1A3XTYIWQD5opRESpD2byO2tEE+UZmFQTJqQXSOJe98v6qfIbCMqiqVUudgMBZR4rNNf1HL6FTJkK2xJ/IqSQW7KpSyE8Zf5HEmNibhoI+LAON/4eBf/r+Hj+UNu631nRvOmTREJYdjMyi080wHICyj4+pqF3SwuHk8loSkeMH5c7pcGo0NIzH2QVL0c4l07aGMJ2oO10wfTLpSDAWOlQXtk5YatGtdpV6ha/OaHAJ03lMIf4cyH2FdYgJWZcbMOoxcYYEcabejUmradBAnPVesUjmupaRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CH3PR12MB8210.namprd12.prod.outlook.com (2603:10b6:610:129::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 14:15:27 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 14:15:27 +0000
-Date: Fri, 4 Sep 2026 11:15:25 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
-	praan@google.com, kevin.tian@intel.com, kees@kernel.org,
-	smostafa@google.com, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
-	bbiber@nvidia.com, harsha.v@oss.qualcomm.com
-Subject: Re: [PATCH v3 08/13] iommu/arm-smmu-v3: Disable PRI when no IRQ
- handler is registered
-Message-ID: <20260904141525.GT4157646@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <0b5282c7e850f1a1c650e43670899b4ef5335efd.1788222486.git.nicolinc@nvidia.com>
- <178846311318.1308030.4956293524348641228.b4-review@b4>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <178846311318.1308030.4956293524348641228.b4-review@b4>
-X-ClientProxiedBy: YT4PR01CA0337.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:fc::12) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB8210:EE_
-X-MS-Office365-Filtering-Correlation-Id: b224616d-34bd-4583-d00f-08df0a8ef7b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|4143699003|56012099006|10067099003|5023799004|11063799006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: cj6o93DOtzG9tIsxlJLafbUYVCnWcmoKw15J1edSYvX/MjlpW6y/aZ1NUpDHdyUe8OtkrqE4cCLqZMeABS5vRB+b3z/+BnGCwFt6ja1OZudnZL9KX0c+4nlN8fJzsizbMiBuhB7+6Te/FTpzSG+67lSbDWIVZATUnK//Wrn/r5eVgt420LI0rOiO8whr+7S7y2TQBBwLu2rZHgvLgOi9Ldr6XSgVhmvmtpZgFV1HGoFqiJ/QYkNkcCTL4biiUBx+O9wv3NUXu4rIaLcEz7EOp1fbSW7+emb3VMUBt2NsUCPFPNo4JYHoatyFITzbTs1qZVEk8tWYADx5zInVA66Um7AiHXDvbJ9CHjEPgm4bv53kxUJy45Mi8HEJeyrR7ipKrmjxy6Epyf0u21wtPms3+6cAvEYkE9j04PQvn6PVCsNQI/TSwzOTqbF79Bn23gxhcNDT/aBzIrHbFLdpG98qKV3zf5snD1ziXC3TOM5UwLKeqpdxfE1qbyN1z4YirE1alJXsKmqR4KQA+o0R599vUO6t/vCzk0B+QOx1Km9XlEK6wKdIBsCFPAVhZwkHEmfe7qeXYgtRDQY7I4zHy31c7rOQ6scR9O9Eu1K/qECG4qNl/KI6IHgFsmwmQ5yprSfEcjNRGOQicQo5NAFqYQuiQNRz5NJXsJn7USvgcRXtm/c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(4143699003)(56012099006)(10067099003)(5023799004)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?afiA+0MirxS2iqTWECQO1rAhYVCi+wtRmrIMLCyfhRrNy+yP14bytwRh60v6?=
- =?us-ascii?Q?9I7xa/hmgGjqc16JDfm0yNdzgv8TKDaCxDyx5oDlzfiA1TiKQ+H6dJufVORF?=
- =?us-ascii?Q?ezIprlY8tdvBb7b+6JvdKKFK8nfzUTBSUOo9LUF8yt5mRqv64TX9BPondfAd?=
- =?us-ascii?Q?Ke4/ybSDf+dPjZ7WZ6x3sOG7oun0WoAsQW1ZqBFK/CyawTAdYMpoZQ2uUkGZ?=
- =?us-ascii?Q?pzawVcEURy/EE/hgT686FzW4zo+mCljTV6auOjYtPqfKh2zTq217Q67j+J/k?=
- =?us-ascii?Q?1OJadZ+KNlo8amNZyr5Onq9NuYaAL+/FiUJGd1ZYkv2AGT/xVCVCISRcX669?=
- =?us-ascii?Q?lSgs4p3lr/5yfW2gvg5tyXDh9mgoXfGZIs162SZWmKDPujSVSdNsZTSem5nC?=
- =?us-ascii?Q?zZF9sSjtvQnHSeZSkHSNnKoA0aXWsSHHA0+bXv6UR4Wto1iHzj+UfL1OE7/i?=
- =?us-ascii?Q?L7ClZ83UbCfulHQG/jBiPBbJeqQeOklxoAuEPDtabedQtGyO9H5XCKfNKsVL?=
- =?us-ascii?Q?jOKOC6elyF1mlX3RrKmg3/EQaWDVTj2BEjTfhlu4cG8tD6iGEcLtqAvb3gLx?=
- =?us-ascii?Q?4Ffk6qpjXw6+3D1Hl2b9dQh+5MYwwfJVIREGU0fvz/qqa71RWHKMoi27efgE?=
- =?us-ascii?Q?vOpV288aZ9hKyOHOwXuFTU3uXKRiu7efKWMgHUOdToZvcQ5OlmDkn6srAwQw?=
- =?us-ascii?Q?VNiv2Wm0QSwzgX6FiZSHwO21qnCDG0HEj/J5NWywrtry4+sSxhvZqX9hQBgP?=
- =?us-ascii?Q?89dl55NmpZC4lMnBbu7rqOpP1GiJkpP7gNYLbCqBXURLKyYPmlV8n+B4q+wu?=
- =?us-ascii?Q?oSntD5P7PQ+KjGK/iKIXQusTZtsanqECm81KyKGNeE/IDZ0HqsMuWsMcWJuC?=
- =?us-ascii?Q?h4QRQje5HpBHsWiqGdLf2PDtZOFFU8oqIUlYqDDTHDE2mOehPBX17/czX1LJ?=
- =?us-ascii?Q?nUwxCsqupqXYKYTj/VnhvU6C53ffStleLAW4xzAyyj5jgh3SXW5JIqwWpR8f?=
- =?us-ascii?Q?yZ/YqSl1MwBLqk9jlHkESIUcolGl3TQjJgmL/OtYwqredBondGWkRnB1VXAn?=
- =?us-ascii?Q?p1thJF+8z1eW1Nl24Qyu02tIOFR1dR5nEBnOLHJp49y32Yot9vSHXDZo8S4e?=
- =?us-ascii?Q?llp9ptHIDDBf/6S6dIiHiiopgxhj27xEm0QxyETpx4ea3VpYcyQShB8Z7M/X?=
- =?us-ascii?Q?YDIDbrNHAlr9bdH6E9BgL5D+TxXVgyL4Cg6w85PcttHChdbTtGDwtscd2lct?=
- =?us-ascii?Q?vYlFXfMx0kouIrMjIEkAq0o7XtFQgpAUYsd6DVGZa/xKY1tG8AXaD5wZcPrB?=
- =?us-ascii?Q?Wy1PjcRxrU7jv/+WSdfjByHeGgx4bgX4n32E8sEH3PDWmZm2noTjSvqCzkDF?=
- =?us-ascii?Q?4CRMXtRnq7Hk4BNBKXtztLvalMunaK+6eoX7OSwmXBfdKIcceZ+ciJy1RMyn?=
- =?us-ascii?Q?TSndFSqFnTLQVErfxzW9npc/FiutOvV1TiAS+NDHeBUEby2y8FyN0+/tem3g?=
- =?us-ascii?Q?54fqAmG++yoWnVt702RjyH9f7wkP7SueQ1YfAKV7MzQbe4/dvGsggi01on/H?=
- =?us-ascii?Q?QMUwc0ZrT0znYCIRuBaHB5Nh2rW8XJ6rRs/3gBSGDRDNN9m79D1TS6hckG50?=
- =?us-ascii?Q?6PDE7RmMOK7W3WwC+RlTGRXik98/UXxaBOzVEz10HrkOkQoaMG7tGaUd46/I?=
- =?us-ascii?Q?eXrJdEHHwMrZ/SMMveiMR3Njx8Zzxe8dUM0wXHxKpsOgULOR?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b224616d-34bd-4583-d00f-08df0a8ef7b2
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 14:15:26.9288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KIplqGmouBkyhgcDk/+8OaYt9zly9KHSSEfrLWFTs33++foTK0tBR5jmDbbCO5HG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8210
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_071544_640633_9E80017C 
-X-CRM114-Status: GOOD (  18.23  )
+	Fri, 04 Sep 2026 14:17:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 745F843A25;
+	Fri,  4 Sep 2026 14:17:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 578221F00A3D;
+	Fri,  4 Sep 2026 14:17:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788531455;
+	bh=20zlPSRECV/prMcBjc8mTQlsecPP4fstkjGI7hAkh0g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=hSkLPCUQH9h2xP4hiF5/50OgzXwXoDZRi92LExr9GuGCvoulWH/u5lL4UKHKyQmoN
+	 T7amb2VvAxdRUeFUM+jWaSQchnjRHRtk9l0p1wZ6ES5YCYUZXxRZCEmtmrh42AoRMM
+	 6AUVWTYYIMpTExUGHdPlcTAfMYfKPnsIicavxSgLr5563bhW0mN0tR84y+Stb18tES
+	 p+QKOisroVQxsTwny5wmC1WMvoHajZEQPhWnx4A6FBBcdUG1TKx3WHO1xAoPKUTs5B
+	 5ysmXVNF5qlaCz6GFbZeWOpOLXUXvya9SYQD9X4p/vZGiY3mzavq+FcOxBsyJBLwHk
+	 ipqu3cI432bFQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x2UjV-00000004tRh-0iWB;
+	Fri, 04 Sep 2026 14:17:33 +0000
+Date: Fri, 04 Sep 2026 15:20:07 +0100
+Message-ID: <87tso53xpk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com>
+Cc: tglx@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] irqchip/gic-v3: Add Altera SoCFPGA Agilex5 GIC600 DMA32 erratum workaround
+In-Reply-To: <20260904091114.2259616-1-adrian.ho.yin.ng@altera.com>
+References: <20260904091114.2259616-1-adrian.ho.yin.ng@altera.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: adrian.ho.yin.ng@altera.com, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,41 +81,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > arm_smmu_setup_irqs() has three failure paths that leave the priq without
-> > a handler: a missing priq IRQ line, devm_request_threaded_irq() failure on
-> > the priq IRQ, and devm_request_threaded_irq() failure on the combined IRQ.
-> > Each path warned but kept ARM_SMMU_FEAT_PRI set in smmu->features.
-> > 
-> > With FEAT_PRI still set, arm_smmu_setup_irqs() enables IRQ_CTRL_PRIQ_IRQEN
-> > against a handler that does not exist, and a later change would then have
-> > arm_smmu_probe_device() call pci_enable_pri() on PCIe endpoints, allowing
-> > them to issue PRI Page Requests that pile up in the priq with no drainer.
-> > Separately, arm_smmu_device_reset() has already enabled CR0_PRIQEN before
-> > it invoked arm_smmu_setup_irqs(), so the hardware queue would stay enabled
-> > regardless of what setup_irqs decides.
-> > 
-> > Clear ARM_SMMU_FEAT_PRI in all three failure paths, so that subsequent code
-> > treats PRI as unavailable. And disable CR0_PRIQEN after the setup function
-> > returns.
-> > 
-> > A kdump kernel cannot service page requests: strip FEAT_PRI when detecting
-> > features, so downstream PRI setup is skipped.
+On Fri, 04 Sep 2026 10:11:14 +0100,
+Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com> wrote:
 > 
-> Dumb question - why can't a kdump kernel service page requests?
-> I'm nowhere near familiar enough with that stuff and I suspect I'm not
-> the only one who might be in that state and reading this series.
-> Configuration choice, or a fundamental thing?
+> Agilex5 integrates GIC600 with an ACE-lite interface limited to a 32-bit
+> address bus, so the ITS can only access the first 4 GB of physical address
+> space. Add ALTERA_ERRATUM_AGILEX5 and register intel,socfpga-agilex5 on the
+> existing dma_32bit_impaired_platforms list.
+> 
+> This limitation is documented as Agilex 5 ES Device Errata 2.1.23 (825514).
+> 
+> Signed-off-by: Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com>
+> ---
+> Link: https://docs.altera.com/r/docs/825514/current/agilex-5-es-device-errata-and-user-guidelines/hps-gicv3-its-and-lpi-unable-to-access-physical-memory-larger-than-32-bits-causing-msi-x-interrupt-failure
+> Link: https://lore.kernel.org/linux-arm-kernel/372f059069a5551ea1096015f855cc306dbd7cd4.1747368554.git.adrianhoyin.ng@altera.com/ # v1
+> Link: https://lore.kernel.org/linux-arm-kernel/6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com/ # v2
+> Link: https://lore.kernel.org/linux-arm-kernel/20260622024945.21354-1-muhammad.nazim.amirul.nazle.asmade@altera.com/ # v3 (untagged)
+> 
+> Changes in v4:
+> - Rebase onto dma_32bit_impaired_platforms shared quirk (post Renesas)
+> - Add ALTERA_ERRATUM_AGILEX5 Kconfig and silicon-errata entry
+> - Cite Agilex 5 ES Device Errata 2.1.23
+> 
+> Changes in v3:
+> - Extend existing Rockchip dma32 quirk path for Agilex5
+> 
+> Changes in v2:
+> - Drop DT binding quirk; use IIDR + of_machine_is_compatible()
+> 
+>  Documentation/arch/arm64/silicon-errata.rst |  3 +++
+>  arch/arm64/Kconfig                          | 10 ++++++++++
+>  drivers/irqchip/irq-gic-v3-its.c            |  3 +++
+>  3 files changed, 16 insertions(+)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index ac3248b9f2f3..8522ba072040 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -53,6 +53,9 @@ stable kernels.
+>  | Allwinner      | A64/R18         | UNKNOWN1        | SUN50I_ERRATUM_UNKNOWN1     |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| Altera         | SoCFPGA Agilex5 | 2.1.23          | ALTERA_ERRATUM_AGILEX5      |
+> ++----------------+-----------------+-----------------+-----------------------------+
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne       | AC03_CPU_38     | AMPERE_ERRATUM_AC03_CPU_38  |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Ampere         | AmpereOne       | AC03_CPU_57     | N/A                         |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b5a51b0ef944..e3afb591db68 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -418,6 +418,16 @@ menu "Kernel Features"
+>  
+>  menu "ARM errata workarounds via the alternatives framework"
+>  
+> +config ALTERA_ERRATUM_AGILEX5
 
-The initial issue is the streams are left in whatever state the crash
-kernel had them in, so it can be generating a bunch of PRIs with no
-place to put them.
+Is this the sole erratum on this HW? The documentation says
+otherwise. So please add a suffix that uniquely identifies it
+(something like ALTERA_ERRATUM_AGILEX5_2_1_23).
 
-Though eventually we may find a device where dropping them is not good
-and they need to be NAK'd promptly..
+> +	bool "Altera Agilex5: GIC600 can not access physical addresses higher than 4GB"
+> +	default y
+> +	help
+> +	  The Altera SoCFPGA Agilex5 GIC600 SoC integration has ACE-lite
+> +	  addressing limited to the first 32bit of physical address space.
+> +	  This is documented as Agilex 5 ES Device Errata 2.1.23 (825514).
+> +
+> +	  If unsure, say Y.
+> +
 
-But I think the real motivation here is to save memory in the kdump
-kernel..
+This is in the wrong place. Look where the other GIC errata are, and
+put it there. Also, this should be selected by ARCH_INTEL_SOCFPGA,
+instead of being left for the user to choose.
 
-Jason
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
