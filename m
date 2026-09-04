@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23EDC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 02:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C16C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 02:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=svFL5GVsyMxjyZIfVZFUtOkSOeDAIlVTUrJgAyi3XSk=; b=qzOzyA4pNe9wRDma/ClKb74Rgm
-	YsbVvdPj2jdIq52MjrxVsQL3NYOE5Kb55duZT9cbw5W2gmQs86oosdlwGJrUmtJEDV5l3jzB1UyDB
-	c/F3dQwEXh0viJhDP8/INrR52CzEYGbvHT0E9xwm6OGHEQhsccouaODupYgephYn4mgdkT15iicsI
-	6AiIm6YGHYVVLBe2Uj2BeydxJbWO9HZY5Mf4YmwAtkYz9fgmhfbd7tpCbJxvRrVZUjUTGSR9Lvb2O
-	2h5m6PwnGOjVuJBenF+R9+QgqiIkt5Dx7tegh0QLpicPJsrifsV/fsVA21wtBMAeN2ivO760NcBF1
-	RrKplutA==;
+	bh=iRizJp23wPSCe5WsFPxEB6JBq79SZp7y8nKA/UZLjq0=; b=Vhss71KXr7ROzdkf99n6f2ILF+
+	GvmakP0Fah/DTH9LUZJor6vn+1I4H+6zF4XwZi3ADFW6nN2bAmON+MpRK3bAyTnWjuuumrPq4T+Uj
+	DKuz5/mbNWXd+PvBe8NXXr2R3YNDXkrkRZnBAbDoV/LbNDL6dodjZkQTr9NY+zT23jLqVspi0LFzA
+	NDPOsWd3O0IfRxQjLUO6H9Tt9WR5CcO0X4bU7Zt55sMwHN6hd5NUyfxRp3ICG7J17iafczb+oO8ov
+	3+zY9K2C3c2t91fV1/Zd4k47yVOykh6OfNegCNJE0un4yKKEZa9RnAwsMjXotUJrpypOVB7BpliXb
+	mPsz7tuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Jw1-00000000t9C-2RIN;
-	Fri, 04 Sep 2026 02:45:45 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1x2Jwf-00000000tEV-0SyH;
+	Fri, 04 Sep 2026 02:46:25 +0000
+Received: from mail-m16023652205.xmail.ntesmail.com ([160.236.52.205])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Jvx-00000000t8r-0zxq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 02:45:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=svFL5GVsyMxjyZIfVZFUtOkSOeDAIlVTUrJgAyi3XSk=;
-	b=cINy1kgFclwLdhJA3KbeBlH1oUeCPoLQa8e/26fjaRkyyiDD2TOnlfdkf6We6uYk4b6fV6AC9
-	n6/JPCwwZa0Gxdh72Ayfj8EX49k2wnXcSM4NG5FbTbIh2awM3Rh598vgapeiOnJoEE4Vlr6ImR8
-	ajTzc6Un2pGtwVwidjVZTcQ=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hbgXS4jZgzLlXF;
-	Fri,  4 Sep 2026 10:34:32 +0800 (CST)
-Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
-	by mail.maildlp.com (Postfix) with ESMTPS id B080840578;
-	Fri,  4 Sep 2026 10:45:23 +0800 (CST)
-Received: from [10.67.120.222] (10.67.120.222) by
- kwepemo100012.china.huawei.com (7.202.195.139) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 4 Sep 2026 10:45:22 +0800
-Message-ID: <4f755a7f-0a55-4292-892a-28346ed235a4@huawei.com>
-Date: Fri, 4 Sep 2026 10:45:22 +0800
+	id 1x2Jwa-00000000tCK-3Yqt;
+	Fri, 04 Sep 2026 02:46:24 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4c7eb8f85;
+	Fri, 4 Sep 2026 10:46:08 +0800 (GMT+08:00)
+Message-ID: <f2cdc86f-1f8f-405d-a9c1-3e9059d62f96@rock-chips.com>
+Date: Fri, 4 Sep 2026 10:46:06 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/3] perf/core: sched_task() dispatch and branch entry
- fixes
-To: Puranjay Mohan <puranjay@kernel.org>, Peter Zijlstra
-	<peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de
- Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
-CC: Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
- Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, James
- Clark <james.clark@linaro.org>, Usama Arif <usama.arif@linux.dev>, Will
- Deacon <will@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Ravi
- Bangoria <ravi.bangoria@amd.com>, Thomas Gleixner <tglx@kernel.org>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter
- Anvin" <hpa@zytor.com>, <x86@kernel.org>, <linux-perf-users@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <bpf@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260810133540.1947118-1-puranjay@kernel.org>
-From: wuyifan <wuyifan50@huawei.com>
-In-Reply-To: <20260810133540.1947118-1-puranjay@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.222]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemo100012.china.huawei.com (7.202.195.139)
+Subject: Re: [PATCH 2/2] drm/rockchip: vop: don't round the pixel clock when
+ the encoder owns the PLL
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Heiko Stuebner <heiko@sntech.de>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20260901234351.190506-1-anarsoul@gmail.com>
+ <20260901234351.190506-2-anarsoul@gmail.com>
+ <02c265f6-0898-4f11-9954-df7d99d082a0@rock-chips.com>
+ <CA+E=qVeqOahu7v4ser0zxxUU6Fr4dGAVA9m_mgHgu70ChYv9Gg@mail.gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <CA+E=qVeqOahu7v4ser0zxxUU6Fr4dGAVA9m_mgHgu70ChYv9Gg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa06a4f2a9003a7kunm70e050c89bd3e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTE0dVkgYSkhOQ0pCSRpLS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=i0xSyO6xr+xQMg0Itknu5ALMXB46Nbr8PgbY6KTxEP7jRDixR7wfqEuhzxks5DVCKXq2b+HF8tv4mDcLioBHAlTE+qBwxn25g2m9I9LImEf1AgtwYIdGlJ4FGZz1dywgvScF7fqOxAKhL0ySS8Ofz/HR77PhWhirq066G7BQ+B0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=iRizJp23wPSCe5WsFPxEB6JBq79SZp7y8nKA/UZLjq0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_194541_743846_98A4F46F 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260903_194621_569047_8CB848DD 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +80,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Puranjay,
+Hello Vasily,
 
-On 8/10/2026 9:35 PM, Puranjay Mohan wrote:
-> These three fixes were found while adding BRBE support for
-> bpf_get_branch_snapshot() on arm64 and were carried in that series until
-> v6 [1]. They do not depend on it, so they go on their own; the version
-> number continues from that series to avoid two numbering schemes for the
-> same patches.
-perf record -C <cpu> -b [<command>] triggers a NULL pointer dereference
-in armv8pmu_sched_task().
+On 9/4/2026 6:19 AM, Vasily Khoruzhick wrote:
+> On Tue, Sep 1, 2026 at 8:50 PM Chaoyi Chen <chaoyi.chen@rock-chips.com> wrote:
+>>
+>> Hello Vasily,
+> 
+> Hi Chaoyi,
+> 
+>> On 9/2/2026 7:42 AM, Vasily Khoruzhick wrote:
+>>> On RK3399 the HDMI reference clock is VPLL, a dedicated PLL that is a
+>>> parent of the VOP dclk. dw_hdmi_rockchip_mode_valid() accepts a mode
+>>> only if VPLL can produce its pixel clock, and encoder mode_set() then
+>>> programs VPLL to that rate. However vop_crtc_mode_fixup() ran first,
+>>> in the check phase, and rounded adjusted_mode->clock through
+>>> clk_round_rate() on the dclk. At that point VPLL still sits at its
+>>> previous rate, so the dclk composite picks whichever of VPLL/CPLL/GPLL
+>>> gets closest at its *current* rate and stores that inexact value.
+>>>
+>>
+>> Why did vop_crtc_mode_fixup() run first? Within drm_atomic_helper_check_modeset(),
+>> mode_valid() is executed before mode_fixup().
+> 
+> Sorry, ambiguous wording on my part - "first" meant before the
+> encoder's mode_set() programs the VPLL, not before mode_valid(). The
+> order is as you say, and that's exactly the problem: mode_valid()
+> rounds the pixel clock on the ref clock (the VPLL itself), whose rate
+> table can produce 85.5 MHz, so the mode is accepted. mode_fixup()
+> however rounds on the dclk composite - a different clock - which
+> evaluates its mux parents at their current rates. During check the
+> VPLL still runs at the previous mode's rate, so GPLL/7 = 84.857 MHz
+> wins and gets stored in adjusted_mode->clock. mode_set() then programs
+> the VPLL to that corrupted value in the commit phase. I can reword the
+> commit message to make this clearer.
+> 
 
-Commit fa9d27773873 ("perf: arm_pmu: Kill last use of per-CPU cpu_armpmu
-pointer") changed armv8pmu_sched_task() from reading the per-CPU
-cpu_armpmu variable to dereferencing pmu_ctx->pmu via
-to_arm_pmu(pmu_ctx->pmu). Meanwhile, commit bd2756811766 ("perf:
-Rewrite core context handling") made __perf_pmu_sched_task() pass
-cpc->task_epc to pmu->sched_task(). cpc->task_epc is only non-NULL
-while a task context is scheduled in; CPU-bound events do not schedule a
-task context, so cpc->task_epc stays NULL. The NULL argument is dereferenced
-and crashes.
+I think I understand your point now. The encoder's
+mode_fixup() yields 85.5 MHz, while the CRTC's mode_fixup() yields 
+84.857 MHz. The patch effectively bypasses the CRTC mode_fixup(), 
+so that both the encoder's mode_set() and the CRTC's atomic_enable() 
+clk_set_rate() end up using 85.5 MHz. I think it's worth mentioning
+this in the commit message.
 
-With the patches applied, perf record -C <cpu> -b no longer crashes,
-and system-wide perf record -b -e <event> -a alongside a task-bound event
-on a different CPU runs without any WARN_ON.
+>>> For 1366x768 (85.5 MHz) this yields GPLL/7 = 84.857 MHz. mode_set()
+>>> then requests 84.857 MHz from VPLL, which the PLL rate table snaps
+>>> down to 74.25 MHz, and the VOP ends up on GPLL/7. The panel receives a
+>>> timing 0.75% slow, which some monitors misdetect (e.g. as 1195x768)
+>>> and display distorted. Only modes whose clock happens to be an exact
+>>> GPLL or CPLL fraction (74.25, 148.5, 297 MHz, ...) were unaffected.
+>>>
+>>
+>> Did you designate VPLL as the parent clock of the VOP dclk in the DTS?
+> 
+> No, and it isn't needed: in the commit phase the encoder's
+> atomic_mode_set() sets the VPLL to exactly the pixel clock before
+> vop_crtc_atomic_enable() sets the dclk (mode-set runs before enables
+> in the atomic helpers), so by then the dclk composite finds vpll/1 as
+> an exact match and the mux selects VPLL by itself. Verified via
+> clk_summary on the patched kernel: vpll = 85500000 feeding dclk_vop0 =
+> 85500000. Pinning the parent in DT also wouldn't have fixed the bug -
+> without CLK_SET_RATE_PARENT the check-phase clk_round_rate() against
+> the still-stale VPLL would return the same wrong value.
+> 
+> See clk_summary for broken and working cases attached.
+> 
+>>> @@ -327,6 +327,12 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+>>>
+>>>       s->output_type = DRM_MODE_CONNECTOR_HDMIA;
+>>>       s->bus_format = bus_format;
+>>> +     /*
+>>> +      * The reference clock (e.g. VPLL on RK3399) is a parent of the VOP
+>>> +      * dclk, and mode_set() programs it to the pixel clock, which
+>>> +      * mode_valid() already guaranteed it can produce.
+>>> +      */
+>>> +     s->dclk_exact = !!hdmi->ref_clk;
+>>>
+>>
+>> What about RK3328? It uses hdmi->hdmiphy_clk.
+> 
+> RK3328 clock ownership is the inverse of RK3399's. hdmiphy_clk is only
+> ever consulted (in mode_valid()); the encoder's mode_set() programs
+> just ref_clk, which is NULL on RK3328, so the encoder never sets the
+> PHY PLL - the promise dclk_exact expresses ("the encoder will program
+> this rate itself at mode_set time") wouldn't be true there.
+>
 
-Tested-by: Yifan Wu <wuyifan50@huawei.com>
+Given the complexity of clock trees across different platforms,
+I think a better approach would be to implement functions like
+rockchip_drm_dclk_round_rate() and rockchip_drm_dclk_set_rate(), 
+which properly configure the parent clock to meet the frequency
+requirements. Of course, the current approach is okay for me. :)
 
+>>>  static bool vop_dsp_lut_is_enabled(struct vop *vop)
+>>> @@ -1558,6 +1554,19 @@ static int vop_crtc_atomic_check(struct drm_crtc *crtc,
+>>>       s = to_rockchip_crtc_state(crtc_state);
+>>>       s->enable_afbc = afbc_planes > 0;
+>>>
+>>> +     /*
+>>> +      * Round the pixel clock to what the dclk can really produce, unless
+>>> +      * the encoder will program a dedicated dclk parent PLL to exactly
+>>> +      * this rate at mode_set time. In that case the clock tree seen here
+>>> +      * (with that PLL still at its old rate) would pick a worse, inexact
+>>> +      * source and bake that rate into adjusted_mode, defeating the PLL.
+>>> +      *
+>>> +      * Same condition the atomic helpers use for the mode_fixup callback.
+>>> +      */
+>>> +     if ((crtc_state->mode_changed || crtc_state->connectors_changed) &&
+>>> +         !s->dclk_exact)
+>>> +             vop_crtc_adjust_clock(vop, &crtc_state->adjusted_mode);
+>>> +
+>>>       return 0;
+>>>  }
+>>>
+>>
+>> What about other display interfaces? For example, the .mode_fixup
+>> corresponding to cdn-dp will not be called.
+> 
+> The rounding still runs for cdn-dp and all other interfaces: it moved
+> into vop_crtc_atomic_check(), which is a CRTC callback and is invoked
+> by drm_atomic_helper_check() regardless of the attached encoder - same
+> as the old CRTC-level .mode_fixup was.
+>
+
+I still don't quite understand why we need to move this to CRTC atomic_check().
+What's wrong with checking !s->dclk_exact in CRTC mode_fixup()? Thanks.
+
+> Regards,
+> Vasily
+
+-- 
+Best, 
+Chaoyi
 
