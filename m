@@ -4,98 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FE4C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 01:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE58C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 02:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=; b=oqB34T2FSZlS6xV63FJG2v4k6V
-	9EnYceCGMIHkJg5yr4+OAM9tEPHCzYdcjnYIbYhI/Maft0UOppjRDYI8PnNGvPZUKq0vpp6ENL+TS
-	fzrtgLHHbfalAtyJ8e7qgDZXVgJ7moNTZY9Sk7D5ZuCUsguvJ263QDzqNdk1vyAoOYbIuYlL1zrR/
-	SC2OLCj7UZFL4fWCAyBrER4fotDapbhiGlnHAAKnsP1zB6w2NDC5Mz8oPqeb6sWCLNo3sHV6JE3Qy
-	sZAfG6JqqLTyQCOyXloVUU5KdTPpjzvnGsM1B8T6smYgHGjSSmyH01aBPl1OYMM0iOcQs6N/2vrEO
-	ydZSNFvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=; b=xgoN1iDm3a/m2vELuDpIAjvnA5
+	t4rDPckKpYFz2fHC7FYYicgj0THqb6Bnonsz0Jy8B1GsQSlrGN/riQDMDDa9v93g4eblEfYXYeMu7
+	B/sFTL2475iOTR3NtAB1P5sjfAQ/QjDX7SUyx8cPfEE69QguFa0TpijDByf6Lh9YkJhbbecsYIJyn
+	TABd3WCB07drEqZg8vDBMEsElwcE9FtWTuqZe8tPRM5A5nKIgY01QIf8Of29m6NsurOBw6tIW4vRn
+	tg7RgCRPrlRUIllDrglygTFAHzJNLbgnVnyaLXtbvuxTKxiR/Oh5YZ22XG8uEJrkAmV9Kre7ymWJO
+	YOJZ2REg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2IeU-00000000qPo-1O4g;
-	Fri, 04 Sep 2026 01:23:34 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1x2JI2-00000000rVk-10ov;
+	Fri, 04 Sep 2026 02:04:26 +0000
+Received: from mail-swedencentralazon11013018.outbound.protection.outlook.com ([52.101.83.18] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2IeR-00000000qPQ-23eq
+	id 1x2JHz-00000000rVN-1RVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 01:23:32 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c9b373d5af0so461670a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 18:23:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788485010; x=1789089810; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=;
-        b=psZ4BF+8lOIjJ9aTNBg5Il/Sp10gmQNo7hnagU3xPleGf1+Bv0gaLxnNTpnAk6ySlf
-         g0UyPC1gMTuqP8WBFTjVsO2hSdzn5ka85iOr/ySLl5+SQaBPNX/fXSqvuVuwoxqOqiae
-         CPrEIruv3qDXMUKtnX2cSgx9bXRwG3QQHkMHKq8JL2S43ljh0Zz41K2bmoCHjGG826Xg
-         Hakrx4oRHJJDtlrFb+7JfvIYNCGK/PKcfTqyHUoPHkKaVEQsFQX3NBRT864SqjZQPYFo
-         raYinCzD97dHO8iujvqlNAcWw2WOuqP7iLZPp7qMiBsAeEskvaIjbgna9lyh+RtFeUKU
-         Vz5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788485010; x=1789089810;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=;
-        b=f6RGPjRHQpv93vfhtRaUPotZ0nL6dGd9Ce9k6aWTx4Ste4AXIkQ5iEWTLe8YAGUcDZ
-         x0Nrhbrdb+2LMWTq6xAjgsVeGA3/pRZBCUlC/LVXzWgvsJtKqWXXZiMynKLfzW03O7/G
-         y3YwP9+NEq49L6eC5mLRPRK1lE0MdxuZvtlIZvQ2HhF1zGqA1x7pvsQhZCv3uxcrtRy0
-         x9nCbWNOYj+AeHW87s7yV7UsHTj5LGa8K0l+5MHwPqeNpJmS7JuoseIn3Yja0g49ZPIE
-         UsFh4pOrMObLh+U+275FdKKN8wbP1eLPPt1+fnSG53r4QnamFZzjQk+0u06jRP5Ji9Y7
-         FJYA==
-X-Forwarded-Encrypted: i=1; AKwUvBz9Cz84C9xm63kV3IApHvkqk+RBnoJvr+I822vstj4pAUGtHhAXCxUeGiTgMFZY0as5jhx9sTjNXQ3mqJlSb9+D@lists.infradead.org
-X-Gm-Message-State: AFuF++k6Du6etkYy37bmEJXl7wv6fjnlCBJ7TWzbKKeWY0kWZx1tDOqg
-	yMdQgqblKN+7D4IFspVSoYaDCOGZwy1b+7wG/4cH2rIlQ9pUQFzf0yNP/3SKU17e
-X-Gm-Gg: AYBFou0f8ElXAY216LsfgaRK23cgDP2CxGFv/qVj6ux5G/sV4hy5xYnp131DZjrvh/h
-	viP+Y5QWYmNKfsRAr0xhNLTJTZXnppP/kefsKgGjASux8CEKXlOQmO4aHU3Kj3N8g5Hag+9m8/S
-	Qe3/cdkjUgRc3jTukkIymAEXPVXAsyCzn21Uy+AfAaaJ7GobL9q1rSjcNeOBe31ZyNQSHvGw3FJ
-	GrkG1FhMDRGwiPPkwoHhLPyozjZoTfgCVYMymTQtqqwAfqHX6Qljvl5afDZR6/dDmWwnWaWydZp
-	3rW4yU1AFWbP45UP4Q4O57iyMDuwZSMGnJYTcek57V3KBV9GPHaS1wNbtaldy3v2XeMhG5X3ugN
-	atpqiRLZQfXNvhjvkroBSaduUEvtDYfVgQzE1/tIk8fgZyP+LWJsSrNZ5Zgl/XwuWNboqDXA3cw
-	KfPr2ucHpndUA0Hewq1U2cbqSE/wt363Iqs+GQWdih3dtLqnSxTD7CIuCZSvCep9GWSDPU0qBgC
-	8/hXGNloNbEgpTtEIDNvI2jvvwl95sWpibPgevwspARDbauOESTVAipUcgCeXRmzQ==
-X-Received: by 2002:a17:90b:1a8f:b0:38e:9045:babe with SMTP id 98e67ed59e1d1-39b2612ed35mr3678175a91.7.1788485009621;
-        Thu, 03 Sep 2026 18:23:29 -0700 (PDT)
-Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b26123c99sm1513842a91.11.2026.09.03.18.23.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 18:23:29 -0700 (PDT)
-From: Zhijian Han <hanzhijian1991@gmail.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>,
+	Fri, 04 Sep 2026 02:04:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FnpqrqZ7Tf1Dkg/rh8yVZM6rSZZG8CC7gQTv9fwXiEF6r3NB2+gZ1OGpa6oZ0x0IpRJ/8sRKoGpZ76A6+GeMEDnz/zOg99z9kdWtlhfRzeyDNKhL6bDsmuWEkuxcYpzaXqez1sIZFfMEiyjykJXUEcFtZUa1wY/3f5WLjmStI4H+IA3ZaIcte/kAGIeY7JrDg8I2cqo9BBHGXXKG1bWDUW1z/sb25JiV2MZB2Qpf7G6KNY/Wp5cHLjcp7fiZqYKaNhsBpi1MpMTWwVvTD8/1Xp7L/KT1f05gMOVPuocJbmxCM26v2Y+LT5pOt1YjT9APqvxJVIyFHNnUkShcnhpS0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=;
+ b=K3k3UA+riQvyi5fw5YIla1S4FROyAWHDglU9xwvP/Th/INVaXjq4z7IWkp3WgKIWW2aYldMcBiryLPmsE6rurXV+YzyvRshZQuqG7lGvExYaOL3PiAgM6xDHDolkrP48StEGPJ6YjldVXQlWZKwR9tEWqgHKj2wERf+rPZic74yLK0kMeWTPp0Zor9050Xq1x6zwQCkA40WcjbAH4YQ6crTCu02MTysDY9xcaGzrL80hKPfkKilogms7mVGewzTqWvqv6JOJPL44AzGXlYhw9nJdkr/5nuRcNNoVqWh3XqerIpl6xWjf0Yllkac8Qf6ttBKhUa1oK50h2yr2nZcZoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aajhPoVJL5HLsqnp5i32ArNnwZyUwABX1WXXeggOL+s=;
+ b=CqPzUiHWgyCnmPS+52aBnL3CY6+t0FgtFqK9R/QYNcc39kQSw9VR39i/dDvKMHjQQagFydFJalAmPMvjLJVJ+XXF4dFq5VBvljqBduTEamioWfzjGfW9DLmCTmpWHK5SOPStQVnbwKSiJiDHs4gBcWy4oOrLDd97x8DAZEnmdz1blPLM0LGb4OgmOHjDGtVvhrbfEdLJJCFjb/V+U/rJ2dFYAf+vb2fvGe6paC72QtMbnORNpV7iXAFgrvE45i/zW4Y8Ba43GrXAcgvGMbpIu277ymJyPlxc2AkJJVHZAm8nTkKDwvuQCJo0ar5zKseztYOK2zryyncPBLJlLQsS4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by VI0PR04MB10808.eurprd04.prod.outlook.com (2603:10a6:800:261::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 02:04:17 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
+ 02:04:17 +0000
+Date: Fri, 4 Sep 2026 10:08:25 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	sashiko-bot@kernel.org,
-	Zhijian Han <hanzhijian1991@gmail.com>
-Subject: [PATCH v7] PCI: imx6: fix resource leaks in probe error paths
-Date: Fri,  4 Sep 2026 09:23:07 +0800
-Message-ID: <20260904012307.3434449-1-hanzhijian1991@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 0/3] dmaengine: Use non-atomic bit ops where safe
+Message-ID: <apooGfaHN5aCO/Gn@shlinux89>
+References: <20260903-dma-mask-v1-0-211ffd12c236@nxp.com>
+ <apnKqR6ScF2K3GFo@SMW015318>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apnKqR6ScF2K3GFo@SMW015318>
+X-ClientProxiedBy: SI3PR01CA0007.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:296::8) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|VI0PR04MB10808:EE_
+X-MS-Office365-Filtering-Correlation-Id: 602f5041-ebf0-464e-d567-08df0a28d327
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|6133799003|56012099006|10067099003|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: CNy+4LNrSF6zg0NnFTPh5rR1yiR89hnjhoerNkMnVfz8tHFShiYKPw4p/mZOd+MGLvJ7WBmxHcglbPqqy/deC6rFx3tTDEP0B698yvv5zJ0B5iIEM14DrRTnbndD19qB2CXrrLUa8Dhr+ZtzdESRILd/9IZNJKzUyXRjzebx6DJGcgKBiGOiqxTN+djGqMCgVn6qormE2zs9HMUAWLlR7rA3d+CQhjsBMcBzI6hygWVRFao8mDjZ/EceeFunr5Bmx0y8tsTiXn+dMH37U8b2iRxvQNZ+CIK9IGaGnnAeYu9pJqCO3NZdN31HgRzoCUyaoIbh4tivAuzXw1s+LuQgAkKwW1L5rYtoI6cam9ZRfo9J5iHxIuibp2yi4eJOKPXx6QwqE+i4+iGxrJ/zaJPppVjtFM/ff1j+4g5iuP92MLP7TmWJq1ID+MJed9JJPkppuHCVJKgWddRFKn4d8HuxYVyIeNSXHtw5okVSA/qHazqpx0Cl/aOJJgxtsU1K2c5CiaDNOoUokClrjXVOudRdvp4QFgurzJr6DrqH5f72uaGfC9r2WSjfo97fzRfU/zuNOQFR6LTr2tKC3uvwJyrSrD9K6/zmOHdZs32NuXJaolIucEMMJPvE5h11g/AqHOk2/IXTWCrPKncgB4b4IXl5PQ3BznJmzz/ozwtj8ToLYAg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ilFWU/fGP2Xjzjfxfw1NOHFta/EWjOxcSQFEU4IT8IoNAsVp82EpWcMObYkk?=
+ =?us-ascii?Q?XMnw7P/nTxMPJPk7hQU447kdKWanQrqlxOvCtCMSGo9NJiUqJL/6cRqjyaBF?=
+ =?us-ascii?Q?FdmyL5P9H/ttxmjPly44y0ZNwR5H6ktpsQXlL5De/z51Z6ea4ToMYUVw22zd?=
+ =?us-ascii?Q?McVW4NbfvbKZBEDzidzaHvTiWIY+Q8yQakxmIlgwRU2Q1mRbwfaPNj2c6Enj?=
+ =?us-ascii?Q?/yZk+jpPJjsHF4mvM3gdMQdcrxLvH+KNKHAsRM1PSJ+woal1tIvDf0OQB/w2?=
+ =?us-ascii?Q?u4MX4g59rtX+Sqq8QPcXxzWICwU+KoR2dLZ0P3tNLKFwPKAfV56rWCBdyA6k?=
+ =?us-ascii?Q?kmaorY7heqjiDX5bhX005chb+OAeG7DnXW76YDBXk6pwagyQlGviVGd2CiEF?=
+ =?us-ascii?Q?c4NKK5RXq8fNK3AFAaevCDMR3AuaZ2uhhaKbvv3L5NBklHoOnfridGPIXGd4?=
+ =?us-ascii?Q?kzUBGyO691GOti+jQ6QyyK7UfbzzZQ0qLxxLsTOh0R2lLM2yw8MWP/XFu0u5?=
+ =?us-ascii?Q?CGQkvluycyXMQN1U1WCNm07ii91LGqSIIc6JJhgiHg0nc2tVzdFPktdOQRGY?=
+ =?us-ascii?Q?5kXgCn7f7ys9ZUP2Tw23vTK7InMKg0actZYWmYsfWKxtDw5nXCTg5AQFFGNM?=
+ =?us-ascii?Q?Q8otZWu4RKKWnpDjkIvbrhcMswd9fS7yDoNfFLEq5yDKzKNq7qVQvNGm4T7u?=
+ =?us-ascii?Q?ObjeOI6z3C/N1h3pOip70n7mDP1Qy6phYgrMYDS7YMeSfwlwMl3RKCdAjDf1?=
+ =?us-ascii?Q?K8eDOQGf+2heq7XUMFarysvAJYqRuihYZTAT5YRutxvlaRZSjeIDao0WMGgQ?=
+ =?us-ascii?Q?NqDo3tyMvJ1uULyDFoa245qgmTQfWPXE2p4WnumT3k9XFgyh/36Xu66h39R+?=
+ =?us-ascii?Q?0KsCngCwucQj2A7iCH4asbTGNay7m/4cU/cNrYuQylVmAXdkvm/Iy7l4deaH?=
+ =?us-ascii?Q?cjwk9dXWhKYiUAksULzW3hFgtPCiNqaw/4rz1+CFx4uGuS8m6EJJf/vKiB/J?=
+ =?us-ascii?Q?xTo17ddlLHtt7lB+MbWed0VParxahket//yreKEapBkr3hZHjeQQJQB4qvTP?=
+ =?us-ascii?Q?kPVu7+Spku83ocESbH1TAi8TBKdNfpf6/VfWM0SY5kwNzQ6hngGCgtnYlv5/?=
+ =?us-ascii?Q?sMZ8GgPWWJNosOzabUTnCly/YeVdj2aV1C0+ngNW2RPfXjs/rapoGd1Lfjcj?=
+ =?us-ascii?Q?3vBR8wrrrv2YHjCmINLAw5FWyHE2X8+zS4yuj4GjCVbjjTfcnTv+pZ1ZxZSc?=
+ =?us-ascii?Q?/X1nuLSU4ZYM5NDXFSzhypn6zXzNo65m3TCYYf4tERSglurLLiAbk9g1feNU?=
+ =?us-ascii?Q?ItGXq1E+poWPX2Wuw/ycyWn7vPEyBdamMq3wO4izd/ahCmYK3omQOrNYQ+8d?=
+ =?us-ascii?Q?b5dZHCAL5AHqBsvPAntyIB226KBiumU2kAEFzocZfZlUbIE9+uqWdQ+K3sR+?=
+ =?us-ascii?Q?Di2cWHo5t5/2Yr/t6zPJMXhaCQL8kk+SW2iEtL6Ap/bn+u9I+YCoqA/hRkb8?=
+ =?us-ascii?Q?Ox7Vz6R8AzC94Em8j994SfBbJbLGy9plpAd0+sp75Q1LFBfGT1uBqtvaHUdm?=
+ =?us-ascii?Q?pWUqbjYi/STvMwzphEElJ2fGoEkvrflVYzsebHaJS2/4+IleBnXugRYJT72Q?=
+ =?us-ascii?Q?EHMr2DMlC8ckQ0aPjyfznYowt0j10UKvKp4V0wg84Pbki3Y23QrJcLVk/GzE?=
+ =?us-ascii?Q?mMbzcnnXMEPnLxqYhig3uwOkcx0CK7QMlvdpdJ0yYh2lrGW0b77EElnpC/wg?=
+ =?us-ascii?Q?6zb428wny3Oh2Zs60ih1cSaeBQWsyJePWA/aTThdHPVUFH7c4+t0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 602f5041-ebf0-464e-d567-08df0a28d327
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 02:04:17.0296
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jICG9hvm4OufAomonDd3tmkBLesrOTgxHBe4uOTwFjPKpj6eRucsI0B+mx5uEHb+YgFBBHy54OiwUHIdDMyOhlL4RraByrqdu1OrDhE1SqFE5BoWVyjl/kb4UUNKh0tz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10808
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_182331_557605_DA3D8875 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260903_190423_417166_FB3D875A 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,151 +140,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_pcie_probe() leaks both pwrctrl devices and power domains on failure:
+On Thu, Sep 03, 2026 at 02:29:45PM -0500, Frank Li wrote:
+>On Thu, Sep 03, 2026 at 10:16:11PM +0800, Peng Fan (OSS) wrote:
+>> dma_cap_set()/dma_cap_clear() and imx-sdma event_mask setup use atomic
+>> set_bit()/clear_bit() in contexts where no concurrent access is
+>> possible:
+>>
+>> - dma_cap_set()/dma_cap_clear() are called exclusively during driver
+>>   probe, before dma_async_device_register() makes the device visible.
+>> - imx-sdma event_mask[] is zeroed and configured during channel setup
+>>   while the channel is disabled.
+>>
+>> Switch both to non-atomic __set_bit()/__clear_bit() equivalents.
+>
+>Any benefit to switch?
 
-- imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
-  and adds device links to them, but nothing detaches the domains or
-  removes the links on probe failure or deferral, so they leak.
+Drop patch 1, I thought there were no cocurrent access.
 
-- A failure of devm_pm_runtime_set_active_enabled() returns directly
-  without destroying the pwrctrl devices.
+For patch 2: The driver already uses the non-atomic __set_bit/__clear_bit APIs,
+I think no sense to use atomic APIs in sdma_set_watermarklevel_for_p2p, or
+I may miss something.
 
-- A partial failure inside imx_pcie_attach_pd() leaks the power domains
-  that were already attached.
+For patch 3: Use __assign_bit to save code lines.
 
-Add imx_pcie_detach_pd() to remove the device links and detach the power
-domains in reverse order of acquisition and register it with
-devm_add_action_or_reset() so they are released automatically on probe
-failure.
-
-Reported-by: sashiko-bot@kernel.org
-Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
-Fixes: 2c5768344f88 ("PCI: imx6: Move pci_pwrctrl_create_devices() to imx_pcie_probe()")
-Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
----
-Changes in v7:
-- Register the devm action before imx_pcie_attach_pd() and drop the
-  imx_pcie_detach_pd() calls from its error paths, since the devm
-  action already tears everything down on probe failure
-
-Changes in v6:
-- Keep the device links stateless and remove them with device_link_del()
-  in imx_pcie_detach_pd() instead of using DL_FLAG_AUTOREMOVE_CONSUMER,
-  which creates managed links to power-domain devices that never bind a
-  driver and would trigger a WARN_ON in device_links_driver_bound()
-
-Changes in v5:
-- Register imx_pcie_detach_pd() with devm_add_action_or_reset() instead
-  of calling it manually on the error paths
-
- drivers/pci/controller/dwc/pci-imx6.c | 56 +++++++++++++++++++++------
- 1 file changed, 44 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 39790e66b98d..371b2a11d8f5 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -180,8 +180,12 @@ struct imx_pcie {
- 	struct imx_lut_data	luts[IMX95_MAX_LUT];
- 	/* power domain for pcie */
- 	struct device		*pd_pcie;
-+	/* device link for pcie power domain */
-+	struct device_link	*pd_link;
- 	/* power domain for pcie phy */
- 	struct device		*pd_pcie_phy;
-+	/* device link for pcie phy power domain */
-+	struct device_link	*pd_phy_link;
- 	struct phy		*phy;
- 	const struct imx_pcie_drvdata *drvdata;
- 
-@@ -639,10 +643,34 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
- }
- #endif
- 
-+static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
-+{
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_phy_link)) {
-+		device_link_del(imx_pcie->pd_phy_link);
-+		imx_pcie->pd_phy_link = NULL;
-+	}
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_link)) {
-+		device_link_del(imx_pcie->pd_link);
-+		imx_pcie->pd_link = NULL;
-+	}
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie_phy)) {
-+		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
-+		imx_pcie->pd_pcie_phy = NULL;
-+	}
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie)) {
-+		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
-+		imx_pcie->pd_pcie = NULL;
-+	}
-+}
-+
-+static void imx_pcie_detach_pd_action(void *data)
-+{
-+	imx_pcie_detach_pd(data);
-+}
-+
- static int imx_pcie_attach_pd(struct device *dev)
- {
- 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
--	struct device_link *link;
- 
- 	/* Do nothing when in a single power domain */
- 	if (dev->pm_domain)
-@@ -654,11 +682,11 @@ static int imx_pcie_attach_pd(struct device *dev)
- 	/* Do nothing when power domain missing */
- 	if (!imx_pcie->pd_pcie)
- 		return 0;
--	link = device_link_add(dev, imx_pcie->pd_pcie,
--			DL_FLAG_STATELESS |
--			DL_FLAG_PM_RUNTIME |
--			DL_FLAG_RPM_ACTIVE);
--	if (!link) {
-+	imx_pcie->pd_link = device_link_add(dev, imx_pcie->pd_pcie,
-+					    DL_FLAG_STATELESS |
-+					    DL_FLAG_PM_RUNTIME |
-+					    DL_FLAG_RPM_ACTIVE);
-+	if (!imx_pcie->pd_link) {
- 		dev_err(dev, "Failed to add device_link to pcie pd\n");
- 		return -EINVAL;
- 	}
-@@ -667,11 +695,11 @@ static int imx_pcie_attach_pd(struct device *dev)
- 	if (IS_ERR(imx_pcie->pd_pcie_phy))
- 		return PTR_ERR(imx_pcie->pd_pcie_phy);
- 
--	link = device_link_add(dev, imx_pcie->pd_pcie_phy,
--			DL_FLAG_STATELESS |
--			DL_FLAG_PM_RUNTIME |
--			DL_FLAG_RPM_ACTIVE);
--	if (!link) {
-+	imx_pcie->pd_phy_link = device_link_add(dev, imx_pcie->pd_pcie_phy,
-+						DL_FLAG_STATELESS |
-+						DL_FLAG_PM_RUNTIME |
-+						DL_FLAG_RPM_ACTIVE);
-+	if (!imx_pcie->pd_phy_link) {
- 		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
- 		return -EINVAL;
- 	}
-@@ -1951,6 +1979,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, imx_pcie);
- 
-+	ret = devm_add_action_or_reset(dev, imx_pcie_detach_pd_action, imx_pcie);
-+	if (ret)
-+		return ret;
-+
- 	ret = imx_pcie_attach_pd(dev);
- 	if (ret)
- 		return ret;
-@@ -1975,7 +2007,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 			pm_runtime_no_callbacks(dev);
- 			ret = devm_pm_runtime_set_active_enabled(dev);
- 			if (ret < 0)
--				return ret;
-+				goto err_pwrctrl_destroy;
- 		}
- 
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+Thanks
+Peng
+>
+>Frank
+>
+>>
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>> Peng Fan (3):
+>>       dmaengine: Use non-atomic bit ops for cap_mask manipulation
+>>       dmaengine: imx-sdma: Use non-atomic __set_bit() for event_mask setup
+>>       dmaengine: imx-sdma: Use __assign_bit() for ownership configuration
+>>
+>>  drivers/dma/imx-sdma.c    | 21 +++++----------------
+>>  include/linux/dmaengine.h |  4 ++--
+>>  2 files changed, 7 insertions(+), 18 deletions(-)
+>> ---
+>> base-commit: 89c07d98716a13454ec3fd9f97689e812cc71bd4
+>> change-id: 20260903-dma-mask-ddf64d770f7d
+>>
+>> Best regards,
+>> --
+>> Peng Fan <peng.fan@nxp.com>
+>>
+>
+>
 
