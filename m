@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C229CC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43EFC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9yCa15UdSNTilz8kPcvrpDVJ1NX5mcsjOV3wxcM11SI=; b=4KkQs23MqaoarDbyyy/LFJS49r
-	43ilhPcOej6HBtKe8/3Qa2bOEVR74OcyHSEK5FiaRV7cXZDDL+4N0Ogon+5cRjDeowjVu4naKQqPP
-	uCnbmB/aiTWfXPt5hgbN74qVGnIUkocNbMETRnMyy9iq9sHhRjZaZijQAPZaOEwxKJc1cT6LBdSpO
-	m1Q6WWARbM26nnr3OX3or/WoryH7Be8481AeziJVHjPa/UUpCJtLbTtKlXff4CTqHGAAYjhesdnn/
-	5bEbOxcap4RDhvRvs321rIzVVMeSXlzS/4KjHRDm+3SPcukDaD+TUQ2nhxKaAVCDT+vXmwTDA0zsu
-	1/xrcNoA==;
+	bh=/zkAw0Mk8GkqlqvyS44GmVtI+30wAgQRZHaj1Ir4nIo=; b=uECisZiVsWMuFc+TxuwRTNRwLI
+	GRrPgmiLtkJNT8P+P5txaIOkg9n8jxe3kw6JViE2MCTx311/pVo3SlPgvf8V0saaP6AlgXkoXjpii
+	/MiQsKP4+fuycMq94OJFvHKrAwCyII3h2R5+yqpSMDmL+KGx8altWJTWJageRJDU2MSBZZ+W0XDFF
+	D+5B4xsLvHOzHPROFyRA3B0pT3UKPWkAI6xVSbki9VgzyablbKzxTtmkFMtvbkA3fPEj0+DMY7jmL
+	kmZ67ULDTyEefJuhZSqcFdfYpyGdhsnBwkp8nASJsh4BixEzoHKXqsU9MyVmCyW0WStRhGIGjXTcO
+	EnqLQCgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGI-00000001gOR-1x7b;
-	Fri, 04 Sep 2026 10:35:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2RGN-00000001gQm-2RVE;
+	Fri, 04 Sep 2026 10:35:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGG-00000001gNK-0YNq
+	id 1x2RGM-00000001gQA-10aH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:35:08 +0000
+	Fri, 04 Sep 2026 10:35:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5E0C43C0E;
-	Fri,  4 Sep 2026 10:35:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2D771F00A3E;
-	Fri,  4 Sep 2026 10:35:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AEC096020C;
+	Fri,  4 Sep 2026 10:35:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ED601F00A3D;
+	Fri,  4 Sep 2026 10:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788518107;
-	bh=9yCa15UdSNTilz8kPcvrpDVJ1NX5mcsjOV3wxcM11SI=;
+	s=k20260515; t=1788518113;
+	bh=/zkAw0Mk8GkqlqvyS44GmVtI+30wAgQRZHaj1Ir4nIo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=n94gtNfOXVpib0FqSMswq4TJBhowKoamIh5esJxUMOLzRML4Wqd1va+BRLyrw3z2E
-	 U7iZ7+4+mSvkdsg+XUxTcqYqdrv0DrxyDD1z/DaqmpozjfuLGwzmO25MIPzaKQ2GRv
-	 K1S6acdrKeUdBr8WovRoqksDi1FhGnIexXoMkND7W6o2/sltKmjYduLX2V8kOl3WMU
-	 XS3xEmJxv40hNvlY0ZXuyS3nu8mJtmiPFWvXgv5xcFI8LcNjHfW4sfPUCWKlFdg0un
-	 1jyXlYdDI+RIIEOfvHVrW+Wt3/mP2rJ2W3bqQ7nu9NaWkuCigAD/tYQW7+B6PvjVpz
-	 nE/SJ2oK8+Kcg==
+	b=erlD1+uDMTvmkBHPQ5hx5RxALAbZgQ13+Sb+kS0mqKvW7e5jYGpWWh2xzNUnu5uQJ
+	 ZSg4GPscYVOTRBVXtgSOMUOVhAXCNypcXz91wqLI6MFAljeyFJMMmQjY9Egjfglg/9
+	 k18YENiUpf1s3FOlaeQIMHjByg4dWZuwV1IIejRmuf0Ci3I4oS3MxKB7jSNR/c/6uK
+	 /utYsfZCevfUSnXx8MMabqlPwhTWfy0vzD4LW1mB+OiHQF+YCF0KpnVi7hUs3iLdj5
+	 5jX39qFoUpal0uFMDTOyaYv4Q1U0DERYHFB/cfddGK0X7rl8ubamTFMUByU28RWSEx
+	 pKFHjYeYUzPkA==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v6 1/9] mm/mem_encrypt: Add helpers for shared-buffer alignment
-Date: Fri,  4 Sep 2026 16:04:44 +0530
-Message-ID: <20260904103452.1197239-2-aneesh.kumar@kernel.org>
+Subject: [PATCH v6 2/9] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
+Date: Fri,  4 Sep 2026 16:04:45 +0530
+Message-ID: <20260904103452.1197239-3-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
 References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
@@ -80,53 +80,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-confidential-computing guests may require shared buffers with alignment
-larger than the guest page size. As these buffers are shared with the host,
-which may manage shared/private state at a different page-size granularity,
-the required alignment must account for the host's page size as well.
+ITS tables allocated by the coco guest are shared with the hypervisor.
+These allocations must satisfy the host shared-buffer granule size so that
+the full converted range is safe for host access.
 
-Add helpers for querying the shared-buffer granule size and for rounding
-sizes up to that granule. The generic implementation defaults to PAGE_SIZE
-so that existing architectures keep their current behaviour unless they
-override the granule size.
+Allocate ITS pages using a size rounded up to the shared granule size and
+use the same allocation order when encrypting, decrypting and freeing the
+memory. Also grow the ITT cache in shared-granule sized chunks instead of
+assuming PAGE_SIZE is sufficient.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- include/linux/mem_encrypt.h | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
-index 07584c5e36fb..5d2a868f8d3d 100644
---- a/include/linux/mem_encrypt.h
-+++ b/include/linux/mem_encrypt.h
-@@ -11,6 +11,8 @@
- #define __MEM_ENCRYPT_H__
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index e9807af23537..98d8fccbf0f2 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -216,6 +216,7 @@ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+ 	struct page *page;
+ 	int ret = 0;
  
- #ifndef __ASSEMBLY__
-+#include <linux/align.h>
-+#include <vdso/page.h>
++	order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+ 	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
  
- #ifdef CONFIG_ARCH_HAS_MEM_ENCRYPT
+ 	if (!page)
+@@ -241,6 +242,8 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
  
-@@ -54,6 +56,18 @@
- #define dma_addr_canonical(x)		(x)
- #endif
- 
-+#ifndef mem_cc_shared_granule_size
-+static inline size_t mem_cc_shared_granule_size(void)
-+{
-+	return PAGE_SIZE;
-+}
-+#endif
+ static void its_free_pages(void *addr, unsigned int order)
+ {
 +
-+static inline size_t mem_cc_align_to_shared_granule(size_t size)
-+{
-+	return ALIGN(size, mem_cc_shared_granule_size());
-+}
-+
- #endif	/* __ASSEMBLY__ */
++	order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+ 	/*
+ 	 * If the memory cannot be encrypted again then we must leak the pages.
+ 	 * set_memory_encrypted() will already have WARNed.
+@@ -272,7 +275,8 @@ static void *itt_alloc_pool(int node, int size)
+ 		if (!page)
+ 			break;
  
- #endif	/* __MEM_ENCRYPT_H__ */
+-		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, node);
++		gen_pool_add(itt_pool, (unsigned long)page_address(page),
++			     mem_cc_align_to_shared_granule(PAGE_SIZE), node);
+ 	} while (!addr);
+ 
+ 	return (void *)addr;
 -- 
 2.43.0
 
