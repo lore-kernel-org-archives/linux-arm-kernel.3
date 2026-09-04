@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D55C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5C0C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2JcMzX/PCeTf7UGtxAjVYfuJkqAdewy/yttwf8L/2oc=; b=BfJEwwLFdL6sp4UTEwaFLKQxeF
-	Hst7rLkw9LvyuGUyaJGp7oixLz6VJ6NLkYGBQHIdvos+KmOQPAR7VnF7DZlBn9fgQloRWiYdjoiWU
-	CYd6qYegdx6ysDAQAl375LAlSMqRlBUj8A2+7hWDEMh8XUMQoP0/YJo0JfR/Tsvi974/8GXGk6RQO
-	4JzZAXZ2RcOrfjPC6WDVJtMMhJXWRDe3Q//vReCeVx3t3I5EXpFfAvX/Moe+tu213zEW5+1ElTKVG
-	X1OLCQV7VVkR4l3p1wMgNZaGLZ4rBWFy4B8aycgf/tXMuWO19lEuIyyLEkSE0Np7gevxESnheAZiE
-	OhwwLWjg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RVyebJSrPANro9+ZzIJ5GUMECycDoWkIReTgM/W+/mE=; b=bNR5Fy3pkq3Pp2yd9JqWqSHrPw
+	IWbPgx1bTGByWT8VpG34l7TszP9LFkXjU3zsAf6Lyc4lDU1ifNsUZNzIOhkZh63ST9fYBNfnoi0oD
+	LcruStOMCnIV8emnCp4BLjhKZAhbdVeJcFkWjY9OsGHNSKk4xos+5n+4AYSd8bmZvrmFa5aEGxE5N
+	Fe+5MKofIZnYDP4yTSrxOt4fhKS8tyrxiOlM8rPNWGI0alRwFFYTP/H3BhJQ/ByhgX5TPd4+v78bq
+	uxZnthln/7VHRZLFIZ3bLcgX3cqQkKiZYynJn4uNn5Y8SrQdDx7Ow17tozoN1Xv7Ba2KXVHu1aPAx
+	PV3k+unA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2NwO-00000001DYv-415m;
-	Fri, 04 Sep 2026 07:02:24 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
+	id 1x2Nwc-00000001Dcd-0z1C;
+	Fri, 04 Sep 2026 07:02:38 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2NwM-00000001DY9-0HFq
+	id 1x2NwZ-00000001DbY-1v7F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 07:02:23 +0000
-Received: by mail-pj2-x03.google.com with SMTP id d9443c01a7336-2d6fff25530so2009295ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 00:02:21 -0700 (PDT)
+	Fri, 04 Sep 2026 07:02:36 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8556ec44e9aso624244b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 00:02:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788505340; x=1789110140; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2JcMzX/PCeTf7UGtxAjVYfuJkqAdewy/yttwf8L/2oc=;
-        b=ZSsaRlOXg8ReGkR3a2lWtgnsy4L807kodvPYNn4vYe6YBOpuHK2jEVWDtnT6aLR+GS
-         FEwTd/hvs+5oaAx8KcJhTwvagQagxGaHOAqRXay0VXYIK+EFcSO1ddjvUm7N3YIzNkOd
-         Pjq9veEQYWendf1cPgxSesLrfsIYD8LWBAmO40/VnyhHXPE39xAY7XkFEXm9QLnJ/FWf
-         Uj3W0G/MeIIF7ixsJn0QpA5hDcByu01J/+Gd48jdlsGKWWf55a9MHBb8Qy8jjyQ2q8PA
-         mwaL3tOfHQ1OoAfmTHZLJin9TmWkCA/P2fU50GN8ckFtvZigXyBsQyn9X2XkvzZGPv9o
-         CgqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788505340; x=1789110140;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788505355; x=1789110155; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2JcMzX/PCeTf7UGtxAjVYfuJkqAdewy/yttwf8L/2oc=;
-        b=ftt3qviX4LUdZmNEe1AON5pZwsv+fBCTqA1tnTwpEWYMoQmKCaOokRp15Xgl5IY3gd
-         KP/sW9QrwJpmEavEl914HWqOj6qB9Kg9b1AcA+z9ntAjMhdEH13gs2kVTUYrSLFGNrZA
-         JC3rJmN4H5U8NV2yNSEM0WuUB3TxeSpWtWR9NPEgrU30OATr3aRjDpDZLPSgyGr9nxyC
-         6RDS3+TrBYUBZaXw+fLcqan+2vpdB18+SznTvhJns6ln7WedoJGllUx1W8Ouz4TwuYhu
-         SnzS+LzkSvKA9v86hYS+/aqTZ314bDRnrTySbf8Izm1E7yICsw4w5Y3wcyRdrc8mhwRp
-         NEkQ==
-X-Forwarded-Encrypted: i=1; AKwUvBycV7+NyYxvMVu/xDjauSkHs0tiCtWSYgh0DFrjJW4I27e/SwbLtwiNT2NdRNW+H01S3BtzIXn4LH2ySf6eLx+T@lists.infradead.org
-X-Gm-Message-State: AFuF++njNhtLpsvUyHw2usOHWvEWYOm2Tg50OIJ/GjB36GpsGXv+5MWY
-	LTZg4R1BHv06G4GrS25yc+FeKRng+OlEjQKY20YeohX7zm7ks6aodn8=
-X-Gm-Gg: AYBFou3G3Jqzxjb8zTSwCwUhA0THeGpJjqexNt4eI78w10J7c0uzqRBIcyc2uxzydpW
-	z93PT2scyRuQz3hjuzVrihGbrFsykWZJcPp2M1cxnGCldQ5g2f0RiIgbe6u8WlwpIhJlfkA6lB8
-	XLyFbkdw87+TdiE0DKYBbrQq4hnC8ee2efem3rUDXI8v0mUFH3czIbTnbkJW1iptPzNyAqmUPA/
-	Xn5W0EKhiCPxgDxBT+3Iv3sh1a/E5XufHsAp5XJ7BPHXDcT/BbYqKDFALITNWCiyyK/1lkKp0sF
-	f5u5azLLNwaRI/nEz666J7J5RSRbsoUqM01bTxOSTr5lxnlIKRVjDjyA5crT8N6zcibyJ+H9ElZ
-	mNIxfBSXVSKfA4ikvYUVjlhY8omk7uEA2uuK/eINcEhNzsQ+8lvrwnFi4vaR+Wnf6hs6OBqUcax
-	07RYIzYangJLDoSF+uL7GaY2dvDSks7T8Mq5+Ik4rYRy63M10pAQddL6rj0fnJschRZGjygz6+g
-	120Bl32Fh96nYgZrJT6DH2h
-X-Received: by 2002:a05:6a20:6a1d:b0:3c3:a31b:3949 with SMTP id adf61e73a8af0-3da39d2e51amr5960262637.11.1788505340274;
-        Fri, 04 Sep 2026 00:02:20 -0700 (PDT)
+        bh=RVyebJSrPANro9+ZzIJ5GUMECycDoWkIReTgM/W+/mE=;
+        b=PjbHgWXWAUNEQA1FtGeYL6vm4+JNKXEsYGD1YZdw8/1iOg8W3JSw+XfnFqrQAdKqHp
+         JrjGE+4tY1CBXf2qJSKkwUi4JZ594LIAH5tbt+KDMsw/JToGgiDL06K+j+t6f15WxOxO
+         164sl2tiHEORJrHqA0NIU6CPWXtWrXHttk6LigfXfYTrAZSVxlNlfHE6cLgLiIxA+s7V
+         TYBmuuwHpZQTJsnhwF8J2tGyvrS5Jyj2cLUk664hzdrf0ByLMdZeuHqST3P1K6325qaz
+         zQWPa09n62OoYLfpNf+onDgatb5UmDoxjw/g1yVC+nqi9bdbNNfGMnuNE8piSLICJKuC
+         nUeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788505355; x=1789110155;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RVyebJSrPANro9+ZzIJ5GUMECycDoWkIReTgM/W+/mE=;
+        b=GzaxdU8Ehoqu4bFx8NOJ7tL/3CbgpKp3lxVRL3BXo3a5ey62CwJVOavXfvMu51qwgj
+         6/oD63SHLbD/xICmpv/IOKr3YDrHDDHgi6acqSwlVkUJHyd5O4+CVqYWgqEFj7OrRdO1
+         8GnL51DgIs3tBPQFbt/oduyKG6dM0SVAc3ZwGmTmHWfQBRb+xoZE4HehVkNl+3Oo+hVP
+         pxZak/U88ts/P+6MEFx1UB27lRFn3O1QdTOxdNRZNXI9jRQzMyxky0no4YH1x1tfwrMY
+         gqCOIaO1wavV1a6s3E/jQcNfA2hK4DnkdfjQ/vUksB+3uEHv/rcXvhxxKNAqGSUm8pBC
+         Aw+A==
+X-Forwarded-Encrypted: i=1; AKwUvBxEQ8SCOVnR1oZf9ca8t5PxouzqklnDH5Q+jHhQNTgHd3z8Myvv30focVsUdJUtpNRh9gIw/oESGnPS2mJ+6G2U@lists.infradead.org
+X-Gm-Message-State: AFuF++l9yeZNNrcnEsdrWbrPdoDi8qUSZ/cCv7jWxL6CVI2Rs7Zukv54
+	zp7OV21JpHYcLZCIQnvbrWvdQMyROjBPwEpINPa9VBACW7HbGARKAdL/cQDsEfJe+w8o
+X-Gm-Gg: AYBFou1AR5AALBQ7u0Ym91WUBPp9XezgHKpmqK0t/7BycR+/6kU0mrsJJAkWRbimGxw
+	bF+j6BSd/21OEwjxjtYSUPtlLbpSx62KJYMeyxHgL520tLC+Zu7zP12Xv+F0ew4/n2JoogyBQyn
+	UkSimQz537QMPuTOiIGNONivrsQLuqlqtbK/0XsqOYUF6/FrNYkR21Clt2adg4w1h1zV6djprZj
+	koVDTJBqRB9TgCZuSps+Hz9sXkHrOW2/poiqEtIN/td4dsql1Zz7x7r0Ca28sMXR1KlvGDVoA4a
+	xSNA3WuBEJ+gAapTA0YSuKYuHYj8t4ZeYKFs1xlPGGMLV4lDZBtpRBe4NMkjRNmBqOh/miwZtUX
+	aeXWmVLCMUoxxP3D19QDJXuzXb7NHbwHBH0PlL3ejlsWsyyw5V5mDzYE4P6X6G8HKjgjJWts4Ph
+	UYFgdyt5UnnEbTcCS7vZAozgO8dk0/4MT33IeMJlWwPNr3UUWU+z0X8HfaWACULNONjZ53H48tG
+	LZyB/f4c+T547lO8Afjyh6A
+X-Received: by 2002:a05:6a00:9518:b0:857:72ba:ff0e with SMTP id d2e1a72fcca58-8616b667c51mr5437819b3a.22.1788505354389;
+        Fri, 04 Sep 2026 00:02:34 -0700 (PDT)
 Received: from ydg-Zenbook-14-UM3406GA ([211.230.25.193])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8615273e3a0sm755511b3a.23.2026.09.04.00.02.15
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8615273e3a0sm755511b3a.23.2026.09.04.00.02.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 00:02:19 -0700 (PDT)
+        Fri, 04 Sep 2026 00:02:33 -0700 (PDT)
 From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Andrii Nakryiko <andrii@kernel.org>,
@@ -93,15 +94,17 @@ Cc: bpf@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Xu Kuohai <xukuohai@huawei.com>,
 	Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-Subject: [PATCH bpf 0/2] bpf, arm64: fix the exception callback's frame pointer
-Date: Fri,  4 Sep 2026 16:02:08 +0900
-Message-ID: <20260904070210.4163193-1-donggeunyoo.kernel@gmail.com>
+Subject: [PATCH bpf 1/2] bpf, arm64: set up the frame pointer for the exception callback
+Date: Fri,  4 Sep 2026 16:02:09 +0900
+Message-ID: <20260904070210.4163193-2-donggeunyoo.kernel@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260904070210.4163193-1-donggeunyoo.kernel@gmail.com>
+References: <20260904070210.4163193-1-donggeunyoo.kernel@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_000222_108355_9A215D97 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260904_000235_624391_DE60DE27 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,19 +119,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 JIT does not set BPF_REG_FP in the prologue of an exception
-callback, so the callback runs with whatever x25 held when bpf_throw()
-was called. A callback that materializes the register, for instance to
-pass the address of a local variable to a helper, then works on the
-frame of the subprogram that threw.
+A program acting as exception boundary saves all callee-saved registers,
+so build_prologue() takes the exception_cb path and never calls
+push_callee_regs(). That is the only place find_used_callee_regs() runs,
+and with it the only place ctx->fp_used is set, so the callback prologue
+does not emit the
 
-Patch 1 sets ctx->fp_used on that path, the same fix commit b114fcee766d
-("bpf, arm64: Fix fp initialization for exception boundary") made for
-the exception boundary. Patch 2 adds a selftest that reaches the case.
+  mov x25, sp
 
-Tested on aarch64 under QEMU with vmtest.sh. Without patch 1 the new
-test panics the kernel, because the address handed to the helper lands
-on the helper's own saved return address:
+that points BPF_REG_FP at the frame the callback runs on. x25 keeps
+whatever it held when bpf_throw() was called. If the throw came from a
+subprogram that uses its own BPF stack, that is the subprogram's frame
+pointer, and since the subprogram never returns it never restores x25
+either.
+
+Stack accesses through BPF_REG_FP are rewritten to be stack pointer
+relative, so those still land in the callback's own frame. Materializing
+the register does not: a callback that passes the address of a local
+variable to a helper hands over an address in the dead subprogram's
+frame. That address is below the callback's stack pointer by then, and
+the helper's own call chain covers it, so the helper can write over its
+own return address. 0x1234 below is the value the helper was asked to
+store:
 
   pc : 0x1234
   lr : 0x1234
@@ -139,23 +151,32 @@ on the helper's own saved return address:
    __sys_bpf+0xbdc/0xdd8
   Kernel panic - not syncing: Oops: Fatal exception in interrupt
 
-With patch 1 applied the whole group passes:
+Set ctx->fp_used on the exception callback path so that the existing code
+further down sets x25 from the stack pointer. The epilogue restores it
+from the main program's save area along with the other callee-saved
+registers, as it already does. x86 sets the frame pointer for the
+callback from the argument it is passed, and powerpc computes it from
+the stack pointer.
 
-  #116/11  exceptions/exception_throw_subprog_stack_cb:OK
-  #116     exceptions:OK
-  Summary: 1/118 PASSED, 0 SKIPPED, 0/0 FAILED
+Fixes: 5d4fa9ec5643 ("bpf, arm64: Avoid blindly saving/restoring all callee-saved registers")
+Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
+---
+ arch/arm64/net/bpf_jit_comp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Not tested on other architectures.
-
-Donggeun Yoo (2):
-  bpf, arm64: set up the frame pointer for the exception callback
-  selftests/bpf: cover the exception callback using its own BPF stack
-
- arch/arm64/net/bpf_jit_comp.c                 |  2 ++
- .../selftests/bpf/prog_tests/exceptions.c     |  1 +
- .../testing/selftests/bpf/progs/exceptions.c  | 29 +++++++++++++++++++
- 3 files changed, 32 insertions(+)
-
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index c18e005a41db..c5f55d6161fe 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -600,6 +600,8 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
+ 		 * 12 registers are on the stack
+ 		 */
+ 		emit(A64_SUB_I(1, A64_SP, A64_FP, 96), ctx);
++		/* The callback may use its own BPF stack, set up fp for it. */
++		ctx->fp_used = true;
+ 	}
+ 
+ 	/* Stack must be multiples of 16B */
 -- 
 2.53.0
 
