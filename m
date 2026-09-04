@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01004C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BD2C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XuCk+1M8rocrjU7R2bJvWPN2FVuBGmA8pD2OsNnDDUQ=; b=eXXA5sMSxP+ufggBil8j5qJ092
-	VwC//vXgtjPziQCUz7sDY5di580tTlzNVYQ+ii0VqAtyxm+s7fm7egfa5dEcd+6UQkf3xVahxOg66
-	pZ0R1d4t0z4Mz/hQn7klFur4hUMF7GqttYON/Q9Po4aGUrNEzMPEXhr6Ae+KdB8tXdk5kkHCZb0UR
-	qLT5+g/F5mPQhlcoZi9qLKR0wkPmTmRU84m8HfAvtSWsRki+8PRm9g3QfXxTsFmxCXemYpHLGFj5C
-	/KCO9n/BKuvTv39PMJBdWI8iIlGJsiKHeOQLoKo8DXv+pjG72bu5TqddHSH2+JUS0HtIK+BYQNq8F
-	8QVVNlCA==;
+	bh=jcEsTXyp5i8RTAWhuFmJwyeV5GnJkSjGyQJoL99qHRc=; b=q9d+UzEbI5BHd0y3Xnf1oFfw4r
+	j+1QS2BZOpNQaYDcSSF0/YqqPbqMkpKTSAtE3uDLl30LQhzZZaA8SxtdFfnt8N7ZAVVRE2V8VLhka
+	aP9IJ2pyrI8asRzSNGi/h6R5U4fIm+0k1p9An2SI7S2pTRrVgV7z/FhhyW+FWoCWtScoBwqq7ADda
+	way2RjKcJJ7xMQRyVfpILSs2ucbnWYL7cPBJXufPnj5CMYTP+qV3+ZFaMbkZxIZU2+fiiSqlAlAJJ
+	D8EexObwCEHYRbEnR2D4aE3TtDESqSzZ28lRuin0keRDZYLu6eyYBMC1UPd6Iz8Ps+zU3ZickAVP+
+	+q3h9pyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UNa-00000002IGO-3stf;
-	Fri, 04 Sep 2026 13:54:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2Tgn-000000027Km-3Zgh;
+	Fri, 04 Sep 2026 13:10:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UNZ-00000002IEz-0YvH
+	id 1x2Tgm-000000027K7-0hiU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:54:53 +0000
+	Fri, 04 Sep 2026 13:10:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93ED36020C;
-	Fri,  4 Sep 2026 13:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49FDA1F00A3D;
-	Fri,  4 Sep 2026 13:54:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 525B5600C8;
+	Fri,  4 Sep 2026 13:10:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 074C11F00A3F;
+	Fri,  4 Sep 2026 13:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788530092;
-	bh=XuCk+1M8rocrjU7R2bJvWPN2FVuBGmA8pD2OsNnDDUQ=;
+	s=k20260515; t=1788527439;
+	bh=jcEsTXyp5i8RTAWhuFmJwyeV5GnJkSjGyQJoL99qHRc=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lBqmQngeMreNSNiVj3y7hvqlEQ0W4Vgip/HiR3wSOWdWDIe7186jCAbto7ivXHd1h
-	 MmwSgCmqAFSPph8p4rVvNsj71qDCxhXQrfoQVK9UoFYzzNRkkaw1UyMvRdcG6jxJsM
-	 ySok5vDcAH0vxsRqVlZ4NbJ0kP8408dTRP3isPWqSu8jKJPT7oV15M1aeANc4wcDCm
-	 DyVdgW2DVVDr6I5EsLBJWJ5KC+HHOgYyKOdamhkIWzAyt1Sp5dFDCojmJF6gwXXJ8s
-	 Td/7G2tMA9veGUQoICCKggDGqhke0A2DxFc0itqOoC1USXRJbWsOnVRF7oKEirsllN
-	 5s1/dF13Gunxg==
+	b=UWj7f97lHFrkD5ok4xA5PUwLkENTVqgefCSShczT6Ps7g/81GbSD+f+CcXOWErbNm
+	 Ztq2v/vADb5/OZOcN40arbk32oObA4dOWlbkbSLSbwnMrldNe2GfZG+cwXtjE7NhUj
+	 ktlfBvuIsrmNlwYN61XndnbN67Mh8N+QNHrp6pnvzlOYsgjIItpM8KQG3+0D5sbz+0
+	 G70wxF8KplV9k/pIxcmDt0kx288hNOTWB1+GDOSZHvY+gPzPsj53HoMAjJPsK/kbAf
+	 j6um+mlzJV6MLj+JDcgjc+qjcmyjL7rszKA6PrsW6XBD4mBGZnx5A0b6G63xEhTwyp
+	 v/l6C4dkHJ9UA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1x2UNV-00000004sow-3eVw;
-	Fri, 04 Sep 2026 13:54:50 +0000
-Date: Fri, 04 Sep 2026 14:57:23 +0100
-Message-ID: <87v78l3yrg.wl-maz@kernel.org>
+	id 1x2Tgi-00000004rKf-2NnI;
+	Fri, 04 Sep 2026 13:10:36 +0000
+Date: Fri, 04 Sep 2026 14:13:10 +0100
+Message-ID: <87zexx40t5.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Mark Brown <broonie@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
-In-Reply-To: <aprJv4vkguNJb5vG@sirena.org.uk>
+Subject: Re: [PATCH 1/2] KVM: arm64: Initialise TCR2_EL2 for nVHE mode
+In-Reply-To: <d9c3a882-fcf7-4cd3-93df-b0218961e145@sirena.org.uk>
 References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
-	<20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
-	<86pkyt4gvt.wl-maz@kernel.org>
-	<eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
-	<apqrky27mJmUV9UA@willie-the-truck>
-	<05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
-	<CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
-	<aprJv4vkguNJb5vG@sirena.org.uk>
+	<20260904-kvm-arm64-nvhe-pie-v1-1-29d59f245e6c@kernel.org>
+	<86o6ed4gln.wl-maz@kernel.org>
+	<d9c3a882-fcf7-4cd3-93df-b0218961e145@sirena.org.uk>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, fuad.tabba@linux.dev, will@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,14 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 14:38:07 +0100,
+On Fri, 04 Sep 2026 12:35:22 +0100,
 Mark Brown <broonie@kernel.org> wrote:
 > 
-> Marc also started out with a flat no and didn't mention anything
-> positive about the hVHE part so it appeared that he was objecting to the
-> whole concept of the patch, including the hVHE aspect.
+> On Fri, Sep 04, 2026 at 08:32:04AM +0100, Marc Zyngier wrote:
+> > Mark Brown <broonie@kernel.org> wrote:
+> 
+> > > +alternative_if ARM64_HAS_TCR2
+> > > +	/*
+> > > +	 * Disable any features we enabled in case the next user doesn't
+> > > +	 * have TCR2_EL2 support.
+> > > +	 */
+> > > +	msr	REG_TCR2_EL2, xzr
+> > > +alternative_else_nop_endif
+> 
+> > I don't see the point of this. The MMU is off, and if the next piece
+> > of SW can't correctly initialise the HW, that's its problem.
+> 
+> So we don't care about reverting back to users who are just plain
+> unaware of the register?  In practice for Linux that's fairly old
+> kernels, but people might feel adverturous and try or try some non-Linux
+> thing.  This stuff is all a bit edge casey with what we support.
 
-Then you should read my email again.
+I certainly do not care. If you kexec an ancient kernel on new HW and
+can't correctly initialise it, you lose. Don't do that.
 
 	M.
 
