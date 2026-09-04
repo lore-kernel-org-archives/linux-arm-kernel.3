@@ -4,169 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1248EC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91432C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kCaXQG8g+KbdKJZmHMWxziFfL4YtofrBzJF5rA5NbwM=; b=UczKE5SnPr5S3Wt8MEYluXC2Ym
-	cVv9x6DTrsd8VYDpk7VVMvWa7pslxTfDYKDGsa/csZOPodxd4JHv2fJTz42OILFslioGmjPGIjmD1
-	zkB/VF5B2iZYQv3mIBPNLuj0jgruucne8kEXv/JCXoaCuGNl0uT46ITU/NARObMR94F/kXvHKoqfz
-	0r9XSQKG/7vzgfAlOKjzyA0ETTuotQX0nGvgME8MjTrJfIzFd2FXq+wyTnFC2q061W46Ll5VHnTsE
-	p8xZyrlh1FmsC5u0ulqUmmRLuxVu9idcVC7+p8ULx1s5nUA2S5MwikIfHCdactjhVBqe+Nt4pd3nV
-	eLT8EdLA==;
+	bh=sFXtIw4foyxCvVwYbnBgMNE6tcQc47kH16pvYnTTJw0=; b=Q4hKu/bWa1KOpeqzlUbSJFv4/E
+	3jsuFqeLbPNzOr1fG6BQpFxvuRdGJfEBDJCT8QIkt5ZW6tZM3gTC2g3ugAUKnQbYN3ig7brGfzpMv
+	5FFQ4GdVKO7Tv6RTRp/i3psBYlR1VnP5GX1M1dXhRLpWVPO7kzYgOSppMBO4frECaOvNLtjW8qPZh
+	LWlPj/lZGR2YJ3QywuOOkzr9PIccUG6nTAJobgPAVPMKnVp+8QOxZ2E6XT06Ih3/q3RLdQ+HDj2tN
+	osrlJx0tbzJnmbictyMQggiNxBWYgWvMdR0H/jqR5zV9Fecno0I41bV3ZNElsFNmu202tghsOsMdG
+	MHAtF2Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Tjx-000000028AZ-3Le8;
-	Fri, 04 Sep 2026 13:13:57 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1x2Tkj-000000028YY-0K6P;
+	Fri, 04 Sep 2026 13:14:45 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Tju-0000000287s-3nh6
+	id 1x2Tkh-000000028Xd-0PWd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:13:56 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 684AHPLo1941922;
-	Fri, 4 Sep 2026 08:13:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=kCaXQG8g+KbdKJZmHMWxziFfL4YtofrBzJF5rA5Nb
-	wM=; b=FUJWx2XvSc4eAHaXV1C5fLRnN+Wc3ZcvH22wi0mHJEKwerjO0AdegzwVQ
-	u4PzgEamCGN1qbqZGiz9pThLsBGZQngu6euUgSOhlvmopuIID9UuuRUV+ZtsKkz0
-	UHWB+aOeVOpvmVIeVcHPAWVdzaj49AOVb2Uvsr7TQGIF3WpfnZaLbk+YrzemzbP2
-	hdAb4hlx24PV2q++JfspQ4SmHQFJr+TS8heVhyAxbUdk4EY/JV/yTrtVm3XISBRz
-	1IQMfo7JUQqoWRSsP/YhKRXe4qbrvpdZC+yaDdEc0tuNldzIFElV2otN0kmaSYFQ
-	o9BCNot/Ulxy5Wwd3rabtfsOfhuWQ==
-Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012070.outbound.protection.outlook.com [52.101.48.70])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4gfrs326eq-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 04 Sep 2026 08:13:50 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SDWrmt0fXOuy08ZXbI57RZiqXn1jgEAJXjcLcgWswEP7FAIG4vR5LGKqOkNPGDujhpqh8YTjlTQcjYL8vqnkznAtSvmLouhtQctyP7MnCchOjIFI7kiIB1uhXmJ91w90p3V7tqQ99jIUSAoyR/cgRcWou1JR5clStt5SKvQQzXvyI+8d8gihFrPKoBfi9dLzJBjwQ7AMk2HRF6AkWRcuZfS7BMVwtOcMWpqIbhZSR/t21UU7Q5hHPPdY+V/60HnhZT9f7b8dNvwZhHEqh2KN1bwb0cF1/pb1cCAcLxi/ArAuFGTRePIvhobwQjmzsuVeg8lF3b23w0bark60qdv/sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kCaXQG8g+KbdKJZmHMWxziFfL4YtofrBzJF5rA5NbwM=;
- b=BuiLV7kctP3xb3fdLJx2cNAo511hF1KwfGktbaw/cnFwMk8bDUG7aC6MohtnN0nHIEsAb93tToSQtJn1uiW9zqLyRAcTpsLggoF4EbHJ4jVzsmknD+jfWG1zyLCsPB/L9cQp+UNla/zU/KYoTGYH4tqx2hvy3A5abdgkMUXhZj3MU0BBVboDN1fubOpbtzdOeV3L3e/b7z5WkeRm/VS6VTn5AZ0HBzjcLMKhCV4XbXCPhlikeryXNiDU2S7RueagLbXXToRYvR8UBhuFP5gJmoflRuqGYFqSNKVfNC64QBeREFdXDlTvOPbRqlouDKQHN+IL3emNyU0qcCyObJY6+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kCaXQG8g+KbdKJZmHMWxziFfL4YtofrBzJF5rA5NbwM=;
- b=qCUMVkRkrH31ufRGsWOksMUK1HkSbY9X5PWEeNRx0eHVJzdZmjrY1nwQywseppeGNk65WANpXFEh4teozL5i5UCe1nRbXFd0VXT414TsmLEXeawKF1HTlHiYCk+G+uC1MwYMI/ESRKaTwvJXHIYt5PGUaRjxe9u5pmW4GA7GcaU=
-Received: from BN9PR03CA0531.namprd03.prod.outlook.com (2603:10b6:408:131::26)
- by MN2PR10MB4285.namprd10.prod.outlook.com (2603:10b6:208:198::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
- 2026 13:13:47 +0000
-Received: from BN3PEPF0000B370.namprd21.prod.outlook.com
- (2603:10b6:408:131:cafe::37) by BN9PR03CA0531.outlook.office365.com
- (2603:10b6:408:131::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Fri, 4
- Sep 2026 13:13:46 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN3PEPF0000B370.mail.protection.outlook.com (10.167.243.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.1 via Frontend Transport; Fri, 4 Sep 2026 13:13:45 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 4 Sep
- 2026 08:12:56 -0500
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 4 Sep
- 2026 08:12:56 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Fri, 4 Sep 2026 08:12:56 -0500
-Received: from ula0226330.dhcp.ti.com ([10.249.36.126])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 684DCq59371029;
-	Fri, 4 Sep 2026 08:12:56 -0500
-From: Andrew Davis <afd@ti.com>
-To: Tony Lindgren <tony@atomide.com>, Vignesh R <vigneshr@ti.com>,
-        "Andreas
- Kemnade" <andreas@kemnade.info>,
-        Kevin Hilman <khilman@baylibre.com>,
-        "Roger
- Quadros" <rogerq@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>
-CC: <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Andrew Davis
-	<afd@ti.com>
-Subject: [PATCH 8/8] i2c: omap: Add OMAP_I2C_BUF_{TX,RX}TRSH definitions
-Date: Fri, 4 Sep 2026 08:12:52 -0500
-Message-ID: <20260904131252.2126353-9-afd@ti.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20260904131252.2126353-1-afd@ti.com>
-References: <20260904131252.2126353-1-afd@ti.com>
+	Fri, 04 Sep 2026 13:14:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788527683; x=1820063683;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=FYT6/iyY31UJEUUxpTSXKwCdDX8cAQywGqhNs1TpiuM=;
+  b=BpSwLDCycLmCZpQrdAOxL2zsEKEYrtd9exgTC6Nodo8LfJV9sQSdOReH
+   O73Nda1iOJ8lDeZ/ebkbRmUAm/f4BADSNjf3URhZYCImYt0l2755MSwfT
+   XKlEsoB3tF9UZREmVx5IjvrBk/qFHAFGZX/in2mKMxbFKCSX3jozc9nJV
+   q0pMSGxs9cYrS3+vXMwmhtWuMzlANNCvlS233UhD8Y6nKXV/s60FJ3ymH
+   oLDWuVJ6/lzjh4DQ/lHlvdKyciYrsQlP+CZAjrQaie8PX0McmnB0G/1pP
+   BrwyqBWeV15iNkwerVh+daipxGRLLFYQT3UE+T7XDo3PyOLC8wKrBdEbg
+   Q==;
+X-CSE-ConnectionGUID: hIkbwvhkT/2/6n+583zfcw==
+X-CSE-MsgGUID: Gc/dnnAHRR69Jysl/MJtOg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="91540834"
+X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
+   d="scan'208";a="91540834"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 06:14:40 -0700
+X-CSE-ConnectionGUID: unw6z+dxSXa0kQr2G8pHcA==
+X-CSE-MsgGUID: +XaBCkDbTp2V2UqV7nszHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
+   d="scan'208";a="273823407"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 06:14:34 -0700
+Date: Fri, 4 Sep 2026 16:14:32 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 09/13] gpio: pl061: use gpio-regmap and add Ambarella
+ layout
+Message-ID: <aprEOB7AZQWNed4D@ashevche-desk.local>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-9-e918514cb3b1@ambarella.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B370:EE_|MN2PR10MB4285:EE_
-X-MS-Office365-Filtering-Correlation-Id: d40bbee4-f968-4cd8-dbbf-08df0a8659b5
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|376014|6133799003|10067099003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: QRm/1Js9cx9hF9okz4X9qLY9LGWlfmkQtO89idP/NQieH9d4Blo/sKgymT8VfEiNzs2HsGqNgRKdS9kIWrhxw+w+4Zd3HCpdUPX7/CWNvtKCLtp/zbtvniDqtu7jKS1VJPnjfPS5PcD4IFY5aZZ4NCuSs60pAVBM7in1sLbGWDS/xmei+dm+qVbTylF/NCWepsRGhk5xidzZIdA1ueVWYRYsawR4kX7Peao9Tk2M41LylR9OKUCEqfuXaONv5uVGkZn3NaFApM/HlH+en4zWfIthegCOASinN2zyNDGzeKInW1YhCAzrGm38BlEDRMNcYnbJlqK5JAruBbAh0rrVHSTjl8KWCxF9mXCJuvNj0B6cmx+XaETljcIcwp+FqkB580A7zHVYeF2mjgkqAmGAYVmfVkHuNUqXzAfM7qywnKK94cB/Q/Z/4g7K/N5VfkOA4+g512OPo75bw1+hfOsThziIHKulwhFzG17UxYIyd4VuBxxjB/PntrcjSDEpeEba0D8zxBJJkvhZqYCeUUI+EEPmep5m5bmPIKqbbdvrJIEBVDFKkwPMR4JnMPW9eC6TPxpa8ff6cjQjnMYm2iA1jwaEjgNbFvfJTbvAi8AWLfYiw9b+6K9EzUOfWgltRjYQKp1EUOrmzPrYKVNBbyB6nBwNjq3YrqHJo7OKNPEkK94NH0Dxm/dUfoMwhCZg7XBAZqkzYd1fhX/SUHljidx8Yw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(376014)(6133799003)(10067099003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xsPIiWB6VJ2b9BjDzezisLIgbRNY2iZ50kuXrQsK6rrrcIBIDCWUBNO9t8XaEFJJ1pxzE43TBovYGK/Yk6LcVdAOc/AzzYjRhkEgv3q5nbtl/5haNrVXq6Z3HqMRV/SUz7lwvU4dq8zjtgtINEVqXE7GX0DmRYgnLzAS+l7GzoqHjPUy3CgUtCvHqJ9SYTUJh2WZ2hZmixnAvrYtnWR+/GlOx0m7o8RkCOhdcrGImeSQVO0AkOu6iEYol5OaWeDm7HK7ybB+dO/JZ6I0CKUrgWx2CGEMhYVfzmbIuyYcajZXK7OsQ/WcASYbgt+iGlcvd5Yo4pObXi1eNVEN8pzMuyqEWrjIB7TuvhUJVnbryPe0V5qQrVNi5JlegDm3ukgRueWqjfi7LJIINvWN1Hx1a+IHRMgXQ93mmG3o9fceWDp6MdDwCepZXIuMPEIipl7c
-X-Exchange-RoutingPolicyChecked: wOFSlS66j829t39dyZCsI1k6tXp/u+roynTJJXKzHuovqUgRbuWy8Dh+GWdooSiHl/z5OROGR99dW+rlGDDSYIL/b2oNNvu38vH0gQ0iwqggPHLAKgCNfJbopeT/1c2GXZjwBHRZugVh4PevEMH9zF+t4Rqh5zC/e5VTx3ZdyELLIrxpSuAajCLRDLlXnTuYnvJNOyLKCgyXG/Fn0pijOlcSX2Ki8YPMAt8g2ow40qIxqmzkQI6EGlWPKctl+8ZaCEsq7hISZrfAq5c3C1gGTViOmJ5kbChO/iyk5/ibBIgwzSN0Sl7xk3taXv5ZRKxCDY/cu+zpJC470i3QQ7L8jA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 13:13:45.5639
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d40bbee4-f968-4cd8-dbbf-08df0a8659b5
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B370.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4285
-X-Proofpoint-GUID: Y3unDY_0_gGN_zWNXd5QOZ9cTrXpMwsd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDExOSBTYWx0ZWRfX1Jf0xxGbd51C
- m8nER6IJBIfuGuqAiOSy67IyRFo5/yWhqSTO4aRE7l3+wS/h4n817YO2g/qpkC77isAimhhGQL3
- fgoZbGP8wmppjrO+c+Dn2X2vIMEfrGs=
-X-Authority-Analysis: v=2.4 cv=GshyPE1C c=1 sm=1 tr=0 ts=6a9ac40e cx=c_pps
- a=037dmpTZGv+Xy+TtntRLUg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=VdqzKS8jKosA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
- a=sozttTNsAAAA:8 a=9kDT9J43iM3-Rq2zlG0A:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDExOSBTYWx0ZWRfX96/lVQgcDWAc
- iUukDza2NRLnbS5+GK0h3ip2c8lSG98pq0pn59cyRHSyhBdOMZtf8ns/pWCXPLbAubATxjN7E57
- KNbAHDq+cvh5S/2GXFuCP2O5IxbHZjjUvJUOzrQSYZ1AXyAwx4cQl5/nWnbYHzhvn1JFHHhz9GG
- TfQlsPy+8lVs2y6hXvOt7PjMzVKf9DoK6rBC7p/MZpQRf3kHbMZaM9EUXz91UC5iEDZYmYWEWf2
- shZK73QFjij9oCBarVI6318xDMpUQnOXAPz2KZ+a19E3Yo/5prz+t0QqfwDR0cEhIQw+VmXY9Tf
- lgboNw0P2IWod4OrpejxmHs6DFu6cIhuIQji0d5FMnXhOzsCgd7/aqUDmFG5xwrOEC3ZvjukW9c
- g9+rope1fL3G036t5xh82ILdyB4fBxdIOiZX+HhLREGe8TGW/s2HrSjf4gJ6GfYaDHs/bIckhMM
- S0xdG+6Od9lRp6HHQ8A==
-X-Proofpoint-ORIG-GUID: Y3unDY_0_gGN_zWNXd5QOZ9cTrXpMwsd
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-04_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 spamscore=0 adultscore=0 bulkscore=0
- phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609040119
+In-Reply-To: <20260904-cv75-v5-v6-9-e918514cb3b1@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_061354_952669_8E1A2E86 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260904_061443_177712_A8944301 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,49 +104,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These were just magic numbers before, give them proper definitions
-and use those in code.
+On Fri, Sep 04, 2026 at 02:38:16PM +0800, Long Zhao via B4 Relay wrote:
 
-Signed-off-by: Andrew Davis <afd@ti.com>
----
- drivers/i2c/busses/i2c-omap.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+> Convert PL061 data and direction handling to gpio-regmap while
+> keeping the existing PL061 irqchip path.
 
-diff --git a/drivers/i2c/busses/i2c-omap.c b/drivers/i2c/busses/i2c-omap.c
-index 41464f92da046..669d931928fb6 100644
---- a/drivers/i2c/busses/i2c-omap.c
-+++ b/drivers/i2c/busses/i2c-omap.c
-@@ -97,8 +97,10 @@ enum {
- /* I2C Buffer Configuration Register (OMAP_I2C_BUF): */
- #define OMAP_I2C_BUF_RDMA_EN	BIT(15)	/* RX DMA channel enable */
- #define OMAP_I2C_BUF_RXFIF_CLR	BIT(14)	/* RX FIFO Clear */
-+#define OMAP_I2C_BUF_RXTRSH	GENMASK(13, 8)	/* RX FIFO Threshold */
- #define OMAP_I2C_BUF_XDMA_EN	BIT(7)	/* TX DMA channel enable */
- #define OMAP_I2C_BUF_TXFIF_CLR	BIT(6)	/* TX FIFO Clear */
-+#define OMAP_I2C_BUF_TXTRSH	GENMASK(5, 0)	/* TX FIFO Threshold */
- 
- /* I2C Configuration Register (OMAP_I2C_CON): */
- #define OMAP_I2C_CON_EN		BIT(15)	/* I2C module enable */
-@@ -602,12 +604,14 @@ static void omap_i2c_resize_fifo(struct omap_i2c_dev *omap, u8 size, bool is_rx)
- 
- 	if (is_rx) {
- 		/* Clear RX Threshold */
--		buf &= ~(0x3f << 8);
--		buf |= ((omap->threshold - 1) << 8) | OMAP_I2C_BUF_RXFIF_CLR;
-+		buf &= ~OMAP_I2C_BUF_RXTRSH;
-+		buf |= FIELD_PREP(OMAP_I2C_BUF_RXTRSH, (omap->threshold - 1));
-+		buf |= OMAP_I2C_BUF_RXFIF_CLR;
- 	} else {
- 		/* Clear TX Threshold */
--		buf &= ~0x3f;
--		buf |= (omap->threshold - 1) | OMAP_I2C_BUF_TXFIF_CLR;
-+		buf &= ~OMAP_I2C_BUF_TXTRSH;
-+		buf |= FIELD_PREP(OMAP_I2C_BUF_TXTRSH, (omap->threshold - 1));
-+		buf |= OMAP_I2C_BUF_TXFIF_CLR;
- 	}
- 
- 	omap_i2c_write_reg(omap, OMAP_I2C_BUF_REG, buf);
+> Add an Ambarella CV75 register layout variant on the AMBA bus, without
+> claiming unverified GPIO suspend/resume support for Ambarella.
+
+This part should be in a separate patch.
+
+So far I see at least 2 patches against gpio-regmap and 2 patches against
+gpio-pl061.
+
+...
+
+> +struct pl061_variant_data {
+> +	unsigned int data;
+> +	unsigned int dir;
+> +	unsigned int is;
+> +	unsigned int ibe;
+> +	unsigned int iev;
+> +	unsigned int ie;
+> +	unsigned int ris;
+> +	unsigned int mis;
+> +	unsigned int ic;
+> +	unsigned int mask;
+> +	unsigned int enable;
+> +	unsigned int ngpio;
+> +	bool access_32bit;
+> +	bool masked_data_address;
+> +	bool write_data_after_dir;
+> +	bool clear_irq_on_type;
+> +	bool pm_save_restore;
+> +	const struct regmap_config *regmap_config;
+> +};
+
+Should not be like this. Part of it is in the respective regmap config (with
+all volatile, precious, et cetera registers, and part of it comes from driver
+data (in other words based on the compatible string or other ID).
+
+...
+
+>  struct pl061 {
+>  	raw_spinlock_t		lock;
+> -
+
+Stray change.
+
+>  	void __iomem		*base;
+> -	struct gpio_chip	gc;
+> +	const struct pl061_variant_data *variant;
+> +	struct gpio_irq_chip	girq;
+>  	int			parent_irq;
+
+Here (in this structure) we should get a struct regmap instead of base and
+gpio_chip.
+
+>  	struct pl061_context_save_regs csave_regs;
+
+This is not needed, see how gpio-pca953x does that with enabled regmap cache.
+
+>  };
+
+...
+
+> +static u32 pl061_read(struct pl061 *pl061, unsigned int reg)
+>  {
+> -	struct pl061 *pl061 = gpiochip_get_data(gc);
+> -	unsigned long flags;
+> -	unsigned char gpiodir;
+> +	if (pl061->variant->access_32bit)
+> +		return readl(pl061->base + reg);
+>  
+> -	raw_spin_lock_irqsave(&pl061->lock, flags);
+> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
+> -	gpiodir = readb(pl061->base + GPIODIR);
+> -	gpiodir |= BIT(offset);
+> -	writeb(gpiodir, pl061->base + GPIODIR);
+> -
+> -	/*
+> -	 * gpio value is set again, because pl061 doesn't allow to set value of
+> -	 * a gpio pin before configuring it in OUT mode.
+> -	 */
+> -	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
+> -	raw_spin_unlock_irqrestore(&pl061->lock, flags);
+> -
+> -	return 0;
+> +	return readb(pl061->base + reg);
+>  }
+
+> -static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
+> +static void pl061_write(struct pl061 *pl061, u32 value, unsigned int reg)
+>  {
+> -	struct pl061 *pl061 = gpiochip_get_data(gc);
+> -
+> -	return !!readb(pl061->base + (BIT(offset + 2)));
+> +	if (pl061->variant->access_32bit)
+> +		writel(value, pl061->base + reg);
+> +	else
+> +		writeb(value, pl061->base + reg);
+
+This is achieved by different regmap config — one for 32-bit, one for 8-bit
+access.
+
+>  }
+
+...
+
+I guess it's enough for now. this needs one more round of designing this.
+
 -- 
-2.39.2
+With Best Regards,
+Andy Shevchenko
+
 
 
