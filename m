@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550E1C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135CCC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgNMv2NMaBRn192MXktM2p886ZVWCVbNLII+lS9uSEI=; b=g10SNoW6jE8G7DNjRRwncYokmI
-	Pn2E8yIucGH7hBBKG0jXQmu0XKVEgGnoZ8Q5sabc7wI/3NgGAzYeSfeI1OIy/6xN8MqsyNsVcYm/j
-	h1VvMi3xxTzzSldSlcSx9D0NN0e7cFHphhAQa8Gs882bl6WWHbGLRlvCqOY7xlY/DTTXP/24ZX9ct
-	5tmBgK3CGM2+eK4B32cr4ES+hZNNVXxLvDwFCTLUV9g13wypixyOl70BDydm4UjsrbSpkfV4JR0D0
-	poxz+JdEViJxAuTuXrOrzF9uTNr56T3O6/9TzWSEfnVC9s1YEz8nYAUf3vL4VTcUi4P4SQsGNM1YQ
-	SkomRW7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lv/0JtR0FodYX+QBu/pIWvc7PlCw0OO+KIN2P0yniD8=; b=epbN5+VwNwRWAemjmfDd+mVtdL
+	pqf2AIk8SqFTRAOWH9RJi+V7+jQ1c2h+/SNvuuArPyzzSijhB7qw4SbZe4V6t++XYIND6sD4c3GeB
+	f6QHTDaLUlgDZnMxdtOC47PSRUiFbbNZ4U6VIMqBSaixmfcEJTweLg3IHqXTpiW+4V6YBfo9z5HZF
+	aZgw+Ng/E8/qzx1fgQKZUVivzzN3BFpzDbXbkcVTTCAPJkiWuWvFIu+2rYtQofKYHT4MUwGUZVo5u
+	SbHKUwNv5xhBTjJTntt+7kyrhyFBbV54ihrq3tFK2wy0O7072UGuMI4JxXSFYBXkUFsiNgBgIswBO
+	JA5sctiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TqS-0000000293f-2ZGQ;
-	Fri, 04 Sep 2026 13:20:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2Tqp-00000002975-30JH;
+	Fri, 04 Sep 2026 13:21:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TqR-0000000293Y-17DC
+	id 1x2Tqn-0000000296l-1yRy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:20:39 +0000
+	Fri, 04 Sep 2026 13:21:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 35A1C600C8;
-	Fri,  4 Sep 2026 13:20:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AA3E1F00A3D;
-	Fri,  4 Sep 2026 13:20:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1717C40826;
+	Fri,  4 Sep 2026 13:21:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED7AD1F00A3D;
+	Fri,  4 Sep 2026 13:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788528037;
-	bh=hgNMv2NMaBRn192MXktM2p886ZVWCVbNLII+lS9uSEI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=B2PJYSCXyONed+eHGO8p2FM1WjRzlc0A9jf7Sdl+LEfO8nigoleWGXilcLEERRwXW
-	 e1OAmzmGRB4cZ9Jj5Ms6iwBn0o6PgGfJuXZTiWwjRLT7m0tV4w9ucWb9yzsxJvF7rl
-	 NLGOJWAOFJyvS/7ndMbJUosJzmflczp3tx4ilzPhfiKRP+Qolb4HqkAZpCgDZaFety
-	 KMvJtABYHiv8xJRGv2i+nX3uNlLz7Dv5oDniZ2nM+nkISmG3cAhN19qXoFwJ6HjNbD
-	 Mf9h6SXv0CK4alBagmCUg923o1h//pvEWisiD+kE5cMLggBSgPdBshYHbQtEwrJ5v9
-	 d42FWG7Nd2iLA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org,
-	Xixin Liu <liuxixin@kylinos.cn>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	cristian.marussi@arm.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
+	s=k20260515; t=1788528061;
+	bh=Lv/0JtR0FodYX+QBu/pIWvc7PlCw0OO+KIN2P0yniD8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UxHEGf5/vmUuVHamJ+CpV7i097/cbhGNzN8V3KtbBVSxZepixnY3TDFYXTccIFaE5
+	 Aa5GKvNRW+oawEo8iGOtKIDZLUKKjESayIKzn2sCUrbvFsplJyNmCWWB5FpfeeWc3w
+	 QgJSMamU31vlFvqymOkgZlPYHFSdmf2H10S/j/trwRpsVLNW+oC6ZI65+N7npM3WOU
+	 PqsbN5XJyrasw5jjaO9Ig7aoY7BKu2ZTMvrIr6bum5u891PnguYSMkYmjf2lSSrvdg
+	 2qzyk5wAbbv/3joPXvkPsX5MwLUOStlCAUFSDCJFDC5wsAIz56vZQFBrmQsZaUVTQV
+	 lIQ8TUUAtPRHQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x2Tqk-00000004rhC-1x7s;
+	Fri, 04 Sep 2026 13:20:58 +0000
+Date: Fri, 04 Sep 2026 14:23:32 +0100
+Message-ID: <87y0dh40bv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] firmware/clk: arm_scpi hardening (leak, OPP bounds, cpufreq)
-Date: Fri,  4 Sep 2026 14:20:31 +0100
-Message-ID: <178852798387.330796.10489318614485340307.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.v2.1785200642.git.liuxixin@kylinos.cn>
-References: <cover.v2.1785200642.git.liuxixin@kylinos.cn>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
+In-Reply-To: <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+	<20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
+	<86pkyt4gvt.wl-maz@kernel.org>
+	<eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
+	<apqrky27mJmUV9UA@willie-the-truck>
+	<05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, will@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +95,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jul 2026 09:04:02 +0800, Xixin Liu wrote:
-> Thanks for reviewing v1.
+On Fri, 04 Sep 2026 12:48:14 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> This v2 hardens the OF SCPI firmware and clock paths against a few
-> real defects found while reviewing linux-next:
+> On Fri, Sep 04, 2026 at 12:29:23PM +0100, Will Deacon wrote:
+> > On Fri, Sep 04, 2026 at 11:33:24AM +0100, Mark Brown wrote:
 > 
->   1) device_node leak in scpi_dev_domain_id() after
->      of_parse_phandle_with_args()
->   2) DVFS OPP count from SCP trusted beyond MAX_DVFS_OPPS (OOB read /
->      bad OPP table size)
->   3) DVFS index used as clock rate without an upper bound check
->   4) scpi-cpufreq registered once only, and cleared on register failure
->      so remove() does not unregister an ERR_PTR
->   5) use PLATFORM_DEVID_NONE instead of bare -1 for the scpi-cpufreq
->      platform device id (readability; Fixes the original registration)
+> > > What about pKVM, my understanding was that that is very much an ongoing
+> > > concern and uses the nVHE hypervisor?  My expectation was that this
+> > > would only ever get used in hVHE configurations when people enable pKVM
+> > > on modern hardware, actual nVHE mode was mostly just carried along with
+> > > that.
 > 
-> [...]
+> > pKVM uses hVHE wherever it can nowadays, so I'm fine with only supporting
+> > S1PIE on hVHE and VHE configurations if that's easier to maintain. We
+> > just need to make sure that the failure mode for nVHE results in the
+> > feature being gracefully disabled, rather than e.g. crashing or quietly
+> > doing the wrong thing.
+> 
+> I figure that if we're supporting hVHE it will end up less complicated
+> to also enable nVHE, it reduces the potential for having bad or missing
+> fallback paths for features downstream of S1POE.  It's not like it's a
+> huge extra bit of code and it seems likely to save hassle down the line.
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+It's not about the code size. it's about the code being *dead*. Nobody
+is going to maintain this configuration, because this is a silly one.
 
-[1/5] firmware: arm_scpi: fix device_node leak in scpi_dev_domain_id
-      https://git.kernel.org/sudeep.holla/c/65320b642025
-[2/5] firmware: arm_scpi: reject DVFS OPP count above MAX_DVFS_OPPS
-      https://git.kernel.org/sudeep.holla/c/32471d84a487
-[3/5] clk: scpi: bound-check DVFS index in scpi_dvfs_recalc_rate
-      https://git.kernel.org/sudeep.holla/c/70f4b78d560e
-[4/5] clk: scpi: register scpi-cpufreq once and clear on failure
-      https://git.kernel.org/sudeep.holla/c/ab06cf8152da
-[5/5] clk: scpi: use PLATFORM_DEVID_NONE for scpi-cpufreq
-      https://git.kernel.org/sudeep.holla/c/86d923a882f4
+KVM with E2H==0 has reached its architectural peak years ago. We're
+not adding anything to it anymore, and all new architectural bits
+require running with E2H==1.
+
+	M.
+
 -- 
-Regards,
-Sudeep
-
+Jazz isn't dead. It just smells funny.
 
