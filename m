@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31FBC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99629C79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
 	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3vjSlAs0WBHdXPrKIdEU45RVIMErm6MTbTPGAeH5Mg=; b=eDhw+r0GOfg+nEMRHCWUNA6mYg
-	PdILlN6RXJXrwcGeEJ6//etCUVkEzA6lXucznKrJtkVx6wZ+SsrchcjJifCiLZnZBGGDkc5/cijYJ
-	GqevGTDWQRAm0h0t4P3zJAyRJjUESpWpPjZx7atkNnjJfe5dNxE6qZKI5cBZLApi3crsAzlBLPsUi
-	4I888+JO6B5tobSb3avlfCpUdEBEFReRG7qPXouYONBC1P6/i4ljqBHqA42X8cfrSTgmfupx15q3U
-	EWAGLYHTk0h/Kl36tZj65jTHjI9iE3lcPItImRxvky3sp2oMQNM5h0TmLLkTL5M70TB5XBDTxncUg
-	P/FGvEtg==;
+	bh=/p0MwaYW8aQ0BJ6a1TuPdBmkEYreNxZkQRpD4pIs0as=; b=lMyM7Xt6ogcXuv3u0kPHxQOmre
+	7QnYy+cr8p5X8+80x9eSu/hcV3hqPaKB/OB003OH7CIdNmM78AVxhP+P36/kWdFe9Qydh0ITGm34a
+	YZST3NpzBz7VoADSep0QMwH5Tc5D8eM4QJb6gHBx3ESGB5hM+rgymM8s1/vqRzJVvrDHR0CZ05qGe
+	B35jTdS+RQxQwaR3BvXjbpKel0zl5yct4xdpoEz/qV41AOd6mKMqC0lKcX6aUIl/J1rRFyAg4Zhdg
+	k2C8Ahik+cFeaCe3ngYEqBWm36cqK7z7OTTsFmTauHwFRF0jO3VknxXjDBHRALy0nHXo0s+xW80BX
+	76/WaFjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cLm-00000003O4r-3BKz;
-	Fri, 04 Sep 2026 22:25:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2cLr-00000003O7u-0ukA;
+	Fri, 04 Sep 2026 22:25:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cLj-00000003O3F-20t6
+	id 1x2cLn-00000003O5g-1THw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 22:25:31 +0000
+	Fri, 04 Sep 2026 22:25:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6D09602C5;
-	Fri,  4 Sep 2026 22:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC4EB1F00A3E;
-	Fri,  4 Sep 2026 22:25:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DB3741A63;
+	Fri,  4 Sep 2026 22:25:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A5F1F00A3D;
+	Fri,  4 Sep 2026 22:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788560730;
-	bh=A3vjSlAs0WBHdXPrKIdEU45RVIMErm6MTbTPGAeH5Mg=;
+	s=k20260515; t=1788560735;
+	bh=/p0MwaYW8aQ0BJ6a1TuPdBmkEYreNxZkQRpD4pIs0as=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AsWtfwMZAsOhd/EHu1R6YT6uEIPQ1zf7gnP8JMWV6E+byb2+AB3I9Ycb0TgfVgFPh
-	 u4AW5djx9sTysx9quDjX0XjMXMYtx4YPkuzSUga3kHAmoilTGCrYlcFLYRrDwrKwDX
-	 a4kiAAsVLFBbLL5+NkC3hFTuMJzx1PS+JXGSUml40EAMPMzMQretVQfLhB7zeMTHPz
-	 l1VMgd/3Fn3hlbILorbORD49XdKDj/sDB/wLYOe5L7/jhA6O2RmL8gXGKyxnBBDX9K
-	 df4PtdREgHZjYSUYHZpgxGKdxieuVjsk+Q1CEAknz42n8qxamkhJfiUHEPicc6eGiv
-	 Es/F0A4OywG7Q==
-Subject: Re: [PATCH v3 net-next 4/8] net: dsa: netc: use entry ID instead of
- pointer to track host flood rule
+	b=jdjq+vNm9uqBKHx/HaxeWJ5GQpvuXlOmOWHNp46G892FFQ3BAklgsdccpiTq/lq78
+	 E4DHHsMmHDBnkm4LwU0PLysWwjbVKMZ2ej7q8UA5Rmz0q0wD1gpOlhAbu49aSB7uEm
+	 RsFwMoa0XAe81cFcwzohFqnsKuf2q+fD0CKrAZnM7We+VGNRS0nvzRR298XmiJTD7a
+	 09YeaqAXfwJ7ltPc0RcJBoZ3akkLzKUQYfUw5LaPHb11MTHMx45T+Jkx5ny817oww3
+	 aDTS6h+jM2bbvF17FcI24zSK6+mXWRWzY40kDO91sE7I7xz7XcC3jvg3+G0QntU8eq
+	 3KimCsbvrpMGw==
+Subject: Re: [PATCH v3 net-next 8/8] net: dsa: netc: add PTP one-step
+ timestamping support
 From: netdev-bot+sashiko@kernel.org
 To: wei.fang@oss.nxp.com
 Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
@@ -52,11 +52,11 @@ Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
  richardcochran@gmail.com, wei.fang@nxp.com, imx@lists.linux.dev,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Date: Fri, 04 Sep 2026 22:25:29 +0000
-Message-ID: <178856072932.219967.8769401886867777305@kernel.org>
-In-Reply-To: <20260831082335.1184605-5-wei.fang@oss.nxp.com>
-References: <20260831082335.1184605-5-wei.fang@oss.nxp.com>
-X-sashiko-severity: Low
+Date: Fri, 04 Sep 2026 22:25:33 +0000
+Message-ID: <178856073363.219967.13962315129616292452@kernel.org>
+In-Reply-To: <20260831082335.1184605-9-wei.fang@oss.nxp.com>
+References: <20260831082335.1184605-9-wei.fang@oss.nxp.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -74,218 +74,383 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider:
 
-Critical: 0 · High: 0 · Medium: 0 · Low: 2 (1)
+Critical: 0 · High: 2 · Medium: 2 · Low: 0 (1)
 
-- [Low] struct netc_port is devm_kzalloc()'d, so the new `u32
-  ipft_hf_eid` starts at 0, but the patch only writes the…
-- [Low] Removing netc_free_host_flood_rules() also removes the only in-
-  tree documentation of a deliberate design decision: 'No need to clear…
+- [High] netc_port_onestep_alloc() takes try_module_get(THIS_MODULE) for
+  every user port at switch setup time and the matching module_put()…
+- [High] The one-frame-at-a-time interlock protecting the shared per-port
+  PM_SINGLE_STEP register uses skb->destructor as the 'frame has…
+- [Medium] netc_port_prepare_onestep_sync()
+  (drivers/net/dsa/netc/netc_ptp.c) performs its unsupported-case checks…
+- [Medium] netc_port_prepare_onestep_sync() accepts whatever
+  ptp_classify_raw() returns, including PTP_CLASS_V1_IPV4/V1_IPV6, and…
 
 Pre-existing issues:
-- [Low] netc_port_remove_host_flood() discards the return status of
-  ntmp_ipft_delete_entry() (drivers/net/dsa/netc/netc_main.c:1776) and…
+- [Low] The three new drop sites (NETC_PTP_FLAG_DROP handling in
+  netc_xmit(), the NETC_ONESTEP_QTH queue-full drop in…
 
 --
 
-net: dsa: netc: use entry ID instead of pointer to track host flood rule
+net: dsa: netc: add PTP one-step timestamping support
 
-This replaces the struct ipft_entry_data pointer in struct netc_port with a
-u32 entry ID using NTMP_NULL_ENTRY_ID as the sentinel, frees the
-ipft_entry_data allocation inside netc_port_add_host_flood_rule() once the
-hardware entry is committed, and drops netc_free_host_flood_rules().
+This adds one-step TX timestamping for PTP Sync frames on the NETC switch.
+The xmit path classifies a Sync frame and hands it to a per-port work,
+which reads the PTP time, programs PM_SINGLE_STEP, patches the
+originTimestamp field and transmits the frame to the conduit via a new
+tagger callback.
 
-A few questions below.
-
-> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-> index 77077352c1a57..d326a00104e1d 100644
-> --- a/drivers/net/dsa/netc/netc_main.c
-> +++ b/drivers/net/dsa/netc/netc_main.c
-> @@ -286,6 +286,12 @@ static int netc_init_all_ports(struct netc_switch *priv)
->  				dev_err(dev, "Failed to create MDIO bus\n");
->  				return err;
->  			}
-> +
-> +			/* The ipft_hf_eid is initialized to an invalid entry
-> +			 * ID because the host flood rule (IPFT entry) has not
-> +			 * been created.
-> +			 */
-> +			np->ipft_hf_eid = NTMP_NULL_ENTRY_ID;
->  		}
->  	}
-
-[Severity: Low]
-Should the sentinel be written for every port rather than only inside the
-dsa_port_is_user(dp) branch?
-
-Each netc_port is devm_kzalloc()'d in the earlier loop of
-netc_init_all_ports(), so ipft_hf_eid starts at 0, which is a legal
-hardware IPFT entry ID rather than "no rule".  The old field was a pointer,
-where the zeroed value (NULL) was inherently the safe "no rule" marker.
-
-netc_port_remove_host_flood() only recognizes the 0xffffffff sentinel:
-
-	if (entry_id == NTMP_NULL_ENTRY_ID)
-		return;
-	...
-	ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
-
-so a port that never got the assignment would pass that guard and delete
-hardware entry ID 0, which may belong to another port.
-
-I could not find a path that reaches netc_port_remove_host_flood() or
-netc_port_bridge_join() with a non-user port today - dsa_port_set_host_flood()
-comes only from dsa_user_manage_host_flood(), and the bridge join/leave
-callers all operate on user ports - so this looks latent rather than
-reachable.  Would moving the assignment into the devm_kzalloc() loop that
-sets np->switch_priv and np->iobase make the representation fail-safe for
-all ports?
-
-> @@ -938,30 +944,12 @@ static void netc_destroy_all_lists(struct netc_switch *priv)
->  	mutex_destroy(&priv->vft_lock);
->  }
->  
-> -static void netc_free_host_flood_rules(struct netc_switch *priv)
-> -{
-> -	struct dsa_port *dp;
-> -
-> -	dsa_switch_for_each_user_port(dp, priv->ds) {
-> -		struct netc_port *np = priv->ports[dp->index];
-> -
-> -		/* No need to clear the hardware IPFT entry. Because PCIe
-> -		 * FLR will be performed when the switch is re-registered,
-> -		 * it will reset hardware state. So only need to free the
-> -		 * memory to avoid memory leak.
-> -		 */
-> -		kfree(np->host_flood);
-> -		np->host_flood = NULL;
-> -	}
-> -}
-> -
->  static void netc_teardown(struct dsa_switch *ds)
->  {
->  	struct netc_switch *priv = ds->priv;
->  
->  	disable_delayed_work_sync(&priv->fdbt_ageing_work);
->  	netc_destroy_all_lists(priv);
-> -	netc_free_host_flood_rules(priv);
->  	netc_free_ntmp_user(priv);
->  }
-
-[Severity: Low]
-Could the deleted rationale be preserved somewhere?  Behaviour is unchanged
-(netc_teardown() still leaves the host flood IPFT entries programmed in
-hardware), but this hunk removes the only in-tree record of why that is
-intentional:
-
-	/* No need to clear the hardware IPFT entry. Because PCIe
-	 * FLR will be performed when the switch is re-registered,
-	 * it will reset hardware state. ...
-	 */
-
-Note that the FLR assumption holds for a PCI re-probe, where
-netc_switch_pci_probe() calls pcie_flr(pdev), but a DSA teardown/setup cycle
-on the same pci_dev does not perform FLR.  Would it help to keep the comment
-in netc_teardown() or next to the ipft_hf_eid field so the assumption can be
-re-checked later?
-
-> @@ -1759,37 +1747,36 @@ static int netc_port_add_host_flood_rule(struct netc_port *np,
+> diff --git a/drivers/net/dsa/netc/netc_ptp.c b/drivers/net/dsa/netc/netc_ptp.c
+> index f55010f46819c..8e6ab4b065802 100644
+> --- a/drivers/net/dsa/netc/netc_ptp.c
+> +++ b/drivers/net/dsa/netc/netc_ptp.c
+> @@ -4,13 +4,307 @@
 
 [ ... ]
 
-> -static void netc_port_remove_host_flood(struct netc_port *np,
-> -					struct ipft_entry_data *host_flood)
-> +static void netc_port_remove_host_flood(struct netc_port *np, u32 entry_id)
->  {
->  	struct netc_switch *priv = np->switch_priv;
->  	bool disable_host_flood = false;
->  
-> -	if (!host_flood)
-> +	if (entry_id == NTMP_NULL_ENTRY_ID)
->  		return;
->  
-> -	if (np->host_flood == host_flood)
-> +	if (np->ipft_hf_eid == entry_id)
->  		disable_host_flood = true;
->  
-> -	ntmp_ipft_delete_entry(&priv->ntmp, host_flood->entry_id);
-> -	kfree(host_flood);
-> +	ntmp_ipft_delete_entry(&priv->ntmp, entry_id);
->  
->  	if (disable_host_flood) {
-> -		np->host_flood = NULL;
-> +		np->ipft_hf_eid = NTMP_NULL_ENTRY_ID;
->  		np->uc = false;
->  		np->mc = false;
->  		netc_port_wr(np, NETC_PIPFCR, 0);
+> +static void netc_onestep_destroy_work(struct work_struct *work)
+> +{
+> +	struct netc_onestep *onestep = container_of(work, struct netc_onestep,
+> +						    destroy_work);
+> +
+[ ... ]
+> +	cancel_work_sync(&onestep->work);
+> +	netc_port_purge_onestep_queue(onestep, true);
+> +	mutex_destroy(&onestep->work_lock);
+> +	kfree(onestep);
+> +	module_put(THIS_MODULE);
+> +}
 
-[Severity: Low]
-This is a pre-existing issue and not introduced by this patch, but can the
-IPFT entry become unremovable here?
+[ ... ]
 
-ntmp_ipft_delete_entry() can fail (DMA buffer allocation or command BD
-error), and its status is discarded before np->ipft_hf_eid is reset to
-NTMP_NULL_ENTRY_ID, so the armed entry (FLTFA=REDIRECT, HR=NETC_HR_HOST_FLOOD)
-stays in hardware with no software handle left.
-
-This appears to be addressed by the following patch in the series, which
-makes netc_port_remove_host_flood() return int, checks the delete status
-before clearing np->ipft_hf_eid/uc/mc, and handles the error at all call
-sites.
-
-> @@ -1818,20 +1805,18 @@ static void netc_port_set_host_flood(struct dsa_switch *ds, int port,
->  
->  	/* IPFT does not support in-place updates to the KEYE element,
->  	 * we need to add a new entry and then delete the old one. So
-> -	 * save the old entry first.
-> +	 * save the old entry ID first.
->  	 */
-> -	old_host_flood = np->host_flood;
-> -	np->host_flood = NULL;
-> +	old_entry_id = np->ipft_hf_eid;
->  
->  	if (netc_port_add_host_flood_rule(np, uc, mc)) {
-> -		np->host_flood = old_host_flood;
->  		dev_err(ds->dev, "Failed to add host flood rule on port %d\n",
->  			port);
->  		return;
->  	}
->  
->  	/* Remove the old host flood entry */
-> -	netc_port_remove_host_flood(np, old_host_flood);
-> +	netc_port_remove_host_flood(np, old_entry_id);
->  }
-
-[Severity: Low]
-Same pre-existing concern in this key-update flow, which this patch does not
-change: because the new entry is added before the old one is deleted, a
-failed delete leaves two live IPFT entries matching the same source port with
-PIPFCR still enabled.  The subsequent patch in the series inverts the order to
-delete-then-add, which closes that window.
-
-> diff --git a/drivers/net/dsa/netc/netc_switch.h b/drivers/net/dsa/netc/netc_switch.h
-> index 305f2a92e2f9a..020e3661b8667 100644
-> --- a/drivers/net/dsa/netc/netc_switch.h
-> +++ b/drivers/net/dsa/netc/netc_switch.h
-> @@ -84,7 +84,11 @@ struct netc_port {
->  	u16 uc:1;
->  	u16 mc:1;
->  	u16 pvid;
-> -	struct ipft_entry_data *host_flood;
-> +	/* ipft_hf_eid applies only to user ports and should be initialized
-> +	 * to NTMP_NULL_ENTRY_ID. Other ports (such as CPU ports) do not
-> +	 * require initialization.
+> +static void netc_onestep_skb_destructor(struct sk_buff *skb)
+> +{
+> +	struct netc_onestep *onestep = skb_shinfo(skb)->destructor_arg;
+> +
+> +	/* skb has been transmitted by hardware. Schedule work to send the next
+> +	 * queued one-step Sync packet, then release this skb's reference on the
+> +	 * context. If the port has already been torn down and this is the last
+> +	 * reference, the context is freed via netc_onestep_release().
 > +	 */
-> +	u32 ipft_hf_eid;
->  };
+> +	schedule_work(&onestep->work);
+> +	netc_onestep_put(onestep);
+> +}
+
+[Severity: High]
+Is skb->destructor a reliable "the frame has egressed" signal for the
+PM_SINGLE_STEP interlock?
+
+netc_port_program_onestep() calls skb_orphan(skb), which leaves
+skb->sk == NULL, and then installs this destructor. Any later orphaning
+fires and clears the destructor before the frame is transmitted, for
+example in net/sched/sch_fq.c:fq_classify():
+
+	if (!sk || sk_listener_or_tw(sk)) {
+		unsigned long hash = skb_get_hash(skb) & q->orphan_mask;
+		...
+		skb_orphan(skb);
+
+Since skb->sk was already cleared by the driver, this triggers at enqueue
+time for every one-step frame when the conduit uses fq, and sch_netem does
+the same via skb_orphan_partial().  A qdisc drop frees the skb too.  In
+those cases the in-flight slot is released while the frame is still queued,
+and the real TX completion can no longer kick the work.
+
+Even in the normal case, conduit TX completion only means the frame was
+handed to the switch; it still has to traverse the switch and be scheduled
+on the user port MAC.  Can netc_onestep_work() then reprogram OFFSET/CH for
+frame N+1 while frame N is still waiting for egress, so the residence time
+is patched at the wrong offset when consecutive frames differ in
+encapsulation (L2 versus UDP, VLAN versus untagged)?
+
+The commit message states the opposite invariant:
+
+    "keeping PM_SINGLE_STEP always matched to the frame being transmitted"
+
+Is there anything that structurally guarantees this, given there is no
+egress confirmation from the destination port?
+
+> +static void netc_port_program_onestep(struct netc_port *np,
+> +				      struct netc_onestep *onestep,
+> +				      struct sk_buff *skb,
+> +				      u64 tstamp)
+> +{
+
+[ ... ]
+
+> +update_timestamp:
+> +	__put_unaligned_t(__be16, new_sec_h, hdr + tstamp_offset);
+> +	__put_unaligned_t(__be32, new_sec_l, hdr + tstamp_offset + 2);
+> +	__put_unaligned_t(__be32, new_ns, hdr + tstamp_offset + 6);
+> +
+> +	netc_port_set_onestep_control(np, csum_update, correction_offset);
+> +
+> +	/* Orphan the skb to release the socket send buffer quota immediately.
+> +	 * This is safe because sock_wfree() does not access skb->data or any
+> +	 * frame content. After skb_orphan(), we install our own destructor so
+> +	 * that when the conduit driver frees the skb after TX completion, we
+> +	 * get notified to send the next queued Sync packet.
+> +	 */
+> +	skb_orphan(skb);
+> +	netc_onestep_get(onestep); /* in-flight reference */
+> +	skb_shinfo(skb)->destructor_arg = onestep;
+> +	skb->destructor = netc_onestep_skb_destructor;
+> +}
+
+[ ... ]
+
+> +static void netc_onestep_work(struct work_struct *work)
+> +{
+
+[ ... ]
+
+> +	np = onestep->np;
+> +	priv = np->switch_priv;
+> +	if (unlikely(netc_get_phc_time(priv, &tstamp))) {
+[ ... ]
+> +		dev_dbg_ratelimited(priv->dev,
+> +				    "Port %d PTP timer unavailable, drop Sync\n",
+> +				    np->dp->index);
+> +		kfree_skb(skb);
+> +		schedule_work(&onestep->work);
+> +		goto unlock_work;
+> +	}
+
+[ ... ]
+
+> +static int netc_port_onestep_alloc(struct netc_port *np)
+> +{
+> +	struct netc_onestep *onestep;
+> +	int err;
+> +
+> +	/* Hold a module reference until the last in-flight one-step Sync skb
+> +	 * is freed by the conduit. Without this, the module could be unloaded
+> +	 * before netc_onestep_skb_destructor() returns, causing a panic.
+> +	 * Released in netc_onestep_destroy_work() after all cleanup is done.
+> +	 */
+> +	if (!try_module_get(THIS_MODULE)) {
+> +		dev_err(np->switch_priv->dev,
+> +			"Failed to get the driver module\n");
+> +		return -ENODEV;
+> +	}
+
+[Severity: High]
+Does this make the module permanently unloadable while the switch is bound?
+
+The reference is taken once per user port from netc_setup() ->
+netc_init_all_ports() -> netc_port_ptp_init() -> netc_port_onestep_alloc(),
+not per in-flight skb, so it is held for the whole bound lifetime.  The
+matching module_put(THIS_MODULE) only runs from netc_onestep_destroy_work(),
+which requires the owner kref to be dropped in netc_free_ports_resources(),
+i.e. it requires the remove path:
+
+  rmmod -> delete_module() -> try_stop_module() -> try_release_module_ref()
+
+That returns non-zero with references outstanding and delete_module() fails
+with -EWOULDBLOCK, so mod->exit (pci_unregister_driver) never runs and the
+kref is never dropped.  Is there a path that can ever release these
+references?
+
+Separately, module_put(THIS_MODULE) is the last statement of
+netc_onestep_destroy_work(), which lives in module text.  If that were the
+final reference, can free_module() unmap the text while this work function
+is still returning and while the workqueue core still has
+worker->current_func pointing into it?
+
+The in-flight skb already holds a kref on the context, so is the module
+self-reference adding anything beyond blocking rmmod?
+
+> +
+> +	onestep = kzalloc_obj(*onestep);
+> +	if (!onestep) {
+> +		err = -ENOMEM;
+> +		goto put_module;
+> +	}
+
+[ ... ]
+
+> @@ -455,10 +754,100 @@ bool netc_port_rxtstamp(struct dsa_switch *ds, int port, struct sk_buff *skb,
+>  	return false;
+>  }
+>  
+> +static void netc_port_prepare_onestep_sync(struct netc_port *np,
+> +					   struct sk_buff *skb,
+> +					   u32 ptp_class, bool *twostep)
+> +{
+
+[ ... ]
+
+> +	ptp_hdr = ptp_parse_header(skb, ptp_class);
+> +	if (unlikely(!ptp_hdr)) {
+> +		NETC_SKB_CB(skb)->ptp_flag = NETC_PTP_FLAG_DROP;
+> +		dev_dbg_ratelimited(priv->dev,
+> +				    "Port %d failed to parse Sync header\n",
+> +				    np->dp->index);
+> +		return;
+> +	}
+> +
+> +	msg_type = ptp_get_msgtype(ptp_hdr, ptp_class);
+> +	twostep_flag = ptp_hdr->flag_field[0] & 0x2;
+> +
+> +	pkt_hdr = skb_mac_header(skb);
+> +	correction_offset = (u8 *)&ptp_hdr->correction - pkt_hdr;
+> +	tstamp_offset = (u8 *)ptp_hdr + sizeof(*ptp_hdr) - pkt_hdr;
+
+[Severity: Medium]
+Should this path require PTP_CLASS_V2?
+
+ptp_classify_raw() masks the version nibble and can return
+PTP_CLASS_V1_IPV4 / PTP_CLASS_V1_IPV6, and ptp_parse_header() only length
+checks, so a legacy PTPv1 event message reaches here.  For v1,
+ptp_get_msgtype() deliberately reads hdr->control:
+
+include/linux/ptp_classify.h:ptp_get_msgtype() {
+	if (unlikely(type & PTP_CLASS_V1))
+		/* msg type is located at the control field for ptp v1 */
+		msgtype = hdr->control;
+	...
+}
+
+For a PTPv1 Sync that field is 0, which equals PTP_MSGTYPE_SYNC, so the
+message-type test passes.  twostep_flag is then read from
+ptp_hdr->flag_field[0], which in a PTPv1 header is a byte of the 16-byte
+subdomain name, and for common subdomains that byte has bit 1 clear, so the
+frame is accepted as a genuine one-step Sync.
+
+netc_port_program_onestep() then writes 10 bytes at ptp_header+34 (not the
+v1 originTimestamp), programs PM_SINGLE_STEP[OFFSET] with ptp_header+8
+(inside the v1 subdomain), and fixes up the UDP checksum over those wrong
+bytes.  Can a PTPv1 Sync be corrupted on the wire this way?
+
+> +
+> +	/* Ensure that the entire originTimestamp field is present in the
+> +	 * linear buffer of the skb and the correction_offset must be within
+> +	 * the hardware capability.
+> +	 */
+> +	if (unlikely(tstamp_offset + 10 > skb_headlen(skb) ||
+> +		     correction_offset > NETC_MAX_STEP_OFFSET)) {
+> +		NETC_SKB_CB(skb)->ptp_flag = NETC_PTP_FLAG_DROP;
+> +		dev_dbg_ratelimited(priv->dev,
+> +				    "Port %d PTP offset check error\n",
+> +				    np->dp->index);
+> +		return;
+> +	}
+> +
+> +	/* Only a Sync frame with the twoStepFlag cleared can use one-step
+> +	 * timestamping. A frame that requests two-step (or is not a Sync)
+> +	 * carries different on-wire fields, so this is a real classification;
+> +	 * report it through *twostep so the caller falls back to the two-step
+> +	 * path.
+> +	 */
+> +	if (msg_type != PTP_MSGTYPE_SYNC || twostep_flag != 0) {
+> +		*twostep = true;
+> +		return;
+> +	}
+
+[Severity: Medium]
+Should the Sync/twoStepFlag classification happen before the
+unsupported-case checks?
+
+As written, the order is skb_linearize() failure -> DROP,
+ptp_parse_header() == NULL -> DROP, tstamp_offset + 10 > skb_headlen() ||
+correction_offset > NETC_MAX_STEP_OFFSET -> DROP, and only then the
+msg_type / twostep_flag test.  So any PTP frame that trips one of the
+earlier checks, including a Delay_Req that only wants a two-step timestamp,
+gets NETC_PTP_FLAG_DROP and is freed by netc_xmit() instead of taking the
+two-step fallback.
+
+ptp_classify_raw() only inspects the first two bytes of the PTP payload,
+while ptp_parse_header() needs 34 bytes and this code needs
+tstamp_offset + 10 bytes in the linear area.  Can a short frame sent to UDP
+port 319 by any local sender therefore be silently discarded regardless of
+its message type, with only a dev_dbg_ratelimited() trace?  The same applies
+to skb_linearize() failure under memory pressure.
+
+For comparison, enetc_xmit() falls back to two-step when the parse fails and
+still transmits the frame.
+
+netc_onestep_work() adds a fourth drop site: when netc_get_phc_time() fails,
+an already-accepted Sync is freed with kfree_skb().
+
+The commit message states:
+
+    "frames that cannot be handled as one-step fall back to the two-step
+    path or are sent as normal frames"
+
+Can that be reconciled with the four kfree_skb() sites, or should the
+description be adjusted?
+
+[ ... ]
+
+> @@ -466,6 +855,50 @@ void netc_port_txtstamp(struct dsa_switch *ds, int port, struct sk_buff *skb)
+
+[ ... ]
+
+> +void netc_port_onestep_sync_enqueue(struct dsa_switch *ds, int port,
+> +				    struct sk_buff *skb)
+> +{
+
+[ ... ]
+
+> +	spin_lock_bh(&onestep->queue_lock);
+> +	if (unlikely(skb_queue_len(&onestep->queue) >= NETC_ONESTEP_QTH)) {
+> +		spin_unlock_bh(&onestep->queue_lock);
+> +		kfree_skb(skb);
+> +		return;
+> +	}
 
 [Severity: Low]
-This comment records the partial initialization discussed above as an
-invariant.  Since 0 is a valid IPFT entry ID, would it be safer to
-initialize ipft_hf_eid for all ports and drop the "other ports ... do not
-require initialization" wording?
+This isn't a bug introduced by this patch, but the new drop sites do not
+touch any drop counter.  The queue-full drop here, the
+NETC_PTP_FLAG_DROP branch in netc_xmit(), and the PHC-failure drop in
+netc_onestep_work() all free the skb after dsa_user_xmit() has already
+accounted it:
+
+net/dsa/user.c:dsa_user_xmit() {
+	dev_sw_netstats_tx_add(dev, 1, skb->len);
+	...
+}
+
+So tx_packets counts frames that never left the box while tx_dropped stays
+zero.  The accounting side is pre-existing framework behaviour (dsa_user_xmit()
+itself drops on skb_ensure_writable_head_tail() failure without accounting),
+but would it be worth bumping a drop counter at the new sites?
+
+> +
+> +	__skb_queue_tail(&onestep->queue, skb);
+> +	if (!onestep->in_flight) {
+> +		onestep->in_flight = true;
+> +		kick = true;
+> +	}
+> +	spin_unlock_bh(&onestep->queue_lock);
+
+[ ... ]
+
+> diff --git a/net/dsa/tag_netc.c b/net/dsa/tag_netc.c
+> index d46576ae2f751..d9bc4a5e8ae9a 100644
+> --- a/net/dsa/tag_netc.c
+> +++ b/net/dsa/tag_netc.c
+> @@ -138,9 +195,19 @@ static struct sk_buff *netc_xmit(struct sk_buff *skb,
+>  	if (likely(!ptp_flag)) {
+>  		netc_fill_tp_tag_subtype0(skb, ndev);
+>  		return skb;
+> +	}
+> +
+> +	if (ptp_flag == NETC_PTP_FLAG_ONESTEP) {
+[ ... ]
+> +		netc_onestep_sync_enqueue(skb, ndev);
+> +		return NULL;
+>  	} else if (ptp_flag == NETC_PTP_FLAG_TWOSTEP) {
+>  		netc_fill_tp_tag_subtype2(skb, ndev);
+> -	} else {
+> +	} else { /* NETC_PTP_FLAG_DROP */
+>  		kfree_skb(skb);
+>  		return NULL;
+>  	}
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831082335.1184605-1-wei.fang%40oss.nxp.com
