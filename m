@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8695C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFFAC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsEGineSMGD9B4sFWlX12tD3d/2foj8RYdEfLSweM1E=; b=nAfM+inWLEsyYK3zOoJ/NdKBBz
-	in439TAa/DsMowl7RaWQUToIt+GlsEEEPFVqdiBLuPVPDfkSyAgFz4Dg3P+QaypP0riCQURDLr/Ex
-	1Arm5UQP0MjMOA1c98l3NPZPS7d3XW5eO4aL6TvtTMp2ZFjJMOiIT2c9T0pjPU4Pf9LvWjSBXKzUq
-	ATpA+j2MdnuolfnoVlxa5OtPWsxzkY/x4zdLc2c7Z1O8cLgS1rh8/XzTyDNqcgrr9mQmEcwPyWBAL
-	1Y919ZuFPCeFI4QnQokzpiZQ8e3pumOHCme1T4r9Bq4OeXJIDgwJbm07V3I6mEUdXmFATQCeDh//Z
-	Xyd9q/2w==;
+	bh=eAC8+/v7e6XibFsNPx+Wyt11P3I9nhDS/a803tt9xOg=; b=vravlemwpz/FBWtFtinS7KAjrg
+	IgzLuRSfGcLTEws3pquvRT3Mpj/2sigm4PNsFtx3Fvhtl9i+vbd+jOzoYI64dfPNtgvy8SgU2EtJC
+	RLb/kFWEBPKunUSaX71XYIBPGYAHCKVbbpZNZZEruU1H3eKEgxp7yVMZ7XhHLc18i4KC5Fabq1xLr
+	WK7YGXQmTUFrDpXBg62oTnXFLDledWTUw3cZaPyEe9Tu1D+HMeitzOPb9DIgup29mPN4AXdmxWpuM
+	kq8cs19m6sGshuQaonzf6CGCxrmHa44oxpQZMedXPSOKejQ1B5N3GKktALyQjuUvZE5kHdWQ0Gn51
+	Um6qaQSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Nhn-00000001BJP-3gqx;
-	Fri, 04 Sep 2026 06:47:19 +0000
-Received: from mail-koreasouthazon11020107.outbound.protection.outlook.com ([52.101.156.107] helo=PUWP216CU001.outbound.protection.outlook.com)
+	id 1x2Nhv-00000001BPr-3WaY;
+	Fri, 04 Sep 2026 06:47:28 +0000
+Received: from mail-koreacentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c40f::2] helo=SE2P216CU007.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Nhk-00000001BBr-3SgO
+	id 1x2Nhs-00000001BMT-2lS6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 06:47:17 +0000
+	Fri, 04 Sep 2026 06:47:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SAt6MgsdwLouvjjDGiaVnzrbpxaEQnx7RubzeNU33dgxQ3b9VeDfpllpfiKOpxT1yx7u83kuTqSa0a6MLKc+IwbggozymxDo8/RxBBdlp9W55K6TuqvB3+bvs0raAT5VHeyQD3CXTspBw+tmitK3vqASUD7yh9e6bX/uT4DxcFS9OLOyDtF2w0iEa9LsD8Q3xxf6BKNhYkOBAhjhmOJUi1zlX1I+Q5LcUR2WUrMLD0E+q7YRt5bZKVjU/RrRXPZUGDQwUxfWmhkSkkYvCYzFnkmwFIscGyhZ5a+1mBlkdKFoFz46DvNg1mekEtdibKm6VvY1o5F/yt2jm5LhzMuyEg==
+ b=b2Api5wHX+pL8kNYhGOKhfzLb4R91R6qD8F8MywbzmB589EgxkkVNFwgmc5D62Xxqy7QbG/Z+xEEsh6gCSDCdeN7bgT20FYii/PY4q6TBEnERi2G12X5twUOLpEsBjeF0Ujge+2hDPqcUYb6CVRQ477JS8iJk+oNyI3rlQkZ1Nh52q8frRgSJHhFyM47eX5ASwzqlNZli8u7yGZi/L9NVgIMvqC6ZtOGFChDW5PHYNb5Lep9jxKsvcUR3/OZo4O2UXZeccp4p+1UCcevizousOaW/P2WK+4lMY3vklBAnmfvTqUeypCaL+QlWMt30w6cq0VnA27/X+kkuzLWFw1xgQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gsEGineSMGD9B4sFWlX12tD3d/2foj8RYdEfLSweM1E=;
- b=Op9E2DSsnkQkmGEpBIwb85K+vud43IhAFHzKMtjWfZVA+haLDcYfiQ150MQ7I2vMx0m5C3McW6xwOZ32PfHUqmUVbLvd2qpN9c2MjYn9Afdc2essLikQkvxr1nYWQqujFDwe6sR51raNXXa5r2b24CdizvLollPD8/yJKxa7S4bEI/RTcbNobp9K8U/STZ8AJcpSjKpMb3vJhLz14S7Cfc6Qy8a7GSrFhaltNmMe6Fqo4f7DYxYDPbRz3/rGFT2SBjpnDCRlk0CvxZ7Z8e2KxO0my1pwwVV3s2mvHOeU0sC1jfk7niGYLPDVcq6DtBtAYHeAA1y4/yNBHl/HzjQwtg==
+ bh=eAC8+/v7e6XibFsNPx+Wyt11P3I9nhDS/a803tt9xOg=;
+ b=zQ1WFHjto2I4vjE5wqk0dwqRbircfkwvntEVegrTV+eLEKjGeL6FkGTFXxL6S/hT65d4iriot50i/i+bUNxNAiED48F7XPJcDMvFsyL1xGDSgB14T1O3yNd3a9Ebl4P7ck2l5AxxmlEZH1JR/JmjzeSCJZH/wYwp2mgJUuUR3vS2nhmAhtmf0L41Gt2Hb+9jWreoW1uP/1Qx56KaypJHwnoXanBb19/WDQ3wxEifBCiT9yR8WtlJaQTpLjaDKCh25aDzhtmQDquXs6BH6HMjdZYzbRJEI5dchu5Xh11Fs5zwRBlYd6Ujtvep/4StxR+LVwkdR5qgSchdqaVBb3U8kQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
  header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gsEGineSMGD9B4sFWlX12tD3d/2foj8RYdEfLSweM1E=;
- b=Uf+Lz/qrwCT7Cibhmg7JQFvK5dFmhNFnuM1uKkuDYQTOHZNRoPKYpz2ByYIoNNYeWkxaNuevhGTendpfShCRnQ31qegehiV5LWxfyJyusRCgJjyhkXcxaDKQtsIyVO7qMX5Z5r5SIn8VweO4nsgbpgS2WpN+XqS935hc47pIN8Ohu8tit9ralXzbcRpfYejvSsrcA+HzrxAtpPJB593IsDYz7E0OFoiKNzCiJy62N8J+nBgmFaJE8fP48EvPDUKncsiL9+AmjdPx7r5W75PJ8WTVRzxmK+Q/7CF8kt4j5XXVBfLwHXSmY0Xvq9+ItL8VV9ca0huH18oy9OVZEfLDPg==
+ bh=eAC8+/v7e6XibFsNPx+Wyt11P3I9nhDS/a803tt9xOg=;
+ b=FWrArsMuBj0oODWqNSgoboIZcCrsxyc0osiThkKX1ITQ9eaWzmW7WNK8oP2znbUxq49KLF9DMnePEF4UYMihYAHGErdc7kTw78CEfbpHiABFB8hxr4Vh9Owtexx31PMXrFcWB0HJDbmH4Imi4qaxbtKbnTPkar/lUxjs1duVJlPtu0yS/tsvNYl9crUE9fRIpRSgINBWGkXSzQry+HUKzA+B9zUMoNWBWcYdZM9YXamR8rTW2jJmnrLJgQfN1GDLnvCY623oiQuEFaGgC2x7orF9HGTa7ylpC7ZtIZky3vEyZ3Q+l6xfCUChYiYhZxJfZgz8OwZpYUb3ejpyWQpJ2Q==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
 Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
  by SEWP216MB2979.KORP216.PROD.OUTLOOK.COM (2603:1096:101:296::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 06:46:55 +0000
+ 2026 06:46:51 +0000
 Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
  ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
  ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 06:46:55 +0000
+ 06:46:51 +0000
 From: Nas Chung <nas.chung@chipsnmedia.com>
 To: mchehab@kernel.org,
 	hverkuil@xs4all.nl,
@@ -69,11 +69,10 @@ Cc: linux-media@vger.kernel.org,
 	jackson.lee@chipsnmedia.com,
 	lafley.kim@chipsnmedia.com,
 	marek.vasut@mailbox.org,
-	Nas Chung <nas.chung@chipsnmedia.com>,
-	Ming Qian <ming.qian@oss.nxp.com>
-Subject: [PATCH v7 6/9] media: chips-media: wave6: Improve debugging capabilities
-Date: Fri,  4 Sep 2026 15:46:32 +0900
-Message-Id: <e7f599a5bd65900eb45daa3b637597fce464c383.1788496816.git.nas.chung@chipsnmedia.com>
+	Nas Chung <nas.chung@chipsnmedia.com>
+Subject: [PATCH v7 1/9] media: v4l2-common: Fix P010 format info
+Date: Fri,  4 Sep 2026 15:46:27 +0900
+Message-Id: <a6496e8b6bf87c48f4ab5ae31aa952eeebb7a2e3.1788496816.git.nas.chung@chipsnmedia.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <cover.1788496816.git.nas.chung@chipsnmedia.com>
 References: <cover.1788496816.git.nas.chung@chipsnmedia.com>
@@ -85,57 +84,57 @@ X-ClientProxiedBy: SEWP216CA0130.KORP216.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SL2P216MB2441:EE_|SEWP216MB2979:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39184d0d-6e2a-40f9-0ba5-08df0a504f64
+X-MS-Office365-Filtering-Correlation-Id: 9a70964d-e7c4-4492-7f00-08df0a504cfa
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|23010399003|52116014|366016|38350700014|6133799003|10067099003|18002099003|22082099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: gggaY4zP3li/iZfuZp9C7zI9Hb9RgShkQ+w5p5a0P2FEkBZ76I1NSRZbnJgi6HOZ7xPemBAApN/dT848RvYZsW65xNpQ3laYkEzS5oyfaGxblzKlYrbaY3+oihXtGfP/tv47djPPy/SJ88B25I6IwSrXXOWkxbhh3xt5FoTL7+N6kqppv5MYzyQ2IMDOeftftkr9mzaVZ2Zxe2/ZtXZ9OBLukgEt2XfU94W1ocTdo6tKj8o1jZogalEXPbmGKckt/rTSUo0pq+3F/Be1gNAwExrkUU9BcJgifKfe3hm8EHCiibefkr1zKz6/5QnZJm+5dTuMx6mOSoyG9fDlzQ7nX2eEhNFKAQKb5fGUgy9gGEdJpZyCVLzU4E8z4OIRYtzcKQtN11h57+BaP9eTFP1NQAXO/0CRtKbq3e+3mZ6GfEQSyLtGTS//MUTuFy4Khe1iZ5Bt+WLjRquX2ZcJz6ZVx+MKcUA2rn7aldjdaQg1SW9+kQdZBOTGrrLafSYGb861qHV3KSScwYE95G4S/w18g5ReofOoI/ictlZktYhxHpnS1fSIKHp+xOCKHViBYbm0+11ro7hwwwhsHUq/SOUO2s6siEcn8+4o7LTBZ015a7P9aJKWz53LG9ZVm8nKOhJg2VqzsSDnqh2Xq+6duuSfqcUH3F78mvrypse8BIBjvaykcwvP7/sOBd40JsuViCy9B2Mma3gDMrJDD8hjH8tWuwkyOrwDMiGZQ8NHb9F/4ag=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(23010399003)(52116014)(366016)(38350700014)(6133799003)(10067099003)(18002099003)(22082099003)(3023799007)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|23010399003|52116014|366016|38350700014|10067099003|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: gHTjrpqO3swuOautZ++epOYWGXdFUgz9+X3pNUTx4vLUugFdqUdxMFxVBHNgMImguWCSNCoGRp5bdOrOfgVYkgUWL0r5nBmpxXZIpjBwpBjYjckjJ2FusbdwGZL/E3l7mMMve7mRM1yx+9yIKFSBSaIZPKCCphKTEkr6MYd1w/yFwJHQGVlTWXT45mhFX2Jqir9K850EreQ67GQDPx+pTUX+QvxPYB2K7C+9isC0VLF35Fp7ewFp0OXeAoJgT7/p1TuB4VHXmex4I/q3cCh99Yf9vjTxOVywsAZV3TrirUqddHekn/F3vJEjxY7xmMuO6hmF6t/Si+4bO+ugGK+xFBJJQid91BkR4xBJ3U6uXjYFrkDG+stSIxmQQaRkd7Lorag3dm7YpC5artniMR4PZA5LEmWE8HcNQu2K4ssBP8pbqQVl3Njl6ZFFDTmLLi2OBp48HbC5ZM4OsZIviG2XrjTApXlof/wlRad8Sv25gQcgMi35L0FSl+NHAO8FJfxnYjYBG9CSN7jR5Kai82a1cAH3m4AkhZPAirFxOQXigyMLV5Dm40J5wcSWHnkn8gqdCyT8VUE024vs4k0eWfRz+xQ/0Py/jCTY1lYuO7T23bubyUGap72sAVDFnHvBwZpGJC0RRv5NEdO4/v/G0ulofvhMORlXd0FI8uxcu1Nf42aLRY2f6ygFfI7SeQbR12NZyDS+31ZMNQO2ILOjAjJ/DOPck498a/tUiL1jj8wMZbw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(23010399003)(52116014)(366016)(38350700014)(10067099003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mfhukITsFHWYnUdC0GDB91b3x3zv29GOdZy8JeFfwwu137m1UjNBjqNKt+m5?=
- =?us-ascii?Q?zOa5Z+9cuLNKjX33UIjGr/jUes4Mb/r6/KuBGI1wBg8SyNhk+Ml7CodUQdua?=
- =?us-ascii?Q?mOxqEphuUl6WfRMzUnMiUo9YSQYbfLvvhIUCUWg9uf16PngOhDZuCrD6osrY?=
- =?us-ascii?Q?6NGfZnjv0AaGkf83o9u/vzpZa6srwGQPCpZzljzwnHDgHTKI8D4/yH9H1sBE?=
- =?us-ascii?Q?yIpGlWAr4Mw9z5+emFynu9p8kinnzYzht3O0qVLC1GUN5liERoW3rlZYKG6W?=
- =?us-ascii?Q?yXnQeiSyp/sPW5ake4CjUGcE2zxjw7cJG3SwyBDLhpzJznjT5L1myqra0fAN?=
- =?us-ascii?Q?qUirEzZ6rRllvIewuLs83db46yDywlWjjAGeTdOqCYNcP06tYvQHG0n4yxNc?=
- =?us-ascii?Q?9vUD4cMCpaqaPvRm4VPpH/uAldJBIvd6jy2MZ5L0jplclqg+R+B5hQZghP6E?=
- =?us-ascii?Q?aAN57H77DYF7BaWKDVCpwPyvOs8FnTpfzWi11tjMCrrsjWwUu5bWcYWvPKxk?=
- =?us-ascii?Q?eHPYAy2T4hD95TTyni5ADEEMpuLifotZJ7shNVP3A+MP1roxkRZGMLFqx3QN?=
- =?us-ascii?Q?TqInFg0WpUr+uXQQeRFi5VQgj9kUBF5OWl7TTCWrkovgvY/ZmAdpsAZtfnRd?=
- =?us-ascii?Q?2MOOjyRv6GcDY8I4IAxZxl1hgLLZQAo0Y1B0WywsRsMKIhO0Mmv9gtXP9QYM?=
- =?us-ascii?Q?IKNZQUAhqY/CsdG4x86L4uBOUc10lSdV5GGXCqM+xs07NGzH8IxhYwCKJ61h?=
- =?us-ascii?Q?OOcLwZdEj2VDROiXx0dhdFsBwKB7vPfZCmvJZddanfXiH9cI/ZqfVuSeWz/y?=
- =?us-ascii?Q?vGLCD02KHCrUyeH0zA4YBE2HHQQGJf5tTyitH49sEJy6KG5V9yZnETtVPORF?=
- =?us-ascii?Q?ZjggwlygeKSnVhVC3l0NUCPDDQbDobdYTwgJs2PP2l6mXT5I50gpgXISYZto?=
- =?us-ascii?Q?041xZ126nmQRStW8rBQIF8AF/+A8jIIcCtZxoWVg5ZjGMz4jQKPhoti3bhNN?=
- =?us-ascii?Q?xtNaPGyCyofwUPiWPFgl396a/tSSzlhb6GXgotBttVFpYnsfGCechWF5r03d?=
- =?us-ascii?Q?V0OPgXmCAR7ralW8FkMGDxM6FM24nFuzWhZsK+tZtBKK1jaJIg6hY5luudmr?=
- =?us-ascii?Q?VYa48WxpYkzI83nu41jfJeFbDWDmjhCs5qA76BoCD1LPxcJE8FkGjdEcGJvL?=
- =?us-ascii?Q?QtrarNBL6c0e8zwsiRsnnpJpNxwqv16PMjhH7fHT4tLMV4wuEaqE2+zdrUtS?=
- =?us-ascii?Q?rEj+d1eJUZdGdgnMJIBxSaPW7X61IP0Z9KA0BKbIoKcm8bknbY2iHt76JTkJ?=
- =?us-ascii?Q?dXTxQPb8s9GKQCsgeBkyA6l2YNBWwwqpwVtd/iepQNmLIjk8rH0RjHpW7kRj?=
- =?us-ascii?Q?EBkvqAyPTqZ+PGNkT7aqmfHIMEHxE6Z43uo4H422EuiGSXID2qQSZyI3dFFI?=
- =?us-ascii?Q?wbB2XEjsjJ9nl4rhe25b2oNiST3Hfct1wAq3k6putxGsbfUR9pEzoJ6L0mxp?=
- =?us-ascii?Q?arbDba2dqGiwlkL4IqlnoO48RQJZUHOhlAVLi5uFJtPV69jyPUfF7WBmIF2h?=
- =?us-ascii?Q?NceGl/BfgXu0FY+jNTJH39WF7d/kWt5tgNOdw0xPiB0JjYUVSxihnWzhj/6a?=
- =?us-ascii?Q?gtvZVcBrpMbhMKcksIoeBvK1jN28wYN4eq2U4qh0dxjz5aSOxqbaWaA6qgDH?=
- =?us-ascii?Q?qjPj6gdi9/fQPchRHT0uuIpyA2/+Wbc9wllX4RkPqDfQQ5C2L8M78IEyaBha?=
- =?us-ascii?Q?SLAcRavWSgO58A2ZZWWyflFYSfZYIhY=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HrGay/3KuCqHTQnh8HTmXNnPPj2vR3YydUVPxCuRRxH2U23lcPdOg28z/Cug?=
+ =?us-ascii?Q?VxqLYJotJ5RmRxYhRRTCM4L8n+y35YCjsrXTrKYCw4HYbFN8x7/DxfD+5pqP?=
+ =?us-ascii?Q?zUVBVVXjkGB/uqzKWL7x6cbxTpsxjbOx4vCNifvyp0moE98AeV/p1qN+D3m2?=
+ =?us-ascii?Q?j3Ovj5oSsJpT9L/3x3R0yK4Xe7wa0JFRFegqH8z+zoP3w5FegH7OE9xtZlMe?=
+ =?us-ascii?Q?TM70v7KvdruyH1Hxtv5L3Rox99UWW7oXV7ctjPwjLcSEZ6dS5goCoLC1y0CS?=
+ =?us-ascii?Q?eUnFJG2M7s+qFZlOldEmeJ2fY7Mph8y27xMDLhH+hallj9XJa9xOkr9jSX9B?=
+ =?us-ascii?Q?JoTGK79mnaVThlPaAN/8OwKPTm1iw8tb7XDq7K3tIMGr0U2aS5G98JteoX3h?=
+ =?us-ascii?Q?24zbfVwHixTq1odMDkQRQ6YdXq/8DTqO2zuC4L/KpU7/3F4T9odAvHBZguMv?=
+ =?us-ascii?Q?2+sp6o4SP+SqEqbNP0jmtAbW1f6sH/oVMcho9TlhDdc/2ZGENZRnBdjET8bY?=
+ =?us-ascii?Q?eGZhL1mHgaYiACsPs5A6i+//2G+NzrnZ5OT8JU0JxXRJPb+5U6GTF+iAzfp8?=
+ =?us-ascii?Q?VOpryfrVdK2FQA4ErSLcevLV4R7x5YfQnKg3kat1uxbHgQy2t1lSVLt7Q6Yq?=
+ =?us-ascii?Q?jtHmfGFw2P9GAVV5FkDPVGYwtOYLtIAOL1BwO5UerhPm6zBrDcXSIB2dm5UF?=
+ =?us-ascii?Q?nl2m970EVv0/YGkmpBIJ8GSeA1uxsRbvlDaIeehcLyb7+SVbEj7iCSm+Xbjy?=
+ =?us-ascii?Q?XOD0nFntmbINQAYHp/uKI6kcGxe51oW0+CWv8OFvbArzSXlw0RpolDW9w9n7?=
+ =?us-ascii?Q?QoDplqjqaiROoTTl2I4Ul4GmWB4filK9iN7mWGopG0k2TJ+7QcKYPYrZQBKh?=
+ =?us-ascii?Q?SVZOGle7mCDYGJQIBXPSZQtWb59dMHpXlYCop86ZW3OGYnsqnIuEjyvd6OSk?=
+ =?us-ascii?Q?a3bhLEL5GV8rdXz5MagXGLly4O/3iH2SBWADRirQa7ttq3BnysRS+iAhbqfQ?=
+ =?us-ascii?Q?yYxsRKI4KnsRhpGOyC/cxaxvZtH/afEcXq7YZAlU/VE1CYRx5Fs0QgROnzk7?=
+ =?us-ascii?Q?1gJ2OKeg3r421ut9HJuR0O7IRVz8LDrM6unTE62b+kFCWlAWLIt+jYK1MR0c?=
+ =?us-ascii?Q?EYMIHx3uJnW4xlFtLJf7opPPhEOsORnarEClKruX+/kJz+TL617Ngln+/VsT?=
+ =?us-ascii?Q?Hpj74+plHISRlEU1hJp3T6ybaSHyHQWNGRVzzGiqmDWcZf7qQdIAeZYgmZVb?=
+ =?us-ascii?Q?KsYdyJgsihPgHKR7FR6MyRnOzzy3bTcRNXQpI9Qz3EVhJejPd9htYrok6Wp6?=
+ =?us-ascii?Q?APtyDpikimpnjGs3y4zqvASaIpW0bUPBywnofKKtHDDMyfszpHm99q0anRgj?=
+ =?us-ascii?Q?SWyYF5adXllVkf8BGiI2hr9+E2nOdslgiz7ytM6/RQG89mYKSEzp5CELPMhd?=
+ =?us-ascii?Q?cWsdz/WTvNTz0bz+ZfnZCiY7YmtumG3wnqTW/ZBrwqYqJoEZ6tmR/dr+dDs2?=
+ =?us-ascii?Q?Lxag4V33yw8uBJldmIYdeERwfmFwPma/vuXes4Jmt0cDlv4557sjJnMTSVro?=
+ =?us-ascii?Q?6WW2i26V+uPiAictej7bgwLwxmTGpu33aigaIdodM2Lh6xURTl0ddxF4sNuN?=
+ =?us-ascii?Q?zybs0O6cILEHoZcB2aTG35i6cGADBjKIy41M4hJFvqUyJMmXEeaeO+PzWeE7?=
+ =?us-ascii?Q?PDBxX6ITg2THN1t7TAk3W2KF5EzbeUfR3TI/yPmnzJNnOPSBC37/J77Rtn22?=
+ =?us-ascii?Q?CP5dc8SAbsT3n8UgCz+Q+xyFgRDEYDE=3D?=
 X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39184d0d-6e2a-40f9-0ba5-08df0a504f64
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a70964d-e7c4-4492-7f00-08df0a504cfa
 X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 06:46:55.8136
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 06:46:51.6567
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p2CFsPsGJ1tXijtP1g9wB0RpQKNEtwdhc3/3FdtrkTkPSBPbE1Ol8mB4u+x/iYQgJ5hkGUnnCZSwQT/XgYt1iP5a0fU8BvgCR+5WgZ53XIA=
+X-MS-Exchange-CrossTenant-UserPrincipalName: /1eYd+GhgBNRwfOWelXibClGnnUprvAQHkGuYYkrhifjoe8SVU5srV1mHnprOCdkymRji4ReflSV/b72Ljmiaxr33CXofLe/Ua89S6+mFlE=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEWP216MB2979
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_234716_878916_44A999CD 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260903_234724_716612_BA433112 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,527 +149,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add debugfs entries and trace events to provide detailed
-debugging information.
-These enhancements help diagnose issues and improve debugging
-capabilities for the Wave6 core driver.
+V4L2_PIX_FMT_P010 is a 10-bit 4:2:0 semi-planar format, but its
+v4l2_format_info() entry described a 4:2:2 layout with a half-width
+chroma plane. Correct bpp and vdiv to match P010's real layout,
+consistent with the other semi-planar formats.
 
+Fixes: 5374d8fb75f3 ("media: Add P010 video format")
 Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-Tested-by: Ming Qian <ming.qian@oss.nxp.com>
-Tested-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
- .../platform/chips-media/wave6/wave6-trace.h  | 289 ++++++++++++++++++
- .../chips-media/wave6/wave6-vpu-dbg.c         | 183 +++++++++++
- .../chips-media/wave6/wave6-vpu-dbg.h         |  14 +
- 3 files changed, 486 insertions(+)
- create mode 100644 drivers/media/platform/chips-media/wave6/wave6-trace.h
- create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c
- create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h
+ drivers/media/v4l2-core/v4l2-common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/chips-media/wave6/wave6-trace.h b/drivers/media/platform/chips-media/wave6/wave6-trace.h
-new file mode 100644
-index 000000000000..e9589b2f9918
---- /dev/null
-+++ b/drivers/media/platform/chips-media/wave6/wave6-trace.h
-@@ -0,0 +1,289 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
-+/*
-+ * Wave6 series multi-standard codec IP - wave6 driver tracer
-+ *
-+ * Copyright (C) 2025 CHIPS&MEDIA INC
-+ */
-+
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM wave6
-+
-+#if !defined(__WAVE6_TRACE_H__) || defined(TRACE_HEADER_MULTI_READ)
-+#define __WAVE6_TRACE_H__
-+
-+#include <linux/tracepoint.h>
-+#include <media/videobuf2-v4l2.h>
-+
-+DECLARE_EVENT_CLASS(wave6_vpu_register_access,
-+		    TP_PROTO(struct device *dev, u32 addr, u32 value),
-+		    TP_ARGS(dev, addr, value),
-+		    TP_STRUCT__entry(__string(name, dev_name(dev))
-+				     __field(u32, addr)
-+				     __field(u32, value)),
-+		    TP_fast_assign(__assign_str(name);
-+				   __entry->addr = addr;
-+				   __entry->value = value;),
-+		    TP_printk("%s:0x%03x 0x%08x",
-+			      __get_str(name), __entry->addr, __entry->value));
-+
-+DEFINE_EVENT(wave6_vpu_register_access, wave6_vpu_writel,
-+	     TP_PROTO(struct device *dev, u32 addr, u32 value),
-+	     TP_ARGS(dev, addr, value));
-+DEFINE_EVENT(wave6_vpu_register_access, wave6_vpu_readl,
-+	     TP_PROTO(struct device *dev, u32 addr, u32 value),
-+	     TP_ARGS(dev, addr, value));
-+
-+TRACE_EVENT(wave6_vpu_send_command,
-+	    TP_PROTO(struct vpu_core_device *core, u32 id, u32 std, u32 cmd),
-+	    TP_ARGS(core, id, std, cmd),
-+	    TP_STRUCT__entry(__string(name, dev_name(core->dev))
-+			     __field(u32, id)
-+			     __field(u32, std)
-+			     __field(u32, cmd)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = id;
-+			   __entry->std = std;
-+			   __entry->cmd = cmd;),
-+	    TP_printk("%s: inst id %d, std 0x%x, cmd 0x%x",
-+		      __get_str(name), __entry->id,
-+		      __entry->std, __entry->cmd));
-+
-+TRACE_EVENT(wave6_vpu_irq,
-+	    TP_PROTO(struct vpu_core_device *core, u32 irq, u32 idc),
-+	    TP_ARGS(core, irq, idc),
-+	    TP_STRUCT__entry(__string(name, dev_name(core->dev))
-+			     __field(u32, irq)
-+			     __field(u32, idc)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->irq = irq;
-+			   __entry->idc = idc;),
-+	    TP_printk("%s: irq 0x%x, idc 0x%x",
-+		      __get_str(name), __entry->irq, __entry->idc));
-+
-+TRACE_EVENT(wave6_vpu_set_state,
-+	    TP_PROTO(struct vpu_instance *inst, u32 state),
-+	    TP_ARGS(inst, state),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __string(cur_state, wave6_vpu_instance_state_name(inst->state))
-+			     __string(nxt_state, wave6_vpu_instance_state_name(state))),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __assign_str(cur_state);
-+			   __assign_str(nxt_state);),
-+	    TP_printk("%s: inst[%d] set state %s -> %s",
-+		      __get_str(name), __entry->id,
-+		      __get_str(cur_state), __get_str(nxt_state)));
-+
-+DECLARE_EVENT_CLASS(wave6_vpu_inst_internal,
-+		    TP_PROTO(struct vpu_instance *inst, bool is_out),
-+		    TP_ARGS(inst, is_out),
-+		    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+				     __field(u32, id)
-+				     __string(type, is_out ? "output" : "capture")
-+				     __field(u32, pixelformat)
-+				     __field(u32, width)
-+				     __field(u32, height)
-+				     __field(u32, buf_cnt_src)
-+				     __field(u32, buf_cnt_dst)
-+				     __field(u32, processed_cnt)
-+				     __field(u32, error_cnt)),
-+		    TP_fast_assign(__assign_str(name);
-+				   __entry->id = inst->id;
-+				   __assign_str(type);
-+				   __entry->pixelformat = is_out ? inst->src_fmt.pixelformat :
-+								   inst->dst_fmt.pixelformat;
-+				   __entry->width = is_out ? inst->src_fmt.width :
-+							     inst->dst_fmt.width;
-+				   __entry->height = is_out ? inst->src_fmt.height :
-+							      inst->dst_fmt.height;
-+				   __entry->buf_cnt_src = inst->queued_src_buf_num;
-+				   __entry->buf_cnt_dst = inst->queued_dst_buf_num;
-+				   __entry->processed_cnt = inst->processed_buf_num;
-+				   __entry->error_cnt = inst->error_buf_num;),
-+		    TP_printk("%s: inst[%d] %s %c%c%c%c %dx%d, input %d, %d, process %d, error %d",
-+			      __get_str(name), __entry->id, __get_str(type),
-+			      __entry->pixelformat,
-+			      __entry->pixelformat >> 8,
-+			      __entry->pixelformat >> 16,
-+			      __entry->pixelformat >> 24,
-+			      __entry->width, __entry->height,
-+			      __entry->buf_cnt_src, __entry->buf_cnt_dst,
-+			      __entry->processed_cnt, __entry->error_cnt));
-+
-+DEFINE_EVENT(wave6_vpu_inst_internal, wave6_vpu_start_streaming,
-+	     TP_PROTO(struct vpu_instance *inst, bool is_out),
-+	     TP_ARGS(inst, is_out));
-+
-+DEFINE_EVENT(wave6_vpu_inst_internal, wave6_vpu_stop_streaming,
-+	     TP_PROTO(struct vpu_instance *inst, bool is_out),
-+	     TP_ARGS(inst, is_out));
-+
-+TRACE_EVENT(wave6_vpu_dec_pic,
-+	    TP_PROTO(struct vpu_instance *inst, u32 srcidx, u32 size),
-+	    TP_ARGS(inst, srcidx, size),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __field(u32, srcidx)
-+			     __field(u32, start)
-+			     __field(u32, size)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __entry->srcidx = srcidx;
-+			   __entry->start = inst->codec_info->dec_info.stream_rd_ptr;
-+			   __entry->size = size;),
-+	    TP_printk("%s: inst[%d] src[%2d] %8x, %d",
-+		      __get_str(name), __entry->id,
-+		      __entry->srcidx, __entry->start, __entry->size));
-+
-+TRACE_EVENT(wave6_vpu_source_change,
-+	    TP_PROTO(struct vpu_instance *inst, struct dec_seq_info *info),
-+	    TP_ARGS(inst, info),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __field(u32, width)
-+			     __field(u32, height)
-+			     __field(u32, profile)
-+			     __field(u32, level)
-+			     __field(u32, tier)
-+			     __field(u32, min_fb_cnt)
-+			     __field(u32, disp_delay)
-+			     __field(u32, quantization)
-+			     __field(u32, colorspace)
-+			     __field(u32, xfer_func)
-+			     __field(u32, ycbcr_enc)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __entry->width = info->pic_width;
-+			   __entry->height = info->pic_height;
-+			   __entry->profile = info->profile;
-+			   __entry->level = info->level;
-+			   __entry->tier = info->tier;
-+			   __entry->min_fb_cnt = info->min_frame_buffer_count;
-+			   __entry->disp_delay = info->frame_buf_delay;
-+			   __entry->quantization = inst->quantization;
-+			   __entry->colorspace = inst->colorspace;
-+			   __entry->xfer_func = inst->xfer_func;
-+			   __entry->ycbcr_enc = inst->ycbcr_enc;),
-+	    TP_printk("%s: inst[%d] %dx%d profile %d %d %d min_fb %d delay %d color %d %d %d %d",
-+		      __get_str(name), __entry->id,
-+		      __entry->width, __entry->height,
-+		      __entry->profile, __entry->level, __entry->tier,
-+		      __entry->min_fb_cnt, __entry->disp_delay,
-+		      __entry->quantization, __entry->colorspace,
-+		      __entry->xfer_func, __entry->ycbcr_enc));
-+
-+TRACE_EVENT(wave6_vpu_dec_done,
-+	    TP_PROTO(struct vpu_instance *inst, struct dec_output_info *info),
-+	    TP_ARGS(inst, info),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __field(u32, dec_flag)
-+			     __field(u32, dec_poc)
-+			     __field(u32, disp_flag)
-+			     __field(u32, disp_cnt)
-+			     __field(u32, rel_cnt)
-+			     __field(u32, src_ch)
-+			     __field(u32, eos)
-+			     __field(u32, error)
-+			     __field(u32, warn)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __entry->dec_flag = info->frame_decoded;
-+			   __entry->dec_poc = info->decoded_poc;
-+			   __entry->disp_flag = info->frame_display;
-+			   __entry->disp_cnt = info->disp_frame_num;
-+			   __entry->rel_cnt = info->release_disp_frame_num;
-+			   __entry->src_ch = info->notification_flags & DEC_NOTI_FLAG_SEQ_CHANGE;
-+			   __entry->eos = info->stream_end;
-+			   __entry->error = info->error_reason;
-+			   __entry->warn = info->warn_info;),
-+	    TP_printk("%s: inst[%d] dec %d %d disp %d(%d) rel %d src_ch %d eos %d error 0x%x 0x%x",
-+		      __get_str(name), __entry->id,
-+		      __entry->dec_flag, __entry->dec_poc,
-+		      __entry->disp_flag, __entry->disp_cnt,
-+		      __entry->rel_cnt,
-+		      __entry->src_ch, __entry->eos,
-+		      __entry->error, __entry->warn));
-+
-+TRACE_EVENT(wave6_vpu_enc_pic,
-+	    TP_PROTO(struct vpu_instance *inst, struct enc_param *param),
-+	    TP_ARGS(inst, param),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __field(u32, srcidx)
-+			     __field(u64, buf_y)
-+			     __field(u64, buf_cb)
-+			     __field(u64, buf_cr)
-+			     __field(u32, stride)
-+			     __field(u64, buf_strm)
-+			     __field(u32, size_strm)
-+			     __field(u32, force_type_enable)
-+			     __field(u32, force_type)
-+			     __field(u32, end_flag)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __entry->srcidx = param->src_idx;
-+			   __entry->buf_y = param->source_frame->buf_y;
-+			   __entry->buf_cb = param->source_frame->buf_cb;
-+			   __entry->buf_cr = param->source_frame->buf_cr;
-+			   __entry->stride = param->source_frame->stride;
-+			   __entry->buf_strm = param->pic_stream_buffer_addr;
-+			   __entry->size_strm = param->pic_stream_buffer_size;
-+			   __entry->force_type_enable = param->force_pic;
-+			   __entry->force_type = param->force_pic_type;
-+			   __entry->end_flag = param->src_end;),
-+	    TP_printk("%s: inst[%d] src[%2d] %8llx %8llx %8llx(%d) dst %8llx(%d) force type %d(%d) end %d",
-+		      __get_str(name), __entry->id, __entry->srcidx,
-+		      __entry->buf_y, __entry->buf_cb, __entry->buf_cr,
-+		      __entry->stride, __entry->buf_strm, __entry->size_strm,
-+		      __entry->force_type_enable, __entry->force_type,
-+		      __entry->end_flag));
-+
-+TRACE_EVENT(wave6_vpu_enc_done,
-+	    TP_PROTO(struct vpu_instance *inst, struct enc_output_info *info),
-+	    TP_ARGS(inst, info),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __field(u32, srcidx)
-+			     __field(u32, frmidx)
-+			     __field(u32, size)
-+			     __field(u32, type)
-+			     __field(u32, avg_qp)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __entry->srcidx = info->enc_src_idx;
-+			   __entry->frmidx = info->recon_frame_index;
-+			   __entry->size = info->bitstream_size;
-+			   __entry->type = info->pic_type;
-+			   __entry->avg_qp = info->avg_ctu_qp;),
-+	    TP_printk("%s: inst[%d] src %d, frame %d, size %d, type %d, qp %d, eos %d",
-+		      __get_str(name), __entry->id,
-+		      __entry->srcidx, __entry->frmidx,
-+		      __entry->size, __entry->type, __entry->avg_qp,
-+		      __entry->frmidx == RECON_IDX_FLAG_ENC_END));
-+
-+TRACE_EVENT(wave6_vpu_s_ctrl,
-+	    TP_PROTO(struct vpu_instance *inst, struct v4l2_ctrl *ctrl),
-+	    TP_ARGS(inst, ctrl),
-+	    TP_STRUCT__entry(__string(name, dev_name(inst->dev->dev))
-+			     __field(u32, id)
-+			     __string(ctrl_name, ctrl->name)
-+			     __field(u32, val)),
-+	    TP_fast_assign(__assign_str(name);
-+			   __entry->id = inst->id;
-+			   __assign_str(ctrl_name);
-+			   __entry->val = ctrl->val;),
-+	    TP_printk("%s: inst[%d] %s = %d",
-+		      __get_str(name), __entry->id,
-+		      __get_str(ctrl_name), __entry->val));
-+
-+#endif /* __WAVE6_TRACE_H__ */
-+
-+#undef TRACE_INCLUDE_PATH
-+#define TRACE_INCLUDE_PATH .
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_FILE wave6-trace
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
-diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c b/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c
-new file mode 100644
-index 000000000000..ae71edeae088
---- /dev/null
-+++ b/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.c
-@@ -0,0 +1,183 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Wave6 series multi-standard codec IP - debug interface
-+ *
-+ * Copyright (C) 2025 CHIPS&MEDIA INC
-+ */
-+
-+#include <linux/types.h>
-+#include <linux/debugfs.h>
-+#include "wave6-vpu-core.h"
-+#include "wave6-vpu-dbg.h"
-+
-+static int wave6_vpu_dbg_instance(struct seq_file *s, void *data)
-+{
-+	struct vpu_instance *inst = s->private;
-+	struct vpu_performance_info *perf = &inst->performance;
-+	struct vb2_queue *vq;
-+	s64 tmp;
-+	s64 fps;
-+	s64 duration;
-+
-+	if (!inst->v4l2_fh.m2m_ctx)
-+		return 0;
-+
-+	seq_printf(s, "[%s]\n",
-+		   inst->type == VPU_INST_TYPE_DEC ? "Decoder" : "Encoder");
-+
-+	seq_printf(s, "%s : product 0x%x, fw_ver %d.%d.%d(r%d), hw_ver 0x%x\n",
-+		   dev_name(inst->dev->dev),
-+		   inst->dev->attr.product_code,
-+		   FW_VERSION_MAJOR(inst->dev->attr.fw_version),
-+		   FW_VERSION_MINOR(inst->dev->attr.fw_version),
-+		   FW_VERSION_REL(inst->dev->attr.fw_version),
-+		   inst->dev->attr.fw_revision,
-+		   inst->dev->attr.hw_version);
-+
-+	seq_printf(s, "state = %s\n",
-+		   wave6_vpu_instance_state_name(inst->state));
-+
-+	vq = v4l2_m2m_get_src_vq(inst->v4l2_fh.m2m_ctx);
-+	seq_printf(s, "output (%2d, %2d): fmt = %c%c%c%c %d x %d, %d;\n",
-+		   vb2_is_streaming(vq),
-+		   vb2_get_num_buffers(vq),
-+		   inst->src_fmt.pixelformat,
-+		   inst->src_fmt.pixelformat >> 8,
-+		   inst->src_fmt.pixelformat >> 16,
-+		   inst->src_fmt.pixelformat >> 24,
-+		   inst->src_fmt.width,
-+		   inst->src_fmt.height,
-+		   vq->last_buffer_dequeued);
-+
-+	vq = v4l2_m2m_get_dst_vq(inst->v4l2_fh.m2m_ctx);
-+	seq_printf(s, "capture(%2d, %2d): fmt = %c%c%c%c %d x %d, %d;\n",
-+		   vb2_is_streaming(vq),
-+		   vb2_get_num_buffers(vq),
-+		   inst->dst_fmt.pixelformat,
-+		   inst->dst_fmt.pixelformat >> 8,
-+		   inst->dst_fmt.pixelformat >> 16,
-+		   inst->dst_fmt.pixelformat >> 24,
-+		   inst->dst_fmt.width,
-+		   inst->dst_fmt.height,
-+		   vq->last_buffer_dequeued);
-+
-+	seq_printf(s, "crop: (%d, %d) %d x %d\n",
-+		   inst->crop.left,
-+		   inst->crop.top,
-+		   inst->crop.width,
-+		   inst->crop.height);
-+
-+	if (inst->scaler_info.enable)
-+		seq_printf(s, "scale: %d x %d\n",
-+			   inst->scaler_info.width, inst->scaler_info.height);
-+
-+	seq_printf(s, "queued src %d, dst %d, process %d, sequence %d, error %d, drain %d:%d\n",
-+		   inst->queued_src_buf_num,
-+		   inst->queued_dst_buf_num,
-+		   inst->processed_buf_num,
-+		   inst->sequence,
-+		   inst->error_buf_num,
-+		   inst->v4l2_fh.m2m_ctx->out_q_ctx.buffered,
-+		   inst->eos);
-+
-+	seq_puts(s, "fps");
-+	tmp = MSEC_PER_SEC * inst->processed_buf_num;
-+	if (perf->ts_last > perf->ts_first + NSEC_PER_MSEC) {
-+		fps = DIV_ROUND_CLOSEST(tmp, (perf->ts_last - perf->ts_first) / NSEC_PER_MSEC);
-+		seq_printf(s, " actual: %lld;", fps);
-+	}
-+	duration = perf->total_sw_time / NSEC_PER_MSEC;
-+	if (duration > 0) {
-+		fps = DIV_ROUND_CLOSEST(tmp, duration);
-+		seq_printf(s, " sw: %lld;", fps);
-+	}
-+	duration = perf->total_hw_time / NSEC_PER_MSEC;
-+	if (duration > 0) {
-+		fps = DIV_ROUND_CLOSEST(tmp, duration);
-+		seq_printf(s, " hw: %lld", fps);
-+	}
-+	seq_putc(s, '\n');
-+
-+	seq_printf(s, "latency(ms) first: %llu.%06llu, max %llu.%06llu, setup %llu.%06llu\n",
-+		   perf->latency_first / NSEC_PER_MSEC,
-+		   perf->latency_first % NSEC_PER_MSEC,
-+		   perf->latency_max / NSEC_PER_MSEC,
-+		   perf->latency_max % NSEC_PER_MSEC,
-+		   (perf->ts_first - perf->ts_start) / NSEC_PER_MSEC,
-+		   (perf->ts_first - perf->ts_start) % NSEC_PER_MSEC);
-+
-+	seq_printf(s, "process frame time(ms) min: %llu.%06llu, max %llu.%06llu\n",
-+		   perf->min_process_time / NSEC_PER_MSEC,
-+		   perf->min_process_time % NSEC_PER_MSEC,
-+		   perf->max_process_time / NSEC_PER_MSEC,
-+		   perf->max_process_time % NSEC_PER_MSEC);
-+
-+	if (inst->type == VPU_INST_TYPE_DEC) {
-+		seq_printf(s, "%s order\n",
-+			   inst->disp_mode == DISP_MODE_DISP_ORDER ? "display" : "decode");
-+	} else {
-+		struct enc_info *p_enc_info = &inst->codec_info->enc_info;
-+		struct enc_codec_param *param = &p_enc_info->open_param.codec_param;
-+
-+		seq_printf(s, "profile %d, level %d, tier %d\n",
-+			   param->profile, param->level, param->tier);
-+
-+		seq_printf(s, "frame_rate %d, idr_period %d, intra_period %d\n",
-+			   param->frame_rate, param->idr_period, param->intra_period);
-+
-+		seq_printf(s, "rc %d, mode %d, bitrate %d\n",
-+			   param->en_rate_control,
-+			   param->rc_mode,
-+			   param->bitrate);
-+
-+		seq_printf(s, "qp %d, i_qp [%d, %d], p_qp [%d, %d], b_qp [%d, %d]\n",
-+			   param->qp,
-+			   param->min_qp_i, param->max_qp_i,
-+			   param->min_qp_p, param->max_qp_p,
-+			   param->min_qp_b, param->max_qp_b);
-+	}
-+
-+	return 0;
-+}
-+
-+static int wave6_vpu_dbg_open(struct inode *inode, struct file *filp)
-+{
-+	return single_open(filp, wave6_vpu_dbg_instance, inode->i_private);
-+}
-+
-+static const struct file_operations wave6_vpu_dbg_fops = {
-+	.owner = THIS_MODULE,
-+	.open = wave6_vpu_dbg_open,
-+	.release = single_release,
-+	.read = seq_read,
-+	.llseek = seq_lseek,
-+};
-+
-+int wave6_vpu_create_dbgfs_file(struct vpu_instance *inst)
-+{
-+	char name[64];
-+
-+	if (WARN_ON(!inst || !inst->dev))
-+		return -EINVAL;
-+
-+	if (IS_ERR_OR_NULL(inst->dev->debugfs))
-+		return 0;
-+
-+	scnprintf(name, sizeof(name), "instance.%d", inst->id);
-+	inst->debugfs = debugfs_create_file((const char *)name,
-+					    0444,
-+					    inst->dev->debugfs,
-+					    inst,
-+					    &wave6_vpu_dbg_fops);
-+
-+	return 0;
-+}
-+
-+void wave6_vpu_remove_dbgfs_file(struct vpu_instance *inst)
-+{
-+	if (!inst || !inst->debugfs)
-+		return;
-+
-+	debugfs_remove(inst->debugfs);
-+	inst->debugfs = NULL;
-+}
-diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h b/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h
-new file mode 100644
-index 000000000000..6453eb2de76f
---- /dev/null
-+++ b/drivers/media/platform/chips-media/wave6/wave6-vpu-dbg.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
-+/*
-+ * Wave6 series multi-standard codec IP - debug interface
-+ *
-+ * Copyright (C) 2025 CHIPS&MEDIA INC
-+ */
-+
-+#ifndef __WAVE6_VPU_DBG_H__
-+#define __WAVE6_VPU_DBG_H__
-+
-+int wave6_vpu_create_dbgfs_file(struct vpu_instance *inst);
-+void wave6_vpu_remove_dbgfs_file(struct vpu_instance *inst);
-+
-+#endif /* __WAVE6_VPU_DBG_H__ */
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 65db7340ad38..4de8aa3ef7d2 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -323,7 +323,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		{ .format = V4L2_PIX_FMT_NV20,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_NV24,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+ 		{ .format = V4L2_PIX_FMT_NV42,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
+-		{ .format = V4L2_PIX_FMT_P010,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 1 },
++		{ .format = V4L2_PIX_FMT_P010,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 		{ .format = V4L2_PIX_FMT_P012,    .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 
+ 		{ .format = V4L2_PIX_FMT_YUV410,  .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 3, .bpp = { 1, 1, 1, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 4, .vdiv = 4 },
 -- 
 2.31.1
 
