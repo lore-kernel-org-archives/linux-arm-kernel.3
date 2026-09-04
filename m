@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05365C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB8FC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2bYUbaRO9Ahl1mhwaZ0sPLIbJfMrA4K43hbFBF+CdxM=; b=FA0pOsvJ+kBJHXG4Q67yalImqb
-	2vRcBkZ91RjVqBPnzpzDB6Vn31UiNils04bsYP43EJic/GHFfnKe3gYNQ6j52X5DVSuFL7JKNWTDw
-	l8ra7GsBoGy6Qu41HpiflfeI4DGyeYSz8plMcEmfuQUfDdTB5oLQVLgR4q03kFCr/oUEwONv/GLou
-	vSyGqClTqSNAd6mSk8zouX84u+pmz+1biqwV00GuAz5VVzm4eDLb/DD7Kw+00al/ALwYkl3NbZ9oN
-	zrPXWSUEAzAcEMlB/W/Y8iNnuBrGQYPD4NNNEQrXPU51dVTF9V/5iSiVAqvphW1edA8hFZOZyDfPf
-	Udu7IYtw==;
+	bh=llQNvoZIzyeSeaE2LlQs+4VU+7e5N4mAqNZw2O02bGM=; b=A0WDB9xBKp0GlGb9jeeuIZCf0v
+	Lw6we48NybsjRxS6iggxrOS7uMtlKOiShhaT2qF1dTB/XruX//Axlp6E2Q8HAi8WVZQdI0G6dDGKS
+	NThOp3PZoHezpZtdhbRjeu2Z2ZglJauOEZWbV0iaJkbFKExdZFfqagdbwZr/Te5dlgPiJUbqCXJwo
+	tU5KCGVB32n1AAlNx2TsNVWpGbIlAKIeYHZGPnaxPeR57S8Z5T23TkdbRZUTzNaeSuteEsOAF105n
+	pjVipx5M54blmLhNOuzgQhkjVXwC6LXmcGU5bcwe+tMJkq3AKgLXkWHGAIT9a1qWvCFZdQqeXbKKH
+	EVHjZVoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKp-00000002drE-1b3b;
-	Fri, 04 Sep 2026 16:00:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2WKb-00000002dOp-164o;
+	Fri, 04 Sep 2026 15:59:59 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKT-00000002d0o-11Rh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:59:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B00160214;
-	Fri,  4 Sep 2026 15:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821091F00A3E;
-	Fri,  4 Sep 2026 15:59:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788537588;
-	bh=2bYUbaRO9Ahl1mhwaZ0sPLIbJfMrA4K43hbFBF+CdxM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=oVcuQX+lyTVCS19xSWICAMUfu7vcycCdwm4ACmOAo2WOP36pyEVsMk5aL/iUYWWyP
-	 qJ1It4GQF/dWOU51tjZfx5YO0o1uuNJozwXz9ur2SaeUusgOIh/6DuvwqXPm1fdK9g
-	 rMiBo6Ndi5WKOPZoeOZ2O9XZLRKFRRMT/HEbM0zWJeEWGqlz4j4PpLI1SxU+SXeKul
-	 kcHZnnzm375434Ft4m8lG2aWc1OL7PKOJF4B0lUStZt3f5Lwni2dPMxHUN091IJ3YK
-	 l1vA9nGTsNYD0Q/4w5BXE6decK/xmW8t1jqXuc8dDdQXUejie+N5+zjXwXWRPAzGzO
-	 sm/+2V04VzORQ==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 04 Sep 2026 16:58:03 +0100
-Subject: [PATCH v4 8/9] firmware: arm_scmi: Initialise known ACPI protocol
- devices and channels
+	id 1x2WK2-00000002cBb-2T8v;
+	Fri, 04 Sep 2026 15:59:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1788537560;
+	bh=Ay44pYArtbKhsePk0Zo5kYWyEZr8Y2LAZ5HauRRXQSE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=GWPxfq2nK4Ss8yRwwvg8nar3bMSV3V1vp+4WOiAsMkdLltDOdBL8lnjasxWzkU0Xn
+	 fxFr+0itMLqfWZTcmhg58DtnNn76DzKXTkau2MNFAN3yGcHSZVFxZSo1uz2Hn/sbR9
+	 CxjwMvq6IcA5Afq3nL2duyL0VSZYiRPdW0iGh4vf1f5w+SiHfp7jP6I3q2vUgLxPil
+	 lhl6wrJl+2TucGC8g4J81BBhNOMirhAFg1KMjMtpPOgUQYdszE/Aqesw3i3VG8atPs
+	 jJvRkVGyp2oxGz9bwyUTnIHHHsjWDQxPIRKJQbIFlp7uiTpJst8c+4XfeUGRaVryiG
+	 zm88i5qouKLDA==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A28D817E0FAA;
+	Fri, 04 Sep 2026 17:59:19 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 04 Sep 2026 17:58:37 +0200
+Subject: [PATCH v6 26/27] clk: mediatek: Add MT8189 scp clock support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-acpi_scmi_pcc-v4-8-6ebe9755606e@kernel.org>
-References: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
-In-Reply-To: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kernel-team@meta.com
-Cc: Cristian Marussi <cristian.marussi@arm.com>, 
- Breno Leitao <leitao@debian.org>, 
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
+Message-Id: <20260904-mt8189-clocks-system-base-v6-26-5df247f56938@collabora.com>
+References: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
+In-Reply-To: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Irving-CH Lin <irving-ch.lin@mediatek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788537522; l=4970;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=Ay44pYArtbKhsePk0Zo5kYWyEZr8Y2LAZ5HauRRXQSE=;
+ b=M01tcSBwTZSCieVUXJ+UZWyJ+cvDOggj2geUli+9isaO60ETk/EqbXbUABAr+YohALGbn1aIg
+ 1SwDlhmiProCvIZqqHbgY7SzoYL+2GFzZPVgHPuoDcjxBdQn3xCePGi
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_085922_840755_0C6CFCD2 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,106 +91,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike Device Tree, the ACPI SCMI namespace device does not provide
-child fwnodes to represent each protocol. Iterate over the non-BASE
-entries in scmi_dsd_info_list to initialize their protocol devices and
-transport channels. The BASE channel and device are handled by the
-common setup path.
+Add support for the MT8189 scp clock controller,
+which provides clock gate control for System Control Processor.
 
-Let the transport channel-availability and SCMI protocol implementation
-checks decide which of the known protocols are usable on the platform.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/firmware/arm_scmi/driver.c | 37 +++++++++++++++++++++++++++++++++----
- 1 file changed, 33 insertions(+), 4 deletions(-)
+ drivers/clk/mediatek/Kconfig          | 10 +++++
+ drivers/clk/mediatek/Makefile         |  1 +
+ drivers/clk/mediatek/clk-mt8189-scp.c | 76 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 87 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 10e660da440c..01117c21805d 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2873,7 +2873,7 @@ scmi_txrx_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
-  */
- static int scmi_channels_setup(struct scmi_info *info)
- {
--	int ret;
-+	int ret, idx;
- 	struct fwnode_handle *fwnode = dev_fwnode(info->dev);
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index 7b3bc27edbe3..17e0bfa695fe 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -882,6 +882,16 @@ config COMMON_CLK_MT8189_IIC
+ 	  the MT8189 chipset, improving the overall performance and power
+ 	  efficiency of the device.
  
- 	/* Initialize a common generic channel at first */
-@@ -2898,6 +2898,20 @@ static int scmi_channels_setup(struct scmi_info *info)
- 			return ret;
- 	}
- 
-+	if (!is_acpi_node(fwnode))
-+		return 0;
++config COMMON_CLK_MT8189_SCP
++	tristate "Clock driver for MediaTek MT8189 scp"
++	depends on COMMON_CLK_MT8189
++	default COMMON_CLK_MT8189
++	help
++	  Enable this to support the clock framework for the System Control
++	  Processor (SCP) in the MediaTek MT8189 SoC. This includes clock
++	  management for SCP-related features, ensuring proper clock
++	  distribution and gating for power efficiency and functionality.
 +
-+	for (idx = 0; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
-+		int prot_id = scmi_dsd_info_list[idx].protocol_id;
+ config COMMON_CLK_MT8192
+ 	tristate "Clock driver for MediaTek MT8192"
+ 	depends on ARM64 || COMPILE_TEST
+diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+index 5e35185d23b0..e712815f7572 100644
+--- a/drivers/clk/mediatek/Makefile
++++ b/drivers/clk/mediatek/Makefile
+@@ -130,6 +130,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
++obj-$(CONFIG_COMMON_CLK_MT8189_SCP) += clk-mt8189-scp.o
+ obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
+diff --git a/drivers/clk/mediatek/clk-mt8189-scp.c b/drivers/clk/mediatek/clk-mt8189-scp.c
+new file mode 100644
+index 000000000000..75f087d819c0
+--- /dev/null
++++ b/drivers/clk/mediatek/clk-mt8189-scp.c
+@@ -0,0 +1,76 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025-2026 MediaTek Inc.
++ *                    Qiqi Wang <qiqi.wang@mediatek.com>
++ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
 +
-+		if (prot_id == SCMI_PROTOCOL_BASE)
-+			continue;
++#include <dt-bindings/clock/mediatek,mt8189-clk.h>
 +
-+		ret = scmi_txrx_setup(info, fwnode, prot_id);
-+		if (ret)
-+			return ret;
-+	}
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
 +
- 	return 0;
- }
- 
-@@ -3245,7 +3259,7 @@ static void scmi_enable_matching_quirks(struct scmi_info *info)
- }
- 
- static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
--				     struct scmi_info *info)
-+				     struct scmi_info *info, bool report_missing)
- {
- 	int ret;
- 	struct device *dev = info->dev;
-@@ -3257,6 +3271,9 @@ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
- 	}
- 
- 	if (!scmi_is_protocol_implemented(handle, prot_id)) {
-+		if (!report_missing)
-+			return;
++#include "clk-mtk.h"
++#include "clk-gate.h"
 +
- 		dev_err(dev, "SCMI protocol %d not implemented\n", prot_id);
- 		return;
- 	}
-@@ -3279,7 +3296,7 @@ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
- 
- static int scmi_probe(struct platform_device *pdev)
- {
--	int ret;
-+	int ret, idx;
- 	char *err_str = "probe failure\n";
- 	struct scmi_handle *handle;
- 	const struct scmi_desc *desc;
-@@ -3406,7 +3423,19 @@ static int scmi_probe(struct platform_device *pdev)
- 		if (fwnode_property_read_u32(child, "reg", &prot_id))
- 			continue;
- 
--		scmi_device_check_create(child, prot_id, info);
-+		scmi_device_check_create(child, prot_id, info, true);
-+	}
++static const struct mtk_gate_regs scp_cg_regs = {
++	.set_ofs = 0x4,
++	.clr_ofs = 0x8,
++	.sta_ofs = 0x4,
++};
 +
-+	if (!is_acpi_node(dev_fwnode(dev)))
-+		return 0;
++#define GATE_SCP(_id, _name, _parent, _shift)		\
++	GATE_MTK(_id, _name, _parent, &scp_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
 +
-+	for (idx = 0; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
-+		int prot_id = scmi_dsd_info_list[idx].protocol_id;
++static const struct mtk_gate scp_clks[] = {
++	GATE_SCP(CLK_SCP_SET_SPI0, "scp_set_spi0", "clk26m", 0),
++	GATE_SCP(CLK_SCP_SET_SPI1, "scp_set_spi1", "clk26m", 1),
++};
 +
-+		if (prot_id == SCMI_PROTOCOL_BASE)
-+			continue;
++static const struct mtk_clk_desc scp_mcd = {
++	.clks = scp_clks,
++	.num_clks = ARRAY_SIZE(scp_clks),
++};
 +
-+		scmi_device_check_create(dev_fwnode(dev), prot_id, info, false);
- 	}
- 
- 	return 0;
++static const struct mtk_gate_regs scp_iic_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0x4,
++	.sta_ofs = 0x0,
++};
++
++#define GATE_SCP_IIC(_id, _name, _parent, _shift)	\
++	GATE_MTK(_id, _name, _parent, &scp_iic_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
++
++static const struct mtk_gate scp_iic_clks[] = {
++	GATE_SCP_IIC(CLK_SCP_IIC_I2C0_W1S, "scp_iic_i2c0_w1s", "vlp_scp_iic_sel", 0),
++	GATE_SCP_IIC(CLK_SCP_IIC_I2C1_W1S, "scp_iic_i2c1_w1s", "vlp_scp_iic_sel", 1),
++};
++
++static const struct mtk_clk_desc scp_iic_mcd = {
++	.clks = scp_iic_clks,
++	.num_clks = ARRAY_SIZE(scp_iic_clks),
++};
++
++static const struct of_device_id of_match_clk_mt8189_scp[] = {
++	{ .compatible = "mediatek,mt8189-scp-clk", .data = &scp_mcd },
++	{ .compatible = "mediatek,mt8189-scp-i2c-clk", .data = &scp_iic_mcd },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_scp);
++
++static struct platform_driver clk_mt8189_scp_drv = {
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
++	.driver = {
++		.name = "clk-mt8189-scp",
++		.of_match_table = of_match_clk_mt8189_scp,
++	},
++};
++module_platform_driver(clk_mt8189_scp_drv);
++
++MODULE_DESCRIPTION("MediaTek MT8189 scp clocks driver");
++MODULE_LICENSE("GPL");
 
 -- 
-2.43.0
+2.55.0
 
 
