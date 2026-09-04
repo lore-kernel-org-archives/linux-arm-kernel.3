@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94A6C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E98AC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zdjsjsW7gTao4JGqSdtTZcqDO/daSds2ybCp3eONEAQ=; b=FMf5ZNo8yK9/s3wiYD133nr2zc
-	Q8VV0l3KtaBa5SrYPgoTd1riEbGz+OYE+HYBqRvPc3GURpPaoMXnBNK5PJ84Lu1T3c7cS0hXNi7th
-	B5OZhEVfn5IVIO2Ax9+XHjSfTS/K4Al3tyT/N/F3EqAQCMfzJ9ANcFM3o3KgUkJ2WQLfAw1l7los3
-	G2/7SECWPXS6oYNHveA5tlxnbG87yzpGJxmutjgoQ1yZshvj4bYZPxBr9R3B85hcGj7xZK4QPyr64
-	8DjbGYolTJh8PtJDZJDaLYjA8WXvAi4ds3aaXxeJABCMYPF/xgrudx+G+2+gnAfVD0pBPR8P3rJ8N
-	1+KM69Bw==;
+	bh=SRAlXDC5oqmsaoNnYadnzJXzxvCqL4owp1KVT95a8j0=; b=hAYPDlaQZ1nk+OXlXpVvibnams
+	LrjrE0tsQI8AV4flQBB2cvxzvFLQwr/pMuip3VqdlpoP6kXOFVJm3A1LM7OFDvABXGNFFa31wbuDf
+	uk+z4OjWldwrzDAjrhPOfHmGYKF5pXSHZBs/bMzf2hFECCMnZ+xMp5kMTmwAYCkTuBfDRVVSfkX1A
+	CpjblYR9eWAwiMZ7qAvAM9kXCcqHC8Y3oDkMiOms9Hzwv21rdzLcYYyDt7Bjmv4Kzvf/iZWMXqCOA
+	C+dC5dcfbPO4aed3RtWAZrDMCNtclGglgtO1jndeVcV85KfSIZDcbj91WgagYqT+KV/0EGP3fgh+P
+	rzPjA29g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGk-00000001ggB-2taL;
-	Fri, 04 Sep 2026 10:35:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2RGr-00000001gkg-0BZc;
+	Fri, 04 Sep 2026 10:35:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGi-00000001gea-2dc1
+	id 1x2RGq-00000001gjU-0CX2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:35:36 +0000
+	Fri, 04 Sep 2026 10:35:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6185A43E23;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B19A6024D;
+	Fri,  4 Sep 2026 10:35:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF3DB1F00A3E;
 	Fri,  4 Sep 2026 10:35:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F5E11F00A3D;
-	Fri,  4 Sep 2026 10:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788518136;
-	bh=zdjsjsW7gTao4JGqSdtTZcqDO/daSds2ybCp3eONEAQ=;
+	s=k20260515; t=1788518142;
+	bh=SRAlXDC5oqmsaoNnYadnzJXzxvCqL4owp1KVT95a8j0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NtwiJQNmBfj5pcFUU1SRjet42Lr3ykAyOTfvl5s/CFq27c/0PRf0StcdZDxH3Jb66
-	 oMa/1VFXy+THz5WtX9Pv5+h/lZn1yVb1miLtQLueNchM3UqjnE8VK+Lrp9l8AdqKG8
-	 bxVd8V1DQEGLD8bexSfbqdXI6iyLTuIH8wDGSAwK8kwaQ9uKl0OHcZEqWNnogotGfr
-	 HkMLklu1eRbRSlU9OD4TNxiqb7nuVI7K4we3NHhhEAXsMr/X0F6r/bG8zokaU052sc
-	 nUxUgwa4LAVh8ideLSiv7yVMlmqQKLqib2U2W8a7Yeju2fuk3BXmeyM4Mvo2cuQ5sE
-	 3E2H3TV5eC4Sw==
+	b=HmBc88SdcpB3sLSsxItcqYlx2jCkHAbj9Bncs+n91l+n9B+Stp2LJFgicwO3sQY+o
+	 q3ZNLnkrb8TZA/OiFg+s/ASpmDPKvhP1dap1Tw6rHbrSQqu8Mtuq2hadF0l5fNZODj
+	 U9o4opHpdRWCrUjRhPgaJ7km1q+9LW58RP0ftAw1jiFbJ0gY/rCDl3xwFaHd9pnhmY
+	 7vwK5pqh+HiXjnPllikjkUPkZ8acS+SSdD0BidBGJa1hZqGoR3edxRSJ4i7qb1Kh7h
+	 jEMgZJRCqJEXhzlOgXRAJp2gB6mnsYT01Ouwbqpr+J4H5fr1fsnc5MBylkorftR155
+	 159D+KNtdrmYw==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v6 6/9] swiotlb: Reject misaligned restricted DMA pools for CoCo guests
-Date: Fri,  4 Sep 2026 16:04:49 +0530
-Message-ID: <20260904103452.1197239-7-aneesh.kumar@kernel.org>
+Subject: [PATCH v6 7/9] dma-buf: system_heap: Enforce shared-granule alignment for cc-shared buffers
+Date: Fri,  4 Sep 2026 16:04:50 +0530
+Message-ID: <20260904103452.1197239-8-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
 References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
@@ -80,43 +80,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restricted DMA pools are described by firmware reserved-memory nodes and
-are not resized or realigned by the kernel. For confidential-computing
-guests, such pools can only be shared safely when both the base address and
-size are aligned to the shared-granule size.
+The system heap can allocate buffers that are decrypted and shared with the
+host. For confidential-computing guests, those shared buffers must cover
+whole shared-buffer granule; otherwise a userspace mmap of the dma-buf may
+expose only part of a host-managed granule and allow unintended access to
+adjacent private memory.
 
-Reject restricted DMA pools that are not aligned to
-mem_cc_shared_granule_size() when guest memory encryption is active.
+Require cc-shared system-heap allocations to have a size aligned to
+mem_cc_shared_granule_size(), and allocate pages at least as large as the
+required granule. Keep the allocation bounded by the existing heap orders,
+but fall back to an exact minimum-order allocation when the required
+granule is not one of the preferred heap orders.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- kernel/dma/swiotlb.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/dma-buf/heaps/system_heap.c | 50 +++++++++++++++++++++++------
+ 1 file changed, 41 insertions(+), 9 deletions(-)
 
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index f8936b03d942..d1bd06be628d 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -2037,6 +2037,20 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
- 		 * if platform supports memory encryption,
- 		 * restricted mem pool is shared by default
- 		 */
-+		if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-+			size_t cc_shared_granule_size = mem_cc_shared_granule_size();
+diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
+index c8959eadc71d..9cbfcebe2088 100644
+--- a/drivers/dma-buf/heaps/system_heap.c
++++ b/drivers/dma-buf/heaps/system_heap.c
+@@ -55,7 +55,6 @@ struct dma_heap_attachment {
+ #define HIGH_ORDER_GFP  (((GFP_HIGHUSER | __GFP_ZERO | __GFP_NOWARN \
+ 				| __GFP_NORETRY) & ~__GFP_RECLAIM) \
+ 				| __GFP_COMP)
+-static gfp_t order_flags[] = {HIGH_ORDER_GFP, HIGH_ORDER_GFP, LOW_ORDER_GFP};
+ /*
+  * The selection of the orders used for allocation (1MB, 64K, 4K) is designed
+  * to match with the sizes often found in IOMMUs. Using order 4 pages instead
+@@ -375,26 +374,44 @@ static const struct dma_buf_ops system_heap_buf_ops = {
+ 	.release = system_heap_dma_buf_release,
+ };
+ 
++static struct page *system_heap_alloc_order(unsigned int order)
++{
++	gfp_t flags = order ? HIGH_ORDER_GFP : LOW_ORDER_GFP;
 +
-+			if (!IS_ALIGNED(rmem->base, cc_shared_granule_size) ||
-+			    !IS_ALIGNED(rmem->size, cc_shared_granule_size)) {
-+				dev_err(dev, "Restricted DMA pool must be aligned to %#zx bytes for memory encryption\n",
-+					cc_shared_granule_size);
-+				kfree(pool->areas);
-+				kfree(pool->slots);
-+				kfree(mem);
-+				return -EINVAL;
-+			}
++	if (mem_accounting)
++		flags |= __GFP_ACCOUNT;
++
++	return alloc_pages(flags, order);
++}
++
+ static struct page *alloc_largest_available(unsigned long size,
+-					    unsigned int max_order)
++					    unsigned int max_order,
++					    unsigned int min_order)
+ {
+ 	struct page *page;
+ 	int i;
+-	gfp_t flags;
+ 
+ 	for (i = 0; i < NUM_ORDERS; i++) {
+ 		if (size <  (PAGE_SIZE << orders[i]))
+ 			continue;
+-		if (max_order < orders[i])
++
++		if (max_order < orders[i] || orders[i] < min_order)
+ 			continue;
+-		flags = order_flags[i];
+-		if (mem_accounting)
+-			flags |= __GFP_ACCOUNT;
+-		page = alloc_pages(flags, orders[i]);
++
++		page = system_heap_alloc_order(orders[i]);
+ 		if (!page)
+ 			continue;
+ 		return page;
+ 	}
++	/*
++	 * The required minimum order might not be one of the preferred heap
++	 * orders. Allocate exactly min_order when it does not exceed the
++	 * remaining size.
++	 */
++	if (min_order && min_order <= max_order &&
++	    size >= (PAGE_SIZE << min_order))
++		return system_heap_alloc_order(min_order);
++
+ 	return NULL;
+ }
+ 
+@@ -409,6 +426,8 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+ 	unsigned int max_order = orders[0];
+ 	struct system_heap_priv *priv = dma_heap_get_drvdata(heap);
+ 	bool cc_shared = priv->cc_shared;
++	unsigned int min_order = 0;
++	size_t cc_granule_size;
+ 	struct dma_buf *dmabuf;
+ 	struct sg_table *table;
+ 	struct scatterlist *sg;
+@@ -425,6 +444,18 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+ 	buffer->heap = heap;
+ 	buffer->len = len;
+ 	buffer->cc_shared = cc_shared;
++	if (cc_shared_buffer(buffer)) {
++		cc_granule_size = mem_cc_shared_granule_size();
++		if (!IS_ALIGNED(len, cc_granule_size)) {
++			ret = -EINVAL;
++			goto free_buffer;
 +		}
-+
- 		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT)) {
- 			int ret;
++		min_order = get_order(cc_granule_size);
++		if (min_order > max_order) {
++			ret = -EINVAL;
++			goto free_buffer;
++		}
++	}
+ 
+ 	INIT_LIST_HEAD(&pages);
+ 	i = 0;
+@@ -438,7 +469,8 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
+ 			goto free_buffer;
+ 		}
+ 
+-		page = alloc_largest_available(size_remaining, max_order);
++		page = alloc_largest_available(size_remaining, max_order,
++					       min_order);
+ 		if (!page)
+ 			goto free_buffer;
  
 -- 
 2.43.0
