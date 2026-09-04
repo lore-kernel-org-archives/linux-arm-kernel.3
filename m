@@ -4,129 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70247C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05365C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=; b=dMSGrMvJJE71SEGPbU3bWkHqqM
-	ACVlydVtzmdzyctdwG/womUDIqA5Fzs0EgoweDQRVm4wcGdOXAOyhcbZtah6gZkuAgIDecGpzmDkG
-	gL7gLU7sMsOiG4ePMSYF7L568D5FYcyd9ZNhZ6RAIHXrArIOfEFaIym3TlRWU7KuP2UomKEnj3J6Y
-	GaRWkfBhilvS3/SnaKuV5e+GhoSqbt7Ilmyei5Uk+Lp90UVd3lKdFaOfHHhpNfD8fu7hzDsSNNTp2
-	jaWuOiwgk+t7pjOKb1DzIN0Ho2DvQqxsa64l4DwPlQ8/W0AANzZ9KxAi5ldNZ6OQVULQzJyxjatC9
-	eAoIe5FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2bYUbaRO9Ahl1mhwaZ0sPLIbJfMrA4K43hbFBF+CdxM=; b=FA0pOsvJ+kBJHXG4Q67yalImqb
+	2vRcBkZ91RjVqBPnzpzDB6Vn31UiNils04bsYP43EJic/GHFfnKe3gYNQ6j52X5DVSuFL7JKNWTDw
+	l8ra7GsBoGy6Qu41HpiflfeI4DGyeYSz8plMcEmfuQUfDdTB5oLQVLgR4q03kFCr/oUEwONv/GLou
+	vSyGqClTqSNAd6mSk8zouX84u+pmz+1biqwV00GuAz5VVzm4eDLb/DD7Kw+00al/ALwYkl3NbZ9oN
+	zrPXWSUEAzAcEMlB/W/Y8iNnuBrGQYPD4NNNEQrXPU51dVTF9V/5iSiVAqvphW1edA8hFZOZyDfPf
+	Udu7IYtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKZ-00000002dJw-2BAz;
-	Fri, 04 Sep 2026 15:59:55 +0000
-Received: from mail-northeuropeazon11011025.outbound.protection.outlook.com ([52.101.65.25] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1x2WKp-00000002drE-1b3b;
+	Fri, 04 Sep 2026 16:00:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKB-00000002cPU-0LrR
+	id 1x2WKT-00000002d0o-11Rh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:59:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JCKcPPOHnBBQ9s2kBC9fJ2AR/oQ6+oq7uJccGKPJNhASm6/XWeYfcBFyFYTm5ITbRAyoU5Y5bqs9pkW1WLKFoZr4Jz3gp0uVrwhMLfe67FmotuIuYwEhuAVzjHT11t6oPh3h5Rc28FNqe1cRV0EYjmS6VQE27S46g9y783E46xxPb9IqR8XW7i+JNgugwmNT5Q6sAXLxDjLY1z07eg0Zl7f32U1Rn5M6d2wljuAxdftgHI2j+KKL44YwsyLcQjTb8imq39DwdoCsXo4j3QWfjrDo29Ru4ssZHaSTc8B7D7/Cb4Lrpqjs8K8CNm0UOWAkdY33IkDaRpcrBrEqaaixyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=;
- b=Wh3alWWPd2wI2xSTREOyL5GoQaY8AO5gfGcPnqzrbUcJXbUNmv+KeVanGOl6MBJRfy/+tXz1dFAf9qS85PGc5DyjM4USnrNHS4p3pNtomewHXqTwjAvno30LfEyAi6rt/R/xBVV8P3eB0Ke6AlbljZGlGQE+sxKalvjnh9Uqg6sqjzYjh96PWG1cle/bBwAofsXQzaNqhBghppoD4qc/QG5fXDpjrYbq8AaBLA/H2+HHJI0Cwq17At+LmtgU5X2R7synMjK2I8IuXvqR7PSWv+gUXHwtY/LspB3QJr0b/NNBQtjj8t9TVVWOgVKXx+373YRO1yf7koXy107NYpHwJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=;
- b=Y9uhKF3vHwJ2g4FZ+RZP/23/eHl0Dgt7+GwA6sDiIPki2QCBq43m43Cor/dSFR5PKuQJ56mbd1JPGJXwq9JXFuUDB5qj66IhOIzwBIm8tw7seN3WwvT+SFEwVDfKfxysK4wJHvFiBVoHsVGt5kEK8mnvFFxBJuGrZKXXj2toVetjxy8ZC0Bo//+ooo7Ho82znnBoPCHSMUxA3ubeEM1Gp3hot/jtBiWXiQfMecO/mGZDqiFmZ6f0WuEKX179TeznYOAN1izmQUP54Ive8gr7McPslb4977JP/ZJ1zPK4tHUh6rncgxe/BpS2j5aPBZ5UsQrXqGq4UdsqgFcWJzKOTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA6PR04MB11714.eurprd04.prod.outlook.com (2603:10a6:102:526::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 15:59:27 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 15:59:27 +0000
-Date: Fri, 4 Sep 2026 11:59:19 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	"open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
-	"moderated list:ARM/UNIPHIER ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 25/26] dmaengine: uniphier-xdmac: Remove redundant
- dev_err()/dev_err_probe()
-Message-ID: <aprq16SYGQEazTd9@lizhi-Precision-Tower-5810>
-References: <20260709135846.97972-1-panchuang@vivo.com>
- <20260709135846.97972-26-panchuang@vivo.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260709135846.97972-26-panchuang@vivo.com>
-X-ClientProxiedBy: CYZPR17CA0003.namprd17.prod.outlook.com
- (2603:10b6:930:8c::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 04 Sep 2026 15:59:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B00160214;
+	Fri,  4 Sep 2026 15:59:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821091F00A3E;
+	Fri,  4 Sep 2026 15:59:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788537588;
+	bh=2bYUbaRO9Ahl1mhwaZ0sPLIbJfMrA4K43hbFBF+CdxM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=oVcuQX+lyTVCS19xSWICAMUfu7vcycCdwm4ACmOAo2WOP36pyEVsMk5aL/iUYWWyP
+	 qJ1It4GQF/dWOU51tjZfx5YO0o1uuNJozwXz9ur2SaeUusgOIh/6DuvwqXPm1fdK9g
+	 rMiBo6Ndi5WKOPZoeOZ2O9XZLRKFRRMT/HEbM0zWJeEWGqlz4j4PpLI1SxU+SXeKul
+	 kcHZnnzm375434Ft4m8lG2aWc1OL7PKOJF4B0lUStZt3f5Lwni2dPMxHUN091IJ3YK
+	 l1vA9nGTsNYD0Q/4w5BXE6decK/xmW8t1jqXuc8dDdQXUejie+N5+zjXwXWRPAzGzO
+	 sm/+2V04VzORQ==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Fri, 04 Sep 2026 16:58:03 +0100
+Subject: [PATCH v4 8/9] firmware: arm_scmi: Initialise known ACPI protocol
+ devices and channels
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA6PR04MB11714:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49af4969-cd9f-4724-73c6-08df0a9d7f09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|10067099003|4143699003|11063799006|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: +w+cEHNBkT1LeZ9UNnZAMbzT/qkfjoP+buj3DWW4CIaBXz3Via9mqtn7G6yvprKGrWGBppMWfdzc/tmKkg7crgBp/qPWPPKk9/W0BsSKW4nfoKI/kkSr3fRYri6U6MjtT28TlAGbOmT95mfHxLk0WZ72Ca8Y5T7oE2UFoj4XGfNxFi2H48B1+A4cPfNASA8BafjzzVFeUs3kiPfWx6Z0pbKYa8FcSpr+FkpMdiVPmPZf1sR9Cg5mYfNqEU4XTJxydQ3svXoVf99D29YMW2b8yLZ9K8gQipEg5r3k7fyfD9ogpN7XIGQ6LorqrhZRXbCijv9NARL9qkx0obyRLQhkDxbqTuoxjekayBOXnD3P2lHXTdRHbGLHzOa5HE2w2q6BfbyZODM+00fOHjzTzVuJs+DbunFH0Z8ba1/D5d4ssZmDdRtxzim0CfzMnp4C6es6ueOZvaQEYMzwFfQmlcHb0BMPykBoL2zbzpXL1gn0kNV4S5Unyv34JO+Dfj/Re/UOJ1XB/50xLzfSJHk6K65S4RwKaOs7mKFZ4DToQupwd/SslA9cgHImTHDK2Dprs86egiVj9AleIq+BDCJ6+HmuBGzAvfAp8DUgScNYQ56OdyasyQ19z1+9qG1zUZku4y57b9ZtryxFElp63e39MpAThvblNIkrY9Tl60BXv18hzrg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ds0AQXRj+4aqnicuLvnJ1QQUR83+1TBZEFEnfB+kPSBAXR1knWtlpjwnFVYb?=
- =?us-ascii?Q?9bxIqM8ZBU5uq+FJjapgsc8MOxC7eqBqUScR1fkwxGPqG5O/6VZfUEu12uKc?=
- =?us-ascii?Q?vc2YTaRLeiZwv1O6ZlCfSFyU6G0Yh8gl1DV7foR5vZBystEvI+s/pPozktGL?=
- =?us-ascii?Q?VuOaPjWInOzURNwik9u1eAR9e5qZZSXAcTPRwnnL8+wibSJj82R7QtSZXYaO?=
- =?us-ascii?Q?dFQFK7YqX8zRMEn/wITdX4Bl8epuApe0zwsf8R65/CXmDZOREDDJ2LKbHL1W?=
- =?us-ascii?Q?G353ifBTSaqYNYZpFReBIJi+1RQmlg54QuSj0uo+BxGW93rf8vRDikvWcb87?=
- =?us-ascii?Q?Xc7FJ5gJZ0ZRZ8dFQ7DoWSG7Apya38Jr47bE1x71NwV2eGbSyWHoOLNDHZiw?=
- =?us-ascii?Q?2Uc7inyOFtu+WXb9KXhE1mdZMDv7t7M5H8Voz44xgMSiDlrTgB2jtuIPCgyB?=
- =?us-ascii?Q?oOlbnlOYFI0Ox9+bVL+A9LNyBxoJuhNJWdRf6PJC5plQKm03SMaa86kyNZ6z?=
- =?us-ascii?Q?Uq2c57k4qENMk95uAcmprqGYAnAxzvb3UXABiIr2RV3oVbgKDFngnOwv3kzm?=
- =?us-ascii?Q?quDWOT+Yl8btdbzquLeTL+pujxgEWbQOGv2Lavobe70yVVBcDvoaddTxy9Ge?=
- =?us-ascii?Q?Hn8OfAIhYYNXT+fNjxlAB0COOyr+pU5eO49p5IJc28D61xg08jcuQTFeFcLI?=
- =?us-ascii?Q?0pBK5JL7HT9KYwZKRo6jiocWOCl+jZO/fmwIALAWwdlwRlItTRw6owVScWGq?=
- =?us-ascii?Q?wfMb8EBcRU8kJsGNxZurFhOisX0S24AZH4AQ1zOhK/OsDVg6p4EUbxTRT6+P?=
- =?us-ascii?Q?bmCLb9inRfgsYP/b2aZruN/R7b08hQuuztY7vFO6eY05CVgRmD0T0nCpmhvR?=
- =?us-ascii?Q?EvVg+nTWcl/uB2F1/aZluDIJsvCe0pUJkwKLssFp8zu+3JjYA541f+yGFUNE?=
- =?us-ascii?Q?RrWuUMU4LEAr31+KbDiqgZ6EIkPNj/wYDj0ruMfvC8/UjuLA2YPLBetSDWuw?=
- =?us-ascii?Q?PrUgbCKRa0D9ZGqioQ1XEAa1HOpVj5TrxaJXBwT94kycDviGx/6Nv7O//DZu?=
- =?us-ascii?Q?Q1ZMpkEfgMOTKAS6nMMDLmiN3A8mQNuKDtZb7yEDz1F01dRgfAL3Wmir2uIC?=
- =?us-ascii?Q?U6+O7PckXtZjlfa/LZkRnXE932dh0UKJ63izjRJJ2sMCNs8AsPUfZmJ1zIew?=
- =?us-ascii?Q?2PjN7sXiIu23ILQ0jWfEyDfQ/iaQeTacoBm9OKoIw8aznpkD8zpkK0yUZhJk?=
- =?us-ascii?Q?YptF/ymLHvP8iIX/0UlUefwwvXssoFXJar/sK2aJS8qXMIJAF/TLax5ZQY9D?=
- =?us-ascii?Q?6wmmCars6v5zxmTbG4Jg9VLQM7XZ4Y9gtcg285AflD/4JG89HGs9GxGW5+yY?=
- =?us-ascii?Q?j67Malps5TbjxtpALWXNtfGr5iGYYpzf9lwm8t+kmVairC/5aJ30q+BrOiCo?=
- =?us-ascii?Q?gjSnV2g8iTG2biqMyJnAsEa/CRQh5fvVSQHd1Kk3XIBEGDoyB+BlpInlwQ5T?=
- =?us-ascii?Q?vAoCXtErR4dEkguegA1Moi0V9q9PjAMVmdQeoCQud9TQxFdfuMVlSnyL7X9e?=
- =?us-ascii?Q?Y1HQznbBPMo5C44cWrQO1QIXD2HW9+M65ZeShkuPo7gbUHOVFOs4onog3ZR+?=
- =?us-ascii?Q?fiJ/FBgcQ/ICJrq4ZhnB4m3yMCgOUvzYdLohSSfhE4V2Sbord6KvIAvszvwv?=
- =?us-ascii?Q?CkSswkFrR/MmawogmWytxAtWPRkAKVECsN3wtfLRU2z8V629QkyBL9BdsOUj?=
- =?us-ascii?Q?hyscqE84LW5kz4gz3ofkwpsEG7iBmFKVjdq//ScUvckAtVakhbDM?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49af4969-cd9f-4724-73c6-08df0a9d7f09
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 15:59:27.0088
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ngeGA6t2Mzt4OHAUuKYVGrWZTgzlk4YPJgCk+W/v5kS5RxfRfO2GOAQXoZGONyM0teIwQYAtxMcw+kocXqsrqq4q2/IODSUNmefQzjoI8aKv0UZeWyiKIoL3INx1nkCl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11714
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_085931_168653_0A2AEA11 
-X-CRM114-Status: GOOD (  15.80  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260904-acpi_scmi_pcc-v4-8-6ebe9755606e@kernel.org>
+References: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
+In-Reply-To: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel-team@meta.com
+Cc: Cristian Marussi <cristian.marussi@arm.com>, 
+ Breno Leitao <leitao@debian.org>, 
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,36 +72,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09, 2026 at 09:58:29PM +0800, Pan Chuang wrote:
-> The devm_request_irq() now automatically logs detailed error messages on
-> failure. This eliminates the need for driver-specific dev_err() and
-> dev_err_probe() calls that previously printed generic messages.
->
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
-> ---
+Unlike Device Tree, the ACPI SCMI namespace device does not provide
+child fwnodes to represent each protocol. Iterate over the non-BASE
+entries in scmi_dsd_info_list to initialize their protocol devices and
+transport channels. The BASE channel and device are handled by the
+common setup path.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Let the transport channel-availability and SCMI protocol implementation
+checks decide which of the known protocols are usable on the platform.
 
->  drivers/dma/uniphier-xdmac.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/drivers/dma/uniphier-xdmac.c b/drivers/dma/uniphier-xdmac.c
-> index 120c0d4f12dd..b23d61bf7fd5 100644
-> --- a/drivers/dma/uniphier-xdmac.c
-> +++ b/drivers/dma/uniphier-xdmac.c
-> @@ -532,10 +532,8 @@ static int uniphier_xdmac_probe(struct platform_device *pdev)
->
->  	ret = devm_request_irq(dev, irq, uniphier_xdmac_irq_handler,
->  			       IRQF_SHARED, "xdmac", xdev);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to request IRQ\n");
-> +	if (ret)
->  		return ret;
-> -	}
->
->  	ret = dma_async_device_register(ddev);
->  	if (ret) {
-> --
-> 2.34.1
->
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/driver.c | 37 +++++++++++++++++++++++++++++++++----
+ 1 file changed, 33 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 10e660da440c..01117c21805d 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2873,7 +2873,7 @@ scmi_txrx_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
+  */
+ static int scmi_channels_setup(struct scmi_info *info)
+ {
+-	int ret;
++	int ret, idx;
+ 	struct fwnode_handle *fwnode = dev_fwnode(info->dev);
+ 
+ 	/* Initialize a common generic channel at first */
+@@ -2898,6 +2898,20 @@ static int scmi_channels_setup(struct scmi_info *info)
+ 			return ret;
+ 	}
+ 
++	if (!is_acpi_node(fwnode))
++		return 0;
++
++	for (idx = 0; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
++		int prot_id = scmi_dsd_info_list[idx].protocol_id;
++
++		if (prot_id == SCMI_PROTOCOL_BASE)
++			continue;
++
++		ret = scmi_txrx_setup(info, fwnode, prot_id);
++		if (ret)
++			return ret;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -3245,7 +3259,7 @@ static void scmi_enable_matching_quirks(struct scmi_info *info)
+ }
+ 
+ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
+-				     struct scmi_info *info)
++				     struct scmi_info *info, bool report_missing)
+ {
+ 	int ret;
+ 	struct device *dev = info->dev;
+@@ -3257,6 +3271,9 @@ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
+ 	}
+ 
+ 	if (!scmi_is_protocol_implemented(handle, prot_id)) {
++		if (!report_missing)
++			return;
++
+ 		dev_err(dev, "SCMI protocol %d not implemented\n", prot_id);
+ 		return;
+ 	}
+@@ -3279,7 +3296,7 @@ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
+ 
+ static int scmi_probe(struct platform_device *pdev)
+ {
+-	int ret;
++	int ret, idx;
+ 	char *err_str = "probe failure\n";
+ 	struct scmi_handle *handle;
+ 	const struct scmi_desc *desc;
+@@ -3406,7 +3423,19 @@ static int scmi_probe(struct platform_device *pdev)
+ 		if (fwnode_property_read_u32(child, "reg", &prot_id))
+ 			continue;
+ 
+-		scmi_device_check_create(child, prot_id, info);
++		scmi_device_check_create(child, prot_id, info, true);
++	}
++
++	if (!is_acpi_node(dev_fwnode(dev)))
++		return 0;
++
++	for (idx = 0; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
++		int prot_id = scmi_dsd_info_list[idx].protocol_id;
++
++		if (prot_id == SCMI_PROTOCOL_BASE)
++			continue;
++
++		scmi_device_check_create(dev_fwnode(dev), prot_id, info, false);
+ 	}
+ 
+ 	return 0;
+
+-- 
+2.43.0
+
 
