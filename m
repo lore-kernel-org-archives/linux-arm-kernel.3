@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61EA6C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FF2C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 21:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/cG41PpS8GZOJXnrpQvgowAbf+PCE6ncyCVypBTIBtU=; b=4iMV6yZ7D4skrnsJU5TDB1Ik6B
-	N58VG2trP4a3EEBK3Td9s1X8mrRQWXonldMWg/v/rDAAwXQcf07I/c5fO9QasOpIYHSJ+3+XQx49o
-	DlM2pbmyvAHvd82/O/ORtuTshfiTgHA3Nj8z51rhydgdZOSqPdjTHwX7DRV5QImRvaHKKeev9EV9L
-	4ikDt2h88bHFQIuUyH/LDfQ9yVvT0OE8SDLbUzr7uVRLRcSD60tSu98/dM/DXHvPImI9wNojeNqx3
-	mq6nTqTQad6zlMt0huQp1Hh7Ey2PCI5NV3F08lP5PRa4GMYW7zIs7PsO83GpcQ6ZjsDAGQ+7qktce
-	bYTexTRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MEDTZKOI1zKmVzVESeetHAjqEmshg9hQhE5xi+j+Pd0=; b=zM506jIFIN5DMou5SFNMMHgWGA
+	HQvtpS8o3ee2L689khM6hLb6SaxX5G3UgUeu1gtwBIgQXb9g441iUCHl0OyThw4IjyOuCy7PPepT2
+	KG1sjEuSGf5LiLNQOn6ovoaq3Ns+9NRrUeoumOEtoJh555CQ1gJuoymR/llVG6tj1mzQwrz5kGwIg
+	oFTuiderAuKpjOkMcc5LukEClX1Am7kZVLZmmInsyMyYEse7/XsFfVHTC1/eGI9s/1xeJbcXZJdye
+	Y0wPeUwaHU6hHTw4Qw0F/NU4udZPRkRLIIFAk70+xL1NJhcbP0Xk0MToe5BFfr1spKV6RXC2a1231
+	B/68wdtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2az1-00000003Hx7-0eYP;
-	Fri, 04 Sep 2026 20:57:59 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1x2b26-00000003ICz-2sVo;
+	Fri, 04 Sep 2026 21:01:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ayy-00000003Hwl-3pxt
+	id 1x2b25-00000003ICt-421j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 20:57:58 +0000
-Message-ID: <859274b6-2863-4a6c-ad2c-bbb93b4c7f2b@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1788555473;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/cG41PpS8GZOJXnrpQvgowAbf+PCE6ncyCVypBTIBtU=;
-	b=35ve1kC0qvwCUrnDRVyTPjyaKPXXSLHYcmxuzog89DZwj7kaA1AWjilWt6qQxDq+TtRiN1
-	hE8FgmNAP2ZtEO9EEg2NQmGM8qEihSuJIrA1mKGqnK6cdyBndoqpDO1g5QFj2vSXsk2Cyq
-	xWDr1r3OpsGvbfDuJMSoWM6zpz/e/Bc=
-Date: Fri, 4 Sep 2026 22:57:47 +0200
-MIME-Version: 1.0
-Subject: Re: [PATCH 6/6] arm64: dts: apple: Add minimal MacBook Neo device
- tree
-To: Sven Peter <sven@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-watchdog@vger.kernel.org
-References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
- <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
-Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_135757_146245_4289D423 
-X-CRM114-Status: GOOD (  15.61  )
+	Fri, 04 Sep 2026 21:01:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF6574386E;
+	Fri,  4 Sep 2026 21:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B15331F00A3D;
+	Fri,  4 Sep 2026 21:01:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788555668;
+	bh=MEDTZKOI1zKmVzVESeetHAjqEmshg9hQhE5xi+j+Pd0=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=EEpMlNpFw0IL38ZHdn42REVxD2A251H6p60xhpZ8yzmMP/TysVkr6HucDkXO603ru
+	 X6Je3epVzH68SjbSE3w4JJEW1fmvlJ1xOBKjaM/iVlh5P6zqbWJvTOy6qVRAC7yvym
+	 8uKySO351xHDPZEmVFszjttF4ZXJhPZpc7cBtpuLU1UIcv4tas/wA0GjfTIz/t6QO7
+	 7X64yYlwVNl4iSA/lwzXezK3G6IauH26ROHWkPHH5YfPEXSBeJZKWlfRVioWZgDuCE
+	 /GK93tVfl8y89F6FlfDEJcSKZeqBd4WHF7Tc6RPMuxHro6eUoMzxLkwWz/2SqrP14k
+	 XpbXq4fyqvRmQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 953D63924A72;
+	Fri,  4 Sep 2026 21:00:10 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for -rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <apsL0Jd_RUiP20Vd@willie-the-truck>
+References: <apsL0Jd_RUiP20Vd@willie-the-truck>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <apsL0Jd_RUiP20Vd@willie-the-truck>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 5445d64199626974269fcdf347769ad44b0bb53b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 3f17a52d47ed39c89cc8429307cf246e781ec979
+Message-Id: <178855561017.966019.6559448602205792725.pr-tracker-bot@kernel.org>
+Date: Fri, 04 Sep 2026 21:00:10 +0000
+To: Will Deacon <will@kernel.org>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, mark.rutland@arm.com, maz@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/4/26 22:34, Sven Peter wrote:
-> Hi,
->
->
-> On 04.09.26 21:49, Yureka Lilian wrote:
->> Added a device tree for the MacBook Neo, which uses the t8140 SoC
->> (A18 Pro) also found in the iPhone 16 Pro.
->>
->> The device tree has a minimal set of devices limited to CPU cores,
->> interrupt controller, watchdog, serial and framebuffer.
->>
->> Using the macOS 26.6.2 iBoot/firmware, the machine reliably boots
->> on a single core using the stock kernel.
->> Booting with smp requires avoiding the wfi and wfit instructions
->> in the idle loop and `delay()` respectively, since those instructions
->> cause a loss of architectural state on the secondary cores.
->>
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->
-> [...]
->
->> +
->> +    memory@800000000 {
->
-> this doesn't fit the reg you use below.
->
->> +        device_type = "memory";
->> +        reg = <0x100 0 0x2 0>; /* To be filled by loader */
->> +    };
->
-> [....]
->
->> +
->> +        aic: interrupt-controller@301000000 {
->> +            compatible = "apple,t8140-aic3", "apple,t8122-aic3";
->> +            #interrupt-cells = <3>;
->> +            interrupt-controller;
->> +            reg = <0x00000003 0x01000000 0x00000000 0x1cc000>,
->> +                  <0x00000003 0x01040000 0x00000000 0x4000>;
->
-> please be consistent and use 0x3 and 0x0 here like for the rest.
->
->
->
-> Sven
+The pull request you sent on Fri, 4 Sep 2026 19:20:00 +0100:
 
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Thanks for the review!
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/3f17a52d47ed39c89cc8429307cf246e781ec979
 
-I've applied the suggestions to my branch.
+Thank you!
 
-
-- Yureka
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
