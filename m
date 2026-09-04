@@ -4,124 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E16C79F83
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95906C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ud9AuYrSZIlA8fbE+3cZRtFPxkS3jMvrRI4u6YJqIso=; b=2UHsKvQm6QihvpydeTuJ8pR/0w
-	TPZO+hfnz1A3vG0F3GAeAq6WqNjfkkBF7YpM6acWNS1BE7mJbqXImEvJdLeqwtRWrZGQ9McdRGWyt
-	1ML+7zZJjo9KDh/kamhvkpOcaRS9Cval6fxbByfbdcyFOmpQnb+hcNLdP8dIdK/X9o4d6F9JMn+jj
-	oLPODMG995SwFP4PUDtRjlQnCoR4q0jS4DwLtW8NhItgKpnf2816zWTg3mXF74d/AudjF0kuD/+84
-	luT6rPh76GltHSMII5DpFCnKVuk9yyXLzkztypH9uwGOtYmdRAQ6AjbLSpooqhSpcGi/poTqza2tc
-	fIGUAMeA==;
+	bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=; b=hIHV/GYNO4qgni6siALb9IveI+
+	KIPdWKr2jpFEq8m2G6/QGd/jidSCEL4cJYT8J31K5887siwTsjsXuWxf1p9KzwWkIJX1tzV3rRvI7
+	o2PA9uv2bktn7K38huKdQxP3XbwqI5TTyQYJEZHiV7JFrEh0LE+wsTwyaw0kPsS9e6N9kQJ9U5Hh8
+	i6uO3ve3+9Z31jLZAkYioiBDbtLLl6sfVC5Mx+M/Hj+yAHgGdRIXmrqVvddqIxBYI4jH3PUC1psE8
+	91bpVkiMt38gYy4040WudxaUXfDKlSUSvzCdN6p0FMUOryryD0/bAu2iW0B9bd5K5VR7WZGax8M2o
+	oa9i7N0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Q4I-00000001VE1-2jQf;
-	Fri, 04 Sep 2026 09:18:42 +0000
-Received: from mail-eastusazon11012057.outbound.protection.outlook.com ([52.101.53.57] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1x2Q4b-00000001VH0-3cLc;
+	Fri, 04 Sep 2026 09:19:01 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Q4F-00000001VDM-0zo7
+	id 1x2Q4a-00000001VGY-0O4M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:18:40 +0000
+	Fri, 04 Sep 2026 09:19:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ju8EPP0XwdfgXbl0UtLTcemvM2rkd5J4cCNVAn3V9313p3eXDLOEG6IRqJv1T8UnTfIzggWJbcmt0q1GK/H1nnuE0amAL4CRWpLsi9OC0pD6eieLqYV4HaqBXfn2hU4wm2pwffxSzUDjV1sZnltI66v3MM3NCtu3o7qmRTgQkSehu1r6e+9aRr8NpFYku7fOTcZU0Tby7VYouDLXK0PNgGAgeLVmBqYRD+7kI8NSW3tDMrY3aZB7uiB/mkOW8Sd5UBvwc9OqwC7ZKRDdJDGDn7cZ9LYis5+5b2toEhoLJSyRnhnsEOBuzJg9ZOOHYr+YIWI/nOQMfkGngMnTWW9b9w==
+ b=qKdpj5pCYBh9EUoQdwUciE9y3byOFjTcCNULR3PvoPOjW7LjgDSe+RSeHMVHACVGmMnUI+xXHJDHzoRNMkwPnmEw42sQsqdTzbwfTDf8EOGZ2L0iZ+pBbahH6Kwi0vusj5scThO7qSnN9kxelJ3QRr6BHvIvIhXMUzHX80vMjFFzOihTffn5a6xjNmsXbhIcUg5pCIgjD8trz5adwYKS0PIK0CzIyjnWGFGe7mreRmnBTMqZIge+BXCFMV3UV1DD4wyKOuxibj6hh9AtA0qOnicCmeA1A0VWgabCCs4ifKvW/psbrp4UxtAQGTK53t3OnNpO64My7qOA936sNXe6wg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ud9AuYrSZIlA8fbE+3cZRtFPxkS3jMvrRI4u6YJqIso=;
- b=w2I2AjH1o/eRylOSy3Tjz5UMITlaUzeOYM0P0AyKkxxMpWWycj9jQ4Ht9qVDoZUZhakdCwbh1UvPRd3eGulXVdj9DrX+a2c9rLjxHJNkCbfojtrCQcKcTllvAXcrczTA/d4u4dBD9igU614KnbEVYtsfJxj1SwU3qlwu/lwTEC6ftrnm4Spu+6eWUVmfDBXxppbAm36hVgenCJPo+/PplrvO97l0sm2UuG3NzTsokSkD5/CuYw3lfoznkafyXJlAOmfG+G1s8AWlhmXfatO6LDcUVFIU1FpwNV9C7NQtqsVbfHCVDWVUoDpMlzjGa4qH0zO5teHmSzVo39iMlVnJQg==
+ bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=;
+ b=sXTfpAwbeN02GmPukDqrHOYeU483T0iXD45pXyA3V+PkIH0FpfLtW2EI9vHUCbcE5mKzaDxgnhL5P3kNiuBXse9i5mjFBo1NkzGNl29Ptcv9aVK73/LfEa43nBUYQjZNx6Uk7bT4SO9r/W0+Qfv10pPZlDLCsI0+RM8dYvQEfwjVyYVr82f2X07Rt9f+TclUG3Zis83uv01GY85uk6oBheZQNBqzkI6vWopPKOzOhsfkAGSU8pBfOQWaC3PCdH5Uap0UlBJTpt28l8VwThpbmVo+dmxbw2WQafz4BzTw1ad9cEetohOcIq5YdlxDMWxDSycii4lAAuGvb02MlNa91g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ud9AuYrSZIlA8fbE+3cZRtFPxkS3jMvrRI4u6YJqIso=;
- b=p2ikxaIn5YYz28XBKI7v60eEaDRx4EmrkKn683dO0DpMeAm68m4Igocfj9PlNDPjsQrOgaHSmisLYuY4xMCeFfs45DJlpe0jmli6e3X2VpLN5RNgg+K9DE50NjFdWzNFWjcYG/5B5aR3vjmUAOaXChuv0VDvPUvQJRMXOtMNkXdvHCfy3NyppGJpWHCtYTXxxOKt+fax48H0mty0MLHBwI4CduAWg4k28oCGRICv5tgbxzLK1Zwm5PSAtezw0n5squLVcFvvYohwyboYVGlPzlUm7yvZMZEHR6C6n/A0KXLjWJMNfmfXivtgGGaPdE8Q3qB71XRVKc22vjAY06pGKg==
+ bh=d6fU8ZlvBfkuhDekzttMvE29sfbXvw0A/O41VHiTvLY=;
+ b=qmNCsv46qvCe2WElRwYD2WnXtyqEbLAgTJaDdtmFm0xz4swtk0dYF1KeYgi54Ikka7RVss65p59/EUtDrwkw37TGk/kFjLyUuUhCT9m1SvAfV8/QnAClVuTZaVr9v8jSn26j3I4acfKZw8s4QFGvaDv2Bn6ObCMjgCwFyuTCd58wnNwqFCzs6QVRbVfkwGqrwOsyS6hjsXEMPdBs/+S0LXifohhjYPdO250jpcSfrL9N34f2ZfkgtmMsvvaqS45ac9KVGq+128cxWAEjLzKTpONmDdDOEK6vpr6YMRNoRiUqihrSh6bUSO2uldnSFW3x7KKKdq/S5Y4Vfn9eqgzqZA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com (2603:10b6:8:3c::13) by
- CO1PR03MB5874.namprd03.prod.outlook.com (2603:10b6:303:9c::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.13; Fri, 4 Sep 2026 09:18:33 +0000
-Received: from DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::abad:9d80:7a13:9542]) by DM8PR03MB6230.namprd03.prod.outlook.com
- ([fe80::abad:9d80:7a13:9542%3]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 09:18:33 +0000
-From: Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com>
-To: maz@kernel.org,
-	tglx@kernel.org,
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by MN6PR12MB8490.namprd12.prod.outlook.com (2603:10b6:208:470::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 09:18:54 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 09:18:53 +0000
+From: Andrea Righi <arighi@nvidia.com>
+To: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>,
+	Breno Leitao <leitao@debian.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com>
-Subject: [PATCH v4] irqchip/gic-v3: Add Altera SoCFPGA Agilex5 GIC600 DMA32 erratum workaround
-Date: Fri,  4 Sep 2026 17:11:14 +0800
-Message-ID: <20260904091114.2259616-1-adrian.ho.yin.ng@altera.com>
-X-Mailer: git-send-email 2.49.GIT
+Subject: [PATCH v2 0/2] sched: Enable preferred SMT siblings on NVIDIA Olympus
+Date: Fri,  4 Sep 2026 11:18:03 +0200
+Message-ID: <20260904091838.3617894-1-arighi@nvidia.com>
+X-Mailer: git-send-email 2.55.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0024.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::20) To DM8PR03MB6230.namprd03.prod.outlook.com
- (2603:10b6:8:3c::13)
+X-ClientProxiedBy: MI3PEPF00004E99.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::449) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM8PR03MB6230:EE_|CO1PR03MB5874:EE_
-X-MS-Office365-Filtering-Correlation-Id: 613362fe-45a7-4f67-785c-08df0a657e3b
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|MN6PR12MB8490:EE_
+X-MS-Office365-Filtering-Correlation-Id: f9225e4e-7eec-4001-0aa9-08df0a658a25
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|10067099003|56012099006|11063799006|5023799004|6133799003|55112099003|18002099003;
-X-Microsoft-Antispam-Message-Info: K+6HlAOfzP7AhsU2yzoshJCKllCPtFLCMxTF/jmXHFLuygQMr9EbKp20724cHp72pWAzhYqcqilQiYBXLyCO0Kh7rE0n6l49mmAjX69XeptD2rpPi0WRSyRpstUMjHqfWbFUL4xCaQtGblKXFKk0MNqJr/dHoPvj7NBIgAHofyk/1MG7eQJLHTUdY5qRLOGICUJR4AoDtdLXGcE9HaMFtH8HQ6hoi0Foe5P15lsYviJ5l026wXdnkX+vW5f/CfCCns4Ty0KIMhOqfe0m9K/C+8zgs9ftdO9rrR4yWTxVvp5QZ7CvOdrOSSr/XyloCNeQZzvuFB2NUYyPawOqjLHJYzD1kcKUQR++vMKXSAGUD7EDzV1GLVyJ5P5XvBAa9MhLH4SCeK80nhV15tgRTkWisfPspi9+o1J24mW5bbvFn10k3gwx0ulcPSxmiBsGopCf6CS70WlmKOpzzOuL4qjKY/kdXS+zUBfuU8tL2S3gTrBF8glDMF1XjsdQkCCPQWWYOMYFO/o2SzCTYDzsOPJBNbRcj2me2fpPYedtDEA2QXehCYOTbAuG7y0M2+XXPphmaVGCZXGTSle0p3URFARJiMKGBdQI8du6aAnu5iHDmIQlhPPjs92eNrkPSOMCcIDWBQB1ajGRce5CyoUNgX9YSAIzlx0FbHuqnL+8AdTfBQI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR03MB6230.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(5023799004)(6133799003)(55112099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|11063799006|10067099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: v1++kCptvmcnJRVJkyyCq+mmUTWw9Mh02eEUFiLKih09Qod0a/AX3TP5APnJwBNszjQEF7Y1B+8DiosjERa8s6K5KbBY7YXhps+OHT6IxD436+LvUlpFVByvCIxZ5CNGEhRZiRZap1hUcvSDPhWxcZygN8QVSttcF4hoYhDvojH0LT/rpOlOBqr9MpU2VrdMUFECEYS4fvyWziUMXy1wdmzzv0GGnIOZU7+9ODBMNc51WHULoJKpT23cBso0zhpBtD1OhVO414X6m/YtCk/JnR+JdhdoDntIj/ctqvWznF635rr+zLpl6PAbvWIH/jfiYbpWOGo/BeD5lR4LsVFdYg6MfAkDs1ljV3O/83KWl0aqO8rR2wRic1CgwQAG2XmSFroOG2JEQ1MY64wMj1ET3TVBofXaJDZO1/ASS45OIp76uRt2urUwK5P7TyiMLrE5+dBIgQlIh3CiZ5L/0QzYzwv3BpVFNZAJMVFrbGB6+wuxLci8Bbq63294sDA+OfLCl6Je7Ct+EVKl1eN7SPT3djNkogrhcNt/8F00xtdZCviltnKRbvZsZFAkhlonbmgFcAaPrIj3uSwu3+PHFyww6s5rBHEYVxHIe8VBpNi3gv5LMI4aTAqIWH5OQbnzMA9UlIIqKY9etfNBsmWoQ6QwBFWgW9952VoGg6pHVNrhD0U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(11063799006)(10067099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2hPmvyYDt6pyt+DCnWxF99uGgYPQxKBUapRAhyxJz7TNI+0Hdy+QwNBST7el?=
- =?us-ascii?Q?ZYnk5eg73yOhX+pV7CvWwDsl/3ypeYI8uAc/VyOl1poGRxiD/js7Uz2xpSHi?=
- =?us-ascii?Q?9Cqo1H7EGFEjJ9rGGL496wqEYZw8IHGtMuTLE2o5NcFuUAXet+qxufoFbMOB?=
- =?us-ascii?Q?4J8/5VsF3GRTjfQ16AUH8PGiDXMk2wa59g8u48TG54OIwA3E79XK8YlylBeg?=
- =?us-ascii?Q?E5qb9vBa7na1QNThDEFpNgA77H/mbF4nwT0BDjTD+F0Pm7OpUJgmqNDZB0Pl?=
- =?us-ascii?Q?37gz4gXU7knDWDGS8FMKRvG3W3ZtpeO8QFmBgj3BMOLsn636hiu2oGJFCbAu?=
- =?us-ascii?Q?Bsb2z3exZd347oKcwxi0RNHZfcefl4fwNcoI9AR1JzcrLFEzoCZyiwVR7acP?=
- =?us-ascii?Q?WYIS6g17jgVg8w+Adx8c3QuwC6w8HHtb0YTrisC0ABfxZYjGqTymhhot2IWh?=
- =?us-ascii?Q?5PRhAm2YCReyXJVzWl9AuN2S3ewuKSj/88/UnLLRnNTROGORLF5o7KX+vT/W?=
- =?us-ascii?Q?VuQuF2NBQX32dvM/GqcDn2SfoOs5UXrUKYq6APJkfAJQ3QUTSK8w2dG+57+q?=
- =?us-ascii?Q?drn3NLDqbRvTB1AFMbMOQr7scN66YkQf/qnmMr33F6k2QR9HeukU2Z/ZOHPD?=
- =?us-ascii?Q?90G/yXfspZ35puPuHWkybiKbEonc4Zt/SPOWdDESQLDNnOEXUxOwDc8RY+dF?=
- =?us-ascii?Q?v4TOwNv21JolydjL/aryfxtzlmCG2B5tUKel6ZN85BB6LG8vXwx0bnIRxKVi?=
- =?us-ascii?Q?DGessak5Gq/Rlt6xXlgMEpmnaGnZPV+FmOrd0d6HScjZUqbYLVS7LHVqXo8W?=
- =?us-ascii?Q?bSPVgMDmD3i4GTgyQSoqBjuk77r1IGkgSUCCoUqDu6C9Gsmdwb2olnl2tYpA?=
- =?us-ascii?Q?h27sKK+q5q4UA9x6NqtiJyvxW8OuqrC1aepNipzpgSVyGyecuXNuNPrFP1eF?=
- =?us-ascii?Q?azTl1Lj9wxW21yZYxYZr9VPcsU+MrvoUAp9yZVb61Wk8dXUk23slOTgLTSgu?=
- =?us-ascii?Q?o/E/kMFzji47kTVMwDrtc6MSWp/QhuMB4tPYyyhGCXF9dFANNLyF8ULOxS/s?=
- =?us-ascii?Q?LXVqQz1SnIzMOpJI+fFr0UAiMbDmnpIyQuzr2Gjn7Vff5jAPosxQxNHdJfs+?=
- =?us-ascii?Q?/jW9r+8sbXPOUIFd7EhCV8w9Hrvb4tkLDgk4Uwyiz5tUiDRQCeFHegJODNuD?=
- =?us-ascii?Q?VQJXb34E9SYNy+NcxRpZDCzW2M0Rg9pIzDfDVnQrhtsAxhhrZ42LknhrcL7h?=
- =?us-ascii?Q?33guMRxX11PmLrdgHPDFgtsPeBbTfMAne3tZ0sGc4QFs3nSggSQbyZirEUAe?=
- =?us-ascii?Q?LwLOuiQGQpJ+tmYAdlMt+NTr8fniwi5MEkRrGdoZWtKoDquKZCvewfSL4L4y?=
- =?us-ascii?Q?cIOPFkixiX8ELoj4t+ffwJImTv+KleTj3OCoPZHfcXMvOHtjb0OUykjGJBG8?=
- =?us-ascii?Q?KzMEBk00fv343fYCb2ta7VD+6e9K5NWT7DMmdLJpJSS+yeVLUErQJNlV/JMz?=
- =?us-ascii?Q?TnK++xX9Uga8uDOtJDjpiJIK6BPdpQOseSRDjYnoCB7xRXOfPjrbn2FccRPa?=
- =?us-ascii?Q?Fh5EOWpCjwebkvjANbXBKIDi5rj2bRUqVB5n05dAFU2cBMdoXS13S75wVPMR?=
- =?us-ascii?Q?5BHLN5e1J7AzTmpKv0d8h4rFtl8UZN1kNQ/WvM3+1HdVdP2LdqJBMvuadZZn?=
- =?us-ascii?Q?b1JZGQWirDw+PlqTfRGnEdM+z1PGKozWbyyeyLWrTcSB4gUBI7JVOFaMkylr?=
- =?us-ascii?Q?hDj8Rz2agCQvQirS/o9HpMIth9oUwDg=3D?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 613362fe-45a7-4f67-785c-08df0a657e3b
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR03MB6230.namprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7RK+DkVB6wsjtoHNJRPtjcfQo4T0mqa4k+39Es80ooe449YP35rH1I2aJPqV?=
+ =?us-ascii?Q?81zBTMfYULoqM2b5JgAwXWFRXuuZ+5r4Yoi39iQliAv73AmhC5D3CmVQLRr/?=
+ =?us-ascii?Q?+SUUv7fRqXB7brlmvnICoh4BLXEn5rHKGewSB+DyXk5Mdw1uqjVYelOZwA8X?=
+ =?us-ascii?Q?+WV6N806JYVqGVGO8KnNZVMCzgJPL8JVx/nlqZ0y88qeqHj+MY8o59MCMPCQ?=
+ =?us-ascii?Q?3VDMJS4BY4vI/S3vH84b8AiXjEK3o6g0nMg/T1xju+oon2l8QiwNvM8YaINn?=
+ =?us-ascii?Q?X16sQwAYFuVDHu4T+1S03ZfAbXKu+R1yx4SuwYXrJYZKZwPZcQdjusjR5eHC?=
+ =?us-ascii?Q?p12MRqFpo0xPxHfMTZ6eVJSh58QiUJat02rqo4lxb+qtia/wGSoG6oTbMrH1?=
+ =?us-ascii?Q?NGCpNcJcBQk717Q0iy45lJkLD1mrdhXLdo+/3ne+MidiswXbO4GQZS32MEG9?=
+ =?us-ascii?Q?dDmjleOOJysuo+mZPaxJr84PIEe2e0JGJnK2xPEy7ug2/gBCHR/bO/X06FfU?=
+ =?us-ascii?Q?X0eJnLxxUVs/Jb6yQYjAwnJrEqDdbjG1U6ngBEjV2Rd8uk9DEHnsrqOiEvnf?=
+ =?us-ascii?Q?PJg2sah7L47UU5om1E3hL9BsMUWnEjFfMi8igFbqVnF09tO3V+6AT369YD8b?=
+ =?us-ascii?Q?eZM4+RT+e8Ul3s0lPrZ70r9Twficfybg7jf9M6w2+9v9gbAiPhW6UW8nbD+4?=
+ =?us-ascii?Q?A2zu0lwh6z/IwxgN+g7xQV5Tr4llqeuarJIUk2+uz6412GqYDmrRHG3rK6LB?=
+ =?us-ascii?Q?xz9RLJCfPEccaSfv6h2XZmpdsBvo/R8eC+YKyq9JryKKtWQW3vXLDreevBJU?=
+ =?us-ascii?Q?JSc473QqRta31rMnYxewK90+BaaG3nfzX12qqXUTYlUnEz0MHI7PDs4voX+A?=
+ =?us-ascii?Q?Mil4a7sMs3kBG+3HbxcmnKci2KTOuU8ruIZdb7/lEtu7JioCOzKciDWtBbbV?=
+ =?us-ascii?Q?Xgw0IKY4jrKwh4Y2yLUeO2CfDNcApx/L6hvUsY977BgwXtV/9F5KhmNT/GUd?=
+ =?us-ascii?Q?gNyB62n7GV3+x/k7yXSVFUBXssueif59EIxTXegrr8GHi9UA5kmjx9zTib5I?=
+ =?us-ascii?Q?6JQMOpy2ufMIavhxRZuz15I7y1wGu6ZKSuvle16eOYNvwnMH/4SzTrULbiDE?=
+ =?us-ascii?Q?5BH0mGtdl+FDHyvfAEY7DXj49H0L086x64VdD8ZJuqzH0FA5SAIqHktpwX1e?=
+ =?us-ascii?Q?yk2FZoEHyzpuFi+W6lnYqxgiZq1IuHLJU1721cDCAr122pVmhns0Gxgu0xdn?=
+ =?us-ascii?Q?/1PBDsPrC+/7QAl6/Vzy3BjHesLv1LCjp5760xidx9vv+dsz8KrGgAGvJuSe?=
+ =?us-ascii?Q?n0wlHuJacGm87DMSFD7KQ1ocFDiD7qXP9sKaHj8wDBC5PISXadUhHoG5c/yq?=
+ =?us-ascii?Q?UVgRWHQGJ4wuU/JxnOYRPYMRK4UENyh6DKysCoTSEoDwaUHvVkIqsFXALP15?=
+ =?us-ascii?Q?JuRkQUrUVQ7LF/o3cEiZ0S1bxhr1YbZKjdsAaW1shbdplzj2HBoR8/v8A603?=
+ =?us-ascii?Q?cEfvyFU4yOAFkLvY8bJ0I/fd5e5vkj4nK5DtBouy1QzI1dQ4xPLCatJePvnA?=
+ =?us-ascii?Q?IZGFlTdcY222AEqOrH72jpHI+qE+/divPriTrEKBpvKnHnekVL02IdAtwrNz?=
+ =?us-ascii?Q?micv++Uo7zTnsVqo0kuiOxpYfOENyfE9RmSp3GJZGoLGrTI/Iqw2clAqB73y?=
+ =?us-ascii?Q?43lNBL+U14puW7GdUDUlYX0sRyXcRt70HluhzNJcjqrGZX+U3iCrHREfm1xv?=
+ =?us-ascii?Q?5B4F8NXyrQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9225e4e-7eec-4001-0aa9-08df0a658a25
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:18:33.6704
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:18:53.7523
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eT4NdwLa9cw9jlE/RABPIX68TvVdonAHnTK32g8EuWdpvua1Y/fCe3B7SFmqEB7KKeqfMwdUyLthtakR3Dz9/l6yuSL+UHyAy2lF8Ej84rI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR03MB5874
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9oIliLnJFr7shkRnZ9ezMkMZwgeeJC4yNA7avwiTYRDrMLWCNLgb0uUDsoYd9+Ha8X+H0x0Di6gqbbbgN8bjoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8490
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_021839_303858_44669A1B 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20260904_021900_136808_B2E29747 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,86 +150,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Agilex5 integrates GIC600 with an ACE-lite interface limited to a 32-bit
-address bus, so the ITS can only access the first 4 GB of physical address
-space. Add ALTERA_ERRATUM_AGILEX5 and register intel,socfpga-agilex5 on the
-existing dma_32bit_impaired_platforms list.
+NVIDIA Olympus implements SMT with two symmetric processing elements (PEs).
+When only one PE is active, the core operates in single-thread mode and
+that PE can use the full core resources. When both PEs are active, the core
+operates in two-thread mode and the PEs share those resources. This
+behavior is common to SMT implementations, but Olympus is particularly
+sensitive to brief sibling activations because returning from two-thread
+mode to single-thread mode after a sibling becomes idle is not immediate.
+As described by commit 293f9611ae735 ("sched/fair: Prefer fully idle cores
+for NOHZ balancing"):
 
-This limitation is documented as Agilex 5 ES Device Errata 2.1.23 (825514).
+  Briefly activating an otherwise idle sibling can reduce the performance
+  available to the other sibling and this effect does not necessarily end
+  once the activated sibling becomes idle: after the ILB finishes and its
+  CPU enters WFI, full single-thread performance is restored only after the
+  sibling has remained idle for a qualification interval (10 Ki cycles on
+  the tested Vera system).
 
-Signed-off-by: Adrian Ng Ho Yin <adrian.ho.yin.ng@altera.com>
----
-Link: https://docs.altera.com/r/docs/825514/current/agilex-5-es-device-errata-and-user-guidelines/hps-gicv3-its-and-lpi-unable-to-access-physical-memory-larger-than-32-bits-causing-msi-x-interrupt-failure
-Link: https://lore.kernel.org/linux-arm-kernel/372f059069a5551ea1096015f855cc306dbd7cd4.1747368554.git.adrianhoyin.ng@altera.com/ # v1
-Link: https://lore.kernel.org/linux-arm-kernel/6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com/ # v2
-Link: https://lore.kernel.org/linux-arm-kernel/20260622024945.21354-1-muhammad.nazim.amirul.nazle.asmade@altera.com/ # v3 (untagged)
+That change prevents the NOHZ idle load balancer from unnecessarily waking
+a sibling of a busy PE. However, ordinary task placement can still select
+either sibling of an idle core and repeated changes of the active PE can
+keep Olympus cores in two-thread mode despite little or no useful overlap
+between the siblings.
 
-Changes in v4:
-- Rebase onto dma_32bit_impaired_platforms shared quirk (post Renesas)
-- Add ALTERA_ERRATUM_AGILEX5 Kconfig and silicon-errata entry
-- Cite Agilex 5 ES Device Errata 2.1.23
+This series makes PE0 the preferred sibling of an Olympus core using
+SD_ASYM_PACKING and teaches the fair scheduler's idle-selection paths to
+honor asymmetric SMT priority. The scheduler first selects an idle core
+according to its existing placement and capacity rules, then chooses the
+highest-priority available sibling within that core. The generic scheduler
+behavior is enabled only when an architecture supplies an SD_ASYM_PACKING
+SMT domain.
 
-Changes in v3:
-- Extend existing Rockchip dma32 quirk path for Agilex5
+PE0 and PE1 have equal steady-state capacity, the preference does not
+identify a faster PE. PE0 is used only as a canonical choice when both
+siblings are available. Consistently selecting the same sibling avoids
+alternating the active PE across wakeups, lets PE1 remain idle for longer,
+and allows more cores to remain in, or return to, full-resource
+single-thread mode.
+
+The series was tested on a two-node Vera system using an 88-thread
+single-precision GEMM on the 88 physical cores of NUMA node 0.
+
+With the workload allowed to choose either sibling of every core, observed
+throughput improved from approximately 9.4 TFLOP/s on the baseline kernel
+to approximately 10.1 TFLOP/s with this series applied. Repeated runs also
+became more predictable because the workload consistently settled on PE0
+while PE1 remained quiet.
 
 Changes in v2:
-- Drop DT binding quirk; use IIDR + of_machine_is_compatible()
+ - Clarify that the generic scheduler change also covers POWER7 (Dietmar
+   Eggemann)
+ - Simplify sched_smt_asym_prefer() by inspecting the lowest scheduling
+   domain directly (Dietmar Eggemann)
+ - Link to v1: https://lore.kernel.org/r/20260831181800.1668646-1-arighi@nvidia.com
 
- Documentation/arch/arm64/silicon-errata.rst |  3 +++
- arch/arm64/Kconfig                          | 10 ++++++++++
- drivers/irqchip/irq-gic-v3-its.c            |  3 +++
- 3 files changed, 16 insertions(+)
+Andrea Righi (2):
+  arm64: topology: Prefer PE0 on NVIDIA Olympus SMT cores
+  sched/fair: Honor asymmetric SMT priority in idle selection
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index ac3248b9f2f3..8522ba072040 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -53,6 +53,9 @@ stable kernels.
- | Allwinner      | A64/R18         | UNKNOWN1        | SUN50I_ERRATUM_UNKNOWN1     |
- +----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
-+| Altera         | SoCFPGA Agilex5 | 2.1.23          | ALTERA_ERRATUM_AGILEX5      |
-++----------------+-----------------+-----------------+-----------------------------+
-++----------------+-----------------+-----------------+-----------------------------+
- | Ampere         | AmpereOne       | AC03_CPU_38     | AMPERE_ERRATUM_AC03_CPU_38  |
- +----------------+-----------------+-----------------+-----------------------------+
- | Ampere         | AmpereOne       | AC03_CPU_57     | N/A                         |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b5a51b0ef944..e3afb591db68 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -418,6 +418,16 @@ menu "Kernel Features"
- 
- menu "ARM errata workarounds via the alternatives framework"
- 
-+config ALTERA_ERRATUM_AGILEX5
-+	bool "Altera Agilex5: GIC600 can not access physical addresses higher than 4GB"
-+	default y
-+	help
-+	  The Altera SoCFPGA Agilex5 GIC600 SoC integration has ACE-lite
-+	  addressing limited to the first 32bit of physical address space.
-+	  This is documented as Agilex 5 ES Device Errata 2.1.23 (825514).
-+
-+	  If unsure, say Y.
-+
- config AMPERE_ERRATUM_AC03_CPU_38
-         bool "AmpereOne: AC03_CPU_38: Certain bits in the Virtualization Translation Control Register and Translation Control Registers do not follow RES0 semantics"
- 	default y
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index e9807af23537..111cbe484de9 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -4895,6 +4895,9 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
- }
- 
- static const char * const dma_32bit_impaired_platforms[] = {
-+#ifdef CONFIG_ALTERA_ERRATUM_AGILEX5
-+	"intel,socfpga-agilex5",
-+#endif
- #ifdef CONFIG_RENESAS_ERRATUM_GEN4GICITS1
- 	"renesas,r8a779f0",
- 	"renesas,r8a779g0",
--- 
-2.49.GIT
-
+ arch/arm64/include/asm/topology.h |  1 +
+ arch/arm64/kernel/smp.c           |  1 +
+ arch/arm64/kernel/topology.c      | 62 ++++++++++++++++++++++++++++++
+ kernel/sched/fair.c               | 79 ++++++++++++++++++++++++++++++++++-----
+ kernel/sched/sched.h              |  6 +++
+ kernel/sched/topology.c           | 36 ++++++++++++++++++
+ 6 files changed, 176 insertions(+), 9 deletions(-)
 
