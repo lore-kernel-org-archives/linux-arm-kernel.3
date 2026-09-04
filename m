@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA20C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D486C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NAK3nenxl8/lkQikMYBT8aGckfKPiX6I+mNkqAzdPYU=; b=aCIRznjgoBPqS/+RCcSUWochy9
-	XpQ4Hgt2OvKxj5ZgDZe8knmsWtp6xbAdB2t7maMe95X4Pr543TsNnrgs2Hk4mf2FOQIqATdkQWFbb
-	iWTldXXv1DgainEQfQp+S0GqAEluBkIRiai7498yPXog7SNtRJ0vlwQJXDc6Tsb7VUx18dtozI7Ob
-	adECygZg6LIV8YFti6fgFyR2AKu+jGZrZ1N86U/NswCTlvrnZdTMW/edoA4JDDi19kwGxb86ZjrYO
-	aD5EhRjGrpbS5pfPUX+iJ5vOzFKLv+EMDJAXehtqX63k4gKFfCadeqMroMgIinKch+YwrOng158xK
-	oBhavOKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6o93EzZgArFEXso70k/zel9WBKSefg4X2XkOXRWKMQc=; b=Hs9WTWTsHIT/Ns5yWQXRty6TE6
+	pjOFh0Ue26dq/bl37XEcaLGWHCQ63GG/qN0XZXXoR1j+YiLzPcW6D4aZjXrkFcWGfRiEH2aWlaHXW
+	VYh03EoeyJZ5MaqFcIReIV7SdhUndRDNkRgZb3+iffbimU5DrNYgLzR4nzxvheDz7mvKZ9ebov7E3
+	pfJcmsptDStpWlkW16Xg9k8YY8PsS60Dy5rpppvd+tbIPRizIDLXy0I879m2RKL94kl3yCzbJUKuy
+	haV39fy4LMfximdGXzOG85bpo7HgIEJdjQ/iRH8z1aJ0QCWSxfyG5JPuqzYo/tHc+q03BfHc9ykId
+	sVUORsEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QZX-00000001aF3-2EPu;
-	Fri, 04 Sep 2026 09:50:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2Qdu-00000001b7i-3Hcc;
+	Fri, 04 Sep 2026 09:55:30 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QZW-00000001aDy-0uS0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:50:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAAE840110;
-	Fri,  4 Sep 2026 09:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C152C1F00A3D;
-	Fri,  4 Sep 2026 09:50:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788515457;
-	bh=NAK3nenxl8/lkQikMYBT8aGckfKPiX6I+mNkqAzdPYU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RXdDjHn0J2SJWYDvUUBjITIowmyckFIjfAqEanYQel5kk/RhoCzPpNoFyS4NIuR3t
-	 fx1int7KdwkJ74bcEWciDuCrnx8dLlTsHvN2FhVwBuLZiCR1/S2d9em4vG9zeozMeJ
-	 Fof/Gz+vFLEhtZ4VgyF5moliszAAyxSZ2s2mOl6/VWwpiFvn3QsBV+2IjRUdz627ev
-	 SVlXDm7MbewiBIy+iR7i2bs35x8S1vAfOdhVIJ+S4hpws71rWX0tKVKuAxgVrvCpit
-	 aga+k9j5ABNgbMf+RVLr/suPJVNfW6a+UeoSW/Uto2rmFT6BzAVr77jVBiTeisIkRi
-	 aD0git0y+oqzg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v10 7/7] coco: guest: arm64: Replace dummy CCA device with sysfs ABI
-Date: Fri,  4 Sep 2026 15:20:00 +0530
-Message-ID: <20260904095000.1184861-8-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
-References: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
+	id 1x2Qdo-00000001b5F-2PmY;
+	Fri, 04 Sep 2026 09:55:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=6o93EzZgArFEXso70k/zel9WBKSefg4X2XkOXRWKMQc=; 
+	b=L/KyITLHZr1yZhJVD4DlynQK0Je1HVSDjG4vdWo5d+f28euKGjwEqnROtxJ9rubPvFFljf4p7Ty
+	3ZUXkeqTIk/LDVH5z13EOwHiNfXlEYVzdLYZuEsvFYQPiSQuxJnyrkjZcxp9RT6q+GGnNAKi4P5dV
+	L45sH8IHI7lRqfoLI13RoxAUpmF83bC1WTnFGwEsFW52BuFR/J9VZB2hj0jCb34Q1Q32zm5k942bB
+	ADllkQvpLFyHB1LjpiV3YkNdx9q48Iyte3wRNHmKRFqQ6/VFXPMhKbTrXb8vNaf+sH2vca8lQ01Sb
+	rISYWkje5i/CpLx/iXH069tuWM2vvfJcAYHQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1x2Qda-0000000An7t-1KVg;
+	Fri, 04 Sep 2026 17:55:11 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 04 Sep 2026 19:55:10 +1000
+Date: Fri, 4 Sep 2026 19:55:10 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-crypto@vger.kernel.org, Corentin Labbe <clabbe@baylibre.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] crypto: rockchip: pass crypto_info to irq handler
+Message-ID: <apqVfhB5JHcBEHaM@gondor.apana.org.au>
+References: <20260811044916.160856-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260811044916.160856-1-rosenp@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_025524_626179_314C67E0 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,119 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SMCCC firmware driver now creates the arm-smccc platform device and
-instantiates the CCA RSI auxiliary devices once the RSI ABI is discovered.
-The arm64-specific arm-cca-dev platform device stub is therefore no longer
-needed.
+On Mon, Aug 10, 2026 at 09:49:16PM -0700, Rosen Penev wrote:
+> The irq handler takes the platform device and calls
+> platform_get_drvdata() to recover the driver data.  Pass the
+> driver data directly as the devm_request_irq() argument instead,
+> dropping the platform_get_drvdata() call.
+> 
+> Assisted-by: opencode:deepseek-v4-flash-free
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/crypto/rockchip/rk3288_crypto.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
-However, userspace has used the arm-cca-dev platform device to detect Arm
-CCA Realm guests [1]. Removing it without a replacement would break that
-detection and would also leave userspace depending on kernel device-model
-details.
-
-Add /sys/firmware/cca/realm_guest as a stable, architecture-provided ABI
-for detecting whether the kernel is running as an Arm CCA Realm guest. The
-file returns 1 in Realm world and 0 otherwise, similar to the existing s390
-/sys/firmware/uv/prot_virt_guest interface for protected virtualization
-guests.
-
-Remove the dummy arm-cca-dev registration now that userspace has a
-dedicated CCA Realm guest indicator, and document the new ABI in
-Documentation/ABI/testing/sysfs-firmware-cca.
-
-[1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- Documentation/ABI/testing/sysfs-firmware-cca | 10 +++++
- drivers/firmware/arm_rmm/rsi.c               | 42 +++++++++++++++-----
- 2 files changed, 42 insertions(+), 10 deletions(-)
- create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
-
-diff --git a/Documentation/ABI/testing/sysfs-firmware-cca b/Documentation/ABI/testing/sysfs-firmware-cca
-new file mode 100644
-index 000000000000..bf177d636b92
---- /dev/null
-+++ b/Documentation/ABI/testing/sysfs-firmware-cca
-@@ -0,0 +1,10 @@
-+What:		/sys/firmware/cca/realm_guest
-+Date:		May 2026
-+Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
-+Description:	Read-only. Indicates whether the kernel is running as an
-+		Arm Confidential Compute Architecture (CCA) Realm guest.
-+
-+		The value is one of:
-+
-+		0: the kernel is not running as a Realm guest
-+		1: the kernel is running as a Realm guest
-diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
-index 2dd69febedbd..52f40256bd78 100644
---- a/drivers/firmware/arm_rmm/rsi.c
-+++ b/drivers/firmware/arm_rmm/rsi.c
-@@ -9,12 +9,15 @@
- #include <linux/swiotlb.h>
- #include <linux/platform_device.h>
- #include <linux/arm-rsi-cmds.h>
-+#include <linux/kobject.h>
-+#include <linux/sysfs.h>
- 
- #include <asm/io.h>
- #include <asm/mem_encrypt.h>
- #include <asm/pgtable.h>
- 
- static struct realm_config config;
-+static struct kobject *cca_kobj;
- 
- unsigned long prot_ns_shared;
- EXPORT_SYMBOL(prot_ns_shared);
-@@ -182,17 +185,36 @@ void __init arm64_rsi_init(void)
- 	static_branch_enable(&rsi_present);
- }
- 
--static struct platform_device rsi_dev = {
--	.name = "arm-cca-dev",
--	.id = PLATFORM_DEVID_NONE
-+static ssize_t cca_is_realm_guest(struct kobject *kobj,
-+		struct kobj_attribute *attr, char *buf)
-+{
-+	return sysfs_emit(buf, "%d\n", is_realm_world());
-+}
-+
-+static struct kobj_attribute cca_realm_guest =
-+	__ATTR(realm_guest, 0444, cca_is_realm_guest, NULL);
-+
-+static const struct attribute *cca_realm_attrs[] = {
-+	&cca_realm_guest.attr,
-+	NULL,
- };
- 
--static int __init arm64_create_dummy_rsi_dev(void)
-+static int __init realm_sysfs_init(void)
- {
--	if (is_realm_world() &&
--	    platform_device_register(&rsi_dev))
--		pr_err("failed to register rsi platform device\n");
--	return 0;
--}
-+	int ret;
- 
--arch_initcall(arm64_create_dummy_rsi_dev)
-+	if (!static_branch_unlikely(&rsi_present))
-+		return 0;
-+
-+	cca_kobj = kobject_create_and_add("cca", firmware_kobj);
-+	if (!cca_kobj)
-+		return -ENOMEM;
-+
-+	ret = sysfs_create_files(cca_kobj, cca_realm_attrs);
-+	if (!ret)
-+		return 0;
-+
-+	kobject_put(cca_kobj);
-+	return ret;
-+}
-+device_initcall(realm_sysfs_init);
+Patch applied.  Thanks.
 -- 
-2.43.0
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
