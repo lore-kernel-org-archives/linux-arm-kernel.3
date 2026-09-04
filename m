@@ -4,73 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C24CC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 05:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97CDC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yB4YVspeMwk5ODtt2RBRRIPWz9juTE1sf3B03/H5mtM=; b=2mg/DFBRBEy0jE6IjVQsK0EHl1
-	qmYkbpsnklCfQAKHuBcK5JiEQUFdSLsqLxAcEdIqmgh/dseQ1yKozjVora44zWlFHy/a1cqtjpWSZ
-	oZAul2cb99havcYFuMSJ86mvaTiqUkwzOWcjv0BiukrGBTsoHc9tT+PETfhYx+WcqjL15vp+H19FS
-	gVYzhi1Ay0nsrjx2pQCqvzJxjEX0BXOPo6LnB8/WXWzDHtqcPlQ6q1tzqdcE/Qqlhf7HiTdwaNPsA
-	ThaW9j1KRWRdWhl1lEjR8bJGccMgrTc0b5jBMWP9XEGHfAQem8DnBbTMtxKKRenRUddYc70gpkjch
-	6Y8BpR+w==;
+	bh=zcTFQN1rU+yVDqs+DbeIWP6Mt8YoqyAzCNZA5icbtPo=; b=pRKXVF9LkoBPAM3oSy1t2fr7vy
+	B/b5259VwS5LZtF+p8zaOud34M3luD/HRxbnwhgbbr1pmrcJpFMIEo8LZWz87HXs1ZAwU4lSikLoV
+	0uPctSLxgaKRe9UMabWZgTZyZNuGRA70wrW0CQhALFf+dFjsXRZYXeieGjC1rHufYomAzzo+eLAUO
+	6kbMnreb2SDGA1vws66E26loRNYTuGv3GVkRKDbZuUv2TAkCThr+KciSvAZJqraYCgSs1oNl5cfFI
+	aDUa5DFQv2OwfInj8KQC0OhE6AnSUAw6EOKcqGMgaLCzlQ+QcsvYidsfsYLd9qxIiDym3sfrv3bfh
+	GdZBk6wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Moh-000000015KJ-41aI;
-	Fri, 04 Sep 2026 05:50:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2MyH-000000016DJ-0mN4;
+	Fri, 04 Sep 2026 06:00:17 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Mog-000000015K8-1FEs
+	id 1x2MyE-000000016Ci-11k5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 05:50:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 941104389B;
-	Fri,  4 Sep 2026 05:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A7301F00A3D;
-	Fri,  4 Sep 2026 05:50:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788501021;
-	bh=yB4YVspeMwk5ODtt2RBRRIPWz9juTE1sf3B03/H5mtM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=XtJFt5QFVxE1zso0J5EkYlk8qd97baPmE6jweS96sWdeGCMMMbvFLsYx+3j+JsOS9
-	 9BOMeWFyxqIbFnrrq4qeenzwt7dOnYolWd6oMywsGmmUC3k+bbIhXK1FW8jKxhjMQ5
-	 WEciqsGrP9CozS/IhTb92INUxZvzsnUsj9KlkTaTzH2ijGNjURdQ0GsYkdwHuwqKYT
-	 9XcJ/BtjZWpAegLhbu2RXjylkAFswPlcxOvrGlKRonkkCl5JIl96S9xHajuq8cRqir
-	 dN3/ogc6Dgt03dUnL6j3z4upeJ7/4YlN6oAyoenbVn09NizgTmss/E3KCf3V/ivN9v
-	 v5W6sOXwH0cPQ==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	Fri, 04 Sep 2026 06:00:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EyhkSXydsF9/yyLHAVzdPQIZou+gIM4A5BBOKouKPf0N82jixxAL/+lzIWa0HJH62zr/SXasAB9gy+yxhAaxY737itTTFbTv/sqD/vMG8GQ8FMbwkHodUefploJ6rdm+JdK/Oi2qa1P2W9j4+B03dqdQT5jov0zqNORdJzyebP9G8fQzpwxnpwMy5uzc3JFDUFYyn3W6qt2bHwzDEIDfludC2I8QZT7Ohyd4etMBGh8gUTXV83PHbztcJv3P44P3zMjhU7pbvmwKO3OK7R0K8S7ScNcnson7ucSoWH71KwqKjZSPM8t6Y7ZsKY3fl3J8mYhUPHbiUNMWL7c+d5rKZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zcTFQN1rU+yVDqs+DbeIWP6Mt8YoqyAzCNZA5icbtPo=;
+ b=tLIJyir0bzWrxmvXRKdSbfPhpM7MMk8i5sbOejVlhlx2oqFGAK7+u2KK0OgmjG1uqeTFmW6lMUXl/GTAUTK0cOrYq0W2UBT7dqNB6dJYC21dmlxAaaQBuSpjLyHHLN4/FNuMoLFEf8OL3uvVF4uDavyxbBUvU+JKkz7QwIHGMsmVZILyu0gnZZ73qVA6Ig746ayWFRXROCz/yDdjwSdV5yV+EHo/1lkJPZL9KMIA7xS8kVY+JgJyiIO4vjZkZga7Su3qldcfoBi6A5FC6KOOb9nt27iz1g7+CyKvHgtQ0siuWB81V6+7f7leBHd+XKrwZhQTtcDKq9g7sdFP7c1BHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zcTFQN1rU+yVDqs+DbeIWP6Mt8YoqyAzCNZA5icbtPo=;
+ b=Kst/fsiPOZdn4zYa6bqxZEurhXkwLu1M+kl84rheaP+7kU7Vs+pBF86BubKJQqOgbK/6m/MyAVCyolIRglxi8iLj9jPZiWUcs3hu2hZ2M5YWuoDL4FSkVPcp9Gjfx36eLrRGm3m9ZFtyKSb1+Lw4kV4ie6J1KTZdCcnUEQ8YUnw6hcmbVKlN8Sg6oSFiVrfAxvsBRMCMuVcUyJYuY7xvh2bK/qNkRDkkEBunhAT5rNA1NLg4KCIhUScfdkQqb6izjORCu49G6NEZU/5bQ+2uE8LgPhURrGfcrC2eXefGGdrQH1n9G3cgH8XQR3NM5ViXZ9En2+JeUGh3YeJW2ROa5w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by SA6PR12MB999200.namprd12.prod.outlook.com (2603:10b6:806:450::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 06:00:06 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%5]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 06:00:06 +0000
+Date: Fri, 4 Sep 2026 07:59:52 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
-In-Reply-To: <20260903182152.GN4157646@nvidia.com>
-References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <20260805063255.1638614-2-aneesh.kumar@kernel.org>
- <178794567779.4159892.8785590655735217125.b4-review@b4>
- <yq5ay0diyavw.fsf@kernel.org> <20260903125718.GI4157646@nvidia.com>
- <yq5av78mxv0j.fsf@kernel.org> <20260903154626.GL4157646@nvidia.com>
- <20260903-nonchalant-capable-parrot-539c8b@sudeepholla>
- <20260903182152.GN4157646@nvidia.com>
-Date: Fri, 04 Sep 2026 11:20:13 +0530
-Message-ID: <yq5ase3py38q.fsf@kernel.org>
+	Christian Loehle <christian.loehle@arm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
+ selection
+Message-ID: <appeWCqxApU8NmuP@gpd4>
+References: <20260831181800.1668646-1-arighi@nvidia.com>
+ <20260831181800.1668646-3-arighi@nvidia.com>
+ <0d02e284-9a07-4f54-bf63-8edaa5e224e5@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0d02e284-9a07-4f54-bf63-8edaa5e224e5@arm.com>
+X-ClientProxiedBy: MI3PEPF00004E9D.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::454) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SA6PR12MB999200:EE_
+X-MS-Office365-Filtering-Correlation-Id: a65c6682-64c2-45a5-f3ac-08df0a49c4c3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: jmqhSji0JHrD8wsnWhCavCXozg14A3KRU2cOf0ng+oGXQKPbhol9b9s/Jj0NsyiNVFNDkE3qUtSYdUewGKnKkJilzlwzfQ4BhT7mBG+GOJxACwsx83V7HsMTHLcm8OanlmO99Fqt6OprYkPwmQHoEasZBiRQSQql+o3F1OttZzP+8A/8CutEODGf2D5o5TNL8Icfpvy3qrYRu5C3EDJDbRm+g/J2dErB8mw3dVpKlR75KFBWM24cR8QMx0YXltsF56ncgokCjWUqY8X5hMawdVhW7zGObQL4VDY4KAcsM94QjuVyNezIwIIca5qSGRKo059ChAFD7p7fxNB01MUCu24y//7RQ57KPqqQAoeXLEVkGxVvlHLNEYhNy9ETJr1BG27FLFDdiYOv7z5Sgy6sfPi5d6ZyJ4qUB8B93eUHaGTUjCXN5SMz/QXU2x02PZfUjhoXjtBAervxTveCBcAOnOEdXSJYysJYZFYwP/gY5jm8jodzP5NvjNQXKzKocEa2LBXIL9NZR+CF7iD9YrRxxZEiCNlifmXhqRTsIL8UelrGfY4lxmO/HyDD7JfyIptqbqAe1L04WDtWihJgfWnyfiWSlN35elRjCdQIg6Ptn50uOWZ4QYFMVKS8OTWowlU+b3w6Ui0OKfJKF1ZQjc97gyXyx7aSiGJT3efYWqzeJKA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fGo6hSmBmkYTjrbMAvp8+UKxjUlRLVQNp0J+wVninHy1eY2cfSwRRq0RYEBw?=
+ =?us-ascii?Q?4zZyIHvgJoPV/FTS9AVRfIZm+ObdQI8VnKVQnKZQOJOVQ2xNMAHnBuuuvJN7?=
+ =?us-ascii?Q?kavrkOVWrvSS40tSiGZKNF3vZra+4NTuz6SQl0Rrby7znlCCe1OK8FszwG0P?=
+ =?us-ascii?Q?Be6DQTW75OyfBwPpMtrxRpKT6qKvo3tdQCL1TO9CME3LDcen8HZuSvOo0NPQ?=
+ =?us-ascii?Q?BGHgAK7iS4n+yqaGX9WwJLQJA0WII/Q8pTzDuoSwc6FQN3h4cZwQK4Ikoat7?=
+ =?us-ascii?Q?aaZ7sFndYmHBxw3p6DkENvhUvGQlQ59tEFkYDoOWpPzhEJO44u7UvgHXLVhg?=
+ =?us-ascii?Q?7k1wWd1CqZcce9pwRm+i8m+BeZmRydVgCmFbo2wsCtS6O9ftoTTOgv82pfeS?=
+ =?us-ascii?Q?48nzm3Gb2Gal1XM9485VC+BSxsW9xLyba69fvXlCxzTqZRwZa000dE/Mie4s?=
+ =?us-ascii?Q?6XVUL7rk+S9SjEGQdousXHzIgt3WZmeV/2WxE2XySqD0Xc+5I+zKcm2+uJcw?=
+ =?us-ascii?Q?2GNoM6Vjns6+V2XvtJRVD+rtwKaqBAoh/9n7FV2av5OS9hOyyj2A5++DhULS?=
+ =?us-ascii?Q?S5JFurMixjnCeZ/ZGnqwKbErAtxBeVVptMwg+3HLcv3yqZ7C5nJheSK5mumQ?=
+ =?us-ascii?Q?M4BhnmKGcrWKRI9hAzUHsBj46F8SRxt8ievC5F3Y9FlSriRRnR/IaVRGjusI?=
+ =?us-ascii?Q?Z1LfrhIN/Z+nPFPjRbuwohyQntH58lbTJZZST33xSOcIMriIVCepBlhT314I?=
+ =?us-ascii?Q?ftIs9p+oArwMOR5GBHOAJeMb+Uov16lb2Ck/amyaKKD6Bl1XcEBQk802Oj+C?=
+ =?us-ascii?Q?Cg8zUFmfQ8HsKevCn7f0dEBvziBqj4XBRbDjE0cdYQxwp8s+D/VgG0SCYzt5?=
+ =?us-ascii?Q?sLuUKkEUeaTwO6haqG8lwxokYmw9WM0ReUa7ANVfYPhjAqfKGxfFwEuXXz0z?=
+ =?us-ascii?Q?qdBlmpLkN3rD7akHJ8Jr/ZlT+DwYwOBj+wQaEEkjPigkR0f8DGebPZ2kDWPG?=
+ =?us-ascii?Q?e3PG+0IFgCGK7Sz3RN6p3tY4eMb8ccU8deBs2JuKBXYBmixuW9U9S1z1sXLj?=
+ =?us-ascii?Q?nkMAodqcvdRIXm/3RTwsKjdaX709sh2sbEkDvsNw7cjayGrDUb676o/IAGES?=
+ =?us-ascii?Q?hfz6113OgaE//zgPVPER6fCx453IGZXsnvWhz6qP7oHtRkc7TAKiixg49XuB?=
+ =?us-ascii?Q?XcqF6mEVzT9FO5vMfS09NT0Lnx8fL8D6ZcR+ZzoW45Grpwx78yucTiHSu6i/?=
+ =?us-ascii?Q?kBPlhTufz1bczWIjfULmVC7Ts4chb/SRzEsarFMMaLX69iaS5EccH9VeNsNN?=
+ =?us-ascii?Q?P3IWGMU2KLl9xcFZm19/OxsgxMrpWbBQDadFNW2tbyyEyBJYZgs6qJ/yxGHU?=
+ =?us-ascii?Q?g3x+bEGTq5O0QUp0zOTQQqP5+U5/AROCnf+RdmpBupaw/6VICkPcNJPuiPOU?=
+ =?us-ascii?Q?GzvfLgBSbEtIAW2GiaaL0ZS3iTakzvYyLrdcMMf0q168bSuq7xQ3p9iM4Rnh?=
+ =?us-ascii?Q?ap+KIydSwIIKHy3Odt/lszGAo385O3Rt87UdfpbI3G8onIyoItgiTqvFwJmb?=
+ =?us-ascii?Q?1ThLvBDIE8Yt7SiWZUX9QCT1yiyIBwCoD4eLIMs6jMeNmIjqeROSXMMf37Um?=
+ =?us-ascii?Q?dg0CYp225TH5tHnnYrnOFZcX0yu1aaLVufzxlDBsb0GuK6dBdcjNM9Y70EmY?=
+ =?us-ascii?Q?XnqXDeVSjmAyeAxmDE4QBUHp06ItA/H2Edj8xhQl0DGEFgu6kM90gjJnhDyq?=
+ =?us-ascii?Q?3RvlMXS6wQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a65c6682-64c2-45a5-f3ac-08df0a49c4c3
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 06:00:06.2105
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SCUtvlV1Lj5lCWySXACyckZvGQ1Xqv646ufaDamSdfzj9ToP3fPFjoUte4eUC8MpHYe816ahCl+IUiv7rAIBWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR12MB999200
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_230014_322303_79B86D62 
+X-CRM114-Status: GOOD (  29.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +149,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@nvidia.com> writes:
+Hi Dietmar,
 
-> On Thu, Sep 03, 2026 at 05:18:16PM +0100, Sudeep Holla wrote:
->
->> Oh yes, we need this whatever you term as "duplication". I would argue
->> against terming it as duplications as if you look at the various SMCCC
->> based specification, we have zero consistency in how the VERSION command
->> is expected to work.
->
-> Okay, then that pretty much settles it. Nothing to do
->
->> > Missing a check means FW upgrades might become Linux breaking. 
->> 
->> Are you referring to the SMCCC bus code or RSI in particular above. I don't
->> see any issue with SMCCC bus code check as that is the least we can do and
->> must not change with future versions of the firmware as well.
->
-> Just in general, SMCCC drivers have to do something smart with the
-> version.
->
-> Like, is this OK:
->
-> #define ARM_SMCCC_TRNG_MIN_VERSION	0x10000UL
->
-> static inline bool smccc_probe_trng(void)
+On Thu, Sep 03, 2026 at 12:59:59PM +0200, Dietmar Eggemann wrote:
+> On 31.08.26 20:10, Andrea Righi wrote:
+> > SD_ASYM_PACKING orders CPUs that share an SMT core, but idle CPU
+> > selection does not consult that order. A task can therefore wake on an
+> > arbitrary sibling and remain there until load balancing corrects the
+> > placement. On SMT implementations where changing the active sibling
+> > repartitions core resources, that initial choice can cause a large and
+> > persistent performance loss.
+> 
+> I assume this sentence refers to Olympus/Vera and Power7?
+
+Yes. Olympus/Vera is the platform motivating this series, but this is affecting
+POWER7 as well, since it's also using SD_ASYM_PACKING at the SMT level. I'll
+change the description to make that scope explicit.
+
+> 
+> [...]
+> 
+> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > index 8dff37059faf7..3c49aa63742cb 100644
+> > --- a/kernel/sched/fair.c
+> > +++ b/kernel/sched/fair.c
+> > @@ -8587,6 +8587,65 @@ static inline bool test_idle_cores(int cpu)
+> >  	return false;
+> >  }
+> >  
+> > +/*
+> > + * Return true when @cpu has a higher asymmetric-packing priority than @other in their SMT
+> > + * scheduling domain.
+> > + */
+> > +static bool sched_smt_asym_prefer(int cpu, int other)
+> > +{
+> > +	struct sched_domain *sd;
+> > +
+> > +	for_each_domain(cpu, sd) {
+> > +		/*
+> > +		 * Only honor priorities declared at shared-capacity SMT levels.
+> > +		 * SD_ASYM_PACKING at higher levels may describe core ordering.
+> > +		 */
+> > +		if (!(sd->flags & SD_SHARE_CPUCAPACITY))
+> > +			break;
+> > +
+> > +		if ((sd->flags & SD_ASYM_PACKING) && cpumask_test_cpu(other, sched_domain_span(sd)))
+> 
+> Looks like 'other' is always part of the mask?
+
+It's always in the same hardware SMT sibling mask, but it's not necessarily in
+the same scheduling-domain span, isolcpus could split siblings across scheduling
+domain, select_idle_smt() has the same sched_domain_span() check for the same
+resason IIUC.
+
+> 
+> > +			return sched_asym_prefer(cpu, other);
+> > +	}
+> > +
+> > +	return false;
+> > +}
+> 
+> SMT will always the lowest SD, so for_each_domain() is not necessary:
+
+Agreed, walking the domain hierarchy is unnecessary. I'll use the lowest domain
+directly.
+
+> 
+> static bool sched_smt_asym_prefer(int cpu, int other)
 > {
-> 	struct arm_smccc_res res;
->
-> 	arm_smccc_1_1_invoke(ARM_SMCCC_TRNG_VERSION, &res);
-> 	if ((s32)res.a0 < 0)
-> 		return false;
->
-> 	return res.a0 >= ARM_SMCCC_TRNG_MIN_VERSION;
+>         struct sched_domain *sd = rcu_dereference_all(cpu_rq(cpu)->sd);
+> 
+>         if (sd && ((sd->flags & (SD_SHARE_CPUCAPACITY |
+> SD_ASYM_PACKING)) == (SD_SHARE_CPUCAPACITY | SD_ASYM_PACKING)))
+>                 return sched_asym_prefer(cpu, other);
+> 
+>         return false;
 > }
->
-> ?
->
-> It means you can never publish a version 2 that is ABI breaking
-> because linux doesn't check for that. Was that ARM's intention with
-> the version API? It's basically a completely pointless check that
-> doesn't effectively do anything.
->
-> My broader, more general point is that if SMCC is being made into a
-> discoverable bus, that's great, but it would be even better if ARM
-> could find a way to progmatically enumerate all the ABIs present on
-> the SMCC interface to populate the bus. That would necessarily include
-> some consistent treatment of versioning for consistent
-> interoperability.
->
->> If lower is also set at v3.0, then I would argue it is firmware upgrade
->> issue expecting old kernel with old RSI version supported to work. If
->> that returns v2.0, the driver must work IIUC. Aneesh, hopefully I got this
->> right ?
->
-> There was many long conversations about this and I think the
-> conclusion was RSI will broadly not use versions for any kind of ABI
-> control. It is too coarse to really work in the real world and we must
-> have strong forward/backwards interoperability inside VMs forever.
+> 
+> [...]
+> 
+> > @@ -8668,7 +8727,7 @@ static int select_idle_smt(struct task_struct *p, struct sched_domain *sd, int t
+> >  		if (!cpumask_test_cpu(cpu, sched_domain_span(sd)))
+> >  			continue;
+> >  		if (choose_idle_cpu(cpu, p))
+> > -			return cpu;
+> > +			return select_idle_smt_priority(p, cpu);
+> 
+> This one is weird for SMT2. AFAICS, select_idle_smt() is called when
+> there are no idle cores. So if you find an idle CPU this is what you
+> will return anyway.
 
+Correcdt for SMT2: once the core is partially idle, there's only one idle
+sibling and the priority lookup returns that same CPU.
 
-Even if we take RMI as an example, SMC_RMI_ABI_VERSION returns the
-lowest and highest supported interface versions.
+The hook is useful for wider asym SMT though. POWER7 uses SMT4 with
+SD_ASYM_PACKING at the SMT level, so a partially idle core can still have
+multiple idle threads. In that case select_idle_smt() would otherwise return the
+first idle thread rather than the highest-priority one.
 
-After a firmware upgrade, either value can change. Unless the existing
-kernel supports an interface version within the advertised range, the
-upgrade will break compatibility. Including the major version in the
-modalias does not help with this.
+> 
+> I guess your tests on Olympus/Vera do wakeups via select_idle_capacity()
+> so you haven't touched this one.
 
-Even with separate kernel drivers for versions 1 and 2, we still face
-the same issue. If the firmware initially supports version 1 and an
-upgrade raises the lowest supported version to 2, the version 2 driver
-can handle it. However, that is functionally equivalent to a single
-driver supporting both interface versions. If the current kernel does
-not support version 2, either through a single driver or a separate
-driver, the firmware upgrade will break compatibility.
+Correct, Vera also has SD_ASYM_CPUCAPACITY, so the scan path used by these tests
+is select_idle_capacity().
 
--aneesh
+Thanks for taking a look at this!
+-Andrea
 
