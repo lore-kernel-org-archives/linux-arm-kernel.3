@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35B8C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9373C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X59egMSYDD+fE2fzFBggAtOS3MUTfnxcCwKe29Q8yD8=; b=ZRDSxuRvzYsns3K2vVVUg2CjZA
-	lsm8Lrd1MI1EvLrH/eCxhYP9h2sXkox54XBOF0NBCVWVZVxr3N3dl1hhoFz6tfDcG5AtfaWHqAUHQ
-	XZQU+Iyj9MqQH0b+RSDJ/8D1su/0M4VthY4V+9tlqVY30SUVxVoJyqPxL6R084rIHGJXIjleoEeIk
-	qChRIVBpjpHX0ASeenCsjoFVQEy0ioxYWO2EMnAhAjw/4P97i+sSeuA2Xf7WTFkPAwa6VswtGXbYH
-	jqGMX4tVePl+smty7kjdiHiVvnN7k7cP4Jr007Jaxv0sc4sHXUzc5ri6oTG9vkQTLTiKyJfS+h4s0
-	kDeUjeOw==;
+	bh=bRH9NLWj3veDgRtEBUkvu/4GOMF1+Ix0zuaRZ5NgKNI=; b=saCfLprVUk87YSAmdCsbbmFz+a
+	Hli/WHP+4YNHtUEfK/VkATQiV8xhUCZyniB9V/ENBDf10LWSh5/cB2XU0EQuz9VBDApMorlKGlw96
+	U0t76HwNA6K/+vYhggrjIfXc3NKFbEuz0meMyz7JT057SI2HDDaC2o9gmUKAsY3s8MX6Nvzm2LojB
+	yuI96LKlAiKqqvcAuFPcZ35sqK0L2E8Gd1ugcfUwBsLhUyc6IJY/cEzZ8WsS9gtVo0Cju2C159eZg
+	EGdGKZWQzg1HTX2JUEhrb0knNtPRPq5k0IARC8Lb6DL1jbWlJiD7PR+eTr5bQ0HnJLL3H4UKqY3UL
+	Ty0FfFxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Rra-00000001nAt-0vpb;
-	Fri, 04 Sep 2026 11:13:42 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1x2Rx5-00000001nrt-0kxx;
+	Fri, 04 Sep 2026 11:19:23 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RrW-00000001n8v-1ifD;
-	Fri, 04 Sep 2026 11:13:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=X59egMSYDD+fE2fzFBggAtOS3MUTfnxcCwKe29Q8yD8=; b=F
-	nmN2lfnW3b9tBbPbd/9jZ97NII9zPXTJftpLtim88qJA1A3Svuhzip3AJadw2v3G
-	STJF196aHB3EL21x5KWIFwAqhZmIRd9Vc8jEYTmxE8WlnDUwxmbdBD0gcfhI5ayS
-	6jo9KfZS79BAi+p8CX8KHSJxHScHunmn+2rgi0CYgc=
-Date: Fri, 4 Sep 2026 19:13:03 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Johan Jonker" <jbx6244@gmail.com>
-Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	andy.yan@rock-chips.com, hjc@rock-chips.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [RFC PATCH v1] drm: rockchip: add
- drm_plane_create_blend_mode_property
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <a239b296-ba90-45d1-b8b8-713ab29fda5c@gmail.com>
-References: <1ab6fb88-3b84-49b5-aa05-202a84edbd3d@gmail.com>
- <25031028.6Emhk5qWAg@diego>
- <a239b296-ba90-45d1-b8b8-713ab29fda5c@gmail.com>
-X-NTES-SC: AL_Qu2TCvmZv0sj5SSfZekfmUgWjuw/WsG1v/Ul1YBSP556jCHrxzoRdHxjAkDS7+6eBDGRrDGqWTZt7uBVZIN9ZLsi34t6cze7ZrnBPpeLFqZdGQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1x2Rx2-00000001nrO-3jAy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 11:19:22 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-cc1c3c90074so848206a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 04:19:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788520760; x=1789125560; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bRH9NLWj3veDgRtEBUkvu/4GOMF1+Ix0zuaRZ5NgKNI=;
+        b=cnj7V1JwuTpvsCpDgUECmTEzbEpRuZTHDzTKPgsHqINFVbY+LLH5jCT6U4aMrkAENl
+         UQJ4lv26lDrhL8cSwKsYrdrwl6n3KVqqoQ4g+yZOlBnQZZCU5nHansmiy/ZPz3PXNRek
+         NtofffnnnjjVjcZhYHRnqscYUA2KjRXAB4Llkl0KrohcDhupG48gagcYTRjSU5pZVerh
+         ecsuiRfLptcaDrQMp9TWwXEqo0UyIzG67Uu4sZzX43cF9hC0kFNWiyJ1QBBbnK6iKLK6
+         a2BmsUKrlvHNOMJEMR2KJeF8hh1H5iZnsMLpqlJVwc1jQMY44EsxP/J4AQKtBUG7VJy7
+         kiLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788520760; x=1789125560;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bRH9NLWj3veDgRtEBUkvu/4GOMF1+Ix0zuaRZ5NgKNI=;
+        b=d6VdojNcwg69yg+Uo9/rMp7qydP/xl2bKXYkqkJBoBlx48ISImzj4w7+6hSqJLi70h
+         ncMt/2w1TCVdMBG6+jROOMsIwg5bv5PmvV8F1IzdqbgLuJwi9GqvjL/BJNpRb2Bo7Nzq
+         5ZSwiShupQQ3RDVzkEVM0+Cqd6hKZkUUHqBaEWxo5WKHORXO62seFhgrP0gfvfM+8tc9
+         N/ZlfAFwObROLOA0ijKR23F3Ob6hqUcXythkidbTevloUEWZWEK/ITB5waWMBX11wEn2
+         49+k6zyGQ/gCq0tuGePLYJ4e6tt7xj7MQj7pxSvSoLni9m4zHTVBPLWuIXx0ATmHfmd3
+         x4dw==
+X-Forwarded-Encrypted: i=1; AKwUvBzBupxGeDjIJgJjbJm7KW0vs6NlPKM13fEcrsZ1qAnVq6xwJn98otJ85ZXumrU4XObE5+LpXZpjVZGiy/SvxJXt@lists.infradead.org
+X-Gm-Message-State: AFuF++lwGLYgyZr2EjtE+0CSr2suHW25rIymx8xb1sf8nmptG/YdQevB
+	EE0vYCrRBSQfKAXZalGLLaStFujy/iIvGbAPMkippCBIFyI/BfQEfYNu
+X-Gm-Gg: AYBFou2bCH6hTv9f8hVlCUcdrgpXYySHucch9nxHCEfobyt4ynKDWk7VVvBJvDTyZ53
+	lCPdIPzL7krkHZgZlXCptrLU3K7ECWMpjBDrkL7XAK/fIUPTKecy0rnhZhBopIf7mHE/7zxg/wm
+	jYzJqIDyGneSrzbEv/0m34O9eZtFdvwEYy2vzI+OUd4mG4z2GpuadtnGwo8VRd1aLPK9KXN+SI7
+	nuNmzqtyu55PzxH9T3yPmq3FdoFIdABr30wnBJLIAvNsQXbr3TzikM48MdGfeHO3iX51BUxFC5D
+	R4xRVeWBaS+9+xjnje41TsCIMVLr1A2xAM5BRAHmWUI9/8TeqZTeY4tCGTfLkIizOHE4pxVvYDZ
+	aESSIzBATqRX7klnAVpWHtvxza/YDDBtd7LGZ+QmOpuPwReDflQL8OqjLqwshdl+Gk9bWqJ0YG3
+	AGHmtNv5QopIqR8kwvGqhYbXmELaV2wYXWB3lVNEkMdpLf4IRe3gIv7veWKx0LKdDtKO1qBtgUy
+	zDix7GRQ78IPb7VzsRYUnAt9HgnnTUVtBLhOw==
+X-Received: by 2002:a17:90b:39a7:b0:381:cef1:11ac with SMTP id 98e67ed59e1d1-39b26125efemr7563823a91.10.1788520759802;
+        Fri, 04 Sep 2026 04:19:19 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339befdefcsm5190103eec.29.2026.09.04.04.19.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 04:19:19 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] input: fix typos in comments
+Date: Fri,  4 Sep 2026 16:49:07 +0530
+Message-ID: <20260904111911.32224-2-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20260904111911.32224-1-hemanth.selam@gmail.com>
+References: <20260904111911.32224-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
-Message-ID: <3ff2201c.8fbe.1a06c1f43f5.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: lCgvCgD3X9y_p5pqQtI_AA--.6224W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7h9auGqap7-zwAAA3I
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_041338_929595_6E50F2F9 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260904_041920_927825_C3200AC9 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +105,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIZWxsbG/vvIwKCkF0IDIwMjYtMDgtMjQgMDU6MDY6NDUsICJKb2hhbiBKb25rZXIiIDxqYng2
-MjQ0QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPgo+T24gOC8yMy8yNiAyMToxOSwgSGVpa28gU3TDvGJu
-ZXIgd3JvdGU6Cj4+IEhpIEpvaGFuLAo+PiAKPj4gQW0gU29ubnRhZywgMjMuIEF1Z3VzdCAyMDI2
-LCAxNDoyOTowOSBNaXR0ZWxldXJvcMOkaXNjaGUgU29tbWVyemVpdCBzY2hyaWViIEpvaGFuIEpv
-bmtlcjoKPj4+IEEgdmFsaWRhdGVfYmxlbmRfbW9kZV9mb3JfYWxwaGFfZm9ybWF0cygpIGZ1bmN0
-aW9uIHdhcyBhZGRlZCB0aGF0Cj4+PiBmaWxscyB0aGUga2VybmVsIGxvZyB3aXRoIHdhcm5pbmdz
-IGZvciBSb2NrY2hpcCBWT1AgdmVyc2lvbiAxIFNvQ3MuCj4+PiBBZGQgYSBkcm1fcGxhbmVfY3Jl
-YXRlX2JsZW5kX21vZGVfcHJvcGVydHkoKSBmdW5jdGlvbiBhcyBmaXguCj4+IAo+Cj4+IFRoaXMg
-aXMgbWlzc2luZyBleHBsYW5hdGlvbiBvbiB3aHkgUElYRUxfTk9ORSBpcyB0aGUgY29ycmVjdCB2
-YWx1ZS4KPj4gCj4+IFZPUDIgc2VlbXMgdG8gc3VwcG9ydCBhbGwgMyBibGVuZCBtb2Rlcz8gU28g
-YSBzZW50ZWNlIGV4cGxhaW5pbmcKPj4gdGhlIHBpeGVsX25vbmUgdmFsdWUgd291bGQgYmUgaGVs
-cGZ1bC4KPj4gCj4+IAo+Cj5IaSwKPgo+SW4gdGhlIHZvcF9wbGFuZV9hdG9taWNfdXBkYXRlKCkg
-ZnVuY3Rpb24gdGhlcmUncyBhIGNvbW1lbnQgd2l0aCB3aW4wIGJsZW5kIGJyb2tlbjoKPgo+CS8q
-Cj4JICogQmxlbmRpbmcgd2luMCB3aXRoIHRoZSBiYWNrZ3JvdW5kIGNvbG9yIGRvZXNuJ3Qgc2Vl
-bSB0byB3b3JrCj4JICogY29ycmVjdGx5LiBXZSBvbmx5IGdldCB0aGUgYmFja2dyb3VuZCBjb2xv
-ciwgbm8gbWF0dGVyIHRoZSBjb250ZW50cwo+CSAqIG9mIHRoZSB3aW4wIGZyYW1lYnVmZmVyLiAg
-SG93ZXZlciwgYmxlbmRpbmcgcHJlLW11bHRpcGxpZWQgY29sb3IKPgkgKiB3aXRoIHRoZSBkZWZh
-dWx0IG9wYXF1ZSBibGFjayBkZWZhdWx0IGJhY2tncm91bmQgY29sb3IgaXMgYSBuby1vcCwKPgkg
-KiBzbyB3ZSBjYW4ganVzdCBkaXNhYmxlIGJsZW5kaW5nIHRvIGdldCB0aGUgY29ycmVjdCByZXN1
-bHQuCj4JICovCj4KCiAgICAgQWxsIFZPUCAxIGRvIG5vdCBzdXBwb3J0IGFscGhhIGJsZW5kaW5n
-IHdpdGggYmFja2dyb3VuZC4KICAgIEFsc28sIHNvbWUgVk9QcyBkbyBub3Qgc3VwcG9ydCBhbHBo
-YSB3aGVuIHNjYWxpbmcgaXMgZW5hYmxlZCwgZXhjZXB0IHRob3NlIG1hcmtlZCB3aXRoIFZPUF9G
-RUFUVVJFX0FMUEhBX1NDQUxF77yMIHNlZVswXQoKWzBdaHR0cHM6Ly9naXRodWIuY29tL3JvY2tj
-aGlwLWxpbnV4L2tlcm5lbC9ibG9iL2RldmVsb3AtNi4xMi9kcml2ZXJzL2dwdS9kcm0vcm9ja2No
-aXAvcm9ja2NoaXBfdm9wX3JlZy5jCgo+SW4gdGhlIGZ1bmN0aW9uIHZvcDJfcGxhbmVfaW5pdCgp
-IHRoZXJlIGFyZSB0aGVzZSBibGVuZHM6IAo+Cj4JdW5zaWduZWQgaW50IGJsZW5kX2NhcHMgPSBC
-SVQoRFJNX01PREVfQkxFTkRfUElYRUxfTk9ORSkgfAo+CQkJCSAgQklUKERSTV9NT0RFX0JMRU5E
-X1BSRU1VTFRJKSB8Cj4JCQkJICBCSVQoRFJNX01PREVfQkxFTkRfQ09WRVJBR0UpOwo+Cj5NeSBx
-dWVzdGlvbjoKPkNvdWxkIHNvbWVvbmUgd2l0aCBtb3JlIGtub3ctaG93IHRlbGwgdXMgd2hhdCBW
-T1AgdmVyc2lvbiAxIGlzIGNhcGFibGUgb2Y/Cj5JcyB0aGVyZSBhbnl0aGluZyB0aGF0IG5lZWRz
-IHRvIGJlIHNldCBsaWtlIGluIG90aGVyIGRyaXZlcnM/Cj4KPkZvciBleGFtcGxlOgo+CQlzd2l0
-Y2ggKHBpeGVsX2JsZW5kX21vZGUpIHsKPgkJY2FzZSBEUk1fTU9ERV9CTEVORF9QUkVNVUxUSToK
-PgkJCWJyZWFrOwo+CQljYXNlIERSTV9NT0RFX0JMRU5EX0NPVkVSQUdFOgo+CQkJYnJlYWs7Cj4J
-CWNhc2UgRFJNX01PREVfQkxFTkRfUElYRUxfTk9ORToKPgkJZGVmYXVsdDoKPgkJCWJyZWFrOwo+
-CQl9Cj4KPklmIHNvbWVvbmUgY29tZXMgdXAgd2l0aCBhbm90aGVyIHNvbHV0aW9uL3BhdGNoIHRo
-YXQncyBhbHNvIGZpbmUsIGFzIGxvbmcgdGhlIGtlcm5lbCB3YXJuaW5ncyBhcmUgZ29uZS4KPgo+
-VGhhbmtzIQo+Cj5Kb2hhbgo+Cj4KPgo+PiBIZWlrbwo+PiAKPj4+IFNpZ25lZC1vZmYtYnk6IEpv
-aGFuIEpvbmtlciA8amJ4NjI0NEBnbWFpbC5jb20+Cj4+PiAtLS0KPj4+Cj4+PiBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9hbGwvMjAyNjA1MjYxODE3MDAuMjUzMTAtMy1sZWFuZHJvLnJpYmVpcm9A
-Y29sbGFib3JhLmNvbS8KPj4+IC0tLQo+Pj4gIGRyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2Nr
-Y2hpcF9kcm1fdm9wLmMgfCAyICsrCj4+PiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygr
-KQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBf
-ZHJtX3ZvcC5jIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AuYwo+
-Pj4gaW5kZXggMDA5MGQ4ZmYwYzc5Li4wYmM1YjYwNmYwMjEgMTAwNjQ0Cj4+PiAtLS0gYS9kcml2
-ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcC5jCj4+PiArKysgYi9kcml2ZXJz
-L2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcC5jCj4+PiBAQCAtMTg1MCw2ICsxODUw
-LDggQEAgc3RhdGljIHZvaWQgdm9wX3BsYW5lX2FkZF9wcm9wZXJ0aWVzKHN0cnVjdCBkcm1fcGxh
-bmUgKnBsYW5lLAo+Pj4gIAlpZiAoZmxhZ3MpCj4+PiAgCQlkcm1fcGxhbmVfY3JlYXRlX3JvdGF0
-aW9uX3Byb3BlcnR5KHBsYW5lLCBEUk1fTU9ERV9ST1RBVEVfMCwKPj4+ICAJCQkJCQkgICBEUk1f
-TU9ERV9ST1RBVEVfMCB8IGZsYWdzKTsKPj4+ICsJZHJtX3BsYW5lX2NyZWF0ZV9ibGVuZF9tb2Rl
-X3Byb3BlcnR5KHBsYW5lLAo+Pj4gKwkJCQkJICAgICBCSVQoRFJNX01PREVfQkxFTkRfUElYRUxf
-Tk9ORSkpOwo+Pj4gIH0KPj4+ICAKPj4+ICBzdGF0aWMgaW50IHZvcF9jcmVhdGVfY3J0YyhzdHJ1
-Y3Qgdm9wICp2b3ApCj4+Pgo+PiAKPj4gCj4+IAo+PiAKPgo=
+Fix typos in comments, reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only touches comments, no code
+changes.
+
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
+ drivers/input/keyboard/imx_keypad.c        | 2 +-
+ drivers/input/keyboard/pxa27x_keypad.c     | 2 +-
+ drivers/input/mouse/elantech.h             | 2 +-
+ drivers/input/rmi4/rmi_f54.c               | 2 +-
+ drivers/input/touchscreen/exc3000.c        | 2 +-
+ drivers/input/touchscreen/usbtouchscreen.c | 2 +-
+ 6 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/input/keyboard/imx_keypad.c b/drivers/input/keyboard/imx_keypad.c
+index ccde60cd6bb3..9e0898588e06 100644
+--- a/drivers/input/keyboard/imx_keypad.c
++++ b/drivers/input/keyboard/imx_keypad.c
+@@ -396,7 +396,7 @@ static int imx_keypad_open(struct input_dev *dev)
+ 
+ 	imx_keypad_config(keypad);
+ 
+-	/* Sanity control, not all the rows must be actived now. */
++	/* Sanity control, not all the rows must be activated now. */
+ 	if ((readw(keypad->mmio_base + KPDR) & keypad->rows_en_mask) == 0) {
+ 		dev_err(&dev->dev,
+ 			"too many keys pressed, control pins initialisation\n");
+diff --git a/drivers/input/keyboard/pxa27x_keypad.c b/drivers/input/keyboard/pxa27x_keypad.c
+index 4519eecb317b..320021e9d81b 100644
+--- a/drivers/input/keyboard/pxa27x_keypad.c
++++ b/drivers/input/keyboard/pxa27x_keypad.c
+@@ -522,7 +522,7 @@ static void pxa27x_keypad_config(struct pxa27x_keypad *keypad)
+ 		direct_key_num = keypad->direct_key_num;
+ 
+ 	/*
+-	 * Direct keys usage may not start from KP_DKIN0, check the platfrom
++	 * Direct keys usage may not start from KP_DKIN0, check the platform
+ 	 * mask data to config the specific.
+ 	 */
+ 	if (!keypad->direct_key_mask)
+diff --git a/drivers/input/mouse/elantech.h b/drivers/input/mouse/elantech.h
+index 571e6ca11d33..a2ab57a11b64 100644
+--- a/drivers/input/mouse/elantech.h
++++ b/drivers/input/mouse/elantech.h
+@@ -57,7 +57,7 @@
+ 
+ /*
+  * One hard to find application note states that X axis range is 0 to 576
+- * and Y axis range is 0 to 384 for harware version 1.
++ * and Y axis range is 0 to 384 for hardware version 1.
+  * Edge fuzz might be necessary because of bezel around the touchpad
+  */
+ #define ETP_EDGE_FUZZ_V1		32
+diff --git a/drivers/input/rmi4/rmi_f54.c b/drivers/input/rmi4/rmi_f54.c
+index 6c6cdec7da9e..43a4e262cd2b 100644
+--- a/drivers/input/rmi4/rmi_f54.c
++++ b/drivers/input/rmi4/rmi_f54.c
+@@ -193,7 +193,7 @@ static int rmi_f54_request_report(struct rmi_function *fn, u8 report_type)
+ 
+ 	/*
+ 	 * Small delay after disabling interrupts to avoid race condition
+-	 * in firmare. This value is a bit higher than absolutely necessary.
++	 * in firmware. This value is a bit higher than absolutely necessary.
+ 	 * Should be removed once issue is resolved in firmware.
+ 	 */
+ 	usleep_range(2000, 3000);
+diff --git a/drivers/input/touchscreen/exc3000.c b/drivers/input/touchscreen/exc3000.c
+index 037bb35238a3..e18e74781c58 100644
+--- a/drivers/input/touchscreen/exc3000.c
++++ b/drivers/input/touchscreen/exc3000.c
+@@ -406,7 +406,7 @@ static int exc3000_probe(struct i2c_client *client)
+ 	 * ensures, that the device probe will not fail for temporary issues
+ 	 * on the bus.  This is not needed for the sysfs calls (userspace
+ 	 * will receive the error code and can start another query) and
+-	 * cannot be done for touch events (but that only means loosing one
++	 * cannot be done for touch events (but that only means losing one
+ 	 * or two touch events anyways).
+ 	 */
+ 	for (retry = 0; retry < 3; retry++) {
+diff --git a/drivers/input/touchscreen/usbtouchscreen.c b/drivers/input/touchscreen/usbtouchscreen.c
+index 0bbacb517c28..81d24f5fbcc4 100644
+--- a/drivers/input/touchscreen/usbtouchscreen.c
++++ b/drivers/input/touchscreen/usbtouchscreen.c
+@@ -51,7 +51,7 @@ static bool hwcalib_xy;
+ module_param(hwcalib_xy, bool, 0644);
+ MODULE_PARM_DESC(hwcalib_xy, "If set hw-calibrated X/Y are used if available");
+ 
+-/* device specifc data/functions */
++/* device specific data/functions */
+ struct usbtouch_usb;
+ struct usbtouch_device_info {
+ 	int min_xc, max_xc;
+-- 
+2.48.1
+
 
