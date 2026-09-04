@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8825C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80759C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MAGWXG3Ahq1mYkJfQDDBcTX3uMzi1AhbirDI8EReniI=; b=eGOYiehpLvzysq
-	rJ/DWM+e6HZlMp38wJzQ0aowYPLlM6TrGVhaLRjPW93JtUU6rM7L09OkuxU4RhRfGKHtOpyhE0aWg
-	6HuwVygYb98uIMvNXNHLoeoe+5vo3/pygo2CxNir/YBF96vKzc6+MYwFMu28oA0IQfkaynqF8IJQ8
-	23DQUy66pmA+Vge8NTDSDZ5h1eGa0lML19TEVhfA8sEnitYSAA0IhTnxlGGftVzMRb4hpKQ3Huz/+
-	6xkob044g58vQFOKJS+rUODlibLbbFsikk/9TJqs/0FmFtx84u5YpChv9R69Faq0c94tKeditos7q
-	HphPYaEZwxho/onXfu9w==;
+	List-Owner; bh=6sDy9GuF7SUNnQ1q2/4jIE3J5QjtSC2VYNO1qS0cctA=; b=ntG3hyaWZQeOcP
+	M+45R8s5mV9dZ1We2pXBRVfbAEMZ4fJ2yELnhsosCVLUIHxa9VTY36g7pFsIzW9utnUuHLN/tp2QT
+	fftR3LC6gbtL1paZoJuyrJIJreLa/iPsdZHqQbPCW98OfQ37C85wvMaDzeWsVy97Ou0XOLMjiSilN
+	YZCSSY6CpVVCxXXdqBel1NcQ3Q92YfrwYvTX0A8YNxeL2UGUvS3qikR6e96dojzyTVKd8TEfM9ioz
+	Ukz4ARDd8IW7dYAgcjaLUgEPvc1w3DbKoCw0Rd+8pmDLOCg4aX6rFWox9/ICqaAXkMhamWbr94BzL
+	bovFTvxoxt2zdLtE2NMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XBe-00000002o44-2noC;
-	Fri, 04 Sep 2026 16:54:46 +0000
+	id 1x2XD3-00000002oCf-41TJ;
+	Fri, 04 Sep 2026 16:56:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2XBb-00000002o3M-1iqI
+	id 1x2XCz-00000002oC5-43aj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:54:44 +0000
+	Fri, 04 Sep 2026 16:56:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A2EC152B;
-	Fri,  4 Sep 2026 09:54:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 02E15152B;
+	Fri,  4 Sep 2026 09:56:05 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D65433F673;
-	Fri,  4 Sep 2026 09:54:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A5E6C3F673;
+	Fri,  4 Sep 2026 09:56:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788540882; bh=KFeNIBrLxZQpzLqw1ayvd3v5I1936Z3GzJgS3GkPOo0=;
+	t=1788540968; bh=+urC92fTi5p2Xjzo7KYfLK0V4wF1Ttkp4PL7+WZOhQ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bp1Qc9x1Y9v42Z0LcCy/WpelGFL5GNGAYDEfpsbJ+BDL8SBtTd1YCSFZKp69FTuzl
-	 xaof4qNcSOS9n8+Hp/7VAy3a6f9bdD9c8FgjRKspTiWZJiRDFijcVsR+CbUZhkFbKI
-	 t4b89OCHH6uh7EnxNT76IvTAVapJbGG22Ed5EPho=
+	b=chu+8afOWTBQLSxqW2RzALf9LMbiinW9KHMVuD9kbrgEkDhix1jMh/k7GDEWOkEU8
+	 k+fJ5RpxaSDpP9jX6/VIia6ZE0Z5+EnK6TD0if8xtSpR4UN0ssCMIKWetJuS3kWrXS
+	 7K8yu40a2r9hvzpoLEZ9R1kcPMURAMUfreMsCMz0=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 01/21] arm64: percpu: Fix this_cpu_write() casting
-Date: Fri,  4 Sep 2026 17:54:04 +0100
-Message-Id: <20260904165404.376821-1-mark.rutland@arm.com>
+Subject: [PATCH v3 02/21] arm64: percpu: Fix this_cpu_and() mask generation
+Date: Fri,  4 Sep 2026 17:56:00 +0100
+Message-Id: <20260904165600.376877-1-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
 References: <20260904161758.376504-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_095443_545150_FF938AEE 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20260904_095610_084273_3E2F98EC 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,42 +67,70 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@i
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 implementation of this_cpu_write() casts 'val' to unsigned
-long. This is necessary to handle cases where 'val' is a pointer type,
-and to avoid spurious compiler warnings for the (unreachable!) cases
-where the pointer type would be cast to a smaller integer type.
+The arm64 implementation of this_cpu_and(pcp, val) is built in terms of
+ANDNOT operations, which requires the 'val' argument to be bitwise
+negated. The bitwise negation is not implemented correctly, with two
+bugs described below.
 
-Unfortunately, the cast is applied to 'val' rather than '(val)', which
-won't always generate the expected value when 'val' is an expression.
+(1) The bitwise negation is performed as '~val' rather than '~(val)'.
+    This won't always generate the expected value when 'val' is an
+    expression.
 
-For example, for this_cpu_write(pcp, zero - 1), where 'pcp' is a u64 and
-'zero' is a u32:
+    For example, for this_cpu_and(pcp, 1 - 1):
 
-* 'zero'                      ===> (u32) 0x00000000
-* 'zero - 1'                  ===> (u32) 0xffffffff
-* '(unsigned long)zero - 1'   ===> (u64) 0xffffffffffffffff
-* '(unsigned long)(zero - 1)' ===> (u64) 0x00000000ffffffff
+    * 'val'    is  '1 - 1'   ===> (int) 0x00000000
+    * '~val'   is '~1 - 1'   ===> (int) 0xfffffffd
+    * '~(val)' is '~(1 - 1)' ===> (int) 0xffffffff
 
-Fix this by adding brackets around 'val'
+    ... and thus bit[1] of 'pcp' would be preserved unexpectedly by the
+    ANDNOT operation.
 
-The bug described above can be seen from the disassembly of the
+(2) The bitwise negation is performed on 'val' before it has been cast
+    to (at least) the width of 'pcp'. This won't always generate the
+    expected value for the upper bits.
+
+    For example, for this_cpu_and(pcp, zero), where 'pcp' is a u64 and
+    'zero' is a u32:
+
+    * 'zero'           ===> (u32) 0x00000000
+    * '~(zero)'        ===> (u32) 0xffffffff
+    * '(u64)~(zero)'   ===> (u64) 0x00000000ffffffff
+    * '~((u64)(zero))' ===> (u64) 0xffffffffffffffff
+
+    ... and thus bits[63:32] of 'pcp' would be preserved unexpectedly by
+    the ANDNOT operation.
+
+Fix these issues by adding brackets around 'val', and by casting 'val'
+to an appropriately-sized type before bitwise negation.
+
+The bugs described above can be seen from the disassembly of the
 following test code:
 
-| void this_cpu_write_zero_minus_1(u64 __percpu *pcp)
+| void this_cpu_and_u64_zero(u64 __percpu *pcp)
 | {
-| 	u32 zero = 0;
-| 	this_cpu_write(*pcp, zero - 1);
+|         u64 zero = 0;
+|         this_cpu_and(*pcp, zero);
 | }
 |
-| void this_cpu_write_zero_minus_1_brackets(u64 __percpu *pcp)
+| void this_cpu_and_u32_zero(u64 __percpu *pcp)
 | {
-| 	u32 zero = 0;
-| 	this_cpu_write(*pcp, (zero - 1));
+|         u32 zero = 0;
+|         this_cpu_and(*pcp, zero);
+| }
+|
+| void this_cpu_and_expr_zero(u64 __percpu *pcp)
+| {
+|         this_cpu_and(*pcp, 1 - 1);
+| }
+|
+| void this_cpu_and_expr_zero_brackets(u64 __percpu *pcp)
+| {
+|         this_cpu_and(*pcp, (1 - 1));
 | }
 
-Generated code before this patch:
+Before this patch:
 
-| <this_cpu_write_zero_minus_1>:
+| <this_cpu_and_u64_zero>:
 |        paciasp
 |        stp     x29, x30, [sp, #-16]!
 |        mrs     x1, sp_el0
@@ -110,21 +138,25 @@ Generated code before this patch:
 |        ldr     w2, [x1, #8]
 |        add     w2, w2, #0x1
 |        str     w2, [x1, #8]
-|        mov     x3, #0xffffffffffffffff
+|        mov     x3, #0xffffffffffffffff         // #-1
 |        mrs     x2, tpidr_el1
-|        str     x3, [x0, x2]
+|        add     x0, x0, x2
+| 1:     ldxr    x5, [x0]
+|        bic     x5, x5, x3
+|        stxr    w4, x5, [x0]
+|        cbnz    w4, 1b
 |        ldr     x0, [x1, #8]
 |        add     x0, x0, x3
 |        str     w0, [x1, #8]
-|        cbz     x0, 1f
+|        cbz     x0, 2f
 |        ldr     x0, [x1, #8]
-|        cbnz    x0, 2f
-| 1:     bl      preempt_schedule_notrace
-| 2:     ldp     x29, x30, [sp], #16
+|        cbnz    x0, 3f
+| 2:     bl      preempt_schedule_notrace
+| 3:     ldp     x29, x30, [sp], #16
 |        autiasp
 |        ret
 |
-| <this_cpu_write_zero_minus_1_brackets>:
+| <this_cpu_and_u32_zero>:
 |        paciasp
 |        stp     x29, x30, [sp, #-16]!
 |        mrs     x1, sp_el0
@@ -132,23 +164,25 @@ Generated code before this patch:
 |        ldr     w2, [x1, #8]
 |        add     w2, w2, #0x1
 |        str     w2, [x1, #8]
-|        mov     x3, #0xffffffff
+|        mov     x3, #0xffffffff                 // #4294967295
 |        mrs     x2, tpidr_el1
-|        str     x3, [x0, x2]
+|        add     x0, x0, x2
+| 1:     ldxr    x5, [x0]
+|        bic     x5, x5, x3
+|        stxr    w4, x5, [x0]
+|        cbnz    w4, 1b
 |        ldr     x0, [x1, #8]
 |        sub     x0, x0, #0x1
 |        str     w0, [x1, #8]
-|        cbz     x0, 1f
+|        cbz     x0, 2f
 |        ldr     x0, [x1, #8]
-|        cbnz    x0, 2f
-| 1:     bl      preempt_schedule_notrace
-| 2:     ldp     x29, x30, [sp], #16
+|        cbnz    x0, 3f
+| 2:     bl      preempt_schedule_notrace
+| 3:     ldp     x29, x30, [sp], #16
 |        autiasp
 |        ret
-
-Generated code after this patch:
-
-| <this_cpu_write_zero_minus_1>:
+|
+| <this_cpu_and_expr_zero>:
 |        paciasp
 |        stp     x29, x30, [sp, #-16]!
 |        mrs     x1, sp_el0
@@ -156,27 +190,63 @@ Generated code after this patch:
 |        ldr     w2, [x1, #8]
 |        add     w2, w2, #0x1
 |        str     w2, [x1, #8]
-|        mov     x3, #0xffffffff
+|        mov     x3, #0xfffffffffffffffd         // #-3
 |        mrs     x2, tpidr_el1
-|        str     x3, [x0, x2]
+|        add     x0, x0, x2
+| 1:     ldxr    x5, [x0]
+|        bic     x5, x5, x3
+|        stxr    w4, x5, [x0]
+|        cbnz    w4, 1b
 |        ldr     x0, [x1, #8]
 |        sub     x0, x0, #0x1
 |        str     w0, [x1, #8]
-|        cbz     x0, 1f
+|        cbz     x0, 2f
 |        ldr     x0, [x1, #8]
-|        cbnz    x0, 2f
-| 1:     bl      preempt_schedule_notrace
-| 2:     ldp     x29, x30, [sp], #16
+|        cbnz    x0, 3f
+| 2:     bl      preempt_schedule_notrace
+| 3:     ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
+
+After this patch:
+
+| <this_cpu_and_u64_zero>:
+|        paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mrs     x1, sp_el0
+|        mov     x29, sp
+|        ldr     w2, [x1, #8]
+|        add     w2, w2, #0x1
+|        str     w2, [x1, #8]
+|        mov     x3, #0xffffffffffffffff         // #-1
+|        mrs     x2, tpidr_el1
+|        add     x0, x0, x2
+| 1:     ldxr    x5, [x0]
+|        bic     x5, x5, x3
+|        stxr    w4, x5, [x0]
+|        cbnz    w4, 1b
+|        ldr     x0, [x1, #8]
+|        add     x0, x0, x3
+|        str     w0, [x1, #8]
+|        cbz     x0, 2f
+|        ldr     x0, [x1, #8]
+|        cbnz    x0, 3f
+| 2:     bl      0 <preempt_schedule_notrace>
+| 3:     ldp     x29, x30, [sp], #16
 |        autiasp
 |        ret
 |
-| <this_cpu_write_zero_minus_1_brackets>:
-|        b       this_cpu_write_zero_minus_1
+| <this_cpu_and_u32_zero>:
+|        b       this_cpu_and_u64_zero
+|
+| <this_cpu_and_expr_zero>:
+|        b       this_cpu_and_u64_zero
+|
+| <this_cpu_and_expr_zero_brackets>:
+|        b       this_cpu_and_u64_zero
 
 Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
-Reported-by: David Laight <david.laight.linux@gmail.com>
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: David Laight <david.laight.linux@gmail.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Tested-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 Acked-by: Christopher Lameter (Ampere) <cl@gentwo.org>
@@ -195,27 +265,27 @@ Cc: stable@vger.kernel.org
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index b57b2bb009677..63bbfd4944a37 100644
+index 63bbfd4944a37..31193bcf89a2b 100644
 --- a/arch/arm64/include/asm/percpu.h
 +++ b/arch/arm64/include/asm/percpu.h
-@@ -179,13 +179,13 @@ PERCPU_RET_OP(add, add, ldadd)
- 	_pcp_protect_return(__percpu_read_64, pcp)
+@@ -206,13 +206,13 @@ PERCPU_RET_OP(add, add, ldadd)
+ 	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
  
- #define this_cpu_write_1(pcp, val)	\
--	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
-+	_pcp_protect(__percpu_write_8, pcp, (unsigned long)(val))
- #define this_cpu_write_2(pcp, val)	\
--	_pcp_protect(__percpu_write_16, pcp, (unsigned long)val)
-+	_pcp_protect(__percpu_write_16, pcp, (unsigned long)(val))
- #define this_cpu_write_4(pcp, val)	\
--	_pcp_protect(__percpu_write_32, pcp, (unsigned long)val)
-+	_pcp_protect(__percpu_write_32, pcp, (unsigned long)(val))
- #define this_cpu_write_8(pcp, val)	\
--	_pcp_protect(__percpu_write_64, pcp, (unsigned long)val)
-+	_pcp_protect(__percpu_write_64, pcp, (unsigned long)(val))
+ #define this_cpu_and_1(pcp, val)	\
+-	_pcp_protect(__percpu_andnot_case_8, pcp, ~val)
++	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
+ #define this_cpu_and_2(pcp, val)	\
+-	_pcp_protect(__percpu_andnot_case_16, pcp, ~val)
++	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
+ #define this_cpu_and_4(pcp, val)	\
+-	_pcp_protect(__percpu_andnot_case_32, pcp, ~val)
++	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
+ #define this_cpu_and_8(pcp, val)	\
+-	_pcp_protect(__percpu_andnot_case_64, pcp, ~val)
++	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
  
- #define this_cpu_add_1(pcp, val)	\
- 	_pcp_protect(__percpu_add_case_8, pcp, val)
+ #define this_cpu_or_1(pcp, val)		\
+ 	_pcp_protect(__percpu_or_case_8, pcp, val)
 -- 
 2.30.2
 
