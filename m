@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54462C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF72C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5ydjw49DZM6ZNER4g2lcExI1LMpGhnZwTfnwbU+34mY=; b=AKWI6pEfcrJVzM1meG3oy85hBU
-	UB2pCDVU/9AYLZ8NFEnOOC/83EBU6+dA0swsNHijU14MXcZvNp35vh3J+8ZkFrzpM6c6i+h5FE6H/
-	+gDLfzLAGSS6D7+J59leZBx0CkqIVgFFCDOOEtOdN34MlysnZQF2vyE6dbn6cftx+Wx4zDHZNHsMf
-	Q3UZCHGrVTORd5va61KJZ3tF6wQM1E8pmnD5Ic8jP/+ulRh9PGJ+S2fzs8NNXpK8kGcwGs5F328RG
-	z14Y8gmCtiWxYYfZsk69FD89m4NhYpEDEblECyQ7lL9kK7IZnrCxZ4Xi53OKJz0P30Y002K4+j3wd
-	+9pCqC4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNZN5apO3ih+wp5yA8vfS7lu9ZPmepgW1CjLVvwrgaM=; b=TEmiB3Nz8+nsS2CWvi3aQhRtaP
+	IcqZtO91U49qtUXlZHxXTW3Oe0h+1n26fbR/BXpR4i6ZQpSs9GSwSR+kM6WAxkkXmBhZcF+BRBYr+
+	UUS1mIVslcLyra+hKijmJwZK4zAjdjE7VW3ceehuTWTC1kaJFvS87ukWJI7pJMC4MhBDlGChQ6UA2
+	tsK32qSAGKCILC2HIUTJF099KF2KXYkEH345f4rM1ou1IDhzqyk/us/5E+242eY6oRaDb6pk04Adb
+	qr9FlCHde2qIbHOW0hoeKYP5BPeLwILb1/V6BD7828s4SMS0AyBnuuHwtusmELQKuELKBFbrd5OlZ
+	gCg5c3KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SsK-000000020bO-3fIw;
-	Fri, 04 Sep 2026 12:18:32 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1x2SvE-000000020vK-1RwD;
+	Fri, 04 Sep 2026 12:21:32 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SsI-000000020aZ-3wwr
+	id 1x2SvB-000000020uM-0t2f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 12:18:32 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4980fe6b3beso14906015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:18:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788524308; x=1789129108; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5ydjw49DZM6ZNER4g2lcExI1LMpGhnZwTfnwbU+34mY=;
-        b=Kq/pRoTYrinltlK8H62AG8/hOoE38Gr49h13mvzpQdpaHV3qhHEAaDtPGZHvOjjFon
-         aUmf9ZCm/1yw8RJiK8CbVBgELZuEM9g1kyjtRWFDnIhgrp5zDVd7yzhTjjNkDg//2pxK
-         mBPTbhheLz7spHgXcxlz23/2728b4p301PqJt3J5mSsls37cKZJr2fEwXHWqry5YRX7W
-         ZqA8S/y7S5mIvMJyELc8oJLLfi74eyDH6LHWNnRibSD/h/OZ6brN2fWGhLEb8qR0zCwe
-         nFZutYLJXW4T2Zfn0JNjegjDp6A6re1ON63zAUClYXpnxB5zNHVRJsmszbcIbJSDATvr
-         s7Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788524308; x=1789129108;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5ydjw49DZM6ZNER4g2lcExI1LMpGhnZwTfnwbU+34mY=;
-        b=Eu5Rx7xK6TXmLwMurkz8oPqDx6uNu5AyoeYee9gGeNg739iZB33cJGooBZASmRqWsr
-         Vy2Y9NO/TUsSTMxlzvkUS0EilmaSSAyMekBRuGBlXisQstN+R3QmD2Ke2L26PMNRUqUa
-         IWEiMoOtGMGBhM/2sWmy+EzCazrcI2MEX+poO+y/obtjvqTlCZeymWZlf9N7zlo320zm
-         HURI+yxPS/3iIpio9EyCQbQc4ceETj9llEKFyX0IUPwC6Od1b4BU/0Knngbelss/3KL3
-         i/HbWAdkt51io5Xdn31k+mzX/chLYRz67askw/XLs+7m4o6siBGYTujqX/H10iwzlfdW
-         ofEQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzbBGN/t0TkET2MxbEatJQAOY9Ag53lGNy0N8a6/cKexOWkVXOcStdTx3yeIs8dQy431KyvbllDixyFiGr1M2Gm@lists.infradead.org
-X-Gm-Message-State: AFuF++nCMt+qg03Rd+tIq2/yaJyk1v5CEzBd31nRC8oLUfMNRqkzFrFV
-	z7QVUIHnQmHGa64JivEbvDTA+3juuex86hxs22Z+pgNuLpeLGHPH07GN
-X-Gm-Gg: AYBFou0kZYeAmdrgq6kxcgcbL0PkibUau6Kgd5LWlPXAw25FqsMEE3eZxdmGvv6o+j1
-	qHMhMHpR8t3Nt0tanacFWYcUtzxOqLPWGcz3rPUl4R3rXDThkjmEFFFajS8H8eWfFY6DvH2z9Le
-	g0QtAJtGcjtfEZdouOwAEVoYsthipzwQR89rK3PYVJPMds2eklk0IkyWXoGVu9YbDM3tlNUOV0/
-	KgOn6G8Y/QR+SnsAeFQFz6HWF649PG1DsxDXEQZg7TTG977fNDCStkx3DGFPxDyGnvWQxhhYLEt
-	1M/cqmX/Z0J+TdSAHa/9ZUSLH7roZ4y8xLFzNe2WIj6DMuYd6pAJe1SXi89cy1PQqoRTyDhPJlU
-	bqkoZSnCUZd6qOaV6ZU8yoUtNy6DPtqAQJW32SKfK8XGa1A5Cf3n87v/qSB8vSGt1BeaWY9LQbm
-	Q0zx3hGThyBSko33pjn8LBTKYOxhUkEe6eivihDiUqsjWd18UVQUUh2/jLUV9TzgfuhgVno1Sz8
-	1NaHfdOu2AzhHjJ734xqz3Qje2sTOw8nfwmTNUh9fPaCqJt+9KNkZXJ27CNjEHM
-X-Received: by 2002:a05:600c:8b8c:b0:49c:f13e:e52 with SMTP id 5b1f17b1804b1-49cf893b58bmr41215435e9.15.1788524308369;
-        Fri, 04 Sep 2026 05:18:28 -0700 (PDT)
-Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cfd3f815bsm20697355e9.4.2026.09.04.05.18.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 05:18:27 -0700 (PDT)
-From: Julian Braha <julianbraha@gmail.com>
-To: linux@armlinux.org.uk,
-	dvorkin@tibbo.com,
-	wellslutw@gmail.com,
-	linusw@kernel.org
-Cc: arnd@arndb.de,
-	afd@ti.com,
-	aaro.koskinen@iki.fi,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH] pinctrl: fix PINCTRL_SPPCTL=m
-Date: Fri,  4 Sep 2026 13:18:25 +0100
-Message-ID: <20260904121825.43320-1-julianbraha@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Fri, 04 Sep 2026 12:21:30 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=MWnONv/mcSy1ZzvbBOJBF9sO7kdoah8czNuibP8g/Js=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788524485; v=1; x=1789129285;
+ b=nzpy2CRsW44lFLcx0vqWN/MENVWD2ZVkBxTM2cXn66D2697UuZVjrH+n1olm63CojGTjRDzm
+ XGKvFxDhiXIG4XzktTiqdFKH97sXoyapzyf0is1LPafX53Hyy2swNN6d11FnTOPtdywRoOUbdcq
+ 0vUuYLP2kZ48vCdjbooHXPlE=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 3a4516637a6444d3;
+	Fri, 04 Sep 2026 12:21:25 +0000
+X-Mizu-Trace-ID: 3a4516637a6444d3
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b17359so5632e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:21:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxB40zEynQM3+4vr27aGDn43gqqgVApu054tnfkmkBkmkM5q0qkaQ4K6qjZZFAcpC2dAx3wFvevB16AMgVD2VHk@lists.infradead.org
+X-Gm-Message-State: AFuF++nzqvqoQUbGHsXAyOAvs6zO9K1sL8Iqx/fD6aYadn94TCA3o+bk
+	/jTfporTtGbzzCqcR3Er2RwncJXSuRz+zLLerZhOxWXC9MU+4msKXlKBlb9T3xcQhivrCjXfvJa
+	LOkNPsPOPRhGnhXZR88orL6/rzfFf/TXsZZjIqWWA
+X-Received: by 2002:a05:6512:a348:b0:5b6:186e:682f with SMTP id
+ 2adb3069b0e04-5b6186e6924mr49450e87.0.1788524480459; Fri, 04 Sep 2026
+ 05:21:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
+ <20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
+ <86pkyt4gvt.wl-maz@kernel.org> <eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
+ <apqrky27mJmUV9UA@willie-the-truck> <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+In-Reply-To: <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 4 Sep 2026 13:20:44 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
+X-Gm-Features: AcwNN1XeCRX4giVtMT6c-n59qRC6UqdpZVxqwiiImVnvjhpDgql12CaOGJS8YCo
+Message-ID: <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_051830_992709_BCC02A07 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260904_052129_551927_3C381AC6 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,82 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PINCTRL_SPPCTL option is defined as a tristate in Kconfig, and the
-help text suggests that the user can build it as a module by setting to
-'m'.
+On Fri, 4 Sept 2026 at 12:48, Mark Brown <broonie@kernel.org> wrote:
+>
+> On Fri, Sep 04, 2026 at 12:29:23PM +0100, Will Deacon wrote:
+> > On Fri, Sep 04, 2026 at 11:33:24AM +0100, Mark Brown wrote:
+>
+> > > What about pKVM, my understanding was that that is very much an ongoing
+> > > concern and uses the nVHE hypervisor?  My expectation was that this
+> > > would only ever get used in hVHE configurations when people enable pKVM
+> > > on modern hardware, actual nVHE mode was mostly just carried along with
+> > > that.
+>
+> > pKVM uses hVHE wherever it can nowadays, so I'm fine with only supporting
+> > S1PIE on hVHE and VHE configurations if that's easier to maintain. We
+> > just need to make sure that the failure mode for nVHE results in the
+> > feature being gracefully disabled, rather than e.g. crashing or quietly
+> > doing the wrong thing.
+>
+> I figure that if we're supporting hVHE it will end up less complicated
+> to also enable nVHE, it reduces the potential for having bad or missing
+> fallback paths for features downstream of S1POE.  It's not like it's a
+> huge extra bit of code and it seems likely to save hassle down the line.
 
-However, it cannot currently be set to 'm', because SOC_SP7021, the only
-platform that supports it, is a bool option that uses 'select' on it.
+For pKVM there's no fallback path to get wrong: any CPU with S1PIE has
+VHE, so pKVM runs hVHE on it, and a CPU without VHE has no S1PIE to
+disable. I couldn't construct the protected nVHE plus S1PIE case under
+QEMU at all.
 
-To allow users to actually set PINCTRL_SPPCTL=m, let's remove the select
-from the SOC_SP7021 option, and instead have PINCTRL_SPPCTL default to y
-when SOC_SP7021=y, then users can configure PINCTRL_SPPCTL=m in the
-kconfig frontend if desired.
+Where I think it applies is kvm-arm.mode=nvhe on S1PIE hardware. That
+boots, and it's the one configuration where the nVHE side of the patch
+would run.
 
-Note that I have only compile-tested this change, since I do not have the
-hardware to runtime-test it. Please advise if it would be better to change
-PINCTRL_SPPCTL to 'bool' and remove the help text suggesting that it can
-be set to 'm'.
-
-This impossible tristate was detected by kconfirm, a static analysis tool
-for Kconfig.
-
-Fixes: aa74c44be19c ("pinctrl: Add driver for Sunplus SP7021")
-Signed-off-by: Julian Braha <julianbraha@gmail.com>
----
- arch/arm/Kconfig.platforms       | 1 -
- drivers/pinctrl/sunplus/Kconfig  | 3 ++-
- drivers/pinctrl/sunplus/sppctl.c | 3 ++-
- 3 files changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm/Kconfig.platforms b/arch/arm/Kconfig.platforms
-index 2e118b65f93b..dc880addadc5 100644
---- a/arch/arm/Kconfig.platforms
-+++ b/arch/arm/Kconfig.platforms
-@@ -177,7 +177,6 @@ config SOC_SP7021
- 	select ARM_GIC
- 	select ARM_PSCI
- 	select PINCTRL
--	select PINCTRL_SPPCTL
- 	select SERIAL_SUNPLUS if TTY
- 	select SERIAL_SUNPLUS_CONSOLE if TTY
- 	help
-diff --git a/drivers/pinctrl/sunplus/Kconfig b/drivers/pinctrl/sunplus/Kconfig
-index 69f82590f6d2..7719838b39b6 100644
---- a/drivers/pinctrl/sunplus/Kconfig
-+++ b/drivers/pinctrl/sunplus/Kconfig
-@@ -5,7 +5,8 @@
- 
- config PINCTRL_SPPCTL
- 	tristate "Sunplus SP7021 PinMux and GPIO driver"
--	depends on SOC_SP7021
-+	default SOC_SP7021
-+	depends on SOC_SP7021 || COMPILE_TEST
- 	depends on OF && HAS_IOMEM
- 	select GENERIC_PINCTRL_GROUPS
- 	select GENERIC_PINMUX_FUNCTIONS
-diff --git a/drivers/pinctrl/sunplus/sppctl.c b/drivers/pinctrl/sunplus/sppctl.c
-index 67e036d66245..89c6e2e92f07 100644
---- a/drivers/pinctrl/sunplus/sppctl.c
-+++ b/drivers/pinctrl/sunplus/sppctl.c
-@@ -1113,6 +1113,7 @@ static const struct of_device_id sppctl_match_table[] = {
- 	{ .compatible = "sunplus,sp7021-pctl" },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, sppctl_match_table);
- 
- static struct platform_driver sppctl_pinctrl_driver = {
- 	.driver = {
-@@ -1121,7 +1122,7 @@ static struct platform_driver sppctl_pinctrl_driver = {
- 	},
- 	.probe  = sppctl_probe,
- };
--builtin_platform_driver(sppctl_pinctrl_driver)
-+module_platform_driver(sppctl_pinctrl_driver);
- 
- MODULE_AUTHOR("Dvorkin Dmitry <dvorkin@tibbo.com>");
- MODULE_AUTHOR("Wells Lu <wellslutw@gmail.com>");
--- 
-2.55.0
-
+Cheers,
+/fuad
 
