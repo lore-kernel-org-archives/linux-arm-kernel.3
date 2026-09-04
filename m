@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C57C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 21:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3721C79F87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 21:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z5/Xia7rxdpyQybCgSGxs4a0QCDbKXZF9niLTTnJnSM=; b=wYiTOV7b8bHmmUwcxuyojT9gAX
-	X1CIPy4wTAxlb079zhynMHQ3IxQcB66PyslMW45Az2u2r/CzEBUkBbgPsqVj5sMuQ172dIetKbVRy
-	4qROefFIvVnXDoHB3NLLj5AaTBtZmKzzzEbpTXIya4Q/Zsq77+ZNwd8qQOkpqMMBrTGHA2npDUPLG
-	EyaU4VvODd++xvyYnV6kHbhgO6Pjvh8NfnVvoa5YI/N80utMkwlP8+qFaSI06ZckqDPOvRBosPFFo
-	95k17wwxBNXuffMnv16/0ag51mesK5Dck4lLMoFJP06TGaybTyw5LJ291knDftCs3p+fAw6pqx3GL
-	ydNpAlrw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vu/pZRzi+PHRIHNfr1m3RJJ4wr9M9/chVTLqWsd29z8=; b=GV1rsJGeMB/t5Hy5f3QnJdkcGk
+	zbYxSKcN29VGILplUyIawY4kmcTfFUpaDcXkuSTwboSpS77eUY3N6sZTujCf4U3OtVZ/BNkl7oDQB
+	OS9FnCNS8Tvcj+7bhkEJuoCJNdEoq9czW8S+fNGObpJ/qXXnq8LkQ5AwHzR7kXPJbX/pn05iqnhfS
+	Kw1T6Aa3GjQ/4NoNohTK6usiMYNSyVqLyha+llzapsKadX/Aa9DvuaefeSjHxGpLqmbswW4OlMjdv
+	RF7DQd68n1we6MY/1qGQOR4ppEWZ07BnF8xlpEL2FMVu8GT2TQLS9ubGLnyfnOwZVYKdefgr3731/
+	RU1O4sXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2bXV-00000003KYi-0eJH;
-	Fri, 04 Sep 2026 21:33:37 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1x2bXa-00000003KaZ-1kaR;
+	Fri, 04 Sep 2026 21:33:42 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2bXS-00000003KY6-20OB
+	id 1x2bXW-00000003KYm-0TZv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 21:33:35 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-51bfe810293so14920091cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 14:33:33 -0700 (PDT)
+	Fri, 04 Sep 2026 21:33:39 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-52cd38ddcdfso18395311cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 14:33:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788557612; x=1789162412; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z5/Xia7rxdpyQybCgSGxs4a0QCDbKXZF9niLTTnJnSM=;
-        b=bQ/H7QVtpBkDUoxzGHIDPE27vwLgP4xuyc7P8gL98YwvqccACnJ/jJbAMic/d/CivE
-         fN/NBDyUBKsI6EU9ASzUHRYtfrk85YpZ0m7GBtQ6p4DBqJeAMGRKVoldalvYFWvYHZt/
-         3hW5KYsJLRI6Z7jXpjLnNoh7PFpvD0/fkc2++ceBh6oVbHXJ+Fm/kEEZY0QJ+iSzdmic
-         /F4GRbY5TWl6EiDqdSBMbJCRMsOHIfl6E/ltGs/BoMUfXVRJipoow3CXyOytbI51tFfh
-         b+hlNho50rgC2v4OHjg0wKrMqnXD0tn1A0RjEYWlXHn53a0YKEKBhwn1S0lgxB3GoUdP
-         WgzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788557612; x=1789162412;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788557617; x=1789162417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z5/Xia7rxdpyQybCgSGxs4a0QCDbKXZF9niLTTnJnSM=;
-        b=EkfQGZywRIyHXp4nVLq4Pi+g6NqSW70ytYTf3H50f7UeuzhEyL9esmffSevK6zgw5K
-         X0SgPHO4z6sCXfrm708QbTP2R0AMyPJ80Ct+Y5cn2lIJToiuwmDJa/zLD+1qUkIxB8qf
-         9y+hsuQsxL3Tzcs4JBia3APfFWb6704iIc+JQepNRPF5bDNW0RmeFycT0BQKDBA7IfIw
-         xR2RxuUVkxa0usgInfe+y7IwRTCUCpV/1DJMUyXnbF+LvZjG5yheOE30d8oTQHsLs3il
-         UmsBW7KD9lnzxVnKY6MdjJWaTbMbW/QsyXnsnhiEVdlvaja9KVCawRrewNCbSSFDRDyf
-         qoBg==
-X-Forwarded-Encrypted: i=1; AKwUvBwoQE7RxvtFChV/pMcV6KGVVaR4PgfvNphIRSb3hfpAALo+wZLxvBa/M46KFmn6rE9deFE10NpXFsX7cnBN2Nob@lists.infradead.org
-X-Gm-Message-State: AFuF++l0L6nvAID58Eo9htiVcdAVZdfXq+Dl2tOlMkLa9F61Gdty1eFM
-	9fwVczvb+5eeXur/k2MYZS0NjzR/rzG1Bh7UHFsa7EpmWaLJL50U1CQ=
-X-Gm-Gg: AYBFou1BnpcIxk9nUg9lM5wmv5x4kCfjy0zLxn3yPj65dyG4GGeEcFU5SjREsYkahCq
-	+rrlskQi754jVHdyQBlQlE6BpnOwtAUrckMkWPHpOpNarhCzDaaFTP8sgf51yTTebX3BKzhGslE
-	4DwPFLSRzMxb1gEOfRFD4lB9mjadrDQaRJm63/aeInoEHfKWuDUUpGEBVRB8J2glbOhKZQJ6BiF
-	qtbDZXvoJlAuCckSUvof0jUTczhZH6BSmiQirDHFmxGvEtnfTyiLhs5FgUo/Y31f4NdIdc4HjYb
-	hoDfn1ocxpxW5tkWmu9vXHx1VG7C5k9x862E8XIWH0QkK11apoBjI7LmuMOOWj+4L3tZdbz85s3
-	Nb2mW0YKEnMfHvzt9+xWQEgCcNwlRfdRm4AqlC3FJRTYq55OkdNjmAcHQ4BONp3lcJNilmlZg8E
-	8bZlhSXrZME64j2MEkze7ylREm73XygCiqsFj5tvK3homp9kOileiW4FWf62FaCmkK+B9FpQ9Xy
-	Y5fcr8StBB9eR8=
-X-Received: by 2002:a05:622a:1493:b0:52e:12e6:6d7b with SMTP id d75a77b69052e-530549f8c81mr96143391cf.39.1788557612371;
-        Fri, 04 Sep 2026 14:33:32 -0700 (PDT)
+        bh=vu/pZRzi+PHRIHNfr1m3RJJ4wr9M9/chVTLqWsd29z8=;
+        b=qR6AVSyPtq4Lmr8pe13lQoEg6xxvqrt/TLzt1iBktuf94gEVtdd8PIvENr9f075bAD
+         6K1HYEx5CYADztth2ziivnKXSp1vRMcHiW+m/uaDlvco5l3azVS++JqpxYEyHONAIP1F
+         /LnPy0XMnAze6/QZ1i3/XtGJDMn/SkDbkwoaXT+gfrzYapPoCQ+ijelU0M9LfmbnC/lj
+         sh/MWtKh6osKD3eUo9wtxlGi5pPHr/V33nw89yFRFjjN+6WS010yS31aJz69RxXCkZDd
+         typiFBgZOhsv1eal172PU6yKnOiDhaaYnIh8XPvyBvQkFeDfhEaspIVByay40nsRPVCF
+         oEag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788557617; x=1789162417;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vu/pZRzi+PHRIHNfr1m3RJJ4wr9M9/chVTLqWsd29z8=;
+        b=G5I7Vf+IibNynIbmwjnzosG6TVxKxAYtXYrcuwymBNBbi+oPVZMdPcIGPHiYXsz5E0
+         Uuc8+TSb5/Y0boFSXze+6oeO2f3r0XhIJYXdEF5EF9nAFYVMphFo4rQkp8SEQUjydh4U
+         guV14cXbSV1bPpZXGmI0L1AAdi2LdLPIqUscDAJ10C54Uk+z03NH8QmcVN5CIn2uqmJs
+         dP19/q1DL2ZDhU5egA0UC+I31ieSKKqscUyrPGC2UpBGaJ95hbeTM5le3aHsfnPK8+18
+         izetrLbvvvypBmEpUL4/Go1rwvRXz2z9jbpVyY5fD0+eo8dmUROvJB/ufPGMbESFx7bq
+         ihzA==
+X-Forwarded-Encrypted: i=1; AKwUvBxPPgYmEcfUEhxZWQ3Hr/FW1i+1qCDPTiXP68+OMnsj0Ma4WCtO3Z47ZQzhl4tYB0JAxJlYv0qo7LzVKAFnSxD5@lists.infradead.org
+X-Gm-Message-State: AFuF++nQAh/f8xxdG8o+ttHA5q37oirO5hVoobkakBiXdbnHbxqc6uMb
+	W5vnflXNiMtiPkWd5AQti1qu6LzFp+E/jLGcnqsWdNnStrSsyTzMXZo=
+X-Gm-Gg: AYBFou2izUAonWDMgvvGDuSKW/W0mjciHC1XsYHlZoGv/Qu2M3I74UoGFbNBnSWj+ii
+	e1ed6jAoV9yqJzW33JnguGsAK8bq8fv+WoKydcjeH5ajqx6jLR7f7ibVvDicpy9LmoJ33y9HX9H
+	WZGPujFbSKoukgi4AF0v6cw70lJLa28awbiSW/zptxzCqlnzHX9iE/oK8+UVwyU/eAWP42TYrww
+	KNhUbXYhHcveBrPuIouSk0SEZbqKFpFF7fL1LmZHZOwUikPxnweQVy9q9h9NMWYxQJR5hCb6BUi
+	UN2j5kfvYdPRJug64pPBdi9qwRwSrHE6QZVHlSk7AdUsTapHdfYarXHO2ULrw5oYre10icffyZh
+	bGPpZH2QT3zE4jFrfEsq8ajqTy2GYoqvNYHJdVEvcD+OzkeIsW22egSfow1N6JhHqw3h/5OQpEr
+	d7tnuxgZstqyUhlv4ecNOpMLQoEkyqRfv7HRCIvkxmMz9/0ic5ij2FMicRBn/93jKvVlkKp/CdB
+	IKCye/w4mOXWec=
+X-Received: by 2002:a05:622a:4a89:b0:52d:8743:bc83 with SMTP id d75a77b69052e-530549f8265mr111105391cf.34.1788557616511;
+        Fri, 04 Sep 2026 14:33:36 -0700 (PDT)
 Received: from X570.phub.net.cable.rogers.com ([2607:fea8:744f:d200:9441:f2ae:56aa:8a81])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53054227a0esm29646561cf.29.2026.09.04.14.33.30
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-53054227a0esm29646561cf.29.2026.09.04.14.33.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 14:33:31 -0700 (PDT)
+        Fri, 04 Sep 2026 14:33:36 -0700 (PDT)
 From: Barzin Lotfabadi <barzin221@gmail.com>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -85,15 +86,17 @@ Cc: Ryan Walklin <ryan@testtoast.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] arm64: dts: allwinner: h616: add HDMI device tree nodes
-Date: Fri,  4 Sep 2026 17:33:27 -0400
-Message-ID: <20260904213329.3910099-1-barzin221@gmail.com>
+Subject: [PATCH 2/2] arm64: dts: allwinner: orangepi-zero3: enable HDMI output
+Date: Fri,  4 Sep 2026 17:33:29 -0400
+Message-ID: <20260904213329.3910099-3-barzin221@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260904213329.3910099-1-barzin221@gmail.com>
+References: <20260904213329.3910099-1-barzin221@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_143334_531326_7A6CE29E 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20260904_143338_177496_477A3356 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,78 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The Orange Pi Zero 3 exposes the H618 HDMI transmitter on a micro-HDMI
+connector.  Add the connector node, wire it to the HDMI transmitter's
+output port, and enable the display pipeline.
 
-These two patches add the device tree nodes needed for HDMI output on the
-Allwinner H616 family.  Tested on an Orange Pi Zero 3 (H618, 4GB), which
-drives a 1920x1080@60Hz desktop with these applied.
+Tested on an Orange Pi Zero 3 (H618, 4GB): the sink's EDID is read
+correctly and the board drives a 1920x1080@60Hz desktop.
 
-Mainline already has DE33 mixer support in the sun4i driver, but there are
-no display nodes at all in sun50i-h616.dtsi, so nothing probes.  Ryan
-Walklin's "arm64: dts: allwinner: h616: add LCD timing controller and
-display engine support" series adds the display engine, bus, mixer and TCON
-nodes, but states that HDMI output is not provided.  These patches are the
-missing HDMI half.
 
-Every register address, clock index and reset line was read out of the
-vendor device tree shipped with the board and translated to the mainline
-dt-bindings macros; the clock and reset numbering was verified identical
-between the vendor and mainline CCU headers before substitution.
-
-Two things I would appreciate guidance on:
-
-1. Patch 1 currently also adds the display engine, bus, mixer and TCON
-   nodes, because Ryan's series has not landed and the HDMI nodes need
-   something to attach to.  If his series is merged first, I am happy to
-   respin this as an HDMI-only delta on top of it.  That is probably the
-   right shape; I did not want to post a series that applies to nothing in
-   the meantime.
-
-2. These nodes alone are not sufficient for a picture.  Two driver changes
-   are also needed: an H616 variant in sun8i_hdmi_phy.c (only
-   a83t/h3/r40/a64/h6 exist today), and setting the TCON pad select bit in
-   sun4i_tcon.c.  Both exist in the Armbian sunxi-6.12 tree, authored by
-   The-going.  I have deliberately not included them here, because I cannot
-   provide a Signed-off-by on another developer's work.  If someone in a
-   position to carry those forward would like to, I am happy to help test.
-   Without them these nodes probe but produce no output.
-
-checkpatch is clean apart from one 103-column warning on a remote-endpoint
-line in patch 1; the identical construct at the same width already exists in
-sun50i-h6.dtsi:183, so I left it matching the surrounding convention.
-
-One implementation note worth recording, since it cost a boot cycle: the
-DE33 mixer's three register regions must be named "layers", "top" and
-"display".  The driver fetches the latter two by name, so a wrong name here
-surfaces as "invalid resource (null)" and a -EINVAL bind failure several
-layers away from the cause.
-
-Result on the board, with the two driver patches also applied:
-
-  sun4i-drm display-engine: bound 1100000.mixer (ops sun8i_mixer_ops)
-  sun4i-drm display-engine: bound 6510000.tcon-top (ops sun8i_tcon_top_ops)
-  sun4i-drm display-engine: bound 6515000.lcd-controller (ops sun4i_tcon_ops)
-  sun8i-dw-hdmi 6000000.hdmi: Detected HDMI TX controller v2.12a with HDCP
-  sun4i-drm display-engine: bound 6000000.hdmi (ops sun8i_dw_hdmi_ops)
-  [drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 0
-
-with the connector reading "connected", EDID read correctly from the sink,
-and 1920x1080 among the reported modes.
-
-Full boot logs, the decompiled vendor device tree the nodes were derived
-from, and a photo of the running desktop are at:
-
-  https://github.com/BarzinL/h616-hdmi-mainline
-
-Based on mainline a500db7819c5.
-
-Barzin Lotfabadi (2):
-  arm64: dts: allwinner: h616: add display engine and HDMI nodes
-  arm64: dts: allwinner: orangepi-zero3: enable HDMI output
-
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     | 191 +++++++++++++++++++++
- .../dts/allwinner/sun50i-h618-orangepi-zero3.dts   |  25 +++
- 2 files changed, 216 insertions(+)
+Signed-off-by: Barzin Lotfabadi <barzin221@gmail.com>
+---
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+index c51d4d912..444773e4a 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+@@ -11,6 +11,17 @@
+ / {
+ 	model = "OrangePi Zero3";
+ 	compatible = "xunlong,orangepi-zero3", "allwinner,sun50i-h618";
++
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		type = "d";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
+ };
+ 
+ &cpu0 {
+@@ -103,3 +114,17 @@ &pio {
+ 	vcc-ph-supply = <&reg_dldo1>;
+ 	vcc-pi-supply = <&reg_dldo1>;
+ };
++
++&de {
++	status = "okay";
++};
++
++&hdmi {
++	status = "okay";
++};
++
++&hdmi_out {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
 
 -- 
 2.51.0
