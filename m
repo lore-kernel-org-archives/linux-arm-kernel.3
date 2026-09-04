@@ -4,110 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460F5C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A0CC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Jh9YwKMSnQM3tAKjwVqWhn34D0cgvjhP0P8CvPoS7E=; b=r0/CxgMwpN34E0Unw6me/5aH4b
-	UnkpVk8fPY/p6NpfIG3IzXDqVeLdhhHFrnIua994HmYFGkDLDpuRut7ZYjCmY3TmEYaYOw4BuccRR
-	1YUB3jQlA+FIrKT9v+HRkFZO3wWvKpAdN68L6C6p++dGg+KdIIn1b9USnYIphJN0SqvDbmq9Yw4RE
-	X6rObRAmyF3IqaVkwonv0Eb8BYc5pG26DBbeOkbZ3kGTFeZ8+6qzGpSIRi5TQDvqnfctWzaU9kI7J
-	rwAY5/DrbPUV7zUqCIP4J+msH1WBa7oCJMjEbvfG9+bA7Rj6cBT8yD8ip2LS5PP3nz4yp/zbPDkYx
-	s2r9ITfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/KKGK/oFhEquay1VvWOUNQWuavqkzjNDdibbpfGeML0=; b=lEvF11ClNK8flT6uUG3zgN8loG
+	1aR47dheaxMQ9VhNz2K7pcl9D1Fx8S2JQ9XeqpZqKAfF121TFpKGBDU9pi8JUvWd8viCgQcEX5SZr
+	wFUtEV2xjd2DpYGAf+bsaEVScsX5TbEJ+8TZxhYlHsFhXO9QukohU52rjl2jEAP07MlPMWkwOfgPe
+	2IIR7ErLZ/hkaq/gvZhQ07ofOhSN3grFjsuqTeDzp5mAV/DWWcFhGGXMvZfHa8of0pJuTK+wF6Rw/
+	4++JFySgmjsQYMwtoZZOP6hRLh/fWErqM32wGIN0DoRHUshdPbjo8wCid6te7OD0WfdUQeuk5j67g
+	jKxkosmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QCk-00000001X9f-3ZQ8;
-	Fri, 04 Sep 2026 09:27:26 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1x2QGZ-00000001XfP-1jJy;
+	Fri, 04 Sep 2026 09:31:23 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QCh-00000001X8g-0I1T
+	id 1x2QGX-00000001XeQ-35cn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:27:24 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cc1c3d79b9bso713725a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 02:27:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788514042; x=1789118842; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6Jh9YwKMSnQM3tAKjwVqWhn34D0cgvjhP0P8CvPoS7E=;
-        b=sIbqhIo9ZbYcS+JV9T57Mo3tCAe2z2n/9izE1W+ly/8aAWR5JE4qvEXLklg0qAceEP
-         oeDefggdFcrmaEwHfHgFx31XpWgSzuZ+JNrJkV4K3ZNUgPAnp2AocjfjJLVJ9Cr74vFe
-         +NOdVBlpXFfX4SK8b0iGSqPCOOEZpVbQ/OkTr1Ia5sEoTRz0mOQvlf7qsBGPckesFz5w
-         Ck9k2vD2s+wZUNMtCZ6Ul8wbwn+GHkO0YUiIouV2WzofxRAcdGl5yy+pXm3drepio9xs
-         nErtf4MkPWcjFpn7li+Q0TZz111FKPnZJ24Px/mul/yzq6lJUtSqG4z4HsLKHsA0e7U4
-         l3yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788514042; x=1789118842;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6Jh9YwKMSnQM3tAKjwVqWhn34D0cgvjhP0P8CvPoS7E=;
-        b=sLzIrBQ2kiO/ipHlyBJDw4RMAjsU6eyM9toxdqAkj5TbS8aj2/xZ7hUmGAF3iP87sH
-         46FzozCWOuB0p86rRq0VIZf+nCmJySRe4ncDhs6Xsp5LRzvo/WPkIZaIaOhFTu9IcTWk
-         LYJnJz7CeT8liTKe4RgneYt7oR+cVK9s01Nl5lFd+Gh/MUa5/3HFFfUUF7EH5KWO+0wS
-         XeN6CEh033iBkToi8HLEuhGi8Ga1heftporgMI09G+7CkVF5o1QCVqx5qB6R9mRxmvJS
-         zioyZ+ZgktYi7/Gc0FLkrgKmOyiIzyYoWRxawQCZg374Mnu84MtQTqX9dqgqyPIrD5Ns
-         KG2g==
-X-Forwarded-Encrypted: i=1; AKwUvBwTIj112YqROD8nBbyWQcHleYTIyzQ2rEC2eBf5u0+BZYft4sU3TgxHRarJ3Gxq1cF8fPIz6YKbkz65mSoFqVZs@lists.infradead.org
-X-Gm-Message-State: AFuF++mNFfLFz80WKAaLD7CJ2u76bmztxpJQy+qCBTZKEVechFRyjn9u
-	ZUS74Cn7VEto9YnI9FxxxW33TDZbW3qGqJe1D83HepXHEL9G+4F/mr8=
-X-Gm-Gg: AYBFou2icS9CKIbo5TI2ByX0NHI2xG1pLbAZn96mW3T9tYRXB6Yk3d0myNUsY34vFYp
-	VPSPdPg5asPu0EN7IGqoUjvlszAUbii0WJQ1pyGDHOXRoiZUcges9OQGdqwVLAZiXl6NI1DIpFq
-	K68JVMzB7F/SKdj1EcAdZ03Mn2xa7LgLKTUBCM67vxxq7k4enHsYCV0IifjZWfk44A7u3X3ESI2
-	WMsF/JmbfeKn7ECx47h6y5pneHbmf9Rehvt/Y0hAc1ILd7c5OyTVz41G0SK3GVZp8TyMVvLEH91
-	J074czYRf88oM+Bto/WIWgBa6SSt4rNlK74FbmeniARK+jY0DE2+qixFKMSUHqAynRsrkA1c/ut
-	ruqbDwCnVydAPeAU/TBNGuuOEitZsEnYwzmJwWjGwusKEXbSsz7zGstOoLXa4l26/brQRYoMAhr
-	WhMC5XYoRUsaOdQxZfJdpYwGzZzajc3JZN187mGlUCD364XuWHt2I/Jcvz0yNkdM134+wbf9piq
-	sxTl0upPg8IBpc=
-X-Received: by 2002:a17:90a:10c9:b0:39b:34ef:3b2b with SMTP id 98e67ed59e1d1-39b34ef401dmr941098a91.14.1788514041803;
-        Fri, 04 Sep 2026 02:27:21 -0700 (PDT)
-Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:646c:494:158f:c4ff:121b:b906])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fe843sm3518116a91.10.2026.09.04.02.27.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 02:27:21 -0700 (PDT)
-From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-To: bot+bpf-ci@kernel.org,
-	ast@kernel.org,
-	andrii@kernel.org,
-	daniel@iogearbox.net,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	memxor@gmail.com,
-	puranjay@kernel.org,
-	xukuohai@huaweicloud.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	shuah@kernel.org,
-	emil@etsalapatis.com,
-	ihor.solodrai@linux.dev
-Cc: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	xukuohai@huawei.com,
-	martin.lau@kernel.org,
-	mason@kernel.org
-Subject: Re: [PATCH bpf 2/2] selftests/bpf: cover the exception callback using its own BPF stack
-Date: Fri,  4 Sep 2026 18:27:12 +0900
-Message-ID: <20260904092712.10691-1-donggeunyoo.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <6aec8f5c91db3edfd8becf6f41bcb33fda2cbea1bb894888cbcdab4579b0f086@mail.kernel.org>
-References: <20260904070210.4163193-3-donggeunyoo.kernel@gmail.com> <6aec8f5c91db3edfd8becf6f41bcb33fda2cbea1bb894888cbcdab4579b0f086@mail.kernel.org>
+	Fri, 04 Sep 2026 09:31:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I863TIiQXdUJRVuMnhwACpWRfbpG4lwfYusHM4TF3J3avNS17aHo3Chra3fS0r3Ohq+Nae/7rEDI5oDXHrHwZXO6D5igRmmWXmq8eAHMEYEowflHlGChkbNSrEByW2MRF2ZM86XagFv6LF5TWp2G5K0wo8X+w9TRy7V4Uk5cyGXzG7x9eQDFD+HwTCWpnh67vUXOj8nVqvTUkVIcBTCp/FwOje4KWZO5mftX1D22hoRau4CHacxkusT58PdwZx8OAsSaUwuUDQHyHgnK9d7v8nDHLU7Fvmp2//9dM16XpaN7IkbHcKufk4vnvFucA7xasvrX0Cjpw28RIJih6Wz7zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/KKGK/oFhEquay1VvWOUNQWuavqkzjNDdibbpfGeML0=;
+ b=KAFH5g93FkyIrdBhikBMEs/jjUWjZMxCgCWqdGiKB1RjSkHkQ6PZHi9sxqR8FNCjvDf3QPEXlW4feB5qYyRX3HM8QQbPVx0KhEroFaGvIVZU2dMNkAOS8bZ2bcerGjW3z1+neBBkfXiiPr4iKW3yziwi8CSs7UrMri/lu336nhFeBW11DTNwpTbv91CuU3FfcLN34TUsztQyA4uaB8HPR9rLI2a+BTMRbPDy1wPgvQfxL/EtzgRSiDAYn+VyFzBfF2WNl/vaG9C0kiDZhB4Wg/BOi68u1VH6v+ocB2e+3BQ1EvpejzBiOxWl4tKLfFaNSI3J1a/qt8YEMeJJiPJZYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/KKGK/oFhEquay1VvWOUNQWuavqkzjNDdibbpfGeML0=;
+ b=crwEMF9rWQDXf1oxnQXsCsk3vtjYBxLJ+q65ygVgMd19dpH2DDt51giHaaoR6KXMTJYoW7DgXLuEeQvS+yekZYRKRnSSiv/WDthFsAbWYEr0cjHh4lxalT8AF36LAHCppy0R/wq5NwPuVwhwl5HSMyO4krsiGyaK+h7K9ugyzs76CSD4IqieNz6AuejalT0+LgbQzwTY0gWTrvTeZN4pKWC27qT40EDbzx3cWrms/ao0d4mwUimq+N4jNyXcA5xZRcJF94p0q+1MYpLuiugwrAMRWWfuBLLflH0r9PvR9YCIyj9zctNyOKoDNqlj9RvJiRjY11XMK3pNwtAFeKrvxw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by DU4PR04MB11900.eurprd04.prod.outlook.com (2603:10a6:10:61a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 09:31:13 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%3]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
+ 09:31:13 +0000
+Message-ID: <392c76a6-1ba5-4bc1-bfba-524025359042@oss.nxp.com>
+Date: Fri, 4 Sep 2026 17:31:05 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] i2c: imx: honour I2C_M_IGNORE_NAK
+To: Haobin Jiang <lemonoutput@foxmail.com>, dillon.minfei@gmail.com
+Cc: Frank.Li@nxp.com, andi.shyti@kernel.org, festevam@gmail.com,
+ imx@lists.linux.dev, kernel@pengutronix.de,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, o.rempel@pengutronix.de, s.hauer@pengutronix.de
+References: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
+ <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
+From: Carlos Song <carlos.song@oss.nxp.com>
+In-Reply-To: <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR01CA0020.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::6) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|DU4PR04MB11900:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6065bc2-206f-4c03-ca7c-08df0a67431a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|376014|7416014|366016|22082099003|18002099003|10067099003|5023799004|4143699003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: ZbZgBbVbAveKJJAJQ40dn68M85XrK8X5T0b7L1wENqSSaJK8tGzJkkIEke/FBoNY//9g6LWGjNliyC88EemloLqPSkk6gWwbHI+we2lT2h4DQS8u9IHMd+PZdakoZD/TsPvphpdaxXlb/F+mwWms6hm988JOFpbjrGr0mF3EH26MoMJBNg/hXlmjZTi250/US+5rm5ZugsXCRXRALZptrvGEmFJfA6by/lDobPUquolt76Y3zppL9cO/Tkyypt1zonr28ay3ByvOYGFz11D+0IzbDLDRLfq7k8UzPWzjSYXa/Mb2DL59lhvUkbfbwtJdO5pIVzKuPGp3pqeVJk+eEfh9LhEgXSqyW9nbxpBFuzU/OxI4vga8TAW/BLKRc3hjcT1azzwICQlQUVaw6C5kbVVNQ+axOxxsm6X3O6dY8x5Qphij3Sb15h3OV0Qx78krNQIxNAOTxG6mXIbhYw8zCw2yhK94FtGASHITJYkhvahEv6eYIJsOp+lbzNsnN24uPgP03F/+iD9RdFodltLDhjOZlXqoDxseJ+EhffRllhwgfG7w0i0xGd+xXe3jF8IMBeIzujOTVqMukcQ87PSHuM5CcAfbLtW44HH/Ay60w4gicTNl1TQEACXnsDMJFpNlbk8TEdzDH3a0yIPxSLMtRjBBeSaLrvxOsdV4w6WWx5Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(10067099003)(5023799004)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?elpXKzhlbUxBdEkzTUpVSXZQV1NOVFZNZSsrMnROczRRa1JzSHcwTEZKUytS?=
+ =?utf-8?B?ME5QSFJ6eVcrQTFTc1ltakp2WDgwRy9maUdGSFphalpvbjNXbWlBdjBiczdF?=
+ =?utf-8?B?L0Z3UWNMTU4waU9OMHpTTExhcmdGYTN6aTlLd05VbU0vU20zeUZwa2lsTGlQ?=
+ =?utf-8?B?WGdzVS83QVpRZ21CeTIraHdPTm16NjF5MFNuWStGTkk0LzJuUVdxQzQwdmNk?=
+ =?utf-8?B?bEYwdi9YSG5EQTFaMHE4ZU5LR2QxbE4xc1E4emZ6NXRaZGJqQzZ5YndGZ3ha?=
+ =?utf-8?B?OXl5YWd5ck5pVUo2YVFPbmlVbk9Ib2MwblBwM3V6ZnBSYXJFUkY1Zk93UjMy?=
+ =?utf-8?B?M3lRemg3YkttQjJnMU0zem41dkFHekk5YXEzVW5UN1R3VExpbFJzMTFpU1Rj?=
+ =?utf-8?B?TUNhRGRuTDZ3czlnc2FsUjk2R0hVZzd1WVEzUjNtbmxvSUZnalgrTTI4VWtG?=
+ =?utf-8?B?U2h1VUhBa0VLUkZndk84VmtOV1FGb2Q2MmZnSVpGc0owOUd4NC9UQ29rc3kx?=
+ =?utf-8?B?c29UK09YOVdSL09lOGV5ZHRpdDdLYmRHaXIyS0FsUUt6L1RvZk1jVy9JWUxK?=
+ =?utf-8?B?OGNxUkZpaFhwMllzVHh5S1oxV0hhU3lUcHJndzVKK1VZZERqaHJ5cHJvc3Jl?=
+ =?utf-8?B?QWgxQ3d1MnFDbzBpUURkczFuN21KaGtHNXhhOUdVb25hLy9uRi9MU3krSHRY?=
+ =?utf-8?B?dUZ3WEJ5Y0hDNVU0SHorMS9iZ3N1eGxrZmRTSWVxbEVLeG5xaGdFd0JiSDND?=
+ =?utf-8?B?aTdwYXZOZXB0RmRMUDMyTFNKT0tacExBY3VuWFpnQ05lN0dLTWlVRk5lYXNr?=
+ =?utf-8?B?NzNsWkVhNjJOczlGZ09GSUxUODRSNzNBUTAxTUpFOCtmcmxjSTlPcmUvZjl4?=
+ =?utf-8?B?ZnJ2V3BQQTZsaGI5UkhxajZKaktrT3ZGbXdPUnpGTGl5RkFMMS9YU2NDeVpa?=
+ =?utf-8?B?Wnl4TjZMbGVjQzNqN0cza0RqYVpIdVY2aGpSWVRNY1lYV3VYMDhtYUFTUk8z?=
+ =?utf-8?B?dkNhNnZubE9XRDUrZ3loZjJXU0t5dHRka3l3dXo2ZlpKQlVhTURNMUhVdHhR?=
+ =?utf-8?B?YStUMkJuYzc2WmM2dENIRzJyTVZ5NU9zRFM4bXpFN2RQaS90eEVTVHpqZ3dM?=
+ =?utf-8?B?Um5TeEVCRklOeldESW1yaHhYS2tCcC8vQytGdmVWVldNQnBNZmJ2L3NmT09q?=
+ =?utf-8?B?K1BnYzhWcVBnM3JaMXN6N2dBN29RSUQ4a1Q2aTZQT1ZjVFhPTTYzYzl1SzBk?=
+ =?utf-8?B?V1ptMlh1NlNZbWJGS2RUWVVDclVyYkRBZTlKaUs3SXRtRTZXZUQyRkVHNnZn?=
+ =?utf-8?B?Z00xWHBzakdMY2tJNnZxQjZ1cDNuRzIyVVkwS01JT0ZQVS9iT2RPOVZUSkdN?=
+ =?utf-8?B?K2tQMDB5b0ViNXlqVTBtd0h3L1B4aHZsYUl6c2w2K0JtQm90dmk4eEoyVXYy?=
+ =?utf-8?B?SkhqMWdqOTZQMnhLQjBaOE5rLzNiQmt3MElOTzAzZDVmUC9SbDRhNUJnZkFT?=
+ =?utf-8?B?WEF4eEU3N21icVJpbTYwblQ2QW9CU2FDamM4Mkl0YTc0V2srUnJab28rSjVQ?=
+ =?utf-8?B?Y0NkUDdHTitsaHRkOUZ3bmtXaFVtNHA3UmZkWU9MeVVYUkVTelJ2M3ZJMnFr?=
+ =?utf-8?B?RXdLY0NPSzUzdUZ0NW8rZlV6eStXNVYxa2RRME8rM2NYRVo5TUdnbkp5VG1s?=
+ =?utf-8?B?cVlHNDI4R2JvMUZERStpdFZiNTJRdUF4blZBVGVxdTVvYmlIazExeUJiaDNi?=
+ =?utf-8?B?WGttWnh3TVF4enE0d21ZUGhQNng1ZzNnNTBGNVBoZHJKREhTN1k1SU05d1Zr?=
+ =?utf-8?B?Qm1sbSsyVytZWm1QUE4rY3FYdXVuOWtJUGhicDNMcW5rcjNxWTZhVUN2Y1Rq?=
+ =?utf-8?B?c0pvYktEZHRKbU5JVmJHSm5mUDZlRWZ6QWhzVkt0K21EZm5DeG9rOFlRQ1JK?=
+ =?utf-8?B?VjhFemJ4Sjd1VlBQZkNnVnE5SzdabVhqMXZtdGJ5R3VmblZ6bDZMKzYwN0ox?=
+ =?utf-8?B?ZlVZVjhwNUZWb3NFUEdGRWFmdlBBbThTMDBQU1lPamhnMXUrTzlWakM3bWdK?=
+ =?utf-8?B?RUJ0NnJYZUZrNnk5VHFhZEF2SVBBQXJxMEJ5SnhqWlVVL1h2aEQ4NWRWM1dI?=
+ =?utf-8?B?VlR0NUxUeWlJYnhLU2tmcVN6Z1R0RVVZcmFDVEh6MWxWWDVISUFiQnNnU1dW?=
+ =?utf-8?B?M1hnTllGZ3RvUzI3WHpDY3VrQWpTSnFvRkluRUJBc3RyVDVmbGQ3V1BOc3Jn?=
+ =?utf-8?B?RHE4azAwd1JGazlkUUxUbjJFT2NqeGpaSEFjdUlLSVRSUEFVZTRQZmIzNW1C?=
+ =?utf-8?B?SDAzVWtyMXd3TXF1VEZ6UWhIbkE3YW8xLzdScUp5dDNGNmZZQnN4UT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6065bc2-206f-4c03-ca7c-08df0a67431a
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:31:13.6064
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZBfxI9gM3ffXgkeY+sI0LeRupTQcEhvqJh6dG4uTm9qfpDrEbx/yt2Ic6UIYklqZPfU8dlfLnNBC/sYU1zB+mw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11900
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_022723_107744_6419BD54 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260904_023121_793534_98D2ECAD 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,10 +150,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 08:09:36AM +0000, bot+bpf-ci@kernel.org wrote:
-> This isn't a bug, but would 'u64' fit the surrounding declarations in this
-> file a little better than '__u64' for the three new locals/globals?
 
-Right, the rest of exceptions.c uses u64. I'll switch the three new
-declarations. Holding the respin for now in case more feedback comes in.
+Just change one new email app. Sorry for wrong format in previous email.
+
+Let us continue discussing here!
+> Hi Carlos,
+> 
+> Thanks for the review, and sorry for the confusion my v2 caused on
+> several points. Let me answer your questions.
+> 
+>> Are you using AI to make this patch?
+> 
+> Yes, I did use an AI tool while preparing this patch, and I
+> apologise for not stating that upfront. I will describe how it was
+> used in the v3 changelog, as described in
+> Documentation/process/generated-content.rst.
+> 
+
+Hi, Haobin
+
+It's okay, don't worry about it.
+
+>> Have you meet one issue on one real platform? Can you share the
+>> detail about your devices and platform?
+> 
+> Yes, an i.MX6ULL on an ALIENTEK i.MX6ULL mini board, with an
+> ATECC608A at 0x60 on I2C1. I am writing an out-of-tree ECDSA driver
+> for it that reuses the wake pattern of the upstream atmel-i2c
+> helper (drivers/crypto/atmel-i2c.c): a wake token sent with
+> I2C_M_IGNORE_NAK through i2c_transfer_buffer_flags(). On i2c-imx
+> the transfer aborts with -ENXIO at the first, expected NAK because
+> the flag is silently dropped, so my driver had to fall back to
+> bit-banging SDA over GPIO to wake the chip. I will verify the bus
+> behaviour on that board with a logic analyzer and include the
+> results and captures with v3.
+> 
+
+In fact, you just need to support this I2C_M_IGNORE_NAK single flag.
+Happy to see this. If you can help provide some strong evidence, it will
+help a lot.
+
+>> After meet NACK, can i2c-imx controller continue to write or read
+>> data from FIFO, after NACK normally stop or repeat start, so I am
+>> not sure the i2c-imx controller HW will work normally, do you test
+>> this?
+> 
+> I will cover this with the tests attached to v3.
+> 
+>> Always goto the PIO path with I2C_M_IGNORE_NAK flag, it is better
+>> "return i2c_imx_acked(i2c_imx, false);"?
+> 
+> Agreed, v3 will do that.
+> 
+>> You don't really support the I2C_M_STOP in the code and
+>> intentionally ignore I2C_M_STOP check to avoid breaking the
+>> imx6qdl-ds,right? Do you work on this platform?
+> 
+> No, I don't have an imx6qdl-ds. The ov2659/SCCB reasoning in the v2
+> changelog came from reading the DT and driver code, not from
+> hardware, and it will be removed from v3. I2C_M_STOP will stay
+> rejected, as in patch [4].
+> 
+> While checking the code I found that patch [4] rejects
+> I2C_M_STOP, and in-tree ov2659 on imx6qdl-ds sets I2C_CLIENT_SCCB
+> (I2C_M_IGNORE_NAK | I2C_M_STOP) on every message, including the
+> chip-ID read at probe, so after [4] lands that probe might fail
+> with -EOPNOTSUPP. This is only from reading the code and I might be
+> wrong. Similarly, rejecting I2C_M_IGNORE_NAK might affect the
+> ATECC508A wake token on imx6qdl-gw5904.
+> 
+
+This point actually concerns me as well.
+
+From my perspective, I agree with the V2 approach of skipping the
+"I2C_M_STOP" check by default. When adding new features, we should avoid
+breaking existing platforms.
+
+Historically, "i2c-imx.c" did not validate these flags, so ov2659/SCCB
+may have been running in a state that was not fully compliant with the
+intended driver design, but nevertheless worked in practice.
+
+Rejecting transfers with "I2C_M_STOP" could therefore break the existing
+ov2659/SCCB use case on imx6qdl-ds. While the code would continue to
+silently ignore "I2C_M_STOP" during multi-message transfers, this is not
+a new behavior.
+
+In fact, allowing "I2C_M_STOP" to pass through is intended to preserve
+existing behavior and maintain backward compatibility.
+
+What is your view on this?
+
+>> So can you please rebase your patch on patch[4]?
+> 
+> Yes, v3 will be rebased on top of [4].
+> 
+> I will also fix the sentence spacing in the changelog and comments
+> as you asked.
+> 
+> Regards,
+> Haobin
+
+-- 
+Best Regards,
+Carlos
+
 
