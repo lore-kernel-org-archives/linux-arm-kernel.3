@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09137C79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3168C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJ5O+OMRxzlXnTpP7WXm8UGKXRpHVfEKgrPFOTuwCuk=; b=V4cefrWQuNLvDHTH/7g3pCJP3J
-	nLBchWwpTw3mGj7HWJuMXs+sSZSI5bn0hbjewGTGluwBIiehgtAa5rzPH98CNVZ6JI/xtK9EG5qk3
-	+Qeuf1RVjijtPwx3ckE2IZO+3yLQtqAw7FFataE8QbyeN5dRKHWjm64pyAkvz5nm837fFLP8rV3k4
-	5RXlXctpixV5oEcMtXL5hSLYImhTdE3+2icOtkJcr2c38RCx7Z+W3yNOZdl4RMrGmRXLyHivkgDIS
-	bkPu6PyNJzh9rYQToairlgkXj9rjHxYnGL1RqYPf0S/2hEBDFsPbuPKP5Wbve8QjIiJeI9/MveZlx
-	mnR0uJyw==;
+	bh=u9I2WPocLUacIb6MXv6UW+BXVCGDKNGSQF8ffRh5uJE=; b=zl33JsBqj70/B3Ucdc6uJ1RwNl
+	rAgHF1CXvrPmkwDZwrJUyXk+nLWPFuff6+Jr7a/2RJ7sW34AkJ8sF99ibdCHLNMc1R2RDBm0Z700T
+	QxUkqCkKIvXFhpad02JIJVvsSHqJU9/ZEchXzqAFdHM4Cl2EVcsilqTJZIKpRhc4F78oGdJQmvSOO
+	CxvCXQ8mSMtJEIDOyJPg6hK/h0mkL/TepyoFG+NBji5wsbOjxye2p8Nua6K5UPnmibGhK3fnBqU8y
+	JwWEQeosCVm4k0db0U9NVvst4JVU7BTLE/DGGeD1WrGzfIWLLMjSk3bW7ws7PNePzkYmPc03OKpGD
+	QeaTYqfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGy-00000001gs3-0Ykr;
-	Fri, 04 Sep 2026 10:35:52 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1x2RH1-00000001gvI-3t00;
+	Fri, 04 Sep 2026 10:35:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RGu-00000001glj-3XUK
+	id 1x2RH0-00000001gtp-1B8d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:35:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788518125; bh=IJ5O+OMRxzlXnTpP7WXm8UG
-	KXRpHVfEKgrPFOTuwCuk=; b=jLUK3urokkvA+3WXiyGtulLBSDkDFdht2Lj6bcSwqDpVmxW98N
-	Yu9dbgsRUm2l6QSpO2yRj/xkrf236hfanDk0cU5vnO5VrBzX0fUUcODN5Y3/C9dFSKlgo+APRf3
-	I4l7PFxshiTtPGU2A1wplMk4uMJi8dnRE5uCY/W3MBxXNyGhWUjJ/8/Hc65izm5vWnIrwzPvzsQ
-	tGek0x4adSvGpNAIKXxj6ELJuejVd8O9ahW2Dh4mK1andFDNwWZyEqmiHjMSpku52jbcCW34/WJ
-	dk2hEqcbKqwmLMZFZayOWoLAND+1GgK7z9WeSVHgLytfL/EZWkwc62qxa9Shr6BIOcg==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1788518125; bh=IJ5O+OMRxzlXnTpP7WXm8UG
-	KXRpHVfEKgrPFOTuwCuk=; b=ieSebnxfCjP2z9WpDNu8VXn4gIzMcBrPQm1phBnVhyUeH+ZAEw
-	1nrSLfq2B1wWQfyHphQ+QuL91OE1tE34hIAA==;
-Date: Fri, 04 Sep 2026 11:35:25 +0100
-From: Bradley Morgan <brads@mainlining.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-CC: Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>,
- Xi Ruoyao <xry111@xry111.site>, Marc Zyngier <maz@kernel.org>,
- Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: mpam: Document when to set arm64.nompam
-In-Reply-To: <20260904103131.627392-1-fuad.tabba@linux.dev>
-References: <20260904103131.627392-1-fuad.tabba@linux.dev>
-Message-ID: <9CE4CF72-74D6-493D-9F92-2D14CDC05C68@mainlining.org>
+	Fri, 04 Sep 2026 10:35:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B5DCC60219;
+	Fri,  4 Sep 2026 10:35:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65AAD1F00A3E;
+	Fri,  4 Sep 2026 10:35:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788518153;
+	bh=u9I2WPocLUacIb6MXv6UW+BXVCGDKNGSQF8ffRh5uJE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ag3TqrjJK6NyKSY5HFriLni2RYiMqOyiczi4SedYu9aoxcW7VAiIQmq3OgqnuN+lO
+	 t48NCzb9u4ItoAs2nwdCm3BWWbyM8Xvcw4b6JOsIo8nyL+wIOL70dofHXvFQelH2ac
+	 rn+fVTW4+VlGbZZYilrDNAqmBV+FoOb6MZh3IgTYfl8Q4U4ujL6wxVBM1KCNyVlsKS
+	 nK/KT/uyhGZUhQI6zI29x8SiDyrL1zQquaWzefOINBzcZVtLdxb6pPiclH0+ORPito
+	 iSkjUKubJh7FuCBbH0uEHgDigwKXqLbpesSLWU023N2AVQpJipCrJ3qgT24kYgyhoC
+	 RwplQVNBH5AaQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v6 9/9] arm64: realm: Expose the CCA shared granule size through mem_encrypt ops
+Date: Fri,  4 Sep 2026 16:04:52 +0530
+Message-ID: <20260904103452.1197239-10-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
+References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_033549_035721_1F5DCFD6 
-X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +80,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4 September 2026 11:31:31 BST, Fuad Tabba <fuad.tabba@linux.dev> wrote:
->arm64.nompam skips the MPAM2_EL2 and MPAMHCR_EL2 writes in
->finalise_el2_state and leaves the ARM64_MPAM cpucap unset. Where EL3
->firmware has cleared MPAM3_EL3.TRAPLOWER, the EL2 trap controls are
->left unwritten, at reset values that are UNKNOWN, and KVM still hides
->MPAM from the guest but no longer enables the traps that stop a guest
->from using it. KVM never saves or restores MPAM0_EL1 and MPAM1_EL1, so
->what one guest writes reaches the next guest and the host. Nor can the
->kernel make the EL2 writes unconditionally: they trap to EL3 on the
->firmware the option exists for, and TRAPLOWER cannot be read below EL3.
->
->Say so in mpam.rst, and add the rule and a pointer to the
->kernel-parameters entry.
->
->Suggested-by: Ben Horgan <ben.horgan@arm.com>
->Link: https://lore.kernel.org/all/CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com/
->Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
->---
->
->Notes:
->    Changes since v1, the first three from Ben Horgan's review:
->     - Put arm64.nompam under a new "Command line parameters" section.
->     - Separate MPAM3_EL3.MPAMEN from TRAPLOWER, which v1 conflated.
->     - Add that KVM does not save or restore MPAM0_EL1 and MPAM1_EL1.
->     - Drop "No functional change intended." from the commit message.
->    
->    Bradley Morgan's Reviewed-by on v1 is not carried over: both
->    paragraphs, the section heading and the commit message changed.
+CCA guests must align shared/private memory transitions to the size
+reported by the host for IPA state changes. This size can be larger than
+PAGE_SIZE, so allowing a guest to convert only a PAGE_SIZE-sized subrange
+can leave the remaining part of that host-sized range in the wrong state.
 
-Still LGTM, the only arm device I own is pixel 7, and also a modern arm
-test-peoples-crap box. So from what I recall, my tag stands 
+Cache the RHI-reported IPA sate change alignment during Realm
+initialization and expose it through a new arm64 mem_encrypt callback. Use
+PAGE_SIZE as the default shared granule size when no backend callback is
+registered.
 
->    
->    v1: https://lore.kernel.org/all/20260903084809.2027326-1-fuad.tabba@linux.dev/
->
-> .../admin-guide/kernel-parameters.txt         |  3 ++-
-> Documentation/arch/arm64/mpam.rst             | 25 +++++++++++++++++++
-> 2 files changed, 27 insertions(+), 1 deletion(-)
->
->diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->index 68647ff4bdd24..e6d543de3cde5 100644
->--- a/Documentation/admin-guide/kernel-parameters.txt
->+++ b/Documentation/admin-guide/kernel-parameters.txt
->@@ -575,7 +575,8 @@ Kernel parameters
-> 			Set instructions support
-> 
-> 	arm64.nompam	[ARM64] Unconditionally disable Memory Partitioning And
->-			Monitoring support
->+			Monitoring support. Only for a machine that does not
->+			boot without it. See Documentation/arch/arm64/mpam.rst
-> 
-> 	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
-> 			support
->diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
->index 67fe515ed501c..e66b1359d1282 100644
->--- a/Documentation/arch/arm64/mpam.rst
->+++ b/Documentation/arch/arm64/mpam.rst
->@@ -87,6 +87,31 @@ The supported features are:
->   MBWU monitors can be exposed to the user after support for more monitoring
->   scopes is added to resctrl.
-> 
->+Command line parameters
->+=======================
->+
->+arm64.nompam
->+------------
->+Firmware controls MPAM through two bits of MPAM3_EL3. MPAMEN enables
->+it: while set, the PARTID and PMG in the MPAMn_ELx registers label the
->+CPU's memory requests. TRAPLOWER, which resets to 1, traps accesses to
->+the MPAM system registers from the lower exception levels to EL3.
->+Firmware must clear it, or handle the trap and emulate MPAM as disabled.
->+Where it does neither, the CPUs still advertise MPAM in the ID registers,
->+the kernel's MPAM register accesses trap to EL3, and the boot fails.
->+``arm64.nompam`` exists for that firmware: it makes the kernel treat the
->+CPUs as not implementing MPAM, so no MPAM system register is accessed.
->+Set it only on a machine that does not boot without it.
->+
->+It is not a way to turn MPAM off. Where firmware has cleared TRAPLOWER,
->+the option leaves the trap controls in MPAM2_EL2 and MPAMHCR_EL2
->+unwritten, and their reset values are UNKNOWN. KVM still hides MPAM from
->+guests but no longer enables the traps that stop a guest from using it,
->+so a guest may be able to read and write MPAM0_EL1 and MPAM1_EL1. KVM
->+does not save or restore them, so what one guest writes is still there
->+when the next guest runs on that CPU, and when the host does. With MPAMEN
->+set, EL0 and EL1 requests then carry that PARTID and PMG.
->+
-> Reporting Bugs
-> ==============
-> If you are not seeing the counters or controls you expect please share
-> the
->
+Validate both the address and byte size passed to set_memory_encrypted()
+and set_memory_decrypted() against mem_cc_shared_granule_size() before
+calling into the backend. This prevents callers from converting only part
+of a host-managed page.
 
---- Thanks!
-https://lore.kernel.org/all/EE579805-42F2-4C58-B752-F28779EEB717@grrlz.net/
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ arch/arm64/include/asm/mem_encrypt.h |  4 ++++
+ arch/arm64/mm/mem_encrypt.c          | 32 ++++++++++++++++++++++++----
+ drivers/firmware/arm_rmm/rsi.c       | 13 ++++++++++-
+ 3 files changed, 44 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+index ef8b8463e52b..890faeed0eb3 100644
+--- a/arch/arm64/include/asm/mem_encrypt.h
++++ b/arch/arm64/include/asm/mem_encrypt.h
+@@ -10,6 +10,7 @@ struct device;
+ struct arm64_mem_crypt_ops {
+ 	int (*encrypt)(unsigned long addr, int numpages);
+ 	int (*decrypt)(unsigned long addr, int numpages);
++	size_t (*cc_shared_granule_size)(void);
+ };
+ 
+ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
+@@ -18,6 +19,9 @@ int set_memory_encrypted(unsigned long addr, int numpages);
+ int set_memory_decrypted(unsigned long addr, int numpages);
+ int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt);
+ 
++#define mem_cc_shared_granule_size mem_cc_shared_granule_size
++size_t mem_cc_shared_granule_size(void);
++
+ static inline bool force_dma_unencrypted(struct device *dev)
+ {
+ 	return is_realm_world() || is_protected_kvm_guest();
+diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
+index ee3c0ab04384..69783c6a3c08 100644
+--- a/arch/arm64/mm/mem_encrypt.c
++++ b/arch/arm64/mm/mem_encrypt.c
+@@ -17,8 +17,7 @@
+ #include <linux/compiler.h>
+ #include <linux/err.h>
+ #include <linux/mm.h>
+-
+-#include <asm/mem_encrypt.h>
++#include <linux/mem_encrypt.h>
+ 
+ static const struct arm64_mem_crypt_ops *crypt_ops;
+ 
+@@ -33,18 +32,43 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops)
+ 
+ int set_memory_encrypted(unsigned long addr, int numpages)
+ {
+-	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
++	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
++
++	if (likely(!crypt_ops))
+ 		return 0;
+ 
++	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
++		return -EINVAL;
++
++	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
++		return -EINVAL;
++
+ 	return crypt_ops->encrypt(addr, numpages);
+ }
+ EXPORT_SYMBOL_GPL(set_memory_encrypted);
+ 
+ int set_memory_decrypted(unsigned long addr, int numpages)
+ {
+-	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
++	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
++
++	if (likely(!crypt_ops))
+ 		return 0;
+ 
++	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
++		return -EINVAL;
++
++	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
++		return -EINVAL;
++
+ 	return crypt_ops->decrypt(addr, numpages);
+ }
+ EXPORT_SYMBOL_GPL(set_memory_decrypted);
++
++size_t mem_cc_shared_granule_size(void)
++{
++	if (likely(!crypt_ops) || !crypt_ops->cc_shared_granule_size)
++		return PAGE_SIZE;
++
++	return crypt_ops->cc_shared_granule_size();
++}
++EXPORT_SYMBOL_GPL(mem_cc_shared_granule_size);
+diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
+index 2cd53f82432f..eeb797c6c2c7 100644
+--- a/drivers/firmware/arm_rmm/rsi.c
++++ b/drivers/firmware/arm_rmm/rsi.c
+@@ -19,6 +19,7 @@
+ 
+ static struct realm_config config;
+ static struct kobject *cca_kobj;
++static unsigned long ipa_state_change_granule_size;
+ 
+ unsigned long prot_ns_shared;
+ EXPORT_SYMBOL(prot_ns_shared);
+@@ -155,9 +156,17 @@ static int realm_set_memory_decrypted(unsigned long addr, int numpages)
+ 	return ret;
+ }
+ 
++static size_t realm_cc_shared_granule_size(void)
++{
++	if (is_realm_world())
++		return ipa_state_change_granule_size;
++	return PAGE_SIZE;
++}
++
+ static const struct arm64_mem_crypt_ops realm_crypt_ops = {
+ 	.encrypt = realm_set_memory_encrypted,
+ 	.decrypt = realm_set_memory_decrypted,
++	.cc_shared_granule_size = realm_cc_shared_granule_size,
+ };
+ 
+ static int realm_register_memory_enc_ops(void)
+@@ -167,7 +176,7 @@ static int realm_register_memory_enc_ops(void)
+ 
+ /* we need an aligned struct for rsi_host_call. slab is not yet ready */
+ static struct rsi_host_call hostconf_call __initdata;
+-static unsigned long __maybe_unused __init get_ipa_state_change_alignment(void)
++static unsigned long __init get_ipa_state_change_alignment(void)
+ {
+ 	long ret;
+ 	unsigned long shared_granule_size;
+@@ -218,6 +227,8 @@ void __init arm64_rsi_init(void)
+ 		return;
+ 	if (WARN_ON(rsi_get_realm_config(lm_alias(&config))))
+ 		return;
++
++	ipa_state_change_granule_size = get_ipa_state_change_alignment();
+ 	prot_ns_shared = __phys_to_pte_val(BIT(config.ipa_bits - 1));
+ 
+ 	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
+-- 
+2.43.0
+
 
