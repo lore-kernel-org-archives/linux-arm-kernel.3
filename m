@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD57FC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4D2C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vcyZDykAqvCwktIBHqXV9lT4jpiDSEUII6a1SrCC7+4=; b=hoAPgZrhOr29/O91ofUsute6lE
-	Kd4s0i1sZmlyCgdk3bqT/tU+98w8ucWfz4mMW6DKmy2ccL/q9IALy5E/MvGneRSOXt5xErDEtKq9p
-	SQ5VpPORXDgIUerzFpH54Lx0zxMBNv2cYmILFuD39PuS/hhxBmUSZwE3+JFOgpWoib2SYlzGVObZK
-	u8ONXfZ8RJlPHHDO0G034t8yxXoFPTWVdV5rEPZOoZyNBMDmHdve9IheQx2MzpN1ajEvJrccXclPg
-	URze5eUtGfCmWSVNGJdzajYy2KxTB+Y54jfV82fRobwR8fR0NP6xxsgkv/18vf3ThjEdi5okVc4EV
-	eD7cxbbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J66fN78gjzDvd/CtvKdQYi/6n2qcde6bjwwV8TUBACo=; b=dNcis5Ws6IpkxtGE9KS1XHVbKe
+	cJdiHL+UT4BYcxFTr9zX8nzLInVJk9sKolumv6zyJf8asKsNYJU86BYMw7XLaUxUAhUPUDRXZPLqM
+	+VdgXQWNXLp8fInlv9cQ4omrrm2KGhckT7i+WYQFwx8dLTrp4SdJr/sFCRp06tsm1y00O9yaMp3Ha
+	JGK8LK5AzpdFed1DA8gNsIExTU1DW2eK+tY4htm4E0zumSzAYEDRlOU86rdt7lP6p66+WbFELNBMd
+	BQ075KFUz05Vf8ikbidqPmAHcjxZ/DVhjHquvfSz+QgjaJ8rKyTkQQo+/vXXZTiXK5Rq3dUqfe7pd
+	t5xcw8Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VbT-00000002UEF-0vz3;
-	Fri, 04 Sep 2026 15:13:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1x2Vbw-00000002UK5-1hfC;
+	Fri, 04 Sep 2026 15:13:48 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VbP-00000002UDd-3Wwq
+	id 1x2Vbr-00000002UHj-0UgG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:13:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1788534794;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vcyZDykAqvCwktIBHqXV9lT4jpiDSEUII6a1SrCC7+4=;
-	b=Ll1m4RrVQ7uA/vORfxhhzcuIjwp7VbBpmsT//ysqPj+luYLXl64w7+oOWiw5r8aUDYjU+g
-	C4JgRcTQYAtsZ4Wge4+twsMcooAckpzJ1aQJmprrSmaqcTIXV3ef6iX8GtwqDfCG4QOxNU
-	fDK1ZUjvneHGtQUrP/X2fmW/yc+0IhM=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-345-nNeCfN2VOO-SlBJAwhZsuQ-1; Fri,
- 04 Sep 2026 11:13:07 -0400
-X-MC-Unique: nNeCfN2VOO-SlBJAwhZsuQ-1
-X-Mimecast-MFC-AGG-ID: nNeCfN2VOO-SlBJAwhZsuQ_1788534786
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3ADDB195FDDF;
-	Fri,  4 Sep 2026 15:13:06 +0000 (UTC)
-Received: from [172.20.168.70] (unknown [10.30.45.63])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9AC9818005AD;
-	Fri,  4 Sep 2026 15:13:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.3.0-rc1,
- upstream-arm-next, 5445d641)
-Date: Fri, 04 Sep 2026 15:13:04 -0000
-To: will@kernel.org, ftjahjad@redhat.com, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, bgoncalv@redhat.com
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <96542.126090411130701183@us-mta-345.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NJMn5brfCaL2Ad1PLbPHeMcPAQxgLShfRVeSy-G_Dkg_1788534786
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+	Fri, 04 Sep 2026 15:13:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1788534820;
+ bh=J66fN78gjzDvd/CtvKdQYi/6n2qcde6bjwwV8TUBACo=;
+ b=PWnuf/1B7151ys1HqQawIx0XpaGXaeED5/HijbNmrz/OewFR+d9HeTxajht1W0oh+62MzJFu3
+ 0p5E+aFk8hC646nq+gM/XJMFSTIw7qjzK+F8HDPw7zdOQwD6eJkrLoHobuy57ey+UHltJ2Cgyzy
+ SvTYA0UBEke0SzjC/mN6HhrHUL3unkbuLStwfu6vABs5BT3297DoAO4QCjzJayD10fa48MZ9Mxa
+ MZmZK4081XxKyVyiIhRJhGk5cQY/znuvqrdNKtclRF2tGL55cNCSN/eT2BgLru/azWbkPBSWctn
+ B+9g8Ut4yyavzrXj7UDN0JqtI0gKM+QW+2covSadEzyQ==
+X-Forward-Email-ID: 6a9ae0044b8c51dfb697c95f
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.14.0
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Fri, 04 Sep 2026 11:13:05 -0400
+Message-Id: <DL6MO1P17KSW.1DKQ6HW2U2ZCK@ubuntu.com>
+Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <mfd@lists.linux.dev>, <linux-clk@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+ "Andy Yan" <andyshrk@163.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Maud Spierings" <maud_spierings@murena.io>,
+ "Graham Markall" <hello@big-grey.co.uk>, "Icenowy Zheng"
+ <zhengxingda@iscas.ac.cn>
+Subject: Re: [PATCH v3 00/19] drm: starfive: jh7110: Enable display
+ subsystem
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Michal Wilczynski" <m.wilczynski@samsung.com>, "Vinod Koul"
+ <vkoul@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Lee Jones" <lee@kernel.org>,
+ "Andy Yan" <andy.yan@rock-chips.com>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Emil Renner Berthing" <kernel@esmil.dk>, "Hal
+ Feng" <hal.feng@starfivetech.com>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney@redhat.com>, "Heiko Stuebner" <heiko@sntech.de>, "Conor
+ Dooley" <conor@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Dominique Belhachemi" <db@domibel.de>,
+ "Brian Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <CGME20260904132708eucas1p1adfa26ef0fe5109eca63a3aeadf74915@eucas1p1.samsung.com> <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
+In-Reply-To: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_081315_949090_CBCA9BB5 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260904_081343_425274_3A9B2FA0 
+X-CRM114-Status: GOOD (  49.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,84 +103,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri Sep 4, 2026 at 9:27 AM EDT, Michal Wilczynski wrote:
+> This series enables the display subsystem on the StarFive JH7110.
+>
+> The dom_vout block holds the display controller (dc8200), the clock
+> generator (voutcrg) and the HDMI IP, all inside PD_VOUT. The HDMI IP is
+> a single register block containing both the controller and the PHY, and
+> it has a circular clock dependency with voutcrg:
+>
+>   - the HDMI controller needs pclk/mclk/bclk from voutcrg
+>   - voutcrg needs the pixel clock for its dc8200 pixel MUXes, and that
+>     clock is generated by the HDMI PHY
+>
+> The loop only exists if the HDMI block is treated as one device. The
+> PHY's reference clock is xin24m, not a voutcrg output, so splitting the
+> node into a parent plus phy and controller children gives deferred probe
+> a linear order: hdmi-phy, then voutcrg, then hdmi-controller.
+>
+> The parent maps the register block and owns the regmap its two children
+> share. Everything in the region sits behind one NoC port whose clock and
+> reset gate access to it, inside PD_VOUT, so the vout subsystem node from
+> the RFC is back and owns those for as long as any child exists.
+>
+> Patch 10 adds a .mode_valid platform op to inno-hdmi.
+> inno_hdmi_bridge_mode_valid() checks the pixel clock against
+> hdmi->refclk, but that clock only exists where a "ref" clock is
+> described. The JH7110 gets its pixel clock from the PHY, so refclk is
+> NULL and the check was skipped: unsupported modes were advertised, the
+> modeset then "succeeded" because the atomic enable path cannot fail, and
+> the display stayed blank.
+>
+> Patches 15-17 drop the PHY duplication from the RFC. The JH7110 has the
+> same Innosilicon PHY as the RK3328, offset by 0x100 because it sits
+> behind the controller in the shared register block. Patch 15 factors out
+> the pre-PLL config format, table lookup, determine_rate, recalc_rate and
+> the pre-PLL programming; patch 16 moves Rockchip onto it; patch 17 adds
+> the JH7110 driver. Pixel clock tables, post-PLL and analog config stay
+> SoC specific.
+>
+> Patch 16 should be a no-op for Rockchip - same writes, same order, same
+> values - and RK3228, whose pre-PLL is at different addresses, keeps its
+> own register code and shares only the lookup. I have no Rockchip
+> hardware, so it is build tested only (arm and riscv). A Tested-by would
+> help.
+>
+> The dc8200 driver, th1520 reset controller and inno-hdmi bridge that the
+> RFC listed as prerequisites are all upstream now, so there are no
+> out-of-tree dependencies.
+>
+> Testing
+> =3D=3D=3D=3D=3D=3D=3D
+>
+> Tested on a VisionFive 2 v1.3B using modetest.
+>
+> All 42 modes the sink advertises work, with nothing in dmesg. Pixel
+> clocks run from 25.175 MHz (640x480@59.94) up to 297 MHz
+> (4096x2160@30), including 3840x2160 and the full 1920x1080 and 1280x720
+> rate families.
+>
+> The four modes the RFC reported as broken work now too: 2560x1440@59.95,
+> 2048x1080@60.00, 2048x1080@24.00 and 720x400@70.08.
+>
+> Before patch 10, four of the advertised modes failed: 1680x1050@59.95
+> (146.250 MHz), 1400x1050@59.98 (121.750), 1152x864@59.97 (81.768) and
+> 1280x768@60.35 (80.140). Those pixel clocks are not in the PHY pre-PLL
+> table, so clk_set_rate() returned -EINVAL and the screen stayed black
+> while userspace saw a successful modeset. They are rejected in
+> .mode_valid now; the other refresh rates of those resolutions still work.
+>
+> Every commit builds for riscv, and the Rockchip PHY also for arm.
+>
+> Notes
+> =3D=3D=3D=3D=3D
+>
+> The JH7110 has no central MAINTAINERS entry and maintainership is
+> fragmented, so patch 19 adds one for the display subsystem and I am
+> happy to help maintain it. The new PHY library lives under drivers/phy/,
+> already covered by the generic PHY framework entry.
+>
+> checkpatch warns "does MAINTAINERS need updating?" on the patches adding
+> files, because that entry comes in patch 19.
+>
+> Thanks to Icenowy Zheng for the dc8200 driver and for explaining how the
+> SoC and the display pipeline fit together.
+>
+> Thanks also to Dominique Belhachemi, who got rid of the vout-subsystem
+> wrapper and helped with the testing, to Maud Spierings for testing on a
+> Framework 13 panel, and to Graham Markall for testing
+> the JH7110 display patches independently and writing up the results:
+> https://big-grey.co.uk/2026/01/26/testing-starfive-jh7110-display-control=
+ler-patches/
+>
+> Link to v1: https://lore.kernel.org/all/20251108-jh7110-clean-send-v1-0-0=
+6bf43bb76b1@samsung.com/
+>
+> ---
+> Changes in v3:
+> - Brought back the vout subsystem node and driver, now owning the NoC
+>   bus clock, its reset and PD_VOUT for the whole region, with dc8200,
+>   the HDMI block, the syscon and voutcrg as its children (Icenowy Zheng).
+> - Fixed a hard hang when the bridge is built as a module: the PHY's
+>   .is_prepared read a register in the window gated by the controller's
+>   system clock, so clk_disable_unused() wedged the CPU before the
+>   controller had bound. The op is gone; the framework uses the software
+>   prepare count instead. (Marek Szyprowski)
+> - The HDMI controller now programs the display mux in dom_vout_syscon
+>   from the port graph rather than inheriting whatever the bootloader
+>   left, with a phandle to the syscon (Icenowy Zheng).
+> - The register access clock is named "pclk" to match the existing
+>   inno-hdmi binding, so the generic driver no longer picks up the pixel
+>   clock. Previously it held the pre-PLL powered from probe and sized the
+>   DDC divider from the wrong rate.
+> - Dropped the clk suffixes and the single-entry -names properties from
+>   the bindings (Conor Dooley). mclk and bclk keep their names: per TRM
+>   5.3 they are the HDMI audio clocks, not module and bus clocks, so the
+>   descriptions say that instead.
+> - Replaced patternProperties with plain properties in the hdmi-subsystem
+>   binding (Conor Dooley).
+> - dc8200 gets an SoC specific compatible, and inherits dma-noncoherent
+>   from the subsystem bus node, so it validates against verisilicon,dc.
+> - Added the pre-PLL entry for the Framework 13 panel and fixed two
+>   devicetree whitespace nits (Maud Spierings).
+> - select REGMAP_MMIO, CLK_SET_RATE_NO_REPARENT on the dc8200 pixel MUXes
+>   so clk_set_rate() cannot reroute them, and inno-hdmi register reads
+>   return 0 instead of stack garbage when regmap_read() fails.
+> - phy: rockchip: dropped the local pre-PLL lookup wrapper and the 28 now
+>   unused RK3328 pre-PLL macros, and restored the VCO debug output, this
+>   time in the shared helper so both drivers get it (Jonas Karlman).
+> - Rebased onto v7.3-rc1.
+> - Link to v2: https://lore.kernel.org/r/20260828-jh7110-clean-send-v2-0-3=
+31680c8b9d1@samsung.com
+>
+> Changes since the RFC:
+> - Dropped the vout-subsystem wrapper driver and its binding, along with
+>   the patch relaxing the voutcrg binding; genpd handles PD_VOUT per
+>   node.
+> - Renamed the compatible to starfive,jh7110-hdmi-subsystem, dropping
+>   "mfd" as a Linux term (Conor Dooley).
+> - Absolute $refs in the bindings, unused example labels dropped, and the
+>   examples deduplicated between parent and children (Conor Dooley).
+> - Added the .mode_valid platform operation (patch 7).
+> - Split the inno-hdmi rework into a mechanical probe/bind split (patch
+>   4)
+>   and the regmap-from-parent change (patch 5). struct inno_hdmi is no
+>   longer exported; no platform glue dereferences it.
+> - Replaced the duplicated PHY driver with a shared Innosilicon library
+>   and moved Rockchip onto it (patches 11-13).
+> - Fixed pre-PLL lock detection, which masked the status read with the
+>   register address instead of the lock bit.
+> - Fixed a pixel clock refcount underflow: enable returns early on
+>   failure while disable tore down unconditionally.
+> - voutcrg patch reduced to adding CLK_SET_RATE_PARENT to the two dc8200
+>   pixel MUXes.
+> - Rebased onto v7.2.
+>
+> ---
+> Michal Wilczynski (19):
+>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>       dt-bindings: display: bridge: Add starfive,jh7110-inno-hdmi-control=
+ler
+>       dt-bindings: mfd: Add starfive,jh7110-hdmi-subsystem
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-syscon
+>       dt-bindings: soc: starfive: Add starfive,jh7110-vout-subsystem
+>       dt-bindings: display: verisilicon: Add starfive,jh7110-dc8200
+>       drm/bridge: inno-hdmi: Split probe out of bind
+>       drm/bridge: inno-hdmi: Allow the register map to come from a parent
+>       drm/bridge: inno-hdmi: Add .disable platform operation
+>       drm/bridge: inno-hdmi: Add .mode_valid platform operation
+>       soc: starfive: Add jh7110-hdmi-subsystem driver
+>       soc: starfive: Add jh7110-vout-subsystem driver
+>       clk: starfive: jh7110-vout: Allow pixel clock rate propagation
+>       drm/bridge: starfive: Add JH7110 HDMI controller driver
+>       phy: Add common Innosilicon HDMI PHY helpers
+>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>       riscv: dts: starfive: jh7110: Update DT for display subsystem
+>       MAINTAINERS: Add StarFive JH7110 display subsystem entry
+>
+>  .../starfive,jh7110-inno-hdmi-controller.yaml      | 121 +++++
+>  .../bindings/display/verisilicon,dc.yaml           |   1 +
+>  .../mfd/starfive,jh7110-hdmi-subsystem.yaml        |  95 ++++
+>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>  .../soc/starfive/starfive,jh7110-syscon.yaml       |   6 +
+>  .../starfive/starfive,jh7110-vout-subsystem.yaml   | 100 ++++
+>  MAINTAINERS                                        |  13 +
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi    | 121 ++++-
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi           | 102 +++-
+>  drivers/clk/starfive/clk-starfive-jh7110-vout.c    |   6 +-
+>  drivers/gpu/drm/bridge/Kconfig                     |  11 +
+>  drivers/gpu/drm/bridge/Makefile                    |   1 +
+>  drivers/gpu/drm/bridge/inno-hdmi.c                 |  84 ++-
+>  drivers/gpu/drm/bridge/jh7110-inno-hdmi.c          | 318 +++++++++++
+>  drivers/phy/Kconfig                                |   8 +
+>  drivers/phy/Makefile                               |   1 +
+>  drivers/phy/phy-inno-hdmi.c                        | 298 +++++++++++
+>  drivers/phy/rockchip/Kconfig                       |   1 +
+>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 165 +-----
+>  drivers/phy/starfive/Kconfig                       |  20 +
+>  drivers/phy/starfive/Makefile                      |   1 +
+>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 579 +++++++++++++++=
+++++++
+>  drivers/soc/Kconfig                                |   1 +
+>  drivers/soc/Makefile                               |   1 +
+>  drivers/soc/starfive/Kconfig                       |  43 ++
+>  drivers/soc/starfive/Makefile                      |   3 +
+>  drivers/soc/starfive/jh7110-hdmi-subsystem.c       |  74 +++
+>  drivers/soc/starfive/jh7110-vout-subsystem.c       |  83 +++
+>  include/drm/bridge/inno_hdmi.h                     |  10 +-
+>  include/linux/phy/inno-hdmi-phy.h                  |  85 +++
+>  30 files changed, 2227 insertions(+), 174 deletions(-)
+> ---
+> base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+> change-id: 20251031-jh7110-clean-send-7d2242118026
+>
+> Best regards,
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+So as a kernel newbie, and someone who happens to have this device,
+it's nice to see it here.
+
+It looks good to me, just a few questions:
+
+- One patch mentioned in a comment "the docs" - is there documentation
+for the device?
+
+- There are multiple pieces, like the hdmi and vout subsystem, and also
+the inno helpers. Should those be separate patches? I honestly don't
+have enough experience (or authority) to suggest doing so.
 
 
-Kernel information:
-    Commit message: arm64: Don't read GMID_EL1 when MTE is disabled
+I thought this would be great as a possible driver I could do to learn
+kernel dev.. looks like I was very wrong. Great work, and hopefully
+in the future I get my hands on some device that needs a driver to be
+written for it.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2820274415
+I'm at university, once my board gets mailed from home I'll be able to
+test. For now,
 
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        Boot test
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162511_6
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
-heck
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162512_6
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
-heck
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162513_6
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
-heck
-        Reboot test
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162511_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162512_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2820274415_aarch64_kernel_kcidb_tool_1200162513_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
