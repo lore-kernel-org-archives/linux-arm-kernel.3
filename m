@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52A7C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79A5C79F83
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xN3oFt0Y2IcujH1DIfbY1diyGBQXYknSa0KCk1kgoTY=; b=1gqPBx8ONSysqCPBm9qVMtUdbC
-	da0ZtRawc1mF4VYsDAtGcfyKB7LtiHbvF7v0F/o3xsSdpLkEpZOm5AJDzbYV0Z+FqPZfuHWf09x9L
-	NGfyfK/MJvOcnmQH4tV9dsnHWzrdtQZ2NpyXLIq/qhR66YVYlx5vAN8jRQiSM9mxXWJSsDUMFXvau
-	TefME7DZqtkgTFUs6y8BQivXTQjWRu/8yL9s3YhaJuEH0n6iIdH1rXZb27WZVVnFusKSr4ixAoSwK
-	/XbmCiB+zAxZJA85tFklXUypgQSqk+oM9E25cvU0KoB86hqj7P8XQh6OdoOyRigAV7Kx9glr2LX2c
-	6+zexPJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7MoKXvC6968eejIFP7iCwt2T4ExB49oBcRo4K3eSCKI=; b=IdESXvASLg4vfdZumjdap+r7km
+	BuZUCu0xaxasoljCbt3uwmYcD61AedI1Ig3c+2PlS+QscHKxKKBTzATpcDoEm1rCfuGWIfjRKaM/4
+	GxBGJMc9fb+eJG+kJwDmbmt571TwXZ8k/fSosFlerssP1l+oj0D89LphiwPpbolg1t2KKnObihn9y
+	5+9pV7da8+3GuNYUSrlU41uKx9VFGZLjFNfCL8D5JbAsDtENwVjrGYAE83jjpLM8uBV2lZoWHlTYe
+	NZX1GomWekztB0SpC/EmxalKvYSeVCZPBpkKMLijtnlX8WkchCDRSIN7+4ECjE+CbXghU8zsMZAYb
+	Di/fxjwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Pt3-00000001Tr8-0DHQ;
-	Fri, 04 Sep 2026 09:07:05 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1x2PtV-00000001TyL-1r3G;
+	Fri, 04 Sep 2026 09:07:33 +0000
+Received: from smtp14.infineon.com ([2a00:18f0:1e00:4::6])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Psz-00000001TqL-3pZp
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:07:03 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1788512814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=xN3oFt0Y2IcujH1DIfbY1diyGBQXYknSa0KCk1kgoTY=;
-	b=WHrPmDgKRLot/ajyWVqGI2TnujNsYmC+yXxif15HSpN61jqKi2Z0yiYpLsvGGwE01Y0jDO
-	Q1XgKDWWv//DucrFXEe4+/a3041XWylvD94ceRA3pD/BTiDzsDqKGziS0Fgh1WFgS+vc3W
-	EdjbjyOqKshI+jjBXlijkA2g+cgLsMI=
-Date: Fri, 04 Sep 2026 11:06:52 +0200
-Subject: [PATCH] tty: serial: samsung: Fix S5L on Apple A18 Pro
-MIME-Version: 1.0
+	id 1x2PtR-00000001Twa-3Zov;
+	Fri, 04 Sep 2026 09:07:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
+  t=1788512850; x=1820048850;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=7MoKXvC6968eejIFP7iCwt2T4ExB49oBcRo4K3eSCKI=;
+  b=l9YYbmfTAf1yzAqAL27w4Iu95bRkULpD5NEV4W5yZJ2mh56J2Bd3VLcG
+   YZgWNQsA8EKw+u/bI+JfgjvZvXeIX1189YxTCXiJWGikPhX+7WUiyAWi1
+   MH3FdPWe/Zq0cY/2YZOEg4kOsOSMi9ifC3s9btu0Du3KorAi2kDls5aKO
+   M=;
+X-CSE-ConnectionGUID: uJTRJ/DhRNev+wUkTRcQKg==
+X-CSE-MsgGUID: 9jXa/FKoS4qX45ndJbitBA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="145631225"
+X-IronPort-AV: E=Sophos;i="6.25,260,1779141600"; 
+   d="scan'208";a="145631225"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO MUCSE819.infineon.com) ([172.23.29.45])
+  by smtp14.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 11:07:25 +0200
+Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE819.infineon.com
+ (172.23.29.45) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
+ 2026 11:07:24 +0200
+Received: from MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be]) by
+ MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be%12]) with mapi id
+ 15.02.2562.046; Fri, 4 Sep 2026 11:07:24 +0200
+From: <Takahiro.Kuwano@infineon.com>
+To: <miquel.raynal@bootlin.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<richard@nod.at>, <vigneshr@ti.com>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<corbet@lwn.net>, <skhan@linuxfoundation.org>
+CC: <STLin2@winbond.com>, <hsinyi@chromium.org>,
+	<thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>
+Subject: RE: [PATCH v4 12/25] mtd: spi-nor: winbond: Add support for
+ W25Q12RV-Q/N
+Thread-Topic: [PATCH v4 12/25] mtd: spi-nor: winbond: Add support for
+ W25Q12RV-Q/N
+Thread-Index: AQHdOvyPDTQdnozUAk+qARRuXX3Ydba+Hwgw
+Date: Fri, 4 Sep 2026 09:07:24 +0000
+Message-ID: <a6f90df0e0f742ddbbaea48ec5c0cc59@infineon.com>
+References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
+ <20260902-winbond-v7-1-spi-nor-rv-addition-v4-12-779d35303dff@bootlin.com>
+In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-12-779d35303dff@bootlin.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.161.6.196]
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-apple-s5l-a18-pro-v1-1-4995312062ad@cyberchaos.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBG4auQWTtJWwtBr2JcDPgDYwg0HTUmh
- Ltbdfkt3tvIkBVG52qjjJearkuBP1TUT7KMYL0VU3ChcScXWVKawVbPLL7llFeuh9Ad4SUiCpU
- uZQz6/j0v17/t2d3RP74j2vcPuWaEuXUAAAA=
-X-Change-ID: 20260904-apple-s5l-a18-pro-5f2b3e1a4e4a
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
- Yureka Lilian <yureka@cyberchaos.dev>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_020702_173570_BD1827C8 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20260904_020730_203094_9964C71B 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,50 +96,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The UCON BIT(10) is set on boot on the S5L serials on Apple Silicon Macs
-of all generations and old iPhones [1]. It's unknown what it does
-exactly, but on the MacBook Neo (A18 Pro / T8140 SoC) clearing this bit
-breaks the uart and leads to garbled data in both directions.
-Add it to the APPLE_S5L_UCON_MASK to prevent it being cleared.
-
-Link[1]: https://oftc.catirclogs.org/asahi-dev/2026-07-24#35537011
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
- include/linux/serial_s3c.h | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/include/linux/serial_s3c.h b/include/linux/serial_s3c.h
-index f54cb6e23f85..1732bc9240ff 100644
---- a/include/linux/serial_s3c.h
-+++ b/include/linux/serial_s3c.h
-@@ -247,10 +247,12 @@
- 				 S5PV210_UFCON_RXTRIG4)
- 
- #define APPLE_S5L_UCON_RXTO_ENA			9
-+#define APPLE_S5L_UCON_UNK			10
- #define APPLE_S5L_UCON_RXTO_LEGACY_ENA		11
- #define APPLE_S5L_UCON_RXTHRESH_ENA		12
- #define APPLE_S5L_UCON_TXTHRESH_ENA		13
- #define APPLE_S5L_UCON_RXTO_ENA_MSK		BIT(APPLE_S5L_UCON_RXTO_ENA)
-+#define APPLE_S5L_UCON_UNK_MSK			BIT(APPLE_S5L_UCON_UNK)
- #define APPLE_S5L_UCON_RXTO_LEGACY_ENA_MSK	BIT(APPLE_S5L_UCON_RXTO_LEGACY_ENA)
- #define APPLE_S5L_UCON_RXTHRESH_ENA_MSK		BIT(APPLE_S5L_UCON_RXTHRESH_ENA)
- #define APPLE_S5L_UCON_TXTHRESH_ENA_MSK		BIT(APPLE_S5L_UCON_TXTHRESH_ENA)
-@@ -259,6 +261,7 @@
- 					 S3C2410_UCON_RXIRQMODE | \
- 					 S3C2410_UCON_RXFIFO_TOI)
- #define APPLE_S5L_UCON_MASK		(APPLE_S5L_UCON_RXTO_ENA_MSK | \
-+					 APPLE_S5L_UCON_UNK_MSK | \
- 					 APPLE_S5L_UCON_RXTO_LEGACY_ENA_MSK | \
- 					 APPLE_S5L_UCON_RXTHRESH_ENA_MSK | \
- 					 APPLE_S5L_UCON_TXTHRESH_ENA_MSK)
-
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260904-apple-s5l-a18-pro-5f2b3e1a4e4a
-
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
-
+SGkgTWlxdWVsLA0KDQo+IFRoZXJlIGlzIGFuIElEIGNvbGxpc2lvbiB3aXRoIHRoZSBjaGlwIG9m
+IHNhbWUgZGVuc2l0eSBmcm9tIHRoZSBKVg0KPiBmYW1pbHkuIEJvdGggY2hpcHMgYXJlIHZlcnkg
+c2ltaWxhciBpbiBwcmFjdGljZSwgaXQgaXMgbW9zdGx5IGEgbWF0dGVyDQo+IG9mIGVsZWN0cmlj
+YWwgZGlmZmVyZW5jZXMgKG1vc3RseSBwb3dlciBjb25zdW1wdGlvbiBiZWluZyBsb3dlcikuDQo+
+IA0KPiBBcyBhIHNpZ25pZmljYW50IGRpZmZlcmVuY2UsIFJWIGNoaXBzIGlkZW50aWZ5IHRoZW1z
+ZWx2ZXMgYXMgc3VwcG9ydGluZw0KPiB0aGUgbmV3IFNGRFAgKHJldiBGKSBmaWVsZCB3aGljaCBm
+b3JjZXMgYW4gYWx0ZXJuYXRlIHdyaXRlIFNSMg0KPiBvcGNvZGUgKDB4MzEpLg0KPiANCj4gVGhp
+cyBkZW5zaXR5IHdyb25seSBhZHZlcnRpemVzIGl0cyBzaXplIGFuZCByZXF1aXJlcyBhIGZpeHVw
+IGZvcg0KDQpUeXBvPyAnd3JvbmdseScNClNhbWUgaW4gcGF0Y2ggIzIwLg0KDQo+IFsuLi5dDQo+
+ICsgbXRkX2RlYnVnIGluZm8gL2Rldi9tdGQwDQo+IG10ZC50eXBlID0gTVREX05PUkZMQVNIDQo+
+IG10ZC5mbGFncyA9IE1URF9DQVBfTk9SRkxBU0gNCj4gbXRkLnNpemUgPSA4Mzg4NjA4ICg4TSkN
+Cg0KSXMgbXRkMCBhIDhNQiBwYXJ0aXRpb24/DQoNClRoYW5rcywNClRha2FoaXJvDQoNCg==
 
