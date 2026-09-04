@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B9DC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0428BC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f2uDduOSprb24UTS5mMjO2bGXJg9YYeJ4jGweCvX+II=; b=ODP129hlqJvRhPuyCONZ86l2GK
-	TJ20ItG+cw3k750NyfRrv+KQwrGdEsxzVGuEnSTvCogFLO/aZDWGgEsCagZBoZdwAaGzIE+kiB2yJ
-	IZmCWBc2sv47DRfZRuxadsIffK53VIepXZEZmCpEz7QuT1qUlJCje1VIv8IzKdroWZfZSTq7gc8ZN
-	aP8DcRcYAQ58EykSnsiS2ZbGcl8AjgZ3/CaIIiC1tebSJObOg2wPtJv2k9Hon7GF46t1wyzvt9zj4
-	Q9/md2pIeiaMNBwOXKNdqPniKhMjDosG5KB80L6hwI6Le8u0+vFzCraEx6/kiYjMttD7yrT1j1OR3
-	c29+wMLw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QucwaclOjyYHopgW8/mLC1xI5HcNHu4T0BXjt5NsW50=; b=g9IPEz7GqvHYr0eiYX5Wjz7nUH
+	AlAJcla7kdC04rBRCgUMAa00H5iYH2RD2DkQdNF9rXeWy0ZYrUPpX3aQSZ5DZajj6UnadJNLIinY8
+	y0PdbW9ot8xfdd2DHBgXkPXefejrWeaJE1Fz8lKfTismBJ//695kkXXsKvdCjxuf3BJ1sUW9cn1vl
+	n9kmgF9S2SeAX3Yzb5A46P4udpgreu/sGqSdJcA+43RnMBBM87Q+98u1ZFDuFGZZ8KsoYUVTvEdpX
+	Hqled/tuHtbhLs3aSu+a1RuYOKpvyYqWLOPxndttrktR4M9ro52AdfJcfBCKSzFI0luwVOA3TqR5g
+	nIrf8Q8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Pyk-00000001Uil-2lj9;
-	Fri, 04 Sep 2026 09:12:58 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1x2Pz6-00000001Un5-3DJJ;
+	Fri, 04 Sep 2026 09:13:20 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Pyi-00000001UiI-10er
+	id 1x2Pz3-00000001Ulf-2aju
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:12:57 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-398a5aad413so593189a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 02:12:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788513175; x=1789117975; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f2uDduOSprb24UTS5mMjO2bGXJg9YYeJ4jGweCvX+II=;
-        b=Mnyf2yPNlYwcVjl0bTiVLSQ/rx5eM6YILowmK0il+I2s1jmnn33rrp+xrHbU6ZeNli
-         kPpK9GklThpbKl2rGhY6v+zEKfsqs6p6UIw7cpB1bl7vu/jMmo+rNaoCkyl1DmvvIa/b
-         6O3v/m7kTh/9713nBlznbwigMcsOCPI4r3QLZa96JtUQQnIJmk1i60xeQiLkY9r3FMPu
-         KALTEKfoXfPp/Jy1rWIhIG2LjmCMBp/cZwX9MIPr8ipit3bm5M7cyxhBP+RFypFkOnFO
-         Z28YjKKpb9lTob16kiJm5953kwdpT74bDNg7B9WAk+70m+x2X2p4ulLuPAHtmeGJFA0q
-         0qEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788513175; x=1789117975;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=f2uDduOSprb24UTS5mMjO2bGXJg9YYeJ4jGweCvX+II=;
-        b=PPnFPMU7P8MKY5G+3+UaZPaY/rC+7U+qHBPioRTFXLTNgVTF6ZZ5MAlAKKCOuPuJ1x
-         CFh2UTYeIitLfE4HzMlEBFTPkSZ/HJepTDyhkXQUgStWB2hMXsl5zFqRuYWidbt5VNmx
-         t+NBDr1TJDmieRUxzYebyqD72b+jgn48gKUJ61DNWXUEmieuw/yrtBZnzAXfZ4dnituU
-         R9Fg4b1tiATh5BluRPSsMP1GalEdL70nHCnOm/6dajXNoSrIz/sL2WO7P0QzzUfuYXQ4
-         tJk6FtelfRPjcvSLGqPxJmae9jDpXMfw4qvhXT0W3tUzsGtNToL31Nb/VOw6CzK5ryM6
-         JFpQ==
-X-Forwarded-Encrypted: i=1; AKwUvBw1BY5MZo0kyQbOK+zNRedDQ50HPkqd8Rg0mnLllcWYBDXhwFzaut9yJodJkIF71r0fkWeQVhL+Z73Cby7Y8n67@lists.infradead.org
-X-Gm-Message-State: AFuF++n0YGhM3N1xN/cfUFOaOD0rzWOxnOVPTj6Px2SpQXSoFlSNlI1X
-	ymUyGRF3LbN/pdEtDFH44HM65SAyQv+5REP+4tur7wPaqP7QouVA2xAE
-X-Gm-Gg: AYBFou3U1iGsJji9rG5vlA5BQx6y342w2L7F9pl0+KA2wjgux0BxURfFO9rXl1DXqNo
-	h0IT8ZJ1zLNArRuZSmKDXNomEmaaaZMPtT1uS9BYyeJs6B/9TFWFBVXmezYMhQilfalA6rfGfar
-	0olu+TfFjWVzlsVdSDO6jrGjOU4Q2EvtR58tDaXdBs7AHaMWeoF62vSsDX6LpmEhUq+t7JckSry
-	4INu1wRb2y2CIo5Ce4PL/MWQUOv7jWSjJjABqOBgEevXPn1N8B7YE8wy+6LEd8z0SoFm+b55G7D
-	48kbP3OSr91/G6vjoGTWRUPJ8ihFBj83OQfXWmOktFiGbBk5d0U6DXIWU4dVA3to1T0gKuW10aJ
-	Tl8ajfN8wOr7L91sN/JZau99uROMe0Zg0dV51yNKXHEtucglZUzUvYsj8qI0RPlTvoC6ssMO9Gd
-	FPycFcKs0gUL7MzK90RFqKJ840maBG3B5KPtj5TkiJtwmva40jHV1iTFqVISOsYesOghEaSDNTp
-	PidRH1K6mzwhkmK/VCuwdirMZtQ+6FF8vXfWgthie2CF1LfNmz6S5JBAqXiLJV5ky7qeqsynlun
-	O62h
-X-Received: by 2002:a17:90b:394e:b0:37f:fd1f:d30f with SMTP id 98e67ed59e1d1-39b26272d76mr7654274a91.12.1788513175260;
-        Fri, 04 Sep 2026 02:12:55 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b2612d3f1sm3443708a91.13.2026.09.04.02.12.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 02:12:55 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	linux-remoteproc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2] remoteproc: stm32_rproc: Propagate errors from optional IRQ lookup
-Date: Fri,  4 Sep 2026 16:12:30 +0700
-Message-ID: <20260904091230.58665-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 04 Sep 2026 09:13:19 +0000
+X-UUID: d88b31dea84011f19a56ed5b684f684d-20260904
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:cfa902b0-1f0a-4bf3-8060-1d9ab420d2fe,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:7db8b62,CLOUDID:6472706a6be62be334e54d3a4e77b7ad,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|83|102|865|898,TC:nil,Content:0|15|50|99,EDM
+	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d88b31dea84011f19a56ed5b684f684d-20260904
+X-User: liuxixin@kylinos.cn
+Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liuxixin@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1127481883; Fri, 04 Sep 2026 17:13:08 +0800
+From: Xixin Liu <liuxixin@kylinos.cn>
+To: sudeep.holla@kernel.org
+Cc: arm-scmi@vger.kernel.org, cristian.marussi@arm.com, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn, mturquette@baylibre.com, sboyd@kernel.org
+Subject: Re: [PATCH v2 5/5] clk: scpi: use PLATFORM_DEVID_NONE for scpi-cpufreq
+Date: Fri, 4 Sep 2026 15:55:00 +0800
+Message-ID: <reply-scpi-hardening-v2-ping.20260904.liuxixin@kylinos.cn>
+In-Reply-To: <20260728-cuddly-alpaca-of-serenity-c0c824@sudeepholla>
+References: <cover.v2.1785200642.git.liuxixin@kylinos.cn> <fb51cfbfbb41.v2.1785200642.git.liuxixin@kylinos.cn> <20260728-cuddly-alpaca-of-serenity-c0c824@sudeepholla>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_021256_279616_8C0132D8 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260904_021318_326708_AB332F7D 
+X-CRM114-Status: UNSURE (   4.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,40 +76,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Hi Sudeep,
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no IRQ is available, while other errors should be propagated.
+Just a gentle ping on this v2 series from 2026-07-28.
+Dropping the 5/5 cleanup on apply is fine with me.
+Could you please apply the rest when you have a chance?
 
-Instead of only checking for -EPROBE_DEFER, propagate all error codes
-returned by platform_get_irq_optional() other than -ENXIO, so that
-failures are properly reported to the caller.
-
-Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
-
-Changes in v2:
- - Add Arnaud Pouliquen's Acked-by tag.
-
- drivers/remoteproc/stm32_rproc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 1fe4cdc0a13a..a47e040c6db8 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -675,7 +675,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
- 	int err, irq;
- 
- 	irq = platform_get_irq_optional(pdev, 0);
--	if (irq == -EPROBE_DEFER)
-+	if (irq < 0 && irq != -ENXIO)
- 		return irq;
- 
- 	if (irq > 0) {
--- 
-2.43.0
+Thanks,
+Xixin Liu
 
 
