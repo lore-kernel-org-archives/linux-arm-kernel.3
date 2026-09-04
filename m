@@ -4,92 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B32C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7CAC79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjsyeeZIXvEmoWNXJQV4lGrquVa9d7oOm2nQ/duEaqk=; b=QTXZ7r6JjeUX9gRRsa4NAzFeFd
-	T5EDaJW+xLmUWlsukIXISYLJbfsgLWF2aSHm9zjGhU7fuNxImV5meXwEEEAfdLLmwSnqp2cRmyWa7
-	TrUwjRpFr8ZmTCIU8cuhgMbwR5PoRejHaoNIXYCD408htv0pBqfYDqMfhYbfYxjGg7EKf/zCcm/T7
-	lFOpHJhopc3J76tNB3E1JXWMlh7OQN9CgBgkGGy1iOaRcixkd5d8byQE00vyHEL+nJ5dFFOVYx7dj
-	h7v6/a3p9fTLcO7cSImsQA+RGz9W43Wb/OFoQliBc3iPY7qeV2CAz1SrqTONIqjKoVGvTukVJRKpl
-	DZkM7i4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZVdNxRn8VX1xv7coC4B1x70wb/kGKPtSJ0jnUzAdilQ=; b=Rg/rygD2WH+CbbLlHNMaMCGEBU
+	bq4rfJ3CsyQLG7oJq9N1iQOVBixQMnE+zUs+c+arLlaxGUJMCOLPgsGTiwMBnLM6DhVl+G8qcmeZw
+	sLMF6bcUb4WN2tV16CNi65I9bPs2kKb/4mfl/GQ/OldKbGxNcNzAQ/BgPX1kzN/vH7y6nKgcxsyMj
+	k2JkLu14F273KFn0Wnnm8Tk3/bE2PQ9oHKMIeO2FJcdBOFLhTZzwyy4JTszAZhiCEbxjItt1fquv5
+	gNSzHwyecronbxYduMINTs/QxNWLw6swvG9uQzjVYtoevcIqTDBXRqCw8XZDyf4439jjhffHxIf9Z
+	j203RZdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aQx-00000003FsV-3Ij7;
-	Fri, 04 Sep 2026 20:22:47 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1x2aWD-00000003GFM-2wPc;
+	Fri, 04 Sep 2026 20:28:13 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2aQv-00000003Frs-1Nub;
-	Fri, 04 Sep 2026 20:22:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788553365; x=1820089365;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bw2W1qZcmf7Blll3N+n4993Jy+r1dnnoyRkosVN9X3c=;
-  b=Z32zrD31DVmdK6VQ5d2AQARVDvOAzQh3TQfcfQL8pDmLy5FZxY2JVodb
-   25Duwnvv6Qi4FjdyZmb5utOSWiUywxGENveMJgLtxtxxfOy6KggBo74nM
-   /QAEP2weXRBveaL2I+BlMpOx9cT25tpRTywdU65aE23/qSPM1dHgfT+US
-   NSOim8eDcz0q3S3PlU5O/OIuYL60jwz995WM5BgV00Dl8iPYVD1qpfiV7
-   h+cpa7DS/4+MfPf43MqLv4pRWZbZMd4Qlofb1NtiFHpaq9ARNbqzZO7tK
-   0iVU29BpMddpMb3AW/WVTpkoiU+NhxnaZof6wMoOh0rp89iW4ILspkHRT
-   A==;
-X-CSE-ConnectionGUID: VJv5cql0QqmMUUzizyCD1g==
-X-CSE-MsgGUID: wLT+dg/xTrGS7t95D3hx/g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="88825207"
-X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
-   d="scan'208";a="88825207"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 13:22:44 -0700
-X-CSE-ConnectionGUID: WwKLNACWRFaeMh5EWjuZfA==
-X-CSE-MsgGUID: 1blCz6W6S2mCem8ip/60xw==
-X-ExtLoop1: 1
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.86])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 13:22:38 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id CBA3511F7F4;
-	Fri, 04 Sep 2026 23:22:37 +0300 (EEST)
-Date: Fri, 4 Sep 2026 23:22:37 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wei Deng <wei.deng@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v8 02/16] device property: Add
- fwnode_graph_get_next_port_endpoint()
-Message-ID: <apsojRC47DnD-PZC@kekkonen.localdomain>
-References: <20260904084158.1341550-1-wenst@chromium.org>
- <20260904084158.1341550-3-wenst@chromium.org>
+	id 1x2aWA-00000003GDR-3U3G
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 20:28:12 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3a1f75277f3so11449631fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 13:28:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788553686; x=1789158486; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZVdNxRn8VX1xv7coC4B1x70wb/kGKPtSJ0jnUzAdilQ=;
+        b=eYU44mqbopiNJHpVCmHR4/QsNSbzUJi1/PcCnVtl/UAqLQ8LJrMyF0ejiLfa2AvbBP
+         UK8i7yIj2ZwsNzH58BX1bSPOJWlO7WO1V48HvtepY+ivlEqSGGULgXSgr1MObIlJXv2D
+         i+BMP1y5gtb5WLcz/xr1IFHONixfupHyEPtxJ7reLyyWFdY8jWJmEiA2oxOe/MYX6dIZ
+         NSYRUhd2WcXJmM55nR6nZdOLioZYg+ZjRogzzll6xId2J0883x1u18jkhrCrqPYlEZxe
+         n+0DHn4QnHhNGx/YSHbUUeoMzRHrKsWHsq+rT59thZEA3jVFzFLTTWtDZM7cBlHS2D9M
+         WEfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788553686; x=1789158486;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZVdNxRn8VX1xv7coC4B1x70wb/kGKPtSJ0jnUzAdilQ=;
+        b=qaC2xNaKS2MY8e5/NhNOVFQbern+f3QZktkHIFOX503pIYiDEORxkZJl97a0KyQsoG
+         I/0kSB2il6mn1sMEmFym2km6PL1xjsnNAd+04KQeJRqI2iwdj/JWCGp/nUWG07b/S1/p
+         WiANWDRuuINJPyDv6Mry6g2Bg8epTIMQDtfK6ZVaDuExfukV2N3yisXuk+FSY+HHM1br
+         jOBMyrffzhRsi5O0gz2HqCvH4AoTeYgM75oG8gtElHGGv8/RHYvjcjArPOYDNcRaQ2Ih
+         UVnvVOvQ193T4K5e1qHptgEhD0nd9k5u0ZspsiS+s+41nAsBtZJLXlQiLYe53Wn7hil8
+         ocyQ==
+X-Forwarded-Encrypted: i=1; AKwUvBw5qxIqCiIh/Yy71ssd/vrcNu+y4pepNELcp6FAyM8R3KOjUZbKNVD+XkZcF/ZUutfLUSC1fvO6xmk3riCoWOT+@lists.infradead.org
+X-Gm-Message-State: AFuF++k7Jvxa/fhEUaVgiTKkIHAOde76ODf4a5p7xJsdXBJIaqjP9m9e
+	WN5vCPTCNTAFBnsiSUZiJhWJwATo221PGmGb927zzbAsJvP2gwVhxjo=
+X-Gm-Gg: AYBFou2ezVRzHbtMJduUog2xDBV8hZQ1Vf0JuPYLfxKZijx3vr2O7fFOFvJMeawcGmt
+	K7uhAo+1WOPZFHjpMddXT5nSLgdGBD9yzwgQ+H3VTF8MuYaz0y6sZqYrfZk1UhZ48xisvcDZmcG
+	V0Yh6axTfW9yhm4NcP5PNdr1MbuaSPY6paFtFruqTHjkXEm7sB+fTonBF/UoxJw3rqRqK5CDATo
+	GUePqJ+je1MaGrfOnqemnsqYETvin+iXs7wFPgK58/KojKSGtD4XaIpEEtB2UzPx8OavYyjY+Om
+	PXJcQmjzT++f6iT3s98HkKgfHc+UZvdESZwBIPVqKqNwvRc8V9XrGKF6h3KTY7CEzE4uR5PDvlX
+	hV8qrcXByW/XaI24C43L9H6+rz6Mmo/x6WNu1duZDRHYNyrymxorocrxYA7V3fSsFzHr+/Cu1Mt
+	4L/Vz+HWiSTI56dTDZ00AQtjmnZnzCLN5r1UB7abu5ws6uGOjUVxzsUQ/vvB2g6rDPoKn5XtaHF
+	YA8QJl8yEUi
+X-Received: by 2002:a05:651c:a185:b0:3a3:7680:67fa with SMTP id 38308e7fff4ca-3a376806991mr6184891fa.25.1788553685465;
+        Fri, 04 Sep 2026 13:28:05 -0700 (PDT)
+Received: from i-UX410UAR.lan ([2a02:2168:87cb:3900:a1e5:6a90:4021:407d])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a370549917sm9910451fa.11.2026.09.04.13.28.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 13:28:03 -0700 (PDT)
+From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chester.a.unal@arinc9.com,
+	sean.wang@mediatek.com,
+	olteanv@gmail.com,
+	yangshiji66@outlook.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Subject: [PATCH net v3] net: phy: mediatek-ge: disable EEE on the MT7530 PHY
+Date: Fri,  4 Sep 2026 23:28:00 +0300
+Message-ID: <20260904202800.3410838-1-vladislav.karmanov.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904084158.1341550-3-wenst@chromium.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_132245_433583_C13EA587 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20260904_132810_901282_37BCBBC8 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +114,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 04:41:41PM +0800, Chen-Yu Tsai wrote:
-> Due to design constraints of the power sequencing API, the consumer
-> must first be sure that the other side is actually a provider, or it
-> will continually get -EPROBE_DEFER when requesting the power
-> sequencing descriptor.
-> 
-> In the upcoming USB power sequencing integration, the USB hub driver
-> first needs to check whether a graph connection exists, and whether
-> the other side of the connection is a supported connector type. The
-> USB port is tied to a "port" firmware node, and this new helper will
-> be used to get the endpoint under the known "port" firmware node.
-> 
-> Sashiko points out that the |prev| reference put is not done if |port|
-> is NULL. However it seems that the fwnode_*() and of_*() API design
-> implicitly makes the functions no-ops if the passed in node is NULL.
-> So this new addition follows the same pattern.
+The MT7530 internal GE PHY advertises EEE by hardware default, but its
+EEE support is defective: with EEE advertised, some link partners fail
+to establish a stable link. On a 2-pair (4-wire) cable where both ends
+advertise gigabit, 1000BASE-T training cannot succeed, and instead of
+falling back to 100 Mbps the port loops, so no link or DHCP lease is
+ever obtained. MediaTek confirms the hardware is the root cause (Landen
+Chao, 2021): "EEE of the 10-year-old MT7530 internal gephy has many IOT
+problems, so it is recommended to disable its EEE."
 
-I'd put this last paragraph after the '---' line.
+mtk_gephy_config_init() used to clear the EEE advertisement early, but
+commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+advertisement") removed that on the rationale that the DSA subdriver
+already performs an early disable. That holds for MT7531, whose
+mt7531_setup() clears MDIO_AN_EEE_ADV on each switch PHY, but not for
+the MT7530 PHY: neither the MT7621 integrated switch nor the dedicated
+MT7530 IC ever had such a loop, so removing it left those boards
+without any working early EEE disable and the link flapping came back.
 
-> 
-> Cc: Sakari Ailus <sakari.ailus@linux.intel.com>
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Since the broken hardware is the PHY, fix it in the PHY driver so it
+covers all users of this PHY, integrated in a switch or standalone:
 
-Reviewed-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+  - clear MDIO_AN_EEE_ADV in probe(), before anything can negotiate
+    EEE with the link partner;
+  - call phy_disable_eee() so phylib does not write the advertisement
+    back on later renegotiations and userspace cannot re-enable EEE.
+
+Auto-negotiation then falls back to a stable 100 Mbps link instead of
+looping at gigabit. Tested on ASUS RT-AX53U (MT7621): with a 2-pair
+cable on the WAN port, a single clean 100 Mbps link comes up and a
+DHCP lease is obtained, where the unpatched driver loops.
+
+Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+---
+Changes in v3:
+- Move the fix from the DSA driver to the MT7530 PHY driver: the
+  broken hardware is the PHY, so the workaround belongs there and
+  covers all users of the PHY, switch-integrated or standalone
+  (Andrew Lunn).
+- Clear MDIO_AN_EEE_ADV from probe() rather than config_init() so the
+  advertisement is off before anything can negotiate EEE, and call
+  phy_disable_eee() so neither phylib nor userspace can re-enable it
+  (Andrew Lunn).
+- Remove the eee-broken-* device tree properties discussion from the
+  commit message; the properties are not needed once the PHY driver
+  disables broken EEE itself (Andrew Lunn).
+
+v1: https://lore.kernel.org/netdev/20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com/
+v2: https://lore.kernel.org/netdev/20260820202844.1821687-1-vladislav.karmanov.dev@gmail.com/
+
+ drivers/net/phy/mediatek/mtk-ge.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+
+diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
+index 73d9b72..35600c7 100644
+--- a/drivers/net/phy/mediatek/mtk-ge.c
++++ b/drivers/net/phy/mediatek/mtk-ge.c
+@@ -62,6 +62,27 @@ static void mtk_gephy_config_init(struct phy_device *phydev)
+ 		       FIELD_PREP(MTK_MCC_NEARECHO_OFFSET_MASK, 0x3));
+ }
+ 
++static int mt7530_phy_probe(struct phy_device *phydev)
++{
++	int ret;
++
++	/* The MT7530 internal GE PHY has broken EEE: with EEE advertised,
++	 * some link partners fail to establish a stable link (on a 2-pair
++	 * cable, 1000BASE-T training fails and the port loops instead of
++	 * falling back). MediaTek recommends disabling EEE on this PHY.
++	 * Clear the EEE advertisement early and mark EEE disabled, so
++	 * that neither phylib nor userspace can re-enable it.
++	 */
++
++	ret = phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
++	if (ret)
++		return ret;
++
++	phy_disable_eee(phydev);
++
++	return 0;
++}
++
+ static int mt7530_phy_config_init(struct phy_device *phydev)
+ {
+ 	mtk_gephy_config_init(phydev);
+@@ -100,6 +121,7 @@ static struct phy_driver mtk_gephy_driver[] = {
+ 	{
+ 		PHY_ID_MATCH_EXACT(MTK_GPHY_ID_MT7530),
+ 		.name		= "MediaTek MT7530 PHY",
++		.probe		= mt7530_phy_probe,
+ 		.config_init	= mt7530_phy_config_init,
+ 		/* Interrupts are handled by the switch, not the PHY
+ 		 * itself.
 
 -- 
-Sakari Ailus
+2.43.0
 
