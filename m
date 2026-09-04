@@ -4,109 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FB9C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFF4C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 11:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYSzSDJUW7xpJUnde+29e34n1o9fwvIdmtg8dq44maQ=; b=K3ujM1uA0g40yYmvRj3OklzBF9
-	UMzJpcRkDonz2Z71l/La50GLNGqDnsTXJVXHPeoMpgie+b5TJaHpV7OSk3hO5aoSaLAvRirqDaNEW
-	/Vt/+vKanXCR45OS/kK7xve72tABDJyfM2dMzPIACyhM8ua+z9otzbMH0uS/ghEpdfYTpn9SoLUqX
-	sGfJExj0ZjHNmDxugTs2YpOWSnBPl0qJ6i2do36nsHN41OoyXpvc2oBm9itJ1HFgDJaPu89tlaxy9
-	jjbTCuE2p+9vXjc33hFj4MiFRyLkcEIyT0zM4xf1J2QclUutJlfpNKLy0/FJrD22K0CZL7KE148Xu
-	OmiVvlIQ==;
+	bh=BDawZLzv6o5eVwx0i39DqGD0J4P1d5EoiJI/WWy9mu0=; b=V4WX5x356EzWTOUYU9iiqteNB8
+	gzdBcbn/amViu2kjtU4Qzp/OzALHf3P6bdYsjJqpk0W9PvyRbZG27Fpbaz9DE8DFym97cpu29WrjU
+	xqELui2fsLAaktjqsaoPo6Cz9dl7Dflqu/a84ja7jD+WZFJkOTGF1T8LjVV88L/B7LtSBSpxwwci0
+	Hdxinv+SL53Ao85XvgPDPGnFfTdINAtLeMe7OgRLR+l5Ii/efTgkEQcV2Xt+Lo786moYZx/WRo2Ag
+	IyJUBB+jaJjtjT87M51XVsu0i9d3/DplY7KqmO4Ud26sNY816NpK4pCsSrOuFn7GqeRNKcqMOpdC1
+	qC2w83JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SFy-00000001rB3-19KV;
-	Fri, 04 Sep 2026 11:38:54 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1x2SG8-00000001rFD-1ylH;
+	Fri, 04 Sep 2026 11:39:04 +0000
+Received: from mail-northeuropeazon11012024.outbound.protection.outlook.com ([52.101.66.24] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2SFw-00000001rA5-0SZe;
-	Fri, 04 Sep 2026 11:38:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788521932; x=1820057932;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sI88re9mQH9GGvNdQuqSOyqwac+FJGSZRs1mUIUeR4w=;
-  b=jPoU2ajZ0jJpa1MZBPRQWRXsc+c6MroJDaxkQnFUFgq0FFoZux/d+dwF
-   BfP6Hp0+OcTj93fkkBfLIPQHK+KOOql7MxNXQ/0hTD0cIjweQtXgNXOyV
-   LVGg7dyaz4aJY8199ZNTGL9QgrPPiV8E6lS75auvOdkTF/rtS3R5s1Hzi
-   83wZjGFoBAjrt8GeuBEKFkKWTctcyVxXQ7PkyXs9lGZ7r9eBXdh8CS1c7
-   +Kr5P0412pYm46p4ptBKYbL15qYnJ0LJ6LLXzyZ34vsywTdunRuLloCD5
-   o8gGHkrnPd+eYVCBotj9B5Qgozklb059VsD08mTaS/hVjw2CPXWQwqVZX
-   Q==;
-X-CSE-ConnectionGUID: zJbD07bQTQmjFHqWMbh5Tg==
-X-CSE-MsgGUID: wGBNIgZ5RNWubiwSLrvelw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="92720053"
-X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
-   d="scan'208";a="92720053"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 04:38:50 -0700
-X-CSE-ConnectionGUID: ObP9eg0VQSCbRIFJ00EGKA==
-X-CSE-MsgGUID: UlijwXHGRmWAqOZ/7kly8w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
-   d="scan'208";a="268698798"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 04:38:42 -0700
-Date: Fri, 4 Sep 2026 14:38:38 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: Frank.Li@oss.nxp.com, Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Binbin Zhou <zhoubinbin@loongson.cn>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Keguang Zhang <keguang.zhang@gmail.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Kelvin Cao <kelvin.cao@microchip.com>,
-	Logan Gunthorpe <logang@deltatee.com>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 1/3] dmaengine: vchan: add vchan_chan_name() to get
- channel device name
-Message-ID: <apqtvq2Xov1LKBPN@ashevche-desk.local>
-References: <20260903-dma-chan_dev-rename-v2-0-0db305b6c716@nxp.com>
- <20260903-dma-chan_dev-rename-v2-1-0db305b6c716@nxp.com>
- <apqKgda7dW_JXolJ@ashevche-desk.local>
- <be376690-5219-4bf3-8ed7-02a49cee0e30@foss.st.com>
+	id 1x2SG5-00000001rDY-3sLX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 11:39:03 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=nKONmZzrOL9HVHHlhBL+hHScMwQGjhFCEqsFbeR7UgKGeIRzfE2ZBz2JrhYG9bPKPZ/qNiLCfrI9CH5Q0r9687jwE1XagDKBoWFGB9uWU/0F8PaDYhYAWMyhpCRy2ZtckW3tEh7Lx2HKz3hrK0ASgOr2JMVQOk/Q1zVW9YkFWQM8XF1oHlWo1GiIyxFZfrAtWwD16nToje48fGQLtDNOKfAP1kbbG6OE+O+LNphTpts/l0cVfexSOZqz0efCGD40WPzyeyhnod9kIV9/wQ65ERsHsJ4cq1WeXpwSKkc/0fP7rSoS8DbEnCeXF9Xeu+SUUsOg8qcy5lfpBHCcgqP/cQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BDawZLzv6o5eVwx0i39DqGD0J4P1d5EoiJI/WWy9mu0=;
+ b=xn42r5J04bkAED7jq/ekl/fzet12wae1dkbPQKT+Wo/yP11hxcn62EtDfM4LMw4OqdLI0fRVqfbjOcUh/ByGa8fe7T4V+8x9yYMq4epsjVDJ/Tj0t8AYcX0IOjMLGerscJz0jphD0XU1a+CCjDEcZMMLADM5lHD6u7ouIRCpY2AncOBfq3FkTSngQSZ7tRI1Zb+JXqwDk5d197DlyIMMQBU8h0Dg8uc8pmEz53+fbZ69CgoJXwxdkl0K9OBwtopvsGjTpljlJH9xHVr/zKBcQwr3xf7wevCjURTHPkl+1Y+zfcvoBs2azH9Nyyu5KS6EEgGTaGqsii0fEgidviqhWg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BDawZLzv6o5eVwx0i39DqGD0J4P1d5EoiJI/WWy9mu0=;
+ b=SsrylaGh4fjgHv0A+WS7hd7NSIBSn03fFNB4PshjFob2D7JnPxLEz0bmMpiKqzVM53x1CExQIDlc3fGrxASAPacdgnxhtZSMrY+YS+PXdEaXPMEJlUSovtHM6KZQ2z89OUYWSHC4gvfq6sE4ZXf1liKhp0Z4FR0V6My9XGdlf3o=
+Received: from WA2P291CA0021.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:1e::29)
+ by AS4PR08MB7629.eurprd08.prod.outlook.com (2603:10a6:20b:4cc::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:38:55 +0000
+Received: from WA1PEPF000099CF.eurprd04.prod.outlook.com
+ (2603:10a6:1d0:1e:cafe::22) by WA2P291CA0021.outlook.office365.com
+ (2603:10a6:1d0:1e::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Fri, 4
+ Sep 2026 11:38:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ WA1PEPF000099CF.mail.protection.outlook.com (10.167.242.23) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Fri, 4 Sep 2026 11:38:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m2t1h7ZIqn3usmF2EjJz13Vpv7CuRiqW0wIwPclU0WNW8JcHgsrOhDRwajDS9vNLGB0qTxhC6DnCHj0sq56myz9OUi8HzMash3VzQDr3sGvSM4g4L1xBn5GEzpMUYfm+5/2L80lMtaRiQUo31wcNNnomWEso8qi5iqkJfdZ/b6GBYTK9r/IE4q+8Fg8PTX8osKLSOrdFNsNKsGBC/niFJwz5jNEwGCAqKklrYhI0NYWsnNeWn7M/aV9xmlEB8FXTW3eTvCxGyuquKz5iEJRf8DCvjxKS303W0Zgli/Fjxspc++C3fQGr5hwCvORB9G6Z1mfYbVYTUu3W0ZKWqhK5kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BDawZLzv6o5eVwx0i39DqGD0J4P1d5EoiJI/WWy9mu0=;
+ b=mCsgWp9RJB23hrYmLqvIM5rFOt9UBWflr4yN2+hQ/0wfYU85vD0ia4wUId11GflXaOmyQjw3ozI+JsBsksV4j0xyGHllYYKWWtDGj11rGNyX4m1Rrrr6+ynJWp0PfkjsQawduf2mck7qPDbV5Z0XntdK2nd0xD+KKRIwNTHLlfFvso+57jT0C9khA4DWjsykKxW+viu5NkTffoUOPQP/H3+s6vafvmBPkR8jBHpLkOegBMVQU+8lBqwLwGMPgqz+0O99/vbISOR2Pdi81loN8NDH7T8xQrdIWaGY/E+agp+THimugNmKusMxsymmGv950usio5+iTzoS7k1JQ8h2uw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BDawZLzv6o5eVwx0i39DqGD0J4P1d5EoiJI/WWy9mu0=;
+ b=SsrylaGh4fjgHv0A+WS7hd7NSIBSn03fFNB4PshjFob2D7JnPxLEz0bmMpiKqzVM53x1CExQIDlc3fGrxASAPacdgnxhtZSMrY+YS+PXdEaXPMEJlUSovtHM6KZQ2z89OUYWSHC4gvfq6sE4ZXf1liKhp0Z4FR0V6My9XGdlf3o=
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
+ by GVXPR08MB10864.eurprd08.prod.outlook.com (2603:10a6:150:154::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Fri, 4 Sep
+ 2026 11:38:20 +0000
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
+ 11:38:20 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>, "fuad.tabba@linux.dev"
+	<fuad.tabba@linux.dev>
+Subject: [PATCH v6 08/49] KVM: arm64: gic-v5: Add VPE doorbell domain
+Thread-Topic: [PATCH v6 08/49] KVM: arm64: gic-v5: Add VPE doorbell domain
+Thread-Index: AQHdPGHiALHG2KwKgUO5twoKqfj8lw==
+Date: Fri, 4 Sep 2026 11:38:20 +0000
+Message-ID: <20260904113404.4051341-9-sascha.bischoff@arm.com>
+References: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260904113404.4051341-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|GVXPR08MB10864:EE_|WA1PEPF000099CF:EE_|AS4PR08MB7629:EE_
+X-MS-Office365-Filtering-Correlation-Id: e03c8d82-0733-4669-a050-08df0a79196d
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|6133799003|10067099003|3023799007|11063799006|22082099003|56012099006|38070700021|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: o32FtZABY9O1zfcggpyPqCrTq1wlJbxxcXKmKM+Wm6QN6sVsml/wZJt4WkJOsUruQHajBbb3bYIG9PdtFAmEgxwC67B/9vNVVBHS92xei022RvOTZahjNZaDQEimfBXp+Ff3wsyJs0iVCvJYCdRsEJjyK24DY3UDl56LNfm/CA2+bampjHvu2EPKeZ7LpETFGdCc1KrOR2WwkHUDUvDoVZzkwaMvE0Nwz9swZSyoYeL58rCnKN5SsBtnGioqpykKHkCNcULJZnELwjt/0W9/jsHs2dGz/y/8NU9V4nxeDQs1PgBQwqlZLEBIWkHqeDhpTrzenbQcwmp5p1rK38rGlMv4i50/TvY9jwaoqIT/eaF1qgn0eAfOc7OZ8n9N/5xiKGYsghLIsjZYRcaMkGa/GfQXpJ/mg6Q0OhkPNEA5+DPJ4cJvFdSbTuI3Me/0PSoLOofKfZo6qz3G3bVBZ3W+D0ffWHobHZa9JdukPgqKm3vFlO0u34tSBzgWrIIObUsY9/TYG08to093hIv7usVwlgaUASmy17jFOLnYADdHmRrEGRfiWIsM1sP+JWgifL/MeQOQwOKZ+DnTLexqKR5kgGQ43R3wwVihsHEdW11uSRpvhvO0FVKom2IiQri2VyRa0Hwp1/lOx3TKyVjxtfzh39bXDUbwLPiZmrA2Y5XTwDseppJIS5XysUPgmEz4cEsJVVKDJki/008mffGwje4JKjBTB7FAzIBh7ohM8rG4wfk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(6133799003)(10067099003)(3023799007)(11063799006)(22082099003)(56012099006)(38070700021)(18002099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <be376690-5219-4bf3-8ed7-02a49cee0e30@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Exchange-RoutingPolicyChecked: sONd/sn0nMdi1qBD85UooiGxRaf6i2Pwit0v7DFqD48hUH9UKsPX+2SRX4kFQki+ei1pAS5uQGJ2Gj4M1jT6rKNb3CeacOLT79sIsj4OPxK9sPL3RAfi+QvDk7xxEMdu1gSzhrYUunJVJST3f0vVVLzOZUPcsD0ZemhHpAds2qbcfcGfKTZ3UPRVk1gaqwUCJyw89Rl/6SAZ7QoE62seraF5E2pxHMKz2wWozxQJvRJpzReLzQmotuQ/dGihWZp9nEIC9WfmdLhsyav322GScUHvhZc4NvcDpiMUJAH3o3V1qc/9g21ItbE1xZDh4c0cBqwmSySH3uAfCgKL7oba4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10864
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: WA1PEPF000099CF.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 600682c9-65ce-481f-f4a8-08df0a79055d
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|14060799003|36860700016|376014|23010399003|1800799024|82310400026|6133799003|10067099003|11063799006|18002099003|22082099003|3023799007|56012099006;
+X-Microsoft-Antispam-Message-Info: GNanf3Q4bqUCuhCOfPdyOPH9nmjEHmBvnFwIfPc6uHFrg1ll/SEMqLFSR/ff79+qC3pKBdL1+TrqCUOjn5H9h5CsEbDftPYXW8xL0TyuwPuWH8rGCRiVKFk0Rcw6ZM/tWr2gJCK+vv7Kj+Iu1Vdo3Bo2Ho43EEdaPdCFtO6uKD+6nRywJrTfFD/wVmgpIaR58I04oKtNQNz9XhPhgFWjxeqAVflhAlfQODZPsjzrnNR7FOC3CXb0e+/paXjwhe5l6GiW7+whfSLwSTUXU4+lCdyMexdnzYzCLeiqguWMNbr+tfbasL0DR/AZEOD5x6XaXygFbpZ19lR0/81YmaBgtaPVwpTsU6uIwk8MYxuBc5PmM2LAeW3lD9N2LfJulMzE4n/v9cBut9GsrRBJJIj+G+IP6kfXXwHHotjKZLtpuF6prFDMgqYeVMrsy60JID1pAEzGnjhRZVgTACKqfO7mbdibxLUnT5myrIoP3zyEm7E/ndC6igjTFEwGYN7ljr6TPbdtrc0c4msXCtGJgfJjc4aEKIkTwaA/RYrSV+bfmaVwHOMcCGUcCyDfylmXWcScAAK+yBssiyD+ytt+BtyT66v4MUFQZIKwFWaw1DRd/slVnzYrxBTy+/X7t+4tHKYREIVG3PVcJt2er6LwYj4Joa2N8XN6U3A1BTTS8v7d6tY=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(14060799003)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(6133799003)(10067099003)(11063799006)(18002099003)(22082099003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: lIOvGOms/od/90IF/6nFH7vB6zxS2Lad1wKRCNa55kHXxd+OKAxgdRVAOT+qKxmsCCj7SSaTiIOuiF4u1cnJyVySPWg4EGk3qSOUuTtd+vglLPDPZ550pi0jULqsqQfrJGc552759b+VdNXqXsDn+INtVokACVygnhdb42sEAtBkwfnWjwtPJyFcz/dEFqnxETrbBuoghU3tqohOVx+x/MGj3JTR1CpAPqfSd1p9hj6SAu59f7jouNVE5ieZAdSJIcJSZfOl12MwMtA5rTd92i5iahXAjIyPAC9j+a8W9kEiYEHnDbYTBONB7zVC27f0XS4ljeQcVPYiqOFu9fJ2BcqSqBnS956Tkx/iv5WoJiCh3hXcoDtx6nNXATi26ZkWBzCHL5HUOp4xQASeedJK2549plAMq0TzlRRIi5ctky73Dk04GDksenmHg6e6epHC
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 11:38:54.1802
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e03c8d82-0733-4669-a050-08df0a79196d
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: WA1PEPF000099CF.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7629
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_043852_217255_0C95323D 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20260904_043902_105312_1CCB85A8 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,57 +162,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 11:26:37AM +0200, Amelie Delaunay wrote:
-> On 9/4/26 11:08, Andy Shevchenko wrote:
-> > On Thu, Sep 03, 2026 at 04:53:11PM -0400, Frank.Li@oss.nxp.com wrote:
-> > 
-> > > Introduce vchan_chan_name() to obtain the DMA channel device name.
-> > > 
-> > > Use a dedicated helper instead of directly accessing dma_chan::dev
-> > > so callers remain unaffected by an upcoming rename of the struct member.
-> > 
-> > LGTM,
-> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > 
-> > ...
-> > 
-> > >   		ret = devm_request_irq(&pdev->dev, chan->irq,
-> > >   				       stm32_dma_chan_irq, 0,
-> > > -				       dev_name(chan2dev(chan)), chan);
-> > > +				       vchan_chan_name(&chan->vchan), chan);
-> > >   		if (ret) {
-> > >   			dev_err(&pdev->dev,
-> > >   				"request_irq failed with err %d channel %d\n",
-> > 
-> > This one...
-> > 
-> > > +++ b/drivers/dma/stm32/stm32-dma3.c
-> > 
-> > >   		ret = devm_request_irq(&pdev->dev, chan->irq, stm32_dma3_chan_irq, 0,
-> > > -				       dev_name(chan2dev(chan)), chan);
-> > > +				       vchan_chan_name(&chan->vchan), chan);
-> > >   		if (ret) {
-> > >   			dev_err_probe(&pdev->dev, ret, "Failed to request channel %s IRQ\n",
-> > > -				      dev_name(chan2dev(chan)));
-> > > +				      vchan_chan_name(&chan->vchan));
-> > >   			goto err_clk_disable;
-> > 
-> > ...and this one are duplicate messages as devm_request*irq() printsr
-> > most of the information.
-> > 
-> > Not sure if there will be a patch to simply drop them.
-> 
-> It was the purpose of this series:
-> https://lore.kernel.org/dmaengine/20260709135846.97972-1-panchuang@vivo.com/
+VPE doorbells allow the GICv5 hardware to notify KVM when an SPI or
+LPI can be signalled to a non-resident VPE. This provides the
+mechanism used to wake blocked vcpus once the hardware determines that
+the interrupt is eligible to be delivered.
 
-Yes, thanks. My point is (independently on who contributes that patch) that
-the piece above may be an unneeded churn due to messages are going to be
-removed. It all relies if that series (a.k.a. patch that removes messages)
-goes first.
+Add support for a per-VM VPE doorbell irq domain. The domain is
+created under the GICv5 LPI domain, with one doorbell allocated per
+VPE. Store the allocated doorbell base in the VM's GICv5 state so that
+later patches can request per-vcpu doorbell IRQs and use them for IRS
+commands and wakeups.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Add the per-VPE doorbell state to the GICv5 CPU interface state. The
+doorbell IRQ number is populated when the IRQs are requested, and the
+db_fired state is used by later patches once doorbell delivery is
+wired up.
 
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ arch/arm64/kvm/vgic/vgic-init.c    |  24 +++--
+ arch/arm64/kvm/vgic/vgic-v5.c      | 142 +++++++++++++++++++++++++++++
+ arch/arm64/kvm/vgic/vgic.h         |   1 +
+ include/kvm/arm_vgic.h             |   4 +
+ include/linux/irqchip/arm-gic-v5.h |   2 +
+ 5 files changed, 166 insertions(+), 7 deletions(-)
 
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-ini=
+t.c
+index 4012df6002ea6..052e680b8b60f 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -474,8 +474,12 @@ int vgic_init(struct kvm *kvm)
+ 		kvm_vgic_vcpu_reset(vcpu);
+=20
+ 	ret =3D kvm_vgic_setup_default_irq_routing(kvm);
+-	if (ret)
++	if (ret) {
++		if (vgic_is_v5(kvm))
++			vgic_v5_teardown(kvm);
++
+ 		return ret;
++	}
+=20
+ 	vgic_debug_init(kvm);
+ 	dist->initialized =3D true;
+@@ -496,16 +500,22 @@ static void kvm_vgic_dist_destroy(struct kvm *kvm)
+ 	dist->nr_spis =3D 0;
+ 	dist->vgic_dist_base =3D VGIC_ADDR_UNDEF;
+=20
+-	if (dist->vgic_model =3D=3D KVM_DEV_TYPE_ARM_VGIC_V3) {
++	switch (dist->vgic_model) {
++	case KVM_DEV_TYPE_ARM_VGIC_V2:
++		dist->vgic_cpu_base =3D VGIC_ADDR_UNDEF;
++		break;
++	case KVM_DEV_TYPE_ARM_VGIC_V3:
+ 		list_for_each_entry_safe(rdreg, next, &dist->rd_regions, list)
+ 			vgic_v3_free_redist_region(kvm, rdreg);
+ 		INIT_LIST_HEAD(&dist->rd_regions);
+-	} else {
+-		dist->vgic_cpu_base =3D VGIC_ADDR_UNDEF;
+-	}
+=20
+-	if (vgic_supports_direct_irqs(kvm))
+-		vgic_v4_teardown(kvm);
++		if (vgic_supports_direct_irqs(kvm))
++			vgic_v4_teardown(kvm);
++		break;
++	case KVM_DEV_TYPE_ARM_VGIC_V5:
++		vgic_v5_teardown(kvm);
++		break;
++	}
+=20
+ 	xa_destroy(&dist->lpi_xa);
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index e75a66b3920aa..60bb39421ad08 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -7,6 +7,7 @@
+=20
+ #include <linux/bitops.h>
+ #include <linux/irqchip/arm-vgic-info.h>
++#include <linux/irqdomain.h>
+=20
+ #include "vgic.h"
+=20
+@@ -125,6 +126,137 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	return 0;
+ }
+=20
++/*
++ * This set of irq_chip functions is specific for doorbells.
++ */
++static const struct irq_chip vgic_v5_db_irq_chip =3D {
++	.name =3D "GICv5-DB",
++	.irq_mask =3D irq_chip_mask_parent,
++	.irq_unmask =3D irq_chip_unmask_parent,
++	.irq_eoi =3D irq_chip_eoi_parent,
++	.irq_set_affinity =3D irq_chip_set_affinity_parent,
++	.irq_get_irqchip_state =3D irq_chip_get_parent_state,
++	.irq_set_irqchip_state =3D irq_chip_set_parent_state,
++	.flags =3D IRQCHIP_SET_TYPE_MASKED | IRQCHIP_SKIP_SET_WAKE |
++		 IRQCHIP_MASK_ON_SUSPEND,
++};
++
++static void vgic_v5_irq_db_domain_free(struct irq_domain *domain,
++				       unsigned int virq, unsigned int nr_irqs)
++{
++	int i;
++
++	for (i =3D 0; i < nr_irqs; i++) {
++		struct irq_data *d =3D irq_domain_get_irq_data(domain, virq + i);
++
++		irq_set_handler(virq + i, NULL);
++		irq_domain_reset_irq_data(d);
++	}
++
++	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
++}
++
++static int vgic_v5_irq_db_domain_alloc(struct irq_domain *domain,
++				       unsigned int virq, unsigned int nr_irqs,
++				       void *arg)
++{
++	const struct irq_chip *chip =3D &vgic_v5_db_irq_chip;
++	struct vgic_v5_vm *vm =3D arg;
++	struct irq_data *irqd;
++	int ret;
++
++	if (!vm) {
++		kvm_err("invalid parameter for doorbell irq allocation\n");
++		return -EINVAL;
++	}
++
++	ret =3D irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, NULL);
++	if (ret)
++		return ret;
++
++	for (int i =3D 0; i < nr_irqs; i++) {
++		irq_domain_set_hwirq_and_chip(domain, virq + i, i, chip,
++					      domain->host_data);
++		irqd =3D irq_desc_get_irq_data(irq_to_desc(virq + i));
++		irqd_set_single_target(irqd);
++	}
++
++	return 0;
++}
++
++static const struct irq_domain_ops vgic_v5_irq_db_domain_ops =3D {
++	.alloc =3D vgic_v5_irq_db_domain_alloc,
++	.free =3D vgic_v5_irq_db_domain_free,
++};
++
++static int vgic_v5_create_per_vm_domain(struct kvm *kvm)
++{
++	struct vgic_v5_vm *vm =3D &kvm->arch.vgic.gicv5_vm;
++	int nr_vcpus =3D atomic_read(&kvm->online_vcpus);
++	int id =3D task_pid_nr(current);
++	int ret, db_virq =3D 0;
++
++	if (!gicv5_global_data.lpi_domain) {
++		kvm_err("LPI domain uninitialized, can't set up KVM Doorbells\n");
++		return -ENODEV;
++	}
++
++	vm->fwnode =3D irq_domain_alloc_named_id_fwnode("GICv5-vpe-db", id);
++	if (!vm->fwnode)
++		return -ENOMEM;
++
++	/*
++	 * KVM per-VM VPE DB domain; child of LPI domain; only ever handles
++	 * doorbells. We know how many doorbells we have, and therefore we
++	 * create a linear domain.
++	 */
++	vm->domain =3D irq_domain_create_hierarchy(gicv5_global_data.lpi_domain,
++						 0, nr_vcpus, vm->fwnode,
++						 &vgic_v5_irq_db_domain_ops, vm);
++	if (!vm->domain) {
++		ret =3D -ENOMEM;
++		goto err;
++	}
++
++	db_virq =3D irq_domain_alloc_irqs(vm->domain, nr_vcpus, NUMA_NO_NODE, vm)=
+;
++	if (db_virq <=3D 0) {
++		ret =3D db_virq;
++		goto err;
++	}
++
++	kvm->arch.vgic.gicv5_vm.vpe_db_base =3D db_virq;
++
++	return 0;
++
++err:
++	if (vm->domain)
++		irq_domain_remove(vm->domain);
++	if (vm->fwnode)
++		irq_domain_free_fwnode(vm->fwnode);
++
++	kvm->arch.vgic.gicv5_vm.vpe_db_base =3D 0;
++	vm->domain =3D NULL;
++	vm->fwnode =3D NULL;
++
++	return ret;
++}
++
++static void vgic_v5_teardown_per_vm_domain(struct vgic_v5_vm *vm)
++{
++	if (!vm->domain)
++		return;
++
++	if (vm->vpe_db_base) {
++		irq_domain_free_irqs(vm->vpe_db_base, vm->domain->revmap_size);
++		vm->vpe_db_base =3D 0;
++	}
++
++	irq_domain_remove(vm->domain);
++	irq_domain_free_fwnode(vm->fwnode);
++	vm->domain =3D NULL;
++	vm->fwnode =3D NULL;
++}
++
+ void vgic_v5_reset(struct kvm_vcpu *vcpu)
+ {
+ 	/*
+@@ -140,10 +272,16 @@ void vgic_v5_reset(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.vgic_cpu.num_pri_bits =3D 5;
+ }
+=20
++void vgic_v5_teardown(struct kvm *kvm)
++{
++	vgic_v5_teardown_per_vm_domain(&kvm->arch.vgic.gicv5_vm);
++}
++
+ int vgic_v5_init(struct kvm *kvm)
+ {
+ 	struct kvm_vcpu *vcpu;
+ 	unsigned long idx;
++	int ret;
+=20
+ 	if (vgic_initialized(kvm))
+ 		return 0;
+@@ -155,6 +293,10 @@ int vgic_v5_init(struct kvm *kvm)
+ 		}
+ 	}
+=20
++	ret =3D vgic_v5_create_per_vm_domain(kvm);
++	if (ret)
++		return ret;
++
+ 	/* We only allow userspace to drive the SW_PPI, if it is implemented. */
+ 	bitmap_zero(kvm->arch.vgic.gicv5_vm.userspace_ppis,
+ 		    VGIC_V5_NR_PRIVATE_IRQS);
+diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+index b71d486ae5145..42cb205554daa 100644
+--- a/arch/arm64/kvm/vgic/vgic.h
++++ b/arch/arm64/kvm/vgic/vgic.h
+@@ -383,6 +383,7 @@ void vgic_debug_destroy(struct kvm *kvm);
+ int vgic_v5_probe(const struct gic_kvm_info *info);
+ void vgic_v5_reset(struct kvm_vcpu *vcpu);
+ int vgic_v5_init(struct kvm *kvm);
++void vgic_v5_teardown(struct kvm *kvm);
+ int vgic_v5_map_resources(struct kvm *kvm);
+ void vgic_v5_set_ppi_ops(struct kvm_vcpu *vcpu, u32 vintid);
+ bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index c82aa7c9e3f32..78a442046ebc5 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -379,6 +379,10 @@ struct vgic_v5_vm {
+ 	 * convenient way to do that).
+ 	 */
+ 	DECLARE_BITMAP(vgic_ppi_hmr, VGIC_V5_NR_PRIVATE_IRQS);
++
++	struct fwnode_handle	*fwnode;
++	struct irq_domain	*domain;
++	int			vpe_db_base;
+ };
+=20
+ struct vgic_dist {
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm=
+-gic-v5.h
+index 8dc5847a646eb..6ed886c09becb 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -615,6 +615,8 @@ void gicv5_irs_syncr(void);
+=20
+ /* Embedded in kvm.arch */
+ struct gicv5_vpe {
++	int			db;
++	bool			db_fired;
+ 	bool			resident;
+ };
+=20
+--=20
+2.34.1
 
