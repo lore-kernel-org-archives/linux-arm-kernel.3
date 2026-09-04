@@ -4,86 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4418C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:49:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80583C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nqSTI4M+1pDbQcVOP14IODgeb4p0RYKm7UPKJAD8ZI=; b=I+HGk2nG33AYxflX4jjy1d+Qxv
-	yAnTRVx/1wYR0BW+3qTM57VS3/mpAt/Cg+1NvP8QDfIYg/HQm8ufFo/m8+4yJf9/KeNoWjxTxDpn5
-	IPBW+rlQ8srjruV2EvI/Nb3hJQO3xnfB68Tj3bNtRiTR7hbh0ddPs2lBUEp0ge04Cm/Ee/4MUjl95
-	Tmd2B0eTrZAi80m3X4H5Lyuh/Q3yad0SNuNn0cpNRZwmY+4C9fnxLU7ibMWRctHGR+Dvmm3msh1+Z
-	tbsPeJ3NPkIuL4Xzrc1I6NX9eFQxzouxV0Of9RdRlLZmo7CyWNUi08/EDewRbor3zPpHCi7847kpX
-	Jt1Qig3w==;
+	bh=Ien2o60ZIi4QpF5qZ3s+1MoomCrROw/TLgJB8j1A6bc=; b=3Sg6414XdvExUw4Kjxy1j9skCs
+	rCjPm5iuaR56Bevm4BcisidFZDzW8NKPX6L/dz/Prl9XZJiSQtTzNGJjhxDhuKIe92VtASnX98FQR
+	yNpNotaZSgCChfdR1jW+oQQRhEB0DJLG1OEzI3Q0ZjldN7wxCsp5LdgPDCVZiVKYknfmyu2cY4TeU
+	g+s0M+RhKfTrUYvbwBrj8E60PQEFQktE3RbNEZA7BJCyL8E1EJrYiUNj+bQvFUngJ5f94XUiZ5ozd
+	btrVUOBycxch/0VVY08i0JV4awvhNndRKC2Zi5vWR5lQWPdf1JHodSRKrFwMDNtWtZDlD7jJ/oW8j
+	o+dJNA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2X5t-00000002mvS-3TJu;
-	Fri, 04 Sep 2026 16:48:49 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1x2XA0-00000002nr8-1Ync;
+	Fri, 04 Sep 2026 16:53:04 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2X5q-00000002mqT-0lG0;
-	Fri, 04 Sep 2026 16:48:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788540517; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KKXe0rl46KxOiyymqgOXGGXDz08jU5LzyGuG/cnJY2hnq2O4MwIEPQ7vQ/fXbmAK53vye4BG+wFUQWXmZETp3p9yKNwFR1a3zd/O7KJehWnbvGds2ZSHTyC7xCwFA5Abxes37nUhZiYuivvHnOV+m2Avt7jra7yrHuyLimgUo8o=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788540517; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/nqSTI4M+1pDbQcVOP14IODgeb4p0RYKm7UPKJAD8ZI=; 
-	b=WMMqOUICJBFiPVvYOAGVVgb79usdzvK0BavoEH8phKZRhH5rjrGTMRuB5KaoXLOesUyrIFPqc6MtqcrrtcpIrYHllzahzlAxtrYuzQk5VBKNOGRzygIiqLXvN0mV7XAtOv6sq5U9/fVi65yFcLZm6PCXLrfryjzSTEJGwugDOHs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788540517;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=/nqSTI4M+1pDbQcVOP14IODgeb4p0RYKm7UPKJAD8ZI=;
-	b=RNjlnp70af3QRp0IXvZLWv9BZzsBdPYLh9FsVaM/pKwoskzUq4Ym+YbCcUREzMt5
-	sP75Dc27LQ1muyNkHripMT5/ztqEUcKN3y/BXHM+w0PEiN7atK/7UNbdtaTgBKz4uzJ
-	oqrahnLriUVuPomMQ3epPGLIkrMx+E4cAEK4XMRY=
-Received: by mx.zohomail.com with SMTPS id 1788540508375129.33683735137345;
-	Fri, 4 Sep 2026 09:48:28 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sat, 05 Sep 2026 00:45:37 +0800
-Subject: [PATCH v3 8/8] clk: sunxi-ng: a733: Add reset lines
+	id 1x2X9y-00000002nqK-00xU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 16:53:03 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-78a220b5778so1083671137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:53:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788540780; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KXA4HTNhwLCDVmLULNjCsgg/ZuclOVivwZp5qyJl8Ds8rqR2naThFlEEt4GkkYJN+Q
+         XRtg6nCFo8RMQd1VFYXjcdboJshM5v6JZoGuGvU5IXnAnFv+b6NMz1FOiwcfvvJwSkSt
+         mZp7nTE5hEnK6cE4NbewHFuRQ9dZ91X+PmbKWQuHN/F9YETP+q7a1dt6xB179QueEkfn
+         2hbxQMeC+J6SPJ57JeqC4jCaV0+NpfNrFZ5ETjgRPvjBvJ534D5jEZeq2fLsV83knvPU
+         YH9ZJSpW1m5pirmgu4xsIe1F0Skz4U8EPC16yKyk640iYa8+v1jhNxZhPix9Qzrl1jQb
+         BlYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ien2o60ZIi4QpF5qZ3s+1MoomCrROw/TLgJB8j1A6bc=;
+        fh=31JmeCugydzyHHqWfFD2fYbaek7sC5XcNANSsRY3egs=;
+        b=b3LTO6wXMtbdidIMvLiCwMGv3UNxwBgX9h2RaHjdfOaiBFq29CC1o0jpeFaZfDfVlM
+         KiZGfWaoGMzimRxpdNvUp3JULi1yNWz7RUHIwVJxOe6+aLHtTTibtUVKrU9sLrZ6yS8M
+         TXdAX/+9w48/W8q5SEOYryDVluBWSe6Xv4iYhuNzjJr8Rd/SF7lubZBPsrp13VTaovx5
+         oULyQb3dQcqvX9mvhkD1U1Wl3X+XI6OUXKDXg2HMmGUOE4vvZkCyhBLhUF72oPQ7GC/W
+         dXASAYXgHR9zexNaZVIqPchWC93TDVW/PrOulwpCq72iDO3e4i0eNpxQ7iaP2cc+K0Jw
+         FzVw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788540780; x=1789145580; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ien2o60ZIi4QpF5qZ3s+1MoomCrROw/TLgJB8j1A6bc=;
+        b=spfIwYV5jt54i+wI3gH7r9S2tYaRwMVGhke+FQXWx5D0iWaCXUqBmMdm5zH0qpiE0d
+         9ukYhY93qPMxgOzSrKlettpig50dFQ8n5wqUwQqQWf/9i+JK8394aHfcozOhhQwQ6vs6
+         K1g591HTI0bfmn5ftsGnxZ3qKsDHDIojtKDP6ZfISsH5v0gTpyvBqG23PDfDUaVR2jf+
+         JQfEQIT0llj0xtk/uRwCWZvpSHuGWIMGlKrAf4GHE63hMGioJfmjCz+Yk+YjDRK/UE0d
+         TLjm30MWacZ10yd4RxiD5YIDZjGf+lokUk6zdbcOrf/pDZG8gkxC5U6uz4Pn9svla7Uq
+         /1sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788540780; x=1789145580;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ien2o60ZIi4QpF5qZ3s+1MoomCrROw/TLgJB8j1A6bc=;
+        b=pMsr6gbMedhMNUS9Us+KVfcF3U19BniNZl5wfIdlbV3UNApzu8rH203WH0jIDAhcCp
+         HQGaNWJaFdubPHEGdSaJw84vL7WkmYd8agiuLu4ib6hWL2l27n9ig39iXB0ZGexFBmXx
+         cL44KwSNGWzKv/Ub3bqZIux9gHvveA6DT+3EPsLHDB5eLuXYGBgJJydmfrwDa2EzfFJM
+         YqkHW98dBgm1gBDLi5kVyRp+SulaWX73+ot0q2RtePzmp8qubXI0DRLo/ZmFroc5KeKM
+         EqDtbdB/7RcYP4vdPGonZ32VjkpoBuaKlNv61NimUom3Ph0DyQBIPoIWG026pU9aC+d2
+         JiJQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxqvYRliKKUKUUoIVyDAWiO8n1KVFd4o5Gx7Xhph7zckORlqCwQLhiuWfG9fkFEQsV8Y5ZX32AoA9Q/mqGrKO7h@lists.infradead.org
+X-Gm-Message-State: AFuF++nqaOlXlQkvuHXoxrccSomlZOgY3NllvxQTnJFv4FnSI0wmaTtq
+	VaWFQ+uLCxGVl4I+MDbJvsB4mMGbP3Wk0eg+23gpJ+pZgtOJ8pXpIottW3fkUA4HEJl8hXv+/74
+	OEXzc2o+Pk244h1/VvM56Lg8mB9eqNV0=
+X-Gm-Gg: AYBFou0wedL2xvDS2RmQbDkpEkJEtUE1QDTwXUHl5yFR9nViBP5acmi3ZhyKfxFMv54
+	Wcqm6q5Uncqym6GRcvfK9PpvxQXbXVfaAEFcvLbbxxvN/lvFIhDP4wJttg9yhLLIuDVSrECIPj2
+	frz0SzoJkwoC1+dMQh3fQQRn2dMGzD3Twb4KwI1/9r59K9mtXPRFSYvInrxji4PPEd9akOf7b2y
+	oDIXvr+iyDkiZY9VRLwMO9SL1pE81LILv8mBSNnTS1ZB1DmNsBqWG985acOOgdDmlb8as7/DfXz
+	FW6cgtTVN4co/G9hY/z6CZUSHbj1nLO1P1bW70h+BCutLcezYKnXaxPQ8AUQnA2dvfLOrcj4UX4
+	fR1At7iV9mt364twVGS4vBrKpKmQgt19TigSZ8hK4hFtGJ5hqJKhcF14EHRuD6jX64BmagHoBMv
+	jBOLse6hTWOaTIEbcvAcMvOhRmhr93FOGZIPuWDQ==
+X-Received: by 2002:a05:6102:4b01:b0:786:a11e:484d with SMTP id
+ ada2fe7eead31-78a4a86b686mr1500572137.6.1788540780511; Fri, 04 Sep 2026
+ 09:53:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260905-a733-clk-v3-8-50f238f39c78@pigmoral.tech>
-References: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
-In-Reply-To: <20260905-a733-clk-v3-0-50f238f39c78@pigmoral.tech>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Junhui Liu <junhui.liu@pigmoral.tech>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Enzo Adriano <enzo.adriano.code@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6960;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=yd6GWaVDPMIe/o6TIDlz+K0N/98nvL5ILtZcOOjErcI=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLJmfb178cF35+82KQyL2J6UyDeeXDxv+tbwtN3rgkreG
- nz12tI0p6OUhUGMi0FWTJGFy1/8n7UOz7cjAq33YeawMoEMYeDiFICJrJrOyNAYdPYX8z7O76e5
- mue062t/aXP/2NZwPCjs7YVnLDInQpYw/DO7kMa/31Sw9+C6msDDR77kiHzd2NEfz9HTHbZ1E9t
- 8CyYA
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
+References: <20260811060651.227431-1-james.hilliard1@gmail.com> <87ecf911jr.fsf@bootlin.com>
+In-Reply-To: <87ecf911jr.fsf@bootlin.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Fri, 4 Sep 2026 12:52:49 -0400
+X-Gm-Features: AcwNN1VzoX6Wx03j6h-GsWo7X9YwKmv-DqDt9ZWJFHiKu2jY-uxo82M8zbL9kdI
+Message-ID: <CADvTj4p3kFN+4NeeouXscPrnHTWKbauVcYXnh2uW1OGHUL_sbQ@mail.gmail.com>
+Subject: Re: [PATCH] mtd: rawnand: sunxi: reject invalid ECC step sizes
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: linux-mtd@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	stable@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Richard Genoud <richard.genoud@bootlin.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Boris Brezillon <bbrezillon@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_094846_276928_BD209301 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260904_095302_046482_07C0F4DB 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,170 +124,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the reset lines for the Allwinner A733 SoC. These reset control bits
-are integrated into the Bus Gate Reset (BGR) registers, typically
-sharing the same register address with their corresponding bus clock
-gates. Integrate them into the main CCU driver using the existing
-sunxi-ng ccu_reset framework, allowing the CCU to also function as a
-reset controller for the SoC.
+On Fri, Sep 4, 2026 at 9:25=E2=80=AFAM Miquel Raynal <miquel.raynal@bootlin=
+.com> wrote:
+>
+> On 11/08/2026 at 00:06:48 -06, James Hilliard <james.hilliard1@gmail.com>=
+ wrote:
+>
+> > ECC maximization forces a 1024-byte ECC step and divides the
+> > available OOB bytes by the number of steps. A NAND with a smaller
+> > page therefore produces zero steps and a division by zero.
+>
+> No, steps cannot be < 1. If they are, it's a bug that must be fixed.
 
-Tested-by: Jerome Brunet <jbrunet@baylibre.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 126 +++++++++++++++++++++++++++++++++
- 1 file changed, 126 insertions(+)
+The zero step count is created by the Sunxi maximization path itself.
+sunxi_nand_hw_ecc_ctrl_init() unconditionally sets ecc->size to 1024,
+including for a 512-byte-page NAND, before calculating nsectors.
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-index c124b09855c0..b7fc2cfc626c 100644
---- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-@@ -19,6 +19,7 @@
- #include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
- 
- #include "ccu_common.h"
-+#include "ccu_reset.h"
- 
- #include "ccu_div.h"
- #include "ccu_gate.h"
-@@ -2183,11 +2184,136 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
- 	.num	= CLK_FANOUT3 + 1,
- };
- 
-+static const struct ccu_reset_map sun60i_a733_ccu_resets[] = {
-+	[RST_BUS_ITS_PCIE0]		= { 0x574, BIT(16) },
-+	[RST_BUS_IOMMU0_SYS]		= { 0x58c, BIT(16) },
-+	[RST_BUS_MSI_LITE0_AHB]		= { 0x594, BIT(16) },
-+	[RST_BUS_MSI_LITE0_MBUS]	= { 0x594, BIT(17) },
-+	[RST_BUS_MSI_LITE1_AHB]		= { 0x59c, BIT(16) },
-+	[RST_BUS_MSI_LITE1_MBUS]	= { 0x59c, BIT(17) },
-+	[RST_BUS_MSI_LITE2_AHB]		= { 0x5a4, BIT(16) },
-+	[RST_BUS_MSI_LITE2_MBUS]	= { 0x5a4, BIT(17) },
-+	[RST_BUS_IOMMU1_SYS]		= { 0x5b4, BIT(16) },
-+	[RST_BUS_DMA0]			= { 0x704, BIT(16) },
-+	[RST_BUS_DMA1]			= { 0x70c, BIT(16) },
-+	[RST_BUS_SPINLOCK]		= { 0x724, BIT(16) },
-+	[RST_BUS_MSGBOX]		= { 0x744, BIT(16) },
-+	[RST_BUS_PWM0]			= { 0x784, BIT(16) },
-+	[RST_BUS_PWM1]			= { 0x78c, BIT(16) },
-+	[RST_BUS_DBG]			= { 0x7a4, BIT(16) },
-+	[RST_BUS_SYSDAP]		= { 0x7ac, BIT(16) },
-+	[RST_BUS_TIMER0]		= { 0x850, BIT(16) },
-+	[RST_BUS_DE0]			= { 0xa04, BIT(16) },
-+	[RST_BUS_DI]			= { 0xa24, BIT(16) },
-+	[RST_BUS_G2D]			= { 0xa44, BIT(16) },
-+	[RST_BUS_EINK]			= { 0xa6c, BIT(16) },
-+	[RST_BUS_DE_SYS]		= { 0xa74, BIT(16) },
-+	[RST_BUS_VE_ENC0]		= { 0xa8c, BIT(16) },
-+	[RST_BUS_VE_DEC0]		= { 0xa8c, BIT(18) },
-+	[RST_BUS_CE]			= { 0xac4, BIT(16) },
-+	[RST_BUS_CE_SYS]		= { 0xac4, BIT(17) },
-+	[RST_BUS_NPU_CORE]		= { 0xb04, BIT(16) },
-+	[RST_BUS_NPU_AXI]		= { 0xb04, BIT(17) },
-+	[RST_BUS_NPU_AHB]		= { 0xb04, BIT(18) },
-+	[RST_BUS_NPU_SRAM]		= { 0xb04, BIT(19) },
-+	[RST_BUS_GPU0]			= { 0xb24, BIT(16) },
-+	[RST_BUS_DRAM0]			= { 0xc0c, BIT(16) },
-+	[RST_BUS_NAND0]			= { 0xc8c, BIT(16) },
-+	[RST_BUS_MMC0]			= { 0xd0c, BIT(16) },
-+	[RST_BUS_MMC1]			= { 0xd1c, BIT(16) },
-+	[RST_BUS_MMC2]			= { 0xd2c, BIT(16) },
-+	[RST_BUS_MMC3]			= { 0xd3c, BIT(16) },
-+	[RST_BUS_UFS_AHB]		= { 0xd8c, BIT(16) },
-+	[RST_BUS_UFS_AXI]		= { 0xd8c, BIT(17) },
-+	[RST_BUS_UFS_PHY]		= { 0xd8c, BIT(18) },
-+	[RST_BUS_UFS_CORE]		= { 0xd8c, BIT(19) },
-+	[RST_BUS_UART0]			= { 0xe00, BIT(16) },
-+	[RST_BUS_UART1]			= { 0xe04, BIT(16) },
-+	[RST_BUS_UART2]			= { 0xe08, BIT(16) },
-+	[RST_BUS_UART3]			= { 0xe0c, BIT(16) },
-+	[RST_BUS_UART4]			= { 0xe10, BIT(16) },
-+	[RST_BUS_UART5]			= { 0xe14, BIT(16) },
-+	[RST_BUS_UART6]			= { 0xe18, BIT(16) },
-+	[RST_BUS_I2C0]			= { 0xe80, BIT(16) },
-+	[RST_BUS_I2C1]			= { 0xe84, BIT(16) },
-+	[RST_BUS_I2C2]			= { 0xe88, BIT(16) },
-+	[RST_BUS_I2C3]			= { 0xe8c, BIT(16) },
-+	[RST_BUS_I2C4]			= { 0xe90, BIT(16) },
-+	[RST_BUS_I2C5]			= { 0xe94, BIT(16) },
-+	[RST_BUS_I2C6]			= { 0xe98, BIT(16) },
-+	[RST_BUS_I2C7]			= { 0xe9c, BIT(16) },
-+	[RST_BUS_I2C8]			= { 0xea0, BIT(16) },
-+	[RST_BUS_I2C9]			= { 0xea4, BIT(16) },
-+	[RST_BUS_I2C10]			= { 0xea8, BIT(16) },
-+	[RST_BUS_I2C11]			= { 0xeac, BIT(16) },
-+	[RST_BUS_I2C12]			= { 0xeb0, BIT(16) },
-+	[RST_BUS_SPI0]			= { 0xf04, BIT(16) },
-+	[RST_BUS_SPI1]			= { 0xf0c, BIT(16) },
-+	[RST_BUS_SPI2]			= { 0xf14, BIT(16) },
-+	[RST_BUS_SPIF]			= { 0xf1c, BIT(16) },
-+	[RST_BUS_SPI3]			= { 0xf24, BIT(16) },
-+	[RST_BUS_SPI4]			= { 0xf2c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GPADC0]		= { 0xfc4, BIT(16) },
-+	[RST_BUS_THS0]			= { 0xfe4, BIT(16) },
-+	[RST_BUS_IRRX]			= { 0x1004, BIT(16) },
-+	[RST_BUS_IRTX]			= { 0x100c, BIT(16) },
-+	[RST_BUS_LRADC]			= { 0x1024, BIT(16) },
-+	[RST_BUS_SGPIO]			= { 0x1064, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LPC]			= { 0x1084, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_I2SPCM0]		= { 0x120c, BIT(16) },
-+	[RST_BUS_I2SPCM1]		= { 0x121c, BIT(16) },
-+	[RST_BUS_I2SPCM2]		= { 0x122c, BIT(16) },
-+	[RST_BUS_I2SPCM3]		= { 0x123c, BIT(16) },
-+	[RST_BUS_I2SPCM4]		= { 0x124c, BIT(16) },
-+	[RST_BUS_SPDIF]			= { 0x128c, BIT(16) },
-+	[RST_BUS_DMIC]			= { 0x12cc, BIT(16) },
-+	[RST_USB_PHY0]			= { 0x1300, BIT(30) },
-+	[RST_BUS_OHCI0]			= { 0x1304, BIT(16) },
-+	[RST_BUS_EHCI0]			= { 0x1304, BIT(20) },
-+	[RST_BUS_OTG]			= { 0x1304, BIT(24) },
-+	[RST_USB_PHY1]			= { 0x1308, BIT(30) },
-+	[RST_BUS_OHCI1]			= { 0x130c, BIT(16) },
-+	[RST_BUS_EHCI1]			= { 0x130c, BIT(20) },
-+	[RST_BUS_USB2]			= { 0x135c, BIT(16) },
-+	[RST_BUS_PCIE_PWRUP]		= { 0x138c, BIT(16) },
-+	[RST_BUS_PCIE]			= { 0x138c, BIT(17) },
-+	[RST_BUS_SERDES]		= { 0x13c4, BIT(16) },
-+	[RST_BUS_GMAC0]			= { 0x141c, BIT(16) },
-+	[RST_BUS_GMAC0_AXI]		= { 0x141c, BIT(17) },
-+	[RST_BUS_GMAC1]			= { 0x142c, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_GMAC1_AXI]		= { 0x142c, BIT(17) }, /* From the vendor kernel. */
-+	[RST_BUS_TCON_LCD0]		= { 0x1504, BIT(16) },
-+	[RST_BUS_TCON_LCD1]		= { 0x150c, BIT(16) },
-+	[RST_BUS_TCON_LCD2]		= { 0x1514, BIT(16) }, /* From the vendor kernel. */
-+	[RST_BUS_LVDS0]			= { 0x1544, BIT(16) },
-+	[RST_BUS_LVDS1]			= { 0x154c, BIT(16) },
-+	[RST_BUS_DSI0]			= { 0x1584, BIT(16) },
-+	[RST_BUS_DSI1]			= { 0x158c, BIT(16) },
-+	[RST_BUS_TCON_TV0]		= { 0x1604, BIT(16) },
-+	[RST_BUS_TCON_TV1]		= { 0x160c, BIT(16) },
-+	[RST_BUS_EDP]			= { 0x164c, BIT(16) },
-+	[RST_BUS_HDMI_MAIN]		= { 0x168c, BIT(16) },
-+	[RST_BUS_HDMI_SUB]		= { 0x168c, BIT(17) },
-+	[RST_BUS_HDMI_HDCP]		= { 0x168c, BIT(18) },
-+	[RST_BUS_DPSS_TOP0]		= { 0x16c4, BIT(16) },
-+	[RST_BUS_DPSS_TOP1]		= { 0x16cc, BIT(16) },
-+	[RST_BUS_VIDEO_OUT0]		= { 0x16e4, BIT(16) },
-+	[RST_BUS_VIDEO_OUT1]		= { 0x16ec, BIT(16) },
-+	[RST_BUS_LEDC]			= { 0x1704, BIT(16) },
-+	[RST_BUS_DSC]			= { 0x1744, BIT(16) },
-+	[RST_BUS_CSI]			= { 0x1844, BIT(16) },
-+	[RST_BUS_VIDEO_IN]		= { 0x1884, BIT(16) },
-+	[RST_BUS_APB2JTAG]		= { 0x1c04, BIT(16) },
-+};
-+
- static const struct sunxi_ccu_desc sun60i_a733_ccu_desc = {
- 	.ccu_clks	= sun60i_a733_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun60i_a733_ccu_clks),
- 
- 	.hw_clks	= &sun60i_a733_hw_clks,
-+
-+	.resets		= sun60i_a733_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun60i_a733_ccu_resets),
- };
- 
- static const u32 pll_regs[] = {
+The controller attach callback runs before nand_scan_tail(), so this
+division happens before the generic ECC handling can reject the
+configuration or fall back to software ECC.
 
--- 
-2.55.0
+For this case, would you expect the Sunxi maximization path to retain a
+512-byte ECC step on 512-byte-page NANDs, rather than selecting 1024 and
+then validating the resulting step count?
 
+> > An explicitly configured ECC step which is larger than, or does not
+> > divide, the page also produces an unusable step count before the NAND
+> > core can diagnose the configuration.
+> >
+> > Validate the step size at both points where the driver derives the
+> > number of sectors and reject invalid geometries.
+> >
+> > Fixes: 4796d8655915 ("mtd: nand: sunxi: Support ECC maximization")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> > ---
+> >  drivers/mtd/nand/raw/sunxi_nand.c | 17 +++++++++++++++--
+> >  1 file changed, 15 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/s=
+unxi_nand.c
+> > index 45ccbce91551..ad314c0e30b2 100644
+> > --- a/drivers/mtd/nand/raw/sunxi_nand.c
+> > +++ b/drivers/mtd/nand/raw/sunxi_nand.c
+> > @@ -2032,6 +2032,15 @@ static void sunxi_nand_detach_chip(struct nand_c=
+hip *nand)
+> >       sunxi_nand->user_data_bytes =3D NULL;
+> >  }
+> >
+> > +static int sunxi_nfc_ecc_steps(struct mtd_info *mtd, unsigned int step=
+_size)
+> > +{
+> > +     if (!step_size || mtd->writesize < step_size ||
+> > +         mtd->writesize % step_size)
+>
+> I don't get it, mtd->writesize < step_size is conceptually
+> impossible. If that happens, it must be fixed earlier than that.
+
+An explicitly configured step reaches the controller attach callback
+after the NAND geometry has been detected but before nand_scan_tail().
+The Sunxi binding permits step sizes of 512 and 1024 without constraining
+them against the detected page size.
+
+Could you clarify where you expect this invariant to be established:
+in the raw NAND core before ->attach_chip(), or in the Sunxi driver when
+it selects or consumes the ECC configuration?
+
+> > +             return -EINVAL;
+> > +
+> > +     return mtd->writesize / step_size;
+> > +}
+> > +
+> >  static int sunxi_nfc_maximize_user_data(struct nand_chip *nand, uint32=
+_t oobsize,
+> >                                       int ecc_bytes, int nsectors)
+> >  {
+>
+> Thanks,
+> Miqu=C3=A8l
 
