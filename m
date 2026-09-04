@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B061C79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1A6C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuuBzDkJl0gt1NGjn9NDS17DR+cp5By7A5gegfW0BAA=; b=w+9LjAf4pMUK13FaUS7kPLrTBq
-	5CUvWUZKFQ7fUPJSaWthOU1eR3WLxh6Pld93RvVwCoMJsn+Z3Ebkd/XqLB7ISmpsqX+RDXzPID0nZ
-	ZL4NnXf5zQZJPJqlmthHtxvUi8GnjYooY02kyjrUA8l4yDp7mXIsLyedywkmkwUxFE/qOqdW6rV7X
-	5KPT/pGsJwWVeEFuGsSHCVIqRuUJrnxrC0HsbqGkD/bcuxpmkZODZ8+Flr47sqAUqvV9+5Y5eA2F5
-	HqQZiIprcYEtzG9fosdbYC4xafDL8v1oklg/h1kWAjb1KAfGDSh56UwiaxBZMtwl7cw2lWP+i5rkv
-	ErFyHuXw==;
+	bh=NZ0+R6z1eGmwIz9sAFaUEUApTH+cEU6FvzDuPLwSm70=; b=i9HOPin6yGPkDysOdBHZvT8gwu
+	Xx6k8C4sszzQv09o1kCJl7aIVwMeaKsI5z6q05zwfCltbW3a6GA2NYiJUvRVmXRM5ME9l2+wjzrIL
+	NRzx5w2MXRTx1wcQYz81aDy/KsusSONWK7ued4VtVgLqNwin5HvX1AvVXCs5AQcqoJ4EE2BGR7IgM
+	V0KPvEfkph00CaAj+3hLrlekQTfbr8ByXZZ+KbIs7dGMCFQfu/j6UF/d9MGSRfGWXgY1hh4dgxCFc
+	bVHmbOURExY1uw0QR/RLsG3sGt21W7Fmn0MsbIKYuPkz5yBkEsHYppzdgaKXyITWasZctsBmfQIY2
+	DgJCAXCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RW5-00000001jmc-3JRu;
-	Fri, 04 Sep 2026 10:51:29 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1x2RWE-00000001jrK-45e2;
+	Fri, 04 Sep 2026 10:51:38 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RW4-00000001jlH-0DTB
+	id 1x2RWB-00000001jpO-37j8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:51:29 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-398a4dcf289so1001392a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:51:27 -0700 (PDT)
+	Fri, 04 Sep 2026 10:51:37 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-398a5aad413so648067a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:51:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788519087; x=1789123887; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788519095; x=1789123895; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yuuBzDkJl0gt1NGjn9NDS17DR+cp5By7A5gegfW0BAA=;
-        b=QNYFd7/gJ0dYVOiM/Q9dlMtc5g5+PvNKWTwf9/6itIh0zyS+AX7wDj4arsC0p2TjHb
-         dadBLW9/aWJrYumkOzr6CFx877+1atGU6EQLgu/UkyzBCVam/RmAn23rFDgMRMsIlM7s
-         PAwRDOLy2dUZAir/fUSVr7bFolok4kskaka6+Q1ynkr/KQ7suDI0gRFsiXQwJ+W7yr6V
-         aeZrUeYu8LkyYZNkWKUYgTTrsDXY5+8I8MHkgflYQSulY30mKABtJk+HI8/LqoVgfLjm
-         bedieKIdR7eRTkeUppIV8MB9nshxMdJMLR4Mh9JljjQWctwVNpZ2+f5ovcGR1xsGW2hs
-         n4RA==
+        bh=NZ0+R6z1eGmwIz9sAFaUEUApTH+cEU6FvzDuPLwSm70=;
+        b=GzLvOnrX+EesEfNlClcFKjdAzPjLzpir+EnMPCkE8fxb/F16KQX2nq0f9uwu61z507
+         G+C7WqGpLUMO2wDCckxKzRHiaSXQ9F88sYKqgVlN2dSFDAdpv//uGzUkuVupL9R/+5+E
+         ZGryA5MKhuTK4wIGOqtomVjH51lmwq6oAzYQx65YaUq9hSZpsN8aTHAU/Nt9ohEm80Tl
+         g3d/eDsB+bzRfqXt+CE8DYIpkPa+cESprCcr7KKXG8BkHpv0bYwgsS9tax/INefsWP1+
+         uNa0nmspn5ljW34oEAIPIrjuttXALBtDOrilRmkJvUzdJ1876ID0emy33NrSTnrZBNNv
+         eKeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788519087; x=1789123887;
+        d=1e100.net; s=20251104; t=1788519095; x=1789123895;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yuuBzDkJl0gt1NGjn9NDS17DR+cp5By7A5gegfW0BAA=;
-        b=G6Ruj2lC62x0Jk9zwDO4YLDQgRaR2gGD3Mz1yDB151xszrq1VkJjoGu3TgGyoEpvvs
-         J2hH42tHAmJWsCPW+KARog+nEnmcd28tKFSkZAWk59IZ9g+L1REs7jGmBHmu7U5Oje3X
-         2FtxJRe6Lgky0ODW6x3LmLZ21KFu89hjrX92KMZCoLd68RLNmvx/bQ2Jm6UcvcS42/zs
-         HNxNxyL3o97TNpdWg4JqNtwBEjlPPCN+au156p2b+cIVMhDML4lCWQ7XygRkenYv4Cap
-         rKE1aVKAQsEFgYWuUKB5Ubr8KEx4sUeyTkJlXQ3uw6mwgv40a31dCslQPXJ+fDiuqhsA
-         xhfg==
-X-Forwarded-Encrypted: i=1; AKwUvBxZ/KoZIzfSjtQX5ytHb0TThrI47ByGkrObofTXAhiz4JZZXXMa1x8M9SMZAvqJuOJ44r+/WvRRVxakuzFbyZq1@lists.infradead.org
-X-Gm-Message-State: AFuF++npkwwuk+BrG3yijjtX+lxloKUJ3OT/OYwLJ90fvLX6inVDvmlf
-	YDypaGhoo8jkD0YjYD9hJkgfgXUBrVAs94urjJAnQMAw0rELarRQ+0Tm
-X-Gm-Gg: AYBFou35sletrHJnNlWG2Pe8IJEsVegWZ5p27ou2whhFN73FWg9fPwXZZY+ShbcnQBQ
-	h6i3G7FGRm2OIdUMzgGH/BNOfyt/Zj5SFHs6TKq7CehKIGSim2JQWBv4Tzd77mN419Edjwvoq4o
-	RhcKJuDbc87j+cg/sGtSoOGw872/V7fzlL38x4j+JukVKrL1Eim+gnN4QZjSn/fUxLQQ6LYRgP3
-	87eLF2L8M1XV2RFFdghie2kfWNwNF2zDvfwagZ1cs0hqRCG+52PP4PtduU19RKWf0PPqo8Q1RH3
-	ii8gNzobNOpX5z0NmsZGK5oGy8sJmFZqdOk+4BTph8NpuQWiDWQ3/DiC40AKiidFcBDmPd1gu86
-	HMj6/qg9BRymj0SQN/eLMZBLo/xjA4xbLSN3hav+tNY15zPpQo2lM/jcsecKNlczBFTM9p1GjCa
-	FHLUzghrcqazjg5KG5hhX5hlbKqFBAUjfCxUoe4mIbf/8Lnk2bnh4GuFI2oWymt+xojorPgPM3C
-	yMEMeSFisiJs6c=
-X-Received: by 2002:a17:90a:d00e:b0:399:221d:63c0 with SMTP id 98e67ed59e1d1-39b262409e5mr8455819a91.25.1788519087227;
-        Fri, 04 Sep 2026 03:51:27 -0700 (PDT)
+        bh=NZ0+R6z1eGmwIz9sAFaUEUApTH+cEU6FvzDuPLwSm70=;
+        b=kIqKx67q8RuuJWlXuDNiQlRx6gaXNnHWBLWOtkcDB28ugXm3UT26M5blRU6B8B1Wub
+         cQv1AtUI64Kx8HKZMtl/9DRgcRFPPvLld7NbNNK31w2XlcpXjv/rVyRTXoJXpu3TFcxK
+         iKErqUA/1MQXI7c4nQEsiFhK/yKagKVjubBMU91ZlXCUZq3zA5VBvgcSoqyydip9tUzB
+         8qhGSfLqhrY7ckaquL+Z3R0K1heI339yzU5SXFBTe0/ZsirKkx8pIX0Vf7Qg2rFpxIu7
+         WRGQXbF5UqRMcQ8HEJA4R/FKxD6gYN44fgMr7XZzIFtHMaQPvUqCPXRG/Fh/9JCgtJ6J
+         IaIw==
+X-Forwarded-Encrypted: i=1; AKwUvBzpdjy4ve3CElGGobkVDnzg6iVel+ByJZ2J+kkf/2+oFDufXEKoBsFjPyc2C7ioc7aH+vDBGWy+VOUhxd9M6mQR@lists.infradead.org
+X-Gm-Message-State: AFuF++k/QCCRvstKVkQKlBSFmUdTMYoti4QoHLxiniuIoV16DfBWnQOA
+	s3AQ+1wkoyb44o53AWFp/hcXrg85QXq91e04rJbKz0FbxSCFDisnJk6AwiEzo7lnubk=
+X-Gm-Gg: AYBFou3XRpVZQE9F6Y/Ddoza2p0YK/kemWHWWbnMJAtnpSRVMSjNM/HgG1g9dxq9h0f
+	OlaTDAVcWXTdfN6ZGG9xDjTzsVBlncNmNeWoVpl45O6+Fre/BaIEdi1Iiw1Vbigwfst53ZOZ2+D
+	FScLKARg18zwjnXqsikOIdXOPrYgb0WW3ujKhp/FekUKr58NQGcP+E0u2eEtLt4YPghV7brf5Vz
+	aPOS9DcjWXpuKZ1MraArER4Crml48A6IwbvIDB/aN6SNeWQC6vt6GOPGFAWRncbsLrFdbducJYQ
+	mJwdiyrtVVMiaFshEKsTU/v++hcWgXgWQ+MgtcTqCOzCcU+mD9cT60nrUe7PYnn66+fvOFrvD2z
+	Xgp0LpB+xdnToxXApPkNBfvvISZVCTZwGfnhysFR/WgzGL6NYK2DhNj6Oev9mWmm11TBLHONLT+
+	/bVB5r+DaMNxO8hD0RFr+kZC7H3ZAxoU8fhzy4P5jsUpRlCDaTi3kvewPk66KN7WVeBVNYZertC
+	pdg4Y4oohaxN6M=
+X-Received: by 2002:a17:90b:5826:b0:38e:7168:281 with SMTP id 98e67ed59e1d1-39b261b07b6mr8253370a91.10.1788519094870;
+        Fri, 04 Sep 2026 03:51:34 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339befdefcsm5031484eec.29.2026.09.04.03.51.24
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339befdefcsm5031484eec.29.2026.09.04.03.51.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 03:51:26 -0700 (PDT)
+        Fri, 04 Sep 2026 03:51:34 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/4] arm64: fix typos in comments
-Date: Fri,  4 Sep 2026 16:21:08 +0530
-Message-ID: <20260904105114.29474-3-hemanth.selam@gmail.com>
+Subject: [PATCH 4/4] arm64: include: fix repeated word 'to' in comment
+Date: Fri,  4 Sep 2026 16:21:10 +0530
+Message-ID: <20260904105114.29474-5-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260904105114.29474-1-hemanth.selam@gmail.com>
 References: <20260904105114.29474-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_035128_095921_1F75FD01 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20260904_035135_813921_C58F8595 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +101,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+Drop the second 'to', reported by checkpatch.pl as a possible repeated
+word.  Only touches a comment, no code changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- arch/arm64/include/asm/stage2_pgtable.h | 2 +-
- arch/arm64/include/uapi/asm/ptrace.h    | 4 ++--
- arch/arm64/kernel/cpufeature.c          | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/pgtable-prot.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/stage2_pgtable.h b/arch/arm64/include/asm/stage2_pgtable.h
-index 23d27623e478..cf57da90b5d1 100644
---- a/arch/arm64/include/asm/stage2_pgtable.h
-+++ b/arch/arm64/include/asm/stage2_pgtable.h
-@@ -17,7 +17,7 @@
-  *
-  * This implies, the total number of page table levels required for
-  * IPA_SHIFT at stage2 expected by the hardware can be calculated using
-- * the same logic used for the (non-collapsable) stage1 page tables but for
-+ * the same logic used for the (non-collapsible) stage1 page tables but for
-  * (IPA_SHIFT - 4).
-  */
- #define stage2_pgtable_levels(ipa)	ARM64_HW_PGTABLE_LEVELS((ipa) - 4)
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 15649a253a57..0c8c6a126c3b 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -113,7 +113,7 @@ struct user_hwdebug_state {
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 09d7c00cf405..526ee54c0d33 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -139,7 +139,7 @@ static inline bool __pure lpa2_is_enabled(void)
  
- struct user_sve_header {
- 	__u32 size; /* total meaningful regset content in bytes */
--	__u32 max_size; /* maxmium possible size for this thread */
-+	__u32 max_size; /* maximum possible size for this thread */
- 	__u16 vl; /* current vector length */
- 	__u16 max_vl; /* maximum possible vector length */
- 	__u16 flags;
-@@ -272,7 +272,7 @@ struct user_pac_generic_keys {
- 
- struct user_za_header {
- 	__u32 size; /* total meaningful regset content in bytes */
--	__u32 max_size; /* maxmium possible size for this thread */
-+	__u32 max_size; /* maximum possible size for this thread */
- 	__u16 vl; /* current vector length */
- 	__u16 max_vl; /* maximum possible vector length */
- 	__u16 flags;
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 17b83a2518a8..fd52941b5f07 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -888,7 +888,7 @@ static int search_cmp_ftr_reg(const void *id, const void *regp)
-  * entry.
-  *
-  * returns - Upon success,  matching ftr_reg entry for id.
-- *         - NULL on failure. It is upto the caller to decide
-+ *         - NULL on failure. It is up to the caller to decide
-  *	     the impact of a failure.
-  */
- static struct arm64_ftr_reg *get_arm64_ftr_reg_nowarn(u32 sys_id)
-@@ -3682,7 +3682,7 @@ static void verify_local_cpu_caps(u16 scope_mask)
- 			/*
- 			 * We have to issue cpu_enable() irrespective of
- 			 * whether the CPU has it or not, as it is enabeld
--			 * system wide. It is upto the call back to take
-+			 * system wide. It is up to the call back to take
- 			 * appropriate action on this CPU.
- 			 */
- 			if (caps->cpu_enable)
+ /*
+  * Page types used via Permission Indirection Extension (PIE). PIE uses
+- * the USER, DBM, PXN and UXN bits to to generate an index which is used
++ * the USER, DBM, PXN and UXN bits to generate an index which is used
+  * to look up the actual permission in PIR_ELx and PIRE0_EL1. We define
+  * combinations we use on non-PIE systems with the same encoding, for
+  * convenience these are listed here as comments as are the unallocated
 -- 
 2.48.1
 
