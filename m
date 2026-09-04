@@ -4,82 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D433DC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263CCC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-ID:Date:
-	In-Reply-To:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gE9P4GObqZliYweF8gHdbLVlqBxBO1frIJ8W7HGnk/w=; b=45lPFyhJxh3qktevbW1vAvTEBO
-	vC7en/bROqI3RSTb+Z5oUwL0LSmyABFbYHrG2mBL7pMlMFhMccJckfO5in2/YUZFM3vArZowZZfOS
-	NEzJDw21h8Twqw5mAA1NfgM1LmoBwNN/eDvIsuMWxA5GCLG2p7UxuBjXsu9FqX8KJf7Xuj2j+j3Sb
-	YZhjvorM+WrByimUfslJNEh52B1fJUok8u652t3DizFQRRkttXba7cyLOtcxVMSd1iyYP6Tx0IPxm
-	wR1/WGDpthP/t5i9NyIOPiw79kcU2gncGnEfcvwpQVBImGXGPYB5D9XkZ4btDUjnKaoYm+NDNMrze
-	4k8m3/2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=; b=uxahExtSlFXmd4R2z5LVTkC+nS
+	hhToj4gnWtAO/Q/xHZlxD/fX0ekTqaWQQ5GQ9NgFCcosoe89nU+XsjpEFL2qL8Xbb9/x3VF3gxvTM
+	aguvKEdIMSHALeuJeSVar5MKGP6sGNP1YjDmIDFUJZvPEqNY+aSdSgQDXP/twcGI9Tgxq/g84jJda
+	wrRSp4MMkg5uvwMXxBmTb9DMsmhyCKPW45E5qofUgOJdnP9quZ/cQ7hmt76dh2hoqxEGaDxrqfJLG
+	DGvvlXnn8tgOz7i1+NObXF6iPIewyGB/+t5a0bqkOjyuZxc13TrchCoLPz2qaHeTCaHjfxroFEAQi
+	Q0a1epZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2U1Z-00000002ELw-0U0R;
-	Fri, 04 Sep 2026 13:32:09 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1x2U7N-00000002FFS-0PhO;
+	Fri, 04 Sep 2026 13:38:09 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2U1V-00000002EJW-1Gm2
+	id 1x2U7K-00000002FEz-0lRX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:32:07 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3964dfb5a69so1323898a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:32:04 -0700 (PDT)
+	Fri, 04 Sep 2026 13:38:07 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38e58034d05so819489a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:38:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788528724; x=1789133524; darn=lists.infradead.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=gE9P4GObqZliYweF8gHdbLVlqBxBO1frIJ8W7HGnk/w=;
-        b=B4iFs3K2aKZTN0IMEqYzMyLkOxsoJAXBebAypvCf4ETxvNj3lBj4kx9BCwvwBCQoIF
-         kzoAbM6QOutcalX2jatvq/ns2MU1kQtvwkZvOlenG+zXEeARHJaasE2YIbdnTTGYrDjd
-         4zWQ4DJ8cd4SfvmKSrI/rwWu6/eGcWQId1vOIjBh3IGJw/DeVdtkmhgVI+G95imIjAbv
-         2UmAbutuM6lDzE+7k9/R2GSov1ITbPLEmTgKE3aSfCRRC7sO0/yUwLLnUPh0ZLdlO9Iz
-         1p8IK8zZ0zf3UR1OfNNMJd7zyX8aI+cEC1jxSqWwPEFYY4Skydc2wcWjKPpgQ8fj2gMq
-         Yhcw==
+        d=gmail.com; s=20251104; t=1788529085; x=1789133885; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=;
+        b=nE/rT2jo8rQDwgFhpO9SgU6Qf9GIfZ2sWJLJkYqzCJglShky8BfLePuccLyzoe4KHT
+         RYSSIrFnbfko+oXo+NybyA5+1+lPXqzQrCb2CLtw+6j0B41dX2DfNVahET/0E9zMDOdN
+         +AZbr6Nf4/lqLqTCQM8Iif37RgJKx6Xr5LWtMTrc2rDMZ313uVO5D4A1S+lm85YAwQln
+         FRHh9uozzrI1WtM2vgmGw+C8yEo4RJ7nTuPv6xG3DsOASpv3cwdjfaYkJ/6VEkS3Qi+A
+         3k8urVZXavIB51cYvQpzDPe/2MDwFvoPH63UQWjXwMaEgDLRNSNm9NTmPe9GNVQtWJXI
+         iPmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788528724; x=1789133524;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gE9P4GObqZliYweF8gHdbLVlqBxBO1frIJ8W7HGnk/w=;
-        b=N88hpBW1HztkDlO6bbXEpIqCPkVSlqEQb7ox53jtXYUtPVEftHYGcaygyx4YJQzh8Z
-         wZQAyqR8uLXdjhnE53ghJT3V9z4s9l26lXmEJmqETSPBzxv0Xw0oSoHSB7AUQaNdQGuz
-         vAohbvLpUdWxKxsnFlyrrwkImQ+g8jgPyiD549h1VJurvI7RpIlcoXxCUZi8q/sQLH+e
-         rna5efs4Tu2PZeHOLBM9jhxe+cQkwQiubrTgPukvou4991lWXsuL48CznTFbljfENXSE
-         QrSsLVlJaZAtU9f4uIcgr8xHaoKeOsGw8M+C59ZLnKGN6ZmbDwRRmx4gttFJvkEU1w3n
-         3yjA==
-X-Forwarded-Encrypted: i=1; AKwUvByEygPKZHazExNDS6CgOo2BHujX41O4QOKWnUbmE0FZEITWufKq5XmoG1Zrb2bN/gBSn86Zx9sZ/Fkby3/1jCcM@lists.infradead.org
-X-Gm-Message-State: AFuF++n0K7Qpo2SKU1exKA7HrvEWXbWerEPaS6VxzWo8bNqERaJsHhqo
-	FcfsyYTPBlAdfpqAzl2kwcRvuOzJ30VWRg5GEJT/mHrK0nTT0AwwSn5t
-X-Gm-Gg: AYBFou3ccloD/LkQpkyrlhsvxovGK67b+r7ekanQ9rhE7vpIkzx6/QDCZbmEmbMkXvR
-	DI1xrSU0UticHElEmPx+8oEyvHZLR1pDJJplFEgqdKUP6z7kbYPt3W238Vi8eWg2Y/os9TksOqH
-	yaF5PnrcUQvvzKkn+hUIYV7mOr/Ttx9B+yJ8fKALkgia4q+ArANqGwj2V2u+GjnUorcM9dWUllP
-	nmP6zNYLykPM4oH/wyWppn0/WIw13qpy/d5LqAgFo58Fzil2ejCFgor3OpBn63AXK3apkqdK4CB
-	aUtNtj4BvdXaev5wg0YclG2Z5bfWbDO+WbINlwq9z9KuAo0BT+bQM5++WZ9TPyvnUKilneNByYw
-	xGmWKK9lSyyHgNz/r+GuUWAD2B0gaCVVkaciN4VQqYt4x9b5bIdmVbAMyjq/A4VnZsJup4EzkLv
-	OcdI4YOzSfdfVekj49nYZ8K0cZKBQCTpPIIqfS0AqkNB6MzxpnvsODqzj+2ZZiqMkyK+++iIQY+
-	8KbmnKKMuTroMGWujJFHeNVhvf/Np8ULcXB9MRYMED1
-X-Received: by 2002:a17:90b:3a50:b0:38e:4cb:51f with SMTP id 98e67ed59e1d1-39b26101576mr10859346a91.11.1788528723581;
-        Fri, 04 Sep 2026 06:32:03 -0700 (PDT)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339a534d25sm7083483eec.5.2026.09.04.06.31.53
+        d=1e100.net; s=20251104; t=1788529085; x=1789133885;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wdzS40G5+XkQjj21yhx/Qw5lfwjG7ePaoclwXY13s2Q=;
+        b=sb79Haj77TIF1jltxGIHpVk7rpzo0r8lEvpDPM1q2RnWK3O8PN3Imd5NxP66kxXjzj
+         6vmoSWyR4DgLldFEakDxxjOlGlwLzDEJplmtX2EQxlunk7VhnrvgdUzc6919c8T5nxzB
+         I6qc6rBfY8R52n69Rh9JjGuAi6ktpsZN3BDl1MYrrr5S4YhGVgQ1xr6LMCDgKy8a2Wjv
+         y/+JwpFZ6nSUCrdzVu+b//FXz3pWhgiayMGBqx5I7jB52H1s1X5qqKIGkI7suygkDvZp
+         eWyO7SAJcYptpnCVyJKI3I9rXe9fgU1Et4nVcWf9bokocfeIhXCYMiForSFzgh+DL2IR
+         Mtsw==
+X-Forwarded-Encrypted: i=1; AKwUvBzWcvaq38F5VTz5gEmFDBy5av+RJdhgv/mrXYgNVVDMXm0kSgIo6FM0LuJ74++gd7URCa0LHgJ38nhXixagv0SM@lists.infradead.org
+X-Gm-Message-State: AFuF++nMxyLxYmGiaC9vOw5wMkBrPJsyABWC7INjX/LBgFJxio4Z69c3
+	MH+an0wxbTcF/H71b5ea7+EBtnrrKc9CGcXiXcDBVB7W1Mwo6WrXd+l2
+X-Gm-Gg: AYBFou2z5ipav5rnXFaOaYs2lmydUvx/P1DXQprxXDKx63C9fV2spXSpE/p/pJQozhY
+	mwdoKWzlwA+n+5nxYvF+zgsPXVyiy9+PCLIpTJ6F5BSOmZ2wJObzR+rXf868jmamhb/MVCQtrjb
+	67bunQ+TMNTmeQaxy4n97B2Sjv31j+gFH2nLGSvDR0/qNRWAjjiYDQWRpz9d8xpZa9oIX1bADqt
+	VVSiR6BIjAevQd/BS7AoCIgAVVWR0gtYdn/31dLs4NFe4y/yw4lQBw3SvocMJQoiurLPVn95PEh
+	hnO7qB4ODnLirAT3/MGt3dBHg6Z4J9YiNKqfFEvQ+AWPbiV7TnkEuMtypbkmDdQrVQZFs4Pt0i4
+	Ff98VUTzkufggdR9IQ4qBV2Jj/tI1jNSuylMmm3+VE15OGCPO2HziK+Q7nyZUJW7aEZ8EpAafEb
+	RsLBDT3VLf/P9cnBL8gkhNUWXF+Dqy23A8F14tN2XbEwvHOfRwCJ1uIoAAx/WAYnjMVzPhI5IFO
+	5hUXSGiWAZClwFoMugv54nOG8wICbEt69oET+ujklAcmljTa9pP5CA+kJLivOKQpRtutg4Tg6jX
+	YQlgsqGDYQg=
+X-Received: by 2002:a17:90b:2552:b0:398:e6b6:acc1 with SMTP id 98e67ed59e1d1-39b262728cdmr9882239a91.15.1788529084849;
+        Fri, 04 Sep 2026 06:38:04 -0700 (PDT)
+Received: from workstation ([2401:4900:8902:9774:f2e9:38cc:6b1d:1764])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33450e140d3sm3427785eec.4.2026.09.04.06.38.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 06:32:02 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>, Nicholas Piggin <npiggin@gmail.com>
-Subject: Re: [PATCH v2 04/20] KVM: selftests: Rename "num" param to "nr_pages" for physical page allocators
-In-Reply-To: <20260902164123.2546762-5-seanjc@google.com>
-Date: Fri, 04 Sep 2026 19:00:16 +0530
-Message-ID: <ecf9ta8n.ritesh.list@gmail.com>
-References: <20260902164123.2546762-1-seanjc@google.com> <20260902164123.2546762-5-seanjc@google.com>
+        Fri, 04 Sep 2026 06:38:04 -0700 (PDT)
+From: tspamiitesh@gmail.com
+To: suzuki.poulose@arm.com
+Cc: mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Amiitesh TSP <tspamiitesh@gmail.com>
+Subject: [PATCH v2] docs: fix typos in Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+Date: Fri,  4 Sep 2026 19:07:56 +0530
+Message-ID: <20260904133756.31938-1-tspamiitesh@gmail.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_063205_338638_7C93B02C 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260904_063806_226048_DFD3BC91 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,64 +102,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+From: Amiitesh TSP <tspamiitesh@gmail.com>
 
-> Rename the "num" param in the physical page allocator APIs to "nr_pages" to
-> make the unit and role of the param more obvious.
->
-> Opportunistically rework the function comment to drop the superfluous
-> kerneldoc style, and to very explicitly call out that success is guaranteed.
->
-> No functional change intended.
->
-> Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../testing/selftests/kvm/include/kvm_util.h  |  6 ++--
->  tools/testing/selftests/kvm/lib/kvm_util.c    | 35 ++++++-------------
->  2 files changed, 14 insertions(+), 27 deletions(-)
->
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> index 5a7a455b5387..95bc0a78d2bc 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -991,11 +991,11 @@ void kvm_gsi_routing_write(struct kvm_vm *vm, struct kvm_irq_routing *routing);
->  const char *exit_reason_str(unsigned int exit_reason);
->  
->  gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa, u32 memslot);
-> -gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num, gpa_t min_gpa,
-> +gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
->  			   u32 memslot, bool protected);
->  gpa_t vm_alloc_page_table(struct kvm_vm *vm);
->  
-> -static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-> +static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages,
->  				       gpa_t min_gpa, u32 memslot)
->  {
->  	/*
-> @@ -1003,7 +1003,7 @@ static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
->  	 * protected memory, as the majority of memory for such VMs is
->  	 * protected, i.e. using shared memory is effectively opt-in.
->  	 */
-> -	return __vm_phy_pages_alloc(vm, num, min_gpa, memslot,
-> +	return __vm_phy_pages_alloc(vm, nr_pages, min_gpa, memslot,
->  				    vm_arch_has_protected_memory(vm));
->  }
->  
-> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-> index 9ddc047d5c27..b071d77dd301 100644
-> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
-> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-> @@ -2025,33 +2025,20 @@ const char *exit_reason_str(unsigned int exit_reason)
->  }
->  
->  /*
-> - * Physical Contiguous Page Allocator
-> + * Allocate contiguous (guest) physical pages in a given memory region, at or
-> + * the minimum specific GPA.  If the memory is protected/private, also add the
+Fix typo errors in Documentation/ABI/testing files which were detected by hunspell and manual verification
 
-at or "above" the minimum ...
+Signed-off-by: Amiitesh TSP <tspamiitesh@gmail.com>
+---
+ Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Otherwise looks good. Feel free to add:
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+index 245c322c91f1..4ee6977381e4 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+@@ -2,9 +2,9 @@ What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/enable_source
+ Date:		November 2014
+ KernelVersion:	3.19
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+-Description:	(RW) Enable/disable tracing on this specific trace entiry.
++Description:	(RW) Enable/disable tracing on this specific trace entry.
+ 		Enabling a source implies the source has been configured
+-		properly and a sink has been identidifed for it.  The path
++		properly and a sink has been identified for it.  The path
+ 		of coresight components linking the source to the sink is
+ 		configured and managed automatically by the coresight framework.
+ 
+-- 
+2.55.0
+
 
