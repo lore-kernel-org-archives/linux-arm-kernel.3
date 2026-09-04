@@ -4,116 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EED0C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5231FC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=as+6DfHPYSqBEWE9i7602DvX8ane+SmNsUiq8qgBXro=; b=wuXBrZmOCGhdVC7z7g4+82Oj0J
-	c+MQS56axIxLmLxNkqJAJLjLGPBf7+62t06koy0FLCcp46zBMR4JMzsr57oFGiErTSa2qVFPQ73+c
-	P3PB/uTDE4BhgFUH++RVARZ78SpjaKyFrVs5bh1ehHWg6KstkxiUou6HKz+L0m330xxBl04LHWB7w
-	PjBdDUqn+6/zkWwQt3akSg3iccmVbsXbehrCnctxOKYDq8xymkLULl1WRLSXEe5+6YB/qh93Rdx1U
-	7OqtBdamdsh9LPh/ZyGOGmdGDVvzqVBi4eWD0nqaOu1Su3edsIagvhbKs+lAJr4L4Gk27/G0J/SKR
-	WVseYZ6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=foFTrG5K5GBINGP1ISszqyndvxgyaNt7XJ7LpKu6ReU=; b=SEPwxcLjF+Xjq+YSspaDV0E8wg
+	9ci10WfwW6ErEldSVHZZ2Cvo0ME78EsGpIn4uk8IHckipA7tSlsG4cx1QNkvPnZXcaWNX7EEaOz1V
+	DJ7bPZoc+6FFt43NKNCTBeb5ivME0nD6JaFLejjZJXTue8wGGKIoNK4FTEuPlRXooldIYJMMm1oAU
+	T6iRj7sLuOieSuGSd53Lbhtm++fC0GOWfTiqOox70nbNPqIg15lfhNR62K0zR2FK8NSR8P6fderCQ
+	zGMGHjA6q4urRESelrtj2Ov3as4O2TkT6gaCA5AYL8IPSM9BeB6p0Hr0hhW1zUFcZfipFV7nc7Zqi
+	cIBg0zRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QK9-00000001YCD-3TNc;
-	Fri, 04 Sep 2026 09:35:05 +0000
-Received: from mail-southcentralusazon11013071.outbound.protection.outlook.com ([40.93.196.71] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1x2QLn-00000001YOI-0OkX;
+	Fri, 04 Sep 2026 09:36:47 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2QK7-00000001YBk-0zmc
+	id 1x2QLk-00000001YN4-3uPm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 09:35:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PXayvenYu8S/N74tXmJPxX3Jvcmv4vbhH+E4jID6r2b4oxu2oObf8tRg8NCgH4myklmuPy16I4BEG6KnV8q/MY3+nXQV5JUvGrw6so+/mVcUfDwUeJu6ek3qWYXPKPxRppipnLcshIGlXBFlq81l0nQ1K3zLeFJIu6bZ6hyiRMU8LwsN+FImYqpU9PDigcqIbAve75PJNqu7oKnFQSrLKUqJMCKJWVwm/yq9Ee3WTBQJ2thRD3Tne8z3NzYObRboiVLWorqiw0NWdfLKxKxSGQaClbMxosQm2UaCgezEtZXqkgXc4KJ7BACet80mEf8fUgZB0vFoPHjdRR+1vqnahA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=as+6DfHPYSqBEWE9i7602DvX8ane+SmNsUiq8qgBXro=;
- b=g37ooTbQNp0OIFwU48JLj34Cty64yGVbLFDJ9mY3JHLYzxrk2pKfHQmtbH/PreqtyWvh9G0yFa8orCxyCYk0yPEAPP0jglP3IY3tqiFH8TVpCR/UkjtKHqwdO5mTwnyToAXJoR9WBiGPkmskzyFLCFnzsckIyBbV+ErkcBGAGv8jdYCHLb45u9PFY0XdvwluREGNbMjthgc5eSzYP0aPDiFCzrlS+3qVI3s7f17K1e4JDCBufW8yVSUMhcqOo41F/LtZ4cOPBvtebkZLiGcKU7oyOPj+ugQ19burhC8pQlslxUPnru+NNV32D+CPmMxlQKTiZ32RgAkRpI6NXZjpsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=as+6DfHPYSqBEWE9i7602DvX8ane+SmNsUiq8qgBXro=;
- b=l+2xwl8G4yU6wT8jPJAhicPOpTZ23SbasfWO++Fd/76eN5SUVHk89zYviUrGhDgQejzE574BIxT1tbOprMEd7kOfpEBPLjRUSpPJH4FFvX9BASWPDPgQC3GRC3WpaTgt/tczdlTmsS9nex4zcJjCYTLeqDyOhqzd+cs3+dovUjdZvGbw8KUTKrflKgSygMUmryWoUwsZqhw/5nEu29CrxA2f/0ZdeloZFmgOxNK2YdSrvQmiEzwJpxfMEAF2ZuyRIBmQ5jqAuhycHT0nr57hFMFbOFS3eDTijxCfKszmLyD2Bef2pnorqu29guU1HbbWzYfZ7zSA1bmwY19CJCRPXA==
-Received: from BN9P222CA0028.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::33)
- by LV3PR12MB9412.namprd12.prod.outlook.com (2603:10b6:408:211::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 09:34:51 +0000
-Received: from BN3PEPF00022BD0.namprd03.prod.outlook.com
- (2603:10b6:408:10c:cafe::51) by BN9P222CA0028.outlook.office365.com
- (2603:10b6:408:10c::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Fri, 4
- Sep 2026 09:34:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN3PEPF00022BD0.mail.protection.outlook.com (10.167.248.166) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Fri, 4 Sep 2026 09:34:49 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 02:34:33 -0700
-Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 02:34:31 -0700
-From: Ender Hsieh <andhsieh@nvidia.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
-	<billy_tsai@aspeedtech.com>, Marc Olberding <molberding@nvidia.com>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] ARM: dts: aspeed: msx4: describe the I2C5 mux tree
-Date: Fri, 4 Sep 2026 18:34:12 +0900
-Message-ID: <20260904093412.2188620-1-andhsieh@nvidia.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 04 Sep 2026 09:36:46 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c247f6687dcso122375866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 02:36:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788514602; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rl5Z+9mRVHNYd8FJjwg2bL6OtPMzTnsyD7qTD+qgy8r1sNwVh3haGOm+b7k1MUqQqq
+         ROSidx84z9Vna4FF2kaLUdQEustxFoyRwWbhoOjRbNqlhzpz2UOec1hM/9Arse9SgQMg
+         Q9It8iAqYFejI14bTxOruc59fg/iquOTYozPwZ1OK1WuYb0nzp58+H0ZjM9PmZma9s0/
+         oK58jwyUCcq0hL/TsDNfNRwIru3izUX9xQMHdkmpE/9HP3+nS8ahF6vbJbrL46OUeeQT
+         n79GHe4yskvtIbUkZCZDRbDJQ0Ixi1WQk0klzfRXWXc1NubTvhIJ4ifjI4lHdubRV+vy
+         w+CQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=foFTrG5K5GBINGP1ISszqyndvxgyaNt7XJ7LpKu6ReU=;
+        fh=xsMHg3+nLbQOSn14x0I9ETSUHN6+hPoED8i9rEoU1k8=;
+        b=IoAUIr+UeU69hN2V1kCPycJH1Kcy0m7JiwOqJQFGuhbdOvbvNtckYvMvgJunI//VdR
+         s6nF6j0iaqwhpmn/e1W2iGjqirUkT7C9poW3NrPz4GF8+0blKMvuYuyHemYzFGivfpre
+         +vFMLpsVOo/nTymtR27Gjw/S/G5KpT+UlkMUo8abYcrBoP2YDafdTvTwGnfEyTxvjLKb
+         V+QqRhw7Hp/le0g+eq3NofZjo7QRuKBOqyVsSUiGSFBvviPR8C2jCfC+3a08nhhkku+j
+         6zK9pyRS5LO/14gciGpTumMadEFAnD72GT3akZlORJi+En7mU1Sjpfen1VTLlQW+Hvhh
+         E8fg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1788514602; x=1789119402; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=foFTrG5K5GBINGP1ISszqyndvxgyaNt7XJ7LpKu6ReU=;
+        b=zfnkT7jihI7QOzzBg55Z0KT0PcQ2OCMi/P0HGcFpDHlggFDy1ql5/fAwu0zAci2Inc
+         6U0z/KLj2H8oWh6Mcs6IL3rLmp7Auhv5GazG9fdVQYF1hyX+WAUkyU65yipeVlrQpA9k
+         FXLwRexhj1acRBSFCpXC5nFKelYrNNlvI3Zf7raoBJRFM62kiGCJnG5Zd7aAyit44R0b
+         mISGmykqCiF3ZQdSdCe382aOOQYKhbH0Y7J3MPlTqOx0gEWkeZxzZOgP9jagXLA7aNEI
+         g3vrCGSqNoWZH+pilm5wMThLyGMa0B5SKyFCnzdKvP0uea4LcX/9k8OtbGdtq5kBhc/8
+         2XOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788514602; x=1789119402;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=foFTrG5K5GBINGP1ISszqyndvxgyaNt7XJ7LpKu6ReU=;
+        b=r85MLMu0T4emNKz51mhww6cn6KW0+6ism94YR4Hw4PqF89uRcHxY+txqztyboXAfMA
+         a6M4vMIl+gjJUvTVc7EfsiXkTgF2ss8eKhUucHDmRFDT1+F4ClhAPu3VrDvtN2J3lmzj
+         5loDcaCZqNAlYK2ZWuUoBDk9b83CXCoPBGVRj59/lkAzkbCQ/47pC5YIjmp2HjXOL3jA
+         DdLPefw2FRYVQLt/85qs4EnK0NAysubINHm6mtYdW4POD8qCZwZmqZw8lKs1dGi7XhCZ
+         dOtLGv/bOq9P7tWG6fWGWoZINvuVtS0FrzCwctWV2uxNlfNMzCD2umZy7oMeqV2xgpUB
+         eWxA==
+X-Forwarded-Encrypted: i=1; AKwUvBztajZDpAGaH81zyyQBjA5n2Je7IJ5MEHCoNJPSm5d01NwiCx+lhrwXfedzto+N0obeCADG6D1NErfk5pLy2kbF@lists.infradead.org
+X-Gm-Message-State: AFuF++kxGDsyjVvMdSjuKG91n7y9A2omrHYPadm/CuN3j2SQovZD79wq
+	l9TJLDQljnbDZhBWOt3frPexB/KZRTc808G8IE53lkXrxvmZPlEfjvQYHiITxs1JnTXrB1WzMp8
+	dTGlwsmiM6zFF7Yi8A5XMDGSXq5x9+oKLXExUDLYqKQ==
+X-Gm-Gg: AYBFou2UaGuRScds1pSupSorkRBcpSHnUURZHvK0qLse7Nl3oVlZMQWZFzxEl0+F4M+
+	CeHA5qkeCWyic/muZ0sRUeU/lMnt0bov9aFQnFKnjB5jKoZgUb5YlQjYT24RDLh/zQJ+bPhyJll
+	nFws0rFig7Ot3SWHEzcAvpgBLP1pCwOXYw4pEAMM9yP7/nueeDkFhdfpQQW7PrhCc0aWJlzmpoB
+	niEoCrJDuZ0Zdb6PYA92cve4WpInJayMIGs/nk6Dq1pvWFhonuVRHXKhBGPbm5tu7NAlyWEznM4
+	XnjpKM2rOjYL5ATHWH5FwYnsvXJN/NPl4taE2meQP5xYzeD80f+scruZ3apxqeJ0VGA8XgwtpSN
+	d
+X-Received: by 2002:a17:907:fd17:b0:c26:1648:a069 with SMTP id
+ a640c23a62f3a-c261648b781mr97301566b.36.1788514602405; Fri, 04 Sep 2026
+ 02:36:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.37]
-X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD0:EE_|LV3PR12MB9412:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7de519b3-fa2c-460d-753f-08df0a67c44f
-X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|30052699003|23010399003|36860700016|82310400026|1800799024|376014|7416014|11063799006|56012099006|10067099003|5023799004|6133799003|18002099003;
-X-Microsoft-Antispam-Message-Info: 7SaTuv0U56d5fw0TvZqqh+2oX2q1p6qDtkKNhLeO7/v430RXSbfTEmlu/raPLCJuuu1Nf1v+cJCFgNGBQ8+XCC4An4E/yEMk83ZYYvyhgSkiP/re/3Ak1+6uZX5KNaFyLuQ9Bui56uyRQ/zxKehT0zP4RpfCxMlqVrF4vAVTiyhNdtmj1BvXAJ7t94nfRV0jXjJFYCHN63bwgC43tdZt8LT65C1pxDRa2ioywvfWubk+suBdC3Py4leC7Hy8HD/fct36C8j8AwlW2Ye7vyJz++vSA/2/YKb+MBs8vjqGEe/nbyoWxZ0JY5HuYbQeSlwFW8xAJU51FJQuOYa5TwAAHPTfNAoCV9NIIaPeQfVLY+FDdDBO4LgZISSjqDYYFo68AqJrSi9djL4YWJjGV8gBnCTF/uEJ+hXSPbRTg4n1z8UFE6eMrwHgjR1vI+XOPYx7m89L01X2JRU9ZhqoMLwfLc5J/sMVfnKWC0Q+280PBv4aOcYvXMfMRMH1ShkCqBk8vOj4iixnUYHPMLD0GkA9cDyjrM41Gi0vK6wV6AUkHa7mdoBdh9DX4isNykDM/qV0WUSmq51c9e+cF2GxITl33zKWCLOgJblO6r87OrG8v/QpfozTGm0G7pU5DZKCQrn9jPsu3DtUduAOu9moeUmM16n1M1ZsqKN+wxUTPHRda1CKH1otTQWIZkh0t72bWKslpc/910jWcmuefjlmyhLKfA==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(30052699003)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(5023799004)(6133799003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4Vo8R3j1E0gwhic70RVTj4LB5rXJmpiKwm1dNQh84VTaINixYAJZWK8lk2lBTNsrShmCfynRwErlToGrLo5+NRSgX8fBcd6qEqpB7i0523KAo28TBpXGgCdWwVBzOUqDdlTSL3u9fQZF1f86T57DgqxXpCavbMiaDf91PXrjkcd6V5RBxXcufViupRWHZpCVY7nXmTYtN/GCZv7uaPh8btAVkOiN4zadUPXZL1uwD4dgWU8B7BghApls8AWTkPpmrN62cc9iDeGoCOQpFaYugijN1sSom/pnMdLIsc8bs02GK13pp2jLM7uTFgvnrZloubrgt+Y+olZHtwAV+XuIQwnDVzXEno1PLXQQFs6qSn6E+U8wY7tTX6DGyTqdo4Vc/vRvA4brKcIjQo/IotgMqzoBUE9lLNG2NvqgWqVTpC0OEv0x1nHvGa7GcfdHFoTC
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 09:34:49.9585
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7de519b3-fa2c-460d-753f-08df0a67c44f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BD0.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9412
+References: <20260901234351.190506-1-anarsoul@gmail.com> <CAKTNdwFqSBt4QVCuYJxTyEDsxkW96JbUirFNAgJYWVLHzGpk4A@mail.gmail.com>
+ <CA+E=qVcizyQZytw8M6DA72YGrRDDNx_cCvYj565zf9wjMWh8tg@mail.gmail.com>
+In-Reply-To: <CA+E=qVcizyQZytw8M6DA72YGrRDDNx_cCvYj565zf9wjMWh8tg@mail.gmail.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Fri, 4 Sep 2026 13:36:34 +0400
+X-Gm-Features: AcwNN1WNG6-4w87ND0ZEi9BFf-EutUvUpsgbnymsPufvucLp1TkkKsdtlvZ3MeQ
+Message-ID: <CAKTNdwFQvKtHQA0JD-GAq3bgr5Brq2NyLfccenkHcrKcjeptwg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] clk: rockchip: rk3399: add 85.5 MHz rate to PLL rate table
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_023503_325804_7A896CCB 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260904_023645_004669_AD9F4195 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,484 +124,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MSX4 carries four PCA9548 8-channel muxes on I2C5, and a PCA9546
-4-channel mux behind channels 1 and 5 of the mux at 0x70 and channels 3
-and 7 of the mux at 0x73. None of that is described here, so the muxes
-are created from userspace and their channels are numbered in the order
-userspace happens to create them.
+On Fri, Sep 4, 2026 at 1:59=E2=80=AFAM Vasily Khoruzhick <anarsoul@gmail.co=
+m> wrote:
+>
+> On Wed, Sep 2, 2026 at 1:43=E2=80=AFAM Alexey Charkov <alchark@flipper.ne=
+t> wrote:
+> >
+> > Hi Vasily,
+>
+> Hey Alexey,
+>
+> > > diff --git a/drivers/clk/rockchip/clk-rk3399.c b/drivers/clk/rockchip=
+/clk-rk3399.c
+> > > index c2b243d7a5e2..db241d2df625 100644
+> > > --- a/drivers/clk/rockchip/clk-rk3399.c
+> > > +++ b/drivers/clk/rockchip/clk-rk3399.c
+> > > @@ -98,6 +98,7 @@ static struct rockchip_pll_rate_table rk3399_pll_ra=
+tes[] =3D {
+> > >         RK3036_PLL_RATE( 148500000, 1, 99, 4, 4, 1, 0),
+> > >         RK3036_PLL_RATE( 106500000, 1, 71, 4, 4, 1, 0),
+> > >         RK3036_PLL_RATE(  96000000, 1, 64, 4, 4, 1, 0),
+> > > +       RK3036_PLL_RATE(  85500000, 1, 57, 4, 4, 1, 0),
+> >
+> > There is already an entry for 1368000000, which is 16x your rate, and
+> > the 16x divisor should fit comfortably into the downstream clock's
+> > 8-bit divisor field. Do you really need a separate PLL rate? Have you
+> > checked what the hardware arrives at with the unmodified PLL table -
+> > e.g. via /sys/kernel/debug/clk/clk_summary?
+>
+> See arch/arm64/boot/dts/rockchip/rk3399-base.dtsi, hdmi ref clock is
+> wired directly to VPLL, and dw_hdmi-rockchip calls clk_set_rate() with
+> pixel clock for ref clock, see
+> dw_hdmi_rockchip_encoder_atomic_mode_set(). So at least in the rk3399
+> case VPLL is supposed to support the required pixel clock. Without the
+> first patch 1366x768 mode with 85.5MHz pixel clock is just rejected.
 
-That makes a channel's bus number a function of discovery order rather
-than of where the channel sits in the topology, so anything that wants
-to identify a device by its position has nothing stable to key on.
+I strongly suspect that the dtsi doesn't describe the real clock usage
+here. The TRM for RK3399 doesn't show any "ref" clock for HDMI, and no
+TRM-documented VPLL users look like anything that could connect
+directly to the HDMI controller.
 
-Describe the tree and give every channel an alias so the numbering comes
-from the description instead. The aliases reproduce the numbers the
-current userspace instantiation produces, so existing configuration
-keeps working.
+I believe something is hardcoding the divisor (or leaving it at the
+power-on default) in the actual DCLK of a VOP which the HDMI
+controller uses, instead of modelling it properly as a mux (frac/div)
+feeding off VPLL via another mux - both perfectly representable in the
+clock framework and already envisaged in the clock driver, making the
+PLL table patching unnecessary.
 
-The four PCA9546 all answer at 0x72, and two of them sit behind
-different PCA9548 on the same parent bus, so both can be exposed at once
-if their parents are left selected. i2c-mux-idle-disconnect prevents
-that.
+Can you please try re-pointing the "ref" clock at DCLK_VOP0 (or 1,
+depending on which one your HDMI controller uses)? Your clock summary
+already shows that something is assigning its parent to DCLK_VOPx_DIV
+and the latter's parent to PLL_VPLL, so rate changes the current
+driver code does on VPLL propagate to the muxed and divided downstream
+consumer as a side-effect rather than as an actual rate request.
 
-I2C5 is shared with the host, which configures the voltage regulators
-on it during POST, and a mux inside the CPLD decides which side reaches
-the segment. The BMC is handed the bus once POST completes, so the muxes
-described here do not necessarily answer when the kernel first probes
-them, and the platform binds them once the CPLD reports the buses ready.
-
-The reset line the four PCA9548 share is left out for the same reason.
-A driver asserting it has no way to tell whether the bus is currently
-the BMC's, and the reset cannot help at boot anyway: what fails there is
-reaching the muxes at all, not their state.
-
-Booted on an MSX4 from both a warm reboot and a cold power cycle. All
-eight muxes register, the channels come up as i2c-16 through i2c-63
-exactly as the aliases name them, and the eight FRU EEPROMs behind the
-second level read as before. On the cold power cycle the kernel's probe
-of the four PCA9548 fails at 1.7s, and they are bound once the CPLD
-reports the buses ready 2150s later.
-
-Cc: Marc Olberding <molberding@nvidia.com>
-Signed-off-by: Ender Hsieh <andhsieh@nvidia.com>
----
-Changes in v2:
-- Drop reset-gpios. Measured on an MSX4, that line is shared: pulsing it
-  clears the channel selection of the muxes at 0x70, 0x71, 0x73 and 0x75
-  together, and leaves the four PCA9546 behind them untouched. Naming it
-  on one mux alone was therefore wrong. Naming it on all four would
-  describe the hardware correctly, but I2C5 is arbitrated between the
-  host and the BMC by a mux inside the CPLD, and a driver asserting the
-  reset cannot tell whose the bus currently is, so the line is left out
-  of the description entirely.
-- Say in the commit message that the bus is shared with the host, so it
-  is clear why the muxes may not answer when the kernel first probes
-  them.
-
-v1: https://lore.kernel.org/all/20260903105956.1709114-1-andhsieh@nvidia.com/
- .../dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts | 401 ++++++++++++++++++
- 1 file changed, 401 insertions(+)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
-index 29f56176e2ca..a473bb2ccd0f 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
-@@ -15,6 +15,55 @@ aliases {
- 		serial2 = &uart3;
- 		serial3 = &uart4;
- 		serial4 = &uart5;
-+
-+		i2c16 = &i2c5mux0chn0;
-+		i2c17 = &i2c5mux0chn1;
-+		i2c18 = &i2c5mux0chn2;
-+		i2c19 = &i2c5mux0chn3;
-+		i2c20 = &i2c5mux0chn4;
-+		i2c21 = &i2c5mux0chn5;
-+		i2c22 = &i2c5mux0chn6;
-+		i2c23 = &i2c5mux0chn7;
-+		i2c24 = &i2c5mux1chn0;
-+		i2c25 = &i2c5mux1chn1;
-+		i2c26 = &i2c5mux1chn2;
-+		i2c27 = &i2c5mux1chn3;
-+		i2c28 = &i2c5mux1chn4;
-+		i2c29 = &i2c5mux1chn5;
-+		i2c30 = &i2c5mux1chn6;
-+		i2c31 = &i2c5mux1chn7;
-+		i2c32 = &i2c5mux2chn0;
-+		i2c33 = &i2c5mux2chn1;
-+		i2c34 = &i2c5mux2chn2;
-+		i2c35 = &i2c5mux2chn3;
-+		i2c36 = &i2c5mux2chn4;
-+		i2c37 = &i2c5mux2chn5;
-+		i2c38 = &i2c5mux2chn6;
-+		i2c39 = &i2c5mux2chn7;
-+		i2c40 = &i2c5mux3chn0;
-+		i2c41 = &i2c5mux3chn1;
-+		i2c42 = &i2c5mux3chn2;
-+		i2c43 = &i2c5mux3chn3;
-+		i2c44 = &i2c5mux3chn4;
-+		i2c45 = &i2c5mux3chn5;
-+		i2c46 = &i2c5mux3chn6;
-+		i2c47 = &i2c5mux3chn7;
-+		i2c48 = &i2c17mux0chn0;
-+		i2c49 = &i2c17mux0chn1;
-+		i2c50 = &i2c17mux0chn2;
-+		i2c51 = &i2c17mux0chn3;
-+		i2c52 = &i2c21mux0chn0;
-+		i2c53 = &i2c21mux0chn1;
-+		i2c54 = &i2c21mux0chn2;
-+		i2c55 = &i2c21mux0chn3;
-+		i2c56 = &i2c35mux0chn0;
-+		i2c57 = &i2c35mux0chn1;
-+		i2c58 = &i2c35mux0chn2;
-+		i2c59 = &i2c35mux0chn3;
-+		i2c60 = &i2c39mux0chn0;
-+		i2c61 = &i2c39mux0chn1;
-+		i2c62 = &i2c39mux0chn2;
-+		i2c63 = &i2c39mux0chn3;
- 	};
- 
- 	chosen {
-@@ -151,6 +200,358 @@ eeprom@51 {
- 
- &i2c5 {
- 	status = "okay";
-+
-+	i2c-mux@70 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x70>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux0chn0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		i2c5mux0chn1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+
-+			i2c-mux@72 {
-+				compatible = "nxp,pca9546";
-+				reg = <0x72>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				i2c-mux-idle-disconnect;
-+
-+				i2c17mux0chn0: i2c@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+				};
-+
-+				i2c17mux0chn1: i2c@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+
-+				i2c17mux0chn2: i2c@2 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <2>;
-+				};
-+
-+				i2c17mux0chn3: i2c@3 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <3>;
-+				};
-+			};
-+		};
-+
-+		i2c5mux0chn2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		i2c5mux0chn3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		i2c5mux0chn4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		i2c5mux0chn5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+
-+			i2c-mux@72 {
-+				compatible = "nxp,pca9546";
-+				reg = <0x72>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				i2c-mux-idle-disconnect;
-+
-+				i2c21mux0chn0: i2c@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+				};
-+
-+				i2c21mux0chn1: i2c@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+
-+				i2c21mux0chn2: i2c@2 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <2>;
-+				};
-+
-+				i2c21mux0chn3: i2c@3 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <3>;
-+				};
-+			};
-+		};
-+
-+		i2c5mux0chn6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		i2c5mux0chn7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+
-+	i2c-mux@71 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x71>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux1chn0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		i2c5mux1chn1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		i2c5mux1chn2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		i2c5mux1chn3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		i2c5mux1chn4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		i2c5mux1chn5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		i2c5mux1chn6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		i2c5mux1chn7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+
-+	i2c-mux@73 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x73>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux2chn0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		i2c5mux2chn1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		i2c5mux2chn2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		i2c5mux2chn3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+
-+			i2c-mux@72 {
-+				compatible = "nxp,pca9546";
-+				reg = <0x72>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				i2c-mux-idle-disconnect;
-+
-+				i2c35mux0chn0: i2c@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+				};
-+
-+				i2c35mux0chn1: i2c@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+
-+				i2c35mux0chn2: i2c@2 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <2>;
-+				};
-+
-+				i2c35mux0chn3: i2c@3 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <3>;
-+				};
-+			};
-+		};
-+
-+		i2c5mux2chn4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		i2c5mux2chn5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		i2c5mux2chn6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		i2c5mux2chn7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+
-+			i2c-mux@72 {
-+				compatible = "nxp,pca9546";
-+				reg = <0x72>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				i2c-mux-idle-disconnect;
-+
-+				i2c39mux0chn0: i2c@0 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <0>;
-+				};
-+
-+				i2c39mux0chn1: i2c@1 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <1>;
-+				};
-+
-+				i2c39mux0chn2: i2c@2 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <2>;
-+				};
-+
-+				i2c39mux0chn3: i2c@3 {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					reg = <3>;
-+				};
-+			};
-+		};
-+	};
-+
-+	i2c-mux@75 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x75>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux3chn0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		i2c5mux3chn1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		i2c5mux3chn2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		i2c5mux3chn3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		i2c5mux3chn4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		i2c5mux3chn5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		i2c5mux3chn6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		i2c5mux3chn7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
- };
- 
- &i2c6 {
--- 
-2.34.1
-
+Best regards,
+Alexey
 
