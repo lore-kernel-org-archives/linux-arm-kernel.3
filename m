@@ -4,60 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE14C79F88
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70247C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJLH/opAZiFyEU5XRSeU/4NoHGSUfiA4sG7WN36FaOM=; b=gf3qV3/Kli3cfbecLcG1neSP6a
-	eD/zPWTG6t0VItSDAztaFwyRmtkabuXXT0TwLQZkwWaQF1JHf7XwlWu6dL72T6jUvgGDijqS++sTB
-	UJsMo8HIj0FfoMlf1zHSBY9xXKCbEd8MV6avdWIYYKjPkAtcvjsu2+lxRYdYfLX/4LUOeL03Sv9Ep
-	mXlyjncgQh2Rd5FKNaO0ct6SfiLC141uZfMn1tAmXcNiZgQDdZYjyGFNHJuVy55BdOZwL0g0REhDd
-	HcNsxRgH2hsM1tum6ScGs77EOU7x+R8MSTGLzctEYV6YQ3OpiYGqg0zB9TVh2pwRYpTjmDpmI089A
-	+jFL+pCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=; b=dMSGrMvJJE71SEGPbU3bWkHqqM
+	ACVlydVtzmdzyctdwG/womUDIqA5Fzs0EgoweDQRVm4wcGdOXAOyhcbZtah6gZkuAgIDecGpzmDkG
+	gL7gLU7sMsOiG4ePMSYF7L568D5FYcyd9ZNhZ6RAIHXrArIOfEFaIym3TlRWU7KuP2UomKEnj3J6Y
+	GaRWkfBhilvS3/SnaKuV5e+GhoSqbt7Ilmyei5Uk+Lp90UVd3lKdFaOfHHhpNfD8fu7hzDsSNNTp2
+	jaWuOiwgk+t7pjOKb1DzIN0Ho2DvQqxsa64l4DwPlQ8/W0AANzZ9KxAi5ldNZ6OQVULQzJyxjatC9
+	eAoIe5FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKX-00000002dEd-25XW;
-	Fri, 04 Sep 2026 15:59:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2WKZ-00000002dJw-2BAz;
+	Fri, 04 Sep 2026 15:59:55 +0000
+Received: from mail-northeuropeazon11011025.outbound.protection.outlook.com ([52.101.65.25] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKM-00000002cle-2xln
+	id 1x2WKB-00000002cPU-0LrR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:59:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1FCE46020C;
-	Fri,  4 Sep 2026 15:59:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF681F00A3E;
-	Fri,  4 Sep 2026 15:59:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788537581;
-	bh=tJLH/opAZiFyEU5XRSeU/4NoHGSUfiA4sG7WN36FaOM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=DVty0kGX1Pd4GQrm8jzX5wB8mbWs+16r0nIUSbqFYmOQ4EYqFK8aUVrJAI24U+jwl
-	 qifbJMFy9HolWGMKHnMrux3xGhj7owBG6g1WI7xsUjprpj2shTPvUr5Ww1DT3fFRsF
-	 vMmiBteliIYTqSuf/CZd6mgZGT/FHDCBPvqOdYiE1jfBKPCcmi870UYmSa8BZ5HRIJ
-	 hahSKIBOG9ACIxTcRPbCP4eeYym41qQMVtLp4phbiXwhMLKAprJqhNp91b1dmn/6MM
-	 ZOnvvydWLu8ijuYjw3lVMr5cUl/Af/p6OxCZDiDVJlCY8HGSGANbQgiHjZ4kn6KxNU
-	 V+w+Gw6VqS85Q==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 04 Sep 2026 16:57:58 +0100
-Subject: [PATCH v4 3/9] firmware: arm_scmi: Convert OF-only paths to
- generic fwnode in SCMI core
+	Fri, 04 Sep 2026 15:59:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JCKcPPOHnBBQ9s2kBC9fJ2AR/oQ6+oq7uJccGKPJNhASm6/XWeYfcBFyFYTm5ITbRAyoU5Y5bqs9pkW1WLKFoZr4Jz3gp0uVrwhMLfe67FmotuIuYwEhuAVzjHT11t6oPh3h5Rc28FNqe1cRV0EYjmS6VQE27S46g9y783E46xxPb9IqR8XW7i+JNgugwmNT5Q6sAXLxDjLY1z07eg0Zl7f32U1Rn5M6d2wljuAxdftgHI2j+KKL44YwsyLcQjTb8imq39DwdoCsXo4j3QWfjrDo29Ru4ssZHaSTc8B7D7/Cb4Lrpqjs8K8CNm0UOWAkdY33IkDaRpcrBrEqaaixyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=;
+ b=Wh3alWWPd2wI2xSTREOyL5GoQaY8AO5gfGcPnqzrbUcJXbUNmv+KeVanGOl6MBJRfy/+tXz1dFAf9qS85PGc5DyjM4USnrNHS4p3pNtomewHXqTwjAvno30LfEyAi6rt/R/xBVV8P3eB0Ke6AlbljZGlGQE+sxKalvjnh9Uqg6sqjzYjh96PWG1cle/bBwAofsXQzaNqhBghppoD4qc/QG5fXDpjrYbq8AaBLA/H2+HHJI0Cwq17At+LmtgU5X2R7synMjK2I8IuXvqR7PSWv+gUXHwtY/LspB3QJr0b/NNBQtjj8t9TVVWOgVKXx+373YRO1yf7koXy107NYpHwJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9WXZZ4xKHKdCCXDMYONYSFeNl/80G85FQd8mP2U9eHk=;
+ b=Y9uhKF3vHwJ2g4FZ+RZP/23/eHl0Dgt7+GwA6sDiIPki2QCBq43m43Cor/dSFR5PKuQJ56mbd1JPGJXwq9JXFuUDB5qj66IhOIzwBIm8tw7seN3WwvT+SFEwVDfKfxysK4wJHvFiBVoHsVGt5kEK8mnvFFxBJuGrZKXXj2toVetjxy8ZC0Bo//+ooo7Ho82znnBoPCHSMUxA3ubeEM1Gp3hot/jtBiWXiQfMecO/mGZDqiFmZ6f0WuEKX179TeznYOAN1izmQUP54Ive8gr7McPslb4977JP/ZJ1zPK4tHUh6rncgxe/BpS2j5aPBZ5UsQrXqGq4UdsqgFcWJzKOTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA6PR04MB11714.eurprd04.prod.outlook.com (2603:10a6:102:526::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 15:59:27 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 15:59:27 +0000
+Date: Fri, 4 Sep 2026 11:59:19 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	"open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
+	"moderated list:ARM/UNIPHIER ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 25/26] dmaengine: uniphier-xdmac: Remove redundant
+ dev_err()/dev_err_probe()
+Message-ID: <aprq16SYGQEazTd9@lizhi-Precision-Tower-5810>
+References: <20260709135846.97972-1-panchuang@vivo.com>
+ <20260709135846.97972-26-panchuang@vivo.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260709135846.97972-26-panchuang@vivo.com>
+X-ClientProxiedBy: CYZPR17CA0003.namprd17.prod.outlook.com
+ (2603:10b6:930:8c::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-acpi_scmi_pcc-v4-3-6ebe9755606e@kernel.org>
-References: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
-In-Reply-To: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- kernel-team@meta.com
-Cc: Cristian Marussi <cristian.marussi@arm.com>, 
- Breno Leitao <leitao@debian.org>, 
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA6PR04MB11714:EE_
+X-MS-Office365-Filtering-Correlation-Id: 49af4969-cd9f-4724-73c6-08df0a9d7f09
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|10067099003|4143699003|11063799006|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: +w+cEHNBkT1LeZ9UNnZAMbzT/qkfjoP+buj3DWW4CIaBXz3Via9mqtn7G6yvprKGrWGBppMWfdzc/tmKkg7crgBp/qPWPPKk9/W0BsSKW4nfoKI/kkSr3fRYri6U6MjtT28TlAGbOmT95mfHxLk0WZ72Ca8Y5T7oE2UFoj4XGfNxFi2H48B1+A4cPfNASA8BafjzzVFeUs3kiPfWx6Z0pbKYa8FcSpr+FkpMdiVPmPZf1sR9Cg5mYfNqEU4XTJxydQ3svXoVf99D29YMW2b8yLZ9K8gQipEg5r3k7fyfD9ogpN7XIGQ6LorqrhZRXbCijv9NARL9qkx0obyRLQhkDxbqTuoxjekayBOXnD3P2lHXTdRHbGLHzOa5HE2w2q6BfbyZODM+00fOHjzTzVuJs+DbunFH0Z8ba1/D5d4ssZmDdRtxzim0CfzMnp4C6es6ueOZvaQEYMzwFfQmlcHb0BMPykBoL2zbzpXL1gn0kNV4S5Unyv34JO+Dfj/Re/UOJ1XB/50xLzfSJHk6K65S4RwKaOs7mKFZ4DToQupwd/SslA9cgHImTHDK2Dprs86egiVj9AleIq+BDCJ6+HmuBGzAvfAp8DUgScNYQ56OdyasyQ19z1+9qG1zUZku4y57b9ZtryxFElp63e39MpAThvblNIkrY9Tl60BXv18hzrg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ds0AQXRj+4aqnicuLvnJ1QQUR83+1TBZEFEnfB+kPSBAXR1knWtlpjwnFVYb?=
+ =?us-ascii?Q?9bxIqM8ZBU5uq+FJjapgsc8MOxC7eqBqUScR1fkwxGPqG5O/6VZfUEu12uKc?=
+ =?us-ascii?Q?vc2YTaRLeiZwv1O6ZlCfSFyU6G0Yh8gl1DV7foR5vZBystEvI+s/pPozktGL?=
+ =?us-ascii?Q?VuOaPjWInOzURNwik9u1eAR9e5qZZSXAcTPRwnnL8+wibSJj82R7QtSZXYaO?=
+ =?us-ascii?Q?dFQFK7YqX8zRMEn/wITdX4Bl8epuApe0zwsf8R65/CXmDZOREDDJ2LKbHL1W?=
+ =?us-ascii?Q?G353ifBTSaqYNYZpFReBIJi+1RQmlg54QuSj0uo+BxGW93rf8vRDikvWcb87?=
+ =?us-ascii?Q?Xc7FJ5gJZ0ZRZ8dFQ7DoWSG7Apya38Jr47bE1x71NwV2eGbSyWHoOLNDHZiw?=
+ =?us-ascii?Q?2Uc7inyOFtu+WXb9KXhE1mdZMDv7t7M5H8Voz44xgMSiDlrTgB2jtuIPCgyB?=
+ =?us-ascii?Q?oOlbnlOYFI0Ox9+bVL+A9LNyBxoJuhNJWdRf6PJC5plQKm03SMaa86kyNZ6z?=
+ =?us-ascii?Q?Uq2c57k4qENMk95uAcmprqGYAnAxzvb3UXABiIr2RV3oVbgKDFngnOwv3kzm?=
+ =?us-ascii?Q?quDWOT+Yl8btdbzquLeTL+pujxgEWbQOGv2Lavobe70yVVBcDvoaddTxy9Ge?=
+ =?us-ascii?Q?Hn8OfAIhYYNXT+fNjxlAB0COOyr+pU5eO49p5IJc28D61xg08jcuQTFeFcLI?=
+ =?us-ascii?Q?0pBK5JL7HT9KYwZKRo6jiocWOCl+jZO/fmwIALAWwdlwRlItTRw6owVScWGq?=
+ =?us-ascii?Q?wfMb8EBcRU8kJsGNxZurFhOisX0S24AZH4AQ1zOhK/OsDVg6p4EUbxTRT6+P?=
+ =?us-ascii?Q?bmCLb9inRfgsYP/b2aZruN/R7b08hQuuztY7vFO6eY05CVgRmD0T0nCpmhvR?=
+ =?us-ascii?Q?EvVg+nTWcl/uB2F1/aZluDIJsvCe0pUJkwKLssFp8zu+3JjYA541f+yGFUNE?=
+ =?us-ascii?Q?RrWuUMU4LEAr31+KbDiqgZ6EIkPNj/wYDj0ruMfvC8/UjuLA2YPLBetSDWuw?=
+ =?us-ascii?Q?PrUgbCKRa0D9ZGqioQ1XEAa1HOpVj5TrxaJXBwT94kycDviGx/6Nv7O//DZu?=
+ =?us-ascii?Q?Q1ZMpkEfgMOTKAS6nMMDLmiN3A8mQNuKDtZb7yEDz1F01dRgfAL3Wmir2uIC?=
+ =?us-ascii?Q?U6+O7PckXtZjlfa/LZkRnXE932dh0UKJ63izjRJJ2sMCNs8AsPUfZmJ1zIew?=
+ =?us-ascii?Q?2PjN7sXiIu23ILQ0jWfEyDfQ/iaQeTacoBm9OKoIw8aznpkD8zpkK0yUZhJk?=
+ =?us-ascii?Q?YptF/ymLHvP8iIX/0UlUefwwvXssoFXJar/sK2aJS8qXMIJAF/TLax5ZQY9D?=
+ =?us-ascii?Q?6wmmCars6v5zxmTbG4Jg9VLQM7XZ4Y9gtcg285AflD/4JG89HGs9GxGW5+yY?=
+ =?us-ascii?Q?j67Malps5TbjxtpALWXNtfGr5iGYYpzf9lwm8t+kmVairC/5aJ30q+BrOiCo?=
+ =?us-ascii?Q?gjSnV2g8iTG2biqMyJnAsEa/CRQh5fvVSQHd1Kk3XIBEGDoyB+BlpInlwQ5T?=
+ =?us-ascii?Q?vAoCXtErR4dEkguegA1Moi0V9q9PjAMVmdQeoCQud9TQxFdfuMVlSnyL7X9e?=
+ =?us-ascii?Q?Y1HQznbBPMo5C44cWrQO1QIXD2HW9+M65ZeShkuPo7gbUHOVFOs4onog3ZR+?=
+ =?us-ascii?Q?fiJ/FBgcQ/ICJrq4ZhnB4m3yMCgOUvzYdLohSSfhE4V2Sbord6KvIAvszvwv?=
+ =?us-ascii?Q?CkSswkFrR/MmawogmWytxAtWPRkAKVECsN3wtfLRU2z8V629QkyBL9BdsOUj?=
+ =?us-ascii?Q?hyscqE84LW5kz4gz3ofkwpsEG7iBmFKVjdq//ScUvckAtVakhbDM?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49af4969-cd9f-4724-73c6-08df0a9d7f09
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 15:59:27.0088
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ngeGA6t2Mzt4OHAUuKYVGrWZTgzlk4YPJgCk+W/v5kS5RxfRfO2GOAQXoZGONyM0teIwQYAtxMcw+kocXqsrqq4q2/IODSUNmefQzjoI8aKv0UZeWyiKIoL3INx1nkCl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11714
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_085931_168653_0A2AEA11 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,613 +141,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch SCMI core plumbing from struct device_node * to struct
-fwnode_handle * so the core can describe SCMI instances and protocols using
-firmware nodes rather than OF nodes directly.
+On Thu, Jul 09, 2026 at 09:58:29PM +0800, Pan Chuang wrote:
+> The devm_request_irq() now automatically logs detailed error messages on
+> failure. This eliminates the need for driver-specific dev_err() and
+> dev_err_probe() calls that previously printed generic messages.
+>
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
+> ---
 
-This change:
-  - Replaces core OF property lookups with fwnode_property_*() helpers.
-  - Plumbs fwnode through the SCMI device creation and channel setup paths.
-  - Updates transport ->chan_available() callbacks to take a fwnode.
-  - Stores per-protocol child fwnodes in info->active_protocols so the core
-    can later locate the descriptor for a given protocol ID.
-  - Updates mailbox/optee/smc/virtio transports to accept fwnodes and map
-    back to OF nodes where their existing parsing remains DT-specific.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-DT-only transports such as mailbox, OP-TEE and SMC still parse DT
-properties by mapping the fwnode back to an OF node. On non-DT systems
-these transports report no channel available.
-
-This is a mechanical step towards firmware-node neutrality and prepares the
-SCMI core for non-DT transports, such as an ACPI/PCC transport. DT users
-continue to work unchanged; no non-DT transport is enabled by this patch.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/bus.c                |  37 ++++----
- drivers/firmware/arm_scmi/common.h             |   9 +-
- drivers/firmware/arm_scmi/driver.c             | 113 +++++++++++++------------
- drivers/firmware/arm_scmi/transports/mailbox.c |   6 +-
- drivers/firmware/arm_scmi/transports/optee.c   |   6 +-
- drivers/firmware/arm_scmi/transports/smc.c     |   9 +-
- drivers/firmware/arm_scmi/transports/virtio.c  |   2 +-
- 7 files changed, 99 insertions(+), 83 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index e060edbe7e83..a86fa18fc5d2 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -9,7 +9,7 @@
- 
- #include <linux/types.h>
- #include <linux/module.h>
--#include <linux/of.h>
-+#include <linux/property.h>
- #include <linux/kernel.h>
- #include <linux/slab.h>
- #include <linux/device.h>
-@@ -429,17 +429,16 @@ static void scmi_device_release(struct device *dev)
- 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
- 
- 	scmi_device_release_resources(scmi_dev);
--	of_node_put(dev->of_node);
-+	fwnode_handle_put(dev_fwnode(dev));
- 	kfree_const(scmi_dev->name);
- 	kfree(scmi_dev);
- }
- 
- static void __scmi_device_destroy(struct scmi_device *scmi_dev)
- {
--	pr_debug("(%pOF) Destroying SCMI device '%s' for protocol 0x%x (%s)\n",
--		 scmi_dev->dev.parent->of_node,
--		 dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
--		 scmi_dev->name);
-+	pr_debug("(%pfwf) Destroying SCMI device '%s' for protocol 0x%x (%s)\n",
-+		 dev_fwnode(&scmi_dev->dev), dev_name(&scmi_dev->dev),
-+		 scmi_dev->protocol_id, scmi_dev->name);
- 
- 	device_del(&scmi_dev->dev);
- 	scmi_device_release_resources(scmi_dev);
-@@ -447,7 +446,7 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
- }
- 
- static struct scmi_device *
--__scmi_device_create(struct device_node *np, struct device *parent,
-+__scmi_device_create(struct fwnode_handle *fwnode, struct device *parent,
- 		     int protocol, const char *name)
- {
- 	int id, retval;
-@@ -458,7 +457,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 	 * If the same protocol/name device already exist under the same parent
- 	 * (i.e. SCMI instance) just return the existent device.
- 	 * This avoids any race between the SCMI driver, creating devices for
--	 * each DT defined protocol at probe time, and the concurrent
-+	 * each fwnode defined protocol at probe time, and the concurrent
- 	 * registration of SCMI drivers.
- 	 */
- 	scmi_dev = scmi_child_dev_find_get(parent, protocol, name);
-@@ -495,7 +494,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 
- 	scmi_dev->id = id;
- 	scmi_dev->dev.parent = parent;
--	device_set_node(&scmi_dev->dev, of_fwnode_handle(of_node_get(np)));
-+	device_set_node(&scmi_dev->dev, fwnode_handle_get(fwnode));
- 	scmi_dev->dev.bus = &scmi_bus_type;
- 	scmi_dev->dev.release = scmi_device_release;
- 	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
-@@ -504,8 +503,8 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- 	if (retval)
- 		goto put_dev;
- 
--	pr_debug("(%pOF) Created SCMI device '%s' for protocol 0x%x (%s)\n",
--		 parent->of_node, dev_name(&scmi_dev->dev), protocol, name);
-+	pr_debug("(%pfwf) Created SCMI device '%s' - protocol 0x%x (%s)\n",
-+		 fwnode, dev_name(&scmi_dev->dev), protocol, name);
- 
- 	return scmi_dev;
- put_dev:
-@@ -521,15 +520,15 @@ __scmi_device_create(struct device_node *np, struct device *parent,
- }
- 
- static struct scmi_device *
--_scmi_device_create(struct device_node *np, struct device *parent,
-+_scmi_device_create(struct fwnode_handle *fwnode, struct device *parent,
- 		    int protocol, const char *name)
- {
- 	struct scmi_device *sdev;
- 
--	sdev = __scmi_device_create(np, parent, protocol, name);
-+	sdev = __scmi_device_create(fwnode, parent, protocol, name);
- 	if (!sdev)
--		pr_err("(%pOF) Failed to create device for protocol 0x%x (%s)\n",
--		       parent->of_node, protocol, name);
-+		pr_err("(%pfwf) Failed to create device - protocol 0x%x (%s)\n",
-+		       fwnode, protocol, name);
- 
- 	return sdev;
- }
-@@ -537,7 +536,7 @@ _scmi_device_create(struct device_node *np, struct device *parent,
- /**
-  * scmi_device_create  - A method to create one or more SCMI devices
-  *
-- * @np: A reference to the device node to use for the new device(s)
-+ * @fwnode: A reference to the device node to use for the new device(s)
-  * @parent: The parent device to use identifying a specific SCMI instance
-  * @protocol: The SCMI protocol to be associated with this device
-  * @name: The requested-name of the device to be created; this is optional
-@@ -557,7 +556,7 @@ _scmi_device_create(struct device_node *np, struct device *parent,
-  *	   could have been potentially created for a whole protocol, unless no
-  *	   device was found to have been requested for that specific protocol.
-  */
--struct scmi_device *scmi_device_create(struct device_node *np,
-+struct scmi_device *scmi_device_create(struct fwnode_handle *fwnode,
- 				       struct device *parent, int protocol,
- 				       const char *name)
- {
-@@ -566,7 +565,7 @@ struct scmi_device *scmi_device_create(struct device_node *np,
- 	struct scmi_device *scmi_dev = NULL;
- 
- 	if (name)
--		return _scmi_device_create(np, parent, protocol, name);
-+		return _scmi_device_create(fwnode, parent, protocol, name);
- 
- 	mutex_lock(&scmi_requested_devices_mtx);
- 	phead = idr_find(&scmi_requested_devices, protocol);
-@@ -580,7 +579,7 @@ struct scmi_device *scmi_device_create(struct device_node *np,
- 	list_for_each_entry(rdev, phead, node) {
- 		struct scmi_device *sdev;
- 
--		sdev = _scmi_device_create(np, parent,
-+		sdev = _scmi_device_create(fwnode, parent,
- 					   rdev->id_table->protocol_id,
- 					   rdev->id_table->name);
- 		if (sdev)
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index f172ec9a054b..fdc591880c68 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -153,7 +153,7 @@ extern const struct bus_type scmi_bus_type;
- #define SCMI_BUS_NOTIFY_DEVICE_UNREQUEST	1
- extern struct blocking_notifier_head scmi_requested_devices_nh;
- 
--struct scmi_device *scmi_device_create(struct device_node *np,
-+struct scmi_device *scmi_device_create(struct fwnode_handle *fwnode,
- 				       struct device *parent, int protocol,
- 				       const char *name);
- void scmi_device_destroy(struct device *parent, int protocol, const char *name);
-@@ -207,7 +207,7 @@ struct scmi_chan_info {
-  * @poll_done: Callback to poll transfer status
-  */
- struct scmi_transport_ops {
--	bool (*chan_available)(struct device_node *of_node, int idx);
-+	bool (*chan_available)(struct fwnode_handle *fwnode, int idx);
- 	int (*chan_setup)(struct scmi_chan_info *cinfo, struct device *dev,
- 			  bool tx);
- 	int (*chan_free)(int id, void *p, void *data);
-@@ -233,7 +233,7 @@ struct scmi_transport_ops {
-  *	be pending simultaneously in the system. May be overridden by the
-  *	get_max_msg op.
-  * @max_msg_size: Maximum size of data payload per message that can be handled.
-- * @atomic_threshold: Optional system wide DT-configured threshold, expressed
-+ * @atomic_threshold: Optional system wide fwnode-configured threshold, expressed
-  *		      in microseconds, for atomic operations.
-  *		      Only SCMI synchronous commands reported by the platform
-  *		      to have an execution latency lesser-equal to the threshold
-@@ -241,7 +241,8 @@ struct scmi_transport_ops {
-  *		      decision is finally left up to the SCMI drivers.
-  * @no_completion_irq: Flag to indicate that this transport has no completion
-  *		       interrupt and has to be polled. This is similar to the
-- *		       force_polling below, except this is set via DT property.
-+ *		       force_polling below, except this is set via fwnode
-+ *		       property.
-  * @force_polling: Flag to force this whole transport to use SCMI core polling
-  *		   mechanism instead of completion interrupts even if available.
-  * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index ef29fd223287..7e239f52c888 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -30,7 +30,7 @@
- #include <linux/hashtable.h>
- #include <linux/list.h>
- #include <linux/module.h>
--#include <linux/of.h>
-+#include <linux/property.h>
- #include <linux/platform_device.h>
- #include <linux/processor.h>
- #include <linux/rcupdate.h>
-@@ -102,7 +102,7 @@ struct scmi_xfers_info {
-  *	initialization code to identify this instance.
-  *
-  * Each protocol is initialized independently once for each SCMI platform in
-- * which is defined by DT and implemented by the SCMI server fw.
-+ * which is defined by fwnode and implemented by the SCMI server fw.
-  */
- struct scmi_protocol_instance {
- 	const struct scmi_handle	*handle;
-@@ -137,8 +137,9 @@ struct scmi_protocol_instance {
-  * @protocols_imp: List of protocols implemented, currently maximum of
-  *		   scmi_base_info.num_protocols elements allocated by the
-  *		   base protocol
-- * @active_protocols: IDR storing device_nodes for protocols actually defined
-- *		      in the DT and confirmed as implemented by fw.
-+ * @active_protocols: IDR storing fwnodes for protocols actually defined
-+ *		      in the firmware description and confirmed as implemented
-+ *		      by fw.
-  * @notify_priv: Pointer to private data structure specific to notifications.
-  * @node: List head
-  * @users: Number of users of this instance
-@@ -416,19 +417,19 @@ EXPORT_SYMBOL_GPL(scmi_protocol_unregister);
-  * scmi_create_protocol_devices  - Create devices for all pending requests for
-  * this SCMI instance.
-  *
-- * @np: The device node describing the protocol
-+ * @fwnode: The firmware node describing the protocol
-  * @info: The SCMI instance descriptor
-  * @prot_id: The protocol ID
-  * @name: The optional name of the device to be created: if not provided this
-  *	  call will lead to the creation of all the devices currently requested
-  *	  for the specified protocol.
-  */
--static void scmi_create_protocol_devices(struct device_node *np,
-+static void scmi_create_protocol_devices(struct fwnode_handle *fwnode,
- 					 struct scmi_info *info,
- 					 int prot_id, const char *name)
- {
- 	mutex_lock(&info->devreq_mtx);
--	scmi_device_create(np, info->dev, prot_id, name);
-+	scmi_device_create(fwnode, info->dev, prot_id, name);
- 	mutex_unlock(&info->devreq_mtx);
- }
- 
-@@ -752,9 +753,10 @@ struct scmi_xfer *scmi_xfer_raw_get(const struct scmi_handle *handle)
-  * @protocol_id: Identifier of the protocol
-  *
-  * Note that in a regular SCMI stack, usually, a protocol has to be defined in
-- * the DT to have an associated channel and be usable; but in Raw mode any
-- * protocol in range is allowed, re-using the Base channel, so as to enable
-- * fuzzing on any protocol without the need of a fully compiled DT.
-+ * the firmware description to have an associated channel and be usable; but in
-+ * Raw mode any protocol in range is allowed, re-using the Base channel, so as
-+ * to enable fuzzing on any protocol without the need of a fully compiled
-+ * firmware description.
-  *
-  * Return: A reference to the channel to use, or an ERR_PTR
-  */
-@@ -768,7 +770,7 @@ scmi_xfer_raw_channel_get(const struct scmi_handle *handle, u8 protocol_id)
- 	if (!cinfo) {
- 		if (protocol_id == SCMI_PROTOCOL_BASE)
- 			return ERR_PTR(-EINVAL);
--		/* Use Base channel for protocols not defined for DT */
-+		/* Use Base channel for protocols not defined for fwnode */
- 		cinfo = idr_find(&info->tx_idr, SCMI_PROTOCOL_BASE);
- 		if (!cinfo)
- 			return ERR_PTR(-EINVAL);
-@@ -2749,7 +2751,7 @@ static int scmi_xfer_info_init(struct scmi_info *sinfo)
- 	return ret;
- }
- 
--static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
-+static int scmi_chan_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
- 			   int prot_id, bool tx)
- {
- 	int ret, idx;
-@@ -2765,7 +2767,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	if (idr_find(idr, prot_id))
- 		return -EEXIST;
- 
--	if (!info->desc->ops->chan_available(of_node, idx)) {
-+	if (!info->desc->ops->chan_available(fwnode, idx)) {
- 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
- 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
- 			return -EINVAL;
-@@ -2785,7 +2787,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	snprintf(name, sizeof(name), SCMI_TRANSPORT_DEVNAME_PREFIX "_%s_%02X",
- 		 idx ? "rx" : "tx", prot_id);
- 	/* Create a uniquely named, dedicated transport device for this chan */
--	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
-+	tdev = scmi_device_create(fwnode, info->dev, prot_id, name);
- 	if (!tdev) {
- 		dev_err(info->dev,
- 			"failed to create transport device (%s)\n", name);
-@@ -2831,14 +2833,14 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- }
- 
- static inline int
--scmi_txrx_setup(struct scmi_info *info, struct device_node *of_node,
-+scmi_txrx_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
- 		int prot_id)
- {
--	int ret = scmi_chan_setup(info, of_node, prot_id, true);
-+	int ret = scmi_chan_setup(info, fwnode, prot_id, true);
- 
- 	if (!ret) {
- 		/* Rx is optional, report only memory errors */
--		ret = scmi_chan_setup(info, of_node, prot_id, false);
-+		ret = scmi_chan_setup(info, fwnode, prot_id, false);
- 		if (ret && ret != -ENOMEM)
- 			ret = 0;
- 	}
-@@ -2855,15 +2857,15 @@ scmi_txrx_setup(struct scmi_info *info, struct device_node *of_node,
-  *
-  * @info: The SCMI instance descriptor.
-  *
-- * Initialize all the channels found described in the DT against the underlying
-- * configured transport using custom defined dedicated devices instead of
-- * borrowing devices from the SCMI drivers; this way channels are initialized
-+ * Initialize all the channels found described in the fwnode against the
-+ * underlying configured transport using custom defined dedicated devices instead
-+ * of borrowing devices from the SCMI drivers; this way channels are initialized
-  * upfront during core SCMI stack probing and are no more coupled with SCMI
-  * devices used by SCMI drivers.
-  *
-  * Note that, even though a pair of TX/RX channels is associated to each
-- * protocol defined in the DT, a distinct freshly initialized channel is
-- * created only if the DT node for the protocol at hand describes a dedicated
-+ * protocol defined in the fwnode, a distinct freshly initialized channel is
-+ * created only if the fwnode for the protocol at hand describes a dedicated
-  * channel: in all the other cases the common BASE protocol channel is reused.
-  *
-  * Return: 0 on Success
-@@ -2871,17 +2873,17 @@ scmi_txrx_setup(struct scmi_info *info, struct device_node *of_node,
- static int scmi_channels_setup(struct scmi_info *info)
- {
- 	int ret;
--	struct device_node *top_np = info->dev->of_node;
-+	struct fwnode_handle *fwnode = dev_fwnode(info->dev);
- 
- 	/* Initialize a common generic channel at first */
--	ret = scmi_txrx_setup(info, top_np, SCMI_PROTOCOL_BASE);
-+	ret = scmi_txrx_setup(info, fwnode, SCMI_PROTOCOL_BASE);
- 	if (ret)
- 		return ret;
- 
--	for_each_available_child_of_node_scoped(top_np, child) {
-+	fwnode_for_each_available_child_node_scoped(fwnode, child) {
- 		u32 prot_id;
- 
--		if (of_property_read_u32(child, "reg", &prot_id))
-+		if (fwnode_property_read_u32(child, "reg", &prot_id))
- 			continue;
- 
- 		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
-@@ -2969,14 +2971,14 @@ static int scmi_bus_notifier(struct notifier_block *nb,
- static int scmi_device_request_notifier(struct notifier_block *nb,
- 					unsigned long action, void *data)
- {
--	struct device_node *np;
-+	struct fwnode_handle *fwnode;
- 	struct scmi_device_id *id_table = data;
- 	struct scmi_info *info = req_nb_to_scmi_info(nb);
- 
- 	rcu_read_lock();
--	np = idr_find(&info->active_protocols, id_table->protocol_id);
-+	fwnode = idr_find(&info->active_protocols, id_table->protocol_id);
- 	rcu_read_unlock();
--	if (!np)
-+	if (!fwnode)
- 		return NOTIFY_DONE;
- 
- 	dev_dbg(info->dev, "%sRequested device (%s) for protocol 0x%x\n",
-@@ -2985,7 +2987,7 @@ static int scmi_device_request_notifier(struct notifier_block *nb,
- 
- 	switch (action) {
- 	case SCMI_BUS_NOTIFY_DEVICE_REQUEST:
--		scmi_create_protocol_devices(np, info, id_table->protocol_id,
-+		scmi_create_protocol_devices(fwnode, info, id_table->protocol_id,
- 					     id_table->name);
- 		break;
- 	case SCMI_BUS_NOTIFY_DEVICE_UNREQUEST:
-@@ -3072,13 +3074,14 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
- 	if (!dbg)
- 		return NULL;
- 
--	dbg->name = kstrdup(of_node_full_name(info->dev->of_node), GFP_KERNEL);
-+	dbg->name = kstrdup(fwnode_get_name(dev_fwnode(info->dev)), GFP_KERNEL);
- 	if (!dbg->name) {
- 		devm_kfree(info->dev, dbg);
- 		return NULL;
- 	}
- 
--	of_property_read_string(info->dev->of_node, "compatible", &c_ptr);
-+	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
-+				    &c_ptr);
- 	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
- 	if (!dbg->type) {
- 		kfree(dbg->name);
-@@ -3184,23 +3187,23 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 
- 	dev_info(dev, "Using %s\n", dev_driver_string(trans->supplier));
- 
--	ret = of_property_read_u32(dev->of_node, "arm,max-rx-timeout-ms",
--				   &trans->desc.max_rx_timeout_ms);
-+	ret = fwnode_property_read_u32(dev_fwnode(dev), "arm,max-rx-timeout-ms",
-+				       &trans->desc.max_rx_timeout_ms);
- 	if (ret && ret != -EINVAL)
--		dev_err(dev, "Malformed arm,max-rx-timeout-ms DT property.\n");
-+		dev_err(dev, "Malformed arm,max-rx-timeout-ms property.\n");
- 
--	ret = of_property_read_u32(dev->of_node, "arm,max-msg-size",
--				   &trans->desc.max_msg_size);
-+	ret = fwnode_property_read_u32(dev_fwnode(dev), "arm,max-msg-size",
-+				       &trans->desc.max_msg_size);
- 	if (ret && ret != -EINVAL)
--		dev_err(dev, "Malformed arm,max-msg-size DT property.\n");
-+		dev_err(dev, "Malformed arm,max-msg-size property.\n");
- 
--	ret = of_property_read_u32(dev->of_node, "arm,max-msg",
--				   &trans->desc.max_msg);
-+	ret = fwnode_property_read_u32(dev_fwnode(dev), "arm,max-msg",
-+				       &trans->desc.max_msg);
- 	if (ret && ret != -EINVAL)
--		dev_err(dev, "Malformed arm,max-msg DT property.\n");
-+		dev_err(dev, "Malformed arm,max-msg property.\n");
- 
--	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
--							      "arm,no-completion-irq");
-+	trans->desc.no_completion_irq =
-+		fwnode_property_read_bool(dev_fwnode(dev), "arm,no-completion-irq");
- 
- 	dev_info(dev,
- 		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
-@@ -3208,8 +3211,8 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 		 trans->desc.max_msg);
- 
- 	/* System wide atomic threshold for atomic ops .. if any */
--	if (!of_property_read_u32(dev->of_node, "atomic-threshold-us",
--				  &trans->desc.atomic_threshold))
-+	if (!fwnode_property_read_u32(dev_fwnode(dev), "atomic-threshold-us",
-+				      &trans->desc.atomic_threshold))
- 		dev_info(dev,
- 			 "SCMI System wide atomic threshold set to %u us\n",
- 			 trans->desc.atomic_threshold);
-@@ -3238,7 +3241,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	struct scmi_info *info;
- 	bool coex = IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT_COEX);
- 	struct device *dev = &pdev->dev;
--	struct device_node *child, *np = dev->of_node;
-+	struct fwnode_handle *child;
- 
- 	desc = scmi_transport_setup(dev);
- 	if (!desc) {
-@@ -3277,7 +3280,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	handle->devm_protocol_put = scmi_devm_protocol_put;
- 	handle->is_transport_atomic = scmi_is_transport_atomic;
- 
--	/* Setup all channels described in the DT at first */
-+	/* Setup all channels described in the fwnode at first */
- 	ret = scmi_channels_setup(info);
- 	if (ret) {
- 		err_str = "failed to setup channels\n";
-@@ -3352,10 +3355,10 @@ static int scmi_probe(struct platform_device *pdev)
- 
- 	scmi_enable_matching_quirks(info);
- 
--	for_each_available_child_of_node(np, child) {
-+	fwnode_for_each_available_child_node(dev_fwnode(dev), child) {
- 		u32 prot_id;
- 
--		if (of_property_read_u32(child, "reg", &prot_id))
-+		if (fwnode_property_read_u32(child, "reg", &prot_id))
- 			continue;
- 
- 		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
-@@ -3370,8 +3373,8 @@ static int scmi_probe(struct platform_device *pdev)
- 		}
- 
- 		/*
--		 * Save this valid DT protocol descriptor amongst
--		 * @active_protocols for this SCMI instance/
-+		 * Save this valid fwnode protocol descriptor amongst
-+		 * @active_protocols for this SCMI instance.
- 		 */
- 		ret = idr_alloc(&info->active_protocols, child,
- 				prot_id, prot_id + 1, GFP_KERNEL);
-@@ -3381,8 +3384,8 @@ static int scmi_probe(struct platform_device *pdev)
- 			continue;
- 		}
- 
--		of_node_get(child);
--		scmi_create_protocol_devices(child, info, prot_id, NULL);
-+		scmi_create_protocol_devices(fwnode_handle_get(child), info,
-+					     prot_id, NULL);
- 	}
- 
- 	return 0;
-@@ -3409,7 +3412,7 @@ static void scmi_remove(struct platform_device *pdev)
- {
- 	int id;
- 	struct scmi_info *info = platform_get_drvdata(pdev);
--	struct device_node *child;
-+	struct fwnode_handle *child;
- 
- 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT))
- 		scmi_raw_mode_cleanup(info->raw);
-@@ -3434,7 +3437,7 @@ static void scmi_remove(struct platform_device *pdev)
- 	mutex_unlock(&info->protocols_mtx);
- 
- 	idr_for_each_entry(&info->active_protocols, child, id)
--		of_node_put(child);
-+		fwnode_handle_put(child);
- 	idr_destroy(&info->active_protocols);
- 
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index 308736c3ead9..b692cae4ff25 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -77,9 +77,13 @@ static void rx_callback(struct mbox_client *cl, void *m)
- 		      core->shmem->read_header(smbox->shmem), NULL);
- }
- 
--static bool mailbox_chan_available(struct device_node *of_node, int idx)
-+static bool mailbox_chan_available(struct fwnode_handle *fwnode, int idx)
- {
- 	int num_mb;
-+	struct device_node *of_node = to_of_node(fwnode);
-+
-+	if (!of_node)
-+		return false;
- 
- 	/*
- 	 * Just check if bidirrectional channels are involved, and check the
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-index dbe32e141748..07d3affa0964 100644
---- a/drivers/firmware/arm_scmi/transports/optee.c
-+++ b/drivers/firmware/arm_scmi/transports/optee.c
-@@ -314,9 +314,13 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
- 	return 0;
- }
- 
--static bool scmi_optee_chan_available(struct device_node *of_node, int idx)
-+static bool scmi_optee_chan_available(struct fwnode_handle *fwnode, int idx)
- {
- 	u32 channel_id;
-+	struct device_node *of_node = to_of_node(fwnode);
-+
-+	if (!of_node)
-+		return false;
- 
- 	return !of_property_read_u32_index(of_node, "linaro,optee-channel-id",
- 					   idx, &channel_id);
-diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-index 1fce3ccdeb7f..4a4caeb4be31 100644
---- a/drivers/firmware/arm_scmi/transports/smc.c
-+++ b/drivers/firmware/arm_scmi/transports/smc.c
-@@ -84,10 +84,15 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
--static bool smc_chan_available(struct device_node *of_node, int idx)
-+static bool smc_chan_available(struct fwnode_handle *fwnode, int idx)
- {
-+	struct device_node *of_node = to_of_node(fwnode);
-+
-+	if (!of_node)
-+		return false;
-+
- 	struct device_node *np __free(device_node) =
--					of_parse_phandle(of_node, "shmem", 0);
-+		of_parse_phandle(of_node, "shmem", 0);
- 	if (!np)
- 		return false;
- 
-diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
-index 3282d8271839..6b060d61e0ca 100644
---- a/drivers/firmware/arm_scmi/transports/virtio.c
-+++ b/drivers/firmware/arm_scmi/transports/virtio.c
-@@ -375,7 +375,7 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
- 	return vioch->max_msg;
- }
- 
--static bool virtio_chan_available(struct device_node *of_node, int idx)
-+static bool virtio_chan_available(struct fwnode_handle *fwnode, int idx)
- {
- 	struct scmi_vio_channel *channels, *vioch = NULL;
- 
-
--- 
-2.43.0
-
+>  drivers/dma/uniphier-xdmac.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/drivers/dma/uniphier-xdmac.c b/drivers/dma/uniphier-xdmac.c
+> index 120c0d4f12dd..b23d61bf7fd5 100644
+> --- a/drivers/dma/uniphier-xdmac.c
+> +++ b/drivers/dma/uniphier-xdmac.c
+> @@ -532,10 +532,8 @@ static int uniphier_xdmac_probe(struct platform_device *pdev)
+>
+>  	ret = devm_request_irq(dev, irq, uniphier_xdmac_irq_handler,
+>  			       IRQF_SHARED, "xdmac", xdev);
+> -	if (ret) {
+> -		dev_err(dev, "Failed to request IRQ\n");
+> +	if (ret)
+>  		return ret;
+> -	}
+>
+>  	ret = dma_async_device_register(ddev);
+>  	if (ret) {
+> --
+> 2.34.1
+>
 
