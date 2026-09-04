@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DCBC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB488C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFTOTrjj7XSWJTGyJNIYb5D6sM8s37aw4r9HKigmpj8=; b=iMRV8iSwAR0MySOzqpeiIyQhqk
-	bdJ1albHOXYCiDWb8EYxPB4Xo7aFnn67oT187BeaZKY4gcKSMZUwc94XJr+CrcUl2VZNYslSlR5Uh
-	bdyOJXTKIuqYAcx3VpmHdfp3TtT7E1KUdvgTFy4twRv6fTxduTlqqdrbGUEYsgFeybaGx1CavKwY2
-	Z3Jx6+AK8i1HobngYV5ou5gQ4wJfPE2R/5IBofCgPo7KcDwPU2rL8ZdRQpXA64uwVzrsh6+3axE+T
-	SSzFLfZZZd5i76NEPeLxzYiD4I/+RMZkHMw5P+/hLnkLrcizBTFFTBwE8++qdIJmoZeATBGn779zH
-	x5PFjnGg==;
+	bh=z8im8PClxGl7lgHdzbONpMSKT2jRICkKmM0EvGV5X+0=; b=0ICXvHUeOIaqOyUaqaIXp45/K2
+	f1XSM/PJv5/trpH24Wn5dPV7GCZ4YFqgCzDQUpz8M3Pd6DW/AtMKSgQ1imw7+XRCRDBBmHhp5X6lh
+	UcaPGGiT9tyXX0ePt8k3DuXRyRk/OPoXgfRVr09QhDu1d8ki5trmT7ZEg0fEgGzEHaBHURfpovddL
+	4Qrc2asWmkHAFgWCdBr87Nhz0nzagow8g2601OrP6zi8H6j+BC7JhDVe+yUjuE0gFJgzgD1cdBamD
+	14LHdy/kIecRp6p1sKpsYGo62qpTyCXSmZHpIz2a5QV1MpFT3IUlvrVs0oibAmbA5kIgZShTJy8Uh
+	4SxZ1YGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2T6U-000000022jy-1o7n;
-	Fri, 04 Sep 2026 12:33:10 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1x2T95-0000000232Z-4A62;
+	Fri, 04 Sep 2026 12:35:52 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2T6S-000000022jZ-3o0L
+	id 1x2T93-00000002327-0lRp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 12:33:09 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-4a483a552efso421719b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:33:08 -0700 (PDT)
+	Fri, 04 Sep 2026 12:35:50 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so1096514a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:35:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788525188; x=1789129988; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788525348; x=1789130148; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eFTOTrjj7XSWJTGyJNIYb5D6sM8s37aw4r9HKigmpj8=;
-        b=eZwvGhCb//A9DyulNbUfFPuogXgeo6//9+uILhK4D+wn2PvnTdE/kTPrmpS6LIh75S
-         btmAxyeIwLGm42c/X8GmGdGLOekHx+1UUY2ycpU0+bK2C9JYgCBzP9BUG2ClhewnmghQ
-         gPsq7DScJwO5SjrjZK6uupNhv36e4Njawew8ZzYUeoiaXAem+soP0SOW9i08IR1phn+N
-         qMjFT5lBmceNPBXidNet2L4NFQhVBQQBu2RfrAc7ZxWkMsQh302Ey1Y2pTM/ogahCxif
-         HtGSG4mfQTQ2wxBYWX3lkbrIcV90B0oFSMhd1OcXEdbrqe1PULAb6OFGc2EclmLUtRHX
-         1ALw==
+        bh=z8im8PClxGl7lgHdzbONpMSKT2jRICkKmM0EvGV5X+0=;
+        b=bYPojZlcjVzlhIPMJrdC0GJ3d/BkC8JqUHMJtxDPnsBDkCGSI6orC3Ha5BZwfs7h0X
+         B1chigWnyDJ1nms7A7WaeipjjLX2vqfysdjMPQ9kfi87Xc2FPxzw9HVw61DUN7dCJW/0
+         JRWk+bHp3+/iOVIu8XrPWFrfSN1GNPtMiMXpyBZ+TXtWCSR9v0W+6qC89B2/IXgQi0iG
+         O4hdf28NobQzNK2D4VR9KpS2Lu4wFFofHYIB9vY/TjHBuw82o+c/IezBujyi8jypciTj
+         v9Ro/hPaCqU5O+hwXHQlARCIeZvzit+KmGcFsuwlXsL8czilPTLFouXpu/Q9klTw5AY8
+         Y0mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788525188; x=1789129988;
+        d=1e100.net; s=20251104; t=1788525348; x=1789130148;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eFTOTrjj7XSWJTGyJNIYb5D6sM8s37aw4r9HKigmpj8=;
-        b=Xazg7NTYhJGGHKsnd+MDjHPd28bL7wASNmG8Pa4axrS+F466XFFwPVydb4y1ZSkdJp
-         xyh/1BRhxWY9ilDpj5Uu733GzJFECMvDy9NwshZzAdyWieO7zU6goktZhfiNOPKRlSdd
-         rs9f0zGFsvUuEaPfDm1EwmgBQpGMVsPk9rgwGx7WFgYQOVzHxnQWrbfBpmJMJXmCVF+G
-         FkHlmH+C20Ug1oR/5xNRlGsy3hZLI+hu/vvsnO08iOqhYZTYzc6HRqUrhR30Mu9siNv5
-         JrUoP5S6jCxOPKn+jcciyhFubx7n/L6ux6fyvcqVcHEfX6fTLbotj2Koy3ug0zLWuKze
-         kwTg==
-X-Forwarded-Encrypted: i=1; AKwUvBxIQJMH/aaIZtuhQMZ/K3WdKF7aSMpMhNu51Pv+oFwA6Cs7cM2NEHoZm2Kd+8yHXrszOr4ALh0vU8L8sdVvZK72@lists.infradead.org
-X-Gm-Message-State: AFuF++mTnIafWI9FJnf+PxLENZX/8jsLGij6qyxZSNSCNujPrAtTC4fo
-	mp7Ms7qit+pa7NzAMYAN4qgXjuP9I+H4FI+uWXYp26DmVM8G+Eel3Bj4
-X-Gm-Gg: AYBFou2N7424qr/c2KDhk3keM27ji+zEfyHHorRfPJTlMzf/LbzrdiCs2TNgi9Fkns3
-	XJKTk+ZkognP+h32aZJ6yQbWJwD8Qz7GtBbLp+aXULAX7DJJG5COexQcTKGOI2uUGxMJUFdka13
-	IBNcwWPMqYOnM1nLH7q9cMyUJK4QDp3zgGzsUEMLKHJ7GeEUgSpt2q0uCYYwQRhIV5EvULUAOzH
-	Qa5UKt8087S9xrD2fABY0ZNdC3hylE/pHs0+iaUlrBlunVrdCk11lBkxES9WEz1tQa67m7IjNIY
-	7RV+ve56BzE+g1DipoAIQfQktCYdhP8On23UzFOcq4o93H0h7YREuj6TaAWL8mf0mY/C+S1X2ks
-	alNKGPYeqL9Rz2QuABkWQnxO3kI9KqyjtoyG+GX1MCkmWHOuo4FafgL9LAieiiG7zE7tq1cIui0
-	RF0ht3K4/x69Rx7hUURRYYhL+2R1PyUhUq64JZTJbFOUOgj8Zf8XjiZCPMWMnPwaldtQo9G4FeD
-	AlFW7Z7EB6UBBcB6GoUHPOueg==
-X-Received: by 2002:a05:6820:151f:b0:6b3:bb82:2736 with SMTP id 006d021491bc7-6b6fcac57fbmr4027560eaf.17.1788525187615;
-        Fri, 04 Sep 2026 05:33:07 -0700 (PDT)
+        bh=z8im8PClxGl7lgHdzbONpMSKT2jRICkKmM0EvGV5X+0=;
+        b=dO5A23t4Zjz8SFlb/k1a0CwaR8otHv9FLZGdbqkJNjcwYDYszz/I/GfSUpTQUicqMX
+         BU91zGW1nqig2ZtjcRAjOEmzoG1p4zQEmAmfLG8qkydw4F6EIwANYd83B+11VMkUtdeJ
+         x/Yai4ODCARuWBvdKf6l7bzaEUD6mn4aLcEdorOzLXqEPil6Nsii9DEvblAJtP9EJw+W
+         4uPWRUyGj3Nejz3Sgij9/Y7r8sDRUElxQxGLGgj/SqBDg4Th4r0YcE1YKVqRw6otLloc
+         QlFinUwOe7zEdyIXLHdDvX05KTRHu+AgCWF1DwJmiakavfZGXh5Hp0Tlbv60c4B4YQWm
+         youA==
+X-Forwarded-Encrypted: i=1; AKwUvBxUvMgdKwlHkcQzXnreVA8NmUnmK4XUcMd/Oz6PDXAF3yWiryNNM6JEW8qAmQvUGPWP5Teei1PqzCQVCecNijVS@lists.infradead.org
+X-Gm-Message-State: AFuF++n4KAo6nqHdZqlxdWjL49pwpA2/0c07WurEd7LrktzVUxbzHwCe
+	lWi/SyxD58gu4XWRRRMJGkVubIEB/AOUjcRB6vtV6VdxA+rtH27yvk2W
+X-Gm-Gg: AYBFou2haCW6OgwH39lhdS6w65rdVpmmnkP/8qSFlKdnf4VId0/VeEOJYCVAEWoajke
+	fq5VvWuX96qQ+96B9Q3VIRpWcn0tEE4TFqazT3NZ6rYC5KwGHhs84n/p5GBxdv+y3dTMxgr3qKl
+	01SVGT7jwQqHjnTEkYMagyAQCxeqlsPYYQkOSc/fqETOiGLdZnWh+aLbNRutWqaS4S53a7IanfO
+	rCDdhEoRjbkyYTrT4o1VawXnywz+jac/KDtjwV4iNVPZ7atwCAkhP2bGZIox1XfGlvVCLk702tK
+	X9jfbUqAEIOA0XDmqSKGyIZdqOKjMP0rNnedoLH5e5fhhf01cwLO1joMa7vGqJAPCdmIEO2Os2D
+	4p8HmQ1HWrogIsxOtwCACKoxK0BLgepgRSFkZhnTswlNlNA2Ej06sgpLK4iWkt7XQTFCHuttY2w
+	ewoadCl1eUcDjXEHVgQzVIGzRhk3N+tuZuvknfqObDhyEF9PAobFru9IHzgA/pVipp8wEIncBEm
+	7A1h8V573DCqzs=
+X-Received: by 2002:a17:90b:2687:b0:395:4290:46e0 with SMTP id 98e67ed59e1d1-39b2609f768mr9755672a91.5.1788525348223;
+        Fri, 04 Sep 2026 05:35:48 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339bdf26c5sm6343458eec.27.2026.09.04.05.33.05
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432423f99fsm6229374c88.1.2026.09.04.05.35.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 05:33:07 -0700 (PDT)
+        Fri, 04 Sep 2026 05:35:47 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
+To: Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] pinctrl: fix typos in comments
-Date: Fri,  4 Sep 2026 18:02:56 +0530
-Message-ID: <20260904123300.36778-2-hemanth.selam@gmail.com>
+Subject: [PATCH 1/2] firmware: fix typo "upto" in comments
+Date: Fri,  4 Sep 2026 18:05:38 +0530
+Message-ID: <20260904123541.38602-2-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260904123300.36778-1-hemanth.selam@gmail.com>
-References: <20260904123300.36778-1-hemanth.selam@gmail.com>
+In-Reply-To: <20260904123541.38602-1-hemanth.selam@gmail.com>
+References: <20260904123541.38602-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_053308_969344_9C7E37F9 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20260904_053549_226954_36A9F104 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +101,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
+Correct "upto" to "up to", reported by scripts/checkpatch.pl using the
 misspelling list in scripts/spelling.txt.  Only touches comments, no code
 changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- drivers/pinctrl/core.c       | 4 ++--
- drivers/pinctrl/pinconf.c    | 2 +-
- drivers/pinctrl/pinctrl-st.c | 2 +-
- drivers/pinctrl/pinmux.c     | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
+ drivers/firmware/ti_sci.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/core.c b/drivers/pinctrl/core.c
-index 1675dd36bd5c..ba6c71e6fc2c 100644
---- a/drivers/pinctrl/core.c
-+++ b/drivers/pinctrl/core.c
-@@ -147,7 +147,7 @@ int pin_get_from_name(struct pinctrl_dev *pctldev, const char *name)
- {
- 	unsigned int i, pin;
- 
--	/* The pin number can be retrived from the pin controller descriptor */
-+	/* The pin number can be retrieved from the pin controller descriptor */
- 	for (i = 0; i < pctldev->desc->npins; i++) {
- 		struct pin_desc *desc;
- 
-@@ -1747,7 +1747,7 @@ static int pinctrl_pins_show(struct seq_file *s, void *what)
- 
- 	mutex_lock(&pctldev->mutex);
- 
--	/* The pin number can be retrived from the pin controller descriptor */
-+	/* The pin number can be retrieved from the pin controller descriptor */
- 	for (i = 0; i < pctldev->desc->npins; i++) {
- 		struct pin_desc *desc;
- 
-diff --git a/drivers/pinctrl/pinconf.c b/drivers/pinctrl/pinconf.c
-index 81686844dfa5..ecc888b029d7 100644
---- a/drivers/pinctrl/pinconf.c
-+++ b/drivers/pinctrl/pinconf.c
-@@ -311,7 +311,7 @@ static int pinconf_pins_show(struct seq_file *s, void *what)
- 
- 	mutex_lock(&pctldev->mutex);
- 
--	/* The pin number can be retrived from the pin controller descriptor */
-+	/* The pin number can be retrieved from the pin controller descriptor */
- 	for (i = 0; i < pctldev->desc->npins; i++) {
- 		struct pin_desc *desc;
- 
-diff --git a/drivers/pinctrl/pinctrl-st.c b/drivers/pinctrl/pinctrl-st.c
-index 8ce88e591f47..59ecc295fb8e 100644
---- a/drivers/pinctrl/pinctrl-st.c
-+++ b/drivers/pinctrl/pinctrl-st.c
-@@ -1148,7 +1148,7 @@ static void st_parse_syscfgs(struct st_pinctrl *info, int bank,
- 	pc->pu = st_pc_get_value(dev, regmap, bank/4, data->pu, lsb, msb);
- 	pc->od = st_pc_get_value(dev, regmap, bank/4, data->od, lsb, msb);
- 
--	/* retime avaiable for all pins by default */
-+	/* retime available for all pins by default */
- 	pc->rt_pin_mask = 0xff;
- 	of_property_read_u32(np, "st,retime-pin-mask", &pc->rt_pin_mask);
- 	st_pctl_dt_setup_retime(info, bank, pc);
-diff --git a/drivers/pinctrl/pinmux.c b/drivers/pinctrl/pinmux.c
-index c705bc182266..574fc95b6712 100644
---- a/drivers/pinctrl/pinmux.c
-+++ b/drivers/pinctrl/pinmux.c
-@@ -636,7 +636,7 @@ static int pinmux_pins_show(struct seq_file *s, void *what)
- 
- 	mutex_lock(&pctldev->mutex);
- 
--	/* The pin number can be retrived from the pin controller descriptor */
-+	/* The pin number can be retrieved from the pin controller descriptor */
- 	for (i = 0; i < pctldev->desc->npins; i++) {
- 		struct pin_desc *desc;
- 		bool is_hog = false;
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index cc747ab0237f..94104edba9a0 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -4050,7 +4050,7 @@ static const struct ti_sci_desc ti_sci_pmmc_k2g_desc = {
+ 	.default_host_id = 2,
+ 	/* Conservative duration */
+ 	.max_rx_timeout_ms = 1000,
+-	/* Limited by MBOX_TX_QUEUE_LEN. K2G can handle upto 128 messages! */
++	/* Limited by MBOX_TX_QUEUE_LEN. K2G can handle up to 128 messages! */
+ 	.max_msgs = 20,
+ 	.max_msg_size = 64,
+ };
+@@ -4060,7 +4060,7 @@ static const struct ti_sci_desc ti_sci_pmmc_am654_desc = {
+ 	.default_host_id = 12,
+ 	/* Conservative duration */
+ 	.max_rx_timeout_ms = 10000,
+-	/* Limited by MBOX_TX_QUEUE_LEN. K2G can handle upto 128 messages! */
++	/* Limited by MBOX_TX_QUEUE_LEN. K2G can handle up to 128 messages! */
+ 	.max_msgs = 20,
+ 	.max_msg_size = 60,
+ };
 -- 
 2.48.1
 
