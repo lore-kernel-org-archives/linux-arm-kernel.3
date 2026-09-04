@@ -4,144 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B76AC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17CBC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fjf9Eo3K1S5f5JYH1uUJ/g1AeGfbugPlbVkWxhv/j4=; b=taf+JYazOYfp+3OiK7fFKNoD3o
-	yMbT1IU34bclYPGT8PsMR37vwYEXkntdthjLvMpzJY53Bfo7K4HWjlFEeazkDYbdQLKR5AoFsKJhM
-	103wOEnj1D95g4MkaDlmTMvnIrAJGcfiQvPv1DCW2UlmsjdjC02MDz/KHvOj1YcPN6P5BiU42naI/
-	VS1npGKxQxr408ke+9QOqEB+l/uH8gGzBFD2hlfkNOXvRh4o5CONN7K+gLy8xKTw3ULXa99ji7GKt
-	pKvNL+QC5GQLi5bJL6KUWAwyWkN6msHotYOXqQzwMHXfZhL6tzXdIsJWqS4X/32/btXgzVflWhxGT
-	o9CTlafw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yCG99e+5QxRQXSuO8zd59u52whzEDFO7RhFXyu9E9Gk=; b=TiWSO1+XuUCJKykc6w/+wdTo3+
+	4vJeY3uTcJNPAy80/6t0sQRIsNegid5pDMICYt3egqvXkxxxJQZQWhMz5oNNR9gbAlIh3cD8GrWUJ
+	RDlIN5ltDBym3cAbvyU8uedRkMqzMRmcTPbgH3lNB+GQUpT08Hf1H6S/XKI1jZ51owoSdNiGXDuWV
+	9c8nAXfcNrdL5GVhlgSvvp6B7HeWgJVD49/nCsEzAOrrW9Qlr4CNNvMsNJ8r0T7z5++YYDFw4hOjm
+	So0l3fJpVXd10dIQKSEhGT+oL5KoJ8YZqMRT0otqcr2mPnIcXr6dOLMV/AmSpYiCVdC1uIhhokJ+F
+	5ZcsOTlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TM7-000000024lH-3QLa;
-	Fri, 04 Sep 2026 12:49:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1x2TP3-0000000252c-2Njz;
+	Fri, 04 Sep 2026 12:52:21 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TM5-000000024kx-3L3p
+	id 1x2TOz-0000000250t-1dqL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 12:49:18 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 684AIDYD243557
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 4 Sep 2026 12:49:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=+fjf9Eo3K1S5f5JYH1uUJ/g1
-	AeGfbugPlbVkWxhv/j4=; b=NZGf1kz25U5vQm0g+IJstunRFvBBgR7BO+veqj7z
-	OOKGIIkZT1WHFkumvsp+NqoUD5o292spTomk6KFO00l66BPoMKUAcXM2ux/NL2p0
-	ClNRL/EF4ju3LH3PMYKTxdi6t8IQd5AObSIxK3bP8iN861cPQhuQaGuGLwt3hfhj
-	0uP6S6v2CNdDm4pGtjggx4TB+yGjaLMAI70lcG0DHJvVC34d//QmmST2xZajFHeA
-	0JCbelh4Ey82KnRhcVd0VRA+DBxUKdJBjbG1SnXzowbK7G4uGSlWzTcW27n++eFv
-	Fb/N16jZG84r6wBLkrc2OVxU5W+WsZi2VvKb7cq9OPxmnQ==
-Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gfusx0gnw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 12:49:16 +0000 (GMT)
-Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7847917c402so818148137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:49:16 -0700 (PDT)
+	Fri, 04 Sep 2026 12:52:19 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-398b3c37877so909270a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:52:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788526155; x=1789130955; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+fjf9Eo3K1S5f5JYH1uUJ/g1AeGfbugPlbVkWxhv/j4=;
-        b=T9Wp1VevruRmGs9VXpHRxIR/aq6Hjv7ympDcpSNKvKdGouPR+7yRDOOZPXlLHKRJMe
-         FZFQuwlbeZOHVlfP8NW+cHoFlEieQpozrS5Pl3aYAPAP6aHZpHXZuk3kQQAhSWO/CkMj
-         O9pR50TzfCFVYS33iJuwhjbyWbDh/03xXC7uGl29d8e4ny/OSaU5gwA2ggWv9cPWlng5
-         vxRXOH3Xv48U5b87dqFBLy2FIvbYS2Umf4W4pfDJ7O6Sg34Q6ciANXPdt99GgMqgpqXg
-         +XZoz61iiPv/YiAQxj7tLs1Hd6Oj4+l09kOgHxKfnCDNpxJRaI5fjA/fFtGfphlvU+el
-         iwnQ==
+        d=gmail.com; s=20251104; t=1788526336; x=1789131136; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yCG99e+5QxRQXSuO8zd59u52whzEDFO7RhFXyu9E9Gk=;
+        b=HjVuLj8X52nNj4xUYbtLDbtzUFpOucprnspa6AmzSNrJ04EF2T+7JUphCz8uAtXACg
+         KoJ8g06MIwjr+fHfUysNvm5toRv1kJI4gYA2fVqRNIrsBSK3PbBdXLcLfWzQu0eheEQW
+         QFPk1Dq0H+kuL9FJV/kfuU7sxOmaLfdoXRVHuM42V9LsOj8V3qQEVay57Vis7SqTDjbq
+         zm/CvvKDjiEc0dLQQZaPH+2zm+5deTFs0GhO6CU/HJIkBe95mS8+hSzI9ciGfUgXVUln
+         z4C1jQPzPhCDEmyAtVlkY4GrMxciLrQjD9+46Ka6asE2slAndh/5krSr/WlhkeB5n7Iv
+         fASA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788526155; x=1789130955;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+fjf9Eo3K1S5f5JYH1uUJ/g1AeGfbugPlbVkWxhv/j4=;
-        b=AYA2dGCy6BbHIDQgc/IN/E8F5PTvAZUbwPJBP05YJTaynLZVryUsT5lvqqzqe65mYn
-         7hwGTQG3Ss9jhW7sgo0IPhtIGIGLxqqL94A3DielOoc1wyaTtZ2HjGrylslQnLvZfdku
-         JcJgmGoy7BiR1wLDoo/ZD6MWbaW8F0nPYYVtDiQF1qoPlJ/XN/UDbhsiD7bBGiTA2VG0
-         IZSFzmoVhx7Sjnb9d61qmqY7hE5t3ZhBwe+Fmlh3las5ZPT6vWFH6Xr0qw6OU7qlS6Fm
-         5erdwlD/BlI+gdwYdDDoA/3vMyK2OQXcwnhvGDOIxX3lnZ8OelV5F9BQKQ85UAFy+LNW
-         o1Pg==
-X-Forwarded-Encrypted: i=1; AKwUvBxDUeEZ4MI8h0VdZ6FddK41G/XPXNO1jo4pphR8pa+Aw0UNYPV6XiQyM+cIQMgFHhNHBP2MDeiiVN9hNWIw5RT7@lists.infradead.org
-X-Gm-Message-State: AFuF++lF79lwn6TCTfvuxerdwQWDYCMhOGA45IhM9cFMzsZqLOfomxNs
-	s26deXo+a37HEgkEQ/kgOiROJSHCvXMuCwHhUMUgRPnSWVESDL4AgGU4Qu5KVL1VZg28zfCcVal
-	/ykjPFoE9WJmrVXky0Zo0xJv2c9n7BABJU9FXF5hBb/Gab05+FBz6GJrthpwYYItztmdljLvs6x
-	EHFw==
-X-Gm-Gg: AYBFou2x43CKrMWWLTFHuQ+HKmOkjU9iq3cP4c/dVkggvXNLzBy7kIPIuIqqDm75UQa
-	tfga1EPHO4MAz3OlM4RU7omz8IHEyx3YzToHd8pI0scdKcix6BdJLUqgHGwkxDHM2p2IieyfFD0
-	MQtKTksEz4I4YqAxgU7rVGLyfc0PGGUn1nFvjVOsdD3dPtFrwvvkjMCUsuItoJs/nOhkwBm8Rxl
-	Dcs/aQzHchu0D1WBREoqLnDqblGsRWtYikWioz5FMr9j2Pyt4iyEzmfQwzU/fqJKRlRRdem1brX
-	K9lt9v9mDPMyINzQsvSF2UXVZc2oLe3tZ6bN7VOPiq0bf3b4SNfK8bO3qgaQZFdFKhkVgvcNzYF
-	PAcQZqLrtV1wG
-X-Received: by 2002:a05:6102:2b9c:b0:785:1a50:3f56 with SMTP id ada2fe7eead31-78a4aa53ca4mr2019990137.12.1788526155166;
-        Fri, 04 Sep 2026 05:49:15 -0700 (PDT)
-X-Received: by 2002:a05:6102:2b9c:b0:785:1a50:3f56 with SMTP id ada2fe7eead31-78a4aa53ca4mr2019969137.12.1788526154671;
-        Fri, 04 Sep 2026 05:49:14 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.170.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce46696e8sm135742595e9.0.2026.09.04.05.49.11
+        d=1e100.net; s=20251104; t=1788526336; x=1789131136;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yCG99e+5QxRQXSuO8zd59u52whzEDFO7RhFXyu9E9Gk=;
+        b=knFpqC2lxMj5WvW0ItJc+AsfLjvqlTc8MOTZk6T9q67pD7yLvx4f0eFOgMi61vkLkU
+         7AI516fzNLhWV37Z95lVWS5eVpc8dkne7ewSUvipmR0EsqHW2yPGq6CxtZm7i3eWmWgJ
+         ET0C9GKZGjiBLkFWMe2arlgDUjGTnwIluu3R8lqnMBG00SQsNw7hVkmVEeMWUzk8FE/i
+         i0xJhs98MyGJNl0YKRPWHSvy9qWDjjluLCFbIrqPHNXTDKplKe6VAavuJJ5TeQYBtQBg
+         XqwX3QAnfZexGKDC1XepxalyJJOBsghfvYI6UAAFZ5/AwbgAcOMIDDh/1MPcRxBDvtv+
+         r3tA==
+X-Forwarded-Encrypted: i=1; AKwUvByxdMkCTg5wBw1lZTMbAWFnYv6FH5nmDjtkSwnWyzBMcHyZjkjCOSdkvY+rjPZTolDaCi9vNdyhXe74te5/Owd6@lists.infradead.org
+X-Gm-Message-State: AFuF++mgdQnb3l0vovK0ZwN2kTbrxC8LNaiwHWjB6sKWVtLMZfdZQVfu
+	4i8PpaICnnV+mUyLw9h6w/rGGv5MPuxizcFOC/VsRRAL8NDbie8fhNbuIjr5eDq0u5s=
+X-Gm-Gg: AYBFou1/ALbGcIxughI1vOU1InFhdYw89IJO8+zaQAx0B3/pzT3xnhynasoIuxCsJA4
+	loKAJ59OwhQZztIHznzTsrd+OUUGhtO2lhYgQ7ViXwwTnWmddkyC5jM5JPVxxgYoyt0T9XHeGVq
+	84qEUtOR3cWuT8RuwXH071KMrKxjTRDMRel58q8h+e70EB6upDWGOCuZcD560f2Rp8l7HAGolAQ
+	0CNoK9DAqV38dGqRtV/DzECUSym9I2WW+/qHqPtxt5zHCnuC8OQHBSpt82tLQeDGM8x09zQpIAI
+	gFd3xjsY0r0qp2GcnS5HB1yfyiE0oysgL0pk2yBGJb17LcX3ladHODP6jrfZ/UOvG1nn/dAz5/W
+	Su+XzvnH2J3dttNmteUfiDJ15CnFDt2KUzWghFEi/FsTNEew4zsSymDHPJsz6cXb7f66M5vOshA
+	Za6O1jRdpC8oLGOY4NH03IfUkJgE1xq4zJiaQyYRmysepSpVI7+13+XsjusXCHBFYqWRe7TTiy1
+	1uR2BjQvmNFM2Y=
+X-Received: by 2002:a17:90b:1dc3:b0:398:d6f4:c61a with SMTP id 98e67ed59e1d1-39b26207ee4mr9145959a91.17.1788526335895;
+        Fri, 04 Sep 2026 05:52:15 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339af25062sm9816370eec.16.2026.09.04.05.52.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 05:49:12 -0700 (PDT)
-Date: Fri, 4 Sep 2026 15:49:10 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, michael@amarulasolutions.com,
-        linux-amarula@amarulasolutions.com, Peng Fan <peng.fan@nxp.com>,
-        Abel Vesa <abelvesa@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Sascha Hauer <s.hauer@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-clk@vger.kernel.org
-Subject: Re: [PATCH v14 4/4] clk: imx: pll14xx: support spread spectrum clock
- generation
-Message-ID: <f33mv4dqb3gcapmh4e4kg6zcgbtmb5zjyh27q6v7cnuq3ajvai@vn5pkiyhkicp>
-References: <20260904101243.412006-1-dario.binacchi@amarulasolutions.com>
- <20260904101243.412006-5-dario.binacchi@amarulasolutions.com>
+        Fri, 04 Sep 2026 05:52:15 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Robert Jarzmik <robert.jarzmik@free.fr>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Han Xu <han.xu@nxp.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Takahiro Kuwano <takahiro.kuwano@infineon.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] mtd: fix typos in comments
+Date: Fri,  4 Sep 2026 18:22:03 +0530
+Message-ID: <20260904125208.12099-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260904101243.412006-5-dario.binacchi@amarulasolutions.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDExNiBTYWx0ZWRfX9Z3RwW17PGGD
- qNujoGA7mmJj9tiB2Lw6QIvBm3t3mrP1+IxZ0w4FkG5BORSkGtl91yobZHAKesuMD+rTs3NEwbr
- 2iODrUhTCeW61mnQnGa2oanU4bbOqR4=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDExNiBTYWx0ZWRfX7h47VMMbm62+
- 9aIOPgiK7LsB7kfPFchyS+tKunbaTBV6La9nlVBSnu5bkx/hN80isR3qi7p5W1uTMA9PLEbiUQL
- HhBOyBcPeni45YwOqi8sRcWRPAo5RywPe240AGfQBUQfHZRXGHx3ENNddeL38VDia3JquMSE5WD
- 4y4ZbGYzKajznKVCw/PZEy5UwMKaBTCYnXEtnQaYlxNX6HpV8lzktJN8+durQrkR7RHJYgrnJow
- cmsJY2pUV8nv1xRwlnO9grletBSuycpDA0wTE1okJ4Lx/H4Cd2lN2s0Z5f980U6V46xr4eVhY0l
- aEn9CioGHnDApuulHaqzj7hF7Vw3Fc0sKy74I+7XacVd8bAhCSQNudxNU/6eU8uTUZIkCeJuK+8
- /vdJni4uHpOkVHjdyy2HFbqITRHkIZesq0Zitu7raPmrz/yDVZe9J+INXaZQX1IATHw3y/YRvKU
- trzFkE85su4aQr5lDKw==
-X-Authority-Analysis: v=2.4 cv=NenWEWD4 c=1 sm=1 tr=0 ts=6a9abe4c cx=c_pps
- a=DUEm7b3gzWu7BqY5nP7+9g==:117 a=q7XEBjOi5DRkXzmV0jSBjQ==:17
- a=kj9zAlcOel0A:10 a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=8AirrxEcAAAA:8 a=iP-xVBlJAAAA:8 a=EUspDBNiAAAA:8 a=HkkWczMphfeU9HmRj9wA:9
- a=CjuIK1q_8ugA:10 a=-aSRE8QhW-JAV6biHavz:22 a=ST-jHhOKWsTCqRlWije3:22
- a=lHLH-nfn2y1bM_0xSXwp:22
-X-Proofpoint-GUID: MF3teNxmCBA2tKroY67RaWGjjuospv58
-X-Proofpoint-ORIG-GUID: MF3teNxmCBA2tKroY67RaWGjjuospv58
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-04_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 bulkscore=0 clxscore=1015 impostorscore=0
- phishscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609040116
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_054917_847659_7489F937 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260904_055217_525849_E9916945 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,16 +109,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-09-04 12:06:33, Dario Binacchi wrote:
-> Add support for spread spectrum clock (SSC) generation to the pll14xx
-> driver.
-> 
-> Tested on the video PLL of i.MX8MN and i.MX8MP based boards.
-> 
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Fix typos in comments, reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only touches comments, no code
+changes.
 
-LGTM, so:
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
+ drivers/mtd/devices/docg3.c                | 4 ++--
+ drivers/mtd/nand/onenand/onenand_base.c    | 2 +-
+ drivers/mtd/nand/raw/fsmc_nand.c           | 2 +-
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 2 +-
+ drivers/mtd/nand/raw/mtk_nand.c            | 2 +-
+ drivers/mtd/nand/raw/nand_base.c           | 2 +-
+ drivers/mtd/nand/raw/nand_legacy.c         | 4 ++--
+ drivers/mtd/spi-nor/otp.c                  | 2 +-
+ include/linux/mtd/bbm.h                    | 2 +-
+ include/linux/mtd/rawnand.h                | 2 +-
+ include/linux/mtd/sh_flctl.h               | 4 ++--
+ 11 files changed, 14 insertions(+), 14 deletions(-)
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+diff --git a/drivers/mtd/devices/docg3.c b/drivers/mtd/devices/docg3.c
+index 603fd0efc2ea..84566997d665 100644
+--- a/drivers/mtd/devices/docg3.c
++++ b/drivers/mtd/devices/docg3.c
+@@ -1884,7 +1884,7 @@ static void doc_release_device(struct mtd_info *mtd)
+ 
+ /**
+  * docg3_resume - Awakens docg3 floor
+- * @pdev: platfrom device
++ * @pdev: platform device
+  *
+  * Returns 0 (always successful)
+  */
+@@ -1963,7 +1963,7 @@ static int docg3_suspend(struct platform_device *pdev, pm_message_t state)
+  * @pdev: platform device
+  *
+  * Probes for a G3 chip at the specified IO space in the platform data
+- * ressources. The floor 0 must be available.
++ * resources. The floor 0 must be available.
+  *
+  * Returns 0 on success, -ENOMEM, -ENXIO on error
+  */
+diff --git a/drivers/mtd/nand/onenand/onenand_base.c b/drivers/mtd/nand/onenand/onenand_base.c
+index d08aeac86f9f..bca5a3bebd41 100644
+--- a/drivers/mtd/nand/onenand/onenand_base.c
++++ b/drivers/mtd/nand/onenand/onenand_base.c
+@@ -3279,7 +3279,7 @@ static void onenand_check_features(struct mtd_info *mtd)
+ 			 *
+ 			 * Now it has as following
+ 			 * KFM4G16Q4M has NOP 4 with version ID 0x0131
+-			 * KFM4G16Q5M has NOP 1 with versoin ID 0x013e
++			 * KFM4G16Q5M has NOP 1 with version ID 0x013e
+ 			 */
+ 			if ((this->version_id & 0xf) == 0xe)
+ 				this->options |= ONENAND_HAS_NOP_1;
+diff --git a/drivers/mtd/nand/raw/fsmc_nand.c b/drivers/mtd/nand/raw/fsmc_nand.c
+index b13b2b0c3f30..08ef4425559c 100644
+--- a/drivers/mtd/nand/raw/fsmc_nand.c
++++ b/drivers/mtd/nand/raw/fsmc_nand.c
+@@ -461,7 +461,7 @@ static int fsmc_correct_ecc1(struct nand_chip *chip,
+ 				      chip->ecc.size, sm_order);
+ }
+ 
+-/* Count the number of 0's in buff upto a max of max_bits */
++/* Count the number of 0's in buff up to a max of max_bits */
+ static int count_written_bits(u8 *buff, int size, int max_bits)
+ {
+ 	int k, written_bits = 0;
+diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+index 527165ccc839..c61f3983a713 100644
+--- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
++++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+@@ -2271,7 +2271,7 @@ static int nand_boot_init(struct gpmi_nand_data  *this)
+ {
+ 	nand_boot_set_geometry(this);
+ 
+-	/* This is ROM arch-specific initilization before the BBT scanning. */
++	/* This is ROM arch-specific initialization before the BBT scanning. */
+ 	if (GPMI_IS_MX23(this))
+ 		return mx23_boot_init(this);
+ 	return 0;
+diff --git a/drivers/mtd/nand/raw/mtk_nand.c b/drivers/mtd/nand/raw/mtk_nand.c
+index 21c7e1102746..c439b7814ebb 100644
+--- a/drivers/mtd/nand/raw/mtk_nand.c
++++ b/drivers/mtd/nand/raw/mtk_nand.c
+@@ -42,7 +42,7 @@
+ #define		CON_BRD			BIT(8)  /* burst  read */
+ #define		CON_BWR			BIT(9)	/* burst  write */
+ #define		CON_SEC_SHIFT		(12)
+-/* Timming control register */
++/* Timing control register */
+ #define NFI_ACCCON		(0x0C)
+ #define NFI_INTR_EN		(0x10)
+ #define		INTR_AHB_DONE_EN	BIT(6)
+diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+index a5b278ab9384..a225b10f8145 100644
+--- a/drivers/mtd/nand/raw/nand_base.c
++++ b/drivers/mtd/nand/raw/nand_base.c
+@@ -6205,7 +6205,7 @@ static int nand_scan_tail(struct nand_chip *chip)
+ 	/*
+ 	 * FIXME: some NAND manufacturer drivers expect the first die to be
+ 	 * selected when manufacturer->init() is called. They should be fixed
+-	 * to explictly select the relevant die when interacting with the NAND
++	 * to explicitly select the relevant die when interacting with the NAND
+ 	 * chip.
+ 	 */
+ 	nand_select_target(chip, 0);
+diff --git a/drivers/mtd/nand/raw/nand_legacy.c b/drivers/mtd/nand/raw/nand_legacy.c
+index 97700f80d5b8..94d5c7723c5a 100644
+--- a/drivers/mtd/nand/raw/nand_legacy.c
++++ b/drivers/mtd/nand/raw/nand_legacy.c
+@@ -319,7 +319,7 @@ static void nand_command(struct nand_chip *chip, unsigned int command,
+ 				      NAND_CTRL_CLE | NAND_CTRL_CHANGE);
+ 		chip->legacy.cmd_ctrl(chip, NAND_CMD_NONE,
+ 				      NAND_NCE | NAND_CTRL_CHANGE);
+-		/* EZ-NAND can take upto 250ms as per ONFi v4.0 */
++		/* EZ-NAND can take up to 250ms as per ONFi v4.0 */
+ 		nand_wait_status_ready(chip, 250);
+ 		return;
+ 
+@@ -459,7 +459,7 @@ static void nand_command_lp(struct nand_chip *chip, unsigned int command,
+ 				      NAND_NCE | NAND_CLE | NAND_CTRL_CHANGE);
+ 		chip->legacy.cmd_ctrl(chip, NAND_CMD_NONE,
+ 				      NAND_NCE | NAND_CTRL_CHANGE);
+-		/* EZ-NAND can take upto 250ms as per ONFi v4.0 */
++		/* EZ-NAND can take up to 250ms as per ONFi v4.0 */
+ 		nand_wait_status_ready(chip, 250);
+ 		return;
+ 
+diff --git a/drivers/mtd/spi-nor/otp.c b/drivers/mtd/spi-nor/otp.c
+index 7d0b145d78d8..61c55227e15d 100644
+--- a/drivers/mtd/spi-nor/otp.c
++++ b/drivers/mtd/spi-nor/otp.c
+@@ -25,7 +25,7 @@
+  * Read a security register by using the SPINOR_OP_RSECR commands.
+  *
+  * In Winbond/GigaDevice datasheets the term "security register" stands for
+- * an one-time-programmable memory area, consisting of multiple bytes (usually
++ * a one-time-programmable memory area, consisting of multiple bytes (usually
+  * 256). Thus one "security register" maps to one OTP region.
+  *
+  * This method is used on GigaDevice and Winbond flashes.
+diff --git a/include/linux/mtd/bbm.h b/include/linux/mtd/bbm.h
+index d890805f5494..67929fdf2dff 100644
+--- a/include/linux/mtd/bbm.h
++++ b/include/linux/mtd/bbm.h
+@@ -75,7 +75,7 @@ struct nand_bbt_descr {
+  * with NAND_BBT_CREATE.
+  */
+ #define NAND_BBT_CREATE_EMPTY	0x00000400
+-/* Write bbt if neccecary */
++/* Write bbt if necessary */
+ #define NAND_BBT_WRITE		0x00002000
+ /* Read and write back block contents when writing bbt */
+ #define NAND_BBT_SAVECONTENT	0x00004000
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 5c70e7bd3ed5..43fefff02025 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -1592,7 +1592,7 @@ void nand_wait_ready(struct nand_chip *chip);
+ 
+ /*
+  * Free resources held by the NAND device, must be called on error after a
+- * sucessful nand_scan().
++ * successful nand_scan().
+  */
+ void nand_cleanup(struct nand_chip *chip);
+ 
+diff --git a/include/linux/mtd/sh_flctl.h b/include/linux/mtd/sh_flctl.h
+index 78fc2d4218c8..15adf2474fa0 100644
+--- a/include/linux/mtd/sh_flctl.h
++++ b/include/linux/mtd/sh_flctl.h
+@@ -60,8 +60,8 @@
+  * Some hardware uses bits called PULSEx instead of FCKSEL_E and QTSEL_E
+  * to control the clock divider used between the High-Speed Peripheral Clock
+  * and the FLCTL internal clock. If so, use CLK_8_BIT_xxx for connecting 8 bit
+- * and CLK_16_BIT_xxx for connecting 16 bit bus bandwith NAND chips. For the 16
+- * bit version the divider is seperate for the pulse width of high and low
++ * and CLK_16_BIT_xxx for connecting 16 bit bus bandwidth NAND chips. For the 16
++ * bit version the divider is separate for the pulse width of high and low
+  * signals.
+  */
+ #define PULSE3	(0x1 << 27)
+-- 
+2.48.1
+
 
