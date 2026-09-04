@@ -4,101 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563DEC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983F6C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=; b=jWPbeNwIB1Y7igtEZE3Vzc/wMw
-	guc2RsLLsjfBJ2v8ThSlO4gK4+v/bXZ/SDeVOINWVVmIvCZx5sJcIrlKXXF1loDkCsoAnR5TeGFHA
-	q46NGD/zIXQCUCfsvK/hJtKm25/r1WGLp76Pv8g9gkXp1gaWNOnFRHPwkTnN5u2gibDqWtnXer/me
-	gDF9/NR1Ep5xU9RO1YIcTMF8CU2btpViPqKBEu3UBOFy2MRL9l+i/zHDup7mN0cdAOtq1Q6ogpsUe
-	3sh6lkTURG01p/Ajg6HHph/MgOP5XxrpQlG4v67+P61aYtewlWYENrE6bScirH003COW025dLfcft
-	d6yITxzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=; b=grdD+JXbb0AJOLLfwF2sgQ4fWa
+	oQ6DjUkZcJ2Wv6rFBQte+yrsAvGMOK6U6davaVrtTtAEPAqYzagOvN5OLfK5e89sK0fnd2kAwPWdI
+	wEmsWlc4+vTP2MVfILXKwb0GYDveSdAqSre2XrvRDqvn7Cmn4zleiFt5MQF98rw+gLIyLCLeuUWh/
+	AJ4bKEzUhfCTkQ8D/Px9WEj8ixg8ieKBohm1J+oTejeX0oUcSxRxop6jtDvNmOHt3lNcp3/MFmsMg
+	RIebI8iJo52dMVBDCRnDqiJc24BYTZnGUBv5P9cbxt+InZ0SxZ8TTIEsZpYAwxM+EBpYNKfyDovU+
+	A5VB/HBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wm8-00000002jM4-2c6n;
-	Fri, 04 Sep 2026 16:28:24 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1x2WpC-00000002k6r-3G8p;
+	Fri, 04 Sep 2026 16:31:34 +0000
+Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wm5-00000002jKt-1Ob4
+	id 1x2Wp9-00000002k4T-1TBA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:28:22 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48441a2ba1bso793299f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:28:20 -0700 (PDT)
+	Fri, 04 Sep 2026 16:31:33 +0000
+Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-97cc20c05d3so389142241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:31:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788539490; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HZ0DHWURjyoGvnafMJOfSphG493/Av3N81WmtdiJl04Vse6xM0h/Rfk+RfKRpdtCfB
+         BoQphfdb+0zfYW3CG5lNp+XEdguwCwK/+RWdoIgTec7aUeeWvFQMsoLoCrgapl6e7T9M
+         fwkhE4WmWxKWX5aObdPYDD7EAtr4xer6ZbXP586cALhOGgOFBua+wL1tjxlkPcQ6zRpZ
+         J5AC2/DQf2eEAPa0U6upfOEETFyjLnciBiealLKmLOSnCZ+xUM0eRUHs8SG1PhXYTFtX
+         0sW37JJ1pKZBVIeTfN/k67H7O/V0ookMWwzdC5ibz2Gd32LnkxKw80CVU8BlX3kqw8yy
+         ProA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
+        fh=hAzwdLBeQoDh6QKCGCMVxzwTgbQyBJ02V1toQ0ZaS3g=;
+        b=n28qFkr64FesfLRjdF/NTXVIsGQLo8U+O3JGKruEuVUAbMrkWSFUp5Pl0gq/xU0XHe
+         +LkkEs8zMrRsxY2f6xwT/WtHBvpA15nATk7bvdsR3Uwvl4Uyne6fwPIctcoB1CBeJw3p
+         OVSV1XLMsGsUlg6LGGFbU7ZrmMDzVkatT6HEjkOklcmWzdCiwleIuCa1rRvo6OSrVYfl
+         vCXn0RzRw25mdxvLFDWRL/CpTtQXVibqu15YHgn2aGbZBCE7ccXsmW0HPsE5mnNV7YDv
+         lJE+6JjUQNlOmb7mWzj8q8ZtfIzvFh5t5L8N5OQZOIOm8HdyIFtTNnJZfqoHP1VxkWME
+         I6KA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1788539299; x=1789144099; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:date
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=;
-        b=eMOgtFL22ysql+apXweOrO+jl49AHcCk/ApbsxJWHEGoAEWmOribx9bo72fXGvNcfv
-         ht1N92ZwSGWwQ7GSrZrWusjJ7yFIjGq5GTh8W/4UnxiZtZHRg3UglovJGpJMYknWPhvs
-         FnQxkSCkVZscrxDkb66D4/8nltlehQwJw3ebDm+ret91Y1hdWf88P0W2KTzmIRFRQ/4d
-         5pu0OaPHtSVz8VtbuxpK6HOk279Z7fGb3bME1fnd2lFmvEFdKcSYoX/9JWvN21+3ZhMK
-         2JJaHb7D2wRj0MqU8jU+Vp3JOc+OvfXsVC9aDydByTPhtgbV2/MezV/EyBOorC3g6Gik
-         Q1og==
+        d=gmail.com; s=20251104; t=1788539490; x=1789144290; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
+        b=QiLDnnZD9/CQehw45szf+NQNIBJGZ2IIjiwUVo2PsB1NZBladNw/WQQYTv9ulasmt2
+         sVqey8Sn2zi8KgNIaCbhYo1QGewVgHkRH8YhbaynuZE3h/m+9ltSQVf6MDERlysrSeT7
+         wc8YxcS2+y6HR+Re0AeqrnQBscOZ6XUwkbV8rhfPPpYIRLmni+axxu7NmVCMHcHwVkzz
+         WedMDQZqYCt81JCl5+v/5frSmKlnCnFYuTp2ozJncgVtfHQ7bZewmHM2VZmd/ANt/MtF
+         XKbw6miGLQyqL52LLXzsgSSBQ3l/eomgAPHWEivjI/Ty78qxDmmJo7uJxqB3GZfMWQb5
+         hOSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788539299; x=1789144099;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:date
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=;
-        b=ZmEhj4BeWtJ7PmxdWboaOjycs4/w0GhTMrISEn6UFAHGeCqBVWh6Po3M48RdluAu+8
-         2O3zIOKowJapbl8jKMyZxB6Hp9zfGZUcuruFHAsZ3XbY1oVl7g3goEY5mYJvku7Z/oXZ
-         8xRy4hXeMDx/h9JW9kEmDRZwzuas5S+fAFd2EeWrsMIctjwknCFGBWmtFr0uGKTEkbRD
-         FE6b7+kqSEcKGAakcXdax10mCJQ3NtfdkgpfYzAA7Wy/ZPQWUS35OD4E970Pt0NNAiL7
-         sqCnBULLCVASPGj7+jIFDgxSGHxcsz5YnNAQjEG/sFmC7RqLak37QEUg/bBO/ipSbwuJ
-         hHaA==
-X-Forwarded-Encrypted: i=1; AKwUvBxj3Iv3osn49LRg45nlqYbnLiEmRg2PcaysW76d0ZTYlXoDkhE75jsV+0RGxyulSa3sWUQLjSCetvoTjOZXNUWa@lists.infradead.org
-X-Gm-Message-State: AFuF++k3doV06xGMSehVMsL1y9LINW4RWyjtugVfEMYcmj42UC1M7B9L
-	tmGnKKzel01pQZDLokzNhs7fRvEE0Kge8tjF4QwYTDinBW9lemyX/N7QH7LdUUN/PJw=
-X-Gm-Gg: AYBFou16AQCiWeHKd0FuD+PDFl03JR4iMq7UDLW4a3miJ+w6Y1HXdSwjvO0E/3wsxnd
-	Ao0hjlg/E62CdTJMKO5WAAc/SsLE4vg4c21NnZ585J7v8FNwBD3xNGtpjIMGLagxYImVCWhRAt4
-	FXRMidhdctCjoh7yotmATtOChH2oiNkvONUtYpWo94D3XkTdnBAgWUdxYe2soX2OL3+sDgQ/eXH
-	L1EUphX3caTF4MBqmhhz2uU2zhGjQHNsieRDZIYJ1Kk7Xpb1ucki7lXl5iZtEhT8b/gtxzpXkL7
-	JDDgMXAfIrG4uGF91P9wm9Q5v8rDPf2f+zG3Mf/c1OYqPTolfHAddN++gTRgeYr6n6retDdYQ8W
-	GW/dxQUSDHbU9miP/19nFs+nYvhldNnOMK3cKBwjC2zaqaVPFillZjAguuOO07pNMkhMzZyuoVI
-	lblbSG9F+RlzlkQB4mXcW4lDxVBMGpxKPOPUsOgV6poastp8M9jx/RNxWguw==
-X-Received: by 2002:a5d:5225:0:b0:485:8435:5a3a with SMTP id ffacd0b85a97d-485872ea457mr9219109f8f.25.1788539298646;
-        Fri, 04 Sep 2026 09:28:18 -0700 (PDT)
-Received: from localhost ([82.145.119.95])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm8164784f8f.25.2026.09.04.09.28.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 09:28:18 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 4 Sep 2026 18:31:57 +0200
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com,
-	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>
-Subject: Re: [PATCH v7 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <apryfdwBCHaGJobA@apocalypse>
-References: <cover.1784539788.git.andrea.porta@suse.com>
- <a83d65b2d91865eb722337c547c94dce175e6086.1784539788.git.andrea.porta@suse.com>
- <46772551-207f-4795-89d5-6c02a0b85410@wanadoo.fr>
+        d=1e100.net; s=20251104; t=1788539490; x=1789144290;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
+        b=T+zxoCaXSTa1h/uiptI5G+1xLIvGfD52heIJ2UW0l3WCr7ya6znwHdb7Np/iGbjmFG
+         5wVFso+7tSc4iT68p/jXqLlnSu7fJaACs0NGZ9g91zZitIcrRFvwYwvRfLq447OdbeT4
+         txtWFkSuTF5kU0M/+6yyisr/K1RaSyAwIlRi4xC0ELUJ+FpYgqSmjXu56sViTP0zTYEz
+         A0q3Z5jUdC4jrGDjSkrI5HzaI1pg+D7U/8q1ehJYSwMeWv2aDZKT5KiXKMpKsVrU79hD
+         2g1/e3U4v1/LJSQkwDaG4Ztz7Mi18matovItnR3PL8kii4oaOwtIu8QlLSUdEqzPW440
+         iC3w==
+X-Forwarded-Encrypted: i=1; AKwUvBz2ri8MgZ9X4QHu2za60MAqST1ltn7DEmPfqsTdM9TGGsRsFz5GF15QoBXbLqf1aCNb5ey2jHzpvlO2EK5fnebi@lists.infradead.org
+X-Gm-Message-State: AFuF++nKvxP4nSA4AyubYfiZgOcsoFfOpzeVdRigCITyHXLaOcLTNx+J
+	D/MIOSZkIhz3A/exYcGLUrjdlqTibe5prffBXAyQfQDazCJIV7v7SLddmBxCmBtqXNg7vOJu/1Q
+	CRqCGdELjk0C21EHF3PgoN73OmHRpK8w=
+X-Gm-Gg: AYBFou0vftUW/XX+sTb3rkDnhO2Kuid+iErO5dOzERYw9BPJNVFOX3Kcg5MrDbnbSxk
+	fGlv/v4btikvIa4AsVWgz2hVPCMmZ76P9y71f0RLIwmsBUl6oJ3JLzlY+mAN7OwWX31J9xKJpxN
+	Z5Oqqjw9LUa8Hfn5UaEQ4/1zo2PEk4HFJCu8GEXvLn+E4Ky2k20Np8nNjc2AVbtZY8DmqHqdZiu
+	4/HZ19faPaZhnCYsmeE6BeTk4z5erkWKNWNebrBntNf0052YEwhYnJH2jJtowZHTqBhtcFHBL6D
+	yYsj0gGBK0deUBmLL+zybIj7C4PMajt332fpp0iwbD31Top50OWWJ00ztRNuZ7Exk1DQ05CGnrS
+	mCUj3JELFmshJo0Mz5OCjn18wjTZJVBu7PrY6dbinLhozc3KQiiyCdYNB6Uvpv1rKs3BSkH3Td4
+	GC+XQkgFpbKKOkklfqCoEYOrGq7afazRjXB5RybtTUOsM9RUHuzw==
+X-Received: by 2002:a05:6102:5e86:b0:78a:8a0:7116 with SMTP id
+ ada2fe7eead31-78a4a6f61c1mr2282968137.6.1788539489982; Fri, 04 Sep 2026
+ 09:31:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <46772551-207f-4795-89d5-6c02a0b85410@wanadoo.fr>
+References: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com>
+ <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-2-463853a14ad9@gmail.com>
+ <87se3p13jy.fsf@bootlin.com> <CADvTj4oW8Hxv_b5vWM5pbeB3wEO-WoqhLwyinCTFPNR6wTHYmQ@mail.gmail.com>
+ <878q5h11gu.fsf@bootlin.com>
+In-Reply-To: <878q5h11gu.fsf@bootlin.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Fri, 4 Sep 2026 12:31:19 -0400
+X-Gm-Features: AcwNN1V5YDZSFNMjnzJoP1G8O-i3NIxVjKyBABCYlVfSDwIJgBSeFv9BnhDuMNw
+Message-ID: <CADvTj4o4Rwcmy7ByuBcpcPkcXctvgB8Tuda2_7UV1v=vx7JwRw@mail.gmail.com>
+Subject: Re: [PATCH 2/3] mtd: rawnand: sunxi: support randomized OOB formats
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, linux-mtd@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_092821_399248_E97B8897 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20260904_093131_424330_37AB05C5 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,141 +126,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+On Fri, Sep 4, 2026 at 9:27=E2=80=AFAM Miquel Raynal <miquel.raynal@bootlin=
+.com> wrote:
+>
+> On 04/09/2026 at 11:17:46 -04, James Hilliard <james.hilliard1@gmail.com>=
+ wrote:
+>
+> > On Fri, Sep 4, 2026 at 8:42=E2=80=AFAM Miquel Raynal <miquel.raynal@boo=
+tlin.com> wrote:
+> >>
+> >> On 10/08/2026 at 17:04:50 -06, James Hilliard <james.hilliard1@gmail.c=
+om> wrote:
+> >>
+> >> > The controller randomizer covers the bad block marker along with the
+> >> > rest of the OOB data. The driver currently compensates the marker by=
+tes
+> >> > before writes and after reads so that they remain plain on flash.
+> >> >
+> >> > Allwinner NAND firmware instead stores the marker through the
+> >> > randomizer. Media using that format appears to contain bad blocks un=
+less
+> >> > the randomizer is enabled while reading the marker.
+> >> >
+> >> > Honor the allwinner,randomized-oob property by unconditionally enabl=
+ing
+> >> > page scrambling and leaving the marker in the randomizer data stream=
+.
+> >> > Keep the existing plain marker behavior when the property is absent.
+> >> > This changes marker handling on all supported controllers; the H6/H6=
+16
+> >> > protected user-data placement is handled separately.
+> >>
+> >> But I think the reason why this has never been done is because it just
+> >> breaks raw accesses, including the BBT reads. I don't think this is
+> >> handled, is it?
+> >
+> > From my understanding raw access bypasses randomization entirely.
+>
+> yes, so the implementation you propose is invalid, raw reads shall
+> show the BBM. And also, when accessing a BBT, it is made in raw mode,
+> without randomization, and hence totally fail. This cannot fly!
 
-On 22:36 Thu 03 Sep     , Christophe JAILLET wrote:
-> Le 20/07/2026 à 11:44, Andrea della Porta a écrit :
-> > From: Naushir Patuck <naush@raspberrypi.com>
-> > 
-> > The Raspberry Pi RP1 southbridge features an embedded PWM
-> > controller with 4 output channels, alongside an RPM interface
-> > to read the fan speed on the Raspberry Pi 5.
-> > 
-> > Add the supporting driver.
-> > 
-> > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
-> > Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
-> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> 
-> Hi,
-> 
-> ...
-> 
-> > +static int rp1_pwm_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct device_node *np = dev->of_node;
-> > +	unsigned long clk_rate;
-> > +	struct pwm_chip *chip;
-> > +	void __iomem	*base;
-> > +	struct rp1_pwm *rp1;
-> > +	int ret;
-> > +
-> > +	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
-> > +	if (IS_ERR(chip))
-> > +		return PTR_ERR(chip);
-> > +
-> > +	rp1 = pwmchip_get_drvdata(chip);
-> > +
-> > +	base = devm_platform_ioremap_resource(pdev, 0);
-> > +	if (IS_ERR(base))
-> > +		return PTR_ERR(base);
-> > +
-> > +	rp1->regmap = devm_regmap_init_mmio(dev, base, &rp1_pwm_regmap_config);
-> > +	if (IS_ERR(rp1->regmap))
-> > +		return dev_err_probe(dev, PTR_ERR(rp1->regmap), "Cannot initialize regmap\n");
-> > +
-> > +	rp1->clk = devm_clk_get(dev, NULL);
-> 
-> Could it be devm_clk_get_enabled() to simplify the error handling path as
-> done above with other devm function?
+I may be misunderstanding which raw and BBT access paths are at issue,
+so I would like to clarify the expected semantics.
 
-The very first version of this patches had devres everywhere, but Uwe has correctly
-spotted that this could lead to clock ops imbalance, please see:
-https://lore.kernel.org/all/adLTwOTbkJ0VQXy6@monoceros/
-As a result, I turned devm_clk_get_enabled() into the corresponding non devres/single
-component functions since now disengaging the clock depends on a conditional.
-Of course this does not make much sense in case we don't need a .remove callback,
-but it seems that I can reintroduce it again if we agree to use EXPORT_SYMBOL_NS.
+The allwinner,randomized-oob property does not alter the per-operation
+rule controlling the randomizer. MTD_OPS_RAW still leaves the randomizer
+disabled, while normal ECC operations enable it. The property does set
+NAND_NEED_SCRAMBLING, ensuring that normal accesses use the randomizer
+when the NAND does not already set that flag.
 
-> ...
-> 
-> > +	if (IS_ERR(rp1->clk))
-> > +		return dev_err_probe(dev, PTR_ERR(rp1->clk), "Clock not found\n");
-> > +
-> > +	ret = clk_prepare_enable(rp1->clk);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "Failed to enable clock\n");
-> 
-> ... this also saves these 3 lines.
+The property instead selects the Allwinner firmware's physical
+normal-page OOB representation. It leaves the BBM in the randomizer data
+stream and, on H6/H616, selects the firmware's protected-user-data
+placement. It does not change the randomizer algorithm or seeds, nor
+does it enable the randomizer during raw accesses.
 
-See above.
+With NAND_NEED_SCRAMBLING set, I understand the current mainline sunxi
+behavior as follows:
 
-> 
-> > +	rp1->clk_enabled = true;
-> > +
-> > +	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
-> > +	if (ret) {
-> > +		dev_err_probe(dev, ret, "Failed to get exclusive rate\n");
-> > +		goto err_disable_clk;
-> > +	}
-> > +
-> > +	clk_rate = clk_get_rate(rp1->clk);
-> > +	if (!clk_rate) {
-> > +		ret = dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
-> > +		goto err_disable_clk;
-> > +	}
-> > +	/*
-> > +	 * To prevent u64 overflow in period calculations:
-> > +	 * mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC)
-> > +	 * If clk_rate > 1 GHz, the result can overflow.
-> > +	 */
-> > +	if (clk_rate > HZ_PER_GHZ) {
-> > +		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
-> > +		goto err_disable_clk;
-> > +	}
-> > +	rp1->clk_rate = clk_rate;
-> > +
-> > +	chip->ops = &rp1_pwm_ops;
-> > +	chip->atomic = true;
-> > +
-> > +	platform_set_drvdata(pdev, chip);
-> > +
-> > +	ret = pwmchip_add(chip);
-> 
-> Could it be devm_pwmchip_add() to simplify the error handling path as done
-> above with other devm function?
+ops.mode   fd mode  ECC  rand  main data       OOB with -o      nanddump
+---------  -------  ---  ----  --------------  ---------------  --------
+PLACE_OOB  NORMAL   on   on    corrected and   de-randomized    -o
+                                de-randomized   logical OOB
+PLACE_OOB  RAW      on   on    corrected and   de-randomized    unavailable
+                                de-randomized   logical OOB
+RAW        NORMAL   off  off   physical bytes  physical OOB     unavailable
+RAW        RAW      off  off   physical bytes  physical OOB     -n -o
 
-Due to the above-mentioned scenario and since .remove is called before devres release
-funtions, that would make the clock to be released before the pwm chip, causing
-inconsistencies if the pwm is used in the meanwhile. 
+OOB data is returned only when the caller supplies an OOB buffer. For
+nanddump, this is selected by -o. For MEMREAD/MEMWRITE, ops.mode
+overrides the file mode. Stock nanddump exposes only the two diagonal
+cases:
 
-Many thanks,
-Andrea.
+nanddump --bb=3Ddumpbad -o /dev/mtdX
+nanddump -n --bb=3Ddumpbad -o /dev/mtdX
 
-> 
-> > +	if (ret) {
-> > +		dev_err_probe(dev, ret, "Failed to register PWM chip\n");
-> > +		goto err_disable_clk;
-> > +	}
-> > +
-> > +	ret = of_syscon_register_regmap(np, rp1->regmap);
-> > +	if (ret) {
-> > +		dev_err_probe(dev, ret, "Failed to register syscon\n");
-> > +		goto err_remove_chip;
-> > +	}
-> > +
-> > +	return 0;
-> > +
-> > +err_remove_chip:
-> > +	pwmchip_remove(chip);
-> > +err_disable_clk:
-> > +	clk_disable_unprepare(rp1->clk);
-> > +
-> > +	return ret;
-> > +}
-> ...
-> 
-> CJ
+The first uses the normal ECC/randomizer path and returns corrected,
+de-randomized main data followed by de-randomized OOB. The second sets
+MTD_FILE_MODE_RAW and reaches the raw callbacks with both ECC and the
+randomizer disabled, returning the physical main and OOB bytes.
+
+In current mainline, that physical OOB contains a plain BBM because the
+normal write path compensates the marker before hardware randomization.
+The normal read path reverses that compensation. With
+allwinner,randomized-oob, the compensation is omitted, so a raw read
+remains physical but returns the BBM in its randomized on-flash form.
+A normal read returns the logical BBM with either representation.
+
+I do not see the current BBT access paths selecting MTD_OPS_RAW:
+
+- nand_block_bad() calls chip->ecc.read_oob();
+- scan_block_fast() and scan_read_oob() use MTD_OPS_PLACE_OOB; and
+- read_bbt() uses an ordinary mtd_read().
+
+For sunxi, ecc.read_oob calls ecc.read_page, which enables both ECC and
+the randomizer when NAND_NEED_SCRAMBLING is set. The internal BBM and
+BBT paths therefore appear to receive the decoded marker rather than
+the physical randomized bytes.
+
+Could you clarify which BBT path performs an MTD_OPS_RAW access, or
+whether I am overlooking another path?
+
+Also, when you say that raw reads must show the BBM, does that mean the
+BBM must always be stored plain on flash, or may the raw interface
+normalize just the BBM while otherwise returning physical data? If raw
+access must remain entirely physical and the BBM must simultaneously be
+directly recognizable, does that mean the Allwinner firmware's
+randomized-BBM representation cannot be supported through the existing
+raw NAND interface?
+
+>
 
