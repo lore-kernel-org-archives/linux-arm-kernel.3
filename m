@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFE5C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239B1C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdzEz/TBMgZ/l148KI1rFdEHwnFo1rB79eXMF1AFtbA=; b=M56oiE/mFZXo493FK7TFC0CkbY
-	GeKkX2h6zVEXIsW20tWtOAmJnwtQPAL5PnLDB98ML0x1TZ25cpuqjEwQcANU9BRdugUtyc0QPqVuY
-	0e4gLa/Z1TBdanvVGP+uLl4Vzx51PL5tRok/uK2F9giwSAUd5wvVJ2K+ESvcNijVRq2Jrnk+dNXhW
-	xrh/e2aLeQzzT+5mwl1R0gtVsHpX6BG6LTmZHrjpkajUSxGh6hVKIvZd7d12gS4Bh/MTwfgNLDeaC
-	tl+cH9nRAbDuhas4ZQrNhGfYDPaPSqjOcU2Kn4UnLoLblW5GET5MqiG1BYYmwJ4IWjkDJnkPlhYsk
-	CSdknNLg==;
+	bh=1i9l1d8VMoSpKQaIxdgYqUl1B4rvtTzNTU4xHBwzZcY=; b=SJF0T8JCevW+VvKCj0pjd4h3wr
+	VldzAdvPV0aHIQlW1ol1h3Kqg+kgILWSetjnOiX2oQ+ojt++ws1rOrHT0QWVgjM78cz7kplIoQg1A
+	Blnv/gAZmldTzKt590C2vXHbekJ6NjPvLjT79DqFW3UcDi3HO8B2b9/KmN9KnQ03djXkyeSnbqzPg
+	H2hg9K8a+6DuuMOhEUBzMCZs53IK0yoOlpRltwBXcmOsBMaSOACwzZ1Lb/kkjfT2VU7158Mu2kS+k
+	7aIuYDCtfnzulyY+AZaqjIpe1N5nwjPlTDMZrxI7kYKPmWsK/nj5hYgx599MkTGQt+ga9p9Y55FFE
+	knES21VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WJr-00000002boH-3N3c;
-	Fri, 04 Sep 2026 15:59:11 +0000
+	id 1x2WJt-00000002bsA-0yFL;
+	Fri, 04 Sep 2026 15:59:13 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WJg-00000002bTI-2ozk;
-	Fri, 04 Sep 2026 15:59:02 +0000
+	id 1x2WJj-00000002bZv-1pRk;
+	Fri, 04 Sep 2026 15:59:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1788537538;
-	bh=Pun6ZjnCACSM6H6YEIdyZa1UW6LNXui7X4S9jiGkUhs=;
+	s=mail; t=1788537541;
+	bh=1piwe291SJzHCvmYgTYe5CleobD/ifmr/BhtwFBgFOM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FOHfBg3Wcd4a5qvlsw2+QCrb0I2mCg+E0NRQ+JSLGiA1AopWfTK85axxvJNOvKBFs
-	 TBqt6r4kxPlNXctL/SBXu5dY20/coBX5Uj+frMSm+VC8Cs6Crrv0oYW7V6d34D3Uas
-	 w0P9beWlHhHHeZCrs9WvJFPr50YqaNaSt+5qLq64NLqZH5DuT1Zs5xv7b6uCVxNIis
-	 OVG8IgkyTEybpwm44pAfAZuO/7m5YjUd80sReoA1m3dzfTw3IgAeuCiLnkmcXlMRFm
-	 oU20u1KSBaCBI09j3eXYSNzF2mcB5sJ/60KUCkhmrblgXXRZHM6ybeeyS4+m2MCwGO
-	 KE1HDCMJnyYhA==
+	b=RyccvWL+IfVRdJ8RH0g3yenON+HlabScLKqf0ohkW+FU1X8KI+U4menm7e18Vy+T5
+	 0O+DKoGL1cof/OXb7Lk284I2WmKN+2zjtYwI49z87fHTxMgMsPyJaUahaHRkNXiOrM
+	 2ua8KsJhM2HUUXVqm+51M9Ij8Lz4ity/aJopq/s/14zwL6qg+pmuO/v2haOV5o/LPc
+	 09//ubtQB5MDbi7JGK2GXaBNfFb+OK2+BIVDDu4ITGfO7UyXrYekmsoXQBgf/4LnKo
+	 3OeqYF4ogH7sogwmds4+CRgP/vnbVpns/HxutFIkjLHs6ELni52/wYTvZ7+24bAo9o
+	 cwelIUKZoCdTA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71B9F17E092E;
-	Fri, 04 Sep 2026 17:58:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 52B9517E14D2;
+	Fri, 04 Sep 2026 17:59:00 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 04 Sep 2026 17:58:21 +0200
-Subject: [PATCH v6 10/27] clk: mediatek: pll: Add BAR reset register
- offsets
+Date: Fri, 04 Sep 2026 17:58:23 +0200
+Subject: [PATCH v6 12/27] clk: mediatek: pll: Add PLL stabilization delay
+ definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-mt8189-clocks-system-base-v6-10-5df247f56938@collabora.com>
+Message-Id: <20260904-mt8189-clocks-system-base-v6-12-5df247f56938@collabora.com>
 References: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
 In-Reply-To: <20260904-mt8189-clocks-system-base-v6-0-5df247f56938@collabora.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -68,16 +68,16 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  Brian Masney <bmasney@redhat.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788537522; l=3030;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788537522; l=1541;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=Pun6ZjnCACSM6H6YEIdyZa1UW6LNXui7X4S9jiGkUhs=;
- b=iNjRtQ8bEKVg9Fb/PcDszQrR4yYwUcrp0+hvXza6bRDxWpUaPCSTaoHKogN2GQypkBZaLXxbZ
- sH00hPj3K3tARCpEysbABjvfNKhbAGjcrnRSp8aYNChoTUqv9hwCQ4G
+ bh=1piwe291SJzHCvmYgTYe5CleobD/ifmr/BhtwFBgFOM=;
+ b=Hf+3XAUnkaNPFk/JON0jY6so4Hv87b2O1iV3DYnqgYm8uFi+Du6QhH8HQpCO/XJDS9hI+0Kg2
+ hwnCoRpqfwxC4+9BVkswxVMtOnypcRDcNJHern4dddIasH0USa5ryN6
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_085901_072867_8AB34A09 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260904_085903_641730_816A1BAC 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +92,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the register offset to handle BAR reset, for PLLs that
-support it, is hardcoded to CON0.
-On MT8189 SoC, there are separate status, set and clr registers to
-handle this, so differents offsets are needed.
-
-Add the new fields for offsets and addresses to the MTK PLL data
-structure and modify mtk_clk_register_pll_ops function to compute the
-new register addresses so they are available for clock operation usage.
-
-Also, replace reset BAR address computing by its computed address
-from MTK PLL data structure in prepare/unprepare callbacks.
+Several functions uses a hardcoded value (20), to represent the
+needed delay to stabilize a PLL.
+Add a common define for this value.
 
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/clk/mediatek/clk-pll.c | 18 ++++++++++++++----
- drivers/clk/mediatek/clk-pll.h |  6 ++++++
- 2 files changed, 20 insertions(+), 4 deletions(-)
+ drivers/clk/mediatek/clk-pll.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
-index ee478bc64085..4b0f7e2bfc5a 100644
+index 2aaf2871ecf6..9a197a657dce 100644
 --- a/drivers/clk/mediatek/clk-pll.c
 +++ b/drivers/clk/mediatek/clk-pll.c
-@@ -249,9 +249,9 @@ int mtk_pll_prepare(struct clk_hw *hw)
- 	udelay(20);
+@@ -31,6 +31,8 @@
+ /* default 7 bits integer, can be overridden with pcwibits. */
+ #define INTEGER_BITS		7
+ 
++#define PLL_STABILIZATION_DELAY	20 /* in us */
++
+ int mtk_pll_is_prepared(struct clk_hw *hw)
+ {
+ 	struct mtk_clk_pll *pll = to_mtk_clk_pll(hw);
+@@ -131,7 +133,7 @@ static void mtk_pll_set_rate_regs(struct mtk_clk_pll *pll, u32 pcw,
+ 	/* restore tuner_en */
+ 	__mtk_pll_tuner_enable(pll);
+ 
+-	udelay(20);
++	udelay(PLL_STABILIZATION_DELAY);
+ }
+ 
+ /*
+@@ -264,7 +266,7 @@ int mtk_pll_prepare(struct clk_hw *hw)
+ 
+ 	__mtk_pll_tuner_enable(pll);
+ 
+-	udelay(20);
++	udelay(PLL_STABILIZATION_DELAY);
  
  	if (pll->data->flags & HAVE_RST_BAR) {
--		r = readl(pll->base_addr + REG_CON0);
-+		r = readl(pll->rst_bar_addr);
- 		r |= pll->data->rst_bar_mask;
--		writel(r, pll->base_addr + REG_CON0);
-+		writel(r, pll->rst_bar_addr);
- 	}
+ 		r = readl(pll->rst_bar_addr);
+@@ -306,7 +308,7 @@ static int mtk_pll_prepare_fenc_setclr(struct clk_hw *hw)
+ 	writel(BIT(pll->data->pll_en_bit), pll->en_set_addr);
+ 
+ 	/* Wait 20us after enable for the PLL to stabilize */
+-	udelay(20);
++	udelay(PLL_STABILIZATION_DELAY);
  
  	return 0;
-@@ -263,9 +263,9 @@ void mtk_pll_unprepare(struct clk_hw *hw)
- 	u32 r;
- 
- 	if (pll->data->flags & HAVE_RST_BAR) {
--		r = readl(pll->base_addr + REG_CON0);
-+		r = readl(pll->rst_bar_addr);
- 		r &= ~pll->data->rst_bar_mask;
--		writel(r, pll->base_addr + REG_CON0);
-+		writel(r, pll->rst_bar_addr);
- 	}
- 
- 	__mtk_pll_tuner_disable(pll);
-@@ -352,6 +352,16 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
- 		pll->en_set_addr = base + data->en_set_reg;
- 	if (data->en_clr_reg)
- 		pll->en_clr_addr = base + data->en_clr_reg;
-+
-+	if (data->rst_bar_reg)
-+		pll->rst_bar_addr = base + data->rst_bar_reg;
-+	else
-+		pll->rst_bar_addr = pll->base_addr + REG_CON0;
-+	if (data->rst_bar_set_reg)
-+		pll->rst_bar_set_addr = base + data->rst_bar_set_reg;
-+	if (data->rst_bar_clr_reg)
-+		pll->rst_bar_clr_addr = base + data->rst_bar_clr_reg;
-+
- 	pll->hw.init = &init;
- 	pll->data = data;
- 
-diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
-index d6d34840c09d..3aaf3a7654b5 100644
---- a/drivers/clk/mediatek/clk-pll.h
-+++ b/drivers/clk/mediatek/clk-pll.h
-@@ -49,6 +49,9 @@ struct mtk_pll_data {
- 	u32 en_reg;
- 	u32 en_set_reg;
- 	u32 en_clr_reg;
-+	u32 rst_bar_reg;
-+	u32 rst_bar_set_reg;
-+	u32 rst_bar_clr_reg;
- 	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
- 	u8 pcw_chg_bit;
- 	u8 fenc_sta_bit;
-@@ -75,6 +78,9 @@ struct mtk_clk_pll {
- 	void __iomem	*en_set_addr;
- 	void __iomem	*en_clr_addr;
- 	void __iomem	*fenc_addr;
-+	void __iomem	*rst_bar_addr;
-+	void __iomem	*rst_bar_set_addr;
-+	void __iomem	*rst_bar_clr_addr;
- 	const struct mtk_pll_data *data;
- };
- 
+ }
 
 -- 
 2.55.0
