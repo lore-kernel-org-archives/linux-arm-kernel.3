@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE24AC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF56DC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bc+LGQ0zWlWLs/kKpiifO7igu4kZALH+DsVSDPfEdfk=; b=WP+x4Ug2ll+nLP
-	T0CsEanQTWAHTN/QTdb6R2K1sTxjOzZssaoKKJcjC28NypYggOS6FQy+5mQRTIOyKvpaZPsXEm1k9
-	GA+dEeunfyFcLj04TYogImn9E80c8DEPZDOVyaHE36kv4Op9Nw6FQJTtIG11KI9aXRfkIKMbuFoIJ
-	iFKa6HgJswqdt9L/UrK8q+D2IcM8NpnD6t5wdVR1UEIplcwZq4is5HzW2E9DysYXL9VMrBQOFCL9G
-	K8btrGB3U1CC413jooTH61gSOztjf9CJq4k/vcjfHl2ieETvkiCdKnKraXl3gHd+mnabuB9jzFhfc
-	HRKUrrL5ts1bILqx5NHQ==;
+	List-Owner; bh=xCl0v/SQs8S1/zbZay0y7IOgvIuSt+UtloqYKreQGbc=; b=jIco/g6g3jaeK0
+	TCej0TrouyCauvftOuIoBmuOvnxZK5KrkosM9Y7fjp7yh5gLAN+eOkCkQYThjET7QF1woRzkmyuDS
+	bBLoGhHAx0VK4EEydiI1s8jwe7uGH7eC8xA5RHLPQvsFM9ORaIgAtQVxO+otf8gc2ppkdGRYdr+OQ
+	r1ZKC1V9mlZpKdafaQEC8mj1SCKORAXOjHz1OiST0EiPBsp6UKyPrBlIlYhrMDDhrLjZlCpzh0ONV
+	k2YDu+GN+P+cE2SmsZhc/ez4XdOMExFilPAYGXVJKfQqkR+ubz8s/TaqRFuaLraLm/gI/tVEtWJWl
+	5feYPnFh72M2VxtgZQwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wcq-00000002h7L-3Sjw;
-	Fri, 04 Sep 2026 16:18:48 +0000
+	id 1x2Wd5-00000002hGb-1BI9;
+	Fri, 04 Sep 2026 16:19:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wco-00000002h63-1mkN
+	id 1x2Wd2-00000002hCe-1ndc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:18:47 +0000
+	Fri, 04 Sep 2026 16:19:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3146A153B;
-	Fri,  4 Sep 2026 09:18:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDD46152B;
+	Fri,  4 Sep 2026 09:18:45 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DE0B13FBD2;
-	Fri,  4 Sep 2026 09:18:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 893413F8D6;
+	Fri,  4 Sep 2026 09:18:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788538724; bh=GcKZFnQgJw6u5Wdp85aJgg7AOSBlCknf/ylfv6Qx5pc=;
+	t=1788538729; bh=akjiP9r6aGZFVaFuTV4xO4inC06yx1CbzVLMerEToh4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=haYv9cqPbHyCyzqV6DnRopzNdyRyff9gUFLb7W7pquC3UpagbLYT+D3QTHRh5Vr4R
-	 OG7VN0f6SijGhVtxQ1qqkzonIn0Xb1BlGQHHIz+IgoI8m7W1PghRpPtQ/EtTTwBOe3
-	 uOY1LwhCHJLn0V3em1srmJqGECg2/xqIC2PjeV9s=
+	b=IjdEbgOLb1z6qV8YYTmdsm+bm7XWNTXJFFp0fWlsypZJknlxUCCUXWa9ykBtweIl1
+	 XcQ+vTcX/ul1/P5HDnUHxsgEU98gdeDDwnBUJHtQ62Tngwss/4Y+v0KKsV9A/YmJE0
+	 ug1mFV7/tOysivevkM947WV/GNR89Ch51b0pu7yw=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 07/21] arm64: preempt: Treat should_resched() as unlikely
-Date: Fri,  4 Sep 2026 17:17:44 +0100
-Message-Id: <20260904161758.376504-8-mark.rutland@arm.com>
+Subject: [PATCH v3 09/21] arm64: percpu: Factor out percpu offset asm
+Date: Fri,  4 Sep 2026 17:17:46 +0100
+Message-Id: <20260904161758.376504-10-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260904161758.376504-1-mark.rutland@arm.com>
 References: <20260904161758.376504-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_091846_505585_3C09A9E6 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260904_091900_503655_4A9EE92C 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,19 +67,16 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, usama.anjum@arm.com, peterz@i
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 implementation of should_resched() doesn't treat the need to
-resched as unlikely, while all other implementations do, e.g.
+Depending on whether the kernel runs at EL1 or EL2, the percpu offset is
+stored in either TPIDR_EL1 or TPIDR_EL2, and __kern_my_cpu_offset() uses
+an ALTERNATIVE() sequence to read the relevant TPIDR_ELx.
 
-* asm-generic since:
-  bdb43806589096ac ("sched: Extract the basic add/sub preempt_count modifiers")
+In subsequent patches we'll need to read the percpu offset in other
+assembly sequences. Factor the ALTERNATIVE sequence out of
+__kern_my_cpu_offset() into a new __KERN_ASM_CPU_OFFSET() macro so that
+we can share the code sequence.
 
-* x86 since:
-  c2daa3bed53a8117 ("sched, x86: Provide a per-cpu preempt_count implementation")
-
-* s390 since:
-  c360192bf4a8dc72 ("s390/preempt: move preempt_count to the lowcore")
-
-Do the same for arm64.
+There should be no functional change as a result of this patch.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
@@ -94,22 +91,42 @@ Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/preempt.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/include/asm/percpu.h | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index 92ae2eb95a738..0a99ef9b59609 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -78,7 +78,7 @@ static inline int __preempt_count_sub_return(int val)
- static inline bool should_resched(int preempt_offset)
- {
- 	u64 pc = READ_ONCE(current_thread_info()->preempt_count);
--	return pc == preempt_offset;
-+	return unlikely(pc == preempt_offset);
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index 8cf4068ce1b56..746d2a56f48bb 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -29,6 +29,11 @@ static inline unsigned long __hyp_my_cpu_offset(void)
+ 	return read_sysreg(tpidr_el2);
  }
  
- static inline bool __preempt_count_dec_and_test(void)
++#define __KERN_ASM_CPU_OFFSET(dst)					\
++	ALTERNATIVE("mrs " dst ", tpidr_el1",				\
++		    "mrs " dst ", tpidr_el2",				\
++		       ARM64_HAS_VIRT_HOST_EXTN)
++
+ static inline unsigned long __kern_my_cpu_offset(void)
+ {
+ 	unsigned long off;
+@@ -37,11 +42,11 @@ static inline unsigned long __kern_my_cpu_offset(void)
+ 	 * We want to allow caching the value, so avoid using volatile and
+ 	 * instead use a fake stack read to hazard against barrier().
+ 	 */
+-	asm(ALTERNATIVE("mrs %0, tpidr_el1",
+-			"mrs %0, tpidr_el2",
+-			ARM64_HAS_VIRT_HOST_EXTN)
+-		: "=r" (off) :
+-		"Q" (*(const unsigned long *)current_stack_pointer));
++	asm(
++	__KERN_ASM_CPU_OFFSET("%0")
++	: "=r" (off)
++	: "Q" (*(const unsigned long *)current_stack_pointer)
++	);
+ 
+ 	return off;
+ }
 -- 
 2.30.2
 
