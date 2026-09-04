@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEA6C79F82
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479D2C79F83
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 06:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zc++yIXHqKNMbiXx+hALBD21DqYG95HAxZlQT8LxL8M=; b=FvBUTIUHCEJRvGMQV5F7pED839
-	CkqEJ8MiqLiriq99ZQ+0nOde3RqnQuufgOZ0pN/+a0YbLUe+cgn/2lCROVheY8K+TPRtNb4ZWTJaZ
-	bJPOnG9TlQ1w6SevtGjyZ8n9SARHCnnzokvR4dYHxxb8ZbY42/IG/s6i05XG1Xu0njXki0WFdJhqm
-	WvNRBK0aOlHvO2PazGdyM7Bzwm+R2e9XxUnO7OPz0ngCFwXczoAkpxjGTIXDqNrZvxJQZ5/ye+prf
-	caovsld/062/4VfATfZjPj8PPghh1F9zC8TjDTk/WSNLv5alwAE61JKj3IdyaBhXQ86SLOsNvItNa
-	dhKnxh9w==;
+	bh=q5gpcTOIKTny7J66cv11qDLumaURT70ynjOZeU7pZG8=; b=OK/nkcYhY9rBjZUyvg/lmvDXQV
+	o6ilX82wH6kCX2dx7ukLbZ/EYs9dL8fLX6m4JGijgVjdzxUxhzG2SYeAC2pUm8pfhlSN4/MKMOsCH
+	mM0f0U+IB0vMF7vC9pmis5bldT8sZ17UYnKBk5yQrDZLG2vd9EZBySSDditAg9KDTFgLqme3e6bjf
+	+dbm5r4r+EA46fd6f4UlK5Y152cwQNDaZnMVemwcQEGyaWY+ta2xoptZLnINGG3+dHS9l+L8XdXdM
+	TkpyhpAIXDLJ4YA6XQbfHkSssJgadK4zbRqzgZm/dl1pkexM+YUmK6it1WD0lYSaB/XESWC8lzVyD
+	HQE8J5NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Na3-000000019Oi-0jzu;
+	id 1x2Na3-000000019OL-0Ffk;
 	Fri, 04 Sep 2026 06:39:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2NZz-000000019Kx-1Rcd
+	id 1x2NZz-000000019Kw-0V8E
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 04 Sep 2026 06:39:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 667CC60A8A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CA1660A89;
 	Fri,  4 Sep 2026 06:39:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1C7DEC4AF0F;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0341FC32786;
 	Fri,  4 Sep 2026 06:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788503954;
-	bh=YRtuINaeeg+H3XFSuIJVNYHLS6Z7t0vhSOvvVH0L3HQ=;
+	bh=hp7bqmHn9P6jHYwnNUYIruS99llCyau/ChCTrkE9I+E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=MVjHyt5gDwOkBcnDzLO64lWK0+72jzhMlVHf+0UxjD9qwVRe99+eAi+8pZbVyY4xh
-	 3+Se2nw5WEhlr0E14S2eSE8F3YWzSHqxqo951eHA9ysCZnHbi3yqe85NyiD70Qocpi
-	 ogsztGaJ3WLEzF4zJnD+mloianH7rK2pvsrwP6W9KyFM4mXXBTnTm91qKs5w2Ch6DU
-	 WhFCgY7AHQ/U0gxBe5vaRgAF6CeRsWrDyHQBmgCLNGDj7zShQt1zMvyx9S2Z980Dii
-	 DYLwQ1iHB56iDe7BnTc74uY8fldtfvjZsB16mAnPpD/Plvpc2hNBFxb74kmXPDbaar
-	 2AkbS7veKpUFw==
+	b=oPL32G+ZuZtggFJ398oR+poRz623D+8RQ71t+9NLK03kNPBIjD/uup3O32ZZJizY+
+	 iSief4NGkLXdHw/BOxigBSqsr++2hYvFcf+8h+QSxUt3BaD0fEp91x5WE/UrTQ0NtS
+	 zJtVTRLzixVC6p92AxsXvO40l+kX/9hhoP+dsGseAXYx/RtEf6+YBPrSWDAhVBllrE
+	 g5XTLV5RsGhHSZVvQXfT+AAi1uYnMNwF94BWmAfstFFHj134Z8gyBS7jbCwcFouwGd
+	 YivqHt4TQNhawTQ9Cz0lj/dypOXlp/ZPNPdb4So07ApmYNUZcM5RiT53I3hqWFQA48
+	 3do3HpoxLVElQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 09237C61DD6;
-	Fri,  4 Sep 2026 06:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DAD4CC79F82;
+	Fri,  4 Sep 2026 06:39:13 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Fri, 04 Sep 2026 14:38:13 +0800
-Subject: [PATCH v6 06/13] dt-bindings: serial: snps-dw-apb-uart: add
- ambarella,cv75-uart
+Date: Fri, 04 Sep 2026 14:38:11 +0800
+Subject: [PATCH v6 04/13] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-cv75-v5-v6-6-e918514cb3b1@ambarella.com>
+Message-Id: <20260904-cv75-v5-v6-4-e918514cb3b1@ambarella.com>
 References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
 In-Reply-To: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -74,11 +73,11 @@ Cc: Long Zhao <longzhao@ambarella.com>, Rob Herring <robh@kernel.org>,
  linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788503951; l=954;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788503951; l=6330;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=9H5T2CAaecrbxe1XZGmzDHUwCx/pDCa6CR6TyCM/1dU=;
- b=XXOx+PGosTen142j//farUwoWwOnOTOPuVxEH1dTawpqdUI2vhhMrMwC7T6z3DEC8TOxtPWgD
- vQdhQXPJndzBsxLC9NrgB+T4uhiJzGTj3DrWDeTgTjlQ/9JjeWRUE0k
+ bh=XEvKncSGovDF7OgNkB6DKQG+ZkDy9YW2XQhMlWM+4n0=;
+ b=J85/StinRj7wAPEfbN+dp3uPD4R+wEdU/zQ/jETw4vUnxggpithWNm1aXZWtOyc1Fq6bsa7B7
+ IjYvYIV9HyCBW/Lq+AoURDZm5qv0zCEcn5pXsb1RIkUcpBuXRctnFKe
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -101,27 +100,259 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Add the Ambarella CV75 compatible string to the Synopsys DW APB UART
-binding. The block is Ambarella IP with a DW-like register map, so it
-is described as a DW APB UART variant.
+Document the CV75 pin controller binding using generic function and
+groups properties for pinmux configuration.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 239 +++++++++++++++++++++
+ 1 file changed, 239 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-index 49f51b002879..cec5c679f1a9 100644
---- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
-@@ -51,6 +51,7 @@ properties:
-           - const: renesas,rzn1-uart
-       - items:
-           - enum:
-+              - ambarella,cv75-uart
-               - anlogic,dr1v90-uart
-               - brcm,bcm11351-dw-apb-uart
-               - brcm,bcm21664-dw-apb-uart
+diff --git a/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
+new file mode 100644
+index 000000000000..34054bc56c3b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
+@@ -0,0 +1,239 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/ambarella,cv75-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Ambarella CV75 Pin Controller
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++description:
++  The Ambarella CV75 pin controller configures pin multiplexing, bias and
++  drive strength for the main GPIO banks. Pin groups and their mux settings
++  are defined by the pin controller driver and selected by function and group
++  names.
++
++allOf:
++  - $ref: pinctrl.yaml#
++
++properties:
++  compatible:
++    const: ambarella,cv75-pinctrl
++
++  reg:
++    maxItems: 1
++    description: IOMUX registers
++
++  ambarella,drive-strength-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: RCT syscon containing the drive-strength registers.
++
++  ambarella,pull-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Secure scratchpad syscon containing the pull registers.
++
++patternProperties:
++  "^[a-z0-9-]+-pins$":
++    type: object
++    allOf:
++      - $ref: pinmux-node.yaml#
++      - $ref: pincfg-node.yaml#
++    additionalProperties: false
++
++    properties:
++      function:
++        enum:
++          - can0
++          - can1
++          - clk_au
++          - dmic0
++          - enet0
++          - hsync0
++          - hsync1
++          - i2c0
++          - i2c1
++          - i2c2
++          - i2c3
++          - i2cs
++          - i2s0
++          - i2s1
++          - ir
++          - pwm0
++          - pwm1
++          - pwm2
++          - pwm3
++          - pwm4
++          - pwm5
++          - pwm6
++          - pwm7
++          - pwm8
++          - pwm9
++          - pwm10
++          - pwm11
++          - sdmmc0
++          - sdmmc1
++          - snand
++          - spi0
++          - spi1
++          - spi2
++          - spi3
++          - spi_slave
++          - spinor
++          - uart0
++          - uart1
++          - uart2
++          - uart3
++          - uart4
++          - vin_master_sync
++          - vsync0
++          - vsync1
++          - vsync2
++          - vsync3
++          - wdt
++
++      groups:
++        items:
++          enum:
++            - can0
++            - can1
++            - clk_au
++            - dmic0
++            - enet_2nd_ref_clk_a
++            - enet_2nd_ref_clk_b
++            - enet_ext_osc_clk
++            - enet0_ptp_pps_o
++            - hsync0
++            - hsync1
++            - i2c0_a
++            - i2c0_b
++            - i2c1_a
++            - i2c1_b
++            - i2c2
++            - i2c3_a
++            - i2c3_b
++            - i2c3_c
++            - i2cs_a
++            - i2cs_b
++            - i2cs_c
++            - i2cs_d
++            - i2s0
++            - i2s1
++            - ir
++            - pwm0
++            - pwm1
++            - pwm2
++            - pwm3
++            - pwm4_a
++            - pwm4_b
++            - pwm5_a
++            - pwm5_b
++            - pwm6_a
++            - pwm6_b
++            - pwm7_a
++            - pwm7_b
++            - pwm8_a
++            - pwm8_b
++            - pwm9_a
++            - pwm9_b
++            - pwm10_a
++            - pwm10_b
++            - pwm11_a
++            - pwm11_b
++            - rgmii0
++            - rmii0
++            - sdmmc0_1bit
++            - sdmmc0_4bit
++            - sdmmc0_cd
++            - sdmmc0_hs_sel
++            - sdmmc0_reset
++            - sdmmc0_wp
++            - sdmmc1_1bit
++            - sdmmc1_4bit
++            - sdmmc1_cd
++            - sdmmc1_hs_sel
++            - sdmmc1_reset
++            - sdmmc1_wp
++            - snand
++            - spi0
++            - spi1
++            - spi2
++            - spi3_a
++            - spi3_b
++            - spi3_c
++            - spi_slave_a
++            - spi_slave_b
++            - spi_slave_c
++            - spi_slave_d
++            - spi_slave_e
++            - spinor
++            - uart0
++            - uart1
++            - uart1_flow
++            - uart2_a
++            - uart2_b
++            - uart2_c
++            - uart2_flow_a
++            - uart2_flow_b
++            - uart3_a
++            - uart3_b
++            - uart3_flow_a
++            - uart3_flow_b
++            - uart4_a
++            - uart4_b
++            - uart4_flow_a
++            - uart4_flow_b
++            - vin_master_sync_a
++            - vin_master_sync_b
++            - vin_master_sync_c
++            - vin_master_sync_d
++            - vin_master_sync_e
++            - vsync0
++            - vsync1
++            - vsync2
++            - vsync3
++            - wdt_a
++            - wdt_b
++            - wdt_c
++            - wdt_d
++            - wdt_e
++            - wdt_f
++        minItems: 1
++        maxItems: 6
++        uniqueItems: true
++
++      bias-disable: true
++      bias-pull-down: true
++      bias-pull-up: true
++
++      drive-strength:
++        enum: [3, 4, 5, 6, 7, 8, 9, 12]
++
++    required:
++      - function
++      - groups
++
++required:
++  - compatible
++  - reg
++  - ambarella,drive-strength-syscon
++  - ambarella,pull-syscon
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    pinctrl: pinctrl@e4010000 {
++        compatible = "ambarella,cv75-pinctrl";
++        reg = <0xe4010000 0x1000>;
++        ambarella,drive-strength-syscon = <&rct>;
++        ambarella,pull-syscon = <&scratchpad>;
++
++        uart0-pins {
++            function = "uart0";
++            groups = "uart0";
++            bias-disable;
++            drive-strength = <8>;
++        };
++    };
 
 -- 
 2.34.1
