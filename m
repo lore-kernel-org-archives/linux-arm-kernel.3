@@ -4,107 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000FCC624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E603C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 07:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6cTYhMb2zRw6Y8e+XQksOjoym37tvoa/7IkI38NMAM=; b=q9Hn0w145GWh6kYcYkh3xu8MAJ
-	X3eEPh7aJJaIG0JyIfMxAb1BB9XgyZAa0vM/bAvQHXB4+aqSdX5Wz1aWBfx9lOkCrBnzyEhsUfFeZ
-	vHzFVwGrZXFDomMPu07T+dhh2SQ6Yu0gSqkFQl0buT46ZwIlj5zR3d3w8rkQKkqR5PnO3Nr3AoTNX
-	ME+0hzugC6kc8uKLxHAkIUqStwMBRKxn63ztr1zNZ/v2Mh+GtZzaIz1azu5Q1wqWof67gXFc3kAAH
-	pLWzJ3awLROd7preWRwJWhRmWbIJUsnYmInVt8EtBkUayrb+Y7lXFJMQ8nHFllCeWY07SgE9XbJf5
-	iPabStkA==;
+	bh=LB6s0B651lSSZ12Sdfk1hENNUEaAaUZ9od/XOsIo4uY=; b=vT6YuSDV+AxwLnYIMt49BsTx+P
+	LUj4EdUZMXtTVmFXM7OGTlpU9rmUkfnAHfZXFySQZOQ4O30sp8HHEUxEhspxh2g+D4bccAjj1rt+g
+	J8yL32RBoPZ3264HqvT4PKfytIox2faMe3qDohmp2uE88A5HcukRvseFwL8CVC+f+vSXwZOyWA/CS
+	IIpQZsatdHVOEs+hxyGlwPJfRfwfzVjicdfQXP99qJTwIOMKof7kmH0rSuckGgGjJYH/zacLVdJ4Q
+	k/v5zSCNdDcExdPfOFp8RJmekEKYlS/YLzNW2vMhN1nSxQqEjPvZvLSvJxRap7KhAMD3j3Pb65li+
+	obfdpv2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Nwi-00000001Den-1eCi;
-	Fri, 04 Sep 2026 07:02:44 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1x2OBD-00000001EXl-2iQS;
+	Fri, 04 Sep 2026 07:17:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Nwg-00000001DeJ-46P7
+	id 1x2OBA-00000001EXO-46qf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 07:02:44 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-84e84a6c4bfso603222b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 00:02:42 -0700 (PDT)
+	Fri, 04 Sep 2026 07:17:42 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 68462gm32203427
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 4 Sep 2026 07:17:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LB6s0B651lSSZ12Sdfk1hENNUEaAaUZ9od/XOsIo4uY=; b=OI8FT8WhAfwVk+ZZ
+	8T5wxyqpe708tolnXc/VTkesfR67qqX1vGQ9RxJyEyTCl2T5XFfW8RIeogaCL5Zt
+	4E/omkikXWrxxm+RLQRXjGY0OlJQ2lKWJX0g7LtAZgVjohNaB92hYZsfdUHcte/P
+	SBndiqT6076Ry6JMFdRQyA+2Yf7A2Xx9N0ugFAnnXxcUTJ91+wZlVx8as/ZggFZl
+	TmagoMORfsZZj+pAc6bU0p25PSM7HrrM0tq/Hyx/iBXiNcsc5oY0K9+La/nYnu39
+	XHaTGr8kOkiuMF9F3RftxWTB2ENwvtQAqCyEA0/kgNGd5Ouwb+M10AzzU4CyC56j
+	k3HbZQ==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gfk9215s4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 07:17:39 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1b8088203so979437a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 00:17:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788506259; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HVDFtuzxSMHZRjqLj1hovBs8Rnz1qBLtUtv5eafxAbhLePnTCyjOhhj9hnG3bfll2v
+         v6RsDu9Zt54HjCJHcFZJrrX7IR8MODupLsrFmzopjQ1imqM3n0yrVlSDu0sXVSVQ+6R8
+         06IlIQAXYDQHHp5h9iG93hgB8EzEdOP7nMbf4vD8+kJk2wW528MPQs+hKrowlD3pLNmJ
+         oeN3v5wf9Ya0jOXSBM7d5zyrnzTLhbuO0C17ddRbDZW8L7rMmagAaIIf4wZ6yjlQZ2rX
+         U9KITlXw1kYmPOlUNYBQuMXqUZy96ez5o0Xbf1GbE9eIWu+ugI8jCSU5ajJ0Eg2bwIPq
+         qZng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LB6s0B651lSSZ12Sdfk1hENNUEaAaUZ9od/XOsIo4uY=;
+        fh=stV0bM7jqbJ0GmSmGwRo4mQvpeaQgKrfuYEvkrUQYsM=;
+        b=J0Ac9wi08TzVCCeS0EC7pQdFDSGaTIPHputk/xxsfD6CFJknlbqmOqu2e6bU6K3JTy
+         blZX7LlOa08JJmD/s0xu24azKtsqoCuTMXIWhcPuaRlLcw2ORE1MA2KryJC6RIdOPpBx
+         YIYjvUT7Fs7s8Qm8LPEH2q+ez9hUB8hfprNcBhTfs64oF13muR5UXx8kPQAnr37xV7GS
+         a8jsyMfEpTaBFwrnXt2SqoPO2560d82F5Bu+9JMr2woAeXsoPyDC7ce4VpxHeNJ66fWC
+         AIQuJv2W8UVCc+IldymntNU9n2EJH0+hb7xuwdJRZnBCJ9qaZ8i3o+H7hwIU8MgYKZCB
+         HH+Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788505362; x=1789110162; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=q6cTYhMb2zRw6Y8e+XQksOjoym37tvoa/7IkI38NMAM=;
-        b=IgK28zrYuJ1uaCNvCor9NwQHNZ7ShG4YsRC+kcKLMWA0QCfBGtkgbiXJ1zFGOQpeFd
-         +oDH/Dk5qu9hXU24n7GaK5pocuvn29PlgoLZPDXbtr8F0ep2mBlthNH/oaXrLV7Ni0Ya
-         5oM8i0LEFmhrOxjkfXLJmdUtxFt9p099R3hcPON5xPyWc2lPdXKOrYBHSUYEDviQQqBd
-         Tw5jJtGe5+BB7tiEWvfQ6EEqYxu6AgXW2hX6/gUBoiuICnUKTD2ZHvUVDoGZteOsNmQZ
-         aA0Xd7kf9f60fYJXnggCkfe2Egrm9dY4dWdyaMvppDR9x8jnT0SrcNAenRSwAJHzWT18
-         UY4Q==
+        d=oss.qualcomm.com; s=google; t=1788506259; x=1789111059; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LB6s0B651lSSZ12Sdfk1hENNUEaAaUZ9od/XOsIo4uY=;
+        b=ZbmyKgOBeEb7i1UYwMsBPycYir3gzj37iMc5stXoPbz/rmKHu9gvMk9bLQzTQIj1k+
+         rTKbRZU8V1qtryWegag9iora3WOcvH/hJwRpV8RsoOBX5aAaaJjYn6rygGjL/MfCYByL
+         Zx5Gwl/68zUo4VfzllKf4xylcI1EEJIrRg+9VkdZvTz5B5dRn7JS8E0S8/CQq5meH1+N
+         u8Mv1tP9v8RrHdIASJ3Kv0T6ZYbCCl3LidDbQ33dCU7Kd/gQlN/e32dgoxIqZBxy9gQP
+         X3U/iE0OVIGkkMl0bXT0mJeVjB+hH+f0MpXane6NYelTdt5do3VieYtGz02znrj+Q2Gv
+         7T/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788505362; x=1789110162;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q6cTYhMb2zRw6Y8e+XQksOjoym37tvoa/7IkI38NMAM=;
-        b=No578LGUURwWmyuvtmUcMwTxwqsxOoN+2oTrwaUc+U/wFZkjb5ElTgUkfqA+QZnmoH
-         HIhO5wpg/8Gj3Z1AxMhaenm9teLEycxPo9JJOHsTDtVhr5dqgZGpswtWMf/H599i/xvM
-         RV0JNairEBooDn+wHKCf6WhEbUBIyyXyNhdMgfkF5fhPCkbhiqE+ZtMVYE3wic9VjSb1
-         RPSbCM37EQOlPYDjIwEAro9cDAq9yPJr0XJ/MyvaAu66ac/JrFoerr2DQq7VqMjm753B
-         eoRKOm/C1MYsGDeD62uBBgu/4pKvojuS8Qq9bqgsFQLOWPT23J93cLa4yefmJU1iIsxX
-         z84g==
-X-Forwarded-Encrypted: i=1; AKwUvByfoiGwg9SNcvyaS2U7Lk3+iln9hZXSL2lcrNdd6rLBgXMVh5UGz5Am6oYMIBbe26oso6plz/KHNPPimZa4qR1D@lists.infradead.org
-X-Gm-Message-State: AFuF++mXOghSMBnASJFele/ba4kw4Lo2Si40BKEVfj9I7pLa94faxe+U
-	CTV+w0F6gWwwLt5o4CaWEQ1x58asSaA15XbcKu+Cl2FDl3DJ362C/XQ=
-X-Gm-Gg: AYBFou1HkGS3ebfQMqX1/aPlFhhQa3TZ0qBvKHNy9FPyOh9Nv2Go/KFC1kpvuNp6iCP
-	Z92wZTdMcrGYJV8qPTqCKCsScRYFT6CGdz6juAcUddecD/3szGwF12tBRNQSIj75e1akBa41gZb
-	TMsphjzXs5tFxRzsguTlfHUDN5UutLJUsrED27+e95rCkfPUcu53oNO3HqsGjHCsSEh/E1YBfhO
-	cOsXIC4tSrdYbEz42XRa5z2jPC15GeWghInfRHUsv/AgyBTDK6zCGIHTE0hM/YjGEafn/eQlEcu
-	J6ENbvbnqtC0291KPvjgx9FFi9arkURKKw4pivnRfT7lyR7OrkMGzMhA3dCEOPVlGeKKOYwCSOD
-	TxXVtktAnYraokLF1q1Ml5ZFPMBjbYbL8++smOBTYK4x/6ajf4oUssnEnu4vQgzJ3LBG+vws0Ky
-	EZbUjbCwxpwS01E3AEsw/VhV8dREKTumeaYN6CHlrV/EIQZ40gpBLbsqooTHu/AO4phfQITr8nE
-	dsXSpjAaKCFNA==
-X-Received: by 2002:a05:6a00:3d51:b0:857:72f8:dca7 with SMTP id d2e1a72fcca58-8619c8845f8mr2621172b3a.13.1788505362292;
-        Fri, 04 Sep 2026 00:02:42 -0700 (PDT)
-Received: from ydg-Zenbook-14-UM3406GA ([211.230.25.193])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8615273e3a0sm755511b3a.23.2026.09.04.00.02.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 00:02:41 -0700 (PDT)
-From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Yonghong Song <yonghong.song@linux.dev>
-Cc: bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Xu Kuohai <xukuohai@huawei.com>,
-	Donggeun Yoo <donggeunyoo.kernel@gmail.com>
-Subject: [PATCH bpf 2/2] selftests/bpf: cover the exception callback using its own BPF stack
-Date: Fri,  4 Sep 2026 16:02:10 +0900
-Message-ID: <20260904070210.4163193-3-donggeunyoo.kernel@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260904070210.4163193-1-donggeunyoo.kernel@gmail.com>
-References: <20260904070210.4163193-1-donggeunyoo.kernel@gmail.com>
+        d=1e100.net; s=20251104; t=1788506259; x=1789111059;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LB6s0B651lSSZ12Sdfk1hENNUEaAaUZ9od/XOsIo4uY=;
+        b=jIG7zy3hUufgW1JHY1IfHIBF8Irp3KX3rOQOqnAXgB2GzsPY3fU7rA8bELQYxYoHra
+         VHsAYBvrAgMYQOJ5wT6oDwaSIbHMjlMI6fCNNwGZMTuLtXogdOnTw0CgeNPF6N4GubdW
+         6iL8VCpTDfhh8nPcP7/ctHPP5bjKY5vp7MvrkbVwRTVGd0oQsc4xvsSnCMrd/JlA+WhB
+         jRZiRhL7We7h1RtnV+HJrrm3MgSGyx8SAJR3g1dXnrYUy4oTBrDTyG+ncYDVzQH8pr8r
+         OYo1zftSTxxL1XDR9wH7YX9mwXBfhG5K/CLae6WvWbZ2ycGRBw1CqLKM5My7H4O68SlG
+         g6Vg==
+X-Forwarded-Encrypted: i=1; AKwUvBz1aQlazIlvua1W3ICfGiiSwnXegWKT/5UuI21md2ZAumC+0MOwqylFe8aJlUyCRV5ip9mY4iSFzgtU3rOpwZao@lists.infradead.org
+X-Gm-Message-State: AFuF++n7J/G+bTJfn0fMRAuEsI8Ghs3Oxc+Hrnl1M2jM0+0JP/kE923Z
+	6xd12ylliLD2edLB9cufoIChVIgt/wXHBhiVw0TuDBi3ielg7+xjmThK2oFQQxN26tlsZME8RRN
+	E7DKSH2aYp+iLKmDQH/NdxGDhoUp+x1HRBSnzjDqZEu9E2lpVIrpxTS8tn9LyPhlM/qUJwouTl+
+	4pwHxCN0HAEvE3hrwl2lSb7/JMLfF7qsXecpSwAPCxUXIRXyfNwJmp
+X-Gm-Gg: AYBFou0nccPxjPm6UqRylvoMkzEnPVz5dWGzN6f0u3o3QOSBRy6KaRqbKmNrqY1pPwH
+	WXuNwlYsyK0cJp2LGRJiR2NplyuHOb5eGP+dp65kFO6VdHspYy3jvtOkS60r4Km4ADXvCsuQUPA
+	b0R2ty3CMeyAC7cM5sEBr3LJlUncqWZko6nwUM5pGePacHu1hES9vDM1TE4w==
+X-Received: by 2002:a05:6a20:7290:b0:3cd:9f99:3381 with SMTP id adf61e73a8af0-3da39878551mr5927933637.0.1788506258726;
+        Fri, 04 Sep 2026 00:17:38 -0700 (PDT)
+X-Received: by 2002:a05:6a20:7290:b0:3cd:9f99:3381 with SMTP id
+ adf61e73a8af0-3da39878551mr5927876637.0.1788506258295; Fri, 04 Sep 2026
+ 00:17:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
+ <20260903160401.GV2133376@google.com>
+In-Reply-To: <20260903160401.GV2133376@google.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Fri, 4 Sep 2026 09:17:25 +0200
+X-Gm-Features: AcwNN1XLgC_UnHcC1VgAAx4Zjez2ZZ2qUdiBHVeX_BYEXGU9Ghy4hb4yt4Luazs
+Message-ID: <CAPx+jO9Hi2R_UnCEhsXLwf74c3RTb+RodaJ6SOVXbQX_eHt++A@mail.gmail.com>
+Subject: Re: [PATCH v24 00/12] Implement PSCI reboot mode driver for PSCI resets
+To: Lee Jones <lee@kernel.org>
+Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>,
+        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, mfd@lists.linux.dev,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Song Xue <quic_songxue@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDA2NiBTYWx0ZWRfX6l+xrdkXAhOd
+ 01uTCtN4EGCMm54DbNPCjCczK11Urd6RbRZUxAiN0bFLdaZPBXcO8pDgZ3EjQ6Pm+5VcRFdRmd3
+ LHp88wLzYDzmIavIsglyguaxjWBA+yuIEyKpBqkufFczOM+cvS4kD3MgiSq/iB3RO0rfBLfq3RK
+ r4Pxq0P6ysHaZvcxvP10FMUqul/xXOxRp/9TQtiXiImpQM27qdzroJCN8qGK95ktvDCgTpPDZ/j
+ 5npNhis3rmByB08eFURy7Lsmmc1B1qzear6/sZYnYcmhP2z28ZgTTl1JY1I7YqRrZoxLQd60b2u
+ lP+Sr5vHZqmd2KzvR6Rc6srqxwzS0aHJRAMuBFOryv3cewkNltL1nxaYTmrtRAiue4R83/0XbNZ
+ wWfUjt55WFYjqwA+RKOtX7S5g46xWfInsXVU6vUCTpH/e3QDC4u8Z56Bo0zaUPF80zRs0gib+1L
+ Je1GDtxKVZH7o796xlQ==
+X-Authority-Analysis: v=2.4 cv=Oc2oyBTY c=1 sm=1 tr=0 ts=6a9a7093 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8 a=RfyTg-q-OfOJAL476ygA:9
+ a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-ORIG-GUID: S2HHydBju7Ql4PCo721-NoPWYPTxl57M
+X-Proofpoint-GUID: S2HHydBju7Ql4PCo721-NoPWYPTxl57M
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDA2NiBTYWx0ZWRfX8j4ZVKPn3hJQ
+ 1JJ35uULU2EtSxT6Uc1P9oGi5mSxftlGKtvmxvyI1aKkQ+iii7zfEReDmqqjLMl6BM5Bvigl2dG
+ 9UHPmJgXn6rUQeHL49K6x3+0WAF8/IY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-04_02,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 impostorscore=0 bulkscore=0 suspectscore=0
+ priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609040066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_000243_022687_4EDBF048 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260904_001741_071347_A63A3286 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,76 +193,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing exception tests do not reach a callback that materializes
-BPF_REG_FP into a register. They either throw from the main program,
-where BPF_REG_FP already holds the value the callback needs, or use a
-callback whose only stack accesses are frame pointer relative, which the
-arm64 JIT rewrites to be stack pointer relative.
+On Thu, Sep 3, 2026 at 6:04=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> On Mon, 03 Aug 2026, Shivendra Pratap wrote:
+>
+> > Userspace should be able to initiate device reboots using the various
+> > PSCI SYSTEM_RESET and SYSTEM_RESET2 types defined by PSCI spec. This
+> > patch series introduces psci-reboot-mode driver that will induce
+> > command-based resets to psci driver for executing the device reset.
+>
+> The more I read through this submission, the more convinced I get that
+> it does not belong in MFD.  This is a potentially nice "architectural
+> workaround" if it a) didn't break some of MFD's fundamental "real
+> devices only" rules, of which cpuidle and reboot-mode certainly are not
+> and b) didn't require a massive expansion of what the MFD core is
+> designed to do.  I am more that a little uncomfortable with the 150
+> lines being added to MFD core support this workaround.
+>
+> My best suggestion so far would be to base these changes inside
+> drivers/firmware/psci and use the aux bus to communicate with the
+> various components.
 
-Add a test that throws from a subprogram using its own BPF stack, with a
-callback that hands the address of a local variable to
-bpf_probe_read_kernel(). The helper and the callback have to name the
-same slot for the value read back to be the one the helper stored.
+We had some off list discussions about this as well and it seems like
+we are in agreement. What you are suggesting makes perfect sense to
+me.
 
-Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
----
- .../selftests/bpf/prog_tests/exceptions.c     |  1 +
- .../testing/selftests/bpf/progs/exceptions.c  | 29 +++++++++++++++++++
- 2 files changed, 30 insertions(+)
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-index 3588d6f97fd4..639866ce09a9 100644
---- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
-+++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
-@@ -55,6 +55,7 @@ static void test_exceptions_success(void)
- 	RUN_SUCCESS(exception_ext, 0);
- 	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
- 	RUN_SUCCESS(exception_throw_subprog, 1);
-+	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
- 	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
- 	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
-diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
-index c8d716fbd419..cac4e082139a 100644
---- a/tools/testing/selftests/bpf/progs/exceptions.c
-+++ b/tools/testing/selftests/bpf/progs/exceptions.c
-@@ -212,6 +212,35 @@ int exception_throw_subprog(struct __sk_buff *ctx)
- 	return 0;
- }
- 
-+__u64 exception_cb_stack_src = 0x1234;
-+
-+/* The address handed to the helper has to be this callback's own stack
-+ * slot, not one from a frame that is already gone.
-+ */
-+__noinline int exception_cb_stack(u64 cookie)
-+{
-+	volatile __u64 val = 0xdead;
-+
-+	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
-+	return val;
-+}
-+
-+/* Throws from a subprogram that has a stack of its own. */
-+__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
-+{
-+	volatile __u64 pad[4] = {};
-+
-+	bpf_throw(pad[0]);
-+	return 0;
-+}
-+
-+SEC("tc")
-+__exception_cb(exception_cb_stack)
-+int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
-+{
-+	return throwing_subprog_stack(ctx);
-+}
-+
- __noinline int assert_nz_gfunc(u64 c)
- {
- 	volatile u64 cookie = c;
--- 
-2.53.0
-
+Kind regards
+Uffe
 
