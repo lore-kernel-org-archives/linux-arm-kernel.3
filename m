@@ -4,95 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D74C79F90
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C57C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
-	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMPoEXnM3OtMovZpLrn10CfssLu/WAJSWDMUdwze/Dc=; b=3jifqBrbYadZEqZGM+txF/YS8P
-	O3Vtnw/wcJwfEai7lfQU4zGzxF9fHNoxR9hj+9X7NRuZSEbHc3Q6Mrn4YJHVfjGcwjn7tWnvelttb
-	WKUR1rgypeD3xcFUaU+Hg/XHvXJr4iOuN5nB5rpTlSVda8NbwognJsDKEYZJMcOAt8VjgektAChwW
-	fJDwoI16yotWjs4JoWokZuSTcX2fsCANTBVO3QLvnSkHsIuqLQanKbNwE4Zu2zuC/DK7F9t1dWdCn
-	/LNb8Cz44KRk5zCxrQmbUd0ugb2uDyO2S3ZBJOuInpddCa4+TlCZEY1BSwany0MIcUld3evV8yVSG
-	rru3nY4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+BSvwniIuvPykambzZsTGS1qYLPp0Fhc1QozAdLB/y0=; b=muC8B8tTrcymWSvRtSrga1seCv
+	DCW4qK5/xxA3zYtMMQvMZN3W1QWhNtkXHHdXt6tW+jVfxYQGXfcUsjzrr/Hij6VbhFLWY+hKU7TH7
+	xBlUSWZrnd+Vl/4SbSQzI/42Pyb4aLSbzuH8hXRcHmCD6++Tyozl70lzqPH25BJsrIpzlkzeA/mNm
+	GyAZHwo61e4pcR3zYhgsI/vlFL7l21vZYrdt3QeFxGrRCMDhi37Y61DoeYZkHpz+9ogYM2x3XaPef
+	rGAhV82Djc+l9wtCoupVgA9SPEE+08EbfVYlwGC94gB9T2x00cv5cwMPiz+SUW21gdOoCdKrA83GH
+	qjxH22Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TyD-00000002C0M-2D7l;
-	Fri, 04 Sep 2026 13:28:41 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1x2Tzi-00000002Dhf-0uvj;
+	Fri, 04 Sep 2026 13:30:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TxG-00000002ANC-0ZIC;
-	Fri, 04 Sep 2026 13:27:53 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260904132740euoutp01b6e723df8c5cca308bcd9d5a13ed38b5~SISiTl4Uc0553305533euoutp01e;
-	Fri,  4 Sep 2026 13:27:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260904132740euoutp01b6e723df8c5cca308bcd9d5a13ed38b5~SISiTl4Uc0553305533euoutp01e
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788528460;
-	bh=bMPoEXnM3OtMovZpLrn10CfssLu/WAJSWDMUdwze/Dc=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=Jm7zqKuzxfGxmQ0Ro63KBOZU+6049t44TZxV5yNbfa9HQRkb73NH6cEzZ8aD68hdi
-	 Tm7DKpfNMKt53eQOxKYc6z2cYA8WCxfGDc5qGHra7FMTEtxjzavhkfrb4WW+45yRd5
-	 7poH/uWhs7lq3/KOiX/uh9yIXt3o5c9mya+uxgvs=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4~SISh3KsQY1937919379eucas1p2V;
-	Fri,  4 Sep 2026 13:27:39 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260904132737eusmtip17ccc9dc6d263bf30afc66c9b0a8643d3~SISgMdJrL2098120981eusmtip1J;
-	Fri,  4 Sep 2026 13:27:37 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 04 Sep 2026 15:27:17 +0200
-Subject: [PATCH v3 16/19] phy: rockchip: inno-hdmi: Use the common
- Innosilicon PHY helpers
+	id 1x2Tzg-00000002DgD-31vv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 04 Sep 2026 13:30:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+BSvwniIuvPykambzZsTGS1qYLPp0Fhc1QozAdLB/y0=; b=dYCaUKSPChbVOdVBCPiPoCeeQK
+	glkIh/qtwH+73L3/kHHkq4WKHBZ7iJyPRKfGMcnH1s050UMHSSG2Yh9TYI60j+GdRdBWmPjZKkOsf
+	Es9humCBPFW+EYAFz1fTROGobkF5X1b0JIHKwAAdmklQe//Fl8OFOP/kypqrh4sioXw93HYuWJd+X
+	wvziHh2+gp7zvA/HOIN42vywmafw8JW+kjuUQBiUyb1nMMSlNbGYlbXlMYmdvvNrbYecjBdsaE0UK
+	qtT+VTTV8lfdRokAWUFFvmkpiSpAnGWmkP96009X1rMGwAzQL09JwUlJuK1hj24UOwhPG8CNvi5tk
+	ogzCTbBQ==;
+Received: from mgamail.intel.com ([192.198.163.19])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1x2Tzc-0000000E8T2-2UyQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 13:30:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788528608; x=1820064608;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=grhnvhyknET3B7IdJvQibXDzsJ5N/WqEsZ9s8sa9fm0=;
+  b=hv4Oc9d3zOp1bZ7rvsWp8WDugFrGKKjDyH30SmjPgfCQdpnPYPDYlPyx
+   eyXjzTMnP4UKMTZISEJLYXRyw2B9+jJnAZ2FtCLNpVQPejCU1dvVqWsPB
+   k4/w/ycAHhT8q1vaje4rcoNSAI9RYsEDroB2MLc+PwhZP9THK0TnLPblU
+   yiddFiFvlcmEln+s2FxVRVGFUrm6H2J3aXrSFMaXxl5VBDsxmDjrloNAd
+   o/IiG8T/9x6/iN9wlxgMboa2S52jlB8tPEdO0024jgfOfEVX3ITdSYJrl
+   1K2WEQ56/MGxOHucJPkP4vTNtOlqL67MbVZQ/ZurFKXTZjKTYQzow731T
+   Q==;
+X-CSE-ConnectionGUID: My9Wh4rgSoi1Qph4LjzOjA==
+X-CSE-MsgGUID: cQUbTEXqS1mIlIKClzDQZg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="87966976"
+X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
+   d="scan'208";a="87966976"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 06:30:00 -0700
+X-CSE-ConnectionGUID: cguac88uTRmVD4kZTqMv8g==
+X-CSE-MsgGUID: 1Xy87WaxQhialAHJ1iJzyQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,262,1779174000"; 
+   d="scan'208";a="275319220"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 06:29:55 -0700
+Date: Fri, 4 Sep 2026 16:29:52 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Long Zhao <zl020895@163.com>,
+	Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 10/13] pinctrl: ambarella: add CV75 pin controller
+Message-ID: <aprH0EAx6PlQuoxq@ashevche-desk.local>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com>
+ <20260904-cv75-v5-v6-10-e918514cb3b1@ambarella.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-jh7110-clean-send-v3-16-484f9ae72715@samsung.com>
-In-Reply-To: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
-	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,  Simona
-	Vetter <simona@ffwll.ch>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,  Heiko
-	Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,  Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>, Brian Masney <bmasney+clk@redhat.com>,  Jerome
-	Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Andy Yan <andyshrk@163.com>,  Marek
-	Szyprowski <m.szyprowski@samsung.com>,  Maud Spierings
-	<maud_spierings@murena.io>,  Graham Markall <hello@big-grey.co.uk>,  Icenowy
-	Zheng <zhengxingda@iscas.ac.cn>,  Michal Wilczynski
-	<m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4
-X-EPHeader: CA
-X-CMS-RootMailID: 20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4
-References: <20260904-jh7110-clean-send-v3-0-484f9ae72715@samsung.com>
-	<CGME20260904132739eucas1p223161c8aa461d6ad18786635ab3c9de4@eucas1p2.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904-cv75-v5-v6-10-e918514cb3b1@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_062744_161076_383BB46A 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20260904_143009_042122_5DA55699 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,346 +117,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3328 pre-PLL programming, its table lookup and its recalc_rate and
-determine_rate implementations are the generic Innosilicon ones, so drop
-the local copies and use the shared helpers instead.
+On Fri, Sep 04, 2026 at 02:38:17PM +0800, Long Zhao via B4 Relay wrote:
 
-The RK3228 pre-PLL sits at different register addresses, so it keeps its
-own register level code and only shares the table lookup.
+> Add an Ambarella pinmux-only pinctrl driver with CV75 function/group
+> tables. GPIO is handled by the PL061 driver.
 
-The now unused RK3328 pre-PLL register macros go with it, as does the
-local pre-PLL config lookup wrapper; both call sites already have the
-TMDS clock to hand and call inno_hdmi_phy_pre_pll_lookup() directly.
+...
 
-The RK3328 recalc_rate used to log the pre-PLL output as "vco". The
-shared helper logs it too, and reports the actual VCO frequency
-alongside the rate, which is the value with the 1.4-3.2 GHz constraint.
+> +#include <linux/kernel.h>
 
-The register writes, their order and the values written are unchanged.
-No functional change intended.
+Absolutely no. Follow IWYU principle in all your patches.
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/phy/rockchip/Kconfig                  |   1 +
- drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 165 ++++----------------------
- 2 files changed, 26 insertions(+), 140 deletions(-)
+...
 
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 14698571b607590dc0e7a29f3b39eb9a5d4e3d25..9732c5be87717dc3ddbea1c60080952336a07af9 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -34,6 +34,7 @@ config PHY_ROCKCHIP_INNO_HDMI
- 	depends on COMMON_CLK
- 	depends on HAS_IOMEM
- 	select GENERIC_PHY
-+	select PHY_INNO_HDMI
- 	help
- 	  Enable this to support the Rockchip Innosilicon HDMI PHY.
- 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-index c3d257a0f4a65b4c475ed7246568dd463b46ed86..17229d039132e90d46097d875531eb70385b6687 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-@@ -17,6 +17,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-+#include <linux/phy/inno-hdmi-phy.h>
- #include <linux/phy/phy.h>
- #include <linux/slab.h>
- 
-@@ -130,42 +131,17 @@
- #define RK3328_INT_VSS_AGND_ESD_DET			BIT(1)
- #define RK3328_INT_AGND_VSS_ESD_DET			BIT(0)
- /* REG: 0xa0 */
--#define RK3328_PCLK_VCO_DIV_5_MASK			BIT(1)
--#define RK3328_PCLK_VCO_DIV_5(x)			UPDATE(x, 1, 1)
- #define RK3328_PRE_PLL_POWER_DOWN			BIT(0)
- /* REG: 0xa1 */
--#define RK3328_PRE_PLL_PRE_DIV_MASK			GENMASK(5, 0)
--#define RK3328_PRE_PLL_PRE_DIV(x)			UPDATE(x, 5, 0)
- /* REG: 0xa2 */
- /* unset means center spread */
- #define RK3328_SPREAD_SPECTRUM_MOD_DOWN			BIT(7)
- #define RK3328_SPREAD_SPECTRUM_MOD_DISABLE		BIT(6)
--#define RK3328_PRE_PLL_FRAC_DIV_DISABLE			UPDATE(3, 5, 4)
--#define RK3328_PRE_PLL_FB_DIV_11_8_MASK			GENMASK(3, 0)
--#define RK3328_PRE_PLL_FB_DIV_11_8(x)			UPDATE((x) >> 8, 3, 0)
- /* REG: 0xa3 */
--#define RK3328_PRE_PLL_FB_DIV_7_0(x)			UPDATE(x, 7, 0)
- /* REG: 0xa4*/
--#define RK3328_PRE_PLL_TMDSCLK_DIV_C_MASK		GENMASK(1, 0)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_C(x)			UPDATE(x, 1, 0)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_B_MASK		GENMASK(3, 2)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_B(x)			UPDATE(x, 3, 2)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_A_MASK		GENMASK(5, 4)
--#define RK3328_PRE_PLL_TMDSCLK_DIV_A(x)			UPDATE(x, 5, 4)
- /* REG: 0xa5 */
--#define RK3328_PRE_PLL_PCLK_DIV_B_SHIFT			5
--#define RK3328_PRE_PLL_PCLK_DIV_B_MASK			GENMASK(6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_B(x)			UPDATE(x, 6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_A_MASK			GENMASK(4, 0)
--#define RK3328_PRE_PLL_PCLK_DIV_A(x)			UPDATE(x, 4, 0)
- /* REG: 0xa6 */
--#define RK3328_PRE_PLL_PCLK_DIV_C_SHIFT			5
--#define RK3328_PRE_PLL_PCLK_DIV_C_MASK			GENMASK(6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_C(x)			UPDATE(x, 6, 5)
--#define RK3328_PRE_PLL_PCLK_DIV_D_MASK			GENMASK(4, 0)
--#define RK3328_PRE_PLL_PCLK_DIV_D(x)			UPDATE(x, 4, 0)
- /* REG: 0xa9 */
--#define RK3328_PRE_PLL_LOCK_STATUS			BIT(0)
- /* REG: 0xaa */
- #define RK3328_POST_PLL_POST_DIV_ENABLE			GENMASK(3, 2)
- #define RK3328_POST_PLL_REFCLK_SEL_TMDS			BIT(1)
-@@ -218,11 +194,8 @@
- #define RK3328_TMDS_TERM_RESIST_1000			BIT(1)
- #define RK3328_TMDS_TERM_RESIST_2000			BIT(0)
- /* REG: 0xd1 */
--#define RK3328_PRE_PLL_FRAC_DIV_23_16(x)		UPDATE((x) >> 16, 7, 0)
- /* REG: 0xd2 */
--#define RK3328_PRE_PLL_FRAC_DIV_15_8(x)			UPDATE((x) >> 8, 7, 0)
- /* REG: 0xd3 */
--#define RK3328_PRE_PLL_FRAC_DIV_7_0(x)			UPDATE(x, 7, 0)
- 
- struct inno_hdmi_phy_drv_data;
- 
-@@ -240,6 +213,8 @@ struct inno_hdmi_phy {
- 	const struct inno_hdmi_phy_drv_data *plat_data;
- 	int chip_version;
- 
-+	struct inno_hdmi_phy_pre_pll pre_pll;
-+
- 	/* clk provider */
- 	struct clk_hw hw;
- 	struct clk *phyclk;
-@@ -248,21 +223,6 @@ struct inno_hdmi_phy {
- 	unsigned long opts_tmds_char_rate;
- };
- 
--struct pre_pll_config {
--	unsigned long pixclock;
--	unsigned long tmdsclock;
--	u8 prediv;
--	u16 fbdiv;
--	u8 tmds_div_a;
--	u8 tmds_div_b;
--	u8 tmds_div_c;
--	u8 pclk_div_a;
--	u8 pclk_div_b;
--	u8 pclk_div_c;
--	u8 pclk_div_d;
--	u8 vco_div_5_en;
--	u32 fracdiv;
--};
- 
- struct post_pll_config {
- 	unsigned long tmdsclock;
-@@ -291,7 +251,7 @@ struct inno_hdmi_phy_drv_data {
- 	const struct phy_config		*phy_cfg_table;
- };
- 
--static const struct pre_pll_config pre_pll_cfg_table[] = {
-+static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
- 	{ 25175000,  25175000,  3,  125, 3, 1, 1,  1, 3, 3,  4, 0, 0xe00000},
- 	{ 25175000,  31468750,  1,   41, 0, 3, 3,  1, 3, 3,  4, 0, 0xf5554f},
- 	{ 27000000,  27000000,  1,   36, 0, 3, 3,  1, 2, 3,  4, 0,      0x0},
-@@ -603,7 +563,7 @@ static irqreturn_t inno_hdmi_phy_rk3328_irq(int irq, void *dev_id)
- static int inno_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
- 				  int submode, union phy_configure_opts *opts)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
- 	unsigned long tmdsclock;
- 
- 	if (!(mode == PHY_MODE_HDMI && submode == PHY_HDMI_MODE_TMDS))
-@@ -717,23 +677,6 @@ static const struct phy_ops inno_hdmi_phy_ops = {
- 	.validate = inno_hdmi_phy_validate,
- };
- 
--static const
--struct pre_pll_config *inno_hdmi_phy_get_pre_pll_cfg(struct inno_hdmi_phy *inno,
--						     unsigned long rate)
--{
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
--	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
--
--	for (; cfg->pixclock != 0; cfg++)
--		if (cfg->pixclock == rate && cfg->tmdsclock == tmdsclock)
--			break;
--
--	if (cfg->pixclock == 0)
--		return ERR_PTR(-EINVAL);
--
--	return cfg;
--}
--
- static int inno_hdmi_phy_rk3228_clk_is_prepared(struct clk_hw *hw)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
-@@ -797,7 +740,7 @@ unsigned long inno_hdmi_phy_rk3228_clk_recalc_rate(struct clk_hw *hw,
- static int inno_hdmi_phy_rk3228_clk_determine_rate(struct clk_hw *hw,
- 						   struct clk_rate_request *req)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg = pre_pll_cfg_table;
- 
- 	req->rate = (req->rate / 1000) * 1000;
- 
-@@ -818,7 +761,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
- 					     unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	const struct pre_pll_config *cfg;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg;
- 	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
- 	u32 v;
- 	int ret;
-@@ -829,7 +772,7 @@ static int inno_hdmi_phy_rk3228_clk_set_rate(struct clk_hw *hw,
- 	if (inno->pixclock == rate && inno->tmdsclock == tmdsclock)
- 		return 0;
- 
--	cfg = inno_hdmi_phy_get_pre_pll_cfg(inno, rate);
-+	cfg = inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
- 	if (IS_ERR(cfg))
- 		return PTR_ERR(cfg);
- 
-@@ -915,39 +858,11 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
- 						   unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	unsigned long frac;
--	u8 nd, no_a, no_b, no_d;
--	u64 vco;
--	u16 nf;
--
--	nd = inno_read(inno, 0xa1) & RK3328_PRE_PLL_PRE_DIV_MASK;
--	nf = ((inno_read(inno, 0xa2) & RK3328_PRE_PLL_FB_DIV_11_8_MASK) << 8);
--	nf |= inno_read(inno, 0xa3);
--	vco = parent_rate * nf;
--
--	if (!(inno_read(inno, 0xa2) & RK3328_PRE_PLL_FRAC_DIV_DISABLE)) {
--		frac = inno_read(inno, 0xd3) |
--		       (inno_read(inno, 0xd2) << 8) |
--		       (inno_read(inno, 0xd1) << 16);
--		vco += DIV_ROUND_CLOSEST(parent_rate * frac, (1 << 24));
--	}
--
--	if (inno_read(inno, 0xa0) & RK3328_PCLK_VCO_DIV_5_MASK) {
--		do_div(vco, nd * 5);
--	} else {
--		no_a = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_A_MASK;
--		no_b = inno_read(inno, 0xa5) & RK3328_PRE_PLL_PCLK_DIV_B_MASK;
--		no_b >>= RK3328_PRE_PLL_PCLK_DIV_B_SHIFT;
--		no_b += 2;
--		no_d = inno_read(inno, 0xa6) & RK3328_PRE_PLL_PCLK_DIV_D_MASK;
--
--		do_div(vco, (nd * (no_a == 1 ? no_b : no_a) * no_d * 2));
--	}
- 
--	inno->pixclock = DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
-+	inno->pixclock = inno_hdmi_phy_pre_pll_recalc_rate(&inno->pre_pll,
-+							   parent_rate);
- 
--	dev_dbg(inno->dev, "%s rate %lu vco %llu\n",
--		__func__, inno->pixclock, vco);
-+	dev_dbg(inno->dev, "%s rate %lu\n", __func__, inno->pixclock);
- 
- 	return inno->pixclock;
- }
-@@ -955,20 +870,9 @@ unsigned long inno_hdmi_phy_rk3328_clk_recalc_rate(struct clk_hw *hw,
- static int inno_hdmi_phy_rk3328_clk_determine_rate(struct clk_hw *hw,
- 						   struct clk_rate_request *req)
- {
--	const struct pre_pll_config *cfg = pre_pll_cfg_table;
--
--	req->rate = (req->rate / 1000) * 1000;
--
--	for (; cfg->pixclock != 0; cfg++)
--		if (cfg->pixclock == req->rate)
--			break;
--
--	if (cfg->pixclock == 0)
--		return -EINVAL;
--
--	req->rate = cfg->pixclock;
-+	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
- 
--	return 0;
-+	return inno_hdmi_phy_pre_pll_determine_rate(&inno->pre_pll, req);
- }
- 
- static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
-@@ -976,9 +880,8 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
- 					     unsigned long parent_rate)
- {
- 	struct inno_hdmi_phy *inno = to_inno_hdmi_phy(hw);
--	const struct pre_pll_config *cfg;
-+	const struct inno_hdmi_phy_pre_pll_config *cfg;
- 	unsigned long tmdsclock = inno_hdmi_phy_get_tmdsclk(inno, rate);
--	u32 val;
- 	int ret;
- 
- 	dev_dbg(inno->dev, "%s rate %lu tmdsclk %lu\n",
-@@ -987,39 +890,15 @@ static int inno_hdmi_phy_rk3328_clk_set_rate(struct clk_hw *hw,
- 	if (inno->pixclock == rate && inno->tmdsclock == tmdsclock)
- 		return 0;
- 
--	cfg = inno_hdmi_phy_get_pre_pll_cfg(inno, rate);
-+	cfg = inno_hdmi_phy_pre_pll_lookup(&inno->pre_pll, rate, tmdsclock);
- 	if (IS_ERR(cfg))
- 		return PTR_ERR(cfg);
- 
--	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN,
--			 RK3328_PRE_PLL_POWER_DOWN);
-+	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, true);
-+	inno_hdmi_phy_pre_pll_configure(&inno->pre_pll, cfg);
-+	inno_hdmi_phy_pre_pll_power_down(&inno->pre_pll, false);
- 
--	/* Configure pre-pll */
--	inno_update_bits(inno, 0xa0, RK3328_PCLK_VCO_DIV_5_MASK,
--			 RK3328_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
--	inno_write(inno, 0xa1, RK3328_PRE_PLL_PRE_DIV(cfg->prediv));
--
--	val = RK3328_SPREAD_SPECTRUM_MOD_DISABLE;
--	if (!cfg->fracdiv)
--		val |= RK3328_PRE_PLL_FRAC_DIV_DISABLE;
--	inno_write(inno, 0xa2, RK3328_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
--	inno_write(inno, 0xa3, RK3328_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
--	inno_write(inno, 0xa5, RK3328_PRE_PLL_PCLK_DIV_A(cfg->pclk_div_a) |
--		   RK3328_PRE_PLL_PCLK_DIV_B(cfg->pclk_div_b));
--	inno_write(inno, 0xa6, RK3328_PRE_PLL_PCLK_DIV_C(cfg->pclk_div_c) |
--		   RK3328_PRE_PLL_PCLK_DIV_D(cfg->pclk_div_d));
--	inno_write(inno, 0xa4, RK3328_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c) |
--		   RK3328_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
--		   RK3328_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b));
--	inno_write(inno, 0xd3, RK3328_PRE_PLL_FRAC_DIV_7_0(cfg->fracdiv));
--	inno_write(inno, 0xd2, RK3328_PRE_PLL_FRAC_DIV_15_8(cfg->fracdiv));
--	inno_write(inno, 0xd1, RK3328_PRE_PLL_FRAC_DIV_23_16(cfg->fracdiv));
--
--	inno_update_bits(inno, 0xa0, RK3328_PRE_PLL_POWER_DOWN, 0);
--
--	/* Wait for Pre-PLL lock */
--	ret = inno_poll(inno, 0xa9, val, val & RK3328_PRE_PLL_LOCK_STATUS,
--			1000, 10000);
-+	ret = inno_hdmi_phy_pre_pll_wait_locked(&inno->pre_pll, 10000);
- 	if (ret) {
- 		dev_err(inno->dev, "Pre-PLL locking failed\n");
- 		return ret;
-@@ -1418,6 +1297,12 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
- 	if (IS_ERR(inno->regmap))
- 		return PTR_ERR(inno->regmap);
- 
-+	/* The PHY block starts the register space on these SoCs. */
-+	inno->pre_pll.dev = inno->dev;
-+	inno->pre_pll.regmap = inno->regmap;
-+	inno->pre_pll.offset = 0;
-+	inno->pre_pll.table = pre_pll_cfg_table;
-+
- 	/* only the newer rk3328 hdmiphy has an interrupt */
- 	inno->irq = platform_get_irq(pdev, 0);
- 	if (inno->irq > 0) {
+> +#define CV75_GROUP(_name)						\
+> +	{								\
+> +		.name = #_name,						\
+> +		.pinmux = cv75_##_name##_pinmux,				\
+> +		.num_pins = ARRAY_SIZE(cv75_##_name##_pinmux),		\
+> +	}
+> +
+> +#define CV75_FUNCTION(_name)						\
+> +	{								\
+> +		.name = #_name,						\
+> +		.groups = cv75_##_name##_groups,				\
+> +		.num_groups = ARRAY_SIZE(cv75_##_name##_groups),		\
+> +	}
+
+Don't we have respective macros in linux/pinctrl/pinctrl.h
+
+...
+
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/bitmap.h>
+> +#include <linux/io.h>
+
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+
+
+
+> +#include <linux/slab.h>
+> +#include <linux/regmap.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/pinctrl/pinctrl.h>
+> +#include <linux/pinctrl/pinmux.h>
+> +#include <linux/pinctrl/pinconf.h>
+> +#include <linux/pinctrl/pinconf-generic.h>
+> +#include <linux/seq_file.h>
+
+Make it ordered, group linux/pinctrl/ separately after generic linux/*.h
+
+> +#include "pinconf.h"
+> +#include "pinctrl-ambarella.h"
+
+...
+
+> +struct amb_pinctrl_soc_data {
+> +	struct device			*dev;
+> +	const struct amb_pinctrl_data	*data;
+> +	void __iomem			*iomux_base;
+> +	struct regmap			*ds_regmap;
+> +	struct regmap			*pull_regmap;
+> +	unsigned int			npins;
+> +	unsigned long			used[BITS_TO_LONGS(AMBA_MAX_PINS)];
+> +	raw_spinlock_t lock;
+> +
+> +	struct pinctrl_dev		*pctl;
+
+> +	const struct ambpin_function	*functions;
+> +	unsigned int			nr_functions;
+> +	struct ambpin_group		*groups;
+> +	unsigned int			nr_groups;
+
+Check what linux/pinctrl/pinctrl.h and drivers/pinctrl/core.h provide.
+
+> +};
+
+...
+
+> +#if IS_ENABLED(CONFIG_DEBUG_FS)
+> +static void amb_pin_dbg_show(struct pinctrl_dev *pctldev,
+> +			     struct seq_file *s, unsigned int pin)
+> +{
+> +	seq_printf(s, " %s", pinctrl_dev_get_devname(pctldev));
+> +}
+> +#endif
+
+Does this bring any new information?
+
+...
+
+> +/* check if the selector is a valid pin function selector */
+> +static int amb_pinmux_request(struct pinctrl_dev *pctldev, unsigned int pin)
+> +{
+> +	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
+> +
+> +	if (test_and_set_bit(pin, soc->used))
+> +		return -EBUSY;
+> +
+> +	return 0;
+> +}
+> +
+> +/* check if the selector is a valid pin function selector */
+> +static int amb_pinmux_free(struct pinctrl_dev *pctldev, unsigned int pin)
+> +{
+> +	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
+> +
+> +	clear_bit(pin, soc->used);
+> +
+> +	return 0;
+> +}
+
+Why? Isn't internal pinctrl tracking is not enough?
+
+...
+
+> +static void amb_pinmux_set_altfunc(struct amb_pinctrl_soc_data *soc,
+> +				   u32 bank, u32 offset, u32 altfunc)
+> +{
+> +	u32 i, data;
+> +
+> +	if (!amb_iomux_accessible(soc))
+> +		return;
+> +
+> +	for (i = 0; i < 3; i++) {
+
+	for (unsigned int i...
+
+> +		data = readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank, i));
+> +		data &= ~BIT(offset);
+> +		data |= ((altfunc >> i) & 1U) << offset;
+> +		writel_relaxed(data, soc->iomux_base + IOMUX_OFFSET(bank, i));
+> +	}
+> +}
+
+...
+
+> +static int amb_drive_strength_to_reg(struct amb_pinctrl_soc_data *soc,
+> +				     u32 strength)
+> +{
+> +	if (soc->data->have_ds2) {
+> +		switch (strength) {
+> +		case 3:
+> +			return 0;
+> +		case 4:
+> +		case 5:
+> +			return 1;
+> +		case 6:
+> +			return 2;
+> +		case 7:
+> +		case 8:
+> +			return 3;
+> +		case 9:
+> +			return 4;
+> +		case 12:
+> +			return 5;
+> +		default:
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	switch (strength) {
+> +	case 2:
+> +		return 0;
+> +	case 4:
+> +		return 1;
+> +	case 8:
+> +		return 2;
+> +	case 12:
+> +		return 3;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+I would look better in three functions
+
+static int amb_drive_strength_to_reg(struct amb_pinctrl_soc_data *soc,
+				     u32 strength)
+{
+	if (soc->data->have_ds2)
+		return amb_drive_strength_to_reg_ds2(soc, strength);
+
+	return amb_drive_strength_to_reg_ds1(soc, strength);
+
+}
+
+> +static int amb_reg_to_drive_strength(struct amb_pinctrl_soc_data *soc, u32 ds)
+> +{
+> +	static const int ds2_ma[] = { 3, 4, 6, 8, 9, 12 };
+> +	static const int ds_ma[] = { 2, 4, 8, 12 };
+
+You have switch cases that use the same arrays, use them for both.
+
+> +	if (soc->data->have_ds2) {
+> +		if (ds >= ARRAY_SIZE(ds2_ma))
+> +			return -EINVAL;
+> +
+> +		return ds2_ma[ds];
+> +	}
+> +
+> +	if (ds >= ARRAY_SIZE(ds_ma))
+> +		return -EINVAL;
+> +
+> +	return ds_ma[ds];
+> +}
+
+...
+
+I stopped here, this driver is quite far from the modern pin control standards,
+please look around, you find a lot of new drivers there, that are written in
+more-or-less compact ways, using better APIs and approaches.
+
+When creating a driver, use also helper tools, like `pahole`,
+scripts/bloat-o-meter, et cetera. Compile with `make W=1 C=1 ...`
+using both compilers (GCC and clang).
+
+...
+
+> +static const struct of_device_id amb_pinctrl_dt_match[] = {
+> +	{
+> +		.compatible = "ambarella,cv75-pinctrl",
+> +		.data = &ambarella_cv75_pinctrl_data,
+> +	},
+> +	{},
+
+No trailing comma for the terminator entry.
+
+> +};
+
+...
+
+> +static struct platform_driver amb_pinctrl_driver = {
+> +	.probe	= amb_pinctrl_probe,
+> +	.driver	= {
+> +		.name	= "ambarella-pinctrl",
+> +		.of_match_table = of_match_ptr(amb_pinctrl_dt_match),
+
+Why of_match_ptr()?!
+
+> +	},
+> +};
 
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
