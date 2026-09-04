@@ -4,103 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1A5C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 105D2C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucsri5sJixf4tXz6IXNLl7zIlSCaXEdxrDX4k/1IHSs=; b=af/zZTfd2Lt1HO4VSLgjCZ5uIg
-	3ANni3eXF6yBDOLxlEoNzc6/shwSGhIId8dj1v1XYh/ImigGg3bLkaEo85MQXYse4uKEHNqu2fpzY
-	hHIzW4JMElo6imDfdI+q0mvOs5EjVZeLHIIPBuZgo+1FH55YWnj7lbtojJ/y23X6V0UYW7edV7uCR
-	lqoGX2x4NWGkaapHglpx7TNY6TouengDQ3UJeww+F0jp3ff3n7CfZQ9idujY3T5RZHVbIWMblKihr
-	mE7pgLoprna9sVqEVWXOPo57WWliaPAqC2nDNOWz7g/8L1RfiEh33bXRuWS7CkjsrF87Mcup+hS3k
-	PVap1Gig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wt234HiCeAzM0V3EJigjEnhRdRXBDSOf7A1g/FPjdCk=; b=cB/S62vwcOdpfrpT5cIY7I/xky
+	nb1SOgs3UC51QuWcc/Z9WLYJAj2rcRtUpaRLvrRV+FVCdpdcEvsZkGi6k4xklwUPkQKIF/+04ReHx
+	h5TkY4IN4X8tMZ8tKMgdj3FSQ053opvyVJB9s+NlvP4fduD8hlVJLkeCwGcB8TBh2lIGPFlMtz0O+
+	BiNzHZZAg/zKjEmk0el8QAK5+XO62Cje1oYeTGn4WpwX1VIQN3vmd+VYdHDwVnTLAKKRX2sokmSyH
+	oH9Yt911R18fd9YY5CirjN4syIMUze32jMIjjD7ztF0RG2rO4KYgtWfHLMX4slYPJBGkGOD2Dy5kz
+	ywXXvx/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UMl-00000002HuB-0vIO;
-	Fri, 04 Sep 2026 13:54:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2UMu-00000002HwD-1U6q;
+	Fri, 04 Sep 2026 13:54:12 +0000
+Received: from mail-westus2azon11010069.outbound.protection.outlook.com ([52.101.46.69] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UMj-00000002Htr-3lp1
+	id 1x2UMr-00000002Hv9-42i4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:54:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49C65601FB;
-	Fri,  4 Sep 2026 13:54:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2941F00A3D;
-	Fri,  4 Sep 2026 13:53:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788530041;
-	bh=ucsri5sJixf4tXz6IXNLl7zIlSCaXEdxrDX4k/1IHSs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=N1vG3o49TP/NtE32bsvsvToZj31gkeHZjIMvDXXwaLG3kN7D1qG6vqhTfzemDxrlO
-	 nCpM8qmWIoS6SdsgCCHy6ZraPVyn1ui0Ysg3mcgd9+ureVZAXtsn1l9yVzFM0Ul860
-	 5fOUFEB5hBe35xJ5mESjL8cQS7r6sHQ4/EL2aqVvISqx62VU3AaZTC180g/myK5AmO
-	 XqEQUJzJomPSqUb0AM12TQZCkTTQYHvWjCNvFVImjagu5eo3V1x6nVUijJe6tzfoil
-	 JmB9uM5DHVmpffcLF6VXpo7NzRX1fcfj2WGkxRniotN2SXrzUG+MyQJ8D8bf1sLrD7
-	 lphywYoE6Lvpg==
-Message-ID: <69308cfc-c054-42e8-93a2-acc3ac25bb06@kernel.org>
-Date: Fri, 4 Sep 2026 15:53:55 +0200
+	Fri, 04 Sep 2026 13:54:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B9npHNAKVsXghkrTZdk3J5FIqKD5jeUjfyxxpnq7KclOhR3BCZj7nDiegGYiQRFFFnh5CaAjKS4LPOCAO6AcTzkN9tNUniAkcXoklFtoflMkjRHNpL2DxVJnCueU/adKWn9QYRVHM4dz1LFmlNjnaI1vh16oph/c3t0BIyvaRozNEYL26H5Z2Bd8/RRWhvJrrTJObe6IDWEnneM/qFSO4GYo6D8ThhxbLlKhgq0O1Y9mMQESBOkvnlBtxUuxDoQRhN2NCNUhwqvRPhBx8JmzcK/LMV+QkK/iPDA+JwPOb0g4iX1d31qmsp0gVCMJH8BH//a97Jur63PubBMcSd2/Eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Wt234HiCeAzM0V3EJigjEnhRdRXBDSOf7A1g/FPjdCk=;
+ b=pPyxIqRugQJWWFwgGdk8iX7KcVBX34UE9HavPNYkrFPPb4Lw7lx7e945xT3A/E2qcUXDFtzdI10hsnUldE6VZUvX8ie1pxJvkgCUT43QB7h3XNtdGkL9MwZ6lOtSIIBZNorrChNwY0I7M3Z0mQ0rIXPgIZRlqH9olpVtA1Xuji3mK1eqiz1UHfcghixz7BofT5YIFN15QT5sme/FShDZpymd09e9TW1kUDeGj2NCcOt3WSEt7KylfPRyyGtlwEXet4uhuw0PvBM4OvowLUtr9GiFyJATeatumey3fEBzYep64Db7b+BfMSSOTW/RNLdZUm1qfmjyVmla7o/bEwvq5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Wt234HiCeAzM0V3EJigjEnhRdRXBDSOf7A1g/FPjdCk=;
+ b=ADZFan7vKkeI5f8bD6cBTcKYr7x5eah5l6gRIHpv0DdD1jYuIvXR2HJyJmOiway+Aotyv0Z1i98xg2Nv06PD+7lHmSdZF781MbSPZxKRZk1mjv/D5YDfiR0rcjDOLQ11un/lt+0xDSKZYODheOfR5y4O1zYT/bOdjPA3rNxiJp348s9JA8+ebq0IAmsgqRKGiZwPjWKelGrmOSgMTaLpMYbTfnvsySK76VuSJWrQ7z1ZTg79WaZWpccnpCQLs4BVU4jdQ1RjCOztAifzW7f2WHmdYyM9Kc5dCYV2OGmHhfQpQ4iTGbTqqbGxt7Oy9NaZexCzGEYlDTShVmgol+1CgA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by BN3PR12MB9593.namprd12.prod.outlook.com (2603:10b6:408:2cb::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 13:53:54 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 13:53:54 +0000
+Date: Fri, 4 Sep 2026 10:53:53 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260904135353.GQ4157646@nvidia.com>
+References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
+ <20260805063255.1638614-2-aneesh.kumar@kernel.org>
+ <178794567779.4159892.8785590655735217125.b4-review@b4>
+ <yq5ay0diyavw.fsf@kernel.org>
+ <20260903125718.GI4157646@nvidia.com>
+ <yq5av78mxv0j.fsf@kernel.org>
+ <20260903154626.GL4157646@nvidia.com>
+ <20260903-nonchalant-capable-parrot-539c8b@sudeepholla>
+ <20260903182152.GN4157646@nvidia.com>
+ <20260904-keen-fiery-fulmar-702fb3@sudeepholla>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904-keen-fiery-fulmar-702fb3@sudeepholla>
+X-ClientProxiedBy: BN9P220CA0003.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:408:13e::8) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] memory: brcmstb_dpfe: validate firmware section sizes
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, mmayer@broadcom.com
-Cc: Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|BN3PR12MB9593:EE_
+X-MS-Office365-Filtering-Correlation-Id: 859be903-14e1-4efc-866e-08df0a8bf53a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|10067099003|4143699003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: tbYT7pALyje9404bR5NdDxE85GaOvOudZmlau8oghZ/EPAO7CtFNRmYh6VLzEz57WMGUItvbrJ+GgHXK1dYDr9xnnZXOUY71AXQVC4c+qxbYPkArsmjCvEmBueZAXUBxRm1gtY3XI2hbgErEXx02QfKvFb/ww97sIpue47IS4lEzsLq5T/9sovGz9aax+txoTcpFW9xNs+8CQkzJlNO6omhajHMXrYMai0SJ7newMAlaCmHuhlxChArkx4s/kSazF3Dqo3yFhNbIQt9UdtHnIwBaBwBlBGw596qXaQf2Dt0FHPOxCLGauUcU+wFxFihfvM5dvX5s/zyKO6gnG14Lu5kVJn93dyGn2hUzP/FmRgFfK1Pmkr6phl/f4E/L9oZv6xO3FicikYzgbc68cgHMNu74fAQ3GZhVm+uMdkVuLUWYwfrhJDfxSuZN15ygvGzHnRhUGAr4iMiiytcB9j6Ix+HyHxGVJyCBNs3qTwhsLPRDVMWwSsVyYeNrv9D47B3qeU7Mdq6OUEPmkfYjIIfZyDAMXw4lBvIDm+Qu4Ln3MkRTuSNRHYVWXuj6WWce0mOF+IR9vawJnLrZhZf/3TrfTwcFMTQ1zqjjdr1Dpwq3vJam2q96N9BvCeWoqvxkQTK7ksUFrScIOL9AjKr03fYdrS9T54hdSpPi+2jFAAjkoyg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(10067099003)(4143699003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bRxD+tXJMiDlE1qS9TZOyyTkf0ACnUuDGIMaaBlVC/6cnmOyJwLgct5gKtH5?=
+ =?us-ascii?Q?ZCW6thMjUqmdVojH1TO4zjZy65JORRrwvRZ6i0wGcigt+ME/VXcxysKs4AgK?=
+ =?us-ascii?Q?orlVXz7Da3XYe34c0rFFFnl6es2lqZS8nBpW7ygkjk3nCDRGVqYqzfmjZni+?=
+ =?us-ascii?Q?i/0rWnZFnHlYXxzqdfvn9OXh2OnuJWUjX0gUIFFhKv51xhkVUf4ESbp7/wOp?=
+ =?us-ascii?Q?tZU1bHMjirV0g2ZigZhviowwKyhwG5NMYZiEFw6Ac3TbvZWNjP4oCm5hEWi+?=
+ =?us-ascii?Q?4GpHI6TugABzKeOvjplWvo4OZAjGKDDxBIcAHLK549aVn3B/qD7qYmVdo9mZ?=
+ =?us-ascii?Q?ZLmCjJ/d+Z0wQJHDAA5dejiNG98FBHchHjrXAYM83kPPriAvldsXvnWx6d9W?=
+ =?us-ascii?Q?l3w3NtJx4WaW4/9z4S+fgsAJWca3O8C9j37EYehQrLdWXKmB+3dsTIoWOjIs?=
+ =?us-ascii?Q?JITI7Q/j43svaLtg+NDrGbOA5mmL1oYFbpaGn17qcfJIWDKc0bDR8X3okFUS?=
+ =?us-ascii?Q?uIftSHv6MJ+0q9/od9SxLELMeyyPDz4/bldBMHhVZAo7pgQJYQNbLZQt+bCU?=
+ =?us-ascii?Q?jF5yQwfn4TryuhmbQcbXHvMcVOo0CemdWAKGy85aDQYwUwOaZnEa58ZUmiKi?=
+ =?us-ascii?Q?7e+EaOKHF4G/D032UciZeWR6cGQjkC30z2p1F/PoB4fVd7GCKmZxCe4FCJ1j?=
+ =?us-ascii?Q?bUm2rewTBKROZmP/tIAzv9TpPWAd/m23+wXDVdIDtAFstdj8CvCluZ9nuu5h?=
+ =?us-ascii?Q?sTVyX4RBoDXzShYVmdQon4qH30CRXuucZFu5LAkNBcqMne8RATuG87SsNLkb?=
+ =?us-ascii?Q?uSR6ZQCifDRzKQVMOL8gBkbUgRDItgffjOgmaPDYp5MM8jlaKG39siDlKlaR?=
+ =?us-ascii?Q?TGxFH6TUeikEVmQFuK0xsKH93gZ912sOLUo1TBYJ/zJwdl6UpFmDazkhHCgp?=
+ =?us-ascii?Q?VFKSc60HXDbqbTAwDjcl2mBLw7JhflRqbWsK9GYcvIDen2tSpRVa4Y3waijt?=
+ =?us-ascii?Q?ukkEafJZni0cwa7O0to1SXeAdYoWg8+Wu2FObBJZSm6dD+xIiHZ7kZhk4p14?=
+ =?us-ascii?Q?E0kr4XuFbangnros169qQRFOCNvGsep6NtcNMAmL/w94XJ2k7pMMC19c+s0b?=
+ =?us-ascii?Q?kO7pJGO9Aym9PMV0mUcHSE1qIO2XrCsbO15FN+lIsMlyC9qmP7yo2RoXMuLP?=
+ =?us-ascii?Q?YammNIk8ouUAi2QEWo5vtXZwO0yGYko2N7s2wSBh9+9hQv/4Y8Gc8rzOsxj+?=
+ =?us-ascii?Q?Czoar+0kpvows4iviRUHn1TJB9N7OsMuDBTR51Adm0m2Wwt8u/w+l8vYXYV/?=
+ =?us-ascii?Q?DRSG4j4Xdg67u/9PzYgObQd1bVcMP/yH6JY1IvYnZsUqNyValIQJpYtic4kB?=
+ =?us-ascii?Q?Ba2aEFKMpKwY/iUbyDoWjx50Inoo946tVko0VzDH6ECaaLm2NwjiI1eSn1A7?=
+ =?us-ascii?Q?gOJA/gvUCvqr3wtRLh4FiBxX/wd4z+NSGoYeYoZ5d2Ev79pqkhYlj0UQO39F?=
+ =?us-ascii?Q?f7ezsGREcNQnhioAEyvNClQRO0LgMply1OpauzJPFYXoplAPJx67WQDNuxvh?=
+ =?us-ascii?Q?+3tx9Xzivj+7QnHQS/nE1cErKR4oZRJl9iVMQ6Ln0YdQ3Eq3RKUJHvPGSKgF?=
+ =?us-ascii?Q?wkou4xQOIHpjr4ss1h0A3daDyy7Z8Ju5G7YUqQXIeEJOLjCk5b+SyaG010Qz?=
+ =?us-ascii?Q?LOvwtW6ZndJ77NrsyJuneA7pYWTzKkvlK5HP0k/JuXM292Rr?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 859be903-14e1-4efc-866e-08df0a8bf53a
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 13:53:54.2407
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yeXXsZI3OAODFHy/cdktSQ1P8VhbAa/WlxI//5HkWMyWk+ciVe7mCTEPslpysP0e
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR12MB9593
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_065410_007147_06BB0853 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,28 +153,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/08/2026 15:45, Pengpeng Hou wrote:
-> The firmware header is read before the image has been shown to contain a
-> complete header. In addition, the final size check adds two
-> firmware-provided u32 section lengths before comparing the result with
-> fw->size, so the addition can wrap.
+On Fri, Sep 04, 2026 at 11:02:56AM +0100, Sudeep Holla wrote:
+> > It means you can never publish a version 2 that is ABI breaking
+> > because linux doesn't check for that. Was that ARM's intention with
+> > the version API? It's basically a completely pointless check that
+> > doesn't effectively do anything.
 > 
-> Reject images shorter than the fixed header and checksum before reading
-> the header. Then derive the available payload length with subtraction and
-> require the two declared sections to fill it exactly.
-> 
-> Fixes: 2f330caff577 ("memory: brcmstb: Add driver for DPFE")
-> 
+> I didn't get that. The example above checks for minimum TRNG version,
+> so it won't break in any way for v2. What am I missing ?
 
-There is no blank line around tags.
+If ARM sticks to what they have done in other specs, a V2 could define
+ABI that is not compatible with V1 at all. (semantic versioning and all)
 
-> Assisted-by: Codex:gpt-5
+So the kernel check above will happily pass a v2 interface and then
+send garbage into the incompatible ABI.
 
-So if you ask some LLM tools, then ask them how to write correct Linux
-kernel commit, please.
+The ecosystem couldn't accept this. An ABI breaking V2 can never
+exist, so the versioning is much less useful that a normal semver
+scheme.
 
-Applied.
+If it was MAJOR(version) == 1 then it might make a little more sense.
 
-Best regards,
-Krzysztof
+I'm saying that broadly none of this version stuff seems to be doing
+much useful work. Even the more complicated RSI lower/uppper stuff was
+not good enough and they are going to follow a new scheme.
+
+I think the bus is a nice idea! If you keep going down that logical
+path the next stop is to have a SMCCC that discovers the FW ABIs
+available. That would be a good moment to take a pause and try to set
+a versioning system standard that actually works consistently for the
+entire ecosystem.
+
+IMHO to lean into the bus design I would have a discovery SMCCC that
+returns a list of supported ABIs, something like (spec, spec version,
+ABI, FID, feature supported bitmap).  There could be overlaps if the
+FW supports several ABI incompatible versions, like RSI v1 and RSI v2.
+
+Then you do a driver search and the strongest match sees the bus code
+issue a "set SMCCC" that says 'I picked index #3 behave like that
+please' and then the actual SMCC driver would use a features scheme to
+further fine tune things.
+
+Instead of versions you have ABI's and feature bits describing what is
+supported. This is far closer to how the HW interfaces ARM designs
+tend to work, and is much more aligned to how I understand RMM is
+going.
+
+It could be consistent and layer on top of what you have now without
+ABI breaking anything.
+
+Regards,
+Jason
 
