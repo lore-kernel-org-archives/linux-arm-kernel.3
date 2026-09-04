@@ -4,112 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E21C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6CE8C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:23:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a8IcWix8i7C0DIMMGLJFWrwznvm95cLdWDVTqjuXB24=; b=TtgnqT9OplOQw23XIaAA39XYA9
-	5EqFX0upgHbuvPq19NaMjtDPSRPA1sH08zGmWUf1E/9QqIKoPPksHTgtBc6s3+A8Q60irGnhlFj17
-	TU14p4QPtD2Ws2qGh+e/XmrCN6FQa+uSjxqIUBepVYw5IwU+hurpMl+nY3vaz0OyX2VKAYKJ5Nsqt
-	+9V0ZMZe8y2iN5Ue+D3hKGVYxuxMwo35GfZyGhJkvVYksOTThoEqrtY83QoQc5RNX3h2vKCiP2zoX
-	FX7uLCnPcGHsHs4md9eDRCDRHc8zBbVVj/r1q00oIga4FXyUbuaDnWWnpZiJY8xfcELuVwEOZi0Ry
-	Dc2GsKLg==;
+	bh=iW1iL8kSHNp+e6JeUDOSgn8ir6z7iQHo9QGYZV9hEbk=; b=iwzrF3crs903v8eCfB/vLm8A0t
+	+oBpE2Qdf5ISLtEolMceWH9+NeZiBI/KSV5VB+tYkPjeuGBUyxRf94ZFmJgJ4Jqs36AilOfXVSgdX
+	5nQ9LsNA3DA0WbxOa/Xx+9OPFFnev46St7ON2od3ZnFbIWOJJ0KjyJjEZaCrh4kU5MDAdUNVor+at
+	ILQ3qiOsDPodjG7JaTT1UT20TSXh3oRJaYGa/PFsa5mFhUyWyaJLFVuPEHAdmZcZmjmffXXzuRWQi
+	G9IyWk8K4jHmkbPw6Bj78BKTQAV/wUxLeVrgJ1/p2iISuBuHsoN2z/X9OxA5AK1EyhZS5PxNstO03
+	PcRPYmWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Vg3-00000002VMM-2myB;
-	Fri, 04 Sep 2026 15:18:03 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	id 1x2VlN-00000002Vww-1iGN;
+	Fri, 04 Sep 2026 15:23:33 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Vfz-00000002VLJ-4ARY
+	id 1x2VlK-00000002VwB-1pmU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:18:01 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-97622cc1f40so818842241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 08:17:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788535078; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NzUYYbF/jLN2CJh9iJ8TveLmYxEqB0brPodPo4DzkiQD623TuTER5vVN8/RC8iHuZd
-         O6x+FsHBYoUc1EOblRHY9h2WF7cuyP2s0PNMxGdcQZ1RZ0DH4r1QW8OJ2p7NsYbAKfaV
-         7RDCLAqxGBNQXhe9gQndPHpG6pNced/TXW4z+IYjIzRiLICD0rFa+lKvLipymgY6f0+Y
-         cw3tdzvTFrckQKF5LMXD0WlR9s5SF3zFNJbZfiGV4QNkRjukrVj3Mn/7mrtmI7scpp19
-         3V+OuKuAuw29wY+hamBJnkhdcLsI2PKGEiYPFy8vPrH0We8voF19gPngsb1aJlWGVgkE
-         U20A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=a8IcWix8i7C0DIMMGLJFWrwznvm95cLdWDVTqjuXB24=;
-        fh=zOOaYN3RJ3Betd4gtxlCIz+ECrllo2t+AKw5Rxnt0VI=;
-        b=B7BQPP0n2ypn1wTE3nlyKNeFAdxqNAi3ML43gp4QZIqyxVKfTvPTQFpjHXvGXvQvQ1
-         TOId05DjrrfqYOqXFghQIiyrV/R/lx1n9xscZRMNtk0rReoKlSoVncBlAUpWavLLZokh
-         8w6ZscJzV2OIsg5zV6WSDmw3owdEcmkfha3oNMrszJXHsDVkHTFWGskXClqh+DT2ga7X
-         GVIg8h4AB0nFGuzNl8gHzVErFabMqGpdeR82uJLzU6yLRgnK+D5HeP1AIJOJ8ndI0QtD
-         PzGAaEJHN3YbdZ7b7etjQScqxodaQZdRAl6xJkNT9n6L4g4XVVUIxJmnWoxdhT3W4suq
-         Xfng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788535078; x=1789139878; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=a8IcWix8i7C0DIMMGLJFWrwznvm95cLdWDVTqjuXB24=;
-        b=iIgWB9296UJagOFCdA4q2soNPOeMV3M/KOUIVStiSXn9Onn4xPs21zDUIetwtDQXt7
-         SRQyn6zKxzK0/KfRzE65HTgPPIk49JycQhmQZMJAZN7wm7IVZpqL/EkPS1OPxc+3re0V
-         xOUyRn9vyN9f5w2rxyI2ENqxWyqYKts1d0aI4+vu30EdwfcDe92UMyXvBjU9omLrTatp
-         19Cb/8540MauI2gnpuZT4w95cFKHvHfAeMuz/lNUsHbLrRiWXBd9wH4EYVZYiXoA5p+K
-         UXo5WhXQAIIsyUSxHGKrECNoKhsagELY64fZ7Y8z76ByXXDRxxqbUv5I4RkGKqgO5mgM
-         x9rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788535078; x=1789139878;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a8IcWix8i7C0DIMMGLJFWrwznvm95cLdWDVTqjuXB24=;
-        b=F0vaaCIyWn999wB5G4qnZajWDgCm+YZkYMdMY5ooSY6Wzp5qp2fpjVbS4L3W22Y0Zq
-         enRIM1bYyPmSHjSHX5TzUZYoLo+gLpUDmjcuREcQBb2HZZRFyMPggbmid+VNjyf2I/2t
-         MafugHLFw2aGyjuojGQXzII7KZBo2iz1fhCAoTUPZcJVE1CztTT4QbTghpkgxUGB480s
-         qUIxMM3xmzvejySnM2FJz0ez4g/tDHGNdoqd2ahKuBZL52eu85FYFvFc2cCZ5poJWs1O
-         q963PmSz7UDFwOk2EhnAJHnpb2YulaAG4hWlbaBYr4BbxTcfFQJJW1zW6DHZ0IGQx/Ez
-         PWTw==
-X-Forwarded-Encrypted: i=1; AKwUvBw3VlxL+LFrYsS+zQv/q6e1Yo230P07DqXSkoRaGAzT3zx6TlV1khVR+CDcs1GU5ApUGRGzIIsTE+HOb4NkEBGv@lists.infradead.org
-X-Gm-Message-State: AFuF++nXyCMQnuBopfzORh5CdeKH3v9xGgInpeYgOihfkqfmbdsPQuGu
-	u/77OgD/B9TwTbFYFLXUksS51HwX9gQSGReQitDgJeQJDqNg9dHvklGM1hKuNMcTtngXPGfVR+v
-	BalmDztHjM5ek14b0iGjOy9idlLxSvOU=
-X-Gm-Gg: AYBFou1hEkoZ/QKJ2Vo7qalXs6tMhUR59nrTcwLhu4GNtoRpxIp3O2R2/TfPPd0PfsV
-	1dkNJbsvb8cld7SHl97vZEGTmONsxcC8H9Z5ApSN3JovFroPYQQSmLKqn/CyPvRGiT3wAWYHmNj
-	dmzqq9kKt8OQ0RlFXzRDE+8vG/ilOUsavNeetoee7W93NzfNxXLbtKvd8r41548kY+ksMWa1yNE
-	qktU/3FWKkdtuaME9ZPN58d6jS2O4b1Jh8vuDG/G4ZYLTY3JpVwel1OeprZuLlbuuMUJ9gCwDWj
-	29KH+ONxuMcBlzS2mJEjurKvv4E9DApqZdCMlKjQNToynxo5s1i5jBNCPdAOiEtfLY8UaZras7E
-	MH5dIydHFD/wwLZXRuUPhffp3XttG99ppiGfYMCb0pWyNEf7RV075uJ2oP/mY+MJlu2fGVtYuD9
-	tKeJp3Qxan060jNUyjasYnHzwC33Dd3x+D+fn4PFbrxap8e6tNaw==
-X-Received: by 2002:a05:6102:80a9:b0:786:4822:308f with SMTP id
- ada2fe7eead31-78a4a9aea5fmr2343885137.13.1788535077663; Fri, 04 Sep 2026
- 08:17:57 -0700 (PDT)
+	Fri, 04 Sep 2026 15:23:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WN1sWrbpQPeuda0UCaP6pXY7VrqNRa63OmxJgJQKExeLdEYx7ckK107chPMuYt5ehIUB0XOFVpcrffcmKv8oBci+h3G9ILS/W0jxu8+iezcczMxRpT4pNrCh6v5SlEHEbp6T5W2sOv0Do0stxGLekbmeturtePVkr6axLjlEzJk7INIX6Xt5IjlYLHvHoq0Pc+UYXmZW/jsbCM15BK9ssmx/wCbscKHzZ32T20ZOIMMXKSwJ4a8DTx/ljJLH745WrWhOvDYboAiV+Kaqk7rS2aH64N+eACZyjEbEZyOpYVHpREuoNN1+dHCsK/ZgmZbV3sUDUV1mC7SZs7nUNR24HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eE/ivmwC/mKydYp2GbXEK5c0sWTCmGnKzhxo6OoupPY=;
+ b=nMuX4HPZyU//PeYHoxJku99Z/WVdpklgKhk7c+fy1BJMjbM7Sxfgvxo/vAJOaoA2EbZOfBRYKSYb/5h2TCbi9YY/PqPN9pphoDsMB7Xb1Tv2oVE9dQymtKAIJdPgOMDXuyVgojL4EJbJ6eKfR2gM2cNXwYHXHdhuPVgrgKPkfNA/R5jHvFs5pQNbhxIlZ2ViXnlqfOlmPbc1oveG9y6rG6kAd2oYubNeXGlLP32wPSejXHpva0JfwgpczXDk0sVla6vv7AqepIZPZU76mqy2bkQU1IEiikSaYDIRbXwFm4HTnGuxlUaq+rd2CcmbKigOthPXCVZmOl8bxA7ac65LtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eE/ivmwC/mKydYp2GbXEK5c0sWTCmGnKzhxo6OoupPY=;
+ b=dc3eNFft7GrXrkiyBZcNAamxUjl7urj+kcbuMKYJhIFAh8YZWuVrQF4RdzsMyQt0x7TX6VJCrGUPF/PFmYA+nKeLLAtvBzMv8cP5TeS+YvUckVgnKegadXs6nO3n4nyvDzTcs3Z9Vw3WpRMFBhQZMwxHDDBDjhxvJzayP0B1hkp0yokdSLhorLCA4Ud7N8of2yC3Pi7FGbzgdP/NwzgIt1/iIvYv1UllOjlfi9+Jt7gblyRef6ShmnuX3/rHYRC3Z7qV/bhBGwGe5ludqOFMpgDapJ+fNsgZcYD3cRtusETDFJWCd0uZjwmwsAQfMhMS6uATczmD1zRNk32GzvMWug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB7927.eurprd04.prod.outlook.com (2603:10a6:20b:2ad::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 15:23:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 15:23:24 +0000
+Date: Fri, 4 Sep 2026 10:23:15 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux@ew.tq-group.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] ARM: dts: imx7-tqma7: correctly specify PMIC voltage
+ constraints
+Message-ID: <apriY-siS9INTsEI@SMW015318>
+References: <9a916f24b610cc60e0efd13296f281e00b41391e.1788335665.git.nora.schiffer@ew.tq-group.com>
+ <aphKnnReHQed9ahY@SMW015318>
+ <090650a9be0df463b3d8ea49932cafa45c72c26c.camel@ew.tq-group.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <090650a9be0df463b3d8ea49932cafa45c72c26c.camel@ew.tq-group.com>
+X-ClientProxiedBy: CY5PR15CA0241.namprd15.prod.outlook.com
+ (2603:10b6:930:66::10) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com>
- <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-2-463853a14ad9@gmail.com> <87se3p13jy.fsf@bootlin.com>
-In-Reply-To: <87se3p13jy.fsf@bootlin.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 4 Sep 2026 11:17:46 -0400
-X-Gm-Features: AcwNN1UP0lhDRhRnmSbud-UU5EERiros9_WN1FPXC7f3fDYdM3_vq5pk0G9NwE0
-Message-ID: <CADvTj4oW8Hxv_b5vWM5pbeB3wEO-WoqhLwyinCTFPNR6wTHYmQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] mtd: rawnand: sunxi: support randomized OOB formats
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7927:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ea852ce-be57-4b88-f5d4-08df0a987601
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|19092799006|366016|13003099007|6133799003|10067099003|11063799006|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Dabj6XU/6EcAsVzsiH1k/uNRB8opuxdxu9zqXEnGqEj5tw6ib5dSg0ftdbFvOFlx+o+MoAOsjsCbtBNObZ4egmbXg6ZDRz9RgZZLx3D5n0XwfPe2d9oEFg0dATPgKQhaLUNkFKTcQ/+YZWszkvki7ZtzYGqmEBiIuk6+RTVT0rE9dQJZCUlhWwPQjfCTykL6U7PhVhal2FuhkrSICksVlri3QjqLUXjmQ19CGYt9nxKCzBjaq6Qx/bfU9l8vRc8WnwPAlLQr8ach01IZBvqrVBzqX76cR0FQdqXrjTecoPAlGC+Lose5Z0GkQVDO0aMJfttidVDVY5iXOSU3zvu68badOJ7okRxZ2Nd4wBgQQ1ltZMonhjG3Tk5lqyeAvYSHZYSaUL5X60amJe6h0wZkHej9H9nOqqedDs2KGqdmZY1dbY3MIJEkO4YqUUl445e3T3erEDw280qQ/XLsamNvmKNL8E9u3/h+lhRloZ/PaVdjTGIovxA/T5uWsYf/cXLGOTN+lPrqQDGGum/sSPSg/uQ+iIaiMKJNZ83X7gad7BUGMbjBAY4thBZ6vrAXu7BfudNBUNQ0nWB5t1J6AeoFLDNVqs0CB/p2fYE/8MJMzbc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(19092799006)(366016)(13003099007)(6133799003)(10067099003)(11063799006)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?RHBBb3+4lDzw3vtSRX0Rs3hLcdA356cQE2OGFLXyucJ04BKCRNj9KzT/uU?=
+ =?iso-8859-1?Q?xAXMaLtwRTG/sCvde7bC7qvYEs1H9fYMe6oOX8iqNI5rVxYGf/3OhjYv2u?=
+ =?iso-8859-1?Q?9Kc/r8NgbEiL7ufFCFMf/vdAcWXBje8RYAyYKydMo0me5hoQsIFt7OihJs?=
+ =?iso-8859-1?Q?F6jyO2PV6NBjhZ4/164PCjPIcpG2mPjIlZTGsyXTbwuHcDI22IfX6ioLWo?=
+ =?iso-8859-1?Q?seColSkbpdUwk3ct/9IJl6JLIAXMOZKWcB7OpkjXjZv7iCDdUn7BNIYx39?=
+ =?iso-8859-1?Q?XbWcqMEDe0ljh4gIiwScZPPeS3x9DxysHh/2pZUkgMU8b+b9/AhLlUtPAf?=
+ =?iso-8859-1?Q?swuZqRJA2hsxVYZzB+lUEh3sADamUYpwlm8vGzD3d1wfFxnf/sH+r0WxFX?=
+ =?iso-8859-1?Q?AWaDvvcZrpgLS3PXO/0tY8L2XeipnqMIrfmZnQmziHhW3iGH6M/X1IcpQc?=
+ =?iso-8859-1?Q?VpWp130mc2OHbpujTA02C1yYyoaJ10EqY97tJiEual+BZgcMtQaGFJhBUK?=
+ =?iso-8859-1?Q?8SAgPTF+o3zO+/MPWN2yfLT9N2Eg7R/HJn/W3zBMEdcAB4fzJ3SeLJ11Nj?=
+ =?iso-8859-1?Q?it6xCE6cGFOPLzFdcBa0pXVPkUB+SIks4BdsNpGz8S066SFesBBBWwErP1?=
+ =?iso-8859-1?Q?Ly9DCsksBo4gJqKh5m5rL3vnChq7XKdXvHXNlSWlcSUgjwAsMy4D03Tovo?=
+ =?iso-8859-1?Q?EppFFh2wT12C6MOFo0a+2Neg8E+J5qtwYWyXKZBIyl6oYq0d9sr/j7Sksx?=
+ =?iso-8859-1?Q?yUQ99Lm0HK9akOrTGe9xCPsFrpdODrOd+9/+22hBh5npTcszotGGw9Yp+Z?=
+ =?iso-8859-1?Q?J2m/f4rd8T6b6ywnXmMBgi9OsJ1pm743dlH4pjyP0bp+Mo/xcdInTcjeGz?=
+ =?iso-8859-1?Q?n3L1ADcwF4vWsurR7p01xAOPjrH914t4+c4iQuG1iCNxZG0HBiykTGn1sj?=
+ =?iso-8859-1?Q?twDY9aWYK9wx6SaEgq87fr7W45kwJLoDrk3PPRdru0oEOifxYQNFvXij8Q?=
+ =?iso-8859-1?Q?2Ia9NU1RVDSHhzGXo2o+Vs+C6NXZhedC+7CCJJyCj9gbG5FouwUH7K6+mT?=
+ =?iso-8859-1?Q?ArY/f40cvT4A4D2NMLQFJqvdemP6kZ6AYy5GKDF8hEQ0u/voYzSyw8Bj5l?=
+ =?iso-8859-1?Q?zKOxfFdS1DdPqosrL/ft30D/3FbMuicf8uDNwrlRuZkoXwSlES/VA3t6Zc?=
+ =?iso-8859-1?Q?gIzJEFYYQyy+B5azA0vozE8JOMUbrHeDhBRu469xQ76PNiyxn2hHksPKIG?=
+ =?iso-8859-1?Q?GRzCRwsz31sTSfJu4oCV7xntzw7g8q36yBROLYge3zfjsrykdfsxuEeZpu?=
+ =?iso-8859-1?Q?/HhwIzREJ6o0uE66c0h6i6r/C7/pXqPfaN45jUAsK30T1dx8GnILqq0vhl?=
+ =?iso-8859-1?Q?gJTDnjfNHpIa9rlMOzA76rFzjkkAlWYdsUBjgVjJ9ZWONrvAmI2ZOjJ1LZ?=
+ =?iso-8859-1?Q?Ej6ZTlXBGt5+1EdZy0DJy1haoZ/KG9b3gvU6YbgQWSlbXOVPDp1WZYx6Tc?=
+ =?iso-8859-1?Q?GKzF/jY8xA+CMmfPM0t1v1K/ArQkkO5TZmQt/yv6fO1sgrzxAApZNWDGjo?=
+ =?iso-8859-1?Q?vbFfrA5WIX36YXl+guE7PtzWmVFVT/Fqx+KMiGiqS1a794LLkVjiPY354D?=
+ =?iso-8859-1?Q?UlXDgE9e5vxmQ1ChLhRlr4f6pvsP5sqpbE2Jmzn9rkKEhl3IbKtuo4HxAF?=
+ =?iso-8859-1?Q?fyFkXbESLc0KHkAysqcBRR9ePkMGHZFrqB7iVAncOlbZNm/0/PDamwCtrb?=
+ =?iso-8859-1?Q?FsoQDWCXt1Go3kKqs5LEgI3r4T2fjoj7eYqgYhvqqIlnk/jkRtDkUIA36o?=
+ =?iso-8859-1?Q?Cwh29zD/3KYfL1LY44psjLiPf7SPN039KDsvwt0Z1RSZpMT2Reve?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ea852ce-be57-4b88-f5d4-08df0a987601
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 15:23:24.4551
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UwJ9ZELRzLqMw+V+m6TdbLgo5dscp96BwmC9hCtzfyUxvc89uZeuh56R9c88PbOS8pqtluGMVPJsIwGwEs0U3zcQoCKzzjXHgkdQExvY0UO1/IfTCVwvcUlI63DGzZth
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7927
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_081800_045285_417FAF76 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260904_082330_710246_02ECD6BC 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,37 +145,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 4, 2026 at 8:42=E2=80=AFAM Miquel Raynal <miquel.raynal@bootlin=
-.com> wrote:
->
-> On 10/08/2026 at 17:04:50 -06, James Hilliard <james.hilliard1@gmail.com>=
- wrote:
->
-> > The controller randomizer covers the bad block marker along with the
-> > rest of the OOB data. The driver currently compensates the marker bytes
-> > before writes and after reads so that they remain plain on flash.
+On Thu, Sep 03, 2026 at 12:11:36PM +0200, Nora Schiffer wrote:
+> On Wed, 2026-09-02 at 11:11 -0500, Frank Li wrote:
+> > On Wed, Sep 02, 2026 at 10:05:37AM +0200, Nora Schiffer wrote:
+> > > regulator-(min|max)-microvolt refer to the supported voltages according
+> > > to board design, not the possible range of the regulators themselves.
 > >
-> > Allwinner NAND firmware instead stores the marker through the
-> > randomizer. Media using that format appears to contain bad blocks unles=
-s
-> > the randomizer is enabled while reading the marker.
+> > I think make sense, but any document or mail list can be refer to?
 > >
-> > Honor the allwinner,randomized-oob property by unconditionally enabling
-> > page scrambling and leaving the marker in the randomizer data stream.
-> > Keep the existing plain marker behavior when the property is absent.
-> > This changes marker handling on all supported controllers; the H6/H616
-> > protected user-data placement is handled separately.
+> > Frank
 >
-> But I think the reason why this has never been done is because it just
-> breaks raw accesses, including the BBT reads. I don't think this is
-> handled, is it?
+> Hi Frank,
+>
+> I've occasionally seen this being mentioned in reviews like [1] when the
+> regulator-min/max was used incorrectly. The binding docs [2] say:
+>
+>   regulator-min-microvolt:
+>     description: smallest voltage consumers may set
+>
+>   regulator-max-microvolt:
+>     description: largest voltage consumers may set
 
-From my understanding raw access bypasses randomization entirely.
+I suggest create patch to make it clearer, and check what said by dt team
+and Mark.  If they agree your change, we can refer it in future.
 
-When writing the SPL(which does not use the same layout) we use a
-pre-randomized image.
+Frank
 
 >
-> Thanks,
-> Miqu=C3=A8l
+> which is not as clear as I would like... Right now I don't have a source that
+> feels definitive enough to include it in the commit description.
+>
+> Best,
+> Nora
+>
+>
+> [1] https://lore.kernel.org/all/7b23de30-06e3-4f02-a8a5-90791628ceed@gmail.com/
+> [2]
+> https://www.kernel.org/doc/Documentation/devicetree/bindings/regulator/regulator.yaml
+>
+>
+> >
+> > > Update the configuration for the TQMa7x's PMIC and also add a comment
+> > > regarding the PMIC's VCC_SD switching feature.
+> > >
+> > > Fixes: a80a1af6ec8a ("ARM: dts: tq imx7 common board support")
+> > > Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+> > > ---
+> > >  arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi | 40 +++++++++++++----------
+> > >  1 file changed, 23 insertions(+), 17 deletions(-)
+> > >
+> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
+> > > index e1f740edfb763..7f49c80fef4c6 100644
+> > > --- a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
+> > > +++ b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
+> > > @@ -46,8 +46,8 @@ pfuze3000: pmic@8 {
+> > >
+> > >  		regulators {
+> > >  			sw1a_reg: sw1a {
+> > > -				regulator-min-microvolt = <700000>;
+> > > -				regulator-max-microvolt = <3300000>;
+> > > +				regulator-min-microvolt = <1000000>;
+> > > +				regulator-max-microvolt = <1225000>;
+> > >  				regulator-boot-on;
+> > >  				regulator-always-on;
+> > >  				regulator-ramp-delay = <6250>;
+> > > @@ -55,34 +55,33 @@ sw1a_reg: sw1a {
+> > >
+> > >  			/* use sw1c_reg to align with pfuze100/pfuze200 */
+> > >  			sw1c_reg: sw1b {
+> > > -				regulator-min-microvolt = <700000>;
+> > > -				regulator-max-microvolt = <1475000>;
+> > > +				regulator-min-microvolt = <1000000>;
+> > > +				regulator-max-microvolt = <1000000>;
+> > >  				regulator-boot-on;
+> > >  				regulator-always-on;
+> > >  				regulator-ramp-delay = <6250>;
+> > >  			};
+> > >
+> > >  			sw2_reg: sw2 {
+> > > -				regulator-min-microvolt = <1500000>;
+> > > -				regulator-max-microvolt = <1850000>;
+> > > +				regulator-min-microvolt = <1800000>;
+> > > +				regulator-max-microvolt = <1800000>;
+> > >  				regulator-boot-on;
+> > >  				regulator-always-on;
+> > >  			};
+> > >
+> > >  			sw3a_reg: sw3 {
+> > > -				regulator-min-microvolt = <900000>;
+> > > -				regulator-max-microvolt = <1650000>;
+> > > +				regulator-min-microvolt = <1350000>;
+> > > +				regulator-max-microvolt = <1350000>;
+> > >  				regulator-boot-on;
+> > >  				regulator-always-on;
+> > >  			};
+> > >
+> > >  			swbst_reg: swbst {
+> > > -				regulator-min-microvolt = <5000000>;
+> > > -				regulator-max-microvolt = <5150000>;
+> > > +				/* Not connected and left unconfigured */
+> > >  			};
+> > >
+> > >  			snvs_reg: vsnvs {
+> > > -				regulator-min-microvolt = <1000000>;
+> > > +				regulator-min-microvolt = <3000000>;
+> > >  				regulator-max-microvolt = <3000000>;
+> > >  				regulator-boot-on;
+> > >  				regulator-always-on;
+> > > @@ -95,18 +94,25 @@ vref_reg: vrefddr {
+> > >
+> > >  			vgen1_reg: vldo1 {
+> > >  				regulator-min-microvolt = <1800000>;
+> > > -				regulator-max-microvolt = <3300000>;
+> > > +				regulator-max-microvolt = <1800000>;
+> > >  				regulator-always-on;
+> > >  			};
+> > >
+> > >  			vgen2_reg: vldo2 {
+> > > -				regulator-min-microvolt = <800000>;
+> > > -				regulator-max-microvolt = <1550000>;
+> > > +				regulator-min-microvolt = <1500000>;
+> > > +				regulator-max-microvolt = <1500000>;
+> > >  				regulator-always-on;
+> > >  			};
+> > >
+> > >  			vgen3_reg: vccsd {
+> > > -				regulator-min-microvolt = <2850000>;
+> > > +				/*
+> > > +				 * Specified values refer to 3.3V operation; voltage for 1.8V
+> > > +				 * operation is derived from this.
+> > > +				 *
+> > > +				 * The base board should usually mux GPIO1_IO08 to SD1_VSELECT for
+> > > +				 * automatic switching of SD card IO voltage.
+> > > +				 */
+> > > +				regulator-min-microvolt = <3300000>;
+> > >  				regulator-max-microvolt = <3300000>;
+> > >  				regulator-always-on;
+> > >  			};
+> > > @@ -118,13 +124,13 @@ vgen4_reg: v33 {
+> > >  			};
+> > >
+> > >  			vgen5_reg: vldo3 {
+> > > -				regulator-min-microvolt = <1800000>;
+> > > +				regulator-min-microvolt = <3300000>;
+> > >  				regulator-max-microvolt = <3300000>;
+> > >  				regulator-always-on;
+> > >  			};
+> > >
+> > >  			vgen6_reg: vldo4 {
+> > > -				regulator-min-microvolt = <1800000>;
+> > > +				regulator-min-microvolt = <3300000>;
+> > >  				regulator-max-microvolt = <3300000>;
+> > >  				regulator-always-on;
+> > >  			};
+> > > --
+> > > TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> > > Amtsgericht München, HRB 105018
+> > > Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> > > https://www.tq-group.com/
+> > >
+> > >
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> https://www.tq-group.com/
 
