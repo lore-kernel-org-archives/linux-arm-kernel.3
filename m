@@ -4,142 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E77BC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 19:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11650C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 19:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
-	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jq+N4vLF/G7AxjCjoqdYp5jWLK188h74X4O0OL7DkKc=; b=PzDmbh6tb214Vr8wV6L89l9MQp
-	mJDyzT0MbOoeNGibanxWGVC33yVYUbJLE2Jjv9OUJ+sQXQxehR/UA3HZKehtXDgFTV5RN1Ia0pVd0
-	FjCyR0m6epP+3E5f1pxLkpu5IjNT/HsAW+UGVCDPQ1AXwdM6ac5rOFWLNdkmJQHGA1cSpNJOdfZVw
-	j0v100o7xdEULIbO5DWerKGF7ioFW9jZoMZLjqK0J1CSKT4glf20pqWMq9/o4XSGVwEfaUzb0gW6O
-	Vch7ThFuLjoobNgj6A2E+x0cuKnWOUq75UBQ34CmK5+PPigPR0egHEFkkOxMH3HUaRWd5D0T7pV/j
-	NGwfvLrQ==;
+	bh=t9kPiXnFYja0TaA3Fv1fam8HrPrCv5WaiJ5ki+auGng=; b=R+JCXq0kGs8ws2t81PgT+QVnUr
+	bkNo7Ca2Z3W3CjXqvKvysv1sbL7JiY7FQH+w0a/sKjs6Srqq4OPVFkb5Rh2QsJoP0kppScyR1xquI
+	Tirl2EsaumP92q8brFy77n5423AbRfeOx7cHZRWz2B66HeHgINIvasGQhzARA5sdnJm9/fY2c/KD4
+	gc2prWycSu69ony0n+78AvO4aG+1B2V0wfd1mA5ITnF96OH7S8rCwApLpGrVe95VeqZk9IdbAkMJt
+	TkvVo1fhpflhjqJ8rW3OoXQAN4Q4mgjPij2ID23zVO38ansKK8gFETDCqp7Z9Mt5Jf918eSgfqJ9u
+	8gWhbcmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Zld-00000003BG1-1VBc;
-	Fri, 04 Sep 2026 19:40:05 +0000
-Received: from mail-northcentralusazon11010022.outbound.protection.outlook.com ([52.101.193.22] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1x2ZvB-00000003CZv-2Gmw;
+	Fri, 04 Sep 2026 19:49:57 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ZlW-00000003B8Z-265n
+	id 1x2Zv8-00000003CY9-41rc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 19:39:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=paCZU5EQ0+S2XQ9FrGaNWou2NICMXHd8BgQSWdZ/rt/S+YU2ovUKNtiJby0MT1s7CSjA+lc9ZW8R6ts1U8WgzJyZxqvd4sET5lDemwbC1I2VIAwj0/1508gILP+J6KSoZZeSRv6sQL8UOCpKvWJqTbsbp1UFeWmV4S/ILnUUorov/UXKrnQx9JviySXSfNdfr5kCOGl6PO8atqerqZeBjiXlo6rJLf8s7Xa1VhpPwfAhwrIxuZf6Yk4GwrAM5ZvEFDf+65nQeUmtxiCJPkOO87WrE8pYBE5TnLp9JW5o/mcLwgpxHqzrb7VDRYk11XYCehGiZT7fT8EH1JUC7qcucA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jq+N4vLF/G7AxjCjoqdYp5jWLK188h74X4O0OL7DkKc=;
- b=yCwMxQdGF/C4ra5/zqpDHz64/Gczrf+LEpHw6CCUX3rw6YhdP6wcb5pmANUnVQn5Fz8l5bevVe4gJI6m2hYU+sL4nJU0aoXTodHRsHID2St+vpotJWKOju9UAcW4i2XlmWZlWJ4L7XHqQG/iMjf56WlK8TLg7cpf0lZrc/mZBDjqqv5Zn57GEbm4T/AGh9vxat7L+ejIj5Z+FfTYYkVUG2Jh4jL2jUr+BrqSX3alJrnVMZEvQ7Ps5VRd/KATBkb0N4Al0XcER8I+PXqfqa2ZQs7K0V/7rGuXGCuebqDPfQ0nTxn+dKhzU+OU3F/AJ6TpO3ehySbStUsqAOCWZ6tGEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jq+N4vLF/G7AxjCjoqdYp5jWLK188h74X4O0OL7DkKc=;
- b=HrHHRhodvD8h+GbfqEedNFsY67eAZ4nrBWwTUFCwcanTS3KUUnL+F9ZPTFYuNiAn6zLzJQSydMNyECXWLNlRAntWXlTZf99KZO3DYeBCW+Z/+TJCOYqFGSPN8Ocv7qyEjlOIdqXZHW2hDGTIKPBJyPJ3fy+Uo0aENdEL3WkQPr73Fj05PTV4LfGVfO6t/ZMBspj2iAzDT1FsaSUILMVxlQ0QOkIpVO7Q3/CwuAuKa5+aWPr+AVeDLy+IveiW4GrN4R/Ig0WZ7BnHeOP11HkTy9fagV+cObjtMoudM7Gmg7LjyXIIzYyQUNIiVsSV6mdr01XLVC+oEDyz0Mo0qcGstQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH8PR12MB7375.namprd12.prod.outlook.com (2603:10b6:510:215::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 19:39:43 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
- 19:39:43 +0000
+	Fri, 04 Sep 2026 19:49:56 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1788551392;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t9kPiXnFYja0TaA3Fv1fam8HrPrCv5WaiJ5ki+auGng=;
+	b=tVWtVHW0ZeXN31E9KQgHkWz7KBNDJKy3pQ3XooH4GfStsHTHFsi8g0AR8q4zRzn3whVAoH
+	EVG+zXPWYhyRU7Yktd+LEC/4FG6CzJcOCQXO6zXTYcAdhZxxZwjZxaEovzcbkyU/L8q3X/
+	fx3kHwcNZIKTXc9SuVHqtOO0TeVnh7g=
+Date: Fri, 04 Sep 2026 21:49:34 +0200
+Subject: [PATCH 1/6] dt-bindings: arm: cpus: Add Apple A18 Pro CPU core
+ compatibles
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v10 7/7] coco: guest: arm64: Replace dummy CCA device
- with sysfs ABI
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>, 
- Jonathan Cameron <jic23@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>, 
- Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
- Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260904095000.1184861-8-aneesh.kumar@kernel.org>
-References: <20260904095000.1184861-1-aneesh.kumar@kernel.org>
- <20260904095000.1184861-8-aneesh.kumar@kernel.org>
-Date: Fri, 04 Sep 2026 16:39:35 -0300
-Message-Id: <178855077573.693280.8986222782617548173.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: MN0PR03CA0029.namprd03.prod.outlook.com
- (2603:10b6:208:52f::34) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH8PR12MB7375:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8ae90c5-4eeb-4fc6-3e12-08df0abc430e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|4143699003|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 3il83oEqxfAKEWYgMkPZgFvupBIi2Ji4YNQjFrusLNpEHElazvjWvK7UTQdscVCZLQJ443eInK5rd8fTRbYpsNXE3MdoYk/YlcPFXivG4OuMWLRDucJq5SWOzBjj7eDHJqtCp0uNZC9bxt4AMTJZEHnJ0PFA0yG3Iudl6OSpv/AKrWIE3gQ3GM4Hm7mmZs1aSCKl/fasueGk9GW3LP3lczrPvDQNQRzpFc7WciuUDeD7IQNsUkkqnWFPy2O5l8t0J2m54zEK/LE7C4yJ3NbyTUGpQGlJx+Myi5BlMHtZMCmneuowCb9rruxKFCrFqdiX8uiREcYkt+Vldklv1QH16iJAjpOLNjDRve3LMeEkg5XyrolhDW8EHEnCsVGjg0ewmT0sL6P5Qjz2+vH4l8z4tRSPtDkIR/EAvb5KX+c0d+N8mXtIXComEQkFxTJEP3WMoudx4mesFP5EqG8NcdLWNXJxMSPSI7De7EoekVfg38rOR6jZiDq+HOpyh5i65FcZsSilGXgGTw9JnsefyLqLxGSzmwse31n00lHmQ2kCAri6sCaj/V3vum3+V4Qt09j3+XFixTcwrIeqITX28v4WQWheWHTqYypwVBAaCtc2NPBUHhRPecNfhJ2p4RTAy2by1kqFwMSZWCziSeT5VE06lKhv2TQAuxZ1R4OoFBLLPV0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(4143699003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UnFRUVZaYjZ3cjBlaGNCTWZNemxVVzhQaXlVK2hRY2hBTkxsdXBMd1RMUEVw?=
- =?utf-8?B?dFJzQU5HQVQvekc2Q1AvK21vaGF2OWloQkJDbG41c1pOU1FjZXRsT1VSbUxn?=
- =?utf-8?B?aXZkMGpOaUVXdGhMWjdEMjlFUEQyRklVL1djMUNBTUxPM1pjWFlnSzNpUGR6?=
- =?utf-8?B?NDRPUHAwdExXS2Q2N1ZBaVNzSytINlE3SS9WeTk1N3JmcVdwSnFzaFYvdDcr?=
- =?utf-8?B?Z3VLWHd5Q2ZOMDdmOEpub2UrY3ZnVUJEdlkxeE9PQk14SE9EVGR3WGpLbjlK?=
- =?utf-8?B?YWYycUdRZzNsY1hOSTBGb2p5bmZkeTN5YTgwSU9QdTUvaXRjZnRMVnErWmh4?=
- =?utf-8?B?MEZlZFh6RzNpNW03YUlmK0JNWUJ5N2JDekJ0SGFwOWJLdUlyZmZVVzJndVph?=
- =?utf-8?B?RjAxNkpDRzNuc3BBR0p0ZWJWZUJRWk1qeHRPaERBVUtQUllCdFhNdjBDdDR5?=
- =?utf-8?B?dnVsV1o4NGEyQVdSUStWaXVIRkVndVFLUU9JdUV2S0FyMGVKZlk0YkdNdzRN?=
- =?utf-8?B?L21nS1F1TjZ3bWhQdFRkOGVNNGhOT1hTR3NLQSs2VGtnLzJ5OHduNWliWTF0?=
- =?utf-8?B?UVF5YUtad01lWUErUlRpTlpFTk9XSUdyT0g0Mm5uVmljdWtDTm9IbmhjUndH?=
- =?utf-8?B?SHBpOElGVkFXT1QvT0h6MVpWWUo1emxvT1lkdW41aHF3SWpveVUrU1FOcDFG?=
- =?utf-8?B?eEN4ZmpIaVE4aTJSSFlxVFQzdHI1TzJLalFPckF1V1pUeGcyOHlZS3cvS0xX?=
- =?utf-8?B?N2U4aDFYV1gwczFlN2RJd1pxMFl2L29XVjIwczRIWEIxUDVrOEhsMzVDU0RT?=
- =?utf-8?B?NENsZWlnejVISkJWdmwrTmkyNkM2M3NSZnpnbDgwVWg2enIrb0xuV29zcFYx?=
- =?utf-8?B?OHdUdXlMaWQrUHhqK0F6cHJyR3Bmd280R1FJUzd3Zkh3ekYySzJBdWo5TjlQ?=
- =?utf-8?B?UWdCVmNHSm5YWGhrUW5NekpsMm1uMDJNRFI1ZDZUTnduNTJjcmdJbTBmSnFS?=
- =?utf-8?B?Y0p4dlA2QWdrSWI3anlUZDlPdEtPV3RPSFVHVnB2eFZBYm93OTJHRUp1VTBN?=
- =?utf-8?B?aFVEaTRGbUF1NTJFbkkxS1JBOHJyTmRMWkVvd2M0MFVyVGlPSXpXWjBpbGY2?=
- =?utf-8?B?MjcxaTgxY1dyWStQdGxEYkJ3dXphc0tWTzFrdjZGdWVpWWdTMHloaFl3S0Jz?=
- =?utf-8?B?TVFTZXJ6T21LS2dVcU9UME5POVNsZDM5WXk2REo2L0hsUWFHSC9ISUQzM2wr?=
- =?utf-8?B?b002M2dXek5lVEgwTlh2TjZVQTUzbTROV0VwUUNTSGNSL1IwOWFrVjYvcmtJ?=
- =?utf-8?B?Vk9tVkJjQ29kVW9pSE5zdmpNZzBtWUVnV1Nnc2ZRNlhzS0xiYVJiSnh3MGVY?=
- =?utf-8?B?Y0xwZjFQQ2RkK3lWckU3d3NYeW1pd0o0dFhiSG8xbCtNSmpnZEM3OU1EdDBS?=
- =?utf-8?B?VVMwSGdGMUwvK1pUYndhd0hOWjEwUW1ZOThTRnVEY0tQMU1rbDREUW05U0F3?=
- =?utf-8?B?TS93UFZHVEN1UHpZTzV2ZzRqcWNCeXJrNzNseGpwTEtObC8vdlh3OWZYQ0Z1?=
- =?utf-8?B?WXl1RlduVTZqTlFpSXl0RytSaUlLNGtDSzJ4ZjlCWkNPZ3JQSjh1TUwwQTRG?=
- =?utf-8?B?SVRSQ1cydU81RjBlT3NmM3d2b29Sc1J0MkJ0ekFvL2ZoVGJTcThsMEM3cXEy?=
- =?utf-8?B?WnBKQnRBQk5YTk84a29tSkdGNEowQUJxeUJmUHhhZkVCL2k5aXkwLzFybWFU?=
- =?utf-8?B?NzVrNkpzRmVOK1JhV2U1OGpwMzIyR1JxcThLZko2WVNXZVpQNmJ1UmtuaWpB?=
- =?utf-8?B?a0FGV0U0TUpBVy9jcjBCMHU5YzROQUZ0YmtNZnMrbzl1ekhlb0RiSmlqUW40?=
- =?utf-8?B?VXFKZElkNnNhZVdUWkF3L25hYW8wRyt6Nml3V2lQRXF4Y3NXQU94NkZQcFh3?=
- =?utf-8?B?aFlxVEJncU5YbjNzaDV6S3hjYnJsWllZQVhReFNvbmpwNWRqcm4yZEFab0Nj?=
- =?utf-8?B?cU5pbEYrWVdVQnp1Zkc2c0QwYTJJeHd5d0Y3K0lsTXNzZWlJaUhaL2JGMDFi?=
- =?utf-8?B?V2wycWozZGxPRkVrYk5rbmFueHJTWW52OWY5N2hzRWs5OG5MZGZWV3diUFU5?=
- =?utf-8?B?elVvNGllUFc2cEs1dW12bzd5ZysyWkp2OVdieFJ1Z2dKTlArVFFyVzZJQ0VR?=
- =?utf-8?B?cDk2OGxGY0dtVk9MajZtUm1sVmZSeFVmSEZhNHpUeWFoVFpGUVpJemJJWW10?=
- =?utf-8?B?U05wZTUycUhFYUtYNlI3VTFTdmcwam1VYlRUN1piWnNsZ3phODV6NVpuUFVR?=
- =?utf-8?Q?83g/4NXS4mtYVvGJnM?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8ae90c5-4eeb-4fc6-3e12-08df0abc430e
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 19:39:40.7837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wA4T5hVcZWWUOabt5uDwCaJOR58Bgs2zpyXdG7bk06tiEQ/pbaSMToxTBNb4f7QO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7375
+Message-Id: <20260904-apple-a18-pro-initial-devicetrees-v1-1-0c25401d165d@cyberchaos.dev>
+References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
+In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Hector Martin <marcan@marcan.st>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_123958_553351_E06934DC 
-X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-CacheID: sfid-20260904_124955_239410_2D7F2B51 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,21 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 15:20:00 +0530, Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org> wrote:
-> The SMCCC firmware driver now creates the arm-smccc platform device and
-> instantiates the CCA RSI auxiliary devices once the RSI ABI is discovered.
-> The arm64-specific arm-cca-dev platform device stub is therefore no longer
-> needed.
-> 
-> However, userspace has used the arm-cca-dev platform device to detect Arm
-> CCA Realm guests [1]. Removing it without a replacement would break that
-> detection and would also leave userspace depending on kernel device-model
-> details.
-> 
-> [...]
+Add "apple,tahiti-e" and "apple,tahiti-p" compatibles for the A18 Pro
+efficiency and performance CPU cores respectively. As with the M4 cores,
+there is no longer a generational codename, so we assign the core
+compatible based on SoC codename ("Tahiti") plus core type (E-Core /
+P-Core).
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ Documentation/devicetree/bindings/arm/cpus.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index c3facc98bf83..9c02cc7e4b37 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -95,6 +95,8 @@ properties:
+           - apple,mistral
+           - apple,monsoon
+           - apple,sawtooth
++          - apple,tahiti-e
++          - apple,tahiti-p
+           - apple,twister
+           - apple,typhoon
+           - arm,arm710t
 
 -- 
-Jason
+2.55.0
+
 
