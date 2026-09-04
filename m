@@ -4,138 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAA9C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31966C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:42:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DkYiYQEmsKUKMldVvgru1nQDZEkS5hGNscE+JYaTVU8=; b=h+G1Wvwyl0tgd6vgxvWae+0o60
-	yDYhx1FymUwr0vsZ6sjIBFuKw1WiEet/nHMHWHlCA3x8Hp2oQanBivUYhLi3lRFdzq+mwEIbBy7Ob
-	3rUfy2m/9rgLAnM1RARJYV4bHiGqpD84illF19gxIT1jllqst+vB+mCsCq+1GqIfT4HgepmjMugHI
-	WNJVCFG41b0nquJPahzxcRHPzaoynGikNzwC6ODFFPRd/HAFfDkWho3qs/zGk3dJlz3VIp9nEWWpT
-	4+jr3jNrgc+kqAnL2pl1vWhHXnNLWKzHN9WXnWaiTaR13b7xEa/wBwTdZ5b/Qy2peMyeVl09xBrRq
-	K9FVtI6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NOL5R0SJrxWsGHji42XgvQwAqz+BPG+L9IvuYCKkAns=; b=c1fkjQGp3wH2OCpPEp4FGOUjWy
+	/KRG5GsWpc6MygKuFmhIqV7wtT/zjyjnxemLxMSqtCvQwXgerbi4wKR3ZYflsUkhk6nAvsmAzG6JV
+	EQjF5V4MErbdT7rLYwDZT6OSyd1Z6pzn9Zb5yt8LF6ETlPlkxq8XJIAaZYtJYIE6d6nr+P5i38xb4
+	3sdevwlvs8vvfIZmGLALgKe3NjvqjR+7OAcg0GM1ZZAU9TEvo6DEpnFJe3VDxU+TVt8spvf9Ywmbx
+	ZvmMFANOA+ha6a49fzWMYjyIrTSeiwtOqAOrGfvZE0Dot08ps3XwLZPxoA+VgrPfDqKTqPqoU6jHf
+	NLSosCYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PTH-00000001P3q-2m1q;
-	Fri, 04 Sep 2026 08:40:27 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1x2PV1-00000001PPT-103F;
+	Fri, 04 Sep 2026 08:42:15 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PTF-00000001P3D-1VzJ
+	id 1x2PUy-00000001PNq-0l41
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:40:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ly1NFnXei/RnPvd8rhmnMArcEFS9FN5zLuowKU9L3H5Ch/x+xRHaLM/n5a703uJGzmwTx9TdB/o2ZYnxfR+N6KRgGr+q92GRW48Pb0RFf9W/U8aNYFPVYhu7BlcJy0nAZrojosqzk/r2MEYYtm8ccnOh8KkAUbPY3/1zRqr/NuSeSfdVU4uve1cRlEQ30PDd03aqj3v18UfUcfH0HXWAuXGNk4SNaD7nUGelIE93Vt1jKj0GLTmUP1PbfUbAAE2I6CZkBYjAfkMwk7rI8Ssq6pJMkJg2/96L5hplSxY1MQR2YTOgE2CY0MCAmwMZhmVjeHWuW5JsAEI85KvlLYzrsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DkYiYQEmsKUKMldVvgru1nQDZEkS5hGNscE+JYaTVU8=;
- b=A+AUmrY8sP3PR7yLwZYx84psVbeu1It9nwj+RHv0uACuh85xOYYbtMhumfLIByNrpuIm9cmeHSWafcrN20SA/qOWLcQrqnNnyb7KQW2qbyCUnPtERNUjfe/oaw8klvuFgNbcjj7n0FElPBdfcoz8CrbhFaoSArTUua8yeJrkPYYSeksHppFJBz14uSPzaU77KMheEA1ZrX9q/Jv84HIGCuOlXcU7+7iyLwze6xm9Js/8mVOGnks7PCSVcOj1lD/0+kwgYtlIgfnn3wWS4XM5j/5kWQBqJZVkTma9O9PXz6h+hbSamsD2J8XJKT57VsJ3ntVTfJgk06pbrHj/nfG0xA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DkYiYQEmsKUKMldVvgru1nQDZEkS5hGNscE+JYaTVU8=;
- b=shhGinkk6R8BFp62Gdb5xefinJt3yqWXZTrT+ssPNP4BFstagvzI6Fom5ClxqcE68M8o2zrcE0P6tJ/G5AopoM3Ae0IM5WSe2tE0SuJDaGOaI24QJm8uJ7CkEQ+C5xlEiXhFyAMS5eo/VLpXUhSoqdjMTRSuYiqv/sU8cnKood1BmrgkLURVUYcDLGIfBsQBvWlSG0EkohJwxviy09pab7JTChkS2460J2V5RXgP2arp6M5n8GKhRO++ccnsM4gTjn2siVIItLerf3RP5XZF8ZI7sdhVpucJghPIcQxnhrYUECyJKH0uRtlvAOI/NtZUfGQ8tqDeCQaGDXl3Ymra7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by PAXPR04MB9471.eurprd04.prod.outlook.com (2603:10a6:102:2b2::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
- 2026 08:40:20 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%3]) with mapi id 15.21.0382.007; Fri, 4 Sep 2026
- 08:40:20 +0000
-Message-ID: <ed9e17f4-e43c-4851-a9c4-73f94c57a2d5@oss.nxp.com>
-Date: Fri, 4 Sep 2026 16:40:10 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] i2c: imx: honour I2C_M_IGNORE_NAK
-To: Haobin Jiang <lemonoutput@foxmail.com>, dillon.minfei@gmail.com
-Cc: Frank.Li@nxp.com, andi.shyti@kernel.org, festevam@gmail.com,
- imx@lists.linux.dev, kernel@pengutronix.de,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, o.rempel@pengutronix.de, s.hauer@pengutronix.de
-References: <51425573-3687-486e-876d-f94d57844894@oss.nxp.com>
- <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
-From: Carlos Song <carlos.song@oss.nxp.com>
-In-Reply-To: <tencent_578ACB00C8862E1EA60EAC378A712B69BE09@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0115.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1d0::15) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	Fri, 04 Sep 2026 08:42:14 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2d715f4a587so11747425ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:42:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1788511331; x=1789116131; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NOL5R0SJrxWsGHji42XgvQwAqz+BPG+L9IvuYCKkAns=;
+        b=A8kToHTQCfR2P0DkarUm0Ri1e3ge7hKzZvUR39kdq4JvRURFEoxEa6WIZBXTi7TUw1
+         ZWXod0pNVv5jdP6/vhoJEW4BK6EOLObTB2rjgyOtjwI5I9IZWluQSnNGjKXOVY0WQlY5
+         h+XO8Pf+mPUjmpQC8HH5K5vMfHfEB/D5TBlaI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788511331; x=1789116131;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NOL5R0SJrxWsGHji42XgvQwAqz+BPG+L9IvuYCKkAns=;
+        b=S8JnB4UXJOuccfPsOi8gyF5sPCodrSdWYGMomqYYzimqSjD00T+RSwF54AXJHP4vXz
+         zLOU2O0RuMFPvbAL7gU7rtoVGUuyLJESm3LfpwE02zC6Zpyw0G+7+0DVj/BsJHSXwqcp
+         3L4Q3iapUuSUq+IbgFgkzZw/M+vDlZIiZCc/bLibzMkfk3PIYRCXw+KP+Ynxl7StTfbu
+         VJrBJ5X1PgS3hy+BjiMg9iFtNX8IMzuLRBffjrimvO2yqgtL0DhuGzrpEAbPejFIB8BN
+         3fM63Cqv76fBV1DSVDHtsBWD9hJp7X0rzwRlLYWPrexKCZSyT8QljNIRIARZHVdv+b91
+         f6lA==
+X-Forwarded-Encrypted: i=1; AKwUvBwGkVt2YKYCbxIvJoQbhqaUG75zfTEONGV5V8sD+H77k2O838kBXsOj8FZxp/Z89HnazGz2ft+V0y3dRSDeyMsd@lists.infradead.org
+X-Gm-Message-State: AFuF++m7hIch9wQ3wWP4UYfhJ01dl8wn33+/u2IxeNDf/90Vh5cX45Ry
+	mvTDGP//V9eKOhDJbltQJRiRulR4fZ5cySDEorx9Gb2eKwRzLIuEc/nESTISFquWrQ==
+X-Gm-Gg: AYBFou00+0dB/uIKmuJ4GMXnzXeQ4eSquaNDd2WaOO2yqB5s5Zn98Cfyfb/j/Jyu+u8
+	dolOP0sP0EzEpuVYvm6swDj/p+BQhSdXtMj5UzNxnnYQXO2/lVOmzzWicR3jHZXqNtq83c9Edw0
+	L84UmB/NlVANRzBqs5WRUfg0qibjWK6B5UwSsW7mq1wl3XQ4jaB0r4G/5udMjf/OANxQ21uZCdL
+	imYvlJjlDAdt+PaChpZhmpDL9SdBLTBffEaIKJM6KPjAWtZN5O2OM0F6KxNFcD8tvAchE94LmBl
+	SaxYsq3cV6iCQK4UzOcVoqPdTjXrRDLxlJralbhqcsJhSgw+HzRZSpzt62FYu661RGfHbDRqnBm
+	CkKxBGPR0FXUD7oPbpAlkT77KcqBZHUbf5x2Dl9xCp24F9D+kWpCM0YFGrQDOsktlwsN3wxtVV3
+	OxzjtkHmVMK0biLV7WR56mhXbVG7FIdnB7cZA8BvWB1WpQKLVyYqd8Tl1SwKvvtIDHdQguImX28
+	QI4aSAd7vBi5l6mPLgw/RRPOU0jdp6MDbCBD5XBLglo
+X-Received: by 2002:a17:90b:1d84:b0:396:4cbf:45a2 with SMTP id 98e67ed59e1d1-39b261e3b7fmr6052421a91.14.1788511330394;
+        Fri, 04 Sep 2026 01:42:10 -0700 (PDT)
+Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:201d:8:343:bf21:3095:9c5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm3343538a91.9.2026.09.04.01.42.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 01:42:09 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>
+Subject: [PATCH v8 00/16] arm64: mediatek: Add M.2 E-key slot on Chromebooks
+Date: Fri,  4 Sep 2026 16:41:39 +0800
+Message-ID: <20260904084158.1341550-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.979.g7e5102b832-goog
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|PAXPR04MB9471:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb981f3b-4ff0-4385-ab41-08df0a602740
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|366016|376014|1800799024|7416014|5023799004|10067099003|56012099006|4143699003|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: 11Pah9QsBwvsTU5kITkhcwDEo4xb+1nlMbpdl1BxiU36qrZ6YSneoNXvUZi/CfP6iHv2Tc2titYsjrphxAjsZRq7udmdpauCsJ39HsOKtLy5lk896UN2gMM4YiY249zumgGxXoTjCrGO2nk8E+h/TJiWqo5rux+K7KBWvBhE00J2irjbN2c92kPXWYLhTPBhguLRsv4+gmvjKO9Lw7zn6NJ8ti82lTDDx4rmlAL/GScEoiHHpukF/TgxVPcdy370LgIyjgVRzYKpu9pCWCdzMigJ3+hfDKDXp5A9Ywi8cxIo92cqKtNKGkqB0X9ONhBdw1kW7Ef+X/jqVypbUv72Jjwb2jCJjvYZVqoDoMBdQ9Z8jXBdYiSjOy8AS2LCaosTP32oYrtTkmwXLEgEOwdqOdiIq0zsOwCKplZJ48jMAHV+6pdtyv2M5nn7GEdcFM9B9WOI+GiFTLBUUzRljKuAbv7Ry5AP1FkU8B39cZ9iApYTMyFYQ6+u/zQC+1aTewbwk89oe7CPRmVYv5UY2sTlwQxfQZgmJnaaYgnQEP+Hi38xcMc9A4hMfplocAn9xSCI5hyDzye5jxgLmCh7wi812+kxLzRZiaLWzwFbtO+EINx+lLY1lwOho0uxSCzfdusGeUXacYtrNB4cBYYCcMyE+gPyXaVmxf2cDIocieNKH0M=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(376014)(1800799024)(7416014)(5023799004)(10067099003)(56012099006)(4143699003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enNKRkdtQkh6OWd3TG5VMWI0Q2FCeTBMTEcvSi9vR0E2Vjdzd0NwNjVjUVM3?=
- =?utf-8?B?d3FFQ1hIbjJ3ekZXQ05MVVZwQ0FNaTlPT0Y0ajRJTFhvY2Z4a3Q3UzkxZDMr?=
- =?utf-8?B?cmpSM0puVmZvT3ExelB1cEoxWjNoYUNRTUxQZDAxZ21STGx3VEI4VVcyUTQ4?=
- =?utf-8?B?S0IyT21aRmN1VmtDVWVRd2hmczRyOFB4bTFsS1FsbDNVYnNkVTl1MjZUNmFU?=
- =?utf-8?B?d2k1RUREV1VEYWc5aEQ5bnR3NFk0ejV3VU1HbjBWWk9xNzhSMW4xekNlT3Zi?=
- =?utf-8?B?Zk1EWnpaUnlyZVFKUkh5VjRDOW5kRE8yRnYrQ1R3ZWR3RmNOL3V5QlZSR1FQ?=
- =?utf-8?B?a1YyLzkrWXJ4c1hIU3VkQjRTWlQ4VUtJaVRxaUlwVjByS3BQWDZxN3VDQ0lH?=
- =?utf-8?B?S0oyYXZJWFJZZk9vQmxtY3VISjR5QWswTmNlcnhWVW4rMUQvcXlHRHMvcWJu?=
- =?utf-8?B?ZEFjSk9OU0lwdlZXYkoxdDhUZG43V1JzOHhOQWhjYlZidERiTzZUa0ZLbWRX?=
- =?utf-8?B?clNMZ1lGV2ROeC9wTTFHM3VyVFptekgwM1NvOXRJbEN5bUJpcC9XUTczQ1VY?=
- =?utf-8?B?UUNNQnZoamhGWWZzRmY2UG56Sk0wMUFabnBFQTAvdWxtaE14bVM3eHRpbmF1?=
- =?utf-8?B?NFZ2ekJHYzdTMGIrcXcwYWw4Q2FMcFhNQnVwblFiWmd4RWQ1QXRPMEFCSVox?=
- =?utf-8?B?aFNnQ3hkVy9KWEpaL2hpU0ZML09EMTJVaU91aTREcWErTlpIOHg4MUg5Rjgz?=
- =?utf-8?B?SzRsT25temJFVmF2bDNCb2MwckZyM0djM040SHg0aldVdUo3MitmUjU2Sm0y?=
- =?utf-8?B?dWRtbEYxUHE5WERsYy95MXRzd2RUTjhHNTdvRkpHYlZyYUxrK3o0VUY3aUZn?=
- =?utf-8?B?REEvd0tFaE5La3dST0UzdVpYVDYzSGlZcmdMa2dkZC9DRmwrSW5uVE1sQmtx?=
- =?utf-8?B?bWhBSVhHaHNzUEg0TWk2b2ZpU0dQS0lwWWNleitsTU53OERrOThseWMwTVdo?=
- =?utf-8?B?eittMWdJN3REbTM1UTBlOFo4dWVLT0pzTXZyUXBJUHg2Z1JBcGdJZ1pGSFdk?=
- =?utf-8?B?TlUwVjNjS2cybnRrVnpFeU1MSnAzSUMxVGcyM3RlUjdMczhQZ25nZzcxcEc1?=
- =?utf-8?B?Z2pRTEp4YzNUK2pzVUsrT0R4ZXljZXpHQnhZWUY4K3o4bWVkUUt0anUrRDN2?=
- =?utf-8?B?Y1FPcjJQNVd0VTBvMmJQQWw0NEluQU9ybmo2RkRoRzl5Mm11Qnc4MGRhUDlp?=
- =?utf-8?B?dlRpNERCU3pqUmRxbEJKMi9ROEZlYURRbk1WbWlMMXpxY1V6OWdiNGp2NVNB?=
- =?utf-8?B?QmtSYitPU0sxc3lnWTkybE1Qa1R3SWN6WkJPZWlXVklPWmFwQ1dJekJyVHhr?=
- =?utf-8?B?ZzV0STNXUG9TYjRTK2VTaUNCaGlkTFpCcVFQeUZ6SkJZcTQ1bEZIMlBPOXU4?=
- =?utf-8?B?R1RxRHhjd3U5bzU3Wi90bFZ4WGdhMU1tSHBISkVlNms0NDVTRktSZWsxam00?=
- =?utf-8?B?MHd2S0V2dWFuYXVaazFHZ2xOMGdjUC9uTnlNSzFYRGF5Uk00djJGUm5ma2tI?=
- =?utf-8?B?cFp6emkzY2l0ZFhOYTVZenFaU3R6UzlQNjVicm9oT3pHb3BpZXozemhkTmJT?=
- =?utf-8?B?dXVkZi8vV0ZHNXFaNW1XQmxlakx4eHU0czcvV2FORm1kK3d4aU1DM2JyTVph?=
- =?utf-8?B?ekI5SEwyL2JrdGIzRWgwdWZWMjNKcWtpclFrZHhwN0dKdENqNUdHem5QbVpP?=
- =?utf-8?B?MjRYMzd6eWlqRi9hU2dDT0hkRG5zVE1zcWFNY0NDTDArbGpGMXpaVkptMHNU?=
- =?utf-8?B?NkErL3Z6WFJ1RDc1b2RFUmJ1aEkzNld6aG9FSW9sbkxvNXVROTBDUnVnRG1p?=
- =?utf-8?B?eFVHcWpIcFkreWZkWVMvMWZtSVRERy9aVWtzUzZWcU1rRHhqRWhMNzJIM3Fl?=
- =?utf-8?B?UGF6QTlRV2t5ai9NYmJuWnNLOGN0QmRmcEJLYUZ0RERWWHJoUk1ZZkxiOEpp?=
- =?utf-8?B?aXlSQU5taWp3OWg1U2NLb21KdEZzdVNKczZrUThxVC9MdVA1Yi9nRUpLay9y?=
- =?utf-8?B?NjdrZUpQYWZLemFvL3hBcHByZTk5TXZFTzlIbldIbElmR00waGFaK1lxUHZC?=
- =?utf-8?B?Mms1REN5WXNKRWNEOUYxNTlwVXNJRnd5UlZoZjN6b0EyREVvU3F6ZHFCaGE1?=
- =?utf-8?B?L25VZDJYS1JsajdpY3RKRUxxWUNtWGlqNS9IZFBKd29RekhoSU1GWXNWc3pQ?=
- =?utf-8?B?eFZzVC82em5KN1cyKzI4b1ZyTUZiS01ubXAyUEo2Zk5BYStxYlNnSnUxY2d1?=
- =?utf-8?B?MkpvdkVxTzJReFlQZHpkNTh6L2R6eFNPRlN6bnVMMU5kRTlDRG5odz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb981f3b-4ff0-4385-ab41-08df0a602740
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 08:40:20.5715
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UiygcwH1busHDhlCtC7uoYfarKEt26qz7YAH0rnH9xckWe+SJzX4S0oYbinyLEYrubiBQeRfAnrwhCFzyB/ICg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9471
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_014025_409024_25EA8A44 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20260904_014212_259343_417DE057 
+X-CRM114-Status: GOOD (  40.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,88 +116,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi Carlos,
->
-> Thanks for the review, and sorry for the confusion my v2 caused on
-> several points. Let me answer your questions.
->
->> Are you using AI to make this patch?
-> Yes, I did use an AI tool while preparing this patch, and I
-> apologise for not stating that upfront. I will describe how it was
-> used in the v3 changelog, as described in
-> Documentation/process/generated-content.rst.
+Hi everyone,
 
-Hi, haobin
+This is v8 of my attempt at integrating the power sequencing API into
+the USB core to support the USB connection on M.2 E-key slots. M.2
+E-key was enabled in v7.1-rc1 with just PCIe and UART supported [1].
+Hopefully this is the last revision. The fwnode patches need a reviewed-by
+from the fwnode owners.
 
-It's okay, don't worry about it.
+As for Sashiko's comment about fwnode_get_next_*() not putting the
+reference to @prev when @node is NULL, I plan to update the kernel-doc
+for all the functions in a separate patch later.
 
->> Have you meet one issue on one real platform? Can you share the
->> detail about your devices and platform?
-> Yes, an i.MX6ULL on an ALIENTEK i.MX6ULL mini board, with an
-> ATECC608A at 0x60 on I2C1. I am writing an out-of-tree ECDSA driver
-> for it that reuses the wake pattern of the upstream atmel-i2c
-> helper (drivers/crypto/atmel-i2c.c): a wake token sent with
-> I2C_M_IGNORE_NAK through i2c_transfer_buffer_flags(). On i2c-imx
-> the transfer aborts with -ENXIO at the first, expected NAK because
-> the flag is silently dropped, so my driver had to fall back to
-> bit-banging SDA over GPIO to wake the chip. I will verify the bus
-> behaviour on that board with a logic analyzer and include the
-> results and captures with v3.
+Another one of Sashiko's comments is related to dropping the wakeup-source
+property from the PCIe node. AFAIK there is no alternative as there is
+no longer a node to put it in.
 
-In fact, you just need to support this I2C_M_IGNORE_NAK single flag.
-Happy to see this. If you can help provide some strong evidence, it will
-help a lot.
+Last, one comment from Qualcomm folks is that the port numbering
+conflicts with what the dwc3 bindings specify. IMHO the dwc3 bindings
+should be fixed, as the dwc3 controller embeds a XHCI for host mode,
+and XHCI port numbering should follow standard USB host hardware port
+numbering. I will send separate RFC patches for this.
 
->> After meet NACK, can i2c-imx controller continue to write or read
->> data from FIFO, after NACK normally stop or repeat start, so I am
->> not sure the i2c-imx controller HW will work normally, do you test
->> this?
-> I will cover this with the tests attached to v3.
->
->> Always goto the PIO path with I2C_M_IGNORE_NAK flag, it is better
->> "return i2c_imx_acked(i2c_imx, false);"?
-> Agreed, v3 will do that.
->
->> You don't really support the I2C_M_STOP in the code and
->> intentionally ignore I2C_M_STOP check to avoid breaking the
->> imx6qdl-ds,right? Do you work on this platform?
-> No, I don't have an imx6qdl-ds. The ov2659/SCCB reasoning in the v2
-> changelog came from reading the DT and driver code, not from
-> hardware, and it will be removed from v3. I2C_M_STOP will stay
-> rejected, as in patch [4].
->
-> While checking the code I found that patch [4] rejects
-> I2C_M_STOP, and in-tree ov2659 on imx6qdl-ds sets I2C_CLIENT_SCCB
-> (I2C_M_IGNORE_NAK | I2C_M_STOP) on every message, including the
-> chip-ID read at probe, so after [4] lands that probe might fail
-> with -EOPNOTSUPP. This is only from reading the code and I might be
-> wrong. Similarly, rejecting I2C_M_IGNORE_NAK might affect the
-> ATECC508A wake token on imx6qdl-gw5904.
 
-This point actually concerns me as well. From my perspective, I agree 
-with the V2 approach of skipping the |I2C_M_STOP| check by default. When 
-adding new features, we should avoid breaking existing platforms. 
-Historically, |i2c-imx.c| did not validate these flags, so ov2659/SCCB 
-may have been running in a state that was not fully compliant with the 
-intended driver design, but nevertheless worked in practice. Rejecting 
-transfers with |I2C_M_STOP| could therefore break the existing 
-ov2659/SCCB use case on |imx6qdl-ds|. While the code would continue to 
-silently ignore |I2C_M_STOP| during multi-message transfers, this is not 
-a new behavior. In fact, allowing |I2C_M_STOP| to pass through is 
-intended to preserve existing behavior and maintain backward 
-compatibility. What is your view on this? Regards, Carlos
+Changes since v7:
+- Mention in kernel-doc that the function does not return ports that
+  have no endpoints (Sakari) (patch 1)
+- Adapted to pwrseq_enable/disable() rename
+- Link to v7:
+  https://lore.kernel.org/all/20260724084328.3943997-1-wenst@chromium.org/
 
->> So can you please rebase your patch on patch[4]?
-> Yes, v3 will be rebased on top of [4].
->
-> I will also fix the sentence spacing in the changelog and comments
-> as you asked.
->
-> Regards,
-> Haobin
+Changes since v6:
+- Patch 3 (power: sequencing: Add pwrseq_get_state())
+  - Adopted enum for valid return codes (Bartosz)
+- Patch 10 (usb hub pwrseq integration)
+  - Added braces ("{}") to for loop in hub_is_port_power_switchable() (Andy)
+  - Adapted usb_port_is_power_on() to new pwrseq_get_state() function
+    return values (Bartosz)
+- Link to v6:
+  https://lore.kernel.org/all/20260721065413.2306137-1-wenst@chromium.org/
+
+Changes since v5:
+- Patch 1 (device property: Add fwnode_graph_get_port_by_id())
+  - Dropped left-over declaration in header (Sashiko)
+- Patch 3 (power: sequencing: Add pwrseq_power_is_on())
+  - Reverted back to returning -EINVAL if descriptor is NULL (Andy /
+    Bartosz)
+- Patch 6 (usb: hub: Associate port@ fwnode with USB port device)
+  - Added extra |struct fwnode_handle *| local variables to shorten lines (Andy)
+  - Added comment about passing fwnode_graph_get_port_by_id() return value 
+    directly to device_set_node() (Andy)
+- Patch 10 (usb hub pwrseq integration)
+  - Only assign port_dev->pwrseq if successfully retrieved pwrseq
+    descriptor (Andy)
+  - Dropped the pwrseq error pointer check in the release function
+    (Andy)
+  - Added check for port->pwrseq != NULL before calling
+    pwrseq_is_power_on() (API change from patch 3)
+- Link to v5:
+  https://lore.kernel.org/all/20260715085348.3457359-1-wenst@chromium.org/
+
+Changes since v4:
+- Added flags parameter to fwnode_graph_get_port_by_id() so users can
+  specify whether incomplete ports are returned or not (Sashiko)
+- Made pwrseq_power_is_on() return 1 if descriptor is NULL, i.e. if
+  the descriptor is optional, matching the other pwrseq consumer APIs
+- Added patch to swap out conditional set_bit()/clear_bit() with
+  assign_bit() (split out from "usb: hub: Power on connected M.2 E-key
+  connectors with power sequencing API") (Andy)
+- Call fwnode_graph_get_port_by_id() with FWNODE_GRAPH_DEVICE_DISABLED
+  so that even incomplete ports can be connected (Sashiko)
+- Dropped unused |hdev| variable from usb_hub_remove_port_device()
+  (Greg / Sashiko)
+- Dropped 'extern' from usb_port_is_power_on() header declaration (Andy)
+
+- Patch 10 (usb hub pwrseq integration)
+  - Rewrote usb_port_is_power_on() to better express intent and
+    restrictions of pwrseq API (Andy)
+  - Switched to dev_fwnode() in port_pwrseq_is_supported() (Andy)
+  - Added blank line separating normal variable declarations and __free()
+    type declarations (Andy)
+  - Split out assign_bit() rewrite (Andy)
+  - Moved pwrseq_put() to release function to avoid UAF (Sashiko)
+  - Added back pwrseq_power_off() call in usb_hub_remove_port_device();
+    otherwise power off could be delayed to object release
+  - Don't clear hub->ports[port1 - 1] in main error path;
+    by that time the port device is registered and sysfs attributes are
+    available to userspace (Sashiko)
+
+- Dropped blank line between __free() variable declaration and
+  subsequent use of the variable in conditional (Andy)
+- Added patch to split Bluetooth pwrseq units (Wei)
+- Link to v4:
+  https://lore.kernel.org/all/20260709095726.704448-1-wenst@chromium.org/
+
+Changes since v3:
+- Added missing stub function for !POWER_SEQUENCING (patch 3) (Sashiko)
+- Added missing fwnode_handle_put() (patch 5) (Sashiko)
+- Added new patch to move |struct usb_port| related declarations to
+  separate header (patch 6) (Andy)
+- Patch 9 (usb hub pwrseq integration)
+  - Adapted to move of usb_port_is_power_on() to port.c and port.h
+  - Simplified usb_hub_set_port_pwrseq() (Andy)
+  - Renamed usb_hub_set_port_pwrseq()'s "set" parameter to "on"
+  - Dropped usb_hub_restore_port_pwrseq() (use usb_hub_set_port_pwrseq()
+    with inverted argument)
+  - Fixed off-by-one access in hub_is_port_power_switchable() (Sashiko)
+  - Assign retval from dev_err_probe() instead of the other way around (Andy)
+  - Clear hub->ports[port1 - 1] in USB port error and remove paths to
+    avoid other threads from accidental UAF while the USB hub device is
+    being unwound (Sashiko)
+  - Short-circuit out of helpers if !IS_ENABLED(CONFIG_POWER_SEQUENCING)
+    to avoid errors from stub functions (Sashiko)
+- Drop redundant device node validity check; device_match_of_node()
+  does it internally (patch 11) (Andy)
+- Link to v3:
+  https://lore.kernel.org/all/20260703110317.1283411-1-wenst@chromium.org/
+
+Major changes since v2:
+- Removed changes for MT8192 Asurada family: one of the device is
+  shipped with RTL8822CE-VR, which is PCIe + UART and needs more work.
+- Removed changes for USB A ports: VBUS one the type A ports on
+  Chromebooks are not directly controllable from the OS and VBUS is
+  modeled as always on. As such the changes I made don't actually
+  change how the system works.
+- Added new pwrseq_power_is_on() function
+- Make new pwrseq integration effectively OF only by not assigning the
+  port fwnode if the hub's fwnode is an ACPI node
+- Added patch to convert remaining instances of directly setting/clearing
+  USB_PORT_FEAT_POWER to usb_hub_set_port_power()
+- Power sequencing state removed again in favor of state tracking by
+  pwrseq subsystem
+- Power sequencing descriptor again separately requested for HS and SS
+  ports
+- Dropped pwrseq_power_off() call before pwrseq_put(); the latter calls
+  the former implicitly if the power state was left on
+- Squashed DT binding revert and addition into one patch
+- Link to v2:
+  https://lore.kernel.org/all/20260610084053.2059858-1-wenst@chromium.org/
+
+
+Major changes since v1:
+- No longer adding the "index" parameter the power sequencing API
+- Switched from OF graph to fwnode graph APIs
+- Tie "port@" node to usb_port device, and use this device as consumer
+  to acquire power sequencing descriptor
+- Power sequencing descriptor now only tied to USB 2.0 port to avoid
+  double reference
+- Power sequencing state tracking added
+- Link to v1
+  https://lore.kernel.org/all/20260515090149.3169406-1-wenst@chromium.org/
+
+The series is based on next-20260901.
+
+
+Patch 1 and 2 add new fwnode graph helpers. These are used by the patch
+5 and 8, respectively.
+
+Patch 3 adds a new pwrseq_get_state() for power sequencer consumers
+to query the current request state. Note that this is not the _actual_
+state.
+
+Patch 4 swaps out the existing conditional set_bit()/clear_bit() with
+assign_bit(), which does the same thing.
+
+Patch 5 reworks the USB hub driver to return the actual error code from
+hub_configure() in hub_probe(). This is needed in the next patch to
+correctly return -EPROBE_DEFER returned by pwrseq_get() in patch 9.
+
+Patch 6 makes the USB port device associated with a "port@" fwnode if
+available. This depends on patch 1.
+
+Patch 7 moves some |struct usb_port| related stuff from hub.c and hub.h
+to port.c and port.h. No actual code or functionality is changed.
+
+Patch 8 changes usb_port_is_power_on() so that |struct usb_port*| is
+passed in instead of |struct usb_hub*|. This patch does not change any
+functionality.
+
+Patch 9 changes some USB hub port power control code that directly
+toggles USB_PORT_FEAT_POWER to use usb_hub_set_port_power().
+
+Patch 10 lets the USB hub driver look for power sequencers for each port.
+Currently this only works for M.2 E-key connections, but it could be
+extended to cover other cases. It should also make port reset via turning
+off the port VBUS work, even when VBUS is not directly controlled by the
+hub. This depends on patch 2 and 3 for the new helpers.
+
+Patch 11 reverts an incorrectly modeled OF graph connection for the
+MediaTek XHCI controller and adds a proper representation.
+
+Patch 12 adds matching pwrseq consumer by "port@" node to the M.2 slot
+driver. This is only used for the USB target, but there is no attempt
+to differentiate the connection type. The driver simply tries matching
+the "port@" node first, then falling back to the port parent or device's
+node.
+
+Patch 13 reworks the power sequencing targets for the E-key connector in
+the pcie-m2 driver to add targets for USB and SDIO. The former is used
+later on in this series.
+
+Patch 14 splits the Bluetooth power sequencing unit so that the USB and
+serdev consumers can separately toggle the actual state of W_DISABLE#2.
+This patch is purposefully not squashed into the previous one to provide
+a clear target for discussions.
+
+Patches 15 and 16 enable the M.2 E-key slots (or slot-like integration)
+found on MT8195 and MT8188 MediaTek-based Chromebooks. 
+
+
+This series unfortunately spans multiple trees. The way I see it:
+
+  - Patches 1 and 2 go through the driver core, and an immutable tag is
+    provided to be merged together with the USB patches.
+
+  - Patch 3 has an ack from Bartosz, and goes through the USB tree. But
+    Bartosz also wants an immutable branch/tag to have a copy in the
+    pwrseq tree.
+
+  - Patches 4 through 11 (all the USB related ones) go through the USB
+    tree, along with the dependencies above.
+
+  - Patches 12 through 14 go through the power sequencing tree.
+
+  - Patches 15 and 16 (device tree only) go through the soc tree via the
+    mediatek tree.
+
+Some of us discussed v1 at Embedded Recipes, and I believe Bartosz, Mani
+and I agree on this approach. The debate is likely going to be on
+whether this should be integrated into the USB core or not. I believe it
+should, so that the power sequencing timing is tied to the USB port
+being brought up. I do have a fallback option of just enabling the USB
+power sequencing target inside the M.2 slot driver if a valid OF graph
+connection is seen. But this is less desired for the reason given above.
+
+I hope we can get this merged in this cycle for v7.4.
+
+
+Thanks
+ChenYu
+
+
+[1] https://lore.kernel.org/all/20260326-pci-m2-e-v7-0-43324a7866e6@oss.qualcomm.com/
+
+Chen-Yu Tsai (16):
+  device property: Add fwnode_graph_get_port_by_id()
+  device property: Add fwnode_graph_get_next_port_endpoint()
+  power: sequencing: Add pwrseq_get_state()
+  usb: hub: Use assign_bit() in usb_hub_set_port_power()
+  usb: hub: Return actual error from hub_configure() in hub_probe()
+  usb: hub: Associate port@ fwnode with USB port device
+  usb: core: Move struct usb_port and related APIs to port.h
+  usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
+  usb: hub: Use usb_hub_set_port_power() to control port power
+    everywhere
+  usb: hub: Power on connected M.2 E-key connectors with power
+    sequencing API
+  dt-bindings: usb: mediatek,mtk-xhci: Switch to ports for USB
+    connections
+  power: sequencing: pcie-m2: support matching on remote "port" node
+  power: sequencing: pcie-m2: Add usb and sdio targets for E-key
+    connector
+  power: sequencing: pcie-m2: Split Bluetooth unit based on interface
+  arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
+  arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
+
+ .../bindings/usb/mediatek,mtk-xhci.yaml       |  17 ++-
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      |  92 +++++++++++++++-
+ .../boot/dts/mediatek/mt8195-cherry.dtsi      |  73 ++++++++++++-
+ drivers/base/property.c                       |  56 ++++++++++
+ drivers/power/sequencing/core.c               |  19 ++++
+ drivers/power/sequencing/pwrseq-pcie-m2.c     |  64 ++++++++---
+ drivers/usb/Kconfig                           |   1 +
+ drivers/usb/core/hub.c                        |  72 ++++++------
+ drivers/usb/core/hub.h                        |  58 ++--------
+ drivers/usb/core/port.c                       | 103 +++++++++++++++++-
+ drivers/usb/core/port.h                       |  68 ++++++++++++
+ include/linux/property.h                      |   4 +
+ include/linux/pwrseq/consumer.h               |  12 ++
+ 13 files changed, 527 insertions(+), 112 deletions(-)
+ create mode 100644 drivers/usb/core/port.h
 
 -- 
-Best Regards,
-Carlos
+2.55.0.979.g7e5102b832-goog
 
 
