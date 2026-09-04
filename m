@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567D9C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793F8C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 13:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7o7pGTYJ1j9htjyKompyXPu5oGlEszk3L/eQl+FLhg=; b=Ou2V6aApoyDMODAu1EZXgOkGv1
-	IZr9fsjASXg4ZwVKZzw7HHha2H4VPV1Iwr3Dk46J/x63o26q5+qoEplDV2QGuDV269QoH7ycLDqCe
-	GvbBaMg560K+6iOFoa2jlh0V9nvHROGchFmUSQvc4rPFiF5gr3I6EbE4LQflfSnf3yBIrzvCOR7EW
-	VOZE7ci2DVEpjHT8l60kiZFS3TM8Pm9GbwbkV6FEfJVjdDQ9KWkNKMJw0q3bn4NelO7T9JSqUWbN+
-	w3c8xpefyxARiUllu+LAY4XsMlN8nfAwpgICvQpVsapzUJFf/ATFn6IQJ69GzOHkdOnqH4nmjk7wD
-	V7flNoWw==;
+	bh=WkYtc8Zy+X1nQtQQfmPXyE49NKh145BAfNH3nX3cWHM=; b=sdJ+3F2skGgUPjDvtub8HmU/Pw
+	zvv2Lm2RlujQJbFEOQjYn17cXNlAXBqc7ol+HyMw3luVUX4fR1FfZ/yRwiOKvrksniFYgQViP5/jL
+	5RRszRElSPRxbZuUfzEqvV0UoyfXKGd14HUWGFPuKNnluijA7QEj5f/IMyBtLTNgU15hLfxz3U6/U
+	NrUpotWNPZ3s0yTSGDRq36SwYJmXSAnJ3k77NSaQHhIfcJLpYJATSoP0NomEH4gf1xCeSdQUmq+7l
+	LAfWqUuEifrbR+g/JKyaVOttdtm3MIk+xVtD2tdpc/NClMLq2hxnNlOA1j9tCYv3Hy+nX0aqwdxvu
+	PTHO0tFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Tfe-000000026bJ-1vMh;
-	Fri, 04 Sep 2026 13:09:30 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1x2Tfg-000000026e1-3FE7;
+	Fri, 04 Sep 2026 13:09:32 +0000
+Received: from mail-wm2-x10.google.com ([2a00:1450:4864:31::10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2TfZ-000000026Wd-1J1d
+	id 1x2Tfb-000000026YK-3yLc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 13:09:26 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4956d1d9fb2so929625e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:09:24 -0700 (PDT)
+	Fri, 04 Sep 2026 13:09:29 +0000
+Received: by mail-wm2-x10.google.com with SMTP id 5b1f17b1804b1-49b4ba7fe26so267125e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 06:09:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788527364; x=1789132164; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788527366; x=1789132166; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=t7o7pGTYJ1j9htjyKompyXPu5oGlEszk3L/eQl+FLhg=;
-        b=ipKz573IdnlcGH7T1lpimyKXwVeGbmhth5tgaN/1/8wXbs9x0cGnbG/T6RSMn6tu+o
-         AJqpnGOy8f/d/TwwBcn3A67crw5TEGNZbKuxkUyMYhkZvP68vpUMHbxrOuQoZAhgzAtP
-         mxnsWUp/3jByBXOhDXP30qVdhr5ZmHZFPwtZfuq489WikvF/Xze6Q61+NilkZrRnsg0t
-         UqXk9WPOazPeJAnBib2E3GHMazE6LXZjlHJqS4+IsBGpP0IUekBECo40TVeLT8HKvixt
-         oCgOAV5IXm70yZAgQ+cgIv9KIXLsc8xhOxsAtQPHTTbcW6MSZcugCldQPpJQiq+Dsp4d
-         M6NQ==
+        bh=WkYtc8Zy+X1nQtQQfmPXyE49NKh145BAfNH3nX3cWHM=;
+        b=r3QdrH+m2BPWCjRLkaR96wkwXqfl3tVD01UfL2gb8tpnV3eNoFL0gs+oNsGXDaQy2S
+         sBtP7mFl5D+OPiF/L3sMmzZ8tzi3ZhEl/PGwqT1fNeiiIe7CcB6Ec6Ji2ltQFfmZOLQ+
+         Q34MLDbsDTutF0doM7VF16JxvoS3Kvj4iqNVbff7HnFnizAafGmp/AgFOqyAdxTu+XVD
+         eX1tlgwKElqn1S1BUszBw9fJuqRy5aHmKEG1cqSe9SRplKa5ufh+M2MFw6bg+/n/VOer
+         iXUg6MGz55Q3ENXbpEMI0qqQiaktFd8VhDEpAthCYi1h4HZNZkQh0Jr97QzmBYQGGqgG
+         203g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788527364; x=1789132164;
+        d=1e100.net; s=20251104; t=1788527366; x=1789132166;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t7o7pGTYJ1j9htjyKompyXPu5oGlEszk3L/eQl+FLhg=;
-        b=iyUl7nnFHxDAnJoRVYI2VxuiPAi0zNGqZeeytf4zZa7YNgyK7FEAn5r2Np54wimWIW
-         fy9SdoZ6pYxOBvzxOOrkOGUX74SYrGcjnsd+fNsz8NH2Oz77xkWRnxubtb40mRP15Zmy
-         lVDWOPqCbMWLn448cYxAjSwnffD2ezD4zffO+8KKht5/rg3uL7aEHTmaFiXNj8Ap9tHR
-         P6XYiFIrWhTtiVYMTLMqLjb36R5ruQyyMisomJmMDBaEKx0VMYydTwnapPcO/ersKpyt
-         iEdBGYK9tuBM594xsGXfbpiAz7Xmcd4qMdMPXdVv3rRDA1Ti9sZQySGAD+zgPCfd2kVu
-         9V5g==
-X-Forwarded-Encrypted: i=1; AKwUvBxlMwewNEA5hgvkEBpYwNea96I+no1P3ysDhbQp8jTzHyqjdac3ljto1VH94mpCcDXUDf0A7csqEmiAARqUt6Kd@lists.infradead.org
-X-Gm-Message-State: AFuF++k7wcAniyp7ZV46I5FBafGBaMIMg9nab+gNzth4ew7y8+/z3lZx
-	X9pL5QVeN5O5H1NdYuv6JB/GG3BLORAU8/Jpcq/2IubsBV3+4rX2WA/H
-X-Gm-Gg: AYBFou0glLobqXGiWFiWTkyP2iH7bEBfcWGDjJkT5RhSjBGdhaoSB4gG+yLcvzS4eih
-	aisKPkW+5DSjWEsutJ7adsLCbGGcwKKom8oc/z92o2Hz07QgNLAP+LrJoG8EcfCaBWjc26q6Dw8
-	nLZphlQasBVn580MJK8O4AeYhVatOlA+xxeJgTXECu5VInH3l9omuYOG3BdIzzeW6/zm+3hFEv1
-	XVsDcXdGcLS9zuYnYuDa24JSMQxJHkz8Cc4gaJzMYsHLFHDygwv7y64qvxMJW5f7350WwTxBfBk
-	UoxCq0u56q2iyRfBzXMXw+GsxMrj839d1LYti1hCa8aSwHKnpySyAA7r4xziOTmaKjlSa2GFEFy
-	KAIKbK4PdaWM5m6xgf9+efZhP944H/7uenOf4zbl7Aj4mf7EvZWWtFizuUQfdvl4FsjcWd3I5eT
-	p1ZYSzXmr/QmN2Xz6Mgq8/SgeH+wSKByW9jb0y2sSIXgPdbQa10rFuM4vFOTJNDkif36EhYYNdN
-	V80WYDoaXV/VcygY82CjP04qY8Op6KH18mHq1N3WVqeLS6WBFoH3Etn6ESoxMvkz8MWr86J4TKV
-	P8E=
-X-Received: by 2002:a05:600c:8b6d:b0:49c:e363:c66e with SMTP id 5b1f17b1804b1-49cf82420afmr41030795e9.1.1788527363631;
-        Fri, 04 Sep 2026 06:09:23 -0700 (PDT)
+        bh=WkYtc8Zy+X1nQtQQfmPXyE49NKh145BAfNH3nX3cWHM=;
+        b=ENip4Y5yPwFDGoAkHN5DravOanOCv1D+8OYZhWERxhZA+aO79TwlF766UaECeGMGAk
+         mUSy49lKEHFzkqo0RFxOF6fqkceuUq5PBuiNgkz6yeUAhEgn50VjAPbg2VVkDz2w4SO2
+         gbqlYLMTaAzBWW1MUEtTK1gTP2TKZHP6GjkCoAjcliXsjKpmeMjgJ1DnWqyX5XUQCLXc
+         udeJmqWJTSjf93MQ9IgmZjHv5S17S493fLOaM21dHDoj9hR1ttBQcOMOq97JKoEB9YUc
+         YIYxe9Zd2H6vD9NWGrfmvle10DNz4aZnXAJ04qqTr8eSY025PcKci8B5wZtT+GmevU6i
+         qlqw==
+X-Forwarded-Encrypted: i=1; AKwUvByWfcQc1fWY3AA0ROQkaTS0ZwZ+74bUhGZ5D6ciVRCGfFToaBTL7+F/Bc6+Hakam923EGNzq4pKV/FEO3VaoZSa@lists.infradead.org
+X-Gm-Message-State: AFuF++lBcM7LD0u4cpU8v+aFn1rrYNEP1ZyW/iNPVZusmJMSc6oY0vm9
+	fHr/0kazyega2P8zsqjZ0w2zE/N70zgVTZ3j9TosrAb8gxolPA/56AxB
+X-Gm-Gg: AYBFou1vtql3dD3MflUJrP4tpi062ftaoZ1m7vuDnt3cfHITj+99KV4gxvRMUJofp73
+	Vuqd4blUsKw+7mWUjiPWmIdjFo+/E2IX3jLzGV+tDhsUM/Z+2TR+2RqV/Bzu9QQ/ImLdX/YGbWc
+	/FfVTtAIcSlwTDNa/s79ZpK9xeUP+uC22WQDQWtuKcvzKfmkJDwdEMQno4A6ASR4nv1rtg9ewCd
+	MUrynownnjSa4ZuBXRNXgzsfsK31o8HpA7jyXZFG3HHQPcvHIZ0IMdUMmUb6OK//7E/e0bn/his
+	ODSRUXsJ3BHIUolFG6rv0V44heHkyQ60xKbx7uewnZYxhwAKGh+BBMEDWYbGg/JtqySFJXxWxgi
+	HMpgOpd1/EjWhRRmb9ty98Alv/mBZnwDvb5hh3pdPPtI0Xi6XZ1K6XuB6iBgqtQGx1J/fv/NnCr
+	fjJ/ZkdhpDfjJHwDOTwA+gHwgaYlGBMvFqdLTnxjDW70sqwN20uKSxFvAZeXJsoZd+t4DwZHJB2
+	RiaiRYqMvQUdCxX7oY9+6GZMj3Ch3Wzflyb41GCK9cs4CUd2Ikmoz8pBGMEqixnnSIddkkjeTf1
+	/sdX2eY0slATZMk=
+X-Received: by 2002:a05:600c:34c5:b0:499:cef6:104c with SMTP id 5b1f17b1804b1-49cf823c012mr41127815e9.1.1788527365941;
+        Fri, 04 Sep 2026 06:09:25 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B871500CB6EF488A18F9C42.dsl.pool.telekom.hu. [2001:4c4e:1b87:1500:cb6e:f488:a18f:9c42])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce554d52esm135575435e9.3.2026.09.04.06.09.22
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ce554d52esm135575435e9.3.2026.09.04.06.09.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 06:09:23 -0700 (PDT)
+        Fri, 04 Sep 2026 06:09:25 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
 	Oded Gabbay <ogabbay@kernel.org>,
@@ -90,17 +90,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH 1/7] accel/rocket: request the core clocks by name
-Date: Fri,  4 Sep 2026 15:08:52 +0200
-Message-ID: <20260904130858.27803-2-royalnet026@gmail.com>
+Subject: [PATCH 2/7] dt-bindings: npu: rockchip: allow DVFS and thermal properties
+Date: Fri,  4 Sep 2026 15:08:53 +0200
+Message-ID: <20260904130858.27803-3-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260904130858.27803-1-royalnet026@gmail.com>
 References: <20260904130858.27803-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_060925_395731_C9D5E781 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260904_060928_005134_8D9B8B59 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,81 +115,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rocket_core_init() hands core->clks to devm_clk_bulk_get() without ever
-setting the .id members. The rocket_core array is allocated with
-devm_kcalloc() in rocket_device_init(), and rocket_probe() only fills in
-.rdev, .dev and .index, so all four clk_bulk_data entries are requested
-with a NULL con_id (unlike core->resets, whose ids are set a few lines
-above).
+The three NPU cores on the RK3588 are fed by a single clock and a single
+supply, and the firmware accepts a fixed set of rates for that clock.
+Describing those rates as an operating-points-v2 table is what lets a
+driver scale the NPU instead of leaving it at whatever rate the bootloader
+set, so allow the property on the core node.
 
-clk_get(dev, NULL) ends up in of_clk_get_hw(np, 0, NULL), and
-of_parse_clkspec() only consults "clock-names" when a name was passed,
-so the index stays 0 for all four entries. Every entry therefore ends up
-holding a handle to the *first* clock of the DT "clocks" property, i.e.
-ACLK_NPUn. Nothing fails: probe succeeds and the driver believes it owns
-four different clocks.
+Throttling the NPU from a thermal zone needs the same node to be usable as
+a cooling device, so allow #cooling-cells too.
 
-The consequence is that rocket_device_runtime_resume() prepares and
-enables the AXI clock four times, while hclk, pclk and - most
-importantly - the NPU compute clock ("npu", SCMI_CLK_NPU on RK3588) are
-never prepared or enabled by this driver at all. The NPU still works
-only because the Rockchip power-domain driver sets GENPD_FLAG_PM_CLK and
-its attach_dev() callback walks the device node with of_clk_get() and
-adds every clock to the pm_clk list, so genpd happens to keep the
-remaining clocks running. The bug is therefore latent today, but it
-means the driver holds no reference to the clock that actually feeds the
-NPU, which stands in the way of any future frequency scaling
-(OPP/devfreq) work.
+Both properties belong on the core that carries the shared clock, not on
+all three: the cores have no clock of their own and cannot be scaled or
+throttled independently. Naming one representative node for a shared
+frequency domain is the established shape, as in "Cpufreq cooling device
+on CPU0" in
+Documentation/devicetree/bindings/thermal/thermal-cooling-devices.yaml.
 
-Found on an Orange Pi 5 Plus (RK3588) by reading the live clock tree:
-/sys/kernel/debug/clk/clk_summary shows four "fdab0000.npu" consumer
-handles on aclk_npu0 (and likewise on aclk_npu1/aclk_npu2 for the other
-two cores), while hclk_npu0, pclk_npu_root and scmi_clk_npu have no
-"fdab0000.npu" consumer at all - their only consumers are the
-"npu@fdab0000" handles created by the power-domain driver via
-of_clk_get().
+The schema cannot enforce that placement, because all three cores share a
+compatible string and a node name pattern, so which core carries them
+stays a devicetree convention. That is the same situation as for CPU
+cooling, where cpus.yaml does not restrict #cooling-cells to cpu@0 either.
 
-Set the ids explicitly, in the order mandated by the binding
-(Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml):
-aclk, hclk, npu, pclk. After the change the driver holds one handle per
-distinct clock and clk_bulk_prepare_enable() covers all four.
+The example gains #cooling-cells; the operating-points-v2 property is
+exercised by the RK3588 devicetree later in this series.
 
-Note that this is a user-visible tightening for out-of-tree DTs: the
-old NULL-id requests resolved by index and succeeded no matter what
-"clock-names" contained, while the named requests fail probe with
--ENOENT when one of the four names is missing. That is the right
-outcome for in-tree users - the binding requires exactly these four
-clock-names and rk3588-base.dtsi carries them on all three cores - but
-a DT that relied on the permissive lookup goes from silently running on
-the wrong clock handles to not probing at all, so record the change
-here where git log will find it.
-
-Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
 Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-Tested-by: Sidong Yang <sidong.yang@furiosa.ai>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, NanoPC-T6 Plus
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Reviewed-by: Jiaxing Hu <gahing@gahingwoo.com>
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+Assisted-by: LLM checkpatch dt_binding_check
 ---
- drivers/accel/rocket/rocket_core.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../bindings/npu/rockchip,rk3588-rknn-core.yaml        | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-index b3b2fa9ba645a..5dd260bacbff6 100644
---- a/drivers/accel/rocket/rocket_core.c
-+++ b/drivers/accel/rocket/rocket_core.c
-@@ -28,6 +28,10 @@ int rocket_core_init(struct rocket_core *core)
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to get resets for core %d\n", core->index);
+diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+index caca2a4903cd1..595aacfbf8608 100644
+--- a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
++++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+@@ -42,6 +42,13 @@ properties:
+       - const: npu
+       - const: pclk
  
-+	core->clks[0].id = "aclk";
-+	core->clks[1].id = "hclk";
-+	core->clks[2].id = "npu";
-+	core->clks[3].id = "pclk";
- 	err = devm_clk_bulk_get(dev, ARRAY_SIZE(core->clks), core->clks);
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
++  "#cooling-cells":
++    description:
++      Present on the core that drives the shared NPU clock, which is the one
++      the operating-points-v2 table below is attached to. The other cores
++      cannot be throttled independently of it.
++    const: 2
++
+   interrupts:
+     maxItems: 1
+ 
+@@ -50,6 +57,8 @@ properties:
+ 
+   npu-supply: true
+ 
++  operating-points-v2: true
++
+   power-domains:
+     maxItems: 1
+ 
+@@ -100,6 +109,7 @@ examples:
+         clocks = <&cru ACLK_NPU0>, <&cru HCLK_NPU0>,
+                  <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_ROOT>;
+         clock-names = "aclk", "hclk", "npu", "pclk";
++        #cooling-cells = <2>;
+         interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
+         iommus = <&rknn_mmu_0>;
+         npu-supply = <&vdd_npu_s0>;
 -- 
 2.43.0
 
