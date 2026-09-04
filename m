@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68B8C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1441AC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=9PIL/kPnMxq3P5cVAkbNzmiNq+J34/FFMbTiuCsg88Q=; b=4OPkybicw94B6M5/Hzgp6K1yaj
-	DXEdbzK57DjKD/axrq31IXUf+jF1Bl5zxZDG+ZqgHlrk5cl+bI7WsowA3SoBbMdkhal7CUcPMAA2m
-	pve7be02NwDYJvBszWiPM0lddYNKaIFMGpAS8h6UPzyx2HTFDpKpKqe9V6iHv0oc694zW3TDNNJ90
-	gFUOve38B7y9AlYfJgPG9+o+itiWRq4SLHXqxA0uLl+hTg5mWR6Oj2f6SJ0I1npYKaR0a8MKvitJS
-	TKCCxrugDp30SugneH9WtuuZ1I5BywdY6z6TpaIOY7bElayALS2kfwL85YoDjMgEU2J7CamFRpx5F
-	YC5kEXhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uFsQT1ddKpz+9hW9jtG9cmCPNgQnYsOrVrfp1VEtJc4=; b=Q9fZN2FpP8BsZM5cV0Een1oJbB
+	RVrDCRq3jjMfU6ASPT3ZGi+IOFivr05XmsFCLZ4slfd6D5heLLTe42VDrgS/fmS9aDTeeygmjnK02
+	zoaKkZBPmc0PffSxBN+OMf2nHX7ueHrGyVEgct9U9h5XBYZb5H05l4dKQ1Cux50USCMPpsvAegtCN
+	LziNzxq14JykNlUXhDovRCbJ4jpfYVEMhqTcBEvW8tfUkwMKGj3tSWP6OGlxEk06PMVrEKkpRrszC
+	j/6mOmq8V0BnGl9+9X+XttIemR40ukZZAiD10CXLtKzaqQ9PW0L7BkDsXnymJw5QfUTw45RaupZyP
+	yn29TmBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PQ7-00000001OUb-0ZwN;
-	Fri, 04 Sep 2026 08:37:11 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1x2PR7-00000001Ohs-0VQT;
+	Fri, 04 Sep 2026 08:38:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PQ2-00000001ORg-0XD7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:37:10 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260904083658euoutp02ba63dfbde58576e7d6c74e73f1dbfe5f~SEUuMiQ392265122651euoutp02M
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 08:36:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260904083658euoutp02ba63dfbde58576e7d6c74e73f1dbfe5f~SEUuMiQ392265122651euoutp02M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1788511018;
-	bh=9PIL/kPnMxq3P5cVAkbNzmiNq+J34/FFMbTiuCsg88Q=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=OcL5ju4AonUTzK9Ge087FQnJstUcn0MPleQ4C5m1FRsL1xv6MKilFPklLZISGAADY
-	 4gpQaeGD9E+gXstRDv42+nA4MUmPAU/kNIF7+fyCbT8qb+cNsZM6wa/Nkp/BfymUcQ
-	 yxul+lYmgUZ5emXDZtoZ8dRXV7mfKcON9pdTTr7s=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea~SEUt8Oz_y2337323373eucas1p1w;
-	Fri,  4 Sep 2026 08:36:57 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260904083657eusmtip28ebc646c943dfc2d88fd5b5d1282e30b~SEUtgfgC_1075010750eusmtip2c;
-	Fri,  4 Sep 2026 08:36:57 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Chunfeng Yun
-	<chunfeng.yun@mediatek.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v2] USB: mtu3: tracing: fix pointers dereferencing
-Date: Fri,  4 Sep 2026 10:36:43 +0200
-Message-ID: <20260904083644.2010063-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.43.0
+	id 1x2PR5-00000001Ohe-2ZG5;
+	Fri, 04 Sep 2026 08:38:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 57E8643903;
+	Fri,  4 Sep 2026 08:38:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D7B1F00A3E;
+	Fri,  4 Sep 2026 08:38:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788511091;
+	bh=uFsQT1ddKpz+9hW9jtG9cmCPNgQnYsOrVrfp1VEtJc4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BTlQChWz33Ek3tA5QJkL22JROr3Td1RGn8CJeU3WX+vxde2lhWz7dLbiWAQbYp+Bv
+	 piG2ouRCHsd3Qkh0eBC7Z0XYMUtVdiSwkaIHSab4KJb7Lt7GFaxWIDcPXO22P1v+wZ
+	 56SMw1Vc2tFLE+dASjrjdWTpFpcpRMGSOn1zJ4bWhdJcDzbgrajYsyp3mF2IOrl/Fk
+	 D4WuuRwKzqJbzMsCHWYxyWma4DwhsJsfrPztJBvsWGzFjMJMctdJ36+oPPu7U0ZxY8
+	 M0fQOS7B1cWy92qDsmJN7jF0S2HsvPfdu9YbNseSbWnXDTExowbAU6QXOVHuibkfKd
+	 /eS/6uZUBqOzQ==
+Date: Fri, 4 Sep 2026 10:38:08 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, Frank.Li@nxp.com, lumag@kernel.org, aisheng.dong@nxp.com, 
+	agx@sigxcpu.org, u.kleine-koenig@baylibre.com, marek.vasut@mailbox.org
+Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
+ support
+Message-ID: <apqDKdcQrizwAv6U@houat>
+References: <20250414035028.1561475-1-victor.liu@nxp.com>
+ <20260714193627.GA9616@francesco-nb>
+ <alh4a66fEro05ShA@raspi>
+ <20260716062612.GC9973@francesco-nb>
+ <alh-6sI4J7vq2drz@raspi>
+ <apl4rkHIs9QFuUTE@houat>
+ <app836E0_y8lG9T5@raspi>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
-X-EPHeader: CA
-X-CMS-RootMailID: 20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea
-References: <CGME20260904083657eucas1p18056c0eacd7ba79401c8fb11150954ea@eucas1p1.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_013706_755349_DC53421D 
-X-CRM114-Status: GOOD (  12.66  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mwzbtbj3gnfo5lzq"
+Content-Disposition: inline
+In-Reply-To: <app836E0_y8lG9T5@raspi>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +82,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit b5cc230af5e5 ("tracing: Warn when an event dereferences a pointer
-in TP_printk()") added a warning when printing an event dereferences
-a pointer, because it might be already freed at that time.
 
-MTU3 driver is one of the drivers triggering this warning. Fix it by
-storing the DMA address in the event structure to avoid dereferencing
-gpd_ring pointer during event printing.
+--mwzbtbj3gnfo5lzq
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
+ support
+MIME-Version: 1.0
 
-Fixes: 83374e035b62 ("usb: mtu3: add tracepoints to help debug")
-Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
-v2:
-- fixed typos in commit description
+On Fri, Sep 04, 2026 at 04:10:07PM +0800, Liu Ying wrote:
+> Hi Maxime,
+>=20
+> On Thu, Sep 03, 2026 at 03:41:15PM +0200, Maxime Ripard wrote:
+> > On Thu, Jul 16, 2026 at 02:49:14PM +0800, Liu Ying wrote:
+> > > On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
+> > > > On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
+> > > > > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini wrote:
+> > > > > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
+> > > > > > > Hi,
+> > > > > > >=20
+> > > > > > > This patch series aims to add Freescale i.MX8qxp Display Cont=
+roller support.
+> > > > > > >=20
+> > > > > > > The controller is comprised of three main components that inc=
+lude a blit
+> > > > > > > engine for 2D graphics accelerations, display controller for =
+display output
+> > > > > > > processing, as well as a command sequencer.
+> > > > > >=20
+> > > > > > ...
+> > > > > >=20
+> > > > > > >=20
+> > > > > > > To follow up i.MX8qxp TRM, I changed the controller name to "=
+Display Controller"
+> > > > > > > instead of the previous "DPU".  "DPU" is only mentioned in th=
+e SoC block
+> > > > > > > diagram and represents the whole display subsystem which incl=
+udes the display
+> > > > > > > controller and prefech engines, etc.
+> > > > > > >=20
+> > > > > > > With an additional patch[1] for simple-pm-bus.c, this series =
+facilitates
+> > > > > > > testing a LVDS panel on i.MX8qxp MEK.
+> > > > > > >=20
+> > > > > > > Please do NOT merge patch 14-19.  They are only used to facil=
+itate testing
+> > > > > > > the LVDS panel.
+> > > > > >=20
+> > > > > > What's the plan to conclude this work? What's the latest status?
+> > > > > > I am looking forward to have a way to use the i.MX8QXP display =
+with
+> > > > > > mainline, but to my understanding some required changes on the =
+SOC dtsi
+> > > > > > are not merged.
+> > > > > >=20
+> > > > > > Can you help?
+> > > > >=20
+> > > > > I planned to add display controller DT node after prefetch engine=
+ support [1]
+> > > > > is picked up so that the prefetch engine could be enabled togethe=
+r with the
+> > > > > display controller.  Just want to avoid a DT that only enables th=
+e display
+> > > > > controller or bypasses the prefetch engine.  It makes the display=
+ controller
+> > > > > driver simpler.
+> > > > >=20
+> > > > > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4e=
+cb6c6d4941@nxp.com/
+> > > >=20
+> > > > That series is from October 2025, is there anything blocking to mov=
+e it
+> > > > forward?
+> > >=20
+> > > It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-misc c=
+ommitter
+> > > for every driver patch in that series.  Also, it seems that Marek(Cc'=
+ed) is
+> > > not a big fan of [1](See i.MX95 display support discussion[2]).
+> >=20
+> > I was just pointed at this series, and I'm not sure why it's blocked. It
+> > looks like you were waiting for a Reviewed-by by a drm-misc maintainer,
+> > but I gave mine already and I'm a drm-misc maintainer, sooo... :)
+>=20
+> Your Reviewed-by tags were on the initial i.MX8qxp Display Controller dri=
+ver
+> patches.  And, those patches have already landed.
+>=20
+> Now, I'm waiting for Acked-by or Reviewed-by tags on those driver patches
+> which add i.MX8qxp Display Controller *prefetch engines* support.
+> 'b4 trailers -u' doesn't include any Reviewed-by from you on those patche=
+s...
+> I sent v6 prefetch engine patch series[1] just now.
+> It would be great to have your Acked-by or Reviewed-by tags on those driv=
+er
+> patches :)
 
-v1: https://lore.kernel.org/all/20260804100531.88576-1-m.szyprowski@samsung.com/
----
- drivers/usb/mtu3/mtu3_trace.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+It looks like you had a reviewed-by by someone on all these patches
+already, so you could have merged them.
 
-diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
-index 89870175d635..b24c6411a8cf 100644
---- a/drivers/usb/mtu3/mtu3_trace.h
-+++ b/drivers/usb/mtu3/mtu3_trace.h
-@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
- 		__field(unsigned int, flags)
- 		__field(unsigned int, direction)
- 		__field(struct mtu3_gpd_ring *, gpd_ring)
-+		__field(dma_addr_t, gpd_ring_dma)
- 	),
- 	TP_fast_assign(
- 		__assign_str(name);
-@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
- 		__entry->flags = mep->flags;
- 		__entry->direction = mep->is_in;
- 		__entry->gpd_ring = &mep->gpd_ring;
-+		__entry->gpd_ring_dma = __entry->gpd_ring->dma;
- 	),
- 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
- 		__get_str(name), usb_ep_type_string(__entry->type),
- 		__entry->maxp, __entry->slot,
- 		__entry->mult, __entry->maxburst,
--		__entry->gpd_ring, &__entry->gpd_ring->dma,
-+		__entry->gpd_ring, &__entry->gpd_ring_dma,
- 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
- 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
- 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
--- 
-2.43.0
+I do have comments on the series though, see them on your latest
+version.
 
+Maxime
+
+--mwzbtbj3gnfo5lzq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCapqDbwAKCRAnX84Zoj2+
+dhi0AX9V0v+FF43tk17YKUNo7scfgvGnbACB8czD60jcwTcj64E7k+ij/1JqzbGA
+dYQ5eMcBfAh3EL8ZwNhP4ydctLhqIq8SSEhX9P4/0uHyhBDfXxEvnEbDT0vpBZlH
+aJhlwQhn8g==
+=ts7W
+-----END PGP SIGNATURE-----
+
+--mwzbtbj3gnfo5lzq--
 
