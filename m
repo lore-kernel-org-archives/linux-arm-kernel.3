@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39276C624D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 01:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12FE4C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 01:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMGAqUaafWVSEvBLWUQ9JIuS3x4p9XcAnPtwqq453a8=; b=X1JavHpFml0BpdCVJLEUL+itYA
-	T202AW5ea3VNrUnJh4F19pzNQXqE6zlwY6vAVv4ID6yUW4C8AieGttdheF+DhMk9yOe9YBDs/zn72
-	T4lKlAxfuQBF0ba/Jvq4EQPeyBc9ck49SYJEyzRc+jkrhAWS70bAcCsm6584nas+E/qRZ/5eQkwyu
-	XanaAlhYgV1ta75Co+Dc8op8aVIUxV+RvZx8ucFED2PdArogLbRXR6A6a3ZSs6fg8wpORGgnZvDUD
-	Ssa5LhvWti9Ru2Ir4ZFYpwUkSO8Fn4dnxtCWWWniwFa37QvUOHVpb7Tsn2qenGU9z4X88vjy91OIy
-	yUwMwjRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=; b=oqB34T2FSZlS6xV63FJG2v4k6V
+	9EnYceCGMIHkJg5yr4+OAM9tEPHCzYdcjnYIbYhI/Maft0UOppjRDYI8PnNGvPZUKq0vpp6ENL+TS
+	fzrtgLHHbfalAtyJ8e7qgDZXVgJ7moNTZY9Sk7D5ZuCUsguvJ263QDzqNdk1vyAoOYbIuYlL1zrR/
+	SC2OLCj7UZFL4fWCAyBrER4fotDapbhiGlnHAAKnsP1zB6w2NDC5Mz8oPqeb6sWCLNo3sHV6JE3Qy
+	sZAfG6JqqLTyQCOyXloVUU5KdTPpjzvnGsM1B8T6smYgHGjSSmyH01aBPl1OYMM0iOcQs6N/2vrEO
+	ydZSNFvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2IYW-00000000prj-0dbh;
-	Fri, 04 Sep 2026 01:17:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2IeU-00000000qPo-1O4g;
+	Fri, 04 Sep 2026 01:23:34 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2IYS-00000000pqx-12aw
+	id 1x2IeR-00000000qPQ-23eq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 01:17:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EB836057A;
-	Fri,  4 Sep 2026 01:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E0EE1F00A3D;
-	Fri,  4 Sep 2026 01:17:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788484639;
-	bh=iMGAqUaafWVSEvBLWUQ9JIuS3x4p9XcAnPtwqq453a8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DYBuoSnLeDL3ms98FhSmOWxhXgkfGzDaFnIMaT7eA7DJQDk7oMpVrCwij2nU5XIpl
-	 PH0Cyz/1WpjZXg4T/dUsh9lsdd0dcNbj+tYCMsYU4QvXf1Rrg4TVCsPe4zM/nWDw+s
-	 +ZeNZlb0PSRrNxJqIqyUnsdSoZrYCa5r5oPOQ+jsEocGIVXo7J54s9gLjH6LeVFalO
-	 3+/j7+jDcv7djU1fEAXpnUY5FIRbPuc/tXDU5U03tx0Jzywyw+5QBGKRytQSgPFUeo
-	 T415aoBssmXzlquiGSbIy+qgu21aGvcAUtt4vhpak7BCWTQk5ozYqeBzGl9N108OKc
-	 r7F9LHaV5X8/g==
-Subject: Re: [PATCH net-next v4 2/2] net: stmmac: dwmac-socfpga: mask
- XGMAC_TSIE during cross-timestamp
-From: netdev-bot+sashiko@kernel.org
-To: zxyan0222@gmail.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, richardcochran@gmail.com,
- maxime.chevallier@bootlin.com, muhammad.nazim.amirul.nazle.asmade@altera.com,
- rohan.g.thomas@altera.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 04 Sep 2026 01:17:18 +0000
-Message-ID: <178848463816.4131868.6619682657776561531@kernel.org>
-In-Reply-To: <20260902131441.322167-3-zxyan0222@gmail.com>
-References: <20260902131441.322167-3-zxyan0222@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 04 Sep 2026 01:23:32 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c9b373d5af0so461670a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 18:23:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788485010; x=1789089810; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=;
+        b=psZ4BF+8lOIjJ9aTNBg5Il/Sp10gmQNo7hnagU3xPleGf1+Bv0gaLxnNTpnAk6ySlf
+         g0UyPC1gMTuqP8WBFTjVsO2hSdzn5ka85iOr/ySLl5+SQaBPNX/fXSqvuVuwoxqOqiae
+         CPrEIruv3qDXMUKtnX2cSgx9bXRwG3QQHkMHKq8JL2S43ljh0Zz41K2bmoCHjGG826Xg
+         Hakrx4oRHJJDtlrFb+7JfvIYNCGK/PKcfTqyHUoPHkKaVEQsFQX3NBRT864SqjZQPYFo
+         raYinCzD97dHO8iujvqlNAcWw2WOuqP7iLZPp7qMiBsAeEskvaIjbgna9lyh+RtFeUKU
+         Vz5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788485010; x=1789089810;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Agf6KzSE2M9rfW3DTQHxsj+kTxob2VTdMv9WkSeHlI0=;
+        b=f6RGPjRHQpv93vfhtRaUPotZ0nL6dGd9Ce9k6aWTx4Ste4AXIkQ5iEWTLe8YAGUcDZ
+         x0Nrhbrdb+2LMWTq6xAjgsVeGA3/pRZBCUlC/LVXzWgvsJtKqWXXZiMynKLfzW03O7/G
+         y3YwP9+NEq49L6eC5mLRPRK1lE0MdxuZvtlIZvQ2HhF1zGqA1x7pvsQhZCv3uxcrtRy0
+         x9nCbWNOYj+AeHW87s7yV7UsHTj5LGa8K0l+5MHwPqeNpJmS7JuoseIn3Yja0g49ZPIE
+         UsFh4pOrMObLh+U+275FdKKN8wbP1eLPPt1+fnSG53r4QnamFZzjQk+0u06jRP5Ji9Y7
+         FJYA==
+X-Forwarded-Encrypted: i=1; AKwUvBz9Cz84C9xm63kV3IApHvkqk+RBnoJvr+I822vstj4pAUGtHhAXCxUeGiTgMFZY0as5jhx9sTjNXQ3mqJlSb9+D@lists.infradead.org
+X-Gm-Message-State: AFuF++k6Du6etkYy37bmEJXl7wv6fjnlCBJ7TWzbKKeWY0kWZx1tDOqg
+	yMdQgqblKN+7D4IFspVSoYaDCOGZwy1b+7wG/4cH2rIlQ9pUQFzf0yNP/3SKU17e
+X-Gm-Gg: AYBFou0f8ElXAY216LsfgaRK23cgDP2CxGFv/qVj6ux5G/sV4hy5xYnp131DZjrvh/h
+	viP+Y5QWYmNKfsRAr0xhNLTJTZXnppP/kefsKgGjASux8CEKXlOQmO4aHU3Kj3N8g5Hag+9m8/S
+	Qe3/cdkjUgRc3jTukkIymAEXPVXAsyCzn21Uy+AfAaaJ7GobL9q1rSjcNeOBe31ZyNQSHvGw3FJ
+	GrkG1FhMDRGwiPPkwoHhLPyozjZoTfgCVYMymTQtqqwAfqHX6Qljvl5afDZR6/dDmWwnWaWydZp
+	3rW4yU1AFWbP45UP4Q4O57iyMDuwZSMGnJYTcek57V3KBV9GPHaS1wNbtaldy3v2XeMhG5X3ugN
+	atpqiRLZQfXNvhjvkroBSaduUEvtDYfVgQzE1/tIk8fgZyP+LWJsSrNZ5Zgl/XwuWNboqDXA3cw
+	KfPr2ucHpndUA0Hewq1U2cbqSE/wt363Iqs+GQWdih3dtLqnSxTD7CIuCZSvCep9GWSDPU0qBgC
+	8/hXGNloNbEgpTtEIDNvI2jvvwl95sWpibPgevwspARDbauOESTVAipUcgCeXRmzQ==
+X-Received: by 2002:a17:90b:1a8f:b0:38e:9045:babe with SMTP id 98e67ed59e1d1-39b2612ed35mr3678175a91.7.1788485009621;
+        Thu, 03 Sep 2026 18:23:29 -0700 (PDT)
+Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b26123c99sm1513842a91.11.2026.09.03.18.23.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Sep 2026 18:23:29 -0700 (PDT)
+From: Zhijian Han <hanzhijian1991@gmail.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	sashiko-bot@kernel.org,
+	Zhijian Han <hanzhijian1991@gmail.com>
+Subject: [PATCH v7] PCI: imx6: fix resource leaks in probe error paths
+Date: Fri,  4 Sep 2026 09:23:07 +0800
+Message-ID: <20260904012307.3434449-1-hanzhijian1991@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260903_182331_557605_DA3D8875 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,291 +110,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider:
+imx_pcie_probe() leaks both pwrctrl devices and power domains on failure:
 
-Critical: 0 · High: 1 (1) · Medium: 2 · Low: 0
+- imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
+  and adds device links to them, but nothing detaches the domains or
+  removes the links on probe failure or deferral, so they leak.
 
-- [High] The fix does not close the race it claims to close: masking
-  XGMAC_INT_EN.TSIE does not prevent the destructive read of…
-- [Medium] Series ordering leaves a knowingly broken intermediate commit
-  and an undocumented backport dependency.
-- [Medium] The new mask/unmask pair in smtg_crosststamp() is neither
-  state-preserving nor nestable.
+- A failure of devm_pm_runtime_set_active_enabled() returns directly
+  without destroying the pwrctrl devices.
 
-Pre-existing issues:
-- [High] smtg_crosststamp() uses the aggregate TSIS bit as its completion
-  condition without ever clearing it before arming the snapshot, and…
+- A partial failure inside imx_pcie_attach_pd() leaks the power domains
+  that were already attached.
 
---
+Add imx_pcie_detach_pd() to remove the device links and detach the power
+domains in reverse order of acquisition and register it with
+devm_add_action_or_reset() so they are released automatically on probe
+failure.
 
-net: stmmac: dwmac-socfpga: mask XGMAC_TSIE during cross-timestamp
+Reported-by: sashiko-bot@kernel.org
+Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
+Fixes: 2c5768344f88 ("PCI: imx6: Move pci_pwrctrl_create_devices() to imx_pcie_probe()")
+Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
+---
+Changes in v7:
+- Register the devm action before imx_pcie_attach_pd() and drop the
+  imx_pcie_detach_pd() calls from its error paths, since the devm
+  action already tears everything down on probe failure
 
-This masks the XGMAC timestamp interrupt enable bit (XGMAC_TSIE) around the
-auxiliary snapshot trigger and FIFO read in smtg_crosststamp(), and restores
-it on the -EINVAL, timeout and success return paths.  The stated goal is to
-keep the DWXGMAC2 timestamp interrupt handler from clearing TSIS while the
-poll loop in smtg_crosststamp() is waiting for it.
+Changes in v6:
+- Keep the device links stateless and remove them with device_link_del()
+  in imx_pcie_detach_pd() instead of using DL_FLAG_AUTOREMOVE_CONSUMER,
+  which creates managed links to power-domain devices that never bind a
+  driver and would trigger a WARN_ON in device_links_driver_bound()
 
-No Link: tags are present in the commit header.
+Changes in v5:
+- Register imx_pcie_detach_pd() with devm_add_action_or_reset() instead
+  of calling it manually on the error paths
 
-Before the diff, a couple of notes about the commit message and the series
-ordering.
+ drivers/pci/controller/dwc/pci-imx6.c | 56 +++++++++++++++++++++------
+ 1 file changed, 44 insertions(+), 12 deletions(-)
 
-[Severity: Medium]
-
-The commit message says:
-
-  "Once XGMAC_TSIE is unmasked (done by a companion change that enables it
-  in XGMAC_INT_DEFAULT_EN)"
-
-Could that companion change be named explicitly?  The preceding commit in
-this series, f4fbb4b15db4 ("net: stmmac: dwxgmac2: add XGMAC timestamp
-interrupt support"), is the one that adds XGMAC_TSIE to
-XGMAC_INT_DEFAULT_EN (at the baseline the macro is only
-(XGMAC_LPIIE | XGMAC_PMTIE)).
-
-That ordering means a bisect that lands on f4fbb4b15db4 alone has Agilex5
-PTP_SYS_OFFSET_PRECISE failing with the exact message quoted here.  Since
-f4fbb4b15db4 fixes a user-visible problem on its own, it looks like a
-plausible stable backport candidate, and neither commit carries a Fixes: or
-dependency tag.
-
-Reversing the order does not help either, because the exit paths added here
-unconditionally set XGMAC_TSIE, which would enable it on trees where the
-default mask deliberately omits it.  Would folding this masking into
-f4fbb4b15db4 (or at minimum adding "Fixes: f4fbb4b15db4" and naming the
-dependency) be preferable?
-
-Separately, the driver already has a generic mechanism for this exact
-problem: STMMAC_FLAG_INT_SNAPSHOT_EN together with priv->tstamp_busy_wait,
-as used by intel_crosststamp() in dwmac-intel.c.  Could the commit message
-explain why a second, platform-private mechanism is added instead of reusing
-that one?
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> index 1d7f0a57d288..a4d00bf81423 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> @@ -310,6 +310,13 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
->  	if (priv->plat->flags & STMMAC_FLAG_EXT_SNAPSHOT_EN)
->  		return -EBUSY;
->  
-> +	/* The XGMAC timestamp interrupt handler clears TSIS by reading
-> +	 * XGMAC_TIMESTAMP_STATUS, which would race with the TSIS poll
-> +	 * below.  Mask XGMAC_TSIE for the duration of the cross-timestamp
-> +	 * so the handler does not run while we own the snapshot FIFO.
-> +	 */
-> +	stmmac_mac_irq_modify(priv, XGMAC_TSIE, 0);
-> +
-
-[Severity: High]
-
-Does masking XGMAC_TSIE actually stop the read that clears TSIS?
-
-dwmac-socfpga does not set STMMAC_FLAG_MULTI_MSI_EN, so Agilex5 runs the
-legacy shared handler, and the dispatch to the timestamp callback is not
-gated on TSIS or on XGMAC_INT_EN:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_interrupt() {
-	...
-	stmmac_common_interrupt(priv);
-	...
-}
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_common_interrupt() {
-	...
-	stmmac_timestamp_interrupt(priv, priv);
-	...
-}
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_timestamp_interrupt() {
-	ts_status = readl(priv->ioaddr + XGMAC_TIMESTAMP_STATUS);
-	...
-}
-
-The clear-on-read of XGMAC_TIMESTAMP_STATUS is the first statement of
-dwxgmac2_timestamp_interrupt(), before the STMMAC_FLAG_EXT_SNAPSHOT_EN early
-return.  Since stmmac_common_interrupt() is reached on every device
-interrupt, including ordinary RX/TX DMA completions, wouldn't any interrupt
-during the up-to-10 ms readl_poll_timeout() window still clear TSIS and make
-the poll return -ETIMEDOUT with the same "Wait for time sync operation
-timeout" message?
-
-There is a second consumer of the same clear-on-read register that no
-interrupt mask can affect:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_get_tx_hwtstamp() {
-	...
-	} else if (!stmmac_get_mac_tx_timestamp(priv, priv->hw, &ns)) {
-	...
-}
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_get_mac_tx_timestamp() {
-	if (readl_poll_timeout_atomic(ioaddr + XGMAC_TIMESTAMP_STATUS,
-				      value, value & XGMAC_TXTSC, 100, 10000))
-	...
-}
-
-That runs from the TX completion path whenever TX hardware timestamping is
-enabled, which is the configuration in which cross-timestamping is used.
-
-Two smaller points on the same mechanism.  There is no synchronize_irq()
-after the mask, so a handler already in flight on another CPU still performs
-the destructive read.  And dwxgmac2_core_init() writes the whole enable mask
-directly:
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_core_init() {
-	...
-	writel(XGMAC_INT_DEFAULT_EN, ioaddr + XGMAC_INT_EN);
-	...
-}
-
-which now includes XGMAC_TSIE and bypasses hw->irq_ctrl_lock, so it can
-re-enable TSIE inside the masked window.
-
-Would gating the destructive read in software (an ownership flag, as the
-Intel path does with STMMAC_FLAG_INT_SNAPSHOT_EN), or keying completion off
-the persistent ATSNS count rather than the transient TSIS bit, replace this
-approach rather than extend it?
-
->  	mutex_lock(&priv->aux_ts_lock);
->  	/* Enable Internal snapshot trigger */
->  	acr_value = readl(ptpaddr + PTP_ACR);
-> @@ -329,6 +336,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
->  		break;
->  	default:
->  		mutex_unlock(&priv->aux_ts_lock);
-> +		stmmac_mac_irq_modify(priv, 0, XGMAC_TSIE);
->  		return -EINVAL;
->  	}
->  	writel(acr_value, ptpaddr + PTP_ACR);
-
-[Severity: Medium]
-
-Is the restore actually a restore?  The acquire in smtg_crosststamp() does
-not sample XGMAC_INT_EN, and dwxgmac2_irq_modify() in dwxgmac2_core.c is a
-plain read-modify-write with no notion of a previous value or of nested
-owners:
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_irq_modify() {
-	...
-	value = readl(int_mask) & ~disable;
-	value |= enable;
-	...
-}
-
-All three release sites here (this -EINVAL path, the timeout path and the
-success path) unconditionally set XGMAC_TSIE.  If TSIE was deliberately
-masked when smtg_crosststamp() was entered, does this callback silently
-force it back on, so dwxgmac2_timestamp_interrupt() starts running and
-consuming XGMAC_TIMESTAMP_STATUS on a configuration that never asked for it?
-
->  	/* Clear FIFO */
->  	acr_value = readl(ptpaddr + PTP_ACR);
->  	acr_value |= PTP_ACR_ATSFC;
->  	writel(acr_value, ptpaddr + PTP_ACR);
->  	/* Release the mutex */
->  	mutex_unlock(&priv->aux_ts_lock);
-> @@ -353,6 +361,7 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
->  	ret = readl_poll_timeout(priv->ioaddr + XGMAC_INT_STATUS, v,
->  				 (v & XGMAC_INT_TSIS), 100, 10000);
->  	if (ret) {
-> +		stmmac_mac_irq_modify(priv, 0, XGMAC_TSIE);
->  		netdev_err(priv->dev, "%s: Wait for time sync operation timeout\n",
->  			   __func__);
->  		return ret;
-
-[Severity: Medium]
-
-Related to the point above: can a second concurrent caller end the first
-caller's masked window here?
-
-priv->aux_ts_lock is dropped right after the FIFO clear, well before this
-poll, and the PTP chardev does not serialize the callback:
-
-drivers/ptp/ptp_chardev.c:ptp_ioctl() {
-	...
-	case PTP_SYS_OFFSET_PRECISE:
-	case PTP_SYS_OFFSET_PRECISE2:
-		return ptp_sys_offset_precise(ptp, argptr,
-					      ptp->info->getcrosststamp);
-	...
-}
-
-ptp_sys_offset_precise() -> stmmac_getcrosststamp() ->
-get_device_system_crosststamp() -> smtg_crosststamp(), and no FMODE_WRITE is
-required.  If two threads issue PTP_SYS_OFFSET_PRECISE at the same time,
-thread B's unconditional stmmac_mac_irq_modify(priv, 0, XGMAC_TSIE) on its
-timeout or success path re-arms the interrupt while thread A is still inside
-this poll.  Would sampling XGMAC_INT_EN and restoring exactly that value, or
-serializing the whole cross-timestamp sequence, address both this and the
-force-enable case?
-
->  	}
-> @@ -375,6 +384,8 @@ static int smtg_crosststamp(ktime_t *device, struct system_counterval_t *system,
->  		read_unlock_irqrestore(&priv->ptp_lock, flags);
->  	}
->  
-> +	stmmac_mac_irq_modify(priv, 0, XGMAC_TSIE);
-> +
->  	get_smtgtime(priv->mii, SMTG_MDIO_ADDR, &smtg_time);
->  	system->cycles = smtg_time;
->  
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but while looking at the TSIS
-poll: can smtg_crosststamp() return 0 without ever writing *device?
-
-TSIS is set by any MAC timestamp-module event, as the new handler from the
-preceding commit itself documents:
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_timestamp_interrupt() {
-	/* ... TX timestamp polling may have already cleared TSIS
-	 * and AUXTSTRIG, so rely on ATSNS instead. */
-	...
-}
-
-smtg_crosststamp() flushes only the aux snapshot FIFO via PTP_ACR_ATSFC and
-never reads XGMAC_TIMESTAMP_STATUS to drain a stale or foreign TSIS.
-readl_poll_timeout() evaluates its condition on the first read, so a TSIS
-latched by an unrelated event satisfies the poll immediately, possibly
-before the auxiliary snapshot is latched.  Then:
-
-	num_snapshot = FIELD_GET(XGMAC_TIMESTAMP_ATSNS_MASK,
-				 readl(ioaddr + XGMAC_TIMESTAMP_STATUS));
-
-	for (i = 0; i < num_snapshot; i++) {
-		read_lock_irqsave(&priv->ptp_lock, flags);
-		stmmac_get_ptptime(priv, ptpaddr, &ptp_time);
-		*device = ns_to_ktime(ptp_time);
-		read_unlock_irqrestore(&priv->ptp_lock, flags);
-	}
-	...
-	return 0;
-
-With num_snapshot == 0 the loop body, which is the only writer of *device,
-never runs, yet the function returns 0.  ptp_sys_offset_precise() zeroes its
-crosststamp struct:
-
-drivers/ptp/ptp_chardev.c:ptp_sys_offset_precise() {
-	struct system_device_crosststamp xtstamp = { .clock_id = CLOCK_REALTIME };
-	...
-	ts = ktime_to_timespec64(xtstamp.device);
-	...
-}
-
-so userspace gets a device timestamp of 0 paired with a real system time and
-a success return.  The latched snapshot also stays in the FIFO with ATSEN
-still set until the next invocation's FIFO clear.
-
-Would reading XGMAC_TIMESTAMP_STATUS once before arming to clear a stale
-TSIS, and treating num_snapshot == 0 as an error rather than success, be the
-right shape here?  Note that the masking added by this patch removes one of
-the consumers that would otherwise have drained a stale TSIS, and it keeps
-TSIS rather than the persistent ATSNS count as the completion condition.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260902131441.322167-1-zxyan0222%40gmail.com
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 39790e66b98d..371b2a11d8f5 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -180,8 +180,12 @@ struct imx_pcie {
+ 	struct imx_lut_data	luts[IMX95_MAX_LUT];
+ 	/* power domain for pcie */
+ 	struct device		*pd_pcie;
++	/* device link for pcie power domain */
++	struct device_link	*pd_link;
+ 	/* power domain for pcie phy */
+ 	struct device		*pd_pcie_phy;
++	/* device link for pcie phy power domain */
++	struct device_link	*pd_phy_link;
+ 	struct phy		*phy;
+ 	const struct imx_pcie_drvdata *drvdata;
+ 
+@@ -639,10 +643,34 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
+ }
+ #endif
+ 
++static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
++{
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_phy_link)) {
++		device_link_del(imx_pcie->pd_phy_link);
++		imx_pcie->pd_phy_link = NULL;
++	}
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_link)) {
++		device_link_del(imx_pcie->pd_link);
++		imx_pcie->pd_link = NULL;
++	}
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie_phy)) {
++		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
++		imx_pcie->pd_pcie_phy = NULL;
++	}
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie)) {
++		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
++		imx_pcie->pd_pcie = NULL;
++	}
++}
++
++static void imx_pcie_detach_pd_action(void *data)
++{
++	imx_pcie_detach_pd(data);
++}
++
+ static int imx_pcie_attach_pd(struct device *dev)
+ {
+ 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
+-	struct device_link *link;
+ 
+ 	/* Do nothing when in a single power domain */
+ 	if (dev->pm_domain)
+@@ -654,11 +682,11 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 	/* Do nothing when power domain missing */
+ 	if (!imx_pcie->pd_pcie)
+ 		return 0;
+-	link = device_link_add(dev, imx_pcie->pd_pcie,
+-			DL_FLAG_STATELESS |
+-			DL_FLAG_PM_RUNTIME |
+-			DL_FLAG_RPM_ACTIVE);
+-	if (!link) {
++	imx_pcie->pd_link = device_link_add(dev, imx_pcie->pd_pcie,
++					    DL_FLAG_STATELESS |
++					    DL_FLAG_PM_RUNTIME |
++					    DL_FLAG_RPM_ACTIVE);
++	if (!imx_pcie->pd_link) {
+ 		dev_err(dev, "Failed to add device_link to pcie pd\n");
+ 		return -EINVAL;
+ 	}
+@@ -667,11 +695,11 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 	if (IS_ERR(imx_pcie->pd_pcie_phy))
+ 		return PTR_ERR(imx_pcie->pd_pcie_phy);
+ 
+-	link = device_link_add(dev, imx_pcie->pd_pcie_phy,
+-			DL_FLAG_STATELESS |
+-			DL_FLAG_PM_RUNTIME |
+-			DL_FLAG_RPM_ACTIVE);
+-	if (!link) {
++	imx_pcie->pd_phy_link = device_link_add(dev, imx_pcie->pd_pcie_phy,
++						DL_FLAG_STATELESS |
++						DL_FLAG_PM_RUNTIME |
++						DL_FLAG_RPM_ACTIVE);
++	if (!imx_pcie->pd_phy_link) {
+ 		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
+ 		return -EINVAL;
+ 	}
+@@ -1951,6 +1979,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, imx_pcie);
+ 
++	ret = devm_add_action_or_reset(dev, imx_pcie_detach_pd_action, imx_pcie);
++	if (ret)
++		return ret;
++
+ 	ret = imx_pcie_attach_pd(dev);
+ 	if (ret)
+ 		return ret;
+@@ -1975,7 +2007,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 			pm_runtime_no_callbacks(dev);
+ 			ret = devm_pm_runtime_set_active_enabled(dev);
+ 			if (ret < 0)
+-				return ret;
++				goto err_pwrctrl_destroy;
+ 		}
+ 
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
 
