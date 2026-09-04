@@ -4,71 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAAAC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3210C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xl4yKcZcskbxJHRSu8kbVYJqQXgOenvSubnVY0PIPLI=; b=nUk/bhobuj7QHVI2JI+XIR4ZuV
-	MYbj0Q9AzH3Be7zgz3OtL8ofU+SVoHZEEPhTsxGgEXVDDFk8NrFHqC/Dqae7CWooZDO6wwd+sFmWU
-	tIU/l8XoZnf8WpzEwn5ApUYJRyvWAwxxJRK78pR686goPogruAqq9VTF5D6BsWjNa/vOGTPUgUzYg
-	VX8nRzg4lAi2DfDJjdQYwcMAR07BbKsd3bAXVRKWLoRzlceSH8C/6a+Jqc+9hooj28W8/Exfn4kXo
-	r/DzFOfOyR7wvFuedr788pmfXDR7TuwX7h7ME7u05WuD2ieYUwaeAdBhCItV0mp0UqZfDS77VAwU1
-	0f2M/yKA==;
+	bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=; b=2Ts8wHYQGMq3t+ZpLZTrj/4vZe
+	8AVWQckApkfMP5iPtM4RRrE9VTq5VWLPTUO+ShOMeqP0vrPnCN+g55HVaX7WgV1cnnAw72OG73m85
+	Lew7faC/03j8Yi8B22X7wkJSydbI5QP1pSecYZhvtzwnH6p2b6OjDpQiiHW2oJQj/ynIviXTXJfi3
+	dnB7py/vkUd9r87Xev9/XbQ06gVsMoPcxHtQ9IzdC8JNscxuAsEHBmSGutTugB1GWlP9/P9sAJE3Q
+	WV7KbujhghabUaZJXJkEBRBZe1sHd26Gny0L8w2zSeVbkj9Nxsrau14ziiLUyO4MKDr6DXBiI11X6
+	XHxUHWJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ufm-00000002LlB-1LP3;
-	Fri, 04 Sep 2026 14:13:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Ufj-00000002Lju-1hzD
+	id 1x2Uhn-00000002M2G-3K3i;
+	Fri, 04 Sep 2026 14:15:47 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x2Uhk-00000002M0s-1o4q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 14:13:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F775152B;
-	Fri,  4 Sep 2026 07:13:34 -0700 (PDT)
-Received: from e140010.arm.com (unknown [10.57.70.12])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BDC93F673;
-	Fri,  4 Sep 2026 07:13:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788531217; bh=mbcX0BRjZ9tHtv7uAMzxSZb/LiI6JSOCvOcS1JOdIek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gbQgRzTxT6BPex33JLT7Pp8oraxak7yfyL5lHfSf7+jZx6hiadbkvjkMYEO3tQ3Vc
-	 WZy/t6W/Ia+cI4ajpvLK/YblZ7ei6nrRcxN9vJYWnNYh3U+WhXknz0/g6SPUckWI02
-	 rNKmKVIqOG71DPAI0cNlqDoxy12rjpZgTpRVpb7k=
-Date: Fri, 4 Sep 2026 15:13:31 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: arm64: Enable S1PIE for nVHE and hVHE
-Message-ID: <aprSC0hpm6tWdXvh@e140010.arm.com>
-References: <20260904-kvm-arm64-nvhe-pie-v1-0-29d59f245e6c@kernel.org>
- <20260904-kvm-arm64-nvhe-pie-v1-2-29d59f245e6c@kernel.org>
- <86pkyt4gvt.wl-maz@kernel.org>
- <eb788ad5-5bb3-4767-87b8-d35d9e3ab220@sirena.org.uk>
- <apqrky27mJmUV9UA@willie-the-truck>
- <05f1e2f4-173a-4226-8c98-1452c20f0a47@sirena.org.uk>
- <CA+EHjTx87SnshzrUF69hGTSA9JmjW9oKbx+GbKjx5W+gnWYRgg@mail.gmail.com>
- <aprKiP2YlBuBwDU8@willie-the-truck>
-MIME-Version: 1.0
+	Fri, 04 Sep 2026 14:15:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ciLePMDH3ecWM1H6IFIqiCu0lNapiKOJJe4qZ523LA7bUXRGFzkg11erFTjwGRmXrscxTSPe9lLbazjPcvRwxNqj3oswvYiMbFl4TeajV3SjCSMchQ9JoX1obupbQfzjTpuIfsRI0IEJnw7PzCTosSPoQQ2JeVWPrGj5hbgV69LHkn/c18Upy+dMRWqxI0qXEQQnm4r6ajxY0fjLpaXCSRkEQBL3YedunA09znvM5BUDaKDLG7sLkOjyRIZHWpO3pDXubmvyPGhcNihz60OwyEeHRybEN+uaGV6KbTmPQ+6PvUskAfkrfBXBHMeR+Zpzzrw+oZSCWRnGPc5KInNhPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=;
+ b=lYQKVoKwmTkEPmdA4A5piiAyBzJ4aA3b1T4+9ux/Xb+TY5EZUl3dpRP4IKR1PflMmhffPdSphYnb8mhToUsyqZS3P3trOmwQynpFTdWQnmSpoM2Vfuyq7ARLigKpCa/BOefkQmARfuy9GTAftrk6v2oxSZjEIfQ52BPhxs7wnx24tHe0C2R7Nx6FylkIVmT4+XQjA8U0+x6YG/rwWR6r91ulXgu69JZtb6V5PbvWyfvcWyguWaBO1TBPytBXUhQyNMDnzaie32HZJ7bhHClPmoIMIiHx//QTuzaYciV5RBu3/R8y98ryt0wosbgmoRFP56Ruieoj+ttOf4cMClED6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d1lY+2VwuN67dTt6SfJE39ZXzNTyyZ6IZ/DQYnSrzi4=;
+ b=iRDcEYfODbeqWO2YyfUNnubkj7OUHr7gMjF8p+MFgLryjXCSlVzoCLn1A3XTYIWQD5opRESpD2byO2tEE+UZmFQTJqQXSOJe98v6qfIbCMqiqVUudgMBZR4rNNf1HL6FTJkK2xJ/IqSQW7KpSyE8Zf5HEmNibhoI+LAON/4eBf/r+Hj+UNu631nRvOmTREJYdjMyi080wHICyj4+pqF3SwuHk8loSkeMH5c7pcGo0NIzH2QVL0c4l07aGMJ2oO10wfTLpSDAWOlQXtk5YatGtdpV6ha/OaHAJ03lMIf4cyH2FdYgJWZcbMOoxcYYEcabejUmradBAnPVesUjmupaRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH3PR12MB8210.namprd12.prod.outlook.com (2603:10b6:610:129::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 14:15:27 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 14:15:27 +0000
+Date: Fri, 4 Sep 2026 11:15:25 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+	praan@google.com, kevin.tian@intel.com, kees@kernel.org,
+	smostafa@google.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	skaestle@nvidia.com, mmarrid@nvidia.com, skolothumtho@nvidia.com,
+	bbiber@nvidia.com, harsha.v@oss.qualcomm.com
+Subject: Re: [PATCH v3 08/13] iommu/arm-smmu-v3: Disable PRI when no IRQ
+ handler is registered
+Message-ID: <20260904141525.GT4157646@nvidia.com>
+References: <cover.1788222485.git.nicolinc@nvidia.com>
+ <0b5282c7e850f1a1c650e43670899b4ef5335efd.1788222486.git.nicolinc@nvidia.com>
+ <178846311318.1308030.4956293524348641228.b4-review@b4>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aprKiP2YlBuBwDU8@willie-the-truck>
+In-Reply-To: <178846311318.1308030.4956293524348641228.b4-review@b4>
+X-ClientProxiedBy: YT4PR01CA0337.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:fc::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH3PR12MB8210:EE_
+X-MS-Office365-Filtering-Correlation-Id: b224616d-34bd-4583-d00f-08df0a8ef7b2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|4143699003|56012099006|10067099003|5023799004|11063799006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: cj6o93DOtzG9tIsxlJLafbUYVCnWcmoKw15J1edSYvX/MjlpW6y/aZ1NUpDHdyUe8OtkrqE4cCLqZMeABS5vRB+b3z/+BnGCwFt6ja1OZudnZL9KX0c+4nlN8fJzsizbMiBuhB7+6Te/FTpzSG+67lSbDWIVZATUnK//Wrn/r5eVgt420LI0rOiO8whr+7S7y2TQBBwLu2rZHgvLgOi9Ldr6XSgVhmvmtpZgFV1HGoFqiJ/QYkNkcCTL4biiUBx+O9wv3NUXu4rIaLcEz7EOp1fbSW7+emb3VMUBt2NsUCPFPNo4JYHoatyFITzbTs1qZVEk8tWYADx5zInVA66Um7AiHXDvbJ9CHjEPgm4bv53kxUJy45Mi8HEJeyrR7ipKrmjxy6Epyf0u21wtPms3+6cAvEYkE9j04PQvn6PVCsNQI/TSwzOTqbF79Bn23gxhcNDT/aBzIrHbFLdpG98qKV3zf5snD1ziXC3TOM5UwLKeqpdxfE1qbyN1z4YirE1alJXsKmqR4KQA+o0R599vUO6t/vCzk0B+QOx1Km9XlEK6wKdIBsCFPAVhZwkHEmfe7qeXYgtRDQY7I4zHy31c7rOQ6scR9O9Eu1K/qECG4qNl/KI6IHgFsmwmQ5yprSfEcjNRGOQicQo5NAFqYQuiQNRz5NJXsJn7USvgcRXtm/c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(4143699003)(56012099006)(10067099003)(5023799004)(11063799006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?afiA+0MirxS2iqTWECQO1rAhYVCi+wtRmrIMLCyfhRrNy+yP14bytwRh60v6?=
+ =?us-ascii?Q?9I7xa/hmgGjqc16JDfm0yNdzgv8TKDaCxDyx5oDlzfiA1TiKQ+H6dJufVORF?=
+ =?us-ascii?Q?ezIprlY8tdvBb7b+6JvdKKFK8nfzUTBSUOo9LUF8yt5mRqv64TX9BPondfAd?=
+ =?us-ascii?Q?Ke4/ybSDf+dPjZ7WZ6x3sOG7oun0WoAsQW1ZqBFK/CyawTAdYMpoZQ2uUkGZ?=
+ =?us-ascii?Q?pzawVcEURy/EE/hgT686FzW4zo+mCljTV6auOjYtPqfKh2zTq217Q67j+J/k?=
+ =?us-ascii?Q?1OJadZ+KNlo8amNZyr5Onq9NuYaAL+/FiUJGd1ZYkv2AGT/xVCVCISRcX669?=
+ =?us-ascii?Q?lSgs4p3lr/5yfW2gvg5tyXDh9mgoXfGZIs162SZWmKDPujSVSdNsZTSem5nC?=
+ =?us-ascii?Q?zZF9sSjtvQnHSeZSkHSNnKoA0aXWsSHHA0+bXv6UR4Wto1iHzj+UfL1OE7/i?=
+ =?us-ascii?Q?L7ClZ83UbCfulHQG/jBiPBbJeqQeOklxoAuEPDtabedQtGyO9H5XCKfNKsVL?=
+ =?us-ascii?Q?jOKOC6elyF1mlX3RrKmg3/EQaWDVTj2BEjTfhlu4cG8tD6iGEcLtqAvb3gLx?=
+ =?us-ascii?Q?4Ffk6qpjXw6+3D1Hl2b9dQh+5MYwwfJVIREGU0fvz/qqa71RWHKMoi27efgE?=
+ =?us-ascii?Q?vOpV288aZ9hKyOHOwXuFTU3uXKRiu7efKWMgHUOdToZvcQ5OlmDkn6srAwQw?=
+ =?us-ascii?Q?VNiv2Wm0QSwzgX6FiZSHwO21qnCDG0HEj/J5NWywrtry4+sSxhvZqX9hQBgP?=
+ =?us-ascii?Q?89dl55NmpZC4lMnBbu7rqOpP1GiJkpP7gNYLbCqBXURLKyYPmlV8n+B4q+wu?=
+ =?us-ascii?Q?oSntD5P7PQ+KjGK/iKIXQusTZtsanqECm81KyKGNeE/IDZ0HqsMuWsMcWJuC?=
+ =?us-ascii?Q?h4QRQje5HpBHsWiqGdLf2PDtZOFFU8oqIUlYqDDTHDE2mOehPBX17/czX1LJ?=
+ =?us-ascii?Q?nUwxCsqupqXYKYTj/VnhvU6C53ffStleLAW4xzAyyj5jgh3SXW5JIqwWpR8f?=
+ =?us-ascii?Q?yZ/YqSl1MwBLqk9jlHkESIUcolGl3TQjJgmL/OtYwqredBondGWkRnB1VXAn?=
+ =?us-ascii?Q?p1thJF+8z1eW1Nl24Qyu02tIOFR1dR5nEBnOLHJp49y32Yot9vSHXDZo8S4e?=
+ =?us-ascii?Q?llp9ptHIDDBf/6S6dIiHiiopgxhj27xEm0QxyETpx4ea3VpYcyQShB8Z7M/X?=
+ =?us-ascii?Q?YDIDbrNHAlr9bdH6E9BgL5D+TxXVgyL4Cg6w85PcttHChdbTtGDwtscd2lct?=
+ =?us-ascii?Q?vYlFXfMx0kouIrMjIEkAq0o7XtFQgpAUYsd6DVGZa/xKY1tG8AXaD5wZcPrB?=
+ =?us-ascii?Q?Wy1PjcRxrU7jv/+WSdfjByHeGgx4bgX4n32E8sEH3PDWmZm2noTjSvqCzkDF?=
+ =?us-ascii?Q?4CRMXtRnq7Hk4BNBKXtztLvalMunaK+6eoX7OSwmXBfdKIcceZ+ciJy1RMyn?=
+ =?us-ascii?Q?TSndFSqFnTLQVErfxzW9npc/FiutOvV1TiAS+NDHeBUEby2y8FyN0+/tem3g?=
+ =?us-ascii?Q?54fqAmG++yoWnVt702RjyH9f7wkP7SueQ1YfAKV7MzQbe4/dvGsggi01on/H?=
+ =?us-ascii?Q?QMUwc0ZrT0znYCIRuBaHB5Nh2rW8XJ6rRs/3gBSGDRDNN9m79D1TS6hckG50?=
+ =?us-ascii?Q?6PDE7RmMOK7W3WwC+RlTGRXik98/UXxaBOzVEz10HrkOkQoaMG7tGaUd46/I?=
+ =?us-ascii?Q?eXrJdEHHwMrZ/SMMveiMR3Njx8Zzxe8dUM0wXHxKpsOgULOR?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b224616d-34bd-4583-d00f-08df0a8ef7b2
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 14:15:26.9288
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KIplqGmouBkyhgcDk/+8OaYt9zly9KHSSEfrLWFTs33++foTK0tBR5jmDbbCO5HG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_071339_493891_2F0C9BAB 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20260904_071544_640633_9E80017C 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +143,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
-
-On Fri, Sep 04, 2026 at 02:41:28PM +0100, Will Deacon wrote:
-> On Fri, Sep 04, 2026 at 01:20:44PM +0100, Fuad Tabba wrote:
-> > On Fri, 4 Sept 2026 at 12:48, Mark Brown <broonie@kernel.org> wrote:
-> > >
-> > > On Fri, Sep 04, 2026 at 12:29:23PM +0100, Will Deacon wrote:
-> > > > On Fri, Sep 04, 2026 at 11:33:24AM +0100, Mark Brown wrote:
-> > >
-> > > > > What about pKVM, my understanding was that that is very much an ongoing
-> > > > > concern and uses the nVHE hypervisor?  My expectation was that this
-> > > > > would only ever get used in hVHE configurations when people enable pKVM
-> > > > > on modern hardware, actual nVHE mode was mostly just carried along with
-> > > > > that.
-> > >
-> > > > pKVM uses hVHE wherever it can nowadays, so I'm fine with only supporting
-> > > > S1PIE on hVHE and VHE configurations if that's easier to maintain. We
-> > > > just need to make sure that the failure mode for nVHE results in the
-> > > > feature being gracefully disabled, rather than e.g. crashing or quietly
-> > > > doing the wrong thing.
-> > >
-> > > I figure that if we're supporting hVHE it will end up less complicated
-> > > to also enable nVHE, it reduces the potential for having bad or missing
-> > > fallback paths for features downstream of S1POE.  It's not like it's a
-> > > huge extra bit of code and it seems likely to save hassle down the line.
+On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
+> > arm_smmu_setup_irqs() has three failure paths that leave the priq without
+> > a handler: a missing priq IRQ line, devm_request_threaded_irq() failure on
+> > the priq IRQ, and devm_request_threaded_irq() failure on the combined IRQ.
+> > Each path warned but kept ARM_SMMU_FEAT_PRI set in smmu->features.
 > > 
-> > For pKVM there's no fallback path to get wrong: any CPU with S1PIE has
-> > VHE, so pKVM runs hVHE on it, and a CPU without VHE has no S1PIE to
-> > disable. I couldn't construct the protected nVHE plus S1PIE case under
-> > QEMU at all.
+> > With FEAT_PRI still set, arm_smmu_setup_irqs() enables IRQ_CTRL_PRIQ_IRQEN
+> > against a handler that does not exist, and a later change would then have
+> > arm_smmu_probe_device() call pci_enable_pri() on PCIe endpoints, allowing
+> > them to issue PRI Page Requests that pile up in the priq with no drainer.
+> > Separately, arm_smmu_device_reset() has already enabled CR0_PRIQEN before
+> > it invoked arm_smmu_setup_irqs(), so the hardware queue would stay enabled
+> > regardless of what setup_irqs decides.
+> > 
+> > Clear ARM_SMMU_FEAT_PRI in all three failure paths, so that subsequent code
+> > treats PRI as unavailable. And disable CR0_PRIQEN after the setup function
+> > returns.
+> > 
+> > A kdump kernel cannot service page requests: strip FEAT_PRI when detecting
+> > features, so downstream PRI setup is skipped.
 > 
-> I can't remember the exact incantation, but there's definitely a way to
-> force pKVM + nVHE on VHE-capable hardware on the cmdline. So we should
-> just make sure that doesn't go horribly wrong!
+> Dumb question - why can't a kdump kernel service page requests?
+> I'm nowhere near familiar enough with that stuff and I suspect I'm not
+> the only one who might be in that state and reading this series.
+> Configuration choice, or a fundamental thing?
 
-arm64_sw.hvhe=0 id_aa64mmfr1.vh=0
+The initial issue is the streams are left in whatever state the crash
+kernel had them in, so it can be generating a bunch of PRIs with no
+place to put them.
 
-From kernel-paramters.txt, and last time I checked (two or three kernel versions
-ago) it was working.
+Though eventually we may find a device where dropping them is not good
+and they need to be NAK'd promptly..
 
-Thanks,
-Ale
+But I think the real motivation here is to save memory in the kdump
+kernel..
+
+Jason
 
