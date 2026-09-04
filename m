@@ -4,72 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E051DC79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5DCC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AKdLH/ahCIG1Rgwopv/LsqMKS0D1H45YTiRnWEh9qx4=; b=2Caa9SdkCdC3DEJcsxsDf5v/YJ
-	PzudnsIbA3CP2va93EsEhJXSrgpNWuuHHZUxDRTf1Vf90UboDrrHs8iMqYREJgRad0mjyPUEdnyjI
-	2YxTKQKh6FZO9DGGadmJBpZveKKshfy0JGBAqtiFNkM30N6M3KDjXLMwQ1IjEgTXYDN4IDj6iU9X8
-	MLETu0jQa9hoeZsn0nzHtDlK8fzrd49tWP2Hx7eTvxYylGmuelHAwSPz3P+ApjrZRion91GHpHCBM
-	8OljQ8n/r6WqSUK3z3CgsWGb8R3ZpCrREXaIrK78W4fpgTdTq2p0mE5oq02e+jPEzEmSQ/a3ywLgQ
-	1Damdglw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NUmfB/lGYn21ZaTrAnM0gsCmjjmyUgfTzpuBRVpgET0=; b=iRG96zVup/Gs7keyNLDfBhgk+1
+	WGhzbxx+cvTU6T4qi42EwKVpu5gXEqSSVpsTL60OL39HwcU7FA1ExCXeJhe7LrkBTYQopLAF0/gCa
+	XrxI1m6NE0BBOu+a+wxnAeLIQoUDrnij4v62jPcUgGUZndApaCc6Cic12Fzg0Tpw5GyeiIdzLEDMt
+	HepMLjMgnuzyHSeG56PWkPLPTeJ4LBmzLWQainIHTZi4d+FXfH5ZORu7YWnCXN5lbJRaWSeDcBzRK
+	FciE/3Z2AN16nA1KBPQa/1f8lTWElB+x6oTv+G9JjXoZ5LBIaLT/cGHROb2hQgc2/asYA6d1H6ZW1
+	I75fB5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2OuG-00000001KYk-1t2n;
-	Fri, 04 Sep 2026 08:04:16 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1x2Oyc-00000001L0Y-2GQh;
+	Fri, 04 Sep 2026 08:08:46 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2OuD-00000001KXS-3Why;
-	Fri, 04 Sep 2026 08:04:15 +0000
-X-UUID: 2f23fddca83711f19a56ed5b684f684d-20260904
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:cd519ada-3f50-4216-9336-b35712992ab9,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:7db8b62,CLOUDID:e562e21d508100021ebce5939b8fd2cd,BulkI
-	D:nil,BulkQuantity:0,SF:102|136|865|898,TC:nil,Content:0|15|50|99,EDM:-3|-
-	100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2f23fddca83711f19a56ed5b684f684d-20260904
-X-User: liujiajia@kylinos.cn
-Received: from nature.lan [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liujiajia@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1921575205; Fri, 04 Sep 2026 16:03:59 +0800
-From: Jiajia Liu <liujiajia@kylinos.cn>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Ying Hsu <yinghsu@chromium.org>,
-	Archie Pusaka <apusaka@chromium.org>,
-	Abhishek Pandit-Subedi <abhishekpandit@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jing Cai <jing.cai@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Chris Lu <chris.lu@mediatek.com>
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Jiajia Liu <liujiajia@kylinos.cn>
-Subject: [PATCH v5 1/2] Bluetooth: btusb: mediatek: Fix leaked runtime PM reference in reset
-Date: Fri,  4 Sep 2026 16:03:50 +0800
-Message-ID: <dac8ddf07cb1bb79c70d5a516f0ff7baf41eb462.1788507854.git.liujiajia@kylinos.cn>
-X-Mailer: git-send-email 2.55.0
+	id 1x2OyZ-00000001Kyw-0i0Q;
+	Fri, 04 Sep 2026 08:08:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n9H5GgUrPtPdDWqQaJzdnWlBnLRLgrJpEMrci40EI/XtV5A+OMndj+vs1Lc9oTR0oMg8KuLGWPtEAbEFEAh5fFjbVSEEA+QpCLH5/n5Dw1Yb1dLOEDzgrkrthqNIyLUfv9+7MvlZqACMq/WSordVSKJ7X5zVL3dxXPaW4XrDGoKAJJpiFLy2XTik16+I6Vv22z7yvA3nBmuS9fXjnzk9FAVRSbF1lCljFIrovVF2GOJdZyHg8LYVbZ66D+0faey4Ssfv9gNe+Bgf0iseh1SgJeq2rXp/yvuB06vzD0JaXxMUAIZ6znQh3O2EO28OI6VEra1d4pJk55Hd4zQ0qX2//g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NUmfB/lGYn21ZaTrAnM0gsCmjjmyUgfTzpuBRVpgET0=;
+ b=xcT1riX5PyNYSHlWDyshFa4wS+BlE3PG8QizN/2h29xTOyRSvx7/mh/z2LuDSjK8hNbO/vJQUWNsAlDcodXr0AtJB3lezHg8LQ7kc64iNXDosWHxFzb95p1BW22tHcuMcMHYIc994kzl1KChxCuZNEeLifny110tJ8TTnUrPVxXHdqPLBjd9aCe41V9Z0i0NP8pyCwS8ffX5AAqSxmsjRoUghwKHbd6JFmLFXR2krCPUSE3/lnQ3n2bs87CH2sku6VNE3P74yXDlz/mmRyyYzer7vubwoobARKPwePPDIoRC/ygMxjZyUsvF9+ExoL3eMDNkjpyGXhFOg3bHV5OJOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NUmfB/lGYn21ZaTrAnM0gsCmjjmyUgfTzpuBRVpgET0=;
+ b=B3x4SdSPpO6E+Yi/0+25rkx8GPcg0J28osrtbXn9Cqft+U5EdbxcxYtIehYaiyGmtAzwfEcaxEZ5Pcwe6xI5jAJejVNSN6FQi7jL0kYbS2IqzXw6msWys1pftzV4UPlz3djIb9uCiBfxaj+fQkCPhRmN2A3z5O0AelrAU29SgMbm38iIzlXH7X1+sTjtsGwVYRM9aEiarJpSxtU6AqGLxd3YXucPH0AQ/wvgweQnp/8WLcsZSKaIii+0Wf7Hj4NG1h4Ml9xKSpXKL1fXXN3YMS0/te78aVJVNcKle2oGGrcVLo+jVwt85sTdJy8mTaVTecTJNAqhkRP37C5w440Jsw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com (2603:10a6:290:c0::7)
+ by VI1PR04MB9786.eurprd04.prod.outlook.com (2603:10a6:800:1e1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Fri, 4 Sep
+ 2026 08:08:37 +0000
+Received: from MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151]) by MI9PR04MB350878.eurprd04.prod.outlook.com
+ ([fe80::8537:1cdd:6c49:6151%6]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 08:08:37 +0000
+Date: Fri, 4 Sep 2026 16:10:07 +0800
+From: Liu Ying <victor.liu@nxp.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org,
+	kishon@kernel.org, Frank.Li@nxp.com, lumag@kernel.org,
+	aisheng.dong@nxp.com, agx@sigxcpu.org, u.kleine-koenig@baylibre.com,
+	marek.vasut@mailbox.org
+Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
+ support
+Message-ID: <app836E0_y8lG9T5@raspi>
+References: <20250414035028.1561475-1-victor.liu@nxp.com>
+ <20260714193627.GA9616@francesco-nb>
+ <alh4a66fEro05ShA@raspi>
+ <20260716062612.GC9973@francesco-nb>
+ <alh-6sI4J7vq2drz@raspi>
+ <apl4rkHIs9QFuUTE@houat>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apl4rkHIs9QFuUTE@houat>
+X-ClientProxiedBy: MA5PR01CA0183.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a9::10) To MI9PR04MB350878.eurprd04.prod.outlook.com
+ (2603:10a6:290:c0::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI9PR04MB350878:EE_|VI1PR04MB9786:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3c1d246-7a5e-4d65-73b0-08df0a5bb8db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|3023799007|11063799006|10067099003|4143699003|22082099003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: nLujZ8Gg1GG1Rpil5P81O1cyzr5ukPs81ikDqKDWHo7hFmn9hafwguvz9lfcrA89/WboE+E9Pv+0Bd9HvH3mrzeqalU4mg617IddJyqNCjqsa/Ct2hoxp9QgcS07/bAfSDtFpYR/u9EwLjdyOOgZpesF17CuDVlMTpTIlUrefiDOzFGXM171/biHJTInrlZorxc9nn75fqGT6EDgJiSF8ln186QYirOqO+wlPJQ9DG4oSq68fuYarMKaoF1JyKbjSQ1UqIBen21hX8nvp5rezdkULL9S1Y0c358CqqEK1g7NoMjPKGtG5hGFsqOaZypwOwvisX/3XYDmYUZnebE363kK9gEABAJVoBhlScNVnPDfA+PAJvKIscTFtl471xD7KFqU+SmoTaKwtXB2mi+HI0wJTA8jqcmFZHWouE8Z/aaFsZxJM9I3/9gVUGu2Z9e46C9mCjRwg1wwkF4ZcqF0GAaj0SzYb2oo8dRb5I2jUP8rzxyxvQUo48QD1zX+eOGy5OJrGK95B/ft3BGN9CfCemlBBfuG7iAxMs/sdzncqmkdiJGCpjCWapBsvzGD8oZ+AJd24fugFBVMMF2EXyf7JPzq5Vn4MmI0zaUBGPWGf5Zuv+C3kDpqaQPQWw0r82pz
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB350878.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(3023799007)(11063799006)(10067099003)(4143699003)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bigmbTMsOlodgIbl0jHGEmQy3+5HFPhSefSMBwByhQR09HVyjLck71HRpR2w?=
+ =?us-ascii?Q?AdN5KLyigJ/BjYcOYNIqqXMoLNVlEZoOUcOW61AIjcrtPpDHEkG2XEFzZb5D?=
+ =?us-ascii?Q?gPW3M9PCns82/iF1oiPDXvHSQN/1mR6U+ePDdq4F1e6ZifDIuIKA490DBm6m?=
+ =?us-ascii?Q?+EqGrlO8F4ThcIxWxfpjGZafqxu6lPuuisiWOHk3tTqajiJ3nr4l8VjXsGUU?=
+ =?us-ascii?Q?vMa65Uoa8anG7hy0hS5NnWu9UmQelmiuAC3V1AowUSVQKCzCQGfXWdtwZVoG?=
+ =?us-ascii?Q?x+Ybefc1yOYEbsXSDKh50QKwG+Un0viFZP5K1sbMnaAuvgU8udgxzqaSrKua?=
+ =?us-ascii?Q?FVox/+sArNST89su1Wp+o+JEsGU1uhAqQR+MNLdnE3yYk4BYDtKzmyuyDwiX?=
+ =?us-ascii?Q?QLHFUsZ+wDIRRIywVa+RLxIqjISC5N8X9QfRrg8t5mPe/fEPi4mciftEY2s0?=
+ =?us-ascii?Q?hNkM8dbLgzUu2TalrLxF77iOWji4wmKfusXXoS4/2LVZMoKiGF88mLf811dO?=
+ =?us-ascii?Q?uyV0sdf0WO28PRg4gH3GCTCCjuSFRX4tKse45erNRB0SrQi8BJOErdWPD8sv?=
+ =?us-ascii?Q?ao/sMS49momz1mhB7DvWjrO/onY4mWwT9/eWnNhY7BkvZukS/ZEN0LInZpRg?=
+ =?us-ascii?Q?IEHb8Z9lmHVhRw8uNJ2GXPfMxsn5VqvHGiAPuktgTw1VvSNEUVTJr1//bVi7?=
+ =?us-ascii?Q?I7D7tnTWOcBDcpZ9fxUEOGZviPlrhj7Z+0Q5YWHBaRyJjlhmJq7MljuEklvT?=
+ =?us-ascii?Q?TPuxNUlFOsaTM/MUn+u5qfd8NbKyrHUsYijuWAHZrD5l9uZVcVNrzVOwlLQz?=
+ =?us-ascii?Q?cspJzYWZvxXwOrNUwrwkG81eI+TGQ/mgD9I+GhwAQDkBKTk4U42izJAFbJTZ?=
+ =?us-ascii?Q?5Qw1ljn64gHAUwLmEuLbDsm2pKG7VLZYnVNK7SRDggxp78/GvQYZmT79+Bf7?=
+ =?us-ascii?Q?1HqUFdOzBErmvT2lv17QAE+m7ugWAIHpORN6v922mRaLBAVwZzq99V+ggsDs?=
+ =?us-ascii?Q?UA+Y8VUDY7sQq9AqVZejIuV9jemAoi+ZSpBl+g1jHiecg8Af7cbV3rw0i2M2?=
+ =?us-ascii?Q?0ZkL3Pf1f8sNL7d7/yhyqpq1rqeBAbI7GwEt4gx+ZvNC9yhjSLC4tEWY189o?=
+ =?us-ascii?Q?MF1omH+msdMRsHWeiIegUkt0+dkmK5jDZ3ElX2ZoXTB5zZj1b+qJJmTppLWJ?=
+ =?us-ascii?Q?ibWK+0Vl237hRryglZ+H2Yh/PCC9WuGxFoqhWOx0opFUJ0aAAHRzaUSJsWIQ?=
+ =?us-ascii?Q?mjfJ3aVySSVJvIxvzRuzMXmHxmV+7kwO5H0mHQiykRN1x3dJyXguIYfL2V6W?=
+ =?us-ascii?Q?CDWGuu4MaLOQVHHC0wtrp6encduj66a83NvDgOsqitpseXjvFgLWSciKkSWJ?=
+ =?us-ascii?Q?YWRBjzfcSTey6qkCeQSX4pZlppYaPmBgRA8DZ57z/B7sUaL+9Eyhva/ZWsu1?=
+ =?us-ascii?Q?Hk78oFgCag8oIR7DQCpetMFOROzVxUCVmhhqgMP09tFnMCB5xoVIv6qu+OK1?=
+ =?us-ascii?Q?dzT8muU8a5KEs/LabNwcVYvrmMwcY2yqLcXsi8Nk6+IFthB6kBJKMDX7xEU1?=
+ =?us-ascii?Q?WbHa+9XZJAhMq+BxgtlUjuE8bHym0EhDmmpSajCUcvpYWAoe3YrL3CBwPmzV?=
+ =?us-ascii?Q?FfMIYVtKvOtfuAhCUaeJiiA9WLqBziofnLW/dndqQF8AmBjAt6xen4MyiobT?=
+ =?us-ascii?Q?PPEOOY7dEkMX/ODuSu0+nl8ykmEFpY+6M8UetE9y8+c8iNa8vK6jeknZ6krj?=
+ =?us-ascii?Q?uYQYgDzlxw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3c1d246-7a5e-4d65-73b0-08df0a5bb8db
+X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB350878.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 08:08:37.1895
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VxSrIUnEd+463mo+uukvAKUeCOzMDecnOCMmpdKDc1qaHBosxOWXu48VnDq9ONoerW25L1W4F02ZOY+f9kxfKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9786
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_010414_176832_BD3CF0D1 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20260904_010843_211578_FA12C713 
+X-CRM114-Status: GOOD (  36.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,121 +149,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT7925 on HP Pro Mini 260 sometimes timed out during reloading driver
-and reset usb device. btusb_suspend is not called again after closing
-bluetooth interface.
+Hi Maxime,
 
- usbcore: registered new interface driver btusb
- Bluetooth: hci0: HW/SW Version: 0x00000000, Build Time: 20260605184935
- Bluetooth: hci0: Execution of wmt command timed out
- Bluetooth: hci0: Failed to send wmt patch dwnld (-110)
- Bluetooth: hci0: Failed to set up firmware (-110)
- usb 3-10: reset high-speed USB device number 4 using xhci_hcd
- Bluetooth: hci0: HW/SW Version: 0x00000000, Build Time: 20260605184935
- Bluetooth: hci0: Device setup in 1856545 usecs
- Bluetooth: hci0: AOSP extensions version v1.00
- Bluetooth: hci0: AOSP quality report is supported
- Bluetooth: MGMT ver 1.23
+On Thu, Sep 03, 2026 at 03:41:15PM +0200, Maxime Ripard wrote:
+> On Thu, Jul 16, 2026 at 02:49:14PM +0800, Liu Ying wrote:
+> > On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
+> > > On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
+> > > > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini wrote:
+> > > > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
+> > > > > > Hi,
+> > > > > > 
+> > > > > > This patch series aims to add Freescale i.MX8qxp Display Controller support.
+> > > > > > 
+> > > > > > The controller is comprised of three main components that include a blit
+> > > > > > engine for 2D graphics accelerations, display controller for display output
+> > > > > > processing, as well as a command sequencer.
+> > > > > 
+> > > > > ...
+> > > > > 
+> > > > > > 
+> > > > > > To follow up i.MX8qxp TRM, I changed the controller name to "Display Controller"
+> > > > > > instead of the previous "DPU".  "DPU" is only mentioned in the SoC block
+> > > > > > diagram and represents the whole display subsystem which includes the display
+> > > > > > controller and prefech engines, etc.
+> > > > > > 
+> > > > > > With an additional patch[1] for simple-pm-bus.c, this series facilitates
+> > > > > > testing a LVDS panel on i.MX8qxp MEK.
+> > > > > > 
+> > > > > > Please do NOT merge patch 14-19.  They are only used to facilitate testing
+> > > > > > the LVDS panel.
+> > > > > 
+> > > > > What's the plan to conclude this work? What's the latest status?
+> > > > > I am looking forward to have a way to use the i.MX8QXP display with
+> > > > > mainline, but to my understanding some required changes on the SOC dtsi
+> > > > > are not merged.
+> > > > > 
+> > > > > Can you help?
+> > > > 
+> > > > I planned to add display controller DT node after prefetch engine support [1]
+> > > > is picked up so that the prefetch engine could be enabled together with the
+> > > > display controller.  Just want to avoid a DT that only enables the display
+> > > > controller or bypasses the prefetch engine.  It makes the display controller
+> > > > driver simpler.
+> > > > 
+> > > > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.com/
+> > > 
+> > > That series is from October 2025, is there anything blocking to move it
+> > > forward?
+> > 
+> > It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-misc committer
+> > for every driver patch in that series.  Also, it seems that Marek(Cc'ed) is
+> > not a big fan of [1](See i.MX95 display support discussion[2]).
+> 
+> I was just pointed at this series, and I'm not sure why it's blocked. It
+> looks like you were waiting for a Reviewed-by by a drm-misc maintainer,
+> but I gave mine already and I'm a drm-misc maintainer, sooo... :)
 
-btusb_mtk_reset calls usb_autopm_get_interface to resume the device
-before driving the hardware reset, but never calls the matching
-usb_autopm_put_interface. Every hardware reset therefore leaks a PM
-usage reference of the interface, preventing the device from being
-runtime suspended again until it is unbound.
+Your Reviewed-by tags were on the initial i.MX8qxp Display Controller driver
+patches.  And, those patches have already landed.
 
-Add the BTUSB_RESET flag. It is set before usb_queue_reset_device
-and is cleared in btusb_disconnect, which drops the reference as well.
-If the flag is already set when a new reset is requested, drop one
-reference.
+Now, I'm waiting for Acked-by or Reviewed-by tags on those driver patches
+which add i.MX8qxp Display Controller *prefetch engines* support.
+'b4 trailers -u' doesn't include any Reviewed-by from you on those patches...
+I sent v6 prefetch engine patch series[1] just now.
+It would be great to have your Acked-by or Reviewed-by tags on those driver
+patches :)
 
-Also clear BTMTK_HW_RESET_ACTIVE if usb_autopm_get_interface fails,
-otherwise no further reset could ever be attempted.
+[1] https://lore.kernel.org/all/20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com/
 
-Fixes: 25b6d7593a3a ("Bluetooth: btmtk: introduce btmtk reset work")
-Assisted-by: Claude:qwen3.8-max
-Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
----
-
-Changes in v5:
-- set BTUSB_RESET to 19 since BTUSB_WAKEUP_BROKEN (18) is introduced.
-
-Changes in v4:
-- do not return if BTUSB_RESET is set in case the first reset failed.
-  move test_and_set_bit right before usb_queue_reset_device (sashiko)
-
-Changes in v3:
-- rename BTUSB_USB_RESET_ACTIVE to BTUSB_RESET (Luiz)
-
-- test_and_clear_bit BTUSB_RESET in btusb_disconnect (Luiz)
-
-- handle multiple reset requests int btusb_mtk_reset (sashiko)
-  set BTUSB_RESET if no reset_gpio after usb_autopm_get_interface.
-  If the flag is already set, add log and drop newly acquired reference
-  and return.
-
-- clear BTMTK_HW_RESET_ACTIVE if usb_autopm_get_interface fails and add
-  error log. (sashiko)
-
-Changes in v2:
-- Fix the race window (sashiko)
-  Add and set BTUSB_USB_RESET_ACTIVE flag before usb_queue_reset_device.
-  Release PM reference in btusb_disconnect if this flag is set.
-
-Changes in v1:
-- add usb_autopm_put_interface after usb_queue_reset_device
-
----
- drivers/bluetooth/btusb.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index dfefb43fb792..6f7946709266 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -988,6 +988,7 @@ struct btqca_data {
- #define BTUSB_ALT6_CONTINUOUS_TX	16
- #define BTUSB_HW_SSR_ACTIVE	17
- #define BTUSB_WAKEUP_BROKEN	18
-+#define BTUSB_RESET		19
- 
- #define BTUSB_PROTO_LEGACY	0x00
- #define BTUSB_PROTO_H4		0x01
-@@ -3024,8 +3025,11 @@ static int btusb_mtk_reset(struct hci_dev *hdev, void *rst_data)
- 	}
- 
- 	err = usb_autopm_get_interface(data->intf);
--	if (err < 0)
-+	if (err < 0) {
-+		bt_dev_err(hdev, "Failed usb_autopm_get_interface: %d", err);
-+		clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
- 		return err;
-+	}
- 
- 	/* Release MediaTek ISO data interface */
- 	btusb_mtk_release_iso_intf(hdev);
-@@ -3047,6 +3051,11 @@ static int btusb_mtk_reset(struct hci_dev *hdev, void *rst_data)
- 
- 	err = btmtk_usb_subsys_reset(hdev, btmtk_data->dev_id);
- 
-+	if (test_and_set_bit(BTUSB_RESET, &data->flags)) {
-+		bt_dev_err(hdev, "last usb reset failed? Resetting again");
-+		usb_autopm_put_interface_no_suspend(data->intf);
-+	}
-+
- 	usb_queue_reset_device(data->intf);
- 	clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
- 
-@@ -4729,6 +4738,9 @@ static void btusb_disconnect(struct usb_interface *intf)
- 	if (data->reset_gpio)
- 		gpiod_put(data->reset_gpio);
- 
-+	if (test_and_clear_bit(BTUSB_RESET, &data->flags))
-+		usb_autopm_put_interface_no_suspend(data->intf);
-+
- 	if (intf == data->intf) {
- 		if (data->isoc)
- 			usb_driver_release_interface(&btusb_driver, data->isoc);
+> 
+> Maxime
+> -- 
+> linux-phy mailing list
+> linux-phy@lists.infradead.org
+> https://lists.infradead.org/mailman/listinfo/linux-phy
 -- 
-2.55.0
-
+Regards,
+Liu Ying
 
