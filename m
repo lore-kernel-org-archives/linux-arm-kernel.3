@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B94C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFDBC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 12:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQohy1k6O8N4/FlPUm0T2gOe7iYaF+RMdNWyiCLqF0I=; b=CyLV2pnYxdC08HWsQz7RywwE1H
-	qhWKjujxycwVZMxil8JOt1D5P6qvw5N5kLQTWbidGNYcm4o+pbjzzW6y7Zy7fhBW37aLloAR14kI/
-	e9msXLxEvDxEB6eBVETkubaZrpkfq2SuuogrzkwLWxjYHz1CByx55V0Ul8TIArz1Ntox44dVSzcFH
-	jPYwEmua5GDFsQ0W2Bz0iSbSeZDGrL8OXW9Axn8rzFSz4rq+2yxN8IntE/tJfLkhRWF8ec7Xwsml3
-	3IjPpi6aN0vh/Itiq1dUT5MDeAfsLU9vJiWEWoqcnOU+HG75Cb5xn+cBMwiZ8UnkQY8oDY2tk+rkQ
-	aNSwNB8g==;
+	bh=kjXI7c1o2fMUZ4gP/lf6VLU7Bny6ysM8MfilUau8IZs=; b=IwSFm6vk1fIsu3E3PXDIGcyDUj
+	bm96fq/NGAbdD+3EZ+8jy8N1SbpYT2fZgyv2AwewT7rlo+osxA7u/dVA40dKeDXNAxCAU4W8AD4mi
+	z+MxZ3x8FcTsCrs1s2cZKkIIU/9jj9F4vTERFIuvnPQHy7V0s/tkgjcq/8PUGtJ0cJtvDDgB0hRNt
+	MiHDeS91n5Gfa9ByqGV5jMEiUzvtS/J36qoXQVG6L9J/N9e8m6oRMRVyWE//VU2kMiJ/MbWn54PiL
+	wwjMOSJADAL0doyVwfhRHnV0CGe53TKlVjAqjnKRFpS/8KJI6scpdyMjs8VLjeiJam0AgwJo2WECu
+	baCehdFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Syi-000000021Vd-1VMz;
-	Fri, 04 Sep 2026 12:25:08 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1x2Sye-000000021Sv-0VGf;
+	Fri, 04 Sep 2026 12:25:04 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Syg-000000021UD-3ID0
+	id 1x2Syb-000000021SC-2r6i
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 12:25:07 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7e9fc3de7ceso546489a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:25:06 -0700 (PDT)
+	Fri, 04 Sep 2026 12:25:02 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7f0167e59a3so662078a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 05:25:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788524706; x=1789129506; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788524700; x=1789129500; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TQohy1k6O8N4/FlPUm0T2gOe7iYaF+RMdNWyiCLqF0I=;
-        b=jtzwvXgHekacR9kM6hNlh3miaLYouMS3w7KB0poNay5oBn5yKCg7/7cBmRTTiIO5J8
-         Tbc3dj7xXPv7ke9w2oINA7o7z9w6nl0QZi6AJHOLSSTOra0eGc826uojBTw6u9s7xJOI
-         XKLsz2Eq5fjAR7hbV5vCjeZ9+XjxNsadF4WxKdcsOAzYN+6q+Gmy1/i1hYHtkI2d9rMs
-         S4eGI7HejusiyZhJERvso1bmNKa581KHjic6pY5vbUjEssLaKRRFZE4ETlilb2bDzxs4
-         OGHN+PZlO92k9qddcrOmPblZzXMxiMXkAaisHj7JZmuWeydf3E2HVG6taG5z2hdWiAfP
-         Zuuw==
+        bh=kjXI7c1o2fMUZ4gP/lf6VLU7Bny6ysM8MfilUau8IZs=;
+        b=dB8xFV6bhffcEPPQbLD6S4nCreGbDqBTuYHel9mecOoxPIlM9B149j7L5GZ0KOPa4J
+         Pt2z9scykHANUa5gNBvcZ13a8dR4tpHTwhdAlMyrwgae4VXzihr1H0ONGEOh3+KmIwmm
+         A3OoOBpJO2Xp30L/BOiAJmTcqRI3CnF0RHDvVTP/IsO9/Ez0I/7IJA+H51wNgqD8Q2+2
+         1BjEwmWRLYHduPo/wfU01hS/S+TNOpRG1L/3OtC8LM10M5davhOAVn3gJ8gURRlozH6g
+         BHMCITcT6+HS/kT8+hAa2wK5Q5QZhE2OYQwKaVuq64A2OtwEqthUduyJHr7SbiWrfmb2
+         SLAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788524706; x=1789129506;
+        d=1e100.net; s=20251104; t=1788524700; x=1789129500;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TQohy1k6O8N4/FlPUm0T2gOe7iYaF+RMdNWyiCLqF0I=;
-        b=KRNiZPblTyrM9ciRCG9aIG1pjWzHVQu/qK2m2+BEILh1xJUWlb+5DzQ9iQRwiVtniN
-         Eu2deXXd9CmTaJogLlc6Z0JPjT2rJDIRuAaxthP6vnjdOniH2MpQaRgzCcZkoRyIMRKF
-         YE4U6kkOlZNHugZ2aSTui1CUIpEpAJekjp8pSJ6k9SMjANQ7Ys/EbyvnP/Bsc1+6m7gu
-         LuPCHkvIFY6b4YVINC/7iXALvPB/hd8k22sMO07HLu2SRxRLFcZxu0F/vxj3Cj6NwfYU
-         t39P2QhDKYP7oJaen8nmiEgfni0l++eZkCS7OLSMGcBtfgD+pC3vKu3qCEYQpQHzbZdc
-         23Zw==
-X-Forwarded-Encrypted: i=1; AKwUvByd/hn5HSrNpS8LyIKGgv57y4UPJ8hzBmI9FiG4bH8tFa9LToy75NSPHtbfjZmYi52Qjw91+P1Cs+1KFHM9+6It@lists.infradead.org
-X-Gm-Message-State: AFuF++mmWusC0YQHYUUFQw88ASQKOPf8f7zhFhrpLSH+hKSagxJDhGcj
-	1+R/yEggWHgTeQ48c2VgeMlhbZa4bWEgEBTZyJMpdgP0fd2hJ/dQHLVg
-X-Gm-Gg: AYBFou3ORozWBtmKARlmgsK6oj1BYuHhLm39VP8Z6Ndw1RcAUhSyUFMVcbPdtT80Z2+
-	+ceeW14AueMsZQcS8fXrLnu1mD6GGa1TL0xYouNc+R3rWWaz4tc6cbsBOTWoM0Piag9ysE1k4TY
-	UNYxR5M22ZrRYPsQkpNV//lCp9+1mPvnPpXHcwGzErfIABS+ETCfEpzjSQF/9BtqIOfqqA20fj1
-	egs9W45o9XXZJ7FqUM1RdV9Uz9d+4WvgNc/Lk+QWzDGWjoah4DTO0bnZX9JWI/f8jFSxaBuE78A
-	TkZH/q0rWUBe4mSzURgDlI66lyI+hrMNABpweBBVcL4Fk6E9235Fu6D+FKzoQDIClRMRKTYiaq2
-	q2ObwUCWJT2hrD+fCmt7mbpMZSFNObxGYgwQkLiYmkATdQqxUpfHC8pKUkJuU1Yntj6eAqRsjiF
-	eMFeUdYN5iMk2jDBvn5l8tZ+KdJXDPJM7Ytm68QoWpeb9fdUOo5UFgLzLVZsTe22crQleVcZUrk
-	eMEQclFwkG1nQk=
-X-Received: by 2002:a05:6820:60b:b0:6b7:8396:f3c2 with SMTP id 006d021491bc7-6b78396f7ecmr1517046eaf.36.1788524705780;
-        Fri, 04 Sep 2026 05:25:05 -0700 (PDT)
+        bh=kjXI7c1o2fMUZ4gP/lf6VLU7Bny6ysM8MfilUau8IZs=;
+        b=KMIE8jM8plCiQOoU4MEJFz1NGnO75Z1hwCTW+EnvxmYexpcRKBvAR/GHb4USrLV3ZC
+         g6CzKzMd4UwO0eJLYyK1tydxNfp4Oa04fYZvKC8/3Y5tIhz2fkflDlnsHOuDlzpTMqBE
+         FVT8ANa4GHOCvWhE2Blkt7vZhMeT8h97f+Sz66+qZYVlHMrpZB/irO2QqVUEUO/NK7Sl
+         r5AEcyZYQd5I7r4IVXV4ZpBjrPX4arwCgqDTPODCQ+wwukpPA2y0MiMd4wPeGMdOUKuL
+         m0Sfsjs7COV8B0u0TrSoL8LBhUsoEWBmzlJyMvwM9ibhmAwC/WU/vXm7DSnYJEph2joB
+         UyDA==
+X-Forwarded-Encrypted: i=1; AKwUvByN74oqo1websiTgPLHqD9tvvvFxvOsPUedDKRF8m0luisPAEsTN4NXSbWzDCbrRk3OBn9D27mQDMUIfgynuqDq@lists.infradead.org
+X-Gm-Message-State: AFuF++kfZ7m+ilgDEq16Jrqzac9RMJUTxPtnbp5WpveOzP3gGbxlVQLI
+	EPJbUV54n3AOud+lYymO5ep/COuDyEoRVcQtl3ZxbgZgYlcW/MLmFo6b
+X-Gm-Gg: AYBFou02VvQd+og8shBQiukhQI+M5HGigsM43X1c766ivHQc+Vi3clSkl5znQYPKHNB
+	gHV0IAEhDrOtaCld4ZkCdi5OtcyGMCWih7NIG8Tmjjse5RT2i8UDhLRlguWVcMXhjvOstk+eQsE
+	cKhx6C9bYYYf5Fvw8zHG18ipZoiVoF8+1kqGIxFZynrCJSQ+LalkftZCp0whs4QB2TWSdLpxJyg
+	T5sS+N8dmZwhGYVQyOT+vSmcma0/I96i0eu1KeLjzaDL9YH++yhuhXKNdfT5k5S/0TtiZbtKttf
+	xx0M5L5V3FFlQ1l9kocfQWUHpIraAui8iwJ5ZPafS/PqdZMaeuFfFMu7MQ6sls1O0x+/wvf05fi
+	I7Zq3h08CmoFC5oxKBeoubvG7xqnRMMQyD2t1wfrFgcpRhITFjj8AfEdj+IeFmpQgMCFOJ9VIsI
+	iqkQ2xLZIALoq5XlRB694vBX/RxRH0ss1Wds5WeVxhimxJgdvA3NrdbjRFumheKGBfSu1I4yYmD
+	36nEsBnC/eZO5k=
+X-Received: by 2002:a05:6820:160b:b0:6b0:1b86:fb0 with SMTP id 006d021491bc7-6b6fe59c86dmr3821145eaf.31.1788524700176;
+        Fri, 04 Sep 2026 05:25:00 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b8f787esm5880860eec.23.2026.09.04.05.25.01
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b8f787esm5880860eec.23.2026.09.04.05.24.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 05:25:04 -0700 (PDT)
+        Fri, 04 Sep 2026 05:24:59 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -78,23 +78,25 @@ To: Marc Zyngier <maz@kernel.org>,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: [PATCH 3/3] arm64: kvm: fix repeated word 'is' in comment
-Date: Fri,  4 Sep 2026 17:54:42 +0530
-Message-ID: <20260904122445.31163-4-hemanth.selam@gmail.com>
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH 2/3] selftests: kvm: fix typos in comments
+Date: Fri,  4 Sep 2026 17:54:41 +0530
+Message-ID: <20260904122445.31163-3-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260904122445.31163-1-hemanth.selam@gmail.com>
 References: <20260904122445.31163-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_052506_830964_1D97A89F 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260904_052501_729223_FDE16988 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +111,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the second 'is', reported by checkpatch.pl as a possible repeated
-word.  Only touches a comment, no code changes.
+Fix typos in comments, reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only touches comments, no code
+changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- arch/arm64/kvm/pauth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/arm64/debug-exceptions.c | 2 +-
+ tools/testing/selftests/kvm/arm64/hypercalls.c       | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/pauth.c b/arch/arm64/kvm/pauth.c
-index d5eb3ae876be..22ff4b78d0e9 100644
---- a/arch/arm64/kvm/pauth.c
-+++ b/arch/arm64/kvm/pauth.c
-@@ -5,7 +5,7 @@
+diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+index 7dc5f0b4f6ad..9da6dc5bcfe6 100644
+--- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
++++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+@@ -387,7 +387,7 @@ static void guest_code_ss(int test_cnt)
+ 		 * Enable Single Step execution.  Note!  This _must_ be a bare
+ 		 * ucall as the ucall() path uses atomic operations to manage
+ 		 * the ucall structures, and the built-in "atomics" are usually
+-		 * implemented via exclusive access instructions.  The exlusive
++		 * implemented via exclusive access instructions.  The exclusive
+ 		 * monitor is cleared on ERET, and so taking debug exceptions
+ 		 * during a LDREX=>STREX sequence will prevent forward progress
+ 		 * and hang the guest/test.
+diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
+index 5d96cdf382c4..a24becda9e62 100644
+--- a/tools/testing/selftests/kvm/arm64/hypercalls.c
++++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
+@@ -1,9 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ 
+-/* hypercalls: Check the ARM64's psuedo-firmware bitmap register interface.
++/* hypercalls: Check the ARM64's pseudo-firmware bitmap register interface.
   *
-  * Primitive PAuth emulation for ERETAA/ERETAB.
-  *
-- * This code assumes that is is run from EL2, and that it is part of
-+ * This code assumes that is run from EL2, and that it is part of
-  * the emulation of ERETAx for a guest hypervisor. That's a lot of
-  * baked-in assumptions and shortcuts.
-  *
+  * The test validates the basic hypercall functionalities that are exposed
+- * via the psuedo-firmware bitmap register. This includes the registers'
++ * via the pseudo-firmware bitmap register. This includes the registers'
+  * read/write behavior before and after the VM has started, and if the
+  * hypercalls are properly masked or unmasked to the guest when disabled or
+  * enabled from the KVM userspace, respectively.
 -- 
 2.48.1
 
