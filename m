@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7338AC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B186C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 15:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BmHvGQLYZI+8mQ/4U5MBn9Dm6Gp3QoBS0UZAfGx3jk=; b=vwpa9EMHJNr5d/0dR4r0FRjOvv
-	jO/hmYZsbyJ/Fssfi+N1WIZ5N1TLIQccAM5e9t1AafwUITTgiSWyhCqP84vQy3TTZgsS+IKPe40Q5
-	kAiF8rmbgMfC1U3XBfugO5A83gjlmLrPgSpW2facejmtSMVygF8TdfnZibJrzqBStuKGLKYpJCSvX
-	5r3ViDuRJcHuQ/q5/MSji5eet4G90S3/EbIFCC07tu9Z7OewS6LitN8sg8Yy+zW4bOaDglnswpBlL
-	+hsDdOXz9qnm6cbzrGCI/U+/8bFVK1rr52eE9t4Kg8pDX0F1LxQcFrBzmzIuN5XzyC9j1BFZZ+Ohh
-	HpsYZY0A==;
+	bh=qPHCUu5a2yf5C1W6Uxw41KWNe1W+GCT2LpAs64i2nNA=; b=KtiXzcWqbYx5d5wIp4P+o3spZ0
+	Wp9zxfTkGtfS4vGDTyG/5utIvnZh1fpNw2zymTgt0BNYWHGIYGq7kW4w+p92kRv1XervG7sBNDgQT
+	I5+Hf2GslkTjqfaG2M3DQp072SuzHvp6geUG6KpmISvp5ClyTCWHW1iu19WyyhEgrLIZ72xlRdVlJ
+	a0O56OLw4ull0FsdLicPtwchduCrXawmeeBBpi5fVMyynv74GOdX6+AGpIhiJs1U4dQiUapdW1PBs
+	V2DLfyuaZzWUWZxmXMGMB52RHySvXSZl7vWzobUg7GbgHKME1du70CulRdbacJf79Wl/Nr4ya9DVW
+	JpX7vjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VZX-00000002TwX-2sD1;
-	Fri, 04 Sep 2026 15:11:19 +0000
+	id 1x2Va0-00000002U3i-08eW;
+	Fri, 04 Sep 2026 15:11:48 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2VZW-00000002TwF-2zop;
-	Fri, 04 Sep 2026 15:11:18 +0000
+	id 1x2VZz-00000002U3R-1HrP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 04 Sep 2026 15:11:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FF8941A89;
-	Fri,  4 Sep 2026 15:11:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BA2F1F00A3D;
-	Fri,  4 Sep 2026 15:11:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 15135416ED;
+	Fri,  4 Sep 2026 15:11:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80ABF1F00A3D;
+	Fri,  4 Sep 2026 15:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788534678;
-	bh=1BmHvGQLYZI+8mQ/4U5MBn9Dm6Gp3QoBS0UZAfGx3jk=;
+	s=k20260515; t=1788534707;
+	bh=qPHCUu5a2yf5C1W6Uxw41KWNe1W+GCT2LpAs64i2nNA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=benIKmJIWnDDg6vX7aZDzRoBEOvJt1wnfhWV5a7jv2XxrapXFCIqfd0cSarZ/VMLR
-	 elnKEsDjgdryY8go11rGmHzWV6p5xSjabWHJGkuXHN/Qu9O6HKGIQdKqGDumkInQw+
-	 qoYh/ZYtSk9hT089MzlTtNwSjaWe+5ZpR+ecz/Nstsepe8MGuABRGLEtIecxzJ3GyF
-	 tRB/96Agw8WaEzpqDa71GxxuLhWKKVNmYTLNysrK3Y6+ccX9uZBt7W6QF0s8qB4yjA
-	 EBSR20Zc6bXoob6uuoJ3F/HScYhcEHdtQvwV3z6t3g/F/8FINhR+Qi4Pw5oyWpeTBw
-	 QlNoKZdOhDcVw==
-Date: Fri, 4 Sep 2026 16:11:12 +0100
+	b=irx8WTn+Ue7miHSWHIbCAeyaw/+qn2fhNRrrjCGrDAnYRpp+prJQlQtEeDx2xVKgu
+	 FzoHUnjezBp4YuNO4dDa/ESNYDPF/NyWsp9Dfqz4Y9EbgokqDMLGJ04oclD4vSUDYf
+	 N6SryFQKbVhjWp3Oht9QF5+c+LuxZaBzVvUO1XSQl+qMl2wghpgGh5zYs7hE2udAJx
+	 TVurgm1agAdsX0aFFFW9aD20qWreYybyXguvyLDxqPKoEICN6GOUVBpCrNlAKmDHFw
+	 huJi5AoY7ooD8CfwmKOfFOAsnt2iv/mhlvfG6wl4sLpF0iK3yMTsJcGQtS3zhXMpm4
+	 kebAe5WzCxwnA==
+Date: Fri, 4 Sep 2026 16:11:41 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Sidong Yang <sidong.yang@furiosa.ai>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Jiaxing Hu <gahing@gahingwoo.com>,
-	Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Jonas Karlman <jonas@kwiboo.se>, dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/7] dt-bindings: npu: rockchip: allow DVFS and thermal
- properties
-Message-ID: <20260904-delouse-silicon-e9b6286b7e1f@spud>
-References: <20260904130858.27803-1-royalnet026@gmail.com>
- <20260904130858.27803-3-royalnet026@gmail.com>
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Steam Lin <STLin2@winbond.com>,
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: nuvoton: Add NuMaker compatible
+Message-ID: <20260904-vastness-reformist-b28a326166ae@spud>
+References: <20260904-perso-ma35d1-upstream-dts-v2-0-30ce255a401f@bootlin.com>
+ <20260904-perso-ma35d1-upstream-dts-v2-1-30ce255a401f@bootlin.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bUE3pkSw6P9WMgiV"
+	protocol="application/pgp-signature"; boundary="IflJwt5/OHqS5Pxw"
 Content-Disposition: inline
-In-Reply-To: <20260904130858.27803-3-royalnet026@gmail.com>
+In-Reply-To: <20260904-perso-ma35d1-upstream-dts-v2-1-30ce255a401f@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---bUE3pkSw6P9WMgiV
+--IflJwt5/OHqS5Pxw
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---bUE3pkSw6P9WMgiV
+--IflJwt5/OHqS5Pxw
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaprfkAAKCRB4tDGHoIJi
-0mLxAP4/WUj+Dtl3eGbLZM89xW8dZJDvW1nzmTMWTbHfgdnpGQEAy5Ei1DSvANlI
-Gzz2Nn+fBRATNnmyqLIPXMe+R23uxwQ=
-=SdkI
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaprfrQAKCRB4tDGHoIJi
+0ohoAQDS5QLC2EVOH033EK0ak0gC8BMQhGIKYpXbYsEl2PqaBgD/cgJ7Zuhrzj8N
+7+dkfbhhNuOQFiBiqtHyG7URJwwKxA0=
+=XDBJ
 -----END PGP SIGNATURE-----
 
---bUE3pkSw6P9WMgiV--
+--IflJwt5/OHqS5Pxw--
 
