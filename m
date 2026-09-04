@@ -4,146 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783FDC624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B8BC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08F2XPDmp3MN/acIJE0scEdKBWxNouhbbHVqjQV+qoU=; b=OvtfC34j46yA6dVqVws6rhpcmR
-	bZlQCgY1rg+ZE9LGYjpzhu6k7PSKFfGLJQkGtSM9eMhEWtGXpjS+JVJSUAVjm6o21gV0Unq5D7+9l
-	6uBBPYG6dT95P2sXywaZJ/90md1TegS99xM4IGbf6oyTrHK2YtZQCx7nbwX3dC4Alk4QBd+octyb5
-	F6dycUIaptrzENr1EvNzc+ORoUTarJHP6tRABcDxr3foZmzPOgW6Df0728dz0wWs/ROnToNxpoUJ5
-	i03tPJbpR1WsF6mAV6kKklmiQG8NyGYTcCuMfEZOmhJNDzp306ClpyEBenlBpzEeB53PHuB9BQu2j
-	nMaCRBeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=; b=Wv7JwgHPO1/sISmHW9u+HgxAHH
+	KAeshWfauNknzhYkZtID1EbA0CiFlxk63WBtAFvC/2cjjCQhwTwq0jpRKYWEucCU6S6ss2nyYTEVP
+	G0hvj1BAbGb+58uXenxsDCRx9Sm8u/6RMStHF4O8BraImkoVKBFkKi/A8CYdQp3g7dK48dsyyJ66u
+	KKyHQHaQPIeIupvBEyzCLgv1dA2Zc9yLC5auz0ivYRbbgi/waBsM41vo3lNWUzaAe7LI3L/SOnT0G
+	97WKc5v1dWJ0k1WmWM7w47VPiCupjEUIqAotSPaE3wpSOZtMJRjoeoUYWT2QTo9L1OktWMOHVwjBA
+	XvYIUEkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Rbg-00000001ktW-1KaR;
-	Fri, 04 Sep 2026 10:57:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x2RcL-00000001l26-0wBT;
+	Fri, 04 Sep 2026 10:57:57 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Rbe-00000001ksx-0OKC
+	id 1x2RcI-00000001l1Q-2pGc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:57:15 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 684AIWJP3276322
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 4 Sep 2026 10:57:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=08F2XPDmp3MN/acIJE0scEdK
-	BWxNouhbbHVqjQV+qoU=; b=HvIvCLqpJ20kUDEiM0nhgKqDP0MIZkstiBk8ScTg
-	IQvnKmse7P8c2pE8j3ctW09mxIyczAYT1qg6JtC4fw7lRekqro1hAwLRaXCO0V9T
-	m5S1qIoy7N3ftyl4s0ChrgQ8oj8geuZxrdBLDI3U5R9DXw0HbZrn0LUOzmq6AjDN
-	1DHfhAZWjtTZsP5Eag55WItNORwYTgUSkpKvL79QfwSMZq7J1bOFwaGFU/erHLff
-	bieNvnTk7sY/dzeQigKpTh/qoarZ/TK5J0tQLxi1vmJAoqog/SlfsWAFsZT6sYjH
-	vS6h4vwfXlGR7EAt88UecpVKxCLWH7Jq5y7qx5xrjNs2fg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gfqqd12ex-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 10:57:13 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-934956beec8so141041285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:57:12 -0700 (PDT)
+	Fri, 04 Sep 2026 10:57:55 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-cc147d86bebso906346a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:57:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788519432; x=1789124232; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=08F2XPDmp3MN/acIJE0scEdKBWxNouhbbHVqjQV+qoU=;
-        b=geqPtUhrQ5WnJXnCJbIRlqMuMaXN1DUfe+fFDeVNjcpZ6N5IBQ7N29HJ6QHXMp9azw
-         yzvuwr/nLZN2zvZMN0Eh201FLMn9R6MjU+6oFR0JKajBPKGLPptwbDdY5inyssDVpa5S
-         b1OpNUhcrF2LFKBV0bfV35mIFZHBnhgcw1TcuGWx7okUH3vtzbAKxGZyJxPT1ABSnhOI
-         Znd3F01JRxNoVwO7OUK3ugVKY/HA/8KHKIFR0KGsIps2USzg6JHF0LnqMMDGUMJmYTUC
-         9YYbZQLFag4zIlM/X7908fEcR/I9xRPY6smOgi2xxDrgW/SOeX+CD0YWbpQs0ewIZs8d
-         Ww6g==
+        d=gmail.com; s=20251104; t=1788519474; x=1789124274; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=;
+        b=bQ6F7xUM41kGhz80oxvf9KR4Iwn9LzFLPZS3PuKxlCywon5muipyul6szrHl9RUgcU
+         wLePb+pABkajnmFhacB47Wj0OkeqD91s19Lh1YSYoTGoB9hu3yTzPINxshyhCpdolUKa
+         3cvNp+8ba0EQURR33KuKXFliS5h2jBQF5/COiViSfc2pTJxO5uXORy7fTrPkgfBp22y5
+         4UFCTImMxN3v8noTxNY4TNsHzDbNd8aBg4Krl5aNP6tcMUqVgvF91WNU6yyCjTEGHT55
+         HlLWh2gl7tnwXvqSn7uUkY/ttDjp8EvEIXprdVJPMeOVmiFdvjo4Jhu/cvNnYrE3+ixq
+         JNfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788519432; x=1789124232;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=08F2XPDmp3MN/acIJE0scEdKBWxNouhbbHVqjQV+qoU=;
-        b=tQk/PiLTI1zK2WTGAC4/jWakN8PAv5I7i6CM1qyi9EvaS6DfVCtL3Er4V+zE7KxjuH
-         WGpuTzXIn5toQsiFITW+moEuivo7jGNoKs8Z+uJvlCfgnm9ImfPdz1KaFdwDCOiPNGWA
-         adE/akzIxfTFEq028IAj+1tbSM0MIjbR+OhNEw8VBJufyJ2e5XraeyptP9l47oqwK7Td
-         LdBn4yg82qw/p0x+u1pmH2KuKYL03TNr+xeqSbQKWKs1zjdts/uICsEg6X2brWUJ9CDU
-         TmiFLqYbjcSfMkYx5b5basZJozZwCCL+hK0ELVsKNtjLUlRjk5s1ZrMA1j5pNaj62FOx
-         pcHg==
-X-Forwarded-Encrypted: i=1; AKwUvBwuAd95yNI0E2IkH2xZaznUJ4QkK07xIrMtF+zVV3IIf0QV+i+LdxUk3LdQRytbCQAO6LxKewf5Bn+rtWRfg8no@lists.infradead.org
-X-Gm-Message-State: AFuF++nL65QeDKp3jnnMIavRf22M7aij/u7OYsrlnds0V0/oMVarfQxS
-	U4pg0HoAyc/YBcHOZMGgSG1ybguEBe2aSb3fE8PRIMEOGOmnnl4sooMtV5PzZ6GSBV+hRJlgqBG
-	dgdoW0BGMBuH4nHeFJINmw4iZvgxc7jAqLJFIiKDKbkVAFOsENy654Qq6kTxZNrqUJcm1REtoeo
-	0ZrA==
-X-Gm-Gg: AYBFou0MLZ66wscV4akqnuEVmJUrBu7sKQcCu2ixyyYylrX9Jy+nrcXWMNGaM7Dpmlb
-	cph4MIArbJbXh+Z9OadjADklHn3u4iKeVDb3/22xWw1reW4tfATTdYqUcEhvdWD3UA59TKT3UFT
-	xxsV3Eu8G1pR5MOMnucAKfYAnqepjWLznkcNSm0fNi1zaz3rFs+LD3LlqfSuZycK/IjcvI4O/z1
-	xtw0zUyruFcMdHPtmGR0rLCg2odoxG2N4EBNwonlT21vGhTshycc7PyYYnU4R0QO4MkxNzji4Nd
-	GjHcQHJox4UCudppH9a4Ga/rPOT5rbUiInHweRZKtTd06mCfrykeFv2Bx+VU999XPruN+tFxn+4
-	AeeT8ZXVKCI2fOA==
-X-Received: by 2002:a05:620a:404c:b0:939:3cb9:553d with SMTP id af79cd13be357-9398048b9f8mr469237085a.38.1788519432440;
-        Fri, 04 Sep 2026 03:57:12 -0700 (PDT)
-X-Received: by 2002:a05:620a:404c:b0:939:3cb9:553d with SMTP id af79cd13be357-9398048b9f8mr469227285a.38.1788519431160;
-        Fri, 04 Sep 2026 03:57:11 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48588392b3esm6543474f8f.12.2026.09.04.03.57.10
+        d=1e100.net; s=20251104; t=1788519474; x=1789124274;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CjnURsU06dXJhEmQk8UgpVeNwhEKlwAdFOshlqNlRoY=;
+        b=gqaFHdcgPqZdYCXx80gH/Yz2nktaw6+jBtm77njYr8U1YTzO7ft+/+u9PZojtVTguY
+         n88j+W/do8txGBXzOqo7zdmPzHbDMYVXIy4tkCW3yfstZb8ZOLB+ME/UGE24HC9IKDrw
+         voktcogOE4Ox4UyawjawNhOvWBd1lTYzifNaMl3AJ/fnRr5BxYTmA1/lCv5jhNT/AYkX
+         vwb9ByBZkddMkQIeLwf0ReReYSVNtsrDZ9v/2hGZkB02NCjmh0Q1/Dh+GY9FKntpxJZL
+         /cgkjMZSSDrXhyoLvKm8WgNmZM4/PwCnYz5l7cFRtBlgOHh43vYB8qqColWyAYgfJaWo
+         QGxA==
+X-Forwarded-Encrypted: i=1; AKwUvBxHn7FixJ86YcK9CfwysSwy1lfgpH5rQxWbVquuH6kv9fSX3EfeHbWS4k346E24UARzRpbdpAxZ0akcVdCz3gVQ@lists.infradead.org
+X-Gm-Message-State: AFuF++nQj/bSKzQEuJOGb3R+he5ApIol/90uLanDfo/9OOcfD1MVHH3R
+	HipKK9B+R5k2Rxh8aNq+NJUopxHUjlc1UJyFOWv7kaSQ5enzs0jNjaVD
+X-Gm-Gg: AYBFou3t1FGDIXY6v2yq4xOQpPNaPHGeILQmYRVlwkCGbddScBU367Z6hBULfxDMzd+
+	sl9zfTHkM6ypNTq3UIdXEQPt9On/Rlwuhxs54LbR6GXzKDHfFb+XfAdsSVfn60vkwhHP8VYePN1
+	NvB4YuFa7zcV8xvm4uXQJeA8oqpBVwIRHnUw6WNJDE7LqW5xVIzHU2t09VD77oLJCs4kP0/bUBR
+	vcLMEuSglaZh0PEs6os6shguvrXGiEDfM/b9jEYHjbqvxsW+PoHJGqasJhbFcRTmpKLem0mO48R
+	ct4LHkTKujbO2SL6G4PZmHtwKrgYee6pyuaZF+KlP78e5vO5Xi8QvV6S2b1YTqwTR78oL6UBAoU
+	7pi2U9sxzSd8BYOsMSSeQD5pq7uFdjkyflGfN1XHONsLQ6FrYGgwJOfLS5KJ2BLVS6suxJQqyzW
+	WMbKbYXNo4/n/mniboDsudsWTMoscBP1fB1SsNZWH0/u+/qQgPPXG9w66oiWlhhJRkyawvalB14
+	DeFy13tIxCUo/8=
+X-Received: by 2002:a17:90b:4b90:b0:369:7491:7b24 with SMTP id 98e67ed59e1d1-39b07f2f31fmr13507017a91.6.1788519473607;
+        Fri, 04 Sep 2026 03:57:53 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b123731sm5523091eec.18.2026.09.04.03.57.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Sep 2026 03:57:10 -0700 (PDT)
-Date: Fri, 4 Sep 2026 12:57:09 +0200
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: ZhaoJinming <zhaojinming@uniontech.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Simon Horman <horms@kernel.org>,
-        Christian Marangi <ansuelsmth@gmail.com>,
-        Jose Abreu <Jose.Abreu@synopsys.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] net: stmmac: clear dma_conf in __stmmac_open error
- path
-Message-ID: <apqkBQJMqHKTUxEp@lore-desk>
-References: <20260904-fix-stmmac-mtu-change-use-after-free-v2-1-91e680476921@uniontech.com>
+        Fri, 04 Sep 2026 03:57:53 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Russell King <linux@armlinux.org.uk>,
+	Puranjay Mohan <puranjay@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/7] ARM: net: fix typo "arithmatic" in comment
+Date: Fri,  4 Sep 2026 16:27:31 +0530
+Message-ID: <20260904105743.39799-2-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20260904105743.39799-1-hemanth.selam@gmail.com>
+References: <20260904105743.39799-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="E1MazB2LUUx/XJQ2"
-Content-Disposition: inline
-In-Reply-To: <20260904-fix-stmmac-mtu-change-use-after-free-v2-1-91e680476921@uniontech.com>
-X-Proofpoint-GUID: QKzdf-5UpzMP1Lo12drBr2MF5_lLLKfC
-X-Proofpoint-ORIG-GUID: QKzdf-5UpzMP1Lo12drBr2MF5_lLLKfC
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA0MDA5OCBTYWx0ZWRfXxv2RDOEBkt8b
- sM3jWm9doKFb5SbNzHM78wU4lbrY+qIYnk7OkCvqu7snwB2L8gHoFgFwrHEZaxm3032/NmjBHWW
- A6tVprKRVt5xnnFwXhrvvJfHpWO6eUk=
-X-Authority-Analysis: v=2.4 cv=XtnK/1F9 c=1 sm=1 tr=0 ts=6a9aa409 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=VdqzKS8jKosA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
- a=iHwBjlyiAAAA:8 a=SaV9t1am_M5Vh_LyuNUA:9 a=CjuIK1q_8ugA:10
- a=sX82_v1_a9lhBkuKYFsA:9 a=IoWCM6iH3mJn3m4BftBB:22 a=uNSKXYNwxGiU6LD0JREI:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA0MDA5OCBTYWx0ZWRfX6IrFPhC7ZGBt
- cJzqsnAvZtC8y3/c52NIxLe0cwirGSgGrYouisBwYWnSwe3SlUtcETsuzqECS2GvIEyMJJy5ED/
- tSzt4MNbO5BcnvRdQz91wWMIT+6EqSxVxS18zeY57qXM4jbvYuVTgt1hJ52f23X0BFBLrIgPkLL
- ABdOVNspXLgPkFG1n8N2abf+k4sVeGjE2GPR//xVAkSMU9OkqOeipaPwO16tMRN5ItYo5wlJqmY
- gxXEMhMYc1itqvAfen7VsLB19wt1ATBx3lkdSjMYEzbjPSbtxT5B63r5Gcj/cqmTA5EEleeuSVc
- shuC+F/Uygr4dVrnVWreqC2SfCNCqwqhTdd8QVqtSihvba6K99oWJz8Fub2qv6iewfzXmEXzbPI
- VTRjGJpzf5q4hNWlYrFOfGTGARsoaKz/XKdpQdsKA1lCtNjDFL4V4AnGyrjJOqg6v0SmxAow9Vg
- 5GWAfHkbr0hGDgsN9zg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-04_03,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 malwarescore=0 spamscore=0 clxscore=1015
- impostorscore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2609040098
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_035714_249485_893799AA 
-X-CRM114-Status: GOOD (  27.18  )
+X-CRM114-CacheID: sfid-20260904_035754_714158_7CF878D3 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,81 +112,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---E1MazB2LUUx/XJQ2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Correct "arithmatic" to "Arithmetic", reported by scripts/checkpatch.pl
+using the misspelling list in scripts/spelling.txt.  Only touches comments,
+no code changes.
 
-> __stmmac_open() copies the freshly allocated dma_conf into priv->dma_conf
-> via memcpy() before it can fail, e.g. in stmmac_request_irq().  When it
-> does fail, the callers free the dma_conf descriptor resources and the
-> struct itself, but priv->dma_conf still holds pointers to those freed
-> resources, a use-after-free that triggers when a subsequent
-> stmmac_release() or another MTU change releases the resources again.
->=20
-> Undo the memcpy in the error path by zeroing priv->dma_conf, leaving the
-> state consistent regardless of the caller.
->=20
-> Fixes: 30134b7c47bd2 ("net: ethernet: stmicro: stmmac: fix possible memor=
-y leak in __stmmac_open")
-> Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
+---
+ arch/arm/net/bpf_jit_32.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Hi ZhaoJinming,
+diff --git a/arch/arm/net/bpf_jit_32.c b/arch/arm/net/bpf_jit_32.c
+index 9ede81afbc50..b1c21c014c9c 100644
+--- a/arch/arm/net/bpf_jit_32.c
++++ b/arch/arm/net/bpf_jit_32.c
+@@ -1346,7 +1346,7 @@ static inline void emit_ldsx_r(const s8 dst[], const s8 src,
+ 	arm_bpf_put_reg64(dst, rd, ctx);
+ }
+ 
+-/* Arithmatic Operation */
++/* Arithmetic Operation */
+ static inline void emit_ar_r(const u8 rd, const u8 rt, const u8 rm,
+ 			     const u8 rn, struct jit_ctx *ctx, u8 op,
+ 			     bool is_jmp64) {
+-- 
+2.48.1
 
-I agree the issue is real, but assuming free_dma_desc_resources() always
-tolerates a fully zeroed dma_conf struct seems a bit fragile to me.
-Is it better to use a pointer for priv->dma_conf that we can set to NULL in
-case of error? What do you think?
-
-Regards,
-Lorenzo
-
-> ---
-> Changes in v2:
-> - Move the clearing of priv->dma_conf from stmmac_change_mtu() into
->   __stmmac_open() error path, undoing the memcpy() at the point where it
->   was made and covering both callers.
-> - Link to v1: https://lore.kernel.org/r/20260903-fix-stmmac-mtu-change-us=
-e-after-free-v1-1-c81dc7d6d18a@uniontech.com
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 24656b35350b14454fb10deced6516eb89e2c0c9..4369e64faf9f878aa20ac5075=
-705044f55c5f8bf 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4190,6 +4190,7 @@ static int __stmmac_open(struct net_device *dev,
-> =20
->  	stmmac_release_ptp(priv);
->  init_error:
-> +	memset(&priv->dma_conf, 0, sizeof(priv->dma_conf));
->  	return ret;
->  }
-> =20
->=20
-> ---
-> base-commit: a500db7819c50db59e55f1b4fa1c3baa5a2616f3
-> change-id: 20260903-fix-stmmac-mtu-change-use-after-free-693da6eb4a30
->=20
-> Best regards,
-> --=20
-> ZhaoJinming <zhaojinming@uniontech.com>
->=20
->=20
-
---E1MazB2LUUx/XJQ2
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapqkBQAKCRA6cBh0uS2t
-rM/dAQDZOoJDs5HeJVYmNfdj9lanQiEx9EXr1USvD3sf/UejtAD+KxxYvB/7Bsu/
-1P09VTIKMhSBbGLdyJNvqrrQNHSSOQc=
-=8C6m
------END PGP SIGNATURE-----
-
---E1MazB2LUUx/XJQ2--
 
