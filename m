@@ -4,49 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7151BC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 19:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9823C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 19:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hfhvNN0fjj6swoLbh/0FaAvtFZVMTHuJaXk4F3s84AQ=; b=nGyuU6uH03kj5JVcQDXyGAi598
-	wvZHnw5VyEVOi02A7PmeDT4qUzZnXi1ggoQOi2cDRvwsvRbaMgJDt4uV13fm/hdJ+ndXWE+lwyCFU
-	PdOGm3an662X3tL6aIlyY1JrkELi9LbX+Oa1eobKEudGoIXNHP81w2VpPosSuiRoYcrc22F0oWI0n
-	gp2oYoHRvz1Vfm6kX9Gt7xajsG7eQ6cFBY9gCE0Qe0+H0iOk8YqfPP+3ouN7vfxF0sDutngBRPBVv
-	Y2Q0uOa4SBe7x0aicXw+nhEh4FBzudXxAXcxVdFIFtiDGAonXWsnGo8toC7XHCev3URoReop3FA0p
-	dn24Kc0w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=G6nu6f3eskigT1nHIrz3vKzjlgiwHqGKGUwb4qaTnQM=; b=rcduX0pnui/taz
+	gMKwbBDsINjyJ7Uhra+b8R8nUkv0gcyuzBR1dVoUDAZN1dfHQOER3eOE7CYS0ohi7+nxFFr38Lzxw
+	oJgI3P/dW46Qdl4jIDLvQDQStXhKO0WpS7323wE6h668SA/LDbu79OCqU4YbUPCjcT1jJx/v+lWRN
+	cEDMZ5CYTROQOxZhH85o+XT+aTaKAzDF+lkM9asNL+e4LPFTpE7Y5BjW26/E0JYCPJLk/nfq+Hro/
+	TjsDZa8W8XMSlB6VRByqKcLrmqKt0MrUVIUqOUJakwVUoNIxRnPdAU9rHQW9UMLsmI8smc6aENpeJ
+	/CNpMWTVmimXvrHYChsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ZvH-00000003CeJ-43wD;
-	Fri, 04 Sep 2026 19:50:03 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1x2ZvD-00000003Cax-2nsx;
+	Fri, 04 Sep 2026 19:49:59 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ZvC-00000003CZu-31gh
+	id 1x2Zv8-00000003CY8-41cW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 19:50:01 +0000
+	Fri, 04 Sep 2026 19:49:56 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1788551397;
+	s=mail; t=1788551390;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hfhvNN0fjj6swoLbh/0FaAvtFZVMTHuJaXk4F3s84AQ=;
-	b=orRiY2wupK3rLMxbW7L52E0Jw+dWTnnQVzD/aWVuK+WPPOXvHsSLmDRxg7jotHxutG2teS
-	2UyI5PdGLzzh3x4DaxZX6cJBZeCPOU+ptB9S4BW4d30lyhcrTwJI2Y/7KQ6k6OBozv4T4Y
-	95kGdKad823Wl8Vzt+JWP7iCbysTt3c=
-Date: Fri, 04 Sep 2026 21:49:37 +0200
-Subject: [PATCH 4/6] dt-bindings: interrupt-controller: apple,aic2: Add
- apple,t8140 compatible
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=G6nu6f3eskigT1nHIrz3vKzjlgiwHqGKGUwb4qaTnQM=;
+	b=ns7uE3Czw/EgAaPZFvtJLPWiG+VFAvLxP7ByO9c0YnwiUl9vQXEO6wzKexI24xL5FtFmRh
+	D98+3xxZZRZJsEw15PH6EcwGX1wO4egXQFAlTr1LooqmrGFyOnN6Q4SF/bKn3/1mHMAQs1
+	kV5sIq8M1Y0pg40d/J5+k3c4W697PV4=
+Subject: [PATCH 0/6] Initial Apple Silicon A18 Pro device trees and
+ dt-bindings
+Date: Fri, 04 Sep 2026 21:49:33 +0200
+Message-Id: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
-References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
-In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22Nyw6CMBBFf4V07RjKwyq/Yli0w6BjeNkWYkL4d
+ 8sjcePyJPeeMwtHlsmJIpqFpYkd910AeYoEPnX3IOAqsEji5BLf4gz0MDQEWl5hsD1wx551A1W
+ 4InlL5ACzXFUyUVSjEcEzWKr5szXu5c5uNC9Cv4qPhaX3GOJ+n/3aRbSVVZwf5Tb7G60vZIxEp
+ ROsiildrUY7Auzbln0RTeqcgkUpymX5Apb9/531AAAA
+X-Change-ID: 20260904-apple-a18-pro-initial-devicetrees-c457d127efcb
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
@@ -58,8 +60,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-watchdog@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_124958_923582_0EEEBF43 
-X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-CacheID: sfid-20260904_124955_239526_097D4452 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,28 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, same as
-the M1-M4 SoCs.
+Hi,
 
+This series adds initial device trees and dt-bindings for the A18 Pro
+(t8140) SoC and the MacBook Neo (the only Mac using this SoC).
+It only covers a minimal amount of hardware, but is nontheless useful
+for further development work. The hardware added here has remained
+largely unchanged from the earlier generation Apple Silicon Macs.
+
+Similar to the M4 devices, changes to the m1n1 bootloader are required
+to boot Linux on the MacBook Neo.
+Also, SMP boot depends on further patches to avoid WFI and WFIT
+instructions [1][2].
+
+Merge strategy:
+
+Since there are no actual driver changes in this series, we'd prefer to
+merge the dt-bindings changes through the apple-soc tree once Acked by
+the respective maintainers.
+
+Link[1]: https://lore.kernel.org/all/20260804-arm64-idle-param-v3-1-d10f8159062b@cyberchaos.dev/
+Link[2]: https://lore.kernel.org/all/20260811-idreg-override-wfxt-v1-1-1c71228d0719@cyberchaos.dev/
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Yureka Lilian (6):
+      dt-bindings: arm: cpus: Add Apple A18 Pro CPU core compatibles
+      dt-bindings: arm: apple: apple,pmgr: Add t8140 compatible
+      dt-bindings: arm: power: apple,pmgr-pwrstate: Add t8140 compatible
+      dt-bindings: interrupt-controller: apple,aic2: Add apple,t8140 compatible
+      dt-bindings: watchdog: apple,wdt: Add t8140 compatible
+      arm64: dts: apple: Add minimal MacBook Neo device tree
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-index 1cb886785173..e3cadc5ad39d 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-@@ -46,6 +46,7 @@ properties:
-               - apple,t6030-aic3
-               - apple,t6031-aic3
-               - apple,t8132-aic3
-+              - apple,t8140-aic3
-           - const: apple,t8122-aic3
-       - const: apple,t8122-aic3
- 
+ Documentation/devicetree/bindings/arm/apple.yaml   |  11 +
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |   1 +
+ Documentation/devicetree/bindings/arm/cpus.yaml    |   2 +
+ .../bindings/interrupt-controller/apple,aic2.yaml  |   1 +
+ .../bindings/power/apple,pmgr-pwrstate.yaml        |   1 +
+ .../devicetree/bindings/watchdog/apple,wdt.yaml    |   1 +
+ arch/arm64/boot/dts/apple/Makefile                 |   1 +
+ arch/arm64/boot/dts/apple/t8140-j700.dts           |  52 ++
+ arch/arm64/boot/dts/apple/t8140-pmgr.dtsi          | 771 +++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8140.dtsi               | 202 ++++++
+ 10 files changed, 1043 insertions(+)
+---
+base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+change-id: 20260904-apple-a18-pro-initial-devicetrees-c457d127efcb
+prerequisite-change-id: 20260705-apple-m4-initial-devicetrees-f6ebb1c7a2cd:v3
+prerequisite-patch-id: 11762ddf0be3ad407ea90e5b01a0856a57ce1242
+prerequisite-patch-id: d303d5493a501b215f43bd1ff9d40a889203f907
+prerequisite-patch-id: 15a6a7981c2a70392f0a4c3d2fe274785c69c045
+prerequisite-patch-id: aa33c268df85bae717859a0e70ac2be14cfc9a14
+prerequisite-patch-id: 2a38f6f2f025888d93b0092f1188541f38e96747
+prerequisite-patch-id: 0ffe9857d951e317ec349ee50a7acf827ed94cc5
+prerequisite-patch-id: 66bfdc68d5b66325495b07f256117afa2b5c99af
+prerequisite-patch-id: 4752b7d602d93b04ed879c6eaf7161b3546ad953
+prerequisite-patch-id: 88d22cb297f45d9044363727d74864ed4ad95eee
 
--- 
-2.55.0
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
