@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B469C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 05:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCDAC79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 05:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s9VeM2Hj9d1CYutblv9K9gniHtTbYGqC7kevoULcpcA=; b=1VQZ1OdTgDYhWkh+05E9KqxXcS
-	hTZc3HrPQVXrABTDnMrX3TzOMtJDnjl0XCstXeHcO8Y3WnOHsFPkdZeyaYVSk6UWYKzcSiWBjMqnm
-	E6LFlfae9YYZgdV3uvkS/cdkmhWmzsauTx+qORA009zet5Lo+utyFow8fNnz7MaSBiKt5xg/rkI/Q
-	9al0ovWdTb0RbkMBesvQRy2mnquHvhJhGucZSSH15El3OXHh/AFzVEvMCy/wBUWQfma6CZeBdVnkq
-	muPzT8UwsgbP4ossaDTuX7AmjxIu43IughtU+D02UvQwCFd3WdxMyf9BT4tG75EM4Esies6uSqZNr
-	Ao4y6EKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XxOcRRnDrKQlx91Y28n3fxGGvoUu/s1bIHpjhY19uNc=; b=F6+IRMmixwa6fjqdUXQGmU6ndI
+	o4tAdrntdo82a5DnLDcwvuRImZGBA00EflJgsea3l544/EPWJmcRR6B8D+MIWnEtreuKvlVo6tqrY
+	Osa8/vsKUtQpbk+pzGiYAQKgr7pu2E+OBuyxcc83oHP+2NOZSWEfzoJHuJpnYOiZzeux3T+dLn+4p
+	Eh+PRV9H9hA1ZxnwWKNC0zv5heZuvNAazSyOyAkDfuWEhRZaF19nEMS/ErAf9Qoxxc22tdgrytB5C
+	kq1HP83ONWdkPbeoZhBAkXHkNpzKajMCfFgvK0q+JF9pwZC9RwyupjOgQPBcRalDIHU9hdCY4lGUm
+	AAewIyPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2MVJ-000000014RI-0VUR;
-	Fri, 04 Sep 2026 05:30:21 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1x2MiK-000000014rY-0nSC;
+	Fri, 04 Sep 2026 05:43:48 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2MVF-000000014QI-3vrj
+	id 1x2MiG-000000014rC-1vHD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 05:30:20 +0000
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id BB7D942944
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 05:30:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1788499812;
-	bh=s9VeM2Hj9d1CYutblv9K9gniHtTbYGqC7kevoULcpcA=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
-	b=kPoyCHgruozjzrQzIrWZpv6LdfuNlNZSU0XUzk4pBYZgBcPqw8UC+CBAe4PLY9qMD
-	 EkTMyLWpXDsYCZhTzISiV6e8GzXoows5Zm87tKGAAxAH1WaYPmTRjr/KMe7aU6XRmj
-	 6qhdj1lB2CQ8yTy26DoAL7i+M0o2Y8r3Tt5qJLZ/qsWW88MGs6UwznWNkZqHGUP5ma
-	 Asezl2BmluU2GoOIP4EDliBZfB0b3Gn/hz2ulqHEB5+YQJr73u4HTHUIwQrEJBxuFm
-	 ONF58gjhY+mX8TSjDZDOkcf2CZCYdB0w6x3dSe765AarVG3WcD9TZKu2/QLO34r/ZK
-	 bJBDUKxxKxm8hFq8JErjemUKSFj6bV9T9+BaFKwvgLQ+K91agXVAnSsIE2xC7e6jHJ
-	 FEIHT1AwaP9CyO8j0psaaUeSrgkshdzBx2Dh+FEejpB+jHrjL025/0ukVFujva9H2b
-	 ByH76eXIVZNJovbt3HXTKEdwrDCyfGelItY9MQELhu84N2MpvEa4ZhOeZk6QZyWa2C
-	 b6FV+oB2LRMI+/2gI2dJ5GAhBk126zOErPy/xBR5faSGJIVFoF6MffUubsMtP8yMJ0
-	 Clovb7GzJPdurot6TYn4ap60DprVjFKeGXytNmNuMm6HoVHKy/JWpMA4P5TSkWYzGW
-	 a9J6jo+sYSlcSfNQwNz2so+g=
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-85599cf98e5so1122640b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 22:30:12 -0700 (PDT)
+	Fri, 04 Sep 2026 05:43:45 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2d560775ca2so5287085ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 03 Sep 2026 22:43:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1788500623; x=1789105423; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XxOcRRnDrKQlx91Y28n3fxGGvoUu/s1bIHpjhY19uNc=;
+        b=wt06UJOnOBSFrA6qi4z5Rg8yrwsiK4roObCjpVRenp8xwz2OaA8bLM8C3DOWNS+UaQ
+         dI8keCNiwpahDW3797wI9psFym6rNuSEhflVe/c6nROcy891iI3v/Nd2ok0vNeSIrTLj
+         C9LGOoGwzM1Zj98rw86Quzwg9AU8YJKdhqNRHCxjD3etbMzv1MC8LahpDM3QROPLenls
+         D3kxHNfdH98G7EekMRPxbG6dbfiZNQCeJaRFMZchbpLS5qKwXRy8CsLsBVlPbOAGXbbZ
+         MsMtA1d3dDPs3iiiseoHCUMRZ65hHX2JXV/dVCj2hLoOTX8PcA015kx56DnA9XDHPH9W
+         0BIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788499811; x=1789104611;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=s9VeM2Hj9d1CYutblv9K9gniHtTbYGqC7kevoULcpcA=;
-        b=po0Swq66QYLiw0JMeQZp8nDmb4BOiNkcV7B1q76fMqLtYLfUqi0Mkm9pKT1ZvZ9zlq
-         33epWMISYXbt0/wSzuEmfylw8Z34tCst9xhQWquDIzPGmn9p3P0cmkHM6cMmzFVWgUr2
-         i3zFpwjUrmAy5ICue0YnuIYSMJKkF67gg1ndt2vH4+36mN2FaOVJaT66tm6BsfS2mFP3
-         4iptMQtMCYCSze1OdnWpLRj8bpQjbc8ioEOGKpLmiHYOrrODUCdN0UsH/0P+bRIC9VlF
-         cQYrIIAKBjzbJdFYCgikqKs09XtDGGk1cazDf35WquUszphHdZslhY+TRvfgy3iYTbWN
-         11kg==
-X-Forwarded-Encrypted: i=1; AKwUvBy8vmRlsNTYXtfHevC+mZ8uirorA9oRgV2Nal8gsIdOybSxUJW58hQ7YrApHpdmlWgPp+S6XySLxdlHqO/mLJ5L@lists.infradead.org
-X-Gm-Message-State: AFuF++knbQrPGKbBX4oYa03QNXEt5zNUAd+HcUnyh6611p3VhIvu/PYI
-	C1u3T8+S4cnjC6imMwbnxidcjDTCjpj1/F3w4jjUho5RD7U3orC78q2udNiNb0yNmn8iNm/GXh0
-	e4ymrC2g07RHQgdu88t/I5ccMMM4RN9aH9IYeajefXu4tPOpcDeexFEdWLpXWQBG3a9hffdFL0D
-	8Mt8kvohk4EbOeXTKA
-X-Gm-Gg: AYBFou1RbHr5ZXE3KLeXdLN8GQoLa9QDknraXTtJ/lY8b1ENkinZopNJk59Xuz7zTzd
-	MZQY9H5Xw3ThEQ0RdoCthE0G5wMxGvoUJ0lfE5LJ/uOXA+kK/lQX6fkXzA9Xy7JbuqhEkQ9x3CH
-	iuCt862MryHxa8YPYaslRGIt+2N1R/x0yPggs5YZkw3kju34FxJsw6Ryk+JZkdRv2uPs9DepoIz
-	1CZUQJZ3po+/iGbGpVrjJ4ERZSy2ylWY7blsX9PZm+FrVMY4lm5Bwl3bUC2371smO8FCYian11u
-	08NX6Y6wYEb6lX3sA0cuLjG8ejH3+M0pDR4hGVBW4a9Y52bZ3/o/2y50LLmvL5c3UtZH/MjQjwJ
-	1BpbyqPjTenoMS4/ePQnp71qTF+wk+OEIo+6reZMZ
-X-Received: by 2002:a05:6a00:8d8d:b0:855:eb7b:5804 with SMTP id d2e1a72fcca58-861662d4c0fmr5800152b3a.4.1788499811058;
-        Thu, 03 Sep 2026 22:30:11 -0700 (PDT)
-X-Received: by 2002:a05:6a00:8d8d:b0:855:eb7b:5804 with SMTP id d2e1a72fcca58-861662d4c0fmr5800075b3a.4.1788499810579;
-        Thu, 03 Sep 2026 22:30:10 -0700 (PDT)
-Received: from canonical.com (118-163-61-247.hinet-ip.hinet.net. [118.163.61.247])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-86152d29654sm711385b3a.33.2026.09.03.22.30.09
+        d=1e100.net; s=20251104; t=1788500623; x=1789105423;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XxOcRRnDrKQlx91Y28n3fxGGvoUu/s1bIHpjhY19uNc=;
+        b=KiWlI1QpmHvf2EkZSGx1vkvH87kE1c8dGydXxDm1ZTyrNW9Rgr4GS/GjO1KiE1ILtN
+         d77icyZz5t3uNwlGt6lCUTVTdD53DWzp2fBKkfvP2ySg8duABl+x8pj4F8Sr5nQFuFKo
+         45e36k5yFJWKCTopZSai8fU9v2bcwywWh929XNIR6qrLwXxvIlpYKX9iAer4xV5CBeiN
+         CkyWkwQj3l0ku36R3YErJPZzpLhTCiLw0y6kLzgy+ns87bVcZH28HVl4B5oIC5Ilipio
+         Z1oO0z99EFxe+9A7EDCFSBASG0Ezd5BV4KStwmODhEv+S7ZpfUxjOws+EXXjYooDjUV8
+         rgtg==
+X-Forwarded-Encrypted: i=1; AKwUvBydxSJlH05gcQKVuohzxhm3JPUcNqu1PWB2WaFapp0hf4ANHm9KnHtZnWVrnjFd2u7u6c0ncmpnWpbZzRDKta6g@lists.infradead.org
+X-Gm-Message-State: AFuF++mml3G+IjsEvzPFGxeh7W53Zog29Czp8p0aJ7VDnEvW2rRRrNrA
+	t9XpnQEnJ1DVYzMZtE8WVkiTdq+JVc4nLFsbkzXmMYYpicsrUqdHVAEApCkFHRdJmA8=
+X-Gm-Gg: AYBFou05+ICFgj9+BZdYQO7impgZod3Vi0qTNFHtrGV6FEYLBS/IPZNM6zTRyf9tkqT
+	awkuQPNAX406nKeNMqNXqUzhz7sIeysed8S5CuTAHMTdMf6vc8uRyUOkZWhEbvEUSS5M8mSewJv
+	QqsccBP3C+XfFEE9LwlJHubz8oTSdiow/mD4I8NjnQmhFVuNBSVccDlFfIC33t1faeopZhlBdyV
+	hjTDprRohL16FIRHKq8XR4zveDQmvE6a2JG+uPdWrOMR2UT6zgIx2p1NcV0jlkqUS0vc8rWCjAA
+	GbpomDlfFTMup9MqJ7swK6CTObrianY3kP/RPtWTmvUcQOzTaNK+YpxpPtQ9+Fg6ImApvHvpFFK
+	uAZDg3nna9+aNVd6lkvvxvChphdcylsCJfL8+AO5k97PdF7DJG4pe3iyXv1IzAVGAdZfKlvuKH6
+	QI9tUiC5b4qsTc/NfiQSeCQ+BSSpvYQH03Lfi1LjE158F+Kt976nyQPgzlC5UGKJs=
+X-Received: by 2002:a17:90a:ec8d:b0:37d:f983:7b5 with SMTP id 98e67ed59e1d1-39b26101c08mr5553870a91.9.1788500621351;
+        Thu, 03 Sep 2026 22:43:41 -0700 (PDT)
+Received: from localhost ([122.172.87.224])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-143243f780csm3885069c88.13.2026.09.03.22.43.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Sep 2026 22:30:10 -0700 (PDT)
-From: Ivan Hu <ivan.hu@canonical.com>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com,
-	peter.tsao@mediatek.com
-Cc: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] Bluetooth: btmtk: Declare MT7920 (MT7961 1a) Bluetooth firmware
-Date: Fri,  4 Sep 2026 13:30:07 +0800
-Message-ID: <20260904053007.667472-1-ivan.hu@canonical.com>
-X-Mailer: git-send-email 2.53.0
+        Thu, 03 Sep 2026 22:43:40 -0700 (PDT)
+Date: Fri, 4 Sep 2026 11:13:38 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-gpio@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-imx@nxp.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	b-padhi@ti.com, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v15 2/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+Message-ID: <appaikrdwu6GpSGy@vireshk-B250M-D3H>
+References: <20260721204704.400781-1-shenwei.wang@oss.nxp.com>
+ <20260721204704.400781-3-shenwei.wang@oss.nxp.com>
+ <apmunD8bkKOu5_Vm@p14s>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apmunD8bkKOu5_Vm@p14s>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260903_223018_366050_E1EA881E 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260903_224344_518938_E6E97591 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,48 +115,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-btmtk_fw_get_filename() constructs the firmware name at runtime, so for
-the MT7920 variant (dev_id 0x7961 with fw_flavor set) it requests
-"mediatek/BT_RAM_CODE_MT7961_1a_2_hdr.bin" without ever declaring it via
-MODULE_FIRMWARE(). Tools that select firmware from module metadata (e.g.
-"modinfo -F firmware") therefore omit this blob, so request_firmware()
-fails and Bluetooth does not initialise on MT7920, even though the file
-is present in linux-firmware.
+On 03-09-26, 11:30, Mathieu Poirier wrote:
+> I'm proposing something like this:
+> 
+>                         $(transport) {
+>                                 compatible = "$(transport),rpmsg";
+>                                 #address-cells = <1>;
+>                                 #size-cells = <0>;
+> 
+>                                 gpio {
+>                                         compatible = "virtio,device29";
 
-Declare it with MODULE_FIRMWARE(), as the mt76 driver already does for
-the corresponding MT7920 wifi firmware.
+I would just change a minor thing here:
 
-Fixes: 1cb63d80fff6 ("Bluetooth: btusb: Add support Mediatek MT7920")
-Signed-off-by: Ivan Hu <ivan.hu@canonical.com>
----
- drivers/bluetooth/btmtk.c | 1 +
- drivers/bluetooth/btmtk.h | 1 +
- 2 files changed, 2 insertions(+)
+s/virtio/rpmsg/
 
-diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-index ea0c320f9827..911aba5c134e 100644
---- a/drivers/bluetooth/btmtk.c
-+++ b/drivers/bluetooth/btmtk.c
-@@ -1581,5 +1581,6 @@ MODULE_FIRMWARE(FIRMWARE_MT7663);
- MODULE_FIRMWARE(FIRMWARE_MT7668);
- MODULE_FIRMWARE(FIRMWARE_MT7922);
- MODULE_FIRMWARE(FIRMWARE_MT7961);
-+MODULE_FIRMWARE(FIRMWARE_MT7920);
- MODULE_FIRMWARE(FIRMWARE_MT7925);
- MODULE_FIRMWARE(FIRMWARE_MT7927);
-diff --git a/drivers/bluetooth/btmtk.h b/drivers/bluetooth/btmtk.h
-index c83c24897c95..bc26148ec544 100644
---- a/drivers/bluetooth/btmtk.h
-+++ b/drivers/bluetooth/btmtk.h
-@@ -7,6 +7,7 @@
- #define FIRMWARE_MT7922		"mediatek/BT_RAM_CODE_MT7922_1_1_hdr.bin"
- #define FIRMWARE_MT7902		"mediatek/BT_RAM_CODE_MT7902_1_1_hdr.bin"
- #define FIRMWARE_MT7961		"mediatek/BT_RAM_CODE_MT7961_1_2_hdr.bin"
-+#define FIRMWARE_MT7920		"mediatek/BT_RAM_CODE_MT7961_1a_2_hdr.bin"
- #define FIRMWARE_MT7925		"mediatek/mt7925/BT_RAM_CODE_MT7925_1_1_hdr.bin"
- #define FIRMWARE_MT7927		"mediatek/mt7927/BT_RAM_CODE_MT6639_2_1_hdr.bin"
- 
+This isn't a simple virtio-gpio device, since it doesn't have its own virtqueues
+and uses virtqueues of virtio-rpmsg instead. So this may better be a
+rpmsg,deviceX (where X is virtio ID) ?
+
+>                                         reg = <3>
+>                                         gpio-controller;
+>                                         #gpio-cells = <2>;
+>                                         interrupt-controller;
+>                                         #interrupt-cells = <2>;
+>                                 };  
+>                                 gpio {
+>                                         compatible = "virtio,device29";
+>                                         reg = <4>
+>                                         gpio-controller;
+>                                         #gpio-cells = <2>;
+>                                         interrupt-controller;
+>                                         #interrupt-cells = <2>;
+>                                 };  
+>                         }
+
 -- 
-2.53.0
-
+viresh
 
