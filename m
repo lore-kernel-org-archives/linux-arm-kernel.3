@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79A5C79F83
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64F0C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 09:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MoKXvC6968eejIFP7iCwt2T4ExB49oBcRo4K3eSCKI=; b=IdESXvASLg4vfdZumjdap+r7km
-	BuZUCu0xaxasoljCbt3uwmYcD61AedI1Ig3c+2PlS+QscHKxKKBTzATpcDoEm1rCfuGWIfjRKaM/4
-	GxBGJMc9fb+eJG+kJwDmbmt571TwXZ8k/fSosFlerssP1l+oj0D89LphiwPpbolg1t2KKnObihn9y
-	5+9pV7da8+3GuNYUSrlU41uKx9VFGZLjFNfCL8D5JbAsDtENwVjrGYAE83jjpLM8uBV2lZoWHlTYe
-	NZX1GomWekztB0SpC/EmxalKvYSeVCZPBpkKMLijtnlX8WkchCDRSIN7+4ECjE+CbXghU8zsMZAYb
-	Di/fxjwQ==;
+	bh=5CRakxbCCPhcLhlWXRaYkkxMdtZySZI3KxwZkzMAZeo=; b=FwITdZ7VUhWXAKwz26RZgfNb3R
+	iO+tQvLAg9MfH8OCH1DxXmV6kxiuZZeEpEWL9rkmgCtCCOsDWT2TQYTk6Qf6Bdw8XYl8IPQcVwErJ
+	gCiJ/mJWWv2L4RgqTYJ4uX6MzygFMqXfTmFJ3G0os+LbMZWRvidxRfFZZUU1SqMCu59xc6z39aehw
+	CbU/VDFkyXtsK32mg3COM3oozsoRkB0K8F1AbjTRPQgr0uQ3yFm2G8I9lcglBHS25o8WwgwqDiHc5
+	cLQ1VICbNx1Kc6Y68H+4UGoM4K57Spz6nqxQvEP3kiiXT4+IknYV83YgKGD4qT+Ru4VRrmeePSAqP
+	+qM2/N3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PtV-00000001TyL-1r3G;
-	Fri, 04 Sep 2026 09:07:33 +0000
-Received: from smtp14.infineon.com ([2a00:18f0:1e00:4::6])
+	id 1x2PuS-00000001UC9-2au2;
+	Fri, 04 Sep 2026 09:08:32 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PtR-00000001Twa-3Zov;
-	Fri, 04 Sep 2026 09:07:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
-  t=1788512850; x=1820048850;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=7MoKXvC6968eejIFP7iCwt2T4ExB49oBcRo4K3eSCKI=;
-  b=l9YYbmfTAf1yzAqAL27w4Iu95bRkULpD5NEV4W5yZJ2mh56J2Bd3VLcG
-   YZgWNQsA8EKw+u/bI+JfgjvZvXeIX1189YxTCXiJWGikPhX+7WUiyAWi1
-   MH3FdPWe/Zq0cY/2YZOEg4kOsOSMi9ifC3s9btu0Du3KorAi2kDls5aKO
-   M=;
-X-CSE-ConnectionGUID: uJTRJ/DhRNev+wUkTRcQKg==
-X-CSE-MsgGUID: 9jXa/FKoS4qX45ndJbitBA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="145631225"
-X-IronPort-AV: E=Sophos;i="6.25,260,1779141600"; 
-   d="scan'208";a="145631225"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO MUCSE819.infineon.com) ([172.23.29.45])
-  by smtp14.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 11:07:25 +0200
-Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE819.infineon.com
- (172.23.29.45) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 11:07:24 +0200
-Received: from MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be]) by
- MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be%12]) with mapi id
- 15.02.2562.046; Fri, 4 Sep 2026 11:07:24 +0200
-From: <Takahiro.Kuwano@infineon.com>
-To: <miquel.raynal@bootlin.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
-	<richard@nod.at>, <vigneshr@ti.com>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<corbet@lwn.net>, <skhan@linuxfoundation.org>
-CC: <STLin2@winbond.com>, <hsinyi@chromium.org>,
-	<thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>
-Subject: RE: [PATCH v4 12/25] mtd: spi-nor: winbond: Add support for
- W25Q12RV-Q/N
-Thread-Topic: [PATCH v4 12/25] mtd: spi-nor: winbond: Add support for
- W25Q12RV-Q/N
-Thread-Index: AQHdOvyPDTQdnozUAk+qARRuXX3Ydba+Hwgw
-Date: Fri, 4 Sep 2026 09:07:24 +0000
-Message-ID: <a6f90df0e0f742ddbbaea48ec5c0cc59@infineon.com>
-References: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-0-779d35303dff@bootlin.com>
- <20260902-winbond-v7-1-spi-nor-rv-addition-v4-12-779d35303dff@bootlin.com>
-In-Reply-To: <20260902-winbond-v7-1-spi-nor-rv-addition-v4-12-779d35303dff@bootlin.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.161.6.196]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1x2PuQ-00000001UBg-2sDH;
+	Fri, 04 Sep 2026 09:08:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788512911; x=1820048911;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RTOkuJscrpPJjVNNjxoNkn5V5c05RKVFnU/ZyQKRXhU=;
+  b=dr4iivw2GDOourEFlXm7MdytEhGHOqnIHBJ/RN4TqzPTLyfd6b38HHWF
+   w4EMXWz5NA3eOj9WkYfYzw0F+oG9UzCeBz+VcawanNpxReaOXN5sM6f9z
+   I+5YqZuuYY/tuhaTeLC81+e0bH7dl5xEcKw6HGO9z8lkN8+blIQIORfqU
+   wXoEEvTTCJUkuzhdh+OVLvXb4pLf8B5y7DlIVJk15UeZQ5d5sKpzRdqio
+   YNEbPvnZd9rBOYivXpzjaKUF/154YasSDZ8egZ2pkUzTGxsDnKc/GFsUS
+   wW4PNLU3FfmVF4QtyHeQDCTA9qDmIPlQt46yNd8fyP4/n7RmYCMIlaHTy
+   w==;
+X-CSE-ConnectionGUID: ccUoF79NR+qGMKnA7+Hokg==
+X-CSE-MsgGUID: Z+wSg6dkT/GAAEOpFlSopg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11895"; a="99669241"
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="99669241"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 02:08:29 -0700
+X-CSE-ConnectionGUID: EXOLF6UfRfSAQklaHXyikw==
+X-CSE-MsgGUID: 3CuE8+pcSBiwMrpvowrn3w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,260,1779174000"; 
+   d="scan'208";a="266732821"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.224])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Sep 2026 02:08:20 -0700
+Date: Fri, 4 Sep 2026 12:08:17 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Frank.Li@oss.nxp.com
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Kelvin Cao <kelvin.cao@microchip.com>,
+	Logan Gunthorpe <logang@deltatee.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 1/3] dmaengine: vchan: add vchan_chan_name() to get
+ channel device name
+Message-ID: <apqKgda7dW_JXolJ@ashevche-desk.local>
+References: <20260903-dma-chan_dev-rename-v2-0-0db305b6c716@nxp.com>
+ <20260903-dma-chan_dev-rename-v2-1-0db305b6c716@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260903-dma-chan_dev-rename-v2-1-0db305b6c716@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_020730_203094_9964C71B 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260904_020830_756149_670B4B6C 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,16 +119,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWlxdWVsLA0KDQo+IFRoZXJlIGlzIGFuIElEIGNvbGxpc2lvbiB3aXRoIHRoZSBjaGlwIG9m
-IHNhbWUgZGVuc2l0eSBmcm9tIHRoZSBKVg0KPiBmYW1pbHkuIEJvdGggY2hpcHMgYXJlIHZlcnkg
-c2ltaWxhciBpbiBwcmFjdGljZSwgaXQgaXMgbW9zdGx5IGEgbWF0dGVyDQo+IG9mIGVsZWN0cmlj
-YWwgZGlmZmVyZW5jZXMgKG1vc3RseSBwb3dlciBjb25zdW1wdGlvbiBiZWluZyBsb3dlcikuDQo+
-IA0KPiBBcyBhIHNpZ25pZmljYW50IGRpZmZlcmVuY2UsIFJWIGNoaXBzIGlkZW50aWZ5IHRoZW1z
-ZWx2ZXMgYXMgc3VwcG9ydGluZw0KPiB0aGUgbmV3IFNGRFAgKHJldiBGKSBmaWVsZCB3aGljaCBm
-b3JjZXMgYW4gYWx0ZXJuYXRlIHdyaXRlIFNSMg0KPiBvcGNvZGUgKDB4MzEpLg0KPiANCj4gVGhp
-cyBkZW5zaXR5IHdyb25seSBhZHZlcnRpemVzIGl0cyBzaXplIGFuZCByZXF1aXJlcyBhIGZpeHVw
-IGZvcg0KDQpUeXBvPyAnd3JvbmdseScNClNhbWUgaW4gcGF0Y2ggIzIwLg0KDQo+IFsuLi5dDQo+
-ICsgbXRkX2RlYnVnIGluZm8gL2Rldi9tdGQwDQo+IG10ZC50eXBlID0gTVREX05PUkZMQVNIDQo+
-IG10ZC5mbGFncyA9IE1URF9DQVBfTk9SRkxBU0gNCj4gbXRkLnNpemUgPSA4Mzg4NjA4ICg4TSkN
-Cg0KSXMgbXRkMCBhIDhNQiBwYXJ0aXRpb24/DQoNClRoYW5rcywNClRha2FoaXJvDQoNCg==
+On Thu, Sep 03, 2026 at 04:53:11PM -0400, Frank.Li@oss.nxp.com wrote:
+
+> Introduce vchan_chan_name() to obtain the DMA channel device name.
+> 
+> Use a dedicated helper instead of directly accessing dma_chan::dev
+> so callers remain unaffected by an upcoming rename of the struct member.
+
+LGTM,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+...
+
+>  		ret = devm_request_irq(&pdev->dev, chan->irq,
+>  				       stm32_dma_chan_irq, 0,
+> -				       dev_name(chan2dev(chan)), chan);
+> +				       vchan_chan_name(&chan->vchan), chan);
+>  		if (ret) {
+>  			dev_err(&pdev->dev,
+>  				"request_irq failed with err %d channel %d\n",
+
+This one...
+
+> +++ b/drivers/dma/stm32/stm32-dma3.c
+
+>  		ret = devm_request_irq(&pdev->dev, chan->irq, stm32_dma3_chan_irq, 0,
+> -				       dev_name(chan2dev(chan)), chan);
+> +				       vchan_chan_name(&chan->vchan), chan);
+>  		if (ret) {
+>  			dev_err_probe(&pdev->dev, ret, "Failed to request channel %s IRQ\n",
+> -				      dev_name(chan2dev(chan)));
+> +				      vchan_chan_name(&chan->vchan));
+>  			goto err_clk_disable;
+
+...and this one are duplicate messages as devm_request*irq() printsr
+most of the information.
+
+Not sure if there will be a patch to simply drop them.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
