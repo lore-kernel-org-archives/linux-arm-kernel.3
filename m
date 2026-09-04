@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BA8C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2B8C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 22:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQlciG4UeR6ZpI5LegjbxAmEArAFXIkWdyeVsAKF9t8=; b=Jg1zAdqu2YwvkCGoMGnQgELRMj
-	gsZrys2iCAVSogP1x6BRda3UfeQUl7hxnPOeKK+R8b88wa12WWy5fk3Q26jFbeRb94azNJobIW9S3
-	Ef4AsMIvxXhUze6TqBDxLGptkbp0zEopxv4zQNLa1P8aPIKKK7Lmu/eOJbIjR8QDKJrBGmgqCEv+M
-	dGfFisZLUcaTT4/+BUi5cMB0k2swq4Kuil15ShI92FMlde61oLa+6OyyGPLFKbY5qb6qG20qplkKw
-	JQ2t/zuVIgZ7BuuhxjiopvcJUhF3aNygATBkf9MoxZ4a0Lp9/nQzW4JVWUXj6YfiKWY1E3cHXZ/rz
-	a0kKUAxQ==;
+	bh=OJucLNzd0P6My3KuoiulrhmQdmIkKxbJHUvOKpe0+No=; b=RGIo86rX8CWaAFw1RIvjhmnphO
+	yTZx2fDQkfog1D9Hz57SknVHjFWsvd7K8j42UA+EsTrTU4bXnU4gXdYJzboAQ9Hsbw2aDMSF8U9s1
+	wn50eKCKpj307cRquBbXElixCY8aVjAERN5dAVc6V7R+Xn6hsBZofb0L7xpqwgtSZzLaFA0Onc9hS
+	yxI+nTZgJLinQU3jpa3z+4nLqI7STIoqsLLGTI09PPOXbSuXGTV4IKr6ICp9ojsbVLhS1xUPp1nNc
+	l/ERnIgbZ4R/k5bR92EGVq0s97r89b4DcDjfr84eU7y3YojdeqOLoQBwVjoFqEOj30qXm7N0WfRum
+	93rwGdzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ccu-00000003Qd3-3ZGo;
-	Fri, 04 Sep 2026 22:43:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2cfO-00000003Qoi-0akl;
+	Fri, 04 Sep 2026 22:45:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2cct-00000003Qcx-2uSx
+	id 1x2cfM-00000003Qob-1SdP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 22:43:15 +0000
+	Fri, 04 Sep 2026 22:45:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7515943D70
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 592BF1F00ADB
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:43:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B41B56025B
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:45:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D9211F00A3E
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  4 Sep 2026 22:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788561795;
-	bh=yQlciG4UeR6ZpI5LegjbxAmEArAFXIkWdyeVsAKF9t8=;
+	s=k20260515; t=1788561947;
+	bh=OJucLNzd0P6My3KuoiulrhmQdmIkKxbJHUvOKpe0+No=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=lvZK3m739I1TAyBKURTF7/Kb+X2ZvvFj247sZaVM2Y7KEEHO6/yynk1kz7XaKQ59Q
-	 ZvCVbI8+x0VTCsi57uE8TkCQukaD+TlAzX49WyMaWQcYOhfEG2nAeOldmX4fLJsqtv
-	 4zERRJoM6irlSNSACUu0tj579xmg5sRMUxAWsCiUA4RiNAWBBKAmekItSw4plubse5
-	 MnDvkDeFzl3+Q9bcQdKqRsJXwNy3j9e5KJklRJnrpQFdJTvBflUWTrXi2Ufll0eoz4
-	 1brvORcXUrICOhRZAtNUhvHABaZTaeMOoBl6pZbSio5rADb2A6ErZ5fIkIdiwmmzDi
-	 t23Pc83ITvzPw==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b4ae3e201cso1405786e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 15:43:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBwBHtsLbWP2KM1HdlNkXP1Ymlp1T8FA5rWbvsgwVjNxc6qs4wOTZekGa8pHkHn6lMUPbW9C2pOxSj+qtDi2JsTa@lists.infradead.org
-X-Gm-Message-State: AFuF++mrZCHgrEqWG++UzknVcRP1duTUQIh3tEOi4tAMjf3DRJTiE6sp
-	WRUjC/UCs/5Vx7obCSTxheyRCBsL5+yL504AVTAsbmx/bPcqcqjTRzQQynr89rvFhVdbQ4fDVkg
-	VmJ6cBZ/t3fg7jthjUI7URK1pSoT49eI=
-X-Received: by 2002:a05:6512:114c:b0:5b6:184c:7d9b with SMTP id
- 2adb3069b0e04-5b6184c7efbmr1171058e87.36.1788561794026; Fri, 04 Sep 2026
- 15:43:14 -0700 (PDT)
+	b=jVI/mE/rXo+KMPVG8eTlFteEXlYEFcXnEpCGJYUJ0OeuSkQzhlR5GBgQJoj0jpPSJ
+	 nfjXuO6zPB6jjmxStvbvSzObckbu3lUSpjgzITpfsiL9pVRujBZmQW1qnAdatWO5XW
+	 cngHWOc4Jb7QkUHa/2uts9Y8tHkZVlUvsRkR45YkzXkXMx8SHQKaZrs7ruVevXxgej
+	 0S7NcZtz8gGLh/tUW3eAUUIDPchoNezybVQByX22dHYPX5jFRgm5y23DOzfvwkRDNI
+	 t8SDwlMBTOS/YNXDbIjXuGFJXOKxxUXDp8Gv5ZF3gRAuy8QoSWHvfJ1GA99znB5+FM
+	 OZBTTZux/TgZA==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5aec201b582so1860763e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 15:45:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvByKd1czOwLTyxzaPQjRjHkvzoMhRcL71T4uJiPH+ft41sFlVJ1w2Q9OJ06rV6L2OMH7mo3YQtySiGdi53tFS1BL@lists.infradead.org
+X-Gm-Message-State: AFuF++kIpZ9xjbhXJjaGVpwR4COK4bBfp9leduSio9agXUHDl8w/j63O
+	MHAIn6IVm+ksJBj3LcZhy6UhTshXDdbJQSQcSJbsSedwkcNZpKC/83kkiA//b5P/b066aa+Y14I
+	9GJ+pAjEoZOfNmCcs9w8c+GvMvDewvrA=
+X-Received: by 2002:a05:6512:a84:b0:5b0:eda:de26 with SMTP id
+ 2adb3069b0e04-5b616f2f892mr1623422e87.16.1788561946156; Fri, 04 Sep 2026
+ 15:45:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
-In-Reply-To: <20260904-cv75-v5-v6-11-e918514cb3b1@ambarella.com>
+References: <20260904-cv75-v5-v6-0-e918514cb3b1@ambarella.com> <20260904-cv75-v5-v6-12-e918514cb3b1@ambarella.com>
+In-Reply-To: <20260904-cv75-v5-v6-12-e918514cb3b1@ambarella.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 5 Sep 2026 00:43:01 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnxmDmDQn=gYkKMvT1GCYz50kodMTfuxEL2=7H9mKU4kA@mail.gmail.com>
-X-Gm-Features: AcwNN1Vycc-Z0L8Av9C-2Ir33TDG5kELHbymgbWMx-Yh-6kR1ncYYEZ285jVOQM
-Message-ID: <CAD++jLnxmDmDQn=gYkKMvT1GCYz50kodMTfuxEL2=7H9mKU4kA@mail.gmail.com>
-Subject: Re: [PATCH v6 11/13] serial: 8250_dw: add Ambarella CV75 quirks
+Date: Sat, 5 Sep 2026 00:45:31 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=fcS5UpomVcAyg1KXCXFxyQCUG2Mbqj4XG4kCYQS4tdQ@mail.gmail.com>
+X-Gm-Features: AcwNN1V7OH90tc_RzF9sI6MD1gO6FdJaYJCKQoqZfbOtKCReNgI1EwM-3lb0Rkg
+Message-ID: <CAD++jL=fcS5UpomVcAyg1KXCXFxyQCUG2Mbqj4XG4kCYQS4tdQ@mail.gmail.com>
+Subject: Re: [PATCH v6 12/13] arm64: ambarella: add ARCH_AMBARELLA and CV75
+ EVK DT
 To: longzhao@ambarella.com
 Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
 	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
@@ -94,19 +95,10 @@ On Fri, Sep 4, 2026 at 8:39=E2=80=AFAM Long Zhao via B4 Relay
 
 > From: Long Zhao <longzhao@ambarella.com>
 >
-> The Ambarella CV75 UART is Ambarella IP, not a Synopsys DesignWare
-> licensed block. At the register level it is close enough to DW APB UART
-> that a full custom UART driver is unnecessary: reuse 8250_dw with a
-> small platform quirk.
->
-> Quirks:
-> - keep IER ETOI (bit 5) set for RX timeout behaviour
-> - skip set_rate; baud clock is managed outside the UART block
+> Enable ARCH_AMBARELLA and add a minimal CV75 SoC / EVK device tree for
+> console bring-up with the RCT clocks, UART, pinctrl and GPIO banks.
 >
 > Signed-off-by: Long Zhao <longzhao@ambarella.com>
-
-This is really nice. Compare the size of this to what was initially
-submitted!
 
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
