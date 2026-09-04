@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42140C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563DEC624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=; b=dRDor1l5P73wO4+MlwEFPleM2S
-	8uI4HrKrqE3qXJywYiq2toeecrezRiS3QsujbMlLBnouvzarlEJcRP+3AQCxZY/2aGdgawsPUu/Nh
-	ArqDEZZeRZC1FZV+o7bP7uRx0lEKDf+CeEScyIfJumopsVbstHxv+YTYpFNiWs9EhmuKYNsLw27LH
-	MNNukhcpf5P4HOStC/3wEYgf+5CPoN+W8sQY7nQJHoJi3/Hhp4dlgKwHNjSXo++JivBJgZUYnFyjA
-	Ym3XYKA7BFlChF9GNpaWf6VZWOZiyxVk749lb2IGHV0KUeZZMoIv4xTaCToM+SSXA/v1ePt6pnjcU
-	vwM+YLxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=; b=jWPbeNwIB1Y7igtEZE3Vzc/wMw
+	guc2RsLLsjfBJ2v8ThSlO4gK4+v/bXZ/SDeVOINWVVmIvCZx5sJcIrlKXXF1loDkCsoAnR5TeGFHA
+	q46NGD/zIXQCUCfsvK/hJtKm25/r1WGLp76Pv8g9gkXp1gaWNOnFRHPwkTnN5u2gibDqWtnXer/me
+	gDF9/NR1Ep5xU9RO1YIcTMF8CU2btpViPqKBEu3UBOFy2MRL9l+i/zHDup7mN0cdAOtq1Q6ogpsUe
+	3sh6lkTURG01p/Ajg6HHph/MgOP5XxrpQlG4v67+P61aYtewlWYENrE6bScirH003COW025dLfcft
+	d6yITxzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wkj-00000002jBB-1qjw;
-	Fri, 04 Sep 2026 16:26:57 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1x2Wm8-00000002jM4-2c6n;
+	Fri, 04 Sep 2026 16:28:24 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wkg-00000002jAo-17a3
+	id 1x2Wm5-00000002jKt-1Ob4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:26:55 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7f4df360cc9so1474528a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:26:53 -0700 (PDT)
+	Fri, 04 Sep 2026 16:28:22 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-48441a2ba1bso793299f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:28:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788539213; x=1789144013; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=;
-        b=hA9o7kbrzkha/gIPPPOT76wjSXnzFpqDf8O/EqKshJGjm2EsMC3AMlYBv4XuFNBLB3
-         aY1v9yRGXAwX1TKTh7ARc1ajmu7kAFayQk0Uy9PR0xvhO/R4xKWoAj9x39/tIwZBrXvQ
-         hAIGuROwyAJnnMHA2/BTj9rmQFhmTmxxy8KDbOtoycqT7XD/5orJZjpB92z7QZHuCbtm
-         zzVNH6GfR4P1upWnHJSlosaDtQeS9CJP5Qz0C7b4TdcGyMZPSc1NvQ44jsDkcs9kPFfr
-         H0wehDXVStmuqly68x+Kucdv63b4RWRUMsJx39zf2Eg0KM2Zo57QJgYr7mkYPXNfqdsJ
-         iZ/A==
+        d=suse.com; s=google; t=1788539299; x=1789144099; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=;
+        b=eMOgtFL22ysql+apXweOrO+jl49AHcCk/ApbsxJWHEGoAEWmOribx9bo72fXGvNcfv
+         ht1N92ZwSGWwQ7GSrZrWusjJ7yFIjGq5GTh8W/4UnxiZtZHRg3UglovJGpJMYknWPhvs
+         FnQxkSCkVZscrxDkb66D4/8nltlehQwJw3ebDm+ret91Y1hdWf88P0W2KTzmIRFRQ/4d
+         5pu0OaPHtSVz8VtbuxpK6HOk279Z7fGb3bME1fnd2lFmvEFdKcSYoX/9JWvN21+3ZhMK
+         2JJaHb7D2wRj0MqU8jU+Vp3JOc+OvfXsVC9aDydByTPhtgbV2/MezV/EyBOorC3g6Gik
+         Q1og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788539213; x=1789144013;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BauMjs1SRuPjbFG+n0MnSau2eIvhuX4gcrdx4dJMYEY=;
-        b=S0AC3ti44X9fPtzqLu2P3cfPWxpixmQjzwxihmkKhtX9f4W6e47y7UkIrOvsn/G9Dt
-         UGrM3AlVuQ1TyoCYC+bB0P5T3UhyL9MaMtxl34DHHcp0hmKlkwZWGW/0ON7JIhKbcV8q
-         yQTgX0OgPxE5W8zEJgOUScz8q53RoeEFZljcsIV0bXlvBSNfQAt/s52ADaJuvSwdCnsh
-         H8f9HRaHljkVjockGBWO+Zl4GXv+4RzCeMysBAD44Y6Y7bOcA1Mo0kTTkpAn7vWFeLEL
-         AXIF/ZwuCExZbaTPzv5sl82VZ7+0lih6VEMwqAYX7pA2r3P350uDRqTMHnQTJ8lZjKG5
-         C7hg==
-X-Forwarded-Encrypted: i=1; AKwUvBxzkqpQ83S+9SEHrElG2i42m+HnLIH4Zha2UM7ZPElERbxINiI1r7Uo37fYgUD6gvDOs9HCpj1mmKUXLrJJ/2/6@lists.infradead.org
-X-Gm-Message-State: AFuF++ljmQf1iZBI54EbC0BFboXxVBnbL81FiUX7i6ay89RjytPv40/P
-	mBVfWVfEjK11vGW86QkwdTSILuBzpjqWGKH1p5+HEeLQfn6xMLhgvht1
-X-Gm-Gg: AYBFou2xCPE1STVB2UuRuWWw+XJAjxp7MDUH4j4mWNrNbJfTWJjb0j/eMvE23WxXT3G
-	7IGRiYHJBJjOLeQgyCM7cu5X3sn2VVnHoPoU8AnGx1Q1pYeM879xfj5PTqbW+/UdysHBjSBanIz
-	jFR290+FCQsuBtK6t0aawVs6SjJXxu/ZT/2qPxu1r1EQ50hu/A6/E42tpxXSyyVYyhTyX3UvtmP
-	SezUnQEHzNcN3qLojDYjrJT7TWzrOgY/kgHJYv00SMAu+4ZVcf3Fj+xefZvEdBTcJ+kHe1EtqQm
-	hmkUMjjJEAEvw9ITGm8hMTSagAObKFoBfUrQyNLEcXP4ysbO88+knrpEb3jqHKRmaARY1MK8gQ8
-	eSDRT9YflYYOPMv6CrLIprMvfRb5+B5qCrNlWrADfmLSgXxJktoLP4XX0WBWtV4pU1igyijoaIM
-	Zq/+IU3+O3+alKH/XF2MWH8gdd4cSzL55hlZJsJAnsdZs1q3xEHQ2DGTqV+PFwj7BoWOxGxgNpD
-	LSwamMUJ+zjdCugIkKkUKB8bhWSD+IC9MT5D69FlmXg7DOb6g==
-X-Received: by 2002:a05:6830:a20a:10b0:7f4:3f10:7843 with SMTP id 46e09a7af769-7f89bc593b4mr4528909a34.10.1788539212476;
-        Fri, 04 Sep 2026 09:26:52 -0700 (PDT)
-Received: from ?IPV6:2406:7400:56:e503:ad72:fda5:83e8:be95? ([2406:7400:56:e503:ad72:fda5:83e8:be95])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7fa888f614dsm1849437a34.15.2026.09.04.09.26.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Sep 2026 09:26:51 -0700 (PDT)
-Message-ID: <12268d64-08c7-421f-83e2-e6306fde9a88@gmail.com>
-Date: Fri, 4 Sep 2026 21:56:42 +0530
+        d=1e100.net; s=20251104; t=1788539299; x=1789144099;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:date
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+Pi3sqyteuE0/QZwa01E3S2F0kiuXgMtxWMFjBjLXuI=;
+        b=ZmEhj4BeWtJ7PmxdWboaOjycs4/w0GhTMrISEn6UFAHGeCqBVWh6Po3M48RdluAu+8
+         2O3zIOKowJapbl8jKMyZxB6Hp9zfGZUcuruFHAsZ3XbY1oVl7g3goEY5mYJvku7Z/oXZ
+         8xRy4hXeMDx/h9JW9kEmDRZwzuas5S+fAFd2EeWrsMIctjwknCFGBWmtFr0uGKTEkbRD
+         FE6b7+kqSEcKGAakcXdax10mCJQ3NtfdkgpfYzAA7Wy/ZPQWUS35OD4E970Pt0NNAiL7
+         sqCnBULLCVASPGj7+jIFDgxSGHxcsz5YnNAQjEG/sFmC7RqLak37QEUg/bBO/ipSbwuJ
+         hHaA==
+X-Forwarded-Encrypted: i=1; AKwUvBxj3Iv3osn49LRg45nlqYbnLiEmRg2PcaysW76d0ZTYlXoDkhE75jsV+0RGxyulSa3sWUQLjSCetvoTjOZXNUWa@lists.infradead.org
+X-Gm-Message-State: AFuF++k3doV06xGMSehVMsL1y9LINW4RWyjtugVfEMYcmj42UC1M7B9L
+	tmGnKKzel01pQZDLokzNhs7fRvEE0Kge8tjF4QwYTDinBW9lemyX/N7QH7LdUUN/PJw=
+X-Gm-Gg: AYBFou16AQCiWeHKd0FuD+PDFl03JR4iMq7UDLW4a3miJ+w6Y1HXdSwjvO0E/3wsxnd
+	Ao0hjlg/E62CdTJMKO5WAAc/SsLE4vg4c21NnZ585J7v8FNwBD3xNGtpjIMGLagxYImVCWhRAt4
+	FXRMidhdctCjoh7yotmATtOChH2oiNkvONUtYpWo94D3XkTdnBAgWUdxYe2soX2OL3+sDgQ/eXH
+	L1EUphX3caTF4MBqmhhz2uU2zhGjQHNsieRDZIYJ1Kk7Xpb1ucki7lXl5iZtEhT8b/gtxzpXkL7
+	JDDgMXAfIrG4uGF91P9wm9Q5v8rDPf2f+zG3Mf/c1OYqPTolfHAddN++gTRgeYr6n6retDdYQ8W
+	GW/dxQUSDHbU9miP/19nFs+nYvhldNnOMK3cKBwjC2zaqaVPFillZjAguuOO07pNMkhMzZyuoVI
+	lblbSG9F+RlzlkQB4mXcW4lDxVBMGpxKPOPUsOgV6poastp8M9jx/RNxWguw==
+X-Received: by 2002:a5d:5225:0:b0:485:8435:5a3a with SMTP id ffacd0b85a97d-485872ea457mr9219109f8f.25.1788539298646;
+        Fri, 04 Sep 2026 09:28:18 -0700 (PDT)
+Received: from localhost ([82.145.119.95])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm8164784f8f.25.2026.09.04.09.28.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 09:28:18 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Fri, 4 Sep 2026 18:31:57 +0200
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com,
+	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>
+Subject: Re: [PATCH v7 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <apryfdwBCHaGJobA@apocalypse>
+References: <cover.1784539788.git.andrea.porta@suse.com>
+ <a83d65b2d91865eb722337c547c94dce175e6086.1784539788.git.andrea.porta@suse.com>
+ <46772551-207f-4795-89d5-6c02a0b85410@wanadoo.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Dhruva G <goledhruva@gmail.com>
-Subject: Re: [PATCH v2 2/5] pmdomain: core: Allow a non-CPU device in a CPU PM
- domain to do power on
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
-Cc: Abel Vesa <abel.vesa@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Christian Loehle <christian.loehle@arm.com>,
- Maulik Shah <maulik.shah@oss.qualcomm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260901111441.122436-1-ulf.hansson@oss.qualcomm.com>
- <20260901111441.122436-3-ulf.hansson@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <20260901111441.122436-3-ulf.hansson@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <46772551-207f-4795-89d5-6c02a0b85410@wanadoo.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_092654_338674_0CE401CF 
-X-CRM114-Status: GOOD (  44.29  )
+X-CRM114-CacheID: sfid-20260904_092821_399248_E97B8897 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,217 +113,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01-09-2026 16:44, Ulf Hansson wrote:
-> A driver for a non-CPU device that is attached to a CPU PM domain (the
-> genpd has the GENPD_FLAG_CPU_DOMAIN configuration set), is currently not
-> able to power on the PM domain. More precisely, to power on a CPU PM domain
-> one of its corresponding CPUs needs to be woken up if they are idle.
+Hi Christophe,
+
+On 22:36 Thu 03 Sep     , Christophe JAILLET wrote:
+> Le 20/07/2026 à 11:44, Andrea della Porta a écrit :
+> > From: Naushir Patuck <naush@raspberrypi.com>
+> > 
+> > The Raspberry Pi RP1 southbridge features an embedded PWM
+> > controller with 4 output channels, alongside an RPM interface
+> > to read the fan speed on the Raspberry Pi 5.
+> > 
+> > Add the supporting driver.
+> > 
+> > Signed-off-by: Naushir Patuck <naush@raspberrypi.com>
+> > Co-developed-by: Stanimir Varbanov <svarbanov@suse.de>
+> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > 
-> The current support for a non-CPU device is that its driver can only
-> prevent an already powered on CPU PM domain from being powered off. This
-> leads to problems for a driver while probing its device or when it needs to
-> call pm_runtime_get_sync() to turn on the power for it. From the driver
-> point of view it looks like it all works fine, but when accessing the
-> device it may end up with various errors as the device may not be fully
-> powered on.
+> Hi,
 > 
-> To fix the behavior for these types of devices, let's adjust the behaviour
-> in genpd_power_on() to wake up an idle CPU that belongs to it, in cases
-> when it's needed.
+> ...
 > 
-> Link: https://lore.kernel.org/all/CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZVYO=38R2cLV8nw@mail.gmail.com/
-> Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> Signed-off-by: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-> ---
+> > +static int rp1_pwm_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device_node *np = dev->of_node;
+> > +	unsigned long clk_rate;
+> > +	struct pwm_chip *chip;
+> > +	void __iomem	*base;
+> > +	struct rp1_pwm *rp1;
+> > +	int ret;
+> > +
+> > +	chip = devm_pwmchip_alloc(dev, RP1_PWM_NUM_PWMS, sizeof(*rp1));
+> > +	if (IS_ERR(chip))
+> > +		return PTR_ERR(chip);
+> > +
+> > +	rp1 = pwmchip_get_drvdata(chip);
+> > +
+> > +	base = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(base))
+> > +		return PTR_ERR(base);
+> > +
+> > +	rp1->regmap = devm_regmap_init_mmio(dev, base, &rp1_pwm_regmap_config);
+> > +	if (IS_ERR(rp1->regmap))
+> > +		return dev_err_probe(dev, PTR_ERR(rp1->regmap), "Cannot initialize regmap\n");
+> > +
+> > +	rp1->clk = devm_clk_get(dev, NULL);
 > 
-> Changes in v2:
-> 	- Rename a function according to Abel's suggestion.
+> Could it be devm_clk_get_enabled() to simplify the error handling path as
+> done above with other devm function?
+
+The very first version of this patches had devres everywhere, but Uwe has correctly
+spotted that this could lead to clock ops imbalance, please see:
+https://lore.kernel.org/all/adLTwOTbkJ0VQXy6@monoceros/
+As a result, I turned devm_clk_get_enabled() into the corresponding non devres/single
+component functions since now disengaging the clock depends on a conditional.
+Of course this does not make much sense in case we don't need a .remove callback,
+but it seems that I can reintroduce it again if we agree to use EXPORT_SYMBOL_NS.
+
+> ...
 > 
-> ---
->  drivers/pmdomain/core.c | 80 ++++++++++++++++++++++++++++++++++++++---
->  1 file changed, 75 insertions(+), 5 deletions(-)
+> > +	if (IS_ERR(rp1->clk))
+> > +		return dev_err_probe(dev, PTR_ERR(rp1->clk), "Clock not found\n");
+> > +
+> > +	ret = clk_prepare_enable(rp1->clk);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "Failed to enable clock\n");
 > 
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index 6ac1ce18fda3..97273ed2f825 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -10,6 +10,7 @@
->  #include <linux/idr.h>
->  #include <linux/kernel.h>
->  #include <linux/io.h>
-> +#include <linux/iopoll.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_opp.h>
->  #include <linux/pm_runtime.h>
-> @@ -19,11 +20,14 @@
->  #include <linux/slab.h>
->  #include <linux/err.h>
->  #include <linux/sched.h>
-> +#include <linux/smp.h>
->  #include <linux/suspend.h>
->  #include <linux/export.h>
->  #include <linux/cpu.h>
->  #include <linux/debugfs.h>
->  
-> +#include <trace/events/ipi.h>
-> +
->  /* Provides a unique ID for each genpd device */
->  static DEFINE_IDA(genpd_ida);
->  
-> @@ -32,7 +36,9 @@ static const struct bus_type genpd_provider_bus_type = {
->  	.name		= "genpd_provider",
->  };
->  
-> -#define GENPD_RETRY_MAX_MS	250		/* Approximate */
-> +#define GENPD_RETRY_MAX_MS		250		/* Approximate */
-> +#define GENPD_CPU_ON_POLL_PERIOD_US	100		/* 100us */
-> +#define GENPD_CPU_ON_TIMEOUT_US		5000000		/* 5s */
->  
->  #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
->  ({								\
-> @@ -1027,15 +1033,75 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
->  	}
->  }
->  
-> +static bool genpd_status_on(struct generic_pm_domain *genpd)
-> +{
-> +	bool is_on;
-> +
-> +	genpd_lock(genpd);
-> +	is_on = genpd_status_on_unlocked(genpd);
-> +	genpd_unlock(genpd);
-> +
-> +	return is_on;
-> +}
-> +
-> +static int genpd_wakeup_cpu(struct generic_pm_domain *genpd)
-> +{
-> +	unsigned int cpu;
-> +	bool is_on;
-> +	int ret;
-> +
-> +	/* Find the first online CPU in the genpd's cpumask. */
-> +	cpu = cpumask_first_and(genpd->cpus, cpu_online_mask);
-> +	if (cpu >= nr_cpu_ids)
-> +		return -EAGAIN;
-> +
-> +	genpd_unlock(genpd);
-> +
-> +	/* Send a IPI to wakeup the selected CPU. */
-> +	smp_send_reschedule(cpu);
-> +
-> +	/* Poll to wait for it to complete the power on sequence. */
-> +	ret = readx_poll_timeout(genpd_status_on, genpd, is_on, is_on,
-> +				 GENPD_CPU_ON_POLL_PERIOD_US,
-> +				 GENPD_CPU_ON_TIMEOUT_US);
+> ... this also saves these 3 lines.
 
-How is sleeping here made safe for IRQ-safe consumers and child domains?
+See above.
 
-For a hypothetical example, consider an IRQ-safe SPI controller in an IRQ-safe child domain D,
-whose parent P is a CPU domain. CPU A is outside P, and CPU B belongs to P. Both domains are initially off.
+> 
+> > +	rp1->clk_enabled = true;
+> > +
+> > +	ret = devm_clk_rate_exclusive_get(dev, rp1->clk);
+> > +	if (ret) {
+> > +		dev_err_probe(dev, ret, "Failed to get exclusive rate\n");
+> > +		goto err_disable_clk;
+> > +	}
+> > +
+> > +	clk_rate = clk_get_rate(rp1->clk);
+> > +	if (!clk_rate) {
+> > +		ret = dev_err_probe(dev, -EINVAL, "Failed to get clock rate\n");
+> > +		goto err_disable_clk;
+> > +	}
+> > +	/*
+> > +	 * To prevent u64 overflow in period calculations:
+> > +	 * mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC)
+> > +	 * If clk_rate > 1 GHz, the result can overflow.
+> > +	 */
+> > +	if (clk_rate > HZ_PER_GHZ) {
+> > +		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
+> > +		goto err_disable_clk;
+> > +	}
+> > +	rp1->clk_rate = clk_rate;
+> > +
+> > +	chip->ops = &rp1_pwm_ops;
+> > +	chip->atomic = true;
+> > +
+> > +	platform_set_drvdata(pdev, chip);
+> > +
+> > +	ret = pwmchip_add(chip);
+> 
+> Could it be devm_pwmchip_add() to simplify the error handling path as done
+> above with other devm function?
 
-A runtime-resume request on CPU A follows this path in drivers/pmdomain/core.c:
+Due to the above-mentioned scenario and since .remove is called before devres release
+funtions, that would make the clock to be released before the pwm chip, causing
+inconsistencies if the pwm is used in the meanwhile. 
 
-genpd_runtime_resume(SPI device)
--> lock D
--> genpd_power_on(D)
--> lock parent P
--> genpd_power_on(P)
--> genpd_wakeup_cpu(P)
+Many thanks,
+Andrea.
 
-genpd_wakeup_cpu() drops P's lock and sends an IPI to CPU B, but D's spinlock remains held. readx_poll_timeout() 
-can then reach usleep_range() while Dâ€™s spinlock is still held.
-
-There is also a problem without the child domain: for an IRQ-safe device attached directly to P, __rpm_callback()
-leaves interrupts disabled. Dropping Pâ€™s lock restores the already-disabled interrupt state, so readx_poll_timeout()
-still cannot be used with a nonzero sleep interval and timeout.
-
-I have not reproduced this on a board; this is a hypothetical configuration illustrating the paths.
-
-Is there a restriction elsewhere that prevents either configuration? Otherwise, this wait cannot sleep,
-and the parent lock needs to be reacquired with the same nesting depth used by genpd_power_on().
-
-
-
-> +
-> +	genpd_lock(genpd);
-> +
-> +	/* Re-check the status as we have released the lock in between. */
-> +	if (ret || !genpd_status_on_unlocked(genpd))
-> +		return -EAGAIN;
-> +
-> +	return 0;
-> +}
-> +
-> +static bool genpd_need_alive_cpu(struct generic_pm_domain *genpd,
-> +				 struct device *dev)
-> +{
-> +	if (!genpd_is_cpu_domain(genpd))
-> +		return false;
-> +
-> +	/* This is not for CPU devices as those are managed differently. */
-> +	if (to_gpd_data(dev->power.subsys_data->domain_data)->cpu >= 0)
-> +		return false;
-> +
-> +	/*
-> +	 * If the current CPU doesn't belong to the genpd's cpumask, we need to
-> +	 * wake up one of those idle CPUs to power on the CPU domain correctly.
-> +	 */
-> +	return !cpumask_test_cpu(smp_processor_id(), genpd->cpus);
-> +}
-> +
->  /**
->   * genpd_power_on - Restore power to a given PM domain and its parents.
->   * @genpd: PM domain to power up.
-> + * @dev: The device that needs the PM domain to power on.
->   * @depth: nesting count for lockdep.
->   *
->   * Restore power to @genpd and all of its parents so that it is possible to
->   * resume a device belonging to it.
->   */
-> -static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
-> +static int genpd_power_on(struct generic_pm_domain *genpd, struct device *dev,
-> +			  unsigned int depth)
->  {
->  	struct gpd_link *link;
->  	int ret = 0;
-> @@ -1043,6 +1109,10 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
->  	if (genpd_status_on_unlocked(genpd))
->  		return 0;
->  
-> +	/* Special case for a device attached to a CPU domain. */
-> +	if (genpd_need_alive_cpu(genpd, dev))
-> +		return genpd_wakeup_cpu(genpd);
-> +
->  	/* Reflect over the entered idle-states residency for debugfs. */
->  	genpd_reflect_residency(genpd);
->  
-> @@ -1057,7 +1127,7 @@ static int genpd_power_on(struct generic_pm_domain *genpd, unsigned int depth)
->  		genpd_sd_counter_inc(parent);
->  
->  		genpd_lock_nested(parent, depth + 1);
-> -		ret = genpd_power_on(parent, depth + 1);
-> +		ret = genpd_power_on(parent, dev, depth + 1);
->  		genpd_unlock(parent);
->  
->  		if (ret) {
-> @@ -1307,7 +1377,7 @@ static int genpd_runtime_resume(struct device *dev)
->  
->  	genpd_lock(genpd);
->  	genpd_restore_performance_state(dev, gpd_data->rpm_pstate);
-> -	ret = genpd_power_on(genpd, 0);
-> +	ret = genpd_power_on(genpd, dev, 0);
->  	genpd_unlock(genpd);
->  
->  	if (ret)
-> @@ -3411,7 +3481,7 @@ static int __genpd_dev_pm_attach(struct device *dev, struct device *base_dev,
->  
->  	if (power_on) {
->  		genpd_lock(pd);
-> -		ret = genpd_power_on(pd, 0);
-> +		ret = genpd_power_on(pd, dev, 0);
->  		genpd_unlock(pd);
->  	}
->  
-
+> 
+> > +	if (ret) {
+> > +		dev_err_probe(dev, ret, "Failed to register PWM chip\n");
+> > +		goto err_disable_clk;
+> > +	}
+> > +
+> > +	ret = of_syscon_register_regmap(np, rp1->regmap);
+> > +	if (ret) {
+> > +		dev_err_probe(dev, ret, "Failed to register syscon\n");
+> > +		goto err_remove_chip;
+> > +	}
+> > +
+> > +	return 0;
+> > +
+> > +err_remove_chip:
+> > +	pwmchip_remove(chip);
+> > +err_disable_clk:
+> > +	clk_disable_unprepare(rp1->clk);
+> > +
+> > +	return ret;
+> > +}
+> ...
+> 
+> CJ
 
