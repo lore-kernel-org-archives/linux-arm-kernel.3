@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3168C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3329CC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 10:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9I2WPocLUacIb6MXv6UW+BXVCGDKNGSQF8ffRh5uJE=; b=zl33JsBqj70/B3Ucdc6uJ1RwNl
-	rAgHF1CXvrPmkwDZwrJUyXk+nLWPFuff6+Jr7a/2RJ7sW34AkJ8sF99ibdCHLNMc1R2RDBm0Z700T
-	QxUkqCkKIvXFhpad02JIJVvsSHqJU9/ZEchXzqAFdHM4Cl2EVcsilqTJZIKpRhc4F78oGdJQmvSOO
-	CxvCXQ8mSMtJEIDOyJPg6hK/h0mkL/TepyoFG+NBji5wsbOjxye2p8Nua6K5UPnmibGhK3fnBqU8y
-	JwWEQeosCVm4k0db0U9NVvst4JVU7BTLE/DGGeD1WrGzfIWLLMjSk3bW7ws7PNePzkYmPc03OKpGD
-	QeaTYqfQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BZQsFKP4jMyXxxqQrP5SytFPA0wlD3KzFUOMPf1X4dk=; b=RKjs/J65gnxArMMbDPU2QAsvcM
+	vIj0tMPtJy7VhmXdCS9rf7nUD11wQB+6Lr7+sgulQZB3Ks/RjR3/NmVYB8R6OlSlDOAiQn6Pg+kYq
+	Q5R+35J/pyuEcYIH53FFWIDOQO5CBLUPDY3go1k4L99T3ShxTkOP+I6pvM9o44+AYIBxjCrx7eUSV
+	qOSc3LxZC7AfKVagJXxjqaUK+ith69zIE63nB7UOvc/4hIWrnXOl8GmNdBvi7+vXe1ip3044K0WE6
+	ccs/W2qu+CCfjoTSnU7baL89S0FJRAwWuUM0U3P9BiaoPJayw/1w8Rs3oufccGQzPvVKSTf2LMSQ3
+	zg+Gn0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RH1-00000001gvI-3t00;
-	Fri, 04 Sep 2026 10:35:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2RIk-00000001hZA-1nrq;
+	Fri, 04 Sep 2026 10:37:42 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2RH0-00000001gtp-1B8d
+	id 1x2RIh-00000001hYM-0KBA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 10:35:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B5DCC60219;
-	Fri,  4 Sep 2026 10:35:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65AAD1F00A3E;
-	Fri,  4 Sep 2026 10:35:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788518153;
-	bh=u9I2WPocLUacIb6MXv6UW+BXVCGDKNGSQF8ffRh5uJE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Ag3TqrjJK6NyKSY5HFriLni2RYiMqOyiczi4SedYu9aoxcW7VAiIQmq3OgqnuN+lO
-	 t48NCzb9u4ItoAs2nwdCm3BWWbyM8Xvcw4b6JOsIo8nyL+wIOL70dofHXvFQelH2ac
-	 rn+fVTW4+VlGbZZYilrDNAqmBV+FoOb6MZh3IgTYfl8Q4U4ujL6wxVBM1KCNyVlsKS
-	 nK/KT/uyhGZUhQI6zI29x8SiDyrL1zQquaWzefOINBzcZVtLdxb6pPiclH0+ORPito
-	 iSkjUKubJh7FuCBbH0uEHgDigwKXqLbpesSLWU023N2AVQpJipCrJ3qgT24kYgyhoC
-	 RwplQVNBH5AaQ==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marc Zyngier <maz@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v6 9/9] arm64: realm: Expose the CCA shared granule size through mem_encrypt ops
-Date: Fri,  4 Sep 2026 16:04:52 +0530
-Message-ID: <20260904103452.1197239-10-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
-References: <20260904103452.1197239-1-aneesh.kumar@kernel.org>
+	Fri, 04 Sep 2026 10:37:40 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38e041ea211so668130a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 03:37:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788518258; x=1789123058; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BZQsFKP4jMyXxxqQrP5SytFPA0wlD3KzFUOMPf1X4dk=;
+        b=dY0JjnAOPgMk73zbrk9csPAhsOQ33uBrpsI0Bh/A6Xfzj42kyw2wz8dd7jVZ67wNQW
+         Eib3ULTgXPgP140M9mOfsh0G5DUQ5m6hxygbSl746uSkvwfIQtyvl99CdtxInpl+Qj6R
+         LjcHnxdBPpvFnFTNWC5h8b0NvsD1DchVleTY8JZ6xgPRLFBoDNCSfYzkL8c97XgEdgiE
+         8YuYNzoSECZlLejiCh+o8Pot8HqgSM3szuN5E6ApvoWReYMDJrfdxb56aCk1KZjyX4FE
+         UyqxrazNqzP0uibAXNL4FieC339ALQId2zI1yiRFe4lLTUCnsPaBS0dA4wyC+rbunRsE
+         ipkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788518258; x=1789123058;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BZQsFKP4jMyXxxqQrP5SytFPA0wlD3KzFUOMPf1X4dk=;
+        b=TX0OnwPWu/RdgtDW/FsfCh1snP2pnLzgLUNifyvQ+jCka7VIns6l6bS0cs4QN4IjHi
+         reRRykTAch8mg+yvigjsRbeMtBC8t+FJytRgRFA/ymUk8lrEZgC9luV1NbGfwAO3NNKT
+         YQY8PuWiGaIGdQu8wxUP0G88FFuvSz0MPl9jlmzQZHbT3ng0sbBOL/YenKRGE3e08PDe
+         cS5DWGg8DreCuEomWjUF3aMjfrP3J5QgMbbOD4Q4RsiDeYJK03QykPbcK43sFrAcD+O3
+         oaTWQ01tH+2Luq3gNNV7tkiLD8Gs5laqTp+DDVlzwcfsyl5tmkirP1OHIkK6caOZuZH4
+         kUvA==
+X-Forwarded-Encrypted: i=1; AKwUvBzAYNNwhRt/M+ttZhSM3KBcK3HKLo4+Qra5enmdPUKQD0Jm/H+aUUGBaKv1TbGCSXCEgXFPARPU31yp69EXIe+G@lists.infradead.org
+X-Gm-Message-State: AFuF++ljlBkhb+qu1OPra0V10mQMyCawgHjBIbDpjIGBLkWoBFfm/WeN
+	yvQWHJH6xbt89o3XG+UEIXSArqpDbmg40j1T5NxisA5Oh844XFzIfHMJicRIK81/AME=
+X-Gm-Gg: AYBFou08h2e9OJdXEgylTjTk/0rbXPUQRkWiZkihN0/XaWqZjjpxhzJaek3sT6wT67u
+	VFQl910soe/uuxXTqlXJn0BVJaOmgABgaLneAPikeCxAkcP/UlnKEK/Zvg4WScXCr/uiZSd4i3V
+	Z8zOwAXpfNuOP6lKIEl8AFKXCs+z/xepcWDGHdo/TG6Gta+HpKbPcFgMJTFCC6xScqUyZrsBj52
+	RaWNXqzdLa5whm5XoLx6mI8Dk90wlqRrEvepe3J4GoxGEPjE4S2f8S+ghqJWRlLlJgTqEd0xnLf
+	qowctlZ/ih+iJ3bvFeZ8ZrE27hRNUM4lUUneW7QAr2mnsmGCRifr7upcHRWdFhLU85/pVLvUo8n
+	e482EpUnd5wStg6Mwr2SkhR5rTV4r+jaL3Kld8aKflWQjRgOlBSkL6bOwC4iVX84HWI6drwiU/K
+	bO4N1LGbKhcZbHOGWS0ruc8QMwi7891f3EFl6bY4n9CyJNBBurvObB3xA1ng/MEeYKAhzSYXPTF
+	pnNsKdNTNNWaRY=
+X-Received: by 2002:a17:90b:17cd:b0:38f:aab1:5148 with SMTP id 98e67ed59e1d1-39b26272b4dmr6804930a91.13.1788518257765;
+        Fri, 04 Sep 2026 03:37:37 -0700 (PDT)
+Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339b9f68e4sm5981325eec.24.2026.09.04.03.37.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Sep 2026 03:37:37 -0700 (PDT)
+From: Hemanth Selam <hemanth.selam@gmail.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] firmware: arm_scmi: fix typo "upto" in comment
+Date: Fri,  4 Sep 2026 16:07:31 +0530
+Message-ID: <20260904103732.7320-1-hemanth.selam@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_033739_115377_23CE7E91 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,159 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CCA guests must align shared/private memory transitions to the size
-reported by the host for IPA state changes. This size can be larger than
-PAGE_SIZE, so allowing a guest to convert only a PAGE_SIZE-sized subrange
-can leave the remaining part of that host-sized range in the wrong state.
+Correct "upto" to "up to", reported by scripts/checkpatch.pl using the
+misspelling list in scripts/spelling.txt.  Only touches comments, no code
+changes.
 
-Cache the RHI-reported IPA sate change alignment during Realm
-initialization and expose it through a new arm64 mem_encrypt callback. Use
-PAGE_SIZE as the default shared granule size when no backend callback is
-registered.
-
-Validate both the address and byte size passed to set_memory_encrypted()
-and set_memory_decrypted() against mem_cc_shared_granule_size() before
-calling into the backend. This prevents callers from converting only part
-of a host-managed page.
-
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Assisted-by: Cursor:claude-opus-5
+Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- arch/arm64/include/asm/mem_encrypt.h |  4 ++++
- arch/arm64/mm/mem_encrypt.c          | 32 ++++++++++++++++++++++++----
- drivers/firmware/arm_rmm/rsi.c       | 13 ++++++++++-
- 3 files changed, 44 insertions(+), 5 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-index ef8b8463e52b..890faeed0eb3 100644
---- a/arch/arm64/include/asm/mem_encrypt.h
-+++ b/arch/arm64/include/asm/mem_encrypt.h
-@@ -10,6 +10,7 @@ struct device;
- struct arm64_mem_crypt_ops {
- 	int (*encrypt)(unsigned long addr, int numpages);
- 	int (*decrypt)(unsigned long addr, int numpages);
-+	size_t (*cc_shared_granule_size)(void);
- };
- 
- int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
-@@ -18,6 +19,9 @@ int set_memory_encrypted(unsigned long addr, int numpages);
- int set_memory_decrypted(unsigned long addr, int numpages);
- int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt);
- 
-+#define mem_cc_shared_granule_size mem_cc_shared_granule_size
-+size_t mem_cc_shared_granule_size(void);
-+
- static inline bool force_dma_unencrypted(struct device *dev)
- {
- 	return is_realm_world() || is_protected_kvm_guest();
-diff --git a/arch/arm64/mm/mem_encrypt.c b/arch/arm64/mm/mem_encrypt.c
-index ee3c0ab04384..69783c6a3c08 100644
---- a/arch/arm64/mm/mem_encrypt.c
-+++ b/arch/arm64/mm/mem_encrypt.c
-@@ -17,8 +17,7 @@
- #include <linux/compiler.h>
- #include <linux/err.h>
- #include <linux/mm.h>
--
--#include <asm/mem_encrypt.h>
-+#include <linux/mem_encrypt.h>
- 
- static const struct arm64_mem_crypt_ops *crypt_ops;
- 
-@@ -33,18 +32,43 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops)
- 
- int set_memory_encrypted(unsigned long addr, int numpages)
- {
--	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
-+	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
-+
-+	if (likely(!crypt_ops))
- 		return 0;
- 
-+	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
-+		return -EINVAL;
-+
-+	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
-+		return -EINVAL;
-+
- 	return crypt_ops->encrypt(addr, numpages);
- }
- EXPORT_SYMBOL_GPL(set_memory_encrypted);
- 
- int set_memory_decrypted(unsigned long addr, int numpages)
- {
--	if (likely(!crypt_ops) || WARN_ON(!PAGE_ALIGNED(addr)))
-+	unsigned long size = (unsigned long)numpages << PAGE_SHIFT;
-+
-+	if (likely(!crypt_ops))
- 		return 0;
- 
-+	if (WARN_ON(!IS_ALIGNED(addr, mem_cc_shared_granule_size())))
-+		return -EINVAL;
-+
-+	if (WARN_ON(!IS_ALIGNED(size, mem_cc_shared_granule_size())))
-+		return -EINVAL;
-+
- 	return crypt_ops->decrypt(addr, numpages);
- }
- EXPORT_SYMBOL_GPL(set_memory_decrypted);
-+
-+size_t mem_cc_shared_granule_size(void)
-+{
-+	if (likely(!crypt_ops) || !crypt_ops->cc_shared_granule_size)
-+		return PAGE_SIZE;
-+
-+	return crypt_ops->cc_shared_granule_size();
-+}
-+EXPORT_SYMBOL_GPL(mem_cc_shared_granule_size);
-diff --git a/drivers/firmware/arm_rmm/rsi.c b/drivers/firmware/arm_rmm/rsi.c
-index 2cd53f82432f..eeb797c6c2c7 100644
---- a/drivers/firmware/arm_rmm/rsi.c
-+++ b/drivers/firmware/arm_rmm/rsi.c
-@@ -19,6 +19,7 @@
- 
- static struct realm_config config;
- static struct kobject *cca_kobj;
-+static unsigned long ipa_state_change_granule_size;
- 
- unsigned long prot_ns_shared;
- EXPORT_SYMBOL(prot_ns_shared);
-@@ -155,9 +156,17 @@ static int realm_set_memory_decrypted(unsigned long addr, int numpages)
- 	return ret;
- }
- 
-+static size_t realm_cc_shared_granule_size(void)
-+{
-+	if (is_realm_world())
-+		return ipa_state_change_granule_size;
-+	return PAGE_SIZE;
-+}
-+
- static const struct arm64_mem_crypt_ops realm_crypt_ops = {
- 	.encrypt = realm_set_memory_encrypted,
- 	.decrypt = realm_set_memory_decrypted,
-+	.cc_shared_granule_size = realm_cc_shared_granule_size,
- };
- 
- static int realm_register_memory_enc_ops(void)
-@@ -167,7 +176,7 @@ static int realm_register_memory_enc_ops(void)
- 
- /* we need an aligned struct for rsi_host_call. slab is not yet ready */
- static struct rsi_host_call hostconf_call __initdata;
--static unsigned long __maybe_unused __init get_ipa_state_change_alignment(void)
-+static unsigned long __init get_ipa_state_change_alignment(void)
- {
- 	long ret;
- 	unsigned long shared_granule_size;
-@@ -218,6 +227,8 @@ void __init arm64_rsi_init(void)
- 		return;
- 	if (WARN_ON(rsi_get_realm_config(lm_alias(&config))))
- 		return;
-+
-+	ipa_state_change_granule_size = get_ipa_state_change_alignment();
- 	prot_ns_shared = __phys_to_pte_val(BIT(config.ipa_bits - 1));
- 
- 	if (arm64_ioremap_prot_hook_register(realm_ioremap_hook))
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index ef29fd223287..fb45b8e6459d 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -477,7 +477,7 @@ void *scmi_notification_instance_data_get(const struct scmi_handle *handle)
+  *  - exactly 'next_token' may be NOT available so pick xfer_id >= next_token
+  *    using find_next_zero_bit() starting from candidate next_token bit
+  *
+- *  - all tokens ahead upto (MSG_TOKEN_ID_MASK - 1) are used in-flight but we
++ *  - all tokens ahead up to (MSG_TOKEN_ID_MASK - 1) are used in-flight but we
+  *    are plenty of free tokens at start, so try a second pass using
+  *    find_next_zero_bit() and starting from 0.
+  *
 -- 
-2.43.0
+2.48.1
 
 
