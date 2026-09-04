@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569D1C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44937C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEJJglxD5sS7wGiZOiPyzebmlox9AlxZce99gHgeTy4=; b=xNEHTpKh84mGpUB1ZEuiRBWXTd
-	aFSBhonknjWrj3JkzhU1V4vAmCvGhhUckxBtZA+XTYDQQhWbKRKDWEJGTNAXc8A61i+mT/tKiAz4A
-	QXZ+DKQPnFnGqL/2aIUtoBd9bLUcBIx6LW0gx3ga1RAYAJuhX9ZV+M2lk3YS5mXLUe7ncJ9WDnmfb
-	AgtTehvDaL5dlZXrxQfmyiOcCemumjzkqxyko2QmHXGkLdqlM6jfKQ1pEaUOstyp1RXrY79j5aqIf
-	pJ67XXf/yE9DiVYXgJDkqc58FmCdyXdOa/1zAIthBaD2uFE0tP+ZhTfN93dDtPR7sDcHZp0F6XoG2
-	qGM6kusw==;
+	bh=cK0I4IOjaP7ZqlHukTJvXpJE3S08GRLYOlldlSJvAxg=; b=xZB6SzSO9Du/pdLWPxtoVbAIOM
+	iu8udFx37EnPik+s+tNNhB1bW/e+HMxu62KomvleegUiWxKuLqmrkXGWaH/+gYLMgqwtntOxyXnR1
+	Bj/6QUzu+Pr7E7RposH84R5cxZa7CzvRijws2IbYNx3QIHzyptxpq7h7idlxWa++QUtPM01QXYDIO
+	938lE1LtulK+c04Io50+oKxWWNeHY7bKZWKG0T6QPvNhFJgQgPk2lOb+kWJKbTPe44wqwDfHKUIoa
+	uWZdh+Rz3nWRDDzKubGFXFP+InL6MsRfl18m/PrmxMcVI18TX7JVFwue8eKjXxcKsyLJQ79uq1n6V
+	ATEs6wXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PYv-00000001Riq-2A0M;
-	Fri, 04 Sep 2026 08:46:17 +0000
-Received: from out-250.mta0.migadu.com ([2001:41d0:1004:224b::fa] helo=mta0.migadu.com)
+	id 1x2PZK-00000001RpL-3sRK;
+	Fri, 04 Sep 2026 08:46:42 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2PYr-00000001Rgn-0pgJ
+	id 1x2PZI-00000001RoZ-34vI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:46:15 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=xcY8MvnvZmT7aDUdDZL53RiTKNAdYrLmhkuOTgsocis=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788511571; v=1; x=1789116371;
- b=T6NJ7uuQxsKv2LogIVSt2bDEF0GKumuHiCjOU5INR2vshR5+oZ0HvCbdX24NB8nXtjkwRKvN
- 7N8xb8Q/vOM9SLkcJD33SzzrVdD1pcCW0Ba1tfxJhdlikXalk9brkPf8WD/ilKHgYruNcBcw6Cf
- 4TGpu92IwNPdnbD60ghLMmuw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id cc6014fc4f1e0f04;
-	Fri, 04 Sep 2026 08:46:11 +0000
-X-Mizu-Trace-ID: cc6014fc4f1e0f04
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so3870e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:46:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByBlLMP2IvBSB5k+9MMWp5ud0V0alAZyQTvsNdsQreIzU12WuH7M7spkw26cUoXlhwRz1nw7CvRQ3GNAeyp6ONC@lists.infradead.org
-X-Gm-Message-State: AFuF++nCY6LLACwiJ1xuRITDTLvRlr6XvW7mIR4sKgO70yUEJ7NVQfer
-	kcfhyS9wEsVpZfF7P+kSwBHNmG7z/zuBMYTXEW7fY1XT9nzuTSBXUc9954A3dZaCc/x+eBK+yON
-	aSMYUBjVijh73osQRhCbykx1LenaW0k+89MJIksmi
-X-Received: by 2002:ac2:51d0:0:b0:5ae:cf5f:4a88 with SMTP id
- 2adb3069b0e04-5b6170da3f8mr87362e87.8.1788511566149; Fri, 04 Sep 2026
- 01:46:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com> <20260826-arm64-52bit-va-v1-2-14ec98211363@fujitsu.com>
-In-Reply-To: <20260826-arm64-52bit-va-v1-2-14ec98211363@fujitsu.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 4 Sep 2026 09:45:30 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyJpPd8HjaWBw0V6pHF9UR0w2UFmaKDe7U3O+Sj8wiyPg@mail.gmail.com>
-X-Gm-Features: AcwNN1X26g8SofCUgL1E6IJkWpSM-nYwAAIsoW_5phvpJbgrH22ZIA1dnT_JA6o
-Message-ID: <CA+EHjTyJpPd8HjaWBw0V6pHF9UR0w2UFmaKDe7U3O+Sj8wiyPg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] KVM: selftests: arm64: Add 52-bit VA guest modes
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Takayuki Okamoto <tokamoto@fujitsu.com>
+	Fri, 04 Sep 2026 08:46:41 +0000
+DKIM-Signature: a=rsa-sha256; b=erTyPlOadn2n5wEvJNmpHAX7iVnmfvhHd1xPvZUF200nqZM/8yLQDkemlNregyx1/gMRI9Mo+8L+pFOEsYmfbKuRVof3jMklf3cNP00e/hqCpwQ31p/4lIPCTzl4VuNwvdDiyUwB6ktccVJ2ir3APQ/9ize447ARNbCsWIZxZNS/tZ4kkSTxQkbb+XuSJU8EJZS2N8l0hLGQl6Axx0RB0g5pRt24UK77e5rBpROeEYhYGQUHlI+nrf8ife4P78zFwC8ykQSmGDNuuCA7SJLoxDZFdAoAoKkivTgLXae0PhJp59kQ5cB7srXHn6/ot97TBoHqm5E/nFtN6GYaeG6V1A==; s=purelymail3; d=sverdlin.org; v=1; bh=cK94IKlqhf+KSiXCOXmUUVYVH6V+FLjLnFGKVNUKndk=; h=Received:Subject:From:To:Date;
+DKIM-Signature: a=rsa-sha256; b=emUE2333r5d2p5UZBH/+657V56uf1YnQAwDZPws4BMgjuwENUlHtslIAsJ1RtpMJEK3/iMDg+vahp8O3cPvUJc6Z8zSRIjzaqyv2TeB/LdqJ3OTYi+aPumfxg8/KY4cTH5ttK53KEEhSPhBoyZAroMpjdeUpwN2WJVZr7+r5Zbpn9dw8JOwDOb1ouEOpe5mEluTiVgbiitD/UG2+EgX9i0Psz5dC2RHs8DHj457/7GUuOz/2LoOdlOxZbUmpfKvCfzk+xQlfDPzc+4CUoA2cnYy3KBYvCNcTzcaoFOrCJKXlLonSvsag+P+qfoqR4Iovronp6qLhByUIYOc2G8mQ5g==; s=purelymail3; d=purelymail.com; v=1; bh=cK94IKlqhf+KSiXCOXmUUVYVH6V+FLjLnFGKVNUKndk=; h=Feedback-ID:Received:Subject:From:To:Date;
+Feedback-ID: 815097:39668:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1796872009;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Fri, 04 Sep 2026 08:46:33 +0000 (UTC)
+Message-ID: <0f63a2c13222d06ff059b6d2d0bd916b3fecb33e.camel@sverdlin.org>
+Subject: Re: [PATCH net-next 26/33] net: ti: am65-cpsw-nuss: Remove comma
+ after sentinel-entry in match-table
+From: Alexander Sverdlin <alex@sverdlin.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Date: Fri, 04 Sep 2026 10:46:34 +0200
+In-Reply-To: <20260904043724.2955444-27-s-vadapalli@ti.com>
+References: <20260904043724.2955444-1-s-vadapalli@ti.com>
+	 <20260904043724.2955444-27-s-vadapalli@ti.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_014613_378691_ABC5283C 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260904_014640_839887_F654401A 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,64 +66,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Itaru,
+On Fri, 2026-09-04 at 10:06 +0530, Siddharth Vadapalli wrote:
+> Since sentinel is the last entry and we do not expect further entries
+> following it, remove the comma.
+>=20
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-On Tue, 25 Aug 2026 at 22:18, Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
-...
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> index 9108e14a9b5b..bcdf670c9eb8 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -46,7 +46,7 @@ static u64 pud_index(struct kvm_vm *vm, gva_t gva)
->         u64 mask = (1UL << (vm->page_shift - 3)) - 1;
->
->         TEST_ASSERT(vm->mmu.pgtable_levels >= 4,
-> -                   "Mode %d does not have at least 4 page table levels",
-> +                   "Mode %d does not have >= 4 page table levels",
+Reviewed-by: Alexander Sverdlin <alex@sverdlin.org>
 
-Patch 1 added this string one commit earlier. Could it go in with the
-final wording there?
-
-...
-
-> @@ -298,10 +304,14 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
->
->         /* Setup mode specific traits. */
->         switch (vm->mode) {
-> +       case VM_MODE_P52V52_4K:
-> +               vm->mmu.pgtable_levels = 5;
-> +               break;
-
-This is now the deepest mode, so page_fault_test.c's sizing is stale:
-
-   * VM_MODE_P48V48_4K is the mode with most PT pages; let's use
-   * twice that just in case.
-  pt_size = 26 * guest_page_size;
-
-The margin still covers it. Could pt_size come from vm->mmu.pgtable_levels?
-
-Cheers,
-/fuad
-
-
->         case VM_MODE_P52V48_4K:
->                 vm->mmu.pgtable_levels = 4;
->                 break;
->         case VM_MODE_P52V48_64K:
-> +       case VM_MODE_P52V52_64K:
->                 vm->mmu.pgtable_levels = 3;
->                 break;
->         case VM_MODE_P48V48_4K:
-> @@ -322,6 +332,7 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
->         case VM_MODE_P48V48_16K:
->         case VM_MODE_P40V48_16K:
->         case VM_MODE_P36V48_16K:
-> +       case VM_MODE_P52V52_16K:
->                 vm->mmu.pgtable_levels = 4;
->                 break;
->         case VM_MODE_P47V47_16K:
->
-> --
-> 2.43.0
->
+> ---
+> =C2=A0drivers/net/ethernet/ti/am65-cpsw-nuss.c | 2 +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ether=
+net/ti/am65-cpsw-nuss.c
+> index 6330540979d7..2551554add17 100644
+> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> @@ -3506,7 +3506,7 @@ static const struct of_device_id am65_cpsw_nuss_of_=
+mtable[] =3D {
+> =C2=A0	{ .compatible =3D "ti,j7200-cpswxg-nuss", .data =3D &j7200_cpswxg_=
+pdata},
+> =C2=A0	{ .compatible =3D "ti,j721e-cpswxg-nuss", .data =3D &j721e_cpswxg_=
+pdata},
+> =C2=A0	{ .compatible =3D "ti,j784s4-cpswxg-nuss", .data =3D &j784s4_cpswx=
+g_pdata},
+> -	{ /* sentinel */ },
+> +	{ /* sentinel */ }
+> =C2=A0};
+> =C2=A0MODULE_DEVICE_TABLE(of, am65_cpsw_nuss_of_mtable);
+> =C2=A0
 
