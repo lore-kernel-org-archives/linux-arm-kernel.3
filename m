@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBC7C79F80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA25C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPlUF+jlmhxiJd29b0DUNFcdEsvoJFl2QvVHlxO9hLA=; b=Ncr9gDvT2hqPtshThNZAIcTpNi
-	UZGLUXzZP3CxK4x6XSvLfk+WF0J9RyvVj+1bVObbD7uNeIJFQJy0hKeHfP3bwsWRpJUpQQq1qR9iL
-	Qw+bS4xicxgCrX1f+J8ZkUz8+tAHkfLblaDiCDPo/C75OYUygCm/JH5HLvo2hTSSMLN0IgEhRfidk
-	R/bdjEJw7CK7NSYZxNCjheIgwWFvxCFzsf8fh9kVOEIHPE1DQeDtqnDB70LTzwNF8biq5t7XRfju9
-	xzRMd7yl3iZdBUf9QfCLk2H5c4ABbvijzvN6x+41XQEwFfPoxIjMNymDSJJYg14V98k9g5p2eeCMq
-	cQaSJV+g==;
+	bh=YOuPtlCd89VDcYAZchLHFwi0Vkb7iBMZhE1KD8wjzZQ=; b=4BEQUf44LOrvghM1q4qnWVB+P4
+	xX48DzRSMSUTaNowXJJFA2n4Vm74G2QjV4RacXyQ5HyhVjoeiB5DVl5xZ0eIiTmeB0McmeqsopKg8
+	/mW9MEn96+p1RyT+B6eyFq8RNy5PKCfRne/K2qIjvaMrzW+8hbOgi37tAY0bSs37bHL6E1SZD1iUF
+	xV8IjIo3H6LKh4nyY6S30AtLaDZbQbAMpye6DY7kCIymps/NjCO1A9T7xwD3UYz2SZmU2AckAjCxD
+	9Fcf3NXCm2PdNLUsa0BxZT1rsL6uPM4yn5ZhtM+sxF7PYYJGFwWF7q0GuZeKC2QX8LoQN8JUPg8N4
+	jqUIvoQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKa-00000002dKn-00WK;
-	Fri, 04 Sep 2026 15:59:56 +0000
+	id 1x2WKY-00000002dHv-3BRx;
+	Fri, 04 Sep 2026 15:59:54 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WKL-00000002clY-0DRx
+	id 1x2WKP-00000002cqp-0b0z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 15:59:43 +0000
+	Fri, 04 Sep 2026 15:59:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7EE2F42DB2;
-	Fri,  4 Sep 2026 15:59:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7464D1F0155D;
-	Fri,  4 Sep 2026 15:59:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A7A6342DB2;
+	Fri,  4 Sep 2026 15:59:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B5841F00ADE;
+	Fri,  4 Sep 2026 15:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788537580;
-	bh=fPlUF+jlmhxiJd29b0DUNFcdEsvoJFl2QvVHlxO9hLA=;
+	s=k20260515; t=1788537584;
+	bh=YOuPtlCd89VDcYAZchLHFwi0Vkb7iBMZhE1KD8wjzZQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Q+LhnicjBHod2Ym6yIRh2BI/PRSJ9XtQtBXQ9ziiY2XA+JAC42sLPzFHTV46YQmP+
-	 pHaYKhrMLvowEKj/uKrq9K2XzkatixuMf3LRwhgViLWrZ8HLm+ZKtdvX1CVQMJc6Wi
-	 G0FZXILOFjVGJGByYXSmNTvl5VzyiMxeZgwRNEOYwbw9d/BvIZQSoDFfZgboZDM6dz
-	 ypxWO1dSnTIuIIeWUYXX6JfsjmF9MzqFelG1miPR1BcWtOO+fpIMn/PPOXjQ5fiLDI
-	 S1wzKmtFYDDBGIIc7lnYqfmCZv0Hs/qn/OycW4Ol1qpFDOLK71UpzY4SL7ztzW5lE5
-	 URn3GEAvb0c6g==
+	b=cHzqbtu2oKa8xTV2illmQ1NwPdajzlpSOZWYJ7gb0ys0ewAN0+NyibgAYWvXIzr7+
+	 ADVxK8KKXQlHhXJs0i7mL1TpJYCdwIyC+uDhygvIhVQXf/UxO/lYIK9+Fk+66ZhO8R
+	 ffy7FhIJwl313SdfoBvoJGNrvfongszzGYUMXvpgSMnmmnLdXAxU9uLiz3X/KjeysE
+	 Al5sKhPsoes065PBfdu/T1UKRc9Dc3RoftfFnFajSCrNEpdnFZaJXZCJ1hHG+GR8Lc
+	 hcTEPKICjDFu1RCprlr9itkx/dZ/MiVMPg8TRf8KaoyOL7kNJZCHss4iv7aHRQVEga
+	 iC8aa9pfxxKEw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 04 Sep 2026 16:57:57 +0100
-Subject: [PATCH v4 2/9] firmware: arm_scmi: Extend transport driver macro
- to support ACPI
+Date: Fri, 04 Sep 2026 16:58:00 +0100
+Subject: [PATCH v4 5/9] firmware: arm_scmi: Pass protocol ID to transport
+ chan_available()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260904-acpi_scmi_pcc-v4-2-6ebe9755606e@kernel.org>
+Message-Id: <20260904-acpi_scmi_pcc-v4-5-6ebe9755606e@kernel.org>
 References: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
 In-Reply-To: <20260904-acpi_scmi_pcc-v4-0-6ebe9755606e@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -72,69 +72,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the SCMI transport driver helper to support ACPI-based systems.
-Introduce an internal helper macro that accepts both OF and ACPI match
-tables, and expose two wrappers:
+Pass the protocol ID to the transport chan_available() callback so a
+transport can distinguish channels associated with different protocols
+when they share the same firmware node. This is required by the ACPI PCC
+transport to resolve protocol-exclusive PCC subspaces.
 
-  - DEFINE_SCMI_TRANSPORT_DRIVER(...) for DT/OF transports
-  - DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(...) for ACPI transports
-
-For ACPI, set the generated platform_driver .acpi_match_table via
-ACPI_PTR(). The ACPI wrapper relies on the firmware-node propagation
-provided by the preceding change so fwnode lookups on the spawned
-platform device see the correct firmware description.
-
-Keep existing DT users unchanged while allowing transports to be probed
-using struct acpi_device_id tables on ACPI platforms.
+Update all transport implementations for the new callback signature.
+Existing transports ignore the protocol ID, so there is no functional
+change.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/common.h | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/common.h             | 3 ++-
+ drivers/firmware/arm_scmi/driver.c             | 2 +-
+ drivers/firmware/arm_scmi/transports/mailbox.c | 3 ++-
+ drivers/firmware/arm_scmi/transports/optee.c   | 3 ++-
+ drivers/firmware/arm_scmi/transports/smc.c     | 3 ++-
+ drivers/firmware/arm_scmi/transports/virtio.c  | 3 ++-
+ 6 files changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 244f4ee5b655..f172ec9a054b 100644
+index fdc591880c68..7fc9560dc4ea 100644
 --- a/drivers/firmware/arm_scmi/common.h
 +++ b/drivers/firmware/arm_scmi/common.h
-@@ -9,6 +9,7 @@
- #ifndef _SCMI_COMMON_H
- #define _SCMI_COMMON_H
+@@ -207,7 +207,8 @@ struct scmi_chan_info {
+  * @poll_done: Callback to poll transfer status
+  */
+ struct scmi_transport_ops {
+-	bool (*chan_available)(struct fwnode_handle *fwnode, int idx);
++	bool (*chan_available)(struct fwnode_handle *fwnode, int prot_id,
++			       int idx);
+ 	int (*chan_setup)(struct scmi_chan_info *cinfo, struct device *dev,
+ 			  bool tx);
+ 	int (*chan_free)(int id, void *p, void *data);
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 51829550636f..4fbedd9be852 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2768,7 +2768,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
+ 	if (idr_find(idr, prot_id))
+ 		return -EEXIST;
  
-+#include <linux/acpi.h>
- #include <linux/bitfield.h>
- #include <linux/completion.h>
- #include <linux/device.h>
-@@ -615,7 +616,8 @@ struct scmi_transport_supplier __supplier = {			\
- 	.th.supplier_put = scmi_transport_supplier_put,		\
+-	if (!info->desc->ops->chan_available(fwnode, idx)) {
++	if (!info->desc->ops->chan_available(fwnode, prot_id, idx)) {
+ 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
+ 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
+ 			return -EINVAL;
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index b692cae4ff25..56af2cb0f424 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -77,7 +77,8 @@ static void rx_callback(struct mbox_client *cl, void *m)
+ 		      core->shmem->read_header(smbox->shmem), NULL);
  }
  
--#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+#define __DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __of_match,       \
-+					__acpi_match, __core_ops)	       \
- static void __tag##_dev_free(void *data)				       \
- {									       \
- 	struct platform_device *spdev = data;				       \
-@@ -681,11 +683,18 @@ err_mem:								       \
- static struct platform_driver __drv = {					       \
- 	.driver = {							       \
- 		   .name = #__tag "_transport",				       \
--		   .of_match_table = __match,				       \
-+		   .of_match_table = __of_match,			       \
-+		   .acpi_match_table = ACPI_PTR(__acpi_match),		       \
- 		   },							       \
- 	.probe = __tag##_probe,						       \
+-static bool mailbox_chan_available(struct fwnode_handle *fwnode, int idx)
++static bool
++mailbox_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+ {
+ 	int num_mb;
+ 	struct device_node *of_node = to_of_node(fwnode);
+diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
+index 07d3affa0964..6022f74d28f3 100644
+--- a/drivers/firmware/arm_scmi/transports/optee.c
++++ b/drivers/firmware/arm_scmi/transports/optee.c
+@@ -314,7 +314,8 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
+ 	return 0;
  }
  
-+#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, NULL, __core_ops)
-+
-+#define DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, NULL, __match, __core_ops)
-+
- void scmi_notification_instance_data_set(const struct scmi_handle *handle,
- 					 void *priv);
- void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
+-static bool scmi_optee_chan_available(struct fwnode_handle *fwnode, int idx)
++static bool
++scmi_optee_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+ {
+ 	u32 channel_id;
+ 	struct device_node *of_node = to_of_node(fwnode);
+diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
+index 4a4caeb4be31..7fb2736247a3 100644
+--- a/drivers/firmware/arm_scmi/transports/smc.c
++++ b/drivers/firmware/arm_scmi/transports/smc.c
+@@ -84,7 +84,8 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static bool smc_chan_available(struct fwnode_handle *fwnode, int idx)
++static bool
++smc_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+ {
+ 	struct device_node *of_node = to_of_node(fwnode);
+ 
+diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+index 6b060d61e0ca..3d608c8c4fe8 100644
+--- a/drivers/firmware/arm_scmi/transports/virtio.c
++++ b/drivers/firmware/arm_scmi/transports/virtio.c
+@@ -375,7 +375,8 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
+ 	return vioch->max_msg;
+ }
+ 
+-static bool virtio_chan_available(struct fwnode_handle *fwnode, int idx)
++static bool
++virtio_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+ {
+ 	struct scmi_vio_channel *channels, *vioch = NULL;
+ 
 
 -- 
 2.43.0
