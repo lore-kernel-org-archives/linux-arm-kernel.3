@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C299C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61EA6C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 20:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAWyypjbQHQWLV/YSni14l1Mv0PCxp1TF5Y5nrSqlys=; b=J1YJbhNc1in8bg9j4FkSufyjxc
-	hVpub5tK07sXRKQOtXq2uWWdVN0JMX4NhiZv4h9GtTFY5QK8Uv3mHgFK1OMVUTsNpgVeTvzMK73u5
-	k7zX1x83RwxnHyzY/F0F6DIjzwH3QguqFmESVtPLbN7+ybBCOxHOJgXZCMUNLsxWFlUeUBIPIgyKg
-	TQnzScUlDSF1oKQ4o8/lRuwGaLIS2ll8c8++zcRWHwBygFdKD+EwTGV3+VOeGRPWyKVqH6juILF6Y
-	u+qm5jrdu0BfqltjW/mbLBnUXiL82Fn+W9B602LE4KTT21SODGWmw+SQOpwhfmm8NvWo5QEXtUi6w
-	4riurdTA==;
+	bh=/cG41PpS8GZOJXnrpQvgowAbf+PCE6ncyCVypBTIBtU=; b=4iMV6yZ7D4skrnsJU5TDB1Ik6B
+	N58VG2trP4a3EEBK3Td9s1X8mrRQWXonldMWg/v/rDAAwXQcf07I/c5fO9QasOpIYHSJ+3+XQx49o
+	DlM2pbmyvAHvd82/O/ORtuTshfiTgHA3Nj8z51rhydgdZOSqPdjTHwX7DRV5QImRvaHKKeev9EV9L
+	4ikDt2h88bHFQIuUyH/LDfQ9yVvT0OE8SDLbUzr7uVRLRcSD60tSu98/dM/DXHvPImI9wNojeNqx3
+	mq6nTqTQad6zlMt0huQp1Hh7Ey2PCI5NV3F08lP5PRa4GMYW7zIs7PsO83GpcQ6ZjsDAGQ+7qktce
+	bYTexTRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2awF-00000003Hr4-3IpB;
-	Fri, 04 Sep 2026 20:55:07 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1x2az1-00000003Hx7-0eYP;
+	Fri, 04 Sep 2026 20:57:59 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2awC-00000003HqS-2y4z
+	id 1x2ayy-00000003Hwl-3pxt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 20:55:06 +0000
-Message-ID: <3b46906d-8008-429c-a37a-f64ec72f865e@cyberchaos.dev>
+	Fri, 04 Sep 2026 20:57:58 +0000
+Message-ID: <859274b6-2863-4a6c-ad2c-bbb93b4c7f2b@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1788555300;
+	s=mail; t=1788555473;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XAWyypjbQHQWLV/YSni14l1Mv0PCxp1TF5Y5nrSqlys=;
-	b=4BNsxlYab9V10uKFF09vZeHyLlPxizM8wGth56loZ2yp6msysDffaEEcB5o2HAupWtld1z
-	HAFQC+SlQrjKGap18I0+O0j2n+JwJmCLnPR5uB/TWOtrXySMcJd5Q2aXZf039Ddqm+4o+z
-	ORzOAs2wOdyjR7Wj7pIAZNGHvMCsEFE=
-Date: Fri, 4 Sep 2026 22:54:50 +0200
+	bh=/cG41PpS8GZOJXnrpQvgowAbf+PCE6ncyCVypBTIBtU=;
+	b=35ve1kC0qvwCUrnDRVyTPjyaKPXXSLHYcmxuzog89DZwj7kaA1AWjilWt6qQxDq+TtRiN1
+	hE8FgmNAP2ZtEO9EEg2NQmGM8qEihSuJIrA1mKGqnK6cdyBndoqpDO1g5QFj2vSXsk2Cyq
+	xWDr1r3OpsGvbfDuJMSoWM6zpz/e/Bc=
+Date: Fri, 4 Sep 2026 22:57:47 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/6] dt-bindings: arm: apple: apple,pmgr: Add t8140
- compatible
+Subject: Re: [PATCH 6/6] arm64: dts: apple: Add minimal MacBook Neo device
+ tree
 To: Sven Peter <sven@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi
@@ -53,17 +53,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-watchdog@vger.kernel.org
 References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-2-0c25401d165d@cyberchaos.dev>
- <f73a94c4-80a7-41b0-9671-d9b6ea436174@kernel.org>
+ <20260904-apple-a18-pro-initial-devicetrees-v1-6-0c25401d165d@cyberchaos.dev>
+ <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
 Content-Language: en-US
 From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <f73a94c4-80a7-41b0-9671-d9b6ea436174@kernel.org>
+In-Reply-To: <027b6019-9a2c-4f3a-8c64-c9836857b471@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_135504_990031_99A1871D 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260904_135757_146245_4289D423 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/4/26 22:30, Sven Peter wrote:
+On 9/4/26 22:34, Sven Peter wrote:
+> Hi,
+>
+>
 > On 04.09.26 21:49, Yureka Lilian wrote:
->> The PMGR blocks on the Apple silicon A18 Pro SoC (t8140) is compatible
->> with the M1-M4 SoCs. Add "apple,t8140-pmgr" as A18 Pro specific
->> compatible.
+>> Added a device tree for the MacBook Neo, which uses the t8140 SoC
+>> (A18 Pro) also found in the iPhone 16 Pro.
+>>
+>> The device tree has a minimal set of devices limited to CPU cores,
+>> interrupt controller, watchdog, serial and framebuffer.
+>>
+>> Using the macOS 26.6.2 iBoot/firmware, the machine reliably boots
+>> on a single core using the stock kernel.
+>> Booting with smp requires avoiding the wfi and wfit instructions
+>> in the idle loop and `delay()` respectively, since those instructions
+>> cause a loss of architectural state on the secondary cores.
 >>
 >> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->> ---
->>   Documentation/devicetree/bindings/arm/apple.yaml            | 11 
->> +++++++++++
->>   Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
 >
-> There's something off with this commit, it's doing two things at once 
-> and the description only mentions the smaller change.
+> [...]
+>
+>> +
+>> +    memory@800000000 {
+>
+> this doesn't fit the reg you use below.
+>
+>> +        device_type = "memory";
+>> +        reg = <0x100 0 0x2 0>; /* To be filled by loader */
+>> +    };
+>
+> [....]
+>
+>> +
+>> +        aic: interrupt-controller@301000000 {
+>> +            compatible = "apple,t8140-aic3", "apple,t8122-aic3";
+>> +            #interrupt-cells = <3>;
+>> +            interrupt-controller;
+>> +            reg = <0x00000003 0x01000000 0x00000000 0x1cc000>,
+>> +                  <0x00000003 0x01040000 0x00000000 0x4000>;
+>
+> please be consistent and use 0x3 and 0x0 here like for the rest.
+>
+>
 >
 > Sven
 
 
-Good catch! I must have added one hunk too much while committing the 
-change. Fixed locally / for v2.
+Thanks for the review!
 
+I've applied the suggestions to my branch.
 
-Thanks,
 
 - Yureka
 
