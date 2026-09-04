@@ -4,76 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43428C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D2DC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 14:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4UqD37F/+LGYdguYZm7WUWkNiEkiZsn2JXNXp9ga54=; b=hdmENeYWMn5N9zDkbNteh5L6SL
-	PtXm17/eDQY39KwToXJ/Q8X0D8O4bHcyqLKbfsQAQdgo/YO1W7DZufAWCMUC1613K4qkqjCpD/TiH
-	1HUGFFx+6LWXYQJHh7GkfIHbFzYsbZgkEhGzoNow1bueZzyN0aSUqchbrTu4XgbTjkGP0hTJ/peor
-	AR1CS9g4hccd8mCfujjCCVJWQGNCiWLcpedhoFoYWw/OFpv0VwZSwF87V/bL4l6VnwGJOqdKpzdhO
-	lQDsgnhIiffpFeieekWJ6WEOUIVPiBjYgBEugwRJ2RexCqmJXQvn2Ro65/A/uGROMDiMy62IffMxj
-	XJ1tECew==;
+	bh=oFdFnCP5ogOrEyzMM5b6Qw0+XmCV+SmHlZaZeU5Di/M=; b=cdrghPUNNagYNY1S2DgnW2aXQQ
+	0R1SwjHtEcrw/Nnph/WBifOICqKJAkOmtkC9zPXkhsQbFcM5lRerIUKrEKshSPPh2SRQAyJp8dOJL
+	hBcdqxB4v+KpQ7KM8hhUUNu/a9PjAGfCh7ElRxQvxPJYBieN6uxEnHBB4HyGOZWv5pHl5rLIEXBga
+	M0oUlo6flivDsjnc3Y2f8EJDCVWo7j/uoY3akhNswhmGFXkHH10n8hAAchpTLkBkJ+ZLT6EqqwbM5
+	KwC+Cf3nz5iogI7n/rsqUC5PWOfJtPQhgaw0cverOxBpa/LGmPpnS3C7tmJh/YZI7d5cfoL9ZsAaR
+	5wqHc/Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UtD-00000002NYy-14m5;
-	Fri, 04 Sep 2026 14:27:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2Uu4-00000002NjO-21ma;
+	Fri, 04 Sep 2026 14:28:28 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2UtB-00000002NYj-1vxY
+	id 1x2Uu0-00000002Nif-20Wn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 14:27:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3115600C8;
-	Fri,  4 Sep 2026 14:27:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4671F00A3D;
-	Fri,  4 Sep 2026 14:27:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788532052;
-	bh=c4UqD37F/+LGYdguYZm7WUWkNiEkiZsn2JXNXp9ga54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CdflBeY1jJv/qUAGrU3S7KwA+iVY1KKJ4hPP9T7O0mj390x2owhqKHvofCMBh+wS+
-	 aRUTUpORPhCXOtmyYOgxG+ARPwIudHVDH3mSE5GkhkcbctaqBPoJ45gM8M9ThDsb4M
-	 nD6v4FTfJAmAFRfOosBgo5HWScHSAWmiG7q0b7SPApol1HHA8563YoCWShUMvgFK9F
-	 XTYue0ff0ZTWhutCfIjGg4LmT3t4w+1E/OUGx6vxNCengvE1lC4QzlQwYRXNWjh2R4
-	 2KVRko+H11GpKXXod5t+d3M0jjSx6tHaJaEC+UO1ax6bK8c5Dxx5JkShgGmre6KwyF
-	 WNWJM09mtsEJQ==
-Date: Fri, 4 Sep 2026 15:27:27 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 1/7] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <20260904-imperial-partridge-of-atheism-bafcb3@sudeepholla>
-References: <20260805063255.1638614-2-aneesh.kumar@kernel.org>
- <178794567779.4159892.8785590655735217125.b4-review@b4>
- <yq5ay0diyavw.fsf@kernel.org>
- <20260903125718.GI4157646@nvidia.com>
- <yq5av78mxv0j.fsf@kernel.org>
- <20260903154626.GL4157646@nvidia.com>
- <20260903-nonchalant-capable-parrot-539c8b@sudeepholla>
- <20260903182152.GN4157646@nvidia.com>
- <20260904-keen-fiery-fulmar-702fb3@sudeepholla>
- <20260904135353.GQ4157646@nvidia.com>
-MIME-Version: 1.0
+	Fri, 04 Sep 2026 14:28:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BfNRovpABPJnelQ+hY6mYbVPIXjfv0TcIH7n2Jngeefohq9yHQ+VvzHGoGE0BNcVQ5iXkUht6HAiyZW6r2HvUIKt5owQY7JXiwz8V1KYWBMsw5i6QLDkgfFq29/bIkwDdJpYFDu1jQguBtOsieRxMRUqtpEKDfu1gNrVBt3z9oCX8HHVguwRboaRLkBNAgI2ipKv9Rvl/JVjfIAAK++D0Y7kwuBT/rJbwLiBXml9/hGWYfrRwFTySYIDiBwd1ktxDsAFmzKnUX+0xBxESyhASmz9k4KcR35CMw9sBRy8Rc3ON7rGDTALZCcyBcMnkxE/LgkLXuiPhSZ8K5ee5J7a8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oFdFnCP5ogOrEyzMM5b6Qw0+XmCV+SmHlZaZeU5Di/M=;
+ b=pJC1tTOGnaA+Hp4vrLscShEfaRm9WcNhZ2TcUfIXVAolgq9vf6pJGIh7CVenNfmoOFMswKtPmfCHYxoCXExKQHVAqvHchl4Dkwy3RBqPyGBS+rmVHTZtMWgSv22R0iYSqafmxcRYFLAQcTD9UE5oBHa6isldE2eIqiBJ2lMR186kkPHNUwuW3pF746RE/sXux43ggqMHzRtNKc/7w6qve68goHOV352XyvDTlmyKZCQV77FJVtRBCUs0phmIvFTzZRY0gFmM8/Yn1mtc6LOaSoIglcHLDbxZHO7p859F/m9vYy5xsTZMdHnWRqXpIpH/YAvBUvjg51xFIzjm1nuItA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oFdFnCP5ogOrEyzMM5b6Qw0+XmCV+SmHlZaZeU5Di/M=;
+ b=e4LXQCB6xM2tAzu4zuucYaErG4Ty8C5g2OufYquXwvj5x+rY141U0Y5Hk+h6CwNktsUw8VQVXLvYnRSLtgjYOftKjRkH8EzA6+jjQFr5tz+6jB1Ptz31oWFcqxFlu0RuDYSB++oVY72FMJ4HOilYFQvDiwSvaHl+sY1BQO6rUchv7B34rsUi8JFotTEW9Wt3GOCfpkSY99jTZKMQn9KUKFD1EwbHH4MLP1+WQ8vQLC8uC5AwgcE30mw0VrnFrAvLIFVduCn1QCogNCujxn337vYmzKQQibWzRajHWWataSkCSmUVnAKn8ie5hcne+VaUz+kfPnJVlPAqGNYaIok68g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU4PR04MB12276.eurprd04.prod.outlook.com (2603:10a6:10:629::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 4 Sep
+ 2026 14:28:18 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Fri, 4 Sep 2026
+ 14:28:18 +0000
+Date: Fri, 4 Sep 2026 09:28:09 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@iki.fi>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev
+Subject: Re: [PATCH v3 6/7] ARM: dts: nxp: imx6qdl-pico: Replace
+ clock-frequency in camera sensor node
+Message-ID: <aprVea-DJpPYEYkJ@SMW015318>
+References: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
+ <20260810180604.3034255-7-laurent.pinchart@ideasonboard.com>
+ <anoerXCIlB8tTgiC@SMW015318>
+ <20260810190800.GA3046075@killaraus.ideasonboard.com>
+ <antS9HruNMrGbZIc@SMW015318>
+ <20260904142238.GB795906@killaraus.ideasonboard.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260904135353.GQ4157646@nvidia.com>
+In-Reply-To: <20260904142238.GB795906@killaraus.ideasonboard.com>
+X-ClientProxiedBy: CY5PR04CA0008.namprd04.prod.outlook.com
+ (2603:10b6:930:1e::34) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB12276:EE_
+X-MS-Office365-Filtering-Correlation-Id: 373ae19a-02c9-4526-c7d7-08df0a90c3b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|7416014|19092799006|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: rYFGeWFSUuVivyNB9jJ0TVyiMuJnO3e0Y/RYiMt1KNxKpgXC+8eY3ajPIHxb7n8DrL0TPDRtNlMTZWLC0UjC01/wL6hdoNgcOr4k09ttGM/jCbMAmOZ6330gOSivclVEVJZcygTU6ocf+46eC/TtSyGNjgsFrPtATZ9lz71o2jeMojrIYzj3cqM/bbGuHbQUDws6ifTMAeAq9rkM7urDjRmZwiO0w6xgMt7zwH+k0gjmiG1DgZGMtuWKXrjufnVi4tEfCCB13y5LZkX63VOiNMfKPzT34xM+o29XHozrYqRifEQKCUJD0bBIrDdFDEAWPRtkGLag9BguOItHNizpZvQBCzM3QtdjFrLogHUWSk9yNDOm/Ha4ROlUOXDlBbP0z2pfS+OFhfODXHlGzbnb0gtQAKnsWb8pgup8IRG6YrNvZQE/TKLHYaudU7d8YsiSZZEZJHILGhpV6jgdBRtt4IhjpsiKYLSf7DM2RLyPvS9kmdgBdnYx6CZeCmIjqLOo1rdmXXlFoNm6uvb/xLL4R1O5huuxpwzc57REsxvCVNOnWgFPh6RUeM/+i3QHVAkd08DAovS0tSIHGcsZHHEU6Q6LHh4atbfiRvnB1a78Y/A3LaCf7VxeQOkX1rr3bhHaxeOpwrJky4zN7NZfgAxX9tOdz9/I+b9sXXtInEYU8q4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(7416014)(19092799006)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UPXD9u49f9oeLTxwObR8lbSh30pFvxAYIbRTFrlSbRi9ru8GbumpmfyFrYPH?=
+ =?us-ascii?Q?a8iv1Ygvx2wvTUWooKy8ps3edYGhqCMxnZxfhJ6sYkNKLa70h9kKAUDZTtu1?=
+ =?us-ascii?Q?TMBh5KodZfPFbXqVIZjm3ZGjEcR3G4SXs1TxLQ5aGRUoMYOIj8KsSaW97Rje?=
+ =?us-ascii?Q?QJwkxwANmlbbpRyVhjBvvYAVSOAlqnF8yhs+EG0oIABsyaPl/uPDK4m0/4lw?=
+ =?us-ascii?Q?KqEWd1DMS8jqI1ZnFVTFxOD0JR4KQgifUoaBfnK/WB0DnhAxIAcx5gYI0dth?=
+ =?us-ascii?Q?UXx9gzd8041GRwwyGF4CXf/rUiMOCQdFtf41Cxabe4ZHHRjh2kjuQvQBldc5?=
+ =?us-ascii?Q?7pE2Yy8FcNHeCm4id1xCMuXbMOPko5dGL6ROwOP94hExC9tN2lVXqYh/wm+q?=
+ =?us-ascii?Q?KfX88cNgbagCblZRsYuQeBiSUxTzqqboXUldXjOwnloPrUfEBCuDjlWz2L/K?=
+ =?us-ascii?Q?IVm5P9HyLMqj+xUWBul3hPN2wb9aUZW+Dj6eub9u1d7KszE4OVzLMLQG7nSj?=
+ =?us-ascii?Q?ghbON4biQTQBcd4OY+wwsBkekWMgi6fK+vEy9xh4dtszh21n0keqZsZdcDVD?=
+ =?us-ascii?Q?aceXPCAgW3i2icmacLBN6RL3IRVCB1ifk36dCGTb3cfTf+AGcgt9WaNpvfgK?=
+ =?us-ascii?Q?Dck8wkCLKJO/MxhSiAVBTxminfz3wyu33S9tcTxdQdBCuHVV/O2EEySLlMfb?=
+ =?us-ascii?Q?6EPOIKyd8xlYWoEGZ3LSAtVAag1v7l8qhF1uj4ag6GybfM28M8ZdptTWbOSl?=
+ =?us-ascii?Q?8bplO+cvHq+VkLWH57LqziQqTfMt58C26Mh0tOv0AJPAZvEEnal7yCxeFWBw?=
+ =?us-ascii?Q?mB4grGteFIl09SlxsiMOOjUC85qPL70NxB66AtcJZprWkMmlSVs9EpfcRc4P?=
+ =?us-ascii?Q?xBZwVkaQ8rQhfWO6xrRtvyrYVoARCKPE1M+2m9c51Y5rsfDEpGXnE+2PZqJ+?=
+ =?us-ascii?Q?40yE+ewslfHBKzOBsZWTayCl2IMwzKEDTcEJHfcthl/R2wIjUqye+ptLHZo+?=
+ =?us-ascii?Q?aXra9du9r8J8XX63ytonKuN5vPE+IFyWm2zD3Q/liTFx2P60/YkALZNK5eSx?=
+ =?us-ascii?Q?HW4QeqAl0XG0EkwtlRtlyrhkDwWCsuLS1KOF/9eoH0aKYgsK2d3EvCBMoyyw?=
+ =?us-ascii?Q?lbM6krBa6qf1xEGY1WjzGiQhfSEnUf3BER9Uj68BxDTIqhz8X5McwVc2KqAb?=
+ =?us-ascii?Q?1eWHI168XxqHlOBjKHUlhm5NN2Vx9hvUEHm39l3Ybk4uf60OCwuZN0OoKNNi?=
+ =?us-ascii?Q?TX6/r1q5J/lk+9w15vZaaMCDgWuZcO7BtFnY5gOY1FnF7N6I5FQUu3vKUnSk?=
+ =?us-ascii?Q?RAiTRiz1DRz4XagrKmRCN1XQUvwFyNyVTl3ITh1ptU1yL6yEQuNEjQVBq3Y4?=
+ =?us-ascii?Q?WysiJ6tXyN6JclcN1yyRO7SuZxfeTj6x9KHJj5Z7yc04Hs8vwS3COyJ9i4QF?=
+ =?us-ascii?Q?8oflmkqfxIPN5t+1AWlgkfnlHTDScJLVDzn/yYplhH3BmV30wBL6GzuqL2Vi?=
+ =?us-ascii?Q?C3c6sPBNh0fKs6Si+IfRtFVMPEX3LgoL14oojSWg6Sj08koqZK77d3uMxx1I?=
+ =?us-ascii?Q?xK8zegMtiRhg9NHINcd9k4a0Li0beNRITwGmq68/3yIcKa7qlbYUnTiq4GGD?=
+ =?us-ascii?Q?121MioPPgpJcAUZ0LZd8n8TBZwPARzBF/kcQKYyGlzlUpfkVtwiLAm8DSnC6?=
+ =?us-ascii?Q?iUsGLqvABQ1rpRc7ycYiCWlzmkkjAza41GlsLnEQLHhhX7F5s6m9NEa02qnv?=
+ =?us-ascii?Q?pyqd7rh/pGWXjBtY2Sn8HAI9WGwWdkfyxgtLhrXS+o2183PB3KH4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 373ae19a-02c9-4526-c7d7-08df0a90c3b1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Sep 2026 14:28:18.7652
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SJEYSjjjLUJTuJoeb6i7ehsBVt3AbyBtMltST7jIFWpBYDjLAcz58eJAGBuuY4pOrLRsM20jZX8MZGJZo+VzSo4v+DNx2z+VIMHSvUqnJxFjGGZPuB267R/SbIbKC1Z8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12276
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260904_072825_289178_DCB82B55 
+X-CRM114-Status: GOOD (  30.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,99 +148,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 10:53:53AM -0300, Jason Gunthorpe wrote:
-> On Fri, Sep 04, 2026 at 11:02:56AM +0100, Sudeep Holla wrote:
-> > > It means you can never publish a version 2 that is ABI breaking
-> > > because linux doesn't check for that. Was that ARM's intention with
-> > > the version API? It's basically a completely pointless check that
-> > > doesn't effectively do anything.
-> > 
-> > I didn't get that. The example above checks for minimum TRNG version,
-> > so it won't break in any way for v2. What am I missing ?
-> 
-> If ARM sticks to what they have done in other specs, a V2 could define
-> ABI that is not compatible with V1 at all. (semantic versioning and all)
+On Fri, Sep 04, 2026 at 05:22:38PM +0300, Laurent Pinchart wrote:
+> Hi Frank,
 >
+> On Tue, Aug 11, 2026 at 11:51:00AM -0500, Frank Li wrote:
+> > On Mon, Aug 10, 2026 at 10:08:00PM +0300, Laurent Pinchart wrote:
+> > > On Mon, Aug 10, 2026 at 01:55:41PM -0500, Frank Li wrote:
+> > > > On Mon, Aug 10, 2026 at 09:06:03PM +0300, Laurent Pinchart wrote:
+> > > > > The clock-frequency for camera sensors has been deprecated in favour of
+> > > > > the assigned-clocks and assigned-clock-rates properties. Replace it in
+> > > > > the device tree.
+> > > >
+> > > > Remove "clock-frequency" may break back compatiblity.
+> > > >
+> > > > A similar case
+> > > > https://lore.kernel.org/imx/20d37ab7-308e-4f07-96dc-7ae011af76d0@kernel.org/
+> > > > https://lore.kernel.org/imx/20260404-thoughtful-placid-boobook-da26da@quoll/
+> > > >
+> > > > Need provide judgement in commit message about impact of break ABI.
+> > >
+> > > What ABI breakage ? The latest kernel supports the updated bindings
+> > > (merged in commit aa1826696a55 ("dt-bindings: media: Deprecate
+> > > clock-frequency property for camera sensors") in v6.18).
+> >
+> > Dts now not only use by kenrel. such as uboot may use the same dts file.
+> >
+> > uboot may still use "clock-frequency". but uboot unlikely use camera. for
+> > this case, just need mention at commit message
+> >
+> > "lock-frequency property for camera sensor have deprecated since
+> >  ("dt-bindings: media: Deprecate  clock-frequency property for camera
+> >  sensors") in v6.18, no known other user like (uboot) use it. So drop
+> > it safely"
+>
+> How about the following ?
+>
+> ----
+> The clock-frequency for camera sensors has been deprecated in favour of
+> the assigned-clocks and assigned-clock-rates properties since commit
+> aa1826696a55 ("dt-bindings: media: Deprecate clock-frequency property
+> for camera sensors") in v6.18. The Linux kernel ov5645 driver has been
+> handling the deprecated property as optional since the same kernel
+> version.
+>
+> Replace the property in the device tree. There are no known users of the
+> property outside of the Linux kernel. In particular, U-Boot doesn't
+> operate the camera. Switching to the new bindings will therefore not
+> introduce any breakage.
+> ----
+>
+> If that's fine with you, can you please update the commit message when
+> taking the patch ?
 
-Ah got it. I agree with you on their pattern of breaking compatibility
-but things are improving, I won't say we are there yet.
+Yes, thanks
 
-> So the kernel check above will happily pass a v2 interface and then
-> send garbage into the incompatible ABI.
-> 
+Frank
 
-Ah that is possible, yes I can't disagree.
-
-But I must say it is improving as the firmware teams implementing newer
-versions run the existing kernel and spot the issues quickly if anything
-is incompatible if the spec hadn't broken it intentionally.
-
-> The ecosystem couldn't accept this. An ABI breaking V2 can never
-> exist, so the versioning is much less useful that a normal semver
-> scheme.
-> 
-
-Completely understood.
-
-> If it was MAJOR(version) == 1 then it might make a little more sense.
-> 
-> I'm saying that broadly none of this version stuff seems to be doing
-> much useful work. Even the more complicated RSI lower/uppper stuff was
-> not good enough and they are going to follow a new scheme.
-> 
-
-Really, that's news to me.
-
-> I think the bus is a nice idea! If you keep going down that logical
-> path the next stop is to have a SMCCC that discovers the FW ABIs
-> available. That would be a good moment to take a pause and try to set
-> a versioning system standard that actually works consistently for the
-> entire ecosystem.
-> 
-
-Yes agreed. The only argument I had is for the existing users whom we are
-fitting into the SMCCC bus like TRNG. But we need some agreement on the
-spec consistency if we need to do anything more smart in the core SMCCC
-bus code.
-
-> IMHO to lean into the bus design I would have a discovery SMCCC that
-> returns a list of supported ABIs, something like (spec, spec version,
-> ABI, FID, feature supported bitmap).  There could be overlaps if the
-> FW supports several ABI incompatible versions, like RSI v1 and RSI v2.
-> 
-
-But then we will have to wait for that discovery SMCCC ABI first and that
-mean how will it work on existing deployed systems ? But I like the idea.
-
-> Then you do a driver search and the strongest match sees the bus code
-> issue a "set SMCCC" that says 'I picked index #3 behave like that
-> please' and then the actual SMCC driver would use a features scheme to
-> further fine tune things.
-> 
-
-I don't know if I got the details right but I get the overall idea here.
-
-> Instead of versions you have ABI's and feature bits describing what is
-> supported. This is far closer to how the HW interfaces ARM designs
-> tend to work, and is much more aligned to how I understand RMM is
-> going.
-> 
-
-Indeed, I prefer this and get mad if new features are added without
-feature bits. Version for me is just for rough indication that ideally
-these features must be 0 on a version X but it shouldn't matter for
-the software that purely relies on feature bits. So a big yes for that
-idea and I think some specs and in some form are doing it. I can't
-recall specific but I have seen it. We just need push only for that
-in future specs.
-
-> It could be consistent and layer on top of what you have now without
-> ABI breaking anything.
-> 
-
-Completely agreed!
-
--- 
-Regards,
-Sudeep
+>
+> > > > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > > > > ---
+> > > > > Changes since v1:
+> > > > >
+> > > > > - Drop added blank line
+> > > > > ---
+> > > > >  arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi | 4 +++-
+> > > > >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > > > >
+> > > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+> > > > > index ca4cb986efbc..0cc05d084f9b 100644
+> > > > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+> > > > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+> > > > > @@ -233,7 +233,9 @@ camera@3c {
+> > > > >  		pinctrl-0 = <&pinctrl_ov5645>;
+> > > > >  		reg = <0x3c>;
+> > > > >  		clocks = <&clks IMX6QDL_CLK_CKO2>;
+> > > > > -		clock-frequency = <24000000>;
+> > > > > +		assigned-clocks = <&clks IMX6QDL_CLK_CKO2>;
+> > > > > +		assigned-clock-rates = <24000000>;
+> > > > > +
+> > > > >  		vdddo-supply = <&reg_1p8v>;
+> > > > >  		vdda-supply = <&reg_2p8v>;
+> > > > >  		vddd-supply = <&reg_1p5v>;
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
