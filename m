@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21533C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21655C624DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 08:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yU9VQ9NTfO/ol5NMPe+cjd7kCmQXu0yguk9OSa4yvw=; b=OrUSRChyTM02y/wjzCMk0lgude
-	crp8sU2ZzJ6/ENlwdrdpT0OadadK4IRX6JRC3GC7qK//E7hCh0lUV82LN7liZm7UdoHEbx178vRVX
-	owncbWQ2wjBDkC/mzmig3+SsFTfhZreTCjV6+4MCbQUaDnWNSPuXV3/qI2PSpyGNVTVUnSKOPoJ5J
-	5I8Kb2Q5SF/EM5DLl6QsS8/PM6Gp6uZXPSYWBf3Kuyk8/jMQ5cLXnVEmPWeAc7GjOo/M9ydpquTAF
-	aA+fVi/JN1Y7PJjYNhFE5sKAOE2/orrisTRZ5aaXhFn1l4x+HMogMUH93Fpf8NdQ8RsA6GaAIj73r
-	bd38ea8A==;
+	bh=LedSBcjMTN5DXWgZJlvx5zzjDnpXz/AyClnEQVyrKsQ=; b=Doxd+kZ7d4sXekwiBDcqtOszL7
+	7SlIqaEO1tBXlSGZQWLbPg8XQ9nWWqGA9/lm2TqZiV/PlGMsB57bGxg8Tbhl178L0BdvE09YF9HZW
+	K1WnJ9J/1qTrE3ykpE8EvTcD3nDDBXV0EUpW/HeRkAvVnEWrzJMNCtdZ91tAWmFsFTN5zORqAd1hX
+	p9QWCtzx77Nk1+HOeJIENl8f3jm9iCJyHIyvCULqiI8Mx9J6fPRJQc4gQhsPasr3dZrR62OSk7XHL
+	K2vEa7JHt3P99kNdjLw2UysBk8AmefsP3ArAU4zwY3aGJsQboIXspIVy0lwcLbpAdycwHhTPQ+1TI
+	p/m9QQWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2P53-00000001Lr9-18Q8;
-	Fri, 04 Sep 2026 08:15:25 +0000
-Received: from out-85.mta0.migadu.com ([2001:41d0:1004:224b::55] helo=mta0.migadu.com)
+	id 1x2PH2-00000001Myl-1sa1;
+	Fri, 04 Sep 2026 08:27:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2P4z-00000001Lpz-3HnN
+	id 1x2PH1-00000001Myb-0Zob
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 08:15:23 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=PvS/b2Z/rWbhXmaZRpQZt7dAKEvw4kUH2lDXouIPU/Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788509719; v=1; x=1789114519;
- b=tK7fuDs/LKiQDnZg+jday5NS+rCi6phLKcz2VHSMul3M2BUPuiu2w+D2g23jx2CBHDFLmtB2
- nO2gbz57G1WFmvxTwSB5EZNo6OiBtTAUZewe3ggvEVXh5I/QzPbHrFUDIwj5s4Jnd5qORMFc+0f
- ArMHskl8t1u+0WYgW3FZd1YM=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 37a69d31ad5c5577;
-	Fri, 04 Sep 2026 08:15:18 +0000
-X-Mizu-Trace-ID: 37a69d31ad5c5577
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384c4so3450e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 01:15:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvByRUMaTl/4iIwyuy7C5/x9vxYz8o9lQo+G6FOqskkV/Wnp0eiXew0mPaxatgiHagcA63x6tGmK9Gi9WmalZhqK0@lists.infradead.org
-X-Gm-Message-State: AFuF++nM15bY8aKhRCHTpEGj9wNqzlciiMPBz9rUkp50UnNBG/n6tGgo
-	yxQZpaL1XMZoMxCQSifC7TQaoFnKmdXilNMYcSn1Uqtyi2JADPw1kchBMKP7pCVETcsAouzcvTP
-	DVtYUKsXNYRcPW+8DFXYpOZ5ZjR+Bsx6j78wmD1sB
-X-Received: by 2002:a05:6512:1112:b0:5b2:a967:c0e1 with SMTP id
- 2adb3069b0e04-5b616f28401mr90649e87.0.1788509712868; Fri, 04 Sep 2026
- 01:15:12 -0700 (PDT)
+	Fri, 04 Sep 2026 08:27:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AC3A340516;
+	Fri,  4 Sep 2026 08:27:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C7EA1F00A3D;
+	Fri,  4 Sep 2026 08:27:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788510465;
+	bh=LedSBcjMTN5DXWgZJlvx5zzjDnpXz/AyClnEQVyrKsQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AU0OtRZHC2cMA6mMDFn+85rlIuEACq5hidEe4IL1M5xYAbZm2sRhisC+FIwmFC6rb
+	 sNwJQ1GQTTuNAIZOvfPNt+UxmFYgoltBT2cIOXB5OvBLf4J+Cdm79f4arItT5epqms
+	 v4hQNydsjXRh9oTVM1Tw9j2WkKlAlT3fODDgSDJ7Xbj274S2b388f3NdooLnLZ+i5j
+	 wLgDfMc9Wysha6dkqSe39TNeETcLRRx22rz4RQc8XEgMZVpGJxDRu0pwAMDROlLyvS
+	 03bzaNkVipY/bJBm3CJuPo1m1EB2rVTwvUVGZh7YLCyfCx+GPn95aZkOO4Pudkqhlk
+	 VCF05iu+W2YdQ==
+Date: Fri, 4 Sep 2026 10:27:41 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v6 04/13] drm/imx: dc-crtc: Disable at boot
+Message-ID: <app-rzrdgsxVozsI@houat>
+References: <20260904-imx8-dc-prefetch-v6-0-26643e3f6cb7@nxp.com>
+ <20260904-imx8-dc-prefetch-v6-4-26643e3f6cb7@nxp.com>
 MIME-Version: 1.0
-References: <20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com>
-In-Reply-To: <20260826-arm64-52bit-va-v1-0-14ec98211363@fujitsu.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 4 Sep 2026 09:14:36 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwPmwPTMcgQB6zt47Kz6NPMr+FkGfq2Qq+Uxu+G427OEg@mail.gmail.com>
-X-Gm-Features: AcwNN1WvopgDxoDNDPRaykUroX4fh4XjNCnUWBoPOLttdFGRxQfbeOfusjQcANY
-Message-ID: <CA+EHjTwPmwPTMcgQB6zt47Kz6NPMr+FkGfq2Qq+Uxu+G427OEg@mail.gmail.com>
-Subject: Re: [PATCH 0/2] 52-bit VA guest mode ID support
-To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Takayuki Okamoto <tokamoto@fujitsu.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_011522_267500_D2703A02 
-X-CRM114-Status: GOOD (  20.13  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="wy243kauhdd524wa"
+Content-Disposition: inline
+In-Reply-To: <20260904-imx8-dc-prefetch-v6-4-26643e3f6cb7@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +78,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Itaru,
 
+--wy243kauhdd524wa
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 04/13] drm/imx: dc-crtc: Disable at boot
+MIME-Version: 1.0
 
-On Tue, 25 Aug 2026 at 22:18, Itaru Kitayama <itaru.kitayama@fujitsu.com> wrote:
->
-> This patch series extends the arm64 KVM selftest framework
-> to support 52-bit guest virtual address (VA) modes in addition to
-> the existing 52-bit physical address (PA) configurations.
-> The motivation is to enable validation of LPA2 guest memory-management
-> behaviour in configurations that use a 52-bit VA space.
-> While the selftest framework already supports testing 52-bit PA
-> configurations, it lacks the ability to exercise guests running with
-> 52-bit virtual addresses, leaving part of the LPA2 functionality untested.
+Hi,
 
-The series adds three 52-bit VA guest modes, but nothing in tree maps
-a guest VA high enough to use them. The mode-iterating tests map at a
-fixed low GVA, so pgd_index() returns 0 and only the first entry of
-the top level is ever used.
+On Fri, Sep 04, 2026 at 03:54:54PM +0800, Liu Ying wrote:
+> CRTC(s) could still be running after the DRM device is unplugged by
+> calling drm_dev_unplug(), because the CRTC disablement logic is
+> protected and bypassed by the drm_dev_enter()/drm_dev_exit() pair.
+> Hence, Pixel Engine's AXI clock use count(managed by Pixel Engine
+> driver's runtime PM) and pixel clock use count could be inbalanced
+> after removing and re-installing the driver module.  To fix this,
+> add a helper dc_crtc_disable_at_boot() and call it to properly
+> disable all CRTCs before advertising DRM device to user-space by
+> calling drm_dev_register().
+>=20
+> Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 
-What do you expect the modes to catch as they stand? The allocators
-already take a minimum GVA, so mapping high in one of those tests
-looks like a small change.
+Just as a heads-up, the readout series I'm working on is probably going
+to help you deal with it:
+https://lore.kernel.org/r/20260629-drm-state-readout-v4-0-5966657980ed@kern=
+el.org
 
-> To address this, the series introduces new guest modes for 52-bit VA
-> operation, adds five-level page table support where required, and
-> performs runtime detection of host 52-bit VA capability so that
-> LPA2-enabled guest VA tests are executed only on supported systems.
->
-> Testing:
->
-> Built and tested on arm64.
-> Verified on QEMU with a V52-capable guest configuration.
-> Confirmed correct operation of high virtual address mappings by
-> exercising guest memory accesses in the 52-bit VA range.
-
-I could not reproduce "exercising guest memory accesses in the 52-bit
-VA range" with anything in tree either. Could you say which test you
-ran, which guest modes, and on what?
-
-Thanks,
-/fuad
-
-> Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-> Reviewed-by: Takayuki Okamoto <tokamoto@fujitsu.com>
 > ---
-> Itaru Kitayama (2):
->       KVM: selftest: arm64: Support 5-level paging in stage 1 translation table
->       KVM: selftests: arm64: Add 52-bit VA guest modes
->
->  .../selftests/kvm/include/arm64/processor.h        |  2 +
->  tools/testing/selftests/kvm/include/kvm_util.h     |  3 +
->  tools/testing/selftests/kvm/lib/arm64/processor.c  | 87 ++++++++++++++++++++--
->  tools/testing/selftests/kvm/lib/guest_modes.c      |  5 ++
->  tools/testing/selftests/kvm/lib/kvm_util.c         | 11 +++
->  5 files changed, 103 insertions(+), 5 deletions(-)
+> v6:
+> - Rebase onto the latest drm-misc-next and resolve conflicts.
+>=20
+> v3:
+> - Collect Frank's R-b tag.
 > ---
-> base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-> change-id: 20260825-arm64-52bit-va-32f1f4cd050d
->
-> Best regards,
-> --
-> Itaru Kitayama <itaru.kitayama@fujitsu.com>
->
+>  drivers/gpu/drm/imx/dc/dc-crtc.c | 55 +++++++++++++++++++++++++++++++++-=
+------
+>  drivers/gpu/drm/imx/dc/dc-drv.c  |  5 ++++
+>  drivers/gpu/drm/imx/dc/dc-drv.h  |  3 +++
+>  3 files changed, 54 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc=
+-crtc.c
+> index 0d64186a9901..1a537cf88daf 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-crtc.c
+> +++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
+> @@ -293,23 +293,29 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct=
+ drm_atomic_commit *state)
+>  	dc_crtc_queue_state_event(new_crtc_state);
+>  }
+> =20
+> -static void
+> -dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *=
+state)
+> +static inline void __dc_crtc_disable_fg(struct drm_crtc *crtc)
+>  {
+> -	struct drm_crtc_state *new_crtc_state =3D
+> -				drm_atomic_get_new_crtc_state(state, crtc);
+> -	struct dc_drm_device *dc_drm =3D to_dc_drm_device(crtc->dev);
+>  	struct dc_crtc *dc_crtc =3D to_dc_crtc(crtc);
+> -	int idx;
+> -
+> -	if (!drm_dev_enter(crtc->dev, &idx))
+> -		goto out;
+> =20
+>  	enable_irq(dc_crtc->irq_dec_seqcomplete);
+>  	dc_fg_disable(dc_crtc->fg);
+>  	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
+>  	disable_irq(dc_crtc->irq_dec_seqcomplete);
+> +}
+> =20
+> +static void
+> +dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_commit *=
+state)
+> +{
+> +	struct drm_crtc_state *new_crtc_state =3D
+> +				drm_atomic_get_new_crtc_state(state, crtc);
+> +	struct dc_drm_device *dc_drm =3D to_dc_drm_device(crtc->dev);
+> +	struct dc_crtc *dc_crtc =3D to_dc_crtc(crtc);
+> +	int idx;
+> +
+> +	if (!drm_dev_enter(crtc->dev, &idx))
+> +		goto out;
+> +
+> +	__dc_crtc_disable_fg(crtc);
+>  	dc_fg_disable_clock(dc_crtc->fg);
+> =20
+>  	/* request pixel engine power-off as plane is off too */
+> @@ -331,6 +337,37 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct=
+ drm_atomic_commit *state)
+>  	spin_unlock_irq(&crtc->dev->event_lock);
+>  }
+> =20
+> +void dc_crtc_disable_at_boot(struct drm_crtc *crtc)
+> +{
+> +	struct dc_drm_device *dc_drm =3D to_dc_drm_device(crtc->dev);
+> +	struct dc_crtc *dc_crtc =3D to_dc_crtc(crtc);
+> +	int ret;
+> +
+> +	ret =3D pm_runtime_resume_and_get(dc_crtc->de->dev);
+> +	if (ret < 0) {
+> +		dc_crtc_err(crtc, "failed to get DC display engine RPM: %d\n",
+> +			    ret);
+> +		return;
+> +	}
+> +
+> +	if (!dc_fg_wait_for_frame_index_moving(dc_crtc->fg)) {
+> +		dc_crtc_dbg(crtc, "FrameGen frame index isn't moving\n");
+> +		goto out;
+> +	}
+> +
+> +	dc_crtc_dbg(crtc, "disabling at boot\n");
+> +	__dc_crtc_disable_fg(crtc);
+> +	dc_fg_disable_clock(dc_crtc->fg);
+> +
+> +	if (!dc_drm->pe_clk_axi_disabled) {
+> +		clk_disable_unprepare(dc_drm->pe->clk_axi);
+> +		dc_drm->pe_clk_axi_disabled =3D true;
+> +	}
+> +
+> +out:
+> +	pm_runtime_put(dc_crtc->de->dev);
+
+I'm not sure you actually need the pe_clk_axi_disabled flag. If you make
+it handled by runtime_pm, then you can also use pm_runtime_set_active to
+flag the device as active already when you probe, and the runtime_pm
+will know when to enable / disable things properly.
+Maxime
+
+--wy243kauhdd524wa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCapqA+QAKCRAnX84Zoj2+
+duSpAX9/lPUosVP3e92nkRmARUvvaRauY+9r1CBAC06KGtjmDHpcDkZOKDyT+Kz3
+64qtJ58Bf1EQs0TiJNXxRlb0mDxPB8srlEh+Z6JveAlmcLRxMxN/FTHYf8xzSR9e
+1OJFSvgUcQ==
+=/qep
+-----END PGP SIGNATURE-----
+
+--wy243kauhdd524wa--
 
