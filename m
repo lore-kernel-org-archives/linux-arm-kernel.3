@@ -4,114 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983F6C624DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C67C79F80
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  4 Sep 2026 16:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=; b=grdD+JXbb0AJOLLfwF2sgQ4fWa
-	oQ6DjUkZcJ2Wv6rFBQte+yrsAvGMOK6U6davaVrtTtAEPAqYzagOvN5OLfK5e89sK0fnd2kAwPWdI
-	wEmsWlc4+vTP2MVfILXKwb0GYDveSdAqSre2XrvRDqvn7Cmn4zleiFt5MQF98rw+gLIyLCLeuUWh/
-	AJ4bKEzUhfCTkQ8D/Px9WEj8ixg8ieKBohm1J+oTejeX0oUcSxRxop6jtDvNmOHt3lNcp3/MFmsMg
-	RIebI8iJo52dMVBDCRnDqiJc24BYTZnGUBv5P9cbxt+InZ0SxZ8TTIEsZpYAwxM+EBpYNKfyDovU+
-	A5VB/HBw==;
+	bh=eLcIG1CDS4fNnXKHOTIQDLLSdwcHjpfJv5wJJ9Sl8mU=; b=29Fguk/dEqMqTt+zOvyfml5H03
+	Ta/hoFzQi9A8liY6S2hYj34GWmFmTX3+MkHkaDntsDBlupwQY2PLxEI/yq0aTAmX2kEBNmrs4N/1f
+	rDBCKd63KDX7IXihErbGwf11hjOMx+hemJhxIiwOMiXdj7gq2+2UA5hBVamDhMO82WviJn5SvsgDz
+	ysINQuSAHYNEZY5wPbfcaNzVetfjI13Br7rPB9y3ySHb97JhjrOz3nUjyVUmDGOO0l9Cs5NT2ZEBF
+	W6/oF6KJNweS4tm4Mm3+Z/339Xg3hBtiwU6U4QGyF/LBAXMpYtDPSWa0Kh30Uj0j6voMUls1l655T
+	9kfL8aaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2WpC-00000002k6r-3G8p;
-	Fri, 04 Sep 2026 16:31:34 +0000
-Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
+	id 1x2Wxm-00000002kqu-36bj;
+	Fri, 04 Sep 2026 16:40:26 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2Wp9-00000002k4T-1TBA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 04 Sep 2026 16:31:33 +0000
-Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-97cc20c05d3so389142241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 09:31:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788539490; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HZ0DHWURjyoGvnafMJOfSphG493/Av3N81WmtdiJl04Vse6xM0h/Rfk+RfKRpdtCfB
-         BoQphfdb+0zfYW3CG5lNp+XEdguwCwK/+RWdoIgTec7aUeeWvFQMsoLoCrgapl6e7T9M
-         fwkhE4WmWxKWX5aObdPYDD7EAtr4xer6ZbXP586cALhOGgOFBua+wL1tjxlkPcQ6zRpZ
-         J5AC2/DQf2eEAPa0U6upfOEETFyjLnciBiealLKmLOSnCZ+xUM0eRUHs8SG1PhXYTFtX
-         0sW37JJ1pKZBVIeTfN/k67H7O/V0ookMWwzdC5ibz2Gd32LnkxKw80CVU8BlX3kqw8yy
-         ProA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
-        fh=hAzwdLBeQoDh6QKCGCMVxzwTgbQyBJ02V1toQ0ZaS3g=;
-        b=n28qFkr64FesfLRjdF/NTXVIsGQLo8U+O3JGKruEuVUAbMrkWSFUp5Pl0gq/xU0XHe
-         +LkkEs8zMrRsxY2f6xwT/WtHBvpA15nATk7bvdsR3Uwvl4Uyne6fwPIctcoB1CBeJw3p
-         OVSV1XLMsGsUlg6LGGFbU7ZrmMDzVkatT6HEjkOklcmWzdCiwleIuCa1rRvo6OSrVYfl
-         vCXn0RzRw25mdxvLFDWRL/CpTtQXVibqu15YHgn2aGbZBCE7ccXsmW0HPsE5mnNV7YDv
-         lJE+6JjUQNlOmb7mWzj8q8ZtfIzvFh5t5L8N5OQZOIOm8HdyIFtTNnJZfqoHP1VxkWME
-         I6KA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788539490; x=1789144290; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
-        b=QiLDnnZD9/CQehw45szf+NQNIBJGZ2IIjiwUVo2PsB1NZBladNw/WQQYTv9ulasmt2
-         sVqey8Sn2zi8KgNIaCbhYo1QGewVgHkRH8YhbaynuZE3h/m+9ltSQVf6MDERlysrSeT7
-         wc8YxcS2+y6HR+Re0AeqrnQBscOZ6XUwkbV8rhfPPpYIRLmni+axxu7NmVCMHcHwVkzz
-         WedMDQZqYCt81JCl5+v/5frSmKlnCnFYuTp2ozJncgVtfHQ7bZewmHM2VZmd/ANt/MtF
-         XKbw6miGLQyqL52LLXzsgSSBQ3l/eomgAPHWEivjI/Ty78qxDmmJo7uJxqB3GZfMWQb5
-         hOSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788539490; x=1789144290;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=d3NKF4O2iR0V+5SNrnuau4g2PH1qtrH1bTsv5NR4P9c=;
-        b=T+zxoCaXSTa1h/uiptI5G+1xLIvGfD52heIJ2UW0l3WCr7ya6znwHdb7Np/iGbjmFG
-         5wVFso+7tSc4iT68p/jXqLlnSu7fJaACs0NGZ9g91zZitIcrRFvwYwvRfLq447OdbeT4
-         txtWFkSuTF5kU0M/+6yyisr/K1RaSyAwIlRi4xC0ELUJ+FpYgqSmjXu56sViTP0zTYEz
-         A0q3Z5jUdC4jrGDjSkrI5HzaI1pg+D7U/8q1ehJYSwMeWv2aDZKT5KiXKMpKsVrU79hD
-         2g1/e3U4v1/LJSQkwDaG4Ztz7Mi18matovItnR3PL8kii4oaOwtIu8QlLSUdEqzPW440
-         iC3w==
-X-Forwarded-Encrypted: i=1; AKwUvBz2ri8MgZ9X4QHu2za60MAqST1ltn7DEmPfqsTdM9TGGsRsFz5GF15QoBXbLqf1aCNb5ey2jHzpvlO2EK5fnebi@lists.infradead.org
-X-Gm-Message-State: AFuF++nKvxP4nSA4AyubYfiZgOcsoFfOpzeVdRigCITyHXLaOcLTNx+J
-	D/MIOSZkIhz3A/exYcGLUrjdlqTibe5prffBXAyQfQDazCJIV7v7SLddmBxCmBtqXNg7vOJu/1Q
-	CRqCGdELjk0C21EHF3PgoN73OmHRpK8w=
-X-Gm-Gg: AYBFou0vftUW/XX+sTb3rkDnhO2Kuid+iErO5dOzERYw9BPJNVFOX3Kcg5MrDbnbSxk
-	fGlv/v4btikvIa4AsVWgz2hVPCMmZ76P9y71f0RLIwmsBUl6oJ3JLzlY+mAN7OwWX31J9xKJpxN
-	Z5Oqqjw9LUa8Hfn5UaEQ4/1zo2PEk4HFJCu8GEXvLn+E4Ky2k20Np8nNjc2AVbtZY8DmqHqdZiu
-	4/HZ19faPaZhnCYsmeE6BeTk4z5erkWKNWNebrBntNf0052YEwhYnJH2jJtowZHTqBhtcFHBL6D
-	yYsj0gGBK0deUBmLL+zybIj7C4PMajt332fpp0iwbD31Top50OWWJ00ztRNuZ7Exk1DQ05CGnrS
-	mCUj3JELFmshJo0Mz5OCjn18wjTZJVBu7PrY6dbinLhozc3KQiiyCdYNB6Uvpv1rKs3BSkH3Td4
-	GC+XQkgFpbKKOkklfqCoEYOrGq7afazRjXB5RybtTUOsM9RUHuzw==
-X-Received: by 2002:a05:6102:5e86:b0:78a:8a0:7116 with SMTP id
- ada2fe7eead31-78a4a6f61c1mr2282968137.6.1788539489982; Fri, 04 Sep 2026
- 09:31:29 -0700 (PDT)
+	id 1x2Wxi-00000002kpm-3Vsn;
+	Fri, 04 Sep 2026 16:40:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1788539993; x=1789144793; i=wahrenst@gmx.net;
+	bh=eLcIG1CDS4fNnXKHOTIQDLLSdwcHjpfJv5wJJ9Sl8mU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=f/4uIeeMwZjyM/RbGJWXXmrbYIGotAIDKX5DYvyilP8okhlWc6Tn/Pf2fjLrD9Dg
+	 xzmCIwJZA3E4JYNmQ/GltJUz4aEcnLepnkXbhRp3ULE6jpUTf4PaZh+MMoS5p9Nt8
+	 A26Wc4+Fq4io+r6Ju73Ez233U0oy/G1Z242odIl9138mmAVtK0hygZeptcSNqp5iH
+	 CvPiJA5sypoX7mb8nNYAEu+2QCUZQASrj6IWaq0uYqJo++Hh9M1tsWt8iWZ99FwQp
+	 BI1FNun94S6Lnm9ssSPfTohidgMjbiksVAMoMr7RLsaF4Pd3EpzZJoyexGZHb1ODF
+	 Ze0DKgQg+hRzaF2lBA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MtwUm-1wjd7k44r6-00w9jZ; Fri, 04
+ Sep 2026 18:39:53 +0200
+Message-ID: <20a09866-27d1-4dd7-b61a-c0533af17ac2@gmx.net>
+Date: Fri, 4 Sep 2026 18:39:52 +0200
 MIME-Version: 1.0
-References: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com>
- <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-2-463853a14ad9@gmail.com>
- <87se3p13jy.fsf@bootlin.com> <CADvTj4oW8Hxv_b5vWM5pbeB3wEO-WoqhLwyinCTFPNR6wTHYmQ@mail.gmail.com>
- <878q5h11gu.fsf@bootlin.com>
-In-Reply-To: <878q5h11gu.fsf@bootlin.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 4 Sep 2026 12:31:19 -0400
-X-Gm-Features: AcwNN1V5YDZSFNMjnzJoP1G8O-i3NIxVjKyBABCYlVfSDwIJgBSeFv9BnhDuMNw
-Message-ID: <CADvTj4o4Rwcmy7ByuBcpcPkcXctvgB8Tuda2_7UV1v=vx7JwRw@mail.gmail.com>
-Subject: Re: [PATCH 2/3] mtd: rawnand: sunxi: support randomized OOB formats
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/4] firmware: raspberrypi: Add reboot mode support
+To: Gregor Herburger <gregor.herburger@linutronix.de>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>
+Cc: linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260904-rpi-tryboot-v4-0-fdee8bc53ff7@linutronix.de>
+ <20260904-rpi-tryboot-v4-3-fdee8bc53ff7@linutronix.de>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260904-rpi-tryboot-v4-3-fdee8bc53ff7@linutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:g/6/c2eS4Uc57lTxFQeg5Zd+3fdinY2sk2MgSPjBVv4Ph4mTg5H
+ UjoWiYTAe+MG/UWravVWfbCeEm11rHhzHnZiVq4guO6mrOufMI89AsbPkhwnxdipm8ZY9Cd
+ 6a3H4aZE5SZa/FJMpxHWZWVh+QXpf2NF7zniW7H4OId2ykLLuKCx1jGVeNmziiGd7+YSflB
+ YyDelrZqnxZVBKLBSoznw==
+UI-OutboundReport: notjunk:1;M01:P0:YM7ql6wY9FM=;cX1cPkkWkkk5vb+JZpmHJPjloLo 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_093131_424330_37AB05C5 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20260904_094023_255601_711FA611 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,115 +98,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 4, 2026 at 9:27=E2=80=AFAM Miquel Raynal <miquel.raynal@bootlin=
-.com> wrote:
+Am 04.09.26 um 09:46 schrieb Gregor Herburger:
+> The Raspberry Pi firmware has a tryboot mode where it tries to boot from
+> another partition. This can be used to create a A/B update scheme.
 >
-> On 04/09/2026 at 11:17:46 -04, James Hilliard <james.hilliard1@gmail.com>=
- wrote:
+> To enable this on the next boot, the RPI_FIRMWARE_SET_REBOOT_FLAGS
+> message must be sent to the firmware. Add support for this by
+> registering a reboot mode driver.
 >
-> > On Fri, Sep 4, 2026 at 8:42=E2=80=AFAM Miquel Raynal <miquel.raynal@boo=
-tlin.com> wrote:
-> >>
-> >> On 10/08/2026 at 17:04:50 -06, James Hilliard <james.hilliard1@gmail.c=
-om> wrote:
-> >>
-> >> > The controller randomizer covers the bad block marker along with the
-> >> > rest of the OOB data. The driver currently compensates the marker by=
-tes
-> >> > before writes and after reads so that they remain plain on flash.
-> >> >
-> >> > Allwinner NAND firmware instead stores the marker through the
-> >> > randomizer. Media using that format appears to contain bad blocks un=
-less
-> >> > the randomizer is enabled while reading the marker.
-> >> >
-> >> > Honor the allwinner,randomized-oob property by unconditionally enabl=
-ing
-> >> > page scrambling and leaving the marker in the randomizer data stream=
-.
-> >> > Keep the existing plain marker behavior when the property is absent.
-> >> > This changes marker handling on all supported controllers; the H6/H6=
-16
-> >> > protected user-data placement is handled separately.
-> >>
-> >> But I think the reason why this has never been done is because it just
-> >> breaks raw accesses, including the BBT reads. I don't think this is
-> >> handled, is it?
-> >
-> > From my understanding raw access bypasses randomization entirely.
+> Furthermore, safely registering the reboot mode requires adjusting the
+> teardown sequence. Replace the manually called rpi_firmware_put() with a
+> devres-managed called (devm_add_action_or_reset). Without this, the
+> cleanup function of devm_reboot_mode_register() would trigger a
+> use-after-free error by attempting to access the firmware context after
+> it had already been freed by rpi_firmware_remove().
 >
-> yes, so the implementation you propose is invalid, raw reads shall
-> show the BBM. And also, when accessing a BBT, it is made in raw mode,
-> without randomization, and hence totally fail. This cannot fly!
+> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+Tested-by: Stefan Wahren <wahrenst@gmx.net>
 
-I may be misunderstanding which raw and BBT access paths are at issue,
-so I would like to clarify the expected semantics.
+I tested with a Raspberry Pi 3 B Plus i didn't see any regressions
 
-The allwinner,randomized-oob property does not alter the per-operation
-rule controlling the randomizer. MTD_OPS_RAW still leaves the randomizer
-disabled, while normal ECC operations enable it. The property does set
-NAND_NEED_SCRAMBLING, ensuring that normal accesses use the randomizer
-when the NAND does not already set that flag.
-
-The property instead selects the Allwinner firmware's physical
-normal-page OOB representation. It leaves the BBM in the randomizer data
-stream and, on H6/H616, selects the firmware's protected-user-data
-placement. It does not change the randomizer algorithm or seeds, nor
-does it enable the randomizer during raw accesses.
-
-With NAND_NEED_SCRAMBLING set, I understand the current mainline sunxi
-behavior as follows:
-
-ops.mode   fd mode  ECC  rand  main data       OOB with -o      nanddump
----------  -------  ---  ----  --------------  ---------------  --------
-PLACE_OOB  NORMAL   on   on    corrected and   de-randomized    -o
-                                de-randomized   logical OOB
-PLACE_OOB  RAW      on   on    corrected and   de-randomized    unavailable
-                                de-randomized   logical OOB
-RAW        NORMAL   off  off   physical bytes  physical OOB     unavailable
-RAW        RAW      off  off   physical bytes  physical OOB     -n -o
-
-OOB data is returned only when the caller supplies an OOB buffer. For
-nanddump, this is selected by -o. For MEMREAD/MEMWRITE, ops.mode
-overrides the file mode. Stock nanddump exposes only the two diagonal
-cases:
-
-nanddump --bb=3Ddumpbad -o /dev/mtdX
-nanddump -n --bb=3Ddumpbad -o /dev/mtdX
-
-The first uses the normal ECC/randomizer path and returns corrected,
-de-randomized main data followed by de-randomized OOB. The second sets
-MTD_FILE_MODE_RAW and reaches the raw callbacks with both ECC and the
-randomizer disabled, returning the physical main and OOB bytes.
-
-In current mainline, that physical OOB contains a plain BBM because the
-normal write path compensates the marker before hardware randomization.
-The normal read path reverses that compensation. With
-allwinner,randomized-oob, the compensation is omitted, so a raw read
-remains physical but returns the BBM in its randomized on-flash form.
-A normal read returns the logical BBM with either representation.
-
-I do not see the current BBT access paths selecting MTD_OPS_RAW:
-
-- nand_block_bad() calls chip->ecc.read_oob();
-- scan_block_fast() and scan_read_oob() use MTD_OPS_PLACE_OOB; and
-- read_bbt() uses an ordinary mtd_read().
-
-For sunxi, ecc.read_oob calls ecc.read_page, which enables both ECC and
-the randomizer when NAND_NEED_SCRAMBLING is set. The internal BBM and
-BBT paths therefore appear to receive the decoded marker rather than
-the physical randomized bytes.
-
-Could you clarify which BBT path performs an MTD_OPS_RAW access, or
-whether I am overlooking another path?
-
-Also, when you say that raw reads must show the BBM, does that mean the
-BBM must always be stored plain on flash, or may the raw interface
-normalize just the BBM while otherwise returning physical data? If raw
-access must remain entirely physical and the BBM must simultaneously be
-directly recognizable, does that mean the Allwinner firmware's
-randomized-BBM representation cannot be supported through the existing
-raw NAND interface?
-
->
+also the code looks fine to me
 
