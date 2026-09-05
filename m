@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4A0C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614FCC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/3KUGxz1n+uOa/s4zSKV68Bk8DVLbxLMdLtSTIxu98=; b=0lvo8UHHlONKsJ91iMvAMiWOkP
-	uKjXL2GSFW73bSYvBFcEogKTK9t+fj/kP3Ng07J0q9AV7F5jYjyP9HxxRmhflxWHehY1NSt4lfAm8
-	0mwfHFaPK8xb6wZoim8iyK13aO9l6JQvFEJIsEHWrO+Zm9tezrcS35ZbIuIlGyLFGRywEefD7+OG7
-	gXHnPbqG9hFGcO5sPTfOIrJV+CAopBSpEH1xZPYYmR2VEUT79mouN5ttlTAIarImAw7KbuOqhCNit
-	eSsY5fgGboPIf/RBra+dpUwV+IwiNy0g2l3fthBhGTvyV4RBSo/TEO1yy2DF/5Xb8NPyj2U0RCnyJ
-	YiF5/Vkg==;
+	bh=k1laQkaalUiiF2l+66NpDYtabQQgOZ1QcHsX78DjjSw=; b=YpW5kdnNO7sV0QqroSMa8be/LT
+	vSEkcp/P9Sys8Joe51dCWrCB6vQ2SlEUwu4QL7eyr1K7bA03R8GtmVe3f2tAuwxGyaG6CbGEJLeAN
+	xO+7s5Whb13JKF8ZxT1cEp+LxcXQ/dwBrvu1jmKxE1ecIYPh0NWtn5jLCv2zNlgw/ueyZoZsaOaGj
+	6mhY3k8Jom9wvPcc9TVnSz0310p2DJW+7JNDaGosW8xCfXxITH8eH76PhCORgtOMFQI3/VI8eqS5T
+	8qQ+d0X63D6FK8S+k8dFZdx4KJopWKYcv7txRZhhDeAnv9MJPo8RIIN04WVOxOnIObrbs+q9SmeqG
+	PDfDNXwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kjj-00000003mi9-0XUF;
-	Sat, 05 Sep 2026 07:22:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x2kjz-00000003mkA-13xG;
+	Sat, 05 Sep 2026 07:23:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kjh-00000003mi2-0vZo
+	id 1x2kjy-00000003mjv-3DCO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:22:49 +0000
+	Sat, 05 Sep 2026 07:23:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2998410AE;
-	Sat,  5 Sep 2026 07:22:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 756C71F00A3D;
-	Sat,  5 Sep 2026 07:22:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6303C600E2;
+	Sat,  5 Sep 2026 07:23:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AB681F00A3D;
+	Sat,  5 Sep 2026 07:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788592968;
-	bh=N/3KUGxz1n+uOa/s4zSKV68Bk8DVLbxLMdLtSTIxu98=;
+	s=k20260515; t=1788592985;
+	bh=k1laQkaalUiiF2l+66NpDYtabQQgOZ1QcHsX78DjjSw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Eg8eb9u3BV5uARQjwqOXeGICiPLIL2419FWMsvhYnDz7K/GmSmyxbVq8iRAKJC19X
-	 f5SboAK+rADMHoU7kgi8o81Jy4pUyNrqxd7/Xol3kkH3g1RQJIaHnrkS7vh9N91xPU
-	 2vOIArzb9jreh7UEn5bBqfPvPOBxrwpw4a3CgSek+3BKHr/3wlT8XrzFytnq/TY4sZ
-	 2lhCaaRDJNq70ypM4VD5fuKLhi6Hsovkn0hNMPrtqt/sTKG48e6s3JLTEtVFDczYZY
-	 y6APP2O39ZkEWzLJG66v0iMktVu78i0H2SlsuZ7hzSpUCeTn6b5L6BO+RQPvzpxr7V
-	 jp56I2mYQ25KA==
-Message-ID: <ad1d8c01-a810-443a-9ad5-721d6d0b68b1@kernel.org>
-Date: Sat, 5 Sep 2026 09:22:39 +0200
+	b=niel0sHFt0Lxtr9ouMrbKivusUVBVR1+QzLB4GBfwWnIm//ToNqZDJS4RbqhGgG1w
+	 x7vQy76dlYIcDg2RHBev5sguK6nx1CmpvB2OqSYh+e/BHvmoeo5fkZIZDgi5elY+AE
+	 Xehu9ZyJZT0X2N554z8aiHQBQpv1g29fvKTFjqGcSGKXam+mdL2dfet7qx1HdwUt65
+	 EW0WxOXeXWNN7QOfwGyhojxW7gN3J+WY7LEjpgtzaO8N/y5LopwUzNQYw3GVh2zDIo
+	 GruKbgL4KIaJvB8of+xIXfEnwQVwM3y8npvBTO/DmNihm8D33/Yv6QewdtkDMab8DR
+	 qgNPXtmMyneqw==
+Message-ID: <3aa50c6b-6a8b-4323-b291-d2fa6f8bce0d@kernel.org>
+Date: Sat, 5 Sep 2026 09:22:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] dt-bindings: usb: Introduce samsung,snps-dwc3
-To: Selvarasu Ganesan <selvarasu.g@samsung.com>, peter.griffin@linaro.org,
- alim.akhtar@samsung.com, gregkh@linuxfoundation.org, robh@kernel.org,
- conor+dt@kernel.org, Thinh.Nguyen@synopsys.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
- hongpooh.kim@samsung.com, eomji.oh@samsung.com, shijie.cai@samsung.com,
- muhammed.ali@samsung.com, thiagu.r@samsung.com
-References: <20260903071250.3421499-1-selvarasu.g@samsung.com>
- <CGME20260903071318epcas5p4b804edb84554847c576d1d034b814d7a@epcas5p4.samsung.com>
- <20260903071250.3421499-3-selvarasu.g@samsung.com>
+Subject: Re: [PATCH 5/9] docs: kernel-parameters: Drop the mini2440= entry
+To: Karl Mehltretter <kmehltretter@gmail.com>,
+ Jonathan Corbet <corbet@lwn.net>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
+ linux-doc@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
+ <dimitri.sivanich@hpe.com>, Tony Luck <tony.luck@intel.com>,
+ linux-edac@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
+ linux-omap@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
+ Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ linux-ide@vger.kernel.org
+References: <20260905070347.25902-1-kmehltretter@gmail.com>
+ <20260905070347.25902-6-kmehltretter@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +110,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260903071250.3421499-3-selvarasu.g@samsung.com>
+In-Reply-To: <20260905070347.25902-6-kmehltretter@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,142 +127,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/09/2026 09:12, Selvarasu Ganesan wrote:
-> The Samsung Exynos8855 USB glue is not separate from the Synopsys DWC3
-> core, using a flattened model where the DWC3 controller is directly
-> addressable rather than nested as a child node of a glue layer.
+On 05/09/2026 09:03, Karl Mehltretter wrote:
+> mini2440= went away with commit 61b7f8920b17 ("ARM: s3c: remove all
+> s3c24xx support"); nothing parses it any more.
 > 
-> Describe the Exynos USB block as a single node, referencing the split
-> out Synopsys DWC3 core properties via snps,dwc3-common.yaml. The new
-> binding follows the same approach as qcom,snps-dwc3.
+> Drop the entry.
 > 
-> A generic fallback compatible "samsung,snps-dwc3" is introduced to
-> describe this binding, selected by the validator based on the presence
-> of the fallback string in the compatible list. Future Exynos SoCs
-
-This is AI slop text. Over longish useless sentence describing diff
-without actual information WHY.
-
-Don't send AI generated slop messages.
-
-> utilizing the same flattened model can be added by extending the
-> compatible enum with per SoC clock and property constraints.
+> Found by cross-checking every documented name against the __setup(),
+> early_param() and core_param() registrations in the tree.
 > 
-> Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
-> Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
-> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
-> ---
-> 
-> Krzysztof Kozlowski is added as a maintainer of this YAML binding, as
-> he is the ARM/Samsung SoC architecture maintainer (ARM/SAMSUNG S3C,
-> S5P AND EXYNOS ARM ARCHITECTURES) who already maintains Samsung Exynos
-> DT bindings (e.g. samsung,exynos-dwc3.yaml) and reviews all
-> Samsung related binding changes. This follows the same convention used
-> by existing Samsung Exynos DT binding schemas.
-> ---
->  .../bindings/usb/samsung,snps-dwc3.yaml       | 98 +++++++++++++++++++
->  1 file changed, 98 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
-> new file mode 100644
-> index 000000000000..480308c16f37
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/samsung,snps-dwc3.yaml
-> @@ -0,0 +1,98 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/samsung,snps-dwc3.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Samsung Exynos SoC DWC3 USB Controller
-> +
-> +maintainers:
-> +  - Krzysztof Kozlowski <krzk@kernel.org>
-> +  - Selvarasu Ganesan <selvarasu.g@samsung.com>
-> +
-> +description:
-> +  Describes the DWC3 USB controller block implemented on Samsung Exynos SoCs.
-
-Huh? Did you even look at existing bindings?
-
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: samsung,snps-dwc3
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - samsung,exynos8855-dwc3
-> +      - const: samsung,snps-dwc3
-
-There is no snps device from Samsung, neither DWC3. The name of device
-is completely wrong. snps is a vendor, not a device.
-
-Anyway, don't use generic fallbacks.
+> Fixes: 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support")
 
 
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description: |
-> +      Several clocks are used, depending on the variant. Typical ones are:
-> +       - ref: Reference clock for SOF/ITP generation.
-> +       - bus: Bus (APB) clock for register access.
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 4
-
-You have only one device, why is this flexible?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +
-> +allOf:
-> +  - $ref: snps,dwc3-common.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynos8855-dwc3
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +          maxItems: 2
-> +        clock-names:
-> +          items:
-> +            - const: ref
-> +            - const: bus
-
-Why do you need all this? Look at existing code, don't duplicate. And
-for sure do not introduce one more DWC3 binding claiming to be for
-Samsung devices and completely ignoring existing ones.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
