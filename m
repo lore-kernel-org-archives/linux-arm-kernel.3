@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F4DC79F8B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 20:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997D2C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 20:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63CDWArl34nC/nIG+OV+7OAhAy4+5URidIuMjWHPM2I=; b=IDfQB2qWhUM7+Qsh8Apoe5en3Y
-	4D0z/XPuJojz7liO+out2Y0auCj7vrokAmctVNanyNBGEBZCqUDjNcemakrNWH5iVcTfvh6MOG+zd
-	xLd5iQ87MMsaTi/po8S9tSSTk6uTgYiSmCWeAkozSAh7d0dgkYel8uYMCDIbk4MDMgT0cgyB3c8q+
-	MyNGSIDV+/ihN+DCkNtzEe5v+O453AMMwcFzeEth1mh2/Q9nJ7L1VRpqGHjIdv0aK3FNqmKQmU8Hz
-	Qi8u3qIpGv2z+BBPEmAqPn2CNr8P4WJvQFl1METdcLHmiUhlO7oMYTJyLqxKUiMe3QYeBBQMvP1Cq
-	lHAGg8lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uebY1ihEJpxkEHBjLjETudQnyv39hQelW51+BbXUxWg=; b=XomPiaQ8/8MRS77HIZ+zzENIlc
+	WOaqgeAU0H6wsMgN8DljRjJWbqnJJVhzwSDojYkpwMcbdwRUN1gck3FlwpvG4PFLQbws8U7zMWNtK
+	+QY7p3pz9nFSMmlfK8e+9M97JuGOwe+Cx5HVf85B6LjwQJ7vyIf5RW57tTNSIijA4g2ccBSlU7FGt
+	naZQ+/dglDHRa/neBX4jhvJvut4hMH6W1vtaLNlilE3GjktZw469FrnTePtiE+XJIIsPb0sLIdUfd
+	4//BZw54lOF3j+baBvnk6ZAObdP2D1NSL/+d3ocXbmpXrty8JTHePGUNXCZHC2prW8dI2nKisaame
+	caLNMUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2wYZ-00000004O2K-3SwJ;
-	Sat, 05 Sep 2026 20:00:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2xFk-00000004PH4-2aDo;
+	Sat, 05 Sep 2026 20:44:44 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2wYY-00000004O28-2FxX;
-	Sat, 05 Sep 2026 20:00:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C18B243DEA;
-	Sat,  5 Sep 2026 20:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DFD61F00A3A;
-	Sat,  5 Sep 2026 20:00:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788638405;
-	bh=63CDWArl34nC/nIG+OV+7OAhAy4+5URidIuMjWHPM2I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=n6DQlpP46uM0WxUOQATB/man5UR6KwjpOp6XNghhqGYHbx4zJr+q9LGIpqpWALlP3
-	 i8V/Gk90Hhf02ZjZ4n3+wcTLTI2TiceCY37ACOswayiuO6WYr9LoXkWZmVJ0rtqIis
-	 O3g59j0xNI3Vl8qKUo9OgWnfhUHs0WMyvefa3IPXQX9QyQsy3nmb4YfU8WRaE3AuGp
-	 26GV9TxyuWq9OnaFfdM+CnNwWpCeTZ2vRM6aBo57o0/afQRaeZ7OuMDOsWZiiuhsP3
-	 OiFxfpMM+bvPjEC5CxAM4mqVdg2t9uH8nbyDuKD8Ka2e0tW4/noxA/X6WgU8mkIlvB
-	 uwU5+9nGsySaw==
-Date: Sat, 5 Sep 2026 13:00:02 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Romain Gantois
- <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, Russell King
- <linux@armlinux.org.uk>, Shawn Lin <shawn.lin@rock-chips.com>, David
- Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH net-next v3 00/10] net: pcs: add basic support for
- RK3568 XPCS
-Message-ID: <20260905130002.554a167a@kernel.org>
-In-Reply-To: <20260901150111.141037-1-coiaprant@gmail.com>
-References: <20260901150111.141037-1-coiaprant@gmail.com>
+	id 1x2xFi-00000004PGe-2wum;
+	Sat, 05 Sep 2026 20:44:44 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1x2xFV-000000002Pj-2B02;
+	Sat, 05 Sep 2026 20:44:29 +0000
+Date: Sat, 5 Sep 2026 21:44:26 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "hpp.iscas" <hppiscas@163.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sam Shih <sam.shih@mediatek.com>
+Subject: Re: [PATCH] clk: mediatek: mt7988-apmixed: Publish the OF module
+ alias
+Message-ID: <apx_Ks4KqoJZgVHd@makrotopia.org>
+References: <20260905133417.64373-1-hppiscas@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260905133417.64373-1-hppiscas@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_134442_742437_51F8049F 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,13 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue,  1 Sep 2026 23:01:00 +0800 Coia Prant wrote:
-> This series adds proper SGMII support for the Rockchip RK3568 SoC
-> using the integrated Synopsys DesignWare XPCS, along with necessary
-> fixes and refactoring in the stmmac core and XPCS driver.
+On Sat, Sep 05, 2026 at 09:34:17PM +0800, hpp.iscas wrote:
+> COMMON_CLK_MT7988 is tristate and builds apmixed as a separate object.
+> The apmixed platform driver has an OF match table but exports no OF
+> alias, so that table cannot be used to select the module on a device
+> event.
+> 
+> Publish the table. Keep the existing initialization entry point.
+> 
+> Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
+> Signed-off-by: hpp.iscas <hppiscas@163.com>
 
-Not sure if this was already reported but FTR this series
-breaks allmodconfig build
--- 
-pw-bot: cr
+Not sure if this Signed-off-by:-line is ok like that, do I understand
+correctly that 163.com is a freemail provider?
+
+Other than that
+
+Reviewed-by: Daniel Golle <daniel@makrotopia.org>
+
+> ---
+>  drivers/clk/mediatek/clk-mt7988-apmixed.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/clk/mediatek/clk-mt7988-apmixed.c b/drivers/clk/mediatek/clk-mt7988-apmixed.c
+> index 416a4b8..24f4e7b 100644
+> --- a/drivers/clk/mediatek/clk-mt7988-apmixed.c
+> +++ b/drivers/clk/mediatek/clk-mt7988-apmixed.c
+> @@ -75,6 +75,7 @@ static const struct of_device_id of_match_clk_mt7988_apmixed[] = {
+>  	{ .compatible = "mediatek,mt7988-apmixedsys" },
+>  	{ /* sentinel */ }
+>  };
+> +MODULE_DEVICE_TABLE(of, of_match_clk_mt7988_apmixed);
+>  
+>  static int clk_mt7988_apmixed_probe(struct platform_device *pdev)
+>  {
+> 
+> 
 
