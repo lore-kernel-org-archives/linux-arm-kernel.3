@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E097C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08EAC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVISZRhqeUbbG63nkEbrVHxYxMTirBscwLs3Wje3fLI=; b=QJ8XlzbHZLdPFHWEAyQHfsZyyg
-	VDrvrXdt9myKFBMfT1LGbZEkk4yEG7TDMEpXMCBSLnIyQg+rxCmkXxPeV8Xfpqu7ZlPqvuFoJ+WeH
-	wnIhA8qZkbIOI6SihqkMUc57Z/OtUigltgzKqWENj6yGMDvpbYTB3SlsQqq3dlajpneNwlD6+benq
-	jPBvJwaJpTy01IqIMyqMT51A7RoyXNZ0nsqW7jFcgCKMgEf+wvrjhm994ytHFr8CmsHIYyise1ktx
-	j66a4AuzNEOUol+xSP2GaCY3XHSXVnsGH8xK3SFqQUx4B8zNvX+AsqiunWgDKbHcZu3S99JM81PRI
-	sFJ4Ik1g==;
+	bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=; b=kFhBZ6T0XvVRvJHBngB5QXUmoT
+	6vv4VeSxATg6YwBDlJvQjFJ6mxtbmkHyjcomAcPFgSIIuwgB0rUHYBzT01LjoOAfHJz3O18uIJVx4
+	JCmne/vfsq1LRvdfOfql8IYKNN07XRqliJFT1GGsHdUlztHEQx9QQ9A5Bx8DnPFwVDyK+55T/J5OW
+	Vy0rbbiqeReb1bjgaT2aFlQBRyDAeHgOKAYwFJR68ih9yfGyf1WUtgM5Pzv5XsvxROyarQSxft8Eo
+	B3f+ogYjfJvIWpcTrBc6w3741wAXqsrLyEXKrvntLmEPkIc91wD08zTj1x7VAgSV/5G6Md/ON4+Qq
+	xYkrNVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lf5-00000003qx4-3PKU;
-	Sat, 05 Sep 2026 08:22:07 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1x2lie-00000003rH5-1HU4;
+	Sat, 05 Sep 2026 08:25:48 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lf3-00000003qvy-1k7h
+	id 1x2lib-00000003rGV-47XQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 08:22:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=pVISZRhqeUbbG63nkEbrVHxYxMTirBscwLs3Wje3fLI=; t=1788596525; x=1789806125; 
-	b=Smkx/6o3Q2KZt8w6HwNFWQQv5+FwWHmgcpt0hpr2LEjd4Bl1EiWAEzGmHXVk4Oue8+0JOE3zGej
-	JXkpLgiVJ8jmTn9b5lCL5vhuR2wp5jo4stL8+t1508ZdgC08pRekoJEOcSgARhDL3vG/ziRazhgD0
-	rGM06VNkb2rmrgUvJY1S387XgPTL9qR79njwgOFYeOC+NJBHh+ghTqGR3GRuqwS3b8H2uyuWhX2GP
-	WDnLf5qYyNz+g07csc6v5/HwYTBzy/MWCyjLPyLJFhXBFfoWlcLsbS67AUZ90qjO5OzyRCkeAtWWe
-	wKAzvGN+XQC7fK+DGlP4hSKic24uSw/Rwa4g==;
-Date: Sat, 5 Sep 2026 10:21:34 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Geert Uytterhoeven
- <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
- linux-doc@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, Steve Wahl
- <steve.wahl@hpe.com>, Dimitri Sivanich <dimitri.sivanich@hpe.com>, Tony
- Luck <tony.luck@intel.com>, linux-edac@vger.kernel.org, Krzysztof Kozlowski
- <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
- linux-omap@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
- Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- linux-ide@vger.kernel.org
-Subject: Re: [PATCH 7/9] docs: kernel-parameters: Drop the omap_mux= entry
-Message-ID: <20260905102134.69ef3092@kemnade.info>
-In-Reply-To: <20260905070347.25902-8-kmehltretter@gmail.com>
-References: <20260905070347.25902-1-kmehltretter@gmail.com>
-	<20260905070347.25902-8-kmehltretter@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Sat, 05 Sep 2026 08:25:47 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3966791a6eeso2102590a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 01:25:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788596743; x=1789201543; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=;
+        b=N/Y1BK81apPUt/ScsRCXFLP+0Yfsqg5yqhqVK9qtfIwn+iQpuDKI+p3q7FFHrRmWpF
+         WNHd8+3Mrkw3p/t2EAxe/eWfSHLb3QyRfLErfNnecchf0umm+jzYoccWwVGIRPZdBzkd
+         ECKSVp3cfXXoonXW4/56QYHlGogBg2R+hhAEQRIcFG8p5Z42Md6vw7QNv6QsiXq4jW3h
+         EUkR2+sSHGbruzBcdte2J+7bCcr+S82ylmlsoNLqBMEwdol4LUXvuDOQL7QiP3D/K3RW
+         kpzWwvQyLN6XvXMwAptULhCojwZKfAL6vK4HXwyY+mNzbFg/4Qw4R4VHdtui2MnZjmFJ
+         5KMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788596743; x=1789201543;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=;
+        b=KgoHJnwIqfDOnAgUuM9XBP0jQZpKzY+0murH3tXgKMuorbjQ4V08WL3pP9PdybpMU7
+         vtVhthV3hRIZcl9aGDaaUnpNNJRyk3sDQaL1nUwYvHBlXMA7GZzRwiwVE15EeJGeMfRG
+         0MC4qLR+rbvkWbDwgWBz4JRAeC3Pgu1qU4c9NGb0tstxtzWS1VCYdtiCRjEUEDwL45/0
+         7U99Db3ANLJ8dOKcNCBb7QTmX3FPBgbZRGNywxlawWUMC+n6Q4jbaXak75Rl9J6ORdQo
+         Z6fadoh8Bplefxzv8myFqk7jDCCCNd5DNF+a7t1ttNsVY1r8qV/VflboJw/EyHoJ/ZKO
+         NmyQ==
+X-Forwarded-Encrypted: i=1; AKwUvBy+IaXaMPytNNNo3eTiMTASKmrcnohw84q0hWhxgTArvTAP0AfJ2of7j/k16E1/1LxgwbritVG+AAp9ahnepb3+@lists.infradead.org
+X-Gm-Message-State: AFuF++l+vp5BX7EepxRHiZSpnu0QN3z1X94gWUd2NOaeHjsTovfCXtJr
+	M52ogIwCr8Fibr719+K9MUTS4Mkr/3PJjAT5DHBr3hxAqEpaOJjYHezz
+X-Gm-Gg: AYBFou0YAPaTWGEaf6cZVs33vqoeQhbxOcch35r0EwkqMiSxDBmpgEJyNrlqos9I5si
+	Tr/oztoJdMf1TIx3YIZiXfDvtfu0FCSY3P8egWCNJb4YcAT/FTdsbGq/2/kUSpr50Z8hnh+K157
+	WHz41HLiqnGp7fOvleRB3ABEJYq7lkrOzzdztX5Mz5HpHyKncbYcjFE4ajdO2Ayb4tFDn4SOqMC
+	n5TG8IxOcER5RwJhlhs4BtV/ysTAkb9D0rQTz1TG+R/5xTs4k8B7bNX/1uhOikx4oShid2EscYB
+	4bXCMHZdd6eQVXURFAJf0PxzIfUShwdxvGacBFWJ/UQvrKccc6VrQU0uZDj7GEnWQQZdF1Ayno0
+	Yn4sEUIkckAUQ57jqnwdiPrkMk3sVvSp2HVOy8Vrd9QakuAB7yIXU1PkxWWqoKBK8jwvkhCSRaw
+	JNNVg3caJMUVIAO3lglbvh9tl0AkhWRjBnPWvQ4FzZ7oA69g12KsgSBXRWdCH6povYbXEqsfai2
+	Hm/1w==
+X-Received: by 2002:a17:90b:17d0:b0:398:9bd4:d18 with SMTP id 98e67ed59e1d1-39b26298ba1mr15383737a91.23.1788596743161;
+        Sat, 05 Sep 2026 01:25:43 -0700 (PDT)
+Received: from [192.168.1.107] ([223.122.38.120])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm14262328eec.1.2026.09.05.01.25.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 05 Sep 2026 01:25:42 -0700 (PDT)
+Message-ID: <4e65ef39-cf1b-49d4-a899-da36acb442c2@gmail.com>
+Date: Sat, 5 Sep 2026 16:25:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/6] dt-bindings: interrupt-controller: apple,aic2: Add
+ apple,t8140 compatible
+To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-watchdog@vger.kernel.org
+References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
+ <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_012205_461326_7CE6A2FA 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260905_012546_041377_DD07F8FD 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +112,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat,  5 Sep 2026 09:03:45 +0200
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
 
-> omap_mux= went away with commit e9f5f1e45608 ("ARM: OMAP2+: Remove
-> legacy mux code"); nothing parses it any more.
-> 
-> Drop the entry.
-> 
-> Found by cross-checking every documented name against the __setup(),
-> early_param() and core_param() registrations in the tree.
-> 
-> Fixes: e9f5f1e45608 ("ARM: OMAP2+: Remove legacy mux code")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
-
+Yureka Lilian 於 2026/9/5 凌晨3:49 寫道:
+> The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, same as
+> the M1-M4 SoCs.
+>
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 > ---
->  Documentation/admin-guide/kernel-parameters.txt | 5 -----
->  1 file changed, 5 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index d44728a45506..48dd273eaf6c 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -4765,11 +4765,6 @@ Kernel parameters
->  			waiting for the ACK, so if this is set too high
->  			interrupts *may* be lost!
->  
-> -	omap_mux=	[OMAP] Override bootloader pin multiplexing.
-> -			Format: <mux_mode0.mode_name=value>...
-> -			For example, to override I2C bus2:
-> -			omap_mux=i2c2_scl.i2c2_scl=0x100,i2c2_sda.i2c2_sda=0x100
-> -
->  	onenand.bdry=	[HW,MTD] Flex-OneNAND Boundary Configuration
->  
->  			Format: [die0_boundary][,die0_lock][,die1_boundary][,die1_lock]
+>  Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> index 1cb886785173..e3cadc5ad39d 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> @@ -46,6 +46,7 @@ properties:
+>                - apple,t6030-aic3
+>                - apple,t6031-aic3
+>                - apple,t8132-aic3
+> +              - apple,t8140-aic3
 
+the title should be "... Add t8140 compatible" describing the hardware corresponding
+to the added compatible since the compatible being added is not "apple,t8140".
+
+(Alternatively, if you mention the compatible in title, say "...Add apple,t8140-aic3" as
+"compatible" is already implied)
+
+
+>            - const: apple,t8122-aic3
+>        - const: apple,t8122-aic3
+>  
+>
 
