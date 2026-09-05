@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E04C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3676AC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jRA+96YLaMc6tCnYBwn+B3DVe6jv3AYL6noHLa2o+KA=; b=33kFOV5QPyxIfkyENQM4LA5bhZ
-	oqSz32Og3QF0MmjRcRdLRz9gfWvmEwBI6bVM9Fa/34RSiQkEurg6nYNL6DMvppzvet3WZQG4VjI0E
-	Z6XW7Ee58C0Br/po0xzvQdFGtQGmZyX83r8YQRLFmXVrjBXFAvEng1d+FoJkjhdRB8mIkKv4oCypJ
-	zILilPpfxT+mezeX04zUj48vakOHQSl2SqweiqUPaBjoX9XBo018LIMDP1BHUPzGqaor8U/ZjJioz
-	xg7In6du7Pv0fho7fNrlFm757sHfplJvv6Fz4qPBobC4ZXUOyGKTwbVsd7tv3/0HBJjHptOG/2j20
-	O06pBnwg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9qSf28+gMU1cPc/sgLS/ZHLrlXSMGyx8oSsqQzyWeBs=; b=LQdVahJQkygZApGSezY7Tvn03l
+	O5BeRB9roJ8fc/fYx3YHwWMQLcmwZYLQsMgsBVma30CnN+drGc1nByMcnid8OmlhHEaq8uZvN8mPJ
+	9bhj1fJ/VJOB04xVsx6IRcWLQdE9owc1lKHn6uHZGc9B2WIgzrYXdBSooG4840a6SLsEG6+O737VR
+	sSHQD2s63f+qZWesCx+MuEDkDIAroWc6x555PSCCb8j0OHP2a4RALL+gGJwfvEn9PKPVzNG72eSAI
+	lPCLKE7Hr8RG/bS2/nXpZhfvTFgUm6OKTEQnkU2nonHpGXuW9jtLjz2K1jBqCkXy00wlRkEOlT4Mw
+	R+w0n+IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mpr-00000003uru-3R83;
-	Sat, 05 Sep 2026 09:37:19 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1x2mq7-00000003uvo-4ByJ;
+	Sat, 05 Sep 2026 09:37:36 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mpp-00000003urS-0wSU
+	id 1x2mq6-00000003uuz-0Znl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 09:37:18 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so1470409a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:37:16 -0700 (PDT)
+	Sat, 05 Sep 2026 09:37:35 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2d9004f39d3so22962545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:37:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788601036; x=1789205836; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jRA+96YLaMc6tCnYBwn+B3DVe6jv3AYL6noHLa2o+KA=;
-        b=krsXmscrfDFJeG46iT1x/Z/5iVI52QKtAu/kvLCVclL3y3DUtBuqk6RGHj0+PxWJC8
-         0UkESHPNYgZUaw8AolUkE9kS4QNg4zRN9RmqSnRS0dCWX7Z6dgLbqEwhgn44wYwYJ0nD
-         nFPoegItxrXTBKsUYcyHOarIyRt7ldYhooNWNymO1Wj0HO3EIgksgBzP1gYguurcNhgh
-         DHgXKb6qQerEzV+X41jhFscuJX2C4Gd2M2UbXYtFwX374VtLK+6xApy3Q/c5ggJQMXwv
-         vX6eZulNRva4WcdvFERzm95+vitpDEjFBgCAe8FTP8YQciSgs3w/xNytFZX0bX9k0d9e
-         tMOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788601036; x=1789205836;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788601053; x=1789205853; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jRA+96YLaMc6tCnYBwn+B3DVe6jv3AYL6noHLa2o+KA=;
-        b=HcUTM8vmP8UJr+njcsiOgTCFaiiayAo3vC6YL94Ait6RvMNifJXVmM/UTSx7h83LFg
-         8kYGIbFhcFb154hpTI+ygpYkJmzOF8AyK1wuBzmQ0o+EaPNDeDrM4y4XlEBSuce88dhW
-         OxlmexQop9SiYsEj5tDPdIrWk2ju+f5fXPQnLvzQcNrAgT73Bkl2e+UHYw7dtGNIo+bZ
-         nD37/YBZtx1aMb1xCbe1PJ+4MQfxRgNOA6Bbg7SltBrCkidXe+jtwvs/csxq8E6c94nT
-         sbKdax2yg5nhDqxp0sZ12c3aulxGttjH5BxB3RsPMqUBM7Iu0ffE8YKfGSrLYLmckau2
-         ItZg==
-X-Forwarded-Encrypted: i=1; AKwUvBzuVmv+swVVKiS8xMMBn4RDpuGrmtXOKdolxwU7m/NgluRSyxOMLaTd/3yBh/T4UuHGPoweROwOzbE/K/sHvApn@lists.infradead.org
-X-Gm-Message-State: AFuF++lJjwLb/uKLDxoSmxCOk5htQ5qFd2EMAB7zVBWrSCZRnHvOpk6y
-	wpizF6vSptFNwsGRUBExr304sxr/azd/TAf4a6kLpFTK8VEC03JMfC1n
-X-Gm-Gg: AYBFou2sKVwVQAy1AGoWwEFHGPRBW6gW9G6RBhSyDiSNi7wsxxO+kRXJtf4gEzZwfJi
-	Se6WGdk5pxMNgaWIoSrMdPGPEHo+1bHQ+pEDo8egWAPgdqepsKWradhP2Esre/brK0ZNngVaAmn
-	YfeXKA/80xXno9PHLRENcTo5wlkvsXXA2FN3+FohJKA2KtYQGi9C9AdQNoXpAh6iYYdAzPAchov
-	jDD6yt4IE4Y5hG33KIro51k//zGdFMdT75gPgCAhBt9g8HtNfuum+G0vFqjyLdlwm7fHLMlnaec
-	XRTSRldEPiSwb2wOSE2oHAMsyBw8u+vwBGUgHELmjqXm00aHyNVOXBtAAojY5bwEQ5roLryqzyl
-	v7WRTupYRG9R2O2C2BVjXVS/0lrxMVKkGVsE6sshp+gbP/b0KYkqwSNWRR28sIEK4WBlBYlQxU3
-	Pwa/9c6pEWtEzx43YYp2jwzboIKzbG/Hwu7dJ0pzjNWntddNk2NJqKzXL3ug==
-X-Received: by 2002:a17:90b:1a88:b0:38f:efed:5448 with SMTP id 98e67ed59e1d1-39b2619138bmr16464351a91.8.1788601035821;
-        Sat, 05 Sep 2026 02:37:15 -0700 (PDT)
+        bh=9qSf28+gMU1cPc/sgLS/ZHLrlXSMGyx8oSsqQzyWeBs=;
+        b=lOC2IkTcOPRPwqPSoREDIengzhbwazXVkpUyc+XU6+eoOViwrlV+FS6x+z8b1q12qO
+         BOPqQGqGJkRDfXBKPotlK0dQ/DJtJ/9OugINhn+134nBcXrse5wh0p5DrKxAJ6T+w4pS
+         I4sQlMEWk7iY9juCAyBikawnTu+6kct4IwrxN0iWUHpKJ9qtlAWevMOkONnGztYA0juM
+         wgMXQfRw6YFuu0ivWL2JBMxao6gl1fxTSOzb2005n2ahjipk5tJCP21yEhnmuy/eNFXu
+         XHod8fnL+d2PVk+8q4bT5qKjlJ1jfslhOUFF5LnztNXFZhQS/lF2Ud6ktOQg6QIL6iLP
+         +j3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788601053; x=1789205853;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9qSf28+gMU1cPc/sgLS/ZHLrlXSMGyx8oSsqQzyWeBs=;
+        b=NsVNmvkTxBJs990CiPHderE90BXcqOI1m326XcIShFEbVI3Qd7q1We+Tm07VOKrt//
+         zOapBiKEPQpRqt3K0LlbpYNZQLhc1Mx2V7z4tLcTXKxapJWUMn1K0Wrsysx83VqSOy56
+         6pch61GUiczfg1VT3Smn3yS6smhEuFZwI2jpXYFx9+vC01UTBmfqvWjDJTGDJaMaC+O6
+         OB+VpDqcvRKcyhoywqzth6ngxPbHJcbVp4dnuFd2ZKk4CxYn3o+uEhN8KBNXvYzIxaZt
+         RLhFy0Hn+/yp8EVuZmIDM8MJRwhwiWUjQIM0K7VxSGdCyvtV3Iby0ZaIT/IgbHgbJbTO
+         bIhQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxBkOQis28ByirFuKDaXGlR04bou6N5/rrT6+GKG1kKqwrVTKsGx8EYNkeOsWe0KTyh7kZLDDzKlV1Jn2BNTl9x@lists.infradead.org
+X-Gm-Message-State: AFuF++kERcDrlwte/tNcC7fsqXr/X/rPwsadVosLenujw74aUlytau2R
+	Pt0oSKB0L1FF4b8Nhs2tDDHp7JcpJ98o2p6MdYvplF6GpVZhpDXimaGK
+X-Gm-Gg: AYBFou3eoZmY9CSeZHzLg75CKjoqlgnqdyfy49iC3pT4+oO77Gv2/zHqdd0vSQo3XEh
+	PfsmZvM3cGsj9BIIhqGhLRwj1DuzcBt0FCQqCMq9vZIX7i8y26VKWPpNiwN1gqr6deZ7BBR36u3
+	xDTv6pgAaaNcKG1ZGywkTxE9Kmv6Uk6xrmgSPN7WeeHbTzMl3Ix6T8PpSZPyK7l1eKkIhSjp5nL
+	m9V+UPHVh+12QA7tCTjmuEUU6TN83DlKJWMvKaejYl1raUBGdtcsoCIXlX1eYVCmqXJRJTifZrm
+	au0GqmfdTfG2OKwDkrSQtOOh8um+7Oca2Y59wqOwLA9DBan4coSqLDerPES0vgFoFwG7mt0zwlk
+	mF+uVH0VxKriEqa6ec8dppSvPmKCENok5yEuz1RlEacLMJWjsguU2fBa1J83uDxdyhirAAILHm9
+	MU2WQbMQMA3J1vzSZYCGLDk9YaGFtcaLn1PSia71rcwXL1TO1EiFEjT4/Aiw==
+X-Received: by 2002:a17:90b:1a8f:b0:398:d2a0:87ff with SMTP id 98e67ed59e1d1-39b26101029mr16362724a91.1.1788601053217;
+        Sat, 05 Sep 2026 02:37:33 -0700 (PDT)
 Received: from ubuntu.. ([2405:201:8026:213e:5b5:60e7:9f67:1689])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08d086adsm15763353a91.15.2026.09.05.02.37.09
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08d086adsm15763353a91.15.2026.09.05.02.37.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Sep 2026 02:37:15 -0700 (PDT)
+        Sat, 05 Sep 2026 02:37:32 -0700 (PDT)
 From: mdshahid03@gmail.com
 To: Jonathan Cameron <jic23@kernel.org>
 Cc: David Lechner <dlechner@baylibre.com>,
@@ -80,16 +81,17 @@ Cc: David Lechner <dlechner@baylibre.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v3 0/6] iio: adc: bcm_iproc_adc: convert to devm-managed APIs
-Date: Sat,  5 Sep 2026 15:06:25 +0530
-Message-ID: <20260905093631.48667-1-mdshahid03@gmail.com>
+Subject: [PATCH v3 2/6] iio: adc: bcm_iproc_adc: fix include dependencies
+Date: Sat,  5 Sep 2026 15:06:27 +0530
+Message-ID: <20260905093631.48667-3-mdshahid03@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260905093631.48667-1-mdshahid03@gmail.com>
+References: <20260905093631.48667-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_023717_261213_6ECBEA4B 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260905_023734_177108_3F003140 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +108,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Convert the bcm_iproc_adc driver to use devm-managed APIs to simplify
-resource management and cleanup.
+Add the headers required directly by the driver for the APIs and
+types it uses.
 
-Changes in v3:
+Remove the unused linux/io.h header now that register access is
+handled through regmap APIs.
 
--Add the missing direct include dependencies.
--Split the clock and ADC cleanup conversions into separate patches.
--Use devm_clk_get_enabled() for clock management.
--Use devm_add_action_or_reset() for ADC cleanup.
--Remove platform_set_drvdata() and the remove callback when converting
- to devm_iio_device_register().
--Simplify the devm_iio_device_register() return path.
-
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
-Mohammad Shahid (6):
-  iio: adc: bcm_iproc_adc: sort headers alphabetically
-  iio: adc: bcm_iproc_adc: fix include dependencies
-  iio: adc: bcm_iproc_adc: use devm-managed clock
-  iio: adc: bcm_iproc_adc: use devm-managed ADC cleanup
-  iio: adc: bcm_iproc_adc: use devm-managed mutex initialization
-  iio: adc: bcm_iproc_adc: use devm_iio_device_register()
+ drivers/iio/adc/bcm_iproc_adc.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
- drivers/iio/adc/bcm_iproc_adc.c | 67 +++++++++++++--------------------
- 1 file changed, 27 insertions(+), 40 deletions(-)
-
+diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+index e46e3761993a..e54f613d266a 100644
+--- a/drivers/iio/adc/bcm_iproc_adc.c
++++ b/drivers/iio/adc/bcm_iproc_adc.c
+@@ -2,15 +2,18 @@
+ /*
+  * Copyright 2016 Broadcom
+  */
+-
++#include <linux/array_size.h>
++#include <linux/bits.h>
+ #include <linux/clk.h>
++#include <linux/completion.h>
+ #include <linux/delay.h>
+ #include <linux/interrupt.h>
+-#include <linux/io.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <linux/types.h>
+ 
+ #include <linux/iio/iio.h>
+ 
 -- 
 2.43.0
 
