@@ -4,119 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75311C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEEFC624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 10:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=; b=YHbKYorGCN8pZ8k5AWlUcXewvK
-	pOvYhVqkQYoIHcoAjoPQBy9xt/p+3nwsPqpnw/7wfrWQhzUjYEscQs6j/aqNe9dhX9rMrSymoCyuQ
-	seZXFknAWVdk4xDYa1vLiWRrSV+Vd94AzQni/q3EuZJNU5HOpcE42Ngiu+0asb8A3cqkZk6JmwjDH
-	c9o7q1TJ3fvMvlr4uiBMBv9XbAgSCqmQtL9lZ9y6qRdXjeuVcjHPzvxFS20OJ+54bK17NCF53xVMx
-	7/JUheQRWkJ64jvN3Cybay1OrFpUJ04B2tgsihJ2rb7wBMe0+bvk0tFNNYAOQu7luETbxWCHhx2rB
-	zfD1gcDQ==;
+	bh=s5Pdm/fx3nduxQtcVl6TUYT4x3GVjZLFxT9EXjbWN9Q=; b=bpTFOa8cxCzjY5k1jA08s6OQU0
+	EJQMdB++/JQ0N2TrTHn3glnYhoyWRmtSJGEUxnP+7sb6fSWfdmrOvq+3Ec+pqJzgQWY17oqQsOe7O
+	nRp1D4xT98yE+7IDcOXlR4D1PM6CNKldxFa927TrwTeyEIBzPaPG/AM4FZZHwS9Oa/7p9dT2pKBcq
+	0/0CPcP1NiFjkRH0jhZWLFpYS9Ujx1/X1TFxEV0ZnYwNplSOruq4qugU1y3xnIpSDcR7iYLkfU4uR
+	xc2spRzKIkFJ7iNEdVjkQUvM5ZJ2zPP3izcOz37THnkHUcEUBOuZh+2uz1EwPmVVt/KIhjK6RMv9K
+	5hnRDhAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzf-00000003wW5-063S;
-	Sat, 05 Sep 2026 09:47:27 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1x2nOu-00000003yAv-0cHb;
+	Sat, 05 Sep 2026 10:13:32 +0000
+Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzW-00000003wKp-1PvB
+	id 1x2nOr-00000003yAZ-2NUC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 09:47:20 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4843e9c5960so1872461f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788601636; x=1789206436; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=;
-        b=l0qicIjDLmhzm3i807ypATT5eiCilMfxd9te9OQmv48FS0Cgbh2FLNDM8IfFuK3CvK
-         duDwjIE2nPT6nWqG5UNy2EWbbJ+MFNZsBr2LZKS9eCRc49TYUdwYRHDiYjIf8+kCxw7e
-         nB5bBXisxDPhemdj9UpE+JqBBE2gi8SxiF0QfCljMwlL/CzWl0PAH22QZoNO7ITD5tQK
-         kNy5eSZq5MoM3/boF1PHgalw2+2cDBy1BF8fj7ppgJ318QsiBvC19gcz6tMsNGADOdC2
-         Ip4xfesQzKYe4t3zIHKVxQLfCCDBsr9G1tdR2MYfLSeA6gk40wCPCtJEqwrcxS8eAOAB
-         uIlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788601636; x=1789206436;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=;
-        b=L+A88EOoSh49DVglKUXuR1szT6PLMEPYxv4sJhYHBifZuH1M8uKIE7aq4Fenqvck0K
-         Zs2EesQ4hTPUtlcclNgPxG4SnAi/bCIIF1dPayCHWpHD3u/q/teLJbE2QDFxelbJ1R6C
-         R9RgFGSNHLib08snOI3qGEuMR85vuzG8I1NwByevFkZ1NOJYr5g+fb/IZC3lHTPB96w1
-         qu8kxvZaZnVDckHwFG7Yy5QA+IJERow7tGAT2OCKMoGUwbtKt0c1YCqPfgd2THZnA5nG
-         pxI8BN1XSVTr//c80eMWhmJz/FZW3sIZ1e43+DkOQ9zhHcIoob5atsEn7ye8MR+qkJ8U
-         eQ5Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwNljG7S7MXgXxp5fT6jrk2sj20KVKD7rjWvfWhizn25VdHcqvHyF+G0Dvce83rQ6YAjVtwCs7Lx6TlAiPXpj7e@lists.infradead.org
-X-Gm-Message-State: AFuF++m0O3ROlbq6hfi2VavK8JKWwbm0Va0EIAS/+6647L4mD1eNGkij
-	JaLxHqVckFQo06A/hqihCP23jILgvm8NkZuETxEmkjg/LZ26Or7mrWXn
-X-Gm-Gg: AYBFou2VQcZf3n+UkJbYKpZgiNmFnds+bgjiOtN01Zd9oofn+sn/VEXLNVqlYDsEE6n
-	jLP/Y5K8jmJd4IFL+v8NIM5BQelQuCPIzFG8IliIYHlCnagd2sLC/QJrsY0p9YUDtk/1dkraC+6
-	feIDBNrBaBXx9PyWb5NhLww65/uBiik1EzHVzIgS6pP4vX1eGImEwdh7G5BoYRoXzB5ZvUon35B
-	FtJUww0FFzZJby3ax0oYdDlj1FppGhK4znScBOkXXPEeYn0cl/zCBk1LfTRoGuJyLikAH6FNnHG
-	BJZlcmQ6/eHdLiUs9KK341M3+llA8NQxR9scwNFfQI9a8GFSc38BwW9BH1LTvjAqBxWYSDuMJUs
-	Sz2K8I7+BPihrc2n6loM4KEqiSccWe/RSJFMbWN4Mdvz5YWfsa1k0UlG1FbTro40wNy8NDT3Phl
-	eGWSRlsyZ025TGx8/inGrcfTNNGCNtw2GtNRDc8CcTL7V8i4bYgonxmNfA/cBwuThgkJlRPAvCF
-	KFA+Ovn8dCS+7EC6XjONhgKLqbb3esC8jBdyII8Nq//+wfo7N5mcin8u81wG2eF7OALxztnjEEY
-	9e1gQfgQjLLPpBU+2wdFlUHnwA2F6+rGJInESRboR7qH+hXdeQdUBVqq6X6KONoXiFTM5H2+0+J
-	3IA==
-X-Received: by 2002:a05:6000:2287:b0:485:8b5c:da39 with SMTP id ffacd0b85a97d-4858b5ce1bdmr9454058f8f.12.1788601636313;
-        Sat, 05 Sep 2026 02:47:16 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.47.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 02:47:15 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-m68k@lists.linux-m68k.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	Steve Wahl <steve.wahl@hpe.com>,
-	Dimitri Sivanich <dimitri.sivanich@hpe.com>,
-	Mike Travis <mike.travis@hpe.com>,
-	Tony Luck <tony.luck@intel.com>,
-	linux-edac@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Tony Lindgren <tony@atomide.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-omap@vger.kernel.org,
-	Dominik Brodowski <linux@dominikbrodowski.net>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-ide@vger.kernel.org,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Michael Schmitz <schmitzmic@gmail.com>,
-	Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v2 9/9] docs: kernel-parameters: Drop the pata_legacy.qdi and pata_legacy.winbond entries
-Date: Sat,  5 Sep 2026 11:46:49 +0200
-Message-Id: <20260905094649.41996-10-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Sat, 05 Sep 2026 10:13:31 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.stl.internal (Postfix) with ESMTP id 5C2871300171;
+	Sat,  5 Sep 2026 06:13:24 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sat, 05 Sep 2026 06:13:27 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1788603203;
+	 x=1788610403; bh=s5Pdm/fx3nduxQtcVl6TUYT4x3GVjZLFxT9EXjbWN9Q=; b=
+	DBmv3ukjHj8j07tSdPdiH2JToVRjL08m1iZ9+gfVrQkOxRirqWEpVPO0dhoxhTit
+	vlZA5zwc33EGQG1ZSAZXi3lUknl/5DJRzQf2NX4iUoeF8dsXjZMRJ/rfKAW3dTbM
+	ocB19jJRFzOmrinM4EL56NYHh3WJTLPEE9CzvtlbYCWg39Ejy7TRyv0tD9wL6YFn
+	Kno1cq+OIXrKnoA1/PkX5ZR2NSb1Xoj/o5q8hRcd/uuV5ldsdqlCnW0m1SKEckOL
+	w5zil5NSFXgDjBiXR0fTp8tPpEpg9t//zcgLNihKjXospRHWKFlWVJtTGstWDHE6
+	Vh/BTS1ouJwc21jBSjvHnQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788603203; x=
+	1788610403; bh=s5Pdm/fx3nduxQtcVl6TUYT4x3GVjZLFxT9EXjbWN9Q=; b=E
+	Ew/7r7RCyjkKYKLqQtjJYuiiklDYNyJGd/bIMC9EU/b2Trc7ALqDgkLfXUNPKeLB
+	pc/uj4n27HoPuqRJcPcPAny680AGstHqeX7YrHiflBWf4isC3zsYlKZABk5s5rlU
+	FaZjHlnSlcKaq8RKOHgzOjQvfz0IJEO45MpqmdzzbsOsUiVzFIlw/CI+w9wITLWS
+	N6w2BNgP2DeQaG1P0R2RPwIcCBGoL5QNTPoXyo17j+NmjCbJ6fFSDZBDWExPQ4Qm
+	SF7iHYDrplOZxUNuGl5hGCVZRmUUoH44ueRk9DuHqwIFj3oMmPWK5qgpcvB2zcx3
+	ZRAEUQpGgw61f817YKwLw==
+X-ME-Sender: <xms:OOubajGQ5QqXy-m5z6KqqMh_DsM201vWq14Cac6olvrdHCxukQn7CQ>
+    <xme:OOubarI-BSpZ4yKtbuNGmaSZHfkq6ZQjcWoNfrxiqDld2e4QJ6uzzZdtRweCh70HC
+    m9xkpxNEUpQ1WDsBepUILKRaA1irQm_6v7kSm8zUMkCSiaLCQTCnCc>
+X-ME-Proxy-Cause: dmFkZTFs6JiRJZvxm+Ld1zJwu35HcCPfSmdka7WkN8Ycq24gzWFFqx4jqbfwmS2jZqJcrZ
+    /FKINazIOWPInQNVp92+nCl0q1eQHggUKBKETX7255000VRkk3eEowI/hgJqD4ZygmGQle
+    v6l5Zwc+LSWgWtAQCfMDwVuhcFRr128FqExoGbaXUz+Ukcp4CmTu3bpi89zpgdsBb2w6hY
+    +eJh2+vjNBR5GrUtizfqE9tDxH0g97x5vXVH7A65/yUARxdMIDdWZuVS0p6RyBRQ34EGjO
+    JHY3kJLUefCR2NFc9QAYL/UQWOLqHlP9IDrInmsA5rApTMpDseAV6Y7ddm0ojOYLyRpIp9
+    AO/EH6n+bVRnttFc/ipehsxObz2bN55Rpje5y0lDCiXDzr/bUfEzRzOROxuQJj1XpAm+Aq
+    N14iKjVaCygOKyYl56EUTJCnGyGXXf/asJIAzRfQgkGidaTx/JSFn5khrSjLnAX+auxi3I
+    Rbt3Hxzt84YnDWyJrI+ma4GXalRQh0N+oEmLXXM00KnvNHYQM+lXzBVlxqZj3r9Gbiklul
+    yPQzYhtzkNWacPB3LDGrSB93ax4PEz7OHFMfvK3LlQ0OvKNQte+Q8Gbx3++kXMaidlbLxa
+    3Uuv2GSRu/n95VsKiA+kNGgU557ZSXHwr4TQjnILOFkmlGD4mgINRz6omONg
+X-ME-Proxy: <xmx:PeubakJhdRASeqYGHwObHi7AA9xWlaBtAO0oi58Ajo8ITDg_K4rknQ>
+    <xmx:Peubau9GbCtGRe3jCczZ2t9aQEbs2o75D-f-uvK0N9mgPwQnJowIBA>
+    <xmx:Peubai-6UD1NU3KRKkytPQ4qQZPVxgOfn4gYncu-MUvnSUdljTKQjA>
+    <xmx:Peubag844RG_ob2jwzAOnxef-mvias2paLjLAbXKSCUhchdjO4wzkA>
+    <xmx:Q-ubap2micY-hE0ds-fPOYRjA8XzovD0Xa-3mFu5sdCjfr5pZU6DRXCb>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 41E7032A007C; Sat,  5 Sep 2026 06:13:12 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+X-ThreadId: AhImxtAmqTw3
+Date: Sat, 05 Sep 2026 12:12:51 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Jonathan Corbet" <corbet@lwn.net>
+Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ linux-m68k@lists.linux-m68k.org,
+ "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ linux-input@vger.kernel.org, linux-doc@vger.kernel.org,
+ "Shuah Khan" <skhan@linuxfoundation.org>,
+ "Randy Dunlap" <rdunlap@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "Steve Wahl" <steve.wahl@hpe.com>,
+ "Dimitri Sivanich" <dimitri.sivanich@hpe.com>,
+ "Mike Travis" <mike.travis@hpe.com>, "Tony Luck" <tony.luck@intel.com>,
+ "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Tony Lindgren" <tony@atomide.com>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ Linux-OMAP <linux-omap@vger.kernel.org>,
+ "Dominik Brodowski" <linux@dominikbrodowski.net>,
+ "Damien Le Moal" <dlemoal@kernel.org>,
+ "Niklas Cassel" <cassel@kernel.org>, linux-ide@vger.kernel.org,
+ "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
+ "Michael Schmitz" <schmitzmic@gmail.com>,
+ "Andreas Kemnade" <andreas@kemnade.info>
+Message-Id: <693303da-350b-4295-b008-6fee8bb4c591@app.fastmail.com>
 In-Reply-To: <20260905094649.41996-1-kmehltretter@gmail.com>
 References: <20260905094649.41996-1-kmehltretter@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 0/9] docs: kernel-parameters: Remove ten entries for parameters
+ that no longer exist
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_024719_154738_E334FD42 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260905_031329_670582_C0C2CBA4 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,47 +132,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pata_legacy no longer has the qdi and winbond module parameters:
-commit 3c4d783f6922 ("ata: pata_legacy: remove VLB support") removed
-both together with the VLB controller support. The entries also refer
-to CONFIG_PATA_QDI_MODULE and CONFIG_PATA_WINBOND_VLB_MODULE, which do
-not exist either.
+On Sat, Sep 5, 2026, at 11:46, Karl Mehltretter wrote:
+> kernel-parameters.txt still documents ten boot parameters whose parsing
+> code was removed with the drivers or platforms that used them, one of
+> them (atarimouse=) since before the git history. One patch per
+> parameter, each with a Fixes: tag for the commit that removed the
+> parser, so the maintainers of that area are on their own patch only;
+> the two pata_legacy module parameters share the last one. Each entry
+> was checked with git grep for its __setup(), early_param() and
+> module_param() handler and with git log -S for the removing commit.
 
-Drop both entries.
+These all look good to me,
 
-Fixes: 3c4d783f6922 ("ata: pata_legacy: remove VLB support")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-Acked-by: Damien Le Moal <dlemoal@kernel.org>
----
- Documentation/admin-guide/kernel-parameters.txt | 13 -------------
- 1 file changed, 13 deletions(-)
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 4864e37005be..33298da28b55 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4994,19 +4994,6 @@ Kernel parameters
- 			the first port in the list above (0x1f0), and so on.
- 			By default all supported ports are probed.
- 
--	pata_legacy.qdi=	[HW,LIBATA]
--			Format: <int>
--			Set to non-zero to probe QDI controllers.  By default
--			set to 1 if CONFIG_PATA_QDI_MODULE, 0 otherwise.
--
--	pata_legacy.winbond=	[HW,LIBATA]
--			Format: <int>
--			Set to non-zero to probe Winbond controllers.  Use
--			the standard I/O port (0x130) if 1, otherwise the
--			value given is the I/O port to use (typically 0x1b0).
--			By default set to 1 if CONFIG_PATA_WINBOND_VLB_MODULE,
--			0 otherwise.
--
- 	pata_platform.pio_mask=	[HW,LIBATA]
- 			Format: <int>
- 			Supported PIO mode mask.  Set individual bits to allow
--- 
-2.53.0
+If you have a script that you can easily run on another tree,
+could you send me the script or the output for this one?
 
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=board-remove
+
+I'm removing a bunch of code there, and if that ends up removing
+additional documented paramenters, I'd like to fold the Documentation
+update into the respective patches as well.
+
+      Arnd
 
