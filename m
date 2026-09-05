@@ -4,76 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAF8C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23184C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8ZBz3umxxhqbNlNKwwRtIpUr3ROModBIAzMxPN9tJ4=; b=vNfS+bImEJ0nsOH6/CuC3UBDkc
-	lphKmcs2N6iVgVtdOd3JifCrvluu7egW2UNJjnnHR3P/G+cA9myjvUl3eTYIuXVZPNl7kfSLZJKp2
-	tIaxUqltVzvJkevhDHvrZfc5k/lTRV2TIjNpZ2Us1Zv9noJPNfmiOhGF98gfZtifOWo0OB3H37Z9U
-	OUP+15m56rpsPicnMn9gcgP5iC0GmGNOaghj9Rxtxhu044OFvjMkSMl8EgrvIxH0XROStU2V/9f/s
-	dyJChnfLfyn59eI0gYx+Cs9+vk6EdUS/6AwLXQWEfsJ2LjNr0QD5YW5oPRpiFmUcui4ZzDkDNzhjT
-	UFph50FA==;
+	bh=M3vzONeF2cELGBH8NfmZxA7aI1d2aZ6r1LZ3FVlUKZc=; b=nC1//3+xx1iJpueenhAeTpVc+K
+	Gc2saTzt/S37itCpHJtCZW60T4NR7CoKDEt9RjPtnVezuW4Xo28GO/Za1Z2ce/B2gdW8shA6wiPbU
+	oU4ygFi4REpbg8AA89Hq9l/RiA2l3cl0Su4XEdrd5JtjffQvOebh86pp97EZnQ01v7dGWxw3t2VB7
+	SKXmX7RWEvxuImFr87wLvBRU+5quD2YttTmlg48V70nHKgKWRAGdQn+QHWFVYy4Xp1uziD66BW+Lr
+	xwSZJSiZA6LQg1+vGc5L1wrA6zMgejs1syliMB9uMvHY3JhUG1oWnwwm/4XE986P3tbfeIFsZQ9KC
+	fXybyoUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kdd-00000003mMm-0uwx;
-	Sat, 05 Sep 2026 07:16:33 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x2kgU-00000003mWi-2vDJ;
+	Sat, 05 Sep 2026 07:19:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kdY-00000003mMO-47Q9
+	id 1x2kgS-00000003mWZ-3WMV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:16:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B29FA4E41530;
-	Sat,  5 Sep 2026 07:16:25 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7E9E860580;
-	Sat,  5 Sep 2026 07:16:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A54E511C787BD;
-	Sat,  5 Sep 2026 09:16:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788592579; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=H8ZBz3umxxhqbNlNKwwRtIpUr3ROModBIAzMxPN9tJ4=;
-	b=mdxCrggvFgOKR57ekJavFuca8kF/tZLdQVofV1pOlWkUdhy920vM1TTOJHl8jBzc/iOL5l
-	mL+6R0aWf87hDbdMavHLnZVdWm+ILMgikU/zgNUQr8MHl1n00tcpVzXIpCXVJoHqnFgpx+
-	xKozSahmSbVDuGeV5Y4s4muuDoc2jQfnPs2pV4yYiHLyr13jSLsGBrnS9k+kdrhkr/j4T+
-	4vsBJe6hH2TJjJLzYqLcqkIxzwIotj1MlSEfJtVXsmWAiJyRV8iH/r6JS2FNehK+K8mCQO
-	lX1ZLalhg56CS2J7Y0Z3L4mbk/j8B98YRbqspcDvMp3H87QT2g8mQZm4/5Gx3Q==
-Message-ID: <84a2f232-06ed-4fa4-bcdd-4e72a792bf12@bootlin.com>
-Date: Sat, 5 Sep 2026 09:16:09 +0200
+	Sat, 05 Sep 2026 07:19:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F374140D73;
+	Sat,  5 Sep 2026 07:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DC6C1F00A3D;
+	Sat,  5 Sep 2026 07:19:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788592767;
+	bh=M3vzONeF2cELGBH8NfmZxA7aI1d2aZ6r1LZ3FVlUKZc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=BB5tpRojq//FWiUmBdhsu0DqUMqRWMU1MSuOYDiQ8eVM20T9O9MJ4paq0sGjG0C/D
+	 MfBxMCMedfy2MglaA2WZN1xEiNzZqIT3FGUlYshXeHyi1f9oKMS4t0Y8bfXaMgDL26
+	 jbeNxVPMrtSF1fMwwpRFpjyjnhczLkYZihxrHnrEK6NSZ7qnr+zu4R3vEEn9jDHUay
+	 j6ca4J7bRvxCP72wHvsn2WG35WKkdYxUNoiAGWctmgx2XFQQN23QKtCpqSZShIPjff
+	 2ZU+0N/tsHkNmKyKIC5pNnil9uQkwQy3v/e3JOsh+voAVgVKn2Tmmr7g4nhaLsZiiE
+	 YmAmJaYF8UzZQ==
+Message-ID: <9969f6d6-71ee-4c22-9b37-a0f6bac97169@kernel.org>
+Date: Sat, 5 Sep 2026 09:19:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: phy: motorcomm: Enable analog frontend
- on YT8531S
-To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
- Frank <Frank.Sae@motor-comm.com>
-Cc: thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
- <20260831073747.361482-4-maxime.chevallier@bootlin.com>
- <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
+Subject: Re: [PATCH 3/3] usb: dwc3: Add Exynos8855 to the generic platform
+ driver
+To: Selvarasu Ganesan <selvarasu.g@samsung.com>, peter.griffin@linaro.org,
+ alim.akhtar@samsung.com, gregkh@linuxfoundation.org, robh@kernel.org,
+ conor+dt@kernel.org, Thinh.Nguyen@synopsys.com,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: jh0801.jung@samsung.com, dh10.jung@samsung.com, akash.m5@samsung.com,
+ hongpooh.kim@samsung.com, eomji.oh@samsung.com, shijie.cai@samsung.com,
+ muhammed.ali@samsung.com, thiagu.r@samsung.com
+References: <20260903071250.3421499-1-selvarasu.g@samsung.com>
+ <CGME20260903071322epcas5p2a40e3299b0954dd880c9b3651555760c@epcas5p2.samsung.com>
+ <20260903071250.3421499-4-selvarasu.g@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260903071250.3421499-4-selvarasu.g@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_001629_188002_226C0118 
-X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,81 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 9/1/26 15:59, Paolo Abeni wrote:
-> On 8/31/26 9:37 AM, Maxime Chevallier wrote:
->> The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
->> well as a YT8531S PHY, configured in GMII mode.
->>
->> It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
->> enabled for link to reliably establish, otherwise the link just doesn't
->> come up.
->>
->> Let's enable it at config_init().
->>
->> This logic has been extracted from the vendor driver provided by
->> Motorcomm.
->>
->> It's really unclear if this is specific to the integrated version of
->> that PHY, and how this potentially interacts with the fiber mode this
->> PHY supports, so this configuration is only enabled when the interface
->> is GMII, i.e. the PHY is integrated.
->>
->> With this, the PHY reliably establishes link and the YT6801 PCIe card
->> becomes fully functional.
->>
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
->> ---
->>  drivers/net/phy/motorcomm.c | 14 +++++++++++++-
->>  1 file changed, 13 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
->> index 36c229460a77..90a4f86f2758 100644
->> --- a/drivers/net/phy/motorcomm.c
->> +++ b/drivers/net/phy/motorcomm.c
->> @@ -144,6 +144,11 @@
->>  #define YT8521_CLOCK_GATING_REG			0xC
->>  #define YT8521_CGR_RX_CLK_EN			BIT(12)
->>  
->> +/* Analog front-end control register 3 */
->> +#define YT8531S_EXT_AFE_CTRL3			0x12
->> +/* Analog front-end DAC clock enable */
->> +#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
->> +
->>  #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
->>  #define YT8521_ESC1R_SLEEP_SW			BIT(15)
->>  #define YT8521_ESC1R_PLLON_SLP			BIT(14)
->> @@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
->>  	if (ret)
->>  		goto err_restore_page;
->>  
->> -	if (phy_interface_is_rgmii(phydev))
->> +	if (phy_interface_is_rgmii(phydev)) {
->>  		ret = yt8531_set_ds(phydev);
->> +		if (ret)
->> +			goto err_restore_page;
->> +	}
->> +
->> +	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
->> +		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
->> +				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
+On 03/09/2026 09:12, Selvarasu Ganesan wrote:
+> Add the "samsung,snps-dwc3" compatible string to dwc3-generic-plat so
+> the Exynos8855 USB3 DWC3 controller can probe through the generic DWC3
+> platform glue.
 > 
-> Sashiko suspects this will not survive a suspend/resume:
+> The "samsung,snps-dwc3" string is used as a generic fallback to support
+> any Exynos SoC that utilizes a flattened model instantiation. This
+> fallback allows multiple Exynos SoCs to be supported by the generic
+> platform driver simply by adding the fallback compatible to their
+> respective device tree nodes.
 > 
-> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831073747.361482-1-maxime.chevallier%40bootlin.com
-
-Managed to get some time to test that, the config does survive a suspend/resume
-cycle, so sashiko's suspicion wasn't correct. The bit doesn't get cleared
-after a resume.
-
-I see the series was dropped from PW though, I'll add a few comments and details
-in the commit log and resend.
-
-Maxime
-
+> Co-developed-by: Muhammed Ali <muhammed.ali@samsung.com>
+> Signed-off-by: Muhammed Ali <muhammed.ali@samsung.com>
+> Signed-off-by: Selvarasu Ganesan <selvarasu.g@samsung.com>
+> ---
+>  drivers/usb/dwc3/dwc3-generic-plat.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> /P
-> 
+> diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+> index ca69ac0eb07c..33a76c37d15d 100644
+> --- a/drivers/usb/dwc3/dwc3-generic-plat.c
+> +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+> @@ -237,6 +237,7 @@ static const struct of_device_id dwc3_generic_of_match[] = {
+>  	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+>  	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
+>  	{ .compatible = "starfive,jhb100-dwc3", },
+> +	{ .compatible = "samsung,snps-dwc3", },
 
+Why not in alphabetical order?
+
+Best regards,
+Krzysztof
 
