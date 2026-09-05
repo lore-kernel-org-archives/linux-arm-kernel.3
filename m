@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F84C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D5DC79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mRF2sj6EV0Dui3NmrAkRlrIYgvCUUxE0IVt3jvr9R7k=; b=lw1Xc1e/lJPHQDy4Zkq5P4NRL6
-	acnWb1RmCOPwBG/zi4duadwDoiGLxwGfO1n0jd6BAE1HDAfxy3ctpaKoxu8OVAzASxOfuhG/nwdU5
-	r6BpoLz90Y7Y6OyJrAZa2/codjH/FHY4E/M0AopJ1a53AUCceaRHP0rxuCgggNtlqkV2z7sqFO1I8
-	C6bvlgfJFcrNYfId62WeLuvm2Qtmu8LMEhMVVwjcAsEFD7BxcHvufKX5/SifJ3D6dp2SaZN2hDuIr
-	vxj2t5ebB1BmiKV1FlHAFd0qzfW8On1t8/k9kKdFFCu2mwvQfegB552LYDMWP7BJjRA2YRW/I6R8l
-	mgrQ4HAw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RNFfTw1WuaSNgs5HCMSq2uznGZvnZVsIDtneqTMILXg=; b=trmJC+4DzI3d4Ytz0Ncsarn6Xw
+	Qm5+kuTOxyFJ15yepIHbJ3uQONGumEU37KyT0QS7hQCIRrVXXh/BOli/sY7OH3oRZ2+VERVzNKo7z
+	oVa6a95LepwhSyA6mcFzyhnDd21wtjz+dP4L6IJERCDy5a4ZMu54GgtEgAsTlwtlOkDh0d6Stkyjr
+	dSdrRDH3DgSk/dZmPJ9b1jA7ff7+E8AieFluB2qlpHgl7MPwY+IIjEzvFyQAiIkELnAfnZUhrUOjE
+	YOYZXY3FgcnwOd8a3r1rg39JkpT9k7umRdTuvnouETALHmNwMZmHYV2+yzUPHfzGuQGswc6q+eIkD
+	MtMk4kBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRT-00000003lAh-2DoJ;
-	Sat, 05 Sep 2026 07:03:59 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1x2kRb-00000003lDu-3lrp;
+	Sat, 05 Sep 2026 07:04:07 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRR-00000003lA8-19mS
+	id 1x2kRX-00000003lBT-2KUI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:03:58 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49b965570d7so20648475e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 00:03:56 -0700 (PDT)
+	Sat, 05 Sep 2026 07:04:04 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6a18840e2abso2672350a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 00:04:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788591835; x=1789196635; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mRF2sj6EV0Dui3NmrAkRlrIYgvCUUxE0IVt3jvr9R7k=;
-        b=BWL3DuqwwFmE9FOnNxrpUXsZqtGgm3yhFHCZDzdvrnmyzStFYuNW2QYSchCJ7KcjeB
-         jZy7D2VfWlA6xE28U7bilCZy6E7gqzNplZWraU6nIpjp35urOJdJ0iqKiGQDF6MRKfm/
-         /atm8l6dGZ+cI08Kd93XRhFz4+62qYw3FSoiRaaLM6D2XwdRai/F2HfGSNhe9ziXwT5U
-         LzZZV2EfpiMfrzv4yr2ZP6D8xffMOQUPlrLwJgiVTEvjMYuoHhLeaSvbKkKHWAB2VRHT
-         TbhFTCHbxzFtEeU5waeVO6kOIt8NRrSuixV5x/bCZCR9p4/4rq/qN8L4nQ5dNPD5okSv
-         saIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788591835; x=1789196635;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788591841; x=1789196641; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mRF2sj6EV0Dui3NmrAkRlrIYgvCUUxE0IVt3jvr9R7k=;
-        b=MUI4Wp20nFovp7OOtJdqh4nfXiIFU6Oh6PUrVsgNJOkMiIKM5qDGVJvuGTYCky1SZM
-         U8HLAZBjRtfXi1RF9jqSig1M/Ow1Szp7V+Z39sWBMhfRKF/7b0CLR8iBHdwIFN5ppDPg
-         m6q2XSeqlHDb6Z2zQBQQ0F5qcJLGgtD9x38vOHsLK1SEuAAJ544G64tVQluPJh1pcCV8
-         5IwzYyIMBfqEsvx+ZCU3SjxyuKSAVzvuFZJyJTJdiW1iZpa2X21dxSkEh0A751AySHav
-         Mpa3Mg0vD9vAA+7W+fXXF87+JL7P5NOEIdzFKkAIHbS9j6+y7WmndCgGrQlVNpFl9H6D
-         ldEA==
-X-Forwarded-Encrypted: i=1; AKwUvBwSsQR4Ns7Q8lL+cQDtCnSlm8MEln+qrRN3qdz1HolYdfKYnpnTq3ya8wi35Ve8o2mRrJT8Ab5mW3+QFwq6X9Uz@lists.infradead.org
-X-Gm-Message-State: AFuF++lhDO72vzwBxdD07vzMy1ZAlQVpiVbcjnIt8Kgz5sy6cykHK8OK
-	B27DE21kdigJTKUXjFsii2FhW/0gcdbxESyH0jJcJ6oNfM4g4cdOiU47
-X-Gm-Gg: AYBFou33snGN0tzBdG16El8xf3e5+rf1SD1aB9gEXIw8fG8gDMTex6/kpQcFoEcNvwS
-	zQ77uLXwE7+lcWyroV6RQbUSUQskvte1ngnLjMqty4b0lEJ4oziddzPTSx2QM+MZMaEH6PWrlhr
-	xmIqe4KBzHbWwNEVqtHm+aB0fJNF1ed6gSGrFzAUaS1xPx9L/qdug5EEVxMkXSU5rsb/KqYJipm
-	F7wGdrJ+xXAJbWAioX3mCvk735ccrcZ2kRqf3qRP6HCbO1rTI5sOm1N5rzLIJWb3ywcek2GZmEm
-	AlJgGpejGOUmP5Cy3xssy7Np2UcCpx2rxjz8t9Er6lPCmLJ0z/8bzebyDnleUnCjcEcPvhEdUxo
-	tBAtBTDm9qHVsdTJng1vDLoh1TymxdGoRYdt/mm1JXPaOEh027SoadmACMTu6WmFbz6+Bt/BcxG
-	xbop39JlEM616wRGiPnEkknYKVQhplvsHTsYTTuhLjcvkolWf3i5ertXV6tRhAkNfKNFpMCYNKh
-	QChG6Yk+Ae5JQVX2GXDqckffXJUoXDcJbCC1MKgzRSzXi+r2C5GxbjOXWCUixsUc2SlLBaHdFu+
-	8k9FWYNBshF5neoXnocL/1JS8CoRWAVJqdN7ZE5zdKWAGvJHwMpFhfnuzMVE3FP/2c0cSIUJ
-X-Received: by 2002:a05:600d:864f:20b0:49c:fc6e:8cbd with SMTP id 5b1f17b1804b1-49cfc6e8ed8mr59365875e9.33.1788591835143;
-        Sat, 05 Sep 2026 00:03:55 -0700 (PDT)
+        bh=RNFfTw1WuaSNgs5HCMSq2uznGZvnZVsIDtneqTMILXg=;
+        b=h790a6lCbbWVAQantolBTYF0DXAM5WBzxp5BuN4Z06yWJl5aYd9mHsl1G7uXtlDvMG
+         HZlOyfVdXsrwDgtOzLCzSCNBi1xaHWRMBl43F5Xt2vJpIGKTuyZ8+rCRt9G2kyhLPAho
+         X0u94C/AoJQASCXFzMV3gs8JisRkHxwLVnfouW/aqGXDCqkODFDQj2uQDdJ4aOkCe0hW
+         OuSaFl2ClbWEbkwtcoEUGfDzgYPMERnsgSMkTLCmGTlmS2A3Ct/30F24I95qK2jX5BTI
+         JRm4J7BCTPB4F/s4iA5uPwKw2RTUWEwo5H7iIwbuKp+Q46U6uO7KovH4uqkPG6BsHFaJ
+         jk9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788591841; x=1789196641;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RNFfTw1WuaSNgs5HCMSq2uznGZvnZVsIDtneqTMILXg=;
+        b=UxrC5VNPqtYS9Tf5+MDGsTij6BVSN9Jst95bcddsGMZdOlz/W0McackOO0HdXMM4tc
+         6epiPICyvGijf8aQGkGxPCEmJzC1rhztKxWdq+eURI80PFrdF/y0C69qRlhi8eIXfE7Y
+         8igMFjDuoYxmB77W6zzuvvMlWDOGeIexFREDF5vpmyS4f9lTOhM8D0xuzRJpwV7RGNb/
+         2IYAK8i0IYJTBE4KdYQfNtSFXRB/GcibFzP1zIs7qbbaV2mCu3W3HCknEg9athoNWa2i
+         59ycuHZBqM9rRe82mX2PB4SC4L5ZKdPBjCGX9YR0wrUvstx521oiQGeGgXUX5F0CSQsM
+         XjnQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxhiRLMc2WvwuoBw7UuqMIw222bIkDC2ss1Qnl3KKBef71P8p8FVJ/gGu6ss2I6UDydRdqPiIpNwXct+kuqpH/w@lists.infradead.org
+X-Gm-Message-State: AFuF++kHal+cU2046w0FsZ97zPirgJV8Y4lOKJ2RMwZbb6jnOFtAaOiO
+	pf642EAh7C4Hzu+hejkguQQzp97LMhZUlpP7VMZz2sO3nYrBc+EBwFHu
+X-Gm-Gg: AYBFou3XOU/v4Vg08HwjgNdNChkr5CGMAtpSWyCe6vcbJz+wrvZUnPARSqmZO5jOtY3
+	D8sygfTc6GrMRYghsJ+YLIUdRmato+Ei71oTrohu+j+d6aSIEbDhRdWwOm2tFrZFB0rKV8Ry86p
+	Q79YpX3mY0m9+ZuLTm0SNZAPkCnMDPhJ/SXrWWuxSQkTGiI5L3xjq+LJQ5cgCah4EruGAiD+qX2
+	gCw1Wh4t2ss30EGYFCAVAe3lTUKgFp+bbN0xNnsBl5GkNfh1VZyrNsDhQikXAf472w48fzQ1nRH
+	RTBioqa+ZC/1JG4a7rVFcGIcZrOVR9WiA8tse9/kBO7bQc4gTRWTWRBzgPXtCUM/5U1iXg33+AZ
+	zWgT/dHb3mMzkkCJEpvL2FbDhSjLhO6EHfvKgWgSESClgRHfoXaAajzknM7WM4wK915Gp3l/uXt
+	lAfw0eC1ndFi0NUb+G2wn1SLdKRtfJTPnRaS6DajkQko5ArvdsFKG7tNBp1HxI6haxeOQrDptH+
+	33zkYEiCyHjG5DuGjAbgmHxuKIIeUtBgNiwyFmPyQrMi8bMi1JXm9DNhryX8CVgJR/lixqTT292
+	107iiZWYbjgzOjUAT4N1jxxjvwSxl/wlfbGQGLkz119aIAAiEbriYNlZ7DwL/zxtLKI39WLO
+X-Received: by 2002:a17:907:1c9f:b0:c26:1691:b374 with SMTP id a640c23a62f3a-c261691ba04mr359894966b.45.1788591840842;
+        Sat, 05 Sep 2026 00:04:00 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm12011719f8f.34.2026.09.05.00.03.53
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm12011719f8f.34.2026.09.05.00.03.58
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 00:03:54 -0700 (PDT)
+        Sat, 05 Sep 2026 00:03:59 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -98,16 +99,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Damien Le Moal <dlemoal@kernel.org>,
 	Niklas Cassel <cassel@kernel.org>,
 	linux-ide@vger.kernel.org
-Subject: [PATCH 0/9] docs: kernel-parameters: Remove ten entries for parameters that no longer exist
-Date: Sat,  5 Sep 2026 09:03:38 +0200
-Message-Id: <20260905070347.25902-1-kmehltretter@gmail.com>
+Subject: [PATCH 3/9] docs: kernel-parameters: Drop the edac_report= entry
+Date: Sat,  5 Sep 2026 09:03:41 +0200
+Message-Id: <20260905070347.25902-4-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <20260905070347.25902-1-kmehltretter@gmail.com>
+References: <20260905070347.25902-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_000357_354492_6D756B2D 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260905_000403_616561_76322EDA 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +124,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel-parameters.txt still documents ten boot parameters whose parsing
-code was removed with the drivers or platforms that used them, one of
-them (atarimouse=) since before the git history. One patch per
-parameter, each with a Fixes: tag for the commit that removed the
-parser, so the maintainers of that area are on their own patch only;
-the two pata_legacy module parameters share the last one. Each entry
-was checked with git grep for its __setup(), early_param() and
-module_param() handler and with git log -S for the removing commit.
+edac_report= went away with commit fee27d7d9788 ("EDAC: Delete
+edac_stub.c"); nothing parses it any more.
 
-Karl Mehltretter (9):
-  docs: kernel-parameters: Drop the atarimouse= entry
-  docs: kernel-parameters: Drop the bau= entry
-  docs: kernel-parameters: Drop the edac_report= entry
-  docs: kernel-parameters: Drop the enable_timer_pin_1 entry
-  docs: kernel-parameters: Drop the mini2440= entry
-  docs: kernel-parameters: Drop the nomfgpt entry
-  docs: kernel-parameters: Drop the omap_mux= entry
-  docs: kernel-parameters: Drop the pcmv= entry
-  docs: kernel-parameters: Drop the pata_legacy.qdi and
-    pata_legacy.winbond entries
+Drop the entry.
 
- .../admin-guide/kernel-parameters.txt         | 67 -------------------
- 1 file changed, 67 deletions(-)
+Found by cross-checking every documented name against the __setup(),
+early_param() and core_param() registrations in the tree.
 
+Fixes: fee27d7d9788 ("EDAC: Delete edac_stub.c")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ Documentation/admin-guide/kernel-parameters.txt | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 99d5bb68968a..2a8d862ef30f 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -1578,14 +1578,6 @@ Kernel parameters
+ 			PCI device even when its classcode is not of the
+ 			UART class.
+ 
+-	edac_report=	[HW,EDAC] Control how to report EDAC event
+-			Format: {"on" | "off" | "force"}
+-			on: enable EDAC to report H/W event. May be overridden
+-			by other higher priority error reporting module.
+-			off: disable H/W event reporting through EDAC.
+-			force: enforce the use of EDAC to report H/W event.
+-			default: on.
+-
+ 	edd=		[EDD]
+ 			Format: {"off" | "on" | "skip[mbr]"}
+ 
 -- 
 2.53.0
 
