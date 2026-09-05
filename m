@@ -4,141 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4CAC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 20:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9326CC79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 20:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Xp8KQeehEjvHnd46BlS4YLmrmakc1uozIlqsBkKWZI=; b=DgJ9OmaTDd5JWd/19+qLIVryuA
-	FSB1JaIDgFB3b/VoSrF81uLIZHg73mEqlN9rzC1aLnfdUkw6wwje7bSmRl3g6o6PiDft/Te9yPvbj
-	qFATmpjdiCgf4ofhGAZtY+PfnNiGCdOoNkSO6b0GshHscRLxOtw/+vBiKLnZ5ywHarfMa+sqUOXwe
-	unMrkNOmV6VIHz6d+qhFdbXdcEYKMuIll5rQK6wQUk9VcCPevbd8zLScr6Sk/jEqUKGVjKXbCjRB7
-	W603epxNHfRBay7ghRiB2FGLGrG0ENfC9cKWvRDaQBUdjQlTqBwoHfCh4PvVqDl5Jh9dQhWSit2ZW
-	vp1YMQmQ==;
+	bh=Tegd1GECJ9D1sJrLs/B9DOHmTKY2wOxS7gCgv9dsjag=; b=T5HOw/Ob/1k6NoqxxsMiTQA3aq
+	WHnEgxtI5YpYKKd/pemcL9Z4zcfH8Wx3h1M4w7HYPAV438oc0OrBnyx1bDuWkbaMlErm4Ui25buLt
+	P/CkSPFAi5DozKnEZnViH4e4FO0WWvfoo+b2KPs6B2t+vQ8g5DeJZwF53g0ZWJvqIsOQKHfoUJWyw
+	0pcQmSbKAzzhGQjittD6I5guOZmCuAuQG0g6ttzLzl0OBEkv9ZkXBz3MrGmNdtpCrxJecGmi+6UF+
+	1isuw4PY0ZYDM5J/ZcFiyezVx6vPmXMf244ZdtTKX+VvapZBIZrGxr56SUziebKLXCnMOJt/PYs25
+	lAYQTxjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2xJL-00000004PWa-1o1a;
-	Sat, 05 Sep 2026 20:48:27 +0000
-Received: from mail-northeuropeazolkn19012010.outbound.protection.outlook.com ([52.103.32.10] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1x2xJl-00000004PaK-0FfC;
+	Sat, 05 Sep 2026 20:48:53 +0000
+Received: from mail-northeuropeazolkn19012042.outbound.protection.outlook.com ([52.103.32.42] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2xJJ-00000004PVn-17Tj
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 20:48:26 +0000
+	id 1x2xJj-00000004PZU-1Jvg;
+	Sat, 05 Sep 2026 20:48:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U3HEC7QfaaEGI9ZrwFM8i4ZpgzvL0NIucg8MtkU2ScAVRsk/smzsY/1KfM/wV5DbnulRN8rovZZSsH6kA4Owr4cLBGmKU8CAGerzYd/MdNsNSaxFZio8n6MAJ7jv6PC9X3m5SR/CB+9oawJpvN7DUzLBdw33XsMXy40OxuDqGo9TnYzIh+LN4FK6QQWlZBDn+DD31KDEA3FyLE9OdBZ3hRot/x8E8jOGjJ/IHjeiRbfbsPibI7oQFMxvTapcjcOiCqSKoZTLJ9Ik3DjbcHBN7Sv9kzkqu7QiT5ThTDbaOSLg8DnrydeE2RksjOSgYUZWC9UYVqhdG4L4pUoSAy89eg==
+ b=avTVLb0h+Nis2iaNvbl+pPH5iSwlFPVUeIWWtybvgg6SPuyG+0CjNkPxQKaGONEZamWQ3z8IQ0SuBaKAg596QzkZKZ29PRQ4GlVexZiy8W5qYoKwPVKGbKmvum3+ckROsepYn85uLJ1DA0IitvhZhNUDNGype0Nl0OnXNTt+BCm1y2UUardqJ/1NaNQ4mppngGPGbLWegxOYxiUiKQw4RLnMcV2Y8n2z3dkXgRiZvdMqBg12xOqfa2lppW6TnkdHUKM+x4jNVWFYmGFdXOSgIVHjMPaXgO59IC1ybYddp9WxqsXQYV2BdDDI6bz4+WBThEvuYX0FclTCD3FBknldpg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9Xp8KQeehEjvHnd46BlS4YLmrmakc1uozIlqsBkKWZI=;
- b=V/r+qdDE6ALi5VtUm8gpSe3tcvTDr41zddrhAcmW57RnUtfh+OjoHRUPhpymJtGvdj2kWtmRoKhJJPgMY+J2x+HkMwTGAjuRkMETH/PJ0DrqUu5JYRAY0HCfbwwrkiD/WU5zvmTjuuy9H7jf0fMlmxjbja32jPQcB02cgpxGFmIc93aJIvUC4Y5Z+CbWYlzPd3vt89XzozDP/NvPZHYaSkkQFdlV6V4tFZQpyF96qfG4EVKa2nK3gCJe4NMtJ+gEAxMzbEMxx7HX1VdVtdsAHOrAIXZv3C5eBkjKtqGXHoQCfpixEdJRr9yGFeShbnoJJDsovLozKaZvMWJboX/Scw==
+ bh=Tegd1GECJ9D1sJrLs/B9DOHmTKY2wOxS7gCgv9dsjag=;
+ b=iwAugbwkJtWepU08PiFp5j07X5QCNcv67y/MyiRvI7pzrOKLKUPn1RzXMFxkiSm20/hunGNBllSr+rXJv4xLGmzuc223ahiPwko8Uad2Ek5W9o0ycS53KHuZDlGOZQi446Ty9euN1H+8PA1R770U1bbYQzrT1v78NOE4olEN2FsHWzZ6Nsc6SMVh9lAPXoWGHkLLmQjVGbojIoLqYdydo0JB2Y4J+ItF4THQV8oZLUm6px+KVoxKB8MjalW2MKjGjLw8u49bmIhdHq9UKX/XTTyyubStCrrBHXPPw+BvfLRnvvjAfKRPoyJbE05iDnTLMgM9nvSQH2XQzqZ4EcfF9A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=HOTMAIL.CO.UK;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9Xp8KQeehEjvHnd46BlS4YLmrmakc1uozIlqsBkKWZI=;
- b=M9rN3aeyqTKqIvHIaVJvFJEWTJHQvYV4Z6izd9qXSyoDH4uzjnLkGeKP/JNJm9XEncS4YZ10/C4b1sHbr8+LizZO90qXOxNjAwBVDU8q6R6z0lr2ZMvMHGsshi5nsGm4IrlK+2BNJma13YsV8xfIY7RQQ5XHGm7XrZDu0j/k5g+tdX3VkN7ej1rYoqOKIyOyrexVT1q4c+nsJ9SqVaGPNR1D9u4ijTx/p3IIGzLkjGgUtunBdqv/bHxuOI3M5rIOdDPkKGq39HWC90G1j8SwlDqVeFbEuGk9MfBP+8uRFtimzJfZd3IoxZ74NcLaucdEDmaE8x7fM4A0WFKUDbR/rQ==
+ bh=Tegd1GECJ9D1sJrLs/B9DOHmTKY2wOxS7gCgv9dsjag=;
+ b=Ek4POoISXWT4xgpdaGp/Wiu9nB+R2C+B4pDBU5eXf3/w2B+Ksl8HCpX8q/QKvWPhSvHc6VjmlUyvbTtyLuYOZ3q5+zlM/HGpoodPmZCWxvVoLV5JD0G9ODQ11VAbwZp4VDIAelqfFREzH2d31+scNJbFtY0g0HLCNDhoS9Y/23PJthgEtGNLhtVCXQnliuPJ2WZTLUMByyIVcSTJVgKGgdzGuTzPTUIa2Tm+E9msJe0g/UGC118oe9eRU3PvPvMyOeAVyaTRG0opG4jRG0LxukxUpjmfmUsOlgt15nWW40XjLCI1FWyYTVAs74E0HPlK/fZ2p2njDBcbWVYyvrBmPg==
 Received: from AS8P251MB0001.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:344::22)
  by PA1PPF75DB7739D.EURP251.PROD.OUTLOOK.COM (2603:10a6:108:1::21b) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Sat, 5 Sep
- 2026 20:48:17 +0000
+ 2026 20:48:48 +0000
 Received: from AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
  ([fe80::2952:d4d0:4ba:8352]) by AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
  ([fe80::2952:d4d0:4ba:8352%6]) with mapi id 15.21.0382.012; Sat, 5 Sep 2026
- 20:48:17 +0000
+ 20:48:48 +0000
 From: Aamir Ahmed <elb12345@hotmail.co.uk>
-To: Gregory Clement <gregory.clement@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+To: Georgi Djakov <djakov@kernel.org>
+Cc: linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
 	Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
 	linux-hardening@vger.kernel.org,
 	Aamir Ahmed <elb12345@hotmail.co.uk>,
 	stable@vger.kernel.org
-Subject: [PATCH] clk: mvebu: ap-cpu-clk: Assign .num before accessing .hws
-Date: Sat,  5 Sep 2026 21:48:07 +0100
-Message-ID: <AS8P251MB000199E5C86A0447B3FC48EDC8B42@AS8P251MB0001.EURP251.PROD.OUTLOOK.COM>
+Subject: [PATCH] interconnect: mediatek: Assign .num_nodes before accessing .nodes
+Date: Sat,  5 Sep 2026 21:48:46 +0100
+Message-ID: <AS8P251MB00010F5EE7878E15AF0E49F3C8B42@AS8P251MB0001.EURP251.PROD.OUTLOOK.COM>
 X-Mailer: git-send-email 2.55.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: LO2P123CA0100.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:139::15) To AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
+X-ClientProxiedBy: LO4P123CA0218.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a6::7) To AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
  (2603:10a6:20b:344::22)
-X-Microsoft-Original-Message-ID: <20260905204807.31752-1-elb12345@hotmail.co.uk>
+X-Microsoft-Original-Message-ID: <20260905204846.31973-1-elb12345@hotmail.co.uk>
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AS8P251MB0001:EE_|PA1PPF75DB7739D:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe0da56a-1e3d-4918-88b3-08df0b8f02eb
-X-Microsoft-Antispam: BCL:0;ARA:14566002|24021099003|16041099003|5062599005|23021999003|5072599009|15080799012|25031999004|37011999003|41001999006|8060799015|19110799012|25010399006|4140399003|53005399003|40105399003|2607281247196008|3412199025|440099028|26104999009|19061999003|1710799026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?goPrPvwlGcyVknayN+kbFq1LjHVjCEkrWrnaSilqfVuyTFS2QTgjip23r1g6?=
- =?us-ascii?Q?1CEdm/SEiGnX/cD60hx1uyi9mQd0WQXSVz9cq0NPd9YEtjQsRteqwgSl4PXA?=
- =?us-ascii?Q?AGy4qVHEwY4KefUvzOjMJZNtcGljkxro95qqgfY8oFySklGTSLyXpZ1SI3sR?=
- =?us-ascii?Q?D0TYZpw79ivLJ/VWCQr96lN9af+m7Y2LFaScEPDorGQwA3MTfabRAewAEQlV?=
- =?us-ascii?Q?ylGCULJEsUoufI5Kd0RYAQH2/3qghiJCQzae+HhhOA4gp1OO9HVPsPcO8tQd?=
- =?us-ascii?Q?hnfqSpW7eJZBzYKHa+wkm9/cT+xiGbI3VnrxAFQ2GEoH9MQDZr5oyIWS61LK?=
- =?us-ascii?Q?3G/mln/XUIIQtnOunVSATBDC9WQJ3uyUTiYv0PsFtfMmAxsVVxDp5oi0oM80?=
- =?us-ascii?Q?5tic5GvdPOMpUcdLwiw6jczvYs5S0nW+VehtVnW/Vs0EW6L12gewUC/2TDZX?=
- =?us-ascii?Q?OrDxLtrHPbmWJzH8AWXfnBmWdodbaEK7Rnzi0JFwJFrC2enc9fbOZiNr+Yp7?=
- =?us-ascii?Q?wn9+dkn+HpRMjA4r9t6yoZOkCa98L4fTOF1uhhq4OhoLISj7RPBV/U8qWmXk?=
- =?us-ascii?Q?3NPgOYatiB0s3gGv0TSpLS0KZdw1ZkJv/aipr7AWHE3iweroPUd8mV59XqZx?=
- =?us-ascii?Q?/bGnPNxg07lm7D02AghPcwBDZuFuhPRc5JQbi11xAgaFj+hXAML9h8QN0Yx/?=
- =?us-ascii?Q?w/90MYAzTdIRMBQpjHZ3EUw42UWNe4CQAFsQbQPM2WwG79FWl9eI0oGG9wAX?=
- =?us-ascii?Q?+QhnjjMgq5Z3lsYfnWOIPXBUP1STAfZP8y9edyWvtOeqznov47LWMO4tganv?=
- =?us-ascii?Q?TjWPiPIujI1Jq5qsbCCOWBOAsbDnKSZJH76gbwB6AsHX8iGYMUjPtS1FX0/3?=
- =?us-ascii?Q?xzJSeM9B22z8wU8r6GQU9JCDgXxO43ljJ7gLkbXCzPdLetg9VJkUhb7o1ZZQ?=
- =?us-ascii?Q?BeEQRwLX49dvCe47bq1DiybWBaJeJ6v+DH1QtglgF2Vyg85SHQNr5duMUpl2?=
- =?us-ascii?Q?+WiH9+GAPtVaB7/xrja1Di0a154SzkLOzrXnFekU3Mxh4ZT4NYHhZL1AXFZ8?=
- =?us-ascii?Q?9EnfBOLfE118ZBMw/iFLbR5CmbDLRirjYzf/KK/aHUPxgWDFnTB+PCMHcKvw?=
- =?us-ascii?Q?jipUi7Gbpb3YuSujKNIvZA2sDs5mqHB2oQ=3D=3D?=
+X-MS-Office365-Filtering-Correlation-Id: b178d9a2-bc90-494e-bdd1-08df0b8f15d8
+X-Microsoft-Antispam: BCL:0;ARA:14566002|24021099003|5062599005|23021999003|5072599009|15080799012|25031999004|37011999003|41001999006|8060799015|19110799012|25010399006|4140399003|52005399003|40105399003|2607281247196008|3412199025|440099028|26104999009|19061999003|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cRAdEVm7dvy6vtTfHRcjqDruyTrqHOCCEcFq1cs5q2dPpZc1c2JuZuQ+/FyC?=
+ =?us-ascii?Q?N+maEEfC6GwD2GfZP5NMYIt3PKm0VSqT0swHvOi5sjdiM364Rk2iIT4p22ZH?=
+ =?us-ascii?Q?pGbwQSaWLQSph9lFCKVxB3LXjPOnjJzrcV6FnoDZfQOIrAK7bDOq5XvPnrA8?=
+ =?us-ascii?Q?vFwXDNKdt8IJftvvHNYCzMfSRWUh4U87EdR9hx24Iozad/zN7Ih/nEQJKmN0?=
+ =?us-ascii?Q?QqluHBeca3bkWefJPLLWS/TMsTYl4YVjalv5wD1GaKqZVqrR6UJ1XCWE/AA+?=
+ =?us-ascii?Q?oYuVsZMXRNN7051sVrK+L1S0HB7zMNM7uGkMsi6kyc/aQ4jg8TcFra6Fs263?=
+ =?us-ascii?Q?+XiSiTsJeRC53Kd6jDBElmB/jigt5vyt6KbBk0rih93XWBdvUmUpiD3uEIAW?=
+ =?us-ascii?Q?1K8BsP4wHxrb2DgzX2BjT4CrfgUqThD1w9G49WFAa6ZATwc83Dur1dzpjyGr?=
+ =?us-ascii?Q?e1vFleYPbjl1yQTz3WTZBK+yUeGnKcMW/MPVi6H7SlhSLB0ISQy4TU1Wvsww?=
+ =?us-ascii?Q?Ia3mvOOvLJyHUlb/MQYKIoFxncDdAbk/iUatR8f4s3/AJanX8C1r+Q0mfHr+?=
+ =?us-ascii?Q?70aCbmUYD/N/RlaPh2Qf+2QwONFkvM2Q/9jUBSmp12ExmcJhP4mbeCeXyHL7?=
+ =?us-ascii?Q?73OnVxkxChgWXS1kD/tvi8bWn+4XiIQOR9IJpnz8B99HgFNYZMltzZQIyPLJ?=
+ =?us-ascii?Q?D4w85rzUzgQUEkfWs32ZJUxU091mi2/rvGZTWs6SLHJr5HhQtaqhB1Z5+vry?=
+ =?us-ascii?Q?NFyZbLFK57R+SpQSHh1FQ8lrQA06RmKJ2iqj1lTx+tfpNjN2/6fiSzcJI7uM?=
+ =?us-ascii?Q?rBl1aquRBFgDaSl2lYaJX4awfctKMk40KHEWco27Pxsc3SuTtTnpC8OLYx3a?=
+ =?us-ascii?Q?YfxEzB1UlOBVfN7YqtNzUCPa4ffZCjYKQw8dDtJAjHrc1DwR09Xy+7WVtAdB?=
+ =?us-ascii?Q?MF0i6BW8Yxg/KlY7TWP6MTBedVqu49d3Xddip1JqwJ5Yrc/zUD8Qjk7aNlRz?=
+ =?us-ascii?Q?6D8mYpuYO0yjg1LifwEFYd0vCz8NZzfXNHO5Zb7Zdu2STr2go1sOJ6/XGeVw?=
+ =?us-ascii?Q?1Keo0AcjXU+O1rLlFXEOCIzIYmyyrvOOh4DlTG+PjfCBs7gT8QZcYrZ7vZWd?=
+ =?us-ascii?Q?SaEdW9aM/3c4?=
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?syBZFhAzUvrmdv+BdVKa9626umdDc+djyfwyr/Tpn2QN43+QEF3+kVlp4yRu?=
- =?us-ascii?Q?Qh8IxZlA15AWAzMZoyoYvlxY17dxZT6aXfvFmbV9KoPHcxPSvHauwR9dEHzK?=
- =?us-ascii?Q?QNuUWp7l5Pq6Rfge/4ZEyUKsTJi6hEK8LQmLA2+kD8ulbrs/aGz5oZIa39ln?=
- =?us-ascii?Q?4ceDz9fH2wnSSXBHFQ31xYu/q+E1U2jbpaLOhi2W6ej1rpkoq7kh9hrAzxmY?=
- =?us-ascii?Q?aJkmgjJxg7tCFPJF05urWJSTUj0hYp/N/PFWRPJtSRHAHA8yq3hsPj01/BsQ?=
- =?us-ascii?Q?CGlHFBlT35uWVU59A4l7fSBqOPCXKWHaDO1Lxceov4JHmz1C1badb8/Z2jF5?=
- =?us-ascii?Q?YJFeSbzm+x8yiYfys7brynwVr6CT99rIqQZKOKuG0PQRm6N52LOioskh35fP?=
- =?us-ascii?Q?6Jlz0LVnouwgHF9MVwqPGEGORQSro1Q7V3vLzeUKwtd3ooAHPYwqNENxZrJt?=
- =?us-ascii?Q?1nr7U3sn6/fAqDX6uxzbLS24w0sktL+DE5hGLGn2ciwkr+U/DL+L8pG6RGu+?=
- =?us-ascii?Q?s5n4lfeVYANbrljLzkrZpyen3GTELUQb6ZHgUYqezVrs3awM4g61phwcMKi8?=
- =?us-ascii?Q?+Lyp39Ln+gqC8SJQp21DVlpTOQFwoyvQoCULXvoYY/oxnET3LhLj4kdxQzcY?=
- =?us-ascii?Q?tAw0+OdVSM+qUwn3OA4N9cJ3e7yNjQpXJWCePWCxbl0CJ3HaSqTOn7zrqdFG?=
- =?us-ascii?Q?rDzinldFlD3RW+B6ZMf186+sfPBBT5hA7D3rGT3wLKrlddj3o57LGx6YkrLe?=
- =?us-ascii?Q?9BTYqlf0iChubnQs0g8kKsEFwZDuzDBb1+yO7RfCPIbWsVNZYEs041vaqxCP?=
- =?us-ascii?Q?Ktobk15LYma7M4nk53PVR/HlghbDCgIGrdPh7R3s9mpPjpIoTLslSLqaMJwl?=
- =?us-ascii?Q?Ur8NWnPv8JwtGbYuAMncqAUafLLKW6pwN91AJ7pcsKkZoOaiqp9mjltujsY7?=
- =?us-ascii?Q?hyfkRSzVhrTsg2qFKftssiPd7dgXBpF83NpJ1kX7wz6UuPEGyGaEqTTkuSeM?=
- =?us-ascii?Q?NXJdIJ9rO4qremFVOpxBpAk5hPYYjt29GAKrhJ08usyyDmP24cVBQGu01+bl?=
- =?us-ascii?Q?28Aiy71oLF3tN94xytzDz7dXKOTA/dOYRwEbMRQcs3j/5E7yef9IGRJ4KYZE?=
- =?us-ascii?Q?Hauo3xduv++jSEbRl0YCQlLIUKCwJ5qvoPXEjNLeR1smTL0GcBMkOmcYjrQv?=
- =?us-ascii?Q?Wsh1bMVx+LS7do02j811SuHOJF4PkaKDpPmvcMyYiJyNJf59TE7/7uyPV+99?=
- =?us-ascii?Q?xEVdFW7beW+oMIrXyt5H41nut4awTLaRkRp6XbsqOjT2X16Br7eL5AKhjL6B?=
- =?us-ascii?Q?3DM46BfaJ6oC1JKKI64q9Uwq64DnEwhtVSrjU334fpK1oql8CblDdTxqbFnw?=
- =?us-ascii?Q?RjScwYOKxJ9DAZFfmPNSf54ylhAzJYfKwEZ0HNG4mL8JdEcVdMwu2njcYO6r?=
- =?us-ascii?Q?EivdRRlj4KMoBDFg7ul5I3VKqtk6zASV?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FOIXuVMssia3Ye0nemadkTpN0guVfP3row4pc4NYJ8zPAk42AfMbafforJEr?=
+ =?us-ascii?Q?qw+q+8m0qqRELiKaQVh62hjsH5VCF9GAvfWPGK2CTmTxavFKrJGTOqgt3E0O?=
+ =?us-ascii?Q?RWMZjVQ86x2heyVAuvOf9DmVVcDQ5Yal+cbuPbn6SjBJUiafIVSDdpkrYVfn?=
+ =?us-ascii?Q?iWiM9euBHvDgPp0C9c3gAlgg0AqBafJuwpc2NVPqf0gOxrIzSV8SDxHK2XRa?=
+ =?us-ascii?Q?i2wqrMQ/vo1r8+D6nyGGs9+a1vsnnAV4V3/nq2h9bkojJ2lFOLIU1Davu6Eq?=
+ =?us-ascii?Q?P514hl2sKvsdDX5uPnBhb5dYA/1ktF/tM+Tqmdew341ss7pAJqY2430HuTXA?=
+ =?us-ascii?Q?NDDz0wL6srpfkNhThwdtt+Re+8mj9ddiByAUJAlSeUwtdz9PvprNw7CZ/8/F?=
+ =?us-ascii?Q?eyqDMXNA2EGIF7r/3xwf2GXZJ1i9jERnziaZ8qVyfwK/D53ByqJmllr089cg?=
+ =?us-ascii?Q?i3yq9ihn9vctQphg8ARlvRG3X6wFL3bXj7mvX9GtAl9rRc8+5wG1LsWX7Dh/?=
+ =?us-ascii?Q?VnWh/7a6qFy3wVCB4lt2mEQNzt/AFR90d/0L+VXdCPvcYVLf/+wFhbuLWsi1?=
+ =?us-ascii?Q?EUv7IA5CjeE5iT87lj6bbJo50DLaCtMZC9S23NAEgNVmFFTSNcPLzwshEalo?=
+ =?us-ascii?Q?RVOV8ZKImWnLfqBisX5XyjR9UnKGW/x2lmly54z/7LTBXgKhPqP0tC0aPh6C?=
+ =?us-ascii?Q?MSexNS74Zv9h9ueWZN61QDGemRZwYNWSyo12y3AR3e3ZgbNFsyD15VF192pi?=
+ =?us-ascii?Q?bweo2lprILqozVrQfxtAfpNAinRF3OvKkGbx2Al/motJr7nDy/rYWP8lmNbW?=
+ =?us-ascii?Q?BOpN84Na6l7K5V36eTZXEKaD6/us8D9afM5eT9VPizJlqDD8XHNwjdiqMMIi?=
+ =?us-ascii?Q?+IysTjzfuNXj9YL1YKv1v/rFaES9Xs126E3/OEx7OKVrtyfG/YisGRmkSE35?=
+ =?us-ascii?Q?ur/0DZAq5ns9esmbPRT8ggnEbIOccfpcZknfKyibVmQthxmFg6KUwZzmi+C4?=
+ =?us-ascii?Q?DQNqNwxAKhXocJCSZtM5BEJLGPgrh5c+wfPeyIQ6BNW3ud6A3Ln5WC2n92XU?=
+ =?us-ascii?Q?lipUiS7inOCx/hyj+Jeiv/V6LNyEfzpdRnsLuVUJuaRf51T0/zE2rZeT1Vrz?=
+ =?us-ascii?Q?njPUSS94rI4zQFAf1l1MsjwJpU2y/+J+sWKvMKjrbI6/lKWqZc/CI54rI9wg?=
+ =?us-ascii?Q?sl6KLX0Vi7XB4lq5Al0j2unedDOxaVGymzdqRlsdPBvf6T/PrDvxJtNncYrm?=
+ =?us-ascii?Q?SHS/nyklhre8pGQh1Olb58iqAMCzcJvBtMe53a/Yj95U/tZU2nrMpQ1/+nt8?=
+ =?us-ascii?Q?jkWTZOclIpVrsD63soMCMOuBWpFTFr0bOlJ+wSVb+CdvzTEUVR1Je8Bo5Op+?=
+ =?us-ascii?Q?Dk3Zj4zEchsQ3iIswR+DKQVjb96u/mWo0RHio5nMmDXiNh+KYJ3evmyiBNL+?=
+ =?us-ascii?Q?rHn0C7062BRGDK1nWhA1UJYLfn3Gr8rA?=
 X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-fe3f5.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe0da56a-1e3d-4918-88b3-08df0b8f02eb
+X-MS-Exchange-CrossTenant-Network-Message-Id: b178d9a2-bc90-494e-bdd1-08df0b8f15d8
 X-MS-Exchange-CrossTenant-AuthSource: AS8P251MB0001.EURP251.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 20:48:16.9729
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 20:48:48.7656
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PPF75DB7739D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_134825_308300_8531D6F2 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20260905_134851_384505_486E45CF 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,76 +151,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with
-__counted_by") annotated the hws member of 'struct clk_hw_onecell_data'
-with __counted_by, which informs the bounds sanitizer (UBSAN_BOUNDS)
-about the number of elements in .hws[], so that it can warn when .hws[]
-is accessed out of bounds. As noted in that change, the __counted_by
-member must be initialized with the number of elements before the first
-array access happens, otherwise there will be a warning from each access
-prior to the initialization because the number of elements is zero.
-This occurs in ap_cpu_clock_probe(), which reads .hws[] to skip clusters
-that have already been set up and writes it inside the CPU node loop,
-but only assigns .num after the loop. With CONFIG_UBSAN_BOUNDS and a
-compiler that implements __counted_by (GCC 15.1+ or Clang 20.1+), this
-triggers an array-index-out-of-bounds report during probe of the AP806
-and AP807 CPU clocks, and with CONFIG_UBSAN_TRAP the first access traps.
+Commit dd4904f3b924 ("interconnect: qcom: Annotate struct
+icc_onecell_data with __counted_by") annotated the nodes member of
+'struct icc_onecell_data' with __counted_by, which informs the bounds
+sanitizer (UBSAN_BOUNDS) about the number of elements in .nodes[], so
+that it can warn when .nodes[] is accessed out of bounds. As noted in
+that change, the __counted_by member must be initialized with the number
+of elements before the first array access happens, otherwise there will
+be a warning from each access prior to the initialization because the
+number of elements is zero.
 
-Initialize .num with nclusters, the number of elements .hws[] was
-allocated with, right after the allocation. For the in-tree AP806 and
-AP807 device trees, which list the CPU nodes in ascending order, this is
-exactly the value the old assignment produced. It is also the correct
-value for any other node order, since of_clk_hw_onecell_get() rejects
-indices at or beyond .num.
+This occurs in mtk_emi_icc_probe() due to .num_nodes being assigned only
+after every node has been stored in .nodes[]. With CONFIG_UBSAN_BOUNDS
+and a compiler that implements __counted_by (GCC 15.1+ or Clang 20.1+),
+this triggers an array-index-out-of-bounds report during probe, and with
+CONFIG_UBSAN_TRAP the first store traps so the interconnect provider is
+never registered.
+
+Move the .num_nodes initialization to right after the allocation. The
+value assigned is unchanged, and the other users of struct
+icc_onecell_data already initialize it there.
 
 Cc: stable@vger.kernel.org
-Fixes: f316cdff8d67 ("clk: Annotate struct clk_hw_onecell_data with __counted_by")
+Fixes: b45293799f75 ("interconnect: mediatek: Add MediaTek MT8183/8195 EMI Interconnect driver")
 Assisted-by: LLM
 Signed-off-by: Aamir Ahmed <elb12345@hotmail.co.uk>
 ---
-Found while auditing the remaining clk_hw_onecell_data users that assign
-.num only after touching .hws[], following the fixes already merged for
-clk-s2mps11 (3e14c7207a97), exynos-clkout (cf33f0b7df13) and
-clk-raspberrypi (6dc445c19050). The audit, the fix and this changelog
-were drafted with an LLM assistant and reviewed by hand.
+Found by a tree-wide audit of every __counted_by annotated flexible
+array whose counter is assigned after the array is first written. This
+was the only remaining user of struct icc_onecell_data with that
+ordering; the same class was fixed earlier in clk-s2mps11
+(3e14c7207a97), exynos-clkout (cf33f0b7df13) and clk-raspberrypi
+(6dc445c19050). The audit, the fix and this changelog were drafted with
+an LLM assistant and reviewed by hand.
 
-Compile-tested only (W=1, no warnings) on x86_64 with GCC 13.3, with
-CONFIG_ARMADA_AP_CPU_CLK=y and CONFIG_ARMADA_AP_CP_HELPER=y forced on
-the make command line because the driver has no COMPILE_TEST option. GCC
-13.3 does not implement __counted_by (CC_HAS_COUNTED_BY needs GCC 15.1+
-or Clang 20.1+), so the build only confirms that the change compiles;
-the sanitizer path was not exercised. I do not have the hardware, so
-this is not runtime-tested and no UBSAN report was captured.
+Compile-tested only (W=1, no warnings), on x86_64 with GCC 13.3, with
+CONFIG_INTERCONNECT_MTK_DVFSRC_EMI=m forced on the make command line
+because the driver depends on MTK_DVFSRC, which has no COMPILE_TEST
+option. GCC 13.3 does not implement __counted_by (CC_HAS_COUNTED_BY
+needs GCC 15.1+ or Clang 20.1+), so the build only confirms that the
+change compiles; the sanitizer path was not exercised. I do not have the
+hardware, so this is not runtime-tested and no UBSAN report was
+captured.
 
-Based on v7.3-rc1. On clk-next, the context of the first hunk differs by
-one line (struct clk_init_data init = {};), so it needs a trivial
-refresh or a three-way apply there.
+Based on v7.3-rc1.
 
- drivers/clk/mvebu/ap-cpu-clk.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/interconnect/mediatek/icc-emi.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
-index 1e44ace7d95..ed3ca59e0ee 100644
---- a/drivers/clk/mvebu/ap-cpu-clk.c
-+++ b/drivers/clk/mvebu/ap-cpu-clk.c
-@@ -284,6 +284,8 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
- 	if (!ap_cpu_data)
+diff --git a/drivers/interconnect/mediatek/icc-emi.c b/drivers/interconnect/mediatek/icc-emi.c
+index dfa3a9cd939..c4aa0ab566d 100644
+--- a/drivers/interconnect/mediatek/icc-emi.c
++++ b/drivers/interconnect/mediatek/icc-emi.c
+@@ -100,6 +100,8 @@ int mtk_emi_icc_probe(struct platform_device *pdev)
+ 	if (!data)
  		return -ENOMEM;
  
-+	ap_cpu_data->num = nclusters;
++	data->num_nodes = desc->num_nodes;
 +
- 	for_each_of_cpu_node(dn) {
- 		char *clk_name = "cpu-cluster-0";
- 		struct clk_init_data init;
-@@ -333,8 +335,6 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
- 		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
- 	}
+ 	provider->dev = dev;
+ 	provider->set = mtk_emi_icc_set;
+ 	provider->aggregate = mtk_emi_icc_aggregate;
+@@ -126,7 +128,6 @@ int mtk_emi_icc_probe(struct platform_device *pdev)
  
--	ap_cpu_data->num = cluster_index + 1;
--
- 	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, ap_cpu_data);
+ 		data->nodes[i] = node;
+ 	}
+-	data->num_nodes = desc->num_nodes;
+ 
+ 	ret = icc_provider_register(provider);
  	if (ret)
- 		dev_err(dev, "failed to register OF clock provider\n");
 
 base-commit: 654ae5d73c05bd2943d65636ce6cd0aa46e62f18
 -- 
