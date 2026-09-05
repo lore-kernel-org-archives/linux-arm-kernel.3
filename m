@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95590C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02504C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dJjbs7F/aSeREhZ4M4hX91XsW5vUHNRiOu4hPmmpt0Q=; b=pxa4V5gw3lEN9szIaU4fnot4e4
-	vRgLkkQgtXKZAm75HUOphtL+K0jqiijSFEHmLNsXWMXsiLyWHzlSfeFmuMvNUBGxmXldtbYNMP7Kf
-	Fk7tYwPzh6cBnjHuPtg8oxOuuXgTarp2Lldyx2nsrAfoKSih0syHMJBvesZ+ZfWA/M2GAY62MWWAY
-	7otOtbhQT99hkzXkNrWaEwxTfIS5sKmQxN2x42jImjcz83YccttFQahgm96sEvky+TSv02Fu1qJQd
-	jZ+0ArH4oj8muaW9mdfek9O/1ec5Pt11u/dp6297zY4FUytzTCxPqCGwcSWzPF1S17M45EC9gzbwd
-	llSl5Baw==;
+	bh=gg7yGPoxmOER5IO+qS0nz0EXCl4ZbJfKsrGtP/+PZC4=; b=mCOumBV5S2M9Gu699sqIBcv8kb
+	pD3Dz4BZlMd8l+x5jKBi+8H/vMgct+9IfjdgKPYBIDtRu2qGZC3cDpf7qzmkPd3Y8wyubrLFJdEOy
+	JG3h3RWqp3KUvy1ncmjRT61snW22WeZh/SCWCNelk4M3BYmIHNjDC7S6BBpjlisdLPMLoigDeGqFD
+	LAbY8/kI9+Er2WI+SPy8prwn3OCSKdLZUZcSVtEs/+IOMKaF/xz8lY9fpTI1wWDHZuDpMB9mQs6sw
+	5huh0unlayyz8R83cl5U6UM4R1QSJ6mnz8IjgoCTbm39zywGfDLQV8K+ZeDdbUyFNEyLnvAGM1Izg
+	P1wOYmEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2qYi-000000046un-1r0m;
-	Sat, 05 Sep 2026 13:35:52 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1x2qbn-0000000477k-3Sa8;
+	Sat, 05 Sep 2026 13:39:03 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2qYf-000000046tm-1u0f
+	id 1x2qbl-0000000477N-0Ytu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 13:35:50 +0000
+	Sat, 05 Sep 2026 13:39:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=dJ
-	jbs7F/aSeREhZ4M4hX91XsW5vUHNRiOu4hPmmpt0Q=; b=HwncwR6yTjqlh4t2lr
-	7kFWgKNfa7ZqR0434Jsqro3uBPiYmx0W+uu3Jc4pMYl/s49GrviT8VdefhIKy+ij
-	VCK3FloFhoyDpPrYaOzIskGGXZRh+TnsOtcYaiSIydZ9APl02+T3Z3zjzPILerct
-	l9GZybUFcIujlW56DlXFzxtG8=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=gg
+	7yGPoxmOER5IO+qS0nz0EXCl4ZbJfKsrGtP/+PZC4=; b=TICd8S/Hf6akrFKnns
+	Qzg9Hn3X+BW4if5c3xiO5prSgs19MEXmnHwxLkgVEGtseZOftFi2B50Ly+48XhtD
+	0PHv4PvNLLsKmlwVC7hf7umxRL9p7RgoY2GOEHPbKsfBuowPlL4I2ZbpImIMnz11
+	tRGU/7X5ltsjqh7epUOIogUTM=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wBn7IehGpxqqn1WAw--.53861S2;
-	Sat, 05 Sep 2026 21:35:30 +0800 (CST)
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgBH5ABXG5xqgnQWOw--.14941S2;
+	Sat, 05 Sep 2026 21:38:31 +0800 (CST)
 From: "hpp.iscas" <hppiscas@163.com>
-To: Stephen Boyd <sboyd@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: "hpp.iscas" <hppiscas@163.com>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-clk@vger.kernel.org,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: sunxi-ng: a523: Publish the MCU CCU module alias
-Date: Sat,  5 Sep 2026 21:35:27 +0800
-Message-ID: <20260905133527.64811-1-hppiscas@163.com>
+	linux-kernel@vger.kernel.org,
+	Jie Gan <quic_jiegan@quicinc.com>
+Subject: [PATCH] coresight: ctcu: Publish the OF module alias
+Date: Sat,  5 Sep 2026 21:38:29 +0800
+Message-ID: <20260905133829.65890-1-hppiscas@163.com>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-CM-TRANSID: _____wBn7IehGpxqqn1WAw--.53861S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZryrWF1xKry5WF13Jw18Xwb_yoWDuFc_u3
-	WxZrWDGa48CFWDAF15Aws5ur9Yv34rXrnYgryj9ryaqa4UZFyfAr4vqr1DJ34rZayxAFyD
-	GF1kGFW8u3y5tjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRRk9NDUUUUU==
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxQJwOWqcGqIkOgAA3e
+X-CM-TRANSID: PSgvCgBH5ABXG5xqgnQWOw--.14941S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKrW7Jry8JrW7uFWfXF43KFg_yoWDuFX_Aw
+	1vqF9rZry8GrZFkF1UJwnxCr1fGrZ3urs5Xr10qrZavr9Fvw1fAr4kKrW7Aa18CrWvvF97
+	KF4DWr15u3y5tjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRRBHq3UUUUU==
+X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxRedZmqcG1ct1gAA3o
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_063549_950068_08ED6835 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260905_063901_650007_AA28ADE4 
+X-CRM114-Status: UNSURE (   6.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,33 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 MCU CCU is built as a separate module. Its platform driver=0D
-uses sun55i_a523_mcu_ccu_ids, but the table is not exported for module=0D
-autoloading.=0D
+The CTCU platform driver binds qcom,sa8775p-ctcu devices through=0D
+ctcu_match and can be built as a module. Its OF match table is not=0D
+published for module autoloading.=0D
 =0D
-Publish the existing OF table. The main and PRCM CCU modules do not=0D
-provide alias metadata for this module.=0D
+Publish the table. This leaves the TMC dependency, probe and power=0D
+management callbacks unchanged.=0D
 =0D
-Fixes: 598e4b6713b5 ("clk: sunxi-ng: add support for the A523/T527 MCU CCU"=
-)=0D
+Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")=0D
 Signed-off-by: hpp.iscas <hppiscas@163.com>=0D
 ---=0D
- drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c | 1 +=0D
+ drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +=0D
  1 file changed, 1 insertion(+)=0D
 =0D
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c b/drivers/clk/sunxi=
--ng/ccu-sun55i-a523-mcu.c=0D
-index 197844f..f5f0f87 100644=0D
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c=0D
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-mcu.c=0D
-@@ -453,6 +453,7 @@ static const struct of_device_id sun55i_a523_mcu_ccu_id=
-s[] =3D {=0D
- 	{ .compatible =3D "allwinner,sun55i-a523-mcu-ccu" },=0D
- 	{ }=0D
+diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hw=
+tracing/coresight/coresight-ctcu-core.c=0D
+index 9043cad..a7caa5b 100644=0D
+--- a/drivers/hwtracing/coresight/coresight-ctcu-core.c=0D
++++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c=0D
+@@ -295,6 +295,7 @@ static const struct of_device_id ctcu_match[] =3D {=0D
+ 	{.compatible =3D "qcom,sa8775p-ctcu", .data =3D &sa8775p_cfgs},=0D
+ 	{}=0D
  };=0D
-+MODULE_DEVICE_TABLE(of, sun55i_a523_mcu_ccu_ids);=0D
++MODULE_DEVICE_TABLE(of, ctcu_match);=0D
  =0D
- static struct platform_driver sun55i_a523_mcu_ccu_driver =3D {=0D
- 	.probe	=3D sun55i_a523_mcu_ccu_probe,=0D
+ static struct platform_driver ctcu_driver =3D {=0D
+ 	.probe          =3D ctcu_platform_probe,=0D
 
 
