@@ -4,115 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614FCC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E0DC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1laQkaalUiiF2l+66NpDYtabQQgOZ1QcHsX78DjjSw=; b=YpW5kdnNO7sV0QqroSMa8be/LT
-	vSEkcp/P9Sys8Joe51dCWrCB6vQ2SlEUwu4QL7eyr1K7bA03R8GtmVe3f2tAuwxGyaG6CbGEJLeAN
-	xO+7s5Whb13JKF8ZxT1cEp+LxcXQ/dwBrvu1jmKxE1ecIYPh0NWtn5jLCv2zNlgw/ueyZoZsaOaGj
-	6mhY3k8Jom9wvPcc9TVnSz0310p2DJW+7JNDaGosW8xCfXxITH8eH76PhCORgtOMFQI3/VI8eqS5T
-	8qQ+d0X63D6FK8S+k8dFZdx4KJopWKYcv7txRZhhDeAnv9MJPo8RIIN04WVOxOnIObrbs+q9SmeqG
-	PDfDNXwQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h4+27NX6f71aIYWGk8AUx1jZFXcAPxn0Psebvis+0mM=; b=Dz10+gBp5aoUoowY2q8N0TM91X
+	jKyRIUWHrOdl8FTyS1rckkprJXZIWxalvlSwB1AuBEA4xejsfIpnmk0BrKfnbbSf1y5egiT+tjUdh
+	m927qW/oRSbUKGIWjY6uP93VERBZqTSJpmo3jtPbjifRL7mGJYt/5nU147VtXEOkKugoQEdLp5Ltb
+	SlXFMlTuyGZSC+4T1lnVwnHNI02poaGUz0OZgckJ0aZ/4/Ij4fRaVc/Yk68GNL/bGBMNam4iWMayC
+	k2Ee9dombdFnB266dAf5E28DGSCC/n62Z9IzRcQiMgcpQERtvstNmXnfn796IoKY+nlckDrlD7i7a
+	kTitJKZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kjz-00000003mkA-13xG;
-	Sat, 05 Sep 2026 07:23:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x2kpV-00000003nHT-0yso;
+	Sat, 05 Sep 2026 07:28:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kjy-00000003mjv-3DCO
+	id 1x2kpR-00000003nFZ-0lTP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:23:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6303C600E2;
-	Sat,  5 Sep 2026 07:23:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AB681F00A3D;
-	Sat,  5 Sep 2026 07:22:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788592985;
-	bh=k1laQkaalUiiF2l+66NpDYtabQQgOZ1QcHsX78DjjSw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=niel0sHFt0Lxtr9ouMrbKivusUVBVR1+QzLB4GBfwWnIm//ToNqZDJS4RbqhGgG1w
-	 x7vQy76dlYIcDg2RHBev5sguK6nx1CmpvB2OqSYh+e/BHvmoeo5fkZIZDgi5elY+AE
-	 Xehu9ZyJZT0X2N554z8aiHQBQpv1g29fvKTFjqGcSGKXam+mdL2dfet7qx1HdwUt65
-	 EW0WxOXeXWNN7QOfwGyhojxW7gN3J+WY7LEjpgtzaO8N/y5LopwUzNQYw3GVh2zDIo
-	 GruKbgL4KIaJvB8of+xIXfEnwQVwM3y8npvBTO/DmNihm8D33/Yv6QewdtkDMab8DR
-	 qgNPXtmMyneqw==
-Message-ID: <3aa50c6b-6a8b-4323-b291-d2fa6f8bce0d@kernel.org>
-Date: Sat, 5 Sep 2026 09:22:55 +0200
+	Sat, 05 Sep 2026 07:28:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 379B44E41530;
+	Sat,  5 Sep 2026 07:28:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EA37160580;
+	Sat,  5 Sep 2026 07:28:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 94E6C11C787BD;
+	Sat,  5 Sep 2026 09:28:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788593317; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=h4+27NX6f71aIYWGk8AUx1jZFXcAPxn0Psebvis+0mM=;
+	b=EQxouB3pWOxWOJ1psr9a5YYC1X5PEYiJY/vlRQfgQND+bsUa8I3TeOTXoEIellRY7/lm9r
+	arK8X9p3I9x0L32NiSChigzVJ1LxY9l7KuG7Z4QRQSznnji+nlHSMDg/65BLk5zDyKP2KY
+	vuK1Pj8yGu4UT5EAqc02DvZAQVUGPK2mcl83cz7Yg+Ut/6PG4Wzf+q8Sq8PA21ldrqEUgu
+	yR6vbxLVup82N2X+1zPvPl9T6h3RoFAQYR2h+LjXtLYIc7q1BSDuTXmKTvxmoCjlFM21PM
+	mY5QbIjA4pXaTgMIS4sv1wfxYl/tBBzmMfXWAatoVSDYAPfwkI6dpv9AEvtFRQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Yao Zi <me@ziyao.cc>,
+	Frank <Frank.Sae@motor-comm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH net-next v2 0/3] net: phy: motorcomm: Enable analog frontend DAC on yt8531S
+Date: Sat,  5 Sep 2026 09:28:25 +0200
+Message-ID: <20260905072830.28986-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] docs: kernel-parameters: Drop the mini2440= entry
-To: Karl Mehltretter <kmehltretter@gmail.com>,
- Jonathan Corbet <corbet@lwn.net>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
- linux-doc@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
- <dimitri.sivanich@hpe.com>, Tony Luck <tony.luck@intel.com>,
- linux-edac@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
- linux-omap@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
- Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- linux-ide@vger.kernel.org
-References: <20260905070347.25902-1-kmehltretter@gmail.com>
- <20260905070347.25902-6-kmehltretter@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260905070347.25902-6-kmehltretter@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_002845_359255_49CDB1DF 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,21 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/09/2026 09:03, Karl Mehltretter wrote:
-> mini2440= went away with commit 61b7f8920b17 ("ARM: s3c: remove all
-> s3c24xx support"); nothing parses it any more.
-> 
-> Drop the entry.
-> 
-> Found by cross-checking every documented name against the __setup(),
-> early_param() and core_param() registrations in the tree.
-> 
-> Fixes: 61b7f8920b17 ("ARM: s3c: remove all s3c24xx support")
+Hi,
 
+This is V2 of TY8531S fixes for the YT6801 PCIe card.
 
+It enables the analog frontend DAC at config_init() similar to what the
+most recent vendor driver does.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Sashiko thought this would break after suspend/resume, this has been
+tested and it's actually fine. This V2 just rewords a bit patch 3's
+commit log, no other changes.
 
-Best regards,
-Krzysztof
+V2: No functional changes, updatede the commit log of patch 3 after more
+    testing.
+
+V1: https://lore.kernel.org/r/20260831073747.361482-1-maxime.chevallier@bootlin.com
+
+Maxime Chevallier (3):
+  net: phy: motorcomm: Split yt8521_config_init() page management
+  net: phy: motorcomm: Add a dedicated .config_init for YT8531S
+  net: phy: motorcomm: Enable analog frontend on YT8531S
+
+ drivers/net/phy/motorcomm.c | 76 ++++++++++++++++++++++++++-----------
+ 1 file changed, 54 insertions(+), 22 deletions(-)
+
+-- 
+2.55.0
+
 
