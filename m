@@ -4,112 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2DBC624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAF8C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=; b=HW3OK3mqc+/jPI0paBJiHY2dhD
-	9h3ki2C+9GX/pCUzeg+SMEIn+SZ4bBB3U7Zi0tLorivWtexeWdPPsJw6lYOpfwWddmfTwChDNIuqi
-	hiCgAozpH6kDoMLah1uEE3icCsyUnofFnEM49O7U6Nme9kPxkCifTBw3VyimSqzRptoh7BXoxAK2G
-	0s63gPtpGbdLMNrAeHvIH3KRAltwdWFwce5YBJ17Zig9JYTbBawU3S21Xpa7qAp/a11UgfFztGWfY
-	5Aoxy3axByjAz5EgjqGs6NYsfIZbT9kLgT+8YF+XT9iIho2MBlSsw8B2k2C1t00vUxMvV49y7cQ5z
-	m9xM/1bg==;
+	bh=H8ZBz3umxxhqbNlNKwwRtIpUr3ROModBIAzMxPN9tJ4=; b=vNfS+bImEJ0nsOH6/CuC3UBDkc
+	lphKmcs2N6iVgVtdOd3JifCrvluu7egW2UNJjnnHR3P/G+cA9myjvUl3eTYIuXVZPNl7kfSLZJKp2
+	tIaxUqltVzvJkevhDHvrZfc5k/lTRV2TIjNpZ2Us1Zv9noJPNfmiOhGF98gfZtifOWo0OB3H37Z9U
+	OUP+15m56rpsPicnMn9gcgP5iC0GmGNOaghj9Rxtxhu044OFvjMkSMl8EgrvIxH0XROStU2V/9f/s
+	dyJChnfLfyn59eI0gYx+Cs9+vk6EdUS/6AwLXQWEfsJ2LjNr0QD5YW5oPRpiFmUcui4ZzDkDNzhjT
+	UFph50FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRr-00000003lOb-05Lk;
-	Sat, 05 Sep 2026 07:04:23 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1x2kdd-00000003mMm-0uwx;
+	Sat, 05 Sep 2026 07:16:33 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRl-00000003lKH-2cmY
+	id 1x2kdY-00000003mMO-47Q9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:04:19 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-482e067e908so1572158f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 00:04:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788591856; x=1789196656; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=;
-        b=WqBwSuQccdhTMBVVEp6rdQ62KgFh+8hjFEr0To82JYKsHxTI9my2AbaGLr+cxvaZrW
-         QDIVe+Ox9PELZsc1pqCO4fBmn1DbY/CmD2M4gB/zGLSnbRVCXou20+JNOKDkPlS4u7DD
-         wGUW2MSatIa0hvHwQUfou7L1vKulXUmPzlQThKxy1uHPza8Q7Ix1YFlwJdAF5Dqs+6hs
-         5kUAW4TVS/r2yUrqZOxlrsA95my3xtDSd18yhJ12x75R8EeZIfsYWRwGyg7qnTXKnLsl
-         aieBKKcpdDh+duqkTmNpNrfwAYXDWUyP52KqVjo3bcCZhsCJBpet4/ly96i7kbpA3Yud
-         nNNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788591856; x=1789196656;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=;
-        b=DG1rrUuR7M2L0Kk6c1jvcUH1hQntPLx5tCW0UjMs56gi00iGcfJQcmxawZ5Wh5aD0L
-         8MUXby4kGE86J8mBoBctFUAoAk/LbdodrqwusdIYsJBPZyVbraq0vqOtVcCV8I/7vhg0
-         dg+nn68MBAAq4Uqgqpeytq0nIrYiCR9CJ4EFZBTw6xcdzd0TC2soOzTgSmmdKkSislug
-         OqXEksSJ9uEOOUNI05mF2KLUr1ffwV8+47DThqaQTdVIXH58VUvA3VsWWkXvLnYYA3ok
-         inCeJuC3AtvertA7R0HeDpYNERaokDsruxYHX2cJSGbJ++G8MOIEhewp0zLY5U0Sg/Hx
-         QATA==
-X-Forwarded-Encrypted: i=1; AKwUvBzQglGS4/6Rae0IqxuLp7wuvvqMaqVlZrIZsvNnT2xLB+kJkqBSd2jguo7bX7x7DEMEWo9CuLqCTF6mzTeL9czH@lists.infradead.org
-X-Gm-Message-State: AFuF++kJ62agN25JtR3jlV3l6isxWqU/uqBLd1Izu+N3o4T/0yf27Zj8
-	qAoOhJw36p0M3ipPXKmdjWp6iwtOlNqwUCJbkhcFfFm6yCk4L6jsqqi0
-X-Gm-Gg: AYBFou210dnrF+JMAJ1Ww1dzEFbCgRQ/hWL04lMshYlb0S1v2Y0EWpr0WFbmRZTSZyF
-	PNfRZ/9TP6lwIicKvMsAHAmFq8ymPkAc+SAgz9ox5qTIzFctcqqt/lS8YOSUvjSM8yU8PYZDbI7
-	5DO3vJbMXM/Mz6qYZ4YCwdCo97Ar+F/yoDn+we9eoP0KYPI2vTwnr/L0ahySXKWRBN3Jyi5CIl6
-	rzkQh3ZHMCLP4XWcbqfY199LtBpmGFsWKYCqzpWG/9eYllDD3KwAgH53Z0usCzp5pz23NlAGJCL
-	SJYhSIXtAv5p/f5Si7ywShpkqW9FFEXcygaFWA5s+Nx81jx2ypHtO8Z40wq13uo73uPchpz/daT
-	5NaUWeS4nKz3TUXN4RPUsIY5AP6Ti1eIndZJL0KDkOXexpqpVMzF0UOF1PBAZUbhRfXLAJ0IVt1
-	o0Tgl2OILrNdDczLPM2Lh6iKRlTVjrN3uUcnnaeS/U/G0focAmuE2EReKwFvsbz1ecMQ67t9Sbr
-	29fvymZQnMG+nLVBU+xRGqPWYz5I/LDPvYEpI5pEt0oXWd2x1AhKitgG3okf9ykusCbRs9j/X8W
-	E5U+frvGBVFA1WD3n6FZfgCBoe4xrZEns5f5gbQQZ/QTqXDsb7UxdD/RsaNZy6ya3DCU2iPj
-X-Received: by 2002:a05:6000:24c4:b0:485:8a46:7053 with SMTP id ffacd0b85a97d-4858a467176mr9452131f8f.37.1788591850939;
-        Sat, 05 Sep 2026 00:04:10 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm12011719f8f.34.2026.09.05.00.04.09
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 00:04:10 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-m68k@lists.linux-m68k.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	Steve Wahl <steve.wahl@hpe.com>,
-	Dimitri Sivanich <dimitri.sivanich@hpe.com>,
-	Tony Luck <tony.luck@intel.com>,
-	linux-edac@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Tony Lindgren <tony@atomide.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-omap@vger.kernel.org,
-	Dominik Brodowski <linux@dominikbrodowski.net>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-ide@vger.kernel.org
-Subject: [PATCH 9/9] docs: kernel-parameters: Drop the pata_legacy.qdi and pata_legacy.winbond entries
-Date: Sat,  5 Sep 2026 09:03:47 +0200
-Message-Id: <20260905070347.25902-10-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20260905070347.25902-1-kmehltretter@gmail.com>
-References: <20260905070347.25902-1-kmehltretter@gmail.com>
+	Sat, 05 Sep 2026 07:16:31 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id B29FA4E41530;
+	Sat,  5 Sep 2026 07:16:25 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7E9E860580;
+	Sat,  5 Sep 2026 07:16:25 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A54E511C787BD;
+	Sat,  5 Sep 2026 09:16:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1788592579; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=H8ZBz3umxxhqbNlNKwwRtIpUr3ROModBIAzMxPN9tJ4=;
+	b=mdxCrggvFgOKR57ekJavFuca8kF/tZLdQVofV1pOlWkUdhy920vM1TTOJHl8jBzc/iOL5l
+	mL+6R0aWf87hDbdMavHLnZVdWm+ILMgikU/zgNUQr8MHl1n00tcpVzXIpCXVJoHqnFgpx+
+	xKozSahmSbVDuGeV5Y4s4muuDoc2jQfnPs2pV4yYiHLyr13jSLsGBrnS9k+kdrhkr/j4T+
+	4vsBJe6hH2TJjJLzYqLcqkIxzwIotj1MlSEfJtVXsmWAiJyRV8iH/r6JS2FNehK+K8mCQO
+	lX1ZLalhg56CS2J7Y0Z3L4mbk/j8B98YRbqspcDvMp3H87QT2g8mQZm4/5Gx3Q==
+Message-ID: <84a2f232-06ed-4fa4-bcdd-4e72a792bf12@bootlin.com>
+Date: Sat, 5 Sep 2026 09:16:09 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 3/3] net: phy: motorcomm: Enable analog frontend
+ on YT8531S
+To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Yao Zi <me@ziyao.cc>,
+ Frank <Frank.Sae@motor-comm.com>
+Cc: thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
+ <20260831073747.361482-4-maxime.chevallier@bootlin.com>
+ <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <17e50070-46c9-46dd-8109-95007a4f681f@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_000418_560352_33F66755 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260905_001629_188002_226C0118 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,48 +88,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pata_legacy no longer has qdi or winbond module parameters. The QDI
-support went away with commit 0dcd0a76370a ("libata: remove no longer
-needed pata_qdi driver") and the Winbond VLB support with commit
-3c4d783f6922 ("ata: pata_legacy: remove VLB support"). The entries also
-refer to CONFIG_PATA_QDI_MODULE and CONFIG_PATA_WINBOND_VLB_MODULE,
-which do not exist either.
+Hi,
 
-Drop both entries.
+On 9/1/26 15:59, Paolo Abeni wrote:
+> On 8/31/26 9:37 AM, Maxime Chevallier wrote:
+>> The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
+>> well as a YT8531S PHY, configured in GMII mode.
+>>
+>> It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
+>> enabled for link to reliably establish, otherwise the link just doesn't
+>> come up.
+>>
+>> Let's enable it at config_init().
+>>
+>> This logic has been extracted from the vendor driver provided by
+>> Motorcomm.
+>>
+>> It's really unclear if this is specific to the integrated version of
+>> that PHY, and how this potentially interacts with the fiber mode this
+>> PHY supports, so this configuration is only enabled when the interface
+>> is GMII, i.e. the PHY is integrated.
+>>
+>> With this, the PHY reliably establishes link and the YT6801 PCIe card
+>> becomes fully functional.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>>  drivers/net/phy/motorcomm.c | 14 +++++++++++++-
+>>  1 file changed, 13 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+>> index 36c229460a77..90a4f86f2758 100644
+>> --- a/drivers/net/phy/motorcomm.c
+>> +++ b/drivers/net/phy/motorcomm.c
+>> @@ -144,6 +144,11 @@
+>>  #define YT8521_CLOCK_GATING_REG			0xC
+>>  #define YT8521_CGR_RX_CLK_EN			BIT(12)
+>>  
+>> +/* Analog front-end control register 3 */
+>> +#define YT8531S_EXT_AFE_CTRL3			0x12
+>> +/* Analog front-end DAC clock enable */
+>> +#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
+>> +
+>>  #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
+>>  #define YT8521_ESC1R_SLEEP_SW			BIT(15)
+>>  #define YT8521_ESC1R_PLLON_SLP			BIT(14)
+>> @@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
+>>  	if (ret)
+>>  		goto err_restore_page;
+>>  
+>> -	if (phy_interface_is_rgmii(phydev))
+>> +	if (phy_interface_is_rgmii(phydev)) {
+>>  		ret = yt8531_set_ds(phydev);
+>> +		if (ret)
+>> +			goto err_restore_page;
+>> +	}
+>> +
+>> +	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
+>> +		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
+>> +				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
+> 
+> Sashiko suspects this will not survive a suspend/resume:
+> 
+> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260831073747.361482-1-maxime.chevallier%40bootlin.com
 
-Fixes: 0dcd0a76370a ("libata: remove no longer needed pata_qdi driver")
-Fixes: 3c4d783f6922 ("ata: pata_legacy: remove VLB support")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- Documentation/admin-guide/kernel-parameters.txt | 13 -------------
- 1 file changed, 13 deletions(-)
+Managed to get some time to test that, the config does survive a suspend/resume
+cycle, so sashiko's suspicion wasn't correct. The bit doesn't get cleared
+after a resume.
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 4864e37005be..33298da28b55 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4994,19 +4994,6 @@ Kernel parameters
- 			the first port in the list above (0x1f0), and so on.
- 			By default all supported ports are probed.
- 
--	pata_legacy.qdi=	[HW,LIBATA]
--			Format: <int>
--			Set to non-zero to probe QDI controllers.  By default
--			set to 1 if CONFIG_PATA_QDI_MODULE, 0 otherwise.
--
--	pata_legacy.winbond=	[HW,LIBATA]
--			Format: <int>
--			Set to non-zero to probe Winbond controllers.  Use
--			the standard I/O port (0x130) if 1, otherwise the
--			value given is the I/O port to use (typically 0x1b0).
--			By default set to 1 if CONFIG_PATA_WINBOND_VLB_MODULE,
--			0 otherwise.
--
- 	pata_platform.pio_mask=	[HW,LIBATA]
- 			Format: <int>
- 			Supported PIO mode mask.  Set individual bits to allow
--- 
-2.53.0
+I see the series was dropped from PW though, I'll add a few comments and details
+in the commit log and resend.
+
+Maxime
+
+> 
+> /P
+> 
 
 
