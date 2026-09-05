@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026E4C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED444C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlFlVN5wdgjaXk24EiHBdPa2kCEhMJgQr+tWiyziEYY=; b=U9Ux3dBPtPn7T/O0n2wpn20jCc
-	lkpt1QCFdCRSyv9/IArWtSI5keDxpc7l7DwD4AO09XlMsbktSS7m3R9aXAgp6PdWPa/rGyuNSxPEf
-	8hNWLxqZUFKm01lalw8ZrUXL1nAx5ONZtCwJGHQDRLRwAvwykZtW0koCkHVKJV4DD/YZoonyOfE7n
-	Urpt/HFE6VjYWGDWSKPBPDhbs+AuPGr/Mc3ORZdphQ1LjbS8PEYwtUfULmdD4AM4ueaLIAo9tKBpo
-	QKE+QVHQAZ8SDq80brFaACROTWOOvZ2ZrpuK1RDlp5sZVuphYvsSnxTHSSclf8QJcAZl5dWQ19WjP
-	Y0vhM66A==;
+	bh=BrNNNpmENkLSLFoWAcP4vCzqdAZoU3BbwVHBFJ9AweM=; b=ugIdkp2wlDnXsr5VkPBMQQM8ic
+	lBThovgz0Z+tkwx7d7I9CIivxFB3R01VUSwutb6xXS3JWes9M+GFuxpwiVBUdkMzJZVI+VZPRwrPH
+	NAyt4yqQmP+8dTH+tqnrJbMMaKEaLW5qzkMAxamhQ/uVnawXupN9ddMdd72BqUh/FdsVa4cgq0BlP
+	09F6YNNFxpQX+WxJd2pXpseDnvVmtV1ZC3oiVYDuojtAnRfIL0oteWekrzGS2z5rGGfIjiKeRrix/
+	EbIzvhpN7RfhEMAtbEAFZwCluHUqmrgZl61DUtrPC2psEiudjS6f9CFbr4oPthG5wh3MC1FTo50mA
+	hJKi1y/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lJW-00000003ouO-1PNa;
-	Sat, 05 Sep 2026 07:59:50 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x2lKZ-00000003p8P-45ZQ;
+	Sat, 05 Sep 2026 08:00:55 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lJT-00000003otz-33zy;
-	Sat, 05 Sep 2026 07:59:49 +0000
+	id 1x2lKX-00000003p7O-1F5P;
+	Sat, 05 Sep 2026 08:00:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788595188; x=1820131188;
+  t=1788595253; x=1820131253;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=pbA6rvFYYarR8MxJYGq5cw/7vkB61rDNf7lyNAo93QA=;
-  b=HvF/ijJPqpFcekliQhf1u1DxPS90moxDJ7Q/jC0MeA2eNJPGbOhrHAki
-   VASy7EVz3hru/SzEOweg0tlySFjdzZ2q1huexbBptYvKnq7vjGFlVsqI4
-   BnypEYhmuadIviOdChNPaTkewh0YT61BxB/xxecCMt7mzLYuxH7ekIcU/
-   Dl3UsZSY0ICgdR845s3PznC+abClrpOYW6eMZImyxDt5eU/SUbp8Jsz27
-   hx1A8WZakwSvrw3BflMGArUBkjChbG5TeXE9IVUgiXzDt7lhvqVm6W5p5
-   57t2GoEzYvmAeGIWy2ibFZUNWm/t+0kePveHBNNo3iOlGUY5M6XKHFALp
-   w==;
-X-CSE-ConnectionGUID: w7kpy63aRx62fet3Jx2K7Q==
-X-CSE-MsgGUID: 2jCrFy3dQqyxqOHC2LgLmQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="99682101"
+  bh=DZFfBMrRtiY/73SGDh0XULVSppgU/RJ7ThjUIl3cq4s=;
+  b=Om3qZEmHtBMxTj8aSZntr5knFq6x4V/3MV3cePZY87dgfbqi7cnnOGlb
+   2EumNmW53gO2tVcLKo3Oiaux+UX8cK76/CQ5pFmkB9TZNjaM8PuF9HnCn
+   WgNL3qqvLBw/xKAVa8+2HTmCj7gpWVWSyVz2PEChWw3xtlj37R9yor4zQ
+   qb14U0l/ijuv7YKpDC8F7nqo+0mlQctVcgKY+R0PfGWlGCeJlkRxKrrHr
+   Iz5HeMGu17kbbKz6cm46RWTcf7wrIcZ/Wh9xY395kdUyTCdNFZEzNVcVN
+   sNCJ3y+4taMHVJWUfIBmpvYmVUorrkSH95qvuH/0iJ1ZfJ9g/hsi4nC0z
+   A==;
+X-CSE-ConnectionGUID: 5a11WN/JTjGh2WetNkKPtw==
+X-CSE-MsgGUID: cR4/mBwqRHSZOXi5xfveIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="89119579"
 X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
-   d="scan'208";a="99682101"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 00:59:47 -0700
-X-CSE-ConnectionGUID: Xf5I0G4OTMOcp1QBaOOGYQ==
-X-CSE-MsgGUID: ynFtavY4QxibRVi+CHkcdw==
+   d="scan'208";a="89119579"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 01:00:52 -0700
+X-CSE-ConnectionGUID: 9JbBadgHQ7SEjpVvHYYgmw==
+X-CSE-MsgGUID: bwhdz7ZKSjWLvCde1OANJA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
-   d="scan'208";a="295125461"
+   d="scan'208";a="270230591"
 Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.245.105])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 00:59:38 -0700
-Date: Sat, 5 Sep 2026 10:59:35 +0300
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 01:00:43 -0700
+Date: Sat, 5 Sep 2026 11:00:41 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Frank.Li@oss.nxp.com
 Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
@@ -91,20 +91,19 @@ Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
 	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
 	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
 	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 4/4] dmaengine: add union chan_dev for dma_chan::dev
- for clarity
-Message-ID: <apvL5yXKGHrEyp9Z@ashevche-desk.local>
+Subject: Re: [PATCH v3 0/4] dmaengine: rename dma_chan::dev to
+ dma_chan::chan_dev for clarity
+Message-ID: <apvMKWQhTn5Kf8Sq@ashevche-desk.local>
 References: <20260904-dma-chan_dev-rename-v3-0-685601b0b788@nxp.com>
- <20260904-dma-chan_dev-rename-v3-4-685601b0b788@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260904-dma-chan_dev-rename-v3-4-685601b0b788@nxp.com>
+In-Reply-To: <20260904-dma-chan_dev-rename-v3-0-685601b0b788@nxp.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_005947_784008_CD4AD2DD 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20260905_010053_380280_6F67CF3D 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,12 +118,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 05:49:46PM -0400, Frank.Li@oss.nxp.com wrote:
-
+On Fri, Sep 04, 2026 at 05:49:42PM -0400, Frank.Li@oss.nxp.com wrote:
 > The current dma_chan structure contains both "device" and "dev". So
 > 
-> chan->device->dev refers to the DMA engine device.
-> chan->dev->device refers to the per-channel device instance.
+>     chan->device->dev refers to the DMA engine device.
+>     chan->dev->device refers to the per-channel device instance.
 > 
 > Their similar naming makes the distinction unclear and increases reader
 > confusion.
@@ -137,50 +135,20 @@ On Fri, Sep 04, 2026 at 05:49:46PM -0400, Frank.Li@oss.nxp.com wrote:
 > device is also used by some DMA engine drivers for IOMMU mapping and
 > therefore deserves a more accurate description.
 > 
-> No functional change intended.
+> 1st patch add help vchan_chan_name()
+> 2nd patch use existing helper dma_chan_name() to reduce rename difference.
+> 3rd patch add (dmaengine|vchan)_chan_dev() helper
+> 4th patch add union chan_dev for dma_chan::dev for clarity
+> 
+> Need following patch to clean other dma engineer driver, which is not
+> in drivers/dma
+> 
+> After complete all rename work, dma_chan::dev can be removed.
 
-I was almost ready to give a tag for the entire series, but found a minor
-issue here...
-
-...
-
-> +++ b/include/linux/dmaengine.h
-> struct dma_router {
-
->   * @lock: protect between config and prepare transfer when driver have not
->   *	  implemented callback device_prep_config_sg().
->   * @chan_id: channel ID for sysfs
-> - * @dev: class device for sysfs
-> + * @chan_dev: class channel device for sysfs, some device use it for per-channel
-> + *            iommu mapping.
-
-IOMMU
-
->   * @name: backlink name for sysfs
->   * @dbg_client_name: slave name for debugfs in format:
->   *	dev_name(requester's dev):channel name, for example: "2b00000.mcasp:tx"
-
-> struct dma_chan {
-
->  
->  	/* sysfs */
->  	int chan_id;
-> -	struct dma_chan_dev *dev;
-> +	union {
-> +		struct dma_chan_dev *chan_dev;
-> +		/*
-> +		 * please use chan_dev, dev will be removed after all user
-> +		   switch to chan_dev
-> +		*/
-
-Something went wrong with this comment style. It also need to respect English
-grammar and punctuation as we do for multi-line comments.
-
-> +		struct dma_chan_dev *dev;
-> +	};
->  	const char *name;
->  #ifdef CONFIG_DEBUG_FS
->  	char *dbg_client_name;
+Nice work!
+I have one comment against patch 4/4, after addressing that feel free to add
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+to the entire series.
 
 -- 
 With Best Regards,
