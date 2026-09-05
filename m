@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1077CC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 23:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EEDC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 23:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8y4+FMqCruPIO6QVXu4Ws978J75FVFZbomNnv2riqY=; b=GyYp+lNnNtqA6XYRQ28MbKR0sN
-	s6MMScSIm7u9HttjUgiWJH/R9PPGEnquOK0o0zuxn1BhWuhUYks/P98O+v3/7MeSKkIEHs/DPmdtv
-	ETI9VNhxlN7lFUVPNbdXL4jzgPmDW5RFyBjg0mvYs0U+ciGhMe8NmW0FtJ6pxuXIG/ToIYw5GC8HT
-	sIxQV+FpQ8xlmchJtGDbRysNMDjsbEeLR36vJsUldlQEKwDpPFixlDk2UVM9UKjav7X5GdJnk/gME
-	FSUjhDF6NyZP4QE/UZgAJsz9bTU00Z/chAiX8Vu72wymRvn45o4Xs9swWp2eYNm49mzaAvKvjxSJ3
-	8M3HbDPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O4rjm7L9OxwhE+KU/msJJqPiLu/z8N+5+AE9fmKNMpU=; b=0pEC7tM6pO4AX7366dA1zGsJ78
+	AK9WuZaEg4zk5yQC9eCNGxR48vqLm7qAtKpzr7slJ7d5nMo9yyWtlXI+v8BoZNw+wUn8370N6ISp4
+	f5WFhl2vcLBLezLK1qkBRuuSLANH42Wp/FtZX5nTqA4e6DbVk/THxvr9Q2BrmzRvKT5RK5Vpmuwzr
+	W6G0/sYfzRa9FhHEJSxaVWKzlbMpwG85RT1CAohYH43rFL7YEa+FSKSaN2ONrTJfsyDH31YWrk9r8
+	WimkL6+RhojtfhsF3UuM64M1ZL1IdUj8pI2tNw7JuRJxMyddCo9etV087rmn77jeGHhZqHqbedRyA
+	VldigYaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ztZ-00000004TtR-0TML;
-	Sat, 05 Sep 2026 23:34:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ztW-00000004Tt5-22p1
+	id 1x308A-00000004URe-1drD;
+	Sat, 05 Sep 2026 23:49:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3087-00000004URJ-1oj6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 23:33:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEE4F43DB2;
-	Sat,  5 Sep 2026 23:33:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2041F00A3D;
-	Sat,  5 Sep 2026 23:33:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788651237;
-	bh=N8y4+FMqCruPIO6QVXu4Ws978J75FVFZbomNnv2riqY=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=HQ3D5V6BzZmucTMmDiwCKgyb7JXRqdR15yBPyJKHxljIgA/bIhskps0KgMn2SgUNc
-	 EuOQXTUF2rWfi+JoMwGuSriRNIcn75wh2mop7zlipSERS483yhQt4u5jKvISuoELC5
-	 n6IMyEbSiIIzYGpnKrP940emjw9/sVIIi6FsUPkrPfyDDAESbf8fmmQJ2CsYObbrEN
-	 jO7+iDSvov7hcLyFjigAyLn1QmMRX+iCEGw/GRTDwUjc7O3GaDGWv0wGiO0p3WacrR
-	 2GCjUqpq6iVXLYqdtfSlN48fJvbTiRe4Z2ZWHOAGPiOZJ0lsBYNMpDbw6aYQuOO8OQ
-	 mW3PEgwgKErWw==
+	Sat, 05 Sep 2026 23:49:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 285D31477;
+	Sat,  5 Sep 2026 16:48:56 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810673F673;
+	Sat,  5 Sep 2026 16:48:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788652139; bh=78ZaUHpCCmF9Q0SRtDPZW3k16driAdZe8cBTHH9U4Ys=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uWYZ/mVMj/RrfQNI2EgFHEj2UqFhaoPkrXi/X8bsDBUV203Qu3dn/kF8JwPQ6obOz
+	 88mI97vEqyEZkbdgT7uK1cMCgMc4ZgVs+OshFnQ4vyC4qsyMOqwP1tTxge9BJG7NnQ
+	 1pOtrQGvsC7KD/eOoAwm31GjAMc2V965Mwqt/TE8=
+Date: Sun, 6 Sep 2026 00:48:49 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>, Marc Zyngier <maz@kernel.org>
+Cc: Wang Han <wanghan@linux.alibaba.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
+	suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, 
+	itaru.kitayama@fujitsu.com
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
+ map (new data structure)
+Message-ID: <rytvo6a7sulfb2no2fclvtpggk4ekqzs6n6xkqlffldbzua4lz@rnskx6qj2cxy>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260902163500.1841671-1-wanghan@linux.alibaba.com>
+ <877bl26aqg.wl-maz@kernel.org>
+ <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+ <875x0l5udh.wl-maz@kernel.org>
+ <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+ <2bde734c-eb86-4c7a-958d-b431e6d13671@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 4/6] iio: adc: bcm_iproc_adc: use devm-managed ADC
- cleanup
-From: Jonathan Cameron <jic23@kernel.org>
-To: mdshahid03@gmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- bcm-kernel-feedback-list@broadcom.com, linux-iio@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260905093631.48667-5-mdshahid03@gmail.com>
-References: <20260905093631.48667-1-mdshahid03@gmail.com>
- <20260905093631.48667-5-mdshahid03@gmail.com>
-Date: Sun, 06 Sep 2026 00:33:40 +0100
-Message-Id: <178865122088.3402141.9570533772047711603.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2787;
- i=jonathan.cameron@oss.qualcomm.com; h=from:subject:message-id;
- bh=UpXeAM+Jf/QAXeSARx3oI62WMkG4vVFQLuHpHi0cfLA=;
- b=kA0DAAoBVIU0mcT0FogByyZiAGqcpuTIHIiQQYf9HWl3AEW7GsQ1ROVngUBCqO/hNdNNzh6II
- YkCRQQAAQoALxYhBG4pZrOHhAZSkSaBsVSFNJnE9BaIBQJqnKbkERxqaWMyM0BrZXJuZWwub3Jn
- AAoJEFSFNJnE9BaIxEsP/1PZEvTFlkqS5Lj3dq6Q1ieGatyH9o8KvPkiYzybyAf9HcH39Df+wd+
- 1jV9XOviqd78Hvgk3WDfXHaMKvHoRzlFOUtSv0qT1/5Z9/g+2i7LVaAi+2cPUlE/n3Nt/GEFZoZ
- opz/JOCH2B3ePM4lJXMLMm2u0Ag9sswLuSoG8ZQ83Maj6UaPGETIbOLxBgGctgLHZUQbO0Vfojh
- yrzLXh8/AcwfgxScNtbYB2UvLzDAX+AkldPXmdavMp0ihk3rPvckq3qTPxohlGNdzS9tgsVpXQP
- O9qZa9M37q2Jt8kk/hAHYW28ZlDxXs75g3PkijDktqZnvqKwKFCH1l+ZLVEpru4/eUsw8mkVnGS
- OK3OApBIT45eftljLXJstQmrvQL5VhWG2w9samNBh28MeUiRYPiNdIinFdZWhAnGRFJScyGPOGw
- 1EARQoiJ4gcH10fB4WewXDh4o+cAARDhqzuneMJMDtzxMBqbbrBgiaQYN27BRlHUgh8HLU7zMOd
- 8IHnvO3hcXSVS7u1XnFBU8qqndx69A8v1PH3reTAS1CO4aOHjP7+TTNP5CCOEOPTasLEerLr0st
- y1lJoLH+EGD4drttVFUFWWNFYL5hSK3QzhajQ9xsSWYB1IsSWx4RqFCxoTjBM0r9OUFPfj1iS+F
- vFZFxX6x3KmoaCsK1iRFQt8JmANqj
-X-Developer-Key: i=jonathan.cameron@oss.qualcomm.com; a=openpgp;
- fpr=6E2966B387840652912681B154853499C4F41688
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2bde734c-eb86-4c7a-958d-b431e6d13671@linux.alibaba.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_164903_652044_0108CA25 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,90 +78,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Use devm_add_action_or_reset() to disable the ADC automatically when
-> the device is detached or probe fails.
-> 
-> This removes the manual ADC cleanup from the remove and error paths
-> and ties the ADC cleanup to the device lifetime.
+On Sat, Sep 05, 2026 at 11:49:32PM +0800, Shuai Xue wrote:
 
-Sashiko raised a bunch of pre existing issues whilst looking at this
-one.  As far as I'm concerned whether correct or not they are out of
-scope for this series.  Feel free to take a look if you like though
-(for a potential follow up)  Note I haven't analysed any of them -
-just noted there were a few comments - so they may or may not be correct.
-
-https://sashiko.dev/#/patchset/20260905093631.48667-1-mdshahid03%40gmail.com
+[...]
 
 > 
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
->
-> diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-> index 3bbf814d4c8f..24fb41751e93 100644
-> --- a/drivers/iio/adc/bcm_iproc_adc.c
-> +++ b/drivers/iio/adc/bcm_iproc_adc.c
-> @@ -450,6 +450,13 @@ static void iproc_adc_disable(struct iio_dev *indio_dev)
->  	}
->  }
->  
-> +static void iproc_adc_disable_action(void *data)
-> +{
-> +	struct iio_dev *indio_dev = data;
-> +
-> +	iproc_adc_disable(indio_dev);
+> Hi Wei-Lin,
+> 
+> Your PARange analysis is what this whole diagnosis rests on -- the
+> 48-bit/256x arithmetic is exactly right, and our ftrace data confirms
+> it to the chunk: every full-IPA kvm_nested_s2_unmap() in our traces
+> walks precisely 262,144 1GB chunks, the number from your table. The
+> kvm_ipa_limit=40 experiment also pointed straight at the answer. I'd
+> only push back on the last sentence:
+> 
+> > 
+> > With this, I think there aren't other underlying issues, it just is that
+> > slow unfortunately..
+> 
+> 
+> I don't think it is "just that slow" -- I think it is a specific
+> regression, and your own data localizes it better than the conclusion
+> suggests.
+> 
+> The thing is, kvm_ipa_limit=40 cannot tell *what* each chunk spends
+> its ~3.3us on, because the walk is also per-chunk: cutting the chunk
+> count by 256x shrinks both terms together, whichever one dominates.
+> The experiment that separates them is one where the chunk count does
+> not change at all.
+> 
+> We ran that experiment. Details are in my reply to Marc, but the
+> short version:
+> 
+>   - Before: 877ms per callback, 262,144 chunk calls, 262,144
+>     broadcasts. Chunk count and broadcast count are exactly equal
+>     (8,476,033 = 8,476,033 over the trace window) -- every chunk
+>     ends in a broadcast, mapped or not. Per chunk, ~4.6us of the
+>     ~5.1us is inside kvm_tlb_flush_vmid_range(); the walk of an
+>     empty chunk is ~0.2us. In an uncontended numad episode, 87% of
+>     the 1312ms is flush time and 8% is walk time.
+> 
+>   - After conditioning the flush on the walk having actually cleared
+>     a valid leaf (the candidate fix in my other mail): same 262,144
+>     chunks, same walk, ~110ms instrumented. Nothing about the walk
+>     changed -- ~3.1us of the per-chunk 3.3us was the broadcast.
+> 
+>   - And the table really is empty, as Marc says: with the flush
+>     count acting as a detector, the first full-IPA unmap of the boot
+>     issues 2 flushes (the EL1-boot-period mappings, a few dozen
+>     pages in two 1GB chunks); all 35 subsequent ones issue zero.
+> 
+> The code history agrees. Before 7657ea920c54, the TLBI lived inside
+> stage2_put_pte()'s 'if (kvm_pte_valid(ctx->old))' -- an empty walk
+> issued zero invalidations, ever. v6.6 hoisted the invalidation out
+> to the end of kvm_pgtable_stage2_unmap() to batch it into one range
+> TLBI per call, but the condition got dropped on the way. So "since
+> v6.6, the cost is proportional to the IPA range, not to the number
+> of mappings" -- which is precisely why the empty table pays in full,
+> and why I'd frame it as a fixable regression rather than an inherent
+> cost.
+> 
+> None of this subtracts from your PARange finding -- it depends on
+> it. The 42s -> <1s result was the 256x chunk scaling; the remaining
+> <1s is what the conditional flush removes.
 
-For this it is fine and more compact to do
+Thanks for the analysis!
 
-static void iproc_adc_disable_action(void *indio_dev)
-{
-	iproc_adc_disable(indio_dev);
-}
+I completely agree. My finding was only a small part of the full
+picture. I stopped at finding out the real iteration count and didn't
+realize 3-5us is a long time for a kvm_pgtable_stage2_unmap() on a empty
+table (thanks for the learning opportunity).
 
-Given we are going via a void * anyway, there is no additional
-type safety or particular readability advantages to having the
-intermediate given we have well known naming fo the struct iio_dev *
+So, because there are no relevant tlb entries created in the first
+place, the per iteration TLBIs and barriers are mostly doing nothing
+useful and cause a 10x slowdown.
 
+Thanks,
+Wei-Lin Chang
 
-> +}
-> +
->  static int iproc_adc_read_raw(struct iio_dev *indio_dev,
->  			  struct iio_chan_spec const *chan,
->  			  int *val,
-> @@ -551,7 +558,11 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  
->  	ret = iproc_adc_enable(indio_dev);
->  	if (ret)
-> -		goto err_adc_enable;
-> +		return ret;
-
-This change belongs in the earlier patch as none of the other changes
-in this patch have anything to do with enabling it.
-
-> +
-> +	ret = devm_add_action_or_reset(dev, iproc_adc_disable_action, indio_dev);
-> +	if (ret)
-> +		return ret;
->  
->  	indio_dev->name = "iproc-static-adc";
->  	indio_dev->info = &iproc_adc_iio_info;
-> @@ -560,17 +571,11 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  	indio_dev->num_channels = ARRAY_SIZE(iproc_adc_iio_channels);
->  
->  	ret = iio_device_register(indio_dev);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "iio_device_register failed:err %d\n", ret);
-> -		goto err_clk;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "iio_device_register failed\n");
->  
->  	return 0;
->  
-> -err_clk:
-> -	iproc_adc_disable(indio_dev);
-> -err_adc_enable:
-
-This label should have gone in the earlier patch.
-
--- 
-Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
+> Thanks,
+> Shuai
+> 
+> 
 
