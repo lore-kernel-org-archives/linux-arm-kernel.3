@@ -4,133 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9025C79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 01:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC873C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 01:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vo2WJswMFrbVkXxA03wbntMlJhQJN3eN3yMdRHVrVAQ=; b=RT1/DFnLNZf7pTIHz7V+M7EzuP
-	CepqO7TZHuZivuUi2g2LsYIYrSVtaEloUROIr5uxua0SbGBl9beq98wbcg85MgUSxQUrqByyKR2IS
-	IjV3IhWKdJHKSufBKfqTZSRz6k1tvRlGrELqfq7lHvr6LoY8mUD/PtKFdeLpntakcEFPQ19+9qn09
-	GKjUYO4uaG1XlFZPYfFE+iQMXopbbGE1KQnitOscaLaFSV/vrVpc4wB9Y2EGmVrMB3BEXiSjY9Aof
-	JeavgIxS5K5JdOUVAr/beW1OgwHL/jksslYJepWAgzlICmTEESuvxzcpSj14nJQgiOwNNO/n+132/
-	sdXQy7UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i3W/wNSpgMjtjU2CZxUMyo4xEzaN2HIzCW078gL1WOI=; b=lgQZKVhCBUSUQTvElvDzJk04Yj
+	3QZfiz8tgoShGPeaq+rmQyLYabIfViRzGr0zui1DP7FPn+drSoMFRjW7pjaE7oQTDjcko4ixFCrXY
+	RV8OtSFQMvoBGkJIExv/8eplpVq+zCt31K1Fs5ey3vVykuSx4VOxaLkcMQZMwR//wrQNQY9uMoDwS
+	YA7o1e8icgaNSIm28DUr3vXkiJDn9oizYQPbvLtPK6IFbor7pSlEeyngAXV7GmPM9p/MsAL9nVVL6
+	oEZ8EEKhFls2X0pVieh93EIQtfrDy4WMgGsxaAxm2mNT8YgwWLDgjzXoQhmdXx0NVfwPfnF3a7uw5
+	jmIzL8iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2f8j-00000003ZTV-47nO;
-	Sat, 05 Sep 2026 01:24:17 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1x2fK5-00000003Zw2-45BE;
+	Sat, 05 Sep 2026 01:36:01 +0000
+Received: from out-45.mta0.migadu.com ([2001:41d0:1004:224b::2d] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2f8h-00000003ZSr-3UmT;
-	Sat, 05 Sep 2026 01:24:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wW56rLIZoBms8qTVgcPXCXbK7UeL9hLucZkTAqN6uJ5ZGaFSuPudDP30eaC32dDZygCTxDs/bNNZjU3rYtf7XSZznlS/A9yOY771s/jtSOR+PhHY9kSIhgrODYNxxnJdGO1DCjG0SuKfdOOeeGwiZPq2E031phrWLY/fX18DRFNDb7FKVKRgaaVve9pMaCUNg86cqXSRhHaqj7oSGOEbvJzi9ZZ+HICMye8HNPw5xb4OaRb23paDMXD4F+lB8Ftpn2qDu/Yz3LKHatm258nSNCUSdKiAaFI8ZQBM9r2GfWY415o0MSrY3WmatvsD4kcHIXl/6zT+ICoUk2KQdkY34A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vo2WJswMFrbVkXxA03wbntMlJhQJN3eN3yMdRHVrVAQ=;
- b=mZlfLwtUflJSFEqhvroNnVmEJVtJ7IQyMdV30x36D1R/BxSDSWN6Aa1ETwoT743f0/tXQQO0FF9IjQK5BldYEa3dxhw+X4nmydJRxwhZ9xxKdY2wb8pVKl/XMjpVkU8c1Fc0469DkxD37mTqX9jabkyaUPF1VkAYLUgjMSrTcgaqmXXP8nOQ4zWdYcBCKiGIOERKJ7C8KgB+avuJDdZkaiHY9Xa6FgSKmdEQ5fVaNdQcYLQmsgEGsFWO4vtGnc5JV/4Z4SsITIwF1rXuxE6t7SWO6qTU8/BcP+3gFafR+8wsPBYa5wU3sX6uhJc//KFUSlFa62lRFvR3Y8YNNLiYpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vo2WJswMFrbVkXxA03wbntMlJhQJN3eN3yMdRHVrVAQ=;
- b=PlZSRZEhJBbtAisKV94ciQEoRq/TghtgpsU7x1KHeuoyiyVnwvpnXDL6S6o7ulOOtkSXyHSiOEvVRrVPB6oP/0rZ1fKQH1s9PAs3Cg86RxF+GuHfyKUSWTtG8kQ6OKeC3Dyw0dbRmRywmL7Z7z2imtZAhtmkEbPeiKuIs6Mrc+Y8c0BF73YbBNIldZzP+zHZfQZRj/HLuKtnSZ1MUiO2HHQr3JIjAeuPjDGnQUkAxhAa9/QNAHDbD/bLfBN6jkBkUdbJaQOKvvQh6YX1yFQvg4hFOMpM0jHjpdjxqxjkj3qpN3cgIi68PE5l7vS0ilb6PVj31Q+gMGEh4msS0/29rw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by MN0PR12MB6001.namprd12.prod.outlook.com (2603:10b6:208:37d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Sat, 5 Sep
- 2026 01:24:04 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Sat, 5 Sep 2026
- 01:24:04 +0000
-Date: Fri, 4 Sep 2026 22:24:03 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: David Matlack <dmatlack@google.com>
-Cc: Logan Odell <loganodell@google.com>, arnd@arndb.de,
-	pasha.tatashin@soleen.com, rppt@kernel.org, pratyush@kernel.org,
-	graf@amazon.com, akpm@linux-foundation.org, pbonzini@redhat.com,
-	maz@kernel.org, oupton@kernel.org, seanjc@google.com,
-	bhelgaas@google.com, alex@shazbot.org, kevin.tian@intel.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, joro@8bytes.org,
-	will@kernel.org, robin.murphy@arm.com, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	linux-mm@kvack.org, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-pci@vger.kernel.org, iommu@lists.linux.dev
-Subject: Re: [RFC PATCH 0/3] liveupdate: Move to feature flags for LUO and
- memfd ABI compatibility
-Message-ID: <20260905012403.GX4157646@nvidia.com>
-References: <20260903023452.721732-1-loganodell@google.com>
- <20260904160009.GV4157646@nvidia.com>
- <aptFFYqcSiBdMLE8@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aptFFYqcSiBdMLE8@google.com>
-X-ClientProxiedBy: MN0P220CA0016.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:52e::26) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1x2fK2-00000003Zve-1Sbo
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Sep 2026 01:36:00 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=lWVVfRMq0mtfxRPzste9WAisrmsNe8WSe9DWp+Wmrpc=;
+ c=simple/simple; d=justthetip.ca;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788572155; v=1; x=1789176955;
+ b=hZkMwCy4BlyRnaJdIYXczVmhwaXRKygm92SLpaC7znb0LWqInSKpzL46bARFy+Zw0XEreItW
+ WxUIpNwCtMDa8kXmVWfhZnca6PjF7uNmffcMEq74qFZVvsPHDu+jHOP9QuCSlDxQZl6y+0dolFP
+ cfe9P+5mIjjGkhFO6gmDt+pqg/0tMTp1pomHKszDSeyb8zWAbYCDGUSKSQRi3ScrPI6ccCT3CAX
+ lQE7zPQsw6whGOvxpBTOoXs6FZLhjBcpBM+CtFOqaGaE3ldJ8LQAw542IOU735cFk5CJHUoExgP
+ 0jCLxHtRpl4RbjceK6/vLWlNqMpzjiDY1ADoeI8AEb0Dw==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 394ef676eb4014bf;
+	Sat, 05 Sep 2026 01:35:55 +0000
+X-Mizu-Trace-ID: 394ef676eb4014bf
+X-Migadu-Flow: FLOW_OUT
+From: Devin Wittmayer <lucid_duck@justthetip.ca>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Deren Wu <deren.wu@mediatek.com>,
+	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
+	Quan Zhou <quan.zhou@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sagun Kayastha <sgn.kayastha@gmail.com>
+Subject: [PATCH wireless v2] wifi: mt76: mt792x: pick the SAR table layout from the table itself
+Date: Fri,  4 Sep 2026 18:35:51 -0700
+Message-ID: <20260905013551.24635-1-lucid_duck@justthetip.ca>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260811232839.515463-1-lucid_duck@justthetip.ca>
+References: <20260811232839.515463-1-lucid_duck@justthetip.ca>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6001:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81f139c3-ac02-44ad-66fe-08df0aec5f6a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|4143699003|10067099003|11063799006|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: LdfjD4RvQZXTTXNl4UMGD4BTxi6Ua+7sLSu/tqNwEOItjyKFdNBQ3JV9XB0Pyh252uYBYsS5sCWFFx4kIM0iy6XBD+mQLjRo9t32F24tPIx6Mpv7u8T8/d887qw5MvQYNntrcVQClmW/Gof/Be0L/0KT0lMnvPXlz7GXpUL5F0jKUpm1QUXGY9oFg51UNSx/dzkIGP8WlhfRUKk1kfRfPv5w0PC2ANsgXWOWRRzJjYNFc1k9JDrKZP22Z9eZrQWnDxYenQrthgy+AYksc33cD8v7IhdKB41AU0N/ho2DIBzaw1nrXa0TwNKeYnL8xCvAjoNyMf//8YqzZEerlRadiSUSS9vqH1NSM2vEidHPGMSNuH4+OhGK7KcaX6+vFCmw6+xJrBRyxb5Ct0SZGNarM3M9k7/CZ5i7JPecpMs5GvHHCJ474AxTVJY6YuTOLmQvqsZB0Ykz0ZihMwQ1EYQ6PMlqZvqZ3YiQ5Ywv06uBoH/dkiL+nVza1z3MrR3STQRadg2DVovNKWRB/bO9+exGUXgQUTRcnDOBBcg55YcrM+xeAMtCEqamJuFi3ouS3GsLdfVLlUNSCebL23jVlZIRsY9yZO32A/xLvWvUspH0CbUHOqKioRUqsVvj2snPka+AOW5WGR9Pkew5rSc/Mo8AsRqh14DvkKVBYKczsEbCQ6A=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(4143699003)(10067099003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qbuHUp63eMJ6A/YT2KIsT6s/H/Pl+Z9LCDWeNq7V2byqf6KJuLdaKra6Wtcc?=
- =?us-ascii?Q?t71fCbp6CPp5uUQuQHkLsAQHEhpr02rLHTv2DFpCz5DSeQ8w7AA/PI7S8qHL?=
- =?us-ascii?Q?jBOV9UPlxppFKRplmp4DGL/PNM5cs10rZrgdc5xnvwKAykhz39QDrJ26VJS2?=
- =?us-ascii?Q?vA343+CDCOTKK1svFJRLDWs3HpsfpY6Tk0N42FroHVUUWuYUSYYII7y3F/O3?=
- =?us-ascii?Q?K/guEnJaKZxTfh4Qkl9P2za1yFq0KiV+hx+1NwVJgP10ke59v2p+LXSJ3Q7R?=
- =?us-ascii?Q?FnADhHXquvAowj7fEpV8O0SIYWxSRxx+IO1LhBTMSzv9ur3y7QTtQZpq4kqw?=
- =?us-ascii?Q?X8I3cWjDka2caivRsNnArkdeKag/dd2ijQV2FiodtDKANRUsbilnJVKU45jt?=
- =?us-ascii?Q?+iVf2W+42UcBoItG3u6tHgQmh4UtWo2pxn7iyNUqE1Z3nf72D0WVKgmszX1V?=
- =?us-ascii?Q?tpSqnOkvt1S4ldb3eTTmkMJw6JMsu+3ps5LPLbCc+rVtpgqxPr16Pb41sTQz?=
- =?us-ascii?Q?BTvp+FnLaKnR0m8gWfEgzoZp0oOi1bxg8QMs65kss61PuhaKuWRDJpTIo0pe?=
- =?us-ascii?Q?aOJjzTTESw0QjOKnpRNqCavVfdyeKyrS7trGB27tR41gnREwl8uXcahq97M2?=
- =?us-ascii?Q?IYbjz2ezV5L0Wle1uWo+qHa1B7ObHBIt0rnaOSUrkgtZoJ7UElnJP8UBt6wj?=
- =?us-ascii?Q?u/ibRXHPTgtI9kw0LR2D6DS5Y5KYSWaMRxh54NLU4HYESkitG0tS1pHhUwLb?=
- =?us-ascii?Q?Yk1HM5yTlXEcrlqc7QznNiDx+pS0ycg4s+q2AskT8ilMEE3pwLOcd8SEQ4cK?=
- =?us-ascii?Q?AYUEkBnEksfB7EsNQxhafftZrT3qTlC4kcaIfefs4XiOZWkvWs1/ykYWRCBw?=
- =?us-ascii?Q?zuhvXuWOYo5AeJGaASwtAtHKKV8a6I/PGXK7jRfIi3vSrgf6Bmw/Nh17AjCi?=
- =?us-ascii?Q?ddUtPyG4xUDLFkKD1+UvglRHPuhk8nBJ88LLA1r2+7h8HXX2DFxCJwlUyfZE?=
- =?us-ascii?Q?aKSDFeREofYN36lCAK2UaFaPHK2XBQ7qqJfsQwSAmgbcx5u3NjTpfLUinPUm?=
- =?us-ascii?Q?y0PGUQ2eC8uiqR2X9BpyrQoUOUu7Bd13Zhmj4pYNAnkDiFfxyL7m7Olu+cjL?=
- =?us-ascii?Q?LAjLg7L2R4uJm3IkwT4Rh4iS8QGkmsvXO1YgbnQoCMsOLdgMXZh/dBxHJ7Yr?=
- =?us-ascii?Q?itr49d0CPp88gktVPnzD2J6uazH3OPUlebREDF4zo8KNzUVKY2jt9P3IbMkZ?=
- =?us-ascii?Q?RTSy/EgZOiGRc1t1mfRKF0nivGWDGc/0P7aTdzyGZ/iq5h/xGiOcFcF1xvpq?=
- =?us-ascii?Q?40CTlooL4/EONkeaorZMWL9VNiNoaO+huaBR9b/yV0lSBM5pr/B0SSiBPJ3W?=
- =?us-ascii?Q?UWd8iqHIAVuwoLJpay75WkUrWI1p0Xaj2grGDjkyrlTqlmbNXHDieVpLgAA+?=
- =?us-ascii?Q?ce7sBRg23o9c63qWieK5OXPAQsTQ3XDrXv69ZpCX8ewyCe9PNHEAEpQfE7Nv?=
- =?us-ascii?Q?TjiUocVI0YZ3fhbNElcq+j99pSWDk8biwIwX5WSJ3zpk32oHZriC5tQu/kgt?=
- =?us-ascii?Q?ygNhOTsKA1tWSDBsufNyGGnCjrl91QfJ4WXyHQ/dtDRfBcwHo+CvKlz92c6d?=
- =?us-ascii?Q?Oj/b6aRvharo8Odv682hbVk3rtlISdMWCjKXiJ4ot/k29/0rMfdYMIoJN/7K?=
- =?us-ascii?Q?F49H3U1NSRoh423Ti1mWVtGS38VaAQMbj571B/ZyhQ6UAG7W?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81f139c3-ac02-44ad-66fe-08df0aec5f6a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 01:24:04.1260
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: szBZiJuW4B5U+brVPCjjBU68P/y0E05hscp7/USCLLMLFIXwEBfflJZDVQTcLGX4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6001
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_182415_875514_0DE35F09 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20260904_183558_799222_5C3602F8 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,31 +83,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 10:24:21PM +0000, David Matlack wrote:
+The SAR power tables are parsed with a version byte from a different
+ACPI table, never their own.
 
-> The proposal here (which is inspired by the KVM UAPI) is to ensure every
-> LUO ABI struct has 2 properties:
-> 
->  1. A field to encode options/features (e.g. u64 flags).
->  2. A way way to grow without breaking backward compatibility (e.g. so
->     we can add new fields).
-> 
-> Each flag can mean whatever it needs to. e.g. It can indicate the
-> precence of one or more fields (i.e. new fields in the struct), or it
-> can mean a field now has a different meaning (i.e. union in the struct).
-> 
-> This would enable adding support for new features without breaking
-> backward compatibility. Downstream users would have to ensure their
-> kernel does not start using a new feature while it can still rollback to
-> a version that does not support the new feature.
+Some firmware declares version 1 and ships version 2 tables. The
+entries then start a byte early, and the 6 GHz limits the table
+carries are dropped, because the older layout has no room for them.
 
-This was never the biggest problem. The main issue was the functional
-behaviors of the kernel that cannot be represented simply as data in a
-struct with some flag bits.
+  ASUS GA503RM, MTCL declares v1:
+  MTGS  28 bytes   v1: (28-6) % 5 = 2, no fit   v2: 3 tables
+  MTDS  19 bytes   v1: (19-6) % 6 = 1, no fit   v2: 1 table
 
-Like for instance kernel A supports memfd folio sizes far larger than
-kernel B because we fixed MAX_ORDER. You can't fix that just with
-simplistic flags.
+The layouts accept disjoint lengths, so take whichever one fits and
+keep it per table.
 
-Jason
+Reported-by: Sagun Kayastha <sgn.kayastha@gmail.com>
+Closes: https://github.com/morrownr/mt76/issues/62
+Fixes: f965333e491e ("mt76: mt7921: introduce ACPI SAR support")
+Signed-off-by: Devin Wittmayer <lucid_duck@justthetip.ca>
+---
+The first version rejected these tables. Going back through the
+bytes, they are version 2 tables that MTCL mislabels, so this reads
+them instead. Rejecting left the machine with no SAR limit at all.
+
+The layouts accept disjoint lengths over the whole legal range:
+
+  MTDS  v1   12  18  24  30  36  42  48  54
+        v2   19  31  43  55  67  79  91 103
+  MTGS  v1   21  26  31  36  41  46
+        v2   28  35  42  49  56  63
+
+The declared count is checked against the length too.
+
+Fed the reporter's three tables to an MT7922 through an ACPI
+override. Patched, both come out v2 and every range is filled:
+
+  stock    frp: 60 60 60 60 60 127 127 127 127 127 127
+  patched  frp: 60 60 60 60 60  60  60  60  60  60  60
+
+That adapter is world-roaming, so both arms read the table's WW row.
+The FCC row is not reachable here. That is where the misread turns
+0x1D into 0x00, and where the reporter measured a flat clamp.
+
+ .../wireless/mediatek/mt76/mt792x_acpi_sar.c  | 110 +++++++++++-------
+ .../wireless/mediatek/mt76/mt792x_acpi_sar.h  |   2 +
+ 2 files changed, 73 insertions(+), 39 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
+index 946dd7956e4a..9f71cf7e2dfd 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
++++ b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
+@@ -108,68 +108,98 @@ mt792x_asar_acpi_read_mtcl(struct mt792x_dev *dev, u8 **table, u8 *version)
+ 	return ret;
+ }
+ 
++/* A table's layout is decided by the version byte in MTCL, but some firmware
++ * labels a version 2 table as version 1.  Accept whichever layout the table
++ * actually has: for every accepted entry count the two do not overlap, since
++ * one is 6 + 5n bytes and the other 7 + 7n.
++ */
++static bool
++mt792x_asar_fits(u8 *table, int len, int prelen, int sarlen, int nr_off,
++		 int min, int max)
++{
++	int tblcnt;
++
++	if (len < prelen || (len - prelen) % sarlen)
++		return false;
++
++	tblcnt = (len - prelen) / sarlen;
++	if (tblcnt < min || tblcnt > max)
++		return false;
++
++	return tblcnt == table[nr_off];
++}
++
+ /* MTDS : Dynamic SAR Power Table */
+ static int
+-mt792x_asar_acpi_read_mtds(struct mt792x_dev *dev, u8 **table, u8 version)
++mt792x_asar_acpi_read_mtds(struct mt792x_dev *dev, u8 **table, u8 version,
++			   u8 *used)
+ {
+-	int len, ret, sarlen, prelen, tblcnt;
+-	bool enable;
++	int len, ret;
++	u8 *t;
+ 
+ 	ret = mt792x_acpi_read(dev, MT792x_ACPI_MTDS, table, &len);
+ 	if (ret)
+ 		return ret;
+ 
++	t = *table;
++
+ 	/* Table content validation */
+-	switch (version) {
+-	case 1:
+-		enable = ((struct mt792x_asar_dyn *)*table)->enable;
+-		sarlen = sizeof(struct mt792x_asar_dyn_limit);
+-		prelen = sizeof(struct mt792x_asar_dyn);
+-		break;
+-	case 2:
+-		enable = ((struct mt792x_asar_dyn_v2 *)*table)->enable;
+-		sarlen = sizeof(struct mt792x_asar_dyn_limit_v2);
+-		prelen = sizeof(struct mt792x_asar_dyn_v2);
+-		break;
+-	default:
++	if (mt792x_asar_fits(t, len, sizeof(struct mt792x_asar_dyn),
++			     sizeof(struct mt792x_asar_dyn_limit),
++			     offsetof(struct mt792x_asar_dyn, nr_tbl),
++			     MT792x_ASAR_MIN_DYN, MT792x_ASAR_MAX_DYN))
++		*used = 1;
++	else if (mt792x_asar_fits(t, len, sizeof(struct mt792x_asar_dyn_v2),
++				  sizeof(struct mt792x_asar_dyn_limit_v2),
++				  offsetof(struct mt792x_asar_dyn_v2, nr_tbl),
++				  MT792x_ASAR_MIN_DYN, MT792x_ASAR_MAX_DYN))
++		*used = 2;
++	else
+ 		return -EINVAL;
+-	}
+ 
+-	tblcnt = (len - prelen) / sarlen;
+-	if (!enable ||
+-	    tblcnt > MT792x_ASAR_MAX_DYN || tblcnt < MT792x_ASAR_MIN_DYN)
++	if (!t[offsetof(struct mt792x_asar_dyn, enable)])
+ 		return -EINVAL;
+ 
++	if (version && *used != version)
++		dev_info(dev->mt76.dev,
++			 "MTDS is v%u, MTCL says v%u; using v%u\n",
++			 *used, version, *used);
++
+ 	return 0;
+ }
+ 
+ /* MTGS : Geo SAR Power Table */
+ static int
+-mt792x_asar_acpi_read_mtgs(struct mt792x_dev *dev, u8 **table, u8 version)
++mt792x_asar_acpi_read_mtgs(struct mt792x_dev *dev, u8 **table, u8 version,
++			   u8 *used)
+ {
+-	int len, ret, sarlen, prelen, tblcnt;
++	int len, ret;
++	u8 *t;
+ 
+ 	ret = mt792x_acpi_read(dev, MT792x_ACPI_MTGS, table, &len);
+ 	if (ret)
+ 		return ret;
+ 
++	t = *table;
++
+ 	/* Table content validation */
+-	switch (version) {
+-	case 1:
+-		sarlen = sizeof(struct mt792x_asar_geo_limit);
+-		prelen = sizeof(struct mt792x_asar_geo);
+-		break;
+-	case 2:
+-		sarlen = sizeof(struct mt792x_asar_geo_limit_v2);
+-		prelen = sizeof(struct mt792x_asar_geo_v2);
+-		break;
+-	default:
++	if (mt792x_asar_fits(t, len, sizeof(struct mt792x_asar_geo),
++			     sizeof(struct mt792x_asar_geo_limit),
++			     offsetof(struct mt792x_asar_geo, nr_tbl),
++			     MT792x_ASAR_MIN_GEO, MT792x_ASAR_MAX_GEO))
++		*used = 1;
++	else if (mt792x_asar_fits(t, len, sizeof(struct mt792x_asar_geo_v2),
++				  sizeof(struct mt792x_asar_geo_limit_v2),
++				  offsetof(struct mt792x_asar_geo_v2, nr_tbl),
++				  MT792x_ASAR_MIN_GEO, MT792x_ASAR_MAX_GEO))
++		*used = 2;
++	else
+ 		return -EINVAL;
+-	}
+ 
+-	tblcnt = (len - prelen) / sarlen;
+-	if (tblcnt > MT792x_ASAR_MAX_GEO || tblcnt < MT792x_ASAR_MIN_GEO)
+-		return -EINVAL;
++	if (version && *used != version)
++		dev_info(dev->mt76.dev,
++			 "MTGS is v%u, MTCL says v%u; using v%u\n",
++			 *used, version, *used);
+ 
+ 	return 0;
+ }
+@@ -205,14 +235,16 @@ int mt792x_init_acpi_sar(struct mt792x_dev *dev)
+ 		asar->countrylist = NULL;
+ 	}
+ 
+-	ret = mt792x_asar_acpi_read_mtds(dev, (u8 **)&asar->dyn, asar->ver);
++	ret = mt792x_asar_acpi_read_mtds(dev, (u8 **)&asar->dyn, asar->ver,
++					 &asar->dyn_ver);
+ 	if (ret) {
+ 		devm_kfree(dev->mt76.dev, asar->dyn);
+ 		asar->dyn = NULL;
+ 	}
+ 
+ 	/* MTGS is optional */
+-	ret = mt792x_asar_acpi_read_mtgs(dev, (u8 **)&asar->geo, asar->ver);
++	ret = mt792x_asar_acpi_read_mtgs(dev, (u8 **)&asar->geo, asar->ver,
++					 &asar->geo_ver);
+ 	if (ret) {
+ 		devm_kfree(dev->mt76.dev, asar->geo);
+ 		asar->geo = NULL;
+@@ -254,7 +286,7 @@ mt792x_asar_get_geo_pwr(struct mt792x_phy *phy,
+ 		break;
+ 	}
+ 
+-	if (asar->ver == 1) {
++	if (asar->geo_ver == 1) {
+ 		band_pwr = &asar->geo->tbl[idx].band[0];
+ 		max = ARRAY_SIZE(asar->geo->tbl[idx].band);
+ 	} else {
+@@ -297,7 +329,7 @@ mt792x_asar_range_pwr(struct mt792x_phy *phy,
+ 	if (!capa)
+ 		return 127;
+ 
+-	if (asar->ver == 1) {
++	if (asar->dyn_ver == 1) {
+ 		limit = &asar->dyn->tbl[0].frp[0];
+ 		max = ARRAY_SIZE(asar->dyn->tbl[0].frp);
+ 	} else {
+diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.h b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.h
+index 474033073831..1d42f24b05f6 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.h
++++ b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.h
+@@ -105,6 +105,8 @@ struct mt792x_asar_fg {
+ 
+ struct mt792x_acpi_sar {
+ 	u8 ver;
++	u8 dyn_ver;
++	u8 geo_ver;
+ 	union {
+ 		struct mt792x_asar_dyn *dyn;
+ 		struct mt792x_asar_dyn_v2 *dyn_v2;
+-- 
+2.55.0
+
 
