@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24053C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 19:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB246C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 19:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZO7QoC55JS7YlrPj7n0tc+0W47P37ccqMQAZ8EeLG2I=; b=0VwTVy8zwxW3uvPeb8IYQEypJ+
-	JUUPmdqEBTkTP4ncwTfjNTmPU/PXRhz8II4F+2aLkdEo7mPXsh+cvVF6uMKch4DYiLilpC+WubBuQ
-	KjHYk6sSKEQn4JgSwReP+IOmCQ582JXBbmNCI1XKVQCC02J2xXhTAn9rJsChnYO4Jl+GakAFhoKYe
-	01FZs3FVWhR0Idv0fy/3l6Zjz6N8nSTes2q2ppvypwtfhHGDVREDDQ7EYGUT6DHXUMpZQsUQhOx9y
-	zHuaSRER8Dey2I/8dQ6xk1pLz4IJ0WdSpMo+0bS6xermREzywPBU155A4IN+0FZqAhBa19ZdG1Ko4
-	1FFMPjhQ==;
+	bh=DgM7t7aU9HoxT1zgrcobYLNr/3Hfp6O28W3X/HOLvq4=; b=jI+ZCHHm7i2nxxus4+XuP1C7va
+	WcmmPGHd6Zc+jvVP485pvlA2uMHHwtIa/IXr9Jl8z3DtaiwCwJwS/ITiPwHPByRW+wBnaes/i0oeB
+	kjkL1tHAVhSN5m+pl3HfajihCxOiKCP7Y7E1RxqEGJM10muJrqNyzx3CM1Caw6UNF2B1TjcxeiGWk
+	JwdiEGo7/i5BAXuOYlCS6ZBRGJ2m+H0YQvy68tQfg3PYC8pOPrImoxX8e4OqrSsS+cfKuGZJ+tI+O
+	qS46DFfTOjs5cuyy2+PrGVbjnQHwSaPsSz7g4sH9nJC9LM42eW0OSvp7AWA7RnHKkPsZM7PaDqV7z
+	qffwtzUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2vga-00000004Lzw-2lbI;
-	Sat, 05 Sep 2026 19:04:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x2vob-00000004MCZ-1g4j;
+	Sat, 05 Sep 2026 19:12:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2vga-00000004Lzq-02vh
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 19:04:20 +0000
+	id 1x2voa-00000004MCP-07FQ;
+	Sat, 05 Sep 2026 19:12:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEBBD43ECD;
-	Sat,  5 Sep 2026 19:04:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 348EF1F00A3A;
-	Sat,  5 Sep 2026 19:04:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF203601DB;
+	Sat,  5 Sep 2026 19:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 630E71F00A3A;
+	Sat,  5 Sep 2026 19:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788635058;
-	bh=ZO7QoC55JS7YlrPj7n0tc+0W47P37ccqMQAZ8EeLG2I=;
+	s=k20260515; t=1788635553;
+	bh=DgM7t7aU9HoxT1zgrcobYLNr/3Hfp6O28W3X/HOLvq4=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=bGZK3QdNjedBzOdUANccbLKsTmyU0rDMg1V3AvzOw4poWea8kGxs2E+vX3rkzrgiB
-	 KnbVlVWeluoqRYYYipEvWzTQ29XK4z4R5pvKtfXP1alBXKG0kP5dd3LMoM9pn9a3GT
-	 gRR3RPmUBW140oaCy42R7rFAk7Hd5h2f0y3vABFeHZUxePUbbJYSxN3IYNv5ke/cww
-	 IFXCkDblqcA9ekeWxs148h1D9nRiYtEqj5ZZHC0yfTKPQT/uYgXI+ue0xNtb7Du9T9
-	 WDZ6pGyF6xS3tBM6jcVIEvfIdfyNPgwORLbTMX/l0h9aTWoKPPY8wbvoj+0NHJP8AH
-	 7Kf+vcht5wgHw==
+	b=lrRPbcChpZDisearlYxLLpLQy7Vj2LXH32xksA/4PmuDjb6lj0SheNhsIJssq0RAD
+	 vvGn2G+IF915hHxTrFceJv3gISpcIf5xC7+yiJ8oNAPQ5nhuWarNiOvrbe7nE1e0Em
+	 MZm6zPlREPidoH3bV4ObZWVQ1i6uHl4OatAJjq8xebA1TryNpmil+dD6IY9Kz6GaV1
+	 bK+a24dzjwZZs3aQZDNOB067M/AGYnPhFcG3qV5aG0LzpkY/A0jlob2I2rl8VRMlJj
+	 VtcXuUxzBvvN248QlXFjSWeDumLh0NW5pBq24FtOMR9VU+kB4VJmmtrTOHJH5tzgk+
+	 oB7+0QPzJ4+dw==
 From: Thomas Gleixner <tglx@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>, Jonathan Corbet <corbet@lwn.net>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
- linux-doc@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
- <dimitri.sivanich@hpe.com>, Tony Luck <tony.luck@intel.com>,
- linux-edac@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Tony Lindgren <tony@atomide.com>,
- Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org, Dominik
- Brodowski <linux@dominikbrodowski.net>, Damien Le Moal
- <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- linux-ide@vger.kernel.org
-Subject: Re: [PATCH 4/9] docs: kernel-parameters: Drop the
- enable_timer_pin_1 entry
-In-Reply-To: <20260905070347.25902-5-kmehltretter@gmail.com>
-References: <20260905070347.25902-1-kmehltretter@gmail.com>
- <20260905070347.25902-5-kmehltretter@gmail.com>
-Date: Sat, 05 Sep 2026 21:04:15 +0200
-Message-ID: <87ik4j5xlc.ffs@fw13>
+To: Nam Cao <namcao@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Radu Rendec <radu@rendec.net>, Marc Zyngier <maz@kernel.org>, Anup Patel
+ <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>
+Subject: Re: Interrupt chip driver maintainence
+In-Reply-To: <87ld9g9zrt.fsf@yellow.woof>
+References: <871pb9841j.ffs@fw13> <87ld9g9zrt.fsf@yellow.woof>
+Date: Sat, 05 Sep 2026 21:12:30 +0200
+Message-ID: <87fqzn5x7l.ffs@fw13>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -81,19 +67,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05 2026 at 09:03, Karl Mehltretter wrote:
+Nam!
 
-> enable_timer_pin_1 lost its early_param() in commit efa2559f6516 ("x86:
-> order variables in io_apic_xx.c"); nothing parses it any more.
+On Sat, Sep 05 2026 at 04:51, Nam Cao wrote:
+> Thomas Gleixner <tglx@kernel.org> writes:
+>> I'm wading through my inbox full of patches for interrupt chip drivers
+>> and I'm thoroughly annoyed. The way how this works today is not
+>> sustainable.
+>>
+>> Patches end up in my and Radu's inbox and all we can do is go through
+>> them mostly on a formal basis, but it's out of our scope to look at the
+>> correctness vs. a particular hardware. In the past I just picked up
+>> patches when I had the gut feeling they are remotely correct, but I'm
+>> tired of this.
 >
-> Drop the entry.
+> I have hardware to test the SiFive PLIC. I also spent quite some time
+> staring at the specification attempting to cleanse the mess we have for
+> plic_irq_eoi() (which sadly yielded nothing).
 >
-> Found by cross-checking every documented name against the __setup(),
-> early_param() and core_param() registrations in the tree.
->
-> Fixes: efa2559f6516 ("x86: order variables in io_apic_xx.c")
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> I can help looking at patches. Would that help moving things forward?
 
-Acked-by: Thomas Gleixner <tglx@kernel.org>
+Help is always welcome.
+
+But the point is that the companies who build and sell that stuff have
+the responsibility to take care of it and not just dump their crap into
+the kernel and then expect that someone else will take care of it for
+free.
+
+If SiFive pays you or your employer to provide that service that's fine,
+but you doing it on your on [dt]ime to proliferate the carelessness of
+those who profit from it is just wrong.
+
+Thanks,
+
+        tglx
 
