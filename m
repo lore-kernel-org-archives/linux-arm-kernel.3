@@ -4,100 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08EAC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF67C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=; b=kFhBZ6T0XvVRvJHBngB5QXUmoT
-	6vv4VeSxATg6YwBDlJvQjFJ6mxtbmkHyjcomAcPFgSIIuwgB0rUHYBzT01LjoOAfHJz3O18uIJVx4
-	JCmne/vfsq1LRvdfOfql8IYKNN07XRqliJFT1GGsHdUlztHEQx9QQ9A5Bx8DnPFwVDyK+55T/J5OW
-	Vy0rbbiqeReb1bjgaT2aFlQBRyDAeHgOKAYwFJR68ih9yfGyf1WUtgM5Pzv5XsvxROyarQSxft8Eo
-	B3f+ogYjfJvIWpcTrBc6w3741wAXqsrLyEXKrvntLmEPkIc91wD08zTj1x7VAgSV/5G6Md/ON4+Qq
-	xYkrNVGw==;
+	bh=bjpxt6wC/Xqqhz10TpneDwIthvnLaZnI4SDqGOP6+ZA=; b=wtQBw3UNpoVNHiHCpuKqSysv0J
+	RDE0SJ49ief6k8/CsYzyU44PghP+bS+aRQ1c84ExyIU/lbE66WfR1sal7UZj9hsAny/AxdKPy/X2L
+	Afb2Eu1UIkvt8Lsb59h+j3ULLCRFJLRDMLZDXZjfYP0YJvxwC/F7+gdiGZY9iHeLesOxLIOWoLjJD
+	KRDiHXFl9nzrG++Z3XCmOW0pILDwEKFbCklEqTSb/m46dFi1mY4mZ9lrJ47OT6b/BL4Xd9ZEw6YUT
+	tVDuz1k2afFcgNEkVXYXYI2UUERing2gQNt+vnj3DoEza3ZnQLur0NOS1FKltexlnVseXsYf5DUbb
+	3B+pdbzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lie-00000003rH5-1HU4;
-	Sat, 05 Sep 2026 08:25:48 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1x2lqE-00000003rmZ-1erR;
+	Sat, 05 Sep 2026 08:33:38 +0000
+Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lib-00000003rGV-47XQ
+	id 1x2lqA-00000003rm2-3tzE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 08:25:47 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3966791a6eeso2102590a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 01:25:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788596743; x=1789201543; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=;
-        b=N/Y1BK81apPUt/ScsRCXFLP+0Yfsqg5yqhqVK9qtfIwn+iQpuDKI+p3q7FFHrRmWpF
-         WNHd8+3Mrkw3p/t2EAxe/eWfSHLb3QyRfLErfNnecchf0umm+jzYoccWwVGIRPZdBzkd
-         ECKSVp3cfXXoonXW4/56QYHlGogBg2R+hhAEQRIcFG8p5Z42Md6vw7QNv6QsiXq4jW3h
-         EUkR2+sSHGbruzBcdte2J+7bCcr+S82ylmlsoNLqBMEwdol4LUXvuDOQL7QiP3D/K3RW
-         kpzWwvQyLN6XvXMwAptULhCojwZKfAL6vK4HXwyY+mNzbFg/4Qw4R4VHdtui2MnZjmFJ
-         5KMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788596743; x=1789201543;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w4JWIpadkBBtpyHMGkKKLMv6w38PE5gnqdnr/RtDlQw=;
-        b=KgoHJnwIqfDOnAgUuM9XBP0jQZpKzY+0murH3tXgKMuorbjQ4V08WL3pP9PdybpMU7
-         vtVhthV3hRIZcl9aGDaaUnpNNJRyk3sDQaL1nUwYvHBlXMA7GZzRwiwVE15EeJGeMfRG
-         0MC4qLR+rbvkWbDwgWBz4JRAeC3Pgu1qU4c9NGb0tstxtzWS1VCYdtiCRjEUEDwL45/0
-         7U99Db3ANLJ8dOKcNCBb7QTmX3FPBgbZRGNywxlawWUMC+n6Q4jbaXak75Rl9J6ORdQo
-         Z6fadoh8Bplefxzv8myFqk7jDCCCNd5DNF+a7t1ttNsVY1r8qV/VflboJw/EyHoJ/ZKO
-         NmyQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy+IaXaMPytNNNo3eTiMTASKmrcnohw84q0hWhxgTArvTAP0AfJ2of7j/k16E1/1LxgwbritVG+AAp9ahnepb3+@lists.infradead.org
-X-Gm-Message-State: AFuF++l+vp5BX7EepxRHiZSpnu0QN3z1X94gWUd2NOaeHjsTovfCXtJr
-	M52ogIwCr8Fibr719+K9MUTS4Mkr/3PJjAT5DHBr3hxAqEpaOJjYHezz
-X-Gm-Gg: AYBFou0YAPaTWGEaf6cZVs33vqoeQhbxOcch35r0EwkqMiSxDBmpgEJyNrlqos9I5si
-	Tr/oztoJdMf1TIx3YIZiXfDvtfu0FCSY3P8egWCNJb4YcAT/FTdsbGq/2/kUSpr50Z8hnh+K157
-	WHz41HLiqnGp7fOvleRB3ABEJYq7lkrOzzdztX5Mz5HpHyKncbYcjFE4ajdO2Ayb4tFDn4SOqMC
-	n5TG8IxOcER5RwJhlhs4BtV/ysTAkb9D0rQTz1TG+R/5xTs4k8B7bNX/1uhOikx4oShid2EscYB
-	4bXCMHZdd6eQVXURFAJf0PxzIfUShwdxvGacBFWJ/UQvrKccc6VrQU0uZDj7GEnWQQZdF1Ayno0
-	Yn4sEUIkckAUQ57jqnwdiPrkMk3sVvSp2HVOy8Vrd9QakuAB7yIXU1PkxWWqoKBK8jwvkhCSRaw
-	JNNVg3caJMUVIAO3lglbvh9tl0AkhWRjBnPWvQ4FzZ7oA69g12KsgSBXRWdCH6povYbXEqsfai2
-	Hm/1w==
-X-Received: by 2002:a17:90b:17d0:b0:398:9bd4:d18 with SMTP id 98e67ed59e1d1-39b26298ba1mr15383737a91.23.1788596743161;
-        Sat, 05 Sep 2026 01:25:43 -0700 (PDT)
-Received: from [192.168.1.107] ([223.122.38.120])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339885ca07sm14262328eec.1.2026.09.05.01.25.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Sep 2026 01:25:42 -0700 (PDT)
-Message-ID: <4e65ef39-cf1b-49d4-a899-da36acb442c2@gmail.com>
-Date: Sat, 5 Sep 2026 16:25:36 +0800
+	Sat, 05 Sep 2026 08:33:36 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3177D1D00110;
+	Sat,  5 Sep 2026 04:33:30 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sat, 05 Sep 2026 04:33:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1788597209;
+	 x=1788683609; bh=bjpxt6wC/Xqqhz10TpneDwIthvnLaZnI4SDqGOP6+ZA=; b=
+	XiReQxJf3fKHMVMCFra5ekrLe3In7ybcXSbNVe1BbPL7i5jju30KU8rv2hRyPZ2B
+	YUC28h2LYhMZlU3w80UCHefPFEzK5ppUhSkhO7wdXDyQYTGzh+B3OF72UUpeR4YU
+	pfJW+U8a/nU1ES0WyGIH4SG9X1m87uckCZlNhKpYUjuAFlAVc3oqV3ZFYuuqkthF
+	OaoVQRCyw2jg67qCrBKfRsBSSJ0LOetjunMl75ngJtSBcTC5cIlPBR0miF2EHNxD
+	bnMNQOTy+Z44gV7l9l6Tit/4OjSPbHAXMwT+5lZuKqyi2422RX5Y17GzUnr89/CE
+	VQTrTjl94LhTxnCq7I9bgA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1788597209; x=
+	1788683609; bh=bjpxt6wC/Xqqhz10TpneDwIthvnLaZnI4SDqGOP6+ZA=; b=d
+	JuDjmHJQhIvtJhQP/7cSnXvxpfBzCOpsF31Q0X2TFHl1laVjMwNvFT/SnAFb9pJv
+	92IjFXyrGsA3hDTPE+SmZpDixx8FnWkFryKSH0x92rA4jaQqpj5X5PYHDVL1z2Rj
+	A+u0XtaTpyupWqBVhRrGULIPB9exeAf1KQBArIgHZ2zENogwm704cEaoJGTUuWXK
+	PWYfQnTx9NyeibRHI46BHXpIr6tZdycRoq76QF2xfRiy9DLw1FBzQykoViv5gmH5
+	jQtto9rk9Cd3tSNgERxGHwY3et4Uwy216CMaW9bPwxULQcRYwysDYCw9KBwI6ej/
+	mE+o3IWXE4iN4M44H2QUA==
+X-ME-Sender: <xms:1tObar_sKX-LHkTYCBnV3To_SIb_zCw91et8bHDemH92UGO0vMmm6g>
+    <xme:1tObaig7MI3frM1W9mt5Ay1Hyihuzwkq97CKVoWswYgKWnEscmBJuSAkqUkkul1ol
+    9Pa0xjK0G_5-7ok8gw4yB_ho9HTlvt3-TYb4XuUlVJhns_xW9fP7of->
+X-ME-Proxy-Cause: dmFkZTF7vvIsIfkh8YrQepq3MAeq8OLybosXLfrXuMIxHNKGBQNOOI1uJTUnFAYx+ypv1K
+    cOTncklBM80ffcbSwmfekHFIWthX5KxkkpN6XzGP4xL7grJlCj+0H0VbzvxawMTWv4Ryik
+    kfA+9vaWM499hmXFrVvAbCrpEvE8XZnT++oI2ylUcd5Lqn0wbFlXVdoaOwJPfn/ZiJ6Hyt
+    U/y5vgPsjwMqoQKZonUgCkaoCvomqLZSeS8bfm6ieT0U3xMklR9XEZE8GHirQOuPRiVbnM
+    eBxRCF6S5twVgrQtpJS+wWUpoRhWPUl2yBORnSYpHqkkqV/TUlvLzO7nKIqhHtSXcAFhrq
+    k6d/fHa6HY6HVp8t6zyhJqU8q+yiAemjho866becBUUE36FqXB2d2zhM55BOupyUIz4ZfG
+    jdeI7FYGwJkqZWy8EOPh0nAEvvI8rBJARR793eK4+gCvh1uyPMpzbATOwOcbe/ylaVn/bm
+    OThQNWMQzxYwXIit5HiylJJZUGFShilwiJVidWJKqg+xGrQNpFQ094GjuE+SJBrZM7eiAU
+    392iCWOrQ+6LUDQFDP5yWk2aZJ9n2lzeFSYIbGns3vY9Hc2BgyHxX03X5nE1GSojPjLNRd
+    qSn11h4bXILso8SwmGuBrvJslQ+RKyCLJ+CHA4X6m6r3VDjak7gOdrsWi8eQ
+X-ME-Proxy: <xmx:19ObagG7kzvG5o70cAy_KQOK78VQLlodfs-5bI022Y8GFZxbHVdp5Q>
+    <xmx:19ObakzTa6lD0Z_KF1p0txglWoq64HJGP2eI0L5b_1MaZKNdF3rjDw>
+    <xmx:19ObatpSujzv1G_oog5AyeTTQA90mGi3O0XZvI9_w-8AUT1-jQkztg>
+    <xmx:19ObamgJ6skZi7bWTYsVjxp6sMHWcfTmx9ukP_FfMKRdrDTsKm8sTg>
+    <xmx:2dObaj4_OMhQ9rVTWFHxM5hGRXzJozJ-03syHECtAQBbLhQvYvU7HawL>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 141CC32A0078; Sat,  5 Sep 2026 04:33:26 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] dt-bindings: interrupt-controller: apple,aic2: Add
- apple,t8140 compatible
-To: Yureka Lilian <yureka@cyberchaos.dev>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>,
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-watchdog@vger.kernel.org
-References: <20260904-apple-a18-pro-initial-devicetrees-v1-0-0c25401d165d@cyberchaos.dev>
- <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
-Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20260904-apple-a18-pro-initial-devicetrees-v1-4-0c25401d165d@cyberchaos.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AFUWYdGrjtbg
+Date: Sat, 05 Sep 2026 10:33:05 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <a9e4e94a-9325-45de-a8c9-64c9ab8b1eea@app.fastmail.com>
+In-Reply-To: <20260905052216.11986-1-kmehltretter@gmail.com>
+References: <20260905052216.11986-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH] ARM: configs: Update axm55xx FS-Cache options
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_012546_041377_DD07F8FD 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260905_013335_482013_F1C9F3E5 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +108,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Yureka Lilian 於 2026/9/5 凌晨3:49 寫道:
-> The Apple t8140 (A18 Pro) SoC uses an AIC3 as interrupt controller, same as
-> the M1-M4 SoCs.
+On Sat, Sep 5, 2026, at 07:22, Karl Mehltretter wrote:
+> CONFIG_FSCACHE_HISTOGRAM, CONFIG_CACHEFILES_HISTOGRAM and
+> CONFIG_FSCACHE_OBJECT_LIST were removed in v5.15, and
+> CONFIG_FSCACHE_DEBUG was renamed to CONFIG_NETFS_DEBUG in v6.11, so
+> none of these lines has any effect any more.
 >
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> Drop the removed options and select NETFS_DEBUG in place of
+> FSCACHE_DEBUG, keeping the debugging support this defconfig has always
+> asked for rather than silently losing it.
+>
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 > ---
->  Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> index 1cb886785173..e3cadc5ad39d 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-> @@ -46,6 +46,7 @@ properties:
->                - apple,t6030-aic3
->                - apple,t6031-aic3
->                - apple,t8132-aic3
-> +              - apple,t8140-aic3
+>  arch/arm/configs/axm55xx_defconfig | 5 +----
 
-the title should be "... Add t8140 compatible" describing the hardware corresponding
-to the added compatible since the compatible being added is not "apple,t8140".
+I'm going to post a patch to remove all of axm55xx soon, so
+I think we can skip this one, otherwise it obviously looks
+correct.
 
-(Alternatively, if you mention the compatible in title, say "...Add apple,t8140-aic3" as
-"compatible" is already implied)
-
-
->            - const: apple,t8122-aic3
->        - const: apple,t8122-aic3
->  
->
+     Arnd
 
