@@ -4,122 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F69C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 00:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDA8C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 00:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6C8+Cvsu1IcbwMJrjb2DJP7R43gG+ZDdJXEO6N9v7gA=; b=I+UVxv97kTw4OgxWiZREfIYSoU
-	Th8yifWh4QpmxuGoH+R7GY2qsl46nPnk7kiwn3m3bnWxxhH2O7LNCGpKhU32Gt3e+RxEli5W19yk+
-	EVBMLcJV5sYaTE3kV+NUIhsumR8EwUmA/5f8xSYh4SS4fJzahy+4payVMfHBMCIw0KhbLus/vCiuO
-	BojwlaD6Qq3yciBiWwdWDnn3QwMI4f14Q4FIlICRQA82xK0GxKTgR7HUEcUUEpYI/2LL/TjKZUssA
-	ha2HC1d3HQxDnws/AQNdqirDdsgKHsRMaqXUS/QbrLvG3fFvY+K1yY8u8fqQ4LU5rQIbiSKcxXl1l
-	XHxUCelw==;
+	bh=nORnCbVbH5mxAliZabDrZOjSHlsyvMySDHzBkM2HwuU=; b=GIxHWQBIs9BpId3ZqBjw3Q0Gkc
+	IpGbbKrPA6gC7hVhi5vj8W64sT79+14h9tENb6j11CKNVKBjtCSSbRRlRlDOsyeURjR+ZHXU+QAmy
+	i3Fn2IYRjVwgEYa/i+G9IY50Hv14VPOQJoF6oPradZ85+R3z1qNT8piyapNGSGtxeLn3VM+txXe1q
+	5T1v9mQQxy6eOUAnFHYAC3VA9GinIi6Yqn8AIyYkvuhEnFcQPMd59ofXh/y9rEX+RaVWs5A1CGiLN
+	ITcZAFe0NF4nv0PUh35ruVke+6o2FGCUoLRLk5+pMgIuckKxYk3tX5z87lQJZMXyFt9uSyamYSNAk
+	q1XXtw8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2egy-00000003Xvf-0Tlh;
-	Sat, 05 Sep 2026 00:55:36 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1x2eXh-00000003Wlb-2mwm;
+	Sat, 05 Sep 2026 00:46:03 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2egv-00000003Xuz-0tHe
+	id 1x2eXK-00000003Wka-2rVS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 00:55:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TgSftW+3gz6JTYiKQ6hyU1j/TE1ocNyZLgaRgvFhq6KWDqtKC+Z5ZMNS3yL/jv/Fj7/pJ7PjZLaph/DJ+4VUivduL45B3xVvI9ck5Ieh/OIfiQt8xUePsOHKInyDDP8FICk1IHBz9xU8Se52jHxVWKNa/VTSDfB4y6qHTrJXikxAO8BQirNwZYDVfH9UzzRgRCdSiBH8YTyDDY0gvOTkZ0Opho2iW9aO+DE89CaQ6+SHtyIWtv7w5A7Y1jxeRGuJNo4CmnBY3RSv+KSUFiF2GRM3rE8H9VtHw7h9Q99EEvEFIXa63ZBaKfKoPGzvr/w6jEvU/sVj2+/XoiRXgRFWSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6C8+Cvsu1IcbwMJrjb2DJP7R43gG+ZDdJXEO6N9v7gA=;
- b=U6Mf22sCOjag7+RgLVtKUb7q04xc1VXjm3Nb274bFKJfPNRo/e5TualSLkT3k62WaHdpoGE26m1ZisK9IXmRtSVLEe4p61kGOFPMw9tlVi0s7UsiSE7utLyzwfUZGed1ACe92qcemybFkld+WqNXREJRmZCDoOBHDbvtd9KKu5bUfAWEcR8T77HdCWFaKt5vors40zb7X7MeEexQG5ZODzks/nFMIKZCCpPIFiNJaKy4COL7058/6PyL3LnhkFJ2x0ji18aNtTaz8BXBaXHegNPm0RDI+3M1CjMmQoTNAx39n8eHyaJnzEFnUmvZq3jthfGejCnn2jARppgNv5s80w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6C8+Cvsu1IcbwMJrjb2DJP7R43gG+ZDdJXEO6N9v7gA=;
- b=CDKEG6qWi4LQtgyckGyfouyZ7P1Ryv+QoJkw3RGmOuahAfngrUpM7+wErEyht1G2Tzg0iMfcbfSFXOEcGmvxi3g39fdNsdTqgrgm6TjvrrNqUU+EblY7kPjykCVjEMlnAgvaKZjIw0n8bz0mdGwT2rGpQby5+jhaSDlpfym1p+eGQ/9PF6ZL6AKPkkyWWYtaSrLPAnvKaoSvPw9j/IDWqOpg4WO2Uq5lJQMiYeQYyo2HFmr6LyLHstJx071RWgKsCDo+zCfDq+mGEqQCPsb8g5vCDKdsgzEZ+TtpbWzwd44XnWCPlLPPoI17JB0Uvs9tSGuHj4Aay9uaVgzfForDIg==
-Received: from BN9PR03CA0385.namprd03.prod.outlook.com (2603:10b6:408:f7::30)
- by PH0PR12MB7863.namprd12.prod.outlook.com (2603:10b6:510:28b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Sat, 5 Sep
- 2026 00:55:25 +0000
-Received: from BN1PEPF00018548.namprd05.prod.outlook.com
- (2603:10b6:408:f7:cafe::63) by BN9PR03CA0385.outlook.office365.com
- (2603:10b6:408:f7::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.12 via Frontend Transport; Sat, 5
- Sep 2026 00:55:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN1PEPF00018548.mail.protection.outlook.com (10.167.248.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Sat, 5 Sep 2026 00:55:24 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 17:55:13 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 4 Sep 2026 17:55:13 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 4 Sep 2026 17:54:48 -0700
-Date: Fri, 4 Sep 2026 17:54:43 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
-	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v3 04/13] iommu/arm-smmu-v3: Flush in-flight fault work
- on domain detach
-Message-ID: <aptoU8s1+90alMaI@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <45b6e8c6dab5b67a91ba54c32bf11ab3347d80f5.1788222485.git.nicolinc@nvidia.com>
- <178846311317.1308030.4066178511081757826.b4-review@b4>
+	Sat, 05 Sep 2026 00:45:54 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id F1A4540E016C;
+	Sat,  5 Sep 2026 00:45:33 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 3y-QtSAJBYRS; Sat,  5 Sep 2026 00:45:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1788569124; bh=nORnCbVbH5mxAliZabDrZOjSHlsyvMySDHzBkM2HwuU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KeE8Kb2dJnLpc0Ry3NEKvf3vCEVLMrMV5QyBRo0KxYaxV6VWbglrWNnrM8qZ2VlEs
+	 ueh8B2nHU+9dRPzuM6kk9rWnQUyj5td8sG11Qu7nvf+nXlKe/Y37FBMmcVj5FAL6u1
+	 VT0i/uuIUTac3SnYSaDI641+CO3QgfQkn0KDmsS7SZztN2am2SvPlOLRI3jPEXq292
+	 VrTouNMrb/w0olJhxn9MlEoY4GLkSVlXYMDH9IEGfyELbP9kx80sAnZIG9jaZgfq/G
+	 74/j2OdNPx3DYb1f+JyjQ/Su6akocpeeBsC+0zjuf4cujmMG/aAKr6vlBeTZKtEHOQ
+	 b4iJx2bsGvAkioblq8nCMLSR0DrIOInD52wduSNooIPkeM2v/IbFEWlWc765lHdBgc
+	 akFqn4qBCWTPJBkq4l+Df/Vaa92wdDrNZ2kPNXw6di8BuKngMNfUD+QSMuzg6WcV+N
+	 rfU4i6KVr+I7GcgHGvcuIGiI+NpnqeUi9TremNXpJTLbQ1z7HgWjDS0eGXtKCWPwhu
+	 7XkLHhs+rydTLhEqlSMPr7ObvpPwEKh1jJD/mUSBOF8kD4NhUGM29XP6Akx75CjKXP
+	 C+tVq40iIVxeWjYZ1zdIk9Iq5hZe+Ib8qVj5QjnAnD76ty8L9dc4usZ1PIfLT8Ajup
+	 6wdQMImKL4K6CzagrtA8O8sE=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2a])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 38E8340E01E1;
+	Sat,  5 Sep 2026 00:45:09 +0000 (UTC)
+Date: Fri, 4 Sep 2026 17:45:05 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: Reinette Chatre <reinette.chatre@intel.com>
+Cc: Ben Horgan <ben.horgan@arm.com>, x86@kernel.org, james.morse@arm.com,
+	fenghuay@nvidia.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, tglx@linutronix.de,
+	mingo@redhat.com, dave.hansen@linux.intel.com, hpa@zytor.com,
+	corbet@lwn.net, linux-doc@vger.kernel.org, dave.martin@arm.com
+Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
+ conversion to be per-arch
+Message-ID: <20260905004505.GAaptmEVxltONVfl2J@fat_crate.local>
+References: <20260709093111.367851-1-ben.horgan@arm.com>
+ <165e7636-d7e9-4d16-aad1-657b4a9698d0@intel.com>
+ <b0a7035e-7ffe-4e22-a4ae-a177640234b8@intel.com>
+ <20260904033751.GCapo9D5ZZXWuQkIpc@fat_crate.local>
+ <20260904173615.GOapsBjyiT7uXHd-Qc@fat_crate.local>
+ <35ebb8d4-2ef0-4bc0-ac3f-afff0c95ae89@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <178846311317.1308030.4066178511081757826.b4-review@b4>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00018548:EE_|PH0PR12MB7863:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9bd4fa6-20cb-446c-f021-08df0ae85ed4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|376014|7416014|1800799024|56012099006|4143699003|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: e5C8wGgBlxweuajZ0NQ9bdfHsVOEpjr93AxXmyh+YogOjiPuNvp6xGhoKG3FkiXYVmd9RKHIZKtPFIEanjV7G4foE6hyLMo2ORTCPugnBctXlNrurctiiV4QPp7rBuZOgGoGDQGmb0wo4TsLUUHVW8vWMV5oTm01YjSwVRpY8+AB24wQBK7khYKmOLtw/rzj7IEp1srKwhH87lV8OAKUXq9k2ISTnEu4/SmCy9UFEArPHX/RPomigQ5lJVSSuchloR1hrQUPcckAoJzp5wpa9+wEfFeaIZ0z5A+5TWm+V30B3gjp0ZFt5RT+9S0uRUnAd2QQdL0W0tsG625R5UrHOVKvVsYZkmy3Bv7GOcvhrY3uEeyr0ASVjJiQenJfJQ/O/xnhCSjXrrq6hPenIQGRqMrczkmRaq7qZfxIKbI3N3auF+MHKadzSXtWkxkeD3fIpQDT1ZAzcQVbGqKh5NInnK2B6R51pB8ovpdda98+bG9BQrnjiYfrRTxdGnaNuQ71HbyIluuRrQ0jVDfxriBWY2GSNVg1myjkYl5ypMAfb45nHDfzZLyYs57j4lT+or4lz+ALj+efsUM4d7XRu4Z/I8ARwVlugcqo/idFeiBtEuN090sdSjfBEd1FirCmjjgpuns0jNfPuFBjpmJVyp/4Zbnx65lW/qbyeJht8UXeAZXhiC8LcWuJ46y2lHz/eBe5vfxX/i3Sx/d/aMJ0vRbHyQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(376014)(7416014)(1800799024)(56012099006)(4143699003)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Y7MOY8pelGVQ4JHcBmjzJBq6JICgPbIEfii57ATldKUk6D1MvZ2/KYenCe1wsOn1K47mjfaDBkociPEVlasFZoNwm5sh1rD7bwVC0EqQAZLPjMZOpO5qeNgSVziJ/sm7CFjQ/fZM+oP2+USHhrCRvfnXi/Ue/9LvN1qZtdWh1yQVJFteEP3V5+P5N2LfDoJ9ir0Prj2Pct6nQqQFI4HoK8i3+x1eURZbMGVhnfjxncZqT6HXJgMVWjHAkhdgoscBwXhXZ7pdM8XFWTcCpx9RmIRupRAT31aQXT5mZfxa4IATC454+OqwBhHPK7/4hAGi81owq7tzmgqFTKfEhK8g7AVxH9wmi1y1KfreCmniueHl6bOkyBWIc10DQu2te/wzAdHkF5iqCaikuS3R8JOWwQ6mvmjyM1/j1iz/f9HUvd+WiSBYu8Y3XqJsQbX2fKkM
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 00:55:24.7642
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9bd4fa6-20cb-446c-f021-08df0ae85ed4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00018548.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7863
+In-Reply-To: <35ebb8d4-2ef0-4bc0-ac3f-afff0c95ae89@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_175533_250316_1287C57E 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20260904_174545_921082_EC2EA485 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,60 +94,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > arm_smmu_attach_release() polls the hardware event queue to drain all the
-> > in-flight stall events for an old domain that the IOMMU core might free at
-> > any moment. However, a drained event is dequeued, yet it is not necessarily
-> > handled, and the IOPF work for a handled one can still be running.
-> > 
-> > So, first synchronize_irq() on the evtq and the combined IRQs following the
-> > drain, in order to guarantee that every dequeued event has reached the IOPF
-> > workqueue, since synchronize_irq() waits for an in-flight IRQ thread. Skip
-> > the waits on a timed-out drain though, since a stuck consumer would block
+On Fri, Sep 04, 2026 at 02:15:08PM -0700, Reinette Chatre wrote:
+> Sashiko's second comment is about resctrl's existing (not introduced by this patch)
+> Intel specific enumeration being resilient against a hypervisor misconfiguration.
+> Thus far resctrl assumed the enumeration would return what the actual hardware
+> is known to support.
 > 
-> drop the "though" - doesn't read well or add anything.
+> Sashiko had similar "hypervisor misconfiguration" comments in response to another
+> resctrl series that already falls under the "cleanup" umbrella. It is not clear to
+> me how far resctrl needs to go to be resilient against hypervisor misconfiguration
+> but I can include needed validation addressing this report as part of [1]. 
 
-Done.
+I would always ask myself how realistic is the use case. Here, I'm thinking
+not that realistic unless you guys wanna support resctrl in a guest. Which
+would be weird, IMHO, because a guest can fake all kinds of hw so controlling
+resources of a fake hw is an exercise in futility.
 
-> > -	if (master->stall_enabled)
-> > -		arm_smmu_drain_queue(smmu, &smmu->evtq.q, false);
-> > +	if (master->stall_enabled) {
-> > +		ret = arm_smmu_drain_queue(smmu, &smmu->evtq.q, false);
-> > +		/*
-> > +		 * Ensure pending events have reached the IOPF queue, unless
-> > +		 * the drain timed out: a stuck consumer would also block an
-> > +		 * unbounded wait_event() inside the synchronize_irq().
-> > +		 */
-> > +		if (!ret && smmu->evtq.q.irq)
-> > +			synchronize_irq(smmu->evtq.q.irq);
-> > +		/* Pending events might be in the combined_irq handler */
-> > +		if (!ret && smmu->combined_irq)
-> > +			synchronize_irq(smmu->combined_irq);
-> 
-> I'd group the two things that happen if we didn't time out.
+So might as well answer that Sashiko review comment with "thanks, but no
+thanks."
 
-I folded this in.
+:-)
 
-@@ -3423,11 +3423,13 @@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
- 		 * the drain timed out: a stuck consumer would also block an
- 		 * unbounded wait_event() inside the synchronize_irq().
- 		 */
--		if (!ret && smmu->evtq.q.irq)
--			synchronize_irq(smmu->evtq.q.irq);
--		/* Pending events might be in the combined_irq handler */
--		if (!ret && smmu->combined_irq)
--			synchronize_irq(smmu->combined_irq);
-+		if (!ret) {
-+			if (smmu->evtq.q.irq)
-+				synchronize_irq(smmu->evtq.q.irq);
-+			/* Pending events might be in the combined_irq handler */
-+			if (smmu->combined_irq)
-+				synchronize_irq(smmu->combined_irq);
-+		}
- 	}
- 
- 	/*
+-- 
+Regards/Gruss,
+    Boris.
 
-Thanks
-Nicolin
+https://people.kernel.org/tglx/notes-about-netiquette
 
