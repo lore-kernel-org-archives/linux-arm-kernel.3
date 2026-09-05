@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EC2C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB6DC79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0boECcjjn/VFHFH6rk1vpO238PkXNlP4zHZKdanKNnE=; b=AQbjpbDEuAQBqVdku7k36Q7uaK
-	RT7+UJ5eNYVYJbXH2i6gOKniWfC7BVyUdlcFdCumRGyGJo9Pno7xo+SwHwKNr7PAnXcFZlW5L/W7b
-	cjp3KQu4RZ0hIcJ1F4eCT0YBgZCWVlEhRmCuL30tONZTr3iH49V+g1PDEwtogQD3rFMc2nQkAFIA0
-	u7ijr6YrMsliJxcN0CG3sVhk6YFQTRqi4HMSS6EbGck48CNhpmp/7WOmi/WgAgFa7/1stKZ3RV62T
-	iCwTr0Dt5JbJI7VC2y01ob03wIytR6CNdJPQXiRJKVWtohjOp4XKCLCm4Tp4Dq6+qk9ZBieYrT/qU
-	nnmFTbsw==;
+	bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=; b=Nr46QqDohTu8niC6LsBqhLUDsu
+	cZe8QCgBRLMFFdJsmw94D336f9s4HvRI/TS4q+VzPQmy7gIAXlIAvTH18lXUfYSy8So49xu/VUv7q
+	0WaBbtNkCl7dnHTX4MJMJws+IqGbE4/2Mtx9BzIg1mgi2TEIQC/qLPUP1xpfuhKg4WfFT/950I4yb
+	SoJOy6whHleaQ5fOlm5hjpGR/d7BlAJIM2Rd5uAcXLAqBJc5Fc6IAJEeAqaUX4fFgSAnlA8q7zG/W
+	tRIRRXnd8oObsEC/0p7ac2wechOYrJZv969wTovCsuddmPKOxfMe6p0JlMkSKgqSUTdYS7Nc5sshp
+	D2lVcV2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzX-00000003wMj-475E;
+	id 1x2mzX-00000003wMI-3YWL;
 	Sat, 05 Sep 2026 09:47:19 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzS-00000003wHh-32iW
+	id 1x2mzQ-00000003wFt-48wj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 09:47:15 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-499ae1c6471so16713765e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:14 -0700 (PDT)
+	Sat, 05 Sep 2026 09:47:14 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-485850cf499so1065523f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788601633; x=1789206433; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788601631; x=1789206431; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0boECcjjn/VFHFH6rk1vpO238PkXNlP4zHZKdanKNnE=;
-        b=bvo5+dMN81NxFEKHgH/Z2XHanSPcEqNfi16BWPqW/xHoUQnr5eMbNfQGpQeD+Vrrh/
-         hSRdBh8zbv2GgIPgSEB11Gvu4EcAI+vXe4GRi+ndpJrUE24hz4cmjoO6Ge5TMB9m99qZ
-         ZKWVWGxpKYc/Z1Eqgc24M9eva64ZJd5CrvoZibjk0qYymYa4HIzRl215rn9+9ztv+igK
-         jKo1HI2ONygU+eM2rciXygQOMGSAUvfyS3HjdjnKE8zmSB037i7t8cwoYqpsj47/I0nT
-         SCBBX3AXfzqJVsb77I0HO37BIKPOcrbTIW5j1+bJVkfbu9035YEoQSUFO2T7HVi4ePEr
-         Yr7A==
+        bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=;
+        b=pKeys+K6x8odyHmc3GtM8QOdFUMVTvKURhA0tCZlHsU/08Ag8kzqGvCRAJy3MjGTk8
+         emrQH3gbTWZRaeaADlzVNfab5b9AAKSs83rPcpWD8AToVCV3AbJ6uQgBvzaHbvYQOMxn
+         JrLPptFZgd/FmhGRDK2XAep5YQefxxh4+X2eyKcI5IGJjI9c2WcLcJXv0We+uY5cNBKs
+         JX4cZOB+xg5X+CfZnD2yPmgMxLeSQEVV8SylNoofpuacxDA1IO5v0JWBXR8YskToOE5d
+         kuLRg60mUYHdbB+hhBhJ+lpXmRhI+K0vt+5RmM+rs4lvTHC8KopGhAbCkTKRLA+A3zmb
+         jNDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788601633; x=1789206433;
+        d=1e100.net; s=20251104; t=1788601631; x=1789206431;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0boECcjjn/VFHFH6rk1vpO238PkXNlP4zHZKdanKNnE=;
-        b=HDhmACnSdmn+9hIzPn3RoaBuhtb+8koRsGmR/9QnnEh/ihJrMB7Xtp/+dvKXTmnSYu
-         qw/Td3z3W5XmLkxzzfZt/wpDqrI7IzqNboXVPRVJgYqc2JR5nwjTw1GzEdsMMxvawSG2
-         RoJXoEXGeYQuqux1/oa9ykHn2NLWTITGmfdOCJ94Rk93C3yhfviqRfGjR8lh9Z82SaUh
-         15JUd3AEwL9U/7peLOPyQwMAvv+q2nFfIRkNor2coyr2KcbnhudcSkojaikHpTd7gIdJ
-         cLqZwqsDmYfRw0K8FPqvxrUZxe7Mmrtl0/WxFkc3/S36zvCOO3hCMOazIk6MZi2IY3vK
-         Z3Lw==
-X-Forwarded-Encrypted: i=1; AKwUvBya8ZSCS8yNP+9AGcUq6U3z/gaI7pXyFq1h8uwx4PHIZd1XNgOXXcOR0UIC3ynNRUpLGy9g4MHI6IJNawIBuJ1r@lists.infradead.org
-X-Gm-Message-State: AFuF++m+4qOjBWnWyrAQcs20rYYYBFB4o9UgS7HfXx7MFNXb/tpoe1og
-	wczeOpXwD5IiT9t4bdHhn9XAglRMBWM3Y86i/tkOBwAoRrCMMaMmu5RQ
-X-Gm-Gg: AYBFou3rFyxiR4O9k4lUblT71/uLYBQFBrBc6ji7GYNPkPxyJ2HkqkTPpoW7Gmqs0JV
-	azjMl9ltMhGws0zn/AawUb6VOynuxpJ5IyIAfI4oS+TplPh6PSfq74vPtShcTUxSLgrMAuH9FlK
-	T6EVyAoqQ2CDzIizkAjL58f4j7QOaO4NXz2jUmLQbo4crKvXKzYZl904B2Y4kcnOqmSf/Q/dNRV
-	qLCeQ72aAdJmTWBqFUoS4fRYmyFh3CatzbDEWccHLD65Q6VEYCvalFkZ3kAeMAYe1fUBll/oJEZ
-	lInOLNuO1SlRhL0d47/ggXVhVPBZFM8/Tyl4Vpm00c5G3x6CKUNWRRB0aoRxJ9Mr23YUYdRaUm5
-	FuIT8hQoHZIO27jO8OOnxfAvsfJ/cptdCa7yLeFpa540MyHtW76hq8cWmGokVigD09TsvcxpdSj
-	Hx0aBOIQHsS+N4KthUhDwiSyXmIKLpSX6qHgArzh3vmgpljVXl4j1ZbBiKpF5mLq5Oa0edjqWzE
-	06h+fLT9uAg1fcq51qsxIkIpVQ2OVk8V0Gsask9CVMpMvkUIjs3F4GbI7KbOWvsPkxlkUTlbXNS
-	9qMcxThLyD2zJGmBO0pGxBJ9O1T/e8YBOOrd5Nm/LlybLRDuBZSyno2gbs/iauan4/w=
-X-Received: by 2002:a05:600c:8b11:b0:49c:edfe:d525 with SMTP id 5b1f17b1804b1-49cf82417f7mr260260105e9.10.1788601632697;
-        Sat, 05 Sep 2026 02:47:12 -0700 (PDT)
+        bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=;
+        b=lCOT7GZpDtIi546f43JE+nwQ8Qjn9epHX4LVQS2Au3I9j7bQtiuN3LIcIUjvXPdrYf
+         Hp2UaYny8ebAf7BJokt+Ccq0QStXXLlcxkgkQMN4jWtWAI3+x8Bew+HiJZB7GiiuvGi6
+         s0JYKdV1MZE8Y0e4CwJDojX1YXkJp5briYqShiWVIQMETzT3uwtdsuBtyjTPKmoEh6xE
+         eSpsEa38sBIzU8U84AMTTG2rbWjvDjYqQQ4C0MwZYBIuTl6RsHYZ1drqJwYsl5P1kUrT
+         uqojBs7ZKWwKhSMNAbQ1XoqsHR42US7RN6a8w5d293eZnjMsI914Fc7OsmPRC78z/5p9
+         uVEA==
+X-Forwarded-Encrypted: i=1; AKwUvByNczzwzRKp7rSA4f/dJqIAZ3QinCNtFekOtH3aQe/7LR4CtAvfSon/qArZgGXwm6DugNnktVsb0/BkdefLxul0@lists.infradead.org
+X-Gm-Message-State: AFuF++k0ZjyEyGoWLSnu1uovIuDoY8yquFKnYYWoitNNP5V1plPracDk
+	1hrfHkmJ+4ghXocRThC/Me6TvLtQjIb3o9MXIINI47rBR2DAA1OreBbF
+X-Gm-Gg: AYBFou1bjdn6CNa1BwmuNjOj7DZfyNAI138y7nAtLlmPHLCN3y/5DVN8uWP0d6dJ4KY
+	m+sl5kXz9LPw4/PGAPKDIsBcbcByTb3wTWoT2tilCdkjClOMK7dsrvKDykkcV8Nmnsr+hF8bKer
+	o2qsANLmxBPwhwXu6ip7GIgGaR0CUE5axhcBZ3DlFyiesWDl+O3EGFZek/3BrXZJ4AOWJtyfewo
+	2G49yYF7H0Re5DNckSGifVBYBVRS4iWBHMnQNXZLStrkSmPEfv0ldInqz/L8U0jFD+/9jxyofr0
+	MoClbfHpBQUP1iqjdznflZIH7nknd1u5dXtZmjVPH6iyYQHXFGldeihDwFAixCHOEVrz5zUoQnP
+	786rWnoVsE3RCD0JF4jvzyd29tnKA4y62bTEnzw8r/9y8jLKR1NSpRs3OwSYBSeuTwxdJ65Zlhz
+	7Gn8I84HF5a2v1WD4Y/iZeLdHIPZw4TjSs414xkdEgzFJpe1p2forSMNcDQn7fTyUBWx4jzgjOL
+	qrRe1P9UwlXvsKoj/iXVqfa4F5hvPiGyuDmO3PZTZGYO198URJ+0rXoABzXlQNB7+jrlpUX7FEf
+	n4MsMtAR4BNRfKOdxywkQOJK0VBdjibxwW/UC2WCDKubxsNkVDFRuucc+snEpbUT14O5
+X-Received: by 2002:a05:6000:2584:b0:482:b813:8315 with SMTP id ffacd0b85a97d-485872ac3b1mr14547032f8f.21.1788601630963;
+        Sat, 05 Sep 2026 02:47:10 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.47.11
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.47.09
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 02:47:12 -0700 (PDT)
+        Sat, 05 Sep 2026 02:47:10 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -105,17 +105,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
 	Michael Schmitz <schmitzmic@gmail.com>,
 	Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v2 7/9] docs: kernel-parameters: Drop the omap_mux= entry
-Date: Sat,  5 Sep 2026 11:46:47 +0200
-Message-Id: <20260905094649.41996-8-kmehltretter@gmail.com>
+Subject: [PATCH v2 6/9] docs: kernel-parameters: Drop the nomfgpt entry
+Date: Sat,  5 Sep 2026 11:46:46 +0200
+Message-Id: <20260905094649.41996-7-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260905094649.41996-1-kmehltretter@gmail.com>
 References: <20260905094649.41996-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_024714_783040_721F5008 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260905_024713_049593_DC00E317 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +130,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-omap_mux= went away with commit e9f5f1e45608 ("ARM: OMAP2+: Remove
-legacy mux code"); nothing parses it any more.
+nomfgpt went away with commit c95d1e53ed89 ("cs5535: drop the
+Geode-specific MFGPT/GPIO code"); nothing parses it any more.
 
 Drop the entry.
 
 Found by cross-checking every documented name against the __setup(),
 early_param() and core_param() registrations in the tree.
 
-Fixes: e9f5f1e45608 ("ARM: OMAP2+: Remove legacy mux code")
+Fixes: c95d1e53ed89 ("cs5535: drop the Geode-specific MFGPT/GPIO code")
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 5 -----
- 1 file changed, 5 deletions(-)
+ Documentation/admin-guide/kernel-parameters.txt | 3 ---
+ 1 file changed, 3 deletions(-)
 
 diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index d44728a45506..48dd273eaf6c 100644
+index 2ed1e2c03c61..d44728a45506 100644
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4765,11 +4765,6 @@ Kernel parameters
- 			waiting for the ACK, so if this is set too high
- 			interrupts *may* be lost!
+@@ -4553,9 +4553,6 @@ Kernel parameters
  
--	omap_mux=	[OMAP] Override bootloader pin multiplexing.
--			Format: <mux_mode0.mode_name=value>...
--			For example, to override I2C bus2:
--			omap_mux=i2c2_scl.i2c2_scl=0x100,i2c2_sda.i2c2_sda=0x100
+ 	nomce		[X86-32] Disable Machine Check Exception
+ 
+-	nomfgpt		[X86-32] Disable Multi-Function General Purpose
+-			Timer usage (for AMD Geode machines).
 -
- 	onenand.bdry=	[HW,MTD] Flex-OneNAND Boundary Configuration
- 
- 			Format: [die0_boundary][,die0_lock][,die1_boundary][,die1_lock]
+ 	nomodeset	Disable kernel modesetting. Most systems' firmware
+ 			sets up a display mode and provides framebuffer memory
+ 			for output. With nomodeset, DRM and fbdev drivers will
 -- 
 2.53.0
 
