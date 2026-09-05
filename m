@@ -4,121 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F841C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 05:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E51C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 06:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Slb41UrarB+OPmJ3OTqdy1HcZRgIxQMEQqVrx0/9a00=; b=WNuu6BUGxiAd0yzjtpGdsGc6az
-	+FOm59OYTeOurMkGAHSf4Qy4Iiq1tiU4Utag7eMJlhl1+pVu37Ju90To0XfhQ8iXOOoIvlQxMwW6K
-	EL6dwda3eoUOpAEC7G+QTRiVc9eyqfzS19C837ksbMtSlrunfX1j+SSL8kmz0XLPdcK/UjKdYcfbd
-	XEGDaElqoi+8mDt/IFjmGkJ8JibpuRl+vDhvo36f4sMnp0XN9OQlIicEBUxMEZ1hKduChydpwMDYW
-	VAzJ7MiYN83Gf1H6IfWXRypt2jdxsv2psOTXQCc1OQlMdhLDxeSQua3UVi35k6IEaCaRryXOJUiIQ
-	nH3etmLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wroX+IXZ78hb2aQP5LUDjSlqEruTGuDIlApEgq/LO60=; b=PjOAifjyjgYwyvZNQYml+6tiwC
+	reKJmW5hClCAQPuNkkrTKReIer9zMXXLmmjghD46idB0wdj1zRRbAi+WM2clArgspE3JNCPH840Nu
+	ibMItwTXouguEo+BINHlEkUwmCpH2ijmfPgQB/0+cLRxQiyXOyGvH6/j3rrsY8CaHRi05Ko8P5+nO
+	bOhVCZB0P/wSpbEGRe0nZN2oioWqagvBTtgf+zx85K6yACTMgm+x2PfIYbcKA9kKdXBfPEgvU5TKJ
+	x2Q0P7+Z0fgaxlsGxA/UgVoRxmeRZWl/4SpWyrVGm0SJcBWaVQPkBfr0u75dNtbNujrFAe1wHStH+
+	wDir+OuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2jLe-00000003inS-1mx5;
-	Sat, 05 Sep 2026 05:53:54 +0000
-Received: from mail-westcentralusazon11010060.outbound.protection.outlook.com ([40.93.198.60] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1x2jha-00000003jN1-1nXF;
+	Sat, 05 Sep 2026 06:16:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2jLb-00000003in6-3YuL
+	id 1x2jhZ-00000003jMv-1O2Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 05:53:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TH2ol+n/9pBzjdaugwjP2xLicUWjYupSc1FqfJOK8ZgNLFA/jOCNYvdslDdvMCjZfvvEzyFnkllyuukPquVAOn8VWSpinowDh/Wsn56cquzdIfD54DJflIIIX7vpbC5Nr/DHEcGhc+OIK3tPUJnC6oaaROIJdF/GTacFClq2Ao7PlmszSiaYfwm2lZlQ2nrGKV+p7hSUweAbpKFQDXPGN73Wi11yXIX4EjSHIweptgFniBUmWLHCUh3Cic3qUpkuyQOEZ03pUbhsU0RPf2IEUpfpFh1GRpqU1s1dyicEeupETff5DT1BwzUnPWu7+mXCNRFqkPCvbF+JLLOFwg1HUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Slb41UrarB+OPmJ3OTqdy1HcZRgIxQMEQqVrx0/9a00=;
- b=IA1sD49Dy9wFST4nHq7X5ICCWUxL89ZNX9SshWNM4DQcy5t338aPMWKQKu0WNiSK/++XAUXbskGzGQgIRNH/aEz8hrVBcj5OibGKQAsbGFYTjiW8zURnz2uGmoX3zpK1lWMe5JqqfdxQwcBgqzb7j2fKFGZX5sap9caj/Ykm5RPDMgqzkAaUYdd9rnVm/nofmmKgHLKwWWAYifn/0qWTXomPEuQAespevIhK2NRiMjl6BbVjskBLCCaFGmHgVx6ZTUsi+SSG+0lPUYzpbd0Gsl4oHWyS5Gbxpx/d7DecDlU7OIFmFVnbFkvv4eqNciHblecD1krS05MqdVPRhAOHCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Slb41UrarB+OPmJ3OTqdy1HcZRgIxQMEQqVrx0/9a00=;
- b=P8uu7ZUMAL7ptVCyc1n7g+iOXpjaKfzDI7K4cFPCc0/QT7+/gI8AZTLV5dlC8j+KhF9zViY7ft50uJu3JMAPGBMQ0OpmkgFuzt3Y+ayxvAIEG82KdlodTZse5QmCJY8XdFP5Ad4wV7AsMda6AhBQMk0nGhJ9ED6kAcIphbHNHzlSVlqh1zbN5WHHsMpwAtdxd4oA+jysJWXRzrN/cww9y1Dg8jyNOumo8DZuxTQlmObnB0D/P38bvhbtYXTQE4G0Ke41E3yhQVjwcNdGtE6GqFdexgdAsGIMG6wnZbpcrAbLmuKRu4OIo0mzeKBWOytYTBTx3m/BW7hZBGNKtmlTfw==
-Received: from MW4P223CA0002.NAMP223.PROD.OUTLOOK.COM (2603:10b6:303:80::7) by
- PH7PR12MB7281.namprd12.prod.outlook.com (2603:10b6:510:208::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.13; Sat, 5 Sep 2026 05:53:41 +0000
-Received: from SJ1PEPF000026C7.namprd04.prod.outlook.com
- (2603:10b6:303:80:cafe::a0) by MW4P223CA0002.outlook.office365.com
- (2603:10b6:303:80::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Sat, 5
- Sep 2026 05:53:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF000026C7.mail.protection.outlook.com (10.167.244.104) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Sat, 5 Sep 2026 05:53:41 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 22:53:35 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 4 Sep 2026 22:53:35 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 4 Sep 2026 22:53:29 -0700
-Date: Fri, 4 Sep 2026 22:53:27 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
-	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v3 13/13] iommu/arm-smmu-v3: Enable PRI for PCI device in
- arm_smmu_probe_device()
-Message-ID: <apuuV04NRqljXnIK@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <b0442ba9eb1598bf07782b14fbcad284bcefbe40.1788222486.git.nicolinc@nvidia.com>
- <178846311320.1308030.2192800704181905560.b4-review@b4>
+	Sat, 05 Sep 2026 06:16:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9496D44247
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  5 Sep 2026 06:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F6171F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  5 Sep 2026 06:16:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788588992;
+	bh=wroX+IXZ78hb2aQP5LUDjSlqEruTGuDIlApEgq/LO60=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=eG6Yau/SZQyADBf7WEKKvoXO5elZ/bvCf/rLi+iKt3NTLV7xty74rhFfmCtOpPiim
+	 KsAmLG9Gn+z3shv/KSeuw44rHL9DtjgoqL/rXuxlacLkIVZF2+hqWRGRtWUTXi/qmJ
+	 kZl5s4svuLfbc9Q0nHCHcueEtH3KiRVj1uiGBF/HJ7S7HftHqGrPtY0Sno1Rhjpz4S
+	 r4ZM1gDlCVp9/4jsn5pfGOohCmBT4WDB98quAjGdOyMWd9pF1NAdOgRtz+4BlRvGeN
+	 E8KPCW/IB9VA/PTkef8GQF62ljNlTZ7dJCjGnGxIPtOxwhbNeoezclLf0Kn6pu8kjd
+	 1SF3HTI8TDArw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5b4adcce4b1so538387e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 04 Sep 2026 23:16:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBzzpSymRDevY4YisUZvLjtn3JF0xetzqzPL/f3obgaNB84h7Hyt8PF3WODJFfRv03EFf2A3lfyBRaZbnQ3eA2f/@lists.infradead.org
+X-Gm-Message-State: AFuF++mMAMYL+Vlb2NrgPjPWO8dg5JMTxF2ahooEBTX4phlhgAeBIS/T
+	mLfc8LTqxHC1clkTRArFj/VN6PQelBfq3Kx6DcQKaAWvFk87FyzAkT1b12tWuSkvBAKgI6exZT5
+	f3tSTUkAwGOHxv6AcKXWoRS4AYf4YTfc=
+X-Received: by 2002:a05:6512:2c0c:b0:5b4:74a2:cf2e with SMTP id
+ 2adb3069b0e04-5b616f235cemr3181239e87.21.1788588991087; Fri, 04 Sep 2026
+ 23:16:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <178846311320.1308030.2192800704181905560.b4-review@b4>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C7:EE_|PH7PR12MB7281:EE_
-X-MS-Office365-Filtering-Correlation-Id: eee279c5-9ab0-4715-edaf-08df0b1209d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|7416014|36860700016|10067099003|56012099006|18002099003|22082099003|11063799006|5023799004|4143699003;
-X-Microsoft-Antispam-Message-Info: e7hor4LnJ7omlsMv2tjdGAa0eTI0sS0Py3uyP/7wvv687a3R+3ntaWl7Ut4D7sf3loy1gW/v1it/fuv0jqHxPFkSJeTTHGhJ9sYM+lGS83rkuB7GMfVbHSmeZHPusphlpGTdqkCqor2N1ARG7KqdmNG3sqpmIDVYW8nCJHfzpNCgFYaWPv4HGrTz41G8VLnp2gX7QoGgGq7KJDBJV5ZWDOqlHKPQwZNaR3DIypJP5EennkNrrKLURp/2po7LMb3VcxMbu9gIKVEzsQCk8pJewadvu4zwRK4x9Juj6EjIWra8bEedPU/7Xip1ztRvOpOe1LOMigaq9WHj3FAx1CNann3+zL6MSYDb4vl2zTpHDIrxOuQ7HycHUbbZ5uyf6xE81KB0It7oiHFlrr3envjLAvJ0h0ESz/jgzOht6v61lfB4h5aZPGh/zYoXKTOCfnfdl5FXIc7LfK6DUmkg+UY27aAzoe7tZR33VSkTZbxVdZr4mAno6rVndU8CT8a4So7gk4hHeUqEZnmWmk4qDxdJavggbOPcarQjcN1HZQ6VOxUO94YHG1qzDFY1/wmDfjmAtFQAuZqXn8T6boQy2AD8vPHrtz99Jpgd+DALjRoDg4ZMRv9STxiC7a/MG0D0SxcVPiDFP2b1OX3X/d6uik4Zl64PcBRKaFrmsT0rOqy9C3/lynxt+mKAHAS4w0xn22SLOJ+8QLy+bH0wTxR94WCh+A==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(7416014)(36860700016)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ceQFQTYyt2poL4ujr5ksCmy02MnlC7t62/D4CbcqoWNVIUodCLi3xbXbep+gQ6Qm7U22mdRk1TCOPoqi7gmNMLAXhyNzjkbAAVKcQABdxBb+6DoU0AeGAvrdEntkSYpB8EWOWiaYCtgrPSWthZLbNzUsh96cdYYI0ThPEuQaDUIGo5O/OJKIiioeN96uc6Y8Wrv/UnNsafAHiiEF9Kt1ut15q6lWR9ikfunXC7EHkGH7pAEeLzqpEUxOFDuZhCOulKxdYugyKJISi1LmYGn/Vk6MG4x4I2E9FgG6vVvvWeLhAmGSK716oLxFLPfWKgz8lvzQU22QnA6FnRaIvQv0O9w4SN1+rd5soAYv6DPSqgOQf+V68Em1eA4J1ZEeeFl77ruXmKn4P7+8a4G4mx/Am/tBqjcvnmNAwMIswULCq4m4KEdE/CpqpU98CkHd3prY
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 05:53:41.2178
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: eee279c5-9ab0-4715-edaf-08df0b1209d8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C7.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7281
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_225351_894408_9A54CA3A 
-X-CRM114-Status: GOOD (  21.50  )
+References: <20260831082335.1184605-1-wei.fang@oss.nxp.com> <20260831082335.1184605-9-wei.fang@oss.nxp.com>
+In-Reply-To: <20260831082335.1184605-9-wei.fang@oss.nxp.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 5 Sep 2026 08:16:19 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk+DMHzHiJoX6LMY5wUGMOWm3DN_yAHUUSvFKLKgFwJZw@mail.gmail.com>
+X-Gm-Features: AcwNN1VLKzpVVc3BcKIIuwpH2P20ZdeitB0o0lFGwyQdTkbcdnQSy6KPeNWVBSI
+Message-ID: <CAD++jLk+DMHzHiJoX6LMY5wUGMOWm3DN_yAHUUSvFKLKgFwJZw@mail.gmail.com>
+Subject: Re: [PATCH v3 net-next 8/8] net: dsa: netc: add PTP one-step
+ timestamping support
+To: wei.fang@oss.nxp.com
+Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	richardcochran@gmail.com, wei.fang@nxp.com, imx@lists.linux.dev, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,95 +84,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > SMMUv3 forbids the Stall model on PCIe streams. Refuse to enable PRI on a
-> > PCIe master that came with stall_enabled, so page_response() can dispatch
-> > on master state unambiguously.
-> 
-> As earlier, we have exceptions in tree for Stall mode on PCIe streams
-> (lets not reopen that fun arguement) so I'd focus this on PRI not
-> making any sense if stall mode is in use as that has alternative
-> handling for page faults.
+Hi Wei,
 
-Replaced with:
+thanks for your patch!
 
-A stalling master resolves its faults synchronously, so it has no reason at
-all to issue a page request. Refuse to enable PRI on such a master, so that
-page_response() can keep dispatching on the master state unambiguously.
+On Mon, Aug 31, 2026 at 10:24=E2=80=AFAM <wei.fang@oss.nxp.com> wrote:
 
-> > +	/* Same as the eventq drain above, for the hardware priq */
-> > +	if (master->pri_enabled) {
-> > +		ret |= arm_smmu_drain_queue(smmu, &smmu->priq.q, false);
-> > +		/* Ensure pending requests have reached the IOPF queue */
-> > +		if (!ret && smmu->priq.q.irq)
-> 
-> Similar to before, I'd factor out the if (!ret)
-> Using |= on return values is never particularly nice though safe
-> as used here.  Still I'd use another variable to store that things
-> timed out already so we are skipping these.
+> From: Wei Fang <wei.fang@nxp.com>
+>
+> The NETC switch supports one-step TX timestamping for PTP Sync frames.
+> When transmitting a Sync frame, the driver reads the current PTP time
+> and writes it into the frame's originTimestamp field, and inserts a
+> To_Port subtype 1 tag carrying the low 30 bits of that same PTP time.
+> As the frame leaves the wire, the MAC captures the SFD transmit time
+> and derives the residence time from the timestamp in the tag. It then
+> reads the correction field at the offset given by
+> PM_SINGLE_STEP[OFFSET], adds the residence time to it, and writes the
+> result back.
+>
+> PM_SINGLE_STEP is a per-port register that can describe only one
+> in-flight frame at a time, and programming it requires reading the
+> current PTP time, which may sleep. Both constraints rule out handling
+> one-step Sync on the xmit path.
+>
+> Instead, defer transmission to a per-port process-context work. The
+> xmit path classifies the frame in netc_port_txtstamp(): a genuine
+> one-step Sync (twoStepFlag cleared) has its PTP header offsets cached
+> in the skb control block; frames that cannot be handled as one-step
+> fall back to the two-step path or are sent as normal frames. netc_xmit()
+> hands the classified frame to the switch driver via the
+> onestep_sync_enqueue tagger callback, which queues it and kicks the work
+> if no frame is currently in flight.
+>
+> The work dequeues one frame at a time, reads a fresh PTP time, programs
+> PM_SINGLE_STEP, updates the originTimestamp field, and transmits the
+> frame directly to the conduit via the onestep_sync_xmit tagger callback,
+> bypassing dsa_user_xmit() to avoid double-counting TX stats. Only one
+> frame is in flight at a time: the frame carries a TX-completion
+> destructor that reschedules the work when the conduit frees the skb,
+> keeping PM_SINGLE_STEP always matched to the frame being transmitted.
+>
+> The one-step context is reference-counted and its lifetime is decoupled
+> from the devm-allocated netc_port. In-flight skbs hold a reference via
+> their destructor, so the context outlives port disable until the conduit
+> frees the last in-flight skb. Port disable clears onestep->active under
+> work_lock; a work that runs afterwards observes active cleared will
+> purge the onestep->queue and return without touching the freed port
+> resources.
+>
+> Assisted-by: Wchat:claude-opus-4-8
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
 
-OK. Replaced with a "bool timed_out" (in both PATCH-4 and here):
+You agent produces "dostoyevsky commits" with too much verbiage.
 
-@@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
- 	struct arm_smmu_master_domain *master_domain = state->old_master_domain;
- 	struct arm_smmu_master *master = state->master;
- 	struct arm_smmu_device *smmu = master->smmu;
--	int ret = 0;
-+	bool timed_out = false;
- 
- 	lockdep_assert_not_held(&arm_smmu_asid_lock);
- 	iommu_group_mutex_assert(master->dev);
-@@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
- 	 * against the next domain.
- 	 */
- 	if (master->stall_enabled) {
--		ret = arm_smmu_wait_for_queue_drained(smmu, &smmu->evtq.q, false);
-+		timed_out = arm_smmu_wait_for_queue_drained(smmu, &smmu->evtq.q,
-+							    false);
- 		/*
- 		 * Ensure pending events have reached the IOPF queue, unless
- 		 * the drain timed out: a stuck consumer would also block an
- 		 * unbounded wait_event() inside the synchronize_irq().
- 		 */
--		if (!ret) {
-+		if (!timed_out) {
- 			if (smmu->evtq.q.irq)
- 				synchronize_irq(smmu->evtq.q.irq);
- 			/* Pending events might be in the combined_irq handler */
-@@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
- 
- 	/* Same as the eventq drain above, for the hardware priq */
- 	if (master->pri_enabled) {
--		ret |= arm_smmu_wait_for_queue_drained(smmu, &smmu->priq.q, false);
-+		timed_out |= arm_smmu_wait_for_queue_drained(
-+			smmu, &smmu->priq.q, false);
- 		/* Ensure pending requests have reached the IOPF queue */
--		if (!ret) {
-+		if (!timed_out) {
- 			if (smmu->priq.q.irq)
- 				synchronize_irq(smmu->priq.q.irq);
- 			/* Pending requests might be in the combined_irq handler */
-@@ void arm_smmu_attach_release(struct arm_smmu_attach_state *state)
- 		 * such work still references. Skip the iopf teardown and
- 		 * leak master_domain, rather than risk a UAF.
- 		 */
--		if (WARN_ON(ret)) {
-+		if (WARN_ON(timed_out)) {
- 			state->old_master_domain = NULL;
- 			return;
- 		}
+Tell you agent to "be terse and to the point" in your AGENTS.md.
 
-> > +	if (!pci_pri_supported(pdev))
-> > +		return;
-> > +
-> > +	/* SMMUv3 forbids the Stall model on PCIe streams */
-> 
-> Again, I'd tweak the wording given we have quite a few examples
-> in tree that do stall mode on PCIe smelling streams.
+> +
+> +               /* dsa_tree_teardown() calls dsa_tree_teardown_ports() be=
+fore
+> +                * dsa_tree_teardown_switches(), so netc_port_disable() i=
+s
+> +                * executed before netc_teardown() and onestep->active is=
+ set
+> +                * to false. In-flight one-step skbs still hold reference=
+s via
+> +                * the destructor; the context (and its work) is freed on=
+ly
+> +                * after the conduit frees the last in-flight skb. By the=
+n np
+> +                * may be gone, but the work no longer dereferences np be=
+cause
+> +                * onestep->active has been cleared. And onestep->queue w=
+ill be
+> +                * cleared by netc_onestep_work()/netc_onestep_destroy_wo=
+rk().
+> +                */
+> +               netc_onestep_put(np->onestep);
+> +               np->onestep =3D NULL;
 
-Replaced with:
-	/* A stalling master resolves its faults without any page request */
+This type of stuff is over-commenting and is considered AI slop.
+Tell you agent to be very restrictive with inserting comments, essentially
+it should only do that when you explicitly tell it to, such as when you
+yourself feel it is really necessary or you got a review comment that
+this is needed.
 
-Thanks
-Nicolin
+Yours,
+Linus Walleij
 
