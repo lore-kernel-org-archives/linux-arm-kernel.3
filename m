@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11212C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 17:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4369C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 17:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I596eH/N/ALTurMBAJDjCPnR2ONjyLmzJkdM+R3U7Zw=; b=4Kn3+rdDrQiQdG3+fQu6HAxOOR
-	4x67jpXJstEtYruGIHREW1WXtZn+XhQJ0zI8tXUXuXf2Txltsc/Hv+Fb2hNrSGndW4kuA9O45TY8d
-	Jf3R4cCa+YHUvYBD98U4y7XuSRGXAJp8oTHRzRVu+x/ighqP9gQnR1GLDh0dpHv0U+dc5bj43kZrQ
-	7oJCovncta8wnQzDwtnEtkCkH4VN2XiW9vHMwTKAu1LfhMH+eZIEz2sTimNSocdjeIpgFZh26YQ9S
-	+xBgxLyJDptzO5DJl96ekK7a/O612iNLpTvBzVA/uR+OZ8v5akiNWnoQkM4yyE7IrbL4rmtz3spxY
-	pL9XKOWg==;
+	bh=yJzSvffykzz4KpBF67EvSr407WyQ7fUBSQHgOIRPsn4=; b=U4AamM1AAWPwNBFKbR4PIY+D5h
+	GaDnONQQTRD/Lx82VHRJ9VjgDe/HfDuheBWp6qAJBuAbCpQVrQwc2K3RHZOBGbHTe11pf4cWMOgK4
+	7zyZ0miEXKxNfATU+t18lfNn/liWGwaYhwEGxyTznM88Nbu3gkzEeuAMhPScnHsxPdIIZF++EhupW
+	4HrUB9MbaQJtzdlOj5KFmU1i/wMxDMycy45OVzGcIv+2X3m4PUhtl0CWpX4WLEIbzjzfo6QfrEqtw
+	KmtHiI6toGGcAmmmLnDGVLimpvmA9+clsRRZIIXPitUnq9p8HLcnnnIGYo7aXTTP8mkt6rk3csDLn
+	TLHX/58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ttR-00000004HRE-2d10;
-	Sat, 05 Sep 2026 17:09:29 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1x2uVT-00000004IkM-1aCx;
+	Sat, 05 Sep 2026 17:48:47 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ttP-00000004HQY-2f1Q
+	id 1x2uVQ-00000004Ik1-316N
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 17:09:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-2eefaa527c;
- t=1788628164; bh=I596eH/N/ALTurMBAJDjCPnR2ONjyLmzJkdM+R3U7Zw=;
- b=nNMqkSjfaIxADv3bsXaJae3gg1ls+n1Ko/Z1LQVQFxW0QWsmKvmp8PwR+fLQ9IvlZR4EKeW/e
- x42lDRw8J7GfT7aPhDm98AlnjH6Z8+epOgxrF9XTi37CrccRIuXuKyPEJuwkZVhh+neNS6DIXCE
- n59jzOHAB3aVys26Ciu6c4A=
-X-Forward-Email-ID: 6a9c4cc2a8f35195ccacae25
-X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
- smtp.forwardemail.net, 121.127.44.73
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Thomas Turner <tturner@lineageos.org>
-To: semen.protsenko@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	peter.griffin@linaro.org
-Cc: alim.akhtar@samsung.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas_turner@talktalk.net
-Subject: [PATCH v3 1/2] dt-bindings: gpu: arm,mali-bifrost: add exynos850-mali compatible
-Date: Sat,  5 Sep 2026 18:09:13 +0100
-Message-ID: <20260905170914.1640-2-tturner@lineageos.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260905170914.1640-1-tturner@lineageos.org>
-References: <20260905170914.1640-1-tturner@lineageos.org>
+	Sat, 05 Sep 2026 17:48:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=yJzSvffykzz4KpBF67EvSr407WyQ7fUBSQHgOIRPsn4=; t=1788630524; x=1789840124; 
+	b=sbcSmV/YSvOEK3+eP75AHQ04Hdigwh++/DE6WlT6c4KvZAZir7FupSn61ko6p+P8bPnEUEjCRsm
+	n03wMD00k1Ia2QbUCKf/OvYzLmtQ+DazXB2jp1X4Bt/fqJJN/k/72srwOb7UL0uIbpyFMA6MeOqaM
+	/0BvGk+R5hKyJ0g8UVD44TDq/5RKCaHiOJpPrlrv+h1Owg0sObxD8+hgbRvFEW7iYQsMES6wXvcqb
+	MpcC3Ex28DWlbBmanvHhmHxVRxdbmstH4qFSilLfbs12YmTal9yGYkgChcVUloN28c2JwKAzHkjik
+	qCbH/UBUnKT0n2xzBYeMr/LZbx1nDyy7qAqA==;
+Date: Sat, 5 Sep 2026 19:47:20 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Borislav Petkov <bp@alien8.de>, Jonathan Corbet <corbet@lwn.net>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
+ linux-doc@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
+ <dimitri.sivanich@hpe.com>, Mike Travis <mike.travis@hpe.com>, Tony Luck
+ <tony.luck@intel.com>, linux-edac@vger.kernel.org, Krzysztof Kozlowski
+ <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
+ linux-omap@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
+ Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ linux-ide@vger.kernel.org, Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Michael Schmitz <schmitzmic@gmail.com>
+Subject: Re: [PATCH v2 3/9] docs: kernel-parameters: Drop the edac_report=
+ entry
+Message-ID: <20260905194720.7033b956@kemnade.info>
+In-Reply-To: <apxDtqM8UMN5KNjs@gmail.com>
+References: <20260905094649.41996-1-kmehltretter@gmail.com>
+	<20260905094649.41996-4-kmehltretter@gmail.com>
+	<20260905151345.GAapwxqT93wPWHF7u4@fat_crate.local>
+	<apwzmSr6b0WEkW86@gmail.com>
+	<20260905153336.GBapw2UFa7Sdc0ve_A@fat_crate.local>
+	<871pb7zn36.fsf@trenco.lwn.net>
+	<20260905162742.GCapxC_ra7hJd27LDR@fat_crate.local>
+	<apxDtqM8UMN5KNjs@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_100927_725575_66371F9D 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260905_104844_765949_3647F42E 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos850 SoC uses the ARM Mali G52 GPU, document its compatible
-string with the appropriate fallback.
+On Sat, 5 Sep 2026 18:45:07 +0200
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
 
-Signed-off-by: Thomas Turner <tturner@lineageos.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes in v3:
-  - Add Acked-by tag
+> On Sat, Sep 05, 2026 at 09:27:42AM +0100, Borislav Petkov wrote:
+> > On Sat, Sep 05, 2026 at 10:20:45AM -0600, Jonathan Corbet wrote:  
+> > > I would like to emphasize this - slow down a bit and maybe you won't
+> > > overwhelm the system entirely.  
+> 
+> Got it.
+> 
+> > 
+> > I find myself telling more and more new submitters to slow down. Sounds like
+> > they don't read our documentation before submitting patches. Especially if the
+> > file is even called submitting-patches:
+> > 
+> > From: Documentation/process/submitting-patches.rst
+> > 
+> > Don't get discouraged - or impatient
+> > ------------------------------------
+> > 
+> > After you have submitted your change, be patient and wait.  Reviewers are
+> > busy people and may not get to your patch right away.
+> > 
+> > Once upon a time, patches used to disappear into the void without comment,
+> > but the development process works more smoothly than that now.  You should
+> > receive comments within a week or so; if that does not happen, make sure
+> > that you have sent your patches to the right place.  Wait for a minimum of
+> > 						     ^^^^^^^^^^^^^^^^^^^^^
+> > 
+> > one week before resubmitting or pinging reviewers - possibly longer during
+> > ^^^^^^^^  
+> 
+> That's for "not getting any answers" which is not the case here.
+> 
+> Sending a vX update sometimes feels more urgent because you don't want other 
+> people to read your buggy old version. But yes, some patience is also good
+> there. 
+> 
+Well, here it is a bit border line. You do not have answers on all patches,
+so technically it is some resubmitting.
 
-Changes in v2:
-  - Introduce this patch
+But if the main maintainers (which is a bit harder to say in this series) found
+time to review, than IMHO (also seen from my maintainer perspective), improve
+as soon as you find time and submit the improved version.
 
- Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-index 9db9f84ad964..ece2b637cd41 100644
---- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-+++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
-@@ -34,6 +34,7 @@ properties:
-               - rockchip,rk3562-mali
-               - rockchip,rk3568-mali
-               - rockchip,rk3576-mali
-+              - samsung,exynos850-mali
-           - const: arm,mali-bifrost # Mali Bifrost GPU model/revision is fully discoverable
-       - items:
-           - enum:
--- 
-2.47.3
-
+Regards,
+Andreas
 
