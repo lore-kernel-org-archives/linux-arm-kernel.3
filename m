@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B4BC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2DBC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=; b=rkYWOihOIR9IpqVz7LusbbZWLd
-	x7GLp1ut1BB4MIFIx3HYEmVBFckGG+18Gid7PyWTacsAIq9om0a+O5DSFHCE43nNDfppFQmJ8Wo5z
-	JxzTVLKXpyA79bTgBH/hQoWC+2DTFP6oFPaQv3QTH6MOnTN9istRcZVyDMN1hAKc3eCHqEvS8Ayqq
-	amY5yDUmn1GaWAWF8kPnLoIbTo2Zw9ZwJQmlz7qzbMoYW4jkcFW/HDjI8HkGIhhzaXDdz8F7Sc/2y
-	iEfAESGcBn0UMEDTiep8+EbbDt+BHxPRFCe35slEkJWfU+esycYo+3tc0bFe4kUlq86iXejPe/+Dk
-	eI+lz3NQ==;
+	bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=; b=HW3OK3mqc+/jPI0paBJiHY2dhD
+	9h3ki2C+9GX/pCUzeg+SMEIn+SZ4bBB3U7Zi0tLorivWtexeWdPPsJw6lYOpfwWddmfTwChDNIuqi
+	hiCgAozpH6kDoMLah1uEE3icCsyUnofFnEM49O7U6Nme9kPxkCifTBw3VyimSqzRptoh7BXoxAK2G
+	0s63gPtpGbdLMNrAeHvIH3KRAltwdWFwce5YBJ17Zig9JYTbBawU3S21Xpa7qAp/a11UgfFztGWfY
+	5Aoxy3axByjAz5EgjqGs6NYsfIZbT9kLgT+8YF+XT9iIho2MBlSsw8B2k2C1t00vUxMvV49y7cQ5z
+	m9xM/1bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRh-00000003lI8-1tyP;
-	Sat, 05 Sep 2026 07:04:13 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1x2kRr-00000003lOb-05Lk;
+	Sat, 05 Sep 2026 07:04:23 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kRc-00000003lDa-07Rj
+	id 1x2kRl-00000003lKH-2cmY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:04:09 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-49b96837ca3so13338235e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 00:04:07 -0700 (PDT)
+	Sat, 05 Sep 2026 07:04:19 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-482e067e908so1572158f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 00:04:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788591846; x=1789196646; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788591856; x=1789196656; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=;
-        b=R/ldErFGSkaWALRPfBT0IZAwN8q+hXu+7Ydu+4mNMH/U6983oG7HD728KyjABJcpaf
-         JHMu+ReImBtUbuhxPBCf9eLCf433zbHPDLCVj/eKv2VXoFCDVow+CVmTInhki4W9xZGt
-         uayDSLHaItoXE4tOrofTFYM06+ZYzCZtmcQqzoASn4BL4TkALSlsBiIOF3NK/H5iYEyR
-         ODH0738xedW8SBWAmidBwmiCb74HKrc5tedNih6SfErvAfQ7N6l2UG57rGzul3umSVLw
-         j4PcqqB6r1wnd8g1cQgJVl+mr58ynlMWpzimgvYepaVTgCslISaRs418lmiGLIvWDJoM
-         /dug==
+        bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=;
+        b=WqBwSuQccdhTMBVVEp6rdQ62KgFh+8hjFEr0To82JYKsHxTI9my2AbaGLr+cxvaZrW
+         QDIVe+Ox9PELZsc1pqCO4fBmn1DbY/CmD2M4gB/zGLSnbRVCXou20+JNOKDkPlS4u7DD
+         wGUW2MSatIa0hvHwQUfou7L1vKulXUmPzlQThKxy1uHPza8Q7Ix1YFlwJdAF5Dqs+6hs
+         5kUAW4TVS/r2yUrqZOxlrsA95my3xtDSd18yhJ12x75R8EeZIfsYWRwGyg7qnTXKnLsl
+         aieBKKcpdDh+duqkTmNpNrfwAYXDWUyP52KqVjo3bcCZhsCJBpet4/ly96i7kbpA3Yud
+         nNNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788591846; x=1789196646;
+        d=1e100.net; s=20251104; t=1788591856; x=1789196656;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OVDepIdvewIAkDae/qknvPHnA6zOWa1HlsWKZdzZmcw=;
-        b=GYHIERwIGACvPq/jvYz/8thXc34tuw0kXOPNtTHrnqT4TOhOkquf4tIwaX9Oa6Aa9a
-         qDRziMeCXfieYJ+LWP1szkJujNbGNflx0j7/POnIvOm5DkPkhpQQzn2/cjh1jP0y5icK
-         39pklEZoXqmX85syiUjMvj1Q1AJWlEcnfITBtSFUdnZpMDobpWY8bn+fv7EgkTyJQYLW
-         r1PlgPPGfHwrOKgKek9TD8+tIAf3mrlIAU9hYd6W8L1MPa5dEf5QNcMvhQyeUWZAPCgJ
-         09jR/EqBNE1SV2m8T7/pg1twUygP/g+rF1lIlk3bRsgelxnqQ8pL+g3cVZzmTz7I9R++
-         pWlg==
-X-Forwarded-Encrypted: i=1; AKwUvByUrrpThQZt6/H0xMh1IW/4D9rUx+4SF6W41HeFmldhoKCt1P/Z7RRXjWSGXvrzUd4SOHiBlQeSHrDr3koE3yXY@lists.infradead.org
-X-Gm-Message-State: AFuF++lckQ9iCKY3ez0vWh6Zz4FnonuNPPwVKRVNeMJJbpEfgHZhCEjz
-	b42SRU8fgSwFc5k31XtmqEt/Y4513NecpTuxiTpoyK3RydhPKcVWSwrl
-X-Gm-Gg: AYBFou2/SKglkktsufAbKcgnyTpe70YRjanQbPZs5+QCgosEOMstei223OYICUiMUFX
-	aX2Z4GlbVGCUjO3XVgxYbxaGFwFZtE6evV0PQg9FhMqzkPzBZ8COvl2kv0vbpw07YgTfyesCec3
-	Fpn19SyZ6/ahlrc3mzJeHOXv/2MG+Q7eGEJdRODLUGtbSwQkCjBlp6zUF5v5Efz4dB84mbeXgcs
-	DU+UlXQ9266NHeIVFa3vExZQIiExfR3eo6dLUiY5XKvTIDXUA9qNaubdKnjjsnYdSORFBxcDSQp
-	rpOFFVDyb4+1k7LH5ZgNVyQKtEyCuJdMm7Kp9wKfOnyvRfRTsS+rH9tz3FKoBF6/euMJ/3vFXEH
-	9LrSGmmIdJTUcZxqlMbPcB7YnVO1qJx5Wy/irgDAYmegXvWxEakw7Chk0vx0ayoFt1/NUqCAuej
-	yQTpmtEDc2/87+2sAnaCqgtx7Cj2Dq7Q77wF/1ayymnXGjOb40+dBbl2NBApBuJa/KH5emO5KhU
-	u9hrFfTDC5e2ksbI2ithgDjDZshEbTw+1OVFDjkmIpJXiwn4o4UDieyNZk+YHnRDKYVoclOdlFg
-	JYK3MmcYSMeaBK08mDZ8in7OznfDWfJXBImLCG5+FF8r6QRUTCRZ1fOFBYSZnmdxnIwsX+NR
-X-Received: by 2002:a05:600c:46d5:b0:49c:fc6c:be06 with SMTP id 5b1f17b1804b1-49cfc6cc142mr76992175e9.29.1788591845868;
-        Sat, 05 Sep 2026 00:04:05 -0700 (PDT)
+        bh=r0TEPPXgHP97qr/cFTbi2WII06m9YnzLfHQVRRK4PYs=;
+        b=DG1rrUuR7M2L0Kk6c1jvcUH1hQntPLx5tCW0UjMs56gi00iGcfJQcmxawZ5Wh5aD0L
+         8MUXby4kGE86J8mBoBctFUAoAk/LbdodrqwusdIYsJBPZyVbraq0vqOtVcCV8I/7vhg0
+         dg+nn68MBAAq4Uqgqpeytq0nIrYiCR9CJ4EFZBTw6xcdzd0TC2soOzTgSmmdKkSislug
+         OqXEksSJ9uEOOUNI05mF2KLUr1ffwV8+47DThqaQTdVIXH58VUvA3VsWWkXvLnYYA3ok
+         inCeJuC3AtvertA7R0HeDpYNERaokDsruxYHX2cJSGbJ++G8MOIEhewp0zLY5U0Sg/Hx
+         QATA==
+X-Forwarded-Encrypted: i=1; AKwUvBzQglGS4/6Rae0IqxuLp7wuvvqMaqVlZrIZsvNnT2xLB+kJkqBSd2jguo7bX7x7DEMEWo9CuLqCTF6mzTeL9czH@lists.infradead.org
+X-Gm-Message-State: AFuF++kJ62agN25JtR3jlV3l6isxWqU/uqBLd1Izu+N3o4T/0yf27Zj8
+	qAoOhJw36p0M3ipPXKmdjWp6iwtOlNqwUCJbkhcFfFm6yCk4L6jsqqi0
+X-Gm-Gg: AYBFou210dnrF+JMAJ1Ww1dzEFbCgRQ/hWL04lMshYlb0S1v2Y0EWpr0WFbmRZTSZyF
+	PNfRZ/9TP6lwIicKvMsAHAmFq8ymPkAc+SAgz9ox5qTIzFctcqqt/lS8YOSUvjSM8yU8PYZDbI7
+	5DO3vJbMXM/Mz6qYZ4YCwdCo97Ar+F/yoDn+we9eoP0KYPI2vTwnr/L0ahySXKWRBN3Jyi5CIl6
+	rzkQh3ZHMCLP4XWcbqfY199LtBpmGFsWKYCqzpWG/9eYllDD3KwAgH53Z0usCzp5pz23NlAGJCL
+	SJYhSIXtAv5p/f5Si7ywShpkqW9FFEXcygaFWA5s+Nx81jx2ypHtO8Z40wq13uo73uPchpz/daT
+	5NaUWeS4nKz3TUXN4RPUsIY5AP6Ti1eIndZJL0KDkOXexpqpVMzF0UOF1PBAZUbhRfXLAJ0IVt1
+	o0Tgl2OILrNdDczLPM2Lh6iKRlTVjrN3uUcnnaeS/U/G0focAmuE2EReKwFvsbz1ecMQ67t9Sbr
+	29fvymZQnMG+nLVBU+xRGqPWYz5I/LDPvYEpI5pEt0oXWd2x1AhKitgG3okf9ykusCbRs9j/X8W
+	E5U+frvGBVFA1WD3n6FZfgCBoe4xrZEns5f5gbQQZ/QTqXDsb7UxdD/RsaNZy6ya3DCU2iPj
+X-Received: by 2002:a05:6000:24c4:b0:485:8a46:7053 with SMTP id ffacd0b85a97d-4858a467176mr9452131f8f.37.1788591850939;
+        Sat, 05 Sep 2026 00:04:10 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm12011719f8f.34.2026.09.05.00.04.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885bfdf6sm12011719f8f.34.2026.09.05.00.04.09
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 00:04:05 -0700 (PDT)
+        Sat, 05 Sep 2026 00:04:10 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -99,17 +99,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Damien Le Moal <dlemoal@kernel.org>,
 	Niklas Cassel <cassel@kernel.org>,
 	linux-ide@vger.kernel.org
-Subject: [PATCH 6/9] docs: kernel-parameters: Drop the nomfgpt entry
-Date: Sat,  5 Sep 2026 09:03:44 +0200
-Message-Id: <20260905070347.25902-7-kmehltretter@gmail.com>
+Subject: [PATCH 9/9] docs: kernel-parameters: Drop the pata_legacy.qdi and pata_legacy.winbond entries
+Date: Sat,  5 Sep 2026 09:03:47 +0200
+Message-Id: <20260905070347.25902-10-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260905070347.25902-1-kmehltretter@gmail.com>
 References: <20260905070347.25902-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_000408_090722_5EE123FC 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260905_000418_560352_33F66755 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,35 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-nomfgpt went away with commit c95d1e53ed89 ("cs5535: drop the
-Geode-specific MFGPT/GPIO code"); nothing parses it any more.
+pata_legacy no longer has qdi or winbond module parameters. The QDI
+support went away with commit 0dcd0a76370a ("libata: remove no longer
+needed pata_qdi driver") and the Winbond VLB support with commit
+3c4d783f6922 ("ata: pata_legacy: remove VLB support"). The entries also
+refer to CONFIG_PATA_QDI_MODULE and CONFIG_PATA_WINBOND_VLB_MODULE,
+which do not exist either.
 
-Drop the entry.
+Drop both entries.
 
-Found by cross-checking every documented name against the __setup(),
-early_param() and core_param() registrations in the tree.
-
-Fixes: c95d1e53ed89 ("cs5535: drop the Geode-specific MFGPT/GPIO code")
+Fixes: 0dcd0a76370a ("libata: remove no longer needed pata_qdi driver")
+Fixes: 3c4d783f6922 ("ata: pata_legacy: remove VLB support")
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 3 ---
- 1 file changed, 3 deletions(-)
+ Documentation/admin-guide/kernel-parameters.txt | 13 -------------
+ 1 file changed, 13 deletions(-)
 
 diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 2ed1e2c03c61..d44728a45506 100644
+index 4864e37005be..33298da28b55 100644
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -4553,9 +4553,6 @@ Kernel parameters
+@@ -4994,19 +4994,6 @@ Kernel parameters
+ 			the first port in the list above (0x1f0), and so on.
+ 			By default all supported ports are probed.
  
- 	nomce		[X86-32] Disable Machine Check Exception
- 
--	nomfgpt		[X86-32] Disable Multi-Function General Purpose
--			Timer usage (for AMD Geode machines).
+-	pata_legacy.qdi=	[HW,LIBATA]
+-			Format: <int>
+-			Set to non-zero to probe QDI controllers.  By default
+-			set to 1 if CONFIG_PATA_QDI_MODULE, 0 otherwise.
 -
- 	nomodeset	Disable kernel modesetting. Most systems' firmware
- 			sets up a display mode and provides framebuffer memory
- 			for output. With nomodeset, DRM and fbdev drivers will
+-	pata_legacy.winbond=	[HW,LIBATA]
+-			Format: <int>
+-			Set to non-zero to probe Winbond controllers.  Use
+-			the standard I/O port (0x130) if 1, otherwise the
+-			value given is the I/O port to use (typically 0x1b0).
+-			By default set to 1 if CONFIG_PATA_WINBOND_VLB_MODULE,
+-			0 otherwise.
+-
+ 	pata_platform.pio_mask=	[HW,LIBATA]
+ 			Format: <int>
+ 			Supported PIO mode mask.  Set individual bits to allow
 -- 
 2.53.0
 
