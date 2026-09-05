@@ -4,113 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34210C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 12:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C67C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 12:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nF28nbshD2BPWEClB77TT3QHqkwal9Tdd0g3hy+SqKw=; b=Ri9o5wzOWbSCEXK9ytb/isHS+k
-	X+FBiLXX90LEjDO5t0Cf4XyAPjjBRGizFEkCI6+RLpqv/3w9fMQejrtJWe2NST3mtDMjula1A/fl3
-	TstTtINKMjI3EkmwNHyfNTRBOOtM6Sf4QgcNwj5rt/WoNotfiFDP5m+L5qbsOvjvT+chJ1CSgUmDD
-	CKDhPyEFJFau4M9eLdbSh8awo/RUGtIDQ9idENb8Owiyqb1n7HxytW7RG41ax1YW11QAbDCIk43Zi
-	p5mg56Mxy3smQhDk20rlEYGYZzROLS95Ej748QA5CojFNViUHDIAQPqIeajXucqTtOIyrb94070kD
-	ce8VBZ9w==;
+	bh=DtfAObULRIIxOluWx4C0+rkgymR02M84fVuL4a0OZSo=; b=soHNaHuABU7L7yq+p2kDArvXYb
+	n7b3bNoBK4JDxobAb9yNFoNLmcWvQDcEp54WXd4Em1pZZe16VOm2aUcYGr/m1A1+rfF/ZJjZeQRZQ
+	cNl2SIqHjH4pb73qhn8FAHmtvfoXGP2FHqFehKK53Ko+vgSPH67W2e17N7M+ipR9R4IFsFN6Ssfz/
+	T66DBdR97n2CnXRtAWPdueaqV4sp+mzmYaZJrWQkP6G9qrFQOQ81w3/9so7KNhjNKuDySzjdro2Di
+	rYsR54mmqLtGl2J1CyWpfxL2GdPva8d5CLgrwe+lihijuB2eSsssbNeVQJ78qiM4SFdmDk/UoeKJG
+	WkEwULYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2pXy-00000004435-10dV;
-	Sat, 05 Sep 2026 12:31:02 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1x2pqM-000000044dP-2fgT;
+	Sat, 05 Sep 2026 12:50:02 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2pXu-0000000442f-2uNX
+	id 1x2pqH-000000044cT-2lW3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 12:31:00 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-482e4998d28so1447810f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 05:30:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788611455; x=1789216255; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nF28nbshD2BPWEClB77TT3QHqkwal9Tdd0g3hy+SqKw=;
-        b=Hb3d2m5W4qMu3gcByGsCVq87r2A5a8sq5IRifWsa1d3SyZv/u/h8Hme01OUAf1ONmB
-         AVU1w5yTgR1aymRLSHtHhBo1hf80Gy3dG2pP1JzhyC0J/1IlvFYk04XF8nt8AzPpgYay
-         5FInBEkVoTVGwmqeMtpYGdC2KElZH8VEUVV2SLJl8/gpn9lJphfMpk3rQ6X/I7aap7bQ
-         UeUoqXw+sclx6UWHrVRY5C7TON3y146LhyvacElF9C9btlVt/u8EH3qSX6eXoknZfZik
-         3FtbUc/IlZZtuhhhXjr0KP3ev97DXiij87V9x6cJQJaI0k9hrhbdqpzopIrV90NODz6s
-         sxEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788611455; x=1789216255;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nF28nbshD2BPWEClB77TT3QHqkwal9Tdd0g3hy+SqKw=;
-        b=Nv1+g2M9VnchfxgtYv7yhwf6fiEEhYvpZaBrwRQYOtTXu05Vmo7dyjrbJV11mudhzx
-         46/OBWyrLeGAtGdSNn1s4k6Gs1422sMmNdCSw3sphyu0odfpVyO7KS6YR5+E+5xZMm8Z
-         hVLQITSdrfZ4GztPC1o1c2SCt+kqftI3AyGeQs7LmQYUxfvoyYSPbFR46+H33bAPWerB
-         sLqvA5yb4E75jn5iqyh3p8991YtlnZ+db7Y2lFEoStCENbDBYn5K8Jb65MiTPzriELyN
-         8tRQ3qs4Dz51SEkmIt5BHeC3mF6g7PLnaB6ng+QcllzSmb/nJJB/stY3+Y/NaRac4LxU
-         g5FA==
-X-Forwarded-Encrypted: i=1; AKwUvBxjGjd6SMoWKZLPk0gGjgAsTJastGkVIygE2NnM1thz+/UfxOqXO51uKIoyY/zcW9qhdAj77PJA4ayJilbmyayo@lists.infradead.org
-X-Gm-Message-State: AFuF++kRNMocSV3ZW+/EFrAGnmadkTGgoDjSXxXleCdplJw3eWpAF3Yh
-	wJUxMPumfK/D1r4FcNyaGYhqmYvhDVCF43vAY5YT5TAjQ2LQUcXSq5Ja
-X-Gm-Gg: AYBFou3qmJvOfxd/m6FlQ8+9YaPGbU169uLjYBulToeI7qqOkvDqvqUGDHjVVdZCdk8
-	7MQasyOZmibEEUu7DliSpUgG0rrxFl/qNeInOOQAs6x0J7sMq6rsbv48x3wwE3iO1ADDOYWkTbf
-	sEKSKjkuBE+PqFgxFMNf7+FEIBaSpLkVlkZDempqvDz/PGFWJBkXCF3vgVcS5rDDI4I7bmKFIC8
-	wBMbHOA2peyL61bbpcB9/LU1PIMQZLuW4pxce3ivLvDEPkEpMX2NSzC5mxW9fsD3YN7/YB63NKP
-	a6eivvq3tM3hCsY72OlvrLz9sbKJM7DeT/CjeoAYdBbWTiwCOs78ky0F1M7UlkRZzBEte6OXRks
-	V4Kbkg7Cpphww7tKCBQCwrd28/IEo/6cHjYeEHwxmMKA53uYYzPzEdV1qNzDLezDooO8Q9TWjTs
-	+J/suJCsilYX7+yJIBKLKAW6FRQ9DbvW8dil/jB9RATBs5xXDiUbydovDTAk8qmRORGEjsBNX7e
-	2ENFiP8RlV9R1avPC3egjGahwV47zDWYZ/65phGLBtka2/P2TmZYdRO
-X-Received: by 2002:a05:600c:1d08:b0:49b:96a0:5c00 with SMTP id 5b1f17b1804b1-49cf825168cmr134783585e9.13.1788611455009;
-        Sat, 05 Sep 2026 05:30:55 -0700 (PDT)
-Received: from [10.128.10.232] (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485885be01bsm12862413f8f.31.2026.09.05.05.30.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Sep 2026 05:30:54 -0700 (PDT)
-Message-ID: <1a21d17b-686a-4efe-9d47-fb8a9e826b39@gmail.com>
-Date: Sat, 5 Sep 2026 13:30:50 +0100
+	Sat, 05 Sep 2026 12:50:02 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 685BULhg1885438;
+	Sat, 5 Sep 2026 07:49:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=DtfAObULRIIxOluWx4C0+rkgymR02M84fVuL4a0OZ
+	So=; b=DSqObyucIrtBNJbByuC9Rc49ioGfmAIEfe2f/pDbTz21rpsUy5ucnv8Jf
+	rw79S7fGzHfSxR5V56DXXmxMvyafo/OyZKapXfzZMio53ICCAkTmINNd2XfucLrT
+	wnnxRPHmzTWQhjrgMd1wTbkrTzVq/IgW+/WL6a1KJsPkQYv6Dqdxzi7GYJTudJ46
+	FL4Rh/yCtCvL/mlCN+fol42o2DEHq7hPWIVv+soiQg9eSvRTE/b6gLiBkejjQfPi
+	7bzhSstJgzUUUjOS+80CJ08TThYI4Tphl5k1CxI+WcvLBCLVI1CMGmF8Nn5cUbku
+	OJBNJtQEgNXlsh0eL1ZISJBLjh/sA==
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012048.outbound.protection.outlook.com [40.107.200.48])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gfyyq5r28-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sat, 05 Sep 2026 07:49:53 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MeIPJ9lHwYUmy6TheC4hwc4QF9F87jRruqFO2GYnluJ2zRS9K6RQ1UOBGlvLjsADuMch79k8yXxpcfggsBDcUFMWPL4jTIzCwjXnn+1/0fMLY1IPiHHAkhbO6u1GioAJUlSlMjDRF4KP/YfsRQezwcpUPFC6YYoAetdmgiDuG45Bb6vJCg9jAgHtmhiIJPJnPM/toc4YYAlfjtolupiJ49qlvh/NfkIzVY0rHQmXJrU9oyi7baGNaULCKBolnUJl/zdU8SC3ByM+rAarqTFHm5w7L6neXRk2R8hFlrJFto3uwprZNxFj17quwgWeMVLkRJjDi+3H9HI3RjOLbzS65Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DtfAObULRIIxOluWx4C0+rkgymR02M84fVuL4a0OZSo=;
+ b=O8ibgUYOiIQ5csUgK1m6b7FHhx5VC2YpoEZ7VEg0YST2CQtzEmbHkLfUa8mkKAkawzfSRH8gu9Nasoq7aChK6k0s60JpzKMehuLXt1sjgG7PfajTOM+TOVqnlYwoxlXjtAD9YnOcWU5pvz74uoRcbYGE2M51nmjC61g0DT38yKg9Rf2sg5Z8IgCvlO/CVGxwcgwqIdXDa5YJRQbC88DmM1oFAN+KQ/HNCJI3P3g2KhDed1KbdXXSfritOspilrvdVQRn2gzrhTDudUD3M7p2iEL614nwNHJqwceIwIZvgKrCKKtCDiyQfkHRdFq2pDMNqnHtTGkOZCPZ0cLR7POzvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DtfAObULRIIxOluWx4C0+rkgymR02M84fVuL4a0OZSo=;
+ b=qU8SYp9G2kwk/R2rbJdHiasEzWzuH2/ZmpdyNLjlJSTynnWBXzVXniXLnrZ5GLrU8RzMhQNevmQXeHQAPEZeBj7Y09XZ6JFJdqxOv6EN+JFc2AUKy+3IDtVixAwm9TCov3ZO+otHIeBTpvMi8dal492I+rigNTJUjCtMNvS4bag=
+Received: from BN9P221CA0006.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::33)
+ by CO1PR10MB4660.namprd10.prod.outlook.com (2603:10b6:303:6d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Sat, 5 Sep
+ 2026 12:49:51 +0000
+Received: from BN1PEPF0000468B.namprd05.prod.outlook.com
+ (2603:10b6:408:10a:cafe::af) by BN9P221CA0006.outlook.office365.com
+ (2603:10b6:408:10a::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.10 via Frontend Transport; Sat, 5
+ Sep 2026 12:49:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF0000468B.mail.protection.outlook.com (10.167.243.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Sat, 5 Sep 2026 12:49:50 +0000
+Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
+ 2026 07:48:16 -0500
+Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
+ 2026 07:48:16 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Sat, 5 Sep 2026 07:48:16 -0500
+Received: from [10.249.135.178] ([10.249.135.178])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 685CmBSo2186145;
+	Sat, 5 Sep 2026 07:48:12 -0500
+Message-ID: <b5dc14b2-9b8b-4da5-b48c-274bdf6581a3@ti.com>
+Date: Sat, 5 Sep 2026 18:18:10 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] uart-routing: Add common UART routing framework
-To: Changhuang Liang <changhuang.liang@starfivetech.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Chia-Wei Wang <chiawei_wang@aspeedtech.com>, Oskar Senft <osk@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
- Jani Nikula <jani.nikula@intel.com>, Vitaly Lubart <lubvital@gmail.com>,
- Hanjun Guo <guohanjun@huawei.com>, Andrew Morton
- <akpm@linux-foundation.org>, Alexander Usyskin
- <alexander.usyskin@intel.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Breno Leitao <leitao@debian.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- James Morse <james.morse@arm.com>, Paolo Abeni <pabeni@redhat.com>,
- Stephen Hemminger <stephen@networkplumber.org>,
- Dave Penkler <dpenkler@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, Dan Williams <djbw@kernel.org>,
- Mukesh Rathor <mrathor@linux.microsoft.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- Alexandra Winter <wintera@linux.ibm.com>,
- Karthikeyan KS <karthiproffesional@gmail.com>,
- Pengpeng Hou <pengpeng@iscas.ac.cn>, openbmc@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org
-References: <20260905102901.126035-1-changhuang.liang@starfivetech.com>
- <20260905102901.126035-2-changhuang.liang@starfivetech.com>
+Subject: Re: [PATCH v2 4/6] arm64: dts: ti: k3-j784s4-j742s2-main-common:
+ Assign SRAM to VPU nodes
+To: Brandon Brnich <b-brnich@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <afd@ti.com>, <u-kumar1@ti.com>
+References: <20260810205206.685971-1-b-brnich@ti.com>
+ <20260810205206.685971-5-b-brnich@ti.com>
 Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <20260905102901.126035-2-changhuang.liang@starfivetech.com>
-Content-Type: text/plain; charset=UTF-8
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20260810205206.685971-5-b-brnich@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468B:EE_|CO1PR10MB4660:EE_
+X-MS-Office365-Filtering-Correlation-Id: 452dfa32-f64c-42d7-63c4-08df0b4c2d06
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|23010399003|82310400026|13003099007|921020|4143699003|56012099006|18002099003|22082099003|10067099003;
+X-Microsoft-Antispam-Message-Info: Xk5SCw7lmufioLfOR3hpAcaT9dc+C+7fowj710ATyjmtzP6HuYycdcTWHxa0UBw+DEHPeD4Tys8V4lLUsShbcvwOnSZKSGVAy8UvD7w3j4lK2RNC6A//8lomawcup4i2oMSUhctpye5HSZCsZpq+hhDC5pSe2/mZm4fEgpyYIZaKHqPNaWFgsiOJdSo6KocOve6T4WQJ0PWT088FgpQkrFvzCwP8sE7t4RFFwItXs7awrjZWDIdW0A3q9C2GHmUt2DGPteCa5lJPo7tU0WY1TeLOoVKVQ64BhxiSlon/lsymzY9pAECc0gaUa64QXX6QJUE6IKLtSK8Ddr15UnF1N51m60e+dSH8iJP+qCCT4PW5L8HqMPAytKI3fecjzJFmSVky1bR8wpzqINtwYF/1SoSjMdSnoFuP+M+DZvVAbfh55tsX6mTYU4kE6bQgI0MhwDhzifZQE4C1Z88UxR6pBKWtTimhhkjeNTpuhf/OT36DokgWTnRp9CwpPHyEfM67+Prx2crvF66+2FELrQDl2FC4ybbIxOpwO1CaRnNEZAQXWy1U2xFMmRob+jbrRLI6QrSirtzObCrXV/8sdpDEEc8mCYaTp7eaMbE2F0xEuVC3T1f4gEbt7L4Ez/cvx3gPfDudmYJ6chU6NMbFUCFKu2NgMcuK6wx0P04T69ZZ5HFeLg6Q+Hst0CRXwvnhi/1oP0vgnDv3qU06FWGdY/QphA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(13003099007)(921020)(4143699003)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: x8jkhELA5XK4gDkzIG7A6k4d40dybJE02ROexvyVhS2S/L/9Hau7f29bGigt5sxQjEQOOT9VeP8jCK9hng7udHdm+/GBevK+C6kvK7AhEXkg4K5YofW6rT2ckzZ/4CGw9ycmRQ5rpng6qE2rd9mu15ce4UbIK5X6xN3BH89XzS7ZpVGnrRBnvsfnaietPCSio9zqjlkvgBSPf74Dxx7pnR2dEHo4eRkTcDhA81aJMsa+1z85b4YiKWOWu+Ci2M7XQTmud9Pnn1IRmO8PuRbfx/G0Ra5bLzZyRd9OA6K9ZX5O3ecxaWcrcCTrRXhYThtBpgSHhfuhGi8n5C1RGiimtL4Ie8FxiX6ePvC/MecYTVwBmTvr1LKuKchk3tofW/soObOfrjlU+udiiIUGwiQ1TDWUzLmSBa2h6ZsEB2PjoY7OTk62icu65E8eHz75gaPd
+X-Exchange-RoutingPolicyChecked: xnu6CEez0RQzzeklSXmB/Z3D7ocvd+vzs4IzgV7uVOZYQqJVABuBYe82lOdVPj74l9eeUTdOLC0oywcKL0vH+cP0iaBJdlEgCzJT3X48RGGE6oywf270q/Jt9xjEQBBF8q3zuVqNFaIV8pmYcXr03l6I8i2mXTUuPEBZlzHAAttsPoSGsXPpg2qBFmWIT4TWnIUFx1TepEfT9KRJkYT2u96Ixy3H4zAB+FcpeJIg/MMoHQoVMlqMNierlJXMg3Qc5injBB1PHF5fhc559V6kN5V6LmCgM3ZQrJWmegBoTdmYrDu+J0ezldUYKVfVMtOTpZaPaPfqQ0fovdTQoZgMhg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 12:49:50.9523
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 452dfa32-f64c-42d7-63c4-08df0b4c2d06
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468B.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4660
+X-Authority-Analysis: v=2.4 cv=AfqB2XXG c=1 sm=1 tr=0 ts=6a9c0ff1 cx=c_pps
+ a=JJStoDgKLvGmSPu1zToK9A==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=P-IC7800AAAA:8 a=sozttTNsAAAA:8
+ a=rdVYSk_NxjMM21v4qsgA:9 a=QEXdDO2ut3YA:10 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-ORIG-GUID: iT0RjTd-24WRSdl-ZpbenJ-T_SMTlwOb
+X-Proofpoint-GUID: iT0RjTd-24WRSdl-ZpbenJ-T_SMTlwOb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA1MDE0MCBTYWx0ZWRfX+u9nxWW0JHXN
+ ezStrZ6R5EcVhoTqA6fRwqEfSjLzuKeM6BZvSaXbguINPYSfz+NFPzftt+g6dWcxemgNUWhmuSC
+ GIo4JsPTpZzCwMUkRFL+rTH1g3GIbpaOrJC46/oUxC0T6ZrwJtUI6Rh4U3gIf54NmWsQisqT3Xb
+ slIucCc7nmkcmYVYgtNJk05WA56+QWKsBLeliiiso3RsqZj68TGqosbDzx8QAsc4TtyhXs1uFYe
+ T8RchjJQK7ArLVDdj2+9dEMgrUlAUy0NSvHZkHjNzghhLRzgRnFpMt389x76F5m/fSFcf5m4kho
+ 5JPzbofBWZYwg1TYYvk7OtxnivWOkpVPNtPXnAFpDFeXwGc+iYe2r4JD5MDW8Zn1u4OgziFhu7d
+ EiO3feJFC8HAD4sbBllS3tf3UWErgQmP+U5bp7sVij9O/SIcZ7tz0SfaJ64+hEcB0CFFR2zkeEe
+ YU2xJwvdbEZdSWAQd6A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA1MDE0MCBTYWx0ZWRfX6RKL3PzuM7Cf
+ wXttiJEut78PNkhXuHHgiQjBdIzcaZrQC9m/u4+QiGA9wjxKvxtGHMx+oU0mdzhSrl2AKC0bthu
+ 02gh1STtoCvZpMnTAthDpteChHOd7QM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-05_04,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 malwarescore=0 clxscore=1015 adultscore=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609050140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_053058_803047_3B7E727B 
-X-CRM114-Status: GOOD (  47.03  )
+X-CRM114-CacheID: sfid-20260905_055000_855504_D368FEE4 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,272 +178,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/5/26 11:28, Changhuang Liang wrote:
-> Several SoCs contain a serial crossbar, usually called UART routing,
-> that lets the RX line of any on-chip UART controller or physical serial
-> port be fed from any other endpoint. The Aspeed AST2400/2500/2600 and
-> the StarFive JHB100 both have one, and both expose it through the same
-> user space interface: one sysfs file per endpoint, listing the routing
-> targets with the current one in square brackets.
+
+
+On 8/11/2026 2:22 AM, Brandon Brnich wrote:
+> The Wave5 VPU supports connecting to on-chip SRAM through its secondary
+> AXI interface. This allows temporal buffers to be stored on a per-stream
+> basis, reducing DDR memory traffic.
 > 
-> The two drivers implementing that interface duplicate the whole sysfs
-> plumbing and only really differ in the description of their register
-> layout, so factor the common part out into a framework.
-> 
-> An SoC driver now only describes each mux with a
-> struct uart_routing_selector - register offset, bit position, field mask
-> and the array of routing target names indexed by the raw field value -
-> gathers them in an attribute group and hands the group and a regmap to
-> devm_uart_routing_register(). The framework validates the description,
-> creates the files and implements the show()/store() handlers.
-> 
-> The framework keeps its state in a devres node rather than in the device
-> drvdata, so drivers stay free to use dev_set_drvdata() for their own
-> purposes, and the sysfs files are removed by devres, so drivers do not
-> need a remove() callback for them.
-> 
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+> Reviewed-by: Andrew Davis <afd@ti.com>
 > ---
->  Documentation/driver-api/index.rst        |   1 +
->  Documentation/driver-api/uart-routing.rst | 145 ++++++++++++++++
->  MAINTAINERS                               |   7 +
->  drivers/Kconfig                           |   2 +
->  drivers/Makefile                          |   1 +
->  drivers/uart-routing/Kconfig              |  16 ++
->  drivers/uart-routing/Makefile             |   2 +
->  drivers/uart-routing/uart-routing.c       | 200 ++++++++++++++++++++++
->  drivers/uart-routing/uart-routing.h       |  84 +++++++++
->  9 files changed, 458 insertions(+)
->  create mode 100644 Documentation/driver-api/uart-routing.rst
->  create mode 100644 drivers/uart-routing/Kconfig
->  create mode 100644 drivers/uart-routing/Makefile
->  create mode 100644 drivers/uart-routing/uart-routing.c
->  create mode 100644 drivers/uart-routing/uart-routing.h
+>  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/Documentation/driver-api/index.rst b/Documentation/driver-api/index.rst
-> index 6601a258690f..2a0f375cd206 100644
-> --- a/Documentation/driver-api/index.rst
-> +++ b/Documentation/driver-api/index.rst
-> @@ -146,6 +146,7 @@ Subsystem-specific APIs
->     tee
->     thermal/index
->     tty/index
-> +   uart-routing
->     wbrf
->     wmi
->     xilinx/index
-> diff --git a/Documentation/driver-api/uart-routing.rst b/Documentation/driver-api/uart-routing.rst
-> new file mode 100644
-> index 000000000000..67bb84958977
-> --- /dev/null
-> +++ b/Documentation/driver-api/uart-routing.rst
-> @@ -0,0 +1,145 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +======================
-> +UART routing framework
-> +======================
-> +
-> +:Author: Changhuang Liang <changhuang.liang@starfivetech.com>
-> +
-> +Overview
-> +========
-> +
-> +Several SoCs contain a serial crossbar, usually called *UART routing*, that
-> +sits between the on-chip UART controllers and the physical serial ports
-> +exposed on the package pins. The crossbar lets the RX line of any endpoint be
-> +fed from any other endpoint, which makes it possible to, for example, snoop
-> +the traffic of a host serial console, or to loop two on-chip UARTs back into
-> +each other without any external wiring.
-> +
-> +Two endpoint families are involved:
-> +
-> +``uartN``
-> +	the RX line of the on-chip UART controller number N.
-> +
-> +``ioN``
-> +	the RX line of the physical serial port number N.
-> +
-> +The crossbar is programmed through bit fields, one per endpoint, spread over
-> +one or more registers. The value written into a field picks the endpoint the
-> +RX line is connected to; the meaning of a given value differs from field to
-> +field and from SoC to SoC.
-> +
-> +The framework in ``drivers/uart-routing/`` takes a static description of those
-> +fields and turns it into a set of sysfs files, one per endpoint, so that SoC
-> +drivers only have to describe their hardware.
-> +
-> +User space interface
-> +====================
-> +
-> +Every endpoint gets one read/write file in the device directory of the
-> +platform driver, named after the endpoint. Reading the file lists all the
-> +routing targets the endpoint can be connected to, with the current one
-> +enclosed in square brackets::
-> +
-> +	# cat /sys/bus/platform/drivers/aspeed-uart-routing/*.uart_routing/uart1
-> +	[io1] io2 io3 io4 uart2 uart3 uart4 io6
-> +
-> +Writing one of the listed names to the file changes the routing::
-> +
-> +	# echo uart2 > /sys/bus/platform/drivers/aspeed-uart-routing/*.uart_routing/uart1
-> +
-> +Writing a name that is not part of the list fails with ``-EINVAL``.
-> +
-> +The list is not necessarily the same for every file: it is ordered by the raw
-> +value programmed into the hardware, so the first entry is the target selected
-> +when the field reads back as 0. Some SoCs define fields that are wider than
-> +the number of documented targets. When such a field holds a value with no
-> +name attached, the read appends ``[unknown(N)]`` to the list instead of
-> +bracketing one of the names.
-> +
-> +Fields whose name is ``reserved`` are placeholders for values the hardware
-> +does not implement. They are listed so that the position of the following
-> +names stays correct, and writing ``reserved`` programs a value that has no
-> +defined behaviour, so do not do that.
-> +
-> +The exact set of files of a given SoC, together with the routing targets each
-> +of them accepts, is described in the corresponding
-> +``Documentation/ABI/testing/sysfs-driver-*-uart-routing`` file.
-> +
-> +Writing a driver
-> +================
-> +
-> +An SoC driver describes each mux with a ``struct uart_routing_selector``,
-> +defined with the ``UART_ROUTING_SELECTOR()`` helper::
-> +
-> +	static const char *const foo_uart1_options[] = {
-> +		"io1", "io2", "io3", "io4", "uart2", "uart3", NULL,
-> +	};
-> +	UART_ROUTING_SELECTOR(foo_uart1_sel, uart1, FOO_MUX_REG, 16, 0x7,
-> +			      foo_uart1_options);
-> +
-> +The arguments are, in order, the name of the variable to define, the name of
-> +the sysfs file, the offset of the register holding the field, the position of
-> +the least significant bit of the field, the field mask and the array of
-> +routing targets.
-> +
-> +The mask is given in field coordinates, that is, it is *not* shifted by the
-> +bit position: a three bit field is always described as ``0x7``, whatever its
-> +position in the register is.
-> +
-> +The array of routing targets is indexed by the raw field value, so
-> +``options[n]`` is the name of the target selected when the field holds n. It
-> +has to be NULL terminated, and it may be shared between several selectors
-> +that happen to have the same target order.
-> +
-> +The selectors are then gathered in an attribute group::
-> +
-> +	static struct attribute *foo_uart_routing_attrs[] = {
-> +		UART_ROUTING_SELECTOR_ATTR(foo_uart1_sel),
-> +		/* ... */
-> +		NULL,
-> +	};
-> +
-> +	static const struct attribute_group foo_uart_routing_attr_group = {
-> +		.attrs = foo_uart_routing_attrs,
-> +	};
-> +
-> +and handed over, along with a regmap covering the selector registers, in
-> +probe()::
-> +
-> +	static int foo_uart_routing_probe(struct platform_device *pdev)
-> +	{
-> +		struct device *dev = &pdev->dev;
-> +		struct regmap *regmap;
-> +
-> +		regmap = /* ... */;
-> +
-> +		return devm_uart_routing_register(dev, regmap,
-> +						  &foo_uart_routing_attr_group);
-> +	}
-> +
-> +The framework validates the description at registration time and rejects
-> +selectors whose target list cannot fit in the field, or whose field does not
-> +fit in a 32 bit register.
-> +
-> +The sysfs files are created and removed by devres, so a driver does not need
-> +a remove() callback for them. The framework keeps its own state in a devres
-> +node rather than in the device drvdata, so drivers are free to use
-> +``dev_set_drvdata()`` for their own purposes.
-> +
-> +Locking
-> +=======
-> +
-> +The framework does not serialise accesses itself. The read-modify-write of a
-> +selector field is done with ``regmap_update_bits()``, so concurrent writes to
-> +two endpoints sharing a register are made safe by the regmap lock. Reading a
-> +file always reports the current hardware state, which may have been changed
-> +by another writer in between.
-> +
-> +API reference
-> +=============
-> +
-> +.. kernel-doc:: drivers/uart-routing/uart-routing.h
-> +
-> +.. kernel-doc:: drivers/uart-routing/uart-routing.c
-> +   :export:
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 90919c672d4d..b7fa722755c6 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -27818,6 +27818,13 @@ F:	drivers/misc/uacce/
->  F:	include/linux/uacce.h
->  F:	include/uapi/misc/uacce/
+> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> index e836f0f42e30d..21ec9f207ff63 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> @@ -1002,6 +1002,7 @@ vpu0: video-codec@4210000 {
+>  		interrupts = <GIC_SPI 182 IRQ_TYPE_LEVEL_HIGH>;
+>  		clocks = <&k3_clks 241 2>;
+>  		power-domains = <&k3_pds 241 TI_SCI_PD_EXCLUSIVE>;
+> +		sram = <&main_navss_sram>;
+>  	};
 >  
-> +UART ROUTING FRAMEWORK
-> +M:	Changhuang Liang <changhuang.liang@starfivetech.com>
-> +L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
-> +S:	Maintained
-> +F:	Documentation/driver-api/uart-routing.rst
-> +F:	drivers/uart-routing/
-> +
->  UBI FILE SYSTEM (UBIFS)
->  M:	Richard Weinberger <richard@nod.at>
->  R:	Zhihao Cheng <chengzhihao1@huawei.com>
-> diff --git a/drivers/Kconfig b/drivers/Kconfig
-> index f2bed2ddeb66..cb2b5c3b22b0 100644
-> --- a/drivers/Kconfig
-> +++ b/drivers/Kconfig
-> @@ -251,6 +251,8 @@ source "drivers/hte/Kconfig"
->  
->  source "drivers/cdx/Kconfig"
->  
-> +source "drivers/uart-routing/Kconfig"
-> +
->  source "drivers/resctrl/Kconfig"
->  
->  endmenu
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index 0841ea851847..fe4b11419496 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -195,6 +195,7 @@ obj-$(CONFIG_DRM_ACCEL)		+= accel/
->  obj-$(CONFIG_CDX_BUS)		+= cdx/
->  obj-$(CONFIG_DPLL)		+= dpll/
->  obj-y				+= resctrl/
-> +obj-$(CONFIG_UART_ROUTING)	+= uart-routing/
->  
->  obj-$(CONFIG_DIBS)		+= dibs/
->  obj-$(CONFIG_S390)		+= s390/
-> diff --git a/drivers/uart-routing/Kconfig b/drivers/uart-routing/Kconfig
-> new file mode 100644
-> index 000000000000..a0c45a7bba47
-> --- /dev/null
-> +++ b/drivers/uart-routing/Kconfig
-> @@ -0,0 +1,16 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +menu "UART routing drivers"
-> +
+>  	vpu1: video-codec@4220000 {
+> @@ -1010,6 +1011,7 @@ vpu1: video-codec@4220000 {
+>  		interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
+>  		clocks = <&k3_clks 242 2>;
+>  		power-domains = <&k3_pds 242 TI_SCI_PD_EXCLUSIVE>;
+> +		sram = <&main_navss_sram>;
+>  	};
 
-Configuring the kernel can be an annoying process, and on platforms that
-can't use these options, this menu just appears empty, further
-complicating menuconfig...
+Hello Brandon,
+Could you check, how two instances of hardware can share same sram ?
 
-Maybe it makes sense to add a dependency to the menu like this?
-'depends on ARCH_ASPEED || ARCH_STARFIVE || COMPILE_TEST'
+LTM, each block need 64KB of SRAM
+https://elixir.bootlin.com/linux/v7.2.2/source/drivers/media/platform/chips-media/wave5/wave5-vpu.c#L463
 
-- Julian Braha
+
+>  
+>  	main_sdhci0: mmc@4f80000 {
 
 
