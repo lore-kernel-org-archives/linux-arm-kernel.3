@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBC4C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC0EC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UDZuSqKd7ep1EuIdjJIZGgvEiPYZKoMthJDfuUMeNQc=; b=R8gM+inVTcfJ3neNk8Tseiyd8k
-	ApKjAGX/TWut1Mp55a4LlCZbyrK/pgO7zUdIU2FB00H7IjWkhn2R0ql3S6sqjdYyVMeWsqgGtBiI3
-	Yyi0KJOT7XmV8mQnF2r6y5B6Bm6ezbZdWbrIFcCQ6uQxST1LNaqN//Hn6pOamarA282fR1bOyYmTi
-	x3ouJQp8yUoWZ9LmLJL3AcwopYAvfb+G8UcHVfzc+TGk5JOp4MeczAKBLzw/GWP+nPczdTXCpMQVg
-	eRdZsatLPO34hwOSG/A3jWtt4YaRVN55Wzyv2oZSn/M7Q9qabFHIKfMvy7csCTbZUi6xL+xwbc5rs
-	LNweJF9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RqcAI7pAD1odDIdi2AWSF2YS3bFn9A/ym55+hvQNRWc=; b=MpkSCVadUcyBwziiTSlbtn9OUY
+	in/rouMXwa0FqE3kjBiGcNwQTUpFmp1rx8H2hKLntI0l1mkDMaXK561zir5vyeMqKfOngNkCWC6Wy
+	7VrFrUK/kYBOY3MVPgWlqRKDFd4d2W6cVjaCkpqvT5Ad47l3pczFKfcYfR1Gglf8zeeSgVNSD5ZnU
+	Nuxg9qzjubhPn3bm3XSeRr9dbT+XKr/EX0fn8kLOQ/gthP/BAgKKgoYEz+hjiBAFa4LsmgU548Sax
+	f4xEDJ6CVHEwIh+u1TsnZQWY3FsliMOISqKUZFcSejc0K3sNgLRIL8n+AsSj2sJiba4EHP3AmiA+R
+	0Y8aMTKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2qh7-000000047UG-3DKX;
-	Sat, 05 Sep 2026 13:44:33 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1x2qim-000000047bP-1UF9;
+	Sat, 05 Sep 2026 13:46:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2qh5-000000047Tk-1XEa;
-	Sat, 05 Sep 2026 13:44:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=UD
-	ZuSqKd7ep1EuIdjJIZGgvEiPYZKoMthJDfuUMeNQc=; b=mIGOQmQTHMSIzTYHZI
-	0QGqNlzCcNxz7bNSzZeonfUCIjLK/jUeCOmI9gnmnDa77Rk0jhqgal8wP7+xkMCb
-	Gy7R36TDQ3bzxxi3HeN63O3qJK36qEIUzHR3vK1QZ7Qk+TeLD9huAbHjDV6eKyC2
-	2HHFdEfbsBVJhJ7GRy0dSHJ4s=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3p8i0HJxqGy6VAw--.61702S2;
-	Sat, 05 Sep 2026 21:44:21 +0800 (CST)
-From: "hpp.iscas" <hppiscas@163.com>
-To: James Tai <james.tai@realtek.com>
-Cc: "hpp.iscas" <hppiscas@163.com>,
-	Yu-Chun Lin <eleanor.lin@realtek.com>,
-	Andreas =?utf-8?q?F=C3=A4rber?= <afaerber@suse.com>,
-	Linus Walleij <linusw@kernel.org>,
+	id 1x2qil-000000047bJ-27tC
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Sep 2026 13:46:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 612014024A;
+	Sat,  5 Sep 2026 13:46:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41BBE1F00A3D;
+	Sat,  5 Sep 2026 13:46:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788615974;
+	bh=RqcAI7pAD1odDIdi2AWSF2YS3bFn9A/ym55+hvQNRWc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=KKYfrYUws700otlYQUHyLcpOJNhQo01jl4qSFhjAYAEg0mtiyIbMeU6W/VHtKikB/
+	 Y83twcaz62+2oPyG0hn8yLdncehFHY2Y0rH/rjcUXLEDxwTCcWpDYsNr9w6g/1/tuM
+	 HEK0uIISqdM2ObqPBnCTrduionIOZnyuHl677fkE+Gluy6BTyIk9B5L7yFT40XI5gV
+	 JaPCzUij6A2+MGbbGPrMbv5s0m+5Z7WaxkPgzfm5+XYYWdJr1m+VU8P8B9uf1lKZSw
+	 9T3aSjGkx0Ic8KqclXZ40gBj+Fzu20sO0oSHBcPAVDn6JFErGBNvNlVxDVJrnjwDUV
+	 or0reerjfpCAQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x2qih-00000005CjH-2Ap3;
+	Sat, 05 Sep 2026 13:46:11 +0000
+Date: Sat, 05 Sep 2026 14:48:41 +0100
+Message-ID: <87pkyr4xmu.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Wang Han <wanghan@linux.alibaba.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Tzuyi Chang <tychang@realtek.com>
-Subject: [PATCH] pinctrl: realtek: rtd1619b: Publish the OF module alias
-Date: Sat,  5 Sep 2026 21:44:18 +0800
-Message-ID: <20260905134418.67619-1-hppiscas@163.com>
-X-Mailer: git-send-email 2.50.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-CM-TRANSID: _____wD3p8i0HJxqGy6VAw--.61702S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtrWUAw15AFWkJr4UKFWktFb_yoWDArX_uF
-	yUtrZrXrW8GF17Zr4v9w43ZFyIya1jqr1vqFyvqF13CryxZw1jvr1kWrWxGa48GFW2kryU
-	GryUXF1Syr15ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRRBT5tUUUUU==
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7RX1vmqcHLV1ywAA3S
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_064431_801525_07AE22ED 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+	oupton@kernel.org,
+	tabba@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ljs@kernel.org,
+	itaru.kitayama@fujitsu.com
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
+In-Reply-To: <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+	<20260902163500.1841671-1-wanghan@linux.alibaba.com>
+	<877bl26aqg.wl-maz@kernel.org>
+	<wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+	<875x0l5udh.wl-maz@kernel.org>
+	<eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, wanghan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +96,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RTD1619B pinctrl driver is a separate tristate object using=0D
-rtd1619b_pinctrl_of_match. The generic Realtek pinctrl support does not=0D
-publish an alias for this SoC module.=0D
-=0D
-Export the existing OF table while retaining the initialization order.=0D
-=0D
-Fixes: c7910f6aca56 ("pinctrl: realtek: Add pinctrl driver for RTD1619B")=0D
-Signed-off-by: hpp.iscas <hppiscas@163.com>=0D
----=0D
- drivers/pinctrl/realtek/pinctrl-rtd1619b.c | 1 +=0D
- 1 file changed, 1 insertion(+)=0D
-=0D
-diff --git a/drivers/pinctrl/realtek/pinctrl-rtd1619b.c b/drivers/pinctrl/r=
-ealtek/pinctrl-rtd1619b.c=0D
-index b07e50d..e03e1fb 100644=0D
---- a/drivers/pinctrl/realtek/pinctrl-rtd1619b.c=0D
-+++ b/drivers/pinctrl/realtek/pinctrl-rtd1619b.c=0D
-@@ -1575,6 +1575,7 @@ static const struct of_device_id rtd1619b_pinctrl_of_=
-match[] =3D {=0D
- 	{ .compatible =3D "realtek,rtd1619b-pinctrl", },=0D
- 	{},=0D
- };=0D
-+MODULE_DEVICE_TABLE(of, rtd1619b_pinctrl_of_match);=0D
- =0D
- static struct platform_driver rtd1619b_pinctrl_driver =3D {=0D
- 	.driver =3D {=0D
+On Fri, 04 Sep 2026 23:42:15 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> On Fri, Sep 04, 2026 at 08:49:14AM +0100, Marc Zyngier wrote:
+> 
+> [...]
+> 
+> > > > >
+> > > > > The L1 was started with 8 vCPUs and 32 GiB of RAM using:
+> > > > > 
+> > > > >   qemu-system-aarch64 -smp 8 -m 32G \
+> > > > >     -machine virt,accel=kvm,gic-version=3,virtualization=on \
+> > > > >     -cpu host -nographic -enable-kvm \
+> > > > >     -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
+> > > > >     -drive if=pflash,format=raw,file=pflash1_bak.img \
+> > > > >     -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
+> > > > >     -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
+> > > > >     -serial mon:stdio
+> > > > > 
+> > > > 
+> > > > Puzzling. If you are only running an L1 in VHE mode, there is no
+> > > > shadow S2, and therefore nothing to unmap. For shadow S2s to be built
+> > > > and affect the MMU notifiers, you need to run an L2.
+> > > 
+> > > I was thinking the same at first, but realized even with L1 in VHE mode
+> > > there is a small period of time where L1 runs in its EL1 during boot, so
+> > > one nested MMU will become valid for each vCPU. That causes
+> > > kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
+> > > (-smp 8).
+> > 
+> > It should be one nested MMU for the whole VM, not one per vcpu.
+> > That's assuming they share the same VMID+VTCR.
+> > 
+> > > What I am curious about is whether one single notifier unmap is enough
+> > > to hang L1, or were there multiple notifier unmaps.
+> > > 
+> > > QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
+> > > 1024  (4KB pages,  unmapping 1GB per iteration)
+> > > 32768 (16KB pages, unmapping 32MB per iteration)
+> > > 2048  (64KB pages, unmapping 512MB per iteration)
+> > > iterations for each page size. There aren't many mappings in each
+> > > iteration too. Does this really take that long on real hardware (even if
+> > > this must be done 8 times)?
+> > 
+> > This should be close to being at zero cost, so something else is
+> > amiss.
+> > 
+> 
+> Guess what? I am completely wrong once again.
+> 
+> The complete range of the nested mmus isn't about the value
+> supplied by KVM_VM_TYPE_ARM_IPA_SIZE. Instead it is the PARange exposed
+> to the guest. That's because the guest hypervisor is allowed to expose
+> whatever memory map it likes to its nested guests, as long as it is
+> within the guest's PARange. This is explained clearly in
+> init_nested_s2_mmu().
+> 
+> Now the PARange exposed to guests should be much larger than 40bits. On
+> the neoverse-n2 it should be 48bits (256TB), therefore the iterations
+> required for each unmapping would be 256x:
+> 
+> 262144  (4KB pages,  unmapping 1GB per iteration)
+> 8388608 (16KB pages, unmapping 32MB per iteration)
+> 524288  (64KB pages, unmapping 512MB per iteration)
+> 
+> I think these numbers match the hang time Shuai have shown.
+>
+> Just to demonstrate the difference I have tried manually limiting
+> kvm_ipa_limit to 40, and tested with software emulation. Before the
+> manual change a kvm_nested_s2_unmap() finished after 42 seconds, after
+> limiting kvm_ipa_limit kvm_nested_s2_unmap() can finish in less than a
+> second.
+>
+> With this, I think there aren't other underlying issues, it just is that
+> slow unfortunately..
 
+I don't buy this. There should be very little mapped in the shadow S2,
+a few dozen pages at most. As you noticed, there is very little the
+kernel executes at EL1 before upgrading to EL2. Invalidating this
+should be cheap.  Furthermore, once invalidated after the last vcpu
+has booted, the cost should be exactly zero.
+
+It seems that these two assumptions are not holding up, and I wonder
+why.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
