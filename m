@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666C8C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E097C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVpY0QdMZagNwCSf9WSV5CJ0QRaVBkcNO3sPmXuEHFY=; b=CIsEaNIa3a/7S7tR8+tK831Tet
-	xSSwLD75PJwES5HA/WmnSIsYdJdCYTGKP/U5AbDDiuoIBAHX0+t+fp6tsw0ckQu4uH7pOKF7mJT5X
-	UP3rqsMCuBnvFgqyzIYET6EZf3DQ/BntlN0JYUMdASQceUZCCTfa3bfZcRbQsMb5X/VkvkBcpAAOU
-	4ZY6bxH7U6MQozEU7vjrqIM6lq1DGxl9sHJ6B0p9dHl6rzqC+WcmfJcaGdv+UA2UJ6s9YTDcB4Zm5
-	YnTENVlBTF1DdHmXzsW7tFGIb0mdi8PllMG2QZ50On17pTEzOVLlES2U4hqB1k66m219sxvdR1YFu
-	IaOVo3/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pVISZRhqeUbbG63nkEbrVHxYxMTirBscwLs3Wje3fLI=; b=QJ8XlzbHZLdPFHWEAyQHfsZyyg
+	VDrvrXdt9myKFBMfT1LGbZEkk4yEG7TDMEpXMCBSLnIyQg+rxCmkXxPeV8Xfpqu7ZlPqvuFoJ+WeH
+	wnIhA8qZkbIOI6SihqkMUc57Z/OtUigltgzKqWENj6yGMDvpbYTB3SlsQqq3dlajpneNwlD6+benq
+	jPBvJwaJpTy01IqIMyqMT51A7RoyXNZ0nsqW7jFcgCKMgEf+wvrjhm994ytHFr8CmsHIYyise1ktx
+	j66a4AuzNEOUol+xSP2GaCY3XHSXVnsGH8xK3SFqQUx4B8zNvX+AsqiunWgDKbHcZu3S99JM81PRI
+	sFJ4Ik1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lcl-00000003qha-27u2;
-	Sat, 05 Sep 2026 08:19:43 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1x2lf5-00000003qx4-3PKU;
+	Sat, 05 Sep 2026 08:22:07 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lci-00000003qgv-1MjG;
-	Sat, 05 Sep 2026 08:19:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788596380; x=1820132380;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=LCxtwuf2XVjyavMFXpabUkNGnxhVmscqDbsgQpznjPQ=;
-  b=SCoHbv4cIPSWLx8hBOh/o/Ow7/pOnjpRw6JRvk20UmxMPu2AjTf8R680
-   gNuTsxQICpm9wEhp4PvsjBjAq/VuANs3D08XIxpzuce+2KulCfrU7cg7T
-   7dbiUtC+FEn7EkWIs2K8Th8mIC6KFM00QAYpPqx9HZNSDWK4lVDpjucbk
-   Eun3d0q0JvEoMSkWPsDDp8PlNwTq+vfr1k6U1tVAipK52jvnbVX1ir+jE
-   Mf2nGyKGghEREHbis142amEwAu4H9o1xHYLKnvftpA51Cu3fAh1IjsfTx
-   2dH+0vmYCkG9sgQpOF7U273gvOVHxeLfdqmxMaBSq704hg3jeMnZM+lit
-   Q==;
-X-CSE-ConnectionGUID: /qnZpArESnq8Z0cDgBiLgg==
-X-CSE-MsgGUID: enx/aLRqQYeRbT3zqvDV+Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="99682607"
-X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
-   d="scan'208";a="99682607"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 01:19:39 -0700
-X-CSE-ConnectionGUID: RZJD/lMbRdmRSuPG8lpbEA==
-X-CSE-MsgGUID: cq+DJsyETMOKDJXUoiwqxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
-   d="scan'208";a="295128198"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.245.105])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 01:19:34 -0700
-Date: Sat, 5 Sep 2026 11:19:32 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wei Deng <wei.deng@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v8 07/16] usb: core: Move struct usb_port and related
- APIs to port.h
-Message-ID: <apvQlBEgHOW9MCxN@ashevche-desk.local>
-References: <20260904084158.1341550-1-wenst@chromium.org>
- <20260904084158.1341550-8-wenst@chromium.org>
- <2026090430-botanist-ungodly-0299@gregkh>
- <CAGb2v65MSxL+r+wqMjPKVSh9aS1gkn8og6oBinSXDdipnoOyCQ@mail.gmail.com>
- <2026090433-chair-tidings-5c99@gregkh>
+	id 1x2lf3-00000003qvy-1k7h
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 05 Sep 2026 08:22:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=pVISZRhqeUbbG63nkEbrVHxYxMTirBscwLs3Wje3fLI=; t=1788596525; x=1789806125; 
+	b=Smkx/6o3Q2KZt8w6HwNFWQQv5+FwWHmgcpt0hpr2LEjd4Bl1EiWAEzGmHXVk4Oue8+0JOE3zGej
+	JXkpLgiVJ8jmTn9b5lCL5vhuR2wp5jo4stL8+t1508ZdgC08pRekoJEOcSgARhDL3vG/ziRazhgD0
+	rGM06VNkb2rmrgUvJY1S387XgPTL9qR79njwgOFYeOC+NJBHh+ghTqGR3GRuqwS3b8H2uyuWhX2GP
+	WDnLf5qYyNz+g07csc6v5/HwYTBzy/MWCyjLPyLJFhXBFfoWlcLsbS67AUZ90qjO5OzyRCkeAtWWe
+	wKAzvGN+XQC7fK+DGlP4hSKic24uSw/Rwa4g==;
+Date: Sat, 5 Sep 2026 10:21:34 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
+ linux-doc@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, Steve Wahl
+ <steve.wahl@hpe.com>, Dimitri Sivanich <dimitri.sivanich@hpe.com>, Tony
+ Luck <tony.luck@intel.com>, linux-edac@vger.kernel.org, Krzysztof Kozlowski
+ <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
+ linux-omap@vger.kernel.org, Dominik Brodowski <linux@dominikbrodowski.net>,
+ Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ linux-ide@vger.kernel.org
+Subject: Re: [PATCH 7/9] docs: kernel-parameters: Drop the omap_mux= entry
+Message-ID: <20260905102134.69ef3092@kemnade.info>
+In-Reply-To: <20260905070347.25902-8-kmehltretter@gmail.com>
+References: <20260905070347.25902-1-kmehltretter@gmail.com>
+	<20260905070347.25902-8-kmehltretter@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2026090433-chair-tidings-5c99@gregkh>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_011940_374656_8437B6BB 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20260905_012205_461326_7CE6A2FA 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +79,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2026 at 07:52:37PM +0200, Greg Kroah-Hartman wrote:
-> On Sat, Sep 05, 2026 at 01:24:20AM +0800, Chen-Yu Tsai wrote:
-> > On Sat, Sep 5, 2026 at 12:47 AM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
-> > >
-> > > On Fri, Sep 04, 2026 at 04:41:46PM +0800, Chen-Yu Tsai wrote:
-> > > > |struct usb_port| and its matching container_of() macro should live in
-> > > > its own port.h, matching the split we have for .c files.
-> > >
-> > > Why?
-> > 
-> > This was requested by Andy. And to me it sort of made sense.
-> > 
-> > > > Move them as described. Also move usb_port_is_power_on(), since in the
-> > > > next change its |struct usb_hub *| parameter will be changed to
-> > > > |struct usb_port *|, and becomes a non-static function that only
-> > > > references |struct usb_port|.
-> > >
-> > > No, please don't do that unless you have a really good reason.
-> > 
-> > Which part? Move the code?
+On Sat,  5 Sep 2026 09:03:45 +0200
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+
+> omap_mux= went away with commit e9f5f1e45608 ("ARM: OMAP2+: Remove
+> legacy mux code"); nothing parses it any more.
 > 
-> Please don't make a new .h file.
+> Drop the entry.
 > 
-> Moving the function might make sense on its own if you need it in a
-> different file later on, but do a move only, and then change things if
-> you really need to do that.
+> Found by cross-checking every documented name against the __setup(),
+> early_param() and core_param() registrations in the tree.
+> 
+> Fixes: e9f5f1e45608 ("ARM: OMAP2+: Remove legacy mux code")
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-Isn't this file to break possible circular dependencies?
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 
--- 
-With Best Regards,
-Andy Shevchenko
-
+> ---
+>  Documentation/admin-guide/kernel-parameters.txt | 5 -----
+>  1 file changed, 5 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index d44728a45506..48dd273eaf6c 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -4765,11 +4765,6 @@ Kernel parameters
+>  			waiting for the ACK, so if this is set too high
+>  			interrupts *may* be lost!
+>  
+> -	omap_mux=	[OMAP] Override bootloader pin multiplexing.
+> -			Format: <mux_mode0.mode_name=value>...
+> -			For example, to override I2C bus2:
+> -			omap_mux=i2c2_scl.i2c2_scl=0x100,i2c2_sda.i2c2_sda=0x100
+> -
+>  	onenand.bdry=	[HW,MTD] Flex-OneNAND Boundary Configuration
+>  
+>  			Format: [die0_boundary][,die0_lock][,die1_boundary][,die1_lock]
 
 
