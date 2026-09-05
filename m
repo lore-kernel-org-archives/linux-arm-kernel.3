@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3751DC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9355C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:Cc:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4a8kETbbno+r0apC2sHIp95ZZ7jnRlfEcHkEbZMrCc=; b=Vgv33womIF16kpgFKa8iwJ27vZ
-	LzW74cIkzq1HnCB9iqQaJT7jLrbbWx8qbELTt7vpRCtjmQEQEAIVLotAirDr+Jxlq627yBKM+jl5j
-	qAL3leOIVHFZMgukfqWLUjz/5FO1WeslSpMk6tOlPXstOnHKMMevJzIi6td+O69zqYbHpBy8AQPeN
-	FtLKUe1gZ5Bk3TAwxf4N06YBcskuxpDz7mXLstNkb9VDgZWG/rCIuzVzDRhy6mtSNSCMaWx3z9RCd
-	FQuTT7RMibz/5SmrCdBlVFfzjiIKDRbAMdSeGaR9NWuFmtja3McX7Yv3N+OR0E38GDCbOFjY52Fg9
-	E+MvkFkg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=; b=g7ZPaOqbEyZ046+cAO1g8nY93Y
+	w640nkghqxtIij56NWyFI67KEmrjHyqqadAMsaWPP2GQZw7eBy1BlZfM7KCip/FSAHfKCqnsTVeWN
+	TOntEZkHWi7AxelR2eQ+frJjDuvmFy46uexTh4/ziEyeAVVQlttDdYyFlHw4tQDL4j+95nnJahiPP
+	KMIlGxt4oGtajuQu8SKsOSMtFYY7ldSaqAc3XnQuDO8d1tj4HE35W2UIj45hVXAoDEvcbG4WkDJcx
+	NPjCupfhFKC/Q/b8hocuB9SYg6dgPVVgdjSlyawgnT/ZbHoHQmKHEEqAvBZb93YjgLplo5jVoj/fE
+	K8HPwBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lMC-00000003pRO-2bpV;
-	Sat, 05 Sep 2026 08:02:36 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1x2lML-00000003pTz-3DpL;
+	Sat, 05 Sep 2026 08:02:45 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lMA-00000003pQr-22QV
+	id 1x2lMJ-00000003pSp-1322
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 08:02:35 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so1478927a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 01:02:33 -0700 (PDT)
+	Sat, 05 Sep 2026 08:02:44 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4843efcbdb2so949794f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 01:02:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788595353; x=1789200153; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:mime-version
-         :user-agent:date:message-id:from:cc:references:to:subject:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=k4a8kETbbno+r0apC2sHIp95ZZ7jnRlfEcHkEbZMrCc=;
-        b=iBOJXHm6MuqTBF9O7Jp8b0Zqk2HdIT136H/zU+NitS195obv273dl/zGNoZj2C+69Y
-         48KinvC4pzFxj7PXU8RK4ZPNy54SfFLbQDyHguQ3r+VfJ2sCGMH0QmKReqUgf+opsYJV
-         mltws3GQIiEGJKE7mgvQaeQNyOgWez4f16499uBNXyyP/3fDbN0w79W46GnnLU3nb/u6
-         wuCthZE8UZzkBfo19PXDzMmgj8vQMUrD/VJDNn0keqJvmZz0EWdIjdn1TyU5sYhSY9BT
-         nvpvRWO7k74hYiuq1BQWsFkU1SwR3kEWR3ohSvNC4YozjcE945Ea+4Kb1sOfjx+9Pbhr
-         /nVQ==
+        d=gmail.com; s=20251104; t=1788595361; x=1789200161; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=;
+        b=H24q8WqhsF1VPDZsToTRtek+j62AbZIqg3Nr1YFLaz6uFC2nZdPLKCTGOYmOpcVWFA
+         WbecUio0J3Pizx/Lhdxhi4aKMBPO6+zti4HWLdgVElNRztmTMK1xHnNsx/caDhp+gpvP
+         yopRkTfldCCg0vebMB5uV3XRFYpVBQTj3KnDOnoyxeOwQhJNl1RmYrY1CiL0DvhO8zxG
+         BMYaHh56EI2Xz9wCG2Kgk58f3LVULahPx0USjXlZPrm1/A4n63klRYJOT3PsTlZAMBoX
+         TAB3pK3xNqdyBxdRBvsbW5LgsloRanDLeIYmR6Fse7bRsSolupgH9A0xAoYxCwRU/dZ2
+         VdWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788595353; x=1789200153;
-        h=content-transfer-encoding:content-type:in-reply-to:mime-version
-         :user-agent:date:message-id:from:cc:references:to:subject:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k4a8kETbbno+r0apC2sHIp95ZZ7jnRlfEcHkEbZMrCc=;
-        b=Ao4ZoxuDRTA5ugYuINIVrz/qtuFZA1he2uy8t7m0U+S028jkBdM91k4Dq35TCNsS8O
-         vPHbDjKViTiUQTKCn4jv08EMFQwvdHzSO6KcNaqrx1EGFzowd7bCu0/iLPHFNWsKQVFG
-         fszLMHc6O6luxqfK+fw0p6rU86SqHJnBd73PQAFwmzNVmT4m/rCZF2Xf4shiCfnU60Dl
-         K4MVHkWi6j+tkREAIHriDFsURafO8x5KogYvBgId+mgepEdehE9YwmEaVTHw5i7eInL7
-         MhqLE88E9imSye2sFYOzgtRmz16Ahs+/7/slwWveZrnSB324y8lJvMwN6ZP1RZFzImO7
-         xkxA==
-X-Forwarded-Encrypted: i=1; AKwUvBz7ThXAvy8RHZzEXGxGQrPE/7EtL0AUFxPXFUh5BQsPuu7TAkUglchMuMz9OVe4fyr0fvwsK2xSeYTYnV3h22Y9@lists.infradead.org
-X-Gm-Message-State: AFuF++lj5OimA+FJD37U55El2rzyeM+qTU+34xUNpUiIw4jluOIknSHb
-	hP6pq0hGE05fVitet5b/mfAD+FXOtNRPAkzRk2Qw0zchscbHZD3ygUZe
-X-Gm-Gg: AYBFou1EuBZlYz3ksO5G0bwz28kgVI5J+01k8FaBiMNrmHrHas8ToyHS1zrGpvkyMg8
-	ozciUS/zrDJT6KQX2AO7a7B60a8Z0CgUntzKwnCjZDQRKRDD4J99DyDdod7tdrLerRLlrAcfofp
-	Gk+VkxwnNvsQ+X/xZfmLTlHCJACbaLP/hvL4c4MmMb2s11eaIFWDEKMzpFVcF03/VqKEyOl5jdl
-	WNwCazMs1Cud77Um7ygtOm0H9l5tH3L9xKu3vFdaJyjLMIBbqHALXFUjCMObkNemS9Pw1mrkL+v
-	8XcLwFGt2lD/SDeY0SF4WycqZh0kpy4gUBxf1y/hBLKlPMf3UD5AZ70LdT5qtwP3UmSooEIeRuW
-	snus4ntqQ60xIUmUHz4jdFPEOmShvZ5nyyN52ZGs/1Z/qn+CvXITk0PoKX0LfRWlZ2vD7AixSyd
-	oeISKwa5LNigomvIE9HwhXdf+odtCm90Bb2NWE+Tftv7+yRAQAnzUJYuuPFRsqH1/FI3gDutdw8
-	zcOI3OSYI5vR3B8shM=
-X-Received: by 2002:a17:90b:5246:b0:39a:e983:d4bd with SMTP id 98e67ed59e1d1-39b262a3cf7mr18232824a91.24.1788595352899;
-        Sat, 05 Sep 2026 01:02:32 -0700 (PDT)
-Received: from [10.1.1.24] (122-59-250-182-adsl.sparkbb.co.nz. [122.59.250.182])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08cacba5sm15543669a91.12.2026.09.05.01.02.15
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Sep 2026 01:02:32 -0700 (PDT)
-Subject: Re: [PATCH 1/9] docs: kernel-parameters: Drop the atarimouse= entry
-To: Karl Mehltretter <kmehltretter@gmail.com>,
- Jonathan Corbet <corbet@lwn.net>
-References: <20260905070347.25902-1-kmehltretter@gmail.com>
- <20260905070347.25902-2-kmehltretter@gmail.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
- linux-doc@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
- <dimitri.sivanich@hpe.com>, Tony Luck <tony.luck@intel.com>,
- linux-edac@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Tony Lindgren <tony@atomide.com>,
- Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- linux-ide@vger.kernel.org
-From: Michael Schmitz <schmitzmic@gmail.com>
-Message-ID: <762382f0-87cd-2148-9846-40448c7b1702@gmail.com>
-Date: Sat, 5 Sep 2026 20:02:11 +1200
-User-Agent: Mozilla/5.0 (X11; Linux ppc; rv:45.0) Gecko/20100101
- Icedove/45.4.0
+        d=1e100.net; s=20251104; t=1788595361; x=1789200161;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=;
+        b=ZmUkMIExPiYu5L9nUcjuWnA7jRtBnM+GDttHvQ4A2zU31uO6WcEXuy7G0mXayqg3jE
+         tofzve2Vi18fkFSnASTPEKgf3+aCQl2erYj9GXYmm/zAg/drKmTCpOUenjUeOvEUs9GG
+         HHVF/cDjkO1q6929WkqcPlb/zUeab1wEwot27JobJ2cGV0JKj+3YBi7JafJIz9wZPQUs
+         VwDrD30hwtYzNots1ELzWrrMNkwYZkRct5mE3KRlPqUwp9Ky9MklpHi2IgawAextkw3q
+         wy2iyPArOaKTXMTT84bHSueJzA4kfjXGwvtjUzIKruwca6GUzIHub/idMDGhn4a7FlgH
+         fjkw==
+X-Forwarded-Encrypted: i=1; AKwUvBw+Bm9aKoVtPxvbFLF/ZrTcRP+reVbP8ikDycWPZjQnvask4Z8Wnrq5YOpdApXGJBYg3C7YR73hlVMdh8xblaz4@lists.infradead.org
+X-Gm-Message-State: AFuF++lHouCQlAYo9VKiP/Sgbj8Tv/rH9pi0iT7YPsFIEnQpj6gwfo6i
+	IZ3HIFF4Z5gzMmyhMOtjAujnO+BD4tApj8IFTs9k9qR0fpLHscHMBE7E
+X-Gm-Gg: AYBFou0bGZNGaI5hBZTdGqd6kexyKGyt6+gTmZslDPXpkv6BUD9xb3XNKDNvv1rgD8L
+	xAXstG//b1Wnaa8+aGc/gp/yN3wrvh5Y/vdGwTwUt8C7cR3U5PlfYZtWUkjI9hL4//xBFbgmlji
+	SDPImHEVD3uoZKG/ZirwGw/rDWBEb6/SAXylRq8dz3PAqQrClxq/A14jufmFqajyHsSy2Sn+aOX
+	IZ+wFZd3Ii8CUowkVdT356W4+S+BNtEhIIiqaPM4aVdVe61pUtYhwOuqiTaxou4QXltyJMewNeo
+	KtNqwzHiObrqELEZxN0f1dRkxcZ34v2QVzrNeLj6XXhZCWFtNQSkyJjx1Fyr7NORhdvwKBOx4WE
+	z61vYnSOSu6r2ai/csTY/4ndCV0safAUtDNjnruiRiS4vNYRnZ32HfzQyLroikPiB1tw3wFe4Tb
+	Pj7n6wtV70LNFrdY2SPgRS5bsDYIEzvQM6TzxPg0r2fpgZvXi4l7d1cPYmZKAGHy3CMaHl+tg+T
+	y30+XsPbfAF4ylCpeyc5rSGQ0yBUCTxOVqp3zcu8D3Ivxfow0XODlJWy7/Kws+UgLUmggaIc1rG
+	IOtFV0WBo1HwhF0+KMXmchoIXC8HCSjtvw58ETAx28MG/2hakn8wSOcEPAyX8Z+6Wtg=
+X-Received: by 2002:a05:6000:2010:b0:485:8a47:5b92 with SMTP id ffacd0b85a97d-4858a475dadmr9500479f8f.47.1788595361036;
+        Sat, 05 Sep 2026 01:02:41 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883a9234sm12251794f8f.14.2026.09.05.01.02.40
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 05 Sep 2026 01:02:40 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Antonio Borneo <antonio.borneo@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pinctrl: stm32: Drop the nonexistent CONFIG_MACH_STM32MP25 from the STM32MP257 default
+Date: Sat,  5 Sep 2026 10:02:35 +0200
+Message-Id: <20260905080235.33785-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-In-Reply-To: <20260905070347.25902-2-kmehltretter@gmail.com>
-Content-Type: text/plain; charset=iso-8859-15; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_010234_580860_C2683250 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20260905_010243_343206_75A4CBB5 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,46 +102,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Karl,
+Commit 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
+made CONFIG_PINCTRL_STM32MP257 default to MACH_STM32MP25, following the
+MACH_* pattern of the arm32 entries above it, but no Kconfig symbol of
+that name exists and git log -S finds no Kconfig file that ever defined
+one: the STM32MP25 family is arm64 only, where CONFIG_ARCH_STM32 covers
+it. Commit dba0aff2b89b ("pinctrl: stm32: Allow compile as module for
+stm32mp257") added "|| (ARCH_STM32 && ARM64)" next to it, so the first
+half now evaluates to n and changes no configuration.
 
-Am 05.09.2026 um 19:03 schrieb Karl Mehltretter:
-> Nothing in the tree parses atarimouse=. drivers/input/mouse/atarimouse.c
-> only takes a module parameter, and git log -S finds no __setup() for the
-> boot parameter anywhere in the git history, so the entry has been stale
-> since before it.
->
-> Drop the entry.
->
-> Found by cross-checking every documented name against the __setup(),
-> early_param() and core_param() registrations in the tree.
->
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  Documentation/admin-guide/kernel-parameters.txt | 2 --
->  1 file changed, 2 deletions(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 68647ff4bdd2..c8d96de4c00d 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -591,8 +591,6 @@ Kernel parameters
->
->  	ataflop=	[HW,M68k]
->
-> -	atarimouse=	[HW,MOUSE] Atari Mouse
-> -
->  	atkbd.extra=	[HW] Enable extra LEDs and keys on IBM RapidAccess,
->  			EzKey and similar keyboards
->
->
+Drop the first half.
 
-The code parsing this boot parameter disappeared in the conversion to 
-input drivers sometime between 2.4.33 and 2.6.18 (my fault entirely).
+Fixes: 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ drivers/pinctrl/stm32/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-No one appears to have missed it all these years... thanks for taking 
-care of this!
-
-Reviewed-by: Michael Schmitz <schmitzmic@gmail.com>
+diff --git a/drivers/pinctrl/stm32/Kconfig b/drivers/pinctrl/stm32/Kconfig
+index d6a171523012..cc425bbfc996 100644
+--- a/drivers/pinctrl/stm32/Kconfig
++++ b/drivers/pinctrl/stm32/Kconfig
+@@ -55,7 +55,7 @@ config PINCTRL_STM32MP157
+ config PINCTRL_STM32MP257
+ 	tristate "STMicroelectronics STM32MP257 pin control"
+ 	depends on OF && HAS_IOMEM
+-	default MACH_STM32MP25 || (ARCH_STM32 && ARM64)
++	default ARCH_STM32 && ARM64
+ 	select PINCTRL_STM32
+ 
+ config PINCTRL_STM32_HDP
+-- 
+2.53.0
 
 
