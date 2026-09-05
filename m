@@ -4,94 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C41C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D69C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKhaAa1V6dcazyDIDdMRIu/saWb8D7tpQe+JyGNOhTA=; b=EN/z6ozL3bxIpp6HHADDjIsXWm
-	sdIFAqZp+zQtBQudYL5tiUCEe4tcTQRmAGB5sAIsuXDGuGG3bHeX3xaQhP7Pziflw6hsOK+s1xsUW
-	0fpBriWo/WheMAeoqNOtgSf2908LHKcFjFgkw3rmbgb7gvsKGb/It7fdQy9u5CLSYDBEvwQT2X8bG
-	kwQGPggSuN7F2+F29zNh6Er6VtHf1QbVAT4HW8+JyM7aG0P/D5ar2ZphLxyC0kR1xfrWlqly7yNyv
-	guu/ddYSyJPUFQszm/WQsDqLVkC66+I7YSdJK69TpGsZY0BozPva2Ff0e8ot5UPkCKB67O0EcBbON
-	7rjmBrrA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0rL+/iAM/i65sRrJdGWBjEYqO95wvZ81bUVdK7eRsAk=; b=K0lPYSwP7ZjGFD52dQ6AlW5dXe
+	UsgEqfB49u5XEAPKGE1SlKzJXgVD6k3PICnzNAlVUTuA+0krqFctNFso0OR9msosl0fkL/Q/apJ5E
+	sx3ccWVt7+CB05Ok7g0JIik+vU4JiD/CeJ+JPup0geb/MIneDAWW9+wSBRZF6MFnB4h5PGI4V4iRJ
+	zn/ugHAWfSgREkHIdsEY3Kn3vvdgM+47K+KkdgAoyA88JgN6dR1LzX4YLHwGcasCULeS+UEu1vB7Z
+	RmluuSMAQd1bM7rAGN2yZFy6v6HeuZoiss6HkpRn6TvFpXDbuAGFxY/E251VztYPxVo1HnELACBpS
+	zN0wSODA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mqh-00000003vCm-2m4B;
-	Sat, 05 Sep 2026 09:38:11 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1x2mzI-00000003w9r-3RxN;
+	Sat, 05 Sep 2026 09:47:04 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mqf-00000003vBX-3CCQ
+	id 1x2mzG-00000003w8Q-119R
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 09:38:10 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso2190348a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:38:09 -0700 (PDT)
+	Sat, 05 Sep 2026 09:47:03 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49556f97a9dso15349525e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788601089; x=1789205889; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FKhaAa1V6dcazyDIDdMRIu/saWb8D7tpQe+JyGNOhTA=;
-        b=oUyeW1dsCafWYquvcWrgTMVkfxNVU64W9B22fjfykb7MWSwv5rxkZn8IOB21m8jtmk
-         JIDgT+hKmcQwRXyZD3Qk2/okX0mFsDfClRwwVjsvG/11lW/NXxTEyCKVLNuG2GxAPqbq
-         7wuBoxjTvqjZR3kOp3jog14+K0uMj5h8y4XlFVKNA5Z7m9h1JuTeyutQ5/0O7l2t+TgE
-         0L4bY3VXXtNE642iueRK33k0goXKy43zJk/tDetRylGcWoTPMXx+Nqavhh/BzLXV0cLI
-         YGEminsCnyUZRxyHsi4qp0XhY+CgaYFNDP8x0Z8Ilv8J6gb7KgUWCG2wwJ5O+GbyQPDR
-         19Sg==
+        d=gmail.com; s=20251104; t=1788601620; x=1789206420; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0rL+/iAM/i65sRrJdGWBjEYqO95wvZ81bUVdK7eRsAk=;
+        b=MKR4aL4HW7q3WHovd6+mbs7mn67jxElRYhgA5wWoEEJ6P3x63X9H3THsm2T2Ahk9k6
+         V/Spw5wH5abdd/yHsEFwry5sdnnuwUvtRtqi4/8LigNj3JRfXFkbyOCRCq8Op9lYO5D3
+         kVLAMdUpif3iRXAAWFmjaHlNx/IUWguDwiCnTZ8kcxz3EHgudnoVc9Dji6r9EZMBPP43
+         0Rjjb2/yrQuzn3PS/dJeOHUdfZEfH/4Sd5o7nNrAG2WlEoBcppeKNLoakHAEPZvHwuRe
+         NcO+8HCBFHbGViqPQ4CEuitOHFRj2B9QOHbkRg1gtZILzbXsqaBXmqe/SFPmXZTFxVPu
+         X0DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788601089; x=1789205889;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FKhaAa1V6dcazyDIDdMRIu/saWb8D7tpQe+JyGNOhTA=;
-        b=D71fziP/Bo4QClIwVBi8iqEtUuEYn2s75XCgebrIA/FvE01pL1c3BQXOWyWWxImULT
-         zcEZzRNdUDHfFDI6EpRrUqpiIgovsuLQZOudPAutFxtRQ/b38/u6dSkCwg4x3wYa+XCV
-         qsQWJaGmaLCFljKg4VXpGwp+8878RKePmksbNQ/cc0fk8kyKThE1yvzh7jTuvk3pbSr+
-         c6ISN0QR5WQIYbaZkxy7NdcpuaRlTA8+ePFpgHdj47vPz8KYY5FWkYKOZFXijsvyiu8U
-         v6DhmeK5bXPhn/uUi5xFUp1951r6fN33AZycHuNUrUQidViWVuFBmRLFvNIXJsIeGR3A
-         QYyg==
-X-Forwarded-Encrypted: i=1; AKwUvByGMU3SgOwxTPizPZYdAnstBU4jt6eLdbdDpYvCaN/OOF3g2rwKGJX+mEU+sRYytjg9S4CMIyDKx1rZ70wClCEK@lists.infradead.org
-X-Gm-Message-State: AFuF++mztvBXsInfJXjCA1dW3DNQtfxtcagvKNxDFPk1W9slgvdrhWPP
-	3JKesuKw2OzRaMLvfg3EWgBiwMyRRVQlD0qFrf4lzsPvBBAU0QzSwoyB
-X-Gm-Gg: AYBFou1Ywq/cnil25VLVnJ5uzh3kbjQKO8ecDntBIpWmh4JwctxLmRtFuROS4dnN2xB
-	iToKjwQxwK0Tl7NUUoqwPGvkk6Sd231TYxTe9FQNy1+JuIUxEojVYInMvUzcjbUzwNQizCMHQI7
-	y7/mIOMOjMkFRRvOmTPkEtt5b74CRdbJUVwXwM22aifIPJUrNQhYGDODhXWv+b+Y2E1ez4knQP3
-	uEEbF5vAzeAG52x+m6EWP7msDWJWFJQvpdmchh98dGDQyc9xlzsSw372LzTG6LFuz/FV4VA99aT
-	IwhxoYxZp1Hi7X1tagsrz1xRThuBtz+zvA0ZI37Yh3rinUIw5mJQ6e0ZPg2mZpsliNP/gcM0e2y
-	Jm37PNFR/Uz5h8C6y9hX5anrGqHBVEya1DhzQss/JAfkCcIZ4/K1tMpDfHz7HwRhBPaUXU0g6Ia
-	VlAIAFoSKk0xc/vBfVUI/2Zwz401K7SWknNnKan7PEnMYYBmt3UTZPDIHYRw==
-X-Received: by 2002:a17:90b:3d89:b0:398:9be8:ea69 with SMTP id 98e67ed59e1d1-39b262167e7mr19037767a91.22.1788601089070;
-        Sat, 05 Sep 2026 02:38:09 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:5b5:60e7:9f67:1689])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08d086adsm15763353a91.15.2026.09.05.02.38.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Sep 2026 02:38:08 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-iio@vger.kernel.org,
+        d=1e100.net; s=20251104; t=1788601620; x=1789206420;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0rL+/iAM/i65sRrJdGWBjEYqO95wvZ81bUVdK7eRsAk=;
+        b=fgeJvbUptMWgoRVlUaKsRo47Jz7Ftj6vBhxvFNYJr+tMxP2CUpLx/FCa/EswvAUlGq
+         XEyRb8INaNoeNv+I3KyTVeJzUIZWpHdb/KyLcuzqHl8qXw+l4n9fEZuSCk3lOPnteIbj
+         izrV6f4nZ8swITMX+hL3oyi650SmkVBL7uNO9mBpMFdGW3q7fXu6/oWj+Sfd05yoA9Os
+         R1ubJjdLDIWsr+aWnBSixbp1QukybyuIMVuwp11kVWEQT/dhbCf2uCmjwMEhAz1pfrSS
+         XI8oflTGHl64EOg/b02kMNduXExmemigrBB+YEbzUelsca2yAajhnKn/OqWaKfoSj9yd
+         i4UQ==
+X-Forwarded-Encrypted: i=1; AKwUvByIeJZbvBeI/OIjky3vMO8Ln+eRApketBm6kQKl6mFraaoizcHbwO3Apfog7jviFBMMj9ULGBVl2vcZ+Y8Z/u9M@lists.infradead.org
+X-Gm-Message-State: AFuF++m1587gizpBbZRvEOBkiDE/4GZvigfrrkEnLvYBNwFJVv9BZuPx
+	tMrPN3tk7Olow2L8JqlV+5TyECjrLttRzqJReu8Ma93B3Ui4n38vSKA4
+X-Gm-Gg: AYBFou3fsFf9JWTkm60k22QDoMn3kwtCBTRUjHC1dDJEElr37NPSMWzoV10ffrMb8ZA
+	N9aKIjemxOpvkzVD7Nyyl/aKjksIH1K6l+odfYLwqNAfBFLU9eL62VvFC+qZjk3Xid3u1vrAIPz
+	NKxIFYwF7p/2mTYcBF2SLakPp595zpfwg9ur3bU3UKgQTRzmFB7L9qFtL7eYgUEHOWv7p8bkfLN
+	iF0uhygEsRFCCqdIXzP4CZODtMKM39qcloocKdOkMrn23T/HGUNX/rAn/dKo/+X0eYCfoBIA29d
+	z30DK42pOJT+8zPpLxqJZ+fQMdFKSHSus5M0usGUMyOh+opC9iSVEbKHfQMPIyUgWRlACxoelcQ
+	ET+sGIIRO9F4vtXw4iP1ePyYRZEvb3KopPsX/eRusjpvioE4Ir6li8P8Vb/yUi8zxAsxIfYe5wj
+	ecWOAD0rP9KIioa1pYjq5eM+wUWaVHKDkrLnwjq3YsBXdWdSBhs6qfFN04/0ikr9cCTb9Q+NYnk
+	OhWGxyyFzCXlQ6nZVfoafd/S8aBGG0g8altOitzTEKHfo5YZbyOQ14gLntYrMTiQyEVgxS2GUgK
+	R/XUHGUjSBWCJxfcmucTR57JZTAQF/CNQ+9q8jEG+aB/146Xicm8a6QLeNukaouC03c=
+X-Received: by 2002:a05:600c:3e0a:b0:495:6e68:5df2 with SMTP id 5b1f17b1804b1-49cf8267a36mr138818915e9.12.1788601620145;
+        Sat, 05 Sep 2026 02:47:00 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.46.58
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 05 Sep 2026 02:46:59 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	linux-input@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	Steve Wahl <steve.wahl@hpe.com>,
+	Dimitri Sivanich <dimitri.sivanich@hpe.com>,
+	Mike Travis <mike.travis@hpe.com>,
+	Tony Luck <tony.luck@intel.com>,
+	linux-edac@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-samsung-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v3 6/6] iio: adc: bcm_iproc_adc: use devm_iio_device_register()
-Date: Sat,  5 Sep 2026 15:06:31 +0530
-Message-ID: <20260905093631.48667-7-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260905093631.48667-1-mdshahid03@gmail.com>
-References: <20260905093631.48667-1-mdshahid03@gmail.com>
+	Tony Lindgren <tony@atomide.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-omap@vger.kernel.org,
+	Dominik Brodowski <linux@dominikbrodowski.net>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-ide@vger.kernel.org,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Michael Schmitz <schmitzmic@gmail.com>,
+	Andreas Kemnade <andreas@kemnade.info>
+Subject: [PATCH v2 0/9] docs: kernel-parameters: Remove ten entries for parameters that no longer exist
+Date: Sat,  5 Sep 2026 11:46:40 +0200
+Message-Id: <20260905094649.41996-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_023809_804972_547133B7 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20260905_024702_297722_6B57605B 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,61 +127,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+kernel-parameters.txt still documents ten boot parameters whose parsing
+code was removed with the drivers or platforms that used them, one of
+them (atarimouse=) since before the git history. One patch per
+parameter, each with a Fixes: tag for the commit that removed the
+parser, so the maintainers of that area are on their own patch only;
+the two pata_legacy module parameters share the last one. Each entry
+was checked with git grep for its __setup(), early_param() and
+module_param() handler and with git log -S for the removing commit.
 
-Use devm_iio_device_register() to automatically unregister the IIO
-device when the device is detached.
+Changes in v2:
+- patch 9: drop the Fixes: tag for 0dcd0a76370a, which removed the
+  separate pata_qdi driver and not the pata_legacy parameter; both
+  parameters went away in 3c4d783f6922 alone
+- collect the Reviewed-by and Acked-by tags from v1
 
-This removes the manual iio_device_unregister() call and makes the
-iproc_adc_remove() callback unnecessary.
+v1: https://lore.kernel.org/all/20260905070347.25902-1-kmehltretter@gmail.com/
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- drivers/iio/adc/bcm_iproc_adc.c | 15 +--------------
- 1 file changed, 1 insertion(+), 14 deletions(-)
+Karl Mehltretter (9):
+  docs: kernel-parameters: Drop the atarimouse= entry
+  docs: kernel-parameters: Drop the bau= entry
+  docs: kernel-parameters: Drop the edac_report= entry
+  docs: kernel-parameters: Drop the enable_timer_pin_1 entry
+  docs: kernel-parameters: Drop the mini2440= entry
+  docs: kernel-parameters: Drop the nomfgpt entry
+  docs: kernel-parameters: Drop the omap_mux= entry
+  docs: kernel-parameters: Drop the pcmv= entry
+  docs: kernel-parameters: Drop the pata_legacy.qdi and
+    pata_legacy.winbond entries
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index f4676607682b..6eae7596ac8d 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -524,7 +524,6 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	adc_priv = iio_priv(indio_dev);
--	platform_set_drvdata(pdev, indio_dev);
- 
- 	ret = devm_mutex_init(dev, &adc_priv->mutex);
- 	if (ret)
-@@ -572,19 +571,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 	indio_dev->channels = iproc_adc_iio_channels;
- 	indio_dev->num_channels = ARRAY_SIZE(iproc_adc_iio_channels);
- 
--	ret = iio_device_register(indio_dev);
--	if (ret)
--		return dev_err_probe(dev, ret, "iio_device_register failed\n");
--
--	return 0;
--
--}
--
--static void iproc_adc_remove(struct platform_device *pdev)
--{
--	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
-+	return devm_iio_device_register(dev, indio_dev);
- 
--	iio_device_unregister(indio_dev);
- }
- 
- static const struct of_device_id iproc_adc_of_match[] = {
-@@ -595,7 +583,6 @@ MODULE_DEVICE_TABLE(of, iproc_adc_of_match);
- 
- static struct platform_driver iproc_adc_driver = {
- 	.probe = iproc_adc_probe,
--	.remove = iproc_adc_remove,
- 	.driver = {
- 		.name = "iproc-static-adc",
- 		.of_match_table = iproc_adc_of_match,
+ .../admin-guide/kernel-parameters.txt         | 67 -------------------
+ 1 file changed, 67 deletions(-)
+
 -- 
-2.43.0
+2.53.0
 
 
