@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A04C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 11:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB12C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 11:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gifpKp+5IUGA4WQodiCfcIPD/2OT99dXfSnF8EVtxEs=; b=XfgyFXK9X7H4Knm82XhGeOfzhN
-	6DK0dZgolxRjKsnEDwKlBI4CCI3NYc05AZ6SEskHfxS+ghfOB7Idk0nrZVZTmoNLW+5wq2tKfECf+
-	lQgCnII759HaCdRcCEYuq/poiVIbN2sMcWH7E7oV7l0LHSg+RqX4Bh8gFwQjMtEt1bu7wKFlVSXeZ
-	tNclOaEsaEa5sWhIzEl3X3S9U35LpF3rRJcaazTHEFtMGZDLOiiGmANaDjEM9vxam7o+xQFzmfCzJ
-	//CRoOulOPGHUaWiiU9j/LcE1qWAnDIZmz7tZIJk0nKu6POeDgnry+6SjyZ4a1v6lIyrehwbH+HWm
-	p0q7O2dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Bu7zhBODPx9OVIj9kI9Cw1nNDBcCS9dXlz9GgaYwCk=; b=TyrF7/zRFLw9kS5fGM8LVC81to
+	D5J5aHBPj2eRogpvcDdrO/ZlFTiJDjRTcrr9ZP6px+jU+guJv/HgzLa1pALzXiHuHADxYDBxPI6iy
+	clMadusi8xy1mKlCIMdVbObJbpofussLgT0foErESo2x8Tw0j2F+iqIe8jrm5R/ysADFqOLC9MF6N
+	tKRk7vJ7lxwgftPwegRnxqV03CVe6x9bvTBqbzFcQf54rqBltOoNdBrLpklsvrq2PslWjoEt9zO6c
+	MBVXEZduaEe20slHOc+pOZBEDfo7KyB1q4YotwxzYL9m/PtceSUrO4TEcZYrkfbSdce3BGGwVNSoO
+	wCtPxJCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2oly-000000041zU-0iOb;
-	Sat, 05 Sep 2026 11:41:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x2ou1-000000042HO-0JX7;
+	Sat, 05 Sep 2026 11:49:45 +0000
+Received: from submarine.notk.org ([62.210.214.84])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2olx-000000041zK-2ljO;
-	Sat, 05 Sep 2026 11:41:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EC9060209;
-	Sat,  5 Sep 2026 11:41:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AFF51F00A3D;
-	Sat,  5 Sep 2026 11:41:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788608483;
-	bh=gifpKp+5IUGA4WQodiCfcIPD/2OT99dXfSnF8EVtxEs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SP9btzWReG/xJYvsSXWsDIu1nOJVPRa3uwEDuoAxydkW8CMPwLdmwTBMWJTIVEiki
-	 lLptHyBO9lBdRVmXHCu2yz/ycY1PGpJyvh1iyv+GgAtajrPZGY+G5taeqTj+wvtog6
-	 r36Ecu/sRvqiOyhSYWJ39M+i81Ke2+07gMZPUCLmOKfsIB+NT/si45b2A2rWo0/Ltn
-	 jKvDNqg3hoxZgvJbTkMYSRooma8H5PFu2LD2pQH9vskfq8qR7ffN7lObU+Hm8SR69K
-	 7d9eEBRkBhGdmvn2XXHA0TtDtRpYyvuNThreJ9ixlXtx91pzkxrqOo9HERGIbmtzCl
-	 0oBuHK3prhxug==
-From: Miguel Ojeda <ojeda@kernel.org>
-To: gregkh@linuxfoundation.org
-Cc: achill@achill.org,
-	akpm@linux-foundation.org,
-	broonie@kernel.org,
-	conor@kernel.org,
-	f.fainelli@gmail.com,
-	hargar@microsoft.com,
-	jonathanh@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux@roeck-us.net,
-	lkft-triage@lists.linaro.org,
-	patches@kernelci.org,
-	patches@lists.linux.dev,
-	pavel@nabladev.com,
-	rwarsow@gmx.de,
-	shuah@kernel.org,
-	sr@sladewatkins.com,
-	stable@vger.kernel.org,
-	sudipm.mukherjee@gmail.com,
-	torvalds@linux-foundation.org,
-	Miguel Ojeda <ojeda@kernel.org>,
+	id 1x2otx-000000042Fk-2UNW;
+	Sat, 05 Sep 2026 11:49:43 +0000
+Received: from gaia.codewreck.org (localhost [127.0.0.1])
+	by submarine.notk.org (Postfix) with ESMTPS id EB42014C2D6;
+	Sat,  5 Sep 2026 13:49:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
+	s=2; t=1788608970;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6Bu7zhBODPx9OVIj9kI9Cw1nNDBcCS9dXlz9GgaYwCk=;
+	b=MRiP0p+APtwWGq7nqcMTUXcXnX1Rp4Ot3CBYsNBuCSxEDHzaM37F3IZw7rUw7zihCjh19l
+	IKEli+6W7tjafk9BZVuzO5RCsDb46aUQn0VOifmyYJXqj07Dh0YaBAgfvy4cMmotZxUc+6
+	gur34LYPLAa0pJP4OulRrjRHanfS9sYO8tikO2hODNpfZsJ2w6nX3QZre7n4zB4sJpxVO7
+	6p+3MJkGAILxtpSHRK3niKb+p+9zzn/DBBgPW0I7hvn1/aMaBuVcv6dj4bf/bQ8SDCM0Zj
+	kpPQhAdanri4iEvqS2vR2vXhMnytBJ4tTo0nfqBJwFLeE7it5Msx3a2Er5/zRQ==
+Received: from localhost (gaia.codewreck.org [local])
+	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id e27ca948;
+	Sat, 5 Sep 2026 11:49:19 +0000 (UTC)
+Date: Sat, 5 Sep 2026 20:49:04 +0900
+From: Dominique Martinet <asmadeus@codewreck.org>
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: gregkh@linuxfoundation.org, achill@achill.org,
+	akpm@linux-foundation.org, broonie@kernel.org, conor@kernel.org,
+	f.fainelli@gmail.com, hargar@microsoft.com, jonathanh@nvidia.com,
+	linux-kernel@vger.kernel.org, linux@roeck-us.net,
+	lkft-triage@lists.linaro.org, patches@kernelci.org,
+	patches@lists.linux.dev, pavel@nabladev.com, rwarsow@gmx.de,
+	shuah@kernel.org, sr@sladewatkins.com, stable@vger.kernel.org,
+	sudipm.mukherjee@gmail.com, torvalds@linux-foundation.org,
 	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Rik van Riel <riel@surriel.com>,
+	Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>,
 	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Harry Yoo <harry@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	linux-mm@kvack.org,
-	Russell King <linux@armlinux.org.uk>,
+	Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
+	Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>,
+	linux-mm@kvack.org, Russell King <linux@armlinux.org.uk>,
 	linux-arm-kernel@lists.infradead.org,
 	Richard Weinberger <richard@nod.at>,
 	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
 	Johannes Berg <johannes@sipsolutions.net>,
 	linux-um@lists.infradead.org
 Subject: Re: [PATCH 6.18 000/552] 6.18.50-rc1 review
-Date: Sat,  5 Sep 2026 13:41:11 +0200
-Message-ID: <20260905114111.124795-1-ojeda@kernel.org>
-In-Reply-To: <20260904045747.813364717@linuxfoundation.org>
+Message-ID: <apwBsCGpUG69KdGc@codewreck.org>
 References: <20260904045747.813364717@linuxfoundation.org>
+ <20260905114111.124795-1-ojeda@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260905114111.124795-1-ojeda@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_044942_038074_A2924010 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Sep 2026 06:52:37 +0200 Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
->
-> This is the start of the stable review cycle for the 6.18.50 release.
-> There are 552 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Sun, 06 Sep 2026 04:56:59 +0000.
-> Anything received after that time might be too late.
+Miguel Ojeda wrote on Sat, Sep 05, 2026 at 01:41:11PM +0200:
+> I see the same arm32 build issue:
+> 
+>     mm/page_vma_mapped.c:110:11: error: call to undeclared function 'huge_ptep_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+>       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
+>           |                         ^
+> 
+> In addition, in UML (x86_64) there is also nearby:
+> 
+>     mm/page_vma_mapped.c:110:9: error: assigning to 'pte_t' from incompatible type 'int'
+>       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
+>           |                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>       111 |                                       pvmw->pte);
+>           |                                       ~~~~~~~~~~
 
-Boot-tested under QEMU for Rust x86_64, arm64 and riscv64; built-tested
-for loongarch64 and arm32:
+See this 6.12 thread[1] for this build failure (I didn't check but
+assume it is the same, that missing commit only made it 7.3-rc1 but was
+also backported to the 7.2 tree, which also explains 7.2 didn't build
+fail)
+---
+This builds on master because this commit:
+f5407e9b697c ("mm/rmap: use huge_ptep_get() in try_to_unmap_one()")
+added a function declaration in linux/hugetlb.h !CONFIG_HUGETLB_PAGE
+code:
+```
+diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
+index 817b8b4223fa..95b1b6ee1f96 100644
+--- a/include/linux/hugetlb.h
++++ b/include/linux/hugetlb.h
+@@ -1270,6 +1270,8 @@ static inline void hugetlb_count_sub(long l, struct mm_struct *mm)
+ {
+ }
+ 
++pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep);
++
+ static inline pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ 					 unsigned long addr, pte_t *ptep)
+ {
+```
 
-Tested-by: Miguel Ojeda <ojeda@kernel.org>
+The rest of that commit isn't applicable, so we either need to roll that
+change in 'mm/migrate: use huge_ptep_get() in remove_migration_pte()' or
+add it separately (or drop that commit)
+---
 
-I see the same arm32 build issue:
+[1] https://lore.kernel.org/r/apq_s8mFJJPzoIdo@codewreck.org
 
-    mm/page_vma_mapped.c:110:11: error: call to undeclared function 'huge_ptep_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
-          |                         ^
-
-In addition, in UML (x86_64) there is also nearby:
-
-    mm/page_vma_mapped.c:110:9: error: assigning to 'pte_t' from incompatible type 'int'
-      110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
-          |                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      111 |                                       pvmw->pte);
-          |                                       ~~~~~~~~~~
-
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Rik van Riel <riel@surriel.com>
-Cc: Liam R. Howlett <liam@infradead.org>
-Cc: Vlastimil Babka <vbabka@kernel.org>
-Cc: Harry Yoo <harry@kernel.org>
-Cc: Jann Horn <jannh@google.com>
-Cc: Lance Yang <lance.yang@linux.dev>
-Cc: linux-mm@kvack.org
-
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org
-
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-Cc: Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-um@lists.infradead.org
-
-Thanks!
-
-Cheers,
-Miguel
+-- 
+Dominique
 
