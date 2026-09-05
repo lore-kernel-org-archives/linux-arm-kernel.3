@@ -4,122 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B2CC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 03:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27547C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 03:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C87ceICwqHWFazhK3YCduUkTtmc6pkDDD2ghB3jqD3c=; b=qgZBqoNSxp+JIW2cEW+xhpI6IY
-	7mLVXFiQx2ZzBfajCDC49fARZsMOGCytpDFa0LxqpNyCrvoto598lNMyGR25GbwnxztOQxfw6lu5h
-	1+WJZyEsvqUykG4/gtTlkrkRixgorZP8LxmkNbSAD4+N1SPT+iStp6yqhEJ9RVT0ELRbZYwMGXgdD
-	h/pGXmTHvdAoF48ICO/NNQjrPt/iHIKOI+JZM7INDUseVisa+upn0yYL0oI1XWh+mBf8ZiZDDoprU
-	DOsAI/u12SyPT+k+z8cVNDj9l4IJwMIhCwRt1j9Pfow/rvMblzu0a/HPPndCF1C9jiGzHi90sj0N9
-	tCGu57ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gJRiG3SgmDUGCQGclsxIHMrGcQ9cr5Ek6/hVqBthooA=; b=c2CBVe9WvlPV2iGAS1MDqrVwJG
+	m6QtDzrAqYtC6NxfGbzvam/015oOuuJzW3pUwUSRifEQ7beqBKpsiwoWb62XK04dMvXk3eLZ/XsoM
+	hb+R7OJE9ckoc/I7PNBO2fC048eQWwNLzHQ0TlezL9KVvSOMVPZDoZDN4ws7TlOxY9jCp3gq2sefT
+	X6vCNHXFH/ANk2fE/t9JkPEH1qMhcVUhuHhqWNV8yUqSrDJxPpOA1+BIzj0aMflXGrsOa0fz0xO6m
+	Sker3Dd7xcwMptBp4yAwW+TN5xfsW1oPsA3uOz772vTRpQm7O81RYI7W7D8y2PajIu39jheOdU6jr
+	eHnDP5Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2h2T-00000003dR4-3EnR;
-	Sat, 05 Sep 2026 03:25:57 +0000
-Received: from mail-westus2azon11012000.outbound.protection.outlook.com ([52.101.48.0] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1x2h8x-00000003dn9-1kbN;
+	Sat, 05 Sep 2026 03:32:39 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2h2R-00000003dQW-0DQJ
+	id 1x2h8t-00000003dmN-2L0D
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 03:25:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yAcCFaiVizlCmfvK/mknCZD5WV2kZbGg9Bgq7/rreuwzOeZAWVPMnV8DEkOnCV6z8FjQ6O1j5cbNXmh+mAUySyNQRLhzJGxXnQ6lqHEsjAIooqZ03A1nS1zZFbiw1k55R1zF6Ut6tAJf8MaLl8wyra8YkvDY8JjjgasN/8BlHUi+4Dmza88qd+6OKIpdG75Kqu/UY1kY4EVIlG9+Kk2gLGxA2Wo7Gsnklgy8aLxCQlIHaf+2ZB81A6v6vViPBrQkFellTqetnLSXqQ32rwFF98eFrtI4hXn6Xl/k7qD5NyrLYTW3uAzi5nXtsYTq4JRZboXa1tdRoeW9i7+WiEWU+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C87ceICwqHWFazhK3YCduUkTtmc6pkDDD2ghB3jqD3c=;
- b=xc1XwbMf3mjLMX9zva8wS4y/w1jMZb+zTDBeeAypNjaKqiT82/95/Vv8ssN829giKaW7hiXNuJwBzBPzC+a3iSFlgCWZ2yK8GxA4M52mwsh8U4IxEgzm5kVbNGSCc/EKBpJn/05uh6X3kwSh8gFUADdydJ45XvKcJcDQsszrRr3OKLkFUiCVK6RwUj0QMOL5JYk5NTCBlnxBVK6eKMEotfmXUj8rbj51qmWxS+zKsw0c4s+smhVHRN0nsGVd8S0L0xjkNFLCWkT9v0aOJ7Cro9qPpZ9/Fxn5cXgDtW2aA2OvG2ufWunquZvFebku0QV6x1S5jZktzFDgJhIuDjN3Kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C87ceICwqHWFazhK3YCduUkTtmc6pkDDD2ghB3jqD3c=;
- b=JuuEgRDni6/KR+Gx39gY17p5VQonc1eHsqKYIhGPY5/jtiO9aRFFqzDQhTVcTYilWzE4ayjGjz8YTPwfdCrLbJnXdIwReJqx4jg4LAUx+kK3AILcuWLKMUqzayytDGxXaVler3/8Op3FkKhyA/FeohO0ES6X4m8dIkN64hMVEK6I9t99ipa5jpABl57BhjDalvM5Jw3o8IX+DtUoLf9BnjBDCnOmEKPUCIznTHWeOwp8zJ4PAjDLt7VTCPYCWRtr4Fyc9KtY1Y7j1H2lOBveM3YgGbzAbOcX2//cZM/l5rXuQnNI5fQhRUmXtKT1CEoFyJjMnqIhEfu/HdVQpBxR3w==
-Received: from BN9PR03CA0780.namprd03.prod.outlook.com (2603:10b6:408:13a::35)
- by PH7PR12MB6738.namprd12.prod.outlook.com (2603:10b6:510:1a9::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.12; Sat, 5 Sep
- 2026 03:25:41 +0000
-Received: from BN7PEPF0000009E.namprd04.prod.outlook.com
- (2603:10b6:408:13a:cafe::3f) by BN9PR03CA0780.outlook.office365.com
- (2603:10b6:408:13a::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.13 via Frontend Transport; Sat, 5
- Sep 2026 03:25:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN7PEPF0000009E.mail.protection.outlook.com (10.167.248.150) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Sat, 5 Sep 2026 03:25:39 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 20:25:24 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 4 Sep
- 2026 20:25:24 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 4 Sep 2026 20:25:04 -0700
-Date: Fri, 4 Sep 2026 20:24:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
-	<kevin.tian@intel.com>, <kees@kernel.org>, <smostafa@google.com>,
-	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <skaestle@nvidia.com>, <mmarrid@nvidia.com>,
-	<skolothumtho@nvidia.com>, <bbiber@nvidia.com>, <harsha.v@oss.qualcomm.com>
-Subject: Re: [PATCH v3 07/13] iommu/arm-smmu-v3: Disable the queue IRQs
- before disabling the SMMU
-Message-ID: <apuLhri9BpqncLRT@nvidia.com>
-References: <cover.1788222485.git.nicolinc@nvidia.com>
- <a6fba7f7a01f5955dfb44d34adc6262c8534e829.1788222486.git.nicolinc@nvidia.com>
- <178846311318.1308030.6301643510859406126.b4-review@b4>
+	Sat, 05 Sep 2026 03:32:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hcJlX5R2czKHMLg
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  5 Sep 2026 11:31:20 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 161174058D
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  5 Sep 2026 11:32:17 +0800 (CST)
+Received: from huaweicloud.com (unknown [10.50.87.109])
+	by APP1 (Coremail) with UTF8SMTPSA id cCh0CgBnUAswjZtq6hczAw--.190S4;
+	Sat, 05 Sep 2026 11:32:16 +0800 (CST)
+From: Zeng Heng <zengheng@huaweicloud.com>
+To: catalin.marinas@arm.com,
+	suzuki.poulose@arm.com,
+	anshuman.khandual@arm.com,
+	gshan@redhat.com,
+	david@kernel.org,
+	will@kernel.org
+Cc: wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: io: Reject present-invalid user prot in ioremap_prot()
+Date: Sat,  5 Sep 2026 11:31:48 +0800
+Message-ID: <20260905033148.3657516-1-zengheng@huaweicloud.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <178846311318.1308030.6301643510859406126.b4-review@b4>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF0000009E:EE_|PH7PR12MB6738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81a19117-4dd0-4314-a0d6-08df0afd5bd6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|82310400026|1800799024|36860700016|10067099003|3023799007|22082099003|18002099003|11063799006|4143699003|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: oBYXOpw/FDSeraw2Xxj1AAacfOsP5mQ9FAlg++EJi3U5RaQorsMiPVZaZU6wOHBgg9DDy0A6DzpkswxSr8iwV11ZbogN77W6r2NN3q61aBEhepIxmJ46barlPBPuEI/pefoL97jUnPLtpXP+Gsp4c7YhxiOr8LIdbYuoV608uFb37J8UYtk8e6B8lxmTdiiuvTmw/BOLbJZKWNeXcEf1Y6jUTUytZNBZ1xASMh9CVG9ooS1xz3ZqHizmVwGqNmnjpP2INXj/A/FPjmITrOTxMoU8Y3WCkXggP0moeIovPIq0zkUrBs7EYTwhIjQpQih3b/aFW+nnihw5iLWeoqWbxYFq8zcZUGDF/VmkyOwcuEqzH/k0HILaeqD51yb6SEA2IVAqr+TvKm6OghCgV5EcbI8wL+najHwLOdpaBiyf1dsU+MKEMlpj+KAY9aAR7OWrv58cTZoUz4EpMyryrkSBbWb8IvAWWx+D7gKLt5zCouH0QiO5Yh/2Z5D/imIEDHN3+j9nMZ82uPeSeLmhIn1vjdI5NekMlH7b4xlujVrSxdGK7K+jryTd0MjUedbBSy9CC+tiIKW3kVmGyXQHqezB1fXI9DJA+vJyBGuiyVO/G53874TJ+ypBPyECT8hZGGicXfD9qYBdqRXX4XGQAl0aJ3Ce9m80LGEgWlqVb4iIp3jsJXHJJbNY51jPxcmfAM+laQSmi01ytKvtTyDqWtra3g==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(82310400026)(1800799024)(36860700016)(10067099003)(3023799007)(22082099003)(18002099003)(11063799006)(4143699003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZdgvWQOQW7PyQD9IgXbDcjFR3oOZBbpje6jVmKo1wXLiAvFkh7LuRASbZgcKmgZPT9SQq+/fnCGN7LsJkF9YTtYhFnj3ujJ5HLff38MY3izJ0wiq0skjWARzv3ERvTMyRLjqa0Y+fze21IeQiIlcy3fpTA7FOcfGLjGfZpQC/U/ppEq37505dMeStmnZu0kwb8YKbTzCzeu6uZJxIB9pOq9H3UsBx4phF7I6bNZTpooP+uGx9WpVwe0gJDrFQQaBnrvBeZC6AszoER8qP/j8AySdpEHvZV9wnekTlFUWeg+wD4LygnqjaCtYdyOPIBKGwSvQjma9i4Hc5ix1pPstYbtuaq/Lgaveu4KLMDNpYZ8f3x6iHAC3w7PtyKm0eaNkj14T85AJUYLVeImQne2OTYKd5dS/NS+FklyN0B1HIbIPGe7L5A7I+IQlhSmYkmKp
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 03:25:39.1774
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81a19117-4dd0-4314-a0d6-08df0afd5bd6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF0000009E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6738
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgBnUAswjZtq6hczAw--.190S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww17Kry3ZFWkWr15Ar4xWFg_yoW8uF4xpa
+	4kur1kWrWDWa4xAw4jgrZ2gF4rWws5JFWvgw1v9F1qvFy2qFWxJr4vg34Ygry8GFZ2gw48
+	KFsag343GFyUtFDanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUyEb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI
+	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
+	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY
+	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6x
+	AIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY
+	1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU17KsUUUUUU==
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260904_202555_121474_B20488BB 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260904_203235_976183_022EBD2B 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,36 +86,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 12:18:33PM -0700, Jonathan Cameron wrote:
-> > The EVTQ, PRIQ and combined IRQ handlers are threaded and issue commands of
-> > their own, e.g. a CMDQ_OP_PRI_RESP for a page request. Disabling the SMMU
-> > while one is in flight hands that command to a queue consuming nothing, so
-> > its poll waits out a full timeout.
-> > 
-> > Two paths disable the SMMU while those IRQs are still requested: a failing
-> > arm_smmu_device_reset() returns to a probe that disables the device itself,
-> > and arm_smmu_disable_action() covers an unbind or any later probe failure.
-> > Both can run after arm_smmu_setup_irqs() requested the IRQs.
-> > 
-> > Disable those IRQs first in both paths, so that no handler is left running
-> > once the SMMU goes down.
-> 
-> Why this soluton rather than a flag to stop them queuing new work + a
-> synchronize_irq() to deal with threads in flight.
-> 
-> irq disables always worry me a little as they tend to be patching over
-> something nastier.  I think this works though so I'm not going to
-> strongly object.
+From: Zeng Heng <zengheng4@huawei.com>
 
-Well, I don't see a reason to add extra flags: each irq here only
-has one single source, so disable_irq() is fundamentally similar
-to a flag + synchronize_irq(), but also masks the irq line, which
-makes sense in the probe-revert and shutdown paths. Above all, it
-is cleaner.
+Mapping a stack-top page via /dev/mem with PROT_NONE and then reading
+that process's /proc/<pid>/cmdline triggers a spurious WARN in
+ioremap_prot() through generic_access_phys():
 
-If there is a solid reason for not using disable_irq() here, I'd
-not mind changing that though.
+  WARNING: ./arch/arm64/include/asm/io.h:275 at generic_access_phys
+  Call trace:
+    generic_access_phys+0x1c8/0x228 (P)
+    __access_remote_vm+0x2b4/0x398
+    access_remote_vm+0x14/0x30
+    get_mm_cmdline+0xf8/0x2a0
+    proc_pid_cmdline_read+0x68/0x120
 
-Thanks
-Nicolin
+generic_access_phys() passes the full pgprot derived from the user PTE
+to ioremap_prot(). A PROT_NONE /dev/mem mapping is encoded as PAGE_NONE,
+which clears PTE_VALID and sets the software PTE_PRESENT_INVALID bit.
+On arm64 such an entry is still pte_present(), so follow_pfnmap_start()
+reports the pfn and generic_access_phys() reaches ioremap_prot().
+The PTE_USER assertion, which is meant to catch kernel prots being
+passed by mistake, then fires for a PROT_NONE user mapping
+that legitimately lacks PTE_USER, producing the spurious WARN.
+
+Reject a user prot encoding a present-invalid (i.e. PROT_NONE) entry up
+front so that generic_access_phys() cleanly fails the access instead
+of warning. Note that PTE_PRESENT_INVALID aliases the PTE_NG bit and
+is only meaningful when PTE_VALID is clear, so both bits must be
+checked together.
+
+Fixes: 8f098037139b ("arm64: io: Extract user memory type in ioremap_prot()")
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+---
+ arch/arm64/include/asm/io.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 21c8e400107c..bbfbc4682639 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -272,6 +272,10 @@ static inline void __iomem *ioremap_prot(phys_addr_t phys, size_t size,
+ 	pgprot_t prot;
+ 	ptval_t user_prot_val = pgprot_val(user_prot);
+ 
++	if ((user_prot_val & (PTE_VALID | PTE_PRESENT_INVALID)) ==
++	     PTE_PRESENT_INVALID)
++		return NULL;
++
+ 	if (WARN_ON_ONCE(!(user_prot_val & PTE_USER)))
+ 		return NULL;
+ 
+-- 
+2.43.0
+
 
