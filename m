@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B13C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 15:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FADC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 15:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YDDpwBogn8o6pQZ7QySkCWhHGi/gThTcBwx20NL7VvQ=; b=gRGLsPI18iJjoMkxIV7HM7aTQw
-	C4HYWS/q55AQC8a+wDWKyt02IE39PAg92FAow5jt2eBIIulEDX3E/KAj8Bn85L+2mtdGjDp6dK4LJ
-	Z3mBPav0BlAs2JjA/boBRqkATgaWwqfo5+gpOP4aqYL+r3a4xyC+7uVlMs+kMwxAXog2LO8kejz8F
-	CDqHZ57HHI35tUtBhcROaqJml6K1mEqEralzlVetasKYw89pzTwXnLvykCvjqd4OYF/afjzT+GvP7
-	jzFYBjKN91KwYwSirQe2SnhviXSTJbSJ7uA+FQSBCyZoDn0qPE7NwPNhzkn8cdyenQEXYFEKdMfEr
-	ak9PYRQQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WkTxrdiPtb120sX9TKnjMh5DPVxZ2gJIoYJu4yxR7vI=; b=PS7Wkmhn8+sfPYjRhPv092mO8N
+	rAESs7T259hhlB3BxP2HxkmZqMp4UD5fUtFo+CzHHYv0xhe+q1wTpNAerryiMntRZ5UrJ6RZUuv5i
+	pytsPD32ZxShELIACDYaDDFSFz5WRwgSgJYFWkUD4O3QcI4hNlBxq7/SKL+7ASGYmzekuL378uaw7
+	MaCWSPaOrKmclwLCsH+Hiex7ZPvjz1ppa0cEMhbN8cStxUBnBPhcnTINck3hBI29+d5YBvcKLvWxw
+	b6kdvsVhBunfEEfW4cfEObmFEInhaPePj7a6PYq0gFOqNUVcO4Vm9/PYQRIbrcWYyo2egVYZgHv7D
+	y8Squ+Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2scM-00000004Ere-3Fgm;
-	Sat, 05 Sep 2026 15:47:46 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1x2seD-00000004F0i-1GNr;
+	Sat, 05 Sep 2026 15:49:41 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2scJ-00000004EqF-2Yiu
+	id 1x2seA-00000004F0J-2Fyh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 15:47:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=YD
-	DpwBogn8o6pQZ7QySkCWhHGi/gThTcBwx20NL7VvQ=; b=Npi1FTRFEQCNK/nAlw
-	BoUxQq00no77jA2w5gyY/GChiQgVq4Fcax9bU5kIPbLqwylxJI5+0rzS3IV5fIQY
-	up4b3j2fm+fhbJu1rQgNXp/lKUlrlgUrqb1eQmo2pO1aF+/Tl/lEWpqku6eUA3JU
-	XIQ+FlZPc87C7pc3qXv5Ydztc=
-Received: from 4CV529F122.company.local (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3t3BwOZxqmpCdAw--.21992S2;
-	Sat, 05 Sep 2026 23:47:08 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: andrew@lunn.ch,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: dinghui@lixiang.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com
-Subject: [PATCH net-next v2] net: stmmac: fix error path cleanup in DMA descriptor ring allocation
-Date: Sat,  5 Sep 2026 23:46:47 +0800
-Message-Id: <20260905154654.1725313-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 05 Sep 2026 15:49:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1788623376; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=WkTxrdiPtb120sX9TKnjMh5DPVxZ2gJIoYJu4yxR7vI=;
+	b=N3HMB51826UiNem/Epm7S0sdcbCAFWbkbHkjXCYz+azWNf4T7Em37YKHjPLWRrEG7izT94WffzShOJHCqJtbA1KM+w+qxbLqC0RzoFK+kyTPxLF64AkaHyLaDjSktL4JNbOZbYqPSZwEq8i53Badoboe2nwJDC3QHGs1qhCW7bY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R101e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0XALG-eb_1788623373;
+Received: from 30.100.134.114(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0XALG-eb_1788623373 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 05 Sep 2026 23:49:34 +0800
+Message-ID: <2bde734c-eb86-4c7a-958d-b431e6d13671@linux.alibaba.com>
+Date: Sat, 5 Sep 2026 23:49:32 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3t3BwOZxqmpCdAw--.21992S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Gr1rXr1ktFW5uw17WryUJrb_yoWxGr4rpF
-	48Cw4qkryjqr13Ga1DJw48X3W5AayFyr4YgFWIgws7uFnIkryFgFyUAryj9rW8CrykuF1f
-	K398C3Z8AF1UJrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07bbrcfUUUUU=
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8xwvW2qcOXx5lQAA3E
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
+ map (new data structure)
+To: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>
+Cc: Wang Han <wanghan@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com,
+ joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+ catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org,
+ itaru.kitayama@fujitsu.com
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260902163500.1841671-1-wanghan@linux.alibaba.com>
+ <877bl26aqg.wl-maz@kernel.org>
+ <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+ <875x0l5udh.wl-maz@kernel.org>
+ <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_084744_175750_FEFFD1B9 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20260905_084938_771985_F9924F48 
+X-CRM114-Status: GOOD (  26.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,188 +76,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ding Hui <dinghui@lixiang.com>
 
-__alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
-allocate resources in multiple steps but return early on failure
-without cleaning up what they have already allocated. The outer
-error paths then call the free helpers on partially-initialized
-queues, which dereference pointers that were never allocated:
 
-  - dma_free_rx_skbufs() and dma_free_rx_xskbufs() dereference
-    rx_q->buf_pool[i] via stmmac_free_rx_buffer(), but buf_pool
-    may be NULL if its kzalloc_objs() failed.
+On 9/5/26 6:42 AM, Wei-Lin Chang wrote:
+> On Fri, Sep 04, 2026 at 08:49:14AM +0100, Marc Zyngier wrote:
+> 
+> [...]
+> 
+>>>>>
+>>>>> The L1 was started with 8 vCPUs and 32 GiB of RAM using:
+>>>>>
+>>>>>    qemu-system-aarch64 -smp 8 -m 32G \
+>>>>>      -machine virt,accel=kvm,gic-version=3,virtualization=on \
+>>>>>      -cpu host -nographic -enable-kvm \
+>>>>>      -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
+>>>>>      -drive if=pflash,format=raw,file=pflash1_bak.img \
+>>>>>      -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
+>>>>>      -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
+>>>>>      -serial mon:stdio
+>>>>>
+>>>>
+>>>> Puzzling. If you are only running an L1 in VHE mode, there is no
+>>>> shadow S2, and therefore nothing to unmap. For shadow S2s to be built
+>>>> and affect the MMU notifiers, you need to run an L2.
+>>>
+>>> I was thinking the same at first, but realized even with L1 in VHE mode
+>>> there is a small period of time where L1 runs in its EL1 during boot, so
+>>> one nested MMU will become valid for each vCPU. That causes
+>>> kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
+>>> (-smp 8).
+>>
+>> It should be one nested MMU for the whole VM, not one per vcpu.
+>> That's assuming they share the same VMID+VTCR.
+>>
+>>> What I am curious about is whether one single notifier unmap is enough
+>>> to hang L1, or were there multiple notifier unmaps.
+>>>
+>>> QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
+>>> 1024  (4KB pages,  unmapping 1GB per iteration)
+>>> 32768 (16KB pages, unmapping 32MB per iteration)
+>>> 2048  (64KB pages, unmapping 512MB per iteration)
+>>> iterations for each page size. There aren't many mappings in each
+>>> iteration too. Does this really take that long on real hardware (even if
+>>> this must be done 8 times)?
+>>
+>> This should be close to being at zero cost, so something else is
+>> amiss.
+>>
+> 
+> Guess what? I am completely wrong once again.
+> 
+> The complete range of the nested mmus isn't about the value
+> supplied by KVM_VM_TYPE_ARM_IPA_SIZE. Instead it is the PARange exposed
+> to the guest. That's because the guest hypervisor is allowed to expose
+> whatever memory map it likes to its nested guests, as long as it is
+> within the guest's PARange. This is explained clearly in
+> init_nested_s2_mmu().
+> 
+> Now the PARange exposed to guests should be much larger than 40bits. On
+> the neoverse-n2 it should be 48bits (256TB), therefore the iterations
+> required for each unmapping would be 256x:
+> 
+> 262144  (4KB pages,  unmapping 1GB per iteration)
+> 8388608 (16KB pages, unmapping 32MB per iteration)
+> 524288  (64KB pages, unmapping 512MB per iteration)
+> 
+> I think these numbers match the hang time Shuai have shown.
+> 
+> Just to demonstrate the difference I have tried manually limiting
+> kvm_ipa_limit to 40, and tested with software emulation. Before the
+> manual change a kvm_nested_s2_unmap() finished after 42 seconds, after
+> limiting kvm_ipa_limit kvm_nested_s2_unmap() can finish in less than a
+> second.
 
-  - dma_free_tx_skbufs() dereferences tx_q->tx_skbuff_dma[i] via
-    stmmac_free_tx_buffer(), but tx_skbuff_dma may be NULL if its
-    kzalloc_objs() failed.
+Hi Wei-Lin,
 
-  - stmmac_free_tx_buffer() dereferences tx_q->xdpf[i] and
-    tx_q->tx_skbuff[i] (aliased through a union), but tx_skbuff
-    may be NULL if its allocation failed while tx_skbuff_dma
-    succeeded.
+Your PARange analysis is what this whole diagnosis rests on -- the
+48-bit/256x arithmetic is exactly right, and our ftrace data confirms
+it to the chunk: every full-IPA kvm_nested_s2_unmap() in our traces
+walks precisely 262,144 1GB chunks, the number from your table. The
+kvm_ipa_limit=40 experiment also pointed straight at the answer. I'd
+only push back on the last sentence:
 
-Fix this by making each allocation function responsible for undoing
-its own allocations on error, following the standard kernel error
-handling pattern of cleaning up in reverse order. Also add NULL
-checks in the free helpers as a defensive measure, since they may
-be called on partially-initialized queues.
+> 
+> With this, I think there aren't other underlying issues, it just is that
+> slow unfortunately..
 
-Signed-off-by: Ding Hui <dinghui@lixiang.com>
 
----
-Changes in v2:
-  - Instead of only adding NULL checks in the free helpers, also fix
-    __alloc_dma_rx_desc_resources() and __alloc_dma_tx_desc_resources()
-    to clean up their own allocations on error, as suggested by Andrew.
-  - Update commit message.
-  - Link to v1:
-    https://lore.kernel.org/netdev/20260830040610.1156008-1-dinghui1111@163.com/
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 59 ++++++++++++++++---
- 1 file changed, 50 insertions(+), 9 deletions(-)
+I don't think it is "just that slow" -- I think it is a specific
+regression, and your own data localizes it better than the conclusion
+suggests.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f2fc89176654..f0e06c011b8d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1728,7 +1728,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
- 					 DMA_TO_DEVICE);
- 	}
- 
--	if (tx_q->xdpf[i] &&
-+	if (tx_q->xdpf && tx_q->xdpf[i] &&
- 	    (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_TX ||
- 	     tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XDP_NDO)) {
- 		xdp_return_frame(tx_q->xdpf[i]);
-@@ -1738,7 +1738,7 @@ static void stmmac_free_tx_buffer(struct stmmac_priv *priv,
- 	if (tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_XSK_TX)
- 		tx_q->xsk_frames_done++;
- 
--	if (tx_q->tx_skbuff[i] &&
-+	if (tx_q->tx_skbuff && tx_q->tx_skbuff[i] &&
- 	    tx_q->tx_skbuff_dma[i].buf_type == STMMAC_TXBUF_T_SKB) {
- 		dev_kfree_skb_any(tx_q->tx_skbuff[i]);
- 		tx_q->tx_skbuff[i] = NULL;
-@@ -1761,6 +1761,10 @@ static void dma_free_rx_skbufs(struct stmmac_priv *priv,
- 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
- 	int i;
- 
-+	/* buf_pool may not be allocated if alloc failed early */
-+	if (!rx_q->buf_pool)
-+		return;
-+
- 	for (i = 0; i < dma_conf->dma_rx_size; i++)
- 		stmmac_free_rx_buffer(priv, rx_q, i);
- }
-@@ -1802,6 +1806,10 @@ static void dma_free_rx_xskbufs(struct stmmac_priv *priv,
- 	struct stmmac_rx_queue *rx_q = &dma_conf->rx_queue[queue];
- 	int i;
- 
-+	/* buf_pool may not be allocated if alloc failed early */
-+	if (!rx_q->buf_pool)
-+		return;
-+
- 	for (i = 0; i < dma_conf->dma_rx_size; i++) {
- 		struct stmmac_rx_buffer *buf = &rx_q->buf_pool[i];
- 
-@@ -2097,6 +2105,10 @@ static void dma_free_tx_skbufs(struct stmmac_priv *priv,
- 	struct stmmac_tx_queue *tx_q = &dma_conf->tx_queue[queue];
- 	int i;
- 
-+	/* tx_skbuff_dma may not be allocated if alloc failed early */
-+	if (!tx_q->tx_skbuff_dma)
-+		return;
-+
- 	tx_q->xsk_frames_done = 0;
- 
- 	for (i = 0; i < dma_conf->dma_tx_size; i++)
-@@ -2272,15 +2284,19 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	}
- 
- 	rx_q->buf_pool = kzalloc_objs(*rx_q->buf_pool, dma_conf->dma_rx_size);
--	if (!rx_q->buf_pool)
--		return -ENOMEM;
-+	if (!rx_q->buf_pool) {
-+		ret = -ENOMEM;
-+		goto err_destroy_pool;
-+	}
- 
- 	size = stmmac_get_rx_desc_size(priv) * dma_conf->dma_rx_size;
- 
- 	addr = dma_alloc_coherent(priv->device, size, &rx_q->dma_rx_phy,
- 				  GFP_KERNEL);
--	if (!addr)
--		return -ENOMEM;
-+	if (!addr) {
-+		ret = -ENOMEM;
-+		goto err_free_buf_pool;
-+	}
- 
- 	if (priv->extend_desc)
- 		rx_q->dma_erx = addr;
-@@ -2296,10 +2312,27 @@ static int __alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
- 	ret = xdp_rxq_info_reg(&rx_q->xdp_rxq, priv->dev, queue, napi_id);
- 	if (ret) {
- 		netdev_err(priv->dev, "Failed to register xdp rxq info\n");
--		return -EINVAL;
-+		goto err_free_dma;
- 	}
- 
- 	return 0;
-+
-+err_free_dma:
-+	if (priv->extend_desc)
-+		dma_free_coherent(priv->device, size, rx_q->dma_erx,
-+				  rx_q->dma_rx_phy);
-+	else
-+		dma_free_coherent(priv->device, size, rx_q->dma_rx,
-+				  rx_q->dma_rx_phy);
-+	rx_q->dma_erx = NULL;
-+	rx_q->dma_rx = NULL;
-+err_free_buf_pool:
-+	kfree(rx_q->buf_pool);
-+	rx_q->buf_pool = NULL;
-+err_destroy_pool:
-+	page_pool_destroy(rx_q->page_pool);
-+	rx_q->page_pool = NULL;
-+	return ret;
- }
- 
- static int alloc_dma_rx_desc_resources(struct stmmac_priv *priv,
-@@ -2352,14 +2385,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
- 
- 	tx_q->tx_skbuff = kzalloc_objs(struct sk_buff *, dma_conf->dma_tx_size);
- 	if (!tx_q->tx_skbuff)
--		return -ENOMEM;
-+		goto err_free_skbuff_dma;
- 
- 	size = stmmac_get_tx_desc_size(priv, tx_q) * dma_conf->dma_tx_size;
- 
- 	addr = dma_alloc_coherent(priv->device, size,
- 				  &tx_q->dma_tx_phy, GFP_KERNEL);
- 	if (!addr)
--		return -ENOMEM;
-+		goto err_free_skbuff;
- 
- 	if (priv->extend_desc)
- 		tx_q->dma_etx = addr;
-@@ -2369,6 +2402,14 @@ static int __alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
- 		tx_q->dma_tx = addr;
- 
- 	return 0;
-+
-+err_free_skbuff:
-+	kfree(tx_q->tx_skbuff);
-+	tx_q->tx_skbuff = NULL;
-+err_free_skbuff_dma:
-+	kfree(tx_q->tx_skbuff_dma);
-+	tx_q->tx_skbuff_dma = NULL;
-+	return -ENOMEM;
- }
- 
- static int alloc_dma_tx_desc_resources(struct stmmac_priv *priv,
--- 
-2.34.1
+The thing is, kvm_ipa_limit=40 cannot tell *what* each chunk spends
+its ~3.3us on, because the walk is also per-chunk: cutting the chunk
+count by 256x shrinks both terms together, whichever one dominates.
+The experiment that separates them is one where the chunk count does
+not change at all.
+
+We ran that experiment. Details are in my reply to Marc, but the
+short version:
+
+   - Before: 877ms per callback, 262,144 chunk calls, 262,144
+     broadcasts. Chunk count and broadcast count are exactly equal
+     (8,476,033 = 8,476,033 over the trace window) -- every chunk
+     ends in a broadcast, mapped or not. Per chunk, ~4.6us of the
+     ~5.1us is inside kvm_tlb_flush_vmid_range(); the walk of an
+     empty chunk is ~0.2us. In an uncontended numad episode, 87% of
+     the 1312ms is flush time and 8% is walk time.
+
+   - After conditioning the flush on the walk having actually cleared
+     a valid leaf (the candidate fix in my other mail): same 262,144
+     chunks, same walk, ~110ms instrumented. Nothing about the walk
+     changed -- ~3.1us of the per-chunk 3.3us was the broadcast.
+
+   - And the table really is empty, as Marc says: with the flush
+     count acting as a detector, the first full-IPA unmap of the boot
+     issues 2 flushes (the EL1-boot-period mappings, a few dozen
+     pages in two 1GB chunks); all 35 subsequent ones issue zero.
+
+The code history agrees. Before 7657ea920c54, the TLBI lived inside
+stage2_put_pte()'s 'if (kvm_pte_valid(ctx->old))' -- an empty walk
+issued zero invalidations, ever. v6.6 hoisted the invalidation out
+to the end of kvm_pgtable_stage2_unmap() to batch it into one range
+TLBI per call, but the condition got dropped on the way. So "since
+v6.6, the cost is proportional to the IPA range, not to the number
+of mappings" -- which is precisely why the empty table pays in full,
+and why I'd frame it as a fixable regression rather than an inherent
+cost.
+
+None of this subtracts from your PARange finding -- it depends on
+it. The 42s -> <1s result was the 256x chunk scaling; the remaining
+<1s is what the conditional flush removes.
+
+Thanks,
+Shuai
+
 
 
