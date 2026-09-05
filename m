@@ -4,80 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5A9C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 16:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A555DC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 16:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=McZeKmb8S8b/EC01Rk3flMGccUxy2bR+WNWnXJHZ6iI=; b=oz00fmETWs2kd97X+djDrSlEiq
-	MLctQqte6gOWN2+feodSemKIsws8IDmk4FgU8IKi/tng1A4LMZDIeFDvp4fftJg7oJxTPbGvX5JSz
-	bCdZUjlTZXBxQ+dYotrJeqjxbAK4x6JrV+AK38YSbNmMkmOAIFD340cqkb4nt3bGA6HxQeZVCyvl2
-	zflX03YU99CJIEA7+nEthjsegFlgTD8v870LCHlVaxEOzUjyPXtxSkCxi2v0hi9rc/ykmpzmw+xCu
-	J8tVqpsVbUUWy5yz6yaofa5+WddpWXkxGz6rxYrNyMsuNoXsyl6WxHwg2HzjtB5vEVobhx9oUo5bI
-	C5aRHcIg==;
+	bh=wQbP18NxStEguQ/2r4ys92c7gh9AHepmmceGusfJnc4=; b=b5IJJ5xGIl+w2rzShrVbV4auk2
+	IhfRK+csYsginUmif57TGrKc4luGqA66z4U5kPEJV/rB7imNXHeJd45l56C9ROB1etIMtM7NTxkna
+	jOYiU8PWmjK6LGf7PS2Nf7h4/O4VBzjuJJK2sLmk9E2wJm2zrf4FeeaPEPFIKkdN6LtxUzdtkFWH1
+	n8/DloRERnlOA/BdTLEHqch2Gi76tGzt95nS5ix8d7YNw3w4eru8owln9bCpLH8n5C0aC8UKsliHw
+	n5aYz5Gt9ag4RjJxzZ4Zz0TsEZGlpkxxJXUv8e0lZfYfSdfgIBHDvgedowN41Ude9PrPZ0pOr4si5
+	XQNQ3+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2t8Q-00000004FoA-0DRn;
-	Sat, 05 Sep 2026 16:20:54 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1x2tFs-00000004G2f-3hoq;
+	Sat, 05 Sep 2026 16:28:36 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2t8N-00000004Fnq-2NDq
+	id 1x2tFq-00000004G27-06aW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 16:20:52 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 2BC38408FF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1788625246; bh=McZeKmb8S8b/EC01Rk3flMGccUxy2bR+WNWnXJHZ6iI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=bUAoDXsdmYjhQ1V6sI70RhBEPUxCMVFN6mewCFcVJeyG7A/+u2qfYBxoH7asY6VfX
-	 um+dCoRUF3bO4UoWaAAEvUtoS8SpEFi24ATL/58iyj82oF4wSoEH2lksYAutczozDM
-	 JHDNKg0BH3s/Xx46Jl8YSXDQE7DKj7MvKvOKI3cdLTrCot2NniSV0Z1dRsNKO3cFJO
-	 oVfy0VBdIrB//r2zOd6OJIj8w1hJXhOjF1ew/LB0n0aPwY4LvlyBWfVwzxl2LVmRN4
-	 s/Wq1x85OD6YJPnXRQIMiuA9dMtwgx4Ro959cZSs9xLNr37TWo/mtJUR1dO2uXTZto
-	 XIorzXF6YXxbw==
-Received: from localhost (unknown [IPv6:2601:280:4600:814::1fe])
+	Sat, 05 Sep 2026 16:28:35 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 61AA340E03BE;
+	Sat,  5 Sep 2026 16:28:28 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id ryxtbjdsg3ct; Sat,  5 Sep 2026 16:28:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1788625698; bh=wQbP18NxStEguQ/2r4ys92c7gh9AHepmmceGusfJnc4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d0xUPj+bqY1PiY5TUTW3x8RDgTao6NbfLq0l2/8TD7o/zmhzVKY1fOA+IKKeNJJvu
+	 KxKUG3YnccE18UX8B0EBrUsUIOuUmZd4fw4rKiHST6dNh2mHM84ZNeTCISAfxrH6yD
+	 SDbz3J3jNszu9T4N3Kh+QVBwiMnbMMWJfZieNHX99ew2H1X3WuGyMy4+EY1Vh1GaVt
+	 p4sHfVl/TOEfaE5Nnzm6eIIPpynk+tXuO0b7NbZqEB1rYy9E0w+ncW2R1eBwM4wJ2H
+	 CFHvCii3rdnM5ch0UkvYAA99k94pjf+lQro8K1D8iXgCKGAxKfiVE9egAu8rYT+WCQ
+	 0mN3OY7dhbGruStBRSfqDzzKixZ5gHNAevFlPGjO10JMOJysdartn6xQ2c5w5sBl5s
+	 DLT3rWcWgCoYpucvscpErR3fY//cvbFhuV8gQcRtOPBnE++IS2HuSH696x0xSDCur0
+	 pVxXTF+fGJILGCp7BxwM8lnV8MlAnRm8K2yrEUtvafLTLj4zgrpBIF3unhZWxGxG/Y
+	 Pc+77s377e1k0+ldgN2DzmoA1bdiHjRB88rApjeZexHOEtMLYxGRaav4RK35AWRyMj
+	 gIwBGjr2touhO1S7jGFamw4Eyzc6Jf8EXxh5uU971BLx2xRqJUEpwwVr8cwjih/rGx
+	 7814bmme9Atcl0KR1vzyyuWY=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::1f])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 2BC38408FF;
-	Sat,  5 Sep 2026 16:20:46 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Borislav Petkov <bp@alien8.de>, Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-m68k@lists.linux-m68k.org, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
- linux-doc@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>, Randy
- Dunlap <rdunlap@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, Steve Wahl <steve.wahl@hpe.com>, Dimitri Sivanich
- <dimitri.sivanich@hpe.com>, Mike Travis <mike.travis@hpe.com>, Tony Luck
- <tony.luck@intel.com>, linux-edac@vger.kernel.org, Krzysztof Kozlowski
- <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>,
- linux-omap@vger.kernel.org, Dominik Brodowski
- <linux@dominikbrodowski.net>, Damien Le Moal <dlemoal@kernel.org>, Niklas
- Cassel <cassel@kernel.org>, linux-ide@vger.kernel.org, Ethan Nelson-Moore
- <enelsonmoore@gmail.com>, Michael Schmitz <schmitzmic@gmail.com>, Andreas
- Kemnade <andreas@kemnade.info>
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 68A9B40E02C2;
+	Sat,  5 Sep 2026 16:27:45 +0000 (UTC)
+Date: Sat, 5 Sep 2026 09:27:42 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	linux-input@vger.kernel.org, linux-doc@vger.kernel.org,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Steve Wahl <steve.wahl@hpe.com>,
+	Dimitri Sivanich <dimitri.sivanich@hpe.com>,
+	Mike Travis <mike.travis@hpe.com>, Tony Luck <tony.luck@intel.com>,
+	linux-edac@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Tony Lindgren <tony@atomide.com>,
+	Kevin Hilman <khilman@baylibre.com>, linux-omap@vger.kernel.org,
+	Dominik Brodowski <linux@dominikbrodowski.net>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>, linux-ide@vger.kernel.org,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Michael Schmitz <schmitzmic@gmail.com>,
+	Andreas Kemnade <andreas@kemnade.info>
 Subject: Re: [PATCH v2 3/9] docs: kernel-parameters: Drop the edac_report=
  entry
-In-Reply-To: <20260905153336.GBapw2UFa7Sdc0ve_A@fat_crate.local>
+Message-ID: <20260905162742.GCapxC_ra7hJd27LDR@fat_crate.local>
 References: <20260905094649.41996-1-kmehltretter@gmail.com>
  <20260905094649.41996-4-kmehltretter@gmail.com>
  <20260905151345.GAapwxqT93wPWHF7u4@fat_crate.local>
  <apwzmSr6b0WEkW86@gmail.com>
  <20260905153336.GBapw2UFa7Sdc0ve_A@fat_crate.local>
-Date: Sat, 05 Sep 2026 10:20:45 -0600
-Message-ID: <871pb7zn36.fsf@trenco.lwn.net>
+ <871pb7zn36.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <871pb7zn36.fsf@trenco.lwn.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_092051_609362_2F4E0AF8 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260905_092834_223090_5F25D030 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,18 +112,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Borislav Petkov <bp@alien8.de> writes:
+On Sat, Sep 05, 2026 at 10:20:45AM -0600, Jonathan Corbet wrote:
+> I would like to emphasize this - slow down a bit and maybe you won't
+> overwhelm the system entirely.
 
-> On Sat, Sep 05, 2026 at 05:22:33PM +0200, Karl Mehltretter wrote:
->> Good catch! I will send a v3.
->
-> Just don't send it immediately but wait a couple of days to gather review
-> feedback first.
+I find myself telling more and more new submitters to slow down. Sounds like
+they don't read our documentation before submitting patches. Especially if the
+file is even called submitting-patches:
 
-I would like to emphasize this - slow down a bit and maybe you won't
-overwhelm the system entirely.
+From: Documentation/process/submitting-patches.rst
 
-Thanks,
+Don't get discouraged - or impatient
+------------------------------------
 
-jon
+After you have submitted your change, be patient and wait.  Reviewers are
+busy people and may not get to your patch right away.
+
+Once upon a time, patches used to disappear into the void without comment,
+but the development process works more smoothly than that now.  You should
+receive comments within a week or so; if that does not happen, make sure
+that you have sent your patches to the right place.  Wait for a minimum of
+						     ^^^^^^^^^^^^^^^^^^^^^
+
+one week before resubmitting or pinging reviewers - possibly longer during
+^^^^^^^^
+
+busy times like merge windows.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
