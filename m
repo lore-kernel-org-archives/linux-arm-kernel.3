@@ -4,49 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB12C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 11:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82006C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 11:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Bu7zhBODPx9OVIj9kI9Cw1nNDBcCS9dXlz9GgaYwCk=; b=TyrF7/zRFLw9kS5fGM8LVC81to
-	D5J5aHBPj2eRogpvcDdrO/ZlFTiJDjRTcrr9ZP6px+jU+guJv/HgzLa1pALzXiHuHADxYDBxPI6iy
-	clMadusi8xy1mKlCIMdVbObJbpofussLgT0foErESo2x8Tw0j2F+iqIe8jrm5R/ysADFqOLC9MF6N
-	tKRk7vJ7lxwgftPwegRnxqV03CVe6x9bvTBqbzFcQf54rqBltOoNdBrLpklsvrq2PslWjoEt9zO6c
-	MBVXEZduaEe20slHOc+pOZBEDfo7KyB1q4YotwxzYL9m/PtceSUrO4TEcZYrkfbSdce3BGGwVNSoO
-	wCtPxJCg==;
+	bh=/x9C5bNxNWl9gURHOdoOE+fPK6NtP9yr0zoY9jWPaYs=; b=O2CSZyweIeaAa3knV7wQFIuiw+
+	l4qCYjcduBwM4dac4XFlCA4CjokICiPMOb+KiG8bFILf5g8Gtcev/VH95TJ16cjndGHJsuSB2rFKF
+	jCFrWrAcNRPQdx67Y2fBwNwbmv1d6bwPR70+NsrkAm9aiMThayGWyO4RTo58p0ffM7uV6wTIu0rd4
+	VYJJhvGsjX50uDashEujd1g+LmMUzgCOoPgwb9Bfcb92jZHaY/l+x93xzl8Z7dob8r0NuBXn62oon
+	vInCWZm1UZfZ13G6kH1Y//drXQITXkj95kF5pngaI86KSgFEC2VMCLxnz1ADiOpgUsZHhm4MvqAz5
+	SiUhFhfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2ou1-000000042HO-0JX7;
-	Sat, 05 Sep 2026 11:49:45 +0000
-Received: from submarine.notk.org ([62.210.214.84])
+	id 1x2p1v-000000042mD-3QKw;
+	Sat, 05 Sep 2026 11:57:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2otx-000000042Fk-2UNW;
-	Sat, 05 Sep 2026 11:49:43 +0000
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id EB42014C2D6;
-	Sat,  5 Sep 2026 13:49:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1788608970;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6Bu7zhBODPx9OVIj9kI9Cw1nNDBcCS9dXlz9GgaYwCk=;
-	b=MRiP0p+APtwWGq7nqcMTUXcXnX1Rp4Ot3CBYsNBuCSxEDHzaM37F3IZw7rUw7zihCjh19l
-	IKEli+6W7tjafk9BZVuzO5RCsDb46aUQn0VOifmyYJXqj07Dh0YaBAgfvy4cMmotZxUc+6
-	gur34LYPLAa0pJP4OulRrjRHanfS9sYO8tikO2hODNpfZsJ2w6nX3QZre7n4zB4sJpxVO7
-	6p+3MJkGAILxtpSHRK3niKb+p+9zzn/DBBgPW0I7hvn1/aMaBuVcv6dj4bf/bQ8SDCM0Zj
-	kpPQhAdanri4iEvqS2vR2vXhMnytBJ4tTo0nfqBJwFLeE7it5Msx3a2Er5/zRQ==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id e27ca948;
-	Sat, 5 Sep 2026 11:49:19 +0000 (UTC)
-Date: Sat, 5 Sep 2026 20:49:04 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: gregkh@linuxfoundation.org, achill@achill.org,
+	id 1x2p1u-000000042lx-0FGd;
+	Sat, 05 Sep 2026 11:57:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1846A43E0D;
+	Sat,  5 Sep 2026 11:57:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A6E51F00A3D;
+	Sat,  5 Sep 2026 11:57:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1788609472;
+	bh=/x9C5bNxNWl9gURHOdoOE+fPK6NtP9yr0zoY9jWPaYs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=zRIEiSllWjjqKMphf2jfhctZ0NlrXjWQRUU/AfOo6qNsCmAQeLVGIh/ycZGD0zEwP
+	 YR0g0dr+06CYTBIYyLs2S+/F8a5umC2Yd6op83rlS2imO8nJSMDLYE9lBTSnuy7y2w
+	 Aix1OCYdeLxdsFOw2HgXwlLM4M9AuUPhixPage20=
+Date: Sat, 5 Sep 2026 13:56:07 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Dominique Martinet <asmadeus@codewreck.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>, achill@achill.org,
 	akpm@linux-foundation.org, broonie@kernel.org, conor@kernel.org,
 	f.fainelli@gmail.com, hargar@microsoft.com, jonathanh@nvidia.com,
 	linux-kernel@vger.kernel.org, linux@roeck-us.net,
@@ -66,16 +61,14 @@ Cc: gregkh@linuxfoundation.org, achill@achill.org,
 	Johannes Berg <johannes@sipsolutions.net>,
 	linux-um@lists.infradead.org
 Subject: Re: [PATCH 6.18 000/552] 6.18.50-rc1 review
-Message-ID: <apwBsCGpUG69KdGc@codewreck.org>
+Message-ID: <2026090538-irritant-tattoo-caa5@gregkh>
 References: <20260904045747.813364717@linuxfoundation.org>
  <20260905114111.124795-1-ojeda@kernel.org>
+ <apwBsCGpUG69KdGc@codewreck.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260905114111.124795-1-ojeda@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_044942_038074_A2924010 
-X-CRM114-Status: GOOD (  10.93  )
+In-Reply-To: <apwBsCGpUG69KdGc@codewreck.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Miguel Ojeda wrote on Sat, Sep 05, 2026 at 01:41:11PM +0200:
-> I see the same arm32 build issue:
+On Sat, Sep 05, 2026 at 08:49:04PM +0900, Dominique Martinet wrote:
+> Miguel Ojeda wrote on Sat, Sep 05, 2026 at 01:41:11PM +0200:
+> > I see the same arm32 build issue:
+> > 
+> >     mm/page_vma_mapped.c:110:11: error: call to undeclared function 'huge_ptep_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+> >       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
+> >           |                         ^
+> > 
+> > In addition, in UML (x86_64) there is also nearby:
+> > 
+> >     mm/page_vma_mapped.c:110:9: error: assigning to 'pte_t' from incompatible type 'int'
+> >       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
+> >           |                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >       111 |                                       pvmw->pte);
+> >           |                                       ~~~~~~~~~~
 > 
->     mm/page_vma_mapped.c:110:11: error: call to undeclared function 'huge_ptep_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
->           |                         ^
-> 
-> In addition, in UML (x86_64) there is also nearby:
-> 
->     mm/page_vma_mapped.c:110:9: error: assigning to 'pte_t' from incompatible type 'int'
->       110 |                 ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
->           |                       ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       111 |                                       pvmw->pte);
->           |                                       ~~~~~~~~~~
+> See this 6.12 thread[1] for this build failure (I didn't check but
+> assume it is the same, that missing commit only made it 7.3-rc1 but was
+> also backported to the 7.2 tree, which also explains 7.2 didn't build
+> fail)
 
-See this 6.12 thread[1] for this build failure (I didn't check but
-assume it is the same, that missing commit only made it 7.3-rc1 but was
-also backported to the 7.2 tree, which also explains 7.2 didn't build
-fail)
----
-This builds on master because this commit:
-f5407e9b697c ("mm/rmap: use huge_ptep_get() in try_to_unmap_one()")
-added a function declaration in linux/hugetlb.h !CONFIG_HUGETLB_PAGE
-code:
-```
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 817b8b4223fa..95b1b6ee1f96 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -1270,6 +1270,8 @@ static inline void hugetlb_count_sub(long l, struct mm_struct *mm)
- {
- }
- 
-+pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep);
-+
- static inline pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 					 unsigned long addr, pte_t *ptep)
- {
-```
+I should have this fixed up now, will push out a -rc2 so that you all
+can test it as I'm away from my big build box at the moment :(
 
-The rest of that commit isn't applicable, so we either need to roll that
-change in 'mm/migrate: use huge_ptep_get() in remove_migration_pte()' or
-add it separately (or drop that commit)
----
+thanks,
 
-[1] https://lore.kernel.org/r/apq_s8mFJJPzoIdo@codewreck.org
-
--- 
-Dominique
+greg k-h
 
