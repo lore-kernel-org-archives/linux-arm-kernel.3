@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9355C624D6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499EBC624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 08:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=; b=g7ZPaOqbEyZ046+cAO1g8nY93Y
-	w640nkghqxtIij56NWyFI67KEmrjHyqqadAMsaWPP2GQZw7eBy1BlZfM7KCip/FSAHfKCqnsTVeWN
-	TOntEZkHWi7AxelR2eQ+frJjDuvmFy46uexTh4/ziEyeAVVQlttDdYyFlHw4tQDL4j+95nnJahiPP
-	KMIlGxt4oGtajuQu8SKsOSMtFYY7ldSaqAc3XnQuDO8d1tj4HE35W2UIj45hVXAoDEvcbG4WkDJcx
-	NPjCupfhFKC/Q/b8hocuB9SYg6dgPVVgdjSlyawgnT/ZbHoHQmKHEEqAvBZb93YjgLplo5jVoj/fE
-	K8HPwBwA==;
+	bh=wVQ17dx4pratB07V1EaUseOzS5Ef74/S9jFa4499f8E=; b=hIYwn5fFWXKRZpY9d3O9uDyLQD
+	s8TvdUiJrJs03kNHW0zzixzshMsEoLiNKj2qJYhy+UX/WuHKxkG6t2CnWAxijrfUExipIdMjLA5nI
+	Jdt+ficA82pI7rJ8T/+DcJRflTnMnweuSoft9l3xT2UTxaFg/Q2fWylrzjSRmyi2B8B2ekZrmAB6j
+	yCQ2ZwXMtXTmC6PjrlEluCVZAkA7Jd9KjzO89ycl7wJWheHU8xDEr+fsukUa7+fnRaiw61mBseckW
+	haH9DdzIFnJ4bsiLM+fs2szkYyVSyLKgFFXUZ+OxQv6T+dhf3bY6YfCsSS/Mm78UB1MlvNmfExO8Z
+	99Wu+A3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lML-00000003pTz-3DpL;
-	Sat, 05 Sep 2026 08:02:45 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1x2lMv-00000003paL-3jDZ;
+	Sat, 05 Sep 2026 08:03:21 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2lMJ-00000003pSp-1322
+	id 1x2lMt-00000003pZY-1I9m
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 08:02:44 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4843efcbdb2so949794f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 01:02:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788595361; x=1789200161; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=;
-        b=H24q8WqhsF1VPDZsToTRtek+j62AbZIqg3Nr1YFLaz6uFC2nZdPLKCTGOYmOpcVWFA
-         WbecUio0J3Pizx/Lhdxhi4aKMBPO6+zti4HWLdgVElNRztmTMK1xHnNsx/caDhp+gpvP
-         yopRkTfldCCg0vebMB5uV3XRFYpVBQTj3KnDOnoyxeOwQhJNl1RmYrY1CiL0DvhO8zxG
-         BMYaHh56EI2Xz9wCG2Kgk58f3LVULahPx0USjXlZPrm1/A4n63klRYJOT3PsTlZAMBoX
-         TAB3pK3xNqdyBxdRBvsbW5LgsloRanDLeIYmR6Fse7bRsSolupgH9A0xAoYxCwRU/dZ2
-         VdWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788595361; x=1789200161;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v6rV8mHJA3DgWiy+pOW7sTyqzuTia8uCBTPWEfM6Kl0=;
-        b=ZmUkMIExPiYu5L9nUcjuWnA7jRtBnM+GDttHvQ4A2zU31uO6WcEXuy7G0mXayqg3jE
-         tofzve2Vi18fkFSnASTPEKgf3+aCQl2erYj9GXYmm/zAg/drKmTCpOUenjUeOvEUs9GG
-         HHVF/cDjkO1q6929WkqcPlb/zUeab1wEwot27JobJ2cGV0JKj+3YBi7JafJIz9wZPQUs
-         VwDrD30hwtYzNots1ELzWrrMNkwYZkRct5mE3KRlPqUwp9Ky9MklpHi2IgawAextkw3q
-         wy2iyPArOaKTXMTT84bHSueJzA4kfjXGwvtjUzIKruwca6GUzIHub/idMDGhn4a7FlgH
-         fjkw==
-X-Forwarded-Encrypted: i=1; AKwUvBw+Bm9aKoVtPxvbFLF/ZrTcRP+reVbP8ikDycWPZjQnvask4Z8Wnrq5YOpdApXGJBYg3C7YR73hlVMdh8xblaz4@lists.infradead.org
-X-Gm-Message-State: AFuF++lHouCQlAYo9VKiP/Sgbj8Tv/rH9pi0iT7YPsFIEnQpj6gwfo6i
-	IZ3HIFF4Z5gzMmyhMOtjAujnO+BD4tApj8IFTs9k9qR0fpLHscHMBE7E
-X-Gm-Gg: AYBFou0bGZNGaI5hBZTdGqd6kexyKGyt6+gTmZslDPXpkv6BUD9xb3XNKDNvv1rgD8L
-	xAXstG//b1Wnaa8+aGc/gp/yN3wrvh5Y/vdGwTwUt8C7cR3U5PlfYZtWUkjI9hL4//xBFbgmlji
-	SDPImHEVD3uoZKG/ZirwGw/rDWBEb6/SAXylRq8dz3PAqQrClxq/A14jufmFqajyHsSy2Sn+aOX
-	IZ+wFZd3Ii8CUowkVdT356W4+S+BNtEhIIiqaPM4aVdVe61pUtYhwOuqiTaxou4QXltyJMewNeo
-	KtNqwzHiObrqELEZxN0f1dRkxcZ34v2QVzrNeLj6XXhZCWFtNQSkyJjx1Fyr7NORhdvwKBOx4WE
-	z61vYnSOSu6r2ai/csTY/4ndCV0safAUtDNjnruiRiS4vNYRnZ32HfzQyLroikPiB1tw3wFe4Tb
-	Pj7n6wtV70LNFrdY2SPgRS5bsDYIEzvQM6TzxPg0r2fpgZvXi4l7d1cPYmZKAGHy3CMaHl+tg+T
-	y30+XsPbfAF4ylCpeyc5rSGQ0yBUCTxOVqp3zcu8D3Ivxfow0XODlJWy7/Kws+UgLUmggaIc1rG
-	IOtFV0WBo1HwhF0+KMXmchoIXC8HCSjtvw58ETAx28MG/2hakn8wSOcEPAyX8Z+6Wtg=
-X-Received: by 2002:a05:6000:2010:b0:485:8a47:5b92 with SMTP id ffacd0b85a97d-4858a475dadmr9500479f8f.47.1788595361036;
-        Sat, 05 Sep 2026 01:02:41 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883a9234sm12251794f8f.14.2026.09.05.01.02.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 01:02:40 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Antonio Borneo <antonio.borneo@foss.st.com>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] pinctrl: stm32: Drop the nonexistent CONFIG_MACH_STM32MP25 from the STM32MP257 default
-Date: Sat,  5 Sep 2026 10:02:35 +0200
-Message-Id: <20260905080235.33785-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sat, 05 Sep 2026 08:03:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788595400; x=1820131400;
+  h=date:from:to:cc:subject:message-id;
+  bh=R42RIDsTntuv+s3A6dgJ86LP2ybzAkbehUalDCAM7gI=;
+  b=Q7HqoJMfT0T5HgqU7WSAyOlYgEiga4RspeLmVAUAptqp6JhibeZLl9Ga
+   GdJNxsM44Xf9+w+bDy6hnhNHsdvdL6L2JlvYQa52qS/PfrkRNjXDa4YaU
+   vwGWRyN0Co2AediLOmxWxmEd7UqFge9aXU56Qj0cnwCT9PMN8unjT3idE
+   dXNbP4DzUL61eBcMN+4e3mn9d3RVyjiOy/fdWlZhDKaJD7kbIqWuRFY7b
+   CsSp+p6Meq3g+Krwy/AMw6bz7956NsdxmForMbQEmYhwAAbTjiuT/ONXz
+   O3XuwLL6i2cLOE3js+DSx38KJuzwvKwPn78PmMU7HRS/PATZsZgABW72u
+   g==;
+X-CSE-ConnectionGUID: f9mfxgAhTvijDKMsUxMQGQ==
+X-CSE-MsgGUID: 3eH4K1uSTjKIsuh+kjyX0g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="100246460"
+X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
+   d="scan'208";a="100246460"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 01:03:19 -0700
+X-CSE-ConnectionGUID: am/29cqqTeW3OF68/W0UNQ==
+X-CSE-MsgGUID: VRU6FGHQTkGE7NFob7RpOA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
+   d="scan'208";a="268943373"
+Received: from lkp-server01.sh.intel.com (HELO 73f3364bc37e) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 05 Sep 2026 01:03:17 -0700
+Received: from kbuild by 73f3364bc37e with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x2lMo-000000000H5-3437;
+	Sat, 05 Sep 2026 08:03:14 +0000
+Date: Sat, 05 Sep 2026 16:02:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4/ux500-msp-fixes 5/10]
+ sound/soc/ux500/ux500_msp_i2s.h:150:38: warning: suggest parentheses around
+ arithmetic in operand of '^'
+Message-ID: <202609051547.G9SJp8UQ-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_010243_343206_75A4CBB5 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260905_010319_385907_0740C1E8 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
-made CONFIG_PINCTRL_STM32MP257 default to MACH_STM32MP25, following the
-MACH_* pattern of the arm32 entries above it, but no Kconfig symbol of
-that name exists and git log -S finds no Kconfig file that ever defined
-one: the STM32MP25 family is arm64 only, where CONFIG_ARCH_STM32 covers
-it. Commit dba0aff2b89b ("pinctrl: stm32: Allow compile as module for
-stm32mp257") added "|| (ARCH_STM32 && ARM64)" next to it, so the first
-half now evaluates to n and changes no configuration.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-msp-fixes
+head:   2f95df02f538f1fca7974cb317d05bea56b96a82
+commit: a68d4e15f02ffb40f55509d32630a549168d1b5d [5/10] ASoC: ux500: Validate MSP DAI configuration
+config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260905/202609051547.G9SJp8UQ-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260905/202609051547.G9SJp8UQ-lkp@intel.com/reproduce)
 
-Drop the first half.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202609051547.G9SJp8UQ-lkp@intel.com/
 
-Fixes: 619f8ca4a73d ("pinctrl: stm32: add stm32mp257 pinctrl support")
-Assisted-by: LLM
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- drivers/pinctrl/stm32/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+All warnings (new ones prefixed by >>):
 
-diff --git a/drivers/pinctrl/stm32/Kconfig b/drivers/pinctrl/stm32/Kconfig
-index d6a171523012..cc425bbfc996 100644
---- a/drivers/pinctrl/stm32/Kconfig
-+++ b/drivers/pinctrl/stm32/Kconfig
-@@ -55,7 +55,7 @@ config PINCTRL_STM32MP157
- config PINCTRL_STM32MP257
- 	tristate "STMicroelectronics STM32MP257 pin control"
- 	depends on OF && HAS_IOMEM
--	default MACH_STM32MP25 || (ARCH_STM32 && ARM64)
-+	default ARCH_STM32 && ARM64
- 	select PINCTRL_STM32
- 
- config PINCTRL_STM32_HDP
--- 
-2.53.0
+   In file included from sound/soc/ux500/ux500_msp_i2s.c:20:
+   sound/soc/ux500/ux500_msp_i2s.c: In function 'configure_protocol':
+>> sound/soc/ux500/ux500_msp_i2s.h:150:38: warning: suggest parentheses around arithmetic in operand of '^' [-Wparentheses]
+     150 | #define MSP_TX_CLKPOL_BIT(n)     ((n & TCKPOL_MASK) << TCKPOL_SHIFT)
+   sound/soc/ux500/ux500_msp_i2s.c:204:21: note: in expansion of macro 'MSP_TX_CLKPOL_BIT'
+     204 |         temp_reg |= MSP_TX_CLKPOL_BIT(!protdesc->tx_clk_pol ^
+         |                     ^~~~~~~~~~~~~~~~~
+   sound/soc/ux500/ux500_msp_i2s.h:149:38: warning: suggest parentheses around arithmetic in operand of '^' [-Wparentheses]
+     149 | #define MSP_RX_CLKPOL_BIT(n)     ((n & RCKPOL_MASK) << RCKPOL_SHIFT)
+   sound/soc/ux500/ux500_msp_i2s.c:208:21: note: in expansion of macro 'MSP_RX_CLKPOL_BIT'
+     208 |         temp_reg |= MSP_RX_CLKPOL_BIT(protdesc->rx_clk_pol ^
+         |                     ^~~~~~~~~~~~~~~~~
 
+
+vim +150 sound/soc/ux500/ux500_msp_i2s.h
+
+3592b7f69a54388 Ola Lilja 2012-05-08  145  
+3592b7f69a54388 Ola Lilja 2012-05-08  146  #define RCKPOL_MASK		BIT(0)
+3592b7f69a54388 Ola Lilja 2012-05-08  147  #define TCKPOL_MASK		BIT(0)
+3592b7f69a54388 Ola Lilja 2012-05-08  148  #define SPICKM_MASK		(BIT(1) | BIT(0))
+3592b7f69a54388 Ola Lilja 2012-05-08  149  #define MSP_RX_CLKPOL_BIT(n)     ((n & RCKPOL_MASK) << RCKPOL_SHIFT)
+3592b7f69a54388 Ola Lilja 2012-05-08 @150  #define MSP_TX_CLKPOL_BIT(n)     ((n & TCKPOL_MASK) << TCKPOL_SHIFT)
+3592b7f69a54388 Ola Lilja 2012-05-08  151  
+
+:::::: The code at line 150 was first introduced by commit
+:::::: 3592b7f69a5438812381ff0aacdea1725ffa1c1c ASoC: Ux500: Add MSP I2S-driver
+
+:::::: TO: Ola Lilja <ola.o.lilja@stericsson.com>
+:::::: CC: Mark Brown <broonie@opensource.wolfsonmicro.com>
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
