@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BD7C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A529C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 07:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLHCkOQCNBodgL/bDWc/dLG8A1S5U39KEwi8eztVGO0=; b=NIUCTILclB0Xy467Jerc0GUk42
-	9P2oAMCM9cbbHPJFYrb/2lc/hqLMuH/+E2Dztep5CPMkfHnv/fvIefi/Fp3crfXgKnrLMvgb3ZILP
-	4jd27AnyonRxLmW+Xs/Rm/hEtYyVf/6KvaF7KRVmI41za0jGC+6or1mxl01b4axLb/oopgbRs/UJ/
-	WPlegGs4dNvQwBa+iGd0S1qsB2HbuDXcPlV8/uHsLLj2AnTO0Iy6k1tFQJGWzOLMQB6DBI6LPTgnA
-	QoS+JC/vw17GkdBwq7vhxBygaQlTr0WAr2+YPSFQu4jIk7ZzCBAhEkN4a5e8IlSlO4DLbghAXyh6T
-	+v8KrOWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MwxCrhIsI/dM9NiZgFkhB47Rw/3Jn9Pik3VTYeanWC0=; b=MjjT9mx25BXufdjWX/QX0AuECs
+	cSBSDdvAV/rXej5LGcKAHacNH7OB94xf9l6QmRJtgsne8Md4wsh52ODNA45m++3fuOU1/BPoA883A
+	z6i+BthXJ4HT3dVD6DDHFUJO++icOlhrmBUWSaZb1E7AmA37WNd1LBIsk5jNQsi5TpjL+ItGZQsHT
+	t22t5fLeUEWYqn+MKTpwxt3HY+QFO+rdt7f+9IoEqvBRp7qHXv9jyyneo84meaZN2WkyihY5MOP0N
+	vKngLB+HOatDOrORAUffoPAS9hC9pAg8yDwPvJU5NM12+X+8B8AaH33thMzzKSUUDX18Y0t7AOaGv
+	OSOYKfhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kpj-00000003nOL-30J9;
-	Sat, 05 Sep 2026 07:29:03 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x2lFG-00000003okA-3mJR;
+	Sat, 05 Sep 2026 07:55:26 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2kph-00000003nMm-3S5N
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 07:29:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5BC514E41530;
-	Sat,  5 Sep 2026 07:29:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F47D60580;
-	Sat,  5 Sep 2026 07:29:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A969311C79BC4;
-	Sat,  5 Sep 2026 09:28:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788593335; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=wLHCkOQCNBodgL/bDWc/dLG8A1S5U39KEwi8eztVGO0=;
-	b=TKH59S3b/AE9WIAT+ChXZT1h0rzOhLWx7Ojz6BkFa8v4Wypep/3aThhaJvnmj63AP/ugKs
-	Gn4ktRiOUmrMhIDiu3QlzhcmHKgwnzgDd5TfsQ99s6CnRgmrEdqPDAIAjf9IP3bb7kt6Bk
-	KAZ5ckLW9z/i6unIBkADUBlbGEJvZebJmO0yWUIc/pevIuxuj0DoqhJsV0EUYi6eBf8y7P
-	++aJ8lM/7fUqYz3RBGlyv+P10pZWEv6qxnOhJcfUbgv6Gox5UNA3hgQtnWM7fMSH0RLvnt
-	7jejW+HK4zNNE3dAHIXU7/afkwSd+rdiSTNcBN7JFypcYbsGm+zW8TbTHh4S1A==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
+	id 1x2lFE-00000003ojk-1B3Q;
+	Sat, 05 Sep 2026 07:55:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788594925; x=1820130925;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nVoM4RkYZfBPC9WAJEVNQ4+CpJomELlbuzuYSgYBRRs=;
+  b=StvZvLTq3AJFIQo324s/7ZzNqKjD9EP9bpSuiCY2VXlaadRmnmn038J7
+   6dqkVO8TmFK7K4Gjnh8A2aM+iLRvPTyhHa3kVoCVDvvze4U9Ov+QzHFxS
+   uifyrqSWiwVMZnQ4fPERGwElKBfbH6h5DHbVcoonlDDUuQusHz8I2CZ0l
+   QhrBZ2nXqgG7Xt5JDSVDQ/Kbj2OHsH1FoH8FzQrzeZCeL9/JzeKkReLRa
+   qQiNet6cmMlN4GIG1M7E6m3vPTgTenXwywNNX/uNRyGkx76x9jxBvqI5C
+   f/h0yr8/cSBG/pe2/GsEZQf2Oag0kfSA8ZXABtilJAH8a2jRoxgSg5sWI
+   A==;
+X-CSE-ConnectionGUID: 88vgIIymSBCP+nC0EX8efA==
+X-CSE-MsgGUID: jF8QxbZTTWuyL7HvBGnQcg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11896"; a="88933096"
+X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
+   d="scan'208";a="88933096"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 00:55:23 -0700
+X-CSE-ConnectionGUID: EEhu5k1rQMWULfktoCCXzQ==
+X-CSE-MsgGUID: lwmOrv2pTjCcruQ2CcFOzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,263,1779174000"; 
+   d="scan'208";a="267010278"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.245.105])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Sep 2026 00:55:14 -0700
+Date: Sat, 5 Sep 2026 10:55:12 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Frank.Li@oss.nxp.com
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Yao Zi <me@ziyao.cc>,
-	Frank <Frank.Sae@motor-comm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next v2 3/3] net: phy: motorcomm: Enable analog frontend on YT8531S
-Date: Sat,  5 Sep 2026 09:28:28 +0200
-Message-ID: <20260905072830.28986-4-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260905072830.28986-1-maxime.chevallier@bootlin.com>
-References: <20260905072830.28986-1-maxime.chevallier@bootlin.com>
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Kelvin Cao <kelvin.cao@microchip.com>,
+	Logan Gunthorpe <logang@deltatee.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 2/4] dmaengine: use dma_chan_name() helper to get
+ per-channel device name
+Message-ID: <apvK39-BqTHo_CZF@ashevche-desk.local>
+References: <20260904-dma-chan_dev-rename-v3-0-685601b0b788@nxp.com>
+ <20260904-dma-chan_dev-rename-v3-2-685601b0b788@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904-dma-chan_dev-rename-v3-2-685601b0b788@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_002902_008848_88DE5A29 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260905_005524_385518_7A774F27 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +119,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The YT6801 PCIe NIC includes the dwmac-motorcomm IP for the MAC part, as
-well as a YT8531S PHY, configured in GMII mode.
+On Fri, Sep 04, 2026 at 05:49:44PM -0400, Frank.Li@oss.nxp.com wrote:
 
-It seems this PHY requires the Analog Front-end (AFE) DAC clock to be
-enabled for link to reliably establish, otherwise the link just doesn't
-come up.
+> Use the existing dma_chan_name() helper to obtain the per-channel device
+> name instead of open-coding: dev_name(chan->dev->device) /
+> dev_name(chan2dev())
+> 
+> Simplify the code and improve consistency.
+> 
+> No functional change intended.
 
-Let's enable it at config_init() whenever the PHY is in GMII mode.
+...
 
-This logic has been extracted from the vendor driver provided by
-Motorcomm.
+> @@ -507,7 +507,7 @@ static int idma64_alloc_chan_resources(struct dma_chan *chan)
+>  	struct idma64_chan *idma64c = to_idma64_chan(chan);
+>  
+>  	/* Create a pool of consistent memory blocks for hardware descriptors */
+> -	idma64c->pool = dma_pool_create(dev_name(chan2dev(chan)),
+> +	idma64c->pool = dma_pool_create(dma_chan_name(chan),
+>  					chan->device->dev,
+>  					sizeof(struct idma64_lli), 8, 0);
 
-It's really unclear if this is specific to the integrated version of
-that PHY, and how this potentially interacts with the fiber mode this
-PHY supports, so this configuration is only enabled when the interface
-is GMII, i.e. the PHY is integrated.
+For example here it may now be condensed to less LoC:
 
-With this, the PHY reliably establishes link and the YT6801 PCIe card
-becomes fully functional. Supend/Resume was also tested, the link
-stays operational after resume.
+	idma64c->pool = dma_pool_create(dma_chan_name(chan), chan->device->dev,
+					sizeof(struct idma64_lli), 8, 0);
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V2: Add details about suspend/resume testing and the fact we only do
-    this in GMII mode.
+Consider that in case you will need a new version (no need
+to address it separately).
 
- drivers/net/phy/motorcomm.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index 36c229460a77..90a4f86f2758 100644
---- a/drivers/net/phy/motorcomm.c
-+++ b/drivers/net/phy/motorcomm.c
-@@ -144,6 +144,11 @@
- #define YT8521_CLOCK_GATING_REG			0xC
- #define YT8521_CGR_RX_CLK_EN			BIT(12)
- 
-+/* Analog front-end control register 3 */
-+#define YT8531S_EXT_AFE_CTRL3			0x12
-+/* Analog front-end DAC clock enable */
-+#define YT8531S_AFE_CTRL3_CLKDAC_AON		BIT(13)
-+
- #define YT8521_EXTREG_SLEEP_CONTROL1_REG	0x27
- #define YT8521_ESC1R_SLEEP_SW			BIT(15)
- #define YT8521_ESC1R_PLLON_SLP			BIT(14)
-@@ -1740,8 +1745,15 @@ static int yt8531s_config_init(struct phy_device *phydev)
- 	if (ret)
- 		goto err_restore_page;
- 
--	if (phy_interface_is_rgmii(phydev))
-+	if (phy_interface_is_rgmii(phydev)) {
- 		ret = yt8531_set_ds(phydev);
-+		if (ret)
-+			goto err_restore_page;
-+	}
-+
-+	if (phydev->interface == PHY_INTERFACE_MODE_GMII)
-+		ret = ytphy_modify_ext(phydev, YT8531S_EXT_AFE_CTRL3,
-+				       0, YT8531S_AFE_CTRL3_CLKDAC_AON);
- 
- err_restore_page:
- 	return phy_restore_page(phydev, old_page, ret);
 -- 
-2.55.0
+With Best Regards,
+Andy Shevchenko
+
 
 
