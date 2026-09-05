@@ -4,166 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6B3C624D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730B3C624D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 13:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wqo6bMrTQlQH9jrMeizdPnyRKuLc7Scvp+vg8edW8/E=; b=p9mGgG5UmstmJKGFoQ3zIxIdWU
-	Phsf5cqviybQEYp3zJpOHXvGVc0yNUBE+K+ZJXjaFzeMzZYijA5e2ll/bXqBc2dqyzo9mvrPU09yH
-	1xfS3qgbS0UFpEyuqvyzTM/ZxVaEF0v5Cq3kW7POn7vWMiHNrKQbHk7KKktPfWCHlLEld6nY128dF
-	aNB0h6DPDv4X5CSB5hGxlAmEHSn0VRnoZXZf2kKTjoPWP1JSGcx/CrNNfKV8ZaaVl921UzXoYZInA
-	ArNpoTF2GdmCCpHQUY1cMmiwx/lML4npZJZbxv2ThRxm+6cAQwXkImeCYO5jFQT/1Ci0ie7imat6k
-	epMBcWDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UCPQY2s7Li9KbXRAy98AdJWgLwoyUR6+yD7sEQfOnDg=; b=FqtCboLK36UzfGl1577L3lWuO6
+	m7YDLzzV2EngXw+LQ7FDMtVOU0EFY5LJeMowIf8zLG2GmzcGsO3ejBaXCDLaJq953tRc2/hUd7rEE
+	hNkjr+SSyD8oolYcerQ40SNi2ACkVr0fYObbD8lMzdsFmvyKH6G08Rc/3JE2trEa8KwZAljnsZYmG
+	HUhQmt3/SVO/iGDirRUmaLtybHD5Wl7fH9O+HBhu1Uy24p7uwWnfxLQjygejp2bZtF9/jZirYJ4NR
+	x0x2OljDDu/b7vC+vdq1OD1tlFmvht8uFHZzNovapuhoaas6OtJkncGZfWm+8VznEqfgdj8wRWtA8
+	b6uVj0cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2q0V-0000000454m-00Vu;
-	Sat, 05 Sep 2026 13:00:31 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1x2qOa-0000000467r-0V5r;
+	Sat, 05 Sep 2026 13:25:24 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2q0Q-0000000454P-0Hof
+	id 1x2qOY-0000000467F-1Q4c
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 13:00:27 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 685BUdnT1885998;
-	Sat, 5 Sep 2026 08:00:23 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=wqo6bMrTQlQH9jrMeizdPnyRKuLc7Scvp+vg8edW8
-	/E=; b=ghmkpbl0Sh7XCL4CCvUEvzGxuBxod0rRXCcbjTaifXAhC5boOi1uuQYXy
-	O4aichPFm3UaILQBTdXpEQkt1VfnO+NcfGI7N0vmhWs+JukjnvFnOCvRUOlL+tY2
-	E3Gy4sxYAl9XyHM2s4HF5TW5bXBjueb0KAcyYhXFLcm3wP653p2knRZA82YFHZI+
-	utkhdxF9uIx8fqWjX6biyEzqY0b2fADYjwMROzy5cke8iLkElrJEjy6FXKSbBXEp
-	OEeTTkQ5iUjsuihGN3ZMeLfmNZXWjn7XXHlpZoiNqM4Wet2DHeitXcB/Aazov8FT
-	vBpL8nIGT82B2KAiG5+H1CrvoXNIA==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010006.outbound.protection.outlook.com [52.101.46.6])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gfyyq5rx0-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sat, 05 Sep 2026 08:00:22 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XhKbo4MP/JQ5PnNwdxh+j028rC1KZJF421vTvRst6LtowzjD/4xsQs/kE/W0sxR0kZKmCyXiySKAi0fYTF+q3XEW7Dw20DK32+0Be5ReOHPD+iUT8fcPRzIhXRWVE0vxM39ZqtKr1Wtlw36KbmtG/9fHQNRP6H0QMclQqUvZDq8G7pek42zHHuEe9DWY8i5snAjoA5vVzNtKdpqyuyr62cM4vkMlNkYMoEkLg3lFzqfqZ5YYQ6qqAldI2uWtuNk2LZltfJOR+3T6G0rqGRTmGoYhqjAlz0+jJwZqFXMbnx6dLbSflIMGfjIl9hT08/oi8UYqXYH4tcGUPgLY6ssNzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wqo6bMrTQlQH9jrMeizdPnyRKuLc7Scvp+vg8edW8/E=;
- b=DBHY1q69eMbnCvyOZojSqoHp6dcF9AWTD2DhDI5GCPhZ0pXlqm/VixATTguexDmGoDvphA+kNPNnJe4tM9K1LkoDs7r4tIyvfq58I2C4tOQYw9vrMjlz1fqvRezTvBu69q2qx9CycN4c6fRxnXeqH80JGp0J+4Yyhcc9pV2s99fm6+S3o1EqGfoD8iE9TnmCbcA+aDxCN4AJgwZ7A7ET3ubiCy+MXMhQOhHkv/WWR/Zb7gkb01shJ4GftoRg6Jn+6yCUyvYnrhF9Hk0931ME8wWh1BcfT5H/uzOpFYa4j8Ke88fHOBd84UowV2Wfzdiat3VLlt5sQyYH6SjRvjfZ5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wqo6bMrTQlQH9jrMeizdPnyRKuLc7Scvp+vg8edW8/E=;
- b=OXJxCCemrbF4k7DeKUBhXvHPkvJ9Lk8N6OXxxke4ORUb9pZyWVKHGVu/CkUV0o4vgPXzEIkXtiXufAEfSlP/p0KeXHMX/0fSEQLza5ZB8Sc3e22q2O5xBZ0tYTiz1WduFFYR5pYpX1a+gA46M+NR+NN/3S8pf+qnKqLGPm6EnN4=
-Received: from MW4PR03CA0218.namprd03.prod.outlook.com (2603:10b6:303:b9::13)
- by SA1PR10MB7756.namprd10.prod.outlook.com (2603:10b6:806:3a3::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.4; Sat, 5 Sep 2026
- 13:00:18 +0000
-Received: from CO1PEPF000066E6.namprd05.prod.outlook.com
- (2603:10b6:303:b9:cafe::78) by MW4PR03CA0218.outlook.office365.com
- (2603:10b6:303:b9::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.14 via Frontend Transport; Sat, 5
- Sep 2026 13:00:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF000066E6.mail.protection.outlook.com (10.167.249.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Sat, 5 Sep 2026 13:00:16 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
- 2026 07:59:45 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sat, 5 Sep
- 2026 07:59:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Sat, 5 Sep 2026 07:59:45 -0500
-Received: from [10.249.135.178] ([10.249.135.178])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 685CxegH2197313;
-	Sat, 5 Sep 2026 07:59:41 -0500
-Message-ID: <bd2fe0c4-1657-4dfa-a34a-c8873a96f646@ti.com>
-Date: Sat, 5 Sep 2026 18:29:40 +0530
+	Sat, 05 Sep 2026 13:25:23 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-853e2610bb4so2100453b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 06:25:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=furiosa.ai; s=google; t=1788614718; x=1789219518; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UCPQY2s7Li9KbXRAy98AdJWgLwoyUR6+yD7sEQfOnDg=;
+        b=nQoGuLcpBE1eszb7gXhQNtgJrnMvYuLvOQPYNl4LzObHAzREvVlkejJTv6P23ySqqe
+         ybGy+aL3pjRZjzv9+ObJO9uYfV3b9+E3pYjFXu31FZuh5SUKpPrGskrzpLuNKQwJgzqP
+         rh2nnCSU/l6QTkrUvozQudw5iTx2QjMRGCpwE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788614718; x=1789219518;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UCPQY2s7Li9KbXRAy98AdJWgLwoyUR6+yD7sEQfOnDg=;
+        b=OQgmw/cQKGEE64ryN3b9kYBGPwU/8emhI6KYwGzEeMRENP9Jgoh2NVqNuTTzY26KuB
+         NYLC0AM8wZbd6vlD3lJg11pHbXkKNrjro8lmRm+STsIN+z4u1wIvi8J93g5H4oy0WHMC
+         lDmNS4LkMnZ/NB81mn9X2hjT2y77rqPtmopHcz/4zX7WIte+mStDiZLoIVi6GJ1PPrB7
+         S/7+sl+IkCSFwCCY9HjFCT8XHc/d+R2TxwWUdW7slH8wJrAwavhBBsB2J0Kx6b7J5ePt
+         NrreEj5Ak34qtJMdyKZUXRkNluhNbQIEt9bMX1Dapk4DgzdhTnWmyFEbNTnvTDm+C5Ca
+         W6Zg==
+X-Forwarded-Encrypted: i=1; AKwUvBzX5oUN384yF7QCS0rFEIQaFa7wqJvxdskQTugQxjRakhh7dop93jpgANiM9nAjd7nRVky036wu814L7oZzE4CC@lists.infradead.org
+X-Gm-Message-State: AFuF++kITf/DwPODkF5L5NqOXxqYpt/z15eJJmUDAPqlQkMQGTeUBFRp
+	SnlDBJE3/EPepx/isGH1YYs82tU0TOtdLw/8NaQVVCoCFpf20ys5YSVKD8YAZcyIMSq2OWLC9Av
+	caOJn
+X-Gm-Gg: AYBFou2ESPBlXFhkXnxSvA/+dPEA09zRIqDlIesCgMlTdHQ1Lmk4xhGhH9w5bfbWACM
+	BS2aX4Bo//HgllI9FuYmQh75EAHNoqkVTN6H2CGKnfdHvE4mVcXfbOrY89HA+J/6+kaBdWCEuMa
+	uUox0X5GQ2zG5XdwspkrWJAZD7+cz/wDwTkST6819SPahDqw+cvHvqPiyT3T142WnxZ3fqkZ7PC
+	xLQoLB8jK88I89ABEFkPmdyv0rEP0eZk4PHVS1GNsumAPO3rq7Eq/uuQwf2D97K50WjdotrgdyA
+	ya11+WmWPWXcInbLBSxYvt7rQE0SjWyQSrNnftY7Xg5v8hA67Yoz0SbvLUp2BeRvq3DJgMtSqZs
+	BA0Xcib8iU7cPSCntMxZxhT8H9OV294OaCCVgpIi+ckosUsFfvEkFtSc68hcJQmDXynT/XMr1c1
+	rZxJL1NhwWmH2zgmnKMl5ZRTxL1HtU9vxyDxwrmZnNlCn/frR9n07aZMs6rGAF5bJP
+X-Received: by 2002:a05:6a21:a395:b0:3d3:aed2:6f28 with SMTP id adf61e73a8af0-3da2168b2c9mr18634503637.28.1788614718057;
+        Sat, 05 Sep 2026 06:25:18 -0700 (PDT)
+Received: from rock-5b-plus ([61.83.209.48])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc465376831sm903641a12.9.2026.09.05.06.25.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Sep 2026 06:25:17 -0700 (PDT)
+Date: Sat, 5 Sep 2026 22:25:02 +0900
+From: Sidong Yang <sidong.yang@furiosa.ai>
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Jiaxing Hu <gahing@gahingwoo.com>, 
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] accel/rocket: search every core slot when a core is
+ removed
+Message-ID: <apwUewaRnoTNXHCt@rock-5b-plus>
+References: <20260904125936.26234-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] arm64: dts: ti: k3-am62p-j722s-common-main: Assign
- SRAM to VPU node
-To: Brandon Brnich <b-brnich@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>
-References: <20260810205206.685971-1-b-brnich@ti.com>
- <20260810205206.685971-7-b-brnich@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20260810205206.685971-7-b-brnich@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066E6:EE_|SA1PR10MB7756:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d55d33a-f03d-4782-ad6f-08df0b4da20e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|23010399003|921020|10067099003|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2B0IgHpTaH64AjQk+lGhODmcdBOLgcuUnLIIjBNT9K6qjZsT7LHpBoiycYTnOcap94VdPOIQ85uM/dol5Ars/J214exftenZzIZq2Ll0J1AQfPk6Qb9wTY7dHuTl6YU1B9Rme+w16nffIWkd4oztjUHE3015UETZtE5onQ13Mo1sZkbgwRGgqZN2PI7jueR/DKyWHfhNHTP0joNc1NwpriceyFAmP7vghclbywqYCM6QgICU2v/bfM37t6mIEAp8Ak+80EaY52EZ5H64lyoN8Yu7L/Cf2g8CwyTMCcgA3xiWvIeghCejkpVx82NZYdWsNaJiumRIJAwVIt6wbXheIv5Ci2Rt8W3ERvJnsQEcdh89NwvZon34KIO54yoLxhEDe6WRsBIWzPawmO8f6vcKPbRIzTrKAeRzYh3+3gfzr37RkqJCYejdKZMe+wLZ1DLKMi1Ex2b1tbPTyz/Qfpl3CKuCOxswTz4AKw+RbLTCCRmyxBXYsKKaA89Y+KEuNcqnR/hx1II2DTsqJ0tXYIiY5q1UJuQFpY7oD3KKg5qGmwq9wvEkpBUccQLTzHSA+jaUw5DalO6XBBE64NS8vXxrM/Jdwr8D5gFwP0YBdjQZq3C2948nZgTq+ARoQulWZUQeWHMX5mSGs5Vj8lE908ovZKa3loiatPqjXf5ptLD/OQ0UUJS+CtZsO4s7y0z1moWRo3skqdrf8Faj4yOEqFK2JmiLpeQOu9psav+l6DxooM0Mhd9o3C1MPD2K1Di3eKzb
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(23010399003)(921020)(10067099003)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lZ05QPdCcRetu2QthAk9mwSqKOseswGqt0KgUvykejcR5+8xpV/ga+RERhkqhH4ok69ASlU7tjl7Y5ix3+gfQgaZgn27sRpmfuUvDv585qrMgw+lj8jOtb1V+2XeE59lEIbz7vCAMbqqeFZu6QBotnASXU75dRb0o0ocrHeNxhrqbPckVt7rUOvnFK62dXzk/P1kR89/w6S//Ti97cXefj3MQitpEhHuRBueo6uwPa+l/2XuUwWHIHTaTiIW8LrpJOGa1HFeCvL91cHCpYAPs4sAzml62WMVr365eGHnuMq2g3Y/ZxWOh5lA6PKCboHfQYSC7LmQ5vIeerWy+x7/ihWm1APX9zp7xPT32lALSmsNSy1Mem+NaxDJi3fDVH/7577RuHs8wJehKnZTNUBv3XwUsdFWISNTB+W3CXXZ4dazx/m96fPAbbSnuMEP9yR6
-X-Exchange-RoutingPolicyChecked: cESNKGPrB+FYtTTdTHT0gGTnRxxzV7dM7ubneykWW4I+HmCn2xMQtznPDc2obXzjqpN0h/ZzdUQhqT14kVr0Yczw1lfP548gOZf3lq9zVcvJasSmpr+n1WoQZmggYxNrMyehvE3pgv4evDSGecZ3VCcTYubV2aDPcdU3sFGNJe7H1Z0BU3RhFG9wR+mrVmoGuFuhXZpkM5zOSlFVD776j8cfdUAYPxDuSKpUEGXvnob0KR1dZOyfK6VCazQFO1WnaTrKntf4uOp+JP23cPYKBH781pocTiLJ+WGOuigDL7X8S/8wLhyWgLqtcoRMyV13F+O8zBnySNcMk5hgnKQtVw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Sep 2026 13:00:16.7861
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d55d33a-f03d-4782-ad6f-08df0b4da20e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E6.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7756
-X-Authority-Analysis: v=2.4 cv=AfqB2XXG c=1 sm=1 tr=0 ts=6a9c1267 cx=c_pps
- a=KOHnGYwbv2QpRqiwWHMRyQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=4bPgbMrSjmlkycFVCvgA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 3HEfcm7kS1Dg8KXNrSxIuF0vY_wshscn
-X-Proofpoint-GUID: 3HEfcm7kS1Dg8KXNrSxIuF0vY_wshscn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA1MDE0MiBTYWx0ZWRfX8N3J9+Qg45Cu
- Hp4hrGHx5jt17OvodHtsmK9SmXwIbamODL9N2mDxkUKJh649KR6c0f9X/g2T1Z5cq3kCV4wm9rF
- bBNA9RdothLdiEChXl0Hgo8dHzArGR9OMkGwcuGEkQB8rXCy6bkUEXJWCehVR/ulIlMmsFPKETc
- dwwn0tXD0vdQ1b0UB0KDZhm/dzhNNT8dUHVJ1CRiY25mSBcd1K5ZHehHx8KOXBeN+A3YSLXOyXH
- FabdKUnCdh3P39c5FToteMhe8NIhwS2MUq8PP9CZ5BeWxMKreRab3HiEWDO5VPRbAq3MWeKQIGV
- n2iU2VHoHEg3kmcXDmfUVCa+MhHCBlXqV2bbs0LbcQ+uyPwRPyGdJZBnG3yztAIeENRG85rUFY2
- XxYm5CsUFh6w44p+S+tWierGJFcSanxKUrq98x9muUzKhenpD6gGMCm3vrZk8cMKMmPbeNIvGhX
- ZfQWfjBysmM4khNM6cA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA1MDE0MiBTYWx0ZWRfX8gti1Kwh4Qfe
- U34Hkwb6W/UWlstq4kXpxIgbSbFWuPjg4Q636l1+xfDK0J0XalDsLY9IU0p/xr2d4sAfmonhbhv
- oozUMpw+kX+Bpta6lHO4ppdFvkTFj78=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-05_04,2026-09-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 malwarescore=0 clxscore=1015 adultscore=0
- spamscore=0 phishscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609050142
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260904125936.26234-1-royalnet026@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_060026_250061_C3907236 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260905_062522_440645_CAD92F5B 
+X-CRM114-Status: GOOD (  36.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,32 +100,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/11/2026 2:22 AM, Brandon Brnich wrote:
-> The Wave5 VPU supports connecting to on-chip SRAM through its secondary
-> AXI interface. This allows temporal buffers to be stored on a per-stream
-> basis, reducing DDR memory traffic.
+On Fri, Sep 04, 2026 at 02:59:36PM +0200, Igor Paunovic wrote:
+> rocket_remove() decrements rdev->num_cores for each core it removes,
+> while find_core_for_dev() searches slots 0 to num_cores - 1. Unbinding
+> the cores in the order they were bound therefore loses the last one: by
+> the time it is removed the search range has already shrunk past its
+> slot, so find_core_for_dev() returns -1 and rocket_remove() gives up
+> without doing anything.
 > 
-> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+> num_cores never reaches zero, rocket_device_fini() never runs, and the
+> file-scoped rdev keeps pointing at a device that is going away. Binding
+> the cores again starts from that stale count, because rocket_probe()
+> takes rdev->num_cores as the slot to fill. On an RK3588, which describes
+> three cores, the second round lands on slots 1, 2 and 3 while rdev->cores
+> was allocated with room for three:
+> 
+>   rocket fdab0000.npu: Rockchip NPU core 1 version: 1179210309
+>   rocket fdac0000.npu: Rockchip NPU core 2 version: 1179210309
+>   rocket fdad0000.npu: Rockchip NPU core 3 version: 1179210309
+> 
+> The write to rdev->cores[3] is past the end of the array.
+> 
+> Nothing in tree reads the core array often enough to notice, so the
+> overrun is silent today. It turned up while testing a devfreq series on
+> top of this, where a worker walks every core a few times a second, and
+> UBSAN caught the first bool it read out of the overrun entry:
+> 
+>   UBSAN: invalid-load in drivers/accel/rocket/rocket_devfreq.c:47:10
+>   load of value 5 is not a valid value for type '_Bool'
+>   Workqueue: devfreq_wq devfreq_monitor
+> 
+> Record how many slots were allocated and search all of them. Every core
+> is then found on removal, num_cores reaches zero, the device is torn down
+> and a later bind starts from a clean rdev.
+> 
+> This does not make unbinding a single core out of several work. probe
+> still takes num_cores as the slot to fill, so rebinding one core while
+> its siblings stay bound would write over a slot that is already in use,
+> and rocket_open() still reaches for cores[0] whether or not anything is
+> there. Both of those want more thought than a fix should carry.
+> 
+> Found by unbinding and rebinding all three cores on an Orange Pi 5 Plus.
+> With this applied, 25 unbind/rebind rounds and 5 module unload/reload
+> rounds run clean there: the cores land in slots 0, 1 and 2 every time,
+> whichever order they are bound in, and the shared supply goes back to a
+> single user after each round.
+> 
+> Fixes: ed98261b4168 ("accel/rocket: Add a new driver for Rockchip's NPU")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> Assisted-by: LLM sparse checkpatch
 > ---
->  arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/accel/rocket/rocket_device.c | 2 ++
+>  drivers/accel/rocket/rocket_device.h | 1 +
+>  drivers/accel/rocket/rocket_drv.c    | 2 +-
+>  3 files changed, 4 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> index f130c7cb998d7..61e3588bbfdc5 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-> @@ -1117,6 +1117,7 @@ vpu: video-codec@30210000 {
->  		interrupts = <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&k3_clks 204 2>;
->  		power-domains = <&k3_pds 204 TI_SCI_PD_EXCLUSIVE>;
-> +		sram = <&oc_sram>;
-
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
->  	};
+> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+> index 46e6ee1e72c5f..efd004194c1af 100644
+> --- a/drivers/accel/rocket/rocket_device.c
+> +++ b/drivers/accel/rocket/rocket_device.c
+> @@ -31,6 +31,8 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+>  		if (of_device_is_available(core_node))
+>  			num_cores++;
 >  
->  	hsm: remoteproc@43c00000 {
+> +	rdev->max_cores = num_cores;
+> +
+>  	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
+>  	if (!rdev->cores)
+>  		return ERR_PTR(-ENOMEM);
+> diff --git a/drivers/accel/rocket/rocket_device.h b/drivers/accel/rocket/rocket_device.h
+> index ce662abc01d3d..c62d567010696 100644
+> --- a/drivers/accel/rocket/rocket_device.h
+> +++ b/drivers/accel/rocket/rocket_device.h
+> @@ -19,6 +19,7 @@ struct rocket_device {
+>  
+>  	struct rocket_core *cores;
+>  	unsigned int num_cores;
+> +	unsigned int max_cores;
 
+Hi Igor,
+
+I've tested this patch in Radxa Rock 5 B+ and it works. The test is that unbinding all
+cores in sequence 0,1,2 and rebind all. It seems that there is other issue about num_core.
+For example, sched_to_core() finds core for sched with num_core and it could make same
+error like find_core_for_dev().
+
+Tested-by: Sidong Yang <sidong.yang@furiosa.ai> # RK3588, 3 cores
+
+Thanks,
+Sidong
+
+>  };
+>  
+>  struct rocket_device *rocket_device_init(struct platform_device *pdev,
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+> index 8bbbce594883e..2bcfe4ab3c68f 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -223,7 +223,7 @@ static int find_core_for_dev(struct device *dev)
+>  {
+>  	struct rocket_device *rdev = dev_get_drvdata(dev);
+>  
+> -	for (unsigned int core = 0; core < rdev->num_cores; core++) {
+> +	for (unsigned int core = 0; core < rdev->max_cores; core++) {
+>  		if (dev == rdev->cores[core].dev)
+>  			return core;
+>  	}
+> -- 
+> 2.43.0
+> 
 
