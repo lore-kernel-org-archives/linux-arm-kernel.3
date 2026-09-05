@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356F5C79F90
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75311C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 09:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xnteEJpCubomPwB6glv59IEZPm5BMjzUqWSxe52tsE=; b=0pRo0tQGHcBPi2gtm8KSisttK4
-	PeNODwb+z31qZV7E4LYhD4hHc0EdcInotVNOXMYsYEPT2RZFjzYkZr3IGXPJcRupgntKWUKHdwzZO
-	mLPL/y7whGQE8FC2zXBup37F2r7zZE4iID6o3WwUmfzKjGNcQg2JwhZsSb/yLD4AoLZwuBe1AvOWv
-	Xw2slN27pJjgrWSQTTEGT//AifY03oaQYFxtFVitKme/CWBAJs+LEckgRo+UaV7wZ7Wc6dFZc3wzb
-	1tVy9MuNYrTA5yjSE6UPE+SE+gbU/wMyb6uvdQmoAN8nzh1gFevJ/3Jh6R152XZEnFJ8ALHcnauTC
-	yQWjtvXw==;
+	bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=; b=YHbKYorGCN8pZ8k5AWlUcXewvK
+	pOvYhVqkQYoIHcoAjoPQBy9xt/p+3nwsPqpnw/7wfrWQhzUjYEscQs6j/aqNe9dhX9rMrSymoCyuQ
+	seZXFknAWVdk4xDYa1vLiWRrSV+Vd94AzQni/q3EuZJNU5HOpcE42Ngiu+0asb8A3cqkZk6JmwjDH
+	c9o7q1TJ3fvMvlr4uiBMBv9XbAgSCqmQtL9lZ9y6qRdXjeuVcjHPzvxFS20OJ+54bK17NCF53xVMx
+	7/JUheQRWkJ64jvN3Cybay1OrFpUJ04B2tgsihJ2rb7wBMe0+bvk0tFNNYAOQu7luETbxWCHhx2rB
+	zfD1gcDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzY-00000003wO7-3IkM;
-	Sat, 05 Sep 2026 09:47:20 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1x2mzf-00000003wW5-063S;
+	Sat, 05 Sep 2026 09:47:27 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x2mzU-00000003wJY-12je
+	id 1x2mzW-00000003wKp-1PvB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 09:47:17 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-48586861639so1303852f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:15 -0700 (PDT)
+	Sat, 05 Sep 2026 09:47:20 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4843e9c5960so1872461f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 02:47:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788601635; x=1789206435; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788601636; x=1789206436; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8xnteEJpCubomPwB6glv59IEZPm5BMjzUqWSxe52tsE=;
-        b=K545te6VXqzc4hw6wMg/UDkJAxV0TNEXS0VLjGDku2r+QjM1gf29faCB1eE0M5J5M7
-         P0+o4C4nQfn6ZmSwYYcOaB43d8t1kDnpN8U/c6NI+5umEWIokrX97zPkN6x039/3vJXh
-         ZQ4/fncStcuguMiqCDv0Crz/vUOzsH1rKffqr5wpGa706zrRQq6t46Ymi97zOHedQP+2
-         LktNz9AYjYVocAPB45OdiYIVpla8j/3UJiDR9mlL6eBO25i9JF8VrLrVo3m+gOnhHPMq
-         ZFcRS3dyciUS82rVZGNFj1izA01lGnOzY/UKvNz/FLTd0P+caRrKEdmK7temcTOsKUwD
-         rmFg==
+        bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=;
+        b=l0qicIjDLmhzm3i807ypATT5eiCilMfxd9te9OQmv48FS0Cgbh2FLNDM8IfFuK3CvK
+         duDwjIE2nPT6nWqG5UNy2EWbbJ+MFNZsBr2LZKS9eCRc49TYUdwYRHDiYjIf8+kCxw7e
+         nB5bBXisxDPhemdj9UpE+JqBBE2gi8SxiF0QfCljMwlL/CzWl0PAH22QZoNO7ITD5tQK
+         kNy5eSZq5MoM3/boF1PHgalw2+2cDBy1BF8fj7ppgJ318QsiBvC19gcz6tMsNGADOdC2
+         Ip4xfesQzKYe4t3zIHKVxQLfCCDBsr9G1tdR2MYfLSeA6gk40wCPCtJEqwrcxS8eAOAB
+         uIlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788601635; x=1789206435;
+        d=1e100.net; s=20251104; t=1788601636; x=1789206436;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8xnteEJpCubomPwB6glv59IEZPm5BMjzUqWSxe52tsE=;
-        b=jyd8J7OOVl+OupShwk7TLBAFfEep+JwyWdOsZMN8E9reRZ1/BtZa6WXEoAheqHDBK/
-         jgF9O/Mh7gxOcV+vO/LxBG20kniLQl4hDWS22ooYXlQxwrH7tt2gL3KgvzcN9I7jaXbC
-         AOSI4kKOXfm5ljDMWiZENEoEatR01CuMirkRpdxwYTF3laSKOxZXdOSjAKjSz4GekOqe
-         J+zT6XVENAzb4enmXloOZtdC0Wfvm00aFAdcmlBkQtmnniwu0u9Wzlrox8bAb4F/S34J
-         taopevbyJA42B9iba4M3cE7Jwd2ZsO6v/x0Qwhwvt4+NwUc45S0Nuk0FEHnfxkloGLT2
-         eorA==
-X-Forwarded-Encrypted: i=1; AKwUvBykFz84olZrL2AXM2R1DqJu66YL5GySLte9lEQmZ39qSrgAY9grDxkPNNu15CchJYgNF/BfzxPJx3SAFIYihaaA@lists.infradead.org
-X-Gm-Message-State: AFuF++kGSeaUxD05DNbYtkcQw+bFRjNZ+Gn6yoa7at1jwhEGImDGim+0
-	tL6nfE47dE3s0EHUj/yhBELBqn+zQ8gAntla6/dK6GLc5s0vE94ac36q
-X-Gm-Gg: AYBFou0n5cIBaV475DcRsUwhNPlaTUXKMzXhrgMAyuuKeSedypyHNeL+MoYxw9MIwxc
-	YIZGiZxl9TsOkAGfZtQ2pHWBnFv/I1Bh3h3+Mfd1MOb0OOfwUyuHl41QYGWv2PNsQS8EBg+H0ON
-	JixWJZ9k/rfREIPw0G1h7Mcq6CfUYJjqijRm4JWsTsaPsyWQT/4jH9fy0TapOPTQbctSgCJ44Gc
-	BBc+7CuKaiSvEQim5jAVJ3e98lXOb1CnKV6kpmSY4uv7mtNViyblV2IiF4PCPWT7bplw4lOREhI
-	e9lNZs21NIuAZiCUZt0tTTFcgcKSWaecVne8KXNSwcnS4WpumNEHxJc8H8onskKlIvGikuPFivk
-	ZFg2FCrQxKyuImX2EJJF9+l9K+B1rwAStxtNCSL6ZuP4p/zHa1bjlYw62kKrS3BwokA+o4cddDD
-	XUbqqH9xzSfgPwS9Acwkc0YiZlzBJX89t/O+8pt6ewUT6diCPopRyord3+qE8TlDEkSUxnWEB1s
-	HjB8qeO8X9HVvVFhUhZ5yJLpp+sZQkj1OjMSjdq0HxQnm2CnGPzjDdyWl7I6AEGhcoYppHZpwq0
-	RowD241gmJCng1dT8Dw5+kv8Wfv057lHFmGgmKDJk7j9Yj1Q7N48RWgpmVTeWoGG3X4=
-X-Received: by 2002:adf:ecc6:0:b0:484:49f8:b56a with SMTP id ffacd0b85a97d-4857e4f4adamr18253955f8f.8.1788601634554;
-        Sat, 05 Sep 2026 02:47:14 -0700 (PDT)
+        bh=CQmExMUpeIFcvU7MdenadgThwocm9EsyaVYoR2H42kg=;
+        b=L+A88EOoSh49DVglKUXuR1szT6PLMEPYxv4sJhYHBifZuH1M8uKIE7aq4Fenqvck0K
+         Zs2EesQ4hTPUtlcclNgPxG4SnAi/bCIIF1dPayCHWpHD3u/q/teLJbE2QDFxelbJ1R6C
+         R9RgFGSNHLib08snOI3qGEuMR85vuzG8I1NwByevFkZ1NOJYr5g+fb/IZC3lHTPB96w1
+         qu8kxvZaZnVDckHwFG7Yy5QA+IJERow7tGAT2OCKMoGUwbtKt0c1YCqPfgd2THZnA5nG
+         pxI8BN1XSVTr//c80eMWhmJz/FZW3sIZ1e43+DkOQ9zhHcIoob5atsEn7ye8MR+qkJ8U
+         eQ5Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwNljG7S7MXgXxp5fT6jrk2sj20KVKD7rjWvfWhizn25VdHcqvHyF+G0Dvce83rQ6YAjVtwCs7Lx6TlAiPXpj7e@lists.infradead.org
+X-Gm-Message-State: AFuF++m0O3ROlbq6hfi2VavK8JKWwbm0Va0EIAS/+6647L4mD1eNGkij
+	JaLxHqVckFQo06A/hqihCP23jILgvm8NkZuETxEmkjg/LZ26Or7mrWXn
+X-Gm-Gg: AYBFou2VQcZf3n+UkJbYKpZgiNmFnds+bgjiOtN01Zd9oofn+sn/VEXLNVqlYDsEE6n
+	jLP/Y5K8jmJd4IFL+v8NIM5BQelQuCPIzFG8IliIYHlCnagd2sLC/QJrsY0p9YUDtk/1dkraC+6
+	feIDBNrBaBXx9PyWb5NhLww65/uBiik1EzHVzIgS6pP4vX1eGImEwdh7G5BoYRoXzB5ZvUon35B
+	FtJUww0FFzZJby3ax0oYdDlj1FppGhK4znScBOkXXPEeYn0cl/zCBk1LfTRoGuJyLikAH6FNnHG
+	BJZlcmQ6/eHdLiUs9KK341M3+llA8NQxR9scwNFfQI9a8GFSc38BwW9BH1LTvjAqBxWYSDuMJUs
+	Sz2K8I7+BPihrc2n6loM4KEqiSccWe/RSJFMbWN4Mdvz5YWfsa1k0UlG1FbTro40wNy8NDT3Phl
+	eGWSRlsyZ025TGx8/inGrcfTNNGCNtw2GtNRDc8CcTL7V8i4bYgonxmNfA/cBwuThgkJlRPAvCF
+	KFA+Ovn8dCS+7EC6XjONhgKLqbb3esC8jBdyII8Nq//+wfo7N5mcin8u81wG2eF7OALxztnjEEY
+	9e1gQfgQjLLPpBU+2wdFlUHnwA2F6+rGJInESRboR7qH+hXdeQdUBVqq6X6KONoXiFTM5H2+0+J
+	3IA==
+X-Received: by 2002:a05:6000:2287:b0:485:8b5c:da39 with SMTP id ffacd0b85a97d-4858b5ce1bdmr9454058f8f.12.1788601636313;
+        Sat, 05 Sep 2026 02:47:16 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a4eb-3001-c06d-af27-9fa2-ea53.310.pool.telefonica.de. [2a02:3100:a4eb:3001:c06d:af27:9fa2:ea53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.47.13
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-485883c6ba4sm14232013f8f.25.2026.09.05.02.47.14
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 05 Sep 2026 02:47:14 -0700 (PDT)
+        Sat, 05 Sep 2026 02:47:15 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -105,17 +106,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
 	Michael Schmitz <schmitzmic@gmail.com>,
 	Andreas Kemnade <andreas@kemnade.info>
-Subject: [PATCH v2 8/9] docs: kernel-parameters: Drop the pcmv= entry
-Date: Sat,  5 Sep 2026 11:46:48 +0200
-Message-Id: <20260905094649.41996-9-kmehltretter@gmail.com>
+Subject: [PATCH v2 9/9] docs: kernel-parameters: Drop the pata_legacy.qdi and pata_legacy.winbond entries
+Date: Sat,  5 Sep 2026 11:46:49 +0200
+Message-Id: <20260905094649.41996-10-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20260905094649.41996-1-kmehltretter@gmail.com>
 References: <20260905094649.41996-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_024716_297371_2E1AE9F8 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260905_024719_154738_E334FD42 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,34 +131,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pcmv= went away with commit 7aeffbf2ddec ("pcmcia: remove unused
-pxa/sa1100 drivers"); nothing parses it any more.
+pata_legacy no longer has the qdi and winbond module parameters:
+commit 3c4d783f6922 ("ata: pata_legacy: remove VLB support") removed
+both together with the VLB controller support. The entries also refer
+to CONFIG_PATA_QDI_MODULE and CONFIG_PATA_WINBOND_VLB_MODULE, which do
+not exist either.
 
-Drop the entry.
+Drop both entries.
 
-Found by cross-checking every documented name against the __setup(),
-early_param() and core_param() registrations in the tree.
-
-Fixes: 7aeffbf2ddec ("pcmcia: remove unused pxa/sa1100 drivers")
+Fixes: 3c4d783f6922 ("ata: pata_legacy: remove VLB support")
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Acked-by: Damien Le Moal <dlemoal@kernel.org>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 2 --
- 1 file changed, 2 deletions(-)
+ Documentation/admin-guide/kernel-parameters.txt | 13 -------------
+ 1 file changed, 13 deletions(-)
 
 diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 48dd273eaf6c..4864e37005be 100644
+index 4864e37005be..33298da28b55 100644
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -5311,8 +5311,6 @@ Kernel parameters
- 		nomsi	Do not use MSI for native PCIe PME signaling (this makes
- 			all PCIe root ports use INTx for all services).
+@@ -4994,19 +4994,6 @@ Kernel parameters
+ 			the first port in the list above (0x1f0), and so on.
+ 			By default all supported ports are probed.
  
--	pcmv=		[HW,PCMCIA] BadgePAD 4
+-	pata_legacy.qdi=	[HW,LIBATA]
+-			Format: <int>
+-			Set to non-zero to probe QDI controllers.  By default
+-			set to 1 if CONFIG_PATA_QDI_MODULE, 0 otherwise.
 -
- 	pd_ignore_unused
- 			[PM]
- 			Keep all power-domains already enabled by bootloader on,
+-	pata_legacy.winbond=	[HW,LIBATA]
+-			Format: <int>
+-			Set to non-zero to probe Winbond controllers.  Use
+-			the standard I/O port (0x130) if 1, otherwise the
+-			value given is the I/O port to use (typically 0x1b0).
+-			By default set to 1 if CONFIG_PATA_WINBOND_VLB_MODULE,
+-			0 otherwise.
+-
+ 	pata_platform.pio_mask=	[HW,LIBATA]
+ 			Format: <int>
+ 			Supported PIO mode mask.  Set individual bits to allow
 -- 
 2.53.0
 
