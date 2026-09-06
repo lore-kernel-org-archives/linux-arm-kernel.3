@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE104C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E34C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 07:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWa86xSo2EM7HfD7rT76RWRGqKAuqqO2x3EPFvEsdAw=; b=xjTOS1Ol4+KLY/jAMZsbxhDx88
-	x6Nt/e2KCZeW6rOAqBesozcTEYgbsH7PQMM0rMdUI19XCDA9TSKZU03shJoGREug/MR9dJXkB97hU
-	oJaK9K7WuwObWTPM6HxmAKz2sJsTfsNLKP5+3YZ+j2k+DAykdLJaLVSjUvC6rPJaX1+qFuzQ0B+ME
-	A2+qyMmyCjNc+v0m1T//TqQXibSM/90k7dgEuXVvqtsmkDJzQaPBifqQCGx1uVlCHkBfdoxHEcOis
-	lSad41dnLhc7aEu/JZTtfKRXVX2k04vW1q/PiT8j7y94vLa5v/+AUES16915SUvxe1GIvu2oVeSxw
-	b/aALy4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gefUybkzcJMt8GUfplUl0JMUrxgfiEae4tnmk2w8Y4A=; b=Sz2RvcFQQy9WG4
+	2oLBrmWJBhiOFGsCYZkaHl2nFdN5H9kCaDm+lEglHt6kWbK5vEvnjNQ/LFFS2bmdSGF5FeM0YFG7W
+	txvxC8cthFzsCrrUTamqq2MXruGryMpEW2lWQ9Wj0qbk2q56PQ1iim3bd0I9cpBfk60JsVv1KrsXF
+	X2Q6e6Swp1EoDjzrDn3cxtkwby5lbIcRurBFYsgCMdblU9BCW1FkVwvghRg2nBnMY0wlg8vapa5jn
+	++4D5P4JohniEcWCNjW5TjtwQ1tqVuT7g+KSxBGfQzvvCmoZmH9PkKJszxSzxArzlmzk2SOXKVX0b
+	ILoICwdBl+AMeoQf1z6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36nD-00000004mrF-10Mm;
-	Sun, 06 Sep 2026 06:55:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x36yK-00000004nBk-1CqY;
+	Sun, 06 Sep 2026 07:07:24 +0000
+Received: from sender6-op-o15.zoho.com ([165.173.180.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36nC-00000004mr9-2kvN
+	id 1x36yG-00000004nBG-2cjU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 06:55:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 883CA43633;
-	Sun,  6 Sep 2026 06:55:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA451F00A3A;
-	Sun,  6 Sep 2026 06:55:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788677752;
-	bh=TWa86xSo2EM7HfD7rT76RWRGqKAuqqO2x3EPFvEsdAw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DRihK53RuGMSiH8chL7jimw4KeXWs8fm/rKej946fBVmDRRFPZ1bSR4xp1s7AH6Cz
-	 +b6DSYwoYr/HJUqg4FzaodhtKLkzm8GEeIc1pRm2QLaNSS0AUCOkCvsGzGNOobLCzf
-	 1Tj9vlb/sEvsk+I573kMrUc8RTPmO77wFDYDOeCwwUb2nnMwMmXAOSpyRofvh0+uKL
-	 MfgvD5Ra+3Anrxhd//323lEIhCG2DODpF8/kYF/QTXLzFgQ0sR44FAGMQhiT5BtLk6
-	 aAJVRV49OQHxpKYal+jhzRGKNQ1ELb+OQdiKs71Xgn6FNIkUm2uIsuqAn7mmXX9MD0
-	 rm7vID3/K65yw==
-Message-ID: <7c52bcf5-8b58-4c15-bf1a-ba7a0bb04db1@kernel.org>
-Date: Sun, 6 Sep 2026 08:55:44 +0200
+	Sun, 06 Sep 2026 07:07:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788678429; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GU8Gw3pgmv5ENNEAPoh9K5f5gUMs2yTtMoZ24Vu2oIfXyiivo9utKhkzdMujzBf34Ldtsln8uN/PSbEEWxGroSnCvECwaQVwoAc8R+8E9UcJIKTpL7XGEFv4JZ4VmOPE8Y8y1uo27mT4XZCt9z5E74uEsq7DCl7fPvR++wc0CQk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788678429; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gefUybkzcJMt8GUfplUl0JMUrxgfiEae4tnmk2w8Y4A=; 
+	b=TZyhfMyKLQIKizNMdn1JCFzYd/Tc0WoNmmLZAJZ+Bo7MG3mcEmAIYNEN/dEfYgZKtC0ljMkcQByNzQ0wfCMhEp8kvEEDKog/Hnutuidi5aDLAydKE62vLIV61F5o1LHd4d4ZpMxp7WxJ96ijeezYrl1YwQSMUcGHdQP1XdF4EhQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788678429;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=gefUybkzcJMt8GUfplUl0JMUrxgfiEae4tnmk2w8Y4A=;
+	b=Y037DvrwqTN5toJhjziaJ/7FRQq2TAxLR/eKe1KKfQDh8xEQYGa0TGqrZ7sR763/
+	PkYM+/PXwZKObE4Rzo5XlcOiJ2wfA5NWnUhUtMKoeOz+QRfDJksb3C3R383q+D+LT8K
+	uAtkqYA/ccvP9mJ7Fe0LJvPHoABug0ID3f9qDIGg=
+Received: by mx.zohomail.com with SMTPS id 1788678426986262.3131105999689;
+	Sun, 6 Sep 2026 00:07:06 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH 0/4] clk: sunxi-ng: a523: Fix single-divider clocks
+Date: Sun, 06 Sep 2026 15:06:37 +0800
+Message-Id: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] dt-bindings: usb: Add CIX Sky1 USBSSP controller
-To: Hongliang Yang <hongliang.yang@cixtech.com>, peter.chen@kernel.org,
- gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: p.zabel@pengutronix.de, vkoul@kernel.org, neil.armstrong@linaro.org,
- pawell@cadence.com, rogerq@kernel.org
-References: <20260906032440.470788-1-hongliang.yang@cixtech.com>
- <20260906032440.470788-3-hongliang.yang@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260906032440.470788-3-hongliang.yang@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDSwMz3eLSvIpM3eScbN28fN0C3ZRUY1Nzk1RTCyPjRCWgpoKi1LTMCrC
+ B0bEQfnFpUlZqcgnIFKXaWgAkAhN5cgAAAA==
+X-Change-ID: 20260906-sunxi-clk-no-p-de3574e5823a
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Junhui Liu <junhui.liu@pigmoral.tech>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2495;
+ i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
+ bh=iKacs7dw+/b845xjJsLw2XuiPPAnkyl59zLiFFJQOGk=;
+ b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLLmCrK0Z2RuORfzuqfXZbOq5v8wY8eCVQtE+9mcW6wXZ
+ UlpPW7pKGVhEONikBVTZOHyF/9nrcPz7YhA632YOaxMIEMYuDgFYCIGTxj+KZw4mdunZRVYFLtU
+ L3vmDr+0XJ2dxabrC7Mnn9eSYZivzshw8sIG7v+bGQ0mmOzddjKlOrlB0843a0Ob9KU/y/YWyC/
+ nAgA=
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
+ fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_000721_961973_1B8A0D27 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,184 +94,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/09/2026 05:24, Hongliang Yang wrote:
-> Add device tree binding for the CIX Sky1 Cadence USBSSP controller
-> glue layer. The integration adds glue registers and mode strap
-> controls in the Sky1 S5 system controller. The CIX glue node wraps
-> a Cadence USBSSP core as a child node.
-> 
-> The per-controller RCSU control and status registers live in a shared
-> RCSU region described by the cix,sky1-usbss-rcsu binding and are
-> referenced through the cix,usb-rcsu phandle.
-> 
-> The per-controller RCSU registers are accessed through a syscon regmap
-> referenced by the cix,usb-rcsu phandle.
-> Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
-> ---
->  .../bindings/usb/cix,sky1-usbssp.yaml         | 144 ++++++++++++++++++
->  MAINTAINERS                                   |   3 +
->  2 files changed, 147 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> new file mode 100644
-> index 000000000000..8e66dea50fa7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
-> @@ -0,0 +1,144 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbssp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: CIX Sky1 Cadence USBSSP Controller
-> +
-> +maintainers:
-> +  - Hongliang Yang <hongliang.yang@cixtech.com>
-> +
-> +description:
-> +  The CIX Sky1 USBSSP controller is based on the Cadence USBSSP DRD
-> +  controller. The integration adds glue registers and mode strap controls
-> +  in the Sky1 S5 system controller. The CIX glue node wraps a Cadence
-> +  USBSSP core as a child node. The per-controller RCSU control/status
-> +  registers live in a shared RCSU region and are accessed through the
-> +  cix,usb-rcsu phandle.
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-usbssp
-> +
+Sashiko pointed out two issues in my series adding clock driver support
+for the Allwinner A733 SoC [1][2].
 
-No MMIO here?
+First, ccu_mp_set_rate() generates an invalid mask when an MP clock is
+defined with a zero-width P divider, clearing unrelated register fields.
+Second, ccu_mp_set_rate() does not handle CCU_FEATURE_UPDATE_BIT, so
+divider changes are not latched by the hardware.
 
-> +  cix,usb-rcsu:
+The affected A733 clocks were modeled after the existing A523 MBUS,
+IOMMU, and DRAM clocks, which have the same issues. According to the
+hardware description, these clocks only contain an M divider and should
+be modeled as M-only clocks.
 
-Then this is your device.
+The A523 high-speed and PRCM timer clocks have the opposite problem.
+They only contain a P divider but are modeled as MP clocks with a
+zero-width M divider.
 
-Last time you claimed you have TWO registers. ONLY. Now you claim you
-have entire address space, but somewhere else.
+Add a feature-capable variant of the M-only clock macro and migrate the
+affected A523 clocks to it. Convert the timer clocks to the existing
+P-only clock type. The affected A733 clocks will use the new M-only
+macro in the next revision of the A733 CCU series.
 
-If you do not have here MMIO, then this glue layer is not a separate
-device node and you should have one node only, just like we did for DWC.
-One node for glue layer and CDNS USB.
+Tested on Radxa Cubie A5E with CLOCK_ALLOW_WRITE_DEBUGFS enabled:
 
-If you have here MMIO for some glue over IP block, then it is unlikely
-to be a syscon.
+  # cat /sys/kernel/debug/clk/mbus/clk_rate
+  600000000
+  # devmem 0x02001540 32
+  0xC0000003
 
+  # echo 300000000 > /sys/kernel/debug/clk/mbus/clk_rate
 
+Results without this series:
 
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: |
-> +      A phandle to the USBSSP RCSU system controller region (see
-> +      cix,sky1-usbss-rcsu.yaml) followed by two cells: the offset of
-> +      the AXI property configuration register and the offset of the
-> +      controller status register, both relative to the RCSU region.
-> +    items:
-> +      items:
-> +        - description: phandle to the USBSSP RCSU syscon node
-> +        - description: offset of the AXI property configuration register
-> +        - description: offset of the controller status register
-> +
-> +  clocks:
-> +    items:
-> +      - description: Start-of-frame clock
-> +      - description: AXI bus clock
-> +      - description: Low-power mode clock
-> +      - description: APB register interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sof
-> +      - const: axi
-> +      - const: lpm
-> +      - const: apb
-> +
-> +  resets:
-> +    items:
-> +      - description: APB register reset
-> +      - description: Controller reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: apb
-> +      - const: core
-> +
-> +  cix,usb-syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the Sky1 S5 system controller used to program USB mode
-> +      strap controls.
+  # cat /sys/kernel/debug/clk/mbus/clk_rate
+  600000000
+  # devmem 0x02001540 32
+  0x00000003
 
-One more syscon?
+Results with this series:
 
-> +
-> +  "#address-cells":
-> +    const: 2
-> +
-> +  "#size-cells":
-> +    const: 2
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^usb@[0-9a-f]+$":
-> +    $ref: cdns,usb3.yaml#
-> +
-> +required:
-> +  - compatible
-> +  - cix,usb-rcsu
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +  - cix,usb-syscon
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - ranges
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        rcsu: syscon@91c0300 {
-> +            compatible = "cix,sky1-usbss-rcsu", "syscon";
-> +            reg = <0x00 0x091c0300 0x00 0x200>;
-> +        };
+  # cat /sys/kernel/debug/clk/mbus/clk_rate
+  300000000
+  # devmem 0x02001540 32
+  0xC0000007
 
-Drop node irrelevant.
+Link: https://lore.kernel.org/r/20260905164854.57BEF1F00A3A@smtp.kernel.org [1]
+Link: https://lore.kernel.org/r/20260905164855.57E751F00A3D@smtp.kernel.org [2]
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+Junhui Liu (4):
+      clk: sunxi-ng: div: Add feature support to M clock macro
+      clk: sunxi-ng: sun55i-a523-ccu: Use M-only clocks for MBUS, IOMMU and DRAM
+      clk: sunxi-ng: sun55i-a523-ccu: Use P-only clocks for high-speed timers
+      clk: sunxi-ng: sun55i-a523-r-ccu: Use P-only clocks for timers
 
-
-> +
-> +        usb-4 {
-
-This is just "usb". Not usb-foo.
-
-> +            compatible = "cix,sky1-usbssp";
-> +            ranges;
-> +            #address-cells = <2>;
-> +
-> +            clocks = <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
-> +                     <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
-> +                     <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
-> +                     <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
-> +            clock-names = "sof", "axi", "lpm", "apb";
-> +            resets = <&src SKY1_USBC_SS2_PRST_N>,
-> +                     <&src SKY1_USBC_SS2_RST_N>;
-> +            reset-names = "apb", "core";
-> +            #size-cells = <2>;
-
-size-cells follows address-cells.
-
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c |  37 ++++-----
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c   | 128 ++++++++++++++-----------------
+ drivers/clk/sunxi-ng/ccu_div.h           |  18 ++++-
+ 3 files changed, 88 insertions(+), 95 deletions(-)
+---
+base-commit: 4d7d9486c04d917265f64c55bd23b2cc4fe7749c
+change-id: 20260906-sunxi-clk-no-p-de3574e5823a
 
 Best regards,
-Krzysztof
+--  
+Junhui Liu <junhui.liu@pigmoral.tech>
+
 
