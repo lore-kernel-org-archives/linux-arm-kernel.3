@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96437C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 21:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCE7C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 22:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y+QrVwM73Wzip3uoJP4bnyA7+SWhW5qCUOru0QiwwtE=; b=mQiftnbepSB3xcscI8uzrO+Bbi
-	xIr4YmeMU8uLRoRloyjfEG8z5KbtqrwrwGbJYfD/pfP/3tvHvXj4o+2jlAHUth2TFfP6LmDQhSZbj
-	0eyCH/dvnRyXZv+TaB2Ve6rSsnI2k3KH2SdX71LPdyMMnhJP6fovAspAvQH2WDyYbJfU0x1vMkyN8
-	/8LXnSlyyOFhyb/cherAOoYv5s9S7GHlxB8QwHE+DqG9C6xMVZdH4K8OkgcNt/l60Fbcdx8drVctt
-	MaXVyQka2PhDd7RRsBr3kz1FwwK21Y+Ky2OlLAecva6q0DRE71isf8lYdxEqE+B+L0zaAQgbf0tZe
-	nIprNvGQ==;
+	bh=X616LNffJX61eGVtKm2Wzr50WBE8zSwiZ6ynHACc3pE=; b=OLr3efZdGIzGvpxYmRlokxYOv9
+	kmagXOTuuWlTWQVp+fPHHdOreBl7SPZiHnG2STYuBTtAV82hYvUjCNQf+VOYHQ93V5X5YbhXktpgU
+	ChxEjZcragOgCUXTsUSC6BJ+Ztk/id17Ejxa0CsapbCVc8qtnksrBZFZwPx9eMHCbuGWr8TJjfOfY
+	ArP79QAaWQkzgEV1ZqiWJj0kYZide5u6VilSO7ADkjkPC5Y+/GUAPmGbPl/j2czZJ52D2Ez1IlRhP
+	0U3GmXkPDiYhf0jgUX1XdJg7YEoEemTyJKzvBAP1+VkqYpZUx1tNPaGKFhVWhPSehybsP5PBcZYQV
+	vZAwZcIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Kcy-00000005aqA-0pmU;
-	Sun, 06 Sep 2026 21:42:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3LYt-00000005cHO-0crO;
+	Sun, 06 Sep 2026 22:42:07 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Kcw-00000005aq1-0UDS;
-	Sun, 06 Sep 2026 21:42:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2425C601F9;
-	Sun,  6 Sep 2026 21:42:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 93B42C2BCB8;
-	Sun,  6 Sep 2026 21:42:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788730932;
-	bh=VDyD8iz27wa8NflmbwW9hSRSzq083qvoKr4XfLGVGsI=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=HQ/eXign/Grhh0PdGupiqE1shMHQ839pzqGbBb+OehVwes9/jQa4DQYYcfYsduwh4
-	 fFY34HYh7XmYBvjitzo3DQxcK0vdc4A4hNI6VffPNyFthUtYBhIh7ujhkbRA9BLwqX
-	 kminqD97H5sydabRSwtiErTWLx92IFmCYRF0Wo3RL+BlwfvEIlRbqHBfHPxsuoLiXg
-	 zLHBNAb2q8sJmXrWHrXeFu1yL20lzxHqdzpk+lsBsDlkZcEvk+uQazkcEc/j5rJARa
-	 +aJztckUeA0M53W0ooV2vZRa3mt4HzAzqBOTMPQxh7dgKSR24rHrwdwCDwxPVVGTBe
-	 snEzGBJE4XIBw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CBF7C79F8C;
-	Sun,  6 Sep 2026 21:42:12 +0000 (UTC)
-From: Ryan Leung via B4 Relay <devnull+untilscour.protonmail.com@kernel.org>
-Date: Sun, 06 Sep 2026 21:42:06 +0000
-Subject: [PATCH mt76 v3] wifi: mt76: mt7915: fix thermal zone
- use-after-free and cooling device leak
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-mt7915-unregister-thermal-v3-1-efb2d06e61f4@protonmail.com>
-X-B4-Tracking: v=1; b=H4sIAC3enWoC/42OQQ6DIBBFr2JYlwawIHbVezRdII5Ko2AATRvj3
- Yu6bNJ0+Sf/vzcLCuANBHTNFuRhNsE4m0J+ypDulG0BmzplxAgTRJISD7EoKceT9dCaEMHj2IE
- fVI8lA0m4FlQqgdJ+9NCY186+ozQT6HFcw1Q9QccNu/W6hHH+vb8w07192Cj5YZsppliLmhfVR
- Ve5kLfRu+jsoEx/1m7YZTP7G8cSjinScKrqhovmC7eu6wdbFVLDLgEAAA==
-X-Change-ID: 20260809-mt7915-unregister-thermal-82e805c618a6
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ryan Leung <untilscour@protonmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788730934; l=3446;
- i=untilscour@protonmail.com; s=20260906; h=from:subject:message-id;
- bh=jg+VrZXwazJVrct69E59ekan8eJXBrNoBIRKgj68l10=;
- b=x0FHS3zeNHr8A2J5GkukmZc+dv0Tf0y/xb73NXQoLHXl+rMbmkLv3Ip73CTp8uRdJ87MOUzDI
- 6LOHGLHUKcRBQjZ36TG1u1kk3G9PC4jq4R2mfU36LyzCQZS0BvQnaVt
-X-Developer-Key: i=untilscour@protonmail.com; a=ed25519;
- pk=eCaNcoQNRWYKZ9D7KbOGKvQVK2YFguJXZxglTtAR7Xk=
-X-Endpoint-Received: by B4 Relay for untilscour@protonmail.com/20260906
- with auth_id=1011
-X-Original-From: Ryan Leung <untilscour@protonmail.com>
+	id 1x3LYn-00000005cH3-0EIa
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Sep 2026 22:42:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788734521; x=1820270521;
+  h=date:from:to:cc:subject:message-id;
+  bh=/w1BvM7k1p0Lc9Q4/rR58TXn5R6mjByZwzMQRMXBPxY=;
+  b=RZ+D8r24Qw/UW9jSTLW+zaSy7GduAz92KlCwTR6nb3EKATVN5w6dNvUu
+   MKwPL6fazgoibogeQUg0Kc9KBm5hcQm46lSoLEeHgbpR8mTdToaDzByaF
+   ieIFkgSW6VhrV5i8S9NsOsYzQPNEtOVp1yMbFODC3hGBaF9ee1fEWU2AO
+   /9vHlWbDbrMLowLKjEV7oH43faVewZl3Td5+SJr9ZmIrQbRMMt7Ym8oxT
+   tnbQVYj05m3fNlxiJRyP/CpcCu2iLHvlgRM+Lf+mRtfYKP7bNWNIrszpp
+   rZMdYbqjoVfc7Vkj0PFc9UHFZazhiHhE9ZoJfhZmXaWEpG4ggnS7gqWRO
+   A==;
+X-CSE-ConnectionGUID: YYNIdlpFT5CXiUbPbprclQ==
+X-CSE-MsgGUID: 9kETubhiSFGJEHLpHpoWAA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11898"; a="100498551"
+X-IronPort-AV: E=Sophos;i="6.25,266,1779174000"; 
+   d="scan'208";a="100498551"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2026 15:42:00 -0700
+X-CSE-ConnectionGUID: 503KZoB3RSGELIFVCJPsTA==
+X-CSE-MsgGUID: CR8ILGd1RJqkJ6jZf3g/QA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,266,1779174000"; 
+   d="scan'208";a="274065179"
+Received: from lkp-server01.sh.intel.com (HELO 73f3364bc37e) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 06 Sep 2026 15:42:00 -0700
+Received: from kbuild by 73f3364bc37e with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x3LYj-000000002nl-0sr1;
+	Sun, 06 Sep 2026 22:41:57 +0000
+Date: Mon, 07 Sep 2026 06:41:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4:ux500-simple-sound] BUILD SUCCESS
+ 9094aef897221bdd693c237c024520bb16251849
+Message-ID: <202609070634.pTLqu5k3-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_154201_150865_B7E1D797 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,103 +80,74 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: untilscour@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Leung <untilscour@protonmail.com>
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-simple-sound
+branch HEAD: 9094aef897221bdd693c237c024520bb16251849  ARM: config: u8500: Enable the simple audio card
 
-The thermal zone registered against the parent device is never torn
-down when the phy is unregistered, so it can still be dereferenced
-by the thermal core after the phy is freed. The thermal zone and
-cooling device are also left registered if a later hwmon
-registration step fails during init, leaking both.
+elapsed time: 4364m
 
-Unregister the thermal zone alongside the cooling device on both the
-regular unregister path and the init failure path. Also clear
-phy->tzone and phy->cdev after unregistering so that a future caller
-invoking the function twice doesn't unregister already-freed objects.
+configs tested: 51
+configs skipped: 1
 
-While at it, include the band index in the thermal zone registration
-warning to help identify which band failed on multi-band chips.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Fixes: 313f1a27ebcb ("wifi: mt76: mt7915: add thermal zone device registration")
-Signed-off-by: Ryan Leung <untilscour@protonmail.com>
----
-Changes in v3:
-- Clear phy->tzone/phy->cdev in mt7915_unregister_thermal() after
-  unregistering, making it idempotent.
-- Link to v2: https://patch.msgid.link/20260810-mt7915-unregister-thermal-v2-1-2a0f51adf56f@protonmail.com
+tested configs:
+alpha         allnoconfig    gcc-16.1.0
+alpha        allyesconfig    gcc-16.1.0
+arc           allnoconfig    gcc-16.1.0
+arc          allyesconfig    clang-24
+arm           allnoconfig    gcc-16.1.0
+arm64        allmodconfig    clang-24
+arm64         allnoconfig    gcc-16.1.0
+csky         allmodconfig    gcc-16.1.0
+csky          allnoconfig    gcc-16.1.0
+hexagon      allmodconfig    gcc-16.1.0
+hexagon       allnoconfig    gcc-16.1.0
+i386         allmodconfig    clang-22
+i386          allnoconfig    gcc-16.1.0
+i386         allyesconfig    clang-22
+loongarch    allmodconfig    clang-24
+loongarch     allnoconfig    gcc-16.1.0
+m68k         allmodconfig    gcc-16.1.0
+m68k          allnoconfig    gcc-16.1.0
+microblaze    allnoconfig    gcc-16.1.0
+microblaze   allyesconfig    gcc-16.1.0
+mips         allmodconfig    gcc-16.1.0
+mips          allnoconfig    gcc-16.1.0
+mips         allyesconfig    gcc-16.1.0
+nios2        allmodconfig    clang-20
+nios2         allnoconfig    clang-24
+openrisc     allmodconfig    clang-20
+openrisc      allnoconfig    clang-24
+parisc       allmodconfig    gcc-16.1.0
+parisc        allnoconfig    clang-24
+parisc       allyesconfig    gcc-16.1.0
+powerpc      allmodconfig    gcc-16.1.0
+powerpc       allnoconfig    clang-24
+riscv        allmodconfig    clang-24
+riscv         allnoconfig    clang-24
+s390         allmodconfig    clang-24
+s390          allnoconfig    clang-24
+s390         allyesconfig    gcc-16.1.0
+sh           allmodconfig    gcc-16.1.0
+sh            allnoconfig    clang-24
+sh           allyesconfig    gcc-16.1.0
+sparc         allnoconfig    clang-24
+sparc64      allmodconfig    clang-20
+um           allmodconfig    clang-17
+um            allnoconfig    clang-24
+um           allyesconfig    gcc-16.1.0
+x86_64       allmodconfig    clang-22
+x86_64        allnoconfig    clang-24
+x86_64       allyesconfig    clang-22
+x86_64      rhel-9.4-rust    clang-22
+xtensa        allnoconfig    clang-24
+xtensa       allyesconfig    clang-20
 
-Changes in v2:
-- Unwind cdev/tzone registration in mt7915_thermal_init() on hwmon registration failure.
-- Link to v1: https://patch.msgid.link/20260810-mt7915-unregister-thermal-v1-1-c6d57b4cb368@protonmail.com
----
- drivers/net/wireless/mediatek/mt76/mt7915/init.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/init.c b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-index ca46a203aa48..e5285d1a1f9d 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-@@ -200,11 +200,17 @@ static void mt7915_unregister_thermal(struct mt7915_phy *phy)
- {
- 	struct wiphy *wiphy = phy->mt76->hw->wiphy;
- 
-+	if (phy->tzone) {
-+		devm_thermal_of_zone_unregister(phy->dev->mt76.dev, phy->tzone);
-+		phy->tzone = NULL;
-+	}
-+
- 	if (!phy->cdev)
- 		return;
- 
- 	sysfs_remove_link(&wiphy->dev.kobj, "cooling_device");
- 	thermal_cooling_device_unregister(phy->cdev);
-+	phy->cdev = NULL;
- }
- 
- static int mt7915_thermal_init(struct mt7915_phy *phy)
-@@ -213,6 +219,7 @@ static int mt7915_thermal_init(struct mt7915_phy *phy)
- 	struct thermal_cooling_device *cdev;
- 	struct device *hwmon;
- 	const char *name;
-+	int ret;
- 
- 	name = devm_kasprintf(&wiphy->dev, GFP_KERNEL, "mt7915_%s",
- 			      wiphy_name(wiphy));
-@@ -238,8 +245,8 @@ static int mt7915_thermal_init(struct mt7915_phy *phy)
- 	if (IS_ERR(phy->tzone)) {
- 		if (PTR_ERR(phy->tzone) != -ENODEV)
- 			dev_warn(phy->dev->mt76.dev,
--				 "failed to register thermal zone: %ld\n",
--				 PTR_ERR(phy->tzone));
-+				 "failed to register thermal zone %d: %ld\n",
-+				 phy->mt76->band_idx, PTR_ERR(phy->tzone));
- 		phy->tzone = NULL;
- 	}
- 
-@@ -248,7 +255,11 @@ static int mt7915_thermal_init(struct mt7915_phy *phy)
- 
- 	hwmon = devm_hwmon_device_register_with_groups(&wiphy->dev, name, phy,
- 						       mt7915_hwmon_groups);
--	return PTR_ERR_OR_ZERO(hwmon);
-+	ret = PTR_ERR_OR_ZERO(hwmon);
-+	if (ret)
-+		mt7915_unregister_thermal(phy);
-+
-+	return ret;
- }
- 
- static void mt7915_led_set_config(struct led_classdev *led_cdev,
-
----
-base-commit: 1b60ed34f712e9f606d80951f1586f4274ebadf1
-change-id: 20260809-mt7915-unregister-thermal-82e805c618a6
-
-Best regards,
---  
-Ryan Leung <untilscour@protonmail.com>
-
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
