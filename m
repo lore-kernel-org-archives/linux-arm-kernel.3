@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2400FC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 07:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BA8C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 07:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=; b=nQx/n48LBnhXDPFjYToqh8q86J
-	9Ms7XLZS9ePqeJMBtI3vR3d1wBokGxN4LC9rYUfS1+vaHwLoWM+V08NV3gna6kJvrV13FOqSH3Yw2
-	AlkXeGjf+v2PU2onPW+dfUgNL1qm+3VuP9rVnkeZI7G+/w6BD8zeqRVhRHBfiedL53lwwRm3k46Id
-	wM4n9PC9uQ37nNzL8nj7CuK3W7zm9nrOulwz7jDSVa7ZpPwKvPiHMZoZejeV9VZc8cxvfTxHARqMm
-	HFc+UWYAx0OHQlMwb6LfGooPeCq8nYmv8yq1gZnNljbs2tEVMOEVfE6QyTz8XmKL3ykVD0V3GWqhS
-	f5EKDJvQ==;
+	bh=HXwwW5MflXtebrops4jKjGoABUQ/YtxAfVoVUCVVlbY=; b=K6thL/I6cquCbLKB0ntd6xVUmg
+	6umj3J9zFut7pZkRAkztFvHHSrsqrICCBV50qHV2rtok5XKXJNyss5d/mPFGRcL5jS86z2xTl2JI1
+	7Hm/gt37316/v+GULylkMISn6cD1+EHytieX/hKO1hUcfjxfP8FmZ0qIq7FLETotJ3KFnqmvSDVvc
+	7f5UdBHlbpRQLT1fbkAusvEW41tv3oHQaLlQWdufWG9o5Oy5BCfBJFG0I1RJHBaTIel2OEcFa4qS6
+	r8uoGmJHHoNFpPfDxyDzvYuyUH29ko3DOWnlqDUvqHhsYas3sBwNlbWN0i+mT7/+1PDCpTkPX3dLb
+	4rrEp/ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36ye-00000004nLo-1ZBn;
-	Sun, 06 Sep 2026 07:07:44 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1x37OT-00000004oWG-43ob;
+	Sun, 06 Sep 2026 07:34:25 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36yb-00000004nJk-2R8a
+	id 1x37OR-00000004oVu-3ToN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 07:07:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788678453; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=VOmY7Mx6V7nPIKxm7Qr1P54o00k5vj4MYaGOwmGLQayhxJyni/ZhJbwg/+fQWSeX5SgCZlG9EOJQQSAEaITunzKNUJIVtJ+aucT6X8+ndiyfaYxcHCjSlM32Sebqc0Yz43JHU+JWxKhvoBCjpKDS05/mxyf4Q+QHWTiQYQyZEM8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788678453; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=; 
-	b=U0+zhS0Dr8hv0fNFyTOeGYrmAAu5HFD7aGEgCosRlurDIY8iW42QHYfJRp33rLCu7hkXaDJLsD+QxV+XMR1Kb31UXbp/JuYsF1jxwsDgDhIkgxY2nJ+4zAVeV2ZHeLc5f9wxVH2TeQILF5YS9MfElL0YovIkW4F1bq7q97Rvne4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788678453;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=;
-	b=MvZpfBlIbI4tiaYJfwYdI6Wyz1RfXx2c9mlkcFBiTMGEwb108EG5L2erpxgfvh+X
-	y3Yv8FnVWMGcyqFkS4UACgxPFJ6X1LVdT9GUSFKAKANRIdZRSF20Pw2KrmW0u04hily
-	fnnagx1+pGndXBcfGThhbFtFvcp//R18Rv21X3zg=
-Received: by mx.zohomail.com with SMTPS id 1788678452458799.045213868163;
-	Sun, 6 Sep 2026 00:07:32 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sun, 06 Sep 2026 15:06:41 +0800
-Subject: [PATCH 4/4] clk: sunxi-ng: sun55i-a523-r-ccu: Use P-only clocks
- for timers
+	Sun, 06 Sep 2026 07:34:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=HXwwW5MflXtebrops4jKjGoABUQ/YtxAfVoVUCVVlbY=; t=1788680063; x=1789889663; 
+	b=GQ4A+f37BwnBN05k6uQ5H58iNTJ5WxKB5zQIueDrOkNY1LKMdL37r18plhbDisvI9I2KvRn3Ac3
+	D6ocRcmd0zBrt0rJ+JGSz3sdv1kvjLNxo30EvRRh069bSG18G0KR6+iF/n7F1MyokbnIZ3tzKosyt
+	09WBGhEiNXzUf8fMOjRM1al5Yrhxs1ZKzdAm4GtHlmpsee8+yFrZ1VkvnnG+uQV3Tq7vuWYyXE+zf
+	zaYuBAeXoP/G6Ia2+u2QKIk/FteIz8wNXQiApCIGCB29rDnnbgESY3Rob9/dW7Pxu7lBupKiijTw4
+	QPwtfk2Ml+d2c9WK62oaCPwisnFlMVph/WCw==;
+Date: Sun, 6 Sep 2026 09:33:01 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Andrew Davis <afd@ti.com>
+Cc: Tony Lindgren <tony@atomide.com>, Vignesh R <vigneshr@ti.com>, Kevin
+ Hilman <khilman@baylibre.com>, "Roger Quadros" <rogerq@kernel.org>, Andi
+ Shyti <andi.shyti@kernel.org>, <linux-omap@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-i2c@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/8] i2c: omap: Drop bit shift for I2C register
+ addresses
+Message-ID: <20260906093301.01fa544e@kemnade.info>
+In-Reply-To: <20260904131252.2126353-2-afd@ti.com>
+References: <20260904131252.2126353-1-afd@ti.com>
+	<20260904131252.2126353-2-afd@ti.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-sunxi-clk-no-p-v1-4-cbde21c9fe69@pigmoral.tech>
-References: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
-In-Reply-To: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Andre Przywara <andre.przywara@arm.com>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Junhui Liu <junhui.liu@pigmoral.tech>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2310;
- i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=w/ethCL/2gAqTdxAZVO9TFIwPKiMkbxjk7GgSv1iGNo=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLLmCgodfq0cfVtu8Qldz1kHfqtEZVZeNdw5wy5N/lDLm
- 72Kq8N4O0pZGMS4GGTFFFm4/MX/WevwfDsi0HofZg4rE8gQBi5OAZgIy35GhnXZRdctn7UwfO3f
- sv952nKVmq3ya52S30aL3Pq/h1fx91FGhgmPahacb/e4znI4Lqo4ZrtYdWHCJEuBM+uyXl3ouWP
- 4lAkA
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
- fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_000741_677560_9DCB5D39 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260906_003423_875327_2A646C65 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +71,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The R timer clocks only have a P divider, but are currently modeled as
-MP clocks with a zero-width M divider.
+On Fri, 4 Sep 2026 08:12:45 -0500
+Andrew Davis <afd@ti.com> wrote:
 
-ccu_mp_set_rate() generates an invalid mask for the zero-width M
-divider, clearing unrelated register fields. Model these clocks as
-P-only clocks to avoid accessing a nonexistent M divider.
-
-Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 37 +++++++++++++++-----------------
- 1 file changed, 17 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-index db0e36d8838e..349230e28c1c 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -43,27 +43,24 @@ static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
- 				 24, 3,	/* mux */
- 				 0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
--				       r_ahb_apb_parents, 0x100,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
-+				      r_ahb_apb_parents, 0x100,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
-+				      r_ahb_apb_parents, 0x104,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
-+				      r_ahb_apb_parents, 0x108,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
- 				      0);
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
--				       r_ahb_apb_parents, 0x104,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
--				       0);
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
--				       r_ahb_apb_parents, 0x108,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
--				       0);
- 
- static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.common.hw,
- 			 0x11c, BIT(0), 0);
-
--- 
-2.55.0
+> No remaining board device uses a shift other than 2, and no DT supported
+> platform ever did. We can drop this flag and use the pre-shifted register
+> addresses. This simplifies the register access.
+> 
+> Signed-off-by: Andrew Davis <afd@ti.com>
+> ---
+>  arch/arm/mach-omap1/i2c.c              |  4 ---
+>  drivers/i2c/busses/i2c-omap.c          | 50 +++++++++++---------------
+>  include/linux/platform_data/i2c-omap.h |  5 ---
+>  3 files changed, 21 insertions(+), 38 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap1/i2c.c b/arch/arm/mach-omap1/i2c.c
+> index 94d3e7883e027..bc7828a858941 100644
+> --- a/arch/arm/mach-omap1/i2c.c
+> +++ b/arch/arm/mach-omap1/i2c.c
+> @@ -61,10 +61,6 @@ int __init omap_i2c_add_bus(struct omap_i2c_bus_platform_data *pdata,
+>  		       OMAP_I2C_FLAG_16BIT_DATA_REG |
+>  		       OMAP_I2C_FLAG_ALWAYS_ARMXOR_CLK;
+>  
+> -	/* how the cpu bus is wired up differs for 7xx only */
+> -
+This could perhaps go into the commit message, but besides of that
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
 
 
