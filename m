@@ -4,65 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14330C79F8B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 03:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D146CC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 03:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YNopptATUu6tkEGXcgMAKMvS7a6eNXNKQGXv4gfsEdA=; b=lslLQH2Nyj2dQ1GQcaILx6Z2u5
-	2rUUPrPWKWj3wcs92bEoZkSwt4X/jGJQETLFbSjTggoTwBVmHU0SSaluwCEz82EWulMZjREKj7czV
-	Fq8t/ioQ5sSVm73qMRPT6Ko7yvFK8A6Zbq5bNkzFCfjbPpjAmZaeorOln0xSC1UXNc0FcFFklOslm
-	hrY1m56gi0PxKdMHAr6JcsYW+O0/hu+7Z6YrqhBg+9drNCpjG88TSKPTeG+sThzoWGNCeLzPKdqdA
-	7c0x+RcYxqGLsnYCrUa71EkU1XZnCwvpQBqg8TxJFidj5bh9cWzSXugayn9mlUjvLHtKaW4PbtRDP
-	IMoX/YwQ==;
+	bh=48OUlgZ8oJkokpD3G8IEqvdlANt4AE/H+y5S+7nUN5c=; b=Nd+N3hmEvvZH8F+yldBlFfaRFY
+	bKg5PmCRzb6sOHZvDo4+Pyyo3l9KlGdsZ5WnvllKofwWKMEtortxJlHM4aCCHi4FS30XSxFvP8xLQ
+	E/fnJcFIMT+ILDAqxPaC6PdBCCyahJgMXo9cTxwslnvvNwSi6z+OF6XKOAVQnw2RTUH6z37Kkgdb9
+	oMmymRSQCf/krThr1f2x0mHEtrvZLRCtCHpsElNvlbm5itVf/J+boTFvmLcvV53XuvF4/tnl00jBR
+	V6g0zJ23NmyaOHl7gWVNdm6Mb5Yln0zuq7Q6l2D3dLd9hro1Nzpot/hC6FpHgNxnqOvrgOSnKjOwq
+	mfv7aVMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x33kZ-00000004dxY-3Sj1;
-	Sun, 06 Sep 2026 03:40:59 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1x33lc-00000004e56-04LD;
+	Sun, 06 Sep 2026 03:42:04 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x33kW-00000004dwA-3V1Z
+	id 1x33lZ-00000004e4S-1MLB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 03:40:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=YN
-	opptATUu6tkEGXcgMAKMvS7a6eNXNKQGXv4gfsEdA=; b=cSAuZc6HfNkuS5G+1R
-	pPSq9pX7ayFbhxLzg9kZoJY2TOlCNqXm6X2O6RkM6bvTVlVRhz4zRd006SA4LZzs
-	ItgaTlv6actVkxXIEBe34y01tjLEVPV0yQ7nCvTI7WQUziHc7BxqVFisIn+fTGOH
-	MBZ7afz7gTc9zCbq6CaPAdUF8=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCXOSWx4Jxqg+X7QA--.59154S2;
-	Sun, 06 Sep 2026 11:40:34 +0800 (CST)
-From: Pengpeng Hou <hppiscas@163.com>
-To: Alan Stern <stern@rowland.harvard.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Pengpeng Hou <hppiscas@163.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Jingoo Han <jg1.han@samsung.com>,
-	linux-usb@vger.kernel.org,
+	Sun, 06 Sep 2026 03:42:02 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2d032846c95so25194035ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 20:41:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788666119; x=1789270919; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=48OUlgZ8oJkokpD3G8IEqvdlANt4AE/H+y5S+7nUN5c=;
+        b=dOccteRgc+iYu91lPoJC2IEuNGoiSh8zkdrbhjlCOCq1v2SRxDXYD2d1BBOC04LrdL
+         ol+JFsz0tDaa/cQoHpGceZKBiy0UFmxJ2Y5ZvE0MicmoD+sSK7CnJQo3fTB3drOfZZ7x
+         xme6nvDxGKzFKwGs+wHQy4Md0pOWVJn2H5GY9A/3QtcmYc2lNvamYH/X5geNjBgSw7l9
+         0sPkc2dppIHccqu9DS/VhqgGP4KP8K1OzxjMBzmLwdRjA6gBqN1qLlJEaY1x6geCm2Z1
+         DrE3TT2cgyag/QJPyf6MlEOadoEOKeCVxr506KqwedcxRV/Bq8z+nSQuLgkYXDFw+Nmt
+         Rg/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788666119; x=1789270919;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=48OUlgZ8oJkokpD3G8IEqvdlANt4AE/H+y5S+7nUN5c=;
+        b=kSvXn0qQtq0E6ZZUI3zcNOfNrCkEaDKFlGmVU9E9q2qr7wt0inwo5avwNpCFDGMNk3
+         4Bm8LNFT+kEZ8f2+d2K/L4gRd9HDpWVNmYJGHzj4270AhBQyeBwW8137ZXMl715bf6Oa
+         4RM9sdRZoFDmJTLPcg95hTn26h9kpuOjAKvJlQBMV7CoVhk8ocFEGnXRmN88T6ZM/jic
+         O+8nq4EWUVB73oqbne6cqRI4BJN6YvwojcuNDX8dgEBWrIU76NXTAopmHK1p7W8W0KO4
+         OvlOCC26khuj5p1ckg2WVxhpQFjnHSTJRzoAMQRg45fZHppHGmVB/WaYdsMpG92S807s
+         9LYA==
+X-Forwarded-Encrypted: i=1; AKwUvBwAwPKKlyz8TcaUv/I+lw3HI/SItDiAiJxlyXg9fYkNbq5wpQsCn8tfPPhlwp/Pw8cx8X148C80AYQa3K29pDg7@lists.infradead.org
+X-Gm-Message-State: AFuF++nEcN9oWQA5V/BwA/E2C6UYbjzg1RVDhiqcGduHVO7hsQFvXkYS
+	sDThvzTPv8CVeEynM5A4S5ugbd49JRYhNNyKcinKKFbj7WbXFukv5Qc/
+X-Gm-Gg: AYBFou0+EGAdWSuLR5ejrxL9V89oFh9EV8Bh7CIUmHZUuHR2Yyoa4lAYGVCP4hZU3fV
+	NXJkED2rNJ08oledAOUnR31V8PpKQPjjHhVJ/QCBQjNU7ghWyT2PzbzrNKt1b2AVBb4TR88WBz5
+	MUQ0+auq7/88S31vlu2rZapuxwdWympBYnKlRRd+XEB9DAkbHbVkgr9zX6NuCw3SIxCFS7+csqg
+	c2DW6nOcIxAfhJBNiYNLiY/z2sC4EWFyMM79UW8IGOAZIZvzgYn9p3NoiaRbif1l51IA9W0Q+z5
+	1Sr+fHJL7Bk3iivXTFkz6Rxnze8jm3UQoTYr7xjGTZ+gOi4QFnwXPp9S0977Hnly/ZFIIqFxpq9
+	cqJw2t3SuRc60ftxuUaM5CVwbC3VB+jk6ie4lAtK06xugBuntAprr5IcFV4GCfxSrz7MpmjLje8
+	DZdpabolZtvhD0u9qMOZneRI4gm+pyOGPgvZoPjKCEZXnahwe3HDmWClnB95YzIfsmLoBQGWE57
+	JUzcF5zufy4u9zZqZS+n2fO2Zajgfy9mWhAW0TUtzRC
+X-Received: by 2002:a17:90a:da8f:b0:398:b71e:60c1 with SMTP id 98e67ed59e1d1-39b26208e7amr22343140a91.12.1788666118495;
+        Sat, 05 Sep 2026 20:41:58 -0700 (PDT)
+Received: from debian-rockchip-rock5b-rk3588.. ([27.130.10.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08ce4221sm22761765a91.14.2026.09.05.20.41.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Sep 2026 20:41:58 -0700 (PDT)
+From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sean Christopherson <seanjc@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] usb: host: ohci-exynos: Propagate clock errors from resume
-Date: Sun,  6 Sep 2026 11:40:31 +0800
-Message-ID: <20260906034031.85248-1-hppiscas@163.com>
-X-Mailer: git-send-email 2.50.1
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kernel-mentees@lists.linux.dev,
+	skhan@linuxfoundation.org,
+	me@brighamcampbell.com,
+	jkoolstra@xs4all.nl,
+	Tharit Tangkijwanichakul <tharitt97@gmail.com>,
+	Gokul K <gokul02k@gmail.com>
+Subject: [PATCH] KVM: selftests: Fix VM leak in early return
+Date: Sun,  6 Sep 2026 03:41:43 +0000
+Message-ID: <20260906034144.14059-1-tharitt97@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgCXOSWx4Jxqg+X7QA--.59154S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWruFW3Zr1DJry8JF1rCF1rJFb_yoWkGFX_Ca
-	48GrW7Xrs0grZ09r1DGa4UAFZ7KF1xXF1YgFWIqw13GFnrtF1vqrsrury0ywn8Jw47tr9x
-	Cw4jvrn3XryagjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUb1rW7UUUUU==
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbCxhIm7mqc4LLKIAAA3S
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_204057_283354_6E56FBAA 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260905_204201_365280_4FC36E47 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +114,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-exynos_ohci_resume() ignores clk_prepare_enable() and proceeds to PHY
-and OHCI restoration.
+test_mmio_ease() returns early and skips the call to kvm_vm_free() when
+ID_AA64PFR1_EL1 is not available.
 
-Return a clock failure before enabling the PHY. The existing PHY failure
-path continues to undo a successfully enabled clock.
+Use a goto so that the early return joins the common exit path.
 
-The issue was found by our static-analysis tool and manually reviewed.
-
-Fixes: e864abed546f ("USB: ohci-exynos: add clock gating to suspend/resume")
-Assisted-by: gpt 5
-Signed-off-by: Pengpeng Hou <hppiscas@163.com>
+Reported-by: Gokul K <gokul02k@gmail.com>
+Link: https://lore.kernel.org/all/20260808081050.408657-1-gokul02k@gmail.com/
+Fixes: a90aac553249 ("KVM: arm64: selftests: Test SEAs are taken to SError vector when EASE=1")
+Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 ---
- drivers/usb/host/ohci-exynos.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Tested on a Rock 5B (RK3588). ID_AA64PFR1_EL1.DF2 is not implemented,
+so test_mmio_ease() takes the skip path exercised by this fix.
+---
+ tools/testing/selftests/kvm/arm64/external_aborts.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/usb/host/ohci-exynos.c b/drivers/usb/host/ohci-exynos.c
-index cc5cb0900988..aa4eb9f9d69b 100644
---- a/drivers/usb/host/ohci-exynos.c
-+++ b/drivers/usb/host/ohci-exynos.c
-@@ -231,7 +231,9 @@ static int exynos_ohci_resume(struct device *dev)
- 	struct exynos_ohci_hcd *exynos_ohci	= to_exynos_ohci(hcd);
- 	int ret;
+diff --git a/tools/testing/selftests/kvm/arm64/external_aborts.c b/tools/testing/selftests/kvm/arm64/external_aborts.c
+index d8fe17a6cc59..7836756a38a6 100644
+--- a/tools/testing/selftests/kvm/arm64/external_aborts.c
++++ b/tools/testing/selftests/kvm/arm64/external_aborts.c
+@@ -339,7 +339,7 @@ static void test_mmio_ease(void)
+ 	pfr1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
+ 	if (!SYS_FIELD_GET(ID_AA64PFR1_EL1, DF2, pfr1)) {
+ 		pr_debug("Skipping %s\n", __func__);
+-		return;
++		goto done;
+ 	}
  
--	clk_prepare_enable(exynos_ohci->clk);
-+	ret = clk_prepare_enable(exynos_ohci->clk);
-+	if (ret)
-+		return ret;
+ 	/*
+@@ -356,6 +356,7 @@ static void test_mmio_ease(void)
  
- 	ret = exynos_ohci_phy_enable(dev);
- 	if (ret) {
+ 	vcpu_inject_sea(vcpu);
+ 	vcpu_run_expect_done(vcpu);
++done:
+ 	kvm_vm_free(vm);
+ }
+ 
 -- 
-2.50.1 (Apple Git-155)
+2.47.3
 
 
