@@ -4,109 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE91EC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CD6C624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=; b=ASZ8q8+o6F0LYcAAExwMfMeDF+
-	qwfRpbAWgcsO0StKNXSCZRABupatgyQiHoO+rqhoBH5LpJtfQrETclSRzpardNT2PsWOWu0gCvHWf
-	eqsJIBDvALY6w7Eg5zXrYgeVYtZQTBznd7s+gkiDh2qJhsgUFFYIlBLjGO28YUeTf1XNxag07rPxi
-	EQfR3KH4mWuaVpMgS7vXjoJyTiBEbboLB1O/+GNYUXnupcGsaEN/EyTt+BlmFRdyZeBImv7uszSIq
-	0iQS0ZpFb6hrhAqBImyLZHM8hIfgcxvTpvh1Q7HEW0xYCnerSfVfBjwTeFb4gG211inkhCtZJ3WqE
-	p4mdbmMQ==;
+	bh=oOSaeO+qZDjiWRswEdT9G+qxVTEWVi6f59lERVKJgu8=; b=grF5UBuWRsve5Q8EqMz6smLuBL
+	ZxDvfuhbZxZUj6sGA5EXUoDbH/x1iURbd/886VvAOGX+4NBU8UKzo0C6quf67sxD7LqPub5qB3inW
+	qk5cqbq2CdpzJgieCk4vw1mdYERefAQZpTcYq9cz8O3bZfbiTh+TJpqz1LVljufndOnqtqy3wkh/j
+	UQehKcdKMYKlUQUEYYpkfYZa91aH7qgi/uGYNS6OHBhia4zjkyKA6zqYsI9C9ojV7f4zHaF+/3k6g
+	GdyMR11o9I1wRsTdjx/MiHzNzEodnDbnp6c47Q+rAxDlXJW/UW2e6+pOzHEbB8NH72av26CaVRlRA
+	34K7ZLYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31Yr-00000004XIp-2GTJ;
-	Sun, 06 Sep 2026 01:20:45 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1x31mJ-00000004XwW-384K;
+	Sun, 06 Sep 2026 01:34:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31Ym-00000004XIB-2qg6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 01:20:43 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7ec1e9d3359so1906275a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 18:20:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788657636; cv=none;
-        d=google.com; s=arc-20260327;
-        b=akRd6Ew84SaJfzhKtxzg8bBfBOMkVyoyQ/hx5qE2oA4ooD3dBxzAkxPhgDMPbwbMT1
-         l7aK7/tbcwFhaTyQmeInVhfagCF/oH9F/nNYZQGG2C9309k3b9JRO277hUH76pNW4Vqz
-         ALvanSFrIxr0wpWfuIAPwnvqv4hm8TP3EUay+yHy7z9EE07JRu1Ab/qgDSNeww9IZSZH
-         uXxcmAHaW3Ftn9wi+usl++5WtjanYpF1T9axNJ4v2KE6AOyBuYiEnOqcwSowc4kLF2nY
-         vd0VK+NV4CWNrRDJGiMFop0R5lD1V1FSALUu7i+h+J1J9Z1A5W75lK4p+YQnCv4W1MHN
-         FFrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
-        fh=3GDSBsZgm93ukwEfaaYyd6vZpAWRwTlPP3+oDsqC7I8=;
-        b=NksVF8Uzgc8dXDbE7PqLlanOmdsySXyvHbx3DMqYbzJIUxvYK39QHiB+vTAGIBtJFA
-         dDeiRJNmh1H885EOQ2gr4alTJeuiwQYjZ6/i95Xe/g1ifjahXOu8blqYcsl5UqrMJh88
-         qH5tbFAlOKoCfaWAoXEBDTYeB75pxR5B0czp3Dvn5oPiwE7A2bCHDiv/spFnE9f1Usy2
-         9BHj4hmDwa+QbiNipfmtKUNdJWJhZ9dHFQ/BZuUh6A4gtWDpwIbq4V6eoY4w2Cjyaa+/
-         OUq7DH88PSJ51iCpsLXNhbGB3s1LdQMlC1BA0hCOBnYyzirYVnA17zkKq2B94BO3DhKj
-         qENw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788657636; x=1789262436; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
-        b=C7dFhkuNBp+jpes/UcJeRfGY71NdrxWCm8qSGS7YzpIflZbkEU/4ITDu8NuxRwo0Xq
-         IOrpUfHVRaWeZ5AFt0kZcJLbv3iGjU2BmjHVpWrNG6MXXwm3cY9SChVSyV1KPq9ym+p/
-         4rc9ZZRXbZQQIndbkR3wQdpMRWQOLL3uoKL4QS1zZe5XDfUtSvu8Om486ZDt71uDlseK
-         8hrQC/IXz0sGwsT6sGda3frsL2Swd88smRff0kulVeUtlnbWrbCeAEtDCmbu0Jxac0VU
-         z/lZYzX4aikH9vKOSOjuuVcQMiFdh1P50AOUz50i3JgqHX6S5EPiWN533RIpkSVjz3QY
-         J5xA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788657636; x=1789262436;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
-        b=cA+lKPzpOc5MlKU79DV2pHuBWJPBfJenZgu2aTdIWOHEDws8HEzPmwtcceycQ1RHCZ
-         cXpf+8Fsun6ab50aiw8qvh4W/tdpneZRgMm6aQSWpRtC9lmu8+h1EMqHOmZf7TUMBkMV
-         0mdiq1pmhJS7TcPi20pABYBPZR6Tup/9JObwbG0Ibya5R7k7eMUDS5emlEYRRhTZhmZ7
-         +yyhwxFrj7x0JVAxvnH+eYr3Kx49ZxLtGjfNlHf02/7TiRNeEdESig3q15N/2RR5GybL
-         /3HMD4LB5wZlCmM3tW2+Q7Yc2kzppS92IV5nJjcJpkkY6NBfLKQ3jkDW74IKydP317d8
-         Fj3Q==
-X-Forwarded-Encrypted: i=1; AKwUvBwhVOrUpDq18qc6T48YjDZv5ISbb5V6nSMKIotDDcR3qrIIIUFO8X8op3hjMx8nZbbin50Pj+BDloiQm+ncrV6y@lists.infradead.org
-X-Gm-Message-State: AFuF++m+enNCXuSFWvIbQyaVIyfr0/MzUDu5Jd4qncgyaRrK65z87dXa
-	7p4nq/2BeyHMXNmAH3yQcNH0RE/VZNWZrjf3iI5TVQfN/BFLliRDNICzeT7e1E52xOvr36KmFD+
-	Xli9b4aWI49aNyTGJRrplHdlmaiTx2K4=
-X-Gm-Gg: AYBFou3A4yGU9Uz+pJKe1oLiZXeB7YVC/4XI+6kSP7JGXaGh+9Ih3M2AHsJvcoFd31V
-	mBsJkJ4rWuaHOI76rrf0CFMkA751ZXT7e96nQOIkgGuufHV8LJaKG3POvzK6JTo4aw4/7TY1EU+
-	bYtdbjWALUwqcFI2cu5s2HehNP6t6T3hwaIfj5wxipUr5OMSozm/JyujF5vHBGPIvQDlw9EQKCj
-	ZEuRha5eLt9dn6N6qmKqeWF3/QoDgenjuV0jV+jC9powPItuDSf3SA5PU6FaV6hBLMZ8yM13+VE
-	u6yAoM4QhFkh5cdC9AiSQUdWvID85pKWgGFoKepAm8Y6466rwWx4X4y2
-X-Received: by 2002:a05:6820:a28c:20b0:6ba:2927:3661 with SMTP id
- 006d021491bc7-6ba29273f2fmr202772eaf.18.1788657636529; Sat, 05 Sep 2026
- 18:20:36 -0700 (PDT)
+	id 1x31mI-00000004Xw6-0FCy;
+	Sun, 06 Sep 2026 01:34:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C660447FD;
+	Sun,  6 Sep 2026 01:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 154D0C2BCF7;
+	Sun,  6 Sep 2026 01:34:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788658476;
+	bh=X/cAD1JaxVmULRWi7OAU303q7QUjTZ0yqVCXrZ7JU0k=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Yf6h7CgMOuu4wEzue8CgkmSyH25Ehm9bPQgHxb0Az4kA2fSjLKoyNnVcOUrBzk77t
+	 H/+/Rn9p5dhWyOZNJOQFhFdNUqiWq8ks1vPihpog6a7nA0HqQ4144qv60wxwOU3WnK
+	 HKg3z+52k7cL8Ked5ejqmRA8SEZxeNCSebVvntlRx12XKb3dzb8G779dkeEAYGhFSx
+	 QtfGMpIhy5BVrTz6Wpis2ikpZh7sKmrU2gU7DcXcBSoQIycaxhhcRw1GeS1BiZIiw9
+	 Yu/J78jK1nwuDKvhOw5FdfcQV1aaabQbMN2++WEhGI3FwM2zebj1fx9ht/7h/A0ajV
+	 G4sStluIzE5/A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EBA17C79F82;
+	Sun,  6 Sep 2026 01:34:35 +0000 (UTC)
+From: Ryan Brue via B4 Relay <devnull+ryanbrue.dev.gmail.com@kernel.org>
+Date: Sat, 05 Sep 2026 20:34:35 -0500
+Subject: [PATCH 2/2] drm/panel: add Novatek NT51021 1200x1920 DSI panel
+ driver
 MIME-Version: 1.0
-References: <20260714222338.2965707-1-dianders@chromium.org> <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
-In-Reply-To: <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sat, 5 Sep 2026 20:20:24 -0500
-X-Gm-Features: AcwNN1W-1EM5u25I6sIYjSAHidxk9uQmu6rjm34oWnomns496rRML5lm1gN-HB8
-Message-ID: <CABb+yY3_xBvQVFHEs=v39u7+TLjJRaVv3sg5pGgd0YxCruZ8Tw@mail.gmail.com>
-Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox driver
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_182040_732633_0BAC4CA5 
-X-CRM114-Status: GOOD (  17.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-2-939f59e89fc9@gmail.com>
+References: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
+In-Reply-To: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788658475; l=15078;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=ReaDW0zn/YsThF3WOuoKFxMcsrbwQZd0qFM9fFL2zpA=;
+ b=HUaT9GUvCQWmFA2DoE9UZ9+rcuz094rdNoEgvK4H3uF5QNZB0iB8xngvc/tL9MgRAjJNWX0W2
+ jjR9rI/dx72AfPtOiKtRvplJLfaCzb5Ah5+ujNU6tscfiSGNF70bgxM
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+X-Endpoint-Received: by B4 Relay for ryanbrue.dev@gmail.com/20260906 with
+ auth_id=1007
+X-Original-From: Ryan Brue <ryanbrue.dev@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,88 +88,443 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ryanbrue.dev@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Douglas,
+From: Ryan Brue <ryanbrue.dev@gmail.com>
 
-On Tue, Jul 14, 2026 at 5:24=E2=80=AFPM Douglas Anderson <dianders@chromium=
-.org> wrote:
-....
-> +
-> +/**
-> + * goog_mba_handle_tx_interrupt() - Handle interrupt that remote Acked o=
-ur msg.
-> + * @goog_mbox: The mailbox info.
-> + */
-> +static void goog_mba_handle_tx_interrupt(struct goog_mbox_info *goog_mbo=
-x)
-> +{
-> +       unsigned int reqs_completed;
-> +       int i;
-> +
-> +       /*
-> +        * ACK interrupt needs to be cleared before reading CLIENT_OUTSTA=
-NDING_MSG.
-> +        * Then if a "race" happens and another message gets Acked after =
-we clear
-> +        * but before we read CLIENT_OUTSTANDING_MSG then the worst that =
-will
-> +        * happen is we'll get a followup interrupt that will show 0 reqs=
-_completed.
-> +        */
-> +       writel(CLIENT_IRQ_STATUS_ACK_INT, goog_mbox->iomem + CLIENT_IRQ_S=
-TATUS_OFFSET);
-> +
-> +       if (goog_mbox->queue_mode) {
-> +               u32 outstanding_msgs;
-> +
-> +               outstanding_msgs =3D readl(goog_mbox->iomem + CLIENT_OUTS=
-TANDING_MSG);
-> +               spin_lock(&goog_mbox->lock);
-> +
-> +               if (goog_mbox->outstanding_msgs >=3D outstanding_msgs) {
-> +                       reqs_completed =3D goog_mbox->outstanding_msgs - =
-outstanding_msgs;
-> +               } else {
-> +                       /*
-> +                        * The hardware's track of outstanding messages s=
-hould always
-> +                        * be less than or equal to the number of message=
-s we queued.
-> +                        * If it thinks there are more messages outstandi=
-ng than we
-> +                        * queued, something is wrong. Assume nothing was=
- completed.
-> +                        */
-> +                       dev_warn_ratelimited(goog_mbox->mba->dev,
-> +                                            "%pOFP: unexpected outstandi=
-ng msgs: %u -> %u\n",
-> +                                            goog_mbox->np, goog_mbox->ou=
-tstanding_msgs,
-> +                                            outstanding_msgs);
-> +                       reqs_completed =3D 0;
-> +               }
-> +               goog_mbox->outstanding_msgs =3D outstanding_msgs;
-> +               spin_unlock(&goog_mbox->lock);
-> +
-> +               trace_goog_mba_process_q_txdone(goog_mbox, reqs_completed=
-, outstanding_msgs);
-> +       } else {
-> +               reqs_completed =3D 1;
-> +               trace_goog_mba_process_nq_txdone(goog_mbox);
-> +       }
-> +
-> +       for (i =3D 0; i < reqs_completed; i++)
-> +               mbox_chan_txdone(&goog_mbox->chan, 0);
+Add a driver for the BOE module built around the Novatek NT51021, as
+fitted to the Amazon Fire HD 10 (2017). The panel is 1200x1920, four
+lanes, RGB888, sync-event video mode with a continuous HS clock,
+136x221 mm. The timings are those of the vendor's LCM driver
+(drivers/misc/mediatek/lcm/nt51021_wuxga_dsi_vdo/ in the Fire OS 3.18
+tree): hsync 1, hbp 32, hfp 110, vsync 1, vbp 14, vfp 11, so htotal
+1343 and vtotal 1946. They are used verbatim.
 
-The patchset doesn't say much about the clients but if the platform
-works like this, I have a strong feeling we can do without introducing
-mbox_controller.has_queue.
-Just use the msg_data[] ringbuffer -- we can avoid changing the core
-internals and you will still get ACK for each message.
-What are the clients going to be like?
+The pixel clock is the vendor's PLL_CLOCK = 490, which after DDR is 980
+Mbps per lane and over four lanes at 24bpp is 163.33 MHz, so 62.5 Hz.
+That is also what the bootloader leaves running: read back before the
+kernel touches it, this board's MIPI TX PLL decodes to exactly 980 Mbps
+per lane, so the panel is already at this rate when the kernel takes
+over.
 
-Regards,
-Jassi
+This controller accepts commands either over I2C or in-band over DSI, and
+on the shipping boards it does not default to DSI. Writing 0xa5 to
+register 0x8f opens a window in which DSI commands are accepted and
+writing 0x00 closes it, so every command the driver sends, including
+sleep in/out and display on/off, has to sit inside such a window. That is
+why those are not simply issued from enable()/disable() as most panel
+drivers do.
+
+The vendor's bootloader and kernel both carry a second register sequence
+for Innolux glass, chosen from two board ID straps. No Innolux unit was
+available, so that sequence is left out rather than carried untested;
+adding it later is one compatible, one table and one desc.
+
+Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
+at 62.5 Hz across a cold boot, three display off and on cycles and a
+suspend/resume, with the MIPI TX PLL reading back at the intended rate.
+
+Assisted-by: LLM
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+---
+ MAINTAINERS                                   |   7 +
+ drivers/gpu/drm/panel/Kconfig                 |  11 +
+ drivers/gpu/drm/panel/Makefile                |   1 +
+ drivers/gpu/drm/panel/panel-novatek-nt51021.c | 329 ++++++++++++++++++++++++++
+ 4 files changed, 348 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3a19da74d00c..1cef4dd31d03 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8353,6 +8353,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/display/panel/novatek,nt37801.yaml
+ F:	drivers/gpu/drm/panel/panel-novatek-nt37801.c
+ 
++DRM DRIVER FOR NOVATEK NT51021 PANELS
++M:	Ryan Brue <ryanbrue.dev@gmail.com>
++S:	Maintained
++T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
++F:	Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml
++F:	drivers/gpu/drm/panel/panel-novatek-nt51021.c
++
+ DRM DRIVER FOR NVIDIA GEFORCE/QUADRO GPUS
+ M:	Lyude Paul <lyude@redhat.com>
+ M:	Danilo Krummrich <dakr@kernel.org>
+diff --git a/drivers/gpu/drm/panel/Kconfig b/drivers/gpu/drm/panel/Kconfig
+index cbdf7b8f7f7a..50a5dc473138 100644
+--- a/drivers/gpu/drm/panel/Kconfig
++++ b/drivers/gpu/drm/panel/Kconfig
+@@ -727,6 +727,17 @@ config DRM_PANEL_NOVATEK_NT39016
+ 	  Say Y here if you want to enable support for the panels built
+ 	  around the Novatek NT39016 display controller.
+ 
++config DRM_PANEL_NOVATEK_NT51021
++	tristate "Novatek NT51021 1200x1920 DSI video mode panel"
++	depends on OF
++	depends on DRM_MIPI_DSI
++	depends on BACKLIGHT_CLASS_DEVICE
++	help
++	  Say Y here if you want to enable support for the Novatek NT51021
++	  1200x1920 DSI video mode panel, as found in the Amazon Fire HD 10
++	  (2017). The controller carries no readable panel identity, so the
++	  module fitted to a board is named by its compatible string.
++
+ config DRM_PANEL_OLIMEX_LCD_OLINUXINO
+ 	tristate "Olimex LCD-OLinuXino panel"
+ 	depends on OF
+diff --git a/drivers/gpu/drm/panel/Makefile b/drivers/gpu/drm/panel/Makefile
+index 3b523cf37833..3fe7c2e579d3 100644
+--- a/drivers/gpu/drm/panel/Makefile
++++ b/drivers/gpu/drm/panel/Makefile
+@@ -70,6 +70,7 @@ obj-$(CONFIG_DRM_PANEL_NOVATEK_NT36672E) += panel-novatek-nt36672e.o
+ obj-$(CONFIG_DRM_PANEL_NOVATEK_NT37700F) += panel-novatek-nt37700f.o
+ obj-$(CONFIG_DRM_PANEL_NOVATEK_NT37801) += panel-novatek-nt37801.o
+ obj-$(CONFIG_DRM_PANEL_NOVATEK_NT39016) += panel-novatek-nt39016.o
++obj-$(CONFIG_DRM_PANEL_NOVATEK_NT51021) += panel-novatek-nt51021.o
+ obj-$(CONFIG_DRM_PANEL_MANTIX_MLAF057WE51) += panel-mantix-mlaf057we51.o
+ obj-$(CONFIG_DRM_PANEL_OLIMEX_LCD_OLINUXINO) += panel-olimex-lcd-olinuxino.o
+ obj-$(CONFIG_DRM_PANEL_ORISETECH_OTA5601A) += panel-orisetech-ota5601a.o
+diff --git a/drivers/gpu/drm/panel/panel-novatek-nt51021.c b/drivers/gpu/drm/panel/panel-novatek-nt51021.c
+new file mode 100644
+index 000000000000..d92f3e18f716
+--- /dev/null
++++ b/drivers/gpu/drm/panel/panel-novatek-nt51021.c
+@@ -0,0 +1,329 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Novatek NT51021 1200x1920 DSI video-mode panel
++ *
++ * Derived from the vendor LCM driver in the Amazon 3.18 tree,
++ * drivers/misc/mediatek/lcm/nt51021_wuxga_dsi_vdo/.
++ *
++ * Note on the command interface: this panel can take its control commands
++ * either over I2C or in-band over MIPI, and on the shipping ("dvt") boards it
++ * does NOT default to MIPI. Writing 0xa5 to register 0x8f forces commands to
++ * be accepted over DSI, and writing 0x00 hands the interface back. Every
++ * command this driver sends therefore has to sit inside such a window --
++ * including sleep in/out and display on/off, which is why they are not simply
++ * issued from enable()/disable() the way most panel drivers do it.
++ */
++
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/regulator/consumer.h>
++
++#include <drm/drm_mipi_dsi.h>
++#include <drm/drm_modes.h>
++#include <drm/drm_panel.h>
++#include <drm/drm_probe_helper.h>
++
++/* Register 0x8f selects where the panel listens for commands. */
++#define NT51021_CMD_IF			0x8f
++#define NT51021_CMD_IF_FORCE_MIPI	0xa5
++#define NT51021_CMD_IF_RELEASE		0x00
++
++struct nt51021_cmd {
++	u8 reg;
++	u8 val;
++	u16 delay_ms;
++};
++
++/*
++ * Taken verbatim from the vendor's init_lcm_registers() BOE branch, minus the
++ * command-window writes, which this driver manages itself.
++ */
++static const struct nt51021_cmd nt51021_init_suez_boe[] = {
++	{ 0x01, 0x00, 20 },	/* software reset */
++	{ 0x83, 0x00, 0 },	/* page select */
++	{ 0x84, 0x00, 0 },
++	{ 0x8c, 0x80, 0 },	/* GOP setting */
++	{ 0xcd, 0x6c, 0 },	/* 3 dummy */
++	{ 0xc0, 0x8b, 0 },	/* GCH */
++	{ 0xc8, 0xf0, 0 },	/* GCH */
++	{ 0x97, 0x00, 0 },	/* resistor setting, 100 ohm */
++	{ 0x8b, 0x10, 0 },
++	{ 0xa9, 0x20, 0 },	/* enable TP_SYNC */
++	{ 0x83, 0xaa, 0 },	/* page select */
++	{ 0x84, 0x11, 0 },
++	{ 0xa9, 0x4b, 0 },	/* MIPI Rx drive strength, 85% */
++	{ 0x85, 0x04, 0 },	/* test mode 1 */
++	{ 0x86, 0x08, 0 },	/* test mode 2 */
++	{ 0x9c, 0x10, 0 },	/* test mode 3 */
++};
++
++struct nt51021_desc {
++	const struct nt51021_cmd *cmds;
++	unsigned int num_cmds;
++};
++
++static const struct nt51021_desc suez_boe_desc = {
++	.cmds = nt51021_init_suez_boe,
++	.num_cmds = ARRAY_SIZE(nt51021_init_suez_boe),
++};
++
++struct nt51021 {
++	struct drm_panel panel;
++	struct mipi_dsi_device *dsi;
++	struct regulator *supply;
++	struct gpio_desc *reset_gpio;
++	const struct nt51021_desc *desc;
++};
++
++static inline struct nt51021 *to_nt51021(struct drm_panel *panel)
++{
++	return container_of(panel, struct nt51021, panel);
++}
++
++/*
++ * A plain "write this value to that register" DCS write. The
++ * mipi_dsi_dcs_write_seq_multi() macro cannot be used for these: it stashes its
++ * payload in a static const array, so every byte has to be a compile-time
++ * constant, and both the register and the value here come from a table.
++ */
++static void nt51021_write(struct mipi_dsi_multi_context *ctx, u8 reg, u8 val)
++{
++	const u8 d[] = { reg, val };
++
++	mipi_dsi_dcs_write_buffer_multi(ctx, d, sizeof(d));
++}
++
++/*
++ * Open or close the in-band command window. Outside it the panel ignores DSI
++ * commands entirely, so every caller that wants to be heard must wrap its
++ * writes in a pair of these.
++ */
++static void nt51021_cmd_window(struct mipi_dsi_multi_context *ctx, bool open)
++{
++	nt51021_write(ctx, NT51021_CMD_IF,
++		      open ? NT51021_CMD_IF_FORCE_MIPI : NT51021_CMD_IF_RELEASE);
++	if (open)
++		mipi_dsi_msleep(ctx, 1);
++}
++
++static int nt51021_prepare(struct drm_panel *panel)
++{
++	struct nt51021 *ctx = to_nt51021(panel);
++	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
++	unsigned int i;
++	int ret;
++
++	ret = regulator_enable(ctx->supply);
++	if (ret)
++		return ret;
++
++	/*
++	 * Vendor timing: reset held low for 20 ms, then 5 ms of settling before
++	 * the first command. The GPIO is active low in the device tree, so
++	 * "1" here means asserted.
++	 */
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++	msleep(20);
++	gpiod_set_value_cansleep(ctx->reset_gpio, 0);
++	usleep_range(5000, 6000);
++
++	nt51021_cmd_window(&dsi_ctx, true);
++
++	for (i = 0; i < ctx->desc->num_cmds; i++) {
++		const struct nt51021_cmd *cmd = &ctx->desc->cmds[i];
++
++		nt51021_write(&dsi_ctx, cmd->reg, cmd->val);
++		if (cmd->delay_ms)
++			mipi_dsi_msleep(&dsi_ctx, cmd->delay_ms);
++	}
++
++	/* Vendor init_lcm_registers(): Sleep Out, then 120 ms. */
++	mipi_dsi_dcs_exit_sleep_mode_multi(&dsi_ctx);
++	mipi_dsi_msleep(&dsi_ctx, 120);
++
++	nt51021_cmd_window(&dsi_ctx, false);
++	mipi_dsi_msleep(&dsi_ctx, 5);
++
++	if (dsi_ctx.accum_err) {
++		gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++		regulator_disable(ctx->supply);
++	}
++
++	return dsi_ctx.accum_err;
++}
++
++static int nt51021_enable(struct drm_panel *panel)
++{
++	struct nt51021 *ctx = to_nt51021(panel);
++	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
++
++	nt51021_cmd_window(&dsi_ctx, true);
++	mipi_dsi_dcs_set_display_on_multi(&dsi_ctx);
++	nt51021_cmd_window(&dsi_ctx, false);
++	mipi_dsi_msleep(&dsi_ctx, 20);
++
++	return dsi_ctx.accum_err;
++}
++
++static int nt51021_disable(struct drm_panel *panel)
++{
++	struct nt51021 *ctx = to_nt51021(panel);
++	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
++
++	nt51021_cmd_window(&dsi_ctx, true);
++	mipi_dsi_dcs_set_display_off_multi(&dsi_ctx);
++	nt51021_cmd_window(&dsi_ctx, false);
++
++	return dsi_ctx.accum_err;
++}
++
++static int nt51021_unprepare(struct drm_panel *panel)
++{
++	struct nt51021 *ctx = to_nt51021(panel);
++	struct mipi_dsi_multi_context dsi_ctx = { .dsi = ctx->dsi };
++
++	/* Vendor lcm_suspend(): force MIPI, Sleep In, 50 ms. */
++	nt51021_cmd_window(&dsi_ctx, true);
++	mipi_dsi_dcs_enter_sleep_mode_multi(&dsi_ctx);
++	mipi_dsi_msleep(&dsi_ctx, 50);
++
++	gpiod_set_value_cansleep(ctx->reset_gpio, 1);
++	regulator_disable(ctx->supply);
++
++	return dsi_ctx.accum_err;
++}
++
++/*
++ * Timings from the vendor's lcm_get_params(): 1200x1920, hsync 1 / hbp 32 /
++ * hfp 110, vsync 1 / vbp 14 / vfp 11. That gives htotal 1343 and vtotal 1946.
++ *
++ * The pixel clock follows the vendor's PLL_CLOCK = 490, which after DDR is
++ * 980 Mbps per lane, and over four lanes at 24bpp is 163.33 MHz, giving
++ * 62.5 Hz. That is also what the bootloader leaves behind: read back before
++ * the kernel touches it, the MIPI TX PLL on this board decodes to exactly
++ * 980 Mbps per lane, so the panel is already running at this rate when the
++ * kernel takes over.
++ *
++ * Note for anyone tempted by the "fps=6025" the bootloader puts on the kernel
++ * command line: it is not the DSI rate and does not describe this PLL. It also
++ * is not stable across boots.
++ */
++static const struct drm_display_mode nt51021_mode = {
++	.clock = 163333,
++	.hdisplay = 1200,
++	.hsync_start = 1200 + 110,
++	.hsync_end = 1200 + 110 + 1,
++	.htotal = 1200 + 110 + 1 + 32,
++	.vdisplay = 1920,
++	.vsync_start = 1920 + 11,
++	.vsync_end = 1920 + 11 + 1,
++	.vtotal = 1920 + 11 + 1 + 14,
++	.width_mm = 136,
++	.height_mm = 221,
++	.type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
++};
++
++static int nt51021_get_modes(struct drm_panel *panel,
++			     struct drm_connector *connector)
++{
++	return drm_connector_helper_get_modes_fixed(connector, &nt51021_mode);
++}
++
++static const struct drm_panel_funcs nt51021_panel_funcs = {
++	.prepare = nt51021_prepare,
++	.enable = nt51021_enable,
++	.disable = nt51021_disable,
++	.unprepare = nt51021_unprepare,
++	.get_modes = nt51021_get_modes,
++};
++
++static int nt51021_probe(struct mipi_dsi_device *dsi)
++{
++	struct device *dev = &dsi->dev;
++	struct nt51021 *ctx;
++	int ret;
++
++	ctx = devm_drm_panel_alloc(dev, struct nt51021, panel,
++				   &nt51021_panel_funcs,
++				   DRM_MODE_CONNECTOR_DSI);
++	if (IS_ERR(ctx))
++		return PTR_ERR(ctx);
++
++	ctx->supply = devm_regulator_get(dev, "power");
++	if (IS_ERR(ctx->supply))
++		return dev_err_probe(dev, PTR_ERR(ctx->supply),
++				     "failed to get power supply\n");
++
++	/* Active low in the device tree, so OUT_HIGH leaves reset asserted. */
++	ctx->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
++	if (IS_ERR(ctx->reset_gpio))
++		return dev_err_probe(dev, PTR_ERR(ctx->reset_gpio),
++				     "failed to get reset GPIO\n");
++
++	ctx->desc = of_device_get_match_data(dev);
++	if (!ctx->desc)
++		return -ENODEV;
++
++	ctx->dsi = dsi;
++	mipi_dsi_set_drvdata(dsi, ctx);
++
++	dsi->lanes = 4;
++	dsi->format = MIPI_DSI_FMT_RGB888;
++	/*
++	 * Video mode with sync events rather than sync pulses
++	 * (vendor SYNC_EVENT_VDO_MODE), and a continuously running HS clock
++	 * (vendor cont_clock = 1), so MIPI_DSI_CLOCK_NON_CONTINUOUS is
++	 * deliberately absent. Commands go out in LP.
++	 */
++	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_LPM;
++
++	ret = drm_panel_of_backlight(&ctx->panel);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get backlight\n");
++
++	/* The DSI host must be running before we can send the init sequence. */
++	ctx->panel.prepare_prev_first = true;
++
++	drm_panel_add(&ctx->panel);
++
++	ret = mipi_dsi_attach(dsi);
++	if (ret < 0) {
++		drm_panel_remove(&ctx->panel);
++		return dev_err_probe(dev, ret, "failed to attach to DSI host\n");
++	}
++
++	return 0;
++}
++
++static void nt51021_remove(struct mipi_dsi_device *dsi)
++{
++	struct nt51021 *ctx = mipi_dsi_get_drvdata(dsi);
++	int ret;
++
++	ret = mipi_dsi_detach(dsi);
++	if (ret < 0)
++		dev_err(&dsi->dev, "failed to detach from DSI host: %d\n", ret);
++
++	drm_panel_remove(&ctx->panel);
++}
++
++static const struct of_device_id nt51021_of_match[] = {
++	{ .compatible = "amazon,suez-boe-nt51021", .data = &suez_boe_desc },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, nt51021_of_match);
++
++static struct mipi_dsi_driver nt51021_driver = {
++	.probe = nt51021_probe,
++	.remove = nt51021_remove,
++	.driver = {
++		.name = "panel-novatek-nt51021",
++		.of_match_table = nt51021_of_match,
++	},
++};
++module_mipi_dsi_driver(nt51021_driver);
++
++MODULE_DESCRIPTION("Novatek NT51021 1200x1920 DSI panel driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.55.0
+
+
 
