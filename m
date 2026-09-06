@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA28C624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 03:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF33C79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 03:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bn7FZwwf19c3h9u4aABxH+CJMemOfFxO0YWc91hO9HA=; b=zbU+QwoNXVxwVrZC7gXy/8SwR+
-	s7VtkpctscuQoNapTxlCe5Botni799xTZE9Q/1o4JjpCLVRlZQaFbAIAadAXPO+68Dv3aU33tIHhr
-	N5ZYVMzbU/RrBpGFxq2dPFLUtbdq9YrATqZsgDP3PKIqTazmLHFh5lCYKcETpt2CKHb+defsRI+55
-	1GDYo+7oQnSmoHP3QJVnLG7Zg1/v+4l0RU7LDMzIb8gDME9rkMsdgoRB0wNUiWhmzUDSsQoi/UC6r
-	lqYDncLUu1MfZ+DCokBp6ze1EG53ivOXPy3SGqo+odSNvbCSQAOMFxOyzynxzmpJLymkqrNRkrFfY
-	012YgISg==;
+	bh=h5UtvNOj7koMAg3tl5lCsazgNOBs9X9XUd+uAthO1zE=; b=nYGpQI3tfHCTKJtOVf0u3hmIw0
+	wRaOH7WZGD1Y7mCTOoy/j8tCmvjahlPhPWzfb8a01iO3tVG4QRt5SWV65xgyaXZG3DsHEuyV6x7/M
+	NeZqbb/t+6ZmVBiFbWUIaqrH5Q46Q7HNNTcf4G/tG4C4XjuHjqh6EAmCKNgMAs29WhDUK2vzdLXVu
+	zq3eDgJaN4J5DwFxOCfs7+0SQKvYjPw5qDKR6aDmkWvqTAxKp/8hP9k29K4l2CWaWtOcMuP2ExQp3
+	vMCvnKzv3p4zzYo+B7m+iEgAqqSc6MjAnDAbZjf8tFNUfA88Vj0tAmjo+m7YVtmpnBEgGywNBd+zz
+	0CHNS1zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x33i2-00000004dcc-1IpI;
-	Sun, 06 Sep 2026 03:38:22 +0000
+	id 1x33jN-00000004dnU-2Sxr;
+	Sun, 06 Sep 2026 03:39:45 +0000
 Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x33i0-00000004dcA-04bP
+	id 1x33jK-00000004dmX-1sit
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 03:38:21 +0000
+	Sun, 06 Sep 2026 03:39:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Bn
-	7FZwwf19c3h9u4aABxH+CJMemOfFxO0YWc91hO9HA=; b=igWyWEeG3ZP1kr3m3c
-	HBFlmj5kRfWW8+D43PbIkRWsXc+8yFyi5I4GNSAMb2I0vqpZ6DgpYH9owzRWgqL/
-	FWASWjIGYbV24glq9IqasWm60fSYoVIY3+MdDR8pnC8DaJ1NEtmt/gt8Q0JJcGmI
-	+84xv2O1uMYbF33glmYlMLnQE=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=h5
+	UtvNOj7koMAg3tl5lCsazgNOBs9X9XUd+uAthO1zE=; b=ZzL7WsKZfbSSZziDgt
+	4R46THA1km+q4DtKteyjxEQnCqf7N/2Ln1UDrYJkSz70/KMZ7GbY11YM1z7rLgIU
+	MeQ8/ml1qB7BJXHR7cp8zMwmjwDJ5fHrhjrGIEaLNnYTqx6qM3nqLC1pjAk+wqAi
+	lrFZv3O6VG4qPOptpVBs8LoRU=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3T5Yg4Jxql1DaAw--.30101S2;
-	Sun, 06 Sep 2026 11:38:09 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgC3X2lu4Jxqh6TERA--.30651S2;
+	Sun, 06 Sep 2026 11:39:27 +0800 (CST)
 From: Pengpeng Hou <hppiscas@163.com>
-To: Ulf Hansson <ulfh@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
 Cc: Pengpeng Hou <hppiscas@163.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	"A.s. Dong" <aisheng.dong@nxp.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Taichi Sugaya <sugaya.taichi@socionext.com>,
+	Takao Orito <orito.takao@socionext.com>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] pmdomain: imx: Propagate SCU provider registration failures
-Date: Sun,  6 Sep 2026 11:38:06 +0800
-Message-ID: <20260906033806.84671-1-hppiscas@163.com>
+Subject: [PATCH] clk: milbeaut: Return divider update timeouts
+Date: Sun,  6 Sep 2026 11:39:24 +0800
+Message-ID: <20260906033924.84982-1-hppiscas@163.com>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3T5Yg4Jxql1DaAw--.30101S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WryftF4rKF47Kr4kuFy8Krg_yoW8XF45pF
-	Wktayavrs7Jr4fG3WUGF1DZryay34Fyry7Kay5Ga4xZF45JFnxWa4Fqa4jkFnFyry8tF42
-	yr429FW5CF1FyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRNeOZUUUUU=
-X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7QECymqc4CGhRwAA31
+X-CM-TRANSID: PigvCgC3X2lu4Jxqh6TERA--.30651S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WFWrGw15uFyxXFW5AFyDAwb_yoW8Zr18pr
+	WS9398tFWjqw4UG3ZxtF42gF95Gasrta43GrZrK348uF15Xay5tF1Sv3s29a1UtFyxWF4f
+	J3yIvr48AF48tFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UDEfOUUUUU=
+X-CM-SenderInfo: 5kssx2xfdvqiywtou0bp/xtbC7Q8V3Wqc4G+l-AAA3K
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_203820_440371_6C61A1DE 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20260905_203942_827044_76AF4CC2 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +75,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_scu_init_pm_domains() ignores of_genpd_add_provider_onecell() and
-returns success even when none of the initialized domains are published to
-DT consumers.
+m10v_clk_divider_set_rate() logs when the hardware does not clear its
+write-valid request, but still returns success to the clock framework. It
+also uses the sleeping poll helper while holding the divider spinlock.
 
-Return the provider error and remove the initialized domains in reverse
-order before devm releases their backing storage on probe failure.
+Use the atomic poll helper under the lock and return its timeout so the
+rate change is not reported as successful before the hardware accepts it.
 
 The issue was found by our static-analysis tool and manually reviewed.
 
-Fixes: c800cd7824bd ("firmware: imx: add SCU power domain driver")
+Fixes: 6a6ba5b55a72 ("clock: milbeaut: Add Milbeaut M10V clock controller")
 Assisted-by: gpt 5
 Signed-off-by: Pengpeng Hou <hppiscas@163.com>
 ---
- drivers/pmdomain/imx/scu-pd.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/clk/clk-milbeaut.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/pmdomain/imx/scu-pd.c b/drivers/pmdomain/imx/scu-pd.c
-index e3f9e741daf7..05d4364f34be 100644
---- a/drivers/pmdomain/imx/scu-pd.c
-+++ b/drivers/pmdomain/imx/scu-pd.c
-@@ -474,7 +474,7 @@ static int imx_scu_init_pm_domains(struct device *dev,
- 	struct genpd_onecell_data *pd_data;
- 	struct imx_sc_pm_domain *sc_pd;
- 	u32 count = 0;
--	int i, j;
-+	int i, j, ret;
+diff --git a/drivers/clk/clk-milbeaut.c b/drivers/clk/clk-milbeaut.c
+index 4265bc442dfd..b3bf569ef747 100644
+--- a/drivers/clk/clk-milbeaut.c
++++ b/drivers/clk/clk-milbeaut.c
+@@ -410,8 +410,8 @@ static int m10v_clk_divider_set_rate(struct clk_hw *hw, unsigned long rate,
+ 				unsigned long parent_rate)
+ {
+ 	struct m10v_clk_divider *divider = to_m10v_div(hw);
+-	int value;
+ 	unsigned long flags = 0;
++	int value, ret = 0;
+ 	u32 val;
+ 	u32 write_en = BIT(divider->width - 1);
  
- 	for (i = 0; i < pd_soc->num_ranges; i++)
- 		count += pd_ranges[i].num;
-@@ -503,7 +503,13 @@ static int imx_scu_init_pm_domains(struct device *dev,
- 	pd_data->num_domains = count;
- 	pd_data->xlate = imx_scu_pd_xlate;
+@@ -433,8 +433,10 @@ static int m10v_clk_divider_set_rate(struct clk_hw *hw, unsigned long rate,
  
--	of_genpd_add_provider_onecell(dev->of_node, pd_data);
-+	ret = of_genpd_add_provider_onecell(dev->of_node, pd_data);
-+	if (ret) {
-+		while (count)
-+			pm_genpd_remove(domains[--count]);
-+
-+		return ret;
-+	}
+ 	if (divider->write_valid_reg) {
+ 		writel(M10V_DCHREQ, divider->write_valid_reg);
+-		if (readl_poll_timeout(divider->write_valid_reg, val,
+-			!val, M10V_UPOLL_RATE, M10V_UTIMEOUT))
++		ret = readl_poll_timeout_atomic(divider->write_valid_reg, val,
++						!val, M10V_UPOLL_RATE,
++						M10V_UTIMEOUT);
++		if (ret)
+ 			pr_err("%s:%s couldn't stabilize\n",
+ 				__func__, clk_hw_get_name(hw));
+ 	}
+@@ -444,7 +446,7 @@ static int m10v_clk_divider_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	else
+ 		__release(divider->lock);
  
- 	return 0;
+-	return 0;
++	return ret;
  }
+ 
+ static const struct clk_ops m10v_clk_divider_ops = {
 -- 
 2.50.1 (Apple Git-155)
 
