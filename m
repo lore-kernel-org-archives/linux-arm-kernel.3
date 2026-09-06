@@ -4,89 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FAC1C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 15:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D9CC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 15:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68YKKfbSFTtU2N7wERD+i3nPtQ0y2cRum0iBDFTHv+I=; b=IUayFpqdM3V9Xkt2ALOD1oNl+k
-	99ANzN2/0Kb2HA5P2w/9vTz/2smv5JoeVoLG7QJ5hAVrD9cvBHl7j+g2osMQsLHmUA6LlsZJbVyJJ
-	H7AZADFXjNAna3cyigAq2glGtnHgYEGqnZd982C0ZOlo26Fs17YpcQJBJI1Cflkk8pwncAYwgMPaX
-	pCJdA5k9BQ7ApLdtdyFOKMy7roMSAwDYFQSN11RNU5zInJahiUEejaa/T2iw5AiXDm/LTa7C49JNK
-	Oq8o1/1z18ZL653mJ7YgpCGJC1dFsr0LEpYJVvXrpJT06ypqpw9e9/dxpaLTWi9vQnI3erGKn5dkR
-	eLRxNkhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=atxn2vgJpDUmpNs5SbO2jz0ppE43fFWo5yBmTVwb/mI=; b=QSP2Zi06SfVq7S/c6FewQYkaF/
+	8rTEh/3CYHZXW5ssI+Nm7SFCgFczgUmA6HBoQpSX19Ce31yPZfR4/7VKmTW7RRUP13dG6PD7oKfL/
+	CP5/Pdy4U4ozMPxOeLWN6riTtkJlJ9Hcu2RAcQoy8yBE1uLX3I2CUGGvmxBNNbrD/CQkm6WpQqnXn
+	UZ3kAAS2zaGq9XwmjywfAbPc3dg6n9Uph1wkbAQcvyhl67LivnV4c0/b6ApG58ihmOR/8Hz+wF26V
+	+frEmesQMuXnEV1OX2NthgmoGi3XThhnKIVbyun1TCWZDxF0nkclRGkVmpYLeS1eC4DwVsDgzUcoe
+	fgqkeg6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3EfG-000000057sY-1hsb;
-	Sun, 06 Sep 2026 15:20:14 +0000
-Received: from sender6-op-o12.zoho.com ([165.173.180.12])
+	id 1x3Enk-000000058JM-254D;
+	Sun, 06 Sep 2026 15:29:00 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3EfE-000000057rz-0dMR;
-	Sun, 06 Sep 2026 15:20:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788707913; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ieCQabN8EQGpXXgECYodCz/ZWBOkqYLbzC0IAYMG8eiFuCymE52MFXM8XcT6yw39sVHBIc2qXnpsaVNw2sn4SSeLTcwBmMpWDsjggGIuvL0BodFvmlMmHh3DI+WnadXCEcpuLwct5OCPKQjaCpLS3L2vKFHX8ILaEEH5q1Uo+Bw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788707913; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=68YKKfbSFTtU2N7wERD+i3nPtQ0y2cRum0iBDFTHv+I=; 
-	b=TEEpCx/b1ggvFyy06XzGaMbNMSzL3Ih8lcq69dr3LzhH4NfQtlm+qC/5NnaXvUWQGG8GnayoaudlRlMZFVEHGWH/q6QuAWKVLEzpHRMlAFc7V5nXD+CtW5vK5MJ63hQ+c8dqyh9/JXMwWiDP0NfnLEz1g/88RIYJE0h3d8NLPuw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788707913;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=68YKKfbSFTtU2N7wERD+i3nPtQ0y2cRum0iBDFTHv+I=;
-	b=jzAEdxks3X3M2tjU7S5FuCIjaTDUi2qtrtP7DnXmOiMnbT5vFdOwzOCbCPMbWKFd
-	AqKsFENq9fN5HGwqjXYuSfHrxGy6MiIXzb3vnOYn3nzwW+fuarkCTIU9wCTTGE6s7dK
-	zAaUKxcwqTq4iUaFNNoYTk842WVM7mirHdmg6awrwY8XJ/eB3xIFc0o0enQj9Zl3yM/
-	nbcOVOSCgfi8MC0mZIvUnwM80hrNWjqgvIHCUDS52pR0CkaMje0TKgVUzpp2WmiQoW7
-	EB/H0s5j/mdyvhAKH+NZhmAd2zA/4zIfyCb7SDaeazKFS5Qg5Rw7hZUamsT52lO1IpZ
-	oRuXG8vMBA==
-Received: by mx.zohomail.com with SMTPS id 1788707909777230.01672967805905;
-	Sun, 6 Sep 2026 08:18:29 -0700 (PDT)
-Message-ID: <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Maud Spierings <maud_spierings@murena.io>, Dominique Belhachemi
-	 <domibel@debian.org>
-Cc: m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com, 
-	airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com,
- andy.yan@rock-chips.com, 	andyshrk@163.com, aou@eecs.berkeley.edu,
- bmasney@redhat.com, conor+dt@kernel.org, 	conor@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk, 
-	jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk,
- krzk+dt@kernel.org, 	lee@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, 	linux-riscv@lists.infradead.org,
- linux-rockchip@lists.infradead.org, 	luca.ceresoli@bootlin.com,
- m.szyprowski@samsung.com, 	maarten.lankhorst@linux.intel.com,
- maudspierings@gocontroll.com, 	mfd@lists.linux.dev, mripard@kernel.org,
- mturquette@baylibre.com, 	neil.armstrong@linaro.org,
- p.zabel@pengutronix.de, palmer@dabbelt.com, 	pjw@kernel.org,
- rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org, simona@ffwll.ch, 
-	tzimmermann@suse.de, vkoul@kernel.org
-Date: Sun, 06 Sep 2026 23:18:11 +0800
-In-Reply-To: <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
-	 <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-	 <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
-	 <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
-	 <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
-Organization: Anthon Open-Source Community
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1x3Enh-000000058Ix-2Qsf
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Sep 2026 15:28:59 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 686EXLTS964814;
+	Sun, 6 Sep 2026 10:28:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=atxn2vgJpDUmpNs5SbO2jz0ppE43fFWo5yBmTVwb/
+	mI=; b=D/AcvJW8m+RMiKhmeCgAZ0TAj4bKmmyag3GGP/To+snlykMg2aqg8ezmU
+	dxqe3Kog86Jc8gxp0OOx4Dw9f9NRDWCC3o9gpjrHAoTfM7jlRhZGfr5dI6CaSCJP
+	/Dd18pb4kMqy1wbwpIN9Or5oRPeF9VmabquYegPDsCKQP9svMbrN70VUpsE+KO0W
+	9UypIAh13G5vpcRX2r1De05Cag4UVfgta8UlKq4u2L6zirELscPpr0WrHuGN4DaA
+	WOHcLhVzatpSY0yXBOVCXUc6Y12pFJwuhTBFsgxwCEXccZYRW5ZP2xWQBqRTITIr
+	HqWzTckP8y226CPSvX5A/H21eVG7w==
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010023.outbound.protection.outlook.com [52.101.201.23])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4gh2f69b0c-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 06 Sep 2026 10:28:53 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UP5Ozl3pFI8F0UeyiGmNcJuUditRCRg9qqgfO9Fcee5OHQTsLFUzdZ+92uYIY98D/TMRgu0PjIu+tpc4hghmEQLKXzNVLKPiAf90L4vm01hbJr4sRU6/TWZQvp1tEeyaoEoxMxecJsBUagdebcCb7tL+O/kNhxzm9M60OOQAxB/ZXQAIZSY6ufMS5pW5a/9jg83h9ajAD6oqkaXSfMO58T6nkXG7Bo/LrZyIlSzvPEXagaViFw8YPe3JppwujEX+yzxoVc2IDpLBvF1kKmv4viqWwrBjzMhvdsOLHDuzzEegYzfHjSWyvCblUobX3LrmocHHADnIVo6PmJcSimu+/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=atxn2vgJpDUmpNs5SbO2jz0ppE43fFWo5yBmTVwb/mI=;
+ b=greRLx68R1IBVKu1jRdS9DEPvw0UoDd5RXfI5k1aCLP38ZhFsmx7IsLW9grc/5QIOzkRUm4as+Xr/LQv9jQ1Bj6CFC3POAgjk1cWVkfy5UHZJkkgbWrQ2/Ly322ooGurWq/hTaBLDJn/M490q8emSzTeE2GIYR2xXwX8hlQ309mekal8rfurlJbbwy2TnBdlj7qXzEq0eJr8pG23MCObhgYyLydLYc3+/ITsOhvUnTU3LP1XM2dE1aUWvGshg8UBKdU2oC6vP3UedxxS+s0l6NTwJqiYsqfHBSzbN5GnF0bsjSrPZWfu9lk4vHb9yMdYFg1M/ALJqnGvKFP2vlljsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=atxn2vgJpDUmpNs5SbO2jz0ppE43fFWo5yBmTVwb/mI=;
+ b=tK04dEEhXdVRyFjs59iJ/dVH+vTmTTm2jN3Hxvev6NlEwmFLB9ivXmJYJJazJHFzT8wuKkix/GtDB0bJAGb/E6SVgFWmJ/6+mBfGmSGGM3KXEdiW2X9uermBKRU8cJS+VgPj9eKdsPajxpZLrdQfe+fOkUK6uLAamxGk16BFUJ8=
+Received: from CH2PR15CA0014.namprd15.prod.outlook.com (2603:10b6:610:51::24)
+ by DSVPR10MB997937.namprd10.prod.outlook.com (2603:10b6:8:3bd::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.4; Sun, 6 Sep 2026
+ 15:28:49 +0000
+Received: from CH1PEPF0000AD82.namprd04.prod.outlook.com
+ (2603:10b6:610:51:cafe::a4) by CH2PR15CA0014.outlook.office365.com
+ (2603:10b6:610:51::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Sun, 6
+ Sep 2026 15:28:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CH1PEPF0000AD82.mail.protection.outlook.com (10.167.244.91) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Sun, 6 Sep 2026 15:28:48 +0000
+Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 6 Sep
+ 2026 10:28:12 -0500
+Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 6 Sep
+ 2026 10:28:11 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Sun, 6 Sep 2026 10:28:11 -0500
+Received: from [10.249.138.105] ([10.249.138.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 686FS8dK4035787;
+	Sun, 6 Sep 2026 10:28:08 -0500
+Message-ID: <f849a5f9-e027-4203-a684-1bf15d032a9b@ti.com>
+Date: Sun, 6 Sep 2026 20:58:07 +0530
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-j7200-common-proc-board: Add
+ ethernet alias
+To: "Kumar, Udit" <u-kumar1@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+References: <20260811061351.2538688-1-s-vadapalli@ti.com>
+ <20260811061351.2538688-3-s-vadapalli@ti.com>
+ <b7147489-00bc-4f55-bfe5-2c9cb675c7ec@ti.com>
+ <a935ba6a-3623-4fb5-a31b-fc58ea9dda21@ti.com>
+ <5a62aa0d-c829-422b-b1eb-2b64f20e42d3@ti.com>
+Content-Language: en-US
+From: Hari Prasath G E <gehariprasath@ti.com>
+In-Reply-To: <5a62aa0d-c829-422b-b1eb-2b64f20e42d3@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD82:EE_|DSVPR10MB997937:EE_
+X-MS-Office365-Filtering-Correlation-Id: d30dd46f-12ad-420a-d1d7-08df0c2b8c12
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|82310400026|10067099003|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: NZFMsqstsoOkHHR0FweA02Cmi17NJsND1OjnA7kxz3t6NcdUVH6ToHbF3wirdpi4JZGrUC1PGopEeWUqWNk8dgHWR2SNuXp5FLMzyrv8g+JjK/NQlfYwQbDhfsuLfVUQ8M7A162gpu3kiq8Ugsyxy6Lx3WOiQuE4TfUVgY1axyyA187vnbUyOY69ZxNJGi8Vz5znJVILswuLZC1e8/7QEp4ieOEJ2My3qg3dR9B/431Dahkfj/6qZVm7aJZBh4d0sORozjvUueP5FK28S7UlkPQJ2zIXhTiNXeORmA0zsI0LDypAgm1CCVxE7W5br+7HucCWidT9/g2QuHwut/a1l0cdxjYfsC/x3jyrUsPup9jcbX+GReABFyTT/+I1+QiaXiYnV07wcDEtNvlpFCrz8katHZbXykrwTCcad2u/DdUERUcUIzq6rODn9uFsFWoazQo2DL3lRDVod8mGYvHp0AyJq7/VG7rFZmpCgyjXF/B9DiPZ1rf9dwFO+pqqXKyYoRsRnGV3cQM174kHrRgoP7PVhe8VvA+tCMuwLzgOsh1OhkF1ukqp8xCf+GaG/vE9jHFCd66DJDHiAiyFjhrgh1BvDzOKbv4ZZXGCBPzb4i2R+VWbNQ0Gxv/rMJ7+mhhrPSXZspLM9q107MSXXbxTJpC5GMZ+idYUVyyhQcomau8=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: yA+FZ5crpQM+K0DzD+bzMJ6pDdXzAIinWmBqAcjRNBdm+w3NCAYEgn1TMOYwI+dCSKzOpgYhxG8OD6JUq5RBqfOSwXifJn0/wSbM1cy9ScJITLtt+cKL9xi+yF1tmihpN8GuR4Al5561leGAlDyn4z+TuaN6gcOpUvS4QAzTY5SXREqZXuDWNTdPkdnAlPH3/LxPCl7StrqvezO2Vh5wj12tETwBieYVQfchPplRQoTKpGnDKAWEtTPZWOiFeU+LRBy7MglAaN4L5a2aOllo7N2MZ25nsOmasdyWaYVHjPyDN7cMFE1yuoYTuPnoLmWd5LjJtX8d9FnPhxwNZJOfTNplDtdzrLQPqMyvNgMKv4oq0H1NW1UOh/vamBSB2xQo8LufTADC+DZqX+VLbqPYECM7ufLlgk3Edp0FtsO6FrY+my76Dm3L4Ya5zR40GrCJ
+X-Exchange-RoutingPolicyChecked: 4TujMmNzRHBVe1PbJOkya0P3H6nCVMgz6+II7JwWw9V1ch/sjS9ISjmkWtEAaxJzm3U0PRRZexyDJC4QJTeMioWTH1AQpAh7w3wL+A/e6qGAsrAoMuKFhAUSjKEqaeQy+RRYWJFnouChOctYbDFDqsq1Bxq8SxTXWYp4cYX5Ik2p9jv9hAgy/+ur0jSjajtWUWg6lnClMq5R3G8wWaSpgBSlaOwGPWgDFyanHLoj5feWJIfSG0QUvHzdiD9a28lNHDjFpgAgrwWZBQF+9H9JwRROuKi+w1xBI0BGm1VvCj2DBxoR27aIlzNhXfCdfLZMiABRsuXp215EB5AtIiCmEQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Sep 2026 15:28:48.2370
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d30dd46f-12ad-420a-d1d7-08df0c2b8c12
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD82.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR10MB997937
+X-Proofpoint-GUID: yB4FMfAo8HzRKdN4eJTJsA-UhQeM4z1v
+X-Authority-Analysis: v=2.4 cv=Wqkb99fv c=1 sm=1 tr=0 ts=6a9d86b5 cx=c_pps
+ a=xBU3AFOX62plvdJ7VrUh9g==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
+ a=if0OlxzLuD2TamzVNTUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: yB4FMfAo8HzRKdN4eJTJsA-UhQeM4z1v
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA2MDE3MiBTYWx0ZWRfX+easdDAfnj/O
+ jP2tZnAsa3fD3tmCmzivcMhNd4sfOd8cmDv5fn/vwWRraRNIH0KUKmXWFbtzyQmpdHRk3+f/t98
+ OyDTEc/qja9eT9DD6DxWP7X+6WMsQkodLAazF1jrI2cHgDW5tKZTC6rtlcaWNVmyFpEGvVVE1PP
+ eyvZK9xwaAudApmW/sHF2HOs/Q92qQcvhDTMSFjcojL6BjcRlIME3HkFg7UAYS45vPDav3hM84d
+ 7u4Hz6MIYVyonF2FIYk+zLuosKB8d9WGgATLHVGCIZ/G0XmIDorOYuGUCDQxUPLo455JryliHm/
+ l40JYTC2pMBmOogUfSHox5gbh8C1Xd+c3tgDfsbeijlBL5GcgOyOzYcxfoT71I+59YBUNdFJUcs
+ VPw2I6vXG7JEtOa++tOOmr4svlnZ0GzHdRFHJxAElQ2SlIvYWFB/EcGacZqDzJfeuWyBndFD5LV
+ zcqumk4A4GpPUVzPrwg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA2MDE3MiBTYWx0ZWRfX3+/AfDuzrs4L
+ +/bNGu6H7tc3rrI+cFnDsBNnGCkaRgFSAvk7aQgWwqLdHXunSjNBpbegW7hw4eGOI1kmUsasgtN
+ c0GoVFJl8zWCA59Ap5EMnFczpwpu1Rw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-06_01,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 adultscore=0 malwarescore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 clxscore=1015 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2609060172
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_082012_273374_2E96F9CA 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20260906_082857_856813_44E5DC3D 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,76 +182,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-09-06=E6=97=A5=E7=9A=84 16:59 +0200=EF=BC=8CMaud Spierings=
-=E5=86=99=E9=81=93=EF=BC=9A
-> On 9/6/26 07:39, Dominique Belhachemi wrote:
-> > On Sun, Aug 30, 2026 at 10:17=E2=80=AFAM Maud Spierings=20
-> > <maud_spierings@murena.io=C2=A0<mailto:maud_spierings@murena.io>> wrote=
-:
-> >=20
-> > =C2=A0=C2=A0=C2=A0 I was still having some glitching happening on the d=
-isplay, but
-> > I've
-> > =C2=A0=C2=A0=C2=A0 found the way to fix that, the question is what is a=
-ctually
-> > =C2=A0=C2=A0=C2=A0 happening here.
-> >=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A00x29590020 <- 0x00000005
-> > =C2=A0=C2=A0=C2=A0 This one I have no idea, it is 0x00000009 with this =
-patch
-> > series but
-> > =C2=A0=C2=A0=C2=A0 with the vendor kernel I get the value above. When I=
- hook up my
-> > =C2=A0=C2=A0=C2=A0 external
-> > =C2=A0=C2=A0=C2=A0 display (regular 1440p) this becomes 0x0000000D on t=
-he vendor
-> > kernel.
-> >=20
-> > =C2=A0=C2=A0=C2=A0 But I can't find this register being written to anyw=
-here there?
-> >=20
-> >=20
-> > Maybe this needs to be swapped?
-> >=20
-> > drivers/gpu/drm/bridge/inno-hdmi.c
-> > =C2=A0=C2=A0 -#define v_HSYNC_POLARITY(n) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0((n) << 3)
-> > =C2=A0=C2=A0 -#define v_VSYNC_POLARITY(n) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0((n) << 2)
-> > =C2=A0=C2=A0 +#define v_HSYNC_POLARITY(n) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0((n) << 2)
-> > =C2=A0=C2=A0 +#define v_VSYNC_POLARITY(n) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0((n) << 3)
+Hello Udit,
 
-Very weirdly, the original definition here matches current mainline
-inno-hdmi.c, but the changed definition matches JH7110 vendor
-inno_hdmi.h [1].
+On 9/6/2026 7:34 PM, Kumar, Udit wrote:
+> 
+> 
+> On 9/6/2026 5:48 PM, Hari Prasath G E wrote:
+>> Hello Udit,
+>>
+>> On 9/6/2026 11:13 AM, Kumar, Udit wrote:
+>>>
+>>>
+>>> On 8/11/2026 11:43 AM, Siddharth Vadapalli wrote:
+>>>> Add the 'ethernet0' alias for the Ethernet interface corresponding to
+>>>> the
+>>>> MCU CPSW2G instance of the CPSW Ethernet Switch on the J7200 Common
+>>>> Processor Board.
+>>>>
+>>>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>>>> ---
+>>>>    arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 1 +
+>>>>    1 file changed, 1 insertion(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/
+>>>> arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>>>> index 54dea36b153b..ac1c1ffe40b7 100644
+>>>> --- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>>>> +++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>>>> @@ -24,6 +24,7 @@ aliases {
+>>>>            serial5 = &main_uart3;
+>>>>            mmc0 = &main_sdhci0;
+>>>>            mmc1 = &main_sdhci1;
+>>>> +        ethernet0 = &cpsw_port1;
+>>>
+>>> Hello Siddharth,
+>>> As default only 1 cpsw port is enabled for all boards in this series.
+>>> So ethernet0 will be cpsw_port1 always, In case you want to enable more
+>>> port in default config then having aliasing will help.
+>>>
+>>> otherwise, you can consider to add aliasing in overlays where you enable
+>>> more than 1 port.
+>>>
+>>
+>> The first patch in the series for k3-am62a7-sk has two ports enabled by
+>> default, so there it's fine to add alias. Also, there are many other TI
+> 
+> May be I am missing something, but i don't see two port are enabled for
+> am62a7
+> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts#n796
+> 
+> 
 
-Some weird must happened.
+Apologies, I mistakenly looked at the TI vendor kernel where it's 
+enabled on both ports. I think still the below reasoning is valid to 
+take this patch series in. Let's wait for Siddharth to come back with 
+this comments.
 
-Thanks,
-Icenowy
+Regards,
+Hari
 
+>> K3 platforms which have only one cpsw port enabled but still define
+>> aliases. So I guess to keep it consistent, we can decide to accept this.
+>> If future overlays are added, this will just mean reserving eth0 for
+>> cpsw port1 which is also fine. I am fine to move with accepting this
+>> series.
+>>
+>> Acked-by: Hari Prasath Gujulan Elango <gehariprasath@ti.com>
+> 
+> 
+>>
+>> Regards,
+>> Hari
+>>
+>>>>        };
+>>>>          chosen {
+>>>
+>>
+> 
 
-[1]
-https://github.com/DC-DeepComputing/fml13v01-linux/blob/97c64fe2832b6826914=
-b6da7aa4febcdd4d3d444/drivers/gpu/drm/verisilicon/inno_hdmi.h
-
-> >=20
->=20
-> Those seem to only be relevant the 0x08 register:
-> =C2=A0> #define HDMI_VIDEO_TIMING_CTL		0x08
->=20
-> also in the code:
->=20
-> =C2=A0> /* Set detail external video timing polarity and interlace mode *=
-/
-> =C2=A0> value =3D v_EXTERANL_VIDEO(1);
-> =C2=A0> value |=3D mode->flags & DRM_MODE_FLAG_PHSYNC ?
-> =C2=A0>=C2=A0	 v_HSYNC_POLARITY(1) : v_HSYNC_POLARITY(0);
-> =C2=A0> value |=3D mode->flags & DRM_MODE_FLAG_PVSYNC ?
-> =C2=A0>=C2=A0	 v_VSYNC_POLARITY(1) : v_VSYNC_POLARITY(0);
-> =C2=A0> value |=3D mode->flags & DRM_MODE_FLAG_INTERLACE ?
-> =C2=A0>=C2=A0	 v_INETLACE(1) : v_INETLACE(0);
-> =C2=A0> hdmi_writeb(hdmi, HDMI_VIDEO_TIMING_CTL, value);
 
