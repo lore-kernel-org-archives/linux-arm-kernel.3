@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F05EC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 20:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D42C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 20:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifr8dfzJ3fmn/enavi5lqZlBqhGNx/GKUeKdq458mOU=; b=TFxazpUXY1hPrpXg0GktlMmKMv
-	WIlFPX5mX6g+oHClju1W1xAdKpwQ3+E3xbv9sZScqOoXjplvTBfDvTCo55mzXzY0WosXhgfXneJp4
-	pu66KeWZYfKN/kpxTUNjzJZ/LHQWHaUz0Vrxz/U3mpuk4dyGJ/BuepQ86wgAsw1d5SDcjkxpf0/2D
-	SLPx+fRtw6xqzv3WzpsweKkt7qBcIImPKCOra3DCR6qaV08HJ7q0RxML6dQiefriEMFNZC7CKlrO9
-	Qw+xgW+PJkMSjCRnSVSoOSbcXXz7g1NHEldHUK2LgELaMqrhacnTZXLmBfp/WAu/NInpQx5Ttk3hA
-	gpx/Rs/Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/GbIwS69Z+7EmfwRnslAiweTO6LWu4/b5K4KmWKEcGk=; b=JcnfAQUEBVcwXT
+	0L8JjJBt2N/Ptt5Gh+IFgj9tjJzjC3EFL7SG0e4xOPeZ9ctTAc21maLOczoJPJzl7odEoy5vjyySp
+	EvEUyu3mxO63eI1iDOaGdVINBH2ugJSSGlpULrmWoTkeMbEtOP2eV6qvP06I9ToP7AUo4J1a3jliO
+	JzxSH6PoWwerQcfOsE1unuUW9lbKNZVHMN8VlL+iHsKDEisItIS7iqK9JfV7nQYQwckGZUfFdcA5a
+	65LZAf0PvpfwrlI/nfHxBS9bdIAFqjiq9cRlT5VQwnkk9dJo5CpNK5/PgZQU2Hifvm7O4s7cGdYQ4
+	fCyBGMc4tEBS4LFqcpHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3JHZ-00000005Xdb-2SZO;
+	id 1x3JHZ-00000005XeC-3L4k;
 	Sun, 06 Sep 2026 20:16:05 +0000
 Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3JHU-00000005XaR-32BY;
-	Sun, 06 Sep 2026 20:16:03 +0000
+	id 1x3JHU-00000005XaQ-31LR;
+	Sun, 06 Sep 2026 20:16:04 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1788725747;
+	s=mail; t=1788725745;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ifr8dfzJ3fmn/enavi5lqZlBqhGNx/GKUeKdq458mOU=;
-	b=QY/0Z20jwGnKx9iu+pv2rhm+3lwrEs6xpK2Hmy8s1h4LxTsrvM4fTuq0fsn4pNPe/gNem0
-	JVB287T93XomRVlk4FWhi7vfnSe7sjG82Q/rZQcAR3YYCYe6q2YzuNHDHrFnA+3QlH+/ry
-	Nb/u0ytSSUgK7V17VACWgfO3g8oy9FE=
-Date: Sun, 06 Sep 2026 22:15:29 +0200
-Subject: [PATCH v2 1/2] dt-bindings: nvme: Add apple,t8132-nvme-ans2
- compatible
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=/GbIwS69Z+7EmfwRnslAiweTO6LWu4/b5K4KmWKEcGk=;
+	b=fD3ba7N2rfFxisDxO0mPhyFUZiCVuiw/kLXpRuVxj6fsS8ZgLrItrERf2cCYfcQcg6wZTr
+	PTlI+9hliSfvoJnaGLWLNXTwNjJi1aGDB+7Tq6fBl9WrlgFQ/nhnJ/7onSxCZpiKujxtFu
+	lTfR2xwfz3jCkrTY+fVBsVZR2+xMu58=
+Subject: [PATCH v2 0/2] nvme: apple: add t8132 (M4) ANS2 NVMe support
+Date: Sun, 06 Sep 2026 22:15:28 +0200
+Message-Id: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-apple-nvme-t8132-v2-1-ac0328590823@cyberchaos.dev>
-References: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
-In-Reply-To: <20260906-apple-nvme-t8132-v2-0-ac0328590823@cyberchaos.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WPyw6CMBBFf4XM2iG0VQRW/odhUcogNfKwLY2E8
+ O8WcOvyJOfeubOAJaPJQhEtYMhrq4c+AD9FoFrZPwh1HRh4wtMkYwzlOL4Ie98RuowJjoKJPK/
+ TJmNSQoiNhhr92Svv5cF2qp6k3NbzMwy9p3DLHRpU0hKqoeu0KyJ/jQUaxWBLt9q6wcz7Ps92+
+ f8UzzDBLL1UJDiduRI3NVdkwiODjWvyUK7r+gVsUeG08wAAAA==
+X-Change-ID: 20260811-apple-nvme-t8132-31399d6f81aa
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -56,8 +57,8 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-nvme@lists.infradead.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_131602_932154_B7A3B1A8 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260906_131602_924901_34C6C3E7 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new base compatible for the ANS2 NVMe on the Apple t8132 (M4) SoC,
-which requires the IO queues to be registered using additional MMIO writes.
+This patch series adds dt-bindings and driver support for ANS2 NVMe on
+the Apple t8132 (M4) SoC.
+
+This variant requires the IO queues to be registered using additional
+MMIO writes. Otherwise it is largerly the same as the ANS2 NVMe variants
+present on Apple M1-M3 SoCs.
 
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Reverted the separate_nvmmu_base part, since reg[9] from the Apple
+  device tree works for both nvme and nvmmu regs.
+- Differentiate the meaning of mmio_nvme+0x1210 between t8103 and t8132
+  resolves an ANS crash caused by the IO completion queue size mismatching
+  between our data structures (64) and the ANS (65).
+- Link to v1: https://patch.msgid.link/20260811-apple-nvme-t8132-v1-0-865be32e42c3@cyberchaos.dev
 
-diff --git a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
-index 4c0b1f90aff8..a1e5b1831468 100644
---- a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
-+++ b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
-@@ -16,6 +16,7 @@ properties:
-       - items:
-           - const: apple,t6020-nvme-ans2
-           - const: apple,t8103-nvme-ans2
-+      - const: apple,t8132-nvme-ans2
-       - items:
-           - enum:
-               # Do not add additional SoC to this list.
+To: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>
+To: Neal Gompa <neal@gompa.dev>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Keith Busch <kbusch@kernel.org>
+To: Jens Axboe <axboe@kernel.dk>
+To: Christoph Hellwig <hch@lst.de>
+To: Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-nvme@lists.infradead.org
+models: On t8132 this now sets the IO queue sizes and is 0-based. This
 
--- 
-2.55.0
+---
+Yureka Lilian (2):
+      dt-bindings: nvme: Add apple,t8132-nvme-ans2 compatible
+      nvme: apple: add t8132 (M4) ANS2 NVMe support
+
+ .../devicetree/bindings/nvme/apple,nvme-ans.yaml   |  1 +
+ drivers/nvme/host/apple.c                          | 39 +++++++++++++++++++---
+ 2 files changed, 36 insertions(+), 4 deletions(-)
+---
+base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+change-id: 20260811-apple-nvme-t8132-31399d6f81aa
+
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
