@@ -4,111 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43992C79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBF2C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdC57ddqvGP0W5KwBTBkhOYJWRkgqf1DhL7jKk6+43U=; b=RZ6gDSMaZJT9EG6tj60lCC3XGz
-	GWwtWcyE/XqndQYeBAayAReuXaC03nAueyp4vIO1yNlaxeauv2TIbUSwHdVFpY4XAAZuYK04fPFit
-	t8f8UP/z2LrptpI3joDn08R6AxH4SII0CYSQm9azmh4RpgfD//sHviis8cAANwTX6dWOrEOqlv10G
-	8RTwubapj02RAPCh+uhFIvzZYhX3CM4UIrUWki6LUmLfQyI/qG8pcCnsaxAq4yvlnWgIkvQVyK9qX
-	tRQ5IpQ/96gYEvdIWE1UDEPk+yuXLdadDSIIOtFnoTF94cRocd/9IqO2P6YpLbI+FH9/c4HMKmTtq
-	r9kAdx7w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=; b=yxekQsb3o6wOBvGaxTbDzGPH37
+	hfblQNZymqQ8jT2QpEen+tEQ8gTsMjlUvkLwTRJNXsugvdfWqJvGPeUw0W6QUz8eB8QjjVpIEpFoM
+	eKqx7/v7qWHUODHNlMNHCNI2NoeuoKomgDb1dMVFjm6klthlkuurGwf2cIHKAJyrUSALjz+C1oNqU
+	zV5uVMleWo8QAJPqMhg240+2gaHlxOy8+e53kjAdcU+k/RLKOXe6ZpZJP7cxcFy6NiDCwx0blsaaE
+	JgJosWrUgU1WaFgpYRzzLhDopR767s5S//bNMc7HUCfPcS9XNNB/NtKryURx5wP5oDtVGV3M20Ku6
+	QrSSWjyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x363y-00000004jjy-1sVb;
-	Sun, 06 Sep 2026 06:09:10 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1x36Co-00000004jz7-3orn;
+	Sun, 06 Sep 2026 06:18:18 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x363w-00000004jjD-16q3
+	id 1x36Cl-00000004jyH-3NLX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 06:09:09 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-6b8ef7de4bdso285046eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 23:09:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788674945; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NqLcJncWihh4hymPKn6hQDeFu5Gfixo14SUC3spxpXuP3UAvaJlOPxj2zcPOy8sBhR
-         6fTJx6W7qLt4/l2qL+ffeeJUt43FJuHuFzMpTJknm5A4Sixf3HKcZqRaX5rHR7GLjA2W
-         cr0KVx0ytpp4PVHp5Kuk8lGy84Lkmr0wiVt1BzVovPQrG/RBvzW1JDRtG7V6LMT8W6z3
-         dUzESswnvVLlhDKXVSYuY9DlITQ22leeGL0xIKoQuqJceJC8FW7PQ6AiGxx4nddS9zms
-         XxEloVXoYeR27/pR2xkqiJNid6MltbuERGdjnV55slu0odDn1WPR03zmkpxRGEBpe0mg
-         bCoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vdC57ddqvGP0W5KwBTBkhOYJWRkgqf1DhL7jKk6+43U=;
-        fh=K+BA5F2aj8ki1wk3vWRVPDaOfu1MzNRuNgQxyz+brf0=;
-        b=ilar3IZLoDDT782+K/Bop7kMuK9iCNwwq3s/btJ0+MI9k8IL6NYZgS7CsRZ7YzqsMP
-         Iqqw0UbmKyruDW/580/8Ohcl0wr928T9Ckj34DB8ierqrJm6x10DwP579E0wGG5WBYan
-         TdWrtWHQCeTAuIUrx/la920s58mqkq1DiqfqXKxKQKkNX8J1iGM491ZTv5/Qix1W9nFa
-         MNUJrSOPK9u74eg0AW4WuPyNBSk22qzOxHxrZzRApS9IU/TfQ9xUHqeV9j9tiua56yZe
-         Elq6MjGAANOxx791NQ3FYIqPXCtY/Gt1Tipjj5bdR0e/91DzQ1rSVGN145uAQ74ydRaS
-         YYLg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 06 Sep 2026 06:18:17 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so2621105a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 23:18:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788674945; x=1789279745; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vdC57ddqvGP0W5KwBTBkhOYJWRkgqf1DhL7jKk6+43U=;
-        b=TYI98P6C/58q8hS6rHd2d5vDMzWab58jk4fxEcI0Ne0kvgT4PhVyUt8AhGgmV/J2Cg
-         8FXhIvEHzr0HhlBCkXFW0ExyafoFwDSOCWxFCkVvy5sTPgSWcsID1lkQkqiOsW/d+X2b
-         VLHwNko9SZWFapNOyI6+6UVpDMY8UPdFmJrHyACeXfhc7yIhi+HML1C5fGJWdDjLj1SK
-         GQc3i1YHp+vlqWcG+aEJ73PxuYD1jgMYd3xNDTNG2t4YfEo0VdSIKnpyGXNx4SL1rNdd
-         tLPprFxqB07v8dXCt/dgCuvHtZcykJ9ElxSKTMuXGQRhYp85Gdl/3TMGxrj9K/fdr8X8
-         Acvw==
+        d=gmail.com; s=20251104; t=1788675492; x=1789280292; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=;
+        b=iM1/dxvKjNMPmJy0tT412mJ530RXXFp230UOho62AXFxPMJEG5W/U9OeFFIJPQjDu4
+         l/N7i8U2FSd39RHIiBCR4D81ELkoUMJ0Kb/bLg9+veJ80XeeFZzdlcBuCasTO/tqJlpz
+         knRMzSeNy4wNZLuOoXUXsGpWFmIXXWxXGtm3tAwNIw7nKmc2Ef9HM6+jc7RKbfXSY0QW
+         QyqQv33IBBVIKaZH2hj7OLiI6keT6pv2NyHA2t63bimU3woYFiH22hsU9Mk8h1Sq+HIv
+         A5zliWlHnU1lRgihIka4YLPl69rjGWNGokAZEEXeUmMF2GEI+3VCz9vtD9Kz6F89qc5i
+         Vqlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788674945; x=1789279745;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vdC57ddqvGP0W5KwBTBkhOYJWRkgqf1DhL7jKk6+43U=;
-        b=Ylcg7zzMSoA2WjmN2vi5Y2WefEcHt5folxLTrdLFMoPG6nlLAQUfPsct6mYoD+i4dt
-         ZHDuknF9nSMLzwaWlxQdcog0RaAYA9h95yaTB96152LxSpUqGBTt8erqU69G8nsbXhCb
-         eo6SrmngEeP/3aibzZBF00bVVBlhm/BDsenuYZntQ27LM/8MBvcXhQfSJVj2MfxBOXce
-         c0Wioko784K9YVGduhV+jhiMBNctLgdUOVyJOy/0413UxxLgWSR9Hh5zVYLgRu0u/gUp
-         F0Z1uP9Ihj0eMOm18AFv5ReS5UZz85AyfVDdRhnnIllHAOZUp2xxsRtmT8+7OCFliCfr
-         LGSg==
-X-Forwarded-Encrypted: i=1; AKwUvBx/IGFMgMHQRUV2hcCLeXJSIFSuuDcYU6JrDljFgt4PEPfgrzZMKn0t+YOLGNwpA4k0GdJoaZMk5X7jnSDY3M9H@lists.infradead.org
-X-Gm-Message-State: AFuF++lHGkc3zQ5txxpYheRSKzR5lPSGMSMcztY2Mluuy848B3UaMFwp
-	1VkYpCXD14x9u7blAdvkOYq1tWs0soDIk/UoSRX6wywZIBOX7G62GhUJM2oFhjwjurUYFsCpsOj
-	4BUEPsIqElILneyXG2VRmCbUW06noQKA=
-X-Gm-Gg: AYBFou16gt0AQbi0u/hbtQwP9/+OeHNwl5ZdCR/zKoRvBGwMpZ8Rt1oTdqiGb6ZmO7H
-	MbWJDSl+5ax4Bz+MS0IgYnbnge6nbHazO2LPLWqMW83TshhTzh1GQyyFGSIP8NoP7Iy5l1EY6VX
-	oczKmvg5ZaQislXDfp5t7bZKJDbpHXQkWDp+H8NqKOqKQqZZulStPFIGn0GZa/tY1U+bmu/z7gX
-	tAGHnMulwNwtbPn7gfS5PXAfqSxukTE9FoBk//bNMVp0xK56+aYLKZv1jMdPV5743iDzGW6RC5U
-	0gaZb1Rjik8eUNBF8/WYqMfnlBhzC33uKXeB33W8JpQteXFuBrz8xQ==
-X-Received: by 2002:a05:6820:1787:b0:6b7:8396:f3ce with SMTP id
- 006d021491bc7-6b78396f87bmr7383804eaf.48.1788674945534; Sat, 05 Sep 2026
- 23:09:05 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788675492; x=1789280292;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=;
+        b=kU2+IhoP3HgDgcuGCvcER5cGZI0P8vw16FjstrsRlGHDF2B5HNa65A+eNJUW4QUQKc
+         x7S3YCXWILquuSCbz7ZKqi8vDUQZO8/REDrTQ4qkGAhR3NRrxvmA+dFza5MYnhoZQvPu
+         xrlEHmG5CJZZEFlAM0n8IxJddp3AhQUEVsC2yJFKWJPOb1hVALiXa3Pf9PyQO0LdPdlf
+         1W2itOzcoRaN4QxvrAgh1llHo/NSEipLpa73HSg49LmgHUOef7y+jjcD5YSfx9Iu1Q3S
+         FiTxiofckxIetZs/Ve1+r/Fpoi/2/qCPM1fNEZejzIxPa4/eHBg7FGNRM8K7OZO6ubbH
+         5HiA==
+X-Forwarded-Encrypted: i=1; AKwUvBxaa1Kxp6T5B9cvhrMkvErfWeYbAIqu+CSmxuDZhLo2Te7rSBzaJWX2s53Stkdfd18UicGUxjhz8ra1tJ7Sx6XQ@lists.infradead.org
+X-Gm-Message-State: AFuF++ly+E3GDF9Mg5vt7oYLh9BD+2HcZLff34aGOgCICCbBXdzajxV/
+	xdKaqJPe+uHUzb3J5k+b3JHH1YJ90SXy3EtVDvXsIP81xqLy9gxLplE5
+X-Gm-Gg: AYBFou2JLQgcgQdJ2yl9B6sOFFhvMXpsbOevo13CEO21foC/qyMK8dPNfce04IEjM8a
+	CWVFYfzUTAv30W2MVivf9FDd8GzANf3Yc6JSnUmAST72VcUALSD0+97pnL4IdslDonhde2YjceG
+	AcRr8ZgW8M7/lblTpBmP8B94d7R4w7VFB229chc/3Kn1hCKiqW2nEIyhBh10Kt+jkvkQqYv+7rm
+	yShtK5VhPlLMPRwR90nG5V1hr6CAFRVSobqciEBxKTVjJD/yciMHxtTEV6tBzZpw/jGUNilcleX
+	1UPVUibo18jWhVOYaxd/hhS8wehPMhwf2IYIHd3Wq8DiHChcV5oZZEfFA8q3WJx0ufdooPSTTA3
+	LshyQjfGRyo00SZ1h5qKibm7HXAwYuhocgVFjaKXcSMAtSO0lK9vbj2K4USrCw8vaVZWpVxty2A
+	45GspF/mawIwqewpWtGaOZcy/9uOanivZJI/K485Q/h4rPXXh54ZCkkV7oJQHN
+X-Received: by 2002:a05:6a20:9c11:b0:3d2:3e73:29eb with SMTP id adf61e73a8af0-3da39bb596fmr24951780637.1.1788675491987;
+        Sat, 05 Sep 2026 23:18:11 -0700 (PDT)
+Received: from gmail.com ([58.84.62.227])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339aa33e96sm18280405eec.12.2026.09.05.23.18.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Sep 2026 23:18:11 -0700 (PDT)
+From: Sumeet Pawnikar <sumeet4linux@gmail.com>
+To: rafael@kernel.org,
+	amit.kachhap@gmail.com,
+	daniel.lezcano@kernel.org,
+	thara.gopinath@gmail.com,
+	talel@amazon.com,
+	hayashi.kunihiko@socionext.com,
+	mhiramat@kernel.org,
+	mmayer@broadcom.com,
+	viresh.kumar@linaro.org,
+	sumitg@nvidia.com,
+	krzk@kernel.org,
+	peter.griffin@linaro.org,
+	myungjoo.ham@samsung.com,
+	kyungmin.park@samsung.com,
+	cw00.choi@samsung.com,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	sven@kernel.org,
+	j@jannau.net,
+	marcan@marcan.st,
+	casey.connolly@linaro.org,
+	sre@kernel.org,
+	wens@kernel.org,
+	t.schramm@manjaro.org
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	linux-samsung-soc@vger.kernel.org,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sumeet4linux@gmail.com
+Subject: [PATCH 0/5] PM: Use %pe to print error pointers symbolically
+Date: Sun,  6 Sep 2026 11:47:49 +0530
+Message-ID: <20260906061755.5103-1-sumeet4linux@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260901234351.190506-1-anarsoul@gmail.com> <CAKTNdwFqSBt4QVCuYJxTyEDsxkW96JbUirFNAgJYWVLHzGpk4A@mail.gmail.com>
- <CA+E=qVcizyQZytw8M6DA72YGrRDDNx_cCvYj565zf9wjMWh8tg@mail.gmail.com> <CAKTNdwFQvKtHQA0JD-GAq3bgr5Brq2NyLfccenkHcrKcjeptwg@mail.gmail.com>
-In-Reply-To: <CAKTNdwFQvKtHQA0JD-GAq3bgr5Brq2NyLfccenkHcrKcjeptwg@mail.gmail.com>
-From: Vasily Khoruzhick <anarsoul@gmail.com>
-Date: Sat, 5 Sep 2026 23:08:39 -0700
-X-Gm-Features: AcwNN1XV6eaC-hb5tnT2MKyn0nOE60V4HfLSORk_N-jEL_PXVgmbyJgM3d_DMic
-Message-ID: <CA+E=qVcwtnU_Gg6_oFmWqMpCEF8vOvB_G+H-ihfbiAr0PpFUJw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] clk: rockchip: rk3399: add 85.5 MHz rate to PLL rate table
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_230908_316971_DB21063A 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20260905_231815_864792_5D5B9E09 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,43 +128,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 4, 2026 at 2:36=E2=80=AFAM Alexey Charkov <alchark@flipper.net>=
- wrote:
+This patch series is a cleanup for subsystems under power management
+(linux-pm) that converts several instances of error pointer printing
+to use the `%pe` format specifier instead of explicitly casting with
+`PTR_ERR()`.
 
-> > See arch/arm64/boot/dts/rockchip/rk3399-base.dtsi, hdmi ref clock is
-> > wired directly to VPLL, and dw_hdmi-rockchip calls clk_set_rate() with
-> > pixel clock for ref clock, see
-> > dw_hdmi_rockchip_encoder_atomic_mode_set(). So at least in the rk3399
-> > case VPLL is supposed to support the required pixel clock. Without the
-> > first patch 1366x768 mode with 85.5MHz pixel clock is just rejected.
->
-> I strongly suspect that the dtsi doesn't describe the real clock usage
-> here. The TRM for RK3399 doesn't show any "ref" clock for HDMI, and no
-> TRM-documented VPLL users look like anything that could connect
-> directly to the HDMI controller.
+Currently, many drivers use `PTR_ERR()` paired with `%ld` or `%li` to
+print error codes returned as pointers. By switching to `%pe` and passing
+the error pointer directly, the logging subsystem will automatically
+print the symbolic error name (e.g., `-ENOMEM`, `-EPROBE_DEFER`) when
+`CONFIG_SYMBOLIC_ERRNAME` is enabled, and gracefully fall back to the
+numeric value otherwise.
 
-See "1.1.11 HDMI Interface", it explicitly mentions 13.5=E2=80=93600MHz inp=
-ut
-reference clock
+This change significantly improves the readability of kernel logs and
+dmesg traces during debugging, without introducing any functional changes
+or side effects.
 
-> I believe something is hardcoding the divisor (or leaving it at the
-> power-on default) in the actual DCLK of a VOP which the HDMI
-> controller uses, instead of modelling it properly as a mux (frac/div)
-> feeding off VPLL via another mux - both perfectly representable in the
-> clock framework and already envisaged in the clock driver, making the
-> PLL table patching unnecessary.
->
-> Can you please try re-pointing the "ref" clock at DCLK_VOP0 (or 1,
-> depending on which one your HDMI controller uses)? Your clock summary
-> already shows that something is assigning its parent to DCLK_VOPx_DIV
-> and the latter's parent to PLL_VPLL, so rate changes the current
-> driver code does on VPLL propagate to the muxed and divided downstream
-> consumer as a side-effect rather than as an actual rate request.
+The cleanup has been applied across the following PM subsystems/drivers:
+* powercap (intel_rapl_msr, intel_rapl_tpmi)
+* thermal (core, cpufreq_cooling, devfreq_cooling, mmio, etc.)
+* cpufreq (bmips, cppc, qoriq, s3c64xx)
+* devfreq (imx-bus, imx8m-ddrc, mtk-cci)
+* power/supply (various battery and charger drivers)
 
-I don't think it is a reasonable ask. Wrong clock for the HDMI encoder
-would just result in non-working HDMI output and no feasible way for
-me to debug what is wrong.
 
-Regards,
-Vasily
+Sumeet Pawnikar (5):
+  powercap: intel_rapl: Use %pe to print error pointers symbolically
+  thermal: Use %pe to print error pointers symbolically
+  cpufreq: Use %pe to print error pointers symbolically
+  devfreq: Use %pe to print error pointers symbolically
+  power: Use %pe to print error pointers symbolically
+
+ drivers/cpufreq/bmips-cpufreq.c            | 4 ++--
+ drivers/cpufreq/cppc_cpufreq.c             | 4 ++--
+ drivers/cpufreq/qoriq-cpufreq.c            | 4 ++--
+ drivers/cpufreq/s3c64xx-cpufreq.c          | 5 ++---
+ drivers/devfreq/imx-bus.c                  | 4 ++--
+ drivers/devfreq/imx8m-ddrc.c               | 3 +--
+ drivers/devfreq/mtk-cci-devfreq.c          | 4 ++--
+ drivers/power/reset/macsmc-reboot.c        | 4 ++--
+ drivers/power/supply/axp20x_battery.c      | 4 ++--
+ drivers/power/supply/cpcap-charger.c       | 4 ++--
+ drivers/power/supply/cw2015_battery.c      | 4 ++--
+ drivers/power/supply/intel_dc_ti_battery.c | 2 +-
+ drivers/power/supply/qcom_smbx.c           | 2 +-
+ drivers/powercap/intel_rapl_msr.c          | 4 ++--
+ drivers/powercap/intel_rapl_tpmi.c         | 4 ++--
+ drivers/thermal/cpufreq_cooling.c          | 4 ++--
+ drivers/thermal/devfreq_cooling.c          | 4 ++--
+ drivers/thermal/qcom/qcom-spmi-adc-tm5.c   | 4 ++--
+ drivers/thermal/thermal_mmio.c             | 3 +--
+ drivers/thermal/uniphier_thermal.c         | 3 +--
+ 20 files changed, 35 insertions(+), 39 deletions(-)
+
+-- 
+2.43.0
+
 
