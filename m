@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A8AC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E6FC79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VuX1GRUEgGjtN5YWB8TzrOnwdSd1o6ffi/4kYrdL20w=; b=NXyVB8uLYBVblbmC6fRH9gBixo
-	IzhtUofHjZwx7Ezdpnvh5ZS1hy+yEwyYh2oIoGLGGo7hC5wmf/Z+DY42RhAs7+gQhQLrqcFFpX9fS
-	fPz1WQJ1g9/yin3GqJ3NieJmmLgXygjsCoHF2Z7zjYowLLMfBoJO1bAyhHdng5IeihMsN3bTiROfV
-	+IkXU7H2PoTfCMOjwicOIIn4Sao5xRAgOz/TwPcojS88yTwwQfBUticq6rj4iH0Z+7RVARG7qrEZj
-	gVuWp3zv0yNN6ifpltsmPugCNPZwYZXtHY/oiSKKlmwIomTzWjsNNiJ6VdzbMw3dL9RbxiRcC1qr7
-	gmQTFaug==;
+	bh=yUYGWPU/6GKQdrK+wAxb4AJFZFkx+FBp894k/+lmTWk=; b=BaBgeovVMISsNiydVUASDYnJIB
+	nccWT0sj0NuD397uDHfi6kPAT9GOXv6ec5sKxiqz9SJpdDmdfgOCMcZJ8JjgS6+tNce0KVGjeEXP9
+	1Xtn2gqJlXN7N0k6DVBPT/2O2JUbUMiExJ0KGqaZ/ExREiPkGHK6gl+i1dggUFxA8HsChk5ziOilG
+	lN0+ZqPtcLKrg9bMu8lw2FcFDfBtbJj9eTTvBQZQTWNX9X+HAJy/KdyZFlbzQynJnAVMhwpZAT6hL
+	tdSvmYBDdoTaOa5XWVh74MmDRIMlVTeL/7XFaayrHTAP9eOK1JvJRZD8gQ80eulz9iHQE5cOcuUEs
+	cjma4voQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36OX-00000004lAw-02gP;
-	Sun, 06 Sep 2026 06:30:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x36P6-00000004lFo-1DFX;
+	Sun, 06 Sep 2026 06:31:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36OV-00000004lAn-4A5U;
-	Sun, 06 Sep 2026 06:30:24 +0000
+	id 1x36P3-00000004lFX-2CZV;
+	Sun, 06 Sep 2026 06:30:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E47D60DA5;
-	Sun,  6 Sep 2026 06:30:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7DD01F00A3A;
-	Sun,  6 Sep 2026 06:30:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3575E41372;
+	Sun,  6 Sep 2026 06:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE6D1F00A3A;
+	Sun,  6 Sep 2026 06:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788676223;
-	bh=VuX1GRUEgGjtN5YWB8TzrOnwdSd1o6ffi/4kYrdL20w=;
+	s=k20260515; t=1788676256;
+	bh=yUYGWPU/6GKQdrK+wAxb4AJFZFkx+FBp894k/+lmTWk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=n0U3qbG+7oTuJOiiFwzmEkne0fUxiaBBuEp2GJZT7klt9NtqRlHjtrhVp7L7eS7JA
-	 8Qmzz4KDv6DKhYRy81fML452jr9LmbVXGeyW/cMi6qLhAuKCxkHMZ79Nw9ZaqxTEIG
-	 WQ5sDHvgY/PRD0Ojn3f5Pwmt5YmeT9ELf8IcIU/Q5ExWaWvnrjKxcHlTOVaKYHXPqg
-	 cKoLEcEe5jr6dgXa4oQu3vpAPxUHJTUQeJ+p+nvSeEngwjYO6HdUpurmAcPbJ5uwgW
-	 M9t07BZbufSGhpQ6S8y9znXnk+gonfpcO8tiM1dmH7ea20G6h/Hykbb2nSnWTd73ke
-	 OLDTBrKdcIL6Q==
-Message-ID: <1a5fb9bb-d057-4579-8b2c-b81aa16a61cb@kernel.org>
-Date: Sun, 6 Sep 2026 08:30:07 +0200
+	b=kSW5enXLFA0L/l737Smugwl7bKjjXQBIXhIbdL+WpVyCmtpftbInh3sfv3KG4alqM
+	 qiOT5N4/btZ3ELKI43Exf0FSXZiLRvwq5r47fNt+rfFvAyNwQLc/RM5GPFCmPs2pXB
+	 ByqqpqqyrH2hOY92+cXDYijy4I0N0kSwN/PBsPli6gEYlOdPAU3hvzUp0EVPx+5td5
+	 9FjYpp11OQsQUry0HAV/ddJkWo+MfvfY1GSQv9/gVBN+Bh6XwtvefAFSX9nBAQRx5a
+	 5GEDlMECHGWSWiJKEDHtmvIOcDnkhdJojshmEV1jE2qoQ7bCpZpAata55TuPXjAzus
+	 V4l030gUg2ndw==
+Message-ID: <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
+Date: Sun, 6 Sep 2026 08:30:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] power: Use %pe to print error pointers symbolically
+Subject: Re: [PATCH 4/5] devfreq: Use %pe to print error pointers symbolically
 To: Sumeet Pawnikar <sumeet4linux@gmail.com>, rafael@kernel.org,
  amit.kachhap@gmail.com, daniel.lezcano@kernel.org, thara.gopinath@gmail.com,
  talel@amazon.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
@@ -62,7 +62,7 @@ Cc: bcm-kernel-feedback-list@broadcom.com, linux-samsung-soc@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20260906061755.5103-1-sumeet4linux@gmail.com>
- <20260906061755.5103-6-sumeet4linux@gmail.com>
+ <20260906061755.5103-5-sumeet4linux@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +108,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260906061755.5103-6-sumeet4linux@gmail.com>
+In-Reply-To: <20260906061755.5103-5-sumeet4linux@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -126,24 +126,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 06/09/2026 08:17, Sumeet Pawnikar wrote:
->  	}
-> diff --git a/drivers/power/supply/cw2015_battery.c b/drivers/power/supply/cw2015_battery.c
-> index 1bcb60cf763d..48643f7bf503 100644
-> --- a/drivers/power/supply/cw2015_battery.c
-> +++ b/drivers/power/supply/cw2015_battery.c
-> @@ -658,8 +658,8 @@ static int cw_bat_probe(struct i2c_client *client)
->  
->  	cw_bat->regmap = devm_regmap_init_i2c(client, &cw2015_regmap_config);
->  	if (IS_ERR(cw_bat->regmap)) {
-> -		dev_err(cw_bat->dev, "Failed to allocate regmap: %ld\n",
-> -			PTR_ERR(cw_bat->regmap));
-> +		dev_err(cw_bat->dev, "Failed to allocate regmap: %pe\n",
-> +			cw_bat->regmap);
->  		return PTR_ERR(cw_bat->regmap);
-
-return dev_err_probe
+>  		ret = -EPROBE_DEFER;
+> -		dev_err(dev, "failed to add devfreq device: %ld\n",
+> -			PTR_ERR(drv->devfreq));
+> +		dev_err(dev, "failed to add devfreq device: %pe\n",
+> +			drv->devfreq);
 
 Instead you should use dev_err_probe and drop the last argument.
+
 
 Best regards,
 Krzysztof
