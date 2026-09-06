@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EEDC624DB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  5 Sep 2026 23:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE91EC624DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O4rjm7L9OxwhE+KU/msJJqPiLu/z8N+5+AE9fmKNMpU=; b=0pEC7tM6pO4AX7366dA1zGsJ78
-	AK9WuZaEg4zk5yQC9eCNGxR48vqLm7qAtKpzr7slJ7d5nMo9yyWtlXI+v8BoZNw+wUn8370N6ISp4
-	f5WFhl2vcLBLezLK1qkBRuuSLANH42Wp/FtZX5nTqA4e6DbVk/THxvr9Q2BrmzRvKT5RK5Vpmuwzr
-	W6G0/sYfzRa9FhHEJSxaVWKzlbMpwG85RT1CAohYH43rFL7YEa+FSKSaN2ONrTJfsyDH31YWrk9r8
-	WimkL6+RhojtfhsF3UuM64M1ZL1IdUj8pI2tNw7JuRJxMyddCo9etV087rmn77jeGHhZqHqbedRyA
-	VldigYaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=; b=ASZ8q8+o6F0LYcAAExwMfMeDF+
+	qwfRpbAWgcsO0StKNXSCZRABupatgyQiHoO+rqhoBH5LpJtfQrETclSRzpardNT2PsWOWu0gCvHWf
+	eqsJIBDvALY6w7Eg5zXrYgeVYtZQTBznd7s+gkiDh2qJhsgUFFYIlBLjGO28YUeTf1XNxag07rPxi
+	EQfR3KH4mWuaVpMgS7vXjoJyTiBEbboLB1O/+GNYUXnupcGsaEN/EyTt+BlmFRdyZeBImv7uszSIq
+	0iQS0ZpFb6hrhAqBImyLZHM8hIfgcxvTpvh1Q7HEW0xYCnerSfVfBjwTeFb4gG211inkhCtZJ3WqE
+	p4mdbmMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x308A-00000004URe-1drD;
-	Sat, 05 Sep 2026 23:49:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3087-00000004URJ-1oj6
+	id 1x31Yr-00000004XIp-2GTJ;
+	Sun, 06 Sep 2026 01:20:45 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x31Ym-00000004XIB-2qg6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 05 Sep 2026 23:49:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 285D31477;
-	Sat,  5 Sep 2026 16:48:56 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810673F673;
-	Sat,  5 Sep 2026 16:48:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788652139; bh=78ZaUHpCCmF9Q0SRtDPZW3k16driAdZe8cBTHH9U4Ys=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uWYZ/mVMj/RrfQNI2EgFHEj2UqFhaoPkrXi/X8bsDBUV203Qu3dn/kF8JwPQ6obOz
-	 88mI97vEqyEZkbdgT7uK1cMCgMc4ZgVs+OshFnQ4vyC4qsyMOqwP1tTxge9BJG7NnQ
-	 1pOtrQGvsC7KD/eOoAwm31GjAMc2V965Mwqt/TE8=
-Date: Sun, 6 Sep 2026 00:48:49 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>, Marc Zyngier <maz@kernel.org>
-Cc: Wang Han <wanghan@linux.alibaba.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
-	suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, 
-	itaru.kitayama@fujitsu.com
-Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse
- map (new data structure)
-Message-ID: <rytvo6a7sulfb2no2fclvtpggk4ekqzs6n6xkqlffldbzua4lz@rnskx6qj2cxy>
-References: <20260810205038.118843-1-weilin.chang@arm.com>
- <20260902163500.1841671-1-wanghan@linux.alibaba.com>
- <877bl26aqg.wl-maz@kernel.org>
- <wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
- <875x0l5udh.wl-maz@kernel.org>
- <eylfcgxs2xzu57czyuhkpmum45lpxyccyu2yh3mipr67aq3xo6@xinygxzavoja>
- <2bde734c-eb86-4c7a-958d-b431e6d13671@linux.alibaba.com>
+	Sun, 06 Sep 2026 01:20:43 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7ec1e9d3359so1906275a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 18:20:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788657636; cv=none;
+        d=google.com; s=arc-20260327;
+        b=akRd6Ew84SaJfzhKtxzg8bBfBOMkVyoyQ/hx5qE2oA4ooD3dBxzAkxPhgDMPbwbMT1
+         l7aK7/tbcwFhaTyQmeInVhfagCF/oH9F/nNYZQGG2C9309k3b9JRO277hUH76pNW4Vqz
+         ALvanSFrIxr0wpWfuIAPwnvqv4hm8TP3EUay+yHy7z9EE07JRu1Ab/qgDSNeww9IZSZH
+         uXxcmAHaW3Ftn9wi+usl++5WtjanYpF1T9axNJ4v2KE6AOyBuYiEnOqcwSowc4kLF2nY
+         vd0VK+NV4CWNrRDJGiMFop0R5lD1V1FSALUu7i+h+J1J9Z1A5W75lK4p+YQnCv4W1MHN
+         FFrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
+        fh=3GDSBsZgm93ukwEfaaYyd6vZpAWRwTlPP3+oDsqC7I8=;
+        b=NksVF8Uzgc8dXDbE7PqLlanOmdsySXyvHbx3DMqYbzJIUxvYK39QHiB+vTAGIBtJFA
+         dDeiRJNmh1H885EOQ2gr4alTJeuiwQYjZ6/i95Xe/g1ifjahXOu8blqYcsl5UqrMJh88
+         qH5tbFAlOKoCfaWAoXEBDTYeB75pxR5B0czp3Dvn5oPiwE7A2bCHDiv/spFnE9f1Usy2
+         9BHj4hmDwa+QbiNipfmtKUNdJWJhZ9dHFQ/BZuUh6A4gtWDpwIbq4V6eoY4w2Cjyaa+/
+         OUq7DH88PSJ51iCpsLXNhbGB3s1LdQMlC1BA0hCOBnYyzirYVnA17zkKq2B94BO3DhKj
+         qENw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788657636; x=1789262436; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
+        b=C7dFhkuNBp+jpes/UcJeRfGY71NdrxWCm8qSGS7YzpIflZbkEU/4ITDu8NuxRwo0Xq
+         IOrpUfHVRaWeZ5AFt0kZcJLbv3iGjU2BmjHVpWrNG6MXXwm3cY9SChVSyV1KPq9ym+p/
+         4rc9ZZRXbZQQIndbkR3wQdpMRWQOLL3uoKL4QS1zZe5XDfUtSvu8Om486ZDt71uDlseK
+         8hrQC/IXz0sGwsT6sGda3frsL2Swd88smRff0kulVeUtlnbWrbCeAEtDCmbu0Jxac0VU
+         z/lZYzX4aikH9vKOSOjuuVcQMiFdh1P50AOUz50i3JgqHX6S5EPiWN533RIpkSVjz3QY
+         J5xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788657636; x=1789262436;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vrbIhRjPzei1dtqxq+ZD3mi9kwyuQdOPberv3S+Q6ak=;
+        b=cA+lKPzpOc5MlKU79DV2pHuBWJPBfJenZgu2aTdIWOHEDws8HEzPmwtcceycQ1RHCZ
+         cXpf+8Fsun6ab50aiw8qvh4W/tdpneZRgMm6aQSWpRtC9lmu8+h1EMqHOmZf7TUMBkMV
+         0mdiq1pmhJS7TcPi20pABYBPZR6Tup/9JObwbG0Ibya5R7k7eMUDS5emlEYRRhTZhmZ7
+         +yyhwxFrj7x0JVAxvnH+eYr3Kx49ZxLtGjfNlHf02/7TiRNeEdESig3q15N/2RR5GybL
+         /3HMD4LB5wZlCmM3tW2+Q7Yc2kzppS92IV5nJjcJpkkY6NBfLKQ3jkDW74IKydP317d8
+         Fj3Q==
+X-Forwarded-Encrypted: i=1; AKwUvBwhVOrUpDq18qc6T48YjDZv5ISbb5V6nSMKIotDDcR3qrIIIUFO8X8op3hjMx8nZbbin50Pj+BDloiQm+ncrV6y@lists.infradead.org
+X-Gm-Message-State: AFuF++m+enNCXuSFWvIbQyaVIyfr0/MzUDu5Jd4qncgyaRrK65z87dXa
+	7p4nq/2BeyHMXNmAH3yQcNH0RE/VZNWZrjf3iI5TVQfN/BFLliRDNICzeT7e1E52xOvr36KmFD+
+	Xli9b4aWI49aNyTGJRrplHdlmaiTx2K4=
+X-Gm-Gg: AYBFou3A4yGU9Uz+pJKe1oLiZXeB7YVC/4XI+6kSP7JGXaGh+9Ih3M2AHsJvcoFd31V
+	mBsJkJ4rWuaHOI76rrf0CFMkA751ZXT7e96nQOIkgGuufHV8LJaKG3POvzK6JTo4aw4/7TY1EU+
+	bYtdbjWALUwqcFI2cu5s2HehNP6t6T3hwaIfj5wxipUr5OMSozm/JyujF5vHBGPIvQDlw9EQKCj
+	ZEuRha5eLt9dn6N6qmKqeWF3/QoDgenjuV0jV+jC9powPItuDSf3SA5PU6FaV6hBLMZ8yM13+VE
+	u6yAoM4QhFkh5cdC9AiSQUdWvID85pKWgGFoKepAm8Y6466rwWx4X4y2
+X-Received: by 2002:a05:6820:a28c:20b0:6ba:2927:3661 with SMTP id
+ 006d021491bc7-6ba29273f2fmr202772eaf.18.1788657636529; Sat, 05 Sep 2026
+ 18:20:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2bde734c-eb86-4c7a-958d-b431e6d13671@linux.alibaba.com>
+References: <20260714222338.2965707-1-dianders@chromium.org> <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
+In-Reply-To: <20260714152138.7.I5cef580a62c86ba6c3465ad336fa509afbdf1476@changeid>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sat, 5 Sep 2026 20:20:24 -0500
+X-Gm-Features: AcwNN1W-1EM5u25I6sIYjSAHidxk9uQmu6rjm34oWnomns496rRML5lm1gN-HB8
+Message-ID: <CABb+yY3_xBvQVFHEs=v39u7+TLjJRaVv3sg5pGgd0YxCruZ8Tw@mail.gmail.com>
+Subject: Re: [PATCH 7/7] mailbox: goog-mba: Introduce the goog-mba mailbox driver
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Joonwon Kang <joonwonkang@google.com>, Subhash Jadavani <sjadavani@google.com>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>, 
+	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_164903_652044_0108CA25 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20260905_182040_732633_0BAC4CA5 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +121,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 05, 2026 at 11:49:32PM +0800, Shuai Xue wrote:
+Hi Douglas,
 
-[...]
+On Tue, Jul 14, 2026 at 5:24=E2=80=AFPM Douglas Anderson <dianders@chromium=
+.org> wrote:
+....
+> +
+> +/**
+> + * goog_mba_handle_tx_interrupt() - Handle interrupt that remote Acked o=
+ur msg.
+> + * @goog_mbox: The mailbox info.
+> + */
+> +static void goog_mba_handle_tx_interrupt(struct goog_mbox_info *goog_mbo=
+x)
+> +{
+> +       unsigned int reqs_completed;
+> +       int i;
+> +
+> +       /*
+> +        * ACK interrupt needs to be cleared before reading CLIENT_OUTSTA=
+NDING_MSG.
+> +        * Then if a "race" happens and another message gets Acked after =
+we clear
+> +        * but before we read CLIENT_OUTSTANDING_MSG then the worst that =
+will
+> +        * happen is we'll get a followup interrupt that will show 0 reqs=
+_completed.
+> +        */
+> +       writel(CLIENT_IRQ_STATUS_ACK_INT, goog_mbox->iomem + CLIENT_IRQ_S=
+TATUS_OFFSET);
+> +
+> +       if (goog_mbox->queue_mode) {
+> +               u32 outstanding_msgs;
+> +
+> +               outstanding_msgs =3D readl(goog_mbox->iomem + CLIENT_OUTS=
+TANDING_MSG);
+> +               spin_lock(&goog_mbox->lock);
+> +
+> +               if (goog_mbox->outstanding_msgs >=3D outstanding_msgs) {
+> +                       reqs_completed =3D goog_mbox->outstanding_msgs - =
+outstanding_msgs;
+> +               } else {
+> +                       /*
+> +                        * The hardware's track of outstanding messages s=
+hould always
+> +                        * be less than or equal to the number of message=
+s we queued.
+> +                        * If it thinks there are more messages outstandi=
+ng than we
+> +                        * queued, something is wrong. Assume nothing was=
+ completed.
+> +                        */
+> +                       dev_warn_ratelimited(goog_mbox->mba->dev,
+> +                                            "%pOFP: unexpected outstandi=
+ng msgs: %u -> %u\n",
+> +                                            goog_mbox->np, goog_mbox->ou=
+tstanding_msgs,
+> +                                            outstanding_msgs);
+> +                       reqs_completed =3D 0;
+> +               }
+> +               goog_mbox->outstanding_msgs =3D outstanding_msgs;
+> +               spin_unlock(&goog_mbox->lock);
+> +
+> +               trace_goog_mba_process_q_txdone(goog_mbox, reqs_completed=
+, outstanding_msgs);
+> +       } else {
+> +               reqs_completed =3D 1;
+> +               trace_goog_mba_process_nq_txdone(goog_mbox);
+> +       }
+> +
+> +       for (i =3D 0; i < reqs_completed; i++)
+> +               mbox_chan_txdone(&goog_mbox->chan, 0);
 
-> 
-> Hi Wei-Lin,
-> 
-> Your PARange analysis is what this whole diagnosis rests on -- the
-> 48-bit/256x arithmetic is exactly right, and our ftrace data confirms
-> it to the chunk: every full-IPA kvm_nested_s2_unmap() in our traces
-> walks precisely 262,144 1GB chunks, the number from your table. The
-> kvm_ipa_limit=40 experiment also pointed straight at the answer. I'd
-> only push back on the last sentence:
-> 
-> > 
-> > With this, I think there aren't other underlying issues, it just is that
-> > slow unfortunately..
-> 
-> 
-> I don't think it is "just that slow" -- I think it is a specific
-> regression, and your own data localizes it better than the conclusion
-> suggests.
-> 
-> The thing is, kvm_ipa_limit=40 cannot tell *what* each chunk spends
-> its ~3.3us on, because the walk is also per-chunk: cutting the chunk
-> count by 256x shrinks both terms together, whichever one dominates.
-> The experiment that separates them is one where the chunk count does
-> not change at all.
-> 
-> We ran that experiment. Details are in my reply to Marc, but the
-> short version:
-> 
->   - Before: 877ms per callback, 262,144 chunk calls, 262,144
->     broadcasts. Chunk count and broadcast count are exactly equal
->     (8,476,033 = 8,476,033 over the trace window) -- every chunk
->     ends in a broadcast, mapped or not. Per chunk, ~4.6us of the
->     ~5.1us is inside kvm_tlb_flush_vmid_range(); the walk of an
->     empty chunk is ~0.2us. In an uncontended numad episode, 87% of
->     the 1312ms is flush time and 8% is walk time.
-> 
->   - After conditioning the flush on the walk having actually cleared
->     a valid leaf (the candidate fix in my other mail): same 262,144
->     chunks, same walk, ~110ms instrumented. Nothing about the walk
->     changed -- ~3.1us of the per-chunk 3.3us was the broadcast.
-> 
->   - And the table really is empty, as Marc says: with the flush
->     count acting as a detector, the first full-IPA unmap of the boot
->     issues 2 flushes (the EL1-boot-period mappings, a few dozen
->     pages in two 1GB chunks); all 35 subsequent ones issue zero.
-> 
-> The code history agrees. Before 7657ea920c54, the TLBI lived inside
-> stage2_put_pte()'s 'if (kvm_pte_valid(ctx->old))' -- an empty walk
-> issued zero invalidations, ever. v6.6 hoisted the invalidation out
-> to the end of kvm_pgtable_stage2_unmap() to batch it into one range
-> TLBI per call, but the condition got dropped on the way. So "since
-> v6.6, the cost is proportional to the IPA range, not to the number
-> of mappings" -- which is precisely why the empty table pays in full,
-> and why I'd frame it as a fixable regression rather than an inherent
-> cost.
-> 
-> None of this subtracts from your PARange finding -- it depends on
-> it. The 42s -> <1s result was the 256x chunk scaling; the remaining
-> <1s is what the conditional flush removes.
+The patchset doesn't say much about the clients but if the platform
+works like this, I have a strong feeling we can do without introducing
+mbox_controller.has_queue.
+Just use the msg_data[] ringbuffer -- we can avoid changing the core
+internals and you will still get ACK for each message.
+What are the clients going to be like?
 
-Thanks for the analysis!
-
-I completely agree. My finding was only a small part of the full
-picture. I stopped at finding out the real iteration count and didn't
-realize 3-5us is a long time for a kvm_pgtable_stage2_unmap() on a empty
-table (thanks for the learning opportunity).
-
-So, because there are no relevant tlb entries created in the first
-place, the per iteration TLBIs and barriers are mostly doing nothing
-useful and cause a 10x slowdown.
-
-Thanks,
-Wei-Lin Chang
-
-> 
-> Thanks,
-> Shuai
-> 
-> 
+Regards,
+Jassi
 
