@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA48C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E3CC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F9xCmB2n+lLj6Lxf5ydEPeDJb7JUokXtCFqsV9aq1YU=; b=C5j75xfZUmVeyPO3xQ4Q0csbjy
-	UM+WjdycgAW/OB5fIMElZjphv2O9KsLhTnZkxhZVybkQS1kjvQVFChubOfRJAYU6mvsLkhiokgWPk
-	clgyhuAB7lPYc2lJIRkiuZd9q1HGIOOxRD7kbNzDMK376ubWxa7VqK+awM4dcU1UC8ipZFaL+2etB
-	4fJQq5KYk89o+wG9oCrvUy/Jm4Cz9YSK8xr5yCm3Rg4+AJA0I5/uwybW0OQIA/SqOCIbbhvEgVvr/
-	omZ0HdLtMhLLrj5XTroVG414MhcJUm66Y8GpIqLQH8X3pf7rNcAFWCMlQDqgTwRu8zpH+kevlpwE5
-	QFWfWQ0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2GaktLPPAwRjTAy7G2bavDWSlEaXyB501410XPhpj8U=; b=CW1L5VLKY8KfTYwm7kruFVfn+r
+	KwQ3zmkzFdxoLCZpbcpwG50udMCb9QlhFSWbqjxaNj0rR8DnHhr/MirZG8mDaIXmGN5WBEwRHJN4o
+	LFG2fqUWZmQb0U4guLRk6F5eJ9QjtGcofm+Er0W0xJ4w2DHy8aJ4vIsqqr4iorvObaLzJB85Jf2+A
+	KaJ7MSBb3RGffPXPhwHmbbkEv5Gf98uR1VQYnLHcixWHW1qG4YNonGpVlB6ReSNgoQwK0tKfVFZxB
+	E/ZwJoXhxG6AyXNAlUl+oZgVNcilhwia7knfKFJezY7oqVFMltDTnB/M0IRJ2mj/lzaCrMbahnkV2
+	9TTtqZ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ImP-00000005WQ4-26S4;
-	Sun, 06 Sep 2026 19:43:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ImN-00000005WPi-2YdH;
-	Sun, 06 Sep 2026 19:43:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EE82601DE;
-	Sun,  6 Sep 2026 19:43:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1C8ABC2BCB8;
-	Sun,  6 Sep 2026 19:43:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788723830;
-	bh=0Z9VlpA0raG6r7XokDnQP1FPgmzr6zyFAP4bptvzFbc=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=FXgathLCtZ92nmpHgh1MgOPol30uGB1g34FojDDPo0uKFAGEp7U9lvJ2NaI6X7j+p
-	 lCH1zcv17uN6R6K4aE/UsiNIWFz9rA56TI57H7Qn5XHT1qR92dW27FpygEiZwIwc9S
-	 x8Dwn0NET3Mrik+dUAScxc/BeC6Nn5ceMYUT7erGYS2q02/4oW98CMU3mt9USm+3mC
-	 2ydKlTkvSvTTQJ40682kaw1NEKbxRXKYTpKLYCT3BgZSciPErPLBGbeyI69TrrVPXF
-	 uUVaL775VlZwB10T3nFS4CB7inmhO54DWkgDjErV5zD0dxDayiA5JPyGDGSNtHLtSZ
-	 28n8rbyNX8tCA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC505C79FA0;
-	Sun,  6 Sep 2026 19:43:49 +0000 (UTC)
-From: Miles Krause via B4 Relay <devnull+mileskrause5200.gmail.com@kernel.org>
-Date: Sun, 06 Sep 2026 15:43:48 -0400
-Subject: [PATCH] drm/meson: fix device_node leak in
- meson_encoder_dsi_probe()
+	id 1x3Iyu-00000005X8P-2V7f;
+	Sun, 06 Sep 2026 19:56:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3Iyq-00000005X7e-44tE
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Sep 2026 19:56:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 149AA1477;
+	Sun,  6 Sep 2026 12:56:40 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A4743F882;
+	Sun,  6 Sep 2026 12:56:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788724603; bh=y/XPLT2vWCH2Ci7UhdoddehaDK9VeeTuUMEqj2C7FO4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qGNzfZQmDW7LQcK3lbFzxaP8rK0r7IDbMTGaVvTTr3NDCclKPbY0A64mBlQuD3lMq
+	 mz90z8weC54giXjafVk52TczR9jUrSns6tFXr2QLcHGnJbPWzmHZiYnl8tVhxt6KSg
+	 ER+D7SLBGAo2PKwffciz94syMFgZ+xpTJnlyng/E=
+Date: Sun, 6 Sep 2026 20:56:34 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking
+ structures
+Message-ID: <w4kihqs6n7ja7nr4sn3i2r4o2mspwj7k36w2fkh4kheizr6oj3@wfsea5mhnto6>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260810205038.118843-3-weilin.chang@arm.com>
+ <87mrtu4c21.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-meson-dsi-of-node-leak-v1-1-9d183560279d@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAHPCnWoC/x3MTQqAIBBA4avErBswsR+7SrSQnGqoNByIILp70
- vJbvPeAUGIS6IsHEl0sHENGVRYwrS4shOyzQSvdKKsaPEhiQC+MccYQPeFObsPWmM5a7+q20pD
- jM9HM9z8exvf9AD146hxoAAAA
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Nicolas Belin <nbelin@baylibre.com>, 
- Jagan Teki <jagan@amarulasolutions.com>
-Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Miles Krause <mileskrause5200@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788723828; l=1903;
- i=mileskrause5200@gmail.com; s=20260906; h=from:subject:message-id;
- bh=MzPOZoQJIZouNhopaY53pEz59ebt1korUstt2TswX5s=;
- b=n7TDRXCuDuGLEEk4/VPeuku3N6NRmryW5wydClhaAsHiByeSusM+Nz8hYgNrxmDeRC7QSYUTm
- N24E5yCU0OhCuzbiwy8lCyAhHI/GXTrgxQ923wq10hBuHkzwXY3Jr/P
-X-Developer-Key: i=mileskrause5200@gmail.com; a=ed25519;
- pk=zcIfq4TGtPwMRJUW6WsbE2zLHvOMwk6ZyT/CGd6XzyI=
-X-Endpoint-Received: by B4 Relay for mileskrause5200@gmail.com/20260906
- with auth_id=1010
-X-Original-From: Miles Krause <mileskrause5200@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87mrtu4c21.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_125645_226992_1CCFC3DD 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +72,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: mileskrause5200@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Miles Krause <mileskrause5200@gmail.com>
+On Sun, Sep 06, 2026 at 04:47:02PM +0100, Marc Zyngier wrote:
 
-meson_encoder_dsi_probe() looks up the DSI transceiver's device node
-with of_graph_get_remote_node() and hands it to
-of_drm_find_and_get_bridge(), but never drops the reference that the
-lookup returned.
+[...]
 
-of_graph_get_remote_node() returns the node with its refcount
-incremented, and of_drm_find_and_get_bridge() takes its own reference
-on the bridge it finds, so 'remote' is leaked on every path once the
-lookup succeeds: on the -EPROBE_DEFER return taken when no bridge is
-found, and on a fully successful probe alike.
+> > +/*
+> > + * Record of a guest stage-2 mapping, storing canonical and nested IPA
+> > + * ranges. Both ranges have the same size.
+> > + */
+> > +struct kvm_guest_s2_mapping {
+> > +	struct interval_tree_node canonical;
+> > +	struct interval_tree_node nested;
+> > +	struct kvm_s2_mmu *nested_mmu;
+> > +};
+> > +
+> 
+> I'm trying hard to find a way to reduce the size of this structure,
+> because this is IMO the only real problem with this approach.
+> 
+> Obviously, the only thing we could kill is this nested_mmu field, as
+> everything else is used by the interval trees. I can see two ugly ways
+> to do that:
+> 
+> - either we iterate over all shadow MMUs to find the corresponding
+>   'nested' node: really costly if we have a lot of mappings and/or a
+>   lot of shadow MMUs
+> 
+> - or we steal bits from the interval_tree_node to encode extra
+>   information. One realisation is that all addresses are PAGE_SIZE
+>   aligned, meaning that we have at least 12 bits that are always 0. We
+>   could, for example, encode an index in the bottom bits of the
+>   nested.start field. Probably easy enough, but may require some
+>   careful masking (and the addition of an index in the s2_mmu
+>   structure).
+> 
+> The result would be significant, as we could then use a 96 byte slab,
+> which means the cost of a 1GB @4k granularity could fall to 24MB.
 
-The two sibling encoders in this driver already handle this correctly.
-meson_encoder_cvbs_probe() calls of_node_put(remote) immediately after
-of_drm_find_and_get_bridge(), and meson_encoder_hdmi_probe() releases
-the node both on its error path and after of_find_device_by_node().
+One way of meeting in the middle is to keep the nested_mmu pointer, and
+use a dedicated kmem cache. That cache will then hand out exact 104-byte
+objects.
 
-Release the reference in the same place meson_encoder_cvbs_probe()
-does, which covers both the error and the success path.
+That's 26MB for 1GB @4K.
 
-Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
-Signed-off-by: Miles Krause <mileskrause5200@gmail.com>
----
- drivers/gpu/drm/meson/meson_encoder_dsi.c | 1 +
- 1 file changed, 1 insertion(+)
+This is a nice improvement from the current 128-byte allocations.
+Although it's not as good as 96-byte allocations, the code logic can
+remain simple. Would you take this approach?
 
-diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
-index 3e422b612f74..3fe604496294 100644
---- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
-@@ -120,6 +120,7 @@ int meson_encoder_dsi_probe(struct meson_drm *priv)
- 	}
- 
- 	meson_encoder_dsi->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
-+	of_node_put(remote);
- 	if (!meson_encoder_dsi->bridge.next_bridge)
- 		return dev_err_probe(priv->dev, -EPROBE_DEFER,
- 				     "Failed to find DSI transceiver bridge\n");
+Thanks,
+Wei-Lin Chang
 
----
-base-commit: 88405f0ad1d5c680afe3ea0ce9345fa9e1deaac8
-change-id: 20260906-meson-dsi-of-node-leak-744899da5712
-
-Best regards,
--- 
-Miles Krause <mileskrause5200@gmail.com>
-
-
+[...]
 
