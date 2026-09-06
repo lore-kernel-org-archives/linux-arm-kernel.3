@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA82C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 10:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0113C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 10:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oRUN+CrXVWHJFPUZ+IG2kcuYj0Qwhyux4qcaHUtlgms=; b=QgfZn4ZftChkFNLvknVV++qCHf
-	Ufu9FK0bMleewdiSKUov3r53KgGT0ZMxGoFV4pt+w/y/tq6vYbKF29RV7bhwoNfTNRpMSm48uVFvr
-	xViR7Q3ER1iNfCQD7lV1aKY2k260It3KmDrqA/0LYjLH9jJW6fmV5Ne4mUonncOb3wVZbauYYRLeq
-	aQCKPlVocXwJsdVo/3J5hSTLOxVw/iCGuSZkj1v28SFxxKFqtFT488RQo8HbaJ4522SUE5z5IoBxE
-	fHcZI094LNKUOqjAxbAxMF/EqoQ6TZ6hXajwiosDkynLP+r+mPiKM3JFkukCx6XFGrVvpDPhcjmTq
-	dw1n/3Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OxZ+7J7RcHfxj4BJowNDu3kn/mniDmEyOVm3o0nqITc=; b=g777zOCa18R9mhjDfaaowgQYvC
+	OnbPNcQNlLkEcTxO5z4FLN82lHxEomMqcMRpKlLyeqfnrf/Fd6S+2+e3tPA0BKVogh4l6aNJC1ZuW
+	iHOo+r0ylVMadE6lDa70mde5CwJR/ySJeM5mKED7C/gsm6Rl+iaz1knTXy/Ij4u+wi/OsJdMzNj4U
+	t+sJHWbIW7F9DZ3/+j7sQpWaJTDuoqYV7IcKAxJLrwbQWwX0YDZQbilp6IAE9mCwPvSvKPCnA81Az
+	86PxdnfR5CvaHSQglLJAxNsxncaW0JEBah3yU344cfYIkRbvDBw9BgcakP8wvnkdehE1+3j5xBTB8
+	l4oIwIMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ACo-00000004wPC-0ztR;
-	Sun, 06 Sep 2026 10:34:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3AHi-00000004wsi-36NV;
+	Sun, 06 Sep 2026 10:39:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ACn-00000004wOx-0y5a;
-	Sun, 06 Sep 2026 10:34:33 +0000
+	id 1x3AHh-00000004wsQ-2XZ8
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Sep 2026 10:39:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A82B600AA;
-	Sun,  6 Sep 2026 10:34:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B52C1F00A3A;
-	Sun,  6 Sep 2026 10:34:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EAF0F40495;
+	Sun,  6 Sep 2026 10:39:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A79BB1F00A3A;
+	Sun,  6 Sep 2026 10:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788690871;
-	bh=oRUN+CrXVWHJFPUZ+IG2kcuYj0Qwhyux4qcaHUtlgms=;
-	h=From:Date:Subject:To:Cc;
-	b=irI4ZXyZzEuSCQJv4W25TXYals7TgAM6OqwDgfYRtUmqVhMgYSTcXk3BI1KjhnNIB
-	 rK6v3qovVzp9cPhrd2JymDLxNn9W79OxScQ37wQU6wlsXtWWR6aSZtBB/o/GcnRp4v
-	 wtfPJMrLk7gKXDGyiaBkR7S5P9vRKBLnMPOTo1d5fQJxt0l02FW/r0CmayRZHbLltG
-	 YLjCdxIPZIZeb/uqacCwPP/KYXMHaCvrAy/4ZfecawMFZrBoKU+u9RSLqH6KvUA7Cd
-	 P0n7UJsN9sYTusYeMwFbr5ibXSewIqPHHmasOZ5m+4rPVZe39ak1HocXluAwbdGM5g
-	 jDJOWLf9eJhJw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 06 Sep 2026 12:34:07 +0200
-Subject: [PATCH net-next v6] net: airoha: add LRO offload support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-airoha-eth-lro-v6-1-a6cc5179a8c5@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WQ3WrDMAxGX6X4ei6Sf+J4V32PsQvHVhqzNt6cL
- HSUvPvc7GIZyRAYhDjfkXVnA+VIA3s+3FmmKQ4x9aWpng7Md64/E4+h9EyAqEAL4C7m1DlOY8c
- vOXGnA3pZSawRWYHeM7XxtgS+sJ5G3tNtZK9l0sVhTPlrMU24zP8LnZCXEtZ7KU1VkT29Ue7pc
- kz5/JAsXKldDqjx1AC51ss199hhEmvvlheFF4qEs2SctGbXi7DLadWQtY11IuiNV6699YaXhQ8
- BrMe2AQDa8xoJu1y5va1kAFXT9r/q11uD2fBquXNAJN8YE9QpDcPx49NdfLpej+X5SdGrFImbF
- P3YooFWgwJEgX+2mOf5G+MOIPdlAgAA
-X-Change-ID: 20260520-airoha-eth-lro-a5d1c3631811
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Alexander Lobakin <aleksander.lobakin@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>, 
- Simon Horman <horms@kernel.org>
-X-Mailer: b4 0.14.3
+	s=k20260515; t=1788691176;
+	bh=OxZ+7J7RcHfxj4BJowNDu3kn/mniDmEyOVm3o0nqITc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ab3JilaTIX5Wyh0ADurJ8C4Tqhs3MVFg3dsoCs3Ece/XbxlhgfcqlDplQur1wqUmw
+	 f35vDNtUU+vnAYkep2RF+sUl/bOPDNeYdE0X5Y5SMgeL/28lZzNzES84CsOC6BWvMX
+	 TjEM/Du+uEEIyPRtNOD2g1Ee5eyC9dYqo0pUeZWFoj7iz3KXJdK5bB2S3CTVEqs4x5
+	 eQoe1L6E8FRpHRiC5caSNOP+88mjSSW9k8zI+YRM3HI7lLbuyTGKNQwOMRpsY6CZn6
+	 Oxzkow4rRU7M43SQHTWWw56E+dU5G09g5rOC9oBdN8YSHq0T/qazsdBESKBSpsFdwv
+	 nzVDb4EKijxIg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x3AHe-00000005Nkm-0cn5;
+	Sun, 06 Sep 2026 10:39:34 +0000
+Date: Sun, 06 Sep 2026 11:42:08 +0100
+Message-ID: <87o6ea4q67.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	Wang Han
+ <wanghan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	oupton@kernel.org,
+	tabba@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ljs@kernel.org,
+	itaru.kitayama@fujitsu.com
+Subject: Re: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
+In-Reply-To: <f2357ad9-ece1-4331-844d-5911baaf571f@linux.alibaba.com>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+	<20260902163500.1841671-1-wanghan@linux.alibaba.com>
+	<877bl26aqg.wl-maz@kernel.org>
+	<wsnf276xrun3g4hjr3t6alprapctg5z4kpj422v3hujqdjnrsa@swq4blkqvvj5>
+	<46342b48-550e-42c1-9d9f-e800c72269c2@linux.alibaba.com>
+	<874ig55u5h.wl-maz@kernel.org>
+	<f2357ad9-ece1-4331-844d-5911baaf571f@linux.alibaba.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: xueshuai@linux.alibaba.com, weilin.chang@arm.com, wanghan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,770 +99,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce LRO offload support to the airoha_eth driver, leveraging
-the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
-queues 24-31. LRO offloading does not support Scatter-Gather (SG) so
-it is required to increase the page_pool allocation order to 2 for RX
-queues 24-31 (LRO queues).
+On Sat, 05 Sep 2026 16:35:01 +0100,
+Shuai Xue <xueshuai@linux.alibaba.com> wrote:
+> 
+> 
+> 
+> On 9/4/26 3:54 PM, Marc Zyngier wrote:
+> > On Fri, 04 Sep 2026 08:01:24 +0100,
+> > Shuai Xue <xueshuai@linux.alibaba.com> wrote:
+> >> 
+> >> 
+> >> 
+> >> On 9/3/26 9:28 PM, Wei-Lin Chang wrote:
+> >>> On Thu, Sep 03, 2026 at 08:43:35AM +0100, Marc Zyngier wrote:
+> >>>> On Wed, 02 Sep 2026 17:35:00 +0100,
+> >>>> Wang Han <wanghan@linux.alibaba.com> wrote:
+> >>>>> 
+> >>>>> Hi Wei-Lin,
+> >>>>> 
+> >>>>> I tested this series on a Yitian 710 system with an ARM Neoverse-N2 CPU
+> >>>>> (128 CPUs, 2 NUMA nodes).
+> >>>>> 
+> >>>>> Test environment
+> >>>>> ----------------
+> >>>>> 
+> >>>>>     L0 kernel: Linux v7.2-rc6
+> >>>>>     L1 guest: Ubuntu 26.04 LTS, kernel 7.0.0-27-generic (aarch64)
+> >>>>>     QEMU: 10.2.3
+> >>>>> 
+> >>>>> L0 NUMA balancing was enabled (`/proc/sys/kernel/numa_balancing=1`).
+> >>>>> The host was booted with `kvm_arm.mode=nested`.
+> >>>>> 
+> >>>>> This series fixes a functional hang that is exposed when NUMA balancing is
+> >>>>> enabled.  The previous nested stage-2 unmap path is too slow for this
+> >>>>> workload, making the performance problem user-visible: NUMA balancing can
+> >>>>> leave the L1 guest unable to make progress and eventually hang during boot.
+> >>>>> 
+> >>>>> The L1 was started with 8 vCPUs and 32 GiB of RAM using:
+> >>>>> 
+> >>>>>     qemu-system-aarch64 -smp 8 -m 32G \
+> >>>>>       -machine virt,accel=kvm,gic-version=3,virtualization=on \
+> >>>>>       -cpu host -nographic -enable-kvm \
+> >>>>>       -drive if=pflash,format=raw,readonly=on,file=pflash0_bak.img \
+> >>>>>       -drive if=pflash,format=raw,file=pflash1_bak.img \
+> >>>>>       -drive file=./ubuntu-vm.qcow2,format=qcow2,if=virtio,cache=none,aio=native \
+> >>>>>       -nic user,model=virtio-net-pci,hostfwd=tcp::11234-:22 \
+> >>>>>       -serial mon:stdio
+> >>>>> 
+> >>>> 
+> >>>> Puzzling. If you are only running an L1 in VHE mode, there is no
+> >>>> shadow S2, and therefore nothing to unmap. For shadow S2s to be built
+> >>>> and affect the MMU notifiers, you need to run an L2.
+> >>> 
+> >>> I was thinking the same at first, but realized even with L1 in VHE mode
+> >>> there is a small period of time where L1 runs in its EL1 during boot, so
+> >>> one nested MMU will become valid for each vCPU. That causes
+> >>> kvm_nested_s2_unmap() to iterate through the entire IPA space 8 times
+> >>> (-smp 8).
+> >>> 
+> >>> What I am curious about is whether one single notifier unmap is enough
+> >>> to hang L1, or were there multiple notifier unmaps.
+> >>> 
+> >>> QEMU with -machine virt uses 40 IPA bits only, unmapping that takes:
+> >>> 1024  (4KB pages,  unmapping 1GB per iteration)
+> >>> 32768 (16KB pages, unmapping 32MB per iteration)
+> >>> 2048  (64KB pages, unmapping 512MB per iteration)
+> >>> iterations for each page size. There aren't many mappings in each
+> >>> iteration too. Does this really take that long on real hardware (even if
+> >>> this must be done 8 times)?
+> >>> 
+> >>> Thanks,
+> >>> Wei-Lin Chang
+> >>> 
+> >>>> 
+> >>>> So what are your actual test conditions?
+> >>>> 
+> >>>> 	M.
+> >>>> 
+> >> 
+> >> Hi, Wei-Lin and Marc,
+> >> 
+> >> I was able to reproduce this issue and capture ftrace evidence that confirms
+> >> the root cause. Below is the analysis, trace log, and timing data.
+> > 
+> > [...]
+> > 
+> >> Each set_migration_pte line is a single-page NUMA migration. Yet each
+> >> migration triggers one full kvm_nested_s2_unmap() that takes 877 ms.
+> > 
+> > And why is it taking so long? It should be *empty* after the first
+> > iteration.
+> 
+> Good question.
+> 
+> After dive into the details trace, let to try to answer the question.
+> 
+> Yes, it is empty -- and that is exactly the point: the 877ms is paid *for*
+> an empty table.
+> 
+> The cost is not in the walk and not in clearing PTEs;
+> **it is 262,144 broadcast TLB invalidations**, one at the end of every
+> 1GB chunk, each ~3.3us. Since v6.6 the cost of an unmap is
+> proportional to the size of the IPA range, not to the number of
+> mappings; an empty table pays in full.
+> 
+> > 
+> > [...]
+> > 
+> >> ## Conclusion
+> >> 
+> >> The root cause is confirmed: kvm_nested_s2_unmap() performs a full IPA space
+> >> unmap in the MMU notifier path instead of unmapping only the affected
+> >> GPA/CPAI range. The interval-tree-based precise range unmap approach is the
+> >> right fix.
+> > 
+> > No. This just indicates that this is papering over a bigger problem,
+> > and your AI is jumping to conclusions.
+> 
+> Sorry for the jumping up.
+> 
+> The culprit is 7657ea920c54 ("KVM: arm64: Use TLBI range-based
+> instructions for unmap", v6.6). kvm_pgtable_stage2_unmap() ends
+> *every* call with an unconditional kvm_tlb_flush_vmid_range(), whether
+> or not the walk cleared a single PTE:
+> 
+>         ret = kvm_pgtable_walk(pgt, addr, size, &walker);
+>         if (stage2_unmap_defer_tlb_flush(pgt))
+>                 /* Perform the deferred TLB invalidations */
+>                 kvm_tlb_flush_vmid_range(pgt->mmu, addr, size);
+> 
+> stage2_apply_range() calls it once per 1GB chunk, and the nested MMU
+> covers the guest PARange -- 48 bits here, so 262,144 calls per
+> kvm_nested_s2_unmap(). Each broadcast is one IPAS2E1IS (range) plus one VMALLE1IS
+> plus two DSB(ish), ~3.2-3.4us without ftrace:
+> 
+>         877ms / 262,144 chunks = 3.35us per chunk
+> 
+> which is exactly the per-broadcast cost.
 
-Since LRO is configured per-QDMA and shared across all devices using
-it, LRO is mutually exclusive with multiple devices bound to the
-same QDMA block. NETIF_F_LRO availability is re-evaluated whenever the
-QDMA user count changes (device registration and runtime QDMA
-migration): airoha_update_netdev_features() drops the feature when the
-QDMA has more than one user, while airoha_dev_set_qdma() re-enables LRO
-on the destination QDMA after a migration so that a running device
-keeps it active on the new QDMA block.
+Right. That's pretty compelling, thanks for digging into this. Your
+proposed approach (counting the invalidated regions) is interesting,
+but I don't think it is the correct one.
 
-Set the GSO metadata (gso_type/gso_size/gso_segs) on aggregated packets,
-together with CHECKSUM_PARTIAL and the pseudo-header checksum, so that
-L3-forwarded traffic is correctly re-segmented by the GSO/TSO path on
-the egress device.
+The real issue here is that we treat a full S2 unmap as if it was a
+set of ranges. This is what needs fixing, because we can invalidate
+the whole thing with exactly *ONE* TLBI.
 
-The HW does not report the per-segment MSS (msg3[31:16] only reports
-the max aggregated size), so the gso_size of an aggregated packet is
-approximated as DIV_ROUND_UP(data_len, agg_count). Since the LRO engine
-can merge segments of arbitrary size, aggregated skbs are marked
-SKB_GSO_DODGY so that the stack does not rely on gso_size and does not
-merge the aggregate into the GRO engine.
+This is even more important once you run an L2, as L1 will also
+perform its own TLB invalidation, and we want to avoid having trapping
+pointlessly. This also propagates in the way we handle TLB emulation.
 
-Performance comparison between sw GRO and LRO has been carried out using
-a 10Gbps NIC:
-GRO:    ~2.7 Gbps
-LRO:    ~8.2 Gbps
+[...]
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Reviewed-by: Simon Horman <horms@kernel.org>
----
-Changes in v6:
-- Advertise NETIF_F_LRO instead of NETIF_F_GRO_HW
-- Link to v5: https://lore.kernel.org/r/20260831-airoha-eth-lro-v5-1-6b0f50401121@kernel.org
+> The candidate fix is below. Table entries
+> (KVM_PGTABLE_WALK_TABLE_POST) are unaffected: stage2_unmap_put_pte()
+> keeps issuing the immediate __kvm_tlb_flush_vmid_ipa() for them, and
+> their child leaves are counted as leaves within the same walk, so any
+> call that clears something still flushes a superset of what it
+> cleared. This restores the pre-v6.6 semantics -- cost proportional to
+> what is mapped. With it, an empty nested unmap costs ~110ms
+> instrumented (the pure walk); getting to "exactly zero" would
+> additionally require kvm_nested_s2_unmap() to skip nested MMUs that
+> are valid but empty.
 
-Changes in v5:
-- Rebase on top of net-next branch.
-- Fix sashiko's reported issues on v4.
-- Link to v4: https://lore.kernel.org/r/20260807-airoha-eth-lro-v4-1-12d11ecb77d4@oss.qualcomm.com
+That's an interesting remark. I guess we could add some extra tracking
+for that, but let's see what we can do about the above first.
 
-Changes in v4:
-- Fix qdma user check in airoha_dev_open().
-- Disable hw-gro in airoha_dev_stop().
-- Check hw-gro configuration in airoha_enable_qos_for_gdm34() running
-  airoha_dev_check_hw_gro().
-- Enable rx interrupt for queue 31.
-- Check tcp_ts_reply from hw descriptor.
-- Add more sanity checks in airoha_qdma_lro_rx_skb().
-- Move airoha_update_netdev_features() in airoha_dev_set_qdma()
-- Link to v3: https://lore.kernel.org/r/20260730-airoha-eth-lro-v3-1-631963d048e3@kernel.org
+I've hacked something together and pushed the result at [1]
+(compile-tested only). I'd appreciate it if you could put it to the
+test with your setup.
 
-Changes in v3:
-- Add missing TCP header length check.
-- Fix TCP checkum calculation.
-- Disable LRO running ndo_stop callback.
-- Implement packet header split in order to support HW-GRO
-- Link to v2: https://lore.kernel.org/r/20260610-airoha-eth-lro-v2-1-54be99b9a2d5@kernel.org
+Thanks,
 
-Changes in v2:
-- Rebase on top of net-next main branch.
-- Link to v1: https://lore.kernel.org/r/20260606-airoha-eth-lro-v1-1-0ebceb0eafc3@kernel.org
+	M.
 
-Changes in v1:
-- Please note this patch depends on the following patch not applied yet
-  to net-next
-  https://lore.kernel.org/netdev/20260606-airoha_qdma_users-no-atomic-v1-1-86e2d6a1bfaf@kernel.org/T/#u
-- Restrict LRO to single user QDMA.
-- Introduce some more sanity checks.
-- Disable scatter-gather for LRO queues.
-- Run netif_receive_skb() for LRO packets.
-- Link to v3: https://lore.kernel.org/r/20260528-airoha-eth-lro-v3-1-dd09c1fb000e@kernel.org
+[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/unmap-vmall
 
-Changes in RFC v3:
-- Fix double-free of the page_pool of airoha_qdma_lro_rx_process()
-  fails.
-- Set AIROHA_LRO_PAGE_ORDER according to PAGE_SIZE.
-- Add missig gso metadata for the LRO packet.
-- Link to v2: https://lore.kernel.org/r/20260526-airoha-eth-lro-v2-1-24e2a9e7a397@kernel.org
-
-Changes in RFC v2:
-- Improve performances fixing buf_size computation.
-- Fix possible overflow in REG_CDM_LRO_LIMIT() register configuration.
-- Require the device to be not running before configuring LRO.
-- Fix configuration order in airoha_fe_lro_is_enabled().
-- Check skb header length in airoha_qdma_lro_rx_process().
-- Do not check net_device feature in airoha_qdma_rx_process() before
-  executing airoha_qdma_lro_rx_process() but rely on
-  airoha_qdma_lro_rx_process() logic.
-- Fix possible double recycle in airoha_qdma_rx_process() for LRO
-  packets.
-- Always use AIROHA_RXQ_LRO_MAX_AGG_COUNT macro for max LRO aggregated
-  fragments in airoha_fe_lro_init_rx_queue().
-- Link to v1: https://lore.kernel.org/r/20260520-airoha-eth-lro-v1-1-129cc33766e9@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c  | 363 ++++++++++++++++++++++++++++--
- drivers/net/ethernet/airoha/airoha_eth.h  |  26 +++
- drivers/net/ethernet/airoha/airoha_regs.h |  23 +-
- 3 files changed, 390 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 64619e9a704d..7035b269a7c3 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -10,8 +10,10 @@
- #include <linux/tcp.h>
- #include <linux/u64_stats_sync.h>
- #include <net/dst_metadata.h>
-+#include <net/ip6_checksum.h>
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
-+#include <net/tcp.h>
- #include <uapi/linux/ppp_defs.h>
- 
- #include "airoha_regs.h"
-@@ -491,6 +493,88 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
- 				 CDM_CRSN_QSEL_Q1));
- }
- 
-+static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_id,
-+				     int lro_queue_index, int qid,
-+				     int buf_size)
-+{
-+	int id = qdma_id + 1;
-+
-+	airoha_fe_rmw(eth, REG_CDM_LRO_LIMIT(id),
-+		      CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK,
-+		      FIELD_PREP(CDM_LRO_AGG_SIZE_MASK, buf_size) |
-+		      FIELD_PREP(CDM_LRO_AGG_NUM_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGG_COUNT));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_AGE_TIME(id),
-+		      CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK,
-+		      FIELD_PREP(CDM_LRO_AGE_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGE_TIME) |
-+		      FIELD_PREP(CDM_LRO_AGG_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGG_TIME));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
-+		      LRO_RXQ_MASK(lro_queue_index),
-+		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
-+	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
-+}
-+
-+static void airoha_fe_lro_disable(struct airoha_eth *eth, int qdma_id)
-+{
-+	int i, id = qdma_id + 1;
-+
-+	airoha_fe_clear(eth, REG_CDM_LRO_EN(id), LRO_RXQ_EN_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_LIMIT(id),
-+			CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_AGE_TIME(id),
-+			CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK);
-+	for (i = 0; i < AIROHA_MAX_NUM_LRO_QUEUES; i++)
-+		airoha_fe_clear(eth, REG_CDM_LRO_RXQ(id, i), LRO_RXQ_MASK(i));
-+}
-+
-+static bool airoha_fe_lro_is_enabled(struct airoha_eth *eth, int qdma_id)
-+{
-+	return airoha_fe_get(eth, REG_CDM_LRO_EN(qdma_id + 1),
-+			     LRO_RXQ_EN_MASK);
-+}
-+
-+static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
-+{
-+	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
-+	struct airoha_eth *eth = qdma->eth;
-+	int qdma_id = qdma - &eth->qdma[0];
-+	int i, lro_queue_index = 0;
-+
-+	if (airoha_fe_lro_is_enabled(eth, qdma_id))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+		struct airoha_queue *q = &qdma->q_rx[i];
-+		u32 size;
-+
-+		if (!q->ndesc)
-+			continue;
-+
-+		if (!airoha_qdma_is_lro_queue(q))
-+			continue;
-+
-+		size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
-+		size = min_t(u32, size, AIROHA_MAX_RX_SIZE);
-+		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
-+					 size);
-+		lro_queue_index++;
-+	}
-+}
-+
-+static void airoha_dev_lro_disable(struct airoha_gdm_dev *dev)
-+{
-+	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
-+	struct airoha_eth *eth = qdma->eth;
-+	int qdma_id = qdma - &eth->qdma[0];
-+
-+	if (!airoha_fe_lro_is_enabled(eth, qdma_id))
-+		return;
-+
-+	airoha_fe_lro_disable(eth, qdma_id);
-+}
-+
- static int airoha_fe_init(struct airoha_eth *eth)
- {
- 	airoha_fe_maccr_init(eth);
-@@ -616,6 +700,7 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
- 		e->dma_addr = page_pool_get_dma_addr(page) + offset;
- 		e->dma_len = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
- 
-+		WRITE_ONCE(desc->tcp_ts_reply, 0);
- 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, e->dma_len);
- 		WRITE_ONCE(desc->ctrl, cpu_to_le32(val));
- 		WRITE_ONCE(desc->addr, cpu_to_le32(e->dma_addr));
-@@ -657,13 +742,146 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
- 	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
- }
- 
-+static int airoha_qdma_lro_rx_skb(struct airoha_queue *q,
-+				  struct airoha_qdma_desc *desc,
-+				  u32 msg1, u32 len)
-+{
-+	u32 th_off, tcp_ack_seq, data_off, agg_count = 1;
-+	u32 msg2 = le32_to_cpu(READ_ONCE(desc->msg2));
-+	struct skb_shared_info *shinfo;
-+	struct sk_buff *skb = q->skb;
-+	u16 tcp_win, l2_len;
-+	struct tcphdr *th;
-+	bool ipv4, ipv6;
-+
-+	if (airoha_qdma_is_lro_queue(q)) {
-+		agg_count = FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2);
-+		if (agg_count > AIROHA_RXQ_LRO_MAX_AGG_COUNT)
-+			return -EINVAL;
-+	}
-+
-+	if (likely(agg_count <= 1)) /* not LRO */
-+		return 0;
-+
-+	ipv4 = FIELD_GET(QDMA_ETH_RXMSG_IP4_MASK, msg1);
-+	ipv6 = FIELD_GET(QDMA_ETH_RXMSG_IP6_MASK, msg1);
-+	if (!ipv4 && !ipv6)
-+		return 0;
-+
-+	l2_len = FIELD_GET(QDMA_ETH_RXMSG_L2_LEN_MASK, msg2);
-+
-+	if (ipv4) {
-+		struct iphdr *iph, _iph;
-+
-+		iph = skb_header_pointer(skb, l2_len, sizeof(*iph), &_iph);
-+		if (!iph)
-+			return -EINVAL;
-+
-+		if (iph->protocol != IPPROTO_TCP)
-+			return -EINVAL;
-+
-+		if (iph->ihl < 5)
-+			return -EINVAL;
-+
-+		th_off = l2_len + (iph->ihl << 2);
-+		if (!pskb_may_pull(skb, th_off))
-+			return -EINVAL;
-+
-+		iph = (struct iphdr *)(skb->data + l2_len);
-+		iph->tot_len = cpu_to_be16(len - l2_len);
-+		iph->check = 0;
-+		iph->check = ip_fast_csum((void *)iph, iph->ihl);
-+	} else {
-+		struct ipv6hdr *ip6h;
-+
-+		th_off = l2_len + sizeof(*ip6h);
-+		if (!pskb_may_pull(skb, th_off))
-+			return -EINVAL;
-+
-+		ip6h = (struct ipv6hdr *)(skb->data + l2_len);
-+		if (ip6h->nexthdr != NEXTHDR_TCP)
-+			return -EINVAL;
-+
-+		ip6h->payload_len = cpu_to_be16(len - th_off);
-+	}
-+
-+	data_off = th_off + sizeof(*th);
-+	if (len < data_off)
-+		return -EINVAL;
-+
-+	if (!pskb_may_pull(skb, data_off))
-+		return -EINVAL;
-+
-+	th = (struct tcphdr *)(skb->data + th_off);
-+	if (th->doff < 5)
-+		return -EINVAL;
-+
-+	data_off = th_off + (th->doff << 2);
-+	if (len <= data_off)
-+		return -EINVAL;
-+
-+	tcp_win = FIELD_GET(QDMA_ETH_RXMSG_TCP_WIN_MASK,
-+			    le32_to_cpu(READ_ONCE(desc->msg3)));
-+	tcp_ack_seq = le32_to_cpu(READ_ONCE(desc->data));
-+	th->ack_seq = cpu_to_be32(tcp_ack_seq);
-+	th->window = cpu_to_be16(tcp_win);
-+
-+	/* Check tcp timestamp option */
-+	if (th->doff == (sizeof(*th) + TCPOLEN_TSTAMP_ALIGNED) / 4) {
-+		u32 topt;
-+
-+		if (!pskb_may_pull(skb, data_off))
-+			return -EINVAL;
-+
-+		th = (struct tcphdr *)(skb->data + th_off);
-+		topt = get_unaligned_be32(th + 1);
-+		if (topt == ((TCPOPT_NOP << 24) | (TCPOPT_NOP << 16) |
-+			     (TCPOPT_TIMESTAMP << 8) | TCPOLEN_TIMESTAMP)) {
-+			u8 *ptr = (u8 *)th + sizeof(*th) + 2 * sizeof(__be32);
-+			__le32 tcp_ts_reply = READ_ONCE(desc->tcp_ts_reply);
-+
-+			/* The field is pre-zeroed in the posted descriptor,
-+			 * so a non-zero value is the hardware confirming the
-+			 * timestamp echo reply is valid. Leave TSecr
-+			 * untouched otherwise, since the hardware may not
-+			 * populate it for every aggregate.
-+			 */
-+			if (tcp_ts_reply)
-+				put_unaligned_be32(le32_to_cpu(tcp_ts_reply),
-+						   ptr);
-+		}
-+	}
-+
-+	if (ipv4) {
-+		struct iphdr *iph = (struct iphdr *)(skb->data + l2_len);
-+
-+		th->check = ~tcp_v4_check(len - th_off, iph->saddr,
-+					  iph->daddr, 0);
-+	} else {
-+		struct ipv6hdr *ip6h = (struct ipv6hdr *)(skb->data + l2_len);
-+
-+		th->check = ~tcp_v6_check(len - th_off, &ip6h->saddr,
-+					  &ip6h->daddr, 0);
-+	}
-+
-+	shinfo = skb_shinfo(skb);
-+	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
-+	shinfo->gso_type |= SKB_GSO_DODGY;
-+	shinfo->gso_size = DIV_ROUND_UP(len - data_off, agg_count);
-+	shinfo->gso_segs = agg_count;
-+
-+	skb->csum_start = skb_headroom(skb) + th_off;
-+	skb->csum_offset = offsetof(struct tcphdr, check);
-+	skb->ip_summed = CHECKSUM_PARTIAL;
-+
-+	return 0;
-+}
-+
- static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- {
- 	enum dma_data_direction dir = page_pool_get_dma_dir(q->page_pool);
--	struct airoha_qdma *qdma = q->qdma;
--	struct airoha_eth *eth = qdma->eth;
--	int qid = q - &qdma->q_rx[0];
--	int done = 0;
-+	int qid = q - &q->qdma->q_rx[0], done = 0;
-+	struct airoha_eth *eth = q->qdma->eth;
- 
- 	while (done < budget) {
- 		struct airoha_queue_entry *e = &q->entry[q->tail];
-@@ -696,7 +914,9 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		if (IS_ERR(dev))
- 			goto free_frag;
- 
-+		msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
- 		netdev = netdev_from_priv(dev);
-+
- 		if (!q->skb) { /* first buffer */
- 			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
- 						q->buf_size);
-@@ -707,9 +927,17 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 			__skb_put(q->skb, len);
- 			skb_mark_for_recycle(q->skb);
- 			q->skb->dev = netdev;
--			q->skb->protocol = eth_type_trans(q->skb, netdev);
- 			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
- 			skb_record_rx_queue(q->skb, qid);
-+
-+			if (airoha_qdma_lro_rx_skb(q, desc, msg1, len)) {
-+				netdev->stats.rx_dropped++;
-+				dev_kfree_skb(q->skb);
-+				q->skb = NULL;
-+				continue;
-+			}
-+
-+			q->skb->protocol = eth_type_trans(q->skb, netdev);
- 		} else { /* scattered frame */
- 			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
- 			int nr_frags = shinfo->nr_frags;
-@@ -742,7 +970,6 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 						  &port->dsa_meta[sptag]->dst);
- 		}
- 
--		msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
- 		hash = FIELD_GET(AIROHA_RXD4_FOE_ENTRY, msg1);
- 		if (hash != AIROHA_RXD4_FOE_ENTRY)
- 			skb_set_hash(q->skb, jhash_1word(hash, 0),
-@@ -800,12 +1027,10 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
- static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 				     struct airoha_qdma *qdma, int ndesc)
- {
--	const struct page_pool_params pp_params = {
--		.order = 0,
-+	struct page_pool_params pp_params = {
- 		.pool_size = 256,
- 		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
- 		.dma_dir = DMA_FROM_DEVICE,
--		.max_len = PAGE_SIZE,
- 		.nid = NUMA_NO_NODE,
- 		.dev = qdma->eth->dev,
- 		.napi = &q->napi,
-@@ -813,9 +1038,10 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 	struct airoha_eth *eth = qdma->eth;
- 	int qid = q - &qdma->q_rx[0], thr;
- 	dma_addr_t dma_addr;
-+	bool lro_q;
- 
--	q->buf_size = PAGE_SIZE / 2;
- 	q->qdma = qdma;
-+	lro_q = airoha_qdma_is_lro_queue(q);
- 
- 	q->entry = devm_kzalloc(eth->dev, ndesc * sizeof(*q->entry),
- 				GFP_KERNEL);
-@@ -827,6 +1053,9 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 	if (!q->desc)
- 		return -ENOMEM;
- 
-+	pp_params.order = lro_q ? AIROHA_LRO_PAGE_ORDER : 0;
-+	pp_params.max_len = PAGE_SIZE << pp_params.order;
-+
- 	q->page_pool = page_pool_create(&pp_params);
- 	if (IS_ERR(q->page_pool)) {
- 		int err = PTR_ERR(q->page_pool);
-@@ -835,6 +1064,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 		return err;
- 	}
- 
-+	q->buf_size = lro_q ? pp_params.max_len : pp_params.max_len / 2;
- 	q->ndesc = ndesc;
- 	netif_napi_add(eth->napi_dev, &q->napi, airoha_qdma_rx_napi_poll);
- 
-@@ -848,7 +1078,12 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 			FIELD_PREP(RX_RING_THR_MASK, thr));
- 	airoha_qdma_rmw(qdma, REG_RX_DMA_IDX(qid), RX_RING_DMA_IDX_MASK,
- 			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->head));
--	airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid), RX_RING_SG_EN_MASK);
-+	if (lro_q)
-+		airoha_qdma_clear(qdma, REG_RX_SCATTER_CFG(qid),
-+				  RX_RING_SG_EN_MASK);
-+	else
-+		airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid),
-+				RX_RING_SG_EN_MASK);
- 
- 	airoha_qdma_fill_rx_queue(q);
- 
-@@ -870,6 +1105,7 @@ static void airoha_qdma_cleanup_rx_queue(struct airoha_queue *q)
- 					page_pool_get_dma_dir(q->page_pool));
- 		page_pool_put_full_page(q->page_pool, page, false);
- 		/* Reset DMA descriptor */
-+		WRITE_ONCE(desc->tcp_ts_reply, 0);
- 		WRITE_ONCE(desc->ctrl, 0);
- 		WRITE_ONCE(desc->addr, 0);
- 		WRITE_ONCE(desc->data, 0);
-@@ -1896,6 +2132,34 @@ static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
- 	spin_unlock(&port->stats_lock);
- }
- 
-+static void airoha_update_netdev_features(struct airoha_gdm_dev *dev)
-+{
-+	struct airoha_eth *eth = dev->eth;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *iter_dev = port->devs[j];
-+			struct net_device *netdev;
-+
-+			if (!iter_dev)
-+				continue;
-+
-+			netdev = netdev_from_priv(iter_dev);
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			netdev_update_features(netdev);
-+		}
-+	}
-+}
-+
- static void airoha_dev_set_xmit_frame_size(struct net_device *netdev)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-@@ -1913,14 +2177,28 @@ static int airoha_dev_open(struct net_device *netdev)
- 	struct airoha_gdm_port *port = dev->port;
- 	u32 pse_port = FE_PSE_PORT_PPE1;
- 	struct airoha_qdma *qdma;
--	int err;
-+	int qdma_id, err;
-+
-+	/* LRO is configured on the QDMA and it is shared between all
-+	 * the devices using it. Refuse to open a second device on the
-+	 * same QDMA if LRO is enabled on any device sharing it or if
-+	 * this device has LRO enabled in its feature set.
-+	 */
-+	qdma = airoha_qdma_deref(dev);
-+	qdma_id = qdma - &qdma->eth->qdma[0];
-+
-+	if (qdma->users > 1 && (airoha_fe_lro_is_enabled(qdma->eth, qdma_id) ||
-+				(netdev->features & NETIF_F_LRO))) {
-+		netdev_warn(netdev, "required to disable LRO on QDMA%d\n",
-+			    qdma_id);
-+		return -EBUSY;
-+	}
- 
- 	netif_tx_start_all_queues(netdev);
- 	err = airoha_set_vip_for_gdm_port(dev, true);
- 	if (err)
- 		return err;
- 
--	qdma = airoha_qdma_deref(dev);
- 	if (netdev_uses_dsa(netdev))
- 		airoha_fe_set(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
- 			      GDM_STAG_EN_MASK);
-@@ -1937,6 +2215,9 @@ static int airoha_dev_open(struct net_device *netdev)
- 	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
- 				    pse_port);
- 
-+	if (netdev->features & NETIF_F_LRO)
-+		airoha_dev_lro_enable(dev);
-+
- 	return 0;
- }
- 
-@@ -1954,6 +2235,10 @@ static int airoha_dev_stop(struct net_device *netdev)
- 		airoha_set_gdm_port_fwd_cfg(dev->eth,
- 					    REG_GDM_FWD_CFG(port->id),
- 					    FE_PSE_PORT_DROP);
-+
-+	if (netdev->features & NETIF_F_LRO)
-+		airoha_dev_lro_disable(dev);
-+
- 	return 0;
- }
- 
-@@ -2115,11 +2400,14 @@ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
- 	qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
- 	cur_qdma = airoha_qdma_deref(dev);
- 
--	if (cur_qdma)
-+	if (cur_qdma) {
- 		netif_tx_stop_all_queues(netdev);
-+		airoha_dev_lro_disable(dev);
-+	}
- 
- 	rcu_assign_pointer(dev->qdma, qdma);
- 	netdev->irq = qdma->irq_banks[0].irq;
-+	qdma->users++;
- 	synchronize_rcu();
- 
- 	ppe_id = !airoha_is_lan_gdm_dev(dev) && airoha_ppe_is_enabled(eth, 1);
-@@ -2136,8 +2424,14 @@ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
- 			airoha_qdma_rr(qdma, REG_CNTR_VAL((i << 1) + 1));
- 	}
- 
--	if (cur_qdma)
-+	if (cur_qdma) {
-+		cur_qdma->users--;
- 		netif_tx_wake_all_queues(netdev);
-+	}
-+
-+	airoha_update_netdev_features(dev);
-+	if (netdev->features & NETIF_F_LRO)
-+		airoha_dev_lro_enable(dev);
- }
- 
- static int airoha_dev_init(struct net_device *netdev)
-@@ -2288,6 +2582,32 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev)
- 	}
- }
- 
-+static netdev_features_t airoha_dev_fix_features(struct net_device *netdev,
-+						 netdev_features_t features)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct airoha_qdma *qdma;
-+
-+	qdma = airoha_qdma_deref(dev);
-+	if (qdma->users > 1)
-+		features &= ~NETIF_F_LRO;
-+
-+	return features;
-+}
-+
-+static int airoha_dev_set_features(struct net_device *netdev,
-+				   netdev_features_t features)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+
-+	if (features & NETIF_F_LRO)
-+		airoha_dev_lro_enable(dev);
-+	else
-+		airoha_dev_lro_disable(dev);
-+
-+	return 0;
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *netdev)
- {
-@@ -3199,7 +3519,7 @@ static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
- 	struct airoha_gdm_dev *wan_dev, *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_eth *eth = dev->eth;
--	int err = -EBUSY;
-+	int err;
- 
- 	if (port->id != AIROHA_GDM3_IDX &&
- 	    port->id != AIROHA_GDM4_IDX) {
-@@ -3218,6 +3538,7 @@ static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
- 		    wan_dev->port->id == AIROHA_GDM2_IDX) {
- 			NL_SET_ERR_MSG_MOD(extack,
- 					   "QoS configured for WAN device");
-+			err = -EBUSY;
- 			goto error_unlock;
- 		}
- 		airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
-@@ -3343,6 +3664,8 @@ static const struct net_device_ops airoha_netdev_ops = {
- 	.ndo_stop		= airoha_dev_stop,
- 	.ndo_change_mtu		= airoha_dev_change_mtu,
- 	.ndo_select_queue	= airoha_dev_select_queue,
-+	.ndo_fix_features	= airoha_dev_fix_features,
-+	.ndo_set_features	= airoha_dev_set_features,
- 	.ndo_start_xmit		= airoha_dev_xmit,
- 	.ndo_get_stats64        = airoha_dev_get_stats64,
- 	.ndo_set_mac_address	= airoha_dev_set_macaddr,
-@@ -3430,11 +3753,9 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
- 	netdev->ethtool_ops = &airoha_ethtool_ops;
- 	netdev->max_mtu = AIROHA_MAX_MTU;
- 	netdev->watchdog_timeo = 5 * HZ;
--	netdev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM | NETIF_F_TSO6 |
--			      NETIF_F_IPV6_CSUM | NETIF_F_SG | NETIF_F_TSO |
--			      NETIF_F_HW_TC;
--	netdev->features |= netdev->hw_features;
--	netdev->vlan_features = netdev->hw_features;
-+	netdev->hw_features = AIROHA_HW_FEATURES | NETIF_F_LRO;
-+	netdev->features |= AIROHA_HW_FEATURES;
-+	netdev->vlan_features = AIROHA_HW_FEATURES;
- 	SET_NETDEV_DEV(netdev, eth->dev);
- 
- 	/* reserve hw queues for HTB offloading */
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 527e3833e36b..286f73e2e1e0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -46,6 +46,18 @@
- 	 (_n) == 15 ? 128 :		\
- 	 (_n) ==  0 ? 1024 : 32)
- 
-+#define AIROHA_LRO_PAGE_ORDER		get_order(SZ_16K)
-+#define AIROHA_MAX_NUM_LRO_QUEUES	8
-+#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
-+#define AIROHA_RXQ_LRO_MAX_AGG_COUNT	64
-+#define AIROHA_RXQ_LRO_MAX_AGG_TIME	100
-+#define AIROHA_RXQ_LRO_MAX_AGE_TIME	2000
-+
-+#define AIROHA_HW_FEATURES			\
-+	(NETIF_F_IP_CSUM | NETIF_F_RXCSUM |	\
-+	 NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |	\
-+	 NETIF_F_SG | NETIF_F_TSO | NETIF_F_HW_TC)
-+
- #define PSE_RSV_PAGES			128
- #define PSE_QUEUE_RSV_PAGES		64
- 
-@@ -561,6 +573,8 @@ struct airoha_qdma {
- 	struct airoha_eth *eth;
- 	void __iomem *regs;
- 
-+	int users;
-+
- 	struct airoha_irq_bank irq_banks[AIROHA_MAX_NUM_IRQ_BANKS];
- 
- 	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
-@@ -715,6 +729,18 @@ static inline bool airoha_is_7583(struct airoha_eth *eth)
- 	return eth->soc->version == 0x7583;
- }
- 
-+static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
-+{
-+	struct airoha_qdma *qdma = q->qdma;
-+	int qid = q - &qdma->q_rx[0];
-+
-+	/* EN7581 SoC supports at most 8 LRO rx queues */
-+	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
-+		     AIROHA_MAX_NUM_LRO_QUEUES);
-+
-+	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
-+}
-+
- int airoha_get_fe_port(struct airoha_gdm_dev *dev);
- bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
- 			     struct airoha_gdm_dev *dev);
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 442b48c9b991..07dd04859fde 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -122,6 +122,20 @@
- #define CDM_CRSN_QSEL_REASON_MASK(_n)	\
- 	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
- 
-+#define REG_CDM_LRO_RXQ(_n, _m)		(CDM_BASE(_n) + 0x78 + ((_m) & 0x4))
-+#define LRO_RXQ_MASK(_n)		GENMASK(4 + (((_n) & 0x3) << 3), ((_n) & 0x3) << 3)
-+
-+#define REG_CDM_LRO_EN(_n)		(CDM_BASE(_n) + 0x80)
-+#define LRO_RXQ_EN_MASK			GENMASK(7, 0)
-+
-+#define REG_CDM_LRO_LIMIT(_n)		(CDM_BASE(_n) + 0x84)
-+#define CDM_LRO_AGG_NUM_MASK		GENMASK(23, 16)
-+#define CDM_LRO_AGG_SIZE_MASK		GENMASK(15, 0)
-+
-+#define REG_CDM_LRO_AGE_TIME(_n)	(CDM_BASE(_n) + 0x88)
-+#define CDM_LRO_AGE_TIME_MASK		GENMASK(31, 16)
-+#define CDM_LRO_AGG_TIME_MASK		GENMASK(15, 0)
-+
- #define REG_GDM_FWD_CFG(_n)		GDM_BASE(_n)
- #define GDM_PAD_EN_MASK			BIT(28)
- #define GDM_DROP_CRC_ERR_MASK		BIT(23)
-@@ -887,9 +901,16 @@
- #define QDMA_ETH_RXMSG_SPORT_MASK	GENMASK(25, 21)
- #define QDMA_ETH_RXMSG_CRSN_MASK	GENMASK(20, 16)
- #define QDMA_ETH_RXMSG_PPE_ENTRY_MASK	GENMASK(15, 0)
-+/* RX MSG2 */
-+#define QDMA_ETH_RXMSG_AGG_COUNT_MASK	GENMASK(31, 24)
-+#define QDMA_ETH_RXMSG_L2_LEN_MASK	GENMASK(6, 0)
-+/* RX MSG3 */
-+/* max aggregated size in bytes */
-+#define QDMA_ETH_RXMSG_AGG_LEN_MASK	GENMASK(31, 16)
-+#define QDMA_ETH_RXMSG_TCP_WIN_MASK	GENMASK(15, 0)
- 
- struct airoha_qdma_desc {
--	__le32 rsv;
-+	__le32 tcp_ts_reply;
- 	__le32 ctrl;
- 	__le32 addr;
- 	__le32 data;
-
----
-base-commit: 31f961de2f90fbf52eb2d4e15b3eeaa09f9b4fc2
-change-id: 20260520-airoha-eth-lro-a5d1c3631811
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Jazz isn't dead. It just smells funny.
 
