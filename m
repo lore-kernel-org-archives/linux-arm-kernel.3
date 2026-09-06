@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36F1C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 13:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57795C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 14:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GMwxfhiNsMOqEiuB75tCd5vOK0IhzAuLzzWDHRYRTvQ=; b=g0hFttjF4s9XfpL0T+pYAt0yvf
-	1tY9QkH7vztjWZgAn86YIiuqVn6ibxzaD1O2Ezxv8UxRl3xCqa7bjrh+6rgw7T62ZcmwFHFc454Bl
-	EBYnsUUFrlFfsXOsJYSj4q8U8NGvK4Na6M2ZFA3tQ/VRNSDI5MCx11ctOkrmB40+Xxu9s5lmRt93w
-	w+FdOIC6T2A7vVCDd4X7MW8UYm4kr+Jn9RWwlN8LowAm/nc6OC2w2gNNz/mshjwjrOuoaIosE0/Dl
-	jvOx+g43PgbOlttfoCL4BBUTeAHUcRLd8Hs9jKusoLjy/NUk6r//lPHoSw8sztl37QnwjkvPu8KRs
-	Cbi7QNyQ==;
+	bh=ICN4i+YAw1SWFOpfAEPgSU1+cpG9eLVnsY3ytgN9CGc=; b=Fq2kSzsR0IQLHUMs8L4njujrMS
+	9a9ALqM7+FfJZGlqRBhn9M5QP4Ct5ZDUvBDMcwuNXK/U43r40G2rpirBiMJNve7Q1OZSeHi0A125M
+	8xeaPXVl8T8BVuujFI9u0+rA1/pwNcUjkTX5cL86OJ5Up4o64H7FsfGpyMdDt1ABSbY710gFP+bCh
+	90A0d1ZPSvHBFd0bWmRu5pEAqvTEI3u5rcmKr4uBY8FNFfjPdViFRQ0YcpkymDaYp0iEAUPiE5o0g
+	wFFhA0YhhXGoZ+DAQk8YroJqw26CSy20Fe2Cm1q52wHxIxHHjaGPad+P1NbkUYsEWISJE6+wSGPep
+	NvvRFakA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3DO9-00000005441-0whl;
-	Sun, 06 Sep 2026 13:58:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3DRM-000000054M8-2AxJ;
+	Sun, 06 Sep 2026 14:01:48 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3DO7-0000000543a-20bm
+	id 1x3DRJ-000000054Ln-3U1f
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 13:58:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 615C5600AA;
-	Sun,  6 Sep 2026 13:58:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 00256C2BCB8;
-	Sun,  6 Sep 2026 13:58:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788703106;
-	bh=cMPtFeXnQwfMtY2iSNajkw8O1e5RkdUMYYTB7u99l2E=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=D+Cu3niRKLLApsIwTdQTpiSpm3gGvqA9+Z3us7e3e+UFMy49euktz4oRbDNAXQ40P
-	 0onZv+bfQkkKHJ89xPKgsJbFx8o1gm0Gkf6muaN/l5d2BDYJvEme5DB5dr+6P0+R/G
-	 bolCO/bldEo9SlBjhLUql6QxXLWONUz9gR0KXKcZaonqVHWUyAlfKkvY5XLHrb4G5r
-	 zuVeOET3MD3sqLPEltuSBnZMSC06iKYepp7jK8u1bQ5ZKfiQu3DsoocP5igkXQGNUB
-	 e7pAgH2rtLTkPUGMH/xICjeUvpJb7xH/QdvJJnFgbbfPAX47uBqOYPKhcv7PJOtdEx
-	 YxP59TM0Jetgw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D076EC79F9F;
-	Sun,  6 Sep 2026 13:58:25 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maud_spierings.hotmail.com@kernel.org>
-Subject: [PATCH 0/2] arm64: dts: imx93-11x11-frdm: some fixes
-Date: Sun, 06 Sep 2026 15:58:20 +0200
-Message-Id: <20260906-imx93_frdm_rtc-v1-0-3fadbda0bea1@hotmail.com>
+	Sun, 06 Sep 2026 14:01:47 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hdBhN5v56zKmwc;
+	Sun, 06 Sep 2026 16:01:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788703300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ICN4i+YAw1SWFOpfAEPgSU1+cpG9eLVnsY3ytgN9CGc=;
+	b=PqNw0frTdjTlZv8Ya7YmEpyzCsaGEP4rKWHy3UyEUWbtjRTGGm9+YeRHIKsSVVQP2921nm
+	GZTapO1CeSbuvAc5wQuVgMDHwub8Nvtg5u/VktK8bidn74+whB6w+7VQuEGGMDKhBP88Qm
+	18BlMmrmdgYM5dJNs8IsjAVmK9d0eZqSMjkGlK61uF7XuwhFEk3CQafLEuKxS+OP8Jx3t9
+	iqBe5h30RnYO8RE+9GjdXv3qKDN63mwv/JxYDTxH9SSzFFKnvzY7gIlP5Jh9wiGVkNV3TY
+	yLy4VjbUi7Tq57nr7Z5jZYLjAUw4sUqce6K+qO1KL9qkbHlEX1PNRg4I+7iZaQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=qHh2Mw7p;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788703299;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ICN4i+YAw1SWFOpfAEPgSU1+cpG9eLVnsY3ytgN9CGc=;
+	b=qHh2Mw7pAZ0BzM9YMD+KGhCYjUBAOJCKcLqSILq3z7xLJFlBdXyEybKPJg5CuBKr9o1xsR
+	GR6U9MWVqUV7vOpGtn8LxeHIjBFfMRjjIL9y6NIqvJT9XeeFCyUafsYUpt60wFSZc4bHNA
+	3qPDWeaE00ZDR9jZuePHuda1kWJgsW+amJqaxuYilH+uLWHeRwWNHYgynHp/a+wCedM2XW
+	JFAXkr1GyLFdedM7P3y7b0Xm1Orjgi6a0Sxj1/ZhietRj98jC6BfvGU90FVDC1M6LNe1FV
+	2ogLOdYFLUq45XY7I+/UI0GX1w3nkq48WdxY9g5joHY9jrdShpExtK3NNKeMFw==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a779h0: Add GICv3 ITS and update PCIe node
+Date: Sun,  6 Sep 2026 16:00:48 +0200
+Message-ID: <20260906140134.492084-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM2wpAQBCA4VfRXNsaq9bhVSSxBqMcmkVK3t3i8
- rv4/wscCZODPLhA6GDHy+wRhQHYoZ57Utx6g0ZtMEOjeDqzuOqknSrZrNJpanViDNaI4KNVqOP
- zGxblb7c3I9ntvcB9P5OL1khyAAAA
-X-Change-ID: 20260906-imx93_frdm_rtc-288c27660a00
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Maud Spierings <maud_spierings@hotmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788703104; l=7874;
- i=maud_spierings@hotmail.com; s=20241110; h=from:subject:message-id;
- bh=cMPtFeXnQwfMtY2iSNajkw8O1e5RkdUMYYTB7u99l2E=;
- b=zzKau0vv5VHeSSvG9I33HVEXMmbmyChfeZA+iYQwVMkfdSzM/udb94eilnbwsozb8/H1K1G1y
- EeGtY9MEDImCSEJ5JMOWkn157EWW3Mrklyo9D07CyYb7EcuD/6TkMPV
-X-Developer-Key: i=maud_spierings@hotmail.com; a=ed25519;
- pk=CeFKVnZvRfX2QjB1DpdiAe2N+MEjwLEB9Yhx/OAcxRc=
-X-Endpoint-Received: by B4 Relay for maud_spierings@hotmail.com/20241110
- with auth_id=273
-X-Original-From: Maud Spierings <maud_spierings@hotmail.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: 65ac7hzpkta6m6ojpbwtnby1w5q7rjtk
+X-MBO-RS-ID: 1f97d613af167f4373d
+X-Rspamd-Queue-Id: 4hdBhN5v56zKmwc
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_070146_036393_A4607F69 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,141 +91,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maud_spierings@hotmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pcf2131 has been assigned the rtc0 alias, but if the bbnsm_rtc gets
-probed first it will take this name.
+This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
+SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
+and add msi-map into PCIe controller node.
 
-Properly assign bbnsm_rtc to rtc1 so that this doesn't happen
+The GIC ITS does have master interface to issue transactions to RAM.
+The interface does support cacheable transactions, however, it does
+not support shareable attribute, because the AXI port signals are tied
+to inactive in this implementation. Therefore, add "dma-noncoherent"
+DT property into the GIC ITS subnode.
 
-Add the power supply to the pcal6408 gpio expander, it doesn't have the
-dependency loop like the pcal6524.
+The GIC redistributor does not have cacheable/shareable, therefore
+add "dma-noncoherent" DT property into the GIC node.
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
 Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Maud Spierings <maud_spierings@hotmail.com>
-
-----
-
-On a side note, I'm seeing:
-
-[   16.100470] fec 42890000.ethernet: Invalid MAC address: 00:00:00:00:00:00
-[   16.109866] fec 42890000.ethernet: Using random MAC address: 4e:1b:bb:80:4c:90
-
-But I'm not actually getting a random MAC address, it is constently:
-f6:32:43:09:2e:b7
-
-Something off about the nvmem reading or something?
-
-I am also consistently getting crashes on this next tag, also without my
-changes:
-
-[   42.718742] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-[   42.727600] Mem abort info:
-[   42.730527]   ESR = 0x0000000096000004
-[   42.734649]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   42.739988]   SET = 0, FnV = 0
-[   42.743047]   EA = 0, S1PTW = 0
-[   42.746189]   FSC = 0x04: level 0 translation fault
-[   42.751066] Data abort info:
-[   42.754272]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-[   42.759793]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   42.764844]   GCS = 0, Overlay = 0, DirtyBit = 0
-[   42.769492] user pgtable: 4k pages, 48-bit VAs, pgdp=0000000087f6d000
-[   42.776247] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000
-[   42.783070] Internal error: Oops: 0000000096000004 [#1]  SMP
-[   42.788724] Modules linked in: btnxpuart hci_uart btqca snd_soc_fsl_mqs snd_soc_fsl_sai btrtl imx_pcm_dma btbcm snd_soc_fsl_utils sm_misc btintel snd_soc_core bluetooth tcpci tcpm aes_ce_blk ghash_ce gf128mul snd_compress ethosu typec ac97_bus sm4 gpu_sched snd_pcm_dmaengine fsl_imx9_ddr_perf thunderbolt reset_gpio phy_generic snd_pcm drm_dma_helper drm_kms_helper motorcomm nvmem_imx_ocotp_ele snd_timer at24 rtc_nxp_bbnsm nxp_bbnsm_pwrkey rtc_pcf2127 imx_rproc snd flexcan qoriq_thermal can_dev sm_lmm fec imx93_adc imx7ulp_wdt soundcore industrialio sm_cpu dwmac_imx rfkill drm crypto_user mmc_block rpmb_core gpio_keys phy_can_transceiver
-[   42.845147] CPU: 0 UID: 0 PID: 130 Comm: jbd2/mmcblk0p2- Not tainted 7.3.0-rc1-next-20260904 #26 PREEMPT(full)  858e134aa3e8368ae2529c7f3178854a425a3e2b
-[   42.858774] Hardware name: fsl NXP i.MX93 11X11 FRDM board, BIOS barebox 2026.08.0-00258-g32c817c9dbf0 #15 Sat Sep 5 21:03:53 CEST 2026 08/01/2026
-[   42.871879] pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   42.878828] pc : __bh_submit+0xa8/0x210
-[   42.882659] lr : __bh_submit+0x9c/0x210
-[   42.886490] sp : ffff800083793bf0
-[   42.889791] x29: ffff800083793bf0 x28: ffff0000068f6030 x27: ffff000028f760cc
-[   42.896915] x26: 0000000000000000 x25: 0000000003000000 x24: ffff00000052dc48
-[   42.904039] x23: 0000000000000000 x22: 0000000000000000 x21: ffff8000806c5ad0
-[   42.911163] x20: ffff00000ad9f000 x19: ffff000001a24480 x18: ffff7ffffd6de000
-[   42.918288] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-[   42.925412] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[   42.932535] x11: 0000000000000000 x10: fffffdffc0e56040 x9 : ffff800080972ac4
-[   42.939659] x8 : ffff000007e3a888 x7 : 000000000000000d x6 : 000000000000000d
-[   42.946783] x5 : 00000000000004c3 x4 : ffff8000828df140 x3 : 0000000000000001
-[   42.953908] x2 : 0000000000009801 x1 : 0000000000000000 x0 : 0000000000000000
-[   42.961032] Call trace:
-[   42.963469]  __bh_submit+0xa8/0x210 (P)
-[   42.967298]  bh_submit+0x24/0x38
-[   42.970522]  jbd2_journal_commit_transaction+0xb98/0x1d20
-[   42.975912]  kjournald2+0xb8/0x238
-[   42.979310]  kthread+0x134/0x150
-[   42.982534]  ret_from_fork+0x10/0x20
-[   42.986108] Code: 940e488e aa0003f4 f9400a60 b9404fe2 (f9400003) 
-[   42.992190] ---[ end trace 0000000000000000 ]---
-[   42.997146] ------------[ cut here ]------------
-[   43.001767] WARNING: kernel/exit.c:935 at do_exit+0x914/0xb78, CPU#0: jbd2/mmcblk0p2-/130
-[   43.009938] Modules linked in: btnxpuart hci_uart btqca snd_soc_fsl_mqs snd_soc_fsl_sai btrtl imx_pcm_dma btbcm snd_soc_fsl_utils sm_misc btintel snd_soc_core bluetooth tcpci tcpm aes_ce_blk ghash_ce gf128mul snd_compress ethosu typec ac97_bus sm4 gpu_sched snd_pcm_dmaengine fsl_imx9_ddr_perf thunderbolt reset_gpio phy_generic snd_pcm drm_dma_helper drm_kms_helper motorcomm nvmem_imx_ocotp_ele snd_timer at24 rtc_nxp_bbnsm nxp_bbnsm_pwrkey rtc_pcf2127 imx_rproc snd flexcan qoriq_thermal can_dev sm_lmm fec imx93_adc imx7ulp_wdt soundcore industrialio sm_cpu dwmac_imx rfkill drm crypto_user mmc_block rpmb_core gpio_keys phy_can_transceiver
-[   43.066355] CPU: 0 UID: 0 PID: 130 Comm: jbd2/mmcblk0p2- Tainted: G      D             7.3.0-rc1-next-20260904 #26 PREEMPT(full)  858e134aa3e8368ae2529c7f3178854a425a3e2b
-[   43.081543] Tainted: [D]=DIE
-[   43.084419] Hardware name: fsl NXP i.MX93 11X11 FRDM board, BIOS barebox 2026.08.0-00258-g32c817c9dbf0 #15 Sat Sep 5 21:03:53 CEST 2026 08/01/2026
-[   43.097524] pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   43.104474] pc : do_exit+0x914/0xb78
-[   43.108044] lr : make_task_dead+0x84/0x1b8
-[   43.112135] sp : ffff800083793840
-[   43.115437] x29: ffff800083793860 x28: ffff000005461440 x27: ffff000028f760cc
-[   43.122561] x26: 0000000000000000 x25: 0000000003000000 x24: 0000000000000000
-[   43.129685] x23: ffff8000805a99f0 x22: 0000000000000000 x21: ffff000005461440
-[   43.136809] x20: ffff800083793ab0 x19: 000000000000000b x18: ffff7ffffd6de000
-[   43.143933] x17: ffff8000800ec2c4 x16: ffff8000811a1820 x15: ffff8000823823e0
-[   43.151057] x14: ffff80008225b140 x13: 0000000000000181 x12: ffff00007f939140
-[   43.158181] x11: 00000000000000c0 x10: 0000000000000f80 x9 : ffff8000800e9e3c
-[   43.165305] x8 : ffff000005462420 x7 : 0000000000000000 x6 : 000000000000000b
-[   43.172429] x5 : ffff000005461440 x4 : ffff000005461440 x3 : ffff000000ed4f18
-[   43.179552] x2 : 000000000000270f x1 : 0000000000000000 x0 : ffff800083793cf8
-[   43.186677] Call trace:
-[   43.189113]  do_exit+0x914/0xb78 (P)
-[   43.192684]  make_task_dead+0x84/0x1b8
-[   43.196427]  die+0x150/0x170
-[   43.199304]  die_kernel_fault+0x2b8/0x3b8
-[   43.203308]  __do_kernel_fault+0x220/0x230
-[   43.207399]  do_page_fault+0x10c/0x7a0
-[   43.211143]  do_translation_fault+0x38/0x60
-[   43.215320]  do_mem_abort+0x48/0xa0
-[   43.218804]  el1_abort+0x44/0x68
-[   43.222028]  el1h_64_sync_handler+0x50/0xb8
-[   43.226206]  el1h_64_sync+0x6c/0x70
-[   43.229690]  __bh_submit+0xa8/0x210 (P)
-[   43.233520]  bh_submit+0x24/0x38
-[   43.236744]  jbd2_journal_commit_transaction+0xb98/0x1d20
-[   43.242135]  kjournald2+0xb8/0x238
-[   43.245532]  kthread+0x134/0x150
-[   43.248756]  ret_from_fork+0x10/0x20
-[   43.252328] ---[ end trace 0000000000000000 ]---
-
+Cc: linux-renesas-soc@vger.kernel.org
 ---
-Maud Spierings (2):
-      arm64: dts: imx93-11x11-frdm-common: fix the rtc aliases
-      arm64: dts: imx93-11x11-frdm: add missing vcc-supply
+ arch/arm64/boot/dts/renesas/r8a779h0.dtsi | 24 ++++++++++++++++++-----
+ 1 file changed, 19 insertions(+), 5 deletions(-)
 
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm-common.dtsi | 1 +
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts         | 1 +
- 2 files changed, 2 insertions(+)
----
-base-commit: af5f12805e5cefa4fe68d6127c7e1fb78cd5535c
-change-id: 20260906-imx93_frdm_rtc-288c27660a00
-
-Best regards,
---  
-Maud Spierings <maud_spierings@hotmail.com>
-
+diff --git a/arch/arm64/boot/dts/renesas/r8a779h0.dtsi b/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
+index c66fb22d72aa8..5f9223a0f4468 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779h0.dtsi
+@@ -691,6 +691,8 @@ pciec0: pcie@e65d0000 {
+ 			resets = <&cpg 624>, <&cpg 1121>;
+ 			reset-names = "pwr", "core";
+ 			max-link-speed = <4>;
++			msi-parent = <&its 0>;
++			msi-map = <0x0 &its 0x0 0x10000>;
+ 			num-lanes = <2>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -701,10 +703,10 @@ pciec0: pcie@e65d0000 {
+ 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
+ 			#interrupt-cells = <1>;
+ 			interrupt-map-mask = <0 0 0 7>;
+-			interrupt-map = <0 0 0 1 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 2 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 3 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
+ 			snps,enable-cdm-check;
+ 			status = "disabled";
+ 		};
+@@ -1852,11 +1854,23 @@ ipmmu_mm: iommu@eefc0000 {
+ 		gic: interrupt-controller@f1000000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
+-			#address-cells = <0>;
++			#address-cells = <2>;
++			#size-cells = <2>;
+ 			interrupt-controller;
+ 			reg = <0x0 0xf1000000 0 0x20000>,
+ 			      <0x0 0xf1060000 0 0x110000>;
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++			dma-noncoherent;
++
++			ranges = <0x0 0x0 0x0 0xf1000000 0x0 0x200000>;
++
++			its: msi-controller@40000 {
++				compatible = "arm,gic-v3-its";
++				reg = <0x0 0x40000 0x0 0x20000>;
++				dma-noncoherent;
++				msi-controller;
++				#msi-cells = <1>;
++			};
+ 		};
+ 
+ 		csi40: csi2@fe500000 {
+-- 
+2.53.0
 
 
