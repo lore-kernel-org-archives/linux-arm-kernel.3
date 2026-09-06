@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A56FC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 08:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E2EC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 10:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eINHlrHkYMRasqID9eglHfotXq/uGSEFKbI4CEPXV5Y=; b=doOtjrLkWH8fYI+lYsHgKRpVD2
-	DLm3Op64laNAtVDWPi9Yli6bJxDVgrbODCadUVGeNXb3NHpr4O3sYpPNXlp5y3go0ho1fD5JukZps
-	1u3dxAD/bwG61kfstUVjGL9Rpm/STWiY5ALnwhFYvflJMuWD+KOwCKtVYHzYVFiOTnFxYeH4+A3gf
-	Vfsaa9SqWPv9pjesUXHRvr240OC7SbflyNtue0z2HmtJNqNTnBot7Ud96dpMpZqPjtQha/0SiwPyo
-	aGnTeLqGcx6c+TgrtVOdqMIqWo6BNOIBAUeSBLWSFxy1qIrm3/IuFRyj3+iyfg5W6ChHSDet2vYSZ
-	gTNygELw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=snH3EbBb/iu4/hpnhb7Q5dASnycbjTC3AQM0O003+3M=; b=f4ByNp6/KLDuHFQs5Au7kQpdcq
+	Paw/MvQWQ7Mzmi1XGX5gFioYP3/pQEUvHrGw5VzT16er0auC4xSSC7RpotnvjiAqCKY1CdRg/iAYn
+	WMfF9QAkO/Xu6j/CSKq6mpXmgo59Zo/JBLLyVjzHdrcQzpYKA7fUJNQdKtDzE7xVmT7tMoqESpino
+	OmeVz/11kjsTbZbLJXMPTQVFJshfwXOQ++4WZ2senBGUqFtdyoPb1IJOyFw01uIZ9zMqhXhRL15qL
+	BO5vGChkn9TjXbZLCGuc85ZNHsiKj0HLP8Sr1obSiVX1svt41Rb4yvzDirYC7Yqn4ii6z6eJTlise
+	jCrX3iZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x38h7-00000004rU1-2O4e;
-	Sun, 06 Sep 2026 08:57:45 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1x39g2-00000004t9M-0DIA;
+	Sun, 06 Sep 2026 10:00:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x38h5-00000004rTS-0nHl
+	id 1x39fz-00000004t9C-431T
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 08:57:44 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-cc1b838f9b6so2803204a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 01:57:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788685062; x=1789289862; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eINHlrHkYMRasqID9eglHfotXq/uGSEFKbI4CEPXV5Y=;
-        b=Q6sYCyMGhWD1gWRPQBf7Xgf2sTxuk+tV3Mo3YBaHfX9qUDCnioUPC9spH5I8ncnK64
-         eORuTlshsDfhlu3KK749+HctHv7sQq7Y8cfoFfM+iB25OgEBNfDN66o99aF5XKaimn1u
-         S3fWs/eBASAfLAPC75er1BUC59zU2LIwSzzjJaDqaOUvjrN6jWsl/N5fE7Slg3xw6ZHZ
-         fd4PiXwFoUG/HbPYHqzgddKrFsSIY2+T0Q+8ovhWCdDG0W2xZs2jJJKpAKWfsIiFA/xx
-         Ireic2saHV2VvPxqWF5bkGJYsBjQ+QjnRM4mq8Ye0oXNgE/b1znqlxO9U5Zw5n946C2E
-         aXVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788685062; x=1789289862;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eINHlrHkYMRasqID9eglHfotXq/uGSEFKbI4CEPXV5Y=;
-        b=gEyWIOMU1V5j3DNI8r4se22J+grtXKcTbz15lwZpAaM706fFhaFKoEvMNHeuaZJTdd
-         4PTmtkrB3xEm31vCcF6vKuhWv5MVWA9ZF+3Vri8JPRTLMv6xvZkS7lyN5wb8ZZy+Z/mu
-         z8C9iUhP0ffRq10P7dksOtP04Q40RaieyWBhEle7NAwHqtmueGijUnC6avt6C/0+dNHw
-         zJ7dfPR2miZwholl9/ZGFkA5ym2cmEdPh6JaBz2KCIWX0NNKNs7T3HQ7OjnTJLOQAc3n
-         8NHiFKS0CRNjcLqErREMZxOlHlGbBN5EE0VDsJGEKJ0iJ9aBP/B+d8UdNdFYzbzjvNvo
-         euGA==
-X-Forwarded-Encrypted: i=1; AKwUvBwU9y5/r+iWYA/c9hP4gnA1frJo5I4m4JP+STpqgCXZCL3wczHRQNpZ6DrMq+Q4gzZM66h+vHp4DIzhxCi8LS1t@lists.infradead.org
-X-Gm-Message-State: AFuF++mi5uLSPA9PfgsZW+G1U95fydkFyS76TZd4rYgqPGTxWSTmdbOP
-	fFRo88QpQ2jfjJT2qCi0rCY/hrAtwVCnnHt6rx/nL8+myUeJcN5D6ULU
-X-Gm-Gg: AYBFou2Uzh6mZ63sGllTwgYr9Vod8Ddu7vXebUxntKfHnaB6B5ww9u44CygZdIjiF1G
-	IQ7n3iLsz2XRHIhhNo1Afnvtx7YES1ObXKSJl6bz6wf4RwvZMyvDLJpTbU8LVbd2CwOAc41JWUF
-	hywegcVi/mYE5RbaVhr3itMdCbBEJECgSI7JOfGWdNk7e9ATdZxoCIoHiulmkNsPt45xRY/0A/y
-	pAa+uKkwKcE5d5ANDvK39mivx623xQ4oDCGnHcE8Z5yqFNl3QfiowZidbRaDKFtPOHbizUWUVSO
-	0SPdo+XlIHPgrUv+xoIn0sjmFpUOLt8or0sF4ll8iNalFuCS9SUSTQCLh0c1lQU6FuZ5wuYP5U1
-	7rVLNVYAmnrrHtSfU/gcQYmxwExkUzzNliN92qoiiRMHy0wBvWLlZkQ/3Y5KqHTu+SLNq+wJfz2
-	hQSEKk7FWXxR8hbAoN6AmdaZrxbYd4+wcPf2xaT3cKIOcu2+u4yKZRPLljUKm0Zw3A
-X-Received: by 2002:a05:6a20:1609:b0:3c3:b57b:6291 with SMTP id adf61e73a8af0-3da39fef371mr30083031637.18.1788685061709;
-        Sun, 06 Sep 2026 01:57:41 -0700 (PDT)
-Received: from [192.168.101.188] ([207.90.239.231])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-33450e140d3sm14968056eec.4.2026.09.06.01.57.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Sep 2026 01:57:41 -0700 (PDT)
-Message-ID: <f3b6c6f4-2be9-4eab-b4ba-970cae865753@gmail.com>
-Date: Sun, 6 Sep 2026 16:57:28 +0800
+	Sun, 06 Sep 2026 10:00:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F82D43D7C;
+	Sun,  6 Sep 2026 10:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E7151F00A3A;
+	Sun,  6 Sep 2026 10:00:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788688838;
+	bh=snH3EbBb/iu4/hpnhb7Q5dASnycbjTC3AQM0O003+3M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Akn72PWIRJjwB6g+ptMXNhnydqgYB8YJdpJbWNP83TRqfLEPm6hacZqV9dTqOwkiN
+	 HOC863VLgNfr8uXx/bu+2eqqCfm8crNSNg8eS2E4dk8oFFSQX/z2ECjQ+FHOvIs5Cr
+	 Dn0Ws1XP98TBSlQJHHebBauNHrwOLGAoGYr/5E8RRZg7itrF4eSjIEnQ0jC0av8TvL
+	 8ZeOHsokWT65OKsh8d7cTYP+aoeLFFE8FbNYwjZsIoD3/dUC3f8XKU/PlvEG4RLQSp
+	 wVfhX0EnU1daZTI3X6ha/cPMtcae2UoCguWVUAJTPE9bVs1js6l0PjejQP82bmHtlS
+	 OfRV0zoMv61iA==
+Date: Sun, 6 Sep 2026 13:00:25 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, ljs@kernel.org,
+	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com,
+	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
+	kas@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
+Message-ID: <ap05ue1pq3TgHOS6@kernel.org>
+References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
+ <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
+ <apk8ZRr6do_YAlzf@kernel.org>
+ <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/5] thermal/drivers/sun8i: Add support for A523 THS0/1
- controllers
-To: wens@kernel.org
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li
- <tiny.windzz@gmail.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260704171411.1413349-1-iuncuim@gmail.com>
- <20260704171411.1413349-5-iuncuim@gmail.com>
- <CAGb2v67Z0g37Wyvd=xaMGkLHt09qqqJnufsxKdG0nO_C2QmOGA@mail.gmail.com>
-Content-Language: en-US
-From: Mikhail Kalashnikov <iuncuim@gmail.com>
-In-Reply-To: <CAGb2v67Z0g37Wyvd=xaMGkLHt09qqqJnufsxKdG0nO_C2QmOGA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_015743_244355_25A363BA 
-X-CRM114-Status: GOOD (  42.37  )
+In-Reply-To: <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,265 +80,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/26 23:23, Chen-Yu Tsai wrote:
-> On Sun, Jul 5, 2026 at 1:15 AM Mikhail Kalashnikov <iuncuim@gmail.com> wrote:
->>
->> The A523 processor has two temperature controllers, THS0 and THS1.
->> THS0 has only one temperature sensor, which is located in the DRAM
->> controller. THS1 does have 3 sensors:
->> ths1_0 - "big" cores
->> ths1_1 - "little" cores
->> ths1_2 - gpu
->>
->> The datasheet mentions a fourth sensor in the NPU, but lacks any registers
->> for operation other than calibration registers. The vendor code reads the
->> value from ths1_2, but uses separate calibration data, so we get two
->> different values from real one.
+On Thu, Sep 03, 2026 at 08:49:52PM +0800, Xueyuan Chen wrote:
+> On Thu, Sep 3, 2026 at 5:22 PM Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > On Tue, Sep 01, 2026 at 11:18:16PM +0800, Xueyuan Chen wrote:
+> > > The persistent huge zero folio is shared globally and should stay zero
+> > > after initialization. As Jann Horn pointed out [1], kernel bugs have
+> > > ended up writing to pages that were meant to be read-only, including in
+> > > security-sensitive cases. Making the folio read-only in the direct map
+> > > turns such writes into faults instead of silent zero-page corruption.
+> > >
+> > > Add a page-based helper consistent with the existing direct-map interfaces.
+> > > Handle TLB invalidation in the architecture implementation; unsupported
+> > > architectures retain their current behavior.
+> > >
+> > > Protect the folio after initialization. Skip highmem folios, which have no
+> > > permanent direct-map mapping.
+> > >
+> > > Inspired by Jann Horn's read-only zero page work [1] and follow-up
+> > > discussion [3] with Yang Shi.
+> > >
+> > > Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@google.com [1]
+> > > Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org [2]
+> > > Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com [3]
+> > >
+> > > Suggested-by: David Hildenbrand <david@kernel.org>
+> > > Suggested-by: Usama Arif <usama.arif@linux.dev>
+> > > Co-developed-by: Lance Yang <lance.yang@linux.dev>
+> > > Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> > > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> > > ---
+> > >  include/linux/set_memory.h | 17 +++++++++++++++++
+> > >  mm/huge_memory.c           | 13 ++++++++++---
+> > >  2 files changed, 27 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+> > > index 3fe293cfed8c..ed9ce04b18a1 100644
+> > > --- a/include/linux/set_memory.h
+> > > +++ b/include/linux/set_memory.h
+> > > @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
+> > >  #endif
+> > >  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+> > >
+> > > +#ifndef set_direct_map_ro
+> > > +/**
+> > > + * set_direct_map_ro - make a direct-map range read-only
+> > > + * @page: first page in the direct-map range
+> > > + * @nr: number of pages in the range
+> > > + *
+> > > + * Make the direct-map range starting at @page read-only and invalidate stale
+> > > + * writable translations before returning.
+> > > + *
+> > > + * Return: 0 on success, or a negative error code on failure.
+> > > + */
+> > > +static inline int set_direct_map_ro(struct page *page, unsigned int nr)
+> > > +{
+> > > +     return 0;
+> > > +}
+> > > +#endif
+> > > +
+> > >  #ifdef CONFIG_X86_64
+> > >  int set_mce_nospec(unsigned long pfn);
+> > >  int clear_mce_nospec(unsigned long pfn);
+> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> > > index 54494c3fa983..742283b36d74 100644
+> > > --- a/mm/huge_memory.c
+> > > +++ b/mm/huge_memory.c
+> > > @@ -42,6 +42,7 @@
+> > >  #include <linux/pgalloc_tag.h>
+> > >  #include <linux/pagewalk.h>
+> > >  #include <linux/cleanup.h>
+> > > +#include <linux/set_memory.h>
+> > >
+> > >  #include <asm/tlb.h>
+> > >  #include "internal.h"
+> > > @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
+> > >       huge_zero_folio = alloc_huge_zero_folio();
+> > >       if (!huge_zero_folio) {
+> > >               pr_warn("Allocating persistent huge zero folio failed\n");
+> > > -     } else {
+> > > -             huge_zero_pfn = folio_pfn(huge_zero_folio);
+> > > -             count_vm_event(THP_ZERO_PAGE_ALLOC);
+> > > +             return 0;
+> > >       }
+> > > +
+> > > +     huge_zero_pfn = folio_pfn(huge_zero_folio);
+> > > +     count_vm_event(THP_ZERO_PAGE_ALLOC);
+> > > +
+> > > +     /* Highmem folios have no permanent direct-map mapping to protect. */
+> > > +     if (!folio_test_highmem(huge_zero_folio))
+> > > +             set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_PMD_NR);
+> >
+> > Sorry, I don't remember if it was discussed previously, but why can't we
+> > use the existing set_memory_ro() here?
 > 
-> Are you sure? The calibration data is written to the sensor register.
+> Hi Mike,
 > 
-> The BSP simply reads the sensor data from the GPU sensor, and passes it
-> off as the value for the NPU sensor. No extra calculation involving the
-> calibration data is done.
-> 
-Yes, I think you're right. And as Juan pointed out, my current
-implementation doesn't match the BSP, since:
+> We want to change the linear map here, but arm64 set_memory_ro() only
+> works on vmalloc addresses.
 
-#define SUN55IW3_GPU_SENSOR_ID (2)
-#define SUN55IW3_NPU_SENSOR_ID (3)
-...
-/* use NPU sensor data instead of GPU */
-if (id == SUN55IW3_GPU_SENSOR_ID) {
-     id = SUN55IW3_NPU_SENSOR_ID;
-     ...
-}
+I believe this is an historical artifact. change_memory_common() already
+updates the linear map when a vmalloc mapping switches to RO and the system
+supports it.
 
-In other words, in the BSP driver, the NPU sensor is used for the GPU. 
-However, based on the A523 user manual—which describes registers for
-only three sensors, I had argued the opposite. The user manual for the
-T527 includes a description of a fourth sensor.
+I believe arm64::set_memory_ro() can change the linear map in the general
+case as well as long as can_set_direct_map() is true.
 
-Thus, it seems that all four sensors are working, but the purpose of
-this workaround in the BSP remains unclear to me.
+> So a new helper is needed on arm64, and x86 implements the same
+> helper to keep the two architectures consistent. On x86 it is
+> basically set_memory_ro() minus the alias check.
+> 
+> Thanks,
+> Xueyuan
+> 
+> >
+> > > +
+> > >       return 0;
+> > >  }
+> > >
+> > > --
+> > > 2.47.3
+> > >
+> >
+> > --
+> > Sincerely yours,
+> > Mike.
 
->>
->> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
->> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
->> ---
->>   drivers/thermal/sun8i_thermal.c | 133 ++++++++++++++++++++++++++++++++
->>   1 file changed, 133 insertions(+)
->>
->> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
->> index 3bdd62aa8..f48ed9eae 100644
->> --- a/drivers/thermal/sun8i_thermal.c
->> +++ b/drivers/thermal/sun8i_thermal.c
->> @@ -59,6 +59,12 @@
->>   #define SUN50I_H6_THS_PC_TEMP_PERIOD(x)                ((GENMASK(19, 0) & (x)) << 12)
->>   #define SUN50I_H6_THS_DATA_IRQ_STS(x)          BIT(x)
->>
->> +#define SUN55I_A523_DELIMITER                  0x7c8
->> +#define SUN55I_A523_OFFSET_ABOVE               2736
->> +#define SUN55I_A523_OFFSET_BELOW               2825
->> +#define SUN55I_A523_SCALE_ABOVE                        74
->> +#define SUN55I_A523_SCALE_BELOW                        65
->> +
->>   struct tsensor {
->>          struct ths_device               *tmdev;
->>          struct thermal_zone_device      *tzd;
->> @@ -114,6 +120,15 @@ static int sun50i_h5_calc_temp(struct ths_device *tmdev,
->>                  return -1590 * reg / 10 + 276000;
->>   }
->>
->> +static int sun55i_a523_calc_temp(struct ths_device *tmdev,
->> +                                int id, int reg)
->> +{
->> +       if (reg >= SUN55I_A523_DELIMITER)
->> +               return SUN55I_A523_SCALE_ABOVE * (SUN55I_A523_OFFSET_ABOVE - reg);
->> +       else
->> +               return SUN55I_A523_SCALE_BELOW * (SUN55I_A523_OFFSET_BELOW - reg);
->> +}
->> +
->>   static int sun8i_ths_get_temp(struct thermal_zone_device *tz, int *temp)
->>   {
->>          struct tsensor *s = thermal_zone_device_priv(tz);
->> @@ -299,6 +314,97 @@ static int sun50i_h6_ths_calibrate(struct ths_device *tmdev,
->>          return 0;
->>   }
->>
->> +/*
->> + * The A523 nvmem calibration values. The ths1_3 is not used as it
->> + * doesn't have its own sensor and doesn't have any internal switch.
->> + * Instead, the value from the ths1_2 sensor is used, which gives the
->> + * illusion of an independent sensor for NPU and GPU when using
->> + * different calibration values.
->> + *
->> + * efuse layout 0x38-0x3F (caldata[0..3]):
->> + *     caldata[0]      caldata[1]      caldata[2]      caldata[3]
->> + * 0               16      24      32  36          48          60 64
->> + * +---------------+---------------+---------------+---------------+
->> + * |               |       |   temp    |  ths1_0   |  ths1_1   |   +
->> + * +---------------+---------------+---------------+---------------+
->> + *
->> + * efuse layout 0x44-0x4B (caldata[4..7]):
->> + *     caldata[4]      caldata[5]      caldata[6]      caldata[7]
->> + * 0           12  16      24      32  36          48             64
->> + * +---------------+---------------+---------------+---------------+
->> + * |  ths1_2   |  ths1_3   |    ths0   |           |               +
->> + * +---------------+---------------+---------------+---------------+
->> + */
->> +static int sun55i_a523_ths_calibrate(struct ths_device *tmdev,
->> +                                    u16 *caldata, int callen)
->> +{
->> +       struct device *dev = tmdev->dev;
->> +       int i, ft_temp;
->> +
->> +       if (!caldata[0])
->> +               return -EINVAL;
->> +
->> +       ft_temp = (((caldata[2] << 8) | (caldata[1] >> 8)) & FT_TEMP_MASK) * 100;
->> +
->> +       for (i = 0; i < tmdev->chip->sensor_num; i++) {
->> +               int sensor_reg, sensor_temp, cdata, offset;
->> +               /*
->> +                * Chips ths0 and ths1 have common parameters for value
->> +                * calibration. To separate them we can use the number of
->> +                * temperature sensors on each chip.
->> +                * For ths0 this value is 1.
->> +                */
->> +               if (tmdev->chip->sensor_num == 1) {
->> +                       sensor_reg = ((caldata[5] >> 8) | (caldata[6] << 8)) & TEMP_CALIB_MASK;
->> +               } else {
->> +                       switch (i) {
->> +                       case 0:
->> +                               sensor_reg = (caldata[2] >> 4) & TEMP_CALIB_MASK;
->> +                               break;
->> +                       case 1:
->> +                               sensor_reg = caldata[3] & TEMP_CALIB_MASK;
->> +                               break;
->> +                       case 2:
->> +                               sensor_reg = caldata[4] & TEMP_CALIB_MASK;
->> +                               break;
->> +                       default:
->> +                               sensor_reg = 0;
->> +                               break;
->> +                       }
->> +               }
->> +
->> +               sensor_temp = tmdev->chip->calc_temp(tmdev, i, sensor_reg);
->> +
->> +               /*
->> +                * Calibration data is CALIBRATE_DEFAULT - (calculated
->> +                * temperature from sensor reading at factory temperature
->> +                * minus actual factory temperature) * X (scale from
->> +                * temperature to register values)
->> +                */
->> +               cdata = CALIBRATE_DEFAULT -
->> +                       ((sensor_temp - ft_temp) / SUN55I_A523_SCALE_ABOVE);
-> 
-> The BSP version works out to:
-> 
->      cdata = CALIBRATE_DEFAULT -
->              (sensor_temp - ft_temp - 5000) / SU55I_A523_SCALE_BELOW
-> 
-> Any particular reason why it's different?
-
-In the early versions, I didn't use 'define' for constants, but later
-added them based on the logic of the value read from the register: a
-value below the threshold is 'BELOW', and a value above is 'ABOVE'. The
-BSP driver uses a name for the temperature, but the temperature
-decreases as the value read from the register increases; therefore, the
-formula uses SCALE constants with different names but identical values.
-
-In the next version, I’ll align them with the BSP values and add a 
-comment explaining that the constants refer to the final temperature 
-value, not the value read from the register.
-
-Regarding SUN55IW3_CAL_COM 5000 — when I first looked at the driver
-code, it seemed to me that this was the value intended for ft_deviation,
-but now that I’ve double-checked, the version of the calibration formula
-with SUN55IW3_CAL_COM and without ft_deviation gives the same result as
-the version without SUN55IW3_CAL_COM but with ft_deviation=5000.
-
-But if you'd rather I match BSP literally (5000 in the calibration
-numerator, ft_deviation = 0), I can do that instead.
-> 
->> +               if (cdata & ~TEMP_CALIB_MASK) {
->> +                       /*
->> +                        * Calibration value more than 12-bit, but calibration
->> +                        * register is 12-bit. In this case, ths hardware can
->> +                        * still work without calibration, although the data
->> +                        * won't be so accurate.
->> +                        */
->> +                       dev_warn(dev, "sensor%d is not calibrated.\n", i);
->> +                       continue;
->> +               }
->> +
->> +               offset = (i % 2) * 16;
->> +               regmap_update_bits(tmdev->regmap,
->> +                                  SUN50I_H6_THS_TEMP_CALIB + (i / 2 * 4),
->> +                                  TEMP_CALIB_MASK << offset,
->> +                                  cdata << offset);
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->>   static int sun8i_ths_calibrate(struct ths_device *tmdev)
->>   {
->>          struct nvmem_cell *calcell = NULL;
->> @@ -717,6 +823,31 @@ static const struct ths_thermal_chip sun50i_h616_ths = {
->>          .calc_temp = sun8i_ths_calc_temp,
->>   };
->>
->> +/* The A523 has a shared reset line for both chips */
->> +static const struct ths_thermal_chip sun55i_a523_ths0 = {
->> +       .sensor_num = 1,
->> +       .has_bus_clk_reset = true,
->> +       .has_mod_clk = true,
->> +       .ft_deviation = 5000,
-> 
-> In the BSP this is 0.
-
-> 
->> +       .temp_data_base = SUN50I_H6_THS_TEMP_DATA,
->> +       .calibrate = sun55i_a523_ths_calibrate,
->> +       .init = sun50i_h6_thermal_init,
->> +       .irq_ack = sun50i_h6_irq_ack,
->> +       .calc_temp = sun55i_a523_calc_temp,
->> +};
->> +
->> +static const struct ths_thermal_chip sun55i_a523_ths1 = {
->> +       .sensor_num = 3,
->> +       .has_bus_clk_reset = true,
->> +       .has_mod_clk = true,
->> +       .ft_deviation = 5000,
-> 
-> In the BSP this is 0.
-> 
-> 
-> ChenYu
-> 
->> +       .temp_data_base = SUN50I_H6_THS_TEMP_DATA,
->> +       .calibrate = sun55i_a523_ths_calibrate,
->> +       .init = sun50i_h6_thermal_init,
->> +       .irq_ack = sun50i_h6_irq_ack,
->> +       .calc_temp = sun55i_a523_calc_temp,
->> +};
->> +
->>   static const struct of_device_id of_ths_match[] = {
->>          { .compatible = "allwinner,sun8i-a83t-ths", .data = &sun8i_a83t_ths },
->>          { .compatible = "allwinner,sun8i-h3-ths", .data = &sun8i_h3_ths },
->> @@ -727,6 +858,8 @@ static const struct of_device_id of_ths_match[] = {
->>          { .compatible = "allwinner,sun50i-h6-ths", .data = &sun50i_h6_ths },
->>          { .compatible = "allwinner,sun20i-d1-ths", .data = &sun20i_d1_ths },
->>          { .compatible = "allwinner,sun50i-h616-ths", .data = &sun50i_h616_ths },
->> +       { .compatible = "allwinner,sun55i-a523-ths0", .data = &sun55i_a523_ths0 },
->> +       { .compatible = "allwinner,sun55i-a523-ths1", .data = &sun55i_a523_ths1 },
->>          { /* sentinel */ },
->>   };
->>   MODULE_DEVICE_TABLE(of, of_ths_match);
->> --
->> 2.55.0
->>
-
+-- 
+Sincerely yours,
+Mike.
 
