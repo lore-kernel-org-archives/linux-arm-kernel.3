@@ -4,112 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B74C79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 15:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529B1C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 15:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K2kym+OYk5U5tlDcWQAPSS3U4RWUcvfHHUMVoM6f4eI=; b=qsvH07v+oW52kuvRl8WtwQ6Dw7
-	cuA80fg2cgxtIeXXnYnWYED99s6ZuRHK+J6ZTJdVKsHrTbkLNM05lbuAp8dMmQKXAaPEa6W+ItuUD
-	GmCUgC7/mvi1ycrTXCr06Vo10c0tpa4kCT5fMUrwYGwedlrreqa0fidSAAJ1OHzLpijaxZyLRNbgQ
-	a16c9ucqn6YY9lRtB4a88/8wZqjyEaKzJypxVMmMcuPM+/DuCmTkwigqsTRJA2qZqpjFg/cjZsc34
-	sy28Cqip1bevkHobWqyHOB561RveexUHY9XtzOnvUpaXgKqLaNEgEa1kVS1ataDyR1v3op3PVG/7U
-	y6yGnwSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JihxV/V344AJDLHX61A3DZDDBIEXJEfRoj7Xx/kGeoA=; b=dVF2ov7oz2am94ybkVaXFt37Qu
+	EFAoc/2PLJm5h1++N6Eg3HAkepXCZrnVPSAdgRRjiHJ65er+WcAvtWLJ8SNoR04VntWLFHFUXFlXL
+	gMW9x0xeLDFghC81XbEHc4nYbwFp+KG5QKGMIYGC0RYJIRMDun30DX4tI4+3QYsih5R6/v6cmm+KU
+	ScuaHuJPoKB8cOIIpOdT1fsSh4dTYE+4ktIX5zYl5AVgVd1jGvFB4GzXk65wi8Q0CX6H7CdQ7N/AS
+	n60eQvWMKYjN8O2kBYo6MeJXFqE0h4K1SQTEhIuch2N21wNceA6P0HXegz3ESUq/vpnMnCwvToyKQ
+	z2edlBBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Erc-000000058i4-0W7I;
-	Sun, 06 Sep 2026 15:33:00 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1x3F2m-000000059RJ-21nX;
+	Sun, 06 Sep 2026 15:44:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ErZ-000000058hR-3YYM
+	id 1x3F2l-000000059R9-1704
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 15:32:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DYU5nWxO2ASXQBPiO+7iQVG7JAO2//3Nf1FIp60yBnKHQlj2zBpKDFuRBj5yVark9OTXgR6PxNxmI3wziwmZ9k6MtF2oix4iwrpoK+0/ULuL8uO7MOJDv0V1Hzx5E8MX6iKmvU6n2Xm+CZ6fQL64cJEcrG+xwkgSaOLsk5L5TzHEQLEewqlH3fl98lgGk/DPt/687Hcz0UQP5IMKRB6a4gNyGK4D4k0qBrJ4NWqhi7/sjS3hqUHLh44MRfN4vdKj5/puXL4Z/6xnSp4TMnQVMeAX/gssepFOmefxIs0A3dBh3tvq55w2xaA5IF6376Q5ePGpH1bLkOAN+iJvIjBdJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K2kym+OYk5U5tlDcWQAPSS3U4RWUcvfHHUMVoM6f4eI=;
- b=wdesCzRH5aOe4Wt2AKhqtFNlIDF0KXfsxuOe11yjssAaDcIDn4eCoGLPLs3fBcS8Num+E6yCVezqjo9lUyNfMM6GWhkAcD3o5Zow8ckoTkOnIwcpEFfPhhPLvxdbJdb78NKib+oeaPyoNPGKy7PyHloXJYmPIihEOInu3V1Q7aYTE0gM28t7wHi7B9IBBOOEqOGihFqV0VF379Syi38IZXeHRdfbGfIbyXYljHt44id/4tzlsm/8N/OTjdO4NTsBAI1QyZMQAKigb6jZ8E12fF7P0OD9/4to6aA2y/EZJGely1/wf+ipG4fKJbpK5uMGdhFonrLuQNCMONuAaw4rlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K2kym+OYk5U5tlDcWQAPSS3U4RWUcvfHHUMVoM6f4eI=;
- b=zxB9u+6nrxCA0QMYUPP9BKcvCQK72aieaLhg5BLChy4ufa/kRyrvQNRlDt2PW58xR0vrPD/SNFISfelRNfTIC+diOGuogutBKHVu3hHJSl5iJG8piLUoKGX9G7gpR4oX5NqicBSIl/zRp2++5ricPcl1Xb23VqdrwwC5PjxuxMk=
-Received: from MN0P223CA0028.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::17)
- by CY8PR12MB7169.namprd12.prod.outlook.com (2603:10b6:930:5e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.10; Sun, 6 Sep
- 2026 15:32:49 +0000
-Received: from MN1PEPF0000F0E3.namprd04.prod.outlook.com
- (2603:10b6:208:52b:cafe::3c) by MN0P223CA0028.outlook.office365.com
- (2603:10b6:208:52b::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Sun, 6
- Sep 2026 15:32:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- MN1PEPF0000F0E3.mail.protection.outlook.com (10.167.242.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.406.5 via Frontend Transport; Sun, 6 Sep 2026 15:32:49 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 6 Sep
- 2026 10:32:48 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 6 Sep
- 2026 10:32:47 -0500
-Received: from xhdharinik40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Sun, 6 Sep 2026 10:32:44 -0500
-From: Kusuma Vasana <kusuma.vasana@amd.com>
-To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>, <Kusuma.Vasana@amd.com>
-CC: <git@amd.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>
-Subject: [PATCH net-next V3] net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
-Date: Sun, 6 Sep 2026 21:02:43 +0530
-Message-ID: <20260906153243.1903501-1-kusuma.vasana@amd.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E3:EE_|CY8PR12MB7169:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ad76a51-eda6-4612-8695-08df0c2c1bab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|10067099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: rrUZ2QAIWjw73mh6H9x6/24wALSSfKvwE6C1Wfc/RTR/WWSiTuZv/QPBS6PDK91WwbCOLEBaCsYtU6vptxIXMuzR64N3xiB0B2rk6UuF7bTepyoeNCj0zbcKuXouUkYCokej7y1cOVwxmeHCcX+C3PVJp2OU4aoClK4qgD0/Q1LmreIAX+piCH5HCLAMM9j1YQMx0qT8ezwvxUT16f4fAI15ht2NRy5KZuEOidmghrC8NqDjG9tu/SWIPG6gZvaDInAQ20acEdEQnjqbDTnQQyDaQYVLWgPVVn8xDCqHHSIThYCNcDPCb/z742QIVCHQ89/N69vxGuMbD6Jsc95keuFDKl1hiNYyBNZPX8eYBgakHHALJY7M3Lavx+uN3r1ICMsNjC9HOvUcdvrhNx8DyB6u3ygD8Om5hmD9tpOhWIkPhiwjiGzkqElHXZNxhiFW9ExRgqBeFjAJe511wX9d7dRPXuu+6U/AhzmybRXh7oZFyDo57vwe1a1zrZKTaeuMs7C1hVQNQ7/sihiRgwcKLr0cNV4srhg0ezgfzh+ibsomhj7ZRAy1X7/D6SL0QvtIleyBiY+mvvxKeiOiEYGMoSZ3UieoeOGbvX7iL/CCvxzshQUlzjKv+IvtFBwBl0VCSqelkZNOYNA/rDKgP2egtnDpJU1b+OMi0rKLKR5Rci4IgsKLN+FkI+MlYafXaryt7BYkQ4bE4XLWj/zjXfRYUA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(10067099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CRI/0uQBy6DsCBGLczBqIoZyH177GOwQjlFygfjBvMTLPDK4UaWpfskkhzN+B873gRdGY9J5gkYiwn2ktm70a7fKh2Onq8p8BJjgXw7ANZwL4aRI3Xf7YYtxaY+ejvcxfxdpoR6rOUJ+gcL/s0ngQBbUiqJiWtvLHSB+y/bd92RPzJUQRl9AOzRshmYX8OHcrej7xbEF3OwytIbsXKCySOnB5HSHejDwV9cADrXYpSTsBfRikY0vpSTQSvGP6AlubXtk3KNkPqzWnveUBjyzsbJ7S9uNB4SSiLbBOlzGzn+xIQ8eeUKVR6u6aT9pXh+cIhOrO1MNIeOt9WTai8fqgwl/wHwWpK9YdhXrnu3XE3No/sXs4a0qWnjZw7oyAmBSZeII0neVIl+jHmKbrzuX/Q9yG6CyOYrrATjYGibZ+3jbfqgWTAOj7n2bq5htLyIH
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Sep 2026 15:32:49.1792
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ad76a51-eda6-4612-8695-08df0c2c1bab
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E3.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7169
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_083258_025340_88B9CF0C 
-X-CRM114-Status: GOOD (  17.13  )
+	Sun, 06 Sep 2026 15:44:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4975E600AA;
+	Sun,  6 Sep 2026 15:44:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F03F51F00A3A;
+	Sun,  6 Sep 2026 15:44:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788709470;
+	bh=JihxV/V344AJDLHX61A3DZDDBIEXJEfRoj7Xx/kGeoA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OdcqP/vwKiEzFm+QZyJJK4nD4Y59+eRxZF7uUQoqPxGWGMfhe9LA/4m4hvOnhcYWv
+	 ZKlLKuIg4ZfOCKjylrSMukWDLdwCBZ1BPg5D+GXWRfgj1cGTwL0EslCRaKkTLwD1yO
+	 91HGkZ5B6cilZFdwhlSa03qxcYSOuWglTIO7KmRkzxSP0ffhBYVC/AnS1LRvo29jnI
+	 UMeiVqJ13nr2mezhZLj3l5VPzmXCSCZJULI02myHUiaW/ArcHckOvfy68DSMyfPVhj
+	 wRa+c+gXxLteyWsPsr9oo2Jae7tZ+pN/3Yvo7vLrMwqgL6Vx5I2aukb8/fnTij8GwR
+	 PwKqtAFFB+2EQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1x3F2h-00000005Quk-1bM5;
+	Sun, 06 Sep 2026 15:44:27 +0000
+Date: Sun, 06 Sep 2026 16:47:02 +0100
+Message-ID: <87mrtu4c21.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking structures
+In-Reply-To: <20260810205038.118843-3-weilin.chang@arm.com>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+	<20260810205038.118843-3-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ljs@kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,95 +92,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AXI DMA interrupt line is level-sensitive: it asserts whenever
-the IOC (XAXIDMA_IRQ_IOC_MASK) or DELAY (XAXIDMA_IRQ_DELAY_MASK) bits
-in the status register (XAXIDMA_TX_SR_OFFSET / XAXIDMA_RX_SR_OFFSET)
-are set and their corresponding enable bits in the control register
-are active.
+On Mon, 10 Aug 2026 21:50:34 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> In order to avoid unmapping all shadow stage-2 mappings when KVM
+> receives a MMU notifier unmap call, we have to keep track of the
+> canonical IPA -> nested IPA relationship of the shadow mappings
+> created. This essentially means tracking the guest's stage-2.
+> 
+> To do this, represent each mapping by struct kvm_guest_s2_mapping. It
+> stores the mapping's canonical IPA range and the nested IPA range using
+> two interval tree nodes. Both nodes will be inserted into their
+> respective interval trees called guest_s2_mappings. The canonical IPA
+> ranges will be stored in the tree within the canonical MMU, and the
+> nested IPA ranges will be stored in the corresponding nested MMU's tree.
+> 
+> For example:
+> 
+> struct kvm_guest_s2_mapping mapping1, mapping2;
+> 
+>     ---------------------> mapping2.canonical
+>     |                      mapping1.canonical
+>     |                          ^   (both stored in canonical mmu's tree)
+>     |                          |
+> --*****-----------------------*****----------- CIPA
+>    \\\\\                      |||||                  mapping1.nested_mmu
+>     \\\\\                     \\\\\                            |
+>      \\\\\                     \\\\\                           v
+> ------\\\\\---------------------*****--------- NIPA #1 (nested mmu #1)
+>        \\\\\                      |
+>         \\\\\                     -> mapping1.nested
+>          \\\\\                       (stored in nested mmu #1's tree)
+>           \\\\\
+> -----------*****------------------------------ NIPA #2 (nested mmu #2)
+>              |                                                 ^
+>              -> mapping2.nested                                |
+>                 (stored in nested mmu #2's tree)   mapping2.nested_mmu
+> 
+> Using the trees we can look up nodes in either of the IPA spaces, and
+> for each node, find the corresponding range in the other IPA space from
+> the other node in the enclosing kvm_guest_s2_mapping.
+> 
+> Define kvm_guest_s2_mapping and the interval tree here. Guest stage-2
+> mapping tracking will come in subsequent patches.
+> 
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 17 +++++++++++++++++
+>  arch/arm64/kvm/mmu.c              | 30 ++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/nested.c           |  1 +
+>  3 files changed, 48 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5..0695c4ef93f1 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -14,6 +14,7 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/bitmap.h>
+>  #include <linux/types.h>
+> +#include <linux/interval_tree.h>
+>  #include <linux/jump_label.h>
+>  #include <linux/kvm_types.h>
+>  #include <linux/maple_tree.h>
+> @@ -150,6 +151,16 @@ struct kvm_vmid {
+>  	atomic64_t id;
+>  };
+>  
+> +/*
+> + * Record of a guest stage-2 mapping, storing canonical and nested IPA
+> + * ranges. Both ranges have the same size.
+> + */
+> +struct kvm_guest_s2_mapping {
+> +	struct interval_tree_node canonical;
+> +	struct interval_tree_node nested;
+> +	struct kvm_s2_mmu *nested_mmu;
+> +};
+> +
 
-During TX/RX, interrupts are disabled in the control register while
-NAPI runs. Completions arriving in this window cause hardware to latch
-IOC/DELAY into the status register regardless of the control register
-mask state. After NAPI completion, re-enabling interrupts immediately
-re-asserts the IRQ line due to these stale status register bits, even
-when no new work is pending.
+I'm trying hard to find a way to reduce the size of this structure,
+because this is IMO the only real problem with this approach.
 
-This results in a stale interrupt and redundant NAPI poll cycle with
-no new work pending, causing unnecessary CPU processing.
+Obviously, the only thing we could kill is this nested_mmu field, as
+everything else is used by the interval trees. I can see two ugly ways
+to do that:
 
-In the initial driver, the status register was cleared after polling
-all packets, which naturally consumed any status accumulated during
-processing. In later versions of the driver, status register clearing
-was moved to the ISR before polling begins, leaving no mechanism to
-clear status bits that arrive during the NAPI poll window.
+- either we iterate over all shadow MMUs to find the corresponding
+  'nested' node: really costly if we have a lot of mappings and/or a
+  lot of shadow MMUs
 
-Clear the status register IOC/DELAY bits before re-enabling interrupts
-and recheck the next BD to catch race-window completions. Both are
-skipped on budget exhaustion. On the RX side, both are additionally
-skipped on refill failure to leave the level-sensitive IRQ armed so the
-poll is rescheduled on the next hardware completion.
+- or we steal bits from the interval_tree_node to encode extra
+  information. One realisation is that all addresses are PAGE_SIZE
+  aligned, meaning that we have at least 12 bits that are always 0. We
+  could, for example, encode an index in the bottom bits of the
+  nested.start field. Probably easy enough, but may require some
+  careful masking (and the addition of an index in the s2_mmu
+  structure).
 
-Signed-off-by: Kusuma Vasana <kusuma.vasana@amd.com>
----
-Targeting net-next with no Fixes tag: the extra poll cycle is a
-performance inefficiency, not a functional defect.
+The result would be significant, as we could then use a 96 byte slab,
+which means the cost of a 1GB @4k granularity could fall to 24MB.
 
-Changes in v3:
-- Updated the commit description.
-- Restricted TX/RX status-register clear and completion recheck to the
-  NAPI completion path, with RX only when refill succeeds.
-- Rechecked descriptor completion after status-register clear to handle
-  race-window completions.
+I don't think this is an immediate blocker for this series, but I'd
+like to at least have a plan...
 
-Changes in v2:
--Added net-next prefix in the subject
--Updated the commit description
+Thoughts?
 
----
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+	M.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index fcf517069d16..4816870e8502 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1018,6 +1018,16 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
- 			netif_wake_queue(ndev);
- 	}
- 
-+	/* Clear stale IOC/DELAY bits and re-check for race-window completions.
-+	 * Skipped on budget exhaustion.
-+	 */
-+	if (packets < budget) {
-+		axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
-+				  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-+		if (lp->tx_bd_v[lp->tx_bd_ci].status & XAXIDMA_BD_STS_COMPLETE_MASK)
-+			return budget;
-+	}
-+
- 	if (packets < budget && napi_complete_done(napi, packets)) {
- 		/* Re-enable TX completion interrupts. This should
- 		 * cause an immediate interrupt if any TX packets are
-@@ -1301,6 +1311,18 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
- 	if (tail_p)
- 		axienet_dma_out_addr(lp, XAXIDMA_RX_TDESC_OFFSET, tail_p);
- 
-+	/* Clear stale IOC/DELAY bits and re-check for race-window completions.
-+	 * Skipped on budget exhaustion and on refill failure (cur_p->skb ==
-+	 * NULL) to leave the level-sensitive IRQ armed so the poll is
-+	 * rescheduled on the next hardware completion.
-+	 */
-+	if (packets < budget && cur_p->skb) {
-+		axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
-+				  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-+		if (cur_p->status & XAXIDMA_BD_STS_COMPLETE_MASK)
-+			return budget;
-+	}
-+
- 	if (packets < budget && napi_complete_done(napi, packets)) {
- 		if (READ_ONCE(lp->rx_dim_enabled)) {
- 			struct dim_sample sample = {
 -- 
-2.43.0
-
+Jazz isn't dead. It just smells funny.
 
