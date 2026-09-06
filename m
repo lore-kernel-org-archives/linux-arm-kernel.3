@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E2EC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 10:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BAEC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 10:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snH3EbBb/iu4/hpnhb7Q5dASnycbjTC3AQM0O003+3M=; b=f4ByNp6/KLDuHFQs5Au7kQpdcq
-	Paw/MvQWQ7Mzmi1XGX5gFioYP3/pQEUvHrGw5VzT16er0auC4xSSC7RpotnvjiAqCKY1CdRg/iAYn
-	WMfF9QAkO/Xu6j/CSKq6mpXmgo59Zo/JBLLyVjzHdrcQzpYKA7fUJNQdKtDzE7xVmT7tMoqESpino
-	OmeVz/11kjsTbZbLJXMPTQVFJshfwXOQ++4WZ2senBGUqFtdyoPb1IJOyFw01uIZ9zMqhXhRL15qL
-	BO5vGChkn9TjXbZLCGuc85ZNHsiKj0HLP8Sr1obSiVX1svt41Rb4yvzDirYC7Yqn4ii6z6eJTlise
-	jCrX3iZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H5BTcoA9+94KRYddRu4mHSSUMUgwqghE4QR9AVtOE3w=; b=j2q4zYTpe+FhEVWkRrKvG2riCa
+	ncSYLwxG+huPy0T7bwrfazLfosEzkW3iKrp/U7vvN3/CXOex8ldCdFVlZelVl2y92SYVmUeHcr+UT
+	t5plXMNBKBv8JkCYRURAMRySL1UIuoc8tku+ioqhwsVD2RG/ZwNFEbBs6v0V73hEieJzY/M/Xq0nk
+	e2fgC1rmiF4vU9OJJ1KLP+KcruFvEYWXtVKdvngxOwePOB0QkcruYLugzPnL0wjj2kK7J2Qdspc8y
+	lQU8KTxUQMjMjfHEfZfx1ucVsY17oWeWN85Ul4xwDWoCATCvT7QCtMKrzJmAgCeATa9z3wgVs3tfK
+	/0OD+fsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x39g2-00000004t9M-0DIA;
-	Sun, 06 Sep 2026 10:00:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x39fz-00000004t9C-431T
+	id 1x39mU-00000004tOS-3ooF;
+	Sun, 06 Sep 2026 10:07:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x39mQ-00000004tMq-28az
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 10:00:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F82D43D7C;
-	Sun,  6 Sep 2026 10:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E7151F00A3A;
-	Sun,  6 Sep 2026 10:00:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788688838;
-	bh=snH3EbBb/iu4/hpnhb7Q5dASnycbjTC3AQM0O003+3M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Akn72PWIRJjwB6g+ptMXNhnydqgYB8YJdpJbWNP83TRqfLEPm6hacZqV9dTqOwkiN
-	 HOC863VLgNfr8uXx/bu+2eqqCfm8crNSNg8eS2E4dk8oFFSQX/z2ECjQ+FHOvIs5Cr
-	 Dn0Ws1XP98TBSlQJHHebBauNHrwOLGAoGYr/5E8RRZg7itrF4eSjIEnQ0jC0av8TvL
-	 8ZeOHsokWT65OKsh8d7cTYP+aoeLFFE8FbNYwjZsIoD3/dUC3f8XKU/PlvEG4RLQSp
-	 wVfhX0EnU1daZTI3X6ha/cPMtcae2UoCguWVUAJTPE9bVs1js6l0PjejQP82bmHtlS
-	 OfRV0zoMv61iA==
-Date: Sun, 6 Sep 2026 13:00:25 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, ljs@kernel.org,
-	usama.arif@linux.dev, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
-	liam@infradead.org, nico.pache@linux.dev, ryan.roberts@arm.com,
-	dev.jain@arm.com, baohua@kernel.org, lance.yang@linux.dev,
-	kas@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	luto@kernel.org, peterz@infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/3] mm: make persistent huge zero folio read-only
-Message-ID: <ap05ue1pq3TgHOS6@kernel.org>
-References: <20260901151818.3191443-1-xueyuan.chen21@gmail.com>
- <20260901151818.3191443-2-xueyuan.chen21@gmail.com>
- <apk8ZRr6do_YAlzf@kernel.org>
- <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
+	Sun, 06 Sep 2026 10:07:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E1EE1713;
+	Sun,  6 Sep 2026 03:07:14 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DD1A3FA21;
+	Sun,  6 Sep 2026 03:07:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788689237; bh=Z1zT/+qmdnYlo6v6PyvGTRruroGKs4FxS/7jYNNL1h8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KyN0M5VywQJ+IsrLTyzz7ETU5ITGGJqzNK/ijn+6wBYVFeA6UT1UL4JY1Emd0HN7c
+	 3NYPs9O2k8bIujhmaCBm1PjeZR52tFUJaczNPv6AjyHHTINB3BOtqdZqOkXmI6kM+L
+	 0GV9hpu94GHhQmvDlGaKug30DNZNg3i5YYKSOIIo=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Subject: [PATCH v11 02/25] firmware: arm_scmi: Allow registration of unknown-size events/reports
+Date: Sun,  6 Sep 2026 11:06:00 +0100
+Message-ID: <20260906100623.3488327-3-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260906100623.3488327-1-cristian.marussi@arm.com>
+References: <20260906100623.3488327-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+qSx6wqd5VSR=9yarFFmyN1SyvLJqEHpA7BwmzuxNQTHbS=Xg@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_030718_638332_CCFC602B 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,133 +90,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 03, 2026 at 08:49:52PM +0800, Xueyuan Chen wrote:
-> On Thu, Sep 3, 2026 at 5:22 PM Mike Rapoport <rppt@kernel.org> wrote:
-> >
-> > On Tue, Sep 01, 2026 at 11:18:16PM +0800, Xueyuan Chen wrote:
-> > > The persistent huge zero folio is shared globally and should stay zero
-> > > after initialization. As Jann Horn pointed out [1], kernel bugs have
-> > > ended up writing to pages that were meant to be read-only, including in
-> > > security-sensitive cases. Making the folio read-only in the direct map
-> > > turns such writes into faults instead of silent zero-page corruption.
-> > >
-> > > Add a page-based helper consistent with the existing direct-map interfaces.
-> > > Handle TLB invalidation in the architecture implementation; unsupported
-> > > architectures retain their current behavior.
-> > >
-> > > Protect the folio after initialization. Skip highmem folios, which have no
-> > > permanent direct-map mapping.
-> > >
-> > > Inspired by Jann Horn's read-only zero page work [1] and follow-up
-> > > discussion [3] with Yang Shi.
-> > >
-> > > Link: https://lore.kernel.org/r/20260508-ro-zeropage-v1-1-9808abc20b49@google.com [1]
-> > > Link: https://lore.kernel.org/r/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org [2]
-> > > Link: https://lore.kernel.org/r/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com [3]
-> > >
-> > > Suggested-by: David Hildenbrand <david@kernel.org>
-> > > Suggested-by: Usama Arif <usama.arif@linux.dev>
-> > > Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> > > Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> > > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > > ---
-> > >  include/linux/set_memory.h | 17 +++++++++++++++++
-> > >  mm/huge_memory.c           | 13 ++++++++++---
-> > >  2 files changed, 27 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> > > index 3fe293cfed8c..ed9ce04b18a1 100644
-> > > --- a/include/linux/set_memory.h
-> > > +++ b/include/linux/set_memory.h
-> > > @@ -54,6 +54,23 @@ static inline bool can_set_direct_map(void)
-> > >  #endif
-> > >  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
-> > >
-> > > +#ifndef set_direct_map_ro
-> > > +/**
-> > > + * set_direct_map_ro - make a direct-map range read-only
-> > > + * @page: first page in the direct-map range
-> > > + * @nr: number of pages in the range
-> > > + *
-> > > + * Make the direct-map range starting at @page read-only and invalidate stale
-> > > + * writable translations before returning.
-> > > + *
-> > > + * Return: 0 on success, or a negative error code on failure.
-> > > + */
-> > > +static inline int set_direct_map_ro(struct page *page, unsigned int nr)
-> > > +{
-> > > +     return 0;
-> > > +}
-> > > +#endif
-> > > +
-> > >  #ifdef CONFIG_X86_64
-> > >  int set_mce_nospec(unsigned long pfn);
-> > >  int clear_mce_nospec(unsigned long pfn);
-> > > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > > index 54494c3fa983..742283b36d74 100644
-> > > --- a/mm/huge_memory.c
-> > > +++ b/mm/huge_memory.c
-> > > @@ -42,6 +42,7 @@
-> > >  #include <linux/pgalloc_tag.h>
-> > >  #include <linux/pagewalk.h>
-> > >  #include <linux/cleanup.h>
-> > > +#include <linux/set_memory.h>
-> > >
-> > >  #include <asm/tlb.h>
-> > >  #include "internal.h"
-> > > @@ -291,10 +292,16 @@ static int __init huge_zero_init(void)
-> > >       huge_zero_folio = alloc_huge_zero_folio();
-> > >       if (!huge_zero_folio) {
-> > >               pr_warn("Allocating persistent huge zero folio failed\n");
-> > > -     } else {
-> > > -             huge_zero_pfn = folio_pfn(huge_zero_folio);
-> > > -             count_vm_event(THP_ZERO_PAGE_ALLOC);
-> > > +             return 0;
-> > >       }
-> > > +
-> > > +     huge_zero_pfn = folio_pfn(huge_zero_folio);
-> > > +     count_vm_event(THP_ZERO_PAGE_ALLOC);
-> > > +
-> > > +     /* Highmem folios have no permanent direct-map mapping to protect. */
-> > > +     if (!folio_test_highmem(huge_zero_folio))
-> > > +             set_direct_map_ro(folio_page(huge_zero_folio, 0), HPAGE_PMD_NR);
-> >
-> > Sorry, I don't remember if it was discussed previously, but why can't we
-> > use the existing set_memory_ro() here?
-> 
-> Hi Mike,
-> 
-> We want to change the linear map here, but arm64 set_memory_ro() only
-> works on vmalloc addresses.
+Allow protocols to register events with build-time unknown sizes: such
+events can be declared zero-sized and let the core SCMI stack perform the
+needed safe-net boundary checks based on the configured transport size.
 
-I believe this is an historical artifact. change_memory_common() already
-updates the linear map when a vmalloc mapping switches to RO and the system
-supports it.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v10 --> v11
+ - account for ktime_t field when checking boundary
+v2 --> v3
+ - split out of previous patch on protocol notifier
+ - use max() instead of max_t()
+---
+ drivers/firmware/arm_scmi/notify.c | 25 ++++++++++++++++++++-----
+ drivers/firmware/arm_scmi/notify.h |  8 ++++++--
+ 2 files changed, 26 insertions(+), 7 deletions(-)
 
-I believe arm64::set_memory_ro() can change the linear map in the general
-case as well as long as can_set_direct_map() is true.
-
-> So a new helper is needed on arm64, and x86 implements the same
-> helper to keep the two architectures consistent. On x86 it is
-> basically set_memory_ro() minus the alias check.
-> 
-> Thanks,
-> Xueyuan
-> 
-> >
-> > > +
-> > >       return 0;
-> > >  }
-> > >
-> > > --
-> > > 2.47.3
-> > >
-> >
-> > --
-> > Sincerely yours,
-> > Mike.
-
+diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+index fb60fb07c0ed..3264e1062700 100644
+--- a/drivers/firmware/arm_scmi/notify.c
++++ b/drivers/firmware/arm_scmi/notify.c
+@@ -595,7 +595,13 @@ int scmi_notify(const struct scmi_handle *handle, u8 proto_id, u8 evt_id,
+ 	if (!r_evt)
+ 		return -EINVAL;
+ 
+-	if (len > r_evt->evt->max_payld_sz) {
++	/*
++	 * Events with a zero max_payld_sz are sized to be of the maximum
++	 * size allowed by the transport: no need to be size-checked here
++	 * since the transport layer would have already dropped such
++	 * over-sized messages.
++	 */
++	if (r_evt->evt->max_payld_sz && len > r_evt->evt->max_payld_sz) {
+ 		dev_err(handle->dev, "discard badly sized message\n");
+ 		return -EINVAL;
+ 	}
+@@ -752,7 +758,7 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 				  const struct scmi_protocol_handle *ph,
+ 				  const struct scmi_protocol_events *ee)
+ {
+-	int i;
++	int i, max_msg_sz, max_report_sz;
+ 	unsigned int num_sources;
+ 	size_t payld_sz = 0;
+ 	struct scmi_registered_events_desc *pd;
+@@ -767,6 +773,9 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 	if (!ni)
+ 		return -ENOMEM;
+ 
++	max_msg_sz = ph->hops->get_max_msg_size(ph);
++	max_report_sz = max_msg_sz + sizeof(ktime_t);
++
+ 	/* num_sources cannot be <= 0 */
+ 	if (ee->num_sources) {
+ 		num_sources = ee->num_sources;
+@@ -779,8 +788,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 	}
+ 
+ 	evt = ee->evts;
+-	for (i = 0; i < ee->num_events; i++)
+-		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
++	for (i = 0; i < ee->num_events; i++) {
++		if (evt[i].max_payld_sz == 0) {
++			payld_sz = max_msg_sz;
++			break;
++		}
++		payld_sz = max(payld_sz, evt[i].max_payld_sz);
++	}
+ 	payld_sz += sizeof(struct scmi_event_header);
+ 
+ 	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
+@@ -807,7 +821,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+ 		mutex_init(&r_evt->sources_mtx);
+ 
+ 		r_evt->report = devm_kzalloc(ni->handle->dev,
+-					     evt->max_report_sz, GFP_KERNEL);
++					     evt->max_report_sz ?: max_report_sz,
++					     GFP_KERNEL);
+ 		if (!r_evt->report)
+ 			return -ENOMEM;
+ 
+diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
+index f18f98c5ab3b..c2eb4844c7db 100644
+--- a/drivers/firmware/arm_scmi/notify.h
++++ b/drivers/firmware/arm_scmi/notify.h
+@@ -18,8 +18,12 @@
+ /**
+  * struct scmi_event  - Describes an event to be supported
+  * @id: Event ID
+- * @max_payld_sz: Max possible size for the payload of a notification message
+- * @max_report_sz: Max possible size for the report of a notification message
++ * @max_payld_sz: Max possible size for the payload of a notification message.
++ *		  Set to zero to use the maximum payload size allowed by the
++ *		  transport.
++ * @max_report_sz: Max possible size for the report of a notification message.
++ *		   Set to zero to use the maximum payload size allowed by the
++ *		   transport plus the additional ktime_t timestamp.
+  *
+  * Each SCMI protocol, during its initialization phase, can describe the events
+  * it wishes to support in a few struct scmi_event and pass them to the core
 -- 
-Sincerely yours,
-Mike.
+2.54.0
+
 
