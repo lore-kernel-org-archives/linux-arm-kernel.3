@@ -4,104 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D13BC79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 16:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6918C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 16:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unH3oepzWSgpuS34FgHtBwo/OR2UjhvPi9YUi7nKPQc=; b=V1bKASAjEYjQiht7U6zGgdZDdr
-	2d2SCkbV9kSpH9VnbtAsa9PsuIXVTgmaLldSh40r0iDGjlPFIrJ6bSRUcA5EzGXauU3G+y2yclpTT
-	6GUABHMdviXiN0q6iOagAmmPAorRJ9AvxCFYJGSH5H4CChbYoYvHOObfCHDbE1Yf6Qn42YdSoyE2t
-	+bGuLQC7gMES7znm9q/v1QfDJP3jmmSUsvV3sec8vcYRS8g7NpwxxITA49EZdbAqJ7JrfjnMqFbzB
-	i/NP0Eug8ByMnZ4NoyXIMKtExZt7m20MeDS7meOZPipLRCkLBmtKzjTAFn2RZzNxbcCgVJd7cwUqV
-	2HTJaDxg==;
+	bh=bbtTwSSPjDHEFthpcY3sCGYaQJ0bclCPKmJn8+c4CPA=; b=MCWI4YycMPjLM+m60aWtFfx0Zi
+	DZnT3PXIlZZcttN9GOgTa3Ic00L1t/TsNxcWYtkJSd+1pA3H171EcyubMByFF1JjSguX5Eee7/PVw
+	5ttLa7kiAMyapTQhdn3baQTqi1zuwO/j1BH7B/3SVXuEWGf66BYmfa6nc63v10y/6yaDOGtSe05Cd
+	gqYled+gtlRncS9lM0GxXNx46IgFHNY84K+X4qor0o7fzEGT8SlfrItNNkgXsoiMH45i/uu965c+F
+	T183fDFeYWXfp3niWTxIf4iCsbafeIpbJryJNzn/ELIRfrEehva6FRSPV+aDiTYzCjAUBZFlKB6CR
+	rBvUZ2sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Fsd-00000005C21-2oxn;
-	Sun, 06 Sep 2026 16:38:07 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1x3Fzn-00000005CrC-0Def;
+	Sun, 06 Sep 2026 16:45:31 +0000
+Received: from ixit.cz ([84.42.129.46])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Fsb-00000005BzZ-2KYY
+	id 1x3Fzk-00000005CpP-0tWV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 16:38:06 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49d0da752ffso4404255e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 09:38:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788712684; x=1789317484; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=unH3oepzWSgpuS34FgHtBwo/OR2UjhvPi9YUi7nKPQc=;
-        b=pYNVvrXtx0AJcuORqScnPP6cTsbrTK46u7s9+2B6RBi4GgYY1jK/cA+XsL0w8mYGMQ
-         YRWLINc08dRKjffaqXC4R1fLXGijwzuphuqYE9nuauW3Kpxnw5fX62OAQZjFRUcExBhu
-         BsvdE/SODt1zChYck4pmUb8OATmKz/AjmIHEM9P7BHLAGp8De6B1kzX0KTm/m40Y235s
-         rlIjGjnwe/wgpykuTQpt3tsWPqkRXjjijhyXal3qsCWYyspQ1ZsVVtB7szj610rBXF2N
-         /wSnM88zhVO7xHKYo4URQhzNMGFFJ2jNE8z9tC8uPOWRpX1/pplbBtdYXQ4wTdpbdZgM
-         cuAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788712684; x=1789317484;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=unH3oepzWSgpuS34FgHtBwo/OR2UjhvPi9YUi7nKPQc=;
-        b=ZmA5c13NDF6kB63tm+GPC47DbB9yVX0cYn4d3sJxEgfnopv0ZnuUrppjIRWd8yGR6Z
-         MJUwRrW/+a8f8PSnZmC1wkTqW19t4wC6u8J4MRIDeBvbOSR5Rlcos48JVByqkDYZ3fl6
-         DYF829IKH1dreWPPKzMhpv89e2yA8hTVON9FN6bE12l6F1ouKUyhBWWQwkG+WCTF/a+M
-         xU8SSTNUCgy9VJHMGt212iGDCpRUUk3c//ELHMS4j6kJruImu1/SJxTnxNZpkdfxiLFX
-         CMwtKuk0OQIwwA9eiGl3fha5N2CsL0eeaMoN5VOYy73uZPusmMWApHW3yL7sGpQ6T9FH
-         JFFg==
-X-Gm-Message-State: AFuF++knhyYxNzpecg7/p6LgPQKY4styKCBiEvPNaMz64EDrvQ7v2Zg1
-	wESC1UtTtdRHYABUzy1w1cWLqJ0FSpJwn6DWhXk/yXKKOOBAE/Cj8mkt
-X-Gm-Gg: AYBFou2YaHK5f54Fr/7R8k4eBff4EqZw+AHOpuBz+vHjKQTMuqwvS2ijfGRchIedinX
-	4U2wsAL4IWLR0etB6nWMARoZ3oiaXF3Q+e1OpmLcSG4HNX5h1u8uzdYdfagYoHIuEwYvF42TtHP
-	vzgYiWtnANjNcalOjQPgQavh02jqr/NWCHX0dRmOQFIpKfumbLyiCrqHDB9//S4RYDnRvpuPiIu
-	GCExDtCZ0nhc6XmM6v1+48esdm3tL6pE0i0aNeGF5SZtyjaMtQ8jW2nGeprTW2gYsWHoKanydY9
-	LvFHqawJFoIlkDxUzt44pCHz/0+8RYgA+kmhXFbGuO4soxAuqcL5fxoUZ0ZSkfTHa2CVLC81M6E
-	OSyv+eN3LwCO7pNnH3VgRJqMMkZfKQYD1Q5twZj58btUhllc57k34WDR5W8WC9qqtC/71vs2ufQ
-	AbQjlSsgCdgw0nfTJ00WekVDiKdjQo30mgK3hYvqewyebAfZaqFXZHA3V1el4PdSvrbt43iw0K+
-	fV3AFtlSznpSrn+ER2I6l9vTiw=
-X-Received: by 2002:a05:600c:1da8:b0:49c:cf18:494e with SMTP id 5b1f17b1804b1-49cf825a530mr215148465e9.12.1788712683872;
-        Sun, 06 Sep 2026 09:38:03 -0700 (PDT)
-Received: from localhost.localdomain (mob-5-93-26-136.net.vodafone.it. [5.93.26.136])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-485885c5bbdsm20907997f8f.36.2026.09.06.09.38.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 09:38:03 -0700 (PDT)
-From: Oleg Keri <okerixx@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Beata Michalska <beata.michalska@arm.com>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v1 2/2] cpufreq: update capacity_freq_ref when the boost state changes
-Date: Sun,  6 Sep 2026 18:37:15 +0200
-Message-ID: <44b381bd07c299a3551037e57fdd5fa9f272dc25.1788712186.git.okerixx@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <cover.1788712186.git.okerixx@gmail.com>
-References: <cover.1788712186.git.okerixx@gmail.com>
+	Sun, 06 Sep 2026 16:45:30 +0000
+Received: from [10.0.0.152] (unknown [10.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id EB4DF53402E3;
+	Sun, 06 Sep 2026 18:45:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1788713109;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=bbtTwSSPjDHEFthpcY3sCGYaQJ0bclCPKmJn8+c4CPA=;
+	b=1BKSdZsfoyC3PjLmVnw0KBqCFB6sypIp2IGwXB3GMC04dLZ1xbS2CH6KlG4gcKCyGkpOZp
+	HG0FiZKLcIegE5eeVIs+W+QD9WluB8V8jIZSWKue0vTifR/gqScwUcLwnmXy3wC0a+4Bvs
+	xh1xFUHUcrLqv1OE5ut/YKdXTnr2ADY=
+Message-ID: <5071af17-ffcf-48f9-a662-6da03c4b483c@ixit.cz>
+Date: Sun, 6 Sep 2026 18:45:08 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/3] Input: support for STM FTS5
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20260906-stmfts5-v6-0-50fbf6af8718@ixit.cz>
+Content-Language: en-US, cs-CZ
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <20260906-stmfts5-v6-0-50fbf6af8718@ixit.cz>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_093805_632677_45B98887 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260906_094529_163115_F121E9A9 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,169 +129,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-capacity_freq_ref is latched from policy->cpuinfo.max_freq by
-init_cpu_capacity_callback() on CPUFREQ_CREATE_POLICY, and never
-updated afterwards.
+On 06/09/2026 18:33, David Heidelberg via B4 Relay wrote:
+> Used on various phones. Minimal viable driver.
+> 
+> Includes device-tree enabling touchscreen on Pixel 3.
+> Also, tested on Xiaomi Mi 8 (device-tree is not yet inside the mainline).
+> 
+> What is missing:
+>   - switching between AP and SLPI mode (to be able to wake up phone by touch)
+>   - firmware loading
+>   - anything above basic touch
+> 
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
+Sorry for the noise, seems the wake up sequence isn't right yet, FTS5 on Mi 8 
+after some time off stops working - on Pixel 3 there is kept vdd-supply 
+always-on, so likely it ignores incorrect suspend.
 
-cpufreq_frequency_table_cpuinfo() excludes CPUFREQ_BOOST_FREQ entries
-while boost is disabled, so on a system that boots with boost off the
-latched value is the non-boost maximum.  Enabling boost later raises
-policy->cpuinfo.max_freq but leaves capacity_freq_ref behind.
+I'll send v7 fixing the issue today.
 
-Two things then go wrong on arm64, where the AMU drives frequency
-invariance.  amu_scale_freq_tick() caps the computed scale at
-SCHED_CAPACITY_SCALE, so a CPU running above capacity_freq_ref
-saturates at 1024: the scheduler cannot tell a boosted CPU from one at
-the sustained maximum, and utilisation is underestimated.  And
-arch_freq_get_on_cpu(), which reverses that computation, cannot report
-more than capacity_freq_ref, so cpuinfo_avg_freq is pinned to the
-non-boost maximum.
-
-On a Snapdragon X2 Elite (Glymur) laptop with a 4032000 kHz sustained
-and a 4723200 kHz boost OPP, cpuinfo_avg_freq reads exactly 4032000
-while the CPU runs at 4723200; a fixed workload completes in 1.72 s
-rather than the 2.01 s that frequency would imply.
-
-Factor the update out of init_cpu_capacity_callback() into
-topology_update_freq_ref() and call it from policy_set_boost(), which
-is the common path for the global boost knob, the per-policy one, and
-the CPU online path.
-
-Signed-off-by: Oleg Keri <okerixx@gmail.com>
----
- arch/arm/include/asm/topology.h   |  1 +
- arch/arm64/include/asm/topology.h |  1 +
- arch/riscv/include/asm/topology.h |  1 +
- drivers/base/arch_topology.c      | 19 +++++++++++++------
- drivers/cpufreq/cpufreq.c         |  2 ++
- include/linux/arch_topology.h     |  1 +
- include/linux/cpufreq.h           |  7 +++++++
- 7 files changed, 26 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm/include/asm/topology.h b/arch/arm/include/asm/topology.h
-index ad36b6570067..a776a79885ee 100644
---- a/arch/arm/include/asm/topology.h
-+++ b/arch/arm/include/asm/topology.h
-@@ -11,6 +11,7 @@
- #ifndef CONFIG_BL_SWITCHER
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_set_freq_scale topology_set_freq_scale
-+#define arch_update_freq_ref topology_update_freq_ref
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
- #define arch_scale_freq_ref topology_get_freq_ref
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index b9eaf4ad7085..a4b96a7ee4a5 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -22,6 +22,7 @@ void update_freq_counters_refs(void);
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_scale_freq_tick topology_scale_freq_tick
- #define arch_set_freq_scale topology_set_freq_scale
-+#define arch_update_freq_ref topology_update_freq_ref
- #define arch_scale_freq_capacity topology_get_freq_scale
- #define arch_scale_freq_invariant topology_scale_freq_invariant
- #define arch_scale_freq_ref topology_get_freq_ref
-diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-index fe1a8bf6902d..a363d72c174f 100644
---- a/arch/riscv/include/asm/topology.h
-+++ b/arch/riscv/include/asm/topology.h
-@@ -11,6 +11,7 @@
- /* Replace task scheduler's default frequency-invariant accounting */
- #define arch_scale_freq_tick		topology_scale_freq_tick
- #define arch_set_freq_scale		topology_set_freq_scale
-+#define arch_update_freq_ref		topology_update_freq_ref
- #define arch_scale_freq_capacity	topology_get_freq_scale
- #define arch_scale_freq_invariant	topology_scale_freq_invariant
- #define arch_scale_freq_ref		topology_get_freq_ref
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 8c5e47c28d9a..79eb1681065d 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -317,6 +317,18 @@ bool __init topology_parse_cpu_capacity(struct device_node *cpu_node, int cpu)
- 	return !ret;
- }
- 
-+void topology_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq)
-+{
-+	int cpu;
-+
-+	for_each_cpu(cpu, cpus) {
-+		per_cpu(capacity_freq_ref, cpu) = max_freq;
-+		freq_inv_set_max_ratio(cpu,
-+				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(topology_update_freq_ref);
-+
- void __weak freq_inv_set_max_ratio(int cpu, u64 max_rate)
- {
- }
-@@ -392,7 +404,6 @@ init_cpu_capacity_callback(struct notifier_block *nb,
- 			   void *data)
- {
- 	struct cpufreq_policy *policy = data;
--	int cpu;
- 
- 	if (val != CPUFREQ_CREATE_POLICY)
- 		return 0;
-@@ -403,11 +414,7 @@ init_cpu_capacity_callback(struct notifier_block *nb,
- 
- 	cpumask_andnot(cpus_to_visit, cpus_to_visit, policy->related_cpus);
- 
--	for_each_cpu(cpu, policy->related_cpus) {
--		per_cpu(capacity_freq_ref, cpu) = policy->cpuinfo.max_freq;
--		freq_inv_set_max_ratio(cpu,
--				       per_cpu(capacity_freq_ref, cpu) * HZ_PER_KHZ);
--	}
-+	topology_update_freq_ref(policy->related_cpus, policy->cpuinfo.max_freq);
- 
- 	if (cpumask_empty(cpus_to_visit)) {
- 		if (raw_capacity) {
-diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-index 0d0df986fa3d..289649baa061 100644
---- a/drivers/cpufreq/cpufreq.c
-+++ b/drivers/cpufreq/cpufreq.c
-@@ -594,6 +594,8 @@ static int policy_set_boost(struct cpufreq_policy *policy, bool enable)
- 		return ret;
- 	}
- 
-+	arch_update_freq_ref(policy->related_cpus, policy->cpuinfo.max_freq);
-+
- 	return 0;
- }
- 
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index ebd7f8935f96..4974f5e1a7fe 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -31,6 +31,7 @@ static inline unsigned long topology_get_freq_scale(int cpu)
- 
- void topology_set_freq_scale(const struct cpumask *cpus, unsigned long cur_freq,
- 			     unsigned long max_freq);
-+void topology_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq);
- bool topology_scale_freq_invariant(void);
- 
- enum scale_freq_source {
-diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-index 35ce665edfd8..5b904e13eb21 100644
---- a/include/linux/cpufreq.h
-+++ b/include/linux/cpufreq.h
-@@ -1235,6 +1235,13 @@ void arch_set_freq_scale(const struct cpumask *cpus,
- }
- #endif
- 
-+#ifndef arch_update_freq_ref
-+static __always_inline
-+void arch_update_freq_ref(const struct cpumask *cpus, unsigned int max_freq)
-+{
-+}
-+#endif
-+
- /* the following are really really optional */
- extern struct freq_attr cpufreq_freq_attr_scaling_available_freqs;
- extern struct freq_attr cpufreq_freq_attr_scaling_boost_freqs;
--- 
-2.55.0
-
+David
 
