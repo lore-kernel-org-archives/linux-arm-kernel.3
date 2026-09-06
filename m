@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660ACC79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 16:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22410C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 16:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1Vmeph/0J2uHxeLJdYJg80ax9Y/Lpecpyu1qTgOHWg=; b=gwO/KPf3viIBwYpFUUNtt7sL21
-	ZkUDAMhUD9i4ZJgRxqlEOS+22WhHG3BKF+engJ+6N0+uIYu4gt5foKb8uGl1lUBolnmP6ovNeBY6T
-	i6wxaHQ1ALZe7+kEejC7MghvueVDFccXPabwHe80/dsf5wYxPP7pr1BOUx7YHcmyphAfScT9zCHu8
-	hbQBOLJAemm6fIWaPKl5DFf8lPKbHdtcBorHYAnPsAcx/Jh80DDOdF0R50gb9hRmhbdb0vIxYD3xn
-	ka4MdeyvMRvleyUwnOJASfYt6ZBa8rnyHD8A02719IEAPTGL43qZksJBl99X6d9JnX2UHwRi92YAd
-	NQX2ddog==;
+	bh=NV7z5U2Uq6jDuG6r5JBF/qQ5x8mn7kEgJkCfZvBOLDM=; b=NyzG8IXMvbuE6EEPYv5r6uJP6F
+	WjUqUBPEXYvpMkYxQ/5BSaMQuZSEWOE/rLw8Nj7V53F0NR7V/0V9CNDdDvsN1/9kVP6pYi+ipy/27
+	rrSs4NAhUaoU9mb3mWuIlMN+MjyNuzAVY7pDmQzAUDSEKQq2sAGmKarRvmRcw7IDbaGbm496OOYpY
+	M+fNVvZOLZ6rCsjru5UnPbKotfl3kI2qOhqqUD9rOdwyzvUv0mvcXllpuxSXPBTygGnW4r0LXGHyi
+	mkhSbNDMvlcGTwdzz5re4ecgj9fMXC4t7pL1IH4ZpvhVLh0nTO7dEacsugVLZtZQ+JgXr0WnaO0PZ
+	VTiXUBHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3G0L-00000005CwX-0iBq;
-	Sun, 06 Sep 2026 16:46:05 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1x3G0h-00000005D0e-1Ff5;
+	Sun, 06 Sep 2026 16:46:27 +0000
+Received: from out-144.mta1.migadu.com ([2001:41d0:203:375::90] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3G0J-00000005Cvv-10xl
+	id 1x3G0a-00000005Cyf-3Yf8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 16:46:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1788713163; x=1820249163;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Ihmr8oeQnM8FYh1NYQcgFGPk2IsSRVmBaFkBqvvUTuM=;
-  b=US/YOl85J0mhrAhMNHzEsHt9zVVYo6gVtPrXlPKzOHp4U/PTx82DH8M8
-   Iey5ESq5QV1nEwiIepdFZxuHhRvv/280N1Dwpso9M0law1C4464WBhhAm
-   kSUvwZVbgqG2avI8i3SEXgTPhcKmQojPtotqEb/pfb/uVEB51BIZfBidQ
-   ZIF0tTn8I4ypTemTfdzR7uy+fB3zo/Yy5DahzqmFb3LLZ0DETx5VmOT2d
-   YsEwxbQ/cmRYIOnlLnwoCTnfNKmrJ1SwpGLZROQN+ncdS5Ra9NiBF7GfM
-   7LNihqSihB/cldHKLz3jJRFVkkh5iklDs1R/wkmpYDbeI+8YovhE+fWxg
-   g==;
-X-CSE-ConnectionGUID: wksdmc05Rf2RDtn7u6cUrw==
-X-CSE-MsgGUID: vOR1oOfjQYS0OOZc6wMnLQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11898"; a="114676043"
-X-IronPort-AV: E=Sophos;i="6.25,265,1779174000"; 
-   d="scan'208";a="114676043"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Sep 2026 09:46:02 -0700
-X-CSE-ConnectionGUID: PQbWxNL0TQCgZDGvaBFE3w==
-X-CSE-MsgGUID: YupSYtInT7aDAONy3HsGeA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,265,1779174000"; 
-   d="scan'208";a="264315586"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa009.fm.intel.com with ESMTP; 06 Sep 2026 09:45:59 -0700
-Date: Mon, 7 Sep 2026 00:45:59 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Heiko Schocher <hs@nabladev.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-fpga@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Moritz Fischer <mdf@kernel.org>, Tom Rix <trix@redhat.com>,
-	Xu Yilun <yilun.xu@intel.com>, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v4] driver: fpga: xilinx-selectmap: add csi and rdwr
- support
-Message-ID: <ap2Yx8oACWfBKOep@yilunxu-OptiPlex-7050>
-References: <20260810062105.299808-1-hs@nabladev.com>
+	Sun, 06 Sep 2026 16:46:25 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=VjfV2POx+VicV5YfJjm4exSQwpAsSb4mPjx2PR7ZFvI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1788713176; v=1; x=1789317976;
+ b=ChU3c2HyVvlxvYX9iG+qc7c6nWJ9urEIq/gkjPZMacrzZELyqbwjzorbJSmzh/7pmZXMxxUi
+ BhJ9SEVhnSmRyGC1INsbY/htIHhN9af+Zuzm0GTisU9JO2IcXpI2gCxPE5zuaad8qDkohMYd1Tr
+ By9mII8iKlReYnvSjI6SFvfs=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id fc27cef724fffb40;
+	Sun, 06 Sep 2026 16:46:16 +0000
+X-Mizu-Trace-ID: fc27cef724fffb40
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf2-f12.google.com with SMTP id 2adb3069b0e04-5b4a0b384b7so3739e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 09:46:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwAeaxNsSaRvHDlnnmgeiKAsei6s6HyN7zHjvnOuA9TIHh4ML8FoEFI14vekTFwRQ84TRFu7Ne12c5LJCdyYJw5@lists.infradead.org
+X-Gm-Message-State: AFuF++niFaTAT1/JupHP9KNyKS3JEamf36cp7pWA+EopZVXvBFKsxtPZ
+	Xu507M3QHvRDUSIe1zp6DHTPNJx+DdTUps1YYQwhY05Ya49KxKiVCIvPrjgBXbaSkhOdn9EHo2q
+	tnwsX575FD9DnhvosnNO7sxLtAg34H3kedMasaxc4
+X-Received: by 2002:a05:6512:3ba7:b0:5b1:571f:715f with SMTP id
+ 2adb3069b0e04-5b74d427ec9mr96688e87.3.1788713174435; Sun, 06 Sep 2026
+ 09:46:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810062105.299808-1-hs@nabladev.com>
+References: <20260904174419.76057-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260904174419.76057-1-sascha.bischoff@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Sun, 6 Sep 2026 17:45:37 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzfG+y=1N3Jn5Pc8PpH0qmnmwQe5d0Z943n+PdEmY3wXQ@mail.gmail.com>
+X-Gm-Features: AcwNN1VwvQjebM9ocVZBouSeIGG6IYkrA31W30ISXubYppwaYJQVVM9dNYgL72I
+Message-ID: <CA+EHjTzfG+y=1N3Jn5Pc8PpH0qmnmwQe5d0Z943n+PdEmY3wXQ@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: vgic: Serialise CTRL_INIT against vCPU creation
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, nd <nd@arm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org" <oupton@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, 
+	"seiden@linux.ibm.com" <seiden@linux.ibm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, Sashiko <sashiko-bot@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_094603_328158_7F156F61 
-X-CRM114-Status: GOOD (  42.95  )
+X-CRM114-CacheID: sfid-20260906_094622_067399_39303D76 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,174 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 08:20:51AM +0200, Heiko Schocher wrote:
-> The current driver requests the optional CSI_B and RDWR_B GPIOs but
-> only configures their initial output state and never changes them
-> afterwards. As a result, CSI_B and RDWR_B remain inactive or active
+Hi Sascha,
 
-I got even confused, the old code explicitly set them GPIOD_OUT_HIGH,
-why "inactive or active"? And I also confused by your comments in v3,
-why "inactive or active" depends on DTS?
+On Fri, 4 Sept 2026 at 18:45, Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+>
+> vgic_init() compares created_vcpus with online_vcpus to detect a vCPU
+> being created. However, CTRL_INIT only holds config_lock, while
+> admission of new vCPUs and updates to created_vcpus are protected by
+> kvm->lock.
+>
+> A concurrent KVM_CREATE_VCPU can therefore increment created_vcpus
+> after vgic_init() checks the counters, then block on config_lock before
+> publishing the new vCPU. For a GICv4 VM, vgic_v4_init() consequently
+> sizes its vPE array using a stale online_vcpus value, leaving no vPE
+> entry for the new vCPU once its creation completes. The upcoming GICv5
+> IRS support would hit the same issue when sizing its doorbell domain.
+>
+> Hold kvm->lock around CTRL_INIT. The existing counter check detects a
+> vCPU creation already in progress, while the lock prevents a new one
+> from starting until initialisation has completed.
 
-Do you want to activate or inactivate the GPIOs in your code? You can't
-say don't know, go check the DTS, is it?
+This also brings CTRL_INIT in line with the other vgic device flows
+that serialise against vCPU creation: kvm_vgic_create(), the GICv2
+register uaccess path, and SAVE_PENDING_TABLES just below it all hold
+kvm->lock across the config_lock section.
 
-> throughout the configuration process.
-> 
-> This may work on systems with a single FPGA where these signals do not
-> need to be controlled by software, or where the signals are configured
-> to their active state.
+> Fixes: f00327731131 ("KVM: arm64: Use config_lock to protect vgic state")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Link: https://lore.kernel.org/r/20260807124506.ED85C1F000E9@smtp.kernel.org
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 
-Could you just tell the actual problem, as you said in v3 "The gpios are
-never used in mainline".
+Given that f00327731131 carried a stable tag, worth a Cc: stable?
 
-> But this does not not support systems with
-> multiple FPGAs sharing a SelectMAP interface.
-> 
-> On systems with multiple FPGAs sharing the same SelectMAP data bus,
-> the driver must deassert this signals in probe, and actively control
-> them during configuration.
-> 
-> CSI_B (Chip Select, active low) selects the target FPGA. It is asserted
-> before configuration data is transferred and deasserted afterwards so
-> that only the intended device responds to bus transactions.
-> 
-> RDWR_B (Read/Write, active low) controls the transfer direction on the
-> SelectMAP interface. A low level selects write cycles, while a high
-> level selects read cycles. During FPGA configuration the driver drives
-> RDWR_B low before transferring the bitstream and restores it to its
-> reading (high state) afterwards.
-> 
-> With that info from the datasheet the driver is now changed to:
-> 
-> - deassert the CSI_B and RDWR_B pin on probe and store the
->   optional GPIO descriptors in private driver data.
-> 
-> - toggle both signals around the configuration data transfer
-> 
-> This allows multiple FPGAs to safely share a single SelectMAP interface.
-> 
-> Signed-off-by: Heiko Schocher <hs@nabladev.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
+
+
+
 > ---
-> 
-> Changes in v4:
-> - add comments from Xu Yulin
->   replace wrong gpiod_set_raw_value() with gpiod_set_value()
->   deassert CSI_B and RDWR_B in probe as in patch version 2
->   rework commit message (correct the description what current
->   driver do on probe), why this is not a problem with one
->   FPGA, and why it needs a change if you have N FPGAs
->   sharing the same selectmap Interface (clk and data pins).
-> 
-> Changes in v3:
-> - use 0 (deasserted state) and 1 (asserted state) in gpio_set_value()
->   as commented from Micahl
-> - rewrite commit message as requested from Xu Yilun
->   - describe what rdwr_b and csi_b do, and why this change is needed
->     for more than one FPGA.
-> - add comment before asserting the signals, why they are asserted
->   in this order.
-> 
-> Changes in v2:
-> - add comments from Michal
->   - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
->     as validate_desc() checks this in gpiod_set_value() call.
->   - initialize the gpio variables csi_b/rdwr_b immediately with
->     the return value from devm_gpiod_get_optional(), so we can
->     drop local gpio variable at all
-> 
->  drivers/fpga/xilinx-selectmap.c | 36 ++++++++++++++++++++++++---------
->  1 file changed, 27 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
-> index d0cbb5fdfe3a..e9b1d15ca054 100644
-> --- a/drivers/fpga/xilinx-selectmap.c
-> +++ b/drivers/fpga/xilinx-selectmap.c
-> @@ -19,6 +19,8 @@
->  struct xilinx_selectmap_conf {
->  	struct xilinx_fpga_core core;
->  	void __iomem *base;
-> +	struct gpio_desc *csi_b;
-> +	struct gpio_desc *rdwr_b;
->  };
->  
->  #define to_xilinx_selectmap_conf(obj) \
-> @@ -30,16 +32,30 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
->  	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
->  	size_t i;
->  
-> +	/*
-> +	 * Assert CSI_B and select write mode.
-> +	 *
-> +	 * UG570 states in note 4 in Figure "Continuous x8 SelectMAP Data
-> +	 * Loading", RDWR_B should be asserted before CSI_B to avoid
-> +	 * causing an ABORT on the next CCLK.
-> +	 *
-> +	 * To be sure, set first RDWR_B pin before activate CSI_B
-> +	 */
-> +	gpiod_set_value(conf->rdwr_b, 1);
-> +	gpiod_set_value(conf->csi_b, 1);
-> +
->  	for (i = 0; i < count; ++i)
->  		writeb(buf[i], conf->base);
->  
-> +	gpiod_set_value(conf->csi_b, 0);
-> +	gpiod_set_value(conf->rdwr_b, 0);
-> +
->  	return 0;
->  }
->  
->  static int xilinx_selectmap_probe(struct platform_device *pdev)
->  {
->  	struct xilinx_selectmap_conf *conf;
-> -	struct gpio_desc *gpio;
->  	void __iomem *base;
->  
->  	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
-> @@ -55,16 +71,18 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
->  				     "ioremap error\n");
->  	conf->base = base;
->  
-> -	/* CSI_B is active low */
-> -	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
-> -	if (IS_ERR(gpio))
-> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-> +	/* CSI_B is active low, deassert signal */
-
-I'm not sure "active low" does any help here, it just makes more
-confusion.
-
-At first glance, "active low" && "deassert" => "set it high", then you
-should use GPIOD_OUT_HIGH?? You are not reasoning your change.
-
-Please elaborate on how these flags work before you send v5, thanks.
-
-> +	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
-> +					      GPIOD_OUT_LOW);
-> +	if (IS_ERR(conf->csi_b))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
->  				     "Failed to get CSI_B gpio\n");
->  
-> -	/* RDWR_B is active low */
-> -	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
-> -	if (IS_ERR(gpio))
-> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-> +	/* RDWR_B is active low, deassert signal */
-
-Same concern
-
-> +	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
-> +					       GPIOD_OUT_LOW);
-> +	if (IS_ERR(conf->rdwr_b))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
->  				     "Failed to get RDWR_B gpio\n");
->  
->  	return xilinx_core_probe(&conf->core);
-> ---
-> base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
-> 
-> -- 
-> 2.55.0
-> 
-> 
+>  arch/arm64/kvm/vgic/vgic-kvm-device.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> index 90be99443df3b..219881915bf41 100644
+> --- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> +++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> @@ -255,9 +255,11 @@ static int vgic_set_common_attr(struct kvm_device *dev,
+>         case KVM_DEV_ARM_VGIC_GRP_CTRL: {
+>                 switch (attr->attr) {
+>                 case KVM_DEV_ARM_VGIC_CTRL_INIT:
+> +                       mutex_lock(&dev->kvm->lock);
+>                         mutex_lock(&dev->kvm->arch.config_lock);
+>                         r = vgic_init(dev->kvm);
+>                         mutex_unlock(&dev->kvm->arch.config_lock);
+> +                       mutex_unlock(&dev->kvm->lock);
+>                         return r;
+>                 case KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES:
+>                         /*
+> --
+> 2.34.1
 
