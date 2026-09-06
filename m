@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D697C79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 18:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C17FC79FA8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 18:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/i3zYT6a/r2Htd1V8DTK1rai9uYZhQI/8tC9GwoAQE=; b=u14IQgUpbuOuuXjjprKAoscL6i
-	PXZZQDUyIpuqMD18y83EhEwM1m30RuyvktQqGxCmIq2/5v+ayYqpTAVDysav4gbJIuQqf1m49e+cW
-	KbYzgGhMPpQGvcjYVsMtA0cwUh4GyfnosTkKFVmffNRf4fypyNNjStfMN07MhY8qFScItRPHVA7j8
-	UpNFxFZ5XHlqEM7ATfM9xgD+oxHhz8xYM2Nj0xT6R/fLKEM7w0UdO1aNb/hF78QlBovevaW8PwQz4
-	zH2JzoPtLkdsHohPLOOEY1anjEGJYiQtpS3xofvQyrXhFZDUbbU03O+sURag7bZV6008nzr5cWO4N
-	Ks5L2bXw==;
+	bh=6Q6uC2gl8+tSCOpPOZS0MMo9FOVjEYLndttbNxZuY3c=; b=ersE2Msr2nJh/JyqKFLAFZfcTp
+	AXjnDD/Qd2D8gcxyB6yiOjbZS4hZqdousXtae7xYt/OSdFWnreg0T0jLkonObqkgBDMXHys2Ch2dM
+	cd4O2WKy22R1YmkgFnTFCbphSOIWrksnmli0w3XWGgFTundlSp6E+JNcm1K6hQSQkAMP2BNlTABfS
+	KPm/GZ+355RQAEzw3Ue29t7Tvu00mwLCMOsyaHWYAZbxMUVJXxBxs+zMiBx9Q+G+9IlhLLuuGVZTq
+	gl3lRcDXEHW1dvP1LOzV3mEcHuN3w1Z8ZMwecluKTSEB4Mfxdrs8/+73JprQL04yoa6LVZtNK+NFB
+	XH9hVznw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Hk2-00000005RHJ-0Kxi;
-	Sun, 06 Sep 2026 18:37:22 +0000
+	id 1x3Hk4-00000005RNx-2bNJ;
+	Sun, 06 Sep 2026 18:37:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Hjo-00000005Qz8-3czy
+	id 1x3Hjp-00000005Qz8-0eHe
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 18:37:08 +0000
+	Sun, 06 Sep 2026 18:37:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FFF644827;
+	by sea.source.kernel.org (Postfix) with ESMTP id 64530447D1;
 	Sun,  6 Sep 2026 18:37:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E46B7C2BD01;
-	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4191AC32786;
+	Sun,  6 Sep 2026 18:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788719827;
-	bh=hWtjtaprJYt4jyipWU9LokTTRoke60o6AWtWpZvW760=;
+	s=k20201202; t=1788719828;
+	bh=MLS3CfP65BeB4Vq9q2p9dx2GX03Sfxej/VHdxZD2j/I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kCzez3hXHuRyj1+c76Sj44WAE82H1MVfNByAsJcjp72GvNkzdvGVquMWQ4IaSXgst
-	 OEg8eup7irnx4UBIudD33y2L/9pblkRO/1JhNXEBwmFT8QHvQeG4nHHqs/vjOXrd6n
-	 5WqcX7jZLM6ToSjW0HS3x+j9Q8dHowN6CBW0DlLh5PsZIi6nHHZwZjII7MQOq5zOc7
-	 uo3wpHRgqlRDd9ItmtEn3GZ/BWwbNBhmMBzXwnQ1QlRgCsWjbYIQokTLK0K/0sF901
-	 0BvgB29MfIxvol8AgOECQyXQ/N99BcB2NsjPzh3xRQfgZ8/e22/r762io8H3gwxa+v
-	 MNp5Knq+k35rA==
+	b=J6vNQRCi4tAu2qEGei0gS4gjV9SWH0Vcp4i/a3mMDk2vhWv3iZfhiouZsaUbiXHyG
+	 62cuxj3DB52NmoDclEm+38rSmL2mK4qwfNBLx69t/bhJXAuufb1GpSC6KOjgIuJLYg
+	 VYM8S9XonPmIRErX+GFfHtd2lRODP4zv2N7S3NDGrywgKsakeFXuDK3uY9Z3h9AsRB
+	 PuuXnKgBzs/ToXAlN3gEB1yD1NLS1I61g90b0Rfuccx1RXcNoy92cGJRQA5LS87OdU
+	 DBBZdHsGWfbZbJmVOUFoQ95/+WnNpL9Aj+cYpa5YptEoTU7C6kQLOvnPTM/42zXRQs
+	 VkaDIAJD66WOw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1F22C79F85;
-	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E18AC79FA0;
+	Sun,  6 Sep 2026 18:37:08 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 06 Sep 2026 20:36:34 +0200
-Subject: [PATCH v2 11/22] thunderbolt: Find Apple VSE capability during
- startup
+Date: Sun, 06 Sep 2026 20:36:39 +0200
+Subject: [PATCH v2 16/22] thunderbolt: Add add_links to tb_nhi_ops
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-b4-apple-soc-tbt-v2-11-1f80085f93fb@kernel.org>
+Message-Id: <20260906-b4-apple-soc-tbt-v2-16-1f80085f93fb@kernel.org>
 References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
 In-Reply-To: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
@@ -68,13 +67,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2467; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2198; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=hWtjtaprJYt4jyipWU9LokTTRoke60o6AWtWpZvW760=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bcTQeP+QZZqqv3lf21S5op6nGjZtsUQ7d5LZFzQ2y3m
- bnmeLJ2lLIwiHExyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACbi+ZeRoWHKom2Moj7Mexm0
- trcsX2nZ7Hpdq8WHU87p1d197PO1JBn+hzCoq79lrpKR3axyyW6+/2WPkmdMV47cMXUUML75Qjm
- NCQA=
+ bh=MLS3CfP65BeB4Vq9q2p9dx2GX03Sfxej/VHdxZD2j/I=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bcTcc/3nvmPkvR/JWjyJT51wU68uZVnFh8h2/PoWzVJ
+ Xstc68XdZSyMIhxMciKKbJs329v+uThG8Glmy69h5nDygQyhIGLUwAm8uAoI8Os91IrOx6zlunv
+ rJFNPH3A8WDgpk/+SzhZc/y8P07+8+wUI8NisW2WK05ucRbLqpBbZ7ybIeVqV5byd+OYV8u/mUn
+ WTWUAAA==
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -93,67 +92,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only Apple Silicon host routers have the Apple vendor-specific extended
-capability. Look it up when the software connection manager starts and
-store its offset in the root switch.
-
-The Apple NHI driver can then use the stored offset when programming
-cable information without searching the router capabilities itself.
+PCI NHI drivers discover device links through ACPI or PCI topology but
+platform drivers, like the Apple Silicon one, can use neither of those
+methods. Instead, add a callback so that platform drivers can discover
+and add these links through e.g. device tree connections.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/thunderbolt/tb.c      | 4 ++++
- drivers/thunderbolt/tb.h      | 2 ++
- drivers/thunderbolt/tb_regs.h | 1 +
- 3 files changed, 7 insertions(+)
+ drivers/thunderbolt/nhi.h | 2 ++
+ drivers/thunderbolt/tb.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+index e4964772a442..addb8bcb4849 100644
+--- a/drivers/thunderbolt/nhi.h
++++ b/drivers/thunderbolt/nhi.h
+@@ -65,6 +65,7 @@ extern const struct dev_pm_ops nhi_pm_ops;
+  * @ring_configure: NHI specific hook to program the ring options registers
+  *		    and enable the ring with the given flags. If not set
+  *		    the standard USB4 NHI registers are used.
++ * @add_links: NHI specific hook to add device links to tunneled native ports
+  * @is_present: Whether the device is currently present on the parent bus
+  * @init_interrupts: NHI specific interrupt initialization hook
+  * @reset_interface: Resets the host interface
+@@ -85,6 +86,7 @@ struct tb_nhi_ops {
+ 	void (*ring_interrupt_active)(struct tb_ring *ring, bool active);
+ 	void (*ring_interrupt_mask)(struct tb_ring *ring, bool mask);
+ 	void (*ring_configure)(struct tb_ring *ring, u32 flags, u32 e2e_flags);
++	bool (*add_links)(struct tb_nhi *nhi);
+ 	bool (*is_present)(struct tb_nhi *nhi);
+ 	int (*init_interrupts)(struct tb_nhi *nhi);
+ 	void (*reset_interface)(struct tb_nhi *nhi);
 diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index bf1c192ec10a..d2832323cc36 100644
+index d2832323cc36..72418a07166e 100644
 --- a/drivers/thunderbolt/tb.c
 +++ b/drivers/thunderbolt/tb.c
-@@ -3025,6 +3025,10 @@ static int tb_start(struct tb *tb, bool reset)
- 		return dev_err_probe(tb->nhi->dev, PTR_ERR(tb->root_switch),
- 				     "failed to allocate host router\n");
+@@ -3434,7 +3434,8 @@ struct tb *tb_probe(struct tb_nhi *nhi)
+ 	 * before the PCIe/USB stack is resumed so complain here if we
+ 	 * found them missing.
+ 	 */
+-	if (!tb_apple_add_links(nhi) && !tb_acpi_add_links(nhi))
++	if (!(nhi->ops->add_links && nhi->ops->add_links(nhi)) &&
++	    !tb_apple_add_links(nhi) && !tb_acpi_add_links(nhi))
+ 		tb_warn(tb, "device links to tunneled native ports are missing!\n");
  
-+	ret = tb_switch_find_vse_cap(tb->root_switch, TB_VSE_CAP_APPLE);
-+	if (ret > 0)
-+		tb->root_switch->cap_vsec_apple = ret;
-+
- 	/*
- 	 * ICM firmware upgrade needs running firmware and in native
- 	 * mode that is not available so disable firmware upgrade of the
-diff --git a/drivers/thunderbolt/tb.h b/drivers/thunderbolt/tb.h
-index 4373336d9425..fbd1a0a9927a 100644
---- a/drivers/thunderbolt/tb.h
-+++ b/drivers/thunderbolt/tb.h
-@@ -132,6 +132,7 @@ struct tb_switch_tmu {
-  * @link_usb4: Upstream link is USB4
-  * @generation: Switch Thunderbolt generation
-  * @cap_plug_events: Offset to the plug events capability (%0 if not found)
-+ * @cap_vsec_apple: Offset to the Apple vendor specific capability (%0 if not found)
-  * @cap_vsec_tmu: Offset to the TMU vendor specific capability (%0 if not found)
-  * @cap_lc: Offset to the link controller capability (%0 if not found)
-  * @cap_lp: Offset to the low power (CLx for TBT) capability (%0 if not found)
-@@ -187,6 +188,7 @@ struct tb_switch {
- 	bool link_usb4;
- 	unsigned int generation;
- 	int cap_plug_events;
-+	int cap_vsec_apple;
- 	int cap_vsec_tmu;
- 	int cap_lc;
- 	int cap_lp;
-diff --git a/drivers/thunderbolt/tb_regs.h b/drivers/thunderbolt/tb_regs.h
-index 92d893634d2b..a37e55fec157 100644
---- a/drivers/thunderbolt/tb_regs.h
-+++ b/drivers/thunderbolt/tb_regs.h
-@@ -31,6 +31,7 @@ enum tb_switch_cap {
- };
- 
- enum tb_switch_vse_cap {
-+	TB_VSE_CAP_APPLE		= 0x00,
- 	TB_VSE_CAP_PLUG_EVENTS		= 0x01, /* also EEPROM */
- 	TB_VSE_CAP_TIME2		= 0x03,
- 	TB_VSE_CAP_CP_LP		= 0x04,
+ 	return tb;
 
 -- 
 2.55.0
