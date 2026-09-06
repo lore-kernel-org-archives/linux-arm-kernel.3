@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBF2C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7203C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=; b=yxekQsb3o6wOBvGaxTbDzGPH37
-	hfblQNZymqQ8jT2QpEen+tEQ8gTsMjlUvkLwTRJNXsugvdfWqJvGPeUw0W6QUz8eB8QjjVpIEpFoM
-	eKqx7/v7qWHUODHNlMNHCNI2NoeuoKomgDb1dMVFjm6klthlkuurGwf2cIHKAJyrUSALjz+C1oNqU
-	zV5uVMleWo8QAJPqMhg240+2gaHlxOy8+e53kjAdcU+k/RLKOXe6ZpZJP7cxcFy6NiDCwx0blsaaE
-	JgJosWrUgU1WaFgpYRzzLhDopR767s5S//bNMc7HUCfPcS9XNNB/NtKryURx5wP5oDtVGV3M20Ku6
-	QrSSWjyw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=86ZMXQ7rWbd5+Kz4WmVDnIj3yBwaLGUiWHIv6rRn9PQ=; b=NFIfZ818sw2HzsAiFApMZTESB6
+	3FnWZJx7hr0/FPTGM6tjQb8TmviR/CNE7XdPQ6TjdRMB5l0it/5z9kr719ooACtL1li8yLZfP5HEK
+	kN1YRYmCdpxL0rix293ZrWBZp96xp3rtBAhhjWYVgHqAx6a9XPIKL3g1BT8L1Zja1rX4y3pWArW6a
+	fxrZvxc8w7yATL2axTLb8canZ/KAIGnNqolX37T1i3mcSFNB/BvDZT+00SNAoXE+5vCHR7Pn+Fqc+
+	ZSomDyesTwVS9rOd7/WsZulLf7qMhk4IxE+nWgunvLarXPJr1BYQ+WLE9z5JcMSI+vcE0i0eYV1uk
+	s5OCbiEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36Co-00000004jz7-3orn;
-	Sun, 06 Sep 2026 06:18:18 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1x36D4-00000004k1S-0SOP;
+	Sun, 06 Sep 2026 06:18:34 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36Cl-00000004jyH-3NLX
+	id 1x36Cx-00000004k0R-1K8Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 06:18:17 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so2621105a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 23:18:12 -0700 (PDT)
+	Sun, 06 Sep 2026 06:18:33 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d53197d8b5so21307575ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 23:18:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788675492; x=1789280292; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=;
-        b=iM1/dxvKjNMPmJy0tT412mJ530RXXFp230UOho62AXFxPMJEG5W/U9OeFFIJPQjDu4
-         l/N7i8U2FSd39RHIiBCR4D81ELkoUMJ0Kb/bLg9+veJ80XeeFZzdlcBuCasTO/tqJlpz
-         knRMzSeNy4wNZLuOoXUXsGpWFmIXXWxXGtm3tAwNIw7nKmc2Ef9HM6+jc7RKbfXSY0QW
-         QyqQv33IBBVIKaZH2hj7OLiI6keT6pv2NyHA2t63bimU3woYFiH22hsU9Mk8h1Sq+HIv
-         A5zliWlHnU1lRgihIka4YLPl69rjGWNGokAZEEXeUmMF2GEI+3VCz9vtD9Kz6F89qc5i
-         Vqlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788675492; x=1789280292;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1788675506; x=1789280306; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6LOZ87VM/gxx5gotZR4qRLft5D8wWY/6G46t9t21bw8=;
-        b=kU2+IhoP3HgDgcuGCvcER5cGZI0P8vw16FjstrsRlGHDF2B5HNa65A+eNJUW4QUQKc
-         x7S3YCXWILquuSCbz7ZKqi8vDUQZO8/REDrTQ4qkGAhR3NRrxvmA+dFza5MYnhoZQvPu
-         xrlEHmG5CJZZEFlAM0n8IxJddp3AhQUEVsC2yJFKWJPOb1hVALiXa3Pf9PyQO0LdPdlf
-         1W2itOzcoRaN4QxvrAgh1llHo/NSEipLpa73HSg49LmgHUOef7y+jjcD5YSfx9Iu1Q3S
-         FiTxiofckxIetZs/Ve1+r/Fpoi/2/qCPM1fNEZejzIxPa4/eHBg7FGNRM8K7OZO6ubbH
-         5HiA==
-X-Forwarded-Encrypted: i=1; AKwUvBxaa1Kxp6T5B9cvhrMkvErfWeYbAIqu+CSmxuDZhLo2Te7rSBzaJWX2s53Stkdfd18UicGUxjhz8ra1tJ7Sx6XQ@lists.infradead.org
-X-Gm-Message-State: AFuF++ly+E3GDF9Mg5vt7oYLh9BD+2HcZLff34aGOgCICCbBXdzajxV/
-	xdKaqJPe+uHUzb3J5k+b3JHH1YJ90SXy3EtVDvXsIP81xqLy9gxLplE5
-X-Gm-Gg: AYBFou2JLQgcgQdJ2yl9B6sOFFhvMXpsbOevo13CEO21foC/qyMK8dPNfce04IEjM8a
-	CWVFYfzUTAv30W2MVivf9FDd8GzANf3Yc6JSnUmAST72VcUALSD0+97pnL4IdslDonhde2YjceG
-	AcRr8ZgW8M7/lblTpBmP8B94d7R4w7VFB229chc/3Kn1hCKiqW2nEIyhBh10Kt+jkvkQqYv+7rm
-	yShtK5VhPlLMPRwR90nG5V1hr6CAFRVSobqciEBxKTVjJD/yciMHxtTEV6tBzZpw/jGUNilcleX
-	1UPVUibo18jWhVOYaxd/hhS8wehPMhwf2IYIHd3Wq8DiHChcV5oZZEfFA8q3WJx0ufdooPSTTA3
-	LshyQjfGRyo00SZ1h5qKibm7HXAwYuhocgVFjaKXcSMAtSO0lK9vbj2K4USrCw8vaVZWpVxty2A
-	45GspF/mawIwqewpWtGaOZcy/9uOanivZJI/K485Q/h4rPXXh54ZCkkV7oJQHN
-X-Received: by 2002:a05:6a20:9c11:b0:3d2:3e73:29eb with SMTP id adf61e73a8af0-3da39bb596fmr24951780637.1.1788675491987;
-        Sat, 05 Sep 2026 23:18:11 -0700 (PDT)
+        bh=86ZMXQ7rWbd5+Kz4WmVDnIj3yBwaLGUiWHIv6rRn9PQ=;
+        b=b0IwIOQlcEc9MqVA/NsomIJsRzEzCNW9lsOaFQA4qjotvbQjtwy9RJIVs/w93ffqf7
+         lYL7Ng78WvQhFat5VYU5Eeu6vaWLFfrAR7bCajqTbclmk+yTCm2PAf53y2HR0BK2rcb1
+         ok06B2L3rJK4jl33/urzhy2H2xHykKOeQpv1Ub1K5bQjchib6IVsJ6vHmvNNUMnqd3MX
+         GSQRh7yDFxCEqWfK+1oPJnxUoTPdsV0gEFXOlkQ44SyNDlYhr8Y5nSEZwfPm+bVmrRx+
+         rgex1ND5N6cVXLDrtZ/5cK+qHwXbcpVC4Ax8Mi2Trtl+XyspynulRE8irOX/bBCYxmXg
+         Q2dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788675506; x=1789280306;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=86ZMXQ7rWbd5+Kz4WmVDnIj3yBwaLGUiWHIv6rRn9PQ=;
+        b=b4cMSj575xE3NPUN0pRanbSxQK8Vf8gVZM5jipTHfWWiQBEwW+nYeuTESVktuAs8rG
+         6P3UjfkmykRyY+Yg6OU2QtgEG25d2ZlPXgcEuIByuiZN4iGgDzHrsbRhj92qu2tBiB+0
+         Vn3us8TaZ5CQS8ANzEDqXIGm7bxfbQYmC9U9GM4wavrogvP/2t9jJaR5OCenIDi3weyX
+         3PWkpxpJNxxO8NOipJgZBYBejKnbT2sw0Kx523NLWhh6MtKshWXDh7XoFylz1jBXcbSy
+         vS8mX2MaM44wMaULGRdSJJ4alwRddR1iqXgXXSu802YzjW9MJ4G1FquZXpCDJsZqN907
+         9yLQ==
+X-Forwarded-Encrypted: i=1; AKwUvBxGWwDzLzPvs9HS9owArkUq6Z6EaoN1JpDzXHghHpHFnjXHAmMxr9NS7utnVr7J4v8bGrVFXys1E1LTxQJLKP9i@lists.infradead.org
+X-Gm-Message-State: AFuF++kf8flGCRItrWAHQ0iBInhzeZdrUtk1QGAoafP9uVkRvA5GI8Ki
+	b9KrkGgId2zDdwum4fPydZfqHjlEpCsh0oQqq+9Ux1aWuIfEoACjeq7FuYxGt5zF
+X-Gm-Gg: AYBFou0OQWDtYXn1IsYqlJIXIAJI7lMcAEtpavRYvKyuJt/HR4xx3bnifkhU+LaEEz1
+	vkNIofacRU+Vs45oxRt9hV2Q9DAAB3nJizi5kW8QNVuCQum1JwEduFCDN9KuhYDAwSziqfY7w5Z
+	2XbmGs2TtdLkEXQOxjqf8gEe+h4Qv3Y+eveKq8O4j51d7GRZDDunZlYEJgdollJU9uuK3YBsvKl
+	a/FxnVj65sTFvy0J9zFPBNYOQw9eEi7vlFax7gB9Sh2mlLizZzWUu0gisL5POcD2iSljhBFEjGj
+	fg3mOik+vY1K8/SR9MCxjFw9OLqzHeuv4XSqoolP9e0Hd5kvcQEFJ52efA9PEubWqmXaAe0J+M+
+	pryFUgXhVTtFK2rws+LWhZbP8znlF5jtcRQmqm57JL5aeIzKjQttxY7LM7tlnSlLBH4ZX0W519v
+	OUrHhymFzIBRC7HlhKv+8ATTfgsuls6JRZ0welVxfoB2bXI05gLyU1/D8qqSY=
+X-Received: by 2002:a17:90b:4c4a:b0:398:bc52:825b with SMTP id 98e67ed59e1d1-39b2624c32amr22181806a91.21.1788675506361;
+        Sat, 05 Sep 2026 23:18:26 -0700 (PDT)
 Received: from gmail.com ([58.84.62.227])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339aa33e96sm18280405eec.12.2026.09.05.23.18.00
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339aa33e96sm18280405eec.12.2026.09.05.23.18.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Sep 2026 23:18:11 -0700 (PDT)
+        Sat, 05 Sep 2026 23:18:25 -0700 (PDT)
 From: Sumeet Pawnikar <sumeet4linux@gmail.com>
 To: rafael@kernel.org,
 	amit.kachhap@gmail.com,
@@ -105,15 +106,17 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	sumeet4linux@gmail.com
-Subject: [PATCH 0/5] PM: Use %pe to print error pointers symbolically
-Date: Sun,  6 Sep 2026 11:47:49 +0530
-Message-ID: <20260906061755.5103-1-sumeet4linux@gmail.com>
+Subject: [PATCH 1/5] powercap: intel_rapl: Use %pe to print error pointers symbolically
+Date: Sun,  6 Sep 2026 11:47:50 +0530
+Message-ID: <20260906061755.5103-2-sumeet4linux@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260906061755.5103-1-sumeet4linux@gmail.com>
+References: <20260906061755.5103-1-sumeet4linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260905_231815_864792_5D5B9E09 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260905_231828_065020_E56C2772 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,59 +131,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series is a cleanup for subsystems under power management
-(linux-pm) that converts several instances of error pointer printing
-to use the `%pe` format specifier instead of explicitly casting with
-`PTR_ERR()`.
+Replace PTR_ERR() and %ld with %pe and pass the original pointer directly
+to pr_debug() and dev_err(). The %pe format specifier prints a symbolic
+error name (e.g. -ENOMEM) when CONFIG_SYMBOLIC_ERRNAME is enabled,
+otherwise it falls back gracefully and prints the raw integer value.
+This makes messages more readable without any functional change.
 
-Currently, many drivers use `PTR_ERR()` paired with `%ld` or `%li` to
-print error codes returned as pointers. By switching to `%pe` and passing
-the error pointer directly, the logging subsystem will automatically
-print the symbolic error name (e.g., `-ENOMEM`, `-EPROBE_DEFER`) when
-`CONFIG_SYMBOLIC_ERRNAME` is enabled, and gracefully fall back to the
-numeric value otherwise.
+Signed-off-by: Sumeet Pawnikar <sumeet4linux@gmail.com>
+---
+ drivers/powercap/intel_rapl_msr.c  | 4 ++--
+ drivers/powercap/intel_rapl_tpmi.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-This change significantly improves the readability of kernel logs and
-dmesg traces during debugging, without introducing any functional changes
-or side effects.
-
-The cleanup has been applied across the following PM subsystems/drivers:
-* powercap (intel_rapl_msr, intel_rapl_tpmi)
-* thermal (core, cpufreq_cooling, devfreq_cooling, mmio, etc.)
-* cpufreq (bmips, cppc, qoriq, s3c64xx)
-* devfreq (imx-bus, imx8m-ddrc, mtk-cci)
-* power/supply (various battery and charger drivers)
-
-
-Sumeet Pawnikar (5):
-  powercap: intel_rapl: Use %pe to print error pointers symbolically
-  thermal: Use %pe to print error pointers symbolically
-  cpufreq: Use %pe to print error pointers symbolically
-  devfreq: Use %pe to print error pointers symbolically
-  power: Use %pe to print error pointers symbolically
-
- drivers/cpufreq/bmips-cpufreq.c            | 4 ++--
- drivers/cpufreq/cppc_cpufreq.c             | 4 ++--
- drivers/cpufreq/qoriq-cpufreq.c            | 4 ++--
- drivers/cpufreq/s3c64xx-cpufreq.c          | 5 ++---
- drivers/devfreq/imx-bus.c                  | 4 ++--
- drivers/devfreq/imx8m-ddrc.c               | 3 +--
- drivers/devfreq/mtk-cci-devfreq.c          | 4 ++--
- drivers/power/reset/macsmc-reboot.c        | 4 ++--
- drivers/power/supply/axp20x_battery.c      | 4 ++--
- drivers/power/supply/cpcap-charger.c       | 4 ++--
- drivers/power/supply/cw2015_battery.c      | 4 ++--
- drivers/power/supply/intel_dc_ti_battery.c | 2 +-
- drivers/power/supply/qcom_smbx.c           | 2 +-
- drivers/powercap/intel_rapl_msr.c          | 4 ++--
- drivers/powercap/intel_rapl_tpmi.c         | 4 ++--
- drivers/thermal/cpufreq_cooling.c          | 4 ++--
- drivers/thermal/devfreq_cooling.c          | 4 ++--
- drivers/thermal/qcom/qcom-spmi-adc-tm5.c   | 4 ++--
- drivers/thermal/thermal_mmio.c             | 3 +--
- drivers/thermal/uniphier_thermal.c         | 3 +--
- 20 files changed, 35 insertions(+), 39 deletions(-)
-
+diff --git a/drivers/powercap/intel_rapl_msr.c b/drivers/powercap/intel_rapl_msr.c
+index a34543e66446..46972ee1ff84 100644
+--- a/drivers/powercap/intel_rapl_msr.c
++++ b/drivers/powercap/intel_rapl_msr.c
+@@ -582,8 +582,8 @@ static int intel_rapl_msr_init(void)
+ 	rapl_msr_platdev = platform_device_register_data(NULL, "intel_rapl_msr", 0, def,
+ 							 sizeof(*def));
+ 	if (IS_ERR(rapl_msr_platdev))
+-		pr_debug("intel_rapl_msr device register failed, ret:%ld\n",
+-			 PTR_ERR(rapl_msr_platdev));
++		pr_debug("intel_rapl_msr device register failed, ret:%pe\n",
++			 rapl_msr_platdev);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/powercap/intel_rapl_tpmi.c b/drivers/powercap/intel_rapl_tpmi.c
+index 73f36d9c09b1..6baaad3c59ef 100644
+--- a/drivers/powercap/intel_rapl_tpmi.c
++++ b/drivers/powercap/intel_rapl_tpmi.c
+@@ -408,8 +408,8 @@ static int intel_rapl_tpmi_probe(struct auxiliary_device *auxdev,
+ 
+ 	trp->rp = rapl_add_package(info->package_id, &trp->priv, false);
+ 	if (IS_ERR(trp->rp)) {
+-		dev_err(&auxdev->dev, "Failed to add RAPL Domain for Package%d, %ld\n",
+-			info->package_id, PTR_ERR(trp->rp));
++		dev_err(&auxdev->dev, "Failed to add RAPL Domain for Package%d, %pe\n",
++			info->package_id, trp->rp);
+ 		ret = PTR_ERR(trp->rp);
+ 		goto err;
+ 	}
 -- 
 2.43.0
 
