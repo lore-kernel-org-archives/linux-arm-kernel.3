@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA2DC79F85
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE53C79F82
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 02:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C1MjpwS8fNqXTMmr7HcpBYdK6oHI7oxdgwvpon9ozKo=; b=tsPFcpoCb/ERBKrqV5YXZ8xQCe
-	gNKmjo2AM6CPGpotbBqo18cslAqUO5YpOEAi39OCge+x/ZX3ZpfCGQgu1DSyGOPK4l9OfnXWbcyP4
-	JIB5AwGa3C3ZVSaYHH8B5gWbK/sSi0q/TJzO3ON4xfNGFpKfuy/Q6qL0LQ4okflr+UCVON+CNz0R+
-	vflsXlT12wrEktCCvAVcDKSBuJnarePX/VunKP0KnST+TjGacJr8dUrqCVGUfuqTyCY07y3s/xwXc
-	SxmWNS25UO1gl7lx+5cvqfpZrOZGRBLaPfiCAkmGqjZHqyvHjooXmHjfJFVs6gT0CUrrzv9/Mofh7
-	+6OJUWeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ohXcpCjF3E8Su2iGbnUTFcKH4Q5PX6bz9vn2jqgCP+c=; b=VLqBQo/xfaCAutdPnlM1LZuJsi
+	mxzVKWNei32D8NqTpDsmRpwQivvDpBZ7ZOrF6K5f8H2TNnl/w6C+T7+pOQSJPJPI53WJiXa0ThIn2
+	WO1UWrcTF1VAr4cqULMo0Zo60shZHhzvM+RU+x2C+hhor54KlPh8LE8dhBCTRooluWZJXjtLafPOR
+	dWfBqaZgFGKwVxIC2CuKIWH19GN3IEqpW7YBtJlXBotO43n6sS1Chr597UpF2L6cOYiaD/hux20ck
+	Eo6CC5V57FNh/NODH4eHI3bzvhIBpMJ8cO00Ntt8OXv5y/quuZq+D09z44az/my2hfoTEq4j6dR/H
+	L+aIHrjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31mO-00000004XzU-0bsS;
-	Sun, 06 Sep 2026 01:34:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x32BZ-00000004Z2S-1QSO;
+	Sun, 06 Sep 2026 02:00:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31mI-00000004Xw7-1wMD;
-	Sun, 06 Sep 2026 01:34:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6EA8E60D7B;
-	Sun,  6 Sep 2026 01:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id EC4D0C2BCB3;
-	Sun,  6 Sep 2026 01:34:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788658476;
-	bh=avEl6Sz+TjiLyylxOf8PD9ekUp90PnIXR/pxu3BUxLI=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=Ztou4j3OWCmS1erRaneiCoggJhWjeK8ul7EV5pdriwYZqYjEgCk2RfDlgDsWPBCUa
-	 CgZWfIPFrc6y2DxsY+KFYb6cZibH+yIBYyfCIqEw1b8ofxj4nQ54Q61TEywlLjZPPS
-	 sGdfXRD/D87iP/x6aWvFTnSa3RmZgr1yvJ3mw9tPgZrBtiJXmPJh1of7SR6qzyJzUP
-	 CB9IELzotL6+N/ZH+7EfmN+5jKG1fIn7nsWgAFP7L0DG3gfLjlaWEyTL2wmj0epCmH
-	 WyzJsDYeMwwVDWKwte103nAatZ1lFFh0/W5HA+dfoCzxkmCJhg/SIOi0S0TLVztsSg
-	 +I+o+9pdI/5WA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C71E5C79F85;
-	Sun,  6 Sep 2026 01:34:35 +0000 (UTC)
-From: Ryan Brue via B4 Relay <devnull+ryanbrue.dev.gmail.com@kernel.org>
-Subject: [PATCH 0/2] drm/panel: add the Novatek NT51021 panel in the Amazon
- Fire HD 10
-Date: Sat, 05 Sep 2026 20:34:33 -0500
-Message-Id: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	id 1x32BN-00000004Z1s-2CFM;
+	Sun, 06 Sep 2026 02:00:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 54CA343C12;
+	Sun,  6 Sep 2026 02:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 131AD1F00A3A;
+	Sun,  6 Sep 2026 02:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1788660032;
+	bh=ohXcpCjF3E8Su2iGbnUTFcKH4Q5PX6bz9vn2jqgCP+c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=onvqGLmcP1GLOxpEKfzU67JdQE7IDZGMsPO64h/0NSOK+RvFXdBCqD8+ofD1WBq2g
+	 i6cYyIHzjygejYh8PKFLzFY7Ac5zL8dW6mlFYoHExtDtLuDxudvpRUkwCZVnaHxKoG
+	 FWNotUDCuJBgzmpoHcxnORH4VODmerRMAERbMW3I=
+Date: Sat, 5 Sep 2026 19:00:30 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Adrian =?UTF-8?Q?Barna=C5=9B?= <abarnas@google.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman
+ <brendan.jackman@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Dave Hansen
+ <dave.hansen@linux.intel.com>, David Hildenbrand <david@kernel.org>, Gerald
+ Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens
+ <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Len Brown <lenb@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Pavel Machek
+ <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Ryan Roberts
+ <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon
+ <will@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+Subject: Re: [PATCH v3 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Message-Id: <20260905190030.adf2740822e211ddc028a24a@linux-foundation.org>
+In-Reply-To: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+References: <20260903-execmem-set-vm-perms-v0-2-v3-0-949b64a9f755@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNSw7CIBRG4a00d+xNAC0+ttI4gPKr+KDNhTYmT
- fcu6vCbnLNQhkRkOjULCeaY45Aq9Kah/ubSFRxDNRllrDqqlsXLBA7y4tElPNmFwGmYXcGDU2m
- 1Mpq9OVhn99gFbKmWRsElvn+X7vx3nvwdffmmaV0/SGaatYcAAAA=
-X-Change-ID: 20260905-rbrue-drm-panel-add-novatek-nt51021-b286a67e4de3
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788658475; l=2651;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=avEl6Sz+TjiLyylxOf8PD9ekUp90PnIXR/pxu3BUxLI=;
- b=IM9PZI28G1lsl2IHZmyHX/r5dytfWQ+wNiSCk8fbEACgafyEcl7++eFRZXKVKGsEqGm2VIT8y
- NYtLQvN0fL0Dz6Y2Q0icOzhiwm9RZ9b+m0ngUZM3OweE12+z99l4ydr
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
-X-Endpoint-Received: by B4 Relay for ryanbrue.dev@gmail.com/20260906 with
- auth_id=1007
-X-Original-From: Ryan Brue <ryanbrue.dev@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,66 +81,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: ryanbrue.dev@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the 1200x1920 DSI panel fitted to the Amazon Fire HD 10 (2017), an
-MT8173 tablet. The controller is a Novatek NT51021; the module carries
-BOE glass.
+On Thu, 03 Sep 2026 12:28:26 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
 
-The controller has no readable panel identity. MediaTek's LCM framework
-identifies panels through a .compare_id callback and the vendor's driver
-for this one leaves it unset, and the glass part number is not recorded
-anywhere in the vendor tree -- it names the module only "BOE". I had the
-compatible name the module after the board it ships in, the way
-xiaomi,elish-boe-nt36523 and lenovo,j606f-boe-nt36523w do for this
-situation.
+> Recent discussion about implementation of execmem's ROX caches on arm64
+> revealed a confusion about how set_direct_map_valid_noflush()
+> implemented on different architectures.
+> 
+> ...
+> 
+> Implement these adjustments, make execmem always use VM_FLUSH_RESET_PERMS
+> and revert set_direct_map_valid_noflush() changes.
+> 
 
-The vendor's bootloader and kernel both carry a second register sequence
-for Innolux glass, selected from two board ID straps, so a second module
-exists as far as the vendor firmware is concerned. I didn't have an
-Innolux unit to test with, and I don't know its part number, so it is not
-described here. Naming the glass in the compatible leaves room for it as
-a second compatible should someone have the hardware and the need.
+Thanks, I updated mm-unstable to this version.
 
-This controller accepts commands either over I2C or in-band over DSI, and
-on the shipping boards it does not default to DSI. Writing 0xa5 to
-register 0x8f opens a window in which DSI commands are accepted and
-writing 0x00 closes it, so every command the driver sends, including
-sleep in/out and display on/off, has to sit inside such a window. That is
-why those are not simply issued from enable()/disable() as most panel
-drivers do.
+> 
+> v3 changes:
+> * set VM_FLUSH_RESET_PERMS to allocated area just before flipping the
+>   permissions rather than at allocation time
+> 
 
-The vendor's timings are used verbatim.
+Here's how v3 altered mm.git:
 
-The board DTS that uses this is not in this series -- it's a whole new
-board file that I plan on upstreaming over time after getting its
-components upstreamed.
 
-Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
-at 62.5 Hz across a cold boot, three display off and on cycles and a
-suspend/resume, with the MIPI TX PLL read back at the intended rate.
+ mm/execmem.c |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Ryan Brue (2):
-      dt-bindings: display: panel: add Novatek NT51021
-      drm/panel: add Novatek NT51021 1200x1920 DSI panel driver
-
- .../bindings/display/panel/novatek,nt51021.yaml    |  65 ++++
- MAINTAINERS                                        |   7 +
- drivers/gpu/drm/panel/Kconfig                      |  11 +
- drivers/gpu/drm/panel/Makefile                     |   1 +
- drivers/gpu/drm/panel/panel-novatek-nt51021.c      | 329 +++++++++++++++++++++
- 5 files changed, 413 insertions(+)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20260905-rbrue-drm-panel-add-novatek-nt51021-b286a67e4de3
-
-Best regards,
---  
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+--- a/mm/execmem.c~b
++++ a/mm/execmem.c
+@@ -36,7 +36,6 @@ static void *execmem_vmalloc(struct exec
+ 	unsigned long end = range->end;
+ 	void *p;
+ 
+-	vm_flags |= VM_FLUSH_RESET_PERMS;
+ 	if (kasan)
+ 		vm_flags |= VM_DEFER_KMEMLEAK;
+ 
+@@ -277,6 +276,8 @@ static void *execmem_cache_populate_allo
+ 	/* fill memory with instructions that will trap */
+ 	execmem_fill_trapping_insns(p, alloc_size);
+ 
++	set_vm_flush_reset_perms(p);
++
+ 	err = set_memory_rox((unsigned long)p, vm->nr_pages);
+ 	if (err)
+ 		goto err_free_mem;
+@@ -439,6 +440,7 @@ void *execmem_alloc(enum execmem_type ty
+ {
+ 	struct execmem_range *range = &execmem_info->ranges[type];
+ 	bool use_cache = range->flags & EXECMEM_ROX_CACHE;
++	unsigned long vm_flags = VM_FLUSH_RESET_PERMS;
+ 	pgprot_t pgprot = range->pgprot;
+ 	void *p = NULL;
+ 
+@@ -447,7 +449,7 @@ void *execmem_alloc(enum execmem_type ty
+ 	if (use_cache)
+ 		p = execmem_cache_alloc(range, size);
+ 	else
+-		p = execmem_vmalloc(range, size, pgprot, 0);
++		p = execmem_vmalloc(range, size, pgprot, vm_flags);
+ 
+ 	return kasan_reset_tag(p);
+ }
+_
 
 
