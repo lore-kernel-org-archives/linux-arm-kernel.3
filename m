@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8A4C79FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 18:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623B2C79FA9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 18:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X6iyr1tv24mqr7r3i4koHq4rWJhxMjy3gMKzaFwSBsI=; b=3sRmJBNdb290OxuZQG6vrl3v2I
-	xQwwdBITJ1jlQeuBsMx7dEl3OW/oC3wVRNctflF8WSbbn/pOhYjOg6OvS0bjx7eQQE305VvT7ZYo9
-	7JvPE60jzgw/fb6GkVQQFQNJ4agQqF4f6Wxe2mN3GHRyGki2O6FU6YHMSZBA7U/ybrHmGuYduOgcG
-	PhYILZX2QgF9LcXP9d4JNZCKSmNo2UMQC6PjamNcnx4Ohgp5fuOC+lNmimpF/jaUAW/SyCoONHWNP
-	pnQu7XUhKfHrKf3rOaHGPYwORO2cviBfKOkA9a7O0NOOFZXOauLok7ijKK1zechyJClNUdD01upTd
-	++YBTJiQ==;
+	bh=12j/Rlgum2i2yC7vpxo4VAoEGEpm/hk1Dq8l/8Jgwm8=; b=KcxoFQTEvDCJTHhK0qFuZdqeiw
+	PzVegL+VH8PBxddXhWwmZKE+cSP+rzBW3trWO5d88lDpWTpFxUKvFVUtSf1s8UmGukpC83+AmuYPa
+	Qaw+cKWU/uKxgWCjVrbjb7KADZrVnKxxmeruRqI+ML8QifjyA8VFmVsfsQcxZoNBxvD6M88xJK/1D
+	s8uGKmZfY7bPKDUJ42i96ne3JdOoSwy9QIZVpftJ+whjv6xwq8FDvxIFIeRLv7zo8WPhEf4KUlye+
+	tqEzF7a2UXn1HH1B9rpWGBN3tdKMUV49nGSpu0J6a340BT3IJ9qAeghet2JxV26l/aYnJeF88oqXC
+	pBAG4hIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Hk2-00000005RJE-3VfX;
-	Sun, 06 Sep 2026 18:37:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3Hk3-00000005RKm-1SFh;
+	Sun, 06 Sep 2026 18:37:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Hjo-00000005Qz1-3uSG
+	id 1x3Hjp-00000005Qz8-0A8h
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 06 Sep 2026 18:37:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC43D60AA4;
-	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9507FC32781;
-	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 35CD84483F;
+	Sun,  6 Sep 2026 18:37:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0911EC4AF12;
+	Sun,  6 Sep 2026 18:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788719827;
-	bh=Lrw4AjJ97p2myBlJOEqJM3QBI7DYQbZi5S0l017NVLM=;
+	s=k20201202; t=1788719828;
+	bh=JhMORvwjpL+vSOXSZRgQ34FsUDioPUDXHqRnLjyFxTw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=B676NGc/3yk3/GO43PXmKq5N2RlKlj7n4G9LmGll0WmYj+a2m+/RfHplkON+mEq9w
-	 /9jNusV+Yz0Xn7hq2pomcPxZVYouEr5rUCueTSK0k4Ls+zFoWhcDa8lRAaRblGqZau
-	 c0gi3aP6MD9D/pvwCqCbmTamQwl6HBDhkiBz/YMAPyDjQVtSVfpkQus3Ghh0nD5aVp
-	 fJeWMH8zRdRDBAPwP4UduIdlEXtIJdEWq5iB1Q7o8/Ud16d1L1k3koPsMU0Cp0At0u
-	 7vNkmUdgOzDo8TKOn+5MlEReSidb8kla3V8W0LzRrUTewSobYMm2V1qOJH2kRr+loh
-	 uD7Y6CEZTBP/g==
+	b=kJLhjAbN/lnM+vW/3yBm2RV0TQrIrWFYS3Ky61E7RBYMCQKuBKbH+9dIXoKzkQ3tV
+	 0Krbvw84Xk+ursQiufPbX0JY+YkcMbX90oooSQRGOJ6FmZyfEQUbMiIDNkRLRIyHz4
+	 gqmWGDIHndsRjA04xwY+SsVuXZaOuQKDQf1qa2v7aIFiLvQOdi95iJ+pl/52dj1Y1M
+	 1JRad26ejpYWP/xuQ6qxZu44Jmm2ojB+I1Gj74WUzUtC3nOSfDKB8iybuEXxnXgQQO
+	 9tXYISd+Jfa+82/uL2DhmJuaKKK6/wtpwuXBYPHODKMpIIGQOjGwphy97iDcOnKpWA
+	 W0pcFOp2jvvFQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82426C79F8C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E37E3C79FA0;
 	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 06 Sep 2026 20:36:29 +0200
-Subject: [PATCH v2 06/22] dt-bindings: thunderbolt: Add Apple
- USB4/Thunderbolt ACIO block
+Date: Sun, 06 Sep 2026 20:36:35 +0200
+Subject: [PATCH v2 12/22] thunderbolt: Add ring_interrupt_active to
+ tb_nhi_ops
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-b4-apple-soc-tbt-v2-6-1f80085f93fb@kernel.org>
+Message-Id: <20260906-b4-apple-soc-tbt-v2-12-1f80085f93fb@kernel.org>
 References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
 In-Reply-To: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
@@ -66,15 +66,15 @@ To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Sven Peter <sven@kernel.org>
+ Sven Peter <sven@kernel.org>, Joshua Peisach <jpeisach@ubuntu.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9043; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2844; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=Lrw4AjJ97p2myBlJOEqJM3QBI7DYQbZi5S0l017NVLM=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bcTXttWH5+EHMIZJlVcvJ8lVbye1auNz52yX+2ld6zm
- Mb8+0NmRykLgxgXg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAikgUM/z13brGW3GcdkpBx
- T8bb+nJFfbf7noJ1xYUz+MO8c8t2aTP8D85x7T457cGM/dHVG3pMDtvd2hHV7rtTIjg/b6XY2wn
- /WQE=
+ bh=JhMORvwjpL+vSOXSZRgQ34FsUDioPUDXHqRnLjyFxTw=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bcTYc6Di2y31B1ZZp04ac3vlqF31cFbWjLvyTSuHTNR
+ K+Q0MX7O0pZGMS4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQATiXnP8N/tw420F0kTZkwz
+ lN60Q1c4PUqiMHxZd5H/pf0LFZeLJ/YyMnxbcCzvxK4Fr8zj1Bf9Mrvz0iNIor9vaWNt78YfL56
+ 98eIAAA==
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -93,255 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each Type-C port with USB4/Thunderbolt support on Apple Silicon SoCs
-comes with block called ACIO ("Apple Converged I/O"). It contains a
-Cortex-M3 co-processor, the hardware blocks implementing the USB4 host
-router, the Native Host Interface (NHI) and a DART IOMMU. The
-co-processor exposes the NHI and its DART to the main SoC bus while it
-is running.
-
-ACIO can only be powered on after the Type-C PHY has been switched to
-USB4/Thunderbolt mode. The Type-C PD controller publishes the negotiated
-mode and cable information through the Type-C class. ACIO finds the
-corresponding Type-C port through the OF graph connection.
+The Apple NHI enables and disables ring interrupts differently. Add an
+optional tb_nhi_ops hook to override ring_interrupt_active which falls
+back to the standard USB4 method when it is not set.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 ---
- .../thunderbolt/apple,t8103-usb4-acio.yaml         | 213 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- 2 files changed, 214 insertions(+)
+ drivers/thunderbolt/nhi.c | 12 ++++++++++--
+ drivers/thunderbolt/nhi.h |  4 ++++
+ 2 files changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml b/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
-new file mode 100644
-index 000000000000..5bfe7a66923e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
-@@ -0,0 +1,213 @@
-+# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/thunderbolt/apple,t8103-usb4-acio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index 6a97dcd57deb..fc54ff7edfb9 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -149,6 +149,14 @@ static void ring_interrupt_active(struct tb_ring *ring, bool active)
+ 		nhi_mask_interrupt(ring->nhi, mask, index);
+ }
+ 
++static void nhi_ring_interrupt_active(struct tb_ring *ring, bool active)
++{
++	if (ring->nhi->ops->ring_interrupt_active)
++		ring->nhi->ops->ring_interrupt_active(ring, active);
++	else
++		ring_interrupt_active(ring, active);
++}
 +
-+title: Apple Silicon USB4/Thunderbolt Host Router (ACIO)
-+
-+maintainers:
-+  - Sven Peter <sven@kernel.org>
-+
-+description: |
-+  Each Type-C port with USB4/Thunderbolt support on Apple Silicon SoCs has a
-+  host router complex called ACIO (Apple Converged I/O). It contains a
-+  Cortex-M3 co-processor, the hardware blocks implementing the USB4 router
-+  and its PCIe, USB3 and DisplayPort adapters.
-+
-+  The co-processor exposes the Native Host Interface (NHI) and its DART IOMMU
-+  to the main SoC bus once it is running. They are therefore represented as
-+  child nodes. All child registers are located in a single 16 MiB MMIO window
-+  and use addresses relative to this window.
-+
-+  ACIO can only be powered on after the Type-C PHY has been switched to
-+  USB4/Thunderbolt mode. Before the connection to the remote device can be
-+  established the Type-C PD controller has to publish the negotiated mode and
-+  cable information through the Type-C class. ACIO finds the corresponding
-+  Type-C port through the OF graph connection.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: apple,t8103-usb4-acio
-+      - items:
-+          - enum:
-+              - apple,t6000-usb4-acio
-+              - apple,t6020-usb4-acio
-+              - apple,t6030-usb4-acio
-+              - apple,t6031-usb4-acio
-+              - apple,t8112-usb4-acio
-+              - apple,t8122-usb4-acio
-+          - const: apple,t8103-usb4-acio
-+
-+  reg:
-+    items:
-+      - description: Root complex and co-processor control registers
-+      - description: SRAM used for communication with the co-processor
-+
-+  reg-names:
-+    items:
-+      - const: rc
-+      - const: sram
-+
-+  mboxes:
-+    maxItems: 1
-+    description: Mailbox used for RTKit communication with the co-processor
-+
-+  resets:
-+    maxItems: 1
-+    description: Reset used to start the ACIO block before booting the
-+      co-processor
-+
-+  power-domains:
-+    maxItems: 3
-+
-+  apple,tunable-rc:
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    items:
-+      items:
-+        - description: Register offset
-+        - description: Mask of bits to clear
-+        - description: Bits to set
-+    description: |
-+      List of (register offset, mask, value) tuples copied from Apple's Device
-+      Tree, converted by the bootloader and used to configure the root complex
-+      after the co-processor has booted.
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 1
-+
-+  ranges:
-+    maxItems: 1
-+    description: Single 16 MiB MMIO window containing all child registers
-+
-+  nonposted-mmio: true
-+
-+  ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    description:
-+      OF graph ports for the USB4 router. The port numbers correspond to the
-+      USB4 router adapter numbers.
-+    properties:
-+      port@1:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Lane 0 adapter of the connector-facing USB4 port
-+
-+      port@2:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Lane 1 adapter of the connector-facing USB4 port
-+
-+      port@3:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: PCIe adapter
-+
-+      port@4:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: USB3 adapter
-+
-+      port@5:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: First DP IN adapter
-+
-+      port@6:
-+        $ref: /schemas/graph.yaml#/properties/port
-+        description: Second DP IN adapter
-+
-+    required:
-+      - port@1
-+
-+  iommu@a80000:
-+    $ref: /schemas/iommu/apple,dart.yaml#
-+    description: DART IOMMU exposed by ACIO and used for DMA from the NHI
-+
-+  nhi@f00000:
-+    $ref: /schemas/thunderbolt/apple,t8103-usb4-nhi.yaml#
-+    description: Native Host Interface exposed by ACIO
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - mboxes
-+  - power-domains
-+  - resets
-+  - '#address-cells'
-+  - '#size-cells'
-+  - ranges
-+  - nonposted-mmio
-+  - ports
-+  - iommu@a80000
-+  - nhi@f00000
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        cio@501ac0000 {
-+            compatible = "apple,t8103-usb4-acio";
-+            reg = <0x5 0x01ac0000 0x0 0xc000>,
-+                  <0x5 0x01080000 0x0 0x20000>;
-+            reg-names = "rc", "sram";
-+            ranges = <0x0 0x5 0x01000000 0x1000000>;
-+            #address-cells = <1>;
-+            mboxes = <&usb4_1_mbox>;
-+            nonposted-mmio;
-+            pinctrl-0 = <&acio1_pins>;
-+            pinctrl-names = "default";
-+            power-domains = <&ps_atc1_cio>,
-+                            <&ps_atc1_cio_pcie>,
-+                            <&ps_atc1_cio_usb>;
-+            resets = <&cio_reset 1>;
-+            #size-cells = <1>;
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@1 {
-+                    reg = <1>;
-+
-+                    endpoint {
-+                        remote-endpoint = <&typec1_con_tbt>;
-+                    };
-+                };
-+            };
-+
-+            usb4_1_dart: iommu@a80000 {
-+                compatible = "apple,t8103-dart";
-+                reg = <0xa80000 0x4000>;
-+                interrupt-parent = <&aic>;
-+                interrupts = <1 890 4>;
-+                #iommu-cells = <1>;
-+            };
-+
-+            nhi@f00000 {
-+                compatible = "apple,t8103-usb4-nhi";
-+                reg = <0xf00000 0x100000>,
-+                      <0xdb0000 0x30004>;
-+                reg-names = "nhi", "pdf";
-+                interrupt-parent = <&aic>;
-+                interrupts = <1 863 4>, <1 864 4>, <1 865 4>, <1 866 4>,
-+                             <1 867 4>, <1 868 4>, <1 869 4>, <1 870 4>,
-+                             <1 871 4>, <1 872 4>, <1 873 4>, <1 874 4>,
-+                             <1 875 4>, <1 876 4>, <1 877 4>, <1 878 4>,
-+                             <1 879 4>, <1 880 4>, <1 881 4>, <1 882 4>,
-+                             <1 883 4>, <1 884 4>, <1 885 4>, <1 886 4>;
-+                interrupt-names = "txring0", "txring1", "txring2", "txring3",
-+                                  "txring4", "txring5", "txring6", "txring7",
-+                                  "txring8", "txring9", "txring10", "txring11",
-+                                  "rxring0", "rxring1", "rxring2", "rxring3",
-+                                  "rxring4", "rxring5", "rxring6", "rxring7",
-+                                  "rxring8", "rxring9", "rxring10", "rxring11";
-+                iommus = <&usb4_1_dart 1>;
-+                /* To be filled by the loader */
-+                apple,thunderbolt-drom = [00];
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a9d2e2a914c2..406cf664dedc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2659,6 +2659,7 @@ F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
- F:	Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
- F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
- F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-+F:	Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
- F:	Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-nhi.yaml
- F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
- F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+ /*
+  * nhi_disable_interrupts() - disable interrupts for all rings
+  *
+@@ -724,7 +732,7 @@ void tb_ring_start(struct tb_ring *ring)
+ 	}
+ 
+ 	if (!(ring->flags & RING_FLAG_NO_INTERRUPT))
+-		ring_interrupt_active(ring, true);
++		nhi_ring_interrupt_active(ring, true);
+ 	ring->running = true;
+ err:
+ 	spin_unlock(&ring->lock);
+@@ -785,7 +793,7 @@ void tb_ring_stop(struct tb_ring *ring)
+ 		goto err;
+ 	}
+ 	if (!(ring->flags & RING_FLAG_NO_INTERRUPT))
+-		ring_interrupt_active(ring, false);
++		nhi_ring_interrupt_active(ring, false);
+ 
+ 	ring_iowrite32options(ring, 0, 0);
+ 	ring_iowrite64desc(ring, 0, 0);
+diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+index f72d6b274501..4884c3f5a2b2 100644
+--- a/drivers/thunderbolt/nhi.h
++++ b/drivers/thunderbolt/nhi.h
+@@ -52,6 +52,9 @@ extern const struct dev_pm_ops nhi_pm_ops;
+  * @post_nvm_auth: hook to run after Thunderbolt 3 NVM authentication
+  * @request_ring_irq: NHI specific interrupt retrieval hook
+  * @release_ring_irq: NHI specific interrupt release hook
++ * @ring_interrupt_active: NHI specific hook to activate/deactivate the
++ *			   interrupt of a single ring. If not set the
++ *			   standard USB4 NHI registers are used.
+  * @is_present: Whether the device is currently present on the parent bus
+  * @init_interrupts: NHI specific interrupt initialization hook
+  * @reset_interface: Resets the host interface
+@@ -67,6 +70,7 @@ struct tb_nhi_ops {
+ 	void (*post_nvm_auth)(struct tb_nhi *nhi);
+ 	int (*request_ring_irq)(struct tb_ring *ring, bool no_suspend);
+ 	void (*release_ring_irq)(struct tb_ring *ring);
++	void (*ring_interrupt_active)(struct tb_ring *ring, bool active);
+ 	bool (*is_present)(struct tb_nhi *nhi);
+ 	int (*init_interrupts)(struct tb_nhi *nhi);
+ 	void (*reset_interface)(struct tb_nhi *nhi);
 
 -- 
 2.55.0
