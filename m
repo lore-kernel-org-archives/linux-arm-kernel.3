@@ -4,91 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DB0C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 12:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA48C79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 12:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p90yRqRNkEpbXqQjLiETs/gtDf1cDQsPml2IReoU9ZE=; b=OssS3x2YjhXQ3/H0Gln8NCpc1o
-	frwgNuKcSQusKe+pDpUN5jANyQvxommGF/raWpLDteWaG/t8sdm7NnEN32wMCYKXNZqfBmASphTUb
-	+0ePKOpPGOPxDrJrNxf0AUG1cjUFKltqgdGqYn00/FmQwKXHeDZT02L92XG3UpvvgAdLlBnddDUMf
-	FsD5+CdjYzrRY8dpWUwbFe8tVyW6w7K3DApoVWfJpy81K2UPrF3imVxRV7eH50UTxUvKBM++qkdp3
-	/RZux+DUF3WNEVeFMtCK/hSBQiDbcukDjPJQxpgcq16lTxzBWfioTq8X0NpBYkl7qBzGMn1nPrZYH
-	2i6GGtOw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7B2X+IoJr1jpGdtDc76HBnENAB3W6OkhhgHfkiaZTmY=; b=INQ+MkfSfmbqUwkaScX94zl7et
+	haefmpA61o82IsRAdks070/C887dn4c08YqaxsXd7nfDf8dUuBgF+y5x2iZOTTCrD5zSmOMixGLXh
+	oBEcAWxb56ivymMXTkOsMNe7/skq2TSWIXjnhOpv0osAUge57d8Zi2LupLst0TbHtGXUXWrU5UqmZ
+	qbSWdVaMnrJt4g3g83GpB8nMC8q7vF7ty/IjehcTqpn6BBaFqYnmhYZ+krM2XCfiWl7gQDAqnwFGF
+	+Ne+W3yA+JoU96G+Y6/xLto+JwnS2F7PxVNFh1kOBHSR/4WdeAwanviA8jivFNYB6fOfifXtXrzwA
+	NyNDGcUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3BlV-000000050vR-0sLr;
-	Sun, 06 Sep 2026 12:14:29 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1x3BqG-0000000515H-3M3B;
+	Sun, 06 Sep 2026 12:19:24 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3BlS-000000050uw-3Tri
+	id 1x3BqE-0000000514k-0xfI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 12:14:28 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49b392ccaacso38659745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 05:14:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788696864; x=1789301664; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p90yRqRNkEpbXqQjLiETs/gtDf1cDQsPml2IReoU9ZE=;
-        b=nd+Q7EInRyl5rIoiV8X7djDticMiQe+CPo+cjtVCEsZPdJh2ikmQ8Z5rz1xLbCxA5E
-         wfIpUw5j4nztOnZsgYgP2AyroSlf5/TezW34go3peht+s9OPYq5ApizlG7p3ijOlAzov
-         bbOVH0TE+wSvAkDk4isxTpWkli+uO6EhdHx8XsHDu01masY/LpLU/rg+3AfkksBfJL94
-         zKmbHGKH5qQQZMLraqKQe39U4SLX8Rp9TiIvjBsJNt/pKLh9sYMS7UZwCiuJ9dWejQIJ
-         tu8TZOQU8EGQXJByhGz22c8Vwrim73xHw3aqWBq8lg3MsmiR+FG+mV7fdvBnuditR+HA
-         vqug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788696864; x=1789301664;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=p90yRqRNkEpbXqQjLiETs/gtDf1cDQsPml2IReoU9ZE=;
-        b=SYHR1jCpKHx9loFbhmHr6axh5CM3p66PmXi2fD8glhRw4aEvk5Y+5c3bwyqQGno8vD
-         dxSTpxOX5dmOFRG1x+DcvIFP6nVu+rW7rlKn1c+OBdu95dH5sz1GSyWB8Y+85wq7haCz
-         M0ms0J6tBtu3XygCpcoGbveE3ID48BwcF7yCA+xb8mZvqwKzFA2bPfIAHuZZnxUhySQU
-         G9aDYx3bhiXNlWtNx9Dd7RYNBKFMGGWON56KuBJwQZ4qx9AIhPdT1vcDri5xFoDp9CoM
-         xNUgy4MH8r4iX1cSsJ1VoEB9iDAjGLF1Ke5zWPSRxN2bGKAmUmT6ny7j8h6bT+iAQM2v
-         RGeQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy8otEwppABT0jRG6PY75U6Ln8q5fn1BaKqccvSO1pAetffqO/AtOAaZhGSY69L/GvHmErQxtZFNnYFgdKwlRGM@lists.infradead.org
-X-Gm-Message-State: AFuF++lquuy0CjF/v0vqIS8/aj72RfBGfLfVh7UjSEZtudyPWIHl7X9V
-	BYmoGGk0jWYIlUJMp4OtLQYSGOs+mCsC6VurkgKIBAp1PlKPLwrSvUh4
-X-Gm-Gg: AYBFou0ZpOpVU/KGYpTtVpwc9fq8bDG5EDGeA33FzbwYrV1WEbHWDNvR6+712nyYYpC
-	eA9/g7OPyn2D4FJK2vR86z1wqkh+JrXTrWzdARL1srLaAT3A92OlnOqqCxrClR7wiqBab3B92EX
-	WIPwHRuRMq565DfhoWGXk2hU12heuTwJMS2veUBMJJjU3ZhRJHU18CvJR0hWqgx6Q0d+DKJwGuu
-	ypAN8bwGKicb4OCmu2LQ5yJ3WsMy30FOZgbVnKLAdIq+DQ/K8sOmdaDcz5rNJftmJstz3/RYj1P
-	aQq8sxV3A3j6SOcNuIOyshtJYFAmZcdUiI63sPe7ql/wsKmldEp9tbg2f6I1L3t3EMXbI86QvPm
-	UYoPeVWE+wy7ekug4dWloaoov6qkh5CkOfAhAXR+YMtjZ1wzYZaTkOhEtSl1Eah0n637LM48+PX
-	DyLmV/LlXEnYUeOBiiwpnNKbuojhlLqg4gMJCkSAx5p63R2NVLDz2OFDP+neO5J0WNl4ek1sgU2
-	zOItUnVU0kqTgGjUDy6Nt7kg4pSixvFzLa8D08LVDueetlEyh080NboY1g=
-X-Received: by 2002:a05:600c:474c:b0:493:c47f:3c55 with SMTP id 5b1f17b1804b1-49cf8227619mr155692535e9.5.1788696864253;
-        Sun, 06 Sep 2026 05:14:24 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49d03543064sm137917565e9.13.2026.09.06.05.14.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 05:14:23 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Khushit Shah <khushit.shah@nutanix.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	David Carlier <devnexen@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: errata: match the target implementation CPU's own MIDR
-Date: Sun,  6 Sep 2026 13:14:16 +0100
-Message-ID: <20260906121421.60575-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Sun, 06 Sep 2026 12:19:23 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6867lgXr063048;
+	Sun, 6 Sep 2026 07:19:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=7B2X+IoJr1jpGdtDc76HBnENAB3W6OkhhgHfkiaZT
+	mY=; b=bS47ifbiyicPKRySJ019mpOi/NRWThvAUZ0MRSj20uOE0+WnwucqKfgUJ
+	EXxd9aCmuLFyo8vY9qpb8Fp+BZ4Ub15WzfZmulUsnsFctUuJxZ96foXm/6DhG5OW
+	gNqtG12I0azwvb6kbn5ljnEURrsDNk4DlyX1Hxj7F0VqFDmzo20gB2aXm05R5j81
+	ookEb4viBPohelR9IgzxetMuRuYsteB9yXoTg30AkyooV1fFrlPWFL92EjjEQYOd
+	ZM3svvXH4RyFYiBTDcuD6WnrhlubpfZ9/XY/Da93UaFvZ6GZmi8b6NoWBHEN6+th
+	TqUDUj4J20eVESHlobnu3uXfmhbIA==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012049.outbound.protection.outlook.com [52.101.43.49])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4gh43n0jwd-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Sun, 06 Sep 2026 07:19:18 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MOSKoIDMSQ/ueRBeoO+Gxjb5vz7sIcSehe9KRIJ8neZMeQF4b7xbiM5YNlrn/oNRzdsDJS5ngT4LGrMDzNBVU3ppcqJKsabt76IiirA/q1hsBjRDES0jmP9ua63nNmHjppL7c/qknqPM2bY5VEjuMvambF7bHTI8EjgQf2BAdiu5HD/G+YIOk9skraxTBlhO1Dr3H8gKkav9pbt14PEJoW6l4aObKGz40Ym0QMn/xHZNGN9/0/8phBZmeS33hUD9n1eks9k857EGiwKolRoyun2qwzyqN4EVGut39KfoCXkUdZUmez0UzGLvQV+QRGiZKtck7NM+fRkSh3t+gUP2dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7B2X+IoJr1jpGdtDc76HBnENAB3W6OkhhgHfkiaZTmY=;
+ b=O9JuxkCqfNqMiarV5HfpxBd0VDa/vJ1FH8gjG9SWEw7CEgbGCj46E1JMzR34MEVQRP8X4JSdw05DV6hEIfXlzbZg4ngdW888anoDKx+UaAYZX9inA8S9++iPbHFrR7kFbqhRQzgJG6bITBD9/oravvKlnsLRVIzKoP+pm2rNFx4Fq4o6f4sxfxlByMjVMF6tOUk6egWvQgJjSEuGu77vWP46QXC/6Z3tyH8xmbsfH2LLGHILT5FoyZAGhKD9A6gVO+gU5LUzfU7ManDr+47WuzXBD3f/MXPN+PVlAM79nIdTAFeIWB7SI/4rKII3WLJd9MvqOhF//IcDXAT9gxN0IQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7B2X+IoJr1jpGdtDc76HBnENAB3W6OkhhgHfkiaZTmY=;
+ b=cQTS1u6Z5daFAsCfSYbwpW2uiqCavtPJ2H+aPhRcxcLlubGcq0wz5BEGWZOvEusRUbIKHhf4mtgrzxPcmuOvGmYt183bE03GmGDq8x9LvqZLuYdoavLB56rjlV90Yvj0aqIp31QRqL6E2NsTuoggTtvXAmecxmw/BpU+La4jijw=
+Received: from BN0PR07CA0027.namprd07.prod.outlook.com (2603:10b6:408:141::29)
+ by CY8PR10MB7314.namprd10.prod.outlook.com (2603:10b6:930:7b::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.4; Sun, 6 Sep 2026
+ 12:19:16 +0000
+Received: from LV8PEPF0000006C.namprd03.prod.outlook.com
+ (2603:10b6:408:141:cafe::a5) by BN0PR07CA0027.outlook.office365.com
+ (2603:10b6:408:141::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Sun, 6
+ Sep 2026 12:19:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ LV8PEPF0000006C.mail.protection.outlook.com (10.167.248.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.406.5 via Frontend Transport; Sun, 6 Sep 2026 12:19:14 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 6 Sep
+ 2026 07:18:52 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Sun, 6 Sep
+ 2026 07:18:51 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Sun, 6 Sep 2026 07:18:51 -0500
+Received: from [10.249.138.105] ([10.249.138.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 686CImI13815676;
+	Sun, 6 Sep 2026 07:18:48 -0500
+Message-ID: <a935ba6a-3623-4fb5-a31b-fc58ea9dda21@ti.com>
+Date: Sun, 6 Sep 2026 17:48:47 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-j7200-common-proc-board: Add
+ ethernet alias
+To: "Kumar, Udit" <u-kumar1@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>,
+        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+References: <20260811061351.2538688-1-s-vadapalli@ti.com>
+ <20260811061351.2538688-3-s-vadapalli@ti.com>
+ <b7147489-00bc-4f55-bfe5-2c9cb675c7ec@ti.com>
+Content-Language: en-US
+From: Hari Prasath G E <gehariprasath@ti.com>
+In-Reply-To: <b7147489-00bc-4f55-bfe5-2c9cb675c7ec@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000006C:EE_|CY8PR10MB7314:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed9dc302-661f-4821-0e49-08df0c1110ae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|23010399003|1800799024|10067099003|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: HQSw8xKWw18/gWVQY9i4MDiY6QRhTmnlvE2JYtBEVxvu9W88n0qYrAA2V0hCa8AFXj9Syt4cONt3p5C58p1A0PqA3ItXrZMp85CwNp23mMfEajZDiWHgt+XlD5iytpiHI2DmQqwRrW21b19UH57VnwdiDoqEfQxl6AktaAKm1ZVY2dLs37IHAJWs3JpFosgANRRpAMEjy21315iKeiZ1pY6I44HYd0T17RIz+8paqHKhG6XrcMqMhbZ+J7hmdAMNSR+MDyirC99M6YGhC7wfr4ACp/Me2eAbHMP/t2XC5yvj7WJXCfMxqqi4skRpg64XEKOdBEybykg+xiE8bl9IAqZfajRp8+B34qeWYbhynAaRgsMR0grmS6CUQ0ktj5ihxUeLNfSzd7Th4HuTuPXWTL7VM4qNP6J9obtp2uzcTJoPxiFaIh6wnwjo0YRgFApLdy1qZiCsVTDf0Qy/ETTTD7p7mV/ja4j9bA6z1BfaYryqE7Iv67LMjWP85biyyo557ilvpTLDA3ACDXeudimvC7PK2u/i6Cnlq61MWpnP/05/0FFNybjPiHxxuOEOf6nySPF+cLOvOMfFuQKqWZEs8puBQESdVUm38qPxZcjG8o7kWBAjHBfWGNvqV9wmttDOqFapxGTA0e6XDWcN3VdlcheVbi56jonGe7q0AP17LelgSoLbarkB99t04vUytRktgU0D9GJXPYjYx6pRjVd0Cg==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(23010399003)(1800799024)(10067099003)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: qezDmzWWaIe1ut7wARjMeAdUEgmNhtrv2ABeUyTqYzdpEregSspsDMlW9vg+0oFiFNVXu6ZUKlfMp33meDxCYWHqx4QgJxdJnnY5a2FowNNF9KT/BiSScazf2J2VBhwkc1X1wOAfVFd9VoHHYYEs2D0AvK97j9oAf/oY2fCsnPnTZTcqsqJ0DPDYeobWDQDM1JYnjLkDy6z8PKMlkX5zXwglVQFheUg5c/XiIOsSy9eNxbsTYVee7kfTDLTs/fJFF2s6IGzo3kdOyVcPoqsuOoyQ77TR3Upz1C4z57gwn8UkjyB7qztaM7Q97wjn6KLV026U6jHZjCe++gqeqOr6kZgX1o3GJNzggSQJCV/G7lNmX8ftRK1+MDxwWuXbyi1ILtsuqgsj+0GRcX6TuTqF5Zsxh8fEwzjHLcCGZJShEv8Qz1lDzWkFxaNVbiPBz/Pb
+X-Exchange-RoutingPolicyChecked: w3jGJ5hyk2nm83k6a8JmjZ6BfwIL8v9pWG9OoqKscOH/guzFtc76ICloDXPEQZYktz9AbYRGvdS6D8uACBGslFjAEaZB0ks9LwuEE2u5/9O8mPLyjlMpdvGzm6xSn7I6TrLbtJ03L10sFMTSx0audXOCUk78kt3Y3IM5XGhXq7k7vAHUM/sXz5UzKnS5fEoa5DgZBfbPS2Ala2Yc3An0fYbYowswxOVs9iCw9oPS2m9FWdlNcr7mJ1ECd7V6twJPY4/5vEm8A0LHLE0rntuCDKmcRRiC9x+By1aI+qlx/vkz1sBZfLwVLXXOA2N8PSaG8fxp8vVui/0KvUuP1xv2Cg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Sep 2026 12:19:14.2498
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed9dc302-661f-4821-0e49-08df0c1110ae
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF0000006C.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7314
+X-Proofpoint-GUID: mGOiRXlYVoml7k3Dvf3SdDKkflJe-DyO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA2MDEzNiBTYWx0ZWRfXzCDHWswr2Q3O
+ CkZrPgvtNBUQj8uCEKj1hvyY+qLidw3GwTFIf6j1hPAudtIi4f2WMjnZAxH+G69MSmX0bunr7ND
+ J37tqxagvh2GceesaVLMg261/7RZgk068yq+7p6bqhGnFf4koy6pjNxUAte06TDL5zkomAjNmK3
+ e36BJnr61jMEg9Qh/Xi2zMlcLt/i4/5dMfUzV4W2fJXF/oh67hvkbWENKeC4Ai2oSUvm/duw2mG
+ PVhuubNiAEoOeHIG2ePZD4o4S+MmpjD4Zh2Q6x+8IkXu79MT+wyRGv455ijUQXlsOfxY37zndVc
+ YYCVbopvY9EIJYlrBKY8PdlWdBC8wP8l7N8zseK9pPjcCP/gc/f54Tps+i0tR6kl+09lmEeEXku
+ kzS15uF9QfoenrgPidunJEP7hmVPeTs5X8wUb8myJ/hsyHpkrF0ise9zNSNlZ8JxP9McdTONN5N
+ 8BLpM1ND3FI+HS1msxA==
+X-Proofpoint-ORIG-GUID: mGOiRXlYVoml7k3Dvf3SdDKkflJe-DyO
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA2MDEzNiBTYWx0ZWRfX2LgAKnhlQnZj
+ Qa1Cqg7gq4E4eTS4Bsj2JOB7KC1ADKvRDyIIIuu2LL8A+W4MFgSg2WEhMlGl/URuGTiA7kAwksa
+ 60/Cx+uptahFc0a/HCUoTSri8H37IGQ=
+X-Authority-Analysis: v=2.4 cv=JdSMa0KV c=1 sm=1 tr=0 ts=6a9d5a46 cx=c_pps
+ a=cGw96uMdUXN41aDBKcSctA==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=ybLVR-bQ3a4UdHOyz1MA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-05_08,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
+ malwarescore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609060136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_051426_912173_74036B56 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260906_051922_449777_8B4C6D7B 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +179,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__is_affected_midr_range() is handed the MIDR and REVIDR of one target
-implementation CPU, but tests the erratum's range with is_midr_in_range(),
-which re-scans all of target_impl_cpus[] and ignores the @midr argument.
-The range test is thus constant across the per-CPU loop in
-is_affected_midr_range() and only answers "is any target CPU in range".
+Hello Udit,
 
-Since just the fixed_revs REVIDR check uses the iteration's own registers,
-an out-of-range target CPU can decide whether a MIDR_FIXED() exemption
-applies. A VM then enables a workaround whose only in-range CPU is fixed
-silicon, e.g. erratum 2658417 on a Cortex-A510 r1p1 with REVIDR_EL1[25]
-set.
+On 9/6/2026 11:13 AM, Kumar, Udit wrote:
+> 
+> 
+> On 8/11/2026 11:43 AM, Siddharth Vadapalli wrote:
+>> Add the 'ethernet0' alias for the Ethernet interface corresponding to the
+>> MCU CPSW2G instance of the CPSW Ethernet Switch on the J7200 Common
+>> Processor Board.
+>>
+>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>> index 54dea36b153b..ac1c1ffe40b7 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
+>> @@ -24,6 +24,7 @@ aliases {
+>>   		serial5 = &main_uart3;
+>>   		mmc0 = &main_sdhci0;
+>>   		mmc1 = &main_sdhci1;
+>> +		ethernet0 = &cpsw_port1;
+> 
+> Hello Siddharth,
+> As default only 1 cpsw port is enabled for all boards in this series.
+> So ethernet0 will be cpsw_port1 always, In case you want to enable more
+> port in default config then having aliasing will help.
+> 
+> otherwise, you can consider to add aliasing in overlays where you enable
+> more than 1 port.
+> 
 
-Factor the range test into __is_midr_in_range(), which takes an explicit
-MIDR, and use it in __is_affected_midr_range().
+The first patch in the series for k3-am62a7-sk has two ports enabled by 
+default, so there it's fine to add alias. Also, there are many other TI 
+K3 platforms which have only one cpsw port enabled but still define 
+aliases. So I guess to keep it consistent, we can decide to accept this. 
+If future overlays are added, this will just mean reserving eth0 for 
+cpsw port1 which is also fine. I am fine to move with accepting this series.
 
-Fixes: 86edf6bdcf05 ("smccc/kvm_guest: Enable errata based on implementation CPUs")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
- arch/arm64/kernel/cpu_errata.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+Acked-by: Hari Prasath Gujulan Elango <gehariprasath@ti.com>
 
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index b33dccfafaf8..8ec47d89b45b 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -28,18 +28,21 @@ bool cpu_errata_set_target_impl(u64 num, void *impl_cpus)
- 	return true;
- }
- 
-+static inline bool __is_midr_in_range(u32 midr, struct midr_range const *range)
-+{
-+	return midr_is_cpu_model_range(midr, range->model,
-+				       range->rv_min, range->rv_max);
-+}
-+
- static inline bool is_midr_in_range(struct midr_range const *range)
- {
- 	int i;
- 
- 	if (!target_impl_cpu_num)
--		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
--					       range->rv_min, range->rv_max);
-+		return __is_midr_in_range(read_cpuid_id(), range);
- 
- 	for (i = 0; i < target_impl_cpu_num; i++) {
--		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
--					    range->model,
--					    range->rv_min, range->rv_max))
-+		if (__is_midr_in_range(target_impl_cpus[i].midr, range))
- 			return true;
- 	}
- 	return false;
-@@ -59,7 +62,7 @@ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- 			 u32 midr, u32 revidr)
- {
- 	const struct arm64_midr_revidr *fix;
--	if (!is_midr_in_range(&entry->midr_range))
-+	if (!__is_midr_in_range(midr, &entry->midr_range))
- 		return false;
- 
- 	midr &= MIDR_REVISION_MASK | MIDR_VARIANT_MASK;
--- 
-2.55.0
+Regards,
+Hari
+
+>>   	};
+>>   
+>>   	chosen {
+> 
 
 
