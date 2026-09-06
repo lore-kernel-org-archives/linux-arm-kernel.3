@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0EBC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE104C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VuPvo+h6QX1slm6eVL0VdfPkLv4Csp05nKAR7+8MZ3k=; b=FwxJqwuwTtib77hIgBsDygJYtQ
-	vkl+N2nigPYscjVwJsEDbhpG2EG2MjRiMmghQEnF0cL4aefDwzXCIgiyDx1U084mG6PTOgLOeKcgf
-	ObqwJfIf8J/AfGzwPdn5yMwfTdityitiohdry7rQRqXRQQcwOsFLHn1EB2OBYM/72IBiY6/58wmO4
-	BSOffYn6e1YAk1BFTIbqn476JiltlJTF0GhBsqkdHdUdnjPYPNYaQcTc6mK9Y38+CPIjhyU560U5+
-	WZz+AYazluhSQkL3wchi72ct1kjC2uD01HcEY+LlkYvZHuG4PAc9bEjPHGBU65DyonUr+zdiLVaUH
-	oAtmGEEw==;
+	bh=TWa86xSo2EM7HfD7rT76RWRGqKAuqqO2x3EPFvEsdAw=; b=xjTOS1Ol4+KLY/jAMZsbxhDx88
+	x6Nt/e2KCZeW6rOAqBesozcTEYgbsH7PQMM0rMdUI19XCDA9TSKZU03shJoGREug/MR9dJXkB97hU
+	oJaK9K7WuwObWTPM6HxmAKz2sJsTfsNLKP5+3YZ+j2k+DAykdLJaLVSjUvC6rPJaX1+qFuzQ0B+ME
+	A2+qyMmyCjNc+v0m1T//TqQXibSM/90k7dgEuXVvqtsmkDJzQaPBifqQCGx1uVlCHkBfdoxHEcOis
+	lSad41dnLhc7aEu/JZTtfKRXVX2k04vW1q/PiT8j7y94vLa5v/+AUES16915SUvxe1GIvu2oVeSxw
+	b/aALy4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36d7-00000004m9O-2OEx;
-	Sun, 06 Sep 2026 06:45:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x36nD-00000004mrF-10Mm;
+	Sun, 06 Sep 2026 06:55:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36d6-00000004m9I-1gg3
+	id 1x36nC-00000004mr9-2kvN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 06:45:28 +0000
+	Sun, 06 Sep 2026 06:55:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 37032412D7;
-	Sun,  6 Sep 2026 06:45:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FDD41F00A3A;
-	Sun,  6 Sep 2026 06:45:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 883CA43633;
+	Sun,  6 Sep 2026 06:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA451F00A3A;
+	Sun,  6 Sep 2026 06:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788677127;
-	bh=VuPvo+h6QX1slm6eVL0VdfPkLv4Csp05nKAR7+8MZ3k=;
+	s=k20260515; t=1788677752;
+	bh=TWa86xSo2EM7HfD7rT76RWRGqKAuqqO2x3EPFvEsdAw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=aJv37LIk1nsQTrQL16AHIYsjtv5ajLCUecL2DGeLnr4NG8GgZ5s+cJ6HllOV3rJaV
-	 R0H4+IqbaNVTXtizTtaIB2W4Lemsg63BNyPL0Fhq5sWQ5fju6sbxYwU1z31WA6fFLr
-	 f7bvU7hANH+3XMF8KK5WoxnNlxuL9XxLAymfNmz06zJRkyayM/BEp7p8VJTJeqCHPV
-	 UcdOgaZSuBZvbNhUl3t6OvIKUM6A0YL/k1dC4AYJGPTUSXY+Lw7SdQix8lJWj5ZMno
-	 5tMGwjcD9v1CglDlsr9N286ILo+af9WwF8lyYD4xUWDo6b8TrwKXE+HWZwgd5eR3YH
-	 jR+XhwdLTyVoA==
-Message-ID: <f76cef66-1283-440e-9530-6eb7168c6e58@kernel.org>
-Date: Sun, 6 Sep 2026 08:45:19 +0200
+	b=DRihK53RuGMSiH8chL7jimw4KeXWs8fm/rKej946fBVmDRRFPZ1bSR4xp1s7AH6Cz
+	 +b6DSYwoYr/HJUqg4FzaodhtKLkzm8GEeIc1pRm2QLaNSS0AUCOkCvsGzGNOobLCzf
+	 1Tj9vlb/sEvsk+I573kMrUc8RTPmO77wFDYDOeCwwUb2nnMwMmXAOSpyRofvh0+uKL
+	 MfgvD5Ra+3Anrxhd//323lEIhCG2DODpF8/kYF/QTXLzFgQ0sR44FAGMQhiT5BtLk6
+	 aAJVRV49OQHxpKYal+jhzRGKNQ1ELb+OQdiKs71Xgn6FNIkUm2uIsuqAn7mmXX9MD0
+	 rm7vID3/K65yw==
+Message-ID: <7c52bcf5-8b58-4c15-bf1a-ba7a0bb04db1@kernel.org>
+Date: Sun, 6 Sep 2026 08:55:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] dt-bindings: usb: Add CIX Sky1 USBSSP RCSU system
- controller
+Subject: Re: [PATCH v4 2/4] dt-bindings: usb: Add CIX Sky1 USBSSP controller
 To: Hongliang Yang <hongliang.yang@cixtech.com>, peter.chen@kernel.org,
  gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -56,7 +55,7 @@ To: Hongliang Yang <hongliang.yang@cixtech.com>, peter.chen@kernel.org,
 Cc: p.zabel@pengutronix.de, vkoul@kernel.org, neil.armstrong@linaro.org,
  pawell@cadence.com, rogerq@kernel.org
 References: <20260906032440.470788-1-hongliang.yang@cixtech.com>
- <20260906032440.470788-2-hongliang.yang@cixtech.com>
+ <20260906032440.470788-3-hongliang.yang@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260906032440.470788-2-hongliang.yang@cixtech.com>
+In-Reply-To: <20260906032440.470788-3-hongliang.yang@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,50 +119,181 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 06/09/2026 05:24, Hongliang Yang wrote:
-> Add device tree binding for the per-controller RCSU register regions
-> of the CIX Sky1 USBSSP controllers. The regions are exposed as syscon
-> nodes; USBSSP glue nodes reference their per-controller registers
-> through the cix,usb-rcsu phandle with register offsets.
+> Add device tree binding for the CIX Sky1 Cadence USBSSP controller
+> glue layer. The integration adds glue registers and mode strap
+> controls in the Sky1 S5 system controller. The CIX glue node wraps
+> a Cadence USBSSP core as a child node.
 > 
 > The per-controller RCSU control and status registers live in a shared
 > RCSU region described by the cix,sky1-usbss-rcsu binding and are
 > referenced through the cix,usb-rcsu phandle.
+> 
+> The per-controller RCSU registers are accessed through a syscon regmap
+> referenced by the cix,usb-rcsu phandle.
 > Signed-off-by: Hongliang Yang <hongliang.yang@cixtech.com>
 > ---
->  .../bindings/usb/cix,sky1-usbss-rcsu.yaml     | 46 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 47 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbss-rcsu.yaml
+>  .../bindings/usb/cix,sky1-usbssp.yaml         | 144 ++++++++++++++++++
+>  MAINTAINERS                                   |   3 +
+>  2 files changed, 147 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbss-rcsu.yaml b/Documentation/devicetree/bindings/usb/cix,sky1-usbss-rcsu.yaml
+> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
 > new file mode 100644
-> index 000000000000..d0c54fd2cd5f
+> index 000000000000..8e66dea50fa7
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbss-rcsu.yaml
-> @@ -0,0 +1,46 @@
+> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-usbssp.yaml
+> @@ -0,0 +1,144 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbss-rcsu.yaml#
+> +$id: http://devicetree.org/schemas/usb/cix,sky1-usbssp.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: CIX Sky1 USBSSP RCSU system controller
+> +title: CIX Sky1 Cadence USBSSP Controller
 > +
 > +maintainers:
 > +  - Hongliang Yang <hongliang.yang@cixtech.com>
 > +
 > +description:
-> +  The CIX Sky1 USBSSP controllers integrate their per-instance glue
-> +  registers (AXI bus attribute configuration and controller status)
-> +  inside a shared RCSU register region in the SoC system control
-> +  aperture. This binding describes that region as a syscon, so USBSSP
+> +  The CIX Sky1 USBSSP controller is based on the Cadence USBSSP DRD
+> +  controller. The integration adds glue registers and mode strap controls
+> +  in the Sky1 S5 system controller. The CIX glue node wraps a Cadence
+> +  USBSSP core as a child node. The per-controller RCSU control/status
+> +  registers live in a shared RCSU region and are accessed through the
+> +  cix,usb-rcsu phandle.
+> +
+> +properties:
+> +  compatible:
+> +    const: cix,sky1-usbssp
+> +
 
-In the description you describe hardware, not binding.
+No MMIO here?
 
-> +  glue nodes can reference their register offsets through the
-> +  cix,usb-rcsu phandle (see cix,sky1-usbssp.yaml).
+> +  cix,usb-rcsu:
 
-Syscon is not a USB device. This is not supposed to be in USB.
+Then this is your device.
+
+Last time you claimed you have TWO registers. ONLY. Now you claim you
+have entire address space, but somewhere else.
+
+If you do not have here MMIO, then this glue layer is not a separate
+device node and you should have one node only, just like we did for DWC.
+One node for glue layer and CDNS USB.
+
+If you have here MMIO for some glue over IP block, then it is unlikely
+to be a syscon.
+
+
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: |
+> +      A phandle to the USBSSP RCSU system controller region (see
+> +      cix,sky1-usbss-rcsu.yaml) followed by two cells: the offset of
+> +      the AXI property configuration register and the offset of the
+> +      controller status register, both relative to the RCSU region.
+> +    items:
+> +      items:
+> +        - description: phandle to the USBSSP RCSU syscon node
+> +        - description: offset of the AXI property configuration register
+> +        - description: offset of the controller status register
+> +
+> +  clocks:
+> +    items:
+> +      - description: Start-of-frame clock
+> +      - description: AXI bus clock
+> +      - description: Low-power mode clock
+> +      - description: APB register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sof
+> +      - const: axi
+> +      - const: lpm
+> +      - const: apb
+> +
+> +  resets:
+> +    items:
+> +      - description: APB register reset
+> +      - description: Controller reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: apb
+> +      - const: core
+> +
+> +  cix,usb-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the Sky1 S5 system controller used to program USB mode
+> +      strap controls.
+
+One more syscon?
+
+> +
+> +  "#address-cells":
+> +    const: 2
+> +
+> +  "#size-cells":
+> +    const: 2
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +  "^usb@[0-9a-f]+$":
+> +    $ref: cdns,usb3.yaml#
+> +
+> +required:
+> +  - compatible
+> +  - cix,usb-rcsu
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - cix,usb-syscon
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - ranges
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/cix,sky1.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        rcsu: syscon@91c0300 {
+> +            compatible = "cix,sky1-usbss-rcsu", "syscon";
+> +            reg = <0x00 0x091c0300 0x00 0x200>;
+> +        };
+
+Drop node irrelevant.
+
+
+> +
+> +        usb-4 {
+
+This is just "usb". Not usb-foo.
+
+> +            compatible = "cix,sky1-usbssp";
+> +            ranges;
+> +            #address-cells = <2>;
+> +
+> +            clocks = <&scmi_clk CLK_TREE_USB3A_H0_CLK_SOF>,
+> +                     <&scmi_clk CLK_TREE_USB3A_0_AXI_GATE>,
+> +                     <&scmi_clk CLK_TREE_USB3A_H0_CLK_LPM>,
+> +                     <&scmi_clk CLK_TREE_USB3A_0_APB_GATE>;
+> +            clock-names = "sof", "axi", "lpm", "apb";
+> +            resets = <&src SKY1_USBC_SS2_PRST_N>,
+> +                     <&src SKY1_USBC_SS2_RST_N>;
+> +            reset-names = "apb", "core";
+> +            #size-cells = <2>;
+
+size-cells follows address-cells.
 
 
 Best regards,
