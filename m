@@ -4,113 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E6FC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06767C79F8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 06:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUYGWPU/6GKQdrK+wAxb4AJFZFkx+FBp894k/+lmTWk=; b=BaBgeovVMISsNiydVUASDYnJIB
-	nccWT0sj0NuD397uDHfi6kPAT9GOXv6ec5sKxiqz9SJpdDmdfgOCMcZJ8JjgS6+tNce0KVGjeEXP9
-	1Xtn2gqJlXN7N0k6DVBPT/2O2JUbUMiExJ0KGqaZ/ExREiPkGHK6gl+i1dggUFxA8HsChk5ziOilG
-	lN0+ZqPtcLKrg9bMu8lw2FcFDfBtbJj9eTTvBQZQTWNX9X+HAJy/KdyZFlbzQynJnAVMhwpZAT6hL
-	tdSvmYBDdoTaOa5XWVh74MmDRIMlVTeL/7XFaayrHTAP9eOK1JvJRZD8gQ80eulz9iHQE5cOcuUEs
-	cjma4voQ==;
+	bh=CowhusBJtkVgTxM1sMewOhXaozR9ys1uAKwcRp0eiRc=; b=cSqJ0Sp5Rabfy+HAvWr6qc063q
+	+hp44qlyzQW0fBmx2g9wVMYX318DlBoogYgcOr7e/7KYnMGhiI1F+9nZpRznNNZNtfYZNq5H+iec4
+	pCTsnXREyWoP2pNXEJaGGluIv1j1Sqwgm5VMZDwpO1jwcw3rhCcDqE1LON892gxT9UQKNMNIjWyzc
+	EoCXuA6v31g5pvDpZLZxuJeXQQESO+xXhiP5zLaIChmMUHFTL7qXcbwRYeeMV65mAdTeNSKnR5Z/f
+	T8KzP3CoFVGDkzANDqPGS32ncg6E5UaJLXJHYo40OuWvZDf9J9QfXxRm1VF6pbqJrUky8FqPcCjQg
+	vgSYTmVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36P6-00000004lFo-1DFX;
-	Sun, 06 Sep 2026 06:31:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x36Pl-00000004lM9-2r6b;
+	Sun, 06 Sep 2026 06:31:41 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36P3-00000004lFX-2CZV;
-	Sun, 06 Sep 2026 06:30:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3575E41372;
-	Sun,  6 Sep 2026 06:30:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE6D1F00A3A;
-	Sun,  6 Sep 2026 06:30:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788676256;
-	bh=yUYGWPU/6GKQdrK+wAxb4AJFZFkx+FBp894k/+lmTWk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=kSW5enXLFA0L/l737Smugwl7bKjjXQBIXhIbdL+WpVyCmtpftbInh3sfv3KG4alqM
-	 qiOT5N4/btZ3ELKI43Exf0FSXZiLRvwq5r47fNt+rfFvAyNwQLc/RM5GPFCmPs2pXB
-	 ByqqpqqyrH2hOY92+cXDYijy4I0N0kSwN/PBsPli6gEYlOdPAU3hvzUp0EVPx+5td5
-	 9FjYpp11OQsQUry0HAV/ddJkWo+MfvfY1GSQv9/gVBN+Bh6XwtvefAFSX9nBAQRx5a
-	 5GEDlMECHGWSWiJKEDHtmvIOcDnkhdJojshmEV1jE2qoQ7bCpZpAata55TuPXjAzus
-	 V4l030gUg2ndw==
-Message-ID: <98a0dbf7-9724-4ccc-8810-645dfe715656@kernel.org>
-Date: Sun, 6 Sep 2026 08:30:40 +0200
+	id 1x36Pj-00000004lLJ-0sv8
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 06 Sep 2026 06:31:40 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c2569aa5116so537466766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 05 Sep 2026 23:31:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788676294; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ILdptns1XidlTls8ImMvd6xKtd+CA+U0xpTpc11kmO9h7TvNnB+m4S5lCS0AoK2GGJ
+         oTE3swDG8K94ra5m74KloLVrJ3f/f92mRsqSKWNcFAmPJgPMm5o9bqJ8o8rPoZ+G6H2T
+         l6gmmejLdXyip5vn0Nzzz2P3YKDTGUstOez5yGGsP/4YgoGLX07Fv70IoSb/rK/GAT2+
+         UMQTA70jDQoe9a8L8r+lhHRwkExNgr1AyR18aSwUgfwk2oN1OgoVPz7d5hXh5o9e+9CO
+         b3+fRX4RZJlIxvnWzZdR9WPXFIX9svGA3R3nwtjtqfsdycL2mw4zOGu7Ev/pncCf8VrC
+         jDVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CowhusBJtkVgTxM1sMewOhXaozR9ys1uAKwcRp0eiRc=;
+        fh=oDOSq9KYXZUjBetEmEsvVhxXqK8MvHQp59THQXJdPrs=;
+        b=JmgDfQ6wPk+z17PE93JHUdA8o1wTtRPx7LECPIPo+GXFyv2Xc6BajTsVDUJjcVi14n
+         hVIV5O4xHsU1YPEXLVsqdjPDWLasW31KfmzWUDDR5hbyno+yOY2mDGUx6/W+Tc1AmxBg
+         YBI86t+T1ieu8am8I3viUXilvCdJ37BYMQPIQUGo4+uBojXod4AaJ7m3zdnkLGODQsAM
+         JV02DNRKHgOxYUeWZF+cRKZ918TVkfJIz854WrljKkI2QoVhPedM6HngWgFy77fdOJux
+         dld1Ar/HBHBSnCr3RwaWedA3UOXlXFomTGtA3IH1EaH+r1pfq5monnjvlH0NtABqJyXo
+         br2A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1788676294; x=1789281094; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CowhusBJtkVgTxM1sMewOhXaozR9ys1uAKwcRp0eiRc=;
+        b=wgBF0PuEyVq6rPFWoCse8w9Lp4rDPDLGkS7WsI2XcJN+5ydg3Ax0IZZ6Kwug2nJGQA
+         06qN5wVgrJTAFeZvQivYKCLrNHxsy5vzk7LquYbdpTYHy17n5Y6R4/Kz9j34frCUNlJn
+         uUNtXNbV7nOIdMGMqwxkmQQqGPsNX3JiKqn/cHVWJd5RUlWl+/Y16nwYMrxtAySE9+t/
+         peHPY7rG1H16OFG0hEVss1wVJwg4QSPPAB4dN37UCy3Ee0rIUIUhIOAVyx4znzrU4yKr
+         TfXN7pfbTv4XLqETrOHfW26Clp98LfoBTtUrMYU7rUdkmWKdVGGhHGQXkpPZYt4B8cTZ
+         JB0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788676294; x=1789281094;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CowhusBJtkVgTxM1sMewOhXaozR9ys1uAKwcRp0eiRc=;
+        b=lTy6leX5g/gEbgbOFuWWPip1nV3MGKz57WGXZXGTyrPG/RQBktRULjF+DhElfe6x+7
+         pzkapfL1GX96uio/Kj3g6Ct/Gjug8elfg04x7Tle97CP6Cwx1ngKeBotmaZUwKRGw/qS
+         Gt+4KA8ajNjZS88hFb+RN6K/MkQ6EcnGHDixzQU9iLUH4ezoYVE0uevk5NJKMxN837Zf
+         R8lrZC1HO3h0/mNN5AFHGMB3ctH8SP7kNftHIzOiHz4KMYfm/xGzs5x8O3L0CN3cCUs8
+         Lgi8RQdyv51WpHnIVUGG7zFmy6YxhKdbcru5+xCajRmSM8kvpvM7+kkRDTh/TRP+iS0x
+         oa7w==
+X-Forwarded-Encrypted: i=1; AKwUvBwlKC+JdWVkkZDY/tCasSTfPYt3EklTOwEEMfxzVCxz02fbaWsK8WySHtZMzkrf03kVjBmB/Bo+daRu8aHFbZY4@lists.infradead.org
+X-Gm-Message-State: AFuF++mhMDnLg9/BtmfilXXWkWSPGyf61ZyneyaaOXL511+XoC+atSeI
+	IqfeEfPRLy4gGdttX8gl5b1i/CI691hTuUfDTkaJXGBItRXHkoBCCviXi6wGOhrhogdTDKbMes5
+	nRF8wKq2986ulfV/R4E/vd0dE9chAbbO6CNMowln54g==
+X-Gm-Gg: AYBFou15FewPl5YMf9/Nyn2PQo+5b/0DC8KWJWrVm9qPjW+JRBZUufVAAZVQDXsp02w
+	26EcYW53J++oGbMmbZHL82s+Q9c9zHxtvzoSjvvzi7Pcr1CdtKPcdjySEL+gD2wKT0Oybz8Qw2l
+	EpmoRr0bM9W9G1mQaltzk5Ne05bpFCcBYuoUgqNEZtb1x//3mL0ZGVe63MC39xzUGy3/HRdrZw/
+	ymSSZbPnzfVNy1GUaXGeCHk2vs4Zy3eQA+R/pJ7lcRwOKH1Q9OiEzs5PAy/9qrfaAjK//nn+Wff
+	TXA3EgjhJ+fAPM9JoWLXJ8DREzJabJdAJG53xgtkJ7oVZekQ4GXn2QBsHYDgS9qLi+2xHmW+u0V
+	/MM8=
+X-Received: by 2002:a17:907:c80d:b0:c25:f7dc:2d5 with SMTP id
+ a640c23a62f3a-c25f7dc0956mr720225966b.22.1788676294144; Sat, 05 Sep 2026
+ 23:31:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] devfreq: Use %pe to print error pointers symbolically
-To: Sumeet Pawnikar <sumeet4linux@gmail.com>, rafael@kernel.org,
- amit.kachhap@gmail.com, daniel.lezcano@kernel.org, thara.gopinath@gmail.com,
- talel@amazon.com, hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
- mmayer@broadcom.com, viresh.kumar@linaro.org, sumitg@nvidia.com,
- peter.griffin@linaro.org, myungjoo.ham@samsung.com,
- kyungmin.park@samsung.com, cw00.choi@samsung.com, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, sven@kernel.org, j@jannau.net,
- marcan@marcan.st, casey.connolly@linaro.org, sre@kernel.org,
- wens@kernel.org, t.schramm@manjaro.org
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-samsung-soc@vger.kernel.org,
- kernel@pengutronix.de, imx@lists.linux.dev,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260906061755.5103-1-sumeet4linux@gmail.com>
- <20260906061755.5103-5-sumeet4linux@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260906061755.5103-5-sumeet4linux@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260901234351.190506-1-anarsoul@gmail.com> <CAKTNdwFqSBt4QVCuYJxTyEDsxkW96JbUirFNAgJYWVLHzGpk4A@mail.gmail.com>
+ <CA+E=qVcizyQZytw8M6DA72YGrRDDNx_cCvYj565zf9wjMWh8tg@mail.gmail.com>
+ <CAKTNdwFQvKtHQA0JD-GAq3bgr5Brq2NyLfccenkHcrKcjeptwg@mail.gmail.com> <CA+E=qVcwtnU_Gg6_oFmWqMpCEF8vOvB_G+H-ihfbiAr0PpFUJw@mail.gmail.com>
+In-Reply-To: <CA+E=qVcwtnU_Gg6_oFmWqMpCEF8vOvB_G+H-ihfbiAr0PpFUJw@mail.gmail.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Sun, 6 Sep 2026 10:31:23 +0400
+X-Gm-Features: AcwNN1WMMbAQ2CuZOa8tZDe3nBXerl1P7S6WAcKAg4su3ebkGU8XnfBv_73Boic
+Message-ID: <CAKTNdwGTacFvn5BEN+iu0OBG2BUas7Vfj=YYF8OhAhNq-9kmyg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] clk: rockchip: rk3399: add 85.5 MHz rate to PLL rate table
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260905_233139_292975_B0E5605A 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,16 +125,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/09/2026 08:17, Sumeet Pawnikar wrote:
->  		ret = -EPROBE_DEFER;
-> -		dev_err(dev, "failed to add devfreq device: %ld\n",
-> -			PTR_ERR(drv->devfreq));
-> +		dev_err(dev, "failed to add devfreq device: %pe\n",
-> +			drv->devfreq);
+On Sun, Sep 6, 2026 at 10:09=E2=80=AFAM Vasily Khoruzhick <anarsoul@gmail.c=
+om> wrote:
+>
+> On Fri, Sep 4, 2026 at 2:36=E2=80=AFAM Alexey Charkov <alchark@flipper.ne=
+t> wrote:
+>
+> > > See arch/arm64/boot/dts/rockchip/rk3399-base.dtsi, hdmi ref clock is
+> > > wired directly to VPLL, and dw_hdmi-rockchip calls clk_set_rate() wit=
+h
+> > > pixel clock for ref clock, see
+> > > dw_hdmi_rockchip_encoder_atomic_mode_set(). So at least in the rk3399
+> > > case VPLL is supposed to support the required pixel clock. Without th=
+e
+> > > first patch 1366x768 mode with 85.5MHz pixel clock is just rejected.
+> >
+> > I strongly suspect that the dtsi doesn't describe the real clock usage
+> > here. The TRM for RK3399 doesn't show any "ref" clock for HDMI, and no
+> > TRM-documented VPLL users look like anything that could connect
+> > directly to the HDMI controller.
+>
+> See "1.1.11 HDMI Interface", it explicitly mentions 13.5=E2=80=93600MHz i=
+nput
+> reference clock
 
-Instead you should use dev_err_probe and drop the last argument.
+Which matches the pixel clock (dclk) range for HDMI 2.0, so nothing is
+disproven yet
 
+> > I believe something is hardcoding the divisor (or leaving it at the
+> > power-on default) in the actual DCLK of a VOP which the HDMI
+> > controller uses, instead of modelling it properly as a mux (frac/div)
+> > feeding off VPLL via another mux - both perfectly representable in the
+> > clock framework and already envisaged in the clock driver, making the
+> > PLL table patching unnecessary.
+> >
+> > Can you please try re-pointing the "ref" clock at DCLK_VOP0 (or 1,
+> > depending on which one your HDMI controller uses)? Your clock summary
+> > already shows that something is assigning its parent to DCLK_VOPx_DIV
+> > and the latter's parent to PLL_VPLL, so rate changes the current
+> > driver code does on VPLL propagate to the muxed and divided downstream
+> > consumer as a side-effect rather than as an actual rate request.
+>
+> I don't think it is a reasonable ask. Wrong clock for the HDMI encoder
+> would just result in non-working HDMI output and no feasible way for
+> me to debug what is wrong.
+
+Hope you have a serial console or ssh connection to the board. If it
+doesn't work you'll know soon enough.
+
+What I'm pointing out is that the clock setup implied by the current
+dtsi doesn't make much sense: VOP's dclk is driven off VPLL via a mux
+and divisor. If the encoder's pixel clock is truly driven directly off
+VPLL then Rockchip designed the muxes and dividers for nothing, as
+they will always be no-ops. This doesn't square, so something must be
+wrong, and I believe it's the dtsi.
+
+I'll be happy to be proven wrong here.
 
 Best regards,
-Krzysztof
+Alexey
 
