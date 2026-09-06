@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B940BC79F82
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA2DC79F85
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 01:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ik/5vYpLnC43rMJ94CAnAt0vjohGb4d5FflUF+lDJlQ=; b=2JqPaOc026z6j/P+meYWtQaikN
-	iz6sPnD/mOsTH2/QQxMYdB0iuxFdk5CEgnxB6zg/qjtEeYEFuQc1ipqDt822tuBHj954v/fVU6/Go
-	+f+dSgv1WnxHwi0hKl46PJgSHi2WIolo+el0kAlC49IlxunivoQ71H1qo+qoRhtfUamUJ8qu0YmbH
-	lTW5DFbjc3J6UxtTkpyuBwEzChWl13WB8tOFKz2sATrRqR2WJoEmDktOYO5iDq5K90+KSU+FXP5kM
-	b2wifbDXlkjwKniR1R9nE46LzXwLMtqopWbDYnpPZ48r6PIkbGuSqVt0svxCSsdXQtV/OUlh/LNq9
-	itHpEsDg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C1MjpwS8fNqXTMmr7HcpBYdK6oHI7oxdgwvpon9ozKo=; b=tsPFcpoCb/ERBKrqV5YXZ8xQCe
+	gNKmjo2AM6CPGpotbBqo18cslAqUO5YpOEAi39OCge+x/ZX3ZpfCGQgu1DSyGOPK4l9OfnXWbcyP4
+	JIB5AwGa3C3ZVSaYHH8B5gWbK/sSi0q/TJzO3ON4xfNGFpKfuy/Q6qL0LQ4okflr+UCVON+CNz0R+
+	vflsXlT12wrEktCCvAVcDKSBuJnarePX/VunKP0KnST+TjGacJr8dUrqCVGUfuqTyCY07y3s/xwXc
+	SxmWNS25UO1gl7lx+5cvqfpZrOZGRBLaPfiCAkmGqjZHqyvHjooXmHjfJFVs6gT0CUrrzv9/Mofh7
+	+6OJUWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31mJ-00000004Xws-3r2K;
-	Sun, 06 Sep 2026 01:34:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x31mO-00000004XzU-0bsS;
+	Sun, 06 Sep 2026 01:34:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x31mI-00000004Xw5-1KHn;
+	id 1x31mI-00000004Xw7-1wMD;
 	Sun, 06 Sep 2026 01:34:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 39BFF43778;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EA8E60D7B;
 	Sun,  6 Sep 2026 01:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 059C9C2BCFA;
-	Sun,  6 Sep 2026 01:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EC4D0C2BCB3;
+	Sun,  6 Sep 2026 01:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788658476;
-	bh=d9wUPYj1fcxFp3gWDGtuJ2V5k7ePRRGkBzD7EqpEMCE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=L46D8KSsPQ6m5RQJrGzyVbUOq5P33crp9YIgw61zIpSiF3SJPONOe+eR6eUzpBFGf
-	 zsndtsZ3wQa+g4u52bi55E1d2ehoAkeFhV4jT4htV32QY8Vqbn48Xw3/AoZpqBKIt0
-	 HF8URTVCzJOMG26l6VttxDEtsceUXJfY6aoqwLQ+M+6GJ70CkEKShRx/G6I5fw2UG4
-	 jUXAPViFpw+hpRV9bb2v0jBb2GTNnO/OwIrqTQfp4sKJXuDK2uErNeyEPs7mj25n3X
-	 BbMzr0+je5pIftnTL3yxJjamT+eaxRUZA88F+YSgqNB8n7BF2Gst0AlDDa5Dy8BjrQ
-	 Xa41deH5cFS6Q==
+	bh=avEl6Sz+TjiLyylxOf8PD9ekUp90PnIXR/pxu3BUxLI=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Ztou4j3OWCmS1erRaneiCoggJhWjeK8ul7EV5pdriwYZqYjEgCk2RfDlgDsWPBCUa
+	 CgZWfIPFrc6y2DxsY+KFYb6cZibH+yIBYyfCIqEw1b8ofxj4nQ54Q61TEywlLjZPPS
+	 sGdfXRD/D87iP/x6aWvFTnSa3RmZgr1yvJ3mw9tPgZrBtiJXmPJh1of7SR6qzyJzUP
+	 CB9IELzotL6+N/ZH+7EfmN+5jKG1fIn7nsWgAFP7L0DG3gfLjlaWEyTL2wmj0epCmH
+	 WyzJsDYeMwwVDWKwte103nAatZ1lFFh0/W5HA+dfoCzxkmCJhg/SIOi0S0TLVztsSg
+	 +I+o+9pdI/5WA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DAA58C624DB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C71E5C79F85;
 	Sun,  6 Sep 2026 01:34:35 +0000 (UTC)
 From: Ryan Brue via B4 Relay <devnull+ryanbrue.dev.gmail.com@kernel.org>
-Date: Sat, 05 Sep 2026 20:34:34 -0500
-Subject: [PATCH 1/2] dt-bindings: display: panel: add Novatek NT51021
+Subject: [PATCH 0/2] drm/panel: add the Novatek NT51021 panel in the Amazon
+ Fire HD 10
+Date: Sat, 05 Sep 2026 20:34:33 -0500
+Message-Id: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-1-939f59e89fc9@gmail.com>
-References: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
-In-Reply-To: <20260905-rbrue-drm-panel-add-novatek-nt51021-v1-0-939f59e89fc9@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNSw7CIBRG4a00d+xNAC0+ttI4gPKr+KDNhTYmT
+ fcu6vCbnLNQhkRkOjULCeaY45Aq9Kah/ubSFRxDNRllrDqqlsXLBA7y4tElPNmFwGmYXcGDU2m
+ 1Mpq9OVhn99gFbKmWRsElvn+X7vx3nvwdffmmaV0/SGaatYcAAAA=
+X-Change-ID: 20260905-rbrue-drm-panel-add-novatek-nt51021-b286a67e4de3
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
  Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>, 
@@ -66,11 +69,11 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788658475; l=3260;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788658475; l=2651;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=OucYPSbkdRKOXX71YqLEkAw3zmqM74CD8sy3ta2ahmU=;
- b=PO5JgYFHpu6BgI2fM/vrLk1wZB4hZ/5rErx2tt+ZqYUIvvlMj4yP4Y3HrLUwAg2A2X3qX421g
- G7XEq9T+aibC7+rL8hQK6/c9TtzLqO+v9sA48rNGBPQuNi3i5JUuimW
+ bh=avEl6Sz+TjiLyylxOf8PD9ekUp90PnIXR/pxu3BUxLI=;
+ b=IM9PZI28G1lsl2IHZmyHX/r5dytfWQ+wNiSCk8fbEACgafyEcl7++eFRZXKVKGsEqGm2VIT8y
+ NYtLQvN0fL0Dz6Y2Q0icOzhiwm9RZ9b+m0ngUZM3OweE12+z99l4ydr
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 X-Endpoint-Received: by B4 Relay for ryanbrue.dev@gmail.com/20260906 with
@@ -91,11 +94,9 @@ Reply-To: ryanbrue.dev@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-
-The Novatek NT51021 is a DSI panel controller driving 1200x1920 WUXGA
-panels over four lanes in video mode. It is fitted in the Amazon Fire HD 10
-(2017), on a module carrying BOE glass.
+Add the 1200x1920 DSI panel fitted to the Amazon Fire HD 10 (2017), an
+MT8173 tablet. The controller is a Novatek NT51021; the module carries
+BOE glass.
 
 The controller has no readable panel identity. MediaTek's LCM framework
 identifies panels through a .compare_id callback and the vendor's driver
@@ -112,89 +113,43 @@ Innolux unit to test with, and I don't know its part number, so it is not
 described here. Naming the glass in the compatible leaves room for it as
 a second compatible should someone have the hardware and the need.
 
-The rest is panel-common: a power supply, a reset GPIO, an optional
-backlight and the DSI port.
+This controller accepts commands either over I2C or in-band over DSI, and
+on the shipping boards it does not default to DSI. Writing 0xa5 to
+register 0x8f opens a window in which DSI commands are accepted and
+writing 0x00 closes it, so every command the driver sends, including
+sleep in/out and display on/off, has to sit inside such a window. That is
+why those are not simply issued from enable()/disable() as most panel
+drivers do.
 
-Assisted-by: LLM
+The vendor's timings are used verbatim.
+
+The board DTS that uses this is not in this series -- it's a whole new
+board file that I plan on upstreaming over time after getting its
+components upstreamed.
+
+Tested on the Amazon Fire HD 10 (2017) driven by mediatek-drm: 1200x1920
+at 62.5 Hz across a cold boot, three display off and on cycles and a
+suspend/resume, with the MIPI TX PLL read back at the intended rate.
+
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- .../bindings/display/panel/novatek,nt51021.yaml    | 65 ++++++++++++++++++++++
- 1 file changed, 65 insertions(+)
+Ryan Brue (2):
+      dt-bindings: display: panel: add Novatek NT51021
+      drm/panel: add Novatek NT51021 1200x1920 DSI panel driver
 
-diff --git a/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml b/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml
-new file mode 100644
-index 000000000000..ee3adc88ec9b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/novatek,nt51021.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/novatek,nt51021.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Novatek NT51021 based 1200x1920 DSI display panels
-+
-+maintainers:
-+  - Ryan Brue <ryanbrue.dev@gmail.com>
-+
-+description:
-+  The Novatek NT51021 is a DSI panel controller driving 1200x1920 WUXGA
-+  panels over four lanes in video mode. The controller carries no readable
-+  panel identity, so each panel module it is fitted to needs its own
-+  compatible naming the module.
-+
-+allOf:
-+  - $ref: panel-common.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: amazon,suez-boe-nt51021
-+      - const: novatek,nt51021
-+
-+  reg:
-+    maxItems: 1
-+
-+  power-supply: true
-+  reset-gpios: true
-+  backlight: true
-+  port: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - power-supply
-+  - reset-gpios
-+  - port
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    dsi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        panel@0 {
-+            compatible = "amazon,suez-boe-nt51021", "novatek,nt51021";
-+            reg = <0>;
-+            backlight = <&backlight_lcd>;
-+            power-supply = <&vgp6>;
-+            reset-gpios = <&pio 105 GPIO_ACTIVE_LOW>;
-+
-+            port {
-+                endpoint {
-+                    remote-endpoint = <&dsi_out>;
-+                };
-+            };
-+        };
-+    };
+ .../bindings/display/panel/novatek,nt51021.yaml    |  65 ++++
+ MAINTAINERS                                        |   7 +
+ drivers/gpu/drm/panel/Kconfig                      |  11 +
+ drivers/gpu/drm/panel/Makefile                     |   1 +
+ drivers/gpu/drm/panel/panel-novatek-nt51021.c      | 329 +++++++++++++++++++++
+ 5 files changed, 413 insertions(+)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20260905-rbrue-drm-panel-add-novatek-nt51021-b286a67e4de3
 
--- 
-2.55.0
+Best regards,
+--  
+Ryan Brue <ryanbrue.dev@gmail.com>
 
 
 
