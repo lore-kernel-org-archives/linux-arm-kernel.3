@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06811C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA48C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0dlg/OCZ/KvufmAUs7+NibuZAe4qcL98ZBaXdAOiso=; b=Cx3HVrLZlvKUD9c788pPdB7C8w
-	P3syuTtwFc81z2TzvU9dL4k0l1pu7ME1husUaquN1nJNsJmnPMNdKQL/g5HkkR+6rFDx33R27ocoq
-	BJsFnn7xtIh3behLI+Y/ZdWq3rhbIqCzr+fbsS2uEpD4Hw7eDLwNpXY3bROyVmxzOWUr22xOEc6Ze
-	sMpHbRkoOHLaQwVhqMy1gyhgOcQbIy9+iJRWEAYy6UlwOCyhrG5qBlBiKytRespW4Fuxv3OXXOF50
-	rIwbfqIc6dLqejwIQLHvjufdqe9zDitvsoXNRbVsGZC+XZ3UoW57I32EY4WbPX9z4WaMMg8AKM8kh
-	MIewy37w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F9xCmB2n+lLj6Lxf5ydEPeDJb7JUokXtCFqsV9aq1YU=; b=C5j75xfZUmVeyPO3xQ4Q0csbjy
+	UM+WjdycgAW/OB5fIMElZjphv2O9KsLhTnZkxhZVybkQS1kjvQVFChubOfRJAYU6mvsLkhiokgWPk
+	clgyhuAB7lPYc2lJIRkiuZd9q1HGIOOxRD7kbNzDMK376ubWxa7VqK+awM4dcU1UC8ipZFaL+2etB
+	4fJQq5KYk89o+wG9oCrvUy/Jm4Cz9YSK8xr5yCm3Rg4+AJA0I5/uwybW0OQIA/SqOCIbbhvEgVvr/
+	omZ0HdLtMhLLrj5XTroVG414MhcJUm66Y8GpIqLQH8X3pf7rNcAFWCMlQDqgTwRu8zpH+kevlpwE5
+	QFWfWQ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Ihs-00000005W17-47Vg;
-	Sun, 06 Sep 2026 19:39:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3ImP-00000005WQ4-26S4;
+	Sun, 06 Sep 2026 19:43:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Ihs-00000005W0y-0xB6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 19:39:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 25E51601F9;
-	Sun,  6 Sep 2026 19:39:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 625C61F00A3A;
-	Sun,  6 Sep 2026 19:39:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788723550;
-	bh=V0dlg/OCZ/KvufmAUs7+NibuZAe4qcL98ZBaXdAOiso=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iQNoTprdzIABHeaY8m1+qIYrChSBW4YR5g56ND0IDGxjVrUjtu75iXcCInOb1364I
-	 +wTB43doqgMJLnfBYJoSskumSgUkqMuUSGSIyoiPPsV5IWdYEYUL+GqtDQkjrs8b/w
-	 R6nDfbG6LsyEfVITroBVaYZCYKvjcF1I8vSvuQf2oWbg1ZiodwnpaEcX1THbxmnSe+
-	 IHQQ7ZglbTz7DzRXjtIv6JDrqgE4UHHd8b9zAX216R+bHlW31/yMX2GKkwGDEUCJoJ
-	 YO213e8leFhpd/Q0nqRYPJDTLfgotLWQBIY2H1TusP0BQqbzqo8eIUTF+jNybiPMEk
-	 M4oRLiEK08ijQ==
-Date: Sun, 6 Sep 2026 22:39:02 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	sudeep.holla@kernel.org, jenswi@kernel.org, robh@kernel.org,
-	mark.rutland@arm.com, sumit.garg@kernel.org, ardb@kernel.org,
-	thierry.reding@kernel.org, david@kernel.org, danielmentz@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 03/10] set_memory.h: Introduce
- can_set_direct_map_range()
-Message-ID: <ap3BVr5hHwA499gu@kernel.org>
-References: <20260902104712.2399797-1-vdonnefort@google.com>
- <20260902104712.2399797-4-vdonnefort@google.com>
+	id 1x3ImN-00000005WPi-2YdH;
+	Sun, 06 Sep 2026 19:43:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EE82601DE;
+	Sun,  6 Sep 2026 19:43:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1C8ABC2BCB8;
+	Sun,  6 Sep 2026 19:43:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788723830;
+	bh=0Z9VlpA0raG6r7XokDnQP1FPgmzr6zyFAP4bptvzFbc=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=FXgathLCtZ92nmpHgh1MgOPol30uGB1g34FojDDPo0uKFAGEp7U9lvJ2NaI6X7j+p
+	 lCH1zcv17uN6R6K4aE/UsiNIWFz9rA56TI57H7Qn5XHT1qR92dW27FpygEiZwIwc9S
+	 x8Dwn0NET3Mrik+dUAScxc/BeC6Nn5ceMYUT7erGYS2q02/4oW98CMU3mt9USm+3mC
+	 2ydKlTkvSvTTQJ40682kaw1NEKbxRXKYTpKLYCT3BgZSciPErPLBGbeyI69TrrVPXF
+	 uUVaL775VlZwB10T3nFS4CB7inmhO54DWkgDjErV5zD0dxDayiA5JPyGDGSNtHLtSZ
+	 28n8rbyNX8tCA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC505C79FA0;
+	Sun,  6 Sep 2026 19:43:49 +0000 (UTC)
+From: Miles Krause via B4 Relay <devnull+mileskrause5200.gmail.com@kernel.org>
+Date: Sun, 06 Sep 2026 15:43:48 -0400
+Subject: [PATCH] drm/meson: fix device_node leak in
+ meson_encoder_dsi_probe()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260902104712.2399797-4-vdonnefort@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260906-meson-dsi-of-node-leak-v1-1-9d183560279d@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAHPCnWoC/x3MTQqAIBBA4avErBswsR+7SrSQnGqoNByIILp70
+ vJbvPeAUGIS6IsHEl0sHENGVRYwrS4shOyzQSvdKKsaPEhiQC+MccYQPeFObsPWmM5a7+q20pD
+ jM9HM9z8exvf9AD146hxoAAAA
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Nicolas Belin <nbelin@baylibre.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>
+Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Miles Krause <mileskrause5200@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788723828; l=1903;
+ i=mileskrause5200@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=MzPOZoQJIZouNhopaY53pEz59ebt1korUstt2TswX5s=;
+ b=n7TDRXCuDuGLEEk4/VPeuku3N6NRmryW5wydClhaAsHiByeSusM+Nz8hYgNrxmDeRC7QSYUTm
+ N24E5yCU0OhCuzbiwy8lCyAhHI/GXTrgxQ923wq10hBuHkzwXY3Jr/P
+X-Developer-Key: i=mileskrause5200@gmail.com; a=ed25519;
+ pk=zcIfq4TGtPwMRJUW6WsbE2zLHvOMwk6ZyT/CGd6XzyI=
+X-Endpoint-Received: by B4 Relay for mileskrause5200@gmail.com/20260906
+ with auth_id=1010
+X-Original-From: Miles Krause <mileskrause5200@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,62 +88,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: mileskrause5200@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 02, 2026 at 11:47:05AM +0100, Vincent Donnefort wrote:
-> While can_set_direct_map() tells whether the direct map can be modified
-> globally, can_set_direct_map_range() checks if a specific range can be
-> modified. e.g. if mapped at PTE-level.
+From: Miles Krause <mileskrause5200@gmail.com>
 
-set_direct_map are going to have number of pages parameter soon:
+meson_encoder_dsi_probe() looks up the DSI transceiver's device node
+with of_graph_get_remote_node() and hands it to
+of_drm_find_and_get_bridge(), but never drops the reference that the
+lookup returned.
 
-https://lore.kernel.org/all/20260903-execmem-set-vm-perms-v0-2-v3-1-949b64a9f755@kernel.org
+of_graph_get_remote_node() returns the node with its refcount
+incremented, and of_drm_find_and_get_bridge() takes its own reference
+on the bridge it finds, so 'remote' is leaked on every path once the
+lookup succeeds: on the -EPROBE_DEFER return taken when no bridge is
+found, and on a fully successful probe alike.
 
-so this check can be a part of arm64::set_direct_map
+The two sibling encoders in this driver already handle this correctly.
+meson_encoder_cvbs_probe() calls of_node_put(remote) immediately after
+of_drm_find_and_get_bridge(), and meson_encoder_hdmi_probe() releases
+the node both on its error path and after of_find_device_by_node().
 
-I wouldn't expose can_set_direct_map_range() as a public API and rely on
-the callers to "Do The Right Thing".
-  
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> 
-> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> index 3030d9245f5a..88175c3fa751 100644
-> --- a/include/linux/set_memory.h
-> +++ b/include/linux/set_memory.h
-> @@ -44,6 +44,12 @@ static inline bool kernel_page_present(struct page *page)
->  {
->  	return true;
->  }
-> +
-> +static inline bool can_set_direct_map_range(struct page *page,
-> +					    unsigned long nr_pages)
-> +{
-> +	return false;
-> +}
->  #else /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
->  /*
->   * Some architectures, e.g. ARM64 can disable direct map modifications at
-> @@ -56,6 +62,14 @@ static inline bool can_set_direct_map(void)
->  }
->  #define can_set_direct_map can_set_direct_map
->  #endif
-> +
-> +#ifndef can_set_direct_map_range
-> +static inline bool can_set_direct_map_range(struct page *page, unsigned long nr_pages)
-> +{
-> +	return can_set_direct_map();
-> +}
-> +#define can_set_direct_map_range can_set_direct_map_range
-> +#endif
->  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
->  
->  #ifdef CONFIG_X86_64
-> -- 
-> 2.55.0.970.g62bdec98f9-goog
-> 
+Release the reference in the same place meson_encoder_cvbs_probe()
+does, which covers both the error and the success path.
 
+Fixes: 42dcf15f901c ("drm/meson: add DSI encoder")
+Signed-off-by: Miles Krause <mileskrause5200@gmail.com>
+---
+ drivers/gpu/drm/meson/meson_encoder_dsi.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/gpu/drm/meson/meson_encoder_dsi.c b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+index 3e422b612f74..3fe604496294 100644
+--- a/drivers/gpu/drm/meson/meson_encoder_dsi.c
++++ b/drivers/gpu/drm/meson/meson_encoder_dsi.c
+@@ -120,6 +120,7 @@ int meson_encoder_dsi_probe(struct meson_drm *priv)
+ 	}
+ 
+ 	meson_encoder_dsi->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
++	of_node_put(remote);
+ 	if (!meson_encoder_dsi->bridge.next_bridge)
+ 		return dev_err_probe(priv->dev, -EPROBE_DEFER,
+ 				     "Failed to find DSI transceiver bridge\n");
+
+---
+base-commit: 88405f0ad1d5c680afe3ea0ce9345fa9e1deaac8
+change-id: 20260906-meson-dsi-of-node-leak-744899da5712
+
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Miles Krause <mileskrause5200@gmail.com>
+
+
 
