@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E3CC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE7FC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 19:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2GaktLPPAwRjTAy7G2bavDWSlEaXyB501410XPhpj8U=; b=CW1L5VLKY8KfTYwm7kruFVfn+r
-	KwQ3zmkzFdxoLCZpbcpwG50udMCb9QlhFSWbqjxaNj0rR8DnHhr/MirZG8mDaIXmGN5WBEwRHJN4o
-	LFG2fqUWZmQb0U4guLRk6F5eJ9QjtGcofm+Er0W0xJ4w2DHy8aJ4vIsqqr4iorvObaLzJB85Jf2+A
-	KaJ7MSBb3RGffPXPhwHmbbkEv5Gf98uR1VQYnLHcixWHW1qG4YNonGpVlB6ReSNgoQwK0tKfVFZxB
-	E/ZwJoXhxG6AyXNAlUl+oZgVNcilhwia7knfKFJezY7oqVFMltDTnB/M0IRJ2mj/lzaCrMbahnkV2
-	9TTtqZ1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BO7dqYJ0mFt6AruqzPFv+fb7G3WbK8VL0A3Owandm9g=; b=LxtFAGHmAlS0IZr2B6uogDOZKN
+	ATuNjt2OgoGnysUtrPfWUDn+pt6S10qf7ePcoHvmei8YdfeiWAPEzhPEKRVW2IlFxQQpHrbJ/gcEA
+	QHlmoMc15f+1iz6OByclpY2RbbKAkz2RQtW0TdddfXErPSnbGzh6lvSLuuegKCFkQn+EdQ50NgDc+
+	OZ3pj9tK+vyipjz3TL2y/NcJ8z/XzywNpN2/UR5AirU/OS2yUpY4Ef4mS2NWuXqAYk0c2KIvPC7Bx
+	PrP512CiobWJPm5eTcFPpAlTp9/IP9JGc5sWPyeiw4sSkvHG16YUubC22bqyxBcCIPqTpcF60y5f6
+	gvkAxwYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Iyu-00000005X8P-2V7f;
-	Sun, 06 Sep 2026 19:56:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Iyq-00000005X7e-44tE
+	id 1x3Hk1-00000005RGs-3uRS;
+	Sun, 06 Sep 2026 18:37:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3Hjo-00000005Qyn-3JFG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 19:56:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 149AA1477;
-	Sun,  6 Sep 2026 12:56:40 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A4743F882;
-	Sun,  6 Sep 2026 12:56:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788724603; bh=y/XPLT2vWCH2Ci7UhdoddehaDK9VeeTuUMEqj2C7FO4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qGNzfZQmDW7LQcK3lbFzxaP8rK0r7IDbMTGaVvTTr3NDCclKPbY0A64mBlQuD3lMq
-	 mz90z8weC54giXjafVk52TczR9jUrSns6tFXr2QLcHGnJbPWzmHZiYnl8tVhxt6KSg
-	 ER+D7SLBGAo2PKwffciz94syMFgZ+xpTJnlyng/E=
-Date: Sun, 6 Sep 2026 20:56:34 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking
- structures
-Message-ID: <w4kihqs6n7ja7nr4sn3i2r4o2mspwj7k36w2fkh4kheizr6oj3@wfsea5mhnto6>
-References: <20260810205038.118843-1-weilin.chang@arm.com>
- <20260810205038.118843-3-weilin.chang@arm.com>
- <87mrtu4c21.wl-maz@kernel.org>
+	Sun, 06 Sep 2026 18:37:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C524B60A96;
+	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 62656C2BD04;
+	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788719827;
+	bh=HIg42Vsn0TNmV8kxJI54k7Wj89qIig0luyI+sG+agh8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=JGiHzvVXZFi6R/WMjPm8By+ZLAS4DPhew68YEq0MAk2LAirDho3iepimJXWhURxA3
+	 V62qZKppExPfR94QRzkGjK5YAa13dJ4IwNlvXrpZYlkWKC8S85Qyz4V5XD4kDKBvFn
+	 8wvE8j3bnIIbjsveD+j4PaS2Ac8hRW8xwYxJ5GoE403cq9nlNBGJ+CH970PIlH94U0
+	 0VprXoskBxjcGporkvMKTlBDgWMzbDI6fTNGEiZ/GRMKoVDK68/LsIfFxjlC+jG0Cd
+	 YF2huZEMN9EkluMUAExncm8c+blPkrXOcb42FMdibaivvzYGFqBgjPakH0o2UnWwUO
+	 myy/bVSrugypA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B241C79FA0;
+	Sun,  6 Sep 2026 18:37:07 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 06 Sep 2026 20:36:26 +0200
+Subject: [PATCH v2 03/22] usb: typec: tipd: Register a USB4 port mode for
+ CD321x
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87mrtu4c21.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_125645_226992_1CCFC3DD 
-X-CRM114-Status: GOOD (  21.00  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260906-b4-apple-soc-tbt-v2-3-1f80085f93fb@kernel.org>
+References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+In-Reply-To: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Andreas Noever <andreas.noever@gmail.com>, 
+ Mika Westerberg <westeri@kernel.org>, 
+ Yehezkel Bernat <YehezkelShB@gmail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2166; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=HIg42Vsn0TNmV8kxJI54k7Wj89qIig0luyI+sG+agh8=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9bcTbuX8HqzOHkmRlrHf5xS6rrOkaVksumZtuvWVtFin
+ a+YGVw7SlkYxLgYZMUUWbbvtzd98vCN4NJNl97DzGFlAhnCwMUpABOx/c/wv3D+xkWzTmcX3Pkh
+ YyHK7rVyCa+sQ3wqd9B7DmHh1MUWyxn+50apskv23p+/UJX9WOr+ggPHQkxWhbjsW2N49LqybqM
+ lNwA=
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 06, 2026 at 04:47:02PM +0100, Marc Zyngier wrote:
+Register a USB4 mode next to the DP and Thunderbolt alternate modes so
+that negotiated USB4 partner modes can be linked to the port. Identify
+it using TYPEC_MODE_KIND_USB4 without an SVID or mode index.
 
-[...]
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/usb/typec/tipd/core.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-> > +/*
-> > + * Record of a guest stage-2 mapping, storing canonical and nested IPA
-> > + * ranges. Both ranges have the same size.
-> > + */
-> > +struct kvm_guest_s2_mapping {
-> > +	struct interval_tree_node canonical;
-> > +	struct interval_tree_node nested;
-> > +	struct kvm_s2_mmu *nested_mmu;
-> > +};
-> > +
-> 
-> I'm trying hard to find a way to reduce the size of this structure,
-> because this is IMO the only real problem with this approach.
-> 
-> Obviously, the only thing we could kill is this nested_mmu field, as
-> everything else is used by the interval trees. I can see two ugly ways
-> to do that:
-> 
-> - either we iterate over all shadow MMUs to find the corresponding
->   'nested' node: really costly if we have a lot of mappings and/or a
->   lot of shadow MMUs
-> 
-> - or we steal bits from the interval_tree_node to encode extra
->   information. One realisation is that all addresses are PAGE_SIZE
->   aligned, meaning that we have at least 12 bits that are always 0. We
->   could, for example, encode an index in the bottom bits of the
->   nested.start field. Probably easy enough, but may require some
->   careful masking (and the addition of an index in the s2_mmu
->   structure).
-> 
-> The result would be significant, as we could then use a 96 byte slab,
-> which means the cost of a 1GB @4k granularity could fall to 24MB.
+diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+index f76f563dc42b..8c7f93d4270e 100644
+--- a/drivers/usb/typec/tipd/core.c
++++ b/drivers/usb/typec/tipd/core.c
+@@ -211,6 +211,7 @@ struct cd321x {
+ 
+ 	struct typec_altmode *port_altmode_dp;
+ 	struct typec_altmode *port_altmode_tbt;
++	struct typec_altmode *port_altmode_usb4;
+ 
+ 	struct typec_mux *mux;
+ 	struct typec_mux_state state;
+@@ -1312,6 +1313,18 @@ static int cd321x_register_port_altmodes(struct cd321x *cd321x)
+ 	}
+ 	cd321x->port_altmode_tbt = amode;
+ 
++	memset(&desc, 0, sizeof(desc));
++	desc.mode_kind = TYPEC_MODE_KIND_USB4;
++	amode = typec_port_register_altmode(cd321x->tps.port, &desc);
++	if (IS_ERR(amode)) {
++		typec_unregister_altmode(cd321x->port_altmode_dp);
++		typec_unregister_altmode(cd321x->port_altmode_tbt);
++		cd321x->port_altmode_dp = NULL;
++		cd321x->port_altmode_tbt = NULL;
++		return PTR_ERR(amode);
++	}
++	cd321x->port_altmode_usb4 = amode;
++
+ 	return 0;
+ }
+ 
+@@ -1347,8 +1360,10 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+ err_unregister_altmodes:
+ 	typec_unregister_altmode(cd321x->port_altmode_dp);
+ 	typec_unregister_altmode(cd321x->port_altmode_tbt);
++	typec_unregister_altmode(cd321x->port_altmode_usb4);
+ 	cd321x->port_altmode_dp = NULL;
+ 	cd321x->port_altmode_tbt = NULL;
++	cd321x->port_altmode_usb4 = NULL;
+ err_unregister_port:
+ 	typec_unregister_port(tps->port);
+ 	return ret;
+@@ -1371,6 +1386,8 @@ cd321x_unregister_port(struct tps6598x *tps)
+ 	cd321x->port_altmode_dp = NULL;
+ 	typec_unregister_altmode(cd321x->port_altmode_tbt);
+ 	cd321x->port_altmode_tbt = NULL;
++	typec_unregister_altmode(cd321x->port_altmode_usb4);
++	cd321x->port_altmode_usb4 = NULL;
+ 	typec_unregister_port(tps->port);
+ }
+ 
 
-One way of meeting in the middle is to keep the nested_mmu pointer, and
-use a dedicated kmem cache. That cache will then hand out exact 104-byte
-objects.
+-- 
+2.55.0
 
-That's 26MB for 1GB @4K.
 
-This is a nice improvement from the current 128-byte allocations.
-Although it's not as good as 96-byte allocations, the code logic can
-remain simple. Would you take this approach?
-
-Thanks,
-Wei-Lin Chang
-
-[...]
 
