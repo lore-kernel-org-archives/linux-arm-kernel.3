@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2865CC79F8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 07:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2400FC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  6 Sep 2026 07:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vuBYatI2A+T0vk/pTOo+2ExTt5PEnYd3ra3QdMzmI10=; b=PSTiVmlBcWrSuVXyZVeYSals5t
-	EjBQJF/z6bjmLVJCwQi9ABFtsLj8V4gnsPVhdnwWHCJ7Xlzoa1mQggvAPyHSrwtO0UI77rYZlvKlS
-	Jy4AMwviUNfctMJTysJipmP79VoA0zdB2adqOqpmxm/NaEBYtutHu3zhmd/yU1BSq5uFJDbTpgjBi
-	Z/nmlJs0BI696tbfvttRF83XRkjPT/8AM2G8scf91WhZH0O0nR1V7oszxN4nzbq8fLapNn7godX2X
-	3lZGQ6TzLpEPKRBfbuhE+gL0dJM0xbfN62NtlKUphIlxavmpaTqp/g4TXRF693swLzj5ARMLTCSrF
-	k8L9rCsw==;
+	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=; b=nQx/n48LBnhXDPFjYToqh8q86J
+	9Ms7XLZS9ePqeJMBtI3vR3d1wBokGxN4LC9rYUfS1+vaHwLoWM+V08NV3gna6kJvrV13FOqSH3Yw2
+	AlkXeGjf+v2PU2onPW+dfUgNL1qm+3VuP9rVnkeZI7G+/w6BD8zeqRVhRHBfiedL53lwwRm3k46Id
+	wM4n9PC9uQ37nNzL8nj7CuK3W7zm9nrOulwz7jDSVa7ZpPwKvPiHMZoZejeV9VZc8cxvfTxHARqMm
+	HFc+UWYAx0OHQlMwb6LfGooPeCq8nYmv8yq1gZnNljbs2tEVMOEVfE6QyTz8XmKL3ykVD0V3GWqhS
+	f5EKDJvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36yQ-00000004nEP-3CCh;
-	Sun, 06 Sep 2026 07:07:30 +0000
+	id 1x36ye-00000004nLo-1ZBn;
+	Sun, 06 Sep 2026 07:07:44 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x36yN-00000004nCt-4Blq
+	id 1x36yb-00000004nJk-2R8a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 06 Sep 2026 07:07:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1788678441; cv=none; 
+	Sun, 06 Sep 2026 07:07:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788678453; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=dniKCp0OKnLpZamZrVrHUROl0KW+1eQHZuv7oT3JVmt/p27lpT03/6kTertNcG08PdyHz6VhMcgxfPpy0dxJWMM5fLJtvs6Mf8+UwOuQByjqiuNe4XvQuMr7FhCXlSdlU3dxuv8AdmACCIX8+v+Gwn+f6n0XzvzYIITshGTgxSM=
+	b=VOmY7Mx6V7nPIKxm7Qr1P54o00k5vj4MYaGOwmGLQayhxJyni/ZhJbwg/+fQWSeX5SgCZlG9EOJQQSAEaITunzKNUJIVtJ+aucT6X8+ndiyfaYxcHCjSlM32Sebqc0Yz43JHU+JWxKhvoBCjpKDS05/mxyf4Q+QHWTiQYQyZEM8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1788678441; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vuBYatI2A+T0vk/pTOo+2ExTt5PEnYd3ra3QdMzmI10=; 
-	b=gt55zeeI20UFoJk+ZKKfmFV5MUkS2F9KfBeM5agDm3kThBC333WYni+KvO1NcrMqrnoQtMwUE3+Ywrof8cRrYaVayTO8tdWcvCZ/IUTx6dElKTimYbBXLlC0PspMLzg4+S0Aw5WGyMWgbPF8dLvCzWLpBfo8yw/pMk2SUkJUvyw=
+	t=1788678453; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=; 
+	b=U0+zhS0Dr8hv0fNFyTOeGYrmAAu5HFD7aGEgCosRlurDIY8iW42QHYfJRp33rLCu7hkXaDJLsD+QxV+XMR1Kb31UXbp/JuYsF1jxwsDgDhIkgxY2nJ+4zAVeV2ZHeLc5f9wxVH2TeQILF5YS9MfElL0YovIkW4F1bq7q97Rvne4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788678441;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788678453;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=vuBYatI2A+T0vk/pTOo+2ExTt5PEnYd3ra3QdMzmI10=;
-	b=ErSJ/RhFd6V5oLq18stBgO1xfg11N3i3KgR8rm6cDgEt8p7/rv9DmrRyTW6XLSqm
-	450s0pM7kCr/nXiQE4t2Wt5Lc4jGwTV9ihk5NvJDpAytkcOT7vRK4iqWY38BcXa6QUS
-	xLGlN0qseY9voEXzaul+wBfY5s1wUPnHvLH0Gq5Q=
-Received: by mx.zohomail.com with SMTPS id 1788678439638627.6650541040009;
-	Sun, 6 Sep 2026 00:07:19 -0700 (PDT)
+	bh=IeNOG/fyhyW08X+c9FOeZI3cRdPDCI7EfAS9OrYLb8o=;
+	b=MvZpfBlIbI4tiaYJfwYdI6Wyz1RfXx2c9mlkcFBiTMGEwb108EG5L2erpxgfvh+X
+	y3Yv8FnVWMGcyqFkS4UACgxPFJ6X1LVdT9GUSFKAKANRIdZRSF20Pw2KrmW0u04hily
+	fnnagx1+pGndXBcfGThhbFtFvcp//R18Rv21X3zg=
+Received: by mx.zohomail.com with SMTPS id 1788678452458799.045213868163;
+	Sun, 6 Sep 2026 00:07:32 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sun, 06 Sep 2026 15:06:39 +0800
-Subject: [PATCH 2/4] clk: sunxi-ng: sun55i-a523-ccu: Use M-only clocks for
- MBUS, IOMMU and DRAM
+Date: Sun, 06 Sep 2026 15:06:41 +0800
+Subject: [PATCH 4/4] clk: sunxi-ng: sun55i-a523-r-ccu: Use P-only clocks
+ for timers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260906-sunxi-clk-no-p-v1-2-cbde21c9fe69@pigmoral.tech>
+Message-Id: <20260906-sunxi-clk-no-p-v1-4-cbde21c9fe69@pigmoral.tech>
 References: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
 In-Reply-To: <20260906-sunxi-clk-no-p-v1-0-cbde21c9fe69@pigmoral.tech>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -66,19 +66,20 @@ Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3217;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2310;
  i=junhui.liu@pigmoral.tech; h=from:subject:message-id;
- bh=sx6BJ1JsCbiIy8jm4gR7Z3AI1Jw4H0UuT/5mJyKCVds=;
- b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLLmCnL/FcvceERrrnjPiqn+Kx85S18/1bgokbf53hLfP
- Z55dUtlOkpZGMS4GGTFFFm4/MX/WevwfDsi0HofZg4rE8gQBi5OAZjIKmdGhj0BzNz3NH9q1oQ1
- F1hbrXuT7Ls8p3pGQIJb0ZZnf1bOdmP4K3hRQyFZVELXZ9lHjiuBrDfcv/nxPNi5oKCvTzHg+uE
- QPgA=
+ bh=w/ethCL/2gAqTdxAZVO9TFIwPKiMkbxjk7GgSv1iGNo=;
+ b=owGbwMvMwCWWvDb1VEXc8j+Mp9WSGLLmCgodfq0cfVtu8Qldz1kHfqtEZVZeNdw5wy5N/lDLm
+ 72Kq8N4O0pZGMS4GGTFFFm4/MX/WevwfDsi0HofZg4rE8gQBi5OAZgIy35GhnXZRdctn7UwfO3f
+ sv952nKVmq3ya52S30aL3Pq/h1fx91FGhgmPahacb/e4znI4Lqo4ZrtYdWHCJEuBM+uyXl3ouWP
+ 4lAkA
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=openpgp;
  fpr=15B30CC69C4BF0CC3C08F85A2A90CDC122DF37BF
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_000728_104259_2F9DD86E 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260906_000741_677560_9DCB5D39 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +94,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MBUS, IOMMU, and DRAM clocks only have an M divider, but are
-currently modeled as MP clocks with a zero-width P divider.
+The R timer clocks only have a P divider, but are currently modeled as
+MP clocks with a zero-width M divider.
 
-ccu_mp_set_rate() generates an invalid mask for the zero-width P
-divider, clearing unrelated register fields. It also ignores
-CCU_FEATURE_UPDATE_BIT, so the new divider value does not take effect.
+ccu_mp_set_rate() generates an invalid mask for the zero-width M
+divider, clearing unrelated register fields. Model these clocks as
+P-only clocks to avoid accessing a nonexistent M divider.
 
-Model these clocks as M-only clocks instead. This avoids accessing a
-nonexistent P divider and uses ccu_div_set_rate(), which handles the
-update bit.
-
-Fixes: 74b0443a0d0a ("clk: sunxi-ng: a523: add system mod clocks")
+Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 45 ++++++++++++++++------------------
- 1 file changed, 21 insertions(+), 24 deletions(-)
+ drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 37 +++++++++++++++-----------------
+ 1 file changed, 17 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-index 20dad06b37ca..9bc3ff0ab12d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-@@ -380,14 +380,13 @@ static const struct clk_parent_data mbus_parents[] = {
- 	{ .hw = &pll_periph1_150M_clk.hw },
- 	{ .fw_name = "hosc" },
- };
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents,
--					    0x540,
--					    0, 5,		/* M */
--					    0, 0,		/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_IS_CRITICAL,
--					    CCU_FEATURE_UPDATE_BIT);
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents,
-+					   0x540,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_IS_CRITICAL,
-+					   CCU_FEATURE_UPDATE_BIT);
+diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+index db0e36d8838e..349230e28c1c 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
++++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+@@ -43,27 +43,24 @@ static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
+ 				 24, 3,	/* mux */
+ 				 0);
  
- static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
+-				       r_ahb_apb_parents, 0x100,
+-				       0, 0,	/* no M */
+-				       1, 3,	/* P */
+-				       4, 3,	/* mux */
+-				       BIT(0),
++static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
++				      r_ahb_apb_parents, 0x100,
++				      1, 3,	/* P */
++				      4, 3,	/* mux */
++				      BIT(0),
++				      0);
++static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
++				      r_ahb_apb_parents, 0x104,
++				      1, 3,	/* P */
++				      4, 3,	/* mux */
++				      BIT(0),
++				      0);
++static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
++				      r_ahb_apb_parents, 0x108,
++				      1, 3,	/* P */
++				      4, 3,	/* mux */
++				      BIT(0),
+ 				      0);
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
+-				       r_ahb_apb_parents, 0x104,
+-				       0, 0,	/* no M */
+-				       1, 3,	/* P */
+-				       4, 3,	/* mux */
+-				       BIT(0),
+-				       0);
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
+-				       r_ahb_apb_parents, 0x108,
+-				       0, 0,	/* no M */
+-				       1, 3,	/* P */
+-				       4, 3,	/* mux */
+-				       BIT(0),
+-				       0);
  
-@@ -584,14 +583,13 @@ static const struct clk_parent_data iommu_parents[] = {
- 	{ .fw_name = "hosc" },
- };
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(iommu_clk, "iommu", iommu_parents,
--					    0x7b0,
--					    0, 5,	/* M */
--					    0, 0,	/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_SET_RATE_PARENT,
--					    CCU_FEATURE_UPDATE_BIT);
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(iommu_clk, "iommu", iommu_parents,
-+					   0x7b0,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_SET_RATE_PARENT,
-+					   CCU_FEATURE_UPDATE_BIT);
- 
- static SUNXI_CCU_GATE_HWS(bus_iommu_clk, "bus-iommu", apb0_hws, 0x7bc,
- 			  BIT(0), 0);
-@@ -603,14 +601,13 @@ static const struct clk_parent_data dram_parents[] = {
- 	{ .hw = &pll_periph0_400M_clk.hw },
- 	{ .hw = &pll_periph0_150M_clk.hw },
- };
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(dram_clk, "dram", dram_parents,
--					    0x800,
--					    0, 5,	/* M */
--					    0, 0,	/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_IS_CRITICAL,
--					    CCU_FEATURE_UPDATE_BIT);
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(dram_clk, "dram", dram_parents,
-+					   0x800,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_IS_CRITICAL,
-+					   CCU_FEATURE_UPDATE_BIT);
- 
- static SUNXI_CCU_GATE_HWS(mbus_dma_clk, "mbus-dma", mbus_hws,
- 			  0x804, BIT(0), 0);
+ static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.common.hw,
+ 			 0x11c, BIT(0), 0);
 
 -- 
 2.55.0
