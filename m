@@ -4,99 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4384EC79FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7361C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m91ilKKuAyyzrrYKwKekM260QNNWazUKyIcIGqf2N2A=; b=b7oAUDF2C/nCOg1O9SHVZ/eMZ6
-	i0D2UYewBJsqBuWfvf5xckWPO5iLs8vgNFDLKo9nn1p/WX+j9YMztN+UUVoFqaMVZkhVcGrYM1Zsr
-	0ygdxWZJCgKpCwzm+j20eT+TQX86s6FFPzUzvx9YnSAoKptV69TipOLZFh5P/mfxhk6YcBLMWrWex
-	iqFXM7yQzJK4F+TWmVyvfzW0B1SkPv/VWzFt5C5FjRQb3m0s6qW+eItg2zRL2wPaSEMcu4Iq7OMv2
-	JenCNySo/ESgcdd6ZOxNDzUzen3fDS8yfLX5B38vvt1lQM+cyOlDJBYosDlzEaNJZtR2q90g+IUPD
-	qiVFbeGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=; b=eENJWjjKdgN6LGsLvpMXRFpOkk
+	yNHn/pR8HGps7aJQZA5rD0Sdams8XUo1EsizdPfYsvc+ztnPwqK+fGg4zWElYuSsLGqKYCXK7jtfn
+	WFwSOUiUdGXjAXkgQjX2hFELUmvrGBzIxZ7DGvcEWs3DDxwjmaQZYKCyJCLWWPPCQ55TBiNfttZq6
+	qlfe9+bXfFng2rjYSKHwOQwTusQFWCf20oW05mSHxFmnaWngy0hOqJqMHo4wengjiGeYjeeF89n+Q
+	ZQ/doapOjaNrss0nxeq3ewMeLEkAbRBsb22KNJw3Kl6lhO0veJkfHxal8gXJcaG+kdSpSZEqdTiq0
+	nw2r49HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bKc-00000007AOS-3zAu;
-	Mon, 07 Sep 2026 15:32:26 +0000
+	id 1x3bMu-00000007Azp-19hD;
+	Mon, 07 Sep 2026 15:34:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bKW-00000007AKE-1Dha
+	id 1x3bMs-00000007AyA-1sLD
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 15:32:23 +0000
+	Mon, 07 Sep 2026 15:34:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=m91ilKKuAyyzrrYKwKekM260QNNWazUKyIcIGqf2N2A=; b=JRcQLyF5oAgcw6tjkja8IsOiNJ
-	tskSvs+EvuOE9g9PRPwdgjlIe9rWOUl3k0sFOSco+eceaQ63YhHboBai8wurS9KTL4ZtxAPmzyF4F
-	ZOOl4troDbns7DuAwKgtcTL2D7un559fk3x1D7VaMLOsbiUL6J6AvIY8Djl10WImY24DefYPI16ri
-	uVlWKUITtXy5RPANcPMVzN79RECsce8ioHrNatACgxuQKPN8yUXXA5LsJMyR6BZ1I+XSyOnWHpwQD
-	znuq8v+CfsyVwxy+UG3a9M+PsOUq4drUvCUGXllE6MZ7XJT6FUNJ7fROVE23jZgNd95+Xiyb3ng5T
-	mxxutLSw==;
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=; b=HdJcIY9N29GPU5Ur3z7f4fsAZb
+	x9r0iQ2EaxbRaq63eRUT27DMIs03xA3fLHfi0pXPZD4cZVgjEAgFOGlHJ2XtUxi1T3HxeInjKXRaN
+	KhZjXSNdGaciK5ujTfjBWu7nxlIhdDfCA/gq5Yof6KDWrJ9Yfq+d12ghitLaCpSbNHj1eU1Y8PLeI
+	tEc2W9TC97rRtWwn2sZhGvkKE+AB6VtCRyz/044sPE2Bt2Yrw+ULMbFSQBZWZl5sCgYhhpqaw7i3D
+	T63OoVZTFXdbe5yPtBX+pgf32iGBEHo0j2SRc0Q+E6WLPPfo/PUfoDwBQ7Ys6aqKPciAzRHn8MxvY
+	I/VIvLWA==;
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3bKN-0000000GNUh-0s4z
+	id 1x3bMp-0000000GNdx-26RS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:32:18 +0000
-X-PTX-Original-Recipient: samuel@sholland.org
-X-PTX-Original-Recipient: linux-sunxi@lists.linux.dev
-X-PTX-Original-Recipient: o.schinagl@ultimaker.com
-X-PTX-Original-Recipient: broonie@linaro.org
-X-PTX-Original-Recipient: linux-kernel@vger.kernel.org
-X-PTX-Original-Recipient: linux-spi@vger.kernel.org
-X-PTX-Original-Recipient: jernej.skrabec@gmail.com
-X-PTX-Original-Recipient: mr.nuke.me@gmail.com
-X-PTX-Original-Recipient: mkl@pengutronix.de
-X-PTX-Original-Recipient: kernel@pengutronix.de
-X-PTX-Original-Recipient: jre@pengutronix.de
-X-PTX-Original-Recipient: mripard@kernel.org
-X-PTX-Original-Recipient: wens@kernel.org
-X-PTX-Original-Recipient: broonie@kernel.org
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 38D77201B5A;
-	Mon, 07 Sep 2026 17:32:04 +0200 (CEST)
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <jre@pengutronix.de>)
-	id 1x3bKG-000Ym1-0P;
-	Mon, 07 Sep 2026 17:32:04 +0200
-From: Jonas Rebmann <jre@pengutronix.de>
-Date: Mon, 07 Sep 2026 17:31:41 +0200
-Subject: [PATCH v2 2/6] spi: spi-sun4i: sun4i_spi_fill_fifo(): always apply
- A10 FIFO fill level workaround
+	Mon, 07 Sep 2026 15:34:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vf3crgisImaa7co2rngKAp/ubVBQUhB9Ezn4s91dKkseUk9eNgjG8qPGwLVIpo7TqsL2JDCs1NodPetQHVXaPRCcySfqfLTwWuhSl4+wJmRz32HHjYdUJBldMT/qBnVQtgR98Qp6hhuhz1drWNFp7qdBumOAeQNBWJc3O9r/cSoFtRDkRdbPvxk5B/pGy4Iz8vfrWbl6OmX6G/KehCgHTHUf89rgk3iJrKl5bx2PKGKwAgh/ut/9IKrdHRk4TCn+2f05l4ictE9vhxGfNzBRd4KyU2BkakeKVHSasibGQWkpRqkeeDpe9cyG96bQtSJ5oAyboG2MdzFWWfo2357Zeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=;
+ b=r1kdEDUOH6lZq+9OpVNJbPd8XoiTSKo6CbcU2aK+mxF9HO7jvAtrEo8/VQN/+uFbQoDnwmw2njjdF5JtbLIo4HCA02hxKFWJxzMolOM7Xe1fTAKhaAE3kP56oOuUR2s88JE8d7WZ3PM0t9bv6szi8Qp9NNbsk+GOLuvX74h+08Tn38sGO3zH7Y6xMnyDJKymn4vH3vd3qkvEsiDDPklH0MYRfuaVhEZD1ogvCY8jZLDtmSwLa9RqIl5XhFNLc9MbkaZTrUG88vBP77MeJeF/x6vGKwYiGxd0KZ8gBvmU0lY6igebPL3hZejGlAw5ZbdKLVLbIAAhcpD01GRST7MYLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XqWXRpRi/Ejp14Z9GiU1Aecj0wkvkpZIwKL5GOg6ahs=;
+ b=U5EObEmdVP5xfO+hg0//3fNpa3ORm8X4Jjf5z16xnIM4cHZyQY12Isq0XFZik+cBpR/m3vV02VIjIYAyjNkCWfYrpdmgNRJAHwzAh9XUF7Lrhz3H1XyT3Zh0652JfVWuDZasKl4OHVTs+dseQp9hQ0hycdGy2fQYb6g1bPACyIHlx7H0fyQ74+1qgt8pub5/2NLsc2XMw3WbrgDB7hTL8SE6y+qXT74Z1I13K4I68ZDtzEDmpU8bwP/7mb+erP1CDV675a78MsaC3RNTXbDqoZGcaJCYY07nQxO07OyL+wTDZhug5Bjq+FqOjV9IjC5Y30KgBHSsNh5c8xYgz6zwQQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH2PR12MB4103.namprd12.prod.outlook.com (2603:10b6:610:7e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 7 Sep
+ 2026 15:34:31 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0382.014; Mon, 7 Sep 2026
+ 15:34:30 +0000
+Date: Mon, 7 Sep 2026 12:34:29 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Subject: Re: [PATCH v5 8/9] iommu/arm-smmu-v3: Change how the tlbi describes
+ the invalidation
+Message-ID: <20260907153429.GB4157646@nvidia.com>
+References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
+ <8-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
+ <ap7NcebXzWC38VVo@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ap7NcebXzWC38VVo@google.com>
+X-ClientProxiedBy: YT3PR01CA0138.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:83::25) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260907-spi-sun4i-fixes-v2-2-7e805662b9bd@pengutronix.de>
-References: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
-In-Reply-To: <20260907-spi-sun4i-fixes-v2-0-7e805662b9bd@pengutronix.de>
-To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Alexandru Gagniuc <mr.nuke.me@gmail.com>, 
- Olliver Schinagl <o.schinagl@ultimaker.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@linaro.org>, kernel@pengutronix.de, 
- Marc Kleine-Budde <mkl@pengutronix.de>, Jonas Rebmann <jre@pengutronix.de>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2965; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=TyIg6fa906BvVGJmUbL2uFkFKtz0nx9DEAKb+ItgMx8=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsiad+NjfujlU9Xca7e9//dESvhjwtX8LhmWsFDdCv1m0
- fZ9rm3XOkpZGMS4GGTFFFli1eQUhIz9r5tV2sXCzGFlAhnCwMUpABMpmMbwP3yD74O1ml7hrqzJ
- CoaeJ4VXMM/l+z+HfbHnWaf1grUdCxn+l1zYM1/zl6Khw6Nva2ZM1M5Vk+EOOV9Qv9agY8/Jo1v
- 1WQA=
-X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
- fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4103:EE_
+X-MS-Office365-Filtering-Correlation-Id: f727e61c-e1e5-45e8-e46a-08df0cf5827f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|6133799003|3023799007|4143699003|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: F8pKmLbvzwQWYslfjr3ZDVtv+TAoNg4FN7HwrDDJP3sUdva0tesBt0v+6HqTPPHsOtMCDinuMMPMJomzPsGh8nyJsbbIkATQE6gHKUzlDZlKsSvNqgNftr6fFy3WbMbRYE0TQWqwC35g6AyUWl+wa+HjXDsdEK9usOvmV94xkIBn30NDsKjflFoPbVZqSQSg53nOPMPrgHZhur4A0rNTmNShrcHAZ2qwakUDtAffR+PB+JGsKhPrHh+8aqbUvD9mgs5DsemDeHA5A8tDTkqUweThtWfmrTo3f+ubRPbv5PWLIFNOsADAtbc97xyDSdydfrZjOEHwsrtp30BGn5fcbiZr3HM/3QExUrvelGDM99eNt8AhO/8WpjPjfiNT1/5NJ007QYNjfLKaf+gPM22uNspMIjKA7ZEiGWzM/OdrA5bhiNDAeT8kH5zZvZ2RmOeoBmXkjllnYsoJkk25zcMmCuQpya/lYGaCzK6pTpXkkjSfgo/OsgVOW5BxrY6+OPxatQw3MTWLNhkPs35CH4vHhRzRFA68Cy3N5L/vspGHf/l/8HV2LcYzHE7ugtrrwll8PhUmsZoVvFjj1d4y3LLW50Tabp9DuTknaSDocYubST9J2vub6xvr+p64nYA14fJ61p3HbysCwX0uBY9Hl8tHBQ2Cf08DGFT5v30AMtSQhHQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(6133799003)(3023799007)(4143699003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2XAFQVigC9xc1Qlc2qdFvFVdOZITHscW+8HWlnTloQyWfNHkFcMRq7PLTEss?=
+ =?us-ascii?Q?ZYncekVXkyZ8GIirT+1AjO6AQbYkJhLb9zxjR/aHl5WdvnNc+eBaRYyPEa+U?=
+ =?us-ascii?Q?viguJEmWu1jqQWqplZ4GDXchJkzmGcBi+E0o8tKs6pExLzbrQy9ehGhseFb5?=
+ =?us-ascii?Q?WjUAHOis+TBR0VyUkCDaQ08o47AA3vSfUWfdoAYCkGO22iTpAfeCOPh5kCGL?=
+ =?us-ascii?Q?l9wQVGGFEndDKvdpAhL13UReY3zCmlr29uelFEKUwpDkxKNozRwO7DNIj9gS?=
+ =?us-ascii?Q?VwErc9KltW88eIEvDBvBMwSkwLz6owjWnbTHRPeAYBCwYMY9Y7Oye9WiEGYI?=
+ =?us-ascii?Q?+oJGCynOxcPiGYXEF0BRQEIcBrquxJp9AunQ/F0cMPhMw5K1JwAte6n2p3oe?=
+ =?us-ascii?Q?uHIHfHRt/XuEFXrwYdCkHCnSnKw3NX0rswkk3k1IKqMatYPT+4vhK6Uk9L2A?=
+ =?us-ascii?Q?Fx4YQ4SnBGSOENPLvd5Yo1X6GofPDTuCnDUDKzZSKlZYM2HXVtKz/Lk1tc8H?=
+ =?us-ascii?Q?+q/hASTpuV/r2OKh8qQt2qhQPesNk6HcvgW2r9QiCbF1FUSG+hvRWNZanyDL?=
+ =?us-ascii?Q?/jnaNIYdK8lAPMrixiQLmCLJS1uT+TKIgrMByd/a0upqSyCuxtQQ5Y1JakDx?=
+ =?us-ascii?Q?F46NN3UdDIxaSUIaOqbMfyYOlNp/PEPIVdr2ZWMwKQ2aZmkS84lfYtjdjjnI?=
+ =?us-ascii?Q?S1PmIRe5bC8StEpmyV8DbVOWHpLrpYvsTKydaZDqGc7EP5bwF0iBFvFPrpRk?=
+ =?us-ascii?Q?u7mLAY2CmPZhF3dEHVSVQLbKeF4Ek+hOxfsEXjAxMG7oGwfA0euGUbbsgCmF?=
+ =?us-ascii?Q?SHSaeHjskm9Qi2l7idgpfzZaHz0mQzepWab1Dqiz1y+K5nG1qX+83SiMMrMy?=
+ =?us-ascii?Q?Igf/Kv4hS7YQ90Jcbw6kOlEEwDJM5KwR1k7sjFtJ61Bc3/e2Jcyk0jX14S7Y?=
+ =?us-ascii?Q?WB6j+Di1wmd0XujfufV6yIYJtqNR6Gy3A3b/0/ScYAfhiWj+KrcEf3sXc1pa?=
+ =?us-ascii?Q?0PKA/qB1EGD91mVcfwiikOZec+uCznaR/HIIAoZ473Gow3Ju0abNFyQfS4nn?=
+ =?us-ascii?Q?5k6i2B3SL4wRPVjEOzIJ9o6T6s8CWs+nJVM/hAFxIru7VaoEmIJlT+Tgyqks?=
+ =?us-ascii?Q?SNbfASkxAkNplozQTAd7xVVCkrTBSPMvftQxFNXxiuuyHZInvIy+McUf81q8?=
+ =?us-ascii?Q?Egj5YVozN8HYoFUG/UPBvgDm4Rn8mtcbqPsjun+kTz07W9F62nwzmm6onwcx?=
+ =?us-ascii?Q?RfbrVDAioHYfgOXJ3WS+OE329zks+Ciltzk7R4NAB+UElGrZR7fQKnGilUK0?=
+ =?us-ascii?Q?7ztckKYSKX+s1KTlYOtapxDVQgpGTBME3P08X0DjUM20CndiNiBJEKC7AdtM?=
+ =?us-ascii?Q?ds2oehSEiGqehmo3vLhV0Je/3ExBJ3qKHgoU5uv3lb4u7o2dlmyFZBEEgxXG?=
+ =?us-ascii?Q?8pIytBMurXeU4WlbLgw7kd6zGtD8vktKaDf6pKhvyt7T5yxzAObbJ6PmNH5d?=
+ =?us-ascii?Q?nDtHo2JGOBSD3CWRIGLW36cdUfnjckUok9e0/SLFMwL3g5X/Z46ZIIknhxLi?=
+ =?us-ascii?Q?MqhlFVV9hSe9n3aZGjFDzvWWNh6sOYwhap5d0S24/ma3e/YKEloN1jxo6lG+?=
+ =?us-ascii?Q?xcONF7dgaZ/rcE4CU2eqiMBqTEybCHIaK3Gsc5zbT2QJwR9ETDX5TwKBOP+/?=
+ =?us-ascii?Q?T4ASHeeVGy7sLxz6WoOv2xHc/GraPZaVB4t4spv6u5qpXZdD?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f727e61c-e1e5-45e8-e46a-08df0cf5827f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 15:34:30.6781
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /oPWxkrvNgPhxsvVedzuh8Y1jF90Wl0QYM6ap4uZDkD6FtQ5+nKYRXJHxoiiCuac
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_163211_618152_E87CF4C3 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260907_163443_698325_192D4C49 
+X-CRM114-Status: GOOD (  50.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,90 +167,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Kleine-Budde <mkl@pengutronix.de>
+On Mon, Sep 07, 2026 at 02:42:57PM +0000, Mostafa Saleh wrote:
+> On Tue, Sep 01, 2026 at 02:49:57PM -0300, Jason Gunthorpe wrote:
+> > The RIL logic has long had a FIXME that there is not enough
+> > information to properly compute the RIL. There is also subtly not
+> > enough information to properly compute the single stride either.
+> > 
+> > Change tlbi to use the information format that iommupt is going to
+> > use for ARM. This prepares the invalidation code to support iommupt
+> > and fixes two small limitations with the current code.
+> > 
+> > iommupt is designed to accumulate all invalidation into a single
+> > gather, then the iommu driver should issue a small number of commands
+> > to execute the gather to control invalidation latency. This is in
+> > contrast to io-pgtable-arm.c which generates many gather flushes and
+> > direct walk cache flushes as it progresses.
+> > 
+> > To accommodate this the gather will accumulate "damage" in bitmaps,
+> > one for leaf changes and one for table changes. This is enough
+> > information for SMMUv3 to compute the proper stride for single
+> > invalidation and to generate ideal hints for range invalidation.
+> 
+> I am not sure I understand that, in what situation the leaf_bitmap
+> would be used instead of a single page size?=
+> Would iommupt combine different page sizes in a single invalidation?
 
-In commit 6d9fe44bd73d ("spi: sun4i: fix FIFO limit"), the TX FIFO is
-filled max to SUN4I_FIFO_DEPTH - 1 (= 63) bytes to work around
-timeouts observed on A10s SoCs.
+Yes
 
-Commit 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO
-size") added support for transfers larger than the FIFO size. This
-commit did not consider the A10 workaround (limit the TX FIFO fill
-size to SUN4I_FIFO_DEPTH - 1 (= 63) bytes) for refilling the TX FIFO
-in the IRQ handler.
+> And then I see in this patch it has:
+> if (!is_power_of_2(leaf_bitmap))
+> 	return 0;
 
-To apply the workaround independent from where sun4i_spi_fill_fifo()
-is called, remove the length argument from the function and directly
-take the max fill level of SUN4I_FIFO_DEPTH - 1 into account when
-calculating the free space in the FIFO.
+Right, ARM doesn't support mixed leaves in a RIL so we can't use TTL
+if iommupt has constructed something like that.
 
-Due to the lack of HW this patch has not been tested on an A10 SoC,
-but on an A20 SoC. It was not possible to reproduce the timeout on the
-A20.
+> Would that actually be better for performance than using 2 sets of
+> RILs, one for each page size?
+> As I'd imagine the HW will spend more effort on the TTL=0 case
+> otherwise it wouldn't require it.
 
-Fixes: 196737912da5 ("spi: sun4i: Allow transfers larger than FIFO size")
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
- drivers/spi/spi-sun4i.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+I have no idea, it is a hint. Since SW has no knowledge I think it
+should just issue as few commands as possible. There is no way to know
+what will work better on any particular HW.
 
-diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
-index 2e2324453905..3649bcabcc9a 100644
---- a/drivers/spi/spi-sun4i.c
-+++ b/drivers/spi/spi-sun4i.c
-@@ -142,15 +142,21 @@ static inline void sun4i_spi_drain_fifo(struct sun4i_spi *sspi, int len)
- 	}
- }
- 
--static inline void sun4i_spi_fill_fifo(struct sun4i_spi *sspi, int len)
-+static inline void sun4i_spi_fill_fifo(struct sun4i_spi *sspi)
- {
- 	u32 cnt;
-+	int len;
- 	u8 byte;
- 
--	/* See how much data we can fit */
--	cnt = SUN4I_FIFO_DEPTH - sun4i_spi_get_tx_fifo_count(sspi);
-+	/*
-+	 * See how much data we can fit
-+	 *
-+	 * Filling the FIFO fully causes timeout for some reason
-+	 * at least on spi2 on A10s
-+	 */
-+	cnt = SUN4I_FIFO_DEPTH - 1 - sun4i_spi_get_tx_fifo_count(sspi);
- 
--	len = min3(len, (int)cnt, sspi->len);
-+	len = min_t(int, cnt, sspi->len);
- 
- 	while (len--) {
- 		byte = sspi->tx_buf ? *sspi->tx_buf++ : 0;
-@@ -311,12 +317,8 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
- 	sun4i_spi_write(sspi, SUN4I_BURST_CNT_REG, SUN4I_BURST_CNT(tfr->len));
- 	sun4i_spi_write(sspi, SUN4I_XMIT_CNT_REG, SUN4I_XMIT_CNT(tx_len));
- 
--	/*
--	 * Fill the TX FIFO
--	 * Filling the FIFO fully causes timeout for some reason
--	 * at least on spi2 on A10s
--	 */
--	sun4i_spi_fill_fifo(sspi, SUN4I_FIFO_DEPTH - 1);
-+	/* Fill the TX FIFO */
-+	sun4i_spi_fill_fifo(sspi);
- 
- 	/* Enable the interrupts */
- 	sun4i_spi_enable_interrupt(sspi, SUN4I_INT_CTL_TC |
-@@ -373,7 +375,7 @@ static irqreturn_t sun4i_spi_handler(int irq, void *dev_id)
- 
- 	/* Transmit FIFO 3/4 empty */
- 	if (status & SUN4I_INT_CTL_TF_E34) {
--		sun4i_spi_fill_fifo(sspi, SUN4I_FIFO_DEPTH);
-+		sun4i_spi_fill_fifo(sspi);
- 
- 		if (!sspi->len)
- 			/* nothing left to transmit */
+> > @@ -140,17 +140,34 @@ static void arm_smmu_mm_arch_invalidate_secondary_tlbs(struct mmu_notifier *mn,
+> >  {
+> >  	struct arm_smmu_domain *smmu_domain =
+> >  		container_of(mn, struct arm_smmu_domain, mmu_notifier);
+> > +	u8 tgsz_lg2 = smmu_domain->tgsz_lg2;
+> >  	struct arm_smmu_tlbi tlbi = {
+> >  		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+> > -		.iova = start,
+> > +		.start = start,
+> > +		.last = end - 1,
+> >  		/*
+> > -		 * The mm_types defines vm_end as the first byte after the end
+> > -		 * address, different from IOMMU subsystem using the last
+> > -		 * address of an address range.
+> > +		 * No information comes from the mm, assume the worst case that
+> > +		 * it changed every table level. The way this is hooked into the
+> > +		 * mm is tricky, the range won't be expanded to include an
+> > +		 * entire table level if one was removed like the iommu gather
+> > +		 * does. Thus even if this is a 4k invalidation it may be
+> > +		 * including any table level too.
+> >  		 */
+> > -		.size = end - start,
+> > -		.iopte_size = PAGE_SIZE,
+> > +		.table_levels_bitmap = 0xfe,
+> 
+> What does that mean, won't arm have a max of 4 levels?
 
--- 
-2.55.0.123.gf60db8d575
+It is really ~1, the extra leading 1s don't matter. Just can't have
+the leaf bit set.
 
+> > +	/*
+> > +	 * If the size is small then we can infer the invalidation is PTE only
+> > +	 * and set the PTE level only. Otherwise it could be some other
+> > +	 * combination so just set them all. This allows RIL to use TTL=3 in
+> > +	 * cases of PTE only changes. The mm must not try to partially
+> > +	 * invalidate pmd/etc.
+> > +	 */
+> 
+> How does that work with splitting blocks?  I imagine that might be
+> ossible with userspace.
+
+If mm splits anything then the invalidation will not be PAGE_SIZE
+big. A split requires invalidating the original larger size.
+
+> > +static u8 arm_smmu_tlbi_calc_stride(struct arm_smmu_tlbi *tlbi)
+> > +{
+> > +	u8 combined = tlbi->table_levels_bitmap | tlbi->leaf_levels_bitmap;
+> > +	u8 tg_szlg2 = tlbi->tgsz_lg2;
+> > +
+> > +	if (WARN_ON(!combined))
+> > +		return U8_MAX;
+> 
+> When can that happen?
+
+It can't, thats why it is a WARN_ON :)
+
+> > @@ -4152,21 +4237,28 @@ static void arm_smmu_flush_iotlb_all(struct iommu_domain *domain)
+> >  		arm_smmu_tlb_inv_context(smmu_domain);
+> >  }
+> >  
+> > +/*
+> > + * Called by io-pgtable-arm.c for each run of same pgsize leaf only
+> 
+> I believe that it is called from dma-iommu.c, io-pgtable-arm.c will
+> call the tlb_add_page which builds the gather though.
+
+Sort of, for the purposes of this comment the important flush is
+initiated by io-pgtable-arm.c under tlb_add_page() when it calls
+arm_smmu_tlb_inv_page_nosync(), which calls
+iommu_iotlb_gather_add_page(), which calls iommu_iotlb_sync()
+
+That's done in a way that guarentees the same-pgsize property:
+
+	if ((gather->pgsize && gather->pgsize != size) ||
+
+Yes it is also called from dma-iommu.c, but only for the "trailing"
+gather and that doesn't do anything to change what is in the gather..
+
+I'll add a few more words here
+
+> > + * invalidation. If it has to change to a different leaf level then it flushes
+> > + * the gather and starts a fresh one. Thus this always targets only a single
+> > + * leaf level.
+> > + */
+> >  static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
+> >  				struct iommu_iotlb_gather *gather)
+> >  {
+> >  	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
+> > +	unsigned int tg = smmu_domain->tgsz_lg2;
+> >  	struct arm_smmu_tlbi tlbi = {
+> >  		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+> > -		.iova = gather->start,
+> > -		.size = gather->end - gather->start + 1,
+> > -		.iopte_size = gather->pgsize,
+> > -		.leaf_only = true,
+> > +		.start = gather->start,
+> > +		.last = gather->end,
+> >  	};
+> >  
+> > -	if (!gather->pgsize)
+> > +	if (WARN_ON(gather->pgsize < BIT(tg)))
+> >  		return;
+> >  
+> > +	tlbi.leaf_levels_bitmap = BIT((ilog2(gather->pgsize) - tg) / (tg - 3));
+> 
+> Having some page table macros would be helpful (and in other places in
+> this patch)
+
+At least this one gets deleted in the next series, so I left it like
+this deliberately. Was there something else you saw that had
+duplication?
+
+Thanks,
+Jason
 
