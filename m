@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB68FC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8FFC79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0w3iQzXGo6gJeBOFFPeG8YoxiowoM54dI9r5vI+0Yg=; b=dtMsTCOgGe4+okkhfrlo/uRdpa
-	40+y/4iRd2QG8jmroTPiMvQzrcHvpPtZudAv2zWaLi4+9OMD0tYv4bhfGBnbyUym1YRRIeVsEyoX3
-	/Bo5cFAvCp2m1wmme4osrGyL8DiqHLCFW9vumJWeAPih3Xq4rAODpX8SKpBp6pAIB/3PtN9AgEhQ3
-	ihozKqnsBwUYJMgfsiSpsviDZOE23roSvuPeyPK8UBSgZVnfvFXYlgnKgY0AfamaOMb93nVmi2JP1
-	Tx2A3s01Qny13wHTryBTatJGNktgETl/+/NUFdW3KrMf8zmwIHX32Jvvf3p9OTc+NayhvjhLiOoFd
-	FdSSJcWA==;
+	bh=l1KlFUrFQByY5HMeuJRtMe8QamhdpHtavT/1/TB6eNY=; b=lrYEwfBtLqFAYeGoPN6pP1yZoI
+	DM+8WF+bDBPJfVb2dlknHqkI1As75o2nvBBxBzfHOzkyjcg+XhPsqygPIN7HS93qlwnqK4lmrJPS4
+	opojOKQQA5ztdcGpPn5bOBeAWSHz1VSrpUUyKr+S0j+qaFwToaZXYWRpJhhRCd1Jy3ezFr1Mr4gor
+	ePYYxFi3/iE4eTsbzEtAVN92L031vcPUytzjsTOaMt8KP2G7gaLL3oGuveeHqiyd+Mvkxiux4KjUb
+	MkZg2fr61VG+Gse3zTHL/gWb14yQcqH7AXvvS49no/Q6SgEUB61pU0ABPddtxt3X6eAvbTVddb3jI
+	/7+ayC3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cPE-00000007Len-1f5S;
-	Mon, 07 Sep 2026 16:41:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3cPQ-00000007LsJ-0alq;
+	Mon, 07 Sep 2026 16:41:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cPA-00000007LZ6-3lI4
+	id 1x3cPE-00000007LdX-11d2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:41:13 +0000
+	Mon, 07 Sep 2026 16:41:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4DBF43784;
+	by tor.source.kernel.org (Postfix) with ESMTP id AE5E1602C8;
+	Mon,  7 Sep 2026 16:41:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1905A1F00A3A;
 	Mon,  7 Sep 2026 16:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E38D1F00A3F;
-	Mon,  7 Sep 2026 16:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799272;
-	bh=n0w3iQzXGo6gJeBOFFPeG8YoxiowoM54dI9r5vI+0Yg=;
+	s=k20260515; t=1788799275;
+	bh=l1KlFUrFQByY5HMeuJRtMe8QamhdpHtavT/1/TB6eNY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NbyzKcmF10RlZINRWL1FRhKqgh0mCjzT7LwUmCoNK4NmCQ3qS70T3ajRbvs37twft
-	 LRXpUjYNlMjJPGz9VJEpayDvGqC1V8sfXNb3iuynWiRXAlaHwAk04RWL5O1UbYGvRl
-	 BLs4eBgJ2Nf7IZwR/LPB/pkfW9lqjaR9km9B1+LIoqipZ64uS6SW6q8PZ1MzdK+uWd
-	 BXMsFu5ChjDJ5bV/n0ZcB2bKKsKLDn1pI9STv6y/swnCu1qhw9nJCzK42dZ8g8AsCi
-	 8znmuefFOlk2NYetnziamWmReI6Kf6BxgSS4Hu/h2YrazFQ0HJlFcOJ/lVU7ORUXtB
-	 4DvX5M/utLrSA==
+	b=ks4cUze2H8K/HkyakRaX2J/XJEk4oNPa0foT0KVPO870JyklkD4Fkepd0rVYr5erv
+	 bN1hQ7DGY3rRb508vdki6oZIUyHNU6T9CHyWOa3zN0tMhSPx+aJnsLlV+NvKsCOe72
+	 NH7fmblAs/qhx5wOmpf6bXdNMNx8mHDG6A3AfMFQF/GboxoT99sZ6g1FLiokIksELx
+	 gbBtceCZpvXhVbhgdECaWNTXqxtpvL0PRQRHFBQ0v+GB+Vl7iaYVIJFfw7pHB7is0x
+	 MGw/v4Qhrr/DMYZEMuehtuyEeMygp1ksSBTOAPMx1jV1sKrMXXfS3VqgtUtHril+xu
+	 YYKPqPifTqAJQ==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 13/19] arm64: cpu_ops: Introduce get_secondary_cpu_ops()
-Date: Mon,  7 Sep 2026 17:40:16 +0100
-Message-ID: <20260907164024.17164-14-will@kernel.org>
+Subject: [PATCH 14/19] firmware/psci: Cache PSCI v0.2+ version number to avoid redundant SMCs
+Date: Mon,  7 Sep 2026 17:40:17 +0100
+Message-ID: <20260907164024.17164-15-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164024.17164-1-will@kernel.org>
 References: <20260907164024.17164-1-will@kernel.org>
@@ -77,123 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce get_secondary_cpu_ops() to retrieve a pointer to the
-'cpu_operations' structure for the non-boot CPUs and use it instead of
-get_cpu_ops() where we are dealing with secondary CPUs.
-
-This is a pre-requisite for enabling parallel CPU bring-up.
+Secure monitor calls to EL3 aren't necessarily cheap, so cache the
+PSCI version number in memory to avoid asking firmware the same question
+over and over again.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/cpu_ops.h |  1 +
- arch/arm64/kernel/cpu_ops.c      |  5 +++++
- arch/arm64/kernel/smp.c          | 19 +++++++------------
- 3 files changed, 13 insertions(+), 12 deletions(-)
+ drivers/firmware/psci/psci.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/cpu_ops.h b/arch/arm64/include/asm/cpu_ops.h
-index a444c8915e88..cd298a8710d8 100644
---- a/arch/arm64/include/asm/cpu_ops.h
-+++ b/arch/arm64/include/asm/cpu_ops.h
-@@ -48,6 +48,7 @@ struct cpu_operations {
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index e73bae6cb23a..8bb3f7c37678 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -155,7 +155,12 @@ static u32 psci_0_1_get_version(void)
  
- int __init init_cpu_ops(int cpu);
- extern const struct cpu_operations *get_cpu_ops(int cpu);
-+extern const struct cpu_operations *get_secondary_cpu_ops(void);
- 
- static inline void __init init_bootcpu_ops(void)
+ static u32 psci_0_2_get_version(void)
  {
-diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
-index eacfb88a0c0c..7d183ca31dc8 100644
---- a/arch/arm64/kernel/cpu_ops.c
-+++ b/arch/arm64/kernel/cpu_ops.c
-@@ -127,3 +127,8 @@ const struct cpu_operations *get_cpu_ops(int cpu)
- 
- 	return NULL;
- }
+-	return invoke_psci_fn(PSCI_0_2_FN_PSCI_VERSION, 0, 0, 0);
++	static u32 version;
 +
-+const struct cpu_operations *get_secondary_cpu_ops(void)
-+{
-+	return cpu_ops;
-+}
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index c5e9d5d5e003..2e98a92eb764 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -100,7 +100,7 @@ static inline int op_cpu_kill(unsigned int cpu)
-  */
- static int boot_secondary(unsigned int cpu, struct task_struct *idle)
- {
--	const struct cpu_operations *ops = get_cpu_ops(cpu);
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
++	if (unlikely(!version))
++		version = invoke_psci_fn(PSCI_0_2_FN_PSCI_VERSION, 0, 0, 0);
++
++	return version;
+ }
  
- 	if (ops->cpu_boot)
- 		return ops->cpu_boot(cpu);
-@@ -220,7 +220,7 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	 */
- 	check_local_cpu_capabilities();
- 
--	ops = get_cpu_ops(cpu);
-+	ops = get_secondary_cpu_ops();
- 	if (ops->cpu_postboot)
- 		ops->cpu_postboot();
- 
-@@ -327,7 +327,7 @@ int __cpu_disable(void)
- 
- static int op_cpu_kill(unsigned int cpu)
- {
--	const struct cpu_operations *ops = get_cpu_ops(cpu);
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
- 
- 	/*
- 	 * If we have no means of synchronising with the dying CPU, then assume
-@@ -368,7 +368,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- void __noreturn cpu_die(void)
- {
- 	unsigned int cpu = smp_processor_id();
--	const struct cpu_operations *ops = get_cpu_ops(cpu);
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
- 
- 	idle_task_exit();
- 
-@@ -492,7 +492,7 @@ static int __init smp_cpu_setup(int cpu)
- 	if (init_cpu_ops(cpu))
- 		return -ENODEV;
- 
--	ops = get_cpu_ops(cpu);
-+	ops = get_secondary_cpu_ops();
- 	if (ops->cpu_init(cpu))
- 		return -ENODEV;
- 
-@@ -776,7 +776,7 @@ void __init smp_init_cpus(void)
- 
- void __init smp_prepare_cpus(unsigned int max_cpus)
- {
--	const struct cpu_operations *ops;
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
- 	unsigned int cpu;
- 	int err;
- 
-@@ -802,10 +802,6 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 		if (cpu == 0)
- 			continue;
- 
--		ops = get_cpu_ops(cpu);
--		if (!ops)
--			continue;
--
- 		err = ops->cpu_prepare(cpu);
- 		if (err)
- 			continue;
-@@ -1341,8 +1337,7 @@ bool smp_crash_stop_failed(void)
- static bool have_cpu_die(void)
- {
- #ifdef CONFIG_HOTPLUG_CPU
--	int any_cpu = raw_smp_processor_id();
--	const struct cpu_operations *ops = get_cpu_ops(any_cpu);
-+	const struct cpu_operations *ops = get_secondary_cpu_ops();
- 
- 	if (ops && ops->cpu_die)
- 		return true;
+ int psci_set_osi_mode(bool enable)
 -- 
 2.55.0.979.g7e5102b832-goog
 
