@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14AFC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CC2C79FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jH28rU+mnq1lsgGFv5viipgfUPbuK680E/2q+gPKoGE=; b=KY9cSxKNYb7kHf
-	1dT8O1/Pl4RFGruwTDnw24rEuJjE9u8SpXt1MDU9O3PVVGEi68OIb5Ja+pz93FZivjcoUfQHdekPy
-	WYVnDyZtec/dVR9rnZAyXl735am4EOj4oXTOqi3GzITF1C6gu9YBKHkn2LwKPUEt8icrkUmrVIu3R
-	S8GZPv25+R2cxfE2YpBghMzjCyQiwDLcR2C6LtUmt0/eOMUXuHq+shiVLD2BbLQx5WbVjY8fyBQ2S
-	DFoGS48aS0GwwPTwb9guZxBPRRWWrkOfqYuk51KYGWqrnv92ZnGYZ1PDwGdwtwKKBNuzzRxd2oYM9
-	UTyB/oKv8PiJ6ZeZw57Q==;
+	List-Owner; bh=288+HAQJtG5VUtUXqsPB5v/Uwv9sAFZK9ElMT3/ktos=; b=tt/6qiLqIEEYm/
+	mq+4wQLjJyZFJnBSMPz9xQrgcLtsbT2fKwWB5khkDzrTnobPI9HISAUG5IDtv6napwk+j3iR0+yWt
+	Ndq3oB4gvuvRzw9LamK44k9421HhUUC0bUc92iO9H4KtahM+Lb7zz5X37zMOQFOPi5BLF+7ZTGN84
+	/qGSeMp10OpjD2IpS7oylmkLHUyuFe63jocjBUpnTTfW5ZaioW32bhcq9i6k4IUTGnTMdxAkkh6MC
+	G4dmBcHCz955nPMUDVfKeoKB/g2MyrRVaMOF9mFFhRo4GZ3g77Ei6OofNZMZUkvVo8YcPfSajml0b
+	Ai7qd3Xkxf8n+sXOCKiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRj-00000007NY8-2OWV;
-	Mon, 07 Sep 2026 16:43:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3cRm-00000007NcI-32f2;
+	Mon, 07 Sep 2026 16:43:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRg-00000007NUZ-3hPI
+	id 1x3cRk-00000007NYr-1Aj5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:43:48 +0000
+	Mon, 07 Sep 2026 16:43:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 558D8601DE;
+	by tor.source.kernel.org (Postfix) with ESMTP id B43CD601DE;
+	Mon,  7 Sep 2026 16:43:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9795D1F00A3E;
 	Mon,  7 Sep 2026 16:43:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3714D1F00A3F;
-	Mon,  7 Sep 2026 16:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799428;
-	bh=jH28rU+mnq1lsgGFv5viipgfUPbuK680E/2q+gPKoGE=;
+	s=k20260515; t=1788799431;
+	bh=288+HAQJtG5VUtUXqsPB5v/Uwv9sAFZK9ElMT3/ktos=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HtrEthrk4YJ570v367OewbhJ0OaY8Q3MQQOiNhFUQ0pKOzv6hqbvsIj2cS20df17d
-	 p70KKwJDAsqwem0At8drTuNpFNb57H9hcRnctyqCw8nyApJ72n7kHHobs4LxI4Rdq/
-	 mc7W1qg+8b7pPlcDwkfBw3B+IxV7AuFqOUBtmNVOegoDgb7daeOGtSVfvVJUAnWL2Q
-	 5jf7LPC5fWvVDHZ7kxQp7FvfVfRfQW3l+EzLe1HR8Hd6Fh3nrZBorujR/EuaNPWzz7
-	 9pDf7VAhr1JDh1i+MQ7XVmdy1WmWw+t1I1gMunSyHxQ+lwZIkNHuYiBiGm6cU7lrnj
-	 Bpvc/hBGiAN/g==
+	b=GrxXhU06Oa0TvnY8YBCKujRY7bHLUC/gxIrBnOT95k66+ccDei5lUu2g7a20DIZB8
+	 qb0M86tduW0HvBxJkhxlBmb/byxZoaXasJOJ8mh6m0rfZItt35sMlwaOk9/DiJDHvi
+	 rLlB5nNiFCBtVHuOWUmhCB92RHNuYFJDt+qFioS0arHQiELQeZ3yQbE3Ah6RX4WR93
+	 RHNobZ8/EghVwtJPvnkgR0g3ei7GE1c5Lz01dwTEVUiE6aZtICBV57CZrqUVZjIArY
+	 hHlXbPilHMWGK3g9WITSJgcbYWUFddyRQUDY/6d0r9vT8QamNJ/VF4jdVQgGCe4Upu
+	 BKuQJ+sE6IzmQ==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 14/21] arm64: sdei: Support SDEI events from kernel handler and thread modes
-Date: Mon,  7 Sep 2026 17:42:39 +0100
-Message-ID: <20260907164247.17223-15-will@kernel.org>
+Subject: [PATCH 15/21] arm64: entry: Point SP_EL0 at the overflow stack
+Date: Mon,  7 Sep 2026 17:42:40 +0100
+Message-ID: <20260907164247.17223-16-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164247.17223-1-will@kernel.org>
 References: <20260907164247.17223-1-will@kernel.org>
@@ -67,51 +67,75 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Section 5.2.2 ("Event resume context") of the SDEI specification states
-that, as a result of an SDEI_EVENT_COMPLETE_AND_RESUME call:
+With SP_EL0 now available for use in the kernel, point it at the
+overflow stack so that exception entry from EL1h will later be able to
+switch to the overflow stack by writing to SPSel.
 
- | SPSR_ELc is set to the PSTATE when the event was taken
-
-In preparation for making use of both thread and handler modes in the
-kernel, adjust the SDEI event handler so that we return to the correct
-kernel vector for the interrupted mode.
-
+Cc: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/sdei.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/kernel/entry.S |  2 ++
+ arch/arm64/kernel/head.S  |  3 +++
+ arch/arm64/kernel/smp.c   | 12 ++++++++++--
+ 3 files changed, 15 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index 778f2a1faac8..6337ce905593 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -208,7 +208,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
- 	int i, err = 0;
- 	int clobbered_registers = 4;
- 	u64 elr = read_sysreg(elr_el1);
--	u32 kernel_mode = read_sysreg(CurrentEL) | 1;	/* +SPSel */
-+	u32 kernel_mode = read_sysreg(CurrentEL);
- 	unsigned long vbar = read_sysreg(vbar_el1);
- 
- 	if (arm64_kernel_unmapped_at_el0())
-@@ -233,7 +233,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
- 		pr_warn("unsafe: exception during handler\n");
- 	}
- 
--	mode = regs->pstate & (PSR_MODE32_BIT | PSR_MODE_MASK);
-+	mode = regs->pstate & (PSR_MODE32_BIT | PSR_MODE_MASK) & ~PSR_MODE_h_BIT;
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index a45be0a837c8..6958ee238649 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -227,6 +227,8 @@ alternative_cb_end
+ 	mrs	x21, sp_el0
+ 	ldr_this_cpu	tsk, __entry_task, x20
+ 	msr	tpidrro_el0, tsk
++	adr_this_cpu	x19, overflow_stack + OVERFLOW_STACK_SIZE, x20
++	msr	sp_el0, x19
  
  	/*
- 	 * If we interrupted the kernel with interrupts masked, we always go
-@@ -251,7 +251,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
- 	 * address'.
- 	 */
- 	if (mode == kernel_mode)
--		return vbar + 0x280;
-+		return vbar + (regs->pstate & PSR_MODE_h_BIT ? 0x280 : 0x80);
- 	else if (mode & PSR_MODE32_BIT)
- 		return vbar + 0x680;
+ 	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index c33551ee6572..27a19e1a0ee6 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -210,6 +210,9 @@ SYM_CODE_END(preserve_boot_args)
+ 	ldr	w\tmp2, [\tsk, #TSK_TI_CPU]
+ 	ldr	\tmp1, [\tmp1, \tmp2, lsl #3]
+ 	set_this_cpu_offset \tmp1
++
++	adr_this_cpu	\tmp1, overflow_stack + OVERFLOW_STACK_SIZE, \tmp2
++	msr	sp_el0, \tmp1
+ 	.endm
  
+ /*
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 702dee8d0db5..4c122d6598de 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -51,6 +51,7 @@
+ #include <asm/processor.h>
+ #include <asm/smp_plat.h>
+ #include <asm/sections.h>
++#include <asm/stacktrace.h>
+ #include <asm/tlbflush.h>
+ #include <asm/ptrace.h>
+ #include <asm/virt.h>
+@@ -448,8 +449,15 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ 
+ static void __init set_boot_cpu_offset(void)
+ {
+-	asm volatile("msr tpidr_el1, %0"
+-			:: "r" (per_cpu_offset(0)) : "memory");
++	u64 ovf_sp = (u64)raw_cpu_ptr(overflow_stack) + OVERFLOW_STACK_SIZE;
++
++	asm volatile(
++	"	msr	tpidr_el1, %1\n"
++	"	add	%0, %0, %1\n"
++	"	msr	sp_el0, %0" /* Update the overflow stack pointer */
++	: "+r" (ovf_sp)
++	: "r" (per_cpu_offset(0))
++	: "memory");
+ }
+ 
+ void __init smp_prepare_boot_cpu(void)
 -- 
 2.55.0.979.g7e5102b832-goog
 
