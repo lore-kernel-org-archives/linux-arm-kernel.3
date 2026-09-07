@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A09C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 05:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53690C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vpmX1Nr9Z0XRMXX7TP0ZsOPsAdBe8vusqIUuEvNu6dw=; b=pryXct/gevKFx10l7d3e7paraV
-	oX1X5kUo4r88Hdh8sD2iBsSUuUnrbSuT1097dlPo8c1Wx88AOQ8jCV9+PImPvjG7mjUq934+mM003
-	Iq8aqpN/TKNfVwLtxrbWVBfCnOTfgYjti3DAK3h3KV9+wQA6naVan9KJ+4CmdGDFa6p6S+DcUORRd
-	oz6qQrsVKL34gC4/hmkWQpesZNqJ3ypb3vrKWwzW5wDWs31nTVJ7EamD3wmCpouHVrXEi7GqNOndj
-	AP5KlVM59EL+am2VEYo7UZY0RkQe2HpbcwXsAlsedcac1u6nECCvvkg3razg09c1q/I/WWUNPbOrs
-	NChzJPiw==;
+	bh=BAVC7+HWaVQEnnbRSHCcKz7r6ECmUII3NjKcSqgDdqE=; b=Ex9OZaAqdVA3BbPOGTrWNMOuEv
+	RHQ3zEqmWLXAxInjqt9gAH9KXzheWBwXIIFodi1DPkCc4gZSoFAZcuqPvpnPhXRUhqdJOI/AW93eQ
+	ZImub5SpGugQIEMc1P0cBmypvFrYKAibqdThLsi8bUbkqFMYikrBWfS9a2vrWUZSYBM6Lsq0fMlmX
+	JvV/jJN7YCAVvqWsOTaxK4mquONnI4sOOfaXQLQLDnZG5RXkdA+cQtU90PzawfznTXcXxqbvKY9DH
+	FlnE2RrsjOB3aaX7ZkMpGl7vrLgwk9G1mz8lbyw3lOMgSNnQ5lAKR1cs0WfnVfwi5gTxJWjt/Lmsj
+	UAbgFosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SDa-00000005yMg-2EFW;
-	Mon, 07 Sep 2026 05:48:34 +0000
-Received: from [218.76.62.146] (helo=ultrarisc.com)
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SDW-00000005yLL-0k6M
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 05:48:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:
-	References:Date:Message-Id; bh=vpmX1Nr9Z0XRMXX7TP0ZsOPsAdBe8vusq
-	IUuEvNu6dw=; b=CUdP17dsRY2ZIGhCx9QCUD+ld5OTqvk5n9MErX7kWtyGldbn3
-	7MOqNxuZsrEJjS5Uyo0nX5X29AM88AJShldpbs7SBNbDEQiNuar6sWNKcGP8kXKV
-	K72Ybxs8IYIPFfWR+Q10LRGpkWB7PrJUftgWtEUz5M3KCVCqkIRgMwTVW0=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDHQAcjUJ5q0VQAAA--.356S2;
-	Mon, 07 Sep 2026 13:48:19 +0800 (CST)
+	id 1x3SRI-00000005yvc-2i0O;
+	Mon, 07 Sep 2026 06:02:44 +0000
+Received: from email2.ecloud.global ([2a01:4f9:4b:5387::2] helo=mail2.ecloud.global)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3SRG-00000005yv6-30DE;
+	Mon, 07 Sep 2026 06:02:44 +0000
+Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail2.ecloud.global (Postfix) with ESMTPSA id B5691721160;
+	Mon,  7 Sep 2026 06:02:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
+	t=1788760956;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BAVC7+HWaVQEnnbRSHCcKz7r6ECmUII3NjKcSqgDdqE=;
+	b=PmA/HmG6YkWmDztp42L5zdma4jFThIPnKvAqNfbKAdesgHuHViEz/9/BsbLyLPrFlMVsMR
+	90PURNCV5f0ejRhPmxHXdYpHnShCWVdp5iL/i21PpFNl/H2uZYZ9c3+WkelnaTWFUrGk5B
+	iBSfUKxKxkV64Fa5Y7MRVyL/qoQhpp4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
+	s=mail2; t=1788760956;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BAVC7+HWaVQEnnbRSHCcKz7r6ECmUII3NjKcSqgDdqE=;
+	b=B7cL82PImBfFxeoSczoECpP9wW/1E0dBlifMotXVGSAoewtJC7WP6rAasDziB5y+nt8d9t
+	ka/7gR0eTSE8njdmzxtOje2HHaTjLKe6OFXRMXhKUbs66npTNSBI20Odzcy8a+XGIHu3B9
+	u6sSUVyaFcRVrbYVNphd1SZ9uMItg/o=
+ARC-Authentication-Results: i=1;
+	mail2.ecloud.global;
+	auth=pass smtp.mailfrom=maud_spierings@murena.io
+ARC-Seal: i=1; s=mail2; d=murena.io; t=1788760956; a=rsa-sha256; cv=none;
+	b=rwRBNY+YtZMISw0XZ4wJRHpzo5Yp5mjZm9wz7veARrU2FXHtXfGXC60RqIcwXWYC5dud+W
+	L7dEyuwGnjdl0A8avafm5S5qS1okQ4f9cuM7HuL2m1jEy3RMF9b7rhW97RRaFAfovoOiBa
+	OvyG566rnyc+P4JwysSkJgarI/RAlcQ=
+Message-ID: <f68d95d0-f918-4dee-9443-38c64247b71a@murena.io>
+Date: Mon, 7 Sep 2026 08:02:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add UltraRISC DP1000 GMAC
- support
-From: Jia Wang <wangjia@ultrarisc.com>
-To: Jia Wang <wangjia@ultrarisc.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <178850166577.1486454.10728134844652956076.b4-reply@b4>
-References: <20260901-dwmac-ultrarisc-v1-0-f19454814bcf@ultrarisc.com>
- <20260901-dwmac-ultrarisc-v1-3-f19454814bcf@ultrarisc.com>
- <910be156-b631-4b62-972a-79d9a9e38697@lunn.ch>
- <178842162417.2701756.3296149694160507506.b4-reply@b4>
- <1622b0a7-5516-4e72-b5e1-60c12b65b52e@lunn.ch>
- <8611dff3-56ea-4798-8303-b0a8af84580e@bootlin.com>
- <178850166577.1486454.10728134844652956076.b4-reply@b4>
-Date: Mon, 07 Sep 2026 13:48:08 +0800
-Message-Id: <178876008871.2542659.8460758662538260209.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788760089; l=3543;
- i=wangjia@ultrarisc.com; s=20260515; h=from:subject:message-id;
- bh=qUtYxSNBiONjQzXEg3XYSFbzrYyRAtXzx9MwMN+ANbI=;
- b=DkxTkgZPEqWGJPTmqJdrMYYLlGkZDktaKPAYIYaGbOG0mN8JBmNVZoeyKo+EkISm5zyS10b0W
- gO4OUEpUz1nDFNx6ZkpOxP4baQV1GyOfC1qdoU7I013wrcgad6AuUr7
-X-Developer-Key: i=wangjia@ultrarisc.com; a=ed25519;
- pk=wGVm18siRScehKOkOz0WKxgxDy7IezHEszhnN4/TUCY=
-X-CM-TRANSID: AQAAfwDHQAcjUJ5q0VQAAA--.356S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw45CrWxKr1rGw1DtF4Dtwb_yoW5tr4UpF
-	WUGayayw4kJr4Ivr1jyr40vFWagr4IqFW2qwn5KryFvan0yF1aqr18K3yUuasrWrs7W3Wj
-	vr18tF9xWFs8ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNJ5oDUUUU
-X-CM-SenderInfo: pzdqwylld63zxwud2x1vfou0bp/1tbiAQACEWqdDaQAAQAEsJ
+Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
+To: Icenowy Zheng <uwu@icenowy.me>, Dominique Belhachemi <domibel@debian.org>
+Cc: m.wilczynski@samsung.com, Laurent.pinchart@ideasonboard.com,
+ airlied@gmail.com, alex@ghiti.fr, andrzej.hajda@intel.com,
+ andy.yan@rock-chips.com, andyshrk@163.com, aou@eecs.berkeley.edu,
+ bmasney@redhat.com, conor+dt@kernel.org, conor@kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ hal.feng@starfivetech.com, heiko@sntech.de, hello@big-grey.co.uk,
+ jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@esmil.dk,
+ krzk+dt@kernel.org, lee@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, luca.ceresoli@bootlin.com,
+ m.szyprowski@samsung.com, maarten.lankhorst@linux.intel.com,
+ maudspierings@gocontroll.com, mfd@lists.linux.dev, mripard@kernel.org,
+ mturquette@baylibre.com, neil.armstrong@linaro.org, p.zabel@pengutronix.de,
+ palmer@dabbelt.com, pjw@kernel.org, rfoss@kernel.org, robh@kernel.org,
+ sboyd@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, vkoul@kernel.org
+References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
+ <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
+ <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
+ <CAAvaLCwvVUddS14MPx0FHdnp+QeZ99+ox17pXt2hSWPTCFcHtw@mail.gmail.com>
+ <cb0884b3-c9be-4cfd-ba43-27add3821ddd@murena.io>
+ <6a5f8c11a092cef83bae8d9ea0100c2fc133a514.camel@icenowy.me>
+ <CAAvaLCxMntrTbTQ9VNu4H_6LA30TRAqi7mCpn+x3hbTG9WqERA@mail.gmail.com>
+ <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
+Content-Language: en-US
+From: Maud Spierings <maud_spierings@murena.io>
+In-Reply-To: <057d97bd4b63fa4445dd86548f2ecdcbe9c3b1b6.camel@icenowy.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_224830_808082_24639884 
-X-CRM114-Status: GOOD (  32.94  )
+X-CRM114-CacheID: sfid-20260906_230242_971217_181C4BD1 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,89 +110,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-09-04 14:01 +0800, Jia Wang wrote:
-> On 2026-09-03 14:30 +0200, Maxime Chevallier wrote:
-> > 
-> > 
-> > On 9/3/26 14:10, Andrew Lunn wrote:
-> > >>> This looks to be 90% identical to dwmac-sophgo.c.
-> > >>>
-> > >>> Do you expect any further changes to this driver? Is everything
-> > >>> supported? Are there more clocks? A GPIO for WoL?
-> > >>>
-> > >>> I'm just wondering if the common code should be pulled out, or even
-> > >>> dwmac-sophgo.c made generic so it can handle all plain boring devices
-> > >>> which have RGMII delays and not a lot else.
-> > >>>
-> > >>
-> > >> The probe boilerplate is indeed largely similar because both drivers
-> > >> use the common stmmac platform helpers. However, their platform-specific
-> > >> requirements differ: Sophgo requires additional TX clock handling and
-> > >> other configuration, while DP1000 requires fixed TX and RX delay
-> > >> handling. ACPI support under development is also intended to use the
-> > >> UltraRISC glue driver.
-> > > 
-> > > ACPI is going to be fun, since nobody does ACPI networking.
-> > > 
-> > > But how big is the change to the glue driver? I expect the change will
-> > > be minor, a call to devm_stmmac_probe_config_acpi(), in addition to
-> > > devm_stmmac_probe_config_dt(). Anything else?
-> > 
-> > I agree that if ACPI support is added, let's try to make it part of the
-> > core.
-> > 
+Hi Dominique and Icenowy,
+
+On 9/7/26 06:01, Icenowy Zheng wrote:
+> 在 2026-09-06日的 17:16 -0400，Dominique Belhachemi写道：
+>> On Sun, Sep 6, 2026 at 11:19 AM Icenowy Zheng <uwu@icenowy.me> wrote:
+>>>
+>>> 在 2026-09-06日的 16:59 +0200，Maud Spierings写道：
+>>>> On 9/6/26 07:39, Dominique Belhachemi wrote:
+>>>>> On Sun, Aug 30, 2026 at 10:17 AM Maud Spierings
+>>>>> <maud_spierings@murena.io <mailto:maud_spierings@murena.io>>
+>>>>> wrote:
+>>>>>
+>>>>>      I was still having some glitching happening on the display,
+>>>>> but
+>>>>> I've
+>>>>>      found the way to fix that, the question is what is actually
+>>>>>      happening here.
+>>>>>
+>>>>>          0x29590020 <- 0x00000005
+>>>>>      This one I have no idea, it is 0x00000009 with this patch
+>>>>> series but
+>>>>>      with the vendor kernel I get the value above. When I hook
+>>>>> up my
+>>>>>      external
+>>>>>      display (regular 1440p) this becomes 0x0000000D on the
+>>>>> vendor
+>>>>> kernel.
+>>>>>
+>>>>>      But I can't find this register being written to anywhere
+>>>>> there?
+>>>>>
+>>>>>
+>>>>> Maybe this needs to be swapped?
+>>>>>
+>>>>> drivers/gpu/drm/bridge/inno-hdmi.c
+>>>>>     -#define v_HSYNC_POLARITY(n)          ((n) << 3)
+>>>>>     -#define v_VSYNC_POLARITY(n)          ((n) << 2)
+>>>>>     +#define v_HSYNC_POLARITY(n)          ((n) << 2)
+>>>>>     +#define v_VSYNC_POLARITY(n)          ((n) << 3)
+>>>
+>>> Very weirdly, the original definition here matches current mainline
+>>> inno-hdmi.c, but the changed definition matches JH7110 vendor
+>>> inno_hdmi.h [1].
+>>>
+>>
+>> The vendor code is correct and matches the RK3128 TRM.
 > 
-> The ACPI support is still under development, but the current prototype
-> adds ACPI device matching and ACPI-specific platform-data setup. Some
-> common stmmac changes are also needed for ACPI-described platform
-> resources and MDIO.
+> Thanks for the tips on documentation, and I verified this.
 > 
-> > > 
-> > > One problem the stmmac driver has is cut/paste glue driver
-> > > development. The same code is repeated again and again. Russell King
-> > > spent a lot of time and effort trying to reduce the duplication. So we
-> > > should not be adding more duplicated code unless it is actually
-> > > required.
-> > 
-> > It seems to me that all the RGMII handling could be made much more generic,
-> > as this is commong pattern in glue drivers :
-> > 
-> > dwmac-sophgo has the "has_internal_rx_delay" field, and dwmac-eic7700 has
-> > both has_internal_[r|t]x_delay.
-> > 
-> > With this third one, it makes sense to start sharing that logic across
-> > glues.
-> > 
+> It seems that Rockchip people made this always wrong, even with their
+> pre-DRM display driver... [1]
 > 
-> I agree. DP1000 is another user of this pattern, with fixed internal
-> delays on both the TX and RX paths. I will look at moving this handling
-> into the common stmmac platform code, leaving each glue driver to
-> describe its internal delay capabilities.
+> BTW I checked the Innosilicon dGPU driver code, and its g3_ne_hdmi.h
+> source file also contains the definition of BIT(3) as VSYNC. (It's
+> quite weird that most logic of that driver is in some .o_shipped blob,
+> but fortunately the g3 logic might be too new to be closed down)
 > 
+> Thanks,
+> Icenowy
+> 
+> [1]
+> https://github.com/rockchip-linux/kernel/blob/release-4.4/drivers/video/rockchip/hdmi/rockchip-hdmiv1/rockchip_hdmiv1_hw.h#L161
+> 
+>>
+>> HDMI_reg08
+>>      Bit  Attr  Reset  Description
+>>      3    RW    0x0    vs_polarity   VSYNC polarity   1'b0: Negative
+>> 1'b1: Positive
+>>      2    RW    0x0    hs_polarity   HSYNC polarity   1'b0: Negative
+>> 1'b1: Positive
+>>
+>> Nobody noticed this so far because in 720p/1080p both polarities are
+>> positive, but Maud's 3:2 panel has differing H/V polarity.
+>>
+>> Best
+>> -Dominique
 
-After looking further into the implementation, I see two possible
-approaches:
+This also solves the devmem behaviour I saw, or well, doesn't realy 
+explain it but does show what is actually happening. As Icenowy noted 
+(maybe that was on telegram only?) the inno-hdmi regs are 8bit instead 
+of 32 bit.
 
-1. Keep a minimal UltraRISC glue driver that only describes the fixed TX
-and RX delay capabilities, while the common stmmac code handles the PHY
-mode adjustment.
+What is actually happening is:
 
-2. Store these capabilities as compatible-specific match data in
-dwmac-generic and remove the UltraRISC glue driver entirely.
+devmem 0x29590000 b reads 0x29590000 as expected
+but
+devmem 0x29590004 b reads 0x29590001
+devmem 0x29590008 b reads 0x29590002
+....
+devmem 0x29590020 b reads 0x29590008
 
-I currently prefer the first approach. The fixed internal delays are
-properties of the DP1000 integration rather than the generic Synopsys IP,
-so keeping them in the glue driver preserves that distinction. The delay
-handling and validation would still be shared by the common stmmac code,
-leaving the glue driver responsible only for declaring the hardware
-capabilities. This also avoids turning dwmac-generic into a table of
-SoC-specific capabilities.
+For some reason the addressing is weird?
 
-Would this approach be acceptable, or would you prefer using dwmac-generic
-for DP1000?
+With this change, the assigned clock change and removing the 
+v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS write to HDMI_SYS_CTRL, the display 
+comes up from the start as it should!
 
-Best regards,
-Jia Wang
-
-
+Kind regards,
+Maud
 
