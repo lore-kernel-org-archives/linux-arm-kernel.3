@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E5EC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4399CC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YS2TdENoAkBSs68uAXBLssJx4TGpvPEoYo13GnkLfSw=; b=jop/RKWruSKGiRIEdEM7c8afsB
-	fdgi+7snAP76N0KMxVX0bz4kIEPVyg4/6AT07cEiR0fUhc6AzLjXQie89N2tLfjmZ/SCC8TiWuWG0
-	sZvOQ6V07naaRCO7rdRoWG3WjROStJZh4Sr7ELRp/ZxJfjb53Vdyp14JUKzu2YtCehF3ubitoMrC4
-	AmJ/iO9NTG56meMTETBoUat2HWjdCofqGOo29eVo83xdgAnVCkxPGNY0J9YetR5gaGHXKzquLfv1/
-	Zj/zGnU/j5bVPZj2bZVazpDZ2KgLJL6t2/PtBfGWtE2pJ1p8YrebzlZLMutSWYYk42uFXnOzkx+ZP
-	IT9PQsQQ==;
+	bh=yZUCxcpzPqcBT70BqTTXaDX5PkWepYfBg7u5aZOObBo=; b=bg+T+Uhv1qro9Q0k89ZVUIwHVf
+	xV0b3VnkgqPC3MRzKdT8yaqEjzORq/HhawuFeYG1euI3pm/zxzojsInMu8hr0rzFO+EIQRw9HMnaj
+	PqGKC2leMxOBU62qaKUF2jI2YgiFhbkn9xbZzyD9aPF6IDjlmw5i40z4KR+O3MF5kAo/XYZUV0hcj
+	W0MllURCZWE/BBJeu7jbiLBo3aYEQDLN7SDTCxpOCKZ7grc5T6U1uN6p5uSP8KzOA2j7Iu64JiDoQ
+	nUxCmswNP1NwJ+UE5fIGXaZXe6nCCiaGRz4jq2rglCRlXEGILmoPYG9MG84kjrePB1izX3d55sb3I
+	p+jy5bXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dFV-00000007VGv-18Sp;
-	Mon, 07 Sep 2026 17:35:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dFT-00000007VGb-4AsC;
-	Mon, 07 Sep 2026 17:35:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A4AC601DE;
-	Mon,  7 Sep 2026 17:35:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 185411F00A3A;
-	Mon,  7 Sep 2026 17:35:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788802515;
-	bh=YS2TdENoAkBSs68uAXBLssJx4TGpvPEoYo13GnkLfSw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eqf9OZdOf7BNxrg1YEyyQKxpWYn74BKR3NjWLU0mTrZ3Jx3HvDUXmoM/b7U78X7rQ
-	 R74O0RlSwnQQ37Ix3xz+pWDH2Yq15pQAa/7q6W7UZT3mwrR29uMQQVnmRcPpI46KoK
-	 Egxqc7C61d3KJpfpWMi9JlDSuIGP1pYDMvb0UVftkKbhvFjBdUxttb61zkwiesYdia
-	 niSbc8cSDdi/64syxlCEP6WGHndoPg/+8+lixW/WB/HaEqzoNd5Eydf2ZWE9BeZ2QE
-	 vFSw8mP7mpoK0iL8pdQvNaAdeKE+LcW4MvVNOht9zazAYd3hIhLcE4wbcBBaVSATDm
-	 fE+0YFuiCD9/A==
-Date: Mon, 7 Sep 2026 18:35:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: HystericalDragons@proton.me
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jensen <jensenhuang@friendlyarm.com>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add FriendlyElec NanoPi
- R28S
-Message-ID: <20260907-skydiver-precise-a8166e576510@spud>
-References: <20260905-r28s-upstream-v1-0-f68d5389269a@proton.me>
- <20260905-r28s-upstream-v1-1-f68d5389269a@proton.me>
+	id 1x3dK8-00000007Vfr-3gIQ;
+	Mon, 07 Sep 2026 17:40:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3dK3-00000007Vey-3jYN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 17:40:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3FA01476;
+	Mon,  7 Sep 2026 10:39:54 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C70AF3F7B4;
+	Mon,  7 Sep 2026 10:39:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788802798; bh=mCHv8QWREL9tLi9nn5djqU0KYHo3eIWOT8BOVsSNXw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a9BI2JpVBxSSDS+m72CeeDX6ffb3EdfOglJnSPo8Q2Q0vtvNkoEdGWkcTa9FZcrQ4
+	 eT6/EPai5xqzDJl42RBKYXWRYiWCigTExzwUcjS81YiovTgqcAtMkxDIyd1Qv6knDE
+	 odbfWY6LJEZi0WNC05ggjRe17GBa2PKE177pzLx4=
+Date: Mon, 7 Sep 2026 18:39:49 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
+	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
+Subject: Re: [PATCH 16/20] KVM: arm64: Add __pkvm_host_split_guest HVC
+Message-ID: <hrhbuwdfu625jtzm75t6wnva6odgreshchyv75ebqntlymslz7@adyxhe7oyypc>
+References: <20260803100904.3563942-1-vdonnefort@google.com>
+ <20260803100904.3563942-17-vdonnefort@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TzDQ4robxPUrjxZB"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260905-r28s-upstream-v1-1-f68d5389269a@proton.me>
+In-Reply-To: <20260803100904.3563942-17-vdonnefort@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_104000_735681_97FFBE15 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,23 +71,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---TzDQ4robxPUrjxZB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, Aug 03, 2026 at 11:09:00AM +0100, Vincent Donnefort wrote:
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+[...]
 
---TzDQ4robxPUrjxZB
-Content-Type: application/pgp-signature; name=signature.asc
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 41a8687938eb..355573d53fed 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -824,8 +824,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
+>   * kvm_pgtable_stage2_split() is best effort: it tries to break as many
+>   * blocks in the input range as allowed by @mc_capacity.
 
------BEGIN PGP SIGNATURE-----
+Maybe also adjust the comment and remove @mc_capacity while changing
+this, looks like it was included by mistake.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCap71zwAKCRB4tDGHoIJi
-0l3IAP9ldhaM0bKPJa+3pR2NXhPp8GBNkm5A4DzJj+I/8b2QEwD/RsOooxRq/Gtg
-rDS+bDjKm/bt5Y+eOdqCqAI8j5UPngY=
-=AxLq
------END PGP SIGNATURE-----
+>   */
+> -int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
+> -			     struct kvm_mmu_memory_cache *mc);
+> +int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size, void *mc);
+>  
 
---TzDQ4robxPUrjxZB--
+[...]
+
+> +static int host_stage2_split_gfn_meta(phys_addr_t phys, u64 ipa, u64 size, struct pkvm_hyp_vm *vm)
+> +{
+> +	pkvm_handle_t handle;
+> +	kvm_pte_t pte;
+> +	u64 gfn, end;
+> +	s8 level;
+> +	int ret;
+> +
+> +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (kvm_granule_size(level) != size)
+> +		return -EINVAL;
+> +
+> +	ret = host_stage2_decode_gfn_meta(pte, &handle, &gfn);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (handle != vm->kvm.arch.pkvm.handle || gfn != (ipa >> PAGE_SHIFT))
+> +		return -EINVAL;
+> +
+> +	end = phys + size;
+> +	while (phys < end) {
+> +		u64 meta = host_stage2_encode_gfn_meta(vm, gfn);
+> +		kvm_pte_t annotation = FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_GUEST) |
+> +				       FIELD_PREP(KVM_HOST_DONATION_PTE_EXTRA_MASK, meta);
+> +
+> +		ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+> +				      phys, PAGE_SIZE, &host_s2_pool,
+> +				      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
+> +		if (WARN_ON(ret))
+> +			return ret;
+> +
+> +		phys += PAGE_SIZE;
+> +		gfn++;
+
+Annotating every PTE is required here because patch 2's
+stage2_map_prefault_idmap() copies the same annotation to each PTE, so
+the resulting PTEs all contain the same gfn.
+
+In other words patch 2 simply leaves wrong annotations in this case, and
+we make up for it here.
+
+We can't just remove patch 2 because a HYP owned block needs to be
+broken down with HYP owned annotations when a single page is donated
+back to the host.
+
+With this, would it be a better design to have an annotation-aware
+helper that splits a host block properly including the annotations, and
+call it whenever pKVM annotates or maps host stage-2?
+
+>  	}
+>  
+> -	*gfn = FIELD_GET(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, meta);
+>  	return 0;
+>  }
+>  
+
+[...]
+
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index c4ebae0544d4..986b5a19b07a 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -1537,9 +1537,10 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  			       enum kvm_pgtable_walk_flags visit)
+>  {
+>  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
+> -	struct kvm_mmu_memory_cache *mc = ctx->arg;
+> -	struct kvm_s2_mmu *mmu;
+> +	struct stage2_map_data *data = ctx->arg;
+>  	kvm_pte_t pte = ctx->old, new, *childp;
+> +	struct kvm_s2_mmu *mmu = data->mmu;
+> +	void *mc = data->memcache;
+>  	enum kvm_pgtable_prot prot;
+>  	s8 level = ctx->level;
+>  	bool force_pte;
+> @@ -1554,30 +1555,37 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	if (!kvm_pte_valid(pte))
+>  		return 0;
+>  
+> -	nr_pages = stage2_block_get_nr_page_tables(level);
+> -	if (nr_pages < 0)
+> -		return nr_pages;
+> -
+> -	if (mc->nobjs >= nr_pages) {
+> -		/* Build a tree mapped down to the PTE granularity. */
+> +	if (unlikely(is_protected_kvm_enabled())) {
+> +		/* pKVM only supports splitting PMD-level blocks */
+> +		if (level != KVM_PGTABLE_LAST_LEVEL - 1)
+> +			return -EINVAL;
+>  		force_pte = true;
+>  	} else {
+> -		/*
+> -		 * Don't force PTEs, so create_unlinked() below does
+> -		 * not populate the tree up to the PTE level. The
+> -		 * consequence is that the call will require a single
+> -		 * page of level 2 entries at level 1, or a single
+> -		 * page of PTEs at level 2. If we are at level 1, the
+> -		 * PTEs will be created recursively.
+> -		 */
+> -		force_pte = false;
+> -		nr_pages = 1;
+> +		struct kvm_mmu_memory_cache *host_mc = mc;
+> +
+> +		nr_pages = stage2_block_get_nr_page_tables(level);
+> +		if (nr_pages < 0)
+> +			return nr_pages;
+> +
+> +		if (host_mc->nobjs >= nr_pages) {
+> +			/* Build a tree mapped down to the PTE granularity. */
+> +			force_pte = true;
+> +		} else if (host_mc->nobjs) {
+> +			/*
+> +			 * Don't force PTEs, so create_unlinked() below does
+> +			 * not populate the tree up to the PTE level. The
+> +			 * consequence is that the call will require a single
+> +			 * page of level 2 entries at level 1, or a single
+> +			 * page of PTEs at level 2. If we are at level 1, the
+> +			 * PTEs will be created recursively.
+> +			 */
+> +			force_pte = false;
+> +			nr_pages = 1;
+> +		} else {
+> +			return -ENOMEM;
+> +		}
+>  	}
+>  
+> -	if (mc->nobjs < nr_pages)
+> -		return -ENOMEM;
+> -
+> -	mmu = container_of(mc, struct kvm_s2_mmu, split_page_cache);
+>  	phys = kvm_pte_to_phys(pte);
+>  	prot = kvm_pgtable_stage2_pte_prot(pte);
+
+I feel like this change is trying too hard to make the pKVM case fit
+in stage2_split_walker(). The assumptions differ by much: the original
+usage assumes kvm_mmu_memory_cache, can potentially split more than one
+level, and makes decisions base on the memcache's reserve.
+
+Perhaps create another function for pKVM?
+
+Thanks,
+Wei-Lin Chang
+
+[...]
 
