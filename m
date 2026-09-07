@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD02C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A47C6C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1trb6sOqqOL4Nzv46ncJB/f9wXUiCIM1M1i+sR/0Dd4=; b=MVzRBo2Gn2t3IbgK+elTSotHCF
-	68n/QYefcnXb01UMGILsqmMCHReaXJwS1+iDBR6x3aPJxX2mEqdzldpKQtu9vUIfu7tTVLqwjoNwr
-	487K/iZvlaVa2/JIFwnC7Z8Kfekn/LRpmGIufdWHw+HJVGG5+yQDiZm5DJBbFU6PqVKDsV07dZNLN
-	uuz7YHptYPXVZtVjp8Rd3DqUPGde41TzNPlW+SZv38jnpYHiRv0Y9QINas9eISgDzxtvoNxaxu0GU
-	BbUGHqUT9iexc3Ndw1z6ub2aJ/8ImqdBwNKhSRwOhopPnZIUif2DxTjsuFerJHScaNKJ9lH5UV5zQ
-	vmiKKaIQ==;
+	bh=0a/iC5zjIZl1+yxWZkKQgEAnwYE6tHACp2aQjXaciqo=; b=tW7TREcebQWfsNBW+cUfv+mLHW
+	BwJ21/gCgDp0/hub9ABTs4NJtCragAtUH996C3SgG+M9qLn8IXAtm7zZZ2l5SOaKy2ltC2FtuYtju
+	7d5elqYQ88IlbZ821MpmjVx7koB13lOCQzTP4hNpzqyLjcCov14XPvXGnj1Aok1MqLBBbcHffzqEe
+	UdrwF211DSChGsxLEBVEIuz7y6wAS3ZUsapoVUvAH3I0s8yNG4Pk1veCvh8m+7OOmDmKKeTO0LmkH
+	ivdTcFmzJeWod6lVHCagyrtf9VTiLNs7B+dq54hYgwoN5Fdnld4R9VIKOJt0VTapJ+omYEWIHsWZ6
+	Tox/FsrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cOm-00000007LIl-01NV;
-	Mon, 07 Sep 2026 16:40:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3cOq-00000007LKs-0Ox7;
+	Mon, 07 Sep 2026 16:40:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cOl-00000007LIJ-01TL
+	id 1x3cOo-00000007LK3-1QMg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:40:47 +0000
+	Mon, 07 Sep 2026 16:40:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C01B643607;
-	Mon,  7 Sep 2026 16:40:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55F281F00A3A;
-	Mon,  7 Sep 2026 16:40:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C8A0A602C8;
+	Mon,  7 Sep 2026 16:40:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 346321F00A3D;
+	Mon,  7 Sep 2026 16:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799246;
-	bh=1trb6sOqqOL4Nzv46ncJB/f9wXUiCIM1M1i+sR/0Dd4=;
+	s=k20260515; t=1788799249;
+	bh=0a/iC5zjIZl1+yxWZkKQgEAnwYE6tHACp2aQjXaciqo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KxGmw1rDW6DoBlnXfG7919mo46pF1j91hFaT2fajfjZ52NazOaNnNUHbofkElmOn3
-	 fqTGBVt7K1L64uB7APqwaZfNer/ZAGm/BDvMd4X7uxjbOW6uFWFSdymFMTTs8K0n5o
-	 /WmUzZh16xOL7ZXO8w/aTlJY3prb0maYtHOUVe49XFZYdd9czRDctiymPdRgEviguG
-	 a4hD5vyyuaq+TCgRJBhNdEiNrrn0EY8Igb5u3NvYowm5WUotI4hHmG1ORegpovXil5
-	 WRfz1d5bd4SgcR0mnVSRyU7Md+uUa08z8Zi2Siol4TVgoV0Y20PeZXQygQDo0gC4ae
-	 GLzyKFRLDK1qA==
+	b=jmKzXbtp/XFzVXuQ0ObYir5nG2l4DtxVWqG4ztdZKe/OuMmrnbn+pMu0hbGlXCir2
+	 aJKxp3dmesHH8d+bW1Lew1SSOTBNWUMiBzUV7YgbWb4XaheDHyNvMGZzm1qXvDMHME
+	 7kyh1pNiujEpMmMlRNY3JdMf1dY1QXypQJNeSwlhnYgiOWQ53kCmiPTq7w7oTQtSQ+
+	 brMx+dBmZAbfUOauVcMlVYJtCh+ZSDQrrlf6LFRSGNzMqsSuXj14zgM344yb5EIamd
+	 xjv37Y2RsgnlGufseee9IXP27P5Is4MQVTrjtNeADYW7ueUNDZ6CDUZZov8Xf8Hcx3
+	 O7Q+808rBEchg==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	David Woodhouse <dwmw@amazon.co.uk>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 04/19] cpu/hotplug: Propagate bring-up status to arch_cpuhp_cleanup_kick_cpu()
-Date: Mon,  7 Sep 2026 17:40:07 +0100
-Message-ID: <20260907164024.17164-5-will@kernel.org>
+Subject: [PATCH 05/19] arm64: smp: Tidy up smp_prepare_cpus()
+Date: Mon,  7 Sep 2026 17:40:08 +0100
+Message-ID: <20260907164024.17164-6-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164024.17164-1-will@kernel.org>
 References: <20260907164024.17164-1-will@kernel.org>
@@ -77,75 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for enabling the generic CPU hotplug machinery on arm64,
-which has architecture-specific handling of early bringup failures,
-extend arch_cpuhp_cleanup_kick_cpu() to take an additional argument
-indicating whether or not the target AP reached the alive state.
+smp_prepare_cpus() is always run on the boot CPU (i.e. CPU 0) but goes
+to great lengths to support running on a CPU where smp_processor_id()
+is non-zero.
+
+Clean up the code a little by hardcoding zero for the boot CPU ID.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/x86/kernel/smpboot.c  | 4 ++--
- include/linux/cpuhotplug.h | 2 +-
- kernel/cpu.c               | 4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/smp.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index 362f85cbdbaf..ce4e8fba5fed 100644
---- a/arch/x86/kernel/smpboot.c
-+++ b/arch/x86/kernel/smpboot.c
-@@ -1074,7 +1074,7 @@ static int do_boot_cpu(u32 apicid, unsigned int cpu, struct task_struct *idle)
- 
- 	/* If the wakeup mechanism failed, cleanup the warm reset vector */
- 	if (ret)
--		arch_cpuhp_cleanup_kick_cpu(cpu);
-+		arch_cpuhp_cleanup_kick_cpu(cpu, false);
- 	return ret;
- }
- 
-@@ -1122,7 +1122,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
- 	return smp_ops.kick_ap_alive(cpu, tidle);
- }
- 
--void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu)
-+void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index a61dc3016a11..ff045080ca1b 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -779,16 +779,14 @@ void __init smp_init_cpus(void)
+ void __init smp_prepare_cpus(unsigned int max_cpus)
  {
- 	/* Cleanup possible dangling ends... */
- 	if (smp_ops.kick_ap_alive == native_kick_ap && x86_platform.legacy.warm_reset)
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index bbcee650155f..83ef0c4d8bbe 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -510,7 +510,7 @@ struct task_struct;
+ 	const struct cpu_operations *ops;
+-	int err;
+ 	unsigned int cpu;
+-	unsigned int this_cpu;
++	int err;
  
- void cpuhp_ap_sync_alive(void);
- void arch_cpuhp_sync_state_poll(atomic_t *st, int old);
--void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu);
-+void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive);
- int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle);
- bool arch_cpuhp_init_parallel_bringup(void);
+ 	init_cpu_topology();
  
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index d9fe204f02cb..595258e2b6cc 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -432,7 +432,7 @@ static bool cpuhp_can_boot_ap(unsigned int cpu)
- 	return true;
- }
+-	this_cpu = smp_processor_id();
+-	store_cpu_topology(this_cpu);
+-	numa_store_cpu_info(this_cpu);
+-	numa_add_cpu(this_cpu);
++	store_cpu_topology(0);
++	numa_store_cpu_info(0);
++	numa_add_cpu(0);
  
--void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu) { }
-+void __weak arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive) { }
+ 	/*
+ 	 * If UP is mandated by "nosmp" (which implies "maxcpus=0"), don't set
+@@ -803,8 +801,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	 * secondaries from the bootloader.
+ 	 */
+ 	for_each_possible_cpu(cpu) {
+-
+-		if (cpu == smp_processor_id())
++		if (cpu == 0)
+ 			continue;
  
- /*
-  * Early CPU bringup synchronization point. Cannot use cpuhp_state::done_up
-@@ -451,7 +451,7 @@ static int cpuhp_bp_sync_alive(unsigned int cpu)
- 	}
- 
- 	/* Let the architecture cleanup the kick alive mechanics. */
--	arch_cpuhp_cleanup_kick_cpu(cpu);
-+	arch_cpuhp_cleanup_kick_cpu(cpu, !ret);
- 	return ret;
- }
- #else /* CONFIG_HOTPLUG_CORE_SYNC_FULL */
+ 		ops = get_cpu_ops(cpu);
 -- 
 2.55.0.979.g7e5102b832-goog
 
