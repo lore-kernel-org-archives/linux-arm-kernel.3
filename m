@@ -4,60 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72824C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC51C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 06:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uhqq4SjaBmSEA8DrRzienxD9wkDqWA+Zx6N8pGJJeww=; b=BmFeSZeq92s/KhpCwiuGqaZ1B9
-	fRtawJpEXp0TryGXN7iZQfUnaaHcWR2D1JJiO8R2YYaHHncCZ6MH1jYVkAUd5J7jIHrGfHJJAog95
-	92QbdK3s1Kvqtv2FW3WeAVWgE4IK13cfESprw8FIUuux3J6782/CpHRfc7btYd8PF0Imz06I/r+gY
-	SlRkNWm+6FEgDLQeoTW6ClOUUMmuuT4cB+ZKkCrd8apgXx9B4988y+lOmuNvbwo6kHqf7YaIAvv+E
-	ONgfSbkkXwfAk1XyJtJLdBbXPVVsPY0Fit37qUD/kOM3lgoN+3ivcwvjUMDZMkhPGgZOdNhhcWM4O
-	kDZD+TAA==;
+	bh=+nobZfwyZD6U2aEzKHUENEfOz31yDjT4kqI9cv2dNhE=; b=I0+8z3nRfIZIrPo/2hTGrV0rH8
+	hm2CH4X24O/St8kn8Mw+L9OyjCKz8imPB8caA8OT9rtdGGeRxk0b3iK16GE7pt/1knGp8mSqPTTW/
+	OIyCBEIplTy9Ogga1DZp0/7QODXmzGTrYGIE8sd1jpjy53h+mxwyV7Apk1RGzJOaa0TTWFijN8IW8
+	eibWv8/p2HemnBu7uxB0QaKWE8NktzEZZwwlAU56eHqSKWP5fpNgSmHfNtOlunEQTSGlCoyHqODFD
+	zNuuSfMFaQdcHxzzyNYzQIhWLrySXAC8PqORSsfMiUnm3iE1nxMj/ThGhQR3oyCw/ZLMyvXgWKZa0
+	Z1zjWLng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SqR-00000006191-3tgx;
-	Mon, 07 Sep 2026 06:28:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x3SrE-000000061Gx-0aIc;
+	Mon, 07 Sep 2026 06:29:32 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3SqR-0000000618o-2MkV;
-	Mon, 07 Sep 2026 06:28:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D09444400F;
-	Mon,  7 Sep 2026 06:28:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875B91F00A3E;
-	Mon,  7 Sep 2026 06:28:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788762522;
-	bh=Uhqq4SjaBmSEA8DrRzienxD9wkDqWA+Zx6N8pGJJeww=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IUwKfgSXh8wAdVB1uda8oKDagMq50nSkJhaFjwhDyuGAD3ciKsn5vjkrHlMvx/Obk
-	 JdYVD7Uam5OKyLbP7PFdopgxr+qqh/u+JqI0da9ll9OsitD7c0pnDc4XadVLHt1gIY
-	 oR9e+eMtkdoo6XVhED+5xhSTCB2IXUytDO0oFrVeQ06lXPfC+ryATeaf5ddDz3jQ6H
-	 OtaDsKNJIZxMgY2hiXHdid70AoC2fp4ka7dzh1NrgA+sNT80wVyk0cMTgAgoVuox85
-	 KPfmTPxlePELs0TMtduVJBl7T/OlMpDvdtadNObM97Ef7wulPvuJsw+YuxPTTwAMlc
-	 Ar3KFzJXHquRw==
-Date: Mon, 7 Sep 2026 08:28:38 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-i3c@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/8] dt-bindings: i3c: Document the AST2700 I3C controller
-Message-ID: <20260907-imaginary-economic-oyster-57cdd6@quoll>
-References: <20260901-b4-i3c-hci-ast2700-v1-0-19909e7cbd7e@aspeedtech.com>
- <20260901-b4-i3c-hci-ast2700-v1-1-19909e7cbd7e@aspeedtech.com>
+	id 1x3SrC-000000061GP-12BR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 06:29:31 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-9399798ca61so179922685a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 23:29:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788762568; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DeZ7KdgMZ4E1hLH5aePquz48Vx1Lab1q8RtzHTDORv0Y8htKdC3xVPbWnimeltTKZq
+         r1l7zK0nxYxTfhhsO52Fn2SYcVwO1hW2AUNSY7Z26wsOpA4aTajmLhJpJgEzw9oMDr3Q
+         bKMK6nlGaTGl2qxCeHRo4U8bPG6OFJNl9b7Wcm/TCh/EmMV3XyzAPOJoofdZmYgr88xI
+         NOAUgBdQKRyUQhSQ6n2LTFUm5Xvq5ZCI1ykqBgnvTm0b0ybQieFMzfz0+3OP0vnQzfcN
+         BSDMkDuJM2miG64PwKerGcD8wAtNfkHmKR8L4sStNSM/BwIbV/FwRQe1Lsc8RAbUm+Ta
+         qhSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+nobZfwyZD6U2aEzKHUENEfOz31yDjT4kqI9cv2dNhE=;
+        fh=Fu2K7JRpv0SzSGFEoXNY1+Lz6YG5Vw+jeZT3rXGJbew=;
+        b=JL0tJgvcC+bKHp2OjWXM5usO9GuYqsl07z9LQIoDNkt0gMeTRlxiNzSe7W48+OQfX1
+         IW1GXIvFYU9OnxiIYfMzs0pvsScD/Texf035sDdYUbOZSfteP970i/OSEnIx1LsBVSCf
+         AVlj4lWIKOuC0NQKn5Rsq8YKb46Mup85r5Uguep5XVMhTJh6j1N3/y4XAwjSDj4Fqbwu
+         AZ5rBYu4QJOfQcjBtTgptTBGI5z7C3NkMASfQXZDzyJ5bHcknF7q/Fai33Fl2XwwGWtE
+         oaQa5K8QKS2YicqrVMVHwiqMoprCuoug2LIx2r7Bica675jtD6k8/P7tQUSikrB5BYY/
+         skvA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1788762568; x=1789367368; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+nobZfwyZD6U2aEzKHUENEfOz31yDjT4kqI9cv2dNhE=;
+        b=qo1Vyqt8fgZCc8Rg16Z7XS9Imn6WbFrbdU2OBdh+h97dWpZgeUQzRYQRfHbuF+IHk+
+         jRxOINa8QtTyZdTMldh4YS9msl2oxwG2j4lvhJM/XHPuGjCOwUO9auuovDqOWqw12njl
+         O9tp9Z262C35TrHroKkTNkFv8YwjbalFW4UN+tVvibqZOBjt0ODcIdYZPLG0whGTkeWO
+         wrXsuyX0UNkSm2PwfA3MJOL89MJoSyHzLduJ2D61QpsxZqU5gkO4fOL94Z3Zu8CCEtKi
+         poxKAYpUqNayrILqtPQa1SNL7jiJkHjnvVNTOzmidtswr9hdtY/QrI4DFX8VBdP52blP
+         D/tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788762568; x=1789367368;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+nobZfwyZD6U2aEzKHUENEfOz31yDjT4kqI9cv2dNhE=;
+        b=lBB2fH0p4tuTvvgj4EhUy3TGhPSI4tQed5vkX1P7CFzoimNavLewPE2yyvk5z+vs7Q
+         +svXKdz8Q9Xet8P/t9ZfhS2fLWX/kiQyAfKCp0csPMuBDM3LZ7ju1brG5HsECyFpw68j
+         OyU7ozVDoowF9yygZaRYNYAqlM+p8GbOjM4pWAgYrEEkcDLZNhrG28LnOjhzRm/hjjo9
+         +3rdU3+lDyYfR8xl9yCT3YLf+M0LxAEG4QwNSRVDAPL+qerIoXecIHWHnCyOl0Nsqgf0
+         yDflsVKyvqhkYaxmlBw/mnVaLH748O0xeDqTaJxSOwM7bZD31BYXjG2iipeYP5myG2fq
+         GF9g==
+X-Forwarded-Encrypted: i=1; AKwUvBy1dex1TldbGalKOp3etgqhgxmoDjUne45W+kQnRl8S5w5x+5EwUQzA9R8Zzeg8sTwmfr1MgDpbqE2CAKCnbnl/@lists.infradead.org
+X-Gm-Message-State: AFuF++nXlpHR+Hm0C1cN+duD7ATVP6Tz1MVhBbk633EvjtYPRnHLqBUV
+	Sl05yzKe6MkbWFtef/WX9fhxW2CCvj3wyKpFqn+Ts7OGZ2SyV3V8+zWpAMmNWxsXobYjLh5FseR
+	hPGqdGzGRaqHSnr9LklBoOncMQKFazZYOaw6Fg34jFQ==
+X-Gm-Gg: AYBFou1jlbwwKBF7+Okd0tg83e7/KUyv9Stowxc2PswhiE7gHBxttIoZ6dM/JUouekL
+	M504bFri/7Q9xXUNEdKBxMMqzNrAZ/Umvo1do1SL6xgEn+99/ujgkdAzFTt80l8unuNSlnjng0z
+	d7nVkNoj1gHex7umxQJZ4BraTxzyPiaR84+TltDk1Tg2ctaHBOGK5tBSHkawaHVp636W01lNDBh
+	Ot5L06My7cs7WqX1gnqZSM6NW98beW6KpCgF0zYbU6UvcQG5t9xGwkMkhFWC50L1MLqgg1ISSS6
+	b6cTZq5irGNBrbWrnxYYiWcc6Sk2u1qVXzxJ6XAgjUd5OqOAUCS8fWh9iOIzk8n3Q4eIfYcTYtY
+	MIVQ=
+X-Received: by 2002:a05:620a:3943:b0:937:1097:feb8 with SMTP id
+ af79cd13be357-93980426539mr2131110985a.24.1788762568248; Sun, 06 Sep 2026
+ 23:29:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260901-b4-i3c-hci-ast2700-v1-1-19909e7cbd7e@aspeedtech.com>
+References: <20260904-acpi-dma-v1-0-0fcc63d65d4b@thegoodpenguin.co.uk>
+ <20260904-acpi-dma-v1-3-0fcc63d65d4b@thegoodpenguin.co.uk> <aprZKXi7h1prHZft@SMW015318>
+In-Reply-To: <aprZKXi7h1prHZft@SMW015318>
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Date: Mon, 7 Sep 2026 07:29:17 +0100
+X-Gm-Features: AcwNN1UZJqTHPp0gVwDMba9SMPF841uiWsVn6TpoKEJcXyrTZ-unWt9lXJsg64I
+Message-ID: <CAA6zWZ+8=sS1JE4JJORYu45xt6B6VWsf9YXBi4okk_2TdJNUuw@mail.gmail.com>
+Subject: Re: [PATCH 3/4] dma: qcom: use named initializers for acpi_device_id
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Viresh Kumar <vireshk@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Binbin Zhou <zhoubinbin@loongson.cn>, Sinan Kaya <okaya@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260906_232930_542547_8C77D44D 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,159 +121,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 07:35:28PM +0800, Billy Tsai wrote:
-> The AST2700 I3C controller implements the MIPI I3C HCI programming
-> model, extended with an ASPEED in-house control block and a PHY
-> programming window advertised through an HCI vendor extended
-> capability. Follow the existing aspeed,ast2600-i3c precedent of
-> describing SoC integrations of a common I3C IP in their own schema.
+> Remove "While we are at it".  Unify the list ...
+>
+> and wrap at 75 char, check other patches
 
-What precedent exactly?
-
-Are you now bringing some LLM slop arguments here?
-
-> 
-> The controller takes a core clock for PHY timing and two reset-names
-> lines: its own reset and a DMA engine reset shared by all I3C
-> controllers on the SoC.
-> 
-> The PHY timings derived from the core clock and bus rate assume
-> nominal bus loading. Boards with long traces, weak pull-ups, or
-> capacitive loading need different ratios and setup periods, so
-> document properties to override the push-pull and open-drain SCL
-> periods, the SDA TX hold time, the tCAS/tCBP periods, and the SCL low
-> period used for a repeated START or STOP.
-> 
-> Boards without external I3C pull-up resistors can use the PHY's
-> built-in pull-ups instead. The achievable resistance depends on the
-> voltage domain of the pins (high-voltage vs low-voltage), which can be
-> determined from the pin group assigned to the bus. Reuse bias-pull-up
-> (pincfg-node.yaml) for the strength in Ohms; it is declared on this
-> node rather than a pin-config node since the pull-up switch is part of
-> the I3C PHY, not the broader SoC pin control IPs.
-> 
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> Assisted-by: Claude:claude-fable-5
-> 
-> ---
-> We considered formally expressing bias-pull-up's dependency on a
-> pinctrl state in the schema, but couldn't find a clean way to say
-> "depends on whichever pinctrl-N is active" without hard-coding
-> pinctrl-0 specifically, which would be wrong in general (a node's
-> active pin state doesn't have to sit at index 0). We've added
-> pinctrl-0 to the example to illustrate the typical usage instead,
-> without a formal schema-level dependency.
-> ---
->  .../bindings/i3c/aspeed,ast2700-i3c-hci.yaml       | 133 +++++++++++++++++++++
->  1 file changed, 133 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml b/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml
-> new file mode 100644
-> index 000000000000..19ecb5b15038
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/i3c/aspeed,ast2700-i3c-hci.yaml
-> @@ -0,0 +1,133 @@
-> +# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/i3c/aspeed,ast2700-i3c-hci.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED AST2700 I3C controller
-> +
-> +maintainers:
-> +  - Billy Tsai <billy_tsai@aspeedtech.com>
-> +
-> +description:
-> +  The AST2700 I3C controller implements the MIPI I3C HCI programming model,
-> +  extended with an ASPEED in-house control block and a PHY programming window
-> +  that are advertised through an HCI vendor extended capability.
-> +
-> +properties:
-> +  compatible:
-> +    const: aspeed,ast2700-i3c-hci
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    items:
-> +      - description: Core controller reset.
-> +      - description: DMA engine reset shared by all I3C controllers.
-> +
-> +  reset-names:
-> +    items:
-> +      - const: core
-> +      - const: dma
-> +
-> +  bias-pull-up:
-> +    $ref: /schemas/pinctrl/pincfg-node.yaml#/properties/bias-pull-up
-> +    enum: [177, 231, 261, 317, 400, 470, 550, 600, 750]
-> +    description:
-> +      Enable the PHY-internal pull-ups on SCL and SDA and select their
-> +      strength, in Ohms. High-voltage pins support 400, 470 or 600 Ohms,
-> +      and low-voltage pins support 177, 231, 261, 317, 400, 550 or 750
-> +      Ohms. When absent the internal pull-ups stay disabled and the bus
-> +      relies on external pull-ups.
-> +
-> +  aspeed,pp-scl-high-ns:
-> +    description:
-> +      Push-pull SCL high period. Overrides the value derived from the
-> +      i3c-scl-hz bus rate.
-> +
-> +  aspeed,pp-scl-low-ns:
-> +    description:
-> +      Push-pull SCL low period. Overrides the value derived from the
-> +      i3c-scl-hz bus rate.
-> +
-> +  aspeed,od-scl-high-ns:
-> +    default: 380
-> +    description:
-> +      Open-drain SCL high period.
-> +
-> +  aspeed,od-scl-low-ns:
-> +    default: 620
-> +    description:
-> +      Open-drain SCL low period.
-> +
-> +  aspeed,sda-tx-hold-ns:
-> +    default: 10
-> +    description:
-> +      SDA output hold time relative to the SCL edge.
-> +
-> +  aspeed,cas-ns:
-> +    minimum: 39
-> +    description:
-> +      Clock-after-start (tCAS) period driven after a START condition.
-> +      When absent it is derived from the SCL low period of the
-> +      applicable bus context, clamped to the protocol minimum.
-> +
-> +  aspeed,cbp-ns:
-> +    minimum: 20
-> +    description:
-> +      Clock-before-stop (tCBP) period driven before a STOP condition.
-> +      When absent it is derived from the SCL low period of the
-> +      applicable bus context, clamped to the protocol minimum.
-> +
-> +  aspeed,sr-p-scl-low-ns:
-> +    default: 40
-> +    description:
-> +      SCL low period used while preparing a repeated START or STOP
-> +      condition, kept separate from the push-pull SCL low period to
-> +      satisfy the MIPI I3C clock stalling requirements.
-
-Probably I3C maintainers should weight in here and help - should these
-be made generic for all I3C controllers? I am surprised some "standard"
-I3C controller needs to configure this as the single one. No other ever
-needed...
-
-Best regards,
-Krzysztof
-
+Ok thanks - will do this in v2.
 
