@@ -4,127 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6F4C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27924C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jM/+uArTKgpdGhUTPlg4cPmPaBK1j/KlvkGVBLZ83tA=; b=2mY6ANyxf0XhpAcHMjdDtlzqka
-	Qfi+2lpGtu0hQ5Zv2+H4bekGAVOjk4g5wo6xWYPgPmHneBYHhhDAiHbZVqevCIkYt36lKPBVr0YzH
-	uL1HUbmnYx1HhOOzsdRTpznajbxdCLsrm7gwxWnj6Fh4fekrI2etE+VJreNSp9t5m2sRoD5U1r1jH
-	8r8CFl8m5JOOdZZfjcSIV3uQmrlM7ZcEBA+Q338Dxu6TB94zOAWBZR+/sorLE+pn6NoJIDl/du5YZ
-	Kp92WFyEvvt2yZwEDe2vBVuoGnLvMJedp3q5Ev6dm5WWs2CMS0ESiM02CesNT9xtp5Xu09INncKtr
-	nEAyFPJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=; b=LrAOAWyXUfFNQVxbNbWeAd7czV
+	TErYGOsvOFRYGe/Rbza6D5wr9CNm2jE7pQA5l7Yrc9LiIkB7X7GGsRbU3bvH7XA6oc2LP3s8QSGEs
+	GA3z513Qxh4aJN5Gw6LsZ8gF844ij566QO/Qa0WxoWPxTpaCrAQlPEaLo5b8MuGrZ2xT6s7lgcxLO
+	b9rBzRjsjNFKLIxxYRiKnpQlfi+kx+/E2zrGC4CYK9bbbG+qLUbRWP9mckKMCtFjYQzksZOpC1KmB
+	TyuIEYe8MTI3xERYpOnEl3SoN1y1ZlT3Zhe/BYztgJsq4JRQ/wH1iguqgXMmmWWPjC2YsBK66galQ
+	0RRpq2Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cWq-00000007Owr-0kGY;
-	Mon, 07 Sep 2026 16:49:08 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1x3cYK-00000007P7g-1da8;
+	Mon, 07 Sep 2026 16:50:40 +0000
+Received: from mail-swedencentralazon11013063.outbound.protection.outlook.com ([52.101.83.63] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cWn-00000007Ow1-19jG
+	id 1x3cYH-00000007P6v-07nw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:49:06 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 687E1akT281370;
-	Mon, 7 Sep 2026 16:48:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=jM/+uA
-	rTKgpdGhUTPlg4cPmPaBK1j/KlvkGVBLZ83tA=; b=hVne2bbrBy/ZNfPuEJe9Dz
-	cG53AnJMoxQqDUUVP0TRST/49VyUTB+OqQPjbIZydquLyoY+hg8T+mWZRMjDC5zM
-	VzJ/OFBs9LKA1mrJshK3c5NRuVW+UK5iu73yZ/8YPlzQSpWNDm42nO+3WBSezccO
-	LjcThWvdLFmtTwauZGYAWnNgEA/SlWOc328ICP1STenoiM12IECuxKxdaoxvnla4
-	qRlmVaPdcIeKj91aNtdJ9DsEo/cEKLk8JFXtbQIqOtOFLh7Zs5nsZ6/o661jgKfn
-	7SnbmV0NfSRM134xhnPihXOYdqA8dEStDfMH7vK/AhzJE+TxQoSKW6s7JH7Yyn5A
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ggbqjstyx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Sep 2026 16:48:34 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 687GfFdX015395;
-	Mon, 7 Sep 2026 16:48:33 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4ggwdq74v0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Sep 2026 16:48:33 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 687GmVfS49414522
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Sep 2026 16:48:31 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3023920043;
-	Mon,  7 Sep 2026 16:48:31 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BDA4520040;
-	Mon,  7 Sep 2026 16:48:26 +0000 (GMT)
-Received: from [9.39.28.108] (unknown [9.39.28.108])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  7 Sep 2026 16:48:26 +0000 (GMT)
-Message-ID: <d75f3181-868b-442d-9f2a-b979af0833d4@linux.ibm.com>
-Date: Mon, 7 Sep 2026 22:18:25 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] sched/fair: Honor asymmetric SMT priority in idle
- selection
-To: K Prateek Nayak <kprateek.nayak@amd.com>,
-        Andrea Righi
- <arighi@nvidia.com>, Ingo Molnar <mingo@redhat.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Phil Auld <pauld@redhat.com>, Breno Leitao <leitao@debian.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Srikar Dronamraju <srikar@linux.ibm.com>
-References: <20260904091838.3617894-1-arighi@nvidia.com>
- <20260904091838.3617894-3-arighi@nvidia.com>
- <ff6763c9-f279-47d2-a279-58c54ab37ee6@amd.com>
+	Mon, 07 Sep 2026 16:50:39 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=hZT5dfYjouXBALDMiWhqCk8IrWnWI/eeqU+iGIw0djovbUL2iOJZA73p3YvkcSL4f05NMhTs49zISWmka3ReaI79dq0YoXj6BvjcrpWw/wqaUd9iYWzGqMHqePoZZRF3DvHHQx6tC9BaJcjEKOV9BXdD2Nqas822VZvi1DP2XldcyClntHspvfizfC8cataoFYYh2BQ9lsQ0Z4IVCW2VyOFPJhYCi2rFjOyaUdjs5VhUHqdmGVZ3N/fosL4ZyS02JZECFWmMIPi7WwPy6U1dM4dNNLZekI9OwIymqZCjTrBFJy3r+JNLh7vu0ioXuqkyFt0ozme50+hFpTflmMQu7g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
+ b=ahNTTOGJ2Z4ilndikVsrZMKHBmR0PgZnH1NN6JSkjoYztmUJlOghZ30SP/vP0Fn6J5C5SN0cmnNFzQsmrOBzbtP9vmnuKCcjZ/+TTB3SKbkICdVqaE1tbW//UArsVkbSY6x32z7uExNsqR3lKz88y7XMXI7scudbfygwdIJsYuTcLh7tBem3hk0ha4++lR5ynQTAb69HYWYrKT7bhUDTUlA7BIR+VyAMvExfffzUhJNkWeyNhmIP/Ju5Dx9Ruqwjhln3vVueQypLIVhxxBGOklbGAu7LmY6p7G74G0872dV5HNLvHhHO7FNVMxRUzH4XfVuORvqx0syjt5u42kCIUg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
+ b=XSaTQMdzUaAiuYSl0vlhgrnM2vWntXDljcjbQkeDvkMsg2etivSOiuIsGJqAboHfzk3tiUHZHDh3q1Qh3vb+n50b0LLMNmCK7IRgjR5Jo5VEVszk+UKC+L9JVHn+2pEEP1uiE7EuBatDpVI5Z6ItMNSFyei/NWUgCMSd8Dl6bTI=
+Received: from PA7P264CA0116.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:34c::7)
+ by DU0PR08MB9608.eurprd08.prod.outlook.com (2603:10a6:10:448::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
+ 16:50:27 +0000
+Received: from MI3PEPF0000847E.eurprd02.prod.outlook.com
+ (2603:10a6:102:34c:cafe::1d) by PA7P264CA0116.outlook.office365.com
+ (2603:10a6:102:34c::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 16:50:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ MI3PEPF0000847E.mail.protection.outlook.com (10.167.240.165) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
+ via Frontend Transport; Mon, 7 Sep 2026 16:50:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CcILjVYwT722HmqrxHBUVpNC2r/3Ijiv6uISWAtScmmDaQpF/4AqPQztBa5dteEco4lVcwmmTmKTmyx2gJRO5vhCZSgmz2hh2u5I9pmWRI5lIIz9rgwzEfu6qAVV00cxuJApZNgCDX/TbBczQCugYF2RrbhHhFo9bjUWf1RKPIsQY7+PwUlYCvws+StY1zdoCzlhLwH4Ch++Y7dYX8wE8ruvyePpCMhndArLnTXXInapnUulARz2vh0NjDvKC1HnyXhUtUS1CK+3DM61aKUsJQNphKQRoSlKjIqJp+WXc7oMiP3L3OpKynEuwcIzSU+Po2JL/lHLj7dNEH8doNkvpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
+ b=uEW/lDq2lCJmphpKzQm6x0I8B5jiMVfNII2WbgfByNCdx89pc3+ZO/kbndXQWZp7UMAW+DLg2V6NgYOU4qs9iH/UJlnqAGz3f4zyEbhV7OKnYGN7Fb/jm3uPQguz3wZNGl4E2Wd6B2bzShntrru0pL3R7+NO1djXoWtQGKjaKboPAWMdzreLl5o0qGV3WOUhQn9xdGy9dZ4ZMERKawMjgezAuBpwPqTX9mLNwyOd7pI1vORzFo8NS3anhWncrkjLkRIaL9M7pMEwDMz+6EunrssdMrO9mNBbJNitGY2KBxZieAPUIgLCUAXEJzUnQhvpFFMmgBbYx7PWloBV/SnmbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qdKe04+vNDlNrmwJc6CjCps1YJQkUrViWRjFFDGZun8=;
+ b=XSaTQMdzUaAiuYSl0vlhgrnM2vWntXDljcjbQkeDvkMsg2etivSOiuIsGJqAboHfzk3tiUHZHDh3q1Qh3vb+n50b0LLMNmCK7IRgjR5Jo5VEVszk+UKC+L9JVHn+2pEEP1uiE7EuBatDpVI5Z6ItMNSFyei/NWUgCMSd8Dl6bTI=
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com (2603:10a6:101:1d::23)
+ by GVXPR08MB11424.eurprd08.prod.outlook.com (2603:10a6:150:2e1::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.406.6; Mon, 7 Sep 2026
+ 16:49:51 +0000
+Received: from PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e]) by PR2PR08MB4889.eurprd08.prod.outlook.com
+ ([fe80::8bda:5986:a1f1:cb7e%4]) with mapi id 15.21.0382.007; Mon, 7 Sep 2026
+ 16:49:50 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "tglx@kernel.org"
+	<tglx@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, Mark Rutland <Mark.Rutland@arm.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v2] irqchip/gic-v5: Preserve ICC_CR0_EL1 state
+Thread-Topic: [PATCH v2] irqchip/gic-v5: Preserve ICC_CR0_EL1 state
+Thread-Index: AQHdPujmqB9zMyF8YkuaTgwxXLvOXQ==
+Date: Mon, 7 Sep 2026 16:49:50 +0000
+Message-ID: <20260907164945.714545-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-In-Reply-To: <ff6763c9-f279-47d2-a279-58c54ab37ee6@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: Ig_bLfcZP3b0rvEnBBy7_fx1pyx9IDfU
-X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDE4MyBTYWx0ZWRfX8Qxx9fldxEgX
- hlzGybwluK6NJlSO5lsojvR45ECneV3h9jKKuJlgfR8vjdUK3X+ZK7QChUBM30+z1s4wpREsMFu
- bM3Y2izCOM3QPILcq1k7GYq1E/GaFes=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDE4MyBTYWx0ZWRfX0Hx25IFASrSq
- HXDyaXtGQPLNDtIoDk2a22Fv9YOZL3L1km8Vh6MXBvXDyY97Pl92/qH982u5L79y9/u1fQeuqot
- qfaUWwUd7NUldZCYswsIgvHgf8ygNtNNyib9UI3ELokI2UD68GQLBmpGqZGzAO6FRDzNI4ZdSRe
- ebD++WZpmmnd0cu2TxrEWglo0cfSKMV6TUpzpr6pC+WzOgl/tYZWSZuND+Xdoyw7qhlnkeb7Pf6
- Cx+NTjZIoXAQAI32v3RgxiOUaX9BVdKnmNAxHg4O/OoCLEypVJThA2c5vMr6zOis6EVSmUM34FB
- 7B6zgT6rRJjV5WijhHPK81U8l1e0qYv4/AhN9reM/i1HIGltnxvYYcIKnm+FJq2Ubp6rA0Azg6X
- y9XWFkQQdT+k4Kw5Qb791AhgGPxF+xRgmpMbRWAgEy/OdoEXdoZ+NcnaQo02iGack+Yn6JmsHYu
- /dzTz43fl0C5KTjAN7g==
-X-Authority-Analysis: v=2.4 cv=JaKMa0KV c=1 sm=1 tr=0 ts=6a9eeae2 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=VdqzKS8jKosA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=ymv76A7DTVYo3Bxe0W4A:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: p6wm1HcT5W1KB4yP91ykiofNbMmWrqgu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-09-07_04,2026-09-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0
- adultscore=0 bulkscore=0 priorityscore=1501 suspectscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609070183
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: PR2PR08MB4889:EE_|GVXPR08MB11424:EE_|MI3PEPF0000847E:EE_|DU0PR08MB9608:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9eea6e59-8dc9-486b-b19a-08df0d001e7a
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|10067099003|6133799003|3023799007|18002099003|11063799006|56012099006|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: EzXwudB8pWvsKgmu3Nqb5cRsZIwrHZYOCiE1K5DTNbuVPVHOkO1kSTQwCKYI5aIOjygbGSKR+rBBI5lHRNY0QkOq0mkROQKNecAN2G4X05f/hjwGzW5lrZbKPROQI4hGgQxBtvdxQ9qWhl04bELuZY/XPyp59EbMKKiwf3NpswwMhsM8Ikfi5TGdhfzRtpzav/hCoxuOoQnJTg+8tEZ1wL1cOp6C4IvWEcJVzbrgu9Ji4oNuu+NN12mDHEylpUEarK4FQ9QoBB5qQubB5NpWbshJLMdrB4PaE5pm7K8hmDkcgqa2yxmK/gyCR0LwI88YAq1BORwpPVCW8JuxX5tPwLcNstLc65FrA5TaeXDMbbc4gAVVzV7NJmxXziv3VvLfvqjps5lEr61KVa/ba/QDX3rf7qOavSTeJESih+68spn4ZEhgcXYeq/wYK+t1hKxyuuVsMSvE6OnG1d7xxrR5SLOZ7dp53g004xysJrAwfMqTQYzHbTdyldZGSsmtcycuq9LC4t/vabLxpxbAZ5+C5jiJv0jhs8tYZGqdwPVm1Og6BBklAHjVZVy1iambUY0Elv7N/h7clwuFkpvXyVDqQHudD2mkIes2tBA5/2c6k46iKdkF91j83QKN03D86oGcTvVdU/ytik5tOXbJ6d0RdIQgw5ia29a4px8AvNMXSWkKuRa4l7ZaTtWzhmR3qCLXQ1n/9hiW7HoPFhoulYKW3emrTx+nnOtEoTTal6GjaVQ=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR2PR08MB4889.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(10067099003)(6133799003)(3023799007)(18002099003)(11063799006)(56012099006)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: hmalb7RXnW+3hyup6k2859KLMeyQWnMA8mXgs7wJUq5qjITOoh4fhrPCI3RkpOYNCKCcTHLLIEZQfJmnX1N/cgvN1/YP30B/+NWFtncYseMU4pr2fyTlvnXQN/FKPG9hMz+ATmg4qpbN88tHu8DteEEdvFIY1S6bnoi2Bl/sSjKQLCgIl2nFHfE7paWqsRbNDx5i0u4vGC/nBnaQMts9+gcfzxZTBnV0gTNJuUhukI45HKNM4OmHxhZXyvY2GTIG4Kiz4wvpQ3FB7+1Qc7sUo8P+M108lA+fshUIxqvyVkzM/c1A7FcraJ+dLe9IYV6m8aZCL+lC9zgBvm+906yG8A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB11424
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MI3PEPF0000847E.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: d76e0fb5-b28c-4f3c-437c-08df0d0008d0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|376014|36860700016|23010399003|1800799024|14060799003|82310400026|10067099003|6133799003|3023799007|56012099006|11063799006|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: RkV87bnbKdq8c7bqz8P539PBC3bJF4ra10BdZF8MQYyP1QN20s+IDg39N+yUSCLqFnVktWc1OdpI1oYFKduH40PcouQ1agnnfGkVv+xwy3p3SR0UDKDikV+paTZd7Vc5yTPTnAalpHL7DCPNzEmZ4IM3SUkiegQ24gwijEkyvO0NW4XMAPEHbpWXmUWnFmMQHl0uQbvPRxiDtmN7RGTDn+zE/ONcpjQU6aSaOHus3lloBu62VxLK8er/08o4x6fYIWZmZsQlAxnuvFddB+ZBinVneq+gQAX57VXlXqfOMTDibjHzfvNCNmo/uCVLoEJPxn0ARB38ZMvO7weNSGFbQUCKJ0n6707/vevCTaXZu+2dcWalmmgsZbyCmMEqXHMCAoKmi7yM5FLuByahcqYIJKiMeNtQy4c4wxTbGUgaPj3JIRL/ZdCcU+K7FvW6WghiPrDsZ+XMntDdOHJNoqygibERQuKXXYkm2STGPImtpckuWAIlFdt7TOX3FKEBumqkexoMyRgWnL+05oIyBpcJIDZiKBuEN1Fo+lPSrcRKgntIZuRT+EL5eOQBpsy/wxIK1Y5Sujsox2C4oozDPALgj+1cZQ7eREt9D0uvQ6xdAIEl2rWewTEJl5KKPXdPFmAzNSnD0msCgXAfX9Txk/amh4HceGtHpjkwCt1yn6/8nhU72c7bO2wrqD4SljCfHvTL4uTH1yA2Z3TpkznbxCLpjg==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(376014)(36860700016)(23010399003)(1800799024)(14060799003)(82310400026)(10067099003)(6133799003)(3023799007)(56012099006)(11063799006)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: pTlTIu0fZF7kZn1bJfm9xIUNw2feeY7blvjTmSb8ZeoNdNdXYrCOZ3mi2iZ7vyjeHBozKLUhnGWdIFdmdYEBPbWxbv2lahXSFdfvTYXdqQojfEeCSmnlYTIrRfeIY4msfqkqrGMaPWz2sQim6qhnLg6128F+0h9pkqbY3CPB1ZCUDR1hpfxyNP5kXckP7fpmHhPwAeQzzoTbBWmXxbPTCAtBRCjDhZfwZxtD5ozutXVARh3xPFAMZjztLhBrHMyxcpY3Od4nZFzo3IMHRMBf1A4Gq8PkyksDNqirkFrTkTthimZt5iZ4DifFTfZQuLRE9hI4xHmoUwd473Eld1m2G6DofofkcM+wPzNzERvB5FqD5uRwaZCEiKSSR0JHJK4+do2IIlKpWyOZL4zstP1RDLY69Q5f3lRCvSzQn0jeePLPzojnQitGtjqv0qTj8oOW
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 16:50:27.0803
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9eea6e59-8dc9-486b-b19a-08df0d001e7a
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: MI3PEPF0000847E.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9608
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_094905_338231_E6CC1A35 
-X-CRM114-Status: GOOD (  37.09  )
+X-CRM114-CacheID: sfid-20260907_095037_160135_29B04A12 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,261 +158,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In addition to EN, ICC_CR0_EL1 contains other fields, such as LINK and
+LINK_IDLE. The driver only needs to modify EN, and must preserve the
+values of all other fields when enabling or disabling the CPU
+interface.
 
+Define the missing LINK and LINK_IDLE fields, and use read-modify-write
+accesses to update EN without affecting the rest of ICC_CR0_EL1.
 
-On 9/7/26 9:27 AM, K Prateek Nayak wrote:
-> Hello Andrea,
-> 
-> On 9/4/2026 2:48 PM, Andrea Righi wrote:
->> +/*
->> + * Return true when @cpu has a higher asymmetric-packing priority than
->> + * @other in their shared SMT scheduling domain.
->> + */
->> +static bool sched_smt_asym_prefer(int cpu, int other)
->> +{
->> +	struct sched_domain *sd = rcu_dereference_all(cpu_rq(cpu)->sd);
->> +
->> +	if (!sd)
->> +		return false;
->> +
->> +	if (!(sd->flags & SD_SHARE_CPUCAPACITY) ||
->> +	    !(sd->flags & SD_ASYM_PACKING))
->> +		return false;
->> +
->> +	if (!cpumask_test_cpu(other, sched_domain_span(sd)))
->> +		return false;
->> +
->> +	return sched_asym_prefer(cpu, other);
->> +}
->> +
->> +/*
->> + * Return the highest-priority available CPU in @cpu's SMT core that is also in @cpus.
->> + */
->> +static int __select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
->> +{
->> +	int best = cpu;
->> +	int sibling;
->> +
->> +	for_each_cpu_and(sibling, cpu_smt_mask(cpu), cpus) {
->> +		if (sibling == best || !choose_idle_cpu(sibling, p))
->> +			continue;
->> +
->> +		if (sched_smt_asym_prefer(sibling, best))
->> +			best = sibling;
-> 
-> nit. Since sched_smt_asym_prefer() is only used here, and we know rq->sd
-> is the one that can have SD_SHARE_CPUCAPACITY | SD_ASYM_PACKING, perhaps
-> you can inline the check here do a:
-> 
->      sd = rcu_dereference_all(cpu_rq(cpu)->sd);
-> 
->      if (!sd)
->           return cpu;
-> 
->     if (!(sd->flags & SD_SHARE_CPUCAPACITY) || !(sd->flags & SD_ASYM_PACKING))
->         return cpu;
-> 
->     for_each_cpu_and (sibling, sched_domain_span(sd), cpus) {
->         ...
->     }
-> 
->    ...
-> 
-> 
-> That way, you don't need to dereference cpu_rq(cpu)->sd every time in
-> sched_smt_asym_prefer() and check cpumask_test_cpu(). Both, domain
-> span and task affinity will be covered at once.
-> 
-> Thoughts?
-> 
->> +	}
->> +
->> +	return best;
->> +}
->> +
->> +static inline int
->> +select_idle_smt_cpu(struct task_struct *p, int cpu, const struct cpumask *cpus)
->> +{
->> +	if (!sched_smt_asym_active())
->> +		return cpu;
->> +
->> +	return __select_idle_smt_cpu(p, cpu, cpus);
->> +}
->> +
->> +/*
->> + * Redirect an available SMT CPU to a higher-priority available sibling allowed by task affinity.
->> + */
->> +static inline int select_idle_smt_priority(struct task_struct *p, int cpu)
->> +{
->> +	return select_idle_smt_cpu(p, cpu, p->cpus_ptr);
->> +}
->> +
->>   /*
->>    * Scans the local SMT mask to see if the entire core is idle, and records this
->>    * information in sd_balance_shared->has_idle_cores.
->> @@ -8645,7 +8702,7 @@ static int select_idle_core(struct task_struct *p, int core, struct cpumask *cpu
->>   	}
->>   
->>   	if (idle)
->> -		return core;
->> +		return select_idle_smt_cpu(p, core, cpus);
->>   
->>   	cpumask_andnot(cpus, cpus, cpu_smt_mask(core));
->>   	return -1;
->> @@ -8668,7 +8725,7 @@ static int select_idle_smt(struct task_struct *p, struct sched_domain *sd, int t
->>   		if (!cpumask_test_cpu(cpu, sched_domain_span(sd)))
->>   			continue;
->>   		if (choose_idle_cpu(cpu, p))
->> -			return cpu;
->> +			return select_idle_smt_priority(p, cpu);
->>   	}
->>   
->>   	return -1;
->> @@ -8720,7 +8777,7 @@ static int select_idle_cpu(struct task_struct *p, struct sched_domain *sd, bool
->>   						return -1;
->>   					idle_cpu = __select_idle_cpu(cpu, p);
->>   					if ((unsigned int)idle_cpu < nr_cpumask_bits)
->> -						return idle_cpu;
->> +						return select_idle_smt_priority(p, idle_cpu);
-> 
-> Question for Shrikanth: On larger SMT (SMT-4, SMT-8), does the ranking
-> make that big of a difference if the core is already busy?
-> 
+Fixes: 7ec80fb3f025 ("irqchip/gic-v5: Add GICv5 PPI support")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/r/20260807121703.D4B7A1F00A3A@smtp.kernel.o=
+rg
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ arch/arm64/tools/sysreg      | 4 +++-
+ drivers/irqchip/irq-gic-v5.c | 6 ++++--
+ 2 files changed, 7 insertions(+), 3 deletions(-)
 
-Only on Power7 we had AYSM PACKING.
-There IPC of CPU0 > CPU1 > CPU2 > CPU4 for the four siblings IIRC irrespective of busy
-or idle.
-
-PS: I haven't seen the patches in detail yet.
-
-> Does the overehead of additional search get offset by the benefit of
-> being placed on a better ranked thread? If not, maybe the paths for
-> !has_idle_core can stay as is?
-> 
->>   				}
->>   			}
->>   			cpumask_andnot(cpus, cpus, sched_group_span(sg));
->> @@ -8745,7 +8802,8 @@ static int select_idle_cpu(struct task_struct *p, struct sched_domain *sd, bool
->>   	if (has_idle_core)
->>   		set_idle_cores(target, false);
->>   
->> -	return idle_cpu;
->> +	return (unsigned int)idle_cpu < nr_cpumask_bits ?
->> +		select_idle_smt_priority(p, idle_cpu) : idle_cpu;
-> 
-> Since every path does a select_idle_smt_priority() - be it coming from
-> select_idle_core(), the early-return from the cluster scan, or just an
-> idle CPU from the LLc scan, can't we simply just do it once in
-> select_idle_sibling()?
-> 
-> Something like:
-> 
->    (Only build tested)
-> 
-> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> index f79fcba4afec..7c97585141dd 100644
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -8964,7 +8964,7 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   
->   	if (choose_idle_cpu(target, p) &&
->   	    asym_fits_cpu(task_util, util_min, util_max, target))
-> -		return target;
-> +		goto out;
->   
->   	/*
->   	 * If the previous CPU is cache affine and idle, don't be stupid:
-> @@ -8974,8 +8974,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   	    asym_fits_cpu(task_util, util_min, util_max, prev)) {
->   
->   		if (!static_branch_unlikely(&sched_cluster_active) ||
-> -		    cpus_share_resources(prev, target))
-> -			return prev;
-> +		    cpus_share_resources(prev, target)) {
-> +			target = prev;
-> +			goto out;
-> +		}
->   
->   		prev_aff = prev;
->   	}
-> @@ -8993,7 +8995,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   	    prev == smp_processor_id() &&
->   	    this_rq()->nr_running <= 1 &&
->   	    asym_fits_cpu(task_util, util_min, util_max, prev)) {
-> -		return prev;
-> +		target = prev;
-> +		goto out;
->   	}
->   
->   	/* Check a recently used CPU as a potential idle candidate: */
-> @@ -9007,8 +9010,10 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   	    asym_fits_cpu(task_util, util_min, util_max, recent_used_cpu)) {
->   
->   		if (!static_branch_unlikely(&sched_cluster_active) ||
-> -		    cpus_share_resources(recent_used_cpu, target))
-> -			return recent_used_cpu;
-> +		    cpus_share_resources(recent_used_cpu, target)) {
-> +			target = recent_used_cpu;
-> +			goto out;
-> +		}
->   
->   	} else {
->   		recent_used_cpu = -1;
-> @@ -9030,7 +9035,8 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   		 */
->   		if (sd) {
->   			i = select_idle_capacity(p, sd, target);
-> -			return ((unsigned)i < nr_cpumask_bits) ? i : target;
-> +			target = ((unsigned)i < nr_cpumask_bits) ? i : target;
-> +			goto out;
->   		}
->   	}
->   
-> @@ -9043,27 +9049,31 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->   
->   		if (!has_idle_core && cpus_share_cache(prev, target)) {
->   			i = select_idle_smt(p, sd, prev);
-> -			if ((unsigned int)i < nr_cpumask_bits)
-> -				return i;
-> +			if ((unsigned int)i < nr_cpumask_bits) {
-> +				target = i;
-> +				goto out;
-> +			}
->   		}
->   	}
->   
->   	i = select_idle_cpu(p, sd, has_idle_core, target);
->   	if ((unsigned)i < nr_cpumask_bits)
-> -		return i;
-> -
-> +		target = i;
->   	/*
->   	 * For cluster machines which have lower sharing cache like L2 or
->   	 * LLC Tag, we tend to find an idle CPU in the target's cluster
->   	 * first. But prev_cpu or recent_used_cpu may also be a good candidate,
->   	 * use them if possible when no idle CPU found in select_idle_cpu().
->   	 */
-> -	if ((unsigned int)prev_aff < nr_cpumask_bits)
-> -		return prev_aff;
-> -	if ((unsigned int)recent_used_cpu < nr_cpumask_bits)
-> -		return recent_used_cpu;
-> +	else if ((unsigned int)prev_aff < nr_cpumask_bits)
-> +		target = prev_aff;
-> +	else if ((unsigned int)recent_used_cpu < nr_cpumask_bits)
-> +		target = recent_used_cpu;
-> +out:
-> +	if (!sched_smt_asym_active())
-> +		return target;
->   
-> -	return target;
-> +	return select_idle_smt_priority(p, target);
->   }
->   
->   /**
-> ---
-> 
-> That way, it lives in a single place, and we don't have to pepper
-> select_idle_smt_priority() everywhere. Thoughts?
-> 
-
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 94bf065c8ac7..e2d37ee221b8 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -3761,7 +3761,9 @@ Sysreg	ICC_CR0_EL1	3	1	12	0	1
+ Res0	63:39
+ Field	38	PID
+ Field	37:32	IPPT
+-Res0	31:1
++Res0	31:3
++Field	2	LINK_IDLE
++Field	1	LINK
+ Field	0	EN
+ EndSysreg
+=20
+diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+index ac2d423b1723..5f2551cf077d 100644
+--- a/drivers/irqchip/irq-gic-v5.c
++++ b/drivers/irqchip/irq-gic-v5.c
+@@ -974,7 +974,8 @@ static void gicv5_cpu_disable_interrupts(void)
+ {
+ 	u64 cr0;
+=20
+-	cr0 =3D FIELD_PREP(ICC_CR0_EL1_EN, 0);
++	cr0 =3D read_sysreg_s(SYS_ICC_CR0_EL1);
++	cr0 &=3D ~ICC_CR0_EL1_EN_MASK;
+ 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
+ 	isb();
+ }
+@@ -991,7 +992,8 @@ static void gicv5_cpu_enable_interrupts(void)
+ 	pcr =3D FIELD_PREP(ICC_PCR_EL1_PRIORITY, GICV5_IRQ_PRI_MI);
+ 	write_sysreg_s(pcr, SYS_ICC_PCR_EL1);
+=20
+-	cr0 =3D FIELD_PREP(ICC_CR0_EL1_EN, 1);
++	cr0 =3D read_sysreg_s(SYS_ICC_CR0_EL1);
++	cr0 |=3D ICC_CR0_EL1_EN_MASK;
+ 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
+ }
+=20
+--=20
+2.34.1
 
