@@ -4,72 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF80DC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4010AC79FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otIPJu+TzkOj3mNvPJg4bU2oZNf1j9J+ix1n6UG32WI=; b=IOYXh3ggS+SDOdIMIcS+4yJ6Yh
-	AwGIE16yrMQPzXYzhuRemLj8AYR3iUnJeL9GimYmlZAmeVb83bGjuOGAw9KIMPMWiz4lPI0RWyDeL
-	HscoAw05841Wdk0uJdcni+U8ObL+ZEjbEhMvwcpzhCiiSv4i8+T7gEl2M0DwNP9rkrwX5Nz5NlJMc
-	z0+E1ZhNKsCLlpc4/Rte/K7hUVbV1GQY/dykLnRc7RTsAU7rEVFpGBCRIpXqJuWusmAXNGM1d08uJ
-	zFQ+Mybp4ZGVludfP3SSih2/UgLZYhvprQLsWiKJkWRhg1WxRK+8se2wGXe2s1EJEW56cWfjvA7/1
-	JJUsNHGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hq1rNKVGmliGTWsiFEwtrdEOPueQghmo9INX52ut/jY=; b=IQh9R7gTKv2aq/+L100RfTHXCY
+	36XUa6jb9PlqNk+wHSeaHBoTuwH7SqNetvuc8aDtB/CYaSgWh+gd0xZkvUaZLRdII9SeV2shSoYsW
+	QvL0maAswQwgEvRjr86lwjq8TRiQroXYxXHKN9eoAMDrouzPJ805MLv9HBnFQwhttrA4nVlywPtab
+	lPf7AUI8m0WcZ29i4BZot8V4VPYyj763D+VyxNAjN/HeA3531kJ775Qga7X/7Kr6ckAB9FVBxy44A
+	Gax3CJWa18pWY/H8JGlhi81YpcCVE/XvCQPyO0PvjdwVuisRPy1dW3j9fqyT9cDZydSdeFNUwyLvP
+	PSyPNqbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bOv-00000007BcM-48X9;
-	Mon, 07 Sep 2026 15:36:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3bQf-00000007Bt8-1km1;
+	Mon, 07 Sep 2026 15:38:41 +0000
+Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bOu-00000007Bc6-3Jve;
-	Mon, 07 Sep 2026 15:36:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2384660D89;
-	Mon,  7 Sep 2026 15:36:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498E41F00A3A;
-	Mon,  7 Sep 2026 15:36:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788795411;
-	bh=otIPJu+TzkOj3mNvPJg4bU2oZNf1j9J+ix1n6UG32WI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NeSlAWVsyypsF4hIil2ed2Y5sOHsUJrCS5HlU19as33dem4Pdr0UdPoHoFUbwTgKA
-	 OQdN2pZRQmlRgXnQyDdPlyXEhJk+QYiYKoX9lXeSNFl9OjhP6UCiaWZnbXSkZImlBt
-	 JmaQAktGIkLi+hKjDotKvTyfNLcsiU10gjkcszuPvXzTksdsm8nXze25H5nGg3xdxV
-	 VFLamu1kpet4ovM6g9fJhgzVrW7ma8RceLuoqDOtQ949WC8+Kjnkh5N3IJkjK9KYnm
-	 kYc87Gw+us1qpnW4rpDKRAEbsiGVkcxQmJYP9U28s5Ng+7RcYdLsSVazIJoLH3Nysr
-	 zM6jGpm6Y5g2A==
-Date: Mon, 7 Sep 2026 17:36:47 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
-	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
-	kishon@kernel.org, Frank.Li@nxp.com, lumag@kernel.org, aisheng.dong@nxp.com, 
-	agx@sigxcpu.org, u.kleine-koenig@baylibre.com, marek.vasut@mailbox.org
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-Message-ID: <ap7Z3xQSavJa0toF@houat>
-References: <20250414035028.1561475-1-victor.liu@nxp.com>
- <20260714193627.GA9616@francesco-nb>
- <alh4a66fEro05ShA@raspi>
- <20260716062612.GC9973@francesco-nb>
- <alh-6sI4J7vq2drz@raspi>
- <apl4rkHIs9QFuUTE@houat>
- <app836E0_y8lG9T5@raspi>
- <apqDKdcQrizwAv6U@houat>
- <apqGD7wxP0ZiLzfF@raspi>
+	id 1x3bQb-00000007BrZ-09VP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 15:38:40 +0000
+Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2d6f230d1easo852765ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:38:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788795516; x=1789400316; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Hq1rNKVGmliGTWsiFEwtrdEOPueQghmo9INX52ut/jY=;
+        b=HJ+8fflLaC1x+ciQh8aqqY45GdL3iwbnmW0iwWuRKruC9/Pkl+u+DGGBd2qPLbwpZ9
+         U7+2mKjlwCte0GrUopsyVrRZoYMc7Bq9+qaMVK4J7HgISzNob+/sbsFLzGSMj8B0s9UJ
+         ZMuwjqD/d3hOE3fQHURFz88rddPBceiqC2b3mp5JjK/Tvvyju7mrbCJssQk9JuCclM8K
+         qqE4AT2lSSrRXNSd5L3V+ZF3WZy8COsOJdRJuSboP+QraATt0hcUMouBLMtuO2Jc0iX6
+         qDlKWbYz6CREqL+xWjNizHPeDiPy6OaY2Mr1zQzMqmCyy0w3z1PTw3J8Gn7mYs1/gvWK
+         qYkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788795516; x=1789400316;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Hq1rNKVGmliGTWsiFEwtrdEOPueQghmo9INX52ut/jY=;
+        b=gxceZSXtLDV563gYtnQITiRBMBnFUtKVwcdzGZ5EQ1iBH8DVBxyXWw6VbIRDVF9YqU
+         0EYjEfh8G8XHUvqIjm59862BNL/gzKLgZvLiu61mhhkHZAV+N3gAO+o4bCjrYfppa1Vd
+         YnBvj469dP2MNdHL5HsCPgQqNYhKfEqZlbk8BOYWe3Cvi2iVnTYLJtaAoLHZB9Px01fL
+         A26mtp5y6cE/2W4nPwT7jZv9/NdMe17veNeVmpz65LemEXyF+GMkEcE0o/6SLokUxX1D
+         8LmN5arttFuXjX7xQ1cqsQs1I8N3qfXrU7S1OE6Tu/S0jY8E8Ulu3wAyRX7wwTstsM2J
+         hg4w==
+X-Forwarded-Encrypted: i=1; AKwUvBwPXvc0h9DjaqmXBFbVoB4REsUQsyz9cqF7by9C1TkkbPOXMQjHp7F1kf39EkB5VnXRwEKyknnwE2p0wjwE7+/0@lists.infradead.org
+X-Gm-Message-State: AFuF++mNS4BnSIgiDNEsEfQWSd/tKpg4ivJq+0ekbTIuIoeh9b9/wuKU
+	ZhAPAXmTygDoMBQvKFsGHW1/YyTlQGXGTHZA9r5kt4+hhut2kOrFDa8S
+X-Gm-Gg: AYBFou2tPiJpkYIZ2/Hx+RXHmtRzK1KQYm0ejs0wo/vVIoVa8SfAA6QBEbYjyQ+Eq0u
+	kRK17klB5kZYiq0LnV5r5sNxi8OvX2xwcvwntK4eYhhoyEo4vGuQoI/hIDDUhrMVOt6+52FJi7W
+	UhxMkROlz/SK9cFI1NsiICAkblhAuerHaInXyHNINuCGNqNlSxPf8Pmyo4WQXz3afM8WUnpwMhz
+	JqDbj9+I//pEz+GFagWsr+t+bGRXv2adKy46axSObRwtMUyAN1KznBHhhOUyeDUTcQJ69s07eBw
+	SdPc+VTEbOJeAcF5E4Z9N+itkfNn0SZfTTLCHvoIMbgdjheCwJrgqhtUn7dNYJmzRwBagvgY2iP
+	A9ia+UuPuCRLU2gHFquy6Y7KYFPTPnQKgurPO8g3G18Oi8mfUUZABbLjWGgVl+jVbXGxOdWRRom
+	evdzGkHBnYeWgA3t8fa9vl/7wlckm0ZMd3Ok/LMeA9HiGIC7qJJ64TYU5kZPA=
+X-Received: by 2002:a17:90b:5110:b0:390:84db:888e with SMTP id 98e67ed59e1d1-39b8bd4aef3mr1404027a91.7.1788795516238;
+        Mon, 07 Sep 2026 08:38:36 -0700 (PDT)
+Received: from server.lan ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm21690121a91.9.2026.09.07.08.38.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 08:38:35 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Coia Prant <coiaprant@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH net-next v4 00/10] net: pcs: add basic support for RK3568 XPCS
+Date: Mon,  7 Sep 2026 23:37:03 +0800
+Message-ID: <20260907153713.2572547-2-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="nzpfrxwi4i53nnqx"
-Content-Disposition: inline
-In-Reply-To: <apqGD7wxP0ZiLzfF@raspi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_083837_079574_19C15102 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,136 +123,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds proper SGMII support for the Rockchip RK3568 SoC
+using the integrated Synopsys DesignWare XPCS, along with necessary
+fixes and refactoring in the stmmac core and XPCS driver.
 
---nzpfrxwi4i53nnqx
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-MIME-Version: 1.0
+Motivation
+==========
+The RK3568 integrates a DW XPCS accessed via APB3 and connected to
+a Naneng Combo SerDes PHY.  Several boards (e.g., Ariaboard
+Photonicat) use this interface for Gigabit Ethernet.  However, the
+current upstream stmmac driver does not support this configuration,
+and the XPCS driver has issues in SGMII poll mode that cause the
+link to be reported incorrectly.
 
-On Fri, Sep 04, 2026 at 04:49:19PM +0800, Liu Ying wrote:
-> On Fri, Sep 04, 2026 at 10:38:08AM +0200, Maxime Ripard wrote:
-> > On Fri, Sep 04, 2026 at 04:10:07PM +0800, Liu Ying wrote:
-> > > Hi Maxime,
-> > >=20
-> > > On Thu, Sep 03, 2026 at 03:41:15PM +0200, Maxime Ripard wrote:
-> > > > On Thu, Jul 16, 2026 at 02:49:14PM +0800, Liu Ying wrote:
-> > > > > On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
-> > > > > > On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
-> > > > > > > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini w=
-rote:
-> > > > > > > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
-> > > > > > > > > Hi,
-> > > > > > > > >=20
-> > > > > > > > > This patch series aims to add Freescale i.MX8qxp Display =
-Controller support.
-> > > > > > > > >=20
-> > > > > > > > > The controller is comprised of three main components that=
- include a blit
-> > > > > > > > > engine for 2D graphics accelerations, display controller =
-for display output
-> > > > > > > > > processing, as well as a command sequencer.
-> > > > > > > >=20
-> > > > > > > > ...
-> > > > > > > >=20
-> > > > > > > > >=20
-> > > > > > > > > To follow up i.MX8qxp TRM, I changed the controller name =
-to "Display Controller"
-> > > > > > > > > instead of the previous "DPU".  "DPU" is only mentioned i=
-n the SoC block
-> > > > > > > > > diagram and represents the whole display subsystem which =
-includes the display
-> > > > > > > > > controller and prefech engines, etc.
-> > > > > > > > >=20
-> > > > > > > > > With an additional patch[1] for simple-pm-bus.c, this ser=
-ies facilitates
-> > > > > > > > > testing a LVDS panel on i.MX8qxp MEK.
-> > > > > > > > >=20
-> > > > > > > > > Please do NOT merge patch 14-19.  They are only used to f=
-acilitate testing
-> > > > > > > > > the LVDS panel.
-> > > > > > > >=20
-> > > > > > > > What's the plan to conclude this work? What's the latest st=
-atus?
-> > > > > > > > I am looking forward to have a way to use the i.MX8QXP disp=
-lay with
-> > > > > > > > mainline, but to my understanding some required changes on =
-the SOC dtsi
-> > > > > > > > are not merged.
-> > > > > > > >=20
-> > > > > > > > Can you help?
-> > > > > > >=20
-> > > > > > > I planned to add display controller DT node after prefetch en=
-gine support [1]
-> > > > > > > is picked up so that the prefetch engine could be enabled tog=
-ether with the
-> > > > > > > display controller.  Just want to avoid a DT that only enable=
-s the display
-> > > > > > > controller or bypasses the prefetch engine.  It makes the dis=
-play controller
-> > > > > > > driver simpler.
-> > > > > > >=20
-> > > > > > > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-=
-0-4ecb6c6d4941@nxp.com/
-> > > > > >=20
-> > > > > > That series is from October 2025, is there anything blocking to=
- move it
-> > > > > > forward?
-> > > > >=20
-> > > > > It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-mi=
-sc committer
-> > > > > for every driver patch in that series.  Also, it seems that Marek=
-(Cc'ed) is
-> > > > > not a big fan of [1](See i.MX95 display support discussion[2]).
-> > > >=20
-> > > > I was just pointed at this series, and I'm not sure why it's blocke=
-d. It
-> > > > looks like you were waiting for a Reviewed-by by a drm-misc maintai=
-ner,
-> > > > but I gave mine already and I'm a drm-misc maintainer, sooo... :)
-> > >=20
-> > > Your Reviewed-by tags were on the initial i.MX8qxp Display Controller=
- driver
-> > > patches.  And, those patches have already landed.
-> > >=20
-> > > Now, I'm waiting for Acked-by or Reviewed-by tags on those driver pat=
-ches
-> > > which add i.MX8qxp Display Controller *prefetch engines* support.
-> > > 'b4 trailers -u' doesn't include any Reviewed-by from you on those pa=
-tches...
-> > > I sent v6 prefetch engine patch series[1] just now.
-> > > It would be great to have your Acked-by or Reviewed-by tags on those =
-driver
-> > > patches :)
-> >=20
-> > It looks like you had a reviewed-by by someone on all these patches
-> > already, so you could have merged them.
->=20
-> Oh, okay.  I *thought* one merge criteria is at least one Acked-by from a
-> drm-misc committer on each driver patch by reading the guildlines[1].
-> But now I've got the idea.  Thanks.
->=20
-> [1] https://drm.pages.freedesktop.org/maintainer-tools/committer/committe=
-r-drm-misc.html
+This series addresses these issues by:
+- Refactoring stmmac PCS lifetime management to allow platform drivers
+  full control over PCS creation/destruction
+- Fixing the XPCS driver's SGMII link recovery
+- Adding a Rockchip XPCS platform glue driver and wiring it up in
+  dwmac-rk
 
-For a driver, it's totally enough to have a reviewed-by by someone with
-experience with the driver too.
+Series overview
+===============
 
-Maxime
+Generic:
+  Patch 1: move XPCS lifetime management to platform drivers
 
---nzpfrxwi4i53nnqx
-Content-Type: application/pgp-signature; name="signature.asc"
+PHY:
+  Patch 2: DT binding for Naneng Combo PHY SGMII MAC selection
+  Patch 3: implement the PHY SGMII MAC selection in driver
 
------BEGIN PGP SIGNATURE-----
+RK3568 XPCS/SGMII:
+  Patch 4: DT binding for Rockchip RK3568 XPCS
+  Patch 5: add XPCS and fixed-clock nodes to rk3568.dtsi
+  Patch 6: add ANRESTART support for SGMII link recovery
+  Patch 7: implement the Rockchip XPCS platform glue driver
+  Patch 8: wire up SGMII support in dwmac-rk
+  Patch 10: update MAINTAINERS
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCap7aDwAKCRAnX84Zoj2+
-doeCAX9T+LgYMTWQNSla28ip6yR0qM88eain+6vQBAG1kI/IdbDa9glAvdQEOOTv
-fXTYoEIBf3QACWC1uGpzItuPa9Zyaak4mtnpldIns/xtAj3bAcQXgRWbVExWIL8G
-v4gPxoV7fw==
-=8ZHA
------END PGP SIGNATURE-----
+Board enablement:
+  Patch 9: enable SGMII LAN port on Photonicat board
 
---nzpfrxwi4i53nnqx--
+Changelog
+=========
+
+Changes since v3:
+
+Patch 7 (net: pcs: xpcs: add Rockchip RK3568 platform glue driver)
+- Reverted Makefile change to keep pcs_xpcs as a composite module
+- Switched from manual `devm_pm_runtime_enable()` to `pm_runtime_enable()`
+  and use `pm_runtime_force_suspend()` in `xpcs_rk_exit_clk()`
+- Removed `xpcs_rk_remove()` callback entirely; cleanup is now fully
+  managed by devres via `xpcs_rk_exit_clk()`.
+
+Key design decisions
+====================
+- The stmmac core now delegates XPCS creation entirely to platform
+  drivers via pcs_init/pcs_exit.  This is necessary because the
+  generic XPCS creation logic would override any XPCS set up by the
+  platform driver.
+
+- The Rockchip XPCS driver creates a virtual MDIO bus over the APB3
+  registers and implements address remapping.  The generic XPCS core
+  handles all PCS configuration via phylink_pcs_ops.
+
+- On RK3568 in SGMII mode, the MAC clock is fixed at 125 MHz and
+  cannot be dynamically changed.  In-band mode is used, and the
+  generic stmmac set_clk_tx_rate callback is disabled to prevent
+  incorrect clock updates that would break RX.
+
+- The SerDes and power domain are attached to the XPCS device tree
+  node rather than the MAC node. This reflects the actual hardware
+  topology and simplifies the dwmac-rk driver by keeping all PCS-related
+  resources self-contained. It also prepares for possible future QSGMII
+  support, where a single SerDes serves multiple MACs and would be
+  more naturally managed under the XPCS node.
+
+Testing
+=======
+Board: Ariaboard Photonicat (RK3568)
+OS: Armbian (trixie)
+Kernel: 6.18 (backports)
+Result: The SGMII interface obtains an IP address, SSH works, and
+        ping traffic passes without loss.
+
+Notes
+=====
+- When testing out-band mode with set_clk_tx_rate, only 1000Mbps
+  works on both TX/RX; 10/100Mbps only works on TX side.
+
+Dependencies
+============
+None. All patches apply cleanly on top of torvalds master tree (v7.3).
+
+Acknowledgments
+===============
+This work was inspired by and builds upon the excellent work of others:
+- Serge Semin's Synopsys DesignWare XPCS platform driver (pcs-xpcs-plat.c)
+- Clément Léger's Renesas MIIC driver (pcs-rzn1-miic.c)
+- The Rockchip TRM and downstream OEM drivers
+
+Thanks in advance,
+Coia Prant
+---
+Coia Prant (10):
+  net: stmmac: move XPCS lifetime management to platform drivers
+  dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel
+    property
+  phy: rockchip: naneng-combphy: add SGMII MAC selection for RK3568
+  dt-bindings: net: pcs: add rockchip,rk3568-xpcs support
+  arm64: dts: rockchip: rk3568: add XPCS and fixed-clock nodes
+  net: pcs: xpcs: add ANRESTART support for SGMII link recovery
+  net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+  net: stmmac: dwmac-rk: add SGMII support for RK3568
+  arm64: dts: rockchip: rk3568-photonicat: enable SGMII LAN port
+  MAINTAINERS: add entry for Rockchip XPCS driver
+
+ .../bindings/net/pcs/rockchip-dwxpcs.yaml     | 110 ++++
+ .../phy/phy-rockchip-naneng-combphy.yaml      |  13 +
+ MAINTAINERS                                   |   9 +
+ .../boot/dts/rockchip/rk3568-photonicat.dts   |  74 ++-
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi      |  45 ++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c |  44 +-
+ .../stmicro/stmmac/dwmac-renesas-gbeth.c      |   7 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 121 +++-
+ .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |   7 +-
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   7 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c |  37 +-
+ drivers/net/pcs/Kconfig                       |  23 +
+ drivers/net/pcs/Makefile                      |   5 +-
+ drivers/net/pcs/pcs-xpcs-rk.c                 | 543 ++++++++++++++++++
+ drivers/net/pcs/pcs-xpcs.c                    |  16 +-
+ .../rockchip/phy-rockchip-naneng-combphy.c    |   8 +
+ include/linux/pcs/pcs-xpcs-rk.h               |  11 +
+ 18 files changed, 1015 insertions(+), 66 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+ create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
+ create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
+
+-- 
+2.47.3
+
 
