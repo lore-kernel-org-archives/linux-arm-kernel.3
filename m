@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7228C79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 11:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4BAC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 11:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kPWix+VaF4poh7BpAMhNhq0brLqKbyp9SLhP3V9jTg=; b=LeKthLDG/2jnQNX9vVLhEkYmH2
-	7pQ5viR44HumJRLSVZ3qXI2QYs3g4yOr0XPlyJBOR/kNIH3EGHdfnNn50LSkfvXnu5uNryI23jKqZ
-	BBtD/XvRfUAQ5239+Hhxi04QF7ijw7re0ekCuBnKwBPchRWOAi/kiXO6ptylaB3/f97TYOaAsdR7t
-	yGvrusSZqAfC4FVyhNzLdI03oSRa/IF0zVfKBOmp3AtcbNclKS039TpMOQ4IbalD6Z63ievDApp8Q
-	IToUmGRi/606gLzKLkX4+1ZJWyiIKsr65V2I5w5abrgg78AXlSQXCEG1OWbCK38Jcyx/IDXch8uxk
-	Rs7P+53w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/d6itVVQFRbg0AVwV7Dpvkqo81/sIA6k7Bzl+7epUWc=; b=NXPWBTFL4EOLV1k1d+j/lBOnzK
+	+Ep3GmyMFPXUrteEib24wRF4i+s0DsSHcM+ADosxYac4BDmZG9OLjUQ6OSVoxk8K98LEz7BYz5Vj8
+	DpvWSmmtSFCj2gvdWuHARcyelbJaIlZinq0EHmzuBwiHlKdRLdlopHzf6uyEyxOksdmZkg6WH/R/k
+	6wzaPtN13f10LUPxaadNYfvlv15FVyJvob/likhkCgTsqwOkOUckgguMn6X+H1qCq6+ZlUWKIyaYH
+	7AIzSSG1Q9Fei/KZR/8Hg7qaCrzbzQ9K58D7c4/W4Jdg8cOXvrfgPd1+Qj/aXaiGs1ut3HI//gyso
+	35CBMtVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3XXU-00000006eo4-01ET;
-	Mon, 07 Sep 2026 11:29:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3XXS-00000006eng-1U3O
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 07 Sep 2026 11:29:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7kPWix+VaF4poh7BpAMhNhq0brLqKbyp9SLhP3V9jTg=; b=ck2R6GhDCdfrOmqlL9E1udQthI
-	LxsfVTbvBa2CogabrqbO8xzYLMhe8wk3vgYE48i5JmgJhzAnm8iLD3vtI5iCratl+12PzTEmaRhVu
-	3VuhpERNYFptWrjvu7pUyrg71ryam46GHdxwHbyZvfKnZiLDBzUKfLcJ1kDHyaEV16jTk2b/avUDY
-	kvim4UdyaTd9qW7LhkfdvhRaoFBbU8iOPW9NwLCSNzxQaX0ndwXLY3FnRyZ5xS6Wk8H+LK5CehPgS
-	0WqL1khEMHxrwTILSG9UmE8YIuNjud7xZHgH3HMWjyK+8rdP74YOy0lix+ls0LW5x8WG/BDh/S3dd
-	BXnbUUlg==;
-Received: from mail-43166.protonmail.ch ([185.70.43.166])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x3XXO-0000000G9hD-1dTK
+	id 1x3XZu-00000006fGU-3qTk;
+	Mon, 07 Sep 2026 11:31:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3XZs-00000006fG2-3ULW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 11:29:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1788780552; x=1789039752;
-	bh=7kPWix+VaF4poh7BpAMhNhq0brLqKbyp9SLhP3V9jTg=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=NccGulBJmA9yxm4tPEM5Zsk0ALt0JS4ENEHYrGqti698nE4mRX16x/JQKLmMWuXcZ
-	 yZGKU5Av+ng42tNyYxHvpNzZijiIyY+XsClW98tLDzD5X7YLegge2Q+wgbjCJf6Yyv
-	 0PkyNML6yOO4jfQmMUhtSvi/8o2bYdtrKcQFGdgXJUNoLN0GmubFcqD3vbY9hjw58J
-	 UXK9ndz6mGpAcpweXE7GvDrlJVKS+gKwCU7Iv0y2WpWQ8TSqbJDlgd/ZvWH+k9WunS
-	 xD02sqga0WLCWeZpPwrBmF/0mVLKAzgScacboIPtBt9KUrGt1i3aNoqTAWVc8B1Zxg
-	 0DtuvoyYl0nKg==
-Date: Mon, 07 Sep 2026 11:29:08 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>
-From: Aiden Isik <aidenisik@protonmail.com>
-Cc: aidenisik@member.fsf.org, Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Aiden Isik <aidenisik+git@member.fsf.org>, linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] clk: samsung: Introduce Exynos5515 clock driver
-Message-ID: <m3ip9ZfBNKnGPEYZflZKfrqFZWZrEiwuRzsbwnztko-nw6wYzySsj6ksAWMG7qZRqGMH2a07a0xDtZkyz1FJT4kAVArsP4SUAm_jEYBFvKs=@protonmail.com>
-In-Reply-To: <69f1c866-a4cb-4b9a-8958-f56391655bac@kernel.org>
-References: <20260818-for-next-lucky7-clock-v2-0-cda0cc80f158@member.fsf.org> <20260818-for-next-lucky7-clock-v2-3-cda0cc80f158@member.fsf.org> <69f1c866-a4cb-4b9a-8958-f56391655bac@kernel.org>
-Feedback-ID: 46524699:user:proton
-X-Pm-Message-ID: d8fe420d46301c8e4dfb20e788485ea4e69c9316
+	Mon, 07 Sep 2026 11:31:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3536D1476;
+	Mon,  7 Sep 2026 04:31:50 -0700 (PDT)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 068E03F7D8;
+	Mon,  7 Sep 2026 04:31:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788780713; bh=/nkzuLXZd8OORpC17ln8IsqCVVb4HdJSiufFerY3KOA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jkJUS0qFx+rYlXH5rOKR/WVwWGw8CPW5EYxZhaZX+2wO/tdYZBfJXDp9qpPZNmDqW
+	 a41wTixM++lsEci+t6I0hbljln1YU93nJoXVbx+lXtPMk3vtsPe2VtUM+S4KJaaeMS
+	 w1kAXrWPbC4mSv458w0oU8q7m22AuNvH6To8CgMc=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Yury Khrustalev <yury.khrustalev@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: [PATCH] arm64: mte: Fix PTRACE_{PEEK,POKE}MTETAGS error documentation
+Date: Mon,  7 Sep 2026 12:30:25 +0100
+Message-ID: <20260907113151.363924-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_122922_699171_F54FC49A 
-X-CRM114-Status: UNSURE (   6.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260907_043156_905561_A9102A2C 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +67,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> You have checkpatch warning.
+PTRACE_{PEEK,POKE}MTETAGS return -EIO rather than -EOPNOTSUPP (as
+documented) when no tags are copied from/to a mapping without PROT_MTE.
+This has been the behaviour since the interface was introduced, though
+the original intent was to distinguish between address not being
+accessible and mapped as untagged.
 
-> CHECK: Blank lines aren't necessary after an open brace '{'
-> #494: FILE: drivers/clk/samsung/clk-exynos5515.c:457:
-> +static const struct samsung_div_clock top_div_clks[] __initconst =3D {
+Update the documentation to match the implementation (de-facto ABI).
+Since -EOPNOTSUPP was never returned, change the error assignment to
+-EIO as well to avoid confusion.
 
-> Be sure you address all of them before posting patches.
+Fixes: df9d7a22dd21 ("arm64: mte: Add Memory Tagging Extension documentation")
+Fixes: 18ddbaa02b7a ("arm64: mte: ptrace: Add PTRACE_{PEEK,POKE}MTETAGS support")
+Reported-by: Yury Khrustalev <yury.khrustalev@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+---
 
-> Fixed it up.
+The alternative is to fix the returned error but given that the bug has
+been around for 6 years, we can say it's ABI irrespective of what the
+documentation says.
 
-Sorry about that, I will make sure to triple check
-that I fixed any checkpatch warnings in the future.
+ Documentation/arch/arm64/memory-tagging-extension.rst | 5 ++---
+ arch/arm64/kernel/mte.c                               | 2 +-
+ 2 files changed, 3 insertions(+), 4 deletions(-)
 
-Thanks.
-
-> Best regards,
-> Krzysztof
-
-Kind regards,
-- Aiden Isik
+diff --git a/Documentation/arch/arm64/memory-tagging-extension.rst b/Documentation/arch/arm64/memory-tagging-extension.rst
+index e6fe428f0e2a..1d32fc5df183 100644
+--- a/Documentation/arch/arm64/memory-tagging-extension.rst
++++ b/Documentation/arch/arm64/memory-tagging-extension.rst
+@@ -208,11 +208,10 @@ will use the corresponding aligned address.
+   tracer's space cannot be accessed or does not have valid tags.
+ - ``-EPERM`` - the specified process cannot be traced.
+ - ``-EIO`` - the tracee's address range cannot be accessed (e.g. invalid
+-  address) and no tags copied. ``iov_len`` not updated.
++  address) or does not have valid tags (not mapped with the ``PROT_MTE``
++  flag) and no tags copied. ``iov_len`` not updated.
+ - ``-EFAULT`` - fault on accessing the tracer's memory (``struct iovec``
+   or ``iov_base`` buffer) and no tags copied. ``iov_len`` not updated.
+-- ``-EOPNOTSUPP`` - the tracee's address does not have valid tags (never
+-  mapped with the ``PROT_MTE`` flag). ``iov_len`` not updated.
+ 
+ **Note**: There are no transient errors for the requests above, so user
+ programs should not retry in case of a non-zero system call return.
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index 1a9aad6ef22a..31f5c6b0510e 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -476,7 +476,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
+ 		 * was never mapped with PROT_MTE.
+ 		 */
+ 		if (!(vma->vm_flags & VM_MTE)) {
+-			err = -EOPNOTSUPP;
++			err = -EIO;
+ 			put_page(page);
+ 			break;
+ 		}
 
