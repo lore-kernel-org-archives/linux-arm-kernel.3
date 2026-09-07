@@ -4,62 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555DDC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 20:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB3BC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 21:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xd5tQKQxHFRGotFcOXdpLOZw0W1C2jHEVuOQdyASEiE=; b=pPUgvGeK63hTKJ4NE2bYNKnO3f
-	AkfOUeXgf1yVBCeA3/Ri5VAPwtbPltYnhnE+v67jIVzEt6NLmKowkj/CLaUSAzXuBMOnU1BpKTCNk
-	bzRsapaS13iJ8NkJcVrc/DUS40NuIMxDS5+7fM6k9LK0WVdwzWiKF/DY3YhQvlqFFCUO5kGNWLtBI
-	Rw+SJn7Z05I1PXEdDXrS4JYU1OyYL+Xz8FniENuQUrl0E8g4IbKqrfen09dlzqeY4yYWGBkUpW0Cn
-	JKwOrTp15APQyT/j5RywY8ufojL2+LEz5KaIEdfHMCs1M0SSZxFeatJKRxAl+Cv84VdnPjQgY+Za2
-	tM9XUIYw==;
+	bh=km54XNA3pesnlH9MUSOEbKUzj91GMmwN/4bvXZLN1Qw=; b=N5EMP65gpRler/Nq+PcTtftfKq
+	mxtlUBjgGYVN/uEqqWwr5Mg5yrdeUV3Sg+MHcrrttSZzz+HIWm6t0lD1J6/lT78NWbKrUL9gx30ot
+	FhpfAq28btJXfHDtD3aVv3r0yfW+5IbpKsGECGyF1tgM10LASENwU9lsjAGiPsVxcMujp8vCtS8iZ
+	okxChG7DRs9kPo/uWKybKntcm1ZnYf+zH+9pguEa8RLQBhU+lv+BkvD8foLucomWGvUNnn7KTdv5B
+	nK0/r9EfDoBt7pO+HwxK82opwHUrIw9KyM6n7N+ylKoohppsGTLpk//CoG4DG+vnzzSJDAW5rakxY
+	DrqQ2bDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3gMe-00000007jgG-0AZ0;
-	Mon, 07 Sep 2026 20:54:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3gSj-00000007jsZ-2Ujw;
+	Mon, 07 Sep 2026 21:01:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3gMd-00000007jgA-2FYu
+	id 1x3gSh-00000007jsC-0oNh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 20:54:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97C67601DB;
-	Mon,  7 Sep 2026 20:54:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D63AC1F00A3A;
-	Mon,  7 Sep 2026 20:54:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788814490;
-	bh=xd5tQKQxHFRGotFcOXdpLOZw0W1C2jHEVuOQdyASEiE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dRIpg4+cjz/LJPp8MxUEYl3ZCRk1kb+/hn7o8I3Rc1wGT/1J2IDbk56aw2K+lcBac
-	 yafINQoKso2O6Q/7xNS4cbMVeKmgKpR3qfHSPYrxL/4/+TsLwDUiw3lU5lZdf+FQSZ
-	 TKZnGZDqoaY9J8/k/mYa9qHtG71FFF0iDyH9O9gH0LKfTVdRET2SUkCn5mhuzKDJ6K
-	 0SnAmUCtjFC/VxPqlUrqMpAH8Znz1bVd4yCuA9BnM2FyQy0loCHmm+j48ko7R2MRTw
-	 LMnx/hVUyDicyrMmJODphzbjIwSoN8rGjkzUGA4CuCM74CRBxnXyeOij3pfIqHFlT7
-	 Lsd0SKDWI2ilg==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] soc: fsl: qe: Fix sparse warnings in GPIO
-Date: Mon,  7 Sep 2026 22:54:35 +0200
-Message-ID: <178881446326.32908.2707847448430333820.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <6a84b38e766729676b375c93bf54c67ea455288d.1786080840.git.chleroy@kernel.org>
-References: <6a84b38e766729676b375c93bf54c67ea455288d.1786080840.git.chleroy@kernel.org>
+	Mon, 07 Sep 2026 21:01:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1788814864;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=km54XNA3pesnlH9MUSOEbKUzj91GMmwN/4bvXZLN1Qw=;
+	b=E4srLzoRT2lSFcaQysiCLk/7gYWQXXHBWble0pc3yRK0BKbcUWXlkkenZdQBdblXltv429
+	aq23hN2ImYmLgJhVNpUkK9ErT/FV8Sa0bc3WYo3Bf/cgSD4jChuPK5MW4huzJs8Xh8G3m2
+	v2U/A6AYyGRGC393cggcW25+9qGapb4=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-55-o4Bw3diEPLeIJ5100s8A0A-1; Mon, 07 Sep 2026 17:01:02 -0400
+X-MC-Unique: o4Bw3diEPLeIJ5100s8A0A-1
+X-Mimecast-MFC-AGG-ID: o4Bw3diEPLeIJ5100s8A0A_1788814862
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-495529a93f9so38127815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 14:01:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788814861; x=1789419661;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=km54XNA3pesnlH9MUSOEbKUzj91GMmwN/4bvXZLN1Qw=;
+        b=XEMtcbprOqOIhFjskJBXZfnkOiKJP9fYvL37eWVOAnoCiV7+zX7Fh05TBxcsMp48ZF
+         zWkjEey2DRRkHmtzObGITC5q4eGjmWZVeVQh+KDEHu7SFKPmhYilGrMG85W6cxd9gHVF
+         J3Ik6IjtxfXPgGuZ3Lifszc+t4w3ri25+L8zYIBaiI2ouJnGS5AtbqbNBforyg+4W8oN
+         k4l/rIcfJGZQlNvjjWTD5plh3NTsixfXBglFxKLM4SCUvNsoSTCMTpC7ytPMCPa3xlYA
+         NEhIUU2fl/Ik11GBcTnzzvoleVEKj6xfSNXGbsZnv4xaIqWBqjXJgbYgnBo5/vIHKLCX
+         31CA==
+X-Forwarded-Encrypted: i=1; AKwUvByqMFiyHhcjP440GL8BjJkraTyPluDGxorP/k/sKriuwz0cjL/vM/NHASaxn0odn4B41CIbPcBJv1/7QJv6M1i3@lists.infradead.org
+X-Gm-Message-State: AFuF++kXaYslHn9tdBQFY6E+kO8bbFF0QV03+mZtQRHIUqN2KshzLvuo
+	ISo3ssTsgCJkCrC9awQYyMsR1GPucT3wk2ROkiz18Dk28ZBrfb0hEQsWWBS3rJgcfVizXXCLcQq
+	oRBG1gMljnIanHPW7kM9T5s1hdgINsuqLFVi/mj89kf5aufibNXzj9lNka3CELlyXpsktc/UeTx
+	hD
+X-Gm-Gg: AYBFou1Nb46JJI5+0gTEgcfe0mVY82BF3q/piN27ZYYQUyQfd03+MipmKiJ0eadUdOY
+	cirfVK2wu/eCaJ8KYZ+MWjI3QUUFTl631x/ikoGB14WK3eMcm/6Sme2INAJ3/v16BbHxayrjGmU
+	f1sw4yuL410A6lwliXQIqQSnTF0rSuaoIDZlKXa8fJuqIzngDHiiR9p0V+vr3tOZ6dfB7Eyc8yB
+	snGGli8ahDNkHY7LG/EGyIdKHXdzoW86Bdkq2OkWEWJu3YGKUV7M3TNTE0JP7mgz9lmMDVpLYya
+	w0y3W767nuYEfz8+3vBt3pXCO1ZBGI4TeI8XWSlWrerPHznHsQDCixFHDGfGPM3NR+4C+oOIjrg
+	YzD9kR8rd0KvqMU3Xm5PGsfNiVqRHIBE5dae2gxAXZWCi6EqX
+X-Received: by 2002:a05:600d:8649:10b0:49c:fa20:cc0a with SMTP id 5b1f17b1804b1-49cfa20cd58mr167275165e9.33.1788814861728;
+        Mon, 07 Sep 2026 14:01:01 -0700 (PDT)
+X-Received: by 2002:a05:600d:8649:10b0:49c:fa20:cc0a with SMTP id 5b1f17b1804b1-49cfa20cd58mr167274945e9.33.1788814861409;
+        Mon, 07 Sep 2026 14:01:01 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9? ([2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cf7703cefsm458086515e9.5.2026.09.07.14.00.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Sep 2026 14:01:00 -0700 (PDT)
+Message-ID: <b34807ad-6390-4804-ba29-43a407b3d9fb@redhat.com>
+Date: Mon, 7 Sep 2026 23:00:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2343; i=chleroy@kernel.org; h=from:subject:message-id; bh=6z7FgiQsA83jfG1X90ruIg/3wydjhrS28CflV2+zQjk=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWTNV+n3Z41iYHt67/Gh932K3ulPhB07Lqy7cM195tIEM U3/3+8udpSyMIhxMciKKbIc/8+9a0bXl9T8qbv0YeawMoEMYeDiFICJvF7G8FcuXuXU+Ve+axhf 63c8L41hj42PT376i7mr7Z+DbHfVFS9GhinVXzsvdkidUdg9aVGx7K4Sjalf53MeLXHd5mFqEj3 /Nj8A
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/14] drm/panic: Do not use un-escaped URL as format
+ string
+To: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
+ airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, geert@linux-m68k.org, rdunlap@infradead.org
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
+ linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
+ sashiko-reviews@lists.linux.dev, stable@vger.kernel.org
+References: <20260902121930.597222-1-tzimmermann@suse.de>
+ <20260902121930.597222-2-tzimmermann@suse.de>
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <20260902121930.597222-2-tzimmermann@suse.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: WrkRyQQns1yc-gTMCv1EwtLOyiQhpSo9MxJeFHW7aDU_1788814862
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, fr
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_140107_317236_58BFCFA7 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,43 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 07 Aug 2026 07:35:52 +0200, Christophe Leroy (CS GROUP) wrote:
-> A C=2 build on mpc83xx_defconfig provides following warnings:
+On 9/2/26 14:13, Thomas Zimmermann wrote:
+> Replace the direct use of DRM_PANIC_SCREEN_QR_CODE_URL in snprintf()
+> with a %s conversion specifier. Avoids a possible vulnerabilty from
+> a crafted URL string.
 > 
->   drivers/soc/fsl/qe/gpio.c:44:34: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:44:34:    expected restricted __be32 [usertype] cpdata
->   drivers/soc/fsl/qe/gpio.c:44:34:    got unsigned int [usertype] cpdata
->   drivers/soc/fsl/qe/gpio.c:45:34: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:45:34:    expected restricted __be32 [usertype] cpdir1
->   drivers/soc/fsl/qe/gpio.c:45:34:    got unsigned int
->   drivers/soc/fsl/qe/gpio.c:46:34: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:46:34:    expected restricted __be32 [usertype] cpdir2
->   drivers/soc/fsl/qe/gpio.c:46:34:    got unsigned int
->   drivers/soc/fsl/qe/gpio.c:47:34: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:47:34:    expected restricted __be32 [usertype] cppar1
->   drivers/soc/fsl/qe/gpio.c:47:34:    got unsigned int
->   drivers/soc/fsl/qe/gpio.c:48:34: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:48:34:    expected restricted __be32 [usertype] cppar2
->   drivers/soc/fsl/qe/gpio.c:48:34:    got unsigned int
->   drivers/soc/fsl/qe/gpio.c:49:33: warning: incorrect type in assignment (different base types)
->   drivers/soc/fsl/qe/gpio.c:49:33:    expected restricted __be32 [usertype] cpodr
->   drivers/soc/fsl/qe/gpio.c:49:33:    got unsigned int
->   drivers/soc/fsl/qe/gpio.c:297:17: warning: restricted __be32 degrades to integer
->   drivers/soc/fsl/qe/gpio.c:299:17: warning: restricted __be32 degrades to integer
->   drivers/soc/fsl/qe/gpio.c:302:17: warning: restricted __be32 degrades to integer
->   drivers/soc/fsl/qe/gpio.c:304:17: warning: restricted __be32 degrades to integer
->   drivers/soc/fsl/qe/gpio.c:308:18: warning: restricted __be32 degrades to integer
->   drivers/soc/fsl/qe/gpio.c:314:9: warning: restricted __be32 degrades to integer
+> As the attacker needs to control the kernel at the Kconfig level, the
+> potential for an exploit is likely low.
+
+Thanks, it looks good to me.
+
+Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+
 > 
-> [...]
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Fixes: cb5164ac43d0 ("drm/panic: Add a QR code panic screen")
+> Cc: Javier Martinez Canillas <javierm@redhat.com>
+> Cc: Jocelyn Falempe <jfalempe@redhat.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: <stable@vger.kernel.org> # v6.12+
+> ---
+>   drivers/gpu/drm/drm_panic.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
+> index e576c4791861..ba21df4be338 100644
+> --- a/drivers/gpu/drm/drm_panic.c
+> +++ b/drivers/gpu/drm/drm_panic.c
+> @@ -658,7 +658,8 @@ static int drm_panic_get_qr_code_url(u8 **qr_image)
+>   	char *kmsg;
+>   	int max_qr_data_size, url_len;
+>   
+> -	url_len = snprintf(url, sizeof(url), CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL "?a=%s&v=%s&z=",
+> +	url_len = snprintf(url, sizeof(url), "%s?a=%s&v=%s&z=",
+> +			   CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL,
+>   			   utsname()->machine, utsname()->release);
+>   
+>   	max_qr_data_size = drm_panic_qr_max_data_size(panic_qr_version, url_len);
 
-Applied, thanks!
-
-[1/1] soc: fsl: qe: Fix sparse warnings in GPIO
-      commit: 5af2ccc8ec749d98d3d0bed4b9df25781d7f2d46
-
-Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
