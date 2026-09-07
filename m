@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5094C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18CFEC79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6SxQC1ayWQCOsksETTmVt8rx2S1MTrrOl76Pd3OeUuw=; b=ZzfrM+S60S1YHYlMrpYdINzsWM
-	/FU5MSNlN1/OyxPbb7GvsNmBJsA7sq+k/cE/3P3D1PANWwjMbayl0pnxI45uUdQADaRWXXmDx0nt1
-	F9FxXkqL/F48txRIFp7uZTBIOB+mfwotgmQIbOBY77KzMv3rv//UQ3QXnPWmRR0lkFpmJzesFkvFb
-	jVgWySab167hw3jLx0L5oT0+iBTfP3bOsrBQIf8yIrqfm2mmnJ7OtYyXOXfltwsHXpnnckzfZLtQU
-	Qiof14A3ZhzOGAVJ3ziur71PLtpb8RLnn9BcFNE19hOuro8iHLDYhoBFGVcG7ikpiZq2TioWzoFEs
-	+HTcmbVw==;
+	bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=; b=0oOYNimU0L6NtI8cNlOnrD4SxG
+	zca2vy5w1LY9jnSDQRf8Pfs41zsSn6+V0HfLojRBiuplqmP2AjQiAMkr23TkOI15Zk+pDg0pJ4hzS
+	X5BEltrojCl048qG8btln7svskZ5C88dtuhdNkmjxEuuLaQK0TOIScji7A0smtWtDfwSgPO+SAI2e
+	tYs1lgpfpNEvO+u1zugqOTnPIkReOHK88FfdJ+UMFOokHhkPLDBB9uZDceZccMS8wSjjWkYikKjxk
+	fFXK05xFjWbYSAkho9Lg7zXz+dh7DgwGFMFukBr7XVe3Z9TfO8ypYdsOQsxv3KmyNxASClqDI2T2A
+	vCSbxbdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Z3c-00000006tca-1nub;
-	Mon, 07 Sep 2026 13:06:44 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1x3Z3i-00000006tfE-2Cfi;
+	Mon, 07 Sep 2026 13:06:50 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Z3Z-00000006tbv-31qL
+	id 1x3Z3g-00000006tdr-1LVb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:06:42 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-39682983a0fso3787232a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:06:41 -0700 (PDT)
+	Mon, 07 Sep 2026 13:06:49 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-382ef647e20so3517824a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:06:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788786401; x=1789391201; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788786407; x=1789391207; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6SxQC1ayWQCOsksETTmVt8rx2S1MTrrOl76Pd3OeUuw=;
-        b=og6xtFHMsI5mPL/GTz5LHNBvw4gAEVylx/J/9calUmdblUaLHRodpw9rrZlUwgD9Li
-         DPEDtKs5hDaysdQHsSSci6iecG4Qy/63NVMDmy+RscifEMYf+fw1hnGQSaNwo2IvdDmB
-         HDnPSp3sNASMFs9Gowj7LSUy4oPaiSthZn881HbHYnB/W3+EK/OTjYA+nrISuarA+nmi
-         /32fhhsFYf1YOBIbSFIa7XLksHpnAD8Lqkl0aUxv0yLftSAaqYH3zm//tdZY4Wb4N8Z3
-         KDg0lPZQ/aZL0ZOqrmp6HuZJZZ6IR5i+69NmkuaJ4UQ5/9gVS5HX9zle7B0vV00z2WVC
-         DKqA==
+        bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=;
+        b=m1iw4UoFo9Y/Unc56h4ULpm2PLoIWSHzvzAIfNEIu98KH4nHcTsWjPNPH1H3OJWlH5
+         fKb+7GsUUrGxlVKbYt9VtjT0oVKR/2zifv394g9ydjuXaV7fZQS1emBXXmMUTzfQa5uS
+         rGqwzEVnOhaZ0useJL+qWkFsac5xZzSATuI5DeEWvgL6mr2oPDeZ0KAHeuNoqR+/FYN1
+         5h45eCAoHn1QBs1keRNDpFK6O6DNHbvjbwjS420yfnYuYSLp5CPjvUoWwKeNV9BRrGgS
+         0v1QUJQhae1wzPJzaJE2GOF8hpbamBkJdF6YtkQsbwp5830HTTcxwL8UUHwow6UxOsEF
+         ffvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788786401; x=1789391201;
+        d=1e100.net; s=20251104; t=1788786407; x=1789391207;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6SxQC1ayWQCOsksETTmVt8rx2S1MTrrOl76Pd3OeUuw=;
-        b=M9licFXRO4l3wOFjhhWFozNl3nQ+kulcedlHlG70cRszUoH0uQ46cFKpBS1+4WziYO
-         WxpRuxJG3yUVGWYHJQC6SykRdgaIHSY44kK0IWyD80VJwPWEig+vuJSCrnvEJ1DyR2Xy
-         xmNJmAS+hTOAZ8nB1iSmm9AdrBUtXgPhwy/OD/VEw1vTODly3XxCiTwtx4sVofa72GS6
-         /kAF7fi+sWn5a4NBzp26ar6B47crmC2Qf9mnSj83OFjE4phqYXbHKqaAPuI2C7owptNL
-         LmZpVOla0TYqtwacQqug/KLTT9qebaq4pOZ7R/Q5nhmpuSFRiddDW6qi4ewK8Nnq4zNd
-         oR2A==
-X-Forwarded-Encrypted: i=1; AKwUvBzew+GOAbFpEx8r1RiAvHpt9jQWR4ogAK/9nviBIZ5wtSdQFUzRHWnWRoas1O/DzRjANbaOYFMnNWJzmmJ8aBtv@lists.infradead.org
-X-Gm-Message-State: AFuF++mH4ygO0lf5gaIaSuOaibpL7t+eDKfOuWXNDSosNzpGmJRyrIKv
-	0Qzib+zucxdxhkUBEnzZnGxTEq/we4dk8PgvKVTUBRfxwK8fjZLCnN4=
-X-Gm-Gg: AYBFou21ZSe7slaWkuok+EuBEFcH/X+CX9/B3aDN/72ZYXcrchPmEQDh4J/wAxEV/Mu
-	mrXDhg5HCdqABUh1VgWz8+ZS1NTLPe/4BqWkElXKuakp7S7v6b/1MFM3gVBbbq+F2bM+KvXoXLK
-	EeREW5ButBw3pAhScXlOVzn1pJfWbtsmeqfr22Yzsf8iDwC6wDC48b++FXg4mz4gkNhBrzZoz7t
-	NVPlQ5WsdZKOGA398IqhR3vKyqBTinHfM+M3oWx2/C5AMMR1PZJUaReBfsdiRGuz5E5Qbdb8657
-	GkLxNJZmVNvz5+u5QLMZwUgZ22LuxbRIO4jEi5Ppou22eDyEPCONx7l1nQblMCk+I2+mf+TodHY
-	D4wQSg0AWM8Bdp9T9fdDuy1yJSnEx/UkeaahMGSTAQIfKl1wqZUgRt4/USmG0nS0HR8ye9chENL
-	ehUZbHfYN4DSNfYbwOMZJJGrreomzUxV5acz/oLhLzSoZiTHyNzo4Cqn6JEIeO1N9vgtYaFYE+L
-	L4M7x5FDixGfFnU
-X-Received: by 2002:a17:90b:5790:b0:398:9bd5:4910 with SMTP id 98e67ed59e1d1-39b2624f0ffmr33674550a91.23.1788786400789;
-        Mon, 07 Sep 2026 06:06:40 -0700 (PDT)
+        bh=YnZZQEjTT3ispo9t2Rp3ilMwMqDfcn5R3yYWSok4gBU=;
+        b=RgUFU9AtQ9cEVTQ5nD65efmC1Q9EaNPAo+4hz+O0BOdkK1xNDrgsA0SgBlbO7Ufzgb
+         MWcytBY45jytEuV2bfaCpZ3nPTMtitP+vUCOdt0cnnJH3RRz9qcHb+y6t3K+nAnjrAAe
+         ZgwoHRm525666nYGGi0Kcybc9pCwnByzAOej0MIQN9TVw238YJkgziIHDFKUM+KVKlTy
+         ZdxnJ7r13pwI35y1fCs1U+prNedHqXMowim9Llqu4d7iidOsy1MuuyeWKYwAEOpNlp6p
+         W4/Klu6ehRqDkAM2W/ZTKFHtuDgOrGkiQ9cgKhbmMO2GNsosWKrjgEitgVcXM14Z59lL
+         oJtA==
+X-Forwarded-Encrypted: i=1; AKwUvBwQUgwNnnCGtkfXKosZetCqPLob/WOdH1VeDPiy7K2EgxC4hNP3vpmuV+JlaNPQ02CwofW9i0iRuv7saKgFrAV5@lists.infradead.org
+X-Gm-Message-State: AFuF++mjmWQMKand5Ittq1oX33EqOv5PLQNjfPbD5J3DVN8MynkLCp97
+	RKm2UUttpVUJTbAVHrTbzPrJSm1WkXFDe6YFUzyOsH1HbpVoliD4XKI=
+X-Gm-Gg: AYBFou0pwziZf78qgmS7xahXszKCyOf0tXNOwT4zXNgXYdxkpTAXS45jyPx0ObNTgN1
+	GOHRJWFjAFNBCGenXQs3Pe7UmRu2KEbtSJrWhYa8i87bxNK4Cjn0DpwWgt0Hou7guoTDHvncuXI
+	p3oB/pdPT0oPKSpqaIt9WERdEtbHZOFmhFayTnXg1ZcjDnJ56s8jajNS5Iw5FQ1Fk6RrQ0Y9KMv
+	TRqUd3HE0jsk0Sq2qr76Z1OCqOOeAighO9NbO+kGVAV7aPM+/CKZxLZ7CP0GUstFMAOG2G0l05F
+	g7buuISxupttwp1OCd5VeihANSo4Rr7p+w6R7nYu7z4o39jj+rpQ8KSAsVcece9yB0LM0Xs05qE
+	ayqZtbYEseJjlIftFS+WpqQddRGC9fo0MzgbkiDk19Rf4A/6MIeLlUGBzIcZa22xeYYKSiE7t1a
+	yUeh8TiSJlP7B02uoapztXvwXSo0ub+IcT1Lsz88Vqn7B92tpK+Sf9aplfv0nB1eIbWhmzwWkw2
+	s0NEI50fONsgi5R
+X-Received: by 2002:a17:90b:3809:b0:381:a766:efc9 with SMTP id 98e67ed59e1d1-39b261014e2mr32056634a91.7.1788786407241;
+        Mon, 07 Sep 2026 06:06:47 -0700 (PDT)
 Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:6467:d689:c773:5f09:906c:a72b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm26742398a91.0.2026.09.07.06.06.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm26742398a91.0.2026.09.07.06.06.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 06:06:40 -0700 (PDT)
+        Mon, 07 Sep 2026 06:06:46 -0700 (PDT)
 From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Andrii Nakryiko <andrii@kernel.org>,
@@ -93,17 +93,17 @@ Cc: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	donggeunyoo.kernel@gmail.com
-Subject: [PATCH bpf v3 1/2] bpf, arm64: set up the frame pointer for the exception callback
-Date: Mon,  7 Sep 2026 22:06:23 +0900
-Message-ID: <20260907130624.611942-2-donggeunyoo.kernel@gmail.com>
+Subject: [PATCH bpf v3 2/2] selftests/bpf: cover the exception callback using its own BPF stack
+Date: Mon,  7 Sep 2026 22:06:24 +0900
+Message-ID: <20260907130624.611942-3-donggeunyoo.kernel@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
 References: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_060641_764567_76E5C424 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260907_060648_363975_E2CA270E 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,65 +118,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A program acting as exception boundary saves all callee-saved registers,
-so build_prologue() takes the exception_cb path and never calls
-push_callee_regs(). That is the only place find_used_callee_regs() runs,
-and with it the only place ctx->fp_used is set, so the callback prologue
-does not emit the
+The existing exception tests do not reach a callback that materializes
+BPF_REG_FP into a register. They either throw from the main program,
+where BPF_REG_FP already holds the value the callback needs, or use a
+callback whose only stack accesses are frame pointer relative, which the
+arm64 JIT rewrites to be stack pointer relative.
 
-  mov x25, sp
+Add a test that throws from a subprogram using its own BPF stack, with a
+callback that hands the address of a local variable to
+bpf_probe_read_kernel(). The helper and the callback have to name the
+same slot for the value read back to be the one the helper stored.
 
-that points BPF_REG_FP at the frame the callback runs on. x25 keeps
-whatever it held when bpf_throw() was called. If the throw came from a
-subprogram that uses its own BPF stack, that is the subprogram's frame
-pointer, and since the subprogram never returns it never restores x25
-either.
-
-Stack accesses through BPF_REG_FP are rewritten to be stack pointer
-relative, so those still land in the callback's own frame. Materializing
-the register does not: a callback that passes the address of a local
-variable to a helper hands over an address in the dead subprogram's
-frame. That address is below the callback's stack pointer by then, and
-the helper's own call chain covers it, so the helper can write over its
-own return address. 0x1234 below is the value the helper was asked to
-store:
-
-  pc : 0x1234
-  lr : 0x1234
-  Call trace:
-   0x1234 (P)
-   bpf_test_run+0x188/0x3e0
-   bpf_prog_test_run_skb+0x47c/0x998
-   __sys_bpf+0xbdc/0xdd8
-  Kernel panic - not syncing: Oops: Fatal exception in interrupt
-
-Set ctx->fp_used on the exception callback path so that the existing code
-further down sets x25 from the stack pointer. The epilogue restores it
-from the main program's save area along with the other callee-saved
-registers, as it already does. x86 sets the frame pointer for the
-callback from the argument it is passed, and powerpc computes it from
-the stack pointer.
-
-Fixes: 5d4fa9ec5643 ("bpf, arm64: Avoid blindly saving/restoring all callee-saved registers")
-Acked-by: Xu Kuohai <xukuohai@huawei.com>
 Signed-off-by: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
 ---
- arch/arm64/net/bpf_jit_comp.c | 2 ++
- 1 file changed, 2 insertions(+)
+ .../selftests/bpf/prog_tests/exceptions.c     |  1 +
+ .../testing/selftests/bpf/progs/exceptions.c  | 30 +++++++++++++++++++
+ 2 files changed, 31 insertions(+)
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index c18e005a41db..c5f55d6161fe 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -600,6 +600,8 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 		 * 12 registers are on the stack
- 		 */
- 		emit(A64_SUB_I(1, A64_SP, A64_FP, 96), ctx);
-+		/* The callback may use its own BPF stack, set up fp for it. */
-+		ctx->fp_used = true;
- 	}
+diff --git a/tools/testing/selftests/bpf/prog_tests/exceptions.c b/tools/testing/selftests/bpf/prog_tests/exceptions.c
+index 3588d6f97fd4..639866ce09a9 100644
+--- a/tools/testing/selftests/bpf/prog_tests/exceptions.c
++++ b/tools/testing/selftests/bpf/prog_tests/exceptions.c
+@@ -55,6 +55,7 @@ static void test_exceptions_success(void)
+ 	RUN_SUCCESS(exception_ext, 0);
+ 	RUN_SUCCESS(exception_ext_mod_cb_runtime, 35);
+ 	RUN_SUCCESS(exception_throw_subprog, 1);
++	RUN_SUCCESS(exception_throw_subprog_stack_cb, 0x1234);
+ 	RUN_SUCCESS(exception_assert_nz_gfunc, 1);
+ 	RUN_SUCCESS(exception_assert_zero_gfunc, 1);
+ 	RUN_SUCCESS(exception_assert_neg_gfunc, 1);
+diff --git a/tools/testing/selftests/bpf/progs/exceptions.c b/tools/testing/selftests/bpf/progs/exceptions.c
+index c8d716fbd419..91c81971e58c 100644
+--- a/tools/testing/selftests/bpf/progs/exceptions.c
++++ b/tools/testing/selftests/bpf/progs/exceptions.c
+@@ -212,6 +212,36 @@ int exception_throw_subprog(struct __sk_buff *ctx)
+ 	return 0;
+ }
  
- 	/* Stack must be multiples of 16B */
++u64 exception_cb_stack_src = 0x1234;
++
++/*
++ * The address handed to the helper has to be this callback's own stack
++ * slot, not one from a frame that is already gone.
++ */
++__noinline int exception_cb_stack(u64 cookie)
++{
++	volatile u64 val = 0xdead;
++
++	bpf_probe_read_kernel((void *)&val, sizeof(val), &exception_cb_stack_src);
++	return val;
++}
++
++/* Throws from a subprogram that has a stack of its own. */
++__noinline static int throwing_subprog_stack(struct __sk_buff *ctx)
++{
++	volatile u64 pad[4] = {};
++
++	bpf_throw(pad[0]);
++	return 0;
++}
++
++SEC("tc")
++__exception_cb(exception_cb_stack)
++int exception_throw_subprog_stack_cb(struct __sk_buff *ctx)
++{
++	return throwing_subprog_stack(ctx);
++}
++
+ __noinline int assert_nz_gfunc(u64 c)
+ {
+ 	volatile u64 cookie = c;
 -- 
 2.53.0
 
