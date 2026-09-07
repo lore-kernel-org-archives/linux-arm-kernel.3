@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90217C79FA3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F98C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nL4d6aFEfv8KmOGv5PZG8XQQu0qz+kYwSNFh+zYXjxk=; b=PT1sCEXfzxRj12
-	wCYRCO9NPsmdgyrL3odytlYJ8j4xuEdLMomfrayjJgZy7BIxIoFDiMFgx96iRFK49BpNuKcZE+I2j
-	DKveZWFiLINk/InXhRmImgMZ3MKd0O43V78d9r2uzeFuGFuyKEzfSIrUCMBS+u9wvJc7d6/7IyPH0
-	DKSPSANGbPXh/jtRoyR1dNS9v9dxgLaOu7ZySRr7e+6hPqiMO6SjcYn60d+Mi7S5wFaPfFmxFFMnL
-	zk6ryPEDDqrQZ1SQ/9fc2fN4TsOk8GugrJQWaSyw4KTK6tMENZNleP1HjhIMKcs5lemXWw94vXn99
-	twl43b5lotNsrFCSIaKg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=; b=CLyUh24Bua9O+ktLCXTKzcwL6A
+	DvfwA94o28nMVpZqHmZi2lrKSyXOgfaat+n1x9Kx9Jt17ly2ia79YsL3rvtZJTWxmkcgjuBXnoEfy
+	OJan4uU19oGW9265eTe2BWpI24VR5SzdpjaRtoZ33Ns+woEjWn5RAFHHEVooEZJlTfhI/RiBVxVm9
+	ANlJGLudV2C0jdoOwJe2p0L+P3zcYhe0WDOQ5cqc9V4dHk9n0hoel3qi0+TzSEqV+AazpepQAUyq/
+	g++WXk2QGmXxrkWUWW3cOKxC272vsAIoEqvSXrsBbCEUjb7OrUGwFqHBsgVyQnM00bvPfsn2Csyhu
+	mqeIpcAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3b6o-0000000788Z-3rPR;
-	Mon, 07 Sep 2026 15:18:10 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1x3b6v-000000078Bp-0YDn;
+	Mon, 07 Sep 2026 15:18:17 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3b6j-00000007873-1WdL
+	id 1x3b6p-0000000788Y-3POp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:18:08 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-6b1bcd9e00bso2940270eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:18:04 -0700 (PDT)
+	Mon, 07 Sep 2026 15:18:12 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7ee37dc91f5so2126175a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:18:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1788794284; x=1789399084; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=nL4d6aFEfv8KmOGv5PZG8XQQu0qz+kYwSNFh+zYXjxk=;
-        b=zYNSPaXiL5DZ2n81Vem7pn2hjZUzDAo76DIPKoUztww4yNbmSkaqJi8npajrr1ZMQo
-         38VD8B6hqlZMtUA0hcRDX+VRbLWQNJATgTE9GPQmVNNRSdl7KQp0G9qqpH4HjmHJSHpn
-         PvvQaSrArSXQX7sWDRgSZ2hYw/uztsaU1jShrUS53OnzTZdYS2zZD3Xtp0kK3RYgDmDl
-         pqgcyK6FYC992z4K6VN59x9hEKNeQcP4b8k5mSpqN0qHn/eHhFS6Vae+gBj1FGRLqGh4
-         dik9HAwPDk9EZRJ2NynTmpH9thxFikUdkpac3QGbVOL0pvYn6N5w6mgQQAD6oqmo6aVO
-         X7nw==
+        d=thegoodpenguin-co-uk.20251104.gappssmtp.com; s=20251104; t=1788794290; x=1789399090; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=;
+        b=khrr27eTwMOye0eXfYaDGEbNcyFqi/npQ+io305GZUoHIFGLDZI1wEE8bI2trztoFe
+         NlGaZNBLtAh/pkNaNmNeJRAO78psywF4eKIiNgU7NU2BKcnrPtLf5l2dQnPps4dyaqxb
+         a49k8NfDy4tefM7AA7CZzDf5UtmlxbDKaUhAAkVQgdZx28/Ujf7lIQuWTkoiNTFB0wWC
+         NGet5FkxbmvxUurOZ+BMrvJOu+bGjTAQg//YTKvIkx2I02QTDNQmZI2E3PAfWbtdgNUY
+         tlF/Bz71OzCoezmETER5vRKa6m8suLrAMKIsNzfTR0VvLPkXTU4jQvB6n4nPVM4XBIFF
+         26Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788794284; x=1789399084;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nL4d6aFEfv8KmOGv5PZG8XQQu0qz+kYwSNFh+zYXjxk=;
-        b=nXUYwdKXQtD292cDrDgx3KUsFqIw/c0CNiJ20kteWa1C0sFZKVVzsInmZycgyF13D7
-         p2iGqN7Hi8JvvqVoUSCxj28BbcVRcf8QzPWtWQyI7jYD9xDnlGQjPtFOL3dK6ZWgmpiU
-         1AATSxoAQO2NwVz9bCNS+90MyH1lzYgWx5TnQSiJPAAV20p3r37AfVPn7XT9ReYG/BJ6
-         NvCjHiH+eKenptGHkzL/TXaZlnOG/MJIBKWYkwxatQpFjha0U7vzKI22jJb2JFzze4X4
-         NqZRDdx9pCMqDjXRDLRSmvv9sJ46Ks+WpC9DFhz2EMw0sghNXFmFm2YppbyFsxP1zMoW
-         Ls/w==
-X-Forwarded-Encrypted: i=1; AKwUvBwH/dDwy2yTTFUtf0dpQmxEOxr0jHbTJOqacnMjg43cOKUtRXk+UQ62OIOMxNkzHWEo3yqosVwpE0/dWKe5rBYP@lists.infradead.org
-X-Gm-Message-State: AFuF++mosc2JKm1BoweSktx/6zmiBGXiWKfv6TG9p56XekbNjYcoIbQ6
-	iDisxGGS6x/osAzoDaUSF0Yg2RmVO32CgGVMwhEgx/sAjvs2BAALrxrlOBpfQmC2hhE=
-X-Gm-Gg: AYBFou1k9T2T2QkwJ0OFrRA5HbJilhMxvcJYDVg96cVrGcMOVgEvY02O6EUHQxt27u/
-	hGGq+L4ghkSJsiWv2Iu7ceQlGzBFhfOv4A839A5eVL4EBExrRFVVUt+Tw9XsfeEtkYm8gTga3xI
-	i4mWgHpeEfdVDjR9oNhXMYbB98iHiFti54+LyNQJAnWTo5sUi+LlJsMi1THlYwueS/giUF8aSlX
-	61RlQDTkOC/xmmIYegSdHKaOnxY947hFFZMVp0SpSUHGOcHHO+rKZoCrNSJpYHJnxXsOAjFo8tc
-	2bUM4UUwr+6u3Io3cq84SWMnA+LorKK/4tHY2+YMVvm7I7SexWyTlPH1bMQxyfiQt0ZHOtXVFmP
-	X3FY9NGhFFH+Z71Nx6Ja94QHba2GceoLBDUv/4W7xZ2l9T/ZU44l+hciKniRPQJvtYU1mS5/XVb
-	Ym6K7WKw+4RYlFBCAcfRf/+oGNVTCKWpKRUBwPBPO9asJkBUmk9SX1eYCn4+PvUKT1WZ5XfyBHj
-	xBIiw==
-X-Received: by 2002:a05:6820:179b:b0:6b6:b5c8:7432 with SMTP id 006d021491bc7-6b6fd1cab2amr15396165eaf.33.1788794284261;
-        Mon, 07 Sep 2026 08:18:04 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788794290; x=1789399090;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6/+QTxJeld428JJetLUQ3w0n69IV3ON69coAVWlYDS8=;
+        b=nqefXbx/1DKzBE7vd4ZuReyXoYEV0YPzx5tc641Az45SX977H6JfzNsdFxDTa3yoXN
+         wC59cRirPq+59ysVx+LpQBHLQih2PTmIeP60C/AAk/chM1MJVx8sBMSTfYjRvAx6+y1L
+         qRpFXSHKK9vNQOzCiRH13cVBi24FZ8644BGQQ62LZTjr4gXiRkxSPnCrtZQ6B6dd/d7/
+         fzNIfjxPgAOReScMlwUfv3ODqhXxAXrhdXW7W0t5JKoJwVvZC/UisaQekMyuEbMbI9UU
+         4G4PhX5JZ15pnmawGDmfZz5Dz/Uh8Ll8hjfL/mVnlxoYOaMFPqqzFEDkzHO3aPo58YhS
+         d6Nw==
+X-Forwarded-Encrypted: i=1; AKwUvByb5ZGNhNqc6tU/v7UpFsXKCFhIyzddIwPkoo2h30Q/fiO2LvZvAr2zAiU/UFepXTrYmDPPJ2JtFFn6bOYob/Ot@lists.infradead.org
+X-Gm-Message-State: AFuF++lC/aw7QZDIgfyRwPEazv6tOo8iUBAMuhKgPBIK6gd4XQ4PhMWY
+	i76r/vex99VNDFcYvLOW4zwKQZyXNtnDsvcd9uzez1B+E00EFrs321BwcSm0wK3nKUU=
+X-Gm-Gg: AYBFou3w7wpKFXRltYrXqzaHn4bK98gKc1fpkO8xm5oViI+cVUOGGmMAGmeGsIhwrsA
+	uoGhiLu7ahMH9DRQF2JKNG6IC09+XT/8rzCS8YZs4ndRv8cq7JnDWPk8mxql+yFTI0VBynVqr/K
+	nhKjq1cHldki0i1M31PoNnL6MhSYblL2megFKWXCoFdk57rP8Gxv96yvGJ3D8GBaYPckCFCGEsw
+	bxw6cB+oGvFOkcgszdPBSg9S9pvdeL4zn2cf0/tbn60LL2hcUG7ANNMknSj8i5HONFmmuhriIhD
+	RVdpQ8pPxcIfcMPjLheY75rgRTCCZEiD9sjmyc9lHUzNbQQecfMxowjUsVzWnc/f5OqMUJHNAnP
+	EmH0IBI1ZE6P6yUL2GmPoYRS0/WEEYGF5hYsTTs5BJF8amGA6U2ZP9Wlrb5LtXv0BuZ1fnd1+Si
+	Noa1KN/2dt4dZ5zsjbaE/plwPqaLG5QvWYOX0xKJxc9P1dwoJPwFxP7NHF+23vkfKXKGYnSem71
+	AOgZw==
+X-Received: by 2002:a05:6820:2d0a:b0:6b7:46e9:970d with SMTP id 006d021491bc7-6b746e9a2cemr11233302eaf.61.1788794290114;
+        Mon, 07 Sep 2026 08:18:10 -0700 (PDT)
 Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:9f74:2a4b:1c38:e2d8])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432435648esm33474770c88.5.2026.09.07.08.18.01
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1432435648esm33474770c88.5.2026.09.07.08.18.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 08:18:03 -0700 (PDT)
+        Mon, 07 Sep 2026 08:18:09 -0700 (PDT)
 From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Subject: [PATCH v2 0/4] dma: use designated initializers for acpi_device_id
-Date: Mon, 07 Sep 2026 16:17:42 +0100
-Message-Id: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
+Date: Mon, 07 Sep 2026 16:17:44 +0100
+Subject: [PATCH v2 2/4] dma: loongson: use named initializers for
+ acpi_device_id
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJbVnmoC/22NwQ6DIBAFf8XsuRiklKQ99T+MB4RVtk3BgJo2h
- n8v2muPk8ybt0HCSJjgVm0QcaVEwRcQpwqM035ERrYwCC4Uv3LJtJmI2ZdmiI22VvYaJULRp4g
- DvY9U2/04Lf0Dzbzvd8NRmkP8HF9rs3t/smvDOOODMeps1aX077PDMQQ7oR8X8rUJ9fKELuf8B
- SmmaE29AAAA
-X-Change-ID: 20260904-acpi-dma-ee1add4bae4e
+Message-Id: <20260907-acpi-dma-v2-2-0ffe4a007992@thegoodpenguin.co.uk>
+References: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
+In-Reply-To: <20260907-acpi-dma-v2-0-0ffe4a007992@thegoodpenguin.co.uk>
 To: Viresh Kumar <vireshk@kernel.org>, 
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
  Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
@@ -90,16 +89,16 @@ Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
  Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788794281; l=2877;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788794281; l=1307;
  i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
- bh=wi3N23N9BdZtUoN9NWpI/GnFso98egox1jks3c5pCJ8=;
- b=6u7XMl18GxIGtzGX7ctGJC+yePbveKR/UO9155kGs9pCUoaPrpf2OJhQbgWyAoctwtsI4F2Q1
- HYkg8tfJdgMCDT/zVVrInKU7RmRSO6B7uettbQQZNDQ8JNcHZ/4DyxX
+ bh=mcQe2swm15Nmq8Y4i0Yhh/Z95MEtTy60FNwFlQB0qyY=;
+ b=pszIBdV0kK1FUCRktbAdGOChrW7kK7Mrhm9RZ+xiLFOk6gHbzZ0byKwiP/SEuuQTnubZrHIKI
+ wm5fKOJhDzlDjf8gv7eIzW7XEibz2iIYboaTNCrbKOe1r2p7eKDdhSY
 X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
  pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_081805_658674_53F505AF 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20260907_081811_865412_C179FECB 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,75 +113,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is converting lists that contain the acpi_device_id struct,
-which is defined in the include/linux/device-id/acpi.h to make use of named
-initializers (which they do not use currently). This work is part of the on
-going effort in the kernel associated with device-ids [1]
+Use a named initializer for the acpi_device_id fields which makes the code
+more readable and consistent with how lists are initialized in the rest of
+the kernel code base.
 
-The plan is to convert acpi_device_id::driver_data to have an anonymous
-union, similarly to what was introduced for PCI and I2C device ID tables.
-The goal is to increase type-safety (most of the existing casts are gone),
-to improve readability and to make use intent a bit more clear:
-
-```
-union {
-	kernel_ulong_t driver_data;
-	const void *driver_data_ptr;
-}
-```
-
-But for that to work all lists containing the structs need to use named
-initializers first to avoid triggering -Wmissing-braces. I already have
-patches that implement this and touching a lot of kernel subsystmes that
-use the acpi_device_id struct and that list keeps on growing. Therefore, 
-I have decided to split the series per every subsystem into:
-- pre-clean-ups that convert the lists to use named initializers
-  (which is this series)
-- actual implementations that make some of the modules use the new 
-  driver_data_ptr member
-
-That way the task can be fragmented into manageable and independent chunks
-of work and makes this effort easier to review.
-
-Tested builds on x86-64 and a64 in Yocto using 7.3-rc2.
-
-[1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre.com/
+Unify the list terminator to have a single space between the brackets and
+no trailing comma.
 
 Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Reviewed-by: Binbin Zhou <zhoubinbin@loongson.cn>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
-Changes in v2:
-- Tidy up messages and wrapped at 75 chars; added Reviewed-bys from V1.
-- Link to v1: https://patch.msgid.link/20260904-acpi-dma-v1-0-0fcc63d65d4b@thegoodpenguin.co.uk
+ drivers/dma/loongson/loongson2-apb-cmc-dma.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-To: Viresh Kumar <vireshk@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>
-To: Binbin Zhou <zhoubinbin@loongson.cn>
-To: Sinan Kaya <okaya@kernel.org>
-Cc: dmaengine@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-arm-msm@vger.kernel.org
+diff --git a/drivers/dma/loongson/loongson2-apb-cmc-dma.c b/drivers/dma/loongson/loongson2-apb-cmc-dma.c
+index 1c9a542edc859..70880625c6e92 100644
+--- a/drivers/dma/loongson/loongson2-apb-cmc-dma.c
++++ b/drivers/dma/loongson/loongson2-apb-cmc-dma.c
+@@ -709,8 +709,8 @@ static const struct of_device_id loongson2_cmc_dma_of_match[] = {
+ MODULE_DEVICE_TABLE(of, loongson2_cmc_dma_of_match);
+ 
+ static const struct acpi_device_id loongson2_cmc_dma_acpi_match[] = {
+-	{ "LOON0014", .driver_data = (kernel_ulong_t)&ls2k3000_cmc_dma_config },
+-	{ /* sentinel */ }
++	{ .id = "LOON0014", .driver_data = (kernel_ulong_t)&ls2k3000_cmc_dma_config },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(acpi, loongson2_cmc_dma_acpi_match);
+ 
 
----
-Pawel Zalewski (4):
-      dma: dw: use designated initializers for acpi_device_id
-      dma: loongson:  use named initializers for acpi_device_id
-      dma: qcom: use named initializers for acpi_device_id
-      dma: xgene-dmac: use named initializers for acpi_device_id
-
- drivers/dma/dw/platform.c                    | 12 ++++++------
- drivers/dma/loongson/loongson2-apb-cmc-dma.c |  4 ++--
- drivers/dma/qcom/hidma.c                     |  8 ++++----
- drivers/dma/xgene-dma.c                      |  4 ++--
- 4 files changed, 14 insertions(+), 14 deletions(-)
----
-base-commit: df2908090cda368b01ff43709f51890076c56157
-change-id: 20260904-acpi-dma-ee1add4bae4e
-
-Best regards,
---  
-Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+-- 
+2.43.0
 
 
