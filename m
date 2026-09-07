@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38D5C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6256C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 18:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39P9T/VJ5C2MXV9mPbSHTlmvddUcLRGzb1iAxJYjdJ4=; b=2MDmjlvB8DT1ET/ZL8a95UmFUS
-	d/HaW6FAMFEaTv72v8OF4PpR6fYngy4IAJpyOYV2DTsw1pOFfSJmfEsTmew9z9mcWe+akV6aOuWac
-	0hWUL4QDVXPLKtRCBwWX7x/wb9m0asYSZ0xGM1IvADNai3zH4mj7KpkAFTy56xRxaR9xfzvBy80g1
-	Rke42fXjZHXe0hmrfeuObptIxhHcF4isU1vMkRDiNgoWZykvUDlvaO3pXBqC8WJOrkVOra/Kj+1t7
-	HDizIOR4VrZInaMSZJyvmFLn1X9HwYrwUo8/akw5jPZAz9hjrw7/nu5O5nECh/sF0tJABC254S9VZ
-	vOTK1VFg==;
+	bh=wtDJpD2fxJE6IddEOBExRdVt6TIzNQJ6o5AAGWZJXas=; b=3E3rSbRQXCxGso+3l+QP2FVm7C
+	Sqwk1/4VYo41VUDhaQ+gf8sspJOI2McqwrkjO8Oe6+PKR6AcR8EkO57OchAHaH29EMxWOYuhXTfa5
+	wtjyUzW59a/59tMfPTelaIVaGvzjEIC9hxvXdJ3vn8wIisRwhFsONcugDmGYLiLQcnqxoxFz6kIUX
+	lI+OrXJnzKE1hh95RMeCiR6mNysI+GEPexrBi08cmX4RuMnR9HT7BIbithh5pINVQxOdHCnULgZCl
+	4AheLqWPB8dnVHMaoIqVvPme6ON9+J39KUkN4OfM2BJjv9yzwh9B2ZFL3q8NJowtU6qDXNgFOTwYp
+	u/9ePs/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eBD-00000007aMl-32Fa;
-	Mon, 07 Sep 2026 18:34:55 +0000
+	id 1x3eHx-00000007b4u-1NOA;
+	Mon, 07 Sep 2026 18:41:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3eBB-00000007aML-0ITk
+	id 1x3eHu-00000007b3u-0fZ5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 18:34:54 +0000
+	Mon, 07 Sep 2026 18:41:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BD011476;
-	Mon,  7 Sep 2026 11:34:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 986621476;
+	Mon,  7 Sep 2026 11:41:45 -0700 (PDT)
 Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E44E3F528;
-	Mon,  7 Sep 2026 11:34:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D57603F528;
+	Mon,  7 Sep 2026 11:41:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788806090; bh=Ox53w8vlukQqk29PxMv7Of5O2VoRl9viNkh3MI9BUgU=;
+	t=1788806509; bh=oOAJaNc8fwgBRGZou+YwG8GwcsoIvMJQ0k0a4TIZy/s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fsTMVaqyP/VWuAhLNnQQpYB8ddw7IBWV7Q8jbcfyZ+kOJYAj44jj5UYtNph0sT1VJ
-	 G/spHE65/+01gqUlv7kTaDRoBEmzV5ARLYR8+1zOSQ6cdbx6PZbunfUm21YKusnUPv
-	 a2Imhi0CcQEnpwhsqfnvLBWDEiGx5RT0/Rw2Eesg=
-Date: Mon, 7 Sep 2026 19:34:40 +0100
+	b=M5eaoEi/0DWd2TdnMuk/JswwJZj75WRus7Ql1q+5a2MSL7qzb/IUiyPVu96k0DJxc
+	 /UZNp1gsDy7VWFjgwh4krvW93L0Kit1sFpSeJbc3tYtwkog3asHDgLkWUJzqbcLQcs
+	 r6ju8NUwqY2QKPfOpCHSesZ/5AD1JYKFD4kynPx4=
+Date: Mon, 7 Sep 2026 19:41:30 +0100
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
 	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
 	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
 	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 01/20] KVM: arm64: Prefault host stage-2 entries on block
- split
-Message-ID: <paokd4d2c3x2rnkoa7pwtsa4t6rwdgbcbtaytt5qbhxe2xk3kr@2nsyoy7i2hst>
+Subject: Re: [PATCH 00/20] Huge mapping support for protected VMs
+Message-ID: <g46hgnsj7rltrqzfmm7lgkdxteaxositebvrpasyjwesygwmq7@mcustodfb26v>
 References: <20260803100904.3563942-1-vdonnefort@google.com>
- <20260803100904.3563942-2-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260803100904.3563942-2-vdonnefort@google.com>
+In-Reply-To: <20260803100904.3563942-1-vdonnefort@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_113453_222028_BD9DFE49 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260907_114150_287212_E55B69E6 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +70,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 11:08:45AM +0100, Vincent Donnefort wrote:
-> From: Keir Fraser <keirf@google.com>
-> 
-> For the host stage-2 that is idmap, we can avoid lazy-mapping on block
-> splitting by propagate existing valid mappings to neighbouring entries
-> of the new table.
-> 
-> Co-developed-by: Quentin Perret <qperret@google.com>
+Hi Vincent,
 
-I believe the co-author also needs a Signed-off-by line.
+On Mon, Aug 03, 2026 at 11:08:44AM +0100, Vincent Donnefort wrote:
+> Currently, pKVM handles stage-2 mappings and ownership tracking strictly
+> at the PAGE_SIZE level. This series extends pKVM to support PMD_SIZE
+> block mappings, thereby enabling Transparent Huge Pages (THP) for
+> protected guests. hugetlbfs is currently unsupported as it does not
+> appear as swapbacked.
+> 
+> Summary of changes:
+> 
+> 1. Enable host stage-2 block-level annotations:
+> 
+> The host stage-2 being annotated with the GFN of the guest on the
+> host->guest donation transitions, we allow block-level annotations to
+> ensure the host stage-2 mapping size matches the guest stage-2.
+> 
+> 2. Expand ownership transition HVCs:
+> 
+> Enable the ownership test to work with PMD_SIZE so we can test
+> transitions supporting more than PAGE_SIZE.
+> 
+> 3. Implements the `PKVM_HYP_REQ_SPLIT` hypervisor request:
+> 
+> Allows the hypervisor to ask the host to split a mapping. This ensures
+> the guest s2, pkvm_mapping tree and host s2 are always using the same
+> mapping size.
+> 
+> 4. Wires up THP support for pKVM guests.
+> 
+> Keir Fraser (1):
+>   KVM: arm64: Prefault host stage-2 entries on block split
+> 
+> Vincent Donnefort (19):
+>   KVM: arm64: Propagate host stage-2 annotated entries on block split
+>   KVM: arm64: Allow block-level stage-2 annotation
+>   KVM: arm64: Use block-level annotations when setting up the host
+>     stage-2
+>   KVM: arm64: Make pKVM ownership selftest an HVC
+>   KVM: arm64: Add a range to __pkvm_host_share/unshare_hyp()
+>   KVM: arm64: Add a range to __pkvm_host_donate_guest()
+>   KVM: arm64: Add a range to __pkvm_host_reclaim_page_guest()
+>   KVM: arm64: Add a range to __pkvm_guest_share_host()
+>   KVM: arm64: Add a range to __pkvm_guest_unshare_host()
+>   KVM: arm64: Add a range to pKVM ownership selftest
+>   KVM: arm64: Handle huge mappings in
+>     __pkvm_host_force_reclaim_page_guest()
+>   KVM: arm64: Handle huge mappings in __pkvm_vcpu_in_poison_fault()
+>   KVM: arm64: pkvm: Warn on guest stage-2 block collapse
+>   KVM: arm64: Add pkvm_hyp_req infrastructure
+>   KVM: arm64: Add __pkvm_host_split_guest HVC
+>   KVM: arm64: Extend pKVM page ownership selftests to cover guest block
+>     split
+>   KVM: arm64: Add PKVM_HYP_REQ_SPLIT
+>   KVM: arm64: Raise PKVM_HYP_REQ_SPLIT on guest to host sharing
+>   KVM: arm64: Stage-2 huge mappings for protected VMs
+> 
+>  arch/arm64/include/asm/kvm_asm.h              |  12 +-
+>  arch/arm64/include/asm/kvm_host.h             |  19 +
+>  arch/arm64/include/asm/kvm_pgtable.h          |   3 +-
+>  arch/arm64/include/asm/kvm_pkvm.h             |  21 +-
+>  arch/arm64/kvm/arm.c                          |   2 +
+>  arch/arm64/kvm/handle_exit.c                  |   3 +
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  25 +-
+>  arch/arm64/kvm/hyp/include/nvhe/memory.h      |   5 +
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   6 +-
+>  arch/arm64/kvm/hyp/nvhe/ffa.c                 |  12 +-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  47 +-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 545 ++++++++++++------
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  59 +-
+>  arch/arm64/kvm/hyp/nvhe/setup.c               | 152 +++--
+>  arch/arm64/kvm/hyp/pgtable.c                  | 113 +++-
+>  arch/arm64/kvm/mmu.c                          |  72 ++-
+>  arch/arm64/kvm/pkvm.c                         | 247 +++++++-
+>  arch/arm64/kvm/trace_pkvm.h                   |  44 ++
+>  18 files changed, 1036 insertions(+), 351 deletions(-)
+>  create mode 100644 arch/arm64/kvm/trace_pkvm.h
+
+The patches in this series are missing per patch stats like this here.
+I would recommend including that to help reviewing.
 
 Thanks,
 Wei-Lin Chang
 
-> Signed-off-by: Keir Fraser <keirf@google.com>
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 > 
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index b74dd5ce1efd..34f78a58cded 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -1030,10 +1030,39 @@ static int stage2_map_walk_table_pre(const struct kvm_pgtable_visit_ctx *ctx,
->  	return 0;
->  }
->  
-
-[...]
+> 
+> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+> -- 
+> 2.55.0.508.g3f0d502094-goog
+> 
 
