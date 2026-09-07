@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989BFC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41416C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnZLyq24G74x0BtcmnjsTe1Ba2BrJU0s+mndSt8tbQw=; b=J9SH6lGvhxnKbgQzd11gpXnVjE
-	Lt+2+zzoPfY4nVenUHedtXeM6SzSWJszpEvZ+NAjqU9fvzviPcVTLBnT4/IKP9DXRepTrgtcELmg/
-	pCs0PxDCjDUXK2O4RR/rrP+0lE+0mMOnOssSSV2SK37vjQLzEkZ09TGThSgK401skB6ZWQzGGz63f
-	fIjViUX3b51zRyprF01HAkvsExy7yqDqFn+OOPcfe0+neoF5bwtID28IcSQ1hSRCxcBMLuNihxbTR
-	D/6BB+fjJbvxyxsywogcftrmVxivqskdlflFhY96hlMCX+3ezdkzKHLTNnYedYVYg5hHA6cPKD0i9
-	iI4M6dvA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ixJn+LClpjTPwxRoTjlKcBk+EVA+gMQOz0qtsHbSA1g=; b=CWE32b1MeSgDTKFrkminfX6CvC
+	68C0wKRoMJ2iJ0glkfoou70jlZsc/PmcGQqyE4OCYVNFe6/Vwn96pcP5TCpXSiJVr1w3ass316v+W
+	hgJDdZ3ywqHwSeD2jMD03vDVG44a0EYbirdHeDk7F8ZQyLacKN1liu0JCbQYNp78+6q0Ern+ER5dj
+	GYsAs2IEPi4daUpgQ8q44CNf4dw++Lf6sHPeygfN6FTYyMjBpsj46Yhppupj06Npq4KPkr6p/fxP0
+	25+aaNRgrWuxCQJCCGCk1IzTeyTG8OJJGev9NpQlO64cUXGvcNaDjcsmdGu4zRUIx2F08VfpJbqMb
+	DTKGlQzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aKI-000000072ln-1rl3;
-	Mon, 07 Sep 2026 14:28:02 +0000
-Received: from mail-ed2-x10.google.com ([2a00:1450:4864:33::10])
+	id 1x3aMO-000000072zZ-3lap;
+	Mon, 07 Sep 2026 14:30:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3aKF-000000072kc-2s3k
+	id 1x3aMN-000000072yo-1MDt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 14:28:00 +0000
-Received: by mail-ed2-x10.google.com with SMTP id 4fb4d7f45d1cf-6a5d8fd8d8dso9993a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 07:27:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788791278; x=1789396078; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rnZLyq24G74x0BtcmnjsTe1Ba2BrJU0s+mndSt8tbQw=;
-        b=i14jWIY5WbUqSt2LAv5KT4n6GO+IUQte0pjx2HHKqaJHuKUq9Qc+ru3KVEvW0jsXWq
-         qy0nSQuTYED1xL5UfQrPH4MX4H5a/KX9Zb4aVWrnTGFmbPsW6cx0Yo3z18cdeHc/KQiv
-         sM0mZuJ7iGrNBtj3nY0ZhADX4g9u5Wa1hqq1nY3aHKQ7I00WOVQVsmbEYwyP4cPXmSnL
-         1J60DFXDjQ1pOtNDN03Mt18OMpqrA1eExlHAXP4K6K1/IQHtN0vFV/0CXffcmLrrJpb2
-         HQqvbBNcXi3YbJfQ3I1SoRuGBAlSHSErOTYj3s9KkUdadY5qLm9xAoMdLi2/kas3tmFD
-         EVKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788791278; x=1789396078;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=rnZLyq24G74x0BtcmnjsTe1Ba2BrJU0s+mndSt8tbQw=;
-        b=QxIJ4yx1sl35U7x7JjMqvum5fQdLeoxf3OY/osiqSBjQW6tP4pH/JjIq0VuX3of1ey
-         OVrpXoD5cDsNnReBudrIYvAQ8s4RRkF1peUmQglUI3869/KMuPvCFQlgbki0hcjTbJl1
-         4o6BapA9nxdMy3Yc0+iFPI3vsvu2fA8WSeLAlz9qJAqXEJdqV78ECmcEOL0qnYFLmA9F
-         vrOQw3wt1dM5x6280MBB2Q5lipp0fns33RGVwjnfkNk8sU+z/fSUBT+FiZynIpsYHj/r
-         5+eaPlO8pGxnGl6u4T0aHNGyJ66H4g89ULnWduiDOz3ZRjc3SM0/TI8P1Lx2hXbmJ2/s
-         aKVw==
-X-Forwarded-Encrypted: i=1; AKwUvBxcpVuq8r7MrFs9bhBwGtH0Eh+o+tu+8txrpjg8r15k19lpFlCnD8lsCDnICQrBsVr+2lZdESyLgJhv4xYSUbfH@lists.infradead.org
-X-Gm-Message-State: AFuF++nE9EerJVtaV8kfrcWTx98ye8O5Ex3lJLlZcABOcJs/lOzzZ6SR
-	COnV5NqdKFon2bh8t9/dGhzxwJ0oxyBgZd/J8AYau/b2L0wteptSooIxzQ6lllATOg==
-X-Gm-Gg: AYBFou3fvNk6Q+pk/JeYYlhbl6w24RrSmf+u0Zn1qS9tf+TGS8ObpgDeMqBcAybm3bf
-	1gsAqPnabT/uolgVHQnRoGW7aH3//Vd+VOPfhLvbHjgGZQiJFqD7XliXHY+R1cVFRPeIemjhsSQ
-	b7FHOArUpmsXBuKeCidB2z8+ngaelRM0ufMlI9OFBteH+yuAB3JjzHs8/URkkRX8dHzF6KQYanz
-	uAYonA9+YTJpOLzDHGqQ6evu03NYj0zH/G5308CvgVwNQDWoK+lZCXzP45pMgEkJF5SKhQ6tBWh
-	CdWalpZUgOjbz/Mbm2KJMsEPmr08suHIPth0OZ5Zsqso5gATh0QLR22VxAcoY8Qh+YP+N1XDRQa
-	aFF3eXpS/aeJ0vzwuzo+tujPCoC6H1sJZr2wcPb/ZbpywtUPElZxXb15d7mcGgvs0gYr/Da8p+b
-	F0VpG5irsLKvrGj9/sHT1d1ayCh2Iasu+2Zq27TV5gRdRL74fGbDTmccbo6AnGuOWaah34ptt/j
-	ZCmuZrZOpJ6V44=
-X-Received: by 2002:aa7:d8d6:0:b0:6a6:6ded:b4b6 with SMTP id 4fb4d7f45d1cf-6a7f689d0femr62895a12.13.1788791277097;
-        Mon, 07 Sep 2026 07:27:57 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c260d5497cbsm483138266b.34.2026.09.07.07.27.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 07:27:56 -0700 (PDT)
-Date: Mon, 7 Sep 2026 14:27:52 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>, stable@vger.kernel.org,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH v5 6/9] iommu/arm-smmu-v3: Precompute the invalidation
- commands
-Message-ID: <ap7J6NKXgWhiwXgL@google.com>
-References: <0-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
- <6-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
+	Mon, 07 Sep 2026 14:30:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E56C343F3E;
+	Mon,  7 Sep 2026 14:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C68A1C4AF0C;
+	Mon,  7 Sep 2026 14:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1788791410;
+	bh=RH3goA8OBwUJS0x4sPy7galUYCD1BwqaQKD1h/qabEM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=EER31bSY6Fg1Nb1KZqN+jx6wvX/tZFOWBQ9V12AGxQm7kXhTzAJZ3dizJPuN4gqMA
+	 bk0lgVK4KbdBP5+Y0sWo0gcrQCcNPydKKeNQ8TK1bhJfACyilB7leU5+q49u2YMVF7
+	 fNxFkR6doozrHnmzEpOsGxCmH99HcWdgp0vQM302GgUJDpLlPc9Ciui8WPMATTp+js
+	 fK9PidVrsfqnaN3bHqZKDq6lE8CExPxYY7BpbE8d+4N1ZwgvIvCtibG+cIW2mSE2DF
+	 uRGidN9F/siwLOQgcTEZHUHh7sUtawaNfp2Y+g8NLy4y9NIIkjqcutuP/wvaFGsygP
+	 n+m9Y2IJF+7Jw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2C97C79F99;
+	Mon,  7 Sep 2026 14:30:10 +0000 (UTC)
+From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
+Date: Mon, 07 Sep 2026 16:27:39 +0200
+Subject: [PATCH 3/3] arm64: dts: freescale: add Nodebox v3 CPU Module
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6-v5-b810cf379bfc+13d738-smmu_tlbi_jgg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_072759_785758_0E09D0D6 
-X-CRM114-Status: GOOD (  41.66  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260907-for-upstream-nbxv3-dts-v1-3-f43fd0028b78@free.fr>
+References: <20260907-for-upstream-nbxv3-dts-v1-0-f43fd0028b78@free.fr>
+In-Reply-To: <20260907-for-upstream-nbxv3-dts-v1-0-f43fd0028b78@free.fr>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Vincent Jardin <vjardin@free.fr>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788791274; l=9504;
+ i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
+ bh=dHBU2Ihfr+4t/3Zt83s1FxYDh/Fl6BbEVZpQjxiSwpQ=;
+ b=Z14IJRnex/qHe2OyqA2X+ca3TcA81iFQ0hKvzALBHlTAJYdSYVaccXoqAFrmZ5qOmGhKNW3x1
+ QNfFyjj4GpIDBthcqgRNJPz8wWp391uWjsgNc+4yf639qLdAw3Zcg75
+X-Developer-Key: i=vjardin@free.fr; a=ed25519;
+ pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
+X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
+ auth_id=871
+X-Original-From: Vincent Jardin <vjardin@free.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,308 +84,425 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 01, 2026 at 02:49:55PM -0300, Jason Gunthorpe wrote:
-> Store the required cmd data in the tlbi and just copy it out when
-> processing each item in the invs list. The cmd form only depends on
-> if the instance supports RIL or not, otherwise it is always the same.
-> 
-> This avoids redundant calculations for each invs entry.
+From: Vincent Jardin <vjardin@free.fr>
 
-As I mentioned on v2, I don’t see a value for this without smmu
-sharing over the same domain, as this just adds extra complexity IMHO,
-but that's up to Robin and Will.
+The Nodebox v3 is a Free Mobile CPU module built around the NXP
+LX2160A (16x Cortex-A72, DPAA2).
 
-Thanks,
-Mostafa
+The same .dtsi is used by the U-Boot port, so both Linux and
+u-boot should not drift.
 
-> 
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 141 +++++++++++---------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  12 +-
->  2 files changed, 91 insertions(+), 62 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 68dd7b69392737..883dfc584ed6c6 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2506,14 +2506,12 @@ static struct arm_smmu_ril_range arm_smmu_ril_init_end(u64 last_tg, u64 num_tg)
->  	return ril;
->  }
->  
-> -static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
-> -					struct arm_smmu_cmdq_batch *cmds,
-> -					struct arm_smmu_cmd *ref_cmd,
-> -					bool leaf_only,
-> +static void arm_smmu_tlbi_add_range_cmd(struct arm_smmu_tlbi *tlbi,
->  					const struct arm_smmu_ril_range *ril,
->  					u8 ttl, u8 tg_enc)
->  {
-> -	struct arm_smmu_cmd cmd;
-> +	struct arm_smmu_cmd *cmd =
-> +		&tlbi->range.cmds[tlbi->range.num_cmds++];
->  	unsigned int tgsz_lg2 = tg_enc * 2 + 10;
->  	u64 iova = ril->start_tg << tgsz_lg2;
->  	unsigned int num = ril->num - 1;
-> @@ -2542,18 +2540,16 @@ static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
->  	if (!num && !ril->scale && !ttl)
->  		tg_enc = 0;
->  
-> -	cmd.data[0] = ref_cmd->data[0] | FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
-> -		      FIELD_PREP(CMDQ_TLBI_0_SCALE, ril->scale);
-> -	cmd.data[1] = ref_cmd->data[1] |
-> -		      FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf_only) |
-> -		      FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-> -		      FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
-> -	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, &cmd);
-> +	cmd->data[0] = FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
-> +		       FIELD_PREP(CMDQ_TLBI_0_SCALE, ril->scale);
-> +	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> +		       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-> +		       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | iova;
->  }
->  
->  /*
-> - * Issue up to two range TLBI commands covering [iova, iova+size). Returns true
-> - * if successful, false if the range is too large to fit into RIL commands.
-> + * Generate up to two range TLBI command payloads covering [iova, iova+size).
-> + * Sets use_full_inv if the range is too large to represent.
->   *
->   * Normally the first RIL is the largest representable span which does not
->   * exceed the requested range. If necessary, the second RIL is the smallest
-> @@ -2561,14 +2557,12 @@ static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
->   * excess coverage from the second RIL overlaps the first instead of exceeding
->   * the requested range.
->   *
-> - * If a SVA is being invalidated and the SMMU has the ARM_SMMU_OPT_FULL_CONT_RIL
-> - * errata this produces only a single RIL and overinvalidates to ensure any
-> - * potential CONT is covered with a single RIL.
-> + * For SVA on an invs containing an SMMU with ARM_SMMU_OPT_FULL_CONT_RIL,
-> + * produce only a single RIL and overinvalidate so any potential CONT is
-> + * covered by one command.
->   */
-> -static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
-> -					  struct arm_smmu_cmdq_batch *cmds,
-> -					  struct arm_smmu_cmd *cmd,
-> -					  struct arm_smmu_tlbi *tlbi)
-> +static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi,
-> +				     bool single_ril)
->  {
->  	u8 tgsz_lg2 = tlbi->tgsz_lg2;
->  	struct arm_smmu_ril_range first = { .start_tg = tlbi->iova >>
-> @@ -2579,9 +2573,6 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
->  	struct arm_smmu_ril_range trail;
->  	u8 ttl = 0;
->  
-> -	if (!tlbi->size)
-> -		return false;
-> -
->  	/*
->  	 * Determine what level the granule is at. For non-leaf, both
->  	 * io-pgtable and SVA pass a nominal last-level granule because they
-> @@ -2602,10 +2593,11 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
->  	first.scale = fls64((num_tg - 1) / 32);
->  	if (first.scale > 31) {
->  		/* Range too large for a single command do full invalidation */
-> -		return false;
-> +		tlbi->range.use_full_inv = true;
-> +		return;
->  	}
->  
-> -	if (tlbi->has_cont && (smmu->options & ARM_SMMU_OPT_FULL_CONT_RIL)) {
-> +	if (single_ril) {
->  		/*
->  		 * Produce a single invalidation by rounding up and disabling
->  		 * the trailer.
-> @@ -2621,40 +2613,27 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
->  		trail = arm_smmu_ril_init_end(
->  			last_tg, num_tg - ((u64)first.num << first.scale));
->  	}
-> -	arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only, &first,
-> -				    ttl, tg_enc);
-> +	arm_smmu_tlbi_add_range_cmd(tlbi, &first, ttl, tg_enc);
->  
->  	if (trail.num)
-> -		arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
-> -					    &trail, ttl, tg_enc);
-> -	return true;
-> +		arm_smmu_tlbi_add_range_cmd(tlbi, &trail, ttl, tg_enc);
->  }
->  
->  /*
->   * One TLBI command per IOTLB entry, assuming the entries are all at least
-> - * iopte_granule sized. Returns false if too many commands would be needed which
-> - * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-> - * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-> + * iopte_granule sized. Sets use_full_inv if too many commands would be needed
-> + * which indicates too high a latency. The threshold is similar to MAX_DVM_OPS
-> + * in arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
->   */
-> -static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
-> -					   struct arm_smmu_cmdq_batch *cmds,
-> -					   struct arm_smmu_cmd *cmd,
-> -					   struct arm_smmu_tlbi *tlbi)
-> +static void arm_smmu_tlbi_calc_single(struct arm_smmu_tlbi *tlbi)
->  {
->  	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
-> -	unsigned long iova = tlbi->iova;
-> -	unsigned long i;
->  
-> -	if (!num_ops || num_ops > 512)
-> -		return false;
-> -
-> -	for (i = 0; i < num_ops; i++) {
-> -		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> -			       (iova & ~GENMASK_U64(11, 0));
-> -		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
-> -		iova += tlbi->iopte_size;
-> +	if (!num_ops || num_ops > 512) {
-> +		tlbi->single.use_full_inv = true;
-> +		return;
->  	}
-> -	return true;
-> +	tlbi->single.num = num_ops;
->  }
->  
->  static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
-> @@ -2674,16 +2653,37 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
->  				       struct arm_smmu_cmd *cmd,
->  				       struct arm_smmu_tlbi *tlbi)
->  {
-> +	u64 iova = tlbi->iova;
-> +	unsigned int i;
-> +
->  	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
-> -		if (arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi))
-> -			return false;
-> -	} else {
-> -		if (arm_smmu_cmdq_batch_add_single(inv->smmu, cmds, cmd, tlbi))
-> -			return false;
-> +		if (tlbi->range.use_full_inv) {
-> +			arm_smmu_inv_all_cmd(inv, cmds, cmd);
-> +			return true;
-> +		}
-> +		for (i = 0; i < tlbi->range.num_cmds; i++) {
-> +			struct arm_smmu_cmd range_cmd = tlbi->range.cmds[i];
-> +
-> +			range_cmd.data[0] |= cmd->data[0];
-> +			range_cmd.data[1] |= cmd->data[1];
-> +			arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds,
-> +						      &range_cmd);
-> +		}
-> +		return false;
->  	}
->  
-> -	arm_smmu_inv_all_cmd(inv, cmds, cmd);
-> -	return true;
-> +	if (tlbi->single.use_full_inv) {
-> +		arm_smmu_inv_all_cmd(inv, cmds, cmd);
-> +		return true;
-> +	}
-> +
-> +	for (i = 0; i < tlbi->single.num; i++) {
-> +		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-> +			       (iova & ~GENMASK_U64(11, 0));
-> +		iova += tlbi->iopte_size;
-> +		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-> +	}
-> +	return false;
->  }
->  
->  static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
-> @@ -2702,8 +2702,8 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
->  	return false;
->  }
->  
-> -static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
-> -					struct arm_smmu_invs *invs)
-> +static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
-> +				     struct arm_smmu_invs *invs)
->  {
->  	struct arm_smmu_inv *used_s12_vmall = NULL;
->  	struct arm_smmu_cmdq_batch cmds = {};
-> @@ -2798,11 +2798,17 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->  		.iova = iova,
->  		.size = size,
->  		.iopte_size = granule,
-> -		.has_cont = smmu_domain->stage == ARM_SMMU_DOMAIN_SVA,
->  		.leaf_only = leaf,
->  	};
->  	struct arm_smmu_invs *invs;
->  
-> +	if (!size || size == SIZE_MAX) {
-> +		tlbi.single.use_full_inv = true;
-> +		tlbi.range.use_full_inv = true;
-> +	} else {
-> +		arm_smmu_tlbi_calc_single(&tlbi);
-> +	}
-> +
->  	/*
->  	 * An invalidation request must follow some IOPTE change and then load
->  	 * an invalidation array. In the meantime, a domain attachment mutates
-> @@ -2833,6 +2839,19 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->  	rcu_read_lock();
->  	invs = rcu_dereference(smmu_domain->invs);
->  
-> +	/*
-> +	 * Only precalculate RIL if it will be used, invs generation ensures
-> +	 * this matches the instances used for invalidation.
-> +	 */
-> +	if (invs->has_range_inv) {
-> +		if (!tlbi.range.use_full_inv) {
-> +			arm_smmu_tlbi_calc_range(
-> +				&tlbi,
-> +				smmu_domain->stage == ARM_SMMU_DOMAIN_SVA &&
-> +					invs->has_full_cont_ril);
-> +		}
-> +	}
-> +
->  	/*
->  	 * Avoid locking unless ATS is being used. No ATC invalidation can be
->  	 * going on after a domain is detached.
-> @@ -2841,10 +2860,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
->  		unsigned long flags;
->  
->  		read_lock_irqsave(&invs->rwlock, flags);
-> -		__arm_smmu_domain_inv_range(&tlbi, invs);
-> +		arm_smmu_domain_tlbi_inv(&tlbi, invs);
->  		read_unlock_irqrestore(&invs->rwlock, flags);
->  	} else {
-> -		__arm_smmu_domain_inv_range(&tlbi, invs);
-> +		arm_smmu_domain_tlbi_inv(&tlbi, invs);
->  	}
->  
->  	rcu_read_unlock();
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 4b9f04825eefa2..33ef99775aea87 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -815,8 +815,18 @@ struct arm_smmu_tlbi {
->  	unsigned int iopte_size;
->  	/* Base Translation Granule of the page table */
->  	u8 tgsz_lg2;
-> -	bool has_cont;
->  	bool leaf_only;
-> +
-> +	struct {
-> +		bool use_full_inv;
-> +		u16 num;
-> +	} single;
-> +
-> +	struct {
-> +		bool use_full_inv;
-> +		u8 num_cmds;
-> +		struct arm_smmu_cmd cmds[2];
-> +	} range;
->  };
->  
->  struct arm_smmu_evtq {
-> -- 
-> 2.43.0
-> 
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+---
+ arch/arm64/boot/dts/freescale/Makefile             |   2 +
+ .../arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts |  30 ++
+ .../boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi      | 342 +++++++++++++++++++++
+ 3 files changed, 374 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 95ae85ab4adf5..f67d0a53cdc34 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -59,6 +59,8 @@ DTC_FLAGS_fsl-lx2160a-qds := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-qds.dtb
+ DTC_FLAGS_fsl-lx2160a-rdb := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-rdb.dtb
++DTC_FLAGS_fsl-lx2160a-nbxv3 := -Wno-interrupt_map
++dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2160a-nbxv3.dtb
+ DTC_FLAGS_fsl-lx2162a-clearfog := -Wno-interrupt_map
+ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-lx2162a-clearfog.dtb
+ DTC_FLAGS_fsl-lx2162a-qds := -Wno-interrupt_map
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+new file mode 100644
+index 0000000000000..ccc5855208a63
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dts
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Free Mobile Nodebox v3 CPU Module (LX2160A)
++ *
++ * Copyright 2026 Free Mobile, Vincent Jardin
++ */
++
++/dts-v1/;
++
++#include "fsl-lx2160a-rev2.dtsi"
++#include "fsl-lx2160a-nbxv3.dtsi"
++
++/ {
++	model = "Free Mobile Nodebox v3 CPU Module (LX2160A)";
++	compatible = "freemobile,nbxv3", "fsl,lx2160a";
++};
++
++&fspi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&fspi_dqs_sck_cs10_pins>, <&fspi_data30_pins>,
++		    <&gpio1_31_28_pins>;
++};
++
++&pcs_mdio13 {
++	status = "okay";
++};
++
++&pcs_mdio14 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+new file mode 100644
+index 0000000000000..bd10eccac4fb4
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-nbxv3.dtsi
+@@ -0,0 +1,342 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Free Mobile Nodebox v3 CPU Module (LX2160A)
++ *
++ * Copyright 2026 Free Mobile, Vincent Jardin
++ *
++ * This file is shared by the Linux kernel and U-Boot.
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	gpio-restart {
++		compatible = "gpio-restart";
++		gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
++		priority = <128>;
++	};
++};
++
++&crypto {
++	status = "okay";
++};
++
++&dspi0 {
++	status = "okay";
++
++	dpll@0 {
++		compatible = "microchip,zl30733";
++		reg = <0>;
++		spi-max-frequency = <12500000>;
++	};
++};
++
++&dspi2 {
++	status = "okay";
++};
++
++&dpmac13 {
++	status = "okay";
++	phy-handle = <&lan8023_phy_s0>;
++	phy-connection-type = "10gbase-r";
++};
++
++&dpmac14 {
++	status = "okay";
++	phy-handle = <&lan8023_phy_s1>;
++	phy-connection-type = "10gbase-r";
++};
++
++&dpmac17 {
++	status = "okay";
++	phy-handle = <&rtl8211fd>;
++	phy-connection-type = "rgmii-id";
++};
++
++&emdio1 {
++	status = "okay";
++
++	/* Microchip LAN8023 dual 10G PCS/retimer, Clause 45 only, one address per slice */
++	lan8023_phy_s0: ethernet-phy@2 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <2>;
++	};
++
++	lan8023_phy_s1: ethernet-phy@3 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <3>;
++	};
++
++	rtl8211fd: ethernet-phy@6 {
++		compatible = "ethernet-phy-id001c.c916";
++		reg = <6>;
++	};
++};
++
++&emdio2 {
++	status = "okay";
++};
++
++&esdhc1 {
++	status = "okay";
++	bus-width = <8>;
++	non-removable;
++	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++};
++
++&fspi {
++	status = "okay";
++
++	/* GigaDevice GD55LB02GF, 256 MiB boot NOR */
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		spi-max-frequency = <150000000>;
++		spi-rx-bus-width = <1>;
++		spi-tx-bus-width = <1>;
++	};
++};
++
++&fsl_mc {
++	status = "okay";
++};
++
++&gpio0 {
++	status = "okay";
++	gpio-line-names =
++		"", "",
++		"altfn:iic1-sda", "altfn:iic1-scl",
++		"altfn:uart4-sin", "altfn:uart4-sout",
++		"altfn:uart2-sin", "altfn:uart2-sout",
++		"altfn:uart3-sin", "altfn:uart3-sout",
++		"altfn:uart1-sin", "altfn:uart1-sout",
++		"altfn:spi3-pcs3", "altfn:spi3-pcs2",
++		"altfn:spi3-pcs1", "altfn:spi3-pcs0",
++		"altfn:spi1-sck", "altfn:spi1-sin",
++		"altfn:spi1-pcs2", "altfn:spi1-pcs1",
++		"altfn:spi1-pcs0", "altfn:spi1-sout",
++		"altfn:iic6-sda", "altfn:iic6-scl",
++		"altfn:spi3-sin", "altfn:spi3-sout",
++		"altfn:iic4-sda", "altfn:iic4-scl",
++		"altfn:iic3-sda", "altfn:iic3-scl",
++		"altfn:iic2-sda", "altfn:iic2-scl";
++};
++
++&gpio1 {
++	status = "okay";
++	gpio-line-names =
++		"", "", "", "", "", "",
++		"cfg-rcw-src2", "cfg-rcw-src3",
++		"reset-req-b",
++		"altfn:sdhc2-clk", "altfn:sdhc2-ds",
++		"altfn:sdhc2-dat0", "altfn:sdhc2-dat1",
++		"altfn:sdhc2-dat2", "altfn:sdhc2-dat3",
++		"altfn:sdhc2-dat4", "altfn:sdhc2-dat5",
++		"altfn:sdhc2-dat6", "altfn:sdhc2-dat7",
++		"altfn:sdhc2-cmd",
++		"cfg-svr1",
++		"altfn:xspi1-cs0", "altfn:xspi1-sck",
++		"thermtrip",
++		"altfn:xspi1-data0", "altfn:xspi1-data1",
++		"", "",
++		"flash-reset#", "pltrst#", "", "ethsw-reset#";
++
++	pltrst-hog {
++		gpio-hog;
++		gpios = <29 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "pltrst#";
++	};
++
++	thermtrip-hog {
++		gpio-hog;
++		gpios = <23 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "thermtrip";
++	};
++
++	/* Boot NOR reset, released: electrical high */
++	flash-reset-hog {
++		gpio-hog;
++		gpios = <28 GPIO_ACTIVE_LOW>;
++		output-low;
++		line-name = "flash-reset#";
++	};
++
++	/* Ethernet switch reset, released: electrical high */
++	ethsw-reset-hog {
++		gpio-hog;
++		gpios = <31 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "ethsw-reset#";
++	};
++};
++
++&gpio2 {
++	status = "okay";
++	gpio-line-names =
++		"lan8023-mdint",
++		"i2c2-alert#", "i2c4-alert#", "i2c6-alert#",
++		"u800-tca9539-int#",
++		"spi3-alert#",
++		"wake0", "wake1",
++		"carrier-hot#",
++		"u1300-rtl8211fd-int#",
++		"ethsw-int#",
++		"", "",
++		"u1700-zl30733-clk-gpio0", "u1700-zl30733-clk-gpio1",
++		"u1700-zl30733-clk-gpio2", "u1700-zl30733-clk-gpio3",
++		"", "", "", "", "", "", "", "",
++		"", "", "", "", "", "", "";
++};
++
++&gpio3 {
++	status = "okay";
++	gpio-line-names =
++		"altfn:ec1-txd3", "altfn:ec1-txd2",
++		"altfn:ec1-txd1", "altfn:ec1-txd0",
++		"altfn:ec1-tx-en", "altfn:ec1-gtx-clk",
++		"altfn:ec1-rxd3", "altfn:ec1-rxd2",
++		"altfn:ec1-rxd1", "altfn:ec1-rxd0",
++		"altfn:ec1-rx-clk", "altfn:ec1-rx-dv",
++		"", "",
++		"ptp-refclk-in",
++		"", "", "", "", "", "", "", "",
++		"u1700-zl30733-pps-out",
++		"",
++		"ethsw-mdio-en",
++		"usb01-oc#",	/* USB1_PWRFAULT and USB2_PWRFAULT share one net */
++		"",
++		"usb01-oc#",
++		"altfn:spi3-sck",
++		"", "";
++
++	/* Low enables the carrier-side EMDIO2 level translator */
++	ethsw-mdio-en-hog {
++		gpio-hog;
++		gpios = <25 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "ethsw-mdio-en";
++	};
++};
++
++/* On-module management bus */
++&i2c0 {
++	status = "okay";
++
++	eeprom@52 {
++		compatible = "atmel,24c32";
++		reg = <0x52>;
++		pagesize = <32>;
++	};
++
++	/* Board ID straps */
++	gpio@74 {
++		compatible = "ti,tca9539";
++		reg = <0x74>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		gpio-line-names =
++			"boardid-0x0001", "boardid-0x0002",
++			"boardid-0x0004", "boardid-0x0008",
++			"boardid-0x0010", "boardid-0x0020",
++			"boardid-0x0040", "boardid-0x0080",
++			"boardid-0x0100", "boardid-0x0200",
++			"boardid-0x0400", "boardid-0x0800",
++			"boardid-0x1000", "boardid-0x2000",
++			"boardid-0x4000", "boardid-0x8000";
++	};
++
++	u800: gpio@75 {
++		compatible = "ti,tca9539";
++		reg = <0x75>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		interrupt-parent = <&gpio2>;
++		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"carrier-gpio0", "carrier-gpio1",
++			"carrier-gpio2", "carrier-gpio3",
++			"carrier-gpio4", "carrier-gpio5",
++			"carrier-gpio6", "carrier-gpio7",
++			"carrier-gpio8", "carrier-gpio9",
++			"carrier-gpio10", "carrier-gpio11",
++			"", "", "",
++			"lan8023-rst";
++	};
++
++	/* +0V8_VDD core rail, MPS MPQ8646 (MPQ8785 core) over PMBus */
++	vdd08: regulator@10 {
++		compatible = "mps,mpq8646";
++		reg = <0x10>;
++	};
++
++	/* SO-DIMM SPD temperature sensors */
++	temperature-sensor@18 {
++		compatible = "jedec,jc-42.4-temp";
++		reg = <0x18>;
++	};
++
++	temperature-sensor@19 {
++		compatible = "jedec,jc-42.4-temp";
++		reg = <0x19>;
++	};
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++};
++
++&i2c3 {
++	status = "okay";
++};
++
++&i2c5 {
++	status = "okay";
++};
++
++&pcie3 {
++	status = "okay";
++};
++
++&pcie4 {
++	status = "okay";
++};
++
++&pcie5 {
++	status = "okay";
++};
++
++&pcie6 {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
++
++&usb0 {
++	status = "okay";
++};
++
++&usb1 {
++	status = "okay";
++};
+
+-- 
+2.43.0
+
+
 
