@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B241C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A7EC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 03:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCgNp8jZFqYbq9QybXSiKgVTf3pQF0m9IyTVLRGpadU=; b=aMbPDBtCAfDdvjsH6fy2jGGOgJ
-	Gz3uJc2N5zGqtV0cYW2hG/Xo5Rz3mAbEBCvNzBJ4NS/wWws7GxPEnzwwRWXpUhaByjk1jnPRi5zXV
-	VTrZgwm86EBaNwlkm3qVkg8iROm8OyXYFs/eLuQRz67cjoJZem1xl1M312jXCDNg6u7cDud/XDEqB
-	UR5HSHRTt1Cb8pOKMrCk+Vx/sXaewRWWjImrvNtmKKQcoebH0xMzhlPwTE8Z78/1oFLg3/+/TbG7C
-	CyPgLnl9j7S58HYkPdut5hFzpDLJelLqRa6WvRwUR8I0XrLifl1oBi/E1e899wtlZVPCynFKS9Kx+
-	6ABJQaVA==;
+	bh=LE+iPHn9D1kZG3rkPluziSGiSGb8UhkNyCDjonqrSQM=; b=k/6eq/UqXdaTSTs/RaiPz9VS9X
+	WpV0cL28htlLA2gMaJauky5JE+c22PFgcf1OKPRjP64PeLqS4FsB5VpA6ysnB4CTJ5RAhpHawJPzx
+	/0n7K0Zol1X7iZMiROQjCSEGfKOPeIHAOopOwcs5Fu8R/9NTq4/h7udZZnvZa7DEznIP8GE7LKOmu
+	73Mt6lNb3n+3wRDFw9EmP2uQ8vp6BKSoPWX/rVkPrbP5wJCQISSTG0nLUZOiLY93/rSA75prOKC8j
+	A06Hcrso/fdi3tb68NyVkmoAWtKAupNVcsG3YGiwlN4KBmfxQDAfrZalKxmjfoWglcDZnk7AwzPqI
+	KWi3gJWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Pja-00000005kU2-08qU;
-	Mon, 07 Sep 2026 03:09:26 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1x3PlJ-00000005kbJ-0zM2;
+	Mon, 07 Sep 2026 03:11:13 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3PjU-00000005kSI-3sQO
+	id 1x3PlE-00000005kap-1ZsK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 03:09:23 +0000
-X-QQ-mid: esmtpsz19t1788750506td1c3f24c
-X-QQ-Originating-IP: nDhhRbWgQjHqGOc9extJi2gMysH1x9Xa1OyXHlJP+Mc=
+	Mon, 07 Sep 2026 03:11:12 +0000
+X-QQ-mid: esmtpsz11t1788750627t59ff899e
+X-QQ-Originating-IP: dv7d05JYBruWzbduOPxHqLJnZMoYK3QjfK71uKOVlKE=
 Received: from [10.200.8.55] ( [175.0.204.93])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 07 Sep 2026 11:08:23 +0800 (CST)
+	id ; Mon, 07 Sep 2026 11:10:24 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6137544479074970621
-EX-QQ-RecipientCnt: 11
-Message-ID: <9201C88445F7D464+7ed4f829-b987-4259-a228-37d881e303d7@kylinsec.com.cn>
-Date: Mon, 7 Sep 2026 11:06:35 +0800
+X-BIZMAIL-ID: 13353973710952998014
+EX-QQ-RecipientCnt: 13
+Message-ID: <3480763CC31809EB+b4251e64-96c8-4332-a9b6-592548cb6d54@kylinsec.com.cn>
+Date: Mon, 7 Sep 2026 11:08:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: syscfg: fix deadlock on device registration
- failure
+Subject: Re: [PATCH] coresight: tpdm: initialize spinlock before exposing
+ sysfs
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
  Leo Yan <leo.yan@arm.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
- Miaoqian Lin <linmq006@gmail.com>, coresight@lists.linaro.org,
+Cc: Mao Jinlong <quic_jinlmao@quicinc.com>,
+ Tao Zhang <quic_taozha@quicinc.com>, jinlong.mao@oss.qualcomm.com,
+ qinyungao@kylinsec.com.cn, coresight@lists.linaro.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- qinyungao@kylinsec.com.cn
-References: <604ED754D4669F40+20260825014717.2346-1-dengyingchao@kylinsec.com.cn>
+ Jie Gan <jie.gan@oss.qualcomm.com>
+References: <8693039B65AA093F+20260825020647.2469-1-dengyingchao@kylinsec.com.cn>
 From: yingchao deng <dengyingchao@kylinsec.com.cn>
-In-Reply-To: <604ED754D4669F40+20260825014717.2346-1-dengyingchao@kylinsec.com.cn>
+In-Reply-To: <8693039B65AA093F+20260825020647.2469-1-dengyingchao@kylinsec.com.cn>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: NAtipnnbTPea2ScznlRZygyEL3WmDPcIAdDGrz0epiF9CKN1/SVDQDPH
-	L74oknimUVzwvQMz5dKTOIF5iqe6yu0/R3cX8YLEVpMfpBtiFh5USZNStd0AbOcRrO3vLcd
-	gi/LmNn4M7mQENW1xjbbU7xMzLHm2OiCeSaXCeT1Fz+NJthTDPW+ILAw5KG1ZaSY1VXfzyO
-	tjsliORoSAkj8Uqbgp+7h2YuAvYbTqctrWk8X/oVFbWMC94xXFrkj0uMfYv+WsSq9SAIVdx
-	2DMv8ThxxbvHlZjq0FCKmhrzHIlnovaEhlbAvtnnSZKXHlEz+oA4QqRiNh5HN82nrdQHIoR
-	3HYIaCfeC6iSEWos7ENFiReOWzwgQEHyLqInAQHaNLjdIJog0esENfm4V5adsQmQdZGeiqE
-	YFK3bPcYrgFutr19rr0lWYjbM0lDIqminAiVlHIRnCv26tR/Ws6TWt+KZ0dT3jM2x0vwnwV
-	FfkO0oAhlHt5hGp4qHgiGdf6seiXi/IWb4jWYsjnJ1fedn9gkOp/HwM8lVdD9vpvuCcm831
-	3S+D2crcvuivYtczMARYkfPSA5TYon58OU23bCxpmSaM7pUqn9QVd2ntP+EiDjtNKmvCD1m
-	hFFSJqAPMYfHzlwS97LtDJc7aosisbS4tpqeI+6fvABx+Cg9e23MgtVm+4g6cnrnCBDPT9x
-	KKV1WIV7ImrAk9KzAr5hTB0uItaoXEcPqEbDacOsBwGYK4/xYYFkgcplSyByX0GfDVcvKvu
-	kvff0wV7isuM91NQGPdOekwBlUckxivU6DmFlkFPKbVjqo6KRMWBIG93vRiZXP6QxDJ5UR+
-	AUvjdRXAfsPkigGPGaydr05HtTEkyp8w6+TAfj2rajsnwzJa4K9bgbV3+YTwRIW7zJMFD0c
-	quuSTixb0z0Y8CO5wx3LuK1jR+4kTXE9+weVLhNT6qUMpKu31eYfNatSWZNLfCksMdZq1kP
-	uc1VvGpHxpIN1utT5wmV3HmDlbOlpZS6s0Ls3XzfLbBV1oIjBcT0SAXedwxpgh22j7lwv0y
-	VZ29GuuonyaL+MPmlhmGDQKSxdet2WOfAH9FLn+A==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: N0Y11OQjfoyDdaC3tJiGXETljx0gOZIp5bnLPMcsUhAijjBOD3ffKSr+
+	8irTmlvssHTuSFA7if+NJd6KD+obVy/YvTzOoi6+HRB3HkRF2cFs9068MnNnrQ5oBaQ0RMm
+	ewWcAesptDL1hPSRHqtNyyy729WyYshdnU/mtNTjkKMs+tbd2HNB7rst57WRih717L7CIAu
+	AX8+XTRy/EB/QJwzlmebG5TUoM9b/KPNUWrVNNl3/rqpFYwDQEVUh/dmxSyuJ/R5Pek+s/p
+	WRVVkXqY37rj0fs5X4Wz577aE2i4RCkxyyvCLQDGzzUWrMTdYO5tXZRfKkEt4ve19kzczlM
+	aiI2PTFACD1EhE+7KeeDQDLCiU9IhhI1SlvBUHi76/ihg0JQdnKmUKiM615uc6d61HLOIaA
+	fcNqlaUBiW8WVVjbCidnYCuVxcJQaBpEYG5JMuzxUTSomTWigG/B4X/nGh/6Yy+Y51MpwvZ
+	1NHB2dIK3ce5vK68jiDZDbtmzObX5isamFrvCmRG/eaexhXgb/+M3nLIpwzskPKPZSUW5Xv
+	OU3DLyd+Z7wMhO4DCxDEKMX9EMsA+yh9kKbg4TnLLZHEeZBe/uIYTgNuBDwqszb5fYMjnoc
+	7OHhA9PZwmPgIAw9KcIjht62TBuwxF6Had6EbSkDdj/Gbm841V1uMYUp7Qmsl/RfWpdFVFg
+	SsnayuG3/o6iOVfFRB6E8go/Xta7QDgiRMGgrrWEOqnXFU6CgkUaSiu1NnmQ72t+ebfGCoa
+	NL2B7TmRKz+fJhgUOUOwZHEpeN8HbMoPx5SXMKB+UtPAOSyOPHtDIegqt3wUjO6+0GyyOpA
+	3N7/0QLo8Eu1tCRwSG6zwA/ganuZs8q7bRuhyBkPWq9HSEKBxl4z9xcLAwcaIck9i9Y7a4T
+	hlkiouP/ZLD4OZ94FyJ0qJgrFAZ9q1MTnfgKfRrInAzqEeUfUQ5dTcP4ZWiQB6glvqrSOe1
+	YYZZd851UPfI7kKFwDniwfXsL1NQC2o5L0x32Kz9udJOxbHny2J5SwbuASmHHF+J1dMu9DL
+	4Qu0gw2/l4kCyympZZnv6S3HaEYW1TmDrOWCYY12OABwQr6pFwFpTHl7nxXrD5aWM0sb3K4
+	eI7Exp3AW8u
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_200921_522697_2074B819 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260906_201111_369512_85231E73 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +96,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Gentle reminder
 
-On 25/08/2026 09:47, yingchao wrote:
+On 25/08/2026 10:06, yingchao wrote:
 > From: Yingchao Deng <dengyingchao@kylinsec.com.cn>
 >
-> cscfg_create_device() calls put_device() while holding cscfg_mutex.  If
-> device_register() failed, put_device() drops the last reference and invokes
-> cscfg_dev_release(), which takes cscfg_mutex again, deadlocking.
+> tpdm_probe() initializes drvdata->spinlock after coresight_register(), but
+> the sysfs attributes registered by coresight_register() use the spinlock.
+> This exposes a window where a concurrent sysfs write can lock an
+> uninitialized spinlock.
 >
-> Unlock cscfg_mutex before calling put_device().
+> Initialize the spinlock before coresight_register().
 >
-> Fixes: cfa5dbcdd7ae ("coresight: syscfg: Fix memleak on registration failure in cscfg_create_device")
+> Fixes: b3c71626a933 ("Coresight: Add coresight TPDM source driver")
 > Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
 > ---
->   drivers/hwtracing/coresight/coresight-syscfg.c | 8 +++++++-
->   1 file changed, 7 insertions(+), 1 deletion(-)
+>   drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-> index 2bfdd7b45e49..d0e7e4720e46 100644
-> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-> @@ -1210,8 +1210,14 @@ static int cscfg_create_device(void)
->   	dev->init_name = "cs_system_cfg";
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index 8464edbba2d4..50d1351772b9 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -1457,12 +1457,12 @@ static int tpdm_probe(struct device *dev, struct resource *res)
+>   		desc.groups = tpdm_attr_grps;
+>   	else
+>   		desc.groups = static_tpdm_attr_grps;
+> +	spin_lock_init(&drvdata->spinlock);
+> +
+>   	drvdata->csdev = coresight_register(&desc);
+>   	if (IS_ERR(drvdata->csdev))
+>   		return PTR_ERR(drvdata->csdev);
 >   
->   	err = device_register(dev);
-> -	if (err)
-> +	if (err) {
-> +		/* put_device() triggers cscfg_dev_release() which takes
-> +		 * cscfg_mutex, so drop the lock first to avoid deadlocking.
-> +		 */
-> +		mutex_unlock(&cscfg_mutex);
->   		put_device(dev);
-> +		return err;
-> +	}
+> -	spin_lock_init(&drvdata->spinlock);
+> -
+>   	return 0;
+>   }
 >   
->   create_dev_exit_unlock:
->   	mutex_unlock(&cscfg_mutex);
 
 
