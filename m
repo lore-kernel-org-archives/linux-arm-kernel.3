@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611DAC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FF1C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wz0SGej6Xy19EgAxic7KIK5EZGnRx2zg64G04W8Nxb8=; b=LPaUbTA/gW7kEm
-	pECtk1T089AEQNOnTxzChtILOGy5WUJN3Q/1vIvl9goqh7sS2t4TZK0bfxZYpHL93ubEdxE0XMhM+
-	8N+l8s5DcGBh15iO/pX38djn/YdBt1j+mcIeoyCqEyWtNADlhCix8S8hDx9gebUZX0S3Aytj/9KiJ
-	p5nDmVd8BkfzrC6mnzN01oUrxOkKlnXv/BkZSFjbSTyLqtUYWjZSrnbVukm01DNMNaOZm0ELPTXgi
-	l1Ockh+2W6FMJr2ePdqbK46BgpEuGRk20uagv1pRx4zz5Wpgd9Bj7K0mnPnDZksO+tOfXzf3V7ciV
-	3UjX36KwToWvRfhqYcwg==;
+	List-Owner; bh=1kY9llO1ddjYj+PbsySZjCHX+aU5qaY+2/JhMLmZtdY=; b=w+XCG1XC59U+mM
+	cZZodoKsXAg/QofZxmLLoMP5fDZoZAmdRqublwhzxNu8yeXwTJn30OhzU///sw/VS4Jq8LsqxqWx8
+	o9O09FO/NAGsaYRCXkspKn/RC0mOVney9LJVP4TEeVsiOjsPR4c1krfuzdwFncWVyHxaSn9vqF48S
+	Bv7ewUPzJidi5w90IJghyUaR7uybzT7KGD4cwpcRUB9/ml1HBkmNugJGAA19+x86749twaaJAqQOB
+	bPZnVv6bQF2rUayFmjjsd8aJyd1SMJFGTn1eQ314W8+6p4SjBnZqq41BF1OdHEnwALOO3um6/fND5
+	cc9oQDwYuWH8vSghtqgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRD-00000007N0j-06H0;
-	Mon, 07 Sep 2026 16:43:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x3cRG-00000007N33-0U0C;
+	Mon, 07 Sep 2026 16:43:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRC-00000007Mzi-0fId
+	id 1x3cRF-00000007N2V-0Bxu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:43:18 +0000
+	Mon, 07 Sep 2026 16:43:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A24860534;
+	by sea.source.kernel.org (Postfix) with ESMTP id CB7224360A;
+	Mon,  7 Sep 2026 16:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA2C11F00A3D;
 	Mon,  7 Sep 2026 16:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E29A1F00A3A;
-	Mon,  7 Sep 2026 16:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799397;
-	bh=wz0SGej6Xy19EgAxic7KIK5EZGnRx2zg64G04W8Nxb8=;
+	s=k20260515; t=1788799400;
+	bh=1kY9llO1ddjYj+PbsySZjCHX+aU5qaY+2/JhMLmZtdY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XWa2uf4nbXCN69odGjDi+sjEEMAUrlwe/0Q74DE9U7EC1fb0MPj9i0UlLQ8HmKB75
-	 cERxTXlV6Swa83k14doSpGGHFg1q96UTcqfuB1tpnCY7HCbsLGzp0V7ovzgTCBae81
-	 wMcj48jBXLpNLgSgXEMs4lPRpK5UTalx2XPuK41iVnxFOucDGEkhRxxylqquMUliI+
-	 6r8dVpzd0FQppi5SaaVsz92p4JeAWWgQ+dN9V5qXWsG0kzhY5SMwgE1qE2kbMdkq6L
-	 cc8DdBmwjPmsXmej41lrQbvC6ct498xLOaE/IeOtZLsduG3em6tEAqatDJ1RwLip6V
-	 t9iZUSlgJbHmw==
+	b=fmwb7lee5WbO4U7cz3lQLeX4aTrw177xHsxzKx9CiQ9CaU9yOTUKl80xS8XEyqnJE
+	 YS/LQdzwaA803OR+oXGwEhq1IWATzGJoW4kBa/PBE4z+3jtDO13pZNNjTV9egg2bPJ
+	 17XsMpPwvuYkDrLHx3Y3eqg7a3NVHl3xN7CFQ1wIFm1M9awklUNO0yfReaHbAD7uTB
+	 O4Jc/1jucGjKgFpm2afN3+IpKDyqYCTy0CZienk/WJalK9COEXAc5ILYjZeSHSs3Kz
+	 c1HxAAtzPxpvDotNSzHdG6BGSgXgM1c7oJ2Edw1YbEXVuxPWRhe33qIA2PAYSCQzQw
+	 ZQglS+Avxbg0Q==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 05/21] KVM: arm64: Protect TPIDRRO_EL0 across guest entry/exit
-Date: Mon,  7 Sep 2026 17:42:30 +0100
-Message-ID: <20260907164247.17223-6-will@kernel.org>
+Subject: [PATCH 06/21] arm64: Store 'current' in TPIDRRO_EL0 instead of SP_EL0
+Date: Mon,  7 Sep 2026 17:42:31 +0100
+Message-ID: <20260907164247.17223-7-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164247.17223-1-will@kernel.org>
 References: <20260907164247.17223-1-will@kernel.org>
@@ -67,122 +67,183 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mostafa Saleh <smostafa@google.com>
+To make SP_EL0 available to point at the per-cpu kernel overflow stack,
+we must relocate 'current' elsewhere. With TPIDRRO_EL0 now restored late
+in the return-to-user path, we can otherwise use it to hold 'current'
+and update the various accessors accordingly.
 
-To prepare for using TPIDRRO_EL0 to hold 'current' and repurposing
-SP_EL0 as an overflow stack pointer, eagerly switch both registers when
-entering and exiting the guest.
+Move 'current' from SP_EL0 to TPIDRRO_EL0.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/kvm_asm.h           | 10 ++++++++++
- arch/arm64/kernel/asm-offsets.c            |  1 +
- arch/arm64/kvm/hyp/entry.S                 | 12 ++++++++----
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |  2 --
- 4 files changed, 19 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/assembler.h |  2 +-
+ arch/arm64/include/asm/current.h   |  6 +++---
+ arch/arm64/kernel/entry.S          | 20 ++++++++++----------
+ arch/arm64/kernel/head.S           |  2 +-
+ arch/arm64/kernel/process.c        |  5 +++--
+ arch/arm64/net/bpf_jit_comp.c      |  4 ++--
+ 6 files changed, 20 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index e5b92ac09e69..1cfe9216a2ff 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -408,6 +408,16 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
- 	msr	sp_el0, \tmp
- .endm
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 0b58b550e8dc..fd1ae5337935 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -587,7 +587,7 @@ alternative_else_nop_endif
+  * Return the current task_struct.
+  */
+ 	.macro	get_current_task, rd
+-	mrs	\rd, sp_el0
++	mrs	\rd, tpidrro_el0
+ 	.endm
  
-+.macro save_tpidrro_el0 ctxt, tmp
-+	mrs	\tmp,	tpidrro_el0
-+	str	\tmp,	[\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
-+.endm
-+
-+.macro restore_tpidrro_el0 ctxt, tmp
-+	ldr	\tmp,	  [\ctxt, #CPU_TPIDRRO_EL0_OFFSET]
-+	msr	tpidrro_el0, \tmp
-+.endm
-+
- #endif
- 
- #endif /* __ARM_KVM_ASM_H__ */
-diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-index 6038ab3beb25..cb8448cc5f51 100644
---- a/arch/arm64/kernel/asm-offsets.c
-+++ b/arch/arm64/kernel/asm-offsets.c
-@@ -108,6 +108,7 @@ int main(void)
-   DEFINE(VCPU_HCR_EL2,		offsetof(struct kvm_vcpu, arch.hcr_el2));
-   DEFINE(CPU_USER_PT_REGS,	offsetof(struct kvm_cpu_context, regs));
-   DEFINE(CPU_ELR_EL2,		offsetof(struct kvm_cpu_context, sys_regs[ELR_EL2]));
-+  DEFINE(CPU_TPIDRRO_EL0_OFFSET, offsetof(struct kvm_cpu_context, sys_regs[TPIDRRO_EL0]));
-   DEFINE(CPU_RGSR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[RGSR_EL1]));
-   DEFINE(CPU_GCR_EL1,		offsetof(struct kvm_cpu_context, sys_regs[GCR_EL1]));
-   DEFINE(CPU_APIAKEYLO_EL1,	offsetof(struct kvm_cpu_context, sys_regs[APIAKEYLO_EL1]));
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index 308100ed25de..4c89931a6a92 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -30,8 +30,9 @@ SYM_FUNC_START(__guest_enter)
- 	// Store the hyp regs
- 	save_callee_saved_regs x1
- 
--	// Save hyp's sp_el0
-+	// Save hyp's sp_el0 and tpidrro_el0
- 	save_sp_el0	x1, x2
-+	save_tpidrro_el0 x1, x2
- 
- 	// Now the hyp state is stored if we have a pending RAS SError it must
- 	// affect the host or hyp. If any asynchronous exception is pending we
-@@ -66,8 +67,9 @@ alternative_else_nop_endif
- 	// when this feature is enabled for kernel code.
- 	ptrauth_switch_to_guest x29, x0, x1, x2
- 
--	// Restore the guest's sp_el0
-+	// Restore the guest's sp_el0 and tpidrro_el0
- 	restore_sp_el0 x29, x0
-+	restore_tpidrro_el0 x29, x0
- 
- 	// Restore guest regs x0-x17
- 	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
-@@ -146,8 +148,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
- 	// Store the guest regs x18-x29, lr
- 	save_callee_saved_regs x1
- 
--	// Store the guest's sp_el0
-+	// Store the guest's sp_el0 and tpidrro_el0
- 	save_sp_el0	x1, x2
-+	save_tpidrro_el0 x1, x2
- 
- 	adr_this_cpu x2, kvm_hyp_ctxt, x3
- 
-@@ -161,8 +164,9 @@ SYM_INNER_LABEL(__guest_exit, SYM_L_GLOBAL)
- 	// mte_switch_to_hyp(g_ctxt, h_ctxt, reg1)
- 	mte_switch_to_hyp x1, x2, x3
- 
--	// Restore hyp's sp_el0
-+	// Restore hyp's sp_el0 and tpidrro_el0
- 	restore_sp_el0 x2, x3
-+	restore_tpidrro_el0 x2, x3
- 
- 	// Now restore the hyp regs
- 	restore_callee_saved_regs x2
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index c382848d3194..b5f7ef8e6371 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -66,7 +66,6 @@ static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
- static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
+ /*
+diff --git a/arch/arm64/include/asm/current.h b/arch/arm64/include/asm/current.h
+index c92912eaf186..8c7efac05394 100644
+--- a/arch/arm64/include/asm/current.h
++++ b/arch/arm64/include/asm/current.h
+@@ -14,11 +14,11 @@ struct task_struct;
+  */
+ static __always_inline struct task_struct *get_current(void)
  {
- 	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
--	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
+-	unsigned long sp_el0;
++	unsigned long tpidrro_el0;
+ 
+-	asm ("mrs %0, sp_el0" : "=r" (sp_el0));
++	asm ("mrs %0, tpidrro_el0" : "=r" (tpidrro_el0));
+ 
+-	return (struct task_struct *)sp_el0;
++	return (struct task_struct *)tpidrro_el0;
  }
  
- static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
-@@ -209,7 +208,6 @@ static inline void __sysreg_restore_common_state(struct kvm_cpu_context *ctxt)
- static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
- {
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
--	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
+ #define current get_current()
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index b5d8277f608a..a45be0a837c8 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -81,9 +81,9 @@
+ 	/* Stash the original SP (minus PT_REGS_SIZE) in tpidr_el0. */
+ 	msr	tpidr_el0, x0
+ 
+-	/* Recover the original x0 value and stash it in tpidrro_el0 */
++	/* Recover the original x0 value and stash it in sp_el0 */
+ 	sub	x0, sp, x0
+-	msr	tpidrro_el0, x0
++	msr	sp_el0, x0
+ 
+ 	/* Switch to the overflow stack */
+ 	adr_this_cpu sp, overflow_stack + OVERFLOW_STACK_SIZE, x0
+@@ -99,7 +99,7 @@
+ 
+ 	/* We were already on the overflow stack. Restore sp/x0 and carry on. */
+ 	sub	sp, sp, x0
+-	mrs	x0, tpidrro_el0
++	mrs	x0, sp_el0
+ 	b	el\el\ht\()_\regsize\()_\label
+ 	.endif
+ .org .Lventry_start\@ + 128	// Did we overflow the ventry slot?
+@@ -226,7 +226,7 @@ alternative_cb_end
+ 	clear_gp_regs
+ 	mrs	x21, sp_el0
+ 	ldr_this_cpu	tsk, __entry_task, x20
+-	msr	sp_el0, tsk
++	msr	tpidrro_el0, tsk
+ 
+ 	/*
+ 	 * Ensure MDSCR_EL1.SS is clear, since we can unmask debug exceptions
+@@ -548,7 +548,7 @@ SYM_CODE_START_LOCAL(__bad_stack)
+ 	 */
+ 
+ 	/* Restore the original x0 value */
+-	mrs	x0, tpidrro_el0
++	mrs	x0, sp_el0
+ 
+ 	/*
+ 	 * Store the original GPRs to the new stack. The orginal SP (minus
+@@ -843,7 +843,7 @@ SYM_FUNC_START(cpu_switch_to)
+ 	ldp	x29, x9, [x8], #16
+ 	ldr	lr, [x8]
+ 	mov	sp, x9
+-	msr	sp_el0, x1
++	msr	tpidrro_el0, x1
+ 	ptrauth_keys_install_kernel x1, x8, x9, x10
+ 	scs_save x0
+ 	scs_load_current
+@@ -1031,11 +1031,11 @@ SYM_CODE_START(__sdei_asm_handler)
+ 
+ 	/*
+ 	 * We may have interrupted userspace, or a guest, or exit-from or
+-	 * return-to either of these. We can't trust sp_el0, restore it.
++	 * return-to either of these. We can't trust tpidrro_el0, restore it.
+ 	 */
+-	mrs	x28, sp_el0
++	mrs	x28, tpidrro_el0
+ 	ldr_this_cpu	dst=x0, sym=__entry_task, tmp=x1
+-	msr	sp_el0, x0
++	msr	tpidrro_el0, x0
+ 
+ 	/* If we interrupted the kernel point to the previous stack/frame. */
+ 	and     x0, x3, #0xc
+@@ -1051,7 +1051,7 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	mov	x1, x19
+ 	bl	__sdei_handler
+ 
+-	msr	sp_el0, x28
++	msr	tpidrro_el0, x28
+ 	/* restore regs >x17 that we clobbered */
+ 	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+ 	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 87a822e5c4ca..c33551ee6572 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -193,7 +193,7 @@ SYM_CODE_END(preserve_boot_args)
+ 	 * for consistency with user tasks and kthreads.
+ 	 */
+ 	.macro	init_cpu_task tsk, tmp1, tmp2
+-	msr	sp_el0, \tsk
++	msr	tpidrro_el0, \tsk
+ 
+ 	ldr	\tmp1, [\tsk, #TSK_STACK]
+ 	add	sp, \tmp1, #THREAD_SIZE
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index bfdc12166895..79a19be88ced 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -551,8 +551,9 @@ static void ssbs_thread_switch(struct task_struct *next)
  }
  
- static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+ /*
+- * We store our current task in sp_el0, which is clobbered by userspace. Keep a
+- * shadow copy so that we can restore this upon entry from userspace.
++ * We store our current task in tpidrro_el0, which is clobbered when returning
++ * to userspace. Keep a shadow copy so that we can restore this upon entry from
++ * userspace.
+  *
+  * This is *only* for exception entry from EL0, and is not valid until we
+  * __switch_to() a user task.
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index c18e005a41db..51d853b92443 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -1694,7 +1694,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+ 		if (insn->src_reg == 0 && insn->imm == BPF_FUNC_get_smp_processor_id) {
+ 			cpu_offset = offsetof(struct thread_info, cpu);
+ 
+-			emit(A64_MRS_SP_EL0(tmp), ctx);
++			emit(A64_MRS_TPIDRRO_EL0(tmp), ctx);
+ 			if (is_lsi_offset(cpu_offset, 2)) {
+ 				emit(A64_LDR32I(r0, tmp, cpu_offset), ctx);
+ 			} else {
+@@ -1707,7 +1707,7 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
+ 		/* Implement helper call to bpf_get_current_task/_btf() inline */
+ 		if (insn->src_reg == 0 && (insn->imm == BPF_FUNC_get_current_task ||
+ 					   insn->imm == BPF_FUNC_get_current_task_btf)) {
+-			emit(A64_MRS_SP_EL0(r0), ctx);
++			emit(A64_MRS_TPIDRRO_EL0(r0), ctx);
+ 			break;
+ 		}
+ 
 -- 
 2.55.0.979.g7e5102b832-goog
 
