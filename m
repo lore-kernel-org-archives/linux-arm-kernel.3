@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8512FC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67B1C79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 14:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUf5fob5F/EIMQrFPOO8BV8Ng+wRpGbZ2ps90gC+EMs=; b=IviVGppDmc+mSVuONmRwuzetT/
-	ieuRWLh888e/czfSc7h9YHIRLmHstvIezj8O6+o23gFmtlAnvhIn/4Mdwe9qQA3d8JjIRTHsIsLgX
-	4owmmsxstcaVzJ+fndIXtRsS7tfC+DtfHXJnNUlNiUFdRF+N/WOE+DZmoOqzlHua6f+fHiDDoQjBK
-	ML6f8GTtyRutwybgWeInNkvLPwc2/rGkEBsd/+Gj2temdKyxvhQWxTMf9usVjJvdZR480R5Hf6oDS
-	7Qj3kuNkpaMLJ908tnmIUXWM6+ddOOuSzmuMrbiZwipFfzLtprAeeonf/gTTfRUkwucsU1DbJ3F1r
-	xgJgUz/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vSaY8hFogQ8XMCarbwj5OucKl8VFySrfC7cRQOJejcs=; b=qizIuNXN5uQLMLvDju24Hb3cRw
+	TsjZt3o15DAmmjfKSnLt7WKSWaeffmAyD63aXhj1tWGGlJ8kGS33NSJelJawFz2CgVnHeYA9GR59q
+	C04QYKKlNneCJSmPk4RAU7cewas1hOAtcudQngvPcOy+jSBl4yOvP3l+fVAklcZ2fphTJXOTqoxx9
+	/mQ+UcZg6+yJE2XnBiZbJ/NyXSXHKFPhghQ5z1M7XiBu7AOiq0CB6PlIFMMcqAuNRTMlJ6CPz3pJx
+	CJ2BMlpPinmGAYQJ+gm/gsj0k0Uj+yo/CQAH5PbBC9hWOxhysYGoRlaO3ew3/WfIHqcXiqas46Tmm
+	RPWNF9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3a70-0000000715u-28Hv;
-	Mon, 07 Sep 2026 14:14:18 +0000
+	id 1x3a7O-000000071O3-3lF2;
+	Mon, 07 Sep 2026 14:14:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3a6y-0000000715F-3bW0;
-	Mon, 07 Sep 2026 14:14:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F62244517;
-	Mon,  7 Sep 2026 14:14:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 26EF8C2BD00;
-	Mon,  7 Sep 2026 14:14:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788790456;
-	bh=3qZ+J/XmDBuE3g4C3PLRcoFV1/MtG72DbEfHckRlKRE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PY9YQuUl0JEvQsH06pWJ5djXDIS7k8alKP14IKFu2PX9Cg65bKAXi9N2EauV78sjm
-	 fKNyim5ltsFnqtWiVj7n5nWp3m8H6K5xsia0AxtL8SP/KDq/AA4S4NCZ6GUQ8dMSRT
-	 ZU3YERh3OUIgJuWfkRHMnskWOEnFSNzVrjDorfYYLMLOU1Kr9sn/MrkDZoK83myFKh
-	 H87noRjSfH+xuLY3DKIF5o9yQbDdEaE//4fxHK32tz3naR6EfyX6/AxrlKRZoL2sGh
-	 v7ZzBjmqhmsuZBBDW8EJeaFBf9sghNZQDD+6yJo+ZTw5TD4WadvjOMum2PXVopcilf
-	 pqNdJfUhAPGNA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C5FCC79FA1;
-	Mon,  7 Sep 2026 14:14:16 +0000 (UTC)
-From: =?utf-8?q?=E5=AE=89=E5=AE=B9_via_B4_Relay?= <devnull+HystericalDragons.proton.me@kernel.org>
-Date: Mon, 07 Sep 2026 22:13:57 +0800
-Subject: [PATCH v2 3/3] arm64: dts: rockchip: Add devicetree for the
- FriendlyElec NanoPi R28S
+	id 1x3a7N-000000071Mn-1ug6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 14:14:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 385AD410B5;
+	Mon,  7 Sep 2026 14:14:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E13F91F00A3A;
+	Mon,  7 Sep 2026 14:14:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788790481;
+	bh=vSaY8hFogQ8XMCarbwj5OucKl8VFySrfC7cRQOJejcs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NhoyMxVXLvulJLaKclIWhey+zgZ3IDzhbkoezViwyf/Uj/o2j2rj5/DAnppDI556c
+	 RtNPIYDrUsFyY/9uH3cimmT0KElBGmbB8AVwypDnqQLonLQu+mwlhnZ3a3NAECgOfg
+	 1D39BRQRZ5XQofKPUoAIjIYrdWjbf1QPtmef6KMEZplUV0meDYbA5jOnhye1HgAcwl
+	 N/xK+z16UrOabUYhTrqi6r3KofzuzKLqLrymAtOrPvYv9IWjaKTXgA0Qt7ue4q3uip
+	 KoW8J315Vdl/a36GJCkPTqpZhN6ByI5J+3N7Yyux3QEeRuy62GRcVZclr4dnLoo09w
+	 zlF9rtE5IBO6w==
+Date: Mon, 7 Sep 2026 15:14:34 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Peter Maydell <peter.maydell@linaro.org>, 
+	Leonardo Bras <leo.bras@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v20 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <ap7GPxGs3nhT70sS@gremlin>
+References: <20260901-arm64-gcs-v20-0-f31750bdfadb@kernel.org>
+ <20260901-arm64-gcs-v20-3-f31750bdfadb@kernel.org>
+ <apmfx08vccSd2MXw@gremlin>
+ <d2659ac3-2f00-4fc4-8f9e-0585691a4ba2@sirena.org.uk>
+ <apqA_SuoA6-TyHsS@gremlin>
+ <apszJZ17KUvd6BJ7@sirena.co.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260907-r28s-upstream-v2-3-21ab570fc91c@proton.me>
-References: <20260907-r28s-upstream-v2-0-21ab570fc91c@proton.me>
-In-Reply-To: <20260907-r28s-upstream-v2-0-21ab570fc91c@proton.me>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Chukun Pan <amadeus@jmu.edu.cn>, jensen <jensenhuang@friendlyarm.com>, 
- =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4981;
- i=HystericalDragons@proton.me; h=from:subject:message-id;
- bh=vRo4+B4gjkutm/cZvKKHGafiCT5eYr3P07OBq0OyB9w=;
- b=kA0DAAoWFccN7oSCbgcByyZiAGqexraibOYY+Y6i1iAZz7luTWTNt+JmOeUg1+wOX8RPii5g/
- oh1BAAWCgAdFiEEHbJ7WRKqW5lyBBrHFccN7oSCbgcFAmqexrYACgkQFccN7oSCbgd63gEAuDfl
- NDZYcE80hetV82lOLYQaPjRSWs3TcKr/xu3gWDkA/jVUush8jT+HYKI6BmdfKHtEOokzS6jT2UN
- SFTe57B8I
-X-Developer-Key: i=HystericalDragons@proton.me; a=openpgp;
- fpr=1DB27B5912AA5B9972041AC715C70DEE84826E07
-X-Endpoint-Received: by B4 Relay for HystericalDragons@proton.me/default
- with auth_id=1004
-X-Original-From: =?utf-8?q?=E5=AE=89=E5=AE=B9?= <HystericalDragons@proton.me>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apszJZ17KUvd6BJ7@sirena.co.uk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,201 +76,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: HystericalDragons@proton.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: 安容 <HystericalDragons@proton.me>
+On Fri, Sep 04, 2026 at 10:07:49PM +0100, Mark Brown wrote:
+> On Fri, Sep 04, 2026 at 09:54:51AM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Thu, Sep 03, 2026 at 09:41:26PM +0100, Mark Brown wrote:
+>
+> > > originally written the code without expressing this dependency but on a
+> > > previous version Marc asked for this nesting as an optimisation.  Since
+> > > it's about optimisastion adding checks that don't otherwise exist on the
+> > > restore path would doubtless get the similar complaints.  Exactly the
+> > > same concerns were raised on v19.
+>
+> > Could you implement the nesting the same in the cases where there is a bare
+> > ctx_has_gcs() as an alternative?
+>
+> > So then it'd always be tcrx -> s1pie -> gcs everywhere and that'd resolve things
+> > also and make things symmetric.
+>
+> > You could also I think express the dependency if it makes sense to.
+>
+> Clearly we *can*, it's a question of what'd be acceptable - it'd result
+> in the compiler emitting a bunch of extra alternatives and conditionals
+> in the context switch path.
 
-The NanoPi R28S is a dual gigabit Ethernet router board based on the
-Rockchip RK3528 SoC, designed and developed by FriendlyElec. It shares
-most of its design with the NanoPi Zero2, so it builds on the common
-rk3528-nanopi.dtsi.
+Right. And that's presumably a rather _sensitive_ bit of code.
 
-Specification:
-- Rockchip RK3528
-- 1GB RAM
-- eMMC socket (optional)
-- MicroSD slot
-- 1x 1000Base-T (GMAC1, Realtek RTL8211F)
-- 1x 1000Base-T (PCIe, Realtek RTL8111H)
-- AICSemi AIC8800D80 SDIO WiFi
-- 3x LEDs (SYS, LAN, WAN)
-- 1x USB 2.0 Type-C, peripheral only, shared with the 5V power input
-- User and MaskROM buttons
-- Haoyu HYM8563 RTC
-- 1x USB Type-C debug UART (onboard WCH CH340E)
+>
+> > > We could do checking of the ID registers at vCPU creation so we could
+> > > avoid worrying about them in the fast path but there was also feedback
+> > > about not doing that.  One idea I had was to generate feature
+>
+> > Could you possibly check in sanitise_id_aa64pfr1_el1(), something like:
+>
+> Sanitising the writes is a bit tricky since multiple ID registers are
+> involved, TCRX and S1PIE are in ID_AA64MMFR3_EL1 while GCS is in
+> ID_AA64PFR1_EL1 so you'd create an ordering constraint for userspace,
+> and you'd also have to handle the case where TCR2 or S1PIE are turned
+> off with GCS already enabled.  It feels like a bunch of complication,
+> especially if you start applying the same approach with other features.
 
-Assisted-by: LLM
-Signed-off-by: 安容 <HystericalDragons@proton.me>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts | 142 +++++++++++++++++++++
- 2 files changed, 143 insertions(+)
+Yeah, you're right, it is a bit of a nightmare and feels like it could get
+a bit combinatorial.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index b677914cd3..51a9889088 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -94,6 +94,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-vicharak-vaaman.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-hinlink-h28k.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-r28s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
-new file mode 100644
-index 0000000000..b9e9f5af4e
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-nanopi-r28s.dts
-@@ -0,0 +1,142 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
-+ * Copyright (c) 2026 FriendlyElec Computer Tech. Co., Ltd.
-+ * Copyright (c) 2026 安容 <HystericalDragons@proton.me>
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/leds/common.h>
-+#include "rk3528-nanopi.dtsi"
-+
-+/ {
-+	model = "FriendlyElec NanoPi R28S";
-+	compatible = "friendlyarm,nanopi-r28s", "rockchip,rk3528";
-+
-+	aliases {
-+		mmc2 = &sdio0;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usr_btn>;
-+
-+		button-user {
-+			debounce-interval = <50>;
-+			gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_LOW>;
-+			label = "USER";
-+			linux,code = <KEY_RESTART>;
-+			wakeup-source;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led1>, <&led2>, <&led_sys>;
-+
-+		led-lan {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led-sys {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-wan {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_WAN;
-+			gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "netdev";
-+		};
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pwr_wf>;
-+		post-power-on-delay-ms = <100>;
-+		reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&combphy {
-+	status = "okay";
-+};
-+
-+&pcie {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie_eth_perstb>;
-+	reset-gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	gpio-keys {
-+		usr_btn: usr-btn {
-+			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	leds {
-+		led1: led1 {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		led2: led2 {
-+			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		led_sys: led-sys {
-+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie_eth_perstb: pcie-eth-perstb {
-+			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wifi {
-+		pwr_wf: pwr-wf {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&sdio0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart2m1_xfer>, <&uart2m1_ctsn>, <&uart2m1_rtsn>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	/* Type-C port, shared with the 5V power input */
-+	dr_mode = "peripheral";
-+};
+>
+> If we're going to validate the ID registers it feels safer to check at
+> the point where we finalise the ID registers and refuse to start the
+> vCPU if there's an unsupportable configuration, that would mean the
+> check would only need to be done in one place and userspace wouldn't
+> trip over any ordering requirements with how it updates registers.  Only
+> userspaces that set architecturally invalid configurations should see an
+> error.  We could also handle things by fixing up the configuration at
+> the same point, disabling features that are missing their dependencies,
+> that's a bit more friendly in the short term but could lead to trouble
+> later on as it means we hide issues in userspace.
+>
+> I think the best thing overall would be to leave the runtime paths as
+> they are and refuse to run with an architecturally invalid setup, that
+> would avoid bloating the fast path.
 
--- 
-2.55.0
+Ack, it'd be nice to not have to worry about that.
 
+Presumably we definitely want an oops on a GCS violation in general?
 
+--
+Cheers, Lorenzo
 
