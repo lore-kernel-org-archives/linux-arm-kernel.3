@@ -4,111 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38DCC79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DEDC79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kScf4waPHG6h2otR6IMWANzB8JEMbk0QA2ux6ikTJ0Y=; b=GOhTzMKoe7uaSSuPkK/cTIQveK
-	+lukjjTAboNpXtBru5+X83SitYvu03GZVuo7uXR4sh6nU5pXmilM6a+UIYlCA9coSQ/aNypvi92F7
-	73TFJmSVNOJKYrEr8likLRVxYte/Et20vCupsxrLV5fq/JUivKSAp/GwEodGE7ZRAgdewxkwKYsb/
-	7L9WvY1qu+wb8KJXNLGdp6wNOCaUQt8eU4hkPjd1GZIvUMXFGFlBNeT5O90vwLr7WqplMDrapbEhm
-	pFqcqC+5ABLhMbXtZpV9WQht5i2eYnx6UqKPGkshXZPbWM1A6ZLQhz07ufRCZaAj1iePYOWMukdin
-	rytPYGyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzXqym/+h9eePTEnyy8uEsFGr3+cylfN0o74nGuJQqc=; b=EfSzH7Gzsjhi7xay/BEDQNvwdM
+	GIlQyc5vq/MlF0eoHV85nKzRvtuawVGGs/TlMyULPbp+n7kYMfaTzHWvKo2G9JGkZHZ91+LwxcJNO
+	FHVD36d86+fdYydzvGgF6gGmbYCL/7On4PM0Mh7WRSNVGzMGJjgAcTFWiD5eB2XerNmG0g21ZDJoT
+	SerDW+b9lzV41C9hH2Mdtffo2nVwptyxsiwZ2VOmeW3kfafhzTWlnlGmdsf2hTuG1ad5nzLbDp1gF
+	TkqSdxLn6EAn7dWz88b9pUTSbkan794kMD/VTvLVnhHqyaBlqTKZf0pw3UCLC+Bp50l1kq18mnZwA
+	W3fRvNag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZKl-00000006vOB-1MTQ;
-	Mon, 07 Sep 2026 13:24:27 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1x3ZMp-00000006vdu-0TaN;
+	Mon, 07 Sep 2026 13:26:35 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZKi-00000006vNU-2tCU
+	id 1x3ZMm-00000006vdD-2u4Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:24:25 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-467f09c00c2so937665fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:24:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788787463; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kq60Cx4UaYwLkXUNNrAKwb7o0YBuRjkZ/g1cG618M7EiN055zaJ/3vuUHMw3voj4Ko
-         tBUtvUsuWPsiV0allQrNYh+xXGcuANP3QXXAbhaieFiB5NmHv16bvQfajc6tiodHBfji
-         HvSqM4giSkklW66p6EqAt6sVVoP2sfaOKLCfypaFGKraFsm2qc8PA5pYq8MrSRA4H/Rw
-         jkdhtqxHmeMIOhnKdrjBRtevvpJeqNLZohdre1jqaGJi4JT8FfcKTKlQhqE/Ysq7me8d
-         D4X0/TODfmougNR3awyvmYRmJTxtqjppRD/D8mCa5XUc6aQKFIEz0eFQFXHIi8U7QxnY
-         Ibxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=kScf4waPHG6h2otR6IMWANzB8JEMbk0QA2ux6ikTJ0Y=;
-        fh=z5YzA56z6KYefEnhfmwvOHV5XPVfdSUSg5TUALHMbiQ=;
-        b=V7ZsYMI9Vc9bCe/7J4y02l/1da6tUPNsKRjQCKQJeCpzoPcJ+53wK3DJHQIsNK7pZ/
-         yYZZOy4WGIVPZt+bU9NC+OOBey0zt5bvwQqb7N1iybVg07ELw8clZ09NQoZ8aK1vcxnR
-         5XdyxtBQ1xhQ5j0nTCXvViicAxOVoF4yjcEV95QtGt3O3ocPwFYvGb5yIDfj6SNoojuI
-         5T12hCBhWQ1cSygfp2dtxc+GuRaV6QlYCRgMyyIqlvkgEikYg5J8UNQ3txsWYblxi20x
-         Dj2KDM3XH0G3GrbnydOlsXgkS3cULXtIt4FelEfyqpPbDMwwp63tiw4+Xyi+UaTmPMwb
-         hDmA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 07 Sep 2026 13:26:34 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c255c58156bso687287966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:26:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1788787463; x=1789392263; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kScf4waPHG6h2otR6IMWANzB8JEMbk0QA2ux6ikTJ0Y=;
-        b=pGLKROkqt6cazYnkVAbdKTJH0+JWr+au2CqeRzL8sAOEZIwEv7yJryc83E+3VKr/f4
-         1zSsw9DsC+s/5ZltI+dVUSzRJ/zXJeybj4IEHa6FQof0h0PGDmXRiZdMgpXrE5qv9S9z
-         RWVu9i1TlW3TeL0UI6Ku5W49oZ4E0M0yWj07Evp3v4eLQSMOBrJLt/vUKsg6P0qlN3Yi
-         ik125+TUVk+/qiLGs+gEs0vF/Bo5BQNTsmymtW8iOU8bbR509TGuM5elnURUP+LkRIdZ
-         0eLuZ++3W/qzunhi5wqJ2rsCxkm+IwWmjSyP+xM2ZT09xyF+pBvF+dZ9H2k3inoHYrOz
-         QEuQ==
+        d=sartura.hr; s=sartura; t=1788787591; x=1789392391; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NzXqym/+h9eePTEnyy8uEsFGr3+cylfN0o74nGuJQqc=;
+        b=MWpbdUaJq4AbZsuZOvRt0bGmAJP4t773b9/CLefmQnGOeETBr2skGNvlV9Om4cSW4Q
+         Clh8Z2U0Ma+EA+Kb9wXwTVn4wqmkBDc2UyVFFU6dHvk854KHtFOMYWg/bVQw0V/qHk8E
+         VNbUc7UElQd8Lu830XX5msoTv6k9dHQ05zCPp29G1FNjkHiTlklgSK99NA8k66BiMdDO
+         BbWrAgFOW9qrVMoXjEQgpFfntDjm2nZE2RXT83lXGVSg1knIBoQ2iLGTw8IpJ4ggVNrH
+         1g/0kTe5si7LXVQXwGTUS97f4lscbOFlTDmBMJBhdmMyv4UxF5fRKjyQ+L/BAQ5P+gqQ
+         Lwrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788787463; x=1789392263;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kScf4waPHG6h2otR6IMWANzB8JEMbk0QA2ux6ikTJ0Y=;
-        b=mGmWL0C8AsAJ/8wZOExmHyf2X0Q9m+1zVSQ0fQVoHOZxMJG6z3Do0FZfauH9PeEmeU
-         RQAzH+G4ksMhgpYcfT63JkBGL0VZrKliviKoWYZmkHJP8A2Jq+1cO5ZAth2pMGMRsnMc
-         rNwCcLdmGCtIfx5UkhvZjYsTB3puj7Y+2EgA3LcBxujsKb8fbI+r+08Gxi1EJg8SRN8Q
-         N36+OKYNnbP33WazvEV12kRhZCR5UcjHl7RUqWOJUVLLdvIHSzX74PTURrEhXjkzepqy
-         yjOHtXk8GBOWNFB1Lq2seAGAIB1rOUTURjGHeXdqCBL/gRHJ+fj+aPSrzsJgvs9Txs47
-         1X/w==
-X-Forwarded-Encrypted: i=1; AKwUvBxxmAqcXllkN6rsdzUoIqXUK47gXVx21jo+xSL3/vluKmGibN72ePGlbtdYa2drLfPJ54PUrnP51g6I1DHE5VSI@lists.infradead.org
-X-Gm-Message-State: AFuF++kDF7xDHFfe3we3nhXtupwKRsyqUi3yUI7nhsM6XY4tWoPoRtUA
-	bpCcpAV7nBEVW0GN05zharTvvIpSo1NY7jH6bh04oele4sdMIJavJIJgyOMUWq6eDxJqCh4KlT6
-	AntzU8pJh52VibtbB54IW3HojqoZQNJ50wycgojPQPQ==
-X-Gm-Gg: AYBFou2UPKBT/qpcBEvRBAcgOiRDhkamctDMlpi/aI/D0Gef0llMZmxxs07raO2+tHE
-	1TwuzECR5Ao6NicyR8aT15g82qsbdVaQHt9uu6k5wi7qaCN85fxcK8V30gvLSxzLOIJC4lg2i84
-	sfBZPj8MzcMaO1JT5F1F1HAzpaCATPnT6AyxArTq8RRfKmdfJMtIxvGJj7Ahy+IpFu6R5F4s4Oh
-	8OuCtE+kD7cTpxF7igBxORdaoJmWW86c8tjiPLydsM7VRBOh5hduPB98XpfhBWZyD1tlDHzgJNE
-	gyBsFVZ81IWByOiuUsYfXgm1/Y5ECojujkhK9LWcxCRihOcRavHCxt+OKGeutQ3fdzDgEK0yyjI
-	kGdES2tRyeGngptCMwD3i7eTmqw/2TPUNbfYX0E2VxGQsGSBPqE2xzXxvJkbL
-X-Received: by 2002:a05:6870:b01d:b0:46a:deaf:5915 with SMTP id
- 586e51a60fabf-47551591688mr14531947fac.9.1788787463608; Mon, 07 Sep 2026
- 06:24:23 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788787591; x=1789392391;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NzXqym/+h9eePTEnyy8uEsFGr3+cylfN0o74nGuJQqc=;
+        b=d09y4cPVHeV3yQnWfvgQ4Gd5fY+t0p5xWZOb6Ptk0iw4l0r47Q9MUwJGi6glNk8C4a
+         wj7755fQRD8s43unnS0NgIavHLi0GRj86HILmQkqXb2zoMD+4jB1i7rwOuOO1CmoTQgt
+         1CyH7+XqdCyLC0RAwv+9zsK1V1riWXsX7prgboVo9R0d+JS7z+ZcI/dRYsEY3hoB7hTj
+         rduNT5j16L3PaLzh+kpwZIBoUt2Ks3hqAoUfwg640+39LqCFNsgPRpxM/85ePFvjXNnS
+         dxEnbdJ/rItn3ejYUyl88ABssqNr+xudjLYhai/6WcSjUkCbRNxD6TrmWELAExvHAEiL
+         QIjA==
+X-Forwarded-Encrypted: i=1; AKwUvBwmMP6MTfXrc6FLlxWwiIKA1y9+n5qpCPNkjMqCOoW3FCd86krdGC8+kNqYBE1pZpzSA9CvDqYW9mRfotOj8hZk@lists.infradead.org
+X-Gm-Message-State: AFuF++mVbSy4Nv0Fxkv6mBxxCdQ8S+Ci0ft7tblNFf8Nae5NHqwRsSic
+	GS0s7ooWJoZjPFnOkDCE5duuBQDqvd0SSBKiKvb3UxgWEGtOhLfbgpeALnFXe0EYu+U=
+X-Gm-Gg: AYBFou32FDCxABKT946h9oeeaiHRXKnwavE28DC393HYSBMYOWVT0mAZ7XQWKUr3Wds
+	7wu2xG9Xv3BmMIJvFe0CEOwr849XaxAH7GBpdNUYgqMSz/BK6wRvVlhuY6srDTmlRPIpFCpm05T
+	fDVjkEterjEe4LdbIYW/OELf1NEa0M8v5SqrLdp1T7uMiOYv6ozOdMI2gy+fLlLW5foWJs33tHy
+	U5s3mLRlVDiJoR2efRnMhpTSO8KDXu3DFOyetpnx2gUcPIXRSERna3X51SfwgVvJ4BbLpkO9SyG
+	aiFIzMVlJy+8sFbty+0CLIikNooSncJVru/o/kpiZno8ye0/ycj8Qet++IS8N+kIuDtYOuSpAQz
+	rFqFniCR1OjlhViIULpMPAHgTFQ6DNYrxkqboAaZZqq0s7AoGz9WjCEdyF5/M/CoFmEw9s0KUiQ
+	hBfsHV7PgueWPq1yyd1Wurc8S5pDVo/5ah+RKdNK1Mim7KUhDlA4iPhbpM/O9NnLB0LMkao3Ed3
+	mjqeq/KDEHO7PQTWHFuOzxHkC2rPHQ2gB645kA8DWPeX1inDwufmsI+aofgP9DYu64CfRM7nkTw
+	D42wjzEwiYoLQAvtfkA8IHwYE2n3RZS5IQ0q/Q==
+X-Received: by 2002:a17:907:3f2a:b0:c28:fb3f:fe20 with SMTP id a640c23a62f3a-c28fb400053mr139347066b.30.1788787590853;
+        Mon, 07 Sep 2026 06:26:30 -0700 (PDT)
+Received: from threadripper-fedora-workstation (cpe-94-253-164-142.zg.cable.xnet.hr. [94.253.164.142])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2622a7c677sm366362766b.9.2026.09.07.06.26.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 06:26:30 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: ulfh@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	adrian.hunter@intel.com,
+	aubin.constans@microchip.com,
+	ehristev@kernel.org,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 1/6] dt-bindings: mmc: atmel,sama5d2-sdhci: add LAN969x compatible
+Date: Mon,  7 Sep 2026 15:25:29 +0200
+Message-ID: <20260907132617.1198548-2-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260907132617.1198548-1-robert.marko@sartura.hr>
+References: <20260907132617.1198548-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
-References: <20260907-rpi_reg-v2-0-0c59aa60d31f@oss.qualcomm.com> <20260907-rpi_reg-v2-1-0c59aa60d31f@oss.qualcomm.com>
-In-Reply-To: <20260907-rpi_reg-v2-1-0c59aa60d31f@oss.qualcomm.com>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Mon, 7 Sep 2026 14:24:09 +0100
-X-Gm-Features: AcwNN1VtJNaQAhgZmbN25VVX96rEB3Wn69gfnD4KGJJXrfRYQ9eR2sFIrX6o3IU
-Message-ID: <CAPY8ntCF6e3FZPx0BwZKJimACwdUKwNSP+SPjNUE+1DgQC1=Qg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: regulator: rpi-panel-v2: Add required
- vcc-supply property
-To: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, venkata.valluru@oss.qualcomm.com, 
-	Jessica Zhang <jesszhan0024@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_062424_731399_DDAF41A1 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20260907_062632_819213_642ADC05 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,63 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shashank
+The SDHCI controller in the LAN969x family uses the same register layout
+as the SAM9X60 implementation. Add the microchip,lan9691-sdhci compatible
+with microchip,sam9x60-sdhci as its fallback.
 
-(Apologies for the earlier HTML version of this - I thought I had my
-mail client under control)
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v2:
+* Clarify the relationship between the LAN969x and SAM9X60 controllers.
+* Add Conor Dooley's Acked-by.
 
-On Mon, 7 Sept 2026 at 06:48, Shashank Maurya
-<shashank.maurya@oss.qualcomm.com> wrote:
->
-> Add a vcc-supply property to the Raspberry Pi 7" touchscreen panel V2
-> regulator binding and mark it as required. The panel controller MCU
-> needs an external power rail to be supplied before any I2C communication
-> can take place.
->
-> Signed-off-by: Shashank Maurya <shashank.maurya@oss.qualcomm.com>
-> ---
->  .../regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml  | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-> index 37b9ed371b67..a6195e53be16 100644
-> --- a/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-> +++ b/Documentation/devicetree/bindings/regulator/raspberrypi,7inch-touchscreen-panel-regulator-v2.yaml
-> @@ -35,6 +35,9 @@ properties:
->      const: 3
->      description: See ../../pwm/pwm.yaml for description of the cell formats.
->
-> +  vcc-supply:
-> +    description: Regulator supplying power to the panel controller.
-> +
->  additionalProperties: false
->
->  required:
-> @@ -43,6 +46,7 @@ required:
->    - gpio-controller
->    - "#gpio-cells"
->    - "#pwm-cells"
-> +  - vcc-supply
+ Documentation/devicetree/bindings/mmc/atmel,sama5d2-sdhci.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Adding a new property as "required" breaks all existing users. Adding
-it as optional would be reasonable.
-
-  Dave
-
->
->  examples:
->    - |
-> @@ -55,6 +59,7 @@ examples:
->          gpio-controller;
->          #gpio-cells = <2>;
->          #pwm-cells = <3>;
-> +        vcc-supply = <&vcc_reg>;
->        };
->      };
->
->
-> --
-> 2.34.1
->
->
+diff --git a/Documentation/devicetree/bindings/mmc/atmel,sama5d2-sdhci.yaml b/Documentation/devicetree/bindings/mmc/atmel,sama5d2-sdhci.yaml
+index ba75623b7778..af1c66a1f882 100644
+--- a/Documentation/devicetree/bindings/mmc/atmel,sama5d2-sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/atmel,sama5d2-sdhci.yaml
+@@ -21,6 +21,7 @@ properties:
+           - microchip,sam9x60-sdhci
+       - items:
+           - enum:
++              - microchip,lan9691-sdhci
+               - microchip,sam9x7-sdhci
+               - microchip,sama7d65-sdhci
+               - microchip,sama7g5-sdhci
+-- 
+2.55.0
 
