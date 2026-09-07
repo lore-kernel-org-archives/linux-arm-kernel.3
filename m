@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F39C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 19:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C597C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 19:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OETNujE7LMv/ipC540SMkvUZvl3I7u1TcYnMN40akSI=; b=DT1yCK4VDdwwlxvpTwQWxvj5A9
-	m6HNdSpchbcsUXY0t6DvuE2d49uJBmhJDCz+DpHmECtSOTqfILGWV32J6Jh8l7TTeKq9aYBylMVoR
-	fuhfqy4lvIQHY/J1We43lZjk9b4/eaQMZF9MoRFY5mFdvedz2ROSHaQffw+aYFReKc7c8GKoRQmzD
-	Pr59tMBH7QfbygITaUmiAfLbtzPRK/WROaIZLFtHKgzhz9CYZzyYE5Vpq254Ia5ZGGU5o3tYtQ5Y8
-	hxLqQdBRirBWDPO41G15naFOXyse2e+rklEFwoJGkGCGcXHRtp2WwHJ8RA3SWptba3oiMR7hH+P1Y
-	eHUy7vKA==;
+	bh=Ykn8R+5bxXefN33Ze9iKBwEjjXnMgUuxZmUBRl5EBxg=; b=gAfyi8oYKXS5Ml3yp1w4ZDoWvh
+	bnWys8pgYE/P+jmFTJRP0UxXD9tZwEO/EPj9wmXDUe25Q5a5Kv9tjcSfAbZBHVsX05rBnVajaqvMA
+	LIVikFejmkWxpLHNUxXeYmLlYMlBr8TwhB/5dUK0UkDbR0hnDT/CGcLcQIm2jSfeg3UJj5LCMODMf
+	IRRQWV70ZRgVzN9usbCmXHDOlxHDc+isOpYStHoQcbfsZHkLrS94qv+f8ddIytnr/aJ0eBZ7h99A4
+	V2ID2zx6JOweQPjO22JlNwspIL4H8cl8G62QhWCN04vLtz7aIm/rxeUhscWNhj0+KehcF/INiCalg
+	y+K9r/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3fIq-00000007fhj-3SRj;
-	Mon, 07 Sep 2026 19:46:52 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1x3fV4-00000007g5a-3s1R;
+	Mon, 07 Sep 2026 19:59:30 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3fIo-00000007fhA-26WJ
+	id 1x3fV2-00000007g5E-1xXl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 19:46:51 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3964e480f76so4479255a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 12:46:50 -0700 (PDT)
+	Mon, 07 Sep 2026 19:59:29 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so3098463a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 12:59:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788810410; x=1789415210; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788811167; x=1789415967; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OETNujE7LMv/ipC540SMkvUZvl3I7u1TcYnMN40akSI=;
-        b=kuCVkevAwEoNHgjnUVTaVE013TRwmFs70x07U5hfi40P/c0zWIJHThMG6f/FHc6d/S
-         y2eairsbQHRdkG6s3XxTlbIbR/3QaLo8YLnm+yqihdw7TFGeZC+ePo63szQRtz6XB8yk
-         GW1c4Bpxp6IA4wrfjRpi7d539jXILpYHATCUr18gicLaDMgwu/5mKPpAQhGlvh1duGl4
-         b0swOt59Tc/QyvuHkz4++bsIACbM6ITto1pxvVT1o+21dfA/c8y+wUXHxij+Ns5YuwDJ
-         ZKlOODH1Evt82S4F6D+F7C8+Ry+G5js7WdQgso1211M68NylGLeSU9cgwp21T2ZhMHH+
-         ZekA==
+        bh=Ykn8R+5bxXefN33Ze9iKBwEjjXnMgUuxZmUBRl5EBxg=;
+        b=nBTmFmC0RZ0pYn1qJEueERXvfQ9ieQkTZuc0kTucKzoiFBQEwAM+Tz5MOcxCYIDU+5
+         NlV6vwfRMzNW4rJbwP3t0UAHQXgSuk6YzGvqunlqJyvS1jCD7te6Q8CNqBvvNdVwnDJe
+         MMRs4gpgxe5RBWYZwuhiAF+fIH5CV8wPQHpVXpzwpLxclfJ0Y3tSZAsEuYFVGnv62Wk5
+         7b19Vsdu131xmLTWJfsus1iSVfalMow+9GXM90MoDWwDuGgajyWfQgzJMklZKEvkalho
+         3NSb0/g3jtOViOMZHdjAJib3DUwnN34JJVnCvyvbGpAuJa8hsyWKbwCtXsNdxPPtKnEL
+         pd8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788810410; x=1789415210;
+        d=1e100.net; s=20251104; t=1788811167; x=1789415967;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OETNujE7LMv/ipC540SMkvUZvl3I7u1TcYnMN40akSI=;
-        b=aNjbglEWzSpksEAifcfmH14YXmZYL2lbCIKI/8h7ufOv9+IdYfzkFG8anNPedRO7Aq
-         7RzDdtSz1l+G3K7AW2GHIzcdobSWYib+fY7BRf+v9shTQ7TAFQRozmVSmJJRpo3UH6dH
-         faiDynQOmM50C+WfP8O+zuXY8fzTdIylH+akpQuYxVdtncmrirD1kimTGvL5eH5vvEgm
-         /9UGTfJGnsgmq0qQ+wSec1knd7G9gsYEMxBXG+HZwh6u8oBLYA85sxbK2RK0iBDjl3Mq
-         7fFty/EOAXnwJTGEll6dknaOq6PKL2BwHgGkIHrGJkOIT9rALx7IV7uILdfGrhX/EY2g
-         7VkQ==
-X-Forwarded-Encrypted: i=1; AKwUvBy9fp5Oi1C1O2iDgmAAXvRAAZfI3FRjjcrtzFvBMJUSimgmoK3Z3jDaewqAsJ0/fyCsePAOLNLi7+qo7+94Mkkb@lists.infradead.org
-X-Gm-Message-State: AFuF++n6l/IIOmNOmQjNBMLb2SakBiFX1wcUb/wL0GhmWEDEGxtBZREi
-	b+X85lKZM1kohWraEnjhuhIa+jrAxVVVDuDX+Wcau7ZeBzIDFFayr2pd
-X-Gm-Gg: AYBFou2icP8GrV1iC2Ru5p6sDOKW83PggsNsb/kk1xtLnGsN7TR7fpQSS4i3AMZcoMG
-	TJ3kJMOnDiIaGd/FFWWYywuor93njGROKS2AUe3xHBIEZsbSCfjg1mrLuAWTf5eP++X3MnrYggE
-	6fs2PI0WVb6HWSC447oLw5ID2UAOdtJfRCPs4+iJ2nGj1i/26+N70v9OZNLVO0Pz0sgQjo5iIr3
-	kUqZv5LGQIqUUaiEXgd4xAGifWhqzEV+lNdjWz6rVDSrnvWsbDqXu/LS5q9dNPWHnJR9LBAEs9+
-	pVnUcZbu4ahCup0KL7JZCVHE3a7TeqKnpyCeG36AIPg7X+VlJALbTUbV0cNHXZqhrD1ZEwh5Hxy
-	Bb0kMAHG1W6gMkcmNdotYau0VaCPLzetmv5yr5RMahTLtgNmOpcW7VudqpHgVO6dQVPTmGZh9o6
-	BDDQEWKqJnBcoN5m2XUJfvS4G63QzceF4ICgXiaXC/A0M+Zf5ug6zgTsvPU03zigkmh0xXkA3Do
-	KOa04zYXXIv/AUBH8vLdKY69TZihN27cUyAD0KOT9gIRLPvCMgxrfGf3mfglu3SPjN0SE8vCgT0
-	+dr6xglaSEWpWGZNknCfLDbDSbfKveB1junmkw==
-X-Received: by 2002:a17:90b:1d4f:b0:398:9be5:b417 with SMTP id 98e67ed59e1d1-39b26221eb1mr36435852a91.18.1788810409626;
-        Mon, 07 Sep 2026 12:46:49 -0700 (PDT)
+        bh=Ykn8R+5bxXefN33Ze9iKBwEjjXnMgUuxZmUBRl5EBxg=;
+        b=au2W8tdObFG4vvMzLEcHIw2FhLloZLk27i9p+99Nd3Q8Fd3JJBxjmEoiUcSGPKvKjy
+         4fw/Sye3leE8FpHisRdst146deNdpvuQSDWxLQEQwtTG9DleWuyIALh04mqY7zTBvtWv
+         p3JfL0mGp6dOEVKv6fY6TlJSgBSGFOj3yAIIRkvhYGBWxZNPi9YldP+miAIPUGmkl8zO
+         ThpCYfKLMA/ecGM7veaz+jEAgk2Y4oPcgj7mNF1ZrPjdIi3gP2TfrPsmUrv3D+9YhazR
+         VG0yryg1tCekadqbVOzkQW7s6SFQssIjTVZ+NDZ2t2qYB7XYO3bfApdAZwGcW2C9MhqS
+         8r2A==
+X-Forwarded-Encrypted: i=1; AKwUvBxGFjcleCRyFsfqYW5fycv/1ulWcd+1DqBPTDuggQGE3LKc9NFema45xpXY7Uug2Tx42Hq7fhEtCiqns2KuMrjs@lists.infradead.org
+X-Gm-Message-State: AFuF++mX8PXfoT8ksANJBEI5E9tvEwIJiWGzV92cWsh7SdBujk1Yl2LD
+	y8qLAxHYxFuREk/g6MHzpbfizblga7QAfWmIgP9ahiXg/XYO3Vpe6eN7
+X-Gm-Gg: AYBFou3CaP4FoMNasO5Aw35rMCE/rlcZ0koozurJsFeU9FpwQF3aSMcTsPd8ETyBdvX
+	TrcZGv3Vt6rjeeuJwTVIcoKw2cYpBuJQBg0Si1d0mB747Iz8ye5jvpSNPePlXo8LRMPRynMNLUa
+	6x6PQQk1FbDKCHNJZ8wOLj+nRIc60am+Bwh83kbMDvshGAA5sZpRmFCWgThasnpSLh2XLBwrhXH
+	ptfosLS71/lwAyqgg5/qBz8nKQhkT3sNCdaRqM/jWePY39PkDemk/w7ne/d1wkzTbjbqt+gcvd8
+	TUfP5k6PGuEaycf3Jnmcm0WVSxA4hB93/ph5q5pvqde6XZV8Ex0n1D9jh82d/z50P91UgodOGQs
+	8XvYu7BUPSY/KWDR6D7xT5koHQPRd12vfNyevFvkm0Z72yneiYjw2dNqfgVwHETv6DA6Y251eic
+	+Wk3lUvyjyj0GiS3GqWOzZB+HzmXNOy/BxM3UO8jfRMzM3OFl6iDnkCfkiSZc4r0gO/f4hRqx0h
+	TnhAVV5Hzl/dA47a1UJEKJfIc8ApprA+IaNMGp3/fT0oeCG5akKxSfmVTc7LZctpXo2QX+tKURO
+	agg5o6b74hx13yHoknc9GUpRw/86af8E2IcH1w==
+X-Received: by 2002:a17:90b:33c1:b0:398:9bd1:3214 with SMTP id 98e67ed59e1d1-39b262dfa81mr34312237a91.21.1788811167343;
+        Mon, 07 Sep 2026 12:59:27 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b08bcc090sm28219277a91.4.2026.09.07.12.46.48
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b58187a9fsm3683932a91.3.2026.09.07.12.59.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 12:46:48 -0700 (PDT)
+        Mon, 07 Sep 2026 12:59:26 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -81,15 +81,16 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM5301X: AC68U: add nvram node
-Date: Mon,  7 Sep 2026 12:46:47 -0700
-Message-ID: <20260907194647.23151-1-rosenp@gmail.com>
+Subject: [PATCHv2] ARM: dts: BCM5301X: AC87U: specify switch
+Date: Mon,  7 Sep 2026 12:59:24 -0700
+Message-ID: <20260907195924.29510-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_124650_545371_6E297E37 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20260907_125928_535022_7DD6AA96 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +105,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add it and set for gmac0, which is the only GMAC used on this board.
-
-nvram size found from a random bootlog online.
+Add labels to clarify which port is what.
+    
+Also set WAN MAC from nvram, which is offset by 1. Set in dts to avoid
+having to handle this in userspace.
 
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- .../boot/dts/broadcom/bcm4708-asus-rt-ac68u.dts    | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ v2: reword.
+ .../dts/broadcom/bcm4709-asus-rt-ac87u.dts    | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac68u.dts b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac68u.dts
-index 3fe17bd7b86d..42618b5d6509 100644
---- a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac68u.dts
-+++ b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac68u.dts
-@@ -25,6 +25,15 @@ memory@0 {
- 		      <0x88000000 0x08000000>;
+diff --git a/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dts b/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dts
+index 59400217f8c3..2fed02ebb1d7 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac87u.dts
+@@ -26,6 +26,9 @@ memory@0 {
  	};
  
-+	nvram@1c080000 {
+ 	nvram@1c080000 {
 +		compatible = "brcm,nvram";
 +		reg = <0x1c080000 0x180000>;
 +
-+		et0macaddr: et0macaddr {
-+			#nvmem-cell-cells = <1>;
-+		};
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -83,3 +92,8 @@ button-rfkill {
- &usb3_phy {
+ 		et1macaddr: et1macaddr {
+ 			#nvmem-cell-cells = <1>;
+ 		};
+@@ -77,6 +80,43 @@ &usb3_phy {
  	status = "okay";
  };
+ 
++&srab {
++	status = "okay";
 +
-+&gmac0 {
-+	nvmem-cells = <&et0macaddr 0>;
-+	nvmem-cell-names = "mac-address";
++	ports {
++		port@0 {
++			label = "wan";
++
++			nvmem-cells = <&et1macaddr 1>;
++			nvmem-cell-names = "mac-address";
++		};
++
++		port@1 {
++			label = "lan1";
++		};
++
++		port@2 {
++			label = "lan2";
++		};
++
++		port@3 {
++			label = "lan3";
++		};
++
++		port@5 {
++			status = "disabled";
++		};
++
++		port@7 {
++			label = "cpu";
++		};
++
++		port@8 {
++			status = "disabled";
++		};
++	};
 +};
++
+ &nandcs {
+ 	partitions {
+ 		compatible = "fixed-partitions";
 -- 
 2.55.0
 
