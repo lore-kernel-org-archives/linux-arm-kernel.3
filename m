@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F4EC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9B0C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 04:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsCXtS0F1ozalP9OgDEtI+4ABXzVdG2gEkR2YSb8sls=; b=19LGS3ixLRlTTU8+0SEPJVn/FJ
-	1K1ksdcdTe8B9fXnBOTS4QhIi9pBwjJVrd+tOepPQaslGmYqRlbmM4Sd5S4T+EWu9+fmp+VozGOaz
-	yBou7kxGXOLXlvCtT28chevSrL/WYePxd8kZtwi73DKjQIM/RRW1+qFGmWnUGJb4PXraE7rPMgm+A
-	mJIHsHQNmvEgUnjcyNxwJ090NYOfD6XaTfsYD4arBb5nt7PzdbVRa7bRfNYuzYAXE+LFzuEXo8f/U
-	VKT9QjeIWMV0IYk46BUOuHjxHQw9uBbdjH/YHu+uIHtXX8CQxaCyE4/g90RFI9ywuncxHq7y5FDps
-	oIB5rzww==;
+	bh=DnvU2vBpS7iNRhfGmKqIjpkiFHsnHeHr6qR8QCexTas=; b=I8RYUT5sLYiqMEeDO8I87EC7rb
+	uhzed8ktQUIH5Z1o/e0Y74tD8VP+baBd8a2fZ35CEJDEq36oSZ1VsoS16TiX75DN0uqJ1N3sp7PL4
+	N071ntugoszQRZU8tIvEqVcfL37QbOcmDcIV+0byVklr56QBFRX23le4dXdjb+8zfbfsVWD1khnK8
+	6nVxvr123DCM2V7X5cKbssv9MeIVA87BMhw/lueP0zjYtTUz/XNtpGIxrJzwCxwzAfHg9Ra5BvR/0
+	hy4wDOXBOVeXYJGmoxY29KuEpe1dLJ5F7/0CV29/awehR4Gq0FsvJTIDcTD62VxlDlT80VMiFqLlb
+	YG9C9y+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3RE1-00000005rsr-1wIX;
-	Mon, 07 Sep 2026 04:44:57 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1x3RE7-00000005rvf-2M1Q;
+	Mon, 07 Sep 2026 04:45:03 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3RDz-00000005rs6-17Uz
+	id 1x3RE5-00000005ru2-0LTk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 04:44:56 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-862815e2683so1599531b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 21:44:54 -0700 (PDT)
+	Mon, 07 Sep 2026 04:45:02 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-39b24d114d4so3131113a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 06 Sep 2026 21:45:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788756294; x=1789361094; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788756300; x=1789361100; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NsCXtS0F1ozalP9OgDEtI+4ABXzVdG2gEkR2YSb8sls=;
-        b=kwTBlp/jnHx3ZFywGJHyzeqmtAqzs+DWEIi5GJx8W8ZlTXU5/C1YDprXJJE5HIBcio
-         8Fj2g9TU86xe9AXHksQ9KjJhODoWsHbv4AbAMl3+XXLV5unHTPx72w8ibXgzFEayTi0x
-         15vHwd1YHUnTTyl9wBumwaujX2bT1oHhAmrBJLvTHX7XExvYz2M75GZDUadB9L1mt8Tr
-         j4omOcbOwV3ZjDgBhb7Llj1MxmjcItfaM41QSZHg63kGQ4OdLnjmTNxTX8URgnoksDyO
-         fV3h1wGsIGro0Vzn3CsWA1Is0tYcQtlE/LaVUU317by/ETSzp9ERwBd8rKcPbEu50m1j
-         S3tw==
+        bh=DnvU2vBpS7iNRhfGmKqIjpkiFHsnHeHr6qR8QCexTas=;
+        b=GV+Q8G0tEVkvnToDNwAScmDdf/2eIUSYx57u8n/x6j/XR1DZ63Cmcqoqkd09FQaMFc
+         gYtrZEdAvYuO0GVXsrKBoDiVjKr8oolsE4ZTRNzD96uBhBnUKrD604mfkklrZwYWdzw+
+         Tgf0qvl9mEIGEcU0MA9xe/+0b3dD9tdllkSGpnG1dF7bL2CzebKa5yMzyImmsJjeo5lH
+         u0VnHqbfqgXxO93J65lqPuf+ndVPcJHkvnWFo/k70VfbtRGh7U710Mcow+hxy1+1mOzc
+         CVGjhnotODlz9ERd8XZ6ULpcJKsWiVdc30GNRTmjz8QY/ULBfTQEZUf5FfLjG3acRVFD
+         /Hlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788756294; x=1789361094;
+        d=1e100.net; s=20251104; t=1788756300; x=1789361100;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NsCXtS0F1ozalP9OgDEtI+4ABXzVdG2gEkR2YSb8sls=;
-        b=QMgAWsjwOngOK8DQSxENAEScqXMNE0J38RSJenwUrD87Vk6xQfESRFg61J3C1hK9Bs
-         OeCHgoeabYpKieLLJfVmYUQU+I7LBvsFhIR8DeNYJlZ+wGqFOLGrpsWPkX4R7t4Z2sxD
-         KXpqVunuX6PRYnhSKmPH0UkH8JQoI0KAkH7OYWi8y5VDSYms7rYcjYYX3WLJO2F5eixy
-         CEsVUuVhteur9fuW4984r/JaGxBZ7nYggOgvkXQU9iiEeQRoxwcxJ86FI4sFTflBMZ4N
-         1XY5BasYZqvsIX+TcQMjUTNUsvLJSL5L/wXmyTD3QHFdaEk9S/26fsooAUcKQx4y7vlr
-         LCnQ==
-X-Gm-Message-State: AFuF++lpyQEdM85ToarXJ47zzSU/nw0CRq5cuDA9D8cqHmYHYvjDRLdy
-	CFInHZJ6ynSMl58lH8Z5qfHXS2VIuqjV+nNG2UIuyXXvmDIZUX7MPWWJ
-X-Gm-Gg: AYBFou2qVTelrGdbX3k6bmSeSkZXRMAv5u7U6vnIL5uLEm4Sqqr7R7hzYfx5wL3pYJV
-	Mlmq9a6n4/fitkHrElho0euXxhKf0apL7/M5BK3LqxRbMY3OnJAtBQdJgNMfn/Uy/YWOcBKdZMJ
-	3yHzQSHR5z03QI5nRkzEZqMMk5fNZv+m21UezMyzmkErqSHLqBp/blFBDEDuNfxYT6UsRWlqSGT
-	FmnKnvzazzfd9sIZo6biKH2ar6BjtiRgxcY06oYTL3UUsQdSswGPUjkmoacyWBNWQLFY9SG9oDC
-	1TTdtcJtkBA90rW+Pe1eJStefK6UANKTe8dPDEwyhxUx8ouxJhiCotsfxfhSFvm0Klys3LvT4Ww
-	k8dTlHlmKlPz9XfoQ9AqvGyCpXdkPe/cM8g5GUiGQ93otOlTBrJKZoZeuPzC/f0QkGFmvUuW5kf
-	6C+xAoVtAmzFSxT6nheXP2/sLwSnIDbPwzCP9UBmcJQmj+X8gFCdyb9NP76z3XTbzB4rpnSHvsF
-	bodMkfJwY3zxA==
-X-Received: by 2002:a05:6a20:9630:b0:3cd:9f0b:f7a2 with SMTP id adf61e73a8af0-3da39ee15d0mr32834555637.11.1788756294346;
-        Sun, 06 Sep 2026 21:44:54 -0700 (PDT)
+        bh=DnvU2vBpS7iNRhfGmKqIjpkiFHsnHeHr6qR8QCexTas=;
+        b=CebE6qBeSXSN+UFvmAWRAJJMfeJDJ7GMMpNRsOnhoL2RO0DQ0+7C2XvleR0X9EQFTz
+         d2zHq5yBAtIccSAnxc35D+SoFPg6yrk4bpz9ramJwiGczeCF9fUwtlnncvtnVSqKlfQO
+         qQoMj54zOvKiGdLCCKLAD3QnE3s9K+t9EZOs07U3Ial3MnTiHrKPRGsqYe5bg3ho5D4N
+         QzwvPRd3e1/SkfEjp0VZsL/x8l64gQ+snuGmaN9QbMKxoFGiqHgs8gAY06Meg0YYbQV0
+         dZ7kMDs5pueoaIJ68vBwqxTJiPa0IFE4fwFzFt4qVMo6fIrVo7NzW4elT++Qjj/fsLXy
+         AXfw==
+X-Gm-Message-State: AFuF++kAHDzQal6Q7MHGXsyGHgZt0E7MXgae0tMFTySUA0xeT2QlEiMp
+	ZIWcYsUW0SAkLzG11JxC/Lws1K2iMbNIA7U3KrfCgkVZrzykBZOtN0Fu
+X-Gm-Gg: AYBFou1K8bqJq2MP11tG9ZVu7LQIV08S+cbAzSC/mvXDOzvHSK80xiUQkD1YSf0zGTv
+	4fUh+Vzn91kmJZjmYQOGA3/VWwwTAZolR0jTh96pPCCNH12RFeSGQ85VKNDZtC+Np6RUrHHFRXP
+	Aw2B+qcy3sWasNf3A8rA6rZJ8W+QRawVoiF9SwrXML24QT8KwFCdo5ui+t8Kz+Mmr7zamfW0abh
+	Vc9jclXs9AbSbINzajq1VxZjcHvMY34lgyLlnFcVjKo5/MGb8dxpuTMk1AHkBE2R7v5UCIPJ7aL
+	tay1YzzDjmFlxDv/b5qlTU3WGpW19xOXFYs+7pJZW0cBCYRnpXbTYU36+ipb0/i0MKhtSTnytQd
+	Jzbtgsj4RMs1chacRFHUSwOVaAwfnN2WbV7KSIIvR3E2f+qxdlBl5zxZ0sWIf+9JclXxcGcBOCO
+	Cs05C9G2o7Vw42YWnAUQZmLbhg/55Bq5Rsxdh7vdNlvg9ShHwqjTjvEqQWZxjqJr7XM5yEGDq71
+	8PJz5gDabycBw==
+X-Received: by 2002:a17:90b:268f:b0:398:c3a3:dbd0 with SMTP id 98e67ed59e1d1-39b2612eb96mr32751634a91.8.1788756300129;
+        Sun, 06 Sep 2026 21:45:00 -0700 (PDT)
 Received: from volcano9f6e-hostos.amd.com ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339af25062sm37823751eec.16.2026.09.06.21.44.48
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3339af25062sm37823751eec.16.2026.09.06.21.44.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Sep 2026 21:44:54 -0700 (PDT)
+        Sun, 06 Sep 2026 21:44:59 -0700 (PDT)
 From: Hemanth Selam <hemanth.selam@gmail.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -88,17 +88,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH v2 2/3] selftests: kvm: fix typos in comments
-Date: Mon,  7 Sep 2026 10:14:33 +0530
-Message-ID: <20260907044434.4682-3-hemanth.selam@gmail.com>
+Subject: [PATCH v2 3/3] arm64: kvm: fix typo in pauth.c comment
+Date: Mon,  7 Sep 2026 10:14:34 +0530
+Message-ID: <20260907044434.4682-4-hemanth.selam@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20260907044434.4682-1-hemanth.selam@gmail.com>
 References: <20260907044434.4682-1-hemanth.selam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260906_214455_309160_C3B27F55 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260906_214501_126831_B91ED93A 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,44 +113,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typos in comments, reported by scripts/checkpatch.pl using the
-misspelling list in scripts/spelling.txt.  Only touches comments, no code
-changes.
+The comment reads "This code assumes that is is run from EL2".  The first
+"is" is not a repetition, it should be "it".
+
+v1 deleted the second "is" instead, which left the sentence without a
+subject.  Fuad Tabba pointed out the correct reading.
+
+Only touches a comment, no code changes.
 
 Assisted-by: Cursor:claude-opus-5
 Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 ---
- tools/testing/selftests/kvm/arm64/debug-exceptions.c | 2 +-
- tools/testing/selftests/kvm/arm64/hypercalls.c       | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/pauth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-index 7dc5f0b4f6ad..9da6dc5bcfe6 100644
---- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-+++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-@@ -387,7 +387,7 @@ static void guest_code_ss(int test_cnt)
- 		 * Enable Single Step execution.  Note!  This _must_ be a bare
- 		 * ucall as the ucall() path uses atomic operations to manage
- 		 * the ucall structures, and the built-in "atomics" are usually
--		 * implemented via exclusive access instructions.  The exlusive
-+		 * implemented via exclusive access instructions.  The exclusive
- 		 * monitor is cleared on ERET, and so taking debug exceptions
- 		 * during a LDREX=>STREX sequence will prevent forward progress
- 		 * and hang the guest/test.
-diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
-index 5d96cdf382c4..a24becda9e62 100644
---- a/tools/testing/selftests/kvm/arm64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0-only
- 
--/* hypercalls: Check the ARM64's psuedo-firmware bitmap register interface.
-+/* hypercalls: Check the ARM64's pseudo-firmware bitmap register interface.
+diff --git a/arch/arm64/kvm/pauth.c b/arch/arm64/kvm/pauth.c
+index d5eb3ae876be..bb6c42e78058 100644
+--- a/arch/arm64/kvm/pauth.c
++++ b/arch/arm64/kvm/pauth.c
+@@ -5,7 +5,7 @@
   *
-  * The test validates the basic hypercall functionalities that are exposed
-- * via the psuedo-firmware bitmap register. This includes the registers'
-+ * via the pseudo-firmware bitmap register. This includes the registers'
-  * read/write behavior before and after the VM has started, and if the
-  * hypercalls are properly masked or unmasked to the guest when disabled or
-  * enabled from the KVM userspace, respectively.
+  * Primitive PAuth emulation for ERETAA/ERETAB.
+  *
+- * This code assumes that is is run from EL2, and that it is part of
++ * This code assumes that it is run from EL2, and that it is part of
+  * the emulation of ERETAx for a guest hypervisor. That's a lot of
+  * baked-in assumptions and shortcuts.
+  *
 
