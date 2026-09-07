@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00940C79FA0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F598C79FA1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mhyAyWoHthze/cOBp9JB11+QGvD+yrpHzboGCXlpZk=; b=jDWAwDDN2k3/gwTqIsUTYebEpl
-	cFVevG2sBFpRlDjIwXqqvOnxwUS2RnEuxmBp+tNcYReMxb03pbqpVsYw9+c3gnvgUqU/EuqcX2OoN
-	ONHALUlxWppeBA1ul3RrXikLrZDiNTLgXm5QJ37u0wW32kz8OqkD/FcEU1sRkOaCmrJNkk4SNrDIC
-	jAhLmsoKZwr0lbapzF+9+jACE9X4agsIA/HY2ZQTGPib7a3Kpof0x8U4Gvn75unoI9islR/NkYv4q
-	mOcxro4yYip7EJ7GPp13ZzYToKT7NeiZUepLbtEEQPpmcEpGiwEOt5rIkkqmUfH6JgCIx8FrqGepE
-	aja5m/ug==;
+	bh=BstDUit7ot3f0vACARqatGMXlo+FEmZofFVCm43cwtU=; b=CtL48uKJUocMSfboV2HmQzmVjN
+	4ef1GLfZ+OIM+ARDNXKAh4WYbpdfT2SeIoT1mxaxqIpMv17DleEZ2Li0AT4HXJWB7HYXR5TgOWulg
+	eK2Nqbydx9hNc2NKbEBKXHvnGoH2zBRZugd7pVuPkfJyXv4B0Wyt1EAhZsMcOxTZLVBeDPlOOYaS5
+	95ah6IiS6J+O5dVfV2nePcKXhNPjaGWDm7SNwcKLiLUDzIklq24vYRJk/TpHzZEVYZeBMT1NaxSBo
+	nM8AvwwbrmrOT6F+XlGCuE/1LWnMNJcgfLrX+De/wCAmVeupTufWI+9gNjoUbftxIbgC8W+atxGDZ
+	/qlEvGwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bRe-00000007CnT-1rww;
-	Mon, 07 Sep 2026 15:39:42 +0000
-Received: from mail-pj2-x07.google.com ([2607:f8b0:4864:39::7])
+	id 1x3bRX-00000007CfG-1wWZ;
+	Mon, 07 Sep 2026 15:39:35 +0000
+Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3bRa-00000007Cih-2xCI
+	id 1x3bRT-00000007CaQ-29ET
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:39:41 +0000
-Received: by mail-pj2-x07.google.com with SMTP id 98e67ed59e1d1-398e03cc38aso1351360a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:39:38 -0700 (PDT)
+	Mon, 07 Sep 2026 15:39:34 +0000
+Received: by mail-pj2-x01.google.com with SMTP id 98e67ed59e1d1-396a51b2605so1467406a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 08:39:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788795578; x=1789400378; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788795571; x=1789400371; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+mhyAyWoHthze/cOBp9JB11+QGvD+yrpHzboGCXlpZk=;
-        b=DL/UC44TKV6uq1YR4JBDgDCxICoO8ze7thKwNbpvcKPOc2CVq52oGO90g0b6AVbe77
-         1VT0uOtCqtDZNGtXW++6+adv3gkaKa5ruCKR/8t8n/0ZFThcR515yx0CPXwiqDX4poD1
-         6rkMggpEwkj1aQTtSRwWPeeDZoMEdzyzAOKhFC2ZX9qgHyV+1NimYaTwKxU9q6EOrykf
-         oQlXhlzRo4yuf3YpIr/A0LQPXZDaCSxLPrP86Ro4UrBdIBuVblUytDWADl+23gr5kzuA
-         4hn2KO1ra1HY80e1DXLwZEnXSGw5SCwlPK/LtbaPPVa0hW+uO9R1iFzENf4NRH84/t8G
-         ikow==
+        bh=BstDUit7ot3f0vACARqatGMXlo+FEmZofFVCm43cwtU=;
+        b=GBaZrLaQnbJDLrtofJy58biozmbD6J+Q4ghs0QFAJZ3m2pLdTPvEYlJXfCutw64/Ly
+         lkqtW5Shmo+zow8dimJC/3i+jw8hkMu7ffGR0MWlzswOnyQuX2O76OQlJuAISFm5BZ7g
+         EBocJCU50F5pYO1O+vNSVe+UWzLG2XAlXlMRxwHh05K6kwXz3V1XF5dU7I12oXCL6Dd3
+         szVdKIxVv7qlGr/rPFO+BCa+VHE4asZfQcRiKh5ZeeBVCnLaZjqlgAZVtUFh/5Inq0H4
+         3Yi7SZ+SsB7qQXp06zwY1Sw3GVGIbUnPOGjDmc1ykIn5SeSztnDKHI0TPZI2pKTe2uLP
+         o3UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788795578; x=1789400378;
+        d=1e100.net; s=20251104; t=1788795571; x=1789400371;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+mhyAyWoHthze/cOBp9JB11+QGvD+yrpHzboGCXlpZk=;
-        b=U0y7Xj+TkQ0qhMZtpaWwVJK4VScvExowm7xx4F9X+TI5elk86HbvA4FwYgihIDIT1P
-         7S6f95shpqaRWuJUjgLcnCMTl871U9x4WMdj2WInPCd5iD2ELLay15RUcZNpzlZD43f4
-         iC03PM9zz3K/B+x2cp4oth23Ud4Dgbil+c7NNLCJxwJwxHhmU07YxeC710hx4ZBRFjNv
-         5AkU9zl9tqH2JWpm3JpE04msvkdzNoGpfsm+aq5zQBhYYTAwiVPLJYxtBz0lWRKIIPq9
-         udYGC3BlmCk2v1skGF16ohdCsBJQEEq5UOnVnN0i4JSS5XuBEIrBGo9XIAL0gCblJiQr
-         xfww==
-X-Forwarded-Encrypted: i=1; AKwUvBzBH9KEmDpI0SwMKzxMBkXJNBrRkM0uQmrYlsaCtHwW7Usqra0MjsE+FQv9b5toOZTnaj7qw0wNvExRJ80/5kRo@lists.infradead.org
-X-Gm-Message-State: AFuF++ksVJ6pzedh5NQtuGa88EaoKZGQU37L/5qNBKyXrCHL0KWqoeQV
-	HOC+/1zQ4nctZGzuKl04388d3zvAgkEyO33WjaX9h8hB1m/zvmSD2yWQ
-X-Gm-Gg: AYBFou0+cOlOqbc2R6Td8x7lv5k6wliiXVPha8rskUJIcxYlbnxpFUztogeXJQlB1No
-	vb09pHMvO/8ruJMfUVLbmX+cZX3h6SBx0jXgd7aUvSHeGYdpTDr5lN0tl7nEnAkSK7SZ41tRylE
-	YadTd/myJzLtrFDUw9S/vsYXT28WQ5r2ZXYZOV/zOqL5xbaN1uDYqMOrcgwb/yWREiuct2KwviU
-	vLbLr0Py+a+2mwGm+kdPAHHtjToK2kgEuEOyxxYo2b+g3ARdBIoTUHkSjycf/rjAsnMhmuQLM45
-	KcSFMldify1Kw+8dJkHtfQlEmIaETpmhRES4b8ZnyHDwNMm3Bu8DDuGzxRAQNFDZLJTxXe77+G8
-	ZaQFD+1SCQSXCJ0YpPhfBv+FAMRzyJPxAc3B9vMHEAaplv9r3ts7IsjTw6yj4ySRZarKSQ1s6nX
-	m45q6qUjePU5YHbu4Oi0jT/nsCoUv2KkhTYYf3BwZy53uf4B+W+7PxZMSGlxY=
-X-Received: by 2002:a17:90b:4c06:b0:396:b98b:a3c2 with SMTP id 98e67ed59e1d1-39b26116d9fmr30692166a91.8.1788795577748;
-        Mon, 07 Sep 2026 08:39:37 -0700 (PDT)
+        bh=BstDUit7ot3f0vACARqatGMXlo+FEmZofFVCm43cwtU=;
+        b=HTRw0uG0TLMwLoyqLDwAxhhwiV/j1KadJSgrvbuFBmKdzoTBYxAVtNZeNG+D76FbNd
+         CHjh+s/Bdg6UYhkikFWm1tQc2w6pJvz8UqYZ9injJC3Fn9NGs2ttYpwabduTtcP4Xq4m
+         174Qcq/gNStItmXGEAnavAyStWGgiFu6GKPupn6qct4BeFqbWCkctxyG82n1FBYbuBMj
+         pPp5mZCiw6iGZE3X1fptNn0SQPukrK8EEKdNqRs2omFyrz8DOGN1FaeLz7oOBTNfTjno
+         iCeM7ocenYzZIWVBiBWTB+4ql07nTMQshyd6kVXxYzLV4XNI5CquIBr+DHCkDTHpmD5H
+         9p2A==
+X-Forwarded-Encrypted: i=1; AKwUvBxkA3SyeCSHOV/x/yVoykOp54B/tjLXM41RKq4brK3mySiTpyDpuXMP1pfbhNx6d7Eg1wPQQE/M50VsNgY/G5XD@lists.infradead.org
+X-Gm-Message-State: AFuF++mIt5ucG0bZbfiveiIyiTtXBFOTrsHwlC+zLsDUqzK5kOK583lD
+	E5pBTvt0IFjutLVfaG/Rqpeg1R2h1nm3HuIYMiGD44F0K8YqqwvGOYCl
+X-Gm-Gg: AYBFou0UA8rEKlwSKmjuRJyLRVfFwJuaC6B0+d59QwnWiSgNAkMLMHjXNQaaNpOUaMw
+	sVNtyVDTVtHBejdOl6SofjtM0aEvDGjM27qTGpkLMK3chcKuoGzub16H82unF8AZrj5ayFnNHdp
+	CjdZa8ASFpxU5d6CEkL5DmzFMqyFM/CrISgBI6it/GqQpN0EgA4mfxEU3gZmExcHexHxiMGMOib
+	BGO0e5KKclzVkE+zCtci/2AKT8RcdglO4eVtZhjq62MVBVaxFGdNkXaSKqMq/wf77I84CRAqP94
+	cEXmrfwOOnhK0MPcywiZVtZ7z41IAkkNlH4uelwdH/ZTeRCEn427h9ZjTg5853y0MGaiyw5rMgI
+	vtDFhNQuPLtxSG6bYMBzecpOdfTwL/LcA8uCYrSYworrlWrgvOtZyjJQ8ykE5JjJoB9kaMXdWuJ
+	Xy5feKdvPxo+JJVS/RvBRXLTO91VvYbfB/tayxJ5lkPGjXimuxRyiqatavRBA=
+X-Received: by 2002:a17:90a:d2c7:b0:398:9bd1:3216 with SMTP id 98e67ed59e1d1-39b262e4e02mr33977790a91.23.1788795570525;
+        Mon, 07 Sep 2026 08:39:30 -0700 (PDT)
 Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm21690121a91.9.2026.09.07.08.39.30
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b260fdf9asm21690121a91.9.2026.09.07.08.39.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Sep 2026 08:39:37 -0700 (PDT)
+        Mon, 07 Sep 2026 08:39:29 -0700 (PDT)
 From: Coia Prant <coiaprant@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
@@ -99,17 +99,17 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH net-next v4 08/10] net: stmmac: dwmac-rk: add SGMII support for RK3568
-Date: Mon,  7 Sep 2026 23:37:11 +0800
-Message-ID: <20260907153713.2572547-10-coiaprant@gmail.com>
+Subject: [PATCH net-next v4 07/10] net: pcs: xpcs: add Rockchip RK3568 platform glue driver
+Date: Mon,  7 Sep 2026 23:37:10 +0800
+Message-ID: <20260907153713.2572547-9-coiaprant@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907153713.2572547-2-coiaprant@gmail.com>
 References: <20260907153713.2572547-2-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_083938_765430_5D78BD2B 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20260907_083931_608295_B05D1795 
+X-CRM114-Status: GOOD (  29.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,328 +124,653 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3568 SoC integrates a Synopsys DesignWare XPCS that can be
-connected to GMAC0 or GMAC1 in SGMII mode.  Add the necessary glue
-logic to support this configuration.
+The RK3568 SoC integrates a Synopsys DesignWare XPCS that is accessed
+via APB3 memory-mapped registers.
+This driver provides the glue logic to make the XPCS accessible to
+the generic pcs-xpcs core.
 
-The current dwmac-rk driver does not support SGMII mode.  SGMII
-requires a PCS to handle auto-negotiation and link state reporting,
-but the existing driver only supports RGMII and RMII.
+The XPCS block contains four MII ports (0..3), each of which can be
+routed to GMAC0 or GMAC1 via the pcs-handle property in the MAC node.
+The hardware maps these ports to different MMDs:
+  - port 0: MMD 7 (ROCKCHIP_MMD_MII)
+  - port 1: MMD 2 (ROCKCHIP_MMD_MII1)
+  - port 2: MMD 3 (ROCKCHIP_MMD_MII2)
+  - port 3: MMD 4 (ROCKCHIP_MMD_MII3)
 
-Add a set_to_sgmii() callback to configure the GMAC GRF register for
-SGMII mode (bit 7 set, interface selection bits 4:6 ignored when set).
-Also add a supports_sgmii flag to indicate SGMII capability.
+This driver creates a virtual MDIO bus that translates MDIO operations
+to APB3 register accesses, with proper address remapping for each port.
+The generic xpcs driver then creates a phylink_pcs instance on top of
+this bus, allowing the MAC to use the PCS via the standard phylink API.
 
-Provide pcs_init/pcs_exit callbacks to create/destroy the XPCS via
-xpcs_rk_create() from the Rockchip XPCS platform driver, and a
-select_pcs callback to return the XPCS to phylink.
-
-While at it, fix the clock enable ordering in rk_gmac_powerup():
-gmac_clk_enable() is now called before any register access, including
-the SGMII mode setup path.  Previously SGMII mode would bypass the
-clock enable via a goto, which could cause synchronous external abort
-when accessing MAC registers with the clock domain disabled.
-
-Also clean up the error handling in rk_gmac_powerup() by using a
-unified clk_disable label, and add error handling for the default
-(unhandled interface) case.
-
-SGMII In-band vs Out-of-band
-============================
-On RK3568, the MAC clock is fixed at 125 MHz and cannot be dynamically
-changed by the stmmac core's set_clk_tx_rate callback.  In-band mode
-works because the PCS handles rate adaptation internally.  Out-of-band
-mode does not work because the MAC would need to change the clock rate
-to 125/12.5/1.25 MHz for 1000/100/10 Mbps respectively, and the clock
-is fixed.
-
-Enable default_an_inband for SGMII and disable the generic stmmac
-set_clk_tx_rate callback.  This forces phylink to use in-band mode,
-where the PCS is responsible for speed/duplex negotiation.  Without
-this, the stmmac core would attempt to change the clock rate on speed
-changes, causing TX to work but RX to fail.
-
-Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part1%20V1.1-20210301.pdf (Page 386)
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Link: https://dl.radxa.com/rock3/docs/hw/datasheet/Rockchip%20RK3568%20TRM%20Part2%20V1.1-20210301.pdf (Page 2078)
 Signed-off-by: Coia Prant <coiaprant@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 121 +++++++++++++++---
- 2 files changed, 104 insertions(+), 18 deletions(-)
+ drivers/net/pcs/Kconfig         |  23 ++
+ drivers/net/pcs/Makefile        |   5 +-
+ drivers/net/pcs/pcs-xpcs-rk.c   | 543 ++++++++++++++++++++++++++++++++
+ include/linux/pcs/pcs-xpcs-rk.h |  11 +
+ 4 files changed, 580 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/net/pcs/pcs-xpcs-rk.c
+ create mode 100644 include/linux/pcs/pcs-xpcs-rk.h
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index e3dd5adda5aca..5088acc06982e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -170,6 +170,7 @@ config DWMAC_ROCKCHIP
- 	default ARCH_ROCKCHIP
- 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
- 	select MFD_SYSCON
-+	select PCS_XPCS_ROCKCHIP
+diff --git a/drivers/net/pcs/Kconfig b/drivers/net/pcs/Kconfig
+index e417fd66f660a..88bc40791e69f 100644
+--- a/drivers/net/pcs/Kconfig
++++ b/drivers/net/pcs/Kconfig
+@@ -12,6 +12,29 @@ config PCS_XPCS
+ 	  This module provides a driver and helper functions for Synopsys
+ 	  DesignWare XPCS controllers.
+ 
++if PCS_XPCS
++
++config PCS_XPCS_PLATFORM
++	tristate "Generic XPCS controller support"
++	default PCS_XPCS
++	help
++	  Generic DWXPCS driver for platforms that don't require any
++	  platform specific code to function or is using platform
++	  data for setup.
++
++	  If you have a controller with this interface, say Y or M here.
++
++config PCS_XPCS_ROCKCHIP
++	tristate "Rockchip XPCS controller support"
++	default ARCH_ROCKCHIP
++	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
++	help
++	  Support for XPCS controller on Rockchip RK356x SoC.
++
++	  If you have a Rockchip SoC with this interface, say Y or M here.
++
++endif # PCS_XPCS
++
+ config PCS_LYNX
+ 	tristate
  	help
- 	  Support for Ethernet controller on Rockchip RK3288 SoC.
+diff --git a/drivers/net/pcs/Makefile b/drivers/net/pcs/Makefile
+index 4f7920618b900..f9f6cf2578d72 100644
+--- a/drivers/net/pcs/Makefile
++++ b/drivers/net/pcs/Makefile
+@@ -1,10 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Makefile for Linux PCS drivers
  
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 8d7042e689261..e47ca1bec5b8b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -20,6 +20,7 @@
- #include <linux/delay.h>
- #include <linux/mfd/syscon.h>
- #include <linux/regmap.h>
+-pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-plat.o \
+-				   pcs-xpcs-nxp.o pcs-xpcs-wx.o
++pcs_xpcs-$(CONFIG_PCS_XPCS)	:= pcs-xpcs.o pcs-xpcs-nxp.o pcs-xpcs-wx.o
+ 
+ obj-$(CONFIG_PCS_XPCS)		+= pcs_xpcs.o
++obj-$(CONFIG_PCS_XPCS_PLATFORM) += pcs-xpcs-plat.o
++obj-$(CONFIG_PCS_XPCS_ROCKCHIP) += pcs-xpcs-rk.o
+ obj-$(CONFIG_PCS_LYNX)		+= pcs-lynx.o
+ obj-$(CONFIG_PCS_MTK_LYNXI)	+= pcs-mtk-lynxi.o
+ obj-$(CONFIG_PCS_RZN1_MIIC)	+= pcs-rzn1-miic.o
+diff --git a/drivers/net/pcs/pcs-xpcs-rk.c b/drivers/net/pcs/pcs-xpcs-rk.c
+new file mode 100644
+index 0000000000000..68bcaa1a5cbbf
+--- /dev/null
++++ b/drivers/net/pcs/pcs-xpcs-rk.c
+@@ -0,0 +1,543 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Rockchip XPCS platform device driver
++ *
++ * Based on the Synopsys DesignWare XPCS platform driver.
++ * Copyright (C) 2024 Serge Semin
++ *
++ * Adapted for Rockchip SoCs, with reference to the Rockchip OEM driver.
++ * Copyright (C) 2026 Coia Prant
++ */
++
++#include <linux/atomic.h>
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/mdio.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
 +#include <linux/pcs/pcs-xpcs-rk.h>
- #include <linux/pm_runtime.h>
- 
- #include "stmmac_platform.h"
-@@ -47,6 +48,7 @@ struct rk_gmac_ops {
- 	void (*set_to_rgmii)(struct rk_priv_data *bsp_priv,
- 			     int tx_delay, int rx_delay);
- 	void (*set_to_rmii)(struct rk_priv_data *bsp_priv);
-+	void (*set_to_sgmii)(struct rk_priv_data *bsp_priv);
- 	int (*set_speed)(struct rk_priv_data *bsp_priv,
- 			 phy_interface_t interface, int speed);
- 	void (*integrated_phy_powerup)(struct rk_priv_data *bsp_priv);
-@@ -63,6 +65,7 @@ struct rk_gmac_ops {
- 	bool clock_grf_reg_in_php;
- 	bool supports_rgmii;
- 	bool supports_rmii;
-+	bool supports_sgmii;
- 	bool php_grf_required;
- 	bool regs_valid;
- 	u32 regs[];
-@@ -98,6 +101,7 @@ struct rk_priv_data {
- 	bool integrated_phy;
- 	bool supports_rgmii;
- 	bool supports_rmii;
-+	bool supports_sgmii;
- 
- 	struct clk_bulk_data *clks;
- 	int num_clks;
-@@ -809,6 +813,8 @@ static const struct rk_gmac_ops rk3528_ops = {
- #define RK3568_GRF_GMAC1_CON1		0x038c
- 
- /* RK3568_GRF_GMAC0_CON1 && RK3568_GRF_GMAC1_CON1 */
-+#define RK3568_GMAC_MODE_RMII_RGMII		GRF_CLR_BIT(7)
-+#define RK3568_GMAC_MODE_SGMII_QSGMII		GRF_BIT(7)
- #define RK3568_GMAC_FLOW_CTRL			GRF_BIT(3)
- #define RK3568_GMAC_FLOW_CTRL_CLR		GRF_CLR_BIT(3)
- #define RK3568_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
-@@ -851,18 +857,32 @@ static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 		     RK3568_GMAC_CLK_TX_DL_CFG(tx_delay));
- 
- 	regmap_write(bsp_priv->grf, con1,
-+		     RK3568_GMAC_MODE_RMII_RGMII |
- 		     RK3568_GMAC_RXCLK_DLY_ENABLE |
- 		     RK3568_GMAC_TXCLK_DLY_ENABLE);
- }
- 
-+static void rk3568_set_to_sgmii(struct rk_priv_data *bsp_priv)
++#include <linux/phy.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/pm_domain.h>
++#include <linux/pm_runtime.h>
++#include <linux/property.h>
++#include <linux/sizes.h>
++
++#include "pcs-xpcs.h"
++
++struct dw_xpcs_rk {
++	struct platform_device *pdev;
++	struct mii_bus *bus;
++	void __iomem *reg_base;
++	struct phy *serdes_phy;
++	struct clk *csr_clk;
++	struct clk *eee_clk;
++};
++
++static ptrdiff_t xpcs_rk_addr_format(int dev, int reg)
 +{
-+	u32 con1;
-+
-+	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
-+				     RK3568_GRF_GMAC0_CON1;
-+
-+	regmap_write(bsp_priv->grf, con1, RK3568_GMAC_MODE_SGMII_QSGMII);
++	return FIELD_PREP(0x70000, dev) | FIELD_PREP(0xffff, reg);
 +}
 +
- static const struct rk_gmac_ops rk3568_ops = {
- 	.init = rk3568_init,
- 	.set_to_rgmii = rk3568_set_to_rgmii,
-+	.set_to_sgmii = rk3568_set_to_sgmii,
-+
- 	.set_speed = rk_set_clk_mac_speed,
- 
- 	.gmac_phy_intf_sel_mask = GENMASK_U16(6, 4),
- 
- 	.supports_rmii = true,
-+	.supports_sgmii = true,
- 
- 	.regs_valid = true,
- 	.regs = {
-@@ -1208,6 +1228,43 @@ static void rk_phy_powerdown(struct rk_priv_data *bsp_priv)
- 		dev_err(bsp_priv->dev, "fail to disable phy-supply\n");
- }
- 
-+static int rk_pcs_init(struct stmmac_priv *priv)
++static int xpcs_rk_read_reg(struct dw_xpcs_rk *pxpcs, int dev, int reg)
 +{
-+	struct device_node *np = priv->device->of_node;
-+	struct device_node *pcs_node;
-+	struct dw_xpcs *xpcs;
++	ptrdiff_t csr;
++	int ret;
 +
-+	pcs_node = of_parse_phandle(np, "pcs-handle", 0);
-+	if (!pcs_node)
-+		return -ENODEV;
++	csr = xpcs_rk_addr_format(dev, reg);
 +
-+	xpcs = xpcs_rk_create(priv->device, pcs_node);
-+	of_node_put(pcs_node);
-+	if (IS_ERR(xpcs))
-+		return PTR_ERR(xpcs);
-+
-+	priv->hw->xpcs = xpcs;
-+	return 0;
-+}
-+
-+static void rk_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (!priv->hw->xpcs)
-+		return;
-+
-+	xpcs_destroy(priv->hw->xpcs);
-+	priv->hw->xpcs = NULL;
-+}
-+
-+static struct phylink_pcs *rk_select_pcs(struct stmmac_priv *priv,
-+					 phy_interface_t interface)
-+{
-+	if (!priv->hw->xpcs)
-+		return NULL;
-+
-+	return xpcs_to_phylink_pcs(priv->hw->xpcs);
-+}
-+
- static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 					  struct plat_stmmacenet_data *plat,
- 					  const struct rk_gmac_ops *ops)
-@@ -1330,6 +1387,7 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 
- 	bsp_priv->supports_rgmii = ops->supports_rgmii || !!ops->set_to_rgmii;
- 	bsp_priv->supports_rmii = ops->supports_rmii || !!ops->set_to_rmii;
-+	bsp_priv->supports_sgmii = ops->supports_sgmii || !!ops->set_to_sgmii;
- 
- 	if (ops->init) {
- 		ret = ops->init(bsp_priv);
-@@ -1361,6 +1419,10 @@ static int rk_gmac_check_ops(struct rk_priv_data *bsp_priv)
- 		if (!bsp_priv->supports_rmii)
- 			return -EINVAL;
- 		break;
-+	case PHY_INTERFACE_MODE_SGMII:
-+		if (!bsp_priv->supports_sgmii)
-+			return -EINVAL;
-+		break;
- 	default:
- 		dev_err(bsp_priv->dev,
- 			"unsupported interface %d", bsp_priv->phy_iface);
-@@ -1379,16 +1441,19 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	if (ret)
- 		return ret;
- 
-+	ret = gmac_clk_enable(bsp_priv, true);
++	ret = pm_runtime_resume_and_get(&pxpcs->pdev->dev);
 +	if (ret)
 +		return ret;
 +
-+	if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_SGMII)
-+		goto set_mode;
++	ret = readl(pxpcs->reg_base + (csr << 2)) & 0xffff;
 +
- 	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
- 	if (ret < 0)
--		return ret;
-+		goto clk_disable;
- 
- 	intf = ret;
- 
--	ret = gmac_clk_enable(bsp_priv, true);
--	if (ret)
--		return ret;
--
- 	if (bsp_priv->gmac_phy_intf_sel_mask ||
- 	    bsp_priv->gmac_rmii_mode_mask) {
- 		/* If defined, encode the phy_intf_sel value */
-@@ -1399,10 +1464,8 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 				      bsp_priv->gmac_rmii_mode_mask);
- 
- 		ret = rk_write_gmac_grf_reg(bsp_priv, val);
--		if (ret < 0) {
--			gmac_clk_enable(bsp_priv, false);
--			return ret;
--		}
-+		if (ret < 0)
-+			goto clk_disable;
- 	}
- 
- 	if (bsp_priv->clock.rmii_mode_mask) {
-@@ -1410,13 +1473,12 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 				     bsp_priv->clock.rmii_mode_mask);
- 
- 		ret = rk_write_clock_grf_reg(bsp_priv, val);
--		if (ret < 0) {
--			gmac_clk_enable(bsp_priv, false);
--			return ret;
--		}
-+		if (ret < 0)
-+			goto clk_disable;
- 	}
- 
--	/*rmii or rgmii*/
-+set_mode:
-+	/* rmii, rgmii, sgmii */
- 	switch (bsp_priv->phy_iface) {
- 	case PHY_INTERFACE_MODE_RGMII:
- 		dev_info(dev, "init for RGMII\n");
-@@ -1447,15 +1509,20 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 		if (bsp_priv->ops->set_to_rmii)
- 			bsp_priv->ops->set_to_rmii(bsp_priv);
- 		break;
-+	case PHY_INTERFACE_MODE_SGMII:
-+		dev_info(dev, "init for SGMII\n");
-+		if (bsp_priv->ops->set_to_sgmii)
-+			bsp_priv->ops->set_to_sgmii(bsp_priv);
-+		break;
- 	default:
- 		dev_err(dev, "NO interface defined!\n");
-+		ret = -EINVAL;
-+		goto clk_disable;
- 	}
- 
- 	ret = rk_phy_powerup(bsp_priv);
--	if (ret) {
--		gmac_clk_enable(bsp_priv, false);
--		return ret;
--	}
-+	if (ret)
-+		goto clk_disable;
- 
- 	pm_runtime_get_sync(dev);
- 
-@@ -1463,6 +1530,10 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 		bsp_priv->ops->integrated_phy_powerup(bsp_priv);
- 
- 	return 0;
-+
-+clk_disable:
-+	gmac_clk_enable(bsp_priv, false);
++	pm_runtime_put(&pxpcs->pdev->dev);
 +	return ret;
- }
- 
- static void rk_gmac_powerdown(struct rk_priv_data *gmac)
-@@ -1486,6 +1557,9 @@ static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
- 
- 	if (rk->supports_rmii)
- 		__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
++}
 +
-+	if (rk->supports_sgmii)
-+		__set_bit(PHY_INTERFACE_MODE_SGMII, interfaces);
- }
- 
- static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
-@@ -1602,6 +1676,17 @@ static int rk_gmac_probe(struct platform_device *pdev)
- 	plat_dat->suspend = rk_gmac_suspend;
- 	plat_dat->resume = rk_gmac_resume;
- 
-+	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_SGMII) {
-+		/* SGMII clock always runs at 125 MHz */
-+		plat_dat->set_clk_tx_rate = NULL;
++static int xpcs_rk_write_reg(struct dw_xpcs_rk *pxpcs, int dev, int reg, u16 val)
++{
++	ptrdiff_t csr;
++	int ret;
 +
-+		/* SGMII requires a PCS */
-+		plat_dat->default_an_inband = true;
-+		plat_dat->pcs_init = rk_pcs_init;
-+		plat_dat->pcs_exit = rk_pcs_exit;
-+		plat_dat->select_pcs = rk_select_pcs;
++	csr = xpcs_rk_addr_format(dev, reg);
++
++	ret = pm_runtime_resume_and_get(&pxpcs->pdev->dev);
++	if (ret)
++		return ret;
++
++	writel(val, pxpcs->reg_base + (csr << 2));
++
++	pm_runtime_put(&pxpcs->pdev->dev);
++	return 0;
++}
++
++#define ROCKCHIP_MMD_MII1	2
++#define ROCKCHIP_MMD_MII2	3
++#define ROCKCHIP_MMD_MII3	4
++#define ROCKCHIP_MMD_PMAPMD	6
++#define ROCKCHIP_MMD_MII	7
++
++static bool xpcs_rk_mdio_addr_validate(int addr)
++{
++	return !(addr < 0 || addr > 3);
++}
++
++static int xpcs_rk_mdio_read_remapping(int addr, int dev, int reg)
++{
++	switch (dev) {
++	case MDIO_MMD_PMAPMD:
++		return ROCKCHIP_MMD_PMAPMD;
++	case MDIO_MMD_VEND2:
++		break;
++	default:
++		return -ENXIO;
 +	}
 +
- 	plat_dat->bsp_priv = rk_gmac_setup(pdev, plat_dat, data);
- 	if (IS_ERR(plat_dat->bsp_priv))
- 		return PTR_ERR(plat_dat->bsp_priv);
++	/* read remapping to MII is performed by HW */
++	switch (addr) {
++	case 0:
++		return ROCKCHIP_MMD_MII;
++	case 1:
++		return ROCKCHIP_MMD_MII1;
++	case 2:
++		return ROCKCHIP_MMD_MII2;
++	case 3:
++		return ROCKCHIP_MMD_MII3;
++	default:
++		return -ENODEV;
++	}
++}
++
++static int xpcs_rk_mdio_write_remapping(int addr, int dev, int reg)
++{
++	switch (dev) {
++	case MDIO_MMD_PMAPMD:
++		return ROCKCHIP_MMD_PMAPMD;
++	case MDIO_MMD_VEND2:
++		break;
++	default:
++		return -ENXIO;
++	}
++
++	/* Writable only on MII */
++	switch (reg) {
++	case DW_VR_MII_AN_CTRL:
++	case DW_VR_MII_AN_INTR_STS:
++	case DW_VR_MII_EEE_MCTRL0:
++	case DW_VR_MII_EEE_MCTRL1:
++	case DW_VR_MII_DIG_CTRL2:
++		return ROCKCHIP_MMD_MII;
++	default:
++		break;
++	}
++
++	switch (addr) {
++	case 0:
++		return ROCKCHIP_MMD_MII;
++	case 1:
++		return ROCKCHIP_MMD_MII1;
++	case 2:
++		return ROCKCHIP_MMD_MII2;
++	case 3:
++		return ROCKCHIP_MMD_MII3;
++	default:
++		return -ENODEV;
++	}
++}
++
++static int xpcs_rk_read_c22(struct mii_bus *bus, int addr, int reg)
++{
++	struct dw_xpcs_rk *pxpcs = bus->priv;
++	int dev;
++
++	if (!xpcs_rk_mdio_addr_validate(addr))
++		return -ENODEV;
++
++	dev = xpcs_rk_mdio_read_remapping(addr, MDIO_MMD_VEND2, reg);
++	if (dev < 0)
++		return 0xffff;
++
++	return xpcs_rk_read_reg(pxpcs, dev, reg);
++}
++
++static int xpcs_rk_write_c22(struct mii_bus *bus, int addr, int reg, u16 val)
++{
++	struct dw_xpcs_rk *pxpcs = bus->priv;
++	int dev;
++
++	if (!xpcs_rk_mdio_addr_validate(addr))
++		return -ENODEV;
++
++	dev = xpcs_rk_mdio_write_remapping(addr, MDIO_MMD_VEND2, reg);
++	if (dev < 0)
++		return 0;
++
++	return xpcs_rk_write_reg(pxpcs, dev, reg, val);
++}
++
++static int xpcs_rk_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
++{
++	struct dw_xpcs_rk *pxpcs = bus->priv;
++
++	if (!xpcs_rk_mdio_addr_validate(addr))
++		return -ENODEV;
++
++	dev = xpcs_rk_mdio_read_remapping(addr, dev, reg);
++	if (dev < 0)
++		return 0xffff;
++
++	return xpcs_rk_read_reg(pxpcs, dev, reg);
++}
++
++static int xpcs_rk_write_c45(struct mii_bus *bus, int addr, int dev, int reg, u16 val)
++{
++	struct dw_xpcs_rk *pxpcs = bus->priv;
++
++	if (!xpcs_rk_mdio_addr_validate(addr))
++		return -ENODEV;
++
++	dev = xpcs_rk_mdio_write_remapping(addr, dev, reg);
++	if (dev < 0)
++		return 0;
++
++	return xpcs_rk_write_reg(pxpcs, dev, reg, val);
++}
++
++static struct dw_xpcs_rk *xpcs_rk_create_data(struct platform_device *pdev)
++{
++	struct dw_xpcs_rk *pxpcs;
++
++	pxpcs = devm_kzalloc(&pdev->dev, sizeof(*pxpcs), GFP_KERNEL);
++	if (!pxpcs)
++		return ERR_PTR(-ENOMEM);
++
++	pxpcs->pdev = pdev;
++
++	dev_set_drvdata(&pdev->dev, pxpcs);
++
++	return pxpcs;
++}
++
++static int xpcs_rk_serdes_phy_init(struct dw_xpcs_rk *pxpcs)
++{
++	struct device *dev = &pxpcs->pdev->dev;
++
++	pxpcs->serdes_phy = devm_phy_get(dev, "serdes");
++	if (IS_ERR(pxpcs->serdes_phy))
++		return dev_err_probe(dev, PTR_ERR(pxpcs->serdes_phy),
++					"Failed to get SerDes PHY\n");
++
++	return 0;
++}
++
++static void xpcs_rk_serdes_phy_poweroff(void *data)
++{
++	struct dw_xpcs_rk *pxpcs = data;
++	struct device *dev = &pxpcs->pdev->dev;
++
++	phy_power_off(pxpcs->serdes_phy);
++	phy_exit(pxpcs->serdes_phy);
++
++	dev_pm_genpd_rpm_always_on(dev, false);
++}
++
++static int xpcs_rk_serdes_phy_poweron(struct dw_xpcs_rk *pxpcs)
++{
++	struct device *dev = &pxpcs->pdev->dev;
++	int ret;
++
++	/*
++	 * The power domain is required and must be enabled, which allows us to
++	 * dynamically turn the CSR clock on/off using PM while keeping the PCS
++	 * powered on.
++	 */
++	ret = dev_pm_genpd_rpm_always_on(dev, true);
++	if (ret) {
++		dev_err(dev, "Failed to power on power-domains\n");
++		return ret;
++	}
++
++	ret = phy_init(pxpcs->serdes_phy);
++	if (ret) {
++		dev_err(dev, "Failed to init SerDes PHY\n");
++		goto pm_domain;
++	}
++
++	ret = phy_power_on(pxpcs->serdes_phy);
++	if (ret) {
++		dev_err(dev, "Failed to power on SerDes PHY\n");
++		goto serdes_phy;
++	}
++
++	ret = devm_add_action_or_reset(dev, xpcs_rk_serdes_phy_poweroff, pxpcs);
++	if (ret) {
++		dev_err(dev, "Failed to register devm for SerDes PHY: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++
++serdes_phy:
++	phy_exit(pxpcs->serdes_phy);
++pm_domain:
++	dev_pm_genpd_rpm_always_on(dev, false);
++	return ret;
++}
++
++static int xpcs_rk_init_res(struct dw_xpcs_rk *pxpcs)
++{
++	struct platform_device *pdev = pxpcs->pdev;
++	struct device *dev = &pdev->dev;
++	struct resource *res;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res) {
++		dev_err(dev, "No reg-space found\n");
++		return -EINVAL;
++	}
++
++	if (resource_size(res) < SZ_2M) {
++		dev_err(dev, "Invalid reg-space size\n");
++		return -EINVAL;
++	}
++
++	pxpcs->reg_base = devm_ioremap_resource(dev, res);
++	if (IS_ERR(pxpcs->reg_base)) {
++		dev_err(dev, "Failed to map reg-space\n");
++		return PTR_ERR(pxpcs->reg_base);
++	}
++
++	return 0;
++}
++
++static void xpcs_rk_exit_clk(void *data)
++{
++	struct dw_xpcs_rk *pxpcs = data;
++	struct device *dev = &pxpcs->pdev->dev;
++
++	clk_disable_unprepare(pxpcs->eee_clk);
++
++	pm_runtime_force_suspend(dev);
++}
++
++static int xpcs_rk_init_clk(struct dw_xpcs_rk *pxpcs)
++{
++	struct device *dev = &pxpcs->pdev->dev;
++	int ret;
++
++	pxpcs->csr_clk = devm_clk_get(dev, "csr");
++	if (IS_ERR(pxpcs->csr_clk))
++		return dev_err_probe(dev, PTR_ERR(pxpcs->csr_clk),
++					 "Failed to get CSR clock\n");
++
++	pxpcs->eee_clk = devm_clk_get(dev, "eee");
++	if (IS_ERR(pxpcs->eee_clk))
++		return dev_err_probe(dev, PTR_ERR(pxpcs->eee_clk),
++					 "Failed to get EEE clock\n");
++
++	ret = clk_prepare_enable(pxpcs->eee_clk);
++	if (ret) {
++		dev_err(dev, "Failed to enable EEE clock\n");
++		return ret;
++	}
++
++	pm_runtime_set_suspended(dev);
++	pm_runtime_enable(dev);
++
++	ret = devm_add_action_or_reset(dev, xpcs_rk_exit_clk, pxpcs);
++	if (ret) {
++		dev_err(dev, "Failed to register devm for EEE clock: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static int xpcs_rk_init_bus(struct dw_xpcs_rk *pxpcs)
++{
++	struct device *dev = &pxpcs->pdev->dev;
++	static atomic_t id = ATOMIC_INIT(-1);
++	struct mii_bus *bus;
++	int ret;
++
++	bus = devm_mdiobus_alloc_size(dev, 0);
++	if (!bus)
++		return -ENOMEM;
++
++	bus->name = "Rockchip DW XPCS MCI/APB3";
++	bus->read = xpcs_rk_read_c22;
++	bus->write = xpcs_rk_write_c22;
++	bus->read_c45 = xpcs_rk_read_c45;
++	bus->write_c45 = xpcs_rk_write_c45;
++	bus->phy_mask = ~0;
++	bus->parent = dev;
++	bus->priv = pxpcs;
++
++	snprintf(bus->id, MII_BUS_ID_SIZE,
++		 "rockchip_dwxpcs-%x", atomic_inc_return(&id));
++
++	/*
++	 * MDIO-bus here serves as just a back-end engine abstracting out
++	 * the MDIO and MCI/APB3 IO interfaces utilized for the Rockchip DWXPCS CSRs
++	 * access.
++	 */
++	ret = devm_mdiobus_register(dev, bus);
++	if (ret) {
++		dev_err(dev, "Failed to create MDIO bus\n");
++		return ret;
++	}
++
++	pxpcs->bus = bus;
++	return 0;
++}
++
++static int xpcs_rk_probe(struct platform_device *pdev)
++{
++	struct dw_xpcs_rk *pxpcs;
++	int ret;
++
++	pxpcs = xpcs_rk_create_data(pdev);
++	if (IS_ERR(pxpcs))
++		return PTR_ERR(pxpcs);
++
++	/*
++	 * The XPCS may be attached to a power domain (e.g. PD_PIPE). The domain
++	 * must be powered on before any register access, otherwise the SoC will
++	 * trigger a synchronous external abort (SError).
++	 *
++	 * Accessing the XPCS registers also requires a TX clock from the SerDes,
++	 * which is needed for the soft reset.
++	 */
++	ret = xpcs_rk_serdes_phy_init(pxpcs);
++	if (ret)
++		return ret;
++
++	ret = xpcs_rk_serdes_phy_poweron(pxpcs);
++	if (ret)
++		return ret;
++
++	ret = xpcs_rk_init_res(pxpcs);
++	if (ret)
++		return ret;
++
++	ret = xpcs_rk_init_clk(pxpcs);
++	if (ret)
++		return ret;
++
++	ret = xpcs_rk_init_bus(pxpcs);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static const struct of_device_id xpcs_rk_of_ids[] = {
++	{ .compatible = "rockchip,rk3568-xpcs" },
++	{ /* sentinel */ },
++};
++MODULE_DEVICE_TABLE(of, xpcs_rk_of_ids);
++
++struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *np)
++{
++	struct platform_device *pdev;
++	struct device_node *pcs_np;
++	struct dw_xpcs_rk *pxpcs;
++	struct dw_xpcs *xpcs;
++	u32 port;
++
++	if (!of_device_is_available(np))
++		return ERR_PTR(-ENODEV);
++
++	if (of_property_read_u32(np, "reg", &port))
++		return ERR_PTR(-EINVAL);
++
++	if (!xpcs_rk_mdio_addr_validate((int)port))
++		return ERR_PTR(-EINVAL);
++
++	/* The XPCS pdev is attached to the parent node */
++	pcs_np = of_get_parent(np);
++	if (!pcs_np)
++		return ERR_PTR(-ENODEV);
++
++	if (!of_device_is_available(pcs_np)) {
++		of_node_put(pcs_np);
++		return ERR_PTR(-ENODEV);
++	}
++
++	if (!of_match_node(xpcs_rk_of_ids, pcs_np)) {
++		of_node_put(pcs_np);
++		return ERR_PTR(-EINVAL);
++	}
++
++	pdev = of_find_device_by_node(pcs_np);
++	of_node_put(pcs_np);
++	if (!pdev)
++		return ERR_PTR(-EPROBE_DEFER);
++
++	device_lock(&pdev->dev);
++	pxpcs = platform_get_drvdata(pdev);
++	if (!pxpcs || !pxpcs->bus) {
++		device_unlock(&pdev->dev);
++		put_device(&pdev->dev);
++		return ERR_PTR(-EPROBE_DEFER);
++	}
++
++	xpcs = xpcs_create_mdiodev(pxpcs->bus, (int)port);
++	device_unlock(&pdev->dev);
++	if (IS_ERR(xpcs)) {
++		put_device(&pdev->dev);
++		return xpcs;
++	}
++
++	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_CONSUMER)) {
++		xpcs_destroy(xpcs);
++		put_device(&pdev->dev);
++		return ERR_PTR(-ENOMEM);
++	}
++
++	put_device(&pdev->dev);
++	return xpcs;
++}
++EXPORT_SYMBOL_GPL(xpcs_rk_create);
++
++static int xpcs_rk_pm_runtime_suspend(struct device *dev)
++{
++	struct dw_xpcs_rk *pxpcs = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(pxpcs->csr_clk);
++
++	return 0;
++}
++
++static int xpcs_rk_pm_runtime_resume(struct device *dev)
++{
++	struct dw_xpcs_rk *pxpcs = dev_get_drvdata(dev);
++
++	return clk_prepare_enable(pxpcs->csr_clk);
++}
++
++static DEFINE_RUNTIME_DEV_PM_OPS(xpcs_rk_pm_ops,
++			   xpcs_rk_pm_runtime_suspend,
++			   xpcs_rk_pm_runtime_resume,
++			   NULL);
++
++static struct platform_driver xpcs_rk_driver = {
++	.probe = xpcs_rk_probe,
++	.driver = {
++		.name = "rk_xpcs-dwxpcs",
++		.pm = pm_ptr(&xpcs_rk_pm_ops),
++		.of_match_table = xpcs_rk_of_ids,
++	},
++};
++module_platform_driver(xpcs_rk_driver);
++
++MODULE_DESCRIPTION("Rockchip XPCS platform device driver");
++MODULE_AUTHOR("Coia Prant <coiaprant@gmail.com>");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/pcs/pcs-xpcs-rk.h b/include/linux/pcs/pcs-xpcs-rk.h
+new file mode 100644
+index 0000000000000..28723d5bd75cc
+--- /dev/null
++++ b/include/linux/pcs/pcs-xpcs-rk.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __LINUX_PCS_XPCS_ROCKCHIP_H
++#define __LINUX_PCS_XPCS_ROCKCHIP_H
++
++#include <linux/device.h>
++#include <linux/of.h>
++#include <linux/pcs/pcs-xpcs.h>
++
++struct dw_xpcs *xpcs_rk_create(struct device *dev, struct device_node *np);
++
++#endif /* __LINUX_PCS_XPCS_ROCKCHIP_H */
 -- 
 2.47.3
 
