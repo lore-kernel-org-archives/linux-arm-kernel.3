@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD05C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CB4C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slBfEXfmlFqojlsYQ0rgM6V/6N10xUVb/4TTHC5BcLU=; b=D3K/sYAWVx/YVyA9y+YZCl84VD
-	/jUniQ0B9cun8aT3Rn9eHkwAX+lNJK5q7W45nfQw+3aaWctpHK2IAQ5FI5M3pUgmL5I5d8a9Er3yc
-	1vx8PpqpXFqfyo/vFpf0ZPez+5MCD2Mk404crdol2dFzJByiStUYJMha+IeLKaFG3A23rtMyu7pOy
-	PeiZz+CqSV/Iuega2tJUuKFrWWIUfT/o6Dy9/3YlDr/NvDlSskG0sfFXnBAIAx5ClWuYgE+3Ebkf5
-	HXWREtPe4n6pk9AImeI6EfQGmbBVeafztPvccJNvTN89gwnw+4/lBaBiYPlnvnYyv5YUTgBT297Qu
-	lMtgXsEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gS5KVI+4yQZf58FrqRaCjURnmXDn+UkPbYquQY74jXw=; b=Tlb0Z/OPLiIk0EYnABIuEiidBC
+	zjG4n+27AL1fi/f89yBaP97HRs1PL0nTzjZlz/+qwcbo1kG2QN6b0IQBGZ4TYD9rmtlLRLvmG9Xda
+	r23xKvXAVWjhp+VHViLurLl9d1/Q0D+G9VNbpuv8J9Vwceeeyw1ymmcpXJoO47Bb9/ZfkBWiAIo4s
+	bqWv5AOiyIQYxjPx1SyQONpT42I50ghSYuEPRoKgND/pXQk3Cvs9ld9kh8Hf1z86lkYp2yiqzhYLN
+	yHYsGYt1NQKY3W/8bcqWNMFQcxAPWvtUrT0XKkmzB9pktB89162mOrpumZK4wUFRmkZdHCfNQPryE
+	V8tjn3Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZYb-00000006xjy-2oKk;
-	Mon, 07 Sep 2026 13:38:45 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1x3Zdg-00000006yDf-1VJv;
+	Mon, 07 Sep 2026 13:44:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ZYZ-00000006xjC-1uRa
+	id 1x3Zdd-00000006yDC-1bSo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 13:38:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
- h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
- Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
- s=fe-953a8a3ca9; t=1788788322;
- bh=slBfEXfmlFqojlsYQ0rgM6V/6N10xUVb/4TTHC5BcLU=;
- b=uGvG4It5Gwa3VlZeK0LqVNgCMNxtyVqzUDswPOq5IeaZR0CxWItM3LxBcIqREkWb7PTVCBWWC
- txV1eblA6gJZGxwsuffXUQ7jOV0DYWjj4chKcQ89XnaEL1QFwlzrSSaoVBYCrOjAy5cQ4NvulME
- kXaQgBs0FQUvbSWXbcA2IKW2bMF/C2SgR0V8VtciDDEili8aKTR6YN+IBrMVxn435VC9wn7HCsO
- 9yZveK7RpBCgRa2gUEy0kdV6zmC9vTlqBSvA9gT/2A3ki4dkuT7WCJoe7axuyCiUpPI8YMoJ/4D
- hRKkqN93P8RznlKehkm6jgl5pJzk0MHffLu95WcshIMg==
-X-Forward-Email-ID: 6a9ebe5670f4b45aa0d06668
-X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.14.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8; format=Flowed
-Date: Mon, 07 Sep 2026 09:38:28 -0400
-Message-Id: <DL94J88RKZ3S.2EX69YJ6JOX4P@ubuntu.com>
-Subject: Re: [PATCH v2 11/22] thunderbolt: Find Apple VSE capability during
- startup
-From: "Joshua Peisach" <jpeisach@ubuntu.com>
-To: "Sven Peter" <sven@kernel.org>, "Heikki Krogerus"
- <heikki.krogerus@linux.intel.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Andreas
- Noever" <andreas.noever@gmail.com>, "Mika Westerberg" <westeri@kernel.org>,
- "Yehezkel Bernat" <YehezkelShB@gmail.com>, "Philipp Zabel"
- <p.zabel@pengutronix.de>
-Cc: "Konrad Dybcio" <konradybcio@kernel.org>, <linux-usb@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.21.0
-References: <20260906-b4-apple-soc-tbt-v2-0-1f80085f93fb@kernel.org>
- <20260906-b4-apple-soc-tbt-v2-11-1f80085f93fb@kernel.org>
-In-Reply-To: <20260906-b4-apple-soc-tbt-v2-11-1f80085f93fb@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_063843_879518_3907F5D8 
-X-CRM114-Status: GOOD (  14.33  )
+	Mon, 07 Sep 2026 13:43:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC8E543C4C
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 13:43:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE8041F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  7 Sep 2026 13:43:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788788636;
+	bh=gS5KVI+4yQZf58FrqRaCjURnmXDn+UkPbYquQY74jXw=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=LIdB0hPr/C2wJVMOt5nJQYb9K60zCLRIDqqYKVE+No36zAB/v9XrWuRwWGHvj9KoG
+	 Qmi+GA7d7b+c6nSxD7xdfc3BVs9f/ktXO6w/dH5tNCARrP6z6kLyZ1R8kTgS1ldJob
+	 u7nBMgtUiRrP9SvnbI83Ugt+KrCZ3Z98LV0pb9/7x1O5D351Dj/rsekNRbYL9JAqSj
+	 tDZ2c/Q+xmnlRrPxm57qWdqNoYWebuWtuDds1cpyb2t0UvEJuUnWObxrgJ/jXNgcxF
+	 7iTLaXmiP9p1xD1OU75wU7Vh4BEN54MLWGVMvOuSe+HpHnzinhWsuJbyVzigw93s2h
+	 8/EaP+21XjR4A==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b5f21afe8cso5548188e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:43:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBxCAZRfyDVQRqGPb5FpP0It0VXJs7ZksCz3b/ppen+Z3FXcB2ctZBTN8aAlODHUGn+/mLK2bjr8qLBYX8seaheD@lists.infradead.org
+X-Gm-Message-State: AFuF++kAmBMXTHIUc2pz/miRI+wBqza0YSd2q0/p/V2opLklpaUOAutW
+	jMjPqBmjune60dibRjY9FT68UW86IQzebpVrwsq6U/5Zode8UXJ+eF0dUxrfXfq37pxT42C5o32
+	iC5Wef2CoQrMqI68ZGqHShyiJBFHY1weGBktaN1pywQ==
+X-Received: by 2002:a05:6512:3f20:b0:5b6:10bc:dc4a with SMTP id
+ 2adb3069b0e04-5b610bcdda5mr4154057e87.33.1788788635406; Mon, 07 Sep 2026
+ 06:43:55 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 7 Sep 2026 06:43:53 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 7 Sep 2026 06:43:53 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260904114345.27509-1-hemanth.selam@gmail.com>
+MIME-Version: 1.0
+References: <20260904114345.27509-1-hemanth.selam@gmail.com>
+Date: Mon, 7 Sep 2026 06:43:53 -0700
+X-Gmail-Original-Message-ID: <CAMRc=McXzTWFc2KCoKoiXrjfJJC3e6ZRD67cRpBM1xR-GbzxOw@mail.gmail.com>
+X-Gm-Features: AcwNN1WNfEGXDsyeIgZ-XbB4z1C5oh_dNjOjXAIjSW9W2zVJYyiLOhmf6dkuuZs
+Message-ID: <CAMRc=McXzTWFc2KCoKoiXrjfJJC3e6ZRD67cRpBM1xR-GbzxOw@mail.gmail.com>
+Subject: Re: [PATCH] crypto: fix typos in comments
+To: Hemanth Selam <hemanth.selam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	George Cherian <gcherian@marvell.com>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	John Allen <john.allen@amd.com>, Gilad Ben-Yossef <gilad@benyossef.com>, 
+	Ayush Sawal <ayush.sawal@chelsio.com>, Srujana Challa <schalla@marvell.com>, 
+	Bharat Bhushan <bbhushan2@marvell.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun Sep 6, 2026 at 2:36 PM EDT, Sven Peter wrote:
-> Only Apple Silicon host routers have the Apple vendor-specific extended
-> capability. Look it up when the software connection manager starts and
-> store its offset in the root switch.
+On Fri, 4 Sep 2026 13:43:39 +0200, Hemanth Selam <hemanth.selam@gmail.com> said:
+> Fix typos in comments, reported by scripts/checkpatch.pl using the
+> misspelling list in scripts/spelling.txt.  Only touches comments, no code
+> changes.
 >
-> The Apple NHI driver can then use the stored offset when programming
-> cable information without searching the router capabilities itself.
->
-> Signed-off-by: Sven Peter <sven@kernel.org>
+> Assisted-by: Cursor:claude-opus-5
+> Signed-off-by: Hemanth Selam <hemanth.selam@gmail.com>
 > ---
->  drivers/thunderbolt/tb.c      | 4 ++++
->  drivers/thunderbolt/tb.h      | 2 ++
->  drivers/thunderbolt/tb_regs.h | 1 +
->  3 files changed, 7 insertions(+)
->
-> diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-> index bf1c192ec10a..d2832323cc36 100644
-> --- a/drivers/thunderbolt/tb.c
-> +++ b/drivers/thunderbolt/tb.c
-> @@ -3025,6 +3025,10 @@ static int tb_start(struct tb *tb, bool reset)
->  		return dev_err_probe(tb->nhi->dev, PTR_ERR(tb->root_switch),
->  				     "failed to allocate host router\n");
-> =20
-> +	ret =3D tb_switch_find_vse_cap(tb->root_switch, TB_VSE_CAP_APPLE);
-> +	if (ret > 0)
-> +		tb->root_switch->cap_vsec_apple =3D ret;
-> +
+>  drivers/crypto/atmel-sha.c                       |  4 ++--
+>  drivers/crypto/cavium/cpt/cptpf_main.c           | 12 ++++++------
+>  drivers/crypto/cavium/cpt/cptvf_main.c           |  4 ++--
+>  drivers/crypto/cavium/cpt/cptvf_mbox.c           |  4 ++--
+>  drivers/crypto/cavium/nitrox/nitrox_main.c       |  2 +-
+>  drivers/crypto/ccp/ccp-dev.c                     |  2 +-
+>  drivers/crypto/ccree/cc_buffer_mgr.c             |  4 ++--
+>  drivers/crypto/chelsio/chcr_algo.c               |  2 +-
+>  drivers/crypto/hisilicon/sec/sec_algs.c          |  2 +-
+>  drivers/crypto/marvell/octeontx/otx_cptvf_mbox.c |  4 ++--
+>  drivers/crypto/omap-sham.c                       |  4 ++--
+>  drivers/crypto/qce/aead.c                        |  2 +-
 
-Nitpick: I *think* based on the surrounding code that this can be
-simplified to "if (ret)"
+For QCE:
 
--Josh
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
