@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF00BC79FA1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4ECC79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 15:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wudceGLt62w3o+e3x4RUDMN4HluyPL4Ts+Eyk51ebws=; b=oCMP/5ukh02DZ7Jx2734gBeaKB
-	KPEI9Zs2JbyRf+sKAA/lHZmh/e4HsYq1lBR0diYTXdLCKWQJ1gdwuPJw5J3dz0kRXiR9xMRW/Vo3U
-	0ArMhs5c+ze4pIQID9oY4Xd1pzag1UBJfBiBomYSXSssG1TQSpynsYgdfjWwSOQdf1voilNVRk+uj
-	LjkXGKcPdiaIS4oKrx3dSVCcqP5Jfpe6T5E1wg6lai2NNySpn5yPBrvFOtuzU3B0loHgfC6BHmDUt
-	G3hoRpw2eH/i5hmNtrVTS6B7EfNKYO46wyaHHJrhXouNsN0+Spav2C6Dmp3nMRYbPF2ieq1Ht28h3
-	ev2eL4Ag==;
+	bh=NgsqfI4UMPdAKy09BfAtIYj/ju7Uvf0+W/vr1pDeSmE=; b=pgPYrGSWWQMKaX3NpJcCmH8Afg
+	bR6KQeT4AOzNrEmIv2C/iom/9qBNl9edXqcoUR2s+0MMOLLdLYhAlCpej3MpVbZGFG83xNAzc8kf9
+	ATzbAkBJjkIcHaxqjECPgHItLAoDKY1om1e+tk4tWjdfM8uPps7YARH4b3WTD2usOOWbmv9MuWs+P
+	jh9tj0JhGAhGAQGKUtLxR43rQaKraSK1eJEmn0u5EtPWFP56n+HTY7Ww+tJ1Fpfmlc9UOrBOsQVVy
+	YlW8d4MFHH1wjRge3pyqwjagLgcsnvJvIDF+BS0ln4Zf+SDMWUn65hEZeNVm/+wZZTestXUvaG+p2
+	7vckJUpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ba6-00000007E8O-0Fgy;
-	Mon, 07 Sep 2026 15:48:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3ba4-00000007E8I-1ShW
+	id 1x3bbb-00000007EOP-1R4i;
+	Mon, 07 Sep 2026 15:49:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3bbY-00000007EO4-1l7h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 15:48:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDB9E42E7C;
-	Mon,  7 Sep 2026 15:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49511F00A3A;
-	Mon,  7 Sep 2026 15:48:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788796103;
-	bh=wudceGLt62w3o+e3x4RUDMN4HluyPL4Ts+Eyk51ebws=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lvRgPSgWAAdN4XQw3S2/yhtgm0ggA1Q019dIjUOymiLlfLatsBScYcJK0x4hRnETH
-	 /X8BeaWqBDCvY6Ng491iOaK7eJxS59eif9JSxCiMe/1sgAwo1jFVyGgKzFOPPHhXOu
-	 9i6WyIW7f38b0Ddk67DZf7k+ECYL56wURose3Z6R5rjbSXl8qiCjTz0TpTKWdxOQZZ
-	 0YTgIoHyvDcO5QgY447FEjSFduoYtWOExqC8LN9WmgoqcEUbNO4o+LTQyT690uejUV
-	 WzhTf/ZzWSJkdbOIH0xq131qlWB8m3G9ePzyg/RuD1N8DMbxrFuNLZI62jZbrOUvHP
-	 V7d5MRGyYWJJQ==
-Message-ID: <a70e45cc-dbf7-40da-81e8-ee6055f2692f@kernel.org>
-Date: Mon, 7 Sep 2026 17:48:18 +0200
+	Mon, 07 Sep 2026 15:49:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8D891476;
+	Mon,  7 Sep 2026 08:49:47 -0700 (PDT)
+Received: from [10.57.6.26] (unknown [10.57.6.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 634F93F7B4;
+	Mon,  7 Sep 2026 08:49:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1788796191; bh=NgsqfI4UMPdAKy09BfAtIYj/ju7Uvf0+W/vr1pDeSmE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=X8PrVsr7qSGJqrvABBYQzM/DbPiLBfiIRsoRicV7kmHmDk4fvFg6Gl0y2kzAN0Etz
+	 Ea7Gi8wO+37xss8GQ8X/AtXdULivI4RHRx1t2vIjhRBNjqhWUfYrjRpUJ+dijf2Dy4
+	 Yv9O0nkLGvLbp7EhNWeac5e0DU5XWNx23239QUAw=
+Message-ID: <3f6e7678-0784-4ac1-acb4-b128887803c5@arm.com>
+Date: Mon, 7 Sep 2026 17:49:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64/mm: Move __check_safe_pte_update()
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mike Rapoport <rppt@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260901065454.1906343-1-anshuman.khandual@arm.com>
- <20260901065454.1906343-2-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260901065454.1906343-2-anshuman.khandual@arm.com>
+Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
+ Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+ <178877845406.3691569.6930315020588094755.b4-review@b4>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <178877845406.3691569.6930315020588094755.b4-review@b4>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_084956_638371_7F72802C 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,104 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/1/26 08:54, Anshuman Khandual wrote:
-> The page table entry print helpers and related macros which are defined in
-> <linux/pgtable.h> will not be accessible in platform <asm/pgtable.h> which
-> is basically caused by cycling dependency.
-> 
-> Move __check_safe_pte_update() inside arch/arm64/mm/mmu.c as a preparation
-> for subsequent usage of the afore mentioned generic MM helpers.
-> 
-> This does not cause any functional change.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> Should __check_safe_pte_update() be wrapped in #ifdef CONFIG_DEBUG_VM
-> along with dropping off current IS_ENABLED() test. That would ensure
-> the function never gets called when CONFIG_DEBUG_VM is disabled. That
-> will preserve current behaviour as the inline function gets dropped
-> when CONFIG_DEBUG_VM remains disabled.
-> 
->  arch/arm64/include/asm/pgtable.h | 47 +-------------------------------
->  arch/arm64/mm/mmu.c              | 45 ++++++++++++++++++++++++++++++
->  2 files changed, 46 insertions(+), 46 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index e89ec5f4787b..61fbfab3e06e 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -387,52 +387,7 @@ static inline pte_t __ptep_get(pte_t *ptep)
->  extern void __sync_icache_dcache(pte_t pteval);
->  bool pgattr_change_is_safe(pteval_t old, pteval_t new);
->  
-> -/*
-> - * PTE bits configuration in the presence of hardware Dirty Bit Management
-> - * (PTE_WRITE == PTE_DBM):
-> - *
-> - * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
-> - *   0      0      |   1           0          0
-> - *   0      1      |   1           1          0
-> - *   1      0      |   1           0          1
-> - *   1      1      |   0           1          x
-> - *
-> - * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
-> - * the page fault mechanism. Checking the dirty status of a pte becomes:
-> - *
-> - *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
-> - */
-> -
-> -static inline void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep,
-> -					   pte_t pte)
-> -{
-> -	pte_t old_pte;
-> -
-> -	if (!IS_ENABLED(CONFIG_DEBUG_VM))
-> -		return;
-> -
-> -	old_pte = __ptep_get(ptep);
-> -
-> -	if (!pte_valid(old_pte) || !pte_valid(pte))
-> -		return;
-> -	if (mm != current->active_mm && atomic_read(&mm->mm_users) <= 1)
-> -		return;
-> -
-> -	/*
-> -	 * Check for potential race with hardware updates of the pte
-> -	 * (__ptep_set_access_flags safely changes valid ptes without going
-> -	 * through an invalid entry).
-> -	 */
-> -	VM_WARN_ONCE(!pte_young(pte),
-> -		     "%s: racy access flag clearing: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
-> -	VM_WARN_ONCE(pte_write(old_pte) && !pte_dirty(pte),
-> -		     "%s: racy dirty state clearing: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
-> -	VM_WARN_ONCE(!pgattr_change_is_safe(pte_val(old_pte), pte_val(pte)),
-> -		     "%s: unsafe attribute change: 0x%016llx -> 0x%016llx",
-> -		     __func__, pte_val(old_pte), pte_val(pte));
-> -}
-> +void __check_safe_pte_update(struct mm_struct *mm, pte_t *ptep, pte_t pte);
->  
+On 07/09/2026 12:54, Mike Rapoport wrote:
+> Hi Kevin,
+>
+>> kpkeys is a simple framework to enable the use of protection keys
+>> (pkeys) to harden the kernel itself. This patch introduces the basic
+>> API in <linux/kpkeys.h>: a couple of functions to enter/leave a
+>> kpkeys context and macros to define guard objects.
+>>
+>> kpkeys introduces a new concept on top of pkeys: the kpkeys context.
+>> Each context is associated with a set of permissions for the pkeys
+>> managed by the kpkeys framework. kpkeys_enter_context(ctx) sets
+>> those permissions according to ctx, and returns the original kpkeys
+>> state (typically the arch-specific pkeys register) that is later
+>> restored by calling kpkeys_leave_context(). To start with, only
+>> KPKEYS_CTX_DEFAULT is available, which is meant to grant RW access
+>> to KPKEYS_PKEY_DEFAULT (i.e. all memory since this is the only
+>> available pkey for now).
+>>
+>> The underlying representation of each kpkeys context is entirely
+>> architecture-specific. Support for kpkeys must be explicitly
+>> indicated by selecting ARCH_HAS_KPKEYS and defining the following
+>> functions in <asm/kpkeys.h>:
+>>
+>> * arch_kpkeys_enter_context()
+>> * arch_kpkeys_leave_context()
+>> * arch_supports_kpkeys()
+>>
+>> Additionally, <asm/kpkeys_types.h> must define struct arch_kpkeys_state,
+>> which typically provides storage for the pkeys register.
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>>
+>> diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+>> new file mode 100644
+>> index 0000000000000..eac522f552141
+>> --- /dev/null
+>> +++ b/include/linux/kpkeys.h
+>> @@ -0,0 +1,104 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +#ifndef _LINUX_KPKEYS_H
+>> +#define _LINUX_KPKEYS_H
+>> +
+>> +#include <linux/bug.h>
+>> +#include <linux/cleanup.h>
+>> +#include <linux/kpkeys_types.h>
+>> +
+>> +/**
+>> + * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
+> Nit: I'd suggest to drop "define" from all the descriptions, they would
+> read better without it IMHO.
 
-That implies that any __set_ptes_anysz() will invoke another function call that
-will not be optimized out.
+Fair enough, but if we say just "a guard type that does nothing" is it
+clear that this is a macro defining a type, and not a type itself?
 
-You should likely keep most of __check_safe_pte_update() in the header as an
-inline function (or at least the CONFIG_DEBUG_VM check), and only move the "slow
-path" code.
-
-Alternatively, make the whole thing #ifdef CONFIG_DEBUG_VM and provide an empty
-inline helper for !CONFIG_DEBUG_VM.
-
-That's probably the cleanest, because performance with CONFIG_DEBUG_VM is not
-really relevant.
-
--- 
-Cheers,
-
-David
+- Kevin
 
