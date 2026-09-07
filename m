@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D50B4C79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6683C79FA0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 16:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vkIZsSq4vjx3hJ16+mmGyusQF/k3JkgwGVYvd4qklvs=; b=BajKmdro2qK9ZI
-	/4+nifwBa5mvKEX2R+rV6DGtzzcM774XQXJj3omtF5kiSt2tBJubrm5fXnVxXPSazAzyWLPic5Llt
-	1yX8grb1W2yEZA+1U9PoVhkjR64Gek/RQkGA+JxHxiJ7qgVl4cGdClOoSPX9ilW7RmRYa9JM0G/hY
-	zAJIjwc+t2+s9Q+1Y+PckvJMWKUpT2gOOznj5xHU0ySHT03CVFoTFSRk9hKjDJZI1RSk609jqHDW5
-	dkqfTuE4AHHdGhH40fG0VNUIqQjAq6BhSzXfwxSfjOg6j4cFXWQ/SuipsYYr607XICBJYxQSR/H3o
-	jzNyJA1dyCtSOmKESvuQ==;
+	List-Owner; bh=33ikSkJFX7Vey/KunqKuY1Z4p4KTCUzmgh5gA1LOfSM=; b=hJxV2aBzsWTfxw
+	AUjCNIVZEzWa0ngN+F6/zxydq5Zd/H8ihDtbyOxIkA5pNUqtkuR3xNRj8REaQ05ggYB7u5mcYGPLT
+	I4/LqZykKbnezhMvYdyP8bwj5SUXZHxYQth7Pc6AdfztzEoQv1AvzI2SEBCk9My29vaEVA9b6YzVe
+	m2IGSsTzuOU0fojOBkqc4AIdN8dTqlOXBGURA+ObXSr5Ss8QOxqqRLx+eqemCyZuoi4AYce6ZYPGX
+	jz1YWuq8cgrPxtftQDhw3pgRoVOwcq2quWLR7SvN5IqLfco2w82qEU8ZmZliB81estwK2Vys2e5vH
+	y10YqdkzgsJ/JH53PYlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRN-00000007N9i-1DZW;
-	Mon, 07 Sep 2026 16:43:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1x3cRR-00000007NDU-1hIs;
+	Mon, 07 Sep 2026 16:43:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3cRM-00000007N8b-1WkO
+	id 1x3cRP-00000007NC0-34dN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 16:43:28 +0000
+	Mon, 07 Sep 2026 16:43:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C04BB601DE;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3129D6022B;
+	Mon,  7 Sep 2026 16:43:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12ECB1F00A3A;
 	Mon,  7 Sep 2026 16:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1AAA1F00A3D;
-	Mon,  7 Sep 2026 16:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788799407;
-	bh=vkIZsSq4vjx3hJ16+mmGyusQF/k3JkgwGVYvd4qklvs=;
+	s=k20260515; t=1788799410;
+	bh=33ikSkJFX7Vey/KunqKuY1Z4p4KTCUzmgh5gA1LOfSM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RO8n0Y94Ybb/79WvENaLl9DQghw0X1NiY4ybTH8xat+u53ITYCRK0dbpkSmamMk8q
-	 RPGb9I1jub/Dv3IBGoZyCBVG+rh8cy5d0Wt27h25JsVN/Q5bM6InhzUFGB22Xfb+bL
-	 9GfCG6YEXce16WUVp2ExiRt7S5mSbi6aswPjCBYHkfesRCDRvj75T9DYJrgQAIfvch
-	 OaYeUfZvcjP1twNG/jTB+p/SPVtKrnUAEbKIQg1zGr9HjWfjh+QAlSq/yBuhZ5QBzL
-	 HaGWk2IZl0DWAnH12JypO6GmsuzJaaNZzdmLdTHV/bosVKV9pEak2tqg1LOqm/dsVW
-	 MquJ6tAVTqg1A==
+	b=NTWw5g9EYJc4qx5bnJPDjgft6wRNu+H5aoJU2ti+7HObaCaoC+7/h4BrXra3BA0tL
+	 IGPDCHxwjGtg6yc1AnPO5SxXZCewBIU7aPPnHJ6WoRp49HQyOO7QBUui3geNafL4ht
+	 5Qqcma/fvoVwt3ipbTrTz7QpMmQZey0QO0dPRDxigxBw8mVBwz1y0Uzt8OGaOECGXY
+	 nsdJtu7rPtzl2udDSFux6/TdsN7FgFwlIcXl191lBPX7J8I2JgqrwfKwmxAN14BKxn
+	 uvrP7n9a9k/Uz1/ATlMWSHXCjHSmIZ/LcyAOmUFpD8dt8Ln5U/EOMErPWOHaNO12Ir
+	 L7VoAuUET005w==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 08/21] scripts/gdb: arm64: Use TPIDRRO_EL0 instead of SP_EL0 for 'current'
-Date: Mon,  7 Sep 2026 17:42:33 +0100
-Message-ID: <20260907164247.17223-9-will@kernel.org>
+Subject: [PATCH 09/21] arm64: stackprotector: Re-enable per-task stackprotector
+Date: Mon,  7 Sep 2026 17:42:34 +0100
+Message-ID: <20260907164247.17223-10-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260907164247.17223-1-will@kernel.org>
 References: <20260907164247.17223-1-will@kernel.org>
@@ -67,28 +67,51 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current task pointer now lives in TPIDRRO_EL0 instead of SP_EL0, so
-update the gdb 'cpus.py' helper script with the new register allocation.
+Now that 'current' resides in TPIDRRO_EL0, update the per-task
+stackprotector compiler invocation to use the new register.
+
+Note that this requires a very recent build of clang [1], as (unlike
+GCC), it historically rejected all registers other than SP_EL0.
 
 Cc: Mark Rutland <mark.rutland@arm.com>
+Link: https://github.com/llvm/llvm-project/pull/188054 [1]
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- scripts/gdb/linux/cpus.py | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/Kconfig  | 3 +--
+ arch/arm64/Makefile | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
-index 6edf4ef61636..547a623280ae 100644
---- a/scripts/gdb/linux/cpus.py
-+++ b/scripts/gdb/linux/cpus.py
-@@ -185,7 +185,7 @@ def get_current_task(cpu):
-             var_ptr = gdb.parse_and_eval("&current_task")
-             return per_cpu(var_ptr, cpu).dereference()
-     elif utils.is_target_arch("aarch64"):
--        current_task_addr = gdb.parse_and_eval("(unsigned long)$SP_EL0")
-+        current_task_addr = gdb.parse_and_eval("(unsigned long)$TPIDRRO_EL0")
-         if (current_task_addr >> 63) != 0:
-             current_task = current_task_addr.cast(task_ptr_type)
-             return current_task.dereference()
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b8270b301809..020fcaf36b1b 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2450,12 +2450,11 @@ config RANDOMIZE_MODULE_REGION_FULL
+ 	  exhaustion, modules might be able to fall back to a larger 2GB area.
+ 
+ config CC_HAVE_STACKPROTECTOR_SYSREG
+-	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=sp_el0 -mstack-protector-guard-offset=0)
++	def_bool $(cc-option,-mstack-protector-guard=sysreg -mstack-protector-guard-reg=tpidrro_el0 -mstack-protector-guard-offset=0)
+ 
+ config STACKPROTECTOR_PER_TASK
+ 	def_bool y
+ 	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_SYSREG
+-	depends on BROKEN
+ 
+ config UNWIND_PATCH_PAC_INTO_SCS
+ 	bool "Enable shadow call stack dynamically using code patching"
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef70..a293ab67818f 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -72,7 +72,7 @@ ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
+ prepare: stack_protector_prepare
+ stack_protector_prepare: prepare0
+ 	$(eval KBUILD_CFLAGS += -mstack-protector-guard=sysreg		  \
+-				-mstack-protector-guard-reg=sp_el0	  \
++				-mstack-protector-guard-reg=tpidrro_el0	  \
+ 				-mstack-protector-guard-offset=$(shell	  \
+ 			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
+ 				$(objtree)/include/generated/asm-offsets.h))
 -- 
 2.55.0.979.g7e5102b832-goog
 
