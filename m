@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4399CC79F99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1DBC79F99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 17:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yZUCxcpzPqcBT70BqTTXaDX5PkWepYfBg7u5aZOObBo=; b=bg+T+Uhv1qro9Q0k89ZVUIwHVf
-	xV0b3VnkgqPC3MRzKdT8yaqEjzORq/HhawuFeYG1euI3pm/zxzojsInMu8hr0rzFO+EIQRw9HMnaj
-	PqGKC2leMxOBU62qaKUF2jI2YgiFhbkn9xbZzyD9aPF6IDjlmw5i40z4KR+O3MF5kAo/XYZUV0hcj
-	W0MllURCZWE/BBJeu7jbiLBo3aYEQDLN7SDTCxpOCKZ7grc5T6U1uN6p5uSP8KzOA2j7Iu64JiDoQ
-	nUxCmswNP1NwJ+UE5fIGXaZXe6nCCiaGRz4jq2rglCRlXEGILmoPYG9MG84kjrePB1izX3d55sb3I
-	p+jy5bXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pulCHBNmHSLCMLUfuycAkgDBmy2iXM7iw4tKHzxTz4I=; b=Ybxza7+EUvjWH+RdzT7l5pNlFK
+	oFsfvuTV8EU9CNQK8jqhMaOzpZX3udZoduXwTIeH7VLN1K4MTSG/ag6mEW8AUFgc9aY9e+sSV59a6
+	ScTLR/eWyNVuvJpD4UTQBkGnYJRf2cgJDkIzqLVdnmjR3HA/xJmYJCe+M68yNmC3QSdU5Xu14Y2wB
+	6/VThFBU4QpRICptzRTdy+7QEY3XrdfYm+AoPb1HLhg1QLRmBM6oz/dwlwpYJimimWpqMAxyEl/9P
+	vKJdCWTAqJYcnGFfyYr6IqCH2V+vyW0eugN2PWZenZhklmJyfAjLPPufFtoA0b/Yyu7P5Clf/OCl4
+	EL2xVKcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dK8-00000007Vfr-3gIQ;
-	Mon, 07 Sep 2026 17:40:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3dK3-00000007Vey-3jYN
+	id 1x3dRP-00000007WB1-2VG1;
+	Mon, 07 Sep 2026 17:47:35 +0000
+Received: from smtp.forwardemail.net ([2a02:6ea0:d71e::9])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x3dRM-00000007WAW-2iCG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 07 Sep 2026 17:40:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3FA01476;
-	Mon,  7 Sep 2026 10:39:54 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C70AF3F7B4;
-	Mon,  7 Sep 2026 10:39:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788802798; bh=mCHv8QWREL9tLi9nn5djqU0KYHo3eIWOT8BOVsSNXw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a9BI2JpVBxSSDS+m72CeeDX6ffb3EdfOglJnSPo8Q2Q0vtvNkoEdGWkcTa9FZcrQ4
-	 eT6/EPai5xqzDJl42RBKYXWRYiWCigTExzwUcjS81YiovTgqcAtMkxDIyd1Qv6knDE
-	 odbfWY6LJEZi0WNC05ggjRe17GBa2PKE177pzLx4=
-Date: Mon, 7 Sep 2026 18:39:49 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Vincent Donnefort <vdonnefort@google.com>, maz@kernel.org, 
-	oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, keirf@google.com
-Subject: Re: [PATCH 16/20] KVM: arm64: Add __pkvm_host_split_guest HVC
-Message-ID: <hrhbuwdfu625jtzm75t6wnva6odgreshchyv75ebqntlymslz7@adyxhe7oyypc>
-References: <20260803100904.3563942-1-vdonnefort@google.com>
- <20260803100904.3563942-17-vdonnefort@google.com>
+	Mon, 07 Sep 2026 17:47:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-2eefaa527c; t=1788803248;
+ bh=pulCHBNmHSLCMLUfuycAkgDBmy2iXM7iw4tKHzxTz4I=;
+ b=wfpKBPEyc9kgAhnxYkBPpUcRSWSFnVRMRR6h1aoI4f+a7MhUrS3dTO4EtTYVlavZuP7CicQSw
+ 7y1YZkoQxc1BJIoKJo2xEU81NbWaw+JGmXxWWFJF6wa6O/1O9rG2Fce0ydMTUyPcNOTqLuWR8os
+ 2NdeouD/liO2x55zOfh1SSk=
+X-Forward-Email-ID: 6a9ef8afe1a2da1fc80b68a4
+X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
+ smtp.forwardemail.net, 121.127.44.73
+X-Forward-Email-Version: 2.14.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <45014ba7-e213-4624-be45-78e88c1b52a0@lineageos.org>
+Date: Mon, 7 Sep 2026 18:47:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260803100904.3563942-17-vdonnefort@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] arm64: dts: exynos: Add GPU/Mali Bifrost node to
+ Exynos850
+To: Alexey Klimov <alexey.klimov@linaro.org>, semen.protsenko@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ peter.griffin@linaro.org
+Cc: alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas_turner@talktalk.net
+References: <20260905170914.1640-1-tturner@lineageos.org>
+ <20260905170914.1640-3-tturner@lineageos.org>
+ <DL8NQGNAVSYK.18TYE03LPQSW5@linaro.org>
+Content-Language: en-GB
+From: Thomas Turner <tturner@lineageos.org>
+In-Reply-To: <DL8NQGNAVSYK.18TYE03LPQSW5@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260907_104000_735681_97FFBE15 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20260907_104732_820044_7C0DFC48 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,174 +80,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 11:09:00AM +0100, Vincent Donnefort wrote:
+Hi Alexey,
 
-[...]
+On 07/09/2026 01:28, Alexey Klimov wrote:
+> On Sat Sep 5, 2026 at 6:09 PM BST, Thomas Turner wrote:
+>> Add nodes for GPU (Mali Bifrost) to Exynos850. Does not provide support
+>> for temperature throttling, DVFS, power domains, governor support,
+> 
+> One of the sensors exposed via ACPM is "linked" to the GPU/G3D as far as
+> I know. The driver part was sent already and three sensors work there
+> (two cpu clusters and GPU).
+> 
+> I've never tested yet the DVFS of G3D via ACPM. Maybe it is worth a try
+> on A21s. But it should work the same way as clusters clocks.
+> 
 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 41a8687938eb..355573d53fed 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -824,8 +824,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
->   * kvm_pgtable_stage2_split() is best effort: it tries to break as many
->   * blocks in the input range as allowed by @mc_capacity.
+I have had a little look at your ACPM stuff currently staged, looks like 
+some really good work, would be cool to see if we could get dvfs working 
+via acpm at some point :D.
 
-Maybe also adjust the comment and remove @mc_capacity while changing
-this, looks like it was included by mistake.
+>> boosting and voltage control. Once PMIC is properly implemented, support
+>> will hopefully increase. However, the panfrost driver probes, the
+>> Mali-G52 GPU initializes and the core clock is set-up.
+>>
+>> Testing for this patch was done on a device not currently supported by
+>> linux, the Galaxy A21s. After enabling this node for that device
+>> locally, I was able to test and confirm basic GPU functionality. As of
+>> now, this patch has no users which have tested GPU capabilities and so
+>> the node has been set to "disabled".
+>>
+>> Here are some logs I pulled:
+>>
+>> panfrost 11500000.gpu: clock rate = 377000000
+>> panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
+>> panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,00000400
+>> panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+>> panfrost 11500000.gpu: shader_present=0x1 l2_present=0x1
+>> panfrost 11500000.gpu: [drm] Using Transparent Hugepage
+>> [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 0
+>>
+>> OpenGL core profile vendor: Mesa
+>> OpenGL core profile renderer: Mali-G52 MC1 (Panfrost)
+>> OpenGL core profile version: 3.1 (Core Profile) Mesa 26.1.6
+>> OpenGL core profile shading language version: 1.40
+>> OpenGL compatibility profile vendor: Mesa
+>> OpenGL compatibility profile renderer: Mali-G52 MC1 (Panfrost)
+>> OpenGL compatibility profile version: 3.1 (Core Profile) Mesa 26.1.6
+>> OpenGL compatibility profile shading language version: 1.40
+>> OpenGL ES profile vendor: Mesa
+>> OpenGL ES profile renderer: Mali-G52 MC1 (Panfrost)
+>> OpenGL ES profile version: OpenGL ES 3.1 Mesa 26.1.6
+>> OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.10
+>>
+>> Signed-off-by: Thomas Turner <tturner@lineageos.org>
+> 
+> So, I've got A21s and installed pmOS to test all that.
+> My logs are slightly different but graphics is definitely alive:
+> [    0.200787] [drm] Initialized simpledrm 1.0.0 for fa000000.framebuffer on minor 0
+> [    0.215130] Console: switching to colour frame buffer device 90x100
+> [    0.225540] simple-framebuffer fa000000.framebuffer: [drm] fb0: simpledrmdrmfb frame buffer device
+> [    0.226134] panfrost 11500000.gpu: clock rate = 377000000
+> [    0.230960] panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
+> [    0.230981] panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,00000400
+> [    0.230991] panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+> [    0.231002] panfrost 11500000.gpu: shader_present=0x1 l2_present=0x1
+> [    0.232329] panfrost 11500000.gpu: [drm] Using Transparent Hugepage
+> [    0.232726] [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 1
+> 
+> Also, when this is applied with status="okay" on Winlink board then
+> panfrost itself seems to be alive and drm initialises despite missing
+> regulator as indicated in my other email in v2 of this series, hence:
 
->   */
-> -int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> -			     struct kvm_mmu_memory_cache *mc);
-> +int kvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size, void *mc);
->  
+Alright cool, just for the records we have tested this series on the 
+A21s both with and without proper regulators and GPU seems to work fine 
+with dummy regs.
 
-[...]
+> Reviewed-and-tested-by: Alexey Klimov <alexey.klimov@linaro.org>
+> 
 
-> +static int host_stage2_split_gfn_meta(phys_addr_t phys, u64 ipa, u64 size, struct pkvm_hyp_vm *vm)
-> +{
-> +	pkvm_handle_t handle;
-> +	kvm_pte_t pte;
-> +	u64 gfn, end;
-> +	s8 level;
-> +	int ret;
-> +
-> +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, &level);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (kvm_granule_size(level) != size)
-> +		return -EINVAL;
-> +
-> +	ret = host_stage2_decode_gfn_meta(pte, &handle, &gfn);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (handle != vm->kvm.arch.pkvm.handle || gfn != (ipa >> PAGE_SHIFT))
-> +		return -EINVAL;
-> +
-> +	end = phys + size;
-> +	while (phys < end) {
-> +		u64 meta = host_stage2_encode_gfn_meta(vm, gfn);
-> +		kvm_pte_t annotation = FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_GUEST) |
-> +				       FIELD_PREP(KVM_HOST_DONATION_PTE_EXTRA_MASK, meta);
-> +
-> +		ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
-> +				      phys, PAGE_SIZE, &host_s2_pool,
-> +				      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
-> +		if (WARN_ON(ret))
-> +			return ret;
-> +
-> +		phys += PAGE_SIZE;
-> +		gfn++;
+Cheers, will give this version a few days to stew then I will add this 
+onto v4.
 
-Annotating every PTE is required here because patch 2's
-stage2_map_prefault_idmap() copies the same annotation to each PTE, so
-the resulting PTEs all contain the same gfn.
+> Thanks for working on this.
+> Best regareds,
+> Alexey
 
-In other words patch 2 simply leaves wrong annotations in this case, and
-we make up for it here.
+I really appreciate all of the testing and insight you have provided in 
+the last few messages, now that we have Samsung E850s booting I hope to 
+expand support across the whole SoC :D.
 
-We can't just remove patch 2 because a HYP owned block needs to be
-broken down with HYP owned annotations when a single page is donated
-back to the host.
-
-With this, would it be a better design to have an annotation-aware
-helper that splits a host block properly including the annotations, and
-call it whenever pKVM annotates or maps host stage-2?
-
->  	}
->  
-> -	*gfn = FIELD_GET(KVM_HOST_PTE_OWNER_GUEST_GFN_MASK, meta);
->  	return 0;
->  }
->  
-
-[...]
-
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index c4ebae0544d4..986b5a19b07a 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -1537,9 +1537,10 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
->  			       enum kvm_pgtable_walk_flags visit)
->  {
->  	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
-> -	struct kvm_mmu_memory_cache *mc = ctx->arg;
-> -	struct kvm_s2_mmu *mmu;
-> +	struct stage2_map_data *data = ctx->arg;
->  	kvm_pte_t pte = ctx->old, new, *childp;
-> +	struct kvm_s2_mmu *mmu = data->mmu;
-> +	void *mc = data->memcache;
->  	enum kvm_pgtable_prot prot;
->  	s8 level = ctx->level;
->  	bool force_pte;
-> @@ -1554,30 +1555,37 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
->  	if (!kvm_pte_valid(pte))
->  		return 0;
->  
-> -	nr_pages = stage2_block_get_nr_page_tables(level);
-> -	if (nr_pages < 0)
-> -		return nr_pages;
-> -
-> -	if (mc->nobjs >= nr_pages) {
-> -		/* Build a tree mapped down to the PTE granularity. */
-> +	if (unlikely(is_protected_kvm_enabled())) {
-> +		/* pKVM only supports splitting PMD-level blocks */
-> +		if (level != KVM_PGTABLE_LAST_LEVEL - 1)
-> +			return -EINVAL;
->  		force_pte = true;
->  	} else {
-> -		/*
-> -		 * Don't force PTEs, so create_unlinked() below does
-> -		 * not populate the tree up to the PTE level. The
-> -		 * consequence is that the call will require a single
-> -		 * page of level 2 entries at level 1, or a single
-> -		 * page of PTEs at level 2. If we are at level 1, the
-> -		 * PTEs will be created recursively.
-> -		 */
-> -		force_pte = false;
-> -		nr_pages = 1;
-> +		struct kvm_mmu_memory_cache *host_mc = mc;
-> +
-> +		nr_pages = stage2_block_get_nr_page_tables(level);
-> +		if (nr_pages < 0)
-> +			return nr_pages;
-> +
-> +		if (host_mc->nobjs >= nr_pages) {
-> +			/* Build a tree mapped down to the PTE granularity. */
-> +			force_pte = true;
-> +		} else if (host_mc->nobjs) {
-> +			/*
-> +			 * Don't force PTEs, so create_unlinked() below does
-> +			 * not populate the tree up to the PTE level. The
-> +			 * consequence is that the call will require a single
-> +			 * page of level 2 entries at level 1, or a single
-> +			 * page of PTEs at level 2. If we are at level 1, the
-> +			 * PTEs will be created recursively.
-> +			 */
-> +			force_pte = false;
-> +			nr_pages = 1;
-> +		} else {
-> +			return -ENOMEM;
-> +		}
->  	}
->  
-> -	if (mc->nobjs < nr_pages)
-> -		return -ENOMEM;
-> -
-> -	mmu = container_of(mc, struct kvm_s2_mmu, split_page_cache);
->  	phys = kvm_pte_to_phys(pte);
->  	prot = kvm_pgtable_stage2_pte_prot(pte);
-
-I feel like this change is trying too hard to make the pKVM case fit
-in stage2_split_walker(). The assumptions differ by much: the original
-usage assumes kvm_mmu_memory_cache, can potentially split more than one
-level, and makes decisions base on the memcache's reserve.
-
-Perhaps create another function for pKVM?
-
-Thanks,
-Wei-Lin Chang
-
-[...]
+Cheers,
+Tom
 
