@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A06C79F89
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EC0C79F89
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  7 Sep 2026 13:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F4VPyTZ54caW5/2FxinE0de1h566CHchl8PU7RTCzwc=; b=qG3bmsfKxwpT2VGNc1neRSVPFU
-	acM7Qs4av2SNrip2kslut1Rfj5rxjq+ItmB1yvfCDRKySp1Vl8okKulj0DaFwf4HA/dy20+1uuxlO
-	Zh/gkMgvUJRXVR20Jtv7fnu0nchIm3tC7LdhwpfMwWz3QdRfDUdPRhHJn7cHsco3osGmdTUWRIZ1A
-	7UapR/gjjchCJuYMwnx/5/+BUKi4E7CIrN9l4b3yND+1eawtpsdeoUz6gzLlVSZ+WHEtA1jjOGRqx
-	uNJlwnDBlvspZ2GXUwM93NNE26hOx9YkYtrWwwx4/O/xvIcjwocCR41arbGAvnkV+XMBJr+KjE118
-	kcouVhOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=riOSU4dH10zq3tO5Dx537AG40XCcFzKoLCwwWkJ2TP8=; b=t5OeXTY5LX+yYiV07CrMh2PDXK
+	J6IhJIbOlvL+p0InY+QEaYTuupqKEqUEFJpx8ke8gzxpepre4XA4tBIRIfQHIQoJQ2VNY21bVG/ZJ
+	N+MyK28yVbBcsPSRLM79Qxg9s4hjPzVYuTaLXqLeOFNzZbfEuV9Q4cktISydzXGuc6IXkPifpSppX
+	yZIaCiwYhg7m3s0H65W5N1VIcsacRZmOGcABkKyJ7YtiJMWWboK2m3ZOEWM0uWh9eY9A+hyW71Swa
+	/Ed3MpSF+nuvPUSVR2Gg+90bTliP0bOjhIEbV5L/5fhlD3N3fNLPZ7v0zvd+gGgYxtBACHKUOojc8
+	ekWKBVvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3YyB-00000006sja-0t2H;
-	Mon, 07 Sep 2026 13:01:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x3Z3V-00000006taI-1OtR;
+	Mon, 07 Sep 2026 13:06:37 +0000
+Received: from mail-pj2-x05.google.com ([2607:f8b0:4864:39::5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x3Yy5-00000006shd-2VUT;
-	Mon, 07 Sep 2026 13:01:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id E584A44033;
-	Mon,  7 Sep 2026 13:01:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 48E861F00A3E;
-	Mon,  7 Sep 2026 13:01:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788786060;
-	bh=F4VPyTZ54caW5/2FxinE0de1h566CHchl8PU7RTCzwc=;
-	h=Date:Subject:From:To:References:In-Reply-To;
-	b=lXXFAFrMyZ9iKDuZFZc+3TX/Lq9T58AIoBg9QtiliUStbSJuHnH3Yra7cawchxONc
-	 O4kY5HVIfpMwr47rs4xxpDXqtpktWvgbvzG4EIsoU/GCNyr7J73CNyhrDtAV65us3e
-	 6vnJLJoU64Q4Ig23QTnsF6BAXMStV4cs9FmR3Il80hrD0E5D6plOYUWP4HD3J3eW2V
-	 6fl7sYBKhBdbOOavIU70LSIsaH1ublZBgOzdQ4JXqcVhooea+IZpPurqWGh/7o/xk6
-	 lEeOONnJcPoDBjBzw8ZJJQN8Q3jHPuEhOyes4E8fnutATQMJIaQdC3MzBx56TKDb1Z
-	 i3IYSINXbNXRw==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=cfe8a98efb2086f550102e1210fdc67d01fd1cb7f4b563889cc6dc1396e2;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Mon, 07 Sep 2026 15:00:56 +0200
-Message-Id: <DL93QHVC01B9.3U3K1G8NC0MZA@kernel.org>
-Subject: Re: [PATCH v7 3/7] mtd: spi-nor: sfdp: expose the SFDP as a
- read-only NVMEM device
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Manikandan Muralidharan" <manikandan.m@microchip.com>,
- <pratyush@kernel.org>, <mwalle@kernel.org>, <takahiro.kuwano@infineon.com>,
- <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
- <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <srini@kernel.org>, <nicolas.ferre@microchip.com>,
- <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
- <linux@armlinux.org.uk>, <richardcochran@gmail.com>, <arnd@arndb.de>,
- <linusw@kernel.org>, <gregkh@linuxfoundation.org>,
- <mathieu.dubois-briand@bootlin.com>, <linux-mtd@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20260812104955.485667-1-manikandan.m@microchip.com>
- <20260812104955.485667-4-manikandan.m@microchip.com>
-In-Reply-To: <20260812104955.485667-4-manikandan.m@microchip.com>
+	id 1x3Z3T-00000006tZe-0Vgy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 07 Sep 2026 13:06:36 +0000
+Received: by mail-pj2-x05.google.com with SMTP id d9443c01a7336-2d6f230d1easo783555ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 07 Sep 2026 06:06:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1788786394; x=1789391194; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=riOSU4dH10zq3tO5Dx537AG40XCcFzKoLCwwWkJ2TP8=;
+        b=ip/GQ8UaeuzLtsyBhGriiurX89xXfLGU714Sqh2FxaGSqMoR0YwIOfBYR0qCYfWYbW
+         zEnyfUpusW26WKzE6rSut34785T/Sp1Abj4DVEcIvmKxOwp9q5J+mSUA5BhPfr4BO6uZ
+         8DgWh65nEXAXUig6nik6CKkdCa1Vb+B51uMWfIkqnn35mJ7/9YBrfIHohiCzTIQ3zywi
+         7ZUIzmbLxZHyhmiiGRlE6boRIg5ELEDXgczEup5/WDx78Ati5X1NtOHf0G2BBlIBoZa+
+         FLKeJqK4RWG9PKaY6EzHsPHw6ZQLZF/9kGHkEQUYDM6/XK4akyW4l2uOKq0Tkp+GkKJO
+         fTMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788786394; x=1789391194;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=riOSU4dH10zq3tO5Dx537AG40XCcFzKoLCwwWkJ2TP8=;
+        b=kK5F4/n1dZ9pksWr2q8S6Wmt+MQqda/y0zYbLmg2/v9YCK1oG3PdAo+S12JxnX+Z4E
+         dMEu8XRKEVhvVR5wI20CzkND2RipSNHTLyPwJFV+fROq7sbQBl2YGriXXlOWYL9K07i3
+         Z5tVDLLfCzrecMY74X2EjPTYFW1ZdqQMuQtOLB6v/Gyuc1+k+TCboeLVm+62rK4cYOnI
+         XFWuzGPvOjzaOZoCxq23K2Pgh7Uad+qN1QESS3A1QaX9JMzGasY8zlfupHh3UiW49tdr
+         mOS9WXHOioKarCxW/nsM8VnFZxnO4u1A/xRpHYkpdeaJiNawKEw/D3zfUE3o2voFeucZ
+         GpKA==
+X-Forwarded-Encrypted: i=1; AKwUvBzjkqr6+09/1ratZ7ddjFZ9mtSrIjFyIJl/gMin2ZYZ3N/cClW5mn0PGgX1scmVU2NYwoLEBoyw3zE5vwwFYCzl@lists.infradead.org
+X-Gm-Message-State: AFuF++k1qv+J7Y0ihr3OWf42GWSA+QPZiybRZrk7+muS0d5+QCK9kR0+
+	j2HAgXn9vobBYyUZj9lxm5phJ7gshH+xK9V3gaP+wjq9WZbgFcqPeUI=
+X-Gm-Gg: AYBFou2pPIbxj+QgBqYrqjlbUjMYJY20y8fC5MiPScl5KfkqCBNl+VujPdyaJKwiAsz
+	PPg3mxZXa73ms/TdVTPHYZZ+Eb83k9y4paaAHZYsvLauXnEwvfMpZqFwGDZZyw9uGEbdB0ikfQO
+	Id7mQQoasFBpYlxupUl8B/r08M/qK3pCkUyaGE+Upyb1i32bDQoWK0gCXMhfqlQR8P87/V8mbg+
+	177UtNEmUWxFog6XeQuWFuHCpY0biNflvQTdguKkYWiGjoR0Z40Gs70gQElJmL3+rdE94uDSd1l
+	mHX7b3HziN62pZHzTWp7jvU2N0CZVfMDGvkd1RuEHM/2TX2XzVzqZQMRbmrKS4vir57QGu3ZDsg
+	E33FjyJgKF5XxiYtTNaiQq8XQ/K/vVHuZuswWULoF4PFYsn9SiWPAHDdr7mXYzf8rUUTT3L9pu8
+	OEs2s+jT91fuoai56dbqfV+e9Zjo/vpZbGQqsFr8kWwsObRGGJopvZ1TKLXrxv21ibMNunzYBSp
+	sK639SzgnFJbGETvwxVZnYZdEc=
+X-Received: by 2002:a17:90b:4b83:b0:398:9bd3:d6d2 with SMTP id 98e67ed59e1d1-39b8bec8c1fmr661379a91.12.1788786394289;
+        Mon, 07 Sep 2026 06:06:34 -0700 (PDT)
+Received: from ydg-Zenbook-14-UM3406GA ([2001:2d8:6467:d689:c773:5f09:906c:a72b])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39b07b197a9sm26742398a91.0.2026.09.07.06.06.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Sep 2026 06:06:33 -0700 (PDT)
+From: Donggeun Yoo <donggeunyoo.kernel@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Yonghong Song <yonghong.song@linux.dev>
+Cc: bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	donggeunyoo.kernel@gmail.com
+Subject: [PATCH bpf v3 0/2] bpf, arm64: fix the exception callback's frame pointer
+Date: Mon,  7 Sep 2026 22:06:22 +0900
+Message-ID: <20260907130624.611942-1-donggeunyoo.kernel@gmail.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260907_060635_160848_C8F03D6B 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,170 +115,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---cfe8a98efb2086f550102e1210fdc67d01fd1cb7f4b563889cc6dc1396e2
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+The arm64 JIT does not set BPF_REG_FP in the prologue of an exception
+callback, so the callback runs with whatever x25 held when bpf_throw()
+was called. A callback that materializes the register, for instance to
+pass the address of a local variable to a helper, then works on the
+frame of the subprogram that threw.
 
-Hi,
+Patch 1 sets ctx->fp_used on that path, the same fix commit b114fcee766d
+("bpf, arm64: Fix fp initialization for exception boundary") made for
+the exception boundary. Patch 2 adds a selftest that reaches the case.
 
-On Wed Aug 12, 2026 at 12:49 PM CEST, Manikandan Muralidharan wrote:
-> The SPI NOR core already reads the SFDP tables during enumeration and
-> caches them in nor->sfdp->dwords (see spi_nor_parse_sfdp()). Re-expose
-> that cached data as a read-only NVMEM device, in on-flash byte order,
-> rooted at the flash's SFDP child node (compatible "jedec,sfdp").
->
-> This lets NVMEM cells reference any SFDP data: a fixed-layout for
-> parameters at a known offset, or an nvmem-layout parser for vendor data
-> whose location must be discovered at runtime. The device is only register=
-ed
-> when an "sfdp" node is present in the device tree.
->
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> ---
->  drivers/mtd/spi-nor/core.c | 78 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 78 insertions(+)
->
-> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-> index ccf4396cdcd0..0425af6e898f 100644
-> --- a/drivers/mtd/spi-nor/core.c
-> +++ b/drivers/mtd/spi-nor/core.c
-> @@ -17,6 +17,7 @@
->  #include <linux/mtd/mtd.h>
->  #include <linux/mtd/spi-nor.h>
->  #include <linux/mutex.h>
-> +#include <linux/nvmem-provider.h>
->  #include <linux/of.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/sched/task_stack.h>
-> @@ -3001,6 +3002,75 @@ static void spi_nor_init_fixup_flags(struct spi_no=
-r *nor)
->  		nor->flags |=3D SNOR_F_IO_MODE_EN_VOLATILE;
->  }
-> =20
-> +static int spi_nor_sfdp_reg_read(void *priv, unsigned int offset,
-> +				 void *val, size_t bytes)
-> +{
-> +	struct spi_nor *nor =3D priv;
-> +	struct sfdp *sfdp =3D nor->sfdp;
-> +	size_t sfdp_size =3D sfdp->num_dwords * sizeof(*sfdp->dwords);
-> +
-> +	if (offset >=3D sfdp_size || bytes > sfdp_size - offset)
-> +		return -EINVAL;
-> +
-> +	/* The cached SFDP is kept in on-flash (little-endian) byte order. */
-> +	memcpy(val, (u8 *)sfdp->dwords + offset, bytes);
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * spi_nor_register_sfdp_nvmem() - expose the SFDP as a read-only NVMEM =
-device
-> + * @nor:	pointer to a 'struct spi_nor'
-> + *
-> + * Expose the whole SFDP, in on-flash byte order, as a read-only NVMEM d=
-evice
-> + * rooted at the flash's SFDP child node (compatible "jedec,sfdp"). This=
- lets
-> + * generic (fixed-layout) or vendor (nvmem-layout) cells reference any S=
-FDP
-> + * data. The device is only registered when a child node with the "jedec=
-,sfdp"
-> + * compatible is described in the device tree.
-> + *
-> + * Return: 0 on success or if there is nothing to do, -errno otherwise.
-> + */
-> +static int spi_nor_register_sfdp_nvmem(struct spi_nor *nor)
-> +{
-> +	struct device *dev =3D nor->dev;
-> +	struct nvmem_config config =3D { };
-> +	struct nvmem_device *nvmem;
-> +	struct device_node *np;
-> +
-> +	if (!nor->sfdp)
-> +		return 0;
-> +
-> +	np =3D of_get_compatible_child(dev_of_node(dev), "jedec,sfdp");
-> +	if (!np)
-> +		return 0;
+Tested on aarch64 under QEMU with vmtest.sh, on the base below. Without
+patch 1 the new test panics the kernel, because the address handed to
+the helper lands on the helper's own saved return address:
 
-What if there is no jedec,sfdp node? Should this be added anyways?
+  pc : 0x1234
+  lr : 0x1234
+  Call trace:
+   0x1234 (P)
+   bpf_test_run+0x188/0x3e0
+   bpf_prog_test_run_skb+0x47c/0x998
+   __sys_bpf+0xbdc/0xdd8
+  Kernel panic - not syncing: Oops: Fatal exception in interrupt
 
-> +
-> +	config.dev =3D dev;
-> +	config.of_node =3D np;
+0x1234 is the value the callback reads, so the helper wrote it over its
+own return address. With patch 1 applied the whole group passes:
 
-What about just:
-	config.of_node =3D of_get_compatible_child(dev_of_node(dev), "jedec,sfdp")=
-;
+  #117/11  exceptions/exception_throw_subprog_stack_cb:OK
+  #117     exceptions:OK
+  Summary: 1/118 PASSED, 0 SKIPPED, 0/0 FAILED
 
-> +	config.name =3D "sfdp";
-> +	config.id =3D NVMEM_DEVID_AUTO;
-> +	config.owner =3D THIS_MODULE;
-> +	config.read_only =3D true;
-> +	config.word_size =3D 1;
-> +	config.stride =3D 1;
-> +	config.size =3D (int)(nor->sfdp->num_dwords * sizeof(*nor->sfdp->dwords=
-));
-> +	config.reg_read =3D spi_nor_sfdp_reg_read;
-> +	config.priv =3D nor;
-> +
-> +	nvmem =3D devm_nvmem_register(dev, &config);
-> +	of_node_put(np);
+Not tested on other architectures.
 
-This now leaves the nvmem device with a dangling pointer. What I
-meant in my previous reply, was that you'll add an of_node_get() to
-the nvmem_register(), so the nvmem subsystem will have its own
-tracking.
+v1: https://lore.kernel.org/bpf/20260904070210.4163193-1-donggeunyoo.kernel@gmail.com/
+v2: https://lore.kernel.org/bpf/20260907054235.473103-1-donggeunyoo.kernel@gmail.com/
 
--michael
+v2 -> v3:
+ - patch 2: use the standard multi-line comment style
+ - patch 1: no change, added the Acked-by
 
-> +	if (IS_ERR(nvmem)) {
-> +		/* NVMEM support is optional. */
-> +		if (PTR_ERR(nvmem) =3D=3D -EOPNOTSUPP)
-> +			return 0;
-> +		return dev_err_probe(dev, PTR_ERR(nvmem),
-> +				     "failed to register SFDP NVMEM device\n");
-> +	}
-> +
-> +	dev_dbg(dev, "exposed %d-byte SFDP as an NVMEM device\n", config.size);
-> +
-> +	return 0;
-> +}
-> +
->  /**
->   * spi_nor_late_init_params() - Late initialization of default flash par=
-ameters.
->   * @nor:	pointer to a 'struct spi_nor'
-> @@ -3204,6 +3274,14 @@ static int spi_nor_init_params(struct spi_nor *nor=
-)
->  		spi_nor_init_params_deprecated(nor);
->  	}
-> =20
-> +	/*
-> +	 * Expose the SFDP table as an NVMEM device only when
-> +	 * the flash actually provides one
-> +	 */
-> +	ret =3D spi_nor_register_sfdp_nvmem(nor);
-> +	if (ret)
-> +		return ret;
-> +
->  	ret =3D spi_nor_late_init_params(nor);
->  	if (ret)
->  		return ret;
+Nothing compiled changed, so the numbers above are still v2's.
+
+v1 -> v2:
+ - rebase onto bpf/master; CI could not apply v1
+ - spell the three new declarations u64 rather than __u64, to match the
+   rest of progs/exceptions.c
+ - no change to patch 1
+
+Donggeun Yoo (2):
+  bpf, arm64: set up the frame pointer for the exception callback
+  selftests/bpf: cover the exception callback using its own BPF stack
+
+ arch/arm64/net/bpf_jit_comp.c                 |  2 ++
+ .../selftests/bpf/prog_tests/exceptions.c     |  1 +
+ .../testing/selftests/bpf/progs/exceptions.c  | 30 +++++++++++++++++++
+ 3 files changed, 33 insertions(+)
 
 
---cfe8a98efb2086f550102e1210fdc67d01fd1cb7f4b563889cc6dc1396e2
-Content-Type: application/pgp-signature; name="signature.asc"
+base-commit: df2908090cda368b01ff43709f51890076c56157
+-- 
+2.53.0
 
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCap61iBIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/icDAF/VWHm4cvVi6eH69TujKUb5gNmCdX4yjPu
-yiP2Tou8p7PZd9X/jzhrqIfV0NcAs73vAX4yR4pFZ09gnQn+PF04tW9ejbu3Ytxe
-rKK0mE3hj2BhqFjwL4hmXUDfY7oWmgCUgvc=
-=u9Aa
------END PGP SIGNATURE-----
-
---cfe8a98efb2086f550102e1210fdc67d01fd1cb7f4b563889cc6dc1396e2--
 
